@@ -3892,13 +3892,13 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.0949.i.i.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.0948.i.i.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %872 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %870, i64 %indvars.iv.i.i.i.i.i
   %873 = getelementptr inbounds nuw i8, ptr %872, i64 12
   %874 = load i8, ptr %873, align 2
   %875 = icmp eq i8 %874, 1
   %876 = zext i1 %875 to i32
-  %spec.select.i.i.i.i.i = add nuw nsw i32 %.0949.i.i.i.i.i, %876
+  %spec.select.i.i.i.i.i = add nuw nsw i32 %.0948.i.i.i.i.i, %876
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -3914,34 +3914,34 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
   %882 = icmp eq ptr %881, null
   br i1 %882, label %stbtt_FlattenCurves.exit.thread.i.i.i.i, label %.preheader.split.us.i.i.i.i.i
 
-.preheader.split.us.i.i.i.i.i:                    ; preds = %878, %._crit_edge17.us.i.i.i.i.i
-  %883 = phi i32 [ %963, %._crit_edge17.us.i.i.i.i.i ], [ 0, %878 ]
-  %884 = phi i1 [ true, %._crit_edge17.us.i.i.i.i.i ], [ false, %878 ]
-  %885 = phi i1 [ false, %._crit_edge17.us.i.i.i.i.i ], [ true, %878 ]
-  %.09221.us.i.i.i.i.i = phi i32 [ %.3.us.i.i.i.i.i, %._crit_edge17.us.i.i.i.i.i ], [ 0, %878 ]
-  %.010120.us.i.i.i.i.i = phi ptr [ %.1102.us.i.i.i.i.i, %._crit_edge17.us.i.i.i.i.i ], [ null, %878 ]
-  br i1 %884, label %886, label %.lr.ph16.us.i.i.i.i.i
+.preheader.split.us.i.i.i.i.i:                    ; preds = %878, %._crit_edge16.us.i.i.i.i.i
+  %883 = phi i32 [ %963, %._crit_edge16.us.i.i.i.i.i ], [ 0, %878 ]
+  %884 = phi i1 [ true, %._crit_edge16.us.i.i.i.i.i ], [ false, %878 ]
+  %885 = phi i1 [ false, %._crit_edge16.us.i.i.i.i.i ], [ true, %878 ]
+  %.09220.us.i.i.i.i.i = phi i32 [ %.3.us.i.i.i.i.i, %._crit_edge16.us.i.i.i.i.i ], [ 0, %878 ]
+  %.010119.us.i.i.i.i.i = phi ptr [ %.1102.us.i.i.i.i.i, %._crit_edge16.us.i.i.i.i.i ], [ null, %878 ]
+  br i1 %884, label %886, label %.lr.ph15.us.i.i.i.i.i
 
 886:                                              ; preds = %.preheader.split.us.i.i.i.i.i
   %887 = sext i32 %883 to i64
   %888 = shl nsw i64 %887, 3
   %889 = call noalias ptr @malloc(i64 noundef %888) #47
   %890 = icmp eq ptr %889, null
-  br i1 %890, label %.split.us.i.i.i.i.i, label %.lr.ph16.us.i.i.i.i.i
+  br i1 %890, label %.split.us.i.i.i.i.i, label %.lr.ph15.us.i.i.i.i.i
 
-.lr.ph16.us.i.i.i.i.i:                            ; preds = %886, %.preheader.split.us.i.i.i.i.i
-  %.1102.us.i.i.i.i.i = phi ptr [ %889, %886 ], [ %.010120.us.i.i.i.i.i, %.preheader.split.us.i.i.i.i.i ]
+.lr.ph15.us.i.i.i.i.i:                            ; preds = %886, %.preheader.split.us.i.i.i.i.i
+  %.1102.us.i.i.i.i.i = phi ptr [ %889, %886 ], [ %.010119.us.i.i.i.i.i, %.preheader.split.us.i.i.i.i.i ]
   store i32 0, ptr %14, align 4
   %.not.i108.us.i.i.i.i.i = icmp eq ptr %.1102.us.i.i.i.i.i, null
   br label %891
 
-891:                                              ; preds = %stbtt__add_point.exit.us.i.i.i.i.i, %.lr.ph16.us.i.i.i.i.i
-  %indvars.iv25.i.i.i.i.i = phi i64 [ 0, %.lr.ph16.us.i.i.i.i.i ], [ %indvars.iv.next26.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
-  %.014.us.i.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph16.us.i.i.i.i.i ], [ %.1.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
-  %.08813.us.i.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph16.us.i.i.i.i.i ], [ %.189.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
-  %.212.us.i.i.i.i.i = phi i32 [ %.09221.us.i.i.i.i.i, %.lr.ph16.us.i.i.i.i.i ], [ %.3.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
-  %.29611.us.i.i.i.i.i = phi i32 [ -1, %.lr.ph16.us.i.i.i.i.i ], [ %.397.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
-  %892 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %870, i64 %indvars.iv25.i.i.i.i.i
+891:                                              ; preds = %stbtt__add_point.exit.us.i.i.i.i.i, %.lr.ph15.us.i.i.i.i.i
+  %indvars.iv24.i.i.i.i.i = phi i64 [ 0, %.lr.ph15.us.i.i.i.i.i ], [ %indvars.iv.next25.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
+  %.013.us.i.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph15.us.i.i.i.i.i ], [ %.1.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
+  %.08812.us.i.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph15.us.i.i.i.i.i ], [ %.189.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
+  %.211.us.i.i.i.i.i = phi i32 [ %.09220.us.i.i.i.i.i, %.lr.ph15.us.i.i.i.i.i ], [ %.3.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
+  %.29610.us.i.i.i.i.i = phi i32 [ -1, %.lr.ph15.us.i.i.i.i.i ], [ %.397.us.i.i.i.i.i, %stbtt__add_point.exit.us.i.i.i.i.i ]
+  %892 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %870, i64 %indvars.iv24.i.i.i.i.i
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 12
   %894 = load i8, ptr %893, align 2
   switch i8 %894, label %stbtt__add_point.exit.us.i.i.i.i.i [
@@ -3969,7 +3969,7 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
   %910 = getelementptr inbounds nuw i8, ptr %892, i64 2
   %911 = load i16, ptr %910, align 2
   %912 = sitofp i16 %911 to float
-  call fastcc void @stbtt__tesselate_cubic(ptr noundef %.1102.us.i.i.i.i.i, ptr noundef %14, float noundef %.08813.us.i.i.i.i.i, float noundef %.014.us.i.i.i.i.i, float noundef %898, float noundef %901, float noundef %904, float noundef %907, float noundef %909, float noundef %912, float noundef %840, i32 noundef 0)
+  call fastcc void @stbtt__tesselate_cubic(ptr noundef %.1102.us.i.i.i.i.i, ptr noundef %14, float noundef %.08812.us.i.i.i.i.i, float noundef %.013.us.i.i.i.i.i, float noundef %898, float noundef %901, float noundef %904, float noundef %907, float noundef %909, float noundef %912, float noundef %840, i32 noundef 0)
   %913 = load i16, ptr %892, align 2
   %914 = sitofp i16 %913 to float
   %915 = load i16, ptr %910, align 2
@@ -3988,7 +3988,7 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
   %926 = getelementptr inbounds nuw i8, ptr %892, i64 2
   %927 = load i16, ptr %926, align 2
   %928 = sitofp i16 %927 to float
-  call fastcc void @stbtt__tesselate_curve(ptr noundef %.1102.us.i.i.i.i.i, ptr noundef %14, float noundef %.08813.us.i.i.i.i.i, float noundef %.014.us.i.i.i.i.i, float noundef %920, float noundef %923, float noundef %925, float noundef %928, float noundef %840, i32 noundef 0)
+  call fastcc void @stbtt__tesselate_curve(ptr noundef %.1102.us.i.i.i.i.i, ptr noundef %14, float noundef %.08812.us.i.i.i.i.i, float noundef %.013.us.i.i.i.i.i, float noundef %920, float noundef %923, float noundef %925, float noundef %928, float noundef %840, i32 noundef 0)
   %929 = load i16, ptr %892, align 2
   %930 = sitofp i16 %929 to float
   %931 = load i16, ptr %926, align 2
@@ -4015,19 +4015,19 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
   br label %stbtt__add_point.exit.us.i.i.i.i.i
 
 945:                                              ; preds = %891
-  %946 = icmp sgt i32 %.29611.us.i.i.i.i.i, -1
+  %946 = icmp sgt i32 %.29610.us.i.i.i.i.i, -1
   %.pre.i.i.i.i.i = load i32, ptr %14, align 4
   br i1 %946, label %947, label %951
 
 947:                                              ; preds = %945
-  %948 = sub nsw i32 %.pre.i.i.i.i.i, %.212.us.i.i.i.i.i
-  %949 = zext nneg i32 %.29611.us.i.i.i.i.i to i64
+  %948 = sub nsw i32 %.pre.i.i.i.i.i, %.211.us.i.i.i.i.i
+  %949 = zext nneg i32 %.29610.us.i.i.i.i.i to i64
   %950 = getelementptr inbounds nuw i32, ptr %881, i64 %949
   store i32 %948, ptr %950, align 4
   br label %951
 
 951:                                              ; preds = %947, %945
-  %952 = add nsw i32 %.29611.us.i.i.i.i.i, 1
+  %952 = add nsw i32 %.29610.us.i.i.i.i.i, 1
   %953 = load i16, ptr %892, align 2
   %954 = sitofp i16 %953 to float
   %955 = getelementptr inbounds nuw i8, ptr %892, i64 2
@@ -4046,15 +4046,15 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
   br label %stbtt__add_point.exit.us.i.i.i.i.i
 
 stbtt__add_point.exit.us.i.i.i.i.i:               ; preds = %959, %951, %941, %933, %917, %895, %891
-  %.397.us.i.i.i.i.i = phi i32 [ %.29611.us.i.i.i.i.i, %891 ], [ %.29611.us.i.i.i.i.i, %917 ], [ %.29611.us.i.i.i.i.i, %895 ], [ %952, %951 ], [ %952, %959 ], [ %.29611.us.i.i.i.i.i, %933 ], [ %.29611.us.i.i.i.i.i, %941 ]
-  %.3.us.i.i.i.i.i = phi i32 [ %.212.us.i.i.i.i.i, %891 ], [ %.212.us.i.i.i.i.i, %917 ], [ %.212.us.i.i.i.i.i, %895 ], [ %.pre.i.i.i.i.i, %951 ], [ %.pre.i.i.i.i.i, %959 ], [ %.212.us.i.i.i.i.i, %933 ], [ %.212.us.i.i.i.i.i, %941 ]
-  %.189.us.i.i.i.i.i = phi float [ %.08813.us.i.i.i.i.i, %891 ], [ %930, %917 ], [ %914, %895 ], [ %954, %951 ], [ %954, %959 ], [ %935, %933 ], [ %935, %941 ]
-  %.1.us.i.i.i.i.i = phi float [ %.014.us.i.i.i.i.i, %891 ], [ %932, %917 ], [ %916, %895 ], [ %957, %951 ], [ %957, %959 ], [ %938, %933 ], [ %938, %941 ]
-  %indvars.iv.next26.i.i.i.i.i = add nuw nsw i64 %indvars.iv25.i.i.i.i.i, 1
-  %exitcond29.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next26.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond29.not.i.i.i.i.i, label %._crit_edge17.us.i.i.i.i.i, label %891
+  %.397.us.i.i.i.i.i = phi i32 [ %.29610.us.i.i.i.i.i, %891 ], [ %.29610.us.i.i.i.i.i, %917 ], [ %.29610.us.i.i.i.i.i, %895 ], [ %952, %951 ], [ %952, %959 ], [ %.29610.us.i.i.i.i.i, %933 ], [ %.29610.us.i.i.i.i.i, %941 ]
+  %.3.us.i.i.i.i.i = phi i32 [ %.211.us.i.i.i.i.i, %891 ], [ %.211.us.i.i.i.i.i, %917 ], [ %.211.us.i.i.i.i.i, %895 ], [ %.pre.i.i.i.i.i, %951 ], [ %.pre.i.i.i.i.i, %959 ], [ %.211.us.i.i.i.i.i, %933 ], [ %.211.us.i.i.i.i.i, %941 ]
+  %.189.us.i.i.i.i.i = phi float [ %.08812.us.i.i.i.i.i, %891 ], [ %930, %917 ], [ %914, %895 ], [ %954, %951 ], [ %954, %959 ], [ %935, %933 ], [ %935, %941 ]
+  %.1.us.i.i.i.i.i = phi float [ %.013.us.i.i.i.i.i, %891 ], [ %932, %917 ], [ %916, %895 ], [ %957, %951 ], [ %957, %959 ], [ %938, %933 ], [ %938, %941 ]
+  %indvars.iv.next25.i.i.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i.i.i, 1
+  %exitcond28.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next25.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
+  br i1 %exitcond28.not.i.i.i.i.i, label %._crit_edge16.us.i.i.i.i.i, label %891
 
-._crit_edge17.us.i.i.i.i.i:                       ; preds = %stbtt__add_point.exit.us.i.i.i.i.i
+._crit_edge16.us.i.i.i.i.i:                       ; preds = %stbtt__add_point.exit.us.i.i.i.i.i
   %963 = load i32, ptr %14, align 4
   %964 = sub nsw i32 %963, %.3.us.i.i.i.i.i
   %965 = sext i32 %.397.us.i.i.i.i.i to i64
@@ -4070,7 +4070,7 @@ stbtt_FlattenCurves.exit.thread.i.i.i.i:          ; preds = %.split.us.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %stbtt_GetCodepointBitmap.exit
 
-stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge17.us.i.i.i.i.i
+stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge16.us.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not.i108.us.i.i.i.i.i, label %stbtt_GetCodepointBitmap.exit, label %.lr.ph.i22.i.i.i.i
 
@@ -4195,8 +4195,8 @@ stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge17.us.i.
   br label %1017
 
 1017:                                             ; preds = %1022, %.lr.ph.i.i.i.i.i.i.i
-  %indvars.iv32.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next33.i.i.i.i.i.i.i, %1022 ]
-  %1018 = getelementptr %struct.stbtt__edge, ptr %973, i64 %indvars.iv32.i.i.i.i.i.i.i
+  %indvars.iv31.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next32.i.i.i.i.i.i.i, %1022 ]
+  %1018 = getelementptr %struct.stbtt__edge, ptr %973, i64 %indvars.iv31.i.i.i.i.i.i.i
   %1019 = getelementptr i8, ptr %1018, i64 -16
   %1020 = load float, ptr %1019, align 4
   %1021 = fcmp olt float %.sroa.4.0.copyload.i.i.i.i.i.i.i, %1020
@@ -4205,12 +4205,12 @@ stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge17.us.i.
 1022:                                             ; preds = %1017
   %1023 = getelementptr i8, ptr %1018, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1018, ptr noundef nonnull align 4 dereferenceable(20) %1023, i64 20, i1 false)
-  %indvars.iv.next33.i.i.i.i.i.i.i = add nsw i64 %indvars.iv32.i.i.i.i.i.i.i, -1
-  %1024 = icmp sgt i64 %indvars.iv32.i.i.i.i.i.i.i, 1
+  %indvars.iv.next32.i.i.i.i.i.i.i = add nsw i64 %indvars.iv31.i.i.i.i.i.i.i, -1
+  %1024 = icmp sgt i64 %indvars.iv31.i.i.i.i.i.i.i, 1
   br i1 %1024, label %1017, label %.thread.i.i.i.i.i.i.i
 
 .thread.split.loop.exit.i.i.i.i.i.i.i:            ; preds = %1017
-  %1025 = trunc nuw nsw i64 %indvars.iv32.i.i.i.i.i.i.i to i32
+  %1025 = trunc nuw nsw i64 %indvars.iv31.i.i.i.i.i.i.i to i32
   br label %.thread.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i:                            ; preds = %1022, %.thread.split.loop.exit.i.i.i.i.i.i.i
@@ -11731,19 +11731,19 @@ define internal fastcc void @stbtt__dict_get_ints(ptr noundef nonnull captures(n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
   %9 = icmp sgt i32 %6, 0
-  br i1 %9, label %.preheader47.i, label %._crit_edge
+  br i1 %9, label %.preheader46.i, label %._crit_edge
 
-.preheader47.i:                                   ; preds = %4, %.thread38.i
-  %.promoted5560.i = phi i32 [ %.promoted53.i, %.thread38.i ], [ %7, %4 ]
-  %.not.i51.i = icmp slt i32 %.promoted5560.i, %6
-  br i1 %.not.i51.i, label %stbtt__buf_peek8.exit.lr.ph.i, label %.thread38.i
+.preheader46.i:                                   ; preds = %4, %.thread38.i
+  %.promoted5459.i = phi i32 [ %.promoted52.i, %.thread38.i ], [ %7, %4 ]
+  %.not.i50.i = icmp slt i32 %.promoted5459.i, %6
+  br i1 %.not.i50.i, label %stbtt__buf_peek8.exit.lr.ph.i, label %.thread38.i
 
-stbtt__buf_peek8.exit.lr.ph.i:                    ; preds = %.preheader47.i
+stbtt__buf_peek8.exit.lr.ph.i:                    ; preds = %.preheader46.i
   %10 = load ptr, ptr %0, align 8
   br label %stbtt__buf_peek8.exit.i
 
 stbtt__buf_peek8.exit.i:                          ; preds = %stbtt__cff_skip_operand.exit.i, %stbtt__buf_peek8.exit.lr.ph.i
-  %11 = phi i32 [ %.promoted5560.i, %stbtt__buf_peek8.exit.lr.ph.i ], [ %.promoted57.i, %stbtt__cff_skip_operand.exit.i ]
+  %11 = phi i32 [ %.promoted5459.i, %stbtt__buf_peek8.exit.lr.ph.i ], [ %.promoted56.i, %stbtt__cff_skip_operand.exit.i ]
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1
@@ -11811,7 +11811,7 @@ stbtt__buf_get8.exit.i34.i:                       ; preds = %stbtt__buf_peek8.ex
 36:                                               ; preds = %33
   switch i8 %28, label %stbtt__cff_skip_operand.exit.i [
     i8 28, label %.preheader.i
-    i8 29, label %.preheader45.i
+    i8 29, label %.preheader44.i
   ]
 
 .preheader.i:                                     ; preds = %36, %stbtt__buf_get8.exit.i.i.i
@@ -11829,22 +11829,22 @@ stbtt__buf_get8.exit.i.i.i:                       ; preds = %38, %.preheader.i
   %40 = phi i32 [ %39, %38 ], [ %37, %.preheader.i ]
   br i1 %exitcond.not.i.i.i, label %stbtt__cff_skip_operand.exit.i, label %.preheader.i
 
-.preheader45.i:                                   ; preds = %36, %stbtt__buf_get8.exit.i32.i.i
+.preheader44.i:                                   ; preds = %36, %stbtt__buf_get8.exit.i32.i.i
   %41 = phi i32 [ %44, %stbtt__buf_get8.exit.i32.i.i ], [ %17, %36 ]
   %.07.i29.i.i = phi i32 [ %45, %stbtt__buf_get8.exit.i32.i.i ], [ 0, %36 ]
   %.not.i.i31.i.i = icmp slt i32 %41, %6
   br i1 %.not.i.i31.i.i, label %42, label %stbtt__buf_get8.exit.i32.i.i
 
-42:                                               ; preds = %.preheader45.i
+42:                                               ; preds = %.preheader44.i
   %43 = add nsw i32 %41, 1
   store i32 %43, ptr %8, align 8
   br label %stbtt__buf_get8.exit.i32.i.i
 
-stbtt__buf_get8.exit.i32.i.i:                     ; preds = %42, %.preheader45.i
-  %44 = phi i32 [ %43, %42 ], [ %41, %.preheader45.i ]
+stbtt__buf_get8.exit.i32.i.i:                     ; preds = %42, %.preheader44.i
+  %44 = phi i32 [ %43, %42 ], [ %41, %.preheader44.i ]
   %45 = add nuw nsw i32 %.07.i29.i.i, 1
   %exitcond.not.i34.i.i = icmp eq i32 %45, 4
-  br i1 %exitcond.not.i34.i.i, label %stbtt__cff_skip_operand.exit.i, label %.preheader45.i
+  br i1 %exitcond.not.i34.i.i, label %stbtt__cff_skip_operand.exit.i, label %.preheader44.i
 
 stbtt__cff_skip_operand.exit.sink.split.i:        ; preds = %35, %32
   %46 = add nsw i32 %11, 2
@@ -11852,8 +11852,8 @@ stbtt__cff_skip_operand.exit.sink.split.i:        ; preds = %35, %32
   br label %stbtt__cff_skip_operand.exit.i
 
 stbtt__cff_skip_operand.exit.i:                   ; preds = %stbtt__buf_get8.exit.i32.i.i, %stbtt__buf_get8.exit.i.i.i, %stbtt__buf_get8.exit.i.i, %stbtt__cff_skip_operand.exit.sink.split.i, %36, %35, %32, %stbtt__buf_get8.exit.i34.i
-  %.promoted57.i = phi i32 [ %17, %35 ], [ %17, %32 ], [ %17, %stbtt__buf_get8.exit.i34.i ], [ %17, %36 ], [ %46, %stbtt__cff_skip_operand.exit.sink.split.i ], [ %indvars.i, %stbtt__buf_get8.exit.i.i ], [ %40, %stbtt__buf_get8.exit.i.i.i ], [ %44, %stbtt__buf_get8.exit.i32.i.i ]
-  %.not.i.i = icmp slt i32 %.promoted57.i, %6
+  %.promoted56.i = phi i32 [ %17, %35 ], [ %17, %32 ], [ %17, %stbtt__buf_get8.exit.i34.i ], [ %17, %36 ], [ %46, %stbtt__cff_skip_operand.exit.sink.split.i ], [ %indvars.i, %stbtt__buf_get8.exit.i.i ], [ %40, %stbtt__buf_get8.exit.i.i.i ], [ %44, %stbtt__buf_get8.exit.i32.i.i ]
+  %.not.i.i = icmp slt i32 %.promoted56.i, %6
   br i1 %.not.i.i, label %stbtt__buf_peek8.exit.i, label %.thread38.i
 
 stbtt__buf_get8.exit.i:                           ; preds = %stbtt__buf_peek8.exit.i
@@ -11879,26 +11879,26 @@ stbtt__buf_get8.exit.i:                           ; preds = %stbtt__buf_peek8.ex
   br label %stbtt__buf_get8.exit24.i
 
 stbtt__buf_get8.exit24.i:                         ; preds = %52, %51, %stbtt__buf_get8.exit.i
-  %.promoted56.i = phi i32 [ %47, %stbtt__buf_get8.exit.i ], [ %53, %52 ], [ %47, %51 ]
+  %.promoted55.i = phi i32 [ %47, %stbtt__buf_get8.exit.i ], [ %53, %52 ], [ %47, %51 ]
   %.017.i = phi i32 [ %49, %stbtt__buf_get8.exit.i ], [ %58, %52 ], [ 256, %51 ]
   %59 = icmp eq i32 %.017.i, %1
   br i1 %59, label %60, label %.thread38.i
 
 60:                                               ; preds = %stbtt__buf_get8.exit24.i
-  %61 = sub nsw i32 %11, %.promoted5560.i
-  %62 = or i32 %61, %.promoted5560.i
+  %61 = sub nsw i32 %11, %.promoted5459.i
+  %62 = or i32 %61, %.promoted5459.i
   %or.cond.not.i.i = icmp slt i32 %62, 0
   br i1 %or.cond.not.i.i, label %._crit_edge, label %stbtt__dict_get.exit
 
-.thread38.i:                                      ; preds = %stbtt__cff_skip_operand.exit.i, %stbtt__buf_get8.exit24.i, %.preheader47.i
-  %.promoted53.i = phi i32 [ %.promoted56.i, %stbtt__buf_get8.exit24.i ], [ %.promoted5560.i, %.preheader47.i ], [ %.promoted57.i, %stbtt__cff_skip_operand.exit.i ]
-  %63 = icmp slt i32 %.promoted53.i, %6
-  br i1 %63, label %.preheader47.i, label %._crit_edge
+.thread38.i:                                      ; preds = %stbtt__cff_skip_operand.exit.i, %stbtt__buf_get8.exit24.i, %.preheader46.i
+  %.promoted52.i = phi i32 [ %.promoted55.i, %stbtt__buf_get8.exit24.i ], [ %.promoted5459.i, %.preheader46.i ], [ %.promoted56.i, %stbtt__cff_skip_operand.exit.i ]
+  %63 = icmp slt i32 %.promoted52.i, %6
+  br i1 %63, label %.preheader46.i, label %._crit_edge
 
 stbtt__dict_get.exit:                             ; preds = %60
-  %64 = zext nneg i32 %.promoted5560.i to i64
+  %64 = zext nneg i32 %.promoted5459.i to i64
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 %64
-  %.not = icmp eq i32 %11, %.promoted5560.i
+  %.not = icmp eq i32 %11, %.promoted5459.i
   br i1 %.not, label %._crit_edge, label %stbtt__buf_get8.exit.i7.preheader
 
 stbtt__buf_get8.exit.i7.preheader:                ; preds = %stbtt__dict_get.exit

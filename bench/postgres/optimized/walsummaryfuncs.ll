@@ -184,8 +184,8 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   %53 = ashr exact i64 %sext, 48
   store i64 %53, ptr %36, align 8
   %54 = load i32, ptr %8, align 4
-  %.not30 = icmp eq i32 %54, -1
-  br i1 %.not30, label %.loopexit.preheader, label %55
+  %.not29 = icmp eq i32 %54, -1
+  br i1 %.not29, label %.loopexit.preheader, label %55
 
 55:                                               ; preds = %44
   %56 = zext i32 %54 to i64

@@ -49,18 +49,18 @@ define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr nound
   %.030.lcssa = phi i32 [ 0, %6 ], [ %.131, %.lr.ph ]
   %.029.lcssa = phi i32 [ %1, %6 ], [ %.1, %.lr.ph ]
   %8 = icmp slt i32 %.030.lcssa, %.029.lcssa
-  br i1 %8, label %.lr.ph50.preheader, label %.thread
+  br i1 %8, label %.lr.ph49.preheader, label %.thread
 
-.lr.ph50.preheader:                               ; preds = %.preheader
+.lr.ph49.preheader:                               ; preds = %.preheader
   %9 = sext i32 %.030.lcssa to i64
   %10 = sext i32 %3 to i64
-  br label %.lr.ph50
+  br label %.lr.ph49
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.02945 = phi i32 [ %.1, %.lr.ph ], [ %1, %6 ]
-  %.03044 = phi i32 [ %.131, %.lr.ph ], [ 0, %6 ]
-  %.03243 = phi i8 [ %.133, %.lr.ph ], [ 0, %6 ]
-  %11 = add nsw i32 %.02945, %.03044
+  %.02944 = phi i32 [ %.1, %.lr.ph ], [ %1, %6 ]
+  %.03043 = phi i32 [ %.131, %.lr.ph ], [ 0, %6 ]
+  %.03242 = phi i8 [ %.133, %.lr.ph ], [ 0, %6 ]
+  %11 = add nsw i32 %.02944, %.03043
   %12 = sdiv i32 %11, 2
   %13 = mul nsw i32 %12, %3
   %14 = sext i32 %13 to i64
@@ -69,41 +69,41 @@ define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr nound
   %17 = icmp eq i32 %16, 0
   %18 = add nsw i32 %12, 1
   %19 = icmp slt i32 %16, 0
-  %.030. = select i1 %19, i32 %.03044, i32 %12
-  %..029 = select i1 %19, i32 %12, i32 %.02945
-  %.133 = select i1 %17, i8 1, i8 %.03243
+  %.030. = select i1 %19, i32 %.03043, i32 %12
+  %..029 = select i1 %19, i32 %12, i32 %.02944
+  %.133 = select i1 %17, i8 1, i8 %.03242
   %.131 = select i1 %17, i32 %18, i32 %.030.
-  %.1 = select i1 %17, i32 %.02945, i32 %..029
+  %.1 = select i1 %17, i32 %.02944, i32 %..029
   %20 = sub nsw i32 %.1, %.131
   %21 = icmp sgt i32 %20, 8
   br i1 %21, label %.lr.ph, label %.preheader, !llvm.loop !9
 
-.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %28
-  %indvars.iv = phi i64 [ %9, %.lr.ph50.preheader ], [ %indvars.iv.next, %28 ]
-  %.23448 = phi i8 [ %.032.lcssa, %.lr.ph50.preheader ], [ %.436, %28 ]
+.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %28
+  %indvars.iv = phi i64 [ %9, %.lr.ph49.preheader ], [ %indvars.iv.next, %28 ]
+  %.23447 = phi i8 [ %.032.lcssa, %.lr.ph49.preheader ], [ %.436, %28 ]
   %22 = mul nsw i64 %indvars.iv, %10
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   %24 = tail call noundef i32 %4(ptr noundef %5, ptr noundef %2, ptr noundef %23)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %26
 
-26:                                               ; preds = %.lr.ph50
+26:                                               ; preds = %.lr.ph49
   %27 = icmp slt i32 %24, 0
   br i1 %27, label %.thread.loopexit.split.loop.exit, label %28
 
-28:                                               ; preds = %26, %.lr.ph50
-  %.436 = phi i8 [ %.23448, %26 ], [ 1, %.lr.ph50 ]
+28:                                               ; preds = %26, %.lr.ph49
+  %.436 = phi i8 [ %.23447, %26 ], [ 1, %.lr.ph49 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %.029.lcssa, %lftr.wideiv
-  br i1 %exitcond.not, label %.thread, label %.lr.ph50
+  br i1 %exitcond.not, label %.thread, label %.lr.ph49
 
 .thread.loopexit.split.loop.exit:                 ; preds = %26
   %29 = trunc nsw i64 %indvars.iv to i32
   br label %.thread
 
 .thread:                                          ; preds = %28, %.thread.loopexit.split.loop.exit, %.preheader
-  %.234.lcssa = phi i8 [ %.032.lcssa, %.preheader ], [ %.23448, %.thread.loopexit.split.loop.exit ], [ %.436, %28 ]
+  %.234.lcssa = phi i8 [ %.032.lcssa, %.preheader ], [ %.23447, %.thread.loopexit.split.loop.exit ], [ %.436, %28 ]
   %.2.lcssa = phi i32 [ %.030.lcssa, %.preheader ], [ %29, %.thread.loopexit.split.loop.exit ], [ %.029.lcssa, %28 ]
   %.not = icmp eq i8 %.234.lcssa, 0
   %30 = add nsw i32 %.2.lcssa, -1
@@ -193,7 +193,7 @@ _ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE6resizeEii.exit.i: ; preds = %39, 
   store i32 7, ptr %6, align 4, !tbaa !11
   br label %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph50.i.i.i
+.loopexit.i:                                      ; preds = %.lr.ph49.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -230,24 +230,24 @@ common.resume:                                    ; preds = %109, %.loopexit.spl
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
   %48 = icmp samesign ugt i64 %indvars.iv.i.i, 8
   %49 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  br i1 %48, label %.lr.ph.i.i.i, label %.lr.ph50.preheader.i.i.i
+  br i1 %48, label %.lr.ph.i.i.i, label %.lr.ph49.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.noexc11.i
   %50 = icmp slt i32 %.131.i.i.i, %.1.i.i.i
-  br i1 %50, label %.lr.ph50.preheader.i.i.i, label %uprv_stableBinarySearch_77.exit.i.i
+  br i1 %50, label %.lr.ph49.preheader.i.i.i, label %uprv_stableBinarySearch_77.exit.i.i
 
-.lr.ph50.preheader.i.i.i:                         ; preds = %.preheader.i.i.i, %45
+.lr.ph49.preheader.i.i.i:                         ; preds = %.preheader.i.i.i, %45
   %.029.lcssa.i38.i.i = phi i32 [ %.1.i.i.i, %.preheader.i.i.i ], [ %49, %45 ]
   %.030.lcssa.i37.i.i = phi i32 [ %.131.i.i.i, %.preheader.i.i.i ], [ 0, %45 ]
   %.032.lcssa.i36.i.i = phi i8 [ %.133.i.i.i, %.preheader.i.i.i ], [ 0, %45 ]
   %51 = sext i32 %.030.lcssa.i37.i.i to i64
-  br label %.lr.ph50.i.i.i
+  br label %.lr.ph49.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %45, %.noexc11.i
-  %.02945.i.i.i = phi i32 [ %.1.i.i.i, %.noexc11.i ], [ %49, %45 ]
-  %.03044.i.i.i = phi i32 [ %.131.i.i.i, %.noexc11.i ], [ 0, %45 ]
-  %.03243.i.i.i = phi i8 [ %.133.i.i.i, %.noexc11.i ], [ 0, %45 ]
-  %52 = add nsw i32 %.03044.i.i.i, %.02945.i.i.i
+  %.02944.i.i.i = phi i32 [ %.1.i.i.i, %.noexc11.i ], [ %49, %45 ]
+  %.03043.i.i.i = phi i32 [ %.131.i.i.i, %.noexc11.i ], [ 0, %45 ]
+  %.03242.i.i.i = phi i8 [ %.133.i.i.i, %.noexc11.i ], [ 0, %45 ]
+  %52 = add nsw i32 %.03043.i.i.i, %.02944.i.i.i
   %53 = sdiv i32 %52, 2
   %54 = mul nsw i32 %53, %2
   %55 = sext i32 %54 to i64
@@ -259,24 +259,24 @@ common.resume:                                    ; preds = %109, %.loopexit.spl
   %58 = icmp eq i32 %57, 0
   %59 = add nsw i32 %53, 1
   %60 = icmp slt i32 %57, 0
-  %.030..i.i.i = select i1 %60, i32 %.03044.i.i.i, i32 %53
-  %..029.i.i.i = select i1 %60, i32 %53, i32 %.02945.i.i.i
-  %.133.i.i.i = select i1 %58, i8 1, i8 %.03243.i.i.i
+  %.030..i.i.i = select i1 %60, i32 %.03043.i.i.i, i32 %53
+  %..029.i.i.i = select i1 %60, i32 %53, i32 %.02944.i.i.i
+  %.133.i.i.i = select i1 %58, i8 1, i8 %.03242.i.i.i
   %.131.i.i.i = select i1 %58, i32 %59, i32 %.030..i.i.i
-  %.1.i.i.i = select i1 %58, i32 %.02945.i.i.i, i32 %..029.i.i.i
+  %.1.i.i.i = select i1 %58, i32 %.02944.i.i.i, i32 %..029.i.i.i
   %61 = sub nsw i32 %.1.i.i.i, %.131.i.i.i
   %62 = icmp sgt i32 %61, 8
   br i1 %62, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !9
 
-.lr.ph50.i.i.i:                                   ; preds = %69, %.lr.ph50.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %51, %.lr.ph50.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %69 ]
-  %.23448.i.i.i = phi i8 [ %.032.lcssa.i36.i.i, %.lr.ph50.preheader.i.i.i ], [ %.436.i.i.i, %69 ]
+.lr.ph49.i.i.i:                                   ; preds = %69, %.lr.ph49.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %51, %.lr.ph49.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %69 ]
+  %.23447.i.i.i = phi i8 [ %.032.lcssa.i36.i.i, %.lr.ph49.preheader.i.i.i ], [ %.436.i.i.i, %69 ]
   %63 = mul nsw i64 %indvars.iv.i.i.i, %44
   %64 = getelementptr inbounds i8, ptr %0, i64 %63
   %65 = invoke noundef i32 %3(ptr noundef %4, ptr noundef nonnull %47, ptr noundef nonnull %64)
           to label %.noexc12.i unwind label %.loopexit.i
 
-.noexc12.i:                                       ; preds = %.lr.ph50.i.i.i
+.noexc12.i:                                       ; preds = %.lr.ph49.i.i.i
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %69, label %67
 
@@ -285,18 +285,18 @@ common.resume:                                    ; preds = %109, %.loopexit.spl
   br i1 %68, label %.thread.loopexit.split.loop.exit.i.i.i, label %69
 
 69:                                               ; preds = %67, %.noexc12.i
-  %.436.i.i.i = phi i8 [ %.23448.i.i.i, %67 ], [ 1, %.noexc12.i ]
+  %.436.i.i.i = phi i8 [ %.23447.i.i.i, %67 ], [ 1, %.noexc12.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %exitcond.not.i.i.i = icmp eq i32 %.029.lcssa.i38.i.i, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i.i.i, label %uprv_stableBinarySearch_77.exit.i.i, label %.lr.ph50.i.i.i
+  br i1 %exitcond.not.i.i.i, label %uprv_stableBinarySearch_77.exit.i.i, label %.lr.ph49.i.i.i
 
 .thread.loopexit.split.loop.exit.i.i.i:           ; preds = %67
   %70 = trunc nsw i64 %indvars.iv.i.i.i to i32
   br label %uprv_stableBinarySearch_77.exit.i.i
 
 uprv_stableBinarySearch_77.exit.i.i:              ; preds = %69, %.thread.loopexit.split.loop.exit.i.i.i, %.preheader.i.i.i
-  %.234.lcssa.i.i.i = phi i8 [ %.133.i.i.i, %.preheader.i.i.i ], [ %.23448.i.i.i, %.thread.loopexit.split.loop.exit.i.i.i ], [ %.436.i.i.i, %69 ]
+  %.234.lcssa.i.i.i = phi i8 [ %.133.i.i.i, %.preheader.i.i.i ], [ %.23447.i.i.i, %.thread.loopexit.split.loop.exit.i.i.i ], [ %.436.i.i.i, %69 ]
   %.2.lcssa.i.i.i = phi i32 [ %.131.i.i.i, %.preheader.i.i.i ], [ %70, %.thread.loopexit.split.loop.exit.i.i.i ], [ %.029.lcssa.i38.i.i, %69 ]
   %.not.i.i10.i = icmp eq i8 %.234.lcssa.i.i.i, 0
   %71 = add nsw i32 %.2.lcssa.i.i.i, -1
@@ -509,24 +509,24 @@ define internal fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 %20
   %22 = icmp samesign ugt i64 %indvars.iv.i, 8
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br i1 %22, label %.lr.ph.i.i, label %.lr.ph50.preheader.i.i
+  br i1 %22, label %.lr.ph.i.i, label %.lr.ph49.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i
   %24 = icmp slt i32 %.131.i.i, %.1.i.i
-  br i1 %24, label %.lr.ph50.preheader.i.i, label %uprv_stableBinarySearch_77.exit.i
+  br i1 %24, label %.lr.ph49.preheader.i.i, label %uprv_stableBinarySearch_77.exit.i
 
-.lr.ph50.preheader.i.i:                           ; preds = %.preheader.i.i, %19
+.lr.ph49.preheader.i.i:                           ; preds = %.preheader.i.i, %19
   %.029.lcssa.i38.i = phi i32 [ %.1.i.i, %.preheader.i.i ], [ %23, %19 ]
   %.030.lcssa.i37.i = phi i32 [ %.131.i.i, %.preheader.i.i ], [ 0, %19 ]
   %.032.lcssa.i36.i = phi i8 [ %.133.i.i, %.preheader.i.i ], [ 0, %19 ]
   %25 = sext i32 %.030.lcssa.i37.i to i64
-  br label %.lr.ph50.i.i
+  br label %.lr.ph49.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
-  %.02945.i.i = phi i32 [ %.1.i.i, %.lr.ph.i.i ], [ %23, %19 ]
-  %.03044.i.i = phi i32 [ %.131.i.i, %.lr.ph.i.i ], [ 0, %19 ]
-  %.03243.i.i = phi i8 [ %.133.i.i, %.lr.ph.i.i ], [ 0, %19 ]
-  %26 = add nsw i32 %.03044.i.i, %.02945.i.i
+  %.02944.i.i = phi i32 [ %.1.i.i, %.lr.ph.i.i ], [ %23, %19 ]
+  %.03043.i.i = phi i32 [ %.131.i.i, %.lr.ph.i.i ], [ 0, %19 ]
+  %.03242.i.i = phi i8 [ %.133.i.i, %.lr.ph.i.i ], [ 0, %19 ]
+  %26 = add nsw i32 %.03043.i.i, %.02944.i.i
   %27 = sdiv i32 %26, 2
   %28 = mul nsw i32 %27, %3
   %29 = sext i32 %28 to i64
@@ -535,41 +535,41 @@ define internal fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr nou
   %32 = icmp eq i32 %31, 0
   %33 = add nsw i32 %27, 1
   %34 = icmp slt i32 %31, 0
-  %.030..i.i = select i1 %34, i32 %.03044.i.i, i32 %27
-  %..029.i.i = select i1 %34, i32 %27, i32 %.02945.i.i
-  %.133.i.i = select i1 %32, i8 1, i8 %.03243.i.i
+  %.030..i.i = select i1 %34, i32 %.03043.i.i, i32 %27
+  %..029.i.i = select i1 %34, i32 %27, i32 %.02944.i.i
+  %.133.i.i = select i1 %32, i8 1, i8 %.03242.i.i
   %.131.i.i = select i1 %32, i32 %33, i32 %.030..i.i
-  %.1.i.i = select i1 %32, i32 %.02945.i.i, i32 %..029.i.i
+  %.1.i.i = select i1 %32, i32 %.02944.i.i, i32 %..029.i.i
   %35 = sub nsw i32 %.1.i.i, %.131.i.i
   %36 = icmp sgt i32 %35, 8
   br i1 %36, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !9
 
-.lr.ph50.i.i:                                     ; preds = %43, %.lr.ph50.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %25, %.lr.ph50.preheader.i.i ], [ %indvars.iv.next.i.i, %43 ]
-  %.23448.i.i = phi i8 [ %.032.lcssa.i36.i, %.lr.ph50.preheader.i.i ], [ %.436.i.i, %43 ]
+.lr.ph49.i.i:                                     ; preds = %43, %.lr.ph49.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %25, %.lr.ph49.preheader.i.i ], [ %indvars.iv.next.i.i, %43 ]
+  %.23447.i.i = phi i8 [ %.032.lcssa.i36.i, %.lr.ph49.preheader.i.i ], [ %.436.i.i, %43 ]
   %37 = mul nsw i64 %indvars.iv.i.i, %9
   %38 = getelementptr inbounds i8, ptr %16, i64 %37
   %39 = tail call noundef i32 %4(ptr noundef %5, ptr noundef nonnull %21, ptr noundef %38)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %43, label %41
 
-41:                                               ; preds = %.lr.ph50.i.i
+41:                                               ; preds = %.lr.ph49.i.i
   %42 = icmp slt i32 %39, 0
   br i1 %42, label %.thread.loopexit.split.loop.exit.i.i, label %43
 
-43:                                               ; preds = %41, %.lr.ph50.i.i
-  %.436.i.i = phi i8 [ %.23448.i.i, %41 ], [ 1, %.lr.ph50.i.i ]
+43:                                               ; preds = %41, %.lr.ph49.i.i
+  %.436.i.i = phi i8 [ %.23447.i.i, %41 ], [ 1, %.lr.ph49.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %.029.lcssa.i38.i, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %uprv_stableBinarySearch_77.exit.i, label %.lr.ph50.i.i
+  br i1 %exitcond.not.i.i, label %uprv_stableBinarySearch_77.exit.i, label %.lr.ph49.i.i
 
 .thread.loopexit.split.loop.exit.i.i:             ; preds = %41
   %44 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %uprv_stableBinarySearch_77.exit.i
 
 uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopexit.split.loop.exit.i.i, %.preheader.i.i
-  %.234.lcssa.i.i = phi i8 [ %.133.i.i, %.preheader.i.i ], [ %.23448.i.i, %.thread.loopexit.split.loop.exit.i.i ], [ %.436.i.i, %43 ]
+  %.234.lcssa.i.i = phi i8 [ %.133.i.i, %.preheader.i.i ], [ %.23447.i.i, %.thread.loopexit.split.loop.exit.i.i ], [ %.436.i.i, %43 ]
   %.2.lcssa.i.i = phi i32 [ %.131.i.i, %.preheader.i.i ], [ %44, %.thread.loopexit.split.loop.exit.i.i ], [ %.029.lcssa.i38.i, %43 ]
   %.not.i.i = icmp eq i8 %.234.lcssa.i.i, 0
   %45 = add nsw i32 %.2.lcssa.i.i, -1

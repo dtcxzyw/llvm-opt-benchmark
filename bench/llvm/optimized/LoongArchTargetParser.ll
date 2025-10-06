@@ -40,8 +40,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm9LoongArch15isValidArchNameENS_9Str
   br label %4
 
 4:                                                ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
-  %.011.idx17 = phi i64 [ 0, %2 ], [ %.011.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ]
-  %.011.ptr = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.011.idx17
+  %.011.idx18 = phi i64 [ 0, %2 ], [ %.011.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ]
+  %.011.ptr = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.011.idx18
   %.sroa.03.0.copyload = load ptr, ptr %.011.ptr, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.011.ptr, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !8
@@ -49,20 +49,20 @@ define dso_local noundef zeroext i1 @_ZN4llvm9LoongArch15isValidArchNameENS_9Str
   br i1 %.not.i, label %5, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
 
 5:                                                ; preds = %4
-  br i1 %3, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
+  br i1 %3, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %5
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.03.0.copyload, ptr %0, i64 %1)
   %6 = icmp eq i32 %bcmp.i, 0
-  br i1 %6, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
+  br i1 %6, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread15:       ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.011.add = add nuw nsw i64 %.011.idx17, 24
+  %.011.add = add nuw nsw i64 %.011.idx18, 24
   %.not.not = icmp eq i64 %.011.add, 72
-  br i1 %.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %4
+  br i1 %.not.not, label %.thread, label %4
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %5, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.not.lcssa = phi i1 [ true, %5 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+.thread:                                          ; preds = %5, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
+  %.not.lcssa = phi i1 [ true, %5 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ]
   ret i1 %.not.lcssa
 }
 
@@ -75,8 +75,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm9LoongArch15getArchFeaturesENS_9Str
   br label %5
 
 5:                                                ; preds = %3, %.critedge
-  %.036.idx259 = phi i64 [ 0, %3 ], [ %.036.add, %.critedge ]
-  %.036.ptr = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.036.idx259
+  %.036.idx257 = phi i64 [ 0, %3 ], [ %.036.add, %.critedge ]
+  %.036.ptr = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.036.idx257
   %.sroa.012.0.copyload = load ptr, ptr %.036.ptr, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.036.ptr, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !8
@@ -99,8 +99,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.preheader:      ; preds = %7, %6
   br label %11
 
 11:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.preheader, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit
-  %.039.idx260 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.preheader ], [ %.039.add, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit ]
-  %.039.ptr = getelementptr inbounds nuw i8, ptr @_ZL11AllFeatures, i64 %.039.idx260
+  %.039.idx258 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.preheader ], [ %.039.add, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit ]
+  %.039.ptr = getelementptr inbounds nuw i8, ptr @_ZL11AllFeatures, i64 %.039.idx258
   %.sroa.5234.0..039.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.039.ptr, i64 16
   %.sroa.5234.0.copyload = load i32, ptr %.sroa.5234.0..039.ptr.sroa_idx, align 8, !tbaa !12
   %12 = and i32 %.sroa.5234.0.copyload, %.sroa.513.0.copyload.le
@@ -175,12 +175,12 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %17, %11
-  %.039.add = add nuw nsw i64 %.039.idx260, 24
+  %.039.add = add nuw nsw i64 %.039.idx258, 24
   %.not40 = icmp eq i64 %.039.add, 336
   br i1 %.not40, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit179, label %11
 
 .critedge:                                        ; preds = %5, %7
-  %.036.add = add nuw nsw i64 %.036.idx259, 24
+  %.036.add = add nuw nsw i64 %.036.idx257, 24
   %.not = icmp eq i64 %.036.add, 72
   br i1 %.not, label %40, label %5
 
@@ -917,19 +917,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm9LoongArch14isValidCPUNameENS_9Stri
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %.split.us
-  %.011.idx17.i.us = phi i64 [ %.011.add.i.us, %.split.us ], [ 0, %2 ]
-  %.011.ptr.i.us = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.011.idx17.i.us
+  %.011.idx18.i.us = phi i64 [ %.011.add.i.us, %.split.us ], [ 0, %2 ]
+  %.011.ptr.i.us = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.011.idx18.i.us
   %.sroa.4.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.011.ptr.i.us, i64 8
   %.sroa.4.0.copyload.i.us = load i64, ptr %.sroa.4.0..sroa_idx.i.us, align 8, !tbaa !8
   %.not.i.i.us = icmp eq i64 %.sroa.4.0.copyload.i.us, 0
-  %.011.add.i.us = add nuw nsw i64 %.011.idx17.i.us, 24
+  %.011.add.i.us = add nuw nsw i64 %.011.idx18.i.us, 24
   %.not.not.i.us = icmp eq i64 %.011.add.i.us, 72
   %or.cond = select i1 %.not.i.i.us, i1 true, i1 %.not.not.i.us
   br i1 %or.cond, label %_ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit, label %.split.us
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i
-  %.011.idx17.i = phi i64 [ %.011.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ], [ 0, %2 ]
-  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.011.idx17.i
+  %.011.idx18.i = phi i64 [ %.011.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ], [ 0, %2 ]
+  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.011.idx18.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.011.ptr.i, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
   %.not.i.i = icmp eq i64 %.sroa.4.0.copyload.i, %.fr3
@@ -942,12 +942,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
   br i1 %4, label %_ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread15.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
-  %.011.add.i = add nuw nsw i64 %.011.idx17.i, 24
+  %.011.add.i = add nuw nsw i64 %.011.idx18.i, 24
   %.not.not.i = icmp eq i64 %.011.add.i, 72
   br i1 %.not.not.i, label %_ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit, label %.split
 
 _ZN4llvm9LoongArch15isValidArchNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
-  %.us-phi = phi i1 [ %.not.i.i.us, %.split.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.us-phi = phi i1 [ %.not.i.i.us, %.split.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ]
   ret i1 %.us-phi
 }
 

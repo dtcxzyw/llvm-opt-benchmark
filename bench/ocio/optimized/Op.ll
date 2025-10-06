@@ -6299,12 +6299,12 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev10OpRcPtrVec18getDynamicPropertyENS
   %4 = load ptr, ptr %1, align 8, !tbaa !202
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !202
-  %.not17 = icmp eq ptr %4, %6
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not15 = icmp eq ptr %4, %6
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.critedge
-  %.sroa.010.018 = phi ptr [ %12, %.critedge ], [ %4, %3 ]
-  %7 = load ptr, ptr %.sroa.010.018, align 8, !tbaa !59
+  %.sroa.010.016 = phi ptr [ %12, %.critedge ], [ %4, %3 ]
+  %7 = load ptr, ptr %.sroa.010.016, align 8, !tbaa !59
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
@@ -6312,7 +6312,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev10OpRcPtrVec18getDynamicPropertyENS
   br i1 %11, label %17, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 16
   %.not = icmp eq ptr %12, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -6332,7 +6332,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev10OpRcPtrVec18getDynamicPropertyENS
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %.lr.ph
-  %18 = load ptr, ptr %.sroa.010.018, align 8, !tbaa !59
+  %18 = load ptr, ptr %.sroa.010.016, align 8, !tbaa !59
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8

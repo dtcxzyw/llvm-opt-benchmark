@@ -1961,11 +1961,11 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20: ; preds = %_
 
 _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20._ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20.thread_crit_edge: ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20
   %.pre = load ptr, ptr %1, align 8, !tbaa !383
-  %.pre52 = load i64, ptr %29, align 8, !tbaa !384
+  %.pre51 = load i64, ptr %29, align 8, !tbaa !384
   br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20.thread
 
 _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20.thread: ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20._ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20.thread_crit_edge, %111
-  %120 = phi i64 [ %.pre52, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20._ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20.thread_crit_edge ], [ %113, %111 ]
+  %120 = phi i64 [ %.pre51, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20._ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20.thread_crit_edge ], [ %113, %111 ]
   %121 = phi ptr [ %.pre, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20._ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20.thread_crit_edge ], [ %112, %111 ]
   %122 = load i32, ptr %20, align 4, !tbaa !380
   %123 = sext i32 %122 to i64
@@ -2112,7 +2112,7 @@ define noundef i64 @_ZN7rocksdb17CompactionOutputs29UpdateGrandparentBoundaryInf
   %32 = phi i8 [ %.pre, %.lr.ph ], [ %101, %99 ]
   %33 = phi ptr [ %8, %.lr.ph ], [ %103, %99 ]
   %34 = phi i64 [ %18, %.lr.ph ], [ %100, %99 ]
-  %.02230 = phi i64 [ 0, %.lr.ph ], [ %.3, %99 ]
+  %.02229 = phi i64 [ 0, %.lr.ph ], [ %.3, %99 ]
   %35 = trunc nuw i8 %32 to i1
   %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   %37 = load ptr, ptr %36, align 8, !tbaa !381
@@ -2134,13 +2134,13 @@ define noundef i64 @_ZN7rocksdb17CompactionOutputs29UpdateGrandparentBoundaryInf
 45:                                               ; preds = %38
   %46 = load i8, ptr %27, align 8, !tbaa !395, !range !40, !noundef !41
   %47 = trunc nuw i8 %46 to i1
-  %.pre39.pre = load i64, ptr %17, align 8, !tbaa !393
+  %.pre38.pre = load i64, ptr %17, align 8, !tbaa !393
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %45
-  %49 = add i64 %.02230, 1
+  %49 = add i64 %.02229, 1
   %50 = load ptr, ptr %7, align 8, !tbaa !390
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre39.pre
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre38.pre
   %52 = load ptr, ptr %51, align 8, !tbaa !381
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i64, ptr %53, align 8, !tbaa !396
@@ -2153,7 +2153,7 @@ define noundef i64 @_ZN7rocksdb17CompactionOutputs29UpdateGrandparentBoundaryInf
   br label %59
 
 59:                                               ; preds = %48, %45
-  %.2 = phi i64 [ %49, %48 ], [ %.02230, %45 ]
+  %.2 = phi i64 [ %49, %48 ], [ %.02229, %45 ]
   store i8 0, ptr %24, align 8, !tbaa !394
   br label %99
 
@@ -2208,14 +2208,14 @@ define noundef i64 @_ZN7rocksdb17CompactionOutputs29UpdateGrandparentBoundaryInf
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %89
-  %93 = add i64 %.02230, 1
+  %93 = add i64 %.02229, 1
   %94 = load i64, ptr %28, align 8, !tbaa !398
   %95 = add i64 %94, 1
   store i64 %95, ptr %28, align 8, !tbaa !398
   br label %96
 
 96:                                               ; preds = %89, %92
-  %.5 = phi i64 [ %93, %92 ], [ %.02230, %89 ]
+  %.5 = phi i64 [ %93, %92 ], [ %.02229, %89 ]
   store i8 1, ptr %24, align 8, !tbaa !394
   %97 = load i64, ptr %17, align 8, !tbaa !393
   %98 = add i64 %97, 1
@@ -2223,7 +2223,7 @@ define noundef i64 @_ZN7rocksdb17CompactionOutputs29UpdateGrandparentBoundaryInf
   br label %99
 
 99:                                               ; preds = %96, %59
-  %100 = phi i64 [ %.pre39.pre, %59 ], [ %98, %96 ]
+  %100 = phi i64 [ %.pre38.pre, %59 ], [ %98, %96 ]
   %101 = phi i8 [ 0, %59 ], [ 1, %96 ]
   %.3 = phi i64 [ %.2, %59 ], [ %.5, %96 ]
   %102 = load ptr, ptr %9, align 8, !tbaa !391
@@ -2236,7 +2236,7 @@ define noundef i64 @_ZN7rocksdb17CompactionOutputs29UpdateGrandparentBoundaryInf
   br i1 %108, label %31, label %.thread, !llvm.loop !399
 
 .thread:                                          ; preds = %99, %38, %79, %69, %60, %12
-  %.022.lcssa = phi i64 [ 0, %12 ], [ %.02230, %60 ], [ %.02230, %69 ], [ %.02230, %79 ], [ %.02230, %38 ], [ %.3, %99 ]
+  %.022.lcssa = phi i64 [ 0, %12 ], [ %.02229, %60 ], [ %.02229, %69 ], [ %.02229, %79 ], [ %.02229, %38 ], [ %.3, %99 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %110 = load i8, ptr %109, align 8, !tbaa !395, !range !40, !noundef !41
   %111 = trunc nuw i8 %110 to i1

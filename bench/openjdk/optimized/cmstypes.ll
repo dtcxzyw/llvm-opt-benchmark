@@ -9944,44 +9944,44 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 
 .preheader111.i:                                  ; preds = %23
   %29 = load i16, ptr %7, align 2
-  %.not150.i = icmp eq i16 %29, 1
-  br i1 %.not150.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  %30 = icmp eq i16 %29, 1
+  br i1 %30, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader111.i
   store float 0xC480F0CF00000000, ptr %27, align 8
-  %30 = getelementptr i8, ptr %27, i64 4
-  store float 0x4480F0CF00000000, ptr %30, align 4
+  %31 = getelementptr i8, ptr %27, i64 4
+  store float 0x4480F0CF00000000, ptr %31, align 4
   br label %.lr.ph136.i.preheader
 
-.lr.ph.i:                                         ; preds = %.preheader111.i, %34
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %.preheader111.i ]
-  %.0126.i = phi float [ %35, %34 ], [ 0xC480F0CF00000000, %.preheader111.i ]
-  %31 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv.i
-  store float %.0126.i, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %32) #14
-  %.not104.i = icmp eq i32 %33, 0
-  br i1 %.not104.i, label %.loopexit107.i, label %34
+.lr.ph.i:                                         ; preds = %.preheader111.i, %35
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 0, %.preheader111.i ]
+  %.0126.i = phi float [ %36, %35 ], [ 0xC480F0CF00000000, %.preheader111.i ]
+  %32 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv.i
+  store float %.0126.i, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %34 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %33) #14
+  %.not104.i = icmp eq i32 %34, 0
+  br i1 %.not104.i, label %.loopexit107.i, label %35
 
-34:                                               ; preds = %.lr.ph.i
-  %35 = load float, ptr %32, align 4
+35:                                               ; preds = %.lr.ph.i
+  %36 = load float, ptr %33, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = load i16, ptr %7, align 2
-  %37 = zext i16 %36 to i32
-  %38 = add nsw i32 %37, -1
-  %39 = zext i32 %38 to i64
-  %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !93
+  %37 = load i16, ptr %7, align 2
+  %38 = zext i16 %37 to i32
+  %39 = add nsw i32 %38, -1
+  %40 = zext i32 %39 to i64
+  %41 = icmp samesign ult i64 %indvars.iv.next.i, %40
+  br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !93
 
-._crit_edge.i:                                    ; preds = %34
-  %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds %struct.cmsCurveSegment, ptr %27, i64 %41
-  store float %35, ptr %42, align 8
-  %43 = zext i16 %36 to i64
-  %44 = getelementptr %struct.cmsCurveSegment, ptr %27, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -108
-  store float 0x4480F0CF00000000, ptr %45, align 4
-  %.not151.i = icmp eq i16 %36, 0
+._crit_edge.i:                                    ; preds = %35
+  %42 = sext i32 %39 to i64
+  %43 = getelementptr inbounds %struct.cmsCurveSegment, ptr %27, i64 %42
+  store float %36, ptr %43, align 8
+  %44 = zext i16 %37 to i64
+  %45 = getelementptr %struct.cmsCurveSegment, ptr %27, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 -108
+  store float 0x4480F0CF00000000, ptr %46, align 4
+  %.not151.i = icmp eq i16 %37, 0
   br i1 %.not151.i, label %._crit_edge137.i, label %.lr.ph136.i.preheader
 
 .lr.ph136.i.preheader:                            ; preds = %._crit_edge.i, %._crit_edge.thread.i
@@ -9989,239 +9989,239 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 
 .lr.ph136.i:                                      ; preds = %.lr.ph136.i.preheader, %.loopexit106.i
   %indvars.iv175.i = phi i64 [ %indvars.iv.next176.i, %.loopexit106.i ], [ 0, %.lr.ph136.i.preheader ]
-  %46 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %6) #14
-  %.not97.i = icmp eq i32 %46, 0
-  br i1 %.not97.i, label %.loopexit107.i, label %47
+  %47 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %6) #14
+  %.not97.i = icmp eq i32 %47, 0
+  br i1 %.not97.i, label %.loopexit107.i, label %48
 
-47:                                               ; preds = %.lr.ph136.i
-  %48 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef null) #14
-  %.not98.i = icmp eq i32 %48, 0
-  br i1 %.not98.i, label %.loopexit107.i, label %49
+48:                                               ; preds = %.lr.ph136.i
+  %49 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef null) #14
+  %.not98.i = icmp eq i32 %49, 0
+  br i1 %.not98.i, label %.loopexit107.i, label %50
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %6, align 4
-  switch i32 %50, label %97 [
-    i32 1885434470, label %51
-    i32 1935764838, label %75
+50:                                               ; preds = %48
+  %51 = load i32, ptr %6, align 4
+  switch i32 %51, label %98 [
+    i32 1885434470, label %52
+    i32 1935764838, label %76
   ]
 
-51:                                               ; preds = %49
-  %52 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef nonnull %8) #14
-  %.not101.i = icmp eq i32 %52, 0
-  br i1 %.not101.i, label %.loopexit107.i, label %53
+52:                                               ; preds = %50
+  %53 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef nonnull %8) #14
+  %.not101.i = icmp eq i32 %53, 0
+  br i1 %.not101.i, label %.loopexit107.i, label %54
 
-53:                                               ; preds = %51
-  %54 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef null) #14
-  %.not102.i = icmp eq i32 %54, 0
-  br i1 %.not102.i, label %.loopexit107.i, label %55
+54:                                               ; preds = %52
+  %55 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef null) #14
+  %.not102.i = icmp eq i32 %55, 0
+  br i1 %.not102.i, label %.loopexit107.i, label %56
 
-55:                                               ; preds = %53
-  %56 = load i16, ptr %8, align 2
-  %57 = zext i16 %56 to i32
-  %58 = add nuw nsw i32 %57, 6
-  %59 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv175.i
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 %58, ptr %60, align 8
-  %61 = icmp ugt i16 %56, 2
-  br i1 %61, label %.loopexit107.i, label %.lr.ph133.i
+56:                                               ; preds = %54
+  %57 = load i16, ptr %8, align 2
+  %58 = zext i16 %57 to i32
+  %59 = add nuw nsw i32 %58, 6
+  %60 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv175.i
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i32 %59, ptr %61, align 8
+  %62 = icmp ugt i16 %57, 2
+  br i1 %62, label %.loopexit107.i, label %.lr.ph133.i
 
-.lr.ph133.i:                                      ; preds = %55
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  br label %63
+.lr.ph133.i:                                      ; preds = %56
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  br label %64
 
-63:                                               ; preds = %65, %.lr.ph133.i
-  %indvars.iv172.i = phi i64 [ 0, %.lr.ph133.i ], [ %indvars.iv.next173.i, %65 ]
-  %64 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %9) #14
-  %.not103.i = icmp eq i32 %64, 0
-  br i1 %.not103.i, label %.loopexit107.i, label %65
+64:                                               ; preds = %66, %.lr.ph133.i
+  %indvars.iv172.i = phi i64 [ 0, %.lr.ph133.i ], [ %indvars.iv.next173.i, %66 ]
+  %65 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %9) #14
+  %.not103.i = icmp eq i32 %65, 0
+  br i1 %.not103.i, label %.loopexit107.i, label %66
 
-65:                                               ; preds = %63
-  %66 = load float, ptr %9, align 4
-  %67 = fpext float %66 to double
-  %68 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv172.i
-  store double %67, ptr %68, align 8
+66:                                               ; preds = %64
+  %67 = load float, ptr %9, align 4
+  %68 = fpext float %67 to double
+  %69 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv172.i
+  store double %68, ptr %69, align 8
   %indvars.iv.next173.i = add nuw nsw i64 %indvars.iv172.i, 1
-  %69 = load i16, ptr %8, align 2
-  %70 = zext i16 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = zext i32 %72 to i64
-  %74 = icmp samesign ult i64 %indvars.iv.next173.i, %73
-  br i1 %74, label %63, label %.loopexit106.i, !llvm.loop !94
+  %70 = load i16, ptr %8, align 2
+  %71 = zext i16 %70 to i64
+  %72 = getelementptr inbounds nuw i32, ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %71
+  %73 = load i32, ptr %72, align 4
+  %74 = zext i32 %73 to i64
+  %75 = icmp samesign ult i64 %indvars.iv.next173.i, %74
+  br i1 %75, label %64, label %.loopexit106.i, !llvm.loop !94
 
-75:                                               ; preds = %49
-  %76 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %10) #14
-  %.not99.i = icmp eq i32 %76, 0
-  br i1 %.not99.i, label %.loopexit107.i, label %77
+76:                                               ; preds = %50
+  %77 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %10) #14
+  %.not99.i = icmp eq i32 %77, 0
+  br i1 %.not99.i, label %.loopexit107.i, label %78
 
-77:                                               ; preds = %75
-  %78 = load i32, ptr %10, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %10, align 4
-  %80 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv175.i
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
-  store i32 %79, ptr %81, align 8
-  %82 = load ptr, ptr %25, align 8
-  %83 = load i32, ptr %10, align 4
-  %84 = call ptr @_cmsCalloc(ptr noundef %82, i32 noundef %83, i32 noundef 4) #14
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 104
-  store ptr %84, ptr %85, align 8
-  %86 = icmp eq ptr %84, null
-  br i1 %86, label %.loopexit107.i, label %87
+78:                                               ; preds = %76
+  %79 = load i32, ptr %10, align 4
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %10, align 4
+  %81 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv175.i
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
+  store i32 %80, ptr %82, align 8
+  %83 = load ptr, ptr %25, align 8
+  %84 = load i32, ptr %10, align 4
+  %85 = call ptr @_cmsCalloc(ptr noundef %83, i32 noundef %84, i32 noundef 4) #14
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 104
+  store ptr %85, ptr %86, align 8
+  %87 = icmp eq ptr %85, null
+  br i1 %87, label %.loopexit107.i, label %88
 
-87:                                               ; preds = %77
-  store float 0.000000e+00, ptr %84, align 4
-  %88 = load i32, ptr %10, align 4
-  %89 = icmp ugt i32 %88, 1
-  br i1 %89, label %.lr.ph131.i, label %.loopexit106.i
+88:                                               ; preds = %78
+  store float 0.000000e+00, ptr %85, align 4
+  %89 = load i32, ptr %10, align 4
+  %90 = icmp ugt i32 %89, 1
+  br i1 %90, label %.lr.ph131.i, label %.loopexit106.i
 
-90:                                               ; preds = %.lr.ph131.i
+91:                                               ; preds = %.lr.ph131.i
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
-  %91 = load i32, ptr %10, align 4
-  %92 = zext i32 %91 to i64
-  %93 = icmp samesign ult i64 %indvars.iv.next170.i, %92
-  br i1 %93, label %.lr.ph131.i, label %.loopexit106.i, !llvm.loop !95
+  %92 = load i32, ptr %10, align 4
+  %93 = zext i32 %92 to i64
+  %94 = icmp samesign ult i64 %indvars.iv.next170.i, %93
+  br i1 %94, label %.lr.ph131.i, label %.loopexit106.i, !llvm.loop !95
 
-.lr.ph131.i:                                      ; preds = %87, %90
-  %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %90 ], [ 1, %87 ]
-  %94 = load ptr, ptr %85, align 8
-  %95 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv169.i
-  %96 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %95) #14
-  %.not100.i = icmp eq i32 %96, 0
-  br i1 %.not100.i, label %.loopexit107.i, label %90
+.lr.ph131.i:                                      ; preds = %88, %91
+  %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %91 ], [ 1, %88 ]
+  %95 = load ptr, ptr %86, align 8
+  %96 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv169.i
+  %97 = call i32 @_cmsReadFloat32Number(ptr noundef %1, ptr noundef nonnull %96) #14
+  %.not100.i = icmp eq i32 %97, 0
+  br i1 %.not100.i, label %.loopexit107.i, label %91
 
-97:                                               ; preds = %49
-  call void @_cmsTagSignature2String(ptr noundef nonnull %11, i32 noundef %50) #14
-  %98 = load ptr, ptr %25, align 8
-  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %98, i32 noundef 8, ptr noundef nonnull @.str.28, ptr noundef nonnull %11) #14
+98:                                               ; preds = %50
+  call void @_cmsTagSignature2String(ptr noundef nonnull %11, i32 noundef %51) #14
+  %99 = load ptr, ptr %25, align 8
+  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %99, i32 noundef 8, ptr noundef nonnull @.str.28, ptr noundef nonnull %11) #14
   br label %.loopexit107.i
 
-.loopexit106.i:                                   ; preds = %90, %65, %87
+.loopexit106.i:                                   ; preds = %91, %66, %88
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
-  %99 = load i16, ptr %7, align 2
-  %100 = zext i16 %99 to i64
-  %101 = icmp samesign ult i64 %indvars.iv.next176.i, %100
-  br i1 %101, label %.lr.ph136.i, label %._crit_edge137.loopexit.i, !llvm.loop !96
+  %100 = load i16, ptr %7, align 2
+  %101 = zext i16 %100 to i64
+  %102 = icmp samesign ult i64 %indvars.iv.next176.i, %101
+  br i1 %102, label %.lr.ph136.i, label %._crit_edge137.loopexit.i, !llvm.loop !96
 
 ._crit_edge137.loopexit.i:                        ; preds = %.loopexit106.i
-  %102 = zext i16 %99 to i32
+  %103 = zext i16 %100 to i32
   br label %._crit_edge137.i
 
 ._crit_edge137.i:                                 ; preds = %._crit_edge137.loopexit.i, %._crit_edge.i
-  %.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %102, %._crit_edge137.loopexit.i ]
-  %103 = load ptr, ptr %25, align 8
-  %104 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %103, i32 noundef %.lcssa.i, ptr noundef nonnull %27) #14
-  %105 = load i16, ptr %7, align 2
-  %.not153.i = icmp eq i16 %105, 0
+  %.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %103, %._crit_edge137.loopexit.i ]
+  %104 = load ptr, ptr %25, align 8
+  %105 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %104, i32 noundef %.lcssa.i, ptr noundef nonnull %27) #14
+  %106 = load i16, ptr %7, align 2
+  %.not153.i = icmp eq i16 %106, 0
   br i1 %.not153.i, label %._crit_edge142.i, label %.lr.ph141.i
 
-.lr.ph141.i:                                      ; preds = %._crit_edge137.i, %112
-  %106 = phi i16 [ %113, %112 ], [ %105, %._crit_edge137.i ]
-  %indvars.iv181.i = phi i64 [ %indvars.iv.next182.i, %112 ], [ 0, %._crit_edge137.i ]
-  %107 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv181.i
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 104
-  %109 = load ptr, ptr %108, align 8
-  %.not96.i = icmp eq ptr %109, null
-  br i1 %.not96.i, label %112, label %110
+.lr.ph141.i:                                      ; preds = %._crit_edge137.i, %113
+  %107 = phi i16 [ %114, %113 ], [ %106, %._crit_edge137.i ]
+  %indvars.iv181.i = phi i64 [ %indvars.iv.next182.i, %113 ], [ 0, %._crit_edge137.i ]
+  %108 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv181.i
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 104
+  %110 = load ptr, ptr %109, align 8
+  %.not96.i = icmp eq ptr %110, null
+  br i1 %.not96.i, label %113, label %111
 
-110:                                              ; preds = %.lr.ph141.i
-  %111 = load ptr, ptr %25, align 8
-  call void @_cmsFree(ptr noundef %111, ptr noundef nonnull %109) #14
+111:                                              ; preds = %.lr.ph141.i
+  %112 = load ptr, ptr %25, align 8
+  call void @_cmsFree(ptr noundef %112, ptr noundef nonnull %110) #14
   %.pre187.i = load i16, ptr %7, align 2
-  br label %112
+  br label %113
 
-112:                                              ; preds = %110, %.lr.ph141.i
-  %113 = phi i16 [ %106, %.lr.ph141.i ], [ %.pre187.i, %110 ]
+113:                                              ; preds = %111, %.lr.ph141.i
+  %114 = phi i16 [ %107, %.lr.ph141.i ], [ %.pre187.i, %111 ]
   %indvars.iv.next182.i = add nuw nsw i64 %indvars.iv181.i, 1
-  %114 = zext i16 %113 to i64
-  %115 = icmp samesign ult i64 %indvars.iv.next182.i, %114
-  br i1 %115, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !97
+  %115 = zext i16 %114 to i64
+  %116 = icmp samesign ult i64 %indvars.iv.next182.i, %115
+  br i1 %116, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !97
 
-._crit_edge142.i:                                 ; preds = %112, %._crit_edge137.i
-  %116 = load ptr, ptr %25, align 8
-  call void @_cmsFree(ptr noundef %116, ptr noundef nonnull %27) #14
-  %117 = load i16, ptr %7, align 2
-  %.not154.i = icmp eq i16 %117, 0
+._crit_edge142.i:                                 ; preds = %113, %._crit_edge137.i
+  %117 = load ptr, ptr %25, align 8
+  call void @_cmsFree(ptr noundef %117, ptr noundef nonnull %27) #14
+  %118 = load i16, ptr %7, align 2
+  %.not154.i = icmp eq i16 %118, 0
   br i1 %.not154.i, label %ReadSegmentedCurve.exit, label %.lr.ph145.i
 
 .lr.ph145.i:                                      ; preds = %._crit_edge142.i
-  %118 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  br label %119
+  %119 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  br label %120
 
-119:                                              ; preds = %133, %.lr.ph145.i
-  %120 = phi i16 [ %117, %.lr.ph145.i ], [ %134, %133 ]
-  %indvars.iv184.i = phi i64 [ 0, %.lr.ph145.i ], [ %indvars.iv.next185.i, %133 ]
-  %121 = load ptr, ptr %118, align 8
-  %122 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %121, i64 %indvars.iv184.i
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %133
+120:                                              ; preds = %134, %.lr.ph145.i
+  %121 = phi i16 [ %118, %.lr.ph145.i ], [ %135, %134 ]
+  %indvars.iv184.i = phi i64 [ 0, %.lr.ph145.i ], [ %indvars.iv.next185.i, %134 ]
+  %122 = load ptr, ptr %119, align 8
+  %123 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %122, i64 %indvars.iv184.i
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %134
 
-126:                                              ; preds = %119
-  %127 = load float, ptr %122, align 8
-  %128 = call float @cmsEvalToneCurveFloat(ptr noundef nonnull %104, float noundef %127) #14
-  %129 = load ptr, ptr %118, align 8
-  %130 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %129, i64 %indvars.iv184.i
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 104
-  %132 = load ptr, ptr %131, align 8
-  store float %128, ptr %132, align 4
+127:                                              ; preds = %120
+  %128 = load float, ptr %123, align 8
+  %129 = call float @cmsEvalToneCurveFloat(ptr noundef nonnull %105, float noundef %128) #14
+  %130 = load ptr, ptr %119, align 8
+  %131 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %130, i64 %indvars.iv184.i
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 104
+  %133 = load ptr, ptr %132, align 8
+  store float %129, ptr %133, align 4
   %.pre188.i = load i16, ptr %7, align 2
-  br label %133
+  br label %134
 
-133:                                              ; preds = %126, %119
-  %134 = phi i16 [ %120, %119 ], [ %.pre188.i, %126 ]
+134:                                              ; preds = %127, %120
+  %135 = phi i16 [ %121, %120 ], [ %.pre188.i, %127 ]
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %135 = zext i16 %134 to i64
-  %136 = icmp samesign ult i64 %indvars.iv.next185.i, %135
-  br i1 %136, label %119, label %ReadSegmentedCurve.exit, !llvm.loop !98
+  %136 = zext i16 %135 to i64
+  %137 = icmp samesign ult i64 %indvars.iv.next185.i, %136
+  br i1 %137, label %120, label %ReadSegmentedCurve.exit, !llvm.loop !98
 
-.loopexit107.i:                                   ; preds = %.lr.ph.i, %77, %75, %55, %53, %51, %47, %.lr.ph136.i, %.lr.ph131.i, %63, %97
-  %137 = load i16, ptr %7, align 2
-  %.not155.i = icmp eq i16 %137, 0
+.loopexit107.i:                                   ; preds = %.lr.ph.i, %78, %76, %56, %54, %52, %48, %.lr.ph136.i, %.lr.ph131.i, %64, %98
+  %138 = load i16, ptr %7, align 2
+  %.not155.i = icmp eq i16 %138, 0
   br i1 %.not155.i, label %._crit_edge149.i, label %.lr.ph148.i
 
-.lr.ph148.i:                                      ; preds = %.loopexit107.i, %144
-  %138 = phi i16 [ %145, %144 ], [ %137, %.loopexit107.i ]
-  %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %144 ], [ 0, %.loopexit107.i ]
-  %139 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv178.i
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 104
-  %141 = load ptr, ptr %140, align 8
-  %.not105.i = icmp eq ptr %141, null
-  br i1 %.not105.i, label %144, label %142
+.lr.ph148.i:                                      ; preds = %.loopexit107.i, %145
+  %139 = phi i16 [ %146, %145 ], [ %138, %.loopexit107.i ]
+  %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %145 ], [ 0, %.loopexit107.i ]
+  %140 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %27, i64 %indvars.iv178.i
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 104
+  %142 = load ptr, ptr %141, align 8
+  %.not105.i = icmp eq ptr %142, null
+  br i1 %.not105.i, label %145, label %143
 
-142:                                              ; preds = %.lr.ph148.i
-  %143 = load ptr, ptr %25, align 8
-  call void @_cmsFree(ptr noundef %143, ptr noundef nonnull %141) #14
+143:                                              ; preds = %.lr.ph148.i
+  %144 = load ptr, ptr %25, align 8
+  call void @_cmsFree(ptr noundef %144, ptr noundef nonnull %142) #14
   %.pre.i = load i16, ptr %7, align 2
-  br label %144
+  br label %145
 
-144:                                              ; preds = %142, %.lr.ph148.i
-  %145 = phi i16 [ %138, %.lr.ph148.i ], [ %.pre.i, %142 ]
+145:                                              ; preds = %143, %.lr.ph148.i
+  %146 = phi i16 [ %139, %.lr.ph148.i ], [ %.pre.i, %143 ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
-  %146 = zext i16 %145 to i64
-  %147 = icmp samesign ult i64 %indvars.iv.next179.i, %146
-  br i1 %147, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !99
+  %147 = zext i16 %146 to i64
+  %148 = icmp samesign ult i64 %indvars.iv.next179.i, %147
+  br i1 %148, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !99
 
-._crit_edge149.i:                                 ; preds = %144, %.loopexit107.i
-  %148 = load ptr, ptr %25, align 8
-  call void @_cmsFree(ptr noundef %148, ptr noundef nonnull %27) #14
+._crit_edge149.i:                                 ; preds = %145, %.loopexit107.i
+  %149 = load ptr, ptr %25, align 8
+  call void @_cmsFree(ptr noundef %149, ptr noundef nonnull %27) #14
   br label %ReadSegmentedCurve.exit
 
-ReadSegmentedCurve.exit:                          ; preds = %133, %5, %14, %16, %18, %20, %23, %._crit_edge142.i, %._crit_edge149.i
-  %.081.i = phi ptr [ null, %._crit_edge149.i ], [ null, %5 ], [ null, %14 ], [ null, %16 ], [ null, %18 ], [ null, %20 ], [ null, %23 ], [ %104, %._crit_edge142.i ], [ %104, %133 ]
+ReadSegmentedCurve.exit:                          ; preds = %134, %5, %14, %16, %18, %20, %23, %._crit_edge142.i, %._crit_edge149.i
+  %.081.i = phi ptr [ null, %._crit_edge149.i ], [ null, %5 ], [ null, %14 ], [ null, %16 ], [ null, %18 ], [ null, %20 ], [ null, %23 ], [ %105, %._crit_edge142.i ], [ %105, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %149 = zext i32 %3 to i64
-  %150 = getelementptr inbounds nuw ptr, ptr %2, i64 %149
-  store ptr %.081.i, ptr %150, align 8
-  %151 = icmp ne ptr %.081.i, null
-  %152 = zext i1 %151 to i32
-  ret i32 %152
+  %150 = zext i32 %3 to i64
+  %151 = getelementptr inbounds nuw ptr, ptr %2, i64 %150
+  store ptr %.081.i, ptr %151, align 8
+  %152 = icmp ne ptr %.081.i, null
+  %153 = zext i1 %152 to i32
+  ret i32 %153
 }
 
 declare i32 @_cmsReadFloat32Number(ptr noundef, ptr noundef) local_unnamed_addr #1

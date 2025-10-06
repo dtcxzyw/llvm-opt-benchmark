@@ -231,7 +231,7 @@ define hidden range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %.not52 = icmp ult i64 %10, %7
-  br i1 %.not52, label %11, label %entry_new.exit.thread63
+  br i1 %.not52, label %11, label %entry_new.exit.thread62
 
 11:                                               ; preds = %8, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -241,7 +241,7 @@ define hidden range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none) %
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %18 = icmp ugt i64 %15, %17
-  br i1 %18, label %entry_new.exit.thread63, label %19
+  br i1 %18, label %entry_new.exit.thread62, label %19
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -250,7 +250,7 @@ define hidden range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none) %
   %23 = add i64 %14, 34
   %24 = tail call ptr %22(i64 noundef 1, i64 noundef %23) #9
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %entry_new.exit.thread63, label %25
+  br i1 %.not.i, label %entry_new.exit.thread62, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -316,13 +316,13 @@ define hidden range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none) %
 .thread:                                          ; preds = %48, %50
   store ptr %47, ptr %0, align 8, !tbaa !14
   store i64 %.042, ptr %40, align 8, !tbaa !29
-  %.pre67 = load i64, ptr %37, align 8, !tbaa !15
-  %.pre68 = add i64 %.pre67, 1
+  %.pre66 = load i64, ptr %37, align 8, !tbaa !15
+  %.pre67 = add i64 %.pre66, 1
   br label %55
 
 55:                                               ; preds = %._crit_edge, %.thread
-  %.pre-phi = phi i64 [ %39, %._crit_edge ], [ %.pre68, %.thread ]
-  %56 = phi i64 [ %38, %._crit_edge ], [ %.pre67, %.thread ]
+  %.pre-phi = phi i64 [ %39, %._crit_edge ], [ %.pre67, %.thread ]
+  %56 = phi i64 [ %38, %._crit_edge ], [ %.pre66, %.thread ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %47, %.thread ]
   store i64 %.pre-phi, ptr %37, align 8, !tbaa !15
   %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
@@ -330,14 +330,14 @@ define hidden range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none) %
   %59 = load i64, ptr %12, align 8, !tbaa !3
   %60 = add i64 %14, %59
   store i64 %60, ptr %12, align 8, !tbaa !3
-  br label %entry_new.exit.thread63
+  br label %entry_new.exit.thread62
 
 entry_new.exit:                                   ; preds = %42
   %61 = load ptr, ptr @Curl_cfree, align 8, !tbaa !18
   tail call void %61(ptr noundef nonnull %24) #9
-  br label %entry_new.exit.thread63
+  br label %entry_new.exit.thread62
 
-entry_new.exit.thread63:                          ; preds = %19, %55, %entry_new.exit, %11, %8
+entry_new.exit.thread62:                          ; preds = %19, %55, %entry_new.exit, %11, %8
   %.0 = phi i32 [ 27, %8 ], [ 27, %11 ], [ 27, %entry_new.exit ], [ 27, %19 ], [ 0, %55 ]
   ret i32 %.0
 }

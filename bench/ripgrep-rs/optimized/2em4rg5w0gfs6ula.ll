@@ -92,8 +92,8 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   br label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.exit"
 
 .preheader.split:                                 ; preds = %19, %.backedge
-  %.sroa.01.038 = phi i64 [ %33, %.backedge ], [ 0, %19 ]
-  %33 = add nuw i64 %.sroa.01.038, 1
+  %.sroa.01.037 = phi i64 [ %33, %.backedge ], [ 0, %19 ]
+  %33 = add nuw i64 %.sroa.01.037, 1
   %34 = load i64, ptr %5, align 8, !noundef !4
   %35 = icmp ugt i64 %34, %.val28
   br i1 %35, label %36, label %.critedge
@@ -105,7 +105,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %37 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %38 = getelementptr { i8, i8 }, ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -2
-  %40 = getelementptr inbounds { i8, i8 }, ptr %37, i64 %.sroa.01.038
+  %40 = getelementptr inbounds { i8, i8 }, ptr %37, i64 %.sroa.01.037
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -125,7 +125,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   br i1 %.not.i31.not, label %.critedge, label %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit
 
 .critedge:                                        ; preds = %36, %.preheader.split
-  %50 = icmp ult i64 %.sroa.01.038, %34
+  %50 = icmp ult i64 %.sroa.01.037, %34
   br i1 %50, label %53, label %68, !prof !35
 
 _ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit: ; preds = %36
@@ -143,7 +143,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit: ; preds 
 
 53:                                               ; preds = %.critedge
   %54 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds { i8, i8 }, ptr %54, i64 %.sroa.01.038
+  %55 = getelementptr inbounds { i8, i8 }, ptr %54, i64 %.sroa.01.037
   %56 = load i8, ptr %55, align 1, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %57, align 1, !noundef !4
@@ -170,7 +170,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit: ; preds 
   br label %.backedge
 
 68:                                               ; preds = %.critedge
-  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.01.038, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0c3b78350690d3073dec9efe33796e77.6) #10
+  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.01.037, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0c3b78350690d3073dec9efe33796e77.6) #10
   unreachable
 }
 
@@ -255,8 +255,8 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   br label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.exit"
 
 .preheader.split:                                 ; preds = %17, %.backedge
-  %.sroa.01.040 = phi i64 [ %31, %.backedge ], [ 0, %17 ]
-  %31 = add nuw i64 %.sroa.01.040, 1
+  %.sroa.01.039 = phi i64 [ %31, %.backedge ], [ 0, %17 ]
+  %31 = add nuw i64 %.sroa.01.039, 1
   %32 = load i64, ptr %5, align 8, !noundef !4
   %33 = icmp ugt i64 %32, %.val27
   br i1 %33, label %34, label %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
@@ -268,7 +268,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   %35 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr { i32, i32 }, ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -8
-  %38 = getelementptr inbounds { i32, i32 }, ptr %35, i64 %.sroa.01.040
+  %38 = getelementptr inbounds { i32, i32 }, ptr %35, i64 %.sroa.01.039
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -286,7 +286,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   br i1 %.not.i30, label %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread, label %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit
 
 _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread: ; preds = %34, %.preheader.split
-  %46 = icmp ult i64 %.sroa.01.040, %32
+  %46 = icmp ult i64 %.sroa.01.039, %32
   br i1 %46, label %49, label %64, !prof !35
 
 _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds = %34
@@ -304,7 +304,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds 
 
 49:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
   %50 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds { i32, i32 }, ptr %50, i64 %.sroa.01.040
+  %51 = getelementptr inbounds { i32, i32 }, ptr %50, i64 %.sroa.01.039
   %52 = load i32, ptr %51, align 4, !range !40, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load i32, ptr %53, align 4, !range !40, !noundef !4
@@ -331,7 +331,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds 
   br label %.backedge
 
 64:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
-  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.01.040, i64 noundef %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0c3b78350690d3073dec9efe33796e77.6) #10
+  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.01.039, i64 noundef %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0c3b78350690d3073dec9efe33796e77.6) #10
   unreachable
 }
 

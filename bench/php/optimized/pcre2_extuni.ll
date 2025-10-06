@@ -39,10 +39,10 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   br label %26
 
 26:                                               ; preds = %.lr.ph, %292
-  %.0111171 = phi i32 [ %25, %.lr.ph ], [ %spec.select, %292 ]
-  %.0114170 = phi i1 [ false, %.lr.ph ], [ %285, %292 ]
-  %.0116169 = phi ptr [ %1, %.lr.ph ], [ %288, %292 ]
-  %27 = load i8, ptr %.0116169, align 1, !tbaa !11
+  %.0111169 = phi i32 [ %25, %.lr.ph ], [ %spec.select, %292 ]
+  %.0114168 = phi i1 [ false, %.lr.ph ], [ %285, %292 ]
+  %.0116167 = phi ptr [ %1, %.lr.ph ], [ %288, %292 ]
+  %27 = load i8, ptr %.0116167, align 1, !tbaa !11
   %28 = zext i8 %27 to i32
   %29 = icmp ugt i8 %27, -65
   %or.cond = select i1 %.not, i1 %29, i1 false
@@ -51,7 +51,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
 30:                                               ; preds = %26
   %31 = and i32 %28, 32
   %32 = icmp eq i32 %31, 0
-  %33 = getelementptr inbounds nuw i8, ptr %.0116169, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0116167, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = and i8 %34, 63
   %36 = zext nneg i8 %35 to i32
@@ -73,7 +73,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   %46 = and i32 %45, 61440
   %47 = shl nuw nsw i32 %36, 6
   %48 = or disjoint i32 %47, %46
-  %49 = getelementptr inbounds nuw i8, ptr %.0116169, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.0116167, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !11
   %51 = and i8 %50, 63
   %52 = zext nneg i8 %51 to i32
@@ -90,13 +90,13 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   %59 = and i32 %58, 1835008
   %60 = shl nuw nsw i32 %36, 12
   %61 = or disjoint i32 %60, %59
-  %62 = getelementptr inbounds nuw i8, ptr %.0116169, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.0116167, i64 2
   %63 = load i8, ptr %62, align 1, !tbaa !11
   %64 = and i8 %63, 63
   %65 = zext nneg i8 %64 to i32
   %66 = shl nuw nsw i32 %65, 6
   %67 = or disjoint i32 %61, %66
-  %68 = getelementptr inbounds nuw i8, ptr %.0116169, i64 3
+  %68 = getelementptr inbounds nuw i8, ptr %.0116167, i64 3
   %69 = load i8, ptr %68, align 1, !tbaa !11
   %70 = and i8 %69, 63
   %71 = zext nneg i8 %70 to i32
@@ -106,15 +106,15 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
 73:                                               ; preds = %54
   %74 = and i32 %28, 4
   %75 = icmp eq i32 %74, 0
-  %76 = getelementptr inbounds nuw i8, ptr %.0116169, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.0116167, i64 2
   %77 = load i8, ptr %76, align 1, !tbaa !11
   %78 = and i8 %77, 63
   %79 = zext nneg i8 %78 to i32
-  %80 = getelementptr inbounds nuw i8, ptr %.0116169, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %.0116167, i64 3
   %81 = load i8, ptr %80, align 1, !tbaa !11
   %82 = and i8 %81, 63
   %83 = zext nneg i8 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %.0116169, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.0116167, i64 4
   %85 = load i8, ptr %84, align 1, !tbaa !11
   %86 = and i8 %85, 63
   %87 = zext nneg i8 %86 to i32
@@ -143,7 +143,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   %106 = or disjoint i32 %104, %105
   %107 = shl nuw nsw i32 %87, 6
   %108 = or disjoint i32 %106, %107
-  %109 = getelementptr inbounds nuw i8, ptr %.0116169, i64 5
+  %109 = getelementptr inbounds nuw i8, ptr %.0116167, i64 5
   %110 = load i8, ptr %109, align 1, !tbaa !11
   %111 = and i8 %110, 63
   %112 = zext nneg i8 %111 to i32
@@ -169,7 +169,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %129 = load i8, ptr %128, align 2, !tbaa !8
   %130 = zext i8 %129 to i32
-  %131 = zext nneg i32 %.0111171 to i64
+  %131 = zext nneg i32 %.0111169 to i64
   %132 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gbtable_8, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !12
   %134 = shl nuw i32 1, %130
@@ -178,47 +178,47 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   br i1 %136, label %.thread, label %137
 
 137:                                              ; preds = %114
-  %138 = icmp ne i32 %.0111171, 13
+  %138 = icmp ne i32 %.0111169, 13
   %139 = icmp ne i8 %129, 14
   %or.cond.not126 = or i1 %138, %139
-  %or.cond3 = select i1 %or.cond.not126, i1 true, i1 %.0114170
+  %or.cond3 = select i1 %or.cond.not126, i1 true, i1 %.0114168
   br i1 %or.cond3, label %140, label %.thread
 
 140:                                              ; preds = %137
-  %141 = icmp eq i32 %.0111171, 11
+  %141 = icmp eq i32 %.0111169, 11
   %142 = icmp eq i8 %129, 11
   %or.cond5 = and i1 %141, %142
   br i1 %or.cond5, label %143, label %._crit_edge.thread
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %.0116169, i64 -1
-  br i1 %.not, label %.preheader135, label %.loopexit
+  %144 = getelementptr inbounds i8, ptr %.0116167, i64 -1
+  br i1 %.not, label %.preheader134, label %.loopexit
 
-.preheader135:                                    ; preds = %143, %.preheader135
-  %.1 = phi ptr [ %147, %.preheader135 ], [ %144, %143 ]
+.preheader134:                                    ; preds = %143, %.preheader134
+  %.1 = phi ptr [ %147, %.preheader134 ], [ %144, %143 ]
   %145 = load i8, ptr %.1, align 1, !tbaa !11
   %146 = icmp slt i8 %145, -64
   %147 = getelementptr inbounds i8, ptr %.1, i64 -1
-  br i1 %146, label %.preheader135, label %.loopexit.thread
+  br i1 %146, label %.preheader134, label %.loopexit.thread
 
 .loopexit:                                        ; preds = %143
   %148 = icmp ugt ptr %144, %2
   br i1 %148, label %.lr.ph.split.us.preheader, label %._crit_edge.thread
 
-.loopexit.thread:                                 ; preds = %.preheader135
+.loopexit.thread:                                 ; preds = %.preheader134
   %149 = icmp ugt ptr %.1, %2
   br i1 %149, label %.preheader, label %._crit_edge.thread
 
 .lr.ph.split.us.preheader:                        ; preds = %.loopexit
-  %.0145 = ptrtoint ptr %144 to i64
-  %150 = trunc i64 %.0145 to i32
+  %.0144 = ptrtoint ptr %144 to i64
+  %150 = trunc i64 %.0144 to i32
   %151 = sub i32 %150, %8
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %170
-  %.2138.us = phi ptr [ %152, %170 ], [ %144, %.lr.ph.split.us.preheader ]
-  %.0105137.us = phi i32 [ %171, %170 ], [ 0, %.lr.ph.split.us.preheader ]
-  %152 = getelementptr inbounds i8, ptr %.2138.us, i64 -1
+  %.2137.us = phi ptr [ %152, %170 ], [ %144, %.lr.ph.split.us.preheader ]
+  %.0105136.us = phi i32 [ %171, %170 ], [ 0, %.lr.ph.split.us.preheader ]
+  %152 = getelementptr inbounds i8, ptr %.2137.us, i64 -1
   %153 = load i8, ptr %152, align 1, !tbaa !11
   %154 = zext i8 %153 to i32
   %155 = lshr i32 %154, 7
@@ -240,17 +240,17 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   br i1 %.not127.us, label %170, label %._crit_edge
 
 170:                                              ; preds = %.lr.ph.split.us
-  %171 = add nuw nsw i32 %.0105137.us, 1
+  %171 = add nuw nsw i32 %.0105136.us, 1
   %172 = icmp ugt ptr %152, %2
   br i1 %172, label %.lr.ph.split.us, label %._crit_edge
 
 .preheader:                                       ; preds = %.loopexit.thread, %279
-  %.2138 = phi ptr [ %.3, %279 ], [ %.1, %.loopexit.thread ]
-  %.0105137 = phi i32 [ %280, %279 ], [ 0, %.loopexit.thread ]
+  %.2137 = phi ptr [ %.3, %279 ], [ %.1, %.loopexit.thread ]
+  %.0105136 = phi i32 [ %280, %279 ], [ 0, %.loopexit.thread ]
   br label %173
 
 173:                                              ; preds = %173, %.preheader
-  %.3.pn = phi ptr [ %.3, %173 ], [ %.2138, %.preheader ]
+  %.3.pn = phi ptr [ %.3, %173 ], [ %.2137, %.preheader ]
   %.3 = getelementptr inbounds i8, ptr %.3.pn, i64 -1
   %174 = load i8, ptr %.3, align 1, !tbaa !11
   %175 = zext i8 %174 to i32
@@ -384,25 +384,25 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   br i1 %.not127, label %279, label %._crit_edge
 
 279:                                              ; preds = %263
-  %280 = add nuw nsw i32 %.0105137, 1
+  %280 = add nuw nsw i32 %.0105136, 1
   %281 = icmp ugt ptr %.3, %2
   br i1 %281, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %170, %.lr.ph.split.us, %279, %263
-  %.0105.lcssa = phi i32 [ %.0105137, %263 ], [ %280, %279 ], [ %.0105137.us, %.lr.ph.split.us ], [ %151, %170 ]
+  %.0105.lcssa = phi i32 [ %.0105136, %263 ], [ %280, %279 ], [ %.0105136.us, %.lr.ph.split.us ], [ %151, %170 ]
   %282 = and i32 %.0105.lcssa, 1
   %.not128 = icmp eq i32 %282, 0
   br i1 %.not128, label %._crit_edge.thread, label %.thread
 
 ._crit_edge.thread:                               ; preds = %.loopexit.thread, %.loopexit, %._crit_edge, %140
-  %283 = icmp eq i32 %.0111171, 14
+  %283 = icmp eq i32 %.0111169, 14
   %284 = icmp eq i8 %129, 13
   %285 = and i1 %283, %284
   %286 = icmp ne i8 %129, 3
-  %287 = icmp ne i32 %.0111171, 14
+  %287 = icmp ne i32 %.0111169, 14
   %or.cond7 = select i1 %286, i1 true, i1 %287
   %spec.select = select i1 %or.cond7, i32 %130, i32 14
-  %288 = getelementptr inbounds nuw i8, ptr %.0116169, i64 %.0108
+  %288 = getelementptr inbounds nuw i8, ptr %.0116167, i64 %.0108
   br i1 %.not129, label %292, label %289
 
 289:                                              ; preds = %._crit_edge.thread
@@ -416,7 +416,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   br i1 %293, label %26, label %.thread
 
 .thread:                                          ; preds = %292, %114, %137, %._crit_edge, %6
-  %.0116.lcssa = phi ptr [ %1, %6 ], [ %288, %292 ], [ %.0116169, %114 ], [ %.0116169, %137 ], [ %.0116169, %._crit_edge ]
+  %.0116.lcssa = phi ptr [ %1, %6 ], [ %288, %292 ], [ %.0116167, %114 ], [ %.0116167, %137 ], [ %.0116167, %._crit_edge ]
   ret ptr %.0116.lcssa
 }
 

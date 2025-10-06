@@ -276,16 +276,16 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   br i1 %.not.i, label %.preheader, label %7
 
 .preheader:                                       ; preds = %9
-  %.not92110 = icmp eq ptr %6, null
-  br i1 %.not92110, label %g_list_shorter_than.exit, label %.lr.ph
+  %.not92113 = icmp eq ptr %6, null
+  br i1 %.not92113, label %g_list_shorter_than.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %137
-  %.084111 = phi ptr [ %33, %137 ], [ %6, %.preheader ]
-  %13 = load ptr, ptr %.084111, align 8, !tbaa !31
+  %.084114 = phi ptr [ %33, %137 ], [ %6, %.preheader ]
+  %13 = load ptr, ptr %.084114, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = tail call i32 @g_date_time_compare(ptr noundef %1, ptr noundef %15) #11
-  %17 = getelementptr inbounds nuw i8, ptr %.084111, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.084114, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %18, null
   %20 = icmp slt i32 %16, 1

@@ -8193,26 +8193,26 @@ define void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112basic_str
   %4 = load i64, ptr %3, align 8, !tbaa !14
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = icmp sgt i64 %4, 0
-  br i1 %6, label %.lr.ph, label %.thread81
+  br i1 %6, label %.lr.ph, label %.thread80
 
 ._crit_edge:                                      ; preds = %.backedge
   %7 = trunc nuw i8 %.054.be to i1
   br i1 %7, label %52, label %46
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %.074 = phi i64 [ %.0.be, %.backedge ], [ 0, %2 ]
-  %.05473 = phi i8 [ %.054.be, %.backedge ], [ 0, %2 ]
-  %.05772 = phi i64 [ %.057.be, %.backedge ], [ 0, %2 ]
-  %8 = trunc nuw i8 %.05473 to i1
+  %.073 = phi i64 [ %.0.be, %.backedge ], [ 0, %2 ]
+  %.05472 = phi i8 [ %.054.be, %.backedge ], [ 0, %2 ]
+  %.05771 = phi i64 [ %.057.be, %.backedge ], [ 0, %2 ]
+  %8 = trunc nuw i8 %.05472 to i1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = add nsw i64 %.05772, 8
+  %10 = add nsw i64 %.05771, 8
   %11 = icmp slt i64 %10, %4
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %5, i64 %.05772
+  %13 = getelementptr inbounds i8, ptr %5, i64 %.05771
   %.0.copyload.i = load i64, ptr %13, align 1
   %14 = sub i64 1012762419733073421, %.0.copyload.i
   %15 = or i64 %14, %.0.copyload.i
@@ -8221,20 +8221,20 @@ define void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112basic_str
   br i1 %.not64, label %17, label %.thread
 
 17:                                               ; preds = %12
-  %.not65 = icmp eq i64 %.074, %.05772
+  %.not65 = icmp eq i64 %.073, %.05771
   br i1 %.not65, label %20, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %5, i64 %.074
+  %19 = getelementptr inbounds i8, ptr %5, i64 %.073
   store i64 %.0.copyload.i, ptr %19, align 1
   br label %20
 
 20:                                               ; preds = %17, %18
-  %21 = add nsw i64 %.074, 8
+  %21 = add nsw i64 %.073, 8
   br label %.backedge
 
 .thread:                                          ; preds = %12, %9, %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %5, i64 %.05772
+  %22 = getelementptr inbounds i8, ptr %5, i64 %.05771
   %23 = load i8, ptr %22, align 1, !tbaa !11
   switch i8 %23, label %32 [
     i8 13, label %24
@@ -8245,36 +8245,36 @@ define void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112basic_str
   br i1 %8, label %25, label %43
 
 25:                                               ; preds = %24
-  %26 = add nsw i64 %.074, 1
-  %27 = getelementptr inbounds i8, ptr %5, i64 %.074
+  %26 = add nsw i64 %.073, 1
+  %27 = getelementptr inbounds i8, ptr %5, i64 %.073
   store i8 10, ptr %27, align 1, !tbaa !11
   br label %43
 
 28:                                               ; preds = %.thread
-  %.not67 = icmp eq i64 %.05772, %.074
+  %.not67 = icmp eq i64 %.05771, %.073
   br i1 %.not67, label %31, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %5, i64 %.074
+  %30 = getelementptr inbounds i8, ptr %5, i64 %.073
   store i8 10, ptr %30, align 1, !tbaa !11
   br label %31
 
 31:                                               ; preds = %28, %29
-  %.5 = add nsw i64 %.074, 1
+  %.5 = add nsw i64 %.073, 1
   br label %43
 
 32:                                               ; preds = %.thread
   br i1 %8, label %33, label %36
 
 33:                                               ; preds = %32
-  %34 = add nsw i64 %.074, 1
-  %35 = getelementptr inbounds i8, ptr %5, i64 %.074
+  %34 = add nsw i64 %.073, 1
+  %35 = getelementptr inbounds i8, ptr %5, i64 %.073
   store i8 10, ptr %35, align 1, !tbaa !11
   br label %36
 
 36:                                               ; preds = %33, %32
-  %.6 = phi i64 [ %34, %33 ], [ %.074, %32 ]
-  %.not66 = icmp eq i64 %.05772, %.6
+  %.6 = phi i64 [ %34, %33 ], [ %.073, %32 ]
+  %.not66 = icmp eq i64 %.05771, %.6
   br i1 %.not66, label %41, label %37
 
 37:                                               ; preds = %36
@@ -8285,13 +8285,13 @@ define void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112basic_str
   br label %43
 
 41:                                               ; preds = %36
-  %42 = add nsw i64 %.05772, 1
+  %42 = add nsw i64 %.05771, 1
   br label %43
 
 43:                                               ; preds = %24, %25, %31, %41, %37
   %.155 = phi i8 [ 0, %31 ], [ 0, %37 ], [ 0, %41 ], [ 1, %25 ], [ 1, %24 ]
-  %.4 = phi i64 [ %.5, %31 ], [ %39, %37 ], [ %42, %41 ], [ %26, %25 ], [ %.074, %24 ]
-  %44 = add nsw i64 %.05772, 1
+  %.4 = phi i64 [ %.5, %31 ], [ %39, %37 ], [ %42, %41 ], [ %26, %25 ], [ %.073, %24 ]
+  %44 = add nsw i64 %.05771, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %43, %20
@@ -8304,14 +8304,14 @@ define void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112basic_str
 46:                                               ; preds = %._crit_edge
   %47 = icmp sgt i64 %.0.be, 0
   %or.cond = select i1 %1, i1 %47, i1 false
-  br i1 %or.cond, label %48, label %.thread81
+  br i1 %or.cond, label %48, label %.thread80
 
 48:                                               ; preds = %46
   %49 = getelementptr i8, ptr %5, i64 %.0.be
   %50 = getelementptr i8, ptr %49, i64 -1
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %.not = icmp eq i8 %51, 10
-  br i1 %.not, label %.thread81, label %52
+  br i1 %.not, label %.thread80, label %52
 
 52:                                               ; preds = %48, %._crit_edge
   %53 = add nsw i64 %.0.be, 1
@@ -8321,16 +8321,16 @@ define void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112basic_str
   store i8 10, ptr %55, align 1, !tbaa !11
   br label %58
 
-.thread81:                                        ; preds = %2, %48, %46
-  %.0.lcssa7984 = phi i64 [ %.0.be, %48 ], [ %.0.be, %46 ], [ 0, %2 ]
-  %56 = icmp slt i64 %.0.lcssa7984, %4
+.thread80:                                        ; preds = %2, %48, %46
+  %.0.lcssa7883 = phi i64 [ %.0.be, %48 ], [ %.0.be, %46 ], [ 0, %2 ]
+  %56 = icmp slt i64 %.0.lcssa7883, %4
   br i1 %56, label %57, label %58
 
-57:                                               ; preds = %.thread81
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.lcssa7984, i8 noundef signext 0)
+57:                                               ; preds = %.thread80
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.lcssa7883, i8 noundef signext 0)
   br label %58
 
-58:                                               ; preds = %.thread81, %57, %52
+58:                                               ; preds = %.thread80, %57, %52
   ret void
 }
 

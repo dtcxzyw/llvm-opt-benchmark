@@ -4062,17 +4062,17 @@ _ZN2cv4gapi11deserializeISt6vectorINS_11GCompileArgESaIS3_EEJ16SimpleCustomType1
   %1213 = load ptr, ptr %16, align 8, !tbaa !147, !noalias !148
   %1214 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %1215 = load ptr, ptr %1214, align 8, !tbaa !147, !noalias !148
-  %.not13.i.i = icmp eq ptr %1213, %1215
-  br i1 %.not13.i.i, label %.loopexit.i272, label %.lr.ph.i.i
+  %.not11.i.i = icmp eq ptr %1213, %1215
+  br i1 %.not11.i.i, label %.loopexit.i272, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN2cv4gapi11deserializeISt6vectorINS_11GCompileArgESaIS3_EEJ16SimpleCustomType17SimpleCustomType2EEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueES5_E4typeERKS2_IcSaIcEE.exit.i, %.critedge.i.i
-  %.sroa.06.014.i.i = phi ptr [ %1226, %.critedge.i.i ], [ %1213, %_ZN2cv4gapi11deserializeISt6vectorINS_11GCompileArgESaIS3_EEJ16SimpleCustomType17SimpleCustomType2EEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueES5_E4typeERKS2_IcSaIcEE.exit.i ]
-  %1216 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.014.i.i, ptr noundef nonnull @.str.12) #29, !noalias !148
+  %.sroa.06.012.i.i = phi ptr [ %1226, %.critedge.i.i ], [ %1213, %_ZN2cv4gapi11deserializeISt6vectorINS_11GCompileArgESaIS3_EEJ16SimpleCustomType17SimpleCustomType2EEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueES5_E4typeERKS2_IcSaIcEE.exit.i ]
+  %1216 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.012.i.i, ptr noundef nonnull @.str.12) #29, !noalias !148
   %1217 = icmp eq i32 %1216, 0
   br i1 %1217, label %1218, label %.critedge.i.i
 
 1218:                                             ; preds = %.lr.ph.i.i
-  %1219 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i, i64 64
+  %1219 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 64
   %1220 = load ptr, ptr %1219, align 8, !tbaa !51, !noalias !148
   %1221 = icmp eq ptr %1220, null
   br i1 %1221, label %_ZN2cv4util8any_castI16SimpleCustomTypeEEPKT_PKNS0_3anyE.exit.thread.i.i.i.i, label %_ZN2cv4util8any_castI16SimpleCustomTypeEEPKT_PKNS0_3anyE.exit.i.i.i.i
@@ -4099,7 +4099,7 @@ _ZN2cv4util8any_castI16SimpleCustomTypeEEPKT_PKNS0_3anyE.exit.thread.i.i.i.i: ; 
   br label %.body.i273
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %1226 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i, i64 72
+  %1226 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 72
   %.not.i.i271 = icmp eq ptr %1226, %1215
   br i1 %.not.i.i271, label %.loopexit.i272, label %.lr.ph.i.i
 
@@ -4125,17 +4125,17 @@ _ZN2cv4util8optionalI16SimpleCustomTypeED2Ev.exit.i: ; preds = %_ZN2cv4util8any_
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %1229 = load ptr, ptr %16, align 8, !tbaa !147, !noalias !151
   %1230 = load ptr, ptr %1214, align 8, !tbaa !147, !noalias !151
-  %.not13.i32.i = icmp eq ptr %1229, %1230
-  br i1 %.not13.i32.i, label %_ZN2cv4gapi13getCompileArgI17SimpleCustomType2EENS_4util8optionalIT_EERKSt6vectorINS_11GCompileArgESaIS8_EE.exit.thread.i, label %.lr.ph.i33.i
+  %.not11.i32.i = icmp eq ptr %1229, %1230
+  br i1 %.not11.i32.i, label %_ZN2cv4gapi13getCompileArgI17SimpleCustomType2EENS_4util8optionalIT_EERKSt6vectorINS_11GCompileArgESaIS8_EE.exit.thread.i, label %.lr.ph.i33.i
 
 .lr.ph.i33.i:                                     ; preds = %_ZN2cv4util8optionalI16SimpleCustomTypeED2Ev.exit.i, %.critedge.i35.i
-  %.sroa.06.014.i34.i = phi ptr [ %1246, %.critedge.i35.i ], [ %1229, %_ZN2cv4util8optionalI16SimpleCustomTypeED2Ev.exit.i ]
-  %1231 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.014.i34.i, ptr noundef nonnull @.str.14) #29, !noalias !151
+  %.sroa.06.012.i34.i = phi ptr [ %1246, %.critedge.i35.i ], [ %1229, %_ZN2cv4util8optionalI16SimpleCustomTypeED2Ev.exit.i ]
+  %1231 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.012.i34.i, ptr noundef nonnull @.str.14) #29, !noalias !151
   %1232 = icmp eq i32 %1231, 0
   br i1 %1232, label %1233, label %.critedge.i35.i
 
 1233:                                             ; preds = %.lr.ph.i33.i
-  %1234 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i34.i, i64 64
+  %1234 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i34.i, i64 64
   %1235 = load ptr, ptr %1234, align 8, !tbaa !51, !noalias !151
   %1236 = icmp eq ptr %1235, null
   br i1 %1236, label %_ZN2cv4util8any_castI17SimpleCustomType2EEPKT_PKNS0_3anyE.exit.thread.i.i.i.i, label %_ZN2cv4util8any_castI17SimpleCustomType2EEPKT_PKNS0_3anyE.exit.i.i.i.i
@@ -4176,7 +4176,7 @@ _ZNK2cv11GCompileArg3getI17SimpleCustomType2EERKT_v.exit.i.i: ; preds = %_ZN2cv4
   unreachable
 
 .critedge.i35.i:                                  ; preds = %.lr.ph.i33.i
-  %1246 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i34.i, i64 72
+  %1246 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i34.i, i64 72
   %.not.i36.i = icmp eq ptr %1246, %1230
   br i1 %.not.i36.i, label %_ZN2cv4gapi13getCompileArgI17SimpleCustomType2EENS_4util8optionalIT_EERKSt6vectorINS_11GCompileArgESaIS8_EE.exit.thread.i, label %.lr.ph.i33.i
 

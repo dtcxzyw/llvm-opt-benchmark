@@ -794,8 +794,8 @@ define dso_local ptr @findNotNullConstraintAttnum(i32 noundef %0, i16 noundef si
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 9, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #10
   %6 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #10
   %7 = call ptr @systable_getnext(ptr noundef %6) #10
-  %.not23 = icmp eq ptr %7, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph
+  %.not21 = icmp eq ptr %7, null
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %41
   %8 = phi ptr [ %42, %41 ], [ %7, %2 ]
@@ -940,8 +940,8 @@ define dso_local ptr @findDomainNotNullConstraint(i32 noundef %0) local_unnamed_
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 10, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #10
   %5 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #10
   %6 = call ptr @systable_getnext(ptr noundef %5) #10
-  %.not18 = icmp eq ptr %6, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  %.not16 = icmp eq ptr %6, null
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %20
   %7 = phi ptr [ %21, %20 ], [ %6, %1 ]
@@ -2014,8 +2014,8 @@ define dso_local i32 @get_relation_idx_constraint_oid(i32 noundef %0, i32 nounde
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 9, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #10
   %6 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #10
   %7 = call ptr @systable_getnext(ptr noundef %6) #10
-  %.not23 = icmp eq ptr %7, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph
+  %.not21 = icmp eq ptr %7, null
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %21
   %8 = phi ptr [ %22, %21 ], [ %7, %2 ]
@@ -2115,8 +2115,8 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 9, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #10
   %8 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #10
   %9 = call ptr @systable_getnext(ptr noundef %8) #10
-  %.not4154 = icmp eq ptr %9, null
-  br i1 %.not4154, label %.loopexit, label %.lr.ph
+  %.not4152 = icmp eq ptr %9, null
+  br i1 %.not4152, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %67
   %10 = phi ptr [ %68, %67 ], [ %9, %3 ]
@@ -2193,27 +2193,27 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %.not72 = icmp eq i32 %41, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph57.preheader
+  %.not70 = icmp eq i32 %41, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph55.preheader
 
-.lr.ph57.preheader:                               ; preds = %55
+.lr.ph55.preheader:                               ; preds = %55
   %wide.trip.count = zext nneg i32 %41 to i64
-  br label %.lr.ph57
+  br label %.lr.ph55
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
-  %indvars.iv = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next, %.lr.ph57 ]
-  %.355 = phi ptr [ null, %.lr.ph57.preheader ], [ %61, %.lr.ph57 ]
+.lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
+  %indvars.iv = phi i64 [ 0, %.lr.ph55.preheader ], [ %indvars.iv.next, %.lr.ph55 ]
+  %.353 = phi ptr [ null, %.lr.ph55.preheader ], [ %61, %.lr.ph55 ]
   %57 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %59, 7
-  %61 = call ptr @bms_add_member(ptr noundef %.355, i32 noundef %60) #10
+  %61 = call ptr @bms_add_member(ptr noundef %.353, i32 noundef %60) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph57, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph55, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %.lr.ph57, %55
-  %.3.lcssa = phi ptr [ null, %55 ], [ %61, %.lr.ph57 ]
+._crit_edge:                                      ; preds = %.lr.ph55, %55
+  %.3.lcssa = phi ptr [ null, %55 ], [ %61, %.lr.ph55 ]
   %.val = load ptr, ptr %19, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %63 = load i8, ptr %62, align 2

@@ -381,11 +381,11 @@ define internal fastcc void @_update(ptr noundef %0) unnamed_addr #1 {
 32:                                               ; preds = %26, %22
   %33 = load ptr, ptr %2, align 8, !tbaa !97
   %34 = call i32 @sqlite3_step(ptr noundef %33) #10
-  %.not3942 = icmp eq i32 %34, 100
-  br i1 %.not3942, label %.lr.ph, label %.critedge
+  %.not3841 = icmp eq i32 %34, 100
+  br i1 %.not3841, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %32, %48
-  %.02943 = phi i32 [ %44, %48 ], [ 0, %32 ]
+  %.02942 = phi i32 [ %44, %48 ], [ 0, %32 ]
   %35 = load ptr, ptr %2, align 8, !tbaa !97
   %36 = call ptr @sqlite3_column_blob(ptr noundef %35, i32 noundef 0) #10
   %37 = load ptr, ptr %2, align 8, !tbaa !97
@@ -396,7 +396,7 @@ define internal fastcc void @_update(ptr noundef %0) unnamed_addr #1 {
   %42 = call ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef %36, i64 noundef %41) #10
   %43 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %42) #10
   call void @g_list_free(ptr noundef %42) #10
-  %44 = add nuw nsw i32 %.02943, 1
+  %44 = add nuw nsw i32 %.02942, 1
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %43) #13
   %.not34 = icmp eq i32 %45, 0
   br i1 %.not34, label %.thread, label %48
@@ -414,8 +414,8 @@ define internal fastcc void @_update(ptr noundef %0) unnamed_addr #1 {
   call void @g_free(ptr noundef nonnull %43) #10
   %49 = load ptr, ptr %2, align 8, !tbaa !97
   %50 = call i32 @sqlite3_step(ptr noundef %49) #10
-  %.not39 = icmp eq i32 %50, 100
-  br i1 %.not39, label %.lr.ph, label %.critedge
+  %.not38 = icmp eq i32 %50, 100
+  br i1 %.not38, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %48, %32
   %51 = load ptr, ptr %2, align 8, !tbaa !97

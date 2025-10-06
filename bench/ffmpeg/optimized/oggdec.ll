@@ -252,10 +252,9 @@ ogg_gptopts.exit:                                 ; preds = %58, %59
   %97 = getelementptr inbounds nuw %struct.ogg_stream, ptr %95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %99 = load i64, ptr %98, align 8, !tbaa !64
-  switch i64 %99, label %100 [
-    i64 -1, label %137
-    i64 0, label %137
-  ]
+  %.off.i = add i64 %99, -1
+  %switch.i = icmp ult i64 %.off.i, -2
+  br i1 %switch.i, label %100, label %137
 
 100:                                              ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 96
@@ -329,8 +328,8 @@ ogg_gptopts.exit.i:                               ; preds = %115, %114
   %136 = add nsw i32 %.05276.i, 1
   br label %137
 
-137:                                              ; preds = %135, %130, %122, %100, %94, %94, %91
-  %.1.i52 = phi i32 [ %129, %122 ], [ %.05276.i, %130 ], [ %136, %135 ], [ %.05276.i, %100 ], [ %.05276.i, %94 ], [ %.05276.i, %91 ], [ %.05276.i, %94 ]
+137:                                              ; preds = %135, %130, %122, %100, %94, %91
+  %.1.i52 = phi i32 [ %129, %122 ], [ %.05276.i, %130 ], [ %136, %135 ], [ %.05276.i, %100 ], [ %.05276.i, %91 ], [ %.05276.i, %94 ]
   %138 = call fastcc i32 @ogg_read_page(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1)
   %.not63.i = icmp eq i32 %138, 0
   br i1 %.not63.i, label %91, label %._crit_edge.i, !llvm.loop !67

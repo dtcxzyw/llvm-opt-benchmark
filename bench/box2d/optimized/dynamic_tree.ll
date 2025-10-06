@@ -245,8 +245,8 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
   %25 = getelementptr inbounds %struct.b2TreeNode, ptr %13, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 36
   %27 = load i16, ptr %26, align 4, !tbaa !33
-  %.not20.i = icmp eq i16 %27, 0
-  br i1 %.not20.i, label %b2FindBestSibling.exit, label %.lr.ph.preheader.i
+  %.not19.i = icmp eq i16 %27, 0
+  br i1 %.not19.i, label %b2FindBestSibling.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %12
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -277,22 +277,22 @@ define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 nou
 
 .lr.ph.i:                                         ; preds = %137, %.lr.ph.preheader.i
   %44 = phi ptr [ %140, %137 ], [ %25, %.lr.ph.preheader.i ]
-  %.026.i = phi float [ %.2.i, %137 ], [ %43, %.lr.ph.preheader.i ]
-  %.010625.i = phi float [ %.2108.i, %137 ], [ %39, %.lr.ph.preheader.i ]
-  %.010924.i = phi float [ %52, %137 ], [ 0.000000e+00, %.lr.ph.preheader.i ]
-  %.011023.i = phi i32 [ %.610.i, %137 ], [ %5, %.lr.ph.preheader.i ]
-  %.011422.i = phi float [ %.51198.i, %137 ], [ %39, %.lr.ph.preheader.i ]
-  %.012121.i = phi i32 [ %.2123.i, %137 ], [ %5, %.lr.ph.preheader.i ]
+  %.025.i = phi float [ %.2.i, %137 ], [ %43, %.lr.ph.preheader.i ]
+  %.010624.i = phi float [ %.2108.i, %137 ], [ %39, %.lr.ph.preheader.i ]
+  %.010923.i = phi float [ %52, %137 ], [ 0.000000e+00, %.lr.ph.preheader.i ]
+  %.011022.i = phi i32 [ %.610.i, %137 ], [ %5, %.lr.ph.preheader.i ]
+  %.011421.i = phi float [ %.51198.i, %137 ], [ %39, %.lr.ph.preheader.i ]
+  %.012120.i = phi i32 [ %.2123.i, %137 ], [ %5, %.lr.ph.preheader.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !41
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %48 = load i32, ptr %47, align 8, !tbaa !16
-  %49 = fadd float %.010625.i, %.010924.i
-  %50 = fcmp olt float %49, %.011422.i
-  %.1115.i = select i1 %50, float %49, float %.011422.i
-  %.2112.i = select i1 %50, i32 %.012121.i, i32 %.011023.i
-  %51 = fsub float %.010625.i, %.026.i
-  %52 = fadd float %.010924.i, %51
+  %49 = fadd float %.010624.i, %.010923.i
+  %50 = fcmp olt float %49, %.011421.i
+  %.1115.i = select i1 %50, float %49, float %.011421.i
+  %.2112.i = select i1 %50, i32 %.012120.i, i32 %.011022.i
+  %51 = fsub float %.010624.i, %.025.i
+  %52 = fadd float %.010923.i, %51
   %53 = sext i32 %46 to i64
   %54 = getelementptr inbounds %struct.b2TreeNode, ptr %13, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
@@ -2872,9 +2872,9 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   br label %215
 
 215:                                              ; preds = %214, %155
-  %.sink126.i = phi i64 [ 12, %214 ], [ 8, %155 ]
+  %.sink125.i = phi i64 [ 12, %214 ], [ 8, %155 ]
   %.sink.i = phi i64 [ 16, %214 ], [ 12, %155 ]
-  %216 = getelementptr inbounds nuw i8, ptr %153, i64 %.sink126.i
+  %216 = getelementptr inbounds nuw i8, ptr %153, i64 %.sink125.i
   %217 = getelementptr inbounds nuw i8, ptr %153, i64 %.sink.i
   %.099.i = load i32, ptr %216, align 4, !tbaa !39
   %.0100.i = load i32, ptr %217, align 4, !tbaa !39

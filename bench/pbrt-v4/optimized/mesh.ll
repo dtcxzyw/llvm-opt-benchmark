@@ -11435,9 +11435,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !360
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !72
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11451,9 +11451,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.042 = load ptr, ptr %16, align 8, !tbaa !367
-  %.not43 = icmp eq ptr %.sroa.028.042, null
-  br i1 %.not43, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.sroa.028.040 = load ptr, ptr %16, align 8, !tbaa !367
+  %.not41 = icmp eq ptr %.sroa.028.040, null
+  br i1 %.not41, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11470,15 +11470,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread
-  %.sroa.028.044 = phi ptr [ %.sroa.028.042, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 16
+  %.sroa.028.042 = phi ptr [ %.sroa.028.040, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !69
   %27 = icmp eq i64 %18, %26
   br i1 %27, label %28, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !72
   %31 = icmp eq i64 %20, %30
   br i1 %31, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread
@@ -11490,7 +11490,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityE
   br i1 %33, label %_ZNKSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_12BufferHasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread: ; preds = %23, %28, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.044, align 8, !tbaa !367
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.042, align 8, !tbaa !367
   %.not = icmp eq ptr %.sroa.028.0, null
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !375
 
@@ -11501,7 +11501,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityE
   %37 = urem i64 %34, %36
   br label %.critedge
 
-38:                                               ; preds = %.thread36
+38:                                               ; preds = %.thread34
   %39 = load ptr, ptr %14, align 8, !tbaa !367
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
@@ -11548,9 +11548,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityE
   %.not19.i.i = icmp eq i64 %63, %11
   br i1 %.not19.i.i, label %44, label %.critedge, !llvm.loop !376
 
-.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread36
-  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread36 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
-  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread36 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
+.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread34
+  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread34 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
+  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread34 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
   %66 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   store ptr null, ptr %66, align 8, !tbaa !367
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -11565,7 +11565,7 @@ _ZNSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_Identity
   resume { ptr, i32 } %69
 
 _ZNKSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_12BufferHasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit, %.critedge
-  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.044, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.i.i ]
+  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.042, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.i.i ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheIiE6BufferES4_NS_9_IdentityESt8equal_toIS4_ENS3_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
@@ -11902,9 +11902,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !383
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11918,9 +11918,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.042 = load ptr, ptr %16, align 8, !tbaa !367
-  %.not43 = icmp eq ptr %.sroa.028.042, null
-  br i1 %.not43, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.sroa.028.040 = load ptr, ptr %16, align 8, !tbaa !367
+  %.not41 = icmp eq ptr %.sroa.028.040, null
+  br i1 %.not41, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11937,15 +11937,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
-  %.sroa.028.044 = phi ptr [ %.sroa.028.042, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 16
+  %.sroa.028.042 = phi ptr [ %.sroa.028.040, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !79
   %27 = icmp eq i64 %18, %26
   br i1 %27, label %28, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !80
   %31 = icmp eq i64 %20, %30
   br i1 %31, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
@@ -11957,7 +11957,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_
   br i1 %33, label %_ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread: ; preds = %23, %28, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.044, align 8, !tbaa !367
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.042, align 8, !tbaa !367
   %.not = icmp eq ptr %.sroa.028.0, null
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !389
 
@@ -11968,7 +11968,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_
   %37 = urem i64 %34, %36
   br label %.critedge
 
-38:                                               ; preds = %.thread36
+38:                                               ; preds = %.thread34
   %39 = load ptr, ptr %14, align 8, !tbaa !367
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
@@ -12015,9 +12015,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_
   %.not19.i.i = icmp eq i64 %63, %11
   br i1 %.not19.i.i, label %44, label %.critedge, !llvm.loop !390
 
-.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread36
-  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread36 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
-  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread36 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
+.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread34
+  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread34 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
+  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread34 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
   %66 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   store ptr null, ptr %66, align 8, !tbaa !367
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -12032,7 +12032,7 @@ _ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__de
   resume { ptr, i32 } %69
 
 _ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %.critedge
-  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.044, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
+  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.042, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
@@ -15120,9 +15120,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !479
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15136,9 +15136,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.042 = load ptr, ptr %16, align 8, !tbaa !367
-  %.not43 = icmp eq ptr %.sroa.028.042, null
-  br i1 %.not43, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.sroa.028.040 = load ptr, ptr %16, align 8, !tbaa !367
+  %.not41 = icmp eq ptr %.sroa.028.040, null
+  br i1 %.not41, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -15155,15 +15155,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
-  %.sroa.028.044 = phi ptr [ %.sroa.028.042, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 16
+  %.sroa.028.042 = phi ptr [ %.sroa.028.040, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !88
   %27 = icmp eq i64 %18, %26
   br i1 %27, label %28, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !89
   %31 = icmp eq i64 %20, %30
   br i1 %31, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
@@ -15175,7 +15175,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_
   br i1 %33, label %_ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_6Point2IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread: ; preds = %23, %28, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.044, align 8, !tbaa !367
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.042, align 8, !tbaa !367
   %.not = icmp eq ptr %.sroa.028.0, null
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !485
 
@@ -15186,7 +15186,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_
   %37 = urem i64 %34, %36
   br label %.critedge
 
-38:                                               ; preds = %.thread36
+38:                                               ; preds = %.thread34
   %39 = load ptr, ptr %14, align 8, !tbaa !367
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
@@ -15233,9 +15233,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_
   %.not19.i.i = icmp eq i64 %63, %11
   br i1 %.not19.i.i, label %44, label %.critedge, !llvm.loop !486
 
-.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread36
-  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread36 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
-  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread36 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
+.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread34
+  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread34 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
+  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread34 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
   %66 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   store ptr null, ptr %66, align 8, !tbaa !367
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -15250,7 +15250,7 @@ _ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point2IfEEE6BufferES5_SaIS5_ENSt8__de
   resume { ptr, i32 } %69
 
 _ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_6Point2IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %.critedge
-  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.044, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
+  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.042, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_6Point2IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
@@ -17814,9 +17814,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !559
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !98
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17830,9 +17830,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.042 = load ptr, ptr %16, align 8, !tbaa !367
-  %.not43 = icmp eq ptr %.sroa.028.042, null
-  br i1 %.not43, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.sroa.028.040 = load ptr, ptr %16, align 8, !tbaa !367
+  %.not41 = icmp eq ptr %.sroa.028.040, null
+  br i1 %.not41, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -17849,15 +17849,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
-  %.sroa.028.044 = phi ptr [ %.sroa.028.042, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 16
+  %.sroa.028.042 = phi ptr [ %.sroa.028.040, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !97
   %27 = icmp eq i64 %18, %26
   br i1 %27, label %28, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !98
   %31 = icmp eq i64 %20, %30
   br i1 %31, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
@@ -17869,7 +17869,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6
   br i1 %33, label %_ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_7Normal3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread: ; preds = %23, %28, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.044, align 8, !tbaa !367
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.042, align 8, !tbaa !367
   %.not = icmp eq ptr %.sroa.028.0, null
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !565
 
@@ -17880,7 +17880,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6
   %37 = urem i64 %34, %36
   br label %.critedge
 
-38:                                               ; preds = %.thread36
+38:                                               ; preds = %.thread34
   %39 = load ptr, ptr %14, align 8, !tbaa !367
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
@@ -17927,9 +17927,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6
   %.not19.i.i = icmp eq i64 %63, %11
   br i1 %.not19.i.i, label %44, label %.critedge, !llvm.loop !566
 
-.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread36
-  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread36 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
-  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread36 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
+.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread34
+  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread34 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
+  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread34 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
   %66 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   store ptr null, ptr %66, align 8, !tbaa !367
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -17944,7 +17944,7 @@ _ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Normal3IfEEE6BufferES5_SaIS5_ENSt8__d
   resume { ptr, i32 } %69
 
 _ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_7Normal3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %.critedge
-  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.044, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
+  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.042, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Normal3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
@@ -18263,9 +18263,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !571
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !104
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18279,9 +18279,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.042 = load ptr, ptr %16, align 8, !tbaa !367
-  %.not43 = icmp eq ptr %.sroa.028.042, null
-  br i1 %.not43, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.sroa.028.040 = load ptr, ptr %16, align 8, !tbaa !367
+  %.not41 = icmp eq ptr %.sroa.028.040, null
+  br i1 %.not41, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18298,15 +18298,15 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCache
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
-  %.sroa.028.044 = phi ptr [ %.sroa.028.042, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 16
+  %.sroa.028.042 = phi ptr [ %.sroa.028.040, %.lr.ph ], [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !103
   %27 = icmp eq i64 %18, %26
   br i1 %27, label %28, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !104
   %31 = icmp eq i64 %20, %30
   br i1 %31, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
@@ -18318,7 +18318,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6
   br i1 %33, label %_ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_7Vector3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread: ; preds = %23, %28, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.044, align 8, !tbaa !367
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.042, align 8, !tbaa !367
   %.not = icmp eq ptr %.sroa.028.0, null
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !577
 
@@ -18329,7 +18329,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6
   %37 = urem i64 %34, %36
   br label %.critedge
 
-38:                                               ; preds = %.thread36
+38:                                               ; preds = %.thread34
   %39 = load ptr, ptr %14, align 8, !tbaa !367
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
@@ -18376,9 +18376,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6
   %.not19.i.i = icmp eq i64 %63, %11
   br i1 %.not19.i.i, label %44, label %.critedge, !llvm.loop !578
 
-.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread36
-  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread36 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
-  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread36 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
+.critedge:                                        ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %._crit_edge, %.thread34
+  %64 = phi i64 [ %37, %._crit_edge ], [ %11, %.thread34 ], [ %11, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %11, %60 ]
+  %65 = phi i64 [ %34, %._crit_edge ], [ %8, %.thread34 ], [ %8, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ], [ %8, %60 ]
   %66 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   store ptr null, ptr %66, align 8, !tbaa !367
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -18393,7 +18393,7 @@ _ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Vector3IfEEE6BufferES5_SaIS5_ENSt8__d
   resume { ptr, i32 } %69
 
 _ZNKSt10_HashtableIN4pbrt11BufferCacheINS0_7Vector3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %.critedge
-  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.044, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
+  %.sroa.031.1 = phi ptr [ %68, %.critedge ], [ %.sroa.028.042, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4pbrt11BufferCacheINS1_7Vector3IfEEE6BufferES6_NS_9_IdentityESt8equal_toIS6_ENS5_12BufferHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1

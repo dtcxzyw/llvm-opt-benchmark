@@ -1441,35 +1441,35 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not119 = icmp eq ptr %11, null
-  br i1 %.not119, label %.critedge, label %.lr.ph166
+  br i1 %.not119, label %.critedge, label %.lr.ph163
 
-.lr.ph166:                                        ; preds = %9
+.lr.ph163:                                        ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = icmp sgt i32 %13, 0
-  br i1 %15, label %.lr.ph172, label %.critedge
+  br i1 %15, label %.lr.ph169, label %.critedge
 
-.lr.ph172:                                        ; preds = %.lr.ph166
+.lr.ph169:                                        ; preds = %.lr.ph163
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
-  %wide.trip.count190 = zext nneg i32 %13 to i64
+  %wide.trip.count187 = zext nneg i32 %13 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph172, %._crit_edge161.split.us
-  %indvars.iv187 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next188, %._crit_edge161.split.us ]
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv187
+18:                                               ; preds = %.lr.ph169, %._crit_edge158.split.us
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next185, %._crit_edge158.split.us ]
+  %19 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv184
   %20 = load ptr, ptr %19, align 8
   %.not121 = icmp eq ptr %20, null
-  br i1 %.not121, label %._crit_edge161.split.us, label %.lr.ph160
+  br i1 %.not121, label %._crit_edge158.split.us, label %.lr.ph157
 
-.lr.ph160:                                        ; preds = %18
+.lr.ph157:                                        ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph163, label %._crit_edge161.split.us
+  br i1 %23, label %.lr.ph160, label %._crit_edge158.split.us
 
-.lr.ph163:                                        ; preds = %.lr.ph160
+.lr.ph160:                                        ; preds = %.lr.ph157
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %14, align 8
@@ -1477,13 +1477,13 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   br label %28
 
 27:                                               ; preds = %28
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge161.split.us, label %28
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge158.split.us, label %28
 
-28:                                               ; preds = %.lr.ph163, %27
-  %indvars.iv184 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next185, %27 ]
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv184
+28:                                               ; preds = %.lr.ph160, %27
+  %indvars.iv181 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next182, %27 ]
+  %29 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv181
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -1491,28 +1491,28 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   %.not123 = icmp eq i32 %33, 0
   br i1 %.not123, label %.critedge.thread, label %27
 
-._crit_edge161.split.us:                          ; preds = %27, %.lr.ph160, %18
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
-  %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %.critedge, label %18
+._crit_edge158.split.us:                          ; preds = %27, %.lr.ph157, %18
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
+  br i1 %exitcond188.not, label %.critedge, label %18
 
-.critedge:                                        ; preds = %._crit_edge161.split.us, %.lr.ph166, %9
+.critedge:                                        ; preds = %._crit_edge158.split.us, %.lr.ph163, %9
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph174, label %.critedge.thread
+  br i1 %36, label %.lr.ph171, label %.critedge.thread
 
-.lr.ph174:                                        ; preds = %.critedge
+.lr.ph171:                                        ; preds = %.critedge
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
-  %wide.trip.count195 = zext nneg i32 %35 to i64
+  %wide.trip.count192 = zext nneg i32 %35 to i64
   br label %41
 
-41:                                               ; preds = %.lr.ph174, %65
-  %indvars.iv192 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next193, %65 ]
-  %42 = getelementptr inbounds nuw %struct.CteItem, ptr %38, i64 %indvars.iv192
+41:                                               ; preds = %.lr.ph171, %65
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next190, %65 ]
+  %42 = getelementptr inbounds nuw %struct.CteItem, ptr %38, i64 %indvars.iv189
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -1521,7 +1521,7 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   br i1 %47, label %48, label %65
 
 48:                                               ; preds = %41
-  %49 = trunc nuw nsw i64 %indvars.iv192 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv189 to i32
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %51 = load i32, ptr %50, align 4
   %.not124 = icmp eq i32 %51, %49
@@ -1547,9 +1547,9 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   br label %.critedge.thread
 
 65:                                               ; preds = %41
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
-  br i1 %exitcond196.not, label %.critedge.thread, label %41, !llvm.loop !15
+  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
+  %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
+  br i1 %exitcond193.not, label %.critedge.thread, label %41, !llvm.loop !15
 
 66:                                               ; preds = %4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1575,29 +1575,29 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %.not116 = icmp eq ptr %81, null
-  br i1 %.not116, label %.critedge126, label %.lr.ph155
+  br i1 %.not116, label %.critedge126, label %.lr.ph152
 
-.lr.ph155:                                        ; preds = %73
+.lr.ph152:                                        ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load i32, ptr %82, align 4
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph158, label %.critedge126
+  br i1 %85, label %.lr.ph155, label %.critedge126
 
-.lr.ph158:                                        ; preds = %.lr.ph155, %.lr.ph158
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph158 ], [ 0, %.lr.ph155 ]
+.lr.ph155:                                        ; preds = %.lr.ph152, %.lr.ph155
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.lr.ph155 ], [ 0, %.lr.ph152 ]
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv181
+  %87 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv178
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = tail call zeroext i1 @makeDependencyGraphWalker(ptr noundef %90, ptr noundef nonnull %1)
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %92 = load i32, ptr %82, align 4
   %93 = sext i32 %92 to i64
-  %94 = icmp slt i64 %indvars.iv.next182, %93
-  br i1 %94, label %.lr.ph158, label %.critedge126
+  %94 = icmp slt i64 %indvars.iv.next179, %93
+  br i1 %94, label %.lr.ph155, label %.critedge126
 
-.critedge126:                                     ; preds = %.lr.ph158, %.lr.ph155, %73
+.critedge126:                                     ; preds = %.lr.ph155, %.lr.ph152, %73
   %95 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @makeDependencyGraphWalker, ptr noundef nonnull %1) #9
   %96 = load ptr, ptr %76, align 8
   %97 = tail call ptr @list_delete_first(ptr noundef %96) #9
@@ -1620,9 +1620,9 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %107 = load i32, ptr %105, align 4
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph153, label %.critedge128
+  br i1 %108, label %.lr.ph150, label %.critedge128
 
-.lr.ph153:                                        ; preds = %.lr.ph, %list_head.exit
+.lr.ph150:                                        ; preds = %.lr.ph, %list_head.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_head.exit ], [ 0, %.lr.ph ]
   %109 = load ptr, ptr %106, align 8
   %110 = getelementptr inbounds nuw %union.ListCell, ptr %109, i64 %indvars.iv
@@ -1634,13 +1634,13 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   %.not.i = icmp eq ptr %115, null
   br i1 %.not.i, label %list_head.exit, label %116
 
-116:                                              ; preds = %.lr.ph153
+116:                                              ; preds = %.lr.ph150
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %118 = load ptr, ptr %117, align 8
   br label %list_head.exit
 
-list_head.exit:                                   ; preds = %.lr.ph153, %116
-  %119 = phi ptr [ %118, %116 ], [ null, %.lr.ph153 ]
+list_head.exit:                                   ; preds = %.lr.ph150, %116
+  %119 = phi ptr [ %118, %116 ], [ null, %.lr.ph150 ]
   %120 = load ptr, ptr %119, align 8
   %121 = tail call ptr @lappend(ptr noundef %120, ptr noundef nonnull %111) #9
   store ptr %121, ptr %119, align 8
@@ -1648,7 +1648,7 @@ list_head.exit:                                   ; preds = %.lr.ph153, %116
   %122 = load i32, ptr %105, align 4
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next, %123
-  br i1 %124, label %.lr.ph153, label %.critedge128
+  br i1 %124, label %.lr.ph150, label %.critedge128
 
 .critedge128:                                     ; preds = %list_head.exit, %.lr.ph, %98
   %125 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @makeDependencyGraphWalker, ptr noundef nonnull %1) #9

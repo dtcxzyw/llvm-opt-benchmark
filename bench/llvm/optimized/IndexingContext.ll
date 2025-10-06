@@ -295,9 +295,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %38, %3
 42:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1, !tbaa !417
-  %43 = add i32 %.sroa.02.0.i.i, 1
-  %or.cond.i = icmp ult i32 %43, 2
-  br i1 %or.cond.i, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread111, label %44
+  %43 = icmp eq i32 %.sroa.02.0.i.i, -1
+  br i1 %43, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread111, label %44
 
 44:                                               ; preds = %42
   %45 = icmp slt i32 %.sroa.02.0.i.i, 0
@@ -823,9 +822,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %25, %2
 29:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !417
-  %30 = add i32 %.sroa.02.0.i.i, 1
-  %or.cond.i = icmp ult i32 %30, 2
-  br i1 %or.cond.i, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread45, label %31
+  %30 = icmp eq i32 %.sroa.02.0.i.i, -1
+  br i1 %30, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread45, label %31
 
 31:                                               ; preds = %29
   %32 = icmp slt i32 %.sroa.02.0.i.i, 0
@@ -1202,8 +1200,8 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 126
   %5 = icmp ne i32 %4, 58
-  %.not171 = icmp eq ptr %0, null
-  %.not = or i1 %.not171, %5
+  %.not170 = icmp eq ptr %0, null
+  %.not = or i1 %.not170, %5
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
@@ -1220,7 +1218,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
 12:                                               ; preds = %1
   %13 = add nsw i32 %4, -38
   %14 = icmp ult i32 %13, -6
-  %.not84 = or i1 %.not171, %14
+  %.not84 = or i1 %.not170, %14
   br i1 %.not84, label %17, label %15
 
 15:                                               ; preds = %12
@@ -1231,7 +1229,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   %18 = and i32 %3, 127
   %19 = add nsw i32 %18, -45
   %20 = icmp ult i32 %19, -7
-  %.not85 = or i1 %.not171, %20
+  %.not85 = or i1 %.not170, %20
   br i1 %.not85, label %23, label %21
 
 21:                                               ; preds = %17
@@ -1241,7 +1239,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
 23:                                               ; preds = %17
   %24 = add nsw i32 %18, -60
   %25 = icmp ult i32 %24, -3
-  %.not86 = or i1 %.not171, %25
+  %.not86 = or i1 %.not170, %25
   br i1 %.not86, label %28, label %26
 
 26:                                               ; preds = %23
@@ -1250,7 +1248,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
 
 28:                                               ; preds = %23
   %29 = icmp ne i32 %18, 60
-  %.not87 = or i1 %.not171, %29
+  %.not87 = or i1 %.not170, %29
   br i1 %.not87, label %32, label %30
 
 30:                                               ; preds = %28
@@ -1279,17 +1277,17 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %38, align 8, !tbaa !415
   %39 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 %.sroa.0.0.copyload.i) #11
-  %.not176181 = icmp eq i64 %39, 0
-  br i1 %.not176181, label %.thread140, label %.lr.ph
+  %.not175180 = icmp eq i64 %39, 0
+  br i1 %.not175180, label %.thread140, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %_ZN5clang12DeclListNode8iteratorppEv.exit
-  %.sroa.0119.0182 = phi i64 [ %55, %_ZN5clang12DeclListNode8iteratorppEv.exit ], [ %39, %36 ]
-  %40 = and i64 %.sroa.0119.0182, 4
+  %.sroa.0119.0181 = phi i64 [ %55, %_ZN5clang12DeclListNode8iteratorppEv.exit ], [ %39, %36 ]
+  %40 = and i64 %.sroa.0119.0181, 4
   %.not.i.i.i.i = icmp eq i64 %40, 0
-  %41 = and i64 %.sroa.0119.0182, -8
+  %41 = and i64 %.sroa.0119.0181, -8
   %42 = inttoptr i64 %41 to ptr
-  %.not.not8.i = icmp eq i64 %41, 0
-  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %41, 0
+  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12DeclListNode8iteratordeEv.exit, label %43
 
 43:                                               ; preds = %.lr.ph
@@ -1301,8 +1299,8 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %.lr.ph, %43
   %45 = getelementptr inbounds nuw i8, ptr %.1.i, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 512
-  %.not177 = icmp eq i32 %47, 0
-  br i1 %.not177, label %48, label %53
+  %.not176 = icmp eq i32 %47, 0
+  br i1 %.not176, label %48, label %53
 
 48:                                               ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit
   %49 = load i32, ptr %2, align 4
@@ -1318,12 +1316,12 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %.lr.ph, %43
 _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %48, %53
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %55 = load i64, ptr %54, align 8
-  %.not176 = icmp eq i64 %55, 0
-  br i1 %.not176, label %.thread140, label %.lr.ph
+  %.not175 = icmp eq i64 %55, 0
+  br i1 %.not175, label %.thread140, label %.lr.ph
 
 56:                                               ; preds = %32
   %57 = icmp ne i32 %18, 31
-  %.not88 = or i1 %.not171, %57
+  %.not88 = or i1 %.not170, %57
   br i1 %.not88, label %.thread140, label %58
 
 58:                                               ; preds = %56
@@ -1344,8 +1342,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %58, %64
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %67 = load i16, ptr %66, align 8
   %68 = and i16 %67, 127
-  %.not179 = icmp eq i16 %68, 60
-  br i1 %.not179, label %69, label %.thread140
+  %.not178 = icmp eq i16 %68, 60
+  br i1 %.not178, label %69, label %.thread140
 
 69:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
   %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 -64
@@ -1358,16 +1356,16 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %58, %64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i105 = load i64, ptr %74, align 8, !tbaa !415
   %75 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %73, i64 %.sroa.0.0.copyload.i105) #11
-  %.not180 = icmp eq i64 %75, 0
-  br i1 %.not180, label %.thread140, label %76
+  %.not179 = icmp eq i64 %75, 0
+  br i1 %.not179, label %.thread140, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %75, 4
   %.not.i.i.i.i110 = icmp eq i64 %77, 0
   %78 = and i64 %75, -8
   %79 = inttoptr i64 %78 to ptr
-  %.not.not8.i111 = icmp eq i64 %78, 0
-  %.not.not.i112 = or i1 %.not.i.i.i.i110, %.not.not8.i111
+  %.not.not7.i111 = icmp eq i64 %78, 0
+  %.not.not.i112 = or i1 %.not.i.i.i.i110, %.not.not7.i111
   br i1 %.not.not.i112, label %.thread140, label %80
 
 80:                                               ; preds = %76
@@ -1390,8 +1388,8 @@ define internal fastcc noundef zeroext i1 @_ZL17isDeclADefinitionPKN5clang4DeclE
   %6 = and i32 %5, 127
   %7 = add nsw i32 %6, -45
   %8 = icmp ult i32 %7, -7
-  %.not.not61 = icmp eq ptr %0, null
-  %.not.not = or i1 %.not.not61, %8
+  %.not.not54 = icmp eq ptr %0, null
+  %.not.not = or i1 %.not.not54, %8
   br i1 %.not.not, label %12, label %9
 
 9:                                                ; preds = %3
@@ -1403,7 +1401,7 @@ define internal fastcc noundef zeroext i1 @_ZL17isDeclADefinitionPKN5clang4DeclE
   %13 = and i32 %5, 126
   %14 = add nsw i32 %13, -38
   %15 = icmp ult i32 %14, -6
-  %.not21.not = or i1 %.not.not61, %15
+  %.not21.not = or i1 %.not.not54, %15
   br i1 %.not21.not, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %16
 
 16:                                               ; preds = %12
@@ -1451,7 +1449,7 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i: ; preds = %23
 _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %12
   %39 = add nsw i32 %6, -61
   %40 = icmp ult i32 %39, -5
-  %.not22.not = or i1 %.not.not61, %40
+  %.not22.not = or i1 %.not.not54, %40
   br i1 %.not22.not, label %46, label %41
 
 41:                                               ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
@@ -1463,7 +1461,7 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %12
 
 46:                                               ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
   %47 = icmp ne i32 %6, 16
-  %.not23.not = or i1 %.not.not61, %47
+  %.not23.not = or i1 %.not.not54, %47
   br i1 %.not23.not, label %59, label %48
 
 48:                                               ; preds = %46
@@ -1525,15 +1523,15 @@ define internal fastcc noundef ptr @_ZL12adjustParentPKN5clang4DeclE(ptr noundef
 
 10:                                               ; preds = %.preheader
   %11 = and i32 %3, 124
-  %.not43 = icmp eq i32 %11, 56
-  br i1 %.not43, label %12, label %16
+  %.not42 = icmp eq i32 %11, 56
+  br i1 %.not42, label %12, label %16
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.026, i64 72
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 16777216
-  %.not39 = icmp eq i64 %15, 0
-  br i1 %.not39, label %.loopexit, label %.thread34
+  %.not38 = icmp eq i64 %15, 0
+  br i1 %.not38, label %.loopexit, label %.thread34
 
 16:                                               ; preds = %10
   %17 = add nsw i32 %4, -79
@@ -1810,9 +1808,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %22, %2
 26:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !417
-  %27 = add i32 %.sroa.02.0.i.i, 1
-  %or.cond.i = icmp ult i32 %27, 2
-  br i1 %or.cond.i, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread15, label %28
+  %27 = icmp eq i32 %.sroa.02.0.i.i, -1
+  br i1 %27, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread15, label %28
 
 28:                                               ; preds = %26
   %29 = icmp slt i32 %.sroa.02.0.i.i, 0
@@ -2348,8 +2345,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit.thread:    ; preds = %0
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 126
-  %.not9 = icmp eq i16 %11, 58
-  br i1 %.not9, label %12, label %_ZNK5clang4Decl14getDeclContextEv.exit15
+  %.not8 = icmp eq i16 %11, 58
+  br i1 %.not8, label %12, label %_ZNK5clang4Decl14getDeclContextEv.exit15
 
 12:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang4Decl14getDeclContextEv.exit
   %.pn = phi ptr [ %8, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ], [ %4, %_ZNK5clang4Decl14getDeclContextEv.exit ]

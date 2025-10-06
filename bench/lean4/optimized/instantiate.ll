@@ -2557,9 +2557,9 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   br i1 %or.cond.not.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %35, !prof !84
 
 35:                                               ; preds = %26
-  %.not45.i.i.i = icmp ult ptr %32, %31
+  %.not44.i.i.i = icmp ult ptr %32, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !76
-  br i1 %.not45.i.i.i, label %.thread.i.i.i, label %39
+  br i1 %.not44.i.i.i, label %.thread.i.i.i, label %39
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %26
   %36 = invoke zeroext i1 @lean_nat_big_le(ptr noundef nonnull %31, ptr noundef %32)
@@ -2581,36 +2581,36 @@ _ZN4leangeERKNS_3natEj.exit.i.i.i:                ; preds = %.critedge.i.i.i.i.i
   br i1 %36, label %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i, label %.thread.i.i.i
 
 _ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i:     ; preds = %_ZN4leangeERKNS_3natEj.exit.i.i.i
-  %.pre46.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !3, !noalias !76
-  %.pre.i.i = ptrtoint ptr %.pre46.pre.i.i.i to i64
+  %.pre45.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !3, !noalias !76
+  %.pre.i.i = ptrtoint ptr %.pre45.pre.i.i.i to i64
   br label %39
 
 39:                                               ; preds = %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i, %35
-  %.pre51.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %33, %35 ]
-  %.pre46.i.i.i = phi ptr [ %.pre46.pre.i.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %32, %35 ]
+  %.pre50.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %33, %35 ]
+  %.pre45.i.i.i = phi ptr [ %.pre45.pre.i.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %32, %35 ]
   %40 = load i64, ptr %1, align 8, !tbaa !85, !noalias !76
   %41 = add i64 %40, %28
   %42 = icmp ult i64 %41, %28
   br i1 %42, label %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i, label %43
 
 ._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i:   ; preds = %39
-  %.pre53.i.i.i = lshr i64 %.pre51.i.pre-phi.i.i, 1
+  %.pre52.i.i.i = lshr i64 %.pre50.i.pre-phi.i.i, 1
   br label %_ZN4lean10object_refD2Ev.exit.i.i.i
 
 43:                                               ; preds = %39
-  %44 = and i64 %.pre51.i.pre-phi.i.i, 1
+  %44 = and i64 %.pre50.i.pre-phi.i.i, 1
   %45 = icmp ne i64 %44, 0
-  %46 = lshr i64 %.pre51.i.pre-phi.i.i, 1
+  %46 = lshr i64 %.pre50.i.pre-phi.i.i, 1
   %47 = icmp ult i64 %46, %41
   %or.cond.i.i.i = and i1 %45, %47
   br i1 %or.cond.i.i.i, label %_ZN4lean10object_refD2Ev.exit.i.i.i, label %54
 
 _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %43, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i
-  %.pre-phi54.i.i.i = phi i64 [ %.pre53.i.i.i, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i ], [ %46, %43 ]
+  %.pre-phi53.i.i.i = phi i64 [ %.pre52.i.i.i, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i ], [ %46, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !76
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !87, !noalias !76
-  %50 = sub nsw i64 %.pre-phi54.i.i.i, %28
+  %50 = sub nsw i64 %.pre-phi53.i.i.i, %28
   %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !23, !noalias !76
   store ptr %52, ptr %6, align 8, !tbaa !23, !noalias !76
@@ -2637,18 +2637,18 @@ _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %43, %._ZN4lean10obj
 60:                                               ; preds = %54
   %61 = tail call ptr @lean_big_usize_to_nat(i64 noundef %40), !noalias !94
   %.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !3, !noalias !95
-  %.pre48.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
-  %.pre49.i.i.i = and i64 %.pre48.i.i.i, 1
+  %.pre47.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
+  %.pre48.i.i.i = and i64 %.pre47.i.i.i, 1
   br label %_ZN4lean3nat9of_size_tEm.exit.i.i.i
 
 _ZN4lean3nat9of_size_tEm.exit.i.i.i:              ; preds = %60, %56
-  %.pre-phi50.i.i.i = phi i64 [ %44, %56 ], [ %.pre49.i.i.i, %60 ]
-  %.pre-phi.i.i.i = phi i64 [ %.pre51.i.pre-phi.i.i, %56 ], [ %.pre48.i.i.i, %60 ]
-  %62 = phi ptr [ %.pre46.i.i.i, %56 ], [ %.pre.i.i.i, %60 ]
+  %.pre-phi49.i.i.i = phi i64 [ %44, %56 ], [ %.pre48.i.i.i, %60 ]
+  %.pre-phi.i.i.i = phi i64 [ %.pre50.i.pre-phi.i.i, %56 ], [ %.pre47.i.i.i, %60 ]
+  %62 = phi ptr [ %.pre45.i.i.i, %56 ], [ %.pre.i.i.i, %60 ]
   %63 = phi ptr [ %59, %56 ], [ %61, %60 ]
   store ptr %63, ptr %9, align 8, !tbaa !3, !alias.scope !91, !noalias !76
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %.not.i.i30.i.i.i = icmp eq i64 %.pre-phi50.i.i.i, 0
+  %.not.i.i30.i.i.i = icmp eq i64 %.pre-phi49.i.i.i, 0
   br i1 %.not.i.i30.i.i.i, label %.critedge.i.i.i.i.i.i, label %64, !prof !99
 
 64:                                               ; preds = %_ZN4lean3nat9of_size_tEm.exit.i.i.i
@@ -2923,9 +2923,9 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   br i1 %or.cond.not.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %35, !prof !84
 
 35:                                               ; preds = %26
-  %.not45.i.i.i = icmp ult ptr %32, %31
+  %.not44.i.i.i = icmp ult ptr %32, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !119
-  br i1 %.not45.i.i.i, label %.thread.i.i.i, label %39
+  br i1 %.not44.i.i.i, label %.thread.i.i.i, label %39
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %26
   %36 = invoke zeroext i1 @lean_nat_big_le(ptr noundef nonnull %31, ptr noundef %32)
@@ -2947,36 +2947,36 @@ _ZN4leangeERKNS_3natEj.exit.i.i.i:                ; preds = %.critedge.i.i.i.i.i
   br i1 %36, label %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i, label %.thread.i.i.i
 
 _ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i:     ; preds = %_ZN4leangeERKNS_3natEj.exit.i.i.i
-  %.pre46.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !3, !noalias !119
-  %.pre.i.i = ptrtoint ptr %.pre46.pre.i.i.i to i64
+  %.pre45.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !3, !noalias !119
+  %.pre.i.i = ptrtoint ptr %.pre45.pre.i.i.i to i64
   br label %39
 
 39:                                               ; preds = %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i, %35
-  %.pre51.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %33, %35 ]
-  %.pre46.i.i.i = phi ptr [ %.pre46.pre.i.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %32, %35 ]
+  %.pre50.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %33, %35 ]
+  %.pre45.i.i.i = phi ptr [ %.pre45.pre.i.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %32, %35 ]
   %40 = load i64, ptr %1, align 8, !tbaa !124, !noalias !119
   %41 = add i64 %40, %28
   %42 = icmp ult i64 %41, %28
   br i1 %42, label %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i, label %43
 
 ._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i:   ; preds = %39
-  %.pre53.i.i.i = lshr i64 %.pre51.i.pre-phi.i.i, 1
+  %.pre52.i.i.i = lshr i64 %.pre50.i.pre-phi.i.i, 1
   br label %_ZN4lean10object_refD2Ev.exit.i.i.i
 
 43:                                               ; preds = %39
-  %44 = and i64 %.pre51.i.pre-phi.i.i, 1
+  %44 = and i64 %.pre50.i.pre-phi.i.i, 1
   %45 = icmp ne i64 %44, 0
-  %46 = lshr i64 %.pre51.i.pre-phi.i.i, 1
+  %46 = lshr i64 %.pre50.i.pre-phi.i.i, 1
   %47 = icmp ult i64 %46, %41
   %or.cond.i.i.i = and i1 %45, %47
   br i1 %or.cond.i.i.i, label %_ZN4lean10object_refD2Ev.exit.i.i.i, label %55
 
 _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %43, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i
-  %.pre-phi54.i.i.i = phi i64 [ %.pre53.i.i.i, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i ], [ %46, %43 ]
+  %.pre-phi53.i.i.i = phi i64 [ %.pre52.i.i.i, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i ], [ %46, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !119
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !126, !noalias !119
-  %.neg.i.i.i = sub nsw i64 %28, %.pre-phi54.i.i.i
+  %.neg.i.i.i = sub nsw i64 %28, %.pre-phi53.i.i.i
   %50 = getelementptr ptr, ptr %49, i64 %.neg.i.i.i
   %51 = getelementptr ptr, ptr %50, i64 %40
   %52 = getelementptr i8, ptr %51, i64 -8
@@ -3005,18 +3005,18 @@ _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %43, %._ZN4lean10obj
 61:                                               ; preds = %55
   %62 = tail call ptr @lean_big_usize_to_nat(i64 noundef %40), !noalias !133
   %.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !3, !noalias !134
-  %.pre48.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
-  %.pre49.i.i.i = and i64 %.pre48.i.i.i, 1
+  %.pre47.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
+  %.pre48.i.i.i = and i64 %.pre47.i.i.i, 1
   br label %_ZN4lean3nat9of_size_tEm.exit.i.i.i
 
 _ZN4lean3nat9of_size_tEm.exit.i.i.i:              ; preds = %61, %57
-  %.pre-phi50.i.i.i = phi i64 [ %44, %57 ], [ %.pre49.i.i.i, %61 ]
-  %.pre-phi.i.i.i = phi i64 [ %.pre51.i.pre-phi.i.i, %57 ], [ %.pre48.i.i.i, %61 ]
-  %63 = phi ptr [ %.pre46.i.i.i, %57 ], [ %.pre.i.i.i, %61 ]
+  %.pre-phi49.i.i.i = phi i64 [ %44, %57 ], [ %.pre48.i.i.i, %61 ]
+  %.pre-phi.i.i.i = phi i64 [ %.pre50.i.pre-phi.i.i, %57 ], [ %.pre47.i.i.i, %61 ]
+  %63 = phi ptr [ %.pre45.i.i.i, %57 ], [ %.pre.i.i.i, %61 ]
   %64 = phi ptr [ %60, %57 ], [ %62, %61 ]
   store ptr %64, ptr %9, align 8, !tbaa !3, !alias.scope !130, !noalias !119
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  %.not.i.i30.i.i.i = icmp eq i64 %.pre-phi50.i.i.i, 0
+  %.not.i.i30.i.i.i = icmp eq i64 %.pre-phi49.i.i.i, 0
   br i1 %.not.i.i30.i.i.i, label %.critedge.i.i.i.i.i.i, label %65, !prof !99
 
 65:                                               ; preds = %_ZN4lean3nat9of_size_tEm.exit.i.i.i
@@ -3564,9 +3564,9 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   br i1 %or.cond.not.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %34, !prof !84
 
 34:                                               ; preds = %25
-  %.not46.i.i.i = icmp ult ptr %31, %30
+  %.not45.i.i.i = icmp ult ptr %31, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !199
-  br i1 %.not46.i.i.i, label %.thread43.i.i.i, label %38
+  br i1 %.not45.i.i.i, label %.thread43.i.i.i, label %38
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %25
   %35 = invoke zeroext i1 @lean_nat_big_le(ptr noundef nonnull %30, ptr noundef %31)
@@ -3593,7 +3593,7 @@ _ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i:     ; preds = %_ZN4leangeERKNS_3na
   br label %38
 
 38:                                               ; preds = %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i, %34
-  %.pre49.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %32, %34 ]
+  %.pre48.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %32, %34 ]
   %.pre.i.i.i = phi ptr [ %.pre.pre.i.i.i, %_ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i ], [ %31, %34 ]
   %39 = load i32, ptr %1, align 8, !tbaa !204, !noalias !199
   %40 = add i32 %39, %.val
@@ -3602,25 +3602,25 @@ _ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i:     ; preds = %_ZN4leangeERKNS_3na
   br i1 %42, label %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i, label %43
 
 ._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i:   ; preds = %38
-  %.pre50.i.i.i = lshr i64 %.pre49.i.pre-phi.i.i, 1
+  %.pre49.i.i.i = lshr i64 %.pre48.i.pre-phi.i.i, 1
   br label %_ZN4lean10object_refD2Ev.exit.i.i.i
 
 43:                                               ; preds = %38
-  %44 = and i64 %.pre49.i.pre-phi.i.i, 1
-  %.not47.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not47.i.i.i, label %.critedge.i.i.i.i.i.i, label %45
+  %44 = and i64 %.pre48.i.pre-phi.i.i, 1
+  %.not46.i.i.i = icmp eq i64 %44, 0
+  br i1 %.not46.i.i.i, label %.critedge.i.i.i.i.i.i, label %45
 
 45:                                               ; preds = %43
-  %46 = lshr i64 %.pre49.i.pre-phi.i.i, 1
+  %46 = lshr i64 %.pre48.i.pre-phi.i.i, 1
   %47 = icmp samesign ult i64 %46, %41
   br i1 %47, label %_ZN4lean10object_refD2Ev.exit.i.i.i, label %55
 
 _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %45, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i
-  %.pre-phi51.i.i.i = phi i64 [ %.pre50.i.i.i, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i ], [ %46, %45 ]
+  %.pre-phi50.i.i.i = phi i64 [ %.pre49.i.i.i, %._ZN4lean10object_refD2Ev.exit_crit_edge.i.i.i ], [ %46, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !206, !noalias !199
   %50 = zext i32 %39 to i64
-  %.neg.i.i.i = sub nsw i64 %27, %.pre-phi51.i.i.i
+  %.neg.i.i.i = sub nsw i64 %27, %.pre-phi50.i.i.i
   %51 = getelementptr %"class.lean::expr", ptr %49, i64 %.neg.i.i.i
   %52 = getelementptr %"class.lean::expr", ptr %51, i64 %50
   %53 = getelementptr i8, ptr %52, i64 -8

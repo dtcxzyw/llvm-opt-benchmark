@@ -49,10 +49,9 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %6 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @uv_guess_handle(i32 noundef %2)
-  switch i32 %7, label %.preheader [
-    i32 17, label %39
-    i32 0, label %39
-  ]
+  %.off = add nsw i32 %7, -1
+  %switch = icmp ult i32 %.off, 16
+  br i1 %switch, label %.preheader, label %39
 
 .preheader:                                       ; preds = %4, %10
   %8 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %2, i32 noundef 3) #8
@@ -132,8 +131,8 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 0, ptr %38, align 4
   br label %39
 
-39:                                               ; preds = %4, %4, %34, %30, %.critedge
-  %.0 = phi i32 [ %14, %.critedge ], [ 0, %34 ], [ %27, %30 ], [ -22, %4 ], [ -22, %4 ]
+39:                                               ; preds = %4, %34, %30, %.critedge
+  %.0 = phi i32 [ %14, %.critedge ], [ 0, %34 ], [ %27, %30 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

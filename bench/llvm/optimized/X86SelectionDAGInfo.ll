@@ -572,8 +572,8 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread.i: ; pred
   %96 = zext i32 %95 to i64
   %97 = icmp ugt i64 %.0.i.i.i16, %96
   %98 = icmp ult i8 %8, 2
-  %or.cond25.i = select i1 %97, i1 true, i1 %98
-  br i1 %or.cond25.i, label %_ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoE.exit, label %99
+  %or.cond24.i = select i1 %97, i1 true, i1 %98
+  br i1 %or.cond24.i, label %_ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoE.exit, label %99
 
 99:                                               ; preds = %93
   %100 = load ptr, ptr %24, align 8, !tbaa !302

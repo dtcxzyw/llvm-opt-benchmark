@@ -2658,8 +2658,8 @@ _ZN11ExecCtxNextC2EPv.exit:                       ; preds = %_ZN9grpc_core4Fork1
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %14, ptr %79, align 8, !tbaa !134
   %80 = load ptr, ptr %48, align 8, !tbaa !136
-  %.not151 = icmp eq ptr %80, null
-  br i1 %.not151, label %.lr.ph, label %.critedge136._crit_edge
+  %.not149 = icmp eq ptr %80, null
+  br i1 %.not149, label %.lr.ph, label %.critedge134._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN11ExecCtxNextC2EPv.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -2671,33 +2671,33 @@ _ZN11ExecCtxNextC2EPv.exit:                       ; preds = %_ZN9grpc_core4Fork1
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %101
 
-.critedge136._crit_edge:                          ; preds = %.critedge136.backedge, %_ZN11ExecCtxNextC2EPv.exit
-  %.lcssa137 = phi ptr [ %80, %_ZN11ExecCtxNextC2EPv.exit ], [ %199, %.critedge136.backedge ]
+.critedge134._crit_edge:                          ; preds = %.critedge134.backedge, %_ZN11ExecCtxNextC2EPv.exit
+  %.lcssa135 = phi ptr [ %80, %_ZN11ExecCtxNextC2EPv.exit ], [ %199, %.critedge134.backedge ]
   store ptr null, ptr %48, align 8, !tbaa !136
   store i32 2, ptr %10, align 8, !tbaa !137
-  %87 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %.lcssa135, i64 32
   %88 = load i64, ptr %87, align 8, !tbaa !34
   %89 = trunc i64 %88 to i32
   %90 = and i32 %89, 1
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %90, ptr %91, align 4, !tbaa !140
-  %92 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.lcssa135, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !10
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %93, ptr %94, align 8, !tbaa !141
-  %95 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.lcssa135, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !37
-  %97 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.lcssa135, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !38
-  invoke void %96(ptr noundef %98, ptr noundef nonnull %.lcssa137)
+  invoke void %96(ptr noundef %98, ptr noundef nonnull %.lcssa135)
           to label %.thread unwind label %99
 
-99:                                               ; preds = %.critedge136._crit_edge
+99:                                               ; preds = %.critedge134._crit_edge
   %100 = landingpad { ptr, i32 }
           cleanup
   br label %329
 
-101:                                              ; preds = %.lr.ph, %.critedge136.backedge
+101:                                              ; preds = %.lr.ph, %.critedge134.backedge
   %102 = cmpxchg ptr %23, i64 0, i64 1 acquire monotonic, align 8
   %103 = extractvalue { i64, i1 } %102, 1
   br i1 %103, label %104, label %119
@@ -2754,7 +2754,7 @@ _ZN11ExecCtxNextC2EPv.exit:                       ; preds = %_ZN9grpc_core4Fork1
 124:                                              ; preds = %119
   %125 = load atomic i64, ptr %82 monotonic, align 8
   %126 = icmp sgt i64 %125, 0
-  br i1 %126, label %.critedge136.backedge, label %127
+  br i1 %126, label %.critedge134.backedge, label %127
 
 127:                                              ; preds = %124
   store i32 0, ptr %10, align 8, !tbaa !137
@@ -2781,8 +2781,8 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i: ; preds = %132, %1
           to label %_ZN9grpc_core9Timestamp3NowEv.exit unwind label %138
 
 _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i
-  %.not134 = icmp slt i64 %136, %42
-  br i1 %.not134, label %.critedge, label %137
+  %.not132 = icmp slt i64 %136, %42
+  br i1 %.not132, label %.critedge, label %137
 
 137:                                              ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
   store i32 1, ptr %10, align 8, !tbaa !137
@@ -2830,8 +2830,8 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZTWN9grpc_core9Tim
 
 162:                                              ; preds = %158
   %163 = load i64, ptr %16, align 8, !tbaa !95
-  %.not152 = icmp eq i64 %163, 1
-  br i1 %.not152, label %_ZN4absl12lts_202407226StatusD2Ev.exit105, label %164
+  %.not150 = icmp eq i64 %163, 1
+  br i1 %.not150, label %_ZN4absl12lts_202407226StatusD2Ev.exit105, label %164
 
 164:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -2943,12 +2943,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZN4absl12lts_202407226StatusD2Ev.exit105:        ; preds = %162
   store i8 0, ptr %49, align 8, !tbaa !133
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.critedge136.backedge
+  br label %.critedge134.backedge
 
-.critedge136.backedge:                            ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit105, %124
+.critedge134.backedge:                            ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit105, %124
   %199 = load ptr, ptr %48, align 8, !tbaa !136
   %.not = icmp eq ptr %199, null
-  br i1 %.not, label %101, label %.critedge136._crit_edge, !llvm.loop !144
+  br i1 %.not, label %101, label %.critedge134._crit_edge, !llvm.loop !144
 
 200:                                              ; preds = %190, %175
   %.pn70.pn = phi { ptr, i32 } [ %.pn.pn.pn, %190 ], [ %176, %175 ]
@@ -2964,7 +2964,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit105:        ; preds = %162
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit, %106, %137, %127, %.critedge136._crit_edge
+.thread:                                          ; preds = %.thread.loopexit, %106, %137, %127, %.critedge134._crit_edge
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %203 = load atomic i64, ptr %202 monotonic, align 8
   %204 = icmp sgt i64 %203, 0

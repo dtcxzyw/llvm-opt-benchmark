@@ -799,8 +799,8 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
 6:                                                ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1024, ptr noundef nonnull %5)
-  %.not2031 = icmp eq ptr %7, null
-  br i1 %.not2031, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %.lr.ph
+  %.not2030 = icmp eq ptr %7, null
+  br i1 %.not2030, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1, ptr noundef nonnull dereferenceable(10) @.str.8, i64 10)
@@ -810,29 +810,29 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
 9:                                                ; preds = %.lr.ph
   %10 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #30
   %.not21 = icmp eq ptr %10, null
-  br i1 %.not21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread, label %.preheader29
+  br i1 %.not21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread, label %.preheader28
 
-.preheader29:                                     ; preds = %9, %.preheader29
-  %.pn25 = phi ptr [ %.015, %.preheader29 ], [ %10, %9 ]
+.preheader28:                                     ; preds = %9, %.preheader28
+  %.pn25 = phi ptr [ %.015, %.preheader28 ], [ %10, %9 ]
   %.015 = getelementptr inbounds nuw i8, ptr %.pn25, i64 1
   %11 = load i8, ptr %.015, align 1, !tbaa !69
   %12 = sext i8 %11 to i32
   %13 = call i32 @isspace(i32 noundef %12) #30
   %.not22 = icmp eq i32 %13, 0
-  br i1 %.not22, label %.preheader, label %.preheader29, !llvm.loop !70
+  br i1 %.not22, label %.preheader, label %.preheader28, !llvm.loop !70
 
-.preheader:                                       ; preds = %.preheader29
+.preheader:                                       ; preds = %.preheader28
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #25
   %15 = getelementptr i8, ptr %.015, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !69
   %18 = sext i8 %17 to i32
   %19 = call i32 @isspace(i32 noundef %18) #30
-  %.not2332 = icmp eq i32 %19, 0
-  br i1 %.not2332, label %._crit_edge, label %.lr.ph33
+  %.not2331 = icmp eq i32 %19, 0
+  br i1 %.not2331, label %._crit_edge, label %.lr.ph32
 
-.lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
-  %20 = phi ptr [ %23, %.lr.ph33 ], [ %16, %.preheader ]
+.lr.ph32:                                         ; preds = %.preheader, %.lr.ph32
+  %20 = phi ptr [ %23, %.lr.ph32 ], [ %16, %.preheader ]
   store i8 0, ptr %20, align 1, !tbaa !69
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #25
   %22 = getelementptr i8, ptr %.015, i64 %21
@@ -841,10 +841,10 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
   %25 = sext i8 %24 to i32
   %26 = call i32 @isspace(i32 noundef %25) #30
   %.not23 = icmp eq i32 %26, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph33, !llvm.loop !72
+  br i1 %.not23, label %._crit_edge, label %.lr.ph32, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
-  %.lcssa = phi i64 [ %14, %.preheader ], [ %21, %.lr.ph33 ]
+._crit_edge:                                      ; preds = %.lr.ph32, %.preheader
+  %.lcssa = phi i64 [ %14, %.preheader ], [ %21, %.lr.ph32 ]
   %27 = load i64, ptr %3, align 8, !tbaa !67
   %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %27, ptr noundef nonnull %.015, i64 noundef %.lcssa)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %29
@@ -1215,18 +1215,18 @@ define internal noundef zeroext i1 @_ZL37ggml_backend_cpu_device_supports_buftP1
 _Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i: ; preds = %10, %7, %4
   %14 = load ptr, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, align 8, !tbaa !89
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 8), align 8, !tbaa !89
-  %.not1314.not.i = icmp eq ptr %14, %15
-  br i1 %.not1314.not.i, label %_ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit, label %.critedge.i
+  %.not1415.not.i = icmp eq ptr %14, %15
+  br i1 %.not1415.not.i, label %_ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i, %.critedge.i
-  %.sroa.010.015.i = phi ptr [ %18, %.critedge.i ], [ %14, %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i ]
-  %16 = load ptr, ptr %.sroa.010.015.i, align 8, !tbaa !13
+  %.sroa.010.016.i = phi ptr [ %18, %.critedge.i ], [ %14, %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i ]
+  %16 = load ptr, ptr %.sroa.010.016.i, align 8, !tbaa !13
   %.not.i = icmp ne ptr %16, null
   %17 = icmp eq ptr %16, %1
   %or.cond.i = and i1 %.not.i, %17
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 8
-  %.not13.not.i = icmp eq ptr %18, %15
-  %or.cond = select i1 %or.cond.i, i1 true, i1 %.not13.not.i
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 8
+  %.not14.not.i = icmp eq ptr %18, %15
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %.not14.not.i
   br i1 %or.cond, label %_ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit, label %.critedge.i
 
 _ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit: ; preds = %.critedge.i, %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i, %2

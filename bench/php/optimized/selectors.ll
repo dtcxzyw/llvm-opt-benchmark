@@ -3740,9 +3740,9 @@ lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attr
   br label %240
 
 240:                                              ; preds = %232, %.thread
-  %.sink61 = phi ptr [ %239, %.thread ], [ %237, %232 ]
+  %.sink60 = phi ptr [ %239, %.thread ], [ %237, %232 ]
   %.sink = phi i8 [ 0, %.thread ], [ 1, %232 ]
-  store ptr %.sink61, ptr %0, align 8, !tbaa !77
+  store ptr %.sink60, ptr %0, align 8, !tbaa !77
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %241, align 8, !tbaa !152
   ret void
@@ -3788,19 +3788,19 @@ define internal fastcc noundef zeroext i1 @lxb_selectors_pseudo_class_disabled(p
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.0.i.i4477 = load ptr, ptr %7, align 8, !tbaa !81
-  %.not.i.i4578 = icmp eq ptr %.0.i.i4477, null
-  br i1 %.not.i.i4578, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.lr.ph
+  %.0.i.i4476 = load ptr, ptr %7, align 8, !tbaa !81
+  %.not.i.i4577 = icmp eq ptr %.0.i.i4476, null
+  br i1 %.not.i.i4577, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %11
-  %.0.i.i4479 = phi ptr [ %.0.i.i44, %11 ], [ %.0.i.i4477, %6 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.0.i.i4479, i64 16
+  %.0.i.i4478 = phi ptr [ %.0.i.i44, %11 ], [ %.0.i.i4476, %6 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i.i4478, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !82
   %10 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %9, ptr noundef nonnull @.str.17, i64 noundef 9) #7
   br i1 %10, label %.thread50, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i4479, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i4478, i64 48
   %.0.i.i44 = load ptr, ptr %12, align 8, !tbaa !81
   %.not.i.i45 = icmp eq ptr %.0.i.i44, null
   br i1 %.not.i.i45, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.lr.ph
@@ -3811,7 +3811,7 @@ define internal fastcc noundef zeroext i1 @lxb_selectors_pseudo_class_disabled(p
   br i1 %.not17.i.i40, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.thread50
 
 .thread50:                                        ; preds = %.lr.ph, %13
-  %.1.i.i3953 = phi ptr [ %14, %13 ], [ %.0.i.i4479, %.lr.ph ]
+  %.1.i.i3953 = phi ptr [ %14, %13 ], [ %.0.i.i4478, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %.1.i.i3953, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !84
   %.not18.i.i41 = icmp eq ptr %16, null
@@ -3854,71 +3854,71 @@ lxb_selectors_adapted_has_attr.exit46.thread:     ; preds = %11, %6, %13, %.thre
   %37 = load ptr, ptr %36, align 8, !tbaa !79
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(9) @.str.60) #8
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.preheader72, label %.critedge
+  br i1 %39, label %.preheader71, label %.critedge
 
-.preheader72:                                     ; preds = %lxb_selectors_adapted_has_attr.exit46.thread
-  %.035.in84 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.03585 = load ptr, ptr %.035.in84, align 8, !tbaa !46
-  %.not86 = icmp eq ptr %.03585, null
-  br i1 %.not86, label %.critedge, label %.lr.ph88
+.preheader71:                                     ; preds = %lxb_selectors_adapted_has_attr.exit46.thread
+  %.035.in83 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.03584 = load ptr, ptr %.035.in83, align 8, !tbaa !46
+  %.not85 = icmp eq ptr %.03584, null
+  br i1 %.not85, label %.critedge, label %.lr.ph87
 
-.lr.ph88:                                         ; preds = %.preheader72, %lxb_selectors_adapted_has_attr.exit.thread
-  %.03587 = phi ptr [ %.035, %lxb_selectors_adapted_has_attr.exit.thread ], [ %.03585, %.preheader72 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.03587, i64 8
+.lr.ph87:                                         ; preds = %.preheader71, %lxb_selectors_adapted_has_attr.exit.thread
+  %.03586 = phi ptr [ %.035, %lxb_selectors_adapted_has_attr.exit.thread ], [ %.03584, %.preheader71 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.03586, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !40
   %42 = and i32 %41, 255
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph88
+44:                                               ; preds = %.lr.ph87
   %45 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !106
-  %46 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.03587, ptr noundef %45) #7
+  %46 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.03586, ptr noundef %45) #7
   br i1 %46, label %47, label %lxb_selectors_adapted_has_attr.exit.thread
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %.03587, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.03586, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !79
   %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(9) @.str.60) #8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %lxb_selectors_adapted_has_attr.exit.thread
 
 52:                                               ; preds = %47
-  %53 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %.03587) #7
+  %53 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %.03586) #7
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %.03587, i64 88
-  %.0.i.i80 = load ptr, ptr %55, align 8, !tbaa !81
-  %.not.i.i81 = icmp eq ptr %.0.i.i80, null
-  br i1 %.not.i.i81, label %lxb_selectors_adapted_has_attr.exit.thread, label %.lr.ph83
+  %55 = getelementptr inbounds nuw i8, ptr %.03586, i64 88
+  %.0.i.i79 = load ptr, ptr %55, align 8, !tbaa !81
+  %.not.i.i80 = icmp eq ptr %.0.i.i79, null
+  br i1 %.not.i.i80, label %lxb_selectors_adapted_has_attr.exit.thread, label %.lr.ph82
 
-.lr.ph83:                                         ; preds = %54, %59
-  %.0.i.i82 = phi ptr [ %.0.i.i, %59 ], [ %.0.i.i80, %54 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 16
+.lr.ph82:                                         ; preds = %54, %59
+  %.0.i.i81 = phi ptr [ %.0.i.i, %59 ], [ %.0.i.i79, %54 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i81, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !82
   %58 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %57, ptr noundef nonnull @.str.17, i64 noundef 9) #7
   br i1 %58, label %.thread59, label %59
 
-59:                                               ; preds = %.lr.ph83
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 48
+59:                                               ; preds = %.lr.ph82
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i81, i64 48
   %.0.i.i = load ptr, ptr %60, align 8, !tbaa !81
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %lxb_selectors_adapted_has_attr.exit.thread, label %.lr.ph83
+  br i1 %.not.i.i, label %lxb_selectors_adapted_has_attr.exit.thread, label %.lr.ph82
 
 61:                                               ; preds = %52
-  %62 = tail call ptr @xmlHasProp(ptr noundef nonnull %.03587, ptr noundef nonnull @.str.17) #7
+  %62 = tail call ptr @xmlHasProp(ptr noundef nonnull %.03586, ptr noundef nonnull @.str.17) #7
   %.not17.i.i = icmp eq ptr %62, null
   br i1 %.not17.i.i, label %lxb_selectors_adapted_has_attr.exit.thread, label %.thread59
 
-.thread59:                                        ; preds = %.lr.ph83, %61
-  %.1.i.i62 = phi ptr [ %62, %61 ], [ %.0.i.i82, %.lr.ph83 ]
+.thread59:                                        ; preds = %.lr.ph82, %61
+  %.1.i.i62 = phi ptr [ %62, %61 ], [ %.0.i.i81, %.lr.ph82 ]
   %63 = getelementptr inbounds nuw i8, ptr %.1.i.i62, i64 72
   %64 = load ptr, ptr %63, align 8, !tbaa !84
   %.not18.i.i = icmp eq ptr %64, null
   br i1 %.not18.i.i, label %lxb_selectors_adapted_has_attr.exit, label %lxb_selectors_adapted_has_attr.exit.thread
 
 lxb_selectors_adapted_has_attr.exit:              ; preds = %.thread59
-  %65 = getelementptr inbounds nuw i8, ptr %.03587, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.03586, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !34
   br label %67
 
@@ -3943,8 +3943,8 @@ lxb_selectors_adapted_has_attr.exit:              ; preds = %.thread59
 
 .preheader:                                       ; preds = %74, %79
   %.030 = phi ptr [ %81, %79 ], [ %0, %74 ]
-  %.not70.not.not = icmp ne ptr %.030, %.031
-  br i1 %.not70.not.not, label %79, label %.critedge
+  %.not69.not.not = icmp ne ptr %.030, %.031
+  br i1 %.not69.not.not, label %79, label %.critedge
 
 79:                                               ; preds = %.preheader
   %80 = getelementptr inbounds nuw i8, ptr %.030, i64 40
@@ -3959,13 +3959,13 @@ lxb_selectors_adapted_has_attr.exit:              ; preds = %.thread59
   br i1 %.not37, label %lxb_selectors_adapted_has_attr.exit.thread, label %67
 
 lxb_selectors_adapted_has_attr.exit.thread:       ; preds = %59, %82, %54, %61, %.thread59, %47, %44
-  %.035.in = getelementptr inbounds nuw i8, ptr %.03587, i64 40
+  %.035.in = getelementptr inbounds nuw i8, ptr %.03586, i64 40
   %.035 = load ptr, ptr %.035.in, align 8, !tbaa !46
   %.not = icmp eq ptr %.035, null
-  br i1 %.not, label %.critedge, label %.lr.ph88
+  br i1 %.not, label %.critedge, label %.lr.ph87
 
-.critedge:                                        ; preds = %lxb_selectors_adapted_has_attr.exit.thread, %.lr.ph88, %.preheader, %79, %.preheader72, %lxb_selectors_adapted_has_attr.exit46.thread, %lxb_selectors_adapted_has_attr.exit46, %21, %24, %27, %30, %33, %1
-  %.032 = phi i1 [ false, %1 ], [ true, %33 ], [ true, %30 ], [ true, %27 ], [ true, %24 ], [ true, %21 ], [ true, %lxb_selectors_adapted_has_attr.exit46 ], [ false, %lxb_selectors_adapted_has_attr.exit46.thread ], [ false, %.preheader72 ], [ %.not70.not.not, %79 ], [ %.not70.not.not, %.preheader ], [ false, %.lr.ph88 ], [ false, %lxb_selectors_adapted_has_attr.exit.thread ]
+.critedge:                                        ; preds = %lxb_selectors_adapted_has_attr.exit.thread, %.lr.ph87, %.preheader, %79, %.preheader71, %lxb_selectors_adapted_has_attr.exit46.thread, %lxb_selectors_adapted_has_attr.exit46, %21, %24, %27, %30, %33, %1
+  %.032 = phi i1 [ false, %1 ], [ true, %33 ], [ true, %30 ], [ true, %27 ], [ true, %24 ], [ true, %21 ], [ true, %lxb_selectors_adapted_has_attr.exit46 ], [ false, %lxb_selectors_adapted_has_attr.exit46.thread ], [ false, %.preheader71 ], [ %.not69.not.not, %79 ], [ %.not69.not.not, %.preheader ], [ false, %.lr.ph87 ], [ false, %lxb_selectors_adapted_has_attr.exit.thread ]
   ret i1 %.032
 }
 

@@ -1082,7 +1082,7 @@ _ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit:
 
 _ZN13cmELFInternal15SetErrorMessageEPKc.exit:     ; preds = %25
   store i32 0, ptr %10, align 4, !tbaa !48
-  br label %.loopexit49
+  br label %.loopexit47
 
 31:                                               ; preds = %159, %.noexc35, %_ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm.exit, %125, %36, %25, %_ZN17cmELFInternalImplI12cmELFTypes32E17LoadSectionHeaderEj.exit, %_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit
   %32 = landingpad { ptr, i32 }
@@ -1110,7 +1110,7 @@ _ZN13cmELFInternal15SetErrorMessageEPKc.exit:     ; preds = %25
 
 _ZN13cmELFInternal15SetErrorMessageEPKc.exit29:   ; preds = %36
   store i32 0, ptr %10, align 4, !tbaa !48
-  br label %.loopexit49
+  br label %.loopexit47
 
 42:                                               ; preds = %33
   br label %.thread
@@ -1248,11 +1248,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %105, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %102, %68
-  %.sink67 = phi ptr [ %70, %68 ], [ %104, %102 ]
+  %.sink65 = phi ptr [ %70, %68 ], [ %104, %102 ]
   %.pn.ph = phi { ptr, i32 } [ %69, %68 ], [ %103, %102 ]
   %106 = load i64, ptr %54, align 8, !tbaa !16
   %107 = add i64 %106, 1
-  call void @_ZdlPvm(ptr noundef %.sink67, i64 noundef %107) #22
+  call void @_ZdlPvm(ptr noundef %.sink65, i64 noundef %107) #22
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %102, %68
@@ -1277,7 +1277,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %111) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit49
+  br label %.loopexit47
 
 .thread:                                          ; preds = %47, %45, %33, %44, %43, %42
   %.sink = phi i32 [ 4, %44 ], [ 3, %43 ], [ 2, %42 ], [ 1, %33 ], [ 5, %45 ], [ 6, %47 ]
@@ -1396,7 +1396,7 @@ _ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm.exit39: ; preds = %_ZNSt6vectorI10Elf
 170:                                              ; preds = %_ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm.exit39
   %171 = zext i32 %169 to i64
   %172 = icmp samesign ult i64 %indvars.iv, %171
-  br i1 %172, label %173, label %.loopexit49
+  br i1 %172, label %173, label %.loopexit47
 
 .loopexit:                                        ; preds = %_ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm.exit39, %173, %.noexc40
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1451,13 +1451,13 @@ _ZN17cmELFInternalImplI12cmELFTypes32E17LoadSectionHeaderEj.exit42: ; preds = %.
 
 _ZN13cmELFInternal15SetErrorMessageEPKc.exit44:   ; preds = %_ZN17cmELFInternalImplI12cmELFTypes32E17LoadSectionHeaderEj.exit42
   store i32 0, ptr %10, align 4, !tbaa !48
-  br label %.loopexit49
+  br label %.loopexit47
 
 198:                                              ; preds = %192, %186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %_ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm.exit39, !llvm.loop !106
 
-.loopexit49:                                      ; preds = %170, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit44, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit29, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit
+.loopexit47:                                      ; preds = %170, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit44, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit29, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit
   ret void
 
 199:                                              ; preds = %.loopexit, %.loopexit.split-lp, %109, %31
@@ -3739,7 +3739,7 @@ _ZN17cmELFInternalImplI12cmELFTypes64E4ReadER10Elf64_Ehdr.exit: ; preds = %.noex
 
 _ZN13cmELFInternal15SetErrorMessageEPKc.exit:     ; preds = %_ZN17cmELFInternalImplI12cmELFTypes64E4ReadER10Elf64_Ehdr.exit
   store i32 0, ptr %10, align 4, !tbaa !48
-  br label %.loopexit65
+  br label %.loopexit63
 
 52:                                               ; preds = %197, %169, %.noexc44, %_ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm.exit, %145, %56, %_ZN17cmELFInternalImplI12cmELFTypes64E4ReadER10Elf64_Ehdr.exit, %46, %_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit, %_ZN17cmELFInternalImplI12cmELFTypes64E17LoadSectionHeaderEj.exit
   %53 = landingpad { ptr, i32 }
@@ -3766,7 +3766,7 @@ _ZN13cmELFInternal15SetErrorMessageEPKc.exit:     ; preds = %_ZN17cmELFInternalI
 
 _ZN13cmELFInternal15SetErrorMessageEPKc.exit33:   ; preds = %56
   store i32 0, ptr %10, align 4, !tbaa !48
-  br label %.loopexit65
+  br label %.loopexit63
 
 62:                                               ; preds = %54
   br label %.thread
@@ -3904,11 +3904,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %125, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %122, %88
-  %.sink83 = phi ptr [ %90, %88 ], [ %124, %122 ]
+  %.sink81 = phi ptr [ %90, %88 ], [ %124, %122 ]
   %.pn.ph = phi { ptr, i32 } [ %89, %88 ], [ %123, %122 ]
   %126 = load i64, ptr %74, align 8, !tbaa !16
   %127 = add i64 %126, 1
-  call void @_ZdlPvm(ptr noundef %.sink83, i64 noundef %127) #22
+  call void @_ZdlPvm(ptr noundef %.sink81, i64 noundef %127) #22
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %122, %88
@@ -3933,7 +3933,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %131) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit65
+  br label %.loopexit63
 
 .thread:                                          ; preds = %67, %65, %54, %64, %63, %62
   %.sink = phi i32 [ 4, %64 ], [ 3, %63 ], [ 2, %62 ], [ 1, %54 ], [ 5, %65 ], [ 6, %67 ]
@@ -4079,7 +4079,7 @@ _ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm.exit49: ; preds = %_ZNSt6vectorI10Elf
 208:                                              ; preds = %_ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm.exit49
   %209 = zext i32 %207 to i64
   %210 = icmp samesign ult i64 %indvars.iv, %209
-  br i1 %210, label %211, label %.loopexit65
+  br i1 %210, label %211, label %.loopexit63
 
 .loopexit:                                        ; preds = %_ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm.exit49, %211, %.noexc54, %234
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4162,13 +4162,13 @@ _ZN17cmELFInternalImplI12cmELFTypes64E17LoadSectionHeaderEj.exit57: ; preds = %_
 
 _ZN13cmELFInternal15SetErrorMessageEPKc.exit59:   ; preds = %_ZN17cmELFInternalImplI12cmELFTypes64E17LoadSectionHeaderEj.exit57
   store i32 0, ptr %10, align 4, !tbaa !48
-  br label %.loopexit65
+  br label %.loopexit63
 
 255:                                              ; preds = %249, %243
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %_ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm.exit49, !llvm.loop !194
 
-.loopexit65:                                      ; preds = %208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit59, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit33, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit
+.loopexit63:                                      ; preds = %208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit59, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit33, %_ZN13cmELFInternal15SetErrorMessageEPKc.exit
   ret void
 
 256:                                              ; preds = %.loopexit, %.loopexit.split-lp, %129, %52

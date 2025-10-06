@@ -93,14 +93,14 @@ define hidden zeroext i1 @X11_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef %1)
 
 .preheader:                                       ; preds = %24
   %26 = load i32, ptr %3, align 4
-  %.not77 = icmp eq i32 %26, 0
-  br i1 %.not77, label %.critedge, label %.lr.ph
+  %.not76 = icmp eq i32 %26, 0
+  br i1 %.not76, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader ]
-  %.04573 = phi i1 [ %.1, %36 ], [ false, %.preheader ]
-  %.04672 = phi i1 [ %.147, %36 ], [ false, %.preheader ]
-  %.04871 = phi i1 [ %.149, %36 ], [ false, %.preheader ]
+  %.04572 = phi i1 [ %.1, %36 ], [ false, %.preheader ]
+  %.04671 = phi i1 [ %.147, %36 ], [ false, %.preheader ]
+  %.04870 = phi i1 [ %.149, %36 ], [ false, %.preheader ]
   %27 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %25, i64 %indvars.iv
   %28 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.5, ptr noundef nonnull %27) #5
   %29 = icmp eq i32 %28, 0
@@ -114,13 +114,13 @@ define hidden zeroext i1 @X11_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef %1)
 33:                                               ; preds = %30
   %34 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.7, ptr noundef nonnull %27) #5
   %35 = icmp eq i32 %34, 0
-  %spec.select = select i1 %35, i1 true, i1 %.04672
+  %spec.select = select i1 %35, i1 true, i1 %.04671
   br label %36
 
 36:                                               ; preds = %33, %30, %.lr.ph
-  %.149 = phi i1 [ true, %.lr.ph ], [ %.04871, %30 ], [ %.04871, %33 ]
-  %.147 = phi i1 [ %.04672, %.lr.ph ], [ %.04672, %30 ], [ %spec.select, %33 ]
-  %.1 = phi i1 [ %.04573, %.lr.ph ], [ true, %30 ], [ %.04573, %33 ]
+  %.149 = phi i1 [ true, %.lr.ph ], [ %.04870, %30 ], [ %.04870, %33 ]
+  %.147 = phi i1 [ %.04671, %.lr.ph ], [ %.04671, %30 ], [ %spec.select, %33 ]
+  %.1 = phi i1 [ %.04572, %.lr.ph ], [ true, %30 ], [ %.04572, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %3, align 4
   %38 = zext i32 %37 to i64

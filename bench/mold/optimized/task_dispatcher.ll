@@ -2914,8 +2914,8 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
   %119 = load ptr, ptr %36, align 8, !tbaa !247
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load atomic i64, ptr %120 acquire, align 8
-  %.not99 = icmp eq i64 %121, 0
-  br i1 %.not99, label %_ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit.thread92, label %122
+  %.not97 = icmp eq i64 %121, 0
+  br i1 %.not97, label %_ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit.thread92, label %122
 
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 168
@@ -2956,8 +2956,8 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
 139:                                              ; preds = %127, %122
   %140 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %141 = load atomic i64, ptr %140 monotonic, align 8
-  %.not100 = icmp eq i64 %141, 0
-  br i1 %.not100, label %150, label %142
+  %.not98 = icmp eq i64 %141, 0
+  br i1 %.not98, label %150, label %142
 
 142:                                              ; preds = %139
   %143 = invoke noundef ptr @_ZN3tbb6detail2r110arena_slot8get_taskERNS1_18execution_data_extEl(ptr noundef nonnull align 128 dereferenceable(176) %118, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %21)
@@ -3315,8 +3315,8 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
   %99 = load ptr, ptr %36, align 8, !tbaa !247
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load atomic i64, ptr %100 acquire, align 8
-  %.not84 = icmp eq i64 %101, 0
-  br i1 %.not84, label %_ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit.thread77, label %102
+  %.not82 = icmp eq i64 %101, 0
+  br i1 %.not82, label %_ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit.thread77, label %102
 
 102:                                              ; preds = %95
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 168
@@ -3357,8 +3357,8 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
 119:                                              ; preds = %107, %102
   %120 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %121 = load atomic i64, ptr %120 monotonic, align 8
-  %.not85 = icmp eq i64 %121, 0
-  br i1 %.not85, label %130, label %122
+  %.not83 = icmp eq i64 %121, 0
+  br i1 %.not83, label %130, label %122
 
 122:                                              ; preds = %119
   %123 = invoke noundef ptr @_ZN3tbb6detail2r110arena_slot8get_taskERNS1_18execution_data_extEl(ptr noundef nonnull align 128 dereferenceable(176) %98, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %21)

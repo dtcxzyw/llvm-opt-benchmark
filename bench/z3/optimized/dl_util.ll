@@ -4875,8 +4875,8 @@ define hidden void @_ZN7datalog22cycle_from_permutationER7svectorIjjES2_(ptr nou
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 -4
   %6 = load i32, ptr %5, align 4, !tbaa !45
-  %.not28.not.i = icmp eq i32 %6, 0
-  br i1 %.not28.not.i, label %_ZN7datalog33try_remove_cycle_from_permutationER7svectorIjjES2_.exit, label %.lr.ph.preheader.i
+  %.not27.not.i = icmp eq i32 %6, 0
+  br i1 %.not27.not.i, label %_ZN7datalog33try_remove_cycle_from_permutationER7svectorIjjES2_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %wide.trip.count.i = zext i32 %6 to i64
@@ -4915,11 +4915,11 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %2
   %.pre.i.i = load ptr, ptr %1, align 8, !tbaa !84
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !45
-  %.pre34.i = load ptr, ptr %0, align 8, !tbaa !84
+  %.pre33.i = load ptr, ptr %0, align 8, !tbaa !84
   br label %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
 
 _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %22, %16
-  %23 = phi ptr [ %.pre34.i, %22 ], [ %13, %16 ]
+  %23 = phi ptr [ %.pre33.i, %22 ], [ %13, %16 ]
   %24 = phi ptr [ %.pre.i.i, %22 ], [ %14, %16 ]
   %25 = phi i32 [ %.pre2.i.i, %22 ], [ %18, %16 ]
   %26 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -4953,8 +4953,8 @@ define hidden noundef zeroext i1 @_ZN7datalog33try_remove_cycle_from_permutation
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 -4
   %6 = load i32, ptr %5, align 4, !tbaa !45
-  %.not28.not = icmp eq i32 %6, 0
-  br i1 %.not28.not, label %.critedge, label %.lr.ph.preheader
+  %.not27.not = icmp eq i32 %6, 0
+  br i1 %.not27.not, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %wide.trip.count = zext i32 %6 to i64
@@ -4993,11 +4993,11 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %2
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !84
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !45
-  %.pre34 = load ptr, ptr %0, align 8, !tbaa !84
+  %.pre33 = load ptr, ptr %0, align 8, !tbaa !84
   br label %_ZN6vectorIjLb0EjE9push_backERKj.exit
 
 _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %16, %22
-  %23 = phi ptr [ %.pre34, %22 ], [ %13, %16 ]
+  %23 = phi ptr [ %.pre33, %22 ], [ %13, %16 ]
   %24 = phi ptr [ %.pre.i, %22 ], [ %14, %16 ]
   %25 = phi i32 [ %.pre2.i, %22 ], [ %18, %16 ]
   %26 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -5019,8 +5019,8 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %16, %22
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !410
 
 .critedge:                                        ; preds = %34, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %2, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %.not26 = phi i1 [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ false, %2 ], [ true, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ false, %34 ]
-  ret i1 %.not26
+  %.not25 = phi i1 [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ false, %2 ], [ true, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ false, %34 ]
+  ret i1 %.not25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5702,16 +5702,16 @@ define hidden noundef zeroext i1 @_ZN7datalog11read_uint64ERPKcRm(ptr noundef no
   store ptr %8, ptr %0, align 8, !tbaa !137
   %9 = load i8, ptr %8, align 1, !tbaa !139
   %10 = add i8 %9, -48
-  %or.cond2528 = icmp ult i8 %10, 10
-  br i1 %or.cond2528, label %.lr.ph.preheader, label %.critedge
+  %or.cond2527 = icmp ult i8 %10, 10
+  br i1 %or.cond2527, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %6
-  %.promoted27 = load i64, ptr %1, align 8
+  %.promoted26 = load i64, ptr %1, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %11 = phi ptr [ %30, %28 ], [ %8, %.lr.ph.preheader ]
-  %12 = phi i64 [ %29, %28 ], [ %.promoted27, %.lr.ph.preheader ]
+  %12 = phi i64 [ %29, %28 ], [ %.promoted26, %.lr.ph.preheader ]
   %13 = icmp ugt i64 %12, 1844674407370955160
   br i1 %13, label %14, label %21
 

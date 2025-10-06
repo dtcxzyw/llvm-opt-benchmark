@@ -620,7 +620,7 @@ define dso_local void @incrementalTrimReplicationBacklog(i64 noundef %0) local_u
   %12 = phi i64 [ %62, %56 ], [ %5, %.preheader ]
   %13 = phi ptr [ %61, %56 ], [ %4, %.preheader ]
   %14 = phi ptr [ %60, %56 ], [ %3, %.preheader ]
-  %.031 = phi i64 [ %33, %56 ], [ 0, %.preheader ]
+  %.030 = phi i64 [ %33, %56 ], [ 0, %.preheader ]
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7232), align 8, !tbaa !73
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load i64, ptr %16, align 8, !tbaa !74
@@ -654,7 +654,7 @@ define dso_local void @incrementalTrimReplicationBacklog(i64 noundef %0) local_u
 
 32:                                               ; preds = %28
   store i32 0, ptr %26, align 8, !tbaa !63
-  %33 = add nuw i64 %.031, 1
+  %33 = add nuw i64 %.030, 1
   store i64 %31, ptr %13, align 8, !tbaa !68
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !79
@@ -2221,11 +2221,11 @@ define dso_local i64 @addReplyReplicationBacklog(ptr noundef %0, i64 noundef %1)
 
 40:                                               ; preds = %.thread29
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.31, i64 noundef %38) #21
-  %.pre44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7104), align 8, !tbaa !64
+  %.pre43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7104), align 8, !tbaa !64
   br label %41
 
 41:                                               ; preds = %.thread29.thread, %.thread31, %.thread29, %40
-  %42 = phi ptr [ %25, %.thread31 ], [ %35, %.thread29 ], [ %.pre44, %40 ], [ %29, %.thread29.thread ]
+  %42 = phi ptr [ %25, %.thread31 ], [ %35, %.thread29 ], [ %.pre43, %40 ], [ %29, %.thread29.thread ]
   %43 = phi i64 [ %28, %.thread31 ], [ %38, %.thread29 ], [ %38, %40 ], [ %32, %.thread29.thread ]
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !66
@@ -2284,12 +2284,12 @@ define dso_local i64 @addReplyReplicationBacklog(ptr noundef %0, i64 noundef %1)
 
 72:                                               ; preds = %69, %68
   %.1 = phi ptr [ %.022, %68 ], [ %71, %69 ]
-  %.not2541 = icmp eq ptr %.1, null
-  br i1 %.not2541, label %._crit_edge, label %.lr.ph
+  %.not2540 = icmp eq ptr %.1, null
+  br i1 %.not2540, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72, %80
-  %.242 = phi ptr [ %82, %80 ], [ %.1, %72 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.242, i64 16
+  %.241 = phi ptr [ %82, %80 ], [ %.1, %72 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.241, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !50
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !80
@@ -2300,7 +2300,7 @@ define dso_local i64 @addReplyReplicationBacklog(ptr noundef %0, i64 noundef %1)
   br i1 %.not26, label %80, label %83
 
 80:                                               ; preds = %.lr.ph
-  %81 = getelementptr inbounds nuw i8, ptr %.242, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.241, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !79
   %.not25 = icmp eq ptr %82, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph
@@ -2311,14 +2311,14 @@ define dso_local i64 @addReplyReplicationBacklog(ptr noundef %0, i64 noundef %1)
   unreachable
 
 83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %.242, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.241, i64 16
   %85 = call i32 @prepareClientToWrite(ptr noundef %0) #21
   %86 = load ptr, ptr %84, align 8, !tbaa !50
   %87 = load i32, ptr %86, align 8, !tbaa !63
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %86, align 8, !tbaa !63
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  store ptr %.242, ptr %89, align 8, !tbaa !94
+  store ptr %.241, ptr %89, align 8, !tbaa !94
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %91 = load i64, ptr %90, align 8, !tbaa !80
   %92 = sub nsw i64 %1, %91
@@ -3217,8 +3217,8 @@ define dso_local void @syncCommand(ptr noundef %0) local_unnamed_addr #0 {
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %166, ptr noundef nonnull %4) #21
   %167 = call ptr @listNext(ptr noundef nonnull %4) #21
-  %.not8894 = icmp eq ptr %167, null
-  br i1 %.not8894, label %.critedge, label %.lr.ph
+  %.not8893 = icmp eq ptr %167, null
+  br i1 %.not8893, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %165, %181
   %168 = phi ptr [ %182, %181 ], [ %167, %165 ]
@@ -4308,8 +4308,8 @@ define dso_local void @closeRepldbfd(ptr noundef captures(address) %0) local_unn
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %3, ptr noundef nonnull %2) #21
   %4 = call ptr @listNext(ptr noundef nonnull %2) #21
-  %.not19 = icmp eq ptr %4, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %4, null
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %12
   %5 = phi ptr [ %13, %12 ], [ %4, %1 ]
@@ -4566,8 +4566,8 @@ sdslen.exit43.thread:                             ; preds = %44, %sdslen.exit43
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %120, ptr noundef nonnull %2) #21
   %121 = call ptr @listNext(ptr noundef nonnull %2) #21
-  %.not19.i = icmp eq ptr %121, null
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not18.i = icmp eq ptr %121, null
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %119, %129
   %122 = phi ptr [ %130, %129 ], [ %121, %119 ]
@@ -4704,14 +4704,14 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
 8:                                                ; preds = %6, %4
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6868), align 4, !tbaa !179
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.preheader55, label %11, !prof !65
+  br i1 %10, label %.preheader54, label %11, !prof !65
 
 11:                                               ; preds = %8
   tail call void @_serverAssert(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.3, i32 noundef 1647) #21
   tail call void @abort() #24
   unreachable
 
-.preheader55:                                     ; preds = %8, %117
+.preheader54:                                     ; preds = %8, %117
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6872), align 8, !tbaa !182
   %13 = tail call i64 @read(i32 noundef %1, ptr noundef %12, i64 noundef 16384) #21
   %14 = trunc i64 %13 to i32
@@ -4719,7 +4719,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %41
 
-16:                                               ; preds = %.preheader55
+16:                                               ; preds = %.preheader54
   %17 = tail call ptr @__errno_location() #23
   %18 = load i32, ptr %17, align 4, !tbaa !63
   %19 = icmp eq i32 %18, 11
@@ -4738,44 +4738,44 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
 25:                                               ; preds = %20, %23
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6864), align 8, !tbaa !184
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph66.preheader, label %._crit_edge67
+  br i1 %27, label %.lr.ph65.preheader, label %._crit_edge66
 
-.lr.ph66.preheader:                               ; preds = %25
+.lr.ph65.preheader:                               ; preds = %25
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8, !tbaa !185
-  br label %.lr.ph66
+  br label %.lr.ph65
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %36
-  %28 = phi i32 [ %26, %.lr.ph66.preheader ], [ %37, %36 ]
-  %29 = phi ptr [ %.pre, %.lr.ph66.preheader ], [ %38, %36 ]
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next73, %36 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv72
+.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %36
+  %28 = phi i32 [ %26, %.lr.ph65.preheader ], [ %37, %36 ]
+  %29 = phi ptr [ %.pre, %.lr.ph65.preheader ], [ %38, %36 ]
+  %indvars.iv71 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next72, %36 ]
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv71
   %31 = load ptr, ptr %30, align 8, !tbaa !186
   %.not50 = icmp eq ptr %31, null
   br i1 %.not50, label %36, label %32
 
-32:                                               ; preds = %.lr.ph66
+32:                                               ; preds = %.lr.ph65
   %33 = getelementptr i8, ptr %31, i64 32
   %.val52 = load ptr, ptr %33, align 8, !tbaa !170
   tail call void @freeClient(ptr noundef %.val52) #21
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8, !tbaa !185
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv72
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv71
   store ptr null, ptr %35, align 8, !tbaa !186
-  %.pre75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6864), align 8, !tbaa !184
+  %.pre74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6864), align 8, !tbaa !184
   br label %36
 
-36:                                               ; preds = %.lr.ph66, %32
-  %37 = phi i32 [ %28, %.lr.ph66 ], [ %.pre75, %32 ]
-  %38 = phi ptr [ %29, %.lr.ph66 ], [ %34, %32 ]
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+36:                                               ; preds = %.lr.ph65, %32
+  %37 = phi i32 [ %28, %.lr.ph65 ], [ %.pre74, %32 ]
+  %38 = phi ptr [ %29, %.lr.ph65 ], [ %34, %32 ]
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %39 = sext i32 %37 to i64
-  %40 = icmp slt i64 %indvars.iv.next73, %39
-  br i1 %40, label %.lr.ph66, label %._crit_edge67, !llvm.loop !187
+  %40 = icmp slt i64 %indvars.iv.next72, %39
+  br i1 %40, label %.lr.ph65, label %._crit_edge66, !llvm.loop !187
 
-._crit_edge67:                                    ; preds = %36, %25
+._crit_edge66:                                    ; preds = %36, %25
   tail call void @killRDBChild() #21
   br label %.thread
 
-41:                                               ; preds = %.preheader55
+41:                                               ; preds = %.preheader54
   %42 = icmp eq i32 %14, 0
   br i1 %42, label %45, label %.preheader
 
@@ -4790,36 +4790,36 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
   tail call void @aeDeleteFileEvent(ptr noundef %46, i32 noundef %47, i32 noundef 1) #21
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6864), align 8, !tbaa !184
   %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph61, label %._crit_edge62
+  br i1 %49, label %.lr.ph60, label %._crit_edge61
 
-.lr.ph61:                                         ; preds = %45
+.lr.ph60:                                         ; preds = %45
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8, !tbaa !185
   %wide.trip.count = zext nneg i32 %48 to i64
   br label %51
 
-51:                                               ; preds = %.lr.ph61, %51
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next70, %51 ]
-  %.03558 = phi i32 [ 0, %.lr.ph61 ], [ %.136, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv69
+51:                                               ; preds = %.lr.ph60, %51
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next69, %51 ]
+  %.03557 = phi i32 [ 0, %.lr.ph60 ], [ %.136, %51 ]
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv68
   %53 = load ptr, ptr %52, align 8, !tbaa !186
   %.not49 = icmp ne ptr %53, null
   %54 = zext i1 %.not49 to i32
-  %.136 = add nuw nsw i32 %.03558, %54
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge62, label %51, !llvm.loop !188
+  %.136 = add nuw nsw i32 %.03557, %54
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge61, label %51, !llvm.loop !188
 
-._crit_edge62:                                    ; preds = %51, %45
+._crit_edge61:                                    ; preds = %51, %45
   %.035.lcssa = phi i32 [ 0, %45 ], [ %.136, %51 ]
   %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !87
   %56 = icmp sgt i32 %55, 2
   br i1 %56, label %58, label %57
 
-57:                                               ; preds = %._crit_edge62
+57:                                               ; preds = %._crit_edge61
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.106, i32 noundef %.035.lcssa) #21
   br label %58
 
-58:                                               ; preds = %._crit_edge62, %57
+58:                                               ; preds = %._crit_edge61, %57
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6852), align 4, !tbaa !189
   %60 = tail call i32 @close(i32 noundef %59) #21
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6852), align 4, !tbaa !189
@@ -4827,7 +4827,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
 
 .lr.ph:                                           ; preds = %.preheader, %106
   %indvars.iv = phi i64 [ %indvars.iv.next, %106 ], [ 0, %.preheader ]
-  %.03756 = phi i32 [ %.138, %106 ], [ 0, %.preheader ]
+  %.03755 = phi i32 [ %.138, %106 ], [ 0, %.preheader ]
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8, !tbaa !185
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !186
@@ -4904,11 +4904,11 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
   br label %104
 
 104:                                              ; preds = %95, %93
-  %105 = add nsw i32 %.03756, 1
+  %105 = add nsw i32 %.03755, 1
   br label %106
 
 106:                                              ; preds = %84, %104, %.lr.ph
-  %.138 = phi i32 [ %.03756, %.lr.ph ], [ %.03756, %84 ], [ %105, %104 ]
+  %.138 = phi i32 [ %.03755, %.lr.ph ], [ %.03755, %84 ], [ %105, %104 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6864), align 8, !tbaa !184
   %108 = sext i32 %107 to i64
@@ -4938,7 +4938,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
 117:                                              ; preds = %._crit_edge
   %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6868), align 4, !tbaa !179
   %.not45 = icmp eq i32 %118, 0
-  br i1 %.not45, label %.preheader55, label %119
+  br i1 %.not45, label %.preheader54, label %119
 
 119:                                              ; preds = %117
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 88), align 8, !tbaa !180
@@ -4946,7 +4946,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
   tail call void @aeDeleteFileEvent(ptr noundef %120, i32 noundef %121, i32 noundef 1) #21
   br label %.thread
 
-.thread:                                          ; preds = %119, %114, %16, %58, %._crit_edge67
+.thread:                                          ; preds = %119, %114, %16, %58, %._crit_edge66
   ret void
 }
 
@@ -6046,14 +6046,14 @@ useDisklessLoad.exit:                             ; preds = %1, %7, %11, %14, %1
   br label %251
 
 251:                                              ; preds = %263, %.preheader.i
-  %.02538.i = phi i64 [ 40, %.preheader.i ], [ %265, %263 ]
-  %.02737.i = phi ptr [ %2, %.preheader.i ], [ %264, %263 ]
+  %.02537.i = phi i64 [ 40, %.preheader.i ], [ %265, %263 ]
+  %.02736.i = phi ptr [ %2, %.preheader.i ], [ %264, %263 ]
   %252 = load i64, ptr %248, align 8, !tbaa !227
   %.not32.not.i = icmp eq i64 %252, 0
-  %253 = call i64 @llvm.umin.i64(i64 %252, i64 %.02538.i)
-  %254 = select i1 %.not32.not.i, i64 %.02538.i, i64 %253
+  %253 = call i64 @llvm.umin.i64(i64 %252, i64 %.02537.i)
+  %254 = select i1 %.not32.not.i, i64 %.02537.i, i64 %253
   %255 = load ptr, ptr %4, align 8, !tbaa !228
-  %256 = call i64 %255(ptr noundef nonnull %4, ptr noundef %.02737.i, i64 noundef %254) #21
+  %256 = call i64 %255(ptr noundef nonnull %4, ptr noundef %.02736.i, i64 noundef %254) #21
   %257 = icmp eq i64 %256, 0
   br i1 %257, label %.thread.i128, label %260
 
@@ -6069,12 +6069,12 @@ useDisklessLoad.exit:                             ; preds = %1, %7, %11, %14, %1
   br i1 %.not33.i, label %263, label %262
 
 262:                                              ; preds = %260
-  call void %261(ptr noundef nonnull %4, ptr noundef %.02737.i, i64 noundef %254) #21
+  call void %261(ptr noundef nonnull %4, ptr noundef %.02736.i, i64 noundef %254) #21
   br label %263
 
 263:                                              ; preds = %262, %260
-  %264 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %254
-  %265 = sub i64 %.02538.i, %254
+  %264 = getelementptr inbounds nuw i8, ptr %.02736.i, i64 %254
+  %265 = sub i64 %.02537.i, %254
   %266 = load i64, ptr %250, align 8, !tbaa !230
   %267 = add i64 %266, %254
   store i64 %267, ptr %250, align 8, !tbaa !230
@@ -10136,22 +10136,22 @@ define dso_local void @replicaofCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.not25 = icmp eq ptr %41, null
   %.pre = load ptr, ptr %9, align 8, !tbaa !127
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre29 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !99
-  %.phi.trans.insert30 = getelementptr inbounds nuw i8, ptr %.pre29, i64 8
-  %.pre31 = load ptr, ptr %.phi.trans.insert30, align 8, !tbaa !89
+  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !99
+  %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %.pre28, i64 8
+  %.pre30 = load ptr, ptr %.phi.trans.insert29, align 8, !tbaa !89
   br i1 %.not25, label %._crit_edge, label %42
 
 ._crit_edge:                                      ; preds = %40
-  %.pre32 = load i64, ptr %2, align 8, !tbaa !78
+  %.pre31 = load i64, ptr %2, align 8, !tbaa !78
   br label %53
 
 42:                                               ; preds = %40
-  %43 = call i32 @strcasecmp(ptr noundef nonnull %41, ptr noundef %.pre31) #22
+  %43 = call i32 @strcasecmp(ptr noundef nonnull %41, ptr noundef %.pre30) #22
   %.not26 = icmp eq i32 %43, 0
-  %.pre33 = load i64, ptr %2, align 8, !tbaa !78
+  %.pre32 = load i64, ptr %2, align 8, !tbaa !78
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7272), align 8
   %45 = sext i32 %44 to i64
-  %46 = icmp eq i64 %.pre33, %45
+  %46 = icmp eq i64 %.pre32, %45
   %or.cond = select i1 %.not26, i1 %46, i1 false
   br i1 %or.cond, label %47, label %53
 
@@ -10170,9 +10170,9 @@ define dso_local void @replicaofCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 53:                                               ; preds = %._crit_edge, %42
-  %54 = phi i64 [ %.pre32, %._crit_edge ], [ %.pre33, %42 ]
+  %54 = phi i64 [ %.pre31, %._crit_edge ], [ %.pre32, %42 ]
   %55 = trunc i64 %54 to i32
-  call void @replicationSetMaster(ptr noundef %.pre31, i32 noundef %55)
+  call void @replicationSetMaster(ptr noundef %.pre30, i32 noundef %55)
   %56 = call ptr @sdsempty() #21
   %57 = call ptr @catClientInfoString(ptr noundef %56, ptr noundef nonnull %0) #21
   %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !87
@@ -11707,8 +11707,8 @@ define dso_local void @updateFailoverStatus() local_unnamed_addr #0 {
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %25, ptr noundef nonnull %1) #21
   %26 = call ptr @listNext(ptr noundef nonnull %1) #21
-  %.not1928 = icmp eq ptr %26, null
-  br i1 %.not1928, label %.loopexit, label %.lr.ph
+  %.not1926 = icmp eq ptr %26, null
+  br i1 %.not1926, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %.backedge
   %27 = phi ptr [ %34, %.backedge ], [ %26, %24 ]
@@ -11785,19 +11785,19 @@ connAddrPeerName.exit.thread:                     ; preds = %38, %41, %connAddrP
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8356), align 4, !tbaa !143
   %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !87
   %58 = icmp sgt i32 %57, 2
-  %.pre30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8344), align 8, !tbaa !253
-  %.pre32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8352), align 8, !tbaa !254
+  %.pre28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8344), align 8, !tbaa !253
+  %.pre30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8352), align 8, !tbaa !254
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %56
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.274, ptr noundef %.pre30, i32 noundef %.pre32) #21
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.274, ptr noundef %.pre28, i32 noundef %.pre30) #21
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8344), align 8, !tbaa !253
-  %.pre31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8352), align 8, !tbaa !254
+  %.pre29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8352), align 8, !tbaa !254
   br label %60
 
 60:                                               ; preds = %56, %59
-  %61 = phi i32 [ %.pre32, %56 ], [ %.pre31, %59 ]
-  %62 = phi ptr [ %.pre30, %56 ], [ %.pre, %59 ]
+  %61 = phi i32 [ %.pre30, %56 ], [ %.pre29, %59 ]
+  %62 = phi ptr [ %.pre28, %56 ], [ %.pre, %59 ]
   call void @replicationSetMaster(ptr noundef %62, i32 noundef %61)
   br label %63
 
@@ -11845,16 +11845,16 @@ define dso_local range(i32 0, 2) i32 @shouldStartChildReplication(ptr noundef wr
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %6, ptr noundef nonnull %3) #21
   %7 = call ptr @listNext(ptr noundef nonnull %3) #21
-  %.not4664 = icmp eq ptr %7, null
-  br i1 %.not4664, label %.sink.split, label %.lr.ph
+  %.not4663 = icmp eq ptr %7, null
+  br i1 %.not4663, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %35
   %8 = phi ptr [ %36, %35 ], [ %7, %5 ]
-  %.02669 = phi i64 [ %.2, %35 ], [ 0, %5 ]
-  %.02868 = phi i32 [ %.230, %35 ], [ 1, %5 ]
-  %.03167 = phi i32 [ %.334, %35 ], [ undef, %5 ]
-  %.03566 = phi i32 [ %.237, %35 ], [ undef, %5 ]
-  %.03865 = phi i32 [ %.240, %35 ], [ 0, %5 ]
+  %.02668 = phi i64 [ %.2, %35 ], [ 0, %5 ]
+  %.02867 = phi i32 [ %.230, %35 ], [ 1, %5 ]
+  %.03166 = phi i32 [ %.334, %35 ], [ undef, %5 ]
+  %.03565 = phi i32 [ %.237, %35 ], [ undef, %5 ]
+  %.03864 = phi i32 [ %.240, %35 ], [ 0, %5 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 268
@@ -11863,13 +11863,13 @@ define dso_local range(i32 0, 2) i32 @shouldStartChildReplication(ptr noundef wr
   br i1 %13, label %14, label %35
 
 14:                                               ; preds = %.lr.ph
-  %.not53 = icmp eq i32 %.02868, 0
+  %.not53 = icmp eq i32 %.02867, 0
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 428
   %16 = load i32, ptr %15, align 4, !tbaa !125
   br i1 %.not53, label %17, label %18
 
 17:                                               ; preds = %14
-  %.not54 = icmp eq i32 %.03167, %16
+  %.not54 = icmp eq i32 %.03166, %16
   br i1 %.not54, label %26, label %35, !llvm.loop !287
 
 18:                                               ; preds = %14
@@ -11877,8 +11877,8 @@ define dso_local range(i32 0, 2) i32 @shouldStartChildReplication(ptr noundef wr
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %21 = load i64, ptr %20, align 8, !tbaa !243
   %22 = sub nsw i64 %19, %21
-  %spec.select = call i64 @llvm.smax.i64(i64 %22, i64 %.02669)
-  %23 = add nsw i32 %.03865, 1
+  %spec.select = call i64 @llvm.smax.i64(i64 %22, i64 %.02668)
+  %23 = add nsw i32 %.03864, 1
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 424
   %25 = load i32, ptr %24, align 8, !tbaa !130
   br label %35
@@ -11888,19 +11888,19 @@ define dso_local range(i32 0, 2) i32 @shouldStartChildReplication(ptr noundef wr
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %29 = load i64, ptr %28, align 8, !tbaa !243
   %30 = sub nsw i64 %27, %29
-  %spec.select58 = call i64 @llvm.smax.i64(i64 %30, i64 %.02669)
-  %31 = add nsw i32 %.03865, 1
+  %spec.select58 = call i64 @llvm.smax.i64(i64 %30, i64 %.02668)
+  %31 = add nsw i32 %.03864, 1
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 424
   %33 = load i32, ptr %32, align 8, !tbaa !130
-  %34 = and i32 %33, %.03566
+  %34 = and i32 %33, %.03565
   br label %35
 
 35:                                               ; preds = %.lr.ph, %26, %18, %17
-  %.240 = phi i32 [ %.03865, %17 ], [ %.03865, %.lr.ph ], [ %31, %26 ], [ %23, %18 ]
-  %.237 = phi i32 [ %.03566, %17 ], [ %.03566, %.lr.ph ], [ %34, %26 ], [ %25, %18 ]
-  %.334 = phi i32 [ %.03167, %17 ], [ %.03167, %.lr.ph ], [ %.03167, %26 ], [ %16, %18 ]
-  %.230 = phi i32 [ 0, %17 ], [ %.02868, %.lr.ph ], [ 0, %26 ], [ 0, %18 ]
-  %.2 = phi i64 [ %.02669, %17 ], [ %.02669, %.lr.ph ], [ %spec.select58, %26 ], [ %spec.select, %18 ]
+  %.240 = phi i32 [ %.03864, %17 ], [ %.03864, %.lr.ph ], [ %31, %26 ], [ %23, %18 ]
+  %.237 = phi i32 [ %.03565, %17 ], [ %.03565, %.lr.ph ], [ %34, %26 ], [ %25, %18 ]
+  %.334 = phi i32 [ %.03166, %17 ], [ %.03166, %.lr.ph ], [ %.03166, %26 ], [ %16, %18 ]
+  %.230 = phi i32 [ 0, %17 ], [ %.02867, %.lr.ph ], [ 0, %26 ], [ 0, %18 ]
+  %.2 = phi i64 [ %.02668, %17 ], [ %.02668, %.lr.ph ], [ %spec.select58, %26 ], [ %spec.select, %18 ]
   %36 = call ptr @listNext(ptr noundef nonnull %3) #21
   %.not46 = icmp eq ptr %36, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph

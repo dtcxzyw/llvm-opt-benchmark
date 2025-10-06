@@ -233,76 +233,76 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_copy(ptr noundef captures(none) %0, pt
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %6
 
 6:                                                ; preds = %2
-  %.not28.i.i.i = icmp ult i64 %5, 4294967296
-  %7 = lshr i64 %5, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %5, i64 %7
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %8 = lshr i64 %spec.select.i.i.i, 16
-  %9 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %8
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %9
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %10 = lshr i64 %.122.i.i.i, 8
-  %11 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %10
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %11
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %12 = lshr i64 %.223.i.i.i, 4
-  %13 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %12
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %13
-  %14 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %14, 0
-  %15 = lshr i64 %.324.i.i.i, 2
-  %16 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %15
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %16
-  %17 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %18 = lshr i32 %17, 1
-  %19 = and i32 %18, 1
-  %.5.i.i.i = add nuw nsw i32 %19, %.4.i.i.i
+  %7 = icmp ugt i64 %5, 4294967295
+  %8 = lshr i64 %5, 32
+  %spec.select.i.i.i = select i1 %7, i64 %8, i64 %5
+  %spec.select33.i.i.i = select i1 %7, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %9 = lshr i64 %spec.select.i.i.i, 16
+  %10 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %9
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %10
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %11 = lshr i64 %.122.i.i.i, 8
+  %12 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %11
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %12
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %13 = lshr i64 %.223.i.i.i, 4
+  %14 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %13
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %14
+  %15 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %15, 0
+  %16 = lshr i64 %.324.i.i.i, 2
+  %17 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %16
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %17
+  %18 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %19 = lshr i32 %18, 1
+  %20 = and i32 %19, 1
+  %.5.i.i.i = add nuw nsw i32 %20, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %6, %2
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %6 ], [ 0, %2 ]
-  %20 = shl nuw i32 1, %.026.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !10
-  %23 = icmp ugt i32 %20, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !11
-  br i1 %23, label %26, label %hwloc_flsl_manual.exit.i.i._crit_edge
+  %21 = shl nuw i32 1, %.026.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %24 = icmp ugt i32 %21, %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !11
+  br i1 %24, label %27, label %hwloc_flsl_manual.exit.i.i._crit_edge
 
-26:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %27 = zext i32 %20 to i64
-  %28 = shl nuw nsw i64 %27, 3
-  %29 = tail call ptr @realloc(ptr noundef %25, i64 noundef %28) #19
-  %.not.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %30
+27:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %28 = zext i32 %21 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = tail call ptr @realloc(ptr noundef %26, i64 noundef %29) #19
+  %.not.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %31
 
-30:                                               ; preds = %26
-  store ptr %29, ptr %24, align 8, !tbaa !11
-  store i32 %20, ptr %21, align 4, !tbaa !10
+31:                                               ; preds = %27
+  store ptr %30, ptr %25, align 8, !tbaa !11
+  store i32 %21, ptr %22, align 4, !tbaa !10
   br label %hwloc_flsl_manual.exit.i.i._crit_edge
 
-hwloc_flsl_manual.exit.i.i._crit_edge:            ; preds = %hwloc_flsl_manual.exit.i.i, %30
-  %31 = phi ptr [ %29, %30 ], [ %25, %hwloc_flsl_manual.exit.i.i ]
+hwloc_flsl_manual.exit.i.i._crit_edge:            ; preds = %hwloc_flsl_manual.exit.i.i, %31
+  %32 = phi ptr [ %30, %31 ], [ %26, %hwloc_flsl_manual.exit.i.i ]
   store i32 %3, ptr %0, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !11
-  %34 = load i32, ptr %1, align 8, !tbaa !3
-  %35 = zext i32 %34 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %33, i64 %36, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = load i32, ptr %37, align 8, !tbaa !14
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %38, ptr %39, align 8, !tbaa !14
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !11
+  %35 = load i32, ptr %1, align 8, !tbaa !3
+  %36 = zext i32 %35 to i64
+  %37 = shl nuw nsw i64 %36, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %34, i64 %37, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = load i32, ptr %38, align 8, !tbaa !14
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %39, ptr %40, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %26, %hwloc_flsl_manual.exit.i.i._crit_edge
-  %.0 = phi i32 [ 0, %hwloc_flsl_manual.exit.i.i._crit_edge ], [ -1, %26 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %27, %hwloc_flsl_manual.exit.i.i._crit_edge
+  %.0 = phi i32 [ 0, %hwloc_flsl_manual.exit.i.i._crit_edge ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -600,165 +600,165 @@ hwloc_bitmap_fill.exit:                           ; preds = %hwloc_bitmap_reset_
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %35
 
 35:                                               ; preds = %31
-  %.not28.i.i.i = icmp ult i64 %34, 4294967296
-  %36 = lshr i64 %34, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %34, i64 %36
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %37 = lshr i64 %spec.select.i.i.i, 16
-  %38 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %37
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %38
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %39 = lshr i64 %.122.i.i.i, 8
-  %40 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %39
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %40
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %41 = lshr i64 %.223.i.i.i, 4
-  %42 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %41
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %42
-  %43 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %43, 0
-  %44 = lshr i64 %.324.i.i.i, 2
-  %45 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %44
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %45
-  %46 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %47 = lshr i32 %46, 1
-  %48 = and i32 %47, 1
-  %.5.i.i.i = add nuw nsw i32 %48, %.4.i.i.i
+  %36 = icmp ugt i64 %34, 4294967295
+  %37 = lshr i64 %34, 32
+  %spec.select.i.i.i = select i1 %36, i64 %37, i64 %34
+  %spec.select33.i.i.i = select i1 %36, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %38 = lshr i64 %spec.select.i.i.i, 16
+  %39 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %38
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %39
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %40 = lshr i64 %.122.i.i.i, 8
+  %41 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %40
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %41
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %42 = lshr i64 %.223.i.i.i, 4
+  %43 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %42
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %43
+  %44 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %44, 0
+  %45 = lshr i64 %.324.i.i.i, 2
+  %46 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %45
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %46
+  %47 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %48 = lshr i32 %47, 1
+  %49 = and i32 %48, 1
+  %.5.i.i.i = add nuw nsw i32 %49, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %35, %31
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %35 ], [ 0, %31 ]
-  %49 = shl nuw i32 1, %.026.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !10
-  %52 = icmp ugt i32 %49, %51
-  br i1 %52, label %53, label %.loopexit
+  %50 = shl nuw i32 1, %.026.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %53 = icmp ugt i32 %50, %52
+  br i1 %53, label %54, label %.loopexit
 
-53:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !11
-  %56 = zext i32 %49 to i64
-  %57 = shl nuw nsw i64 %56, 3
-  %58 = tail call ptr @realloc(ptr noundef %55, i64 noundef %57) #19
-  %.not.not.i.i = icmp eq ptr %58, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %59
+54:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !11
+  %57 = zext i32 %50 to i64
+  %58 = shl nuw nsw i64 %57, 3
+  %59 = tail call ptr @realloc(ptr noundef %56, i64 noundef %58) #19
+  %.not.not.i.i = icmp eq ptr %59, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %60
 
-59:                                               ; preds = %53
-  store ptr %58, ptr %54, align 8, !tbaa !11
-  store i32 %49, ptr %50, align 4, !tbaa !10
+60:                                               ; preds = %54
+  store ptr %59, ptr %55, align 8, !tbaa !11
+  store i32 %50, ptr %51, align 4, !tbaa !10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %hwloc_flsl_manual.exit.i.i
+.loopexit:                                        ; preds = %60, %hwloc_flsl_manual.exit.i.i
   store i32 %32, ptr %0, align 8, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %60, align 8, !tbaa !14
-  %61 = and i32 %.143, 1
-  %.not55 = icmp eq i32 %61, 0
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %61, align 8, !tbaa !14
+  %62 = and i32 %.143, 1
+  %.not55 = icmp eq i32 %62, 0
   %or.cond59 = or i1 %.not52.not, %.not55
   %spec.select = select i1 %or.cond59, i64 0, i64 -4294967296
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %63
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %64
 
-63:                                               ; preds = %79, %.loopexit
-  %.247 = phi i64 [ %spec.select, %.loopexit ], [ %.348, %79 ]
-  %.244 = phi i32 [ %.143, %.loopexit ], [ %67, %79 ]
-  %.2 = phi ptr [ %.1, %.loopexit ], [ %.3, %79 ]
-  %64 = load i8, ptr %.2, align 1, !tbaa !17
-  %.not56 = icmp eq i8 %64, 0
-  br i1 %.not56, label %85, label %65
+64:                                               ; preds = %80, %.loopexit
+  %.247 = phi i64 [ %spec.select, %.loopexit ], [ %.348, %80 ]
+  %.244 = phi i32 [ %.143, %.loopexit ], [ %68, %80 ]
+  %.2 = phi ptr [ %.1, %.loopexit ], [ %.3, %80 ]
+  %65 = load i8, ptr %.2, align 1, !tbaa !17
+  %.not56 = icmp eq i8 %65, 0
+  br i1 %.not56, label %86, label %66
 
-65:                                               ; preds = %63
+66:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %66 = call i64 @strtoul(ptr noundef nonnull %.2, ptr noundef nonnull %3, i32 noundef 16) #18
-  %67 = add nsw i32 %.244, -1
-  %68 = shl nsw i32 %67, 5
-  %69 = srem i32 %68, 64
-  %70 = zext nneg i32 %69 to i64
-  %71 = shl i64 %66, %70
-  %72 = or i64 %71, %.247
-  %73 = and i32 %67, 1
-  %.not57 = icmp eq i32 %73, 0
-  br i1 %.not57, label %74, label %79
+  %67 = call i64 @strtoul(ptr noundef nonnull %.2, ptr noundef nonnull %3, i32 noundef 16) #18
+  %68 = add nsw i32 %.244, -1
+  %69 = shl nsw i32 %68, 5
+  %70 = srem i32 %69, 64
+  %71 = zext nneg i32 %70 to i64
+  %72 = shl i64 %67, %71
+  %73 = or i64 %72, %.247
+  %74 = and i32 %68, 1
+  %.not57 = icmp eq i32 %74, 0
+  br i1 %.not57, label %75, label %80
 
-74:                                               ; preds = %65
-  %75 = load ptr, ptr %62, align 8, !tbaa !11
-  %76 = ashr exact i32 %67, 1
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i64, ptr %75, i64 %77
-  store i64 %72, ptr %78, align 8, !tbaa !12
-  br label %79
+75:                                               ; preds = %66
+  %76 = load ptr, ptr %63, align 8, !tbaa !11
+  %77 = ashr exact i32 %68, 1
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i64, ptr %76, i64 %78
+  store i64 %73, ptr %79, align 8, !tbaa !12
+  br label %80
 
-79:                                               ; preds = %74, %65
-  %.348 = phi i64 [ %72, %65 ], [ 0, %74 ]
-  %80 = load ptr, ptr %3, align 8, !tbaa !22
-  %81 = load i8, ptr %80, align 1, !tbaa !17
-  %.not58 = icmp eq i8 %81, 44
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %83 = icmp ne i8 %81, 0
-  %84 = icmp sgt i32 %.244, 1
-  %or.cond = or i1 %84, %83
+80:                                               ; preds = %75, %66
+  %.348 = phi i64 [ %73, %66 ], [ 0, %75 ]
+  %81 = load ptr, ptr %3, align 8, !tbaa !22
+  %82 = load i8, ptr %81, align 1, !tbaa !17
+  %.not58 = icmp eq i8 %82, 44
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  %84 = icmp ne i8 %82, 0
+  %85 = icmp sgt i32 %.244, 1
+  %or.cond = or i1 %85, %84
   %. = select i1 %or.cond, i32 9, i32 8
-  %.3 = select i1 %.not58, ptr %82, ptr %.2
+  %.3 = select i1 %.not58, ptr %83, ptr %.2
   %.039 = select i1 %.not58, i32 0, i32 %.
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.039, label %.unreachabledefault [
-    i32 0, label %63
-    i32 8, label %85
-    i32 9, label %86
+    i32 0, label %64
+    i32 8, label %86
+    i32 9, label %87
     i32 1, label %hwloc_bitmap_reset_by_ulongs.exit.thread
   ], !llvm.loop !25
 
-85:                                               ; preds = %79, %63
-  store i32 %.040, ptr %60, align 8, !tbaa !14
+86:                                               ; preds = %80, %64
+  store i32 %.040, ptr %61, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-86:                                               ; preds = %79
-  %87 = load i32, ptr %50, align 4, !tbaa !10
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i60
+87:                                               ; preds = %80
+  %88 = load i32, ptr %51, align 4, !tbaa !10
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i60
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %62, align 8, !tbaa !11
-  %91 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %90, i64 noundef 8) #19
-  %.not.not.i.i.i62 = icmp eq ptr %91, null
-  br i1 %.not.not.i.i.i62, label %hwloc_bitmap_reset_by_ulongs.exit.i63, label %92
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %63, align 8, !tbaa !11
+  %92 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %91, i64 noundef 8) #19
+  %.not.not.i.i.i62 = icmp eq ptr %92, null
+  br i1 %.not.not.i.i.i62, label %hwloc_bitmap_reset_by_ulongs.exit.i63, label %93
 
-92:                                               ; preds = %89
-  store ptr %91, ptr %62, align 8, !tbaa !11
-  store i32 1, ptr %50, align 4, !tbaa !10
+93:                                               ; preds = %90
+  store ptr %92, ptr %63, align 8, !tbaa !11
+  store i32 1, ptr %51, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread.i60
 
-hwloc_bitmap_reset_by_ulongs.exit.thread.i60:     ; preds = %92, %86
+hwloc_bitmap_reset_by_ulongs.exit.thread.i60:     ; preds = %93, %87
   store i32 1, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i61
 
-hwloc_bitmap_reset_by_ulongs.exit.i63:            ; preds = %89
+hwloc_bitmap_reset_by_ulongs.exit.i63:            ; preds = %90
   %.pr.i64 = load i32, ptr %0, align 8, !tbaa !3
   %.not.i.i65 = icmp eq i32 %.pr.i64, 0
   br i1 %.not.i.i65, label %hwloc_bitmap_zero.exit, label %.lr.ph.i.i61
 
 .lr.ph.i.i61:                                     ; preds = %hwloc_bitmap_reset_by_ulongs.exit.i63, %hwloc_bitmap_reset_by_ulongs.exit.thread.i60
-  %93 = phi i32 [ 1, %hwloc_bitmap_reset_by_ulongs.exit.thread.i60 ], [ %.pr.i64, %hwloc_bitmap_reset_by_ulongs.exit.i63 ]
-  %94 = load ptr, ptr %62, align 8, !tbaa !11
-  %95 = zext i32 %93 to i64
-  %96 = shl nuw nsw i64 %95, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %94, i8 0, i64 %96, i1 false), !tbaa !12
+  %94 = phi i32 [ 1, %hwloc_bitmap_reset_by_ulongs.exit.thread.i60 ], [ %.pr.i64, %hwloc_bitmap_reset_by_ulongs.exit.i63 ]
+  %95 = load ptr, ptr %63, align 8, !tbaa !11
+  %96 = zext i32 %94 to i64
+  %97 = shl nuw nsw i64 %96, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %95, i8 0, i64 %97, i1 false), !tbaa !12
   br label %hwloc_bitmap_zero.exit
 
 hwloc_bitmap_zero.exit:                           ; preds = %hwloc_bitmap_reset_by_ulongs.exit.i63, %.lr.ph.i.i61
-  store i32 0, ptr %60, align 8, !tbaa !14
+  store i32 0, ptr %61, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-.unreachabledefault:                              ; preds = %79
+.unreachabledefault:                              ; preds = %80
   unreachable
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %79, %53, %hwloc_bitmap_zero.exit, %85, %hwloc_bitmap_fill.exit
-  %.0 = phi i32 [ 0, %85 ], [ -1, %hwloc_bitmap_zero.exit ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %53 ], [ undef, %79 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %80, %54, %hwloc_bitmap_zero.exit, %86, %hwloc_bitmap_fill.exit
+  %.0 = phi i32 [ 0, %86 ], [ -1, %hwloc_bitmap_zero.exit ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %54 ], [ undef, %80 ]
   ret i32 %.0
 }
 
@@ -1951,8 +1951,8 @@ sub_0:                                            ; preds = %2
   %25 = load i8, ptr %1, align 1
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 48, %26
-  %.not73 = icmp eq i8 %25, 48
-  br i1 %.not73, label %sub_1, label %.tail
+  %.not72 = icmp eq i8 %25, 48
+  br i1 %.not72, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -2025,181 +2025,181 @@ hwloc_bitmap_zero.exit:                           ; preds = %hwloc_bitmap_reset_
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %58
 
 58:                                               ; preds = %50
-  %.not28.i.i.i = icmp ult i64 %57, 4294967296
-  %59 = lshr i64 %57, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %57, i64 %59
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %60 = lshr i64 %spec.select.i.i.i, 16
-  %61 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %60
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %61
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %62 = lshr i64 %.122.i.i.i, 8
-  %63 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %62
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %63
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %64 = lshr i64 %.223.i.i.i, 4
-  %65 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %64
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %65
-  %66 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %66, 0
-  %67 = lshr i64 %.324.i.i.i, 2
-  %68 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %67
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %68
-  %69 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %70 = lshr i32 %69, 1
-  %71 = and i32 %70, 1
-  %.5.i.i.i = add nuw nsw i32 %71, %.4.i.i.i
+  %59 = icmp ugt i64 %57, 4294967295
+  %60 = lshr i64 %57, 32
+  %spec.select.i.i.i = select i1 %59, i64 %60, i64 %57
+  %spec.select33.i.i.i = select i1 %59, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %61 = lshr i64 %spec.select.i.i.i, 16
+  %62 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %61
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %62
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %63 = lshr i64 %.122.i.i.i, 8
+  %64 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %63
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %64
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %65 = lshr i64 %.223.i.i.i, 4
+  %66 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %65
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %66
+  %67 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %67, 0
+  %68 = lshr i64 %.324.i.i.i, 2
+  %69 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %68
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %69
+  %70 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %71 = lshr i32 %70, 1
+  %72 = and i32 %71, 1
+  %.5.i.i.i = add nuw nsw i32 %72, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %58, %50
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %58 ], [ 0, %50 ]
-  %72 = shl nuw i32 1, %.026.i.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !10
-  %75 = icmp ugt i32 %72, %74
-  br i1 %75, label %76, label %.lr.ph
+  %73 = shl nuw i32 1, %.026.i.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !10
+  %76 = icmp ugt i32 %73, %75
+  br i1 %76, label %77, label %.lr.ph
 
-76:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !11
-  %79 = zext i32 %72 to i64
-  %80 = shl nuw nsw i64 %79, 3
-  %81 = tail call ptr @realloc(ptr noundef %78, i64 noundef %80) #19
-  %.not.not.i.i = icmp eq ptr %81, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %82
+77:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !11
+  %80 = zext i32 %73 to i64
+  %81 = shl nuw nsw i64 %80, 3
+  %82 = tail call ptr @realloc(ptr noundef %79, i64 noundef %81) #19
+  %.not.not.i.i = icmp eq ptr %82, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %83
 
-82:                                               ; preds = %76
-  store ptr %81, ptr %77, align 8, !tbaa !11
-  store i32 %72, ptr %73, align 4, !tbaa !10
+83:                                               ; preds = %77
+  store ptr %82, ptr %78, align 8, !tbaa !11
+  store i32 %73, ptr %74, align 4, !tbaa !10
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %hwloc_flsl_manual.exit.i.i, %82
+.lr.ph:                                           ; preds = %hwloc_flsl_manual.exit.i.i, %83
   store i32 %55, ptr %0, align 8, !tbaa !3
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %83, align 8, !tbaa !14
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %85 = sext i32 %55 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %84, align 8, !tbaa !14
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %86 = sext i32 %55 to i64
   br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %92
-  %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ %85, %.lr.ph ]
-  %.04170.us = phi i32 [ %96, %92 ], [ %52, %.lr.ph ]
-  %.269.us = phi ptr [ %95, %92 ], [ %.043, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %93
+  %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ %86, %.lr.ph ]
+  %.04169.us = phi i32 [ %97, %93 ], [ %52, %.lr.ph ]
+  %.268.us = phi ptr [ %96, %93 ], [ %.043, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %86 = srem i32 %.04170.us, 16
-  %.not74 = icmp eq i32 %86, 0
-  %spec.store.select.us = select i1 %.not74, i32 16, i32 %86
-  %87 = sext i32 %spec.store.select.us to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %.269.us, i64 %87, i1 false)
-  %88 = getelementptr inbounds i8, ptr %3, i64 %87
-  store i8 0, ptr %88, align 1, !tbaa !17
-  %89 = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #18
-  %90 = load ptr, ptr %4, align 8, !tbaa !22
-  %91 = load i8, ptr %90, align 1, !tbaa !17
-  %.not47.us = icmp eq i8 %91, 0
-  br i1 %.not47.us, label %92, label %.split.us
+  %87 = srem i32 %.04169.us, 16
+  %.not73 = icmp eq i32 %87, 0
+  %spec.store.select.us = select i1 %.not73, i32 16, i32 %87
+  %88 = sext i32 %spec.store.select.us to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %.268.us, i64 %88, i1 false)
+  %89 = getelementptr inbounds i8, ptr %3, i64 %88
+  store i8 0, ptr %89, align 1, !tbaa !17
+  %90 = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #18
+  %91 = load ptr, ptr %4, align 8, !tbaa !22
+  %92 = load i8, ptr %91, align 1, !tbaa !17
+  %.not47.us = icmp eq i8 %92, 0
+  br i1 %.not47.us, label %93, label %.split.us
 
-92:                                               ; preds = %.lr.ph.split.us
-  %93 = load ptr, ptr %84, align 8, !tbaa !11
+93:                                               ; preds = %.lr.ph.split.us
+  %94 = load ptr, ptr %85, align 8, !tbaa !11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %94 = getelementptr inbounds i64, ptr %93, i64 %indvars.iv.next
-  store i64 %89, ptr %94, align 8, !tbaa !12
-  %95 = getelementptr inbounds i8, ptr %.269.us, i64 %87
-  %96 = sub nsw i32 %.04170.us, %spec.store.select.us
+  %95 = getelementptr inbounds i64, ptr %94, i64 %indvars.iv.next
+  store i64 %90, ptr %95, align 8, !tbaa !12
+  %96 = getelementptr inbounds i8, ptr %.268.us, i64 %88
+  %97 = sub nsw i32 %.04169.us, %spec.store.select.us
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %97 = load i8, ptr %95, align 1, !tbaa !17
-  %.not46.us = icmp eq i8 %97, 0
+  %98 = load i8, ptr %96, align 1, !tbaa !17
+  %.not46.us = icmp eq i8 %98, 0
   br i1 %.not46.us, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %104
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %104 ], [ %85, %.lr.ph ]
-  %.04170 = phi i32 [ %112, %104 ], [ %52, %.lr.ph ]
-  %.269 = phi ptr [ %111, %104 ], [ %.043, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %105
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %105 ], [ %86, %.lr.ph ]
+  %.04169 = phi i32 [ %113, %105 ], [ %52, %.lr.ph ]
+  %.268 = phi ptr [ %112, %105 ], [ %.043, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %98 = srem i32 %.04170, 16
-  %.not75 = icmp eq i32 %98, 0
-  %spec.store.select = select i1 %.not75, i32 16, i32 %98
-  %99 = sext i32 %spec.store.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %.269, i64 %99, i1 false)
-  %100 = getelementptr inbounds i8, ptr %3, i64 %99
-  store i8 0, ptr %100, align 1, !tbaa !17
-  %101 = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #18
-  %102 = load ptr, ptr %4, align 8, !tbaa !22
-  %103 = load i8, ptr %102, align 1, !tbaa !17
-  %.not47 = icmp eq i8 %103, 0
-  br i1 %.not47, label %104, label %.split.us
+  %99 = srem i32 %.04169, 16
+  %.not74 = icmp eq i32 %99, 0
+  %spec.store.select = select i1 %.not74, i32 16, i32 %99
+  %100 = sext i32 %spec.store.select to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %.268, i64 %100, i1 false)
+  %101 = getelementptr inbounds i8, ptr %3, i64 %100
+  store i8 0, ptr %101, align 1, !tbaa !17
+  %102 = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #18
+  %103 = load ptr, ptr %4, align 8, !tbaa !22
+  %104 = load i8, ptr %103, align 1, !tbaa !17
+  %.not47 = icmp eq i8 %104, 0
+  br i1 %.not47, label %105, label %.split.us
 
-104:                                              ; preds = %.lr.ph.split
-  %105 = load ptr, ptr %84, align 8, !tbaa !11
-  %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
-  %106 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv.next80
-  %107 = shl nsw i32 %spec.store.select, 2
-  %108 = zext nneg i32 %107 to i64
-  %109 = shl nsw i64 -1, %108
-  %110 = select i1 %.not75, i64 0, i64 %109
-  %spec.select72 = or i64 %101, %110
-  store i64 %spec.select72, ptr %106, align 8, !tbaa !12
-  %111 = getelementptr inbounds i8, ptr %.269, i64 %99
-  %112 = sub nsw i32 %.04170, %spec.store.select
+105:                                              ; preds = %.lr.ph.split
+  %106 = load ptr, ptr %85, align 8, !tbaa !11
+  %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
+  %107 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv.next79
+  %108 = shl nsw i32 %spec.store.select, 2
+  %109 = zext nneg i32 %108 to i64
+  %110 = shl nsw i64 -1, %109
+  %111 = select i1 %.not74, i64 0, i64 %110
+  %spec.select71 = or i64 %102, %111
+  store i64 %spec.select71, ptr %107, align 8, !tbaa !12
+  %112 = getelementptr inbounds i8, ptr %.268, i64 %100
+  %113 = sub nsw i32 %.04169, %spec.store.select
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %113 = load i8, ptr %111, align 1, !tbaa !17
-  %.not46 = icmp eq i8 %113, 0
+  %114 = load i8, ptr %112, align 1, !tbaa !17
+  %.not46 = icmp eq i8 %114, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %92, %104
-  store i32 %.039, ptr %83, align 8, !tbaa !14
+._crit_edge:                                      ; preds = %93, %105
+  store i32 %.039, ptr %84, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %114 = load i32, ptr %73, align 4, !tbaa !10
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i55
+  %115 = load i32, ptr %74, align 4, !tbaa !10
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i55
 
-116:                                              ; preds = %.split.us
-  %117 = load ptr, ptr %84, align 8, !tbaa !11
-  %118 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %117, i64 noundef 8) #19
-  %.not.not.i.i.i57 = icmp eq ptr %118, null
-  br i1 %.not.not.i.i.i57, label %hwloc_bitmap_reset_by_ulongs.exit.i58, label %119
+117:                                              ; preds = %.split.us
+  %118 = load ptr, ptr %85, align 8, !tbaa !11
+  %119 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %118, i64 noundef 8) #19
+  %.not.not.i.i.i57 = icmp eq ptr %119, null
+  br i1 %.not.not.i.i.i57, label %hwloc_bitmap_reset_by_ulongs.exit.i58, label %120
 
-119:                                              ; preds = %116
-  store ptr %118, ptr %84, align 8, !tbaa !11
-  store i32 1, ptr %73, align 4, !tbaa !10
+120:                                              ; preds = %117
+  store ptr %119, ptr %85, align 8, !tbaa !11
+  store i32 1, ptr %74, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread.i55
 
-hwloc_bitmap_reset_by_ulongs.exit.thread.i55:     ; preds = %119, %.split.us
+hwloc_bitmap_reset_by_ulongs.exit.thread.i55:     ; preds = %120, %.split.us
   store i32 1, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i56
 
-hwloc_bitmap_reset_by_ulongs.exit.i58:            ; preds = %116
+hwloc_bitmap_reset_by_ulongs.exit.i58:            ; preds = %117
   %.pr.i59 = load i32, ptr %0, align 8, !tbaa !3
   %.not.i.i60 = icmp eq i32 %.pr.i59, 0
   br i1 %.not.i.i60, label %hwloc_bitmap_zero.exit61, label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %hwloc_bitmap_reset_by_ulongs.exit.i58, %hwloc_bitmap_reset_by_ulongs.exit.thread.i55
-  %120 = phi i32 [ 1, %hwloc_bitmap_reset_by_ulongs.exit.thread.i55 ], [ %.pr.i59, %hwloc_bitmap_reset_by_ulongs.exit.i58 ]
-  %121 = load ptr, ptr %84, align 8, !tbaa !11
-  %122 = zext i32 %120 to i64
-  %123 = shl nuw nsw i64 %122, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %121, i8 0, i64 %123, i1 false), !tbaa !12
+  %121 = phi i32 [ 1, %hwloc_bitmap_reset_by_ulongs.exit.thread.i55 ], [ %.pr.i59, %hwloc_bitmap_reset_by_ulongs.exit.i58 ]
+  %122 = load ptr, ptr %85, align 8, !tbaa !11
+  %123 = zext i32 %121 to i64
+  %124 = shl nuw nsw i64 %123, 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %122, i8 0, i64 %124, i1 false), !tbaa !12
   br label %hwloc_bitmap_zero.exit61
 
 hwloc_bitmap_zero.exit61:                         ; preds = %hwloc_bitmap_reset_by_ulongs.exit.i58, %.lr.ph.i.i56
-  store i32 0, ptr %83, align 8, !tbaa !14
+  store i32 0, ptr %84, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %76, %hwloc_bitmap_zero.exit61, %._crit_edge, %hwloc_bitmap_zero.exit, %hwloc_bitmap_fill.exit
-  %.0 = phi i32 [ 0, %hwloc_bitmap_zero.exit ], [ -1, %hwloc_bitmap_zero.exit61 ], [ 0, %._crit_edge ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %76 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %77, %hwloc_bitmap_zero.exit61, %._crit_edge, %hwloc_bitmap_zero.exit, %hwloc_bitmap_fill.exit
+  %.0 = phi i32 [ 0, %hwloc_bitmap_zero.exit ], [ -1, %hwloc_bitmap_zero.exit61 ], [ 0, %._crit_edge ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %77 ]
   ret i32 %.0
 }
 
@@ -2247,80 +2247,80 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_from_ith_ulong(ptr noundef captures(no
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %7
 
 7:                                                ; preds = %3
-  %.not28.i.i.i = icmp ult i64 %6, 4294967296
-  %8 = lshr i64 %6, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %6, i64 %8
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %9 = lshr i64 %spec.select.i.i.i, 16
-  %10 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %9
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %10
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %11 = lshr i64 %.122.i.i.i, 8
-  %12 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %11
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %12
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %13 = lshr i64 %.223.i.i.i, 4
-  %14 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %13
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %14
-  %15 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %15, 0
-  %16 = lshr i64 %.324.i.i.i, 2
-  %17 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %16
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %17
-  %18 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %19 = lshr i32 %18, 1
-  %20 = and i32 %19, 1
-  %.5.i.i.i = add nuw nsw i32 %20, %.4.i.i.i
+  %8 = icmp ugt i64 %6, 4294967295
+  %9 = lshr i64 %6, 32
+  %spec.select.i.i.i = select i1 %8, i64 %9, i64 %6
+  %spec.select33.i.i.i = select i1 %8, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %10 = lshr i64 %spec.select.i.i.i, 16
+  %11 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %10
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %11
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %12 = lshr i64 %.122.i.i.i, 8
+  %13 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %12
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %13
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %14 = lshr i64 %.223.i.i.i, 4
+  %15 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %14
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %15
+  %16 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %16, 0
+  %17 = lshr i64 %.324.i.i.i, 2
+  %18 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %17
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %18
+  %19 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %20 = lshr i32 %19, 1
+  %21 = and i32 %20, 1
+  %.5.i.i.i = add nuw nsw i32 %21, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %7, %3
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %7 ], [ 0, %3 ]
-  %21 = shl nuw i32 1, %.026.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !10
-  %24 = icmp ugt i32 %21, %23
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !11
-  br i1 %24, label %27, label %hwloc_flsl_manual.exit.i.i._crit_edge
+  %22 = shl nuw i32 1, %.026.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %25 = icmp ugt i32 %22, %24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !11
+  br i1 %25, label %28, label %hwloc_flsl_manual.exit.i.i._crit_edge
 
-27:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %28 = zext i32 %21 to i64
-  %29 = shl nuw nsw i64 %28, 3
-  %30 = tail call ptr @realloc(ptr noundef %26, i64 noundef %29) #19
-  %.not.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %31
+28:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %29 = zext i32 %22 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #19
+  %.not.not.i.i = icmp eq ptr %31, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %32
 
-31:                                               ; preds = %27
-  store ptr %30, ptr %25, align 8, !tbaa !11
-  store i32 %21, ptr %22, align 4, !tbaa !10
+32:                                               ; preds = %28
+  store ptr %31, ptr %26, align 8, !tbaa !11
+  store i32 %22, ptr %23, align 4, !tbaa !10
   br label %hwloc_flsl_manual.exit.i.i._crit_edge
 
-hwloc_flsl_manual.exit.i.i._crit_edge:            ; preds = %hwloc_flsl_manual.exit.i.i, %31
-  %32 = phi ptr [ %30, %31 ], [ %26, %hwloc_flsl_manual.exit.i.i ]
+hwloc_flsl_manual.exit.i.i._crit_edge:            ; preds = %hwloc_flsl_manual.exit.i.i, %32
+  %33 = phi ptr [ %31, %32 ], [ %27, %hwloc_flsl_manual.exit.i.i ]
   store i32 %4, ptr %0, align 8, !tbaa !3
-  %33 = zext i32 %1 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
-  store i64 %2, ptr %34, align 8, !tbaa !12
+  %34 = zext i32 %1 to i64
+  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
+  store i64 %2, ptr %35, align 8, !tbaa !12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %hwloc_flsl_manual.exit.i.i._crit_edge
-  %35 = shl nuw nsw i64 %33, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %35, i1 false), !tbaa !12
+  %36 = shl nuw nsw i64 %34, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %33, i8 0, i64 %36, i1 false), !tbaa !12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %hwloc_flsl_manual.exit.i.i._crit_edge
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %36, align 8, !tbaa !14
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %37, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %27, %._crit_edge
-  %.011 = phi i32 [ 0, %._crit_edge ], [ -1, %27 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %._crit_edge
+  %.011 = phi i32 [ 0, %._crit_edge ], [ -1, %28 ]
   ret i32 %.011
 }
 
@@ -2332,86 +2332,86 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_from_ulongs(ptr noundef captures(none)
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %6
 
 6:                                                ; preds = %3
-  %.not28.i.i.i = icmp ult i64 %5, 4294967296
-  %7 = lshr i64 %5, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %5, i64 %7
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %8 = lshr i64 %spec.select.i.i.i, 16
-  %9 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %8
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %9
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %10 = lshr i64 %.122.i.i.i, 8
-  %11 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %10
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %11
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %12 = lshr i64 %.223.i.i.i, 4
-  %13 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %12
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %13
-  %14 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %14, 0
-  %15 = lshr i64 %.324.i.i.i, 2
-  %16 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %15
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %16
-  %17 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %18 = lshr i32 %17, 1
-  %19 = and i32 %18, 1
-  %.5.i.i.i = add nuw nsw i32 %19, %.4.i.i.i
+  %7 = icmp ugt i64 %5, 4294967295
+  %8 = lshr i64 %5, 32
+  %spec.select.i.i.i = select i1 %7, i64 %8, i64 %5
+  %spec.select33.i.i.i = select i1 %7, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %9 = lshr i64 %spec.select.i.i.i, 16
+  %10 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %9
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %10
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %11 = lshr i64 %.122.i.i.i, 8
+  %12 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %11
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %12
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %13 = lshr i64 %.223.i.i.i, 4
+  %14 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %13
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %14
+  %15 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %15, 0
+  %16 = lshr i64 %.324.i.i.i, 2
+  %17 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %16
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %17
+  %18 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %19 = lshr i32 %18, 1
+  %20 = and i32 %19, 1
+  %.5.i.i.i = add nuw nsw i32 %20, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %6, %3
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %6 ], [ 0, %3 ]
-  %20 = shl nuw i32 1, %.026.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !10
-  %23 = icmp ugt i32 %20, %22
-  br i1 %23, label %24, label %hwloc_bitmap_reset_by_ulongs.exit
+  %21 = shl nuw i32 1, %.026.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %24 = icmp ugt i32 %21, %23
+  br i1 %24, label %25, label %hwloc_bitmap_reset_by_ulongs.exit
 
-24:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !11
-  %27 = zext i32 %20 to i64
-  %28 = shl nuw nsw i64 %27, 3
-  %29 = tail call ptr @realloc(ptr noundef %26, i64 noundef %28) #19
-  %.not.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %30
+25:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !11
+  %28 = zext i32 %21 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = tail call ptr @realloc(ptr noundef %27, i64 noundef %29) #19
+  %.not.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %31
 
-30:                                               ; preds = %24
-  store ptr %29, ptr %25, align 8, !tbaa !11
-  store i32 %20, ptr %21, align 4, !tbaa !10
+31:                                               ; preds = %25
+  store ptr %30, ptr %26, align 8, !tbaa !11
+  store i32 %21, ptr %22, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit
 
-hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %30
+hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %31
   store i32 %1, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_bitmap_reset_by_ulongs.exit
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
-  br label %33
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  br label %34
 
-33:                                               ; preds = %.lr.ph, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  %35 = load i64, ptr %34, align 8, !tbaa !12
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv
-  store i64 %35, ptr %36, align 8, !tbaa !12
+34:                                               ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %36 = load i64, ptr %35, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  store i64 %36, ptr %37, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %33, %hwloc_bitmap_reset_by_ulongs.exit
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !14
+._crit_edge:                                      ; preds = %34, %hwloc_bitmap_reset_by_ulongs.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %38, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %24, %._crit_edge
-  %.010 = phi i32 [ 0, %._crit_edge ], [ -1, %24 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %25, %._crit_edge
+  %.010 = phi i32 [ 0, %._crit_edge ], [ -1, %25 ]
   ret i32 %.010
 }
 
@@ -2520,43 +2520,43 @@ define range(i32 -1, 67108864) i32 @hwloc_bitmap_nr_ulongs(ptr noundef readonly 
 
 .thread.i:                                        ; preds = %11
   %16 = trunc i64 %12 to i32
-  %.not28.i.i = icmp ult i64 %15, 4294967296
-  %17 = lshr i64 %15, 32
-  %spec.select.i.i = select i1 %.not28.i.i, i64 %15, i64 %17
-  %spec.select34.i.i = select i1 %.not28.i.i, i32 1, i32 33
-  %.not29.i.i = icmp samesign ult i64 %spec.select.i.i, 65536
-  %18 = lshr i64 %spec.select.i.i, 16
-  %19 = or disjoint i32 %spec.select34.i.i, 16
-  %.122.i.i = select i1 %.not29.i.i, i64 %spec.select.i.i, i64 %18
-  %.1.i.i = select i1 %.not29.i.i, i32 %spec.select34.i.i, i32 %19
-  %.not30.i.i = icmp samesign ult i64 %.122.i.i, 256
-  %20 = lshr i64 %.122.i.i, 8
-  %21 = or disjoint i32 %.1.i.i, 8
-  %.223.i.i = select i1 %.not30.i.i, i64 %.122.i.i, i64 %20
-  %.2.i.i = select i1 %.not30.i.i, i32 %.1.i.i, i32 %21
-  %.not31.i.i = icmp samesign ult i64 %.223.i.i, 16
-  %22 = lshr i64 %.223.i.i, 4
-  %23 = or disjoint i32 %.2.i.i, 4
-  %.324.i.i = select i1 %.not31.i.i, i64 %.223.i.i, i64 %22
-  %.3.i.i = select i1 %.not31.i.i, i32 %.2.i.i, i32 %23
-  %24 = and i64 %.324.i.i, 12
-  %.not32.i.i = icmp eq i64 %24, 0
-  %25 = lshr i64 %.324.i.i, 2
-  %26 = add nuw nsw i32 %.3.i.i, 2
-  %.425.i.i = select i1 %.not32.i.i, i64 %.324.i.i, i64 %25
-  %.4.i.i = select i1 %.not32.i.i, i32 %.3.i.i, i32 %26
-  %27 = trunc nuw nsw i64 %.425.i.i to i32
-  %28 = lshr i32 %27, 1
-  %29 = and i32 %28, 1
-  %30 = shl nsw i32 %16, 6
-  %31 = or disjoint i32 %30, 63
-  %32 = add i32 %31, %.4.i.i
-  %33 = add i32 %32, %29
-  %34 = lshr i32 %33, 6
+  %17 = icmp ugt i64 %15, 4294967295
+  %18 = lshr i64 %15, 32
+  %spec.select.i.i = select i1 %17, i64 %18, i64 %15
+  %spec.select33.i.i = select i1 %17, i32 33, i32 1
+  %.not28.i.i = icmp samesign ult i64 %spec.select.i.i, 65536
+  %19 = lshr i64 %spec.select.i.i, 16
+  %20 = or disjoint i32 %spec.select33.i.i, 16
+  %.122.i.i = select i1 %.not28.i.i, i64 %spec.select.i.i, i64 %19
+  %.1.i.i = select i1 %.not28.i.i, i32 %spec.select33.i.i, i32 %20
+  %.not29.i.i = icmp samesign ult i64 %.122.i.i, 256
+  %21 = lshr i64 %.122.i.i, 8
+  %22 = or disjoint i32 %.1.i.i, 8
+  %.223.i.i = select i1 %.not29.i.i, i64 %.122.i.i, i64 %21
+  %.2.i.i = select i1 %.not29.i.i, i32 %.1.i.i, i32 %22
+  %.not30.i.i = icmp samesign ult i64 %.223.i.i, 16
+  %23 = lshr i64 %.223.i.i, 4
+  %24 = or disjoint i32 %.2.i.i, 4
+  %.324.i.i = select i1 %.not30.i.i, i64 %.223.i.i, i64 %23
+  %.3.i.i = select i1 %.not30.i.i, i32 %.2.i.i, i32 %24
+  %25 = and i64 %.324.i.i, 12
+  %.not31.i.i = icmp eq i64 %25, 0
+  %26 = lshr i64 %.324.i.i, 2
+  %27 = add nuw nsw i32 %.3.i.i, 2
+  %.425.i.i = select i1 %.not31.i.i, i64 %.324.i.i, i64 %26
+  %.4.i.i = select i1 %.not31.i.i, i32 %.3.i.i, i32 %27
+  %28 = trunc nuw nsw i64 %.425.i.i to i32
+  %29 = lshr i32 %28, 1
+  %30 = and i32 %29, 1
+  %31 = shl nsw i32 %16, 6
+  %32 = or disjoint i32 %31, 63
+  %33 = add i32 %32, %.4.i.i
+  %34 = add i32 %33, %30
+  %35 = lshr i32 %34, 6
   br label %hwloc_bitmap_last.exit
 
 hwloc_bitmap_last.exit:                           ; preds = %8, %.thread.i, %1
-  %.0 = phi i32 [ -1, %1 ], [ %34, %.thread.i ], [ 0, %8 ]
+  %.0 = phi i32 [ -1, %1 ], [ %35, %.thread.i ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2589,42 +2589,42 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last(ptr noundef readonly ca
 
 .thread:                                          ; preds = %11
   %16 = trunc i64 %12 to i32
-  %.not28.i = icmp ult i64 %15, 4294967296
-  %17 = lshr i64 %15, 32
-  %spec.select.i = select i1 %.not28.i, i64 %15, i64 %17
-  %spec.select34.i = select i1 %.not28.i, i32 1, i32 33
-  %.not29.i = icmp samesign ult i64 %spec.select.i, 65536
-  %18 = lshr i64 %spec.select.i, 16
-  %19 = or disjoint i32 %spec.select34.i, 16
-  %.122.i = select i1 %.not29.i, i64 %spec.select.i, i64 %18
-  %.1.i = select i1 %.not29.i, i32 %spec.select34.i, i32 %19
-  %.not30.i = icmp samesign ult i64 %.122.i, 256
-  %20 = lshr i64 %.122.i, 8
-  %21 = or disjoint i32 %.1.i, 8
-  %.223.i = select i1 %.not30.i, i64 %.122.i, i64 %20
-  %.2.i = select i1 %.not30.i, i32 %.1.i, i32 %21
-  %.not31.i = icmp samesign ult i64 %.223.i, 16
-  %22 = lshr i64 %.223.i, 4
-  %23 = or disjoint i32 %.2.i, 4
-  %.324.i = select i1 %.not31.i, i64 %.223.i, i64 %22
-  %.3.i = select i1 %.not31.i, i32 %.2.i, i32 %23
-  %24 = and i64 %.324.i, 12
-  %.not32.i = icmp eq i64 %24, 0
-  %25 = lshr i64 %.324.i, 2
-  %26 = add nuw nsw i32 %.3.i, 2
-  %.425.i = select i1 %.not32.i, i64 %.324.i, i64 %25
-  %.4.i = select i1 %.not32.i, i32 %.3.i, i32 %26
-  %27 = trunc nuw nsw i64 %.425.i to i32
-  %28 = lshr i32 %27, 1
-  %29 = and i32 %28, 1
-  %30 = shl nsw i32 %16, 6
-  %.5.i = add i32 %30, -1
-  %31 = add i32 %.5.i, %.4.i
-  %32 = add i32 %31, %29
+  %17 = icmp ugt i64 %15, 4294967295
+  %18 = lshr i64 %15, 32
+  %spec.select.i = select i1 %17, i64 %18, i64 %15
+  %spec.select33.i = select i1 %17, i32 33, i32 1
+  %.not28.i = icmp samesign ult i64 %spec.select.i, 65536
+  %19 = lshr i64 %spec.select.i, 16
+  %20 = or disjoint i32 %spec.select33.i, 16
+  %.122.i = select i1 %.not28.i, i64 %spec.select.i, i64 %19
+  %.1.i = select i1 %.not28.i, i32 %spec.select33.i, i32 %20
+  %.not29.i = icmp samesign ult i64 %.122.i, 256
+  %21 = lshr i64 %.122.i, 8
+  %22 = or disjoint i32 %.1.i, 8
+  %.223.i = select i1 %.not29.i, i64 %.122.i, i64 %21
+  %.2.i = select i1 %.not29.i, i32 %.1.i, i32 %22
+  %.not30.i = icmp samesign ult i64 %.223.i, 16
+  %23 = lshr i64 %.223.i, 4
+  %24 = or disjoint i32 %.2.i, 4
+  %.324.i = select i1 %.not30.i, i64 %.223.i, i64 %23
+  %.3.i = select i1 %.not30.i, i32 %.2.i, i32 %24
+  %25 = and i64 %.324.i, 12
+  %.not31.i = icmp eq i64 %25, 0
+  %26 = lshr i64 %.324.i, 2
+  %27 = add nuw nsw i32 %.3.i, 2
+  %.425.i = select i1 %.not31.i, i64 %.324.i, i64 %26
+  %.4.i = select i1 %.not31.i, i32 %.3.i, i32 %27
+  %28 = trunc nuw nsw i64 %.425.i to i32
+  %29 = lshr i32 %28, 1
+  %30 = and i32 %29, 1
+  %31 = shl nsw i32 %16, 6
+  %.5.i = add i32 %31, -1
+  %32 = add i32 %.5.i, %.4.i
+  %33 = add i32 %32, %30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.thread, %1
-  %.0 = phi i32 [ -1, %1 ], [ %32, %.thread ], [ -1, %8 ]
+  %.0 = phi i32 [ -1, %1 ], [ %33, %.thread ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -2637,26 +2637,26 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_only(ptr noundef captures(none) %0, i3
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %.not29.i.i.i = icmp ult i32 %1, 4194304
+  %.not28.i.i.i = icmp ult i32 %1, 4194304
   %7 = lshr i64 %6, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %6, i64 %7
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 1, i32 17
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %6, i64 %7
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 17
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %8 = lshr i64 %.122.i.i.i, 8
   %9 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %8
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %9
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %8
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %9
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %10 = lshr i64 %.223.i.i.i, 4
   %11 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %10
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %11
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %10
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %11
   %12 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %12, 0
+  %.not31.i.i.i = icmp eq i64 %12, 0
   %13 = lshr i64 %.324.i.i.i, 2
   %14 = or disjoint i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %13
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %14
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %13
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %14
   %15 = trunc nuw nsw i64 %.425.i.i.i to i32
   %16 = lshr i32 %15, 1
   %17 = and i32 %16, 1
@@ -2717,26 +2717,26 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_allbut(ptr noundef captures(none) %0, 
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %.not29.i.i.i = icmp ult i32 %1, 4194304
+  %.not28.i.i.i = icmp ult i32 %1, 4194304
   %7 = lshr i64 %6, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %6, i64 %7
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 1, i32 17
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %6, i64 %7
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 17
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
   %8 = lshr i64 %.122.i.i.i, 8
   %9 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %8
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %9
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %8
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %9
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
   %10 = lshr i64 %.223.i.i.i, 4
   %11 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %10
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %11
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %10
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %11
   %12 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %12, 0
+  %.not31.i.i.i = icmp eq i64 %12, 0
   %13 = lshr i64 %.324.i.i.i, 2
   %14 = or disjoint i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %13
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %14
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %13
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %14
   %15 = trunc nuw nsw i64 %.425.i.i.i to i32
   %16 = lshr i32 %15, 1
   %17 = and i32 %16, 1
@@ -2802,26 +2802,26 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_bitmap_realloc_by_ulongs(ptr 
   br i1 %.not.i.i, label %hwloc_flsl_manual.exit.i, label %7
 
 7:                                                ; preds = %4
-  %.not29.i.i = icmp ult i32 %1, 65537
+  %.not28.i.i = icmp ult i32 %1, 65537
   %8 = lshr i64 %6, 16
-  %.122.i.i = select i1 %.not29.i.i, i64 %6, i64 %8
-  %.1.i.i = select i1 %.not29.i.i, i32 1, i32 17
-  %.not30.i.i = icmp samesign ult i64 %.122.i.i, 256
+  %.122.i.i = select i1 %.not28.i.i, i64 %6, i64 %8
+  %.1.i.i = select i1 %.not28.i.i, i32 1, i32 17
+  %.not29.i.i = icmp samesign ult i64 %.122.i.i, 256
   %9 = lshr i64 %.122.i.i, 8
   %10 = or disjoint i32 %.1.i.i, 8
-  %.223.i.i = select i1 %.not30.i.i, i64 %.122.i.i, i64 %9
-  %.2.i.i = select i1 %.not30.i.i, i32 %.1.i.i, i32 %10
-  %.not31.i.i = icmp samesign ult i64 %.223.i.i, 16
+  %.223.i.i = select i1 %.not29.i.i, i64 %.122.i.i, i64 %9
+  %.2.i.i = select i1 %.not29.i.i, i32 %.1.i.i, i32 %10
+  %.not30.i.i = icmp samesign ult i64 %.223.i.i, 16
   %11 = lshr i64 %.223.i.i, 4
   %12 = or disjoint i32 %.2.i.i, 4
-  %.324.i.i = select i1 %.not31.i.i, i64 %.223.i.i, i64 %11
-  %.3.i.i = select i1 %.not31.i.i, i32 %.2.i.i, i32 %12
+  %.324.i.i = select i1 %.not30.i.i, i64 %.223.i.i, i64 %11
+  %.3.i.i = select i1 %.not30.i.i, i32 %.2.i.i, i32 %12
   %13 = and i64 %.324.i.i, 12
-  %.not32.i.i = icmp eq i64 %13, 0
+  %.not31.i.i = icmp eq i64 %13, 0
   %14 = lshr i64 %.324.i.i, 2
   %15 = or disjoint i32 %.3.i.i, 2
-  %.425.i.i = select i1 %.not32.i.i, i64 %.324.i.i, i64 %14
-  %.4.i.i = select i1 %.not32.i.i, i32 %.3.i.i, i32 %15
+  %.425.i.i = select i1 %.not31.i.i, i64 %.324.i.i, i64 %14
+  %.4.i.i = select i1 %.not31.i.i, i32 %.3.i.i, i32 %15
   %16 = trunc nuw nsw i64 %.425.i.i to i32
   %17 = lshr i32 %16, 1
   %18 = and i32 %17, 1
@@ -3534,178 +3534,178 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_or(ptr noundef captures(none) %0, ptr 
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %10
 
 10:                                               ; preds = %3
-  %.not28.i.i.i = icmp ult i64 %9, 4294967296
-  %11 = lshr i64 %9, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %12 = lshr i64 %spec.select.i.i.i, 16
-  %13 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %14 = lshr i64 %.122.i.i.i, 8
-  %15 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %16 = lshr i64 %.223.i.i.i, 4
-  %17 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %17
-  %18 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %18, 0
-  %19 = lshr i64 %.324.i.i.i, 2
-  %20 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %22 = lshr i32 %21, 1
-  %23 = and i32 %22, 1
-  %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
+  %11 = icmp ugt i64 %9, 4294967295
+  %12 = lshr i64 %9, 32
+  %spec.select.i.i.i = select i1 %11, i64 %12, i64 %9
+  %spec.select33.i.i.i = select i1 %11, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %13 = lshr i64 %spec.select.i.i.i, 16
+  %14 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %13
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %14
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %15 = lshr i64 %.122.i.i.i, 8
+  %16 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %15
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %16
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %17 = lshr i64 %.223.i.i.i, 4
+  %18 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %17
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %18
+  %19 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %19, 0
+  %20 = lshr i64 %.324.i.i.i, 2
+  %21 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %20
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %21
+  %22 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %23 = lshr i32 %22, 1
+  %24 = and i32 %23, 1
+  %.5.i.i.i = add nuw nsw i32 %24, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %10, %3
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %10 ], [ 0, %3 ]
-  %24 = shl nuw i32 1, %.026.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !10
-  %27 = icmp ugt i32 %24, %26
-  br i1 %27, label %28, label %hwloc_bitmap_reset_by_ulongs.exit
+  %25 = shl nuw i32 1, %.026.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %28 = icmp ugt i32 %25, %27
+  br i1 %28, label %29, label %hwloc_bitmap_reset_by_ulongs.exit
 
-28:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = zext i32 %24 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  %33 = tail call ptr @realloc(ptr noundef %30, i64 noundef %32) #19
-  %.not.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %34
+29:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
+  %32 = zext i32 %25 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #19
+  %.not.not.i.i = icmp eq ptr %34, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %35
 
-34:                                               ; preds = %28
-  store ptr %33, ptr %29, align 8, !tbaa !11
-  store i32 %24, ptr %25, align 4, !tbaa !10
+35:                                               ; preds = %29
+  store ptr %34, ptr %30, align 8, !tbaa !11
+  store i32 %25, ptr %26, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit
 
-hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %34
+hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %35
   store i32 %6, ptr %0, align 8, !tbaa !3
   %.not63 = icmp eq i32 %7, 0
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_bitmap_reset_by_ulongs.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !11
   %wide.trip.count = zext i32 %7 to i64
-  br label %41
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
-  %43 = load i64, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !12
-  %46 = or i64 %45, %43
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
-  store i64 %46, ptr %47, align 8, !tbaa !12
+42:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %44 = load i64, ptr %43, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8, !tbaa !12
+  %47 = or i64 %46, %44
+  %48 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  store i64 %47, ptr %48, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %41, %hwloc_bitmap_reset_by_ulongs.exit
+._crit_edge:                                      ; preds = %42, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
-  br i1 %.not, label %.loopexit, label %48
+  br i1 %.not, label %.loopexit, label %49
 
-48:                                               ; preds = %._crit_edge
-  %49 = icmp ult i32 %5, %4
-  br i1 %49, label %50, label %63
+49:                                               ; preds = %._crit_edge
+  %50 = icmp ult i32 %5, %4
+  br i1 %50, label %51, label %64
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !14
-  %.not53 = icmp eq i32 %52, 0
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !14
+  %.not53 = icmp eq i32 %53, 0
   br i1 %.not53, label %.lr.ph62, label %.loopexit.sink.split
 
-.lr.ph62:                                         ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !11
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !11
-  %57 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
-  %umin72 = zext i32 %57 to i64
-  %58 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
-  br label %59
+.lr.ph62:                                         ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !11
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
+  %umin72 = zext i32 %58 to i64
+  %59 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
+  br label %60
 
-59:                                               ; preds = %.lr.ph62, %59
-  %indvars.iv73 = phi i64 [ %umin72, %.lr.ph62 ], [ %indvars.iv.next74, %59 ]
-  %60 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv73
-  %61 = load i64, ptr %60, align 8, !tbaa !12
-  %62 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv73
-  store i64 %61, ptr %62, align 8, !tbaa !12
+60:                                               ; preds = %.lr.ph62, %60
+  %indvars.iv73 = phi i64 [ %umin72, %.lr.ph62 ], [ %indvars.iv.next74, %60 ]
+  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv73
+  %62 = load i64, ptr %61, align 8, !tbaa !12
+  %63 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv73
+  store i64 %62, ptr %63, align 8, !tbaa !12
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %lftr.wideiv75 = trunc i64 %indvars.iv.next74 to i32
-  %exitcond76.not = icmp eq i32 %58, %lftr.wideiv75
-  br i1 %exitcond76.not, label %.loopexit, label %59, !llvm.loop !49
+  %exitcond76.not = icmp eq i32 %59, %lftr.wideiv75
+  br i1 %exitcond76.not, label %.loopexit, label %60, !llvm.loop !49
 
-63:                                               ; preds = %48
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %65 = load i32, ptr %64, align 8, !tbaa !14
-  %.not52 = icmp eq i32 %65, 0
+64:                                               ; preds = %49
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %66 = load i32, ptr %65, align 8, !tbaa !14
+  %.not52 = icmp eq i32 %66, 0
   br i1 %.not52, label %.preheader56, label %.loopexit.sink.split
 
-.preheader56:                                     ; preds = %63
-  %66 = icmp ult i32 %7, %6
-  br i1 %66, label %.lr.ph60, label %.loopexit
+.preheader56:                                     ; preds = %64
+  %67 = icmp ult i32 %7, %6
+  br i1 %67, label %.lr.ph60, label %.loopexit
 
 .lr.ph60:                                         ; preds = %.preheader56
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !11
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !11
-  %71 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
-  %umin = zext i32 %71 to i64
-  %72 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
-  br label %73
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !11
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !11
+  %72 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
+  %umin = zext i32 %72 to i64
+  %73 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
+  br label %74
 
-73:                                               ; preds = %.lr.ph60, %73
-  %indvars.iv67 = phi i64 [ %umin, %.lr.ph60 ], [ %indvars.iv.next68, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv67
-  %75 = load i64, ptr %74, align 8, !tbaa !12
-  %76 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv67
-  store i64 %75, ptr %76, align 8, !tbaa !12
+74:                                               ; preds = %.lr.ph60, %74
+  %indvars.iv67 = phi i64 [ %umin, %.lr.ph60 ], [ %indvars.iv.next68, %74 ]
+  %75 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv67
+  %76 = load i64, ptr %75, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv67
+  store i64 %76, ptr %77, align 8, !tbaa !12
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
-  %exitcond69.not = icmp eq i32 %72, %lftr.wideiv
-  br i1 %exitcond69.not, label %.loopexit, label %73, !llvm.loop !50
+  %exitcond69.not = icmp eq i32 %73, %lftr.wideiv
+  br i1 %exitcond69.not, label %.loopexit, label %74, !llvm.loop !50
 
-.loopexit.sink.split:                             ; preds = %63, %50
+.loopexit.sink.split:                             ; preds = %64, %51
   store i32 %7, ptr %0, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %73, %59, %.loopexit.sink.split, %.preheader56, %._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %78 = load i32, ptr %77, align 8, !tbaa !14
-  %.not54 = icmp eq i32 %78, 0
-  br i1 %.not54, label %79, label %84
+.loopexit:                                        ; preds = %74, %60, %.loopexit.sink.split, %.preheader56, %._crit_edge
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %79 = load i32, ptr %78, align 8, !tbaa !14
+  %.not54 = icmp eq i32 %79, 0
+  br i1 %.not54, label %80, label %85
 
-79:                                               ; preds = %.loopexit
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %81 = load i32, ptr %80, align 8, !tbaa !14
-  %82 = icmp ne i32 %81, 0
-  %83 = zext i1 %82 to i32
-  br label %84
+80:                                               ; preds = %.loopexit
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %82 = load i32, ptr %81, align 8, !tbaa !14
+  %83 = icmp ne i32 %82, 0
+  %84 = zext i1 %83 to i32
+  br label %85
 
-84:                                               ; preds = %79, %.loopexit
-  %85 = phi i32 [ 1, %.loopexit ], [ %83, %79 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %85, ptr %86, align 8, !tbaa !14
+85:                                               ; preds = %80, %.loopexit
+  %86 = phi i32 [ 1, %.loopexit ], [ %84, %80 ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %86, ptr %87, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %84
-  %.049 = phi i32 [ 0, %84 ], [ -1, %28 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %29, %85
+  %.049 = phi i32 [ 0, %85 ], [ -1, %29 ]
   ret i32 %.049
 }
 
@@ -3721,178 +3721,178 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_and(ptr noundef captures(none) %0, ptr
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %10
 
 10:                                               ; preds = %3
-  %.not28.i.i.i = icmp ult i64 %9, 4294967296
-  %11 = lshr i64 %9, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %12 = lshr i64 %spec.select.i.i.i, 16
-  %13 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %14 = lshr i64 %.122.i.i.i, 8
-  %15 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %16 = lshr i64 %.223.i.i.i, 4
-  %17 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %17
-  %18 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %18, 0
-  %19 = lshr i64 %.324.i.i.i, 2
-  %20 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %22 = lshr i32 %21, 1
-  %23 = and i32 %22, 1
-  %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
+  %11 = icmp ugt i64 %9, 4294967295
+  %12 = lshr i64 %9, 32
+  %spec.select.i.i.i = select i1 %11, i64 %12, i64 %9
+  %spec.select33.i.i.i = select i1 %11, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %13 = lshr i64 %spec.select.i.i.i, 16
+  %14 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %13
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %14
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %15 = lshr i64 %.122.i.i.i, 8
+  %16 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %15
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %16
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %17 = lshr i64 %.223.i.i.i, 4
+  %18 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %17
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %18
+  %19 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %19, 0
+  %20 = lshr i64 %.324.i.i.i, 2
+  %21 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %20
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %21
+  %22 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %23 = lshr i32 %22, 1
+  %24 = and i32 %23, 1
+  %.5.i.i.i = add nuw nsw i32 %24, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %10, %3
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %10 ], [ 0, %3 ]
-  %24 = shl nuw i32 1, %.026.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !10
-  %27 = icmp ugt i32 %24, %26
-  br i1 %27, label %28, label %hwloc_bitmap_reset_by_ulongs.exit
+  %25 = shl nuw i32 1, %.026.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %28 = icmp ugt i32 %25, %27
+  br i1 %28, label %29, label %hwloc_bitmap_reset_by_ulongs.exit
 
-28:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = zext i32 %24 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  %33 = tail call ptr @realloc(ptr noundef %30, i64 noundef %32) #19
-  %.not.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %34
+29:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
+  %32 = zext i32 %25 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #19
+  %.not.not.i.i = icmp eq ptr %34, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %35
 
-34:                                               ; preds = %28
-  store ptr %33, ptr %29, align 8, !tbaa !11
-  store i32 %24, ptr %25, align 4, !tbaa !10
+35:                                               ; preds = %29
+  store ptr %34, ptr %30, align 8, !tbaa !11
+  store i32 %25, ptr %26, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit
 
-hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %34
+hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %35
   store i32 %6, ptr %0, align 8, !tbaa !3
   %.not63 = icmp eq i32 %7, 0
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_bitmap_reset_by_ulongs.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !11
   %wide.trip.count = zext i32 %7 to i64
-  br label %41
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
-  %43 = load i64, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !12
-  %46 = and i64 %45, %43
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
-  store i64 %46, ptr %47, align 8, !tbaa !12
+42:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %44 = load i64, ptr %43, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8, !tbaa !12
+  %47 = and i64 %46, %44
+  %48 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  store i64 %47, ptr %48, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %41, %hwloc_bitmap_reset_by_ulongs.exit
+._crit_edge:                                      ; preds = %42, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
-  br i1 %.not, label %.loopexit, label %48
+  br i1 %.not, label %.loopexit, label %49
 
-48:                                               ; preds = %._crit_edge
-  %49 = icmp ult i32 %5, %4
-  br i1 %49, label %50, label %63
+49:                                               ; preds = %._crit_edge
+  %50 = icmp ult i32 %5, %4
+  br i1 %50, label %51, label %64
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !14
-  %.not53 = icmp eq i32 %52, 0
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !14
+  %.not53 = icmp eq i32 %53, 0
   br i1 %.not53, label %.loopexit.sink.split, label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !11
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !11
-  %57 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
-  %umin72 = zext i32 %57 to i64
-  %58 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
-  br label %59
+.lr.ph62:                                         ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !11
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
+  %umin72 = zext i32 %58 to i64
+  %59 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
+  br label %60
 
-59:                                               ; preds = %.lr.ph62, %59
-  %indvars.iv73 = phi i64 [ %umin72, %.lr.ph62 ], [ %indvars.iv.next74, %59 ]
-  %60 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv73
-  %61 = load i64, ptr %60, align 8, !tbaa !12
-  %62 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv73
-  store i64 %61, ptr %62, align 8, !tbaa !12
+60:                                               ; preds = %.lr.ph62, %60
+  %indvars.iv73 = phi i64 [ %umin72, %.lr.ph62 ], [ %indvars.iv.next74, %60 ]
+  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv73
+  %62 = load i64, ptr %61, align 8, !tbaa !12
+  %63 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv73
+  store i64 %62, ptr %63, align 8, !tbaa !12
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %lftr.wideiv75 = trunc i64 %indvars.iv.next74 to i32
-  %exitcond76.not = icmp eq i32 %58, %lftr.wideiv75
-  br i1 %exitcond76.not, label %.loopexit, label %59, !llvm.loop !52
+  %exitcond76.not = icmp eq i32 %59, %lftr.wideiv75
+  br i1 %exitcond76.not, label %.loopexit, label %60, !llvm.loop !52
 
-63:                                               ; preds = %48
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %65 = load i32, ptr %64, align 8, !tbaa !14
-  %.not52 = icmp eq i32 %65, 0
+64:                                               ; preds = %49
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %66 = load i32, ptr %65, align 8, !tbaa !14
+  %.not52 = icmp eq i32 %66, 0
   br i1 %.not52, label %.loopexit.sink.split, label %.preheader56
 
-.preheader56:                                     ; preds = %63
-  %66 = icmp ult i32 %7, %6
-  br i1 %66, label %.lr.ph60, label %.loopexit
+.preheader56:                                     ; preds = %64
+  %67 = icmp ult i32 %7, %6
+  br i1 %67, label %.lr.ph60, label %.loopexit
 
 .lr.ph60:                                         ; preds = %.preheader56
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !11
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !11
-  %71 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
-  %umin = zext i32 %71 to i64
-  %72 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
-  br label %73
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !11
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !11
+  %72 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
+  %umin = zext i32 %72 to i64
+  %73 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
+  br label %74
 
-73:                                               ; preds = %.lr.ph60, %73
-  %indvars.iv67 = phi i64 [ %umin, %.lr.ph60 ], [ %indvars.iv.next68, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv67
-  %75 = load i64, ptr %74, align 8, !tbaa !12
-  %76 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv67
-  store i64 %75, ptr %76, align 8, !tbaa !12
+74:                                               ; preds = %.lr.ph60, %74
+  %indvars.iv67 = phi i64 [ %umin, %.lr.ph60 ], [ %indvars.iv.next68, %74 ]
+  %75 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv67
+  %76 = load i64, ptr %75, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv67
+  store i64 %76, ptr %77, align 8, !tbaa !12
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
-  %exitcond69.not = icmp eq i32 %72, %lftr.wideiv
-  br i1 %exitcond69.not, label %.loopexit, label %73, !llvm.loop !53
+  %exitcond69.not = icmp eq i32 %73, %lftr.wideiv
+  br i1 %exitcond69.not, label %.loopexit, label %74, !llvm.loop !53
 
-.loopexit.sink.split:                             ; preds = %63, %50
+.loopexit.sink.split:                             ; preds = %64, %51
   store i32 %7, ptr %0, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %73, %59, %.loopexit.sink.split, %.preheader56, %._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %78 = load i32, ptr %77, align 8, !tbaa !14
-  %.not54 = icmp eq i32 %78, 0
-  br i1 %.not54, label %84, label %79
+.loopexit:                                        ; preds = %74, %60, %.loopexit.sink.split, %.preheader56, %._crit_edge
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %79 = load i32, ptr %78, align 8, !tbaa !14
+  %.not54 = icmp eq i32 %79, 0
+  br i1 %.not54, label %85, label %80
 
-79:                                               ; preds = %.loopexit
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %81 = load i32, ptr %80, align 8, !tbaa !14
-  %82 = icmp ne i32 %81, 0
-  %83 = zext i1 %82 to i32
-  br label %84
+80:                                               ; preds = %.loopexit
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %82 = load i32, ptr %81, align 8, !tbaa !14
+  %83 = icmp ne i32 %82, 0
+  %84 = zext i1 %83 to i32
+  br label %85
 
-84:                                               ; preds = %79, %.loopexit
-  %85 = phi i32 [ 0, %.loopexit ], [ %83, %79 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %85, ptr %86, align 8, !tbaa !14
+85:                                               ; preds = %80, %.loopexit
+  %86 = phi i32 [ 0, %.loopexit ], [ %84, %80 ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %86, ptr %87, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %84
-  %.049 = phi i32 [ 0, %84 ], [ -1, %28 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %29, %85
+  %.049 = phi i32 [ 0, %85 ], [ -1, %29 ]
   ret i32 %.049
 }
 
@@ -3908,180 +3908,180 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_andnot(ptr noundef captures(none) %0, 
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %10
 
 10:                                               ; preds = %3
-  %.not28.i.i.i = icmp ult i64 %9, 4294967296
-  %11 = lshr i64 %9, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %12 = lshr i64 %spec.select.i.i.i, 16
-  %13 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %14 = lshr i64 %.122.i.i.i, 8
-  %15 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %16 = lshr i64 %.223.i.i.i, 4
-  %17 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %17
-  %18 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %18, 0
-  %19 = lshr i64 %.324.i.i.i, 2
-  %20 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %22 = lshr i32 %21, 1
-  %23 = and i32 %22, 1
-  %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
+  %11 = icmp ugt i64 %9, 4294967295
+  %12 = lshr i64 %9, 32
+  %spec.select.i.i.i = select i1 %11, i64 %12, i64 %9
+  %spec.select33.i.i.i = select i1 %11, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %13 = lshr i64 %spec.select.i.i.i, 16
+  %14 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %13
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %14
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %15 = lshr i64 %.122.i.i.i, 8
+  %16 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %15
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %16
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %17 = lshr i64 %.223.i.i.i, 4
+  %18 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %17
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %18
+  %19 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %19, 0
+  %20 = lshr i64 %.324.i.i.i, 2
+  %21 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %20
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %21
+  %22 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %23 = lshr i32 %22, 1
+  %24 = and i32 %23, 1
+  %.5.i.i.i = add nuw nsw i32 %24, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %10, %3
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %10 ], [ 0, %3 ]
-  %24 = shl nuw i32 1, %.026.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !10
-  %27 = icmp ugt i32 %24, %26
-  br i1 %27, label %28, label %hwloc_bitmap_reset_by_ulongs.exit
+  %25 = shl nuw i32 1, %.026.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %28 = icmp ugt i32 %25, %27
+  br i1 %28, label %29, label %hwloc_bitmap_reset_by_ulongs.exit
 
-28:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = zext i32 %24 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  %33 = tail call ptr @realloc(ptr noundef %30, i64 noundef %32) #19
-  %.not.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %34
+29:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
+  %32 = zext i32 %25 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #19
+  %.not.not.i.i = icmp eq ptr %34, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %35
 
-34:                                               ; preds = %28
-  store ptr %33, ptr %29, align 8, !tbaa !11
-  store i32 %24, ptr %25, align 4, !tbaa !10
+35:                                               ; preds = %29
+  store ptr %34, ptr %30, align 8, !tbaa !11
+  store i32 %25, ptr %26, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit
 
-hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %34
+hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %35
   store i32 %6, ptr %0, align 8, !tbaa !3
   %.not64 = icmp eq i32 %7, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_bitmap_reset_by_ulongs.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !11
   %wide.trip.count = zext i32 %7 to i64
-  br label %41
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
-  %43 = load i64, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !12
-  %46 = xor i64 %45, -1
-  %47 = and i64 %43, %46
-  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
-  store i64 %47, ptr %48, align 8, !tbaa !12
+42:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %44 = load i64, ptr %43, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8, !tbaa !12
+  %47 = xor i64 %46, -1
+  %48 = and i64 %44, %47
+  %49 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  store i64 %48, ptr %49, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %41, %hwloc_bitmap_reset_by_ulongs.exit
+._crit_edge:                                      ; preds = %42, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
-  br i1 %.not, label %.loopexit, label %49
+  br i1 %.not, label %.loopexit, label %50
 
-49:                                               ; preds = %._crit_edge
-  %50 = icmp ult i32 %5, %4
-  br i1 %50, label %51, label %64
+50:                                               ; preds = %._crit_edge
+  %51 = icmp ult i32 %5, %4
+  br i1 %51, label %52, label %65
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !14
-  %.not53 = icmp eq i32 %53, 0
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %54 = load i32, ptr %53, align 8, !tbaa !14
+  %.not53 = icmp eq i32 %54, 0
   br i1 %.not53, label %.lr.ph63, label %.loopexit.sink.split
 
-.lr.ph63:                                         ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !11
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !11
-  %58 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
-  %umin72 = zext i32 %58 to i64
-  %59 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
-  br label %60
+.lr.ph63:                                         ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !11
+  %59 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
+  %umin72 = zext i32 %59 to i64
+  %60 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
+  br label %61
 
-60:                                               ; preds = %.lr.ph63, %60
-  %indvars.iv73 = phi i64 [ %umin72, %.lr.ph63 ], [ %indvars.iv.next74, %60 ]
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv73
-  %62 = load i64, ptr %61, align 8, !tbaa !12
-  %63 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv73
-  store i64 %62, ptr %63, align 8, !tbaa !12
+61:                                               ; preds = %.lr.ph63, %61
+  %indvars.iv73 = phi i64 [ %umin72, %.lr.ph63 ], [ %indvars.iv.next74, %61 ]
+  %62 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv73
+  %63 = load i64, ptr %62, align 8, !tbaa !12
+  %64 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv73
+  store i64 %63, ptr %64, align 8, !tbaa !12
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %lftr.wideiv75 = trunc i64 %indvars.iv.next74 to i32
-  %exitcond76.not = icmp eq i32 %59, %lftr.wideiv75
-  br i1 %exitcond76.not, label %.loopexit, label %60, !llvm.loop !55
+  %exitcond76.not = icmp eq i32 %60, %lftr.wideiv75
+  br i1 %exitcond76.not, label %.loopexit, label %61, !llvm.loop !55
 
-64:                                               ; preds = %49
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load i32, ptr %65, align 8, !tbaa !14
-  %.not52 = icmp eq i32 %66, 0
+65:                                               ; preds = %50
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %67 = load i32, ptr %66, align 8, !tbaa !14
+  %.not52 = icmp eq i32 %67, 0
   br i1 %.not52, label %.loopexit.sink.split, label %.preheader57
 
-.preheader57:                                     ; preds = %64
-  %67 = icmp ult i32 %7, %6
-  br i1 %67, label %.lr.ph61, label %.loopexit
+.preheader57:                                     ; preds = %65
+  %68 = icmp ult i32 %7, %6
+  br i1 %68, label %.lr.ph61, label %.loopexit
 
 .lr.ph61:                                         ; preds = %.preheader57
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !11
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !11
-  %72 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
-  %umin = zext i32 %72 to i64
-  %73 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
-  br label %74
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !11
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !11
+  %73 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
+  %umin = zext i32 %73 to i64
+  %74 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
+  br label %75
 
-74:                                               ; preds = %.lr.ph61, %74
-  %indvars.iv67 = phi i64 [ %umin, %.lr.ph61 ], [ %indvars.iv.next68, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv67
-  %76 = load i64, ptr %75, align 8, !tbaa !12
-  %77 = xor i64 %76, -1
-  %78 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv67
-  store i64 %77, ptr %78, align 8, !tbaa !12
+75:                                               ; preds = %.lr.ph61, %75
+  %indvars.iv67 = phi i64 [ %umin, %.lr.ph61 ], [ %indvars.iv.next68, %75 ]
+  %76 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv67
+  %77 = load i64, ptr %76, align 8, !tbaa !12
+  %78 = xor i64 %77, -1
+  %79 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv67
+  store i64 %78, ptr %79, align 8, !tbaa !12
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
-  %exitcond69.not = icmp eq i32 %73, %lftr.wideiv
-  br i1 %exitcond69.not, label %.loopexit, label %74, !llvm.loop !56
+  %exitcond69.not = icmp eq i32 %74, %lftr.wideiv
+  br i1 %exitcond69.not, label %.loopexit, label %75, !llvm.loop !56
 
-.loopexit.sink.split:                             ; preds = %64, %51
+.loopexit.sink.split:                             ; preds = %65, %52
   store i32 %7, ptr %0, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %74, %60, %.loopexit.sink.split, %.preheader57, %._crit_edge
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %80 = load i32, ptr %79, align 8, !tbaa !14
-  %.not54 = icmp eq i32 %80, 0
-  br i1 %.not54, label %85, label %81
+.loopexit:                                        ; preds = %75, %61, %.loopexit.sink.split, %.preheader57, %._crit_edge
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %81 = load i32, ptr %80, align 8, !tbaa !14
+  %.not54 = icmp eq i32 %81, 0
+  br i1 %.not54, label %86, label %82
 
-81:                                               ; preds = %.loopexit
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !14
-  %.not55 = icmp eq i32 %83, 0
-  %84 = zext i1 %.not55 to i32
-  br label %85
+82:                                               ; preds = %.loopexit
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %84 = load i32, ptr %83, align 8, !tbaa !14
+  %.not55 = icmp eq i32 %84, 0
+  %85 = zext i1 %.not55 to i32
+  br label %86
 
-85:                                               ; preds = %81, %.loopexit
-  %86 = phi i32 [ 0, %.loopexit ], [ %84, %81 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %86, ptr %87, align 8, !tbaa !14
+86:                                               ; preds = %82, %.loopexit
+  %87 = phi i32 [ 0, %.loopexit ], [ %85, %82 ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %87, ptr %88, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %85
-  %.049 = phi i32 [ 0, %85 ], [ -1, %28 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %29, %86
+  %.049 = phi i32 [ 0, %86 ], [ -1, %29 ]
   ret i32 %.049
 }
 
@@ -4097,166 +4097,166 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_xor(ptr noundef captures(none) %0, ptr
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %10
 
 10:                                               ; preds = %3
-  %.not28.i.i.i = icmp ult i64 %9, 4294967296
-  %11 = lshr i64 %9, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %9, i64 %11
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %12 = lshr i64 %spec.select.i.i.i, 16
-  %13 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %12
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %13
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %14 = lshr i64 %.122.i.i.i, 8
-  %15 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %14
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %15
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %16 = lshr i64 %.223.i.i.i, 4
-  %17 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %16
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %17
-  %18 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %18, 0
-  %19 = lshr i64 %.324.i.i.i, 2
-  %20 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %22 = lshr i32 %21, 1
-  %23 = and i32 %22, 1
-  %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
+  %11 = icmp ugt i64 %9, 4294967295
+  %12 = lshr i64 %9, 32
+  %spec.select.i.i.i = select i1 %11, i64 %12, i64 %9
+  %spec.select33.i.i.i = select i1 %11, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %13 = lshr i64 %spec.select.i.i.i, 16
+  %14 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %13
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %14
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %15 = lshr i64 %.122.i.i.i, 8
+  %16 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %15
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %16
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %17 = lshr i64 %.223.i.i.i, 4
+  %18 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %17
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %18
+  %19 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %19, 0
+  %20 = lshr i64 %.324.i.i.i, 2
+  %21 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %20
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %21
+  %22 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %23 = lshr i32 %22, 1
+  %24 = and i32 %23, 1
+  %.5.i.i.i = add nuw nsw i32 %24, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %10, %3
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %10 ], [ 0, %3 ]
-  %24 = shl nuw i32 1, %.026.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !10
-  %27 = icmp ugt i32 %24, %26
-  br i1 %27, label %28, label %hwloc_bitmap_reset_by_ulongs.exit
+  %25 = shl nuw i32 1, %.026.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %28 = icmp ugt i32 %25, %27
+  br i1 %28, label %29, label %hwloc_bitmap_reset_by_ulongs.exit
 
-28:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = zext i32 %24 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  %33 = tail call ptr @realloc(ptr noundef %30, i64 noundef %32) #19
-  %.not.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %34
+29:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
+  %32 = zext i32 %25 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #19
+  %.not.not.i.i = icmp eq ptr %34, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %35
 
-34:                                               ; preds = %28
-  store ptr %33, ptr %29, align 8, !tbaa !11
-  store i32 %24, ptr %25, align 4, !tbaa !10
+35:                                               ; preds = %29
+  store ptr %34, ptr %30, align 8, !tbaa !11
+  store i32 %25, ptr %26, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit
 
-hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %34
+hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %35
   store i32 %6, ptr %0, align 8, !tbaa !3
   %.not61 = icmp eq i32 %7, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_bitmap_reset_by_ulongs.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !11
   %wide.trip.count = zext i32 %7 to i64
-  br label %41
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
-  %43 = load i64, ptr %42, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !12
-  %46 = xor i64 %45, %43
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
-  store i64 %46, ptr %47, align 8, !tbaa !12
+42:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %44 = load i64, ptr %43, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8, !tbaa !12
+  %47 = xor i64 %46, %44
+  %48 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  store i64 %47, ptr %48, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %41, %hwloc_bitmap_reset_by_ulongs.exit
+._crit_edge:                                      ; preds = %42, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
-  br i1 %.not, label %.loopexit, label %48
+  br i1 %.not, label %.loopexit, label %49
 
-48:                                               ; preds = %._crit_edge
-  %49 = icmp ult i32 %5, %4
-  br i1 %49, label %50, label %66
+49:                                               ; preds = %._crit_edge
+  %50 = icmp ult i32 %5, %4
+  br i1 %50, label %51, label %67
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !14
-  %.not51 = icmp ne i32 %52, 0
-  %53 = sext i1 %.not51 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !11
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !11
-  %58 = zext i32 %5 to i64
-  %59 = add i32 %6, %5
-  %60 = sub i32 %59, %7
-  br label %61
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !14
+  %.not51 = icmp ne i32 %53, 0
+  %54 = sext i1 %.not51 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !11
+  %59 = zext i32 %5 to i64
+  %60 = add i32 %6, %5
+  %61 = sub i32 %60, %7
+  br label %62
 
-61:                                               ; preds = %50, %61
-  %indvars.iv68 = phi i64 [ %58, %50 ], [ %indvars.iv.next69, %61 ]
-  %62 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv68
-  %63 = load i64, ptr %62, align 8, !tbaa !12
-  %64 = xor i64 %63, %53
-  %65 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv68
-  store i64 %64, ptr %65, align 8, !tbaa !12
+62:                                               ; preds = %51, %62
+  %indvars.iv68 = phi i64 [ %59, %51 ], [ %indvars.iv.next69, %62 ]
+  %63 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv68
+  %64 = load i64, ptr %63, align 8, !tbaa !12
+  %65 = xor i64 %64, %54
+  %66 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv68
+  store i64 %65, ptr %66, align 8, !tbaa !12
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %lftr.wideiv70 = trunc i64 %indvars.iv.next69 to i32
-  %exitcond71.not = icmp eq i32 %60, %lftr.wideiv70
-  br i1 %exitcond71.not, label %.loopexit, label %61, !llvm.loop !58
+  %exitcond71.not = icmp eq i32 %61, %lftr.wideiv70
+  br i1 %exitcond71.not, label %.loopexit, label %62, !llvm.loop !58
 
-66:                                               ; preds = %48
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %68 = load i32, ptr %67, align 8, !tbaa !14
-  %.not50 = icmp ne i32 %68, 0
-  %69 = sext i1 %.not50 to i64
-  %70 = icmp ugt i32 %5, %4
-  br i1 %70, label %.lr.ph59, label %.loopexit
+67:                                               ; preds = %49
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %69 = load i32, ptr %68, align 8, !tbaa !14
+  %.not50 = icmp ne i32 %69, 0
+  %70 = sext i1 %.not50 to i64
+  %71 = icmp ugt i32 %5, %4
+  br i1 %71, label %.lr.ph59, label %.loopexit
 
-.lr.ph59:                                         ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !11
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !11
-  %75 = zext i32 %4 to i64
-  %76 = add i32 %6, %4
-  %77 = sub i32 %76, %7
-  br label %78
+.lr.ph59:                                         ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !11
+  %76 = zext i32 %4 to i64
+  %77 = add i32 %6, %4
+  %78 = sub i32 %77, %7
+  br label %79
 
-78:                                               ; preds = %.lr.ph59, %78
-  %indvars.iv64 = phi i64 [ %75, %.lr.ph59 ], [ %indvars.iv.next65, %78 ]
-  %79 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv64
-  %80 = load i64, ptr %79, align 8, !tbaa !12
-  %81 = xor i64 %80, %69
-  %82 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv64
-  store i64 %81, ptr %82, align 8, !tbaa !12
+79:                                               ; preds = %.lr.ph59, %79
+  %indvars.iv64 = phi i64 [ %76, %.lr.ph59 ], [ %indvars.iv.next65, %79 ]
+  %80 = getelementptr inbounds nuw i64, ptr %73, i64 %indvars.iv64
+  %81 = load i64, ptr %80, align 8, !tbaa !12
+  %82 = xor i64 %81, %70
+  %83 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv64
+  store i64 %82, ptr %83, align 8, !tbaa !12
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next65 to i32
-  %exitcond66.not = icmp eq i32 %77, %lftr.wideiv
-  br i1 %exitcond66.not, label %.loopexit, label %78, !llvm.loop !59
+  %exitcond66.not = icmp eq i32 %78, %lftr.wideiv
+  br i1 %exitcond66.not, label %.loopexit, label %79, !llvm.loop !59
 
-.loopexit:                                        ; preds = %78, %61, %66, %._crit_edge
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !14
-  %.not52 = icmp eq i32 %84, 0
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %86 = load i32, ptr %85, align 8, !tbaa !14
-  %.not53 = icmp eq i32 %86, 0
-  %87 = xor i1 %.not52, %.not53
-  %88 = zext i1 %87 to i32
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %88, ptr %89, align 8, !tbaa !14
+.loopexit:                                        ; preds = %79, %62, %67, %._crit_edge
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %85 = load i32, ptr %84, align 8, !tbaa !14
+  %.not52 = icmp eq i32 %85, 0
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %87 = load i32, ptr %86, align 8, !tbaa !14
+  %.not53 = icmp eq i32 %87, 0
+  %88 = xor i1 %.not52, %.not53
+  %89 = zext i1 %88 to i32
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %89, ptr %90, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %28 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %29, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %29 ]
   ret i32 %.0
 }
 
@@ -4269,93 +4269,93 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_not(ptr noundef captures(none) %0, ptr
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %6
 
 6:                                                ; preds = %2
-  %.not28.i.i.i = icmp ult i64 %5, 4294967296
-  %7 = lshr i64 %5, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %5, i64 %7
-  %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
-  %.not29.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
-  %8 = lshr i64 %spec.select.i.i.i, 16
-  %9 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %8
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %9
-  %.not30.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
-  %10 = lshr i64 %.122.i.i.i, 8
-  %11 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %10
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %11
-  %.not31.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
-  %12 = lshr i64 %.223.i.i.i, 4
-  %13 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %12
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %13
-  %14 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %14, 0
-  %15 = lshr i64 %.324.i.i.i, 2
-  %16 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %15
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %16
-  %17 = trunc nuw nsw i64 %.425.i.i.i to i32
-  %18 = lshr i32 %17, 1
-  %19 = and i32 %18, 1
-  %.5.i.i.i = add nuw nsw i32 %19, %.4.i.i.i
+  %7 = icmp ugt i64 %5, 4294967295
+  %8 = lshr i64 %5, 32
+  %spec.select.i.i.i = select i1 %7, i64 %8, i64 %5
+  %spec.select33.i.i.i = select i1 %7, i32 33, i32 1
+  %.not28.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, 65536
+  %9 = lshr i64 %spec.select.i.i.i, 16
+  %10 = or disjoint i32 %spec.select33.i.i.i, 16
+  %.122.i.i.i = select i1 %.not28.i.i.i, i64 %spec.select.i.i.i, i64 %9
+  %.1.i.i.i = select i1 %.not28.i.i.i, i32 %spec.select33.i.i.i, i32 %10
+  %.not29.i.i.i = icmp samesign ult i64 %.122.i.i.i, 256
+  %11 = lshr i64 %.122.i.i.i, 8
+  %12 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not29.i.i.i, i64 %.122.i.i.i, i64 %11
+  %.2.i.i.i = select i1 %.not29.i.i.i, i32 %.1.i.i.i, i32 %12
+  %.not30.i.i.i = icmp samesign ult i64 %.223.i.i.i, 16
+  %13 = lshr i64 %.223.i.i.i, 4
+  %14 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not30.i.i.i, i64 %.223.i.i.i, i64 %13
+  %.3.i.i.i = select i1 %.not30.i.i.i, i32 %.2.i.i.i, i32 %14
+  %15 = and i64 %.324.i.i.i, 12
+  %.not31.i.i.i = icmp eq i64 %15, 0
+  %16 = lshr i64 %.324.i.i.i, 2
+  %17 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not31.i.i.i, i64 %.324.i.i.i, i64 %16
+  %.4.i.i.i = select i1 %.not31.i.i.i, i32 %.3.i.i.i, i32 %17
+  %18 = trunc nuw nsw i64 %.425.i.i.i to i32
+  %19 = lshr i32 %18, 1
+  %20 = and i32 %19, 1
+  %.5.i.i.i = add nuw nsw i32 %20, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
 hwloc_flsl_manual.exit.i.i:                       ; preds = %6, %2
   %.026.i.i.i = phi i32 [ %.5.i.i.i, %6 ], [ 0, %2 ]
-  %20 = shl nuw i32 1, %.026.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !10
-  %23 = icmp ugt i32 %20, %22
-  br i1 %23, label %24, label %hwloc_bitmap_reset_by_ulongs.exit
+  %21 = shl nuw i32 1, %.026.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %24 = icmp ugt i32 %21, %23
+  br i1 %24, label %25, label %hwloc_bitmap_reset_by_ulongs.exit
 
-24:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !11
-  %27 = zext i32 %20 to i64
-  %28 = shl nuw nsw i64 %27, 3
-  %29 = tail call ptr @realloc(ptr noundef %26, i64 noundef %28) #19
-  %.not.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %30
+25:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !11
+  %28 = zext i32 %21 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = tail call ptr @realloc(ptr noundef %27, i64 noundef %29) #19
+  %.not.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.not.i.i, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %31
 
-30:                                               ; preds = %24
-  store ptr %29, ptr %25, align 8, !tbaa !11
-  store i32 %20, ptr %21, align 4, !tbaa !10
+31:                                               ; preds = %25
+  store ptr %30, ptr %26, align 8, !tbaa !11
+  store i32 %21, ptr %22, align 4, !tbaa !10
   br label %hwloc_bitmap_reset_by_ulongs.exit
 
-hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %30
+hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.exit.i.i, %31
   store i32 %3, ptr %0, align 8, !tbaa !3
   %.not15 = icmp eq i32 %3, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_bitmap_reset_by_ulongs.exit
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  br label %35
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !11
+  br label %36
 
-35:                                               ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv
-  %37 = load i64, ptr %36, align 8, !tbaa !12
-  %38 = xor i64 %37, -1
-  %39 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
-  store i64 %38, ptr %39, align 8, !tbaa !12
+36:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %38 = load i64, ptr %37, align 8, !tbaa !12
+  %39 = xor i64 %38, -1
+  %40 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  store i64 %39, ptr %40, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %35, %hwloc_bitmap_reset_by_ulongs.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load i32, ptr %40, align 8, !tbaa !14
-  %.not = icmp eq i32 %41, 0
-  %42 = zext i1 %.not to i32
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %42, ptr %43, align 8, !tbaa !14
+._crit_edge:                                      ; preds = %36, %hwloc_bitmap_reset_by_ulongs.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %42 = load i32, ptr %41, align 8, !tbaa !14
+  %.not = icmp eq i32 %42, 0
+  %43 = zext i1 %.not to i32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %43, ptr %44, align 8, !tbaa !14
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %24, %._crit_edge
-  %.012 = phi i32 [ 0, %._crit_edge ], [ -1, %24 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %25, %._crit_edge
+  %.012 = phi i32 [ 0, %._crit_edge ], [ -1, %25 ]
   ret i32 %.012
 }
 
@@ -4483,42 +4483,42 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last_unset(ptr noundef reado
 .thread:                                          ; preds = %11
   %16 = trunc i64 %12 to i32
   %17 = xor i64 %15, -1
-  %.not28.i = icmp ugt i64 %15, -4294967297
-  %18 = lshr i64 %17, 32
-  %spec.select.i = select i1 %.not28.i, i64 %17, i64 %18
-  %spec.select34.i = select i1 %.not28.i, i32 1, i32 33
-  %.not29.i = icmp samesign ult i64 %spec.select.i, 65536
-  %19 = lshr i64 %spec.select.i, 16
-  %20 = or disjoint i32 %spec.select34.i, 16
-  %.122.i = select i1 %.not29.i, i64 %spec.select.i, i64 %19
-  %.1.i = select i1 %.not29.i, i32 %spec.select34.i, i32 %20
-  %.not30.i = icmp samesign ult i64 %.122.i, 256
-  %21 = lshr i64 %.122.i, 8
-  %22 = or disjoint i32 %.1.i, 8
-  %.223.i = select i1 %.not30.i, i64 %.122.i, i64 %21
-  %.2.i = select i1 %.not30.i, i32 %.1.i, i32 %22
-  %.not31.i = icmp samesign ult i64 %.223.i, 16
-  %23 = lshr i64 %.223.i, 4
-  %24 = or disjoint i32 %.2.i, 4
-  %.324.i = select i1 %.not31.i, i64 %.223.i, i64 %23
-  %.3.i = select i1 %.not31.i, i32 %.2.i, i32 %24
-  %25 = and i64 %.324.i, 12
-  %.not32.i = icmp eq i64 %25, 0
-  %26 = lshr i64 %.324.i, 2
-  %27 = add nuw nsw i32 %.3.i, 2
-  %.425.i = select i1 %.not32.i, i64 %.324.i, i64 %26
-  %.4.i = select i1 %.not32.i, i32 %.3.i, i32 %27
-  %28 = trunc nuw nsw i64 %.425.i to i32
-  %29 = lshr i32 %28, 1
-  %30 = and i32 %29, 1
-  %31 = shl nsw i32 %16, 6
-  %.5.i = add i32 %31, -1
-  %32 = add i32 %.5.i, %.4.i
-  %33 = add i32 %32, %30
+  %18 = icmp ult i64 %15, -4294967296
+  %19 = lshr i64 %17, 32
+  %spec.select.i = select i1 %18, i64 %19, i64 %17
+  %spec.select33.i = select i1 %18, i32 33, i32 1
+  %.not28.i = icmp samesign ult i64 %spec.select.i, 65536
+  %20 = lshr i64 %spec.select.i, 16
+  %21 = or disjoint i32 %spec.select33.i, 16
+  %.122.i = select i1 %.not28.i, i64 %spec.select.i, i64 %20
+  %.1.i = select i1 %.not28.i, i32 %spec.select33.i, i32 %21
+  %.not29.i = icmp samesign ult i64 %.122.i, 256
+  %22 = lshr i64 %.122.i, 8
+  %23 = or disjoint i32 %.1.i, 8
+  %.223.i = select i1 %.not29.i, i64 %.122.i, i64 %22
+  %.2.i = select i1 %.not29.i, i32 %.1.i, i32 %23
+  %.not30.i = icmp samesign ult i64 %.223.i, 16
+  %24 = lshr i64 %.223.i, 4
+  %25 = or disjoint i32 %.2.i, 4
+  %.324.i = select i1 %.not30.i, i64 %.223.i, i64 %24
+  %.3.i = select i1 %.not30.i, i32 %.2.i, i32 %25
+  %26 = and i64 %.324.i, 12
+  %.not31.i = icmp eq i64 %26, 0
+  %27 = lshr i64 %.324.i, 2
+  %28 = add nuw nsw i32 %.3.i, 2
+  %.425.i = select i1 %.not31.i, i64 %.324.i, i64 %27
+  %.4.i = select i1 %.not31.i, i32 %.3.i, i32 %28
+  %29 = trunc nuw nsw i64 %.425.i to i32
+  %30 = lshr i32 %29, 1
+  %31 = and i32 %30, 1
+  %32 = shl nsw i32 %16, 6
+  %.5.i = add i32 %32, -1
+  %33 = add i32 %.5.i, %.4.i
+  %34 = add i32 %33, %31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.thread, %1
-  %.0 = phi i32 [ -1, %1 ], [ %33, %.thread ], [ -1, %8 ]
+  %.0 = phi i32 [ -1, %1 ], [ %34, %.thread ], [ -1, %8 ]
   ret i32 %.0
 }
 

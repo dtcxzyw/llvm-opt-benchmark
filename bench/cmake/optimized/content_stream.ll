@@ -256,7 +256,7 @@ define dso_local void @_ZN3dap13ContentReader4readB5cxx11Ev(ptr dead_on_unwind n
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN3dap13ContentReader5matchEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str, i64 noundef 15)
-  br i1 %8, label %.preheader65, label %9
+  br i1 %8, label %.preheader64, label %9
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %4, align 8, !tbaa !16, !noalias !46
@@ -281,25 +281,25 @@ define dso_local void @_ZN3dap13ContentReader4readB5cxx11Ev(ptr dead_on_unwind n
 
 22:                                               ; preds = %2
   %23 = tail call noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str, i64 noundef 15)
-  br i1 %23, label %.preheader65, label %.loopexit.sink.split
+  br i1 %23, label %.preheader64, label %.loopexit.sink.split
 
-.preheader65:                                     ; preds = %22, %7
+.preheader64:                                     ; preds = %22, %7
   br label %24
 
-24:                                               ; preds = %.preheader65, %24
+24:                                               ; preds = %.preheader64, %24
   %25 = tail call noundef signext i8 @_ZN3dap13ContentReader8matchAnyEPKc(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str.2)
   %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %.preheader47, label %24, !llvm.loop !49
+  br i1 %.not, label %.preheader46, label %24, !llvm.loop !49
 
-.preheader47:                                     ; preds = %24
+.preheader46:                                     ; preds = %24
   %26 = tail call noundef signext i8 @_ZN3dap13ContentReader8matchAnyEPKc(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str.3)
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.loopexit.sink.split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader47, %.lr.ph
-  %28 = phi i8 [ %33, %.lr.ph ], [ %26, %.preheader47 ]
-  %.01648 = phi i64 [ %32, %.lr.ph ], [ 0, %.preheader47 ]
-  %29 = mul i64 %.01648, 10
+.lr.ph:                                           ; preds = %.preheader46, %.lr.ph
+  %28 = phi i8 [ %33, %.lr.ph ], [ %26, %.preheader46 ]
+  %.01647 = phi i64 [ %32, %.lr.ph ], [ 0, %.preheader46 ]
+  %29 = mul i64 %.01647, 10
   %30 = sext i8 %28 to i64
   %31 = add i64 %29, -48
   %32 = add i64 %31, %30
@@ -367,21 +367,21 @@ define dso_local void @_ZN3dap13ContentReader4readB5cxx11Ev(ptr dead_on_unwind n
   %78 = add i64 %77, %65
   %79 = sub i64 %78, %75
   %80 = icmp ult i64 %32, %79
-  br i1 %80, label %.loopexit46, label %81
+  br i1 %80, label %.loopexit45, label %81
 
 81:                                               ; preds = %51
   %82 = sub nuw i64 %32, %79
-  %.not24.i = icmp eq i64 %82, 0
-  br i1 %.not24.i, label %.loopexit46, label %.lr.ph.i
+  %.not23.i = icmp eq i64 %82, 0
+  br i1 %.not23.i, label %.loopexit45, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %84
 
 84:                                               ; preds = %101, %.lr.ph.i
-  %.01925.i = phi i64 [ %82, %.lr.ph.i ], [ %102, %101 ]
+  %.01924.i = phi i64 [ %82, %.lr.ph.i ], [ %102, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01925.i, i64 256)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01924.i, i64 256)
   %85 = load ptr, ptr %1, align 8, !tbaa !4
   %86 = load ptr, ptr %85, align 8, !tbaa !42
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
@@ -391,8 +391,8 @@ define dso_local void @_ZN3dap13ContentReader4readB5cxx11Ev(ptr dead_on_unwind n
   br i1 %90, label %._crit_edge.i.i32, label %.preheader.i
 
 .preheader.i:                                     ; preds = %84, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
-  %.023.i = phi i64 [ %100, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %84 ]
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 %.023.i
+  %.022.i = phi i64 [ %100, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %84 ]
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 %.022.i
   %92 = load ptr, ptr %53, align 8, !tbaa !53
   %93 = load ptr, ptr %83, align 8, !tbaa !54
   %94 = getelementptr inbounds i8, ptr %93, i64 -1
@@ -412,21 +412,21 @@ define dso_local void @_ZN3dap13ContentReader4readB5cxx11Ev(ptr dead_on_unwind n
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
 
 _ZNSt5dequeIhSaIhEE9push_backERKh.exit.i:         ; preds = %99, %95
-  %100 = add nuw i64 %.023.i, 1
+  %100 = add nuw i64 %.022.i, 1
   %exitcond.not.i = icmp eq i64 %100, %89
   br i1 %exitcond.not.i, label %101, label %.preheader.i, !llvm.loop !55
 
 101:                                              ; preds = %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
-  %102 = sub i64 %.01925.i, %89
+  %102 = sub i64 %.01924.i, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq i64 %102, 0
-  br i1 %.not.i, label %.loopexit46, label %84
+  br i1 %.not.i, label %.loopexit45, label %84
 
 ._crit_edge.i.i32:                                ; preds = %84
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit.sink.split
 
-.loopexit46:                                      ; preds = %101, %51, %81
+.loopexit45:                                      ; preds = %101, %51, %81
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %103, ptr %0, align 8, !tbaa !56
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -435,19 +435,19 @@ _ZNSt5dequeIhSaIhEE9push_backERKh.exit.i:         ; preds = %99, %95
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %32)
           to label %.preheader unwind label %106
 
-.preheader:                                       ; preds = %.loopexit46
+.preheader:                                       ; preds = %.loopexit45
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load ptr, ptr %54, align 8, !tbaa !28, !noalias !60
   br label %108
 
-106:                                              ; preds = %.loopexit46
+106:                                              ; preds = %.loopexit45
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %140
 
 108:                                              ; preds = %.preheader, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit
   %109 = phi ptr [ %.pre, %.preheader ], [ %storemerge.i, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ]
-  %.049 = phi i64 [ 0, %.preheader ], [ %137, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ]
+  %.048 = phi i64 [ 0, %.preheader ], [ %137, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ]
   %110 = load i8, ptr %109, align 1, !tbaa !13
   %111 = load i64, ptr %104, align 8, !tbaa !58
   %112 = add i64 %111, 1
@@ -507,7 +507,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %129, %131
   %storemerge.i = phi ptr [ %130, %129 ], [ %135, %131 ]
   store ptr %storemerge.i, ptr %54, align 8, !tbaa !64
-  %137 = add nuw i64 %.049, 1
+  %137 = add nuw i64 %.048, 1
   %exitcond.not = icmp eq i64 %137, %32
   br i1 %exitcond.not, label %.loopexit, label %108, !llvm.loop !68
 
@@ -528,7 +528,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @_ZdlPvm(ptr noundef %141, i64 noundef %144) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-.loopexit.sink.split:                             ; preds = %43, %41, %38, %._crit_edge, %.preheader47, %22, %14, %12, %9, %._crit_edge.i.i32
+.loopexit.sink.split:                             ; preds = %43, %41, %38, %._crit_edge, %.preheader46, %22, %14, %12, %9, %._crit_edge.i.i32
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %145, ptr %0, align 8, !tbaa !56
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -628,9 +628,9 @@ define dso_local noundef signext i8 @_ZN3dap13ContentReader8matchAnyEPKc(ptr nou
   br label %32
 
 32:                                               ; preds = %49, %.lr.ph.i
-  %.01925.i = phi i64 [ 1, %.lr.ph.i ], [ %50, %49 ]
+  %.01924.i = phi i64 [ 1, %.lr.ph.i ], [ %50, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01925.i, i64 256)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01924.i, i64 256)
   %33 = load ptr, ptr %0, align 8, !tbaa !4
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -640,8 +640,8 @@ define dso_local noundef signext i8 @_ZN3dap13ContentReader8matchAnyEPKc(ptr nou
   br i1 %38, label %_ZN3dap13ContentReader6bufferEm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %32, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
-  %.023.i = phi i64 [ %48, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %32 ]
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 %.023.i
+  %.022.i = phi i64 [ %48, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %32 ]
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 %.022.i
   %40 = load ptr, ptr %5, align 8, !tbaa !53
   %41 = load ptr, ptr %31, align 8, !tbaa !54
   %42 = getelementptr inbounds i8, ptr %41, i64 -1
@@ -661,12 +661,12 @@ define dso_local noundef signext i8 @_ZN3dap13ContentReader8matchAnyEPKc(ptr nou
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
 
 _ZNSt5dequeIhSaIhEE9push_backERKh.exit.i:         ; preds = %47, %43
-  %48 = add nuw i64 %.023.i, 1
+  %48 = add nuw i64 %.022.i, 1
   %exitcond.not.i = icmp eq i64 %48, %37
   br i1 %exitcond.not.i, label %49, label %.preheader.i, !llvm.loop !55
 
 49:                                               ; preds = %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
-  %50 = sub i64 %.01925.i, %37
+  %50 = sub i64 %.01924.i, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq i64 %50, 0
   br i1 %.not.i, label %.loopexit.loopexit, label %32
@@ -758,17 +758,17 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef
 
 33:                                               ; preds = %2
   %34 = sub nuw i64 %1, %31
-  %.not24 = icmp eq i64 %34, 0
-  br i1 %.not24, label %.loopexit, label %.lr.ph
+  %.not23 = icmp eq i64 %34, 0
+  br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %36
 
 36:                                               ; preds = %.lr.ph, %53
-  %.01925 = phi i64 [ %34, %.lr.ph ], [ %54, %53 ]
+  %.01924 = phi i64 [ %34, %.lr.ph ], [ %54, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.01925, i64 256)
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.01924, i64 256)
   %37 = load ptr, ptr %0, align 8, !tbaa !4
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -782,8 +782,8 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef
   br label %.loopexit
 
 .preheader:                                       ; preds = %36, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
-  %.023 = phi i64 [ %52, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ 0, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %.023
+  %.022 = phi i64 [ %52, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ 0, %36 ]
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %.022
   %44 = load ptr, ptr %5, align 8, !tbaa !53
   %45 = load ptr, ptr %35, align 8, !tbaa !54
   %46 = getelementptr inbounds i8, ptr %45, i64 -1
@@ -803,12 +803,12 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
 
 _ZNSt5dequeIhSaIhEE9push_backERKh.exit:           ; preds = %47, %51
-  %52 = add nuw i64 %.023, 1
+  %52 = add nuw i64 %.022, 1
   %exitcond.not = icmp eq i64 %52, %41
   br i1 %exitcond.not, label %53, label %.preheader, !llvm.loop !55
 
 53:                                               ; preds = %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
-  %54 = sub i64 %.01925, %41
+  %54 = sub i64 %.01924, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i64 %54, 0
   br i1 %.not, label %.loopexit, label %36
@@ -862,14 +862,14 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr nounde
   %36 = sub i64 %35, %32
   %37 = icmp ult i64 %2, %36
   %38 = sub nuw i64 %2, %36
-  %.not24.i = icmp eq i64 %38, 0
-  %or.cond = select i1 %37, i1 true, i1 %.not24.i
+  %.not23.i = icmp eq i64 %38, 0
+  %or.cond = select i1 %37, i1 true, i1 %.not23.i
   br i1 %or.cond, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %139
-  %.01925.i = phi i64 [ %140, %139 ], [ %38, %15 ]
+  %.01924.i = phi i64 [ %140, %139 ], [ %38, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01925.i, i64 256)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01924.i, i64 256)
   %39 = load ptr, ptr %0, align 8, !tbaa !4
   %40 = load ptr, ptr %39, align 8, !tbaa !42
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -884,8 +884,8 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr nounde
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
   %45 = phi ptr [ %storemerge, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ %.pre15, %.preheader.i.preheader ]
-  %.023.i = phi i64 [ %138, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %.preheader.i.preheader ]
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %.023.i
+  %.022.i = phi i64 [ %138, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %.preheader.i.preheader ]
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %.022.i
   %47 = load ptr, ptr %12, align 8, !tbaa !54
   %48 = getelementptr inbounds i8, ptr %47, i64 -1
   %.not.i.i = icmp eq ptr %45, %48
@@ -1053,12 +1053,12 @@ _ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit: ; preds = %76, %_ZNSt5
 _ZNSt5dequeIhSaIhEE9push_backERKh.exit.i:         ; preds = %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit, %49
   %storemerge = phi ptr [ %52, %49 ], [ %136, %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit ]
   store ptr %storemerge, ptr %6, align 8, !tbaa !53
-  %138 = add nuw i64 %.023.i, 1
+  %138 = add nuw i64 %.022.i, 1
   %exitcond.not.i = icmp eq i64 %138, %43
   br i1 %exitcond.not.i, label %139, label %.preheader.i, !llvm.loop !55
 
 139:                                              ; preds = %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
-  %140 = sub i64 %.01925.i, %43
+  %140 = sub i64 %.01924.i, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp eq i64 %140, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
@@ -1142,17 +1142,17 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader5matchEPKhm(ptr nound
 
 34:                                               ; preds = %3
   %35 = sub nuw i64 %2, %32
-  %.not24.i = icmp eq i64 %35, 0
-  br i1 %.not24.i, label %.loopexit21, label %.lr.ph.i
+  %.not23.i = icmp eq i64 %35, 0
+  br i1 %.not23.i, label %.loopexit21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %37
 
 37:                                               ; preds = %54, %.lr.ph.i
-  %.01925.i = phi i64 [ %35, %.lr.ph.i ], [ %55, %54 ]
+  %.01924.i = phi i64 [ %35, %.lr.ph.i ], [ %55, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01925.i, i64 256)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.01924.i, i64 256)
   %38 = load ptr, ptr %0, align 8, !tbaa !4
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -1162,8 +1162,8 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader5matchEPKhm(ptr nound
   br i1 %43, label %_ZN3dap13ContentReader6bufferEm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %37, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
-  %.023.i = phi i64 [ %53, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %37 ]
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %.023.i
+  %.022.i = phi i64 [ %53, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i ], [ 0, %37 ]
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %.022.i
   %45 = load ptr, ptr %6, align 8, !tbaa !53
   %46 = load ptr, ptr %36, align 8, !tbaa !54
   %47 = getelementptr inbounds i8, ptr %46, i64 -1
@@ -1183,12 +1183,12 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader5matchEPKhm(ptr nound
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
 
 _ZNSt5dequeIhSaIhEE9push_backERKh.exit.i:         ; preds = %52, %48
-  %53 = add nuw i64 %.023.i, 1
+  %53 = add nuw i64 %.022.i, 1
   %exitcond.not.i = icmp eq i64 %53, %42
   br i1 %exitcond.not.i, label %54, label %.preheader.i, !llvm.loop !55
 
 54:                                               ; preds = %_ZNSt5dequeIhSaIhEE9push_backERKh.exit.i
-  %55 = sub i64 %.01925.i, %42
+  %55 = sub i64 %.01924.i, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp eq i64 %55, 0
   br i1 %.not.i, label %.loopexit21.loopexit, label %37

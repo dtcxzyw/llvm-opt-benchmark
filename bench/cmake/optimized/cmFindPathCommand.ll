@@ -416,10 +416,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
   %40 = load ptr, ptr %39, align 8, !tbaa !71, !noalias !68
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %42 = load ptr, ptr %41, align 8, !tbaa !71, !noalias !68
-  %.not35.i = icmp eq ptr %40, %42
-  br i1 %.not35.i, label %._crit_edge.i.i.i, label %.lr.ph37.i
+  %.not33.i = icmp eq ptr %40, %42
+  br i1 %.not33.i, label %._crit_edge.i.i.i, label %.lr.ph35.i
 
-.lr.ph37.i:                                       ; preds = %38
+.lr.ph35.i:                                       ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -427,18 +427,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
   %47 = load ptr, ptr %43, align 8, !tbaa !71, !noalias !68
   %48 = load ptr, ptr %44, align 8, !tbaa !71, !noalias !68
   %49 = icmp eq ptr %47, %48
-  br i1 %49, label %._crit_edge.i.i.i, label %.lr.ph37.split.i
+  br i1 %49, label %._crit_edge.i.i.i, label %.lr.ph35.split.i
 
-.lr.ph37.split.i:                                 ; preds = %.lr.ph37.i, %.critedge.i
-  %.sroa.025.036.i = phi ptr [ %60, %.critedge.i ], [ %40, %.lr.ph37.i ]
+.lr.ph35.split.i:                                 ; preds = %.lr.ph35.i, %.critedge.i
+  %.sroa.025.034.i = phi ptr [ %60, %.critedge.i ], [ %40, %.lr.ph35.i ]
   %50 = load ptr, ptr %43, align 8, !tbaa !71, !noalias !68
   %51 = load ptr, ptr %44, align 8, !tbaa !71, !noalias !68
-  %.not3233.i = icmp eq ptr %50, %51
-  br i1 %.not3233.i, label %.critedge.i, label %.lr.ph.i
+  %.not3031.i = icmp eq ptr %50, %51
+  br i1 %.not3031.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph37.split.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.sroa.021.034.i = phi ptr [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %50, %.lr.ph37.split.i ]
-  invoke void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R20cmFindBaseDebugState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(601) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.036.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.034.i, ptr noundef nonnull align 8 dereferenceable(128) %4)
+.lr.ph.i:                                         ; preds = %.lr.ph35.split.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %.sroa.021.032.i = phi ptr [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %50, %.lr.ph35.split.i ]
+  invoke void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R20cmFindBaseDebugState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(601) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.034.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.032.i, ptr noundef nonnull align 8 dereferenceable(128) %4)
           to label %.noexc unwind label %98
 
 .noexc:                                           ; preds = %.lr.ph.i
@@ -458,16 +458,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %54
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.021.034.i, i64 32
-  %.not32.i = icmp eq ptr %59, %51
-  br i1 %.not32.i, label %.critedge.i, label %.lr.ph.i
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.021.032.i, i64 32
+  %.not30.i = icmp eq ptr %59, %51
+  br i1 %.not30.i, label %.critedge.i, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.lr.ph37.split.i
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i, i64 32
+.critedge.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.lr.ph35.split.i
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.025.034.i, i64 32
   %.not.i = icmp eq ptr %60, %42
-  br i1 %.not.i, label %._crit_edge.i.i.i, label %.lr.ph37.split.i, !llvm.loop !72
+  br i1 %.not.i, label %._crit_edge.i.i.i, label %.lr.ph35.split.i, !llvm.loop !72
 
-._crit_edge.i.i.i:                                ; preds = %.critedge.i, %.lr.ph37.i, %38
+._crit_edge.i.i.i:                                ; preds = %.critedge.i, %.lr.ph35.i, %38
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %61, ptr %6, align 8, !tbaa !4, !alias.scope !68
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -718,10 +718,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   %148 = load ptr, ptr %147, align 8, !tbaa !71, !noalias !75
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %150 = load ptr, ptr %149, align 8, !tbaa !71, !noalias !75
-  %.not35.i34 = icmp eq ptr %148, %150
-  br i1 %.not35.i34, label %._crit_edge.i.i.i46, label %.lr.ph37.i35
+  %.not33.i34 = icmp eq ptr %148, %150
+  br i1 %.not33.i34, label %._crit_edge.i.i.i46, label %.lr.ph35.i35
 
-.lr.ph37.i35:                                     ; preds = %146
+.lr.ph35.i35:                                     ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -729,18 +729,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   %155 = load ptr, ptr %151, align 8, !tbaa !71, !noalias !75
   %156 = load ptr, ptr %152, align 8, !tbaa !71, !noalias !75
   %157 = icmp eq ptr %155, %156
-  br i1 %157, label %._crit_edge.i.i.i46, label %.lr.ph37.split.i36
+  br i1 %157, label %._crit_edge.i.i.i46, label %.lr.ph35.split.i36
 
-.lr.ph37.split.i36:                               ; preds = %.lr.ph37.i35, %.critedge.i44
-  %.sroa.025.036.i37 = phi ptr [ %168, %.critedge.i44 ], [ %148, %.lr.ph37.i35 ]
+.lr.ph35.split.i36:                               ; preds = %.lr.ph35.i35, %.critedge.i44
+  %.sroa.025.034.i37 = phi ptr [ %168, %.critedge.i44 ], [ %148, %.lr.ph35.i35 ]
   %158 = load ptr, ptr %151, align 8, !tbaa !71, !noalias !75
   %159 = load ptr, ptr %152, align 8, !tbaa !71, !noalias !75
-  %.not3233.i38 = icmp eq ptr %158, %159
-  br i1 %.not3233.i38, label %.critedge.i44, label %.lr.ph.i39
+  %.not3031.i38 = icmp eq ptr %158, %159
+  br i1 %.not3031.i38, label %.critedge.i44, label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %.lr.ph37.split.i36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42
-  %.sroa.021.034.i40 = phi ptr [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42 ], [ %158, %.lr.ph37.split.i36 ]
-  invoke void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R20cmFindBaseDebugState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(601) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.036.i37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.034.i40, ptr noundef nonnull align 8 dereferenceable(128) %4)
+.lr.ph.i39:                                       ; preds = %.lr.ph35.split.i36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42
+  %.sroa.021.032.i40 = phi ptr [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42 ], [ %158, %.lr.ph35.split.i36 ]
+  invoke void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R20cmFindBaseDebugState(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(601) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.034.i37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.032.i40, ptr noundef nonnull align 8 dereferenceable(128) %4)
           to label %.noexc47 unwind label %199
 
 .noexc47:                                         ; preds = %.lr.ph.i39
@@ -760,16 +760,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i41, %162
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.021.034.i40, i64 32
-  %.not32.i43 = icmp eq ptr %167, %159
-  br i1 %.not32.i43, label %.critedge.i44, label %.lr.ph.i39
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.021.032.i40, i64 32
+  %.not30.i43 = icmp eq ptr %167, %159
+  br i1 %.not30.i43, label %.critedge.i44, label %.lr.ph.i39
 
-.critedge.i44:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42, %.lr.ph37.split.i36
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i37, i64 32
+.critedge.i44:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i42, %.lr.ph35.split.i36
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.025.034.i37, i64 32
   %.not.i45 = icmp eq ptr %168, %150
-  br i1 %.not.i45, label %._crit_edge.i.i.i46, label %.lr.ph37.split.i36, !llvm.loop !72
+  br i1 %.not.i45, label %._crit_edge.i.i.i46, label %.lr.ph35.split.i36, !llvm.loop !72
 
-._crit_edge.i.i.i46:                              ; preds = %.critedge.i44, %.lr.ph37.i35, %146
+._crit_edge.i.i.i46:                              ; preds = %.critedge.i44, %.lr.ph35.i35, %146
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %169, ptr %8, align 8, !tbaa !4, !alias.scope !75
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -911,10 +911,10 @@ define dso_local void @_ZN17cmFindPathCommand19FindFrameworkHeaderB5cxx11ER20cmF
   %5 = load ptr, ptr %4, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %7 = load ptr, ptr %6, align 8, !tbaa !71
-  %.not35 = icmp eq ptr %5, %7
-  br i1 %.not35, label %._crit_edge.i.i, label %.lr.ph37
+  %.not33 = icmp eq ptr %5, %7
+  br i1 %.not33, label %._crit_edge.i.i, label %.lr.ph35
 
-.lr.ph37:                                         ; preds = %3
+.lr.ph35:                                         ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -922,18 +922,18 @@ define dso_local void @_ZN17cmFindPathCommand19FindFrameworkHeaderB5cxx11ER20cmF
   %12 = load ptr, ptr %8, align 8, !tbaa !71
   %13 = load ptr, ptr %9, align 8, !tbaa !71
   %14 = icmp eq ptr %12, %13
-  br i1 %14, label %._crit_edge.i.i, label %.lr.ph37.split
+  br i1 %14, label %._crit_edge.i.i, label %.lr.ph35.split
 
-.lr.ph37.split:                                   ; preds = %.lr.ph37, %.critedge
-  %.sroa.025.036 = phi ptr [ %25, %.critedge ], [ %5, %.lr.ph37 ]
+.lr.ph35.split:                                   ; preds = %.lr.ph35, %.critedge
+  %.sroa.025.034 = phi ptr [ %25, %.critedge ], [ %5, %.lr.ph35 ]
   %15 = load ptr, ptr %8, align 8, !tbaa !71
   %16 = load ptr, ptr %9, align 8, !tbaa !71
-  %.not3233 = icmp eq ptr %15, %16
-  br i1 %.not3233, label %.critedge, label %.lr.ph
+  %.not3031 = icmp eq ptr %15, %16
+  br i1 %.not3031, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph37.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.sroa.021.034 = phi ptr [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %15, %.lr.ph37.split ]
-  tail call void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R20cmFindBaseDebugState(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(601) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.036, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.034, ptr noundef nonnull align 8 dereferenceable(128) %2)
+.lr.ph:                                           ; preds = %.lr.ph35.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.sroa.021.032 = phi ptr [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %15, %.lr.ph35.split ]
+  tail call void @_ZNK17cmFindPathCommand21FindHeaderInFrameworkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R20cmFindBaseDebugState(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(601) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.034, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.032, ptr noundef nonnull align 8 dereferenceable(128) %2)
   %17 = load i64, ptr %10, align 8, !tbaa !13
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %.loopexit
@@ -950,16 +950,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.021.034, i64 32
-  %.not32 = icmp eq ptr %24, %16
-  br i1 %.not32, label %.critedge, label %.lr.ph
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.021.032, i64 32
+  %.not30 = icmp eq ptr %24, %16
+  br i1 %.not30, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.lr.ph37.split
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.036, i64 32
+.critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.lr.ph35.split
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.034, i64 32
   %.not = icmp eq ptr %25, %7
-  br i1 %.not, label %._crit_edge.i.i, label %.lr.ph37.split, !llvm.loop !72
+  br i1 %.not, label %._crit_edge.i.i, label %.lr.ph35.split, !llvm.loop !72
 
-._crit_edge.i.i:                                  ; preds = %.critedge, %.lr.ph37, %3
+._crit_edge.i.i:                                  ; preds = %.critedge, %.lr.ph35, %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8

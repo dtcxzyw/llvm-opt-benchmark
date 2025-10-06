@@ -196,7 +196,7 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit.thread: ; preds = 
   %47 = zext nneg i32 %46 to i64
   %48 = shl i64 %44, %47
   %49 = ashr exact i64 %48, %47
-  %.0.i.i17 = select i1 %45, i64 0, i64 %49
+  %.0.i.i16 = select i1 %45, i64 0, i64 %49
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.thread
 
 50:                                               ; preds = %39
@@ -207,8 +207,8 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit.thread: ; preds = 
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.thread
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.thread: ; preds = %43, %50
-  %.0.i.i17.pn = phi i64 [ %.0.i.i17, %43 ], [ %52, %50 ]
-  %53 = icmp eq i64 %.0.i.i17.pn, %2
+  %.0.i.i16.pn = phi i64 [ %.0.i.i16, %43 ], [ %52, %50 ]
+  %53 = icmp eq i64 %.0.i.i16.pn, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 

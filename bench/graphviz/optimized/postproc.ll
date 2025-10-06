@@ -1926,7 +1926,7 @@ agxbdisown.exit:                                  ; preds = %871, %.thread.i, %a
 
 ._crit_edge.i.i79:                                ; preds = %agxbdisown.exit
   %.pre.i.i80 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 8), align 8, !tbaa !142
-  %.pre4.i.i = load ptr, ptr @Show_boxes, align 8, !tbaa !143
+  %.pre3.i.i = load ptr, ptr @Show_boxes, align 8, !tbaa !143
   br label %show_boxes_append.exit
 
 880:                                              ; preds = %agxbdisown.exit
@@ -1980,7 +1980,7 @@ agxbdisown.exit:                                  ; preds = %871, %.thread.i, %a
   unreachable
 
 show_boxes_append.exit:                           ; preds = %._crit_edge.i.i79, %903
-  %909 = phi ptr [ %.pre4.i.i, %._crit_edge.i.i79 ], [ %886, %903 ]
+  %909 = phi ptr [ %.pre3.i.i, %._crit_edge.i.i79 ], [ %886, %903 ]
   %910 = phi i64 [ %878, %._crit_edge.i.i79 ], [ %spec.select.i.i, %903 ]
   %911 = phi i64 [ %877, %._crit_edge.i.i79 ], [ %894, %903 ]
   %912 = phi i64 [ %.pre.i.i80, %._crit_edge.i.i79 ], [ %904, %903 ]

@@ -83,8 +83,8 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   %32 = load i32, ptr %31, align 8, !tbaa !26
   %33 = and i32 %32, -2
   store i32 %33, ptr %31, align 8, !tbaa !26
-  %.not103129 = icmp ult i32 %28, 3
-  br i1 %.not103129, label %.critedge111.thread, label %.lr.ph
+  %.not103128 = icmp ult i32 %28, 3
+  br i1 %.not103128, label %.critedge111.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
   %34 = load ptr, ptr %8, align 8, !tbaa !18
@@ -93,15 +93,15 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   br label %37
 
 37:                                               ; preds = %.lr.ph, %.critedge.thread
-  %.085131 = phi i32 [ 0, %.lr.ph ], [ %45, %.critedge.thread ]
-  %.088130 = phi i32 [ 0, %.lr.ph ], [ %.290, %.critedge.thread ]
-  %38 = zext i32 %.085131 to i64
+  %.085130 = phi i32 [ 0, %.lr.ph ], [ %45, %.critedge.thread ]
+  %.088129 = phi i32 [ 0, %.lr.ph ], [ %.290, %.critedge.thread ]
+  %38 = zext i32 %.085130 to i64
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %41 = load i16, ptr %40, align 1, !tbaa !28
   %42 = tail call i16 @llvm.bswap.i16(i16 %41)
   %43 = zext i16 %42 to i32
-  %44 = add i32 %.085131, 3
+  %44 = add i32 %.085130, 3
   %45 = add i32 %44, %43
   %46 = icmp ugt i32 %45, %28
   br i1 %46, label %.critedge111, label %47
@@ -122,7 +122,7 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
 
 .critedge.thread.sink.split:                      ; preds = %49
   store i32 1, ptr %35, align 8, !tbaa !25
-  %52 = add i32 %.085131, 10
+  %52 = add i32 %.085130, 10
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !28
@@ -135,19 +135,19 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %47
-  %.290 = phi i32 [ %.088130, %47 ], [ 1, %.critedge.thread.sink.split ]
+  %.290 = phi i32 [ %.088129, %47 ], [ 1, %.critedge.thread.sink.split ]
   %58 = add i32 %45, 3
   %.not103 = icmp ugt i32 %58, %28
   br i1 %.not103, label %.critedge111, label %37
 
 59:                                               ; preds = %47
-  %60 = icmp eq i32 %.088130, 0
+  %60 = icmp eq i32 %.088129, 0
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !27
   %63 = icmp eq i32 %62, 0
   %64 = icmp eq i32 %45, %28
-  %or.cond128 = and i1 %64, %63
-  br i1 %or.cond128, label %65, label %79
+  %or.cond127 = and i1 %64, %63
+  br i1 %or.cond127, label %65, label %79
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -165,41 +165,41 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   br label %.thread
 
 .critedge111:                                     ; preds = %.critedge.thread, %37, %49
-  %.088.lcssa.ph.ph = phi i32 [ %.088130, %49 ], [ %.088130, %37 ], [ %.290, %.critedge.thread ]
-  %.186.ph.ph = phi i32 [ %.085131, %49 ], [ %.085131, %37 ], [ %45, %.critedge.thread ]
+  %.088.lcssa.ph.ph = phi i32 [ %.088129, %49 ], [ %.088129, %37 ], [ %.290, %.critedge.thread ]
+  %.186.ph.ph = phi i32 [ %.085130, %49 ], [ %.085130, %37 ], [ %45, %.critedge.thread ]
   %73 = icmp eq i32 %.186.ph.ph, %28
   %74 = icmp eq i32 %.088.lcssa.ph.ph, 0
   br i1 %73, label %79, label %.critedge111.thread
 
 .critedge111.thread:                              ; preds = %30, %.critedge111
-  %.088.lcssa161171 = phi i1 [ %74, %.critedge111 ], [ true, %30 ]
+  %.088.lcssa160170 = phi i1 [ %74, %.critedge111 ], [ true, %30 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.1) #5
   %75 = load i32, ptr %27, align 8, !tbaa !27
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %77 = load i32, ptr %76, align 4, !tbaa !24
   %78 = or i32 %77, 2
   store i32 %78, ptr %76, align 4, !tbaa !24
-  br i1 %.088.lcssa161171, label %83, label %80
+  br i1 %.088.lcssa160170, label %83, label %80
 
 79:                                               ; preds = %59, %.critedge111
-  %.088.lcssa160 = phi i1 [ %74, %.critedge111 ], [ %60, %59 ]
+  %.088.lcssa159 = phi i1 [ %74, %.critedge111 ], [ %60, %59 ]
   %.not109 = phi i1 [ true, %.critedge111 ], [ false, %59 ]
   %.3 = phi i32 [ %28, %.critedge111 ], [ %45, %59 ]
-  br i1 %.088.lcssa160, label %83, label %80
+  br i1 %.088.lcssa159, label %83, label %80
 
 80:                                               ; preds = %.critedge111.thread, %79
-  %.3174 = phi i32 [ %75, %.critedge111.thread ], [ %.3, %79 ]
-  %.not109172 = phi i1 [ false, %.critedge111.thread ], [ %.not109, %79 ]
+  %.3173 = phi i32 [ %75, %.critedge111.thread ], [ %.3, %79 ]
+  %.not109171 = phi i1 [ false, %.critedge111.thread ], [ %.not109, %79 ]
   %81 = tail call i32 @av_packet_copy_props(ptr noundef %7, ptr noundef %6) #5
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %113, label %83
 
 83:                                               ; preds = %.critedge111.thread, %80, %79
-  %.3175 = phi i32 [ %75, %.critedge111.thread ], [ %.3174, %80 ], [ %.3, %79 ]
-  %.not109173 = phi i1 [ false, %.critedge111.thread ], [ %.not109172, %80 ], [ %.not109, %79 ]
+  %.3174 = phi i32 [ %75, %.critedge111.thread ], [ %.3173, %80 ], [ %.3, %79 ]
+  %.not109172 = phi i1 [ false, %.critedge111.thread ], [ %.not109171, %80 ], [ %.not109, %79 ]
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %85 = load i32, ptr %84, align 8, !tbaa !27
-  %86 = tail call i32 @av_grow_packet(ptr noundef %7, i32 noundef %.3175) #5
+  %86 = tail call i32 @av_grow_packet(ptr noundef %7, i32 noundef %.3174) #5
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %113, label %88
 
@@ -209,10 +209,10 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   %91 = sext i32 %85 to i64
   %92 = getelementptr inbounds i8, ptr %90, i64 %91
   %93 = load ptr, ptr %8, align 8, !tbaa !18
-  %94 = sext i32 %.3175 to i64
+  %94 = sext i32 %.3174 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 1 %93, i64 %94, i1 false)
   %95 = load i32, ptr %27, align 8, !tbaa !27
-  %96 = icmp eq i32 %.3175, %95
+  %96 = icmp eq i32 %.3174, %95
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %88
@@ -223,12 +223,12 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   %99 = load ptr, ptr %8, align 8, !tbaa !18
   %100 = getelementptr inbounds i8, ptr %99, i64 %94
   store ptr %100, ptr %8, align 8, !tbaa !18
-  %101 = sub nsw i32 %95, %.3175
+  %101 = sub nsw i32 %95, %.3174
   store i32 %101, ptr %27, align 8, !tbaa !27
   br label %102
 
 102:                                              ; preds = %98, %97
-  br i1 %.not109173, label %.thread, label %103
+  br i1 %.not109172, label %.thread, label %103
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 16

@@ -3003,22 +3003,25 @@ declare void @_ZN8QPainter11drawPolygonEPK7QPointFiN2Qt8FillRuleE(ptr noundef no
 define linkonce_odr void @_ZN7QVectorI7QPointFEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
-  switch i32 %4, label %_ZN9QtPrivate8RefCount3refEv.exit.thread [
-    i32 0, label %8
-    i32 -1, label %6
-  ]
+  %.off.i = add i32 %4, -1
+  %switch.i = icmp ult i32 %.off.i, -2
+  br i1 %switch.i, label %_ZN9QtPrivate8RefCount3refEv.exit.thread, label %_ZN9QtPrivate8RefCount3refEv.exit
 
 _ZN9QtPrivate8RefCount3refEv.exit.thread:         ; preds = %2
   %5 = atomicrmw add ptr %3, i32 1 seq_cst, align 4
-  %.pre16 = load ptr, ptr %1, align 8
+  %.pre17 = load ptr, ptr %1, align 8
   br label %6
 
-6:                                                ; preds = %2, %_ZN9QtPrivate8RefCount3refEv.exit.thread
-  %7 = phi ptr [ %3, %2 ], [ %.pre16, %_ZN9QtPrivate8RefCount3refEv.exit.thread ]
+_ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
+  %.not13 = icmp eq i32 %4, 0
+  br i1 %.not13, label %8, label %6
+
+6:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread, %_ZN9QtPrivate8RefCount3refEv.exit
+  %7 = phi ptr [ %.pre17, %_ZN9QtPrivate8RefCount3refEv.exit.thread ], [ %3, %_ZN9QtPrivate8RefCount3refEv.exit ]
   store ptr %7, ptr %0, align 8
   br label %49
 
-8:                                                ; preds = %2
+8:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8
   %.not = icmp sgt i32 %10, -1
@@ -3095,15 +3098,15 @@ _ZN9QtPrivate8RefCount3refEv.exit.thread:         ; preds = %2
   br i1 %.not.i, label %_ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit.loopexit, label %.lr.ph.i, !llvm.loop !66
 
 _ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit.loopexit: ; preds = %.lr.ph.i
-  %.pre13 = load ptr, ptr %1, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre13, i64 4
-  %.pre14 = load i32, ptr %.phi.trans.insert, align 4
-  %.pre15 = load ptr, ptr %0, align 8
+  %.pre14 = load ptr, ptr %1, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre14, i64 4
+  %.pre15 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre16 = load ptr, ptr %0, align 8
   br label %_ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit
 
 _ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit: ; preds = %_ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit.loopexit, %32
-  %46 = phi ptr [ %.pre15, %_ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit.loopexit ], [ %28, %32 ]
-  %47 = phi i32 [ %.pre14, %_ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit.loopexit ], [ 0, %32 ]
+  %46 = phi ptr [ %.pre16, %_ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit.loopexit ], [ %28, %32 ]
+  %47 = phi i32 [ %.pre15, %_ZN7QVectorI7QPointFE13copyConstructEPKS0_S3_PS0_.exit.loopexit ], [ 0, %32 ]
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %47, ptr %48, align 4
   br label %49

@@ -214,8 +214,8 @@ sub_0:                                            ; preds = %21
 sub_1:                                            ; preds = %sub_0
   %28 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %29 = load i8, ptr %28, align 1
-  %.not77 = icmp eq i8 %29, 116
-  br i1 %.not77, label %.tail, label %.lr.ph.preheader
+  %.not76 = icmp eq i8 %29, 116
+  br i1 %.not76, label %.tail, label %.lr.ph.preheader
 
 .tail:                                            ; preds = %sub_1
   %30 = getelementptr inbounds nuw i8, ptr %.058, i64 2
@@ -287,12 +287,12 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %69 = phi i8 [ %74, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.06074 = phi ptr [ %73, %.lr.ph ], [ %.058, %.lr.ph.preheader ]
-  %.06273 = phi i32 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.06073 = phi ptr [ %73, %.lr.ph ], [ %.058, %.lr.ph.preheader ]
+  %.06272 = phi i32 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %70 = icmp eq i8 %69, 37
   %71 = select i1 %70, i32 30, i32 1
-  %72 = add i32 %71, %.06273
-  %73 = getelementptr inbounds nuw i8, ptr %.06074, i64 1
+  %72 = add i32 %71, %.06272
+  %73 = getelementptr inbounds nuw i8, ptr %.06073, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !14
   %.not65 = icmp eq i8 %74, 0
   br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -307,29 +307,29 @@ sub_1:                                            ; preds = %sub_0
 
 79:                                               ; preds = %._crit_edge, %107
   %80 = phi i32 [ 3, %._crit_edge ], [ %110, %107 ]
-  %.175 = phi i32 [ %72, %._crit_edge ], [ %109, %107 ]
+  %.174 = phi i32 [ %72, %._crit_edge ], [ %109, %107 ]
   %81 = load ptr, ptr %77, align 8, !tbaa !33
   %82 = load ptr, ptr %78, align 8, !tbaa !34
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = trunc i64 %85 to i32
-  %87 = icmp ugt i32 %.175, %86
+  %87 = icmp ugt i32 %.174, %86
   br i1 %87, label %88, label %lj_buf_need.exit, !prof !35
 
 88:                                               ; preds = %79
-  %89 = call ptr @lj_buf_need2(ptr noundef nonnull %68, i32 noundef %.175) #13
+  %89 = call ptr @lj_buf_need2(ptr noundef nonnull %68, i32 noundef %.174) #13
   %.pre = load ptr, ptr %77, align 8, !tbaa !33
-  %.pre81 = load ptr, ptr %78, align 8, !tbaa !34
-  %.pre82 = ptrtoint ptr %.pre to i64
-  %.pre83 = ptrtoint ptr %.pre81 to i64
-  %.pre85 = sub i64 %.pre82, %.pre83
+  %.pre80 = load ptr, ptr %78, align 8, !tbaa !34
+  %.pre81 = ptrtoint ptr %.pre to i64
+  %.pre82 = ptrtoint ptr %.pre80 to i64
+  %.pre84 = sub i64 %.pre81, %.pre82
   br label %lj_buf_need.exit
 
 lj_buf_need.exit:                                 ; preds = %79, %88
-  %.pre-phi86 = phi i64 [ %85, %79 ], [ %.pre85, %88 ]
+  %.pre-phi85 = phi i64 [ %85, %79 ], [ %.pre84, %88 ]
   %.0.i = phi ptr [ %82, %79 ], [ %89, %88 ]
-  %90 = and i64 %.pre-phi86, 4294967295
+  %90 = and i64 %.pre-phi85, 4294967295
   %91 = call i64 @strftime(ptr noundef %.0.i, i64 noundef %90, ptr noundef nonnull %.058, ptr noundef nonnull %.059) #13
   %.not67 = icmp eq i64 %91, 0
   br i1 %.not67, label %107, label %92
@@ -357,8 +357,8 @@ lj_buf_need.exit:                                 ; preds = %79, %88
   br label %setboolfield.exit
 
 107:                                              ; preds = %lj_buf_need.exit
-  %108 = or i32 %.175, 1
-  %109 = add i32 %108, %.175
+  %108 = or i32 %.174, 1
+  %109 = add i32 %108, %.174
   %110 = add nsw i32 %80, -1
   %.not66 = icmp eq i32 %80, 0
   br i1 %.not66, label %setboolfield.exit, label %79

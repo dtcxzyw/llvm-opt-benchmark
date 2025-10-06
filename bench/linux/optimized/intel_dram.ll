@@ -1221,7 +1221,7 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %7 = load i8, ptr %6, align 8
   %8 = icmp ugt i8 %7, 10
-  br i1 %8, label %9, label %22
+  br i1 %8, label %9, label %23
 
 9:                                                ; preds = %5
   %10 = shl i16 %4, 2
@@ -1229,105 +1229,105 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly capture
   store i16 %11, ptr %1, align 2
   %12 = and i16 %4, 127
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %40, label %14
+  br i1 %13, label %42, label %14
 
 14:                                               ; preds = %9
   %15 = lshr i16 %4, 7
   %16 = and i16 %15, 3
-  %switch.not = icmp eq i16 %16, 3
-  br i1 %switch.not, label %20, label %17
+  %17 = icmp eq i16 %16, 3
+  br i1 %17, label %21, label %18
 
-17:                                               ; preds = %14
-  %18 = trunc nuw nsw i16 %16 to i8
-  %19 = shl nuw nsw i8 8, %18
+18:                                               ; preds = %14
+  %19 = trunc nuw nsw i16 %16 to i8
+  %20 = shl nuw nsw i8 8, %19
   br label %.thread
 
-20:                                               ; preds = %14
+21:                                               ; preds = %14
   tail call void asm sideeffect "538: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 538b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 538) #8, !srcloc !48
-  %21 = zext i16 %4 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %21) #8
+  %22 = zext i16 %4 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %22) #8
   tail call void asm sideeffect "539: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 539b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 539) #8, !srcloc !49
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 251, i32 2313, i64 12) #8, !srcloc !50
   tail call void asm sideeffect "540: nop\0A\09.pushsection .discard.instr_end\0A\09.long 540b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 540) #8, !srcloc !51
   tail call void asm sideeffect "541: nop\0A\09.pushsection .discard.instr_end\0A\09.long 541b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 541) #8, !srcloc !52
   br label %.thread
 
-22:                                               ; preds = %5
-  %23 = shl i16 %4, 3
-  %24 = and i16 %23, 504
-  store i16 %24, ptr %1, align 2
-  %25 = and i16 %4, 63
-  %26 = icmp eq i16 %25, 0
-  br i1 %26, label %40, label %27
+23:                                               ; preds = %5
+  %24 = shl i16 %4, 3
+  %25 = and i16 %24, 504
+  store i16 %25, ptr %1, align 2
+  %26 = and i16 %4, 63
+  %27 = icmp eq i16 %26, 0
+  br i1 %27, label %42, label %28
 
-27:                                               ; preds = %22
-  %28 = lshr i16 %4, 8
-  %29 = and i16 %28, 3
-  %switch5.not = icmp eq i16 %29, 3
-  br i1 %switch5.not, label %33, label %30
+28:                                               ; preds = %23
+  %29 = lshr i16 %4, 8
+  %30 = and i16 %29, 3
+  %31 = icmp eq i16 %30, 3
+  br i1 %31, label %35, label %32
 
-30:                                               ; preds = %27
-  %31 = trunc nuw nsw i16 %29 to i8
-  %32 = shl nuw nsw i8 8, %31
+32:                                               ; preds = %28
+  %33 = trunc nuw nsw i16 %30 to i8
+  %34 = shl nuw nsw i8 8, %33
   br label %.thread
 
-33:                                               ; preds = %27
+35:                                               ; preds = %28
   tail call void asm sideeffect "534: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 534b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 534) #8, !srcloc !53
-  %34 = zext i16 %4 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %34) #8
+  %36 = zext i16 %4 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %36) #8
   tail call void asm sideeffect "535: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 535b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 535) #8, !srcloc !54
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 218, i32 2313, i64 12) #8, !srcloc !55
   tail call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_end\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #8, !srcloc !56
   tail call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #8, !srcloc !57
   br label %.thread
 
-.thread:                                          ; preds = %20, %17, %33, %30
-  %.ph = phi i8 [ %32, %30 ], [ 0, %33 ], [ %19, %17 ], [ 0, %20 ]
-  %.ph6 = phi i16 [ 10, %30 ], [ 10, %33 ], [ 9, %17 ], [ 9, %20 ]
-  %.ph7 = phi i8 [ 1, %30 ], [ 1, %33 ], [ 3, %17 ], [ 3, %20 ]
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %.ph, ptr %35, align 2
-  %36 = lshr i16 %4, %.ph6
-  %37 = trunc nuw nsw i16 %36 to i8
-  %38 = and i8 %.ph7, %37
-  %39 = add nuw nsw i8 %38, 1
-  br label %42
+.thread:                                          ; preds = %21, %18, %35, %32
+  %.ph = phi i8 [ %34, %32 ], [ 0, %35 ], [ %20, %18 ], [ 0, %21 ]
+  %.ph5 = phi i16 [ 10, %32 ], [ 10, %35 ], [ 9, %18 ], [ 9, %21 ]
+  %.ph6 = phi i8 [ 1, %32 ], [ 1, %35 ], [ 3, %18 ], [ 3, %21 ]
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %.ph, ptr %37, align 2
+  %38 = lshr i16 %4, %.ph5
+  %39 = trunc nuw nsw i16 %38 to i8
+  %40 = and i8 %.ph6, %39
+  %41 = add nuw nsw i8 %40, 1
+  br label %44
 
-40:                                               ; preds = %9, %22
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %41, align 2
-  br label %42
+42:                                               ; preds = %9, %23
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 0, ptr %43, align 2
+  br label %44
 
-42:                                               ; preds = %.thread, %40
-  %43 = phi i8 [ 0, %40 ], [ %.ph, %.thread ]
-  %44 = phi i8 [ 0, %40 ], [ %39, %.thread ]
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %44, ptr %45, align 1
-  %46 = icmp eq ptr %0, null
-  br i1 %46, label %50, label %47
+44:                                               ; preds = %.thread, %42
+  %45 = phi i8 [ 0, %42 ], [ %.ph, %.thread ]
+  %46 = phi i8 [ 0, %42 ], [ %41, %.thread ]
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %46, ptr %47, align 1
+  %48 = icmp eq ptr %0, null
+  br i1 %48, label %52, label %49
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8
-  br label %50
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load ptr, ptr %50, align 8
+  br label %52
 
-50:                                               ; preds = %47, %42
-  %51 = phi ptr [ %49, %47 ], [ null, %42 ]
-  %52 = zext nneg i8 %3 to i32
-  %53 = load i16, ptr %1, align 2
-  %54 = zext i16 %53 to i32
-  %55 = zext nneg i8 %43 to i32
-  %56 = zext nneg i8 %44 to i32
-  %57 = tail call i8 @llvm.umax.i8(i8 %43, i8 1)
-  %.tr = zext nneg i8 %44 to i16
+52:                                               ; preds = %49, %44
+  %53 = phi ptr [ %51, %49 ], [ null, %44 ]
+  %54 = zext nneg i8 %3 to i32
+  %55 = load i16, ptr %1, align 2
+  %56 = zext i16 %55 to i32
+  %57 = zext nneg i8 %45 to i32
+  %58 = zext nneg i8 %46 to i32
+  %59 = tail call i8 @llvm.umax.i8(i8 %45, i8 1)
+  %.tr = zext nneg i8 %46 to i16
   %.lhs.trunc = shl nuw nsw i16 %.tr, 6
-  %.rhs.trunc = zext nneg i8 %57 to i16
-  %58 = udiv i16 %.lhs.trunc, %.rhs.trunc
-  %59 = tail call i16 @llvm.umax.i16(i16 %58, i16 1)
-  %60 = udiv i16 %53, %59
-  %61 = icmp eq i16 %60, 16
-  %62 = select i1 %61, ptr @.str.26, ptr @.str.27
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %51, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %2, i32 noundef %52, i32 noundef %54, i32 noundef %55, i32 noundef %56, ptr noundef nonnull %62) #8
+  %.rhs.trunc = zext nneg i8 %59 to i16
+  %60 = udiv i16 %.lhs.trunc, %.rhs.trunc
+  %61 = tail call i16 @llvm.umax.i16(i16 %60, i16 1)
+  %62 = udiv i16 %55, %61
+  %63 = icmp eq i16 %62, 16
+  %64 = select i1 %63, ptr @.str.26, ptr @.str.27
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %53, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %2, i32 noundef %54, i32 noundef %56, i32 noundef %57, i32 noundef %58, ptr noundef nonnull %64) #8
   ret void
 }
 

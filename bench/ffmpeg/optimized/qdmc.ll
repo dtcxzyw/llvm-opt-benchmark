@@ -1416,20 +1416,20 @@ add_noise.exit.i:                                 ; preds = %._crit_edge63.i.i, 
   br label %695
 
 695:                                              ; preds = %add_wave.exit.i.i, %._crit_edge.i
-  %indvars.iv63.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next64.i.i, %add_wave.exit.i.i ]
-  %696 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv63.i.i
+  %indvars.iv60.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next61.i.i, %add_wave.exit.i.i ]
+  %696 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv60.i.i
   %697 = load i32, ptr %696, align 4, !tbaa !38
-  %698 = getelementptr inbounds nuw [8192 x %struct.QDMCTone], ptr %271, i64 %indvars.iv63.i.i
-  %699 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv63.i.i
+  %698 = getelementptr inbounds nuw [8192 x %struct.QDMCTone], ptr %271, i64 %indvars.iv60.i.i
+  %699 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv60.i.i
   %700 = load i32, ptr %699, align 4, !tbaa !38
   %701 = icmp slt i32 %697, %700
   br i1 %701, label %.lr.ph.i176.i, label %add_wave.exit.i.i
 
 .lr.ph.i176.i:                                    ; preds = %695
-  %702 = trunc i64 %indvars.iv63.i.i to i32
+  %702 = trunc i64 %indvars.iv60.i.i to i32
   %703 = sub i32 5, %702
   %notmask.i.i.i = shl nsw i32 -1, %703
-  %704 = getelementptr inbounds nuw [31 x float], ptr %567, i64 %indvars.iv63.i.i
+  %704 = getelementptr inbounds nuw [31 x float], ptr %567, i64 %indvars.iv60.i.i
   %umax.i.i.i = xor i32 %notmask.i.i.i, -1
   %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
   %705 = sext i32 %697 to i64
@@ -1546,24 +1546,24 @@ add_wave.exit.loopexit.split.loop.exit.i.i:       ; preds = %708
 add_wave.exit.i.i:                                ; preds = %782, %add_wave.exit.loopexit.split.loop.exit.i.i, %695
   %.0.lcssa.i.i = phi i32 [ %697, %695 ], [ %783, %add_wave.exit.loopexit.split.loop.exit.i.i ], [ %700, %782 ]
   store i32 %.0.lcssa.i.i, ptr %696, align 4, !tbaa !38
-  %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
-  %exitcond66.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, 4
-  br i1 %exitcond66.not.i.i, label %784, label %695, !llvm.loop !92
+  %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
+  %exitcond63.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 4
+  br i1 %exitcond63.not.i.i, label %784, label %695, !llvm.loop !92
 
 784:                                              ; preds = %add_wave.exit.i.i
   %785 = load i32, ptr %568, align 4, !tbaa !38
   %786 = load i32, ptr %570, align 16, !tbaa !38
   %787 = icmp slt i32 %785, %786
-  br i1 %787, label %.lr.ph57.i.i, label %add_waves.exit.i
+  br i1 %787, label %.lr.ph54.i.i, label %add_waves.exit.i
 
-.lr.ph57.i.i:                                     ; preds = %784
+.lr.ph54.i.i:                                     ; preds = %784
   %788 = sext i32 %785 to i64
-  %wide.trip.count70.i.i = sext i32 %786 to i64
+  %wide.trip.count67.i.i = sext i32 %786 to i64
   br label %789
 
-789:                                              ; preds = %795, %.lr.ph57.i.i
-  %indvars.iv67.i.i = phi i64 [ %788, %.lr.ph57.i.i ], [ %indvars.iv.next68.i.i, %795 ]
-  %790 = getelementptr inbounds %struct.QDMCTone, ptr %569, i64 %indvars.iv67.i.i
+789:                                              ; preds = %795, %.lr.ph54.i.i
+  %indvars.iv64.i.i = phi i64 [ %788, %.lr.ph54.i.i ], [ %indvars.iv.next65.i.i, %795 ]
+  %790 = getelementptr inbounds %struct.QDMCTone, ptr %569, i64 %indvars.iv64.i.i
   %791 = getelementptr inbounds nuw i8, ptr %790, i64 2
   %792 = load i8, ptr %791, align 2, !tbaa !75
   %793 = zext i8 %792 to i32
@@ -1581,7 +1581,7 @@ add_wave.exit.i.i:                                ; preds = %782, %add_wave.exit
   %803 = getelementptr inbounds nuw i8, ptr %790, i64 1
   %804 = load i8, ptr %803, align 1, !tbaa !81
   %805 = zext i8 %804 to i32
-  %spec.select.i47.i.i = select i1 %694, i64 0, i64 %800
+  %spec.select.i46.i.i = select i1 %694, i64 0, i64 %800
   %806 = and i16 %802, 63
   %807 = zext nneg i16 %806 to i64
   %808 = getelementptr inbounds nuw float, ptr @amplitude_tab, i64 %807
@@ -1603,7 +1603,7 @@ add_wave.exit.i.i:                                ; preds = %782, %add_wave.exit
   %824 = load i32, ptr %270, align 4, !tbaa !45
   %825 = mul nsw i32 %824, %793
   %826 = add nsw i32 %823, %825
-  %827 = getelementptr inbounds nuw [16384 x float], ptr %566, i64 %spec.select.i47.i.i
+  %827 = getelementptr inbounds nuw [16384 x float], ptr %566, i64 %spec.select.i46.i.i
   %828 = sext i32 %826 to i64
   %829 = getelementptr inbounds float, ptr %827, i64 %828
   %830 = load float, ptr %829, align 4, !tbaa !27
@@ -1624,12 +1624,12 @@ add_wave.exit.i.i:                                ; preds = %782, %add_wave.exit
   %842 = load float, ptr %841, align 4, !tbaa !27
   %843 = fsub nsz float %842, %821
   store float %843, ptr %841, align 4, !tbaa !27
-  %indvars.iv.next68.i.i = add nsw i64 %indvars.iv67.i.i, 1
-  %exitcond71.not.i.i = icmp eq i64 %indvars.iv.next68.i.i, %wide.trip.count70.i.i
-  br i1 %exitcond71.not.i.i, label %add_waves.exit.i, label %789, !llvm.loop !93
+  %indvars.iv.next65.i.i = add nsw i64 %indvars.iv64.i.i, 1
+  %exitcond68.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, %wide.trip.count67.i.i
+  br i1 %exitcond68.not.i.i, label %add_waves.exit.i, label %789, !llvm.loop !93
 
 ._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %789
-  %844 = trunc nsw i64 %indvars.iv67.i.i to i32
+  %844 = trunc nsw i64 %indvars.iv64.i.i to i32
   br label %add_waves.exit.i
 
 add_waves.exit.i:                                 ; preds = %795, %._crit_edge.loopexit.split.loop.exit.i.i, %784

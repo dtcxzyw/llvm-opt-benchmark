@@ -1869,9 +1869,9 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %78 = getelementptr inbounds i8, ptr %54, i64 %77
   %79 = load i32, ptr %1, align 8
   %80 = icmp eq i32 %79, 842094169
-  %.sink106 = select i1 %80, i64 88, i64 96
+  %.sink104 = select i1 %80, i64 88, i64 96
   %81 = load ptr, ptr %24, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink106
+  %82 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink104
   %83 = load i32, ptr %82, align 8
   tail call void %81(i32 noundef %9, i32 noundef %83) #6
   %84 = load ptr, ptr %31, align 8
@@ -2603,10 +2603,10 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %29
 
 29:                                               ; preds = %28, %10
-  %.not226313 = icmp eq ptr %1, null
-  br i1 %.not226313, label %._crit_edge, label %.lr.ph315
+  %.not226310 = icmp eq ptr %1, null
+  br i1 %.not226310, label %._crit_edge, label %.lr.ph312
 
-.lr.ph315:                                        ; preds = %29
+.lr.ph312:                                        ; preds = %29
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 424
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -2638,9 +2638,9 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 617
   br label %59
 
-59:                                               ; preds = %.lr.ph315, %SetCopyState.exit.thread
-  %.0201314 = phi ptr [ %1, %.lr.ph315 ], [ %354, %SetCopyState.exit.thread ]
-  %60 = load i32, ptr %.0201314, align 8
+59:                                               ; preds = %.lr.ph312, %SetCopyState.exit.thread
+  %.0201311 = phi ptr [ %1, %.lr.ph312 ], [ %354, %SetCopyState.exit.thread ]
+  %60 = load i32, ptr %.0201311, align 8
   switch i32 %60, label %SetCopyState.exit.thread [
     i32 3, label %61
     i32 1, label %91
@@ -2652,18 +2652,18 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   ]
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %.0201314, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %.0201311, i64 20
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %.0201314, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.0201311, i64 16
   %65 = load float, ptr %64, align 8
   %66 = fmul float %63, %65
-  %67 = getelementptr inbounds nuw i8, ptr %.0201314, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.0201311, i64 24
   %68 = load float, ptr %67, align 8
   %69 = fmul float %65, %68
-  %70 = getelementptr inbounds nuw i8, ptr %.0201314, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %.0201311, i64 28
   %71 = load float, ptr %70, align 4
   %72 = fmul float %65, %71
-  %73 = getelementptr inbounds nuw i8, ptr %.0201314, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.0201311, i64 32
   %74 = load float, ptr %73, align 8
   %75 = load i8, ptr %58, align 1, !range !3, !noundef !4
   %76 = trunc nuw i8 %75 to i1
@@ -2700,7 +2700,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %SetCopyState.exit.thread
 
 91:                                               ; preds = %59
-  %92 = getelementptr inbounds nuw i8, ptr %.0201314, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.0201311, i64 16
   %93 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %57, ptr noundef nonnull %92, i64 noundef 16) #6
   %.not243 = icmp eq i32 %93, 0
   br i1 %.not243, label %SetCopyState.exit.thread, label %94
@@ -2712,8 +2712,8 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %SetCopyState.exit.thread
 
 95:                                               ; preds = %59
-  %96 = getelementptr inbounds nuw i8, ptr %.0201314, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.0201314, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %.0201311, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.0201311, i64 12
   %98 = load i8, ptr %51, align 1, !range !3, !noundef !4
   %99 = load i8, ptr %96, align 8, !range !3, !noundef !4
   %.not241 = icmp eq i8 %98, %99
@@ -2735,18 +2735,18 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %SetCopyState.exit.thread
 
 104:                                              ; preds = %59
-  %105 = getelementptr inbounds nuw i8, ptr %.0201314, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %.0201311, i64 20
   %106 = load float, ptr %105, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %.0201314, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.0201311, i64 16
   %108 = load float, ptr %107, align 8
   %109 = fmul float %106, %108
-  %110 = getelementptr inbounds nuw i8, ptr %.0201314, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %.0201311, i64 24
   %111 = load float, ptr %110, align 8
   %112 = fmul float %108, %111
-  %113 = getelementptr inbounds nuw i8, ptr %.0201314, i64 28
+  %113 = getelementptr inbounds nuw i8, ptr %.0201311, i64 28
   %114 = load float, ptr %113, align 4
   %115 = fmul float %108, %114
-  %116 = getelementptr inbounds nuw i8, ptr %.0201314, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %.0201311, i64 32
   %117 = load float, ptr %116, align 8
   %118 = load i8, ptr %45, align 4, !range !3, !noundef !4
   %119 = trunc nuw i8 %118 to i1
@@ -2805,9 +2805,9 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %SetCopyState.exit.thread
 
 145:                                              ; preds = %59
-  call fastcc void @SetDrawState(ptr noundef %8, ptr noundef %.0201314, i32 noundef 1, ptr noundef null)
-  %146 = getelementptr inbounds nuw i8, ptr %.0201314, i64 8
-  %147 = getelementptr inbounds nuw i8, ptr %.0201314, i64 16
+  call fastcc void @SetDrawState(ptr noundef %8, ptr noundef %.0201311, i32 noundef 1, ptr noundef null)
+  %146 = getelementptr inbounds nuw i8, ptr %.0201311, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.0201311, i64 16
   %148 = load i64, ptr %147, align 8
   %149 = load i64, ptr %146, align 8
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 %149
@@ -2823,131 +2823,131 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %SetCopyState.exit.thread
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds nuw i8, ptr %.0201314, i64 44
+  %157 = getelementptr inbounds nuw i8, ptr %.0201311, i64 44
   %158 = load i32, ptr %157, align 4
-  %.0210.in270 = getelementptr inbounds nuw i8, ptr %.0201314, i64 80
-  %.0210271 = load ptr, ptr %.0210.in270, align 8
-  %.not227272 = icmp eq ptr %.0210271, null
-  br i1 %.not227272, label %.thread, label %.lr.ph.preheader
+  %.0210.in267 = getelementptr inbounds nuw i8, ptr %.0201311, i64 80
+  %.0210268 = load ptr, ptr %.0210.in267, align 8
+  %.not227269 = icmp eq ptr %.0210268, null
+  br i1 %.not227269, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %156
-  %159 = load i32, ptr %.0210271, align 8
-  %.not228328 = icmp eq i32 %159, 6
-  br i1 %.not228328, label %.lr.ph332, label %.thread
+  %159 = load i32, ptr %.0210268, align 8
+  %.not228325 = icmp eq i32 %159, 6
+  br i1 %.not228325, label %.lr.ph329, label %.thread
 
 .lr.ph:                                           ; preds = %166
   %160 = load i32, ptr %.0210, align 8
   %.not228 = icmp eq i32 %160, 6
-  br i1 %.not228, label %.lr.ph332, label %.thread
+  br i1 %.not228, label %.lr.ph329, label %.thread
 
-.lr.ph332:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0207273331 = phi ptr [ %.0210275329, %.lr.ph ], [ %.0201314, %.lr.ph.preheader ]
-  %.0204274330 = phi i64 [ %167, %.lr.ph ], [ %148, %.lr.ph.preheader ]
-  %.0210275329 = phi ptr [ %.0210, %.lr.ph ], [ %.0210271, %.lr.ph.preheader ]
-  %161 = getelementptr inbounds nuw i8, ptr %.0210275329, i64 16
+.lr.ph329:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0207270328 = phi ptr [ %.0210272326, %.lr.ph ], [ %.0201311, %.lr.ph.preheader ]
+  %.0204271327 = phi i64 [ %167, %.lr.ph ], [ %148, %.lr.ph.preheader ]
+  %.0210272326 = phi ptr [ %.0210, %.lr.ph ], [ %.0210268, %.lr.ph.preheader ]
+  %161 = getelementptr inbounds nuw i8, ptr %.0210272326, i64 16
   %162 = load i64, ptr %161, align 8
   %.not229 = icmp eq i64 %162, 2
   br i1 %.not229, label %163, label %.thread
 
-163:                                              ; preds = %.lr.ph332
-  %164 = getelementptr inbounds nuw i8, ptr %.0210275329, i64 44
+163:                                              ; preds = %.lr.ph329
+  %164 = getelementptr inbounds nuw i8, ptr %.0210272326, i64 44
   %165 = load i32, ptr %164, align 4
   %.not230 = icmp eq i32 %165, %158
   br i1 %.not230, label %166, label %.thread
 
 166:                                              ; preds = %163
-  %167 = add i64 %.0204274330, 2
-  %.0210.in = getelementptr inbounds nuw i8, ptr %.0210275329, i64 80
+  %167 = add i64 %.0204271327, 2
+  %.0210.in = getelementptr inbounds nuw i8, ptr %.0210272326, i64 80
   %.0210 = load ptr, ptr %.0210.in, align 8
   %.not227 = icmp eq ptr %.0210, null
   br i1 %.not227, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %163, %.lr.ph332, %.lr.ph, %166, %.lr.ph.preheader, %156
-  %.0207.lcssa = phi ptr [ %.0201314, %156 ], [ %.0201314, %.lr.ph.preheader ], [ %.0210275329, %166 ], [ %.0210275329, %.lr.ph ], [ %.0207273331, %.lr.ph332 ], [ %.0207273331, %163 ]
-  %.0204.lcssa = phi i64 [ %148, %156 ], [ %148, %.lr.ph.preheader ], [ %167, %166 ], [ %167, %.lr.ph ], [ %.0204274330, %.lr.ph332 ], [ %.0204274330, %163 ]
+.thread:                                          ; preds = %163, %.lr.ph329, %.lr.ph, %166, %.lr.ph.preheader, %156
+  %.0207.lcssa = phi ptr [ %.0201311, %156 ], [ %.0201311, %.lr.ph.preheader ], [ %.0210272326, %166 ], [ %.0210272326, %.lr.ph ], [ %.0207270328, %.lr.ph329 ], [ %.0207270328, %163 ]
+  %.0204.lcssa = phi i64 [ %148, %156 ], [ %148, %.lr.ph.preheader ], [ %167, %166 ], [ %167, %.lr.ph ], [ %.0204271327, %.lr.ph329 ], [ %.0204271327, %163 ]
   %168 = load ptr, ptr %31, align 8
   %169 = trunc i64 %.0204.lcssa to i32
   call void %168(i32 noundef 1, i32 noundef 0, i32 noundef %169) #6
   br label %SetCopyState.exit.thread
 
 170:                                              ; preds = %59, %59
-  %171 = getelementptr inbounds nuw i8, ptr %.0201314, i64 8
-  %172 = getelementptr inbounds nuw i8, ptr %.0201314, i64 48
+  %171 = getelementptr inbounds nuw i8, ptr %.0201311, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %.0201311, i64 48
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %.0201314, i64 44
+  %174 = getelementptr inbounds nuw i8, ptr %.0201311, i64 44
   %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %.0201314, i64 56
+  %176 = getelementptr inbounds nuw i8, ptr %.0201311, i64 56
   %177 = load i32, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %.0201314, i64 60
+  %178 = getelementptr inbounds nuw i8, ptr %.0201311, i64 60
   %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %.0201314, i64 64
+  %180 = getelementptr inbounds nuw i8, ptr %.0201311, i64 64
   %181 = load i32, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %.0201314, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.0201311, i64 16
   %183 = load i64, ptr %182, align 8
-  %.0216.in286 = getelementptr inbounds nuw i8, ptr %.0201314, i64 80
-  %.0216287 = load ptr, ptr %.0216.in286, align 8
-  %.not231288 = icmp eq ptr %.0216287, null
-  br i1 %.not231288, label %.thread252, label %.lr.ph292.preheader
+  %.0216.in283 = getelementptr inbounds nuw i8, ptr %.0201311, i64 80
+  %.0216284 = load ptr, ptr %.0216.in283, align 8
+  %.not231285 = icmp eq ptr %.0216284, null
+  br i1 %.not231285, label %.thread250, label %.lr.ph289.preheader
 
-.lr.ph292.preheader:                              ; preds = %170
-  %184 = load i32, ptr %.0216287, align 8
-  %.not232342 = icmp eq i32 %184, %60
-  br i1 %.not232342, label %.lr.ph346, label %.thread252
+.lr.ph289.preheader:                              ; preds = %170
+  %184 = load i32, ptr %.0216284, align 8
+  %.not232339 = icmp eq i32 %184, %60
+  br i1 %.not232339, label %.lr.ph343, label %.thread250
 
-.lr.ph292:                                        ; preds = %200
+.lr.ph289:                                        ; preds = %200
   %185 = load i32, ptr %.0216, align 8
   %.not232 = icmp eq i32 %185, %60
-  br i1 %.not232, label %.lr.ph346, label %.thread252
+  br i1 %.not232, label %.lr.ph343, label %.thread250
 
-.lr.ph346:                                        ; preds = %.lr.ph292.preheader, %.lr.ph292
-  %.0218289345 = phi ptr [ %.0216291343, %.lr.ph292 ], [ %.0201314, %.lr.ph292.preheader ]
-  %.0213290344 = phi i64 [ %203, %.lr.ph292 ], [ %183, %.lr.ph292.preheader ]
-  %.0216291343 = phi ptr [ %.0216, %.lr.ph292 ], [ %.0216287, %.lr.ph292.preheader ]
-  %186 = getelementptr inbounds nuw i8, ptr %.0216291343, i64 48
+.lr.ph343:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
+  %.0218286342 = phi ptr [ %.0216288340, %.lr.ph289 ], [ %.0201311, %.lr.ph289.preheader ]
+  %.0213287341 = phi i64 [ %203, %.lr.ph289 ], [ %183, %.lr.ph289.preheader ]
+  %.0216288340 = phi ptr [ %.0216, %.lr.ph289 ], [ %.0216284, %.lr.ph289.preheader ]
+  %186 = getelementptr inbounds nuw i8, ptr %.0216288340, i64 48
   %187 = load ptr, ptr %186, align 8
   %.not233 = icmp eq ptr %187, %173
-  br i1 %.not233, label %188, label %.thread252
+  br i1 %.not233, label %188, label %.thread250
 
-188:                                              ; preds = %.lr.ph346
-  %189 = getelementptr inbounds nuw i8, ptr %.0216291343, i64 56
+188:                                              ; preds = %.lr.ph343
+  %189 = getelementptr inbounds nuw i8, ptr %.0216288340, i64 56
   %190 = load i32, ptr %189, align 8
   %.not234 = icmp eq i32 %190, %177
-  br i1 %.not234, label %191, label %.thread252
+  br i1 %.not234, label %191, label %.thread250
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds nuw i8, ptr %.0216291343, i64 60
+  %192 = getelementptr inbounds nuw i8, ptr %.0216288340, i64 60
   %193 = load i32, ptr %192, align 4
   %.not235 = icmp eq i32 %193, %179
-  br i1 %.not235, label %194, label %.thread252
+  br i1 %.not235, label %194, label %.thread250
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds nuw i8, ptr %.0216291343, i64 64
+  %195 = getelementptr inbounds nuw i8, ptr %.0216288340, i64 64
   %196 = load i32, ptr %195, align 8
   %.not236 = icmp eq i32 %196, %181
-  br i1 %.not236, label %197, label %.thread252
+  br i1 %.not236, label %197, label %.thread250
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds nuw i8, ptr %.0216291343, i64 44
+  %198 = getelementptr inbounds nuw i8, ptr %.0216288340, i64 44
   %199 = load i32, ptr %198, align 4
   %.not237 = icmp eq i32 %199, %175
-  br i1 %.not237, label %200, label %.thread252
+  br i1 %.not237, label %200, label %.thread250
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds nuw i8, ptr %.0216291343, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %.0216288340, i64 16
   %202 = load i64, ptr %201, align 8
-  %203 = add i64 %202, %.0213290344
-  %.0216.in = getelementptr inbounds nuw i8, ptr %.0216291343, i64 80
+  %203 = add i64 %202, %.0213287341
+  %.0216.in = getelementptr inbounds nuw i8, ptr %.0216288340, i64 80
   %.0216 = load ptr, ptr %.0216.in, align 8
   %.not231 = icmp eq ptr %.0216, null
-  br i1 %.not231, label %.thread252, label %.lr.ph292
+  br i1 %.not231, label %.thread250, label %.lr.ph289
 
-.thread252:                                       ; preds = %.lr.ph346, %188, %191, %194, %197, %.lr.ph292, %200, %.lr.ph292.preheader, %170
-  %.0218.lcssa = phi ptr [ %.0201314, %170 ], [ %.0201314, %.lr.ph292.preheader ], [ %.0216291343, %200 ], [ %.0216291343, %.lr.ph292 ], [ %.0218289345, %197 ], [ %.0218289345, %194 ], [ %.0218289345, %191 ], [ %.0218289345, %188 ], [ %.0218289345, %.lr.ph346 ]
-  %.0213.lcssa = phi i64 [ %183, %170 ], [ %183, %.lr.ph292.preheader ], [ %203, %200 ], [ %203, %.lr.ph292 ], [ %.0213290344, %197 ], [ %.0213290344, %194 ], [ %.0213290344, %191 ], [ %.0213290344, %188 ], [ %.0213290344, %.lr.ph346 ]
+.thread250:                                       ; preds = %.lr.ph343, %188, %191, %194, %197, %.lr.ph289, %200, %.lr.ph289.preheader, %170
+  %.0218.lcssa = phi ptr [ %.0201311, %170 ], [ %.0201311, %.lr.ph289.preheader ], [ %.0216288340, %200 ], [ %.0216288340, %.lr.ph289 ], [ %.0218286342, %197 ], [ %.0218286342, %194 ], [ %.0218286342, %191 ], [ %.0218286342, %188 ], [ %.0218286342, %.lr.ph343 ]
+  %.0213.lcssa = phi i64 [ %183, %170 ], [ %183, %.lr.ph289.preheader ], [ %203, %200 ], [ %203, %.lr.ph289 ], [ %.0213287341, %197 ], [ %.0213287341, %194 ], [ %.0213287341, %191 ], [ %.0213287341, %188 ], [ %.0213287341, %.lr.ph343 ]
   %.not238 = icmp eq ptr %173, null
-  br i1 %.not238, label %SetCopyState.exit.thread259, label %204
+  br i1 %.not238, label %SetCopyState.exit.thread256, label %204
 
-204:                                              ; preds = %.thread252
+204:                                              ; preds = %.thread250
   %205 = getelementptr inbounds nuw i8, ptr %173, i64 280
   %206 = load ptr, ptr %205, align 8
   %207 = load i32, ptr %32, align 8
@@ -2975,7 +2975,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 218:                                              ; preds = %216, %214, %213, %204
   %.090.i = phi i32 [ %209, %213 ], [ 4, %214 ], [ 5, %216 ], [ %209, %204 ]
   %.0.i = phi ptr [ %211, %213 ], [ %215, %214 ], [ %217, %216 ], [ %211, %204 ]
-  call fastcc void @SetDrawState(ptr noundef nonnull %8, ptr noundef nonnull readonly %.0201314, i32 noundef %.090.i, ptr noundef %.0.i)
+  call fastcc void @SetDrawState(ptr noundef nonnull %8, ptr noundef nonnull readonly %.0201311, i32 noundef %.090.i, ptr noundef %.0.i)
   %219 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %173, %219
   br i1 %.not.i, label %250, label %220
@@ -3096,43 +3096,43 @@ SetTextureScaleMode.exit99.i:                     ; preds = %274
   br i1 %278, label %.sink.split.i, label %SetCopyState.exit.thread
 
 .sink.split.i.sink.split:                         ; preds = %274, %SetTextureScaleMode.exit.thread.i
-  %.sink372 = phi i32 [ %267, %SetTextureScaleMode.exit.thread.i ], [ %276, %274 ]
+  %.sink369 = phi i32 [ %267, %SetTextureScaleMode.exit.thread.i ], [ %276, %274 ]
   %switch.table.GL_RunCommandQueue.4.sink = phi ptr [ @switch.table.GL_RunCommandQueue.5, %SetTextureScaleMode.exit.thread.i ], [ @switch.table.GL_RunCommandQueue.5, %274 ]
-  %279 = zext nneg i32 %.sink372 to i64
-  %switch.gep370 = getelementptr inbounds nuw i32, ptr %switch.table.GL_RunCommandQueue.4.sink, i64 %279
-  %switch.load371 = load i32, ptr %switch.gep370, align 4
+  %279 = zext nneg i32 %.sink369 to i64
+  %switch.gep367 = getelementptr inbounds nuw i32, ptr %switch.table.GL_RunCommandQueue.4.sink, i64 %279
+  %switch.load368 = load i32, ptr %switch.gep367, align 4
   %280 = load ptr, ptr %37, align 8
-  call void %280(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load371) #6
+  call void %280(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load368) #6
   %281 = load ptr, ptr %37, align 8
-  call void %281(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load371) #6
+  call void %281(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load368) #6
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %SetTextureScaleMode.exit99.i, %SetTextureScaleMode.exit97.i
   %.sink136.i = load ptr, ptr %34, align 8
   call void %.sink136.i(i32 noundef 33984) #6
-  %.pre316 = load i32, ptr %176, align 8
+  %.pre313 = load i32, ptr %176, align 8
   br label %282
 
 282:                                              ; preds = %.sink.split.i, %270
-  %283 = phi i32 [ %.pre316, %.sink.split.i ], [ %251, %270 ]
+  %283 = phi i32 [ %.pre313, %.sink.split.i ], [ %251, %270 ]
   %284 = icmp ult i32 %283, 3
-  br i1 %284, label %switch.lookup373, label %SetTextureScaleMode.exit101.i
+  br i1 %284, label %switch.lookup370, label %SetTextureScaleMode.exit101.i
 
 SetTextureScaleMode.exit101.i:                    ; preds = %282
   %285 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %283) #6
   br i1 %285, label %SetTextureScaleMode.exit101.thread.i, label %SetCopyState.exit.thread
 
-switch.lookup373:                                 ; preds = %282
+switch.lookup370:                                 ; preds = %282
   %286 = zext nneg i32 %283 to i64
-  %switch.gep374 = getelementptr inbounds nuw i32, ptr @switch.table.GL_RunCommandQueue.5, i64 %286
-  %switch.load375 = load i32, ptr %switch.gep374, align 4
+  %switch.gep371 = getelementptr inbounds nuw i32, ptr @switch.table.GL_RunCommandQueue.5, i64 %286
+  %switch.load372 = load i32, ptr %switch.gep371, align 4
   %287 = load ptr, ptr %37, align 8
-  call void %287(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load375) #6
+  call void %287(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load372) #6
   %288 = load ptr, ptr %37, align 8
-  call void %288(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load375) #6
+  call void %288(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load372) #6
   br label %SetTextureScaleMode.exit101.thread.i
 
-SetTextureScaleMode.exit101.thread.i:             ; preds = %switch.lookup373, %SetTextureScaleMode.exit101.i
+SetTextureScaleMode.exit101.thread.i:             ; preds = %switch.lookup370, %SetTextureScaleMode.exit101.i
   %289 = load i32, ptr %176, align 8
   store i32 %289, ptr %252, align 8
   br label %290
@@ -3193,11 +3193,11 @@ SetTextureScaleMode.exit101.thread.i:             ; preds = %switch.lookup373, %
   call void %316(i32 noundef %207, i32 noundef 10243, i32 noundef %switch.select.i6.i109.i) #6
   %.sink144.i = load ptr, ptr %34, align 8
   call void %.sink144.i(i32 noundef 33984) #6
-  %.pre317 = load i32, ptr %178, align 4
+  %.pre314 = load i32, ptr %178, align 4
   br label %317
 
 317:                                              ; preds = %.sink.split143.i, %308
-  %318 = phi i32 [ %.pre317, %.sink.split143.i ], [ %291, %308 ]
+  %318 = phi i32 [ %.pre314, %.sink.split143.i ], [ %291, %308 ]
   %319 = load i32, ptr %180, align 8
   %320 = load ptr, ptr %37, align 8
   %switch.selectcmp.i.i110.i = icmp eq i32 %318, 2
@@ -3220,12 +3220,12 @@ SetCopyState.exit:                                ; preds = %317, %294
   %327 = icmp eq i32 %60, 5
   br i1 %327, label %340, label %331
 
-SetCopyState.exit.thread259:                      ; preds = %.thread252
-  call fastcc void @SetDrawState(ptr noundef %8, ptr noundef %.0201314, i32 noundef 1, ptr noundef null)
+SetCopyState.exit.thread256:                      ; preds = %.thread250
+  call fastcc void @SetDrawState(ptr noundef %8, ptr noundef %.0201311, i32 noundef 1, ptr noundef null)
   %328 = load i64, ptr %171, align 8
   %329 = getelementptr inbounds nuw i8, ptr %2, i64 %328
   %330 = icmp eq i32 %60, 5
-  br i1 %330, label %340, label %.thread264
+  br i1 %330, label %340, label %.thread261
 
 331:                                              ; preds = %SetCopyState.exit
   %332 = load ptr, ptr %30, align 8
@@ -3238,7 +3238,7 @@ SetCopyState.exit.thread259:                      ; preds = %.thread252
   call void %335(i32 noundef 2, i32 noundef 5126, i32 noundef 32, ptr noundef nonnull %336) #6
   br label %345
 
-.thread264:                                       ; preds = %SetCopyState.exit.thread259
+.thread261:                                       ; preds = %SetCopyState.exit.thread256
   %337 = load ptr, ptr %30, align 8
   call void %337(i32 noundef 2, i32 noundef 5126, i32 noundef 24, ptr noundef %329) #6
   %338 = load ptr, ptr %38, align 8
@@ -3246,8 +3246,8 @@ SetCopyState.exit.thread259:                      ; preds = %.thread252
   call void %338(i32 noundef 4, i32 noundef 5126, i32 noundef 24, ptr noundef nonnull %339) #6
   br label %345
 
-340:                                              ; preds = %SetCopyState.exit, %SetCopyState.exit.thread259
-  %341 = phi ptr [ %329, %SetCopyState.exit.thread259 ], [ %326, %SetCopyState.exit ]
+340:                                              ; preds = %SetCopyState.exit, %SetCopyState.exit.thread256
+  %341 = phi ptr [ %329, %SetCopyState.exit.thread256 ], [ %326, %SetCopyState.exit ]
   %342 = load ptr, ptr %30, align 8
   call void %342(i32 noundef 2, i32 noundef 5126, i32 noundef 8, ptr noundef %341) #6
   %343 = load ptr, ptr %31, align 8
@@ -3255,7 +3255,7 @@ SetCopyState.exit.thread259:                      ; preds = %.thread252
   call void %343(i32 noundef 0, i32 noundef 0, i32 noundef %344) #6
   br label %SetCopyState.exit.thread
 
-345:                                              ; preds = %331, %.thread264
+345:                                              ; preds = %331, %.thread261
   %346 = load ptr, ptr %31, align 8
   %347 = trunc i64 %.0213.lcssa to i32
   call void %346(i32 noundef 4, i32 noundef 0, i32 noundef %347) #6
@@ -3268,7 +3268,7 @@ SetCopyState.exit.thread259:                      ; preds = %.thread252
   br label %SetCopyState.exit.thread
 
 SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit101.i, %SetTextureScaleMode.exit99.i, %SetTextureScaleMode.exit97.i, %SetTextureScaleMode.exit.i, %340, %345, %153, %.thread, %101, %103, %91, %94, %86, %89, %143, %59
-  %.1 = phi ptr [ %.0201314, %59 ], [ %.0201314, %143 ], [ %.0201314, %89 ], [ %.0201314, %86 ], [ %.0201314, %94 ], [ %.0201314, %91 ], [ %.0201314, %103 ], [ %.0201314, %101 ], [ %.0201314, %153 ], [ %.0207.lcssa, %.thread ], [ %.0218.lcssa, %340 ], [ %.0218.lcssa, %345 ], [ %.0218.lcssa, %SetTextureScaleMode.exit.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit97.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit99.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit101.i ]
+  %.1 = phi ptr [ %.0201311, %59 ], [ %.0201311, %143 ], [ %.0201311, %89 ], [ %.0201311, %86 ], [ %.0201311, %94 ], [ %.0201311, %91 ], [ %.0201311, %103 ], [ %.0201311, %101 ], [ %.0201311, %153 ], [ %.0207.lcssa, %.thread ], [ %.0218.lcssa, %340 ], [ %.0218.lcssa, %345 ], [ %.0218.lcssa, %SetTextureScaleMode.exit.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit97.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit99.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit101.i ]
   %353 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %354 = load ptr, ptr %353, align 8
   %.not226 = icmp eq ptr %354, null
@@ -3947,14 +3947,14 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %12 = load i8, ptr %11, align 1, !range !3, !noundef !4
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %17, label %.preheader5
+  br i1 %13, label %17, label %.preheader4
 
-.preheader5:                                      ; preds = %10
+.preheader4:                                      ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15() #6
-  %.not7 = icmp eq i32 %16, 0
-  br i1 %.not7, label %GL_ClearErrors.exit, label %.lr.ph
+  %.not6 = icmp eq i32 %16, 0
+  br i1 %.not6, label %GL_ClearErrors.exit, label %.lr.ph
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -3964,14 +3964,14 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
 
 .preheader:                                       ; preds = %17
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %._crit_edge.thread, label %.lr.ph10
+  br i1 %20, label %._crit_edge.thread, label %.lr.ph9
 
-.lr.ph10:                                         ; preds = %.preheader
+.lr.ph9:                                          ; preds = %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %22
 
-22:                                               ; preds = %.lr.ph10, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph10 ], [ %indvars.iv.next, %22 ]
+22:                                               ; preds = %.lr.ph9, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph9 ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %21, align 8
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -3990,14 +3990,14 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br i1 %30, label %._crit_edge.thread, label %GL_ClearErrors.exit
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.val20 = phi ptr [ %.val.pre, %._crit_edge ], [ %6, %.preheader ]
-  %31 = getelementptr inbounds nuw i8, ptr %.val20, i64 9
+  %.val19 = phi ptr [ %.val.pre, %._crit_edge ], [ %6, %.preheader ]
+  %31 = getelementptr inbounds nuw i8, ptr %.val19, i64 9
   %32 = load i8, ptr %31, align 1, !range !3, !noundef !4
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %48
 
 34:                                               ; preds = %._crit_edge.thread
-  %35 = getelementptr inbounds nuw i8, ptr %.val20, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.val19, i64 12
   %36 = load i32, ptr %35, align 4
   %.not14.i = icmp eq i32 %36, 0
   br i1 %.not14.i, label %GL_ClearErrors.exit, label %.preheader.i
@@ -4007,7 +4007,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br i1 %37, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %38 = getelementptr inbounds nuw i8, ptr %.val20, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
   br label %39
 
 39:                                               ; preds = %39, %.lr.ph.i
@@ -4023,7 +4023,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br i1 %45, label %39, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %39, %.preheader.i
-  %46 = getelementptr inbounds nuw i8, ptr %.val20, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
   %47 = load ptr, ptr %46, align 8
   tail call void @SDL_free_REAL(ptr noundef %47) #6
   store i32 0, ptr %35, align 4
@@ -4031,7 +4031,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br label %GL_ClearErrors.exit
 
 48:                                               ; preds = %._crit_edge.thread
-  %49 = getelementptr inbounds nuw i8, ptr %.val20, i64 216
+  %49 = getelementptr inbounds nuw i8, ptr %.val19, i64 216
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %GL_ClearErrors.exit, label %.preheader1.i
@@ -4042,14 +4042,14 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %.not13.i = icmp eq i32 %52, 0
   br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !12
 
-.lr.ph:                                           ; preds = %.preheader5, %67
-  %53 = phi i32 [ %70, %67 ], [ %16, %.preheader5 ]
-  %.0298 = phi ptr [ %.130, %67 ], [ %0, %.preheader5 ]
-  %54 = icmp eq ptr %.0298, null
+.lr.ph:                                           ; preds = %.preheader4, %67
+  %53 = phi i32 [ %70, %67 ], [ %16, %.preheader4 ]
+  %.0297 = phi ptr [ %.130, %67 ], [ %0, %.preheader4 ]
+  %54 = icmp eq ptr %.0297, null
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %.lr.ph
-  %56 = load i8, ptr %.0298, align 1
+  %56 = load i8, ptr %.0297, align 1
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %58, label %59
 
@@ -4057,7 +4057,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br label %59
 
 59:                                               ; preds = %58, %55
-  %.130 = phi ptr [ @.str.41, %58 ], [ %.0298, %55 ]
+  %.130 = phi ptr [ @.str.41, %58 ], [ %.0297, %55 ]
   switch i32 %53, label %66 [
     i32 1280, label %67
     i32 1281, label %60
@@ -4097,8 +4097,8 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %.not = icmp eq i32 %70, 0
   br i1 %.not, label %GL_ClearErrors.exit, label %.lr.ph
 
-GL_ClearErrors.exit:                              ; preds = %67, %.preheader1.i, %.preheader5, %17, %._crit_edge, %34, %._crit_edge.i, %48, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %17 ], [ false, %._crit_edge ], [ %20, %34 ], [ %20, %._crit_edge.i ], [ %20, %48 ], [ true, %.preheader5 ], [ %20, %.preheader1.i ], [ false, %67 ]
+GL_ClearErrors.exit:                              ; preds = %67, %.preheader1.i, %.preheader4, %17, %._crit_edge, %34, %._crit_edge.i, %48, %4
+  %.0 = phi i1 [ true, %4 ], [ true, %17 ], [ false, %._crit_edge ], [ %20, %34 ], [ %20, %._crit_edge.i ], [ %20, %48 ], [ true, %.preheader4 ], [ %20, %.preheader1.i ], [ false, %67 ]
   ret i1 %.0
 }
 

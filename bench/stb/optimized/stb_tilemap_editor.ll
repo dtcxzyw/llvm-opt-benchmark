@@ -2528,8 +2528,8 @@ stbte__draw_bitmask_as_columns.exit:              ; preds = %25, %.lr.ph
 define void @stbte__draw_text_core(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #14 {
   %7 = add nsw i32 %3, %0
   %8 = load i8, ptr %2, align 1, !tbaa !47
-  %.not25 = icmp eq i8 %8, 0
-  br i1 %.not25, label %.thread, label %.lr.ph
+  %.not24 = icmp eq i8 %8, 0
+  br i1 %.not24, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %9 = icmp ne i32 %5, 0
@@ -2537,15 +2537,15 @@ define void @stbte__draw_text_core(i32 noundef %0, i32 noundef %1, ptr noundef r
 
 10:                                               ; preds = %.lr.ph, %stbte__draw_bitmap.exit
   %11 = phi i8 [ %8, %.lr.ph ], [ %53, %stbte__draw_bitmap.exit ]
-  %.01927 = phi i32 [ %0, %.lr.ph ], [ %52, %stbte__draw_bitmap.exit ]
-  %.02026 = phi ptr [ %2, %.lr.ph ], [ %12, %stbte__draw_bitmap.exit ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02026, i64 1
+  %.01926 = phi i32 [ %0, %.lr.ph ], [ %52, %stbte__draw_bitmap.exit ]
+  %.02025 = phi ptr [ %2, %.lr.ph ], [ %12, %stbte__draw_bitmap.exit ]
+  %12 = getelementptr inbounds nuw i8, ptr %.02025, i64 1
   %13 = sext i8 %11 to i64
   %14 = getelementptr i16, ptr @stbte__fontdata, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -32
   %16 = load i16, ptr %15, align 2, !tbaa !21
   %17 = sext i16 %16 to i32
-  %18 = add nsw i32 %.01927, %17
+  %18 = add nsw i32 %.01926, %17
   %19 = icmp sgt i32 %18, %7
   br i1 %19, label %.thread, label %20
 
@@ -2564,7 +2564,7 @@ define void @stbte__draw_text_core(i32 noundef %0, i32 noundef %1, ptr noundef r
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %stbte__draw_bitmask_as_columns.exit.i
   %.09.i = phi i32 [ %47, %stbte__draw_bitmask_as_columns.exit.i ], [ 0, %.lr.ph.i.preheader ]
   %.078.i = phi ptr [ %28, %stbte__draw_bitmask_as_columns.exit.i ], [ %26, %.lr.ph.i.preheader ]
-  %27 = add nsw i32 %.09.i, %.01927
+  %27 = add nsw i32 %.09.i, %.01926
   %28 = getelementptr inbounds nuw i8, ptr %.078.i, i64 2
   %29 = load i16, ptr %.078.i, align 2, !tbaa !21
   %.not20.i.i = icmp eq i16 %29, 0
@@ -2620,7 +2620,7 @@ stbte__draw_bitmap.exit:                          ; preds = %stbte__draw_bitmask
   %49 = load i16, ptr getelementptr inbounds nuw (i8, ptr @stbte__fontdata, i64 64), align 16
   %50 = sext i16 %49 to i32
   %.018 = select i1 %or.cond, i32 %50, i32 %17
-  %51 = add i32 %.01927, 1
+  %51 = add i32 %.01926, 1
   %52 = add i32 %51, %.018
   %53 = load i8, ptr %12, align 1, !tbaa !47
   %.not = icmp eq i8 %53, 0
@@ -2634,20 +2634,20 @@ stbte__draw_bitmap.exit:                          ; preds = %stbte__draw_bitmask
 define void @stbte__draw_text(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = add nsw i32 %3, %0
   %7 = load i8, ptr %2, align 1, !tbaa !47
-  %.not25.i = icmp eq i8 %7, 0
-  br i1 %.not25.i, label %stbte__draw_text_core.exit, label %.lr.ph.i
+  %.not24.i = icmp eq i8 %7, 0
+  br i1 %.not24.i, label %stbte__draw_text_core.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %stbte__draw_bitmap.exit.i
   %8 = phi i8 [ %46, %stbte__draw_bitmap.exit.i ], [ %7, %5 ]
-  %.01927.i = phi i32 [ %45, %stbte__draw_bitmap.exit.i ], [ %0, %5 ]
-  %.02026.i = phi ptr [ %9, %stbte__draw_bitmap.exit.i ], [ %2, %5 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.02026.i, i64 1
+  %.01926.i = phi i32 [ %45, %stbte__draw_bitmap.exit.i ], [ %0, %5 ]
+  %.02025.i = phi ptr [ %9, %stbte__draw_bitmap.exit.i ], [ %2, %5 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.02025.i, i64 1
   %10 = sext i8 %8 to i64
   %11 = getelementptr i16, ptr @stbte__fontdata, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -32
   %13 = load i16, ptr %12, align 2, !tbaa !21
   %14 = sext i16 %13 to i32
-  %15 = add nsw i32 %.01927.i, %14
+  %15 = add nsw i32 %.01926.i, %14
   %16 = icmp sgt i32 %15, %6
   br i1 %16, label %stbte__draw_text_core.exit, label %17
 
@@ -2666,7 +2666,7 @@ define void @stbte__draw_text(i32 noundef %0, i32 noundef %1, ptr noundef readon
 .lr.ph.i.i:                                       ; preds = %stbte__draw_bitmask_as_columns.exit.i.i, %.lr.ph.i.preheader.i
   %.09.i.i = phi i32 [ %44, %stbte__draw_bitmask_as_columns.exit.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %.078.i.i = phi ptr [ %25, %stbte__draw_bitmask_as_columns.exit.i.i ], [ %23, %.lr.ph.i.preheader.i ]
-  %24 = add nsw i32 %.09.i.i, %.01927.i
+  %24 = add nsw i32 %.09.i.i, %.01926.i
   %25 = getelementptr inbounds nuw i8, ptr %.078.i.i, i64 2
   %26 = load i16, ptr %.078.i.i, align 2, !tbaa !21
   %.not20.i.i.i = icmp eq i16 %26, 0
@@ -2932,8 +2932,8 @@ define void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %24 = getelementptr inbounds i32, ptr %23, i64 %12
   %25 = load i32, ptr %24, align 4, !tbaa !67
   %26 = load i8, ptr %4, align 1, !tbaa !47
-  %.not25.i.i = icmp eq i8 %26, 0
-  br i1 %.not25.i.i, label %stbte__draw_text.exit, label %.lr.ph.i.i.preheader
+  %.not24.i.i = icmp eq i8 %26, 0
+  br i1 %.not24.i.i, label %stbte__draw_text.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %9
   %27 = add i32 %5, %0
@@ -2941,15 +2941,15 @@ define void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %stbte__draw_bitmap.exit.i.i
   %28 = phi i8 [ %66, %stbte__draw_bitmap.exit.i.i ], [ %26, %.lr.ph.i.i.preheader ]
-  %.01927.i.i = phi i32 [ %65, %stbte__draw_bitmap.exit.i.i ], [ %27, %.lr.ph.i.i.preheader ]
-  %.02026.i.i = phi ptr [ %29, %stbte__draw_bitmap.exit.i.i ], [ %4, %.lr.ph.i.i.preheader ]
-  %29 = getelementptr inbounds nuw i8, ptr %.02026.i.i, i64 1
+  %.01926.i.i = phi i32 [ %65, %stbte__draw_bitmap.exit.i.i ], [ %27, %.lr.ph.i.i.preheader ]
+  %.02025.i.i = phi ptr [ %29, %stbte__draw_bitmap.exit.i.i ], [ %4, %.lr.ph.i.i.preheader ]
+  %29 = getelementptr inbounds nuw i8, ptr %.02025.i.i, i64 1
   %30 = sext i8 %28 to i64
   %31 = getelementptr i16, ptr @stbte__fontdata, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -32
   %33 = load i16, ptr %32, align 2, !tbaa !21
   %34 = sext i16 %33 to i32
-  %35 = add nsw i32 %.01927.i.i, %34
+  %35 = add nsw i32 %.01926.i.i, %34
   %36 = icmp sgt i32 %35, %18
   br i1 %36, label %stbte__draw_text.exit, label %37
 
@@ -2968,7 +2968,7 @@ define void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 .lr.ph.i.i.i:                                     ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %.lr.ph.i.preheader.i.i
   %.09.i.i.i = phi i32 [ %64, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
   %.078.i.i.i = phi ptr [ %45, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ %43, %.lr.ph.i.preheader.i.i ]
-  %44 = add nsw i32 %.09.i.i.i, %.01927.i.i
+  %44 = add nsw i32 %.09.i.i.i, %.01926.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.078.i.i.i, i64 2
   %46 = load i16, ptr %.078.i.i.i, align 2, !tbaa !21
   %.not20.i.i.i.i = icmp eq i16 %46, 0
@@ -9945,8 +9945,8 @@ define i32 @stbte__info_value(ptr noundef readonly captures(none) %0, i32 nounde
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__color_table, i64 308), align 4, !tbaa !67
   %19 = add i32 %reass.sub, 1008
   %20 = load i8, ptr %7, align 16, !tbaa !47
-  %.not25.i = icmp eq i8 %20, 0
-  br i1 %.not25.i, label %stbte__draw_text_core.exit, label %.lr.ph.i.preheader
+  %.not24.i = icmp eq i8 %20, 0
+  br i1 %.not24.i, label %stbte__draw_text_core.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %10
   %21 = add i32 %reass.sub, 9
@@ -9954,15 +9954,15 @@ define i32 @stbte__info_value(ptr noundef readonly captures(none) %0, i32 nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %stbte__draw_bitmap.exit.i
   %22 = phi i8 [ %64, %stbte__draw_bitmap.exit.i ], [ %20, %.lr.ph.i.preheader ]
-  %.01927.i = phi i32 [ %63, %stbte__draw_bitmap.exit.i ], [ %21, %.lr.ph.i.preheader ]
-  %.02026.i = phi ptr [ %23, %stbte__draw_bitmap.exit.i ], [ %7, %.lr.ph.i.preheader ]
-  %23 = getelementptr inbounds nuw i8, ptr %.02026.i, i64 1
+  %.01926.i = phi i32 [ %63, %stbte__draw_bitmap.exit.i ], [ %21, %.lr.ph.i.preheader ]
+  %.02025.i = phi ptr [ %23, %stbte__draw_bitmap.exit.i ], [ %7, %.lr.ph.i.preheader ]
+  %23 = getelementptr inbounds nuw i8, ptr %.02025.i, i64 1
   %24 = sext i8 %22 to i64
   %25 = getelementptr i16, ptr @stbte__fontdata, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -32
   %27 = load i16, ptr %26, align 2, !tbaa !21
   %28 = sext i16 %27 to i32
-  %29 = add nsw i32 %.01927.i, %28
+  %29 = add nsw i32 %.01926.i, %28
   %30 = icmp sgt i32 %29, %19
   br i1 %30, label %stbte__draw_text_core.exit, label %31
 
@@ -9981,7 +9981,7 @@ define i32 @stbte__info_value(ptr noundef readonly captures(none) %0, i32 nounde
 .lr.ph.i.i:                                       ; preds = %stbte__draw_bitmask_as_columns.exit.i.i, %.lr.ph.i.preheader.i
   %.09.i.i = phi i32 [ %58, %stbte__draw_bitmask_as_columns.exit.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %.078.i.i = phi ptr [ %39, %stbte__draw_bitmask_as_columns.exit.i.i ], [ %37, %.lr.ph.i.preheader.i ]
-  %38 = add nsw i32 %.09.i.i, %.01927.i
+  %38 = add nsw i32 %.09.i.i, %.01926.i
   %39 = getelementptr inbounds nuw i8, ptr %.078.i.i, i64 2
   %40 = load i16, ptr %.078.i.i, align 2, !tbaa !21
   %.not20.i.i.i = icmp eq i16 %40, 0
@@ -10036,7 +10036,7 @@ stbte__draw_bitmap.exit.i:                        ; preds = %stbte__draw_bitmask
   %60 = load i16, ptr getelementptr inbounds nuw (i8, ptr @stbte__fontdata, i64 64), align 16
   %61 = sext i16 %60 to i32
   %.018.i = select i1 %59, i32 %61, i32 %28
-  %62 = add i32 %.01927.i, 1
+  %62 = add i32 %.01926.i, 1
   %63 = add i32 %62, %.018.i
   %64 = load i8, ptr %23, align 1, !tbaa !47
   %.not.i = icmp eq i8 %64, 0
@@ -10130,16 +10130,16 @@ define void @stbte__info(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
 
 .lr.ph.i.i:                                       ; preds = %stbte__draw_bitmap.exit.i.i, %5
   %41 = phi i8 [ %78, %stbte__draw_bitmap.exit.i.i ], [ 98, %5 ]
-  %.01927.i.i = phi i32 [ %77, %stbte__draw_bitmap.exit.i.i ], [ %11, %5 ]
-  %.02026.i.i.idx = phi i64 [ %.02026.i.i.add, %stbte__draw_bitmap.exit.i.i ], [ 0, %5 ]
-  %.02026.i.i.add = add nuw nsw i64 %.02026.i.i.idx, 1
-  %.ptr = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.02026.i.i.add
+  %.01926.i.i = phi i32 [ %77, %stbte__draw_bitmap.exit.i.i ], [ %11, %5 ]
+  %.02025.i.i.idx = phi i64 [ %.02025.i.i.add, %stbte__draw_bitmap.exit.i.i ], [ 0, %5 ]
+  %.02025.i.i.add = add nuw nsw i64 %.02025.i.i.idx, 1
+  %.ptr = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.02025.i.i.add
   %42 = sext i8 %41 to i64
   %43 = getelementptr i16, ptr @stbte__fontdata, i64 %42
   %44 = getelementptr i8, ptr %43, i64 -32
   %45 = load i16, ptr %44, align 2, !tbaa !21
   %46 = sext i16 %45 to i32
-  %47 = add nsw i32 %.01927.i.i, %46
+  %47 = add nsw i32 %.01926.i.i, %46
   %48 = icmp sgt i32 %47, %40
   br i1 %48, label %stbte__draw_text.exit, label %49
 
@@ -10158,7 +10158,7 @@ define void @stbte__info(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
 .lr.ph.i.i.i:                                     ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %.lr.ph.i.preheader.i.i
   %.09.i.i.i = phi i32 [ %76, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
   %.078.i.i.i = phi ptr [ %57, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ %55, %.lr.ph.i.preheader.i.i ]
-  %56 = add nsw i32 %.09.i.i.i, %.01927.i.i
+  %56 = add nsw i32 %.09.i.i.i, %.01926.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.078.i.i.i, i64 2
   %58 = load i16, ptr %.078.i.i.i, align 2, !tbaa !21
   %.not20.i.i.i.i = icmp eq i16 %58, 0
@@ -10211,7 +10211,7 @@ stbte__draw_bitmask_as_columns.exit.i.i.i:        ; preds = %74, %.lr.ph.i.i.i
 stbte__draw_bitmap.exit.i.i:                      ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %49
   %77 = add i32 %47, 1
   %78 = load i8, ptr %.ptr, align 1, !tbaa !47
-  %exitcond = icmp eq i64 %.02026.i.i.add, 6
+  %exitcond = icmp eq i64 %.02025.i.i.add, 6
   br i1 %exitcond, label %stbte__draw_text.exit, label %.lr.ph.i.i
 
 stbte__draw_text.exit:                            ; preds = %.lr.ph.i.i, %stbte__draw_bitmap.exit.i.i
@@ -10271,16 +10271,16 @@ define void @stbte__layers(ptr noundef captures(none) %0, i32 noundef %1, i32 no
 
 .lr.ph.i.i:                                       ; preds = %stbte__draw_bitmap.exit.i.i, %24
   %28 = phi i8 [ %65, %stbte__draw_bitmap.exit.i.i ], [ 76, %24 ]
-  %.01927.i.i = phi i32 [ %64, %stbte__draw_bitmap.exit.i.i ], [ %20, %24 ]
-  %.02026.i.i.idx = phi i64 [ %.02026.i.i.add, %stbte__draw_bitmap.exit.i.i ], [ 0, %24 ]
-  %.02026.i.i.add = add nuw nsw i64 %.02026.i.i.idx, 1
-  %.ptr = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.02026.i.i.add
+  %.01926.i.i = phi i32 [ %64, %stbte__draw_bitmap.exit.i.i ], [ %20, %24 ]
+  %.02025.i.i.idx = phi i64 [ %.02025.i.i.add, %stbte__draw_bitmap.exit.i.i ], [ 0, %24 ]
+  %.02025.i.i.add = add nuw nsw i64 %.02025.i.i.idx, 1
+  %.ptr = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.02025.i.i.add
   %29 = sext i8 %28 to i64
   %30 = getelementptr i16, ptr @stbte__fontdata, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -32
   %32 = load i16, ptr %31, align 2, !tbaa !21
   %33 = sext i16 %32 to i32
-  %34 = add nsw i32 %.01927.i.i, %33
+  %34 = add nsw i32 %.01926.i.i, %33
   %35 = icmp sgt i32 %34, %27
   br i1 %35, label %stbte__draw_text.exit, label %36
 
@@ -10299,7 +10299,7 @@ define void @stbte__layers(ptr noundef captures(none) %0, i32 noundef %1, i32 no
 .lr.ph.i.i.i:                                     ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %.lr.ph.i.preheader.i.i
   %.09.i.i.i = phi i32 [ %63, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
   %.078.i.i.i = phi ptr [ %44, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ %42, %.lr.ph.i.preheader.i.i ]
-  %43 = add nsw i32 %.09.i.i.i, %.01927.i.i
+  %43 = add nsw i32 %.09.i.i.i, %.01926.i.i
   %44 = getelementptr inbounds nuw i8, ptr %.078.i.i.i, i64 2
   %45 = load i16, ptr %.078.i.i.i, align 2, !tbaa !21
   %.not20.i.i.i.i = icmp eq i16 %45, 0
@@ -10352,7 +10352,7 @@ stbte__draw_bitmask_as_columns.exit.i.i.i:        ; preds = %61, %.lr.ph.i.i.i
 stbte__draw_bitmap.exit.i.i:                      ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %36
   %64 = add i32 %34, 1
   %65 = load i8, ptr %.ptr, align 1, !tbaa !47
-  %exitcond = icmp eq i64 %.02026.i.i.add, 6
+  %exitcond = icmp eq i64 %.02025.i.i.add, 6
   br i1 %exitcond, label %stbte__draw_text.exit, label %.lr.ph.i.i
 
 stbte__draw_text.exit:                            ; preds = %.lr.ph.i.i, %stbte__draw_bitmap.exit.i.i, %19, %9
@@ -10536,16 +10536,16 @@ stbte__text_width.exit:                           ; preds = %.lr.ph.i
 
 .lr.ph.i.i117:                                    ; preds = %stbte__draw_bitmap.exit.i.i120, %stbte__text_width.exit
   %174 = phi i8 [ %211, %stbte__draw_bitmap.exit.i.i120 ], [ 112, %stbte__text_width.exit ]
-  %.01927.i.i118 = phi i32 [ %210, %stbte__draw_bitmap.exit.i.i120 ], [ %66, %stbte__text_width.exit ]
-  %.02026.i.i119.idx = phi i64 [ %.02026.i.i119.add, %stbte__draw_bitmap.exit.i.i120 ], [ 0, %stbte__text_width.exit ]
-  %.02026.i.i119.add = add nuw nsw i64 %.02026.i.i119.idx, 1
-  %.ptr163 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %.02026.i.i119.add
+  %.01926.i.i118 = phi i32 [ %210, %stbte__draw_bitmap.exit.i.i120 ], [ %66, %stbte__text_width.exit ]
+  %.02025.i.i119.idx = phi i64 [ %.02025.i.i119.add, %stbte__draw_bitmap.exit.i.i120 ], [ 0, %stbte__text_width.exit ]
+  %.02025.i.i119.add = add nuw nsw i64 %.02025.i.i119.idx, 1
+  %.ptr163 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %.02025.i.i119.add
   %175 = sext i8 %174 to i64
   %176 = getelementptr i16, ptr @stbte__fontdata, i64 %175
   %177 = getelementptr i8, ptr %176, i64 -32
   %178 = load i16, ptr %177, align 2, !tbaa !21
   %179 = sext i16 %178 to i32
-  %180 = add nsw i32 %.01927.i.i118, %179
+  %180 = add nsw i32 %.01926.i.i118, %179
   %181 = icmp sgt i32 %180, %173
   br i1 %181, label %stbte__draw_text.exit138, label %182
 
@@ -10564,7 +10564,7 @@ stbte__text_width.exit:                           ; preds = %.lr.ph.i
 .lr.ph.i.i.i123:                                  ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i136, %.lr.ph.i.preheader.i.i122
   %.09.i.i.i124 = phi i32 [ %209, %stbte__draw_bitmask_as_columns.exit.i.i.i136 ], [ 0, %.lr.ph.i.preheader.i.i122 ]
   %.078.i.i.i125 = phi ptr [ %190, %stbte__draw_bitmask_as_columns.exit.i.i.i136 ], [ %188, %.lr.ph.i.preheader.i.i122 ]
-  %189 = add nsw i32 %.09.i.i.i124, %.01927.i.i118
+  %189 = add nsw i32 %.09.i.i.i124, %.01926.i.i118
   %190 = getelementptr inbounds nuw i8, ptr %.078.i.i.i125, i64 2
   %191 = load i16, ptr %.078.i.i.i125, align 2, !tbaa !21
   %.not20.i.i.i.i126 = icmp eq i16 %191, 0
@@ -10617,7 +10617,7 @@ stbte__draw_bitmask_as_columns.exit.i.i.i136:     ; preds = %207, %.lr.ph.i.i.i1
 stbte__draw_bitmap.exit.i.i120:                   ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i136, %182
   %210 = add i32 %180, 1
   %211 = load i8, ptr %.ptr163, align 1, !tbaa !47
-  %exitcond150 = icmp eq i64 %.02026.i.i119.add, 5
+  %exitcond150 = icmp eq i64 %.02025.i.i119.add, 5
   br i1 %exitcond150, label %stbte__draw_text.exit138, label %.lr.ph.i.i117
 
 stbte__draw_text.exit138:                         ; preds = %.lr.ph.i.i117, %stbte__draw_bitmap.exit.i.i120
@@ -11908,20 +11908,20 @@ stbte__text_width.exit:                           ; preds = %.lr.ph.i, %448
   %482 = add nsw i32 %.05.lcssa.i, 1
   %483 = add nsw i32 %482, %470
   %484 = load i8, ptr %481, align 1, !tbaa !47
-  %.not25.i.i = icmp eq i8 %484, 0
-  br i1 %.not25.i.i, label %stbte__draw_text.exitthread-pre-split, label %.lr.ph.i.i276
+  %.not24.i.i = icmp eq i8 %484, 0
+  br i1 %.not24.i.i, label %stbte__draw_text.exitthread-pre-split, label %.lr.ph.i.i276
 
 .lr.ph.i.i276:                                    ; preds = %stbte__text_width.exit, %stbte__draw_bitmap.exit.i.i
   %485 = phi i8 [ %523, %stbte__draw_bitmap.exit.i.i ], [ %484, %stbte__text_width.exit ]
-  %.01927.i.i = phi i32 [ %522, %stbte__draw_bitmap.exit.i.i ], [ %470, %stbte__text_width.exit ]
-  %.02026.i.i = phi ptr [ %486, %stbte__draw_bitmap.exit.i.i ], [ %481, %stbte__text_width.exit ]
-  %486 = getelementptr inbounds nuw i8, ptr %.02026.i.i, i64 1
+  %.01926.i.i = phi i32 [ %522, %stbte__draw_bitmap.exit.i.i ], [ %470, %stbte__text_width.exit ]
+  %.02025.i.i = phi ptr [ %486, %stbte__draw_bitmap.exit.i.i ], [ %481, %stbte__text_width.exit ]
+  %486 = getelementptr inbounds nuw i8, ptr %.02025.i.i, i64 1
   %487 = sext i8 %485 to i64
   %488 = getelementptr i16, ptr @stbte__fontdata, i64 %487
   %489 = getelementptr i8, ptr %488, i64 -32
   %490 = load i16, ptr %489, align 2, !tbaa !21
   %491 = sext i16 %490 to i32
-  %492 = add nsw i32 %.01927.i.i, %491
+  %492 = add nsw i32 %.01926.i.i, %491
   %493 = icmp sgt i32 %492, %483
   br i1 %493, label %stbte__draw_text.exitthread-pre-split.loopexit, label %494
 
@@ -11940,7 +11940,7 @@ stbte__text_width.exit:                           ; preds = %.lr.ph.i, %448
 .lr.ph.i.i.i278:                                  ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %.lr.ph.i.preheader.i.i
   %.09.i.i.i = phi i32 [ %521, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
   %.078.i.i.i = phi ptr [ %502, %stbte__draw_bitmask_as_columns.exit.i.i.i ], [ %500, %.lr.ph.i.preheader.i.i ]
-  %501 = add nsw i32 %.09.i.i.i, %.01927.i.i
+  %501 = add nsw i32 %.09.i.i.i, %.01926.i.i
   %502 = getelementptr inbounds nuw i8, ptr %.078.i.i.i, i64 2
   %503 = load i16, ptr %.078.i.i.i, align 2, !tbaa !21
   %.not20.i.i.i.i = icmp eq i16 %503, 0

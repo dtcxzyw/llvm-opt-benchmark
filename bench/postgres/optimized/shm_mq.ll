@@ -1102,7 +1102,7 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noun
 29:                                               ; preds = %24
   %30 = call i32 @GetBackgroundWorkerPid(ptr noundef nonnull %2, ptr noundef nonnull %4) #10
   %or.cond = icmp ugt i32 %30, 1
-  br i1 %or.cond, label %.split.loop.exit20, label %31
+  br i1 %or.cond, label %.split.loop.exit19, label %31
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr @MyLatch, align 8
@@ -1123,12 +1123,12 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noun
 
 .split.loop.exit:                                 ; preds = %24, %9
   %.us-phi = phi i1 [ %13, %9 ], [ %28, %24 ]
-  %.us-phi23 = phi i1 [ %11, %9 ], [ %26, %24 ]
+  %.us-phi22 = phi i1 [ %11, %9 ], [ %26, %24 ]
   %not..le = xor i1 %.us-phi, true
-  %.mux.le = select i1 %not..le, i1 %.us-phi23, i1 false
-  br label %.split.loop.exit20
+  %.mux.le = select i1 %not..le, i1 %.us-phi22, i1 false
+  br label %.split.loop.exit19
 
-.split.loop.exit20:                               ; preds = %29, %.split.loop.exit
+.split.loop.exit19:                               ; preds = %29, %.split.loop.exit
   %.012.shrunk.ph = phi i1 [ %.mux.le, %.split.loop.exit ], [ false, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.012.shrunk.ph

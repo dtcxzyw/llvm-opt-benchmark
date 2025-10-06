@@ -202,8 +202,8 @@ define internal fastcc range(i32 -22, 1) i32 @splittingStep_CheckArgs(ptr nounde
 splittingStep_CheckSUNStepper.exit:               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !43
-  %.not34 = icmp eq ptr %25, null
-  br i1 %.not34, label %splittingStep_CheckSUNStepper.exit.thread, label %27
+  %.not32 = icmp eq ptr %25, null
+  br i1 %.not32, label %splittingStep_CheckSUNStepper.exit.thread, label %27
 
 splittingStep_CheckSUNStepper.exit.thread:        ; preds = %15, %18, %21, %splittingStep_CheckSUNStepper.exit
   %26 = trunc nuw nsw i64 %indvars.iv to i32
@@ -234,8 +234,8 @@ splittingStep_CheckSUNStepper.exit.thread:        ; preds = %15, %18, %21, %spli
 splittingStep_CheckNVector.exit:                  ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %.val26, i64 120
   %36 = load ptr, ptr %35, align 8, !tbaa !49
-  %.not33 = icmp eq ptr %36, null
-  br i1 %.not33, label %splittingStep_CheckNVector.exit.thread, label %.thread
+  %.not31 = icmp eq ptr %36, null
+  br i1 %.not31, label %splittingStep_CheckNVector.exit.thread, label %.thread
 
 splittingStep_CheckNVector.exit.thread:           ; preds = %31, %splittingStep_CheckNVector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 548, ptr noundef nonnull @__func__.splittingStep_CheckArgs, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #12

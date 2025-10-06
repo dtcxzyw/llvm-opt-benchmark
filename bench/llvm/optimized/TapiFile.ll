@@ -273,22 +273,22 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJNS0_9Str
   %102 = zext i32 %101 to i64
   %.idx.i.i.i52 = shl nuw nsw i64 %102, 2
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i.i.i52
-  %.not13.i.i.i = icmp eq i32 %101, 0
-  br i1 %.not13.i.i.i, label %_ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit.i.i, label %.lr.ph.i.i.i
+  %.not11.i.i.i = icmp eq i32 %101, 0
+  br i1 %.not11.i.i.i, label %_ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %99, %106
-  %.0914.i.i.i = phi ptr [ %107, %106 ], [ %100, %99 ]
-  %104 = load i32, ptr %.0914.i.i.i, align 4, !tbaa !122
+  %.0912.i.i.i = phi ptr [ %107, %106 ], [ %100, %99 ]
+  %104 = load i32, ptr %.0912.i.i.i, align 4, !tbaa !122
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %_ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit.i.i, label %106
 
 106:                                              ; preds = %.lr.ph.i.i.i
-  %107 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %107, %103
   br i1 %.not.i.i.i, label %_ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !124
 
 _ZNK4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE5vfindERKS2_.exit.i.i: ; preds = %106, %.lr.ph.i.i.i, %99
-  %.1.i.i.i = phi ptr [ %103, %99 ], [ %103, %106 ], [ %.0914.i.i.i, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi ptr [ %103, %99 ], [ %.0912.i.i.i, %.lr.ph.i.i.i ], [ %103, %106 ]
   %108 = getelementptr inbounds nuw i32, ptr %100, i64 %102
   %109 = icmp ne ptr %.1.i.i.i, %108
   %.pre = load ptr, ptr %37, align 8, !tbaa !125

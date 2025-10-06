@@ -180,9 +180,9 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %18 = tail call noalias ptr @av_mallocz(i64 noundef 17344) #12
   store ptr %18, ptr %9, align 8, !tbaa !4
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %117, label %.preheader91
+  br i1 %.not, label %117, label %.preheader90
 
-.preheader91:                                     ; preds = %17
+.preheader90:                                     ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 5000
   br label %26
 
@@ -198,8 +198,8 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %.not71 = icmp eq ptr %24, null
   br i1 %.not71, label %117, label %28
 
-26:                                               ; preds = %.preheader91, %26
-  %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %26 ]
+26:                                               ; preds = %.preheader90, %26
+  %indvars.iv = phi i64 [ 0, %.preheader90 ], [ %indvars.iv.next, %26 ]
   %27 = getelementptr inbounds nuw %struct.AVBPrint, ptr %19, i64 %indvars.iv
   tail call void @av_bprint_init(ptr noundef nonnull %27, i32 noundef 1, i32 noundef -1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -318,14 +318,14 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
 78:                                               ; preds = %76
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef nonnull %7) #12
   %79 = call ptr @av_hash_names(i32 noundef 0) #12
-  %.not7898 = icmp eq ptr %79, null
-  br i1 %.not7898, label %._crit_edge, label %.lr.ph
+  %.not7897 = icmp eq ptr %79, null
+  br i1 %.not7897, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78, %.lr.ph
   %80 = phi ptr [ %82, %.lr.ph ], [ %79, %78 ]
-  %.04499 = phi i32 [ %81, %.lr.ph ], [ 0, %78 ]
+  %.04498 = phi i32 [ %81, %.lr.ph ], [ 0, %78 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef nonnull %80) #12
-  %81 = add nuw nsw i32 %.04499, 1
+  %81 = add nuw nsw i32 %.04498, 1
   %82 = call ptr @av_hash_names(i32 noundef %81) #12
   %.not78 = icmp eq ptr %82, null
   br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !49
@@ -342,41 +342,41 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #14
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
   %88 = load i8, ptr %85, align 1, !tbaa !52
-  %.not76100 = icmp eq i8 %88, 0
-  br i1 %.not76100, label %._crit_edge103, label %.lr.ph102.preheader
+  %.not7699 = icmp eq i8 %88, 0
+  br i1 %.not7699, label %._crit_edge102, label %.lr.ph101.preheader
 
-.lr.ph102.preheader:                              ; preds = %83
+.lr.ph101.preheader:                              ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %18, i64 17336
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %90 = load i32, ptr %89, align 8, !tbaa !53
   %91 = call i32 @av_utf8_decode(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %87, i32 noundef %90) #12
   %92 = icmp sgt i32 %91, -1
-  br i1 %92, label %.lr.ph142, label %.lr.ph102._crit_edge
+  br i1 %92, label %.lr.ph141, label %.lr.ph101._crit_edge
 
-.lr.ph102:                                        ; preds = %.lr.ph142
+.lr.ph101:                                        ; preds = %.lr.ph141
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %93 = load i32, ptr %89, align 8, !tbaa !53
   %94 = call i32 @av_utf8_decode(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %87, i32 noundef %93) #12
   %95 = icmp sgt i32 %94, -1
-  br i1 %95, label %.lr.ph142, label %.lr.ph102._crit_edge, !llvm.loop !54
+  br i1 %95, label %.lr.ph141, label %.lr.ph101._crit_edge, !llvm.loop !54
 
-.lr.ph102._crit_edge:                             ; preds = %.lr.ph102, %.lr.ph102.preheader
-  %.lcssa137 = phi ptr [ %85, %.lr.ph102.preheader ], [ %107, %.lr.ph102 ]
-  %.lcssa = phi i32 [ %91, %.lr.ph102.preheader ], [ %94, %.lr.ph102 ]
+.lr.ph101._crit_edge:                             ; preds = %.lr.ph101, %.lr.ph101.preheader
+  %.lcssa136 = phi ptr [ %85, %.lr.ph101.preheader ], [ %107, %.lr.ph101 ]
+  %.lcssa = phi i32 [ %91, %.lr.ph101.preheader ], [ %94, %.lr.ph101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @av_bprint_init(ptr noundef nonnull %13, i32 noundef 0, i32 noundef 1) #12
   %96 = load ptr, ptr %11, align 8, !tbaa !51
   %97 = ptrtoint ptr %96 to i64
-  %98 = ptrtoint ptr %.lcssa137 to i64
+  %98 = ptrtoint ptr %.lcssa136 to i64
   %99 = sub i64 %97, %98
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.39) #12
-  %.not.i = icmp eq ptr %96, %.lcssa137
+  %.not.i = icmp eq ptr %96, %.lcssa136
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph102._crit_edge, %.lr.ph.i
-  %100 = phi i64 [ %105, %.lr.ph.i ], [ 0, %.lr.ph102._crit_edge ]
-  %.07.i = phi i32 [ %104, %.lr.ph.i ], [ 0, %.lr.ph102._crit_edge ]
-  %101 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 %100
+.lr.ph.i:                                         ; preds = %.lr.ph101._crit_edge, %.lr.ph.i
+  %100 = phi i64 [ %105, %.lr.ph.i ], [ 0, %.lr.ph101._crit_edge ]
+  %.07.i = phi i32 [ %104, %.lr.ph.i ], [ 0, %.lr.ph101._crit_edge ]
+  %101 = getelementptr inbounds nuw i8, ptr %.lcssa136, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !52
   %103 = zext i8 %102 to i32
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.40, i32 noundef %103) #12
@@ -385,14 +385,14 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %106 = icmp ugt i64 %99, %105
   br i1 %106, label %.lr.ph.i, label %.loopexit, !llvm.loop !55
 
-.lr.ph142:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+.lr.ph141:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %107 = load ptr, ptr %11, align 8, !tbaa !51
   %108 = load i8, ptr %107, align 1, !tbaa !52
   %.not76 = icmp eq i8 %108, 0
-  br i1 %.not76, label %._crit_edge103, label %.lr.ph102, !llvm.loop !54
+  br i1 %.not76, label %._crit_edge102, label %.lr.ph101, !llvm.loop !54
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph102._crit_edge
+.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph101._crit_edge
   %109 = load ptr, ptr %13, align 8, !tbaa !56
   %110 = load ptr, ptr %84, align 8, !tbaa !50
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %18, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef %109, ptr noundef %110) #12
@@ -401,20 +401,20 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %119
 
-._crit_edge103:                                   ; preds = %.lr.ph142, %83
+._crit_edge102:                                   ; preds = %.lr.ph141, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %111 = load ptr, ptr %46, align 8, !tbaa !9
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !58
   %.not77 = icmp eq ptr %113, null
-  br i1 %.not77, label %.thread89, label %114
+  br i1 %.not77, label %.thread88, label %114
 
-114:                                              ; preds = %._crit_edge103
+114:                                              ; preds = %._crit_edge102
   %115 = call i32 %113(ptr noundef nonnull %18) #12
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %117, label %.thread89
+  br i1 %116, label %117, label %.thread88
 
-.thread89:                                        ; preds = %._crit_edge103, %114
+.thread88:                                        ; preds = %._crit_edge102, %114
   store ptr %18, ptr %0, align 8, !tbaa !4
   br label %119
 
@@ -423,8 +423,8 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   %118 = call i32 @avtext_context_close(ptr noundef nonnull %9)
   br label %119
 
-119:                                              ; preds = %.loopexit, %117, %.thread89
-  %.0 = phi i32 [ %.045, %117 ], [ 0, %.thread89 ], [ %.lcssa, %.loopexit ]
+119:                                              ; preds = %.loopexit, %117, %.thread88
+  %.0 = phi i32 [ %.045, %117 ], [ 0, %.thread88 ], [ %.lcssa, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1764,8 +1764,8 @@ formatters_register_all.exit.thread:              ; preds = %1
 
 formatters_register_all.exit:                     ; preds = %1
   %.pre = load ptr, ptr @registered_formatters, align 16, !tbaa !91
-  %.not10 = icmp eq ptr %.pre, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
+  %.not11 = icmp eq ptr %.pre, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %formatters_register_all.exit.thread, %formatters_register_all.exit
   %.ph = phi ptr [ %.pre, %formatters_register_all.exit ], [ @avtextformatter_default, %formatters_register_all.exit.thread ]
@@ -1787,8 +1787,8 @@ formatters_register_all.exit:                     ; preds = %1
   %.not9 = icmp eq i32 %8, 0
   br i1 %.not9, label %._crit_edge, label %2
 
-._crit_edge:                                      ; preds = %2, %.lr.ph, %formatters_register_all.exit
-  %.lcssa = phi ptr [ null, %formatters_register_all.exit ], [ %5, %.lr.ph ], [ null, %2 ]
+._crit_edge:                                      ; preds = %.lr.ph, %2, %formatters_register_all.exit
+  %.lcssa = phi ptr [ null, %formatters_register_all.exit ], [ null, %2 ], [ %5, %.lr.ph ]
   ret ptr %.lcssa
 }
 

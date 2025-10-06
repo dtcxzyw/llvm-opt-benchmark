@@ -246,7 +246,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %56, %
   br i1 %71, label %.thread35, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
 .thread35:                                        ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24, %_ZNK4llvm5APInt12getSExtValueEv.exit21, %_ZNK4llvm5APInt12getSExtValueEv.exit, %68
-  %not.switch38 = phi i1 [ %70, %68 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit21 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24 ]
+  %not.38 = phi i1 [ %70, %68 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit21 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24 ]
   store i8 0, ptr %21, align 8, !tbaa !8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !13
@@ -263,7 +263,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %56, %
   br label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %68, %.thread35, %75, %78
-  %not.switch37 = phi i1 [ %70, %68 ], [ %not.switch38, %.thread35 ], [ %not.switch38, %75 ], [ %not.switch38, %78 ], [ false, %9 ]
+  %not.37 = phi i1 [ %70, %68 ], [ %not.38, %.thread35 ], [ %not.38, %75 ], [ %not.38, %78 ], [ false, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread29
 
@@ -300,7 +300,7 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %68, %.thr
   br label %.thread29
 
 .thread29:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, %3, %90, %84, %81
-  %.1 = phi i1 [ %92, %90 ], [ true, %81 ], [ %86, %84 ], [ %not.switch37, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ]
+  %.1 = phi i1 [ %92, %90 ], [ true, %81 ], [ %86, %84 ], [ %not.37, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ]
   ret i1 %.1
 }
 

@@ -594,8 +594,8 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit:       ; preds = %_ZNK3smt7context9en
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 3
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 %28
-  %.not2326.not = icmp eq i32 %26, 0
-  br i1 %.not2326.not, label %.loopexit, label %.lr.ph
+  %.not2327 = icmp eq i32 %26, 0
+  br i1 %.not2327, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit
   %30 = zext i32 %3 to i64
@@ -603,8 +603,8 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit:       ; preds = %_ZNK3smt7context9en
   br label %32
 
 32:                                               ; preds = %.lr.ph, %.critedge
-  %.02027 = phi ptr [ %23, %.lr.ph ], [ %62, %.critedge ]
-  %33 = load ptr, ptr %.02027, align 8, !tbaa !551
+  %.02028 = phi ptr [ %23, %.lr.ph ], [ %62, %.critedge ]
+  %33 = load ptr, ptr %.02028, align 8, !tbaa !551
   %34 = load ptr, ptr %0, align 8, !tbaa !547
   %35 = load ptr, ptr %33, align 8, !tbaa !552
   %36 = tail call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(10544) %34)
@@ -651,12 +651,12 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %46
   br i1 %61, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %46, %54, %_ZNK3smt5enode12get_num_argsEv.exit, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit
-  %62 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
-  %.not23.not = icmp eq ptr %62, %29
-  br i1 %.not23.not, label %.loopexit, label %32
+  %62 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
+  %.not23 = icmp eq ptr %62, %29
+  br i1 %.not23, label %.loopexit, label %32
 
-.loopexit:                                        ; preds = %54, %.critedge, %_ZNK3smt7context9enodes_ofEPK9func_decl.exit, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit, %4
-  %.0 = phi i1 [ true, %4 ], [ false, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit ], [ false, %_ZNK3smt7context9enodes_ofEPK9func_decl.exit ], [ true, %54 ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %54, %_ZNK3smt7context9enodes_ofEPK9func_decl.exit, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit, %4
+  %.0 = phi i1 [ true, %4 ], [ false, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit ], [ false, %_ZNK3smt7context9enodes_ofEPK9func_decl.exit ], [ false, %.critedge ], [ true, %54 ]
   ret i1 %.0
 }
 
@@ -912,16 +912,16 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit.i:     ; preds = %_ZNK3smt7context9en
   %135 = zext i32 %134 to i64
   %136 = shl nuw nsw i64 %135, 3
   %137 = getelementptr inbounds nuw i8, ptr %131, i64 %136
-  %.not2326.not.i = icmp eq i32 %134, 0
-  br i1 %.not2326.not.i, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit.thread, label %.lr.ph.i76
+  %.not2327.i = icmp eq i32 %134, 0
+  br i1 %.not2327.i, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit.thread, label %.lr.ph.i76
 
 .lr.ph.i76:                                       ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit.i
   %138 = getelementptr inbounds nuw i8, ptr %100, i64 8
   br label %139
 
 139:                                              ; preds = %.critedge.i, %.lr.ph.i76
-  %.02027.i = phi ptr [ %131, %.lr.ph.i76 ], [ %169, %.critedge.i ]
-  %140 = load ptr, ptr %.02027.i, align 8, !tbaa !551
+  %.02028.i = phi ptr [ %131, %.lr.ph.i76 ], [ %169, %.critedge.i ]
+  %140 = load ptr, ptr %.02028.i, align 8, !tbaa !551
   %141 = load ptr, ptr %0, align 8, !tbaa !547
   %142 = load ptr, ptr %140, align 8, !tbaa !552
   %143 = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(10544) %141)
@@ -968,9 +968,9 @@ _ZNK3smt5enode12get_num_argsEv.exit.i:            ; preds = %153
   br i1 %168, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %161, %_ZNK3smt5enode12get_num_argsEv.exit.i, %153, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread.i, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.i
-  %169 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 8
-  %.not23.not.i = icmp eq ptr %169, %137
-  br i1 %.not23.not.i, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit.thread, label %139
+  %169 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 8
+  %.not23.i = icmp eq ptr %169, %137
+  br i1 %.not23.i, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit.thread, label %139
 
 _ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit: ; preds = %161, %113
   %170 = getelementptr inbounds nuw i8, ptr %100, i64 44
@@ -1200,16 +1200,16 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit.i93:   ; preds = %_ZNK3smt7context9en
   %284 = zext i32 %283 to i64
   %285 = shl nuw nsw i64 %284, 3
   %286 = getelementptr inbounds nuw i8, ptr %280, i64 %285
-  %.not2326.not.i94 = icmp eq i32 %283, 0
-  br i1 %.not2326.not.i94, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit104.thread, label %.lr.ph.i95
+  %.not2327.i94 = icmp eq i32 %283, 0
+  br i1 %.not2327.i94, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit104.thread, label %.lr.ph.i95
 
 .lr.ph.i95:                                       ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit.i93
   %287 = getelementptr inbounds nuw i8, ptr %249, i64 8
   br label %288
 
 288:                                              ; preds = %.critedge.i99, %.lr.ph.i95
-  %.02027.i96 = phi ptr [ %280, %.lr.ph.i95 ], [ %318, %.critedge.i99 ]
-  %289 = load ptr, ptr %.02027.i96, align 8, !tbaa !551
+  %.02028.i96 = phi ptr [ %280, %.lr.ph.i95 ], [ %318, %.critedge.i99 ]
+  %289 = load ptr, ptr %.02028.i96, align 8, !tbaa !551
   %290 = load ptr, ptr %0, align 8, !tbaa !547
   %291 = load ptr, ptr %289, align 8, !tbaa !552
   %292 = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(10544) %290)
@@ -1256,9 +1256,9 @@ _ZNK3smt5enode12get_num_argsEv.exit.i103:         ; preds = %302
   br i1 %317, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit104, label %.critedge.i99
 
 .critedge.i99:                                    ; preds = %310, %_ZNK3smt5enode12get_num_argsEv.exit.i103, %302, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread.i101, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.i98
-  %318 = getelementptr inbounds nuw i8, ptr %.02027.i96, i64 8
-  %.not23.not.i100 = icmp eq ptr %318, %286
-  br i1 %.not23.not.i100, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit104.thread, label %288
+  %318 = getelementptr inbounds nuw i8, ptr %.02028.i96, i64 8
+  %.not23.i100 = icmp eq ptr %318, %286
+  br i1 %.not23.i100, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit104.thread, label %288
 
 _ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit104: ; preds = %310, %262
   %319 = getelementptr inbounds nuw i8, ptr %249, i64 44

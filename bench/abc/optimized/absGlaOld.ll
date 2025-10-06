@@ -13165,10 +13165,9 @@ Abc_Clock.exit434:                                ; preds = %Abc_Clock.exit432, 
 
 Vec_IntFreeP.exit437:                             ; preds = %Abc_Clock.exit434, %747
   %748 = load i32, ptr %34, align 4, !tbaa !22
-  switch i32 %748, label %Vec_IntFreeP.exit406 [
-    i32 -1, label %._crit_edge.thread675
-    i32 0, label %._crit_edge.thread675
-  ]
+  %.off = add i32 %748, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %Vec_IntFreeP.exit406, label %._crit_edge.thread675
 
 Vec_IntFreeP.exit406:                             ; preds = %665, %.thread510, %Vec_IntFreeP.exit437
   %749 = phi i1 [ false, %Vec_IntFreeP.exit437 ], [ true, %.thread510 ], [ true, %665 ]
@@ -13335,8 +13334,8 @@ Gia_GlaAbsCount.exit:                             ; preds = %Gla_ManObj.exit47.i
   %or.cond323 = select i1 %.not288, i1 true, i1 %824
   br i1 %or.cond323, label %.critedge, label %._crit_edge.thread672, !llvm.loop !261
 
-._crit_edge.thread675:                            ; preds = %Vec_IntFreeP.exit437, %Vec_IntFreeP.exit437, %820, %Prf_ManStopP.exit
-  %.ph.ph = phi i32 [ %244, %Prf_ManStopP.exit ], [ -1, %820 ], [ %748, %Vec_IntFreeP.exit437 ], [ %748, %Vec_IntFreeP.exit437 ]
+._crit_edge.thread675:                            ; preds = %Vec_IntFreeP.exit437, %820, %Prf_ManStopP.exit
+  %.ph.ph = phi i32 [ %244, %Prf_ManStopP.exit ], [ -1, %820 ], [ %748, %Vec_IntFreeP.exit437 ]
   %825 = icmp eq i32 %.ph.ph, -1
   br label %._crit_edge.thread672
 

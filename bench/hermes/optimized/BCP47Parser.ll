@@ -1472,15 +1472,15 @@ entry:
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %subtag.0.val, i64 %subtag.8.val
-  %switch = icmp eq i64 %subtag.8.val, 3
-  br i1 %switch, label %sw.bb.i.i.i.i.i.i, label %sw.bb31.i.i.i.i.i.i
+  %1 = icmp eq i64 %subtag.8.val, 3
+  br i1 %1, label %sw.bb.i.i.i.i.i.i, label %sw.bb31.i.i.i.i.i.i
 
 sw.bb.i.i.i.i.i.i:                                ; preds = %land.rhs.i
-  %1 = load i16, ptr %subtag.0.val, align 2
-  %2 = and i16 %1, -33
-  %3 = add i16 %2, -65
-  %4 = icmp ult i16 %3, 26
-  br i1 %4, label %if.end29.i.i.i.i.i.i, label %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit
+  %2 = load i16, ptr %subtag.0.val, align 2
+  %3 = and i16 %2, -33
+  %4 = add i16 %3, -65
+  %5 = icmp ult i16 %4, 26
+  br i1 %5, label %if.end29.i.i.i.i.i.i, label %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit
 
 if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   %incdec.ptr.i24.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %subtag.0.val, i64 2
@@ -1488,19 +1488,19 @@ if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i:                              ; preds = %land.rhs.i, %if.end29.i.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ], [ %subtag.0.val, %land.rhs.i ]
-  %5 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
-  %6 = and i16 %5, -33
-  %7 = add i16 %6, -65
-  %8 = icmp ult i16 %7, 26
-  br i1 %8, label %if.end36.i.i.i.i.i.i, label %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit
+  %6 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
+  %7 = and i16 %6, -33
+  %8 = add i16 %7, -65
+  %9 = icmp ult i16 %8, 26
+  br i1 %9, label %if.end36.i.i.i.i.i.i, label %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit
 
 if.end36.i.i.i.i.i.i:                             ; preds = %sw.bb31.i.i.i.i.i.i
   %incdec.ptr.i27.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i.i.i.i, i64 2
-  %9 = load i16, ptr %incdec.ptr.i27.i.i.i.i.i.i, align 2
-  %10 = and i16 %9, -33
-  %11 = add i16 %10, -65
-  %12 = icmp ult i16 %11, 26
-  %spec.select.i.i.i.i.i.i = select i1 %12, ptr %add.ptr.i.i.i.i.i.i, ptr %incdec.ptr.i27.i.i.i.i.i.i
+  %10 = load i16, ptr %incdec.ptr.i27.i.i.i.i.i.i, align 2
+  %11 = and i16 %10, -33
+  %12 = add i16 %11, -65
+  %13 = icmp ult i16 %12, 26
+  %spec.select.i.i.i.i.i.i = select i1 %13, ptr %add.ptr.i.i.i.i.i.i, ptr %incdec.ptr.i27.i.i.i.i.i.i
   br label %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit
 
 _ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit: ; preds = %sw.bb.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i
@@ -1509,8 +1509,8 @@ _ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basi
   br label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %13 = add i64 %subtag.8.val, -9
-  %or.cond.i7 = icmp ult i64 %13, -4
+  %14 = add i64 %subtag.8.val, -9
+  %or.cond.i7 = icmp ult i64 %14, -4
   br i1 %or.cond.i7, label %lor.end, label %land.rhs.i8
 
 land.rhs.i8:                                      ; preds = %lor.rhs
@@ -1522,35 +1522,35 @@ land.rhs.i8:                                      ; preds = %lor.rhs
 for.body.i.i.i.i.i.i:                             ; preds = %if.end22.i.i.i.i.i.i, %land.rhs.i8
   %__trip_count.058.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i ], [ %shr.i.i.i.i.i.i, %land.rhs.i8 ]
   %__first.sroa.0.057.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i ], [ %subtag.0.val, %land.rhs.i8 ]
-  %14 = load i16, ptr %__first.sroa.0.057.i.i.i.i.i.i, align 2
-  %15 = and i16 %14, -33
-  %16 = add i16 %15, -65
-  %17 = icmp ult i16 %16, 26
-  br i1 %17, label %if.end.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11
+  %15 = load i16, ptr %__first.sroa.0.057.i.i.i.i.i.i, align 2
+  %16 = and i16 %15, -33
+  %17 = add i16 %16, -65
+  %18 = icmp ult i16 %17, 26
+  br i1 %18, label %if.end.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.057.i.i.i.i.i.i, i64 2
-  %18 = load i16, ptr %incdec.ptr.i.i.i.i.i.i.i, align 2
-  %19 = and i16 %18, -33
-  %20 = add i16 %19, -65
-  %21 = icmp ult i16 %20, 26
-  br i1 %21, label %if.end10.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11.loopexit.split.loop.exit
+  %19 = load i16, ptr %incdec.ptr.i.i.i.i.i.i.i, align 2
+  %20 = and i16 %19, -33
+  %21 = add i16 %20, -65
+  %22 = icmp ult i16 %21, 26
+  br i1 %22, label %if.end10.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11.loopexit.split.loop.exit
 
 if.end10.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   %incdec.ptr.i11.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.057.i.i.i.i.i.i, i64 4
-  %22 = load i16, ptr %incdec.ptr.i11.i.i.i.i.i.i, align 2
-  %23 = and i16 %22, -33
-  %24 = add i16 %23, -65
-  %25 = icmp ult i16 %24, 26
-  br i1 %25, label %if.end16.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11.loopexit.split.loop.exit21
+  %23 = load i16, ptr %incdec.ptr.i11.i.i.i.i.i.i, align 2
+  %24 = and i16 %23, -33
+  %25 = add i16 %24, -65
+  %26 = icmp ult i16 %25, 26
+  br i1 %26, label %if.end16.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11.loopexit.split.loop.exit21
 
 if.end16.i.i.i.i.i.i:                             ; preds = %if.end10.i.i.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.057.i.i.i.i.i.i, i64 6
-  %26 = load i16, ptr %incdec.ptr.i14.i.i.i.i.i.i, align 2
-  %27 = and i16 %26, -33
-  %28 = add i16 %27, -65
-  %29 = icmp ult i16 %28, 26
-  br i1 %29, label %if.end22.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11.loopexit.split.loop.exit23
+  %27 = load i16, ptr %incdec.ptr.i14.i.i.i.i.i.i, align 2
+  %28 = and i16 %27, -33
+  %29 = add i16 %28, -65
+  %30 = icmp ult i16 %29, 26
+  br i1 %30, label %if.end22.i.i.i.i.i.i, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11.loopexit.split.loop.exit23
 
 if.end22.i.i.i.i.i.i:                             ; preds = %if.end16.i.i.i.i.i.i
   %incdec.ptr.i17.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.057.i.i.i.i.i.i, i64 8
@@ -1561,19 +1561,19 @@ if.end22.i.i.i.i.i.i:                             ; preds = %if.end16.i.i.i.i.i.
 for.end.loopexit.i.i.i.i.i.i:                     ; preds = %if.end22.i.i.i.i.i.i
   %.pre.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i17.i.i.i.i.i.i to i64
   %.pre63.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i10, %.pre.i.i.i.i.i.i
-  %30 = ashr exact i64 %.pre63.i.i.i.i.i.i, 1
-  switch i64 %30, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11 [
+  %31 = ashr exact i64 %.pre63.i.i.i.i.i.i, 1
+  switch i64 %31, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11 [
     i64 3, label %sw.bb.i.i.i.i.i.i23
     i64 2, label %sw.bb31.i.i.i.i.i.i18
     i64 1, label %sw.bb38.i.i.i.i.i.i14
   ]
 
 sw.bb.i.i.i.i.i.i23:                              ; preds = %for.end.loopexit.i.i.i.i.i.i
-  %31 = load i16, ptr %incdec.ptr.i17.i.i.i.i.i.i, align 2
-  %32 = and i16 %31, -33
-  %33 = add i16 %32, -65
-  %34 = icmp ult i16 %33, 26
-  br i1 %34, label %if.end29.i.i.i.i.i.i25, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11
+  %32 = load i16, ptr %incdec.ptr.i17.i.i.i.i.i.i, align 2
+  %33 = and i16 %32, -33
+  %34 = add i16 %33, -65
+  %35 = icmp ult i16 %34, 26
+  br i1 %35, label %if.end29.i.i.i.i.i.i25, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11
 
 if.end29.i.i.i.i.i.i25:                           ; preds = %sw.bb.i.i.i.i.i.i23
   %incdec.ptr.i24.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.057.i.i.i.i.i.i, i64 10
@@ -1581,11 +1581,11 @@ if.end29.i.i.i.i.i.i25:                           ; preds = %sw.bb.i.i.i.i.i.i23
 
 sw.bb31.i.i.i.i.i.i18:                            ; preds = %if.end29.i.i.i.i.i.i25, %for.end.loopexit.i.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i19 = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i26, %if.end29.i.i.i.i.i.i25 ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ]
-  %35 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i19, align 2
-  %36 = and i16 %35, -33
-  %37 = add i16 %36, -65
-  %38 = icmp ult i16 %37, 26
-  br i1 %38, label %if.end36.i.i.i.i.i.i21, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11
+  %36 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i19, align 2
+  %37 = and i16 %36, -33
+  %38 = add i16 %37, -65
+  %39 = icmp ult i16 %38, 26
+  br i1 %39, label %if.end36.i.i.i.i.i.i21, label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11
 
 if.end36.i.i.i.i.i.i21:                           ; preds = %sw.bb31.i.i.i.i.i.i18
   %incdec.ptr.i27.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i.i.i.i19, i64 2
@@ -1593,11 +1593,11 @@ if.end36.i.i.i.i.i.i21:                           ; preds = %sw.bb31.i.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i.i14:                            ; preds = %if.end36.i.i.i.i.i.i21, %for.end.loopexit.i.i.i.i.i.i
   %__first.sroa.0.2.i.i.i.i.i.i15 = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i22, %if.end36.i.i.i.i.i.i21 ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ]
-  %39 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i15, align 2
-  %40 = and i16 %39, -33
-  %41 = add i16 %40, -65
-  %42 = icmp ult i16 %41, 26
-  %spec.select.i.i.i.i.i.i17 = select i1 %42, ptr %add.ptr.i.i.i.i.i.i9, ptr %__first.sroa.0.2.i.i.i.i.i.i15
+  %40 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i15, align 2
+  %41 = and i16 %40, -33
+  %42 = add i16 %41, -65
+  %43 = icmp ult i16 %42, 26
+  %spec.select.i.i.i.i.i.i17 = select i1 %43, ptr %add.ptr.i.i.i.i.i.i9, ptr %__first.sroa.0.2.i.i.i.i.i.i15
   br label %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11
 
 _ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i.i.i
@@ -1618,8 +1618,8 @@ _ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEE
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit, %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11, %lor.rhs
-  %43 = phi i1 [ false, %lor.rhs ], [ %cmp.i.i.i.i13, %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11 ], [ %cmp.i.i.i.i, %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit ]
-  ret i1 %43
+  %44 = phi i1 [ false, %lor.rhs ], [ %cmp.i.i.i.i13, %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i11 ], [ %cmp.i.i.i.i, %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit ]
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

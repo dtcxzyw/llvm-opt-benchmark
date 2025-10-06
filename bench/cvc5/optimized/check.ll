@@ -392,23 +392,23 @@ define hidden void @_ZN4cvc58internal23AssertArgumentException9constructEPKcS3_S
 .split.us:                                        ; preds = %6
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %3, ptr noundef %4, i32 noundef %5) #22
   %12 = icmp slt i32 %11, 256
-  br i1 %12, label %.split38.us, label %.lr.ph39
+  br i1 %12, label %.split37.us, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %.split.us, %.lr.ph39
-  %13 = phi i32 [ %18, %.lr.ph39 ], [ %11, %.split.us ]
-  %14 = phi ptr [ %17, %.lr.ph39 ], [ %10, %.split.us ]
+.lr.ph38:                                         ; preds = %.split.us, %.lr.ph38
+  %13 = phi i32 [ %18, %.lr.ph38 ], [ %11, %.split.us ]
+  %14 = phi ptr [ %17, %.lr.ph38 ], [ %10, %.split.us ]
   %15 = add nuw nsw i32 %13, 1
   tail call void @_ZdaPv(ptr noundef nonnull %14) #26
   %16 = zext nneg i32 %15 to i64
   %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #25
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef %16, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %3, ptr noundef %4, i32 noundef %5) #22
-  %.not41 = icmp sgt i32 %18, %13
-  br i1 %.not41, label %.lr.ph39, label %.split38.us
+  %.not40 = icmp sgt i32 %18, %13
+  br i1 %.not40, label %.lr.ph38, label %.split37.us
 
 .split:                                           ; preds = %6
   %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %2) #22
   %20 = icmp slt i32 %19, 256
-  br i1 %20, label %.split38.us, label %.lr.ph
+  br i1 %20, label %.split37.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split, %.lr.ph
   %21 = phi i32 [ %26, %.lr.ph ], [ %19, %.split ]
@@ -419,10 +419,10 @@ define hidden void @_ZN4cvc58internal23AssertArgumentException9constructEPKcS3_S
   %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #25
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef %24, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %2) #22
   %.not = icmp sgt i32 %26, %21
-  br i1 %.not, label %.lr.ph, label %.split38.us
+  br i1 %.not, label %.lr.ph, label %.split37.us
 
-.split38.us:                                      ; preds = %.lr.ph, %.lr.ph39, %.split, %.split.us
-  %.us-phi = phi ptr [ %10, %.split.us ], [ %10, %.split ], [ %17, %.lr.ph39 ], [ %25, %.lr.ph ]
+.split37.us:                                      ; preds = %.lr.ph, %.lr.ph38, %.split, %.split.us
+  %.us-phi = phi ptr [ %10, %.split.us ], [ %10, %.split ], [ %17, %.lr.ph38 ], [ %25, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %27, ptr %8, align 8, !tbaa !34
@@ -432,15 +432,15 @@ define hidden void @_ZN4cvc58internal23AssertArgumentException9constructEPKcS3_S
   %29 = icmp ugt i64 %28, 15
   br i1 %29, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %.split38.us
+.noexc.i:                                         ; preds = %.split37.us
   %30 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
   store ptr %30, ptr %8, align 8, !tbaa !38
   %31 = load i64, ptr %7, align 8, !tbaa !37
   store i64 %31, ptr %27, align 8, !tbaa !33
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc.i, %.split38.us
-  %32 = phi ptr [ %30, %.noexc.i ], [ %27, %.split38.us ]
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %.split37.us
+  %32 = phi ptr [ %30, %.noexc.i ], [ %27, %.split37.us ]
   switch i64 %28, label %35 [
     i64 1, label %33
     i64 0, label %36

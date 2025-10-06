@@ -841,8 +841,8 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i.i: ; preds = %_Z
 
 _ZNK4llvm5Value11hasMetadataEj.exit.i.i.i:        ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i.i
   %230 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %225, i32 noundef 19) #18
-  %.not10.i.i.i = icmp eq ptr %230, null
-  br i1 %.not10.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE.exit.thread.i.i"
+  %.not9.i.i.i = icmp eq ptr %230, null
+  br i1 %.not9.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE.exit.thread.i.i"
 
 _ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i: ; preds = %_ZNK4llvm5Value11hasMetadataEj.exit.i.i.i, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_15ValueAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i.i.i, %221, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm5Value11getMetadataEj.exit.i.i.i, %203
   %231 = load i32, ptr %204, align 4
@@ -1065,8 +1065,8 @@ _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.
   %308 = getelementptr inbounds nuw i8, ptr %304, i64 4
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, 536870912
-  %.not.i.i16.i.i.i.i = icmp eq i32 %310, 0
-  br i1 %.not.i.i16.i.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.i.i.i.i.i
+  %.not.i.i15.i.i.i.i = icmp eq i32 %310, 0
+  br i1 %.not.i.i15.i.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.i.i.i.i.i
 
 _ZNK4llvm5Value11getMetadataEj.exit.i.i.i.i.i:    ; preds = %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i.i.i.i
   %311 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %304, i32 noundef 22) #18
@@ -1123,8 +1123,8 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i.i.i.i: ; preds =
 
 _ZNK4llvm5Value11hasMetadataEj.exit.i.i.i.i.i:    ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i.i.i.i
   %334 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %329, i32 noundef 19) #18
-  %.not10.i.i.i.i.i = icmp eq ptr %334, null
-  br i1 %.not10.i.i.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i.i.i, label %.loopexit351.i.i
+  %.not9.i.i.i.i.i = icmp eq ptr %334, null
+  br i1 %.not9.i.i.i.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i.i.i, label %.loopexit351.i.i
 
 _ZNK4llvm5Value11getMetadataEj.exit.thread.i.i.i.i.i: ; preds = %_ZNK4llvm5Value11hasMetadataEj.exit.i.i.i.i.i, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_15ValueAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i.i.i.i.i, %325, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i, %_ZNK4llvm5Value11getMetadataEj.exit.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i.i.i.i
   %335 = load i32, ptr %308, align 4
@@ -1416,8 +1416,8 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i133.i.i: ; preds = 
 
 _ZNK4llvm5Value11hasMetadataEj.exit.i135.i.i:     ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i133.i.i
   %462 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %457, i32 noundef 19) #18
-  %.not10.i136.i.i = icmp eq ptr %462, null
-  br i1 %.not10.i136.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i129.i.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE.exit137.thread.i.i"
+  %.not9.i136.i.i = icmp eq ptr %462, null
+  br i1 %.not9.i136.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i129.i.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE.exit137.thread.i.i"
 
 _ZNK4llvm5Value11getMetadataEj.exit.thread.i129.i.i: ; preds = %_ZNK4llvm5Value11hasMetadataEj.exit.i135.i.i, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i133.i.i, %_ZN4llvm16dyn_cast_or_nullINS_15ValueAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i132.i.i, %453, %_ZNK4llvm6MDNode10getOperandEj.exit.i125.i.i, %_ZNK4llvm5Value11getMetadataEj.exit.i122.i.i, %435
   %463 = load i32, ptr %436, align 4
@@ -2300,8 +2300,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %834
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %56, i8 0, i64 20, i1 false)
   call void @_ZN4llvm18WriteBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamEbPKNS_18ModuleSummaryIndexEbPSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(48) %75, i1 noundef zeroext false, ptr noundef %.021.i, i1 noundef zeroext true, ptr noundef nonnull %56) #18
-  %.not47.i = icmp eq ptr %77, null
-  br i1 %.not47.i, label %842, label %841
+  %.not46.i = icmp eq ptr %77, null
+  br i1 %.not46.i, label %842, label %841
 
 841:                                              ; preds = %840
   call void @_ZN4llvm26writeThinLinkBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamERKNS_18ModuleSummaryIndexERKSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull align 8 dereferenceable(592) %.021.i, ptr noundef nonnull align 4 dereferenceable(20) %56) #18
@@ -3028,14 +3028,14 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %12, %15
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %12 ], [ %17, %15 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
-  %.not1116 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not1116, label %.loopexit, label %.lr.ph
+  %.not1115 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not1115, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm4User8operandsEv.exit, %.lr.ph
-  %.0917 = phi ptr [ %23, %.lr.ph ], [ %20, %_ZN4llvm4User8operandsEv.exit ]
-  %22 = load ptr, ptr %.0917, align 8, !tbaa !210
+  %.0916 = phi ptr [ %23, %.lr.ph ], [ %20, %_ZN4llvm4User8operandsEv.exit ]
+  %22 = load ptr, ptr %.0916, align 8, !tbaa !210
   tail call fastcc void @_ZN12_GLOBAL__N_122forEachVirtualFunctionEPN4llvm8ConstantENS0_12function_refIFvPNS0_8FunctionEEEE(ptr noundef %22, ptr %1, i64 %2)
-  %23 = getelementptr inbounds nuw i8, ptr %.0917, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.0916, i64 32
   %.not11 = icmp eq ptr %23, %21
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
@@ -6333,8 +6333,8 @@ _ZNK4llvm6detail12DenseSetImplIPKNS_6ComdatENS_8DenseMapIS4_NS0_13DenseSetEmptyE
   %36 = load ptr, ptr %35, align 8, !tbaa !253
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !256
-  %.not51.i = icmp eq i32 %38, 0
-  br i1 %.not51.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", label %39
+  %.not45.i = icmp eq i32 %38, 0
+  br i1 %.not45.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", label %39
 
 39:                                               ; preds = %33
   %40 = ptrtoint ptr %1 to i64
@@ -6343,29 +6343,29 @@ _ZNK4llvm6detail12DenseSetImplIPKNS_6ComdatENS_8DenseMapIS4_NS0_13DenseSetEmptyE
   %43 = lshr i32 %41, 9
   %44 = xor i32 %42, %43
   %45 = add i32 %38, -1
-  %.01828.i.i.i.i.i25.i = and i32 %45, %44
-  %46 = zext nneg i32 %.01828.i.i.i.i.i25.i to i64
+  %.01828.i.i.i.i.i23.i = and i32 %45, %44
+  %46 = zext nneg i32 %.01828.i.i.i.i.i23.i to i64
   %47 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %36, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !370
   %49 = icmp eq ptr %1, %48
-  br i1 %49, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", label %.lr.ph.i.i.i.i.i26.i, !prof !225
+  br i1 %49, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", label %.lr.ph.i.i.i.i.i24.i, !prof !225
 
-.lr.ph.i.i.i.i.i26.i:                             ; preds = %39, %51
+.lr.ph.i.i.i.i.i24.i:                             ; preds = %39, %51
   %50 = phi ptr [ %56, %51 ], [ %48, %39 ]
-  %.01830.i.i.i.i.i27.i = phi i32 [ %.018.i.i.i.i.i29.i, %51 ], [ %.01828.i.i.i.i.i25.i, %39 ]
-  %.01629.i.i.i.i.i28.i = phi i32 [ %52, %51 ], [ 1, %39 ]
-  %.not52.not.i.not.not = icmp ne ptr %50, inttoptr (i64 -4096 to ptr)
-  br i1 %.not52.not.i.not.not, label %51, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", !prof !322
+  %.01830.i.i.i.i.i25.i = phi i32 [ %.018.i.i.i.i.i27.i, %51 ], [ %.01828.i.i.i.i.i23.i, %39 ]
+  %.01629.i.i.i.i.i26.i = phi i32 [ %52, %51 ], [ 1, %39 ]
+  %.not46.not.i.not.not = icmp ne ptr %50, inttoptr (i64 -4096 to ptr)
+  br i1 %.not46.not.i.not.not, label %51, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", !prof !322
 
-51:                                               ; preds = %.lr.ph.i.i.i.i.i26.i
-  %52 = add i32 %.01629.i.i.i.i.i28.i, 1
-  %53 = add i32 %.01629.i.i.i.i.i28.i, %.01830.i.i.i.i.i27.i
-  %.018.i.i.i.i.i29.i = and i32 %53, %45
-  %54 = zext i32 %.018.i.i.i.i.i29.i to i64
+51:                                               ; preds = %.lr.ph.i.i.i.i.i24.i
+  %52 = add i32 %.01629.i.i.i.i.i26.i, 1
+  %53 = add i32 %.01629.i.i.i.i.i26.i, %.01830.i.i.i.i.i25.i
+  %.018.i.i.i.i.i27.i = and i32 %53, %45
+  %54 = zext i32 %.018.i.i.i.i.i27.i to i64
   %55 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %36, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !370
   %57 = icmp eq ptr %spec.select.i.i.i, %56
-  br i1 %57, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", label %.lr.ph.i.i.i.i.i26.i, !prof !227, !llvm.loop !444
+  br i1 %57, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit", label %.lr.ph.i.i.i.i.i24.i, !prof !227, !llvm.loop !444
 
 .thread.i:                                        ; preds = %_ZNK4llvm6detail12DenseSetImplIPKNS_6ComdatENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5countES4_.exit.thread.i
   %58 = tail call noundef ptr @_ZNK4llvm11GlobalValue16getAliaseeObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #18
@@ -6381,8 +6381,8 @@ _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 536870912
-  %.not.i.i31.i = icmp eq i32 %64, 0
-  br i1 %.not.i.i31.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.i.i
+  %.not.i.i29.i = icmp eq i32 %64, 0
+  br i1 %.not.i.i29.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.i.i
 
 _ZNK4llvm5Value11getMetadataEj.exit.i.i:          ; preds = %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i
   %65 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %58, i32 noundef 22) #18
@@ -6439,8 +6439,8 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i: ; preds = %_ZN4
 
 _ZNK4llvm5Value11hasMetadataEj.exit.i.i:          ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i
   %88 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %83, i32 noundef 19) #18
-  %.not10.i.i = icmp eq ptr %88, null
-  br i1 %.not10.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit"
+  %.not9.i.i = icmp eq ptr %88, null
+  br i1 %.not9.i.i, label %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit"
 
 _ZNK4llvm5Value11getMetadataEj.exit.thread.i.i:   ; preds = %_ZNK4llvm5Value11hasMetadataEj.exit.i.i, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_15ValueAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i.i, %79, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm5Value11getMetadataEj.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i
   %89 = load i32, ptr %62, align 4
@@ -6453,8 +6453,8 @@ _ZNK4llvm5Value11getMetadataEj.exit.thread.i.i:   ; preds = %_ZNK4llvm5Value11ha
   %93 = icmp ne ptr %92, null
   br label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit"
 
-"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit": ; preds = %24, %.lr.ph.i.i.i.i.i26.i, %51, %11, %33, %39, %.thread.i, %59, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i, %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i, %91
-  %.1.i = phi i1 [ true, %11 ], [ false, %.thread.i ], [ false, %59 ], [ false, %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i ], [ %93, %91 ], [ true, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i ], [ true, %39 ], [ false, %33 ], [ %.not52.not.i.not.not, %51 ], [ %.not52.not.i.not.not, %.lr.ph.i.i.i.i.i26.i ], [ true, %24 ]
+"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit": ; preds = %24, %.lr.ph.i.i.i.i.i24.i, %51, %11, %33, %39, %.thread.i, %59, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i, %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i, %91
+  %.1.i = phi i1 [ true, %11 ], [ false, %.thread.i ], [ false, %59 ], [ false, %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i ], [ %93, %91 ], [ true, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i ], [ true, %39 ], [ false, %33 ], [ %.not46.not.i.not.not, %51 ], [ %.not46.not.i.not.not, %.lr.ph.i.i.i.i.i24.i ], [ true, %24 ]
   ret i1 %.1.i
 }
 

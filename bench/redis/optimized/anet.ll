@@ -1201,7 +1201,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
   %19 = trunc i64 %2 to i32
   %20 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %18, ptr noundef nonnull %1, i32 noundef %19) #11
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread69, label %22
+  br i1 %21, label %.thread66, label %22
 
 22:                                               ; preds = %17, %16
   %.not54 = icmp eq ptr %3, null
@@ -1222,7 +1222,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
   %29 = trunc i64 %2 to i32
   %30 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %28, ptr noundef nonnull %1, i32 noundef %29) #11
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread69, label %32
+  br i1 %31, label %.thread66, label %32
 
 32:                                               ; preds = %27, %26
   %.not52 = icmp eq ptr %3, null
@@ -1231,7 +1231,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %35 = load i16, ptr %34, align 2, !tbaa !42
-  %rev.i61 = call noundef i16 @llvm.bswap.i16(i16 %35)
+  %rev.i60 = call noundef i16 @llvm.bswap.i16(i16 %35)
   br label %.thread.sink.split
 
 36:                                               ; preds = %14
@@ -1244,7 +1244,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
   %40 = zext nneg i32 %38 to i64
   %.not49 = icmp ugt i64 %2, %40
   %or.cond = select i1 %39, i1 %.not49, i1 false
-  br i1 %or.cond, label %41, label %.thread69
+  br i1 %or.cond, label %41, label %.thread66
 
 41:                                               ; preds = %37, %36
   %.not50 = icmp eq ptr %3, null
@@ -1252,19 +1252,19 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
 
 42:                                               ; preds = %14, %11, %8
   %.not55 = icmp eq ptr %1, null
-  br i1 %.not55, label %49, label %.thread69
+  br i1 %.not55, label %49, label %.thread66
 
-.thread69:                                        ; preds = %37, %17, %27, %42
+.thread66:                                        ; preds = %37, %17, %27, %42
   %43 = icmp ugt i64 %2, 1
   br i1 %43, label %44, label %46
 
-44:                                               ; preds = %.thread69
+44:                                               ; preds = %.thread66
   store i8 63, ptr %1, align 1, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 0, ptr %45, align 1, !tbaa !45
   br label %49
 
-46:                                               ; preds = %.thread69
+46:                                               ; preds = %.thread66
   %47 = icmp eq i64 %2, 1
   br i1 %47, label %48, label %49
 
@@ -1277,7 +1277,7 @@ define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %0, ptr nounde
   br i1 %.not56, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %49, %41, %23, %33
-  %.sink.shrunk = phi i16 [ %rev.i61, %33 ], [ %rev.i, %23 ], [ 0, %41 ], [ 0, %49 ]
+  %.sink.shrunk = phi i16 [ %rev.i60, %33 ], [ %rev.i, %23 ], [ 0, %41 ], [ 0, %49 ]
   %.0.ph = phi i32 [ 0, %33 ], [ 0, %23 ], [ 0, %41 ], [ -1, %49 ]
   %.sink = zext i16 %.sink.shrunk to i32
   store i32 %.sink, ptr %3, align 4, !tbaa !5

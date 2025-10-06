@@ -4245,7 +4245,7 @@ define noundef range(i32 0, 3) i32 @_ZNK18MacroNameValidator8validateER7QStringR
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 1
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.thread19, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
@@ -4283,20 +4283,20 @@ _ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.thread.i.i15: ; preds = %_ZNK17Q
   %21 = phi ptr [ %16, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.i.i14 ], [ %13, %_ZN7QString5beginEv.exit ]
   %22 = load i64, ptr %4, align 8
   tail call void @_ZN7QString11reallocDataExN10QArrayData16AllocationOptionE(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %22, i32 noundef 1)
-  %.pre25 = load ptr, ptr %21, align 8
+  %.pre27 = load ptr, ptr %21, align 8
   br label %_ZN7QString3endEv.exit
 
 _ZN7QString3endEv.exit:                           ; preds = %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.i.i14, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.thread.i.i15
   %23 = phi ptr [ %15, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.i.i14 ], [ %20, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.thread.i.i15 ]
-  %24 = phi ptr [ %15, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.i.i14 ], [ %.pre25, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.thread.i.i15 ]
+  %24 = phi ptr [ %15, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.i.i14 ], [ %.pre27, %_ZNK17QArrayDataPointerIDsE11needsDetachEv.exit.thread.i.i15 ]
   %25 = load i64, ptr %4, align 8
   %26 = getelementptr i16, ptr %24, i64 %25
-  %.not20 = icmp eq ptr %23, %26
-  br i1 %.not20, label %.thread, label %.lr.ph
+  %.not22 = icmp eq ptr %23, %26
+  br i1 %.not22, label %.thread19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7QString3endEv.exit, %.critedge
-  %.01221 = phi ptr [ %36, %.critedge ], [ %23, %_ZN7QString3endEv.exit ]
-  %27 = load i16, ptr %.01221, align 2
+  %.01223 = phi ptr [ %36, %.critedge ], [ %23, %_ZN7QString3endEv.exit ]
+  %27 = load i16, ptr %.01223, align 2
   %28 = zext i16 %27 to i32
   %29 = add i16 %27, -65
   %or.cond.i.i = icmp ult i16 %29, 58
@@ -4314,19 +4314,19 @@ _ZN7QString3endEv.exit:                           ; preds = %_ZNK17QArrayDataPoi
 
 _ZNK5QChar16isLetterOrNumberEv.exit:              ; preds = %32
   %34 = tail call noundef zeroext i1 @_ZN5QChar23isLetterOrNumber_helperEDi(i32 noundef zeroext %28) #24
-  br i1 %34, label %.critedge, label %.thread
+  br i1 %34, label %.critedge, label %.thread19
 
 35:                                               ; preds = %32
-  %.not19 = icmp eq i16 %27, 95
-  br i1 %.not19, label %.critedge, label %.thread
+  %.not21 = icmp eq i16 %27, 95
+  br i1 %.not21, label %.critedge, label %.thread19
 
 .critedge:                                        ; preds = %.lr.ph, %35, %_ZNK5QChar16isLetterOrNumberEv.exit
-  %36 = getelementptr i8, ptr %.01221, i64 2
+  %36 = getelementptr i8, ptr %.01223, i64 2
   %.not = icmp eq ptr %36, %26
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.thread19, label %.lr.ph
 
-.thread:                                          ; preds = %_ZNK5QChar16isLetterOrNumberEv.exit, %35, %.critedge, %_ZN7QString3endEv.exit, %3
-  %.0 = phi i32 [ 1, %3 ], [ 2, %_ZN7QString3endEv.exit ], [ 0, %_ZNK5QChar16isLetterOrNumberEv.exit ], [ 0, %35 ], [ 2, %.critedge ]
+.thread19:                                        ; preds = %.critedge, %35, %_ZNK5QChar16isLetterOrNumberEv.exit, %_ZN7QString3endEv.exit, %3
+  %.0 = phi i32 [ 1, %3 ], [ 2, %_ZN7QString3endEv.exit ], [ 2, %.critedge ], [ 0, %35 ], [ 0, %_ZNK5QChar16isLetterOrNumberEv.exit ]
   ret i32 %.0
 }
 

@@ -1683,9 +1683,9 @@ entry:
   %0 = load ptr, ptr %_object, align 8
   %call = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %0, ptr null)
   %call2 = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen27genMemberExpressionPropertyEPNS_6ESTree24MemberExpressionLikeNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %mem) #16
-  %switch = icmp eq i32 %op, 0
+  %1 = icmp eq i32 %op, 0
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
-  br i1 %switch, label %sw.bb, label %sw.bb4
+  br i1 %1, label %sw.bb, label %sw.bb4
 
 sw.bb:                                            ; preds = %entry
   %call3 = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call, ptr noundef %call2) #16
@@ -1697,9 +1697,9 @@ sw.bb4:                                           ; preds = %entry
 
 return:                                           ; preds = %sw.bb4, %sw.bb
   %call7.sink7 = phi ptr [ %call7, %sw.bb4 ], [ %call3, %sw.bb ]
-  %1 = icmp eq ptr %call7.sink7, null
+  %2 = icmp eq ptr %call7.sink7, null
   %add.ptr9 = getelementptr inbounds nuw i8, ptr %call7.sink7, i64 16
-  %spec.select1 = select i1 %1, ptr null, ptr %add.ptr9
+  %spec.select1 = select i1 %2, ptr null, ptr %add.ptr9
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %spec.select1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %call, 1
   ret { ptr, ptr } %.fca.1.insert

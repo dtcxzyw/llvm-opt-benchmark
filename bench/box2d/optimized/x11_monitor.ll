@@ -396,7 +396,7 @@ define hidden void @_glfwSetVideoModeX11(ptr noundef %0, ptr noundef %1) local_u
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142100), align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 true, i1 %8
-  br i1 %or.cond, label %116, label %9
+  br i1 %or.cond, label %118, label %9
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -404,7 +404,7 @@ define hidden void @_glfwSetVideoModeX11(ptr noundef %0, ptr noundef %1) local_u
   %11 = call i32 @_glfwGetVideoModeX11(ptr noundef %0, ptr noundef nonnull %3)
   %12 = call i32 @_glfwCompareVideoModes(ptr noundef nonnull %3, ptr noundef %10) #9
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %115, label %14
+  br i1 %13, label %117, label %14
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142184), align 8, !tbaa !94
@@ -439,161 +439,161 @@ define hidden void @_glfwSetVideoModeX11(ptr noundef %0, ptr noundef %1) local_u
   br label %41
 
 41:                                               ; preds = %.lr.ph, %.thread
-  %42 = phi i32 [ %30, %.lr.ph ], [ %86, %.thread ]
+  %42 = phi i32 [ %30, %.lr.ph ], [ %88, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %43 = load ptr, ptr %32, align 8, !tbaa !155
   %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !109
   %46 = load i32, ptr %33, align 8, !tbaa !156
-  %.not11.i = icmp sgt i32 %46, 0
-  br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph.i, label %getModeInfo.exit
 
 .lr.ph.i:                                         ; preds = %41
-  %47 = load ptr, ptr %34, align 8, !tbaa !157
+  %48 = load ptr, ptr %34, align 8, !tbaa !157
   %wide.trip.count.i = zext nneg i32 %46 to i64
-  br label %49
+  br label %50
 
-48:                                               ; preds = %49
+49:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit, label %49
+  br i1 %exitcond.not.i, label %getModeInfo.exit, label %50
 
-49:                                               ; preds = %48, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
-  %50 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %47, i64 %indvars.iv.i
-  %51 = load i64, ptr %50, align 8, !tbaa !158
-  %52 = icmp eq i64 %51, %45
-  br i1 %52, label %getModeInfo.exit, label %48
+50:                                               ; preds = %49, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
+  %51 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %48, i64 %indvars.iv.i
+  %52 = load i64, ptr %51, align 8, !tbaa !158
+  %53 = icmp eq i64 %52, %45
+  br i1 %53, label %getModeInfo.exit, label %49
 
-getModeInfo.exit:                                 ; preds = %48, %49, %41
-  %spec.select.i = phi ptr [ null, %41 ], [ null, %48 ], [ %50, %49 ]
-  %53 = getelementptr i8, ptr %spec.select.i, i64 72
-  %.val39 = load i64, ptr %53, align 8, !tbaa !160
-  %54 = and i64 %.val39, 16
-  %.not = icmp eq i64 %54, 0
-  br i1 %.not, label %55, label %.thread
+getModeInfo.exit:                                 ; preds = %49, %50, %41
+  %54 = phi ptr [ null, %41 ], [ %51, %50 ], [ null, %49 ]
+  %55 = getelementptr i8, ptr %54, i64 72
+  %.val39 = load i64, ptr %55, align 8, !tbaa !160
+  %56 = and i64 %.val39, 16
+  %.not = icmp eq i64 %56, 0
+  br i1 %.not, label %57, label %.thread
 
-55:                                               ; preds = %getModeInfo.exit
+57:                                               ; preds = %getModeInfo.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val = load i16, ptr %35, align 8, !tbaa !128
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  switch i16 %.val, label %56 [
-    i16 2, label %57
-    i16 8, label %57
+  switch i16 %.val, label %58 [
+    i16 2, label %59
+    i16 8, label %59
   ]
 
-56:                                               ; preds = %55
-  br label %57
+58:                                               ; preds = %57
+  br label %59
 
-57:                                               ; preds = %55, %55, %56
-  %.sink57 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
-  %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink57
-  %.sink55 = load i32, ptr %58, align 4, !tbaa !93, !noalias !161
+59:                                               ; preds = %57, %57, %58
+  %.sink57 = phi i64 [ 8, %58 ], [ 12, %57 ], [ 12, %57 ]
+  %.sink = phi i64 [ 12, %58 ], [ 8, %57 ], [ 8, %57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink57
+  %.sink55 = load i32, ptr %60, align 4, !tbaa !93, !noalias !161
   store i32 %.sink55, ptr %4, align 4, !tbaa !164, !alias.scope !161
-  %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
-  %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !161
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink
+  %.sink.i = load i32, ptr %61, align 4, !tbaa !93, !noalias !161
   store i32 %.sink.i, ptr %36, align 4, !tbaa !165, !alias.scope !161
-  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !166, !noalias !161
-  %.not.i.i = icmp eq i32 %61, 0
-  br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %62
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %63 = load i32, ptr %62, align 8, !tbaa !166, !noalias !161
+  %.not.i.i = icmp eq i32 %63, 0
+  br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %64
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
-  %64 = load i32, ptr %63, align 8, !tbaa !167, !noalias !161
-  %.not7.i.i = icmp eq i32 %64, 0
-  br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %65
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %66 = load i32, ptr %65, align 8, !tbaa !167, !noalias !161
+  %.not7.i.i = icmp eq i32 %66, 0
+  br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %67
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !168, !noalias !161
-  %68 = uitofp i64 %67 to double
-  %69 = uitofp i32 %61 to double
-  %70 = uitofp i32 %64 to double
-  %71 = fmul double %69, %70
-  %72 = fdiv double %68, %71
-  %73 = call double @llvm.round.f64(double %72)
-  %74 = fptosi double %73 to i32
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %69 = load i64, ptr %68, align 8, !tbaa !168, !noalias !161
+  %70 = uitofp i64 %69 to double
+  %71 = uitofp i32 %63 to double
+  %72 = uitofp i32 %66 to double
+  %73 = fmul double %71, %72
+  %74 = fdiv double %70, %73
+  %75 = call double @llvm.round.f64(double %74)
+  %76 = fptosi double %75 to i32
   br label %vidmodeFromModeInfo.exit
 
-vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
-  %.0.i.i = phi i32 [ %74, %65 ], [ 0, %62 ], [ 0, %57 ]
+vidmodeFromModeInfo.exit:                         ; preds = %59, %64, %67
+  %.0.i.i = phi i32 [ %76, %67 ], [ 0, %64 ], [ 0, %59 ]
   store i32 %.0.i.i, ptr %37, align 4, !tbaa !169, !alias.scope !161
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !161
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 232
-  %77 = load ptr, ptr %76, align 8, !tbaa !144, !noalias !161
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !161
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.Screen, ptr %77, i64 %79
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %82 = load i32, ptr %81, align 8, !tbaa !170, !noalias !161
-  call void @_glfwSplitBPP(i32 noundef %82, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40) #9
-  %83 = call i32 @_glfwCompareVideoModes(ptr noundef %10, ptr noundef nonnull %4) #9
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.loopexit, label %85
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !161
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 232
+  %79 = load ptr, ptr %78, align 8, !tbaa !144, !noalias !161
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !161
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds %struct.Screen, ptr %79, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
+  %84 = load i32, ptr %83, align 8, !tbaa !170, !noalias !161
+  call void @_glfwSplitBPP(i32 noundef %84, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40) #9
+  %85 = call i32 @_glfwCompareVideoModes(ptr noundef %10, ptr noundef nonnull %4) #9
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %.loopexit, label %87
 
-85:                                               ; preds = %vidmodeFromModeInfo.exit
+87:                                               ; preds = %vidmodeFromModeInfo.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %29, align 8, !tbaa !154
   br label %.thread
 
-.thread:                                          ; preds = %getModeInfo.exit, %85
-  %86 = phi i32 [ %42, %getModeInfo.exit ], [ %.pre, %85 ]
+.thread:                                          ; preds = %getModeInfo.exit, %87
+  %88 = phi i32 [ %42, %getModeInfo.exit ], [ %.pre, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = sext i32 %86 to i64
-  %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %41, label %.loopexit.thread
+  %89 = sext i32 %88 to i64
+  %90 = icmp slt i64 %indvars.iv.next, %89
+  br i1 %90, label %41, label %.loopexit.thread
 
 .loopexit:                                        ; preds = %vidmodeFromModeInfo.exit
-  %89 = load i64, ptr %spec.select.i, align 8, !tbaa !158
+  %91 = load i64, ptr %54, align 8, !tbaa !158
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not38 = icmp eq i64 %89, 0
-  br i1 %.not38, label %.loopexit.thread, label %90
+  %.not38 = icmp eq i64 %91, 0
+  br i1 %.not38, label %.loopexit.thread, label %92
 
-90:                                               ; preds = %.loopexit
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %92 = load i64, ptr %91, align 8, !tbaa !171
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %97
+92:                                               ; preds = %.loopexit
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %94 = load i64, ptr %93, align 8, !tbaa !171
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %96, label %99
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %96 = load i64, ptr %95, align 8, !tbaa !172
-  store i64 %96, ptr %91, align 8, !tbaa !171
-  br label %97
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %98 = load i64, ptr %97, align 8, !tbaa !172
+  store i64 %98, ptr %93, align 8, !tbaa !171
+  br label %99
 
-97:                                               ; preds = %94, %90
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !173
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %100 = load i64, ptr %22, align 8, !tbaa !133
-  %101 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %102 = load i32, ptr %101, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %104 = load i32, ptr %103, align 4, !tbaa !138
-  %105 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %106 = load i16, ptr %105, align 8, !tbaa !128
-  %107 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %108 = load ptr, ptr %107, align 8, !tbaa !174
-  %109 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %110 = load i32, ptr %109, align 4, !tbaa !175
-  %111 = call i32 %98(ptr noundef %99, ptr noundef %18, i64 noundef %100, i64 noundef 0, i32 noundef %102, i32 noundef %104, i64 noundef %89, i16 noundef zeroext %106, ptr noundef %108, i32 noundef %110) #9
+99:                                               ; preds = %96, %92
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !173
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %102 = load i64, ptr %22, align 8, !tbaa !133
+  %103 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %104 = load i32, ptr %103, align 8, !tbaa !134
+  %105 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %106 = load i32, ptr %105, align 4, !tbaa !138
+  %107 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %108 = load i16, ptr %107, align 8, !tbaa !128
+  %109 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %110 = load ptr, ptr %109, align 8, !tbaa !174
+  %111 = getelementptr inbounds nuw i8, ptr %24, i64 36
+  %112 = load i32, ptr %111, align 4, !tbaa !175
+  %113 = call i32 %100(ptr noundef %101, ptr noundef %18, i64 noundef %102, i64 noundef 0, i32 noundef %104, i32 noundef %106, i64 noundef %91, i16 noundef zeroext %108, ptr noundef %110, i32 noundef %112) #9
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.thread, %14, %97, %.loopexit
-  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
-  call void %112(ptr noundef %28) #9
-  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
-  call void %113(ptr noundef %24) #9
-  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
-  call void %114(ptr noundef %18) #9
-  br label %115
+.loopexit.thread:                                 ; preds = %.thread, %14, %99, %.loopexit
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
+  call void %114(ptr noundef %28) #9
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  call void %115(ptr noundef %24) #9
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
+  call void %116(ptr noundef %18) #9
+  br label %117
 
-115:                                              ; preds = %9, %.loopexit.thread
+117:                                              ; preds = %9, %.loopexit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %116
+  br label %118
 
-116:                                              ; preds = %115, %2
+118:                                              ; preds = %117, %2
   ret void
 }
 
@@ -607,7 +607,7 @@ define hidden range(i32 0, 2) i32 @_glfwGetVideoModeX11(ptr noundef readonly cap
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142100), align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 true, i1 %7
-  br i1 %or.cond, label %67, label %8
+  br i1 %or.cond, label %68, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142184), align 8, !tbaa !94
@@ -627,134 +627,134 @@ define hidden range(i32 0, 2) i32 @_glfwGetVideoModeX11(ptr noundef readonly cap
   %20 = load i64, ptr %19, align 8, !tbaa !172
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %22 = load i32, ptr %21, align 8, !tbaa !156
-  %.not11.i = icmp sgt i32 %22, 0
-  br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit.thread
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph.i, label %getModeInfo.exit.thread
 
 .lr.ph.i:                                         ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !157
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %25 = load ptr, ptr %24, align 8, !tbaa !157
   %wide.trip.count.i = zext nneg i32 %22 to i64
-  br label %26
+  br label %27
 
-25:                                               ; preds = %26
+26:                                               ; preds = %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit.thread, label %26
+  br i1 %exitcond.not.i, label %getModeInfo.exit.thread, label %27
 
-26:                                               ; preds = %25, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %27 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %24, i64 %indvars.iv.i
-  %28 = load i64, ptr %27, align 8, !tbaa !158
-  %29 = icmp eq i64 %28, %20
-  br i1 %29, label %getModeInfo.exit, label %25
+27:                                               ; preds = %26, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
+  %28 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %25, i64 %indvars.iv.i
+  %29 = load i64, ptr %28, align 8, !tbaa !158
+  %30 = icmp eq i64 %29, %20
+  br i1 %30, label %getModeInfo.exit, label %26
 
-getModeInfo.exit:                                 ; preds = %26
+getModeInfo.exit:                                 ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %30 = getelementptr i8, ptr %17, i64 32
-  %.val = load i16, ptr %30, align 8, !tbaa !128
+  %31 = getelementptr i8, ptr %17, i64 32
+  %.val = load i16, ptr %31, align 8, !tbaa !128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  switch i16 %.val, label %31 [
-    i16 2, label %32
-    i16 8, label %32
+  switch i16 %.val, label %32 [
+    i16 2, label %33
+    i16 8, label %33
   ]
 
-31:                                               ; preds = %getModeInfo.exit
-  br label %32
+32:                                               ; preds = %getModeInfo.exit
+  br label %33
 
-32:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %31
-  %.sink44 = phi i64 [ 8, %31 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
-  %.sink = phi i64 [ 12, %31 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink44
-  %.sink41 = load i32, ptr %33, align 4, !tbaa !93, !noalias !176
-  store i32 %.sink41, ptr %3, align 4, !tbaa !164, !alias.scope !176
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink
-  %.sink.i = load i32, ptr %34, align 4, !tbaa !93, !noalias !176
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sink.i, ptr %35, align 4, !tbaa !165, !alias.scope !176
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !166, !noalias !176
-  %.not.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %38
+33:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %32
+  %.sink42 = phi i64 [ 8, %32 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
+  %.sink = phi i64 [ 12, %32 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink42
+  %.sink39 = load i32, ptr %34, align 4, !tbaa !93, !noalias !176
+  store i32 %.sink39, ptr %3, align 4, !tbaa !164, !alias.scope !176
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink
+  %.sink.i = load i32, ptr %35, align 4, !tbaa !93, !noalias !176
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %.sink.i, ptr %36, align 4, !tbaa !165, !alias.scope !176
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %38 = load i32, ptr %37, align 8, !tbaa !166, !noalias !176
+  %.not.i.i = icmp eq i32 %38, 0
+  br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %39
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !167, !noalias !176
-  %.not7.i.i = icmp eq i32 %40, 0
-  br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %41
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %41 = load i32, ptr %40, align 8, !tbaa !167, !noalias !176
+  %.not7.i.i = icmp eq i32 %41, 0
+  br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %42
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !168, !noalias !176
-  %44 = uitofp i64 %43 to double
-  %45 = uitofp i32 %37 to double
-  %46 = uitofp i32 %40 to double
-  %47 = fmul double %45, %46
-  %48 = fdiv double %44, %47
-  %49 = tail call double @llvm.round.f64(double %48)
-  %50 = fptosi double %49 to i32
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !168, !noalias !176
+  %45 = uitofp i64 %44 to double
+  %46 = uitofp i32 %38 to double
+  %47 = uitofp i32 %41 to double
+  %48 = fmul double %46, %47
+  %49 = fdiv double %45, %48
+  %50 = tail call double @llvm.round.f64(double %49)
+  %51 = fptosi double %50 to i32
   br label %vidmodeFromModeInfo.exit
 
-vidmodeFromModeInfo.exit:                         ; preds = %32, %38, %41
-  %.0.i.i = phi i32 [ %50, %41 ], [ 0, %38 ], [ 0, %32 ]
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %.0.i.i, ptr %51, align 4, !tbaa !169, !alias.scope !176
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !176
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 232
-  %54 = load ptr, ptr %53, align 8, !tbaa !144, !noalias !176
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !176
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.Screen, ptr %54, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %59 = load i32, ptr %58, align 8, !tbaa !170, !noalias !176
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @_glfwSplitBPP(i32 noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62) #9
+vidmodeFromModeInfo.exit:                         ; preds = %33, %39, %42
+  %.0.i.i = phi i32 [ %51, %42 ], [ 0, %39 ], [ 0, %33 ]
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 %.0.i.i, ptr %52, align 4, !tbaa !169, !alias.scope !176
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !176
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 232
+  %55 = load ptr, ptr %54, align 8, !tbaa !144, !noalias !176
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !176
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.Screen, ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  %60 = load i32, ptr %59, align 8, !tbaa !170, !noalias !176
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @_glfwSplitBPP(i32 noundef %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %63) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !179
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
-  call void %63(ptr noundef nonnull %17) #9
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
-  call void %64(ptr noundef %12) #9
-  br label %.thread32
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  call void %64(ptr noundef nonnull %17) #9
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
+  call void %65(ptr noundef %12) #9
+  br label %.thread31
 
-getModeInfo.exit.thread:                          ; preds = %25, %18
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
-  tail call void %65(ptr noundef nonnull %17) #9
+getModeInfo.exit.thread:                          ; preds = %26, %18
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  tail call void %66(ptr noundef nonnull %17) #9
   br label %.thread
 
 .thread:                                          ; preds = %8, %getModeInfo.exit.thread
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
-  tail call void %66(ptr noundef %12) #9
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
+  tail call void %67(ptr noundef %12) #9
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.1) #9
-  br label %.thread32
+  br label %.thread31
 
-67:                                               ; preds = %2
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 232
-  %70 = load ptr, ptr %69, align 8, !tbaa !144
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.Screen, ptr %70, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %75 = load i32, ptr %74, align 8, !tbaa !180
-  store i32 %75, ptr %1, align 4, !tbaa !164
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 28
-  %77 = load i32, ptr %76, align 4, !tbaa !181
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %77, ptr %78, align 4, !tbaa !165
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %79, align 4, !tbaa !169
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  %81 = load i32, ptr %80, align 8, !tbaa !170
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_glfwSplitBPP(i32 noundef %81, ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %84) #9
-  br label %.thread32
+68:                                               ; preds = %2
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 232
+  %71 = load ptr, ptr %70, align 8, !tbaa !144
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds %struct.Screen, ptr %71, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %76 = load i32, ptr %75, align 8, !tbaa !180
+  store i32 %76, ptr %1, align 4, !tbaa !164
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 28
+  %78 = load i32, ptr %77, align 4, !tbaa !181
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %78, ptr %79, align 4, !tbaa !165
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 0, ptr %80, align 4, !tbaa !169
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 56
+  %82 = load i32, ptr %81, align 8, !tbaa !170
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @_glfwSplitBPP(i32 noundef %82, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %85) #9
+  br label %.thread31
 
-.thread32:                                        ; preds = %vidmodeFromModeInfo.exit, %67, %.thread
-  %.1 = phi i32 [ 0, %.thread ], [ 1, %67 ], [ 1, %vidmodeFromModeInfo.exit ]
+.thread31:                                        ; preds = %vidmodeFromModeInfo.exit, %68, %.thread
+  %.1 = phi i32 [ 0, %.thread ], [ 1, %68 ], [ 1, %vidmodeFromModeInfo.exit ]
   ret i32 %.1
 }
 
@@ -904,7 +904,7 @@ define hidden void @_glfwGetMonitorWorkareaX11(ptr noundef readonly captures(non
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142100), align 4
   %11 = icmp ne i32 %10, 0
   %or.cond = select i1 %9, i1 true, i1 %11
-  br i1 %or.cond, label %45, label %12
+  br i1 %or.cond, label %47, label %12
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142184), align 8, !tbaa !94
@@ -924,213 +924,213 @@ define hidden void @_glfwGetMonitorWorkareaX11(ptr noundef readonly captures(non
   %27 = load i64, ptr %26, align 8, !tbaa !172
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %29 = load i32, ptr %28, align 8, !tbaa !156
-  %.not11.i = icmp sgt i32 %29, 0
-  br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.lr.ph.i, label %getModeInfo.exit
 
 .lr.ph.i:                                         ; preds = %12
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !157
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %32 = load ptr, ptr %31, align 8, !tbaa !157
   %wide.trip.count.i = zext nneg i32 %29 to i64
-  br label %33
+  br label %34
 
-32:                                               ; preds = %33
+33:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit, label %33
+  br i1 %exitcond.not.i, label %getModeInfo.exit, label %34
 
-33:                                               ; preds = %32, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %34 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %31, i64 %indvars.iv.i
-  %35 = load i64, ptr %34, align 8, !tbaa !158
-  %36 = icmp eq i64 %35, %27
-  br i1 %36, label %getModeInfo.exit, label %32
+34:                                               ; preds = %33, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
+  %35 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %32, i64 %indvars.iv.i
+  %36 = load i64, ptr %35, align 8, !tbaa !158
+  %37 = icmp eq i64 %36, %27
+  br i1 %37, label %getModeInfo.exit, label %33
 
-getModeInfo.exit:                                 ; preds = %32, %33, %12
-  %spec.select.i = phi ptr [ null, %12 ], [ null, %32 ], [ %34, %33 ]
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %38 = load i16, ptr %37, align 8, !tbaa !128
-  switch i16 %38, label %39 [
-    i16 2, label %40
-    i16 8, label %40
+getModeInfo.exit:                                 ; preds = %33, %34, %12
+  %38 = phi ptr [ null, %12 ], [ %35, %34 ], [ null, %33 ]
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %40 = load i16, ptr %39, align 8, !tbaa !128
+  switch i16 %40, label %41 [
+    i16 2, label %42
+    i16 8, label %42
   ]
 
-39:                                               ; preds = %getModeInfo.exit
-  br label %40
+41:                                               ; preds = %getModeInfo.exit
+  br label %42
 
-40:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %39
-  %.sink113 = phi i64 [ 8, %39 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
-  %.sink = phi i64 [ 12, %39 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink113
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
-  %.062 = load i32, ptr %41, align 4, !tbaa !93
-  %.066 = load i32, ptr %42, align 4, !tbaa !93
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
-  tail call void %43(ptr noundef nonnull %21) #9
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
-  tail call void %44(ptr noundef %16) #9
-  br label %56
+42:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %41
+  %.sink113 = phi i64 [ 8, %41 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
+  %.sink = phi i64 [ 12, %41 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %.sink113
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 %.sink
+  %.062 = load i32, ptr %43, align 4, !tbaa !93
+  %.066 = load i32, ptr %44, align 4, !tbaa !93
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  tail call void %45(ptr noundef nonnull %21) #9
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
+  tail call void %46(ptr noundef %16) #9
+  br label %58
 
-45:                                               ; preds = %5
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 232
-  %48 = load ptr, ptr %47, align 8, !tbaa !144
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds %struct.Screen, ptr %48, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = load i32, ptr %52, align 8, !tbaa !180
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  %55 = load i32, ptr %54, align 4, !tbaa !181
-  br label %56
+47:                                               ; preds = %5
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 232
+  %50 = load ptr, ptr %49, align 8, !tbaa !144
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %struct.Screen, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load i32, ptr %54, align 8, !tbaa !180
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 28
+  %57 = load i32, ptr %56, align 4, !tbaa !181
+  br label %58
 
-56:                                               ; preds = %45, %40
-  %.167 = phi i32 [ %55, %45 ], [ %.066, %40 ]
-  %.163 = phi i32 [ %53, %45 ], [ %.062, %40 ]
-  %.058 = phi i32 [ 0, %45 ], [ %25, %40 ]
-  %.0 = phi i32 [ 0, %45 ], [ %23, %40 ]
-  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !185
-  %58 = icmp ne i64 %57, 0
-  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8
+58:                                               ; preds = %47, %42
+  %.167 = phi i32 [ %57, %47 ], [ %.066, %42 ]
+  %.163 = phi i32 [ %55, %47 ], [ %.062, %42 ]
+  %.058 = phi i32 [ 0, %47 ], [ %25, %42 ]
+  %.0 = phi i32 [ 0, %47 ], [ %23, %42 ]
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !185
   %60 = icmp ne i64 %59, 0
-  %or.cond3 = select i1 %58, i1 %60, i1 false
-  br i1 %or.cond3, label %61, label %112
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8
+  %62 = icmp ne i64 %61, 0
+  %or.cond3 = select i1 %60, i1 %62, i1 false
+  br i1 %or.cond3, label %63, label %114
 
-61:                                               ; preds = %56
+63:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !186
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !186
-  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
-  %63 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %62, i64 noundef %57, i64 noundef 6, ptr noundef nonnull %6) #9
   %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
-  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !187
-  %66 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %64, i64 noundef %65, i64 noundef 6, ptr noundef nonnull %7) #9
-  %67 = icmp ne i64 %66, 0
-  %68 = icmp ugt i64 %63, 3
-  %or.cond5 = select i1 %67, i1 %68, i1 false
-  br i1 %or.cond5, label %69, label %._crit_edge
+  %65 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %64, i64 noundef %59, i64 noundef 6, ptr noundef nonnull %6) #9
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !187
+  %68 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %66, i64 noundef %67, i64 noundef 6, ptr noundef nonnull %7) #9
+  %69 = icmp ne i64 %68, 0
+  %70 = icmp ugt i64 %65, 3
+  %or.cond5 = select i1 %69, i1 %70, i1 false
+  br i1 %or.cond5, label %71, label %._crit_edge
 
-._crit_edge:                                      ; preds = %61
+._crit_edge:                                      ; preds = %63
   %.pre = load ptr, ptr %6, align 8, !tbaa !186
-  br label %100
-
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %7, align 8, !tbaa !186
-  %71 = load i64, ptr %70, align 8, !tbaa !109
-  %72 = lshr i64 %63, 2
-  %73 = icmp ult i64 %71, %72
-  %.pre89 = load ptr, ptr %6, align 8, !tbaa !186
-  br i1 %73, label %.thread, label %100
-
-.thread:                                          ; preds = %69
-  %.idx = shl nuw i64 %71, 5
-  %74 = getelementptr inbounds nuw i8, ptr %.pre89, i64 %.idx
-  %75 = load i64, ptr %74, align 8, !tbaa !109
-  %76 = trunc i64 %75 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !109
-  %79 = trunc i64 %78 to i32
-  %80 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %81 = load i64, ptr %80, align 8, !tbaa !109
-  %82 = trunc i64 %81 to i32
-  %83 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %84 = load i64, ptr %83, align 8, !tbaa !109
-  %85 = trunc i64 %84 to i32
-  %86 = icmp slt i32 %.0, %76
-  %.neg = sub i32 %.0, %76
-  %87 = select i1 %86, i32 %.neg, i32 0
-  %.4 = add i32 %87, %.163
-  %.3 = call i32 @llvm.smax.i32(i32 %.0, i32 %76)
-  %88 = icmp slt i32 %.058, %79
-  %.neg83 = sub i32 %.058, %79
-  %89 = select i1 %88, i32 %.neg83, i32 0
-  %.470 = add i32 %89, %.167
-  %.361 = call i32 @llvm.smax.i32(i32 %.058, i32 %79)
-  %90 = add nsw i32 %.4, %.3
-  %91 = add nsw i32 %82, %76
-  %92 = icmp sgt i32 %90, %91
-  %93 = sub i32 %76, %.3
-  %94 = add nsw i32 %93, %82
-  %.5 = select i1 %92, i32 %94, i32 %.4
-  %95 = add nsw i32 %.470, %.361
-  %96 = add nsw i32 %85, %79
-  %97 = icmp sgt i32 %95, %96
-  %98 = sub i32 %79, %.361
-  %99 = add nsw i32 %98, %85
-  %.571 = select i1 %97, i32 %99, i32 %.470
   br label %102
 
-100:                                              ; preds = %._crit_edge, %69
-  %101 = phi ptr [ %.pre89, %69 ], [ %.pre, %._crit_edge ]
-  %.not = icmp eq ptr %101, null
-  br i1 %.not, label %106, label %102
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %7, align 8, !tbaa !186
+  %73 = load i64, ptr %72, align 8, !tbaa !109
+  %74 = lshr i64 %65, 2
+  %75 = icmp ult i64 %73, %74
+  %.pre89 = load ptr, ptr %6, align 8, !tbaa !186
+  br i1 %75, label %.thread, label %102
 
-102:                                              ; preds = %.thread, %100
-  %.2111 = phi i32 [ %.3, %.thread ], [ %.0, %100 ]
-  %.260109 = phi i32 [ %.361, %.thread ], [ %.058, %100 ]
-  %.365107 = phi i32 [ %.5, %.thread ], [ %.163, %100 ]
-  %.369105 = phi i32 [ %.571, %.thread ], [ %.167, %100 ]
-  %103 = phi ptr [ %.pre89, %.thread ], [ %101, %100 ]
-  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
-  %105 = call i32 %104(ptr noundef nonnull %103) #9
-  br label %106
+.thread:                                          ; preds = %71
+  %.idx = shl nuw i64 %73, 5
+  %76 = getelementptr inbounds nuw i8, ptr %.pre89, i64 %.idx
+  %77 = load i64, ptr %76, align 8, !tbaa !109
+  %78 = trunc i64 %77 to i32
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %80 = load i64, ptr %79, align 8, !tbaa !109
+  %81 = trunc i64 %80 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %83 = load i64, ptr %82, align 8, !tbaa !109
+  %84 = trunc i64 %83 to i32
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %86 = load i64, ptr %85, align 8, !tbaa !109
+  %87 = trunc i64 %86 to i32
+  %88 = icmp slt i32 %.0, %78
+  %.neg = sub i32 %.0, %78
+  %89 = select i1 %88, i32 %.neg, i32 0
+  %.4 = add i32 %89, %.163
+  %.3 = call i32 @llvm.smax.i32(i32 %.0, i32 %78)
+  %90 = icmp slt i32 %.058, %81
+  %.neg83 = sub i32 %.058, %81
+  %91 = select i1 %90, i32 %.neg83, i32 0
+  %.470 = add i32 %91, %.167
+  %.361 = call i32 @llvm.smax.i32(i32 %.058, i32 %81)
+  %92 = add nsw i32 %.4, %.3
+  %93 = add nsw i32 %84, %78
+  %94 = icmp sgt i32 %92, %93
+  %95 = sub i32 %78, %.3
+  %96 = add nsw i32 %95, %84
+  %.5 = select i1 %94, i32 %96, i32 %.4
+  %97 = add nsw i32 %.470, %.361
+  %98 = add nsw i32 %87, %81
+  %99 = icmp sgt i32 %97, %98
+  %100 = sub i32 %81, %.361
+  %101 = add nsw i32 %100, %87
+  %.571 = select i1 %99, i32 %101, i32 %.470
+  br label %104
 
-106:                                              ; preds = %102, %100
-  %.2112 = phi i32 [ %.2111, %102 ], [ %.0, %100 ]
-  %.260110 = phi i32 [ %.260109, %102 ], [ %.058, %100 ]
-  %.365108 = phi i32 [ %.365107, %102 ], [ %.163, %100 ]
-  %.369106 = phi i32 [ %.369105, %102 ], [ %.167, %100 ]
-  %107 = load ptr, ptr %7, align 8, !tbaa !186
-  %.not84 = icmp eq ptr %107, null
-  br i1 %.not84, label %111, label %108
+102:                                              ; preds = %._crit_edge, %71
+  %103 = phi ptr [ %.pre89, %71 ], [ %.pre, %._crit_edge ]
+  %.not = icmp eq ptr %103, null
+  br i1 %.not, label %108, label %104
 
-108:                                              ; preds = %106
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
-  %110 = call i32 %109(ptr noundef nonnull %107) #9
-  br label %111
+104:                                              ; preds = %.thread, %102
+  %.2111 = phi i32 [ %.3, %.thread ], [ %.0, %102 ]
+  %.260109 = phi i32 [ %.361, %.thread ], [ %.058, %102 ]
+  %.365107 = phi i32 [ %.5, %.thread ], [ %.163, %102 ]
+  %.369105 = phi i32 [ %.571, %.thread ], [ %.167, %102 ]
+  %105 = phi ptr [ %.pre89, %.thread ], [ %103, %102 ]
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
+  %107 = call i32 %106(ptr noundef nonnull %105) #9
+  br label %108
 
-111:                                              ; preds = %108, %106
+108:                                              ; preds = %104, %102
+  %.2112 = phi i32 [ %.2111, %104 ], [ %.0, %102 ]
+  %.260110 = phi i32 [ %.260109, %104 ], [ %.058, %102 ]
+  %.365108 = phi i32 [ %.365107, %104 ], [ %.163, %102 ]
+  %.369106 = phi i32 [ %.369105, %104 ], [ %.167, %102 ]
+  %109 = load ptr, ptr %7, align 8, !tbaa !186
+  %.not84 = icmp eq ptr %109, null
+  br i1 %.not84, label %113, label %110
+
+110:                                              ; preds = %108
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
+  %112 = call i32 %111(ptr noundef nonnull %109) #9
+  br label %113
+
+113:                                              ; preds = %110, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %112
-
-112:                                              ; preds = %111, %56
-  %.268 = phi i32 [ %.369106, %111 ], [ %.167, %56 ]
-  %.264 = phi i32 [ %.365108, %111 ], [ %.163, %56 ]
-  %.159 = phi i32 [ %.260110, %111 ], [ %.058, %56 ]
-  %.1 = phi i32 [ %.2112, %111 ], [ %.0, %56 ]
-  %.not85 = icmp eq ptr %1, null
-  br i1 %.not85, label %114, label %113
-
-113:                                              ; preds = %112
-  store i32 %.1, ptr %1, align 4, !tbaa !93
   br label %114
 
-114:                                              ; preds = %113, %112
-  %.not86 = icmp eq ptr %2, null
-  br i1 %.not86, label %116, label %115
+114:                                              ; preds = %113, %58
+  %.268 = phi i32 [ %.369106, %113 ], [ %.167, %58 ]
+  %.264 = phi i32 [ %.365108, %113 ], [ %.163, %58 ]
+  %.159 = phi i32 [ %.260110, %113 ], [ %.058, %58 ]
+  %.1 = phi i32 [ %.2112, %113 ], [ %.0, %58 ]
+  %.not85 = icmp eq ptr %1, null
+  br i1 %.not85, label %116, label %115
 
 115:                                              ; preds = %114
-  store i32 %.159, ptr %2, align 4, !tbaa !93
+  store i32 %.1, ptr %1, align 4, !tbaa !93
   br label %116
 
 116:                                              ; preds = %115, %114
-  %.not87 = icmp eq ptr %3, null
-  br i1 %.not87, label %118, label %117
+  %.not86 = icmp eq ptr %2, null
+  br i1 %.not86, label %118, label %117
 
 117:                                              ; preds = %116
-  store i32 %.264, ptr %3, align 4, !tbaa !93
+  store i32 %.159, ptr %2, align 4, !tbaa !93
   br label %118
 
 118:                                              ; preds = %117, %116
-  %.not88 = icmp eq ptr %4, null
-  br i1 %.not88, label %120, label %119
+  %.not87 = icmp eq ptr %3, null
+  br i1 %.not87, label %120, label %119
 
 119:                                              ; preds = %118
-  store i32 %.268, ptr %4, align 4, !tbaa !93
+  store i32 %.264, ptr %3, align 4, !tbaa !93
   br label %120
 
 120:                                              ; preds = %119, %118
+  %.not88 = icmp eq ptr %4, null
+  br i1 %.not88, label %122, label %121
+
+121:                                              ; preds = %120
+  store i32 %.268, ptr %4, align 4, !tbaa !93
+  br label %122
+
+122:                                              ; preds = %121, %120
   ret void
 }
 
@@ -1145,7 +1145,7 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142100), align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 true, i1 %7
-  br i1 %or.cond, label %101, label %8
+  br i1 %or.cond, label %103, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142184), align 8, !tbaa !94
@@ -1182,159 +1182,159 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %41
 
-._crit_edge42:                                    ; preds = %97, %8
+._crit_edge42:                                    ; preds = %99, %8
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
   call void %38(ptr noundef nonnull %22) #9
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
   call void %39(ptr noundef %18) #9
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   call void %40(ptr noundef %12) #9
-  br label %104
+  br label %106
 
-41:                                               ; preds = %.lr.ph41, %97
-  %42 = phi i32 [ %27, %.lr.ph41 ], [ %98, %97 ]
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %97 ]
+41:                                               ; preds = %.lr.ph41, %99
+  %42 = phi i32 [ %27, %.lr.ph41 ], [ %100, %99 ]
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %99 ]
   %43 = load ptr, ptr %29, align 8, !tbaa !155
   %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv44
   %45 = load i64, ptr %44, align 8, !tbaa !109
   %46 = load i32, ptr %30, align 8, !tbaa !156
-  %.not11.i = icmp sgt i32 %46, 0
-  br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph.i, label %getModeInfo.exit
 
 .lr.ph.i:                                         ; preds = %41
-  %47 = load ptr, ptr %31, align 8, !tbaa !157
+  %48 = load ptr, ptr %31, align 8, !tbaa !157
   %wide.trip.count.i = zext nneg i32 %46 to i64
-  br label %49
+  br label %50
 
-48:                                               ; preds = %49
+49:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit, label %49
+  br i1 %exitcond.not.i, label %getModeInfo.exit, label %50
 
-49:                                               ; preds = %48, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
-  %50 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %47, i64 %indvars.iv.i
-  %51 = load i64, ptr %50, align 8, !tbaa !158
-  %52 = icmp eq i64 %51, %45
-  br i1 %52, label %getModeInfo.exit, label %48
+50:                                               ; preds = %49, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
+  %51 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %48, i64 %indvars.iv.i
+  %52 = load i64, ptr %51, align 8, !tbaa !158
+  %53 = icmp eq i64 %52, %45
+  br i1 %53, label %getModeInfo.exit, label %49
 
-getModeInfo.exit:                                 ; preds = %48, %49, %41
-  %spec.select.i = phi ptr [ null, %41 ], [ null, %48 ], [ %50, %49 ]
-  %53 = getelementptr i8, ptr %spec.select.i, i64 72
-  %.val35 = load i64, ptr %53, align 8, !tbaa !160
-  %54 = and i64 %.val35, 16
-  %.not = icmp eq i64 %54, 0
-  br i1 %.not, label %55, label %97
+getModeInfo.exit:                                 ; preds = %49, %50, %41
+  %54 = phi ptr [ null, %41 ], [ %51, %50 ], [ null, %49 ]
+  %55 = getelementptr i8, ptr %54, i64 72
+  %.val35 = load i64, ptr %55, align 8, !tbaa !160
+  %56 = and i64 %.val35, 16
+  %.not = icmp eq i64 %56, 0
+  br i1 %.not, label %57, label %99
 
-55:                                               ; preds = %getModeInfo.exit
+57:                                               ; preds = %getModeInfo.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val = load i16, ptr %32, align 8, !tbaa !128
   call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  switch i16 %.val, label %56 [
-    i16 2, label %57
-    i16 8, label %57
+  switch i16 %.val, label %58 [
+    i16 2, label %59
+    i16 8, label %59
   ]
 
-56:                                               ; preds = %55
-  br label %57
+58:                                               ; preds = %57
+  br label %59
 
-57:                                               ; preds = %55, %55, %56
-  %.sink56 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
-  %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink56
-  %.sink55 = load i32, ptr %58, align 4, !tbaa !93, !noalias !188
+59:                                               ; preds = %57, %57, %58
+  %.sink56 = phi i64 [ 8, %58 ], [ 12, %57 ], [ 12, %57 ]
+  %.sink = phi i64 [ 12, %58 ], [ 8, %57 ], [ 8, %57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink56
+  %.sink55 = load i32, ptr %60, align 4, !tbaa !93, !noalias !188
   store i32 %.sink55, ptr %3, align 4, !tbaa !164, !alias.scope !188
-  %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
-  %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !188
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink
+  %.sink.i = load i32, ptr %61, align 4, !tbaa !93, !noalias !188
   store i32 %.sink.i, ptr %33, align 4, !tbaa !165, !alias.scope !188
-  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !166, !noalias !188
-  %.not.i.i = icmp eq i32 %61, 0
-  br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %62
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %63 = load i32, ptr %62, align 8, !tbaa !166, !noalias !188
+  %.not.i.i = icmp eq i32 %63, 0
+  br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %64
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
-  %64 = load i32, ptr %63, align 8, !tbaa !167, !noalias !188
-  %.not7.i.i = icmp eq i32 %64, 0
-  br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %65
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %66 = load i32, ptr %65, align 8, !tbaa !167, !noalias !188
+  %.not7.i.i = icmp eq i32 %66, 0
+  br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %67
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !168, !noalias !188
-  %68 = uitofp i64 %67 to double
-  %69 = uitofp i32 %61 to double
-  %70 = uitofp i32 %64 to double
-  %71 = fmul double %69, %70
-  %72 = fdiv double %68, %71
-  %73 = call double @llvm.round.f64(double %72)
-  %74 = fptosi double %73 to i32
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %69 = load i64, ptr %68, align 8, !tbaa !168, !noalias !188
+  %70 = uitofp i64 %69 to double
+  %71 = uitofp i32 %63 to double
+  %72 = uitofp i32 %66 to double
+  %73 = fmul double %71, %72
+  %74 = fdiv double %70, %73
+  %75 = call double @llvm.round.f64(double %74)
+  %76 = fptosi double %75 to i32
   br label %vidmodeFromModeInfo.exit
 
-vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
-  %.0.i.i = phi i32 [ %74, %65 ], [ 0, %62 ], [ 0, %57 ]
+vidmodeFromModeInfo.exit:                         ; preds = %59, %64, %67
+  %.0.i.i = phi i32 [ %76, %67 ], [ 0, %64 ], [ 0, %59 ]
   store i32 %.0.i.i, ptr %34, align 4, !tbaa !169, !alias.scope !188
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !188
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 232
-  %77 = load ptr, ptr %76, align 8, !tbaa !144, !noalias !188
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !188
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.Screen, ptr %77, i64 %79
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %82 = load i32, ptr %81, align 8, !tbaa !170, !noalias !188
-  call void @_glfwSplitBPP(i32 noundef %82, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37) #9
-  %83 = load i32, ptr %1, align 4, !tbaa !93
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph, label %._crit_edge.thread
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !188
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 232
+  %79 = load ptr, ptr %78, align 8, !tbaa !144, !noalias !188
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !188
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds %struct.Screen, ptr %79, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
+  %84 = load i32, ptr %83, align 8, !tbaa !170, !noalias !188
+  call void @_glfwSplitBPP(i32 noundef %84, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37) #9
+  %85 = load i32, ptr %1, align 4, !tbaa !93
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %vidmodeFromModeInfo.exit, %88
-  %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %vidmodeFromModeInfo.exit ]
-  %85 = getelementptr inbounds nuw %struct.GLFWvidmode, ptr %26, i64 %indvars.iv
-  %86 = call i32 @_glfwCompareVideoModes(ptr noundef %85, ptr noundef nonnull %3) #9
-  %87 = icmp eq i32 %86, 0
+.lr.ph:                                           ; preds = %vidmodeFromModeInfo.exit, %90
+  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %vidmodeFromModeInfo.exit ]
+  %87 = getelementptr inbounds nuw %struct.GLFWvidmode, ptr %26, i64 %indvars.iv
+  %88 = call i32 @_glfwCompareVideoModes(ptr noundef %87, ptr noundef nonnull %3) #9
+  %89 = icmp eq i32 %88, 0
   %.pre.pre = load i32, ptr %1, align 4, !tbaa !93
-  br i1 %87, label %._crit_edge, label %88
+  br i1 %89, label %._crit_edge, label %90
 
-88:                                               ; preds = %.lr.ph
+90:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = sext i32 %.pre.pre to i64
-  %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %.lr.ph, label %._crit_edge
+  %91 = sext i32 %.pre.pre to i64
+  %92 = icmp slt i64 %indvars.iv.next, %91
+  br i1 %92, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %88, %.lr.ph
-  %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %88 ], [ %indvars.iv, %.lr.ph ]
+._crit_edge:                                      ; preds = %90, %.lr.ph
+  %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %90 ], [ %indvars.iv, %.lr.ph ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
-  %91 = icmp sgt i32 %.pre.pre, %.0.lcssa.ph
-  br i1 %91, label %96, label %._crit_edge.thread
+  %93 = icmp sgt i32 %.pre.pre, %.0.lcssa.ph
+  br i1 %93, label %98, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %vidmodeFromModeInfo.exit, %._crit_edge
-  %92 = phi i32 [ %.pre.pre, %._crit_edge ], [ %83, %vidmodeFromModeInfo.exit ]
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %1, align 4, !tbaa !93
-  %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds %struct.GLFWvidmode, ptr %26, i64 %94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %95, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !179
-  br label %96
+  %94 = phi i32 [ %.pre.pre, %._crit_edge ], [ %85, %vidmodeFromModeInfo.exit ]
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %1, align 4, !tbaa !93
+  %96 = sext i32 %94 to i64
+  %97 = getelementptr inbounds %struct.GLFWvidmode, ptr %26, i64 %96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %97, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !179
+  br label %98
 
-96:                                               ; preds = %._crit_edge, %._crit_edge.thread
+98:                                               ; preds = %._crit_edge, %._crit_edge.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre48 = load i32, ptr %23, align 8, !tbaa !154
-  br label %97
+  br label %99
 
-97:                                               ; preds = %getModeInfo.exit, %96
-  %98 = phi i32 [ %42, %getModeInfo.exit ], [ %.pre48, %96 ]
+99:                                               ; preds = %getModeInfo.exit, %98
+  %100 = phi i32 [ %42, %getModeInfo.exit ], [ %.pre48, %98 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %99 = sext i32 %98 to i64
-  %100 = icmp slt i64 %indvars.iv.next45, %99
-  br i1 %100, label %41, label %._crit_edge42
+  %101 = sext i32 %100 to i64
+  %102 = icmp slt i64 %indvars.iv.next45, %101
+  br i1 %102, label %41, label %._crit_edge42
 
-101:                                              ; preds = %2
+103:                                              ; preds = %2
   store i32 1, ptr %1, align 4, !tbaa !93
-  %102 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 24) #9
-  %103 = tail call i32 @_glfwGetVideoModeX11(ptr noundef %0, ptr noundef %102)
-  br label %104
+  %104 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 24) #9
+  %105 = tail call i32 @_glfwGetVideoModeX11(ptr noundef %0, ptr noundef %104)
+  br label %106
 
-104:                                              ; preds = %101, %._crit_edge42
-  %.032 = phi ptr [ %102, %101 ], [ %26, %._crit_edge42 ]
+106:                                              ; preds = %103, %._crit_edge42
+  %.032 = phi ptr [ %104, %103 ], [ %26, %._crit_edge42 ]
   ret ptr %.032
 }
 

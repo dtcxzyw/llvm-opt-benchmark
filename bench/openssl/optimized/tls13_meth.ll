@@ -593,11 +593,11 @@ define internal range(i32 0, 2) i32 @tls13_post_process_record(ptr noundef %0, p
   %4 = load i32, ptr %3, align 4, !tbaa !34
   %.not = icmp eq i32 %4, 21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre28 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !38
+  %.pre27 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !38
   br i1 %.not, label %._crit_edge, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ne i64 %.pre28, 0
+  %6 = icmp ne i64 %.pre27, 0
   %.not23 = icmp eq i32 %4, 23
   %or.cond = and i1 %.not23, %6
   br i1 %or.cond, label %.preheader, label %16
@@ -608,7 +608,7 @@ define internal range(i32 0, 2) i32 @tls13_post_process_record(ptr noundef %0, p
   br label %8
 
 8:                                                ; preds = %.preheader, %9
-  %.019.in = phi i64 [ %.019, %9 ], [ %.pre28, %.preheader ]
+  %.019.in = phi i64 [ %.019, %9 ], [ %.pre27, %.preheader ]
   %.019 = add i64 %.019.in, -1
   %.not24 = icmp eq i64 %.019, 0
   br i1 %.not24, label %.thread, label %9
@@ -634,7 +634,7 @@ define internal range(i32 0, 2) i32 @tls13_post_process_record(ptr noundef %0, p
   br label %22
 
 ._crit_edge:                                      ; preds = %2, %.thread
-  %17 = phi i64 [ %.019, %.thread ], [ %.pre28, %2 ]
+  %17 = phi i64 [ %.019, %.thread ], [ %.pre27, %2 ]
   %18 = icmp ugt i64 %17, 16384
   br i1 %18, label %19, label %20
 

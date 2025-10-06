@@ -603,7 +603,7 @@ initSomState.exit:                                ; preds = %2, %13, %24
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %56 = load i8, ptr %55, align 4
-  %.ptr157 = getelementptr inbounds i8, ptr %37, i64 %52
+  %.ptr154 = getelementptr inbounds i8, ptr %37, i64 %52
   %57 = insertelement <16 x i8> poison, i8 %56, i64 0
   %58 = shufflevector <16 x i8> %57, <16 x i8> poison, <16 x i32> zeroinitializer
   %59 = ptrtoint ptr %37 to i64
@@ -611,7 +611,7 @@ initSomState.exit:                                ; preds = %2, %13, %24
   br i1 %60, label %.preheader, label %64
 
 .preheader:                                       ; preds = %54, %61
-  %.pn.i = phi ptr [ %.046.i, %61 ], [ %.ptr157, %54 ]
+  %.pn.i = phi ptr [ %.046.i, %61 ], [ %.ptr154, %54 ]
   %.046.i = getelementptr inbounds i8, ptr %.pn.i, i64 -1
   %.not63.i36 = icmp ult ptr %.046.i, %37
   br i1 %.not63.i36, label %rvermicelliExec.exit, label %61
@@ -622,13 +622,13 @@ initSomState.exit:                                ; preds = %2, %13, %24
   br i1 %63, label %rvermicelliExec.exit, label %.preheader
 
 64:                                               ; preds = %54
-  %65 = ptrtoint ptr %.ptr157 to i64
+  %65 = ptrtoint ptr %.ptr154 to i64
   %66 = and i64 %65, 15
   %.not.i34 = icmp eq i64 %66, 0
-  br i1 %.not.i34, label %.preheader248, label %67
+  br i1 %.not.i34, label %.preheader245, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.ptr157, i64 -16
+  %68 = getelementptr inbounds i8, ptr %.ptr154, i64 -16
   %69 = load <16 x i8>, ptr %68, align 1
   %70 = icmp eq <16 x i8> %58, %69
   %71 = bitcast <16 x i1> %70 to i16
@@ -637,7 +637,7 @@ initSomState.exit:                                ; preds = %2, %13, %24
 
 .thread:                                          ; preds = %67
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i8, ptr %.ptr157, i64 15
+  %73 = getelementptr inbounds nuw i8, ptr %.ptr154, i64 15
   %74 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %72, i1 true)
   %75 = zext nneg i32 %74 to i64
   %76 = sub nsw i64 0, %75
@@ -645,23 +645,23 @@ initSomState.exit:                                ; preds = %2, %13, %24
   br label %rvermicelliExec.exit
 
 78:                                               ; preds = %67
-  %.add155 = sub nuw nsw i64 %52, %66
-  br label %.preheader248
+  %.add152 = sub nuw nsw i64 %52, %66
+  br label %.preheader245
 
-.preheader248:                                    ; preds = %78, %64
-  %.014.i73.idx.ph = phi i64 [ %52, %64 ], [ %.add155, %78 ]
+.preheader245:                                    ; preds = %78, %64
+  %.014.i73.idx.ph = phi i64 [ %52, %64 ], [ %.add152, %78 ]
   br label %79
 
-79:                                               ; preds = %.preheader248, %81
-  %.014.i73.idx = phi i64 [ %.014.i73.add, %81 ], [ %.014.i73.idx.ph, %.preheader248 ]
+79:                                               ; preds = %.preheader245, %81
+  %.014.i73.idx = phi i64 [ %.014.i73.add, %81 ], [ %.014.i73.idx.ph, %.preheader245 ]
   %80 = icmp sgt i64 %.014.i73.idx, 15
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %79
   %.014.i73.add = add nsw i64 %.014.i73.idx, -16
-  %.ptr156 = getelementptr inbounds nuw i8, ptr %37, i64 %.014.i73.add
-  call void @llvm.assume(i1 true) [ "align"(ptr %.ptr156, i64 16) ]
-  %82 = load <16 x i8>, ptr %.ptr156, align 16
+  %.ptr153 = getelementptr inbounds nuw i8, ptr %37, i64 %.014.i73.add
+  call void @llvm.assume(i1 true) [ "align"(ptr %.ptr153, i64 16) ]
+  %82 = load <16 x i8>, ptr %.ptr153, align 16
   %83 = icmp eq <16 x i8> %58, %82
   %84 = bitcast <16 x i1> %83 to i16
   %.not.i75.not = icmp eq i16 %84, 0
@@ -719,43 +719,43 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %61, %r
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %116 = load i8, ptr %115, align 4
-  %.ptr153 = getelementptr inbounds i8, ptr %37, i64 %112
+  %.ptr150 = getelementptr inbounds i8, ptr %37, i64 %112
   %117 = insertelement <16 x i8> poison, i8 %116, i64 0
   %118 = shufflevector <16 x i8> %117, <16 x i8> poison, <16 x i32> zeroinitializer
   %119 = ptrtoint ptr %37 to i64
   %120 = icmp slt i64 %112, 16
-  br i1 %120, label %.preheader166, label %125
+  br i1 %120, label %.preheader163, label %125
 
-.preheader166:                                    ; preds = %114, %121
-  %.pn.i47 = phi ptr [ %.046.i48, %121 ], [ %.ptr153, %114 ]
+.preheader163:                                    ; preds = %114, %121
+  %.pn.i47 = phi ptr [ %.046.i48, %121 ], [ %.ptr150, %114 ]
   %.046.i48 = getelementptr inbounds i8, ptr %.pn.i47, i64 -1
   %.not63.i49 = icmp ult ptr %.046.i48, %37
   br i1 %.not63.i49, label %rvermicelliExec.exit50, label %121
 
-121:                                              ; preds = %.preheader166
+121:                                              ; preds = %.preheader163
   %122 = load i8, ptr %.046.i48, align 1
   %123 = and i8 %122, -33
   %124 = icmp eq i8 %123, %116
-  br i1 %124, label %rvermicelliExec.exit50, label %.preheader166
+  br i1 %124, label %rvermicelliExec.exit50, label %.preheader163
 
 125:                                              ; preds = %114
-  %126 = ptrtoint ptr %.ptr153 to i64
+  %126 = ptrtoint ptr %.ptr150 to i64
   %127 = and i64 %126, 15
   %.not.i37 = icmp eq i64 %127, 0
-  br i1 %.not.i37, label %.preheader250, label %128
+  br i1 %.not.i37, label %.preheader247, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %.ptr153, i64 -16
+  %129 = getelementptr inbounds i8, ptr %.ptr150, i64 -16
   %130 = load <16 x i8>, ptr %129, align 1
   %131 = and <16 x i8> %130, splat (i8 -33)
   %132 = icmp eq <16 x i8> %118, %131
   %133 = bitcast <16 x i1> %132 to i16
   %.not.i64 = icmp eq i16 %133, 0
-  br i1 %.not.i64, label %140, label %.thread102, !prof !6
+  br i1 %.not.i64, label %140, label %.thread100, !prof !6
 
-.thread102:                                       ; preds = %128
+.thread100:                                       ; preds = %128
   %134 = zext i16 %133 to i32
-  %135 = getelementptr inbounds nuw i8, ptr %.ptr153, i64 15
+  %135 = getelementptr inbounds nuw i8, ptr %.ptr150, i64 15
   %136 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %134, i1 true)
   %137 = zext nneg i32 %136 to i64
   %138 = sub nsw i64 0, %137
@@ -763,23 +763,23 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %61, %r
   br label %rvermicelliExec.exit50
 
 140:                                              ; preds = %128
-  %.add151 = sub nuw nsw i64 %112, %127
-  br label %.preheader250
+  %.add148 = sub nuw nsw i64 %112, %127
+  br label %.preheader247
 
-.preheader250:                                    ; preds = %140, %125
-  %.015.i.idx.ph = phi i64 [ %112, %125 ], [ %.add151, %140 ]
+.preheader247:                                    ; preds = %140, %125
+  %.015.i.idx.ph = phi i64 [ %112, %125 ], [ %.add148, %140 ]
   br label %141
 
-141:                                              ; preds = %.preheader250, %143
-  %.015.i.idx = phi i64 [ %.015.i.add, %143 ], [ %.015.i.idx.ph, %.preheader250 ]
+141:                                              ; preds = %.preheader247, %143
+  %.015.i.idx = phi i64 [ %.015.i.add, %143 ], [ %.015.i.idx.ph, %.preheader247 ]
   %142 = icmp sgt i64 %.015.i.idx, 15
   br i1 %142, label %143, label %154
 
 143:                                              ; preds = %141
   %.015.i.add = add nsw i64 %.015.i.idx, -16
-  %.ptr152 = getelementptr inbounds nuw i8, ptr %37, i64 %.015.i.add
-  call void @llvm.assume(i1 true) [ "align"(ptr %.ptr152, i64 16) ]
-  %144 = load <16 x i8>, ptr %.ptr152, align 16
+  %.ptr149 = getelementptr inbounds nuw i8, ptr %37, i64 %.015.i.add
+  call void @llvm.assume(i1 true) [ "align"(ptr %.ptr149, i64 16) ]
+  %144 = load <16 x i8>, ptr %.ptr149, align 16
   %145 = and <16 x i8> %144, splat (i8 -33)
   %146 = icmp eq <16 x i8> %118, %145
   %147 = bitcast <16 x i1> %146 to i16
@@ -820,8 +820,8 @@ rvermUnalignNocase.exit:                          ; preds = %154, %159
   %167 = select i1 %.not62.i45, ptr %166, ptr %.09.i
   br label %rvermicelliExec.exit50
 
-rvermicelliExec.exit50:                           ; preds = %.preheader166, %121, %rvermSearchAlignedNocase.exit, %.thread102, %rvermUnalignNocase.exit
-  %.0.i42 = phi ptr [ %167, %rvermUnalignNocase.exit ], [ %153, %rvermSearchAlignedNocase.exit ], [ %139, %.thread102 ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader166 ]
+rvermicelliExec.exit50:                           ; preds = %.preheader163, %121, %rvermSearchAlignedNocase.exit, %.thread100, %rvermUnalignNocase.exit
+  %.0.i42 = phi ptr [ %167, %rvermUnalignNocase.exit ], [ %153, %rvermSearchAlignedNocase.exit ], [ %139, %.thread100 ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader163 ]
   %168 = ptrtoint ptr %.0.i42 to i64
   %169 = sub i64 %111, %119
   %170 = add i64 %169, %168
@@ -841,18 +841,18 @@ rvermicelliExec.exit50:                           ; preds = %.preheader166, %121
   %180 = load i8, ptr %179, align 4
   %181 = getelementptr inbounds nuw i8, ptr %35, i64 13
   %182 = load i8, ptr %181, align 1
-  %.ptr149 = getelementptr inbounds i8, ptr %37, i64 %176
+  %.ptr146 = getelementptr inbounds i8, ptr %37, i64 %176
   %183 = insertelement <16 x i8> poison, i8 %180, i64 0
   %184 = shufflevector <16 x i8> %183, <16 x i8> poison, <16 x i32> zeroinitializer
   %185 = insertelement <16 x i8> poison, i8 %182, i64 0
   %186 = shufflevector <16 x i8> %185, <16 x i8> poison, <16 x i32> zeroinitializer
-  %187 = ptrtoint ptr %.ptr149 to i64
+  %187 = ptrtoint ptr %.ptr146 to i64
   %188 = and i64 %187, 15
   %.not.i51 = icmp eq i64 %188, 0
-  br i1 %.not.i51, label %.preheader253, label %189
+  br i1 %.not.i51, label %.preheader250, label %189
 
 189:                                              ; preds = %178
-  %190 = getelementptr inbounds i8, ptr %.ptr149, i64 -16
+  %190 = getelementptr inbounds i8, ptr %.ptr146, i64 -16
   %191 = load <16 x i8>, ptr %190, align 1
   %192 = icmp eq <16 x i8> %186, %191
   %193 = icmp eq <16 x i8> %184, %191
@@ -866,7 +866,7 @@ rvermicelliExec.exit50:                           ; preds = %.preheader166, %121
 
 rdvermPrecondition.exit.thread:                   ; preds = %189
   %199 = zext i16 %198 to i32
-  %200 = getelementptr inbounds nuw i8, ptr %.ptr149, i64 15
+  %200 = getelementptr inbounds nuw i8, ptr %.ptr146, i64 15
   %201 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %199, i1 true)
   %202 = zext nneg i32 %201 to i64
   %203 = sub nsw i64 0, %202
@@ -874,26 +874,26 @@ rdvermPrecondition.exit.thread:                   ; preds = %189
   br label %rvermicelliDoubleExec.exit
 
 rdvermPrecondition.exit:                          ; preds = %189
-  %.add147 = sub nuw nsw i64 %176, %188
-  %.ptr150 = getelementptr inbounds i8, ptr %37, i64 %.add147
+  %.add144 = sub nuw nsw i64 %176, %188
+  %.ptr147 = getelementptr inbounds i8, ptr %37, i64 %.add144
   %.not41.i = icmp sgt i64 %176, %188
-  br i1 %.not41.i, label %.preheader253, label %rvermicelliDoubleExec.exit
+  br i1 %.not41.i, label %.preheader250, label %rvermicelliDoubleExec.exit
 
-.preheader253:                                    ; preds = %rdvermPrecondition.exit, %178
-  %.020.i84.idx.ph = phi i64 [ %176, %178 ], [ %.add147, %rdvermPrecondition.exit ]
+.preheader250:                                    ; preds = %rdvermPrecondition.exit, %178
+  %.020.i84.idx.ph = phi i64 [ %176, %178 ], [ %.add144, %rdvermPrecondition.exit ]
   br label %205
 
-205:                                              ; preds = %.preheader253, %221
-  %.020.i84.idx = phi i64 [ %.020.i84.add, %221 ], [ %.020.i84.idx.ph, %.preheader253 ]
+205:                                              ; preds = %.preheader250, %221
+  %.020.i84.idx = phi i64 [ %.020.i84.add, %221 ], [ %.020.i84.idx.ph, %.preheader250 ]
   %.020.i84.ptr = getelementptr inbounds i8, ptr %37, i64 %.020.i84.idx
   %206 = icmp sgt i64 %.020.i84.idx, 16
   br i1 %206, label %207, label %rvermicelliDoubleExec.exit
 
 207:                                              ; preds = %205
   %.020.i84.add = add nsw i64 %.020.i84.idx, -16
-  %.ptr148 = getelementptr inbounds nuw i8, ptr %37, i64 %.020.i84.add
-  call void @llvm.assume(i1 true) [ "align"(ptr %.ptr148, i64 16) ]
-  %208 = load <16 x i8>, ptr %.ptr148, align 16
+  %.ptr145 = getelementptr inbounds nuw i8, ptr %37, i64 %.020.i84.add
+  call void @llvm.assume(i1 true) [ "align"(ptr %.ptr145, i64 16) ]
+  %208 = load <16 x i8>, ptr %.ptr145, align 16
   %209 = icmp eq <16 x i8> %186, %208
   %210 = icmp eq <16 x i8> %184, %208
   %211 = sext <16 x i1> %210 to <16 x i8>
@@ -907,28 +907,28 @@ rdvermPrecondition.exit:                          ; preds = %189
   %219 = extractelement <16 x i8> %208, i64 0
   %220 = icmp eq i8 %219, %182
   %or.cond = select i1 %218, i1 %220, i1 false
-  br i1 %or.cond, label %.thread122.split.loop.exit178, label %221
+  br i1 %or.cond, label %.thread120.split.loop.exit175, label %221
 
 221:                                              ; preds = %207
   %.not.i86.not = icmp eq i16 %215, 0
-  br i1 %.not.i86.not, label %205, label %.thread122, !prof !7
+  br i1 %.not.i86.not, label %205, label %.thread120, !prof !7
 
-.thread122.split.loop.exit178:                    ; preds = %207
+.thread120.split.loop.exit175:                    ; preds = %207
   %222 = or i16 %215, 1
-  br label %.thread122
+  br label %.thread120
 
-.thread122:                                       ; preds = %221, %.thread122.split.loop.exit178
-  %.018.i119.in = phi i16 [ %222, %.thread122.split.loop.exit178 ], [ %215, %221 ]
-  %.018.i119 = zext i16 %.018.i119.in to i32
+.thread120:                                       ; preds = %221, %.thread120.split.loop.exit175
+  %.018.i117.in = phi i16 [ %222, %.thread120.split.loop.exit175 ], [ %215, %221 ]
+  %.018.i117 = zext i16 %.018.i117.in to i32
   %223 = getelementptr inbounds nuw i8, ptr %.020.i84.ptr, i64 15
-  %224 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.018.i119, i1 true)
+  %224 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.018.i117, i1 true)
   %225 = zext nneg i32 %224 to i64
   %226 = sub nsw i64 0, %225
   %227 = getelementptr inbounds i8, ptr %223, i64 %226
   br label %rvermicelliDoubleExec.exit
 
-rvermicelliDoubleExec.exit:                       ; preds = %205, %.thread122, %rdvermPrecondition.exit.thread, %rdvermPrecondition.exit
-  %.1.i53 = phi ptr [ %.ptr150, %rdvermPrecondition.exit ], [ %204, %rdvermPrecondition.exit.thread ], [ %227, %.thread122 ], [ %.020.i84.ptr, %205 ]
+rvermicelliDoubleExec.exit:                       ; preds = %205, %.thread120, %rdvermPrecondition.exit.thread, %rdvermPrecondition.exit
+  %.1.i53 = phi ptr [ %.ptr147, %rdvermPrecondition.exit ], [ %204, %rdvermPrecondition.exit.thread ], [ %227, %.thread120 ], [ %.020.i84.ptr, %205 ]
   %228 = ptrtoint ptr %.1.i53 to i64
   %229 = ptrtoint ptr %37 to i64
   %230 = sub i64 %175, %229
@@ -949,18 +949,18 @@ rvermicelliDoubleExec.exit:                       ; preds = %205, %.thread122, %
   %241 = load i8, ptr %240, align 4
   %242 = getelementptr inbounds nuw i8, ptr %35, i64 13
   %243 = load i8, ptr %242, align 1
-  %.ptr145 = getelementptr inbounds i8, ptr %37, i64 %237
+  %.ptr142 = getelementptr inbounds i8, ptr %37, i64 %237
   %244 = insertelement <16 x i8> poison, i8 %241, i64 0
   %245 = shufflevector <16 x i8> %244, <16 x i8> poison, <16 x i32> zeroinitializer
   %246 = insertelement <16 x i8> poison, i8 %243, i64 0
   %247 = shufflevector <16 x i8> %246, <16 x i8> poison, <16 x i32> zeroinitializer
-  %248 = ptrtoint ptr %.ptr145 to i64
+  %248 = ptrtoint ptr %.ptr142 to i64
   %249 = and i64 %248, 15
   %.not.i54 = icmp eq i64 %249, 0
-  br i1 %.not.i54, label %.preheader259, label %250
+  br i1 %.not.i54, label %.preheader256, label %250
 
 250:                                              ; preds = %239
-  %251 = getelementptr inbounds i8, ptr %.ptr145, i64 -16
+  %251 = getelementptr inbounds i8, ptr %.ptr142, i64 -16
   %252 = load <16 x i8>, ptr %251, align 1
   %253 = and <16 x i8> %252, splat (i8 -33)
   %254 = icmp eq <16 x i8> %247, %253
@@ -975,7 +975,7 @@ rvermicelliDoubleExec.exit:                       ; preds = %205, %.thread122, %
 
 rdvermPreconditionNocase.exit.thread:             ; preds = %250
   %261 = zext i16 %260 to i32
-  %262 = getelementptr inbounds nuw i8, ptr %.ptr145, i64 15
+  %262 = getelementptr inbounds nuw i8, ptr %.ptr142, i64 15
   %263 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %261, i1 true)
   %264 = zext nneg i32 %263 to i64
   %265 = sub nsw i64 0, %264
@@ -984,16 +984,16 @@ rdvermPreconditionNocase.exit.thread:             ; preds = %250
 
 rdvermPreconditionNocase.exit:                    ; preds = %250
   %.add = sub nuw nsw i64 %237, %249
-  %.ptr146 = getelementptr inbounds i8, ptr %37, i64 %.add
+  %.ptr143 = getelementptr inbounds i8, ptr %37, i64 %.add
   %.not41.i56 = icmp sgt i64 %237, %249
-  br i1 %.not41.i56, label %.preheader259, label %rvermicelliDoubleExec.exit62
+  br i1 %.not41.i56, label %.preheader256, label %rvermicelliDoubleExec.exit62
 
-.preheader259:                                    ; preds = %rdvermPreconditionNocase.exit, %239
+.preheader256:                                    ; preds = %rdvermPreconditionNocase.exit, %239
   %.022.i.idx.ph = phi i64 [ %237, %239 ], [ %.add, %rdvermPreconditionNocase.exit ]
   br label %267
 
-267:                                              ; preds = %.preheader259, %286
-  %.022.i.idx = phi i64 [ %.022.i.add, %286 ], [ %.022.i.idx.ph, %.preheader259 ]
+267:                                              ; preds = %.preheader256, %286
+  %.022.i.idx = phi i64 [ %.022.i.add, %286 ], [ %.022.i.idx.ph, %.preheader256 ]
   %.022.i.ptr = getelementptr inbounds i8, ptr %37, i64 %.022.i.idx
   %268 = icmp sgt i64 %.022.i.idx, 16
   br i1 %268, label %269, label %rvermicelliDoubleExec.exit62
@@ -1018,29 +1018,29 @@ rdvermPreconditionNocase.exit:                    ; preds = %250
   %283 = extractelement <16 x i8> %270, i64 0
   %284 = and i8 %283, -33
   %285 = icmp eq i8 %284, %243
-  %or.cond234 = select i1 %282, i1 %285, i1 false
-  br i1 %or.cond234, label %.thread139.split.loop.exit172, label %286
+  %or.cond231 = select i1 %282, i1 %285, i1 false
+  br i1 %or.cond231, label %.thread136.split.loop.exit169, label %286
 
 286:                                              ; preds = %269
   %.not.i82 = icmp eq i16 %278, 0
-  br i1 %.not.i82, label %267, label %.thread139, !prof !7
+  br i1 %.not.i82, label %267, label %.thread136, !prof !7
 
-.thread139.split.loop.exit172:                    ; preds = %269
+.thread136.split.loop.exit169:                    ; preds = %269
   %287 = or i16 %278, 1
-  br label %.thread139
+  br label %.thread136
 
-.thread139:                                       ; preds = %286, %.thread139.split.loop.exit172
-  %.020.i136.in = phi i16 [ %287, %.thread139.split.loop.exit172 ], [ %278, %286 ]
-  %.020.i136 = zext i16 %.020.i136.in to i32
+.thread136:                                       ; preds = %286, %.thread136.split.loop.exit169
+  %.020.i133.in = phi i16 [ %287, %.thread136.split.loop.exit169 ], [ %278, %286 ]
+  %.020.i133 = zext i16 %.020.i133.in to i32
   %288 = getelementptr inbounds nuw i8, ptr %.022.i.ptr, i64 15
-  %289 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.020.i136, i1 true)
+  %289 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.020.i133, i1 true)
   %290 = zext nneg i32 %289 to i64
   %291 = sub nsw i64 0, %290
   %292 = getelementptr inbounds i8, ptr %288, i64 %291
   br label %rvermicelliDoubleExec.exit62
 
-rvermicelliDoubleExec.exit62:                     ; preds = %267, %.thread139, %rdvermPreconditionNocase.exit.thread, %rdvermPreconditionNocase.exit
-  %.1.i60 = phi ptr [ %.ptr146, %rdvermPreconditionNocase.exit ], [ %266, %rdvermPreconditionNocase.exit.thread ], [ %292, %.thread139 ], [ %.022.i.ptr, %267 ]
+rvermicelliDoubleExec.exit62:                     ; preds = %267, %.thread136, %rdvermPreconditionNocase.exit.thread, %rdvermPreconditionNocase.exit
+  %.1.i60 = phi ptr [ %.ptr143, %rdvermPreconditionNocase.exit ], [ %266, %rdvermPreconditionNocase.exit.thread ], [ %292, %.thread136 ], [ %.022.i.ptr, %267 ]
   %293 = ptrtoint ptr %.1.i60 to i64
   %294 = ptrtoint ptr %37 to i64
   %295 = sub i64 %236, %294

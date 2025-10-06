@@ -52,7 +52,7 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
   %16 = ashr exact i64 %sext, 32
   br label %18
 
-17:                                               ; preds = %match.exit.thread.i.i, %18
+17:                                               ; preds = %match.exit.thread.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %15
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %18, !llvm.loop !17
@@ -63,11 +63,10 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
   %20 = urem i64 %19, %15
   %21 = getelementptr inbounds nuw %struct.HashEntry, ptr %5, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !18
-  %magicptr.i.i = ptrtoint ptr %22 to i64
-  switch i64 %magicptr.i.i, label %23 [
-    i64 0, label %hashmap_get2.exit
-    i64 -1, label %17
-  ]
+  %magicptr.i.i.i = ptrtoint ptr %22 to i64
+  %magicptr.off.i.i.i = add i64 %magicptr.i.i.i, -1
+  %switch.i.i.i = icmp ult i64 %magicptr.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %23, label %match.exit.thread.i.i
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -80,7 +79,7 @@ match.exit.i.i:                                   ; preds = %23
   %27 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %27, label %get_entry.exit.i, label %match.exit.thread.i.i
 
-match.exit.thread.i.i:                            ; preds = %match.exit.i.i, %23
+match.exit.thread.i.i:                            ; preds = %match.exit.i.i, %23, %18
   %.not26.i.i = icmp eq ptr %22, null
   br i1 %.not26.i.i, label %hashmap_get2.exit, label %17
 
@@ -93,8 +92,8 @@ get_entry.exit.i:                                 ; preds = %match.exit.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !22
   br label %hashmap_get2.exit
 
-hashmap_get2.exit:                                ; preds = %18, %match.exit.thread.i.i, %2, %get_entry.exit.i
-  %30 = phi ptr [ %29, %get_entry.exit.i ], [ null, %2 ], [ null, %match.exit.thread.i.i ], [ null, %18 ]
+hashmap_get2.exit:                                ; preds = %match.exit.thread.i.i, %2, %get_entry.exit.i
+  %30 = phi ptr [ %29, %get_entry.exit.i ], [ null, %2 ], [ null, %match.exit.thread.i.i ]
   ret ptr %30
 }
 
@@ -136,7 +135,7 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
   %15 = sext i32 %2 to i64
   br label %17
 
-16:                                               ; preds = %match.exit.thread.i, %17
+16:                                               ; preds = %match.exit.thread.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
   br i1 %exitcond.not.i, label %.critedge.i, label %17, !llvm.loop !17
@@ -147,11 +146,10 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
   %19 = urem i64 %18, %14
   %20 = getelementptr inbounds nuw %struct.HashEntry, ptr %4, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !18
-  %magicptr.i = ptrtoint ptr %21 to i64
-  switch i64 %magicptr.i, label %22 [
-    i64 0, label %get_entry.exit.thread
-    i64 -1, label %16
-  ]
+  %magicptr.i.i = ptrtoint ptr %21 to i64
+  %magicptr.off.i.i = add i64 %magicptr.i.i, -1
+  %switch.i.i = icmp ult i64 %magicptr.off.i.i, -2
+  br i1 %switch.i.i, label %22, label %match.exit.thread.i
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -164,7 +162,7 @@ match.exit.i:                                     ; preds = %22
   %26 = icmp eq i32 %bcmp.i.i, 0
   br i1 %26, label %get_entry.exit, label %match.exit.thread.i
 
-match.exit.thread.i:                              ; preds = %match.exit.i, %22
+match.exit.thread.i:                              ; preds = %match.exit.i, %22, %17
   %.not26.i = icmp eq ptr %21, null
   br i1 %.not26.i, label %get_entry.exit.thread, label %16
 
@@ -177,8 +175,8 @@ get_entry.exit:                                   ; preds = %match.exit.i
   %28 = load ptr, ptr %27, align 8, !tbaa !22
   br label %get_entry.exit.thread
 
-get_entry.exit.thread:                            ; preds = %17, %match.exit.thread.i, %3, %get_entry.exit
-  %29 = phi ptr [ %28, %get_entry.exit ], [ null, %3 ], [ null, %match.exit.thread.i ], [ null, %17 ]
+get_entry.exit.thread:                            ; preds = %match.exit.thread.i, %3, %get_entry.exit
+  %29 = phi ptr [ %28, %get_entry.exit ], [ null, %3 ], [ null, %match.exit.thread.i ]
   ret ptr %29
 }
 
@@ -205,7 +203,7 @@ define dso_local void @hashmap_put2(ptr noundef captures(none) %0, ptr noundef %
   store ptr %8, ptr %0, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 16, ptr %9, align 8, !tbaa !16
-  br label %47
+  br label %45
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -215,180 +213,177 @@ define dso_local void @hashmap_put2(ptr noundef captures(none) %0, ptr noundef %
   %15 = load i32, ptr %14, align 8, !tbaa !16
   %16 = sdiv i32 %13, %15
   %17 = icmp sgt i32 %16, 69
-  br i1 %17, label %.preheader10, label %47
+  br i1 %17, label %.preheader12, label %45
 
-.preheader10:                                     ; preds = %10
+.preheader12:                                     ; preds = %10
   %18 = icmp sgt i32 %15, 0
   br i1 %18, label %.lr.ph.preheader, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader10
+.lr.ph.preheader:                                 ; preds = %.preheader12
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %.lr.ph
 
-.preheader.loopexit:                              ; preds = %24
-  %19 = mul nsw i32 %.1.i, 100
+.preheader.loopexit:                              ; preds = %.lr.ph
+  %19 = mul nuw nsw i32 %spec.select.i, 100
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %.preheader10
-  %.0.i5.lcssa = phi i32 [ 0, %.preheader10 ], [ %19, %.preheader.loopexit ]
-  br label %25
+.preheader:                                       ; preds = %.preheader.loopexit, %.preheader12
+  %.0.i5.lcssa = phi i32 [ 0, %.preheader12 ], [ %19, %.preheader.loopexit ]
+  br label %23
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %.0.i515 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1.i, %24 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.0.i517 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select.i, %.lr.ph ]
   %20 = getelementptr inbounds nuw %struct.HashEntry, ptr %6, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !18
   %magicptr.i6 = ptrtoint ptr %21 to i64
-  switch i64 %magicptr.i6, label %22 [
-    i64 0, label %24
-    i64 -1, label %24
-  ]
-
-22:                                               ; preds = %.lr.ph
-  %23 = add nsw i32 %.0.i515, 1
-  br label %24
-
-24:                                               ; preds = %22, %.lr.ph, %.lr.ph
-  %.1.i = phi i32 [ %23, %22 ], [ %.0.i515, %.lr.ph ], [ %.0.i515, %.lr.ph ]
+  %magicptr.off.i7 = add i64 %magicptr.i6, -1
+  %switch.i8 = icmp ult i64 %magicptr.off.i7, -2
+  %22 = zext i1 %switch.i8 to i32
+  %spec.select.i = add nuw nsw i32 %.0.i517, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !24
 
-25:                                               ; preds = %25, %.preheader
-  %.025.i = phi i32 [ %28, %25 ], [ %15, %.preheader ]
-  %26 = sdiv i32 %.0.i5.lcssa, %.025.i
-  %27 = icmp sgt i32 %26, 49
-  %28 = shl nsw i32 %.025.i, 1
-  br i1 %27, label %25, label %29, !llvm.loop !25
+23:                                               ; preds = %23, %.preheader
+  %.025.i = phi i32 [ %26, %23 ], [ %15, %.preheader ]
+  %24 = sdiv i32 %.0.i5.lcssa, %.025.i
+  %25 = icmp sgt i32 %24, 49
+  %26 = shl nsw i32 %.025.i, 1
+  br i1 %25, label %23, label %27, !llvm.loop !25
 
-29:                                               ; preds = %25
+27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %30, align 8
-  %31 = sext i32 %.025.i to i64
-  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 24) #11
-  store ptr %32, ptr %5, align 8, !tbaa !7
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.025.i, ptr %33, align 8, !tbaa !16
-  br i1 %18, label %.lr.ph17, label %rehash.exit
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 0, ptr %28, align 8
+  %29 = sext i32 %.025.i to i64
+  %30 = tail call noalias ptr @calloc(i64 noundef %29, i64 noundef 24) #11
+  store ptr %30, ptr %5, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.025.i, ptr %31, align 8, !tbaa !16
+  br i1 %18, label %.lr.ph19, label %rehash.exit
 
-.lr.ph17:                                         ; preds = %29, %43
-  %34 = phi i32 [ %44, %43 ], [ %15, %29 ]
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %43 ], [ 0, %29 ]
-  %35 = load ptr, ptr %0, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %struct.HashEntry, ptr %35, i64 %indvars.iv26
-  %37 = load ptr, ptr %36, align 8, !tbaa !18
-  %magicptr33.i = ptrtoint ptr %37 to i64
-  switch i64 %magicptr33.i, label %38 [
-    i64 0, label %43
-    i64 -1, label %43
-  ]
+.lr.ph19:                                         ; preds = %27, %41
+  %32 = phi i32 [ %42, %41 ], [ %15, %27 ]
+  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %41 ], [ 0, %27 ]
+  %33 = load ptr, ptr %0, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.HashEntry, ptr %33, i64 %indvars.iv28
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
+  %magicptr33.i = ptrtoint ptr %35 to i64
+  %magicptr33.off.i = add i64 %magicptr33.i, -1
+  %switch34.i = icmp ult i64 %magicptr33.off.i, -2
+  br i1 %switch34.i, label %36, label %41
 
-38:                                               ; preds = %.lr.ph17
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !22
-  call void @hashmap_put2(ptr noundef nonnull %5, ptr noundef nonnull %37, i32 noundef %40, ptr noundef %42)
+36:                                               ; preds = %.lr.ph19
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %38 = load i32, ptr %37, align 8, !tbaa !21
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
+  call void @hashmap_put2(ptr noundef nonnull %5, ptr noundef nonnull %35, i32 noundef %38, ptr noundef %40)
   %.pre = load i32, ptr %14, align 8, !tbaa !16
-  br label %43
+  br label %41
 
-43:                                               ; preds = %38, %.lr.ph17, %.lr.ph17
-  %44 = phi i32 [ %.pre, %38 ], [ %34, %.lr.ph17 ], [ %34, %.lr.ph17 ]
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next27, %45
-  br i1 %46, label %.lr.ph17, label %rehash.exit, !llvm.loop !26
+41:                                               ; preds = %36, %.lr.ph19
+  %42 = phi i32 [ %.pre, %36 ], [ %32, %.lr.ph19 ]
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next29, %43
+  br i1 %44, label %.lr.ph19, label %rehash.exit, !llvm.loop !26
 
-rehash.exit:                                      ; preds = %43, %29
+rehash.exit:                                      ; preds = %41, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %47
+  br label %45
 
-47:                                               ; preds = %rehash.exit, %10, %7
-  %48 = icmp sgt i32 %2, 0
-  br i1 %48, label %.lr.ph.preheader.i, label %fnv_hash.exit
+45:                                               ; preds = %rehash.exit, %10, %7
+  %46 = icmp sgt i32 %2, 0
+  br i1 %46, label %.lr.ph.preheader.i, label %fnv_hash.exit
 
-.lr.ph.preheader.i:                               ; preds = %47
+.lr.ph.preheader.i:                               ; preds = %45
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.078.i = phi i64 [ -3750763034362895579, %.lr.ph.preheader.i ], [ %53, %.lr.ph.i ]
-  %49 = mul i64 %.078.i, 1099511628211
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %51 = load i8, ptr %50, align 1, !tbaa !13
-  %52 = zext i8 %51 to i64
-  %53 = xor i64 %49, %52
+  %.078.i = phi i64 [ -3750763034362895579, %.lr.ph.preheader.i ], [ %51, %.lr.ph.i ]
+  %47 = mul i64 %.078.i, 1099511628211
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
+  %49 = load i8, ptr %48, align 1, !tbaa !13
+  %50 = zext i8 %49 to i64
+  %51 = xor i64 %47, %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %fnv_hash.exit, label %.lr.ph.i, !llvm.loop !14
 
-fnv_hash.exit:                                    ; preds = %.lr.ph.i, %47
-  %.07.lcssa.i = phi i64 [ -3750763034362895579, %47 ], [ %53, %.lr.ph.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !16
-  %.not40.i18 = icmp sgt i32 %55, 0
-  br i1 %.not40.i18, label %.lr.ph20, label %.critedge.i
+fnv_hash.exit:                                    ; preds = %.lr.ph.i, %45
+  %.07.lcssa.i = phi i64 [ -3750763034362895579, %45 ], [ %51, %.lr.ph.i ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %53 = load i32, ptr %52, align 8, !tbaa !16
+  %.not40.i20 = icmp sgt i32 %53, 0
+  br i1 %.not40.i20, label %.lr.ph22, label %.critedge.i
 
-.lr.ph20:                                         ; preds = %fnv_hash.exit
-  %56 = load ptr, ptr %0, align 8, !tbaa !7
-  %57 = zext nneg i32 %55 to i64
-  %58 = sext i32 %2 to i64
-  br label %59
+.lr.ph22:                                         ; preds = %fnv_hash.exit
+  %54 = load ptr, ptr %0, align 8, !tbaa !7
+  %55 = zext nneg i32 %53 to i64
+  %56 = sext i32 %2 to i64
+  br label %57
 
-59:                                               ; preds = %.lr.ph20, %match.exit.thread
-  %indvars.iv29 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next30, %match.exit.thread ]
-  %60 = add i64 %.07.lcssa.i, %indvars.iv29
-  %61 = urem i64 %60, %57
-  %62 = getelementptr inbounds nuw %struct.HashEntry, ptr %56, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !18
-  %magicptr.i4 = ptrtoint ptr %63 to i64
-  switch i64 %magicptr.i4, label %64 [
-    i64 -1, label %69
-    i64 0, label %71
+57:                                               ; preds = %.lr.ph22, %74
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next32, %74 ]
+  %58 = add i64 %.07.lcssa.i, %indvars.iv31
+  %59 = urem i64 %58, %55
+  %60 = getelementptr inbounds nuw %struct.HashEntry, ptr %54, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !18
+  %magicptr.i4 = ptrtoint ptr %61 to i64
+  %magicptr.off.i = add i64 %magicptr.i4, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %62, label %match.exit.thread
+
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %64 = load i32, ptr %63, align 8, !tbaa !21
+  %65 = icmp eq i32 %64, %2
+  br i1 %65, label %match.exit, label %match.exit.thread
+
+match.exit:                                       ; preds = %62
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %61, ptr readonly %1, i64 %56)
+  %66 = icmp eq i32 %bcmp.i, 0
+  br i1 %66, label %get_or_insert_entry.exit, label %match.exit.thread
+
+match.exit.thread:                                ; preds = %57, %62, %match.exit
+  switch i64 %magicptr.i4, label %74 [
+    i64 -1, label %67
+    i64 0, label %69
   ]
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %66 = load i32, ptr %65, align 8, !tbaa !21
-  %67 = icmp eq i32 %66, %2
-  br i1 %67, label %match.exit, label %match.exit.thread
+67:                                               ; preds = %match.exit.thread
+  store ptr %1, ptr %60, align 8, !tbaa !18
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i32 %2, ptr %68, align 8, !tbaa !21
+  br label %get_or_insert_entry.exit
 
-match.exit:                                       ; preds = %64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %63, ptr readonly %1, i64 %58)
-  %68 = icmp eq i32 %bcmp.i, 0
-  br i1 %68, label %get_or_insert_entry.exit, label %match.exit.thread
-
-69:                                               ; preds = %59
-  store ptr %1, ptr %62, align 8, !tbaa !18
-  %70 = getelementptr inbounds nuw i8, ptr %62, i64 8
+69:                                               ; preds = %match.exit.thread
+  store ptr %1, ptr %60, align 8, !tbaa !18
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %2, ptr %70, align 8, !tbaa !21
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %72 = load i32, ptr %71, align 4, !tbaa !23
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %71, align 4, !tbaa !23
   br label %get_or_insert_entry.exit
 
-71:                                               ; preds = %59
-  store ptr %1, ptr %62, align 8, !tbaa !18
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i32 %2, ptr %72, align 8, !tbaa !21
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %74 = load i32, ptr %73, align 4, !tbaa !23
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %73, align 4, !tbaa !23
-  br label %get_or_insert_entry.exit
+74:                                               ; preds = %match.exit.thread
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %55
+  br i1 %exitcond35.not, label %.critedge.i, label %57, !llvm.loop !30
 
-match.exit.thread:                                ; preds = %match.exit, %64
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %exitcond33.not = icmp eq i64 %indvars.iv.next30, %57
-  br i1 %exitcond33.not, label %.critedge.i, label %59, !llvm.loop !30
-
-.critedge.i:                                      ; preds = %match.exit.thread, %fnv_hash.exit
+.critedge.i:                                      ; preds = %74, %fnv_hash.exit
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 105) #10
   unreachable
 
-get_or_insert_entry.exit:                         ; preds = %match.exit, %71, %69
-  %76 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %3, ptr %76, align 8, !tbaa !22
+get_or_insert_entry.exit:                         ; preds = %match.exit, %69, %67
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store ptr %3, ptr %75, align 8, !tbaa !22
   ret void
 }
 
@@ -433,7 +428,7 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
   %16 = ashr exact i64 %sext, 32
   br label %18
 
-17:                                               ; preds = %match.exit.thread.i.i, %18
+17:                                               ; preds = %match.exit.thread.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %15
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %18, !llvm.loop !17
@@ -444,11 +439,10 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
   %20 = urem i64 %19, %15
   %21 = getelementptr inbounds nuw %struct.HashEntry, ptr %5, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !18
-  %magicptr.i.i = ptrtoint ptr %22 to i64
-  switch i64 %magicptr.i.i, label %23 [
-    i64 0, label %hashmap_delete2.exit
-    i64 -1, label %17
-  ]
+  %magicptr.i.i.i = ptrtoint ptr %22 to i64
+  %magicptr.off.i.i.i = add i64 %magicptr.i.i.i, -1
+  %switch.i.i.i = icmp ult i64 %magicptr.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %23, label %match.exit.thread.i.i
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -461,7 +455,7 @@ match.exit.i.i:                                   ; preds = %23
   %27 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %27, label %get_entry.exit.i, label %match.exit.thread.i.i
 
-match.exit.thread.i.i:                            ; preds = %match.exit.i.i, %23
+match.exit.thread.i.i:                            ; preds = %match.exit.i.i, %23, %18
   %.not26.i.i = icmp eq ptr %22, null
   br i1 %.not26.i.i, label %hashmap_delete2.exit, label %17
 
@@ -473,7 +467,7 @@ get_entry.exit.i:                                 ; preds = %match.exit.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %21, align 8, !tbaa !18
   br label %hashmap_delete2.exit
 
-hashmap_delete2.exit:                             ; preds = %18, %match.exit.thread.i.i, %2, %get_entry.exit.i
+hashmap_delete2.exit:                             ; preds = %match.exit.thread.i.i, %2, %get_entry.exit.i
   ret void
 }
 
@@ -515,7 +509,7 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
   %15 = sext i32 %2 to i64
   br label %17
 
-16:                                               ; preds = %match.exit.thread.i, %17
+16:                                               ; preds = %match.exit.thread.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
   br i1 %exitcond.not.i, label %.critedge.i, label %17, !llvm.loop !17
@@ -526,11 +520,10 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
   %19 = urem i64 %18, %14
   %20 = getelementptr inbounds nuw %struct.HashEntry, ptr %4, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !18
-  %magicptr.i = ptrtoint ptr %21 to i64
-  switch i64 %magicptr.i, label %22 [
-    i64 0, label %get_entry.exit.thread
-    i64 -1, label %16
-  ]
+  %magicptr.i.i = ptrtoint ptr %21 to i64
+  %magicptr.off.i.i = add i64 %magicptr.i.i, -1
+  %switch.i.i = icmp ult i64 %magicptr.off.i.i, -2
+  br i1 %switch.i.i, label %22, label %match.exit.thread.i
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -543,7 +536,7 @@ match.exit.i:                                     ; preds = %22
   %26 = icmp eq i32 %bcmp.i.i, 0
   br i1 %26, label %get_entry.exit, label %match.exit.thread.i
 
-match.exit.thread.i:                              ; preds = %match.exit.i, %22
+match.exit.thread.i:                              ; preds = %match.exit.i, %22, %17
   %.not26.i = icmp eq ptr %21, null
   br i1 %.not26.i, label %get_entry.exit.thread, label %16
 
@@ -555,7 +548,7 @@ get_entry.exit:                                   ; preds = %match.exit.i
   store ptr inttoptr (i64 -1 to ptr), ptr %20, align 8, !tbaa !18
   br label %get_entry.exit.thread
 
-get_entry.exit.thread:                            ; preds = %17, %match.exit.thread.i, %3, %get_entry.exit
+get_entry.exit.thread:                            ; preds = %match.exit.thread.i, %3, %get_entry.exit
   ret void
 }
 

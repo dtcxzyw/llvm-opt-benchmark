@@ -5757,14 +5757,14 @@ json_find_attr.exit.thread:                       ; preds = %10, %3, %json_find_
 
 sub_0:                                            ; preds = %json_find_attr.exit
   %23 = load i8, ptr %21, align 1
-  %.not97 = icmp eq i8 %23, 101
-  br i1 %.not97, label %sub_1, label %.tail.thread
+  %.not96 = icmp eq i8 %23, 101
+  br i1 %.not96, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %25 = load i8, ptr %24, align 1
-  %.not98 = icmp eq i8 %25, 111
-  br i1 %.not98, label %.tail, label %.tail.thread
+  %.not97 = icmp eq i8 %25, 111
+  br i1 %.not97, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 2
@@ -5785,7 +5785,7 @@ sub_1:                                            ; preds = %sub_0
 33:                                               ; preds = %32, %29
   %34 = load ptr, ptr @sharkd_eo_list, align 8
   %.not9.i = icmp eq ptr %34, null
-  br i1 %.not9.i, label %.loopexit89, label %.lr.ph.i79
+  br i1 %.not9.i, label %.loopexit88, label %.lr.ph.i79
 
 .lr.ph.i79:                                       ; preds = %33, %38
   %.010.i = phi ptr [ %39, %38 ], [ %34, %33 ]
@@ -5798,9 +5798,9 @@ sub_1:                                            ; preds = %sub_0
 38:                                               ; preds = %.lr.ph.i79
   %39 = load ptr, ptr %.010.i, align 8
   %.not.i80 = icmp eq ptr %39, null
-  br i1 %.not.i80, label %.loopexit89, label %.lr.ph.i79, !llvm.loop !43
+  br i1 %.not.i80, label %.loopexit88, label %.lr.ph.i79, !llvm.loop !43
 
-.loopexit89:                                      ; preds = %38, %33
+.loopexit88:                                      ; preds = %38, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5810,12 +5810,12 @@ sub_1:                                            ; preds = %sub_0
   %.not.i81 = icmp ne ptr %41, null
   br i1 %.not.i81, label %43, label %.thread26.i
 
-.thread26.i:                                      ; preds = %.loopexit89
+.thread26.i:                                      ; preds = %.loopexit88
   %42 = load i32, ptr @rpcid, align 4
   tail call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %42, i32 noundef -11011, ptr poison, ptr noundef nonnull @.str.467, ptr noundef %40)
   br label %50
 
-43:                                               ; preds = %.loopexit89
+43:                                               ; preds = %.loopexit88
   %44 = call fastcc ptr @sharkd_session_eo_register_tap_listener(ptr noundef nonnull %41, ptr noundef %30, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not15.i = icmp eq ptr %44, null
   br i1 %.not15.i, label %.thread24.i, label %46
@@ -5859,13 +5859,13 @@ sharkd_session_eo_retap_listener.exit:            ; preds = %52, %55
 
 sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd_session_eo_retap_listener.exit
   tail call void @g_free(ptr noundef %30)
-  %.05294 = load ptr, ptr @sharkd_eo_list, align 8
-  %.not6695 = icmp eq ptr %.05294, null
-  br i1 %.not6695, label %.loopexit.thread, label %.lr.ph
+  %.05293 = load ptr, ptr @sharkd_eo_list, align 8
+  %.not6694 = icmp eq ptr %.05293, null
+  br i1 %.not6694, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %sharkd_eo_object_list_get_entry_by_type.exit, %69
-  %.05296 = phi ptr [ %.052, %69 ], [ %.05294, %sharkd_eo_object_list_get_entry_by_type.exit ]
-  %57 = getelementptr inbounds nuw i8, ptr %.05296, i64 8
+  %.05295 = phi ptr [ %.052, %69 ], [ %.05293, %sharkd_eo_object_list_get_entry_by_type.exit ]
+  %57 = getelementptr inbounds nuw i8, ptr %.05295, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i64 @strlen(ptr noundef %58) #18
   %60 = tail call i32 @strncmp(ptr noundef nonnull %21, ptr noundef %58, i64 noundef %59) #18
@@ -5884,19 +5884,19 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   %67 = getelementptr i8, ptr %66, i64 1
   %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %67, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #17
   %.not68 = icmp eq i32 %68, 1
-  br i1 %.not68, label %.loopexit, label %.loopexit.thread115
+  br i1 %.not68, label %.loopexit, label %.loopexit.thread114
 
-.loopexit.thread115:                              ; preds = %65
+.loopexit.thread114:                              ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.thread
 
 69:                                               ; preds = %.lr.ph, %61
-  %.052 = load ptr, ptr %.05296, align 8
+  %.052 = load ptr, ptr %.05295, align 8
   %.not66 = icmp eq ptr %.052, null
   br i1 %.not66, label %.loopexit.thread, label %.lr.ph, !llvm.loop !44
 
 .loopexit:                                        ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %.05296, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.05295, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %6, align 4
   %73 = call ptr @g_slist_nth_data(ptr noundef %71, i32 noundef %72)
@@ -5939,7 +5939,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   %87 = call i32 @fflush(ptr noundef %86)
   br label %126
 
-.loopexit.thread:                                 ; preds = %69, %sharkd_eo_object_list_get_entry_by_type.exit, %.loopexit.thread115, %.loopexit
+.loopexit.thread:                                 ; preds = %69, %sharkd_eo_object_list_get_entry_by_type.exit, %.loopexit.thread114, %.loopexit
   %88 = load i32, ptr @rpcid, align 4
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.8)
@@ -9813,10 +9813,10 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 .preheader.i:                                     ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8
-  %.not219.i = icmp eq i32 %75, 0
-  br i1 %.not219.i, label %.loopexit.i, label %.lr.ph218.i
+  %.not218.i = icmp eq i32 %75, 0
+  br i1 %.not218.i, label %.loopexit.i, label %.lr.ph217.i
 
-.lr.ph218.i:                                      ; preds = %.preheader.i
+.lr.ph217.i:                                      ; preds = %.preheader.i
   %cond1.i = icmp eq i32 %58, 10
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -9831,8 +9831,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %or.cond4.i = icmp eq i32 %85, 4
   br label %86
 
-86:                                               ; preds = %290, %.lr.ph218.i
-  %indvars.iv221.i = phi i64 [ 0, %.lr.ph218.i ], [ %indvars.iv.next222.i, %290 ]
+86:                                               ; preds = %290, %.lr.ph217.i
+  %indvars.iv220.i = phi i64 [ 0, %.lr.ph217.i ], [ %indvars.iv.next221.i, %290 ]
   %87 = call i32 @proto_registrar_get_ftype(i32 noundef %56)
   switch i32 %87, label %285 [
     i32 4, label %88
@@ -9858,7 +9858,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 88:                                               ; preds = %86, %86, %86, %86
   %89 = load ptr, ptr %73, align 8
-  %90 = getelementptr ptr, ptr %89, i64 %indvars.iv221.i
+  %90 = getelementptr ptr, ptr %89, i64 %indvars.iv220.i
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %93 = load ptr, ptr %92, align 8
@@ -9866,10 +9866,10 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %95 = zext i32 %94 to i64
   %96 = load i64, ptr %76, align 8
   %97 = icmp ult i64 %96, %95
-  %.pre229.pre.pre.pre.i = load i64, ptr %77, align 8
-  %98 = icmp eq i64 %.pre229.pre.pre.pre.i, 0
-  %or.cond241.i = select i1 %97, i1 true, i1 %98
-  br i1 %or.cond241.i, label %99, label %101
+  %.pre228.pre.pre.pre.i = load i64, ptr %77, align 8
+  %98 = icmp eq i64 %.pre228.pre.pre.pre.i, 0
+  %or.cond240.i = select i1 %97, i1 true, i1 %98
+  br i1 %or.cond240.i, label %99, label %101
 
 99:                                               ; preds = %88
   store i64 %95, ptr %76, align 8
@@ -9880,8 +9880,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 101:                                              ; preds = %99, %88
   %102 = load i64, ptr %79, align 8
   %103 = icmp ugt i64 %102, %95
-  %or.cond242.i = select i1 %103, i1 true, i1 %98
-  br i1 %or.cond242.i, label %104, label %106
+  %or.cond241.i = select i1 %103, i1 true, i1 %98
+  br i1 %or.cond241.i, label %104, label %106
 
 104:                                              ; preds = %101
   store i64 %95, ptr %79, align 8
@@ -9894,13 +9894,13 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %108 = load double, ptr %81, align 8
   %109 = fadd double %108, %107
   store double %109, ptr %81, align 8
-  %110 = add i64 %.pre229.pre.pre.pre.i, 1
+  %110 = add i64 %.pre228.pre.pre.pre.i, 1
   store i64 %110, ptr %77, align 8
   br label %290
 
 111:                                              ; preds = %86, %86, %86, %86
   %112 = load ptr, ptr %73, align 8
-  %113 = getelementptr ptr, ptr %112, i64 %indvars.iv221.i
+  %113 = getelementptr ptr, ptr %112, i64 %indvars.iv220.i
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %116 = load ptr, ptr %115, align 8
@@ -9908,10 +9908,10 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %118 = sext i32 %117 to i64
   %119 = load i64, ptr %76, align 8
   %120 = icmp slt i64 %119, %118
-  %.pre228.pre.pre.pre.i = load i64, ptr %77, align 8
-  %121 = icmp eq i64 %.pre228.pre.pre.pre.i, 0
-  %or.cond243.i = select i1 %120, i1 true, i1 %121
-  br i1 %or.cond243.i, label %122, label %124
+  %.pre227.pre.pre.pre.i = load i64, ptr %77, align 8
+  %121 = icmp eq i64 %.pre227.pre.pre.pre.i, 0
+  %or.cond242.i = select i1 %120, i1 true, i1 %121
+  br i1 %or.cond242.i, label %122, label %124
 
 122:                                              ; preds = %111
   store i64 %118, ptr %76, align 8
@@ -9922,8 +9922,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 124:                                              ; preds = %122, %111
   %125 = load i64, ptr %79, align 8
   %126 = icmp sgt i64 %125, %118
-  %or.cond244.i = select i1 %126, i1 true, i1 %121
-  br i1 %or.cond244.i, label %127, label %129
+  %or.cond243.i = select i1 %126, i1 true, i1 %121
+  br i1 %or.cond243.i, label %127, label %129
 
 127:                                              ; preds = %124
   store i64 %118, ptr %79, align 8
@@ -9936,23 +9936,23 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %131 = load double, ptr %81, align 8
   %132 = fadd double %131, %130
   store double %132, ptr %81, align 8
-  %133 = add i64 %.pre228.pre.pre.pre.i, 1
+  %133 = add i64 %.pre227.pre.pre.pre.i, 1
   store i64 %133, ptr %77, align 8
   br label %290
 
 134:                                              ; preds = %86, %86, %86, %86
   %135 = load ptr, ptr %73, align 8
-  %136 = getelementptr ptr, ptr %135, i64 %indvars.iv221.i
+  %136 = getelementptr ptr, ptr %135, i64 %indvars.iv220.i
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load ptr, ptr %138, align 8
   %140 = call i64 @fvalue_get_uinteger64(ptr noundef %139)
   %141 = load i64, ptr %76, align 8
   %142 = icmp ugt i64 %140, %141
-  %.pre227.pre.pre.pre.i = load i64, ptr %77, align 8
-  %143 = icmp eq i64 %.pre227.pre.pre.pre.i, 0
-  %or.cond245.i = select i1 %142, i1 true, i1 %143
-  br i1 %or.cond245.i, label %144, label %146
+  %.pre226.pre.pre.pre.i = load i64, ptr %77, align 8
+  %143 = icmp eq i64 %.pre226.pre.pre.pre.i, 0
+  %or.cond244.i = select i1 %142, i1 true, i1 %143
+  br i1 %or.cond244.i, label %144, label %146
 
 144:                                              ; preds = %134
   store i64 %140, ptr %76, align 8
@@ -9963,8 +9963,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 146:                                              ; preds = %144, %134
   %147 = load i64, ptr %79, align 8
   %148 = icmp ult i64 %140, %147
-  %or.cond246.i = select i1 %148, i1 true, i1 %143
-  br i1 %or.cond246.i, label %149, label %151
+  %or.cond245.i = select i1 %148, i1 true, i1 %143
+  br i1 %or.cond245.i, label %149, label %151
 
 149:                                              ; preds = %146
   store i64 %140, ptr %79, align 8
@@ -9977,23 +9977,23 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %153 = load double, ptr %81, align 8
   %154 = fadd double %153, %152
   store double %154, ptr %81, align 8
-  %155 = add i64 %.pre227.pre.pre.pre.i, 1
+  %155 = add i64 %.pre226.pre.pre.pre.i, 1
   store i64 %155, ptr %77, align 8
   br label %290
 
 156:                                              ; preds = %86, %86, %86, %86
   %157 = load ptr, ptr %73, align 8
-  %158 = getelementptr ptr, ptr %157, i64 %indvars.iv221.i
+  %158 = getelementptr ptr, ptr %157, i64 %indvars.iv220.i
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %161 = load ptr, ptr %160, align 8
   %162 = call i64 @fvalue_get_sinteger64(ptr noundef %161)
   %163 = load i64, ptr %76, align 8
   %164 = icmp sgt i64 %162, %163
-  %.pre226.pre.pre.pre.i = load i64, ptr %77, align 8
-  %165 = icmp eq i64 %.pre226.pre.pre.pre.i, 0
-  %or.cond247.i = select i1 %164, i1 true, i1 %165
-  br i1 %or.cond247.i, label %166, label %168
+  %.pre225.pre.pre.pre.i = load i64, ptr %77, align 8
+  %165 = icmp eq i64 %.pre225.pre.pre.pre.i, 0
+  %or.cond246.i = select i1 %164, i1 true, i1 %165
+  br i1 %or.cond246.i, label %166, label %168
 
 166:                                              ; preds = %156
   store i64 %162, ptr %76, align 8
@@ -10004,8 +10004,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 168:                                              ; preds = %166, %156
   %169 = load i64, ptr %79, align 8
   %170 = icmp slt i64 %162, %169
-  %or.cond248.i = select i1 %170, i1 true, i1 %165
-  br i1 %or.cond248.i, label %171, label %173
+  %or.cond247.i = select i1 %170, i1 true, i1 %165
+  br i1 %or.cond247.i, label %171, label %173
 
 171:                                              ; preds = %168
   store i64 %162, ptr %79, align 8
@@ -10018,13 +10018,13 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %175 = load double, ptr %81, align 8
   %176 = fadd double %175, %174
   store double %176, ptr %81, align 8
-  %177 = add i64 %.pre226.pre.pre.pre.i, 1
+  %177 = add i64 %.pre225.pre.pre.pre.i, 1
   store i64 %177, ptr %77, align 8
   br label %290
 
 178:                                              ; preds = %86
   %179 = load ptr, ptr %73, align 8
-  %180 = getelementptr ptr, ptr %179, i64 %indvars.iv221.i
+  %180 = getelementptr ptr, ptr %179, i64 %indvars.iv220.i
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
   %183 = load ptr, ptr %182, align 8
@@ -10033,10 +10033,10 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %186 = fpext float %185 to double
   %187 = load double, ptr %76, align 8
   %188 = fcmp olt double %187, %186
-  %.pre225.pre.pre.pre.i = load i64, ptr %77, align 8
-  %189 = icmp eq i64 %.pre225.pre.pre.pre.i, 0
-  %or.cond249.i = select i1 %188, i1 true, i1 %189
-  br i1 %or.cond249.i, label %190, label %192
+  %.pre224.pre.pre.pre.i = load i64, ptr %77, align 8
+  %189 = icmp eq i64 %.pre224.pre.pre.pre.i, 0
+  %or.cond248.i = select i1 %188, i1 true, i1 %189
+  br i1 %or.cond248.i, label %190, label %192
 
 190:                                              ; preds = %178
   store double %186, ptr %76, align 8
@@ -10047,8 +10047,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 192:                                              ; preds = %190, %178
   %193 = load double, ptr %79, align 8
   %194 = fcmp ogt double %193, %186
-  %or.cond250.i = select i1 %194, i1 true, i1 %189
-  br i1 %or.cond250.i, label %195, label %197
+  %or.cond249.i = select i1 %194, i1 true, i1 %189
+  br i1 %or.cond249.i, label %195, label %197
 
 195:                                              ; preds = %192
   store double %186, ptr %79, align 8
@@ -10060,23 +10060,23 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %198 = load double, ptr %81, align 8
   %199 = fadd double %198, %186
   store double %199, ptr %81, align 8
-  %200 = add i64 %.pre225.pre.pre.pre.i, 1
+  %200 = add i64 %.pre224.pre.pre.pre.i, 1
   store i64 %200, ptr %77, align 8
   br label %290
 
 201:                                              ; preds = %86
   %202 = load ptr, ptr %73, align 8
-  %203 = getelementptr ptr, ptr %202, i64 %indvars.iv221.i
+  %203 = getelementptr ptr, ptr %202, i64 %indvars.iv220.i
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 48
   %206 = load ptr, ptr %205, align 8
   %207 = call double @fvalue_get_floating(ptr noundef %206)
   %208 = load double, ptr %76, align 8
   %209 = fcmp ogt double %207, %208
-  %.pre224.pre.pre.pre.i = load i64, ptr %77, align 8
-  %210 = icmp eq i64 %.pre224.pre.pre.pre.i, 0
-  %or.cond251.i = select i1 %209, i1 true, i1 %210
-  br i1 %or.cond251.i, label %211, label %213
+  %.pre223.pre.pre.pre.i = load i64, ptr %77, align 8
+  %210 = icmp eq i64 %.pre223.pre.pre.pre.i, 0
+  %or.cond250.i = select i1 %209, i1 true, i1 %210
+  br i1 %or.cond250.i, label %211, label %213
 
 211:                                              ; preds = %201
   store double %207, ptr %76, align 8
@@ -10087,8 +10087,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 213:                                              ; preds = %211, %201
   %214 = load double, ptr %79, align 8
   %215 = fcmp olt double %207, %214
-  %or.cond252.i = select i1 %215, i1 true, i1 %210
-  br i1 %or.cond252.i, label %216, label %218
+  %or.cond251.i = select i1 %215, i1 true, i1 %210
+  br i1 %or.cond251.i, label %216, label %218
 
 216:                                              ; preds = %213
   store double %207, ptr %79, align 8
@@ -10100,13 +10100,13 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %219 = load double, ptr %81, align 8
   %220 = fadd double %207, %219
   store double %220, ptr %81, align 8
-  %221 = add i64 %.pre224.pre.pre.pre.i, 1
+  %221 = add i64 %.pre223.pre.pre.pre.i, 1
   store i64 %221, ptr %77, align 8
   br label %290
 
 222:                                              ; preds = %86
   %223 = load ptr, ptr %73, align 8
-  %224 = getelementptr ptr, ptr %223, i64 %indvars.iv221.i
+  %224 = getelementptr ptr, ptr %223, i64 %indvars.iv220.i
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 48
   %227 = load ptr, ptr %226, align 8
@@ -10128,8 +10128,8 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %237 = sdiv i32 %236, 1000
   %238 = sext i32 %237 to i64
   %239 = add i64 %234, %238
-  %.not212.i = icmp eq i64 %239, 0
-  br i1 %.not212.i, label %.thread.i, label %.lr.ph.preheader.i
+  %.not211.i = icmp eq i64 %239, 0
+  br i1 %.not211.i, label %.thread.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %232
   %240 = load i64, ptr %82, align 8
@@ -10144,10 +10144,10 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 .lr.ph.i60:                                       ; preds = %264, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %9, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %264 ]
-  %.1195214.i = phi i64 [ %spec.select.i, %.lr.ph.preheader.i ], [ %..i, %264 ]
-  %.0196213.i = phi i64 [ %239, %.lr.ph.preheader.i ], [ %265, %264 ]
+  %.1195213.i = phi i64 [ %spec.select.i, %.lr.ph.preheader.i ], [ %..i, %264 ]
+  %.0196212.i = phi i64 [ %239, %.lr.ph.preheader.i ], [ %265, %264 ]
   %247 = getelementptr %struct._io_graph_item_t, ptr %55, i64 %indvars.iv.i
-  %248 = trunc nuw i64 %.1195214.i to i32
+  %248 = trunc nuw i64 %.1195213.i to i32
   %249 = mul i32 %248, 1000
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 64
   %251 = load i32, ptr %250, align 8
@@ -10175,7 +10175,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 264:                                              ; preds = %259
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %265 = sub i64 %.0196213.i, %.1195214.i
+  %265 = sub i64 %.0196212.i, %.1195213.i
   %..i = call i64 @llvm.umin.i64(i64 %265, i64 %84)
   %.not.i61 = icmp eq i64 %265, 0
   br i1 %.not.i61, label %.thread.i, label %.lr.ph.i60
@@ -10237,10 +10237,10 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   unreachable
 
 290:                                              ; preds = %286, %282, %.thread.i, %218, %197, %173, %151, %129, %106
-  %indvars.iv.next222.i = add nuw nsw i64 %indvars.iv221.i, 1
+  %indvars.iv.next221.i = add nuw nsw i64 %indvars.iv220.i, 1
   %291 = load i32, ptr %74, align 8
   %292 = zext i32 %291 to i64
-  %293 = icmp samesign ult i64 %indvars.iv.next222.i, %292
+  %293 = icmp samesign ult i64 %indvars.iv.next221.i, %292
   br i1 %293, label %86, label %.loopexit.i, !llvm.loop !70
 
 .loopexit.i:                                      ; preds = %290, %.preheader.i, %._crit_edge.i

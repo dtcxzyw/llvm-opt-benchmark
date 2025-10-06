@@ -472,8 +472,8 @@ _ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i: ; preds = %
   %99 = icmp eq i32 %98, 0
   %100 = and i32 %98, 7
   %101 = icmp eq i32 %100, 4
-  %or.cond60 = or i1 %99, %101
-  br i1 %or.cond60, label %_ZN6google8protobuf8internal10WireFormat11SkipMessageEPNS0_2io16CodedInputStreamEPNS0_15UnknownFieldSetE.exit.thread, label %102
+  %or.cond59 = or i1 %99, %101
+  br i1 %or.cond59, label %_ZN6google8protobuf8internal10WireFormat11SkipMessageEPNS0_2io16CodedInputStreamEPNS0_15UnknownFieldSetE.exit.thread, label %102
 
 102:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i
   %103 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal10WireFormat9SkipFieldEPNS0_2io16CodedInputStreamEjPNS0_15UnknownFieldSetE(ptr noundef nonnull %0, i32 noundef %98, ptr noundef %83)
@@ -20776,10 +20776,10 @@ define internal fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVar
   br label %8
 
 8:                                                ; preds = %.lr.ph, %"_ZZN6google8protobuf8internal10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEENK3$_0clEm.exit"
-  %.0716 = phi ptr [ %0, %.lr.ph ], [ %.0.i12, %"_ZZN6google8protobuf8internal10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEENK3$_0clEm.exit" ]
-  %9 = load i8, ptr %.0716, align 1, !tbaa !20
+  %.0715 = phi ptr [ %0, %.lr.ph ], [ %.0.i12, %"_ZZN6google8protobuf8internal10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEENK3$_0clEm.exit" ]
+  %9 = load i8, ptr %.0715, align 1, !tbaa !20
   %.not.i = icmp sgt i8 %9, -1
-  %10 = getelementptr inbounds nuw i8, ptr %.0716, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0715, i64 1
   br i1 %.not.i, label %11, label %13
 
 11:                                               ; preds = %8
@@ -20798,11 +20798,11 @@ define internal fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVar
 
 20:                                               ; preds = %13
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %.0716, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0715, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit: ; preds = %13
-  %23 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0716, i32 noundef %19)
+  %23 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0715, i32 noundef %19)
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
   %26 = icmp eq ptr %24, null

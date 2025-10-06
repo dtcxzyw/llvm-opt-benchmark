@@ -680,7 +680,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %16
   %.not6.i.i = icmp eq ptr %27, null
-  br i1 %.not6.i.i, label %.loopexit9, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit8, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc6
   %28 = phi ptr [ %43, %.noexc6 ], [ %27, %.noexc ]
@@ -721,9 +721,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc6:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he055d3f67919fc9eE.exit.i.i"
   %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %.loopexit9, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit8, label %.lr.ph.i.i
 
-44:                                               ; preds = %.loopexit9, %13
+44:                                               ; preds = %.loopexit8, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
@@ -742,7 +742,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #11
           to label %48 unwind label %46
 
-.loopexit9:                                       ; preds = %.noexc6, %.noexc
+.loopexit8:                                       ; preds = %.noexc6, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %44

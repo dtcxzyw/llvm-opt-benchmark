@@ -135,7 +135,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_un
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %26
-  %.01722 = phi i32 [ %spec.select, %26 ], [ 1, %.preheader ]
+  %.01721 = phi i32 [ %spec.select, %26 ], [ 1, %.preheader ]
   %8 = tail call i64 @time(ptr noundef null) #10
   %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1504), align 8
   %10 = zext i16 %9 to i64
@@ -169,10 +169,10 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_un
   br label %26
 
 26:                                               ; preds = %23, %21
-  %27 = tail call i32 @sleep(i32 noundef %.01722) #10
-  %28 = icmp slt i32 %.01722, 32
+  %27 = tail call i32 @sleep(i32 noundef %.01721) #10
+  %28 = icmp slt i32 %.01721, 32
   %29 = zext i1 %28 to i32
-  %spec.select = shl nsw i32 %.01722, %29
+  %spec.select = shl nsw i32 %.01721, %29
   %30 = tail call i32 @killpg(i32 noundef %2, i32 noundef 0) #10
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.lr.ph, label %.loopexit

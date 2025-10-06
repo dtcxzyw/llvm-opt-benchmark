@@ -1348,8 +1348,8 @@ define internal noundef i32 @name_ref(ptr noundef %0, ptr readnone captures(none
 
 19:                                               ; preds = %.thread
   %20 = load ptr, ptr %16, align 8, !tbaa !110
-  %.not77112 = icmp eq ptr %20, null
-  br i1 %.not77112, label %.critedge, label %.lr.ph
+  %.not77111 = icmp eq ptr %20, null
+  br i1 %.not77111, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %.not15.i = icmp eq ptr %0, null
@@ -1357,8 +1357,8 @@ define internal noundef i32 @name_ref(ptr noundef %0, ptr readnone captures(none
   br i1 %.not15.i, label %.critedge, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %subpath_matches.exit.thread
-  %.055113115 = phi ptr [ %30, %subpath_matches.exit.thread ], [ %20, %.lr.ph ]
-  %22 = load ptr, ptr %.055113115, align 8, !tbaa !111
+  %.055112114 = phi ptr [ %30, %subpath_matches.exit.thread ], [ %20, %.lr.ph ]
+  %22 = load ptr, ptr %.055112114, align 8, !tbaa !111
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %select.unfold.i
@@ -1381,7 +1381,7 @@ subpath_matches.exit:                             ; preds = %.lr.ph.i
   br i1 %29, label %.critedge84, label %subpath_matches.exit.thread
 
 subpath_matches.exit.thread:                      ; preds = %select.unfold.i, %subpath_matches.exit
-  %30 = getelementptr inbounds nuw i8, ptr %.055113115, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.055112114, i64 16
   %31 = load ptr, ptr %16, align 8, !tbaa !110
   %32 = load i64, ptr %17, align 8, !tbaa !109
   %33 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %32
@@ -1397,19 +1397,19 @@ subpath_matches.exit.thread:                      ; preds = %select.unfold.i, %s
 
 38:                                               ; preds = %.critedge
   %39 = load ptr, ptr %35, align 8, !tbaa !114
-  %.not79116 = icmp eq ptr %39, null
-  br i1 %.not79116, label %.critedge84, label %.lr.ph120
+  %.not79115 = icmp eq ptr %39, null
+  br i1 %.not79115, label %.critedge84, label %.lr.ph119
 
-.lr.ph120:                                        ; preds = %38
+.lr.ph119:                                        ; preds = %38
   %.not15.i85 = icmp eq ptr %0, null
   %40 = ptrtoint ptr %0 to i64
   br i1 %.not15.i85, label %.critedge84, label %.lr.ph.i86.preheader
 
-.lr.ph.i86.preheader:                             ; preds = %.lr.ph120, %subpath_matches.exit92.thread
-  %.169117130 = phi i32 [ %.270, %subpath_matches.exit92.thread ], [ %15, %.lr.ph120 ]
-  %.054118129 = phi ptr [ %50, %subpath_matches.exit92.thread ], [ %39, %.lr.ph120 ]
-  %.052119128 = phi i32 [ %.153, %subpath_matches.exit92.thread ], [ 0, %.lr.ph120 ]
-  %41 = load ptr, ptr %.054118129, align 8, !tbaa !111
+.lr.ph.i86.preheader:                             ; preds = %.lr.ph119, %subpath_matches.exit92.thread
+  %.169116129 = phi i32 [ %.270, %subpath_matches.exit92.thread ], [ %15, %.lr.ph119 ]
+  %.054117128 = phi ptr [ %50, %subpath_matches.exit92.thread ], [ %39, %.lr.ph119 ]
+  %.052118127 = phi i32 [ %.153, %subpath_matches.exit92.thread ], [ 0, %.lr.ph119 ]
+  %41 = load ptr, ptr %.054117128, align 8, !tbaa !111
   br label %.lr.ph.i86
 
 .lr.ph.i86:                                       ; preds = %.lr.ph.i86.preheader, %select.unfold.i89
@@ -1440,9 +1440,9 @@ subpath_matches.exit92:                           ; preds = %.lr.ph.i86
   br label %subpath_matches.exit92.thread
 
 subpath_matches.exit92.thread:                    ; preds = %select.unfold.i89, %subpath_matches.exit92, %48, %49
-  %.270 = phi i32 [ 1, %49 ], [ %.169117130, %subpath_matches.exit92 ], [ %.169117130, %48 ], [ %.169117130, %select.unfold.i89 ]
-  %.153 = phi i32 [ 1, %49 ], [ %.052119128, %subpath_matches.exit92 ], [ 1, %48 ], [ %.052119128, %select.unfold.i89 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.054118129, i64 16
+  %.270 = phi i32 [ 1, %49 ], [ %.169116129, %subpath_matches.exit92 ], [ %.169116129, %48 ], [ %.169116129, %select.unfold.i89 ]
+  %.153 = phi i32 [ 1, %49 ], [ %.052118127, %subpath_matches.exit92 ], [ 1, %48 ], [ %.052118127, %select.unfold.i89 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.054117128, i64 16
   %51 = load ptr, ptr %35, align 8, !tbaa !114
   %52 = load i64, ptr %36, align 8, !tbaa !113
   %53 = getelementptr inbounds nuw %struct.string_list_item, ptr %51, i64 %52
@@ -1455,22 +1455,22 @@ subpath_matches.exit92.thread:                    ; preds = %select.unfold.i89, 
 
 56:                                               ; preds = %.critedge3, %.critedge
   %.068 = phi i32 [ %.270, %.critedge3 ], [ %15, %.critedge ]
-  %.not81132 = icmp eq ptr %7, null
-  br i1 %.not81132, label %.critedge5, label %.lr.ph136
+  %.not81131 = icmp eq ptr %7, null
+  br i1 %.not81131, label %.critedge5, label %.lr.ph135
 
-.lr.ph136:                                        ; preds = %56, %62
-  %.059135 = phi i64 [ %67, %62 ], [ -1, %56 ]
-  %.065134 = phi i8 [ 2, %62 ], [ 0, %56 ]
-  %.071133 = phi ptr [ %65, %62 ], [ %7, %56 ]
-  %57 = load i32, ptr %.071133, align 4
+.lr.ph135:                                        ; preds = %56, %62
+  %.059134 = phi i64 [ %67, %62 ], [ -1, %56 ]
+  %.065133 = phi i8 [ 2, %62 ], [ 0, %56 ]
+  %.071132 = phi ptr [ %65, %62 ], [ %7, %56 ]
+  %57 = load i32, ptr %.071132, align 4
   %58 = and i32 %57, 14
   switch i32 %58, label %.critedge5 [
     i32 8, label %59
     i32 2, label %68
   ]
 
-59:                                               ; preds = %.lr.ph136
-  %60 = getelementptr inbounds nuw i8, ptr %.071133, i64 40
+59:                                               ; preds = %.lr.ph135
+  %60 = getelementptr inbounds nuw i8, ptr %.071132, i64 40
   %61 = load ptr, ptr %60, align 8, !tbaa !115
   %.not82 = icmp eq ptr %61, null
   br i1 %.not82, label %.critedge5, label %62
@@ -1479,26 +1479,26 @@ subpath_matches.exit92.thread:                    ; preds = %select.unfold.i89, 
   %63 = load ptr, ptr @the_repository, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %65 = tail call ptr @parse_object(ptr noundef %63, ptr noundef nonnull %64) #16
-  %66 = getelementptr inbounds nuw i8, ptr %.071133, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %.071132, i64 56
   %67 = load i64, ptr %66, align 8, !tbaa !117
   %.not81 = icmp eq ptr %65, null
-  br i1 %.not81, label %.critedge5, label %.lr.ph136
+  br i1 %.not81, label %.critedge5, label %.lr.ph135
 
-68:                                               ; preds = %.lr.ph136
+68:                                               ; preds = %.lr.ph135
   %69 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.30) #16
-  %70 = icmp eq i64 %.059135, -1
+  %70 = icmp eq i64 %.059134, -1
   br i1 %70, label %71, label %.critedge5
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.071133, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.071132, i64 40
   %73 = load i64, ptr %72, align 8, !tbaa !31
   br label %.critedge5
 
-.critedge5:                                       ; preds = %59, %62, %.lr.ph136, %56, %68, %71
-  %.065108 = phi i8 [ %.065134, %71 ], [ %.065134, %68 ], [ 0, %56 ], [ %.065134, %59 ], [ 2, %62 ], [ %.065134, %.lr.ph136 ]
-  %.064 = phi i32 [ %69, %71 ], [ %69, %68 ], [ 0, %56 ], [ 0, %.lr.ph136 ], [ 0, %62 ], [ 0, %59 ]
-  %.063 = phi ptr [ %.071133, %71 ], [ %.071133, %68 ], [ null, %56 ], [ null, %.lr.ph136 ], [ null, %62 ], [ null, %59 ]
-  %.362 = phi i64 [ %73, %71 ], [ %.059135, %68 ], [ -1, %56 ], [ %.059135, %59 ], [ %67, %62 ], [ %.059135, %.lr.ph136 ]
+.critedge5:                                       ; preds = %59, %62, %.lr.ph135, %56, %68, %71
+  %.065107 = phi i8 [ %.065133, %71 ], [ %.065133, %68 ], [ 0, %56 ], [ %.065133, %59 ], [ 2, %62 ], [ %.065133, %.lr.ph135 ]
+  %.064 = phi i32 [ %69, %71 ], [ %69, %68 ], [ 0, %56 ], [ 0, %.lr.ph135 ], [ 0, %62 ], [ 0, %59 ]
+  %.063 = phi ptr [ %.071132, %71 ], [ %.071132, %68 ], [ null, %56 ], [ null, %.lr.ph135 ], [ null, %62 ], [ null, %59 ]
+  %.362 = phi i64 [ %73, %71 ], [ %.059134, %68 ], [ -1, %56 ], [ %.059134, %59 ], [ %67, %62 ], [ %.059134, %.lr.ph135 ]
   %.not.i = icmp eq i32 %.068, 0
   br i1 %.not.i, label %.preheader.preheader.i, label %74
 
@@ -1618,7 +1618,7 @@ add_to_tip_table.exit:                            ; preds = %100, %108
   %119 = load i8, ptr %117, align 8
   %120 = and i8 %118, 1
   %121 = and i8 %119, -4
-  %122 = or disjoint i8 %120, %.065108
+  %122 = or disjoint i8 %120, %.065107
   %123 = or disjoint i8 %122, %121
   store i8 %123, ptr %117, align 8
   %124 = add nsw i32 %110, 1
@@ -1626,7 +1626,7 @@ add_to_tip_table.exit:                            ; preds = %100, %108
   store i1 false, ptr @tip_table.3, align 8
   br label %.critedge84
 
-.critedge84:                                      ; preds = %subpath_matches.exit, %.lr.ph120, %38, %9, %.critedge3, %add_to_tip_table.exit
+.critedge84:                                      ; preds = %subpath_matches.exit, %.lr.ph119, %38, %9, %.critedge3, %add_to_tip_table.exit
   ret i32 0
 }
 

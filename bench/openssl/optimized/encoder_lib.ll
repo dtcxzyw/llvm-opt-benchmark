@@ -171,225 +171,226 @@ define internal fastcc i32 @encoder_process(ptr noundef nonnull captures(none) %
 17:                                               ; preds = %10, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !19
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = icmp sgt i32 %19, 0
-  br i1 %33, label %.lr.ph, label %.thread
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph, label %.thread149
 
-.lr.ph:                                           ; preds = %17, %.backedge
-  %.in = phi i32 [ %34, %.backedge ], [ %19, %17 ]
-  %34 = add nsw i32 %.in, -1
+.lr.ph:                                           ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %34
+
+34:                                               ; preds = %.lr.ph, %select.unfold
+  %.in = phi i32 [ %19, %.lr.ph ], [ %35, %select.unfold ]
+  %35 = add nsw i32 %.in, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not.not, label %OSSL_ENCODER_INSTANCE_get_encoder.exit, label %35
+  br i1 %.not.not, label %OSSL_ENCODER_INSTANCE_get_encoder.exit, label %36
 
-35:                                               ; preds = %.lr.ph
-  %36 = load ptr, ptr %8, align 8, !tbaa !22
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %OSSL_ENCODER_INSTANCE_get_encoder.exit, label %38
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %8, align 8, !tbaa !22
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %OSSL_ENCODER_INSTANCE_get_encoder.exit, label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %36, align 8, !tbaa !25
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %37, align 8, !tbaa !25
   br label %OSSL_ENCODER_INSTANCE_get_encoder.exit
 
-OSSL_ENCODER_INSTANCE_get_encoder.exit:           ; preds = %38, %35, %.lr.ph
-  %.0100 = phi ptr [ null, %.lr.ph ], [ %39, %38 ], [ null, %35 ]
-  %40 = load ptr, ptr %0, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !15
-  %43 = tail call ptr @OPENSSL_sk_value(ptr noundef %42, i32 noundef range(i32 -2147483648, 2147483647) %34) #8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit, label %45
+OSSL_ENCODER_INSTANCE_get_encoder.exit:           ; preds = %39, %36, %34
+  %.0100 = phi ptr [ null, %34 ], [ %40, %39 ], [ null, %36 ]
+  %41 = load ptr, ptr %0, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !15
+  %44 = tail call ptr @OPENSSL_sk_value(ptr noundef %43, i32 noundef range(i32 -2147483648, 2147483647) %35) #8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit, label %46
 
-45:                                               ; preds = %OSSL_ENCODER_INSTANCE_get_encoder.exit
-  %46 = load ptr, ptr %43, align 8, !tbaa !25
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !29
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !30
+46:                                               ; preds = %OSSL_ENCODER_INSTANCE_get_encoder.exit
+  %47 = load ptr, ptr %44, align 8, !tbaa !25
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !28
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !29
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !30
   br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit
 
-OSSL_ENCODER_INSTANCE_get_output_structure.exit:  ; preds = %OSSL_ENCODER_INSTANCE_get_encoder.exit, %45
-  %.0.i131146 = phi ptr [ %50, %45 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
-  %.0.i128136139145 = phi ptr [ %46, %45 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
-  %.0.i130140144 = phi ptr [ %48, %45 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
-  %.0.i132 = phi ptr [ %52, %45 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false)
-  %53 = load ptr, ptr %0, align 8, !tbaa !3
-  store ptr %53, ptr %3, align 8, !tbaa !3
-  store i32 %34, ptr %20, align 8, !tbaa !19
-  store ptr %43, ptr %21, align 8, !tbaa !22
-  %54 = load i32, ptr %22, align 8, !tbaa !24
-  store i32 %54, ptr %23, align 8, !tbaa !24
-  %55 = load i32, ptr %24, align 4, !tbaa !31
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %25, align 4, !tbaa !31
-  br i1 %.not.not, label %57, label %62
+OSSL_ENCODER_INSTANCE_get_output_structure.exit:  ; preds = %OSSL_ENCODER_INSTANCE_get_encoder.exit, %46
+  %.0.i131146 = phi ptr [ %51, %46 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
+  %.0.i128136139145 = phi ptr [ %47, %46 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
+  %.0.i130140144 = phi ptr [ %49, %46 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
+  %.0.i132 = phi ptr [ %53, %46 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, i8 0, i64 64, i1 false)
+  %54 = load ptr, ptr %0, align 8, !tbaa !3
+  store ptr %54, ptr %3, align 8, !tbaa !3
+  store i32 %35, ptr %21, align 8, !tbaa !19
+  store ptr %44, ptr %22, align 8, !tbaa !22
+  %55 = load i32, ptr %23, align 8, !tbaa !24
+  store i32 %55, ptr %24, align 8, !tbaa !24
+  %56 = load i32, ptr %25, align 4, !tbaa !31
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %26, align 4, !tbaa !31
+  br i1 %.not.not, label %58, label %63
 
-57:                                               ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !32
-  %.not112 = icmp eq ptr %59, null
-  br i1 %.not112, label %64, label %60
+58:                                               ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !32
+  %.not112 = icmp eq ptr %60, null
+  br i1 %.not112, label %65, label %61
 
-60:                                               ; preds = %57
-  %61 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %.0.i131146, ptr noundef nonnull %59) #8
-  %.not113 = icmp eq i32 %61, 0
-  br i1 %.not113, label %64, label %81, !llvm.loop !33
+61:                                               ; preds = %58
+  %62 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %.0.i131146, ptr noundef nonnull %60) #8
+  %.not113 = icmp eq i32 %62, 0
+  br i1 %.not113, label %65, label %select.unfold, !llvm.loop !33
 
-62:                                               ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
-  %63 = tail call i32 @OSSL_ENCODER_is_a(ptr noundef %.0100, ptr noundef %.0.i131146) #8
-  %.not111 = icmp eq i32 %63, 0
-  br i1 %.not111, label %81, label %64, !llvm.loop !33
+63:                                               ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
+  %64 = tail call i32 @OSSL_ENCODER_is_a(ptr noundef %.0100, ptr noundef %.0.i131146) #8
+  %.not111 = icmp eq i32 %64, 0
+  br i1 %.not111, label %select.unfold, label %65, !llvm.loop !33
 
-64:                                               ; preds = %62, %57, %60
-  %65 = load ptr, ptr %0, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !23
-  %68 = icmp ne ptr %67, null
-  %69 = icmp ne ptr %.0.i132, null
-  %or.cond = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond, label %70, label %75
+65:                                               ; preds = %63, %58, %61
+  %66 = load ptr, ptr %0, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !23
+  %69 = icmp ne ptr %68, null
+  %70 = icmp ne ptr %.0.i132, null
+  %or.cond = select i1 %69, i1 %70, i1 false
+  br i1 %or.cond, label %71, label %76
 
-70:                                               ; preds = %64
-  %71 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %67, ptr noundef nonnull %.0.i132) #8
-  %.not114 = icmp eq i32 %71, 0
-  br i1 %.not114, label %72, label %81, !llvm.loop !33
+71:                                               ; preds = %65
+  %72 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %68, ptr noundef nonnull %.0.i132) #8
+  %.not114 = icmp eq i32 %72, 0
+  br i1 %.not114, label %73, label %select.unfold, !llvm.loop !33
 
-72:                                               ; preds = %70
-  %73 = load i32, ptr %22, align 8, !tbaa !24
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %22, align 8, !tbaa !24
-  br label %75
+73:                                               ; preds = %71
+  %74 = load i32, ptr %23, align 8, !tbaa !24
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %23, align 8, !tbaa !24
+  br label %76
 
-75:                                               ; preds = %72, %64
-  %76 = call fastcc i32 @encoder_process(ptr noundef %3)
-  %77 = load ptr, ptr %26, align 8, !tbaa !35
-  store ptr %77, ptr %27, align 8, !tbaa !35
-  %78 = load ptr, ptr %28, align 8, !tbaa !36
-  store ptr %78, ptr %29, align 8, !tbaa !36
-  %79 = load i64, ptr %30, align 8, !tbaa !37
-  store i64 %79, ptr %31, align 8, !tbaa !37
+76:                                               ; preds = %73, %65
+  %77 = call fastcc i32 @encoder_process(ptr noundef %3)
+  %78 = load ptr, ptr %27, align 8, !tbaa !35
+  store ptr %78, ptr %28, align 8, !tbaa !35
+  %79 = load ptr, ptr %29, align 8, !tbaa !36
+  store ptr %79, ptr %30, align 8, !tbaa !36
+  %80 = load i64, ptr %31, align 8, !tbaa !37
+  store i64 %80, ptr %32, align 8, !tbaa !37
+  %.not115 = icmp eq i32 %77, 0
+  br i1 %.not115, label %select.unfold, label %82
+
+select.unfold:                                    ; preds = %76, %71, %63, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %76, label %.thread158 [
-    i32 0, label %.backedge
-    i32 1, label %94
-    i32 -1, label %82
+  %81 = icmp samesign ugt i32 %.in, 1
+  br i1 %81, label %34, label %.thread149
+
+82:                                               ; preds = %76
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  switch i32 %77, label %111 [
+    i32 1, label %95
+    i32 -1, label %83
   ]
 
-.backedge:                                        ; preds = %75, %81
-  %80 = icmp sgt i32 %.in, 1
-  br i1 %80, label %.lr.ph, label %.thread
+83:                                               ; preds = %82
+  %84 = load i32, ptr %23, align 8, !tbaa !24
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %147, label %86
 
-81:                                               ; preds = %70, %62, %60
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.backedge
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %0, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %89 = load ptr, ptr %88, align 8, !tbaa !21
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  %91 = load ptr, ptr %90, align 8, !tbaa !38
+  %92 = tail call ptr %89(ptr noundef %44, ptr noundef %91) #8
+  %93 = tail call ptr @OSSL_ENCODER_get0_name(ptr noundef %.0.i128136139145) #8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %93, ptr %94, align 8, !tbaa !39
+  %.not116 = icmp eq ptr %92, null
+  br i1 %.not116, label %.thread149, label %111
 
-82:                                               ; preds = %75
-  %83 = load i32, ptr %22, align 8, !tbaa !24
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %145, label %85
-
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %0, align 8, !tbaa !3
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %88 = load ptr, ptr %87, align 8, !tbaa !21
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %90 = load ptr, ptr %89, align 8, !tbaa !38
-  %91 = tail call ptr %88(ptr noundef %43, ptr noundef %90) #8
-  %92 = tail call ptr @OSSL_ENCODER_get0_name(ptr noundef %.0.i128136139145) #8
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %92, ptr %93, align 8, !tbaa !39
-  %.not116 = icmp eq ptr %91, null
-  br i1 %.not116, label %.thread, label %.thread158
-
-94:                                               ; preds = %75
-  %95 = load ptr, ptr %29, align 8, !tbaa !36
-  %.not117 = icmp eq ptr %95, null
+95:                                               ; preds = %82
+  %.not117 = icmp eq ptr %79, null
   br i1 %.not117, label %96, label %97, !prof !40
 
-96:                                               ; preds = %94
+96:                                               ; preds = %95
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 608, ptr noundef nonnull @__func__.encoder_process) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 59, i32 noundef 786691, ptr noundef null) #8
-  br label %.thread
+  br label %.thread149
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %27, align 8, !tbaa !35
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit134, label %100
+97:                                               ; preds = %95
+  %98 = icmp eq ptr %78, null
+  br i1 %98, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit134, label %99
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !30
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !30
   br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit134
 
-OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
-  %.0.i133 = phi ptr [ %102, %100 ], [ null, %97 ]
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load ptr, ptr %104, align 8, !tbaa !39
-  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.31, ptr noundef %105, i64 noundef 0) #8
+OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %99
+  %.0.i133 = phi ptr [ %101, %99 ], [ null, %97 ]
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %104 = load ptr, ptr %103, align 8, !tbaa !39
+  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.31, ptr noundef %104, i64 noundef 0) #8
   %.not118 = icmp eq ptr %.0.i133, null
-  br i1 %.not118, label %108, label %106
+  br i1 %.not118, label %107, label %105
 
-106:                                              ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit134
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 80
+105:                                              ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit134
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.32, ptr noundef nonnull %.0.i133, i64 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %102, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %108
+  br label %107
 
-108:                                              ; preds = %106, %OSSL_ENCODER_INSTANCE_get_output_structure.exit134
-  %.085 = phi ptr [ %107, %106 ], [ %103, %OSSL_ENCODER_INSTANCE_get_output_structure.exit134 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.085, i64 40
+107:                                              ; preds = %105, %OSSL_ENCODER_INSTANCE_get_output_structure.exit134
+  %.085 = phi ptr [ %106, %105 ], [ %102, %OSSL_ENCODER_INSTANCE_get_output_structure.exit134 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.085, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %110 = load ptr, ptr %29, align 8, !tbaa !36
-  %111 = load i64, ptr %31, align 8, !tbaa !37
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.33, ptr noundef %110, i64 noundef %111) #8
+  %109 = load ptr, ptr %30, align 8, !tbaa !36
+  %110 = load i64, ptr %32, align 8, !tbaa !37
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.33, ptr noundef %109, i64 noundef %110) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.085, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread158
+  br label %111
 
-.thread158:                                       ; preds = %75, %85, %108
-  %.193164 = phi ptr [ %91, %85 ], [ null, %108 ], [ null, %75 ]
-  %.095163 = phi ptr [ null, %85 ], [ %2, %108 ], [ null, %75 ]
+111:                                              ; preds = %82, %107, %86
+  %.095.ph = phi ptr [ null, %86 ], [ %2, %107 ], [ null, %82 ]
+  %.193.ph = phi ptr [ %92, %86 ], [ null, %107 ], [ null, %82 ]
   br i1 %.not.not, label %112, label %115
 
-112:                                              ; preds = %.thread158
+112:                                              ; preds = %111
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !14
   br label %119
 
-115:                                              ; preds = %.thread158
+115:                                              ; preds = %111
   %116 = call ptr @BIO_s_mem() #8
   %117 = call ptr @BIO_new(ptr noundef %116) #8
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %.thread173, label %119
+  br i1 %118, label %.thread170, label %119
 
 119:                                              ; preds = %115, %112
   %.191.ph = phi ptr [ %117, %115 ], [ null, %112 ]
   %.082.ph = phi ptr [ %117, %115 ], [ %114, %112 ]
   %120 = call ptr @ossl_core_bio_new_from_bio(ptr noundef %.082.ph) #8
   %.not122 = icmp eq ptr %120, null
-  br i1 %.not122, label %.thread173, label %121
+  br i1 %.not122, label %.thread170, label %121
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds nuw i8, ptr %.0.i128136139145, i64 104
@@ -397,56 +398,58 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
   %124 = load ptr, ptr %0, align 8, !tbaa !3
   %125 = load i32, ptr %124, align 8, !tbaa !53
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 56
-  %127 = call i32 %123(ptr noundef %.0.i130140144, ptr noundef nonnull %120, ptr noundef %.193164, ptr noundef %.095163, i32 noundef %125, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %126) #8
-  br label %.thread173
+  %127 = call i32 %123(ptr noundef %.0.i130140144, ptr noundef nonnull %120, ptr noundef %.193.ph, ptr noundef %.095.ph, i32 noundef %125, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %126) #8
+  br label %.thread170
 
-.thread173:                                       ; preds = %115, %121, %119
-  %.083178 = phi ptr [ %120, %121 ], [ null, %119 ], [ null, %115 ]
-  %.191171177 = phi ptr [ %.191.ph, %121 ], [ %.191.ph, %119 ], [ null, %115 ]
+.thread170:                                       ; preds = %115, %121, %119
+  %.083175 = phi ptr [ %120, %121 ], [ null, %119 ], [ null, %115 ]
+  %.191168174 = phi ptr [ %.191.ph, %121 ], [ %.191.ph, %119 ], [ null, %115 ]
   %.7 = phi i32 [ %127, %121 ], [ 0, %119 ], [ 0, %115 ]
-  %128 = call i32 @ossl_core_bio_free(ptr noundef %.083178) #8
-  store ptr %43, ptr %27, align 8, !tbaa !35
-  %129 = icmp eq ptr %.193164, null
-  br label %.thread
+  %128 = call i32 @ossl_core_bio_free(ptr noundef %.083175) #8
+  store ptr %44, ptr %28, align 8, !tbaa !35
+  %129 = icmp eq ptr %.193.ph, null
+  br label %.thread149
 
-.thread:                                          ; preds = %.backedge, %17, %85, %96, %.thread173
-  %.3 = phi i32 [ %.7, %.thread173 ], [ 0, %96 ], [ 0, %85 ], [ -1, %17 ], [ -1, %.backedge ]
-  %.092 = phi i1 [ %129, %.thread173 ], [ true, %96 ], [ true, %85 ], [ true, %17 ], [ true, %.backedge ]
-  %.090 = phi ptr [ %.191171177, %.thread173 ], [ null, %96 ], [ null, %85 ], [ null, %17 ], [ null, %.backedge ]
-  %130 = load ptr, ptr %29, align 8, !tbaa !36
-  call void @CRYPTO_free(ptr noundef %130, ptr noundef nonnull @.str, i32 noundef 680) #8
-  store ptr null, ptr %29, align 8, !tbaa !36
+.thread149:                                       ; preds = %select.unfold, %17, %86, %96, %.thread170
+  %.3 = phi i32 [ %.7, %.thread170 ], [ 0, %96 ], [ 0, %86 ], [ -1, %17 ], [ -1, %select.unfold ]
+  %.092 = phi i1 [ %129, %.thread170 ], [ true, %96 ], [ true, %86 ], [ true, %17 ], [ true, %select.unfold ]
+  %.090 = phi ptr [ %.191168174, %.thread170 ], [ null, %96 ], [ null, %86 ], [ null, %17 ], [ null, %select.unfold ]
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %131 = load ptr, ptr %130, align 8, !tbaa !36
+  call void @CRYPTO_free(ptr noundef %131, ptr noundef nonnull @.str, i32 noundef 680) #8
+  store ptr null, ptr %130, align 8, !tbaa !36
   %.not123 = icmp eq ptr %.090, null
-  br i1 %.not123, label %137, label %131
+  br i1 %.not123, label %139, label %132
 
-131:                                              ; preds = %.thread
+132:                                              ; preds = %.thread149
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %132 = call i64 @BIO_ctrl(ptr noundef nonnull %.090, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %7) #8
-  %133 = load ptr, ptr %7, align 8, !tbaa !54
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !56
-  store ptr %135, ptr %29, align 8, !tbaa !36
-  %136 = load i64, ptr %133, align 8, !tbaa !58
-  store i64 %136, ptr %31, align 8, !tbaa !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %133, i8 0, i64 32, i1 false)
+  %133 = call i64 @BIO_ctrl(ptr noundef nonnull %.090, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %7) #8
+  %134 = load ptr, ptr %7, align 8, !tbaa !54
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load ptr, ptr %135, align 8, !tbaa !56
+  store ptr %136, ptr %130, align 8, !tbaa !36
+  %137 = load i64, ptr %134, align 8, !tbaa !58
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %137, ptr %138, align 8, !tbaa !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %134, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %137
+  br label %139
 
-137:                                              ; preds = %131, %.thread
-  %138 = call i32 @BIO_free(ptr noundef %.090) #8
-  br i1 %.092, label %145, label %139
+139:                                              ; preds = %132, %.thread149
+  %140 = call i32 @BIO_free(ptr noundef %.090) #8
+  br i1 %.092, label %147, label %141
 
-139:                                              ; preds = %137
-  %140 = load ptr, ptr %0, align 8, !tbaa !3
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
-  %142 = load ptr, ptr %141, align 8, !tbaa !20
-  %143 = getelementptr inbounds nuw i8, ptr %140, i64 48
-  %144 = load ptr, ptr %143, align 8, !tbaa !38
-  call void %142(ptr noundef %144) #8
-  br label %145
+141:                                              ; preds = %139
+  %142 = load ptr, ptr %0, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load ptr, ptr %143, align 8, !tbaa !20
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 48
+  %146 = load ptr, ptr %145, align 8, !tbaa !38
+  call void %144(ptr noundef %146) #8
+  br label %147
 
-145:                                              ; preds = %137, %139, %82
-  %.0 = phi i32 [ 0, %82 ], [ %.3, %139 ], [ %.3, %137 ]
+147:                                              ; preds = %139, %141, %83
+  %.0 = phi i32 [ 0, %83 ], [ %.3, %141 ], [ %.3, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1298,11 +1301,11 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %.thread, label %54
 
-.thread:                                          ; preds = %5, %9, %51, %45, %39, %32, %27, %20, %18, %12
+.thread:                                          ; preds = %9, %5, %51, %45, %39, %32, %27, %20, %18, %12
   br label %54
 
-54:                                               ; preds = %48, %51, %9, %.thread
-  %.1 = phi i32 [ 1, %9 ], [ 0, %.thread ], [ 1, %51 ], [ 1, %48 ]
+54:                                               ; preds = %9, %48, %51, %.thread
+  %.1 = phi i32 [ 0, %.thread ], [ 1, %51 ], [ 1, %48 ], [ 1, %9 ]
   ret i32 %.1
 }
 

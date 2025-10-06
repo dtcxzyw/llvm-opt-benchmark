@@ -350,12 +350,12 @@ define noundef zeroext i1 @_ZNK3net9IPAddress10IsReservedEv(ptr noundef nonnull 
   %7 = sub i64 %5, %6
   switch i64 %7, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit [
     i64 4, label %.preheader
-    i64 16, label %.preheader16
+    i64 16, label %.preheader15
   ]
 
 .preheader:                                       ; preds = %1, %.loopexit.i
-  %.011.idx15.i = phi i64 [ %.011.add.i, %.loopexit.i ], [ 0, %1 ]
-  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEEE19kReservedIPv4Ranges, i64 %.011.idx15.i
+  %.011.idx18.i = phi i64 [ %.011.add.i, %.loopexit.i ], [ 0, %1 ]
+  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEEE19kReservedIPv4Ranges, i64 %.011.idx18.i
   %8 = getelementptr inbounds nuw i8, ptr %.011.ptr.i, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !14
   %10 = lshr i64 %9, 3
@@ -396,59 +396,59 @@ define noundef zeroext i1 @_ZNK3net9IPAddress10IsReservedEv(ptr noundef nonnull 
   br i1 %.not26.i.i, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %18
-  %.011.add.i = add nuw nsw i64 %.011.idx15.i, 16
+  %.011.add.i = add nuw nsw i64 %.011.idx18.i, 16
   %.not.not.i = icmp eq i64 %.011.add.i, 208
   br i1 %.not.not.i, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %.preheader
 
-.preheader16:                                     ; preds = %1, %.loopexit.i9
-  %.011.idx15.i3 = phi i64 [ %.011.add.i10, %.loopexit.i9 ], [ 0, %1 ]
-  %.011.ptr.i4 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv6ERKSt6vectorIhSaIhEEE17kPublicIPv6Ranges, i64 %.011.idx15.i3
-  %29 = getelementptr inbounds nuw i8, ptr %.011.ptr.i4, i64 8
+.preheader15:                                     ; preds = %1, %.loopexit.i8
+  %.011.idx15.i = phi i64 [ %.011.add.i9, %.loopexit.i8 ], [ 0, %1 ]
+  %.011.ptr.i3 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv6ERKSt6vectorIhSaIhEEE17kPublicIPv6Ranges, i64 %.011.idx15.i
+  %29 = getelementptr inbounds nuw i8, ptr %.011.ptr.i3, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !19
   %31 = lshr i64 %30, 3
-  %.not241.not.i.i5 = icmp ult i64 %30, 8
-  br i1 %.not241.not.i.i5, label %.critedge.i.i13, label %.lr.ph.i.i6
+  %.not241.not.i.i4 = icmp ult i64 %30, 8
+  br i1 %.not241.not.i.i4, label %.critedge.i.i12, label %.lr.ph.i.i5
 
-32:                                               ; preds = %.lr.ph.i.i6
-  %33 = add nuw nsw i64 %.0212.i.i7, 1
-  %exitcond.not.i.i12 = icmp eq i64 %33, %31
-  br i1 %exitcond.not.i.i12, label %.critedge.i.i13, label %.lr.ph.i.i6, !llvm.loop !17
+32:                                               ; preds = %.lr.ph.i.i5
+  %33 = add nuw nsw i64 %.0212.i.i6, 1
+  %exitcond.not.i.i11 = icmp eq i64 %33, %31
+  br i1 %exitcond.not.i.i11, label %.critedge.i.i12, label %.lr.ph.i.i5, !llvm.loop !17
 
-.lr.ph.i.i6:                                      ; preds = %.preheader16, %32
-  %.0212.i.i7 = phi i64 [ %33, %32 ], [ 0, %.preheader16 ]
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %.0212.i.i7
+.lr.ph.i.i5:                                      ; preds = %.preheader15, %32
+  %.0212.i.i6 = phi i64 [ %33, %32 ], [ 0, %.preheader15 ]
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %.0212.i.i6
   %35 = load i8, ptr %34, align 1, !tbaa !13
-  %36 = getelementptr inbounds nuw i8, ptr %.011.ptr.i4, i64 %.0212.i.i7
+  %36 = getelementptr inbounds nuw i8, ptr %.011.ptr.i3, i64 %.0212.i.i6
   %37 = load i8, ptr %36, align 1, !tbaa !13
-  %.not.i12.i8 = icmp eq i8 %35, %37
-  br i1 %.not.i12.i8, label %32, label %.loopexit.i9
+  %.not.i12.i7 = icmp eq i8 %35, %37
+  br i1 %.not.i12.i7, label %32, label %.loopexit.i8
 
-.critedge.i.i13:                                  ; preds = %32, %.preheader16
+.critedge.i.i12:                                  ; preds = %32, %.preheader15
   %38 = and i64 %30, 7
-  %.not25.i.i14 = icmp eq i64 %38, 0
-  br i1 %.not25.i.i14, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %39
+  %.not25.i.i13 = icmp eq i64 %38, 0
+  br i1 %.not25.i.i13, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %39
 
-39:                                               ; preds = %.critedge.i.i13
+39:                                               ; preds = %.critedge.i.i12
   %40 = trunc nuw nsw i64 %38 to i16
   %41 = sub nuw nsw i16 8, %40
   %42 = shl nuw nsw i16 255, %41
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %31
   %44 = load i8, ptr %43, align 1, !tbaa !13
-  %45 = getelementptr inbounds nuw i8, ptr %.011.ptr.i4, i64 %31
+  %45 = getelementptr inbounds nuw i8, ptr %.011.ptr.i3, i64 %31
   %46 = load i8, ptr %45, align 1, !tbaa !13
   %47 = xor i8 %46, %44
   %48 = zext i8 %47 to i16
   %49 = and i16 %42, %48
-  %.not26.i.i15 = icmp eq i16 %49, 0
-  br i1 %.not26.i.i15, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %.loopexit.i9
+  %.not26.i.i14 = icmp eq i16 %49, 0
+  br i1 %.not26.i.i14, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %.loopexit.i8
 
-.loopexit.i9:                                     ; preds = %.lr.ph.i.i6, %39
-  %.011.add.i10 = add nuw nsw i64 %.011.idx15.i3, 16
-  %.not.i = icmp eq i64 %.011.add.i10, 32
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %.preheader16
+.loopexit.i8:                                     ; preds = %.lr.ph.i.i5, %39
+  %.011.add.i9 = add nuw nsw i64 %.011.idx15.i, 16
+  %.not.i = icmp eq i64 %.011.add.i9, 32
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit, label %.preheader15
 
-_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit: ; preds = %.loopexit.i9, %39, %.critedge.i.i13, %.loopexit.i, %18, %.critedge.i.i, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %.loopexit.i ], [ true, %.critedge.i.i ], [ true, %18 ], [ true, %.loopexit.i9 ], [ false, %.critedge.i.i13 ], [ false, %39 ]
+_ZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEE.exit: ; preds = %.loopexit.i8, %39, %.critedge.i.i12, %.loopexit.i, %18, %.critedge.i.i, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %.loopexit.i ], [ true, %.critedge.i.i ], [ true, %18 ], [ true, %.loopexit.i8 ], [ false, %.critedge.i.i12 ], [ false, %39 ]
   ret i1 %.0
 }
 
@@ -457,17 +457,17 @@ define noundef zeroext i1 @_ZNK3net9IPAddress6IsZeroEv(ptr noundef nonnull reado
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %.not1415 = icmp eq ptr %2, %4
-  br i1 %.not1415, label %._crit_edge, label %.lr.ph
+  %.not1213 = icmp eq ptr %2, %4
+  br i1 %.not1213, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 1
-  %.not14 = icmp eq ptr %6, %4
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 1
+  %.not12 = icmp eq ptr %6, %4
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
-  %.sroa.08.016 = phi ptr [ %6, %5 ], [ %2, %1 ]
-  %7 = load i8, ptr %.sroa.08.016, align 1, !tbaa !13
+  %.sroa.08.014 = phi ptr [ %6, %5 ], [ %2, %1 ]
+  %7 = load i8, ptr %.sroa.08.014, align 1, !tbaa !13
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %5, label %.loopexit
 
@@ -1635,18 +1635,18 @@ define noundef i32 @_ZN3net18CommonPrefixLengthERKNS_9IPAddressES2_(ptr noundef 
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %.not41 = icmp eq ptr %4, %5
-  br i1 %.not41, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq ptr %4, %5
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = load ptr, ptr %1, align 8, !tbaa !9
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.loopexit
-  %.02040 = phi i64 [ 0, %.lr.ph ], [ %23, %.loopexit ]
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.02040
+  %.02038 = phi i64 [ 0, %.lr.ph ], [ %23, %.loopexit ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.02038
   %12 = load i8, ptr %11, align 1, !tbaa !13
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.02040
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.02038
   %14 = load i8, ptr %13, align 1, !tbaa !13
   %.not = icmp eq i8 %12, %14
   br i1 %.not, label %.loopexit, label %15
@@ -1657,27 +1657,27 @@ define noundef i32 @_ZN3net18CommonPrefixLengthERKNS_9IPAddressES2_(ptr noundef 
   br label %18
 
 18:                                               ; preds = %15, %20
-  %.039 = phi i32 [ 0, %15 ], [ %22, %20 ]
-  %.01838 = phi i32 [ %17, %15 ], [ %21, %20 ]
-  %19 = and i32 %.01838, 128
+  %.037 = phi i32 [ 0, %15 ], [ %22, %20 ]
+  %.01836 = phi i32 [ %17, %15 ], [ %21, %20 ]
+  %19 = and i32 %.01836, 128
   %.not25 = icmp eq i32 %19, 0
   br i1 %.not25, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = shl i32 %.01838, 1
-  %22 = add nuw nsw i32 %.039, 1
+  %21 = shl i32 %.01836, 1
+  %22 = add nuw nsw i32 %.037, 1
   %exitcond = icmp eq i32 %22, 8
   br i1 %exitcond, label %.loopexit, label %18, !llvm.loop !46
 
 .loopexit:                                        ; preds = %20, %10
-  %23 = add nuw i64 %.02040, 1
-  %exitcond44.not = icmp eq i64 %23, %8
-  br i1 %exitcond44.not, label %._crit_edge, label %10, !llvm.loop !47
+  %23 = add nuw i64 %.02038, 1
+  %exitcond42.not = icmp eq i64 %23, %8
+  br i1 %exitcond42.not, label %._crit_edge, label %10, !llvm.loop !47
 
 24:                                               ; preds = %18
-  %.020.tr = trunc i64 %.02040 to i32
+  %.020.tr = trunc i64 %.02038 to i32
   %25 = shl i32 %.020.tr, 3
-  %26 = add nuw nsw i32 %.039, %25
+  %26 = add nuw nsw i32 %.037, %25
   br label %28
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
@@ -1742,18 +1742,18 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %.not41.i = icmp eq ptr %19, %20
-  br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not39.i = icmp eq ptr %19, %20
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18
   %24 = load ptr, ptr %3, align 8, !tbaa !9
   br label %25
 
 25:                                               ; preds = %.loopexit.i, %.lr.ph.i
-  %.02040.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %.loopexit.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %.02040.i
+  %.02038.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %.loopexit.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %.02038.i
   %27 = load i8, ptr %26, align 1, !tbaa !13
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.02040.i
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.02038.i
   %29 = load i8, ptr %28, align 1, !tbaa !13
   %.not.i = icmp eq i8 %27, %29
   br i1 %.not.i, label %.loopexit.i, label %30
@@ -1764,27 +1764,27 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %33
 
 33:                                               ; preds = %35, %30
-  %.039.i = phi i32 [ 0, %30 ], [ %37, %35 ]
-  %.01838.i = phi i32 [ %32, %30 ], [ %36, %35 ]
-  %34 = and i32 %.01838.i, 128
+  %.037.i = phi i32 [ 0, %30 ], [ %37, %35 ]
+  %.01836.i = phi i32 [ %32, %30 ], [ %36, %35 ]
+  %34 = and i32 %.01836.i, 128
   %.not25.i = icmp eq i32 %34, 0
   br i1 %.not25.i, label %35, label %39
 
 35:                                               ; preds = %33
-  %36 = shl i32 %.01838.i, 1
-  %37 = add nuw nsw i32 %.039.i, 1
+  %36 = shl i32 %.01836.i, 1
+  %37 = add nuw nsw i32 %.037.i, 1
   %exitcond.i = icmp eq i32 %37, 8
   br i1 %exitcond.i, label %.loopexit.i, label %33, !llvm.loop !46
 
 .loopexit.i:                                      ; preds = %35, %25
-  %38 = add nuw i64 %.02040.i, 1
-  %exitcond44.not.i = icmp eq i64 %38, %23
-  br i1 %exitcond44.not.i, label %._crit_edge.i, label %25, !llvm.loop !47
+  %38 = add nuw i64 %.02038.i, 1
+  %exitcond42.not.i = icmp eq i64 %38, %23
+  br i1 %exitcond42.not.i, label %._crit_edge.i, label %25, !llvm.loop !47
 
 39:                                               ; preds = %33
-  %.020.tr.i = trunc i64 %.02040.i to i32
+  %.020.tr.i = trunc i64 %.02038.i to i32
   %40 = shl i32 %.020.tr.i, 3
-  %41 = add nuw nsw i32 %.039.i, %40
+  %41 = add nuw nsw i32 %.037.i, %40
   br label %_ZN3net18CommonPrefixLengthERKNS_9IPAddressES2_.exit
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %18

@@ -1557,8 +1557,8 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
   %8 = icmp ne i32 %7, 2
   %9 = load i32, ptr @pmi_subversion, align 4
   %10 = icmp ne i32 %9, 0
-  %.not64 = select i1 %8, i1 true, i1 %10
-  br i1 %.not64, label %37, label %11
+  %.not61 = select i1 %8, i1 true, i1 %10
+  br i1 %.not61, label %37, label %11
 
 11:                                               ; preds = %2
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 7, ptr noundef nonnull @.str.42, i32 noundef %6) #11
@@ -1579,44 +1579,44 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.backedge, %.lr.ph.split.preheader
-  %.037.ph83 = phi i64 [ 6, %.lr.ph.split.preheader ], [ %32, %.lr.ph.split.backedge ]
-  %.038.ph81 = phi ptr [ %3, %.lr.ph.split.preheader ], [ %31, %.lr.ph.split.backedge ]
-  %19 = call i64 @write(i32 noundef %1, ptr noundef %.038.ph81, i64 noundef %.037.ph83) #11
+  %.037.ph80 = phi i64 [ 6, %.lr.ph.split.preheader ], [ %32, %.lr.ph.split.backedge ]
+  %.038.ph78 = phi ptr [ %3, %.lr.ph.split.preheader ], [ %31, %.lr.ph.split.backedge ]
+  %19 = call i64 @write(i32 noundef %1, ptr noundef %.038.ph78, i64 noundef %.037.ph80) #11
   %20 = and i64 %19, 2147483648
-  %.not4779 = icmp eq i64 %20, 0
-  br i1 %.not4779, label %.split.us, label %.lr.ph80
+  %.not4776 = icmp eq i64 %20, 0
+  br i1 %.not4776, label %.split.us, label %.lr.ph77
 
-.lr.ph80:                                         ; preds = %.lr.ph.split
+.lr.ph77:                                         ; preds = %.lr.ph.split
   %21 = tail call ptr @__errno_location() #13
   br label %22
 
-22:                                               ; preds = %.lr.ph80, %24
+22:                                               ; preds = %.lr.ph77, %24
   %23 = load i32, ptr %21, align 4
-  switch i32 %23, label %.split74.us [
+  switch i32 %23, label %.split71.us [
     i32 11, label %24
     i32 4, label %24
   ]
 
 24:                                               ; preds = %22, %22
-  %25 = call i64 @write(i32 noundef %1, ptr noundef %.038.ph81, i64 noundef %.037.ph83) #11
+  %25 = call i64 @write(i32 noundef %1, ptr noundef %.038.ph78, i64 noundef %.037.ph80) #11
   %26 = and i64 %25, 2147483648
   %.not47 = icmp eq i64 %26, 0
   br i1 %.not47, label %.split.us, label %22
 
-.split74.us:                                      ; preds = %22
+.split71.us:                                      ; preds = %22
   %27 = call i32 @slurm_get_log_level() #11
   %28 = icmp sgt i32 %27, 4
   br i1 %28, label %29, label %.thread
 
-29:                                               ; preds = %.split74.us
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_resp_send, ptr noundef nonnull @.str.3, i32 noundef 542, ptr noundef nonnull @__func__.client_resp_send, i64 noundef %.037.ph83, i32 noundef 6) #11
+29:                                               ; preds = %.split71.us
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_resp_send, ptr noundef nonnull @.str.3, i32 noundef 542, ptr noundef nonnull @__func__.client_resp_send, i64 noundef %.037.ph80, i32 noundef 6) #11
   br label %.thread
 
 .split.us:                                        ; preds = %24, %.lr.ph.split
   %.us-phi = phi i64 [ %19, %.lr.ph.split ], [ %25, %24 ]
   %30 = and i64 %.us-phi, 2147483647
-  %31 = getelementptr inbounds nuw i8, ptr %.038.ph81, i64 %30
-  %32 = sub i64 %.037.ph83, %30
+  %31 = getelementptr inbounds nuw i8, ptr %.038.ph78, i64 %30
+  %32 = sub i64 %.037.ph80, %30
   %.not48 = icmp eq i64 %32, 0
   br i1 %.not48, label %.loopexit, label %33
 
@@ -1635,8 +1635,8 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
 37:                                               ; preds = %2
   %38 = icmp ne i32 %7, 1
   %39 = icmp ne i32 %9, 1
-  %.not66 = select i1 %38, i1 true, i1 %39
-  br i1 %.not66, label %.loopexit, label %40
+  %.not63 = select i1 %38, i1 true, i1 %39
+  br i1 %.not63, label %.loopexit, label %40
 
 40:                                               ; preds = %37
   %41 = tail call i32 @slurm_get_log_level() #11
@@ -1650,70 +1650,70 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
 
 .loopexit:                                        ; preds = %.split.us, %40, %43, %37
   %sext = shl i64 %5, 32
-  %.not4999 = icmp eq i64 %sext, 0
-  br i1 %.not4999, label %.thread, label %.lr.ph86.preheader
+  %.not4996 = icmp eq i64 %sext, 0
+  br i1 %.not4996, label %.thread, label %.lr.ph83.preheader
 
-.lr.ph86.preheader:                               ; preds = %.loopexit
+.lr.ph83.preheader:                               ; preds = %.loopexit
   %45 = load ptr, ptr %0, align 8
   %46 = ashr exact i64 %sext, 32
-  br label %.lr.ph86.split
+  br label %.lr.ph83.split
 
-.lr.ph86.split:                                   ; preds = %.lr.ph86.split.backedge, %.lr.ph86.preheader
-  %.034.ph102 = phi ptr [ %45, %.lr.ph86.preheader ], [ %59, %.lr.ph86.split.backedge ]
-  %.035.ph100 = phi i64 [ %46, %.lr.ph86.preheader ], [ %60, %.lr.ph86.split.backedge ]
-  %47 = call i64 @write(i32 noundef %1, ptr noundef %.034.ph102, i64 noundef %.035.ph100) #11
+.lr.ph83.split:                                   ; preds = %.lr.ph83.split.backedge, %.lr.ph83.preheader
+  %.034.ph99 = phi ptr [ %45, %.lr.ph83.preheader ], [ %59, %.lr.ph83.split.backedge ]
+  %.035.ph97 = phi i64 [ %46, %.lr.ph83.preheader ], [ %60, %.lr.ph83.split.backedge ]
+  %47 = call i64 @write(i32 noundef %1, ptr noundef %.034.ph99, i64 noundef %.035.ph97) #11
   %48 = and i64 %47, 2147483648
-  %.not5096 = icmp eq i64 %48, 0
-  br i1 %.not5096, label %.split88.us, label %.lr.ph97
+  %.not5093 = icmp eq i64 %48, 0
+  br i1 %.not5093, label %.split85.us, label %.lr.ph94
 
-.lr.ph97:                                         ; preds = %.lr.ph86.split
+.lr.ph94:                                         ; preds = %.lr.ph83.split
   %49 = tail call ptr @__errno_location() #13
   br label %50
 
-50:                                               ; preds = %.lr.ph97, %52
+50:                                               ; preds = %.lr.ph94, %52
   %51 = load i32, ptr %49, align 4
-  switch i32 %51, label %.split91.us [
+  switch i32 %51, label %.split88.us [
     i32 11, label %52
     i32 4, label %52
   ]
 
 52:                                               ; preds = %50, %50
-  %53 = call i64 @write(i32 noundef %1, ptr noundef %.034.ph102, i64 noundef %.035.ph100) #11
+  %53 = call i64 @write(i32 noundef %1, ptr noundef %.034.ph99, i64 noundef %.035.ph97) #11
   %54 = and i64 %53, 2147483648
   %.not50 = icmp eq i64 %54, 0
-  br i1 %.not50, label %.split88.us, label %50
+  br i1 %.not50, label %.split85.us, label %50
 
-.split91.us:                                      ; preds = %50
+.split88.us:                                      ; preds = %50
   %55 = call i32 @slurm_get_log_level() #11
   %56 = icmp sgt i32 %55, 4
   br i1 %56, label %57, label %.thread
 
-57:                                               ; preds = %.split91.us
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_resp_send, ptr noundef nonnull @.str.3, i32 noundef 546, ptr noundef nonnull @__func__.client_resp_send, i64 noundef %.035.ph100, i32 noundef %6) #11
+57:                                               ; preds = %.split88.us
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_resp_send, ptr noundef nonnull @.str.3, i32 noundef 546, ptr noundef nonnull @__func__.client_resp_send, i64 noundef %.035.ph97, i32 noundef %6) #11
   br label %.thread
 
-.split88.us:                                      ; preds = %52, %.lr.ph86.split
-  %.us-phi89 = phi i64 [ %47, %.lr.ph86.split ], [ %53, %52 ]
-  %58 = and i64 %.us-phi89, 2147483647
-  %59 = getelementptr inbounds nuw i8, ptr %.034.ph102, i64 %58
-  %60 = sub i64 %.035.ph100, %58
+.split85.us:                                      ; preds = %52, %.lr.ph83.split
+  %.us-phi86 = phi i64 [ %47, %.lr.ph83.split ], [ %53, %52 ]
+  %58 = and i64 %.us-phi86, 2147483647
+  %59 = getelementptr inbounds nuw i8, ptr %.034.ph99, i64 %58
+  %60 = sub i64 %.035.ph97, %58
   %.not51 = icmp eq i64 %60, 0
   br i1 %.not51, label %.thread, label %61
 
-61:                                               ; preds = %.split88.us
+61:                                               ; preds = %.split85.us
   %62 = call i32 @slurm_get_log_level() #11
   %63 = icmp sgt i32 %62, 6
-  br i1 %63, label %64, label %.lr.ph86.split.backedge
+  br i1 %63, label %64, label %.lr.ph83.split.backedge
 
 64:                                               ; preds = %61
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.45, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_resp_send, ptr noundef nonnull @.str.3, i32 noundef 546, ptr noundef nonnull @__func__.client_resp_send, i64 noundef %60, i32 noundef %6) #11
-  br label %.lr.ph86.split.backedge
+  br label %.lr.ph83.split.backedge
 
-.lr.ph86.split.backedge:                          ; preds = %64, %61
-  br label %.lr.ph86.split, !llvm.loop !23
+.lr.ph83.split.backedge:                          ; preds = %64, %61
+  br label %.lr.ph83.split, !llvm.loop !23
 
-.thread:                                          ; preds = %.split88.us, %.loopexit, %.split91.us, %57, %.split74.us, %29, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %29 ], [ -1, %.split74.us ], [ -1, %57 ], [ -1, %.split91.us ], [ 0, %.loopexit ], [ 0, %.split88.us ]
+.thread:                                          ; preds = %.split85.us, %.loopexit, %.split88.us, %57, %.split71.us, %29, %11
+  %.0 = phi i32 [ -1, %11 ], [ -1, %29 ], [ -1, %.split71.us ], [ -1, %57 ], [ -1, %.split88.us ], [ 0, %.loopexit ], [ 0, %.split85.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

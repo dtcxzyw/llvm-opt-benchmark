@@ -259,7 +259,7 @@ define internal fastcc i32 @do_dir(ptr noundef %0, i32 noundef range(i32 0, 3) %
   br i1 %.not.i, label %ends_with_dirsep.exit.thread, label %ends_with_dirsep.exit
 
 ends_with_dirsep.exit.thread:                     ; preds = %18
-  %spec.select221 = add i64 %16, 1
+  %spec.select220 = add i64 %16, 1
   br label %24
 
 ends_with_dirsep.exit:                            ; preds = %18
@@ -270,12 +270,12 @@ ends_with_dirsep.exit:                            ; preds = %18
   %22 = icmp ne i8 %.pre.i.fr, 47
   %23 = zext i1 %22 to i64
   %spec.select = add i64 %16, %23
-  %spec.select231 = select i1 %22, ptr @.str.31, ptr @.str.29
+  %spec.select230 = select i1 %22, ptr @.str.31, ptr @.str.29
   br label %24
 
 24:                                               ; preds = %ends_with_dirsep.exit, %ends_with_dirsep.exit.thread, %15
-  %.0116 = phi i64 [ 0, %15 ], [ %spec.select221, %ends_with_dirsep.exit.thread ], [ %spec.select, %ends_with_dirsep.exit ]
-  %.0109 = phi ptr [ @.str.29, %15 ], [ @.str.31, %ends_with_dirsep.exit.thread ], [ %spec.select231, %ends_with_dirsep.exit ]
+  %.0116 = phi i64 [ 0, %15 ], [ %spec.select220, %ends_with_dirsep.exit.thread ], [ %spec.select, %ends_with_dirsep.exit ]
+  %.0109 = phi ptr [ @.str.29, %15 ], [ @.str.31, %ends_with_dirsep.exit.thread ], [ %spec.select230, %ends_with_dirsep.exit ]
   %.b134 = load i1, ptr @verbose, align 4
   br i1 %.b134, label %25, label %28
 
@@ -287,21 +287,21 @@ ends_with_dirsep.exit:                            ; preds = %18
 28:                                               ; preds = %25, %24
   %29 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @sk_strcmp) #14
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %32, label %.preheader159
+  br i1 %30, label %32, label %.preheader158
 
-.preheader159:                                    ; preds = %28
+.preheader158:                                    ; preds = %28
   %31 = call ptr @OPENSSL_DIR_read(ptr noundef nonnull %7, ptr noundef nonnull %0) #14
-  %.not136165 = icmp eq ptr %31, null
-  br i1 %.not136165, label %._crit_edge, label %.lr.ph
+  %.not136164 = icmp eq ptr %31, null
+  br i1 %.not136164, label %._crit_edge, label %.lr.ph
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr @bio_err, align 8, !tbaa !6
   %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.33, ptr noundef nonnull %0) #14
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader159, %45
-  %35 = phi ptr [ %46, %45 ], [ %31, %.preheader159 ]
-  %.0110166 = phi i64 [ %spec.select146, %45 ], [ 20, %.preheader159 ]
+.lr.ph:                                           ; preds = %.preheader158, %45
+  %35 = phi ptr [ %46, %45 ], [ %31, %.preheader158 ]
+  %.0110165 = phi i64 [ %spec.select146, %45 ], [ 20, %.preheader158 ]
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #15
   %37 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %35, ptr noundef nonnull @.str.27, i32 noundef 384) #14
   %38 = icmp eq ptr %37, null
@@ -320,13 +320,13 @@ ends_with_dirsep.exit:                            ; preds = %18
   br label %.loopexit
 
 45:                                               ; preds = %39
-  %spec.select146 = call i64 @llvm.umax.i64(i64 %36, i64 %.0110166)
+  %spec.select146 = call i64 @llvm.umax.i64(i64 %36, i64 %.0110165)
   %46 = call ptr @OPENSSL_DIR_read(ptr noundef nonnull %7, ptr noundef nonnull %0) #14
   %.not136 = icmp eq ptr %46, null
   br i1 %.not136, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %45, %.preheader159
-  %.0110.lcssa = phi i64 [ 20, %.preheader159 ], [ %spec.select146, %45 ]
+._crit_edge:                                      ; preds = %45, %.preheader158
+  %.0110.lcssa = phi i64 [ 20, %.preheader158 ], [ %spec.select146, %45 ]
   %47 = call i32 @OPENSSL_DIR_end(ptr noundef nonnull %7) #14
   call void @OPENSSL_sk_sort(ptr noundef nonnull %29) #14
   %sext = shl i64 %.0116, 32
@@ -338,24 +338,24 @@ ends_with_dirsep.exit:                            ; preds = %18
   %53 = call ptr @app_malloc(i64 noundef %52, ptr noundef nonnull @.str.34) #14
   %54 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %29) #14
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph170, label %.preheader158
+  br i1 %55, label %.lr.ph169, label %.preheader157
 
-.lr.ph170:                                        ; preds = %._crit_edge
+.lr.ph169:                                        ; preds = %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.not66.i = icmp eq i32 %1, 0
   %57 = and i32 %1, 1
   %or.cond3.i = icmp eq i32 %57, 0
   br label %59
 
-.preheader158:                                    ; preds = %175, %._crit_edge
+.preheader157:                                    ; preds = %175, %._crit_edge
   %.3.lcssa = phi i32 [ 0, %._crit_edge ], [ %.4, %175 ]
   %58 = getelementptr inbounds i8, ptr %53, i64 %48
   br label %177
 
-59:                                               ; preds = %.lr.ph170, %175
-  %.3168 = phi i32 [ 0, %.lr.ph170 ], [ %.4, %175 ]
-  %.0122167 = phi i32 [ 0, %.lr.ph170 ], [ %176, %175 ]
-  %60 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %29, i32 noundef %.0122167) #14
+59:                                               ; preds = %.lr.ph169, %175
+  %.3167 = phi i32 [ 0, %.lr.ph169 ], [ %.4, %175 ]
+  %.0122166 = phi i32 [ 0, %.lr.ph169 ], [ %176, %175 ]
+  %60 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %29, i32 noundef %.0122166) #14
   %61 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %53, i64 noundef %52, ptr noundef nonnull @.str.35, ptr noundef nonnull %0, ptr noundef nonnull %.0109, ptr noundef %60) #14
   %.not144 = icmp slt i32 %61, %51
   br i1 %.not144, label %62, label %175
@@ -579,46 +579,46 @@ do_file.exit:                                     ; preds = %109, %105, %119, %1
   %.0.i151 = phi ptr [ null, %105 ], [ null, %119 ], [ null, %123 ], [ %124, %129 ], [ %124, %.thread67.i ], [ %124, %169 ], [ %124, %155 ], [ %124, %141 ], [ %124, %152 ], [ %124, %144 ], [ null, %109 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %.0.i151, ptr noundef nonnull @X509_INFO_free) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %174 = add nsw i32 %.044.i, %.3168
+  %174 = add nsw i32 %.044.i, %.3167
   br label %175
 
 175:                                              ; preds = %handle_symlink.exit, %62, %59, %do_file.exit
-  %.4 = phi i32 [ %.3168, %59 ], [ %.3168, %62 ], [ %.3168, %handle_symlink.exit ], [ %174, %do_file.exit ]
-  %176 = add nuw nsw i32 %.0122167, 1
+  %.4 = phi i32 [ %.3167, %59 ], [ %.3167, %62 ], [ %.3167, %handle_symlink.exit ], [ %174, %do_file.exit ]
+  %176 = add nuw nsw i32 %.0122166, 1
   %exitcond.not = icmp eq i32 %176, %54
-  br i1 %exitcond.not, label %.preheader158, label %59, !llvm.loop !40
+  br i1 %exitcond.not, label %.preheader157, label %59, !llvm.loop !40
 
-177:                                              ; preds = %.preheader158, %._crit_edge192
-  %.0111195 = phi i64 [ 0, %.preheader158 ], [ %303, %._crit_edge192 ]
-  %.5194 = phi i32 [ %.3.lcssa, %.preheader158 ], [ %.6.lcssa, %._crit_edge192 ]
-  %178 = getelementptr inbounds nuw ptr, ptr @hash_table, i64 %.0111195
+177:                                              ; preds = %.preheader157, %._crit_edge191
+  %.0111194 = phi i64 [ 0, %.preheader157 ], [ %303, %._crit_edge191 ]
+  %.5193 = phi i32 [ %.3.lcssa, %.preheader157 ], [ %.6.lcssa, %._crit_edge191 ]
+  %178 = getelementptr inbounds nuw ptr, ptr @hash_table, i64 %.0111194
   %179 = load ptr, ptr %178, align 8, !tbaa !41
-  %.not137187 = icmp eq ptr %179, null
-  br i1 %.not137187, label %._crit_edge192, label %.lr.ph191
+  %.not137186 = icmp eq ptr %179, null
+  br i1 %.not137186, label %._crit_edge191, label %.lr.ph190
 
-.lr.ph191:                                        ; preds = %177, %._crit_edge185
-  %.6189 = phi i32 [ %.7.lcssa, %._crit_edge185 ], [ %.5194, %177 ]
-  %.0115188 = phi ptr [ %180, %._crit_edge185 ], [ %179, %177 ]
-  %180 = load ptr, ptr %.0115188, align 8, !tbaa !43
-  %181 = getelementptr inbounds nuw i8, ptr %.0115188, i64 30
+.lr.ph190:                                        ; preds = %177, %._crit_edge184
+  %.6188 = phi i32 [ %.7.lcssa, %._crit_edge184 ], [ %.5193, %177 ]
+  %.0115187 = phi ptr [ %180, %._crit_edge184 ], [ %179, %177 ]
+  %180 = load ptr, ptr %.0115187, align 8, !tbaa !43
+  %181 = getelementptr inbounds nuw i8, ptr %.0115187, i64 30
   %182 = load i16, ptr %181, align 2, !tbaa !46
   %183 = zext i16 %182 to i64
   %184 = add nuw nsw i64 %183, 7
   %185 = lshr i64 %184, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 0, i64 %185, i1 false)
-  %186 = getelementptr inbounds nuw i8, ptr %.0115188, i64 8
-  %.0120172 = load ptr, ptr %186, align 8, !tbaa !47
-  %.not138173 = icmp eq ptr %.0120172, null
-  br i1 %.not138173, label %._crit_edge185, label %.lr.ph176
+  %186 = getelementptr inbounds nuw i8, ptr %.0115187, i64 8
+  %.0120171 = load ptr, ptr %186, align 8, !tbaa !47
+  %.not138172 = icmp eq ptr %.0120171, null
+  br i1 %.not138172, label %._crit_edge184, label %.lr.ph175
 
-.lr.ph176:                                        ; preds = %.lr.ph191, %199
-  %.0120174 = phi ptr [ %.0120, %199 ], [ %.0120172, %.lr.ph191 ]
-  %187 = getelementptr inbounds nuw i8, ptr %.0120174, i64 16
+.lr.ph175:                                        ; preds = %.lr.ph190, %199
+  %.0120173 = phi ptr [ %.0120, %199 ], [ %.0120171, %.lr.ph190 ]
+  %187 = getelementptr inbounds nuw i8, ptr %.0120173, i64 16
   %188 = load i16, ptr %187, align 8, !tbaa !48
   %189 = icmp ult i16 %188, %182
   br i1 %189, label %190, label %199
 
-190:                                              ; preds = %.lr.ph176
+190:                                              ; preds = %.lr.ph175
   %191 = and i16 %188, 7
   %192 = shl nuw nsw i16 1, %191
   %193 = lshr i16 %188, 3
@@ -630,22 +630,22 @@ do_file.exit:                                     ; preds = %109, %105, %119, %1
   store i8 %198, ptr %195, align 1, !tbaa !21
   br label %199
 
-199:                                              ; preds = %.lr.ph176, %190
-  %.0120 = load ptr, ptr %.0120174, align 8, !tbaa !47
+199:                                              ; preds = %.lr.ph175, %190
+  %.0120 = load ptr, ptr %.0120173, align 8, !tbaa !47
   %.not138 = icmp eq ptr %.0120, null
-  br i1 %.not138, label %.lr.ph184, label %.lr.ph176, !llvm.loop !50
+  br i1 %.not138, label %.lr.ph183, label %.lr.ph175, !llvm.loop !50
 
-.lr.ph184:                                        ; preds = %199
-  %200 = getelementptr inbounds nuw i8, ptr %.0115188, i64 24
-  %201 = getelementptr inbounds nuw i8, ptr %.0115188, i64 28
+.lr.ph183:                                        ; preds = %199
+  %200 = getelementptr inbounds nuw i8, ptr %.0115187, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %.0115187, i64 28
   br label %202
 
-202:                                              ; preds = %.lr.ph184, %300
-  %.7182 = phi i32 [ %.6189, %.lr.ph184 ], [ %.8, %300 ]
-  %.0117181 = phi i32 [ 0, %.lr.ph184 ], [ %.1118, %300 ]
-  %.1121180 = phi ptr [ %.0120172, %.lr.ph184 ], [ %203, %300 ]
-  %203 = load ptr, ptr %.1121180, align 8, !tbaa !51
-  %204 = getelementptr inbounds nuw i8, ptr %.1121180, i64 16
+202:                                              ; preds = %.lr.ph183, %300
+  %.7181 = phi i32 [ %.6188, %.lr.ph183 ], [ %.8, %300 ]
+  %.0117180 = phi i32 [ 0, %.lr.ph183 ], [ %.1118, %300 ]
+  %.1121179 = phi ptr [ %.0120171, %.lr.ph183 ], [ %203, %300 ]
+  %203 = load ptr, ptr %.1121179, align 8, !tbaa !51
+  %204 = getelementptr inbounds nuw i8, ptr %.1121179, i64 16
   %205 = load i16, ptr %204, align 8, !tbaa !48
   %206 = zext i16 %205 to i32
   %207 = load i16, ptr %181, align 2, !tbaa !46
@@ -664,19 +664,19 @@ do_file.exit:                                     ; preds = %109, %105, %119, %1
 
 216:                                              ; preds = %209
   %217 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %218 = getelementptr inbounds nuw i8, ptr %.1121180, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.1121179, i64 8
   %219 = load ptr, ptr %218, align 8, !tbaa !54
   %220 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %217, ptr noundef nonnull @.str.37, ptr noundef %219, ptr noundef %53) #14
   br label %300
 
 221:                                              ; preds = %202
-  %222 = getelementptr inbounds nuw i8, ptr %.1121180, i64 18
+  %222 = getelementptr inbounds nuw i8, ptr %.1121179, i64 18
   %223 = load i8, ptr %222, align 2, !tbaa !55
   %.not140 = icmp eq i8 %223, 0
   br i1 %.not140, label %276, label %.preheader
 
 .preheader:                                       ; preds = %221, %.preheader
-  %.2119 = phi i32 [ %232, %.preheader ], [ %.0117181, %221 ]
+  %.2119 = phi i32 [ %232, %.preheader ], [ %.0117180, %221 ]
   %224 = lshr i32 %.2119, 3
   %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw i8, ptr %9, i64 %225
@@ -702,7 +702,7 @@ do_file.exit:                                     ; preds = %109, %105, %119, %1
 
 241:                                              ; preds = %233
   %242 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %243 = getelementptr inbounds nuw i8, ptr %.1121180, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %.1121179, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !54
   %245 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %242, ptr noundef nonnull @.str.37, ptr noundef %244, ptr noundef %58) #14
   br label %246
@@ -724,12 +724,12 @@ do_file.exit:                                     ; preds = %109, %105, %119, %1
   %255 = load i32, ptr %250, align 4, !tbaa !13
   %256 = call ptr @strerror(i32 noundef %255) #14
   %257 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %253, ptr noundef nonnull @.str.39, ptr noundef %254, ptr noundef %53, ptr noundef %256) #14
-  %258 = add nsw i32 %.7182, 1
+  %258 = add nsw i32 %.7181, 1
   br label %259
 
 259:                                              ; preds = %252, %249, %246
-  %.9 = phi i32 [ %258, %252 ], [ %.7182, %249 ], [ %.7182, %246 ]
-  %260 = getelementptr inbounds nuw i8, ptr %.1121180, i64 8
+  %.9 = phi i32 [ %258, %252 ], [ %.7181, %249 ], [ %.7181, %246 ]
+  %260 = getelementptr inbounds nuw i8, ptr %.1121179, i64 8
   %261 = load ptr, ptr %260, align 8, !tbaa !54
   %262 = call i32 @symlink(ptr noundef %261, ptr noundef %53) #14
   %263 = icmp slt i32 %262, 0
@@ -789,35 +789,35 @@ do_file.exit:                                     ; preds = %109, %105, %119, %1
   %296 = load i32, ptr %291, align 4, !tbaa !13
   %297 = call ptr @strerror(i32 noundef %296) #14
   %298 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %294, ptr noundef nonnull @.str.39, ptr noundef %295, ptr noundef %53, ptr noundef %297) #14
-  %299 = add nsw i32 %.7182, 1
+  %299 = add nsw i32 %.7181, 1
   br label %300
 
 300:                                              ; preds = %273, %287, %290, %293, %276, %209, %216
-  %.1118 = phi i32 [ %.0117181, %216 ], [ %.0117181, %209 ], [ %.2119, %273 ], [ %.0117181, %293 ], [ %.0117181, %290 ], [ %.0117181, %287 ], [ %.0117181, %276 ]
-  %.8 = phi i32 [ %.7182, %216 ], [ %.7182, %209 ], [ %.10, %273 ], [ %299, %293 ], [ %.7182, %290 ], [ %.7182, %287 ], [ %.7182, %276 ]
-  %301 = getelementptr inbounds nuw i8, ptr %.1121180, i64 8
+  %.1118 = phi i32 [ %.0117180, %216 ], [ %.0117180, %209 ], [ %.2119, %273 ], [ %.0117180, %293 ], [ %.0117180, %290 ], [ %.0117180, %287 ], [ %.0117180, %276 ]
+  %.8 = phi i32 [ %.7181, %216 ], [ %.7181, %209 ], [ %.10, %273 ], [ %299, %293 ], [ %.7181, %290 ], [ %.7181, %287 ], [ %.7181, %276 ]
+  %301 = getelementptr inbounds nuw i8, ptr %.1121179, i64 8
   %302 = load ptr, ptr %301, align 8, !tbaa !54
   call void @CRYPTO_free(ptr noundef %302, ptr noundef nonnull @.str.27, i32 noundef 472) #14
-  call void @CRYPTO_free(ptr noundef nonnull %.1121180, ptr noundef nonnull @.str.27, i32 noundef 473) #14
+  call void @CRYPTO_free(ptr noundef nonnull %.1121179, ptr noundef nonnull @.str.27, i32 noundef 473) #14
   %.not139 = icmp eq ptr %203, null
-  br i1 %.not139, label %._crit_edge185, label %202, !llvm.loop !57
+  br i1 %.not139, label %._crit_edge184, label %202, !llvm.loop !57
 
-._crit_edge185:                                   ; preds = %300, %.lr.ph191
-  %.7.lcssa = phi i32 [ %.6189, %.lr.ph191 ], [ %.8, %300 ]
-  call void @CRYPTO_free(ptr noundef nonnull %.0115188, ptr noundef nonnull @.str.27, i32 noundef 475) #14
+._crit_edge184:                                   ; preds = %300, %.lr.ph190
+  %.7.lcssa = phi i32 [ %.6188, %.lr.ph190 ], [ %.8, %300 ]
+  call void @CRYPTO_free(ptr noundef nonnull %.0115187, ptr noundef nonnull @.str.27, i32 noundef 475) #14
   %.not137 = icmp eq ptr %180, null
-  br i1 %.not137, label %._crit_edge192, label %.lr.ph191, !llvm.loop !58
+  br i1 %.not137, label %._crit_edge191, label %.lr.ph190, !llvm.loop !58
 
-._crit_edge192:                                   ; preds = %._crit_edge185, %177
-  %.6.lcssa = phi i32 [ %.5194, %177 ], [ %.7.lcssa, %._crit_edge185 ]
+._crit_edge191:                                   ; preds = %._crit_edge184, %177
+  %.6.lcssa = phi i32 [ %.5193, %177 ], [ %.7.lcssa, %._crit_edge184 ]
   store ptr null, ptr %178, align 8, !tbaa !41
-  %303 = add nuw nsw i64 %.0111195, 1
-  %exitcond201.not = icmp eq i64 %303, 257
-  br i1 %exitcond201.not, label %.loopexit, label %177, !llvm.loop !59
+  %303 = add nuw nsw i64 %.0111194, 1
+  %exitcond200.not = icmp eq i64 %303, 257
+  br i1 %exitcond200.not, label %.loopexit, label %177, !llvm.loop !59
 
-.loopexit:                                        ; preds = %._crit_edge192, %.thread, %32
-  %.0112 = phi i32 [ 1, %32 ], [ 1, %.thread ], [ %.6.lcssa, %._crit_edge192 ]
-  %.0108 = phi ptr [ null, %32 ], [ null, %.thread ], [ %53, %._crit_edge192 ]
+.loopexit:                                        ; preds = %._crit_edge191, %.thread, %32
+  %.0112 = phi i32 [ 1, %32 ], [ 1, %.thread ], [ %.6.lcssa, %._crit_edge191 ]
+  %.0108 = phi ptr [ null, %32 ], [ null, %.thread ], [ %53, %._crit_edge191 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %29, ptr noundef nonnull @str_free) #14
   call void @CRYPTO_free(ptr noundef %.0108, ptr noundef nonnull @.str.27, i32 noundef 482) #14
   br label %304

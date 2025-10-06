@@ -25,19 +25,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @tool_write_headers(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.01420 = load ptr, ptr %3, align 8, !tbaa !4
-  %.not21 = icmp eq ptr %.01420, null
-  br i1 %.not21, label %.thread, label %.lr.ph
+  %.01419 = load ptr, ptr %3, align 8, !tbaa !4
+  %.not20 = icmp eq ptr %.01419, null
+  br i1 %.not20, label %.thread, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds nuw i8, ptr %.01422, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.01421, i64 8
   %.014 = load ptr, ptr %5, align 8, !tbaa !4
   %.not = icmp eq ptr %.014, null
   br i1 %.not, label %.thread.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %4
-  %.01422 = phi ptr [ %.014, %4 ], [ %.01420, %2 ]
-  %6 = load ptr, ptr %.01422, align 8, !tbaa !9
+  %.01421 = phi ptr [ %.014, %4 ], [ %.01419, %2 ]
+  %6 = load ptr, ptr %.01421, align 8, !tbaa !9
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
   %8 = tail call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %7, ptr noundef %1)
   %.not15 = icmp eq i64 %7, %8

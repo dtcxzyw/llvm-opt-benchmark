@@ -317,81 +317,81 @@ _ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2EOS5_.exit.
 28:                                               ; preds = %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2EOS5_.exit.i.i, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.thread.i.i
   %29 = phi i32 [ %.sink.i.i.i.i.i.i.i.i, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2EOS5_.exit.i.i ], [ 2, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.thread.i.i ]
   %30 = load i32, ptr %10, align 8, !tbaa !26, !noalias !24
-  %switch.i.i.i.i.i.i.i = icmp eq i32 %30, 1
-  br i1 %switch.i.i.i.i.i.i.i, label %31, label %_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !24
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(192) %5) #28
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !24
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(192) %5) #28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 184
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !26, !noalias !40
   br label %_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit
 
-_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit: ; preds = %28, %31
-  %34 = phi i32 [ %29, %28 ], [ %.pre, %31 ]
+_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit: ; preds = %28, %32
+  %35 = phi i32 [ %29, %28 ], [ %.pre, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !24
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @.str, ptr %8, align 8, !tbaa !43
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.1, ptr %35, align 8, !tbaa !45
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 63, ptr %36, align 8, !tbaa !46
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 21, ptr %37, align 4, !tbaa !47
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 184
-  %39 = icmp eq i32 %34, 1
-  br i1 %39, label %41, label %40
-
-40:                                               ; preds = %_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit
-  invoke void @_ZN5boost6system26throw_exception_from_errorERKNS0_10error_codeERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #31
-          to label %.noexc unwind label %48
-
-.noexc:                                           ; preds = %40
-  unreachable
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.1, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 63, ptr %37, align 8, !tbaa !46
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  store i32 21, ptr %38, align 4, !tbaa !47
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %40 = icmp eq i32 %35, 1
+  br i1 %40, label %42, label %41
 
 41:                                               ; preds = %_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit
+  invoke void @_ZN5boost6system26throw_exception_from_errorERKNS0_10error_codeERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #31
+          to label %.noexc unwind label %50
+
+.noexc:                                           ; preds = %41
+  unreachable
+
+42:                                               ; preds = %_ZN5boost4urls15parse_authorityENS_4core17basic_string_viewIcEE.exit
   call void @_ZN5boost4urls14authority_viewC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull align 8 dereferenceable(192) %7) #28
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost4urls14authority_viewE, i64 16), ptr %0, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %42, ptr noundef nonnull readonly align 8 dereferenceable(176) %43, i64 176, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %43, ptr noundef nonnull readonly align 8 dereferenceable(176) %44, i64 176, i1 false)
   call void @_ZN5boost4urls14authority_viewD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %44 = load i32, ptr %38, align 8, !tbaa !26
-  %switch.i.i.i.i.i = icmp eq i32 %44, 1
-  br i1 %switch.i.i.i.i.i, label %45, label %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit
+  %45 = load i32, ptr %39, align 8, !tbaa !26
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %7, align 8, !tbaa !3
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(192) %7) #28
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %7, align 8, !tbaa !3
+  %49 = load ptr, ptr %48, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(192) %7) #28
   br label %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit
 
-_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit: ; preds = %41, %45
+_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit: ; preds = %42, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-48:                                               ; preds = %40
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %41
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %50 = load i32, ptr %38, align 8, !tbaa !26
-  %switch.i.i.i.i.i4 = icmp eq i32 %50, 1
-  br i1 %switch.i.i.i.i.i4, label %51, label %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit5
+  %52 = load i32, ptr %39, align 8, !tbaa !26
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %54, label %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit4
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %7, align 8, !tbaa !3
-  %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(192) %7) #28
-  br label %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit5
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %7, align 8, !tbaa !3
+  %56 = load ptr, ptr %55, align 8
+  call void %56(ptr noundef nonnull align 8 dereferenceable(192) %7) #28
+  br label %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit4
 
-_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit5: ; preds = %48, %51
+_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit4: ; preds = %50, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -457,16 +457,16 @@ _ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2EOS5_.exit.
 
 25:                                               ; preds = %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2EOS5_.exit.i, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.thread.i
   %26 = load i32, ptr %7, align 8, !tbaa !26, !noalias !48
-  %switch.i.i.i.i.i.i = icmp eq i32 %26, 1
-  br i1 %switch.i.i.i.i.i.i, label %27, label %_ZN5boost4urls7grammar5parseINS0_22implementation_defined16authority_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %28, label %_ZN5boost4urls7grammar5parseINS0_22implementation_defined16authority_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !48
-  %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(192) %5) #28
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !48
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(192) %5) #28
   br label %_ZN5boost4urls7grammar5parseINS0_22implementation_defined16authority_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit
 
-_ZN5boost4urls7grammar5parseINS0_22implementation_defined16authority_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit: ; preds = %25, %27
+_ZN5boost4urls7grammar5parseINS0_22implementation_defined16authority_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit: ; preds = %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !48
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !48
   ret void

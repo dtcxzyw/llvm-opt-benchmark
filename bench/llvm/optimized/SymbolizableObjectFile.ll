@@ -2042,72 +2042,72 @@ define dso_local noundef i64 @_ZNK4llvm9symbolize22SymbolizableObjectFile31getMo
   store i64 %10, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, %17
-  %.not.i.i.i.i36 = icmp eq i64 %10, %16
-  %.not2.i.not37 = select i1 %19, i1 %.not.i.i.i.i36, i1 false
-  br i1 %.not2.i.not37, label %.loopexit, label %.lr.ph
+  %19 = icmp ne ptr %11, %17
+  %.not.i.i.i.i38 = icmp ne i64 %10, %16
+  %.not2.i39 = select i1 %19, i1 true, i1 %.not.i.i.i.i38
+  br i1 %.not2.i39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %51
-  %lhsv.i.i.i.i38 = phi i64 [ %lhsv.i.i.i.i, %51 ], [ %10, %2 ]
-  %20 = phi ptr [ %56, %51 ], [ %11, %2 ]
+.lr.ph:                                           ; preds = %2, %46
+  %lhsv.i.i.i.i40 = phi i64 [ %lhsv.i.i.i.i, %46 ], [ %10, %2 ]
+  %20 = phi ptr [ %51, %46 ], [ %11, %2 ]
   %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 200
   %23 = load ptr, ptr %22, align 8
-  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i38) #21
-  br i1 %24, label %25, label %51
+  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i40) #21
+  br i1 %24, label %25, label %46
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %20, align 8, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 224
   %28 = load ptr, ptr %27, align 8
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i38) #21
-  br i1 %29, label %51, label %30
+  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i40) #21
+  br i1 %29, label %46, label %30
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %20, align 8, !tbaa !8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %33 = load ptr, ptr %32, align 8
-  %34 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i38) #21
+  %34 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i40) #21
   %.not = icmp ult i64 %1, %34
-  br i1 %.not, label %51, label %35
+  br i1 %.not, label %46, label %35
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %20, align 8, !tbaa !8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %38 = load ptr, ptr %37, align 8
-  %39 = call noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i38) #21
+  %39 = call noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i40) #21
   %40 = load ptr, ptr %20, align 8, !tbaa !8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 168
   %42 = load ptr, ptr %41, align 8
-  %43 = call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i38) #21
+  %43 = call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i40) #21
   %44 = add i64 %43, %39
   %45 = icmp ult i64 %1, %44
-  br i1 %45, label %46, label %51
+  br i1 %45, label %53, label %46
 
-46:                                               ; preds = %35
-  %47 = load ptr, ptr %20, align 8, !tbaa !8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 160
-  %49 = load ptr, ptr %48, align 8
-  %50 = call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i38) #21
-  br label %.loopexit
-
-51:                                               ; preds = %25, %.lr.ph, %35, %30
-  %52 = load ptr, ptr %18, align 8, !tbaa !42
-  %53 = load ptr, ptr %52, align 8, !tbaa !8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %56 = load ptr, ptr %18, align 8, !tbaa !42
-  %57 = icmp eq ptr %56, %17
+46:                                               ; preds = %25, %.lr.ph, %35, %30
+  %47 = load ptr, ptr %18, align 8, !tbaa !42
+  %48 = load ptr, ptr %47, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
+  %50 = load ptr, ptr %49, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %51 = load ptr, ptr %18, align 8, !tbaa !42
+  %52 = icmp ne ptr %51, %17
   %lhsv.i.i.i.i = load i64, ptr %3, align 8
-  %.not.i.i.i.i = icmp eq i64 %lhsv.i.i.i.i, %16
-  %.not2.i.not = select i1 %57, i1 %.not.i.i.i.i, i1 false
-  br i1 %.not2.i.not, label %.loopexit, label %.lr.ph
+  %.not.i.i.i.i = icmp ne i64 %lhsv.i.i.i.i, %16
+  %.not2.i = select i1 %52, i1 true, i1 %.not.i.i.i.i
+  br i1 %.not2.i, label %.lr.ph, label %._crit_edge
 
-.loopexit:                                        ; preds = %51, %2, %46
-  %spec.select = phi i64 [ %50, %46 ], [ -1, %2 ], [ -1, %51 ]
+53:                                               ; preds = %35
+  %54 = load ptr, ptr %20, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 160
+  %56 = load ptr, ptr %55, align 8
+  %57 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 %lhsv.i.i.i.i40) #21
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %46, %2, %53
+  %58 = phi i64 [ %57, %53 ], [ -1, %2 ], [ -1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i64 %spec.select
+  ret i64 %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

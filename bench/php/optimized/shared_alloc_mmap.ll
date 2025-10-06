@@ -42,17 +42,17 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 
 .preheader.i:                                     ; preds = %15
   %17 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
-  %.not5166.i = icmp eq ptr %17, null
-  br i1 %.not5166.i, label %.thread92, label %.lr.ph.i
+  %.not5164.i = icmp eq ptr %17, null
+  br i1 %.not5164.i, label %.thread92, label %.lr.ph.i
 
 .thread92:                                        ; preds = %.preheader.i
   %18 = call i32 @fclose(ptr noundef nonnull %16)
   br label %.thread.sink.split
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %52
-  %.03769.i = phi i64 [ %.3.i, %52 ], [ 2097152, %.preheader.i ]
-  %.04068.i = phi i64 [ %.242.i, %52 ], [ -1, %.preheader.i ]
-  %.04567.i = phi i64 [ %.146.i, %52 ], [ 0, %.preheader.i ]
+  %.03767.i = phi i64 [ %.3.i, %52 ], [ 2097152, %.preheader.i ]
+  %.04066.i = phi i64 [ %.242.i, %52 ], [ -1, %.preheader.i ]
+  %.04565.i = phi i64 [ %.146.i, %52 ], [ 0, %.preheader.i ]
   %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %20 = icmp eq i32 %19, 2
   br i1 %20, label %21, label %55
@@ -64,12 +64,12 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br i1 %.not52.i, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %21
-  %.pre = add i64 %.03769.i, %0
+  %.pre = add i64 %.03767.i, %0
   br label %29
 
 23:                                               ; preds = %21
   %24 = and i64 %.pre.i, -2097152
-  %25 = add i64 %.03769.i, %0
+  %25 = add i64 %.03767.i, %0
   %.not53.i = icmp ult i64 %25, %24
   %26 = load i64, ptr %6, align 8
   %27 = add i64 %26, 4194303
@@ -96,7 +96,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %37
 
 37:                                               ; preds = %31, %30
-  %.343.i = phi i64 [ %.04068.i, %30 ], [ %spec.select.i, %31 ]
+  %.343.i = phi i64 [ %.04066.i, %30 ], [ %spec.select.i, %31 ]
   %38 = load i64, ptr %6, align 8, !tbaa !19
   %39 = icmp ugt i64 %38, ptrtoint (ptr @execute_ex to i64)
   br i1 %39, label %40, label %47
@@ -106,25 +106,25 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %41 = sub i64 %38, %.343.i
   %42 = icmp ult i64 %41, 4294967295
   %or.cond.i = and i1 %.not57.i, %42
-  br i1 %or.cond.i, label %.thread114, label %47
+  br i1 %or.cond.i, label %.thread113, label %47
 
 43:                                               ; preds = %29
-  %44 = sub i64 %.pre-phi, %.04567.i
+  %44 = sub i64 %.pre-phi, %.04565.i
   %45 = icmp ugt i64 %44, 4294967295
   br i1 %45, label %55, label %46
 
 46:                                               ; preds = %43
   %.not55.i = icmp ugt i64 %.pre-phi, %.pre.i
-  br i1 %.not55.i, label %._crit_edge.i, label %.thread114
+  br i1 %.not55.i, label %._crit_edge.i, label %.thread113
 
 ._crit_edge.i:                                    ; preds = %46
-  %.pre78.i = load i64, ptr %6, align 8, !tbaa !19
+  %.pre76.i = load i64, ptr %6, align 8, !tbaa !19
   br label %47
 
 47:                                               ; preds = %._crit_edge.i, %40, %37
-  %48 = phi i64 [ %38, %37 ], [ %.pre78.i, %._crit_edge.i ], [ %38, %40 ]
-  %.247.i = phi i64 [ %.04567.i, %37 ], [ %.04567.i, %._crit_edge.i ], [ %.pre.i, %40 ]
-  %.5.i = phi i64 [ %.343.i, %37 ], [ %.04068.i, %._crit_edge.i ], [ -1, %40 ]
+  %48 = phi i64 [ %38, %37 ], [ %.pre76.i, %._crit_edge.i ], [ %38, %40 ]
+  %.247.i = phi i64 [ %.04565.i, %37 ], [ %.04565.i, %._crit_edge.i ], [ %.pre.i, %40 ]
+  %.5.i = phi i64 [ %.343.i, %37 ], [ %.04066.i, %._crit_edge.i ], [ -1, %40 ]
   %49 = add i64 %48, 2097151
   %50 = and i64 %49, -2097152
   %51 = add i64 %50, 2097152
@@ -132,15 +132,15 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %52
 
 52:                                               ; preds = %47, %23
-  %.146.i = phi i64 [ %.247.i, %47 ], [ %.04567.i, %23 ]
-  %.242.i = phi i64 [ %.5.i, %47 ], [ %.04068.i, %23 ]
+  %.146.i = phi i64 [ %.247.i, %47 ], [ %.04565.i, %23 ]
+  %.242.i = phi i64 [ %.5.i, %47 ], [ %.04066.i, %23 ]
   %.3.i = phi i64 [ %spec.select58.i, %47 ], [ %28, %23 ]
   %53 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
   %.not51.i = icmp eq ptr %53, null
   br i1 %.not51.i, label %55, label %.lr.ph.i
 
-.thread114:                                       ; preds = %40, %46
-  %.141.i.ph = phi i64 [ %.03769.i, %46 ], [ %.343.i, %40 ]
+.thread113:                                       ; preds = %40, %46
+  %.141.i.ph = phi i64 [ %.03767.i, %46 ], [ %.343.i, %40 ]
   %54 = call i32 @fclose(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %57
 
 55:                                               ; preds = %.lr.ph.i, %43, %52
-  %.141.i = phi i64 [ %.04068.i, %43 ], [ %.242.i, %52 ], [ %.04068.i, %.lr.ph.i ]
+  %.141.i = phi i64 [ %.04066.i, %43 ], [ %.242.i, %52 ], [ %.04066.i, %.lr.ph.i ]
   %56 = call i32 @fclose(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -156,8 +156,8 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %.not = icmp eq i64 %.141.i, -1
   br i1 %.not, label %.thread, label %57
 
-57:                                               ; preds = %.thread114, %55
-  %.in = phi i64 [ %.141.i.ph, %.thread114 ], [ %.141.i, %55 ]
+57:                                               ; preds = %.thread113, %55
+  %.in = phi i64 [ %.141.i.ph, %.thread113 ], [ %.141.i, %55 ]
   %58 = inttoptr i64 %.in to ptr
   %59 = icmp ugt i64 %0, 2097151
   %60 = and i64 %0, 2097151

@@ -1783,16 +1783,16 @@ define internal void @tarPrintf(ptr noundef captures(none) %0, ptr noundef %1, .
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.lcssa19 = phi ptr [ %6, %2 ], [ %11, %.lr.ph ]
+  %.lcssa18 = phi ptr [ %6, %2 ], [ %11, %.lr.ph ]
   %.lcssa = phi i64 [ %7, %2 ], [ %12, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load ptr, ptr %0, align 8
-  %15 = call noundef i64 @fwrite(ptr noundef readonly %.lcssa19, i64 noundef 1, i64 noundef %.lcssa, ptr noundef %14)
+  %15 = call noundef i64 @fwrite(ptr noundef readonly %.lcssa18, i64 noundef 1, i64 noundef %.lcssa, ptr noundef %14)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8
-  call void @free(ptr noundef %.lcssa19) #17
+  call void @free(ptr noundef %.lcssa18) #17
   ret void
 }
 

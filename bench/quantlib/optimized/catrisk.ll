@@ -2151,8 +2151,8 @@ _ZNSt24exponential_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm3
   %div.i.i = fdiv double %fneg.i.i, %3
   %yearFraction_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load double, ptr %yearFraction_, align 8, !tbaa !87
-  %cmp42 = fcmp ugt double %div.i.i, %4
-  br i1 %cmp42, label %while.end, label %while.body.lr.ph
+  %cmp41 = fcmp ugt double %div.i.i, %4
+  br i1 %cmp41, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZNSt24exponential_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_.exit
   %dayCount_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2170,10 +2170,10 @@ while.body.lr.ph:                                 ; preds = %_ZNSt24exponential_
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
   %5 = phi double [ %4, %while.body.lr.ph ], [ %27, %cleanup ]
-  %eventFraction.043 = phi double [ %div.i.i, %while.body.lr.ph ], [ %div.i.i30, %cleanup ]
+  %eventFraction.042 = phi double [ %div.i.i, %while.body.lr.ph ], [ %div.i.i30, %cleanup ]
   %6 = load i32, ptr %dayCount_, align 8, !tbaa !86
   %conv = sitofp i32 %6 to double
-  %mul = fmul double %eventFraction.043, %conv
+  %mul = fmul double %eventFraction.042, %conv
   %div = fdiv double %mul, %5
   %call3 = tail call i64 @lround(double noundef %div) #21, !tbaa !64
   %conv4 = trunc i64 %call3 to i32

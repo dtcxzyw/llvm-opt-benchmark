@@ -348,47 +348,47 @@ define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writab
   %.039.lcssa = phi i64 [ 4, %51 ], [ %59, %._crit_edge.loopexit ]
   %60 = call ptr @PyMem_RawMalloc(i64 noundef %.039.lcssa) #12
   %.not54 = icmp eq ptr %60, null
-  br i1 %.not54, label %86, label %.preheader59
+  br i1 %.not54, label %86, label %.preheader58
 
-.preheader59:                                     ; preds = %._crit_edge
+.preheader58:                                     ; preds = %._crit_edge
   %61 = load i64, ptr %54, align 8, !tbaa !36
   %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %.lr.ph64, label %.preheader.preheader
+  br i1 %62, label %.lr.ph63, label %.preheader.preheader
 
-.lr.ph64:                                         ; preds = %.preheader59
+.lr.ph63:                                         ; preds = %.preheader58
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 328
   br label %71
 
 64:                                               ; preds = %.lr.ph, %64
-  %.03961 = phi i64 [ 1, %.lr.ph ], [ %69, %64 ]
-  %.04060 = phi i64 [ 0, %.lr.ph ], [ %70, %64 ]
-  %65 = getelementptr ptr, ptr %58, i64 %.04060
+  %.03960 = phi i64 [ 1, %.lr.ph ], [ %69, %64 ]
+  %.04059 = phi i64 [ 0, %.lr.ph ], [ %70, %64 ]
+  %65 = getelementptr ptr, ptr %58, i64 %.04059
   %66 = load ptr, ptr %65, align 8, !tbaa !38
   %67 = call i64 @wcslen(ptr noundef %66) #13
-  %68 = add i64 %.03961, 1
+  %68 = add i64 %.03960, 1
   %69 = add i64 %68, %67
-  %70 = add nuw nsw i64 %.04060, 1
+  %70 = add nuw nsw i64 %.04059, 1
   %exitcond.not = icmp eq i64 %70, %55
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %64, !llvm.loop !39
 
-71:                                               ; preds = %.lr.ph64, %71
-  %.03763 = phi i64 [ 0, %.lr.ph64 ], [ %78, %71 ]
-  %.03862 = phi ptr [ %60, %.lr.ph64 ], [ %77, %71 ]
+71:                                               ; preds = %.lr.ph63, %71
+  %.03762 = phi i64 [ 0, %.lr.ph63 ], [ %78, %71 ]
+  %.03861 = phi ptr [ %60, %.lr.ph63 ], [ %77, %71 ]
   %72 = load ptr, ptr %63, align 8, !tbaa !37
-  %73 = getelementptr ptr, ptr %72, i64 %.03763
+  %73 = getelementptr ptr, ptr %72, i64 %.03762
   %74 = load ptr, ptr %73, align 8, !tbaa !38
-  %75 = call ptr @wcscpy(ptr noundef nonnull %.03862, ptr noundef %74) #12
-  %76 = call ptr @wcschr(ptr noundef nonnull %.03862, i32 noundef 0) #13
+  %75 = call ptr @wcscpy(ptr noundef nonnull %.03861, ptr noundef %74) #12
+  %76 = call ptr @wcschr(ptr noundef nonnull %.03861, i32 noundef 0) #13
   %77 = getelementptr i8, ptr %76, i64 4
   store i32 58, ptr %76, align 4, !tbaa !29
   store i32 0, ptr %77, align 4, !tbaa !29
-  %78 = add nuw nsw i64 %.03763, 1
+  %78 = add nuw nsw i64 %.03762, 1
   %79 = load i64, ptr %54, align 8, !tbaa !36
   %80 = icmp slt i64 %78, %79
   br i1 %80, label %71, label %.preheader.preheader, !llvm.loop !41
 
-.preheader.preheader:                             ; preds = %71, %.preheader59
-  %.1.ph = phi ptr [ %60, %.preheader59 ], [ %77, %71 ]
+.preheader.preheader:                             ; preds = %71, %.preheader58
+  %.1.ph = phi ptr [ %60, %.preheader58 ], [ %77, %71 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %81

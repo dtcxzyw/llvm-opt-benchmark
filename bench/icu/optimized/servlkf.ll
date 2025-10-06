@@ -651,8 +651,8 @@ define void @_ZNK6icu_7716LocaleKeyFactory16updateVisibleIDsERNS_9HashtableER10U
   store i32 -1, ptr %4, align 4, !tbaa !12
   %12 = load ptr, ptr %8, align 8, !tbaa !24
   %13 = call noundef ptr @uhash_nextElement_77(ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %.not1418 = icmp eq ptr %13, null
-  br i1 %.not1418, label %.thread, label %.lr.ph
+  %.not1417 = icmp eq ptr %13, null
+  br i1 %.not1417, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %14 = and i32 %11, 1

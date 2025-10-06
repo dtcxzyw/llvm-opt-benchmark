@@ -1719,8 +1719,8 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %.thread
   %36 = sext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 3
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %37
-  %.not54.not = icmp eq i32 %35, 0
-  br i1 %.not54.not, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph57.preheader
+  %.not55 = icmp eq i32 %35, 0
+  br i1 %.not55, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph57.preheader
 
 .lr.ph57.preheader:                               ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread68, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
   %39 = phi ptr [ %31, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread68 ], [ %38, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
@@ -1729,8 +1729,8 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %.thread
   br label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %._crit_edge
-  %.02655 = phi ptr [ %59, %._crit_edge ], [ %.sroa.0.0.i72, %.lr.ph57.preheader ]
-  %41 = load ptr, ptr %.02655, align 8, !tbaa !396
+  %.02656 = phi ptr [ %59, %._crit_edge ], [ %.sroa.0.0.i72, %.lr.ph57.preheader ]
+  %41 = load ptr, ptr %.02656, align 8, !tbaa !396
   %42 = load i64, ptr %16, align 8, !tbaa !357
   %43 = icmp ugt i64 %42, 7
   br i1 %43, label %44, label %._crit_edge
@@ -1755,8 +1755,8 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit38:    ; preds = %44
   %51 = sext i32 %50 to i64
   %52 = shl nuw nsw i64 %51, 3
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
-  %.not3152 = icmp eq i32 %50, 0
-  br i1 %.not3152, label %._crit_edge, label %.lr.ph.preheader
+  %.not3153 = icmp eq i32 %50, 0
+  br i1 %.not3153, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit38.thread76, %_ZNK4llvm12MachineInstr11memoperandsEv.exit38
   %54 = phi ptr [ %40, %_ZNK4llvm12MachineInstr11memoperandsEv.exit38.thread76 ], [ %53, %_ZNK4llvm12MachineInstr11memoperandsEv.exit38 ]
@@ -1764,20 +1764,20 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit38:    ; preds = %44
   br label %.lr.ph
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw i8, ptr %.02753, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.02754, i64 8
   %.not31 = icmp eq ptr %56, %54
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %.02753 = phi ptr [ %56, %55 ], [ %.sroa.0.0.i3480, %.lr.ph.preheader ]
-  %57 = load ptr, ptr %.02753, align 8, !tbaa !396
+  %.02754 = phi ptr [ %56, %55 ], [ %.sroa.0.0.i3480, %.lr.ph.preheader ]
+  %57 = load ptr, ptr %.02754, align 8, !tbaa !396
   %58 = tail call noundef zeroext i1 @_ZNK4llvm18VLIWPacketizerList5aliasERKNS_17MachineMemOperandES3_b(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(80) %41, ptr noundef nonnull align 8 dereferenceable(80) %57, i1 noundef zeroext %3)
   br i1 %58, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %55
 
 ._crit_edge:                                      ; preds = %55, %44, %.lr.ph57, %_ZNK4llvm12MachineInstr11memoperandsEv.exit38
-  %59 = getelementptr inbounds nuw i8, ptr %.02655, i64 8
-  %.not.not = icmp eq ptr %59, %39
-  br i1 %.not.not, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph57
+  %59 = getelementptr inbounds nuw i8, ptr %.02656, i64 8
+  %.not = icmp eq ptr %59, %39
+  br i1 %.not, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread, label %.lr.ph57
 
 _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread: ; preds = %._crit_edge, %.lr.ph, %.thread, %25, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %19, %15, %8, %4, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit33
   %.0 = phi i1 [ true, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit33 ], [ true, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit ], [ true, %4 ], [ true, %8 ], [ true, %15 ], [ true, %19 ], [ false, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ false, %25 ], [ false, %.thread ], [ true, %.lr.ph ], [ false, %._crit_edge ]

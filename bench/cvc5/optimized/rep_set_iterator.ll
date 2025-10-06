@@ -2085,8 +2085,8 @@ _ZNSt6vectorImSaImEED2Ev.exit343:                 ; preds = %_ZNSt6vectorImSaImE
   br i1 %.not512, label %_ZN4cvc58internal6theory14RepSetIterator16doResetIncrementEib.exit, label %.lr.ph.i344
 
 .lr.ph.i344:                                      ; preds = %495, %_ZNSt6vectorIiSaIiEE5clearEv.exit87.i
-  %storemerge197.i = phi i64 [ %514, %_ZNSt6vectorIiSaIiEE5clearEv.exit87.i ], [ 0, %495 ]
-  %500 = call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator10resetIndexEmb(ptr noundef nonnull align 8 dereferenceable(169) %0, i64 noundef %storemerge197.i, i1 noundef zeroext true)
+  %storemerge193.i = phi i64 [ %514, %_ZNSt6vectorIiSaIiEE5clearEv.exit87.i ], [ 0, %495 ]
+  %500 = call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator10resetIndexEmb(ptr noundef nonnull align 8 dereferenceable(169) %0, i64 noundef %storemerge193.i, i1 noundef zeroext true)
   switch i32 %500, label %_ZNSt6vectorIiSaIiEE5clearEv.exit87.i [
     i32 -1, label %501
     i32 0, label %505
@@ -2103,11 +2103,11 @@ _ZNSt6vectorImSaImEED2Ev.exit343:                 ; preds = %_ZNSt6vectorImSaImE
   br label %522
 
 505:                                              ; preds = %.lr.ph.i344
-  %.not.i345 = icmp eq i64 %storemerge197.i, 0
+  %.not.i345 = icmp eq i64 %storemerge193.i, 0
   br i1 %.not.i345, label %510, label %506
 
 506:                                              ; preds = %505
-  %507 = trunc i64 %storemerge197.i to i32
+  %507 = trunc i64 %storemerge193.i to i32
   %508 = add i32 %507, -1
   %509 = call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16incrementAtIndexEi(ptr noundef nonnull align 8 dereferenceable(169) %0, i32 noundef %508) #28
   br label %_ZN4cvc58internal6theory14RepSetIterator16doResetIncrementEib.exit
@@ -2123,7 +2123,7 @@ _ZNSt6vectorImSaImEED2Ev.exit343:                 ; preds = %_ZNSt6vectorImSaImE
   br label %_ZN4cvc58internal6theory14RepSetIterator16doResetIncrementEib.exit
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit87.i:            ; preds = %.lr.ph.i344
-  %514 = add nuw i64 %storemerge197.i, 1
+  %514 = add nuw i64 %storemerge193.i, 1
   %515 = load ptr, ptr %497, align 8, !tbaa !81
   %516 = load ptr, ptr %496, align 8, !tbaa !40
   %517 = ptrtoint ptr %515 to i64
@@ -2558,11 +2558,11 @@ define hidden noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16doResetIncr
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 2
   %14 = icmp ugt i64 %13, %5
-  br i1 %14, label %.lr.ph, label %.thread185
+  br i1 %14, label %.lr.ph, label %.thread183
 
 .lr.ph:                                           ; preds = %3, %_ZNSt6vectorIiSaIiEE5clearEv.exit87
-  %storemerge197 = phi i64 [ %29, %_ZNSt6vectorIiSaIiEE5clearEv.exit87 ], [ %5, %3 ]
-  %15 = tail call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator10resetIndexEmb(ptr noundef nonnull align 8 dereferenceable(169) %0, i64 noundef %storemerge197, i1 noundef zeroext %2)
+  %storemerge193 = phi i64 [ %29, %_ZNSt6vectorIiSaIiEE5clearEv.exit87 ], [ %5, %3 ]
+  %15 = tail call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator10resetIndexEmb(ptr noundef nonnull align 8 dereferenceable(169) %0, i64 noundef %storemerge193, i1 noundef zeroext %2)
   switch i32 %15, label %_ZNSt6vectorIiSaIiEE5clearEv.exit87 [
     i32 -1, label %16
     i32 0, label %20
@@ -2579,27 +2579,27 @@ define hidden noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16doResetIncr
   br label %37
 
 20:                                               ; preds = %.lr.ph
-  %.not = icmp eq i64 %storemerge197, 0
+  %.not = icmp eq i64 %storemerge193, 0
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %20
-  %22 = trunc i64 %storemerge197 to i32
+  %22 = trunc i64 %storemerge193 to i32
   %23 = add i32 %22, -1
   %24 = tail call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16incrementAtIndexEi(ptr noundef nonnull align 8 dereferenceable(169) %0, i32 noundef %23)
-  br label %.thread185
+  br label %.thread183
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %6, align 8, !tbaa !40
   %27 = load ptr, ptr %7, align 8, !tbaa !81
   %.not.i.i86 = icmp eq ptr %27, %26
-  br i1 %.not.i.i86, label %.thread185, label %28
+  br i1 %.not.i.i86, label %.thread183, label %28
 
 28:                                               ; preds = %25
   store ptr %26, ptr %7, align 8, !tbaa !81
-  br label %.thread185
+  br label %.thread183
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit87:              ; preds = %.lr.ph
-  %29 = add nuw i64 %storemerge197, 1
+  %29 = add nuw i64 %storemerge193, 1
   %30 = load ptr, ptr %7, align 8, !tbaa !81
   %31 = load ptr, ptr %6, align 8, !tbaa !40
   %32 = ptrtoint ptr %30 to i64
@@ -2607,14 +2607,14 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit87:              ; preds = %.lr.ph
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 2
   %36 = icmp ult i64 %29, %35
-  br i1 %36, label %.lr.ph, label %.thread185, !llvm.loop !103
+  br i1 %36, label %.lr.ph, label %.thread183, !llvm.loop !103
 
 37:                                               ; preds = %19, %16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 1, ptr %38, align 8, !tbaa !90
-  br label %.thread185
+  br label %.thread183
 
-.thread185:                                       ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit87, %3, %37, %21, %25, %28
+.thread183:                                       ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit87, %3, %37, %21, %25, %28
   %.3 = phi i32 [ %24, %21 ], [ -1, %25 ], [ -1, %28 ], [ %1, %37 ], [ %1, %3 ], [ %1, %_ZNSt6vectorIiSaIiEE5clearEv.exit87 ]
   ret i32 %.3
 }

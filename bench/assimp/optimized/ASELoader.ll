@@ -554,24 +554,24 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %_ZNSt12_Vector_base
   br i1 %or.cond.i, label %.loopexit.i, label %.preheader.i
 
 104:                                              ; preds = %112
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 12
   %.not.i66 = icmp eq ptr %105, %100
   br i1 %.not.i66, label %.loopexit.i, label %.preheader.i, !llvm.loop !5
 
 .preheader.i:                                     ; preds = %96, %104
-  %.sroa.010.018.i = phi ptr [ %105, %104 ], [ %98, %96 ]
-  %106 = load float, ptr %.sroa.010.018.i, align 4
+  %.sroa.010.016.i = phi ptr [ %105, %104 ], [ %98, %96 ]
+  %106 = load float, ptr %.sroa.010.016.i, align 4
   %107 = fcmp une float %106, 0.000000e+00
   br i1 %107, label %_ZN6Assimp11ASEImporter15GenerateNormalsERNS_3ASE4MeshE.exit, label %108
 
 108:                                              ; preds = %.preheader.i
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 4
   %110 = load float, ptr %109, align 4
   %111 = fcmp une float %110, 0.000000e+00
   br i1 %111, label %_ZN6Assimp11ASEImporter15GenerateNormalsERNS_3ASE4MeshE.exit, label %112
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 8
   %114 = load float, ptr %113, align 4
   %115 = fcmp une float %114, 0.000000e+00
   br i1 %115, label %_ZN6Assimp11ASEImporter15GenerateNormalsERNS_3ASE4MeshE.exit, label %104
@@ -2480,24 +2480,24 @@ define hidden noundef zeroext i1 @_ZN6Assimp11ASEImporter15GenerateNormalsERNS_3
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 11:                                               ; preds = %19
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 12
   %.not = icmp eq ptr %12, %6
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %2, %11
-  %.sroa.010.018 = phi ptr [ %12, %11 ], [ %4, %2 ]
-  %13 = load float, ptr %.sroa.010.018, align 4
+  %.sroa.010.016 = phi ptr [ %12, %11 ], [ %4, %2 ]
+  %13 = load float, ptr %.sroa.010.016, align 4
   %14 = fcmp une float %13, 0.000000e+00
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fcmp une float %17, 0.000000e+00
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 8
   %21 = load float, ptr %20, align 4
   %22 = fcmp une float %21, 0.000000e+00
   br i1 %22, label %.thread, label %11

@@ -2133,7 +2133,7 @@ define i32 @BIO_do_connect_retry(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %10
 
 10:                                               ; preds = %3, %6
-  %.fr57 = phi i64 [ %9, %6 ], [ 0, %3 ]
+  %.fr56 = phi i64 [ %9, %6 ], [ 0, %3 ]
   %11 = icmp eq ptr %0, null
   br i1 %11, label %12, label %13
 
@@ -2184,38 +2184,38 @@ define i32 @BIO_do_connect_retry(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %32 = icmp eq i64 %.fr57, 0
+  %32 = icmp eq i64 %.fr56, 0
   br i1 %32, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %bio_wait.exit.thread.us
   %33 = tail call i64 @ERR_peek_last_error() #14
   %34 = and i64 %33, 2147483648
-  %.not.i.us51 = icmp eq i64 %34, 0
+  %.not.i.us50 = icmp eq i64 %34, 0
   %35 = trunc i64 %33 to i32
   %36 = load i32, ptr %21, align 8, !tbaa !27
   %37 = and i32 %36, 8
-  %.mask.us52 = and i32 %35, -8388608
-  %38 = icmp eq i32 %.mask.us52, 268435456
-  %39 = and i1 %.not.i.us51, %38
+  %.mask.us51 = and i32 %35, -8388608
+  %38 = icmp eq i32 %.mask.us51, 268435456
+  %39 = and i1 %.not.i.us50, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.lr.ph.split.split.us
-  %.0.i.us53 = and i32 %35, 8388607
-  switch i32 %.0.i.us53, label %42 [
-    i32 524290, label %.thread76
-    i32 103, label %.thread76
-    i32 110, label %.thread76
+  %.0.i.us52 = and i32 %35, 8388607
+  switch i32 %.0.i.us52, label %42 [
+    i32 524290, label %.thread75
+    i32 103, label %.thread75
+    i32 110, label %.thread75
   ]
 
-.thread76:                                        ; preds = %40, %40, %40
+.thread75:                                        ; preds = %40, %40, %40
   %41 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
   br label %bio_wait.exit.thread.us
 
 42:                                               ; preds = %40, %.lr.ph.split.split.us
-  %.not58 = icmp eq i32 %37, 0
-  br i1 %.not58, label %.split.us, label %bio_wait.exit.thread.us
+  %.not57 = icmp eq i32 %37, 0
+  br i1 %.not57, label %.split.us, label %bio_wait.exit.thread.us
 
-bio_wait.exit.thread.us:                          ; preds = %.thread76, %42
+bio_wait.exit.thread.us:                          ; preds = %.thread75, %42
   %43 = tail call i32 @ERR_pop_to_mark() #14
   %44 = tail call i32 @ERR_set_mark() #14
   %45 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
@@ -2238,12 +2238,12 @@ bio_wait.exit.thread.us:                          ; preds = %.thread76, %42
 55:                                               ; preds = %.lr.ph.split.split
   %.0.i = and i32 %50, 8388607
   switch i32 %.0.i, label %57 [
-    i32 524290, label %.thread79
-    i32 103, label %.thread79
-    i32 110, label %.thread79
+    i32 524290, label %.thread78
+    i32 103, label %.thread78
+    i32 110, label %.thread78
   ]
 
-.thread79:                                        ; preds = %55, %55, %55
+.thread78:                                        ; preds = %55, %55, %55
   %56 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
   br label %58
 
@@ -2251,7 +2251,7 @@ bio_wait.exit.thread.us:                          ; preds = %.thread76, %42
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %.split.us, label %58
 
-58:                                               ; preds = %.thread79, %57
+58:                                               ; preds = %.thread78, %57
   %59 = call i32 @ERR_pop_to_mark() #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %60 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %4)
@@ -2262,14 +2262,14 @@ bio_wait.exit.thread.us:                          ; preds = %.thread76, %42
   %63 = load i32, ptr %4, align 4, !tbaa !53
   %64 = load i32, ptr %21, align 8, !tbaa !27
   %65 = and i32 %64, 1
-  %66 = call i32 @BIO_socket_wait(i32 noundef %63, i32 noundef %65, i64 noundef %.fr57) #14
+  %66 = call i32 @BIO_socket_wait(i32 noundef %63, i32 noundef %65, i64 noundef %.fr56) #14
   %67 = freeze i32 %66
   %.not.i36 = icmp eq i32 %67, -1
   br i1 %.not.i36, label %68, label %bio_wait.exit
 
 68:                                               ; preds = %62, %58
   %69 = call i64 @time(ptr noundef null) #14
-  %70 = sub nsw i64 %.fr57, %69
+  %70 = sub nsw i64 %.fr56, %69
   %71 = icmp slt i64 %70, 0
   br i1 %71, label %bio_wait.exit.thread38, label %72
 
@@ -2278,7 +2278,7 @@ bio_wait.exit.thread38:                           ; preds = %68
   br label %.loopexit
 
 72:                                               ; preds = %68
-  %73 = icmp eq i64 %.fr57, %69
+  %73 = icmp eq i64 %.fr56, %69
   br i1 %73, label %bio_wait.exit.thread, label %74
 
 74:                                               ; preds = %72
@@ -2333,12 +2333,12 @@ bio_wait.exit:                                    ; preds = %62
   br i1 %91, label %.lr.ph.split.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %87, %bio_wait.exit.thread.us, %13
-  %.lcssa44 = phi i32 [ %19, %13 ], [ %46, %bio_wait.exit.thread.us ], [ %90, %87 ]
+  %.lcssa43 = phi i32 [ %19, %13 ], [ %46, %bio_wait.exit.thread.us ], [ %90, %87 ]
   %92 = call i32 @ERR_clear_last_mark() #14
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %86, %.split.us, %._crit_edge, %12
-  %.025 = phi i32 [ -1, %12 ], [ %.lcssa44, %._crit_edge ], [ -1, %.split.us ], [ -1, %86 ], [ %.0.i3540, %.loopexit ]
+  %.025 = phi i32 [ -1, %12 ], [ %.lcssa43, %._crit_edge ], [ -1, %.split.us ], [ -1, %86 ], [ %.0.i3540, %.loopexit ]
   ret i32 %.025
 }
 

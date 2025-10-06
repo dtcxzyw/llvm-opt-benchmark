@@ -109,8 +109,8 @@ define internal fastcc ptr @lean_array_get(ptr noundef %0, ptr noundef readonly 
 10:                                               ; preds = %6
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, 1
-  %.not14 = icmp eq i64 %12, 0
-  br i1 %.not14, label %13, label %lean_dec.exit
+  %.not13 = icmp eq i64 %12, 0
+  br i1 %.not13, label %13, label %lean_dec.exit
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %0, align 4, !tbaa !4
@@ -1448,17 +1448,17 @@ lean_dec.exit:                                    ; preds = %17, %16, %14, %l_St
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray___spec__1(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %.not27 = icmp eq i64 %2, %3
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq i64 %2, %3
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %27
-  %.01529 = phi i64 [ %2, %.lr.ph ], [ %29, %27 ]
-  %.01728 = phi ptr [ %4, %.lr.ph ], [ %28, %27 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01529
+  %.01527 = phi i64 [ %2, %.lr.ph ], [ %29, %27 ]
+  %.01726 = phi ptr [ %4, %.lr.ph ], [ %28, %27 ]
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01527
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -1484,11 +1484,11 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %19
 
 lean_array_uget.exit:                             ; preds = %7
-  %18 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01728, ptr noundef %9)
+  %18 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01726, ptr noundef %9)
   br label %27
 
 19:                                               ; preds = %14, %16, %17
-  %20 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01728, ptr noundef nonnull %9)
+  %20 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01726, ptr noundef nonnull %9)
   %21 = load i32, ptr %9, align 4, !tbaa !4
   %22 = icmp sgt i32 %21, 1
   br i1 %22, label %23, label %25, !prof !11
@@ -1508,7 +1508,7 @@ lean_array_uget.exit:                             ; preds = %7
 
 27:                                               ; preds = %lean_array_uget.exit, %23, %25, %26
   %28 = phi ptr [ %18, %lean_array_uget.exit ], [ %20, %23 ], [ %20, %25 ], [ %20, %26 ]
-  %29 = add i64 %.01529, 1
+  %29 = add i64 %.01527, 1
   %.not = icmp eq i64 %29, %3
   br i1 %.not, label %._crit_edge, label %7
 
@@ -1587,9 +1587,9 @@ lean_dec.exit53:                                  ; preds = %19, %18, %16, %lean
   br label %25
 
 25:                                               ; preds = %45, %.lr.ph.i
-  %.01529.i = phi i64 [ 0, %.lr.ph.i ], [ %47, %45 ]
-  %.01728.i = phi ptr [ %11, %.lr.ph.i ], [ %46, %45 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01529.i
+  %.01527.i = phi i64 [ 0, %.lr.ph.i ], [ %47, %45 ]
+  %.01726.i = phi ptr [ %11, %.lr.ph.i ], [ %46, %45 ]
+  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01527.i
   %27 = load ptr, ptr %26, align 8, !tbaa !9
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
@@ -1615,11 +1615,11 @@ lean_dec.exit53:                                  ; preds = %19, %18, %16, %lean
   br label %37
 
 lean_array_uget.exit.i:                           ; preds = %25
-  %36 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01728.i, ptr noundef %27)
+  %36 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01726.i, ptr noundef %27)
   br label %45
 
 37:                                               ; preds = %35, %34, %32
-  %38 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01728.i, ptr noundef nonnull %27)
+  %38 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01726.i, ptr noundef nonnull %27)
   %39 = load i32, ptr %27, align 4, !tbaa !4
   %40 = icmp sgt i32 %39, 1
   br i1 %40, label %41, label %43, !prof !11
@@ -1639,7 +1639,7 @@ lean_array_uget.exit.i:                           ; preds = %25
 
 45:                                               ; preds = %44, %43, %41, %lean_array_uget.exit.i
   %46 = phi ptr [ %36, %lean_array_uget.exit.i ], [ %38, %41 ], [ %38, %43 ], [ %38, %44 ]
-  %47 = add nuw nsw i64 %.01529.i, 1
+  %47 = add nuw nsw i64 %.01527.i, 1
   %.not.i70 = icmp eq i64 %47, %.mask
   br i1 %.not.i70, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray___spec__1.exit, label %25
 
@@ -1747,17 +1747,17 @@ lean_dec.exit13:                                  ; preds = %15, %14, %12, %5
   br label %lean_dec.exit12
 
 lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean_dec.exit13
-  %.not27.i = icmp eq i64 %.val, %.val20
-  br i1 %.not27.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray___spec__1.exit, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %.val, %.val20
+  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %27
 
 27:                                               ; preds = %47, %.lr.ph.i
-  %.01529.i = phi i64 [ %.val, %.lr.ph.i ], [ %49, %47 ]
-  %.01728.i = phi ptr [ %4, %.lr.ph.i ], [ %48, %47 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01529.i
+  %.01527.i = phi i64 [ %.val, %.lr.ph.i ], [ %49, %47 ]
+  %.01726.i = phi ptr [ %4, %.lr.ph.i ], [ %48, %47 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01527.i
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
@@ -1783,11 +1783,11 @@ lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean
   br label %39
 
 lean_array_uget.exit.i:                           ; preds = %27
-  %38 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01728.i, ptr noundef %29)
+  %38 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01726.i, ptr noundef %29)
   br label %47
 
 39:                                               ; preds = %37, %36, %34
-  %40 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01728.i, ptr noundef nonnull %29)
+  %40 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn___rarg(ptr noundef %.01726.i, ptr noundef nonnull %29)
   %41 = load i32, ptr %29, align 4, !tbaa !4
   %42 = icmp sgt i32 %41, 1
   br i1 %42, label %43, label %45, !prof !11
@@ -1807,7 +1807,7 @@ lean_array_uget.exit.i:                           ; preds = %27
 
 47:                                               ; preds = %46, %45, %43, %lean_array_uget.exit.i
   %48 = phi ptr [ %38, %lean_array_uget.exit.i ], [ %40, %43 ], [ %40, %45 ], [ %40, %46 ]
-  %49 = add i64 %.01529.i, 1
+  %49 = add i64 %.01527.i, 1
   %.not.i21 = icmp eq i64 %49, %.val20
   br i1 %.not.i21, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray___spec__1.exit, label %27
 
@@ -5668,17 +5668,17 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_delete___spec__1(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %.not28 = icmp eq i64 %2, %3
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i64 %2, %3
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %27
-  %.01630 = phi i64 [ %2, %.lr.ph ], [ %29, %27 ]
-  %.01829 = phi ptr [ %4, %.lr.ph ], [ %28, %27 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01630
+  %.01628 = phi i64 [ %2, %.lr.ph ], [ %29, %27 ]
+  %.01827 = phi ptr [ %4, %.lr.ph ], [ %28, %27 ]
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01628
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -5704,11 +5704,11 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %19
 
 lean_array_uget.exit:                             ; preds = %7
-  %18 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr poison, ptr noundef %.01829, ptr noundef %9)
+  %18 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr poison, ptr noundef %.01827, ptr noundef %9)
   br label %27
 
 19:                                               ; preds = %14, %16, %17
-  %20 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr poison, ptr noundef %.01829, ptr noundef nonnull %9)
+  %20 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr poison, ptr noundef %.01827, ptr noundef nonnull %9)
   %21 = load i32, ptr %9, align 4, !tbaa !4
   %22 = icmp sgt i32 %21, 1
   br i1 %22, label %23, label %25, !prof !11
@@ -5728,7 +5728,7 @@ lean_array_uget.exit:                             ; preds = %7
 
 27:                                               ; preds = %lean_array_uget.exit, %23, %25, %26
   %28 = phi ptr [ %18, %lean_array_uget.exit ], [ %20, %23 ], [ %20, %25 ], [ %20, %26 ]
-  %29 = add i64 %.01630, 1
+  %29 = add i64 %.01628, 1
   %.not = icmp eq i64 %29, %3
   br i1 %.not, label %._crit_edge, label %7
 
@@ -5751,9 +5751,9 @@ lean_nat_lt.exit:
   br label %5
 
 5:                                                ; preds = %25, %.lr.ph.i
-  %.01630.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %25 ]
-  %.01829.i = phi ptr [ %1, %.lr.ph.i ], [ %26, %25 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01630.i
+  %.01628.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %25 ]
+  %.01827.i = phi ptr [ %1, %.lr.ph.i ], [ %26, %25 ]
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01628.i
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -5779,11 +5779,11 @@ lean_nat_lt.exit:
   br label %17
 
 lean_array_uget.exit.i:                           ; preds = %5
-  %16 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01829.i, ptr noundef %7)
+  %16 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01827.i, ptr noundef %7)
   br label %25
 
 17:                                               ; preds = %15, %14, %12
-  %18 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01829.i, ptr noundef nonnull %7)
+  %18 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01827.i, ptr noundef nonnull %7)
   %19 = load i32, ptr %7, align 4, !tbaa !4
   %20 = icmp sgt i32 %19, 1
   br i1 %20, label %21, label %23, !prof !11
@@ -5803,7 +5803,7 @@ lean_array_uget.exit.i:                           ; preds = %5
 
 25:                                               ; preds = %24, %23, %21, %lean_array_uget.exit.i
   %26 = phi ptr [ %16, %lean_array_uget.exit.i ], [ %18, %21 ], [ %18, %23 ], [ %18, %24 ]
-  %27 = add nuw nsw i64 %.01630.i, 1
+  %27 = add nuw nsw i64 %.01628.i, 1
   %.not.i28 = icmp eq i64 %27, %.mask
   br i1 %.not.i28, label %lean_dec.exit20, label %5
 
@@ -5866,17 +5866,17 @@ lean_dec.exit13:                                  ; preds = %15, %14, %12, %5
   br label %lean_dec.exit12
 
 lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean_dec.exit13
-  %.not28.i = icmp eq i64 %.val20, %.val
-  br i1 %.not28.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_delete___spec__1.exit, label %.lr.ph.i
+  %.not26.i = icmp eq i64 %.val20, %.val
+  br i1 %.not26.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_delete___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %27
 
 27:                                               ; preds = %47, %.lr.ph.i
-  %.01630.i = phi i64 [ %.val20, %.lr.ph.i ], [ %49, %47 ]
-  %.01829.i = phi ptr [ %4, %.lr.ph.i ], [ %48, %47 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01630.i
+  %.01628.i = phi i64 [ %.val20, %.lr.ph.i ], [ %49, %47 ]
+  %.01827.i = phi ptr [ %4, %.lr.ph.i ], [ %48, %47 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01628.i
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
@@ -5902,11 +5902,11 @@ lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean
   br label %39
 
 lean_array_uget.exit.i:                           ; preds = %27
-  %38 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01829.i, ptr noundef %29)
+  %38 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01827.i, ptr noundef %29)
   br label %47
 
 39:                                               ; preds = %37, %36, %34
-  %40 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01829.i, ptr noundef nonnull %29)
+  %40 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01827.i, ptr noundef nonnull %29)
   %41 = load i32, ptr %29, align 4, !tbaa !4
   %42 = icmp sgt i32 %41, 1
   br i1 %42, label %43, label %45, !prof !11
@@ -5926,7 +5926,7 @@ lean_array_uget.exit.i:                           ; preds = %27
 
 47:                                               ; preds = %46, %45, %43, %lean_array_uget.exit.i
   %48 = phi ptr [ %38, %lean_array_uget.exit.i ], [ %40, %43 ], [ %40, %45 ], [ %40, %46 ]
-  %49 = add i64 %.01630.i, 1
+  %49 = add i64 %.01628.i, 1
   %.not.i21 = icmp eq i64 %49, %.val
   br i1 %.not.i21, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_delete___spec__1.exit, label %27
 
@@ -5996,9 +5996,9 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_delete___boxed(pt
   br label %6
 
 6:                                                ; preds = %26, %.lr.ph.i.i
-  %.01630.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %28, %26 ]
-  %.01829.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %27, %26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01630.i.i
+  %.01628.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %28, %26 ]
+  %.01827.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %27, %26 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01628.i.i
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -6024,11 +6024,11 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_delete___boxed(pt
   br label %18
 
 lean_array_uget.exit.i.i:                         ; preds = %6
-  %17 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01829.i.i, ptr noundef %8)
+  %17 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01827.i.i, ptr noundef %8)
   br label %26
 
 18:                                               ; preds = %16, %15, %13
-  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01829.i.i, ptr noundef nonnull %8)
+  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_deleteOne(ptr readnone poison, ptr noundef %.01827.i.i, ptr noundef nonnull %8)
   %20 = load i32, ptr %8, align 4, !tbaa !4
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %24, !prof !11
@@ -6048,7 +6048,7 @@ lean_array_uget.exit.i.i:                         ; preds = %6
 
 26:                                               ; preds = %25, %24, %22, %lean_array_uget.exit.i.i
   %27 = phi ptr [ %17, %lean_array_uget.exit.i.i ], [ %19, %22 ], [ %19, %24 ], [ %19, %25 ]
-  %28 = add nuw nsw i64 %.01630.i.i, 1
+  %28 = add nuw nsw i64 %.01628.i.i, 1
   %.not.i28.i = icmp eq i64 %28, %.mask.i
   br i1 %.not.i28.i, label %l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_delete.exit, label %6
 
@@ -11319,17 +11319,17 @@ lean_dec.exit:                                    ; preds = %17, %16, %14, %l_St
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRupUnits___spec__1(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %.not25 = icmp eq i64 %2, %3
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i64 %2, %3
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %18
-  %.01427 = phi i64 [ %2, %.lr.ph ], [ %20, %18 ]
-  %.01626 = phi ptr [ %4, %.lr.ph ], [ %19, %18 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01427
+  %.01425 = phi i64 [ %2, %.lr.ph ], [ %20, %18 ]
+  %.01624 = phi ptr [ %4, %.lr.ph ], [ %19, %18 ]
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01425
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -11355,8 +11355,8 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %18
 
 18:                                               ; preds = %17, %16, %14, %7
-  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626, ptr noundef %9)
-  %20 = add i64 %.01427, 1
+  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624, ptr noundef %9)
+  %20 = add i64 %.01425, 1
   %.not = icmp eq i64 %20, %3
   br i1 %.not, label %._crit_edge, label %7
 
@@ -11416,9 +11416,9 @@ lean_dec.exit102:                                 ; preds = %16, %15, %13, %lean
   br label %20
 
 20:                                               ; preds = %31, %.lr.ph.i
-  %.01427.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %31 ]
-  %.01626.i = phi ptr [ %18, %.lr.ph.i ], [ %32, %31 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01427.i
+  %.01425.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %31 ]
+  %.01624.i = phi ptr [ %18, %.lr.ph.i ], [ %32, %31 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01425.i
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -11444,8 +11444,8 @@ lean_dec.exit102:                                 ; preds = %16, %15, %13, %lean
   br label %31
 
 31:                                               ; preds = %30, %29, %27, %20
-  %32 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626.i, ptr noundef %22)
-  %33 = add nuw nsw i64 %.01427.i, 1
+  %32 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624.i, ptr noundef %22)
+  %33 = add nuw nsw i64 %.01425.i, 1
   %.not.i139 = icmp eq i64 %33, %.mask169
   br i1 %.not.i139, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRupUnits___spec__1.exit, label %20
 
@@ -11665,9 +11665,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit95
   br label %112
 
 112:                                              ; preds = %123, %.lr.ph.i153
-  %.01427.i154 = phi i64 [ 0, %.lr.ph.i153 ], [ %125, %123 ]
-  %.01626.i155 = phi ptr [ %52, %.lr.ph.i153 ], [ %124, %123 ]
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %.01427.i154
+  %.01425.i154 = phi i64 [ 0, %.lr.ph.i153 ], [ %125, %123 ]
+  %.01624.i155 = phi ptr [ %52, %.lr.ph.i153 ], [ %124, %123 ]
+  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %.01425.i154
   %114 = load ptr, ptr %113, align 8, !tbaa !9
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, 1
@@ -11693,8 +11693,8 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit95
   br label %123
 
 123:                                              ; preds = %122, %121, %119, %112
-  %124 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626.i155, ptr noundef %114)
-  %125 = add nuw nsw i64 %.01427.i154, 1
+  %124 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624.i155, ptr noundef %114)
+  %125 = add nuw nsw i64 %.01425.i154, 1
   %.not.i157 = icmp eq i64 %125, %.mask
   br i1 %.not.i157, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRupUnits___spec__1.exit161, label %112
 
@@ -11803,17 +11803,17 @@ lean_dec.exit13:                                  ; preds = %15, %14, %12, %5
   br label %lean_dec.exit12
 
 lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean_dec.exit13
-  %.not25.i = icmp eq i64 %.val20, %.val
-  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRupUnits___spec__1.exit, label %.lr.ph.i
+  %.not23.i = icmp eq i64 %.val20, %.val
+  br i1 %.not23.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRupUnits___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %27
 
 27:                                               ; preds = %38, %.lr.ph.i
-  %.01427.i = phi i64 [ %.val20, %.lr.ph.i ], [ %40, %38 ]
-  %.01626.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %38 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01427.i
+  %.01425.i = phi i64 [ %.val20, %.lr.ph.i ], [ %40, %38 ]
+  %.01624.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %38 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01425.i
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
@@ -11839,8 +11839,8 @@ lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean
   br label %38
 
 38:                                               ; preds = %37, %36, %34, %27
-  %39 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626.i, ptr noundef %29)
-  %40 = add i64 %.01427.i, 1
+  %39 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624.i, ptr noundef %29)
+  %40 = add i64 %.01425.i, 1
   %.not.i21 = icmp eq i64 %40, %.val
   br i1 %.not.i21, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRupUnits___spec__1.exit, label %27
 
@@ -11929,17 +11929,17 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRatUnits___spec__1(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %.not25 = icmp eq i64 %2, %3
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i64 %2, %3
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %18
-  %.01427 = phi i64 [ %2, %.lr.ph ], [ %20, %18 ]
-  %.01626 = phi ptr [ %4, %.lr.ph ], [ %19, %18 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01427
+  %.01425 = phi i64 [ %2, %.lr.ph ], [ %20, %18 ]
+  %.01624 = phi ptr [ %4, %.lr.ph ], [ %19, %18 ]
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01425
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -11965,8 +11965,8 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %18
 
 18:                                               ; preds = %17, %16, %14, %7
-  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626, ptr noundef %9)
-  %20 = add i64 %.01427, 1
+  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624, ptr noundef %9)
+  %20 = add i64 %.01425, 1
   %.not = icmp eq i64 %20, %3
   br i1 %.not, label %._crit_edge, label %7
 
@@ -12026,9 +12026,9 @@ lean_dec.exit102:                                 ; preds = %16, %15, %13, %lean
   br label %20
 
 20:                                               ; preds = %31, %.lr.ph.i
-  %.01427.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %31 ]
-  %.01626.i = phi ptr [ %18, %.lr.ph.i ], [ %32, %31 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01427.i
+  %.01425.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %31 ]
+  %.01624.i = phi ptr [ %18, %.lr.ph.i ], [ %32, %31 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01425.i
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -12054,8 +12054,8 @@ lean_dec.exit102:                                 ; preds = %16, %15, %13, %lean
   br label %31
 
 31:                                               ; preds = %30, %29, %27, %20
-  %32 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626.i, ptr noundef %22)
-  %33 = add nuw nsw i64 %.01427.i, 1
+  %32 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624.i, ptr noundef %22)
+  %33 = add nuw nsw i64 %.01425.i, 1
   %.not.i139 = icmp eq i64 %33, %.mask169
   br i1 %.not.i139, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRatUnits___spec__1.exit, label %20
 
@@ -12275,9 +12275,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit95
   br label %112
 
 112:                                              ; preds = %123, %.lr.ph.i153
-  %.01427.i154 = phi i64 [ 0, %.lr.ph.i153 ], [ %125, %123 ]
-  %.01626.i155 = phi ptr [ %52, %.lr.ph.i153 ], [ %124, %123 ]
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %.01427.i154
+  %.01425.i154 = phi i64 [ 0, %.lr.ph.i153 ], [ %125, %123 ]
+  %.01624.i155 = phi ptr [ %52, %.lr.ph.i153 ], [ %124, %123 ]
+  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %.01425.i154
   %114 = load ptr, ptr %113, align 8, !tbaa !9
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, 1
@@ -12303,8 +12303,8 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit95
   br label %123
 
 123:                                              ; preds = %122, %121, %119, %112
-  %124 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626.i155, ptr noundef %114)
-  %125 = add nuw nsw i64 %.01427.i154, 1
+  %124 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624.i155, ptr noundef %114)
+  %125 = add nuw nsw i64 %.01425.i154, 1
   %.not.i157 = icmp eq i64 %125, %.mask
   br i1 %.not.i157, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRatUnits___spec__1.exit161, label %112
 
@@ -12413,17 +12413,17 @@ lean_dec.exit13:                                  ; preds = %15, %14, %12, %5
   br label %lean_dec.exit12
 
 lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean_dec.exit13
-  %.not25.i = icmp eq i64 %.val20, %.val
-  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRatUnits___spec__1.exit, label %.lr.ph.i
+  %.not23.i = icmp eq i64 %.val20, %.val
+  br i1 %.not23.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRatUnits___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %27
 
 27:                                               ; preds = %38, %.lr.ph.i
-  %.01427.i = phi i64 [ %.val20, %.lr.ph.i ], [ %40, %38 ]
-  %.01626.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %38 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01427.i
+  %.01425.i = phi i64 [ %.val20, %.lr.ph.i ], [ %40, %38 ]
+  %.01624.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %38 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01425.i
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
@@ -12449,8 +12449,8 @@ lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean
   br label %38
 
 38:                                               ; preds = %37, %36, %34, %27
-  %39 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01626.i, ptr noundef %29)
-  %40 = add i64 %.01427.i, 1
+  %39 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearUnit___rarg(ptr noundef %.01624.i, ptr noundef %29)
+  %40 = add i64 %.01425.i, 1
   %.not.i21 = icmp eq i64 %40, %.val
   br i1 %.not.i21, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_clearRatUnits___spec__1.exit, label %27
 
@@ -16935,17 +16935,17 @@ lean_dec.exit:                                    ; preds = %32, %31, %29, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRupCheck___spec__1(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
-  %.not29 = icmp eq i64 %3, %4
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq i64 %3, %4
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %28
-  %.01731 = phi i64 [ %3, %.lr.ph ], [ %30, %28 ]
-  %.01930 = phi ptr [ %5, %.lr.ph ], [ %29, %28 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01731
+  %.01729 = phi i64 [ %3, %.lr.ph ], [ %30, %28 ]
+  %.01928 = phi ptr [ %5, %.lr.ph ], [ %29, %28 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01729
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -16971,11 +16971,11 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %20
 
 lean_array_uget.exit:                             ; preds = %8
-  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef %1, ptr noundef %.01930, ptr noundef %10)
+  %19 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef %1, ptr noundef %.01928, ptr noundef %10)
   br label %28
 
 20:                                               ; preds = %15, %17, %18
-  %21 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef %1, ptr noundef %.01930, ptr noundef nonnull %10)
+  %21 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef %1, ptr noundef %.01928, ptr noundef nonnull %10)
   %22 = load i32, ptr %10, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -16995,7 +16995,7 @@ lean_array_uget.exit:                             ; preds = %8
 
 28:                                               ; preds = %lean_array_uget.exit, %24, %26, %27
   %29 = phi ptr [ %19, %lean_array_uget.exit ], [ %21, %24 ], [ %21, %26 ], [ %21, %27 ]
-  %30 = add i64 %.01731, 1
+  %30 = add i64 %.01729, 1
   %.not = icmp eq i64 %30, %4
   br i1 %.not, label %._crit_edge, label %8
 
@@ -17119,9 +17119,9 @@ lean_alloc_ctor.exit373:                          ; preds = %lean_dec.exit305
   br label %44
 
 44:                                               ; preds = %64, %.lr.ph.i
-  %.01731.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %64 ]
-  %.01930.i = phi ptr [ %19, %.lr.ph.i ], [ %65, %64 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %.01731.i
+  %.01729.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %64 ]
+  %.01928.i = phi ptr [ %19, %.lr.ph.i ], [ %65, %64 ]
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %.01729.i
   %46 = load ptr, ptr %45, align 8, !tbaa !9
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, 1
@@ -17147,11 +17147,11 @@ lean_alloc_ctor.exit373:                          ; preds = %lean_dec.exit305
   br label %56
 
 lean_array_uget.exit.i:                           ; preds = %44
-  %55 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01930.i, ptr noundef %46)
+  %55 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01928.i, ptr noundef %46)
   br label %64
 
 56:                                               ; preds = %54, %53, %51
-  %57 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01930.i, ptr noundef nonnull %46)
+  %57 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01928.i, ptr noundef nonnull %46)
   %58 = load i32, ptr %46, align 4, !tbaa !4
   %59 = icmp sgt i32 %58, 1
   br i1 %59, label %60, label %62, !prof !11
@@ -17171,7 +17171,7 @@ lean_array_uget.exit.i:                           ; preds = %44
 
 64:                                               ; preds = %63, %62, %60, %lean_array_uget.exit.i
   %65 = phi ptr [ %55, %lean_array_uget.exit.i ], [ %57, %60 ], [ %57, %62 ], [ %57, %63 ]
-  %66 = add nuw nsw i64 %.01731.i, 1
+  %66 = add nuw nsw i64 %.01729.i, 1
   %.not.i376 = icmp eq i64 %66, %.mask523
   br i1 %.not.i376, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRupCheck___spec__1.exit, label %44
 
@@ -18227,9 +18227,9 @@ lean_alloc_ctor.exit450:                          ; preds = %lean_alloc_ctor.exi
   br label %448
 
 448:                                              ; preds = %468, %.lr.ph.i455
-  %.01731.i456 = phi i64 [ 0, %.lr.ph.i455 ], [ %470, %468 ]
-  %.01930.i457 = phi ptr [ %415, %.lr.ph.i455 ], [ %469, %468 ]
-  %449 = getelementptr inbounds nuw ptr, ptr %447, i64 %.01731.i456
+  %.01729.i456 = phi i64 [ 0, %.lr.ph.i455 ], [ %470, %468 ]
+  %.01928.i457 = phi ptr [ %415, %.lr.ph.i455 ], [ %469, %468 ]
+  %449 = getelementptr inbounds nuw ptr, ptr %447, i64 %.01729.i456
   %450 = load ptr, ptr %449, align 8, !tbaa !9
   %451 = ptrtoint ptr %450 to i64
   %452 = and i64 %451, 1
@@ -18255,11 +18255,11 @@ lean_alloc_ctor.exit450:                          ; preds = %lean_alloc_ctor.exi
   br label %460
 
 lean_array_uget.exit.i459:                        ; preds = %448
-  %459 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01930.i457, ptr noundef %450)
+  %459 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01928.i457, ptr noundef %450)
   br label %468
 
 460:                                              ; preds = %458, %457, %455
-  %461 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01930.i457, ptr noundef nonnull %450)
+  %461 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %6, ptr noundef %.01928.i457, ptr noundef nonnull %450)
   %462 = load i32, ptr %450, align 4, !tbaa !4
   %463 = icmp sgt i32 %462, 1
   br i1 %463, label %464, label %466, !prof !11
@@ -18279,7 +18279,7 @@ lean_array_uget.exit.i459:                        ; preds = %448
 
 468:                                              ; preds = %467, %466, %464, %lean_array_uget.exit.i459
   %469 = phi ptr [ %459, %lean_array_uget.exit.i459 ], [ %461, %464 ], [ %461, %466 ], [ %461, %467 ]
-  %470 = add nuw nsw i64 %.01731.i456, 1
+  %470 = add nuw nsw i64 %.01729.i456, 1
   %.not.i460 = icmp eq i64 %470, %.mask
   br i1 %.not.i460, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRupCheck___spec__1.exit465, label %448
 
@@ -18837,17 +18837,17 @@ lean_dec.exit16:                                  ; preds = %16, %15, %13, %6
   br label %lean_dec.exit15
 
 lean_dec.exit15:                                  ; preds = %26, %25, %23, %lean_dec.exit16
-  %.not29.i = icmp eq i64 %.val25, %.val
-  br i1 %.not29.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRupCheck___spec__1.exit, label %.lr.ph.i
+  %.not27.i = icmp eq i64 %.val25, %.val
+  br i1 %.not27.i, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRupCheck___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit15
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %28
 
 28:                                               ; preds = %48, %.lr.ph.i
-  %.01731.i = phi i64 [ %.val25, %.lr.ph.i ], [ %50, %48 ]
-  %.01930.i = phi ptr [ %5, %.lr.ph.i ], [ %49, %48 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %.01731.i
+  %.01729.i = phi i64 [ %.val25, %.lr.ph.i ], [ %50, %48 ]
+  %.01928.i = phi ptr [ %5, %.lr.ph.i ], [ %49, %48 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %.01729.i
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, 1
@@ -18873,11 +18873,11 @@ lean_dec.exit15:                                  ; preds = %26, %25, %23, %lean
   br label %40
 
 lean_array_uget.exit.i:                           ; preds = %28
-  %39 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %1, ptr noundef %.01930.i, ptr noundef %30)
+  %39 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %1, ptr noundef %.01928.i, ptr noundef %30)
   br label %48
 
 40:                                               ; preds = %38, %37, %35
-  %41 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %1, ptr noundef %.01930.i, ptr noundef nonnull %30)
+  %41 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_confirmRupHint(ptr noundef %0, ptr noundef readonly %1, ptr noundef %.01928.i, ptr noundef nonnull %30)
   %42 = load i32, ptr %30, align 4, !tbaa !4
   %43 = icmp sgt i32 %42, 1
   br i1 %43, label %44, label %46, !prof !11
@@ -18897,7 +18897,7 @@ lean_array_uget.exit.i:                           ; preds = %28
 
 48:                                               ; preds = %47, %46, %44, %lean_array_uget.exit.i
   %49 = phi ptr [ %39, %lean_array_uget.exit.i ], [ %41, %44 ], [ %41, %46 ], [ %41, %47 ]
-  %50 = add i64 %.01731.i, 1
+  %50 = add i64 %.01729.i, 1
   %.not.i26 = icmp eq i64 %50, %.val
   br i1 %.not.i26, label %l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRupCheck___spec__1.exit, label %28
 
@@ -21462,21 +21462,21 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 define zeroext range(i8 0, 2) i8 @l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %.backedge
+  br label %select.unfold34
 
-.backedge:                                        ; preds = %.backedge.backedge, %3
-  %.023 = phi ptr [ %2, %3 ], [ %19, %.backedge.backedge ]
+select.unfold34:                                  ; preds = %select.unfold34.backedge, %3
+  %.023 = phi ptr [ %2, %3 ], [ %19, %select.unfold34.backedge ]
   %6 = ptrtoint ptr %.023 to i64
   %7 = and i64 %6, 1
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %11, label %8
 
-8:                                                ; preds = %.backedge
+8:                                                ; preds = %select.unfold34
   %9 = lshr i64 %6, 1
   %10 = trunc i64 %9 to i32
   br label %lean_obj_tag.exit
 
-11:                                               ; preds = %.backedge
+11:                                               ; preds = %select.unfold34
   %12 = getelementptr i8, ptr %.023, i64 4
   %.val.i = load i32, ptr %12, align 4
   %13 = lshr i32 %.val.i, 24
@@ -21485,7 +21485,7 @@ define zeroext range(i8 0, 2) i8 @l_List_elem___at_Std_Tactic_BVDecide_LRAT_Inte
 lean_obj_tag.exit:                                ; preds = %8, %11
   %.0.i33 = phi i32 [ %10, %8 ], [ %13, %11 ]
   %14 = icmp eq i32 %.0.i33, 0
-  br i1 %14, label %43, label %15
+  br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %lean_obj_tag.exit
   %16 = getelementptr inbounds nuw i8, ptr %.023, i64 8
@@ -21509,14 +21509,14 @@ lean_obj_tag.exit:                                ; preds = %8, %11
 
 32:                                               ; preds = %15
   %33 = icmp eq ptr %20, %23
-  br i1 %33, label %35, label %.backedge.backedge
+  br i1 %33, label %35, label %select.unfold34.backedge
+
+select.unfold34.backedge:                         ; preds = %32, %43, %42, %lean_nat_eq.exit
+  br label %select.unfold34
 
 lean_nat_eq.exit:                                 ; preds = %15
   %34 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %20, ptr noundef %23) #5
-  br i1 %34, label %35, label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %lean_nat_eq.exit, %32, %41, %42
-  br label %.backedge
+  br i1 %34, label %35, label %select.unfold34.backedge
 
 35:                                               ; preds = %32, %lean_nat_eq.exit
   %36 = ptrtoint ptr %21 to i64
@@ -21524,24 +21524,24 @@ lean_nat_eq.exit:                                 ; preds = %15
   %38 = icmp eq i64 %37, 0
   %39 = ptrtoint ptr %25 to i64
   %40 = and i64 %39, 510
-  %.not = icmp eq i64 %40, 0
-  br i1 %38, label %41, label %42
-
-41:                                               ; preds = %35
-  br i1 %.not, label %43, label %.backedge.backedge
+  %41 = icmp eq i64 %40, 0
+  br i1 %38, label %42, label %43
 
 42:                                               ; preds = %35
-  br i1 %.not, label %.backedge.backedge, label %43
+  br i1 %41, label %.thread, label %select.unfold34.backedge
 
-43:                                               ; preds = %42, %41, %lean_obj_tag.exit
-  %.1 = phi i8 [ 0, %lean_obj_tag.exit ], [ 1, %41 ], [ 1, %42 ]
+43:                                               ; preds = %35
+  br i1 %41, label %select.unfold34.backedge, label %.thread
+
+.thread:                                          ; preds = %42, %43, %lean_obj_tag.exit
+  %.1 = phi i8 [ 0, %lean_obj_tag.exit ], [ 1, %43 ], [ 1, %42 ]
   ret i8 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__2(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
-  %.not68 = icmp eq i64 %4, %5
-  br i1 %.not68, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i64 %4, %5
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -21552,9 +21552,9 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %13
 
 13:                                               ; preds = %.lr.ph, %lean_dec.exit40
-  %.02970 = phi i64 [ %4, %.lr.ph ], [ %38, %lean_dec.exit40 ]
-  %.03169 = phi ptr [ %6, %.lr.ph ], [ %.334, %lean_dec.exit40 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02970
+  %.02967 = phi i64 [ %4, %.lr.ph ], [ %38, %lean_dec.exit40 ]
+  %.03166 = phi ptr [ %6, %.lr.ph ], [ %.334, %lean_dec.exit40 ]
+  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02967
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, 1
@@ -21619,7 +21619,7 @@ lean_array_uget.exit.i:                           ; preds = %23, %22, %20, %lean
 lean_array_get.exit:                              ; preds = %26, %33, %35, %36, %lean_array_uget.exit.i
   %.pre-phi = phi i64 [ %29, %26 ], [ %29, %33 ], [ %29, %35 ], [ %29, %36 ], [ %.pre, %lean_array_uget.exit.i ]
   %.1.i = phi ptr [ %28, %26 ], [ %28, %33 ], [ %28, %35 ], [ %28, %36 ], [ %37, %lean_array_uget.exit.i ]
-  %38 = add i64 %.02970, 1
+  %38 = add i64 %.02967, 1
   %39 = and i64 %.pre-phi, 1
   %.not.i49 = icmp eq i64 %39, 0
   br i1 %.not.i49, label %43, label %40
@@ -21666,8 +21666,8 @@ lean_obj_tag.exit:                                ; preds = %40, %43
   %57 = load ptr, ptr %56, align 8, !tbaa !9
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 1
-  %.not64 = icmp eq i64 %59, 0
-  br i1 %.not64, label %60, label %lean_inc.exit
+  %.not61 = icmp eq i64 %59, 0
+  br i1 %.not61, label %60, label %lean_inc.exit
 
 60:                                               ; preds = %55
   %.val.i51 = load i32, ptr %57, align 4, !tbaa !4
@@ -21725,8 +21725,8 @@ lean_dec.exit39:                                  ; preds = %lean_dec.exit39.bac
 
 78:                                               ; preds = %lean_dec.exit39
   %79 = getelementptr i8, ptr %.023.i, i64 4
-  %.val.i.i56 = load i32, ptr %79, align 4
-  %80 = lshr i32 %.val.i.i56, 24
+  %.val.i.i55 = load i32, ptr %79, align 4
+  %80 = lshr i32 %.val.i.i55, 24
   br label %lean_obj_tag.exit.i
 
 lean_obj_tag.exit.i:                              ; preds = %78, %75
@@ -21768,64 +21768,64 @@ lean_nat_eq.exit.i:                               ; preds = %82
   %105 = icmp eq i64 %104, 0
   %106 = ptrtoint ptr %92 to i64
   %107 = and i64 %106, 510
-  %.not.i55 = icmp eq i64 %107, 0
-  %108 = xor i1 %105, %.not.i55
-  br i1 %108, label %lean_dec.exit39.backedge, label %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
+  %108 = icmp eq i64 %107, 0
+  %109 = xor i1 %105, %108
+  br i1 %109, label %lean_dec.exit39.backedge, label %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
 
 lean_dec.exit39.backedge:                         ; preds = %102, %lean_nat_eq.exit.i, %99
   br label %lean_dec.exit39
 
 l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit: ; preds = %102, %lean_obj_tag.exit.i
-  br i1 %.not64, label %109, label %lean_dec.exit38
+  br i1 %.not61, label %110, label %lean_dec.exit38
 
-109:                                              ; preds = %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
-  %110 = load i32, ptr %57, align 4, !tbaa !4
-  %111 = icmp sgt i32 %110, 1
-  br i1 %111, label %112, label %114, !prof !11
+110:                                              ; preds = %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
+  %111 = load i32, ptr %57, align 4, !tbaa !4
+  %112 = icmp sgt i32 %111, 1
+  br i1 %112, label %113, label %115, !prof !11
 
-112:                                              ; preds = %109
-  %113 = add nsw i32 %110, -1
-  store i32 %113, ptr %57, align 4, !tbaa !4
+113:                                              ; preds = %110
+  %114 = add nsw i32 %111, -1
+  store i32 %114, ptr %57, align 4, !tbaa !4
   br label %lean_dec.exit38
 
-114:                                              ; preds = %109
-  %.not.i43 = icmp eq i32 %110, 0
-  br i1 %.not.i43, label %lean_dec.exit38, label %115
+115:                                              ; preds = %110
+  %.not.i43 = icmp eq i32 %111, 0
+  br i1 %.not.i43, label %lean_dec.exit38, label %116
 
-115:                                              ; preds = %114
+116:                                              ; preds = %115
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %57) #5
   br label %lean_dec.exit38
 
-lean_dec.exit38:                                  ; preds = %115, %114, %112, %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
-  br i1 %81, label %116, label %124
+lean_dec.exit38:                                  ; preds = %116, %115, %113, %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
+  br i1 %81, label %117, label %125
 
-116:                                              ; preds = %lean_dec.exit38
-  br i1 %.not.i47, label %117, label %lean_dec.exit40
+117:                                              ; preds = %lean_dec.exit38
+  br i1 %.not.i47, label %118, label %lean_dec.exit40
 
-117:                                              ; preds = %116
-  %118 = load i32, ptr %15, align 4, !tbaa !4
-  %119 = icmp sgt i32 %118, 1
-  br i1 %119, label %120, label %122, !prof !11
+118:                                              ; preds = %117
+  %119 = load i32, ptr %15, align 4, !tbaa !4
+  %120 = icmp sgt i32 %119, 1
+  br i1 %120, label %121, label %123, !prof !11
 
-120:                                              ; preds = %117
-  %121 = add nsw i32 %118, -1
-  store i32 %121, ptr %15, align 4, !tbaa !4
+121:                                              ; preds = %118
+  %122 = add nsw i32 %119, -1
+  store i32 %122, ptr %15, align 4, !tbaa !4
   br label %lean_dec.exit40
 
-122:                                              ; preds = %117
-  %.not.i45 = icmp eq i32 %118, 0
-  br i1 %.not.i45, label %lean_dec.exit40, label %123
+123:                                              ; preds = %118
+  %.not.i45 = icmp eq i32 %119, 0
+  br i1 %.not.i45, label %lean_dec.exit40, label %124
 
-123:                                              ; preds = %122
+124:                                              ; preds = %123
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %15) #5
   br label %lean_dec.exit40
 
-124:                                              ; preds = %lean_dec.exit38
-  %125 = tail call ptr @lean_array_push(ptr noundef %.03169, ptr noundef %15) #5
+125:                                              ; preds = %lean_dec.exit38
+  %126 = tail call ptr @lean_array_push(ptr noundef %.03166, ptr noundef %15) #5
   br label %lean_dec.exit40
 
-lean_dec.exit40:                                  ; preds = %116, %120, %122, %123, %47, %51, %53, %54, %124
-  %.334 = phi ptr [ %125, %124 ], [ %.03169, %54 ], [ %.03169, %53 ], [ %.03169, %51 ], [ %.03169, %47 ], [ %.03169, %123 ], [ %.03169, %122 ], [ %.03169, %120 ], [ %.03169, %116 ]
+lean_dec.exit40:                                  ; preds = %117, %121, %123, %124, %47, %51, %53, %54, %125
+  %.334 = phi ptr [ %126, %125 ], [ %.03166, %54 ], [ %.03166, %53 ], [ %.03166, %51 ], [ %.03166, %47 ], [ %.03166, %124 ], [ %.03166, %123 ], [ %.03166, %121 ], [ %.03166, %117 ]
   %.not = icmp eq i64 %38, %5
   br i1 %.not, label %._crit_edge, label %13
 
@@ -22226,21 +22226,21 @@ declare ptr @l_Array_ofFn___rarg(ptr noundef, ptr noundef) local_unnamed_addr #2
 define noundef nonnull ptr @l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %.backedge.i
+  br label %select.unfold34.i
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %3
-  %.023.i = phi ptr [ %2, %3 ], [ %19, %.backedge.i.backedge ]
+select.unfold34.i:                                ; preds = %select.unfold34.i.backedge, %3
+  %.023.i = phi ptr [ %2, %3 ], [ %19, %select.unfold34.i.backedge ]
   %6 = ptrtoint ptr %.023.i to i64
   %7 = and i64 %6, 1
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %11, label %8
 
-8:                                                ; preds = %.backedge.i
+8:                                                ; preds = %select.unfold34.i
   %9 = lshr i64 %6, 1
   %10 = trunc i64 %9 to i32
   br label %lean_obj_tag.exit.i
 
-11:                                               ; preds = %.backedge.i
+11:                                               ; preds = %select.unfold34.i
   %12 = getelementptr i8, ptr %.023.i, i64 4
   %.val.i.i = load i32, ptr %12, align 4
   %13 = lshr i32 %.val.i.i, 24
@@ -22273,11 +22273,11 @@ lean_obj_tag.exit.i:                              ; preds = %11, %8
 
 32:                                               ; preds = %15
   %33 = icmp eq ptr %20, %23
-  br i1 %33, label %35, label %.backedge.i.backedge
+  br i1 %33, label %35, label %select.unfold34.i.backedge
 
 lean_nat_eq.exit.i:                               ; preds = %15
   %34 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %20, ptr noundef %23) #5
-  br i1 %34, label %35, label %.backedge.i.backedge
+  br i1 %34, label %35, label %select.unfold34.i.backedge
 
 35:                                               ; preds = %lean_nat_eq.exit.i, %32
   %36 = ptrtoint ptr %21 to i64
@@ -22285,94 +22285,94 @@ lean_nat_eq.exit.i:                               ; preds = %15
   %38 = icmp eq i64 %37, 0
   %39 = ptrtoint ptr %25 to i64
   %40 = and i64 %39, 510
-  %.not.i13 = icmp eq i64 %40, 0
-  br i1 %38, label %41, label %42
-
-41:                                               ; preds = %35
-  br i1 %.not.i13, label %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit, label %.backedge.i.backedge
+  %41 = icmp eq i64 %40, 0
+  br i1 %38, label %42, label %43
 
 42:                                               ; preds = %35
-  br i1 %.not.i13, label %.backedge.i.backedge, label %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
+  br i1 %41, label %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit, label %select.unfold34.i.backedge
 
-.backedge.i.backedge:                             ; preds = %42, %41, %lean_nat_eq.exit.i, %32
-  br label %.backedge.i
+43:                                               ; preds = %35
+  br i1 %41, label %select.unfold34.i.backedge, label %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
 
-l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %41, %42
-  %.1.i = phi i64 [ 1, %lean_obj_tag.exit.i ], [ 3, %41 ], [ 3, %42 ]
-  %43 = ptrtoint ptr %2 to i64
-  %44 = and i64 %43, 1
-  %.not = icmp eq i64 %44, 0
-  br i1 %.not, label %45, label %lean_dec.exit8
+select.unfold34.i.backedge:                       ; preds = %43, %42, %lean_nat_eq.exit.i, %32
+  br label %select.unfold34.i
 
-45:                                               ; preds = %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
-  %46 = load i32, ptr %2, align 4, !tbaa !4
-  %47 = icmp sgt i32 %46, 1
-  br i1 %47, label %48, label %50, !prof !11
+l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %42, %43
+  %.1.i = phi i64 [ 1, %lean_obj_tag.exit.i ], [ 3, %43 ], [ 3, %42 ]
+  %44 = ptrtoint ptr %2 to i64
+  %45 = and i64 %44, 1
+  %.not = icmp eq i64 %45, 0
+  br i1 %.not, label %46, label %lean_dec.exit8
 
-48:                                               ; preds = %45
-  %49 = add nsw i32 %46, -1
-  store i32 %49, ptr %2, align 4, !tbaa !4
+46:                                               ; preds = %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
+  %47 = load i32, ptr %2, align 4, !tbaa !4
+  %48 = icmp sgt i32 %47, 1
+  br i1 %48, label %49, label %51, !prof !11
+
+49:                                               ; preds = %46
+  %50 = add nsw i32 %47, -1
+  store i32 %50, ptr %2, align 4, !tbaa !4
   br label %lean_dec.exit8
 
-50:                                               ; preds = %45
-  %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %lean_dec.exit8, label %51
+51:                                               ; preds = %46
+  %.not.i = icmp eq i32 %47, 0
+  br i1 %.not.i, label %lean_dec.exit8, label %52
 
-51:                                               ; preds = %50
+52:                                               ; preds = %51
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #5
   br label %lean_dec.exit8
 
-lean_dec.exit8:                                   ; preds = %51, %50, %48, %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
-  %52 = ptrtoint ptr %1 to i64
-  %53 = and i64 %52, 1
-  %.not14 = icmp eq i64 %53, 0
-  br i1 %.not14, label %54, label %lean_dec.exit7
+lean_dec.exit8:                                   ; preds = %52, %51, %49, %l_List_elem___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_getRatClauseIndices___spec__1.exit
+  %53 = ptrtoint ptr %1 to i64
+  %54 = and i64 %53, 1
+  %.not13 = icmp eq i64 %54, 0
+  br i1 %.not13, label %55, label %lean_dec.exit7
 
-54:                                               ; preds = %lean_dec.exit8
-  %55 = load i32, ptr %1, align 4, !tbaa !4
-  %56 = icmp sgt i32 %55, 1
-  br i1 %56, label %57, label %59, !prof !11
+55:                                               ; preds = %lean_dec.exit8
+  %56 = load i32, ptr %1, align 4, !tbaa !4
+  %57 = icmp sgt i32 %56, 1
+  br i1 %57, label %58, label %60, !prof !11
 
-57:                                               ; preds = %54
-  %58 = add nsw i32 %55, -1
-  store i32 %58, ptr %1, align 4, !tbaa !4
+58:                                               ; preds = %55
+  %59 = add nsw i32 %56, -1
+  store i32 %59, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit7
 
-59:                                               ; preds = %54
-  %.not.i9 = icmp eq i32 %55, 0
-  br i1 %.not.i9, label %lean_dec.exit7, label %60
+60:                                               ; preds = %55
+  %.not.i9 = icmp eq i32 %56, 0
+  br i1 %.not.i9, label %lean_dec.exit7, label %61
 
-60:                                               ; preds = %59
+61:                                               ; preds = %60
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit7
 
-lean_dec.exit7:                                   ; preds = %60, %59, %57, %lean_dec.exit8
-  %61 = ptrtoint ptr %0 to i64
-  %62 = and i64 %61, 1
-  %.not15 = icmp eq i64 %62, 0
-  br i1 %.not15, label %63, label %lean_dec.exit
+lean_dec.exit7:                                   ; preds = %61, %60, %58, %lean_dec.exit8
+  %62 = ptrtoint ptr %0 to i64
+  %63 = and i64 %62, 1
+  %.not14 = icmp eq i64 %63, 0
+  br i1 %.not14, label %64, label %lean_dec.exit
 
-63:                                               ; preds = %lean_dec.exit7
-  %64 = load i32, ptr %0, align 4, !tbaa !4
-  %65 = icmp sgt i32 %64, 1
-  br i1 %65, label %66, label %68, !prof !11
+64:                                               ; preds = %lean_dec.exit7
+  %65 = load i32, ptr %0, align 4, !tbaa !4
+  %66 = icmp sgt i32 %65, 1
+  br i1 %66, label %67, label %69, !prof !11
 
-66:                                               ; preds = %63
-  %67 = add nsw i32 %64, -1
-  store i32 %67, ptr %0, align 4, !tbaa !4
+67:                                               ; preds = %64
+  %68 = add nsw i32 %65, -1
+  store i32 %68, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-68:                                               ; preds = %63
-  %.not.i11 = icmp eq i32 %64, 0
-  br i1 %.not.i11, label %lean_dec.exit, label %69
+69:                                               ; preds = %64
+  %.not.i11 = icmp eq i32 %65, 0
+  br i1 %.not.i11, label %lean_dec.exit, label %70
 
-69:                                               ; preds = %68
+70:                                               ; preds = %69
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %69, %68, %66, %lean_dec.exit7
-  %70 = inttoptr i64 %.1.i to ptr
-  ret ptr %70
+lean_dec.exit:                                    ; preds = %70, %69, %67, %lean_dec.exit7
+  %71 = inttoptr i64 %.1.i to ptr
+  ret ptr %71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -22585,14 +22585,14 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ratHintsExhaustive___spec__1(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %.not45 = icmp ult i64 %1, %0
-  br i1 %.not45, label %.lr.ph, label %._crit_edge
+  %.not43 = icmp ult i64 %1, %0
+  br i1 %.not43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %63
-  %.02047 = phi i64 [ %47, %63 ], [ %1, %3 ]
-  %.02246 = phi ptr [ %.0.i.i32, %63 ], [ %2, %3 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.02246, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02047
+  %.02045 = phi i64 [ %47, %63 ], [ %1, %3 ]
+  %.02244 = phi ptr [ %.0.i.i32, %63 ], [ %2, %3 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.02244, i64 24
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02045
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -22618,18 +22618,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Std_Tactic_BVDecide_LRAT_Internal_Defaul
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %14
-  %.val.i.i26 = load i32, ptr %.02246, align 4, !tbaa !4
+  %.val.i.i26 = load i32, ptr %.02244, align 4, !tbaa !4
   %15 = icmp eq i32 %.val.i.i26, 1
   br i1 %15, label %lean_ensure_exclusive_array.exit.i, label %16
 
 16:                                               ; preds = %lean_array_uget.exit
-  %17 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.02246, i1 noundef zeroext false) #5
+  %17 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.02244, i1 noundef zeroext false) #5
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %17, %16 ], [ %.02246, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %17, %16 ], [ %.02244, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02047
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02045
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
@@ -22660,8 +22660,8 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 1
-  %.not43 = icmp eq i64 %33, 0
-  br i1 %.not43, label %34, label %lean_inc.exit
+  %.not41 = icmp eq i64 %33, 0
+  br i1 %.not41, label %34, label %lean_inc.exit
 
 34:                                               ; preds = %lean_array_uset.exit
   %.val.i = load i32, ptr %31, align 4, !tbaa !4
@@ -22703,7 +22703,7 @@ lean_inc.exit:                                    ; preds = %39, %38, %36, %lean
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %46, %45, %43, %lean_inc.exit
-  %47 = add nuw i64 %.02047, 1
+  %47 = add nuw i64 %.02045, 1
   %.val.i.i30 = load i32, ptr %.0.i.i, align 4, !tbaa !4
   %48 = icmp eq i32 %.val.i.i30, 1
   br i1 %48, label %lean_ensure_exclusive_array.exit.i31, label %49
@@ -22715,7 +22715,7 @@ lean_dec.exit:                                    ; preds = %46, %45, %43, %lean
 lean_ensure_exclusive_array.exit.i31:             ; preds = %49, %lean_dec.exit
   %.0.i.i32 = phi ptr [ %50, %49 ], [ %.0.i.i, %lean_dec.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i32, i64 24
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02047
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02045
   %53 = load ptr, ptr %52, align 8, !tbaa !9
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 1
@@ -22931,17 +22931,17 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__2(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %.not28 = icmp eq i64 %2, %3
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i64 %2, %3
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %22
-  %.01630 = phi i64 [ %2, %.lr.ph ], [ %8, %22 ]
-  %.01829 = phi ptr [ %4, %.lr.ph ], [ %19, %22 ]
-  %8 = add i64 %.01630, -1
+  %.01628 = phi i64 [ %2, %.lr.ph ], [ %8, %22 ]
+  %.01827 = phi ptr [ %4, %.lr.ph ], [ %19, %22 ]
+  %8 = add i64 %.01628, -1
   %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
@@ -22984,7 +22984,7 @@ lean_array_uget.exit:                             ; preds = %7, %15, %17, %18
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %10, ptr %24, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.01829, ptr %25, align 8, !tbaa !9
+  store ptr %.01827, ptr %25, align 8, !tbaa !9
   %.not = icmp eq i64 %8, %3
   br i1 %.not, label %._crit_edge, label %7
 
@@ -22995,17 +22995,17 @@ lean_array_uget.exit:                             ; preds = %7, %15, %17, %18
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__3(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %.not28 = icmp eq i64 %2, %3
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i64 %2, %3
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %22
-  %.01630 = phi i64 [ %2, %.lr.ph ], [ %8, %22 ]
-  %.01829 = phi ptr [ %4, %.lr.ph ], [ %19, %22 ]
-  %8 = add i64 %.01630, -1
+  %.01628 = phi i64 [ %2, %.lr.ph ], [ %8, %22 ]
+  %.01827 = phi ptr [ %4, %.lr.ph ], [ %19, %22 ]
+  %8 = add i64 %.01628, -1
   %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
@@ -23048,7 +23048,7 @@ lean_array_uget.exit:                             ; preds = %7, %15, %17, %18
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %10, ptr %24, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.01829, ptr %25, align 8, !tbaa !9
+  store ptr %.01827, ptr %25, align 8, !tbaa !9
   %.not = icmp eq i64 %8, %3
   br i1 %.not, label %._crit_edge, label %7
 
@@ -23090,8 +23090,8 @@ lean_obj_tag.exit:                                ; preds = %11, %14
 18:                                               ; preds = %lean_obj_tag.exit
   %19 = ptrtoint ptr %.085 to i64
   %20 = and i64 %19, 1
-  %.not213 = icmp eq i64 %20, 0
-  br i1 %.not213, label %21, label %lean_dec.exit119
+  %.not211 = icmp eq i64 %20, 0
+  br i1 %.not211, label %21, label %lean_dec.exit119
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %.085, align 4, !tbaa !4
@@ -23114,8 +23114,8 @@ lean_obj_tag.exit:                                ; preds = %11, %14
 lean_dec.exit119:                                 ; preds = %27, %26, %24, %18
   %28 = ptrtoint ptr %1 to i64
   %29 = and i64 %28, 1
-  %.not214 = icmp eq i64 %29, 0
-  br i1 %.not214, label %30, label %lean_inc.exit104
+  %.not212 = icmp eq i64 %29, 0
+  br i1 %.not212, label %30, label %lean_inc.exit104
 
 30:                                               ; preds = %lean_dec.exit119
   %.val.i159 = load i32, ptr %1, align 4, !tbaa !4
@@ -23166,8 +23166,8 @@ lean_inc.exit103:                                 ; preds = %46, %45, %43, %36
   %48 = load ptr, ptr %47, align 8, !tbaa !9
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, 1
-  %.not205 = icmp eq i64 %50, 0
-  br i1 %.not205, label %51, label %lean_inc.exit102
+  %.not203 = icmp eq i64 %50, 0
+  br i1 %.not203, label %51, label %lean_inc.exit102
 
 51:                                               ; preds = %lean_inc.exit103
   %.val.i164 = load i32, ptr %48, align 4, !tbaa !4
@@ -23213,8 +23213,8 @@ lean_dec.exit118:                                 ; preds = %63, %62, %60, %lean
   %65 = load ptr, ptr %64, align 8, !tbaa !9
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %66, 1
-  %.not207 = icmp eq i64 %67, 0
-  br i1 %.not207, label %68, label %lean_inc.exit101
+  %.not205 = icmp eq i64 %67, 0
+  br i1 %.not205, label %68, label %lean_inc.exit101
 
 68:                                               ; preds = %lean_dec.exit118
   %.val.i167 = load i32, ptr %65, align 4, !tbaa !4
@@ -23239,8 +23239,8 @@ lean_inc.exit101:                                 ; preds = %73, %72, %70, %lean
   %75 = load ptr, ptr %74, align 8, !tbaa !9
   %76 = ptrtoint ptr %75 to i64
   %77 = and i64 %76, 1
-  %.not208 = icmp eq i64 %77, 0
-  br i1 %.not208, label %78, label %lean_inc.exit
+  %.not206 = icmp eq i64 %77, 0
+  br i1 %.not206, label %78, label %lean_inc.exit
 
 78:                                               ; preds = %lean_inc.exit101
   %.val.i170 = load i32, ptr %75, align 4, !tbaa !4
@@ -23263,13 +23263,13 @@ lean_inc.exit101:                                 ; preds = %73, %72, %70, %lean
 lean_inc.exit:                                    ; preds = %83, %82, %80, %lean_inc.exit101
   %84 = load ptr, ptr %6, align 8, !tbaa !9
   %85 = load ptr, ptr %7, align 8, !tbaa !9
-  br i1 %.not207, label %91, label %86, !prof !14
+  br i1 %.not205, label %91, label %86, !prof !14
 
 86:                                               ; preds = %lean_inc.exit
   %87 = ptrtoint ptr %84 to i64
   %88 = and i64 %87, 1
-  %.not209 = icmp eq i64 %88, 0
-  br i1 %.not209, label %lean_nat_eq.exit.thread187, label %lean_nat_eq.exit.thread, !prof !14
+  %.not207 = icmp eq i64 %88, 0
+  br i1 %.not207, label %lean_nat_eq.exit.thread187, label %lean_nat_eq.exit.thread, !prof !14
 
 lean_nat_eq.exit.thread187:                       ; preds = %86
   %89 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %65, ptr noundef %84) #5
@@ -23302,7 +23302,7 @@ lean_dec.exit117:                                 ; preds = %97
   br i1 %92, label %107, label %99
 
 99:                                               ; preds = %98, %95, %lean_nat_eq.exit.thread187, %lean_nat_eq.exit.thread, %lean_dec.exit117
-  br i1 %.not208, label %100, label %lean_dec.exit114
+  br i1 %.not206, label %100, label %lean_dec.exit114
 
 100:                                              ; preds = %99
   %101 = load i32, ptr %75, align 4, !tbaa !4
@@ -23323,7 +23323,7 @@ lean_dec.exit117:                                 ; preds = %97
   br label %lean_dec.exit114
 
 107:                                              ; preds = %98, %95, %lean_nat_eq.exit.thread187, %lean_nat_eq.exit.thread, %lean_dec.exit117
-  br i1 %.not208, label %108, label %lean_dec.exit115
+  br i1 %.not206, label %108, label %lean_dec.exit115
 
 108:                                              ; preds = %107
   %109 = load i32, ptr %75, align 4, !tbaa !4
@@ -23403,14 +23403,14 @@ lean_nat_lt.exit154:                              ; preds = %130, %134, %136, %1
   %138 = getelementptr i8, ptr %.085, i64 8
   %.388.val = load i64, ptr %138, align 8, !tbaa !12
   %.mask = and i64 %.388.val, 9223372036854775807
-  %.not210 = icmp eq i64 %.mask, 0
-  br i1 %.not210, label %lean_dec.exit107, label %.lr.ph.i177
+  %.not208 = icmp eq i64 %.mask, 0
+  br i1 %.not208, label %lean_dec.exit107, label %.lr.ph.i177
 
 lean_dec.exit107:                                 ; preds = %lean_nat_lt.exit154
   %139 = ptrtoint ptr %.085 to i64
   %140 = and i64 %139, 1
-  %.not212 = icmp eq i64 %140, 0
-  br i1 %.not212, label %141, label %lean_inc.exit104
+  %.not210 = icmp eq i64 %140, 0
+  br i1 %.not210, label %141, label %lean_inc.exit104
 
 141:                                              ; preds = %lean_dec.exit107
   %142 = load i32, ptr %.085, align 4, !tbaa !4
@@ -23435,9 +23435,9 @@ lean_dec.exit107:                                 ; preds = %lean_nat_lt.exit154
   br label %149
 
 149:                                              ; preds = %164, %.lr.ph.i177
-  %.01630.i178 = phi i64 [ %.mask, %.lr.ph.i177 ], [ %150, %164 ]
-  %.01829.i179 = phi ptr [ %48, %.lr.ph.i177 ], [ %161, %164 ]
-  %150 = add nsw i64 %.01630.i178, -1
+  %.01628.i178 = phi i64 [ %.mask, %.lr.ph.i177 ], [ %150, %164 ]
+  %.01827.i179 = phi ptr [ %48, %.lr.ph.i177 ], [ %161, %164 ]
+  %150 = add nsw i64 %.01628.i178, -1
   %151 = getelementptr inbounds nuw ptr, ptr %148, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !9
   %153 = ptrtoint ptr %152 to i64
@@ -23480,15 +23480,15 @@ lean_array_uget.exit.i181:                        ; preds = %160, %159, %157, %1
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr %152, ptr %166, align 8, !tbaa !9
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  store ptr %.01829.i179, ptr %167, align 8, !tbaa !9
+  store ptr %.01827.i179, ptr %167, align 8, !tbaa !9
   %.not.i182 = icmp eq i64 %150, 0
   br i1 %.not.i182, label %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__3.exit, label %149
 
 l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__3.exit: ; preds = %164
   %168 = ptrtoint ptr %.085 to i64
   %169 = and i64 %168, 1
-  %.not211 = icmp eq i64 %169, 0
-  br i1 %.not211, label %170, label %lean_inc.exit104
+  %.not209 = icmp eq i64 %169, 0
+  br i1 %.not209, label %170, label %lean_inc.exit104
 
 170:                                              ; preds = %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__3.exit
   %171 = load i32, ptr %.085, align 4, !tbaa !4
@@ -28392,17 +28392,17 @@ lean_dec.exit13:                                  ; preds = %15, %14, %12, %5
   br label %lean_dec.exit12
 
 lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean_dec.exit13
-  %.not28.i = icmp eq i64 %.val20, %.val
-  br i1 %.not28.i, label %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__2.exit, label %.lr.ph.i
+  %.not26.i = icmp eq i64 %.val20, %.val
+  br i1 %.not26.i, label %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__2.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %27
 
 27:                                               ; preds = %42, %.lr.ph.i
-  %.01630.i = phi i64 [ %.val20, %.lr.ph.i ], [ %28, %42 ]
-  %.01829.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %42 ]
-  %28 = add i64 %.01630.i, -1
+  %.01628.i = phi i64 [ %.val20, %.lr.ph.i ], [ %28, %42 ]
+  %.01827.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %42 ]
+  %28 = add i64 %.01628.i, -1
   %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = ptrtoint ptr %30 to i64
@@ -28445,7 +28445,7 @@ lean_array_uget.exit.i:                           ; preds = %38, %37, %35, %27
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %30, ptr %44, align 8, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %.01829.i, ptr %45, align 8, !tbaa !9
+  store ptr %.01827.i, ptr %45, align 8, !tbaa !9
   %.not.i21 = icmp eq i64 %28, %.val
   br i1 %.not.i21, label %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__2.exit, label %27
 
@@ -28556,17 +28556,17 @@ lean_dec.exit13:                                  ; preds = %15, %14, %12, %5
   br label %lean_dec.exit12
 
 lean_dec.exit12:                                  ; preds = %25, %24, %22, %lean_dec.exit13
-  %.not28.i = icmp eq i64 %.val20, %.val
-  br i1 %.not28.i, label %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__3.exit, label %.lr.ph.i
+  %.not26.i = icmp eq i64 %.val20, %.val
+  br i1 %.not26.i, label %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__3.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %27
 
 27:                                               ; preds = %42, %.lr.ph.i
-  %.01630.i = phi i64 [ %.val20, %.lr.ph.i ], [ %28, %42 ]
-  %.01829.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %42 ]
-  %28 = add i64 %.01630.i, -1
+  %.01628.i = phi i64 [ %.val20, %.lr.ph.i ], [ %28, %42 ]
+  %.01827.i = phi ptr [ %4, %.lr.ph.i ], [ %39, %42 ]
+  %28 = add i64 %.01628.i, -1
   %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = ptrtoint ptr %30 to i64
@@ -28609,7 +28609,7 @@ lean_array_uget.exit.i:                           ; preds = %38, %37, %35, %27
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %30, ptr %44, align 8, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %.01829.i, ptr %45, align 8, !tbaa !9
+  store ptr %.01827.i, ptr %45, align 8, !tbaa !9
   %.not.i21 = icmp eq i64 %28, %.val
   br i1 %.not.i21, label %l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck___spec__3.exit, label %27
 
@@ -29600,8 +29600,8 @@ lean_alloc_ctor.exit210:                          ; preds = %273
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatAdd___spec__2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
-  %.not221 = icmp eq i64 %3, %4
-  br i1 %.not221, label %._crit_edge, label %.lr.ph
+  %.not219 = icmp eq i64 %3, %4
+  br i1 %.not219, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -29610,9 +29610,9 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %10
 
 10:                                               ; preds = %.lr.ph, %lean_dec.exit135
-  %.0108223 = phi i64 [ %3, %.lr.ph ], [ %21, %lean_dec.exit135 ]
-  %.0110222 = phi ptr [ %5, %.lr.ph ], [ %.6116, %lean_dec.exit135 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0108223
+  %.0108221 = phi i64 [ %3, %.lr.ph ], [ %21, %lean_dec.exit135 ]
+  %.0110220 = phi ptr [ %5, %.lr.ph ], [ %.6116, %lean_dec.exit135 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0108221
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -29638,14 +29638,14 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_Def
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %10, %17, %19, %20
-  %21 = add i64 %.0108223, 1
-  %22 = getelementptr inbounds nuw i8, ptr %.0110222, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %.0110222, i64 16
+  %21 = add i64 %.0108221, 1
+  %22 = getelementptr inbounds nuw i8, ptr %.0110220, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0110220, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
-  %.not199 = icmp eq i64 %26, 0
-  br i1 %.not199, label %27, label %lean_dec.exit140
+  %.not197 = icmp eq i64 %26, 0
+  br i1 %.not197, label %27, label %lean_dec.exit140
 
 27:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %24, align 4, !tbaa !4
@@ -29711,7 +29711,7 @@ lean_dec.exit140:                                 ; preds = %lean_array_uget.exi
   br label %lean_dec.exit139
 
 lean_dec.exit139:                                 ; preds = %49, %48, %46, %42
-  %.0110.val164 = load i32, ptr %.0110222, align 4, !tbaa !4
+  %.0110.val164 = load i32, ptr %.0110220, align 4, !tbaa !4
   %50 = icmp eq i32 %.0110.val164, 1
   br i1 %50, label %51, label %62
 
@@ -29719,8 +29719,8 @@ lean_dec.exit139:                                 ; preds = %49, %48, %46, %42
   %52 = load ptr, ptr %23, align 8, !tbaa !9
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %53, 1
-  %.not217 = icmp eq i64 %54, 0
-  br i1 %.not217, label %55, label %lean_dec.exit138
+  %.not215 = icmp eq i64 %54, 0
+  br i1 %.not215, label %55, label %lean_dec.exit138
 
 55:                                               ; preds = %51
   %56 = load i32, ptr %52, align 4, !tbaa !4
@@ -29748,8 +29748,8 @@ lean_dec.exit138:                                 ; preds = %61, %60, %58, %51
   %63 = load ptr, ptr %22, align 8, !tbaa !9
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %64, 1
-  %.not215 = icmp eq i64 %65, 0
-  br i1 %.not215, label %66, label %lean_inc.exit128
+  %.not213 = icmp eq i64 %65, 0
+  br i1 %.not213, label %66, label %lean_inc.exit128
 
 66:                                               ; preds = %62
   %.val.i167 = load i32, ptr %63, align 4, !tbaa !4
@@ -29770,19 +29770,19 @@ lean_dec.exit138:                                 ; preds = %61, %60, %58, %51
   br label %lean_inc.exit128
 
 lean_inc.exit128:                                 ; preds = %71, %70, %68, %62
-  %72 = ptrtoint ptr %.0110222 to i64
+  %72 = ptrtoint ptr %.0110220 to i64
   %73 = and i64 %72, 1
-  %.not216 = icmp eq i64 %73, 0
-  br i1 %.not216, label %74, label %lean_dec.exit137
+  %.not214 = icmp eq i64 %73, 0
+  br i1 %.not214, label %74, label %lean_dec.exit137
 
 74:                                               ; preds = %lean_inc.exit128
-  %75 = load i32, ptr %.0110222, align 4, !tbaa !4
+  %75 = load i32, ptr %.0110220, align 4, !tbaa !4
   %76 = icmp sgt i32 %75, 1
   br i1 %76, label %77, label %79, !prof !11
 
 77:                                               ; preds = %74
   %78 = add nsw i32 %75, -1
-  store i32 %78, ptr %.0110222, align 4, !tbaa !4
+  store i32 %78, ptr %.0110220, align 4, !tbaa !4
   br label %lean_dec.exit137
 
 79:                                               ; preds = %74
@@ -29790,7 +29790,7 @@ lean_inc.exit128:                                 ; preds = %71, %70, %68, %62
   br i1 %.not.i145, label %lean_dec.exit137, label %80
 
 80:                                               ; preds = %79
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110222) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110220) #5
   br label %lean_dec.exit137
 
 lean_dec.exit137:                                 ; preds = %80, %79, %77, %lean_inc.exit128
@@ -29818,7 +29818,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit137
   %89 = ptrtoint ptr %88 to i64
   %90 = and i64 %89, 510
   %91 = icmp eq i64 %90, 0
-  %.0110.val163 = load i32, ptr %.0110222, align 4, !tbaa !4
+  %.0110.val163 = load i32, ptr %.0110220, align 4, !tbaa !4
   %92 = icmp eq i32 %.0110.val163, 1
   %93 = load ptr, ptr %22, align 8, !tbaa !9
   br i1 %91, label %94, label %168
@@ -29830,8 +29830,8 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit137
   %96 = load ptr, ptr %23, align 8, !tbaa !9
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, 1
-  %.not211 = icmp eq i64 %98, 0
-  br i1 %.not211, label %99, label %lean_dec.exit136
+  %.not209 = icmp eq i64 %98, 0
+  br i1 %.not209, label %99, label %lean_dec.exit136
 
 99:                                               ; preds = %95
   %100 = load i32, ptr %96, align 4, !tbaa !4
@@ -29855,8 +29855,8 @@ lean_dec.exit136:                                 ; preds = %105, %104, %102, %9
   %106 = load ptr, ptr %8, align 8, !tbaa !9
   %107 = ptrtoint ptr %106 to i64
   %108 = and i64 %107, 1
-  %.not212 = icmp eq i64 %108, 0
-  br i1 %.not212, label %109, label %lean_inc.exit127
+  %.not210 = icmp eq i64 %108, 0
+  br i1 %.not210, label %109, label %lean_inc.exit127
 
 109:                                              ; preds = %lean_dec.exit136
   %.val.i170 = load i32, ptr %106, align 4, !tbaa !4
@@ -29879,20 +29879,20 @@ lean_dec.exit136:                                 ; preds = %105, %104, %102, %9
 lean_inc.exit127:                                 ; preds = %114, %113, %111, %lean_dec.exit136
   store ptr inttoptr (i64 3 to ptr), ptr %23, align 8, !tbaa !9
   store ptr %106, ptr %22, align 8, !tbaa !9
-  %115 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck(ptr noundef %0, ptr noundef %93, ptr noundef nonnull %.0110222, ptr noundef %12)
-  %116 = ptrtoint ptr %.0110222 to i64
+  %115 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck(ptr noundef %0, ptr noundef %93, ptr noundef nonnull %.0110220, ptr noundef %12)
+  %116 = ptrtoint ptr %.0110220 to i64
   %117 = and i64 %116, 1
-  %.not213 = icmp eq i64 %117, 0
-  br i1 %.not213, label %118, label %lean_dec.exit135
+  %.not211 = icmp eq i64 %117, 0
+  br i1 %.not211, label %118, label %lean_dec.exit135
 
 118:                                              ; preds = %lean_inc.exit127
-  %119 = load i32, ptr %.0110222, align 4, !tbaa !4
+  %119 = load i32, ptr %.0110220, align 4, !tbaa !4
   %120 = icmp sgt i32 %119, 1
   br i1 %120, label %121, label %123, !prof !11
 
 121:                                              ; preds = %118
   %122 = add nsw i32 %119, -1
-  store i32 %122, ptr %.0110222, align 4, !tbaa !4
+  store i32 %122, ptr %.0110220, align 4, !tbaa !4
   br label %lean_dec.exit135
 
 123:                                              ; preds = %118
@@ -29900,14 +29900,14 @@ lean_inc.exit127:                                 ; preds = %114, %113, %111, %l
   br i1 %.not.i149, label %lean_dec.exit135, label %124
 
 124:                                              ; preds = %123
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110222) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110220) #5
   br label %lean_dec.exit135
 
 125:                                              ; preds = %94
   %126 = ptrtoint ptr %93 to i64
   %127 = and i64 %126, 1
-  %.not207 = icmp eq i64 %127, 0
-  br i1 %.not207, label %128, label %lean_inc.exit126
+  %.not205 = icmp eq i64 %127, 0
+  br i1 %.not205, label %128, label %lean_inc.exit126
 
 128:                                              ; preds = %125
   %.val.i173 = load i32, ptr %93, align 4, !tbaa !4
@@ -29928,19 +29928,19 @@ lean_inc.exit127:                                 ; preds = %114, %113, %111, %l
   br label %lean_inc.exit126
 
 lean_inc.exit126:                                 ; preds = %133, %132, %130, %125
-  %134 = ptrtoint ptr %.0110222 to i64
+  %134 = ptrtoint ptr %.0110220 to i64
   %135 = and i64 %134, 1
-  %.not208 = icmp eq i64 %135, 0
-  br i1 %.not208, label %136, label %lean_dec.exit134
+  %.not206 = icmp eq i64 %135, 0
+  br i1 %.not206, label %136, label %lean_dec.exit134
 
 136:                                              ; preds = %lean_inc.exit126
-  %137 = load i32, ptr %.0110222, align 4, !tbaa !4
+  %137 = load i32, ptr %.0110220, align 4, !tbaa !4
   %138 = icmp sgt i32 %137, 1
   br i1 %138, label %139, label %141, !prof !11
 
 139:                                              ; preds = %136
   %140 = add nsw i32 %137, -1
-  store i32 %140, ptr %.0110222, align 4, !tbaa !4
+  store i32 %140, ptr %.0110220, align 4, !tbaa !4
   br label %lean_dec.exit134
 
 141:                                              ; preds = %136
@@ -29948,15 +29948,15 @@ lean_inc.exit126:                                 ; preds = %133, %132, %130, %1
   br i1 %.not.i151, label %lean_dec.exit134, label %142
 
 142:                                              ; preds = %141
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110222) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110220) #5
   br label %lean_dec.exit134
 
 lean_dec.exit134:                                 ; preds = %142, %141, %139, %lean_inc.exit126
   %143 = load ptr, ptr %8, align 8, !tbaa !9
   %144 = ptrtoint ptr %143 to i64
   %145 = and i64 %144, 1
-  %.not209 = icmp eq i64 %145, 0
-  br i1 %.not209, label %146, label %lean_inc.exit125
+  %.not207 = icmp eq i64 %145, 0
+  br i1 %.not207, label %146, label %lean_inc.exit125
 
 146:                                              ; preds = %lean_dec.exit134
   %.val.i176 = load i32, ptr %143, align 4, !tbaa !4
@@ -29997,8 +29997,8 @@ lean_alloc_ctor.exit179:                          ; preds = %lean_inc.exit125
   %158 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck(ptr noundef %0, ptr noundef %93, ptr noundef nonnull %152, ptr noundef %12)
   %159 = ptrtoint ptr %152 to i64
   %160 = and i64 %159, 1
-  %.not210 = icmp eq i64 %160, 0
-  br i1 %.not210, label %161, label %lean_dec.exit135
+  %.not208 = icmp eq i64 %160, 0
+  br i1 %.not208, label %161, label %lean_dec.exit135
 
 161:                                              ; preds = %lean_alloc_ctor.exit179
   %162 = load i32, ptr %152, align 4, !tbaa !4
@@ -30025,8 +30025,8 @@ lean_alloc_ctor.exit179:                          ; preds = %lean_inc.exit125
   %170 = load ptr, ptr %23, align 8, !tbaa !9
   %171 = ptrtoint ptr %170 to i64
   %172 = and i64 %171, 1
-  %.not204 = icmp eq i64 %172, 0
-  br i1 %.not204, label %173, label %lean_dec.exit132
+  %.not202 = icmp eq i64 %172, 0
+  br i1 %.not202, label %173, label %lean_dec.exit132
 
 173:                                              ; preds = %169
   %174 = load i32, ptr %170, align 4, !tbaa !4
@@ -30050,8 +30050,8 @@ lean_dec.exit132:                                 ; preds = %179, %178, %176, %1
   %180 = load ptr, ptr %8, align 8, !tbaa !9
   %181 = ptrtoint ptr %180 to i64
   %182 = and i64 %181, 1
-  %.not205 = icmp eq i64 %182, 0
-  br i1 %.not205, label %183, label %lean_inc.exit124
+  %.not203 = icmp eq i64 %182, 0
+  br i1 %.not203, label %183, label %lean_inc.exit124
 
 183:                                              ; preds = %lean_dec.exit132
   %.val.i180 = load i32, ptr %180, align 4, !tbaa !4
@@ -30074,20 +30074,20 @@ lean_dec.exit132:                                 ; preds = %179, %178, %176, %1
 lean_inc.exit124:                                 ; preds = %188, %187, %185, %lean_dec.exit132
   store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !9
   store ptr %180, ptr %22, align 8, !tbaa !9
-  %189 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck(ptr noundef %0, ptr noundef %93, ptr noundef nonnull %.0110222, ptr noundef %12)
-  %190 = ptrtoint ptr %.0110222 to i64
+  %189 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck(ptr noundef %0, ptr noundef %93, ptr noundef nonnull %.0110220, ptr noundef %12)
+  %190 = ptrtoint ptr %.0110220 to i64
   %191 = and i64 %190, 1
-  %.not206 = icmp eq i64 %191, 0
-  br i1 %.not206, label %192, label %lean_dec.exit135
+  %.not204 = icmp eq i64 %191, 0
+  br i1 %.not204, label %192, label %lean_dec.exit135
 
 192:                                              ; preds = %lean_inc.exit124
-  %193 = load i32, ptr %.0110222, align 4, !tbaa !4
+  %193 = load i32, ptr %.0110220, align 4, !tbaa !4
   %194 = icmp sgt i32 %193, 1
   br i1 %194, label %195, label %197, !prof !11
 
 195:                                              ; preds = %192
   %196 = add nsw i32 %193, -1
-  store i32 %196, ptr %.0110222, align 4, !tbaa !4
+  store i32 %196, ptr %.0110220, align 4, !tbaa !4
   br label %lean_dec.exit135
 
 197:                                              ; preds = %192
@@ -30095,14 +30095,14 @@ lean_inc.exit124:                                 ; preds = %188, %187, %185, %l
   br i1 %.not.i157, label %lean_dec.exit135, label %198
 
 198:                                              ; preds = %197
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110222) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110220) #5
   br label %lean_dec.exit135
 
 199:                                              ; preds = %168
   %200 = ptrtoint ptr %93 to i64
   %201 = and i64 %200, 1
-  %.not200 = icmp eq i64 %201, 0
-  br i1 %.not200, label %202, label %lean_inc.exit123
+  %.not198 = icmp eq i64 %201, 0
+  br i1 %.not198, label %202, label %lean_inc.exit123
 
 202:                                              ; preds = %199
   %.val.i183 = load i32, ptr %93, align 4, !tbaa !4
@@ -30123,19 +30123,19 @@ lean_inc.exit124:                                 ; preds = %188, %187, %185, %l
   br label %lean_inc.exit123
 
 lean_inc.exit123:                                 ; preds = %207, %206, %204, %199
-  %208 = ptrtoint ptr %.0110222 to i64
+  %208 = ptrtoint ptr %.0110220 to i64
   %209 = and i64 %208, 1
-  %.not201 = icmp eq i64 %209, 0
-  br i1 %.not201, label %210, label %lean_dec.exit130
+  %.not199 = icmp eq i64 %209, 0
+  br i1 %.not199, label %210, label %lean_dec.exit130
 
 210:                                              ; preds = %lean_inc.exit123
-  %211 = load i32, ptr %.0110222, align 4, !tbaa !4
+  %211 = load i32, ptr %.0110220, align 4, !tbaa !4
   %212 = icmp sgt i32 %211, 1
   br i1 %212, label %213, label %215, !prof !11
 
 213:                                              ; preds = %210
   %214 = add nsw i32 %211, -1
-  store i32 %214, ptr %.0110222, align 4, !tbaa !4
+  store i32 %214, ptr %.0110220, align 4, !tbaa !4
   br label %lean_dec.exit130
 
 215:                                              ; preds = %210
@@ -30143,15 +30143,15 @@ lean_inc.exit123:                                 ; preds = %207, %206, %204, %1
   br i1 %.not.i159, label %lean_dec.exit130, label %216
 
 216:                                              ; preds = %215
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110222) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0110220) #5
   br label %lean_dec.exit130
 
 lean_dec.exit130:                                 ; preds = %216, %215, %213, %lean_inc.exit123
   %217 = load ptr, ptr %8, align 8, !tbaa !9
   %218 = ptrtoint ptr %217 to i64
   %219 = and i64 %218, 1
-  %.not202 = icmp eq i64 %219, 0
-  br i1 %.not202, label %220, label %lean_inc.exit
+  %.not200 = icmp eq i64 %219, 0
+  br i1 %.not200, label %220, label %lean_inc.exit
 
 220:                                              ; preds = %lean_dec.exit130
   %.val.i186 = load i32, ptr %217, align 4, !tbaa !4
@@ -30192,8 +30192,8 @@ lean_alloc_ctor.exit189:                          ; preds = %lean_inc.exit
   %232 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_performRatCheck(ptr noundef %0, ptr noundef %93, ptr noundef nonnull %226, ptr noundef %12)
   %233 = ptrtoint ptr %226 to i64
   %234 = and i64 %233, 1
-  %.not203 = icmp eq i64 %234, 0
-  br i1 %.not203, label %235, label %lean_dec.exit135
+  %.not201 = icmp eq i64 %234, 0
+  br i1 %.not201, label %235, label %lean_dec.exit135
 
 235:                                              ; preds = %lean_alloc_ctor.exit189
   %236 = load i32, ptr %226, align 4, !tbaa !4
@@ -30214,7 +30214,7 @@ lean_alloc_ctor.exit189:                          ; preds = %lean_inc.exit
   br label %lean_dec.exit135
 
 lean_dec.exit135:                                 ; preds = %lean_alloc_ctor.exit189, %238, %240, %241, %lean_inc.exit124, %195, %197, %198, %lean_alloc_ctor.exit179, %164, %166, %167, %lean_inc.exit127, %121, %123, %124, %lean_alloc_ctor.exit, %lean_dec.exit138
-  %.6116 = phi ptr [ %.0110222, %lean_dec.exit138 ], [ %81, %lean_alloc_ctor.exit ], [ %115, %124 ], [ %115, %123 ], [ %115, %121 ], [ %115, %lean_inc.exit127 ], [ %158, %167 ], [ %158, %166 ], [ %158, %164 ], [ %158, %lean_alloc_ctor.exit179 ], [ %189, %198 ], [ %189, %197 ], [ %189, %195 ], [ %189, %lean_inc.exit124 ], [ %232, %241 ], [ %232, %240 ], [ %232, %238 ], [ %232, %lean_alloc_ctor.exit189 ]
+  %.6116 = phi ptr [ %.0110220, %lean_dec.exit138 ], [ %81, %lean_alloc_ctor.exit ], [ %115, %124 ], [ %115, %123 ], [ %115, %121 ], [ %115, %lean_inc.exit127 ], [ %158, %167 ], [ %158, %166 ], [ %158, %164 ], [ %158, %lean_alloc_ctor.exit179 ], [ %189, %198 ], [ %189, %197 ], [ %189, %195 ], [ %189, %lean_inc.exit124 ], [ %232, %241 ], [ %232, %240 ], [ %232, %238 ], [ %232, %lean_alloc_ctor.exit189 ]
   %.not = icmp eq i64 %21, %4
   br i1 %.not, label %._crit_edge, label %10
 
@@ -34371,17 +34371,17 @@ declare zeroext i8 @l_List_beq___at_Std_Tactic_BVDecide_LRAT_Internal_beqDefault
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_numClausesInFormula___spec__2(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
-  %.not49 = icmp ult i64 %5, %4
-  br i1 %.not49, label %.lr.ph, label %._crit_edge
+  %.not47 = icmp ult i64 %5, %4
+  br i1 %.not47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %9
 
 9:                                                ; preds = %.lr.ph, %lean_dec.exit
-  %.02251 = phi i64 [ %5, %.lr.ph ], [ %.123, %lean_dec.exit ]
-  %.02450 = phi ptr [ %6, %.lr.ph ], [ %.125, %lean_dec.exit ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02251
+  %.02249 = phi i64 [ %5, %.lr.ph ], [ %.123, %lean_dec.exit ]
+  %.02448 = phi ptr [ %6, %.lr.ph ], [ %.125, %lean_dec.exit ]
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02249
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -34400,13 +34400,13 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Std_Tactic_BVDecide_LRAT_Internal_
 
 18:                                               ; preds = %14
   %.not.i.i = icmp eq i32 %.val.i.i, 0
-  br i1 %.not.i.i, label %.thread65, label %20
+  br i1 %.not.i.i, label %.thread63, label %20
 
-.thread65:                                        ; preds = %18
+.thread63:                                        ; preds = %18
   %19 = getelementptr i8, ptr %11, i64 4
-  %.val.i.i3562 = load i32, ptr %19, align 4
-  %.not475963 = icmp ult i32 %.val.i.i3562, 16777216
-  br i1 %.not475963, label %lean_dec.exit, label %30
+  %.val.i.i3560 = load i32, ptr %19, align 4
+  %.not455761 = icmp ult i32 %.val.i.i3560, 16777216
+  br i1 %.not455761, label %lean_dec.exit, label %30
 
 20:                                               ; preds = %18
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %11) #5
@@ -34415,21 +34415,21 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Std_Tactic_BVDecide_LRAT_Internal_
 
 lean_obj_tag.exit.i:                              ; preds = %9
   %21 = and i64 %12, 8589934590
-  %.not47 = icmp eq i64 %21, 0
-  br i1 %.not47, label %lean_dec.exit, label %30
+  %.not45 = icmp eq i64 %21, 0
+  br i1 %.not45, label %lean_dec.exit, label %30
 
 22:                                               ; preds = %20, %16
   %23 = phi i32 [ %.pr, %20 ], [ %17, %16 ]
   %24 = getelementptr i8, ptr %11, i64 4
   %.val.i.i35 = load i32, ptr %24, align 4
-  %.not4759 = icmp ult i32 %.val.i.i35, 16777216
+  %.not4557 = icmp ult i32 %.val.i.i35, 16777216
   %25 = icmp sgt i32 %23, 1
   br i1 %25, label %26, label %28, !prof !15
 
 26:                                               ; preds = %22
   %27 = add nsw i32 %23, -1
   store i32 %27, ptr %11, align 4, !tbaa !4
-  br i1 %.not4759, label %lean_dec.exit, label %30
+  br i1 %.not4557, label %lean_dec.exit, label %30
 
 28:                                               ; preds = %22
   %.not.i = icmp eq i32 %23, 0
@@ -34437,16 +34437,16 @@ lean_obj_tag.exit.i:                              ; preds = %9
 
 29:                                               ; preds = %28
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #5
-  br i1 %.not4759, label %lean_dec.exit, label %30
+  br i1 %.not4557, label %lean_dec.exit, label %30
 
 lean_dec.exit29:                                  ; preds = %28
-  br i1 %.not4759, label %lean_dec.exit, label %30
+  br i1 %.not4557, label %lean_dec.exit, label %30
 
-30:                                               ; preds = %.thread65, %lean_obj_tag.exit.i, %26, %29, %lean_dec.exit29
-  %31 = ptrtoint ptr %.02450 to i64
+30:                                               ; preds = %.thread63, %lean_obj_tag.exit.i, %26, %29, %lean_dec.exit29
+  %31 = ptrtoint ptr %.02448 to i64
   %32 = and i64 %31, 1
-  %.not48 = icmp eq i64 %32, 0
-  br i1 %.not48, label %43, label %33, !prof !14
+  %.not46 = icmp eq i64 %32, 0
+  br i1 %.not46, label %43, label %33, !prof !14
 
 33:                                               ; preds = %30
   %34 = lshr i64 %31, 1
@@ -34465,14 +34465,14 @@ lean_dec.exit29:                                  ; preds = %28
   br label %lean_dec.exit
 
 43:                                               ; preds = %30
-  %44 = tail call ptr @lean_nat_big_add(ptr noundef %.02450, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
-  %45 = load i32, ptr %.02450, align 4, !tbaa !4
+  %44 = tail call ptr @lean_nat_big_add(ptr noundef %.02448, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
+  %45 = load i32, ptr %.02448, align 4, !tbaa !4
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !11
 
 47:                                               ; preds = %43
   %48 = add nsw i32 %45, -1
-  store i32 %48, ptr %.02450, align 4, !tbaa !4
+  store i32 %48, ptr %.02448, align 4, !tbaa !4
   br label %lean_dec.exit
 
 49:                                               ; preds = %43
@@ -34480,12 +34480,12 @@ lean_dec.exit29:                                  ; preds = %28
   br i1 %.not.i30, label %lean_dec.exit, label %50
 
 50:                                               ; preds = %49
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.02450) #5
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.02448) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %.thread65, %lean_obj_tag.exit.i, %26, %29, %lean_dec.exit29, %47, %49, %50, %41, %37
-  %.125 = phi ptr [ %44, %47 ], [ %44, %49 ], [ %44, %50 ], [ %42, %41 ], [ %40, %37 ], [ %.02450, %lean_dec.exit29 ], [ %.02450, %29 ], [ %.02450, %26 ], [ %.02450, %lean_obj_tag.exit.i ], [ %.02450, %.thread65 ]
-  %.123 = add nuw i64 %.02251, 1
+lean_dec.exit:                                    ; preds = %.thread63, %lean_obj_tag.exit.i, %26, %29, %lean_dec.exit29, %47, %49, %50, %41, %37
+  %.125 = phi ptr [ %44, %47 ], [ %44, %49 ], [ %44, %50 ], [ %42, %41 ], [ %40, %37 ], [ %.02448, %lean_dec.exit29 ], [ %.02448, %29 ], [ %.02448, %26 ], [ %.02448, %lean_obj_tag.exit.i ], [ %.02448, %.thread63 ]
+  %.123 = add nuw i64 %.02249, 1
   %exitcond.not = icmp eq i64 %.123, %4
   br i1 %exitcond.not, label %._crit_edge, label %9
 

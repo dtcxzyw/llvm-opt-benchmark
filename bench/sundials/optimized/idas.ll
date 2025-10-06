@@ -2902,82 +2902,82 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   %.lcssa = phi i32 [ %47, %39 ], [ %57, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 1, ptr %60, align 4, !tbaa !45
-  %switch = icmp eq i32 %1, 1
-  br i1 %switch, label %61, label %65
+  %61 = icmp eq i32 %1, 1
+  br i1 %61, label %62, label %66
 
-61:                                               ; preds = %._crit_edge108
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1752
-  %63 = load ptr, ptr %62, align 8, !tbaa !69
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %69, label %.thread
+62:                                               ; preds = %._crit_edge108
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1752
+  %64 = load ptr, ptr %63, align 8, !tbaa !69
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %70, label %.thread
 
-65:                                               ; preds = %._crit_edge108
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %67 = load ptr, ptr %66, align 8, !tbaa !71
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %.thread87, label %.thread
+66:                                               ; preds = %._crit_edge108
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %68 = load ptr, ptr %67, align 8, !tbaa !71
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %.thread87, label %.thread
 
-69:                                               ; preds = %61
-  %70 = add nsw i32 %.lcssa, 1
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %72 = load ptr, ptr %71, align 8, !tbaa !115
-  %73 = load ptr, ptr %0, align 8, !tbaa !3
-  %74 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %70, ptr noundef %72, ptr noundef %73) #14
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %81, label %82
+70:                                               ; preds = %62
+  %71 = add nsw i32 %.lcssa, 1
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %73 = load ptr, ptr %72, align 8, !tbaa !115
+  %74 = load ptr, ptr %0, align 8, !tbaa !3
+  %75 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %71, ptr noundef %73, ptr noundef %74) #14
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %82, label %83
 
-.thread87:                                        ; preds = %65
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %77 = load ptr, ptr %76, align 8, !tbaa !115
-  %78 = load ptr, ptr %0, align 8, !tbaa !3
-  %79 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %.lcssa, ptr noundef %77, ptr noundef %78) #14
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %.thread94
+.thread87:                                        ; preds = %66
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %78 = load ptr, ptr %77, align 8, !tbaa !115
+  %79 = load ptr, ptr %0, align 8, !tbaa !3
+  %80 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %.lcssa, ptr noundef %78, ptr noundef %79) #14
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %.thread94
 
-81:                                               ; preds = %.thread87, %69
+82:                                               ; preds = %.thread87, %70
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1609, ptr noundef nonnull @__func__.IDASensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
   br label %.thread
 
-82:                                               ; preds = %69
-  %83 = tail call i32 @IDASetNonlinearSolverSensSim(ptr noundef nonnull %0, ptr noundef nonnull %74) #14
-  %.not84 = icmp eq i32 %83, 0
-  br i1 %.not84, label %87, label %85
+83:                                               ; preds = %70
+  %84 = tail call i32 @IDASetNonlinearSolverSensSim(ptr noundef nonnull %0, ptr noundef nonnull %75) #14
+  %.not84 = icmp eq i32 %84, 0
+  br i1 %.not84, label %88, label %86
 
 .thread94:                                        ; preds = %.thread87
-  %84 = tail call i32 @IDASetNonlinearSolverSensStg(ptr noundef nonnull %0, ptr noundef nonnull %79) #14
-  %.not8497 = icmp eq i32 %84, 0
-  br i1 %.not8497, label %.thread100, label %85
+  %85 = tail call i32 @IDASetNonlinearSolverSensStg(ptr noundef nonnull %0, ptr noundef nonnull %80) #14
+  %.not8497 = icmp eq i32 %85, 0
+  br i1 %.not8497, label %.thread100, label %86
 
-85:                                               ; preds = %.thread94, %82
-  %.07599 = phi i32 [ %84, %.thread94 ], [ %83, %82 ]
-  %.0899398 = phi ptr [ %79, %.thread94 ], [ %74, %82 ]
+86:                                               ; preds = %.thread94, %83
+  %.07599 = phi i32 [ %85, %.thread94 ], [ %84, %83 ]
+  %.0899398 = phi ptr [ %80, %.thread94 ], [ %75, %83 ]
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef %.07599, i32 noundef 1625, ptr noundef nonnull @__func__.IDASensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  %86 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %.0899398) #14
+  %87 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %.0899398) #14
   br label %.thread
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  store i32 1, ptr %88, align 8, !tbaa !70
-  %89 = tail call i32 @idaNlsInitSensSim(ptr noundef nonnull %0) #14
-  br label %92
+88:                                               ; preds = %83
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  store i32 1, ptr %89, align 8, !tbaa !70
+  %90 = tail call i32 @idaNlsInitSensSim(ptr noundef nonnull %0) #14
+  br label %93
 
 .thread100:                                       ; preds = %.thread94
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1776
-  store i32 1, ptr %90, align 8, !tbaa !72
-  %91 = tail call i32 @idaNlsInitSensStg(ptr noundef nonnull %0) #14
-  br label %92
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1776
+  store i32 1, ptr %91, align 8, !tbaa !72
+  %92 = tail call i32 @idaNlsInitSensStg(ptr noundef nonnull %0) #14
+  br label %93
 
-92:                                               ; preds = %.thread100, %87
-  %.1 = phi i32 [ %89, %87 ], [ %91, %.thread100 ]
+93:                                               ; preds = %.thread100, %88
+  %.1 = phi i32 [ %90, %88 ], [ %92, %.thread100 ]
   %.not85 = icmp eq i32 %.1, 0
-  br i1 %.not85, label %.thread, label %93
+  br i1 %.not85, label %.thread, label %94
 
-93:                                               ; preds = %92
+94:                                               ; preds = %93
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -15, i32 noundef 1643, ptr noundef nonnull @__func__.IDASensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21)
   br label %.thread
 
-.thread:                                          ; preds = %61, %65, %92, %32, %._crit_edge, %93, %85, %81, %26, %18, %14, %11, %6
-  %.078 = phi i32 [ -20, %6 ], [ -40, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %26 ], [ -21, %81 ], [ -21, %85 ], [ -15, %93 ], [ -28, %._crit_edge ], [ -28, %32 ], [ 0, %92 ], [ 0, %65 ], [ 0, %61 ]
+.thread:                                          ; preds = %62, %66, %93, %32, %._crit_edge, %94, %86, %82, %26, %18, %14, %11, %6
+  %.078 = phi i32 [ -20, %6 ], [ -40, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %26 ], [ -21, %82 ], [ -21, %86 ], [ -15, %94 ], [ -28, %._crit_edge ], [ -28, %32 ], [ 0, %93 ], [ 0, %66 ], [ 0, %62 ]
   ret i32 %.078
 }
 

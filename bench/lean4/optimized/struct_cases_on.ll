@@ -4582,15 +4582,15 @@ define linkonce_odr hidden void @_ZNK4lean18struct_cases_on_fn4findERKNS_4exprE(
   %5 = alloca %"class.lean::optional.54", align 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %90, %3
-  %.tr23 = phi ptr [ %2, %3 ], [ %91, %90 ]
+tailrecurse:                                      ; preds = %91, %3
+  %.tr23 = phi ptr [ %2, %3 ], [ %92, %91 ]
   %6 = load ptr, ptr %.tr23, align 8, !tbaa !3
   %7 = getelementptr i8, ptr %6, i64 4
   %.val.i.i.i.i = load i32, ptr %7, align 4
   %.mask.i = and i32 %.val.i.i.i.i, -16777216
   switch i32 %.mask.i, label %.loopexit [
     i32 16777216, label %8
-    i32 167772160, label %90
+    i32 167772160, label %91
   ]
 
 8:                                                ; preds = %tailrecurse
@@ -4752,88 +4752,88 @@ _ZNK4lean10local_decl9get_valueEv.exit.thread:    ; preds = %18, %26, %28, %_ZNK
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %67, %66, %59, %.critedge, %52, %51, %43, %41, %_ZNK4lean10local_decl9get_valueEv.exit, %13
-  %switch.ph = phi i1 [ true, %13 ], [ true, %_ZNK4lean10local_decl9get_valueEv.exit ], [ true, %41 ], [ true, %43 ], [ true, %51 ], [ true, %52 ], [ false, %.critedge ], [ false, %59 ], [ false, %66 ], [ false, %67 ], [ %33, %.sink.split.sink.split ]
+  %.ph = phi i1 [ true, %13 ], [ true, %_ZNK4lean10local_decl9get_valueEv.exit ], [ true, %41 ], [ true, %43 ], [ true, %51 ], [ true, %52 ], [ false, %.critedge ], [ false, %59 ], [ false, %66 ], [ false, %67 ], [ %33, %.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 72:                                               ; preds = %.sink.split, %8
-  %switch = phi i1 [ true, %8 ], [ %switch.ph, %.sink.split ]
-  %73 = load i8, ptr %4, align 8, !tbaa !126, !range !73, !noundef !74
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
+  %73 = phi i1 [ true, %8 ], [ %.ph, %.sink.split ]
+  %74 = load i8, ptr %4, align 8, !tbaa !126, !range !73, !noundef !74
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !3
-  %78 = ptrtoint ptr %77 to i64
-  %79 = and i64 %78, 1
-  %.not.i.i.i15 = icmp eq i64 %79, 0
-  br i1 %.not.i.i.i15, label %80, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !3
+  %79 = ptrtoint ptr %78 to i64
+  %80 = and i64 %79, 1
+  %.not.i.i.i15 = icmp eq i64 %80, 0
+  br i1 %.not.i.i.i15, label %81, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
 
-80:                                               ; preds = %75
-  %81 = load i32, ptr %77, align 4, !tbaa !8
-  %82 = icmp sgt i32 %81, 1
-  br i1 %82, label %83, label %85, !prof !11
+81:                                               ; preds = %76
+  %82 = load i32, ptr %78, align 4, !tbaa !8
+  %83 = icmp sgt i32 %82, 1
+  br i1 %83, label %84, label %86, !prof !11
 
-83:                                               ; preds = %80
-  %84 = add nsw i32 %81, -1
-  store i32 %84, ptr %77, align 4, !tbaa !8
+84:                                               ; preds = %81
+  %85 = add nsw i32 %82, -1
+  store i32 %85, ptr %78, align 4, !tbaa !8
   br label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
 
-85:                                               ; preds = %80
-  %.not.i.i.i.i16 = icmp eq i32 %81, 0
-  br i1 %.not.i.i.i.i16, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit, label %86
-
-86:                                               ; preds = %85
-  invoke void @lean_dec_ref_cold(ptr noundef nonnull %77)
-          to label %_ZN4lean8optionalINS_10local_declEED2Ev.exit unwind label %87
+86:                                               ; preds = %81
+  %.not.i.i.i.i16 = icmp eq i32 %82, 0
+  br i1 %.not.i.i.i.i16, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit, label %87
 
 87:                                               ; preds = %86
-  %88 = landingpad { ptr, i32 }
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %78)
+          to label %_ZN4lean8optionalINS_10local_declEED2Ev.exit unwind label %88
+
+88:                                               ; preds = %87
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #15
+  %90 = extractvalue { ptr, i32 } %89, 0
+  call void @__clang_call_terminate(ptr %90) #15
   unreachable
 
-_ZN4lean8optionalINS_10local_declEED2Ev.exit:     ; preds = %72, %75, %83, %85, %86
+_ZN4lean8optionalINS_10local_declEED2Ev.exit:     ; preds = %72, %76, %84, %86, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %switch, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge, label %_ZN4lean4exprC2ERKS0_.exit
+  br i1 %73, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge, label %_ZN4lean4exprC2ERKS0_.exit
 
 _ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge: ; preds = %_ZN4lean8optionalINS_10local_declEED2Ev.exit
   %.pre31 = load ptr, ptr %.tr23, align 8, !tbaa !3
   br label %.loopexit
 
-90:                                               ; preds = %tailrecurse
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 16
+91:                                               ; preds = %tailrecurse
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %tailrecurse
 
 .loopexit:                                        ; preds = %tailrecurse, %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge
-  %92 = phi ptr [ %.pre31, %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge ], [ %6, %tailrecurse ]
-  store ptr %92, ptr %0, align 8, !tbaa !3
-  %93 = ptrtoint ptr %92 to i64
-  %94 = and i64 %93, 1
-  %.not.i.i.i19 = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i19, label %95, label %_ZN4lean4exprC2ERKS0_.exit
+  %93 = phi ptr [ %.pre31, %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge ], [ %6, %tailrecurse ]
+  store ptr %93, ptr %0, align 8, !tbaa !3
+  %94 = ptrtoint ptr %93 to i64
+  %95 = and i64 %94, 1
+  %.not.i.i.i19 = icmp eq i64 %95, 0
+  br i1 %.not.i.i.i19, label %96, label %_ZN4lean4exprC2ERKS0_.exit
 
-95:                                               ; preds = %.loopexit
-  %.val.i.i.i.i20 = load i32, ptr %92, align 4, !tbaa !8
-  %96 = icmp sgt i32 %.val.i.i.i.i20, 0
-  br i1 %96, label %97, label %99, !prof !11
+96:                                               ; preds = %.loopexit
+  %.val.i.i.i.i20 = load i32, ptr %93, align 4, !tbaa !8
+  %97 = icmp sgt i32 %.val.i.i.i.i20, 0
+  br i1 %97, label %98, label %100, !prof !11
 
-97:                                               ; preds = %95
-  %98 = add nuw nsw i32 %.val.i.i.i.i20, 1
-  store i32 %98, ptr %92, align 4, !tbaa !8
+98:                                               ; preds = %96
+  %99 = add nuw nsw i32 %.val.i.i.i.i20, 1
+  store i32 %99, ptr %93, align 4, !tbaa !8
   br label %_ZN4lean4exprC2ERKS0_.exit
 
-99:                                               ; preds = %95
+100:                                              ; preds = %96
   %.not.i.i.i.i21 = icmp eq i32 %.val.i.i.i.i20, 0
-  br i1 %.not.i.i.i.i21, label %_ZN4lean4exprC2ERKS0_.exit, label %100
+  br i1 %.not.i.i.i.i21, label %_ZN4lean4exprC2ERKS0_.exit, label %101
 
-100:                                              ; preds = %99
-  call void @lean_inc_ref_cold(ptr noundef nonnull %92)
+101:                                              ; preds = %100
+  call void @lean_inc_ref_cold(ptr noundef nonnull %93)
   br label %_ZN4lean4exprC2ERKS0_.exit
 
-_ZN4lean4exprC2ERKS0_.exit:                       ; preds = %100, %99, %97, %.loopexit, %_ZN4lean8optionalINS_10local_declEED2Ev.exit
+_ZN4lean4exprC2ERKS0_.exit:                       ; preds = %101, %100, %98, %.loopexit, %_ZN4lean8optionalINS_10local_declEED2Ev.exit
   ret void
 }
 

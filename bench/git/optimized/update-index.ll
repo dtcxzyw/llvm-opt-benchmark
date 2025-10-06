@@ -2815,7 +2815,7 @@ define internal noundef i32 @reupdate_callback(ptr noundef captures(none) %0, pt
   %34 = load i32, ptr %33, align 8, !tbaa !4
   %35 = and i32 %34, 12288
   %.not25.i = icmp eq i32 %35, 0
-  br i1 %.not25.i, label %36, label %.thread38.i
+  br i1 %.not25.i, label %36, label %select.unfold.i
 
 36:                                               ; preds = %.lr.ph.i
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 64
@@ -2830,7 +2830,7 @@ define internal noundef i32 @reupdate_callback(ptr noundef captures(none) %0, pt
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 108
   %46 = call i32 @match_pathspec(ptr noundef nonnull %29, ptr noundef nonnull %7, ptr noundef nonnull %45, i32 noundef %38, i32 noundef 0, ptr noundef null, i32 noundef %44) #18
   %.not26.i = icmp eq i32 %46, 0
-  br i1 %.not26.i, label %.thread38.i, label %47
+  br i1 %.not26.i, label %select.unfold.i, label %47
 
 47:                                               ; preds = %36
   br i1 %.not.not.i, label %48, label %thread-pre-split.i
@@ -2916,7 +2916,7 @@ define internal noundef i32 @reupdate_callback(ptr noundef captures(none) %0, pt
 
 86:                                               ; preds = %84
   call void @discard_cache_entry(ptr noundef nonnull %63) #18
-  br label %.thread38.i
+  br label %select.unfold.i
 
 thread-pre-split.i:                               ; preds = %84, %.thread34.i, %47
   %.02433.ph.i = phi ptr [ null, %.thread34.i ], [ %63, %84 ], [ null, %47 ]
@@ -2930,67 +2930,67 @@ thread-pre-split.i:                               ; preds = %84, %.thread34.i, %
   %90 = load ptr, ptr @the_repository, align 8, !tbaa !14
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 384
   %92 = load ptr, ptr %91, align 8, !tbaa !47
-  br i1 %89, label %.critedge.i, label %95
+  br i1 %89, label %93, label %94
 
-.critedge.i:                                      ; preds = %87
+93:                                               ; preds = %87
   call void @ensure_full_index(ptr noundef %92) #18
   %.pre.i = load ptr, ptr @the_repository, align 8, !tbaa !14
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 384
-  %.pre47.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !47
-  %.phi.trans.insert48.i = getelementptr inbounds nuw i8, ptr %.pre47.i, i64 12
-  %.pre49.i = load i32, ptr %.phi.trans.insert48.i, align 4, !tbaa !91
-  br label %.backedge.i
+  %.pre45.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !47
+  %.phi.trans.insert46.i = getelementptr inbounds nuw i8, ptr %.pre45.i, i64 12
+  %.pre47.i = load i32, ptr %.phi.trans.insert46.i, align 4, !tbaa !91
+  br label %.loopexit.i
 
-.backedge.i:                                      ; preds = %95, %.critedge.i
-  %93 = phi i32 [ %.pre49.i, %.critedge.i ], [ %103, %95 ]
-  %94 = phi ptr [ %.pre47.i, %.critedge.i ], [ %101, %95 ]
-  %.not44.i = icmp eq i32 %93, 0
-  br i1 %.not44.i, label %do_reupdate.exit, label %.lr.ph.i.backedge
-
-95:                                               ; preds = %87
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %97 = load i32, ptr %96, align 4, !tbaa !91
-  %98 = call ptr @xstrdup(ptr noundef nonnull %45) #18
-  call fastcc void @update_one(ptr noundef %98)
-  call void @free(ptr noundef %98) #18
+94:                                               ; preds = %87
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 12
+  %96 = load i32, ptr %95, align 4, !tbaa !91
+  %97 = call ptr @xstrdup(ptr noundef nonnull %45) #18
+  call fastcc void @update_one(ptr noundef %97)
+  call void @free(ptr noundef %97) #18
   call void @discard_cache_entry(ptr noundef %.02433.i) #18
-  %99 = load ptr, ptr @the_repository, align 8, !tbaa !14
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 384
-  %101 = load ptr, ptr %100, align 8, !tbaa !47
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %103 = load i32, ptr %102, align 4, !tbaa !91
-  %.not29.not.i = icmp eq i32 %97, %103
-  br i1 %.not29.not.i, label %.thread38.i, label %.backedge.i
+  %98 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 384
+  %100 = load ptr, ptr %99, align 8, !tbaa !47
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  %102 = load i32, ptr %101, align 4, !tbaa !91
+  %.not29.i = icmp eq i32 %96, %102
+  br i1 %.not29.i, label %select.unfold.i, label %.loopexit.i
 
-.thread38.i:                                      ; preds = %95, %86, %36, %.lr.ph.i
+.loopexit.i:                                      ; preds = %94, %93
+  %103 = phi i32 [ %.pre47.i, %93 ], [ %102, %94 ]
+  %104 = phi ptr [ %.pre45.i, %93 ], [ %100, %94 ]
+  %.not42.i = icmp eq i32 %103, 0
+  br i1 %.not42.i, label %do_reupdate.exit, label %.lr.ph.i.backedge
+
+select.unfold.i:                                  ; preds = %94, %86, %36, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %104 = load ptr, ptr @the_repository, align 8, !tbaa !14
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 384
-  %106 = load ptr, ptr %105, align 8, !tbaa !47
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 12
-  %108 = load i32, ptr %107, align 4, !tbaa !91
-  %109 = zext i32 %108 to i64
-  %110 = icmp samesign ult i64 %indvars.iv.next.i, %109
-  br i1 %110, label %.lr.ph.i.backedge, label %do_reupdate.exit
+  %105 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 384
+  %107 = load ptr, ptr %106, align 8, !tbaa !47
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 12
+  %109 = load i32, ptr %108, align 4, !tbaa !91
+  %110 = zext i32 %109 to i64
+  %111 = icmp samesign ult i64 %indvars.iv.next.i, %110
+  br i1 %111, label %.lr.ph.i.backedge, label %do_reupdate.exit
 
-.lr.ph.i.backedge:                                ; preds = %.thread38.i, %.backedge.i
-  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %.thread38.i ], [ 0, %.backedge.i ]
-  %.be = phi ptr [ %106, %.thread38.i ], [ %94, %.backedge.i ]
+.lr.ph.i.backedge:                                ; preds = %select.unfold.i, %.loopexit.i
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ 0, %.loopexit.i ]
+  %.be = phi ptr [ %107, %select.unfold.i ], [ %104, %.loopexit.i ]
   br label %.lr.ph.i, !llvm.loop !96
 
-do_reupdate.exit:                                 ; preds = %.backedge.i, %.thread38.i, %17
+do_reupdate.exit:                                 ; preds = %.loopexit.i, %select.unfold.i, %17
   call void @clear_pathspec(ptr noundef nonnull %7) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 0, ptr %10, align 4, !tbaa !4
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %112 = load i32, ptr %111, align 8, !tbaa !48
-  %113 = load ptr, ptr %0, align 8, !tbaa !54
-  %114 = sext i32 %112 to i64
-  %115 = getelementptr ptr, ptr %113, i64 %114
-  %116 = getelementptr i8, ptr %115, i64 -8
-  store ptr %116, ptr %0, align 8, !tbaa !54
-  store i32 1, ptr %111, align 8, !tbaa !48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %113 = load i32, ptr %112, align 8, !tbaa !48
+  %114 = load ptr, ptr %0, align 8, !tbaa !54
+  %115 = sext i32 %113 to i64
+  %116 = getelementptr ptr, ptr %114, i64 %115
+  %117 = getelementptr i8, ptr %116, i64 -8
+  store ptr %117, ptr %0, align 8, !tbaa !54
+  store i32 1, ptr %112, align 8, !tbaa !48
   ret i32 0
 }
 

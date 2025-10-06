@@ -6793,13 +6793,13 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_121checkIsNullTerminatedILm
   br label %6
 
 4:                                                ; preds = %6
-  %5 = add nuw nsw i64 %.0916, 1
+  %5 = add nuw nsw i64 %.0914, 1
   %exitcond.not = icmp eq i64 %5, 256
   br i1 %exitcond.not, label %10, label %6, !llvm.loop !94
 
 6:                                                ; preds = %2, %4
-  %.0916 = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.0916
+  %.0914 = phi i64 [ 0, %2 ], [ %5, %4 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.0914
   %8 = load i8, ptr %7, align 1, !tbaa !44
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %25, label %4

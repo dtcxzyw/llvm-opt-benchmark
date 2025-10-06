@@ -460,13 +460,13 @@ define linkonce_odr noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr nou
   %5 = load i8, ptr %4, align 1, !tbaa !15
   %6 = and i8 %5, -16
   %7 = icmp eq i8 %6, -32
-  br i1 %7, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit46, label %8
+  br i1 %7, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit43, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 -1
   %10 = load i8, ptr %9, align 1, !tbaa !15
-  %or.cond87.not.not = icmp sgt i8 %10, -1
-  br i1 %or.cond87.not.not, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit46, label %11
+  %or.cond79.not.not = icmp sgt i8 %10, -1
+  br i1 %or.cond79.not.not, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit43, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 -2
@@ -475,58 +475,58 @@ define linkonce_odr noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr nou
   %15 = and i32 %14, 240
   %16 = icmp ne i32 %15, 224
   %17 = icmp slt i8 %13, 0
-  %or.cond84.not93 = and i1 %17, %16
+  %or.cond76.not85 = and i1 %17, %16
   %18 = and i32 %14, 224
   %19 = icmp eq i32 %18, 192
-  %or.cond89 = and i1 %19, %or.cond84.not93
-  br i1 %or.cond89, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit46, label %.preheader
+  %or.cond81 = and i1 %19, %or.cond76.not85
+  br i1 %or.cond81, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit43, label %.preheader
 
-.preheader:                                       ; preds = %11, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52.thread
-  %.02990 = phi i64 [ %40, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52.thread ], [ 4, %11 ]
-  %20 = sub nsw i64 0, %.02990
+.preheader:                                       ; preds = %11, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49.thread
+  %.02982 = phi i64 [ %40, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49.thread ], [ 4, %11 ]
+  %20 = sub nsw i64 0, %.02982
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %23 = zext i8 %22 to i32
   %24 = and i32 %23, 240
   %25 = icmp eq i32 %24, 224
-  br i1 %25, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52, label %26
+  br i1 %25, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49, label %26
 
 26:                                               ; preds = %.preheader
   %27 = icmp sgt i8 %22, -1
-  br i1 %27, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52.thread, label %28
+  br i1 %27, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49.thread, label %28
 
 28:                                               ; preds = %26
   %29 = and i32 %23, 224
   %30 = icmp eq i32 %29, 192
-  br i1 %30, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52, label %31
+  br i1 %30, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49, label %31
 
 31:                                               ; preds = %28
   %32 = and i32 %23, 248
   %33 = icmp eq i32 %32, 240
-  br i1 %33, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52, label %34
+  br i1 %33, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49, label %34
 
 34:                                               ; preds = %31
   %35 = and i32 %23, 252
   %36 = icmp eq i32 %35, 248
-  br i1 %36, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52, label %37
+  br i1 %36, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49, label %37
 
 37:                                               ; preds = %34
   %38 = and i32 %23, 254
   %39 = icmp eq i32 %38, 252
-  %..i50 = select i1 %39, i64 6, i64 0
-  br label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52
+  %..i47 = select i1 %39, i64 6, i64 0
+  br label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49
 
-_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52: ; preds = %.preheader, %28, %31, %34, %37
-  %.0.i51 = phi i64 [ 3, %.preheader ], [ 2, %28 ], [ 4, %31 ], [ 5, %34 ], [ %..i50, %37 ]
-  %.not = icmp eq i64 %.0.i51, %.02990
-  br i1 %.not, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit46, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52.thread
+_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49: ; preds = %.preheader, %28, %31, %34, %37
+  %.0.i48 = phi i64 [ 3, %.preheader ], [ 2, %28 ], [ 4, %31 ], [ 5, %34 ], [ %..i47, %37 ]
+  %.not = icmp eq i64 %.0.i48, %.02982
+  br i1 %.not, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit43, label %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49.thread
 
-_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52.thread: ; preds = %26, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52
-  %40 = add nuw nsw i64 %.02990, 1
+_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49.thread: ; preds = %26, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49
+  %40 = add nuw nsw i64 %.02982, 1
   %exitcond.not = icmp eq i64 %40, 7
   br i1 %exitcond.not, label %41, label %.preheader, !llvm.loop !24
 
-41:                                               ; preds = %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52.thread
+41:                                               ; preds = %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49.thread
   %42 = tail call ptr @__cxa_allocate_exception(i64 40) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -571,17 +571,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46
   br i1 %.0, label %53, label %54
 
 53:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn74 = phi { ptr, i32 } [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn66 = phi { ptr, i32 } [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %42) #18
   br label %54
 
-_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit46: ; preds = %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52, %11, %8, %1
-  %.128 = phi i64 [ 3, %1 ], [ 1, %8 ], [ 2, %11 ], [ %.02990, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit52 ]
+_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit43: ; preds = %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49, %11, %8, %1
+  %.128 = phi i64 [ 3, %1 ], [ 1, %8 ], [ 2, %11 ], [ %.02982, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49 ]
   ret i64 %.128
 
 54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %53
-  %.pn73 = phi { ptr, i32 } [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn74, %53 ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  resume { ptr, i32 } %.pn73
+  %.pn65 = phi { ptr, i32 } [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn66, %53 ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  resume { ptr, i32 } %.pn65
 
 55:                                               ; preds = %44
   unreachable

@@ -870,27 +870,27 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i: ; preds = %177, %_ZN4ll
   %179 = load ptr, ptr %48, align 8, !tbaa !80
   %180 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %181 = load ptr, ptr %180, align 8, !tbaa !172
-  %.not140.i.i.i = icmp eq ptr %179, %181
-  br i1 %.not140.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph142.i.i.i
+  %.not138.i.i.i = icmp eq ptr %179, %181
+  br i1 %.not138.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph140.i.i.i
 
-.lr.ph142.i.i.i:                                  ; preds = %178, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i"
+.lr.ph140.i.i.i:                                  ; preds = %178, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i"
   %.sroa.53.0 = phi i32 [ %.sroa.53.3, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i" ], [ 0, %178 ]
   %.sroa.61.0 = phi i32 [ %.sroa.61.3, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i" ], [ 0, %178 ]
   %.sroa.69.0 = phi i1 [ %.sroa.69.3, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i" ], [ true, %178 ]
-  %.025141.i.i.i = phi ptr [ %294, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i" ], [ %179, %178 ]
-  %182 = load ptr, ptr %.025141.i.i.i, align 8, !tbaa !83
+  %.025139.i.i.i = phi ptr [ %294, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i" ], [ %179, %178 ]
+  %182 = load ptr, ptr %.025139.i.i.i, align 8, !tbaa !83
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 56
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 48
-  %.sroa.0123.0137.i.i.i = load ptr, ptr %183, align 8, !tbaa !173
-  %.not136138.i.i.i = icmp eq ptr %.sroa.0123.0137.i.i.i, %184
-  br i1 %.not136138.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i", label %.lr.ph.i.i.i
+  %.sroa.0123.0135.i.i.i = load ptr, ptr %183, align 8, !tbaa !173
+  %.not134136.i.i.i = icmp eq ptr %.sroa.0123.0135.i.i.i, %184
+  br i1 %.not134136.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i", label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph142.i.i.i, %.critedge.i.i.i
-  %.sroa.53.1 = phi i32 [ %.sroa.53.2, %.critedge.i.i.i ], [ %.sroa.53.0, %.lr.ph142.i.i.i ]
-  %.sroa.61.1 = phi i32 [ %.sroa.61.2, %.critedge.i.i.i ], [ %.sroa.61.0, %.lr.ph142.i.i.i ]
-  %.sroa.69.1 = phi i1 [ %.sroa.69.2, %.critedge.i.i.i ], [ %.sroa.69.0, %.lr.ph142.i.i.i ]
-  %.sroa.0123.0139.i.i.i = phi ptr [ %.sroa.0123.0.i.i.i, %.critedge.i.i.i ], [ %.sroa.0123.0137.i.i.i, %.lr.ph142.i.i.i ]
-  %185 = getelementptr inbounds i8, ptr %.sroa.0123.0139.i.i.i, i64 -24
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph140.i.i.i, %.critedge.i.i.i
+  %.sroa.53.1 = phi i32 [ %.sroa.53.2, %.critedge.i.i.i ], [ %.sroa.53.0, %.lr.ph140.i.i.i ]
+  %.sroa.61.1 = phi i32 [ %.sroa.61.2, %.critedge.i.i.i ], [ %.sroa.61.0, %.lr.ph140.i.i.i ]
+  %.sroa.69.1 = phi i1 [ %.sroa.69.2, %.critedge.i.i.i ], [ %.sroa.69.0, %.lr.ph140.i.i.i ]
+  %.sroa.0123.0137.i.i.i = phi ptr [ %.sroa.0123.0.i.i.i, %.critedge.i.i.i ], [ %.sroa.0123.0135.i.i.i, %.lr.ph140.i.i.i ]
+  %185 = getelementptr inbounds i8, ptr %.sroa.0123.0137.i.i.i, i64 -24
   %186 = load i8, ptr %185, align 8, !tbaa !119
   switch i8 %186, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i [
     i8 85, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i.i
@@ -899,7 +899,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i: ; preds = %177, %_ZN4ll
   ]
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0139.i.i.i, i64 48
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0137.i.i.i, i64 48
   %188 = call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %187, i32 noundef 6) #16
   br i1 %188, label %215, label %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i.i
 
@@ -930,17 +930,17 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i: ; 
 
 199:                                              ; preds = %197
   %200 = load i8, ptr %185, align 8, !tbaa !119
-  %.not52.i.i.i.i = icmp eq i8 %200, 61
-  br i1 %.not52.i.i.i.i, label %201, label %215
+  %.not47.i.i.i.i = icmp eq i8 %200, 61
+  br i1 %.not47.i.i.i.i, label %201, label %215
 
 201:                                              ; preds = %199
   %202 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %185) #18
-  %203 = getelementptr inbounds i8, ptr %.sroa.0123.0139.i.i.i, i64 -22
+  %203 = getelementptr inbounds i8, ptr %.sroa.0123.0137.i.i.i, i64 -22
   %204 = load i16, ptr %203, align 2
   %205 = and i16 %204, 1
   %.not.i.i.i.i.i = icmp ne i16 %205, 0
-  %.not53.i.i.i.i = select i1 %202, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %.not53.i.i.i.i, label %215, label %.critedge.i.i.i.sink.split
+  %.not48.i.i.i.i = select i1 %202, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %.not48.i.i.i.i, label %215, label %.critedge.i.i.i.sink.split
 
 206:                                              ; preds = %197
   %207 = call noundef zeroext i1 @_ZNK4llvm11Instruction16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %185) #18
@@ -953,12 +953,12 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i: ; 
 
 210:                                              ; preds = %208
   %211 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %185) #18
-  %212 = getelementptr inbounds i8, ptr %.sroa.0123.0139.i.i.i, i64 -22
+  %212 = getelementptr inbounds i8, ptr %.sroa.0123.0137.i.i.i, i64 -22
   %213 = load i16, ptr %212, align 2
   %214 = and i16 %213, 1
-  %.not.i35.i.i.i.i = icmp ne i16 %214, 0
-  %.not51.i.i.i.i = select i1 %211, i1 true, i1 %.not.i35.i.i.i.i
-  br i1 %.not51.i.i.i.i, label %215, label %.critedge.i.i.i.sink.split
+  %.not.i33.i.i.i.i = icmp ne i16 %214, 0
+  %.not46.i.i.i.i = select i1 %211, i1 true, i1 %.not.i33.i.i.i.i
+  br i1 %.not46.i.i.i.i, label %215, label %.critedge.i.i.i.sink.split
 
 215:                                              ; preds = %210, %208, %201, %199, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i, %193, %_ZNK4llvm8CallBase15cannotDuplicateEv.exit.i.i.i.i, %190, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i.i
   %216 = load ptr, ptr %41, align 8, !tbaa !136
@@ -1141,7 +1141,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 .critedge.i.i.i.sink.split:                       ; preds = %210, %201
   %.sroa.69.2.ph = phi i1 [ %.sroa.69.1, %201 ], [ false, %210 ]
   %287 = add i32 %.sroa.53.1, 1
-  %288 = getelementptr inbounds i8, ptr %.sroa.0123.0139.i.i.i, i64 -56
+  %288 = getelementptr inbounds i8, ptr %.sroa.0123.0137.i.i.i, i64 -56
   %289 = load ptr, ptr %288, align 8, !tbaa !177
   %290 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %45, ptr noundef %289) #16
   %291 = call noundef zeroext i1 @_ZN4llvm15ScalarEvolution15isLoopInvariantEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %45, ptr noundef %290, ptr noundef nonnull %2) #16
@@ -1153,22 +1153,22 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.sroa.53.2 = phi i32 [ %.sroa.53.1, %206 ], [ %287, %.critedge.i.i.i.sink.split ]
   %.sroa.61.2 = phi i32 [ %.sroa.61.1, %206 ], [ %spec.select64, %.critedge.i.i.i.sink.split ]
   %.sroa.69.2 = phi i1 [ %.sroa.69.1, %206 ], [ %.sroa.69.2.ph, %.critedge.i.i.i.sink.split ]
-  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0139.i.i.i, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0137.i.i.i, i64 8
   %.sroa.0123.0.i.i.i = load ptr, ptr %293, align 8, !tbaa !173
-  %.not136.i.i.i = icmp eq ptr %.sroa.0123.0.i.i.i, %184
-  br i1 %.not136.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i", label %.lr.ph.i.i.i
+  %.not134.i.i.i = icmp eq ptr %.sroa.0123.0.i.i.i, %184
+  br i1 %.not134.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i", label %.lr.ph.i.i.i
 
 "_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.i.i.i": ; preds = %286, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i19.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %884
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i": ; preds = %.critedge.i.i.i, %.lr.ph142.i.i.i
-  %.sroa.53.3 = phi i32 [ %.sroa.53.0, %.lr.ph142.i.i.i ], [ %.sroa.53.2, %.critedge.i.i.i ]
-  %.sroa.61.3 = phi i32 [ %.sroa.61.0, %.lr.ph142.i.i.i ], [ %.sroa.61.2, %.critedge.i.i.i ]
-  %.sroa.69.3 = phi i1 [ %.sroa.69.0, %.lr.ph142.i.i.i ], [ %.sroa.69.2, %.critedge.i.i.i ]
-  %294 = getelementptr inbounds nuw i8, ptr %.025141.i.i.i, i64 8
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i": ; preds = %.critedge.i.i.i, %.lr.ph140.i.i.i
+  %.sroa.53.3 = phi i32 [ %.sroa.53.0, %.lr.ph140.i.i.i ], [ %.sroa.53.2, %.critedge.i.i.i ]
+  %.sroa.61.3 = phi i32 [ %.sroa.61.0, %.lr.ph140.i.i.i ], [ %.sroa.61.2, %.critedge.i.i.i ]
+  %.sroa.69.3 = phi i1 [ %.sroa.69.0, %.lr.ph140.i.i.i ], [ %.sroa.69.2, %.critedge.i.i.i ]
+  %294 = getelementptr inbounds nuw i8, ptr %.025139.i.i.i, i64 8
   %.not.i22.i.i = icmp eq ptr %294, %181
-  br i1 %.not.i22.i.i, label %._crit_edge.i.i.i, label %.lr.ph142.i.i.i
+  br i1 %.not.i22.i.i, label %._crit_edge.i.i.i, label %.lr.ph140.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i", %178
   %.sroa.53.4 = phi i32 [ 0, %178 ], [ %.sroa.53.3, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_0EEvT_PDTclfL0p_EE.exit.thread131.i.i.i" ]

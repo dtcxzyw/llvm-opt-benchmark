@@ -4068,11 +4068,11 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11ch
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.045 = load ptr, ptr %8, align 8, !tbaa !41
-  %.not3846 = icmp eq ptr %.sroa.028.045, null
-  %.pre58 = load i64, ptr %1, align 8, !tbaa !134
-  %.sroa.01.0.copyload.i.i.fr = freeze i64 %.pre58
-  br i1 %.not3846, label %.thread, label %.lr.ph
+  %.sroa.028.043 = load ptr, ptr %8, align 8, !tbaa !41
+  %.not3644 = icmp eq ptr %.sroa.028.043, null
+  %.pre56 = load i64, ptr %1, align 8, !tbaa !134
+  %.sroa.01.0.copyload.i.i.fr = freeze i64 %.pre56
+  br i1 %.not3644, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4081,35 +4081,35 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11ch
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %12
-  %.sroa.028.047.us = phi ptr [ %.sroa.028.0.us, %12 ], [ %.sroa.028.045, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.us, i64 8
+  %.sroa.028.045.us = phi ptr [ %.sroa.028.0.us, %12 ], [ %.sroa.028.043, %.lr.ph ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.028.045.us, i64 8
   %.sroa.0.0.copyload.i.i.us = load i64, ptr %10, align 8, !tbaa !90
   %11 = icmp eq i64 %.sroa.0.0.copyload.i.i.us, 0
   br i1 %11, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNS8_10_Hash_nodeIS6_Lb1EEEmRKT_m.exit, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
-  %.sroa.028.0.us = load ptr, ptr %.sroa.028.047.us, align 8, !tbaa !41
-  %.not38.us = icmp eq ptr %.sroa.028.0.us, null
-  br i1 %.not38.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !236
+  %.sroa.028.0.us = load ptr, ptr %.sroa.028.045.us, align 8, !tbaa !41
+  %.not36.us = icmp eq ptr %.sroa.028.0.us, null
+  br i1 %.not36.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !236
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
-  %.sroa.028.047 = phi ptr [ %.sroa.028.0, %16 ], [ %.sroa.028.045, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 8
+  %.sroa.028.045 = phi ptr [ %.sroa.028.0, %16 ], [ %.sroa.028.043, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 8, !tbaa !90
   %14 = icmp eq i64 %.sroa.01.0.copyload.i.i.fr, %.sroa.0.0.copyload.i.i
   br i1 %14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %16
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.split
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 16
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 16
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !91
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i, ptr %.sroa.2.0.copyload.i.i, i64 %.sroa.01.0.copyload.i.i.fr)
   %15 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %15, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNS8_10_Hash_nodeIS6_Lb1EEEmRKT_m.exit, label %16
 
 16:                                               ; preds = %.lr.ph.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.047, align 8, !tbaa !41
-  %.not38 = icmp eq ptr %.sroa.028.0, null
-  br i1 %.not38, label %.thread, label %.lr.ph.split, !llvm.loop !236
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.045, align 8, !tbaa !41
+  %.not36 = icmp eq ptr %.sroa.028.0, null
+  br i1 %.not36, label %.thread, label %.lr.ph.split, !llvm.loop !236
 
 .thread:                                          ; preds = %16, %12, %..thread_crit_edge, %7
   %17 = phi i64 [ %.pre, %..thread_crit_edge ], [ %.sroa.01.0.copyload.i.i.fr, %7 ], [ %.sroa.01.0.copyload.i.i.fr, %12 ], [ %.sroa.01.0.copyload.i.i.fr, %16 ]
@@ -4224,7 +4224,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_iESaIS6_
   resume { ptr, i32 } %65
 
 _ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNS8_10_Hash_nodeIS6_Lb1EEEmRKT_m.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.lr.ph.split.us, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %38, %.critedge
-  %.sroa.031.1 = phi ptr [ %64, %.critedge ], [ %.0.us.i.i, %38 ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.028.047.us, %.lr.ph.split.us ], [ %.sroa.028.047, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.031.1 = phi ptr [ %64, %.critedge ], [ %.0.us.i.i, %38 ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.028.045.us, %.lr.ph.split.us ], [ %.sroa.028.045, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %38 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.lr.ph.split.us ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1

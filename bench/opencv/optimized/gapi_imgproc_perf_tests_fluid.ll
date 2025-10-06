@@ -62613,8 +62613,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit29: ; preds = %69
   br label %79
 
 79:                                               ; preds = %.sink.split, %43
-  %switch = phi i1 [ true, %43 ], [ false, %.sink.split ]
-  ret i1 %switch
+  %80 = phi i1 [ true, %43 ], [ false, %.sink.split ]
+  ret i1 %80
 }
 
 ; Function Attrs: mustprogress uwtable

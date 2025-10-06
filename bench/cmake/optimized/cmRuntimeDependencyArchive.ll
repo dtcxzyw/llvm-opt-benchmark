@@ -1647,53 +1647,53 @@ define dso_local noundef zeroext i1 @_ZN26cmRuntimeDependencyArchive22GetRuntime
   %5 = load ptr, ptr %1, align 8, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !45
-  %.not40 = icmp eq ptr %5, %7
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  %.not35 = icmp eq ptr %5, %7
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 9:                                                ; preds = %11
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.028.041, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.027.036, i64 32
   %.not = icmp eq ptr %10, %7
   br i1 %.not, label %._crit_edge, label %11
 
 11:                                               ; preds = %.lr.ph, %9
-  %.sroa.028.041 = phi ptr [ %5, %.lr.ph ], [ %10, %9 ]
+  %.sroa.027.036 = phi ptr [ %5, %.lr.ph ], [ %10, %9 ]
   %12 = load ptr, ptr %8, align 8, !tbaa !61
   %13 = load ptr, ptr %12, align 8, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.028.041, i32 noundef 0)
+  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.027.036, i32 noundef 0)
   br i1 %16, label %9, label %.loopexit
 
 ._crit_edge:                                      ; preds = %9, %4
   %17 = load ptr, ptr %2, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !45
-  %.not3842 = icmp eq ptr %17, %19
-  br i1 %.not3842, label %._crit_edge46, label %.lr.ph45
+  %.not3337 = icmp eq ptr %17, %19
+  br i1 %.not3337, label %._crit_edge41, label %.lr.ph40
 
-.lr.ph45:                                         ; preds = %._crit_edge
+.lr.ph40:                                         ; preds = %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %23
 
 21:                                               ; preds = %23
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.024.043, i64 32
-  %.not38 = icmp eq ptr %22, %19
-  br i1 %.not38, label %._crit_edge46, label %23
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.023.038, i64 32
+  %.not33 = icmp eq ptr %22, %19
+  br i1 %.not33, label %._crit_edge41, label %23
 
-23:                                               ; preds = %.lr.ph45, %21
-  %.sroa.024.043 = phi ptr [ %17, %.lr.ph45 ], [ %22, %21 ]
+23:                                               ; preds = %.lr.ph40, %21
+  %.sroa.023.038 = phi ptr [ %17, %.lr.ph40 ], [ %22, %21 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !61
   %25 = load ptr, ptr %24, align 8, !tbaa !62
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.043, i32 noundef 2)
+  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.038, i32 noundef 2)
   br i1 %28, label %21, label %.loopexit
 
-._crit_edge46:                                    ; preds = %21, %._crit_edge
+._crit_edge41:                                    ; preds = %21, %._crit_edge
   %29 = load ptr, ptr %3, align 8, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !45
@@ -1704,7 +1704,7 @@ define dso_local noundef zeroext i1 @_ZN26cmRuntimeDependencyArchive22GetRuntime
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge46
+.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge41
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %38
 
@@ -1756,9 +1756,9 @@ define dso_local noundef zeroext i1 @_ZN26cmRuntimeDependencyArchive22GetRuntime
   %.pre44.i.i.i.i = sub i64 %32, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %._crit_edge46
-  %.pre-phi45.i.i.i.i = phi i64 [ %.pre44.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %34, %._crit_edge46 ]
-  %.sroa.032.0.lcssa.i.i.i.i = phi ptr [ %62, %._crit_edge.loopexit.i.i.i.i ], [ %29, %._crit_edge46 ]
+._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %._crit_edge41
+  %.pre-phi45.i.i.i.i = phi i64 [ %.pre44.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %34, %._crit_edge41 ]
+  %.sroa.032.0.lcssa.i.i.i.i = phi ptr [ %62, %._crit_edge.loopexit.i.i.i.i ], [ %29, %._crit_edge41 ]
   %65 = ashr exact i64 %.pre-phi45.i.i.i.i, 5
   switch i64 %65, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN26cmRuntimeDependencyArchive22GetRuntimeDependenciesERKSC_SG_SG_E3$_0EbT_SI_T0_.exit" [
     i64 3, label %66

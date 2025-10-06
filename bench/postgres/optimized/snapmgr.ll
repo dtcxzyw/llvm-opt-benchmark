@@ -2880,8 +2880,8 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nound
   br label %.preheader.i
 
 28:                                               ; preds = %18
-  %.not9.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not9.not.i.i, label %pg_lfind32.exit.thread69, label %.lr.ph.preheader.i.i
+  %.not.i.i = icmp eq i32 %22, 0
+  br i1 %.not.i.i, label %pg_lfind32.exit.thread69, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %28
   %wide.trip.count.i.i = zext nneg i32 %22 to i64
@@ -2980,8 +2980,8 @@ pg_lfind32.exit.thread69:                         ; preds = %29, %.pg_lfind32.ex
   br label %.preheader.i24
 
 78:                                               ; preds = %pg_lfind32.exit.thread69
-  %.not9.not.i.i37 = icmp eq i32 %74, 0
-  br i1 %.not9.not.i.i37, label %pg_lfind32.exit44.thread73, label %.lr.ph.preheader.i.i38
+  %.not.i.i37 = icmp eq i32 %74, 0
+  br i1 %.not.i.i37, label %pg_lfind32.exit44.thread73, label %.lr.ph.preheader.i.i38
 
 .lr.ph.preheader.i.i38:                           ; preds = %78
   %wide.trip.count.i.i39 = zext nneg i32 %74 to i64
@@ -3079,8 +3079,8 @@ pg_lfind32.exit44:                                ; preds = %98
   br label %.preheader.i46
 
 132:                                              ; preds = %122
-  %.not9.not.i.i59 = icmp eq i32 %126, 0
-  br i1 %.not9.not.i.i59, label %pg_lfind32.exit44.thread73, label %.lr.ph.preheader.i.i60
+  %.not.i.i59 = icmp eq i32 %126, 0
+  br i1 %.not.i.i59, label %pg_lfind32.exit44.thread73, label %.lr.ph.preheader.i.i60
 
 .lr.ph.preheader.i.i60:                           ; preds = %132
   %wide.trip.count.i.i61 = zext nneg i32 %126 to i64

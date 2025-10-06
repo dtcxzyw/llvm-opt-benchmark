@@ -487,7 +487,7 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
   br label %27
 
 27:                                               ; preds = %.lr.ph295, %.loopexit
-  %.0276294 = phi i32 [ %1, %.lr.ph295 ], [ %318, %.loopexit ]
+  %.0276294 = phi i32 [ %1, %.lr.ph295 ], [ %319, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -521,7 +521,7 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
   %44 = load i32, ptr @hf_gsup_ie_len, align 4
   %45 = call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef %33)
   call void @increment_dissection_depth(ptr noundef %3)
-  switch i8 %28, label %315 [
+  switch i8 %28, label %316 [
     i8 3, label %46
     i8 5, label %46
     i8 32, label %47
@@ -562,10 +562,10 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
     i8 98, label %229
     i8 96, label %248
     i8 97, label %248
-    i8 99, label %279
-    i8 100, label %281
-    i8 101, label %283
-    i8 17, label %285
+    i8 99, label %280
+    i8 100, label %282
+    i8 101, label %284
+    i8 17, label %286
   ]
 
 .preheader:                                       ; preds = %36
@@ -977,132 +977,132 @@ dissect_an_apdu_ie.exit:                          ; preds = %239, %242, %245
   br label %255
 
 255:                                              ; preds = %251, %248
-  %switch = icmp eq i8 %28, 96
-  br i1 %switch, label %256, label %265
+  %256 = icmp eq i8 %28, 96
+  br i1 %256, label %257, label %266
 
-256:                                              ; preds = %255
-  %257 = load i32, ptr @hf_gsup_source_name, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %257, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
-  %259 = load i8, ptr @show_name_as_text, align 1, !range !9, !noundef !10
-  %260 = trunc nuw i8 %259 to i1
-  br i1 %260, label %261, label %.loopexit
+257:                                              ; preds = %255
+  %258 = load i32, ptr @hf_gsup_source_name, align 4
+  %259 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %258, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
+  %260 = load i8, ptr @show_name_as_text, align 1, !range !9, !noundef !10
+  %261 = trunc nuw i8 %260 to i1
+  br i1 %261, label %262, label %.loopexit
 
-261:                                              ; preds = %256
-  %.not.i.i = icmp eq ptr %258, null
-  br i1 %.not.i.i, label %.sink.split.i, label %262
+262:                                              ; preds = %257
+  %.not.i.i = icmp eq ptr %259, null
+  br i1 %.not.i.i, label %.sink.split.i, label %263
 
-262:                                              ; preds = %261
-  %263 = getelementptr inbounds nuw i8, ptr %258, i64 40
-  %264 = load ptr, ptr %263, align 8
-  %.not5.i.i = icmp eq ptr %264, null
+263:                                              ; preds = %262
+  %264 = getelementptr inbounds nuw i8, ptr %259, i64 40
+  %265 = load ptr, ptr %264, align 8
+  %.not5.i.i = icmp eq ptr %265, null
   br i1 %.not5.i.i, label %.sink.split.i, label %.sink.split.sink.split.i
 
-265:                                              ; preds = %255
-  %266 = load i32, ptr @hf_gsup_destination_name, align 4
-  %267 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %266, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
-  %268 = load i8, ptr @show_name_as_text, align 1, !range !9, !noundef !10
-  %269 = trunc nuw i8 %268 to i1
-  br i1 %269, label %270, label %.loopexit
+266:                                              ; preds = %255
+  %267 = load i32, ptr @hf_gsup_destination_name, align 4
+  %268 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %267, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
+  %269 = load i8, ptr @show_name_as_text, align 1, !range !9, !noundef !10
+  %270 = trunc nuw i8 %269 to i1
+  br i1 %270, label %271, label %.loopexit
 
-270:                                              ; preds = %265
-  %.not.i24.i = icmp eq ptr %267, null
-  br i1 %.not.i24.i, label %.sink.split.i, label %271
+271:                                              ; preds = %266
+  %.not.i24.i = icmp eq ptr %268, null
+  br i1 %.not.i24.i, label %.sink.split.i, label %272
 
-271:                                              ; preds = %270
-  %272 = getelementptr inbounds nuw i8, ptr %267, i64 40
-  %273 = load ptr, ptr %272, align 8
-  %.not5.i25.i = icmp eq ptr %273, null
+272:                                              ; preds = %271
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 40
+  %274 = load ptr, ptr %273, align 8
+  %.not5.i25.i = icmp eq ptr %274, null
   br i1 %.not5.i25.i, label %.sink.split.i, label %.sink.split.sink.split.i
 
-.sink.split.sink.split.i:                         ; preds = %271, %262
-  %.sink32.i = phi ptr [ %264, %262 ], [ %273, %271 ]
-  %hf_gsup_destination_name_text.sink.ph.i = phi ptr [ @hf_gsup_source_name_text, %262 ], [ @hf_gsup_destination_name_text, %271 ]
-  %274 = getelementptr inbounds nuw i8, ptr %.sink32.i, i64 28
-  %275 = load i32, ptr %274, align 4
-  %276 = or i32 %275, 1
-  store i32 %276, ptr %274, align 4
+.sink.split.sink.split.i:                         ; preds = %272, %263
+  %.sink32.i = phi ptr [ %265, %263 ], [ %274, %272 ]
+  %hf_gsup_destination_name_text.sink.ph.i = phi ptr [ @hf_gsup_source_name_text, %263 ], [ @hf_gsup_destination_name_text, %272 ]
+  %275 = getelementptr inbounds nuw i8, ptr %.sink32.i, i64 28
+  %276 = load i32, ptr %275, align 4
+  %277 = or i32 %276, 1
+  store i32 %277, ptr %275, align 4
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %271, %270, %262, %261
-  %hf_gsup_destination_name_text.sink.i = phi ptr [ @hf_gsup_source_name_text, %261 ], [ @hf_gsup_source_name_text, %262 ], [ @hf_gsup_destination_name_text, %270 ], [ @hf_gsup_destination_name_text, %271 ], [ %hf_gsup_destination_name_text.sink.ph.i, %.sink.split.sink.split.i ]
-  %277 = load i32, ptr %hf_gsup_destination_name_text.sink.i, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %277, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
+.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %272, %271, %263, %262
+  %hf_gsup_destination_name_text.sink.i = phi ptr [ @hf_gsup_source_name_text, %262 ], [ @hf_gsup_source_name_text, %263 ], [ @hf_gsup_destination_name_text, %271 ], [ @hf_gsup_destination_name_text, %272 ], [ %hf_gsup_destination_name_text.sink.ph.i, %.sink.split.sink.split.i ]
+  %278 = load i32, ptr %hf_gsup_destination_name_text.sink.i, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %278, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
   br label %.loopexit
 
-279:                                              ; preds = %36
-  %280 = call zeroext i16 @de_rr_cause(ptr noundef %0, ptr noundef %41, ptr noundef %3, i32 noundef %31, i32 noundef %33, ptr noundef null, i32 noundef 0)
+280:                                              ; preds = %36
+  %281 = call zeroext i16 @de_rr_cause(ptr noundef %0, ptr noundef %41, ptr noundef %3, i32 noundef %31, i32 noundef %33, ptr noundef null, i32 noundef 0)
   br label %.loopexit
 
-281:                                              ; preds = %36
-  %282 = call zeroext i16 @bssmap_dissect_cause(ptr noundef %0, ptr noundef %41, ptr noundef %3, i32 noundef %31, i32 noundef %33, ptr noundef null, i32 noundef 0)
+282:                                              ; preds = %36
+  %283 = call zeroext i16 @bssmap_dissect_cause(ptr noundef %0, ptr noundef %41, ptr noundef %3, i32 noundef %31, i32 noundef %33, ptr noundef null, i32 noundef 0)
   br label %.loopexit
 
-283:                                              ; preds = %36
-  %284 = call zeroext i16 @de_sm_cause(ptr noundef %0, ptr noundef %41, ptr noundef %3, i32 noundef %31, i32 noundef %33, ptr noundef null, i32 noundef 0)
+284:                                              ; preds = %36
+  %285 = call zeroext i16 @de_sm_cause(ptr noundef %0, ptr noundef %41, ptr noundef %3, i32 noundef %31, i32 noundef %33, ptr noundef null, i32 noundef 0)
   br label %.loopexit
 
-285:                                              ; preds = %36
-  %286 = load i32, ptr @hf_gsup_spare_bits, align 4
-  %287 = shl i32 %31, 3
-  %288 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %286, ptr noundef %0, i32 noundef %287, i32 noundef 4, i32 noundef 0)
-  %289 = load i32, ptr @hf_gsup_pdp_addr_type_org, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %289, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0)
-  %291 = load i32, ptr @hf_gsup_pdp_addr_type_nr, align 4
-  %292 = add i32 %.0276294, 3
-  %293 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %291, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef 0)
-  %294 = icmp ugt i8 %30, 2
-  br i1 %294, label %295, label %.loopexit
+286:                                              ; preds = %36
+  %287 = load i32, ptr @hf_gsup_spare_bits, align 4
+  %288 = shl i32 %31, 3
+  %289 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %287, ptr noundef %0, i32 noundef %288, i32 noundef 4, i32 noundef 0)
+  %290 = load i32, ptr @hf_gsup_pdp_addr_type_org, align 4
+  %291 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %290, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0)
+  %292 = load i32, ptr @hf_gsup_pdp_addr_type_nr, align 4
+  %293 = add i32 %.0276294, 3
+  %294 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %292, ptr noundef %0, i32 noundef %293, i32 noundef 1, i32 noundef 0)
+  %295 = icmp ugt i8 %30, 2
+  br i1 %295, label %296, label %.loopexit
 
-295:                                              ; preds = %285
-  %296 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %31)
-  %297 = and i8 %296, 15
-  %cond1 = icmp eq i8 %297, 1
-  br i1 %cond1, label %298, label %.loopexit
+296:                                              ; preds = %286
+  %297 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %31)
+  %298 = and i8 %297, 15
+  %cond1 = icmp eq i8 %298, 1
+  br i1 %cond1, label %299, label %.loopexit
 
-298:                                              ; preds = %295
-  %299 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %292)
-  switch i8 %299, label %.loopexit [
-    i8 33, label %300
-    i8 87, label %304
-    i8 -115, label %308
+299:                                              ; preds = %296
+  %300 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %293)
+  switch i8 %300, label %.loopexit [
+    i8 33, label %301
+    i8 87, label %305
+    i8 -115, label %309
   ]
 
-300:                                              ; preds = %298
-  %301 = load i32, ptr @hf_gsup_pdp_addr_v4, align 4
-  %302 = add i32 %.0276294, 5
-  %303 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %301, ptr noundef %0, i32 noundef %302, i32 noundef 4, i32 noundef 0)
+301:                                              ; preds = %299
+  %302 = load i32, ptr @hf_gsup_pdp_addr_v4, align 4
+  %303 = add i32 %.0276294, 5
+  %304 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %302, ptr noundef %0, i32 noundef %303, i32 noundef 4, i32 noundef 0)
   br label %.loopexit
 
-304:                                              ; preds = %298
-  %305 = load i32, ptr @hf_gsup_pdp_addr_v6, align 4
-  %306 = add i32 %.0276294, 5
-  %307 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %305, ptr noundef %0, i32 noundef %306, i32 noundef 16, i32 noundef 0)
+305:                                              ; preds = %299
+  %306 = load i32, ptr @hf_gsup_pdp_addr_v6, align 4
+  %307 = add i32 %.0276294, 5
+  %308 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %306, ptr noundef %0, i32 noundef %307, i32 noundef 16, i32 noundef 0)
   br label %.loopexit
 
-308:                                              ; preds = %298
-  %309 = load i32, ptr @hf_gsup_pdp_addr_v4, align 4
-  %310 = add i32 %.0276294, 5
-  %311 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %309, ptr noundef %0, i32 noundef %310, i32 noundef 4, i32 noundef 0)
-  %312 = load i32, ptr @hf_gsup_pdp_addr_v6, align 4
-  %313 = add i32 %.0276294, 9
-  %314 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %312, ptr noundef %0, i32 noundef %313, i32 noundef 16, i32 noundef 0)
+309:                                              ; preds = %299
+  %310 = load i32, ptr @hf_gsup_pdp_addr_v4, align 4
+  %311 = add i32 %.0276294, 5
+  %312 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %310, ptr noundef %0, i32 noundef %311, i32 noundef 4, i32 noundef 0)
+  %313 = load i32, ptr @hf_gsup_pdp_addr_v6, align 4
+  %314 = add i32 %.0276294, 9
+  %315 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %313, ptr noundef %0, i32 noundef %314, i32 noundef 16, i32 noundef 0)
   br label %.loopexit
 
-315:                                              ; preds = %36
-  %316 = load i32, ptr @hf_gsup_ie_payload, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %316, ptr noundef %0, i32 noundef %31, i32 noundef %33, i32 noundef 0)
+316:                                              ; preds = %36
+  %317 = load i32, ptr @hf_gsup_ie_payload, align 4
+  %318 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %317, ptr noundef %0, i32 noundef %31, i32 noundef %33, i32 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %46, %47, %50, %53, %56, %59, %62, %65, %68, %71, %77, %80, %83, %86, %110, %113, %117, %120, %123, %126, %129, %132, %dissect_ss_info_ie.exit, %152, %switch.lookup5, %202, %205, %208, %217, %220, %223, %dissect_an_apdu_ie.exit, %279, %281, %283, %315, %100, %298, %308, %304, %300, %295, %285, %98, %93, %157, %163, %167, %171, %172, %175, %180, %186, %190, %191, %194, %211, %215, %256, %265, %.sink.split.i
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %46, %47, %50, %53, %56, %59, %62, %65, %68, %71, %77, %80, %83, %86, %110, %113, %117, %120, %123, %126, %129, %132, %dissect_ss_info_ie.exit, %152, %switch.lookup5, %202, %205, %208, %217, %220, %223, %dissect_an_apdu_ie.exit, %280, %282, %284, %316, %100, %299, %309, %305, %301, %296, %286, %98, %93, %157, %163, %167, %171, %172, %175, %180, %186, %190, %191, %194, %211, %215, %257, %266, %.sink.split.i
   call void @decrement_dissection_depth(ptr noundef %3)
-  %318 = add i32 %31, %33
+  %319 = add i32 %31, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %319 = sub i32 %318, %1
-  %320 = icmp slt i32 %319, %2
-  br i1 %320, label %27, label %.loopexit289, !llvm.loop !11
+  %320 = sub i32 %319, %1
+  %321 = icmp slt i32 %320, %2
+  br i1 %321, label %27, label %.loopexit289, !llvm.loop !11
 
 .loopexit289:                                     ; preds = %.loopexit, %7, %.thread
   ret void

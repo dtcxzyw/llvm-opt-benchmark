@@ -43347,8 +43347,8 @@ _ZN4entt13basic_storageINS_6entityES1_SaIS1_EvE4nextEv.exit.i: ; preds = %68, %_
   br label %.critedge
 
 .critedge:                                        ; preds = %77, %_ZN4entt13basic_storageINS_6entityES1_SaIS1_EvE4nextEv.exit.i, %25, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i, %6, %18
-  %.sink27 = phi i32 [ %1, %18 ], [ %1, %6 ], [ %1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i ], [ %1, %25 ], [ %.0.lcssa.i.i, %_ZN4entt13basic_storageINS_6entityES1_SaIS1_EvE4nextEv.exit.i ], [ %79, %77 ]
-  %80 = tail call { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.sink27, i1 noundef zeroext true, ptr noundef null)
+  %.sink26 = phi i32 [ %1, %18 ], [ %1, %6 ], [ %1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE10sparse_ptrES1_.exit.i ], [ %1, %25 ], [ %.0.lcssa.i.i, %_ZN4entt13basic_storageINS_6entityES1_SaIS1_EvE4nextEv.exit.i ], [ %79, %77 ]
+  %80 = tail call { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.sink26, i1 noundef zeroext true, ptr noundef null)
   %81 = extractvalue { ptr, i64 } %80, 0
   %82 = extractvalue { ptr, i64 } %80, 1
   %83 = load ptr, ptr %81, align 8, !tbaa !104
@@ -58508,16 +58508,16 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt8internal13group_handler
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.not9 = phi i1 [ false, %2 ], [ true, %4 ]
-  %.068 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.068
+  %.not10 = phi i1 [ false, %2 ], [ true, %4 ]
+  %.069 = phi i64 [ 0, %2 ], [ 1, %4 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.069
   %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !1696
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !1718
   %11 = icmp eq i32 %10, %1
-  %or.cond.not = or i1 %.not9, %11
+  %or.cond.not = or i1 %.not10, %11
   br i1 %or.cond.not, label %12, label %4, !llvm.loop !1945
 
 12:                                               ; preds = %4
@@ -60003,7 +60003,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt8internal13group_handler
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %6, !llvm.loop !1986
 
-13:                                               ; preds = %8, %6
+13:                                               ; preds = %6, %8
   ret i1 %7
 }
 
@@ -63460,15 +63460,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt8internal13group_handler
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.068 = phi i64 [ 0, %2 ], [ %12, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.068
+  %.069 = phi i64 [ 0, %2 ], [ %12, %4 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.069
   %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !1696
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !1718
   %11 = icmp eq i32 %10, %1
-  %12 = add nuw nsw i64 %.068, 1
+  %12 = add nuw nsw i64 %.069, 1
   %exitcond.not = icmp eq i64 %12, 3
   %or.cond = select i1 %11, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %13, label %4, !llvm.loop !2107
@@ -65353,16 +65353,16 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt8internal13group_handler
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.not9 = phi i1 [ false, %2 ], [ true, %4 ]
-  %.068 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.068
+  %.not10 = phi i1 [ false, %2 ], [ true, %4 ]
+  %.069 = phi i64 [ 0, %2 ], [ 1, %4 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.069
   %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !1696
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !1718
   %11 = icmp eq i32 %10, %1
-  %or.cond.not = or i1 %.not9, %11
+  %or.cond.not = or i1 %.not10, %11
   br i1 %or.cond.not, label %12, label %4, !llvm.loop !2172
 
 12:                                               ; preds = %4
@@ -70113,15 +70113,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt8internal13group_handler
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.068 = phi i64 [ 0, %2 ], [ %12, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.068
+  %.069 = phi i64 [ 0, %2 ], [ %12, %4 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.069
   %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !1696
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !1718
   %11 = icmp eq i32 %10, %1
-  %12 = add nuw nsw i64 %.068, 1
+  %12 = add nuw nsw i64 %.069, 1
   %exitcond.not = icmp eq i64 %12, 5
   %or.cond = select i1 %11, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %13, label %4, !llvm.loop !2332
@@ -72890,15 +72890,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt8internal13group_handler
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.068 = phi i64 [ 0, %2 ], [ %12, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.068
+  %.069 = phi i64 [ 0, %2 ], [ %12, %4 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.069
   %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !1696
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !1718
   %11 = icmp eq i32 %10, %1
-  %12 = add nuw nsw i64 %.068, 1
+  %12 = add nuw nsw i64 %.069, 1
   %exitcond.not = icmp eq i64 %12, 4
   %or.cond = select i1 %11, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %13, label %4, !llvm.loop !2419
@@ -75672,15 +75672,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt8internal13group_handler
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.068 = phi i64 [ 0, %2 ], [ %12, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.068
+  %.069 = phi i64 [ 0, %2 ], [ %12, %4 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.069
   %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !1696
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !1718
   %11 = icmp eq i32 %10, %1
-  %12 = add nuw nsw i64 %.068, 1
+  %12 = add nuw nsw i64 %.069, 1
   %exitcond.not = icmp eq i64 %12, 3
   %or.cond = select i1 %11, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %13, label %4, !llvm.loop !2506

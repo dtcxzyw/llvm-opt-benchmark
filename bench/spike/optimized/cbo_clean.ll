@@ -363,13 +363,13 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
   br i1 %.not.i, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i
 
 34:                                               ; preds = %.noexc
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.014.i, i64 8
-  %.not17.i = icmp eq ptr %35, %33
-  br i1 %.not17.i, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 8
+  %.not18.i = icmp eq ptr %35, %33
+  br i1 %.not18.i, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %34
-  %.sroa.011.014.i = phi ptr [ %35, %34 ], [ %31, %28 ]
-  %36 = load ptr, ptr %.sroa.011.014.i, align 8, !tbaa !173
+  %.sroa.011.015.i = phi ptr [ %35, %34 ], [ %31, %28 ]
+  %36 = load ptr, ptr %.sroa.011.015.i, align 8, !tbaa !173
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8

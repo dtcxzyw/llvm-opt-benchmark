@@ -513,7 +513,7 @@ define internal i32 @dissect_juniper_mlppp(ptr noundef %0, ptr noundef %1, ptr n
   %24 = and i64 %14, 50331648
   %25 = icmp ne i64 %24, 50331648
   %or.cond.i = and i1 %25, %23
-  %.15.i = select i1 %or.cond.i, i32 200, i32 2
+  %.13.i = select i1 %or.cond.i, i32 200, i32 2
   br label %juniper_svc_cookie_proto.exit
 
 26:                                               ; preds = %17
@@ -526,7 +526,7 @@ define internal i32 @dissect_juniper_mlppp(ptr noundef %0, ptr noundef %1, ptr n
   br label %juniper_svc_cookie_proto.exit
 
 juniper_svc_cookie_proto.exit:                    ; preds = %13, %17, %21, %26, %27, %28
-  %.0.i = phi i32 [ 0, %28 ], [ 5, %26 ], [ 201, %27 ], [ %.15.i, %21 ], [ 6, %17 ], [ 0, %13 ]
+  %.0.i = phi i32 [ 0, %28 ], [ 5, %26 ], [ 201, %27 ], [ %.13.i, %21 ], [ 6, %17 ], [ 0, %13 ]
   switch i8 %trunc.i, label %34 [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %juniper_svc_cookie_len.exit
@@ -670,7 +670,7 @@ define internal i32 @dissect_juniper_mlfr(ptr noundef %0, ptr noundef %1, ptr no
 20:                                               ; preds = %16
   %21 = and i64 %14, 50331648
   %22 = icmp eq i64 %21, 50331648
-  %.16.i = select i1 %22, i32 0, i32 2
+  %.14.i = select i1 %22, i32 0, i32 2
   br label %juniper_svc_cookie_proto.exit
 
 23:                                               ; preds = %16
@@ -683,7 +683,7 @@ define internal i32 @dissect_juniper_mlfr(ptr noundef %0, ptr noundef %1, ptr no
   br label %juniper_svc_cookie_proto.exit
 
 juniper_svc_cookie_proto.exit:                    ; preds = %13, %16, %20, %23, %24, %25
-  %.0.i = phi i32 [ 0, %25 ], [ 5, %23 ], [ 201, %24 ], [ %.16.i, %20 ], [ 6, %16 ], [ 0, %13 ]
+  %.0.i = phi i32 [ 0, %25 ], [ 5, %23 ], [ 201, %24 ], [ %.14.i, %20 ], [ 6, %16 ], [ 0, %13 ]
   switch i8 %trunc.i, label %31 [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %.thread
@@ -1423,192 +1423,192 @@ define internal fastcc void @dissect_juniper_atm(ptr noundef %0, ptr noundef %1,
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25)
-  %switch = icmp eq i16 %3, 1
-  %8 = load ptr, ptr %6, align 8
-  %.str.217..str.219 = select i1 %switch, ptr @.str.217, ptr @.str.219
-  %.str.218..str.220 = select i1 %switch, ptr @.str.218, ptr @.str.220
-  tail call void @col_set_str(ptr noundef %8, i32 noundef 35, ptr noundef nonnull %.str.217..str.219)
-  %9 = load i32, ptr @ett_juniper, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %9, ptr noundef null, ptr noundef nonnull %.str.218..str.220)
-  %11 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef nonnull %5)
-  %12 = icmp eq i32 %11, -1
-  br i1 %12, label %dissect_juniper_payload_proto.exit, label %13
+  %8 = icmp eq i16 %3, 1
+  %9 = load ptr, ptr %6, align 8
+  %.str.217..str.219 = select i1 %8, ptr @.str.217, ptr @.str.219
+  %.str.218..str.220 = select i1 %8, ptr @.str.218, ptr @.str.220
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 35, ptr noundef nonnull %.str.217..str.219)
+  %10 = load i32, ptr @ett_juniper, align 4
+  %11 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %10, ptr noundef null, ptr noundef nonnull %.str.218..str.220)
+  %12 = call fastcc i32 @dissect_juniper_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef nonnull %5)
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %dissect_juniper_payload_proto.exit, label %14
 
-13:                                               ; preds = %4
-  %14 = load i8, ptr %5, align 1
-  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11)
-  %16 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %11)
-  br i1 %switch, label %17, label %23
+14:                                               ; preds = %4
+  %15 = load i8, ptr %5, align 1
+  %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %12)
+  %17 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %12)
+  br i1 %8, label %18, label %24
 
-17:                                               ; preds = %13
-  %18 = load i32, ptr @hf_juniper_atm1_cookie, align 4
-  %19 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef %15)
-  %20 = add nuw nsw i32 %11, 4
-  %21 = icmp slt i32 %15, -2130706432
-  %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %20)
-  br i1 %21, label %30, label %45
+18:                                               ; preds = %14
+  %19 = load i32, ptr @hf_juniper_atm1_cookie, align 4
+  %20 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef %16)
+  %21 = add nuw nsw i32 %12, 4
+  %22 = icmp slt i32 %16, -2130706432
+  %23 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %21)
+  br i1 %22, label %31, label %46
 
-23:                                               ; preds = %13
-  %24 = and i8 %14, 2
-  %.not = icmp eq i8 %24, 0
+24:                                               ; preds = %14
+  %25 = and i8 %15, 2
+  %.not = icmp eq i8 %25, 0
   %. = select i1 %.not, i32 8, i32 4
-  %25 = load i32, ptr @hf_juniper_atm2_cookie, align 4
-  %26 = tail call ptr @proto_tree_add_uint64(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef %11, i32 noundef 8, i64 noundef %16)
-  %27 = add nuw nsw i32 %., %11
-  %28 = and i64 %16, 112
-  %.not120.not = icmp eq i64 %28, 0
-  %29 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %27)
-  br i1 %.not120.not, label %45, label %30
+  %26 = load i32, ptr @hf_juniper_atm2_cookie, align 4
+  %27 = tail call ptr @proto_tree_add_uint64(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef %12, i32 noundef 8, i64 noundef %17)
+  %28 = add nuw nsw i32 %., %12
+  %29 = and i64 %17, 112
+  %.not120.not = icmp eq i64 %29, 0
+  %30 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
+  br i1 %.not120.not, label %46, label %31
 
-30:                                               ; preds = %17, %23
-  %.0114147 = phi i32 [ %20, %17 ], [ %27, %23 ]
-  %31 = load i32, ptr @hf_juniper_payload_type, align 4
-  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef %.0114147, i32 noundef 0, i32 noundef 205)
-  %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %33
+31:                                               ; preds = %18, %24
+  %.0114147 = phi i32 [ %21, %18 ], [ %28, %24 ]
+  %32 = load i32, ptr @hf_juniper_payload_type, align 4
+  %33 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0114147, i32 noundef 0, i32 noundef 205)
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %34
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %.not5.i.i = icmp eq ptr %35, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %36
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %.not5.i.i = icmp eq ptr %36, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %38 = load i32, ptr %37, align 4
-  %39 = or i32 %38, 2
-  store i32 %39, ptr %37, align 4
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  %39 = load i32, ptr %38, align 4
+  %40 = or i32 %39, 2
+  store i32 %40, ptr %38, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %36, %33, %30
-  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %.0114147)
-  %40 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114147)
-  %41 = load ptr, ptr @payload_table, align 8
-  %42 = tail call i32 @dissector_try_uint(ptr noundef %41, i32 noundef 205, ptr noundef %40, ptr noundef %1, ptr noundef %2)
-  %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %43, label %dissect_juniper_payload_proto.exit
+proto_item_set_generated.exit.i:                  ; preds = %37, %34, %31
+  tail call void @proto_item_set_len(ptr noundef %11, i32 noundef %.0114147)
+  %41 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114147)
+  %42 = load ptr, ptr @payload_table, align 8
+  %43 = tail call i32 @dissector_try_uint(ptr noundef %42, i32 noundef 205, ptr noundef %41, ptr noundef %1, ptr noundef %2)
+  %.not.i = icmp eq i32 %43, 0
+  br i1 %.not.i, label %44, label %dissect_juniper_payload_proto.exit
 
-43:                                               ; preds = %proto_item_set_generated.exit.i
-  %44 = tail call i32 @call_data_dissector(ptr noundef %40, ptr noundef %1, ptr noundef %2)
+44:                                               ; preds = %proto_item_set_generated.exit.i
+  %45 = tail call i32 @call_data_dissector(ptr noundef %41, ptr noundef %1, ptr noundef %2)
   br label %dissect_juniper_payload_proto.exit
 
-45:                                               ; preds = %17, %23
-  %46 = phi ptr [ %22, %17 ], [ %29, %23 ]
-  %.0114146 = phi i32 [ %20, %17 ], [ %27, %23 ]
-  %47 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.0114146)
-  switch i32 %47, label %78 [
-    i32 16711171, label %48
-    i32 11184643, label %63
+46:                                               ; preds = %18, %24
+  %47 = phi ptr [ %23, %18 ], [ %30, %24 ]
+  %.0114146 = phi i32 [ %21, %18 ], [ %28, %24 ]
+  %48 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.0114146)
+  switch i32 %48, label %79 [
+    i32 16711171, label %49
+    i32 11184643, label %64
   ]
 
-48:                                               ; preds = %45
-  %49 = load i32, ptr @hf_juniper_payload_type, align 4
-  %50 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %49, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 202)
-  %.not.i.i124 = icmp eq ptr %50, null
-  br i1 %.not.i.i124, label %proto_item_set_generated.exit.i126, label %51
+49:                                               ; preds = %46
+  %50 = load i32, ptr @hf_juniper_payload_type, align 4
+  %51 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %50, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 202)
+  %.not.i.i124 = icmp eq ptr %51, null
+  br i1 %.not.i.i124, label %proto_item_set_generated.exit.i126, label %52
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %.not5.i.i125 = icmp eq ptr %53, null
-  br i1 %.not5.i.i125, label %proto_item_set_generated.exit.i126, label %54
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %54 = load ptr, ptr %53, align 8
+  %.not5.i.i125 = icmp eq ptr %54, null
+  br i1 %.not5.i.i125, label %proto_item_set_generated.exit.i126, label %55
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
-  %56 = load i32, ptr %55, align 4
-  %57 = or i32 %56, 2
-  store i32 %57, ptr %55, align 4
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 28
+  %57 = load i32, ptr %56, align 4
+  %58 = or i32 %57, 2
+  store i32 %58, ptr %56, align 4
   br label %proto_item_set_generated.exit.i126
 
-proto_item_set_generated.exit.i126:               ; preds = %54, %51, %48
-  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %.0114146)
-  %58 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
-  %59 = load ptr, ptr @payload_table, align 8
-  %60 = tail call i32 @dissector_try_uint(ptr noundef %59, i32 noundef 202, ptr noundef %58, ptr noundef %1, ptr noundef %2)
-  %.not.i127 = icmp eq i32 %60, 0
-  br i1 %.not.i127, label %61, label %dissect_juniper_payload_proto.exit
+proto_item_set_generated.exit.i126:               ; preds = %55, %52, %49
+  tail call void @proto_item_set_len(ptr noundef %11, i32 noundef %.0114146)
+  %59 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
+  %60 = load ptr, ptr @payload_table, align 8
+  %61 = tail call i32 @dissector_try_uint(ptr noundef %60, i32 noundef 202, ptr noundef %59, ptr noundef %1, ptr noundef %2)
+  %.not.i127 = icmp eq i32 %61, 0
+  br i1 %.not.i127, label %62, label %dissect_juniper_payload_proto.exit
 
-61:                                               ; preds = %proto_item_set_generated.exit.i126
-  %62 = tail call i32 @call_data_dissector(ptr noundef %58, ptr noundef %1, ptr noundef %2)
+62:                                               ; preds = %proto_item_set_generated.exit.i126
+  %63 = tail call i32 @call_data_dissector(ptr noundef %59, ptr noundef %1, ptr noundef %2)
   br label %dissect_juniper_payload_proto.exit
 
-63:                                               ; preds = %45
-  %64 = load i32, ptr @hf_juniper_payload_type, align 4
-  %65 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %64, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 203)
-  %.not.i.i129 = icmp eq ptr %65, null
-  br i1 %.not.i.i129, label %proto_item_set_generated.exit.i131, label %66
+64:                                               ; preds = %46
+  %65 = load i32, ptr @hf_juniper_payload_type, align 4
+  %66 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %65, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 203)
+  %.not.i.i129 = icmp eq ptr %66, null
+  br i1 %.not.i.i129, label %proto_item_set_generated.exit.i131, label %67
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %.not5.i.i130 = icmp eq ptr %68, null
-  br i1 %.not5.i.i130, label %proto_item_set_generated.exit.i131, label %69
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %69 = load ptr, ptr %68, align 8
+  %.not5.i.i130 = icmp eq ptr %69, null
+  br i1 %.not5.i.i130, label %proto_item_set_generated.exit.i131, label %70
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  %71 = load i32, ptr %70, align 4
-  %72 = or i32 %71, 2
-  store i32 %72, ptr %70, align 4
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 28
+  %72 = load i32, ptr %71, align 4
+  %73 = or i32 %72, 2
+  store i32 %73, ptr %71, align 4
   br label %proto_item_set_generated.exit.i131
 
-proto_item_set_generated.exit.i131:               ; preds = %69, %66, %63
-  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %.0114146)
-  %73 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
-  %74 = load ptr, ptr @payload_table, align 8
-  %75 = tail call i32 @dissector_try_uint(ptr noundef %74, i32 noundef 203, ptr noundef %73, ptr noundef %1, ptr noundef %2)
-  %.not.i132 = icmp eq i32 %75, 0
-  br i1 %.not.i132, label %76, label %dissect_juniper_payload_proto.exit
+proto_item_set_generated.exit.i131:               ; preds = %70, %67, %64
+  tail call void @proto_item_set_len(ptr noundef %11, i32 noundef %.0114146)
+  %74 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
+  %75 = load ptr, ptr @payload_table, align 8
+  %76 = tail call i32 @dissector_try_uint(ptr noundef %75, i32 noundef 203, ptr noundef %74, ptr noundef %1, ptr noundef %2)
+  %.not.i132 = icmp eq i32 %76, 0
+  br i1 %.not.i132, label %77, label %dissect_juniper_payload_proto.exit
 
-76:                                               ; preds = %proto_item_set_generated.exit.i131
-  %77 = tail call i32 @call_data_dissector(ptr noundef %73, ptr noundef %1, ptr noundef %2)
+77:                                               ; preds = %proto_item_set_generated.exit.i131
+  %78 = tail call i32 @call_data_dissector(ptr noundef %74, ptr noundef %1, ptr noundef %2)
   br label %dissect_juniper_payload_proto.exit
 
-78:                                               ; preds = %45
-  %79 = and i8 %14, 1
-  %.not121.not = icmp eq i8 %79, 0
-  br i1 %.not121.not, label %80, label %99
+79:                                               ; preds = %46
+  %80 = and i8 %15, 1
+  %.not121.not = icmp eq i8 %80, 0
+  br i1 %.not121.not, label %81, label %100
 
-80:                                               ; preds = %78
-  %81 = and i32 %15, 63
-  %82 = icmp ne i32 %81, 0
-  %83 = icmp ne i16 %3, 1
-  %or.cond = and i1 %83, %82
-  br i1 %or.cond, label %84, label %99
+81:                                               ; preds = %79
+  %82 = and i32 %16, 63
+  %83 = icmp ne i32 %82, 0
+  %84 = icmp ne i16 %3, 1
+  %or.cond = and i1 %84, %83
+  br i1 %or.cond, label %85, label %100
 
-84:                                               ; preds = %80
-  %85 = load i32, ptr @hf_juniper_payload_type, align 4
-  %86 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %85, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 204)
-  %.not.i.i134 = icmp eq ptr %86, null
-  br i1 %.not.i.i134, label %proto_item_set_generated.exit.i136, label %87
+85:                                               ; preds = %81
+  %86 = load i32, ptr @hf_juniper_payload_type, align 4
+  %87 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %86, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 204)
+  %.not.i.i134 = icmp eq ptr %87, null
+  br i1 %.not.i.i134, label %proto_item_set_generated.exit.i136, label %88
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %89 = load ptr, ptr %88, align 8
-  %.not5.i.i135 = icmp eq ptr %89, null
-  br i1 %.not5.i.i135, label %proto_item_set_generated.exit.i136, label %90
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  %90 = load ptr, ptr %89, align 8
+  %.not5.i.i135 = icmp eq ptr %90, null
+  br i1 %.not5.i.i135, label %proto_item_set_generated.exit.i136, label %91
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 28
-  %92 = load i32, ptr %91, align 4
-  %93 = or i32 %92, 2
-  store i32 %93, ptr %91, align 4
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 28
+  %93 = load i32, ptr %92, align 4
+  %94 = or i32 %93, 2
+  store i32 %94, ptr %92, align 4
   br label %proto_item_set_generated.exit.i136
 
-proto_item_set_generated.exit.i136:               ; preds = %90, %87, %84
-  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %.0114146)
-  %94 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
-  %95 = load ptr, ptr @payload_table, align 8
-  %96 = tail call i32 @dissector_try_uint(ptr noundef %95, i32 noundef 204, ptr noundef %94, ptr noundef %1, ptr noundef %2)
-  %.not.i137 = icmp eq i32 %96, 0
-  br i1 %.not.i137, label %97, label %dissect_juniper_payload_proto.exit
+proto_item_set_generated.exit.i136:               ; preds = %91, %88, %85
+  tail call void @proto_item_set_len(ptr noundef %11, i32 noundef %.0114146)
+  %95 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
+  %96 = load ptr, ptr @payload_table, align 8
+  %97 = tail call i32 @dissector_try_uint(ptr noundef %96, i32 noundef 204, ptr noundef %95, ptr noundef %1, ptr noundef %2)
+  %.not.i137 = icmp eq i32 %97, 0
+  br i1 %.not.i137, label %98, label %dissect_juniper_payload_proto.exit
 
-97:                                               ; preds = %proto_item_set_generated.exit.i136
-  %98 = tail call i32 @call_data_dissector(ptr noundef %94, ptr noundef %1, ptr noundef %2)
+98:                                               ; preds = %proto_item_set_generated.exit.i136
+  %99 = tail call i32 @call_data_dissector(ptr noundef %95, ptr noundef %1, ptr noundef %2)
   br label %dissect_juniper_payload_proto.exit
 
-99:                                               ; preds = %80, %78
-  %100 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0114146)
-  switch i16 %100, label %ppp_heuristic_guess.exit.thread [
+100:                                              ; preds = %81, %79
+  %101 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0114146)
+  switch i16 %101, label %ppp_heuristic_guess.exit.thread [
     i16 33, label %ppp_heuristic_guess.exit
     i16 35, label %ppp_heuristic_guess.exit
     i16 641, label %ppp_heuristic_guess.exit
@@ -1624,101 +1624,101 @@ proto_item_set_generated.exit.i136:               ; preds = %90, %87, %84
     i16 -32681, label %ppp_heuristic_guess.exit
   ]
 
-ppp_heuristic_guess.exit:                         ; preds = %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99
-  br i1 %switch, label %ppp_heuristic_guess.exit.thread, label %101
+ppp_heuristic_guess.exit:                         ; preds = %100, %100, %100, %100, %100, %100, %100, %100, %100, %100, %100, %100, %100
+  br i1 %8, label %ppp_heuristic_guess.exit.thread, label %102
 
-101:                                              ; preds = %ppp_heuristic_guess.exit
-  %102 = load i32, ptr @hf_juniper_encap_type, align 4
-  %103 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %102, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.223)
-  %104 = load i32, ptr @hf_juniper_payload_type, align 4
-  %105 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %104, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 200)
-  %.not.i.i139 = icmp eq ptr %105, null
-  br i1 %.not.i.i139, label %proto_item_set_generated.exit.i141, label %106
+102:                                              ; preds = %ppp_heuristic_guess.exit
+  %103 = load i32, ptr @hf_juniper_encap_type, align 4
+  %104 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %103, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.223)
+  %105 = load i32, ptr @hf_juniper_payload_type, align 4
+  %106 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %105, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 200)
+  %.not.i.i139 = icmp eq ptr %106, null
+  br i1 %.not.i.i139, label %proto_item_set_generated.exit.i141, label %107
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %.not5.i.i140 = icmp eq ptr %108, null
-  br i1 %.not5.i.i140, label %proto_item_set_generated.exit.i141, label %109
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %109 = load ptr, ptr %108, align 8
+  %.not5.i.i140 = icmp eq ptr %109, null
+  br i1 %.not5.i.i140, label %proto_item_set_generated.exit.i141, label %110
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 28
-  %111 = load i32, ptr %110, align 4
-  %112 = or i32 %111, 2
-  store i32 %112, ptr %110, align 4
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 28
+  %112 = load i32, ptr %111, align 4
+  %113 = or i32 %112, 2
+  store i32 %113, ptr %111, align 4
   br label %proto_item_set_generated.exit.i141
 
-proto_item_set_generated.exit.i141:               ; preds = %109, %106, %101
-  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %.0114146)
-  %113 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
-  %114 = load ptr, ptr @payload_table, align 8
-  %115 = tail call i32 @dissector_try_uint(ptr noundef %114, i32 noundef 200, ptr noundef %113, ptr noundef %1, ptr noundef %2)
-  %.not.i143 = icmp eq i32 %115, 0
-  br i1 %.not.i143, label %116, label %dissect_juniper_payload_proto.exit
+proto_item_set_generated.exit.i141:               ; preds = %110, %107, %102
+  tail call void @proto_item_set_len(ptr noundef %11, i32 noundef %.0114146)
+  %114 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0114146)
+  %115 = load ptr, ptr @payload_table, align 8
+  %116 = tail call i32 @dissector_try_uint(ptr noundef %115, i32 noundef 200, ptr noundef %114, ptr noundef %1, ptr noundef %2)
+  %.not.i143 = icmp eq i32 %116, 0
+  br i1 %.not.i143, label %117, label %dissect_juniper_payload_proto.exit
 
-116:                                              ; preds = %proto_item_set_generated.exit.i141
-  %117 = tail call i32 @call_data_dissector(ptr noundef %113, ptr noundef %1, ptr noundef %2)
+117:                                              ; preds = %proto_item_set_generated.exit.i141
+  %118 = tail call i32 @call_data_dissector(ptr noundef %114, ptr noundef %1, ptr noundef %2)
   br label %dissect_juniper_payload_proto.exit
 
-ppp_heuristic_guess.exit.thread:                  ; preds = %99, %ppp_heuristic_guess.exit
-  %118 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0114146)
-  switch i8 %118, label %ip_heuristic_guess.exit [
-    i8 3, label %119
-    i8 69, label %124
-    i8 70, label %124
-    i8 71, label %124
-    i8 72, label %124
-    i8 73, label %124
-    i8 74, label %124
-    i8 75, label %124
-    i8 76, label %124
-    i8 77, label %124
-    i8 78, label %124
-    i8 79, label %124
-    i8 96, label %123
-    i8 97, label %123
-    i8 98, label %123
-    i8 99, label %123
-    i8 100, label %123
-    i8 101, label %123
-    i8 102, label %123
-    i8 103, label %123
-    i8 104, label %123
-    i8 105, label %123
-    i8 106, label %123
-    i8 107, label %123
-    i8 108, label %123
-    i8 109, label %123
-    i8 110, label %123
-    i8 111, label %123
+ppp_heuristic_guess.exit.thread:                  ; preds = %100, %ppp_heuristic_guess.exit
+  %119 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0114146)
+  switch i8 %119, label %ip_heuristic_guess.exit [
+    i8 3, label %120
+    i8 69, label %125
+    i8 70, label %125
+    i8 71, label %125
+    i8 72, label %125
+    i8 73, label %125
+    i8 74, label %125
+    i8 75, label %125
+    i8 76, label %125
+    i8 77, label %125
+    i8 78, label %125
+    i8 79, label %125
+    i8 96, label %124
+    i8 97, label %124
+    i8 98, label %124
+    i8 99, label %124
+    i8 100, label %124
+    i8 101, label %124
+    i8 102, label %124
+    i8 103, label %124
+    i8 104, label %124
+    i8 105, label %124
+    i8 106, label %124
+    i8 107, label %124
+    i8 108, label %124
+    i8 109, label %124
+    i8 110, label %124
+    i8 111, label %124
   ]
 
-119:                                              ; preds = %ppp_heuristic_guess.exit.thread
-  %120 = load i32, ptr @hf_juniper_encap_type, align 4
-  %121 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %120, ptr noundef %0, i32 noundef %.0114146, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.224)
-  %122 = add nuw nsw i32 %.0114146, 1
-  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, i32 noundef 201, i32 noundef %122)
+120:                                              ; preds = %ppp_heuristic_guess.exit.thread
+  %121 = load i32, ptr @hf_juniper_encap_type, align 4
+  %122 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %121, ptr noundef %0, i32 noundef %.0114146, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.224)
+  %123 = add nuw nsw i32 %.0114146, 1
+  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11, i32 noundef 201, i32 noundef %123)
   br label %dissect_juniper_payload_proto.exit
 
-123:                                              ; preds = %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread
-  br label %124
+124:                                              ; preds = %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread
+  br label %125
 
-124:                                              ; preds = %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %123
-  %.0.i145.ph = phi i32 [ 6, %123 ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ]
-  %125 = load i32, ptr @hf_juniper_encap_type, align 4
-  %126 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %125, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.223)
-  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, i32 noundef %.0.i145.ph, i32 noundef %.0114146)
+125:                                              ; preds = %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %124
+  %.0.i145.ph = phi i32 [ 6, %124 ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ]
+  %126 = load i32, ptr @hf_juniper_encap_type, align 4
+  %127 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %126, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.223)
+  tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11, i32 noundef %.0.i145.ph, i32 noundef %.0114146)
   br label %dissect_juniper_payload_proto.exit
 
 ip_heuristic_guess.exit:                          ; preds = %ppp_heuristic_guess.exit.thread
-  %127 = load i32, ptr @hf_juniper_payload_type, align 4
-  %128 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %10, i32 noundef %127, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull @.str.225)
-  %129 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0114146)
-  tail call void @proto_item_set_len(ptr noundef %128, i32 noundef %129)
-  %130 = tail call i32 @call_data_dissector(ptr noundef %46, ptr noundef %1, ptr noundef %2)
+  %128 = load i32, ptr @hf_juniper_payload_type, align 4
+  %129 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %128, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull @.str.225)
+  %130 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0114146)
+  tail call void @proto_item_set_len(ptr noundef %129, i32 noundef %130)
+  %131 = tail call i32 @call_data_dissector(ptr noundef %47, ptr noundef %1, ptr noundef %2)
   br label %dissect_juniper_payload_proto.exit
 
-dissect_juniper_payload_proto.exit:               ; preds = %116, %proto_item_set_generated.exit.i141, %97, %proto_item_set_generated.exit.i136, %76, %proto_item_set_generated.exit.i131, %61, %proto_item_set_generated.exit.i126, %43, %proto_item_set_generated.exit.i, %4, %ip_heuristic_guess.exit, %124, %119
+dissect_juniper_payload_proto.exit:               ; preds = %117, %proto_item_set_generated.exit.i141, %98, %proto_item_set_generated.exit.i136, %77, %proto_item_set_generated.exit.i131, %62, %proto_item_set_generated.exit.i126, %44, %proto_item_set_generated.exit.i, %4, %ip_heuristic_guess.exit, %125, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

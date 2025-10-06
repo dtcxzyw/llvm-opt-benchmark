@@ -2327,8 +2327,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %657 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %658 = load i8, ptr %657, align 8
   %659 = and i8 %658, 8
-  %.not50 = icmp eq i8 %659, 0
-  br i1 %.not50, label %661, label %660
+  %.not49 = icmp eq i8 %659, 0
+  br i1 %.not49, label %661, label %660
 
 660:                                              ; preds = %656
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -2564,8 +2564,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %723 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %724 = load i8, ptr %723, align 8
   %725 = and i8 %724, 8
-  %.not49 = icmp eq i8 %725, 0
-  br i1 %.not49, label %727, label %726
+  %.not48 = icmp eq i8 %725, 0
+  br i1 %.not48, label %727, label %726
 
 726:                                              ; preds = %722
   call void @llvm.lifetime.start.p0(ptr nonnull %85)

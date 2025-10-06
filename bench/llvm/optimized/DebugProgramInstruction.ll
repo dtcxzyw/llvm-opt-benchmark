@@ -727,73 +727,73 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm9DbgRecordC
 define dso_local void @_ZN4llvm9DbgRecord12deleteRecordEv(ptr noundef nonnull align 8 dereferenceable(33) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8, !tbaa !9
-  %switch = icmp eq i8 %3, 0
-  br i1 %switch, label %4, label %18
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %19
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load ptr, ptr %5, align 8, !tbaa !3
-  %.not.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i, label %7
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
+  %.not.i.i.i.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i, label %8
 
-7:                                                ; preds = %4
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %6) #18
+8:                                                ; preds = %5
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7) #18
   br label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i
 
-_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i: ; preds = %7, %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %.not.i.i.i.i1.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i1.i, label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i, label %10
+_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i: ; preds = %8, %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %.not.i.i.i.i1.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i1.i, label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i, label %11
 
-10:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9) #18
+11:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10) #18
   br label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i
 
-_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i: ; preds = %10, %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load ptr, ptr %11, align 8, !tbaa !3
-  %.not.i.i.i.i3.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i3.i, label %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i, label %13
+_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i: ; preds = %11, %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit.i
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %13 = load ptr, ptr %12, align 8, !tbaa !3
+  %.not.i.i.i.i3.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i3.i, label %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i, label %14
 
-13:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %12) #18
+14:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13) #18
   br label %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i
 
-_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i: ; preds = %13, %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN4llvm14DebugValueUser18untrackDebugValuesEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !3
-  %.not.i.i.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm17DbgVariableRecordD2Ev.exit, label %17
+_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i: ; preds = %14, %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEED2Ev.exit2.i
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN4llvm14DebugValueUser18untrackDebugValuesEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load ptr, ptr %16, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm17DbgVariableRecordD2Ev.exit, label %18
 
-17:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %16) #18
+18:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17) #18
   br label %_ZN4llvm17DbgVariableRecordD2Ev.exit
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !3
-  %.not.i.i.i.i.i2 = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i.i2, label %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i, label %21
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %.not.i.i.i.i.i2 = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i.i2, label %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i, label %22
 
-21:                                               ; preds = %18
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(8) %20) #18
+22:                                               ; preds = %19
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %21) #18
   br label %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i
 
-_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i: ; preds = %21, %18
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !3
-  %.not.i.i.i.i.i.i3 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i3, label %_ZN4llvm17DbgVariableRecordD2Ev.exit, label %24
+_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i: ; preds = %22, %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i3 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i.i.i3, label %_ZN4llvm17DbgVariableRecordD2Ev.exit, label %25
 
-24:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(8) %23) #18
+25:                                               ; preds = %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(8) %24) #18
   br label %_ZN4llvm17DbgVariableRecordD2Ev.exit
 
-_ZN4llvm17DbgVariableRecordD2Ev.exit:             ; preds = %24, %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i, %17, %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i
-  %.sink = phi i64 [ 96, %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i ], [ 96, %17 ], [ 48, %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i ], [ 48, %24 ]
+_ZN4llvm17DbgVariableRecordD2Ev.exit:             ; preds = %25, %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i, %18, %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i
+  %.sink = phi i64 [ 96, %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i ], [ 96, %18 ], [ 48, %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i ], [ 48, %25 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef %.sink) #19
   ret void
 }
@@ -805,18 +805,18 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 define dso_local void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8, !tbaa !9
-  %switch = icmp eq i8 %5, 0
-  br i1 %switch, label %6, label %7
-
-6:                                                ; preds = %3
-  tail call void @_ZNK4llvm17DbgVariableRecord5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) #18
-  br label %8
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @_ZNK4llvm14DbgLabelRecord5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) #18
-  br label %8
+  tail call void @_ZNK4llvm17DbgVariableRecord5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) #18
+  br label %9
 
-8:                                                ; preds = %7, %6
+8:                                                ; preds = %3
+  tail call void @_ZNK4llvm14DbgLabelRecord5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) #18
+  br label %9
+
+9:                                                ; preds = %8, %7
   ret void
 }
 
@@ -828,18 +828,18 @@ declare void @_ZNK4llvm14DbgLabelRecord5printERNS_11raw_ostreamEb(ptr noundef no
 define dso_local void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8, !tbaa !9
-  %switch = icmp eq i8 %6, 0
-  br i1 %switch, label %7, label %8
-
-7:                                                ; preds = %4
-  tail call void @_ZNK4llvm17DbgVariableRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, i1 noundef zeroext %3) #18
-  br label %9
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
-  tail call void @_ZNK4llvm14DbgLabelRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, i1 noundef zeroext %3) #18
-  br label %9
+  tail call void @_ZNK4llvm17DbgVariableRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, i1 noundef zeroext %3) #18
+  br label %10
 
-9:                                                ; preds = %8, %7
+9:                                                ; preds = %4
+  tail call void @_ZNK4llvm14DbgLabelRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, i1 noundef zeroext %3) #18
+  br label %10
+
+10:                                               ; preds = %9, %8
   ret void
 }
 
@@ -857,58 +857,58 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9DbgRecord24isIdenticalToWhenDefin
   br i1 %.not, label %7, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
 
 7:                                                ; preds = %2
-  %switch = icmp eq i8 %4, 0
-  br i1 %switch, label %8, label %35
+  %8 = icmp eq i8 %4, 0
+  br i1 %8, label %9, label %36
 
-8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %17 = load i8, ptr %9, align 8, !tbaa !50
-  %18 = load i8, ptr %13, align 8, !tbaa !50
-  %19 = icmp eq i8 %17, %18
-  br i1 %19, label %20, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %18 = load i8, ptr %10, align 8, !tbaa !50
+  %19 = load i8, ptr %14, align 8, !tbaa !50
+  %20 = icmp eq i8 %18, %19
+  br i1 %20, label %21, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-20:                                               ; preds = %8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24)
+21:                                               ; preds = %9
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24)
   %.not9.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i.i.i, label %23, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
+  br i1 %.not9.i.i.i.i.i.i.i.i.i, label %24, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %10, align 8, !tbaa !3
-  %25 = load ptr, ptr %14, align 8, !tbaa !3
-  %26 = icmp eq ptr %24, %25
-  br i1 %26, label %27, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %11, align 8, !tbaa !3
+  %26 = load ptr, ptr %15, align 8, !tbaa !3
+  %27 = icmp eq ptr %25, %26
+  br i1 %27, label %28, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %11, align 8, !tbaa !3
-  %29 = load ptr, ptr %15, align 8, !tbaa !3
-  %30 = icmp eq ptr %28, %29
-  br i1 %30, label %31, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %12, align 8, !tbaa !3
+  %30 = load ptr, ptr %16, align 8, !tbaa !3
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %12, align 8, !tbaa !3
-  %33 = load ptr, ptr %16, align 8, !tbaa !3
-  %34 = icmp eq ptr %32, %33
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %13, align 8, !tbaa !3
+  %34 = load ptr, ptr %17, align 8, !tbaa !3
+  %35 = icmp eq ptr %33, %34
   br label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-35:                                               ; preds = %7
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = icmp eq ptr %37, %39
+36:                                               ; preds = %7
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %38 = load ptr, ptr %37, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %40 = load ptr, ptr %39, align 8, !tbaa !3
+  %41 = icmp eq ptr %38, %40
   br label %_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit: ; preds = %31, %27, %23, %20, %8, %2, %35
-  %.0 = phi i1 [ %40, %35 ], [ false, %2 ], [ false, %8 ], [ false, %20 ], [ false, %23 ], [ false, %27 ], [ %34, %31 ]
+_ZNK4llvm17DbgVariableRecord24isIdenticalToWhenDefinedERKS0_.exit: ; preds = %32, %28, %24, %21, %9, %2, %36
+  %.0 = phi i1 [ %41, %36 ], [ false, %2 ], [ false, %9 ], [ false, %21 ], [ false, %24 ], [ false, %28 ], [ %35, %32 ]
   ret i1 %.0
 }
 
@@ -957,98 +957,98 @@ _ZNK4llvm9DbgRecord11getDebugLocEv.exit4:         ; preds = %_ZNK4llvm9DbgRecord
   br i1 %.not.i, label %21, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
 
 21:                                               ; preds = %16
-  %switch.i = icmp eq i8 %18, 0
-  br i1 %switch.i, label %22, label %49
+  %22 = icmp eq i8 %18, 0
+  br i1 %22, label %23, label %50
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %31 = load i8, ptr %23, align 8, !tbaa !50
-  %32 = load i8, ptr %27, align 8, !tbaa !50
-  %33 = icmp eq i8 %31, %32
-  br i1 %33, label %34, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %32 = load i8, ptr %24, align 8, !tbaa !50
+  %33 = load i8, ptr %28, align 8, !tbaa !50
+  %34 = icmp eq i8 %32, %33
+  br i1 %34, label %35, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-34:                                               ; preds = %22
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(24) %36, ptr noundef nonnull readonly align 8 dereferenceable(24) %35, i64 24)
+35:                                               ; preds = %23
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(24) %37, ptr noundef nonnull readonly align 8 dereferenceable(24) %36, i64 24)
   %.not9.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.i, label %37, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i, label %38, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %24, align 8, !tbaa !3
-  %39 = load ptr, ptr %28, align 8, !tbaa !3
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %41, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %25, align 8, !tbaa !3
+  %40 = load ptr, ptr %29, align 8, !tbaa !3
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %42, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %25, align 8, !tbaa !3
-  %43 = load ptr, ptr %29, align 8, !tbaa !3
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %45, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %26, align 8, !tbaa !3
+  %44 = load ptr, ptr %30, align 8, !tbaa !3
+  %45 = icmp eq ptr %43, %44
+  br i1 %45, label %46, label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %26, align 8, !tbaa !3
-  %47 = load ptr, ptr %30, align 8, !tbaa !3
-  %48 = icmp eq ptr %46, %47
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %27, align 8, !tbaa !3
+  %48 = load ptr, ptr %31, align 8, !tbaa !3
+  %49 = icmp eq ptr %47, %48
   br label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-49:                                               ; preds = %21
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !3
-  %54 = icmp eq ptr %51, %53
+50:                                               ; preds = %21
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %52 = load ptr, ptr %51, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %54 = load ptr, ptr %53, align 8, !tbaa !3
+  %55 = icmp eq ptr %52, %54
   br label %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
 
-_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit: ; preds = %49, %45, %41, %37, %34, %22, %16, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit4
-  %55 = phi i1 [ false, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit4 ], [ %54, %49 ], [ false, %16 ], [ false, %22 ], [ false, %34 ], [ false, %37 ], [ false, %41 ], [ %48, %45 ]
+_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit: ; preds = %50, %46, %42, %38, %35, %23, %16, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit4
+  %56 = phi i1 [ false, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit4 ], [ %55, %50 ], [ false, %16 ], [ false, %23 ], [ false, %35 ], [ false, %38 ], [ false, %42 ], [ %49, %46 ]
   %.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %56
+  br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %57
 
-56:                                               ; preds = %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
+57:                                               ; preds = %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %13) #18
   %.pre = load ptr, ptr %3, align 8, !tbaa !3
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit, %56
-  %57 = phi ptr [ %14, %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit ], [ %.pre, %56 ]
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit, %57
+  %58 = phi ptr [ %14, %_ZNK4llvm9DbgRecord24isIdenticalToWhenDefinedERKS0_.exit ], [ %.pre, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i.i.i.i5 = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i5, label %_ZN4llvm8DebugLocD2Ev.exit6, label %58
+  %.not.i.i.i.i5 = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i5, label %_ZN4llvm8DebugLocD2Ev.exit6, label %59
 
-58:                                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %57) #18
+59:                                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %58) #18
   br label %_ZN4llvm8DebugLocD2Ev.exit6
 
-_ZN4llvm8DebugLocD2Ev.exit6:                      ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %58
+_ZN4llvm8DebugLocD2Ev.exit6:                      ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %55
+  ret i1 %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm9DbgRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8, !tbaa !9
-  %switch = icmp eq i8 %5, 0
-  br i1 %switch, label %6, label %8
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %7, label %9
 
-6:                                                ; preds = %3
-  %7 = tail call noundef ptr @_ZNK4llvm17DbgVariableRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2)
-  br label %10
+7:                                                ; preds = %3
+  %8 = tail call noundef ptr @_ZNK4llvm17DbgVariableRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2)
+  br label %11
 
-8:                                                ; preds = %3
-  %9 = tail call noundef ptr @_ZNK4llvm14DbgLabelRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2)
-  br label %10
+9:                                                ; preds = %3
+  %10 = tail call noundef ptr @_ZNK4llvm14DbgLabelRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2)
+  br label %11
 
-10:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ]
+11:                                               ; preds = %9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %10, %9 ]
   ret ptr %.0
 }
 
@@ -2761,17 +2761,17 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %
   %47 = zext i32 %46 to i64
   %.idx.i.i = shl nuw nsw i64 %47, 3
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %46, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %46, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %44, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %50, %.critedge.i.i ], [ %45, %44 ]
-  %49 = load ptr, ptr %.02937.i.i, align 8, !tbaa !141, !noalias !138
+  %.02935.i.i = phi ptr [ %50, %.critedge.i.i ], [ %45, %44 ]
+  %49 = load ptr, ptr %.02935.i.i, align 8, !tbaa !141, !noalias !138
   %.not17.i.i = icmp eq ptr %49, %41
   br i1 %.not17.i.i, label %.critedge26, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %50, %48
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !142
 
@@ -2996,46 +2996,46 @@ define dso_local noundef nonnull ptr @_ZNK4llvm9DbgRecord5cloneEv(ptr noundef no
   %2 = alloca %"class.llvm::DebugLoc", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8, !tbaa !9
-  %switch = icmp eq i8 %4, 0
-  br i1 %switch, label %5, label %7
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %6, label %8
 
-5:                                                ; preds = %1
-  %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
-  tail call void @_ZN4llvm17DbgVariableRecordC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %0) #18
-  br label %17
+6:                                                ; preds = %1
+  %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
+  tail call void @_ZN4llvm17DbgVariableRecordC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %0) #18
+  br label %18
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %9 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load ptr, ptr %10, align 8, !tbaa !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !3, !noalias !168
-  store ptr %12, ptr %2, align 8, !tbaa !3, !alias.scope !168
-  %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, label %13
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !168
+  store ptr %13, ptr %2, align 8, !tbaa !3, !alias.scope !168
+  %.not.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, label %14
 
-13:                                               ; preds = %7
-  %14 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %12, i64 1) #18
+14:                                               ; preds = %8
+  %15 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %13, i64 1) #18
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i:        ; preds = %13, %7
-  call void @_ZN4llvm14DbgLabelRecordC1EPNS_7DILabelENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %10, ptr noundef nonnull %2) #18
-  %15 = load ptr, ptr %2, align 8, !tbaa !3
-  %.not.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm14DbgLabelRecord5cloneEv.exit, label %16
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i:        ; preds = %14, %8
+  call void @_ZN4llvm14DbgLabelRecordC1EPNS_7DILabelENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11, ptr noundef nonnull %2) #18
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %.not.i.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm14DbgLabelRecord5cloneEv.exit, label %17
 
-16:                                               ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %15) #18
+17:                                               ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %16) #18
   br label %_ZNK4llvm14DbgLabelRecord5cloneEv.exit
 
-_ZNK4llvm14DbgLabelRecord5cloneEv.exit:           ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, %16
+_ZNK4llvm14DbgLabelRecord5cloneEv.exit:           ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %_ZNK4llvm14DbgLabelRecord5cloneEv.exit, %5
-  %.0 = phi ptr [ %6, %5 ], [ %8, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit ]
+18:                                               ; preds = %_ZNK4llvm14DbgLabelRecord5cloneEv.exit, %6
+  %.0 = phi ptr [ %7, %6 ], [ %9, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit ]
   ret ptr %.0
 }
 
@@ -3849,76 +3849,76 @@ define dso_local { ptr, ptr } @_ZN4llvm9DbgMarker18cloneDebugInfoFromEPS0_St8opt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.013.0 = select i1 %4, ptr %12, ptr %13
   %.not3839 = icmp eq ptr %spec.select37, %7
-  br i1 %.not3839, label %35, label %.lr.ph
+  br i1 %.not3839, label %36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %_ZNK4llvm9DbgRecord5cloneEv.exit
   %.041 = phi ptr [ %spec.select, %_ZNK4llvm9DbgRecord5cloneEv.exit ], [ null, %5 ]
-  %.sroa.031.040 = phi ptr [ %33, %_ZNK4llvm9DbgRecord5cloneEv.exit ], [ %spec.select37, %5 ]
+  %.sroa.031.040 = phi ptr [ %34, %_ZNK4llvm9DbgRecord5cloneEv.exit ], [ %spec.select37, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 32
   %15 = load i8, ptr %14, align 8, !tbaa !9
-  %switch.i = icmp eq i8 %15, 0
-  br i1 %switch.i, label %16, label %18
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %.lr.ph
-  %17 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
-  call void @_ZN4llvm17DbgVariableRecordC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.031.040) #18
+17:                                               ; preds = %.lr.ph
+  %18 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
+  call void @_ZN4llvm17DbgVariableRecordC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.031.040) #18
   br label %_ZNK4llvm9DbgRecord5cloneEv.exit
 
-18:                                               ; preds = %.lr.ph
+19:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %20 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !3
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !3, !noalias !200
-  store ptr %23, ptr %6, align 8, !tbaa !3, !alias.scope !200
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i, label %24
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !3, !noalias !200
+  store ptr %24, ptr %6, align 8, !tbaa !3, !alias.scope !200
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i, label %25
 
-24:                                               ; preds = %18
-  %25 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %23, i64 1) #18
+25:                                               ; preds = %19
+  %26 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %24, i64 1) #18
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i:      ; preds = %24, %18
-  call void @_ZN4llvm14DbgLabelRecordC1EPNS_7DILabelENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef %21, ptr noundef nonnull %6) #18
-  %26 = load ptr, ptr %6, align 8, !tbaa !3
-  %.not.i.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i, label %27
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i:      ; preds = %25, %19
+  call void @_ZN4llvm14DbgLabelRecordC1EPNS_7DILabelENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %22, ptr noundef nonnull %6) #18
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i, label %28
 
-27:                                               ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %26) #18
+28:                                               ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %27) #18
   br label %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i
 
-_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i:         ; preds = %27, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i
+_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i:         ; preds = %28, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK4llvm9DbgRecord5cloneEv.exit
 
-_ZNK4llvm9DbgRecord5cloneEv.exit:                 ; preds = %16, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  store ptr %0, ptr %28, align 8, !tbaa !93
-  %29 = load ptr, ptr %.sroa.013.0, align 8, !tbaa !94
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store ptr %.sroa.013.0, ptr %30, align 8, !tbaa !95
-  store ptr %29, ptr %.0.i, align 8, !tbaa !94
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %.0.i, ptr %31, align 8, !tbaa !95
+_ZNK4llvm9DbgRecord5cloneEv.exit:                 ; preds = %17, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i
+  %.0.i = phi ptr [ %18, %17 ], [ %20, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  store ptr %0, ptr %29, align 8, !tbaa !93
+  %30 = load ptr, ptr %.sroa.013.0, align 8, !tbaa !94
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store ptr %.sroa.013.0, ptr %31, align 8, !tbaa !95
+  store ptr %30, ptr %.0.i, align 8, !tbaa !94
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %.0.i, ptr %32, align 8, !tbaa !95
   store ptr %.0.i, ptr %.sroa.013.0, align 8, !tbaa !94
   %.not27 = icmp eq ptr %.041, null
   %spec.select = select i1 %.not27, ptr %.0.i, ptr %.041
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !95
-  %.not38 = icmp eq ptr %33, %7
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !95
+  %.not38 = icmp eq ptr %34, %7
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm9DbgRecord5cloneEv.exit
-  %34 = load ptr, ptr %11, align 8
-  %spec.select47 = select i1 %4, ptr %34, ptr %spec.select
+  %35 = load ptr, ptr %11, align 8
+  %spec.select47 = select i1 %4, ptr %35, ptr %spec.select
   %spec.select48 = select i1 %4, ptr %12, ptr %13
-  br label %35
+  br label %36
 
-35:                                               ; preds = %._crit_edge, %5
+36:                                               ; preds = %._crit_edge, %5
   %.sroa.036.0 = phi ptr [ %13, %5 ], [ %spec.select47, %._crit_edge ]
   %.sroa.4.0 = phi ptr [ %13, %5 ], [ %spec.select48, %._crit_edge ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.036.0, 0

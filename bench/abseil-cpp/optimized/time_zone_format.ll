@@ -2462,31 +2462,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit725: ; pre
   %1060 = phi i1 [ true, %1057 ], [ false, %1055 ], [ false, %984 ], [ false, %986 ]
   %.1.i726 = phi ptr [ %1058, %1057 ], [ %720, %1055 ], [ %720, %984 ], [ %720, %986 ]
   %1061 = sext i8 %1059 to i32
-  %memchr96.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %1061, i64 11)
-  %.not7397.i = icmp eq ptr %memchr96.i, null
-  %1062 = ptrtoint ptr %memchr96.i to i64
+  %memchr95.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %1061, i64 11)
+  %.not7396.i = icmp eq ptr %memchr95.i, null
+  %1062 = ptrtoint ptr %memchr95.i to i64
   %1063 = trunc i64 %1062 to i32
   %1064 = sub i32 %1063, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %1065 = icmp sgt i32 %1064, 9
-  %or.cond1161 = or i1 %.not7397.i, %1065
+  %or.cond1161 = or i1 %.not7396.i, %1065
   br i1 %or.cond1161, label %select.unfold.i, label %.lr.ph1140
 
 .lr.ph1140:                                       ; preds = %.thread814, %1073
   %1066 = phi i32 [ %1080, %1073 ], [ %1064, %.thread814 ]
-  %.05398.i1139 = phi i32 [ %1075, %1073 ], [ 0, %.thread814 ]
-  %.3100.i1138 = phi ptr [ %1074, %1073 ], [ %.1.i726, %.thread814 ]
+  %.05397.i1139 = phi i32 [ %1075, %1073 ], [ 0, %.thread814 ]
+  %.399.i1138 = phi ptr [ %1074, %1073 ], [ %.1.i726, %.thread814 ]
   %1067 = phi i8 [ %1076, %1073 ], [ %1059, %.thread814 ]
-  %1068 = icmp slt i32 %.05398.i1139, -214748364
+  %1068 = icmp slt i32 %.05397.i1139, -214748364
   br i1 %1068, label %select.unfold.i, label %1069
 
 1069:                                             ; preds = %.lr.ph1140
-  %1070 = mul nsw i32 %.05398.i1139, 10
+  %1070 = mul nsw i32 %.05397.i1139, 10
   %1071 = or i32 %1066, -2147483648
   %1072 = icmp slt i32 %1070, %1071
   br i1 %1072, label %select.unfold.i, label %1073
 
 1073:                                             ; preds = %1069
-  %1074 = getelementptr inbounds nuw i8, ptr %.3100.i1138, i64 1
+  %1074 = getelementptr inbounds nuw i8, ptr %.399.i1138, i64 1
   %1075 = sub nsw i32 %1070, %1066
   %1076 = load i8, ptr %1074, align 1, !tbaa !13
   %1077 = sext i8 %1076 to i32
@@ -2501,14 +2501,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit725: ; pre
 
 select.unfold.i:                                  ; preds = %.lr.ph1140, %1069, %1073, %.thread814
   %1082 = phi i8 [ %1059, %.thread814 ], [ %1076, %1073 ], [ %1067, %1069 ], [ %1067, %.lr.ph1140 ]
-  %.154.ph.i = phi i32 [ 0, %.thread814 ], [ %1075, %1073 ], [ -2147483640, %1069 ], [ %.05398.i1139, %.lr.ph1140 ]
+  %.154.ph.i = phi i32 [ 0, %.thread814 ], [ %1075, %1073 ], [ -2147483640, %1069 ], [ %.05397.i1139, %.lr.ph1140 ]
   %.151.ph.not.i = phi i1 [ true, %.thread814 ], [ true, %1073 ], [ false, %1069 ], [ false, %.lr.ph1140 ]
-  %.4.ph.i = phi ptr [ %.1.i726, %.thread814 ], [ %1074, %1073 ], [ %.3100.i1138, %1069 ], [ %.3100.i1138, %.lr.ph1140 ]
+  %.4.ph.i = phi ptr [ %.1.i726, %.thread814 ], [ %1074, %1073 ], [ %.399.i1138, %1069 ], [ %.399.i1138, %.lr.ph1140 ]
   %1083 = icmp ne ptr %.4.ph.i, %.1.i726
-  %or.cond.not95.i = and i1 %.151.ph.not.i, %1083
+  %or.cond.not94.i = and i1 %.151.ph.not.i, %1083
   %1084 = icmp ne i32 %.154.ph.i, -2147483648
   %or.cond3.i727 = select i1 %1060, i1 true, i1 %1084
-  %or.cond76.i = select i1 %or.cond.not95.i, i1 %or.cond3.i727, i1 false
+  %or.cond76.i = select i1 %or.cond.not94.i, i1 %or.cond3.i727, i1 false
   %or.cond76.not.i = xor i1 %or.cond76.i, true
   %1085 = icmp eq i32 %.154.ph.i, 0
   %or.cond5.not.i = select i1 %1060, i1 %1085, i1 false
@@ -3188,44 +3188,44 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL
   %.044 = phi i32 [ %.145, %10 ], [ %1, %6 ]
   %.1 = phi ptr [ %11, %10 ], [ %0, %6 ]
   %14 = sext i8 %13 to i32
-  %memchr96 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %14, i64 11)
-  %.not7397 = icmp eq ptr %memchr96, null
-  br i1 %.not7397, label %select.unfold, label %.lr.ph
+  %memchr95 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %14, i64 11)
+  %.not7396 = icmp eq ptr %memchr95, null
+  br i1 %.not7396, label %select.unfold, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %28
-  %memchr101 = phi ptr [ %memchr, %28 ], [ %memchr96, %12 ]
-  %.3100 = phi ptr [ %27, %28 ], [ %.1, %12 ]
-  %.24699 = phi i32 [ %.347, %28 ], [ %.044, %12 ]
-  %.05398 = phi i32 [ %26, %28 ], [ 0, %12 ]
-  %15 = ptrtoint ptr %memchr101 to i64
+  %memchr100 = phi ptr [ %memchr, %28 ], [ %memchr95, %12 ]
+  %.399 = phi ptr [ %27, %28 ], [ %.1, %12 ]
+  %.24698 = phi i32 [ %.347, %28 ], [ %.044, %12 ]
+  %.05397 = phi i32 [ %26, %28 ], [ 0, %12 ]
+  %15 = ptrtoint ptr %memchr100 to i64
   %16 = trunc i64 %15 to i32
   %17 = sub i32 %16, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %18 = icmp sgt i32 %17, 9
   br i1 %18, label %select.unfold, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = icmp slt i32 %.05398, -214748364
+  %20 = icmp slt i32 %.05397, -214748364
   br i1 %20, label %select.unfold, label %21
 
 21:                                               ; preds = %19
-  %22 = mul nsw i32 %.05398, 10
+  %22 = mul nsw i32 %.05397, 10
   %23 = or i32 %17, -2147483648
   %24 = icmp slt i32 %22, %23
   br i1 %24, label %select.unfold, label %25
 
 25:                                               ; preds = %21
   %26 = sub nsw i32 %22, %17
-  %27 = getelementptr inbounds nuw i8, ptr %.3100, i64 1
-  switch i32 %.24699, label %.fold.split125 [
+  %27 = getelementptr inbounds nuw i8, ptr %.399, i64 1
+  switch i32 %.24698, label %.fold.split124 [
     i32 0, label %28
     i32 1, label %select.unfold
   ]
 
-.fold.split125:                                   ; preds = %25
+.fold.split124:                                   ; preds = %25
   br label %28
 
-28:                                               ; preds = %25, %.fold.split125
-  %.347 = phi i32 [ %.24699, %25 ], [ 1, %.fold.split125 ]
+28:                                               ; preds = %25, %.fold.split124
+  %.347 = phi i32 [ %.24698, %25 ], [ 1, %.fold.split124 ]
   %29 = load i8, ptr %27, align 1, !tbaa !13
   %30 = sext i8 %29 to i32
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %30, i64 11)
@@ -3233,14 +3233,14 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL
   br i1 %.not73, label %select.unfold, label %.lr.ph
 
 select.unfold:                                    ; preds = %21, %19, %.lr.ph, %28, %25, %12
-  %.154.ph = phi i32 [ 0, %12 ], [ %26, %28 ], [ %.05398, %.lr.ph ], [ %.05398, %19 ], [ -2147483640, %21 ], [ %26, %25 ]
+  %.154.ph = phi i32 [ 0, %12 ], [ %26, %28 ], [ %.05397, %.lr.ph ], [ %.05397, %19 ], [ -2147483640, %21 ], [ %26, %25 ]
   %.151.ph.not = phi i1 [ true, %12 ], [ true, %28 ], [ true, %.lr.ph ], [ false, %19 ], [ false, %21 ], [ true, %25 ]
-  %.4.ph = phi ptr [ %.1, %12 ], [ %27, %28 ], [ %.3100, %.lr.ph ], [ %.3100, %19 ], [ %.3100, %21 ], [ %27, %25 ]
+  %.4.ph = phi ptr [ %.1, %12 ], [ %27, %28 ], [ %.399, %.lr.ph ], [ %.399, %19 ], [ %.399, %21 ], [ %27, %25 ]
   %31 = icmp ne ptr %.4.ph, %.1
-  %or.cond.not95 = and i1 %.151.ph.not, %31
+  %or.cond.not94 = and i1 %.151.ph.not, %31
   %32 = icmp ne i32 %.154.ph, -2147483648
   %or.cond3 = select i1 %8, i1 true, i1 %32
-  %or.cond76 = select i1 %or.cond.not95, i1 %or.cond3, i1 false
+  %or.cond76 = select i1 %or.cond.not94, i1 %or.cond3, i1 false
   %or.cond76.not = xor i1 %or.cond76, true
   %33 = icmp eq i32 %.154.ph, 0
   %or.cond5.not = select i1 %8, i1 %33, i1 false
@@ -3452,33 +3452,33 @@ select.unfold.backedge:                           ; preds = %.preheader414, %65
   %81 = phi i8 [ %.pre.i, %78 ], [ %76, %75 ]
   %.1.i = phi ptr [ %79, %78 ], [ %.1171461716, %75 ]
   %82 = sext i8 %81 to i32
-  %memchr95.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %82, i64 11)
-  %.not7296.i = icmp eq ptr %memchr95.i, null
-  br i1 %.not7296.i, label %select.unfold.i, label %.lr.ph.i
+  %memchr94.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %82, i64 11)
+  %.not7295.i = icmp eq ptr %memchr94.i, null
+  br i1 %.not7295.i, label %select.unfold.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %80, %94
-  %memchr100.i = phi ptr [ %memchr.i, %94 ], [ %memchr95.i, %80 ]
-  %.399.i = phi ptr [ %95, %94 ], [ %.1.i, %80 ]
-  %.05397.i = phi i64 [ %96, %94 ], [ 0, %80 ]
-  %83 = ptrtoint ptr %memchr100.i to i64
+  %memchr99.i = phi ptr [ %memchr.i, %94 ], [ %memchr94.i, %80 ]
+  %.398.i = phi ptr [ %95, %94 ], [ %.1.i, %80 ]
+  %.05396.i = phi i64 [ %96, %94 ], [ 0, %80 ]
+  %83 = ptrtoint ptr %memchr99.i to i64
   %84 = trunc i64 %83 to i32
   %85 = sub i32 %84, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %86 = icmp sgt i32 %85, 9
   br i1 %86, label %select.unfold.i, label %87
 
 87:                                               ; preds = %.lr.ph.i
-  %88 = icmp slt i64 %.05397.i, -922337203685477580
+  %88 = icmp slt i64 %.05396.i, -922337203685477580
   br i1 %88, label %select.unfold.i, label %89
 
 89:                                               ; preds = %87
-  %90 = mul nsw i64 %.05397.i, 10
+  %90 = mul nsw i64 %.05396.i, 10
   %91 = sext i32 %85 to i64
   %92 = or i64 %91, -9223372036854775808
   %93 = icmp slt i64 %90, %92
   br i1 %93, label %select.unfold.i, label %94
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds nuw i8, ptr %.399.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.398.i, i64 1
   %96 = sub nsw i64 %90, %91
   %97 = load i8, ptr %95, align 1, !tbaa !13
   %98 = sext i8 %97 to i32
@@ -3487,14 +3487,14 @@ select.unfold.backedge:                           ; preds = %.preheader414, %65
   br i1 %.not72.i, label %select.unfold.i, label %.lr.ph.i
 
 select.unfold.i:                                  ; preds = %94, %89, %87, %.lr.ph.i, %80
-  %.154.ph.i = phi i64 [ 0, %80 ], [ -9223372036854775800, %89 ], [ %.05397.i, %87 ], [ %.05397.i, %.lr.ph.i ], [ %96, %94 ]
+  %.154.ph.i = phi i64 [ 0, %80 ], [ -9223372036854775800, %89 ], [ %.05396.i, %87 ], [ %.05396.i, %.lr.ph.i ], [ %96, %94 ]
   %.151.ph.not.i = phi i1 [ true, %80 ], [ false, %89 ], [ false, %87 ], [ true, %.lr.ph.i ], [ true, %94 ]
-  %.4.ph.i = phi ptr [ %.1.i, %80 ], [ %.399.i, %89 ], [ %.399.i, %87 ], [ %.399.i, %.lr.ph.i ], [ %95, %94 ]
+  %.4.ph.i = phi ptr [ %.1.i, %80 ], [ %.398.i, %89 ], [ %.398.i, %87 ], [ %.398.i, %.lr.ph.i ], [ %95, %94 ]
   %99 = icmp ne ptr %.4.ph.i, %.1.i
-  %or.cond.not94.i = and i1 %.151.ph.not.i, %99
+  %or.cond.not93.i = and i1 %.151.ph.not.i, %99
   %100 = icmp ne i64 %.154.ph.i, -9223372036854775808
   %or.cond3.i = select i1 %77, i1 true, i1 %100
-  %or.cond75.i = select i1 %or.cond.not94.i, i1 %or.cond3.i, i1 false
+  %or.cond75.i = select i1 %or.cond.not93.i, i1 %or.cond3.i, i1 false
   %or.cond75.not.i = xor i1 %or.cond75.i, true
   %101 = icmp eq i64 %.154.ph.i, 0
   %or.cond5.not.i = select i1 %77, i1 %101, i1 false
@@ -3660,33 +3660,33 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_19ParseZoneEPKcPNSt7__cxx1112bas
   %166 = phi i8 [ %.pre.i343, %163 ], [ %161, %160 ]
   %.1.i319 = phi ptr [ %164, %163 ], [ %.1171461716, %160 ]
   %167 = sext i8 %166 to i32
-  %memchr95.i320 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %167, i64 11)
-  %.not7296.i321 = icmp eq ptr %memchr95.i320, null
-  br i1 %.not7296.i321, label %select.unfold.i330, label %.lr.ph.i322
+  %memchr94.i320 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %167, i64 11)
+  %.not7295.i321 = icmp eq ptr %memchr94.i320, null
+  br i1 %.not7295.i321, label %select.unfold.i330, label %.lr.ph.i322
 
 .lr.ph.i322:                                      ; preds = %165, %179
-  %memchr100.i323 = phi ptr [ %memchr.i328, %179 ], [ %memchr95.i320, %165 ]
-  %.399.i324 = phi ptr [ %180, %179 ], [ %.1.i319, %165 ]
-  %.05397.i326 = phi i64 [ %181, %179 ], [ 0, %165 ]
-  %168 = ptrtoint ptr %memchr100.i323 to i64
+  %memchr99.i323 = phi ptr [ %memchr.i328, %179 ], [ %memchr94.i320, %165 ]
+  %.398.i324 = phi ptr [ %180, %179 ], [ %.1.i319, %165 ]
+  %.05396.i326 = phi i64 [ %181, %179 ], [ 0, %165 ]
+  %168 = ptrtoint ptr %memchr99.i323 to i64
   %169 = trunc i64 %168 to i32
   %170 = sub i32 %169, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %171 = icmp sgt i32 %170, 9
   br i1 %171, label %select.unfold.i330, label %172
 
 172:                                              ; preds = %.lr.ph.i322
-  %173 = icmp slt i64 %.05397.i326, -922337203685477580
+  %173 = icmp slt i64 %.05396.i326, -922337203685477580
   br i1 %173, label %select.unfold.i330, label %174
 
 174:                                              ; preds = %172
-  %175 = mul nsw i64 %.05397.i326, 10
+  %175 = mul nsw i64 %.05396.i326, 10
   %176 = sext i32 %170 to i64
   %177 = or i64 %176, -9223372036854775808
   %178 = icmp slt i64 %175, %177
   br i1 %178, label %select.unfold.i330, label %179
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds nuw i8, ptr %.399.i324, i64 1
+  %180 = getelementptr inbounds nuw i8, ptr %.398.i324, i64 1
   %181 = sub nsw i64 %175, %176
   %182 = load i8, ptr %180, align 1, !tbaa !13
   %183 = sext i8 %182 to i32
@@ -3695,14 +3695,14 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_19ParseZoneEPKcPNSt7__cxx1112bas
   br i1 %.not72.i329, label %select.unfold.i330, label %.lr.ph.i322
 
 select.unfold.i330:                               ; preds = %179, %174, %172, %.lr.ph.i322, %165
-  %.154.ph.i331 = phi i64 [ 0, %165 ], [ -9223372036854775800, %174 ], [ %.05397.i326, %172 ], [ %.05397.i326, %.lr.ph.i322 ], [ %181, %179 ]
+  %.154.ph.i331 = phi i64 [ 0, %165 ], [ -9223372036854775800, %174 ], [ %.05396.i326, %172 ], [ %.05396.i326, %.lr.ph.i322 ], [ %181, %179 ]
   %.151.ph.not.i332 = phi i1 [ true, %165 ], [ false, %174 ], [ false, %172 ], [ true, %.lr.ph.i322 ], [ true, %179 ]
-  %.4.ph.i333 = phi ptr [ %.1.i319, %165 ], [ %.399.i324, %174 ], [ %.399.i324, %172 ], [ %.399.i324, %.lr.ph.i322 ], [ %180, %179 ]
+  %.4.ph.i333 = phi ptr [ %.1.i319, %165 ], [ %.398.i324, %174 ], [ %.398.i324, %172 ], [ %.398.i324, %.lr.ph.i322 ], [ %180, %179 ]
   %184 = icmp ne ptr %.4.ph.i333, %.1.i319
-  %or.cond.not94.i334 = and i1 %.151.ph.not.i332, %184
+  %or.cond.not93.i334 = and i1 %.151.ph.not.i332, %184
   %185 = icmp ne i64 %.154.ph.i331, -9223372036854775808
   %or.cond3.i335 = select i1 %162, i1 true, i1 %185
-  %or.cond75.i336 = select i1 %or.cond.not94.i334, i1 %or.cond3.i335, i1 false
+  %or.cond75.i336 = select i1 %or.cond.not93.i334, i1 %or.cond3.i335, i1 false
   %or.cond75.not.i337 = xor i1 %or.cond75.i336, true
   %186 = icmp eq i64 %.154.ph.i331, 0
   %or.cond5.not.i338 = select i1 %162, i1 %186, i1 false
@@ -4732,27 +4732,27 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL
   %.044 = phi i32 [ %.145, %12 ], [ %1, %5 ]
   %.1 = phi ptr [ %13, %12 ], [ %0, %5 ]
   %16 = sext i8 %15 to i32
-  %memchr95 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %16, i64 11)
-  %.not7296 = icmp eq ptr %memchr95, null
-  br i1 %.not7296, label %select.unfold, label %.lr.ph
+  %memchr94 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %16, i64 11)
+  %.not7295 = icmp eq ptr %memchr94, null
+  br i1 %.not7295, label %select.unfold, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %35
-  %memchr100 = phi ptr [ %memchr, %35 ], [ %memchr95, %14 ]
-  %.399 = phi ptr [ %30, %35 ], [ %.1, %14 ]
-  %.24698 = phi i32 [ %.347, %35 ], [ %.044, %14 ]
-  %.05397 = phi i64 [ %29, %35 ], [ 0, %14 ]
-  %17 = ptrtoint ptr %memchr100 to i64
+  %memchr99 = phi ptr [ %memchr, %35 ], [ %memchr94, %14 ]
+  %.398 = phi ptr [ %30, %35 ], [ %.1, %14 ]
+  %.24697 = phi i32 [ %.347, %35 ], [ %.044, %14 ]
+  %.05396 = phi i64 [ %29, %35 ], [ 0, %14 ]
+  %17 = ptrtoint ptr %memchr99 to i64
   %18 = trunc i64 %17 to i32
   %19 = sub i32 %18, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %20 = icmp sgt i32 %19, 9
   br i1 %20, label %select.unfold, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = icmp slt i64 %.05397, -922337203685477580
+  %22 = icmp slt i64 %.05396, -922337203685477580
   br i1 %22, label %select.unfold, label %23
 
 23:                                               ; preds = %21
-  %24 = mul nsw i64 %.05397, 10
+  %24 = mul nsw i64 %.05396, 10
   %25 = sext i32 %19 to i64
   %26 = or i64 %25, -9223372036854775808
   %27 = icmp slt i64 %24, %26
@@ -4760,12 +4760,12 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL
 
 28:                                               ; preds = %23
   %29 = sub nsw i64 %24, %25
-  %30 = getelementptr inbounds nuw i8, ptr %.399, i64 1
-  %31 = icmp sgt i32 %.24698, 0
+  %30 = getelementptr inbounds nuw i8, ptr %.398, i64 1
+  %31 = icmp sgt i32 %.24697, 0
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.24698, -1
+  %33 = add nsw i32 %.24697, -1
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %select.unfold, label %35
 
@@ -4778,14 +4778,14 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL
   br i1 %.not72, label %select.unfold, label %.lr.ph
 
 select.unfold:                                    ; preds = %23, %21, %.lr.ph, %35, %32, %14
-  %.154.ph = phi i64 [ 0, %14 ], [ %29, %32 ], [ %29, %35 ], [ %.05397, %.lr.ph ], [ %.05397, %21 ], [ -9223372036854775800, %23 ]
+  %.154.ph = phi i64 [ 0, %14 ], [ %29, %32 ], [ %29, %35 ], [ %.05396, %.lr.ph ], [ %.05396, %21 ], [ -9223372036854775800, %23 ]
   %.151.ph.not = phi i1 [ true, %14 ], [ true, %32 ], [ true, %35 ], [ true, %.lr.ph ], [ false, %21 ], [ false, %23 ]
-  %.4.ph = phi ptr [ %.1, %14 ], [ %30, %32 ], [ %30, %35 ], [ %.399, %.lr.ph ], [ %.399, %21 ], [ %.399, %23 ]
+  %.4.ph = phi ptr [ %.1, %14 ], [ %30, %32 ], [ %30, %35 ], [ %.398, %.lr.ph ], [ %.398, %21 ], [ %.398, %23 ]
   %38 = icmp ne ptr %.4.ph, %.1
-  %or.cond.not94 = and i1 %.151.ph.not, %38
+  %or.cond.not93 = and i1 %.151.ph.not, %38
   %39 = icmp ne i64 %.154.ph, -9223372036854775808
   %or.cond3 = select i1 %7, i1 true, i1 %39
-  %or.cond75 = select i1 %or.cond.not94, i1 %or.cond3, i1 false
+  %or.cond75 = select i1 %or.cond.not93, i1 %or.cond3, i1 false
   %or.cond75.not = xor i1 %or.cond75, true
   %40 = icmp eq i64 %.154.ph, 0
   %or.cond5.not = select i1 %7, i1 %40, i1 false
@@ -4833,52 +4833,52 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL
   %12 = phi i8 [ %.pre.i, %9 ], [ %7, %6 ]
   %.1.i = phi ptr [ %10, %9 ], [ %3, %6 ]
   %13 = sext i8 %12 to i32
-  %memchr96.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %13, i64 11)
-  %.not7397.i = icmp eq ptr %memchr96.i, null
-  br i1 %.not7397.i, label %select.unfold.i, label %.lr.ph.i
+  %memchr95.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %13, i64 11)
+  %.not7396.i = icmp eq ptr %memchr95.i, null
+  br i1 %.not7396.i, label %select.unfold.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %11, %.fold.split125.i
-  %memchr101.i = phi ptr [ %memchr.i, %.fold.split125.i ], [ %memchr96.i, %11 ]
-  %.3100.i = phi ptr [ %26, %.fold.split125.i ], [ %.1.i, %11 ]
-  %.24699.i = phi i1 [ true, %.fold.split125.i ], [ %8, %11 ]
-  %.05398.i = phi i32 [ %25, %.fold.split125.i ], [ 0, %11 ]
-  %14 = ptrtoint ptr %memchr101.i to i64
+.lr.ph.i:                                         ; preds = %11, %.fold.split124.i
+  %memchr100.i = phi ptr [ %memchr.i, %.fold.split124.i ], [ %memchr95.i, %11 ]
+  %.399.i = phi ptr [ %26, %.fold.split124.i ], [ %.1.i, %11 ]
+  %.24698.i = phi i1 [ true, %.fold.split124.i ], [ %8, %11 ]
+  %.05397.i = phi i32 [ %25, %.fold.split124.i ], [ 0, %11 ]
+  %14 = ptrtoint ptr %memchr100.i to i64
   %15 = trunc i64 %14 to i32
   %16 = sub i32 %15, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %17 = icmp sgt i32 %16, 9
   br i1 %17, label %select.unfold.i, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = icmp slt i32 %.05398.i, -214748364
+  %19 = icmp slt i32 %.05397.i, -214748364
   br i1 %19, label %select.unfold.i, label %20
 
 20:                                               ; preds = %18
-  %21 = mul nsw i32 %.05398.i, 10
+  %21 = mul nsw i32 %.05397.i, 10
   %22 = or i32 %16, -2147483648
   %23 = icmp slt i32 %21, %22
   br i1 %23, label %select.unfold.i, label %24
 
 24:                                               ; preds = %20
   %25 = sub nsw i32 %21, %16
-  %26 = getelementptr inbounds nuw i8, ptr %.3100.i, i64 1
-  br i1 %.24699.i, label %select.unfold.i, label %.fold.split125.i
+  %26 = getelementptr inbounds nuw i8, ptr %.399.i, i64 1
+  br i1 %.24698.i, label %select.unfold.i, label %.fold.split124.i
 
-.fold.split125.i:                                 ; preds = %24
+.fold.split124.i:                                 ; preds = %24
   %27 = load i8, ptr %26, align 1, !tbaa !13
   %28 = sext i8 %27 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %28, i64 11)
   %.not73.i = icmp eq ptr %memchr.i, null
   br i1 %.not73.i, label %select.unfold.i, label %.lr.ph.i
 
-select.unfold.i:                                  ; preds = %.fold.split125.i, %20, %18, %.lr.ph.i, %24, %11
-  %.154.ph.i = phi i32 [ 0, %11 ], [ %25, %24 ], [ -2147483640, %20 ], [ %.05398.i, %18 ], [ %.05398.i, %.lr.ph.i ], [ %25, %.fold.split125.i ]
-  %.151.ph.not.i = phi i1 [ true, %11 ], [ true, %24 ], [ false, %20 ], [ false, %18 ], [ true, %.lr.ph.i ], [ true, %.fold.split125.i ]
-  %.4.ph.i = phi ptr [ %.1.i, %11 ], [ %26, %24 ], [ %.3100.i, %20 ], [ %.3100.i, %18 ], [ %.3100.i, %.lr.ph.i ], [ %26, %.fold.split125.i ]
+select.unfold.i:                                  ; preds = %.fold.split124.i, %20, %18, %.lr.ph.i, %24, %11
+  %.154.ph.i = phi i32 [ 0, %11 ], [ %25, %24 ], [ -2147483640, %20 ], [ %.05397.i, %18 ], [ %.05397.i, %.lr.ph.i ], [ %25, %.fold.split124.i ]
+  %.151.ph.not.i = phi i1 [ true, %11 ], [ true, %24 ], [ false, %20 ], [ false, %18 ], [ true, %.lr.ph.i ], [ true, %.fold.split124.i ]
+  %.4.ph.i = phi ptr [ %.1.i, %11 ], [ %26, %24 ], [ %.399.i, %20 ], [ %.399.i, %18 ], [ %.399.i, %.lr.ph.i ], [ %26, %.fold.split124.i ]
   %29 = icmp ne ptr %.4.ph.i, %.1.i
-  %or.cond.not95.i = and i1 %.151.ph.not.i, %29
+  %or.cond.not94.i = and i1 %.151.ph.not.i, %29
   %30 = icmp ne i32 %.154.ph.i, -2147483648
   %or.cond3.i = select i1 %8, i1 true, i1 %30
-  %or.cond76.i = select i1 %or.cond.not95.i, i1 %or.cond3.i, i1 false
+  %or.cond76.i = select i1 %or.cond.not94.i, i1 %or.cond3.i, i1 false
   %or.cond76.not.i = xor i1 %or.cond76.i, true
   %31 = icmp eq i32 %.154.ph.i, 0
   %or.cond5.not.i = select i1 %8, i1 %31, i1 false
@@ -4922,52 +4922,52 @@ select.unfold.i:                                  ; preds = %.fold.split125.i, %
   %48 = phi i8 [ %.pre.i95, %45 ], [ %43, %42 ]
   %.1.i68 = phi ptr [ %46, %45 ], [ %.041, %42 ]
   %49 = sext i8 %48 to i32
-  %memchr96.i69 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %49, i64 11)
-  %.not7397.i70 = icmp eq ptr %memchr96.i69, null
-  br i1 %.not7397.i70, label %select.unfold.i76, label %.lr.ph.i71
+  %memchr95.i69 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %49, i64 11)
+  %.not7396.i70 = icmp eq ptr %memchr95.i69, null
+  br i1 %.not7396.i70, label %select.unfold.i76, label %.lr.ph.i71
 
-.lr.ph.i71:                                       ; preds = %47, %.fold.split125.i94
-  %memchr101.i72 = phi ptr [ %memchr.i92, %.fold.split125.i94 ], [ %memchr96.i69, %47 ]
-  %.3100.i73 = phi ptr [ %62, %.fold.split125.i94 ], [ %.1.i68, %47 ]
-  %.24699.i74 = phi i1 [ true, %.fold.split125.i94 ], [ %44, %47 ]
-  %.05398.i75 = phi i32 [ %61, %.fold.split125.i94 ], [ 0, %47 ]
-  %50 = ptrtoint ptr %memchr101.i72 to i64
+.lr.ph.i71:                                       ; preds = %47, %.fold.split124.i94
+  %memchr100.i72 = phi ptr [ %memchr.i92, %.fold.split124.i94 ], [ %memchr95.i69, %47 ]
+  %.399.i73 = phi ptr [ %62, %.fold.split124.i94 ], [ %.1.i68, %47 ]
+  %.24698.i74 = phi i1 [ true, %.fold.split124.i94 ], [ %44, %47 ]
+  %.05397.i75 = phi i32 [ %61, %.fold.split124.i94 ], [ 0, %47 ]
+  %50 = ptrtoint ptr %memchr100.i72 to i64
   %51 = trunc i64 %50 to i32
   %52 = sub i32 %51, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %53 = icmp sgt i32 %52, 9
   br i1 %53, label %select.unfold.i76, label %54
 
 54:                                               ; preds = %.lr.ph.i71
-  %55 = icmp slt i32 %.05398.i75, -214748364
+  %55 = icmp slt i32 %.05397.i75, -214748364
   br i1 %55, label %select.unfold.i76, label %56
 
 56:                                               ; preds = %54
-  %57 = mul nsw i32 %.05398.i75, 10
+  %57 = mul nsw i32 %.05397.i75, 10
   %58 = or i32 %52, -2147483648
   %59 = icmp slt i32 %57, %58
   br i1 %59, label %select.unfold.i76, label %60
 
 60:                                               ; preds = %56
   %61 = sub nsw i32 %57, %52
-  %62 = getelementptr inbounds nuw i8, ptr %.3100.i73, i64 1
-  br i1 %.24699.i74, label %select.unfold.i76, label %.fold.split125.i94
+  %62 = getelementptr inbounds nuw i8, ptr %.399.i73, i64 1
+  br i1 %.24698.i74, label %select.unfold.i76, label %.fold.split124.i94
 
-.fold.split125.i94:                               ; preds = %60
+.fold.split124.i94:                               ; preds = %60
   %63 = load i8, ptr %62, align 1, !tbaa !13
   %64 = sext i8 %63 to i32
   %memchr.i92 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %64, i64 11)
   %.not73.i93 = icmp eq ptr %memchr.i92, null
   br i1 %.not73.i93, label %select.unfold.i76, label %.lr.ph.i71
 
-select.unfold.i76:                                ; preds = %.fold.split125.i94, %56, %54, %.lr.ph.i71, %60, %47
-  %.154.ph.i77 = phi i32 [ 0, %47 ], [ %61, %60 ], [ -2147483640, %56 ], [ %.05398.i75, %54 ], [ %.05398.i75, %.lr.ph.i71 ], [ %61, %.fold.split125.i94 ]
-  %.151.ph.not.i78 = phi i1 [ true, %47 ], [ true, %60 ], [ false, %56 ], [ false, %54 ], [ true, %.lr.ph.i71 ], [ true, %.fold.split125.i94 ]
-  %.4.ph.i79 = phi ptr [ %.1.i68, %47 ], [ %62, %60 ], [ %.3100.i73, %56 ], [ %.3100.i73, %54 ], [ %.3100.i73, %.lr.ph.i71 ], [ %62, %.fold.split125.i94 ]
+select.unfold.i76:                                ; preds = %.fold.split124.i94, %56, %54, %.lr.ph.i71, %60, %47
+  %.154.ph.i77 = phi i32 [ 0, %47 ], [ %61, %60 ], [ -2147483640, %56 ], [ %.05397.i75, %54 ], [ %.05397.i75, %.lr.ph.i71 ], [ %61, %.fold.split124.i94 ]
+  %.151.ph.not.i78 = phi i1 [ true, %47 ], [ true, %60 ], [ false, %56 ], [ false, %54 ], [ true, %.lr.ph.i71 ], [ true, %.fold.split124.i94 ]
+  %.4.ph.i79 = phi ptr [ %.1.i68, %47 ], [ %62, %60 ], [ %.399.i73, %56 ], [ %.399.i73, %54 ], [ %.399.i73, %.lr.ph.i71 ], [ %62, %.fold.split124.i94 ]
   %65 = icmp ne ptr %.4.ph.i79, %.1.i68
-  %or.cond.not95.i80 = and i1 %.151.ph.not.i78, %65
+  %or.cond.not94.i80 = and i1 %.151.ph.not.i78, %65
   %66 = icmp ne i32 %.154.ph.i77, -2147483648
   %or.cond3.i81 = select i1 %44, i1 true, i1 %66
-  %or.cond76.i82 = select i1 %or.cond.not95.i80, i1 %or.cond3.i81, i1 false
+  %or.cond76.i82 = select i1 %or.cond.not94.i80, i1 %or.cond3.i81, i1 false
   %or.cond76.not.i83 = xor i1 %or.cond76.i82, true
   %67 = icmp eq i32 %.154.ph.i77, 0
   %or.cond5.not.i84 = select i1 %44, i1 %67, i1 false
@@ -5012,52 +5012,52 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIiEEPKcS6_iT_S7_PS7_.e
   %84 = phi i8 [ %.pre.i126, %81 ], [ %79, %78 ]
   %.1.i99 = phi ptr [ %82, %81 ], [ %.040, %78 ]
   %85 = sext i8 %84 to i32
-  %memchr96.i100 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %85, i64 11)
-  %.not7397.i101 = icmp eq ptr %memchr96.i100, null
-  br i1 %.not7397.i101, label %select.unfold.i107, label %.lr.ph.i102
+  %memchr95.i100 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %85, i64 11)
+  %.not7396.i101 = icmp eq ptr %memchr95.i100, null
+  br i1 %.not7396.i101, label %select.unfold.i107, label %.lr.ph.i102
 
-.lr.ph.i102:                                      ; preds = %83, %.fold.split125.i125
-  %memchr101.i103 = phi ptr [ %memchr.i123, %.fold.split125.i125 ], [ %memchr96.i100, %83 ]
-  %.3100.i104 = phi ptr [ %98, %.fold.split125.i125 ], [ %.1.i99, %83 ]
-  %.24699.i105 = phi i1 [ true, %.fold.split125.i125 ], [ %80, %83 ]
-  %.05398.i106 = phi i32 [ %97, %.fold.split125.i125 ], [ 0, %83 ]
-  %86 = ptrtoint ptr %memchr101.i103 to i64
+.lr.ph.i102:                                      ; preds = %83, %.fold.split124.i125
+  %memchr100.i103 = phi ptr [ %memchr.i123, %.fold.split124.i125 ], [ %memchr95.i100, %83 ]
+  %.399.i104 = phi ptr [ %98, %.fold.split124.i125 ], [ %.1.i99, %83 ]
+  %.24698.i105 = phi i1 [ true, %.fold.split124.i125 ], [ %80, %83 ]
+  %.05397.i106 = phi i32 [ %97, %.fold.split124.i125 ], [ 0, %83 ]
+  %86 = ptrtoint ptr %memchr100.i103 to i64
   %87 = trunc i64 %86 to i32
   %88 = sub i32 %87, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %89 = icmp sgt i32 %88, 9
   br i1 %89, label %select.unfold.i107, label %90
 
 90:                                               ; preds = %.lr.ph.i102
-  %91 = icmp slt i32 %.05398.i106, -214748364
+  %91 = icmp slt i32 %.05397.i106, -214748364
   br i1 %91, label %select.unfold.i107, label %92
 
 92:                                               ; preds = %90
-  %93 = mul nsw i32 %.05398.i106, 10
+  %93 = mul nsw i32 %.05397.i106, 10
   %94 = or i32 %88, -2147483648
   %95 = icmp slt i32 %93, %94
   br i1 %95, label %select.unfold.i107, label %96
 
 96:                                               ; preds = %92
   %97 = sub nsw i32 %93, %88
-  %98 = getelementptr inbounds nuw i8, ptr %.3100.i104, i64 1
-  br i1 %.24699.i105, label %select.unfold.i107, label %.fold.split125.i125
+  %98 = getelementptr inbounds nuw i8, ptr %.399.i104, i64 1
+  br i1 %.24698.i105, label %select.unfold.i107, label %.fold.split124.i125
 
-.fold.split125.i125:                              ; preds = %96
+.fold.split124.i125:                              ; preds = %96
   %99 = load i8, ptr %98, align 1, !tbaa !13
   %100 = sext i8 %99 to i32
   %memchr.i123 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %100, i64 11)
   %.not73.i124 = icmp eq ptr %memchr.i123, null
   br i1 %.not73.i124, label %select.unfold.i107, label %.lr.ph.i102
 
-select.unfold.i107:                               ; preds = %.fold.split125.i125, %92, %90, %.lr.ph.i102, %96, %83
-  %.154.ph.i108 = phi i32 [ 0, %83 ], [ %97, %96 ], [ -2147483640, %92 ], [ %.05398.i106, %90 ], [ %.05398.i106, %.lr.ph.i102 ], [ %97, %.fold.split125.i125 ]
-  %.151.ph.not.i109 = phi i1 [ true, %83 ], [ true, %96 ], [ false, %92 ], [ false, %90 ], [ true, %.lr.ph.i102 ], [ true, %.fold.split125.i125 ]
-  %.4.ph.i110 = phi ptr [ %.1.i99, %83 ], [ %98, %96 ], [ %.3100.i104, %92 ], [ %.3100.i104, %90 ], [ %.3100.i104, %.lr.ph.i102 ], [ %98, %.fold.split125.i125 ]
+select.unfold.i107:                               ; preds = %.fold.split124.i125, %92, %90, %.lr.ph.i102, %96, %83
+  %.154.ph.i108 = phi i32 [ 0, %83 ], [ %97, %96 ], [ -2147483640, %92 ], [ %.05397.i106, %90 ], [ %.05397.i106, %.lr.ph.i102 ], [ %97, %.fold.split124.i125 ]
+  %.151.ph.not.i109 = phi i1 [ true, %83 ], [ true, %96 ], [ false, %92 ], [ false, %90 ], [ true, %.lr.ph.i102 ], [ true, %.fold.split124.i125 ]
+  %.4.ph.i110 = phi ptr [ %.1.i99, %83 ], [ %98, %96 ], [ %.399.i104, %92 ], [ %.399.i104, %90 ], [ %.399.i104, %.lr.ph.i102 ], [ %98, %.fold.split124.i125 ]
   %101 = icmp ne ptr %.4.ph.i110, %.1.i99
-  %or.cond.not95.i111 = and i1 %.151.ph.not.i109, %101
+  %or.cond.not94.i111 = and i1 %.151.ph.not.i109, %101
   %102 = icmp ne i32 %.154.ph.i108, -2147483648
   %or.cond3.i112 = select i1 %80, i1 true, i1 %102
-  %or.cond76.i113 = select i1 %or.cond.not95.i111, i1 %or.cond3.i112, i1 false
+  %or.cond76.i113 = select i1 %or.cond.not94.i111, i1 %or.cond3.i112, i1 false
   %or.cond76.not.i114 = xor i1 %or.cond76.i113, true
   %103 = icmp eq i32 %.154.ph.i108, 0
   %or.cond5.not.i115 = select i1 %80, i1 %103, i1 false
@@ -5116,59 +5116,59 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIiEEPKcS6_iT_S7_PS7_.e
 define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_115ParseSubSecondsEPKcPNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE(ptr noundef nonnull readonly captures(address, ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #3 {
   %3 = load i8, ptr %0, align 1, !tbaa !13
   %4 = sext i8 %3 to i32
-  %memchr39 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %4, i64 11)
-  %.not40 = icmp eq ptr %memchr39, null
-  br i1 %.not40, label %._crit_edge.thread, label %.lr.ph
+  %memchr38 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %4, i64 11)
+  %.not39 = icmp eq ptr %memchr38, null
+  br i1 %.not39, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %16
-  %memchr44 = phi ptr [ %memchr, %16 ], [ %memchr39, %2 ]
-  %.143 = phi ptr [ %17, %16 ], [ %0, %2 ]
-  %.01842 = phi i64 [ %.321, %16 ], [ 0, %2 ]
-  %.041 = phi i64 [ %.230, %16 ], [ 0, %2 ]
-  %5 = ptrtoint ptr %memchr44 to i64
+  %memchr43 = phi ptr [ %memchr, %16 ], [ %memchr38, %2 ]
+  %.142 = phi ptr [ %17, %16 ], [ %0, %2 ]
+  %.01841 = phi i64 [ %.321, %16 ], [ 0, %2 ]
+  %.040 = phi i64 [ %.230, %16 ], [ 0, %2 ]
+  %5 = ptrtoint ptr %memchr43 to i64
   %6 = trunc i64 %5 to i32
   %7 = sub i32 %6, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %8 = icmp sgt i32 %7, 9
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp slt i64 %.01842, 15
+  %10 = icmp slt i64 %.01841, 15
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %9
-  %12 = add nsw i64 %.01842, 1
-  %13 = mul nsw i64 %.041, 10
+  %12 = add nsw i64 %.01841, 1
+  %13 = mul nsw i64 %.040, 10
   %14 = sext i32 %7 to i64
   %15 = add nsw i64 %13, %14
   br label %16
 
 16:                                               ; preds = %9, %11
-  %.230 = phi i64 [ %15, %11 ], [ %.041, %9 ]
-  %.321 = phi i64 [ %12, %11 ], [ %.01842, %9 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.143, i64 1
+  %.230 = phi i64 [ %15, %11 ], [ %.040, %9 ]
+  %.321 = phi i64 [ %12, %11 ], [ %.01841, %9 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.142, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = sext i8 %18 to i32
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %19, i64 11)
   %.not = icmp eq ptr %memchr, null
-  br i1 %.not, label %._crit_edge.thread55, label %.lr.ph
+  br i1 %.not, label %._crit_edge.thread54, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not26 = icmp eq ptr %.143, %0
-  br i1 %.not26, label %._crit_edge.thread, label %._crit_edge.thread55
+  %.not26 = icmp eq ptr %.142, %0
+  br i1 %.not26, label %._crit_edge.thread, label %._crit_edge.thread54
 
-._crit_edge.thread55:                             ; preds = %16, %._crit_edge
-  %.321.pn = phi i64 [ %.01842, %._crit_edge ], [ %.321, %16 ]
-  %.1.lcssa.ph61 = phi ptr [ %.143, %._crit_edge ], [ %17, %16 ]
-  %.0.lcssa.ph60 = phi i64 [ %.041, %._crit_edge ], [ %.230, %16 ]
+._crit_edge.thread54:                             ; preds = %16, %._crit_edge
+  %.321.pn = phi i64 [ %.01841, %._crit_edge ], [ %.321, %16 ]
+  %.1.lcssa.ph60 = phi ptr [ %.142, %._crit_edge ], [ %17, %16 ]
+  %.0.lcssa.ph59 = phi i64 [ %.040, %._crit_edge ], [ %.230, %16 ]
   %20 = sub nsw i64 15, %.321.pn
   %21 = getelementptr inbounds i64, ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16kExp10E, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !49
-  %23 = mul nsw i64 %22, %.0.lcssa.ph60
+  %23 = mul nsw i64 %22, %.0.lcssa.ph59
   store i64 %23, ptr %1, align 8, !tbaa !49
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge, %._crit_edge.thread55
-  %.4 = phi ptr [ %.1.lcssa.ph61, %._crit_edge.thread55 ], [ null, %._crit_edge ], [ null, %2 ]
+._crit_edge.thread:                               ; preds = %2, %._crit_edge, %._crit_edge.thread54
+  %.4 = phi ptr [ %.1.lcssa.ph60, %._crit_edge.thread54 ], [ null, %._crit_edge ], [ null, %2 ]
   ret ptr %.4
 }
 
@@ -5690,52 +5690,52 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %29, 
   %58 = icmp sgt i32 %56, 300
   %59 = or i1 %57, %58
   %60 = select i1 %59, i64 36525, i64 36524
-  %.not151 = icmp samesign ugt i64 %.072, %60
-  br i1 %.not151, label %.lr.ph, label %.preheader133.preheader
+  %.not148 = icmp samesign ugt i64 %.072, %60
+  br i1 %.not148, label %.lr.ph, label %.preheader130.preheader
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %61 = phi i64 [ %68, %.lr.ph ], [ %60, %48 ]
-  %.274154 = phi i64 [ %62, %.lr.ph ], [ %.072, %48 ]
-  %.384153 = phi i64 [ %63, %.lr.ph ], [ %.182, %48 ]
-  %.092152 = phi i32 [ %spec.select, %.lr.ph ], [ %56, %48 ]
-  %62 = sub nuw nsw i64 %.274154, %61
-  %63 = add nsw i64 %.384153, 100
-  %64 = icmp sgt i32 %.092152, 299
+  %.274151 = phi i64 [ %62, %.lr.ph ], [ %.072, %48 ]
+  %.384150 = phi i64 [ %63, %.lr.ph ], [ %.182, %48 ]
+  %.092149 = phi i32 [ %spec.select, %.lr.ph ], [ %56, %48 ]
+  %62 = sub nuw nsw i64 %.274151, %61
+  %63 = add nsw i64 %.384150, 100
+  %64 = icmp sgt i32 %.092149, 299
   %spec.select.v = select i1 %64, i32 -300, i32 100
-  %spec.select = add nsw i32 %spec.select.v, %.092152
+  %spec.select = add nsw i32 %spec.select.v, %.092149
   %65 = icmp eq i32 %spec.select, 0
   %66 = icmp sgt i32 %spec.select, 300
   %67 = or i1 %65, %66
   %68 = select i1 %67, i64 36525, i64 36524
   %.not = icmp samesign ugt i64 %62, %68
-  br i1 %.not, label %.lr.ph, label %.preheader133.preheader
+  br i1 %.not, label %.lr.ph, label %.preheader130.preheader
 
-.preheader133.preheader:                          ; preds = %.lr.ph, %48
+.preheader130.preheader:                          ; preds = %.lr.ph, %48
   %.395.ph = phi i32 [ %56, %48 ], [ %spec.select, %.lr.ph ]
   %.586.ph = phi i64 [ %.182, %48 ], [ %63, %.lr.ph ]
   %.4.ph = phi i64 [ %.072, %48 ], [ %62, %.lr.ph ]
-  br label %.preheader133
+  br label %.preheader130
 
-.preheader133:                                    ; preds = %.preheader133.preheader, %77
-  %.395 = phi i32 [ %spec.select113, %77 ], [ %.395.ph, %.preheader133.preheader ]
-  %.586 = phi i64 [ %79, %77 ], [ %.586.ph, %.preheader133.preheader ]
-  %.4 = phi i64 [ %78, %77 ], [ %.4.ph, %.preheader133.preheader ]
+.preheader130:                                    ; preds = %.preheader130.preheader, %77
+  %.395 = phi i32 [ %spec.select113, %77 ], [ %.395.ph, %.preheader130.preheader ]
+  %.586 = phi i64 [ %79, %77 ], [ %.586.ph, %.preheader130.preheader ]
+  %.4 = phi i64 [ %78, %77 ], [ %.4.ph, %.preheader130.preheader ]
   %69 = icmp eq i32 %.395, 0
   %70 = icmp sgt i32 %.395, 300
-  %or.cond.i120 = or i1 %69, %70
-  br i1 %or.cond.i120, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %71
+  %or.cond.i118 = or i1 %69, %70
+  br i1 %or.cond.i118, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %71
 
-71:                                               ; preds = %.preheader133
+71:                                               ; preds = %.preheader130
   %72 = add nsw i32 %.395, -1
   %73 = srem i32 %72, 100
   %74 = icmp slt i32 %73, 96
   %75 = select i1 %74, i64 1461, i64 1460
   br label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
 
-_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit: ; preds = %.preheader133, %71
-  %76 = phi i64 [ 1461, %.preheader133 ], [ %75, %71 ]
+_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit: ; preds = %.preheader130, %71
+  %76 = phi i64 [ 1461, %.preheader130 ], [ %75, %71 ]
   %.not110 = icmp samesign ugt i64 %.4, %76
-  br i1 %.not110, label %77, label %.preheader132
+  br i1 %.not110, label %77, label %.preheader129
 
 77:                                               ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
   %78 = sub nuw nsw i64 %.4, %76
@@ -5743,55 +5743,55 @@ _ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit: ; preds = %.pr
   %80 = icmp sgt i32 %.395, 395
   %spec.select113.v = select i1 %80, i32 -396, i32 4
   %spec.select113 = add nsw i32 %spec.select113.v, %.395
-  br label %.preheader133
+  br label %.preheader130
 
-.preheader132:                                    ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124
-  %.788 = phi i64 [ %91, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124 ], [ %.586, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
-  %.6 = phi i64 [ %90, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124 ], [ %.4, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
+.preheader129:                                    ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122
+  %.788 = phi i64 [ %91, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122 ], [ %.586, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
+  %.6 = phi i64 [ %90, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122 ], [ %.4, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
   %81 = add i64 %.788, %50
   %82 = and i64 %81, 3
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124
+  br i1 %83, label %84, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122
 
-84:                                               ; preds = %.preheader132
+84:                                               ; preds = %.preheader129
   %85 = srem i64 %81, 100
-  %.not.i.i121 = icmp ne i64 %85, 0
+  %.not.i.i119 = icmp ne i64 %85, 0
   %86 = srem i64 %81, 400
   %87 = icmp eq i64 %86, 0
-  %or.cond.i122 = or i1 %.not.i.i121, %87
-  %88 = select i1 %or.cond.i122, i64 366, i64 365
-  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124
+  %or.cond.i120 = or i1 %.not.i.i119, %87
+  %88 = select i1 %or.cond.i120, i64 366, i64 365
+  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122
 
-_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124: ; preds = %.preheader132, %84
-  %89 = phi i64 [ 365, %.preheader132 ], [ %88, %84 ]
+_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122: ; preds = %.preheader129, %84
+  %89 = phi i64 [ 365, %.preheader129 ], [ %88, %84 ]
   %.not111 = icmp sgt i64 %.6, %89
   %90 = sub nsw i64 %.6, %89
   %91 = add nsw i64 %.788, 1
-  br i1 %.not111, label %.preheader132, label %.loopexit
+  br i1 %.not111, label %.preheader129, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124, %46
-  %.283 = phi i64 [ %.182, %46 ], [ %.788, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124 ]
-  %.173 = phi i64 [ %.072, %46 ], [ %.6, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124 ]
+.loopexit:                                        ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122, %46
+  %.283 = phi i64 [ %.182, %46 ], [ %.788, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122 ]
+  %.173 = phi i64 [ %.072, %46 ], [ %.6, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122 ]
   %92 = icmp sgt i64 %.173, 28
   br i1 %92, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %.loopexit, %108
-  %.1091 = phi i64 [ %spec.select116, %108 ], [ %.283, %.loopexit ]
+  %.1091 = phi i64 [ %spec.select115, %108 ], [ %.283, %.loopexit ]
   %.9 = phi i64 [ %109, %108 ], [ %.173, %.loopexit ]
-  %.1 = phi i8 [ %spec.select117, %108 ], [ %1, %.loopexit ]
+  %.1 = phi i8 [ %spec.select116, %108 ], [ %1, %.loopexit ]
   %93 = sext i8 %.1 to i64
   %94 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !33
   %96 = icmp eq i8 %.1, 2
   %97 = and i64 %.1091, 3
   %98 = icmp eq i64 %97, 0
-  %or.cond.i125 = and i1 %98, %96
-  br i1 %or.cond.i125, label %99, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+  %or.cond.i123 = and i1 %98, %96
+  br i1 %or.cond.i123, label %99, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
 99:                                               ; preds = %.preheader
   %100 = srem i64 %.1091, 100
-  %.not.i.i126 = icmp eq i64 %100, 0
-  br i1 %.not.i.i126, label %101, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+  %.not.i.i124 = icmp eq i64 %100, 0
+  br i1 %.not.i.i124, label %101, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
 101:                                              ; preds = %99
   %102 = srem i64 %.1091, 400
@@ -5811,8 +5811,8 @@ _ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %.pr
   %110 = add i8 %.1, 1
   %111 = icmp sgt i8 %110, 12
   %112 = zext i1 %111 to i64
-  %spec.select116 = add nsw i64 %.1091, %112
-  %spec.select117 = select i1 %111, i8 1, i8 %110
+  %spec.select115 = add nsw i64 %.1091, %112
+  %spec.select116 = select i1 %111, i8 1, i8 %110
   br label %.preheader
 
 .thread:                                          ; preds = %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit, %.loopexit

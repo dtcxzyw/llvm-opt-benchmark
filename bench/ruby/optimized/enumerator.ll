@@ -1564,8 +1564,8 @@ rb_obj_write.exit:                                ; preds = %40, %45
   %51 = getelementptr inbounds nuw i8, ptr %.021, i64 72
   %52 = load i64, ptr %51, align 8, !tbaa !45
   %53 = and i64 %52, -5
-  %.not19.i = icmp eq i64 %53, 0
-  br i1 %.not19.i, label %.loopexit, label %54
+  %.not18.i = icmp eq i64 %53, 0
+  br i1 %.not18.i, label %.loopexit, label %54
 
 54:                                               ; preds = %50
   %55 = inttoptr i64 %52 to ptr

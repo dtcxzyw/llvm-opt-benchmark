@@ -4241,8 +4241,8 @@ define linkonce_odr hidden void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !24
   %6 = add i32 %5, -48
-  %or.cond19 = icmp ult i32 %6, 10
-  br i1 %or.cond19, label %.lr.ph, label %7
+  %or.cond18 = icmp ult i32 %6, 10
+  br i1 %or.cond18, label %.lr.ph, label %7
 
 7:                                                ; preds = %1
   %8 = tail call ptr @__cxa_allocate_exception(i64 40) #26
@@ -4359,8 +4359,8 @@ define linkonce_odr hidden void @_ZN11z3_replayer3imp10read_int64Ev(ptr noundef 
 
 9:                                                ; preds = %1
   %10 = add i32 %7, -48
-  %or.cond35 = icmp ult i32 %10, 10
-  br i1 %or.cond35, label %.lr.ph, label %11
+  %or.cond34 = icmp ult i32 %10, 10
+  br i1 %or.cond34, label %.lr.ph, label %11
 
 11:                                               ; preds = %9
   %12 = tail call ptr @__cxa_allocate_exception(i64 40) #26
@@ -4439,8 +4439,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %39 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %38)
   store i32 %39, ptr %6, align 8, !tbaa !24
   %40 = add i32 %39, -48
-  %or.cond36 = icmp ult i32 %40, 10
-  br i1 %or.cond36, label %.lr.ph, label %41
+  %or.cond35 = icmp ult i32 %40, 10
+  br i1 %or.cond35, label %.lr.ph, label %41
 
 41:                                               ; preds = %36
   %42 = tail call ptr @__cxa_allocate_exception(i64 40) #26
@@ -4472,12 +4472,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   store ptr %46, ptr %44, align 8, !tbaa !8
   %54 = load i64, ptr %47, align 8, !tbaa !3
   store i64 %54, ptr %45, align 8, !tbaa !3
-  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre39 = load i64, ptr %.phi.trans.insert38, align 8, !tbaa !14
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !14
   br label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24
 
 _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24: ; preds = %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
-  %55 = phi i64 [ %51, %49 ], [ %.pre39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23 ]
+  %55 = phi i64 [ %51, %49 ], [ %.pre38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23 ]
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 %55, ptr %57, align 8, !tbaa !14
@@ -5823,12 +5823,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
   store ptr %55, ptr %53, align 8, !tbaa !8
   %63 = load i64, ptr %56, align 8, !tbaa !3
   store i64 %63, ptr %54, align 8, !tbaa !3
-  %.phi.trans.insert111 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre112 = load i64, ptr %.phi.trans.insert111, align 8, !tbaa !14
+  %.phi.trans.insert110 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre111 = load i64, ptr %.phi.trans.insert110, align 8, !tbaa !14
   br label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit59
 
 _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit59: ; preds = %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
-  %64 = phi i64 [ %60, %58 ], [ %.pre112, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58 ]
+  %64 = phi i64 [ %60, %58 ], [ %.pre111, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i64 %64, ptr %66, align 8, !tbaa !14
@@ -5894,12 +5894,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
   store ptr %80, ptr %78, align 8, !tbaa !8
   %88 = load i64, ptr %81, align 8, !tbaa !3
   store i64 %88, ptr %79, align 8, !tbaa !3
-  %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.pre110 = load i64, ptr %.phi.trans.insert109, align 8, !tbaa !14
+  %.phi.trans.insert108 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.pre109 = load i64, ptr %.phi.trans.insert108, align 8, !tbaa !14
   br label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64
 
 _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64: ; preds = %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
-  %89 = phi i64 [ %85, %83 ], [ %.pre110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63 ]
+  %89 = phi i64 [ %85, %83 ], [ %.pre109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63 ]
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i64 %89, ptr %91, align 8, !tbaa !14
@@ -5943,14 +5943,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.thread: ; preds
 
 103:                                              ; preds = %100, %160
   %104 = phi i32 [ %102, %100 ], [ %163, %160 ]
-  %.027103 = phi i32 [ 0, %100 ], [ %161, %160 ]
-  %.028102 = phi i32 [ 0, %100 ], [ %108, %160 ]
+  %.027102 = phi i32 [ 0, %100 ], [ %161, %160 ]
+  %.028101 = phi i32 [ 0, %100 ], [ %108, %160 ]
   %105 = add i32 %104, -48
   %or.cond = icmp ult i32 %105, 10
   br i1 %or.cond, label %106, label %110
 
 106:                                              ; preds = %103
-  %107 = mul i32 %.028102, 10
+  %107 = mul i32 %.028101, 10
   %108 = add nuw nsw i32 %105, %107
   %109 = icmp ugt i32 %108, 255
   br i1 %109, label %135, label %160
@@ -5985,12 +5985,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
   store ptr %115, ptr %113, align 8, !tbaa !8
   %123 = load i64, ptr %116, align 8, !tbaa !3
   store i64 %123, ptr %114, align 8, !tbaa !3
-  %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.pre106 = load i64, ptr %.phi.trans.insert105, align 8, !tbaa !14
+  %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.pre105 = load i64, ptr %.phi.trans.insert104, align 8, !tbaa !14
   br label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69
 
 _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69: ; preds = %118, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
-  %124 = phi i64 [ %120, %118 ], [ %.pre106, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68 ]
+  %124 = phi i64 [ %120, %118 ], [ %.pre105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68 ]
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i64 %124, ptr %126, align 8, !tbaa !14
@@ -6056,12 +6056,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
   store ptr %140, ptr %138, align 8, !tbaa !8
   %148 = load i64, ptr %141, align 8, !tbaa !3
   store i64 %148, ptr %139, align 8, !tbaa !3
-  %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.pre108 = load i64, ptr %.phi.trans.insert107, align 8, !tbaa !14
+  %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.pre107 = load i64, ptr %.phi.trans.insert106, align 8, !tbaa !14
   br label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit74
 
 _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit74: ; preds = %143, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
-  %149 = phi i64 [ %145, %143 ], [ %.pre108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73 ]
+  %149 = phi i64 [ %145, %143 ], [ %.pre107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73 ]
   %150 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i64 %149, ptr %151, align 8, !tbaa !14
@@ -6098,7 +6098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77.thread: ; preds
   br label %227
 
 160:                                              ; preds = %106
-  %161 = add nuw nsw i32 %.027103, 1
+  %161 = add nuw nsw i32 %.027102, 1
   %162 = load ptr, ptr %46, align 8, !tbaa !68
   %163 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %162)
   store i32 %163, ptr %13, align 8, !tbaa !24

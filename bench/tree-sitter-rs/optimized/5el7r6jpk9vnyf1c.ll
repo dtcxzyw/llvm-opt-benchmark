@@ -329,8 +329,8 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser6indent17hef4c431d91718ccf
 
 8:                                                ; preds = %.lr.ph, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit"
   %9 = phi i64 [ %.pre, %.lr.ph ], [ %19, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit" ]
-  %.sroa.01.09 = phi i64 [ 0, %.lr.ph ], [ %10, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit" ]
-  %10 = add nuw i64 %.sroa.01.09, 1
+  %.sroa.01.08 = phi i64 [ 0, %.lr.ph ], [ %10, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit" ]
+  %10 = add nuw i64 %.sroa.01.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %11 = load i64, ptr %5, align 8, !alias.scope !137, !noalias !146, !noundef !13
   %12 = sub i64 %11, %9
@@ -1013,8 +1013,8 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i22: ; preds = %"_ZN3std2i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i"
   %296 = phi i64 [ %306, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i" ], [ %292, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i" ]
-  %.sroa.01.09.i.i.i = phi i64 [ %297, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i" ], [ 0, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i" ]
-  %297 = add nuw i64 %.sroa.01.09.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i64 [ %297, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i" ], [ 0, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i" ]
+  %297 = add nuw i64 %.sroa.01.08.i.i.i, 1
   %298 = load i64, ptr %.val.i21, align 8, !alias.scope !463, !noalias !472, !noundef !13
   %299 = sub i64 %298, %296
   %300 = icmp ugt i64 %295, %299
@@ -1311,8 +1311,8 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i: ; preds = %15
 
 56:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i14", %.lr.ph.i.i.i12
   %57 = phi i64 [ %51, %.lr.ph.i.i.i12 ], [ %67, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i14" ]
-  %.sroa.01.09.i.i.i13 = phi i64 [ 0, %.lr.ph.i.i.i12 ], [ %58, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i14" ]
-  %58 = add nuw i64 %.sroa.01.09.i.i.i13, 1
+  %.sroa.01.08.i.i.i13 = phi i64 [ 0, %.lr.ph.i.i.i12 ], [ %58, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i14" ]
+  %58 = add nuw i64 %.sroa.01.08.i.i.i13, 1
   %59 = load i64, ptr %.val.i.i, align 8, !alias.scope !637, !noalias !646, !noundef !13
   %60 = sub i64 %59, %57
   %61 = icmp ugt i64 %54, %60
@@ -1404,8 +1404,8 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i8: ; preds = %"_ZN3std2io
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i"
   %98 = phi i64 [ %108, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i" ], [ %94, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i" ]
-  %.sroa.01.09.i.i.i = phi i64 [ %99, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i" ], [ 0, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i" ]
-  %99 = add nuw i64 %.sroa.01.09.i.i.i, 1
+  %.sroa.01.08.i.i.i = phi i64 [ %99, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i" ], [ 0, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit6.i.i" ]
+  %99 = add nuw i64 %.sroa.01.08.i.i.i, 1
   %100 = load i64, ptr %.val.i7, align 8, !alias.scope !704, !noalias !713, !noundef !13
   %101 = sub i64 %100, %98
   %102 = icmp ugt i64 %97, %101
@@ -1616,8 +1616,8 @@ define hidden noalias noundef ptr @"_ZN79_$LT$serde_json..ser..PrettyFormatter$u
 
 38:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i", %.lr.ph.i
   %39 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %49, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i" ]
-  %.sroa.01.09.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i" ]
-  %40 = add nuw i64 %.sroa.01.09.i, 1
+  %.sroa.01.08.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i" ]
+  %40 = add nuw i64 %.sroa.01.08.i, 1
   %41 = load i64, ptr %30, align 8, !alias.scope !844, !noalias !853, !noundef !13
   %42 = sub i64 %41, %39
   %43 = icmp ugt i64 %35, %42
@@ -1758,8 +1758,8 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
 
 42:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i", %.lr.ph.i.i
   %43 = phi i64 [ %.pre.i.i, %.lr.ph.i.i ], [ %53, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i" ]
-  %.sroa.01.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i" ]
-  %44 = add nuw i64 %.sroa.01.09.i.i, 1
+  %.sroa.01.08.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i" ]
+  %44 = add nuw i64 %.sroa.01.08.i.i, 1
   %45 = load i64, ptr %34, align 8, !alias.scope !927, !noalias !936, !noundef !13
   %46 = sub i64 %45, %43
   %47 = icmp ugt i64 %39, %46

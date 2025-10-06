@@ -1035,24 +1035,24 @@ entry:
 
 while.cond.i.preheader.i:                         ; preds = %entry
   %0 = load i32, ptr %scale_.i.i.i, align 4
-  %switch.i2.i = icmp ult i32 %0, 2
-  br i1 %switch.i2.i, label %while.body.i.i, label %sw.bb5.i.i.i
+  %1 = icmp eq i32 %0, 2
+  br i1 %1, label %sw.bb5.i.i.i, label %while.body.i.i
 
 entry.split.us.i.i:                               ; preds = %entry
   %cmp.i.i.i.i = icmp samesign ult i32 %and.i, 254
   br i1 %cmp.i.i.i.i, label %while.cond.us.us.i.i, label %while.cond.us.i.i
 
 while.cond.us.us.i.i:                             ; preds = %entry.split.us.i.i
-  %1 = load i32, ptr %scale_.i.i.i, align 4
-  switch i32 %1, label %sw.epilog.i.i.i [
+  %2 = load i32, ptr %scale_.i.i.i, align 4
+  switch i32 %2, label %sw.epilog.i.i.i [
     i32 0, label %if.end.i.i.i.i
     i32 1, label %if.end.i6.i.i.i
     i32 2, label %sw.bb5.i.i.i
   ]
 
 while.cond.us.i.i:                                ; preds = %entry.split.us.i.i, %sw.bb.i.us.i.i
-  %2 = load i32, ptr %scale_.i.i.i, align 4
-  switch i32 %2, label %sw.epilog.i.i.i [
+  %3 = load i32, ptr %scale_.i.i.i, align 4
+  switch i32 %3, label %sw.epilog.i.i.i [
     i32 0, label %sw.bb.i.us.i.i
     i32 1, label %if.end.i6.i.i.i
     i32 2, label %sw.bb5.i.i.i
@@ -1064,27 +1064,27 @@ sw.bb.i.us.i.i:                                   ; preds = %while.cond.us.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.cond.us.us.i.i
   %raw_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %raw_.i.i.i, align 8
+  %4 = load ptr, ptr %raw_.i.i.i, align 8
   %conv1.i.i.i.i = trunc nuw i32 %add.i to i8
   %idxprom.i.i.i.i = zext i32 %idx to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom.i.i.i.i
   store i8 %conv1.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
   br label %_ZN6hermes12CompactTable3setEjj.exit
 
 if.end.i6.i.i.i:                                  ; preds = %while.cond.us.i.i, %while.cond.us.us.i.i
   %raw_3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %4 = load ptr, ptr %raw_3.i.i.i, align 8
+  %5 = load ptr, ptr %raw_3.i.i.i, align 8
   %conv1.i7.i.i.i = trunc nuw i32 %add.i to i16
   %idxprom.i8.i.i.i = zext i32 %idx to i64
-  %arrayidx.i9.i.i.i = getelementptr inbounds nuw i16, ptr %4, i64 %idxprom.i8.i.i.i
+  %arrayidx.i9.i.i.i = getelementptr inbounds nuw i16, ptr %5, i64 %idxprom.i8.i.i.i
   store i16 %conv1.i7.i.i.i, ptr %arrayidx.i9.i.i.i, align 2
   br label %_ZN6hermes12CompactTable3setEjj.exit
 
 sw.bb5.i.i.i:                                     ; preds = %while.body.i.i, %while.cond.us.i.i, %while.cond.us.us.i.i, %while.cond.i.preheader.i
   %raw_6.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %5 = load ptr, ptr %raw_6.i.i.i, align 8
+  %6 = load ptr, ptr %raw_6.i.i.i, align 8
   %idxprom.i10.i.i.i = zext i32 %idx to i64
-  %arrayidx.i11.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom.i10.i.i.i
+  %arrayidx.i11.i.i.i = getelementptr inbounds nuw i32, ptr %6, i64 %idxprom.i10.i.i.i
   store i32 %add.i, ptr %arrayidx.i11.i.i.i, align 4
   br label %_ZN6hermes12CompactTable3setEjj.exit
 
@@ -1093,27 +1093,27 @@ sw.epilog.i.i.i:                                  ; preds = %while.cond.us.i.i, 
 
 while.body.i.i:                                   ; preds = %while.cond.i.preheader.i, %while.body.i.i
   tail call void @_ZN6hermes12CompactArray7scaleUpEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
-  %6 = load i32, ptr %scale_.i.i.i, align 4
-  %switch.i.i = icmp ult i32 %6, 2
-  br i1 %switch.i.i, label %while.body.i.i, label %sw.bb5.i.i.i, !llvm.loop !9
+  %7 = load i32, ptr %scale_.i.i.i, align 4
+  %8 = icmp eq i32 %7, 2
+  br i1 %8, label %sw.bb5.i.i.i, label %while.body.i.i, !llvm.loop !9
 
 _ZN6hermes12CompactTable3setEjj.exit:             ; preds = %if.end.i.i.i.i, %if.end.i6.i.i.i, %sw.bb5.i.i.i
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %size_, align 8
-  %inc = add i32 %7, 1
+  %9 = load i32, ptr %size_, align 8
+  %inc = add i32 %9, 1
   store i32 %inc, ptr %size_, align 8
   %nonEmptyEntryCount_ = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %8 = load i32, ptr %nonEmptyEntryCount_, align 4
-  %inc2 = add i32 %8, 1
+  %10 = load i32, ptr %nonEmptyEntryCount_, align 4
+  %inc2 = add i32 %10, 1
   store i32 %inc2, ptr %nonEmptyEntryCount_, align 4
-  %9 = load i32, ptr %this, align 8
-  %shr.i = lshr i32 %9, 2
-  %sub.i = sub i32 %9, %shr.i
+  %11 = load i32, ptr %this, align 8
+  %shr.i = lshr i32 %11, 2
+  %sub.i = sub i32 %11, %shr.i
   %cmp.i = icmp ult i32 %sub.i, %inc2
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes12CompactTable3setEjj.exit
-  %mul = shl i32 %9, 1
+  %mul = shl i32 %11, 1
   tail call void @_ZN6hermes2vm6detail19IdentifierHashTable13growAndRehashEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %mul)
   br label %if.end
 
@@ -1440,24 +1440,24 @@ if.end28:                                         ; preds = %if.then.i54, %entry
 
 while.cond.i.preheader.i:                         ; preds = %if.end28
   %42 = load i32, ptr %scale_.i, align 4
-  %switch.i2.i = icmp ult i32 %42, 2
-  br i1 %switch.i2.i, label %while.body.i.i, label %sw.bb5.i.i.i
+  %43 = icmp eq i32 %42, 2
+  br i1 %43, label %sw.bb5.i.i.i, label %while.body.i.i
 
 entry.split.us.i.i:                               ; preds = %if.end28
   %cmp.i.i.i.i = icmp samesign ult i32 %retval.0.i.i23, 256
   br i1 %cmp.i.i.i.i, label %while.cond.us.us.i.i, label %while.cond.us.i.i
 
 while.cond.us.us.i.i:                             ; preds = %entry.split.us.i.i
-  %43 = load i32, ptr %scale_.i, align 4
-  switch i32 %43, label %sw.epilog.i.i.i [
+  %44 = load i32, ptr %scale_.i, align 4
+  switch i32 %44, label %sw.epilog.i.i.i [
     i32 0, label %if.end.i.i.i.i
     i32 1, label %if.end.i6.i.i.i
     i32 2, label %sw.bb5.i.i.i
   ]
 
 while.cond.us.i.i:                                ; preds = %entry.split.us.i.i, %sw.bb.i.us.i.i
-  %44 = load i32, ptr %scale_.i, align 4
-  switch i32 %44, label %sw.epilog.i.i.i [
+  %45 = load i32, ptr %scale_.i, align 4
+  switch i32 %45, label %sw.epilog.i.i.i [
     i32 0, label %sw.bb.i.us.i.i
     i32 1, label %if.end.i6.i.i.i
     i32 2, label %sw.bb5.i.i.i
@@ -1468,25 +1468,25 @@ sw.bb.i.us.i.i:                                   ; preds = %while.cond.us.i.i
   br label %while.cond.us.i.i, !llvm.loop !9
 
 if.end.i.i.i.i:                                   ; preds = %while.cond.us.us.i.i
-  %45 = load ptr, ptr %raw_4.i.i, align 8
+  %46 = load ptr, ptr %raw_4.i.i, align 8
   %conv1.i.i.i.i = trunc nuw i32 %retval.0.i.i23 to i8
   %idxprom.i.i.i.i = zext i32 %idx.0 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %idxprom.i.i.i.i
   store i8 %conv1.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
   br label %for.inc
 
 if.end.i6.i.i.i:                                  ; preds = %while.cond.us.i.i, %while.cond.us.us.i.i
-  %46 = load ptr, ptr %raw_4.i.i, align 8
+  %47 = load ptr, ptr %raw_4.i.i, align 8
   %conv1.i7.i.i.i = trunc nuw i32 %retval.0.i.i23 to i16
   %idxprom.i8.i.i.i = zext i32 %idx.0 to i64
-  %arrayidx.i9.i.i.i = getelementptr inbounds nuw i16, ptr %46, i64 %idxprom.i8.i.i.i
+  %arrayidx.i9.i.i.i = getelementptr inbounds nuw i16, ptr %47, i64 %idxprom.i8.i.i.i
   store i16 %conv1.i7.i.i.i, ptr %arrayidx.i9.i.i.i, align 2
   br label %for.inc
 
 sw.bb5.i.i.i:                                     ; preds = %while.body.i.i, %while.cond.us.i.i, %while.cond.us.us.i.i, %while.cond.i.preheader.i
-  %47 = load ptr, ptr %raw_4.i.i, align 8
+  %48 = load ptr, ptr %raw_4.i.i, align 8
   %idxprom.i10.i.i.i = zext i32 %idx.0 to i64
-  %arrayidx.i11.i.i.i = getelementptr inbounds nuw i32, ptr %47, i64 %idxprom.i10.i.i.i
+  %arrayidx.i11.i.i.i = getelementptr inbounds nuw i32, ptr %48, i64 %idxprom.i10.i.i.i
   store i32 %retval.0.i.i23, ptr %arrayidx.i11.i.i.i, align 4
   br label %for.inc
 
@@ -1495,9 +1495,9 @@ sw.epilog.i.i.i:                                  ; preds = %while.cond.us.us.i.
 
 while.body.i.i:                                   ; preds = %while.cond.i.preheader.i, %while.body.i.i
   tail call void @_ZN6hermes12CompactArray7scaleUpEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
-  %48 = load i32, ptr %scale_.i, align 4
-  %switch.i.i = icmp ult i32 %48, 2
-  br i1 %switch.i.i, label %while.body.i.i, label %sw.bb5.i.i.i, !llvm.loop !9
+  %49 = load i32, ptr %scale_.i, align 4
+  %50 = icmp eq i32 %49, 2
+  br i1 %50, label %sw.bb5.i.i.i, label %while.body.i.i, !llvm.loop !9
 
 for.inc:                                          ; preds = %sw.bb5.i.i.i, %if.end.i6.i.i.i, %if.end.i.i.i.i, %_ZNK6hermes12CompactTable7isValidEj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1506,9 +1506,9 @@ for.inc:                                          ; preds = %sw.bb5.i.i.i, %if.e
 
 for.end:                                          ; preds = %for.inc, %if.end
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %49 = load i32, ptr %size_, align 8
+  %51 = load i32, ptr %size_, align 8
   %nonEmptyEntryCount_ = getelementptr inbounds nuw i8, ptr %this, i64 28
-  store i32 %49, ptr %nonEmptyEntryCount_, align 4
+  store i32 %51, ptr %nonEmptyEntryCount_, align 4
   tail call void @free(ptr noundef %4) #7
   ret void
 }

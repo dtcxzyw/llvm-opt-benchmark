@@ -948,7 +948,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
   %.not29 = icmp eq i8 %22, 0
   %23 = add i32 %12, -2440587
   %24 = sub i32 %23, %14
-  br i1 %.not29, label %.loopexit.thread47.i, label %25
+  br i1 %.not29, label %.loopexit.thread46.i, label %25
 
 25:                                               ; preds = %18
   %26 = icmp eq i32 %15, 1
@@ -956,7 +956,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %13, 1
-  br label %.loopexit.thread47.i
+  br label %.loopexit.thread46.i
 
 29:                                               ; preds = %25
   %30 = load double, ptr @_ZN6icu_7718CalendarAstronomer13SYNODIC_MONTHE, align 8, !tbaa !30
@@ -974,7 +974,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
 .preheader.i.i:                                   ; preds = %29, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i
   %.010.i.i = phi i32 [ %50, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i ], [ %24, %29 ]
   %.not11.i.i = icmp slt i32 %.010.i.i, %37
-  br i1 %.not11.i.i, label %.loopexit.thread47.i, label %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i
+  br i1 %.not11.i.i, label %.loopexit.thread46.i, label %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i
 
 _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i: ; preds = %.preheader.i.i
   %40 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114majorSolarTermEPKNS_8TimeZoneEiR10UErrorCode(ptr noundef %20, i32 noundef %.010.i.i, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -998,16 +998,16 @@ _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit
 
 .loopexit.thread.i:                               ; preds = %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i
   %53 = add nsw i32 %13, 1
-  br label %.loopexit.thread47.i
+  br label %.loopexit.thread46.i
 
-.loopexit.thread47.i:                             ; preds = %.preheader.i.i, %.loopexit.thread.i, %27, %18
+.loopexit.thread46.i:                             ; preds = %.preheader.i.i, %.loopexit.thread.i, %27, %18
   %54 = phi i32 [ 13, %27 ], [ 12, %18 ], [ 13, %.loopexit.thread.i ], [ 13, %.preheader.i.i ]
   %.031.i = phi i32 [ %28, %27 ], [ %13, %18 ], [ %53, %.loopexit.thread.i ], [ %13, %.preheader.i.i ]
   %55 = call signext i8 @uprv_add32_overflow_77(i32 noundef range(i32 1, 0) %2, i32 noundef %.031.i, ptr noundef nonnull %5)
   %.not37.i = icmp eq i8 %55, 0
   br i1 %.not37.i, label %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit, label %56
 
-56:                                               ; preds = %.loopexit.thread47.i
+56:                                               ; preds = %.loopexit.thread46.i
   store i32 1, ptr %3, align 4, !tbaa !21
   br label %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread
 
@@ -1015,7 +1015,7 @@ _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
-_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; preds = %.loopexit.thread47.i
+_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; preds = %.loopexit.thread46.i
   %57 = load i32, ptr %5, align 4, !tbaa !20
   %58 = srem i32 %57, %54
   %59 = icmp slt i32 %58, 0

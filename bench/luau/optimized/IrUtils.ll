@@ -4747,24 +4747,24 @@ define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZN4Luau7CodeG
   %12 = load ptr, ptr %0, align 8
   br label %13
 
-13:                                               ; preds = %14, %4
-  %.014.in = phi i64 [ %3, %4 ], [ %.014, %14 ]
+13:                                               ; preds = %15, %4
+  %.014.in = phi i64 [ %3, %4 ], [ %.014, %15 ]
   %.014 = add i64 %.014.in, 1
-  %.not15 = icmp ult i64 %.014, %11
-  br i1 %.not15, label %14, label %20
+  %14 = icmp ult i64 %.014, %11
+  br i1 %14, label %15, label %21
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %.014
-  %16 = load i32, ptr %15, align 4, !tbaa !38
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %17
-  %19 = load i8, ptr %18, align 4, !tbaa !29
-  %.not = icmp eq i8 %19, 4
-  br i1 %.not, label %13, label %20, !llvm.loop !56
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %.014
+  %17 = load i32, ptr %16, align 4, !tbaa !38
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %18
+  %20 = load i8, ptr %19, align 4, !tbaa !29
+  %.not = icmp eq i8 %20, 4
+  br i1 %.not, label %13, label %21, !llvm.loop !56
 
-20:                                               ; preds = %13, %14
-  %spec.select = phi ptr [ %18, %14 ], [ %2, %13 ]
-  ret ptr %spec.select
+21:                                               ; preds = %13, %15
+  %22 = phi ptr [ %19, %15 ], [ %2, %13 ]
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

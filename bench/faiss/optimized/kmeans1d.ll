@@ -72,27 +72,27 @@ define void @_ZN5faiss6reduceERKSt6vectorIlSaIlEES4_RKSt8functionIFfllEERS2_(ptr
   %9 = load ptr, ptr %1, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !4
-  %.not34 = icmp eq ptr %9, %11
-  br i1 %.not34, label %._crit_edge, label %.lr.ph36
+  %.not33 = icmp eq ptr %9, %11
+  br i1 %.not33, label %._crit_edge, label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %4
+.lr.ph35:                                         ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load ptr, ptr %3, align 8, !tbaa !4
-  %.pre37 = load ptr, ptr %12, align 8, !tbaa !4
+  %.pre36 = load ptr, ptr %12, align 8, !tbaa !4
   br label %17
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backERKl.exit, %4
   ret void
 
-17:                                               ; preds = %.lr.ph36, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
-  %18 = phi ptr [ %.pre37, %.lr.ph36 ], [ %79, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
-  %19 = phi ptr [ %.pre, %.lr.ph36 ], [ %80, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
-  %.sroa.021.035 = phi ptr [ %9, %.lr.ph36 ], [ %81, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
-  %20 = load i64, ptr %.sroa.021.035, align 8, !tbaa !9
+17:                                               ; preds = %.lr.ph35, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
+  %18 = phi ptr [ %.pre36, %.lr.ph35 ], [ %79, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
+  %19 = phi ptr [ %.pre, %.lr.ph35 ], [ %80, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
+  %.sroa.021.034 = phi ptr [ %9, %.lr.ph35 ], [ %81, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
+  %20 = load i64, ptr %.sroa.021.034, align 8, !tbaa !9
   %21 = icmp eq ptr %19, %18
   br i1 %21, label %.loopexit, label %.lr.ph
 
@@ -148,7 +148,7 @@ _ZNKSt8functionIFfllEEclEll.exit18:               ; preds = %_ZNKSt8functionIFfl
 
 .thread:                                          ; preds = %_ZNKSt8functionIFfllEEclEll.exit18
   %.pr = load ptr, ptr %3, align 8, !tbaa !11
-  %.pre38 = load ptr, ptr %12, align 8, !tbaa !17
+  %.pre37 = load ptr, ptr %12, align 8, !tbaa !17
   br label %.loopexit
 
 43:                                               ; preds = %_ZNKSt8functionIFfllEEclEll.exit18
@@ -160,7 +160,7 @@ _ZNKSt8functionIFfllEEclEll.exit18:               ; preds = %_ZNKSt8functionIFfl
   br i1 %47, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %43, %17, %.thread
-  %48 = phi ptr [ %.pre38, %.thread ], [ %18, %17 ], [ %45, %43 ]
+  %48 = phi ptr [ %.pre37, %.thread ], [ %18, %17 ], [ %45, %43 ]
   %49 = phi ptr [ %.pr, %.thread ], [ %19, %17 ], [ %46, %43 ]
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
@@ -231,7 +231,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %62, %.loopexit
   %79 = phi ptr [ %76, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %63, %62 ], [ %48, %.loopexit ]
   %80 = phi ptr [ %72, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %49, %62 ], [ %49, %.loopexit ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.021.035, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.021.034, i64 8
   %.not = icmp eq ptr %81, %11
   br i1 %.not, label %._crit_edge, label %17
 }

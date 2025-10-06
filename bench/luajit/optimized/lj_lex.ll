@@ -329,8 +329,8 @@ define internal fastcc range(i32 13, 11) i32 @lex_scan(ptr noundef initializes((
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !29
-  %.not157 = icmp sgt i8 %10, -1
-  br i1 %.not157, label %.lr.ph, label %lex_newline.exit._crit_edge
+  %.not156 = icmp sgt i8 %10, -1
+  br i1 %.not156, label %.lr.ph, label %lex_newline.exit._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -341,8 +341,8 @@ define internal fastcc range(i32 13, 11) i32 @lex_scan(ptr noundef initializes((
 
 lex_newline.exit._crit_edge:                      ; preds = %lex_newline.exit.backedge, %2
   %15 = phi i32 [ %7, %2 ], [ %106, %lex_newline.exit.backedge ]
-  %.lcssa121 = phi i8 [ %10, %2 ], [ %109, %lex_newline.exit.backedge ]
-  %16 = and i8 %.lcssa121, 8
+  %.lcssa120 = phi i8 [ %10, %2 ], [ %109, %lex_newline.exit.backedge ]
+  %16 = and i8 %.lcssa120, 8
   %.not82 = icmp eq i8 %16, 0
   br i1 %.not82, label %.preheader, label %20
 
@@ -433,7 +433,7 @@ lex_savenext.exit:                                ; preds = %37, %41
     i32 11, label %95
     i32 12, label %95
     i32 45, label %110
-    i32 91, label %.preheader247
+    i32 91, label %.preheader246
     i32 61, label %205
     i32 60, label %227
     i32 62, label %249
@@ -584,13 +584,13 @@ lex_next.exit98:                                  ; preds = %125, %129
   %131 = phi i32 [ %128, %125 ], [ %130, %129 ]
   store i32 %131, ptr %6, align 8, !tbaa !26
   %132 = icmp eq i32 %131, 91
-  br i1 %132, label %.preheader160, label %.thread.preheader
+  br i1 %132, label %.preheader159, label %.thread.preheader
 
 .thread.preheader:                                ; preds = %lex_skipeq.exit, %lex_next.exit98
   %.ph = phi i32 [ %131, %lex_next.exit98 ], [ %153, %lex_skipeq.exit ]
   br label %.thread
 
-.preheader160:                                    ; preds = %lex_next.exit98, %lex_savenext.exit.i
+.preheader159:                                    ; preds = %lex_next.exit98, %lex_savenext.exit.i
   %133 = phi i8 [ 61, %lex_savenext.exit.i ], [ 91, %lex_next.exit98 ]
   %.0.i104 = phi i32 [ %157, %lex_savenext.exit.i ], [ 0, %lex_next.exit98 ]
   %134 = load ptr, ptr %13, align 8, !tbaa !51
@@ -602,12 +602,12 @@ lex_next.exit98:                                  ; preds = %125, %129
   %140 = icmp eq i64 %139, 0
   br i1 %140, label %141, label %lj_buf_more.exit.i, !prof !54
 
-141:                                              ; preds = %.preheader160
+141:                                              ; preds = %.preheader159
   %142 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit.i
 
-lj_buf_more.exit.i:                               ; preds = %141, %.preheader160
-  %.0.i.i = phi ptr [ %142, %141 ], [ %135, %.preheader160 ]
+lj_buf_more.exit.i:                               ; preds = %141, %.preheader159
+  %.0.i.i = phi ptr [ %142, %141 ], [ %135, %.preheader159 ]
   %143 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 %133, ptr %.0.i.i, align 1, !tbaa !29
   store ptr %143, ptr %3, align 8, !tbaa !53
@@ -634,13 +634,13 @@ lex_savenext.exit.i:                              ; preds = %151, %147
   %155 = icmp samesign ult i32 %.0.i104, 536870912
   %156 = select i1 %154, i1 %155, i1 false
   %157 = add nuw nsw i32 %.0.i104, 1
-  br i1 %156, label %.preheader160, label %lex_skipeq.exit, !llvm.loop !60
+  br i1 %156, label %.preheader159, label %lex_skipeq.exit, !llvm.loop !60
 
 lex_skipeq.exit:                                  ; preds = %lex_savenext.exit.i
-  %.not118 = icmp eq i32 %153, 91
+  %.not117 = icmp eq i32 %153, 91
   %158 = load ptr, ptr %4, align 8, !tbaa !50
   store ptr %158, ptr %3, align 8, !tbaa !53
-  br i1 %.not118, label %159, label %.thread.preheader
+  br i1 %.not117, label %159, label %.thread.preheader
 
 159:                                              ; preds = %lex_skipeq.exit
   tail call fastcc void @lex_longstring(ptr noundef nonnull %0, ptr noundef null, i32 noundef %.0.i104)
@@ -679,7 +679,7 @@ lex_next.exit97:                                  ; preds = %166, %170
   store i32 %172, ptr %6, align 8, !tbaa !26
   br label %.thread, !llvm.loop !61
 
-.preheader247:                                    ; preds = %62, %lex_savenext.exit.i108
+.preheader246:                                    ; preds = %62, %lex_savenext.exit.i108
   %173 = phi i8 [ 61, %lex_savenext.exit.i108 ], [ 91, %62 ]
   %.0.i105 = phi i32 [ %197, %lex_savenext.exit.i108 ], [ 0, %62 ]
   %174 = load ptr, ptr %13, align 8, !tbaa !51
@@ -691,12 +691,12 @@ lex_next.exit97:                                  ; preds = %166, %170
   %180 = icmp eq i64 %179, 0
   br i1 %180, label %181, label %lj_buf_more.exit.i106, !prof !54
 
-181:                                              ; preds = %.preheader247
+181:                                              ; preds = %.preheader246
   %182 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit.i106
 
-lj_buf_more.exit.i106:                            ; preds = %181, %.preheader247
-  %.0.i.i107 = phi ptr [ %182, %181 ], [ %175, %.preheader247 ]
+lj_buf_more.exit.i106:                            ; preds = %181, %.preheader246
+  %.0.i.i107 = phi ptr [ %182, %181 ], [ %175, %.preheader246 ]
   %183 = getelementptr inbounds nuw i8, ptr %.0.i.i107, i64 1
   store i8 %173, ptr %.0.i.i107, align 1, !tbaa !29
   store ptr %183, ptr %3, align 8, !tbaa !53
@@ -723,7 +723,7 @@ lex_savenext.exit.i108:                           ; preds = %191, %187
   %195 = icmp samesign ult i32 %.0.i105, 536870912
   %196 = select i1 %194, i1 %195, i1 false
   %197 = add nuw nsw i32 %.0.i105, 1
-  br i1 %196, label %.preheader247, label %lex_skipeq.exit109, !llvm.loop !60
+  br i1 %196, label %.preheader246, label %lex_skipeq.exit109, !llvm.loop !60
 
 lex_skipeq.exit109:                               ; preds = %lex_savenext.exit.i108
   %198 = icmp ne i32 %193, 91

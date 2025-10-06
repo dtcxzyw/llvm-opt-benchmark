@@ -1146,8 +1146,8 @@ define internal fastcc range(i32 0, 2) i32 @ec_to_text(ptr noundef %0, ptr nound
   br i1 %28, label %ec_param_to_text.exit, label %.thread
 
 .thread:                                          ; preds = %18, %16, %20, %26
-  %.03674 = phi ptr [ @.str.8, %26 ], [ %spec.select62, %20 ], [ @.str.9, %16 ], [ null, %18 ]
-  %.not5673 = phi i1 [ false, %26 ], [ %.not54, %20 ], [ false, %16 ], [ true, %18 ]
+  %.03673 = phi ptr [ @.str.8, %26 ], [ %spec.select62, %20 ], [ @.str.9, %16 ], [ null, %18 ]
+  %.not5672 = phi i1 [ false, %26 ], [ %.not54, %20 ], [ false, %16 ], [ true, %18 ]
   %.039 = phi i64 [ %27, %26 ], [ 0, %20 ], [ 0, %16 ], [ 0, %18 ]
   %29 = and i32 %2, 3
   %.not55 = icmp eq i32 %29, 0
@@ -1172,11 +1172,11 @@ define internal fastcc range(i32 0, 2) i32 @ec_to_text(ptr noundef %0, ptr nound
 
 38:                                               ; preds = %34, %.thread
   %.041 = phi i64 [ 0, %.thread ], [ %36, %34 ]
-  br i1 %.not5673, label %43, label %39
+  br i1 %.not5672, label %43, label %39
 
 39:                                               ; preds = %38
   %40 = call i32 @EC_GROUP_order_bits(ptr noundef nonnull %11) #4
-  %41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef %.03674, i32 noundef %40) #4
+  %41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef %.03673, i32 noundef %40) #4
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %ec_param_to_text.exit, label %43
 
@@ -1200,8 +1200,8 @@ define internal fastcc range(i32 0, 2) i32 @ec_to_text(ptr noundef %0, ptr nound
   %.not60 = icmp eq i32 %50, 0
   %51 = and i32 %2, 4
   %.not61 = icmp eq i32 %51, 0
-  %or.cond70 = or i1 %.not61, %.not60
-  br i1 %or.cond70, label %ec_param_to_text.exit, label %53
+  %or.cond69 = or i1 %.not61, %.not60
+  br i1 %or.cond69, label %ec_param_to_text.exit, label %53
 
 52:                                               ; preds = %47
   %.old = and i32 %2, 4

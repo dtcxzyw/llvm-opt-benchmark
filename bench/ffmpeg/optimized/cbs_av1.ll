@@ -429,12 +429,12 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
   br label %.lr.ph
 
 32:                                               ; preds = %15
-  %.not77102 = icmp eq i64 %11, 0
-  br i1 %.not77102, label %.thread, label %.lr.ph
+  %.not77101 = icmp eq i64 %11, 0
+  br i1 %.not77101, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread87, %18, %32
-  %.055124 = phi ptr [ %9, %32 ], [ %30, %.thread87 ], [ %9, %18 ]
-  %.060123 = phi i64 [ %11, %32 ], [ %31, %.thread87 ], [ %11, %18 ]
+  %.055123 = phi ptr [ %9, %32 ], [ %30, %.thread87 ], [ %9, %18 ]
+  %.060122 = phi i64 [ %11, %32 ], [ %31, %.thread87 ], [ %11, %18 ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -446,17 +446,17 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
   br label %41
 
 41:                                               ; preds = %.lr.ph, %84
-  %.2104 = phi ptr [ %.055124, %.lr.ph ], [ %85, %84 ]
-  %.262103 = phi i64 [ %.060123, %.lr.ph ], [ %86, %84 ]
+  %.2103 = phi ptr [ %.055123, %.lr.ph ], [ %85, %84 ]
+  %.262102 = phi i64 [ %.060122, %.lr.ph ], [ %86, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.262.tr = trunc i64 %.262103 to i32
+  %.262.tr = trunc i64 %.262102 to i32
   %42 = shl i32 %.262.tr, 3
   %or.cond.i = icmp ult i32 %42, 2147483135
-  %43 = icmp ne ptr %.2104, null
+  %43 = icmp ne ptr %.2103, null
   %or.cond3.i = and i1 %43, %or.cond.i
   %.018.i = select i1 %or.cond3.i, i32 %42, i32 0
-  %.017.i = select i1 %or.cond.i, ptr %.2104, ptr null
+  %.017.i = select i1 %or.cond.i, ptr %.2103, ptr null
   %44 = lshr exact i32 %.018.i, 3
   store ptr %.017.i, ptr %4, align 8, !tbaa !21
   store i32 %.018.i, ptr %33, align 4, !tbaa !23
@@ -484,7 +484,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %0, align 8, !tbaa !19
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %56, i32 noundef 16, ptr noundef nonnull @.str.14, i64 noundef %.262103) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %56, i32 noundef 16, ptr noundef nonnull @.str.14, i64 noundef %.262102) #8
   br label %.thread92
 
 57:                                               ; preds = %52
@@ -496,7 +496,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
   %61 = load i8, ptr %38, align 1, !tbaa !29
   %62 = zext i8 %61 to i64
   %63 = xor i64 %62, -1
-  %64 = add i64 %.262103, %63
+  %64 = add i64 %.262102, %63
   store i64 %64, ptr %6, align 8, !tbaa !30
   br label %65
 
@@ -509,7 +509,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
 68:                                               ; preds = %65
   %69 = ashr exact i32 %.val, 3
   %70 = sext i32 %69 to i64
-  %.not79 = icmp ult i64 %.262103, %70
+  %.not79 = icmp ult i64 %.262102, %70
   br i1 %.not79, label %71, label %72
 
 71:                                               ; preds = %68, %65
@@ -520,19 +520,19 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
 72:                                               ; preds = %68
   %73 = load i64, ptr %6, align 8, !tbaa !30
   %74 = add i64 %73, %70
-  %75 = icmp ult i64 %.262103, %74
+  %75 = icmp ult i64 %.262102, %74
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %0, align 8, !tbaa !19
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %77, i32 noundef 16, ptr noundef nonnull @.str.17, i64 noundef %74, i64 noundef %.262103) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %77, i32 noundef 16, ptr noundef nonnull @.str.17, i64 noundef %74, i64 noundef %.262102) #8
   br label %.thread92
 
 78:                                               ; preds = %72
   %79 = load i8, ptr %39, align 1, !tbaa !31
   %80 = zext i8 %79 to i32
   %81 = load ptr, ptr %40, align 8, !tbaa !32
-  %82 = call i32 @ff_cbs_append_unit_data(ptr noundef nonnull %1, i32 noundef %80, ptr noundef %.2104, i64 noundef %74, ptr noundef %81) #8
+  %82 = call i32 @ff_cbs_append_unit_data(ptr noundef nonnull %1, i32 noundef %80, ptr noundef %.2103, i64 noundef %74, ptr noundef %81) #8
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %.thread92, label %84
 
@@ -543,8 +543,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
   br label %.thread
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %.2104, i64 %74
-  %86 = sub i64 %.262103, %74
+  %85 = getelementptr inbounds nuw i8, ptr %.2103, i64 %74
+  %86 = sub i64 %.262102, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not77 = icmp eq i64 %86, 0

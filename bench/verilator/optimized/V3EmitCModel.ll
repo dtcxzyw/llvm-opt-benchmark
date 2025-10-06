@@ -86196,46 +86196,46 @@ _ZN7AstNode11privateCastI8AstCFuncKPKS_EEPKT_S3_.exit: ; preds = %_ZNSt7__cxx111
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN9EmitCFunc23getSuperNewCallRecursepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(361) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %.not86 = icmp eq ptr %1, null
-  br i1 %.not86, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit, label %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit
+  %.not81 = icmp eq ptr %1, null
+  br i1 %.not81, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit, label %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit
 
-_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit: ; preds = %2, %select.unfold63
-  %.tr7987 = phi ptr [ %15, %select.unfold63 ], [ %1, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.tr7987, i64 64
+_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit: ; preds = %2, %select.unfold59
+  %.tr7482 = phi ptr [ %15, %select.unfold59 ], [ %1, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.tr7482, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %3, align 8, !tbaa !157
-  switch i16 %.sroa.0.0.copyload.i.i.i, label %select.unfold63 [
+  switch i16 %.sroa.0.0.copyload.i.i.i, label %select.unfold59 [
     i16 239, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit
     i16 383, label %4
     i16 372, label %10
   ]
 
 4:                                                ; preds = %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit
-  %5 = getelementptr inbounds nuw i8, ptr %.tr7987, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.tr7482, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !130
-  %.not.i53 = icmp eq ptr %6, null
-  br i1 %.not.i53, label %select.unfold63, label %7
+  %.not.i50 = icmp eq ptr %6, null
+  br i1 %.not.i50, label %select.unfold59, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.0.0.copyload.i.i.i54 = load i16, ptr %8, align 8, !tbaa !157
-  %9 = icmp eq i16 %.sroa.0.0.copyload.i.i.i54, 239
-  br i1 %9, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit, label %select.unfold63
+  %.sroa.0.0.copyload.i.i.i51 = load i16, ptr %8, align 8, !tbaa !157
+  %9 = icmp eq i16 %.sroa.0.0.copyload.i.i.i51, 239
+  br i1 %9, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit, label %select.unfold59
 
 10:                                               ; preds = %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit
-  %11 = getelementptr inbounds nuw i8, ptr %.tr7987, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.tr7482, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !130
   %13 = tail call noundef ptr @_ZN9EmitCFunc23getSuperNewCallRecursepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(361) %0, ptr noundef %12)
   %.not41 = icmp eq ptr %13, null
-  br i1 %.not41, label %select.unfold63, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit
+  br i1 %.not41, label %select.unfold59, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit
 
-select.unfold63:                                  ; preds = %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit, %4, %7, %10
-  %14 = getelementptr inbounds nuw i8, ptr %.tr7987, i64 8
+select.unfold59:                                  ; preds = %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit, %4, %7, %10
+  %14 = getelementptr inbounds nuw i8, ptr %.tr7482, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !281
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit, label %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit
 
-_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit: ; preds = %select.unfold63, %10, %7, %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ %6, %7 ], [ %13, %10 ], [ null, %select.unfold63 ], [ %.tr7987, %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit ]
+_ZN7AstNode11privateCastI7AstCNewP11AstNodeExprEEPT_PS_.exit: ; preds = %select.unfold59, %10, %7, %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit, %2
+  %.0 = phi ptr [ null, %2 ], [ %6, %7 ], [ %13, %10 ], [ null, %select.unfold59 ], [ %.tr7482, %_ZN7AstNode11privateCastI7AstCNewKPS_EEPT_S2_.exit ]
   ret ptr %.0
 }
 

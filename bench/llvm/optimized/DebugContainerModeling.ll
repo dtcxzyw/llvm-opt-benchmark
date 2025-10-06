@@ -2268,23 +2268,23 @@ _ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i: ; preds 
   %.val.i = load ptr, ptr %12, align 8, !tbaa !363
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val15.i = load ptr, ptr %13, align 8, !tbaa !363
-  %.not4.i.i = icmp eq ptr %.val.i, %.val15.i
-  br i1 %.not4.i.i, label %_ZNK12_GLOBAL__N_122DebugContainerModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
+  %.not6.i.i = icmp eq ptr %.val.i, %.val15.i
+  br i1 %.not6.i.i, label %_ZNK12_GLOBAL__N_122DebugContainerModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i, %15
-  %.sroa.01.05.i.i = phi ptr [ %16, %15 ], [ %.val.i, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i ]
-  %14 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.05.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #16
+  %.sroa.01.07.i.i = phi ptr [ %16, %15 ], [ %.val.i, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i ]
+  %14 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.07.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #16
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %.lr.ph.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 80
   %.not.i.i = icmp eq ptr %16, %.val15.i
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_122DebugContainerModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 17:                                               ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 64
   %.unpack.i = load i64, ptr %18, align 8, !tbaa !16
-  %.elt12.i = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 72
+  %.elt12.i = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 72
   %.unpack13.i = load i64, ptr %.elt12.i, align 8, !tbaa !16
   %19 = getelementptr inbounds i8, ptr %0, i64 %.unpack13.i
   %20 = and i64 %.unpack.i, 1

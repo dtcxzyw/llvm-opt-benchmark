@@ -1203,11 +1203,11 @@ define i32 @print_filtergraphs(ptr noundef readonly captures(none) %0, i32 nound
 
 .preheader.i:                                     ; preds = %34, %21
   %24 = icmp sgt i32 %5, 0
-  br i1 %24, label %.lr.ph80.preheader.i, label %._crit_edge81.i
+  br i1 %24, label %.lr.ph79.preheader.i, label %._crit_edge80.i
 
-.lr.ph80.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count90.i = zext nneg i32 %5 to i64
-  br label %.lr.ph80.i
+.lr.ph79.preheader.i:                             ; preds = %.preheader.i
+  %wide.trip.count89.i = zext nneg i32 %5 to i64
+  br label %.lr.ph79.i
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %34 ]
@@ -1233,7 +1233,7 @@ define i32 @print_filtergraphs(ptr noundef readonly captures(none) %0, i32 nound
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !146
 
-._crit_edge81.i:                                  ; preds = %._crit_edge.i, %.preheader.i
+._crit_edge80.i:                                  ; preds = %._crit_edge.i, %.preheader.i
   call void @avtext_print_section_footer(ptr noundef %22) #7
   %35 = load ptr, ptr %20, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1244,7 +1244,7 @@ define i32 @print_filtergraphs(ptr noundef readonly captures(none) %0, i32 nound
   %36 = icmp sgt i32 %3, 0
   br i1 %36, label %.lr.ph324.i.i, label %._crit_edge333.critedge.i.i
 
-.lr.ph324.i.i:                                    ; preds = %._crit_edge81.i
+.lr.ph324.i.i:                                    ; preds = %._crit_edge80.i
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -1531,7 +1531,7 @@ upcase_string.exit.i.i:                           ; preds = %.lr.ph.i294.i.i, %1
   %160 = icmp slt i64 %indvars.iv.next.i.i, %159
   br i1 %160, label %92, label %._crit_edge.i.i, !llvm.loop !194
 
-._crit_edge333.critedge.i.i:                      ; preds = %._crit_edge81.i
+._crit_edge333.critedge.i.i:                      ; preds = %._crit_edge80.i
   call void @avtext_print_section_footer(ptr noundef %35) #7
   call fastcc void @print_section_header_id(ptr noundef nonnull %20, i32 noundef 24, ptr noundef nonnull @.str.111)
   br label %._crit_edge333.i.i
@@ -2035,29 +2035,29 @@ print_streams.exit.i:                             ; preds = %._crit_edge355.i.i,
   %.not60.i = icmp eq ptr %394, null
   br i1 %.not60.i, label %446, label %sub_0.i
 
-.lr.ph80.i:                                       ; preds = %._crit_edge.i, %.lr.ph80.preheader.i
-  %indvars.iv87.i = phi i64 [ 0, %.lr.ph80.preheader.i ], [ %indvars.iv.next88.i, %._crit_edge.i ]
-  %395 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv87.i
+.lr.ph79.i:                                       ; preds = %._crit_edge.i, %.lr.ph79.preheader.i
+  %indvars.iv86.i = phi i64 [ 0, %.lr.ph79.preheader.i ], [ %indvars.iv.next87.i, %._crit_edge.i ]
+  %395 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv86.i
   %396 = load ptr, ptr %395, align 8, !tbaa !199
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 32
   %398 = load i32, ptr %397, align 8, !tbaa !201
   %399 = icmp sgt i32 %398, 0
-  br i1 %399, label %.lr.ph78.i, label %._crit_edge.i
+  br i1 %399, label %.lr.ph77.i, label %._crit_edge.i
 
-.lr.ph78.i:                                       ; preds = %.lr.ph80.i
+.lr.ph77.i:                                       ; preds = %.lr.ph79.i
   %400 = getelementptr inbounds nuw i8, ptr %396, i64 24
   br label %401
 
-._crit_edge.i:                                    ; preds = %416, %.lr.ph80.i
-  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
-  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count90.i
-  br i1 %exitcond91.not.i, label %._crit_edge81.i, label %.lr.ph80.i, !llvm.loop !254
+._crit_edge.i:                                    ; preds = %416, %.lr.ph79.i
+  %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
+  %exitcond90.not.i = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count89.i
+  br i1 %exitcond90.not.i, label %._crit_edge80.i, label %.lr.ph79.i, !llvm.loop !254
 
-401:                                              ; preds = %416, %.lr.ph78.i
-  %402 = phi i32 [ %398, %.lr.ph78.i ], [ %417, %416 ]
-  %indvars.iv84.i = phi i64 [ 0, %.lr.ph78.i ], [ %indvars.iv.next85.i, %416 ]
+401:                                              ; preds = %416, %.lr.ph77.i
+  %402 = phi i32 [ %398, %.lr.ph77.i ], [ %417, %416 ]
+  %indvars.iv83.i = phi i64 [ 0, %.lr.ph77.i ], [ %indvars.iv.next84.i, %416 ]
   %403 = load ptr, ptr %400, align 8, !tbaa !205
-  %404 = getelementptr inbounds nuw ptr, ptr %403, i64 %indvars.iv84.i
+  %404 = getelementptr inbounds nuw ptr, ptr %403, i64 %indvars.iv83.i
   %405 = load ptr, ptr %404, align 8, !tbaa !206
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 184
   %407 = load ptr, ptr %406, align 8, !tbaa !255
@@ -2083,17 +2083,17 @@ print_streams.exit.i:                             ; preds = %._crit_edge355.i.i,
 
 416:                                              ; preds = %411, %408, %401
   %417 = phi i32 [ %402, %408 ], [ %.pre.i, %411 ], [ %402, %401 ]
-  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
+  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %418 = sext i32 %417 to i64
-  %419 = icmp slt i64 %indvars.iv.next85.i, %418
+  %419 = icmp slt i64 %indvars.iv.next84.i, %418
   br i1 %419, label %401, label %._crit_edge.i, !llvm.loop !256
 
 sub_0.i:                                          ; preds = %print_streams.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !257
   %420 = load i8, ptr %394, align 1
-  %.not82.i = icmp eq i8 %420, 45
-  br i1 %.not82.i, label %.tail.i, label %.tail.thread.i
+  %.not81.i = icmp eq i8 %420, 45
+  br i1 %.not81.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
   %421 = getelementptr inbounds nuw i8, ptr %394, i64 1
@@ -2192,13 +2192,13 @@ uninit_graphprint.exit.i:                         ; preds = %458, %455
   br label %print_filtergraphs_priv.exit
 
 print_filtergraphs_priv.exit:                     ; preds = %19, %450, %uninit_graphprint.exit.i
-  %.04575.i = phi i32 [ %.045.ph.i, %uninit_graphprint.exit.i ], [ %.045.ph.i, %450 ], [ -12, %19 ]
+  %.04574.i = phi i32 [ %.045.ph.i, %uninit_graphprint.exit.i ], [ %.045.ph.i, %450 ], [ -12, %19 ]
   %462 = call i32 @av_bprint_finalize(ptr noundef nonnull %14, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  ret i32 %.04575.i
+  ret i32 %.04574.i
 }
 
 declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

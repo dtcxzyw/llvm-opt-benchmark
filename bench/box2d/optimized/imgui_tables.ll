@@ -9824,34 +9824,34 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN5ImGui31TableGetColumnNex
   %11 = and i8 %.val14, 3
   br label %.loopexit
 
-12:                                               ; preds = %.preheader, %27
-  %.01116 = phi i32 [ 0, %.preheader ], [ %28, %27 ]
-  %13 = shl nuw nsw i32 %.01116, 1
+12:                                               ; preds = %.preheader, %19
+  %.01118 = phi i32 [ 0, %.preheader ], [ %20, %19 ]
+  %13 = shl nuw nsw i32 %.01118, 1
   %14 = lshr i32 %8, %13
   %15 = trunc nuw i32 %14 to i8
   %16 = xor i8 %6, %15
   %17 = and i8 %16, 3
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %27
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %12
-  %20 = lshr i8 %6, 2
-  %21 = and i8 %20, 3
-  %22 = trunc nuw nsw i32 %.01116 to i8
-  %.lhs.trunc = add nuw nsw i8 %22, 1
-  %23 = urem i8 %.lhs.trunc, %21
-  %24 = shl nuw nsw i8 %23, 1
-  %25 = lshr i8 %.val13, %24
-  %26 = and i8 %25, 3
+  %20 = add nuw nsw i32 %.01118, 1
+  %exitcond.not = icmp eq i32 %20, 3
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !546
+
+21:                                               ; preds = %12
+  %22 = lshr i8 %6, 2
+  %23 = and i8 %22, 3
+  %24 = trunc nuw nsw i32 %.01118 to i8
+  %.lhs.trunc = add nuw nsw i8 %24, 1
+  %25 = urem i8 %.lhs.trunc, %23
+  %26 = shl nuw nsw i8 %25, 1
+  %27 = lshr i8 %.val13, %26
+  %28 = and i8 %27, 3
   br label %.loopexit
 
-27:                                               ; preds = %12
-  %28 = add nuw nsw i32 %.01116, 1
-  %exitcond = icmp eq i32 %28, 3
-  br i1 %exitcond, label %.loopexit, label %12, !llvm.loop !546
-
-.loopexit:                                        ; preds = %27, %19, %9
-  %.012 = phi i8 [ %11, %9 ], [ %26, %19 ], [ 0, %27 ]
+.loopexit:                                        ; preds = %19, %21, %9
+  %.012 = phi i8 [ %11, %9 ], [ %28, %21 ], [ 0, %19 ]
   ret i8 %.012
 }
 

@@ -203,21 +203,21 @@ backup_file_distance.exit.i.i:                    ; preds = %45, %40
   %49 = icmp ugt i32 %.083.i23.i, %.0.i.i.i
   %50 = add i32 %.071.i24.i, 1
   %51 = and i32 %.val89.i.i, %50
-  br i1 %49, label %.preheader107.i.preheader.i, label %77
+  br i1 %49, label %.preheader106.i.preheader.i, label %77
 
-.preheader107.i.preheader.i:                      ; preds = %backup_file_distance.exit.i.i
+.preheader106.i.preheader.i:                      ; preds = %backup_file_distance.exit.i.i
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %26, i64 %52
   %54 = load i32, ptr %53, align 8
-  %.not106.i27.i = icmp eq i32 %54, 0
-  br i1 %.not106.i27.i, label %.preheader.i.i, label %.lr.ph29.i
+  %.not105.i27.i = icmp eq i32 %54, 0
+  br i1 %.not105.i27.i, label %.preheader.i.i, label %.lr.ph29.i
 
-.lr.ph29.i:                                       ; preds = %.preheader107.i.preheader.i, %.preheader107.i.i
-  %55 = phi i32 [ %66, %.preheader107.i.i ], [ %51, %.preheader107.i.preheader.i ]
-  %.073.i28.i = phi i32 [ %56, %.preheader107.i.i ], [ 0, %.preheader107.i.preheader.i ]
+.lr.ph29.i:                                       ; preds = %.preheader106.i.preheader.i, %.preheader106.i.i
+  %55 = phi i32 [ %66, %.preheader106.i.i ], [ %51, %.preheader106.i.preheader.i ]
+  %.073.i28.i = phi i32 [ %56, %.preheader106.i.i ], [ 0, %.preheader106.i.preheader.i ]
   %56 = add i32 %.073.i28.i, 1
   %57 = icmp sgt i32 %56, 150
-  br i1 %57, label %58, label %.preheader107.i.i, !prof !5
+  br i1 %57, label %58, label %.preheader106.i.i, !prof !5
 
 58:                                               ; preds = %.lr.ph29.i
   %59 = load i32, ptr %12, align 8
@@ -226,33 +226,33 @@ backup_file_distance.exit.i.i:                    ; preds = %45, %40
   %62 = uitofp i64 %61 to double
   %63 = fdiv double %60, %62
   %64 = fcmp ult double %63, 1.000000e-01
-  br i1 %64, label %.preheader107.i.i, label %.loopexit.loopexit.i.i
+  br i1 %64, label %.preheader106.i.i, label %.loopexit.loopexit.i.i
 
-.preheader107.i.i:                                ; preds = %58, %.lr.ph29.i
+.preheader106.i.i:                                ; preds = %58, %.lr.ph29.i
   %65 = add i32 %55, 1
   %66 = and i32 %65, %.val89.i.i
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %26, i64 %67
   %69 = load i32, ptr %68, align 8
-  %.not106.i.i = icmp eq i32 %69, 0
-  br i1 %.not106.i.i, label %.preheader.i.i, label %.lr.ph29.i
+  %.not105.i.i = icmp eq i32 %69, 0
+  br i1 %.not105.i.i, label %.preheader.i.i, label %.lr.ph29.i
 
-.preheader.i.i:                                   ; preds = %.preheader107.i.i, %.preheader107.i.preheader.i
-  %.lcssa17.i = phi i32 [ %51, %.preheader107.i.preheader.i ], [ %66, %.preheader107.i.i ]
-  %.lcssa15.i = phi ptr [ %53, %.preheader107.i.preheader.i ], [ %68, %.preheader107.i.i ]
+.preheader.i.i:                                   ; preds = %.preheader106.i.i, %.preheader106.i.preheader.i
+  %.lcssa17.i = phi i32 [ %51, %.preheader106.i.preheader.i ], [ %66, %.preheader106.i.i ]
+  %.lcssa15.i = phi ptr [ %53, %.preheader106.i.preheader.i ], [ %68, %.preheader106.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.not88129.i.i = icmp eq i32 %.lcssa17.i, %.071.i24.i
-  br i1 %.not88129.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not88128.i.i = icmp eq i32 %.lcssa17.i, %.071.i24.i
+  br i1 %.not88128.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.075131.i.i = phi i32 [ %72, %.lr.ph.i.i ], [ %.lcssa17.i, %.preheader.i.i ]
-  %.279130.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %.lcssa15.i, %.preheader.i.i ]
+  %.075130.i.i = phi i32 [ %72, %.lr.ph.i.i ], [ %.lcssa17.i, %.preheader.i.i ]
+  %.279129.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %.lcssa15.i, %.preheader.i.i ]
   %.val93.i.i = load i32, ptr %15, align 4
-  %71 = add i32 %.075131.i.i, -1
+  %71 = add i32 %.075130.i.i, -1
   %72 = and i32 %.val93.i.i, %71
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %26, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.279130.i.i, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.279129.i.i, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
   %.not88.i.i = icmp eq i32 %72, %.071.i24.i
   br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
 
@@ -1427,16 +1427,16 @@ backup_file_update_parameters.exit:               ; preds = %backup_file_compute
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink.i, ptr %36, align 8
-  %.not72 = icmp eq i64 %3, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not71 = icmp eq i64 %3, 0
+  br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %backup_file_update_parameters.exit, %47
   %37 = phi i64 [ %49, %47 ], [ 0, %backup_file_update_parameters.exit ]
-  %.064 = phi i32 [ %48, %47 ], [ 0, %backup_file_update_parameters.exit ]
+  %.063 = phi i32 [ %48, %47 ], [ 0, %backup_file_update_parameters.exit ]
   %38 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %5, i64 %37
   %39 = load i32, ptr %38, align 8
   %.not = icmp eq i32 %39, 1
-  br i1 %.not, label %40, label %.lr.ph71.preheader
+  br i1 %.not, label %40, label %.lr.ph70.preheader
 
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr i8, ptr %38, i64 8
@@ -1446,29 +1446,29 @@ backup_file_update_parameters.exit:               ; preds = %backup_file_compute
   %44 = tail call i32 @hash_bytes(ptr noundef nonnull %.val56, i32 noundef %43) #13
   %.val59 = load i32, ptr %31, align 4
   %45 = and i32 %.val59, %44
-  %46 = icmp eq i32 %45, %.064
-  br i1 %46, label %.lr.ph71.preheader, label %47
+  %46 = icmp eq i32 %45, %.063
+  br i1 %46, label %.lr.ph70.preheader, label %47
 
 47:                                               ; preds = %40
-  %48 = add i32 %.064, 1
+  %48 = add i32 %.063, 1
   %49 = zext i32 %48 to i64
   %50 = icmp ugt i64 %3, %49
-  br i1 %50, label %.lr.ph, label %.lr.ph71.preheader, !llvm.loop !14
+  br i1 %50, label %.lr.ph, label %.lr.ph70.preheader, !llvm.loop !14
 
-.lr.ph71.preheader:                               ; preds = %47, %.lr.ph, %40
-  %.05169.ph = phi i32 [ %.064, %40 ], [ %.064, %.lr.ph ], [ 0, %47 ]
-  br label %.lr.ph71
+.lr.ph70.preheader:                               ; preds = %47, %.lr.ph, %40
+  %.05168.ph = phi i32 [ %.063, %40 ], [ %.063, %.lr.ph ], [ 0, %47 ]
+  br label %.lr.ph70
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %67
-  %.170 = phi i32 [ %70, %67 ], [ 0, %.lr.ph71.preheader ]
-  %.05169 = phi i32 [ %spec.store.select, %67 ], [ %.05169.ph, %.lr.ph71.preheader ]
-  %51 = zext i32 %.05169 to i64
+.lr.ph70:                                         ; preds = %.lr.ph70.preheader, %67
+  %.169 = phi i32 [ %70, %67 ], [ 0, %.lr.ph70.preheader ]
+  %.05168 = phi i32 [ %spec.store.select, %67 ], [ %.05168.ph, %.lr.ph70.preheader ]
+  %51 = zext i32 %.05168 to i64
   %52 = getelementptr inbounds nuw %struct.backup_file_entry, ptr %5, i64 %51
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %55, label %67
 
-55:                                               ; preds = %.lr.ph71
+55:                                               ; preds = %.lr.ph70
   %56 = getelementptr i8, ptr %52, i64 8
   %.val57 = load ptr, ptr %56, align 8
   %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val57) #15
@@ -1491,15 +1491,15 @@ backup_file_update_parameters.exit:               ; preds = %backup_file_compute
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   br label %67
 
-67:                                               ; preds = %66, %.lr.ph71
-  %68 = add i32 %.05169, 1
+67:                                               ; preds = %66, %.lr.ph70
+  %68 = add i32 %.05168, 1
   %69 = zext i32 %68 to i64
   %.not55 = icmp ugt i64 %3, %69
   %spec.store.select = select i1 %.not55, i32 %68, i32 0
-  %70 = add i32 %.170, 1
+  %70 = add i32 %.169, 1
   %71 = zext i32 %70 to i64
   %72 = icmp ugt i64 %3, %71
-  br i1 %72, label %.lr.ph71, label %._crit_edge, !llvm.loop !15
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %67, %backup_file_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #13

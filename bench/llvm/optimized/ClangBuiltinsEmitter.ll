@@ -904,18 +904,18 @@ _ZN4llvmplERKNS_5TwineES2_.exit65:                ; preds = %227
   %233 = zext i32 %232 to i64
   %.idx.i = mul nuw nsw i64 %233, 24
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 %.idx.i
-  %.not36.not.i = icmp eq i32 %232, 0
-  br i1 %.not36.not.i, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i66
+  %.not37.not.i = icmp eq i32 %232, 0
+  br i1 %.not37.not.i, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %230, %.critedge.i
-  %.02337.i = phi ptr [ %255, %.critedge.i ], [ %231, %230 ]
-  %235 = load ptr, ptr %.02337.i, align 8, !tbaa !13
+  %.02338.i = phi ptr [ %255, %.critedge.i ], [ %231, %230 ]
+  %235 = load ptr, ptr %.02338.i, align 8, !tbaa !13
   %236 = load ptr, ptr %235, align 8, !tbaa !76
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load i8, ptr %237, align 8, !tbaa !112
   %239 = icmp ne i8 %238, 19
-  %.not2735.i = icmp eq ptr %236, null
-  %.not27.i = or i1 %.not2735.i, %239
+  %.not2736.i = icmp eq ptr %236, null
+  %.not27.i = or i1 %.not2736.i, %239
   br i1 %.not27.i, label %243, label %240
 
 240:                                              ; preds = %.lr.ph.i66
@@ -968,7 +968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %.0.i29.i, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %240
-  %255 = getelementptr inbounds nuw i8, ptr %.02337.i, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %.02338.i, i64 24
   %.not.not.i = icmp eq ptr %255, %234
   br i1 %.not.not.i, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit, label %.lr.ph.i66
 
@@ -978,18 +978,18 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit: ; preds = %.critedge.i
   %256 = zext i32 %.pr to i64
   %.idx.i67 = mul nuw nsw i64 %256, 24
   %257 = getelementptr inbounds nuw i8, ptr %.pre243, i64 %.idx.i67
-  %.not36.not.i68 = icmp eq i32 %.pr, 0
-  br i1 %.not36.not.i68, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i69
+  %.not37.not.i68 = icmp eq i32 %.pr, 0
+  br i1 %.not37.not.i68, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i69
 
 .lr.ph.i69:                                       ; preds = %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit, %.critedge.i77
-  %.02337.i70 = phi ptr [ %278, %.critedge.i77 ], [ %.pre243, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit ]
-  %258 = load ptr, ptr %.02337.i70, align 8, !tbaa !13
+  %.02338.i70 = phi ptr [ %278, %.critedge.i77 ], [ %.pre243, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit ]
+  %258 = load ptr, ptr %.02338.i70, align 8, !tbaa !13
   %259 = load ptr, ptr %258, align 8, !tbaa !76
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %261 = load i8, ptr %260, align 8, !tbaa !112
   %262 = icmp ne i8 %261, 19
-  %.not2735.i71 = icmp eq ptr %259, null
-  %.not27.i72 = or i1 %.not2735.i71, %262
+  %.not2736.i71 = icmp eq ptr %259, null
+  %.not27.i72 = or i1 %.not2736.i71, %262
   br i1 %.not27.i72, label %266, label %263
 
 263:                                              ; preds = %.lr.ph.i69
@@ -1042,7 +1042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i89: ; preds = %_
   br i1 %.0.i29.i87, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.critedge.i77
 
 .critedge.i77:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i89, %_ZN4llvmeqENS_9StringRefES0_.exit.i80, %263
-  %278 = getelementptr inbounds nuw i8, ptr %.02337.i70, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %.02338.i70, i64 24
   %.not.not.i78 = icmp eq ptr %278, %257
   br i1 %.not.not.i78, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit91, label %.lr.ph.i69
 
@@ -1052,18 +1052,18 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit91: ; preds = %.critedge.i77
   %279 = zext i32 %.pre245 to i64
   %.idx.i92 = mul nuw nsw i64 %279, 24
   %280 = getelementptr inbounds nuw i8, ptr %.pre244, i64 %.idx.i92
-  %.not36.not.i93 = icmp eq i32 %.pre245, 0
-  br i1 %.not36.not.i93, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i94
+  %.not37.not.i93 = icmp eq i32 %.pre245, 0
+  br i1 %.not37.not.i93, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i94
 
 .lr.ph.i94:                                       ; preds = %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit91, %.critedge.i102
-  %.02337.i95 = phi ptr [ %301, %.critedge.i102 ], [ %.pre244, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit91 ]
-  %281 = load ptr, ptr %.02337.i95, align 8, !tbaa !13
+  %.02338.i95 = phi ptr [ %301, %.critedge.i102 ], [ %.pre244, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit91 ]
+  %281 = load ptr, ptr %.02338.i95, align 8, !tbaa !13
   %282 = load ptr, ptr %281, align 8, !tbaa !76
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load i8, ptr %283, align 8, !tbaa !112
   %285 = icmp ne i8 %284, 19
-  %.not2735.i96 = icmp eq ptr %282, null
-  %.not27.i97 = or i1 %.not2735.i96, %285
+  %.not2736.i96 = icmp eq ptr %282, null
+  %.not27.i97 = or i1 %.not2736.i96, %285
   br i1 %.not27.i97, label %289, label %286
 
 286:                                              ; preds = %.lr.ph.i94
@@ -1116,7 +1116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i114: ; preds = %
   br i1 %.0.i29.i112, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.critedge.i102
 
 .critedge.i102:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i114, %_ZN4llvmeqENS_9StringRefES0_.exit.i105, %286
-  %301 = getelementptr inbounds nuw i8, ptr %.02337.i95, i64 24
+  %301 = getelementptr inbounds nuw i8, ptr %.02338.i95, i64 24
   %.not.not.i103 = icmp eq ptr %301, %280
   br i1 %.not.not.i103, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit116, label %.lr.ph.i94
 
@@ -1126,18 +1126,18 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit116: ; preds = %.critedge.i102
   %302 = zext i32 %.pr216 to i64
   %.idx.i117 = mul nuw nsw i64 %302, 24
   %303 = getelementptr inbounds nuw i8, ptr %.pre246, i64 %.idx.i117
-  %.not36.not.i118 = icmp eq i32 %.pr216, 0
-  br i1 %.not36.not.i118, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i119
+  %.not37.not.i118 = icmp eq i32 %.pr216, 0
+  br i1 %.not37.not.i118, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i119
 
 .lr.ph.i119:                                      ; preds = %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit116, %.critedge.i127
-  %.02337.i120 = phi ptr [ %324, %.critedge.i127 ], [ %.pre246, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit116 ]
-  %304 = load ptr, ptr %.02337.i120, align 8, !tbaa !13
+  %.02338.i120 = phi ptr [ %324, %.critedge.i127 ], [ %.pre246, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit116 ]
+  %304 = load ptr, ptr %.02338.i120, align 8, !tbaa !13
   %305 = load ptr, ptr %304, align 8, !tbaa !76
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load i8, ptr %306, align 8, !tbaa !112
   %308 = icmp ne i8 %307, 19
-  %.not2735.i121 = icmp eq ptr %305, null
-  %.not27.i122 = or i1 %.not2735.i121, %308
+  %.not2736.i121 = icmp eq ptr %305, null
+  %.not27.i122 = or i1 %.not2736.i121, %308
   br i1 %.not27.i122, label %312, label %309
 
 309:                                              ; preds = %.lr.ph.i119
@@ -1190,7 +1190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i139: ; preds = %
   br i1 %.0.i29.i137, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.critedge.i127
 
 .critedge.i127:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i139, %_ZN4llvmeqENS_9StringRefES0_.exit.i130, %309
-  %324 = getelementptr inbounds nuw i8, ptr %.02337.i120, i64 24
+  %324 = getelementptr inbounds nuw i8, ptr %.02338.i120, i64 24
   %.not.not.i128 = icmp eq ptr %324, %303
   br i1 %.not.not.i128, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit141, label %.lr.ph.i119
 
@@ -1200,18 +1200,18 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit141: ; preds = %.critedge.i127
   %325 = zext i32 %.pre248 to i64
   %.idx.i142 = mul nuw nsw i64 %325, 24
   %326 = getelementptr inbounds nuw i8, ptr %.pre247, i64 %.idx.i142
-  %.not36.not.i143 = icmp eq i32 %.pre248, 0
-  br i1 %.not36.not.i143, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i144
+  %.not37.not.i143 = icmp eq i32 %.pre248, 0
+  br i1 %.not37.not.i143, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i144
 
 .lr.ph.i144:                                      ; preds = %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit141, %.critedge.i152
-  %.02337.i145 = phi ptr [ %347, %.critedge.i152 ], [ %.pre247, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit141 ]
-  %327 = load ptr, ptr %.02337.i145, align 8, !tbaa !13
+  %.02338.i145 = phi ptr [ %347, %.critedge.i152 ], [ %.pre247, %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit141 ]
+  %327 = load ptr, ptr %.02338.i145, align 8, !tbaa !13
   %328 = load ptr, ptr %327, align 8, !tbaa !76
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = load i8, ptr %329, align 8, !tbaa !112
   %331 = icmp ne i8 %330, 19
-  %.not2735.i146 = icmp eq ptr %328, null
-  %.not27.i147 = or i1 %.not2735.i146, %331
+  %.not2736.i146 = icmp eq ptr %328, null
+  %.not27.i147 = or i1 %.not2736.i146, %331
   br i1 %.not27.i147, label %335, label %332
 
 332:                                              ; preds = %.lr.ph.i144
@@ -1264,7 +1264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i164: ; preds = %
   br i1 %.0.i29.i162, label %348, label %.critedge.i152
 
 .critedge.i152:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i164, %_ZN4llvmeqENS_9StringRefES0_.exit.i155, %332
-  %347 = getelementptr inbounds nuw i8, ptr %.02337.i145, i64 24
+  %347 = getelementptr inbounds nuw i8, ptr %.02338.i145, i64 24
   %.not.not.i153 = icmp eq ptr %347, %326
   br i1 %.not.not.i153, label %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit166, label %.lr.ph.i144
 
@@ -1388,8 +1388,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %9 = zext i32 %8 to i64
   %.idx = mul nuw nsw i64 %9, 24
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %.not36.not = icmp eq i32 %8, 0
-  br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
+  %.not37.not = icmp eq i32 %8, 0
+  br i1 %.not37.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1399,14 +1399,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.critedge
-  %.02337 = phi ptr [ %6, %.lr.ph ], [ %37, %.critedge ]
-  %16 = load ptr, ptr %.02337, align 8, !tbaa !13
+  %.02338 = phi ptr [ %6, %.lr.ph ], [ %37, %.critedge ]
+  %16 = load ptr, ptr %.02338, align 8, !tbaa !13
   %17 = load ptr, ptr %16, align 8, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i8, ptr %18, align 8, !tbaa !112
   %20 = icmp ne i8 %19, 19
-  %.not2735 = icmp eq ptr %17, null
-  %.not27 = or i1 %.not2735, %20
+  %.not2736 = icmp eq ptr %17, null
+  %.not27 = or i1 %.not2736, %20
   br i1 %.not27, label %25, label %21
 
 21:                                               ; preds = %15
@@ -1418,12 +1418,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   br i1 %.not.i, label %23, label %.critedge
 
 23:                                               ; preds = %21
-  br i1 %13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
+  br i1 %13, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %23
   %bcmp.i = call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %1, i64 %2)
   %24 = icmp eq i32 %bcmp.i, 0
-  br i1 %24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
+  br i1 %24, label %.thread, label %.critedge
 
 25:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1461,14 +1461,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0.i29, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
+  br i1 %.0.i29, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %37 = getelementptr inbounds nuw i8, ptr %.02337, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.02338, i64 24
   %.not.not = icmp eq ptr %37, %10
-  br i1 %.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %15
+  br i1 %.not.not, label %.thread, label %15
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %23, %3
+.thread:                                          ; preds = %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %23, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ true, %23 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %.critedge ]
   ret i1 %.not.lcssa
 }

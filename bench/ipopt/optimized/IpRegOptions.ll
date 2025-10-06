@@ -3090,31 +3090,31 @@ define noundef zeroext i1 @_ZNK5Ipopt16RegisteredOption20IsValidStringSettingERK
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8, !tbaa !40
-  %.not12.not = icmp eq ptr %4, %6
-  br i1 %.not12.not, label %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread, label %.lr.ph
+  %.not13.not = icmp eq ptr %4, %6
+  br i1 %.not13.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
-  %.sroa.04.013 = phi ptr [ %4, %.lr.ph ], [ %28, %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ]
-  %9 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.013, ptr noundef nonnull @.str.93) #25
+  %.sroa.04.014 = phi ptr [ %4, %.lr.ph ], [ %28, %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ]
+  %9 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.014, ptr noundef nonnull @.str.93) #25
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.014, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = load i64, ptr %7, align 8, !tbaa !9
   %.not.i = icmp eq i64 %13, %14
   br i1 %.not.i, label %15, label %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %.sroa.04.013, align 8, !tbaa !27
+  %16 = load ptr, ptr %.sroa.04.014, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %13
   %.not1213.i = icmp samesign eq i64 %13, 0
-  br i1 %.not1213.i, label %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not1213.i, label %.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %15
   %18 = load ptr, ptr %1, align 8, !tbaa !27
@@ -3136,17 +3136,17 @@ define noundef zeroext i1 @_ZNK5Ipopt16RegisteredOption20IsValidStringSettingERK
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.09.015.i, i64 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i, i64 1
   %.not12.i = icmp eq ptr %26, %17
-  br i1 %.not12.i, label %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not12.i, label %.thread, label %.lr.ph.i, !llvm.loop !53
 
 _ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %.lr.ph.i, %11
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.013, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.014, i64 64
   %29 = load ptr, ptr %5, align 8, !tbaa !40
   %.not.not = icmp eq ptr %28, %29
-  br i1 %.not.not, label %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread, label %8, !llvm.loop !54
+  br i1 %.not.not, label %.thread, label %8, !llvm.loop !54
 
-_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread: ; preds = %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, %8, %15, %25, %2
-  %.not11 = phi i1 [ false, %2 ], [ true, %25 ], [ false, %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ], [ true, %8 ], [ true, %15 ]
-  ret i1 %.not11
+.thread:                                          ; preds = %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, %8, %15, %25, %2
+  %.not12 = phi i1 [ false, %2 ], [ true, %25 ], [ false, %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ], [ true, %8 ], [ true, %15 ]
+  ret i1 %.not12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable

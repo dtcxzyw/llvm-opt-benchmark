@@ -97,8 +97,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 2
-  %.not39 = icmp eq i8 %13, 0
-  br i1 %.not39, label %14, label %.critedge
+  %.not37 = icmp eq i8 %13, 0
+  br i1 %.not37, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %15 = and i8 %12, 4
@@ -106,15 +106,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
   br label %.critedge
 
 17:                                               ; preds = %1
-  %.not38 = icmp eq i8 %3, 67
-  br i1 %.not38, label %18, label %25
+  %.not36 = icmp eq i8 %3, 67
+  br i1 %.not36, label %18, label %25
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 2
-  %.not37 = icmp eq i8 %21, 0
-  br i1 %.not37, label %22, label %25
+  %.not35 = icmp eq i8 %21, 0
+  br i1 %.not35, label %22, label %25
 
 22:                                               ; preds = %18
   %23 = and i8 %20, 4
@@ -123,7 +123,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
 
 25:                                               ; preds = %17, %18, %22
   %.1 = phi i1 [ true, %18 ], [ %24, %22 ], [ undef, %17 ]
-  %spec.select = and i1 %.not38, %.1
+  %spec.select = and i1 %.not36, %.1
   br label %.critedge
 
 26:                                               ; preds = %1, %1, %1, %1
@@ -202,8 +202,8 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %
   %64 = add nsw i32 %8, -68
   %switch.and.i.i.i.i.i.i.i.i.i = and i32 %64, -5
   %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %switch.and.i.i.i.i.i.i.i.i.i, 0
-  %.not36.not = select i1 %4, i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %.not36.not, label %65, label %67
+  %.not34.not = select i1 %4, i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, i1 false
+  br i1 %.not34.not, label %65, label %67
 
 65:                                               ; preds = %63
   %66 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
@@ -211,7 +211,7 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %
 
 67:                                               ; preds = %63, %65
   %.2 = phi i1 [ %66, %65 ], [ undef, %63 ]
-  %spec.select30 = and i1 %.not36.not, %.2
+  %spec.select29 = and i1 %.not34.not, %.2
   br label %.critedge
 
 68:                                               ; preds = %1
@@ -229,8 +229,8 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = and i8 %77, 4
-  %.not40 = icmp eq i8 %78, 0
-  br i1 %.not40, label %79, label %82
+  %.not38 = icmp eq i8 %78, 0
+  br i1 %.not38, label %79, label %82
 
 79:                                               ; preds = %75
   %80 = and i8 %77, 8
@@ -239,11 +239,11 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %
 
 82:                                               ; preds = %73, %75, %79
   %.3 = phi i1 [ true, %75 ], [ %81, %79 ], [ undef, %73 ]
-  %spec.select33 = and i1 %74, %.3
+  %spec.select31 = and i1 %74, %.3
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, %82, %67, %25, %10, %14, %68, %31, %26
-  %.0 = phi i1 [ %30, %26 ], [ %35, %31 ], [ %72, %68 ], [ true, %10 ], [ %16, %14 ], [ %spec.select, %25 ], [ %spec.select30, %67 ], [ %spec.select33, %82 ], [ %62, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ true, %36 ]
+  %.0 = phi i1 [ %30, %26 ], [ %35, %31 ], [ %72, %68 ], [ true, %10 ], [ %16, %14 ], [ %spec.select, %25 ], [ %spec.select29, %67 ], [ %spec.select31, %82 ], [ %62, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ true, %36 ]
   ret i1 %.0
 }
 
@@ -791,13 +791,13 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %30, %38, %41
   %56 = icmp ne i64 %55, 4
   %57 = and i64 %.sroa.12.0131, -8
   %58 = inttoptr i64 %57 to ptr
-  %.not.not16.i = icmp eq i64 %57, 0
-  %.not.not.i = or i1 %56, %.not.not16.i
+  %.not.not14.i = icmp eq i64 %57, 0
+  %.not.not.i = or i1 %56, %.not.not14.i
   br i1 %.not.not.i, label %59, label %_ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit
 
 59:                                               ; preds = %54
   %60 = icmp ne i64 %55, 2
-  %.not9.not.i = or i1 %60, %.not.not16.i
+  %.not9.not.i = or i1 %60, %.not.not14.i
   br i1 %.not9.not.i, label %64, label %61
 
 61:                                               ; preds = %59
@@ -922,7 +922,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %109, %111
 
 112:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %113 = icmp ne i64 %55, 2
-  %.not9.not.i.i = or i1 %113, %.not.not16.i
+  %.not9.not.i.i = or i1 %113, %.not.not14.i
   br i1 %.not9.not.i.i, label %117, label %114
 
 114:                                              ; preds = %112
@@ -1014,7 +1014,7 @@ _ZN4llvm5APIntC2ERKS0_.exit68:                    ; preds = %146, %148
 
 149:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit68
   %150 = icmp ne i64 %55, 2
-  %.not9.not.i.i82 = or i1 %150, %.not.not16.i
+  %.not9.not.i.i82 = or i1 %150, %.not.not14.i
   br i1 %.not9.not.i.i82, label %154, label %151
 
 151:                                              ; preds = %149
@@ -1104,7 +1104,7 @@ _ZN4llvm5APIntD2Ev.exit86:                        ; preds = %176, %179, %182
 
 184:                                              ; preds = %.thread114
   %185 = icmp ne i64 %55, 2
-  %.not9.not.i.i92 = or i1 %185, %.not.not16.i
+  %.not9.not.i.i92 = or i1 %185, %.not.not14.i
   br i1 %.not9.not.i.i92, label %189, label %186
 
 186:                                              ; preds = %184
@@ -1452,13 +1452,13 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %29, %32
   %59 = icmp ne i64 %58, 4
   %60 = and i64 %.sroa.12.0104, -8
   %61 = inttoptr i64 %60 to ptr
-  %.not.not16.i = icmp eq i64 %60, 0
-  %.not.not.i = or i1 %59, %.not.not16.i
+  %.not.not14.i = icmp eq i64 %60, 0
+  %.not.not.i = or i1 %59, %.not.not14.i
   br i1 %.not.not.i, label %62, label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit
 
 62:                                               ; preds = %57
   %63 = icmp ne i64 %58, 2
-  %.not9.not.i = or i1 %63, %.not.not16.i
+  %.not9.not.i = or i1 %63, %.not.not14.i
   br i1 %.not9.not.i, label %67, label %64
 
 64:                                               ; preds = %62
@@ -1580,7 +1580,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %109, %111
 
 112:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %113 = icmp ne i64 %58, 2
-  %.not9.not.i.i = or i1 %113, %.not.not16.i
+  %.not9.not.i.i = or i1 %113, %.not.not14.i
   br i1 %.not9.not.i.i, label %117, label %114
 
 114:                                              ; preds = %112
@@ -1646,7 +1646,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
 
 141:                                              ; preds = %140
   %142 = icmp ne i64 %58, 2
-  %.not9.not.i.i63 = or i1 %142, %.not.not16.i
+  %.not9.not.i.i63 = or i1 %142, %.not.not14.i
   br i1 %.not9.not.i.i63, label %146, label %143
 
 143:                                              ; preds = %141
@@ -1856,7 +1856,7 @@ _ZN4llvm5APIntD2Ev.exit49.thread:                 ; preds = %_ZN4llvm5APIntD2Ev.
 
 219:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit49.thread
   %220 = icmp ne i64 %58, 2
-  %.not9.not.i.i77 = or i1 %220, %.not.not16.i
+  %.not9.not.i.i77 = or i1 %220, %.not.not14.i
   br i1 %.not9.not.i.i77, label %224, label %221
 
 221:                                              ; preds = %219
@@ -2295,8 +2295,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
-  %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %.critedge, label %22
+  %.not26.i.i = icmp eq i32 %21, 0
+  br i1 %.not26.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
@@ -2308,7 +2308,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %27 = load ptr, ptr %26, align 8, !tbaa !94
   %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.pre.i3.i = load i32, ptr %.phi.trans.insert.i2.i, align 8
-  %.pre30.i.i = and i32 %.pre.i3.i, 255
+  %.pre29.i.i = and i32 %.pre.i3.i, 255
   br label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
@@ -2319,12 +2319,12 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 255
   %33 = icmp ne i32 %32, 16
-  %.not1829.i.i = icmp eq ptr %29, null
-  %.not18.i.i = or i1 %.not1829.i.i, %33
+  %.not1828.i.i = icmp eq ptr %29, null
+  %.not18.i.i = or i1 %.not1828.i.i, %33
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !95
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %24, %19
-  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
+  %.pre-phi.i.i = phi i32 [ %.pre29.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
   %34 = phi i32 [ %.pre.i3.i, %24 ], [ %9, %19 ], [ %31, %.preheader.i.i ]
   %.013.ph.i.i = phi ptr [ %27, %24 ], [ %7, %19 ], [ %29, %.preheader.i.i ]
   %35 = add nsw i32 %.pre-phi.i.i, -17

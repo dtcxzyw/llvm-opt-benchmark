@@ -1558,23 +1558,23 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier15tra
 
 10:                                               ; preds = %5, %15
   %11 = phi double [ %9, %5 ], [ %20, %15 ]
-  %.02243 = phi i32 [ 0, %5 ], [ %16, %15 ]
+  %.02242 = phi i32 [ 0, %5 ], [ %16, %15 ]
   %12 = tail call noundef float @expf(float noundef %6) #25, !tbaa !40
   %13 = fpext float %12 to double
   %14 = fcmp olt double %11, %13
   br i1 %14, label %.preheader.lr.ph, label %15
 
 15:                                               ; preds = %10
-  %16 = add nuw nsw i32 %.02243, 1
+  %16 = add nuw nsw i32 %.02242, 1
   %17 = tail call i32 @rand() #25
   %18 = sitofp i32 %17 to double
   %19 = fdiv double %18, 0x41DFFFFFFFC00000
   %20 = fmul double %11, %19
-  %21 = icmp samesign ugt i32 %.02243, 9
+  %21 = icmp samesign ugt i32 %.02242, 9
   br i1 %21, label %.preheader.lr.ph, label %10
 
 .preheader.lr.ph:                                 ; preds = %15, %10
-  %.02242 = phi i32 [ %.02243, %10 ], [ %16, %15 ]
+  %.02241 = phi i32 [ %.02242, %10 ], [ %16, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1611,7 +1611,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier15tra
   %40 = phi i32 [ %32, %.preheader ], [ %169, %_ZNSt14_Bit_referenceaSEb.exit ]
   %41 = phi i32 [ %33, %.preheader ], [ %168, %_ZNSt14_Bit_referenceaSEb.exit ]
   %42 = add nuw i32 %.01928, 1
-  %exitcond.not = icmp eq i32 %.01928, %.02242
+  %exitcond.not = icmp eq i32 %.01928, %.02241
   br i1 %exitcond.not, label %._crit_edge29, label %.preheader, !llvm.loop !122
 
 43:                                               ; preds = %.lr.ph, %_ZNSt14_Bit_referenceaSEb.exit

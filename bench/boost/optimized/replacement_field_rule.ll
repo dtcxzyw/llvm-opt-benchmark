@@ -382,11 +382,11 @@ _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_1
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !48
-  %.pre23 = load ptr, ptr %2, align 8, !tbaa !3
+  %.pre21 = load ptr, ptr %2, align 8, !tbaa !3
   br label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread
 
 _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread: ; preds = %12, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit, %18
-  %19 = phi ptr [ %13, %12 ], [ %13, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit ], [ %.pre23, %18 ]
+  %19 = phi ptr [ %13, %12 ], [ %13, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit ], [ %.pre21, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS2_15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES6_EE5parseERPKcSH_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.87") align 8 %6, ptr noundef nonnull align 1 dereferenceable(3) @_ZZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_E16internal_id_rule, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
   %20 = load i32, ptr %10, align 8, !tbaa !15
@@ -1105,11 +1105,11 @@ _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_1
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !180
-  %.pre23.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !3, !noalias !175
+  %.pre21.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !3, !noalias !175
   br label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i
 
 _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i: ; preds = %29, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i.i.i, %23
-  %30 = phi ptr [ %24, %23 ], [ %24, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i.i.i ], [ %.pre23.i.i.i.i, %29 ]
+  %30 = phi ptr [ %24, %23 ], [ %24, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i.i.i ], [ %.pre21.i.i.i.i, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !175
   call void @_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS2_15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES6_EE5parseERPKcSH_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.87") align 8 %8, ptr noundef nonnull align 1 dereferenceable(3) @_ZZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_E16internal_id_rule, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2), !noalias !175
   %31 = load i32, ptr %22, align 8, !tbaa !15, !noalias !175
@@ -1328,18 +1328,18 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   br i1 %21, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %43, %17
-  %.021.lcssa45.pre-phi.i.i.i.i = phi i64 [ %19, %17 ], [ %45, %43 ]
+  %.021.lcssa44.pre-phi.i.i.i.i = phi i64 [ %19, %17 ], [ %45, %43 ]
   %.021.lcssa.i.i.i.i = phi ptr [ %6, %17 ], [ %44, %43 ]
-  %.not35.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i, %3
-  br i1 %.not35.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.preheader.i.i.i.i
+  %.not34.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i, %3
+  br i1 %.not34.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph36.preheader.i.i.i.i
 
-.lr.ph37.preheader.i.i.i.i:                       ; preds = %.preheader.i.i.i.i
-  %22 = sub i64 %18, %.021.lcssa45.pre-phi.i.i.i.i
+.lr.ph36.preheader.i.i.i.i:                       ; preds = %.preheader.i.i.i.i
+  %22 = sub i64 %18, %.021.lcssa44.pre-phi.i.i.i.i
   %scevgep.i.i.i.i = getelementptr i8, ptr %.021.lcssa.i.i.i.i, i64 %22
-  br label %.lr.ph37.i.i.i.i
+  br label %.lr.ph36.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %17, %43
-  %.02134.i.i.i.i = phi ptr [ %44, %43 ], [ %6, %17 ]
+  %.02133.i.i.i.i = phi ptr [ %44, %43 ], [ %6, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %27
@@ -1353,7 +1353,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 
 27:                                               ; preds = %27, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %27 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %29 = load i8, ptr %28, align 1, !tbaa !33
   %30 = and i8 %29, 3
   %31 = zext nneg i8 %30 to i64
@@ -1363,8 +1363,8 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %35 = zext nneg i8 %34 to i64
   %36 = shl nuw i64 1, %35
   %37 = and i64 %36, %33
-  %.not31.i.i.i.i = icmp eq i64 %37, 0
-  %38 = sext i1 %.not31.i.i.i.i to i8
+  %.not30.i.i.i.i = icmp eq i64 %37, 0
+  %38 = sext i1 %.not30.i.i.i.i to i8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %38, ptr %39, align 1, !tbaa !33
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -1374,21 +1374,21 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 .thread.i.i.i.i:                                  ; preds = %23
   %40 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %26, i1 true)
   %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit
 
 43:                                               ; preds = %23
-  %44 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %18, %45
   %47 = icmp sgt i64 %46, 15
   br i1 %47, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
-.lr.ph37.i.i.i.i:                                 ; preds = %57, %.lr.ph37.preheader.i.i.i.i
-  %.22336.i.i.i.i = phi ptr [ %58, %57 ], [ %.021.lcssa.i.i.i.i, %.lr.ph37.preheader.i.i.i.i ]
-  %48 = load i8, ptr %.22336.i.i.i.i, align 1, !tbaa !33
+.lr.ph36.i.i.i.i:                                 ; preds = %57, %.lr.ph36.preheader.i.i.i.i
+  %.22335.i.i.i.i = phi ptr [ %58, %57 ], [ %.021.lcssa.i.i.i.i, %.lr.ph36.preheader.i.i.i.i ]
+  %48 = load i8, ptr %.22335.i.i.i.i, align 1, !tbaa !33
   %49 = and i8 %48, 3
   %50 = zext nneg i8 %49 to i64
   %51 = getelementptr inbounds nuw i64, ptr %1, i64 %50
@@ -1397,16 +1397,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %54 = zext nneg i8 %53 to i64
   %55 = shl nuw i64 1, %54
   %56 = and i64 %55, %52
-  %.not30.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not30.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %57
+  %.not29.i.i.i.i = icmp eq i64 %56, 0
+  br i1 %.not29.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %57
 
-57:                                               ; preds = %.lr.ph37.i.i.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %.22336.i.i.i.i, i64 1
+57:                                               ; preds = %.lr.ph36.i.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %.22335.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %58, %3
-  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.i.i.i.i, !llvm.loop !212
+  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph36.i.i.i.i, !llvm.loop !212
 
-_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds = %.lr.ph37.i.i.i.i, %57, %.preheader.i.i.i.i, %.thread.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %42, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %57 ], [ %.22336.i.i.i.i, %.lr.ph37.i.i.i.i ]
+_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds = %.lr.ph36.i.i.i.i, %57, %.preheader.i.i.i.i, %.thread.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %42, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %57 ], [ %.22335.i.i.i.i, %.lr.ph36.i.i.i.i ]
   store ptr %.2.i.i.i.i, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %.2.i.i.i.i, %6
   br i1 %.not, label %62, label %59

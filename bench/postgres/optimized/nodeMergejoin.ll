@@ -524,18 +524,18 @@ define internal noundef ptr @ExecMergeJoin(ptr noundef %0) #0 {
 
 52:                                               ; preds = %.backedge, %7
   %53 = load i32, ptr %26, align 8
-  switch i32 %53, label %749 [
+  switch i32 %53, label %752 [
     i32 1, label %54
     i32 2, label %103
     i32 3, label %156
     i32 6, label %214
-    i32 4, label %327
-    i32 5, label %386
-    i32 7, label %522
-    i32 8, label %593
-    i32 9, label %652
-    i32 10, label %715
-    i32 11, label %734
+    i32 4, label %328
+    i32 5, label %387
+    i32 7, label %524
+    i32 8, label %596
+    i32 9, label %655
+    i32 10, label %718
+    i32 11, label %737
   ]
 
 54:                                               ; preds = %52
@@ -574,9 +574,9 @@ ExecProcNode.exit:                                ; preds = %54, %56
   store ptr %70, ptr %71, align 8
   %72 = load i32, ptr %37, align 8
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph.i, label %MJEvalOuterValues.exit.thread406
+  br i1 %73, label %.lr.ph.i, label %MJEvalOuterValues.exit.thread404
 
-MJEvalOuterValues.exit.thread406:                 ; preds = %65
+MJEvalOuterValues.exit.thread404:                 ; preds = %65
   store ptr %69, ptr @CurrentMemoryContext, align 8
   br label %98
 
@@ -625,13 +625,13 @@ MJEvalOuterValues.exit.thread406:                 ; preds = %65
 
 MJEvalOuterValues.exit:                           ; preds = %94
   store ptr %69, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i, label %default.unreachable653 [
+  switch i32 %.1.i, label %default.unreachable654 [
     i32 0, label %98
     i32 1, label %99
     i32 2, label %MJEvalOuterValues.exit.thread
   ]
 
-98:                                               ; preds = %MJEvalOuterValues.exit.thread406, %MJEvalOuterValues.exit
+98:                                               ; preds = %MJEvalOuterValues.exit.thread404, %MJEvalOuterValues.exit
   store i32 2, ptr %26, align 8
   br label %.backedge
 
@@ -686,9 +686,9 @@ ExecProcNode.exit273:                             ; preds = %103, %105
   store ptr %107, ptr %119, align 8
   %120 = load i32, ptr %37, align 8
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph.i278, label %MJEvalInnerValues.exit.thread409
+  br i1 %121, label %.lr.ph.i278, label %MJEvalInnerValues.exit.thread407
 
-MJEvalInnerValues.exit.thread409:                 ; preds = %114
+MJEvalInnerValues.exit.thread407:                 ; preds = %114
   store ptr %118, ptr @CurrentMemoryContext, align 8
   br label %147
 
@@ -738,13 +738,13 @@ MJEvalInnerValues.exit.thread409:                 ; preds = %114
 
 MJEvalInnerValues.exit:                           ; preds = %143
   store ptr %118, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i281, label %default.unreachable653 [
+  switch i32 %.1.i281, label %default.unreachable654 [
     i32 0, label %147
     i32 1, label %148
     i32 2, label %MJEvalInnerValues.exit.thread
   ]
 
-147:                                              ; preds = %MJEvalInnerValues.exit.thread409, %MJEvalInnerValues.exit
+147:                                              ; preds = %MJEvalInnerValues.exit.thread407, %MJEvalInnerValues.exit
   store i32 7, ptr %26, align 8
   br label %.backedge
 
@@ -789,9 +789,9 @@ ExecQual.exit:                                    ; preds = %156
   %161 = load ptr, ptr %46, align 8
   %162 = call i64 %161(ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %4) #6
   store ptr %160, ptr @CurrentMemoryContext, align 8
-  %.not465 = icmp eq i64 %162, 0
+  %.not466 = icmp eq i64 %162, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not465, label %208, label %.critedge
+  br i1 %.not466, label %208, label %.critedge
 
 .critedge:                                        ; preds = %156, %ExecQual.exit
   store i8 1, ptr %27, align 1
@@ -828,9 +828,9 @@ ExecQual.exit286:                                 ; preds = %172
   %175 = load ptr, ptr %51, align 8
   %176 = call i64 %175(ptr noundef nonnull %17, ptr noundef nonnull %13, ptr noundef nonnull %3) #6
   store ptr %174, ptr @CurrentMemoryContext, align 8
-  %.not466 = icmp eq i64 %176, 0
+  %.not467 = icmp eq i64 %176, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not466, label %202, label %.critedge264
+  br i1 %.not467, label %202, label %.critedge264
 
 .critedge264:                                     ; preds = %172, %ExecQual.exit286
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -941,9 +941,9 @@ ExecProcNode.exit288:                             ; preds = %220, %222
   store ptr %224, ptr %236, align 8
   %237 = load i32, ptr %37, align 8
   %238 = icmp sgt i32 %237, 0
-  br i1 %238, label %.lr.ph.i293, label %MJEvalInnerValues.exit299.thread412
+  br i1 %238, label %.lr.ph.i293, label %MJEvalInnerValues.exit299.thread410
 
-MJEvalInnerValues.exit299.thread412:              ; preds = %231
+MJEvalInnerValues.exit299.thread410:              ; preds = %231
   store ptr %235, ptr @CurrentMemoryContext, align 8
   br label %264
 
@@ -993,13 +993,13 @@ MJEvalInnerValues.exit299.thread412:              ; preds = %231
 
 MJEvalInnerValues.exit299:                        ; preds = %260
   store ptr %235, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i296, label %default.unreachable653 [
+  switch i32 %.1.i296, label %default.unreachable654 [
     i32 0, label %264
-    i32 1, label %326
+    i32 1, label %327
     i32 2, label %MJEvalInnerValues.exit299.thread
   ]
 
-264:                                              ; preds = %MJEvalInnerValues.exit299.thread412, %MJEvalInnerValues.exit299
+264:                                              ; preds = %MJEvalInnerValues.exit299.thread410, %MJEvalInnerValues.exit299
   %265 = load ptr, ptr %12, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 40
   %267 = load ptr, ptr %266, align 8
@@ -1009,12 +1009,12 @@ MJEvalInnerValues.exit299:                        ; preds = %260
   store ptr %268, ptr @CurrentMemoryContext, align 8
   %270 = load i32, ptr %37, align 8
   %271 = icmp sgt i32 %270, 0
-  br i1 %271, label %.outer, label %ApplySortComparator.exit.thread.thread65.i
+  br i1 %271, label %.outer, label %.thread.i
 
 .outer:                                           ; preds = %264, %ApplySortComparator.exit.thread33.i
   %.ph = phi i32 [ %.pre.i, %ApplySortComparator.exit.thread33.i ], [ %270, %264 ]
   %indvars.iv.i301.ph = phi i64 [ %indvars.iv.next.i303, %ApplySortComparator.exit.thread33.i ], [ 0, %264 ]
-  %.02251.i.ph = phi i1 [ %.02251.i.lcssa, %ApplySortComparator.exit.thread33.i ], [ false, %264 ]
+  %.02253.i.ph = phi i1 [ %.02253.i.lcssa, %ApplySortComparator.exit.thread33.i ], [ false, %264 ]
   %272 = load ptr, ptr %38, align 8
   %273 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %272, i64 %indvars.iv.i301.ph
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
@@ -1023,57 +1023,57 @@ MJEvalInnerValues.exit299:                        ; preds = %260
   %277 = getelementptr inbounds nuw i8, ptr %273, i64 33
   %278 = load i8, ptr %277, align 1, !range !4, !noundef !5
   %279 = trunc nuw i8 %278 to i1
-  br i1 %276, label %.lr.ph555, label %._crit_edge556
+  br i1 %276, label %.lr.ph556, label %._crit_edge557
 
-.lr.ph555:                                        ; preds = %.outer
+.lr.ph556:                                        ; preds = %.outer
   %280 = sext i32 %.ph to i64
   br label %289
 
 281:                                              ; preds = %ApplySortComparator.exit.thread33.i.thread
-  %282 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %272, i64 %indvars.iv.next.i303415
+  %282 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %272, i64 %indvars.iv.next.i303413
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 32
   %284 = load i8, ptr %283, align 8, !range !4, !noundef !5
   %285 = trunc nuw i8 %284 to i1
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 33
   %287 = load i8, ptr %286, align 1, !range !4, !noundef !5
   %288 = trunc nuw i8 %287 to i1
-  br i1 %285, label %289, label %._crit_edge556, !llvm.loop !10
+  br i1 %285, label %289, label %._crit_edge557, !llvm.loop !10
 
-289:                                              ; preds = %.lr.ph555, %281
-  %290 = phi i1 [ %279, %.lr.ph555 ], [ %288, %281 ]
-  %indvars.iv.i301554 = phi i64 [ %indvars.iv.i301.ph, %.lr.ph555 ], [ %indvars.iv.next.i303415, %281 ]
+289:                                              ; preds = %.lr.ph556, %281
+  %290 = phi i1 [ %279, %.lr.ph556 ], [ %288, %281 ]
+  %indvars.iv.i301555 = phi i64 [ %indvars.iv.i301.ph, %.lr.ph556 ], [ %indvars.iv.next.i303413, %281 ]
   br i1 %290, label %ApplySortComparator.exit.thread33.i.thread, label %291
 
 291:                                              ; preds = %289
-  %292 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %272, i64 %indvars.iv.i301554
+  %292 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %272, i64 %indvars.iv.i301555
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 53
   %294 = load i8, ptr %293, align 1, !range !4, !noundef !5
   %295 = trunc nuw i8 %294 to i1
-  br i1 %295, label %.thread423, label %.thread
+  br i1 %295, label %.thread422, label %.thread419
 
-._crit_edge556:                                   ; preds = %281, %.outer
-  %indvars.iv.i301.lcssa = phi i64 [ %indvars.iv.i301.ph, %.outer ], [ %indvars.iv.next.i303415, %281 ]
-  %.02251.i.lcssa = phi i1 [ %.02251.i.ph, %.outer ], [ true, %281 ]
-  %.lcssa513 = phi ptr [ %273, %.outer ], [ %282, %281 ]
-  %.lcssa510 = phi i1 [ %279, %.outer ], [ %288, %281 ]
-  br i1 %.lcssa510, label %296, label %300
+._crit_edge557:                                   ; preds = %281, %.outer
+  %indvars.iv.i301.lcssa = phi i64 [ %indvars.iv.i301.ph, %.outer ], [ %indvars.iv.next.i303413, %281 ]
+  %.02253.i.lcssa = phi i1 [ %.02253.i.ph, %.outer ], [ true, %281 ]
+  %.lcssa514 = phi ptr [ %273, %.outer ], [ %282, %281 ]
+  %.lcssa511 = phi i1 [ %279, %.outer ], [ %288, %281 ]
+  br i1 %.lcssa511, label %296, label %300
 
-296:                                              ; preds = %._crit_edge556
-  %297 = getelementptr inbounds nuw i8, ptr %.lcssa513, i64 53
+296:                                              ; preds = %._crit_edge557
+  %297 = getelementptr inbounds nuw i8, ptr %.lcssa514, i64 53
   %298 = load i8, ptr %297, align 1, !range !4, !noundef !5
   %299 = trunc nuw i8 %298 to i1
-  br i1 %299, label %.thread, label %.thread423
+  br i1 %299, label %.thread419, label %.thread422
 
-300:                                              ; preds = %._crit_edge556
-  %301 = getelementptr inbounds nuw i8, ptr %.lcssa513, i64 40
-  %302 = getelementptr inbounds nuw i8, ptr %.lcssa513, i64 24
+300:                                              ; preds = %._crit_edge557
+  %301 = getelementptr inbounds nuw i8, ptr %.lcssa514, i64 40
+  %302 = getelementptr inbounds nuw i8, ptr %.lcssa514, i64 24
   %303 = load i64, ptr %302, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %.lcssa513, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %.lcssa514, i64 16
   %305 = load i64, ptr %304, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %.lcssa513, i64 64
+  %306 = getelementptr inbounds nuw i8, ptr %.lcssa514, i64 64
   %307 = load ptr, ptr %306, align 8
   %308 = call i32 %307(i64 noundef %305, i64 noundef %303, ptr noundef nonnull %301) #6
-  %309 = getelementptr inbounds nuw i8, ptr %.lcssa513, i64 52
+  %309 = getelementptr inbounds nuw i8, ptr %.lcssa514, i64 52
   %310 = load i8, ptr %309, align 4, !range !4, !noundef !5
   %311 = trunc nuw i8 %310 to i1
   br i1 %311, label %312, label %ApplySortComparator.exit.i
@@ -1081,63 +1081,63 @@ MJEvalInnerValues.exit299:                        ; preds = %260
 312:                                              ; preds = %300
   %313 = icmp slt i32 %308, 0
   %314 = sub nsw i32 0, %308
-  br i1 %313, label %.thread, label %ApplySortComparator.exit.i
+  br i1 %313, label %.thread419, label %ApplySortComparator.exit.i
 
 ApplySortComparator.exit.i:                       ; preds = %312, %300
   %.0.i.i = phi i32 [ %314, %312 ], [ %308, %300 ]
   %.0.i.fr.i = freeze i32 %.0.i.i
   %.not.i302 = icmp eq i32 %.0.i.fr.i, 0
-  br i1 %.not.i302, label %ApplySortComparator.exit.thread33.i, label %321
+  br i1 %.not.i302, label %ApplySortComparator.exit.thread33.i, label %322
 
 ApplySortComparator.exit.thread33.i:              ; preds = %ApplySortComparator.exit.i
   %.pre.i = load i32, ptr %37, align 8
   %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i301.lcssa, 1
   %315 = sext i32 %.pre.i to i64
   %316 = icmp slt i64 %indvars.iv.next.i303, %315
-  br i1 %316, label %.outer, label %ApplySortComparator.exit.thread.i, !llvm.loop !10
+  br i1 %316, label %.outer, label %318, !llvm.loop !10
 
 ApplySortComparator.exit.thread33.i.thread:       ; preds = %289
-  %indvars.iv.next.i303415 = add nuw nsw i64 %indvars.iv.i301554, 1
-  %317 = icmp slt i64 %indvars.iv.next.i303415, %280
-  br i1 %317, label %281, label %.thread, !llvm.loop !10
+  %indvars.iv.next.i303413 = add nuw nsw i64 %indvars.iv.i301555, 1
+  %317 = icmp slt i64 %indvars.iv.next.i303413, %280
+  br i1 %317, label %281, label %.thread419, !llvm.loop !10
 
-ApplySortComparator.exit.thread.i:                ; preds = %ApplySortComparator.exit.thread33.i
-  br i1 %.02251.i.lcssa, label %.thread, label %ApplySortComparator.exit.thread.thread65.i
+318:                                              ; preds = %ApplySortComparator.exit.thread33.i
+  br i1 %.02253.i.lcssa, label %.thread419, label %.thread.i
 
-ApplySortComparator.exit.thread.thread65.i:       ; preds = %ApplySortComparator.exit.thread.i, %264
-  %318 = load i8, ptr %40, align 2, !range !4, !noundef !5
-  %319 = trunc nuw i8 %318 to i1
-  br i1 %319, label %.thread, label %320
+.thread.i:                                        ; preds = %318, %264
+  %319 = load i8, ptr %40, align 2, !range !4, !noundef !5
+  %320 = trunc nuw i8 %319 to i1
+  br i1 %320, label %.thread419, label %321
 
-320:                                              ; preds = %ApplySortComparator.exit.thread.thread65.i
+321:                                              ; preds = %.thread.i
   store ptr %269, ptr @CurrentMemoryContext, align 8
   store i32 3, ptr %26, align 8
   br label %.backedge
 
-.thread:                                          ; preds = %291, %ApplySortComparator.exit.thread.thread65.i, %ApplySortComparator.exit.thread.i, %296, %312, %ApplySortComparator.exit.thread33.i.thread
+.thread419:                                       ; preds = %291, %.thread.i, %318, %296, %312, %ApplySortComparator.exit.thread33.i.thread
   store ptr %269, ptr @CurrentMemoryContext, align 8
-  br label %.loopexit475
+  br label %.loopexit476
 
-.thread423:                                       ; preds = %296, %291
+.thread422:                                       ; preds = %296, %291
   store ptr %269, ptr @CurrentMemoryContext, align 8
-  br label %323
+  br label %324
 
-321:                                              ; preds = %ApplySortComparator.exit.i
+322:                                              ; preds = %ApplySortComparator.exit.i
   store ptr %269, ptr @CurrentMemoryContext, align 8
-  %322 = icmp slt i32 %.0.i.fr.i, 0
-  br i1 %322, label %323, label %.loopexit475
+  %323 = icmp slt i32 %.0.i.fr.i, 0
+  br i1 %323, label %324, label %.loopexit476
 
-323:                                              ; preds = %.thread423, %321
+324:                                              ; preds = %.thread422, %322
   store i32 4, ptr %26, align 8
   br label %.backedge
 
-.loopexit475:                                     ; preds = %321, %.thread
-  %324 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  %325 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
+.loopexit476:                                     ; preds = %322, %.thread419
+  %325 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %326 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 902, ptr noundef nonnull @__func__.ExecMergeJoin) #6
   unreachable
 
-326:                                              ; preds = %MJEvalInnerValues.exit299
+327:                                              ; preds = %MJEvalInnerValues.exit299
   store i32 4, ptr %26, align 8
   br label %.backedge
 
@@ -1146,949 +1146,949 @@ MJEvalInnerValues.exit299.thread:                 ; preds = %ExecProcNode.exit28
   store i32 4, ptr %26, align 8
   br label %.backedge
 
-327:                                              ; preds = %52
-  br i1 %20, label %328, label %333
+328:                                              ; preds = %52
+  br i1 %20, label %329, label %334
 
-328:                                              ; preds = %327
-  %329 = load i8, ptr %27, align 1, !range !4, !noundef !5
-  %330 = trunc nuw i8 %329 to i1
-  br i1 %330, label %333, label %331
+329:                                              ; preds = %328
+  %330 = load i8, ptr %27, align 1, !range !4, !noundef !5
+  %331 = trunc nuw i8 %330 to i1
+  br i1 %331, label %334, label %332
 
-331:                                              ; preds = %328
+332:                                              ; preds = %329
   store i8 1, ptr %27, align 1
-  %332 = call fastcc ptr @MJFillOuter(ptr noundef nonnull %0)
-  %.not255 = icmp eq ptr %332, null
-  br i1 %.not255, label %333, label %.loopexit
+  %333 = call fastcc ptr @MJFillOuter(ptr noundef nonnull %0)
+  %.not255 = icmp eq ptr %333, null
+  br i1 %.not255, label %334, label %.loopexit
 
-333:                                              ; preds = %331, %328, %327
-  %334 = load ptr, ptr %28, align 8
-  %.not.i304 = icmp eq ptr %334, null
-  br i1 %.not.i304, label %ExecProcNode.exit305, label %335
+334:                                              ; preds = %332, %329, %328
+  %335 = load ptr, ptr %28, align 8
+  %.not.i304 = icmp eq ptr %335, null
+  br i1 %.not.i304, label %ExecProcNode.exit305, label %336
 
-335:                                              ; preds = %333
+336:                                              ; preds = %334
   call void @ExecReScan(ptr noundef nonnull %11) #6
   br label %ExecProcNode.exit305
 
-ExecProcNode.exit305:                             ; preds = %333, %335
-  %336 = load ptr, ptr %29, align 8
-  %337 = call ptr %336(ptr noundef nonnull %11) #6
-  store ptr %337, ptr %30, align 8
+ExecProcNode.exit305:                             ; preds = %334, %336
+  %337 = load ptr, ptr %29, align 8
+  %338 = call ptr %337(ptr noundef nonnull %11) #6
+  store ptr %338, ptr %30, align 8
   store i8 0, ptr %27, align 1
-  %338 = load ptr, ptr %39, align 8
-  %339 = icmp eq ptr %337, null
-  br i1 %339, label %MJEvalOuterValues.exit316.thread, label %340
+  %339 = load ptr, ptr %39, align 8
+  %340 = icmp eq ptr %338, null
+  br i1 %340, label %MJEvalOuterValues.exit316.thread, label %341
 
-340:                                              ; preds = %ExecProcNode.exit305
-  %341 = getelementptr inbounds nuw i8, ptr %337, i64 4
-  %342 = load i16, ptr %341, align 4
-  %343 = and i16 %342, 2
-  %.not.i306 = icmp eq i16 %343, 0
-  br i1 %.not.i306, label %344, label %MJEvalOuterValues.exit316.thread
+341:                                              ; preds = %ExecProcNode.exit305
+  %342 = getelementptr inbounds nuw i8, ptr %338, i64 4
+  %343 = load i16, ptr %342, align 4
+  %344 = and i16 %343, 2
+  %.not.i306 = icmp eq i16 %344, 0
+  br i1 %.not.i306, label %345, label %MJEvalOuterValues.exit316.thread
 
-344:                                              ; preds = %340
-  %345 = getelementptr inbounds nuw i8, ptr %338, i64 40
-  %346 = load ptr, ptr %345, align 8
-  call void @MemoryContextReset(ptr noundef %346) #6
-  %347 = load ptr, ptr %345, align 8
-  %348 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %347, ptr @CurrentMemoryContext, align 8
-  %349 = load ptr, ptr %30, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %338, i64 24
-  store ptr %349, ptr %350, align 8
-  %351 = load i32, ptr %37, align 8
-  %352 = icmp sgt i32 %351, 0
-  br i1 %352, label %.lr.ph.i310, label %MJEvalOuterValues.exit316.thread426
-
-MJEvalOuterValues.exit316.thread426:              ; preds = %344
+345:                                              ; preds = %341
+  %346 = getelementptr inbounds nuw i8, ptr %339, i64 40
+  %347 = load ptr, ptr %346, align 8
+  call void @MemoryContextReset(ptr noundef %347) #6
+  %348 = load ptr, ptr %346, align 8
+  %349 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %348, ptr @CurrentMemoryContext, align 8
-  br label %377
+  %350 = load ptr, ptr %30, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %339, i64 24
+  store ptr %350, ptr %351, align 8
+  %352 = load i32, ptr %37, align 8
+  %353 = icmp sgt i32 %352, 0
+  br i1 %353, label %.lr.ph.i310, label %MJEvalOuterValues.exit316.thread425
 
-.lr.ph.i310:                                      ; preds = %344, %373
-  %indvars.iv.i311 = phi i64 [ %indvars.iv.next.i314, %373 ], [ 0, %344 ]
-  %.02327.i312 = phi i32 [ %.1.i313, %373 ], [ 0, %344 ]
-  %353 = load ptr, ptr %38, align 8
-  %354 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %353, i64 %indvars.iv.i311
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %354, i64 32
+MJEvalOuterValues.exit316.thread425:              ; preds = %345
+  store ptr %349, ptr @CurrentMemoryContext, align 8
+  br label %378
+
+.lr.ph.i310:                                      ; preds = %345, %374
+  %indvars.iv.i311 = phi i64 [ %indvars.iv.next.i314, %374 ], [ 0, %345 ]
+  %.02327.i312 = phi i32 [ %.1.i313, %374 ], [ 0, %345 ]
+  %354 = load ptr, ptr %38, align 8
+  %355 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %354, i64 %indvars.iv.i311
+  %356 = load ptr, ptr %355, align 8
   %357 = getelementptr inbounds nuw i8, ptr %355, i64 32
-  %358 = load ptr, ptr %357, align 8
-  %359 = call i64 %358(ptr noundef %355, ptr noundef %338, ptr noundef nonnull %356) #6
-  %360 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  store i64 %359, ptr %360, align 8
-  %361 = load i8, ptr %356, align 8, !range !4, !noundef !5
-  %362 = trunc nuw i8 %361 to i1
-  br i1 %362, label %363, label %373
+  %358 = getelementptr inbounds nuw i8, ptr %356, i64 32
+  %359 = load ptr, ptr %358, align 8
+  %360 = call i64 %359(ptr noundef %356, ptr noundef %339, ptr noundef nonnull %357) #6
+  %361 = getelementptr inbounds nuw i8, ptr %355, i64 16
+  store i64 %360, ptr %361, align 8
+  %362 = load i8, ptr %357, align 8, !range !4, !noundef !5
+  %363 = trunc nuw i8 %362 to i1
+  br i1 %363, label %364, label %374
 
-363:                                              ; preds = %.lr.ph.i310
-  %364 = icmp eq i64 %indvars.iv.i311, 0
-  br i1 %364, label %365, label %372
+364:                                              ; preds = %.lr.ph.i310
+  %365 = icmp eq i64 %indvars.iv.i311, 0
+  br i1 %365, label %366, label %373
 
-365:                                              ; preds = %363
-  %366 = getelementptr inbounds nuw i8, ptr %354, i64 53
-  %367 = load i8, ptr %366, align 1, !range !4, !noundef !5
-  %368 = trunc nuw i8 %367 to i1
-  br i1 %368, label %372, label %369
+366:                                              ; preds = %364
+  %367 = getelementptr inbounds nuw i8, ptr %355, i64 53
+  %368 = load i8, ptr %367, align 1, !range !4, !noundef !5
+  %369 = trunc nuw i8 %368 to i1
+  br i1 %369, label %373, label %370
 
-369:                                              ; preds = %365
-  %370 = load i8, ptr %18, align 1, !range !4, !noundef !5
-  %371 = trunc nuw i8 %370 to i1
-  br i1 %371, label %372, label %373
+370:                                              ; preds = %366
+  %371 = load i8, ptr %18, align 1, !range !4, !noundef !5
+  %372 = trunc nuw i8 %371 to i1
+  br i1 %372, label %373, label %374
 
-372:                                              ; preds = %369, %365, %363
+373:                                              ; preds = %370, %366, %364
   %spec.store.select.i315 = call i32 @llvm.umax.i32(i32 %.02327.i312, i32 1)
-  br label %373
+  br label %374
 
-373:                                              ; preds = %372, %369, %.lr.ph.i310
-  %.1.i313 = phi i32 [ %spec.store.select.i315, %372 ], [ %.02327.i312, %.lr.ph.i310 ], [ 2, %369 ]
+374:                                              ; preds = %373, %370, %.lr.ph.i310
+  %.1.i313 = phi i32 [ %spec.store.select.i315, %373 ], [ %.02327.i312, %.lr.ph.i310 ], [ 2, %370 ]
   %indvars.iv.next.i314 = add nuw nsw i64 %indvars.iv.i311, 1
-  %374 = load i32, ptr %37, align 8
-  %375 = sext i32 %374 to i64
-  %376 = icmp slt i64 %indvars.iv.next.i314, %375
-  br i1 %376, label %.lr.ph.i310, label %MJEvalOuterValues.exit316, !llvm.loop !7
+  %375 = load i32, ptr %37, align 8
+  %376 = sext i32 %375 to i64
+  %377 = icmp slt i64 %indvars.iv.next.i314, %376
+  br i1 %377, label %.lr.ph.i310, label %MJEvalOuterValues.exit316, !llvm.loop !7
 
-MJEvalOuterValues.exit316:                        ; preds = %373
-  store ptr %348, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i313, label %default.unreachable653 [
-    i32 0, label %377
-    i32 1, label %378
+MJEvalOuterValues.exit316:                        ; preds = %374
+  store ptr %349, ptr @CurrentMemoryContext, align 8
+  switch i32 %.1.i313, label %default.unreachable654 [
+    i32 0, label %378
+    i32 1, label %379
     i32 2, label %MJEvalOuterValues.exit316.thread
   ]
 
-377:                                              ; preds = %MJEvalOuterValues.exit316.thread426, %MJEvalOuterValues.exit316
+378:                                              ; preds = %MJEvalOuterValues.exit316.thread425, %MJEvalOuterValues.exit316
   store i32 5, ptr %26, align 8
   br label %.backedge
 
-378:                                              ; preds = %MJEvalOuterValues.exit316
+379:                                              ; preds = %MJEvalOuterValues.exit316
   store i32 4, ptr %26, align 8
   br label %.backedge
 
-MJEvalOuterValues.exit316.thread:                 ; preds = %ExecProcNode.exit305, %340, %MJEvalOuterValues.exit316
-  %379 = load ptr, ptr %35, align 8
-  %380 = icmp ne ptr %379, null
-  %or.cond.not = select i1 %23, i1 %380, i1 false
-  br i1 %or.cond.not, label %381, label %.loopexit
+MJEvalOuterValues.exit316.thread:                 ; preds = %ExecProcNode.exit305, %341, %MJEvalOuterValues.exit316
+  %380 = load ptr, ptr %35, align 8
+  %381 = icmp ne ptr %380, null
+  %or.cond.not = select i1 %23, i1 %381, i1 false
+  br i1 %or.cond.not, label %382, label %.loopexit
 
-381:                                              ; preds = %MJEvalOuterValues.exit316.thread
-  %382 = getelementptr inbounds nuw i8, ptr %379, i64 4
-  %383 = load i16, ptr %382, align 4
-  %384 = and i16 %383, 2
-  %.not = icmp eq i16 %384, 0
-  br i1 %.not, label %385, label %.loopexit
+382:                                              ; preds = %MJEvalOuterValues.exit316.thread
+  %383 = getelementptr inbounds nuw i8, ptr %380, i64 4
+  %384 = load i16, ptr %383, align 4
+  %385 = and i16 %384, 2
+  %.not = icmp eq i16 %385, 0
+  br i1 %.not, label %386, label %.loopexit
 
-385:                                              ; preds = %381
+386:                                              ; preds = %382
   store i32 10, ptr %26, align 8
   br label %.backedge
 
-386:                                              ; preds = %52
-  %387 = load ptr, ptr %42, align 8
-  %388 = load ptr, ptr %36, align 8
-  %389 = icmp eq ptr %387, null
-  br i1 %389, label %MJEvalInnerValues.exit327, label %390
+387:                                              ; preds = %52
+  %388 = load ptr, ptr %42, align 8
+  %389 = load ptr, ptr %36, align 8
+  %390 = icmp eq ptr %388, null
+  br i1 %390, label %MJEvalInnerValues.exit327, label %391
 
-390:                                              ; preds = %386
-  %391 = getelementptr inbounds nuw i8, ptr %387, i64 4
-  %392 = load i16, ptr %391, align 4
-  %393 = and i16 %392, 2
-  %.not.i317 = icmp eq i16 %393, 0
-  br i1 %.not.i317, label %394, label %MJEvalInnerValues.exit327
+391:                                              ; preds = %387
+  %392 = getelementptr inbounds nuw i8, ptr %388, i64 4
+  %393 = load i16, ptr %392, align 4
+  %394 = and i16 %393, 2
+  %.not.i317 = icmp eq i16 %394, 0
+  br i1 %.not.i317, label %395, label %MJEvalInnerValues.exit327
 
-394:                                              ; preds = %390
-  %395 = getelementptr inbounds nuw i8, ptr %388, i64 40
-  %396 = load ptr, ptr %395, align 8
-  call void @MemoryContextReset(ptr noundef %396) #6
-  %397 = load ptr, ptr %395, align 8
-  %398 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %397, ptr @CurrentMemoryContext, align 8
-  %399 = getelementptr inbounds nuw i8, ptr %388, i64 16
-  store ptr %387, ptr %399, align 8
-  %400 = load i32, ptr %37, align 8
-  %401 = icmp sgt i32 %400, 0
-  br i1 %401, label %.lr.ph.i321, label %._crit_edge.i319
-
-.lr.ph.i321:                                      ; preds = %394, %.lr.ph.i321
-  %indvars.iv.i322 = phi i64 [ %indvars.iv.next.i325, %.lr.ph.i321 ], [ 0, %394 ]
-  %402 = load ptr, ptr %38, align 8
-  %403 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %402, i64 %indvars.iv.i322
-  %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
-  %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds nuw i8, ptr %403, i64 33
-  %407 = getelementptr inbounds nuw i8, ptr %405, i64 32
-  %408 = load ptr, ptr %407, align 8
-  %409 = call i64 %408(ptr noundef %405, ptr noundef %388, ptr noundef nonnull %406) #6
-  %410 = getelementptr inbounds nuw i8, ptr %403, i64 24
-  store i64 %409, ptr %410, align 8
-  %indvars.iv.next.i325 = add nuw nsw i64 %indvars.iv.i322, 1
-  %411 = load i32, ptr %37, align 8
-  %412 = sext i32 %411 to i64
-  %413 = icmp slt i64 %indvars.iv.next.i325, %412
-  br i1 %413, label %.lr.ph.i321, label %._crit_edge.i319, !llvm.loop !9
-
-._crit_edge.i319:                                 ; preds = %.lr.ph.i321, %394
+395:                                              ; preds = %391
+  %396 = getelementptr inbounds nuw i8, ptr %389, i64 40
+  %397 = load ptr, ptr %396, align 8
+  call void @MemoryContextReset(ptr noundef %397) #6
+  %398 = load ptr, ptr %396, align 8
+  %399 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %398, ptr @CurrentMemoryContext, align 8
+  %400 = getelementptr inbounds nuw i8, ptr %389, i64 16
+  store ptr %388, ptr %400, align 8
+  %401 = load i32, ptr %37, align 8
+  %402 = icmp sgt i32 %401, 0
+  br i1 %402, label %.lr.ph.i321, label %._crit_edge.i319
+
+.lr.ph.i321:                                      ; preds = %395, %.lr.ph.i321
+  %indvars.iv.i322 = phi i64 [ %indvars.iv.next.i325, %.lr.ph.i321 ], [ 0, %395 ]
+  %403 = load ptr, ptr %38, align 8
+  %404 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %403, i64 %indvars.iv.i322
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
+  %406 = load ptr, ptr %405, align 8
+  %407 = getelementptr inbounds nuw i8, ptr %404, i64 33
+  %408 = getelementptr inbounds nuw i8, ptr %406, i64 32
+  %409 = load ptr, ptr %408, align 8
+  %410 = call i64 %409(ptr noundef %406, ptr noundef %389, ptr noundef nonnull %407) #6
+  %411 = getelementptr inbounds nuw i8, ptr %404, i64 24
+  store i64 %410, ptr %411, align 8
+  %indvars.iv.next.i325 = add nuw nsw i64 %indvars.iv.i322, 1
+  %412 = load i32, ptr %37, align 8
+  %413 = sext i32 %412 to i64
+  %414 = icmp slt i64 %indvars.iv.next.i325, %413
+  br i1 %414, label %.lr.ph.i321, label %._crit_edge.i319, !llvm.loop !9
+
+._crit_edge.i319:                                 ; preds = %.lr.ph.i321, %395
+  store ptr %399, ptr @CurrentMemoryContext, align 8
   br label %MJEvalInnerValues.exit327
 
-MJEvalInnerValues.exit327:                        ; preds = %386, %390, %._crit_edge.i319
-  %414 = load ptr, ptr %12, align 8
-  %415 = getelementptr inbounds nuw i8, ptr %414, i64 40
-  %416 = load ptr, ptr %415, align 8
-  call void @MemoryContextReset(ptr noundef %416) #6
-  %417 = load ptr, ptr %415, align 8
-  %418 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %417, ptr @CurrentMemoryContext, align 8
-  %419 = load i32, ptr %37, align 8
-  %420 = icmp sgt i32 %419, 0
-  br i1 %420, label %.outer468, label %ApplySortComparator.exit.thread.thread65.i328
+MJEvalInnerValues.exit327:                        ; preds = %387, %391, %._crit_edge.i319
+  %415 = load ptr, ptr %12, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 40
+  %417 = load ptr, ptr %416, align 8
+  call void @MemoryContextReset(ptr noundef %417) #6
+  %418 = load ptr, ptr %416, align 8
+  %419 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %418, ptr @CurrentMemoryContext, align 8
+  %420 = load i32, ptr %37, align 8
+  %421 = icmp sgt i32 %420, 0
+  br i1 %421, label %.outer469, label %.thread.i328
 
-.outer468:                                        ; preds = %MJEvalInnerValues.exit327, %ApplySortComparator.exit.thread33.i339
-  %.ph469 = phi i32 [ %.pre.i338, %ApplySortComparator.exit.thread33.i339 ], [ %419, %MJEvalInnerValues.exit327 ]
+.outer469:                                        ; preds = %MJEvalInnerValues.exit327, %ApplySortComparator.exit.thread33.i339
+  %.ph470 = phi i32 [ %.pre.i338, %ApplySortComparator.exit.thread33.i339 ], [ %420, %MJEvalInnerValues.exit327 ]
   %indvars.iv.i331.ph = phi i64 [ %indvars.iv.next.i341, %ApplySortComparator.exit.thread33.i339 ], [ 0, %MJEvalInnerValues.exit327 ]
-  %.02251.i332.ph = phi i1 [ %.02251.i332.lcssa, %ApplySortComparator.exit.thread33.i339 ], [ false, %MJEvalInnerValues.exit327 ]
-  %421 = load ptr, ptr %38, align 8
-  %422 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %421, i64 %indvars.iv.i331.ph
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 32
-  %424 = load i8, ptr %423, align 8, !range !4, !noundef !5
-  %425 = trunc nuw i8 %424 to i1
-  %426 = getelementptr inbounds nuw i8, ptr %422, i64 33
-  %427 = load i8, ptr %426, align 1, !range !4, !noundef !5
-  %428 = trunc nuw i8 %427 to i1
-  br i1 %425, label %.lr.ph548, label %._crit_edge549
+  %.02253.i332.ph = phi i1 [ %.02253.i332.lcssa, %ApplySortComparator.exit.thread33.i339 ], [ false, %MJEvalInnerValues.exit327 ]
+  %422 = load ptr, ptr %38, align 8
+  %423 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %422, i64 %indvars.iv.i331.ph
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 32
+  %425 = load i8, ptr %424, align 8, !range !4, !noundef !5
+  %426 = trunc nuw i8 %425 to i1
+  %427 = getelementptr inbounds nuw i8, ptr %423, i64 33
+  %428 = load i8, ptr %427, align 1, !range !4, !noundef !5
+  %429 = trunc nuw i8 %428 to i1
+  br i1 %426, label %.lr.ph549, label %._crit_edge550
 
-.lr.ph548:                                        ; preds = %.outer468
-  %429 = sext i32 %.ph469 to i64
-  br label %438
+.lr.ph549:                                        ; preds = %.outer469
+  %430 = sext i32 %.ph470 to i64
+  br label %439
 
-430:                                              ; preds = %ApplySortComparator.exit.thread33.i339.thread
-  %431 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %421, i64 %indvars.iv.next.i341429
-  %432 = getelementptr inbounds nuw i8, ptr %431, i64 32
-  %433 = load i8, ptr %432, align 8, !range !4, !noundef !5
-  %434 = trunc nuw i8 %433 to i1
-  %435 = getelementptr inbounds nuw i8, ptr %431, i64 33
-  %436 = load i8, ptr %435, align 1, !range !4, !noundef !5
-  %437 = trunc nuw i8 %436 to i1
-  br i1 %434, label %438, label %._crit_edge549, !llvm.loop !10
+431:                                              ; preds = %ApplySortComparator.exit.thread33.i339.thread
+  %432 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %422, i64 %indvars.iv.next.i341428
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 32
+  %434 = load i8, ptr %433, align 8, !range !4, !noundef !5
+  %435 = trunc nuw i8 %434 to i1
+  %436 = getelementptr inbounds nuw i8, ptr %432, i64 33
+  %437 = load i8, ptr %436, align 1, !range !4, !noundef !5
+  %438 = trunc nuw i8 %437 to i1
+  br i1 %435, label %439, label %._crit_edge550, !llvm.loop !10
 
-438:                                              ; preds = %.lr.ph548, %430
-  %439 = phi i1 [ %428, %.lr.ph548 ], [ %437, %430 ]
-  %indvars.iv.i331547 = phi i64 [ %indvars.iv.i331.ph, %.lr.ph548 ], [ %indvars.iv.next.i341429, %430 ]
-  br i1 %439, label %ApplySortComparator.exit.thread33.i339.thread, label %440
+439:                                              ; preds = %.lr.ph549, %431
+  %440 = phi i1 [ %429, %.lr.ph549 ], [ %438, %431 ]
+  %indvars.iv.i331548 = phi i64 [ %indvars.iv.i331.ph, %.lr.ph549 ], [ %indvars.iv.next.i341428, %431 ]
+  br i1 %440, label %ApplySortComparator.exit.thread33.i339.thread, label %441
 
-440:                                              ; preds = %438
-  %441 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %421, i64 %indvars.iv.i331547
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 53
-  %443 = load i8, ptr %442, align 1, !range !4, !noundef !5
-  %444 = trunc nuw i8 %443 to i1
-  br i1 %444, label %.thread440, label %.thread437
+441:                                              ; preds = %439
+  %442 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %422, i64 %indvars.iv.i331548
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 53
+  %444 = load i8, ptr %443, align 1, !range !4, !noundef !5
+  %445 = trunc nuw i8 %444 to i1
+  br i1 %445, label %.thread440, label %.thread437
 
-._crit_edge549:                                   ; preds = %430, %.outer468
-  %indvars.iv.i331.lcssa = phi i64 [ %indvars.iv.i331.ph, %.outer468 ], [ %indvars.iv.next.i341429, %430 ]
-  %.02251.i332.lcssa = phi i1 [ %.02251.i332.ph, %.outer468 ], [ true, %430 ]
-  %.lcssa496 = phi ptr [ %422, %.outer468 ], [ %431, %430 ]
-  %.lcssa493 = phi i1 [ %428, %.outer468 ], [ %437, %430 ]
-  br i1 %.lcssa493, label %445, label %449
+._crit_edge550:                                   ; preds = %431, %.outer469
+  %indvars.iv.i331.lcssa = phi i64 [ %indvars.iv.i331.ph, %.outer469 ], [ %indvars.iv.next.i341428, %431 ]
+  %.02253.i332.lcssa = phi i1 [ %.02253.i332.ph, %.outer469 ], [ true, %431 ]
+  %.lcssa497 = phi ptr [ %423, %.outer469 ], [ %432, %431 ]
+  %.lcssa494 = phi i1 [ %429, %.outer469 ], [ %438, %431 ]
+  br i1 %.lcssa494, label %446, label %450
 
-445:                                              ; preds = %._crit_edge549
-  %446 = getelementptr inbounds nuw i8, ptr %.lcssa496, i64 53
-  %447 = load i8, ptr %446, align 1, !range !4, !noundef !5
-  %448 = trunc nuw i8 %447 to i1
-  br i1 %448, label %.thread437, label %.thread440
+446:                                              ; preds = %._crit_edge550
+  %447 = getelementptr inbounds nuw i8, ptr %.lcssa497, i64 53
+  %448 = load i8, ptr %447, align 1, !range !4, !noundef !5
+  %449 = trunc nuw i8 %448 to i1
+  br i1 %449, label %.thread437, label %.thread440
 
-449:                                              ; preds = %._crit_edge549
-  %450 = getelementptr inbounds nuw i8, ptr %.lcssa496, i64 40
-  %451 = getelementptr inbounds nuw i8, ptr %.lcssa496, i64 24
-  %452 = load i64, ptr %451, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %.lcssa496, i64 16
-  %454 = load i64, ptr %453, align 8
-  %455 = getelementptr inbounds nuw i8, ptr %.lcssa496, i64 64
-  %456 = load ptr, ptr %455, align 8
-  %457 = call i32 %456(i64 noundef %454, i64 noundef %452, ptr noundef nonnull %450) #6
-  %458 = getelementptr inbounds nuw i8, ptr %.lcssa496, i64 52
-  %459 = load i8, ptr %458, align 4, !range !4, !noundef !5
-  %460 = trunc nuw i8 %459 to i1
-  br i1 %460, label %461, label %ApplySortComparator.exit.i333
+450:                                              ; preds = %._crit_edge550
+  %451 = getelementptr inbounds nuw i8, ptr %.lcssa497, i64 40
+  %452 = getelementptr inbounds nuw i8, ptr %.lcssa497, i64 24
+  %453 = load i64, ptr %452, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %.lcssa497, i64 16
+  %455 = load i64, ptr %454, align 8
+  %456 = getelementptr inbounds nuw i8, ptr %.lcssa497, i64 64
+  %457 = load ptr, ptr %456, align 8
+  %458 = call i32 %457(i64 noundef %455, i64 noundef %453, ptr noundef nonnull %451) #6
+  %459 = getelementptr inbounds nuw i8, ptr %.lcssa497, i64 52
+  %460 = load i8, ptr %459, align 4, !range !4, !noundef !5
+  %461 = trunc nuw i8 %460 to i1
+  br i1 %461, label %462, label %ApplySortComparator.exit.i333
 
-461:                                              ; preds = %449
-  %462 = icmp slt i32 %457, 0
-  %463 = sub nsw i32 0, %457
-  br i1 %462, label %.thread437, label %ApplySortComparator.exit.i333
+462:                                              ; preds = %450
+  %463 = icmp slt i32 %458, 0
+  %464 = sub nsw i32 0, %458
+  br i1 %463, label %.thread437, label %ApplySortComparator.exit.i333
 
-ApplySortComparator.exit.i333:                    ; preds = %461, %449
-  %.0.i.i334 = phi i32 [ %463, %461 ], [ %457, %449 ]
+ApplySortComparator.exit.i333:                    ; preds = %462, %450
+  %.0.i.i334 = phi i32 [ %464, %462 ], [ %458, %450 ]
   %.0.i.fr.i335 = freeze i32 %.0.i.i334
   %.not.i336 = icmp eq i32 %.0.i.fr.i335, 0
-  br i1 %.not.i336, label %ApplySortComparator.exit.thread33.i339, label %474
+  br i1 %.not.i336, label %ApplySortComparator.exit.thread33.i339, label %476
 
 ApplySortComparator.exit.thread33.i339:           ; preds = %ApplySortComparator.exit.i333
   %.pre.i338 = load i32, ptr %37, align 8
   %indvars.iv.next.i341 = add nuw nsw i64 %indvars.iv.i331.lcssa, 1
-  %464 = sext i32 %.pre.i338 to i64
-  %465 = icmp slt i64 %indvars.iv.next.i341, %464
-  br i1 %465, label %.outer468, label %ApplySortComparator.exit.thread.i342, !llvm.loop !10
+  %465 = sext i32 %.pre.i338 to i64
+  %466 = icmp slt i64 %indvars.iv.next.i341, %465
+  br i1 %466, label %.outer469, label %468, !llvm.loop !10
 
-ApplySortComparator.exit.thread33.i339.thread:    ; preds = %438
-  %indvars.iv.next.i341429 = add nuw nsw i64 %indvars.iv.i331547, 1
-  %466 = icmp slt i64 %indvars.iv.next.i341429, %429
-  br i1 %466, label %430, label %.thread437, !llvm.loop !10
+ApplySortComparator.exit.thread33.i339.thread:    ; preds = %439
+  %indvars.iv.next.i341428 = add nuw nsw i64 %indvars.iv.i331548, 1
+  %467 = icmp slt i64 %indvars.iv.next.i341428, %430
+  br i1 %467, label %431, label %.thread437, !llvm.loop !10
 
-ApplySortComparator.exit.thread.i342:             ; preds = %ApplySortComparator.exit.thread33.i339
-  br i1 %.02251.i332.lcssa, label %.thread437, label %ApplySortComparator.exit.thread.thread65.i328
+468:                                              ; preds = %ApplySortComparator.exit.thread33.i339
+  br i1 %.02253.i332.lcssa, label %.thread437, label %.thread.i328
 
-ApplySortComparator.exit.thread.thread65.i328:    ; preds = %ApplySortComparator.exit.thread.i342, %MJEvalInnerValues.exit327
-  %467 = load i8, ptr %40, align 2, !range !4, !noundef !5
-  %468 = trunc nuw i8 %467 to i1
-  br i1 %468, label %.thread437, label %469
+.thread.i328:                                     ; preds = %468, %MJEvalInnerValues.exit327
+  %469 = load i8, ptr %40, align 2, !range !4, !noundef !5
+  %470 = trunc nuw i8 %469 to i1
+  br i1 %470, label %.thread437, label %471
 
-469:                                              ; preds = %ApplySortComparator.exit.thread.thread65.i328
-  store ptr %418, ptr @CurrentMemoryContext, align 8
-  %470 = load i8, ptr %41, align 4, !range !4, !noundef !5
-  %471 = trunc nuw i8 %470 to i1
-  br i1 %471, label %473, label %472
+471:                                              ; preds = %.thread.i328
+  store ptr %419, ptr @CurrentMemoryContext, align 8
+  %472 = load i8, ptr %41, align 4, !range !4, !noundef !5
+  %473 = trunc nuw i8 %472 to i1
+  br i1 %473, label %475, label %474
 
-472:                                              ; preds = %469
+474:                                              ; preds = %471
   call void @ExecRestrPos(ptr noundef %9) #6
-  store ptr %387, ptr %35, align 8
-  br label %473
+  store ptr %388, ptr %35, align 8
+  br label %475
 
-473:                                              ; preds = %472, %469
+475:                                              ; preds = %474, %471
   store i32 3, ptr %26, align 8
   br label %.backedge
 
-.thread437:                                       ; preds = %461, %ApplySortComparator.exit.thread33.i339.thread, %440, %ApplySortComparator.exit.thread.thread65.i328, %ApplySortComparator.exit.thread.i342, %445
-  store ptr %418, ptr @CurrentMemoryContext, align 8
-  br label %476
+.thread437:                                       ; preds = %462, %ApplySortComparator.exit.thread33.i339.thread, %441, %.thread.i328, %468, %446
+  store ptr %419, ptr @CurrentMemoryContext, align 8
+  br label %478
 
-.thread440:                                       ; preds = %445, %440
-  store ptr %418, ptr @CurrentMemoryContext, align 8
-  br label %.loopexit474
+.thread440:                                       ; preds = %446, %441
+  store ptr %419, ptr @CurrentMemoryContext, align 8
+  br label %.loopexit475
 
-474:                                              ; preds = %ApplySortComparator.exit.i333
-  store ptr %418, ptr @CurrentMemoryContext, align 8
-  %475 = icmp sgt i32 %.0.i.fr.i335, 0
-  br i1 %475, label %476, label %.loopexit474
+476:                                              ; preds = %ApplySortComparator.exit.i333
+  store ptr %419, ptr @CurrentMemoryContext, align 8
+  %477 = icmp sgt i32 %.0.i.fr.i335, 0
+  br i1 %477, label %478, label %.loopexit475
 
-476:                                              ; preds = %.thread437, %474
-  %477 = load ptr, ptr %35, align 8
-  %478 = load ptr, ptr %36, align 8
-  %479 = icmp eq ptr %477, null
-  br i1 %479, label %MJEvalInnerValues.exit356.thread, label %480
+478:                                              ; preds = %.thread437, %476
+  %479 = load ptr, ptr %35, align 8
+  %480 = load ptr, ptr %36, align 8
+  %481 = icmp eq ptr %479, null
+  br i1 %481, label %MJEvalInnerValues.exit355.thread, label %482
 
-480:                                              ; preds = %476
-  %481 = getelementptr inbounds nuw i8, ptr %477, i64 4
-  %482 = load i16, ptr %481, align 4
-  %483 = and i16 %482, 2
-  %.not.i346 = icmp eq i16 %483, 0
-  br i1 %.not.i346, label %484, label %MJEvalInnerValues.exit356.thread
+482:                                              ; preds = %478
+  %483 = getelementptr inbounds nuw i8, ptr %479, i64 4
+  %484 = load i16, ptr %483, align 4
+  %485 = and i16 %484, 2
+  %.not.i345 = icmp eq i16 %485, 0
+  br i1 %.not.i345, label %486, label %MJEvalInnerValues.exit355.thread
 
-484:                                              ; preds = %480
-  %485 = getelementptr inbounds nuw i8, ptr %478, i64 40
-  %486 = load ptr, ptr %485, align 8
-  call void @MemoryContextReset(ptr noundef %486) #6
-  %487 = load ptr, ptr %485, align 8
-  %488 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %487, ptr @CurrentMemoryContext, align 8
-  %489 = getelementptr inbounds nuw i8, ptr %478, i64 16
-  store ptr %477, ptr %489, align 8
-  %490 = load i32, ptr %37, align 8
-  %491 = icmp sgt i32 %490, 0
-  br i1 %491, label %.lr.ph.i350, label %MJEvalInnerValues.exit356.thread443
+486:                                              ; preds = %482
+  %487 = getelementptr inbounds nuw i8, ptr %480, i64 40
+  %488 = load ptr, ptr %487, align 8
+  call void @MemoryContextReset(ptr noundef %488) #6
+  %489 = load ptr, ptr %487, align 8
+  %490 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %489, ptr @CurrentMemoryContext, align 8
+  %491 = getelementptr inbounds nuw i8, ptr %480, i64 16
+  store ptr %479, ptr %491, align 8
+  %492 = load i32, ptr %37, align 8
+  %493 = icmp sgt i32 %492, 0
+  br i1 %493, label %.lr.ph.i349, label %MJEvalInnerValues.exit355.thread443
 
-MJEvalInnerValues.exit356.thread443:              ; preds = %484
-  store ptr %488, ptr @CurrentMemoryContext, align 8
-  br label %517
+MJEvalInnerValues.exit355.thread443:              ; preds = %486
+  store ptr %490, ptr @CurrentMemoryContext, align 8
+  br label %519
 
-.lr.ph.i350:                                      ; preds = %484, %513
-  %indvars.iv.i351 = phi i64 [ %indvars.iv.next.i354, %513 ], [ 0, %484 ]
-  %.02327.i352 = phi i32 [ %.1.i353, %513 ], [ 0, %484 ]
-  %492 = load ptr, ptr %38, align 8
-  %493 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %492, i64 %indvars.iv.i351
-  %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
-  %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %493, i64 33
-  %497 = getelementptr inbounds nuw i8, ptr %495, i64 32
-  %498 = load ptr, ptr %497, align 8
-  %499 = call i64 %498(ptr noundef %495, ptr noundef %478, ptr noundef nonnull %496) #6
-  %500 = getelementptr inbounds nuw i8, ptr %493, i64 24
-  store i64 %499, ptr %500, align 8
-  %501 = load i8, ptr %496, align 1, !range !4, !noundef !5
-  %502 = trunc nuw i8 %501 to i1
-  br i1 %502, label %503, label %513
+.lr.ph.i349:                                      ; preds = %486, %515
+  %indvars.iv.i350 = phi i64 [ %indvars.iv.next.i353, %515 ], [ 0, %486 ]
+  %.02327.i351 = phi i32 [ %.1.i352, %515 ], [ 0, %486 ]
+  %494 = load ptr, ptr %38, align 8
+  %495 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %494, i64 %indvars.iv.i350
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
+  %497 = load ptr, ptr %496, align 8
+  %498 = getelementptr inbounds nuw i8, ptr %495, i64 33
+  %499 = getelementptr inbounds nuw i8, ptr %497, i64 32
+  %500 = load ptr, ptr %499, align 8
+  %501 = call i64 %500(ptr noundef %497, ptr noundef %480, ptr noundef nonnull %498) #6
+  %502 = getelementptr inbounds nuw i8, ptr %495, i64 24
+  store i64 %501, ptr %502, align 8
+  %503 = load i8, ptr %498, align 1, !range !4, !noundef !5
+  %504 = trunc nuw i8 %503 to i1
+  br i1 %504, label %505, label %515
 
-503:                                              ; preds = %.lr.ph.i350
-  %504 = icmp eq i64 %indvars.iv.i351, 0
-  br i1 %504, label %505, label %512
+505:                                              ; preds = %.lr.ph.i349
+  %506 = icmp eq i64 %indvars.iv.i350, 0
+  br i1 %506, label %507, label %514
 
-505:                                              ; preds = %503
-  %506 = getelementptr inbounds nuw i8, ptr %493, i64 53
-  %507 = load i8, ptr %506, align 1, !range !4, !noundef !5
-  %508 = trunc nuw i8 %507 to i1
-  br i1 %508, label %512, label %509
+507:                                              ; preds = %505
+  %508 = getelementptr inbounds nuw i8, ptr %495, i64 53
+  %509 = load i8, ptr %508, align 1, !range !4, !noundef !5
+  %510 = trunc nuw i8 %509 to i1
+  br i1 %510, label %514, label %511
 
-509:                                              ; preds = %505
-  %510 = load i8, ptr %21, align 8, !range !4, !noundef !5
-  %511 = trunc nuw i8 %510 to i1
-  br i1 %511, label %512, label %513
+511:                                              ; preds = %507
+  %512 = load i8, ptr %21, align 8, !range !4, !noundef !5
+  %513 = trunc nuw i8 %512 to i1
+  br i1 %513, label %514, label %515
 
-512:                                              ; preds = %509, %505, %503
-  %spec.store.select.i355 = call i32 @llvm.umax.i32(i32 %.02327.i352, i32 1)
-  br label %513
+514:                                              ; preds = %511, %507, %505
+  %spec.store.select.i354 = call i32 @llvm.umax.i32(i32 %.02327.i351, i32 1)
+  br label %515
 
-513:                                              ; preds = %512, %509, %.lr.ph.i350
-  %.1.i353 = phi i32 [ %spec.store.select.i355, %512 ], [ %.02327.i352, %.lr.ph.i350 ], [ 2, %509 ]
-  %indvars.iv.next.i354 = add nuw nsw i64 %indvars.iv.i351, 1
-  %514 = load i32, ptr %37, align 8
-  %515 = sext i32 %514 to i64
-  %516 = icmp slt i64 %indvars.iv.next.i354, %515
-  br i1 %516, label %.lr.ph.i350, label %MJEvalInnerValues.exit356, !llvm.loop !9
+515:                                              ; preds = %514, %511, %.lr.ph.i349
+  %.1.i352 = phi i32 [ %spec.store.select.i354, %514 ], [ %.02327.i351, %.lr.ph.i349 ], [ 2, %511 ]
+  %indvars.iv.next.i353 = add nuw nsw i64 %indvars.iv.i350, 1
+  %516 = load i32, ptr %37, align 8
+  %517 = sext i32 %516 to i64
+  %518 = icmp slt i64 %indvars.iv.next.i353, %517
+  br i1 %518, label %.lr.ph.i349, label %MJEvalInnerValues.exit355, !llvm.loop !9
 
-MJEvalInnerValues.exit356:                        ; preds = %513
-  store ptr %488, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i353, label %default.unreachable653 [
-    i32 0, label %517
-    i32 1, label %518
-    i32 2, label %MJEvalInnerValues.exit356.thread
+MJEvalInnerValues.exit355:                        ; preds = %515
+  store ptr %490, ptr @CurrentMemoryContext, align 8
+  switch i32 %.1.i352, label %default.unreachable654 [
+    i32 0, label %519
+    i32 1, label %520
+    i32 2, label %MJEvalInnerValues.exit355.thread
   ]
 
-517:                                              ; preds = %MJEvalInnerValues.exit356.thread443, %MJEvalInnerValues.exit356
+519:                                              ; preds = %MJEvalInnerValues.exit355.thread443, %MJEvalInnerValues.exit355
   store i32 7, ptr %26, align 8
   br label %.backedge
 
-518:                                              ; preds = %MJEvalInnerValues.exit356
+520:                                              ; preds = %MJEvalInnerValues.exit355
   store i32 9, ptr %26, align 8
   br label %.backedge
 
-MJEvalInnerValues.exit356.thread:                 ; preds = %476, %480, %MJEvalInnerValues.exit356
-  br i1 %20, label %519, label %.loopexit
+MJEvalInnerValues.exit355.thread:                 ; preds = %478, %482, %MJEvalInnerValues.exit355
+  br i1 %20, label %521, label %.loopexit
 
-519:                                              ; preds = %MJEvalInnerValues.exit356.thread
+521:                                              ; preds = %MJEvalInnerValues.exit355.thread
   store i32 11, ptr %26, align 8
   br label %.backedge
 
-.loopexit474:                                     ; preds = %474, %.thread440
-  %520 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  %521 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
+.loopexit475:                                     ; preds = %476, %.thread440
+  %522 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %523 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1145, ptr noundef nonnull @__func__.ExecMergeJoin) #6
   unreachable
 
-522:                                              ; preds = %52
-  %523 = load ptr, ptr %12, align 8
-  %524 = getelementptr inbounds nuw i8, ptr %523, i64 40
-  %525 = load ptr, ptr %524, align 8
-  call void @MemoryContextReset(ptr noundef %525) #6
-  %526 = load ptr, ptr %524, align 8
-  %527 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %526, ptr @CurrentMemoryContext, align 8
-  %528 = load i32, ptr %37, align 8
-  %529 = icmp sgt i32 %528, 0
-  br i1 %529, label %.outer471, label %ApplySortComparator.exit.thread.thread65.i357
+524:                                              ; preds = %52
+  %525 = load ptr, ptr %12, align 8
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 40
+  %527 = load ptr, ptr %526, align 8
+  call void @MemoryContextReset(ptr noundef %527) #6
+  %528 = load ptr, ptr %526, align 8
+  %529 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %528, ptr @CurrentMemoryContext, align 8
+  %530 = load i32, ptr %37, align 8
+  %531 = icmp sgt i32 %530, 0
+  br i1 %531, label %.outer472, label %.thread.i356
 
-.outer471:                                        ; preds = %522, %ApplySortComparator.exit.thread33.i368
-  %.ph472 = phi i32 [ %.pre.i367, %ApplySortComparator.exit.thread33.i368 ], [ %528, %522 ]
-  %indvars.iv.i360.ph = phi i64 [ %indvars.iv.next.i370, %ApplySortComparator.exit.thread33.i368 ], [ 0, %522 ]
-  %.02251.i361.ph = phi i1 [ %.02251.i361.lcssa, %ApplySortComparator.exit.thread33.i368 ], [ false, %522 ]
-  %530 = load ptr, ptr %38, align 8
-  %531 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %530, i64 %indvars.iv.i360.ph
-  %532 = getelementptr inbounds nuw i8, ptr %531, i64 32
-  %533 = load i8, ptr %532, align 8, !range !4, !noundef !5
-  %534 = trunc nuw i8 %533 to i1
-  %535 = getelementptr inbounds nuw i8, ptr %531, i64 33
-  %536 = load i8, ptr %535, align 1, !range !4, !noundef !5
-  %537 = trunc nuw i8 %536 to i1
-  br i1 %534, label %.lr.ph, label %._crit_edge
+.outer472:                                        ; preds = %524, %ApplySortComparator.exit.thread33.i367
+  %.ph473 = phi i32 [ %.pre.i366, %ApplySortComparator.exit.thread33.i367 ], [ %530, %524 ]
+  %indvars.iv.i359.ph = phi i64 [ %indvars.iv.next.i369, %ApplySortComparator.exit.thread33.i367 ], [ 0, %524 ]
+  %.02253.i360.ph = phi i1 [ %.02253.i360.lcssa, %ApplySortComparator.exit.thread33.i367 ], [ false, %524 ]
+  %532 = load ptr, ptr %38, align 8
+  %533 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %532, i64 %indvars.iv.i359.ph
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 32
+  %535 = load i8, ptr %534, align 8, !range !4, !noundef !5
+  %536 = trunc nuw i8 %535 to i1
+  %537 = getelementptr inbounds nuw i8, ptr %533, i64 33
+  %538 = load i8, ptr %537, align 1, !range !4, !noundef !5
+  %539 = trunc nuw i8 %538 to i1
+  br i1 %536, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.outer471
-  %538 = sext i32 %.ph472 to i64
-  br label %547
+.lr.ph:                                           ; preds = %.outer472
+  %540 = sext i32 %.ph473 to i64
+  br label %549
 
-539:                                              ; preds = %ApplySortComparator.exit.thread33.i368.thread
-  %540 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %530, i64 %indvars.iv.next.i370446
-  %541 = getelementptr inbounds nuw i8, ptr %540, i64 32
-  %542 = load i8, ptr %541, align 8, !range !4, !noundef !5
-  %543 = trunc nuw i8 %542 to i1
-  %544 = getelementptr inbounds nuw i8, ptr %540, i64 33
-  %545 = load i8, ptr %544, align 1, !range !4, !noundef !5
-  %546 = trunc nuw i8 %545 to i1
-  br i1 %543, label %547, label %._crit_edge, !llvm.loop !10
+541:                                              ; preds = %ApplySortComparator.exit.thread33.i367.thread
+  %542 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %532, i64 %indvars.iv.next.i369446
+  %543 = getelementptr inbounds nuw i8, ptr %542, i64 32
+  %544 = load i8, ptr %543, align 8, !range !4, !noundef !5
+  %545 = trunc nuw i8 %544 to i1
+  %546 = getelementptr inbounds nuw i8, ptr %542, i64 33
+  %547 = load i8, ptr %546, align 1, !range !4, !noundef !5
+  %548 = trunc nuw i8 %547 to i1
+  br i1 %545, label %549, label %._crit_edge, !llvm.loop !10
 
-547:                                              ; preds = %.lr.ph, %539
-  %548 = phi i1 [ %537, %.lr.ph ], [ %546, %539 ]
-  %indvars.iv.i360543 = phi i64 [ %indvars.iv.i360.ph, %.lr.ph ], [ %indvars.iv.next.i370446, %539 ]
-  br i1 %548, label %ApplySortComparator.exit.thread33.i368.thread, label %549
+549:                                              ; preds = %.lr.ph, %541
+  %550 = phi i1 [ %539, %.lr.ph ], [ %548, %541 ]
+  %indvars.iv.i359544 = phi i64 [ %indvars.iv.i359.ph, %.lr.ph ], [ %indvars.iv.next.i369446, %541 ]
+  br i1 %550, label %ApplySortComparator.exit.thread33.i367.thread, label %551
 
-549:                                              ; preds = %547
-  %550 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %530, i64 %indvars.iv.i360543
-  %551 = getelementptr inbounds nuw i8, ptr %550, i64 53
-  %552 = load i8, ptr %551, align 1, !range !4, !noundef !5
-  %553 = trunc nuw i8 %552 to i1
-  br i1 %553, label %.thread457, label %.thread454
+551:                                              ; preds = %549
+  %552 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %532, i64 %indvars.iv.i359544
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 53
+  %554 = load i8, ptr %553, align 1, !range !4, !noundef !5
+  %555 = trunc nuw i8 %554 to i1
+  br i1 %555, label %.thread458, label %.thread455
 
-._crit_edge:                                      ; preds = %539, %.outer471
-  %indvars.iv.i360.lcssa = phi i64 [ %indvars.iv.i360.ph, %.outer471 ], [ %indvars.iv.next.i370446, %539 ]
-  %.02251.i361.lcssa = phi i1 [ %.02251.i361.ph, %.outer471 ], [ true, %539 ]
-  %.lcssa479 = phi ptr [ %531, %.outer471 ], [ %540, %539 ]
-  %.lcssa = phi i1 [ %537, %.outer471 ], [ %546, %539 ]
-  br i1 %.lcssa, label %554, label %558
+._crit_edge:                                      ; preds = %541, %.outer472
+  %indvars.iv.i359.lcssa = phi i64 [ %indvars.iv.i359.ph, %.outer472 ], [ %indvars.iv.next.i369446, %541 ]
+  %.02253.i360.lcssa = phi i1 [ %.02253.i360.ph, %.outer472 ], [ true, %541 ]
+  %.lcssa480 = phi ptr [ %533, %.outer472 ], [ %542, %541 ]
+  %.lcssa = phi i1 [ %539, %.outer472 ], [ %548, %541 ]
+  br i1 %.lcssa, label %556, label %560
 
-554:                                              ; preds = %._crit_edge
-  %555 = getelementptr inbounds nuw i8, ptr %.lcssa479, i64 53
-  %556 = load i8, ptr %555, align 1, !range !4, !noundef !5
-  %557 = trunc nuw i8 %556 to i1
-  br i1 %557, label %.thread454, label %.thread457
+556:                                              ; preds = %._crit_edge
+  %557 = getelementptr inbounds nuw i8, ptr %.lcssa480, i64 53
+  %558 = load i8, ptr %557, align 1, !range !4, !noundef !5
+  %559 = trunc nuw i8 %558 to i1
+  br i1 %559, label %.thread455, label %.thread458
 
-558:                                              ; preds = %._crit_edge
-  %559 = getelementptr inbounds nuw i8, ptr %.lcssa479, i64 40
-  %560 = getelementptr inbounds nuw i8, ptr %.lcssa479, i64 24
-  %561 = load i64, ptr %560, align 8
-  %562 = getelementptr inbounds nuw i8, ptr %.lcssa479, i64 16
+560:                                              ; preds = %._crit_edge
+  %561 = getelementptr inbounds nuw i8, ptr %.lcssa480, i64 40
+  %562 = getelementptr inbounds nuw i8, ptr %.lcssa480, i64 24
   %563 = load i64, ptr %562, align 8
-  %564 = getelementptr inbounds nuw i8, ptr %.lcssa479, i64 64
-  %565 = load ptr, ptr %564, align 8
-  %566 = call i32 %565(i64 noundef %563, i64 noundef %561, ptr noundef nonnull %559) #6
-  %567 = getelementptr inbounds nuw i8, ptr %.lcssa479, i64 52
-  %568 = load i8, ptr %567, align 4, !range !4, !noundef !5
-  %569 = trunc nuw i8 %568 to i1
-  br i1 %569, label %570, label %ApplySortComparator.exit.i362
+  %564 = getelementptr inbounds nuw i8, ptr %.lcssa480, i64 16
+  %565 = load i64, ptr %564, align 8
+  %566 = getelementptr inbounds nuw i8, ptr %.lcssa480, i64 64
+  %567 = load ptr, ptr %566, align 8
+  %568 = call i32 %567(i64 noundef %565, i64 noundef %563, ptr noundef nonnull %561) #6
+  %569 = getelementptr inbounds nuw i8, ptr %.lcssa480, i64 52
+  %570 = load i8, ptr %569, align 4, !range !4, !noundef !5
+  %571 = trunc nuw i8 %570 to i1
+  br i1 %571, label %572, label %ApplySortComparator.exit.i361
 
-570:                                              ; preds = %558
-  %571 = icmp slt i32 %566, 0
-  %572 = sub nsw i32 0, %566
-  br i1 %571, label %.thread454, label %ApplySortComparator.exit.i362
+572:                                              ; preds = %560
+  %573 = icmp slt i32 %568, 0
+  %574 = sub nsw i32 0, %568
+  br i1 %573, label %.thread455, label %ApplySortComparator.exit.i361
 
-ApplySortComparator.exit.i362:                    ; preds = %570, %558
-  %.0.i.i363 = phi i32 [ %572, %570 ], [ %566, %558 ]
-  %.0.i.fr.i364 = freeze i32 %.0.i.i363
-  %.not.i365 = icmp eq i32 %.0.i.fr.i364, 0
-  br i1 %.not.i365, label %ApplySortComparator.exit.thread33.i368, label %589
+ApplySortComparator.exit.i361:                    ; preds = %572, %560
+  %.0.i.i362 = phi i32 [ %574, %572 ], [ %568, %560 ]
+  %.0.i.fr.i363 = freeze i32 %.0.i.i362
+  %.not.i364 = icmp eq i32 %.0.i.fr.i363, 0
+  br i1 %.not.i364, label %ApplySortComparator.exit.thread33.i367, label %592
 
-ApplySortComparator.exit.thread33.i368:           ; preds = %ApplySortComparator.exit.i362
-  %.pre.i367 = load i32, ptr %37, align 8
-  %indvars.iv.next.i370 = add nuw nsw i64 %indvars.iv.i360.lcssa, 1
-  %573 = sext i32 %.pre.i367 to i64
-  %574 = icmp slt i64 %indvars.iv.next.i370, %573
-  br i1 %574, label %.outer471, label %ApplySortComparator.exit.thread.i371, !llvm.loop !10
+ApplySortComparator.exit.thread33.i367:           ; preds = %ApplySortComparator.exit.i361
+  %.pre.i366 = load i32, ptr %37, align 8
+  %indvars.iv.next.i369 = add nuw nsw i64 %indvars.iv.i359.lcssa, 1
+  %575 = sext i32 %.pre.i366 to i64
+  %576 = icmp slt i64 %indvars.iv.next.i369, %575
+  br i1 %576, label %.outer472, label %578, !llvm.loop !10
 
-ApplySortComparator.exit.thread33.i368.thread:    ; preds = %547
-  %indvars.iv.next.i370446 = add nuw nsw i64 %indvars.iv.i360543, 1
-  %575 = icmp slt i64 %indvars.iv.next.i370446, %538
-  br i1 %575, label %539, label %.thread454, !llvm.loop !10
+ApplySortComparator.exit.thread33.i367.thread:    ; preds = %549
+  %indvars.iv.next.i369446 = add nuw nsw i64 %indvars.iv.i359544, 1
+  %577 = icmp slt i64 %indvars.iv.next.i369446, %540
+  br i1 %577, label %541, label %.thread455, !llvm.loop !10
 
-ApplySortComparator.exit.thread.i371:             ; preds = %ApplySortComparator.exit.thread33.i368
-  br i1 %.02251.i361.lcssa, label %.thread454, label %ApplySortComparator.exit.thread.thread65.i357
+578:                                              ; preds = %ApplySortComparator.exit.thread33.i367
+  br i1 %.02253.i360.lcssa, label %.thread455, label %.thread.i356
 
-ApplySortComparator.exit.thread.thread65.i357:    ; preds = %ApplySortComparator.exit.thread.i371, %522
-  %576 = load i8, ptr %40, align 2, !range !4, !noundef !5
-  %577 = trunc nuw i8 %576 to i1
-  br i1 %577, label %.thread454, label %578
-
-578:                                              ; preds = %ApplySortComparator.exit.thread.thread65.i357
-  store ptr %527, ptr @CurrentMemoryContext, align 8
-  %579 = load i8, ptr %41, align 4, !range !4, !noundef !5
+.thread.i356:                                     ; preds = %578, %524
+  %579 = load i8, ptr %40, align 2, !range !4, !noundef !5
   %580 = trunc nuw i8 %579 to i1
-  br i1 %580, label %582, label %581
+  br i1 %580, label %.thread455, label %581
 
-581:                                              ; preds = %578
+581:                                              ; preds = %.thread.i356
+  store ptr %529, ptr @CurrentMemoryContext, align 8
+  %582 = load i8, ptr %41, align 4, !range !4, !noundef !5
+  %583 = trunc nuw i8 %582 to i1
+  br i1 %583, label %585, label %584
+
+584:                                              ; preds = %581
   call void @ExecMarkPos(ptr noundef %9) #6
-  br label %582
+  br label %585
 
-582:                                              ; preds = %581, %578
-  %583 = load ptr, ptr %42, align 8
-  %584 = load ptr, ptr %35, align 8
-  %585 = getelementptr inbounds nuw i8, ptr %583, i64 8
-  %586 = load ptr, ptr %585, align 8
-  %587 = getelementptr inbounds nuw i8, ptr %586, i64 64
-  %588 = load ptr, ptr %587, align 8
-  call void %588(ptr noundef %583, ptr noundef %584) #6
+585:                                              ; preds = %584, %581
+  %586 = load ptr, ptr %42, align 8
+  %587 = load ptr, ptr %35, align 8
+  %588 = getelementptr inbounds nuw i8, ptr %586, i64 8
+  %589 = load ptr, ptr %588, align 8
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 64
+  %591 = load ptr, ptr %590, align 8
+  call void %591(ptr noundef %586, ptr noundef %587) #6
   store i32 3, ptr %26, align 8
   br label %.backedge
 
-.thread454:                                       ; preds = %570, %ApplySortComparator.exit.thread33.i368.thread, %549, %ApplySortComparator.exit.thread.thread65.i357, %ApplySortComparator.exit.thread.i371, %554
-  store ptr %527, ptr @CurrentMemoryContext, align 8
-  br label %592
+.thread455:                                       ; preds = %572, %ApplySortComparator.exit.thread33.i367.thread, %551, %.thread.i356, %578, %556
+  store ptr %529, ptr @CurrentMemoryContext, align 8
+  br label %595
 
-.thread457:                                       ; preds = %554, %549
-  store ptr %527, ptr @CurrentMemoryContext, align 8
-  br label %591
+.thread458:                                       ; preds = %556, %551
+  store ptr %529, ptr @CurrentMemoryContext, align 8
+  br label %594
 
-589:                                              ; preds = %ApplySortComparator.exit.i362
-  store ptr %527, ptr @CurrentMemoryContext, align 8
-  %590 = icmp slt i32 %.0.i.fr.i364, 0
-  br i1 %590, label %591, label %592
+592:                                              ; preds = %ApplySortComparator.exit.i361
+  store ptr %529, ptr @CurrentMemoryContext, align 8
+  %593 = icmp slt i32 %.0.i.fr.i363, 0
+  br i1 %593, label %594, label %595
 
-591:                                              ; preds = %.thread457, %589
+594:                                              ; preds = %.thread458, %592
   store i32 8, ptr %26, align 8
   br label %.backedge
 
-592:                                              ; preds = %.thread454, %589
+595:                                              ; preds = %.thread455, %592
   store i32 9, ptr %26, align 8
   br label %.backedge
 
-593:                                              ; preds = %52
-  br i1 %20, label %594, label %599
+596:                                              ; preds = %52
+  br i1 %20, label %597, label %602
 
-594:                                              ; preds = %593
-  %595 = load i8, ptr %27, align 1, !range !4, !noundef !5
-  %596 = trunc nuw i8 %595 to i1
-  br i1 %596, label %599, label %597
+597:                                              ; preds = %596
+  %598 = load i8, ptr %27, align 1, !range !4, !noundef !5
+  %599 = trunc nuw i8 %598 to i1
+  br i1 %599, label %602, label %600
 
-597:                                              ; preds = %594
+600:                                              ; preds = %597
   store i8 1, ptr %27, align 1
-  %598 = call fastcc ptr @MJFillOuter(ptr noundef nonnull %0)
-  %.not252 = icmp eq ptr %598, null
-  br i1 %.not252, label %599, label %.loopexit
+  %601 = call fastcc ptr @MJFillOuter(ptr noundef nonnull %0)
+  %.not252 = icmp eq ptr %601, null
+  br i1 %.not252, label %602, label %.loopexit
 
-599:                                              ; preds = %597, %594, %593
-  %600 = load ptr, ptr %28, align 8
-  %.not.i375 = icmp eq ptr %600, null
-  br i1 %.not.i375, label %ExecProcNode.exit376, label %601
+602:                                              ; preds = %600, %597, %596
+  %603 = load ptr, ptr %28, align 8
+  %.not.i373 = icmp eq ptr %603, null
+  br i1 %.not.i373, label %ExecProcNode.exit374, label %604
 
-601:                                              ; preds = %599
+604:                                              ; preds = %602
   call void @ExecReScan(ptr noundef nonnull %11) #6
-  br label %ExecProcNode.exit376
+  br label %ExecProcNode.exit374
 
-ExecProcNode.exit376:                             ; preds = %599, %601
-  %602 = load ptr, ptr %29, align 8
-  %603 = call ptr %602(ptr noundef nonnull %11) #6
-  store ptr %603, ptr %30, align 8
+ExecProcNode.exit374:                             ; preds = %602, %604
+  %605 = load ptr, ptr %29, align 8
+  %606 = call ptr %605(ptr noundef nonnull %11) #6
+  store ptr %606, ptr %30, align 8
   store i8 0, ptr %27, align 1
-  %604 = load ptr, ptr %39, align 8
-  %605 = icmp eq ptr %603, null
-  br i1 %605, label %MJEvalOuterValues.exit387.thread, label %606
+  %607 = load ptr, ptr %39, align 8
+  %608 = icmp eq ptr %606, null
+  br i1 %608, label %MJEvalOuterValues.exit385.thread, label %609
 
-606:                                              ; preds = %ExecProcNode.exit376
-  %607 = getelementptr inbounds nuw i8, ptr %603, i64 4
-  %608 = load i16, ptr %607, align 4
-  %609 = and i16 %608, 2
-  %.not.i377 = icmp eq i16 %609, 0
-  br i1 %.not.i377, label %610, label %MJEvalOuterValues.exit387.thread
+609:                                              ; preds = %ExecProcNode.exit374
+  %610 = getelementptr inbounds nuw i8, ptr %606, i64 4
+  %611 = load i16, ptr %610, align 4
+  %612 = and i16 %611, 2
+  %.not.i375 = icmp eq i16 %612, 0
+  br i1 %.not.i375, label %613, label %MJEvalOuterValues.exit385.thread
 
-610:                                              ; preds = %606
-  %611 = getelementptr inbounds nuw i8, ptr %604, i64 40
-  %612 = load ptr, ptr %611, align 8
-  call void @MemoryContextReset(ptr noundef %612) #6
-  %613 = load ptr, ptr %611, align 8
-  %614 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %613, ptr @CurrentMemoryContext, align 8
-  %615 = load ptr, ptr %30, align 8
-  %616 = getelementptr inbounds nuw i8, ptr %604, i64 24
-  store ptr %615, ptr %616, align 8
-  %617 = load i32, ptr %37, align 8
-  %618 = icmp sgt i32 %617, 0
-  br i1 %618, label %.lr.ph.i381, label %MJEvalOuterValues.exit387.thread460
+613:                                              ; preds = %609
+  %614 = getelementptr inbounds nuw i8, ptr %607, i64 40
+  %615 = load ptr, ptr %614, align 8
+  call void @MemoryContextReset(ptr noundef %615) #6
+  %616 = load ptr, ptr %614, align 8
+  %617 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %616, ptr @CurrentMemoryContext, align 8
+  %618 = load ptr, ptr %30, align 8
+  %619 = getelementptr inbounds nuw i8, ptr %607, i64 24
+  store ptr %618, ptr %619, align 8
+  %620 = load i32, ptr %37, align 8
+  %621 = icmp sgt i32 %620, 0
+  br i1 %621, label %.lr.ph.i379, label %MJEvalOuterValues.exit385.thread461
 
-MJEvalOuterValues.exit387.thread460:              ; preds = %610
-  store ptr %614, ptr @CurrentMemoryContext, align 8
-  br label %643
+MJEvalOuterValues.exit385.thread461:              ; preds = %613
+  store ptr %617, ptr @CurrentMemoryContext, align 8
+  br label %646
 
-.lr.ph.i381:                                      ; preds = %610, %639
-  %indvars.iv.i382 = phi i64 [ %indvars.iv.next.i385, %639 ], [ 0, %610 ]
-  %.02327.i383 = phi i32 [ %.1.i384, %639 ], [ 0, %610 ]
-  %619 = load ptr, ptr %38, align 8
-  %620 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %619, i64 %indvars.iv.i382
-  %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr inbounds nuw i8, ptr %620, i64 32
-  %623 = getelementptr inbounds nuw i8, ptr %621, i64 32
+.lr.ph.i379:                                      ; preds = %613, %642
+  %indvars.iv.i380 = phi i64 [ %indvars.iv.next.i383, %642 ], [ 0, %613 ]
+  %.02327.i381 = phi i32 [ %.1.i382, %642 ], [ 0, %613 ]
+  %622 = load ptr, ptr %38, align 8
+  %623 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %622, i64 %indvars.iv.i380
   %624 = load ptr, ptr %623, align 8
-  %625 = call i64 %624(ptr noundef %621, ptr noundef %604, ptr noundef nonnull %622) #6
-  %626 = getelementptr inbounds nuw i8, ptr %620, i64 16
-  store i64 %625, ptr %626, align 8
-  %627 = load i8, ptr %622, align 8, !range !4, !noundef !5
-  %628 = trunc nuw i8 %627 to i1
-  br i1 %628, label %629, label %639
+  %625 = getelementptr inbounds nuw i8, ptr %623, i64 32
+  %626 = getelementptr inbounds nuw i8, ptr %624, i64 32
+  %627 = load ptr, ptr %626, align 8
+  %628 = call i64 %627(ptr noundef %624, ptr noundef %607, ptr noundef nonnull %625) #6
+  %629 = getelementptr inbounds nuw i8, ptr %623, i64 16
+  store i64 %628, ptr %629, align 8
+  %630 = load i8, ptr %625, align 8, !range !4, !noundef !5
+  %631 = trunc nuw i8 %630 to i1
+  br i1 %631, label %632, label %642
 
-629:                                              ; preds = %.lr.ph.i381
-  %630 = icmp eq i64 %indvars.iv.i382, 0
-  br i1 %630, label %631, label %638
+632:                                              ; preds = %.lr.ph.i379
+  %633 = icmp eq i64 %indvars.iv.i380, 0
+  br i1 %633, label %634, label %641
 
-631:                                              ; preds = %629
-  %632 = getelementptr inbounds nuw i8, ptr %620, i64 53
-  %633 = load i8, ptr %632, align 1, !range !4, !noundef !5
-  %634 = trunc nuw i8 %633 to i1
-  br i1 %634, label %638, label %635
-
-635:                                              ; preds = %631
-  %636 = load i8, ptr %18, align 1, !range !4, !noundef !5
+634:                                              ; preds = %632
+  %635 = getelementptr inbounds nuw i8, ptr %623, i64 53
+  %636 = load i8, ptr %635, align 1, !range !4, !noundef !5
   %637 = trunc nuw i8 %636 to i1
-  br i1 %637, label %638, label %639
+  br i1 %637, label %641, label %638
 
-638:                                              ; preds = %635, %631, %629
-  %spec.store.select.i386 = call i32 @llvm.umax.i32(i32 %.02327.i383, i32 1)
-  br label %639
+638:                                              ; preds = %634
+  %639 = load i8, ptr %18, align 1, !range !4, !noundef !5
+  %640 = trunc nuw i8 %639 to i1
+  br i1 %640, label %641, label %642
 
-639:                                              ; preds = %638, %635, %.lr.ph.i381
-  %.1.i384 = phi i32 [ %spec.store.select.i386, %638 ], [ %.02327.i383, %.lr.ph.i381 ], [ 2, %635 ]
-  %indvars.iv.next.i385 = add nuw nsw i64 %indvars.iv.i382, 1
-  %640 = load i32, ptr %37, align 8
-  %641 = sext i32 %640 to i64
-  %642 = icmp slt i64 %indvars.iv.next.i385, %641
-  br i1 %642, label %.lr.ph.i381, label %MJEvalOuterValues.exit387, !llvm.loop !7
+641:                                              ; preds = %638, %634, %632
+  %spec.store.select.i384 = call i32 @llvm.umax.i32(i32 %.02327.i381, i32 1)
+  br label %642
 
-MJEvalOuterValues.exit387:                        ; preds = %639
-  store ptr %614, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i384, label %default.unreachable653 [
-    i32 0, label %643
-    i32 1, label %644
-    i32 2, label %MJEvalOuterValues.exit387.thread
+642:                                              ; preds = %641, %638, %.lr.ph.i379
+  %.1.i382 = phi i32 [ %spec.store.select.i384, %641 ], [ %.02327.i381, %.lr.ph.i379 ], [ 2, %638 ]
+  %indvars.iv.next.i383 = add nuw nsw i64 %indvars.iv.i380, 1
+  %643 = load i32, ptr %37, align 8
+  %644 = sext i32 %643 to i64
+  %645 = icmp slt i64 %indvars.iv.next.i383, %644
+  br i1 %645, label %.lr.ph.i379, label %MJEvalOuterValues.exit385, !llvm.loop !7
+
+MJEvalOuterValues.exit385:                        ; preds = %642
+  store ptr %617, ptr @CurrentMemoryContext, align 8
+  switch i32 %.1.i382, label %default.unreachable654 [
+    i32 0, label %646
+    i32 1, label %647
+    i32 2, label %MJEvalOuterValues.exit385.thread
   ]
 
-643:                                              ; preds = %MJEvalOuterValues.exit387.thread460, %MJEvalOuterValues.exit387
+646:                                              ; preds = %MJEvalOuterValues.exit385.thread461, %MJEvalOuterValues.exit385
   store i32 7, ptr %26, align 8
   br label %.backedge
 
-644:                                              ; preds = %MJEvalOuterValues.exit387
+647:                                              ; preds = %MJEvalOuterValues.exit385
   store i32 8, ptr %26, align 8
   br label %.backedge
 
-MJEvalOuterValues.exit387.thread:                 ; preds = %ExecProcNode.exit376, %606, %MJEvalOuterValues.exit387
-  %645 = load ptr, ptr %35, align 8
-  %646 = icmp ne ptr %645, null
-  %or.cond11.not = select i1 %23, i1 %646, i1 false
-  br i1 %or.cond11.not, label %647, label %.loopexit
+MJEvalOuterValues.exit385.thread:                 ; preds = %ExecProcNode.exit374, %609, %MJEvalOuterValues.exit385
+  %648 = load ptr, ptr %35, align 8
+  %649 = icmp ne ptr %648, null
+  %or.cond11.not = select i1 %23, i1 %649, i1 false
+  br i1 %or.cond11.not, label %650, label %.loopexit
 
-647:                                              ; preds = %MJEvalOuterValues.exit387.thread
-  %648 = getelementptr inbounds nuw i8, ptr %645, i64 4
-  %649 = load i16, ptr %648, align 4
-  %650 = and i16 %649, 2
-  %.not254 = icmp eq i16 %650, 0
-  br i1 %.not254, label %651, label %.loopexit
+650:                                              ; preds = %MJEvalOuterValues.exit385.thread
+  %651 = getelementptr inbounds nuw i8, ptr %648, i64 4
+  %652 = load i16, ptr %651, align 4
+  %653 = and i16 %652, 2
+  %.not254 = icmp eq i16 %653, 0
+  br i1 %.not254, label %654, label %.loopexit
 
-651:                                              ; preds = %647
+654:                                              ; preds = %650
   store i32 10, ptr %26, align 8
   br label %.backedge
 
-652:                                              ; preds = %52
-  br i1 %23, label %653, label %658
+655:                                              ; preds = %52
+  br i1 %23, label %656, label %661
 
-653:                                              ; preds = %652
-  %654 = load i8, ptr %31, align 2, !range !4, !noundef !5
-  %655 = trunc nuw i8 %654 to i1
-  br i1 %655, label %658, label %656
+656:                                              ; preds = %655
+  %657 = load i8, ptr %31, align 2, !range !4, !noundef !5
+  %658 = trunc nuw i8 %657 to i1
+  br i1 %658, label %661, label %659
 
-656:                                              ; preds = %653
+659:                                              ; preds = %656
   store i8 1, ptr %31, align 2
-  %657 = call fastcc ptr @MJFillInner(ptr noundef nonnull %0)
-  %.not249 = icmp eq ptr %657, null
-  br i1 %.not249, label %658, label %.loopexit
+  %660 = call fastcc ptr @MJFillInner(ptr noundef nonnull %0)
+  %.not249 = icmp eq ptr %660, null
+  br i1 %.not249, label %661, label %.loopexit
 
-658:                                              ; preds = %656, %653, %652
-  %659 = load i8, ptr %32, align 1, !range !4, !noundef !5
-  %660 = trunc nuw i8 %659 to i1
-  br i1 %660, label %661, label %662
+661:                                              ; preds = %659, %656, %655
+  %662 = load i8, ptr %32, align 1, !range !4, !noundef !5
+  %663 = trunc nuw i8 %662 to i1
+  br i1 %663, label %664, label %665
 
-661:                                              ; preds = %658
+664:                                              ; preds = %661
   call void @ExecMarkPos(ptr noundef %9) #6
-  br label %662
+  br label %665
 
-662:                                              ; preds = %661, %658
-  %663 = load ptr, ptr %33, align 8
-  %.not.i388 = icmp eq ptr %663, null
-  br i1 %.not.i388, label %ExecProcNode.exit389, label %664
+665:                                              ; preds = %664, %661
+  %666 = load ptr, ptr %33, align 8
+  %.not.i386 = icmp eq ptr %666, null
+  br i1 %.not.i386, label %ExecProcNode.exit387, label %667
 
-664:                                              ; preds = %662
+667:                                              ; preds = %665
   call void @ExecReScan(ptr noundef nonnull %9) #6
-  br label %ExecProcNode.exit389
+  br label %ExecProcNode.exit387
 
-ExecProcNode.exit389:                             ; preds = %662, %664
-  %665 = load ptr, ptr %34, align 8
-  %666 = call ptr %665(ptr noundef nonnull %9) #6
-  store ptr %666, ptr %35, align 8
+ExecProcNode.exit387:                             ; preds = %665, %667
+  %668 = load ptr, ptr %34, align 8
+  %669 = call ptr %668(ptr noundef nonnull %9) #6
+  store ptr %669, ptr %35, align 8
   store i8 0, ptr %31, align 2
-  %667 = load ptr, ptr %36, align 8
-  %668 = icmp eq ptr %666, null
-  br i1 %668, label %MJEvalInnerValues.exit400.thread, label %669
+  %670 = load ptr, ptr %36, align 8
+  %671 = icmp eq ptr %669, null
+  br i1 %671, label %MJEvalInnerValues.exit398.thread, label %672
 
-669:                                              ; preds = %ExecProcNode.exit389
-  %670 = getelementptr inbounds nuw i8, ptr %666, i64 4
-  %671 = load i16, ptr %670, align 4
-  %672 = and i16 %671, 2
-  %.not.i390 = icmp eq i16 %672, 0
-  br i1 %.not.i390, label %673, label %MJEvalInnerValues.exit400.thread
+672:                                              ; preds = %ExecProcNode.exit387
+  %673 = getelementptr inbounds nuw i8, ptr %669, i64 4
+  %674 = load i16, ptr %673, align 4
+  %675 = and i16 %674, 2
+  %.not.i388 = icmp eq i16 %675, 0
+  br i1 %.not.i388, label %676, label %MJEvalInnerValues.exit398.thread
 
-673:                                              ; preds = %669
-  %674 = getelementptr inbounds nuw i8, ptr %667, i64 40
-  %675 = load ptr, ptr %674, align 8
-  call void @MemoryContextReset(ptr noundef %675) #6
-  %676 = load ptr, ptr %674, align 8
-  %677 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %676, ptr @CurrentMemoryContext, align 8
-  %678 = getelementptr inbounds nuw i8, ptr %667, i64 16
-  store ptr %666, ptr %678, align 8
-  %679 = load i32, ptr %37, align 8
-  %680 = icmp sgt i32 %679, 0
-  br i1 %680, label %.lr.ph.i394, label %MJEvalInnerValues.exit400.thread463
+676:                                              ; preds = %672
+  %677 = getelementptr inbounds nuw i8, ptr %670, i64 40
+  %678 = load ptr, ptr %677, align 8
+  call void @MemoryContextReset(ptr noundef %678) #6
+  %679 = load ptr, ptr %677, align 8
+  %680 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %679, ptr @CurrentMemoryContext, align 8
+  %681 = getelementptr inbounds nuw i8, ptr %670, i64 16
+  store ptr %669, ptr %681, align 8
+  %682 = load i32, ptr %37, align 8
+  %683 = icmp sgt i32 %682, 0
+  br i1 %683, label %.lr.ph.i392, label %MJEvalInnerValues.exit398.thread464
 
-MJEvalInnerValues.exit400.thread463:              ; preds = %673
-  store ptr %677, ptr @CurrentMemoryContext, align 8
-  br label %706
+MJEvalInnerValues.exit398.thread464:              ; preds = %676
+  store ptr %680, ptr @CurrentMemoryContext, align 8
+  br label %709
 
-.lr.ph.i394:                                      ; preds = %673, %702
-  %indvars.iv.i395 = phi i64 [ %indvars.iv.next.i398, %702 ], [ 0, %673 ]
-  %.02327.i396 = phi i32 [ %.1.i397, %702 ], [ 0, %673 ]
-  %681 = load ptr, ptr %38, align 8
-  %682 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %681, i64 %indvars.iv.i395
-  %683 = getelementptr inbounds nuw i8, ptr %682, i64 8
-  %684 = load ptr, ptr %683, align 8
-  %685 = getelementptr inbounds nuw i8, ptr %682, i64 33
-  %686 = getelementptr inbounds nuw i8, ptr %684, i64 32
+.lr.ph.i392:                                      ; preds = %676, %705
+  %indvars.iv.i393 = phi i64 [ %indvars.iv.next.i396, %705 ], [ 0, %676 ]
+  %.02327.i394 = phi i32 [ %.1.i395, %705 ], [ 0, %676 ]
+  %684 = load ptr, ptr %38, align 8
+  %685 = getelementptr inbounds nuw %struct.MergeJoinClauseData, ptr %684, i64 %indvars.iv.i393
+  %686 = getelementptr inbounds nuw i8, ptr %685, i64 8
   %687 = load ptr, ptr %686, align 8
-  %688 = call i64 %687(ptr noundef %684, ptr noundef %667, ptr noundef nonnull %685) #6
-  %689 = getelementptr inbounds nuw i8, ptr %682, i64 24
-  store i64 %688, ptr %689, align 8
-  %690 = load i8, ptr %685, align 1, !range !4, !noundef !5
-  %691 = trunc nuw i8 %690 to i1
-  br i1 %691, label %692, label %702
+  %688 = getelementptr inbounds nuw i8, ptr %685, i64 33
+  %689 = getelementptr inbounds nuw i8, ptr %687, i64 32
+  %690 = load ptr, ptr %689, align 8
+  %691 = call i64 %690(ptr noundef %687, ptr noundef %670, ptr noundef nonnull %688) #6
+  %692 = getelementptr inbounds nuw i8, ptr %685, i64 24
+  store i64 %691, ptr %692, align 8
+  %693 = load i8, ptr %688, align 1, !range !4, !noundef !5
+  %694 = trunc nuw i8 %693 to i1
+  br i1 %694, label %695, label %705
 
-692:                                              ; preds = %.lr.ph.i394
-  %693 = icmp eq i64 %indvars.iv.i395, 0
-  br i1 %693, label %694, label %701
+695:                                              ; preds = %.lr.ph.i392
+  %696 = icmp eq i64 %indvars.iv.i393, 0
+  br i1 %696, label %697, label %704
 
-694:                                              ; preds = %692
-  %695 = getelementptr inbounds nuw i8, ptr %682, i64 53
-  %696 = load i8, ptr %695, align 1, !range !4, !noundef !5
-  %697 = trunc nuw i8 %696 to i1
-  br i1 %697, label %701, label %698
-
-698:                                              ; preds = %694
-  %699 = load i8, ptr %21, align 8, !range !4, !noundef !5
+697:                                              ; preds = %695
+  %698 = getelementptr inbounds nuw i8, ptr %685, i64 53
+  %699 = load i8, ptr %698, align 1, !range !4, !noundef !5
   %700 = trunc nuw i8 %699 to i1
-  br i1 %700, label %701, label %702
+  br i1 %700, label %704, label %701
 
-701:                                              ; preds = %698, %694, %692
-  %spec.store.select.i399 = call i32 @llvm.umax.i32(i32 %.02327.i396, i32 1)
-  br label %702
+701:                                              ; preds = %697
+  %702 = load i8, ptr %21, align 8, !range !4, !noundef !5
+  %703 = trunc nuw i8 %702 to i1
+  br i1 %703, label %704, label %705
 
-702:                                              ; preds = %701, %698, %.lr.ph.i394
-  %.1.i397 = phi i32 [ %spec.store.select.i399, %701 ], [ %.02327.i396, %.lr.ph.i394 ], [ 2, %698 ]
-  %indvars.iv.next.i398 = add nuw nsw i64 %indvars.iv.i395, 1
-  %703 = load i32, ptr %37, align 8
-  %704 = sext i32 %703 to i64
-  %705 = icmp slt i64 %indvars.iv.next.i398, %704
-  br i1 %705, label %.lr.ph.i394, label %MJEvalInnerValues.exit400, !llvm.loop !9
+704:                                              ; preds = %701, %697, %695
+  %spec.store.select.i397 = call i32 @llvm.umax.i32(i32 %.02327.i394, i32 1)
+  br label %705
 
-MJEvalInnerValues.exit400:                        ; preds = %702
-  store ptr %677, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i397, label %default.unreachable653 [
-    i32 0, label %706
-    i32 1, label %707
-    i32 2, label %MJEvalInnerValues.exit400.thread
+705:                                              ; preds = %704, %701, %.lr.ph.i392
+  %.1.i395 = phi i32 [ %spec.store.select.i397, %704 ], [ %.02327.i394, %.lr.ph.i392 ], [ 2, %701 ]
+  %indvars.iv.next.i396 = add nuw nsw i64 %indvars.iv.i393, 1
+  %706 = load i32, ptr %37, align 8
+  %707 = sext i32 %706 to i64
+  %708 = icmp slt i64 %indvars.iv.next.i396, %707
+  br i1 %708, label %.lr.ph.i392, label %MJEvalInnerValues.exit398, !llvm.loop !9
+
+MJEvalInnerValues.exit398:                        ; preds = %705
+  store ptr %680, ptr @CurrentMemoryContext, align 8
+  switch i32 %.1.i395, label %default.unreachable654 [
+    i32 0, label %709
+    i32 1, label %710
+    i32 2, label %MJEvalInnerValues.exit398.thread
   ]
 
-706:                                              ; preds = %MJEvalInnerValues.exit400.thread463, %MJEvalInnerValues.exit400
+709:                                              ; preds = %MJEvalInnerValues.exit398.thread464, %MJEvalInnerValues.exit398
   store i32 7, ptr %26, align 8
   br label %.backedge
 
-707:                                              ; preds = %MJEvalInnerValues.exit400
+710:                                              ; preds = %MJEvalInnerValues.exit398
   store i32 9, ptr %26, align 8
   br label %.backedge
 
-MJEvalInnerValues.exit400.thread:                 ; preds = %ExecProcNode.exit389, %669, %MJEvalInnerValues.exit400
-  %708 = load ptr, ptr %30, align 8
-  %709 = icmp ne ptr %708, null
-  %or.cond14.not = select i1 %20, i1 %709, i1 false
-  br i1 %or.cond14.not, label %710, label %.loopexit
+MJEvalInnerValues.exit398.thread:                 ; preds = %ExecProcNode.exit387, %672, %MJEvalInnerValues.exit398
+  %711 = load ptr, ptr %30, align 8
+  %712 = icmp ne ptr %711, null
+  %or.cond14.not = select i1 %20, i1 %712, i1 false
+  br i1 %or.cond14.not, label %713, label %.loopexit
 
-710:                                              ; preds = %MJEvalInnerValues.exit400.thread
-  %711 = getelementptr inbounds nuw i8, ptr %708, i64 4
-  %712 = load i16, ptr %711, align 4
-  %713 = and i16 %712, 2
-  %.not251 = icmp eq i16 %713, 0
-  br i1 %.not251, label %714, label %.loopexit
+713:                                              ; preds = %MJEvalInnerValues.exit398.thread
+  %714 = getelementptr inbounds nuw i8, ptr %711, i64 4
+  %715 = load i16, ptr %714, align 4
+  %716 = and i16 %715, 2
+  %.not251 = icmp eq i16 %716, 0
+  br i1 %.not251, label %717, label %.loopexit
 
-714:                                              ; preds = %710
+717:                                              ; preds = %713
   store i32 11, ptr %26, align 8
   br label %.backedge
 
-715:                                              ; preds = %52
-  %716 = load i8, ptr %31, align 2, !range !4, !noundef !5
-  %717 = trunc nuw i8 %716 to i1
-  br i1 %717, label %720, label %718
+718:                                              ; preds = %52
+  %719 = load i8, ptr %31, align 2, !range !4, !noundef !5
+  %720 = trunc nuw i8 %719 to i1
+  br i1 %720, label %723, label %721
 
-718:                                              ; preds = %715
+721:                                              ; preds = %718
   store i8 1, ptr %31, align 2
-  %719 = call fastcc ptr @MJFillInner(ptr noundef nonnull %0)
-  %.not247 = icmp eq ptr %719, null
-  br i1 %.not247, label %720, label %.loopexit
+  %722 = call fastcc ptr @MJFillInner(ptr noundef nonnull %0)
+  %.not247 = icmp eq ptr %722, null
+  br i1 %.not247, label %723, label %.loopexit
 
-720:                                              ; preds = %718, %715
-  %721 = load i8, ptr %32, align 1, !range !4, !noundef !5
-  %722 = trunc nuw i8 %721 to i1
-  br i1 %722, label %723, label %724
+723:                                              ; preds = %721, %718
+  %724 = load i8, ptr %32, align 1, !range !4, !noundef !5
+  %725 = trunc nuw i8 %724 to i1
+  br i1 %725, label %726, label %727
 
-723:                                              ; preds = %720
+726:                                              ; preds = %723
   call void @ExecMarkPos(ptr noundef %9) #6
-  br label %724
+  br label %727
 
-724:                                              ; preds = %723, %720
-  %725 = load ptr, ptr %33, align 8
-  %.not.i401 = icmp eq ptr %725, null
-  br i1 %.not.i401, label %ExecProcNode.exit402, label %726
+727:                                              ; preds = %726, %723
+  %728 = load ptr, ptr %33, align 8
+  %.not.i399 = icmp eq ptr %728, null
+  br i1 %.not.i399, label %ExecProcNode.exit400, label %729
 
-726:                                              ; preds = %724
+729:                                              ; preds = %727
   call void @ExecReScan(ptr noundef nonnull %9) #6
-  br label %ExecProcNode.exit402
+  br label %ExecProcNode.exit400
 
-ExecProcNode.exit402:                             ; preds = %724, %726
-  %727 = load ptr, ptr %34, align 8
-  %728 = call ptr %727(ptr noundef nonnull %9) #6
-  store ptr %728, ptr %35, align 8
+ExecProcNode.exit400:                             ; preds = %727, %729
+  %730 = load ptr, ptr %34, align 8
+  %731 = call ptr %730(ptr noundef nonnull %9) #6
+  store ptr %731, ptr %35, align 8
   store i8 0, ptr %31, align 2
-  %729 = icmp eq ptr %728, null
-  br i1 %729, label %.loopexit, label %730
+  %732 = icmp eq ptr %731, null
+  br i1 %732, label %.loopexit, label %733
 
-730:                                              ; preds = %ExecProcNode.exit402
-  %731 = getelementptr inbounds nuw i8, ptr %728, i64 4
-  %732 = load i16, ptr %731, align 4
-  %733 = and i16 %732, 2
-  %.not248 = icmp eq i16 %733, 0
+733:                                              ; preds = %ExecProcNode.exit400
+  %734 = getelementptr inbounds nuw i8, ptr %731, i64 4
+  %735 = load i16, ptr %734, align 4
+  %736 = and i16 %735, 2
+  %.not248 = icmp eq i16 %736, 0
   br i1 %.not248, label %.backedge, label %.loopexit
 
-734:                                              ; preds = %52
-  %735 = load i8, ptr %27, align 1, !range !4, !noundef !5
-  %736 = trunc nuw i8 %735 to i1
-  br i1 %736, label %739, label %737
+737:                                              ; preds = %52
+  %738 = load i8, ptr %27, align 1, !range !4, !noundef !5
+  %739 = trunc nuw i8 %738 to i1
+  br i1 %739, label %742, label %740
 
-737:                                              ; preds = %734
+740:                                              ; preds = %737
   store i8 1, ptr %27, align 1
-  %738 = call fastcc ptr @MJFillOuter(ptr noundef nonnull %0)
-  %.not245 = icmp eq ptr %738, null
-  br i1 %.not245, label %739, label %.loopexit
+  %741 = call fastcc ptr @MJFillOuter(ptr noundef nonnull %0)
+  %.not245 = icmp eq ptr %741, null
+  br i1 %.not245, label %742, label %.loopexit
 
-739:                                              ; preds = %737, %734
-  %740 = load ptr, ptr %28, align 8
-  %.not.i403 = icmp eq ptr %740, null
-  br i1 %.not.i403, label %ExecProcNode.exit404, label %741
+742:                                              ; preds = %740, %737
+  %743 = load ptr, ptr %28, align 8
+  %.not.i401 = icmp eq ptr %743, null
+  br i1 %.not.i401, label %ExecProcNode.exit402, label %744
 
-741:                                              ; preds = %739
+744:                                              ; preds = %742
   call void @ExecReScan(ptr noundef nonnull %11) #6
-  br label %ExecProcNode.exit404
+  br label %ExecProcNode.exit402
 
-ExecProcNode.exit404:                             ; preds = %739, %741
-  %742 = load ptr, ptr %29, align 8
-  %743 = call ptr %742(ptr noundef nonnull %11) #6
-  store ptr %743, ptr %30, align 8
+ExecProcNode.exit402:                             ; preds = %742, %744
+  %745 = load ptr, ptr %29, align 8
+  %746 = call ptr %745(ptr noundef nonnull %11) #6
+  store ptr %746, ptr %30, align 8
   store i8 0, ptr %27, align 1
-  %744 = icmp eq ptr %743, null
-  br i1 %744, label %.loopexit, label %745
+  %747 = icmp eq ptr %746, null
+  br i1 %747, label %.loopexit, label %748
 
-745:                                              ; preds = %ExecProcNode.exit404
-  %746 = getelementptr inbounds nuw i8, ptr %743, i64 4
-  %747 = load i16, ptr %746, align 4
-  %748 = and i16 %747, 2
-  %.not246 = icmp eq i16 %748, 0
+748:                                              ; preds = %ExecProcNode.exit402
+  %749 = getelementptr inbounds nuw i8, ptr %746, i64 4
+  %750 = load i16, ptr %749, align 4
+  %751 = and i16 %750, 2
+  %.not246 = icmp eq i16 %751, 0
   br i1 %.not246, label %.backedge, label %.loopexit
 
-.backedge:                                        ; preds = %745, %730, %706, %707, %714, %643, %644, %651, %582, %592, %591, %473, %517, %518, %519, %377, %378, %385, %326, %MJEvalInnerValues.exit299.thread, %323, %320, %202, %204, %210, %208, %170, %147, %155, %153, %152, %98, %102, %100, %99, %165
+.backedge:                                        ; preds = %748, %733, %709, %710, %717, %646, %647, %654, %585, %595, %594, %475, %519, %520, %521, %378, %379, %386, %327, %MJEvalInnerValues.exit299.thread, %324, %321, %202, %204, %210, %208, %170, %147, %155, %153, %152, %98, %102, %100, %99, %165
   br label %52
 
-749:                                              ; preds = %52
-  %750 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  %751 = load i32, ptr %26, align 8
-  %752 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %751) #6
+752:                                              ; preds = %52
+  %753 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %754 = load i32, ptr %26, align 8
+  %755 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %754) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1429, ptr noundef nonnull @__func__.ExecMergeJoin) #6
   unreachable
 
-default.unreachable653:                           ; preds = %MJEvalInnerValues.exit400, %MJEvalOuterValues.exit387, %MJEvalInnerValues.exit356, %MJEvalOuterValues.exit316, %MJEvalInnerValues.exit299, %MJEvalInnerValues.exit, %MJEvalOuterValues.exit
+default.unreachable654:                           ; preds = %MJEvalInnerValues.exit398, %MJEvalOuterValues.exit385, %MJEvalInnerValues.exit355, %MJEvalOuterValues.exit316, %MJEvalInnerValues.exit299, %MJEvalInnerValues.exit, %MJEvalOuterValues.exit
   unreachable
 
-.loopexit:                                        ; preds = %ExecProcNode.exit404, %745, %ExecProcNode.exit402, %730, %MJEvalInnerValues.exit400.thread, %710, %MJEvalOuterValues.exit387.thread, %647, %MJEvalInnerValues.exit356.thread, %MJEvalOuterValues.exit316.thread, %381, %MJEvalInnerValues.exit.thread, %MJEvalOuterValues.exit.thread, %100, %153, %218, %331, %597, %656, %718, %737, %.critedge264
-  %.2 = phi ptr [ %183, %.critedge264 ], [ null, %ExecProcNode.exit404 ], [ null, %745 ], [ null, %ExecProcNode.exit402 ], [ null, %730 ], [ null, %MJEvalInnerValues.exit400.thread ], [ null, %710 ], [ null, %MJEvalOuterValues.exit387.thread ], [ null, %647 ], [ null, %MJEvalInnerValues.exit356.thread ], [ null, %MJEvalOuterValues.exit316.thread ], [ null, %381 ], [ null, %MJEvalInnerValues.exit.thread ], [ null, %MJEvalOuterValues.exit.thread ], [ %738, %737 ], [ %719, %718 ], [ %657, %656 ], [ %598, %597 ], [ %332, %331 ], [ %219, %218 ], [ %154, %153 ], [ %101, %100 ]
+.loopexit:                                        ; preds = %ExecProcNode.exit402, %748, %ExecProcNode.exit400, %733, %MJEvalInnerValues.exit398.thread, %713, %MJEvalOuterValues.exit385.thread, %650, %MJEvalInnerValues.exit355.thread, %MJEvalOuterValues.exit316.thread, %382, %MJEvalInnerValues.exit.thread, %MJEvalOuterValues.exit.thread, %100, %153, %218, %332, %600, %659, %721, %740, %.critedge264
+  %.2 = phi ptr [ %183, %.critedge264 ], [ null, %ExecProcNode.exit402 ], [ null, %748 ], [ null, %ExecProcNode.exit400 ], [ null, %733 ], [ null, %MJEvalInnerValues.exit398.thread ], [ null, %713 ], [ null, %MJEvalOuterValues.exit385.thread ], [ null, %650 ], [ null, %MJEvalInnerValues.exit355.thread ], [ null, %MJEvalOuterValues.exit316.thread ], [ null, %382 ], [ null, %MJEvalInnerValues.exit.thread ], [ null, %MJEvalOuterValues.exit.thread ], [ %741, %740 ], [ %722, %721 ], [ %660, %659 ], [ %601, %600 ], [ %333, %332 ], [ %219, %218 ], [ %154, %153 ], [ %101, %100 ]
   ret ptr %.2
 }
 

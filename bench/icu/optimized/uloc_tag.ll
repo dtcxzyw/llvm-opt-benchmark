@@ -3113,16 +3113,16 @@ _Z23ultag_isRegionSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_116
 
 .outer.i:                                         ; preds = %293, %262
   %.0230 = phi i1 [ false, %262 ], [ %.1, %293 ]
-  %.058134.ph.i = phi ptr [ %263, %262 ], [ %295, %293 ]
-  %.093132.ph.i = phi ptr [ null, %262 ], [ %287, %293 ]
-  %264 = icmp eq ptr %.093132.ph.i, null
+  %.058132.ph.i = phi ptr [ %263, %262 ], [ %295, %293 ]
+  %.093130.ph.i = phi ptr [ null, %262 ], [ %287, %293 ]
+  %264 = icmp eq ptr %.093130.ph.i, null
   br label %265
 
 265:                                              ; preds = %.backedge.i, %.outer.i
   %.1 = phi i1 [ %.0230, %.outer.i ], [ %.4, %.backedge.i ]
-  %.058134.i = phi ptr [ %.058134.ph.i, %.outer.i ], [ %.058134.be.i, %.backedge.i ]
-  %.059133.i = phi ptr [ null, %.outer.i ], [ %.059133.be.i, %.backedge.i ]
-  %266 = load i8, ptr %.058134.i, align 1, !tbaa !15
+  %.058132.i = phi ptr [ %.058132.ph.i, %.outer.i ], [ %.058132.be.i, %.backedge.i ]
+  %.059131.i = phi ptr [ null, %.outer.i ], [ %.059131.be.i, %.backedge.i ]
+  %266 = load i8, ptr %.058132.i, align 1, !tbaa !15
   switch i8 %266, label %324 [
     i8 0, label %268
     i8 45, label %267
@@ -3130,28 +3130,28 @@ _Z23ultag_isRegionSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_116
   ]
 
 267:                                              ; preds = %265, %265
-  store i8 0, ptr %.058134.i, align 1, !tbaa !15
+  store i8 0, ptr %.058132.i, align 1, !tbaa !15
   br label %268
 
 268:                                              ; preds = %267, %265
   %.167.i = phi i1 [ true, %267 ], [ false, %265 ]
-  %269 = icmp eq ptr %.059133.i, null
+  %269 = icmp eq ptr %.059131.i, null
   br i1 %269, label %271, label %.preheader.i150
 
 .preheader.i150:                                  ; preds = %268
-  %270 = load i8, ptr %.059133.i, align 1, !tbaa !15
-  %.not72130.i = icmp eq i8 %270, 0
-  br i1 %.not72130.i, label %._crit_edge.i, label %.lr.ph.i
+  %270 = load i8, ptr %.059131.i, align 1, !tbaa !15
+  %.not72128.i = icmp eq i8 %270, 0
+  br i1 %.not72128.i, label %._crit_edge.i, label %.lr.ph.i
 
 271:                                              ; preds = %268
-  br i1 %2, label %272, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i
+  br i1 %2, label %272, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i
 
 272:                                              ; preds = %271
   store i32 1, ptr %3, align 4, !tbaa !13
   br label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
 
 ._crit_edge.i:                                    ; preds = %276, %.preheader.i150
-  %273 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116_isVariantSubtagEPKci(ptr noundef nonnull %.059133.i, i32 noundef -1)
+  %273 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116_isVariantSubtagEPKci(ptr noundef nonnull %.059131.i, i32 noundef -1)
           to label %282 unwind label %.loopexit.split-lp.i153
 
 .lr.ph.i:                                         ; preds = %.preheader.i150, %276
@@ -3161,10 +3161,10 @@ _Z23ultag_isRegionSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_116
           to label %276 unwind label %280
 
 276:                                              ; preds = %.lr.ph.i
-  %277 = getelementptr inbounds nuw i8, ptr %.059133.i, i64 %indvars.iv.i151
+  %277 = getelementptr inbounds nuw i8, ptr %.059131.i, i64 %indvars.iv.i151
   store i8 %275, ptr %277, align 1, !tbaa !15
   %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i151, 1
-  %278 = getelementptr inbounds nuw i8, ptr %.059133.i, i64 %indvars.iv.next.i152
+  %278 = getelementptr inbounds nuw i8, ptr %.059131.i, i64 %indvars.iv.next.i152
   %279 = load i8, ptr %278, align 1, !tbaa !15
   %.not72.i = icmp eq i8 %279, 0
   br i1 %.not72.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
@@ -3178,12 +3178,12 @@ _Z23ultag_isRegionSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_116
   br i1 %273, label %283, label %308
 
 283:                                              ; preds = %282
-  %284 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059133.i, ptr noundef nonnull dereferenceable(6) @_ZN12_GLOBAL__N_111POSIX_VALUEE) #20
+  %284 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059131.i, ptr noundef nonnull dereferenceable(6) @_ZN12_GLOBAL__N_111POSIX_VALUEE) #20
   %.not73.i = icmp eq i32 %284, 0
   %285 = load i32, ptr %260, align 8
   %.not74.i = icmp eq i32 %285, 5
-  %or.cond115.i = select i1 %.not73.i, i1 %.not74.i, i1 false
-  br i1 %or.cond115.i, label %307, label %286
+  %or.cond113.i = select i1 %.not73.i, i1 %.not74.i, i1 false
+  br i1 %or.cond113.i, label %307, label %286
 
 286:                                              ; preds = %283
   %287 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #17
@@ -3201,7 +3201,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode
   %291 = icmp slt i32 %289, 1
   br i1 %291, label %292, label %304
 
-.loopexit117.i:                                   ; preds = %315
+.loopexit115.i:                                   ; preds = %315
   %lpad.loopexit.i156 = landingpad { ptr, i32 }
           cleanup
   br label %353
@@ -3212,38 +3212,38 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode
   br label %353
 
 292:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode.exit.i
-  store ptr %.059133.i, ptr %287, align 8, !tbaa !41
+  store ptr %.059131.i, ptr %287, align 8, !tbaa !41
   br i1 %264, label %293, label %.preheader.i.i159
 
 293:                                              ; preds = %292
   %294 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store ptr null, ptr %294, align 8, !tbaa !44
-  %295 = getelementptr inbounds nuw i8, ptr %.058134.i, i64 1
+  %295 = getelementptr inbounds nuw i8, ptr %.058132.i, i64 1
   br i1 %.167.i, label %.outer.i, label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i, !llvm.loop !45
 
 .thread.i.i:                                      ; preds = %301
-  %296 = getelementptr inbounds nuw i8, ptr %.01118.i.i, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %.01117.i.i, i64 8
   %297 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store ptr null, ptr %297, align 8, !tbaa !44
   store ptr %287, ptr %296, align 8, !tbaa !44
   br i1 %.167.i, label %.backedge.i, label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
 
 .preheader.i.i159:                                ; preds = %292, %301
-  %.01118.i.i = phi ptr [ %303, %301 ], [ %.093132.ph.i, %292 ]
-  %298 = load ptr, ptr %.01118.i.i, align 8, !tbaa !41
-  %299 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059133.i, ptr noundef nonnull dereferenceable(1) %298) #20
+  %.01117.i.i = phi ptr [ %303, %301 ], [ %.093130.ph.i, %292 ]
+  %298 = load ptr, ptr %.01117.i.i, align 8, !tbaa !41
+  %299 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059131.i, ptr noundef nonnull dereferenceable(1) %298) #20
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %_ZN12_GLOBAL__N_117_addVariantToListEPPNS_16VariantListEntryEN6icu_7712LocalPointerIS0_EE.exit.i, label %301
 
 301:                                              ; preds = %.preheader.i.i159
-  %302 = getelementptr inbounds nuw i8, ptr %.01118.i.i, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %.01117.i.i, i64 8
   %303 = load ptr, ptr %302, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %303, null
   br i1 %.not.i.i, label %.thread.i.i, label %.preheader.i.i159, !llvm.loop !46
 
 _ZN12_GLOBAL__N_117_addVariantToListEPPNS_16VariantListEntryEN6icu_7712LocalPointerIS0_EE.exit.i: ; preds = %.preheader.i.i159
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %287) #17
-  br i1 %2, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i
+  br i1 %2, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i
 
 304:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode.exit.i
   %305 = icmp eq ptr %287, null
@@ -3268,11 +3268,11 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i: ; pre
   br label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
 
 310:                                              ; preds = %308
-  %311 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.059133.i) #20
+  %311 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.059131.i) #20
   %312 = trunc i64 %311 to i32
   %313 = add i32 %312, -1
   %or.cond.i.i.i = icmp ult i32 %313, 8
-  br i1 %or.cond.i.i.i, label %314, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i
+  br i1 %or.cond.i.i.i, label %314, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i
 
 314:                                              ; preds = %310
   %wide.trip.count.i.i.i.i = and i64 %311, 4294967295
@@ -3280,10 +3280,10 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i: ; pre
 
 315:                                              ; preds = %323, %314
   %indvars.iv.i.i.i.i = phi i64 [ 0, %314 ], [ %indvars.iv.next.i.i.i.i, %323 ]
-  %316 = getelementptr inbounds nuw i8, ptr %.059133.i, i64 %indvars.iv.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr %.059131.i, i64 %indvars.iv.i.i.i.i
   %317 = load i8, ptr %316, align 1, !tbaa !15
   %318 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %317)
-          to label %.noexc.i157 unwind label %.loopexit117.i
+          to label %.noexc.i157 unwind label %.loopexit115.i
 
 .noexc.i157:                                      ; preds = %315
   %.not.i.i.i.i = icmp eq i8 %318, 0
@@ -3293,7 +3293,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i: ; pre
   %320 = load i8, ptr %316, align 1, !tbaa !15
   %321 = add i8 %320, -48
   %322 = icmp ult i8 %321, 10
-  br i1 %322, label %323, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i
+  br i1 %322, label %323, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i
 
 323:                                              ; preds = %319, %.noexc.i157
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -3301,58 +3301,58 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i: ; pre
   br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i, label %315, !llvm.loop !20
 
 324:                                              ; preds = %265
-  %325 = icmp eq ptr %.059133.i, null
-  %spec.select82.i = select i1 %325, ptr %.058134.i, ptr %.059133.i
+  %325 = icmp eq ptr %.059131.i, null
+  %spec.select82.i = select i1 %325, ptr %.058132.i, ptr %.059131.i
   br label %.backedge.i
 
-_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i: ; preds = %319, %310, %_ZN12_GLOBAL__N_117_addVariantToListEPPNS_16VariantListEntryEN6icu_7712LocalPointerIS0_EE.exit.i, %271
+_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i: ; preds = %319, %310, %_ZN12_GLOBAL__N_117_addVariantToListEPPNS_16VariantListEntryEN6icu_7712LocalPointerIS0_EE.exit.i, %271
   br i1 %.167.i, label %.backedge.i, label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
 
-.backedge.i:                                      ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i, %324, %307, %.thread.i.i
-  %.4 = phi i1 [ %.1, %324 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i ], [ true, %307 ], [ %.1, %.thread.i.i ]
-  %.059133.be.i = phi ptr [ %spec.select82.i, %324 ], [ null, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i ], [ null, %307 ], [ null, %.thread.i.i ]
-  %.058134.be.i = getelementptr inbounds nuw i8, ptr %.058134.i, i64 1
+.backedge.i:                                      ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i, %324, %307, %.thread.i.i
+  %.4 = phi i1 [ %.1, %324 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ true, %307 ], [ %.1, %.thread.i.i ]
+  %.059131.be.i = phi ptr [ %spec.select82.i, %324 ], [ null, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ null, %307 ], [ null, %.thread.i.i ]
+  %.058132.be.i = getelementptr inbounds nuw i8, ptr %.058132.i, i64 1
   br label %265, !llvm.loop !45
 
-_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i: ; preds = %293, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i, %307, %.thread.i.i, %323, %309, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i, %306, %304, %.thread.i, %272
-  %.2 = phi i1 [ %.1, %272 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.1, %304 ], [ %.1, %306 ], [ %.1, %.thread.i ], [ %.1, %309 ], [ %.1, %323 ], [ %.1, %.thread.i.i ], [ true, %307 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i ], [ %.1, %293 ]
-  %.093129.i = phi ptr [ %.093132.ph.i, %272 ], [ %.093132.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.093132.ph.i, %304 ], [ %.093132.ph.i, %306 ], [ %.093132.ph.i, %.thread.i ], [ %.093132.ph.i, %309 ], [ %.093132.ph.i, %323 ], [ %.093132.ph.i, %.thread.i.i ], [ %.093132.ph.i, %307 ], [ %.093132.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread110.i ], [ %287, %293 ]
+_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i: ; preds = %293, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i, %307, %.thread.i.i, %323, %309, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i, %306, %304, %.thread.i, %272
+  %.2 = phi i1 [ %.1, %272 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.1, %304 ], [ %.1, %306 ], [ %.1, %.thread.i ], [ %.1, %309 ], [ %.1, %323 ], [ %.1, %.thread.i.i ], [ true, %307 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ %.1, %293 ]
+  %.093127.i = phi ptr [ %.093130.ph.i, %272 ], [ %.093130.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.093130.ph.i, %304 ], [ %.093130.ph.i, %306 ], [ %.093130.ph.i, %.thread.i ], [ %.093130.ph.i, %309 ], [ %.093130.ph.i, %323 ], [ %.093130.ph.i, %.thread.i.i ], [ %.093130.ph.i, %307 ], [ %.093130.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ %287, %293 ]
   %326 = load i32, ptr %3, align 4, !tbaa !13
   %327 = icmp slt i32 %326, 1
-  %328 = icmp ne ptr %.093129.i, null
+  %328 = icmp ne ptr %.093127.i, null
   %or.cond5.i = and i1 %328, %327
-  br i1 %or.cond5.i, label %.lr.ph21.i.preheader.i, label %.loopexit116.i
+  br i1 %or.cond5.i, label %.lr.ph21.i.preheader.i, label %.loopexit114.i
 
 .lr.ph21.i.preheader.i:                           ; preds = %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
-  %329 = getelementptr inbounds nuw i8, ptr %.093129.i, i64 8
-  %.01315.i136.i = load ptr, ptr %329, align 8, !tbaa !44
-  %.not1416.i137.i = icmp eq ptr %.01315.i136.i, null
-  br i1 %.not1416.i137.i, label %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.preheader, label %.lr.ph.i.preheader.i
+  %329 = getelementptr inbounds nuw i8, ptr %.093127.i, i64 8
+  %.01315.i134.i = load ptr, ptr %329, align 8, !tbaa !44
+  %.not1416.i135.i = icmp eq ptr %.01315.i134.i, null
+  br i1 %.not1416.i135.i, label %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.preheader, label %.lr.ph.i.preheader.i
 
 _ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.preheader: ; preds = %.lr.ph21.i.loopexit.i, %.lr.ph21.i.preheader.i
   br label %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i
 
 .lr.ph21.i.loopexit.i:                            ; preds = %336
-  %330 = getelementptr inbounds nuw i8, ptr %.01315.i139.i, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %.01315.i137.i, i64 8
   %.01315.i.i = load ptr, ptr %330, align 8, !tbaa !44
   %.not1416.i.i = icmp eq ptr %.01315.i.i, null
   br i1 %.not1416.i.i, label %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.preheader, label %.lr.ph.i.preheader.i, !llvm.loop !47
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph21.i.preheader.i, %.lr.ph21.i.loopexit.i
-  %.01315.i139.i = phi ptr [ %.01315.i.i, %.lr.ph21.i.loopexit.i ], [ %.01315.i136.i, %.lr.ph21.i.preheader.i ]
-  %.019.i138.i = phi ptr [ %.01315.i139.i, %.lr.ph21.i.loopexit.i ], [ %.093129.i, %.lr.ph21.i.preheader.i ]
+  %.01315.i137.i = phi ptr [ %.01315.i.i, %.lr.ph21.i.loopexit.i ], [ %.01315.i134.i, %.lr.ph21.i.preheader.i ]
+  %.019.i136.i = phi ptr [ %.01315.i137.i, %.lr.ph21.i.loopexit.i ], [ %.093127.i, %.lr.ph21.i.preheader.i ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %336, %.lr.ph.i.preheader.i
-  %.01317.i.i = phi ptr [ %.013.i.i, %336 ], [ %.01315.i139.i, %.lr.ph.i.preheader.i ]
-  %331 = load ptr, ptr %.019.i138.i, align 8, !tbaa !41
+  %.01317.i.i = phi ptr [ %.013.i.i, %336 ], [ %.01315.i137.i, %.lr.ph.i.preheader.i ]
+  %331 = load ptr, ptr %.019.i136.i, align 8, !tbaa !41
   %332 = load ptr, ptr %.01317.i.i, align 8, !tbaa !41
   %333 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %331, ptr noundef nonnull dereferenceable(1) %332) #20
   %334 = icmp sgt i32 %333, 0
   br i1 %334, label %335, label %336
 
 335:                                              ; preds = %.lr.ph.i.i
-  store ptr %332, ptr %.019.i138.i, align 8, !tbaa !41
+  store ptr %332, ptr %.019.i136.i, align 8, !tbaa !41
   store ptr %331, ptr %.01317.i.i, align 8, !tbaa !41
   br label %336
 
@@ -3363,7 +3363,7 @@ _ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.prehea
   br i1 %.not14.i.i, label %.lr.ph21.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !47
 
 _ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i: ; preds = %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.preheader, %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.i
-  %.057.in.sroa.speculated140.i = phi ptr [ %.057.in.sroa.speculate.load..i, %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.i ], [ %.093129.i, %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.preheader ]
+  %.057.in.sroa.speculated138.i = phi ptr [ %.057.in.sroa.speculate.load..i, %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.i ], [ %.093127.i, %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i.preheader ]
   %338 = load ptr, ptr %1, align 8, !tbaa !36
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %340 = load ptr, ptr %339, align 8
@@ -3371,7 +3371,7 @@ _ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i: ; pre
           to label %341 unwind label %349
 
 341:                                              ; preds = %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i
-  %342 = load ptr, ptr %.057.in.sroa.speculated140.i, align 8, !tbaa !41
+  %342 = load ptr, ptr %.057.in.sroa.speculated138.i, align 8, !tbaa !41
   %343 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %342) #20
   %344 = trunc i64 %343 to i32
   %345 = load ptr, ptr %1, align 8, !tbaa !36
@@ -3381,37 +3381,37 @@ _ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i: ; pre
           to label %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.i unwind label %349
 
 _ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.i: ; preds = %341
-  %348 = getelementptr inbounds nuw i8, ptr %.057.in.sroa.speculated140.i, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %.057.in.sroa.speculated138.i, i64 8
   %.057.in.sroa.speculate.load..i = load ptr, ptr %348, align 8, !tbaa !48
   %.not77.i = icmp eq ptr %.057.in.sroa.speculate.load..i, null
-  br i1 %.not77.i, label %.loopexit116.i, label %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i, !llvm.loop !49
+  br i1 %.not77.i, label %.loopexit114.i, label %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i, !llvm.loop !49
 
 349:                                              ; preds = %341, %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.preheader.i
   %350 = landingpad { ptr, i32 }
           cleanup
   br label %353
 
-.loopexit116.i:                                   ; preds = %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
-  %.not78141.i = icmp eq ptr %.093129.i, null
-  br i1 %.not78141.i, label %_ZN12_GLOBAL__N_128_appendVariantsToLanguageTagESt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkEbRbR10UErrorCode.exit, label %.lr.ph144.i
+.loopexit114.i:                                   ; preds = %_ZN12_GLOBAL__N_113_sortVariantsEPNS_16VariantListEntryE.exit.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
+  %.not78139.i = icmp eq ptr %.093127.i, null
+  br i1 %.not78139.i, label %_ZN12_GLOBAL__N_128_appendVariantsToLanguageTagESt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkEbRbR10UErrorCode.exit, label %.lr.ph142.i
 
-.lr.ph144.i:                                      ; preds = %.loopexit116.i, %.lr.ph144.i
-  %.056142.i = phi ptr [ %352, %.lr.ph144.i ], [ %.093129.i, %.loopexit116.i ]
-  %351 = getelementptr inbounds nuw i8, ptr %.056142.i, i64 8
+.lr.ph142.i:                                      ; preds = %.loopexit114.i, %.lr.ph142.i
+  %.056140.i = phi ptr [ %352, %.lr.ph142.i ], [ %.093127.i, %.loopexit114.i ]
+  %351 = getelementptr inbounds nuw i8, ptr %.056140.i, i64 8
   %352 = load ptr, ptr %351, align 8, !tbaa !44
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.056142.i) #17
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.056140.i) #17
   %.not78.i = icmp eq ptr %352, null
-  br i1 %.not78.i, label %_ZN12_GLOBAL__N_128_appendVariantsToLanguageTagESt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkEbRbR10UErrorCode.exit, label %.lr.ph144.i, !llvm.loop !50
+  br i1 %.not78.i, label %_ZN12_GLOBAL__N_128_appendVariantsToLanguageTagESt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkEbRbR10UErrorCode.exit, label %.lr.ph142.i, !llvm.loop !50
 
-353:                                              ; preds = %349, %.loopexit.split-lp.i153, %.loopexit117.i, %280
-  %.pn80.i = phi { ptr, i32 } [ %350, %349 ], [ %281, %280 ], [ %lpad.loopexit.i156, %.loopexit117.i ], [ %lpad.loopexit.split-lp.i154, %.loopexit.split-lp.i153 ]
+353:                                              ; preds = %349, %.loopexit.split-lp.i153, %.loopexit115.i, %280
+  %.pn80.i = phi { ptr, i32 } [ %350, %349 ], [ %281, %280 ], [ %lpad.loopexit.i156, %.loopexit115.i ], [ %lpad.loopexit.split-lp.i154, %.loopexit.split-lp.i153 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %21) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.body180
 
-_ZN12_GLOBAL__N_128_appendVariantsToLanguageTagESt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkEbRbR10UErrorCode.exit: ; preds = %.lr.ph144.i, %257, %258, %259, %.loopexit116.i
-  %.3 = phi i1 [ false, %258 ], [ false, %257 ], [ false, %259 ], [ %.2, %.loopexit116.i ], [ %.2, %.lr.ph144.i ]
+_ZN12_GLOBAL__N_128_appendVariantsToLanguageTagESt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkEbRbR10UErrorCode.exit: ; preds = %.lr.ph142.i, %257, %258, %259, %.loopexit114.i
+  %.3 = phi i1 [ false, %258 ], [ false, %257 ], [ false, %259 ], [ %.2, %.loopexit114.i ], [ %.2, %.lr.ph142.i ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %21) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -5072,9 +5072,9 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   store ptr @_ZN12_GLOBAL__N_15EMPTYE, ptr %57, align 8, !tbaa !115
   store ptr %37, ptr %46, align 8, !tbaa !116
   %58 = icmp slt i32 %.0210.i, 2
-  br i1 %58, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_118ExtensionListEntryEED2Ev.exit.i, label %.preheader573.i
+  br i1 %58, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_118ExtensionListEntryEED2Ev.exit.i, label %.preheader572.i
 
-.preheader573.i:                                  ; preds = %50, %109
+.preheader572.i:                                  ; preds = %50, %109
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %109 ], [ 0, %50 ]
   %59 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_16LEGACYE, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 16, !tbaa !91
@@ -5083,7 +5083,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   %63 = icmp slt i32 %.0210.i, %62
   br i1 %63, label %109, label %64
 
-64:                                               ; preds = %.preheader573.i
+64:                                               ; preds = %.preheader572.i
   %65 = icmp sgt i32 %.0210.i, %62
   br i1 %65, label %66, label %70
 
@@ -5112,9 +5112,9 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   %80 = sub i32 %.0210.i, %62
   %81 = add i32 %80, %79
   %82 = icmp slt i32 %.0210.i, %81
-  br i1 %82, label %83, label %._crit_edge859.i
+  br i1 %82, label %83, label %._crit_edge858.i
 
-._crit_edge859.i:                                 ; preds = %74
+._crit_edge858.i:                                 ; preds = %74
   %.pre.i = load ptr, ptr %46, align 8, !tbaa !116
   br label %94
 
@@ -5131,7 +5131,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
 88:                                               ; preds = %84
   store ptr %87, ptr %46, align 8, !tbaa !116
   %89 = icmp eq ptr %87, null
-  br i1 %89, label %.thread520.i, label %94
+  br i1 %89, label %.thread519.i, label %94
 
 90:                                               ; preds = %70
   %91 = landingpad { ptr, i32 }
@@ -5143,10 +5143,10 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
           cleanup
   br label %393
 
-94:                                               ; preds = %88, %._crit_edge859.i
-  %95 = phi ptr [ %.pre.i, %._crit_edge859.i ], [ %87, %88 ]
-  %.3219.i = phi ptr [ %37, %._crit_edge859.i ], [ %87, %88 ]
-  %.4214.i = phi i32 [ %.0210.i, %._crit_edge859.i ], [ %81, %88 ]
+94:                                               ; preds = %88, %._crit_edge858.i
+  %95 = phi ptr [ %.pre.i, %._crit_edge858.i ], [ %87, %88 ]
+  %.3219.i = phi ptr [ %37, %._crit_edge858.i ], [ %87, %88 ]
+  %.4214.i = phi i32 [ %.0210.i, %._crit_edge858.i ], [ %81, %88 ]
   %96 = sub i64 %61, %78
   %sext321.i = shl i64 %96, 32
   %97 = ashr exact i64 %sext321.i, 32
@@ -5170,41 +5170,41 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   store i8 0, ptr %108, align 1, !tbaa !15
   br label %.thread455.i
 
-.thread520.i:                                     ; preds = %88
+.thread519.i:                                     ; preds = %88
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %378
 
-109:                                              ; preds = %72, %66, %.preheader573.i
+109:                                              ; preds = %72, %66, %.preheader572.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %110 = icmp samesign ult i64 %indvars.iv.i, 48
-  br i1 %110, label %.preheader573.i, label %.preheader571.preheader.i, !llvm.loop !117
+  br i1 %110, label %.preheader572.i, label %.preheader570.preheader.i, !llvm.loop !117
 
 .thread455.i:                                     ; preds = %99, %94
   %.2212.i = phi i32 [ %.4214.i, %99 ], [ %62, %94 ]
   %111 = icmp eq i32 %62, 0
-  br i1 %111, label %.preheader571.preheader.i, label %.loopexit572.i
+  br i1 %111, label %.preheader570.preheader.i, label %.loopexit571.i
 
-.preheader571.preheader.i:                        ; preds = %109, %.thread455.i
-  %.2212887.i = phi i32 [ %.2212.i, %.thread455.i ], [ %.0210.i, %109 ]
-  %.1217885.i = phi ptr [ %.3219.i, %.thread455.i ], [ %37, %109 ]
-  %.1259884.i = phi i64 [ %97, %.thread455.i ], [ 0, %109 ]
-  br label %.preheader571.i
+.preheader570.preheader.i:                        ; preds = %109, %.thread455.i
+  %.2212886.i = phi i32 [ %.2212.i, %.thread455.i ], [ %.0210.i, %109 ]
+  %.1217884.i = phi ptr [ %.3219.i, %.thread455.i ], [ %37, %109 ]
+  %.1259883.i = phi i64 [ %97, %.thread455.i ], [ 0, %109 ]
+  br label %.preheader570.i
 
-.preheader571.i:                                  ; preds = %141, %.preheader571.preheader.i
-  %indvars.iv856.i = phi i64 [ 0, %.preheader571.preheader.i ], [ %indvars.iv.next857.i, %141 ]
-  %112 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv856.i
+.preheader570.i:                                  ; preds = %141, %.preheader570.preheader.i
+  %indvars.iv855.i = phi i64 [ 0, %.preheader570.preheader.i ], [ %indvars.iv.next856.i, %141 ]
+  %112 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv855.i
   %113 = load ptr, ptr %112, align 16, !tbaa !91
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #20
   %115 = trunc i64 %114 to i32
-  %116 = invoke i32 @uprv_strnicmp_77(ptr noundef nonnull %113, ptr noundef %.1217885.i, i32 noundef %115)
+  %116 = invoke i32 @uprv_strnicmp_77(ptr noundef nonnull %113, ptr noundef %.1217884.i, i32 noundef %115)
           to label %117 unwind label %136
 
-117:                                              ; preds = %.preheader571.i
+117:                                              ; preds = %.preheader570.i
   %118 = icmp eq i32 %116, 0
   br i1 %118, label %119, label %141
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %.1217885.i, i64 %114
+  %120 = getelementptr inbounds nuw i8, ptr %.1217884.i, i64 %114
   %121 = load i8, ptr %120, align 1, !tbaa !15
   switch i8 %121, label %141 [
     i8 0, label %122
@@ -5212,8 +5212,8 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   ]
 
 122:                                              ; preds = %119, %119
-  %123 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv856.i
-  %124 = getelementptr inbounds nuw i8, ptr %.1217885.i, i64 %114
+  %123 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_19REDUNDANTE, i64 %indvars.iv855.i
+  %124 = getelementptr inbounds nuw i8, ptr %.1217884.i, i64 %114
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !91
   %127 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %126) #20
@@ -5221,17 +5221,17 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull align 1 %126, i64 %127, i1 false)
   %129 = load i8, ptr %124, align 1, !tbaa !15
   %130 = icmp eq i8 %129, 45
-  %131 = getelementptr inbounds nuw i8, ptr %.1217885.i, i64 %127
+  %131 = getelementptr inbounds nuw i8, ptr %.1217884.i, i64 %127
   br i1 %130, label %132, label %138
 
 132:                                              ; preds = %122
-  %133 = zext nneg i32 %.2212887.i to i64
+  %133 = zext nneg i32 %.2212886.i to i64
   %134 = add nuw nsw i64 %133, 1
   %135 = sub i64 %134, %114
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %131, ptr nonnull align 1 %124, i64 %135, i1 false)
   br label %139
 
-136:                                              ; preds = %.preheader571.i
+136:                                              ; preds = %.preheader570.i
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %393
@@ -5242,31 +5242,31 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
 
 139:                                              ; preds = %138, %132
   %140 = sub i64 %114, %127
-  br label %.loopexit572.i
+  br label %.loopexit571.i
 
 141:                                              ; preds = %119, %117
-  %indvars.iv.next857.i = add nuw nsw i64 %indvars.iv856.i, 2
-  %142 = icmp samesign ult i64 %indvars.iv856.i, 50
-  br i1 %142, label %.preheader571.i, label %.loopexit572.i, !llvm.loop !118
+  %indvars.iv.next856.i = add nuw nsw i64 %indvars.iv855.i, 2
+  %142 = icmp samesign ult i64 %indvars.iv855.i, 50
+  br i1 %142, label %.preheader570.i, label %.loopexit571.i, !llvm.loop !118
 
-.loopexit572.i:                                   ; preds = %141, %139, %.thread455.i
-  %.1217886.i = phi ptr [ %.1217885.i, %139 ], [ %.3219.i, %.thread455.i ], [ %.1217885.i, %141 ]
-  %.4262.i = phi i64 [ %140, %139 ], [ %97, %.thread455.i ], [ %.1259884.i, %141 ]
+.loopexit571.i:                                   ; preds = %141, %139, %.thread455.i
+  %.1217885.i = phi ptr [ %.1217884.i, %139 ], [ %.3219.i, %.thread455.i ], [ %.1217884.i, %141 ]
+  %.4262.i = phi i64 [ %140, %139 ], [ %97, %.thread455.i ], [ %.1259883.i, %141 ]
   %143 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  br label %.preheader567.i
+  br label %.preheader566.i
 
-.preheader567.i:                                  ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, %.loopexit572.i
-  %.0224719.i = phi i16 [ 129, %.loopexit572.i ], [ %.2226.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
-  %.0231718.i = phi ptr [ %.1217886.i, %.loopexit572.i ], [ %.2233.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
-  %.0238717.i = phi ptr [ %.1217886.i, %.loopexit572.i ], [ %.2240.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
-  %.0247716.i = phi i32 [ 0, %.loopexit572.i ], [ %.1248.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
-  %.0249715.i = phi ptr [ null, %.loopexit572.i ], [ %.2251.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
-  %.0253714.i = phi ptr [ null, %.loopexit572.i ], [ %.2255.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
-  %.0293713.i = phi i1 [ false, %.loopexit572.i ], [ %.1294.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
+.preheader566.i:                                  ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, %.loopexit571.i
+  %.0224718.i = phi i16 [ 129, %.loopexit571.i ], [ %.2226.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
+  %.0231717.i = phi ptr [ %.1217885.i, %.loopexit571.i ], [ %.2233.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
+  %.0238716.i = phi ptr [ %.1217885.i, %.loopexit571.i ], [ %.2240.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
+  %.0247715.i = phi i32 [ 0, %.loopexit571.i ], [ %.1248.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
+  %.0249714.i = phi ptr [ null, %.loopexit571.i ], [ %.2251.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
+  %.0253713.i = phi ptr [ null, %.loopexit571.i ], [ %.2255.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
+  %.0293712.i = phi i1 [ false, %.loopexit571.i ], [ %.1294.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ]
   br label %144
 
-144:                                              ; preds = %146, %.preheader567.i
-  %.0222.i = phi ptr [ %147, %146 ], [ %.0231718.i, %.preheader567.i ]
+144:                                              ; preds = %146, %.preheader566.i
+  %.0222.i = phi ptr [ %147, %146 ], [ %.0231717.i, %.preheader566.i ]
   %145 = load i8, ptr %.0222.i, align 1, !tbaa !15
   switch i8 %145, label %146 [
     i8 0, label %148
@@ -5282,10 +5282,10 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   %150 = getelementptr inbounds nuw i8, ptr %.0222.i, i64 1
   %.1232.i = select i1 %149, ptr null, ptr %150
   %151 = ptrtoint ptr %.0222.i to i64
-  %152 = ptrtoint ptr %.0231718.i to i64
+  %152 = ptrtoint ptr %.0231717.i to i64
   %153 = sub i64 %151, %152
   %154 = trunc i64 %153 to i32
-  %155 = and i16 %.0224719.i, 1
+  %155 = and i16 %.0224718.i, 1
   %.not327.i = icmp eq i16 %155, 0
   br i1 %.not327.i, label %_Z25ultag_isLanguageSubtag_77PKci.exit.i, label %156
 
@@ -5294,7 +5294,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   br i1 %157, label %158, label %161
 
 158:                                              ; preds = %156
-  %159 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231718.i) #20
+  %159 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231717.i) #20
   %160 = trunc i64 %159 to i32
   br label %161
 
@@ -5310,10 +5310,10 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
 
 164:                                              ; preds = %.noexc.i, %163
   %indvars.iv.i.i.i = phi i64 [ 0, %163 ], [ %indvars.iv.next.i.i.i, %.noexc.i ]
-  %165 = getelementptr inbounds nuw i8, ptr %.0231718.i, i64 %indvars.iv.i.i.i
+  %165 = getelementptr inbounds nuw i8, ptr %.0231717.i, i64 %indvars.iv.i.i.i
   %166 = load i8, ptr %165, align 1, !tbaa !15
   %167 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %166)
-          to label %.noexc.i unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
+          to label %.noexc.i unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc.i:                                         ; preds = %164
   %.not.not.i.i.i = icmp ne i8 %167, 0
@@ -5327,8 +5327,8 @@ _ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i.i:  ; preds = %.noexc.i
 
 168:                                              ; preds = %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i.i
   store i8 0, ptr %.0222.i, align 1, !tbaa !15
-  %169 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0231718.i)
-          to label %170 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %169 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0231717.i)
+          to label %170 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 170:                                              ; preds = %168
   store ptr %169, ptr %51, align 8, !tbaa !110
@@ -5336,38 +5336,38 @@ _ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i.i:  ; preds = %.noexc.i
   %spec.select.i = select i1 %171, i16 190, i16 188
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, !llvm.loop !120
 
-.loopexit545.i:                                   ; preds = %296
-  %lpad.loopexit547.i = landingpad { ptr, i32 }
+.loopexit544.i:                                   ; preds = %296
+  %lpad.loopexit546.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
-.loopexit.split-lp546.loopexit.i:                 ; preds = %.preheader.i415.i
-  %lpad.loopexit550.i = landingpad { ptr, i32 }
+.loopexit.split-lp545.loopexit.i:                 ; preds = %.preheader.i415.i
+  %lpad.loopexit549.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
-.loopexit.split-lp546.loopexit.split-lp.loopexit.i: ; preds = %.preheader.i406.i
-  %lpad.loopexit558.i = landingpad { ptr, i32 }
+.loopexit.split-lp545.loopexit.split-lp.loopexit.i: ; preds = %.preheader.i406.i
+  %lpad.loopexit557.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
-.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %.preheader.i.i
-  %lpad.loopexit561.i = landingpad { ptr, i32 }
+.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %.preheader.i.i
+  %lpad.loopexit560.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
-.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %164
-  %lpad.loopexit564.i = landingpad { ptr, i32 }
+.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %164
+  %lpad.loopexit563.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
-.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %307, %283, %273, %267, %262, %232, %228, %224, %183, %168
-  %lpad.loopexit.split-lp565.i = landingpad { ptr, i32 }
+.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %307, %283, %273, %267, %262, %232, %228, %224, %183, %168
+  %lpad.loopexit.split-lp564.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
 _Z25ultag_isLanguageSubtag_77PKci.exit.i:         ; preds = %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i.i, %161, %148
-  %172 = and i16 %.0224719.i, 2
+  %172 = and i16 %.0224718.i, 2
   %.not328.i = icmp eq i16 %172, 0
   br i1 %.not328.i, label %_ZN12_GLOBAL__N_116_isExtlangSubtagEPKci.exit.i, label %173
 
@@ -5376,7 +5376,7 @@ _Z25ultag_isLanguageSubtag_77PKci.exit.i:         ; preds = %_ZN12_GLOBAL__N_114
   br i1 %174, label %175, label %178
 
 175:                                              ; preds = %173
-  %176 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231718.i) #20
+  %176 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231717.i) #20
   %177 = trunc i64 %176 to i32
   br label %178
 
@@ -5387,10 +5387,10 @@ _Z25ultag_isLanguageSubtag_77PKci.exit.i:         ; preds = %_ZN12_GLOBAL__N_114
 
 .preheader.i.i:                                   ; preds = %178, %.noexc403.i
   %indvars.iv.i.i397.i = phi i64 [ %indvars.iv.next.i.i399.i, %.noexc403.i ], [ 0, %178 ]
-  %180 = getelementptr inbounds nuw i8, ptr %.0231718.i, i64 %indvars.iv.i.i397.i
+  %180 = getelementptr inbounds nuw i8, ptr %.0231717.i, i64 %indvars.iv.i.i397.i
   %181 = load i8, ptr %180, align 1, !tbaa !15
   %182 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %181)
-          to label %.noexc403.i unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.i
+          to label %.noexc403.i unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc403.i:                                      ; preds = %.preheader.i.i
   %.not.not.i.i398.i = icmp ne i8 %182, 0
@@ -5404,20 +5404,20 @@ _ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i402.i: ; preds = %.noexc403.i
 
 183:                                              ; preds = %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i402.i
   store i8 0, ptr %.0222.i, align 1, !tbaa !15
-  %184 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0231718.i)
-          to label %185 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %184 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0231717.i)
+          to label %185 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 185:                                              ; preds = %183
-  %186 = add nsw i32 %.0247716.i, 1
-  %187 = sext i32 %.0247716.i to i64
+  %186 = add nsw i32 %.0247715.i, 1
+  %187 = sext i32 %.0247715.i to i64
   %188 = getelementptr inbounds ptr, ptr %52, i64 %187
   store ptr %184, ptr %188, align 8, !tbaa !91
-  %189 = icmp slt i32 %.0247716.i, 2
+  %189 = icmp slt i32 %.0247715.i, 2
   %..i = select i1 %189, i16 190, i16 188
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, !llvm.loop !120
 
 _ZN12_GLOBAL__N_116_isExtlangSubtagEPKci.exit.i:  ; preds = %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i402.i, %178, %_Z25ultag_isLanguageSubtag_77PKci.exit.i
-  %190 = and i16 %.0224719.i, 4
+  %190 = and i16 %.0224718.i, 4
   %.not329.i = icmp eq i16 %190, 0
   br i1 %.not329.i, label %_Z23ultag_isScriptSubtag_77PKci.exit.i, label %191
 
@@ -5426,7 +5426,7 @@ _ZN12_GLOBAL__N_116_isExtlangSubtagEPKci.exit.i:  ; preds = %_ZN12_GLOBAL__N_114
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %191
-  %194 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231718.i) #20
+  %194 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231717.i) #20
   %195 = trunc i64 %194 to i32
   br label %196
 
@@ -5437,10 +5437,10 @@ _ZN12_GLOBAL__N_116_isExtlangSubtagEPKci.exit.i:  ; preds = %_ZN12_GLOBAL__N_114
 
 .preheader.i406.i:                                ; preds = %196, %.noexc413.i
   %indvars.iv.i.i407.i = phi i64 [ %indvars.iv.next.i.i409.i, %.noexc413.i ], [ 0, %196 ]
-  %198 = getelementptr inbounds nuw i8, ptr %.0231718.i, i64 %indvars.iv.i.i407.i
+  %198 = getelementptr inbounds nuw i8, ptr %.0231717.i, i64 %indvars.iv.i.i407.i
   %199 = load i8, ptr %198, align 1, !tbaa !15
   %200 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %199)
-          to label %.noexc413.i unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.i
+          to label %.noexc413.i unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.i
 
 .noexc413.i:                                      ; preds = %.preheader.i406.i
   %.not.not.i.i408.i = icmp ne i8 %200, 0
@@ -5454,46 +5454,46 @@ _ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i412.i: ; preds = %.noexc413.i
 
 201:                                              ; preds = %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i412.i
   store i8 0, ptr %.0222.i, align 1, !tbaa !15
-  %202 = load i8, ptr %.0231718.i, align 1, !tbaa !15
+  %202 = load i8, ptr %.0231717.i, align 1, !tbaa !15
   %203 = invoke signext i8 @uprv_toupper_77(i8 noundef signext %202)
-          to label %204 unwind label %.loopexit.split-lp554.i
+          to label %204 unwind label %.loopexit.split-lp553.i
 
 204:                                              ; preds = %201
-  store i8 %203, ptr %.0231718.i, align 1, !tbaa !15
-  %.0221708.i = getelementptr inbounds nuw i8, ptr %.0231718.i, i64 1
-  %205 = load i8, ptr %.0221708.i, align 1, !tbaa !15
-  %.not344709.i = icmp eq i8 %205, 0
-  br i1 %.not344709.i, label %._crit_edge.i, label %.lr.ph.i
+  store i8 %203, ptr %.0231717.i, align 1, !tbaa !15
+  %.0221707.i = getelementptr inbounds nuw i8, ptr %.0231717.i, i64 1
+  %205 = load i8, ptr %.0221707.i, align 1, !tbaa !15
+  %.not344708.i = icmp eq i8 %205, 0
+  br i1 %.not344708.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %204, %208
   %206 = phi i8 [ %209, %208 ], [ %205, %204 ]
-  %.0221710.i = phi ptr [ %.0221.i, %208 ], [ %.0221708.i, %204 ]
+  %.0221709.i = phi ptr [ %.0221.i, %208 ], [ %.0221707.i, %204 ]
   %207 = invoke signext i8 @uprv_asciitolower_77(i8 noundef signext %206)
-          to label %208 unwind label %.loopexit553.i
+          to label %208 unwind label %.loopexit552.i
 
 208:                                              ; preds = %.lr.ph.i
-  store i8 %207, ptr %.0221710.i, align 1, !tbaa !15
-  %.0221.i = getelementptr inbounds nuw i8, ptr %.0221710.i, i64 1
+  store i8 %207, ptr %.0221709.i, align 1, !tbaa !15
+  %.0221.i = getelementptr inbounds nuw i8, ptr %.0221709.i, i64 1
   %209 = load i8, ptr %.0221.i, align 1, !tbaa !15
   %.not344.i = icmp eq i8 %209, 0
   br i1 %.not344.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !121
 
-.loopexit553.i:                                   ; preds = %.lr.ph.i
-  %lpad.loopexit555.i = landingpad { ptr, i32 }
+.loopexit552.i:                                   ; preds = %.lr.ph.i
+  %lpad.loopexit554.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
-.loopexit.split-lp554.i:                          ; preds = %201
-  %lpad.loopexit.split-lp556.i = landingpad { ptr, i32 }
+.loopexit.split-lp553.i:                          ; preds = %201
+  %lpad.loopexit.split-lp555.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
 ._crit_edge.i:                                    ; preds = %208, %204
-  store ptr %.0231718.i, ptr %53, align 8, !tbaa !112
+  store ptr %.0231717.i, ptr %53, align 8, !tbaa !112
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i
 
 _Z23ultag_isScriptSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i412.i, %196, %_ZN12_GLOBAL__N_116_isExtlangSubtagEPKci.exit.i
-  %210 = and i16 %.0224719.i, 8
+  %210 = and i16 %.0224718.i, 8
   %.not330.i = icmp eq i16 %210, 0
   br i1 %.not330.i, label %_Z23ultag_isRegionSubtag_77PKci.exit.i, label %211
 
@@ -5502,7 +5502,7 @@ _Z23ultag_isScriptSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_114
   br i1 %212, label %213, label %216
 
 213:                                              ; preds = %211
-  %214 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231718.i) #20
+  %214 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231717.i) #20
   %215 = trunc i64 %214 to i32
   br label %216
 
@@ -5516,10 +5516,10 @@ _Z23ultag_isScriptSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_114
 .preheader.i415.i:                                ; preds = %216, %.noexc422.i
   %exitcond.not.i.i419.i = phi i1 [ false, %.noexc422.i ], [ true, %216 ]
   %indvars.iv.i.i416.i = phi i64 [ 1, %.noexc422.i ], [ 0, %216 ]
-  %217 = getelementptr inbounds nuw i8, ptr %.0231718.i, i64 %indvars.iv.i.i416.i
+  %217 = getelementptr inbounds nuw i8, ptr %.0231717.i, i64 %indvars.iv.i.i416.i
   %218 = load i8, ptr %217, align 1, !tbaa !15
   %219 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %218)
-          to label %.noexc422.i unwind label %.loopexit.split-lp546.loopexit.i
+          to label %.noexc422.i unwind label %.loopexit.split-lp545.loopexit.i
 
 .noexc422.i:                                      ; preds = %.preheader.i415.i
   %.not.not.i.i417.i = icmp ne i8 %219, 0
@@ -5531,7 +5531,7 @@ _ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i421.i: ; preds = %.noexc422.i
 
 .preheader13.i.i:                                 ; preds = %216, %.preheader13.i.i
   %indvars.iv.i10.i.i = phi i64 [ %indvars.iv.next.i11.i.i, %.preheader13.i.i ], [ 0, %216 ]
-  %220 = getelementptr inbounds nuw i8, ptr %.0231718.i, i64 %indvars.iv.i10.i.i
+  %220 = getelementptr inbounds nuw i8, ptr %.0231717.i, i64 %indvars.iv.i10.i.i
   %221 = load i8, ptr %220, align 1, !tbaa !15
   %222 = add i8 %221, -48
   %223 = icmp ult i8 %222, 10
@@ -5545,31 +5545,31 @@ _ZN12_GLOBAL__N_116_isNumericStringEPKci.exit.i.i: ; preds = %.preheader13.i.i
 
 224:                                              ; preds = %_ZN12_GLOBAL__N_116_isNumericStringEPKci.exit.i.i, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i421.i
   store i8 0, ptr %.0222.i, align 1, !tbaa !15
-  %225 = invoke ptr @T_CString_toUpperCase_77(ptr noundef nonnull %.0231718.i)
-          to label %226 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %225 = invoke ptr @T_CString_toUpperCase_77(ptr noundef nonnull %.0231717.i)
+          to label %226 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 226:                                              ; preds = %224
   store ptr %225, ptr %54, align 8, !tbaa !113
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, !llvm.loop !120
 
 _Z23ultag_isRegionSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_116_isNumericStringEPKci.exit.i.i, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i421.i, %216, %_Z23ultag_isScriptSubtag_77PKci.exit.i
-  %227 = and i16 %.0224719.i, 16
+  %227 = and i16 %.0224718.i, 16
   %.not331.i = icmp eq i16 %227, 0
   br i1 %.not331.i, label %253, label %228
 
 228:                                              ; preds = %_Z23ultag_isRegionSubtag_77PKci.exit.i
-  %229 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116_isVariantSubtagEPKci(ptr noundef %.0231718.i, i32 noundef %154)
-          to label %230 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %229 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116_isVariantSubtagEPKci(ptr noundef %.0231717.i, i32 noundef %154)
+          to label %230 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 230:                                              ; preds = %228
   br i1 %229, label %235, label %231
 
 231:                                              ; preds = %230
-  br i1 %.0293713.i, label %232, label %253
+  br i1 %.0293712.i, label %232, label %253
 
 232:                                              ; preds = %231
-  %233 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126_isPrivateuseVariantSubtagEPKci(ptr noundef %.0231718.i, i32 noundef %154)
-          to label %234 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %233 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126_isPrivateuseVariantSubtagEPKci(ptr noundef %.0231717.i, i32 noundef %154)
+          to label %234 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 234:                                              ; preds = %232
   br i1 %233, label %235, label %253
@@ -5584,7 +5584,7 @@ _Z23ultag_isRegionSubtag_77PKci.exit.i:           ; preds = %_ZN12_GLOBAL__N_116
 
 .thread.i:                                        ; preds = %235
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread505.i
+  br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread504.i
 
 _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode.exit.i: ; preds = %235
   %240 = icmp slt i32 %238, 1
@@ -5592,7 +5592,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode
 
 241:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode.exit.i
   store i8 0, ptr %.0222.i, align 1, !tbaa !15
-  %242 = invoke ptr @T_CString_toUpperCase_77(ptr noundef %.0231718.i)
+  %242 = invoke ptr @T_CString_toUpperCase_77(ptr noundef %.0231717.i)
           to label %243 unwind label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i
 
 243:                                              ; preds = %241
@@ -5601,22 +5601,22 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode
   %244 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117_addVariantToListEPPNS_16VariantListEntryEN6icu_7712LocalPointerIS0_EE(ptr noundef nonnull %55, ptr noundef %21)
   %.val359.i = load ptr, ptr %21, align 8, !tbaa !122
   %245 = icmp eq ptr %.val359.i, null
-  br i1 %245, label %.thread477.i, label %246
+  br i1 %245, label %.thread476.i, label %246
 
 246:                                              ; preds = %243
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.val359.i) #17
-  br label %.thread477.i
+  br label %.thread476.i
 
-.thread477.i:                                     ; preds = %246, %243
+.thread476.i:                                     ; preds = %246, %243
   br i1 %244, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i
 
 247:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEEC2EPS2_R10UErrorCode.exit.i
   %248 = icmp eq ptr %236, null
-  br i1 %248, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread505.i, label %249
+  br i1 %248, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread504.i, label %249
 
 249:                                              ; preds = %247
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %236) #17
-  br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread505.i
+  br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread504.i
 
 _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; preds = %241
   %250 = landingpad { ptr, i32 }
@@ -5629,7 +5629,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; pr
   br label %393
 
 253:                                              ; preds = %234, %231, %_Z23ultag_isRegionSubtag_77PKci.exit.i
-  %254 = and i16 %.0224719.i, 32
+  %254 = and i16 %.0224718.i, 32
   %.not332.i = icmp eq i16 %254, 0
   br i1 %.not332.i, label %_ZN12_GLOBAL__N_121_isExtensionSingletonEPKci.exit.i, label %255
 
@@ -5638,7 +5638,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; pr
   br i1 %256, label %257, label %260
 
 257:                                              ; preds = %255
-  %258 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231718.i) #20
+  %258 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231717.i) #20
   %259 = trunc i64 %258 to i32
   br label %260
 
@@ -5648,13 +5648,13 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; pr
   br i1 %261, label %262, label %_ZN12_GLOBAL__N_121_isExtensionSingletonEPKci.exit.i
 
 262:                                              ; preds = %260
-  %263 = load i8, ptr %.0231718.i, align 1, !tbaa !15
+  %263 = load i8, ptr %.0231717.i, align 1, !tbaa !15
   %264 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %263)
-          to label %.noexc429.i unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+          to label %.noexc429.i unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc429.i:                                      ; preds = %262
   %.not.i.i = icmp ne i8 %264, 0
-  %.pre.i.i = load i8, ptr %.0231718.i, align 1, !tbaa !15
+  %.pre.i.i = load i8, ptr %.0231717.i, align 1, !tbaa !15
   %265 = add i8 %.pre.i.i, -48
   %266 = icmp ult i8 %265, 10
   %or.cond.i428.i = select i1 %.not.i.i, i1 true, i1 %266
@@ -5662,7 +5662,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; pr
 
 267:                                              ; preds = %.noexc429.i
   %268 = invoke signext i8 @uprv_asciitolower_77(i8 noundef signext %.pre.i.i)
-          to label %.noexc430.i unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+          to label %.noexc430.i unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc430.i:                                      ; preds = %267
   %.not8.i.i = icmp eq i8 %268, 120
@@ -5670,19 +5670,19 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; pr
 
 269:                                              ; preds = %.noexc430.i
   %.val381.i = load ptr, ptr %20, align 8, !tbaa !108
-  %.not538.i = icmp eq ptr %.val381.i, null
-  br i1 %.not538.i, label %279, label %270
+  %.not537.i = icmp eq ptr %.val381.i, null
+  br i1 %.not537.i, label %279, label %270
 
 270:                                              ; preds = %269
-  %271 = icmp eq ptr %.0249715.i, null
-  %272 = icmp eq ptr %.0253714.i, null
+  %271 = icmp eq ptr %.0249714.i, null
+  %272 = icmp eq ptr %.0253713.i, null
   %or.cond.i = select i1 %271, i1 true, i1 %272
   br i1 %or.cond.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.sink.split.i, label %273
 
 273:                                              ; preds = %270
-  store i8 0, ptr %.0253714.i, align 1, !tbaa !15
-  %274 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0249715.i)
-          to label %275 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  store i8 0, ptr %.0253713.i, align 1, !tbaa !15
+  %274 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0249714.i)
+          to label %275 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 275:                                              ; preds = %273
   %.val384.i = load ptr, ptr %20, align 8, !tbaa !108
@@ -5696,17 +5696,17 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; pr
   br label %279
 
 279:                                              ; preds = %278, %269
-  %.4242.i = phi ptr [ %.0253714.i, %278 ], [ %.0238717.i, %269 ]
+  %.4242.i = phi ptr [ %.0253713.i, %278 ], [ %.0238716.i, %269 ]
   %280 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #17
   call fastcc void @_ZN6icu_7712LocalPointerIN12_GLOBAL__N_118ExtensionListEntryEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %280, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %281 = load i32, ptr %4, align 4, !tbaa !13
   %282 = icmp slt i32 %281, 1
-  br i1 %282, label %283, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread505.i
+  br i1 %282, label %283, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread504.i
 
 283:                                              ; preds = %279
   store i8 0, ptr %.0222.i, align 1, !tbaa !15
-  %284 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0231718.i)
-          to label %285 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %284 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0231717.i)
+          to label %285 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 285:                                              ; preds = %283
   %.val386.i = load ptr, ptr %20, align 8, !tbaa !108
@@ -5716,7 +5716,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i: ; pr
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, !llvm.loop !120
 
 _ZN12_GLOBAL__N_121_isExtensionSingletonEPKci.exit.i: ; preds = %.noexc430.i, %.noexc429.i, %260, %253
-  %287 = and i16 %.0224719.i, 64
+  %287 = and i16 %.0224718.i, 64
   %.not333.i = icmp eq i16 %287, 0
   br i1 %.not333.i, label %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i, label %288
 
@@ -5725,7 +5725,7 @@ _ZN12_GLOBAL__N_121_isExtensionSingletonEPKci.exit.i: ; preds = %.noexc430.i, %.
   br i1 %289, label %290, label %293
 
 290:                                              ; preds = %288
-  %291 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231718.i) #20
+  %291 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0231717.i) #20
   %292 = trunc i64 %291 to i32
   br label %293
 
@@ -5741,10 +5741,10 @@ _ZN12_GLOBAL__N_121_isExtensionSingletonEPKci.exit.i: ; preds = %.noexc430.i, %.
 
 296:                                              ; preds = %304, %295
   %indvars.iv.i.i.i.i = phi i64 [ 0, %295 ], [ %indvars.iv.next.i.i.i.i, %304 ]
-  %297 = getelementptr inbounds nuw i8, ptr %.0231718.i, i64 %indvars.iv.i.i.i.i
+  %297 = getelementptr inbounds nuw i8, ptr %.0231717.i, i64 %indvars.iv.i.i.i.i
   %298 = load i8, ptr %297, align 1, !tbaa !15
   %299 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %298)
-          to label %.noexc431.i unwind label %.loopexit545.i
+          to label %.noexc431.i unwind label %.loopexit544.i
 
 .noexc431.i:                                      ; preds = %296
   %.not.i.i.i.i = icmp eq i8 %299, 0
@@ -5762,19 +5762,19 @@ _ZN12_GLOBAL__N_121_isExtensionSingletonEPKci.exit.i: ; preds = %.noexc430.i, %.
   br i1 %exitcond.not.i.i.i.i, label %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i, label %296, !llvm.loop !20
 
 _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i: ; preds = %304
-  %305 = icmp eq ptr %.0249715.i, null
-  %spec.select357.i = select i1 %305, ptr %.0231718.i, ptr %.0249715.i
+  %305 = icmp eq ptr %.0249714.i, null
+  %spec.select357.i = select i1 %305, ptr %.0231717.i, ptr %.0249714.i
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, !llvm.loop !120
 
 _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i: ; preds = %300, %293, %_ZN12_GLOBAL__N_121_isExtensionSingletonEPKci.exit.i
-  %306 = and i16 %.0224719.i, 128
+  %306 = and i16 %.0224718.i, 128
   %.not334.i = icmp eq i16 %306, 0
   br i1 %.not334.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i, label %307
 
 307:                                              ; preds = %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i
-  %308 = load i8, ptr %.0231718.i, align 1, !tbaa !15
+  %308 = load i8, ptr %.0231717.i, align 1, !tbaa !15
   %309 = invoke signext i8 @uprv_asciitolower_77(i8 noundef signext %308)
-          to label %310 unwind label %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+          to label %310 unwind label %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 310:                                              ; preds = %307
   %311 = icmp eq i8 %309, 120
@@ -5784,12 +5784,12 @@ _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i: ; preds = %300, %293, 
 
 313:                                              ; preds = %310
   %.val382.i = load ptr, ptr %20, align 8, !tbaa !108
-  %.not539.i = icmp eq ptr %.val382.i, null
-  br i1 %.not539.i, label %323, label %314
+  %.not538.i = icmp eq ptr %.val382.i, null
+  br i1 %.not538.i, label %323, label %314
 
 314:                                              ; preds = %313
-  %315 = icmp eq ptr %.0249715.i, null
-  %316 = icmp eq ptr %.0253714.i, null
+  %315 = icmp eq ptr %.0249714.i, null
+  %316 = icmp eq ptr %.0253713.i, null
   %or.cond5.i = select i1 %315, i1 true, i1 %316
   br i1 %or.cond5.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.sink.split.i, label %317
 
@@ -5799,18 +5799,18 @@ _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i: ; preds = %300, %293, 
   br label %393
 
 .loopexit.split-lp.loopexit.i:                    ; preds = %317
-  %lpad.loopexit568.i = landingpad { ptr, i32 }
+  %lpad.loopexit567.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %358
-  %lpad.loopexit.split-lp569.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp568.i = landingpad { ptr, i32 }
           cleanup
   br label %393
 
 317:                                              ; preds = %314
-  store i8 0, ptr %.0253714.i, align 1, !tbaa !15
-  %318 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0249715.i)
+  store i8 0, ptr %.0253713.i, align 1, !tbaa !15
+  %318 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0249714.i)
           to label %319 unwind label %.loopexit.split-lp.loopexit.i
 
 319:                                              ; preds = %317
@@ -5825,16 +5825,16 @@ _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i: ; preds = %300, %293, 
   br label %323
 
 323:                                              ; preds = %322, %313
-  %.5243.i = phi ptr [ %.0253714.i, %322 ], [ %.0238717.i, %313 ]
+  %.5243.i = phi ptr [ %.0253713.i, %322 ], [ %.0238716.i, %313 ]
   br i1 %149, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %323, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i
-  %.4235712.i = phi ptr [ %330, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ], [ %150, %323 ]
-  %.7245711.i = phi ptr [ %.1223.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ], [ %.5243.i, %323 ]
+  %.4235711.i = phi ptr [ %330, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ], [ %150, %323 ]
+  %.7245710.i = phi ptr [ %.1223.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ], [ %.5243.i, %323 ]
   br label %324
 
 324:                                              ; preds = %326, %.preheader.i
-  %.1223.i = phi ptr [ %327, %326 ], [ %.4235712.i, %.preheader.i ]
+  %.1223.i = phi ptr [ %327, %326 ], [ %.4235711.i, %.preheader.i ]
   %325 = load i8, ptr %.1223.i, align 1, !tbaa !15
   switch i8 %325, label %326 [
     i8 0, label %328
@@ -5848,24 +5848,24 @@ _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i: ; preds = %300, %293, 
 328:                                              ; preds = %324, %324
   %329 = icmp eq i8 %325, 0
   %330 = getelementptr inbounds nuw i8, ptr %.1223.i, i64 1
-  %331 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.4235712.i, ptr noundef nonnull dereferenceable(9) @_ZN12_GLOBAL__N_122PRIVUSE_VARIANT_PREFIXE, i64 noundef 8) #20
+  %331 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.4235711.i, ptr noundef nonnull dereferenceable(9) @_ZN12_GLOBAL__N_122PRIVUSE_VARIANT_PREFIXE, i64 noundef 8) #20
   %332 = icmp eq i32 %331, 0
-  br i1 %332, label %.thread491.i, label %333
+  br i1 %332, label %.thread490.i, label %333
 
-.thread491.i:                                     ; preds = %328
+.thread490.i:                                     ; preds = %328
   store i8 0, ptr %.1223.i, align 1, !tbaa !15
   br i1 %329, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i
 
 333:                                              ; preds = %328
   %334 = ptrtoint ptr %.1223.i to i64
-  %335 = ptrtoint ptr %.4235712.i to i64
+  %335 = ptrtoint ptr %.4235711.i to i64
   %336 = sub i64 %334, %335
   %337 = trunc i64 %336 to i32
   %338 = icmp slt i32 %337, 0
   br i1 %338, label %339, label %342
 
 339:                                              ; preds = %333
-  %340 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.4235712.i) #20
+  %340 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.4235711.i) #20
   %341 = trunc i64 %340 to i32
   br label %342
 
@@ -5881,7 +5881,7 @@ _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i: ; preds = %300, %293, 
 
 345:                                              ; preds = %353, %344
   %indvars.iv.i.i.i436.i = phi i64 [ 0, %344 ], [ %indvars.iv.next.i.i.i438.i, %353 ]
-  %346 = getelementptr inbounds nuw i8, ptr %.4235712.i, i64 %indvars.iv.i.i.i436.i
+  %346 = getelementptr inbounds nuw i8, ptr %.4235711.i, i64 %indvars.iv.i.i.i436.i
   %347 = load i8, ptr %346, align 1, !tbaa !15
   %348 = invoke noundef signext i8 @uprv_isASCIILetter_77(i8 noundef signext %347)
           to label %.noexc440.i unwind label %.loopexit.i
@@ -5905,15 +5905,15 @@ _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i: ; preds = %353
   br i1 %329, label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i, label %.preheader.i, !llvm.loop !125
 
 _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i, %342, %349
-  %.7245581.i = phi ptr [ %.7245711.i, %349 ], [ %.1223.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ], [ %.7245711.i, %342 ]
-  %354 = ptrtoint ptr %.7245581.i to i64
+  %.7245580.i = phi ptr [ %.7245710.i, %349 ], [ %.1223.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ], [ %.7245710.i, %342 ]
+  %354 = ptrtoint ptr %.7245580.i to i64
   %355 = ptrtoint ptr %.1232.i to i64
   %356 = sub i64 %354, %355
   %357 = icmp sgt i64 %356, 0
   br i1 %357, label %358, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i
 
 358:                                              ; preds = %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i
-  store i8 0, ptr %.7245581.i, align 1, !tbaa !15
+  store i8 0, ptr %.7245580.i, align 1, !tbaa !15
   %359 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %150)
           to label %360 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -5921,28 +5921,28 @@ _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i: ; preds = %_ZN12
   store ptr %359, ptr %57, align 8, !tbaa !115
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i
 
-_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i: ; preds = %.thread491.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i, %285, %.thread477.i, %226, %._crit_edge.i, %185, %170
-  %.1294.i = phi i1 [ %.0293713.i, %170 ], [ %.0293713.i, %185 ], [ %.0293713.i, %._crit_edge.i ], [ %.0293713.i, %226 ], [ %.0293713.i, %285 ], [ %.0293713.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ true, %.thread491.i ], [ %.0293713.i, %.thread477.i ]
-  %.2255.i = phi ptr [ %.0253714.i, %170 ], [ %.0253714.i, %185 ], [ %.0253714.i, %._crit_edge.i ], [ %.0253714.i, %226 ], [ null, %285 ], [ %.0222.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0253714.i, %.thread491.i ], [ %.0253714.i, %.thread477.i ]
-  %.2251.i = phi ptr [ %.0249715.i, %170 ], [ %.0249715.i, %185 ], [ %.0249715.i, %._crit_edge.i ], [ %.0249715.i, %226 ], [ null, %285 ], [ %spec.select357.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0249715.i, %.thread491.i ], [ %.0249715.i, %.thread477.i ]
-  %.1248.i = phi i32 [ %.0247716.i, %170 ], [ %186, %185 ], [ %.0247716.i, %._crit_edge.i ], [ %.0247716.i, %226 ], [ %.0247716.i, %285 ], [ %.0247716.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0247716.i, %.thread491.i ], [ %.0247716.i, %.thread477.i ]
-  %.2240.i = phi ptr [ %.0222.i, %170 ], [ %.0222.i, %185 ], [ %.0222.i, %._crit_edge.i ], [ %.0222.i, %226 ], [ %.4242.i, %285 ], [ %.0238717.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.7245711.i, %.thread491.i ], [ %.0222.i, %.thread477.i ]
-  %.2233.i = phi ptr [ %.1232.i, %170 ], [ %.1232.i, %185 ], [ %.1232.i, %._crit_edge.i ], [ %.1232.i, %226 ], [ %.1232.i, %285 ], [ %.1232.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %330, %.thread491.i ], [ %.1232.i, %.thread477.i ]
-  %.2226.i = phi i16 [ %spec.select.i, %170 ], [ %..i, %185 ], [ 184, %._crit_edge.i ], [ 176, %226 ], [ 64, %285 ], [ 224, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ 16, %.thread491.i ], [ 176, %.thread477.i ]
+_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i: ; preds = %.thread490.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i, %285, %.thread476.i, %226, %._crit_edge.i, %185, %170
+  %.1294.i = phi i1 [ %.0293712.i, %170 ], [ %.0293712.i, %185 ], [ %.0293712.i, %._crit_edge.i ], [ %.0293712.i, %226 ], [ %.0293712.i, %285 ], [ %.0293712.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ true, %.thread490.i ], [ %.0293712.i, %.thread476.i ]
+  %.2255.i = phi ptr [ %.0253713.i, %170 ], [ %.0253713.i, %185 ], [ %.0253713.i, %._crit_edge.i ], [ %.0253713.i, %226 ], [ null, %285 ], [ %.0222.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0253713.i, %.thread490.i ], [ %.0253713.i, %.thread476.i ]
+  %.2251.i = phi ptr [ %.0249714.i, %170 ], [ %.0249714.i, %185 ], [ %.0249714.i, %._crit_edge.i ], [ %.0249714.i, %226 ], [ null, %285 ], [ %spec.select357.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0249714.i, %.thread490.i ], [ %.0249714.i, %.thread476.i ]
+  %.1248.i = phi i32 [ %.0247715.i, %170 ], [ %186, %185 ], [ %.0247715.i, %._crit_edge.i ], [ %.0247715.i, %226 ], [ %.0247715.i, %285 ], [ %.0247715.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0247715.i, %.thread490.i ], [ %.0247715.i, %.thread476.i ]
+  %.2240.i = phi ptr [ %.0222.i, %170 ], [ %.0222.i, %185 ], [ %.0222.i, %._crit_edge.i ], [ %.0222.i, %226 ], [ %.4242.i, %285 ], [ %.0238716.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.7245710.i, %.thread490.i ], [ %.0222.i, %.thread476.i ]
+  %.2233.i = phi ptr [ %.1232.i, %170 ], [ %.1232.i, %185 ], [ %.1232.i, %._crit_edge.i ], [ %.1232.i, %226 ], [ %.1232.i, %285 ], [ %.1232.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %330, %.thread490.i ], [ %.1232.i, %.thread476.i ]
+  %.2226.i = phi i16 [ %spec.select.i, %170 ], [ %..i, %185 ], [ 184, %._crit_edge.i ], [ 176, %226 ], [ 64, %285 ], [ 224, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ 16, %.thread490.i ], [ 176, %.thread476.i ]
   %.not325.i = icmp eq ptr %.2233.i, null
-  br i1 %.not325.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i, label %.preheader567.i
+  br i1 %.not325.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i, label %.preheader566.i
 
-_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i: ; preds = %.thread491.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, %323, %310, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i, %.thread477.i, %360, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i
-  %.0253647.i = phi ptr [ %.0253714.i, %360 ], [ %.0253714.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i ], [ %.0253714.i, %.thread491.i ], [ %.0253714.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i ], [ %.0253714.i, %310 ], [ %.0253714.i, %323 ], [ %.2255.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ], [ %.0253714.i, %.thread477.i ]
-  %.0249626.i = phi ptr [ %.0249715.i, %360 ], [ %.0249715.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i ], [ %.0249715.i, %.thread491.i ], [ %.0249715.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i ], [ %.0249715.i, %310 ], [ %.0249715.i, %323 ], [ %.2251.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ], [ %.0249715.i, %.thread477.i ]
-  %.1239.ph.i = phi ptr [ %.7245581.i, %360 ], [ %.7245581.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i ], [ %.7245711.i, %.thread491.i ], [ %.0238717.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i ], [ %.0238717.i, %310 ], [ %.5243.i, %323 ], [ %.2240.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ], [ %.0238717.i, %.thread477.i ]
+_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i: ; preds = %.thread490.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i, %323, %310, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i, %.thread476.i, %360, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i
+  %.0253646.i = phi ptr [ %.0253713.i, %360 ], [ %.0253713.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i ], [ %.0253713.i, %.thread490.i ], [ %.0253713.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i ], [ %.0253713.i, %310 ], [ %.0253713.i, %323 ], [ %.2255.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ], [ %.0253713.i, %.thread476.i ]
+  %.0249625.i = phi ptr [ %.0249714.i, %360 ], [ %.0249714.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i ], [ %.0249714.i, %.thread490.i ], [ %.0249714.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i ], [ %.0249714.i, %310 ], [ %.0249714.i, %323 ], [ %.2251.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ], [ %.0249714.i, %.thread476.i ]
+  %.1239.ph.i = phi ptr [ %.7245580.i, %360 ], [ %.7245580.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i ], [ %.7245710.i, %.thread490.i ], [ %.0238716.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.thread.i ], [ %.0238716.i, %310 ], [ %.5243.i, %323 ], [ %.2240.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i ], [ %.0238716.i, %.thread476.i ]
   %.val383.pr.i = load ptr, ptr %20, align 8, !tbaa !108
-  %.not540.i = icmp eq ptr %.val383.pr.i, null
-  br i1 %.not540.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.i, label %361
+  %.not539.i = icmp eq ptr %.val383.pr.i, null
+  br i1 %.not539.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.i, label %361
 
 361:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i
-  %362 = icmp eq ptr %.0249626.i, null
-  %363 = icmp eq ptr %.0253647.i, null
+  %362 = icmp eq ptr %.0249625.i, null
+  %363 = icmp eq ptr %.0253646.i, null
   %or.cond7.i = select i1 %362, i1 true, i1 %363
   br i1 %or.cond7.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.sink.split.i, label %366
 
@@ -5952,8 +5952,8 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.
   br label %393
 
 366:                                              ; preds = %361
-  store i8 0, ptr %.0253647.i, align 1, !tbaa !15
-  %367 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0249626.i)
+  store i8 0, ptr %.0253646.i, align 1, !tbaa !15
+  %367 = invoke ptr @T_CString_toLowerCase_77(ptr noundef nonnull %.0249625.i)
           to label %368 unwind label %364
 
 368:                                              ; preds = %366
@@ -5966,7 +5966,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.
 
 _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.sink.split.i: ; preds = %319, %314, %275, %270, %361
   %.val381.lcssa.sink.ph.i = phi ptr [ %.val383.pr.i, %361 ], [ %.val387.i, %319 ], [ %.val382.i, %314 ], [ %.val384.i, %275 ], [ %.val381.i, %270 ]
-  %.8246.ph.ph.i = phi ptr [ %.1239.ph.i, %361 ], [ %.0238717.i, %270 ], [ %.0238717.i, %275 ], [ %.0238717.i, %314 ], [ %.0238717.i, %319 ]
+  %.8246.ph.ph.i = phi ptr [ %.1239.ph.i, %361 ], [ %.0238716.i, %270 ], [ %.0238716.i, %275 ], [ %.0238716.i, %314 ], [ %.0238716.i, %319 ]
   store ptr null, ptr %20, align 8, !tbaa !108
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.i
 
@@ -5977,7 +5977,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.i
 
 _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.i: ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.i, %368, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i
-  %.8246.i = phi ptr [ %.1239.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i ], [ %.0253647.i, %368 ], [ %.8246.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.i ]
+  %.8246.i = phi ptr [ %.1239.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i ], [ %.0253646.i, %368 ], [ %.8246.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.sink.split.i ]
   br i1 %.not317.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_118ExtensionListEntryEED2Ev.exit.i, label %371
 
 371:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.thread.i
@@ -5990,12 +5990,12 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.
   store i32 %377, ptr %3, align 4, !tbaa !12
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_118ExtensionListEntryEED2Ev.exit.i
 
-_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread505.i: ; preds = %279, %249, %247, %.thread.i
-  %.pre861.i = load ptr, ptr %46, align 8, !tbaa !116
+_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread504.i: ; preds = %279, %249, %247, %.thread.i
+  %.pre860.i = load ptr, ptr %46, align 8, !tbaa !116
   br label %378
 
-378:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread505.i, %.thread520.i
-  %379 = phi ptr [ %.pre861.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread505.i ], [ null, %.thread520.i ]
+378:                                              ; preds = %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread504.i, %.thread519.i
+  %379 = phi ptr [ %.pre860.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread504.i ], [ null, %.thread519.i ]
   invoke void @uprv_free_77(ptr noundef %379)
           to label %.noexc.i.i unwind label %387
 
@@ -6060,8 +6060,8 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_118ExtensionListEntryEED2Ev.exit.i: ; pre
   %392 = icmp slt i32 %.pr, 1
   br i1 %392, label %396, label %_ZN12_GLOBAL__N_115_appendKeywordsEPNS_12ULanguageTagERN6icu_778ByteSinkER10UErrorCode.exit
 
-393:                                              ; preds = %364, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %252, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i, %.loopexit.split-lp554.i, %.loopexit553.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.i, %.loopexit.split-lp546.loopexit.i, %.loopexit545.i, %136, %92, %90, %48
-  %.pn350.i = phi { ptr, i32 } [ %49, %48 ], [ %365, %364 ], [ %137, %136 ], [ %93, %92 ], [ %91, %90 ], [ %250, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i ], [ %250, %252 ], [ %lpad.loopexit547.i, %.loopexit545.i ], [ %lpad.loopexit550.i, %.loopexit.split-lp546.loopexit.i ], [ %lpad.loopexit558.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit561.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit564.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp565.i, %.loopexit.split-lp546.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit555.i, %.loopexit553.i ], [ %lpad.loopexit.split-lp556.i, %.loopexit.split-lp554.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit568.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp569.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+393:                                              ; preds = %364, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %252, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i, %.loopexit.split-lp553.i, %.loopexit552.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.i, %.loopexit.split-lp545.loopexit.i, %.loopexit544.i, %136, %92, %90, %48
+  %.pn350.i = phi { ptr, i32 } [ %49, %48 ], [ %365, %364 ], [ %137, %136 ], [ %93, %92 ], [ %91, %90 ], [ %250, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit424.i ], [ %250, %252 ], [ %lpad.loopexit546.i, %.loopexit544.i ], [ %lpad.loopexit549.i, %.loopexit.split-lp545.loopexit.i ], [ %lpad.loopexit557.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit560.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit563.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp564.i, %.loopexit.split-lp545.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit554.i, %.loopexit552.i ], [ %lpad.loopexit.split-lp555.i, %.loopexit.split-lp553.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit567.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp568.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   tail call fastcc void @_ZN6icu_778internal16LocalOpenPointerIN12_GLOBAL__N_112ULanguageTagEXadL_ZNS2_11ultag_closeEPS3_EEED2Ev(ptr %46) #17
   %.val395.pre.i = load ptr, ptr %20, align 8, !tbaa !108
   %394 = icmp eq ptr %.val395.pre.i, null
@@ -8231,7 +8231,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117_addVariantToListE
   br label %.loopexit
 
 .thread:                                          ; preds = %14
-  %8 = getelementptr inbounds nuw i8, ptr %.01118, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.01117, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %.val15, i64 8
   store ptr null, ptr %9, align 8, !tbaa !44
   store ptr null, ptr %1, align 8, !tbaa !122
@@ -8239,14 +8239,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117_addVariantToListE
   br label %.loopexit
 
 10:                                               ; preds = %.preheader, %14
-  %.01118 = phi ptr [ %3, %.preheader ], [ %16, %14 ]
-  %11 = load ptr, ptr %.01118, align 8, !tbaa !41
+  %.01117 = phi ptr [ %3, %.preheader ], [ %16, %14 ]
+  %11 = load ptr, ptr %.01117, align 8, !tbaa !41
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %11) #20
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %.01118, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !44
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.thread, label %10, !llvm.loop !46

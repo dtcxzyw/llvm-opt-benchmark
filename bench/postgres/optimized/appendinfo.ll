@@ -302,22 +302,22 @@ define internal ptr @adjust_appendrel_attrs_mutator(ptr noundef %0, ptr noundef 
   %.not = icmp eq i32 %13, 0
   %14 = icmp sgt i32 %6, 0
   %or.cond = select i1 %.not, i1 %14, i1 false
-  br i1 %or.cond, label %.lr.ph275, label %.loopexit
+  br i1 %or.cond, label %.lr.ph274, label %.loopexit
 
-.lr.ph275:                                        ; preds = %10
+.lr.ph274:                                        ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i32, ptr %15, align 4
-  %wide.trip.count288 = zext nneg i32 %6 to i64
+  %wide.trip.count287 = zext nneg i32 %6 to i64
   br label %18
 
 17:                                               ; preds = %18
-  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
-  %exitcond289.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count288
-  br i1 %exitcond289.not, label %._crit_edge, label %18, !llvm.loop !8
+  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
+  %exitcond288.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count287
+  br i1 %exitcond288.not, label %._crit_edge, label %18, !llvm.loop !8
 
-18:                                               ; preds = %.lr.ph275, %17
-  %indvars.iv285 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next286, %17 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv285
+18:                                               ; preds = %.lr.ph274, %17
+  %indvars.iv284 = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next285, %17 ]
+  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv284
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
@@ -516,27 +516,27 @@ list_length.exit:                                 ; preds = %33
 
 ._crit_edge:                                      ; preds = %17
   %140 = icmp eq i32 %16, -4
-  br i1 %140, label %.lr.ph279.preheader, label %.loopexit
+  br i1 %140, label %.lr.ph278.preheader, label %.loopexit
 
-.lr.ph279.preheader:                              ; preds = %._crit_edge
+.lr.ph278.preheader:                              ; preds = %._crit_edge
   %141 = load ptr, ptr %1, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 248
   %143 = load ptr, ptr %142, align 8
-  %wide.trip.count293 = zext nneg i32 %6 to i64
-  br label %.lr.ph279
+  %wide.trip.count292 = zext nneg i32 %6 to i64
+  br label %.lr.ph278
 
-.lr.ph279:                                        ; preds = %.lr.ph279.preheader, %157
-  %indvars.iv290 = phi i64 [ 0, %.lr.ph279.preheader ], [ %indvars.iv.next291, %157 ]
-  %.0169276 = phi i32 [ 0, %.lr.ph279.preheader ], [ %.1170, %157 ]
-  %144 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv290
+.lr.ph278:                                        ; preds = %.lr.ph278.preheader, %157
+  %indvars.iv289 = phi i64 [ 0, %.lr.ph278.preheader ], [ %indvars.iv.next290, %157 ]
+  %.0169275 = phi i32 [ 0, %.lr.ph278.preheader ], [ %.1170, %157 ]
+  %144 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv289
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i32, ptr %146, align 8
   %148 = tail call zeroext i1 @bms_is_member(i32 noundef %147, ptr noundef %143) #7
   br i1 %148, label %149, label %157
 
-149:                                              ; preds = %.lr.ph279
-  %.not179 = icmp eq i32 %.0169276, 0
+149:                                              ; preds = %.lr.ph278
+  %.not179 = icmp eq i32 %.0169275, 0
   br i1 %.not179, label %153, label %150
 
 150:                                              ; preds = %149
@@ -551,17 +551,17 @@ list_length.exit:                                 ; preds = %33
   %156 = load i32, ptr %155, align 8
   br label %157
 
-157:                                              ; preds = %.lr.ph279, %153
-  %.1170 = phi i32 [ %156, %153 ], [ %.0169276, %.lr.ph279 ]
-  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
-  %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
-  br i1 %exitcond294.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !9
+157:                                              ; preds = %.lr.ph278, %153
+  %.1170 = phi i32 [ %156, %153 ], [ %.0169275, %.lr.ph278 ]
+  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
+  %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
+  br i1 %exitcond293.not, label %._crit_edge279, label %.lr.ph278, !llvm.loop !9
 
-._crit_edge280:                                   ; preds = %157
+._crit_edge279:                                   ; preds = %157
   %.not178 = icmp eq i32 %.1170, 0
   br i1 %.not178, label %.loopexit, label %158
 
-158:                                              ; preds = %._crit_edge280
+158:                                              ; preds = %._crit_edge279
   %159 = load ptr, ptr %1, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 264
   %161 = load ptr, ptr %160, align 8
@@ -974,8 +974,8 @@ adjust_child_relids.exit259:                      ; preds = %339, %adjust_child_
   %350 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %0, ptr noundef nonnull @adjust_appendrel_attrs_mutator, ptr noundef nonnull %1) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %192, %187, %199, %179, %._crit_edge280, %172, %202, %adjust_child_relids.exit, %92, %10, %78, %69, %134, %._crit_edge, %89, %84, %2, %349, %adjust_child_relids.exit259
-  %.0 = phi ptr [ %227, %adjust_child_relids.exit259 ], [ %350, %349 ], [ null, %2 ], [ %93, %92 ], [ %11, %10 ], [ %54, %78 ], [ %54, %69 ], [ %116, %134 ], [ %11, %89 ], [ %11, %84 ], [ %11, %._crit_edge ], [ %188, %199 ], [ %203, %adjust_child_relids.exit ], [ %203, %202 ], [ %186, %179 ], [ %175, %172 ], [ %11, %._crit_edge280 ], [ %188, %187 ], [ %188, %192 ]
+.loopexit:                                        ; preds = %192, %187, %199, %179, %._crit_edge279, %172, %202, %adjust_child_relids.exit, %92, %10, %78, %69, %134, %._crit_edge, %89, %84, %2, %349, %adjust_child_relids.exit259
+  %.0 = phi ptr [ %227, %adjust_child_relids.exit259 ], [ %350, %349 ], [ null, %2 ], [ %93, %92 ], [ %11, %10 ], [ %54, %78 ], [ %54, %69 ], [ %116, %134 ], [ %11, %89 ], [ %11, %84 ], [ %11, %._crit_edge ], [ %188, %199 ], [ %203, %adjust_child_relids.exit ], [ %203, %202 ], [ %186, %179 ], [ %175, %172 ], [ %11, %._crit_edge279 ], [ %188, %187 ], [ %188, %192 ]
   ret ptr %.0
 }
 

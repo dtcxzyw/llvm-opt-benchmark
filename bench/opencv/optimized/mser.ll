@@ -5536,8 +5536,8 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl11CompHistory15checkAndCaptureE
   br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %25, %31
-  %.02695 = phi ptr [ %33, %31 ], [ %26, %25 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.02695, i64 32
+  %.02694 = phi ptr [ %33, %31 ], [ %26, %25 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.02694, i64 32
   %28 = load float, ptr %27, align 8, !tbaa !189
   %29 = fcmp oge float %28, 0.000000e+00
   %30 = fcmp ogt float %18, %28
@@ -5545,7 +5545,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl11CompHistory15checkAndCaptureE
   br i1 %or.cond41, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit, label %31
 
 31:                                               ; preds = %.preheader
-  %32 = getelementptr inbounds nuw i8, ptr %.02695, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.02694, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !186
   %.not36.not = icmp eq ptr %33, null
   br i1 %.not36.not, label %.thread, label %.preheader, !llvm.loop !280
@@ -5728,18 +5728,18 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit45:  ; preds = %99, %102
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0101 = phi i32 [ %66, %.lr.ph.preheader ], [ %110, %.lr.ph ]
-  %.09099 = phi i32 [ 2147483647, %.lr.ph.preheader ], [ %.sroa.speculated61, %.lr.ph ]
-  %.09198 = phi i32 [ 2147483647, %.lr.ph.preheader ], [ %.sroa.speculated72, %.lr.ph ]
-  %.09297 = phi i32 [ -2147483648, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
-  %.09396 = phi i32 [ -2147483648, %.lr.ph.preheader ], [ %.sroa.speculated69, %.lr.ph ]
-  %103 = sdiv i32 %.0101, %62
+  %.0100 = phi i32 [ %66, %.lr.ph.preheader ], [ %110, %.lr.ph ]
+  %.09098 = phi i32 [ 2147483647, %.lr.ph.preheader ], [ %.sroa.speculated61, %.lr.ph ]
+  %.09197 = phi i32 [ 2147483647, %.lr.ph.preheader ], [ %.sroa.speculated72, %.lr.ph ]
+  %.09296 = phi i32 [ -2147483648, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
+  %.09395 = phi i32 [ -2147483648, %.lr.ph.preheader ], [ %.sroa.speculated69, %.lr.ph ]
+  %103 = sdiv i32 %.0100, %62
   %104 = mul nsw i32 %103, %62
-  %.recomposed = srem i32 %.0101, %62
-  %.sroa.speculated61 = call i32 @llvm.smin.i32(i32 %.recomposed, i32 %.09099)
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.09297, i32 %.recomposed)
-  %.sroa.speculated72 = call i32 @llvm.smin.i32(i32 %103, i32 %.09198)
-  %.sroa.speculated69 = call i32 @llvm.smax.i32(i32 %.09396, i32 %103)
+  %.recomposed = srem i32 %.0100, %62
+  %.sroa.speculated61 = call i32 @llvm.smin.i32(i32 %.recomposed, i32 %.09098)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.09296, i32 %.recomposed)
+  %.sroa.speculated72 = call i32 @llvm.smin.i32(i32 %103, i32 %.09197)
+  %.sroa.speculated69 = call i32 @llvm.smax.i32(i32 %.09395, i32 %103)
   %105 = load ptr, ptr %56, align 8, !tbaa !17
   %106 = getelementptr inbounds nuw %"class.cv::Point_.38", ptr %105, i64 %indvars.iv
   %.sroa.4.0.insert.ext = zext i32 %103 to i64
@@ -5748,7 +5748,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit45:  ; preds = %99, %102
   %.sroa.056.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.056.0.insert.ext
   store i64 %.sroa.056.0.insert.insert, ptr %106, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %107 = sext i32 %.0101 to i64
+  %107 = sext i32 %.0100 to i64
   %108 = getelementptr inbounds %"struct.cv::MSER_Impl::Pixel", ptr %60, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !71
   %110 = and i32 %109, 536870911

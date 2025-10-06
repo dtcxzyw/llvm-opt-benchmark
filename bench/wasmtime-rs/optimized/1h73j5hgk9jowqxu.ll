@@ -1429,15 +1429,15 @@ define void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$cranelift_
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h7081ba1559839bafE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !10, !noundef !3
-  %switch.not = icmp eq i8 %2, 3
-  br i1 %switch.not, label %3, label %5
+  %3 = icmp eq i8 %2, 3
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %4)
-  br label %5
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %5)
+  br label %6
 
-5:                                                ; preds = %1, %3
+6:                                                ; preds = %1, %4
   ret void
 }
 
@@ -5355,15 +5355,15 @@ define void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h91a3312f42d0610dE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %.val.i)
   %3 = load i8, ptr %2, align 8, !range !10, !noundef !3
-  %switch.not.i.i.i = icmp eq i8 %3, 3
-  br i1 %switch.not.i.i.i, label %4, label %"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hc1f2e56f2d811fa3E.exit"
+  %4 = icmp eq i8 %3, 3
+  br i1 %4, label %5, label %"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hc1f2e56f2d811fa3E.exit"
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %5)
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %6)
   br label %"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hc1f2e56f2d811fa3E.exit"
 
-"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hc1f2e56f2d811fa3E.exit": ; preds = %1, %4
+"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hc1f2e56f2d811fa3E.exit": ; preds = %1, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -6020,15 +6020,15 @@ define void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Rep
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h91a3312f42d0610dE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %.val)
   %3 = load i8, ptr %2, align 8, !range !10, !noundef !3
-  %switch.not.i.i = icmp eq i8 %3, 3
-  br i1 %switch.not.i.i, label %4, label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94d844c13984e3d3E.exit"
+  %4 = icmp eq i8 %3, 3
+  br i1 %4, label %5, label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94d844c13984e3d3E.exit"
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %5)
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %6)
   br label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94d844c13984e3d3E.exit"
 
-"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94d844c13984e3d3E.exit": ; preds = %1, %4
+"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94d844c13984e3d3E.exit": ; preds = %1, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -6323,7 +6323,7 @@ define void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen_meta..error..Erro
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE.exit": ; preds = %5, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %18
+  br label %19
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6331,19 +6331,19 @@ define void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen_meta..error..Erro
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h91a3312f42d0610dE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %.val.i.i)
   %15 = load i8, ptr %2, align 8, !range !10, !noundef !3
-  %switch.not.i.i.i.i = icmp eq i8 %15, 3
-  br i1 %switch.not.i.i.i.i, label %16, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit"
+  %16 = icmp eq i8 %15, 3
+  br i1 %16, label %17, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit"
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %17)
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %18)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit": ; preds = %13, %16
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit": ; preds = %13, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %18
+  br label %19
 
-18:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE.exit"
+19:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE.exit"
   ret void
 }
 
@@ -10747,15 +10747,15 @@ define void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h91a3312f42d0610dE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %3)
   %7 = load i8, ptr %2, align 8, !range !10, !noundef !3
-  %switch.not.i.i.i.i = icmp eq i8 %7, 3
-  br i1 %switch.not.i.i.i.i, label %8, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit"
+  %8 = icmp eq i8 %7, 3
+  br i1 %8, label %9, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit"
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %9)
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %10)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit": ; preds = %6, %8
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit": ; preds = %6, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %5
 }
@@ -12500,15 +12500,15 @@ define void @"_ZN4core3ptr97drop_in_place$LT$std..io..Write..write_fmt..Adapter$
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h91a3312f42d0610dE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %4)
   %7 = load i8, ptr %2, align 8, !range !10, !noundef !3
-  %switch.not.i.i.i.i.i = icmp eq i8 %7, 3
-  br i1 %switch.not.i.i.i.i.i, label %8, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit.i"
+  %8 = icmp eq i8 %7, 3
+  br i1 %8, label %9, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit.i"
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %9)
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h44e816eef4d94379E"(ptr nonnull align 8 %10)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit.i": ; preds = %8, %6
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h52b7543ead5b06f7E.exit.i": ; preds = %9, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hb2c7e9967e71a9ffE.exit"
 

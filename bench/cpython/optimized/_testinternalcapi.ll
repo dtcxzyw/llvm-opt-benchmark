@@ -5086,8 +5086,8 @@ define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %0, ptr
 
 .preheader:                                       ; preds = %9, %14
   %.041 = phi i64 [ %15, %14 ], [ %2, %9 ]
-  %.not82 = icmp eq i64 %.041, 0
-  br i1 %.not82, label %19, label %14
+  %.not81 = icmp eq i64 %.041, 0
+  br i1 %.not81, label %19, label %14
 
 14:                                               ; preds = %.preheader
   %15 = lshr i64 %.041, 1
@@ -5147,8 +5147,8 @@ Py_XDECREF.exit:                                  ; preds = %26, %28, %31
   br label %Py_XDECREF.exit56
 
 Py_XDECREF.exit56:                                ; preds = %3, %Py_XDECREF.exit, %32, %34, %37
-  %.0406569 = phi i32 [ %.040.ph, %Py_XDECREF.exit ], [ %.040.ph, %32 ], [ %.040.ph, %34 ], [ %.040.ph, %37 ], [ -1, %3 ]
-  ret i32 %.0406569
+  %.0406468 = phi i32 [ %.040.ph, %Py_XDECREF.exit ], [ %.040.ph, %32 ], [ %.040.ph, %34 ], [ %.040.ph, %37 ], [ -1, %3 ]
+  ret i32 %.0406468
 }
 
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1

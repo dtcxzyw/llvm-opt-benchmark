@@ -1834,39 +1834,39 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   %17 = sub i64 %15, %16
   %18 = add i64 %1, -1
   %19 = icmp ult i64 %17, %18
-  %or.cond289 = and i1 %14, %19
-  br i1 %or.cond289, label %20, label %._crit_edge263
+  %or.cond286 = and i1 %14, %19
+  br i1 %or.cond286, label %20, label %._crit_edge260
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !29
   %23 = icmp eq i8 %22, 47
-  br i1 %23, label %24, label %._crit_edge263
+  br i1 %23, label %24, label %._crit_edge260
 
 24:                                               ; preds = %20
   store i64 -2, ptr %3, align 8, !tbaa !72
   store ptr null, ptr %2, align 8, !tbaa !107
   br label %.loopexit
 
-._crit_edge263:                                   ; preds = %11, %20
+._crit_edge260:                                   ; preds = %11, %20
   %25 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %0, i64 noundef %17) #24
-  %.not235 = icmp eq ptr %25, null
-  br i1 %.not235, label %27, label %26
+  %.not232 = icmp eq ptr %25, null
+  br i1 %.not232, label %27, label %26
 
-26:                                               ; preds = %._crit_edge263
+26:                                               ; preds = %._crit_edge260
   store ptr %10, ptr %2, align 8, !tbaa !107
   store i64 -1, ptr %3, align 8, !tbaa !72
   br label %.loopexit
 
-27:                                               ; preds = %._crit_edge263
+27:                                               ; preds = %._crit_edge260
   %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 193), align 1, !tbaa !62, !range !16, !noundef !28
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
   %31 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @cached_alias, ptr noundef %0, i64 noundef %17) #24
-  %.not236 = icmp eq ptr %31, null
-  br i1 %.not236, label %33, label %32
+  %.not233 = icmp eq ptr %31, null
+  br i1 %.not233, label %33, label %32
 
 32:                                               ; preds = %30
   store ptr %10, ptr %2, align 8, !tbaa !107
@@ -1879,7 +1879,7 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 193), align 1, !range !16
   %37 = trunc nuw i8 %36 to i1
   %or.cond = select i1 %35, i1 true, i1 %37
-  br i1 %or.cond, label %38, label %.thread232
+  br i1 %or.cond, label %38, label %.thread229
 
 38:                                               ; preds = %33
   %.not178 = icmp eq i32 %6, 0
@@ -1888,12 +1888,12 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
 39:                                               ; preds = %38
   %40 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 56), ptr noundef %0, i64 noundef %1) #24
   %.not.i = icmp eq ptr %40, null
-  br i1 %.not.i, label %56, label %.thread222
+  br i1 %.not.i, label %56, label %.thread221
 
-.thread222:                                       ; preds = %79, %79, %77, %100, %102, %102, %39, %59
-  %.0152247.lcssa.sink = phi ptr [ %60, %59 ], [ %40, %39 ], [ %.0152247, %102 ], [ %.0152247, %102 ], [ %.0152247, %100 ], [ %.0161245, %77 ], [ %.0161245, %79 ], [ %.0161245, %79 ]
+.thread221:                                       ; preds = %79, %79, %77, %100, %102, %102, %39, %59
+  %.0152244.lcssa.sink = phi ptr [ %60, %59 ], [ %40, %39 ], [ %.0152244, %102 ], [ %.0152244, %102 ], [ %.0152244, %100 ], [ %.0161242, %77 ], [ %.0161242, %79 ], [ %.0161242, %79 ]
   %.lcssa.sink = phi i64 [ %1, %59 ], [ %1, %39 ], [ %1, %100 ], [ %96, %102 ], [ %96, %102 ], [ %73, %79 ], [ %73, %79 ], [ %1, %77 ]
-  %41 = load ptr, ptr %.0152247.lcssa.sink, align 8, !tbaa !29
+  %41 = load ptr, ptr %.0152244.lcssa.sink, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !108
   %44 = zext i32 %43 to i64
@@ -1907,32 +1907,32 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
     i32 0, label %51
   ]
 
-47:                                               ; preds = %.thread222
+47:                                               ; preds = %.thread221
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 316
   %49 = load i16, ptr %48, align 4
   %50 = and i16 %49, 128
   %.not188 = icmp eq i16 %50, 0
   br i1 %.not188, label %.loopexit, label %55
 
-51:                                               ; preds = %.thread222
+51:                                               ; preds = %.thread221
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 316
   %53 = load i16, ptr %52, align 4
   %54 = and i16 %53, 128
   %.not190 = icmp eq i16 %54, 0
   br i1 %.not190, label %55, label %.loopexit
 
-55:                                               ; preds = %47, %.thread222, %51
+55:                                               ; preds = %47, %.thread221, %51
   br label %.loopexit
 
 56:                                               ; preds = %39
   %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 193), align 1, !tbaa !62, !range !16, !noundef !28
   %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %59, label %.thread232
+  br i1 %58, label %59, label %.thread229
 
 59:                                               ; preds = %56
   %60 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @cached_phars, ptr noundef %0, i64 noundef %1) #24
   %.not.i198 = icmp eq ptr %60, null
-  br i1 %.not.i198, label %.thread232, label %.thread222
+  br i1 %.not.i198, label %.thread229, label %.thread221
 
 61:                                               ; preds = %38
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 72), align 8, !tbaa !29
@@ -1940,18 +1940,18 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   %64 = zext i32 %63 to i64
   %.idx = shl nuw nsw i64 %64, 5
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
-  %.not180244 = icmp eq i32 %63, 0
-  br i1 %.not180244, label %._crit_edge, label %.lr.ph
+  %.not180241 = icmp eq i32 %63, 0
+  br i1 %.not180241, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61, %82
-  %.0161245 = phi ptr [ %83, %82 ], [ %62, %61 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.0161245, i64 8
+  %.0161242 = phi ptr [ %83, %82 ], [ %62, %61 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.0161242, i64 8
   %67 = load i8, ptr %66, align 8, !tbaa !29
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %82, label %69, !prof !110
 
 69:                                               ; preds = %.lr.ph
-  %70 = getelementptr inbounds nuw i8, ptr %.0161245, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.0161242, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !111
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i64, ptr %72, align 8, !tbaa !12
@@ -1966,42 +1966,42 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
 
 77:                                               ; preds = %75
   %78 = icmp eq i64 %1, %73
-  br i1 %78, label %.thread222, label %79
+  br i1 %78, label %.thread221, label %79
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 %73
   %81 = load i8, ptr %80, align 1, !tbaa !29
   switch i8 %81, label %82 [
-    i8 47, label %.thread222
-    i8 0, label %.thread222
+    i8 47, label %.thread221
+    i8 0, label %.thread221
   ]
 
 82:                                               ; preds = %.lr.ph, %69, %79, %75
-  %83 = getelementptr inbounds nuw i8, ptr %.0161245, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %.0161242, i64 32
   %.not180 = icmp eq ptr %83, %65
   br i1 %.not180, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %82, %61
-  br i1 %37, label %84, label %.thread232
+  br i1 %37, label %84, label %.thread229
 
 84:                                               ; preds = %._crit_edge
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 16), align 8, !tbaa !29
   %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 24), align 8, !tbaa !109
   %87 = zext i32 %86 to i64
-  %.idx256 = shl nuw nsw i64 %87, 5
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx256
-  %.not183246 = icmp eq i32 %86, 0
-  br i1 %.not183246, label %.thread232, label %.lr.ph249
+  %.idx253 = shl nuw nsw i64 %87, 5
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx253
+  %.not183243 = icmp eq i32 %86, 0
+  br i1 %.not183243, label %.thread229, label %.lr.ph246
 
-.lr.ph249:                                        ; preds = %84, %105
-  %.0152247 = phi ptr [ %106, %105 ], [ %85, %84 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.0152247, i64 8
+.lr.ph246:                                        ; preds = %84, %105
+  %.0152244 = phi ptr [ %106, %105 ], [ %85, %84 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.0152244, i64 8
   %90 = load i8, ptr %89, align 8, !tbaa !29
   %91 = icmp eq i8 %90, 0
   br i1 %91, label %105, label %92, !prof !110
 
-92:                                               ; preds = %.lr.ph249
-  %93 = getelementptr inbounds nuw i8, ptr %.0152247, i64 24
+92:                                               ; preds = %.lr.ph246
+  %93 = getelementptr inbounds nuw i8, ptr %.0152244, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !111
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !12
@@ -2016,28 +2016,28 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
 
 100:                                              ; preds = %98
   %101 = icmp eq i64 %1, %96
-  br i1 %101, label %.thread222, label %102
+  br i1 %101, label %.thread221, label %102
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 %96
   %104 = load i8, ptr %103, align 1, !tbaa !29
   switch i8 %104, label %105 [
-    i8 47, label %.thread222
-    i8 0, label %.thread222
+    i8 47, label %.thread221
+    i8 0, label %.thread221
   ]
 
-105:                                              ; preds = %.lr.ph249, %92, %102, %98
-  %106 = getelementptr inbounds nuw i8, ptr %.0152247, i64 32
+105:                                              ; preds = %.lr.ph246, %92, %102, %98
+  %106 = getelementptr inbounds nuw i8, ptr %.0152244, i64 32
   %.not183 = icmp eq ptr %106, %88
-  br i1 %.not183, label %.thread232, label %.lr.ph249
+  br i1 %.not183, label %.thread229, label %.lr.ph246
 
-.thread232:                                       ; preds = %105, %84, %._crit_edge, %59, %56, %33
+.thread229:                                       ; preds = %105, %84, %._crit_edge, %59, %56, %33
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %108 = tail call ptr @memchr(ptr noundef nonnull %107, i32 noundef 46, i64 noundef %1) #25
-  %.not191250 = icmp eq ptr %108, null
-  br i1 %.not191250, label %.loopexit, label %.preheader.lr.ph
+  %.not191247 = icmp eq ptr %108, null
+  br i1 %.not191247, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.thread232
+.preheader.lr.ph:                                 ; preds = %.thread229
   %invariant.op = add i64 %1, -1
   %109 = ptrtoint ptr %0 to i64
   %.reass = add i64 %invariant.op, %109
@@ -2102,8 +2102,8 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   store i64 0, ptr %3, align 8, !tbaa !72
   br label %.preheader.backedge
 
-.loopexit:                                        ; preds = %123, %128, %.critedge5, %.thread232, %55, %47, %.thread222, %51, %7, %120, %32, %26, %24
-  %.0 = phi i32 [ -1, %24 ], [ -1, %26 ], [ -1, %32 ], [ %122, %120 ], [ -1, %7 ], [ -1, %55 ], [ 0, %.thread222 ], [ 0, %47 ], [ 0, %51 ], [ -1, %.thread232 ], [ 0, %123 ], [ -1, %128 ], [ -1, %.critedge5 ]
+.loopexit:                                        ; preds = %123, %128, %.critedge5, %.thread229, %55, %47, %.thread221, %51, %7, %120, %32, %26, %24
+  %.0 = phi i32 [ -1, %24 ], [ -1, %26 ], [ -1, %32 ], [ %122, %120 ], [ -1, %7 ], [ -1, %55 ], [ 0, %.thread221 ], [ 0, %47 ], [ 0, %51 ], [ -1, %.thread229 ], [ 0, %123 ], [ -1, %128 ], [ -1, %.critedge5 ]
   ret i32 %.0
 }
 

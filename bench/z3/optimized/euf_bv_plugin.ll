@@ -3937,8 +3937,8 @@ define hidden void @_ZN3euf9bv_plugin12ensure_sliceEPNS_5enodeEjj(ptr noundef no
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %115, %4
-  %.tr70.ph = phi i32 [ %108, %115 ], [ %2, %4 ]
-  %8 = icmp eq i32 %.tr70.ph, 0
+  %.tr68.ph = phi i32 [ %108, %115 ], [ %2, %4 ]
+  %8 = icmp eq i32 %.tr68.ph, 0
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.outer, %99
@@ -3965,8 +3965,8 @@ _ZN3euf9bv_plugin5widthEPNS_5enodeE.exit:         ; preds = %tailrecurse
   %20 = load i32, ptr %14, align 4, !tbaa !112
   %21 = add i32 %20, -1
   %22 = icmp eq i32 %21, %3
-  %or.cond84 = select i1 %8, i1 %22, i1 false
-  br i1 %or.cond84, label %.thread, label %.lr.ph.preheader
+  %or.cond82 = select i1 %8, i1 %22, i1 false
+  br i1 %or.cond82, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit
   %.pre = load ptr, ptr %7, align 8, !tbaa !122
@@ -3975,10 +3975,10 @@ _ZN3euf9bv_plugin5widthEPNS_5enodeE.exit:         ; preds = %tailrecurse
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %116
   %23 = phi ptr [ %91, %116 ], [ %.pre, %.lr.ph.preheader ]
   %24 = phi ptr [ %92, %116 ], [ %.pre, %.lr.ph.preheader ]
-  %.087 = phi ptr [ %.1, %116 ], [ %1, %.lr.ph.preheader ]
-  %.04586 = phi i32 [ %.146, %116 ], [ 0, %.lr.ph.preheader ]
-  %.05085 = phi i32 [ %.151, %116 ], [ %21, %.lr.ph.preheader ]
-  %25 = load ptr, ptr %.087, align 8, !tbaa !95
+  %.085 = phi ptr [ %.1, %116 ], [ %1, %.lr.ph.preheader ]
+  %.04584 = phi i32 [ %.146, %116 ], [ 0, %.lr.ph.preheader ]
+  %.05083 = phi i32 [ %.151, %116 ], [ %21, %.lr.ph.preheader ]
+  %25 = load ptr, ptr %.085, align 8, !tbaa !95
   %26 = load i32, ptr %25, align 4, !tbaa !121
   %27 = add i32 %26, 1
   %28 = icmp eq ptr %24, null
@@ -4001,8 +4001,8 @@ _ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.preheader: ; pr
   br label %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i
 
 _ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i: ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.backedge, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.preheader
-  %32 = phi ptr [ %23, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be135, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %33 = phi ptr [ %.ph, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be135, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %32 = phi ptr [ %23, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be133, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %33 = phi ptr [ %.ph, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be133, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.backedge ]
   %34 = icmp eq ptr %33, null
   br i1 %34, label %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE8capacityEv.exit.i.i.i
 
@@ -4123,7 +4123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.backedge
 
 _ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i.backedge: ; preds = %77, %39
-  %.be135 = phi ptr [ %42, %39 ], [ %81, %77 ]
+  %.be133 = phi ptr [ %42, %39 ], [ %81, %77 ]
   br label %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.i.i.i, !llvm.loop !125
 
 82:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -4166,28 +4166,28 @@ _ZN3euf9bv_plugin4infoEPNS_5enodeE.exit:          ; preds = %_ZNK6vectorIN3euf9b
   br i1 %.not, label %97, label %106
 
 97:                                               ; preds = %_ZN3euf9bv_plugin4infoEPNS_5enodeE.exit
-  %98 = icmp ugt i32 %.tr70.ph, %.04586
+  %98 = icmp ugt i32 %.tr68.ph, %.04584
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %97
-  %100 = sub nuw i32 %.tr70.ph, %.04586
-  tail call void @_ZN3euf9bv_plugin5splitEPNS_5enodeEj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %.087, i32 noundef %100)
-  %101 = icmp ult i32 %3, %.05085
+  %100 = sub nuw i32 %.tr68.ph, %.04584
+  tail call void @_ZN3euf9bv_plugin5splitEPNS_5enodeEj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %.085, i32 noundef %100)
+  %101 = icmp ult i32 %3, %.05083
   br i1 %101, label %tailrecurse, label %.thread
 
 102:                                              ; preds = %97
-  %103 = icmp ult i32 %3, %.05085
+  %103 = icmp ult i32 %3, %.05083
   br i1 %103, label %104, label %.thread
 
 104:                                              ; preds = %102
-  %105 = sub nuw i32 %.05085, %3
-  tail call void @_ZN3euf9bv_plugin5splitEPNS_5enodeEj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %.087, i32 noundef %105)
+  %105 = sub nuw i32 %.05083, %3
+  tail call void @_ZN3euf9bv_plugin5splitEPNS_5enodeEj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %.085, i32 noundef %105)
   br label %.thread
 
 106:                                              ; preds = %_ZN3euf9bv_plugin4infoEPNS_5enodeE.exit
   %107 = load i32, ptr %94, align 8, !tbaa !201
-  %108 = add i32 %107, %.04586
-  %.not61 = icmp ugt i32 %108, %.tr70.ph
+  %108 = add i32 %107, %.04584
+  %.not61 = icmp ugt i32 %108, %.tr68.ph
   br i1 %.not61, label %112, label %109
 
 109:                                              ; preds = %106
@@ -4201,14 +4201,14 @@ _ZN3euf9bv_plugin4infoEPNS_5enodeE.exit:          ; preds = %_ZNK6vectorIN3euf9b
   br i1 %113, label %116, label %115, !llvm.loop !226
 
 115:                                              ; preds = %112
-  tail call void @_ZN3euf9bv_plugin12ensure_sliceEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %1, i32 noundef %.tr70.ph, i32 noundef %114)
+  tail call void @_ZN3euf9bv_plugin12ensure_sliceEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %1, i32 noundef %.tr68.ph, i32 noundef %114)
   br label %tailrecurse.outer
 
 116:                                              ; preds = %112, %109
-  %.151 = phi i32 [ %.05085, %109 ], [ %114, %112 ]
-  %.146 = phi i32 [ %108, %109 ], [ %.04586, %112 ]
+  %.151 = phi i32 [ %.05083, %109 ], [ %114, %112 ]
+  %.146 = phi i32 [ %108, %109 ], [ %.04584, %112 ]
   %.1 = phi ptr [ %111, %109 ], [ %96, %112 ]
-  %117 = icmp eq i32 %.146, %.tr70.ph
+  %117 = icmp eq i32 %.146, %.tr68.ph
   %118 = icmp eq i32 %.151, %3
   %or.cond = select i1 %117, i1 %118, i1 false
   br i1 %or.cond, label %.thread, label %.lr.ph

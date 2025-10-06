@@ -62,52 +62,52 @@ define noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef readonly captures(none)
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5
-  br i1 %or.cond.i, label %.preheader.i, label %6
+  br i1 %or.cond.i, label %.preheader.i, label %7
 
 .preheader.i:                                     ; preds = %3
-  %.not2223.i = icmp sgt i32 %1, 0
-  br i1 %.not2223.i, label %.lr.ph.preheader.i, label %.loopexit
+  %6 = icmp sgt i32 %1, 0
+  br i1 %6, label %.lr.ph.preheader.i, label %.loopexit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL13getFileOptionPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 67) #15
   unreachable
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %7 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !4
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %13, label %10
+.lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !4
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %14, label %11
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #16
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+11:                                               ; preds = %.lr.ph.i
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #16
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = load i32, ptr %7, align 8, !tbaa !17
-  %15 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %14)
-  %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #16
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+14:                                               ; preds = %.lr.ph.i
+  %15 = load i32, ptr %8, align 8, !tbaa !17
+  %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #16
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-18:                                               ; preds = %13, %10
+19:                                               ; preds = %14, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
 
-_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %13, %10
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !20
-  %21 = load ptr, ptr %20, align 8, !tbaa !21
-  ret ptr %21
+_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %22 = load ptr, ptr %21, align 8, !tbaa !21
+  ret ptr %22
 
-.loopexit:                                        ; preds = %18, %.preheader.i
+.loopexit:                                        ; preds = %19, %.preheader.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ6opt2fnPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 90) #15
   unreachable
 }
@@ -127,59 +127,59 @@ define { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr noundef readonly captu
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5
-  br i1 %or.cond.i, label %.preheader.i, label %6
+  br i1 %or.cond.i, label %.preheader.i, label %7
 
 .preheader.i:                                     ; preds = %3
-  %.not2223.i = icmp sgt i32 %1, 0
-  br i1 %.not2223.i, label %.lr.ph.preheader.i, label %.loopexit
+  %6 = icmp sgt i32 %1, 0
+  br i1 %6, label %.lr.ph.preheader.i, label %.loopexit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL13getFileOptionPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 67) #15
   unreachable
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %7 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !4
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %13, label %10
+.lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !4
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %14, label %11
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #16
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+11:                                               ; preds = %.lr.ph.i
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #16
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = load i32, ptr %7, align 8, !tbaa !17
-  %15 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %14)
-  %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #16
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+14:                                               ; preds = %.lr.ph.i
+  %15 = load i32, ptr %8, align 8, !tbaa !17
+  %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #16
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-18:                                               ; preds = %13, %10
+19:                                               ; preds = %14, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
 
-_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %13, %10
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !24
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %20 to i64
-  %25 = sub i64 %23, %24
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %20, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %26, 1
+_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %21 to i64
+  %26 = sub i64 %24, %25
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %26
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %21, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %27, 1
   ret { ptr, ptr } %.fca.1.insert
 
-.loopexit:                                        ; preds = %18, %.preheader.i
+.loopexit:                                        ; preds = %19, %.preheader.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ7opt2fnsB5cxx11PKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 104) #15
   unreachable
 }
@@ -208,53 +208,53 @@ define noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef readonly captu
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5
-  br i1 %or.cond.i, label %.preheader.i, label %6
+  br i1 %or.cond.i, label %.preheader.i, label %7
 
 .preheader.i:                                     ; preds = %3
-  %.not2223.i = icmp sgt i32 %1, 0
-  br i1 %.not2223.i, label %.lr.ph.preheader.i, label %.loopexit
+  %6 = icmp sgt i32 %1, 0
+  br i1 %6, label %.lr.ph.preheader.i, label %.loopexit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL13getFileOptionPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 67) #15
   unreachable
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %7 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !4
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %13, label %10
+.lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !4
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %14, label %11
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #16
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+11:                                               ; preds = %.lr.ph.i
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #16
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = load i32, ptr %7, align 8, !tbaa !17
-  %15 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %14)
-  %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #16
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+14:                                               ; preds = %.lr.ph.i
+  %15 = load i32, ptr %8, align 8, !tbaa !17
+  %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #16
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-18:                                               ; preds = %13, %10
+19:                                               ; preds = %14, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
 
-_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %13, %10
-  %19 = getelementptr i8, ptr %7, i64 24
-  %.val = load i64, ptr %19, align 8, !tbaa !25
-  %20 = and i64 %.val, 1
-  %21 = icmp ne i64 %20, 0
-  ret i1 %21
+_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
+  %20 = getelementptr i8, ptr %8, i64 24
+  %.val = load i64, ptr %20, align 8, !tbaa !25
+  %21 = and i64 %.val, 1
+  %22 = icmp ne i64 %21, 0
+  ret i1 %22
 
-.loopexit:                                        ; preds = %18, %.preheader.i
+.loopexit:                                        ; preds = %19, %.preheader.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ8opt2bSetPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 179) #15
   unreachable
 }
@@ -389,64 +389,64 @@ define noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef readonly captures
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5
-  br i1 %or.cond.i, label %.preheader.i, label %6
+  br i1 %or.cond.i, label %.preheader.i, label %7
 
 .preheader.i:                                     ; preds = %3
-  %.not2223.i = icmp sgt i32 %1, 0
-  br i1 %.not2223.i, label %.lr.ph.preheader.i, label %.loopexit
+  %6 = icmp sgt i32 %1, 0
+  br i1 %6, label %.lr.ph.preheader.i, label %.loopexit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL13getFileOptionPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 67) #15
   unreachable
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %7 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !4
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %13, label %10
+.lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !4
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %14, label %11
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #16
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+11:                                               ; preds = %.lr.ph.i
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #16
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = load i32, ptr %7, align 8, !tbaa !17
-  %15 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %14)
-  %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #16
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %18
+14:                                               ; preds = %.lr.ph.i
+  %15 = load i32, ptr %8, align 8, !tbaa !17
+  %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #16
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
-18:                                               ; preds = %13, %10
+19:                                               ; preds = %14, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
 
-_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %13, %10
-  %19 = getelementptr i8, ptr %7, i64 24
-  %.val8 = load i64, ptr %19, align 8, !tbaa !25
-  %20 = and i64 %.val8, 9
-  %or.cond.not = icmp eq i64 %20, 8
-  br i1 %or.cond.not, label %25, label %21
+_ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
+  %20 = getelementptr i8, ptr %8, i64 24
+  %.val8 = load i64, ptr %20, align 8, !tbaa !25
+  %21 = and i64 %.val8, 9
+  %or.cond.not = icmp eq i64 %21, 8
+  br i1 %or.cond.not, label %26, label %22
 
-21:                                               ; preds = %_ZL13getFileOptionPKciPK8t_filenm.exit
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = load ptr, ptr %23, align 8, !tbaa !21
-  br label %25
+22:                                               ; preds = %_ZL13getFileOptionPKciPK8t_filenm.exit
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %24 = load ptr, ptr %23, align 8, !tbaa !20
+  %25 = load ptr, ptr %24, align 8, !tbaa !21
+  br label %26
 
-.loopexit:                                        ; preds = %18, %.preheader.i
+.loopexit:                                        ; preds = %19, %.preheader.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.11, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ11opt2fn_nullPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 210) #15
   unreachable
 
-25:                                               ; preds = %_ZL13getFileOptionPKciPK8t_filenm.exit, %21
-  %.0 = phi ptr [ %24, %21 ], [ null, %_ZL13getFileOptionPKciPK8t_filenm.exit ]
+26:                                               ; preds = %_ZL13getFileOptionPKciPK8t_filenm.exit, %22
+  %.0 = phi ptr [ %25, %22 ], [ null, %_ZL13getFileOptionPKciPK8t_filenm.exit ]
   ret ptr %.0
 }
 

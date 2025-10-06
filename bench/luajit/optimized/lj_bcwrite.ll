@@ -1124,7 +1124,7 @@ define internal fastcc void @bcwrite_ktabk_heap_insert(ptr noundef captures(none
 .lr.ph:                                           ; preds = %4, %51
   %8 = phi i32 [ %55, %51 ], [ %6, %4 ]
   %9 = phi i32 [ %54, %51 ], [ %5, %4 ]
-  %.02138 = phi i32 [ %.024, %51 ], [ %1, %4 ]
+  %.02137 = phi i32 [ %.024, %51 ], [ %1, %4 ]
   %10 = zext i32 %8 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -1198,11 +1198,11 @@ bcwrite_ktabk_lt.exit:                            ; preds = %23, %27, %34
   br i1 %50, label %51, label %.thread
 
 bcwrite_ktabk_lt.exit34:                          ; preds = %42
-  %.not48 = icmp ult i64 %37, %39
-  br i1 %.not48, label %.thread, label %51
+  %.not47 = icmp ult i64 %37, %39
+  br i1 %.not47, label %.thread, label %51
 
 51:                                               ; preds = %44, %41, %bcwrite_ktabk_lt.exit34
-  %52 = zext i32 %.02138 to i64
+  %52 = zext i32 %.02137 to i64
   %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
   store ptr %.022, ptr %53, align 8, !tbaa !89
   %54 = shl i32 %.024, 1
@@ -1211,7 +1211,7 @@ bcwrite_ktabk_lt.exit34:                          ; preds = %42
   br i1 %56, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %51, %bcwrite_ktabk_lt.exit34, %41, %44, %4
-  %.021.lcssa = phi i32 [ %1, %4 ], [ %.02138, %44 ], [ %.02138, %41 ], [ %.02138, %bcwrite_ktabk_lt.exit34 ], [ %.024, %51 ]
+  %.021.lcssa = phi i32 [ %1, %4 ], [ %.02137, %44 ], [ %.02137, %41 ], [ %.02137, %bcwrite_ktabk_lt.exit34 ], [ %.024, %51 ]
   %57 = zext i32 %.021.lcssa to i64
   %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   store ptr %3, ptr %58, align 8, !tbaa !89

@@ -387,8 +387,8 @@ define dso_local range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr noundef 
 .preheader.i:                                     ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
-  %.not1927.i = icmp eq i64 %9, 0
-  br i1 %.not1927.i, label %.lr.ph.i, label %.split.loop.exit25.i, !prof !46
+  %.not1925.i = icmp eq i64 %9, 0
+  br i1 %.not1925.i, label %.lr.ph.i, label %.split.loop.exit23.i, !prof !46
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %20
   %10 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #22
@@ -404,13 +404,13 @@ define dso_local range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr noundef 
   %16 = extractvalue { i64, i1 } %15, 1
   br i1 %16, label %.split.loop.exit.i, label %20, !prof !40
 
-.split.loop.exit25.i:                             ; preds = %20, %.preheader.i
+.split.loop.exit23.i:                             ; preds = %20, %.preheader.i
   %.lcssa.i = phi i64 [ %9, %.preheader.i ], [ %22, %20 ]
   %17 = inttoptr i64 %.lcssa.i to ptr
   br label %.split.loop.exit.i
 
-.split.loop.exit.i:                               ; preds = %11, %.split.loop.exit25.i
-  %.016.i = phi ptr [ %17, %.split.loop.exit25.i ], [ %10, %11 ]
+.split.loop.exit.i:                               ; preds = %11, %.split.loop.exit23.i
+  %.016.i = phi ptr [ %17, %.split.loop.exit23.i ], [ %10, %11 ]
   %18 = tail call noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18hb_user_data_key_tPvPFvS2_Ei(ptr noundef nonnull align 8 dereferenceable(56) %.016.i, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %19 = zext i1 %18 to i32
   br label %_ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
@@ -421,7 +421,7 @@ define dso_local range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr noundef 
   tail call void @free(ptr noundef nonnull %10) #21
   %22 = load atomic i64, ptr %8 acquire, align 8
   %.not19.i = icmp eq i64 %22, 0
-  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit25.i, !prof !47
+  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit23.i, !prof !47
 
 _ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
   %.017.i = phi i32 [ 0, %6 ], [ 0, %5 ], [ %19, %.split.loop.exit.i ], [ 0, %.lr.ph.i ]
@@ -452,8 +452,8 @@ define dso_local ptr @hb_subset_input_get_user_data(ptr noundef readonly capture
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %14 = load i32, ptr %13, align 4, !tbaa !51
   %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %14 to i64
-  %.not28.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not28.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %.lr.ph.i.i.i.i.i.i
+  %.not26.i.i.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not26.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
@@ -1882,8 +1882,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN20hb_user_data_array_t3setE
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4, !tbaa !51
   %.sroa.2.8.insert.ext.i.i.i.i = zext i32 %17 to i64
-  %.not28.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not28.i.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i, label %.lr.ph.i.i.i.i
+  %.not26.i.i.i.i = icmp eq i32 %17, 0
+  br i1 %.not26.i.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %20
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %20 ], [ 0, %12 ]
@@ -1957,8 +1957,8 @@ define linkonce_odr dso_local noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_dat
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !51
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %9 to i64
-  %.not28.i.i.i = icmp eq i32 %9, 0
-  br i1 %.not28.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %.lr.ph.i.i.i
+  %.not26.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not26.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !52

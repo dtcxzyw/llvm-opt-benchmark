@@ -921,12 +921,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %67, align 8
   %72 = icmp ne i64 %71, 0
-  %.not17.i12 = select i1 %70, i1 true, i1 %72
-  br i1 %.not17.i12, label %.lr.ph, label %.thread.i
+  %.not16.i12 = select i1 %70, i1 true, i1 %72
+  br i1 %.not16.i12, label %.lr.ph, label %.thread.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.backedge.i
   %73 = phi i1 [ %92, %.backedge.i ], [ %70, %.lr.ph.i ]
-  %.01522.i13 = phi ptr [ %76, %.backedge.i ], [ %4, %.lr.ph.i ]
+  %.01520.i13 = phi ptr [ %76, %.backedge.i ], [ %4, %.lr.ph.i ]
   %74 = load ptr, ptr %9, align 8
   %spec.select.i.i.i = select i1 %73, ptr %9, ptr %74
   %.sroa.0.0.copyload.i.i = load i32, ptr %spec.select.i.i.i, align 8, !tbaa !374
@@ -937,8 +937,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   %75 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 %.sroa.0.0.copyload.i.i) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %76 = load ptr, ptr %spec.select.i.i.sroa.sel.i, align 8
-  %.not19.i = icmp ne ptr %76, null
-  %.not.not.i = select i1 %75, i1 %.not19.i, i1 false
+  %.not17.i = icmp ne ptr %76, null
+  %.not.not.i = select i1 %75, i1 %.not17.i, i1 false
   br i1 %.not.not.i, label %77, label %.thread.i
 
 77:                                               ; preds = %.lr.ph
@@ -969,7 +969,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   %86 = zext nneg i16 %narrow.i.i.i to i64
   %87 = getelementptr inbounds nuw ptr, ptr %83, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !379
-  %89 = icmp eq ptr %.01522.i13, %88
+  %89 = icmp eq ptr %.01520.i13, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %89, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
@@ -987,20 +987,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   %92 = trunc nuw i8 %91 to i1
   %93 = load i64, ptr %67, align 8
   %94 = icmp ne i64 %93, 0
-  %.not17.i = select i1 %92, i1 true, i1 %94
-  br i1 %.not17.i, label %.lr.ph, label %.thread.i
+  %.not16.i = select i1 %92, i1 true, i1 %94
+  br i1 %.not16.i, label %.lr.ph, label %.thread.i
 
 95:                                               ; preds = %81
   %96 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !379
-  %98 = icmp eq ptr %.01522.i13, %97
+  %98 = icmp eq ptr %.01520.i13, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %98, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
 99:                                               ; preds = %81
   %100 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !379
-  %102 = icmp eq ptr %.01522.i13, %101
+  %102 = icmp eq ptr %.01520.i13, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %102, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
@@ -1011,7 +1011,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   %106 = zext nneg i16 %.lobit.i.i19.i to i64
   %107 = getelementptr inbounds nuw ptr, ptr %104, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !379
-  %109 = icmp eq ptr %.01522.i13, %108
+  %109 = icmp eq ptr %.01520.i13, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %109, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
@@ -1025,21 +1025,21 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   %114 = zext nneg i16 %narrow.i.i22.i to i64
   %115 = getelementptr inbounds nuw ptr, ptr %111, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !379
-  %117 = icmp eq ptr %.01522.i13, %116
+  %117 = icmp eq ptr %.01520.i13, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %117, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
 118:                                              ; preds = %81
   %119 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !379
-  %121 = icmp eq ptr %.01522.i13, %120
+  %121 = icmp eq ptr %.01520.i13, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %121, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
 122:                                              ; preds = %81
   %123 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !379
-  %125 = icmp eq ptr %.01522.i13, %124
+  %125 = icmp eq ptr %.01520.i13, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %125, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 

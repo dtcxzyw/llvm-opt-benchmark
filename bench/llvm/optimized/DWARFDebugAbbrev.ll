@@ -394,19 +394,19 @@ define dso_local noundef ptr @_ZNK4llvm31DWARFAbbreviationDeclarationSet26getAbb
   %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !49
-  %.not1920 = icmp eq ptr %8, %10
-  br i1 %.not1920, label %.loopexit, label %.lr.ph
+  %.not2122 = icmp eq ptr %8, %10
+  br i1 %.not2122, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %12
-  %.sroa.016.021 = phi ptr [ %13, %12 ], [ %8, %6 ]
-  %11 = load i32, ptr %.sroa.016.021, align 8, !tbaa !30
+  %.sroa.016.023 = phi ptr [ %13, %12 ], [ %8, %6 ]
+  %11 = load i32, ptr %.sroa.016.023, align 8, !tbaa !30
   %.not15 = icmp eq i32 %11, %1
   br i1 %.not15, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.016.021, i64 160
-  %.not19 = icmp eq ptr %13, %10
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.016.023, i64 160
+  %.not21 = icmp eq ptr %13, %10
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 14:                                               ; preds = %2
   %15 = icmp ult i32 %1, %4
@@ -434,7 +434,7 @@ define dso_local noundef ptr @_ZNK4llvm31DWARFAbbreviationDeclarationSet26getAbb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.lr.ph, %6, %14, %16, %28
-  %.3 = phi ptr [ %31, %28 ], [ null, %16 ], [ null, %14 ], [ null, %6 ], [ null, %12 ], [ %.sroa.016.021, %.lr.ph ]
+  %.3 = phi ptr [ %31, %28 ], [ null, %16 ], [ null, %14 ], [ null, %6 ], [ null, %12 ], [ %.sroa.016.023, %.lr.ph ]
   ret ptr %.3
 }
 

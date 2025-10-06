@@ -17385,13 +17385,13 @@ diff_line_prefix.exit:                            ; preds = %5, %8
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !426
-  %.not65 = icmp eq i32 %15, 0
-  br i1 %.not65, label %.thread.thread, label %.lr.ph
+  %.not64 = icmp eq i32 %15, 0
+  br i1 %.not64, label %.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %diff_line_prefix.exit, %40
   %16 = phi i32 [ %41, %40 ], [ %15, %diff_line_prefix.exit ]
-  %.04667 = phi i64 [ %42, %40 ], [ 0, %diff_line_prefix.exit ]
-  %.05066 = phi i32 [ %.3, %40 ], [ 0, %diff_line_prefix.exit ]
+  %.04666 = phi i64 [ %42, %40 ], [ 0, %diff_line_prefix.exit ]
+  %.05065 = phi i32 [ %.3, %40 ], [ 0, %diff_line_prefix.exit ]
   %17 = load ptr, ptr %1, align 8, !tbaa !427
   %18 = load ptr, ptr %17, align 8, !tbaa !312
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #34
@@ -17417,7 +17417,7 @@ diff_line_prefix.exit:                            ; preds = %5, %8
   %30 = sub i64 %28, %29
   %31 = trunc i64 %30 to i32
   %32 = tail call fastcc i64 @gather_dirstat(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %18, i32 noundef %31)
-  %33 = add i32 %.05066, 1
+  %33 = add i32 %.05065, 1
   %.pre = load i32, ptr %14, align 4, !tbaa !426
   br label %40
 
@@ -17428,20 +17428,20 @@ diff_line_prefix.exit:                            ; preds = %5, %8
   store ptr %37, ptr %1, align 8, !tbaa !427
   %38 = add nsw i32 %16, -1
   store i32 %38, ptr %14, align 4, !tbaa !426
-  %39 = add i32 %.05066, 2
+  %39 = add i32 %.05065, 2
   br label %40
 
 40:                                               ; preds = %26, %34
   %41 = phi i32 [ %.pre, %26 ], [ %38, %34 ]
   %.053 = phi i64 [ %32, %26 ], [ %36, %34 ]
   %.3 = phi i32 [ %33, %26 ], [ %39, %34 ]
-  %42 = add i64 %.053, %.04667
+  %42 = add i64 %.053, %.04666
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %40, %.lr.ph, %22
-  %.050.lcssa.ph = phi i32 [ %.3, %40 ], [ %.05066, %.lr.ph ], [ %.05066, %22 ]
-  %.046.lcssa.ph = phi i64 [ %42, %40 ], [ %.04667, %.lr.ph ], [ %.04667, %22 ]
+  %.050.lcssa.ph = phi i32 [ %.3, %40 ], [ %.05065, %.lr.ph ], [ %.05065, %22 ]
+  %.046.lcssa.ph = phi i64 [ %42, %40 ], [ %.04666, %.lr.ph ], [ %.04666, %22 ]
   %43 = icmp ne i32 %.050.lcssa.ph, 1
   %44 = icmp ne i32 %4, 0
   %or.cond = select i1 %44, i1 %43, i1 false
@@ -21504,8 +21504,8 @@ define internal fastcc void @fn_out_diff_words_write_helper(ptr noundef %0, ptr 
   %6 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.run_textconv.buf, i64 24, i1 false)
-  %.not58 = icmp eq i64 %3, 0
-  br i1 %.not58, label %strbuf_setlen.exit.thread.thread, label %.lr.ph
+  %.not57 = icmp eq i64 %3, 0
+  br i1 %.not57, label %strbuf_setlen.exit.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -21517,11 +21517,11 @@ define internal fastcc void @fn_out_diff_words_write_helper(ptr noundef %0, ptr 
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.backedge, %.lr.ph
-  %.03161 = phi i64 [ %3, %.lr.ph ], [ %48, %strbuf_setlen.exit.backedge ]
-  %.03260 = phi ptr [ %4, %.lr.ph ], [ %45, %strbuf_setlen.exit.backedge ]
-  %.not4159 = phi i1 [ true, %.lr.ph ], [ false, %strbuf_setlen.exit.backedge ]
-  %13 = call ptr @memchr(ptr noundef %.03260, i32 noundef 10, i64 noundef %.03161) #34
-  br i1 %.not4159, label %21, label %14
+  %.03160 = phi i64 [ %3, %.lr.ph ], [ %48, %strbuf_setlen.exit.backedge ]
+  %.03259 = phi ptr [ %4, %.lr.ph ], [ %45, %strbuf_setlen.exit.backedge ]
+  %.not4158 = phi i1 [ true, %.lr.ph ], [ false, %strbuf_setlen.exit.backedge ]
+  %13 = call ptr @memchr(ptr noundef %.03259, i32 noundef 10, i64 noundef %.03160) #34
+  br i1 %.not4158, label %21, label %14
 
 14:                                               ; preds = %strbuf_setlen.exit
   %15 = load ptr, ptr %7, align 8, !tbaa !61
@@ -21540,7 +21540,7 @@ diff_line_prefix.exit:                            ; preds = %14, %16
   br label %21
 
 21:                                               ; preds = %diff_line_prefix.exit, %strbuf_setlen.exit
-  %.not42 = icmp eq ptr %13, %.03260
+  %.not42 = icmp eq ptr %13, %.03259
   br i1 %.not42, label %42, label %22
 
 22:                                               ; preds = %21
@@ -21569,10 +21569,10 @@ diff_line_prefix.exit:                            ; preds = %14, %16
   call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %32, i64 noundef %33) #33
   %.not46 = icmp eq ptr %13, null
   %34 = ptrtoint ptr %13 to i64
-  %35 = ptrtoint ptr %.03260 to i64
+  %35 = ptrtoint ptr %.03259 to i64
   %36 = sub i64 %34, %35
-  %37 = select i1 %.not46, i64 %.03161, i64 %36
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef %.03260, i64 noundef %37) #33
+  %37 = select i1 %.not46, i64 %.03160, i64 %36
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef %.03259, i64 noundef %37) #33
   %38 = load ptr, ptr %10, align 8, !tbaa !504
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #34
   call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %38, i64 noundef %39) #33
@@ -21592,9 +21592,9 @@ diff_line_prefix.exit:                            ; preds = %14, %16
   call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %44) #33
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %.03260 to i64
+  %47 = ptrtoint ptr %.03259 to i64
   %.neg = sub i64 %47, %46
-  %48 = add i64 %.neg, %.03161
+  %48 = add i64 %.neg, %.03160
   %.not48 = icmp eq i64 %48, 0
   br i1 %.not48, label %strbuf_setlen.exit.thread, label %49
 
@@ -21686,17 +21686,17 @@ st_mult.exit:                                     ; preds = %3
   %29 = phi i64 [ 0, %.lr.ph123 ], [ %110, %123 ]
   %.0122 = phi i64 [ 0, %.lr.ph123 ], [ %.2, %123 ]
   %storemerge56121 = phi i32 [ 0, %.lr.ph123 ], [ %.494, %123 ]
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph65.preheader.i
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph64.preheader.i
 
-.lr.ph65.preheader.i:                             ; preds = %27
+.lr.ph64.preheader.i:                             ; preds = %27
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !273
-  br label %.lr.ph65.i
+  br label %.lr.ph64.i
 
-.lr.ph65.i:                                       ; preds = %56, %.lr.ph65.preheader.i
-  %.286 = phi i32 [ %storemerge56121, %.lr.ph65.preheader.i ], [ %57, %56 ]
-  %30 = phi ptr [ %.pre.i, %.lr.ph65.preheader.i ], [ %38, %56 ]
-  %31 = phi i64 [ %28, %.lr.ph65.preheader.i ], [ %59, %56 ]
-  %32 = phi i64 [ %29, %.lr.ph65.preheader.i ], [ %58, %56 ]
+.lr.ph64.i:                                       ; preds = %56, %.lr.ph64.preheader.i
+  %.286 = phi i32 [ %storemerge56121, %.lr.ph64.preheader.i ], [ %57, %56 ]
+  %30 = phi ptr [ %.pre.i, %.lr.ph64.preheader.i ], [ %38, %56 ]
+  %31 = phi i64 [ %28, %.lr.ph64.preheader.i ], [ %59, %56 ]
+  %32 = phi i64 [ %29, %.lr.ph64.preheader.i ], [ %58, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
   store i32 0, ptr %4, align 4, !tbaa !511
@@ -21707,11 +21707,11 @@ st_mult.exit:                                     ; preds = %3
   %.not53.i = icmp eq i32 %36, 0
   br i1 %.not53.i, label %37, label %find_word_boundaries.exit.thread101
 
-find_word_boundaries.exit.thread101:              ; preds = %.lr.ph65.i
+find_word_boundaries.exit.thread101:              ; preds = %.lr.ph64.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %find_word_boundaries.exit.thread96
 
-37:                                               ; preds = %.lr.ph65.i
+37:                                               ; preds = %.lr.ph64.i
   %38 = load ptr, ptr %0, align 8, !tbaa !273
   %39 = sext i32 %.286 to i64
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
@@ -21739,16 +21739,16 @@ find_word_boundaries.exit.thread101:              ; preds = %.lr.ph65.i
   %58 = sext i32 %57 to i64
   %59 = load i64, ptr %23, align 8, !tbaa !275
   %60 = icmp sgt i64 %59, %58
-  br i1 %60, label %.lr.ph65.i, label %.critedge.i
+  br i1 %60, label %.lr.ph64.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %56, %27
   %.084 = phi i32 [ %storemerge56121, %27 ], [ %57, %56 ]
   %.pre-phi.i = phi i64 [ %29, %27 ], [ %58, %56 ]
   %61 = phi i64 [ %28, %27 ], [ %59, %56 ]
   %62 = icmp sgt i64 %61, %.pre-phi.i
-  br i1 %62, label %.lr.ph66.i, label %find_word_boundaries.exit.thread96
+  br i1 %62, label %.lr.ph65.i, label %find_word_boundaries.exit.thread96
 
-.lr.ph66.i:                                       ; preds = %.critedge.i
+.lr.ph65.i:                                       ; preds = %.critedge.i
   %63 = load ptr, ptr %0, align 8, !tbaa !273
   %64 = getelementptr inbounds i8, ptr %63, i64 %.pre-phi.i
   %65 = load i8, ptr %64, align 1, !tbaa !38
@@ -21759,7 +21759,7 @@ find_word_boundaries.exit.thread101:              ; preds = %.lr.ph65.i
   %.not50.i118 = icmp eq i8 %69, 0
   br i1 %.not50.i118, label %.critedge2.i.preheader, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph66.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph65.i
   %70 = add nsw i64 %61, -1
   br label %.lr.ph
 
@@ -21778,9 +21778,9 @@ find_word_boundaries.exit.thread101:              ; preds = %.lr.ph65.i
   %78 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %.critedge2.i.preheader
 
-.critedge2.i.preheader:                           ; preds = %.critedge2.i.preheader.loopexit, %.lr.ph66.i
-  %.185.lcssa = phi i32 [ %.084, %.lr.ph66.i ], [ %78, %.critedge2.i.preheader.loopexit ]
-  %indvars.iv.i.lcssa = phi i64 [ %.pre-phi.i, %.lr.ph66.i ], [ %indvars.iv.next.i, %.critedge2.i.preheader.loopexit ]
+.critedge2.i.preheader:                           ; preds = %.critedge2.i.preheader.loopexit, %.lr.ph65.i
+  %.185.lcssa = phi i32 [ %.084, %.lr.ph65.i ], [ %78, %.critedge2.i.preheader.loopexit ]
+  %indvars.iv.i.lcssa = phi i64 [ %.pre-phi.i, %.lr.ph65.i ], [ %indvars.iv.next.i, %.critedge2.i.preheader.loopexit ]
   %79 = add nsw i64 %indvars.iv.i.lcssa, 1
   %smax = call i64 @llvm.smax.i64(i64 %61, i64 %79)
   br label %.critedge2.i
@@ -21791,13 +21791,13 @@ find_word_boundaries.exit.thread101:              ; preds = %.lr.ph65.i
   br i1 %exitcond.not, label %find_word_boundaries.exit.thread96, label %71, !llvm.loop !514
 
 .critedge2.i:                                     ; preds = %.critedge2.i.preheader, %81
-  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %81 ], [ %indvars.iv.i.lcssa, %.critedge2.i.preheader ]
-  %indvars.iv.next76.i = add nsw i64 %indvars.iv75.i, 1
-  %80 = icmp sgt i64 %61, %indvars.iv.next76.i
+  %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %81 ], [ %indvars.iv.i.lcssa, %.critedge2.i.preheader ]
+  %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, 1
+  %80 = icmp sgt i64 %61, %indvars.iv.next75.i
   br i1 %80, label %81, label %find_word_boundaries.exit.thread.loopexit
 
 81:                                               ; preds = %.critedge2.i
-  %82 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.next76.i
+  %82 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.next75.i
   %83 = load i8, ptr %82, align 1, !tbaa !38
   %84 = zext i8 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %84
@@ -21811,8 +21811,8 @@ find_word_boundaries.exit:                        ; preds = %37
   br i1 %.not, label %find_word_boundaries.exit.thread96, label %find_word_boundaries.exit.thread
 
 find_word_boundaries.exit.thread.loopexit:        ; preds = %.critedge2.i, %81
-  %indvars.iv.next76.i.lcssa = phi i64 [ %smax, %.critedge2.i ], [ %indvars.iv.next76.i, %81 ]
-  %88 = trunc nsw i64 %indvars.iv.next76.i.lcssa to i32
+  %indvars.iv.next75.i.lcssa = phi i64 [ %smax, %.critedge2.i ], [ %indvars.iv.next75.i, %81 ]
+  %88 = trunc nsw i64 %indvars.iv.next75.i.lcssa to i32
   br label %find_word_boundaries.exit.thread
 
 find_word_boundaries.exit.thread:                 ; preds = %find_word_boundaries.exit.thread.loopexit, %find_word_boundaries.exit

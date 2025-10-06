@@ -3329,48 +3329,48 @@ define noalias noundef nonnull ptr @lean_io_read_dir(ptr noundef %0, ptr noundef
 
 .preheader:                                       ; preds = %2
   %6 = tail call ptr @readdir(ptr noundef nonnull %5)
-  %.not2235 = icmp eq ptr %6, null
-  br i1 %.not2235, label %._crit_edge, label %sub_0.lr.ph
+  %.not2233 = icmp eq ptr %6, null
+  br i1 %.not2233, label %._crit_edge, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader
   %7 = ptrtoint ptr %0 to i64
   %8 = and i64 %7, 1
-  %.not29 = icmp eq i64 %8, 0
-  br i1 %.not29, label %sub_0.us, label %sub_0
+  %.not27 = icmp eq i64 %8, 0
+  br i1 %.not27, label %sub_0.us, label %sub_0
 
 sub_0.us:                                         ; preds = %sub_0.lr.ph, %32
   %9 = phi ptr [ %33, %32 ], [ %6, %sub_0.lr.ph ]
-  %.01936.us = phi ptr [ %.1.us, %32 ], [ %3, %sub_0.lr.ph ]
+  %.01934.us = phi ptr [ %.1.us, %32 ], [ %3, %sub_0.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %11 = load i8, ptr %10, align 1
-  %.not40 = icmp eq i8 %11, 46
-  br i1 %.not40, label %.tail.us, label %.tail30.us.thread
+  %.not38 = icmp eq i8 %11, 46
+  br i1 %.not38, label %.tail.us, label %.tail28.us.thread
 
 .tail.us:                                         ; preds = %sub_0.us
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %32, label %sub_132.us, !llvm.loop !76
+  br i1 %14, label %32, label %sub_130.us, !llvm.loop !76
 
-sub_132.us:                                       ; preds = %.tail.us
+sub_130.us:                                       ; preds = %.tail.us
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %16 = load i8, ptr %15, align 1
-  %.not42 = icmp eq i8 %16, 46
-  br i1 %.not42, label %.tail30.us, label %.tail30.us.thread
+  %.not40 = icmp eq i8 %16, 46
+  br i1 %.not40, label %.tail28.us, label %.tail28.us.thread
 
-.tail30.us:                                       ; preds = %sub_132.us
+.tail28.us:                                       ; preds = %sub_130.us
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 21
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %32, label %.tail30.us.thread, !llvm.loop !76
+  br i1 %19, label %32, label %.tail28.us.thread, !llvm.loop !76
 
-.tail30.us.thread:                                ; preds = %sub_0.us, %sub_132.us, %.tail30.us
+.tail28.us.thread:                                ; preds = %sub_0.us, %sub_130.us, %.tail28.us
   tail call void @lean_inc_heartbeat()
   %20 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.split.us, label %_ZN4lean11alloc_cnstrEjjj.exit.us
 
-_ZN4lean11alloc_cnstrEjjj.exit.us:                ; preds = %.tail30.us.thread
+_ZN4lean11alloc_cnstrEjjj.exit.us:                ; preds = %.tail28.us.thread
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %20, align 4, !tbaa !7
   store i32 131096, ptr %22, align 4
@@ -3397,11 +3397,11 @@ _ZL8lean_incP11lean_object.exit.us:               ; preds = %26, %25, %24
   %29 = tail call ptr @lean_mk_string(ptr noundef nonnull %10)
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %29, ptr %30, align 8, !tbaa !3
-  %31 = tail call ptr @lean_array_push(ptr noundef %.01936.us, ptr noundef nonnull %20)
+  %31 = tail call ptr @lean_array_push(ptr noundef %.01934.us, ptr noundef nonnull %20)
   br label %32
 
-32:                                               ; preds = %_ZL8lean_incP11lean_object.exit.us, %.tail30.us, %.tail.us
-  %.1.us = phi ptr [ %31, %_ZL8lean_incP11lean_object.exit.us ], [ %.01936.us, %.tail30.us ], [ %.01936.us, %.tail.us ]
+32:                                               ; preds = %_ZL8lean_incP11lean_object.exit.us, %.tail28.us, %.tail.us
+  %.1.us = phi ptr [ %31, %_ZL8lean_incP11lean_object.exit.us ], [ %.01934.us, %.tail28.us ], [ %.01934.us, %.tail.us ]
   %33 = tail call ptr @readdir(ptr noundef nonnull %5)
   %.not22.us = icmp eq ptr %33, null
   br i1 %.not22.us, label %._crit_edge, label %sub_0.us
@@ -3421,41 +3421,41 @@ _ZL8lean_incP11lean_object.exit.us:               ; preds = %26, %25, %24
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %59
   %41 = phi ptr [ %60, %59 ], [ %6, %sub_0.lr.ph ]
-  %.01936 = phi ptr [ %.1, %59 ], [ %3, %sub_0.lr.ph ]
+  %.01934 = phi ptr [ %.1, %59 ], [ %3, %sub_0.lr.ph ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 19
   %43 = load i8, ptr %42, align 1
-  %.not37 = icmp eq i8 %43, 46
-  br i1 %.not37, label %.tail, label %.tail30.thread
+  %.not35 = icmp eq i8 %43, 46
+  br i1 %.not35, label %.tail, label %.tail28.thread
 
 .tail:                                            ; preds = %sub_0
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %59, label %sub_132, !llvm.loop !76
+  br i1 %46, label %59, label %sub_130, !llvm.loop !76
 
-sub_132:                                          ; preds = %.tail
+sub_130:                                          ; preds = %.tail
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %48 = load i8, ptr %47, align 1
-  %.not39 = icmp eq i8 %48, 46
-  br i1 %.not39, label %.tail30, label %.tail30.thread
+  %.not37 = icmp eq i8 %48, 46
+  br i1 %.not37, label %.tail28, label %.tail28.thread
 
-.tail30:                                          ; preds = %sub_132
+.tail28:                                          ; preds = %sub_130
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 21
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %59, label %.tail30.thread, !llvm.loop !76
+  br i1 %51, label %59, label %.tail28.thread, !llvm.loop !76
 
-.tail30.thread:                                   ; preds = %sub_0, %sub_132, %.tail30
+.tail28.thread:                                   ; preds = %sub_0, %sub_130, %.tail28
   tail call void @lean_inc_heartbeat()
   %52 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.split.us, label %_ZN4lean11alloc_cnstrEjjj.exit
 
-.split.us:                                        ; preds = %.tail30.thread, %.tail30.us.thread
+.split.us:                                        ; preds = %.tail28.thread, %.tail28.us.thread
   tail call void @lean_internal_panic_out_of_memory() #28
   unreachable
 
-_ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %.tail30.thread
+_ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %.tail28.thread
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 1, ptr %52, align 4, !tbaa !7
   store i32 131096, ptr %54, align 4
@@ -3464,11 +3464,11 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %.tail30.thread
   %56 = tail call ptr @lean_mk_string(ptr noundef nonnull %42)
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !3
-  %58 = tail call ptr @lean_array_push(ptr noundef %.01936, ptr noundef nonnull %52)
+  %58 = tail call ptr @lean_array_push(ptr noundef %.01934, ptr noundef nonnull %52)
   br label %59
 
-59:                                               ; preds = %.tail, %.tail30, %_ZN4lean11alloc_cnstrEjjj.exit
-  %.1 = phi ptr [ %58, %_ZN4lean11alloc_cnstrEjjj.exit ], [ %.01936, %.tail30 ], [ %.01936, %.tail ]
+59:                                               ; preds = %.tail, %.tail28, %_ZN4lean11alloc_cnstrEjjj.exit
+  %.1 = phi ptr [ %58, %_ZN4lean11alloc_cnstrEjjj.exit ], [ %.01934, %.tail28 ], [ %.01934, %.tail ]
   %60 = tail call ptr @readdir(ptr noundef nonnull %5)
   %.not22 = icmp eq ptr %60, null
   br i1 %.not22, label %._crit_edge, label %sub_0
@@ -3503,17 +3503,17 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %.tail30.thread
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %67, %34
-  %.sink59 = phi ptr [ %38, %34 ], [ %68, %67 ]
+  %.sink57 = phi ptr [ %38, %34 ], [ %68, %67 ]
   %.sink = phi i32 [ 16908312, %34 ], [ 131096, %67 ]
   %.019.lcssa.sink = phi ptr [ %37, %34 ], [ %.019.lcssa, %67 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
-  store i32 1, ptr %.sink59, align 4, !tbaa !7
+  %71 = getelementptr inbounds nuw i8, ptr %.sink57, i64 4
+  store i32 1, ptr %.sink57, align 4, !tbaa !7
   store i32 %.sink, ptr %71, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sink57, i64 8
   store ptr %.019.lcssa.sink, ptr %72, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.sink57, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %73, align 8, !tbaa !3
-  ret ptr %.sink59
+  ret ptr %.sink57
 }
 
 declare noundef ptr @_ZN4lean14array_mk_emptyEv() local_unnamed_addr #1

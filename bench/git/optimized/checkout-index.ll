@@ -904,7 +904,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !60
   %14 = icmp ult i32 %spec.select, %13
-  br i1 %14, label %.lr.ph, label %.thread122
+  br i1 %14, label %.lr.ph, label %.thread120
 
 .lr.ph:                                           ; preds = %2
   %sext = shl i64 %3, 32
@@ -915,8 +915,8 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %19 = load ptr, ptr %18, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !4
-  %.not131 = icmp eq i32 %21, %4
-  br i1 %.not131, label %.lr.ph137, label %.thread
+  %.not129 = icmp eq i32 %21, %4
+  br i1 %.not129, label %.lr.ph135, label %.thread
 
 22:                                               ; preds = %51
   %23 = load ptr, ptr %54, align 8, !tbaa !71
@@ -925,23 +925,23 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i32, ptr %26, align 8, !tbaa !4
   %.not = icmp eq i32 %27, %4
-  br i1 %.not, label %.lr.ph137, label %.thread.loopexit
+  br i1 %.not, label %.lr.ph135, label %.thread.loopexit
 
-.lr.ph137:                                        ; preds = %.lr.ph, %22
+.lr.ph135:                                        ; preds = %.lr.ph, %22
   %28 = phi ptr [ %25, %22 ], [ %19, %.lr.ph ]
-  %.04279136 = phi i32 [ 1, %22 ], [ 0, %.lr.ph ]
-  %.not6480135 = phi i1 [ true, %22 ], [ false, %.lr.ph ]
-  %.03381134 = phi i32 [ %.235, %22 ], [ 0, %.lr.ph ]
-  %.03282133 = phi i32 [ %.2, %22 ], [ 0, %.lr.ph ]
-  %indvars.iv132 = phi i64 [ %indvars.iv.next, %22 ], [ %16, %.lr.ph ]
+  %.04277134 = phi i32 [ 1, %22 ], [ 0, %.lr.ph ]
+  %.not6478133 = phi i1 [ true, %22 ], [ false, %.lr.ph ]
+  %.03379132 = phi i32 [ %.235, %22 ], [ 0, %.lr.ph ]
+  %.03280131 = phi i32 [ %.2, %22 ], [ 0, %.lr.ph ]
+  %indvars.iv130 = phi i64 [ %indvars.iv.next, %22 ], [ %16, %.lr.ph ]
   %29 = phi ptr [ %52, %22 ], [ %9, %.lr.ph ]
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 108
   %bcmp = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %0, i64 %15)
   %.not54 = icmp eq i32 %bcmp, 0
   br i1 %.not54, label %31, label %.thread.loopexit
 
-31:                                               ; preds = %.lr.ph137
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv132, 1
+31:                                               ; preds = %.lr.ph135
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv130, 1
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 52
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = icmp eq i32 %33, 16384
@@ -954,8 +954,8 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %38 = load i32, ptr %37, align 8, !tbaa !4
   %39 = and i32 %38, 1073741824
   %.not56 = icmp eq i32 %39, 0
-  %or.cond130 = select i1 %.not55, i1 true, i1 %.not56
-  br i1 %or.cond130, label %._crit_edge, label %.thread.loopexit
+  %or.cond128 = select i1 %.not55, i1 true, i1 %.not56
+  br i1 %or.cond128, label %._crit_edge, label %.thread.loopexit
 
 ._crit_edge:                                      ; preds = %35
   %40 = lshr i32 %38, 12
@@ -978,14 +978,14 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %48 = select i1 %.not60, ptr null, ptr %47
   %49 = tail call i32 @checkout_entry_ca(ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull @state, ptr noundef %48, ptr noundef null) #13
   %50 = lshr i32 %49, 31
-  %spec.select68 = add nsw i32 %50, %.03282133
-  %.pre111 = load ptr, ptr @the_repository, align 8, !tbaa !21
+  %spec.select68 = add nsw i32 %50, %.03280131
+  %.pre109 = load ptr, ptr @the_repository, align 8, !tbaa !21
   br label %51
 
 51:                                               ; preds = %43, %44
-  %52 = phi ptr [ %.pre111, %44 ], [ %29, %43 ]
-  %.235 = phi i32 [ 1, %44 ], [ %.03381134, %43 ]
-  %.2 = phi i32 [ %spec.select68, %44 ], [ %.03282133, %43 ]
+  %52 = phi ptr [ %.pre109, %44 ], [ %29, %43 ]
+  %.235 = phi i32 [ 1, %44 ], [ %.03379132, %43 ]
+  %.2 = phi i32 [ %spec.select68, %44 ], [ %.03280131, %43 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 384
   %54 = load ptr, ptr %53, align 8, !tbaa !41
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 12
@@ -994,12 +994,12 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %58 = icmp samesign ult i64 %indvars.iv.next, %57
   br i1 %58, label %22, label %.thread.loopexit
 
-.thread.loopexit:                                 ; preds = %35, %51, %.lr.ph137, %22, %31
-  %.not64.lcssa.ph.ph = phi i1 [ %.not6480135, %31 ], [ true, %22 ], [ %.not6480135, %.lr.ph137 ], [ true, %51 ], [ %.not6480135, %35 ]
-  %.033.lcssa.ph.ph = phi i32 [ %.03381134, %31 ], [ %.235, %22 ], [ %.03381134, %.lr.ph137 ], [ %.235, %51 ], [ %.03381134, %35 ]
-  %.032.lcssa.ph.ph = phi i32 [ %.03282133, %31 ], [ %.2, %22 ], [ %.03282133, %.lr.ph137 ], [ %.2, %51 ], [ %.03282133, %35 ]
-  %.143.ph.ph = phi i1 [ true, %31 ], [ true, %22 ], [ %.not6480135, %.lr.ph137 ], [ true, %51 ], [ true, %35 ]
-  %.140.ph.ph = phi i32 [ %.04279136, %31 ], [ 1, %22 ], [ %.04279136, %.lr.ph137 ], [ 1, %51 ], [ 1, %35 ]
+.thread.loopexit:                                 ; preds = %35, %51, %.lr.ph135, %22, %31
+  %.not64.lcssa.ph.ph = phi i1 [ %.not6478133, %31 ], [ true, %22 ], [ %.not6478133, %.lr.ph135 ], [ true, %51 ], [ %.not6478133, %35 ]
+  %.033.lcssa.ph.ph = phi i32 [ %.03379132, %31 ], [ %.235, %22 ], [ %.03379132, %.lr.ph135 ], [ %.235, %51 ], [ %.03379132, %35 ]
+  %.032.lcssa.ph.ph = phi i32 [ %.03280131, %31 ], [ %.2, %22 ], [ %.03280131, %.lr.ph135 ], [ %.2, %51 ], [ %.03280131, %35 ]
+  %.143.ph.ph = phi i1 [ true, %31 ], [ true, %22 ], [ %.not6478133, %.lr.ph135 ], [ true, %51 ], [ true, %35 ]
+  %.140.ph.ph = phi i32 [ %.04277134, %31 ], [ 1, %22 ], [ %.04277134, %.lr.ph135 ], [ 1, %51 ], [ 1, %35 ]
   %59 = icmp eq i32 %.033.lcssa.ph.ph, 0
   %60 = icmp sgt i32 %.032.lcssa.ph.ph, 0
   %61 = sext i1 %60 to i32
@@ -1027,21 +1027,21 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %67 = load i32, ptr @checkout_stage, align 4
   %68 = icmp eq i32 %67, 4
   %or.cond = select i1 %.143.ph, i1 %68, i1 false
-  br i1 %or.cond, label %95, label %.thread122
+  br i1 %or.cond, label %95, label %.thread120
 
-.thread122:                                       ; preds = %2, %66
-  %.not64.lcssa119129 = phi i1 [ %.not64.lcssa.ph, %66 ], [ false, %2 ]
-  %.143120128 = phi i1 [ %.143.ph, %66 ], [ false, %2 ]
-  %.140121127 = phi i1 [ %.140.ph, %66 ], [ true, %2 ]
+.thread120:                                       ; preds = %2, %66
+  %.not64.lcssa117127 = phi i1 [ %.not64.lcssa.ph, %66 ], [ false, %2 ]
+  %.143118126 = phi i1 [ %.143.ph, %66 ], [ false, %2 ]
+  %.140119125 = phi i1 [ %.140.ph, %66 ], [ true, %2 ]
   %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @state, i64 120), align 8
   %70 = and i8 %69, 2
   %.not62 = icmp eq i8 %70, 0
   br i1 %.not62, label %71, label %95
 
-71:                                               ; preds = %.thread122
+71:                                               ; preds = %.thread120
   %72 = load ptr, ptr @stderr, align 8, !tbaa !52
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.38, ptr noundef nonnull %0) #16
-  br i1 %.143120128, label %77, label %74
+  br i1 %.143118126, label %77, label %74
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr @stderr, align 8, !tbaa !52
@@ -1049,7 +1049,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   br label %92
 
 77:                                               ; preds = %71
-  br i1 %.140121127, label %78, label %81
+  br i1 %.140119125, label %78, label %81
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr @stderr, align 8, !tbaa !52
@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   br label %92
 
 81:                                               ; preds = %77
-  br i1 %.not64.lcssa119129, label %85, label %82
+  br i1 %.not64.lcssa117127, label %85, label %82
 
 82:                                               ; preds = %81
   %83 = load ptr, ptr @stderr, align 8, !tbaa !52
@@ -1083,8 +1083,8 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %94 = tail call i32 @fputc(i32 noundef 10, ptr noundef %93)
   br label %95
 
-95:                                               ; preds = %63, %65, %.thread122, %92, %66
-  %.031 = phi i32 [ 0, %66 ], [ -1, %92 ], [ -1, %.thread122 ], [ %.032.lcssa.ph, %65 ], [ %.032.lcssa.ph, %63 ]
+95:                                               ; preds = %63, %65, %.thread120, %92, %66
+  %.031 = phi i32 [ 0, %66 ], [ -1, %92 ], [ -1, %.thread120 ], [ %.032.lcssa.ph, %65 ], [ %.032.lcssa.ph, %63 ]
   ret i32 %.031
 }
 

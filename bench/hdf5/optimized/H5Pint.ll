@@ -4441,27 +4441,27 @@ define i32 @H5P__cmp_class(ptr noundef readonly captures(none) %0, ptr noundef r
 .lr.ph:                                           ; preds = %99, %118
   %109 = phi i1 [ %122, %118 ], [ %107, %99 ]
   %110 = phi i1 [ %121, %118 ], [ %106, %99 ]
-  %.070109 = phi ptr [ %119, %118 ], [ %102, %99 ]
-  %.073108 = phi ptr [ %120, %118 ], [ %105, %99 ]
-  %111 = icmp eq ptr %.070109, null
+  %.070108 = phi ptr [ %119, %118 ], [ %102, %99 ]
+  %.073107 = phi ptr [ %120, %118 ], [ %105, %99 ]
+  %111 = icmp eq ptr %.070108, null
   %or.cond = select i1 %111, i1 %109, i1 false
   br i1 %or.cond, label %.thread102, label %112
 
 112:                                              ; preds = %.lr.ph
-  %113 = icmp eq ptr %.073108, null
+  %113 = icmp eq ptr %.073107, null
   %or.cond3 = select i1 %110, i1 %113, i1 false
   br i1 %or.cond3, label %.thread102, label %114
 
 114:                                              ; preds = %112
-  %115 = tail call ptr @H5SL_item(ptr noundef %.070109) #14
-  %116 = tail call ptr @H5SL_item(ptr noundef %.073108) #14
+  %115 = tail call ptr @H5SL_item(ptr noundef %.070108) #14
+  %116 = tail call ptr @H5SL_item(ptr noundef %.073107) #14
   %117 = tail call fastcc i32 @H5P__cmp_prop(ptr noundef %115, ptr noundef %116)
   %.not99 = icmp eq i32 %117, 0
   br i1 %.not99, label %118, label %.thread102
 
 118:                                              ; preds = %114
-  %119 = tail call ptr @H5SL_next(ptr noundef %.070109) #14
-  %120 = tail call ptr @H5SL_next(ptr noundef %.073108) #14
+  %119 = tail call ptr @H5SL_next(ptr noundef %.070108) #14
+  %120 = tail call ptr @H5SL_next(ptr noundef %.073107) #14
   %121 = icmp ne ptr %119, null
   %122 = icmp ne ptr %120, null
   %123 = select i1 %121, i1 true, i1 %122

@@ -1694,8 +1694,8 @@ onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge: ; preds = %.lr.ph363, %
 245:                                              ; preds = %241
   %246 = getelementptr i8, ptr %243, i64 4
   %247 = load i32, ptr %246, align 4, !tbaa !14
-  %.fr36.i = freeze i32 %247
-  %.not4.i.not.i = icmp eq i32 %.fr.i281, %.fr36.i
+  %.fr35.i = freeze i32 %247
+  %.not4.i.not.i = icmp eq i32 %.fr.i281, %.fr35.i
   br i1 %.not4.i.not.i, label %.lr.ph398, label %.thread
 
 .lr.ph398:                                        ; preds = %245
@@ -1820,8 +1820,8 @@ onigenc_unicode_CaseUnfold_12_lookup.exit:        ; preds = %252, %256
 324:                                              ; preds = %321
   %325 = getelementptr i8, ptr %319, i64 8
   %326 = load i32, ptr %325, align 8, !tbaa !14
-  %.fr41.i = freeze i32 %326
-  %.not7.i.not.i = icmp eq i32 %.fr.i284, %.fr41.i
+  %.fr40.i = freeze i32 %326
+  %.not7.i.not.i = icmp eq i32 %.fr.i284, %.fr40.i
   br i1 %.not7.i.not.i, label %.lr.ph384, label %.thread
 
 .lr.ph384:                                        ; preds = %324
@@ -2078,8 +2078,8 @@ onigenc_unicode_CaseFold_11_lookup.exit297.thread: ; preds = %393, %415, %420, %
 477:                                              ; preds = %473
   %478 = getelementptr i8, ptr %475, i64 4
   %479 = load i32, ptr %478, align 4, !tbaa !14
-  %.fr36.i304 = freeze i32 %479
-  %.not4.i.not.i305 = icmp eq i32 %.fr.i300, %.fr36.i304
+  %.fr35.i304 = freeze i32 %479
+  %.not4.i.not.i305 = icmp eq i32 %.fr.i300, %.fr35.i304
   br i1 %.not4.i.not.i305, label %.lr.ph406, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
 
 .lr.ph406:                                        ; preds = %477
@@ -2266,8 +2266,8 @@ onigenc_unicode_CaseFold_11_lookup.exit312.thread: ; preds = %498, %520, %525, %
 600:                                              ; preds = %597
   %601 = getelementptr i8, ptr %595, i64 8
   %602 = load i32, ptr %601, align 8, !tbaa !14
-  %.fr41.i322 = freeze i32 %602
-  %.not7.i.not.i323 = icmp eq i32 %.fr.i316, %.fr41.i322
+  %.fr40.i322 = freeze i32 %602
+  %.not7.i.not.i323 = icmp eq i32 %.fr.i316, %.fr40.i322
   br i1 %.not7.i.not.i323, label %.lr.ph410, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
 
 .lr.ph410:                                        ; preds = %600

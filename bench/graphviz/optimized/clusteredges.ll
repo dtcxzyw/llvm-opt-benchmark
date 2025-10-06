@@ -493,7 +493,7 @@ define internal fastcc void @addGraphObjs(ptr noundef nonnull captures(none) %0,
 
 ._crit_edge.i.i:                                  ; preds = %27
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !64
-  %.pre46.i.i = load ptr, ptr %0, align 8, !tbaa !67
+  %.pre45.i.i = load ptr, ptr %0, align 8, !tbaa !67
   br label %objlist_append.exit
 
 32:                                               ; preds = %27
@@ -547,7 +547,7 @@ define internal fastcc void @addGraphObjs(ptr noundef nonnull captures(none) %0,
   unreachable
 
 objlist_append.exit:                              ; preds = %._crit_edge.i.i, %55
-  %61 = phi ptr [ %.pre46.i.i, %._crit_edge.i.i ], [ %38, %55 ]
+  %61 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %38, %55 ]
   %62 = phi i64 [ %30, %._crit_edge.i.i ], [ %spec.select.i.i, %55 ]
   %63 = phi i64 [ %29, %._crit_edge.i.i ], [ %46, %55 ]
   %64 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %56, %55 ]
@@ -670,7 +670,7 @@ makeClustObs.exit:                                ; preds = %94, %101
 
 ._crit_edge.i.i34:                                ; preds = %makeClustObs.exit
   %.pre.i.i36 = load i64, ptr %.phi.trans.insert.i.i35, align 8, !tbaa !64
-  %.pre46.i.i37 = load ptr, ptr %0, align 8, !tbaa !67
+  %.pre45.i.i37 = load ptr, ptr %0, align 8, !tbaa !67
   br label %objlist_append.exit41
 
 126:                                              ; preds = %makeClustObs.exit
@@ -726,7 +726,7 @@ makeClustObs.exit:                                ; preds = %94, %101
 
 objlist_append.exit41:                            ; preds = %._crit_edge.i.i34, %149
   %.pre = phi ptr [ %.pre48, %._crit_edge.i.i34 ], [ %.pre.pre, %149 ]
-  %155 = phi ptr [ %.pre46.i.i37, %._crit_edge.i.i34 ], [ %132, %149 ]
+  %155 = phi ptr [ %.pre45.i.i37, %._crit_edge.i.i34 ], [ %132, %149 ]
   %156 = phi i64 [ %124, %._crit_edge.i.i34 ], [ %spec.select.i.i38, %149 ]
   %157 = phi i64 [ %123, %._crit_edge.i.i34 ], [ %140, %149 ]
   %158 = phi i64 [ %.pre.i.i36, %._crit_edge.i.i34 ], [ %150, %149 ]

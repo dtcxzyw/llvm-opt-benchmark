@@ -444,23 +444,23 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit:     ; preds = %.lr.ph.preheader.i.
   br label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer
 
 _ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer: ; preds = %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit
-  %.sroa.37.1.ph379 = phi i64 [ %.sroa.37.0, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit ], [ %.sroa.37.1.ph379.be, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge ]
+  %.sroa.37.1.ph378 = phi i64 [ %.sroa.37.0, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit ], [ %.sroa.37.1.ph378.be, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge ]
   %.130.ph = phi i64 [ %.029, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit ], [ %.130.ph.be, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge ]
   %.1.ph = phi ptr [ %.0, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit ], [ %.1.ph.be, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge ]
-  %69 = icmp ult i64 %.sroa.37.1.ph379, %66
-  %70 = icmp ult i64 %.sroa.37.1.ph379, %66
-  br label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer380
+  %69 = icmp ult i64 %.sroa.37.1.ph378, %66
+  %70 = icmp ult i64 %.sroa.37.1.ph378, %66
+  br label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer379
 
-_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer380: ; preds = %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer, %140
-  %.130.ph381 = phi i64 [ %.130.ph, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer ], [ -1, %140 ]
-  %.1.ph382 = phi ptr [ %.1.ph, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer ], [ %138, %140 ]
-  %71 = icmp ne i64 %.130.ph381, -1
+_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer379: ; preds = %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer, %140
+  %.130.ph380 = phi i64 [ %.130.ph, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer ], [ -1, %140 ]
+  %.1.ph381 = phi ptr [ %.1.ph, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer ], [ %138, %140 ]
+  %71 = icmp ne i64 %.130.ph380, -1
   tail call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds nuw i8, ptr %.1.ph382, i64 24
-  %73 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %72, i64 %.130.ph381
+  %72 = getelementptr inbounds nuw i8, ptr %.1.ph381, i64 24
+  %73 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %72, i64 %.130.ph380
   br label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread
 
-_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread: ; preds = %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer380, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread237
+_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread: ; preds = %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer379, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread237
   %74 = load atomic i64, ptr %73 seq_cst, align 8
   switch i64 %74, label %.critedge._crit_edge.i [
     i64 0, label %77
@@ -582,20 +582,20 @@ _ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE14loadOrGenerateENS_12func
   br i1 %139, label %140, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread226
 
 140:                                              ; preds = %.critedge._crit_edge.i
-  br i1 %70, label %141, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer380, !llvm.loop !76
+  br i1 %70, label %141, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer379, !llvm.loop !76
 
 141:                                              ; preds = %140
-  %.not.i64 = icmp eq i64 %.sroa.37.1.ph379, 0
+  %.not.i64 = icmp eq i64 %.sroa.37.1.ph378, 0
   %142 = select i1 %.not.i64, i64 %43, i64 %46
-  %143 = add i64 %142, %.sroa.37.1.ph379
+  %143 = add i64 %142, %.sroa.37.1.ph378
   %144 = lshr i64 %143, 3
   %.not48.i3.i68 = icmp samesign eq i64 %144, %4
   br i1 %.not48.i3.i68, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge, label %.lr.ph.preheader.i4.i69
 
 _ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge: ; preds = %155, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179, %141, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126
-  %.sroa.37.1.ph379.be = phi i64 [ %183, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %143, %141 ], [ %.sroa.37.4263, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %292, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %143, %155 ]
-  %.130.ph.be = phi i64 [ %.130.ph381, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ 0, %141 ], [ %.040264, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.040264, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %168, %155 ]
-  %.1.ph.be = phi ptr [ %.1.ph382, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %138, %141 ], [ %.09.i, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.09.i, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %138, %155 ]
+  %.sroa.37.1.ph378.be = phi i64 [ %183, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %143, %141 ], [ %.sroa.37.4262, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %292, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %143, %155 ]
+  %.130.ph.be = phi i64 [ %.130.ph380, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ 0, %141 ], [ %.040263, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.040263, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %168, %155 ]
+  %.1.ph.be = phi ptr [ %.1.ph381, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %138, %141 ], [ %.09.i, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.09.i, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %138, %155 ]
   br label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer, !llvm.loop !76
 
 .lr.ph.preheader.i4.i69:                          ; preds = %141
@@ -674,9 +674,9 @@ _ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread237: ; preds = %_ZN4llvmeqIhEEbNS
 179:                                              ; preds = %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread237
   %180 = getelementptr inbounds nuw i8, ptr %138, i64 3
   %181 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %.not.i105 = icmp eq i64 %.sroa.37.1.ph379, 0
+  %.not.i105 = icmp eq i64 %.sroa.37.1.ph378, 0
   %182 = select i1 %.not.i105, i64 %43, i64 %46
-  %183 = add i64 %182, %.sroa.37.1.ph379
+  %183 = add i64 %182, %.sroa.37.1.ph378
   %184 = lshr i64 %183, 3
   %.not48.i3.i109 = icmp samesign eq i64 %184, %4
   br i1 %.not48.i3.i109, label %.lr.ph.preheader, label %.lr.ph.preheader.i4.i110
@@ -732,30 +732,30 @@ _ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread237: ; preds = %_ZN4llvmeqIhEEbNS
   br i1 %or.cond.i19.i125, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126, label %.lr.ph.i5.i111
 
 _ZN4llvm22TrieHashIndexGenerator4nextEv.exit126:  ; preds = %195
-  %.not43262 = icmp eq i64 %208, -1
-  br i1 %.not43262, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge, label %.lr.ph.preheader
+  %.not43261 = icmp eq i64 %208, -1
+  br i1 %.not43261, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %179, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126
-  %.040264.ph = phi i64 [ %208, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ 0, %179 ]
+  %.040263.ph = phi i64 [ %208, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ 0, %179 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179
-  %.5266 = phi ptr [ %.09.i, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.1.ph382, %.lr.ph.preheader ]
-  %.534265 = phi i64 [ %.040264, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.130.ph381, %.lr.ph.preheader ]
-  %.040264 = phi i64 [ %.141, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.040264.ph, %.lr.ph.preheader ]
-  %.sroa.37.4263 = phi i64 [ %292, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %183, %.lr.ph.preheader ]
+  %.5265 = phi ptr [ %.09.i, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.1.ph381, %.lr.ph.preheader ]
+  %.534264 = phi i64 [ %.040263, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.130.ph380, %.lr.ph.preheader ]
+  %.040263 = phi i64 [ %.141, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.040263.ph, %.lr.ph.preheader ]
+  %.sroa.37.4262 = phi i64 [ %292, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %183, %.lr.ph.preheader ]
   %211 = load i8, ptr %180, align 1, !tbaa !54
   %212 = zext i8 %211 to i64
   %213 = getelementptr inbounds nuw i8, ptr %138, i64 %212
   %214 = load i8, ptr %181, align 1, !tbaa !56
   %215 = zext i8 %214 to i64
-  %216 = lshr i64 %.sroa.37.4263, 3
+  %216 = lshr i64 %.sroa.37.4262, 3
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 %215
   %.not48.i.i129 = icmp samesign eq i64 %216, %215
   br i1 %.not48.i.i129, label %_ZNK4llvm22TrieHashIndexGenerator16getCollidingBitsENS_8ArrayRefIhEE.exit, label %.lr.ph.preheader.i.i130
 
 .lr.ph.preheader.i.i130:                          ; preds = %.lr.ph
-  %218 = and i64 %.sroa.37.4263, 7
+  %218 = and i64 %.sroa.37.4262, 7
   %219 = getelementptr inbounds nuw i8, ptr %213, i64 %216
   br label %.lr.ph.i.i
 
@@ -806,13 +806,13 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit126:  ; preds = %195
 
 _ZNK4llvm22TrieHashIndexGenerator16getCollidingBitsENS_8ArrayRefIhEE.exit: ; preds = %228, %.lr.ph
   %.139.i.i = phi i64 [ 0, %.lr.ph ], [ %241, %228 ]
-  %.not.i140 = icmp eq i64 %.sroa.37.4263, 0
-  %244 = sub i64 %66, %.sroa.37.4263
+  %.not.i140 = icmp eq i64 %.sroa.37.4262, 0
+  %244 = sub i64 %66, %.sroa.37.4262
   %.sroa.speculated = select i1 %.not.i140, i64 %43, i64 %46
   %.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %244, i64 %.sroa.speculated)
-  %245 = getelementptr inbounds nuw i8, ptr %.5266, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %.5265, i64 4
   %246 = load i32, ptr %245, align 4, !tbaa !38
-  %247 = getelementptr inbounds nuw i8, ptr %.5266, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %.5265, i64 8
   %248 = load i32, ptr %247, align 8, !tbaa !43
   %249 = add i32 %248, %246
   %250 = trunc nuw nsw i64 %.sroa.speculated.i to i32
@@ -847,8 +847,8 @@ _ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE21compare_exchange_weakERP
   br i1 %269, label %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE5storeEPS2_.exit.i, label %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE21compare_exchange_weakERPS2_S4_.exit.i.i.i
 
 _ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE5storeEPS2_.exit.i: ; preds = %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE21compare_exchange_weakERPS2_S4_.exit.i.i.i, %_ZNK4llvm22TrieHashIndexGenerator16getCollidingBitsENS_8ArrayRefIhEE.exit
-  %270 = getelementptr inbounds nuw i8, ptr %.5266, i64 24
-  %271 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %270, i64 %.534265
+  %270 = getelementptr inbounds nuw i8, ptr %.5265, i64 24
+  %271 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %270, i64 %.534264
   %272 = ptrtoint ptr %255 to i64
   %273 = cmpxchg ptr %271, i64 %.sink, i64 %272 seq_cst seq_cst, align 8
   %274 = extractvalue { i64, i1 } %273, 1
@@ -890,13 +890,13 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_111TrieSubtrieEEclEPS1_.exit.i10.i: ; preds
 
 _ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit: ; preds = %.lr.ph.i.i.i, %.loopexit.i, %_ZNKSt14default_deleteIN12_GLOBAL__N_111TrieSubtrieEEclEPS1_.exit.i10.i
   %.09.i = phi ptr [ %289, %_ZNKSt14default_deleteIN12_GLOBAL__N_111TrieSubtrieEEclEPS1_.exit.i10.i ], [ %255, %.loopexit.i ], [ %255, %.lr.ph.i.i.i ]
-  %.not44 = icmp eq i64 %.040264, %.139.i.i
-  %290 = icmp ult i64 %.sroa.37.4263, %66
+  %.not44 = icmp eq i64 %.040263, %.139.i.i
+  %290 = icmp ult i64 %.sroa.37.4262, %66
   %or.cond = select i1 %.not44, i1 %290, i1 false
   br i1 %or.cond, label %291, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge
 
 291:                                              ; preds = %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit
-  %292 = add i64 %.sroa.speculated, %.sroa.37.4263
+  %292 = add i64 %.sroa.speculated, %.sroa.37.4262
   %293 = lshr i64 %292, 3
   %.not48.i3.i162 = icmp samesign eq i64 %293, %4
   br i1 %.not48.i3.i162, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179, label %.lr.ph.preheader.i4.i163
@@ -957,11 +957,11 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit179:  ; preds = %304, %291
   br i1 %.not43, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge, label %.lr.ph
 
 _ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread:  ; preds = %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit, %178, %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE14loadOrGenerateENS_12function_refIFPS2_vEEE.exit
-  %.0.i46358 = phi ptr [ %.0.i.i.i.i.i.i.i, %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE14loadOrGenerateENS_12function_refIFPS2_vEEE.exit ], [ %138, %178 ], [ %138, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit ]
-  %.pn.in.in = getelementptr inbounds nuw i8, ptr %.0.i46358, i64 1
+  %.0.i46357 = phi ptr [ %.0.i.i.i.i.i.i.i, %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE14loadOrGenerateENS_12function_refIFPS2_vEEE.exit ], [ %138, %178 ], [ %138, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit ]
+  %.pn.in.in = getelementptr inbounds nuw i8, ptr %.0.i46357, i64 1
   %.pn.in = load i8, ptr %.pn.in.in, align 1, !tbaa !57
   %.pn = zext i8 %.pn.in to i64
-  %.sroa.0220.1.ph = getelementptr inbounds nuw i8, ptr %.0.i46358, i64 %.pn
+  %.sroa.0220.1.ph = getelementptr inbounds nuw i8, ptr %.0.i46357, i64 %.pn
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0220.1.ph, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 4294967294, 1
   ret { ptr, i64 } %.fca.1.insert

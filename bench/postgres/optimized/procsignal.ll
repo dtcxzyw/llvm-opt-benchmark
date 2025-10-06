@@ -922,12 +922,12 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %.pre35 = load ptr, ptr @ProcSignal, align 8
+  %.pre33 = load ptr, ptr @ProcSignal, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %6 = phi i32 [ %3, %.lr.ph.preheader ], [ %39, %38 ]
-  %7 = phi ptr [ %.pre35, %.lr.ph.preheader ], [ %40, %38 ]
+  %7 = phi ptr [ %.pre33, %.lr.ph.preheader ], [ %40, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %8, i64 %indvars.iv
@@ -954,7 +954,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   store i8 0, ptr %12, align 4
   %.pre = load ptr, ptr @ProcSignal, align 8
-  %.pre36 = load i32, ptr @MaxBackends, align 4
+  %.pre34 = load i32, ptr @MaxBackends, align 4
   br label %38
 
 19:                                               ; preds = %16
@@ -1000,7 +1000,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   br label %47
 
 38:                                               ; preds = %18, %.lr.ph
-  %39 = phi i32 [ %.pre36, %18 ], [ %6, %.lr.ph ]
+  %39 = phi i32 [ %.pre34, %18 ], [ %6, %.lr.ph ]
   %40 = phi ptr [ %.pre, %18 ], [ %7, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = add i32 %39, 6

@@ -272,26 +272,26 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   %63 = tail call ptr @av_malloc_array(i64 noundef %56, i64 noundef 8) #12
   store ptr %63, ptr %14, align 8, !tbaa !42
   %.not.i = icmp eq ptr %63, null
-  br i1 %.not.i, label %.loopexit82, label %.preheader380.i
+  br i1 %.not.i, label %.loopexit82, label %.preheader379.i
 
-.preheader380.i:                                  ; preds = %61
+.preheader379.i:                                  ; preds = %61
   %64 = load i32, ptr %13, align 4, !tbaa !41
-  %.not434.i = icmp eq i32 %64, 0
-  br i1 %.not434.i, label %.preheader379.i, label %.lr.ph.i
+  %.not433.i = icmp eq i32 %64, 0
+  br i1 %.not433.i, label %.preheader378.i, label %.lr.ph.i
 
 65:                                               ; preds = %80
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i32, ptr %13, align 4, !tbaa !41
   %67 = zext i32 %66 to i64
   %68 = icmp samesign ult i64 %indvars.iv.next.i, %67
-  br i1 %68, label %.lr.ph.i, label %.preheader379.i, !llvm.loop !43
+  br i1 %68, label %.lr.ph.i, label %.preheader378.i, !llvm.loop !43
 
-.preheader379.i:                                  ; preds = %65, %.preheader380.i
+.preheader378.i:                                  ; preds = %65, %.preheader379.i
   %69 = getelementptr inbounds nuw i8, ptr %29, i64 80
   br label %91
 
-.lr.ph.i:                                         ; preds = %.preheader380.i, %65
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %.preheader380.i ]
+.lr.ph.i:                                         ; preds = %.preheader379.i, %65
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %.preheader379.i ]
   %70 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
   %71 = add i64 %70, -1
   %or.cond5.i = icmp ult i64 %71, 2147483647
@@ -331,17 +331,17 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %85, i32 noundef %81) #12
   br label %.thread354.i
 
-.loopexit378.i:                                   ; preds = %167
-  %89 = trunc nsw i64 %indvars.iv.next482.i to i32
-  %90 = icmp slt i64 %indvars.iv481.i, 255
+.loopexit377.i:                                   ; preds = %167
+  %89 = trunc nsw i64 %indvars.iv.next481.i to i32
+  %90 = icmp slt i64 %indvars.iv480.i, 255
   br i1 %90, label %91, label %169
 
-91:                                               ; preds = %.loopexit378.i, %.preheader379.i
-  %.0225424.i = phi i8 [ 0, %.preheader379.i ], [ %.2227514.i, %.loopexit378.i ]
-  %.0230423.i = phi i16 [ 0, %.preheader379.i ], [ %.2232285289297306320335350510.i, %.loopexit378.i ]
-  %.0233422.i = phi i32 [ 1, %.preheader379.i ], [ %.2235290296307318336349511.i, %.loopexit378.i ]
-  %.0236421.i = phi i32 [ 0, %.preheader379.i ], [ %.2238298305322334351509.i, %.loopexit378.i ]
-  %.1246420.i = phi i32 [ 0, %.preheader379.i ], [ %89, %.loopexit378.i ]
+91:                                               ; preds = %.loopexit377.i, %.preheader378.i
+  %.0225423.i = phi i8 [ 0, %.preheader378.i ], [ %.2227513.i, %.loopexit377.i ]
+  %.0230422.i = phi i16 [ 0, %.preheader378.i ], [ %.2232285289297306320335350509.i, %.loopexit377.i ]
+  %.0233421.i = phi i32 [ 1, %.preheader378.i ], [ %.2235290296307318336349510.i, %.loopexit377.i ]
+  %.0236420.i = phi i32 [ 0, %.preheader378.i ], [ %.2238298305322334351508.i, %.loopexit377.i ]
+  %.1246419.i = phi i32 [ 0, %.preheader378.i ], [ %89, %.loopexit377.i ]
   %92 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
   %93 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
   %94 = trunc i64 %93 to i32
@@ -365,8 +365,8 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   %103 = sub nsw i64 0, %102
   %.0.i.i = select i1 %.not.not.i.i, i64 %103, i64 %102
   %104 = trunc i64 %.0.i.i to i16
-  %.not372.i = icmp eq i32 %94, 1
-  br i1 %.not372.i, label %.thread326.i, label %105
+  %.not371.i = icmp eq i32 %94, 1
+  br i1 %.not371.i, label %.thread326.i, label %105
 
 105:                                              ; preds = %98
   %106 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
@@ -377,8 +377,8 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
 109:                                              ; preds = %105
   %110 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
   %111 = trunc i64 %110 to i32
-  %.not373.i = icmp eq i32 %94, 3
-  br i1 %.not373.i, label %.thread326.i, label %112
+  %.not372.i = icmp eq i32 %94, 3
+  br i1 %.not372.i, label %.thread326.i, label %112
 
 112:                                              ; preds = %109
   %113 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
@@ -389,14 +389,14 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
 116:                                              ; preds = %112
   %117 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
   %118 = trunc i64 %117 to i8
-  %.not374.i = icmp eq i32 %94, 5
-  br i1 %.not374.i, label %.thread326.i, label %120
+  %.not373.i = icmp eq i32 %94, 5
+  br i1 %.not373.i, label %.thread326.i, label %120
 
 .thread326.i:                                     ; preds = %116, %112, %109, %105, %98, %97
   %.0228325.i = phi i8 [ %118, %116 ], [ 0, %112 ], [ 0, %109 ], [ 0, %105 ], [ 0, %98 ], [ 0, %97 ]
-  %.2238298305323.i = phi i32 [ %111, %116 ], [ %111, %112 ], [ %111, %109 ], [ %.0236421.i, %105 ], [ %.0236421.i, %98 ], [ %.0236421.i, %97 ]
-  %.2232285289297306321.i = phi i16 [ %104, %116 ], [ %104, %112 ], [ %104, %109 ], [ %104, %105 ], [ %104, %98 ], [ %.0230423.i, %97 ]
-  %.2235290296307319.i = phi i32 [ %107, %116 ], [ %107, %112 ], [ %107, %109 ], [ %107, %105 ], [ %.0233422.i, %98 ], [ %.0233422.i, %97 ]
+  %.2238298305323.i = phi i32 [ %111, %116 ], [ %111, %112 ], [ %111, %109 ], [ %.0236420.i, %105 ], [ %.0236420.i, %98 ], [ %.0236420.i, %97 ]
+  %.2232285289297306321.i = phi i16 [ %104, %116 ], [ %104, %112 ], [ %104, %109 ], [ %104, %105 ], [ %104, %98 ], [ %.0230422.i, %97 ]
+  %.2235290296307319.i = phi i32 [ %107, %116 ], [ %107, %112 ], [ %107, %109 ], [ %107, %105 ], [ %.0233421.i, %98 ], [ %.0233421.i, %97 ]
   %.0229308317.i = phi i32 [ %114, %116 ], [ %114, %112 ], [ 0, %109 ], [ 0, %105 ], [ 0, %98 ], [ 0, %97 ]
   %119 = sub i32 %.2235290296307319.i, %.0229308317.i
   br label %._crit_edge.i
@@ -409,83 +409,83 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
 
 124:                                              ; preds = %120
   %125 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
-  %.not375.i = icmp eq i32 %94, 7
-  br i1 %.not375.i, label %._crit_edge.i, label %.thread340.i
+  %.not374.i = icmp eq i32 %94, 7
+  br i1 %.not374.i, label %._crit_edge.i, label %.thread340.i
 
 .thread340.i:                                     ; preds = %124
   %126 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
   %127 = trunc i64 %126 to i8
   %128 = icmp samesign ugt i32 %94, 8
-  br i1 %128, label %.lr.ph416.i, label %._crit_edge.i
+  br i1 %128, label %.lr.ph415.i, label %._crit_edge.i
 
-.lr.ph416.i:                                      ; preds = %.thread340.i, %131
+.lr.ph415.i:                                      ; preds = %.thread340.i, %131
   %.in.i = phi i32 [ %132, %131 ], [ %94, %.thread340.i ]
   %129 = load i32, ptr %69, align 8, !tbaa !47
   %.not274.i = icmp eq i32 %129, 0
   br i1 %.not274.i, label %131, label %130
 
-130:                                              ; preds = %.lr.ph416.i
+130:                                              ; preds = %.lr.ph415.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.16) #12
   br label %.thread354.i
 
-131:                                              ; preds = %.lr.ph416.i
+131:                                              ; preds = %.lr.ph415.i
   %132 = add nsw i32 %.in.i, -1
   %133 = tail call i64 @ffio_read_varlen(ptr noundef nonnull %29) #12
   %134 = icmp sgt i32 %.in.i, 9
-  br i1 %134, label %.lr.ph416.i, label %._crit_edge.i, !llvm.loop !49
+  br i1 %134, label %.lr.ph415.i, label %._crit_edge.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %131, %.thread340.i, %124, %120, %.thread326.i
-  %.2227514.i = phi i8 [ %127, %.thread340.i ], [ %.0225424.i, %120 ], [ %.0225424.i, %.thread326.i ], [ %.0225424.i, %124 ], [ %127, %131 ]
-  %.0242338347513.i = phi i32 [ %122, %.thread340.i ], [ %122, %120 ], [ %119, %.thread326.i ], [ %122, %124 ], [ %122, %131 ]
-  %.0229308316337348512.i = phi i32 [ %114, %.thread340.i ], [ %114, %120 ], [ %.0229308317.i, %.thread326.i ], [ %114, %124 ], [ %114, %131 ]
-  %.2235290296307318336349511.i = phi i32 [ %107, %.thread340.i ], [ %107, %120 ], [ %.2235290296307319.i, %.thread326.i ], [ %107, %124 ], [ %107, %131 ]
-  %.2232285289297306320335350510.i = phi i16 [ %104, %.thread340.i ], [ %104, %120 ], [ %.2232285289297306321.i, %.thread326.i ], [ %104, %124 ], [ %104, %131 ]
-  %.2238298305322334351509.i = phi i32 [ %111, %.thread340.i ], [ %111, %120 ], [ %.2238298305323.i, %.thread326.i ], [ %111, %124 ], [ %111, %131 ]
-  %.0228324333352508.i = phi i8 [ %118, %.thread340.i ], [ %118, %120 ], [ %.0228325.i, %.thread326.i ], [ %118, %124 ], [ %118, %131 ]
-  %135 = icmp slt i32 %.0242338347513.i, 1
+  %.2227513.i = phi i8 [ %127, %.thread340.i ], [ %.0225423.i, %120 ], [ %.0225423.i, %.thread326.i ], [ %.0225423.i, %124 ], [ %127, %131 ]
+  %.0242338347512.i = phi i32 [ %122, %.thread340.i ], [ %122, %120 ], [ %119, %.thread326.i ], [ %122, %124 ], [ %122, %131 ]
+  %.0229308316337348511.i = phi i32 [ %114, %.thread340.i ], [ %114, %120 ], [ %.0229308317.i, %.thread326.i ], [ %114, %124 ], [ %114, %131 ]
+  %.2235290296307318336349510.i = phi i32 [ %107, %.thread340.i ], [ %107, %120 ], [ %.2235290296307319.i, %.thread326.i ], [ %107, %124 ], [ %107, %131 ]
+  %.2232285289297306320335350509.i = phi i16 [ %104, %.thread340.i ], [ %104, %120 ], [ %.2232285289297306321.i, %.thread326.i ], [ %104, %124 ], [ %104, %131 ]
+  %.2238298305322334351508.i = phi i32 [ %111, %.thread340.i ], [ %111, %120 ], [ %.2238298305323.i, %.thread326.i ], [ %111, %124 ], [ %111, %131 ]
+  %.0228324333352507.i = phi i8 [ %118, %.thread340.i ], [ %118, %120 ], [ %.0228325.i, %.thread326.i ], [ %118, %124 ], [ %118, %131 ]
+  %135 = icmp slt i32 %.0242338347512.i, 1
   br i1 %135, label %141, label %136
 
 136:                                              ; preds = %._crit_edge.i
-  %137 = icmp slt i32 %.1246420.i, 79
+  %137 = icmp slt i32 %.1246419.i, 79
   %138 = select i1 %137, i32 255, i32 256
-  %139 = sub nsw i32 %138, %.1246420.i
-  %140 = icmp sgt i32 %.0242338347513.i, %139
+  %139 = sub nsw i32 %138, %.1246419.i
+  %140 = icmp sgt i32 %.0242338347512.i, %139
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %136, %._crit_edge.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %.0242338347513.i, i32 noundef %.1246420.i) #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %.0242338347512.i, i32 noundef %.1246419.i) #12
   br label %.thread354.i
 
 142:                                              ; preds = %136
-  %.not273.i = icmp ult i32 %.2238298305322334351509.i, %50
+  %.not273.i = icmp ult i32 %.2238298305322334351508.i, %50
   br i1 %.not273.i, label %144, label %143
 
 143:                                              ; preds = %142
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %.2238298305322334351509.i, i32 noundef %50) #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %.2238298305322334351508.i, i32 noundef %50) #12
   br label %.thread354.i
 
 144:                                              ; preds = %142
-  %145 = icmp slt i32 %.0229308316337348512.i, 0
-  %146 = sub nuw nsw i32 2147483647, %.0242338347513.i
-  %147 = icmp sgt i32 %.0229308316337348512.i, %146
+  %145 = icmp slt i32 %.0229308316337348511.i, 0
+  %146 = sub nuw nsw i32 2147483647, %.0242338347512.i
+  %147 = icmp sgt i32 %.0229308316337348511.i, %146
   %or.cond280.i = select i1 %145, i1 true, i1 %147
-  br i1 %or.cond280.i, label %152, label %.lr.ph419.i
+  br i1 %or.cond280.i, label %152, label %.lr.ph418.i
 
-.lr.ph419.i:                                      ; preds = %144
+.lr.ph418.i:                                      ; preds = %144
   %148 = trunc i64 %92 to i16
-  %149 = trunc nuw i32 %.2238298305322334351509.i to i8
-  %150 = trunc i32 %.2235290296307318336349511.i to i16
-  %151 = sext i32 %.1246420.i to i64
+  %149 = trunc nuw i32 %.2238298305322334351508.i to i8
+  %150 = trunc i32 %.2235290296307318336349510.i to i16
+  %151 = sext i32 %.1246419.i to i64
   br label %153
 
 152:                                              ; preds = %144
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.19) #12
   br label %.thread354.i
 
-153:                                              ; preds = %167, %.lr.ph419.i
-  %indvars.iv481.i = phi i64 [ %151, %.lr.ph419.i ], [ %indvars.iv.next482.i, %167 ]
-  %.0243418.i = phi i32 [ 0, %.lr.ph419.i ], [ %.1244.i, %167 ]
-  %154 = icmp eq i64 %indvars.iv481.i, 78
+153:                                              ; preds = %167, %.lr.ph418.i
+  %indvars.iv480.i = phi i64 [ %151, %.lr.ph418.i ], [ %indvars.iv.next481.i, %167 ]
+  %.0243417.i = phi i32 [ 0, %.lr.ph418.i ], [ %.1244.i, %167 ]
+  %154 = icmp eq i64 %indvars.iv480.i, 78
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %153
@@ -493,32 +493,32 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   br label %167
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds %struct.FrameCode, ptr %15, i64 %indvars.iv481.i
+  %157 = getelementptr inbounds %struct.FrameCode, ptr %15, i64 %indvars.iv480.i
   store i16 %148, ptr %157, align 4, !tbaa !50
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  store i16 %.2232285289297306320335350510.i, ptr %158, align 4, !tbaa !53
+  store i16 %.2232285289297306320335350509.i, ptr %158, align 4, !tbaa !53
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 2
   store i8 %149, ptr %159, align 2, !tbaa !54
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store i16 %150, ptr %160, align 4, !tbaa !55
-  %161 = add nsw i32 %.0243418.i, %.0229308316337348512.i
+  %161 = add nsw i32 %.0243417.i, %.0229308316337348511.i
   %162 = trunc i32 %161 to i16
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 6
   store i16 %162, ptr %163, align 2, !tbaa !56
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 10
-  store i8 %.0228324333352508.i, ptr %164, align 2, !tbaa !57
+  store i8 %.0228324333352507.i, ptr %164, align 2, !tbaa !57
   %165 = getelementptr inbounds nuw i8, ptr %157, i64 11
-  store i8 %.2227514.i, ptr %165, align 1, !tbaa !58
-  %166 = add nsw i32 %.0243418.i, 1
+  store i8 %.2227513.i, ptr %165, align 1, !tbaa !58
+  %166 = add nsw i32 %.0243417.i, 1
   br label %167
 
 167:                                              ; preds = %156, %155
-  %.1244.i = phi i32 [ %.0243418.i, %155 ], [ %166, %156 ]
-  %indvars.iv.next482.i = add nsw i64 %indvars.iv481.i, 1
-  %168 = icmp slt i32 %.1244.i, %.0242338347513.i
-  br i1 %168, label %153, label %.loopexit378.i, !llvm.loop !59
+  %.1244.i = phi i32 [ %.0243417.i, %155 ], [ %166, %156 ]
+  %indvars.iv.next481.i = add nsw i64 %indvars.iv480.i, 1
+  %168 = icmp slt i32 %.1244.i, %.0242338347512.i
+  br i1 %168, label %153, label %.loopexit377.i, !llvm.loop !59
 
-169:                                              ; preds = %.loopexit378.i
+169:                                              ; preds = %.loopexit377.i
   %170 = load i16, ptr %16, align 8, !tbaa !50
   %171 = icmp eq i16 %170, 8192
   br i1 %171, label %173, label %172
@@ -547,32 +547,32 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   %182 = trunc nuw nsw i64 %178 to i32
   %183 = add nuw nsw i32 %182, 1
   store i32 %183, ptr %17, align 8, !tbaa !60
-  %.not435.i = icmp eq i64 %178, 0
-  br i1 %.not435.i, label %._crit_edge429.i, label %.lr.ph428.i
+  %.not434.i = icmp eq i64 %178, 0
+  br i1 %.not434.i, label %._crit_edge428.i, label %.lr.ph427.i
 
-.lr.ph428.i:                                      ; preds = %181, %196
-  %indvars.iv484.i = phi i64 [ %indvars.iv.next485.i, %196 ], [ 1, %181 ]
-  %.0221426.i = phi i32 [ %197, %196 ], [ 1024, %181 ]
+.lr.ph427.i:                                      ; preds = %181, %196
+  %indvars.iv483.i = phi i64 [ %indvars.iv.next484.i, %196 ], [ 1, %181 ]
+  %.0221425.i = phi i32 [ %197, %196 ], [ 1024, %181 ]
   %184 = tail call i64 @ffio_read_varlen(ptr noundef %29) #12
   %185 = add i64 %184, -1
   %or.cond9.i = icmp ult i64 %185, 255
   br i1 %or.cond9.i, label %187, label %186
 
-186:                                              ; preds = %.lr.ph428.i
+186:                                              ; preds = %.lr.ph427.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.22, i64 noundef %184) #12
   br label %.thread354.i
 
-187:                                              ; preds = %.lr.ph428.i
+187:                                              ; preds = %.lr.ph427.i
   %188 = trunc nuw i64 %184 to i8
-  %189 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv484.i
+  %189 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv483.i
   store i8 %188, ptr %189, align 1, !tbaa !12
   %190 = trunc nuw nsw i64 %184 to i32
-  %191 = icmp slt i32 %.0221426.i, %190
+  %191 = icmp slt i32 %.0221425.i, %190
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %187
-  %193 = trunc nuw nsw i64 %indvars.iv484.i to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %193, i32 noundef %190, i32 noundef %.0221426.i) #12
+  %193 = trunc nuw nsw i64 %indvars.iv483.i to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %193, i32 noundef %190, i32 noundef %.0221425.i) #12
   br label %.thread354.i
 
 194:                                              ; preds = %187
@@ -581,29 +581,29 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   br i1 %.not267.i, label %.thread354.i, label %196
 
 196:                                              ; preds = %194
-  %197 = sub nsw i32 %.0221426.i, %190
+  %197 = sub nsw i32 %.0221425.i, %190
   %198 = load i8, ptr %189, align 1, !tbaa !12
   %199 = zext i8 %198 to i32
   %200 = tail call i32 @avio_read(ptr noundef %29, ptr noundef nonnull %195, i32 noundef %199) #12
-  %201 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv484.i
+  %201 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv483.i
   store ptr %195, ptr %201, align 8, !tbaa !61
-  %indvars.iv.next485.i = add nuw nsw i64 %indvars.iv484.i, 1
+  %indvars.iv.next484.i = add nuw nsw i64 %indvars.iv483.i, 1
   %202 = load i32, ptr %17, align 8, !tbaa !60
   %203 = sext i32 %202 to i64
-  %204 = icmp slt i64 %indvars.iv.next485.i, %203
-  br i1 %204, label %.lr.ph428.i, label %._crit_edge429.i, !llvm.loop !62
+  %204 = icmp slt i64 %indvars.iv.next484.i, %203
+  br i1 %204, label %.lr.ph427.i, label %._crit_edge428.i, !llvm.loop !62
 
-._crit_edge429.i:                                 ; preds = %196, %181
+._crit_edge428.i:                                 ; preds = %196, %181
   %205 = load i8, ptr %18, align 8, !tbaa !12
   %206 = icmp eq i8 %205, 0
   br i1 %206, label %208, label %207
 
-207:                                              ; preds = %._crit_edge429.i
+207:                                              ; preds = %._crit_edge428.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.7, i32 noundef 344) #12
   tail call void @abort() #14
   unreachable
 
-208:                                              ; preds = %._crit_edge429.i, %173
+208:                                              ; preds = %._crit_edge428.i, %173
   %209 = load i32, ptr %10, align 4, !tbaa !38
   %210 = icmp sgt i32 %209, 3
   br i1 %210, label %211, label %218
@@ -662,12 +662,12 @@ skip_reserved.exit:                               ; preds = %.lr.ph.i68, %222, %
   br i1 %.not270.i, label %.thread354.i, label %.preheader.i
 
 231:                                              ; preds = %.preheader.i
-  %232 = add nuw i32 %.5250430.i, 1
+  %232 = add nuw i32 %.5250429.i, 1
   %exitcond.not.i = icmp eq i32 %232, %50
   br i1 %exitcond.not.i, label %.preheader80, label %.preheader.i, !llvm.loop !66
 
 .preheader.i:                                     ; preds = %229, %231
-  %.5250430.i = phi i32 [ %232, %231 ], [ 0, %229 ]
+  %.5250429.i = phi i32 [ %232, %231 ], [ 0, %229 ]
   %233 = tail call ptr @avformat_new_stream(ptr noundef %27, ptr noundef null) #12
   %.not271.i = icmp eq ptr %233, null
   br i1 %.not271.i, label %.thread354.i, label %231
@@ -677,23 +677,23 @@ skip_reserved.exit:                               ; preds = %.lr.ph.i68, %222, %
   tail call void @av_freep(ptr noundef nonnull %14) #12
   %235 = load i32, ptr %17, align 8, !tbaa !60
   %236 = icmp sgt i32 %235, 1
-  br i1 %236, label %.lr.ph432.i, label %._crit_edge433.i
+  br i1 %236, label %.lr.ph431.i, label %._crit_edge432.i
 
-.lr.ph432.i:                                      ; preds = %.thread354.i, %.lr.ph432.i
-  %indvars.iv487.i = phi i64 [ %indvars.iv.next488.i, %.lr.ph432.i ], [ 1, %.thread354.i ]
-  %237 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv487.i
+.lr.ph431.i:                                      ; preds = %.thread354.i, %.lr.ph431.i
+  %indvars.iv486.i = phi i64 [ %indvars.iv.next487.i, %.lr.ph431.i ], [ 1, %.thread354.i ]
+  %237 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv486.i
   tail call void @av_freep(ptr noundef nonnull %237) #12
-  %indvars.iv.next488.i = add nuw nsw i64 %indvars.iv487.i, 1
+  %indvars.iv.next487.i = add nuw nsw i64 %indvars.iv486.i, 1
   %238 = load i32, ptr %17, align 8, !tbaa !60
   %239 = sext i32 %238 to i64
-  %240 = icmp slt i64 %indvars.iv.next488.i, %239
-  br i1 %240, label %.lr.ph432.i, label %._crit_edge433.i, !llvm.loop !67
+  %240 = icmp slt i64 %indvars.iv.next487.i, %239
+  br i1 %240, label %.lr.ph431.i, label %._crit_edge432.i, !llvm.loop !67
 
-._crit_edge433.i:                                 ; preds = %.lr.ph432.i, %.thread354.i
+._crit_edge432.i:                                 ; preds = %.lr.ph431.i, %.thread354.i
   store i32 0, ptr %17, align 8, !tbaa !60
   br i1 %234, label %.loopexit82, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %._crit_edge433.i, %25, %39
+.critedge.backedge:                               ; preds = %._crit_edge432.i, %25, %39
   br label %.critedge, !llvm.loop !68
 
 .preheader80:                                     ; preds = %231
@@ -1442,8 +1442,8 @@ find_duration.exit.i:                             ; preds = %453, %449
   call void @ff_metadata_conv_ctx(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ff_nut_metadata_conv) #12
   br label %.loopexit82
 
-.loopexit82:                                      ; preds = %._crit_edge433.i, %61, %find_any_startcode.exit.thread, %.thread, %246, %24
-  %.0 = phi i32 [ -1094995529, %24 ], [ -1094995529, %246 ], [ 0, %.thread ], [ -1094995529, %find_any_startcode.exit.thread ], [ -12, %61 ], [ -12, %._crit_edge433.i ]
+.loopexit82:                                      ; preds = %._crit_edge432.i, %61, %find_any_startcode.exit.thread, %.thread, %246, %24
+  %.0 = phi i32 [ -1094995529, %24 ], [ -1094995529, %246 ], [ 0, %.thread ], [ -1094995529, %find_any_startcode.exit.thread ], [ -12, %61 ], [ -12, %._crit_edge432.i ]
   ret i32 %.0
 }
 
@@ -2253,7 +2253,7 @@ define internal fastcc range(i64 -9223372036854775808, 9223372036854775800) i64 
 8:                                                ; preds = %6, %4
   %9 = tail call i32 @avio_feof(ptr noundef %0) #12
   %.not12.i = icmp eq i32 %9, 0
-  br i1 %.not12.i, label %.lr.ph.i, label %.thread18
+  br i1 %.not12.i, label %.lr.ph.i, label %.thread17
 
 .lr.ph.i:                                         ; preds = %8, %.backedge.i
   %.013.i = phi i64 [ %13, %.backedge.i ], [ 0, %8 ]
@@ -2268,7 +2268,7 @@ define internal fastcc range(i64 -9223372036854775808, 9223372036854775800) i64 
 .backedge.i:                                      ; preds = %15, %.lr.ph.i
   %14 = tail call i32 @avio_feof(ptr noundef %0) #12
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %.lr.ph.i, label %.thread18, !llvm.loop !101
+  br i1 %.not.i, label %.lr.ph.i, label %.thread17, !llvm.loop !101
 
 15:                                               ; preds = %.lr.ph.i
   switch i64 %13, label %.backedge.i [
@@ -2286,11 +2286,11 @@ find_any_startcode.exit:                          ; preds = %15, %15, %15, %15, 
 .thread:                                          ; preds = %find_any_startcode.exit
   %17 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #12
   %18 = add nsw i64 %17, -8
-  br label %.thread18
+  br label %.thread17
 
-.thread18:                                        ; preds = %8, %.backedge.i, %.thread
-  %.117 = phi i64 [ %18, %.thread ], [ -1, %.backedge.i ], [ -1, %8 ]
-  ret i64 %.117
+.thread17:                                        ; preds = %8, %.backedge.i, %.thread
+  %.116 = phi i64 [ %18, %.thread ], [ -1, %.backedge.i ], [ -1, %8 ]
+  ret i64 %.116
 }
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2

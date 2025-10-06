@@ -2723,7 +2723,7 @@ define dso_local noundef nonnull ptr @bb_get_size_str(i64 noundef %0) local_unna
   br label %72
 
 5:                                                ; preds = %1
-  %6 = icmp slt i64 %0, 1
+  %6 = icmp slt i64 %0, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5

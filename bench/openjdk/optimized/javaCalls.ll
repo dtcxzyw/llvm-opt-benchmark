@@ -1212,12 +1212,12 @@ define hidden void @_ZN9JavaCalls11call_helperEP9JavaValueRK12methodHandleP17Jav
 12:                                               ; preds = %4
   %13 = load i8, ptr %0, align 8
   tail call void @_ZN17JavaCallArguments6verifyERK12methodHandle9BasicType(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef zeroext %13)
-  %.sroa.0.0.copyload.i58.pr = load ptr, ptr %7, align 8
+  %.sroa.0.0.copyload.i59.pr = load ptr, ptr %7, align 8
   br label %14
 
 14:                                               ; preds = %12, %4
-  %.sroa.0.0.copyload.i58 = phi ptr [ %.sroa.0.0.copyload.i58.pr, %12 ], [ %.sroa.0.0.copyload.i, %4 ]
-  %15 = icmp eq ptr %.sroa.0.0.copyload.i58, null
+  %.sroa.0.0.copyload.i59 = phi ptr [ %.sroa.0.0.copyload.i59.pr, %12 ], [ %.sroa.0.0.copyload.i, %4 ]
+  %15 = icmp eq ptr %.sroa.0.0.copyload.i59, null
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %14
@@ -1239,8 +1239,8 @@ _ZNK6Method15is_empty_methodEv.exit:              ; preds = %16
   tail call void @_ZN17CompilationPolicy19compile_if_requiredERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %3) #9
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
-  %.not69 = icmp eq ptr %27, null
-  br i1 %.not69, label %28, label %167
+  %.not70 = icmp eq ptr %27, null
+  br i1 %.not70, label %28, label %167
 
 28:                                               ; preds = %.critedge
   %29 = load ptr, ptr %1, align 8
@@ -1254,8 +1254,8 @@ _ZNK6Method15is_empty_methodEv.exit:              ; preds = %16
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 1544
   %36 = load i32, ptr %35, align 8
-  %.not70 = icmp eq i32 %36, 0
-  br i1 %.not70, label %41, label %37
+  %.not71 = icmp eq i32 %36, 0
+  br i1 %.not71, label %41, label %37
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %1, align 8
@@ -1302,14 +1302,14 @@ _ZL17runtime_type_fromP9JavaValue.exit:           ; preds = %41, %41, %41, %41, 
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZL17runtime_type_fromP9JavaValue.exit, %41, %43, %42
-  %.0.i68 = phi i32 [ 7, %43 ], [ 6, %42 ], [ 11, %41 ], [ %.0.i, %_ZL17runtime_type_fromP9JavaValue.exit ]
+  %.0.i69 = phi i32 [ 7, %43 ], [ 6, %42 ], [ 11, %41 ], [ %.0.i, %_ZL17runtime_type_fromP9JavaValue.exit ]
   %48 = phi i1 [ false, %43 ], [ false, %42 ], [ false, %41 ], [ %or.cond.i, %_ZL17runtime_type_fromP9JavaValue.exit ]
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %50, align 8
   %51 = and i32 %.sroa.0.0.copyload.i.i, 8
-  %.not71 = icmp eq i32 %51, 0
-  br i1 %.not71, label %52, label %57
+  %.not72 = icmp eq i32 %51, 0
+  br i1 %.not72, label %52, label %57
 
 52:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -1319,7 +1319,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZL17runtime_type_f
   br label %57
 
 57:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit, %52
-  %.sroa.062.0 = phi ptr [ %56, %52 ], [ null, %_Z17is_reference_type9BasicTypeb.exit ]
+  %.sroa.063.0 = phi ptr [ %56, %52 ], [ null, %_Z17is_reference_type9BasicTypeb.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 1224
   %59 = tail call noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(ptr noundef nonnull align 8 dereferenceable(56) %58) #9
   %60 = tail call noundef ptr @_ZN2os21current_stack_pointerEv() #9
@@ -1331,10 +1331,10 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZL17runtime_type_f
   br label %167
 
 63:                                               ; preds = %57
-  call void @_ZN15JavaCallWrapperC2ERK12methodHandle6HandleP9JavaValueP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.062.0, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  call void @_ZN15JavaCallWrapperC2ERK12methodHandle6HandleP9JavaValueP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.063.0, ptr noundef nonnull %0, ptr noundef nonnull %3)
   %64 = load ptr, ptr %26, align 8
-  %.not72 = icmp eq ptr %64, null
-  br i1 %.not72, label %65, label %137
+  %.not73 = icmp eq ptr %64, null
+  br i1 %.not73, label %65, label %137
 
 65:                                               ; preds = %63
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %3) #9
@@ -1432,12 +1432,12 @@ _Z20resolve_indirect_ooplj.exit.i:                ; preds = %98, %94, %90, %86, 
 _ZN17JavaCallArguments10parametersEv.exit:        ; preds = %107, %65
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %112 = load ptr, ptr %111, align 8
-  %.sroa.0.0.copyload.i59 = load ptr, ptr %7, align 8
-  %113 = icmp eq ptr %.sroa.0.0.copyload.i59, null
+  %.sroa.0.0.copyload.i60 = load ptr, ptr %7, align 8
+  %113 = icmp eq ptr %.sroa.0.0.copyload.i60, null
   br i1 %113, label %124, label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %_ZN17JavaCallArguments10parametersEv.exit
-  %114 = load ptr, ptr %.sroa.0.0.copyload.i59, align 8
+  %114 = load ptr, ptr %.sroa.0.0.copyload.i60, align 8
   %115 = call noundef i64 @_ZN12HotSpotJVMCI13InstalledCode10entryPointEP8JVMCIEnvP7oopDesc(ptr noundef null, ptr noundef %114) #9
   %.not = icmp eq i64 %115, 0
   br i1 %.not, label %124, label %116
@@ -1458,10 +1458,10 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN17JavaCallArgume
   %125 = load ptr, ptr @_ZN12StubRoutines16_call_stub_entryE, align 8
   %126 = load ptr, ptr %1, align 8
   %127 = load i32, ptr %67, align 8
-  call void %125(ptr noundef nonnull %5, ptr noundef nonnull %66, i32 noundef %.0.i68, ptr noundef %126, ptr noundef %.153, ptr noundef %112, i32 noundef %127, ptr noundef nonnull %3) #9
+  call void %125(ptr noundef nonnull %5, ptr noundef nonnull %66, i32 noundef %.0.i69, ptr noundef %126, ptr noundef %.153, ptr noundef %112, i32 noundef %127, ptr noundef nonnull %3) #9
   %128 = load ptr, ptr %26, align 8
-  %.not73 = icmp ne ptr %128, null
-  br i1 %.not73, label %136, label %129
+  %.not74 = icmp ne ptr %128, null
+  br i1 %.not74, label %136, label %129
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1481,7 +1481,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN17JavaCallArgume
   br label %137
 
 137:                                              ; preds = %63, %136
-  %.054 = phi i1 [ %.not73, %136 ], [ true, %63 ]
+  %.054 = phi i1 [ %.not74, %136 ], [ true, %63 ]
   %.0 = phi ptr [ %.1, %136 ], [ %0, %63 ]
   %138 = load ptr, ptr %5, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 1072
@@ -1518,8 +1518,8 @@ _ZN15JavaFrameAnchor4copyEPS_.exit.i:             ; preds = %148, %137
   %156 = load ptr, ptr %5, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
-  %.not.i60 = icmp eq ptr %158, null
-  br i1 %.not.i60, label %_ZN15JavaCallWrapperD2Ev.exit, label %159
+  %.not.i61 = icmp eq ptr %158, null
+  br i1 %.not.i61, label %_ZN15JavaCallWrapperD2Ev.exit, label %159
 
 159:                                              ; preds = %_ZN15JavaFrameAnchor4copyEPS_.exit.i
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 928
@@ -1532,8 +1532,8 @@ _ZN15JavaFrameAnchor4copyEPS_.exit.i:             ; preds = %148, %137
   br label %_ZN15JavaCallWrapperD2Ev.exit
 
 _ZN15JavaCallWrapperD2Ev.exit:                    ; preds = %_ZN15JavaFrameAnchor4copyEPS_.exit.i, %159, %162
-  %.not57 = xor i1 %48, true
-  %brmerge = or i1 %.054, %.not57
+  %.not58 = xor i1 %48, true
+  %brmerge = or i1 %.054, %.not58
   br i1 %brmerge, label %167, label %163
 
 163:                                              ; preds = %_ZN15JavaCallWrapperD2Ev.exit

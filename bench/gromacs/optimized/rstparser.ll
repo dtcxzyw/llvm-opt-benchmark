@@ -62,9 +62,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %exitcond.not, label %.critedge.thread, label %18, !llvm.loop !26
 
 .critedge:                                        ; preds = %18, %tailrecurse
-  %.lcssa91 = phi i64 [ %11, %tailrecurse ], [ %19, %18 ]
-  %.not162.not = icmp eq i64 %.lcssa91, %15
-  br i1 %.not162.not, label %.critedge.thread, label %25
+  %.lcssa90 = phi i64 [ %11, %tailrecurse ], [ %19, %18 ]
+  %.not161.not = icmp eq i64 %.lcssa90, %15
+  br i1 %.not161.not, label %.critedge.thread, label %25
 
 .critedge.thread:                                 ; preds = %.critedge, %23
   store i64 %15, ptr %8, align 8, !tbaa !28
@@ -75,48 +75,48 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 25:                                               ; preds = %.critedge
   %26 = load i32, ptr %7, align 4, !tbaa !9
   %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %28, label %.preheader234
+  br i1 %27, label %28, label %.preheader233
 
 28:                                               ; preds = %25
   store i32 1, ptr %4, align 8, !tbaa !16
-  br label %.preheader234
+  br label %.preheader233
 
-.preheader234:                                    ; preds = %28, %25
+.preheader233:                                    ; preds = %28, %25
   br label %29
 
-29:                                               ; preds = %.preheader234, %119
-  %30 = phi ptr [ %32, %119 ], [ %13, %.preheader234 ]
-  %.038 = phi i32 [ %112, %119 ], [ 0, %.preheader234 ]
-  %.036 = phi i64 [ %113, %119 ], [ %.lcssa91, %.preheader234 ]
-  %.not88 = icmp eq i32 %.038, 0
+29:                                               ; preds = %.preheader233, %119
+  %30 = phi ptr [ %32, %119 ], [ %13, %.preheader233 ]
+  %.038 = phi i32 [ %112, %119 ], [ 0, %.preheader233 ]
+  %.036 = phi i64 [ %113, %119 ], [ %.lcssa90, %.preheader233 ]
+  %.not87 = icmp eq i32 %.038, 0
   %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 noundef signext 10, i64 noundef %.036) #9
   %32 = load ptr, ptr %0, align 8, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !20
   %.sroa.speculated68 = tail call i64 @llvm.umin.i64(i64 %34, i64 %31)
   %.val = load ptr, ptr %32, align 8
-  %.not15.i = icmp ult i64 %.036, %.sroa.speculated68
-  br i1 %.not15.i, label %.lr.ph.i, label %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit
+  %35 = icmp ult i64 %.036, %.sroa.speculated68
+  br i1 %35, label %.lr.ph.i, label %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit
 
-.lr.ph.i:                                         ; preds = %29, %39
-  %.0116.i = phi i64 [ %40, %39 ], [ %.036, %29 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.val, i64 %.0116.i
-  %36 = load i8, ptr %35, align 1, !tbaa !25
-  %37 = sext i8 %36 to i32
-  %38 = tail call i32 @isspace(i32 noundef %37) #10
-  %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, label %39
+.lr.ph.i:                                         ; preds = %29, %40
+  %.0113.i = phi i64 [ %41, %40 ], [ %.036, %29 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.val, i64 %.0113.i
+  %37 = load i8, ptr %36, align 1, !tbaa !25
+  %38 = sext i8 %37 to i32
+  %39 = tail call i32 @isspace(i32 noundef %38) #10
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, label %40
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = add i64 %.0116.i, 1
-  %exitcond.not.i = icmp eq i64 %40, %.sroa.speculated68
+40:                                               ; preds = %.lr.ph.i
+  %41 = add i64 %.0113.i, 1
+  %exitcond.not.i = icmp eq i64 %41, %.sroa.speculated68
   br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, label %.lr.ph.i, !llvm.loop !29
 
-_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit: ; preds = %.lr.ph.i, %39, %29
-  %.sink14.i = phi i64 [ %.sroa.speculated68, %29 ], [ %.0116.i, %.lr.ph.i ], [ %.sroa.speculated68, %39 ]
-  %41 = sub i64 %.sink14.i, %.036
-  %42 = trunc i64 %41 to i32
-  %sext = shl i64 %41, 32
+_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit: ; preds = %.lr.ph.i, %40, %29
+  %.pn.i = phi i64 [ %.sroa.speculated68, %29 ], [ %.0113.i, %.lr.ph.i ], [ %.sroa.speculated68, %40 ]
+  %.in.i = sub i64 %.pn.i, %.036
+  %42 = trunc i64 %.in.i to i32
+  %sext = shl i64 %.in.i, 32
   %43 = ashr exact i64 %sext, 32
   %44 = add i64 %43, %.036
   %45 = add i64 %44, 1
@@ -187,7 +187,7 @@ _ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not25.i, label %.thread, label %_ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
 _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %50, %68
-  br i1 %.not88, label %74, label %73
+  br i1 %.not87, label %74, label %73
 
 73:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
   store i32 1, ptr %5, align 8, !tbaa !17
@@ -202,7 +202,7 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 .thread:                                          ; preds = %50, %55, %.critedge.i, %64, %68, %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit
   store i64 %.sroa.speculated68, ptr %8, align 8, !tbaa !28
-  br i1 %.not88, label %.thread80, label %97
+  br i1 %.not87, label %.thread80, label %97
 
 .thread80:                                        ; preds = %.thread
   store i32 %42, ptr %9, align 4, !tbaa !31
@@ -224,36 +224,36 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
   %81 = and i64 %indvars.iv, 4294967295
   %82 = add i64 %44, %81
   %83 = icmp ult i64 %82, %34
-  br i1 %83, label %.lr.ph119.preheader, label %.thread167
+  br i1 %83, label %.lr.ph118.preheader, label %.thread166
 
-.lr.ph119.preheader:                              ; preds = %.preheader
+.lr.ph118.preheader:                              ; preds = %.preheader
   %84 = trunc i64 %34 to i32
-  %85 = trunc i64 %.sink14.i to i32
+  %85 = trunc i64 %.pn.i to i32
   %86 = sub i32 %84, %85
-  br label %.lr.ph119
+  br label %.lr.ph118
 
-.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %92
-  %indvars.iv134 = phi i64 [ %indvars.iv, %.lr.ph119.preheader ], [ %indvars.iv.next135, %92 ]
-  %87 = phi i64 [ %82, %.lr.ph119.preheader ], [ %93, %92 ]
+.lr.ph118:                                        ; preds = %.lr.ph118.preheader, %92
+  %indvars.iv133 = phi i64 [ %indvars.iv, %.lr.ph118.preheader ], [ %indvars.iv.next134, %92 ]
+  %87 = phi i64 [ %82, %.lr.ph118.preheader ], [ %93, %92 ]
   %88 = getelementptr inbounds nuw i8, ptr %.val, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !25
   %90 = sext i8 %89 to i32
   %91 = tail call i32 @isspace(i32 noundef %90) #10
   %.not43 = icmp eq i32 %91, 0
-  br i1 %.not43, label %.thread167.loopexit.split.loop.exit, label %92
+  br i1 %.not43, label %.thread166.loopexit.split.loop.exit, label %92
 
-92:                                               ; preds = %.lr.ph119
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %93 = add i64 %44, %indvars.iv.next135
+92:                                               ; preds = %.lr.ph118
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %93 = add i64 %44, %indvars.iv.next134
   %94 = icmp ult i64 %93, %34
-  br i1 %94, label %.lr.ph119, label %.thread167, !llvm.loop !34
+  br i1 %94, label %.lr.ph118, label %.thread166, !llvm.loop !34
 
-.thread167.loopexit.split.loop.exit:              ; preds = %.lr.ph119
-  %95 = trunc nuw nsw i64 %indvars.iv134 to i32
-  br label %.thread167
+.thread166.loopexit.split.loop.exit:              ; preds = %.lr.ph118
+  %95 = trunc nuw nsw i64 %indvars.iv133 to i32
+  br label %.thread166
 
-.thread167:                                       ; preds = %92, %.thread167.loopexit.split.loop.exit, %.preheader
-  %.134.lcssa = phi i32 [ %80, %.preheader ], [ %95, %.thread167.loopexit.split.loop.exit ], [ %86, %92 ]
+.thread166:                                       ; preds = %92, %.thread166.loopexit.split.loop.exit, %.preheader
+  %.134.lcssa = phi i32 [ %80, %.preheader ], [ %95, %.thread166.loopexit.split.loop.exit ], [ %86, %92 ]
   %96 = add nsw i32 %.134.lcssa, %42
   store i32 %96, ptr %9, align 4, !tbaa !31
   br label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
@@ -299,8 +299,8 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
   store i32 2, ptr %4, align 8, !tbaa !16
   br label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
-_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %111, %.thread167, %101, %.thread80, %.loopexit, %97
-  %112 = phi i32 [ 1, %.thread80 ], [ 2, %.loopexit ], [ %98, %97 ], [ 2, %101 ], [ 1, %.thread167 ], [ 2, %111 ]
+_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %111, %.thread166, %101, %.thread80, %.loopexit, %97
+  %112 = phi i32 [ 1, %.thread80 ], [ 2, %.loopexit ], [ %98, %97 ], [ 2, %101 ], [ 1, %.thread166 ], [ 2, %111 ]
   %113 = add i64 %.sroa.speculated68, 1
   %.not44 = icmp ult i64 %113, %34
   br i1 %.not44, label %114, label %118
@@ -339,9 +339,9 @@ _ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %131, label %132, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %128
-  %.pre137.pre = load ptr, ptr %0, align 8, !tbaa !19
-  %.pre138.pre = load i64, ptr %3, align 8, !tbaa !15
-  %.val49.pre.pre = load ptr, ptr %.pre137.pre, align 8, !tbaa !24
+  %.pre136.pre = load ptr, ptr %0, align 8, !tbaa !19
+  %.pre137.pre = load i64, ptr %3, align 8, !tbaa !15
+  %.val49.pre.pre = load ptr, ptr %.pre136.pre, align 8, !tbaa !24
   br label %split
 
 132:                                              ; preds = %128
@@ -379,15 +379,15 @@ tailrecurse.backedge:                             ; preds = %141, %138
 
 split:                                            ; preds = %123, %._crit_edge
   %.val49.pre = phi ptr [ %.val49.pre.pre, %._crit_edge ], [ %.val, %123 ]
-  %.pre138 = phi i64 [ %.pre138.pre, %._crit_edge ], [ %125, %123 ]
-  %.pre137 = phi ptr [ %.pre137.pre, %._crit_edge ], [ %32, %123 ]
+  %.pre137 = phi i64 [ %.pre137.pre, %._crit_edge ], [ %125, %123 ]
+  %.pre136 = phi ptr [ %.pre136.pre, %._crit_edge ], [ %32, %123 ]
   store i32 -1, ptr %7, align 4, !tbaa !9
   br label %150
 
 150:                                              ; preds = %split, %142
   %.val49 = phi ptr [ %.val49.pre, %split ], [ %144, %142 ]
-  %151 = phi i64 [ %.pre138, %split ], [ %135, %142 ]
-  %152 = phi ptr [ %.pre137, %split ], [ %143, %142 ]
+  %151 = phi i64 [ %.pre137, %split ], [ %135, %142 ]
+  %152 = phi ptr [ %.pre136, %split ], [ %143, %142 ]
   %153 = load i32, ptr %10, align 8, !tbaa !32
   %154 = sext i32 %153 to i64
   %155 = add i64 %151, %154
@@ -448,8 +448,8 @@ split:                                            ; preds = %123, %._crit_edge
   br label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
 _ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %.lr.ph.i61, %163, %150, %.critedge.loopexit15.i, %.critedge.thread
-  %.not162165 = phi i1 [ true, %150 ], [ true, %.critedge.loopexit15.i ], [ false, %.critedge.thread ], [ true, %163 ], [ true, %.lr.ph.i61 ]
-  ret i1 %.not162165
+  %.not161164 = phi i1 [ true, %150 ], [ true, %.critedge.loopexit15.i ], [ false, %.critedge.thread ], [ true, %163 ], [ true, %.lr.ph.i61 ]
+  ret i1 %.not161164
 }
 
 ; Function Attrs: nounwind

@@ -39812,23 +39812,23 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb34974f04ffaf589E.exit: ; pred
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @_ZN18ty_python_semantic5types10class_base9ClassBase10into_class17h58a4bc95de02f73cE(i64 %0) unnamed_addr #2 {
   %.sroa.02.0.extract.trunc = trunc i64 %0 to i32
-  %2 = add i32 %.sroa.02.0.extract.trunc, -6
-  %3 = icmp ult i32 %2, -4
-  %switch5 = icmp eq i32 %.sroa.02.0.extract.trunc, 3
-  %switch = or i1 %switch5, %3
-  %.sroa.02.0.extract.trunc. = select i1 %switch, i32 %.sroa.02.0.extract.trunc, i32 2
+  %2 = add i32 %.sroa.02.0.extract.trunc, -2
+  %3 = icmp ugt i32 %2, 3
+  %4 = icmp eq i32 %2, 1
+  %5 = or i1 %3, %4
+  %.sroa.02.0.extract.trunc. = select i1 %5, i32 %.sroa.02.0.extract.trunc, i32 2
   %.sroa.4.0.extract.shift = lshr i64 %0, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %4 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0.extract.trunc., 0
-  %5 = insertvalue { i32, i32 } %4, i32 %.sroa.4.0.extract.trunc, 1
-  ret { i32, i32 } %5
+  %6 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0.extract.trunc., 0
+  %7 = insertvalue { i32, i32 } %6, i32 %.sroa.4.0.extract.trunc, 1
+  ret { i32, i32 } %7
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden i64 @_ZN18ty_python_semantic5types10class_base9ClassBase29apply_optional_specialization17h54a53bcf282a3d3bE(i64 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %29, label %6
+  br i1 %.not, label %31, label %6
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -39838,101 +39838,101 @@ define hidden i64 @_ZN18ty_python_semantic5types10class_base9ClassBase29apply_op
   %.sroa.05.0.extract.trunc.i = trunc i64 %0 to i32
   %.sroa.46.0.extract.shift.i = lshr i64 %0, 32
   %.sroa.46.0.extract.trunc.i = trunc nuw i64 %.sroa.46.0.extract.shift.i to i32
-  %8 = add i32 %.sroa.05.0.extract.trunc.i, -6
-  %9 = icmp ult i32 %8, -4
-  %switch8.i = icmp eq i32 %.sroa.05.0.extract.trunc.i, 3
-  %switch.i = or i1 %switch8.i, %9
-  br i1 %switch.i, label %10, label %23
+  %8 = add i32 %.sroa.05.0.extract.trunc.i, -2
+  %9 = icmp ugt i32 %8, 3
+  %10 = icmp eq i32 %8, 1
+  %11 = or i1 %9, %10
+  br i1 %11, label %12, label %25
 
-10:                                               ; preds = %6
-  %11 = invoke { i32, i32 } @_ZN18ty_python_semantic5types5class9ClassType18apply_type_mapping17hbe54733e6c3e952aE(i32 noundef %.sroa.05.0.extract.trunc.i, i32 noundef %.sroa.46.0.extract.trunc.i, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-          to label %.noexc unwind label %15
+12:                                               ; preds = %6
+  %13 = invoke { i32, i32 } @_ZN18ty_python_semantic5types5class9ClassType18apply_type_mapping17hbe54733e6c3e952aE(i32 noundef %.sroa.05.0.extract.trunc.i, i32 noundef %.sroa.46.0.extract.trunc.i, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+          to label %.noexc unwind label %17
 
-.noexc:                                           ; preds = %10
-  %12 = extractvalue { i32, i32 } %11, 0
-  %13 = extractvalue { i32, i32 } %11, 1
+.noexc:                                           ; preds = %12
+  %14 = extractvalue { i32, i32 } %13, 0
+  %15 = extractvalue { i32, i32 } %13, 1
   %.pre = load i64, ptr %5, align 8, !range !4771, !alias.scope !4772
-  %14 = add i64 %.pre, 9223372036854775807
-  br label %23
+  %16 = add i64 %.pre, 9223372036854775807
+  br label %25
 
-15:                                               ; preds = %10
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %12
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %17 = load i64, ptr %5, align 8, !range !4771, !alias.scope !4775, !noundef !3
-  %18 = add i64 %17, 9223372036854775807
-  %19 = icmp ugt i64 %18, 2
-  %20 = icmp eq i64 %18, 1
-  %21 = or i1 %19, %20
-  br i1 %21, label %22, label %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit"
+  %19 = load i64, ptr %5, align 8, !range !4771, !alias.scope !4775, !noundef !3
+  %20 = add i64 %19, 9223372036854775807
+  %21 = icmp ugt i64 %20, 2
+  %22 = icmp eq i64 %20, 1
+  %23 = or i1 %21, %22
+  br i1 %23, label %24, label %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit"
 
-22:                                               ; preds = %15
+24:                                               ; preds = %17
   invoke void @"_ZN4core3ptr79drop_in_place$LT$ty_python_semantic..types..generics..PartialSpecialization$GT$17h97c46965d331cf7eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit" unwind label %30
+          to label %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit" unwind label %32
 
-23:                                               ; preds = %.noexc, %6
-  %24 = phi i64 [ %14, %.noexc ], [ 0, %6 ]
-  %.sroa.07.0.i = phi i32 [ %12, %.noexc ], [ %.sroa.05.0.extract.trunc.i, %6 ]
-  %.sroa.3.0.i = phi i32 [ %13, %.noexc ], [ %.sroa.46.0.extract.trunc.i, %6 ]
+25:                                               ; preds = %.noexc, %6
+  %26 = phi i64 [ %16, %.noexc ], [ 0, %6 ]
+  %.sroa.07.0.i = phi i32 [ %14, %.noexc ], [ %.sroa.05.0.extract.trunc.i, %6 ]
+  %.sroa.3.0.i = phi i32 [ %15, %.noexc ], [ %.sroa.46.0.extract.trunc.i, %6 ]
   %.sroa.3.0.insert.ext.i = zext i32 %.sroa.3.0.i to i64
   %.sroa.3.0.insert.shift.i = shl nuw i64 %.sroa.3.0.insert.ext.i, 32
   %.sroa.07.0.insert.ext.i = zext i32 %.sroa.07.0.i to i64
   %.sroa.07.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, %.sroa.07.0.insert.ext.i
-  %25 = icmp ugt i64 %24, 2
-  %26 = icmp eq i64 %24, 1
-  %27 = or i1 %25, %26
-  br i1 %27, label %28, label %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11"
+  %27 = icmp ugt i64 %26, 2
+  %28 = icmp eq i64 %26, 1
+  %29 = or i1 %27, %28
+  br i1 %29, label %30, label %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11"
 
-28:                                               ; preds = %23
+30:                                               ; preds = %25
   call void @"_ZN4core3ptr79drop_in_place$LT$ty_python_semantic..types..generics..PartialSpecialization$GT$17h97c46965d331cf7eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   br label %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11"
 
-"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11": ; preds = %23, %28
+"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11": ; preds = %25, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %29
+  br label %31
 
-29:                                               ; preds = %4, %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11"
+31:                                               ; preds = %4, %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11"
   %.sroa.06.0 = phi i64 [ %.sroa.07.0.insert.insert.i, %"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit11" ], [ %0, %4 ]
   ret i64 %.sroa.06.0
 
-30:                                               ; preds = %22
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %24
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable
 
-"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit": ; preds = %15, %22
-  resume { ptr, i32 } %16
+"_ZN4core3ptr59drop_in_place$LT$ty_python_semantic..types..TypeMapping$GT$17hc1c4a70851f26f87E.exit": ; preds = %17, %24
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types10class_base9ClassBase14has_cyclic_mro17haa372ce4db362855E(i64 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.02.0.extract.trunc = trunc i64 %0 to i32
-  %4 = add i32 %.sroa.02.0.extract.trunc, -6
-  %5 = icmp ult i32 %4, -4
-  %switch4 = icmp eq i32 %.sroa.02.0.extract.trunc, 3
-  %switch = or i1 %switch4, %5
-  br i1 %switch, label %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$10is_err_and17h0ee13cfbed333bdaE.exit"
+  %4 = add i32 %.sroa.02.0.extract.trunc, -2
+  %5 = icmp ugt i32 %4, 3
+  %6 = icmp eq i32 %4, 1
+  %7 = or i1 %5, %6
+  br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$10is_err_and17h0ee13cfbed333bdaE.exit"
 
-6:                                                ; preds = %3
+8:                                                ; preds = %3
   %.sroa.4.0.extract.shift = lshr i64 %0, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %7 = tail call { i32, i32 } @_ZN18ty_python_semantic5types5class9ClassType13class_literal17h29591e18154063c7E(i32 noundef %.sroa.02.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
-  %8 = extractvalue { i32, i32 } %7, 0
-  %9 = extractvalue { i32, i32 } %7, 1
-  %10 = tail call { i64, ptr } @_ZN18ty_python_semantic5types5class12ClassLiteral7try_mro17hf0bdc5d38c170425E(i32 noundef %8, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %9)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = trunc nuw i64 %11 to i1
-  br i1 %12, label %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$10is_err_and17h0ee13cfbed333bdaE.exit"
+  %9 = tail call { i32, i32 } @_ZN18ty_python_semantic5types5class9ClassType13class_literal17h29591e18154063c7E(i32 noundef %.sroa.02.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
+  %10 = extractvalue { i32, i32 } %9, 0
+  %11 = extractvalue { i32, i32 } %9, 1
+  %12 = tail call { i64, ptr } @_ZN18ty_python_semantic5types5class12ClassLiteral7try_mro17hf0bdc5d38c170425E(i32 noundef %10, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %11)
+  %13 = extractvalue { i64, ptr } %12, 0
+  %14 = trunc nuw i64 %13 to i1
+  br i1 %14, label %15, label %"_ZN4core6result19Result$LT$T$C$E$GT$10is_err_and17h0ee13cfbed333bdaE.exit"
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, ptr } %10, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types3mro8MroError8is_cycle17h85bcd503438a7e09E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14)
+15:                                               ; preds = %8
+  %16 = extractvalue { i64, ptr } %12, 1
+  %17 = icmp ne ptr %16, null
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types3mro8MroError8is_cycle17h85bcd503438a7e09E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$10is_err_and17h0ee13cfbed333bdaE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$10is_err_and17h0ee13cfbed333bdaE.exit": ; preds = %13, %6, %3
-  %.sroa.03.0 = phi i1 [ false, %3 ], [ %16, %13 ], [ false, %6 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$10is_err_and17h0ee13cfbed333bdaE.exit": ; preds = %15, %8, %3
+  %.sroa.03.0 = phi i1 [ false, %3 ], [ %18, %15 ], [ false, %8 ]
   ret i1 %.sroa.03.0
 }
 

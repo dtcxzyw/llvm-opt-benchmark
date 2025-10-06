@@ -2274,39 +2274,39 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit:                ; preds = %.lr.ph.i472, %551
   br label %.lr.ph.i476.preheader
 
 .lr.ph.i476.preheader:                            ; preds = %564, %_ZN6Assimp9strtoul10EPKcPS1_.exit
-  %.154.i.ph = phi ptr [ %480, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ %481, %564 ]
-  %.13351.i.ph = phi i32 [ 1, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ 2, %564 ]
-  %.13850.i.ph = phi i32 [ %562, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ %565, %564 ]
+  %.153.i.ph = phi ptr [ %480, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ %481, %564 ]
+  %.13350.i.ph = phi i32 [ 1, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ 2, %564 ]
+  %.13849.i.ph = phi i32 [ %562, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ %565, %564 ]
   br label %.lr.ph.i476
 
 .lr.ph.i476:                                      ; preds = %.lr.ph.i476.preheader, %576
-  %.154.i = phi ptr [ %.3.i, %576 ], [ %.154.i.ph, %.lr.ph.i476.preheader ]
-  %.02753.i = phi i1 [ %or.cond3.i, %576 ], [ false, %.lr.ph.i476.preheader ]
-  %.03052.i = phi i32 [ %577, %576 ], [ 1000000000, %.lr.ph.i476.preheader ]
-  %.13351.i = phi i32 [ %.335.i, %576 ], [ %.13351.i.ph, %.lr.ph.i476.preheader ]
-  %.13850.i = phi i32 [ %.239.i, %576 ], [ %.13850.i.ph, %.lr.ph.i476.preheader ]
-  %566 = sdiv i32 %.13850.i, %.03052.i
-  %.recomposed = srem i32 %.13850.i, %.03052.i
+  %.153.i = phi ptr [ %.3.i, %576 ], [ %.153.i.ph, %.lr.ph.i476.preheader ]
+  %.02752.i = phi i1 [ %or.cond3.i, %576 ], [ false, %.lr.ph.i476.preheader ]
+  %.03051.i = phi i32 [ %577, %576 ], [ 1000000000, %.lr.ph.i476.preheader ]
+  %.13350.i = phi i32 [ %.335.i, %576 ], [ %.13350.i.ph, %.lr.ph.i476.preheader ]
+  %.13849.i = phi i32 [ %.239.i, %576 ], [ %.13849.i.ph, %.lr.ph.i476.preheader ]
+  %566 = sdiv i32 %.13849.i, %.03051.i
+  %.recomposed = srem i32 %.13849.i, %.03051.i
   %567 = icmp ne i32 %566, 0
-  %568 = icmp eq i32 %.03052.i, 1
+  %568 = icmp eq i32 %.03051.i, 1
   %569 = or i1 %568, %567
-  %or.cond3.i = select i1 %.02753.i, i1 true, i1 %569
+  %or.cond3.i = select i1 %.02752.i, i1 true, i1 %569
   br i1 %or.cond3.i, label %570, label %576
 
 570:                                              ; preds = %.lr.ph.i476
   %571 = trunc i32 %566 to i8
   %572 = add i8 %571, 48
-  %573 = getelementptr inbounds nuw i8, ptr %.154.i, i64 1
-  store i8 %572, ptr %.154.i, align 1
-  %574 = add nuw nsw i32 %.13351.i, 1
-  %575 = mul i32 %566, %.03052.i
+  %573 = getelementptr inbounds nuw i8, ptr %.153.i, i64 1
+  store i8 %572, ptr %.153.i, align 1
+  %574 = add nuw nsw i32 %.13350.i, 1
+  %575 = mul i32 %566, %.03051.i
   br i1 %568, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit, label %576
 
 576:                                              ; preds = %570, %.lr.ph.i476
-  %.239.i = phi i32 [ %.recomposed, %570 ], [ %.13850.i, %.lr.ph.i476 ]
-  %.335.i = phi i32 [ %574, %570 ], [ %.13351.i, %.lr.ph.i476 ]
-  %.3.i = phi ptr [ %573, %570 ], [ %.154.i, %.lr.ph.i476 ]
-  %577 = sdiv i32 %.03052.i, 10
+  %.239.i = phi i32 [ %.recomposed, %570 ], [ %.13849.i, %.lr.ph.i476 ]
+  %.335.i = phi i32 [ %574, %570 ], [ %.13350.i, %.lr.ph.i476 ]
+  %.3.i = phi ptr [ %573, %570 ], [ %.153.i, %.lr.ph.i476 ]
+  %577 = sdiv i32 %.03051.i, 10
   %578 = icmp ult i32 %.335.i, 1023
   br i1 %578, label %.lr.ph.i476, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit
 
@@ -10043,9 +10043,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10081,7 +10081,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -10109,10 +10109,10 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !121
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -10478,9 +10478,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIP7aiSceneS1_SaIS1_ENSt8__deta
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10516,7 +10516,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIP7aiSceneS1_SaIS1_ENSt8__deta
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -10544,10 +10544,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIP7aiSceneS1_SaIS1_ENSt8__deta
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !126
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

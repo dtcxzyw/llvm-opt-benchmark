@@ -1272,7 +1272,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_CB(ptr 
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
-  %.sroa.0504.0.copyload = load <2 x i64>, ptr %3, align 64
+  %.sroa.0495.0.copyload = load <2 x i64>, ptr %3, align 64
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.23.0.copyload = load <2 x i64>, ptr %.sroa.23.0..sroa_idx, align 16
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1285,8 +1285,8 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_CB(ptr 
   br i1 %or.cond.i, label %34, label %nfaExecLimEx384_Loop_No_Accel.exit11
 
 34:                                               ; preds = %1002, %5
-  %.21855 = phi i64 [ 0, %5 ], [ %991, %1002 ]
-  %.sroa.0504.3 = phi <2 x i64> [ %.sroa.0504.0.copyload, %5 ], [ %.sroa.0504.2, %1002 ]
+  %.21846 = phi i64 [ 0, %5 ], [ %991, %1002 ]
+  %.sroa.0495.3 = phi <2 x i64> [ %.sroa.0495.0.copyload, %5 ], [ %.sroa.0495.2, %1002 ]
   %.sroa.23.3 = phi <2 x i64> [ %.sroa.23.0.copyload, %5 ], [ %.sroa.23.2, %1002 ]
   %.sroa.25.3 = phi <2 x i64> [ %.sroa.25.0.copyload, %5 ], [ %.sroa.25.2, %1002 ]
   %.0107.i = phi i64 [ %2, %5 ], [ %.3110.i, %1002 ]
@@ -1297,13 +1297,13 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_CB(ptr 
   %38 = load i32, ptr %26, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
-  %.not.i42251 = icmp eq i64 %.21855, %.0107.i
+  %.not.i42236 = icmp eq i64 %.21846, %.0107.i
   br i1 %.not.i, label %480, label %41
 
 41:                                               ; preds = %34
-  br i1 %.not.i42251, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph2240
+  br i1 %.not.i42236, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph2225
 
-.lr.ph2240:                                       ; preds = %41
+.lr.ph2225:                                       ; preds = %41
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 912
   call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 16) ], !noalias !104
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -1347,13 +1347,13 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_CB(ptr 
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 800
   call void @llvm.assume(i1 true) [ "align"(ptr %77, i64 16) ], !noalias !107
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.7.0..sroa_idx1449 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.8.0..sroa_idx1455 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.41641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.7.0..sroa_idx1440 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.8.0..sroa_idx1446 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -1361,23 +1361,23 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_CB(ptr 
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %lshift64_m128.exit127
 
-lshift64_m128.exit127:                            ; preds = %.lr.ph2240, %processExceptional384.exit210.thread
-  %.045.i62239 = phi i64 [ %.21855, %.lr.ph2240 ], [ %479, %processExceptional384.exit210.thread ]
-  %.sroa.17.02238 = phi <2 x i64> [ %.sroa.25.3, %.lr.ph2240 ], [ %478, %processExceptional384.exit210.thread ]
-  %.sroa.14.02237 = phi <2 x i64> [ %.sroa.23.3, %.lr.ph2240 ], [ %477, %processExceptional384.exit210.thread ]
-  %.sroa.01214.02236 = phi <2 x i64> [ %.sroa.0504.3, %.lr.ph2240 ], [ %476, %processExceptional384.exit210.thread ]
+lshift64_m128.exit127:                            ; preds = %.lr.ph2225, %processExceptional384.exit208.thread
+  %.045.i62224 = phi i64 [ %.21846, %.lr.ph2225 ], [ %479, %processExceptional384.exit208.thread ]
+  %.sroa.17.02223 = phi <2 x i64> [ %.sroa.25.3, %.lr.ph2225 ], [ %478, %processExceptional384.exit208.thread ]
+  %.sroa.14.02222 = phi <2 x i64> [ %.sroa.23.3, %.lr.ph2225 ], [ %477, %processExceptional384.exit208.thread ]
+  %.sroa.01205.02221 = phi <2 x i64> [ %.sroa.0495.3, %.lr.ph2225 ], [ %476, %processExceptional384.exit208.thread ]
   %87 = load <2 x i64>, ptr %43, align 16, !noalias !104
   %88 = load <2 x i64>, ptr %44, align 16, !noalias !104
-  %89 = and <2 x i64> %87, %.sroa.14.02237
-  %90 = and <2 x i64> %88, %.sroa.17.02238
+  %89 = and <2 x i64> %87, %.sroa.14.02222
+  %90 = and <2 x i64> %88, %.sroa.17.02223
   %91 = load i8, ptr %45, align 4
   %92 = zext i8 %91 to i32
   %93 = load <2 x i64>, ptr %42, align 16, !noalias !104
-  %94 = and <2 x i64> %93, %.sroa.01214.02236
+  %94 = and <2 x i64> %93, %.sroa.01205.02221
   %95 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %92, i64 0
   %96 = bitcast <4 x i32> %95 to <2 x i64>
   %97 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %94, <2 x i64> %96)
@@ -1405,11 +1405,11 @@ lshift64_m128.exit169:                            ; preds = %lshift64_m128.exit1
   %106 = load <2 x i64>, ptr %48, align 16, !noalias !110
   call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 16) ], !noalias !110
   %107 = load <2 x i64>, ptr %49, align 16, !noalias !110
-  %108 = and <2 x i64> %106, %.sroa.14.02237
-  %109 = and <2 x i64> %107, %.sroa.17.02238
+  %108 = and <2 x i64> %106, %.sroa.14.02222
+  %109 = and <2 x i64> %107, %.sroa.17.02223
   %110 = load i8, ptr %50, align 1
   %111 = zext i8 %110 to i32
-  %112 = and <2 x i64> %105, %.sroa.01214.02236
+  %112 = and <2 x i64> %105, %.sroa.01205.02221
   %113 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %111, i64 0
   %114 = bitcast <4 x i32> %113 to <2 x i64>
   %115 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %112, <2 x i64> %114)
@@ -1425,20 +1425,20 @@ lshift64_m128.exit169:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit163
 
 lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit169, %lshift64_m128.exit127
-  %.sroa.01136.6 = phi <2 x i64> [ %122, %lshift64_m128.exit169 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.271152.6 = phi <2 x i64> [ %123, %lshift64_m128.exit169 ], [ %100, %lshift64_m128.exit127 ]
-  %.sroa.351183.6 = phi <2 x i64> [ %124, %lshift64_m128.exit169 ], [ %103, %lshift64_m128.exit127 ]
+  %.sroa.01127.6 = phi <2 x i64> [ %122, %lshift64_m128.exit169 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271143.6 = phi <2 x i64> [ %123, %lshift64_m128.exit169 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351174.6 = phi <2 x i64> [ %124, %lshift64_m128.exit169 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 16) ], !noalias !113
   %125 = load <2 x i64>, ptr %51, align 16, !noalias !113
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ], !noalias !113
   %126 = load <2 x i64>, ptr %52, align 16, !noalias !113
   call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 16) ], !noalias !113
   %127 = load <2 x i64>, ptr %53, align 16, !noalias !113
-  %128 = and <2 x i64> %126, %.sroa.14.02237
-  %129 = and <2 x i64> %127, %.sroa.17.02238
+  %128 = and <2 x i64> %126, %.sroa.14.02222
+  %129 = and <2 x i64> %127, %.sroa.17.02223
   %130 = load i8, ptr %54, align 2
   %131 = zext i8 %130 to i32
-  %132 = and <2 x i64> %125, %.sroa.01214.02236
+  %132 = and <2 x i64> %125, %.sroa.01205.02221
   %133 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %131, i64 0
   %134 = bitcast <4 x i32> %133 to <2 x i64>
   %135 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %132, <2 x i64> %134)
@@ -1448,26 +1448,26 @@ lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit1
   %139 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %131, i64 0
   %140 = bitcast <4 x i32> %139 to <2 x i64>
   %141 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %129, <2 x i64> %140)
-  %142 = or <2 x i64> %135, %.sroa.01136.6
-  %143 = or <2 x i64> %138, %.sroa.271152.6
-  %144 = or <2 x i64> %141, %.sroa.351183.6
+  %142 = or <2 x i64> %135, %.sroa.01127.6
+  %143 = or <2 x i64> %138, %.sroa.271143.6
+  %144 = or <2 x i64> %141, %.sroa.351174.6
   br label %lshift64_m128.exit157
 
 lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit163, %lshift64_m128.exit127
-  %.sroa.01136.5 = phi <2 x i64> [ %142, %lshift64_m128.exit163 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.271152.5 = phi <2 x i64> [ %143, %lshift64_m128.exit163 ], [ %100, %lshift64_m128.exit127 ]
-  %.sroa.351183.5 = phi <2 x i64> [ %144, %lshift64_m128.exit163 ], [ %103, %lshift64_m128.exit127 ]
+  %.sroa.01127.5 = phi <2 x i64> [ %142, %lshift64_m128.exit163 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271143.5 = phi <2 x i64> [ %143, %lshift64_m128.exit163 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351174.5 = phi <2 x i64> [ %144, %lshift64_m128.exit163 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ], !noalias !116
   %145 = load <2 x i64>, ptr %55, align 16, !noalias !116
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ], !noalias !116
   %146 = load <2 x i64>, ptr %56, align 16, !noalias !116
   call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 16) ], !noalias !116
   %147 = load <2 x i64>, ptr %57, align 16, !noalias !116
-  %148 = and <2 x i64> %146, %.sroa.14.02237
-  %149 = and <2 x i64> %147, %.sroa.17.02238
+  %148 = and <2 x i64> %146, %.sroa.14.02222
+  %149 = and <2 x i64> %147, %.sroa.17.02223
   %150 = load i8, ptr %58, align 1
   %151 = zext i8 %150 to i32
-  %152 = and <2 x i64> %145, %.sroa.01214.02236
+  %152 = and <2 x i64> %145, %.sroa.01205.02221
   %153 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %151, i64 0
   %154 = bitcast <4 x i32> %153 to <2 x i64>
   %155 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %152, <2 x i64> %154)
@@ -1477,26 +1477,26 @@ lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit1
   %159 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %151, i64 0
   %160 = bitcast <4 x i32> %159 to <2 x i64>
   %161 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %149, <2 x i64> %160)
-  %162 = or <2 x i64> %155, %.sroa.01136.5
-  %163 = or <2 x i64> %158, %.sroa.271152.5
-  %164 = or <2 x i64> %161, %.sroa.351183.5
+  %162 = or <2 x i64> %155, %.sroa.01127.5
+  %163 = or <2 x i64> %158, %.sroa.271143.5
+  %164 = or <2 x i64> %161, %.sroa.351174.5
   br label %lshift64_m128.exit151
 
 lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit157, %lshift64_m128.exit127
-  %.sroa.01136.4 = phi <2 x i64> [ %162, %lshift64_m128.exit157 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.271152.4 = phi <2 x i64> [ %163, %lshift64_m128.exit157 ], [ %100, %lshift64_m128.exit127 ]
-  %.sroa.351183.4 = phi <2 x i64> [ %164, %lshift64_m128.exit157 ], [ %103, %lshift64_m128.exit127 ]
+  %.sroa.01127.4 = phi <2 x i64> [ %162, %lshift64_m128.exit157 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271143.4 = phi <2 x i64> [ %163, %lshift64_m128.exit157 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351174.4 = phi <2 x i64> [ %164, %lshift64_m128.exit157 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ], !noalias !119
   %165 = load <2 x i64>, ptr %59, align 16, !noalias !119
   call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ], !noalias !119
   %166 = load <2 x i64>, ptr %60, align 16, !noalias !119
   call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 16) ], !noalias !119
   %167 = load <2 x i64>, ptr %61, align 16, !noalias !119
-  %168 = and <2 x i64> %166, %.sroa.14.02237
-  %169 = and <2 x i64> %167, %.sroa.17.02238
+  %168 = and <2 x i64> %166, %.sroa.14.02222
+  %169 = and <2 x i64> %167, %.sroa.17.02223
   %170 = load i8, ptr %62, align 8
   %171 = zext i8 %170 to i32
-  %172 = and <2 x i64> %165, %.sroa.01214.02236
+  %172 = and <2 x i64> %165, %.sroa.01205.02221
   %173 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %171, i64 0
   %174 = bitcast <4 x i32> %173 to <2 x i64>
   %175 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %172, <2 x i64> %174)
@@ -1506,26 +1506,26 @@ lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit1
   %179 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %171, i64 0
   %180 = bitcast <4 x i32> %179 to <2 x i64>
   %181 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %169, <2 x i64> %180)
-  %182 = or <2 x i64> %175, %.sroa.01136.4
-  %183 = or <2 x i64> %178, %.sroa.271152.4
-  %184 = or <2 x i64> %181, %.sroa.351183.4
+  %182 = or <2 x i64> %175, %.sroa.01127.4
+  %183 = or <2 x i64> %178, %.sroa.271143.4
+  %184 = or <2 x i64> %181, %.sroa.351174.4
   br label %lshift64_m128.exit145
 
 lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit151, %lshift64_m128.exit127
-  %.sroa.01136.3 = phi <2 x i64> [ %182, %lshift64_m128.exit151 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.271152.3 = phi <2 x i64> [ %183, %lshift64_m128.exit151 ], [ %100, %lshift64_m128.exit127 ]
-  %.sroa.351183.3 = phi <2 x i64> [ %184, %lshift64_m128.exit151 ], [ %103, %lshift64_m128.exit127 ]
+  %.sroa.01127.3 = phi <2 x i64> [ %182, %lshift64_m128.exit151 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271143.3 = phi <2 x i64> [ %183, %lshift64_m128.exit151 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351174.3 = phi <2 x i64> [ %184, %lshift64_m128.exit151 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 16) ], !noalias !122
   %185 = load <2 x i64>, ptr %63, align 16, !noalias !122
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 16) ], !noalias !122
   %186 = load <2 x i64>, ptr %64, align 16, !noalias !122
   call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 16) ], !noalias !122
   %187 = load <2 x i64>, ptr %65, align 16, !noalias !122
-  %188 = and <2 x i64> %186, %.sroa.14.02237
-  %189 = and <2 x i64> %187, %.sroa.17.02238
+  %188 = and <2 x i64> %186, %.sroa.14.02222
+  %189 = and <2 x i64> %187, %.sroa.17.02223
   %190 = load i8, ptr %66, align 1
   %191 = zext i8 %190 to i32
-  %192 = and <2 x i64> %185, %.sroa.01214.02236
+  %192 = and <2 x i64> %185, %.sroa.01205.02221
   %193 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %191, i64 0
   %194 = bitcast <4 x i32> %193 to <2 x i64>
   %195 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %192, <2 x i64> %194)
@@ -1535,26 +1535,26 @@ lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit1
   %199 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %191, i64 0
   %200 = bitcast <4 x i32> %199 to <2 x i64>
   %201 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %189, <2 x i64> %200)
-  %202 = or <2 x i64> %195, %.sroa.01136.3
-  %203 = or <2 x i64> %198, %.sroa.271152.3
-  %204 = or <2 x i64> %201, %.sroa.351183.3
+  %202 = or <2 x i64> %195, %.sroa.01127.3
+  %203 = or <2 x i64> %198, %.sroa.271143.3
+  %204 = or <2 x i64> %201, %.sroa.351174.3
   br label %lshift64_m128.exit139
 
 lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit145, %lshift64_m128.exit127
-  %.sroa.01136.2 = phi <2 x i64> [ %202, %lshift64_m128.exit145 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.271152.2 = phi <2 x i64> [ %203, %lshift64_m128.exit145 ], [ %100, %lshift64_m128.exit127 ]
-  %.sroa.351183.2 = phi <2 x i64> [ %204, %lshift64_m128.exit145 ], [ %103, %lshift64_m128.exit127 ]
+  %.sroa.01127.2 = phi <2 x i64> [ %202, %lshift64_m128.exit145 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271143.2 = phi <2 x i64> [ %203, %lshift64_m128.exit145 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351174.2 = phi <2 x i64> [ %204, %lshift64_m128.exit145 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 16) ], !noalias !125
   %205 = load <2 x i64>, ptr %67, align 16, !noalias !125
   call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 16) ], !noalias !125
   %206 = load <2 x i64>, ptr %68, align 16, !noalias !125
   call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 16) ], !noalias !125
   %207 = load <2 x i64>, ptr %69, align 16, !noalias !125
-  %208 = and <2 x i64> %206, %.sroa.14.02237
-  %209 = and <2 x i64> %207, %.sroa.17.02238
+  %208 = and <2 x i64> %206, %.sroa.14.02222
+  %209 = and <2 x i64> %207, %.sroa.17.02223
   %210 = load i8, ptr %70, align 2
   %211 = zext i8 %210 to i32
-  %212 = and <2 x i64> %205, %.sroa.01214.02236
+  %212 = and <2 x i64> %205, %.sroa.01205.02221
   %213 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %211, i64 0
   %214 = bitcast <4 x i32> %213 to <2 x i64>
   %215 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %212, <2 x i64> %214)
@@ -1564,26 +1564,26 @@ lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit1
   %219 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %211, i64 0
   %220 = bitcast <4 x i32> %219 to <2 x i64>
   %221 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %209, <2 x i64> %220)
-  %222 = or <2 x i64> %215, %.sroa.01136.2
-  %223 = or <2 x i64> %218, %.sroa.271152.2
-  %224 = or <2 x i64> %221, %.sroa.351183.2
+  %222 = or <2 x i64> %215, %.sroa.01127.2
+  %223 = or <2 x i64> %218, %.sroa.271143.2
+  %224 = or <2 x i64> %221, %.sroa.351174.2
   br label %lshift64_m128.exit133
 
 lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit139, %lshift64_m128.exit127
-  %.sroa.01136.0 = phi <2 x i64> [ %222, %lshift64_m128.exit139 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.271152.0 = phi <2 x i64> [ %223, %lshift64_m128.exit139 ], [ %100, %lshift64_m128.exit127 ]
-  %.sroa.351183.0 = phi <2 x i64> [ %224, %lshift64_m128.exit139 ], [ %103, %lshift64_m128.exit127 ]
+  %.sroa.01127.0 = phi <2 x i64> [ %222, %lshift64_m128.exit139 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271143.0 = phi <2 x i64> [ %223, %lshift64_m128.exit139 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351174.0 = phi <2 x i64> [ %224, %lshift64_m128.exit139 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 16) ], !noalias !128
   %225 = load <2 x i64>, ptr %71, align 16, !noalias !128
   call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 16) ], !noalias !128
   %226 = load <2 x i64>, ptr %72, align 16, !noalias !128
   call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 16) ], !noalias !128
   %227 = load <2 x i64>, ptr %73, align 16, !noalias !128
-  %228 = and <2 x i64> %226, %.sroa.14.02237
-  %229 = and <2 x i64> %227, %.sroa.17.02238
+  %228 = and <2 x i64> %226, %.sroa.14.02222
+  %229 = and <2 x i64> %227, %.sroa.17.02223
   %230 = load i8, ptr %74, align 1
   %231 = zext i8 %230 to i32
-  %232 = and <2 x i64> %225, %.sroa.01214.02236
+  %232 = and <2 x i64> %225, %.sroa.01205.02221
   %233 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %231, i64 0
   %234 = bitcast <4 x i32> %233 to <2 x i64>
   %235 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %232, <2 x i64> %234)
@@ -1593,21 +1593,21 @@ lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit1
   %239 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %231, i64 0
   %240 = bitcast <4 x i32> %239 to <2 x i64>
   %241 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %229, <2 x i64> %240)
-  %242 = or <2 x i64> %235, %.sroa.01136.0
-  %243 = or <2 x i64> %238, %.sroa.271152.0
-  %244 = or <2 x i64> %241, %.sroa.351183.0
+  %242 = or <2 x i64> %235, %.sroa.01127.0
+  %243 = or <2 x i64> %238, %.sroa.271143.0
+  %244 = or <2 x i64> %241, %.sroa.351174.0
   br label %245
 
 245:                                              ; preds = %lshift64_m128.exit133, %lshift64_m128.exit127
-  %.sroa.01136.1 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %242, %lshift64_m128.exit133 ]
-  %.sroa.271152.1 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %243, %lshift64_m128.exit133 ]
-  %.sroa.351183.1 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %244, %lshift64_m128.exit133 ]
+  %.sroa.01127.1 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %242, %lshift64_m128.exit133 ]
+  %.sroa.271143.1 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %243, %lshift64_m128.exit133 ]
+  %.sroa.351174.1 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %244, %lshift64_m128.exit133 ]
   %246 = load <2 x i64>, ptr %75, align 16, !noalias !107
   %247 = load <2 x i64>, ptr %76, align 16, !noalias !107
   %248 = load <2 x i64>, ptr %77, align 16, !noalias !107
-  %249 = and <2 x i64> %246, %.sroa.01214.02236
-  %250 = and <2 x i64> %247, %.sroa.14.02237
-  %251 = and <2 x i64> %248, %.sroa.17.02238
+  %249 = and <2 x i64> %246, %.sroa.01205.02221
+  %250 = and <2 x i64> %247, %.sroa.14.02222
+  %251 = and <2 x i64> %248, %.sroa.17.02223
   %252 = bitcast <2 x i64> %249 to <4 x i32>
   %253 = icmp eq <4 x i32> %252, zeroinitializer
   %254 = sext <4 x i1> %253 to <4 x i32>
@@ -1628,63 +1628,63 @@ lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit1
   %269 = or i32 %268, %267
   %270 = and i32 %269, 1365
   %.not.i12 = icmp eq i32 %270, 0
-  br i1 %.not.i12, label %processExceptional384.exit210.thread, label %271, !prof !80
+  br i1 %.not.i12, label %processExceptional384.exit208.thread, label %271, !prof !80
 
 271:                                              ; preds = %245
-  %.not2162 = icmp eq i64 %.045.i62239, 0
-  %272 = add i64 %.045.i62239, %4
-  %273 = select i1 %.not2162, i8 16, i8 1
-  %.sroa.01695.0.copyload2163 = load <16 x i8>, ptr %78, align 16
+  %.not2147 = icmp eq i64 %.045.i62224, 0
+  %272 = add i64 %.045.i62224, %4
+  %273 = select i1 %.not2147, i8 16, i8 1
+  %.sroa.01686.0.copyload2148 = load <16 x i8>, ptr %78, align 16
   %274 = bitcast <2 x i64> %249 to <16 x i8>
-  %275 = icmp ne <16 x i8> %.sroa.01695.0.copyload2163, %274
+  %275 = icmp ne <16 x i8> %.sroa.01686.0.copyload2148, %274
   %276 = bitcast <16 x i1> %275 to i16
-  %.not.i211 = icmp eq i16 %276, 0
-  br i1 %.not.i211, label %277, label %diff384.exit.thread
+  %.not.i209 = icmp eq i16 %276, 0
+  br i1 %.not.i209, label %277, label %diff384.exit.thread
 
 277:                                              ; preds = %271
-  %.sroa.51697.0.copyload2165 = load <16 x i8>, ptr %.sroa.51697.0..sroa_idx, align 16
-  %.sroa.41696.0.copyload2164 = load <16 x i8>, ptr %.sroa.41696.0..sroa_idx, align 16
+  %.sroa.51688.0.copyload2150 = load <16 x i8>, ptr %.sroa.51688.0..sroa_idx, align 16
+  %.sroa.41687.0.copyload2149 = load <16 x i8>, ptr %.sroa.41687.0..sroa_idx, align 16
   %278 = bitcast <2 x i64> %250 to <16 x i8>
-  %279 = icmp ne <16 x i8> %.sroa.41696.0.copyload2164, %278
+  %279 = icmp ne <16 x i8> %.sroa.41687.0.copyload2149, %278
   %280 = bitcast <16 x i1> %279 to i16
   %.not1.i = icmp eq i16 %280, 0
   %281 = bitcast <2 x i64> %251 to <16 x i8>
-  %282 = icmp ne <16 x i8> %.sroa.51697.0.copyload2165, %281
+  %282 = icmp ne <16 x i8> %.sroa.51688.0.copyload2150, %281
   %283 = bitcast <16 x i1> %282 to i16
-  %.not2166 = icmp eq i16 %283, 0
-  %or.cond2187 = select i1 %.not1.i, i1 %.not2166, i1 false
-  br i1 %or.cond2187, label %284, label %diff384.exit.thread
+  %.not2151 = icmp eq i16 %283, 0
+  %or.cond2172 = select i1 %.not1.i, i1 %.not2151, i1 false
+  br i1 %or.cond2172, label %284, label %diff384.exit.thread
 
 284:                                              ; preds = %277
-  %.sroa.01666.0.copyload = load <2 x i64>, ptr %85, align 16
-  %.sroa.41667.0.copyload = load <2 x i64>, ptr %.sroa.41667.0..sroa_idx, align 16
-  %.sroa.51668.0.copyload = load <2 x i64>, ptr %.sroa.51668.0..sroa_idx, align 16
-  %285 = or <2 x i64> %.sroa.01666.0.copyload, %.sroa.01136.1
-  %286 = or <2 x i64> %.sroa.41667.0.copyload, %.sroa.271152.1
-  %287 = or <2 x i64> %.sroa.51668.0.copyload, %.sroa.351183.1
+  %.sroa.01657.0.copyload = load <2 x i64>, ptr %85, align 16
+  %.sroa.41658.0.copyload = load <2 x i64>, ptr %.sroa.41658.0..sroa_idx, align 16
+  %.sroa.51659.0.copyload = load <2 x i64>, ptr %.sroa.51659.0..sroa_idx, align 16
+  %285 = or <2 x i64> %.sroa.01657.0.copyload, %.sroa.01127.1
+  %286 = or <2 x i64> %.sroa.41658.0.copyload, %.sroa.271143.1
+  %287 = or <2 x i64> %.sroa.51659.0.copyload, %.sroa.351174.1
   %288 = load ptr, ptr %86, align 8
-  %.not54.i202 = icmp eq ptr %288, null
+  %.not54.i201 = icmp eq ptr %288, null
   %289 = and i8 %273, 1
-  %.not55.i203 = icmp eq i8 %289, 0
-  %or.cond.i204 = or i1 %.not55.i203, %.not54.i202
-  br i1 %or.cond.i204, label %processExceptional384.exit210.thread, label %290
+  %.not55.i202 = icmp eq i8 %289, 0
+  %or.cond.i203 = or i1 %.not55.i202, %.not54.i201
+  br i1 %or.cond.i203, label %processExceptional384.exit208.thread, label %290
 
 290:                                              ; preds = %284
   %291 = load ptr, ptr %82, align 32
   %292 = load ptr, ptr %83, align 8
   %293 = load i32, ptr %288, align 4
-  %.not.i.i2062232 = icmp eq i32 %293, -1
-  br i1 %.not.i.i2062232, label %processExceptional384.exit210.thread, label %.lr.ph2234
+  %.not.i.i2052217 = icmp eq i32 %293, -1
+  br i1 %.not.i.i2052217, label %processExceptional384.exit208.thread, label %.lr.ph2219
 
-294:                                              ; preds = %.lr.ph2234
-  %295 = getelementptr inbounds nuw i8, ptr %.09.i.i2052233, i64 4
+294:                                              ; preds = %.lr.ph2219
+  %295 = getelementptr inbounds nuw i8, ptr %.09.i.i2042218, i64 4
   %296 = load i32, ptr %295, align 4
-  %.not.i.i206 = icmp eq i32 %296, -1
-  br i1 %.not.i.i206, label %processExceptional384.exit210.thread, label %.lr.ph2234
+  %.not.i.i205 = icmp eq i32 %296, -1
+  br i1 %.not.i.i205, label %processExceptional384.exit208.thread, label %.lr.ph2219
 
-.lr.ph2234:                                       ; preds = %290, %294
+.lr.ph2219:                                       ; preds = %290, %294
   %297 = phi i32 [ %296, %294 ], [ %293, %290 ]
-  %.09.i.i2052233 = phi ptr [ %295, %294 ], [ %288, %290 ]
+  %.09.i.i2042218 = phi ptr [ %295, %294 ], [ %288, %290 ]
   %298 = call i32 %291(i64 noundef 0, i64 noundef %272, i32 noundef %297, ptr noundef %292) #12
   %.not = icmp eq i32 %298, 0
   br i1 %.not, label %nfaExecLimEx384_Stream.exit, label %294
@@ -1694,14 +1694,14 @@ diff384.exit.thread:                              ; preds = %271, %277
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> %249, ptr %6, align 16
-  store <2 x i64> %250, ptr %.sroa.7.0..sroa_idx1449, align 16
-  store <2 x i64> %251, ptr %.sroa.8.0..sroa_idx1455, align 16
+  store <2 x i64> %250, ptr %.sroa.7.0..sroa_idx1440, align 16
+  store <2 x i64> %251, ptr %.sroa.8.0..sroa_idx1446, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 64 dereferenceable(48) %75, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 16
   br label %300
 
-.preheader2199:                                   ; preds = %300
+.preheader2184:                                   ; preds = %300
   %299 = and i8 %273, 1
   %.not71.i = icmp eq i8 %299, 0
   br label %308
@@ -1718,16 +1718,16 @@ diff384.exit.thread:                              ; preds = %271, %277
   %307 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
   store i32 %306, ptr %307, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader2199, label %300
+  br i1 %exitcond.not, label %.preheader2184, label %300
 
-308:                                              ; preds = %.preheader2199, %455
-  %.sroa.01136.8 = phi <2 x i64> [ %.sroa.01136.14.ph, %455 ], [ %.sroa.01136.1, %.preheader2199 ]
-  %.sroa.271152.8 = phi <2 x i64> [ %.sroa.271152.14.ph, %455 ], [ %.sroa.271152.1, %.preheader2199 ]
-  %.sroa.351183.8 = phi <2 x i64> [ %.sroa.351183.14.ph, %455 ], [ %.sroa.351183.1, %.preheader2199 ]
-  %.01833 = phi i32 [ %.6.ph, %455 ], [ 1, %.preheader2199 ]
-  %.sroa.51647.5 = phi ptr [ %.sroa.51647.10.ph, %455 ], [ null, %.preheader2199 ]
-  %.sroa.01645.5 = phi i8 [ %.sroa.01645.10.ph, %455 ], [ 0, %.preheader2199 ]
-  %.0 = phi i32 [ %311, %455 ], [ %270, %.preheader2199 ]
+308:                                              ; preds = %.preheader2184, %455
+  %.sroa.01127.8 = phi <2 x i64> [ %.sroa.01127.14.ph, %455 ], [ %.sroa.01127.1, %.preheader2184 ]
+  %.sroa.271143.8 = phi <2 x i64> [ %.sroa.271143.14.ph, %455 ], [ %.sroa.271143.1, %.preheader2184 ]
+  %.sroa.351174.8 = phi <2 x i64> [ %.sroa.351174.14.ph, %455 ], [ %.sroa.351174.1, %.preheader2184 ]
+  %.01824 = phi i32 [ %.6.ph, %455 ], [ 1, %.preheader2184 ]
+  %.sroa.51638.5 = phi ptr [ %.sroa.51638.10.ph, %455 ], [ null, %.preheader2184 ]
+  %.sroa.01636.5 = phi i8 [ %.sroa.01636.10.ph, %455 ], [ 0, %.preheader2184 ]
+  %.0 = phi i32 [ %311, %455 ], [ %270, %.preheader2184 ]
   %309 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.0) #13, !srcloc !131
   %310 = extractvalue { i32, i32 } %309, 0
   %311 = extractvalue { i32, i32 } %309, 1
@@ -1740,20 +1740,20 @@ diff384.exit.thread:                              ; preds = %271, %277
   br label %318
 
 318:                                              ; preds = %repeatHasMatch.exit.thread, %308
-  %.sroa.01136.9 = phi <2 x i64> [ %.sroa.01136.8, %308 ], [ %.sroa.01136.14.ph, %repeatHasMatch.exit.thread ]
-  %.sroa.271152.9 = phi <2 x i64> [ %.sroa.271152.8, %308 ], [ %.sroa.271152.14.ph, %repeatHasMatch.exit.thread ]
-  %.sroa.351183.9 = phi <2 x i64> [ %.sroa.351183.8, %308 ], [ %.sroa.351183.14.ph, %repeatHasMatch.exit.thread ]
-  %.01834 = phi i64 [ %315, %308 ], [ %321, %repeatHasMatch.exit.thread ]
-  %.1 = phi i32 [ %.01833, %308 ], [ %.6.ph, %repeatHasMatch.exit.thread ]
-  %.sroa.51647.6 = phi ptr [ %.sroa.51647.5, %308 ], [ %.sroa.51647.10.ph, %repeatHasMatch.exit.thread ]
-  %.sroa.01645.6 = phi i8 [ %.sroa.01645.5, %308 ], [ %.sroa.01645.10.ph, %repeatHasMatch.exit.thread ]
-  %319 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01834) #13, !srcloc !132
+  %.sroa.01127.9 = phi <2 x i64> [ %.sroa.01127.8, %308 ], [ %.sroa.01127.14.ph, %repeatHasMatch.exit.thread ]
+  %.sroa.271143.9 = phi <2 x i64> [ %.sroa.271143.8, %308 ], [ %.sroa.271143.14.ph, %repeatHasMatch.exit.thread ]
+  %.sroa.351174.9 = phi <2 x i64> [ %.sroa.351174.8, %308 ], [ %.sroa.351174.14.ph, %repeatHasMatch.exit.thread ]
+  %.01825 = phi i64 [ %315, %308 ], [ %321, %repeatHasMatch.exit.thread ]
+  %.1 = phi i32 [ %.01824, %308 ], [ %.6.ph, %repeatHasMatch.exit.thread ]
+  %.sroa.51638.6 = phi ptr [ %.sroa.51638.5, %308 ], [ %.sroa.51638.10.ph, %repeatHasMatch.exit.thread ]
+  %.sroa.01636.6 = phi i8 [ %.sroa.01636.5, %308 ], [ %.sroa.01636.10.ph, %repeatHasMatch.exit.thread ]
+  %319 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01825) #13, !srcloc !132
   %320 = extractvalue { i64, i64 } %319, 0
   %321 = extractvalue { i64, i64 } %319, 1
   %322 = load i64, ptr %316, align 8
   %323 = and i64 %320, 4294967295
-  %notmask.i.i194 = shl nsw i64 -1, %323
-  %324 = xor i64 %notmask.i.i194, -1
+  %notmask.i.i193 = shl nsw i64 -1, %323
+  %324 = xor i64 %notmask.i.i193, -1
   %325 = and i64 %322, %324
   %326 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %325)
   %327 = trunc nuw nsw i64 %326 to i32
@@ -1764,7 +1764,7 @@ diff384.exit.thread:                              ; preds = %271, %277
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 105
   %333 = load i8, ptr %332, align 1
   %.not69.i = icmp eq i8 %333, 0
-  br i1 %.not69.i, label %.critedge.i218.thread, label %334
+  br i1 %.not69.i, label %.critedge.i216.thread, label %334
 
 334:                                              ; preds = %318
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 100
@@ -1789,8 +1789,8 @@ testbit384.exit.i:                                ; preds = %334
   %351 = load i32, ptr %338, align 4
   %352 = icmp ult i32 %351, 128
   %353 = icmp ult i32 %351, 256
-  %spec.select = select i1 %353, <2 x i64> %.sroa.14.02237, <2 x i64> %.sroa.17.02238
-  %.0.in.i.i.sroa.speculated = select i1 %352, <2 x i64> %.sroa.01214.02236, <2 x i64> %spec.select
+  %spec.select = select i1 %353, <2 x i64> %.sroa.14.02222, <2 x i64> %.sroa.17.02223
+  %.0.in.i.i.sroa.speculated = select i1 %352, <2 x i64> %.sroa.01205.02221, <2 x i64> %spec.select
   %354 = and i32 %351, 127
   %355 = shl nuw nsw i32 %354, 6
   %356 = and i32 %355, 448
@@ -1801,10 +1801,10 @@ testbit384.exit.i:                                ; preds = %334
   %360 = getelementptr i8, ptr %359, i64 95
   %361 = load <2 x i64>, ptr %360, align 1
   %362 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %361, <2 x i64> %.0.in.i.i.sroa.speculated)
-  %.not.i.i225 = icmp eq i32 %362, 0
-  %363 = zext i1 %.not.i.i225 to i8
+  %.not.i.i222 = icmp eq i32 %362, 0
+  %363 = zext i1 %.not.i.i222 to i8
   %364 = load i8, ptr %339, align 4
-  switch i8 %364, label %.critedge.i218.thread [
+  switch i8 %364, label %.critedge.i216.thread [
     i8 0, label %365
     i8 1, label %366
     i8 2, label %368
@@ -1816,34 +1816,34 @@ testbit384.exit.i:                                ; preds = %334
 
 365:                                              ; preds = %testbit384.exit.i
   call void @repeatStoreRing(ptr noundef nonnull %339, ptr noundef %344, ptr noundef %349, i64 noundef %272, i8 noundef signext range(i8 0, 2) %363) #12
-  br label %.critedge.i218.thread
+  br label %.critedge.i216.thread
 
 366:                                              ; preds = %testbit384.exit.i
-  br i1 %.not.i.i225, label %.critedge.i218.thread, label %367
+  br i1 %.not.i.i222, label %.critedge.i216.thread, label %367
 
 367:                                              ; preds = %366
   store i64 %272, ptr %344, align 8
-  br label %.critedge.i218.thread
+  br label %.critedge.i216.thread
 
 368:                                              ; preds = %testbit384.exit.i
   store i64 %272, ptr %344, align 8
-  br label %.critedge.i218.thread
+  br label %.critedge.i216.thread
 
 369:                                              ; preds = %testbit384.exit.i
   call void @repeatStoreRange(ptr noundef nonnull %339, ptr noundef %344, ptr noundef %349, i64 noundef %272, i8 noundef signext range(i8 0, 2) %363) #12
-  br label %.critedge.i218.thread
+  br label %.critedge.i216.thread
 
 370:                                              ; preds = %testbit384.exit.i
   call void @repeatStoreBitmap(ptr noundef nonnull %339, ptr noundef %344, i64 noundef %272, i8 noundef signext range(i8 0, 2) %363) #12
-  br label %.critedge.i218.thread
+  br label %.critedge.i216.thread
 
 371:                                              ; preds = %testbit384.exit.i
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %339, ptr noundef %344, ptr noundef %349, i64 noundef %272, i8 noundef signext range(i8 0, 2) %363) #12
-  br label %.critedge.i218.thread
+  br label %.critedge.i216.thread
 
 372:                                              ; preds = %testbit384.exit.i
   call void @repeatStoreTrailer(ptr noundef nonnull %339, ptr noundef %344, i64 noundef %272, i8 noundef signext range(i8 0, 2) %363) #12
-  br label %.critedge.i218.thread
+  br label %.critedge.i216.thread
 
 373:                                              ; preds = %334
   %374 = load i8, ptr %339, align 4
@@ -1855,7 +1855,7 @@ testbit384.exit.i:                                ; preds = %334
     i8 4, label %398
     i8 5, label %400
     i8 6, label %402
-    i8 7, label %repeatHasMatch.exit.thread1863
+    i8 7, label %repeatHasMatch.exit.thread1854
   ]
 
 375:                                              ; preds = %373
@@ -1869,7 +1869,7 @@ testbit384.exit.i:                                ; preds = %334
   %381 = zext i32 %380 to i64
   %382 = add i64 %378, %381
   %383 = icmp ult i64 %272, %382
-  br i1 %383, label %repeatHasMatch.exit.thread, label %repeatHasMatch.exit.thread1863
+  br i1 %383, label %repeatHasMatch.exit.thread, label %repeatHasMatch.exit.thread1854
 
 384:                                              ; preds = %373
   %385 = load i64, ptr %344, align 8
@@ -1885,8 +1885,8 @@ testbit384.exit.i:                                ; preds = %334
   %393 = load i32, ptr %392, align 4
   %394 = zext i32 %393 to i64
   %395 = add i64 %385, %394
-  %.not.i300 = icmp ugt i64 %272, %395
-  br i1 %.not.i300, label %repeatHasMatch.exit.thread1865, label %repeatHasMatch.exit.thread1863
+  %.not.i291 = icmp ugt i64 %272, %395
+  br i1 %.not.i291, label %repeatHasMatch.exit.thread1856, label %repeatHasMatch.exit.thread1854
 
 396:                                              ; preds = %373
   %397 = call i32 @repeatHasMatchRange(ptr noundef nonnull %339, ptr noundef %344, ptr noundef %349, i64 noundef %272) #12
@@ -1905,21 +1905,21 @@ testbit384.exit.i:                                ; preds = %334
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %375, %396, %398, %400, %402
-  %.0.i285 = phi i32 [ %376, %375 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ]
-  switch i32 %.0.i285, label %repeatHasMatch.exit.thread [
-    i32 1, label %repeatHasMatch.exit.thread1863
-    i32 2, label %repeatHasMatch.exit.thread1865
+  %.0.i276 = phi i32 [ %376, %375 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ]
+  switch i32 %.0.i276, label %repeatHasMatch.exit.thread [
+    i32 1, label %repeatHasMatch.exit.thread1854
+    i32 2, label %repeatHasMatch.exit.thread1856
   ]
 
-repeatHasMatch.exit.thread1863:                   ; preds = %391, %373, %377, %repeatHasMatch.exit
+repeatHasMatch.exit.thread1854:                   ; preds = %391, %373, %377, %repeatHasMatch.exit
   %404 = getelementptr inbounds nuw i8, ptr %338, i64 32
   %405 = load i32, ptr %404, align 4
   %406 = icmp eq i32 %405, 65535
-  %spec.select2138 = select i1 %406, i32 %.1, i32 2
-  %spec.select2139 = select i1 %406, i8 1, i8 %.sroa.01645.6
-  br label %.critedge.i218.thread
+  %spec.select2123 = select i1 %406, i32 %.1, i32 2
+  %spec.select2124 = select i1 %406, i8 1, i8 %.sroa.01636.6
+  br label %.critedge.i216.thread
 
-repeatHasMatch.exit.thread1865:                   ; preds = %391, %repeatHasMatch.exit
+repeatHasMatch.exit.thread1856:                   ; preds = %391, %repeatHasMatch.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %331, i64 16) ], !noalias !133
   %407 = load <2 x i64>, ptr %331, align 16, !noalias !133
   %408 = getelementptr inbounds nuw i8, ptr %331, i64 16
@@ -1928,20 +1928,20 @@ repeatHasMatch.exit.thread1865:                   ; preds = %391, %repeatHasMatc
   %410 = getelementptr inbounds nuw i8, ptr %331, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %410, i64 16) ], !noalias !133
   %411 = load <2 x i64>, ptr %410, align 16, !noalias !133
-  %412 = and <2 x i64> %407, %.sroa.01136.9
-  %413 = and <2 x i64> %409, %.sroa.271152.9
-  %414 = and <2 x i64> %411, %.sroa.351183.9
+  %412 = and <2 x i64> %407, %.sroa.01127.9
+  %413 = and <2 x i64> %409, %.sroa.271143.9
+  %414 = and <2 x i64> %411, %.sroa.351174.9
   br label %repeatHasMatch.exit.thread
 
-.critedge.i218.thread:                            ; preds = %repeatHasMatch.exit.thread1863, %372, %371, %370, %369, %368, %365, %testbit384.exit.i, %366, %367, %318
-  %.3 = phi i32 [ %.1, %318 ], [ 2, %372 ], [ 2, %371 ], [ 2, %370 ], [ 2, %369 ], [ 2, %368 ], [ 2, %365 ], [ 2, %testbit384.exit.i ], [ 2, %366 ], [ 2, %367 ], [ %spec.select2138, %repeatHasMatch.exit.thread1863 ]
-  %.sroa.01645.9 = phi i8 [ %.sroa.01645.6, %318 ], [ %.sroa.01645.6, %372 ], [ %.sroa.01645.6, %371 ], [ %.sroa.01645.6, %370 ], [ %.sroa.01645.6, %369 ], [ %.sroa.01645.6, %368 ], [ %.sroa.01645.6, %365 ], [ %.sroa.01645.6, %testbit384.exit.i ], [ %.sroa.01645.6, %366 ], [ %.sroa.01645.6, %367 ], [ %spec.select2139, %repeatHasMatch.exit.thread1863 ]
+.critedge.i216.thread:                            ; preds = %repeatHasMatch.exit.thread1854, %372, %371, %370, %369, %368, %365, %testbit384.exit.i, %366, %367, %318
+  %.3 = phi i32 [ %.1, %318 ], [ 2, %372 ], [ 2, %371 ], [ 2, %370 ], [ 2, %369 ], [ 2, %368 ], [ 2, %365 ], [ 2, %testbit384.exit.i ], [ 2, %366 ], [ 2, %367 ], [ %spec.select2123, %repeatHasMatch.exit.thread1854 ]
+  %.sroa.01636.9 = phi i8 [ %.sroa.01636.6, %318 ], [ %.sroa.01636.6, %372 ], [ %.sroa.01636.6, %371 ], [ %.sroa.01636.6, %370 ], [ %.sroa.01636.6, %369 ], [ %.sroa.01636.6, %368 ], [ %.sroa.01636.6, %365 ], [ %.sroa.01636.6, %testbit384.exit.i ], [ %.sroa.01636.6, %366 ], [ %.sroa.01636.6, %367 ], [ %spec.select2124, %repeatHasMatch.exit.thread1854 ]
   %415 = getelementptr inbounds nuw i8, ptr %331, i64 96
   %416 = load i32, ptr %415, align 16
   %.not70.i = icmp eq i32 %416, -1
   br i1 %.not70.i, label %.thread, label %417
 
-417:                                              ; preds = %.critedge.i218.thread
+417:                                              ; preds = %.critedge.i216.thread
   br i1 %.not71.i, label %432, label %418
 
 418:                                              ; preds = %417
@@ -1950,43 +1950,43 @@ repeatHasMatch.exit.thread1865:                   ; preds = %391, %repeatHasMatc
   %421 = load ptr, ptr %82, align 32
   %422 = load ptr, ptr %83, align 8
   %423 = load i32, ptr %420, align 4
-  %.not.i75.i2230 = icmp eq i32 %423, -1
-  br i1 %.not.i75.i2230, label %limexRunReports.exit.i222, label %.lr.ph
+  %.not.i74.i2215 = icmp eq i32 %423, -1
+  br i1 %.not.i74.i2215, label %limexRunReports.exit.i219, label %.lr.ph
 
 424:                                              ; preds = %.lr.ph
-  %425 = getelementptr inbounds nuw i8, ptr %.09.i.i2202231, i64 4
+  %425 = getelementptr inbounds nuw i8, ptr %.09.i.i2182216, i64 4
   %426 = load i32, ptr %425, align 4
-  %.not.i75.i = icmp eq i32 %426, -1
-  br i1 %.not.i75.i, label %limexRunReports.exit.i222, label %.lr.ph
+  %.not.i74.i = icmp eq i32 %426, -1
+  br i1 %.not.i74.i, label %limexRunReports.exit.i219, label %.lr.ph
 
 .lr.ph:                                           ; preds = %418, %424
   %427 = phi i32 [ %426, %424 ], [ %423, %418 ]
-  %.09.i.i2202231 = phi ptr [ %425, %424 ], [ %420, %418 ]
+  %.09.i.i2182216 = phi ptr [ %425, %424 ], [ %420, %418 ]
   %428 = call i32 %421(i64 noundef 0, i64 noundef %272, i32 noundef %427, ptr noundef %422) #12
-  %.not2167 = icmp eq i32 %428, 0
-  br i1 %.not2167, label %processExceptional384.exit210, label %424
+  %.not2152 = icmp eq i32 %428, 0
+  br i1 %.not2152, label %processExceptional384.exit208, label %424
 
-limexRunReports.exit.i222:                        ; preds = %424, %418
+limexRunReports.exit.i219:                        ; preds = %424, %418
   %429 = icmp eq i32 %.3, 1
   br i1 %429, label %430, label %.thread
 
-430:                                              ; preds = %limexRunReports.exit.i222
-  %.not73.i = icmp eq ptr %.sroa.51647.6, null
-  %431 = icmp eq ptr %.sroa.51647.6, %420
-  %or.cond.i224 = or i1 %.not73.i, %431
-  %spec.select2140 = zext i1 %or.cond.i224 to i32
-  %spec.select2141 = select i1 %or.cond.i224, ptr %420, ptr %.sroa.51647.6
+430:                                              ; preds = %limexRunReports.exit.i219
+  %.not73.i = icmp eq ptr %.sroa.51638.6, null
+  %431 = icmp eq ptr %.sroa.51638.6, %420
+  %or.cond.i221 = or i1 %.not73.i, %431
+  %spec.select2125 = zext i1 %or.cond.i221 to i32
+  %spec.select2126 = select i1 %or.cond.i221, ptr %420, ptr %.sroa.51638.6
   br label %.thread
 
 432:                                              ; preds = %417
   %433 = icmp eq i32 %.3, 1
-  %or.cond = select i1 %.not2162, i1 %433, i1 false
-  %spec.select2159 = select i1 %or.cond, i32 0, i32 %.3
+  %or.cond = select i1 %.not2147, i1 %433, i1 false
+  %spec.select2144 = select i1 %or.cond, i32 0, i32 %.3
   br label %.thread
 
-.thread:                                          ; preds = %432, %430, %limexRunReports.exit.i222, %.critedge.i218.thread
-  %.5 = phi i32 [ %.3, %.critedge.i218.thread ], [ %.3, %limexRunReports.exit.i222 ], [ %spec.select2140, %430 ], [ %spec.select2159, %432 ]
-  %.sroa.51647.9 = phi ptr [ %.sroa.51647.6, %.critedge.i218.thread ], [ %.sroa.51647.6, %limexRunReports.exit.i222 ], [ %spec.select2141, %430 ], [ %.sroa.51647.6, %432 ]
+.thread:                                          ; preds = %432, %430, %limexRunReports.exit.i219, %.critedge.i216.thread
+  %.5 = phi i32 [ %.3, %.critedge.i216.thread ], [ %.3, %limexRunReports.exit.i219 ], [ %spec.select2125, %430 ], [ %spec.select2144, %432 ]
+  %.sroa.51638.9 = phi ptr [ %.sroa.51638.6, %.critedge.i216.thread ], [ %.sroa.51638.6, %limexRunReports.exit.i219 ], [ %spec.select2126, %430 ], [ %.sroa.51638.6, %432 ]
   %434 = getelementptr inbounds nuw i8, ptr %331, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %434, i64 16) ], !noalias !136
   %435 = load <2 x i64>, ptr %434, align 16, !noalias !136
@@ -1996,15 +1996,15 @@ limexRunReports.exit.i222:                        ; preds = %424, %418
   %438 = getelementptr inbounds nuw i8, ptr %331, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %438, i64 16) ], !noalias !136
   %439 = load <2 x i64>, ptr %438, align 16, !noalias !136
-  %.sroa.01745.0.copyload = load <2 x i64>, ptr %79, align 16
-  %.sroa.41746.0.copyload = load <2 x i64>, ptr %.sroa.41650.0..sroa_idx, align 16
-  %.sroa.51747.0.copyload = load <2 x i64>, ptr %.sroa.51651.0..sroa_idx, align 16
-  %440 = or <2 x i64> %.sroa.01745.0.copyload, %435
-  %441 = or <2 x i64> %.sroa.41746.0.copyload, %437
-  %442 = or <2 x i64> %.sroa.51747.0.copyload, %439
+  %.sroa.01736.0.copyload = load <2 x i64>, ptr %79, align 16
+  %.sroa.41737.0.copyload = load <2 x i64>, ptr %.sroa.41641.0..sroa_idx, align 16
+  %.sroa.51738.0.copyload = load <2 x i64>, ptr %.sroa.51642.0..sroa_idx, align 16
+  %440 = or <2 x i64> %.sroa.01736.0.copyload, %435
+  %441 = or <2 x i64> %.sroa.41737.0.copyload, %437
+  %442 = or <2 x i64> %.sroa.51738.0.copyload, %439
   store <2 x i64> %440, ptr %79, align 16
-  store <2 x i64> %441, ptr %.sroa.41650.0..sroa_idx, align 16
-  store <2 x i64> %442, ptr %.sroa.51651.0..sroa_idx, align 16
+  store <2 x i64> %441, ptr %.sroa.41641.0..sroa_idx, align 16
+  store <2 x i64> %442, ptr %.sroa.51642.0..sroa_idx, align 16
   %443 = getelementptr inbounds nuw i8, ptr %331, i64 104
   %444 = load i8, ptr %443, align 8
   switch i8 %444, label %repeatHasMatch.exit.thread [
@@ -2021,74 +2021,74 @@ limexRunReports.exit.i222:                        ; preds = %424, %418
   %449 = getelementptr inbounds nuw i8, ptr %331, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %449, i64 16) ], !noalias !139
   %450 = load <2 x i64>, ptr %449, align 16, !noalias !139
-  %451 = and <2 x i64> %446, %.sroa.01136.9
-  %452 = and <2 x i64> %448, %.sroa.271152.9
-  %453 = and <2 x i64> %450, %.sroa.351183.9
+  %451 = and <2 x i64> %446, %.sroa.01127.9
+  %452 = and <2 x i64> %448, %.sroa.271143.9
+  %453 = and <2 x i64> %450, %.sroa.351174.9
   %454 = icmp eq i32 %.5, 1
-  %spec.select2142 = select i1 %454, i32 0, i32 %.5
+  %spec.select2127 = select i1 %454, i32 0, i32 %.5
   br label %repeatHasMatch.exit.thread
 
-repeatHasMatch.exit.thread:                       ; preds = %445, %377, %373, %384, %.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread1865
-  %.sroa.01136.14.ph = phi <2 x i64> [ %.sroa.01136.9, %repeatHasMatch.exit ], [ %412, %repeatHasMatch.exit.thread1865 ], [ %.sroa.01136.9, %.thread ], [ %.sroa.01136.9, %384 ], [ %.sroa.01136.9, %373 ], [ %.sroa.01136.9, %377 ], [ %451, %445 ]
-  %.sroa.271152.14.ph = phi <2 x i64> [ %.sroa.271152.9, %repeatHasMatch.exit ], [ %413, %repeatHasMatch.exit.thread1865 ], [ %.sroa.271152.9, %.thread ], [ %.sroa.271152.9, %384 ], [ %.sroa.271152.9, %373 ], [ %.sroa.271152.9, %377 ], [ %452, %445 ]
-  %.sroa.351183.14.ph = phi <2 x i64> [ %.sroa.351183.9, %repeatHasMatch.exit ], [ %414, %repeatHasMatch.exit.thread1865 ], [ %.sroa.351183.9, %.thread ], [ %.sroa.351183.9, %384 ], [ %.sroa.351183.9, %373 ], [ %.sroa.351183.9, %377 ], [ %453, %445 ]
-  %.6.ph = phi i32 [ 2, %repeatHasMatch.exit ], [ 2, %repeatHasMatch.exit.thread1865 ], [ %.5, %.thread ], [ 2, %384 ], [ 2, %373 ], [ 2, %377 ], [ %spec.select2142, %445 ]
-  %.sroa.51647.10.ph = phi ptr [ %.sroa.51647.6, %repeatHasMatch.exit ], [ %.sroa.51647.6, %repeatHasMatch.exit.thread1865 ], [ %.sroa.51647.9, %.thread ], [ %.sroa.51647.6, %384 ], [ %.sroa.51647.6, %373 ], [ %.sroa.51647.6, %377 ], [ %.sroa.51647.9, %445 ]
-  %.sroa.01645.10.ph = phi i8 [ %.sroa.01645.6, %repeatHasMatch.exit ], [ %.sroa.01645.6, %repeatHasMatch.exit.thread1865 ], [ %.sroa.01645.9, %.thread ], [ %.sroa.01645.6, %384 ], [ %.sroa.01645.6, %373 ], [ %.sroa.01645.6, %377 ], [ %.sroa.01645.9, %445 ]
-  %.not57.i196 = icmp eq i64 %321, 0
-  br i1 %.not57.i196, label %455, label %318
+repeatHasMatch.exit.thread:                       ; preds = %445, %377, %373, %384, %.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread1856
+  %.sroa.01127.14.ph = phi <2 x i64> [ %.sroa.01127.9, %repeatHasMatch.exit ], [ %412, %repeatHasMatch.exit.thread1856 ], [ %.sroa.01127.9, %.thread ], [ %.sroa.01127.9, %384 ], [ %.sroa.01127.9, %373 ], [ %.sroa.01127.9, %377 ], [ %451, %445 ]
+  %.sroa.271143.14.ph = phi <2 x i64> [ %.sroa.271143.9, %repeatHasMatch.exit ], [ %413, %repeatHasMatch.exit.thread1856 ], [ %.sroa.271143.9, %.thread ], [ %.sroa.271143.9, %384 ], [ %.sroa.271143.9, %373 ], [ %.sroa.271143.9, %377 ], [ %452, %445 ]
+  %.sroa.351174.14.ph = phi <2 x i64> [ %.sroa.351174.9, %repeatHasMatch.exit ], [ %414, %repeatHasMatch.exit.thread1856 ], [ %.sroa.351174.9, %.thread ], [ %.sroa.351174.9, %384 ], [ %.sroa.351174.9, %373 ], [ %.sroa.351174.9, %377 ], [ %453, %445 ]
+  %.6.ph = phi i32 [ 2, %repeatHasMatch.exit ], [ 2, %repeatHasMatch.exit.thread1856 ], [ %.5, %.thread ], [ 2, %384 ], [ 2, %373 ], [ 2, %377 ], [ %spec.select2127, %445 ]
+  %.sroa.51638.10.ph = phi ptr [ %.sroa.51638.6, %repeatHasMatch.exit ], [ %.sroa.51638.6, %repeatHasMatch.exit.thread1856 ], [ %.sroa.51638.9, %.thread ], [ %.sroa.51638.6, %384 ], [ %.sroa.51638.6, %373 ], [ %.sroa.51638.6, %377 ], [ %.sroa.51638.9, %445 ]
+  %.sroa.01636.10.ph = phi i8 [ %.sroa.01636.6, %repeatHasMatch.exit ], [ %.sroa.01636.6, %repeatHasMatch.exit.thread1856 ], [ %.sroa.01636.9, %.thread ], [ %.sroa.01636.6, %384 ], [ %.sroa.01636.6, %373 ], [ %.sroa.01636.6, %377 ], [ %.sroa.01636.9, %445 ]
+  %.not57.i195 = icmp eq i64 %321, 0
+  br i1 %.not57.i195, label %455, label %318
 
 455:                                              ; preds = %repeatHasMatch.exit.thread
-  %.not58.i197 = icmp eq i32 %311, 0
-  br i1 %.not58.i197, label %456, label %308
+  %.not58.i196 = icmp eq i32 %311, 0
+  br i1 %.not58.i196, label %456, label %308
 
 456:                                              ; preds = %455
-  %.sroa.01660.0.copyload = load <2 x i64>, ptr %79, align 16
-  %.sroa.41661.0.copyload = load <2 x i64>, ptr %.sroa.41650.0..sroa_idx, align 16
-  %.sroa.51662.0.copyload = load <2 x i64>, ptr %.sroa.51651.0..sroa_idx, align 16
-  %457 = or <2 x i64> %.sroa.01660.0.copyload, %.sroa.01136.14.ph
-  %458 = or <2 x i64> %.sroa.41661.0.copyload, %.sroa.271152.14.ph
-  %459 = or <2 x i64> %.sroa.51662.0.copyload, %.sroa.351183.14.ph
-  switch i32 %.6.ph, label %processExceptional384.exit210.thread1925 [
+  %.sroa.01651.0.copyload = load <2 x i64>, ptr %79, align 16
+  %.sroa.41652.0.copyload = load <2 x i64>, ptr %.sroa.41641.0..sroa_idx, align 16
+  %.sroa.51653.0.copyload = load <2 x i64>, ptr %.sroa.51642.0..sroa_idx, align 16
+  %457 = or <2 x i64> %.sroa.01651.0.copyload, %.sroa.01127.14.ph
+  %458 = or <2 x i64> %.sroa.41652.0.copyload, %.sroa.271143.14.ph
+  %459 = or <2 x i64> %.sroa.51653.0.copyload, %.sroa.351174.14.ph
+  switch i32 %.6.ph, label %processExceptional384.exit208.thread1914 [
     i32 1, label %460
     i32 2, label %461
   ]
 
 460:                                              ; preds = %456
   store <2 x i64> %249, ptr %78, align 32
-  store <2 x i64> %250, ptr %.sroa.41696.0..sroa_idx, align 16
-  store <2 x i64> %251, ptr %.sroa.51697.0..sroa_idx, align 32
+  store <2 x i64> %250, ptr %.sroa.41687.0..sroa_idx, align 16
+  store <2 x i64> %251, ptr %.sroa.51688.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %85, ptr noundef nonnull align 16 dereferenceable(48) %79, i64 48, i1 false)
-  store ptr %.sroa.51647.10.ph, ptr %86, align 8
-  store i8 %.sroa.01645.10.ph, ptr %84, align 64
-  br label %processExceptional384.exit210.thread1925
+  store ptr %.sroa.51638.10.ph, ptr %86, align 8
+  store i8 %.sroa.01636.10.ph, ptr %84, align 64
+  br label %processExceptional384.exit208.thread1914
 
 461:                                              ; preds = %456
   %462 = load i8, ptr %84, align 64
-  %.not59.i198 = icmp eq i8 %462, 0
-  br i1 %.not59.i198, label %processExceptional384.exit210.thread1925, label %463
+  %.not59.i197 = icmp eq i8 %462, 0
+  br i1 %.not59.i197, label %processExceptional384.exit208.thread1914, label %463
 
 463:                                              ; preds = %461
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(48) %78, i8 0, i64 48, i1 false)
-  br label %processExceptional384.exit210.thread1925
+  br label %processExceptional384.exit208.thread1914
 
-processExceptional384.exit210.thread1925:         ; preds = %456, %463, %461, %460
+processExceptional384.exit208.thread1914:         ; preds = %456, %463, %461, %460
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %processExceptional384.exit210.thread
+  br label %processExceptional384.exit208.thread
 
-processExceptional384.exit210:                    ; preds = %.lr.ph
+processExceptional384.exit208:                    ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %nfaExecLimEx384_Stream.exit
 
-processExceptional384.exit210.thread:             ; preds = %294, %290, %284, %245, %processExceptional384.exit210.thread1925
-  %.sroa.01136.7.ph = phi <2 x i64> [ %457, %processExceptional384.exit210.thread1925 ], [ %.sroa.01136.1, %245 ], [ %285, %284 ], [ %285, %290 ], [ %285, %294 ]
-  %.sroa.271152.7.ph = phi <2 x i64> [ %458, %processExceptional384.exit210.thread1925 ], [ %.sroa.271152.1, %245 ], [ %286, %284 ], [ %286, %290 ], [ %286, %294 ]
-  %.sroa.351183.7.ph = phi <2 x i64> [ %459, %processExceptional384.exit210.thread1925 ], [ %.sroa.351183.1, %245 ], [ %287, %284 ], [ %287, %290 ], [ %287, %294 ]
-  %464 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i62239
+processExceptional384.exit208.thread:             ; preds = %294, %290, %284, %245, %processExceptional384.exit208.thread1914
+  %.sroa.01127.7.ph = phi <2 x i64> [ %457, %processExceptional384.exit208.thread1914 ], [ %.sroa.01127.1, %245 ], [ %285, %284 ], [ %285, %290 ], [ %285, %294 ]
+  %.sroa.271143.7.ph = phi <2 x i64> [ %458, %processExceptional384.exit208.thread1914 ], [ %.sroa.271143.1, %245 ], [ %286, %284 ], [ %286, %290 ], [ %286, %294 ]
+  %.sroa.351174.7.ph = phi <2 x i64> [ %459, %processExceptional384.exit208.thread1914 ], [ %.sroa.351174.1, %245 ], [ %287, %284 ], [ %287, %290 ], [ %287, %294 ]
+  %464 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i62224
   %465 = load i8, ptr %464, align 1
   %466 = zext i8 %465 to i64
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 %466
@@ -2103,17 +2103,17 @@ processExceptional384.exit210.thread:             ; preds = %294, %290, %284, %2
   %474 = getelementptr inbounds nuw i8, ptr %470, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %474, i64 16) ], !noalias !142
   %475 = load <2 x i64>, ptr %474, align 16, !noalias !142
-  %476 = and <2 x i64> %471, %.sroa.01136.7.ph
-  %477 = and <2 x i64> %473, %.sroa.271152.7.ph
-  %478 = and <2 x i64> %475, %.sroa.351183.7.ph
-  %479 = add i64 %.045.i62239, 1
+  %476 = and <2 x i64> %471, %.sroa.01127.7.ph
+  %477 = and <2 x i64> %473, %.sroa.271143.7.ph
+  %478 = and <2 x i64> %475, %.sroa.351174.7.ph
+  %479 = add i64 %.045.i62224, 1
   %.not.i7 = icmp eq i64 %479, %.0107.i
   br i1 %.not.i7, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %lshift64_m128.exit127
 
 480:                                              ; preds = %34
-  br i1 %.not.i42251, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph2256
+  br i1 %.not.i42236, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph2241
 
-.lr.ph2256:                                       ; preds = %480
+.lr.ph2241:                                       ; preds = %480
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 944
@@ -2151,13 +2151,13 @@ processExceptional384.exit210.thread:             ; preds = %294, %290, %284, %2
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %517 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41702.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51703.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51694.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %518 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.71485.0..sroa_idx1486 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.81492.0..sroa_idx1493 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.41605.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51606.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.71476.0..sroa_idx1477 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.81483.0..sroa_idx1484 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %519 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %520 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %521 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -2165,22 +2165,22 @@ processExceptional384.exit210.thread:             ; preds = %294, %290, %284, %2
   %523 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %524 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %525 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %526
 
-526:                                              ; preds = %.lr.ph2256, %processExceptional384.exit191.thread
-  %.045.i2255 = phi i64 [ %.21855, %.lr.ph2256 ], [ %924, %processExceptional384.exit191.thread ]
-  %.sroa.18.02254 = phi <2 x i64> [ %.sroa.25.3, %.lr.ph2256 ], [ %923, %processExceptional384.exit191.thread ]
-  %.sroa.15.02253 = phi <2 x i64> [ %.sroa.23.3, %.lr.ph2256 ], [ %922, %processExceptional384.exit191.thread ]
-  %.sroa.0889.02252 = phi <2 x i64> [ %.sroa.0504.3, %.lr.ph2256 ], [ %921, %processExceptional384.exit191.thread ]
-  %527 = or <2 x i64> %.sroa.15.02253, %.sroa.0889.02252
-  %528 = or <2 x i64> %527, %.sroa.18.02254
+526:                                              ; preds = %.lr.ph2241, %processExceptional384.exit190.thread
+  %.045.i2240 = phi i64 [ %.21846, %.lr.ph2241 ], [ %924, %processExceptional384.exit190.thread ]
+  %.sroa.18.02239 = phi <2 x i64> [ %.sroa.25.3, %.lr.ph2241 ], [ %923, %processExceptional384.exit190.thread ]
+  %.sroa.15.02238 = phi <2 x i64> [ %.sroa.23.3, %.lr.ph2241 ], [ %922, %processExceptional384.exit190.thread ]
+  %.sroa.0880.02237 = phi <2 x i64> [ %.sroa.0495.3, %.lr.ph2241 ], [ %921, %processExceptional384.exit190.thread ]
+  %527 = or <2 x i64> %.sroa.15.02238, %.sroa.0880.02237
+  %528 = or <2 x i64> %527, %.sroa.18.02239
   %529 = bitcast <2 x i64> %528 to <16 x i8>
   %530 = icmp ne <16 x i8> %529, zeroinitializer
   %531 = bitcast <16 x i1> %530 to i16
-  %.not2168 = icmp eq i16 %531, 0
-  br i1 %.not2168, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %lshift64_m128.exit79
+  %.not2153 = icmp eq i16 %531, 0
+  br i1 %.not2153, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %lshift64_m128.exit79
 
 lshift64_m128.exit79:                             ; preds = %526
   call void @llvm.assume(i1 true) [ "align"(ptr %481, i64 16) ], !noalias !145
@@ -2189,11 +2189,11 @@ lshift64_m128.exit79:                             ; preds = %526
   %533 = load <2 x i64>, ptr %482, align 16, !noalias !145
   call void @llvm.assume(i1 true) [ "align"(ptr %483, i64 16) ], !noalias !145
   %534 = load <2 x i64>, ptr %483, align 16, !noalias !145
-  %535 = and <2 x i64> %533, %.sroa.15.02253
-  %536 = and <2 x i64> %534, %.sroa.18.02254
+  %535 = and <2 x i64> %533, %.sroa.15.02238
+  %536 = and <2 x i64> %534, %.sroa.18.02239
   %537 = load i8, ptr %484, align 4
   %538 = zext i8 %537 to i32
-  %539 = and <2 x i64> %532, %.sroa.0889.02252
+  %539 = and <2 x i64> %532, %.sroa.0880.02237
   %540 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %538, i64 0
   %541 = bitcast <4 x i32> %540 to <2 x i64>
   %542 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %539, <2 x i64> %541)
@@ -2221,11 +2221,11 @@ lshift64_m128.exit121:                            ; preds = %lshift64_m128.exit7
   %551 = load <2 x i64>, ptr %487, align 16, !noalias !148
   call void @llvm.assume(i1 true) [ "align"(ptr %488, i64 16) ], !noalias !148
   %552 = load <2 x i64>, ptr %488, align 16, !noalias !148
-  %553 = and <2 x i64> %551, %.sroa.15.02253
-  %554 = and <2 x i64> %552, %.sroa.18.02254
+  %553 = and <2 x i64> %551, %.sroa.15.02238
+  %554 = and <2 x i64> %552, %.sroa.18.02239
   %555 = load i8, ptr %489, align 1
   %556 = zext i8 %555 to i32
-  %557 = and <2 x i64> %550, %.sroa.0889.02252
+  %557 = and <2 x i64> %550, %.sroa.0880.02237
   %558 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %556, i64 0
   %559 = bitcast <4 x i32> %558 to <2 x i64>
   %560 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %557, <2 x i64> %559)
@@ -2241,20 +2241,20 @@ lshift64_m128.exit121:                            ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit115
 
 lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit121, %lshift64_m128.exit79
-  %.sroa.0811.6 = phi <2 x i64> [ %567, %lshift64_m128.exit121 ], [ %542, %lshift64_m128.exit79 ]
-  %.sroa.27827.6 = phi <2 x i64> [ %568, %lshift64_m128.exit121 ], [ %545, %lshift64_m128.exit79 ]
-  %.sroa.35858.6 = phi <2 x i64> [ %569, %lshift64_m128.exit121 ], [ %548, %lshift64_m128.exit79 ]
+  %.sroa.0802.6 = phi <2 x i64> [ %567, %lshift64_m128.exit121 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27818.6 = phi <2 x i64> [ %568, %lshift64_m128.exit121 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35849.6 = phi <2 x i64> [ %569, %lshift64_m128.exit121 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %490, i64 16) ], !noalias !151
   %570 = load <2 x i64>, ptr %490, align 16, !noalias !151
   call void @llvm.assume(i1 true) [ "align"(ptr %491, i64 16) ], !noalias !151
   %571 = load <2 x i64>, ptr %491, align 16, !noalias !151
   call void @llvm.assume(i1 true) [ "align"(ptr %492, i64 16) ], !noalias !151
   %572 = load <2 x i64>, ptr %492, align 16, !noalias !151
-  %573 = and <2 x i64> %571, %.sroa.15.02253
-  %574 = and <2 x i64> %572, %.sroa.18.02254
+  %573 = and <2 x i64> %571, %.sroa.15.02238
+  %574 = and <2 x i64> %572, %.sroa.18.02239
   %575 = load i8, ptr %493, align 2
   %576 = zext i8 %575 to i32
-  %577 = and <2 x i64> %570, %.sroa.0889.02252
+  %577 = and <2 x i64> %570, %.sroa.0880.02237
   %578 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %576, i64 0
   %579 = bitcast <4 x i32> %578 to <2 x i64>
   %580 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %577, <2 x i64> %579)
@@ -2264,26 +2264,26 @@ lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit1
   %584 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %576, i64 0
   %585 = bitcast <4 x i32> %584 to <2 x i64>
   %586 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %574, <2 x i64> %585)
-  %587 = or <2 x i64> %580, %.sroa.0811.6
-  %588 = or <2 x i64> %583, %.sroa.27827.6
-  %589 = or <2 x i64> %586, %.sroa.35858.6
+  %587 = or <2 x i64> %580, %.sroa.0802.6
+  %588 = or <2 x i64> %583, %.sroa.27818.6
+  %589 = or <2 x i64> %586, %.sroa.35849.6
   br label %lshift64_m128.exit109
 
 lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit115, %lshift64_m128.exit79
-  %.sroa.0811.5 = phi <2 x i64> [ %587, %lshift64_m128.exit115 ], [ %542, %lshift64_m128.exit79 ]
-  %.sroa.27827.5 = phi <2 x i64> [ %588, %lshift64_m128.exit115 ], [ %545, %lshift64_m128.exit79 ]
-  %.sroa.35858.5 = phi <2 x i64> [ %589, %lshift64_m128.exit115 ], [ %548, %lshift64_m128.exit79 ]
+  %.sroa.0802.5 = phi <2 x i64> [ %587, %lshift64_m128.exit115 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27818.5 = phi <2 x i64> [ %588, %lshift64_m128.exit115 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35849.5 = phi <2 x i64> [ %589, %lshift64_m128.exit115 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %494, i64 16) ], !noalias !154
   %590 = load <2 x i64>, ptr %494, align 16, !noalias !154
   call void @llvm.assume(i1 true) [ "align"(ptr %495, i64 16) ], !noalias !154
   %591 = load <2 x i64>, ptr %495, align 16, !noalias !154
   call void @llvm.assume(i1 true) [ "align"(ptr %496, i64 16) ], !noalias !154
   %592 = load <2 x i64>, ptr %496, align 16, !noalias !154
-  %593 = and <2 x i64> %591, %.sroa.15.02253
-  %594 = and <2 x i64> %592, %.sroa.18.02254
+  %593 = and <2 x i64> %591, %.sroa.15.02238
+  %594 = and <2 x i64> %592, %.sroa.18.02239
   %595 = load i8, ptr %497, align 1
   %596 = zext i8 %595 to i32
-  %597 = and <2 x i64> %590, %.sroa.0889.02252
+  %597 = and <2 x i64> %590, %.sroa.0880.02237
   %598 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %596, i64 0
   %599 = bitcast <4 x i32> %598 to <2 x i64>
   %600 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %597, <2 x i64> %599)
@@ -2293,26 +2293,26 @@ lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit1
   %604 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %596, i64 0
   %605 = bitcast <4 x i32> %604 to <2 x i64>
   %606 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %594, <2 x i64> %605)
-  %607 = or <2 x i64> %600, %.sroa.0811.5
-  %608 = or <2 x i64> %603, %.sroa.27827.5
-  %609 = or <2 x i64> %606, %.sroa.35858.5
+  %607 = or <2 x i64> %600, %.sroa.0802.5
+  %608 = or <2 x i64> %603, %.sroa.27818.5
+  %609 = or <2 x i64> %606, %.sroa.35849.5
   br label %lshift64_m128.exit103
 
 lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit109, %lshift64_m128.exit79
-  %.sroa.0811.4 = phi <2 x i64> [ %607, %lshift64_m128.exit109 ], [ %542, %lshift64_m128.exit79 ]
-  %.sroa.27827.4 = phi <2 x i64> [ %608, %lshift64_m128.exit109 ], [ %545, %lshift64_m128.exit79 ]
-  %.sroa.35858.4 = phi <2 x i64> [ %609, %lshift64_m128.exit109 ], [ %548, %lshift64_m128.exit79 ]
+  %.sroa.0802.4 = phi <2 x i64> [ %607, %lshift64_m128.exit109 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27818.4 = phi <2 x i64> [ %608, %lshift64_m128.exit109 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35849.4 = phi <2 x i64> [ %609, %lshift64_m128.exit109 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %498, i64 16) ], !noalias !157
   %610 = load <2 x i64>, ptr %498, align 16, !noalias !157
   call void @llvm.assume(i1 true) [ "align"(ptr %499, i64 16) ], !noalias !157
   %611 = load <2 x i64>, ptr %499, align 16, !noalias !157
   call void @llvm.assume(i1 true) [ "align"(ptr %500, i64 16) ], !noalias !157
   %612 = load <2 x i64>, ptr %500, align 16, !noalias !157
-  %613 = and <2 x i64> %611, %.sroa.15.02253
-  %614 = and <2 x i64> %612, %.sroa.18.02254
+  %613 = and <2 x i64> %611, %.sroa.15.02238
+  %614 = and <2 x i64> %612, %.sroa.18.02239
   %615 = load i8, ptr %501, align 8
   %616 = zext i8 %615 to i32
-  %617 = and <2 x i64> %610, %.sroa.0889.02252
+  %617 = and <2 x i64> %610, %.sroa.0880.02237
   %618 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %616, i64 0
   %619 = bitcast <4 x i32> %618 to <2 x i64>
   %620 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %617, <2 x i64> %619)
@@ -2322,26 +2322,26 @@ lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit1
   %624 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %616, i64 0
   %625 = bitcast <4 x i32> %624 to <2 x i64>
   %626 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %614, <2 x i64> %625)
-  %627 = or <2 x i64> %620, %.sroa.0811.4
-  %628 = or <2 x i64> %623, %.sroa.27827.4
-  %629 = or <2 x i64> %626, %.sroa.35858.4
+  %627 = or <2 x i64> %620, %.sroa.0802.4
+  %628 = or <2 x i64> %623, %.sroa.27818.4
+  %629 = or <2 x i64> %626, %.sroa.35849.4
   br label %lshift64_m128.exit97
 
 lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit103, %lshift64_m128.exit79
-  %.sroa.0811.3 = phi <2 x i64> [ %627, %lshift64_m128.exit103 ], [ %542, %lshift64_m128.exit79 ]
-  %.sroa.27827.3 = phi <2 x i64> [ %628, %lshift64_m128.exit103 ], [ %545, %lshift64_m128.exit79 ]
-  %.sroa.35858.3 = phi <2 x i64> [ %629, %lshift64_m128.exit103 ], [ %548, %lshift64_m128.exit79 ]
+  %.sroa.0802.3 = phi <2 x i64> [ %627, %lshift64_m128.exit103 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27818.3 = phi <2 x i64> [ %628, %lshift64_m128.exit103 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35849.3 = phi <2 x i64> [ %629, %lshift64_m128.exit103 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %502, i64 16) ], !noalias !160
   %630 = load <2 x i64>, ptr %502, align 16, !noalias !160
   call void @llvm.assume(i1 true) [ "align"(ptr %503, i64 16) ], !noalias !160
   %631 = load <2 x i64>, ptr %503, align 16, !noalias !160
   call void @llvm.assume(i1 true) [ "align"(ptr %504, i64 16) ], !noalias !160
   %632 = load <2 x i64>, ptr %504, align 16, !noalias !160
-  %633 = and <2 x i64> %631, %.sroa.15.02253
-  %634 = and <2 x i64> %632, %.sroa.18.02254
+  %633 = and <2 x i64> %631, %.sroa.15.02238
+  %634 = and <2 x i64> %632, %.sroa.18.02239
   %635 = load i8, ptr %505, align 1
   %636 = zext i8 %635 to i32
-  %637 = and <2 x i64> %630, %.sroa.0889.02252
+  %637 = and <2 x i64> %630, %.sroa.0880.02237
   %638 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %636, i64 0
   %639 = bitcast <4 x i32> %638 to <2 x i64>
   %640 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %637, <2 x i64> %639)
@@ -2351,26 +2351,26 @@ lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit1
   %644 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %636, i64 0
   %645 = bitcast <4 x i32> %644 to <2 x i64>
   %646 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %634, <2 x i64> %645)
-  %647 = or <2 x i64> %640, %.sroa.0811.3
-  %648 = or <2 x i64> %643, %.sroa.27827.3
-  %649 = or <2 x i64> %646, %.sroa.35858.3
+  %647 = or <2 x i64> %640, %.sroa.0802.3
+  %648 = or <2 x i64> %643, %.sroa.27818.3
+  %649 = or <2 x i64> %646, %.sroa.35849.3
   br label %lshift64_m128.exit91
 
 lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit97, %lshift64_m128.exit79
-  %.sroa.0811.2 = phi <2 x i64> [ %647, %lshift64_m128.exit97 ], [ %542, %lshift64_m128.exit79 ]
-  %.sroa.27827.2 = phi <2 x i64> [ %648, %lshift64_m128.exit97 ], [ %545, %lshift64_m128.exit79 ]
-  %.sroa.35858.2 = phi <2 x i64> [ %649, %lshift64_m128.exit97 ], [ %548, %lshift64_m128.exit79 ]
+  %.sroa.0802.2 = phi <2 x i64> [ %647, %lshift64_m128.exit97 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27818.2 = phi <2 x i64> [ %648, %lshift64_m128.exit97 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35849.2 = phi <2 x i64> [ %649, %lshift64_m128.exit97 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %506, i64 16) ], !noalias !163
   %650 = load <2 x i64>, ptr %506, align 16, !noalias !163
   call void @llvm.assume(i1 true) [ "align"(ptr %507, i64 16) ], !noalias !163
   %651 = load <2 x i64>, ptr %507, align 16, !noalias !163
   call void @llvm.assume(i1 true) [ "align"(ptr %508, i64 16) ], !noalias !163
   %652 = load <2 x i64>, ptr %508, align 16, !noalias !163
-  %653 = and <2 x i64> %651, %.sroa.15.02253
-  %654 = and <2 x i64> %652, %.sroa.18.02254
+  %653 = and <2 x i64> %651, %.sroa.15.02238
+  %654 = and <2 x i64> %652, %.sroa.18.02239
   %655 = load i8, ptr %509, align 2
   %656 = zext i8 %655 to i32
-  %657 = and <2 x i64> %650, %.sroa.0889.02252
+  %657 = and <2 x i64> %650, %.sroa.0880.02237
   %658 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %656, i64 0
   %659 = bitcast <4 x i32> %658 to <2 x i64>
   %660 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %657, <2 x i64> %659)
@@ -2380,26 +2380,26 @@ lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit9
   %664 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %656, i64 0
   %665 = bitcast <4 x i32> %664 to <2 x i64>
   %666 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %654, <2 x i64> %665)
-  %667 = or <2 x i64> %660, %.sroa.0811.2
-  %668 = or <2 x i64> %663, %.sroa.27827.2
-  %669 = or <2 x i64> %666, %.sroa.35858.2
+  %667 = or <2 x i64> %660, %.sroa.0802.2
+  %668 = or <2 x i64> %663, %.sroa.27818.2
+  %669 = or <2 x i64> %666, %.sroa.35849.2
   br label %lshift64_m128.exit85
 
 lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit91, %lshift64_m128.exit79
-  %.sroa.0811.0 = phi <2 x i64> [ %667, %lshift64_m128.exit91 ], [ %542, %lshift64_m128.exit79 ]
-  %.sroa.27827.0 = phi <2 x i64> [ %668, %lshift64_m128.exit91 ], [ %545, %lshift64_m128.exit79 ]
-  %.sroa.35858.0 = phi <2 x i64> [ %669, %lshift64_m128.exit91 ], [ %548, %lshift64_m128.exit79 ]
+  %.sroa.0802.0 = phi <2 x i64> [ %667, %lshift64_m128.exit91 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27818.0 = phi <2 x i64> [ %668, %lshift64_m128.exit91 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35849.0 = phi <2 x i64> [ %669, %lshift64_m128.exit91 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %510, i64 16) ], !noalias !166
   %670 = load <2 x i64>, ptr %510, align 16, !noalias !166
   call void @llvm.assume(i1 true) [ "align"(ptr %511, i64 16) ], !noalias !166
   %671 = load <2 x i64>, ptr %511, align 16, !noalias !166
   call void @llvm.assume(i1 true) [ "align"(ptr %512, i64 16) ], !noalias !166
   %672 = load <2 x i64>, ptr %512, align 16, !noalias !166
-  %673 = and <2 x i64> %671, %.sroa.15.02253
-  %674 = and <2 x i64> %672, %.sroa.18.02254
+  %673 = and <2 x i64> %671, %.sroa.15.02238
+  %674 = and <2 x i64> %672, %.sroa.18.02239
   %675 = load i8, ptr %513, align 1
   %676 = zext i8 %675 to i32
-  %677 = and <2 x i64> %670, %.sroa.0889.02252
+  %677 = and <2 x i64> %670, %.sroa.0880.02237
   %678 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %676, i64 0
   %679 = bitcast <4 x i32> %678 to <2 x i64>
   %680 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %677, <2 x i64> %679)
@@ -2409,24 +2409,24 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
   %684 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %676, i64 0
   %685 = bitcast <4 x i32> %684 to <2 x i64>
   %686 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %674, <2 x i64> %685)
-  %687 = or <2 x i64> %680, %.sroa.0811.0
-  %688 = or <2 x i64> %683, %.sroa.27827.0
-  %689 = or <2 x i64> %686, %.sroa.35858.0
+  %687 = or <2 x i64> %680, %.sroa.0802.0
+  %688 = or <2 x i64> %683, %.sroa.27818.0
+  %689 = or <2 x i64> %686, %.sroa.35849.0
   br label %690
 
 690:                                              ; preds = %lshift64_m128.exit85, %lshift64_m128.exit79
-  %.sroa.0811.1 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %687, %lshift64_m128.exit85 ]
-  %.sroa.27827.1 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %688, %lshift64_m128.exit85 ]
-  %.sroa.35858.1 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %689, %lshift64_m128.exit85 ]
+  %.sroa.0802.1 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %687, %lshift64_m128.exit85 ]
+  %.sroa.27818.1 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %688, %lshift64_m128.exit85 ]
+  %.sroa.35849.1 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %689, %lshift64_m128.exit85 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %514, i64 16) ], !noalias !169
   %691 = load <2 x i64>, ptr %514, align 16, !noalias !169
   call void @llvm.assume(i1 true) [ "align"(ptr %515, i64 16) ], !noalias !169
   %692 = load <2 x i64>, ptr %515, align 16, !noalias !169
   call void @llvm.assume(i1 true) [ "align"(ptr %516, i64 16) ], !noalias !169
   %693 = load <2 x i64>, ptr %516, align 16, !noalias !169
-  %694 = and <2 x i64> %691, %.sroa.0889.02252
-  %695 = and <2 x i64> %692, %.sroa.15.02253
-  %696 = and <2 x i64> %693, %.sroa.18.02254
+  %694 = and <2 x i64> %691, %.sroa.0880.02237
+  %695 = and <2 x i64> %692, %.sroa.15.02238
+  %696 = and <2 x i64> %693, %.sroa.18.02239
   %697 = bitcast <2 x i64> %694 to <4 x i32>
   %698 = icmp eq <4 x i32> %697, zeroinitializer
   %699 = sext <4 x i1> %698 to <4 x i32>
@@ -2447,107 +2447,107 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
   %714 = or i32 %713, %712
   %715 = and i32 %714, 1365
   %.not.i15 = icmp eq i32 %715, 0
-  br i1 %.not.i15, label %processExceptional384.exit191.thread, label %716, !prof !80
+  br i1 %.not.i15, label %processExceptional384.exit190.thread, label %716, !prof !80
 
 716:                                              ; preds = %690
-  %.not2169 = icmp eq i64 %.045.i2255, 0
-  %717 = add i64 %.045.i2255, %4
-  %718 = select i1 %.not2169, i8 16, i8 1
-  %.sroa.01701.0.copyload2170 = load <16 x i8>, ptr %517, align 16
+  %.not2154 = icmp eq i64 %.045.i2240, 0
+  %717 = add i64 %.045.i2240, %4
+  %718 = select i1 %.not2154, i8 16, i8 1
+  %.sroa.01692.0.copyload2155 = load <16 x i8>, ptr %517, align 16
   %719 = bitcast <2 x i64> %694 to <16 x i8>
-  %720 = icmp ne <16 x i8> %.sroa.01701.0.copyload2170, %719
+  %720 = icmp ne <16 x i8> %.sroa.01692.0.copyload2155, %719
   %721 = bitcast <16 x i1> %720 to i16
-  %.not.i212 = icmp eq i16 %721, 0
-  br i1 %.not.i212, label %722, label %diff384.exit214.thread
+  %.not.i210 = icmp eq i16 %721, 0
+  br i1 %.not.i210, label %722, label %diff384.exit212.thread
 
 722:                                              ; preds = %716
-  %.sroa.51703.0.copyload2172 = load <16 x i8>, ptr %.sroa.51703.0..sroa_idx, align 16
-  %.sroa.41702.0.copyload2171 = load <16 x i8>, ptr %.sroa.41702.0..sroa_idx, align 16
+  %.sroa.51694.0.copyload2157 = load <16 x i8>, ptr %.sroa.51694.0..sroa_idx, align 16
+  %.sroa.41693.0.copyload2156 = load <16 x i8>, ptr %.sroa.41693.0..sroa_idx, align 16
   %723 = bitcast <2 x i64> %695 to <16 x i8>
-  %724 = icmp ne <16 x i8> %.sroa.41702.0.copyload2171, %723
+  %724 = icmp ne <16 x i8> %.sroa.41693.0.copyload2156, %723
   %725 = bitcast <16 x i1> %724 to i16
-  %.not1.i213 = icmp eq i16 %725, 0
+  %.not1.i211 = icmp eq i16 %725, 0
   %726 = bitcast <2 x i64> %696 to <16 x i8>
-  %727 = icmp ne <16 x i8> %.sroa.51703.0.copyload2172, %726
+  %727 = icmp ne <16 x i8> %.sroa.51694.0.copyload2157, %726
   %728 = bitcast <16 x i1> %727 to i16
-  %.not2173 = icmp eq i16 %728, 0
-  %or.cond2190 = select i1 %.not1.i213, i1 %.not2173, i1 false
-  br i1 %or.cond2190, label %729, label %diff384.exit214.thread
+  %.not2158 = icmp eq i16 %728, 0
+  %or.cond2175 = select i1 %.not1.i211, i1 %.not2158, i1 false
+  br i1 %or.cond2175, label %729, label %diff384.exit212.thread
 
 729:                                              ; preds = %722
-  %.sroa.01630.0.copyload = load <2 x i64>, ptr %524, align 16
-  %.sroa.41631.0.copyload = load <2 x i64>, ptr %.sroa.41631.0..sroa_idx, align 16
-  %.sroa.51632.0.copyload = load <2 x i64>, ptr %.sroa.51632.0..sroa_idx, align 16
-  %730 = or <2 x i64> %.sroa.01630.0.copyload, %.sroa.0811.1
-  %731 = or <2 x i64> %.sroa.41631.0.copyload, %.sroa.27827.1
-  %732 = or <2 x i64> %.sroa.51632.0.copyload, %.sroa.35858.1
+  %.sroa.01621.0.copyload = load <2 x i64>, ptr %524, align 16
+  %.sroa.41622.0.copyload = load <2 x i64>, ptr %.sroa.41622.0..sroa_idx, align 16
+  %.sroa.51623.0.copyload = load <2 x i64>, ptr %.sroa.51623.0..sroa_idx, align 16
+  %730 = or <2 x i64> %.sroa.01621.0.copyload, %.sroa.0802.1
+  %731 = or <2 x i64> %.sroa.41622.0.copyload, %.sroa.27818.1
+  %732 = or <2 x i64> %.sroa.51623.0.copyload, %.sroa.35849.1
   %733 = load ptr, ptr %525, align 8
   %.not54.i183 = icmp eq ptr %733, null
   %734 = and i8 %718, 1
   %.not55.i184 = icmp eq i8 %734, 0
   %or.cond.i185 = or i1 %.not55.i184, %.not54.i183
-  br i1 %or.cond.i185, label %processExceptional384.exit191.thread, label %735
+  br i1 %or.cond.i185, label %processExceptional384.exit190.thread, label %735
 
 735:                                              ; preds = %729
   %736 = load ptr, ptr %521, align 32
   %737 = load ptr, ptr %522, align 8
   %738 = load i32, ptr %733, align 4
-  %.not.i.i1872248 = icmp eq i32 %738, -1
-  br i1 %.not.i.i1872248, label %processExceptional384.exit191.thread, label %.lr.ph2250
+  %.not.i.i1872233 = icmp eq i32 %738, -1
+  br i1 %.not.i.i1872233, label %processExceptional384.exit190.thread, label %.lr.ph2235
 
-739:                                              ; preds = %.lr.ph2250
-  %740 = getelementptr inbounds nuw i8, ptr %.09.i.i1862249, i64 4
+739:                                              ; preds = %.lr.ph2235
+  %740 = getelementptr inbounds nuw i8, ptr %.09.i.i1862234, i64 4
   %741 = load i32, ptr %740, align 4
   %.not.i.i187 = icmp eq i32 %741, -1
-  br i1 %.not.i.i187, label %processExceptional384.exit191.thread, label %.lr.ph2250
+  br i1 %.not.i.i187, label %processExceptional384.exit190.thread, label %.lr.ph2235
 
-.lr.ph2250:                                       ; preds = %735, %739
+.lr.ph2235:                                       ; preds = %735, %739
   %742 = phi i32 [ %741, %739 ], [ %738, %735 ]
-  %.09.i.i1862249 = phi ptr [ %740, %739 ], [ %733, %735 ]
+  %.09.i.i1862234 = phi ptr [ %740, %739 ], [ %733, %735 ]
   %743 = call i32 %736(i64 noundef 0, i64 noundef %717, i32 noundef %742, ptr noundef %737) #12
-  %.not2175 = icmp eq i32 %743, 0
-  br i1 %.not2175, label %nfaExecLimEx384_Stream.exit, label %739
+  %.not2160 = icmp eq i32 %743, 0
+  br i1 %.not2160, label %nfaExecLimEx384_Stream.exit, label %739
 
-diff384.exit214.thread:                           ; preds = %716, %722
+diff384.exit212.thread:                           ; preds = %716, %722
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %518, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> %694, ptr %9, align 16
-  store <2 x i64> %695, ptr %.sroa.71485.0..sroa_idx1486, align 16
-  store <2 x i64> %696, ptr %.sroa.81492.0..sroa_idx1493, align 16
+  store <2 x i64> %695, ptr %.sroa.71476.0..sroa_idx1477, align 16
+  store <2 x i64> %696, ptr %.sroa.81483.0..sroa_idx1484, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 64 dereferenceable(48) %514, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 16
   br label %745
 
-.preheader2197:                                   ; preds = %745
+.preheader2182:                                   ; preds = %745
   %744 = and i8 %718, 1
-  %.not71.i232 = icmp eq i8 %744, 0
+  %.not71.i228 = icmp eq i8 %744, 0
   br label %753
 
-745:                                              ; preds = %diff384.exit214.thread, %745
-  %746 = phi i32 [ 0, %diff384.exit214.thread ], [ %751, %745 ]
-  %indvars.iv2306 = phi i64 [ 0, %diff384.exit214.thread ], [ %indvars.iv.next2307, %745 ]
-  %747 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv2306
+745:                                              ; preds = %diff384.exit212.thread, %745
+  %746 = phi i32 [ 0, %diff384.exit212.thread ], [ %751, %745 ]
+  %indvars.iv2291 = phi i64 [ 0, %diff384.exit212.thread ], [ %indvars.iv.next2292, %745 ]
+  %747 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv2291
   %748 = load i64, ptr %747, align 8
   %749 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %748)
   %750 = trunc nuw nsw i64 %749 to i32
   %751 = add i32 %746, %750
-  %indvars.iv.next2307 = add nuw nsw i64 %indvars.iv2306, 1
-  %752 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next2307
+  %indvars.iv.next2292 = add nuw nsw i64 %indvars.iv2291, 1
+  %752 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next2292
   store i32 %751, ptr %752, align 4
-  %exitcond2309.not = icmp eq i64 %indvars.iv.next2307, 5
-  br i1 %exitcond2309.not, label %.preheader2197, label %745
+  %exitcond2294.not = icmp eq i64 %indvars.iv.next2292, 5
+  br i1 %exitcond2294.not, label %.preheader2182, label %745
 
-753:                                              ; preds = %.preheader2197, %900
-  %.sroa.0811.8 = phi <2 x i64> [ %.sroa.0811.14.ph, %900 ], [ %.sroa.0811.1, %.preheader2197 ]
-  %.sroa.27827.8 = phi <2 x i64> [ %.sroa.27827.14.ph, %900 ], [ %.sroa.27827.1, %.preheader2197 ]
-  %.sroa.35858.8 = phi <2 x i64> [ %.sroa.35858.14.ph, %900 ], [ %.sroa.35858.1, %.preheader2197 ]
-  %.01836 = phi i32 [ %.61842.ph, %900 ], [ 1, %.preheader2197 ]
-  %.sroa.51611.5 = phi ptr [ %.sroa.51611.10.ph, %900 ], [ null, %.preheader2197 ]
-  %.sroa.01609.5 = phi i8 [ %.sroa.01609.10.ph, %900 ], [ 0, %.preheader2197 ]
-  %.01835 = phi i32 [ %756, %900 ], [ %715, %.preheader2197 ]
-  %754 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01835) #13, !srcloc !131
+753:                                              ; preds = %.preheader2182, %900
+  %.sroa.0802.8 = phi <2 x i64> [ %.sroa.0802.14.ph, %900 ], [ %.sroa.0802.1, %.preheader2182 ]
+  %.sroa.27818.8 = phi <2 x i64> [ %.sroa.27818.14.ph, %900 ], [ %.sroa.27818.1, %.preheader2182 ]
+  %.sroa.35849.8 = phi <2 x i64> [ %.sroa.35849.14.ph, %900 ], [ %.sroa.35849.1, %.preheader2182 ]
+  %.01827 = phi i32 [ %.61833.ph, %900 ], [ 1, %.preheader2182 ]
+  %.sroa.51602.5 = phi ptr [ %.sroa.51602.10.ph, %900 ], [ null, %.preheader2182 ]
+  %.sroa.01600.5 = phi i8 [ %.sroa.01600.10.ph, %900 ], [ 0, %.preheader2182 ]
+  %.01826 = phi i32 [ %756, %900 ], [ %715, %.preheader2182 ]
+  %754 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01826) #13, !srcloc !131
   %755 = extractvalue { i32, i32 } %754, 0
   %756 = extractvalue { i32, i32 } %754, 1
   %757 = lshr i32 %755, 1
@@ -2558,15 +2558,15 @@ diff384.exit214.thread:                           ; preds = %716, %722
   %762 = getelementptr inbounds nuw i32, ptr %11, i64 %758
   br label %763
 
-763:                                              ; preds = %repeatHasMatch.exit287.thread, %753
-  %.sroa.0811.9 = phi <2 x i64> [ %.sroa.0811.8, %753 ], [ %.sroa.0811.14.ph, %repeatHasMatch.exit287.thread ]
-  %.sroa.27827.9 = phi <2 x i64> [ %.sroa.27827.8, %753 ], [ %.sroa.27827.14.ph, %repeatHasMatch.exit287.thread ]
-  %.sroa.35858.9 = phi <2 x i64> [ %.sroa.35858.8, %753 ], [ %.sroa.35858.14.ph, %repeatHasMatch.exit287.thread ]
-  %.01843 = phi i64 [ %760, %753 ], [ %766, %repeatHasMatch.exit287.thread ]
-  %.11837 = phi i32 [ %.01836, %753 ], [ %.61842.ph, %repeatHasMatch.exit287.thread ]
-  %.sroa.51611.6 = phi ptr [ %.sroa.51611.5, %753 ], [ %.sroa.51611.10.ph, %repeatHasMatch.exit287.thread ]
-  %.sroa.01609.6 = phi i8 [ %.sroa.01609.5, %753 ], [ %.sroa.01609.10.ph, %repeatHasMatch.exit287.thread ]
-  %764 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01843) #13, !srcloc !132
+763:                                              ; preds = %repeatHasMatch.exit278.thread, %753
+  %.sroa.0802.9 = phi <2 x i64> [ %.sroa.0802.8, %753 ], [ %.sroa.0802.14.ph, %repeatHasMatch.exit278.thread ]
+  %.sroa.27818.9 = phi <2 x i64> [ %.sroa.27818.8, %753 ], [ %.sroa.27818.14.ph, %repeatHasMatch.exit278.thread ]
+  %.sroa.35849.9 = phi <2 x i64> [ %.sroa.35849.8, %753 ], [ %.sroa.35849.14.ph, %repeatHasMatch.exit278.thread ]
+  %.01834 = phi i64 [ %760, %753 ], [ %766, %repeatHasMatch.exit278.thread ]
+  %.11828 = phi i32 [ %.01827, %753 ], [ %.61833.ph, %repeatHasMatch.exit278.thread ]
+  %.sroa.51602.6 = phi ptr [ %.sroa.51602.5, %753 ], [ %.sroa.51602.10.ph, %repeatHasMatch.exit278.thread ]
+  %.sroa.01600.6 = phi i8 [ %.sroa.01600.5, %753 ], [ %.sroa.01600.10.ph, %repeatHasMatch.exit278.thread ]
+  %764 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01834) #13, !srcloc !132
   %765 = extractvalue { i64, i64 } %764, 0
   %766 = extractvalue { i64, i64 } %764, 1
   %767 = load i64, ptr %761, align 8
@@ -2582,8 +2582,8 @@ diff384.exit214.thread:                           ; preds = %716, %722
   %776 = getelementptr inbounds nuw %struct.NFAException384, ptr %40, i64 %775
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 105
   %778 = load i8, ptr %777, align 1
-  %.not69.i226 = icmp eq i8 %778, 0
-  br i1 %.not69.i226, label %.critedge.i227.thread, label %779
+  %.not69.i223 = icmp eq i8 %778, 0
+  br i1 %.not69.i223, label %.critedge.i224.thread, label %779
 
 779:                                              ; preds = %763
   %780 = getelementptr inbounds nuw i8, ptr %776, i64 100
@@ -2602,28 +2602,28 @@ diff384.exit214.thread:                           ; preds = %716, %722
   %793 = zext i32 %792 to i64
   %794 = getelementptr inbounds nuw i8, ptr %790, i64 %793
   %795 = icmp eq i8 %778, 1
-  br i1 %795, label %testbit384.exit.i243, label %818
+  br i1 %795, label %testbit384.exit.i237, label %818
 
-testbit384.exit.i243:                             ; preds = %779
+testbit384.exit.i237:                             ; preds = %779
   %796 = load i32, ptr %783, align 4
   %797 = icmp ult i32 %796, 128
   %798 = icmp ult i32 %796, 256
-  %spec.select2143 = select i1 %798, <2 x i64> %.sroa.15.02253, <2 x i64> %.sroa.18.02254
-  %.0.in.i.i244.sroa.speculated = select i1 %797, <2 x i64> %.sroa.0889.02252, <2 x i64> %spec.select2143
+  %spec.select2128 = select i1 %798, <2 x i64> %.sroa.15.02238, <2 x i64> %.sroa.18.02239
+  %.0.in.i.i238.sroa.speculated = select i1 %797, <2 x i64> %.sroa.0880.02237, <2 x i64> %spec.select2128
   %799 = and i32 %796, 127
   %800 = shl nuw nsw i32 %799, 6
   %801 = and i32 %800, 448
   %802 = lshr i32 %799, 3
-  %reass.sub2282 = sub nsw i32 %801, %802
-  %803 = sext i32 %reass.sub2282 to i64
+  %reass.sub2267 = sub nsw i32 %801, %802
+  %803 = sext i32 %reass.sub2267 to i64
   %804 = getelementptr i8, ptr @simd_onebit_masks, i64 %803
   %805 = getelementptr i8, ptr %804, i64 95
   %806 = load <2 x i64>, ptr %805, align 1
-  %807 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %806, <2 x i64> %.0.in.i.i244.sroa.speculated)
-  %.not.i.i246 = icmp eq i32 %807, 0
-  %808 = zext i1 %.not.i.i246 to i8
+  %807 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %806, <2 x i64> %.0.in.i.i238.sroa.speculated)
+  %.not.i.i240 = icmp eq i32 %807, 0
+  %808 = zext i1 %.not.i.i240 to i8
   %809 = load i8, ptr %784, align 4
-  switch i8 %809, label %.critedge.i227.thread [
+  switch i8 %809, label %.critedge.i224.thread [
     i8 0, label %810
     i8 1, label %811
     i8 2, label %813
@@ -2633,40 +2633,40 @@ testbit384.exit.i243:                             ; preds = %779
     i8 6, label %817
   ]
 
-810:                                              ; preds = %testbit384.exit.i243
+810:                                              ; preds = %testbit384.exit.i237
   call void @repeatStoreRing(ptr noundef nonnull %784, ptr noundef %789, ptr noundef %794, i64 noundef %717, i8 noundef signext range(i8 0, 2) %808) #12
-  br label %.critedge.i227.thread
+  br label %.critedge.i224.thread
 
-811:                                              ; preds = %testbit384.exit.i243
-  br i1 %.not.i.i246, label %.critedge.i227.thread, label %812
+811:                                              ; preds = %testbit384.exit.i237
+  br i1 %.not.i.i240, label %.critedge.i224.thread, label %812
 
 812:                                              ; preds = %811
   store i64 %717, ptr %789, align 8
-  br label %.critedge.i227.thread
+  br label %.critedge.i224.thread
 
-813:                                              ; preds = %testbit384.exit.i243
+813:                                              ; preds = %testbit384.exit.i237
   store i64 %717, ptr %789, align 8
-  br label %.critedge.i227.thread
+  br label %.critedge.i224.thread
 
-814:                                              ; preds = %testbit384.exit.i243
+814:                                              ; preds = %testbit384.exit.i237
   call void @repeatStoreRange(ptr noundef nonnull %784, ptr noundef %789, ptr noundef %794, i64 noundef %717, i8 noundef signext range(i8 0, 2) %808) #12
-  br label %.critedge.i227.thread
+  br label %.critedge.i224.thread
 
-815:                                              ; preds = %testbit384.exit.i243
+815:                                              ; preds = %testbit384.exit.i237
   call void @repeatStoreBitmap(ptr noundef nonnull %784, ptr noundef %789, i64 noundef %717, i8 noundef signext range(i8 0, 2) %808) #12
-  br label %.critedge.i227.thread
+  br label %.critedge.i224.thread
 
-816:                                              ; preds = %testbit384.exit.i243
+816:                                              ; preds = %testbit384.exit.i237
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %784, ptr noundef %789, ptr noundef %794, i64 noundef %717, i8 noundef signext range(i8 0, 2) %808) #12
-  br label %.critedge.i227.thread
+  br label %.critedge.i224.thread
 
-817:                                              ; preds = %testbit384.exit.i243
+817:                                              ; preds = %testbit384.exit.i237
   call void @repeatStoreTrailer(ptr noundef nonnull %784, ptr noundef %789, i64 noundef %717, i8 noundef signext range(i8 0, 2) %808) #12
-  br label %.critedge.i227.thread
+  br label %.critedge.i224.thread
 
 818:                                              ; preds = %779
   %819 = load i8, ptr %784, align 4
-  switch i8 %819, label %repeatHasMatch.exit287.thread [
+  switch i8 %819, label %repeatHasMatch.exit278.thread [
     i8 0, label %820
     i8 1, label %822
     i8 2, label %829
@@ -2674,12 +2674,12 @@ testbit384.exit.i243:                             ; preds = %779
     i8 4, label %843
     i8 5, label %845
     i8 6, label %847
-    i8 7, label %repeatHasMatch.exit287.thread1958
+    i8 7, label %repeatHasMatch.exit278.thread1947
   ]
 
 820:                                              ; preds = %818
   %821 = call i32 @repeatHasMatchRing(ptr noundef nonnull %784, ptr noundef %789, ptr noundef %794, i64 noundef %717) #12
-  br label %repeatHasMatch.exit287
+  br label %repeatHasMatch.exit278
 
 822:                                              ; preds = %818
   %823 = load i64, ptr %789, align 8
@@ -2688,7 +2688,7 @@ testbit384.exit.i243:                             ; preds = %779
   %826 = zext i32 %825 to i64
   %827 = add i64 %823, %826
   %828 = icmp ult i64 %717, %827
-  br i1 %828, label %repeatHasMatch.exit287.thread, label %repeatHasMatch.exit287.thread1958
+  br i1 %828, label %repeatHasMatch.exit278.thread, label %repeatHasMatch.exit278.thread1947
 
 829:                                              ; preds = %818
   %830 = load i64, ptr %789, align 8
@@ -2697,48 +2697,48 @@ testbit384.exit.i243:                             ; preds = %779
   %833 = zext i32 %832 to i64
   %834 = add i64 %830, %833
   %835 = icmp ult i64 %717, %834
-  br i1 %835, label %repeatHasMatch.exit287.thread, label %836
+  br i1 %835, label %repeatHasMatch.exit278.thread, label %836
 
 836:                                              ; preds = %829
   %837 = getelementptr inbounds nuw i8, ptr %783, i64 32
   %838 = load i32, ptr %837, align 4
   %839 = zext i32 %838 to i64
   %840 = add i64 %830, %839
-  %.not.i296 = icmp ugt i64 %717, %840
-  br i1 %.not.i296, label %repeatHasMatch.exit287.thread1960, label %repeatHasMatch.exit287.thread1958
+  %.not.i287 = icmp ugt i64 %717, %840
+  br i1 %.not.i287, label %repeatHasMatch.exit278.thread1949, label %repeatHasMatch.exit278.thread1947
 
 841:                                              ; preds = %818
   %842 = call i32 @repeatHasMatchRange(ptr noundef nonnull %784, ptr noundef %789, ptr noundef %794, i64 noundef %717) #12
-  br label %repeatHasMatch.exit287
+  br label %repeatHasMatch.exit278
 
 843:                                              ; preds = %818
   %844 = call i32 @repeatHasMatchBitmap(ptr noundef nonnull %784, ptr noundef %789, i64 noundef %717) #12
-  br label %repeatHasMatch.exit287
+  br label %repeatHasMatch.exit278
 
 845:                                              ; preds = %818
   %846 = call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %784, ptr noundef %789, ptr noundef %794, i64 noundef %717) #12
-  br label %repeatHasMatch.exit287
+  br label %repeatHasMatch.exit278
 
 847:                                              ; preds = %818
   %848 = call i32 @repeatHasMatchTrailer(ptr noundef nonnull %784, ptr noundef %789, i64 noundef %717) #12
-  br label %repeatHasMatch.exit287
+  br label %repeatHasMatch.exit278
 
-repeatHasMatch.exit287:                           ; preds = %820, %841, %843, %845, %847
-  %.0.i286 = phi i32 [ %821, %820 ], [ %842, %841 ], [ %844, %843 ], [ %846, %845 ], [ %848, %847 ]
-  switch i32 %.0.i286, label %repeatHasMatch.exit287.thread [
-    i32 1, label %repeatHasMatch.exit287.thread1958
-    i32 2, label %repeatHasMatch.exit287.thread1960
+repeatHasMatch.exit278:                           ; preds = %820, %841, %843, %845, %847
+  %.0.i277 = phi i32 [ %821, %820 ], [ %842, %841 ], [ %844, %843 ], [ %846, %845 ], [ %848, %847 ]
+  switch i32 %.0.i277, label %repeatHasMatch.exit278.thread [
+    i32 1, label %repeatHasMatch.exit278.thread1947
+    i32 2, label %repeatHasMatch.exit278.thread1949
   ]
 
-repeatHasMatch.exit287.thread1958:                ; preds = %836, %818, %822, %repeatHasMatch.exit287
+repeatHasMatch.exit278.thread1947:                ; preds = %836, %818, %822, %repeatHasMatch.exit278
   %849 = getelementptr inbounds nuw i8, ptr %783, i64 32
   %850 = load i32, ptr %849, align 4
   %851 = icmp eq i32 %850, 65535
-  %spec.select2144 = select i1 %851, i32 %.11837, i32 2
-  %spec.select2145 = select i1 %851, i8 1, i8 %.sroa.01609.6
-  br label %.critedge.i227.thread
+  %spec.select2129 = select i1 %851, i32 %.11828, i32 2
+  %spec.select2130 = select i1 %851, i8 1, i8 %.sroa.01600.6
+  br label %.critedge.i224.thread
 
-repeatHasMatch.exit287.thread1960:                ; preds = %836, %repeatHasMatch.exit287
+repeatHasMatch.exit278.thread1949:                ; preds = %836, %repeatHasMatch.exit278
   call void @llvm.assume(i1 true) [ "align"(ptr %776, i64 16) ], !noalias !172
   %852 = load <2 x i64>, ptr %776, align 16, !noalias !172
   %853 = getelementptr inbounds nuw i8, ptr %776, i64 16
@@ -2747,21 +2747,21 @@ repeatHasMatch.exit287.thread1960:                ; preds = %836, %repeatHasMatc
   %855 = getelementptr inbounds nuw i8, ptr %776, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %855, i64 16) ], !noalias !172
   %856 = load <2 x i64>, ptr %855, align 16, !noalias !172
-  %857 = and <2 x i64> %852, %.sroa.0811.9
-  %858 = and <2 x i64> %854, %.sroa.27827.9
-  %859 = and <2 x i64> %856, %.sroa.35858.9
-  br label %repeatHasMatch.exit287.thread
+  %857 = and <2 x i64> %852, %.sroa.0802.9
+  %858 = and <2 x i64> %854, %.sroa.27818.9
+  %859 = and <2 x i64> %856, %.sroa.35849.9
+  br label %repeatHasMatch.exit278.thread
 
-.critedge.i227.thread:                            ; preds = %repeatHasMatch.exit287.thread1958, %817, %816, %815, %814, %813, %810, %testbit384.exit.i243, %811, %812, %763
-  %.31839 = phi i32 [ %.11837, %763 ], [ 2, %817 ], [ 2, %816 ], [ 2, %815 ], [ 2, %814 ], [ 2, %813 ], [ 2, %810 ], [ 2, %testbit384.exit.i243 ], [ 2, %811 ], [ 2, %812 ], [ %spec.select2144, %repeatHasMatch.exit287.thread1958 ]
-  %.sroa.01609.9 = phi i8 [ %.sroa.01609.6, %763 ], [ %.sroa.01609.6, %817 ], [ %.sroa.01609.6, %816 ], [ %.sroa.01609.6, %815 ], [ %.sroa.01609.6, %814 ], [ %.sroa.01609.6, %813 ], [ %.sroa.01609.6, %810 ], [ %.sroa.01609.6, %testbit384.exit.i243 ], [ %.sroa.01609.6, %811 ], [ %.sroa.01609.6, %812 ], [ %spec.select2145, %repeatHasMatch.exit287.thread1958 ]
+.critedge.i224.thread:                            ; preds = %repeatHasMatch.exit278.thread1947, %817, %816, %815, %814, %813, %810, %testbit384.exit.i237, %811, %812, %763
+  %.31830 = phi i32 [ %.11828, %763 ], [ 2, %817 ], [ 2, %816 ], [ 2, %815 ], [ 2, %814 ], [ 2, %813 ], [ 2, %810 ], [ 2, %testbit384.exit.i237 ], [ 2, %811 ], [ 2, %812 ], [ %spec.select2129, %repeatHasMatch.exit278.thread1947 ]
+  %.sroa.01600.9 = phi i8 [ %.sroa.01600.6, %763 ], [ %.sroa.01600.6, %817 ], [ %.sroa.01600.6, %816 ], [ %.sroa.01600.6, %815 ], [ %.sroa.01600.6, %814 ], [ %.sroa.01600.6, %813 ], [ %.sroa.01600.6, %810 ], [ %.sroa.01600.6, %testbit384.exit.i237 ], [ %.sroa.01600.6, %811 ], [ %.sroa.01600.6, %812 ], [ %spec.select2130, %repeatHasMatch.exit278.thread1947 ]
   %860 = getelementptr inbounds nuw i8, ptr %776, i64 96
   %861 = load i32, ptr %860, align 16
-  %.not70.i231 = icmp eq i32 %861, -1
-  br i1 %.not70.i231, label %.thread1977, label %862
+  %.not70.i227 = icmp eq i32 %861, -1
+  br i1 %.not70.i227, label %.thread1965, label %862
 
-862:                                              ; preds = %.critedge.i227.thread
-  br i1 %.not71.i232, label %877, label %863
+862:                                              ; preds = %.critedge.i224.thread
+  br i1 %.not71.i228, label %877, label %863
 
 863:                                              ; preds = %862
   %864 = zext i32 %861 to i64
@@ -2769,43 +2769,43 @@ repeatHasMatch.exit287.thread1960:                ; preds = %836, %repeatHasMatc
   %866 = load ptr, ptr %521, align 32
   %867 = load ptr, ptr %522, align 8
   %868 = load i32, ptr %865, align 4
-  %.not.i75.i2342245 = icmp eq i32 %868, -1
-  br i1 %.not.i75.i2342245, label %limexRunReports.exit.i236, label %.lr.ph2247
+  %.not.i74.i2302230 = icmp eq i32 %868, -1
+  br i1 %.not.i74.i2302230, label %limexRunReports.exit.i231, label %.lr.ph2232
 
-869:                                              ; preds = %.lr.ph2247
-  %870 = getelementptr inbounds nuw i8, ptr %.09.i.i2332246, i64 4
+869:                                              ; preds = %.lr.ph2232
+  %870 = getelementptr inbounds nuw i8, ptr %.09.i.i2292231, i64 4
   %871 = load i32, ptr %870, align 4
-  %.not.i75.i234 = icmp eq i32 %871, -1
-  br i1 %.not.i75.i234, label %limexRunReports.exit.i236, label %.lr.ph2247
+  %.not.i74.i230 = icmp eq i32 %871, -1
+  br i1 %.not.i74.i230, label %limexRunReports.exit.i231, label %.lr.ph2232
 
-.lr.ph2247:                                       ; preds = %863, %869
+.lr.ph2232:                                       ; preds = %863, %869
   %872 = phi i32 [ %871, %869 ], [ %868, %863 ]
-  %.09.i.i2332246 = phi ptr [ %870, %869 ], [ %865, %863 ]
+  %.09.i.i2292231 = phi ptr [ %870, %869 ], [ %865, %863 ]
   %873 = call i32 %866(i64 noundef 0, i64 noundef %717, i32 noundef %872, ptr noundef %867) #12
-  %.not2174 = icmp eq i32 %873, 0
-  br i1 %.not2174, label %processExceptional384.exit191, label %869
+  %.not2159 = icmp eq i32 %873, 0
+  br i1 %.not2159, label %processExceptional384.exit190, label %869
 
-limexRunReports.exit.i236:                        ; preds = %869, %863
-  %874 = icmp eq i32 %.31839, 1
-  br i1 %874, label %875, label %.thread1977
+limexRunReports.exit.i231:                        ; preds = %869, %863
+  %874 = icmp eq i32 %.31830, 1
+  br i1 %874, label %875, label %.thread1965
 
-875:                                              ; preds = %limexRunReports.exit.i236
-  %.not73.i240 = icmp eq ptr %.sroa.51611.6, null
-  %876 = icmp eq ptr %.sroa.51611.6, %865
-  %or.cond.i241 = or i1 %.not73.i240, %876
-  %spec.select2146 = zext i1 %or.cond.i241 to i32
-  %spec.select2147 = select i1 %or.cond.i241, ptr %865, ptr %.sroa.51611.6
-  br label %.thread1977
+875:                                              ; preds = %limexRunReports.exit.i231
+  %.not73.i234 = icmp eq ptr %.sroa.51602.6, null
+  %876 = icmp eq ptr %.sroa.51602.6, %865
+  %or.cond.i235 = or i1 %.not73.i234, %876
+  %spec.select2131 = zext i1 %or.cond.i235 to i32
+  %spec.select2132 = select i1 %or.cond.i235, ptr %865, ptr %.sroa.51602.6
+  br label %.thread1965
 
 877:                                              ; preds = %862
-  %878 = icmp eq i32 %.31839, 1
-  %or.cond2149 = select i1 %.not2169, i1 %878, i1 false
-  %spec.select2160 = select i1 %or.cond2149, i32 0, i32 %.31839
-  br label %.thread1977
+  %878 = icmp eq i32 %.31830, 1
+  %or.cond2134 = select i1 %.not2154, i1 %878, i1 false
+  %spec.select2145 = select i1 %or.cond2134, i32 0, i32 %.31830
+  br label %.thread1965
 
-.thread1977:                                      ; preds = %877, %875, %limexRunReports.exit.i236, %.critedge.i227.thread
-  %.51841 = phi i32 [ %.31839, %.critedge.i227.thread ], [ %.31839, %limexRunReports.exit.i236 ], [ %spec.select2146, %875 ], [ %spec.select2160, %877 ]
-  %.sroa.51611.9 = phi ptr [ %.sroa.51611.6, %.critedge.i227.thread ], [ %.sroa.51611.6, %limexRunReports.exit.i236 ], [ %spec.select2147, %875 ], [ %.sroa.51611.6, %877 ]
+.thread1965:                                      ; preds = %877, %875, %limexRunReports.exit.i231, %.critedge.i224.thread
+  %.51832 = phi i32 [ %.31830, %.critedge.i224.thread ], [ %.31830, %limexRunReports.exit.i231 ], [ %spec.select2131, %875 ], [ %spec.select2145, %877 ]
+  %.sroa.51602.9 = phi ptr [ %.sroa.51602.6, %.critedge.i224.thread ], [ %.sroa.51602.6, %limexRunReports.exit.i231 ], [ %spec.select2132, %875 ], [ %.sroa.51602.6, %877 ]
   %879 = getelementptr inbounds nuw i8, ptr %776, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %879, i64 16) ], !noalias !175
   %880 = load <2 x i64>, ptr %879, align 16, !noalias !175
@@ -2815,23 +2815,23 @@ limexRunReports.exit.i236:                        ; preds = %869, %863
   %883 = getelementptr inbounds nuw i8, ptr %776, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %883, i64 16) ], !noalias !175
   %884 = load <2 x i64>, ptr %883, align 16, !noalias !175
-  %.sroa.01786.0.copyload = load <2 x i64>, ptr %518, align 16
-  %.sroa.41787.0.copyload = load <2 x i64>, ptr %.sroa.41614.0..sroa_idx, align 16
-  %.sroa.51788.0.copyload = load <2 x i64>, ptr %.sroa.51615.0..sroa_idx, align 16
-  %885 = or <2 x i64> %.sroa.01786.0.copyload, %880
-  %886 = or <2 x i64> %.sroa.41787.0.copyload, %882
-  %887 = or <2 x i64> %.sroa.51788.0.copyload, %884
+  %.sroa.01777.0.copyload = load <2 x i64>, ptr %518, align 16
+  %.sroa.41778.0.copyload = load <2 x i64>, ptr %.sroa.41605.0..sroa_idx, align 16
+  %.sroa.51779.0.copyload = load <2 x i64>, ptr %.sroa.51606.0..sroa_idx, align 16
+  %885 = or <2 x i64> %.sroa.01777.0.copyload, %880
+  %886 = or <2 x i64> %.sroa.41778.0.copyload, %882
+  %887 = or <2 x i64> %.sroa.51779.0.copyload, %884
   store <2 x i64> %885, ptr %518, align 16
-  store <2 x i64> %886, ptr %.sroa.41614.0..sroa_idx, align 16
-  store <2 x i64> %887, ptr %.sroa.51615.0..sroa_idx, align 16
+  store <2 x i64> %886, ptr %.sroa.41605.0..sroa_idx, align 16
+  store <2 x i64> %887, ptr %.sroa.51606.0..sroa_idx, align 16
   %888 = getelementptr inbounds nuw i8, ptr %776, i64 104
   %889 = load i8, ptr %888, align 8
-  switch i8 %889, label %repeatHasMatch.exit287.thread [
+  switch i8 %889, label %repeatHasMatch.exit278.thread [
     i8 1, label %890
     i8 3, label %890
   ]
 
-890:                                              ; preds = %.thread1977, %.thread1977
+890:                                              ; preds = %.thread1965, %.thread1965
   call void @llvm.assume(i1 true) [ "align"(ptr %776, i64 16) ], !noalias !178
   %891 = load <2 x i64>, ptr %776, align 16, !noalias !178
   %892 = getelementptr inbounds nuw i8, ptr %776, i64 16
@@ -2840,74 +2840,74 @@ limexRunReports.exit.i236:                        ; preds = %869, %863
   %894 = getelementptr inbounds nuw i8, ptr %776, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %894, i64 16) ], !noalias !178
   %895 = load <2 x i64>, ptr %894, align 16, !noalias !178
-  %896 = and <2 x i64> %891, %.sroa.0811.9
-  %897 = and <2 x i64> %893, %.sroa.27827.9
-  %898 = and <2 x i64> %895, %.sroa.35858.9
-  %899 = icmp eq i32 %.51841, 1
-  %spec.select2150 = select i1 %899, i32 0, i32 %.51841
-  br label %repeatHasMatch.exit287.thread
+  %896 = and <2 x i64> %891, %.sroa.0802.9
+  %897 = and <2 x i64> %893, %.sroa.27818.9
+  %898 = and <2 x i64> %895, %.sroa.35849.9
+  %899 = icmp eq i32 %.51832, 1
+  %spec.select2135 = select i1 %899, i32 0, i32 %.51832
+  br label %repeatHasMatch.exit278.thread
 
-repeatHasMatch.exit287.thread:                    ; preds = %890, %822, %818, %829, %.thread1977, %repeatHasMatch.exit287, %repeatHasMatch.exit287.thread1960
-  %.sroa.0811.14.ph = phi <2 x i64> [ %.sroa.0811.9, %repeatHasMatch.exit287 ], [ %857, %repeatHasMatch.exit287.thread1960 ], [ %.sroa.0811.9, %.thread1977 ], [ %.sroa.0811.9, %829 ], [ %.sroa.0811.9, %818 ], [ %.sroa.0811.9, %822 ], [ %896, %890 ]
-  %.sroa.27827.14.ph = phi <2 x i64> [ %.sroa.27827.9, %repeatHasMatch.exit287 ], [ %858, %repeatHasMatch.exit287.thread1960 ], [ %.sroa.27827.9, %.thread1977 ], [ %.sroa.27827.9, %829 ], [ %.sroa.27827.9, %818 ], [ %.sroa.27827.9, %822 ], [ %897, %890 ]
-  %.sroa.35858.14.ph = phi <2 x i64> [ %.sroa.35858.9, %repeatHasMatch.exit287 ], [ %859, %repeatHasMatch.exit287.thread1960 ], [ %.sroa.35858.9, %.thread1977 ], [ %.sroa.35858.9, %829 ], [ %.sroa.35858.9, %818 ], [ %.sroa.35858.9, %822 ], [ %898, %890 ]
-  %.61842.ph = phi i32 [ 2, %repeatHasMatch.exit287 ], [ 2, %repeatHasMatch.exit287.thread1960 ], [ %.51841, %.thread1977 ], [ 2, %829 ], [ 2, %818 ], [ 2, %822 ], [ %spec.select2150, %890 ]
-  %.sroa.51611.10.ph = phi ptr [ %.sroa.51611.6, %repeatHasMatch.exit287 ], [ %.sroa.51611.6, %repeatHasMatch.exit287.thread1960 ], [ %.sroa.51611.9, %.thread1977 ], [ %.sroa.51611.6, %829 ], [ %.sroa.51611.6, %818 ], [ %.sroa.51611.6, %822 ], [ %.sroa.51611.9, %890 ]
-  %.sroa.01609.10.ph = phi i8 [ %.sroa.01609.6, %repeatHasMatch.exit287 ], [ %.sroa.01609.6, %repeatHasMatch.exit287.thread1960 ], [ %.sroa.01609.9, %.thread1977 ], [ %.sroa.01609.6, %829 ], [ %.sroa.01609.6, %818 ], [ %.sroa.01609.6, %822 ], [ %.sroa.01609.9, %890 ]
+repeatHasMatch.exit278.thread:                    ; preds = %890, %822, %818, %829, %.thread1965, %repeatHasMatch.exit278, %repeatHasMatch.exit278.thread1949
+  %.sroa.0802.14.ph = phi <2 x i64> [ %.sroa.0802.9, %repeatHasMatch.exit278 ], [ %857, %repeatHasMatch.exit278.thread1949 ], [ %.sroa.0802.9, %.thread1965 ], [ %.sroa.0802.9, %829 ], [ %.sroa.0802.9, %818 ], [ %.sroa.0802.9, %822 ], [ %896, %890 ]
+  %.sroa.27818.14.ph = phi <2 x i64> [ %.sroa.27818.9, %repeatHasMatch.exit278 ], [ %858, %repeatHasMatch.exit278.thread1949 ], [ %.sroa.27818.9, %.thread1965 ], [ %.sroa.27818.9, %829 ], [ %.sroa.27818.9, %818 ], [ %.sroa.27818.9, %822 ], [ %897, %890 ]
+  %.sroa.35849.14.ph = phi <2 x i64> [ %.sroa.35849.9, %repeatHasMatch.exit278 ], [ %859, %repeatHasMatch.exit278.thread1949 ], [ %.sroa.35849.9, %.thread1965 ], [ %.sroa.35849.9, %829 ], [ %.sroa.35849.9, %818 ], [ %.sroa.35849.9, %822 ], [ %898, %890 ]
+  %.61833.ph = phi i32 [ 2, %repeatHasMatch.exit278 ], [ 2, %repeatHasMatch.exit278.thread1949 ], [ %.51832, %.thread1965 ], [ 2, %829 ], [ 2, %818 ], [ 2, %822 ], [ %spec.select2135, %890 ]
+  %.sroa.51602.10.ph = phi ptr [ %.sroa.51602.6, %repeatHasMatch.exit278 ], [ %.sroa.51602.6, %repeatHasMatch.exit278.thread1949 ], [ %.sroa.51602.9, %.thread1965 ], [ %.sroa.51602.6, %829 ], [ %.sroa.51602.6, %818 ], [ %.sroa.51602.6, %822 ], [ %.sroa.51602.9, %890 ]
+  %.sroa.01600.10.ph = phi i8 [ %.sroa.01600.6, %repeatHasMatch.exit278 ], [ %.sroa.01600.6, %repeatHasMatch.exit278.thread1949 ], [ %.sroa.01600.9, %.thread1965 ], [ %.sroa.01600.6, %829 ], [ %.sroa.01600.6, %818 ], [ %.sroa.01600.6, %822 ], [ %.sroa.01600.9, %890 ]
   %.not57.i177 = icmp eq i64 %766, 0
   br i1 %.not57.i177, label %900, label %763
 
-900:                                              ; preds = %repeatHasMatch.exit287.thread
+900:                                              ; preds = %repeatHasMatch.exit278.thread
   %.not58.i178 = icmp eq i32 %756, 0
   br i1 %.not58.i178, label %901, label %753
 
 901:                                              ; preds = %900
-  %.sroa.01624.0.copyload = load <2 x i64>, ptr %518, align 16
-  %.sroa.41625.0.copyload = load <2 x i64>, ptr %.sroa.41614.0..sroa_idx, align 16
-  %.sroa.51626.0.copyload = load <2 x i64>, ptr %.sroa.51615.0..sroa_idx, align 16
-  %902 = or <2 x i64> %.sroa.01624.0.copyload, %.sroa.0811.14.ph
-  %903 = or <2 x i64> %.sroa.41625.0.copyload, %.sroa.27827.14.ph
-  %904 = or <2 x i64> %.sroa.51626.0.copyload, %.sroa.35858.14.ph
-  switch i32 %.61842.ph, label %processExceptional384.exit191.thread2022 [
+  %.sroa.01615.0.copyload = load <2 x i64>, ptr %518, align 16
+  %.sroa.41616.0.copyload = load <2 x i64>, ptr %.sroa.41605.0..sroa_idx, align 16
+  %.sroa.51617.0.copyload = load <2 x i64>, ptr %.sroa.51606.0..sroa_idx, align 16
+  %902 = or <2 x i64> %.sroa.01615.0.copyload, %.sroa.0802.14.ph
+  %903 = or <2 x i64> %.sroa.41616.0.copyload, %.sroa.27818.14.ph
+  %904 = or <2 x i64> %.sroa.51617.0.copyload, %.sroa.35849.14.ph
+  switch i32 %.61833.ph, label %processExceptional384.exit190.thread2009 [
     i32 1, label %905
     i32 2, label %906
   ]
 
 905:                                              ; preds = %901
   store <2 x i64> %694, ptr %517, align 32
-  store <2 x i64> %695, ptr %.sroa.41702.0..sroa_idx, align 16
-  store <2 x i64> %696, ptr %.sroa.51703.0..sroa_idx, align 32
+  store <2 x i64> %695, ptr %.sroa.41693.0..sroa_idx, align 16
+  store <2 x i64> %696, ptr %.sroa.51694.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %524, ptr noundef nonnull align 16 dereferenceable(48) %518, i64 48, i1 false)
-  store ptr %.sroa.51611.10.ph, ptr %525, align 8
-  store i8 %.sroa.01609.10.ph, ptr %523, align 64
-  br label %processExceptional384.exit191.thread2022
+  store ptr %.sroa.51602.10.ph, ptr %525, align 8
+  store i8 %.sroa.01600.10.ph, ptr %523, align 64
+  br label %processExceptional384.exit190.thread2009
 
 906:                                              ; preds = %901
   %907 = load i8, ptr %523, align 64
   %.not59.i179 = icmp eq i8 %907, 0
-  br i1 %.not59.i179, label %processExceptional384.exit191.thread2022, label %908
+  br i1 %.not59.i179, label %processExceptional384.exit190.thread2009, label %908
 
 908:                                              ; preds = %906
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(48) %517, i8 0, i64 48, i1 false)
-  br label %processExceptional384.exit191.thread2022
+  br label %processExceptional384.exit190.thread2009
 
-processExceptional384.exit191.thread2022:         ; preds = %901, %908, %906, %905
+processExceptional384.exit190.thread2009:         ; preds = %901, %908, %906, %905
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %processExceptional384.exit191.thread
+  br label %processExceptional384.exit190.thread
 
-processExceptional384.exit191:                    ; preds = %.lr.ph2247
+processExceptional384.exit190:                    ; preds = %.lr.ph2232
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %nfaExecLimEx384_Stream.exit
 
-processExceptional384.exit191.thread:             ; preds = %739, %735, %729, %690, %processExceptional384.exit191.thread2022
-  %.sroa.0811.7.ph = phi <2 x i64> [ %902, %processExceptional384.exit191.thread2022 ], [ %.sroa.0811.1, %690 ], [ %730, %729 ], [ %730, %735 ], [ %730, %739 ]
-  %.sroa.27827.7.ph = phi <2 x i64> [ %903, %processExceptional384.exit191.thread2022 ], [ %.sroa.27827.1, %690 ], [ %731, %729 ], [ %731, %735 ], [ %731, %739 ]
-  %.sroa.35858.7.ph = phi <2 x i64> [ %904, %processExceptional384.exit191.thread2022 ], [ %.sroa.35858.1, %690 ], [ %732, %729 ], [ %732, %735 ], [ %732, %739 ]
-  %909 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i2255
+processExceptional384.exit190.thread:             ; preds = %739, %735, %729, %690, %processExceptional384.exit190.thread2009
+  %.sroa.0802.7.ph = phi <2 x i64> [ %902, %processExceptional384.exit190.thread2009 ], [ %.sroa.0802.1, %690 ], [ %730, %729 ], [ %730, %735 ], [ %730, %739 ]
+  %.sroa.27818.7.ph = phi <2 x i64> [ %903, %processExceptional384.exit190.thread2009 ], [ %.sroa.27818.1, %690 ], [ %731, %729 ], [ %731, %735 ], [ %731, %739 ]
+  %.sroa.35849.7.ph = phi <2 x i64> [ %904, %processExceptional384.exit190.thread2009 ], [ %.sroa.35849.1, %690 ], [ %732, %729 ], [ %732, %735 ], [ %732, %739 ]
+  %909 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i2240
   %910 = load i8, ptr %909, align 1
   %911 = zext i8 %910 to i64
   %912 = getelementptr inbounds nuw i8, ptr %0, i64 %911
@@ -2922,23 +2922,23 @@ processExceptional384.exit191.thread:             ; preds = %739, %735, %729, %6
   %919 = getelementptr inbounds nuw i8, ptr %915, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %919, i64 16) ], !noalias !181
   %920 = load <2 x i64>, ptr %919, align 16, !noalias !181
-  %921 = and <2 x i64> %916, %.sroa.0811.7.ph
-  %922 = and <2 x i64> %918, %.sroa.27827.7.ph
-  %923 = and <2 x i64> %920, %.sroa.35858.7.ph
-  %924 = add i64 %.045.i2255, 1
+  %921 = and <2 x i64> %916, %.sroa.0802.7.ph
+  %922 = and <2 x i64> %918, %.sroa.27818.7.ph
+  %923 = and <2 x i64> %920, %.sroa.35849.7.ph
+  %924 = add i64 %.045.i2240, 1
   %.not.i4 = icmp eq i64 %924, %.0107.i
   br i1 %.not.i4, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %526
 
-nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %processExceptional384.exit210.thread, %processExceptional384.exit191.thread, %526, %41, %480, %5
-  %.01853 = phi i64 [ 0, %5 ], [ %.21855, %480 ], [ %.21855, %41 ], [ %.0107.i, %processExceptional384.exit191.thread ], [ %.045.i2255, %526 ], [ %.0107.i, %processExceptional384.exit210.thread ]
-  %.sroa.0504.0 = phi <2 x i64> [ %.sroa.0504.0.copyload, %5 ], [ %.sroa.0504.3, %480 ], [ %.sroa.0504.3, %41 ], [ %921, %processExceptional384.exit191.thread ], [ %.sroa.0889.02252, %526 ], [ %476, %processExceptional384.exit210.thread ]
-  %.sroa.23.0 = phi <2 x i64> [ %.sroa.23.0.copyload, %5 ], [ %.sroa.23.3, %480 ], [ %.sroa.23.3, %41 ], [ %922, %processExceptional384.exit191.thread ], [ %.sroa.15.02253, %526 ], [ %477, %processExceptional384.exit210.thread ]
-  %.sroa.25.0 = phi <2 x i64> [ %.sroa.25.0.copyload, %5 ], [ %.sroa.25.3, %480 ], [ %.sroa.25.3, %41 ], [ %923, %processExceptional384.exit191.thread ], [ %.sroa.18.02254, %526 ], [ %478, %processExceptional384.exit210.thread ]
-  %.1108.i = phi i64 [ 0, %5 ], [ %.21855, %480 ], [ %.21855, %41 ], [ %.0107.i, %526 ], [ %.0107.i, %processExceptional384.exit191.thread ], [ %.0107.i, %processExceptional384.exit210.thread ]
-  %.not121.i2273 = icmp eq i64 %.01853, %2
-  br i1 %.not121.i2273, label %.loopexit, label %.lr.ph2278
+nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %processExceptional384.exit208.thread, %processExceptional384.exit190.thread, %526, %41, %480, %5
+  %.01844 = phi i64 [ 0, %5 ], [ %.21846, %480 ], [ %.21846, %41 ], [ %.0107.i, %processExceptional384.exit190.thread ], [ %.045.i2240, %526 ], [ %.0107.i, %processExceptional384.exit208.thread ]
+  %.sroa.0495.0 = phi <2 x i64> [ %.sroa.0495.0.copyload, %5 ], [ %.sroa.0495.3, %480 ], [ %.sroa.0495.3, %41 ], [ %921, %processExceptional384.exit190.thread ], [ %.sroa.0880.02237, %526 ], [ %476, %processExceptional384.exit208.thread ]
+  %.sroa.23.0 = phi <2 x i64> [ %.sroa.23.0.copyload, %5 ], [ %.sroa.23.3, %480 ], [ %.sroa.23.3, %41 ], [ %922, %processExceptional384.exit190.thread ], [ %.sroa.15.02238, %526 ], [ %477, %processExceptional384.exit208.thread ]
+  %.sroa.25.0 = phi <2 x i64> [ %.sroa.25.0.copyload, %5 ], [ %.sroa.25.3, %480 ], [ %.sroa.25.3, %41 ], [ %923, %processExceptional384.exit190.thread ], [ %.sroa.18.02239, %526 ], [ %478, %processExceptional384.exit208.thread ]
+  %.1108.i = phi i64 [ 0, %5 ], [ %.21846, %480 ], [ %.21846, %41 ], [ %.0107.i, %526 ], [ %.0107.i, %processExceptional384.exit190.thread ], [ %.0107.i, %processExceptional384.exit208.thread ]
+  %.not121.i2258 = icmp eq i64 %.01844, %2
+  br i1 %.not121.i2258, label %.loopexit, label %.lr.ph2263
 
-.lr.ph2278:                                       ; preds = %nfaExecLimEx384_Loop_No_Accel.exit11
+.lr.ph2263:                                       ; preds = %nfaExecLimEx384_Loop_No_Accel.exit11
   %925 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %926 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %927 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -2979,13 +2979,13 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %processExceptional3
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %963 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %964 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51709.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51700.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %965 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.71523.0..sroa_idx1524 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.81530.0..sroa_idx1531 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.41569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.71514.0..sroa_idx1515 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.81521.0..sroa_idx1522 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %966 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %967 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %968 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -2993,16 +2993,16 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %processExceptional3
   %970 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %971 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %972 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %973
 
-973:                                              ; preds = %.lr.ph2278, %processExceptional384.exit.thread
-  %.sroa.25.12277 = phi <2 x i64> [ %.sroa.25.0, %.lr.ph2278 ], [ %1398, %processExceptional384.exit.thread ]
-  %.sroa.23.12276 = phi <2 x i64> [ %.sroa.23.0, %.lr.ph2278 ], [ %1397, %processExceptional384.exit.thread ]
-  %.sroa.0504.12275 = phi <2 x i64> [ %.sroa.0504.0, %.lr.ph2278 ], [ %1396, %processExceptional384.exit.thread ]
-  %.118542274 = phi i64 [ %.01853, %.lr.ph2278 ], [ %1399, %processExceptional384.exit.thread ]
-  %974 = add i64 %.118542274, 16
+973:                                              ; preds = %.lr.ph2263, %processExceptional384.exit.thread
+  %.sroa.25.12262 = phi <2 x i64> [ %.sroa.25.0, %.lr.ph2263 ], [ %1398, %processExceptional384.exit.thread ]
+  %.sroa.23.12261 = phi <2 x i64> [ %.sroa.23.0, %.lr.ph2263 ], [ %1397, %processExceptional384.exit.thread ]
+  %.sroa.0495.12260 = phi <2 x i64> [ %.sroa.0495.0, %.lr.ph2263 ], [ %1396, %processExceptional384.exit.thread ]
+  %.118452259 = phi i64 [ %.01844, %.lr.ph2263 ], [ %1399, %processExceptional384.exit.thread ]
+  %974 = add i64 %.118452259, 16
   %.not122.i = icmp ugt i64 %974, %2
   br i1 %.not122.i, label %lshift64_m128.exit31, label %975
 
@@ -3014,29 +3014,29 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %processExceptional3
   call void @llvm.assume(i1 true) [ "align"(ptr %927, i64 16) ], !noalias !184
   %978 = load <2 x i64>, ptr %927, align 16, !noalias !184
   %979 = xor <2 x i64> %976, splat (i64 -1)
-  %980 = and <2 x i64> %.sroa.0504.12275, %979
+  %980 = and <2 x i64> %.sroa.0495.12260, %979
   %981 = xor <2 x i64> %977, splat (i64 -1)
-  %982 = and <2 x i64> %.sroa.23.12276, %981
+  %982 = and <2 x i64> %.sroa.23.12261, %981
   %983 = xor <2 x i64> %978, splat (i64 -1)
-  %984 = and <2 x i64> %.sroa.25.12277, %983
+  %984 = and <2 x i64> %.sroa.25.12262, %983
   %985 = or <2 x i64> %982, %980
   %986 = or <2 x i64> %985, %984
   %987 = bitcast <2 x i64> %986 to <16 x i8>
   %988 = icmp ne <16 x i8> %987, zeroinitializer
   %989 = bitcast <16 x i1> %988 to i16
-  %.not2176 = icmp eq i16 %989, 0
-  br i1 %.not2176, label %990, label %lshift64_m128.exit31
+  %.not2161 = icmp eq i16 %989, 0
+  br i1 %.not2161, label %990, label %lshift64_m128.exit31
 
 990:                                              ; preds = %975
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store <2 x i64> %.sroa.0504.12275, ptr %15, align 16
-  %.sroa.23.0..sroa_idx555 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store <2 x i64> %.sroa.23.12276, ptr %.sroa.23.0..sroa_idx555, align 16
-  %.sroa.25.0..sroa_idx591 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store <2 x i64> %.sroa.25.12277, ptr %.sroa.25.0..sroa_idx591, align 16
-  %991 = call i64 @doAccel384(ptr noundef nonnull align 16 %15, ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef %1, i64 noundef %.118542274, i64 noundef %2) #12
+  store <2 x i64> %.sroa.0495.12260, ptr %15, align 16
+  %.sroa.23.0..sroa_idx546 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store <2 x i64> %.sroa.23.12261, ptr %.sroa.23.0..sroa_idx546, align 16
+  %.sroa.25.0..sroa_idx582 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store <2 x i64> %.sroa.25.12262, ptr %.sroa.25.0..sroa_idx582, align 16
+  %991 = call i64 @doAccel384(ptr noundef nonnull align 16 %15, ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef %1, i64 noundef %.118452259, i64 noundef %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not124.i = icmp eq i64 %991, %.118542274
+  %.not124.i = icmp eq i64 %991, %.118452259
   br i1 %.not124.i, label %1002, label %992
 
 992:                                              ; preds = %990
@@ -3049,16 +3049,16 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %processExceptional3
   %997 = load <2 x i64>, ptr %995, align 16, !noalias !187
   call void @llvm.assume(i1 true) [ "align"(ptr %994, i64 16) ], !noalias !187
   %998 = load <2 x i64>, ptr %994, align 16, !noalias !187
-  %999 = and <2 x i64> %996, %.sroa.0504.12275
-  %1000 = and <2 x i64> %997, %.sroa.23.12276
-  %1001 = and <2 x i64> %998, %.sroa.25.12277
+  %999 = and <2 x i64> %996, %.sroa.0495.12260
+  %1000 = and <2 x i64> %997, %.sroa.23.12261
+  %1001 = and <2 x i64> %998, %.sroa.25.12262
   br label %1002
 
 1002:                                             ; preds = %992, %990
-  %.sroa.0504.2 = phi <2 x i64> [ %.sroa.0504.12275, %990 ], [ %999, %992 ]
-  %.sroa.23.2 = phi <2 x i64> [ %.sroa.23.12276, %990 ], [ %1000, %992 ]
-  %.sroa.25.2 = phi <2 x i64> [ %.sroa.25.12277, %990 ], [ %1001, %992 ]
-  %.not125.i = icmp ne i64 %.118542274, 0
+  %.sroa.0495.2 = phi <2 x i64> [ %.sroa.0495.12260, %990 ], [ %999, %992 ]
+  %.sroa.23.2 = phi <2 x i64> [ %.sroa.23.12261, %990 ], [ %1000, %992 ]
+  %.sroa.25.2 = phi <2 x i64> [ %.sroa.25.12262, %990 ], [ %1001, %992 ]
+  %.not125.i = icmp ne i64 %.118452259, 0
   %1003 = add i64 %.1108.i, 4
   %1004 = icmp ult i64 %991, %1003
   %or.cond136.i = and i1 %.not125.i, %1004
@@ -3077,11 +3077,11 @@ lshift64_m128.exit31:                             ; preds = %975, %973
   %1008 = load <2 x i64>, ptr %929, align 16, !noalias !190
   call void @llvm.assume(i1 true) [ "align"(ptr %930, i64 16) ], !noalias !190
   %1009 = load <2 x i64>, ptr %930, align 16, !noalias !190
-  %1010 = and <2 x i64> %1008, %.sroa.23.12276
-  %1011 = and <2 x i64> %1009, %.sroa.25.12277
+  %1010 = and <2 x i64> %1008, %.sroa.23.12261
+  %1011 = and <2 x i64> %1009, %.sroa.25.12262
   %1012 = load i8, ptr %931, align 4
   %1013 = zext i8 %1012 to i32
-  %1014 = and <2 x i64> %1007, %.sroa.0504.12275
+  %1014 = and <2 x i64> %1007, %.sroa.0495.12260
   %1015 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1013, i64 0
   %1016 = bitcast <4 x i32> %1015 to <2 x i64>
   %1017 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1014, <2 x i64> %1016)
@@ -3109,11 +3109,11 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit3
   %1026 = load <2 x i64>, ptr %934, align 16, !noalias !193
   call void @llvm.assume(i1 true) [ "align"(ptr %935, i64 16) ], !noalias !193
   %1027 = load <2 x i64>, ptr %935, align 16, !noalias !193
-  %1028 = and <2 x i64> %1026, %.sroa.23.12276
-  %1029 = and <2 x i64> %1027, %.sroa.25.12277
+  %1028 = and <2 x i64> %1026, %.sroa.23.12261
+  %1029 = and <2 x i64> %1027, %.sroa.25.12262
   %1030 = load i8, ptr %936, align 1
   %1031 = zext i8 %1030 to i32
-  %1032 = and <2 x i64> %1025, %.sroa.0504.12275
+  %1032 = and <2 x i64> %1025, %.sroa.0495.12260
   %1033 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1031, i64 0
   %1034 = bitcast <4 x i32> %1033 to <2 x i64>
   %1035 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1032, <2 x i64> %1034)
@@ -3129,7 +3129,7 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit67
 
 lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit73, %lshift64_m128.exit31
-  %.sroa.0405.6 = phi <2 x i64> [ %1042, %lshift64_m128.exit73 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.0396.6 = phi <2 x i64> [ %1042, %lshift64_m128.exit73 ], [ %1017, %lshift64_m128.exit31 ]
   %.sroa.27.6 = phi <2 x i64> [ %1043, %lshift64_m128.exit73 ], [ %1020, %lshift64_m128.exit31 ]
   %.sroa.35.6 = phi <2 x i64> [ %1044, %lshift64_m128.exit73 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %937, i64 16) ], !noalias !196
@@ -3138,11 +3138,11 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %1046 = load <2 x i64>, ptr %938, align 16, !noalias !196
   call void @llvm.assume(i1 true) [ "align"(ptr %939, i64 16) ], !noalias !196
   %1047 = load <2 x i64>, ptr %939, align 16, !noalias !196
-  %1048 = and <2 x i64> %1046, %.sroa.23.12276
-  %1049 = and <2 x i64> %1047, %.sroa.25.12277
+  %1048 = and <2 x i64> %1046, %.sroa.23.12261
+  %1049 = and <2 x i64> %1047, %.sroa.25.12262
   %1050 = load i8, ptr %940, align 2
   %1051 = zext i8 %1050 to i32
-  %1052 = and <2 x i64> %1045, %.sroa.0504.12275
+  %1052 = and <2 x i64> %1045, %.sroa.0495.12260
   %1053 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1051, i64 0
   %1054 = bitcast <4 x i32> %1053 to <2 x i64>
   %1055 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1052, <2 x i64> %1054)
@@ -3152,13 +3152,13 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %1059 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1051, i64 0
   %1060 = bitcast <4 x i32> %1059 to <2 x i64>
   %1061 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1049, <2 x i64> %1060)
-  %1062 = or <2 x i64> %1055, %.sroa.0405.6
+  %1062 = or <2 x i64> %1055, %.sroa.0396.6
   %1063 = or <2 x i64> %1058, %.sroa.27.6
   %1064 = or <2 x i64> %1061, %.sroa.35.6
   br label %lshift64_m128.exit61
 
 lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit67, %lshift64_m128.exit31
-  %.sroa.0405.5 = phi <2 x i64> [ %1062, %lshift64_m128.exit67 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.0396.5 = phi <2 x i64> [ %1062, %lshift64_m128.exit67 ], [ %1017, %lshift64_m128.exit31 ]
   %.sroa.27.5 = phi <2 x i64> [ %1063, %lshift64_m128.exit67 ], [ %1020, %lshift64_m128.exit31 ]
   %.sroa.35.5 = phi <2 x i64> [ %1064, %lshift64_m128.exit67 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %941, i64 16) ], !noalias !199
@@ -3167,11 +3167,11 @@ lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit6
   %1066 = load <2 x i64>, ptr %942, align 16, !noalias !199
   call void @llvm.assume(i1 true) [ "align"(ptr %943, i64 16) ], !noalias !199
   %1067 = load <2 x i64>, ptr %943, align 16, !noalias !199
-  %1068 = and <2 x i64> %1066, %.sroa.23.12276
-  %1069 = and <2 x i64> %1067, %.sroa.25.12277
+  %1068 = and <2 x i64> %1066, %.sroa.23.12261
+  %1069 = and <2 x i64> %1067, %.sroa.25.12262
   %1070 = load i8, ptr %944, align 1
   %1071 = zext i8 %1070 to i32
-  %1072 = and <2 x i64> %1065, %.sroa.0504.12275
+  %1072 = and <2 x i64> %1065, %.sroa.0495.12260
   %1073 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1071, i64 0
   %1074 = bitcast <4 x i32> %1073 to <2 x i64>
   %1075 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1072, <2 x i64> %1074)
@@ -3181,13 +3181,13 @@ lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit6
   %1079 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1071, i64 0
   %1080 = bitcast <4 x i32> %1079 to <2 x i64>
   %1081 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1069, <2 x i64> %1080)
-  %1082 = or <2 x i64> %1075, %.sroa.0405.5
+  %1082 = or <2 x i64> %1075, %.sroa.0396.5
   %1083 = or <2 x i64> %1078, %.sroa.27.5
   %1084 = or <2 x i64> %1081, %.sroa.35.5
   br label %lshift64_m128.exit55
 
 lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit61, %lshift64_m128.exit31
-  %.sroa.0405.4 = phi <2 x i64> [ %1082, %lshift64_m128.exit61 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.0396.4 = phi <2 x i64> [ %1082, %lshift64_m128.exit61 ], [ %1017, %lshift64_m128.exit31 ]
   %.sroa.27.4 = phi <2 x i64> [ %1083, %lshift64_m128.exit61 ], [ %1020, %lshift64_m128.exit31 ]
   %.sroa.35.4 = phi <2 x i64> [ %1084, %lshift64_m128.exit61 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %945, i64 16) ], !noalias !202
@@ -3196,11 +3196,11 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit6
   %1086 = load <2 x i64>, ptr %946, align 16, !noalias !202
   call void @llvm.assume(i1 true) [ "align"(ptr %947, i64 16) ], !noalias !202
   %1087 = load <2 x i64>, ptr %947, align 16, !noalias !202
-  %1088 = and <2 x i64> %1086, %.sroa.23.12276
-  %1089 = and <2 x i64> %1087, %.sroa.25.12277
+  %1088 = and <2 x i64> %1086, %.sroa.23.12261
+  %1089 = and <2 x i64> %1087, %.sroa.25.12262
   %1090 = load i8, ptr %948, align 8
   %1091 = zext i8 %1090 to i32
-  %1092 = and <2 x i64> %1085, %.sroa.0504.12275
+  %1092 = and <2 x i64> %1085, %.sroa.0495.12260
   %1093 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1091, i64 0
   %1094 = bitcast <4 x i32> %1093 to <2 x i64>
   %1095 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1092, <2 x i64> %1094)
@@ -3210,13 +3210,13 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit6
   %1099 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1091, i64 0
   %1100 = bitcast <4 x i32> %1099 to <2 x i64>
   %1101 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1089, <2 x i64> %1100)
-  %1102 = or <2 x i64> %1095, %.sroa.0405.4
+  %1102 = or <2 x i64> %1095, %.sroa.0396.4
   %1103 = or <2 x i64> %1098, %.sroa.27.4
   %1104 = or <2 x i64> %1101, %.sroa.35.4
   br label %lshift64_m128.exit49
 
 lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit55, %lshift64_m128.exit31
-  %.sroa.0405.3 = phi <2 x i64> [ %1102, %lshift64_m128.exit55 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.0396.3 = phi <2 x i64> [ %1102, %lshift64_m128.exit55 ], [ %1017, %lshift64_m128.exit31 ]
   %.sroa.27.3 = phi <2 x i64> [ %1103, %lshift64_m128.exit55 ], [ %1020, %lshift64_m128.exit31 ]
   %.sroa.35.3 = phi <2 x i64> [ %1104, %lshift64_m128.exit55 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %949, i64 16) ], !noalias !205
@@ -3225,11 +3225,11 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit5
   %1106 = load <2 x i64>, ptr %950, align 16, !noalias !205
   call void @llvm.assume(i1 true) [ "align"(ptr %951, i64 16) ], !noalias !205
   %1107 = load <2 x i64>, ptr %951, align 16, !noalias !205
-  %1108 = and <2 x i64> %1106, %.sroa.23.12276
-  %1109 = and <2 x i64> %1107, %.sroa.25.12277
+  %1108 = and <2 x i64> %1106, %.sroa.23.12261
+  %1109 = and <2 x i64> %1107, %.sroa.25.12262
   %1110 = load i8, ptr %952, align 1
   %1111 = zext i8 %1110 to i32
-  %1112 = and <2 x i64> %1105, %.sroa.0504.12275
+  %1112 = and <2 x i64> %1105, %.sroa.0495.12260
   %1113 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1111, i64 0
   %1114 = bitcast <4 x i32> %1113 to <2 x i64>
   %1115 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1112, <2 x i64> %1114)
@@ -3239,13 +3239,13 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit5
   %1119 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1111, i64 0
   %1120 = bitcast <4 x i32> %1119 to <2 x i64>
   %1121 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1109, <2 x i64> %1120)
-  %1122 = or <2 x i64> %1115, %.sroa.0405.3
+  %1122 = or <2 x i64> %1115, %.sroa.0396.3
   %1123 = or <2 x i64> %1118, %.sroa.27.3
   %1124 = or <2 x i64> %1121, %.sroa.35.3
   br label %lshift64_m128.exit43
 
 lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit49, %lshift64_m128.exit31
-  %.sroa.0405.2 = phi <2 x i64> [ %1122, %lshift64_m128.exit49 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.0396.2 = phi <2 x i64> [ %1122, %lshift64_m128.exit49 ], [ %1017, %lshift64_m128.exit31 ]
   %.sroa.27.2 = phi <2 x i64> [ %1123, %lshift64_m128.exit49 ], [ %1020, %lshift64_m128.exit31 ]
   %.sroa.35.2 = phi <2 x i64> [ %1124, %lshift64_m128.exit49 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %953, i64 16) ], !noalias !208
@@ -3254,11 +3254,11 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit4
   %1126 = load <2 x i64>, ptr %954, align 16, !noalias !208
   call void @llvm.assume(i1 true) [ "align"(ptr %955, i64 16) ], !noalias !208
   %1127 = load <2 x i64>, ptr %955, align 16, !noalias !208
-  %1128 = and <2 x i64> %1126, %.sroa.23.12276
-  %1129 = and <2 x i64> %1127, %.sroa.25.12277
+  %1128 = and <2 x i64> %1126, %.sroa.23.12261
+  %1129 = and <2 x i64> %1127, %.sroa.25.12262
   %1130 = load i8, ptr %956, align 2
   %1131 = zext i8 %1130 to i32
-  %1132 = and <2 x i64> %1125, %.sroa.0504.12275
+  %1132 = and <2 x i64> %1125, %.sroa.0495.12260
   %1133 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1131, i64 0
   %1134 = bitcast <4 x i32> %1133 to <2 x i64>
   %1135 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1132, <2 x i64> %1134)
@@ -3268,13 +3268,13 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit4
   %1139 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1131, i64 0
   %1140 = bitcast <4 x i32> %1139 to <2 x i64>
   %1141 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1129, <2 x i64> %1140)
-  %1142 = or <2 x i64> %1135, %.sroa.0405.2
+  %1142 = or <2 x i64> %1135, %.sroa.0396.2
   %1143 = or <2 x i64> %1138, %.sroa.27.2
   %1144 = or <2 x i64> %1141, %.sroa.35.2
   br label %lshift64_m128.exit37
 
 lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit43, %lshift64_m128.exit31
-  %.sroa.0405.0 = phi <2 x i64> [ %1142, %lshift64_m128.exit43 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.0396.0 = phi <2 x i64> [ %1142, %lshift64_m128.exit43 ], [ %1017, %lshift64_m128.exit31 ]
   %.sroa.27.0 = phi <2 x i64> [ %1143, %lshift64_m128.exit43 ], [ %1020, %lshift64_m128.exit31 ]
   %.sroa.35.0 = phi <2 x i64> [ %1144, %lshift64_m128.exit43 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %957, i64 16) ], !noalias !211
@@ -3283,11 +3283,11 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   %1146 = load <2 x i64>, ptr %958, align 16, !noalias !211
   call void @llvm.assume(i1 true) [ "align"(ptr %959, i64 16) ], !noalias !211
   %1147 = load <2 x i64>, ptr %959, align 16, !noalias !211
-  %1148 = and <2 x i64> %1146, %.sroa.23.12276
-  %1149 = and <2 x i64> %1147, %.sroa.25.12277
+  %1148 = and <2 x i64> %1146, %.sroa.23.12261
+  %1149 = and <2 x i64> %1147, %.sroa.25.12262
   %1150 = load i8, ptr %960, align 1
   %1151 = zext i8 %1150 to i32
-  %1152 = and <2 x i64> %1145, %.sroa.0504.12275
+  %1152 = and <2 x i64> %1145, %.sroa.0495.12260
   %1153 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1151, i64 0
   %1154 = bitcast <4 x i32> %1153 to <2 x i64>
   %1155 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1152, <2 x i64> %1154)
@@ -3297,13 +3297,13 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   %1159 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1151, i64 0
   %1160 = bitcast <4 x i32> %1159 to <2 x i64>
   %1161 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1149, <2 x i64> %1160)
-  %1162 = or <2 x i64> %1155, %.sroa.0405.0
+  %1162 = or <2 x i64> %1155, %.sroa.0396.0
   %1163 = or <2 x i64> %1158, %.sroa.27.0
   %1164 = or <2 x i64> %1161, %.sroa.35.0
   br label %1165
 
 1165:                                             ; preds = %lshift64_m128.exit37, %lshift64_m128.exit31
-  %.sroa.0405.1 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1162, %lshift64_m128.exit37 ]
+  %.sroa.0396.1 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1162, %lshift64_m128.exit37 ]
   %.sroa.27.1 = phi <2 x i64> [ %1020, %lshift64_m128.exit31 ], [ %1163, %lshift64_m128.exit37 ]
   %.sroa.35.1 = phi <2 x i64> [ %1023, %lshift64_m128.exit31 ], [ %1164, %lshift64_m128.exit37 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %961, i64 16) ], !noalias !214
@@ -3312,9 +3312,9 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   %1167 = load <2 x i64>, ptr %962, align 16, !noalias !214
   call void @llvm.assume(i1 true) [ "align"(ptr %963, i64 16) ], !noalias !214
   %1168 = load <2 x i64>, ptr %963, align 16, !noalias !214
-  %1169 = and <2 x i64> %1166, %.sroa.0504.12275
-  %1170 = and <2 x i64> %1167, %.sroa.23.12276
-  %1171 = and <2 x i64> %1168, %.sroa.25.12277
+  %1169 = and <2 x i64> %1166, %.sroa.0495.12260
+  %1170 = and <2 x i64> %1167, %.sroa.23.12261
+  %1171 = and <2 x i64> %1168, %.sroa.25.12262
   %1172 = bitcast <2 x i64> %1169 to <4 x i32>
   %1173 = icmp eq <4 x i32> %1172, zeroinitializer
   %1174 = sext <4 x i1> %1173 to <4 x i32>
@@ -3338,37 +3338,37 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   br i1 %.not.i21, label %processExceptional384.exit.thread, label %1191, !prof !80
 
 1191:                                             ; preds = %1165
-  %.not2177 = icmp eq i64 %.118542274, 0
-  %1192 = add i64 %.118542274, %4
-  %1193 = select i1 %.not2177, i8 16, i8 1
-  %.sroa.01707.0.copyload2178 = load <16 x i8>, ptr %964, align 16
+  %.not2162 = icmp eq i64 %.118452259, 0
+  %1192 = add i64 %.118452259, %4
+  %1193 = select i1 %.not2162, i8 16, i8 1
+  %.sroa.01698.0.copyload2163 = load <16 x i8>, ptr %964, align 16
   %1194 = bitcast <2 x i64> %1169 to <16 x i8>
-  %1195 = icmp ne <16 x i8> %.sroa.01707.0.copyload2178, %1194
+  %1195 = icmp ne <16 x i8> %.sroa.01698.0.copyload2163, %1194
   %1196 = bitcast <16 x i1> %1195 to i16
-  %.not.i215 = icmp eq i16 %1196, 0
-  br i1 %.not.i215, label %1197, label %diff384.exit217.thread
+  %.not.i213 = icmp eq i16 %1196, 0
+  br i1 %.not.i213, label %1197, label %diff384.exit215.thread
 
 1197:                                             ; preds = %1191
-  %.sroa.51709.0.copyload2180 = load <16 x i8>, ptr %.sroa.51709.0..sroa_idx, align 16
-  %.sroa.41708.0.copyload2179 = load <16 x i8>, ptr %.sroa.41708.0..sroa_idx, align 16
+  %.sroa.51700.0.copyload2165 = load <16 x i8>, ptr %.sroa.51700.0..sroa_idx, align 16
+  %.sroa.41699.0.copyload2164 = load <16 x i8>, ptr %.sroa.41699.0..sroa_idx, align 16
   %1198 = bitcast <2 x i64> %1170 to <16 x i8>
-  %1199 = icmp ne <16 x i8> %.sroa.41708.0.copyload2179, %1198
+  %1199 = icmp ne <16 x i8> %.sroa.41699.0.copyload2164, %1198
   %1200 = bitcast <16 x i1> %1199 to i16
-  %.not1.i216 = icmp eq i16 %1200, 0
+  %.not1.i214 = icmp eq i16 %1200, 0
   %1201 = bitcast <2 x i64> %1171 to <16 x i8>
-  %1202 = icmp ne <16 x i8> %.sroa.51709.0.copyload2180, %1201
+  %1202 = icmp ne <16 x i8> %.sroa.51700.0.copyload2165, %1201
   %1203 = bitcast <16 x i1> %1202 to i16
-  %.not2181 = icmp eq i16 %1203, 0
-  %or.cond2193 = select i1 %.not1.i216, i1 %.not2181, i1 false
-  br i1 %or.cond2193, label %1204, label %diff384.exit217.thread
+  %.not2166 = icmp eq i16 %1203, 0
+  %or.cond2178 = select i1 %.not1.i214, i1 %.not2166, i1 false
+  br i1 %or.cond2178, label %1204, label %diff384.exit215.thread
 
 1204:                                             ; preds = %1197
-  %.sroa.01594.0.copyload = load <2 x i64>, ptr %971, align 16
-  %.sroa.41595.0.copyload = load <2 x i64>, ptr %.sroa.41595.0..sroa_idx, align 16
-  %.sroa.51596.0.copyload = load <2 x i64>, ptr %.sroa.51596.0..sroa_idx, align 16
-  %1205 = or <2 x i64> %.sroa.01594.0.copyload, %.sroa.0405.1
-  %1206 = or <2 x i64> %.sroa.41595.0.copyload, %.sroa.27.1
-  %1207 = or <2 x i64> %.sroa.51596.0.copyload, %.sroa.35.1
+  %.sroa.01585.0.copyload = load <2 x i64>, ptr %971, align 16
+  %.sroa.41586.0.copyload = load <2 x i64>, ptr %.sroa.41586.0..sroa_idx, align 16
+  %.sroa.51587.0.copyload = load <2 x i64>, ptr %.sroa.51587.0..sroa_idx, align 16
+  %1205 = or <2 x i64> %.sroa.01585.0.copyload, %.sroa.0396.1
+  %1206 = or <2 x i64> %.sroa.41586.0.copyload, %.sroa.27.1
+  %1207 = or <2 x i64> %.sroa.51587.0.copyload, %.sroa.35.1
   %1208 = load ptr, ptr %972, align 8
   %.not54.i = icmp eq ptr %1208, null
   %1209 = and i8 %1193, 1
@@ -3380,29 +3380,29 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   %1211 = load ptr, ptr %968, align 32
   %1212 = load ptr, ptr %969, align 8
   %1213 = load i32, ptr %1208, align 4
-  %.not.i.i2270 = icmp eq i32 %1213, -1
-  br i1 %.not.i.i2270, label %processExceptional384.exit.thread, label %.lr.ph2272
+  %.not.i.i2255 = icmp eq i32 %1213, -1
+  br i1 %.not.i.i2255, label %processExceptional384.exit.thread, label %.lr.ph2257
 
-1214:                                             ; preds = %.lr.ph2272
-  %1215 = getelementptr inbounds nuw i8, ptr %.09.i.i2271, i64 4
+1214:                                             ; preds = %.lr.ph2257
+  %1215 = getelementptr inbounds nuw i8, ptr %.09.i.i2256, i64 4
   %1216 = load i32, ptr %1215, align 4
   %.not.i.i = icmp eq i32 %1216, -1
-  br i1 %.not.i.i, label %processExceptional384.exit.thread, label %.lr.ph2272
+  br i1 %.not.i.i, label %processExceptional384.exit.thread, label %.lr.ph2257
 
-.lr.ph2272:                                       ; preds = %1210, %1214
+.lr.ph2257:                                       ; preds = %1210, %1214
   %1217 = phi i32 [ %1216, %1214 ], [ %1213, %1210 ]
-  %.09.i.i2271 = phi ptr [ %1215, %1214 ], [ %1208, %1210 ]
+  %.09.i.i2256 = phi ptr [ %1215, %1214 ], [ %1208, %1210 ]
   %1218 = call i32 %1211(i64 noundef 0, i64 noundef %1192, i32 noundef %1217, ptr noundef %1212) #12
-  %.not2183 = icmp eq i32 %1218, 0
-  br i1 %.not2183, label %nfaExecLimEx384_Stream.exit, label %1214
+  %.not2168 = icmp eq i32 %1218, 0
+  br i1 %.not2168, label %nfaExecLimEx384_Stream.exit, label %1214
 
-diff384.exit217.thread:                           ; preds = %1191, %1197
+diff384.exit215.thread:                           ; preds = %1191, %1197
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %965, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> %1169, ptr %12, align 16
-  store <2 x i64> %1170, ptr %.sroa.71523.0..sroa_idx1524, align 16
-  store <2 x i64> %1171, ptr %.sroa.81530.0..sroa_idx1531, align 16
+  store <2 x i64> %1170, ptr %.sroa.71514.0..sroa_idx1515, align 16
+  store <2 x i64> %1171, ptr %.sroa.81521.0..sroa_idx1522, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef nonnull align 64 dereferenceable(48) %961, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 16
@@ -3410,32 +3410,32 @@ diff384.exit217.thread:                           ; preds = %1191, %1197
 
 .preheader:                                       ; preds = %1220
   %1219 = and i8 %1193, 1
-  %.not71.i254 = icmp eq i8 %1219, 0
+  %.not71.i247 = icmp eq i8 %1219, 0
   br label %1228
 
-1220:                                             ; preds = %diff384.exit217.thread, %1220
-  %1221 = phi i32 [ 0, %diff384.exit217.thread ], [ %1226, %1220 ]
-  %indvars.iv2310 = phi i64 [ 0, %diff384.exit217.thread ], [ %indvars.iv.next2311, %1220 ]
-  %1222 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv2310
+1220:                                             ; preds = %diff384.exit215.thread, %1220
+  %1221 = phi i32 [ 0, %diff384.exit215.thread ], [ %1226, %1220 ]
+  %indvars.iv2295 = phi i64 [ 0, %diff384.exit215.thread ], [ %indvars.iv.next2296, %1220 ]
+  %1222 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv2295
   %1223 = load i64, ptr %1222, align 8
   %1224 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1223)
   %1225 = trunc nuw nsw i64 %1224 to i32
   %1226 = add i32 %1221, %1225
-  %indvars.iv.next2311 = add nuw nsw i64 %indvars.iv2310, 1
-  %1227 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next2311
+  %indvars.iv.next2296 = add nuw nsw i64 %indvars.iv2295, 1
+  %1227 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next2296
   store i32 %1226, ptr %1227, align 4
-  %exitcond2313.not = icmp eq i64 %indvars.iv.next2311, 5
-  br i1 %exitcond2313.not, label %.preheader, label %1220
+  %exitcond2298.not = icmp eq i64 %indvars.iv.next2296, 5
+  br i1 %exitcond2298.not, label %.preheader, label %1220
 
 1228:                                             ; preds = %.preheader, %1375
-  %.sroa.0405.8 = phi <2 x i64> [ %.sroa.0405.14.ph, %1375 ], [ %.sroa.0405.1, %.preheader ]
+  %.sroa.0396.8 = phi <2 x i64> [ %.sroa.0396.14.ph, %1375 ], [ %.sroa.0396.1, %.preheader ]
   %.sroa.27.8 = phi <2 x i64> [ %.sroa.27.14.ph, %1375 ], [ %.sroa.27.1, %.preheader ]
   %.sroa.35.8 = phi <2 x i64> [ %.sroa.35.14.ph, %1375 ], [ %.sroa.35.1, %.preheader ]
-  %.01845 = phi i32 [ %.61851.ph, %1375 ], [ 1, %.preheader ]
-  %.sroa.51575.4 = phi ptr [ %.sroa.51575.9.ph, %1375 ], [ null, %.preheader ]
-  %.sroa.01573.4 = phi i8 [ %.sroa.01573.9.ph, %1375 ], [ 0, %.preheader ]
-  %.01844 = phi i32 [ %1231, %1375 ], [ %1190, %.preheader ]
-  %1229 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01844) #13, !srcloc !131
+  %.01836 = phi i32 [ %.61842.ph, %1375 ], [ 1, %.preheader ]
+  %.sroa.51566.4 = phi ptr [ %.sroa.51566.9.ph, %1375 ], [ null, %.preheader ]
+  %.sroa.01564.4 = phi i8 [ %.sroa.01564.9.ph, %1375 ], [ 0, %.preheader ]
+  %.01835 = phi i32 [ %1231, %1375 ], [ %1190, %.preheader ]
+  %1229 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01835) #13, !srcloc !131
   %1230 = extractvalue { i32, i32 } %1229, 0
   %1231 = extractvalue { i32, i32 } %1229, 1
   %1232 = lshr i32 %1230, 1
@@ -3446,15 +3446,15 @@ diff384.exit217.thread:                           ; preds = %1191, %1197
   %1237 = getelementptr inbounds nuw i32, ptr %14, i64 %1233
   br label %1238
 
-1238:                                             ; preds = %repeatHasMatch.exit289.thread, %1228
-  %.sroa.0405.9 = phi <2 x i64> [ %.sroa.0405.8, %1228 ], [ %.sroa.0405.14.ph, %repeatHasMatch.exit289.thread ]
-  %.sroa.27.9 = phi <2 x i64> [ %.sroa.27.8, %1228 ], [ %.sroa.27.14.ph, %repeatHasMatch.exit289.thread ]
-  %.sroa.35.9 = phi <2 x i64> [ %.sroa.35.8, %1228 ], [ %.sroa.35.14.ph, %repeatHasMatch.exit289.thread ]
-  %.01852 = phi i64 [ %1235, %1228 ], [ %1241, %repeatHasMatch.exit289.thread ]
-  %.11846 = phi i32 [ %.01845, %1228 ], [ %.61851.ph, %repeatHasMatch.exit289.thread ]
-  %.sroa.51575.5 = phi ptr [ %.sroa.51575.4, %1228 ], [ %.sroa.51575.9.ph, %repeatHasMatch.exit289.thread ]
-  %.sroa.01573.5 = phi i8 [ %.sroa.01573.4, %1228 ], [ %.sroa.01573.9.ph, %repeatHasMatch.exit289.thread ]
-  %1239 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01852) #13, !srcloc !132
+1238:                                             ; preds = %repeatHasMatch.exit280.thread, %1228
+  %.sroa.0396.9 = phi <2 x i64> [ %.sroa.0396.8, %1228 ], [ %.sroa.0396.14.ph, %repeatHasMatch.exit280.thread ]
+  %.sroa.27.9 = phi <2 x i64> [ %.sroa.27.8, %1228 ], [ %.sroa.27.14.ph, %repeatHasMatch.exit280.thread ]
+  %.sroa.35.9 = phi <2 x i64> [ %.sroa.35.8, %1228 ], [ %.sroa.35.14.ph, %repeatHasMatch.exit280.thread ]
+  %.01843 = phi i64 [ %1235, %1228 ], [ %1241, %repeatHasMatch.exit280.thread ]
+  %.11837 = phi i32 [ %.01836, %1228 ], [ %.61842.ph, %repeatHasMatch.exit280.thread ]
+  %.sroa.51566.5 = phi ptr [ %.sroa.51566.4, %1228 ], [ %.sroa.51566.9.ph, %repeatHasMatch.exit280.thread ]
+  %.sroa.01564.5 = phi i8 [ %.sroa.01564.4, %1228 ], [ %.sroa.01564.9.ph, %repeatHasMatch.exit280.thread ]
+  %1239 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01843) #13, !srcloc !132
   %1240 = extractvalue { i64, i64 } %1239, 0
   %1241 = extractvalue { i64, i64 } %1239, 1
   %1242 = load i64, ptr %1236, align 8
@@ -3470,8 +3470,8 @@ diff384.exit217.thread:                           ; preds = %1191, %1197
   %1251 = getelementptr inbounds nuw %struct.NFAException384, ptr %29, i64 %1250
   %1252 = getelementptr inbounds nuw i8, ptr %1251, i64 105
   %1253 = load i8, ptr %1252, align 1
-  %.not69.i248 = icmp eq i8 %1253, 0
-  br i1 %.not69.i248, label %.critedge.i249.thread, label %1254
+  %.not69.i242 = icmp eq i8 %1253, 0
+  br i1 %.not69.i242, label %.critedge.i243.thread, label %1254
 
 1254:                                             ; preds = %1238
   %1255 = getelementptr inbounds nuw i8, ptr %1251, i64 100
@@ -3490,28 +3490,28 @@ diff384.exit217.thread:                           ; preds = %1191, %1197
   %1268 = zext i32 %1267 to i64
   %1269 = getelementptr inbounds nuw i8, ptr %1265, i64 %1268
   %1270 = icmp eq i8 %1253, 1
-  br i1 %1270, label %testbit384.exit.i265, label %1293
+  br i1 %1270, label %testbit384.exit.i256, label %1293
 
-testbit384.exit.i265:                             ; preds = %1254
+testbit384.exit.i256:                             ; preds = %1254
   %1271 = load i32, ptr %1258, align 4
   %1272 = icmp ult i32 %1271, 128
   %1273 = icmp ult i32 %1271, 256
-  %spec.select2151 = select i1 %1273, <2 x i64> %.sroa.23.12276, <2 x i64> %.sroa.25.12277
-  %.0.in.i.i266.sroa.speculated = select i1 %1272, <2 x i64> %.sroa.0504.12275, <2 x i64> %spec.select2151
+  %spec.select2136 = select i1 %1273, <2 x i64> %.sroa.23.12261, <2 x i64> %.sroa.25.12262
+  %.0.in.i.i257.sroa.speculated = select i1 %1272, <2 x i64> %.sroa.0495.12260, <2 x i64> %spec.select2136
   %1274 = and i32 %1271, 127
   %1275 = shl nuw nsw i32 %1274, 6
   %1276 = and i32 %1275, 448
   %1277 = lshr i32 %1274, 3
-  %reass.sub2283 = sub nsw i32 %1276, %1277
-  %1278 = sext i32 %reass.sub2283 to i64
+  %reass.sub2268 = sub nsw i32 %1276, %1277
+  %1278 = sext i32 %reass.sub2268 to i64
   %1279 = getelementptr i8, ptr @simd_onebit_masks, i64 %1278
   %1280 = getelementptr i8, ptr %1279, i64 95
   %1281 = load <2 x i64>, ptr %1280, align 1
-  %1282 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %1281, <2 x i64> %.0.in.i.i266.sroa.speculated)
-  %.not.i.i268 = icmp eq i32 %1282, 0
-  %1283 = zext i1 %.not.i.i268 to i8
+  %1282 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %1281, <2 x i64> %.0.in.i.i257.sroa.speculated)
+  %.not.i.i259 = icmp eq i32 %1282, 0
+  %1283 = zext i1 %.not.i.i259 to i8
   %1284 = load i8, ptr %1259, align 4
-  switch i8 %1284, label %.critedge.i249.thread [
+  switch i8 %1284, label %.critedge.i243.thread [
     i8 0, label %1285
     i8 1, label %1286
     i8 2, label %1288
@@ -3521,40 +3521,40 @@ testbit384.exit.i265:                             ; preds = %1254
     i8 6, label %1292
   ]
 
-1285:                                             ; preds = %testbit384.exit.i265
+1285:                                             ; preds = %testbit384.exit.i256
   call void @repeatStoreRing(ptr noundef nonnull %1259, ptr noundef %1264, ptr noundef %1269, i64 noundef %1192, i8 noundef signext range(i8 0, 2) %1283) #12
-  br label %.critedge.i249.thread
+  br label %.critedge.i243.thread
 
-1286:                                             ; preds = %testbit384.exit.i265
-  br i1 %.not.i.i268, label %.critedge.i249.thread, label %1287
+1286:                                             ; preds = %testbit384.exit.i256
+  br i1 %.not.i.i259, label %.critedge.i243.thread, label %1287
 
 1287:                                             ; preds = %1286
   store i64 %1192, ptr %1264, align 8
-  br label %.critedge.i249.thread
+  br label %.critedge.i243.thread
 
-1288:                                             ; preds = %testbit384.exit.i265
+1288:                                             ; preds = %testbit384.exit.i256
   store i64 %1192, ptr %1264, align 8
-  br label %.critedge.i249.thread
+  br label %.critedge.i243.thread
 
-1289:                                             ; preds = %testbit384.exit.i265
+1289:                                             ; preds = %testbit384.exit.i256
   call void @repeatStoreRange(ptr noundef nonnull %1259, ptr noundef %1264, ptr noundef %1269, i64 noundef %1192, i8 noundef signext range(i8 0, 2) %1283) #12
-  br label %.critedge.i249.thread
+  br label %.critedge.i243.thread
 
-1290:                                             ; preds = %testbit384.exit.i265
+1290:                                             ; preds = %testbit384.exit.i256
   call void @repeatStoreBitmap(ptr noundef nonnull %1259, ptr noundef %1264, i64 noundef %1192, i8 noundef signext range(i8 0, 2) %1283) #12
-  br label %.critedge.i249.thread
+  br label %.critedge.i243.thread
 
-1291:                                             ; preds = %testbit384.exit.i265
+1291:                                             ; preds = %testbit384.exit.i256
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %1259, ptr noundef %1264, ptr noundef %1269, i64 noundef %1192, i8 noundef signext range(i8 0, 2) %1283) #12
-  br label %.critedge.i249.thread
+  br label %.critedge.i243.thread
 
-1292:                                             ; preds = %testbit384.exit.i265
+1292:                                             ; preds = %testbit384.exit.i256
   call void @repeatStoreTrailer(ptr noundef nonnull %1259, ptr noundef %1264, i64 noundef %1192, i8 noundef signext range(i8 0, 2) %1283) #12
-  br label %.critedge.i249.thread
+  br label %.critedge.i243.thread
 
 1293:                                             ; preds = %1254
   %1294 = load i8, ptr %1259, align 4
-  switch i8 %1294, label %repeatHasMatch.exit289.thread [
+  switch i8 %1294, label %repeatHasMatch.exit280.thread [
     i8 0, label %1295
     i8 1, label %1297
     i8 2, label %1304
@@ -3562,12 +3562,12 @@ testbit384.exit.i265:                             ; preds = %1254
     i8 4, label %1318
     i8 5, label %1320
     i8 6, label %1322
-    i8 7, label %repeatHasMatch.exit289.thread2055
+    i8 7, label %repeatHasMatch.exit280.thread2042
   ]
 
 1295:                                             ; preds = %1293
   %1296 = call i32 @repeatHasMatchRing(ptr noundef nonnull %1259, ptr noundef %1264, ptr noundef %1269, i64 noundef %1192) #12
-  br label %repeatHasMatch.exit289
+  br label %repeatHasMatch.exit280
 
 1297:                                             ; preds = %1293
   %1298 = load i64, ptr %1264, align 8
@@ -3576,7 +3576,7 @@ testbit384.exit.i265:                             ; preds = %1254
   %1301 = zext i32 %1300 to i64
   %1302 = add i64 %1298, %1301
   %1303 = icmp ult i64 %1192, %1302
-  br i1 %1303, label %repeatHasMatch.exit289.thread, label %repeatHasMatch.exit289.thread2055
+  br i1 %1303, label %repeatHasMatch.exit280.thread, label %repeatHasMatch.exit280.thread2042
 
 1304:                                             ; preds = %1293
   %1305 = load i64, ptr %1264, align 8
@@ -3585,48 +3585,48 @@ testbit384.exit.i265:                             ; preds = %1254
   %1308 = zext i32 %1307 to i64
   %1309 = add i64 %1305, %1308
   %1310 = icmp ult i64 %1192, %1309
-  br i1 %1310, label %repeatHasMatch.exit289.thread, label %1311
+  br i1 %1310, label %repeatHasMatch.exit280.thread, label %1311
 
 1311:                                             ; preds = %1304
   %1312 = getelementptr inbounds nuw i8, ptr %1258, i64 32
   %1313 = load i32, ptr %1312, align 4
   %1314 = zext i32 %1313 to i64
   %1315 = add i64 %1305, %1314
-  %.not.i293 = icmp ugt i64 %1192, %1315
-  br i1 %.not.i293, label %repeatHasMatch.exit289.thread2057, label %repeatHasMatch.exit289.thread2055
+  %.not.i284 = icmp ugt i64 %1192, %1315
+  br i1 %.not.i284, label %repeatHasMatch.exit280.thread2044, label %repeatHasMatch.exit280.thread2042
 
 1316:                                             ; preds = %1293
   %1317 = call i32 @repeatHasMatchRange(ptr noundef nonnull %1259, ptr noundef %1264, ptr noundef %1269, i64 noundef %1192) #12
-  br label %repeatHasMatch.exit289
+  br label %repeatHasMatch.exit280
 
 1318:                                             ; preds = %1293
   %1319 = call i32 @repeatHasMatchBitmap(ptr noundef nonnull %1259, ptr noundef %1264, i64 noundef %1192) #12
-  br label %repeatHasMatch.exit289
+  br label %repeatHasMatch.exit280
 
 1320:                                             ; preds = %1293
   %1321 = call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %1259, ptr noundef %1264, ptr noundef %1269, i64 noundef %1192) #12
-  br label %repeatHasMatch.exit289
+  br label %repeatHasMatch.exit280
 
 1322:                                             ; preds = %1293
   %1323 = call i32 @repeatHasMatchTrailer(ptr noundef nonnull %1259, ptr noundef %1264, i64 noundef %1192) #12
-  br label %repeatHasMatch.exit289
+  br label %repeatHasMatch.exit280
 
-repeatHasMatch.exit289:                           ; preds = %1295, %1316, %1318, %1320, %1322
-  %.0.i288 = phi i32 [ %1296, %1295 ], [ %1317, %1316 ], [ %1319, %1318 ], [ %1321, %1320 ], [ %1323, %1322 ]
-  switch i32 %.0.i288, label %repeatHasMatch.exit289.thread [
-    i32 1, label %repeatHasMatch.exit289.thread2055
-    i32 2, label %repeatHasMatch.exit289.thread2057
+repeatHasMatch.exit280:                           ; preds = %1295, %1316, %1318, %1320, %1322
+  %.0.i279 = phi i32 [ %1296, %1295 ], [ %1317, %1316 ], [ %1319, %1318 ], [ %1321, %1320 ], [ %1323, %1322 ]
+  switch i32 %.0.i279, label %repeatHasMatch.exit280.thread [
+    i32 1, label %repeatHasMatch.exit280.thread2042
+    i32 2, label %repeatHasMatch.exit280.thread2044
   ]
 
-repeatHasMatch.exit289.thread2055:                ; preds = %1311, %1293, %1297, %repeatHasMatch.exit289
+repeatHasMatch.exit280.thread2042:                ; preds = %1311, %1293, %1297, %repeatHasMatch.exit280
   %1324 = getelementptr inbounds nuw i8, ptr %1258, i64 32
   %1325 = load i32, ptr %1324, align 4
   %1326 = icmp eq i32 %1325, 65535
-  %spec.select2152 = select i1 %1326, i32 %.11846, i32 2
-  %spec.select2153 = select i1 %1326, i8 1, i8 %.sroa.01573.5
-  br label %.critedge.i249.thread
+  %spec.select2137 = select i1 %1326, i32 %.11837, i32 2
+  %spec.select2138 = select i1 %1326, i8 1, i8 %.sroa.01564.5
+  br label %.critedge.i243.thread
 
-repeatHasMatch.exit289.thread2057:                ; preds = %1311, %repeatHasMatch.exit289
+repeatHasMatch.exit280.thread2044:                ; preds = %1311, %repeatHasMatch.exit280
   call void @llvm.assume(i1 true) [ "align"(ptr %1251, i64 16) ], !noalias !217
   %1327 = load <2 x i64>, ptr %1251, align 16, !noalias !217
   %1328 = getelementptr inbounds nuw i8, ptr %1251, i64 16
@@ -3635,21 +3635,21 @@ repeatHasMatch.exit289.thread2057:                ; preds = %1311, %repeatHasMat
   %1330 = getelementptr inbounds nuw i8, ptr %1251, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1330, i64 16) ], !noalias !217
   %1331 = load <2 x i64>, ptr %1330, align 16, !noalias !217
-  %1332 = and <2 x i64> %1327, %.sroa.0405.9
+  %1332 = and <2 x i64> %1327, %.sroa.0396.9
   %1333 = and <2 x i64> %1329, %.sroa.27.9
   %1334 = and <2 x i64> %1331, %.sroa.35.9
-  br label %repeatHasMatch.exit289.thread
+  br label %repeatHasMatch.exit280.thread
 
-.critedge.i249.thread:                            ; preds = %repeatHasMatch.exit289.thread2055, %1292, %1291, %1290, %1289, %1288, %1285, %testbit384.exit.i265, %1286, %1287, %1238
-  %.31848 = phi i32 [ %.11846, %1238 ], [ 2, %1292 ], [ 2, %1291 ], [ 2, %1290 ], [ 2, %1289 ], [ 2, %1288 ], [ 2, %1285 ], [ 2, %testbit384.exit.i265 ], [ 2, %1286 ], [ 2, %1287 ], [ %spec.select2152, %repeatHasMatch.exit289.thread2055 ]
-  %.sroa.01573.8 = phi i8 [ %.sroa.01573.5, %1238 ], [ %.sroa.01573.5, %1292 ], [ %.sroa.01573.5, %1291 ], [ %.sroa.01573.5, %1290 ], [ %.sroa.01573.5, %1289 ], [ %.sroa.01573.5, %1288 ], [ %.sroa.01573.5, %1285 ], [ %.sroa.01573.5, %testbit384.exit.i265 ], [ %.sroa.01573.5, %1286 ], [ %.sroa.01573.5, %1287 ], [ %spec.select2153, %repeatHasMatch.exit289.thread2055 ]
+.critedge.i243.thread:                            ; preds = %repeatHasMatch.exit280.thread2042, %1292, %1291, %1290, %1289, %1288, %1285, %testbit384.exit.i256, %1286, %1287, %1238
+  %.31839 = phi i32 [ %.11837, %1238 ], [ 2, %1292 ], [ 2, %1291 ], [ 2, %1290 ], [ 2, %1289 ], [ 2, %1288 ], [ 2, %1285 ], [ 2, %testbit384.exit.i256 ], [ 2, %1286 ], [ 2, %1287 ], [ %spec.select2137, %repeatHasMatch.exit280.thread2042 ]
+  %.sroa.01564.8 = phi i8 [ %.sroa.01564.5, %1238 ], [ %.sroa.01564.5, %1292 ], [ %.sroa.01564.5, %1291 ], [ %.sroa.01564.5, %1290 ], [ %.sroa.01564.5, %1289 ], [ %.sroa.01564.5, %1288 ], [ %.sroa.01564.5, %1285 ], [ %.sroa.01564.5, %testbit384.exit.i256 ], [ %.sroa.01564.5, %1286 ], [ %.sroa.01564.5, %1287 ], [ %spec.select2138, %repeatHasMatch.exit280.thread2042 ]
   %1335 = getelementptr inbounds nuw i8, ptr %1251, i64 96
   %1336 = load i32, ptr %1335, align 16
-  %.not70.i253 = icmp eq i32 %1336, -1
-  br i1 %.not70.i253, label %.thread2074, label %1337
+  %.not70.i246 = icmp eq i32 %1336, -1
+  br i1 %.not70.i246, label %.thread2060, label %1337
 
-1337:                                             ; preds = %.critedge.i249.thread
-  br i1 %.not71.i254, label %1352, label %1338
+1337:                                             ; preds = %.critedge.i243.thread
+  br i1 %.not71.i247, label %1352, label %1338
 
 1338:                                             ; preds = %1337
   %1339 = zext i32 %1336 to i64
@@ -3657,43 +3657,43 @@ repeatHasMatch.exit289.thread2057:                ; preds = %1311, %repeatHasMat
   %1341 = load ptr, ptr %968, align 32
   %1342 = load ptr, ptr %969, align 8
   %1343 = load i32, ptr %1340, align 4
-  %.not.i75.i2562267 = icmp eq i32 %1343, -1
-  br i1 %.not.i75.i2562267, label %limexRunReports.exit.i258, label %.lr.ph2269
+  %.not.i74.i2492252 = icmp eq i32 %1343, -1
+  br i1 %.not.i74.i2492252, label %limexRunReports.exit.i250, label %.lr.ph2254
 
-1344:                                             ; preds = %.lr.ph2269
-  %1345 = getelementptr inbounds nuw i8, ptr %.09.i.i2552268, i64 4
+1344:                                             ; preds = %.lr.ph2254
+  %1345 = getelementptr inbounds nuw i8, ptr %.09.i.i2482253, i64 4
   %1346 = load i32, ptr %1345, align 4
-  %.not.i75.i256 = icmp eq i32 %1346, -1
-  br i1 %.not.i75.i256, label %limexRunReports.exit.i258, label %.lr.ph2269
+  %.not.i74.i249 = icmp eq i32 %1346, -1
+  br i1 %.not.i74.i249, label %limexRunReports.exit.i250, label %.lr.ph2254
 
-.lr.ph2269:                                       ; preds = %1338, %1344
+.lr.ph2254:                                       ; preds = %1338, %1344
   %1347 = phi i32 [ %1346, %1344 ], [ %1343, %1338 ]
-  %.09.i.i2552268 = phi ptr [ %1345, %1344 ], [ %1340, %1338 ]
+  %.09.i.i2482253 = phi ptr [ %1345, %1344 ], [ %1340, %1338 ]
   %1348 = call i32 %1341(i64 noundef 0, i64 noundef %1192, i32 noundef %1347, ptr noundef %1342) #12
-  %.not2182 = icmp eq i32 %1348, 0
-  br i1 %.not2182, label %processExceptional384.exit, label %1344
+  %.not2167 = icmp eq i32 %1348, 0
+  br i1 %.not2167, label %processExceptional384.exit, label %1344
 
-limexRunReports.exit.i258:                        ; preds = %1344, %1338
-  %1349 = icmp eq i32 %.31848, 1
-  br i1 %1349, label %1350, label %.thread2074
+limexRunReports.exit.i250:                        ; preds = %1344, %1338
+  %1349 = icmp eq i32 %.31839, 1
+  br i1 %1349, label %1350, label %.thread2060
 
-1350:                                             ; preds = %limexRunReports.exit.i258
-  %.not73.i262 = icmp eq ptr %.sroa.51575.5, null
-  %1351 = icmp eq ptr %.sroa.51575.5, %1340
-  %or.cond.i263 = or i1 %.not73.i262, %1351
-  %spec.select2154 = zext i1 %or.cond.i263 to i32
-  %spec.select2155 = select i1 %or.cond.i263, ptr %1340, ptr %.sroa.51575.5
-  br label %.thread2074
+1350:                                             ; preds = %limexRunReports.exit.i250
+  %.not73.i253 = icmp eq ptr %.sroa.51566.5, null
+  %1351 = icmp eq ptr %.sroa.51566.5, %1340
+  %or.cond.i254 = or i1 %.not73.i253, %1351
+  %spec.select2139 = zext i1 %or.cond.i254 to i32
+  %spec.select2140 = select i1 %or.cond.i254, ptr %1340, ptr %.sroa.51566.5
+  br label %.thread2060
 
 1352:                                             ; preds = %1337
-  %1353 = icmp eq i32 %.31848, 1
-  %or.cond2157 = select i1 %.not2177, i1 %1353, i1 false
-  %spec.select2161 = select i1 %or.cond2157, i32 0, i32 %.31848
-  br label %.thread2074
+  %1353 = icmp eq i32 %.31839, 1
+  %or.cond2142 = select i1 %.not2162, i1 %1353, i1 false
+  %spec.select2146 = select i1 %or.cond2142, i32 0, i32 %.31839
+  br label %.thread2060
 
-.thread2074:                                      ; preds = %1352, %1350, %limexRunReports.exit.i258, %.critedge.i249.thread
-  %.51850 = phi i32 [ %.31848, %.critedge.i249.thread ], [ %.31848, %limexRunReports.exit.i258 ], [ %spec.select2154, %1350 ], [ %spec.select2161, %1352 ]
-  %.sroa.51575.8 = phi ptr [ %.sroa.51575.5, %.critedge.i249.thread ], [ %.sroa.51575.5, %limexRunReports.exit.i258 ], [ %spec.select2155, %1350 ], [ %.sroa.51575.5, %1352 ]
+.thread2060:                                      ; preds = %1352, %1350, %limexRunReports.exit.i250, %.critedge.i243.thread
+  %.51841 = phi i32 [ %.31839, %.critedge.i243.thread ], [ %.31839, %limexRunReports.exit.i250 ], [ %spec.select2139, %1350 ], [ %spec.select2146, %1352 ]
+  %.sroa.51566.8 = phi ptr [ %.sroa.51566.5, %.critedge.i243.thread ], [ %.sroa.51566.5, %limexRunReports.exit.i250 ], [ %spec.select2140, %1350 ], [ %.sroa.51566.5, %1352 ]
   %1354 = getelementptr inbounds nuw i8, ptr %1251, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %1354, i64 16) ], !noalias !220
   %1355 = load <2 x i64>, ptr %1354, align 16, !noalias !220
@@ -3703,23 +3703,23 @@ limexRunReports.exit.i258:                        ; preds = %1344, %1338
   %1358 = getelementptr inbounds nuw i8, ptr %1251, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %1358, i64 16) ], !noalias !220
   %1359 = load <2 x i64>, ptr %1358, align 16, !noalias !220
-  %.sroa.01827.0.copyload = load <2 x i64>, ptr %965, align 16
-  %.sroa.41828.0.copyload = load <2 x i64>, ptr %.sroa.41578.0..sroa_idx, align 16
-  %.sroa.51829.0.copyload = load <2 x i64>, ptr %.sroa.51579.0..sroa_idx, align 16
-  %1360 = or <2 x i64> %.sroa.01827.0.copyload, %1355
-  %1361 = or <2 x i64> %.sroa.41828.0.copyload, %1357
-  %1362 = or <2 x i64> %.sroa.51829.0.copyload, %1359
+  %.sroa.01818.0.copyload = load <2 x i64>, ptr %965, align 16
+  %.sroa.41819.0.copyload = load <2 x i64>, ptr %.sroa.41569.0..sroa_idx, align 16
+  %.sroa.51820.0.copyload = load <2 x i64>, ptr %.sroa.51570.0..sroa_idx, align 16
+  %1360 = or <2 x i64> %.sroa.01818.0.copyload, %1355
+  %1361 = or <2 x i64> %.sroa.41819.0.copyload, %1357
+  %1362 = or <2 x i64> %.sroa.51820.0.copyload, %1359
   store <2 x i64> %1360, ptr %965, align 16
-  store <2 x i64> %1361, ptr %.sroa.41578.0..sroa_idx, align 16
-  store <2 x i64> %1362, ptr %.sroa.51579.0..sroa_idx, align 16
+  store <2 x i64> %1361, ptr %.sroa.41569.0..sroa_idx, align 16
+  store <2 x i64> %1362, ptr %.sroa.51570.0..sroa_idx, align 16
   %1363 = getelementptr inbounds nuw i8, ptr %1251, i64 104
   %1364 = load i8, ptr %1363, align 8
-  switch i8 %1364, label %repeatHasMatch.exit289.thread [
+  switch i8 %1364, label %repeatHasMatch.exit280.thread [
     i8 1, label %1365
     i8 3, label %1365
   ]
 
-1365:                                             ; preds = %.thread2074, %.thread2074
+1365:                                             ; preds = %.thread2060, %.thread2060
   call void @llvm.assume(i1 true) [ "align"(ptr %1251, i64 16) ], !noalias !223
   %1366 = load <2 x i64>, ptr %1251, align 16, !noalias !223
   %1367 = getelementptr inbounds nuw i8, ptr %1251, i64 16
@@ -3728,74 +3728,74 @@ limexRunReports.exit.i258:                        ; preds = %1344, %1338
   %1369 = getelementptr inbounds nuw i8, ptr %1251, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1369, i64 16) ], !noalias !223
   %1370 = load <2 x i64>, ptr %1369, align 16, !noalias !223
-  %1371 = and <2 x i64> %1366, %.sroa.0405.9
+  %1371 = and <2 x i64> %1366, %.sroa.0396.9
   %1372 = and <2 x i64> %1368, %.sroa.27.9
   %1373 = and <2 x i64> %1370, %.sroa.35.9
-  %1374 = icmp eq i32 %.51850, 1
-  %spec.select2158 = select i1 %1374, i32 0, i32 %.51850
-  br label %repeatHasMatch.exit289.thread
+  %1374 = icmp eq i32 %.51841, 1
+  %spec.select2143 = select i1 %1374, i32 0, i32 %.51841
+  br label %repeatHasMatch.exit280.thread
 
-repeatHasMatch.exit289.thread:                    ; preds = %1365, %1297, %1293, %1304, %.thread2074, %repeatHasMatch.exit289, %repeatHasMatch.exit289.thread2057
-  %.sroa.0405.14.ph = phi <2 x i64> [ %.sroa.0405.9, %repeatHasMatch.exit289 ], [ %1332, %repeatHasMatch.exit289.thread2057 ], [ %.sroa.0405.9, %.thread2074 ], [ %.sroa.0405.9, %1304 ], [ %.sroa.0405.9, %1293 ], [ %.sroa.0405.9, %1297 ], [ %1371, %1365 ]
-  %.sroa.27.14.ph = phi <2 x i64> [ %.sroa.27.9, %repeatHasMatch.exit289 ], [ %1333, %repeatHasMatch.exit289.thread2057 ], [ %.sroa.27.9, %.thread2074 ], [ %.sroa.27.9, %1304 ], [ %.sroa.27.9, %1293 ], [ %.sroa.27.9, %1297 ], [ %1372, %1365 ]
-  %.sroa.35.14.ph = phi <2 x i64> [ %.sroa.35.9, %repeatHasMatch.exit289 ], [ %1334, %repeatHasMatch.exit289.thread2057 ], [ %.sroa.35.9, %.thread2074 ], [ %.sroa.35.9, %1304 ], [ %.sroa.35.9, %1293 ], [ %.sroa.35.9, %1297 ], [ %1373, %1365 ]
-  %.61851.ph = phi i32 [ 2, %repeatHasMatch.exit289 ], [ 2, %repeatHasMatch.exit289.thread2057 ], [ %.51850, %.thread2074 ], [ 2, %1304 ], [ 2, %1293 ], [ 2, %1297 ], [ %spec.select2158, %1365 ]
-  %.sroa.51575.9.ph = phi ptr [ %.sroa.51575.5, %repeatHasMatch.exit289 ], [ %.sroa.51575.5, %repeatHasMatch.exit289.thread2057 ], [ %.sroa.51575.8, %.thread2074 ], [ %.sroa.51575.5, %1304 ], [ %.sroa.51575.5, %1293 ], [ %.sroa.51575.5, %1297 ], [ %.sroa.51575.8, %1365 ]
-  %.sroa.01573.9.ph = phi i8 [ %.sroa.01573.5, %repeatHasMatch.exit289 ], [ %.sroa.01573.5, %repeatHasMatch.exit289.thread2057 ], [ %.sroa.01573.8, %.thread2074 ], [ %.sroa.01573.5, %1304 ], [ %.sroa.01573.5, %1293 ], [ %.sroa.01573.5, %1297 ], [ %.sroa.01573.8, %1365 ]
+repeatHasMatch.exit280.thread:                    ; preds = %1365, %1297, %1293, %1304, %.thread2060, %repeatHasMatch.exit280, %repeatHasMatch.exit280.thread2044
+  %.sroa.0396.14.ph = phi <2 x i64> [ %.sroa.0396.9, %repeatHasMatch.exit280 ], [ %1332, %repeatHasMatch.exit280.thread2044 ], [ %.sroa.0396.9, %.thread2060 ], [ %.sroa.0396.9, %1304 ], [ %.sroa.0396.9, %1293 ], [ %.sroa.0396.9, %1297 ], [ %1371, %1365 ]
+  %.sroa.27.14.ph = phi <2 x i64> [ %.sroa.27.9, %repeatHasMatch.exit280 ], [ %1333, %repeatHasMatch.exit280.thread2044 ], [ %.sroa.27.9, %.thread2060 ], [ %.sroa.27.9, %1304 ], [ %.sroa.27.9, %1293 ], [ %.sroa.27.9, %1297 ], [ %1372, %1365 ]
+  %.sroa.35.14.ph = phi <2 x i64> [ %.sroa.35.9, %repeatHasMatch.exit280 ], [ %1334, %repeatHasMatch.exit280.thread2044 ], [ %.sroa.35.9, %.thread2060 ], [ %.sroa.35.9, %1304 ], [ %.sroa.35.9, %1293 ], [ %.sroa.35.9, %1297 ], [ %1373, %1365 ]
+  %.61842.ph = phi i32 [ 2, %repeatHasMatch.exit280 ], [ 2, %repeatHasMatch.exit280.thread2044 ], [ %.51841, %.thread2060 ], [ 2, %1304 ], [ 2, %1293 ], [ 2, %1297 ], [ %spec.select2143, %1365 ]
+  %.sroa.51566.9.ph = phi ptr [ %.sroa.51566.5, %repeatHasMatch.exit280 ], [ %.sroa.51566.5, %repeatHasMatch.exit280.thread2044 ], [ %.sroa.51566.8, %.thread2060 ], [ %.sroa.51566.5, %1304 ], [ %.sroa.51566.5, %1293 ], [ %.sroa.51566.5, %1297 ], [ %.sroa.51566.8, %1365 ]
+  %.sroa.01564.9.ph = phi i8 [ %.sroa.01564.5, %repeatHasMatch.exit280 ], [ %.sroa.01564.5, %repeatHasMatch.exit280.thread2044 ], [ %.sroa.01564.8, %.thread2060 ], [ %.sroa.01564.5, %1304 ], [ %.sroa.01564.5, %1293 ], [ %.sroa.01564.5, %1297 ], [ %.sroa.01564.8, %1365 ]
   %.not57.i = icmp eq i64 %1241, 0
   br i1 %.not57.i, label %1375, label %1238
 
-1375:                                             ; preds = %repeatHasMatch.exit289.thread
+1375:                                             ; preds = %repeatHasMatch.exit280.thread
   %.not58.i = icmp eq i32 %1231, 0
   br i1 %.not58.i, label %1376, label %1228
 
 1376:                                             ; preds = %1375
-  %.sroa.01588.0.copyload = load <2 x i64>, ptr %965, align 16
-  %.sroa.41589.0.copyload = load <2 x i64>, ptr %.sroa.41578.0..sroa_idx, align 16
-  %.sroa.51590.0.copyload = load <2 x i64>, ptr %.sroa.51579.0..sroa_idx, align 16
-  %1377 = or <2 x i64> %.sroa.01588.0.copyload, %.sroa.0405.14.ph
-  %1378 = or <2 x i64> %.sroa.41589.0.copyload, %.sroa.27.14.ph
-  %1379 = or <2 x i64> %.sroa.51590.0.copyload, %.sroa.35.14.ph
-  switch i32 %.61851.ph, label %processExceptional384.exit.thread2119 [
+  %.sroa.01579.0.copyload = load <2 x i64>, ptr %965, align 16
+  %.sroa.41580.0.copyload = load <2 x i64>, ptr %.sroa.41569.0..sroa_idx, align 16
+  %.sroa.51581.0.copyload = load <2 x i64>, ptr %.sroa.51570.0..sroa_idx, align 16
+  %1377 = or <2 x i64> %.sroa.01579.0.copyload, %.sroa.0396.14.ph
+  %1378 = or <2 x i64> %.sroa.41580.0.copyload, %.sroa.27.14.ph
+  %1379 = or <2 x i64> %.sroa.51581.0.copyload, %.sroa.35.14.ph
+  switch i32 %.61842.ph, label %processExceptional384.exit.thread2104 [
     i32 1, label %1380
     i32 2, label %1381
   ]
 
 1380:                                             ; preds = %1376
   store <2 x i64> %1169, ptr %964, align 32
-  store <2 x i64> %1170, ptr %.sroa.41708.0..sroa_idx, align 16
-  store <2 x i64> %1171, ptr %.sroa.51709.0..sroa_idx, align 32
+  store <2 x i64> %1170, ptr %.sroa.41699.0..sroa_idx, align 16
+  store <2 x i64> %1171, ptr %.sroa.51700.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %971, ptr noundef nonnull align 16 dereferenceable(48) %965, i64 48, i1 false)
-  store ptr %.sroa.51575.9.ph, ptr %972, align 8
-  store i8 %.sroa.01573.9.ph, ptr %970, align 64
-  br label %processExceptional384.exit.thread2119
+  store ptr %.sroa.51566.9.ph, ptr %972, align 8
+  store i8 %.sroa.01564.9.ph, ptr %970, align 64
+  br label %processExceptional384.exit.thread2104
 
 1381:                                             ; preds = %1376
   %1382 = load i8, ptr %970, align 64
   %.not59.i = icmp eq i8 %1382, 0
-  br i1 %.not59.i, label %processExceptional384.exit.thread2119, label %1383
+  br i1 %.not59.i, label %processExceptional384.exit.thread2104, label %1383
 
 1383:                                             ; preds = %1381
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(48) %964, i8 0, i64 48, i1 false)
-  br label %processExceptional384.exit.thread2119
+  br label %processExceptional384.exit.thread2104
 
-processExceptional384.exit.thread2119:            ; preds = %1376, %1383, %1381, %1380
+processExceptional384.exit.thread2104:            ; preds = %1376, %1383, %1381, %1380
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %processExceptional384.exit.thread
 
-processExceptional384.exit:                       ; preds = %.lr.ph2269
+processExceptional384.exit:                       ; preds = %.lr.ph2254
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %nfaExecLimEx384_Stream.exit
 
-processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204, %1165, %processExceptional384.exit.thread2119
-  %.sroa.0405.7.ph = phi <2 x i64> [ %1377, %processExceptional384.exit.thread2119 ], [ %.sroa.0405.1, %1165 ], [ %1205, %1204 ], [ %1205, %1210 ], [ %1205, %1214 ]
-  %.sroa.27.7.ph = phi <2 x i64> [ %1378, %processExceptional384.exit.thread2119 ], [ %.sroa.27.1, %1165 ], [ %1206, %1204 ], [ %1206, %1210 ], [ %1206, %1214 ]
-  %.sroa.35.7.ph = phi <2 x i64> [ %1379, %processExceptional384.exit.thread2119 ], [ %.sroa.35.1, %1165 ], [ %1207, %1204 ], [ %1207, %1210 ], [ %1207, %1214 ]
-  %1384 = getelementptr inbounds nuw i8, ptr %1, i64 %.118542274
+processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204, %1165, %processExceptional384.exit.thread2104
+  %.sroa.0396.7.ph = phi <2 x i64> [ %1377, %processExceptional384.exit.thread2104 ], [ %.sroa.0396.1, %1165 ], [ %1205, %1204 ], [ %1205, %1210 ], [ %1205, %1214 ]
+  %.sroa.27.7.ph = phi <2 x i64> [ %1378, %processExceptional384.exit.thread2104 ], [ %.sroa.27.1, %1165 ], [ %1206, %1204 ], [ %1206, %1210 ], [ %1206, %1214 ]
+  %.sroa.35.7.ph = phi <2 x i64> [ %1379, %processExceptional384.exit.thread2104 ], [ %.sroa.35.1, %1165 ], [ %1207, %1204 ], [ %1207, %1210 ], [ %1207, %1214 ]
+  %1384 = getelementptr inbounds nuw i8, ptr %1, i64 %.118452259
   %1385 = load i8, ptr %1384, align 1
   %1386 = zext i8 %1385 to i64
   %1387 = getelementptr inbounds nuw i8, ptr %0, i64 %1386
@@ -3810,18 +3810,18 @@ processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204,
   %1394 = getelementptr inbounds nuw i8, ptr %1390, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1394, i64 16) ], !noalias !226
   %1395 = load <2 x i64>, ptr %1394, align 16, !noalias !226
-  %1396 = and <2 x i64> %1391, %.sroa.0405.7.ph
+  %1396 = and <2 x i64> %1391, %.sroa.0396.7.ph
   %1397 = and <2 x i64> %1393, %.sroa.27.7.ph
   %1398 = and <2 x i64> %1395, %.sroa.35.7.ph
-  %1399 = add i64 %.118542274, 1
+  %1399 = add i64 %.118452259, 1
   %.not121.i = icmp eq i64 %1399, %2
   br i1 %.not121.i, label %.loopexit, label %973
 
 .loopexit:                                        ; preds = %processExceptional384.exit.thread, %nfaExecLimEx384_Loop_No_Accel.exit11, %1002
-  %.sroa.0504.4 = phi <2 x i64> [ %.sroa.0504.2, %1002 ], [ %.sroa.0504.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1396, %processExceptional384.exit.thread ]
+  %.sroa.0495.4 = phi <2 x i64> [ %.sroa.0495.2, %1002 ], [ %.sroa.0495.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1396, %processExceptional384.exit.thread ]
   %.sroa.23.4 = phi <2 x i64> [ %.sroa.23.2, %1002 ], [ %.sroa.23.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1397, %processExceptional384.exit.thread ]
   %.sroa.25.4 = phi <2 x i64> [ %.sroa.25.2, %1002 ], [ %.sroa.25.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1398, %processExceptional384.exit.thread ]
-  store <2 x i64> %.sroa.0504.4, ptr %3, align 64
+  store <2 x i64> %.sroa.0495.4, ptr %3, align 64
   store <2 x i64> %.sroa.23.4, ptr %.sroa.23.0..sroa_idx, align 16
   store <2 x i64> %.sroa.25.4, ptr %.sroa.25.0..sroa_idx, align 32
   %1400 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -3846,7 +3846,7 @@ processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204,
   call void @llvm.assume(i1 true) [ "align"(ptr %1409, i64 16) ], !noalias !229
   %1410 = load <2 x i64>, ptr %1409, align 16, !noalias !229
   store <2 x i64> %1410, ptr %1408, align 16, !alias.scope !229
-  %1411 = and <2 x i64> %1404, %.sroa.0504.4
+  %1411 = and <2 x i64> %1404, %.sroa.0495.4
   %1412 = and <2 x i64> %1407, %.sroa.23.4
   %1413 = and <2 x i64> %1410, %.sroa.25.4
   %1414 = or <2 x i64> %1412, %1411
@@ -3854,8 +3854,8 @@ processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204,
   %1416 = bitcast <2 x i64> %1415 to <16 x i8>
   %1417 = icmp ne <16 x i8> %1416, zeroinitializer
   %1418 = bitcast <16 x i1> %1417 to i16
-  %.not2184 = icmp eq i16 %1418, 0
-  br i1 %.not2184, label %1430, label %1419, !prof !80
+  %.not2169 = icmp eq i16 %1418, 0
+  br i1 %.not2169, label %1430, label %1419, !prof !80
 
 1419:                                             ; preds = %1402
   %1420 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -3879,8 +3879,8 @@ processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204,
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %nfaExecLimEx384_Stream.exit
 
-nfaExecLimEx384_Stream.exit:                      ; preds = %.lr.ph2234, %.lr.ph2250, %.lr.ph2272, %processExceptional384.exit191, %processExceptional384.exit210, %processExceptional384.exit, %.loopexit, %1430, %.critedge139.i
-  %.3.i = phi i8 [ 0, %.critedge139.i ], [ 1, %1430 ], [ 1, %.loopexit ], [ 0, %processExceptional384.exit ], [ 0, %processExceptional384.exit210 ], [ 0, %processExceptional384.exit191 ], [ 0, %.lr.ph2272 ], [ 0, %.lr.ph2250 ], [ 0, %.lr.ph2234 ]
+nfaExecLimEx384_Stream.exit:                      ; preds = %.lr.ph2219, %.lr.ph2235, %.lr.ph2257, %processExceptional384.exit190, %processExceptional384.exit208, %processExceptional384.exit, %.loopexit, %1430, %.critedge139.i
+  %.3.i = phi i8 [ 0, %.critedge139.i ], [ 1, %1430 ], [ 1, %.loopexit ], [ 0, %processExceptional384.exit ], [ 0, %processExceptional384.exit208 ], [ 0, %processExceptional384.exit190 ], [ 0, %.lr.ph2257 ], [ 0, %.lr.ph2235 ], [ 0, %.lr.ph2219 ]
   ret i8 %.3.i
 }
 
@@ -4475,7 +4475,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_First(p
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
-  %.sroa.0475.0.copyload = load <2 x i64>, ptr %3, align 64
+  %.sroa.0473.0.copyload = load <2 x i64>, ptr %3, align 64
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.24.0.copyload = load <2 x i64>, ptr %.sroa.24.0..sroa_idx, align 16
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4488,8 +4488,8 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_First(p
   br i1 %or.cond.i, label %34, label %nfaExecLimEx384_Loop_No_Accel.exit12
 
 34:                                               ; preds = %975, %6
-  %.21898 = phi i64 [ 0, %6 ], [ %964, %975 ]
-  %.sroa.0475.3 = phi <2 x i64> [ %.sroa.0475.0.copyload, %6 ], [ %.sroa.0475.2, %975 ]
+  %.21896 = phi i64 [ 0, %6 ], [ %964, %975 ]
+  %.sroa.0473.3 = phi <2 x i64> [ %.sroa.0473.0.copyload, %6 ], [ %.sroa.0473.2, %975 ]
   %.sroa.24.3 = phi <2 x i64> [ %.sroa.24.0.copyload, %6 ], [ %.sroa.24.2, %975 ]
   %.sroa.26.3 = phi <2 x i64> [ %.sroa.26.0.copyload, %6 ], [ %.sroa.26.2, %975 ]
   %.0107.i = phi i64 [ %2, %6 ], [ %.3110.i, %975 ]
@@ -4500,11 +4500,11 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_First(p
   %38 = load i32, ptr %26, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
-  %.not.i52088 = icmp eq i64 %.21898, %.0107.i
+  %.not.i52083 = icmp eq i64 %.21896, %.0107.i
   br i1 %.not.i, label %466, label %41
 
 41:                                               ; preds = %34
-  br i1 %.not.i52088, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %.lr.ph
+  br i1 %.not.i52083, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 912
@@ -4553,35 +4553,35 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_First(p
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41741.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41739.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51740.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.71439.0..sroa_idx1440 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.81446.0..sroa_idx1447 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.41693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51694.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.71437.0..sroa_idx1438 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.81444.0..sroa_idx1445 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %lshift64_m128.exit130
 
 lshift64_m128.exit130:                            ; preds = %.lr.ph, %449
-  %.045.i72083 = phi i64 [ %.21898, %.lr.ph ], [ %465, %449 ]
-  %.sroa.17.02082 = phi <2 x i64> [ %.sroa.26.3, %.lr.ph ], [ %464, %449 ]
-  %.sroa.14.02081 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph ], [ %463, %449 ]
-  %.sroa.01190.02080 = phi <2 x i64> [ %.sroa.0475.3, %.lr.ph ], [ %462, %449 ]
+  %.045.i72078 = phi i64 [ %.21896, %.lr.ph ], [ %465, %449 ]
+  %.sroa.17.02077 = phi <2 x i64> [ %.sroa.26.3, %.lr.ph ], [ %464, %449 ]
+  %.sroa.14.02076 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph ], [ %463, %449 ]
+  %.sroa.01188.02075 = phi <2 x i64> [ %.sroa.0473.3, %.lr.ph ], [ %462, %449 ]
   %88 = load <2 x i64>, ptr %43, align 16, !noalias !261
   %89 = load <2 x i64>, ptr %44, align 16, !noalias !261
-  %90 = and <2 x i64> %88, %.sroa.14.02081
-  %91 = and <2 x i64> %89, %.sroa.17.02082
+  %90 = and <2 x i64> %88, %.sroa.14.02076
+  %91 = and <2 x i64> %89, %.sroa.17.02077
   %92 = load i8, ptr %45, align 4
   %93 = zext i8 %92 to i32
   %94 = load <2 x i64>, ptr %42, align 16, !noalias !261
-  %95 = and <2 x i64> %94, %.sroa.01190.02080
+  %95 = and <2 x i64> %94, %.sroa.01188.02075
   %96 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %93, i64 0
   %97 = bitcast <4 x i32> %96 to <2 x i64>
   %98 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %95, <2 x i64> %97)
@@ -4609,11 +4609,11 @@ lshift64_m128.exit172:                            ; preds = %lshift64_m128.exit1
   %107 = load <2 x i64>, ptr %48, align 16, !noalias !267
   call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 16) ], !noalias !267
   %108 = load <2 x i64>, ptr %49, align 16, !noalias !267
-  %109 = and <2 x i64> %107, %.sroa.14.02081
-  %110 = and <2 x i64> %108, %.sroa.17.02082
+  %109 = and <2 x i64> %107, %.sroa.14.02076
+  %110 = and <2 x i64> %108, %.sroa.17.02077
   %111 = load i8, ptr %50, align 1
   %112 = zext i8 %111 to i32
-  %113 = and <2 x i64> %106, %.sroa.01190.02080
+  %113 = and <2 x i64> %106, %.sroa.01188.02075
   %114 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %112, i64 0
   %115 = bitcast <4 x i32> %114 to <2 x i64>
   %116 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %113, <2 x i64> %115)
@@ -4629,20 +4629,20 @@ lshift64_m128.exit172:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit166
 
 lshift64_m128.exit166:                            ; preds = %lshift64_m128.exit172, %lshift64_m128.exit130
-  %.sroa.01112.6 = phi <2 x i64> [ %123, %lshift64_m128.exit172 ], [ %98, %lshift64_m128.exit130 ]
-  %.sroa.271128.6 = phi <2 x i64> [ %124, %lshift64_m128.exit172 ], [ %101, %lshift64_m128.exit130 ]
-  %.sroa.351159.6 = phi <2 x i64> [ %125, %lshift64_m128.exit172 ], [ %104, %lshift64_m128.exit130 ]
+  %.sroa.01110.6 = phi <2 x i64> [ %123, %lshift64_m128.exit172 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271126.6 = phi <2 x i64> [ %124, %lshift64_m128.exit172 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351157.6 = phi <2 x i64> [ %125, %lshift64_m128.exit172 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 16) ], !noalias !270
   %126 = load <2 x i64>, ptr %51, align 16, !noalias !270
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ], !noalias !270
   %127 = load <2 x i64>, ptr %52, align 16, !noalias !270
   call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 16) ], !noalias !270
   %128 = load <2 x i64>, ptr %53, align 16, !noalias !270
-  %129 = and <2 x i64> %127, %.sroa.14.02081
-  %130 = and <2 x i64> %128, %.sroa.17.02082
+  %129 = and <2 x i64> %127, %.sroa.14.02076
+  %130 = and <2 x i64> %128, %.sroa.17.02077
   %131 = load i8, ptr %54, align 2
   %132 = zext i8 %131 to i32
-  %133 = and <2 x i64> %126, %.sroa.01190.02080
+  %133 = and <2 x i64> %126, %.sroa.01188.02075
   %134 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %132, i64 0
   %135 = bitcast <4 x i32> %134 to <2 x i64>
   %136 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %133, <2 x i64> %135)
@@ -4652,26 +4652,26 @@ lshift64_m128.exit166:                            ; preds = %lshift64_m128.exit1
   %140 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %132, i64 0
   %141 = bitcast <4 x i32> %140 to <2 x i64>
   %142 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %130, <2 x i64> %141)
-  %143 = or <2 x i64> %136, %.sroa.01112.6
-  %144 = or <2 x i64> %139, %.sroa.271128.6
-  %145 = or <2 x i64> %142, %.sroa.351159.6
+  %143 = or <2 x i64> %136, %.sroa.01110.6
+  %144 = or <2 x i64> %139, %.sroa.271126.6
+  %145 = or <2 x i64> %142, %.sroa.351157.6
   br label %lshift64_m128.exit160
 
 lshift64_m128.exit160:                            ; preds = %lshift64_m128.exit166, %lshift64_m128.exit130
-  %.sroa.01112.5 = phi <2 x i64> [ %143, %lshift64_m128.exit166 ], [ %98, %lshift64_m128.exit130 ]
-  %.sroa.271128.5 = phi <2 x i64> [ %144, %lshift64_m128.exit166 ], [ %101, %lshift64_m128.exit130 ]
-  %.sroa.351159.5 = phi <2 x i64> [ %145, %lshift64_m128.exit166 ], [ %104, %lshift64_m128.exit130 ]
+  %.sroa.01110.5 = phi <2 x i64> [ %143, %lshift64_m128.exit166 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271126.5 = phi <2 x i64> [ %144, %lshift64_m128.exit166 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351157.5 = phi <2 x i64> [ %145, %lshift64_m128.exit166 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ], !noalias !273
   %146 = load <2 x i64>, ptr %55, align 16, !noalias !273
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ], !noalias !273
   %147 = load <2 x i64>, ptr %56, align 16, !noalias !273
   call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 16) ], !noalias !273
   %148 = load <2 x i64>, ptr %57, align 16, !noalias !273
-  %149 = and <2 x i64> %147, %.sroa.14.02081
-  %150 = and <2 x i64> %148, %.sroa.17.02082
+  %149 = and <2 x i64> %147, %.sroa.14.02076
+  %150 = and <2 x i64> %148, %.sroa.17.02077
   %151 = load i8, ptr %58, align 1
   %152 = zext i8 %151 to i32
-  %153 = and <2 x i64> %146, %.sroa.01190.02080
+  %153 = and <2 x i64> %146, %.sroa.01188.02075
   %154 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %152, i64 0
   %155 = bitcast <4 x i32> %154 to <2 x i64>
   %156 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %153, <2 x i64> %155)
@@ -4681,26 +4681,26 @@ lshift64_m128.exit160:                            ; preds = %lshift64_m128.exit1
   %160 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %152, i64 0
   %161 = bitcast <4 x i32> %160 to <2 x i64>
   %162 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %150, <2 x i64> %161)
-  %163 = or <2 x i64> %156, %.sroa.01112.5
-  %164 = or <2 x i64> %159, %.sroa.271128.5
-  %165 = or <2 x i64> %162, %.sroa.351159.5
+  %163 = or <2 x i64> %156, %.sroa.01110.5
+  %164 = or <2 x i64> %159, %.sroa.271126.5
+  %165 = or <2 x i64> %162, %.sroa.351157.5
   br label %lshift64_m128.exit154
 
 lshift64_m128.exit154:                            ; preds = %lshift64_m128.exit160, %lshift64_m128.exit130
-  %.sroa.01112.4 = phi <2 x i64> [ %163, %lshift64_m128.exit160 ], [ %98, %lshift64_m128.exit130 ]
-  %.sroa.271128.4 = phi <2 x i64> [ %164, %lshift64_m128.exit160 ], [ %101, %lshift64_m128.exit130 ]
-  %.sroa.351159.4 = phi <2 x i64> [ %165, %lshift64_m128.exit160 ], [ %104, %lshift64_m128.exit130 ]
+  %.sroa.01110.4 = phi <2 x i64> [ %163, %lshift64_m128.exit160 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271126.4 = phi <2 x i64> [ %164, %lshift64_m128.exit160 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351157.4 = phi <2 x i64> [ %165, %lshift64_m128.exit160 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ], !noalias !276
   %166 = load <2 x i64>, ptr %59, align 16, !noalias !276
   call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ], !noalias !276
   %167 = load <2 x i64>, ptr %60, align 16, !noalias !276
   call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 16) ], !noalias !276
   %168 = load <2 x i64>, ptr %61, align 16, !noalias !276
-  %169 = and <2 x i64> %167, %.sroa.14.02081
-  %170 = and <2 x i64> %168, %.sroa.17.02082
+  %169 = and <2 x i64> %167, %.sroa.14.02076
+  %170 = and <2 x i64> %168, %.sroa.17.02077
   %171 = load i8, ptr %62, align 8
   %172 = zext i8 %171 to i32
-  %173 = and <2 x i64> %166, %.sroa.01190.02080
+  %173 = and <2 x i64> %166, %.sroa.01188.02075
   %174 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %172, i64 0
   %175 = bitcast <4 x i32> %174 to <2 x i64>
   %176 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %173, <2 x i64> %175)
@@ -4710,26 +4710,26 @@ lshift64_m128.exit154:                            ; preds = %lshift64_m128.exit1
   %180 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %172, i64 0
   %181 = bitcast <4 x i32> %180 to <2 x i64>
   %182 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %170, <2 x i64> %181)
-  %183 = or <2 x i64> %176, %.sroa.01112.4
-  %184 = or <2 x i64> %179, %.sroa.271128.4
-  %185 = or <2 x i64> %182, %.sroa.351159.4
+  %183 = or <2 x i64> %176, %.sroa.01110.4
+  %184 = or <2 x i64> %179, %.sroa.271126.4
+  %185 = or <2 x i64> %182, %.sroa.351157.4
   br label %lshift64_m128.exit148
 
 lshift64_m128.exit148:                            ; preds = %lshift64_m128.exit154, %lshift64_m128.exit130
-  %.sroa.01112.3 = phi <2 x i64> [ %183, %lshift64_m128.exit154 ], [ %98, %lshift64_m128.exit130 ]
-  %.sroa.271128.3 = phi <2 x i64> [ %184, %lshift64_m128.exit154 ], [ %101, %lshift64_m128.exit130 ]
-  %.sroa.351159.3 = phi <2 x i64> [ %185, %lshift64_m128.exit154 ], [ %104, %lshift64_m128.exit130 ]
+  %.sroa.01110.3 = phi <2 x i64> [ %183, %lshift64_m128.exit154 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271126.3 = phi <2 x i64> [ %184, %lshift64_m128.exit154 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351157.3 = phi <2 x i64> [ %185, %lshift64_m128.exit154 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 16) ], !noalias !279
   %186 = load <2 x i64>, ptr %63, align 16, !noalias !279
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 16) ], !noalias !279
   %187 = load <2 x i64>, ptr %64, align 16, !noalias !279
   call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 16) ], !noalias !279
   %188 = load <2 x i64>, ptr %65, align 16, !noalias !279
-  %189 = and <2 x i64> %187, %.sroa.14.02081
-  %190 = and <2 x i64> %188, %.sroa.17.02082
+  %189 = and <2 x i64> %187, %.sroa.14.02076
+  %190 = and <2 x i64> %188, %.sroa.17.02077
   %191 = load i8, ptr %66, align 1
   %192 = zext i8 %191 to i32
-  %193 = and <2 x i64> %186, %.sroa.01190.02080
+  %193 = and <2 x i64> %186, %.sroa.01188.02075
   %194 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %192, i64 0
   %195 = bitcast <4 x i32> %194 to <2 x i64>
   %196 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %193, <2 x i64> %195)
@@ -4739,26 +4739,26 @@ lshift64_m128.exit148:                            ; preds = %lshift64_m128.exit1
   %200 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %192, i64 0
   %201 = bitcast <4 x i32> %200 to <2 x i64>
   %202 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %190, <2 x i64> %201)
-  %203 = or <2 x i64> %196, %.sroa.01112.3
-  %204 = or <2 x i64> %199, %.sroa.271128.3
-  %205 = or <2 x i64> %202, %.sroa.351159.3
+  %203 = or <2 x i64> %196, %.sroa.01110.3
+  %204 = or <2 x i64> %199, %.sroa.271126.3
+  %205 = or <2 x i64> %202, %.sroa.351157.3
   br label %lshift64_m128.exit142
 
 lshift64_m128.exit142:                            ; preds = %lshift64_m128.exit148, %lshift64_m128.exit130
-  %.sroa.01112.2 = phi <2 x i64> [ %203, %lshift64_m128.exit148 ], [ %98, %lshift64_m128.exit130 ]
-  %.sroa.271128.2 = phi <2 x i64> [ %204, %lshift64_m128.exit148 ], [ %101, %lshift64_m128.exit130 ]
-  %.sroa.351159.2 = phi <2 x i64> [ %205, %lshift64_m128.exit148 ], [ %104, %lshift64_m128.exit130 ]
+  %.sroa.01110.2 = phi <2 x i64> [ %203, %lshift64_m128.exit148 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271126.2 = phi <2 x i64> [ %204, %lshift64_m128.exit148 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351157.2 = phi <2 x i64> [ %205, %lshift64_m128.exit148 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 16) ], !noalias !282
   %206 = load <2 x i64>, ptr %67, align 16, !noalias !282
   call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 16) ], !noalias !282
   %207 = load <2 x i64>, ptr %68, align 16, !noalias !282
   call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 16) ], !noalias !282
   %208 = load <2 x i64>, ptr %69, align 16, !noalias !282
-  %209 = and <2 x i64> %207, %.sroa.14.02081
-  %210 = and <2 x i64> %208, %.sroa.17.02082
+  %209 = and <2 x i64> %207, %.sroa.14.02076
+  %210 = and <2 x i64> %208, %.sroa.17.02077
   %211 = load i8, ptr %70, align 2
   %212 = zext i8 %211 to i32
-  %213 = and <2 x i64> %206, %.sroa.01190.02080
+  %213 = and <2 x i64> %206, %.sroa.01188.02075
   %214 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %212, i64 0
   %215 = bitcast <4 x i32> %214 to <2 x i64>
   %216 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %213, <2 x i64> %215)
@@ -4768,26 +4768,26 @@ lshift64_m128.exit142:                            ; preds = %lshift64_m128.exit1
   %220 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %212, i64 0
   %221 = bitcast <4 x i32> %220 to <2 x i64>
   %222 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %210, <2 x i64> %221)
-  %223 = or <2 x i64> %216, %.sroa.01112.2
-  %224 = or <2 x i64> %219, %.sroa.271128.2
-  %225 = or <2 x i64> %222, %.sroa.351159.2
+  %223 = or <2 x i64> %216, %.sroa.01110.2
+  %224 = or <2 x i64> %219, %.sroa.271126.2
+  %225 = or <2 x i64> %222, %.sroa.351157.2
   br label %lshift64_m128.exit136
 
 lshift64_m128.exit136:                            ; preds = %lshift64_m128.exit142, %lshift64_m128.exit130
-  %.sroa.01112.0 = phi <2 x i64> [ %223, %lshift64_m128.exit142 ], [ %98, %lshift64_m128.exit130 ]
-  %.sroa.271128.0 = phi <2 x i64> [ %224, %lshift64_m128.exit142 ], [ %101, %lshift64_m128.exit130 ]
-  %.sroa.351159.0 = phi <2 x i64> [ %225, %lshift64_m128.exit142 ], [ %104, %lshift64_m128.exit130 ]
+  %.sroa.01110.0 = phi <2 x i64> [ %223, %lshift64_m128.exit142 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271126.0 = phi <2 x i64> [ %224, %lshift64_m128.exit142 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351157.0 = phi <2 x i64> [ %225, %lshift64_m128.exit142 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 16) ], !noalias !285
   %226 = load <2 x i64>, ptr %71, align 16, !noalias !285
   call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 16) ], !noalias !285
   %227 = load <2 x i64>, ptr %72, align 16, !noalias !285
   call void @llvm.assume(i1 true) [ "align"(ptr %73, i64 16) ], !noalias !285
   %228 = load <2 x i64>, ptr %73, align 16, !noalias !285
-  %229 = and <2 x i64> %227, %.sroa.14.02081
-  %230 = and <2 x i64> %228, %.sroa.17.02082
+  %229 = and <2 x i64> %227, %.sroa.14.02076
+  %230 = and <2 x i64> %228, %.sroa.17.02077
   %231 = load i8, ptr %74, align 1
   %232 = zext i8 %231 to i32
-  %233 = and <2 x i64> %226, %.sroa.01190.02080
+  %233 = and <2 x i64> %226, %.sroa.01188.02075
   %234 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %232, i64 0
   %235 = bitcast <4 x i32> %234 to <2 x i64>
   %236 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %233, <2 x i64> %235)
@@ -4797,21 +4797,21 @@ lshift64_m128.exit136:                            ; preds = %lshift64_m128.exit1
   %240 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %232, i64 0
   %241 = bitcast <4 x i32> %240 to <2 x i64>
   %242 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %230, <2 x i64> %241)
-  %243 = or <2 x i64> %236, %.sroa.01112.0
-  %244 = or <2 x i64> %239, %.sroa.271128.0
-  %245 = or <2 x i64> %242, %.sroa.351159.0
+  %243 = or <2 x i64> %236, %.sroa.01110.0
+  %244 = or <2 x i64> %239, %.sroa.271126.0
+  %245 = or <2 x i64> %242, %.sroa.351157.0
   br label %246
 
 246:                                              ; preds = %lshift64_m128.exit136, %lshift64_m128.exit130
-  %.sroa.01112.1 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %243, %lshift64_m128.exit136 ]
-  %.sroa.271128.1 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %244, %lshift64_m128.exit136 ]
-  %.sroa.351159.1 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %245, %lshift64_m128.exit136 ]
+  %.sroa.01110.1 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %243, %lshift64_m128.exit136 ]
+  %.sroa.271126.1 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %244, %lshift64_m128.exit136 ]
+  %.sroa.351157.1 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %245, %lshift64_m128.exit136 ]
   %247 = load <2 x i64>, ptr %75, align 16, !noalias !264
   %248 = load <2 x i64>, ptr %76, align 16, !noalias !264
   %249 = load <2 x i64>, ptr %77, align 16, !noalias !264
-  %250 = and <2 x i64> %247, %.sroa.01190.02080
-  %251 = and <2 x i64> %248, %.sroa.14.02081
-  %252 = and <2 x i64> %249, %.sroa.17.02082
+  %250 = and <2 x i64> %247, %.sroa.01188.02075
+  %251 = and <2 x i64> %248, %.sroa.14.02076
+  %252 = and <2 x i64> %249, %.sroa.17.02077
   %253 = bitcast <2 x i64> %250 to <4 x i32>
   %254 = icmp eq <4 x i32> %253, zeroinitializer
   %255 = sext <4 x i1> %254 to <4 x i32>
@@ -4835,7 +4835,7 @@ lshift64_m128.exit136:                            ; preds = %lshift64_m128.exit1
   br i1 %.not.i13, label %449, label %272, !prof !80
 
 272:                                              ; preds = %246
-  %273 = icmp eq i64 %.045.i72083, 0
+  %273 = icmp eq i64 %.045.i72078, 0
   br i1 %273, label %.critedge.i15, label %274
 
 274:                                              ; preds = %272
@@ -4845,9 +4845,9 @@ lshift64_m128.exit136:                            ; preds = %lshift64_m128.exit1
   %276 = load <2 x i64>, ptr %79, align 16, !noalias !288
   call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 16) ], !noalias !288
   %277 = load <2 x i64>, ptr %80, align 16, !noalias !288
-  %278 = and <2 x i64> %275, %.sroa.01190.02080
-  %279 = and <2 x i64> %276, %.sroa.14.02081
-  %280 = and <2 x i64> %277, %.sroa.17.02082
+  %278 = and <2 x i64> %275, %.sroa.01188.02075
+  %279 = and <2 x i64> %276, %.sroa.14.02076
+  %280 = and <2 x i64> %277, %.sroa.17.02077
   %281 = or <2 x i64> %279, %278
   %282 = or <2 x i64> %281, %280
   %283 = bitcast <2 x i64> %282 to <16 x i8>
@@ -4857,35 +4857,35 @@ lshift64_m128.exit136:                            ; preds = %lshift64_m128.exit1
   br i1 %.not, label %.critedge.i15, label %nfaExecLimEx384_Stream.exit.sink.split.sink.split, !prof !80
 
 .critedge.i15:                                    ; preds = %274, %272
-  %286 = add i64 %.045.i72083, %4
-  %.sroa.01740.0.copyload2025 = load <16 x i8>, ptr %81, align 16
+  %286 = add i64 %.045.i72078, %4
+  %.sroa.01738.0.copyload2020 = load <16 x i8>, ptr %81, align 16
   %287 = bitcast <2 x i64> %250 to <16 x i8>
-  %288 = icmp ne <16 x i8> %.sroa.01740.0.copyload2025, %287
+  %288 = icmp ne <16 x i8> %.sroa.01738.0.copyload2020, %287
   %289 = bitcast <16 x i1> %288 to i16
   %.not.i202 = icmp eq i16 %289, 0
   br i1 %.not.i202, label %290, label %diff384.exit.thread
 
 290:                                              ; preds = %.critedge.i15
-  %.sroa.51742.0.copyload2027 = load <16 x i8>, ptr %.sroa.51742.0..sroa_idx, align 16
-  %.sroa.41741.0.copyload2026 = load <16 x i8>, ptr %.sroa.41741.0..sroa_idx, align 16
+  %.sroa.51740.0.copyload2022 = load <16 x i8>, ptr %.sroa.51740.0..sroa_idx, align 16
+  %.sroa.41739.0.copyload2021 = load <16 x i8>, ptr %.sroa.41739.0..sroa_idx, align 16
   %291 = bitcast <2 x i64> %251 to <16 x i8>
-  %292 = icmp ne <16 x i8> %.sroa.41741.0.copyload2026, %291
+  %292 = icmp ne <16 x i8> %.sroa.41739.0.copyload2021, %291
   %293 = bitcast <16 x i1> %292 to i16
   %.not1.i = icmp eq i16 %293, 0
   %294 = bitcast <2 x i64> %252 to <16 x i8>
-  %295 = icmp ne <16 x i8> %.sroa.51742.0.copyload2027, %294
+  %295 = icmp ne <16 x i8> %.sroa.51740.0.copyload2022, %294
   %296 = bitcast <16 x i1> %295 to i16
-  %.not2028 = icmp eq i16 %296, 0
-  %or.cond2050 = select i1 %.not1.i, i1 %.not2028, i1 false
-  br i1 %or.cond2050, label %297, label %diff384.exit.thread
+  %.not2023 = icmp eq i16 %296, 0
+  %or.cond2045 = select i1 %.not1.i, i1 %.not2023, i1 false
+  br i1 %or.cond2045, label %297, label %diff384.exit.thread
 
 297:                                              ; preds = %290
-  %.sroa.01711.0.copyload = load <2 x i64>, ptr %86, align 16
-  %.sroa.41712.0.copyload = load <2 x i64>, ptr %.sroa.41712.0..sroa_idx, align 16
-  %.sroa.51713.0.copyload = load <2 x i64>, ptr %.sroa.51713.0..sroa_idx, align 16
-  %298 = or <2 x i64> %.sroa.01711.0.copyload, %.sroa.01112.1
-  %299 = or <2 x i64> %.sroa.41712.0.copyload, %.sroa.271128.1
-  %300 = or <2 x i64> %.sroa.51713.0.copyload, %.sroa.351159.1
+  %.sroa.01709.0.copyload = load <2 x i64>, ptr %86, align 16
+  %.sroa.41710.0.copyload = load <2 x i64>, ptr %.sroa.41710.0..sroa_idx, align 16
+  %.sroa.51711.0.copyload = load <2 x i64>, ptr %.sroa.51711.0..sroa_idx, align 16
+  %298 = or <2 x i64> %.sroa.01709.0.copyload, %.sroa.01110.1
+  %299 = or <2 x i64> %.sroa.41710.0.copyload, %.sroa.271126.1
+  %300 = or <2 x i64> %.sroa.51711.0.copyload, %.sroa.351157.1
   br label %449
 
 diff384.exit.thread:                              ; preds = %.critedge.i15, %290
@@ -4893,8 +4893,8 @@ diff384.exit.thread:                              ; preds = %.critedge.i15, %290
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> %250, ptr %7, align 16
-  store <2 x i64> %251, ptr %.sroa.71439.0..sroa_idx1440, align 16
-  store <2 x i64> %252, ptr %.sroa.81446.0..sroa_idx1447, align 16
+  store <2 x i64> %251, ptr %.sroa.71437.0..sroa_idx1438, align 16
+  store <2 x i64> %252, ptr %.sroa.81444.0..sroa_idx1445, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, ptr noundef nonnull align 64 dereferenceable(48) %75, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 16
@@ -4912,14 +4912,14 @@ diff384.exit.thread:                              ; preds = %.critedge.i15, %290
   %308 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
   store i32 %307, ptr %308, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader2060, label %301
+  br i1 %exitcond.not, label %.preheader2055, label %301
 
-.preheader2060:                                   ; preds = %301, %438
-  %.sroa.01112.8 = phi <2 x i64> [ %.sroa.01112.14, %438 ], [ %.sroa.01112.1, %301 ]
-  %.sroa.271128.8 = phi <2 x i64> [ %.sroa.271128.14, %438 ], [ %.sroa.271128.1, %301 ]
-  %.sroa.351159.8 = phi <2 x i64> [ %.sroa.351159.14, %438 ], [ %.sroa.351159.1, %301 ]
-  %.01878 = phi i32 [ %.5, %438 ], [ 1, %301 ]
-  %.sroa.01691.5 = phi i8 [ %.sroa.01691.10, %438 ], [ 0, %301 ]
+.preheader2055:                                   ; preds = %301, %438
+  %.sroa.01110.8 = phi <2 x i64> [ %.sroa.01110.14, %438 ], [ %.sroa.01110.1, %301 ]
+  %.sroa.271126.8 = phi <2 x i64> [ %.sroa.271126.14, %438 ], [ %.sroa.271126.1, %301 ]
+  %.sroa.351157.8 = phi <2 x i64> [ %.sroa.351157.14, %438 ], [ %.sroa.351157.1, %301 ]
+  %.01876 = phi i32 [ %.5, %438 ], [ 1, %301 ]
+  %.sroa.01689.5 = phi i8 [ %.sroa.01689.10, %438 ], [ 0, %301 ]
   %.0 = phi i32 [ %439, %438 ], [ %271, %301 ]
   %309 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.0) #13, !srcloc !131
   %310 = extractvalue { i32, i32 } %309, 0
@@ -4931,14 +4931,14 @@ diff384.exit.thread:                              ; preds = %.critedge.i15, %290
   %316 = getelementptr inbounds nuw i32, ptr %9, i64 %312
   br label %317
 
-317:                                              ; preds = %runException384.exit, %.preheader2060
-  %.sroa.01112.9 = phi <2 x i64> [ %.sroa.01112.8, %.preheader2060 ], [ %.sroa.01112.14, %runException384.exit ]
-  %.sroa.271128.9 = phi <2 x i64> [ %.sroa.271128.8, %.preheader2060 ], [ %.sroa.271128.14, %runException384.exit ]
-  %.sroa.351159.9 = phi <2 x i64> [ %.sroa.351159.8, %.preheader2060 ], [ %.sroa.351159.14, %runException384.exit ]
-  %.01879 = phi i64 [ %314, %.preheader2060 ], [ %320, %runException384.exit ]
-  %.1 = phi i32 [ %.01878, %.preheader2060 ], [ %.5, %runException384.exit ]
-  %.sroa.01691.6 = phi i8 [ %.sroa.01691.5, %.preheader2060 ], [ %.sroa.01691.10, %runException384.exit ]
-  %318 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01879) #13, !srcloc !132
+317:                                              ; preds = %runException384.exit, %.preheader2055
+  %.sroa.01110.9 = phi <2 x i64> [ %.sroa.01110.8, %.preheader2055 ], [ %.sroa.01110.14, %runException384.exit ]
+  %.sroa.271126.9 = phi <2 x i64> [ %.sroa.271126.8, %.preheader2055 ], [ %.sroa.271126.14, %runException384.exit ]
+  %.sroa.351157.9 = phi <2 x i64> [ %.sroa.351157.8, %.preheader2055 ], [ %.sroa.351157.14, %runException384.exit ]
+  %.01877 = phi i64 [ %314, %.preheader2055 ], [ %320, %runException384.exit ]
+  %.1 = phi i32 [ %.01876, %.preheader2055 ], [ %.5, %runException384.exit ]
+  %.sroa.01689.6 = phi i8 [ %.sroa.01689.5, %.preheader2055 ], [ %.sroa.01689.10, %runException384.exit ]
+  %318 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01877) #13, !srcloc !132
   %319 = extractvalue { i64, i64 } %318, 0
   %320 = extractvalue { i64, i64 } %318, 1
   %321 = load i64, ptr %315, align 8
@@ -4980,8 +4980,8 @@ testbit384.exit.i:                                ; preds = %333
   %350 = load i32, ptr %337, align 4
   %351 = icmp ult i32 %350, 128
   %352 = icmp ult i32 %350, 256
-  %spec.select = select i1 %352, <2 x i64> %.sroa.14.02081, <2 x i64> %.sroa.17.02082
-  %.0.in.i.i.sroa.speculated = select i1 %351, <2 x i64> %.sroa.01190.02080, <2 x i64> %spec.select
+  %spec.select = select i1 %352, <2 x i64> %.sroa.14.02076, <2 x i64> %.sroa.17.02077
+  %.0.in.i.i.sroa.speculated = select i1 %351, <2 x i64> %.sroa.01188.02075, <2 x i64> %spec.select
   %353 = and i32 %350, 127
   %354 = shl nuw nsw i32 %353, 6
   %355 = and i32 %354, 448
@@ -5046,7 +5046,7 @@ testbit384.exit.i:                                ; preds = %333
     i8 4, label %397
     i8 5, label %399
     i8 6, label %401
-    i8 7, label %repeatHasMatch.exit.thread1905
+    i8 7, label %repeatHasMatch.exit.thread1903
   ]
 
 374:                                              ; preds = %372
@@ -5060,7 +5060,7 @@ testbit384.exit.i:                                ; preds = %333
   %380 = zext i32 %379 to i64
   %381 = add i64 %377, %380
   %382 = icmp ult i64 %286, %381
-  br i1 %382, label %runException384.exit, label %repeatHasMatch.exit.thread1905
+  br i1 %382, label %runException384.exit, label %repeatHasMatch.exit.thread1903
 
 383:                                              ; preds = %372
   %384 = load i64, ptr %343, align 8
@@ -5076,8 +5076,8 @@ testbit384.exit.i:                                ; preds = %333
   %392 = load i32, ptr %391, align 4
   %393 = zext i32 %392 to i64
   %394 = add i64 %384, %393
-  %.not.i268 = icmp ugt i64 %286, %394
-  br i1 %.not.i268, label %repeatHasMatch.exit.thread1907, label %repeatHasMatch.exit.thread1905
+  %.not.i266 = icmp ugt i64 %286, %394
+  br i1 %.not.i266, label %repeatHasMatch.exit.thread1905, label %repeatHasMatch.exit.thread1903
 
 395:                                              ; preds = %372
   %396 = call i32 @repeatHasMatchRange(ptr noundef nonnull %338, ptr noundef %343, ptr noundef %348, i64 noundef %286) #12
@@ -5096,21 +5096,21 @@ testbit384.exit.i:                                ; preds = %333
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %374, %395, %397, %399, %401
-  %.0.i253 = phi i32 [ %375, %374 ], [ %396, %395 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ]
-  switch i32 %.0.i253, label %runException384.exit [
-    i32 1, label %repeatHasMatch.exit.thread1905
-    i32 2, label %repeatHasMatch.exit.thread1907
+  %.0.i251 = phi i32 [ %375, %374 ], [ %396, %395 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ]
+  switch i32 %.0.i251, label %runException384.exit [
+    i32 1, label %repeatHasMatch.exit.thread1903
+    i32 2, label %repeatHasMatch.exit.thread1905
   ]
 
-repeatHasMatch.exit.thread1905:                   ; preds = %390, %372, %376, %repeatHasMatch.exit
+repeatHasMatch.exit.thread1903:                   ; preds = %390, %372, %376, %repeatHasMatch.exit
   %403 = getelementptr inbounds nuw i8, ptr %337, i64 32
   %404 = load i32, ptr %403, align 4
   %405 = icmp eq i32 %404, 65535
-  %spec.select2010 = select i1 %405, i32 %.1, i32 2
-  %spec.select2011 = select i1 %405, i8 1, i8 %.sroa.01691.6
+  %spec.select2005 = select i1 %405, i32 %.1, i32 2
+  %spec.select2006 = select i1 %405, i8 1, i8 %.sroa.01689.6
   br label %.critedge.i209.thread
 
-repeatHasMatch.exit.thread1907:                   ; preds = %390, %repeatHasMatch.exit
+repeatHasMatch.exit.thread1905:                   ; preds = %390, %repeatHasMatch.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %330, i64 16) ], !noalias !291
   %406 = load <2 x i64>, ptr %330, align 16, !noalias !291
   %407 = getelementptr inbounds nuw i8, ptr %330, i64 16
@@ -5119,20 +5119,20 @@ repeatHasMatch.exit.thread1907:                   ; preds = %390, %repeatHasMatc
   %409 = getelementptr inbounds nuw i8, ptr %330, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %409, i64 16) ], !noalias !291
   %410 = load <2 x i64>, ptr %409, align 16, !noalias !291
-  %411 = and <2 x i64> %406, %.sroa.01112.9
-  %412 = and <2 x i64> %408, %.sroa.271128.9
-  %413 = and <2 x i64> %410, %.sroa.351159.9
+  %411 = and <2 x i64> %406, %.sroa.01110.9
+  %412 = and <2 x i64> %408, %.sroa.271126.9
+  %413 = and <2 x i64> %410, %.sroa.351157.9
   br label %runException384.exit
 
-.critedge.i209.thread:                            ; preds = %repeatHasMatch.exit.thread1905, %371, %370, %369, %368, %367, %364, %testbit384.exit.i, %365, %366, %317
-  %.3 = phi i32 [ %.1, %317 ], [ 2, %371 ], [ 2, %370 ], [ 2, %369 ], [ 2, %368 ], [ 2, %367 ], [ 2, %364 ], [ 2, %testbit384.exit.i ], [ 2, %365 ], [ 2, %366 ], [ %spec.select2010, %repeatHasMatch.exit.thread1905 ]
-  %.sroa.01691.9 = phi i8 [ %.sroa.01691.6, %317 ], [ %.sroa.01691.6, %371 ], [ %.sroa.01691.6, %370 ], [ %.sroa.01691.6, %369 ], [ %.sroa.01691.6, %368 ], [ %.sroa.01691.6, %367 ], [ %.sroa.01691.6, %364 ], [ %.sroa.01691.6, %testbit384.exit.i ], [ %.sroa.01691.6, %365 ], [ %.sroa.01691.6, %366 ], [ %spec.select2011, %repeatHasMatch.exit.thread1905 ]
+.critedge.i209.thread:                            ; preds = %repeatHasMatch.exit.thread1903, %371, %370, %369, %368, %367, %364, %testbit384.exit.i, %365, %366, %317
+  %.3 = phi i32 [ %.1, %317 ], [ 2, %371 ], [ 2, %370 ], [ 2, %369 ], [ 2, %368 ], [ 2, %367 ], [ 2, %364 ], [ 2, %testbit384.exit.i ], [ 2, %365 ], [ 2, %366 ], [ %spec.select2005, %repeatHasMatch.exit.thread1903 ]
+  %.sroa.01689.9 = phi i8 [ %.sroa.01689.6, %317 ], [ %.sroa.01689.6, %371 ], [ %.sroa.01689.6, %370 ], [ %.sroa.01689.6, %369 ], [ %.sroa.01689.6, %368 ], [ %.sroa.01689.6, %367 ], [ %.sroa.01689.6, %364 ], [ %.sroa.01689.6, %testbit384.exit.i ], [ %.sroa.01689.6, %365 ], [ %.sroa.01689.6, %366 ], [ %spec.select2006, %repeatHasMatch.exit.thread1903 ]
   %414 = getelementptr inbounds nuw i8, ptr %330, i64 96
   %415 = load i32, ptr %414, align 16
   %.not70.i = icmp ne i32 %415, -1
-  %brmerge.not2030 = and i1 %273, %.not70.i
+  %brmerge.not2025 = and i1 %273, %.not70.i
   %416 = icmp eq i32 %.3, 1
-  %or.cond = select i1 %brmerge.not2030, i1 %416, i1 false
+  %or.cond = select i1 %brmerge.not2025, i1 %416, i1 false
   %.4 = select i1 %or.cond, i32 0, i32 %.3
   %417 = getelementptr inbounds nuw i8, ptr %330, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %417, i64 16) ], !noalias !294
@@ -5143,15 +5143,15 @@ repeatHasMatch.exit.thread1907:                   ; preds = %390, %repeatHasMatc
   %421 = getelementptr inbounds nuw i8, ptr %330, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %421, i64 16) ], !noalias !294
   %422 = load <2 x i64>, ptr %421, align 16, !noalias !294
-  %.sroa.01790.0.copyload = load <2 x i64>, ptr %82, align 16
-  %.sroa.41791.0.copyload = load <2 x i64>, ptr %.sroa.41695.0..sroa_idx, align 16
-  %.sroa.51792.0.copyload = load <2 x i64>, ptr %.sroa.51696.0..sroa_idx, align 16
-  %423 = or <2 x i64> %.sroa.01790.0.copyload, %418
-  %424 = or <2 x i64> %.sroa.41791.0.copyload, %420
-  %425 = or <2 x i64> %.sroa.51792.0.copyload, %422
+  %.sroa.01788.0.copyload = load <2 x i64>, ptr %82, align 16
+  %.sroa.41789.0.copyload = load <2 x i64>, ptr %.sroa.41693.0..sroa_idx, align 16
+  %.sroa.51790.0.copyload = load <2 x i64>, ptr %.sroa.51694.0..sroa_idx, align 16
+  %423 = or <2 x i64> %.sroa.01788.0.copyload, %418
+  %424 = or <2 x i64> %.sroa.41789.0.copyload, %420
+  %425 = or <2 x i64> %.sroa.51790.0.copyload, %422
   store <2 x i64> %423, ptr %82, align 16
-  store <2 x i64> %424, ptr %.sroa.41695.0..sroa_idx, align 16
-  store <2 x i64> %425, ptr %.sroa.51696.0..sroa_idx, align 16
+  store <2 x i64> %424, ptr %.sroa.41693.0..sroa_idx, align 16
+  store <2 x i64> %425, ptr %.sroa.51694.0..sroa_idx, align 16
   %426 = getelementptr inbounds nuw i8, ptr %330, i64 104
   %427 = load i8, ptr %426, align 8
   switch i8 %427, label %runException384.exit [
@@ -5168,34 +5168,34 @@ repeatHasMatch.exit.thread1907:                   ; preds = %390, %repeatHasMatc
   %432 = getelementptr inbounds nuw i8, ptr %330, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %432, i64 16) ], !noalias !297
   %433 = load <2 x i64>, ptr %432, align 16, !noalias !297
-  %434 = and <2 x i64> %429, %.sroa.01112.9
-  %435 = and <2 x i64> %431, %.sroa.271128.9
-  %436 = and <2 x i64> %433, %.sroa.351159.9
+  %434 = and <2 x i64> %429, %.sroa.01110.9
+  %435 = and <2 x i64> %431, %.sroa.271126.9
+  %436 = and <2 x i64> %433, %.sroa.351157.9
   %437 = icmp eq i32 %.4, 1
-  %spec.select2012 = select i1 %437, i32 0, i32 %.4
+  %spec.select2007 = select i1 %437, i32 0, i32 %.4
   br label %runException384.exit
 
-runException384.exit:                             ; preds = %428, %376, %372, %383, %.critedge.i209.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread1907
-  %.sroa.01112.14 = phi <2 x i64> [ %.sroa.01112.9, %.critedge.i209.thread ], [ %411, %repeatHasMatch.exit.thread1907 ], [ %.sroa.01112.9, %repeatHasMatch.exit ], [ %.sroa.01112.9, %383 ], [ %.sroa.01112.9, %372 ], [ %.sroa.01112.9, %376 ], [ %434, %428 ]
-  %.sroa.271128.14 = phi <2 x i64> [ %.sroa.271128.9, %.critedge.i209.thread ], [ %412, %repeatHasMatch.exit.thread1907 ], [ %.sroa.271128.9, %repeatHasMatch.exit ], [ %.sroa.271128.9, %383 ], [ %.sroa.271128.9, %372 ], [ %.sroa.271128.9, %376 ], [ %435, %428 ]
-  %.sroa.351159.14 = phi <2 x i64> [ %.sroa.351159.9, %.critedge.i209.thread ], [ %413, %repeatHasMatch.exit.thread1907 ], [ %.sroa.351159.9, %repeatHasMatch.exit ], [ %.sroa.351159.9, %383 ], [ %.sroa.351159.9, %372 ], [ %.sroa.351159.9, %376 ], [ %436, %428 ]
-  %.5 = phi i32 [ %.4, %.critedge.i209.thread ], [ 2, %repeatHasMatch.exit.thread1907 ], [ 2, %repeatHasMatch.exit ], [ 2, %383 ], [ 2, %372 ], [ 2, %376 ], [ %spec.select2012, %428 ]
-  %.sroa.01691.10 = phi i8 [ %.sroa.01691.9, %.critedge.i209.thread ], [ %.sroa.01691.6, %repeatHasMatch.exit.thread1907 ], [ %.sroa.01691.6, %repeatHasMatch.exit ], [ %.sroa.01691.6, %383 ], [ %.sroa.01691.6, %372 ], [ %.sroa.01691.6, %376 ], [ %.sroa.01691.9, %428 ]
+runException384.exit:                             ; preds = %428, %376, %372, %383, %.critedge.i209.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread1905
+  %.sroa.01110.14 = phi <2 x i64> [ %.sroa.01110.9, %.critedge.i209.thread ], [ %411, %repeatHasMatch.exit.thread1905 ], [ %.sroa.01110.9, %repeatHasMatch.exit ], [ %.sroa.01110.9, %383 ], [ %.sroa.01110.9, %372 ], [ %.sroa.01110.9, %376 ], [ %434, %428 ]
+  %.sroa.271126.14 = phi <2 x i64> [ %.sroa.271126.9, %.critedge.i209.thread ], [ %412, %repeatHasMatch.exit.thread1905 ], [ %.sroa.271126.9, %repeatHasMatch.exit ], [ %.sroa.271126.9, %383 ], [ %.sroa.271126.9, %372 ], [ %.sroa.271126.9, %376 ], [ %435, %428 ]
+  %.sroa.351157.14 = phi <2 x i64> [ %.sroa.351157.9, %.critedge.i209.thread ], [ %413, %repeatHasMatch.exit.thread1905 ], [ %.sroa.351157.9, %repeatHasMatch.exit ], [ %.sroa.351157.9, %383 ], [ %.sroa.351157.9, %372 ], [ %.sroa.351157.9, %376 ], [ %436, %428 ]
+  %.5 = phi i32 [ %.4, %.critedge.i209.thread ], [ 2, %repeatHasMatch.exit.thread1905 ], [ 2, %repeatHasMatch.exit ], [ 2, %383 ], [ 2, %372 ], [ 2, %376 ], [ %spec.select2007, %428 ]
+  %.sroa.01689.10 = phi i8 [ %.sroa.01689.9, %.critedge.i209.thread ], [ %.sroa.01689.6, %repeatHasMatch.exit.thread1905 ], [ %.sroa.01689.6, %repeatHasMatch.exit ], [ %.sroa.01689.6, %383 ], [ %.sroa.01689.6, %372 ], [ %.sroa.01689.6, %376 ], [ %.sroa.01689.9, %428 ]
   %.not57.i193 = icmp eq i64 %320, 0
   br i1 %.not57.i193, label %438, label %317
 
 438:                                              ; preds = %runException384.exit
   %439 = extractvalue { i32, i32 } %309, 1
   %.not58.i194 = icmp eq i32 %439, 0
-  br i1 %.not58.i194, label %440, label %.preheader2060
+  br i1 %.not58.i194, label %440, label %.preheader2055
 
 440:                                              ; preds = %438
-  %.sroa.01705.0.copyload = load <2 x i64>, ptr %82, align 16
-  %.sroa.41706.0.copyload = load <2 x i64>, ptr %.sroa.41695.0..sroa_idx, align 16
-  %.sroa.51707.0.copyload = load <2 x i64>, ptr %.sroa.51696.0..sroa_idx, align 16
-  %441 = or <2 x i64> %.sroa.01705.0.copyload, %.sroa.01112.14
-  %442 = or <2 x i64> %.sroa.41706.0.copyload, %.sroa.271128.14
-  %443 = or <2 x i64> %.sroa.51707.0.copyload, %.sroa.351159.14
+  %.sroa.01703.0.copyload = load <2 x i64>, ptr %82, align 16
+  %.sroa.41704.0.copyload = load <2 x i64>, ptr %.sroa.41693.0..sroa_idx, align 16
+  %.sroa.51705.0.copyload = load <2 x i64>, ptr %.sroa.51694.0..sroa_idx, align 16
+  %441 = or <2 x i64> %.sroa.01703.0.copyload, %.sroa.01110.14
+  %442 = or <2 x i64> %.sroa.41704.0.copyload, %.sroa.271126.14
+  %443 = or <2 x i64> %.sroa.51705.0.copyload, %.sroa.351157.14
   switch i32 %.5, label %448 [
     i32 1, label %444
     i32 2, label %445
@@ -5203,11 +5203,11 @@ runException384.exit:                             ; preds = %428, %376, %372, %3
 
 444:                                              ; preds = %440
   store <2 x i64> %250, ptr %81, align 32
-  store <2 x i64> %251, ptr %.sroa.41741.0..sroa_idx, align 16
-  store <2 x i64> %252, ptr %.sroa.51742.0..sroa_idx, align 32
+  store <2 x i64> %251, ptr %.sroa.41739.0..sroa_idx, align 16
+  store <2 x i64> %252, ptr %.sroa.51740.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %86, ptr noundef nonnull align 16 dereferenceable(48) %82, i64 48, i1 false)
   store ptr null, ptr %87, align 8
-  store i8 %.sroa.01691.10, ptr %85, align 64
+  store i8 %.sroa.01689.10, ptr %85, align 64
   br label %448
 
 445:                                              ; preds = %440
@@ -5226,10 +5226,10 @@ runException384.exit:                             ; preds = %428, %376, %372, %3
   br label %449
 
 449:                                              ; preds = %246, %448, %297
-  %.sroa.01112.7.ph = phi <2 x i64> [ %441, %448 ], [ %298, %297 ], [ %.sroa.01112.1, %246 ]
-  %.sroa.271128.7.ph = phi <2 x i64> [ %442, %448 ], [ %299, %297 ], [ %.sroa.271128.1, %246 ]
-  %.sroa.351159.7.ph = phi <2 x i64> [ %443, %448 ], [ %300, %297 ], [ %.sroa.351159.1, %246 ]
-  %450 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i72083
+  %.sroa.01110.7.ph = phi <2 x i64> [ %441, %448 ], [ %298, %297 ], [ %.sroa.01110.1, %246 ]
+  %.sroa.271126.7.ph = phi <2 x i64> [ %442, %448 ], [ %299, %297 ], [ %.sroa.271126.1, %246 ]
+  %.sroa.351157.7.ph = phi <2 x i64> [ %443, %448 ], [ %300, %297 ], [ %.sroa.351157.1, %246 ]
+  %450 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i72078
   %451 = load i8, ptr %450, align 1
   %452 = zext i8 %451 to i64
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 %452
@@ -5244,17 +5244,17 @@ runException384.exit:                             ; preds = %428, %376, %372, %3
   %460 = getelementptr inbounds nuw i8, ptr %456, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %460, i64 16) ], !noalias !300
   %461 = load <2 x i64>, ptr %460, align 16, !noalias !300
-  %462 = and <2 x i64> %457, %.sroa.01112.7.ph
-  %463 = and <2 x i64> %459, %.sroa.271128.7.ph
-  %464 = and <2 x i64> %461, %.sroa.351159.7.ph
-  %465 = add i64 %.045.i72083, 1
+  %462 = and <2 x i64> %457, %.sroa.01110.7.ph
+  %463 = and <2 x i64> %459, %.sroa.271126.7.ph
+  %464 = and <2 x i64> %461, %.sroa.351157.7.ph
+  %465 = add i64 %.045.i72078, 1
   %.not.i8 = icmp eq i64 %465, %.0107.i
   br i1 %.not.i8, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %lshift64_m128.exit130
 
 466:                                              ; preds = %34
-  br i1 %.not.i52088, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %.lr.ph2093
+  br i1 %.not.i52083, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %.lr.ph2088
 
-.lr.ph2093:                                       ; preds = %466
+.lr.ph2088:                                       ; preds = %466
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 944
@@ -5295,34 +5295,34 @@ runException384.exit:                             ; preds = %428, %376, %372, %3
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %506 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %507 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.71502.0..sroa_idx1503 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.81509.0..sroa_idx1510 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sroa.41659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.71500.0..sroa_idx1501 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.81507.0..sroa_idx1508 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %508 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %509 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %510 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %511 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %512 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41678.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51679.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %513
 
-513:                                              ; preds = %.lr.ph2093, %880
-  %.045.i2092 = phi i64 [ %.21898, %.lr.ph2093 ], [ %896, %880 ]
-  %.sroa.18.02091 = phi <2 x i64> [ %.sroa.26.3, %.lr.ph2093 ], [ %895, %880 ]
-  %.sroa.15.02090 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph2093 ], [ %894, %880 ]
-  %.sroa.0865.02089 = phi <2 x i64> [ %.sroa.0475.3, %.lr.ph2093 ], [ %893, %880 ]
-  %514 = or <2 x i64> %.sroa.15.02090, %.sroa.0865.02089
-  %515 = or <2 x i64> %514, %.sroa.18.02091
+513:                                              ; preds = %.lr.ph2088, %880
+  %.045.i2087 = phi i64 [ %.21896, %.lr.ph2088 ], [ %896, %880 ]
+  %.sroa.18.02086 = phi <2 x i64> [ %.sroa.26.3, %.lr.ph2088 ], [ %895, %880 ]
+  %.sroa.15.02085 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph2088 ], [ %894, %880 ]
+  %.sroa.0863.02084 = phi <2 x i64> [ %.sroa.0473.3, %.lr.ph2088 ], [ %893, %880 ]
+  %514 = or <2 x i64> %.sroa.15.02085, %.sroa.0863.02084
+  %515 = or <2 x i64> %514, %.sroa.18.02086
   %516 = bitcast <2 x i64> %515 to <16 x i8>
   %517 = icmp ne <16 x i8> %516, zeroinitializer
   %518 = bitcast <16 x i1> %517 to i16
-  %.not2031 = icmp eq i16 %518, 0
-  br i1 %.not2031, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %lshift64_m128.exit82
+  %.not2026 = icmp eq i16 %518, 0
+  br i1 %.not2026, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %lshift64_m128.exit82
 
 lshift64_m128.exit82:                             ; preds = %513
   call void @llvm.assume(i1 true) [ "align"(ptr %467, i64 16) ], !noalias !303
@@ -5331,11 +5331,11 @@ lshift64_m128.exit82:                             ; preds = %513
   %520 = load <2 x i64>, ptr %468, align 16, !noalias !303
   call void @llvm.assume(i1 true) [ "align"(ptr %469, i64 16) ], !noalias !303
   %521 = load <2 x i64>, ptr %469, align 16, !noalias !303
-  %522 = and <2 x i64> %520, %.sroa.15.02090
-  %523 = and <2 x i64> %521, %.sroa.18.02091
+  %522 = and <2 x i64> %520, %.sroa.15.02085
+  %523 = and <2 x i64> %521, %.sroa.18.02086
   %524 = load i8, ptr %470, align 4
   %525 = zext i8 %524 to i32
-  %526 = and <2 x i64> %519, %.sroa.0865.02089
+  %526 = and <2 x i64> %519, %.sroa.0863.02084
   %527 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %525, i64 0
   %528 = bitcast <4 x i32> %527 to <2 x i64>
   %529 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %526, <2 x i64> %528)
@@ -5363,11 +5363,11 @@ lshift64_m128.exit124:                            ; preds = %lshift64_m128.exit8
   %538 = load <2 x i64>, ptr %473, align 16, !noalias !306
   call void @llvm.assume(i1 true) [ "align"(ptr %474, i64 16) ], !noalias !306
   %539 = load <2 x i64>, ptr %474, align 16, !noalias !306
-  %540 = and <2 x i64> %538, %.sroa.15.02090
-  %541 = and <2 x i64> %539, %.sroa.18.02091
+  %540 = and <2 x i64> %538, %.sroa.15.02085
+  %541 = and <2 x i64> %539, %.sroa.18.02086
   %542 = load i8, ptr %475, align 1
   %543 = zext i8 %542 to i32
-  %544 = and <2 x i64> %537, %.sroa.0865.02089
+  %544 = and <2 x i64> %537, %.sroa.0863.02084
   %545 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %543, i64 0
   %546 = bitcast <4 x i32> %545 to <2 x i64>
   %547 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %544, <2 x i64> %546)
@@ -5383,20 +5383,20 @@ lshift64_m128.exit124:                            ; preds = %lshift64_m128.exit8
   br label %lshift64_m128.exit118
 
 lshift64_m128.exit118:                            ; preds = %lshift64_m128.exit124, %lshift64_m128.exit82
-  %.sroa.0787.6 = phi <2 x i64> [ %554, %lshift64_m128.exit124 ], [ %529, %lshift64_m128.exit82 ]
-  %.sroa.27803.6 = phi <2 x i64> [ %555, %lshift64_m128.exit124 ], [ %532, %lshift64_m128.exit82 ]
-  %.sroa.35834.6 = phi <2 x i64> [ %556, %lshift64_m128.exit124 ], [ %535, %lshift64_m128.exit82 ]
+  %.sroa.0785.6 = phi <2 x i64> [ %554, %lshift64_m128.exit124 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27801.6 = phi <2 x i64> [ %555, %lshift64_m128.exit124 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35832.6 = phi <2 x i64> [ %556, %lshift64_m128.exit124 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %476, i64 16) ], !noalias !309
   %557 = load <2 x i64>, ptr %476, align 16, !noalias !309
   call void @llvm.assume(i1 true) [ "align"(ptr %477, i64 16) ], !noalias !309
   %558 = load <2 x i64>, ptr %477, align 16, !noalias !309
   call void @llvm.assume(i1 true) [ "align"(ptr %478, i64 16) ], !noalias !309
   %559 = load <2 x i64>, ptr %478, align 16, !noalias !309
-  %560 = and <2 x i64> %558, %.sroa.15.02090
-  %561 = and <2 x i64> %559, %.sroa.18.02091
+  %560 = and <2 x i64> %558, %.sroa.15.02085
+  %561 = and <2 x i64> %559, %.sroa.18.02086
   %562 = load i8, ptr %479, align 2
   %563 = zext i8 %562 to i32
-  %564 = and <2 x i64> %557, %.sroa.0865.02089
+  %564 = and <2 x i64> %557, %.sroa.0863.02084
   %565 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %563, i64 0
   %566 = bitcast <4 x i32> %565 to <2 x i64>
   %567 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %564, <2 x i64> %566)
@@ -5406,26 +5406,26 @@ lshift64_m128.exit118:                            ; preds = %lshift64_m128.exit1
   %571 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %563, i64 0
   %572 = bitcast <4 x i32> %571 to <2 x i64>
   %573 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %561, <2 x i64> %572)
-  %574 = or <2 x i64> %567, %.sroa.0787.6
-  %575 = or <2 x i64> %570, %.sroa.27803.6
-  %576 = or <2 x i64> %573, %.sroa.35834.6
+  %574 = or <2 x i64> %567, %.sroa.0785.6
+  %575 = or <2 x i64> %570, %.sroa.27801.6
+  %576 = or <2 x i64> %573, %.sroa.35832.6
   br label %lshift64_m128.exit112
 
 lshift64_m128.exit112:                            ; preds = %lshift64_m128.exit118, %lshift64_m128.exit82
-  %.sroa.0787.5 = phi <2 x i64> [ %574, %lshift64_m128.exit118 ], [ %529, %lshift64_m128.exit82 ]
-  %.sroa.27803.5 = phi <2 x i64> [ %575, %lshift64_m128.exit118 ], [ %532, %lshift64_m128.exit82 ]
-  %.sroa.35834.5 = phi <2 x i64> [ %576, %lshift64_m128.exit118 ], [ %535, %lshift64_m128.exit82 ]
+  %.sroa.0785.5 = phi <2 x i64> [ %574, %lshift64_m128.exit118 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27801.5 = phi <2 x i64> [ %575, %lshift64_m128.exit118 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35832.5 = phi <2 x i64> [ %576, %lshift64_m128.exit118 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %480, i64 16) ], !noalias !312
   %577 = load <2 x i64>, ptr %480, align 16, !noalias !312
   call void @llvm.assume(i1 true) [ "align"(ptr %481, i64 16) ], !noalias !312
   %578 = load <2 x i64>, ptr %481, align 16, !noalias !312
   call void @llvm.assume(i1 true) [ "align"(ptr %482, i64 16) ], !noalias !312
   %579 = load <2 x i64>, ptr %482, align 16, !noalias !312
-  %580 = and <2 x i64> %578, %.sroa.15.02090
-  %581 = and <2 x i64> %579, %.sroa.18.02091
+  %580 = and <2 x i64> %578, %.sroa.15.02085
+  %581 = and <2 x i64> %579, %.sroa.18.02086
   %582 = load i8, ptr %483, align 1
   %583 = zext i8 %582 to i32
-  %584 = and <2 x i64> %577, %.sroa.0865.02089
+  %584 = and <2 x i64> %577, %.sroa.0863.02084
   %585 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %583, i64 0
   %586 = bitcast <4 x i32> %585 to <2 x i64>
   %587 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %584, <2 x i64> %586)
@@ -5435,26 +5435,26 @@ lshift64_m128.exit112:                            ; preds = %lshift64_m128.exit1
   %591 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %583, i64 0
   %592 = bitcast <4 x i32> %591 to <2 x i64>
   %593 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %581, <2 x i64> %592)
-  %594 = or <2 x i64> %587, %.sroa.0787.5
-  %595 = or <2 x i64> %590, %.sroa.27803.5
-  %596 = or <2 x i64> %593, %.sroa.35834.5
+  %594 = or <2 x i64> %587, %.sroa.0785.5
+  %595 = or <2 x i64> %590, %.sroa.27801.5
+  %596 = or <2 x i64> %593, %.sroa.35832.5
   br label %lshift64_m128.exit106
 
 lshift64_m128.exit106:                            ; preds = %lshift64_m128.exit112, %lshift64_m128.exit82
-  %.sroa.0787.4 = phi <2 x i64> [ %594, %lshift64_m128.exit112 ], [ %529, %lshift64_m128.exit82 ]
-  %.sroa.27803.4 = phi <2 x i64> [ %595, %lshift64_m128.exit112 ], [ %532, %lshift64_m128.exit82 ]
-  %.sroa.35834.4 = phi <2 x i64> [ %596, %lshift64_m128.exit112 ], [ %535, %lshift64_m128.exit82 ]
+  %.sroa.0785.4 = phi <2 x i64> [ %594, %lshift64_m128.exit112 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27801.4 = phi <2 x i64> [ %595, %lshift64_m128.exit112 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35832.4 = phi <2 x i64> [ %596, %lshift64_m128.exit112 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %484, i64 16) ], !noalias !315
   %597 = load <2 x i64>, ptr %484, align 16, !noalias !315
   call void @llvm.assume(i1 true) [ "align"(ptr %485, i64 16) ], !noalias !315
   %598 = load <2 x i64>, ptr %485, align 16, !noalias !315
   call void @llvm.assume(i1 true) [ "align"(ptr %486, i64 16) ], !noalias !315
   %599 = load <2 x i64>, ptr %486, align 16, !noalias !315
-  %600 = and <2 x i64> %598, %.sroa.15.02090
-  %601 = and <2 x i64> %599, %.sroa.18.02091
+  %600 = and <2 x i64> %598, %.sroa.15.02085
+  %601 = and <2 x i64> %599, %.sroa.18.02086
   %602 = load i8, ptr %487, align 8
   %603 = zext i8 %602 to i32
-  %604 = and <2 x i64> %597, %.sroa.0865.02089
+  %604 = and <2 x i64> %597, %.sroa.0863.02084
   %605 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %603, i64 0
   %606 = bitcast <4 x i32> %605 to <2 x i64>
   %607 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %604, <2 x i64> %606)
@@ -5464,26 +5464,26 @@ lshift64_m128.exit106:                            ; preds = %lshift64_m128.exit1
   %611 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %603, i64 0
   %612 = bitcast <4 x i32> %611 to <2 x i64>
   %613 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %601, <2 x i64> %612)
-  %614 = or <2 x i64> %607, %.sroa.0787.4
-  %615 = or <2 x i64> %610, %.sroa.27803.4
-  %616 = or <2 x i64> %613, %.sroa.35834.4
+  %614 = or <2 x i64> %607, %.sroa.0785.4
+  %615 = or <2 x i64> %610, %.sroa.27801.4
+  %616 = or <2 x i64> %613, %.sroa.35832.4
   br label %lshift64_m128.exit100
 
 lshift64_m128.exit100:                            ; preds = %lshift64_m128.exit106, %lshift64_m128.exit82
-  %.sroa.0787.3 = phi <2 x i64> [ %614, %lshift64_m128.exit106 ], [ %529, %lshift64_m128.exit82 ]
-  %.sroa.27803.3 = phi <2 x i64> [ %615, %lshift64_m128.exit106 ], [ %532, %lshift64_m128.exit82 ]
-  %.sroa.35834.3 = phi <2 x i64> [ %616, %lshift64_m128.exit106 ], [ %535, %lshift64_m128.exit82 ]
+  %.sroa.0785.3 = phi <2 x i64> [ %614, %lshift64_m128.exit106 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27801.3 = phi <2 x i64> [ %615, %lshift64_m128.exit106 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35832.3 = phi <2 x i64> [ %616, %lshift64_m128.exit106 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %488, i64 16) ], !noalias !318
   %617 = load <2 x i64>, ptr %488, align 16, !noalias !318
   call void @llvm.assume(i1 true) [ "align"(ptr %489, i64 16) ], !noalias !318
   %618 = load <2 x i64>, ptr %489, align 16, !noalias !318
   call void @llvm.assume(i1 true) [ "align"(ptr %490, i64 16) ], !noalias !318
   %619 = load <2 x i64>, ptr %490, align 16, !noalias !318
-  %620 = and <2 x i64> %618, %.sroa.15.02090
-  %621 = and <2 x i64> %619, %.sroa.18.02091
+  %620 = and <2 x i64> %618, %.sroa.15.02085
+  %621 = and <2 x i64> %619, %.sroa.18.02086
   %622 = load i8, ptr %491, align 1
   %623 = zext i8 %622 to i32
-  %624 = and <2 x i64> %617, %.sroa.0865.02089
+  %624 = and <2 x i64> %617, %.sroa.0863.02084
   %625 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %623, i64 0
   %626 = bitcast <4 x i32> %625 to <2 x i64>
   %627 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %624, <2 x i64> %626)
@@ -5493,26 +5493,26 @@ lshift64_m128.exit100:                            ; preds = %lshift64_m128.exit1
   %631 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %623, i64 0
   %632 = bitcast <4 x i32> %631 to <2 x i64>
   %633 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %621, <2 x i64> %632)
-  %634 = or <2 x i64> %627, %.sroa.0787.3
-  %635 = or <2 x i64> %630, %.sroa.27803.3
-  %636 = or <2 x i64> %633, %.sroa.35834.3
+  %634 = or <2 x i64> %627, %.sroa.0785.3
+  %635 = or <2 x i64> %630, %.sroa.27801.3
+  %636 = or <2 x i64> %633, %.sroa.35832.3
   br label %lshift64_m128.exit94
 
 lshift64_m128.exit94:                             ; preds = %lshift64_m128.exit100, %lshift64_m128.exit82
-  %.sroa.0787.2 = phi <2 x i64> [ %634, %lshift64_m128.exit100 ], [ %529, %lshift64_m128.exit82 ]
-  %.sroa.27803.2 = phi <2 x i64> [ %635, %lshift64_m128.exit100 ], [ %532, %lshift64_m128.exit82 ]
-  %.sroa.35834.2 = phi <2 x i64> [ %636, %lshift64_m128.exit100 ], [ %535, %lshift64_m128.exit82 ]
+  %.sroa.0785.2 = phi <2 x i64> [ %634, %lshift64_m128.exit100 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27801.2 = phi <2 x i64> [ %635, %lshift64_m128.exit100 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35832.2 = phi <2 x i64> [ %636, %lshift64_m128.exit100 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %492, i64 16) ], !noalias !321
   %637 = load <2 x i64>, ptr %492, align 16, !noalias !321
   call void @llvm.assume(i1 true) [ "align"(ptr %493, i64 16) ], !noalias !321
   %638 = load <2 x i64>, ptr %493, align 16, !noalias !321
   call void @llvm.assume(i1 true) [ "align"(ptr %494, i64 16) ], !noalias !321
   %639 = load <2 x i64>, ptr %494, align 16, !noalias !321
-  %640 = and <2 x i64> %638, %.sroa.15.02090
-  %641 = and <2 x i64> %639, %.sroa.18.02091
+  %640 = and <2 x i64> %638, %.sroa.15.02085
+  %641 = and <2 x i64> %639, %.sroa.18.02086
   %642 = load i8, ptr %495, align 2
   %643 = zext i8 %642 to i32
-  %644 = and <2 x i64> %637, %.sroa.0865.02089
+  %644 = and <2 x i64> %637, %.sroa.0863.02084
   %645 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %643, i64 0
   %646 = bitcast <4 x i32> %645 to <2 x i64>
   %647 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %644, <2 x i64> %646)
@@ -5522,26 +5522,26 @@ lshift64_m128.exit94:                             ; preds = %lshift64_m128.exit1
   %651 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %643, i64 0
   %652 = bitcast <4 x i32> %651 to <2 x i64>
   %653 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %641, <2 x i64> %652)
-  %654 = or <2 x i64> %647, %.sroa.0787.2
-  %655 = or <2 x i64> %650, %.sroa.27803.2
-  %656 = or <2 x i64> %653, %.sroa.35834.2
+  %654 = or <2 x i64> %647, %.sroa.0785.2
+  %655 = or <2 x i64> %650, %.sroa.27801.2
+  %656 = or <2 x i64> %653, %.sroa.35832.2
   br label %lshift64_m128.exit88
 
 lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit94, %lshift64_m128.exit82
-  %.sroa.0787.0 = phi <2 x i64> [ %654, %lshift64_m128.exit94 ], [ %529, %lshift64_m128.exit82 ]
-  %.sroa.27803.0 = phi <2 x i64> [ %655, %lshift64_m128.exit94 ], [ %532, %lshift64_m128.exit82 ]
-  %.sroa.35834.0 = phi <2 x i64> [ %656, %lshift64_m128.exit94 ], [ %535, %lshift64_m128.exit82 ]
+  %.sroa.0785.0 = phi <2 x i64> [ %654, %lshift64_m128.exit94 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27801.0 = phi <2 x i64> [ %655, %lshift64_m128.exit94 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35832.0 = phi <2 x i64> [ %656, %lshift64_m128.exit94 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %496, i64 16) ], !noalias !324
   %657 = load <2 x i64>, ptr %496, align 16, !noalias !324
   call void @llvm.assume(i1 true) [ "align"(ptr %497, i64 16) ], !noalias !324
   %658 = load <2 x i64>, ptr %497, align 16, !noalias !324
   call void @llvm.assume(i1 true) [ "align"(ptr %498, i64 16) ], !noalias !324
   %659 = load <2 x i64>, ptr %498, align 16, !noalias !324
-  %660 = and <2 x i64> %658, %.sroa.15.02090
-  %661 = and <2 x i64> %659, %.sroa.18.02091
+  %660 = and <2 x i64> %658, %.sroa.15.02085
+  %661 = and <2 x i64> %659, %.sroa.18.02086
   %662 = load i8, ptr %499, align 1
   %663 = zext i8 %662 to i32
-  %664 = and <2 x i64> %657, %.sroa.0865.02089
+  %664 = and <2 x i64> %657, %.sroa.0863.02084
   %665 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %663, i64 0
   %666 = bitcast <4 x i32> %665 to <2 x i64>
   %667 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %664, <2 x i64> %666)
@@ -5551,24 +5551,24 @@ lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit9
   %671 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %663, i64 0
   %672 = bitcast <4 x i32> %671 to <2 x i64>
   %673 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %661, <2 x i64> %672)
-  %674 = or <2 x i64> %667, %.sroa.0787.0
-  %675 = or <2 x i64> %670, %.sroa.27803.0
-  %676 = or <2 x i64> %673, %.sroa.35834.0
+  %674 = or <2 x i64> %667, %.sroa.0785.0
+  %675 = or <2 x i64> %670, %.sroa.27801.0
+  %676 = or <2 x i64> %673, %.sroa.35832.0
   br label %677
 
 677:                                              ; preds = %lshift64_m128.exit88, %lshift64_m128.exit82
-  %.sroa.0787.1 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %674, %lshift64_m128.exit88 ]
-  %.sroa.27803.1 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %675, %lshift64_m128.exit88 ]
-  %.sroa.35834.1 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %676, %lshift64_m128.exit88 ]
+  %.sroa.0785.1 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %674, %lshift64_m128.exit88 ]
+  %.sroa.27801.1 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %675, %lshift64_m128.exit88 ]
+  %.sroa.35832.1 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %676, %lshift64_m128.exit88 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %500, i64 16) ], !noalias !327
   %678 = load <2 x i64>, ptr %500, align 16, !noalias !327
   call void @llvm.assume(i1 true) [ "align"(ptr %501, i64 16) ], !noalias !327
   %679 = load <2 x i64>, ptr %501, align 16, !noalias !327
   call void @llvm.assume(i1 true) [ "align"(ptr %502, i64 16) ], !noalias !327
   %680 = load <2 x i64>, ptr %502, align 16, !noalias !327
-  %681 = and <2 x i64> %678, %.sroa.0865.02089
-  %682 = and <2 x i64> %679, %.sroa.15.02090
-  %683 = and <2 x i64> %680, %.sroa.18.02091
+  %681 = and <2 x i64> %678, %.sroa.0863.02084
+  %682 = and <2 x i64> %679, %.sroa.15.02085
+  %683 = and <2 x i64> %680, %.sroa.18.02086
   %684 = bitcast <2 x i64> %681 to <4 x i32>
   %685 = icmp eq <4 x i32> %684, zeroinitializer
   %686 = sext <4 x i1> %685 to <4 x i32>
@@ -5592,7 +5592,7 @@ lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit9
   br i1 %.not.i16, label %880, label %703, !prof !80
 
 703:                                              ; preds = %677
-  %704 = icmp eq i64 %.045.i2092, 0
+  %704 = icmp eq i64 %.045.i2087, 0
   br i1 %704, label %.critedge.i21, label %705
 
 705:                                              ; preds = %703
@@ -5602,47 +5602,47 @@ lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit9
   %707 = load <2 x i64>, ptr %504, align 16, !noalias !330
   call void @llvm.assume(i1 true) [ "align"(ptr %505, i64 16) ], !noalias !330
   %708 = load <2 x i64>, ptr %505, align 16, !noalias !330
-  %709 = and <2 x i64> %706, %.sroa.0865.02089
-  %710 = and <2 x i64> %707, %.sroa.15.02090
-  %711 = and <2 x i64> %708, %.sroa.18.02091
+  %709 = and <2 x i64> %706, %.sroa.0863.02084
+  %710 = and <2 x i64> %707, %.sroa.15.02085
+  %711 = and <2 x i64> %708, %.sroa.18.02086
   %712 = or <2 x i64> %710, %709
   %713 = or <2 x i64> %712, %711
   %714 = bitcast <2 x i64> %713 to <16 x i8>
   %715 = icmp ne <16 x i8> %714, zeroinitializer
   %716 = bitcast <16 x i1> %715 to i16
-  %.not2032 = icmp eq i16 %716, 0
-  br i1 %.not2032, label %.critedge.i21, label %nfaExecLimEx384_Stream.exit.sink.split.sink.split, !prof !80
+  %.not2027 = icmp eq i16 %716, 0
+  br i1 %.not2027, label %.critedge.i21, label %nfaExecLimEx384_Stream.exit.sink.split.sink.split, !prof !80
 
 .critedge.i21:                                    ; preds = %705, %703
-  %717 = add i64 %.045.i2092, %4
-  %.sroa.01746.0.copyload2033 = load <16 x i8>, ptr %506, align 16
+  %717 = add i64 %.045.i2087, %4
+  %.sroa.01744.0.copyload2028 = load <16 x i8>, ptr %506, align 16
   %718 = bitcast <2 x i64> %681 to <16 x i8>
-  %719 = icmp ne <16 x i8> %.sroa.01746.0.copyload2033, %718
+  %719 = icmp ne <16 x i8> %.sroa.01744.0.copyload2028, %718
   %720 = bitcast <16 x i1> %719 to i16
   %.not.i203 = icmp eq i16 %720, 0
   br i1 %.not.i203, label %721, label %diff384.exit205.thread
 
 721:                                              ; preds = %.critedge.i21
-  %.sroa.51748.0.copyload2035 = load <16 x i8>, ptr %.sroa.51748.0..sroa_idx, align 16
-  %.sroa.41747.0.copyload2034 = load <16 x i8>, ptr %.sroa.41747.0..sroa_idx, align 16
+  %.sroa.51746.0.copyload2030 = load <16 x i8>, ptr %.sroa.51746.0..sroa_idx, align 16
+  %.sroa.41745.0.copyload2029 = load <16 x i8>, ptr %.sroa.41745.0..sroa_idx, align 16
   %722 = bitcast <2 x i64> %682 to <16 x i8>
-  %723 = icmp ne <16 x i8> %.sroa.41747.0.copyload2034, %722
+  %723 = icmp ne <16 x i8> %.sroa.41745.0.copyload2029, %722
   %724 = bitcast <16 x i1> %723 to i16
   %.not1.i204 = icmp eq i16 %724, 0
   %725 = bitcast <2 x i64> %683 to <16 x i8>
-  %726 = icmp ne <16 x i8> %.sroa.51748.0.copyload2035, %725
+  %726 = icmp ne <16 x i8> %.sroa.51746.0.copyload2030, %725
   %727 = bitcast <16 x i1> %726 to i16
-  %.not2036 = icmp eq i16 %727, 0
-  %or.cond2053 = select i1 %.not1.i204, i1 %.not2036, i1 false
-  br i1 %or.cond2053, label %728, label %diff384.exit205.thread
+  %.not2031 = icmp eq i16 %727, 0
+  %or.cond2048 = select i1 %.not1.i204, i1 %.not2031, i1 false
+  br i1 %or.cond2048, label %728, label %diff384.exit205.thread
 
 728:                                              ; preds = %721
-  %.sroa.01677.0.copyload = load <2 x i64>, ptr %511, align 16
-  %.sroa.41678.0.copyload = load <2 x i64>, ptr %.sroa.41678.0..sroa_idx, align 16
-  %.sroa.51679.0.copyload = load <2 x i64>, ptr %.sroa.51679.0..sroa_idx, align 16
-  %729 = or <2 x i64> %.sroa.01677.0.copyload, %.sroa.0787.1
-  %730 = or <2 x i64> %.sroa.41678.0.copyload, %.sroa.27803.1
-  %731 = or <2 x i64> %.sroa.51679.0.copyload, %.sroa.35834.1
+  %.sroa.01675.0.copyload = load <2 x i64>, ptr %511, align 16
+  %.sroa.41676.0.copyload = load <2 x i64>, ptr %.sroa.41676.0..sroa_idx, align 16
+  %.sroa.51677.0.copyload = load <2 x i64>, ptr %.sroa.51677.0..sroa_idx, align 16
+  %729 = or <2 x i64> %.sroa.01675.0.copyload, %.sroa.0785.1
+  %730 = or <2 x i64> %.sroa.41676.0.copyload, %.sroa.27801.1
+  %731 = or <2 x i64> %.sroa.51677.0.copyload, %.sroa.35832.1
   br label %880
 
 diff384.exit205.thread:                           ; preds = %.critedge.i21, %721
@@ -5650,8 +5650,8 @@ diff384.exit205.thread:                           ; preds = %.critedge.i21, %721
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> %681, ptr %10, align 16
-  store <2 x i64> %682, ptr %.sroa.71502.0..sroa_idx1503, align 16
-  store <2 x i64> %683, ptr %.sroa.81509.0..sroa_idx1510, align 16
+  store <2 x i64> %682, ptr %.sroa.71500.0..sroa_idx1501, align 16
+  store <2 x i64> %683, ptr %.sroa.81507.0..sroa_idx1508, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, ptr noundef nonnull align 64 dereferenceable(48) %500, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 16
@@ -5659,26 +5659,26 @@ diff384.exit205.thread:                           ; preds = %.critedge.i21, %721
 
 732:                                              ; preds = %diff384.exit205.thread, %732
   %733 = phi i32 [ 0, %diff384.exit205.thread ], [ %738, %732 ]
-  %indvars.iv2140 = phi i64 [ 0, %diff384.exit205.thread ], [ %indvars.iv.next2141, %732 ]
-  %734 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv2140
+  %indvars.iv2135 = phi i64 [ 0, %diff384.exit205.thread ], [ %indvars.iv.next2136, %732 ]
+  %734 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv2135
   %735 = load i64, ptr %734, align 8
   %736 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %735)
   %737 = trunc nuw nsw i64 %736 to i32
   %738 = add i32 %733, %737
-  %indvars.iv.next2141 = add nuw nsw i64 %indvars.iv2140, 1
-  %739 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next2141
+  %indvars.iv.next2136 = add nuw nsw i64 %indvars.iv2135, 1
+  %739 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next2136
   store i32 %738, ptr %739, align 4
-  %exitcond2143.not = icmp eq i64 %indvars.iv.next2141, 5
-  br i1 %exitcond2143.not, label %.preheader2059, label %732
+  %exitcond2138.not = icmp eq i64 %indvars.iv.next2136, 5
+  br i1 %exitcond2138.not, label %.preheader2054, label %732
 
-.preheader2059:                                   ; preds = %732, %869
-  %.sroa.0787.8 = phi <2 x i64> [ %.sroa.0787.14, %869 ], [ %.sroa.0787.1, %732 ]
-  %.sroa.27803.8 = phi <2 x i64> [ %.sroa.27803.14, %869 ], [ %.sroa.27803.1, %732 ]
-  %.sroa.35834.8 = phi <2 x i64> [ %.sroa.35834.14, %869 ], [ %.sroa.35834.1, %732 ]
-  %.01881 = phi i32 [ %.51886, %869 ], [ 1, %732 ]
-  %.sroa.01657.5 = phi i8 [ %.sroa.01657.10, %869 ], [ 0, %732 ]
-  %.01880 = phi i32 [ %870, %869 ], [ %702, %732 ]
-  %740 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01880) #13, !srcloc !131
+.preheader2054:                                   ; preds = %732, %869
+  %.sroa.0785.8 = phi <2 x i64> [ %.sroa.0785.14, %869 ], [ %.sroa.0785.1, %732 ]
+  %.sroa.27801.8 = phi <2 x i64> [ %.sroa.27801.14, %869 ], [ %.sroa.27801.1, %732 ]
+  %.sroa.35832.8 = phi <2 x i64> [ %.sroa.35832.14, %869 ], [ %.sroa.35832.1, %732 ]
+  %.01879 = phi i32 [ %.51884, %869 ], [ 1, %732 ]
+  %.sroa.01655.5 = phi i8 [ %.sroa.01655.10, %869 ], [ 0, %732 ]
+  %.01878 = phi i32 [ %870, %869 ], [ %702, %732 ]
+  %740 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01878) #13, !srcloc !131
   %741 = extractvalue { i32, i32 } %740, 0
   %742 = lshr i32 %741, 1
   %743 = zext nneg i32 %742 to i64
@@ -5688,14 +5688,14 @@ diff384.exit205.thread:                           ; preds = %.critedge.i21, %721
   %747 = getelementptr inbounds nuw i32, ptr %12, i64 %743
   br label %748
 
-748:                                              ; preds = %runException384.exit224, %.preheader2059
-  %.sroa.0787.9 = phi <2 x i64> [ %.sroa.0787.8, %.preheader2059 ], [ %.sroa.0787.14, %runException384.exit224 ]
-  %.sroa.27803.9 = phi <2 x i64> [ %.sroa.27803.8, %.preheader2059 ], [ %.sroa.27803.14, %runException384.exit224 ]
-  %.sroa.35834.9 = phi <2 x i64> [ %.sroa.35834.8, %.preheader2059 ], [ %.sroa.35834.14, %runException384.exit224 ]
-  %.01887 = phi i64 [ %745, %.preheader2059 ], [ %751, %runException384.exit224 ]
-  %.11882 = phi i32 [ %.01881, %.preheader2059 ], [ %.51886, %runException384.exit224 ]
-  %.sroa.01657.6 = phi i8 [ %.sroa.01657.5, %.preheader2059 ], [ %.sroa.01657.10, %runException384.exit224 ]
-  %749 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01887) #13, !srcloc !132
+748:                                              ; preds = %runException384.exit223, %.preheader2054
+  %.sroa.0785.9 = phi <2 x i64> [ %.sroa.0785.8, %.preheader2054 ], [ %.sroa.0785.14, %runException384.exit223 ]
+  %.sroa.27801.9 = phi <2 x i64> [ %.sroa.27801.8, %.preheader2054 ], [ %.sroa.27801.14, %runException384.exit223 ]
+  %.sroa.35832.9 = phi <2 x i64> [ %.sroa.35832.8, %.preheader2054 ], [ %.sroa.35832.14, %runException384.exit223 ]
+  %.01885 = phi i64 [ %745, %.preheader2054 ], [ %751, %runException384.exit223 ]
+  %.11880 = phi i32 [ %.01879, %.preheader2054 ], [ %.51884, %runException384.exit223 ]
+  %.sroa.01655.6 = phi i8 [ %.sroa.01655.5, %.preheader2054 ], [ %.sroa.01655.10, %runException384.exit223 ]
+  %749 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01885) #13, !srcloc !132
   %750 = extractvalue { i64, i64 } %749, 0
   %751 = extractvalue { i64, i64 } %749, 1
   %752 = load i64, ptr %746, align 8
@@ -5731,26 +5731,26 @@ diff384.exit205.thread:                           ; preds = %.critedge.i21, %721
   %778 = zext i32 %777 to i64
   %779 = getelementptr inbounds nuw i8, ptr %775, i64 %778
   %780 = icmp eq i8 %763, 1
-  br i1 %780, label %testbit384.exit.i220, label %803
+  br i1 %780, label %testbit384.exit.i219, label %803
 
-testbit384.exit.i220:                             ; preds = %764
+testbit384.exit.i219:                             ; preds = %764
   %781 = load i32, ptr %768, align 4
   %782 = icmp ult i32 %781, 128
   %783 = icmp ult i32 %781, 256
-  %spec.select2013 = select i1 %783, <2 x i64> %.sroa.15.02090, <2 x i64> %.sroa.18.02091
-  %.0.in.i.i221.sroa.speculated = select i1 %782, <2 x i64> %.sroa.0865.02089, <2 x i64> %spec.select2013
+  %spec.select2008 = select i1 %783, <2 x i64> %.sroa.15.02085, <2 x i64> %.sroa.18.02086
+  %.0.in.i.i220.sroa.speculated = select i1 %782, <2 x i64> %.sroa.0863.02084, <2 x i64> %spec.select2008
   %784 = and i32 %781, 127
   %785 = shl nuw nsw i32 %784, 6
   %786 = and i32 %785, 448
   %787 = lshr i32 %784, 3
-  %reass.sub2114 = sub nsw i32 %786, %787
-  %788 = sext i32 %reass.sub2114 to i64
+  %reass.sub2109 = sub nsw i32 %786, %787
+  %788 = sext i32 %reass.sub2109 to i64
   %789 = getelementptr i8, ptr @simd_onebit_masks, i64 %788
   %790 = getelementptr i8, ptr %789, i64 95
   %791 = load <2 x i64>, ptr %790, align 1
-  %792 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %791, <2 x i64> %.0.in.i.i221.sroa.speculated)
-  %.not.i.i223 = icmp eq i32 %792, 0
-  %793 = zext i1 %.not.i.i223 to i8
+  %792 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %791, <2 x i64> %.0.in.i.i220.sroa.speculated)
+  %.not.i.i222 = icmp eq i32 %792, 0
+  %793 = zext i1 %.not.i.i222 to i8
   %794 = load i8, ptr %769, align 4
   switch i8 %794, label %.critedge.i213.thread [
     i8 0, label %795
@@ -5762,40 +5762,40 @@ testbit384.exit.i220:                             ; preds = %764
     i8 6, label %802
   ]
 
-795:                                              ; preds = %testbit384.exit.i220
+795:                                              ; preds = %testbit384.exit.i219
   call void @repeatStoreRing(ptr noundef nonnull %769, ptr noundef %774, ptr noundef %779, i64 noundef %717, i8 noundef signext range(i8 0, 2) %793) #12
   br label %.critedge.i213.thread
 
-796:                                              ; preds = %testbit384.exit.i220
-  br i1 %.not.i.i223, label %.critedge.i213.thread, label %797
+796:                                              ; preds = %testbit384.exit.i219
+  br i1 %.not.i.i222, label %.critedge.i213.thread, label %797
 
 797:                                              ; preds = %796
   store i64 %717, ptr %774, align 8
   br label %.critedge.i213.thread
 
-798:                                              ; preds = %testbit384.exit.i220
+798:                                              ; preds = %testbit384.exit.i219
   store i64 %717, ptr %774, align 8
   br label %.critedge.i213.thread
 
-799:                                              ; preds = %testbit384.exit.i220
+799:                                              ; preds = %testbit384.exit.i219
   call void @repeatStoreRange(ptr noundef nonnull %769, ptr noundef %774, ptr noundef %779, i64 noundef %717, i8 noundef signext range(i8 0, 2) %793) #12
   br label %.critedge.i213.thread
 
-800:                                              ; preds = %testbit384.exit.i220
+800:                                              ; preds = %testbit384.exit.i219
   call void @repeatStoreBitmap(ptr noundef nonnull %769, ptr noundef %774, i64 noundef %717, i8 noundef signext range(i8 0, 2) %793) #12
   br label %.critedge.i213.thread
 
-801:                                              ; preds = %testbit384.exit.i220
+801:                                              ; preds = %testbit384.exit.i219
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %769, ptr noundef %774, ptr noundef %779, i64 noundef %717, i8 noundef signext range(i8 0, 2) %793) #12
   br label %.critedge.i213.thread
 
-802:                                              ; preds = %testbit384.exit.i220
+802:                                              ; preds = %testbit384.exit.i219
   call void @repeatStoreTrailer(ptr noundef nonnull %769, ptr noundef %774, i64 noundef %717, i8 noundef signext range(i8 0, 2) %793) #12
   br label %.critedge.i213.thread
 
 803:                                              ; preds = %764
   %804 = load i8, ptr %769, align 4
-  switch i8 %804, label %runException384.exit224 [
+  switch i8 %804, label %runException384.exit223 [
     i8 0, label %805
     i8 1, label %807
     i8 2, label %814
@@ -5803,12 +5803,12 @@ testbit384.exit.i220:                             ; preds = %764
     i8 4, label %828
     i8 5, label %830
     i8 6, label %832
-    i8 7, label %repeatHasMatch.exit255.thread1944
+    i8 7, label %repeatHasMatch.exit253.thread1941
   ]
 
 805:                                              ; preds = %803
   %806 = call i32 @repeatHasMatchRing(ptr noundef nonnull %769, ptr noundef %774, ptr noundef %779, i64 noundef %717) #12
-  br label %repeatHasMatch.exit255
+  br label %repeatHasMatch.exit253
 
 807:                                              ; preds = %803
   %808 = load i64, ptr %774, align 8
@@ -5817,7 +5817,7 @@ testbit384.exit.i220:                             ; preds = %764
   %811 = zext i32 %810 to i64
   %812 = add i64 %808, %811
   %813 = icmp ult i64 %717, %812
-  br i1 %813, label %runException384.exit224, label %repeatHasMatch.exit255.thread1944
+  br i1 %813, label %runException384.exit223, label %repeatHasMatch.exit253.thread1941
 
 814:                                              ; preds = %803
   %815 = load i64, ptr %774, align 8
@@ -5826,48 +5826,48 @@ testbit384.exit.i220:                             ; preds = %764
   %818 = zext i32 %817 to i64
   %819 = add i64 %815, %818
   %820 = icmp ult i64 %717, %819
-  br i1 %820, label %runException384.exit224, label %821
+  br i1 %820, label %runException384.exit223, label %821
 
 821:                                              ; preds = %814
   %822 = getelementptr inbounds nuw i8, ptr %768, i64 32
   %823 = load i32, ptr %822, align 4
   %824 = zext i32 %823 to i64
   %825 = add i64 %815, %824
-  %.not.i264 = icmp ugt i64 %717, %825
-  br i1 %.not.i264, label %repeatHasMatch.exit255.thread1946, label %repeatHasMatch.exit255.thread1944
+  %.not.i262 = icmp ugt i64 %717, %825
+  br i1 %.not.i262, label %repeatHasMatch.exit253.thread1943, label %repeatHasMatch.exit253.thread1941
 
 826:                                              ; preds = %803
   %827 = call i32 @repeatHasMatchRange(ptr noundef nonnull %769, ptr noundef %774, ptr noundef %779, i64 noundef %717) #12
-  br label %repeatHasMatch.exit255
+  br label %repeatHasMatch.exit253
 
 828:                                              ; preds = %803
   %829 = call i32 @repeatHasMatchBitmap(ptr noundef nonnull %769, ptr noundef %774, i64 noundef %717) #12
-  br label %repeatHasMatch.exit255
+  br label %repeatHasMatch.exit253
 
 830:                                              ; preds = %803
   %831 = call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %769, ptr noundef %774, ptr noundef %779, i64 noundef %717) #12
-  br label %repeatHasMatch.exit255
+  br label %repeatHasMatch.exit253
 
 832:                                              ; preds = %803
   %833 = call i32 @repeatHasMatchTrailer(ptr noundef nonnull %769, ptr noundef %774, i64 noundef %717) #12
-  br label %repeatHasMatch.exit255
+  br label %repeatHasMatch.exit253
 
-repeatHasMatch.exit255:                           ; preds = %805, %826, %828, %830, %832
-  %.0.i254 = phi i32 [ %806, %805 ], [ %827, %826 ], [ %829, %828 ], [ %831, %830 ], [ %833, %832 ]
-  switch i32 %.0.i254, label %runException384.exit224 [
-    i32 1, label %repeatHasMatch.exit255.thread1944
-    i32 2, label %repeatHasMatch.exit255.thread1946
+repeatHasMatch.exit253:                           ; preds = %805, %826, %828, %830, %832
+  %.0.i252 = phi i32 [ %806, %805 ], [ %827, %826 ], [ %829, %828 ], [ %831, %830 ], [ %833, %832 ]
+  switch i32 %.0.i252, label %runException384.exit223 [
+    i32 1, label %repeatHasMatch.exit253.thread1941
+    i32 2, label %repeatHasMatch.exit253.thread1943
   ]
 
-repeatHasMatch.exit255.thread1944:                ; preds = %821, %803, %807, %repeatHasMatch.exit255
+repeatHasMatch.exit253.thread1941:                ; preds = %821, %803, %807, %repeatHasMatch.exit253
   %834 = getelementptr inbounds nuw i8, ptr %768, i64 32
   %835 = load i32, ptr %834, align 4
   %836 = icmp eq i32 %835, 65535
-  %spec.select2014 = select i1 %836, i32 %.11882, i32 2
-  %spec.select2015 = select i1 %836, i8 1, i8 %.sroa.01657.6
+  %spec.select2009 = select i1 %836, i32 %.11880, i32 2
+  %spec.select2010 = select i1 %836, i8 1, i8 %.sroa.01655.6
   br label %.critedge.i213.thread
 
-repeatHasMatch.exit255.thread1946:                ; preds = %821, %repeatHasMatch.exit255
+repeatHasMatch.exit253.thread1943:                ; preds = %821, %repeatHasMatch.exit253
   call void @llvm.assume(i1 true) [ "align"(ptr %761, i64 16) ], !noalias !333
   %837 = load <2 x i64>, ptr %761, align 16, !noalias !333
   %838 = getelementptr inbounds nuw i8, ptr %761, i64 16
@@ -5876,21 +5876,21 @@ repeatHasMatch.exit255.thread1946:                ; preds = %821, %repeatHasMatc
   %840 = getelementptr inbounds nuw i8, ptr %761, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %840, i64 16) ], !noalias !333
   %841 = load <2 x i64>, ptr %840, align 16, !noalias !333
-  %842 = and <2 x i64> %837, %.sroa.0787.9
-  %843 = and <2 x i64> %839, %.sroa.27803.9
-  %844 = and <2 x i64> %841, %.sroa.35834.9
-  br label %runException384.exit224
+  %842 = and <2 x i64> %837, %.sroa.0785.9
+  %843 = and <2 x i64> %839, %.sroa.27801.9
+  %844 = and <2 x i64> %841, %.sroa.35832.9
+  br label %runException384.exit223
 
-.critedge.i213.thread:                            ; preds = %repeatHasMatch.exit255.thread1944, %802, %801, %800, %799, %798, %795, %testbit384.exit.i220, %796, %797, %748
-  %.31884 = phi i32 [ %.11882, %748 ], [ 2, %802 ], [ 2, %801 ], [ 2, %800 ], [ 2, %799 ], [ 2, %798 ], [ 2, %795 ], [ 2, %testbit384.exit.i220 ], [ 2, %796 ], [ 2, %797 ], [ %spec.select2014, %repeatHasMatch.exit255.thread1944 ]
-  %.sroa.01657.9 = phi i8 [ %.sroa.01657.6, %748 ], [ %.sroa.01657.6, %802 ], [ %.sroa.01657.6, %801 ], [ %.sroa.01657.6, %800 ], [ %.sroa.01657.6, %799 ], [ %.sroa.01657.6, %798 ], [ %.sroa.01657.6, %795 ], [ %.sroa.01657.6, %testbit384.exit.i220 ], [ %.sroa.01657.6, %796 ], [ %.sroa.01657.6, %797 ], [ %spec.select2015, %repeatHasMatch.exit255.thread1944 ]
+.critedge.i213.thread:                            ; preds = %repeatHasMatch.exit253.thread1941, %802, %801, %800, %799, %798, %795, %testbit384.exit.i219, %796, %797, %748
+  %.31882 = phi i32 [ %.11880, %748 ], [ 2, %802 ], [ 2, %801 ], [ 2, %800 ], [ 2, %799 ], [ 2, %798 ], [ 2, %795 ], [ 2, %testbit384.exit.i219 ], [ 2, %796 ], [ 2, %797 ], [ %spec.select2009, %repeatHasMatch.exit253.thread1941 ]
+  %.sroa.01655.9 = phi i8 [ %.sroa.01655.6, %748 ], [ %.sroa.01655.6, %802 ], [ %.sroa.01655.6, %801 ], [ %.sroa.01655.6, %800 ], [ %.sroa.01655.6, %799 ], [ %.sroa.01655.6, %798 ], [ %.sroa.01655.6, %795 ], [ %.sroa.01655.6, %testbit384.exit.i219 ], [ %.sroa.01655.6, %796 ], [ %.sroa.01655.6, %797 ], [ %spec.select2010, %repeatHasMatch.exit253.thread1941 ]
   %845 = getelementptr inbounds nuw i8, ptr %761, i64 96
   %846 = load i32, ptr %845, align 16
-  %.not70.i217 = icmp ne i32 %846, -1
-  %brmerge2016.not2038 = and i1 %704, %.not70.i217
-  %847 = icmp eq i32 %.31884, 1
-  %or.cond2017 = select i1 %brmerge2016.not2038, i1 %847, i1 false
-  %.41885 = select i1 %or.cond2017, i32 0, i32 %.31884
+  %.not70.i216 = icmp ne i32 %846, -1
+  %brmerge2011.not2033 = and i1 %704, %.not70.i216
+  %847 = icmp eq i32 %.31882, 1
+  %or.cond2012 = select i1 %brmerge2011.not2033, i1 %847, i1 false
+  %.41883 = select i1 %or.cond2012, i32 0, i32 %.31882
   %848 = getelementptr inbounds nuw i8, ptr %761, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %848, i64 16) ], !noalias !336
   %849 = load <2 x i64>, ptr %848, align 16, !noalias !336
@@ -5900,18 +5900,18 @@ repeatHasMatch.exit255.thread1946:                ; preds = %821, %repeatHasMatc
   %852 = getelementptr inbounds nuw i8, ptr %761, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %852, i64 16) ], !noalias !336
   %853 = load <2 x i64>, ptr %852, align 16, !noalias !336
-  %.sroa.01831.0.copyload = load <2 x i64>, ptr %507, align 16
-  %.sroa.41832.0.copyload = load <2 x i64>, ptr %.sroa.41661.0..sroa_idx, align 16
-  %.sroa.51833.0.copyload = load <2 x i64>, ptr %.sroa.51662.0..sroa_idx, align 16
-  %854 = or <2 x i64> %.sroa.01831.0.copyload, %849
-  %855 = or <2 x i64> %.sroa.41832.0.copyload, %851
-  %856 = or <2 x i64> %.sroa.51833.0.copyload, %853
+  %.sroa.01829.0.copyload = load <2 x i64>, ptr %507, align 16
+  %.sroa.41830.0.copyload = load <2 x i64>, ptr %.sroa.41659.0..sroa_idx, align 16
+  %.sroa.51831.0.copyload = load <2 x i64>, ptr %.sroa.51660.0..sroa_idx, align 16
+  %854 = or <2 x i64> %.sroa.01829.0.copyload, %849
+  %855 = or <2 x i64> %.sroa.41830.0.copyload, %851
+  %856 = or <2 x i64> %.sroa.51831.0.copyload, %853
   store <2 x i64> %854, ptr %507, align 16
-  store <2 x i64> %855, ptr %.sroa.41661.0..sroa_idx, align 16
-  store <2 x i64> %856, ptr %.sroa.51662.0..sroa_idx, align 16
+  store <2 x i64> %855, ptr %.sroa.41659.0..sroa_idx, align 16
+  store <2 x i64> %856, ptr %.sroa.51660.0..sroa_idx, align 16
   %857 = getelementptr inbounds nuw i8, ptr %761, i64 104
   %858 = load i8, ptr %857, align 8
-  switch i8 %858, label %runException384.exit224 [
+  switch i8 %858, label %runException384.exit223 [
     i8 1, label %859
     i8 3, label %859
   ]
@@ -5925,46 +5925,46 @@ repeatHasMatch.exit255.thread1946:                ; preds = %821, %repeatHasMatc
   %863 = getelementptr inbounds nuw i8, ptr %761, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %863, i64 16) ], !noalias !339
   %864 = load <2 x i64>, ptr %863, align 16, !noalias !339
-  %865 = and <2 x i64> %860, %.sroa.0787.9
-  %866 = and <2 x i64> %862, %.sroa.27803.9
-  %867 = and <2 x i64> %864, %.sroa.35834.9
-  %868 = icmp eq i32 %.41885, 1
-  %spec.select2018 = select i1 %868, i32 0, i32 %.41885
-  br label %runException384.exit224
+  %865 = and <2 x i64> %860, %.sroa.0785.9
+  %866 = and <2 x i64> %862, %.sroa.27801.9
+  %867 = and <2 x i64> %864, %.sroa.35832.9
+  %868 = icmp eq i32 %.41883, 1
+  %spec.select2013 = select i1 %868, i32 0, i32 %.41883
+  br label %runException384.exit223
 
-runException384.exit224:                          ; preds = %859, %807, %803, %814, %.critedge.i213.thread, %repeatHasMatch.exit255, %repeatHasMatch.exit255.thread1946
-  %.sroa.0787.14 = phi <2 x i64> [ %.sroa.0787.9, %.critedge.i213.thread ], [ %842, %repeatHasMatch.exit255.thread1946 ], [ %.sroa.0787.9, %repeatHasMatch.exit255 ], [ %.sroa.0787.9, %814 ], [ %.sroa.0787.9, %803 ], [ %.sroa.0787.9, %807 ], [ %865, %859 ]
-  %.sroa.27803.14 = phi <2 x i64> [ %.sroa.27803.9, %.critedge.i213.thread ], [ %843, %repeatHasMatch.exit255.thread1946 ], [ %.sroa.27803.9, %repeatHasMatch.exit255 ], [ %.sroa.27803.9, %814 ], [ %.sroa.27803.9, %803 ], [ %.sroa.27803.9, %807 ], [ %866, %859 ]
-  %.sroa.35834.14 = phi <2 x i64> [ %.sroa.35834.9, %.critedge.i213.thread ], [ %844, %repeatHasMatch.exit255.thread1946 ], [ %.sroa.35834.9, %repeatHasMatch.exit255 ], [ %.sroa.35834.9, %814 ], [ %.sroa.35834.9, %803 ], [ %.sroa.35834.9, %807 ], [ %867, %859 ]
-  %.51886 = phi i32 [ %.41885, %.critedge.i213.thread ], [ 2, %repeatHasMatch.exit255.thread1946 ], [ 2, %repeatHasMatch.exit255 ], [ 2, %814 ], [ 2, %803 ], [ 2, %807 ], [ %spec.select2018, %859 ]
-  %.sroa.01657.10 = phi i8 [ %.sroa.01657.9, %.critedge.i213.thread ], [ %.sroa.01657.6, %repeatHasMatch.exit255.thread1946 ], [ %.sroa.01657.6, %repeatHasMatch.exit255 ], [ %.sroa.01657.6, %814 ], [ %.sroa.01657.6, %803 ], [ %.sroa.01657.6, %807 ], [ %.sroa.01657.9, %859 ]
+runException384.exit223:                          ; preds = %859, %807, %803, %814, %.critedge.i213.thread, %repeatHasMatch.exit253, %repeatHasMatch.exit253.thread1943
+  %.sroa.0785.14 = phi <2 x i64> [ %.sroa.0785.9, %.critedge.i213.thread ], [ %842, %repeatHasMatch.exit253.thread1943 ], [ %.sroa.0785.9, %repeatHasMatch.exit253 ], [ %.sroa.0785.9, %814 ], [ %.sroa.0785.9, %803 ], [ %.sroa.0785.9, %807 ], [ %865, %859 ]
+  %.sroa.27801.14 = phi <2 x i64> [ %.sroa.27801.9, %.critedge.i213.thread ], [ %843, %repeatHasMatch.exit253.thread1943 ], [ %.sroa.27801.9, %repeatHasMatch.exit253 ], [ %.sroa.27801.9, %814 ], [ %.sroa.27801.9, %803 ], [ %.sroa.27801.9, %807 ], [ %866, %859 ]
+  %.sroa.35832.14 = phi <2 x i64> [ %.sroa.35832.9, %.critedge.i213.thread ], [ %844, %repeatHasMatch.exit253.thread1943 ], [ %.sroa.35832.9, %repeatHasMatch.exit253 ], [ %.sroa.35832.9, %814 ], [ %.sroa.35832.9, %803 ], [ %.sroa.35832.9, %807 ], [ %867, %859 ]
+  %.51884 = phi i32 [ %.41883, %.critedge.i213.thread ], [ 2, %repeatHasMatch.exit253.thread1943 ], [ 2, %repeatHasMatch.exit253 ], [ 2, %814 ], [ 2, %803 ], [ 2, %807 ], [ %spec.select2013, %859 ]
+  %.sroa.01655.10 = phi i8 [ %.sroa.01655.9, %.critedge.i213.thread ], [ %.sroa.01655.6, %repeatHasMatch.exit253.thread1943 ], [ %.sroa.01655.6, %repeatHasMatch.exit253 ], [ %.sroa.01655.6, %814 ], [ %.sroa.01655.6, %803 ], [ %.sroa.01655.6, %807 ], [ %.sroa.01655.9, %859 ]
   %.not57.i180 = icmp eq i64 %751, 0
   br i1 %.not57.i180, label %869, label %748
 
-869:                                              ; preds = %runException384.exit224
+869:                                              ; preds = %runException384.exit223
   %870 = extractvalue { i32, i32 } %740, 1
   %.not58.i181 = icmp eq i32 %870, 0
-  br i1 %.not58.i181, label %871, label %.preheader2059
+  br i1 %.not58.i181, label %871, label %.preheader2054
 
 871:                                              ; preds = %869
-  %.sroa.01671.0.copyload = load <2 x i64>, ptr %507, align 16
-  %.sroa.41672.0.copyload = load <2 x i64>, ptr %.sroa.41661.0..sroa_idx, align 16
-  %.sroa.51673.0.copyload = load <2 x i64>, ptr %.sroa.51662.0..sroa_idx, align 16
-  %872 = or <2 x i64> %.sroa.01671.0.copyload, %.sroa.0787.14
-  %873 = or <2 x i64> %.sroa.41672.0.copyload, %.sroa.27803.14
-  %874 = or <2 x i64> %.sroa.51673.0.copyload, %.sroa.35834.14
-  switch i32 %.51886, label %879 [
+  %.sroa.01669.0.copyload = load <2 x i64>, ptr %507, align 16
+  %.sroa.41670.0.copyload = load <2 x i64>, ptr %.sroa.41659.0..sroa_idx, align 16
+  %.sroa.51671.0.copyload = load <2 x i64>, ptr %.sroa.51660.0..sroa_idx, align 16
+  %872 = or <2 x i64> %.sroa.01669.0.copyload, %.sroa.0785.14
+  %873 = or <2 x i64> %.sroa.41670.0.copyload, %.sroa.27801.14
+  %874 = or <2 x i64> %.sroa.51671.0.copyload, %.sroa.35832.14
+  switch i32 %.51884, label %879 [
     i32 1, label %875
     i32 2, label %876
   ]
 
 875:                                              ; preds = %871
   store <2 x i64> %681, ptr %506, align 32
-  store <2 x i64> %682, ptr %.sroa.41747.0..sroa_idx, align 16
-  store <2 x i64> %683, ptr %.sroa.51748.0..sroa_idx, align 32
+  store <2 x i64> %682, ptr %.sroa.41745.0..sroa_idx, align 16
+  store <2 x i64> %683, ptr %.sroa.51746.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %511, ptr noundef nonnull align 16 dereferenceable(48) %507, i64 48, i1 false)
   store ptr null, ptr %512, align 8
-  store i8 %.sroa.01657.10, ptr %510, align 64
+  store i8 %.sroa.01655.10, ptr %510, align 64
   br label %879
 
 876:                                              ; preds = %871
@@ -5983,10 +5983,10 @@ runException384.exit224:                          ; preds = %859, %807, %803, %8
   br label %880
 
 880:                                              ; preds = %677, %879, %728
-  %.sroa.0787.7.ph = phi <2 x i64> [ %872, %879 ], [ %729, %728 ], [ %.sroa.0787.1, %677 ]
-  %.sroa.27803.7.ph = phi <2 x i64> [ %873, %879 ], [ %730, %728 ], [ %.sroa.27803.1, %677 ]
-  %.sroa.35834.7.ph = phi <2 x i64> [ %874, %879 ], [ %731, %728 ], [ %.sroa.35834.1, %677 ]
-  %881 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i2092
+  %.sroa.0785.7.ph = phi <2 x i64> [ %872, %879 ], [ %729, %728 ], [ %.sroa.0785.1, %677 ]
+  %.sroa.27801.7.ph = phi <2 x i64> [ %873, %879 ], [ %730, %728 ], [ %.sroa.27801.1, %677 ]
+  %.sroa.35832.7.ph = phi <2 x i64> [ %874, %879 ], [ %731, %728 ], [ %.sroa.35832.1, %677 ]
+  %881 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i2087
   %882 = load i8, ptr %881, align 1
   %883 = zext i8 %882 to i64
   %884 = getelementptr inbounds nuw i8, ptr %0, i64 %883
@@ -6001,23 +6001,23 @@ runException384.exit224:                          ; preds = %859, %807, %803, %8
   %891 = getelementptr inbounds nuw i8, ptr %887, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %891, i64 16) ], !noalias !342
   %892 = load <2 x i64>, ptr %891, align 16, !noalias !342
-  %893 = and <2 x i64> %888, %.sroa.0787.7.ph
-  %894 = and <2 x i64> %890, %.sroa.27803.7.ph
-  %895 = and <2 x i64> %892, %.sroa.35834.7.ph
-  %896 = add i64 %.045.i2092, 1
+  %893 = and <2 x i64> %888, %.sroa.0785.7.ph
+  %894 = and <2 x i64> %890, %.sroa.27801.7.ph
+  %895 = and <2 x i64> %892, %.sroa.35832.7.ph
+  %896 = add i64 %.045.i2087, 1
   %.not.i5 = icmp eq i64 %896, %.0107.i
   br i1 %.not.i5, label %nfaExecLimEx384_Loop_No_Accel.exit12, label %513
 
 nfaExecLimEx384_Loop_No_Accel.exit12:             ; preds = %449, %513, %880, %41, %466, %6
-  %.01896 = phi i64 [ 0, %6 ], [ %.21898, %466 ], [ %.21898, %41 ], [ %.045.i2092, %513 ], [ %.0107.i, %880 ], [ %.0107.i, %449 ]
-  %.sroa.0475.0 = phi <2 x i64> [ %.sroa.0475.0.copyload, %6 ], [ %.sroa.0475.3, %466 ], [ %.sroa.0475.3, %41 ], [ %.sroa.0865.02089, %513 ], [ %893, %880 ], [ %462, %449 ]
-  %.sroa.24.0 = phi <2 x i64> [ %.sroa.24.0.copyload, %6 ], [ %.sroa.24.3, %466 ], [ %.sroa.24.3, %41 ], [ %.sroa.15.02090, %513 ], [ %894, %880 ], [ %463, %449 ]
-  %.sroa.26.0 = phi <2 x i64> [ %.sroa.26.0.copyload, %6 ], [ %.sroa.26.3, %466 ], [ %.sroa.26.3, %41 ], [ %.sroa.18.02091, %513 ], [ %895, %880 ], [ %464, %449 ]
-  %.1108.i = phi i64 [ 0, %6 ], [ %.21898, %466 ], [ %.21898, %41 ], [ %.0107.i, %880 ], [ %.0107.i, %513 ], [ %.0107.i, %449 ]
-  %.not121.i2104 = icmp eq i64 %.01896, %2
-  br i1 %.not121.i2104, label %.loopexit, label %.lr.ph2110
+  %.01894 = phi i64 [ 0, %6 ], [ %.21896, %466 ], [ %.21896, %41 ], [ %.045.i2087, %513 ], [ %.0107.i, %880 ], [ %.0107.i, %449 ]
+  %.sroa.0473.0 = phi <2 x i64> [ %.sroa.0473.0.copyload, %6 ], [ %.sroa.0473.3, %466 ], [ %.sroa.0473.3, %41 ], [ %.sroa.0863.02084, %513 ], [ %893, %880 ], [ %462, %449 ]
+  %.sroa.24.0 = phi <2 x i64> [ %.sroa.24.0.copyload, %6 ], [ %.sroa.24.3, %466 ], [ %.sroa.24.3, %41 ], [ %.sroa.15.02085, %513 ], [ %894, %880 ], [ %463, %449 ]
+  %.sroa.26.0 = phi <2 x i64> [ %.sroa.26.0.copyload, %6 ], [ %.sroa.26.3, %466 ], [ %.sroa.26.3, %41 ], [ %.sroa.18.02086, %513 ], [ %895, %880 ], [ %464, %449 ]
+  %.1108.i = phi i64 [ 0, %6 ], [ %.21896, %466 ], [ %.21896, %41 ], [ %.0107.i, %880 ], [ %.0107.i, %513 ], [ %.0107.i, %449 ]
+  %.not121.i2099 = icmp eq i64 %.01894, %2
+  br i1 %.not121.i2099, label %.loopexit, label %.lr.ph2105
 
-.lr.ph2110:                                       ; preds = %nfaExecLimEx384_Loop_No_Accel.exit12
+.lr.ph2105:                                       ; preds = %nfaExecLimEx384_Loop_No_Accel.exit12
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %898 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -6061,28 +6061,28 @@ nfaExecLimEx384_Loop_No_Accel.exit12:             ; preds = %449, %513, %880, %4
   %937 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %938 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %939 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51754.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41751.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %940 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41627.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.71565.0..sroa_idx1566 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sroa.81572.0..sroa_idx1573 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sroa.41625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.71563.0..sroa_idx1564 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.81570.0..sroa_idx1571 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %941 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %942 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %943 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %944 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %945 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %946
 
-946:                                              ; preds = %.lr.ph2110, %1341
-  %.sroa.26.12109 = phi <2 x i64> [ %.sroa.26.0, %.lr.ph2110 ], [ %1356, %1341 ]
-  %.sroa.24.12108 = phi <2 x i64> [ %.sroa.24.0, %.lr.ph2110 ], [ %1355, %1341 ]
-  %.sroa.0475.12107 = phi <2 x i64> [ %.sroa.0475.0, %.lr.ph2110 ], [ %1354, %1341 ]
-  %.118972105 = phi i64 [ %.01896, %.lr.ph2110 ], [ %1357, %1341 ]
-  %947 = add i64 %.118972105, 16
+946:                                              ; preds = %.lr.ph2105, %1341
+  %.sroa.26.12104 = phi <2 x i64> [ %.sroa.26.0, %.lr.ph2105 ], [ %1356, %1341 ]
+  %.sroa.24.12103 = phi <2 x i64> [ %.sroa.24.0, %.lr.ph2105 ], [ %1355, %1341 ]
+  %.sroa.0473.12102 = phi <2 x i64> [ %.sroa.0473.0, %.lr.ph2105 ], [ %1354, %1341 ]
+  %.118952100 = phi i64 [ %.01894, %.lr.ph2105 ], [ %1357, %1341 ]
+  %947 = add i64 %.118952100, 16
   %.not122.i = icmp ugt i64 %947, %2
   br i1 %.not122.i, label %lshift64_m128.exit34, label %948
 
@@ -6094,29 +6094,29 @@ nfaExecLimEx384_Loop_No_Accel.exit12:             ; preds = %449, %513, %880, %4
   call void @llvm.assume(i1 true) [ "align"(ptr %899, i64 16) ], !noalias !345
   %951 = load <2 x i64>, ptr %899, align 16, !noalias !345
   %952 = xor <2 x i64> %949, splat (i64 -1)
-  %953 = and <2 x i64> %.sroa.0475.12107, %952
+  %953 = and <2 x i64> %.sroa.0473.12102, %952
   %954 = xor <2 x i64> %950, splat (i64 -1)
-  %955 = and <2 x i64> %.sroa.24.12108, %954
+  %955 = and <2 x i64> %.sroa.24.12103, %954
   %956 = xor <2 x i64> %951, splat (i64 -1)
-  %957 = and <2 x i64> %.sroa.26.12109, %956
+  %957 = and <2 x i64> %.sroa.26.12104, %956
   %958 = or <2 x i64> %955, %953
   %959 = or <2 x i64> %958, %957
   %960 = bitcast <2 x i64> %959 to <16 x i8>
   %961 = icmp ne <16 x i8> %960, zeroinitializer
   %962 = bitcast <16 x i1> %961 to i16
-  %.not2039 = icmp eq i16 %962, 0
-  br i1 %.not2039, label %963, label %lshift64_m128.exit34
+  %.not2034 = icmp eq i16 %962, 0
+  br i1 %.not2034, label %963, label %lshift64_m128.exit34
 
 963:                                              ; preds = %948
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store <2 x i64> %.sroa.0475.12107, ptr %16, align 16
-  %.sroa.24.0..sroa_idx529 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store <2 x i64> %.sroa.24.12108, ptr %.sroa.24.0..sroa_idx529, align 16
-  %.sroa.26.0..sroa_idx567 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store <2 x i64> %.sroa.26.12109, ptr %.sroa.26.0..sroa_idx567, align 16
-  %964 = call i64 @doAccel384(ptr noundef nonnull align 16 %16, ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef %1, i64 noundef %.118972105, i64 noundef %2) #12
+  store <2 x i64> %.sroa.0473.12102, ptr %16, align 16
+  %.sroa.24.0..sroa_idx527 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store <2 x i64> %.sroa.24.12103, ptr %.sroa.24.0..sroa_idx527, align 16
+  %.sroa.26.0..sroa_idx565 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store <2 x i64> %.sroa.26.12104, ptr %.sroa.26.0..sroa_idx565, align 16
+  %964 = call i64 @doAccel384(ptr noundef nonnull align 16 %16, ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef %1, i64 noundef %.118952100, i64 noundef %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.not124.i = icmp eq i64 %964, %.118972105
+  %.not124.i = icmp eq i64 %964, %.118952100
   br i1 %.not124.i, label %975, label %965
 
 965:                                              ; preds = %963
@@ -6129,16 +6129,16 @@ nfaExecLimEx384_Loop_No_Accel.exit12:             ; preds = %449, %513, %880, %4
   %970 = load <2 x i64>, ptr %968, align 16, !noalias !348
   call void @llvm.assume(i1 true) [ "align"(ptr %967, i64 16) ], !noalias !348
   %971 = load <2 x i64>, ptr %967, align 16, !noalias !348
-  %972 = and <2 x i64> %969, %.sroa.0475.12107
-  %973 = and <2 x i64> %970, %.sroa.24.12108
-  %974 = and <2 x i64> %971, %.sroa.26.12109
+  %972 = and <2 x i64> %969, %.sroa.0473.12102
+  %973 = and <2 x i64> %970, %.sroa.24.12103
+  %974 = and <2 x i64> %971, %.sroa.26.12104
   br label %975
 
 975:                                              ; preds = %965, %963
-  %.sroa.0475.2 = phi <2 x i64> [ %.sroa.0475.12107, %963 ], [ %972, %965 ]
-  %.sroa.24.2 = phi <2 x i64> [ %.sroa.24.12108, %963 ], [ %973, %965 ]
-  %.sroa.26.2 = phi <2 x i64> [ %.sroa.26.12109, %963 ], [ %974, %965 ]
-  %.not125.i = icmp ne i64 %.118972105, 0
+  %.sroa.0473.2 = phi <2 x i64> [ %.sroa.0473.12102, %963 ], [ %972, %965 ]
+  %.sroa.24.2 = phi <2 x i64> [ %.sroa.24.12103, %963 ], [ %973, %965 ]
+  %.sroa.26.2 = phi <2 x i64> [ %.sroa.26.12104, %963 ], [ %974, %965 ]
+  %.not125.i = icmp ne i64 %.118952100, 0
   %976 = add i64 %.1108.i, 4
   %977 = icmp ult i64 %964, %976
   %or.cond136.i = and i1 %.not125.i, %977
@@ -6157,11 +6157,11 @@ lshift64_m128.exit34:                             ; preds = %948, %946
   %981 = load <2 x i64>, ptr %901, align 16, !noalias !351
   call void @llvm.assume(i1 true) [ "align"(ptr %902, i64 16) ], !noalias !351
   %982 = load <2 x i64>, ptr %902, align 16, !noalias !351
-  %983 = and <2 x i64> %981, %.sroa.24.12108
-  %984 = and <2 x i64> %982, %.sroa.26.12109
+  %983 = and <2 x i64> %981, %.sroa.24.12103
+  %984 = and <2 x i64> %982, %.sroa.26.12104
   %985 = load i8, ptr %903, align 4
   %986 = zext i8 %985 to i32
-  %987 = and <2 x i64> %980, %.sroa.0475.12107
+  %987 = and <2 x i64> %980, %.sroa.0473.12102
   %988 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %986, i64 0
   %989 = bitcast <4 x i32> %988 to <2 x i64>
   %990 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %987, <2 x i64> %989)
@@ -6189,11 +6189,11 @@ lshift64_m128.exit76:                             ; preds = %lshift64_m128.exit3
   %999 = load <2 x i64>, ptr %906, align 16, !noalias !354
   call void @llvm.assume(i1 true) [ "align"(ptr %907, i64 16) ], !noalias !354
   %1000 = load <2 x i64>, ptr %907, align 16, !noalias !354
-  %1001 = and <2 x i64> %999, %.sroa.24.12108
-  %1002 = and <2 x i64> %1000, %.sroa.26.12109
+  %1001 = and <2 x i64> %999, %.sroa.24.12103
+  %1002 = and <2 x i64> %1000, %.sroa.26.12104
   %1003 = load i8, ptr %908, align 1
   %1004 = zext i8 %1003 to i32
-  %1005 = and <2 x i64> %998, %.sroa.0475.12107
+  %1005 = and <2 x i64> %998, %.sroa.0473.12102
   %1006 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1004, i64 0
   %1007 = bitcast <4 x i32> %1006 to <2 x i64>
   %1008 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1005, <2 x i64> %1007)
@@ -6209,7 +6209,7 @@ lshift64_m128.exit76:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit70
 
 lshift64_m128.exit70:                             ; preds = %lshift64_m128.exit76, %lshift64_m128.exit34
-  %.sroa.0376.6 = phi <2 x i64> [ %1015, %lshift64_m128.exit76 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.0374.6 = phi <2 x i64> [ %1015, %lshift64_m128.exit76 ], [ %990, %lshift64_m128.exit34 ]
   %.sroa.27.6 = phi <2 x i64> [ %1016, %lshift64_m128.exit76 ], [ %993, %lshift64_m128.exit34 ]
   %.sroa.35.6 = phi <2 x i64> [ %1017, %lshift64_m128.exit76 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %909, i64 16) ], !noalias !357
@@ -6218,11 +6218,11 @@ lshift64_m128.exit70:                             ; preds = %lshift64_m128.exit7
   %1019 = load <2 x i64>, ptr %910, align 16, !noalias !357
   call void @llvm.assume(i1 true) [ "align"(ptr %911, i64 16) ], !noalias !357
   %1020 = load <2 x i64>, ptr %911, align 16, !noalias !357
-  %1021 = and <2 x i64> %1019, %.sroa.24.12108
-  %1022 = and <2 x i64> %1020, %.sroa.26.12109
+  %1021 = and <2 x i64> %1019, %.sroa.24.12103
+  %1022 = and <2 x i64> %1020, %.sroa.26.12104
   %1023 = load i8, ptr %912, align 2
   %1024 = zext i8 %1023 to i32
-  %1025 = and <2 x i64> %1018, %.sroa.0475.12107
+  %1025 = and <2 x i64> %1018, %.sroa.0473.12102
   %1026 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1024, i64 0
   %1027 = bitcast <4 x i32> %1026 to <2 x i64>
   %1028 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1025, <2 x i64> %1027)
@@ -6232,13 +6232,13 @@ lshift64_m128.exit70:                             ; preds = %lshift64_m128.exit7
   %1032 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1024, i64 0
   %1033 = bitcast <4 x i32> %1032 to <2 x i64>
   %1034 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1022, <2 x i64> %1033)
-  %1035 = or <2 x i64> %1028, %.sroa.0376.6
+  %1035 = or <2 x i64> %1028, %.sroa.0374.6
   %1036 = or <2 x i64> %1031, %.sroa.27.6
   %1037 = or <2 x i64> %1034, %.sroa.35.6
   br label %lshift64_m128.exit64
 
 lshift64_m128.exit64:                             ; preds = %lshift64_m128.exit70, %lshift64_m128.exit34
-  %.sroa.0376.5 = phi <2 x i64> [ %1035, %lshift64_m128.exit70 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.0374.5 = phi <2 x i64> [ %1035, %lshift64_m128.exit70 ], [ %990, %lshift64_m128.exit34 ]
   %.sroa.27.5 = phi <2 x i64> [ %1036, %lshift64_m128.exit70 ], [ %993, %lshift64_m128.exit34 ]
   %.sroa.35.5 = phi <2 x i64> [ %1037, %lshift64_m128.exit70 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %913, i64 16) ], !noalias !360
@@ -6247,11 +6247,11 @@ lshift64_m128.exit64:                             ; preds = %lshift64_m128.exit7
   %1039 = load <2 x i64>, ptr %914, align 16, !noalias !360
   call void @llvm.assume(i1 true) [ "align"(ptr %915, i64 16) ], !noalias !360
   %1040 = load <2 x i64>, ptr %915, align 16, !noalias !360
-  %1041 = and <2 x i64> %1039, %.sroa.24.12108
-  %1042 = and <2 x i64> %1040, %.sroa.26.12109
+  %1041 = and <2 x i64> %1039, %.sroa.24.12103
+  %1042 = and <2 x i64> %1040, %.sroa.26.12104
   %1043 = load i8, ptr %916, align 1
   %1044 = zext i8 %1043 to i32
-  %1045 = and <2 x i64> %1038, %.sroa.0475.12107
+  %1045 = and <2 x i64> %1038, %.sroa.0473.12102
   %1046 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1044, i64 0
   %1047 = bitcast <4 x i32> %1046 to <2 x i64>
   %1048 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1045, <2 x i64> %1047)
@@ -6261,13 +6261,13 @@ lshift64_m128.exit64:                             ; preds = %lshift64_m128.exit7
   %1052 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1044, i64 0
   %1053 = bitcast <4 x i32> %1052 to <2 x i64>
   %1054 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1042, <2 x i64> %1053)
-  %1055 = or <2 x i64> %1048, %.sroa.0376.5
+  %1055 = or <2 x i64> %1048, %.sroa.0374.5
   %1056 = or <2 x i64> %1051, %.sroa.27.5
   %1057 = or <2 x i64> %1054, %.sroa.35.5
   br label %lshift64_m128.exit58
 
 lshift64_m128.exit58:                             ; preds = %lshift64_m128.exit64, %lshift64_m128.exit34
-  %.sroa.0376.4 = phi <2 x i64> [ %1055, %lshift64_m128.exit64 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.0374.4 = phi <2 x i64> [ %1055, %lshift64_m128.exit64 ], [ %990, %lshift64_m128.exit34 ]
   %.sroa.27.4 = phi <2 x i64> [ %1056, %lshift64_m128.exit64 ], [ %993, %lshift64_m128.exit34 ]
   %.sroa.35.4 = phi <2 x i64> [ %1057, %lshift64_m128.exit64 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %917, i64 16) ], !noalias !363
@@ -6276,11 +6276,11 @@ lshift64_m128.exit58:                             ; preds = %lshift64_m128.exit6
   %1059 = load <2 x i64>, ptr %918, align 16, !noalias !363
   call void @llvm.assume(i1 true) [ "align"(ptr %919, i64 16) ], !noalias !363
   %1060 = load <2 x i64>, ptr %919, align 16, !noalias !363
-  %1061 = and <2 x i64> %1059, %.sroa.24.12108
-  %1062 = and <2 x i64> %1060, %.sroa.26.12109
+  %1061 = and <2 x i64> %1059, %.sroa.24.12103
+  %1062 = and <2 x i64> %1060, %.sroa.26.12104
   %1063 = load i8, ptr %920, align 8
   %1064 = zext i8 %1063 to i32
-  %1065 = and <2 x i64> %1058, %.sroa.0475.12107
+  %1065 = and <2 x i64> %1058, %.sroa.0473.12102
   %1066 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1064, i64 0
   %1067 = bitcast <4 x i32> %1066 to <2 x i64>
   %1068 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1065, <2 x i64> %1067)
@@ -6290,13 +6290,13 @@ lshift64_m128.exit58:                             ; preds = %lshift64_m128.exit6
   %1072 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1064, i64 0
   %1073 = bitcast <4 x i32> %1072 to <2 x i64>
   %1074 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1062, <2 x i64> %1073)
-  %1075 = or <2 x i64> %1068, %.sroa.0376.4
+  %1075 = or <2 x i64> %1068, %.sroa.0374.4
   %1076 = or <2 x i64> %1071, %.sroa.27.4
   %1077 = or <2 x i64> %1074, %.sroa.35.4
   br label %lshift64_m128.exit52
 
 lshift64_m128.exit52:                             ; preds = %lshift64_m128.exit58, %lshift64_m128.exit34
-  %.sroa.0376.3 = phi <2 x i64> [ %1075, %lshift64_m128.exit58 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.0374.3 = phi <2 x i64> [ %1075, %lshift64_m128.exit58 ], [ %990, %lshift64_m128.exit34 ]
   %.sroa.27.3 = phi <2 x i64> [ %1076, %lshift64_m128.exit58 ], [ %993, %lshift64_m128.exit34 ]
   %.sroa.35.3 = phi <2 x i64> [ %1077, %lshift64_m128.exit58 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %921, i64 16) ], !noalias !366
@@ -6305,11 +6305,11 @@ lshift64_m128.exit52:                             ; preds = %lshift64_m128.exit5
   %1079 = load <2 x i64>, ptr %922, align 16, !noalias !366
   call void @llvm.assume(i1 true) [ "align"(ptr %923, i64 16) ], !noalias !366
   %1080 = load <2 x i64>, ptr %923, align 16, !noalias !366
-  %1081 = and <2 x i64> %1079, %.sroa.24.12108
-  %1082 = and <2 x i64> %1080, %.sroa.26.12109
+  %1081 = and <2 x i64> %1079, %.sroa.24.12103
+  %1082 = and <2 x i64> %1080, %.sroa.26.12104
   %1083 = load i8, ptr %924, align 1
   %1084 = zext i8 %1083 to i32
-  %1085 = and <2 x i64> %1078, %.sroa.0475.12107
+  %1085 = and <2 x i64> %1078, %.sroa.0473.12102
   %1086 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1084, i64 0
   %1087 = bitcast <4 x i32> %1086 to <2 x i64>
   %1088 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1085, <2 x i64> %1087)
@@ -6319,13 +6319,13 @@ lshift64_m128.exit52:                             ; preds = %lshift64_m128.exit5
   %1092 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1084, i64 0
   %1093 = bitcast <4 x i32> %1092 to <2 x i64>
   %1094 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1082, <2 x i64> %1093)
-  %1095 = or <2 x i64> %1088, %.sroa.0376.3
+  %1095 = or <2 x i64> %1088, %.sroa.0374.3
   %1096 = or <2 x i64> %1091, %.sroa.27.3
   %1097 = or <2 x i64> %1094, %.sroa.35.3
   br label %lshift64_m128.exit46
 
 lshift64_m128.exit46:                             ; preds = %lshift64_m128.exit52, %lshift64_m128.exit34
-  %.sroa.0376.2 = phi <2 x i64> [ %1095, %lshift64_m128.exit52 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.0374.2 = phi <2 x i64> [ %1095, %lshift64_m128.exit52 ], [ %990, %lshift64_m128.exit34 ]
   %.sroa.27.2 = phi <2 x i64> [ %1096, %lshift64_m128.exit52 ], [ %993, %lshift64_m128.exit34 ]
   %.sroa.35.2 = phi <2 x i64> [ %1097, %lshift64_m128.exit52 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %925, i64 16) ], !noalias !369
@@ -6334,11 +6334,11 @@ lshift64_m128.exit46:                             ; preds = %lshift64_m128.exit5
   %1099 = load <2 x i64>, ptr %926, align 16, !noalias !369
   call void @llvm.assume(i1 true) [ "align"(ptr %927, i64 16) ], !noalias !369
   %1100 = load <2 x i64>, ptr %927, align 16, !noalias !369
-  %1101 = and <2 x i64> %1099, %.sroa.24.12108
-  %1102 = and <2 x i64> %1100, %.sroa.26.12109
+  %1101 = and <2 x i64> %1099, %.sroa.24.12103
+  %1102 = and <2 x i64> %1100, %.sroa.26.12104
   %1103 = load i8, ptr %928, align 2
   %1104 = zext i8 %1103 to i32
-  %1105 = and <2 x i64> %1098, %.sroa.0475.12107
+  %1105 = and <2 x i64> %1098, %.sroa.0473.12102
   %1106 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1104, i64 0
   %1107 = bitcast <4 x i32> %1106 to <2 x i64>
   %1108 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1105, <2 x i64> %1107)
@@ -6348,13 +6348,13 @@ lshift64_m128.exit46:                             ; preds = %lshift64_m128.exit5
   %1112 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1104, i64 0
   %1113 = bitcast <4 x i32> %1112 to <2 x i64>
   %1114 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1102, <2 x i64> %1113)
-  %1115 = or <2 x i64> %1108, %.sroa.0376.2
+  %1115 = or <2 x i64> %1108, %.sroa.0374.2
   %1116 = or <2 x i64> %1111, %.sroa.27.2
   %1117 = or <2 x i64> %1114, %.sroa.35.2
   br label %lshift64_m128.exit40
 
 lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit46, %lshift64_m128.exit34
-  %.sroa.0376.0 = phi <2 x i64> [ %1115, %lshift64_m128.exit46 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.0374.0 = phi <2 x i64> [ %1115, %lshift64_m128.exit46 ], [ %990, %lshift64_m128.exit34 ]
   %.sroa.27.0 = phi <2 x i64> [ %1116, %lshift64_m128.exit46 ], [ %993, %lshift64_m128.exit34 ]
   %.sroa.35.0 = phi <2 x i64> [ %1117, %lshift64_m128.exit46 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %929, i64 16) ], !noalias !372
@@ -6363,11 +6363,11 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit4
   %1119 = load <2 x i64>, ptr %930, align 16, !noalias !372
   call void @llvm.assume(i1 true) [ "align"(ptr %931, i64 16) ], !noalias !372
   %1120 = load <2 x i64>, ptr %931, align 16, !noalias !372
-  %1121 = and <2 x i64> %1119, %.sroa.24.12108
-  %1122 = and <2 x i64> %1120, %.sroa.26.12109
+  %1121 = and <2 x i64> %1119, %.sroa.24.12103
+  %1122 = and <2 x i64> %1120, %.sroa.26.12104
   %1123 = load i8, ptr %932, align 1
   %1124 = zext i8 %1123 to i32
-  %1125 = and <2 x i64> %1118, %.sroa.0475.12107
+  %1125 = and <2 x i64> %1118, %.sroa.0473.12102
   %1126 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1124, i64 0
   %1127 = bitcast <4 x i32> %1126 to <2 x i64>
   %1128 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1125, <2 x i64> %1127)
@@ -6377,13 +6377,13 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit4
   %1132 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1124, i64 0
   %1133 = bitcast <4 x i32> %1132 to <2 x i64>
   %1134 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1122, <2 x i64> %1133)
-  %1135 = or <2 x i64> %1128, %.sroa.0376.0
+  %1135 = or <2 x i64> %1128, %.sroa.0374.0
   %1136 = or <2 x i64> %1131, %.sroa.27.0
   %1137 = or <2 x i64> %1134, %.sroa.35.0
   br label %1138
 
 1138:                                             ; preds = %lshift64_m128.exit40, %lshift64_m128.exit34
-  %.sroa.0376.1 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1135, %lshift64_m128.exit40 ]
+  %.sroa.0374.1 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1135, %lshift64_m128.exit40 ]
   %.sroa.27.1 = phi <2 x i64> [ %993, %lshift64_m128.exit34 ], [ %1136, %lshift64_m128.exit40 ]
   %.sroa.35.1 = phi <2 x i64> [ %996, %lshift64_m128.exit34 ], [ %1137, %lshift64_m128.exit40 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %933, i64 16) ], !noalias !375
@@ -6392,9 +6392,9 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit4
   %1140 = load <2 x i64>, ptr %934, align 16, !noalias !375
   call void @llvm.assume(i1 true) [ "align"(ptr %935, i64 16) ], !noalias !375
   %1141 = load <2 x i64>, ptr %935, align 16, !noalias !375
-  %1142 = and <2 x i64> %1139, %.sroa.0475.12107
-  %1143 = and <2 x i64> %1140, %.sroa.24.12108
-  %1144 = and <2 x i64> %1141, %.sroa.26.12109
+  %1142 = and <2 x i64> %1139, %.sroa.0473.12102
+  %1143 = and <2 x i64> %1140, %.sroa.24.12103
+  %1144 = and <2 x i64> %1141, %.sroa.26.12104
   %1145 = bitcast <2 x i64> %1142 to <4 x i32>
   %1146 = icmp eq <4 x i32> %1145, zeroinitializer
   %1147 = sext <4 x i1> %1146 to <4 x i32>
@@ -6418,7 +6418,7 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit4
   br i1 %.not.i23, label %1341, label %1164, !prof !80
 
 1164:                                             ; preds = %1138
-  %1165 = icmp eq i64 %.118972105, 0
+  %1165 = icmp eq i64 %.118952100, 0
   br i1 %1165, label %.critedge.i28, label %1166
 
 1166:                                             ; preds = %1164
@@ -6428,47 +6428,47 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit4
   %1168 = load <2 x i64>, ptr %937, align 16, !noalias !378
   call void @llvm.assume(i1 true) [ "align"(ptr %938, i64 16) ], !noalias !378
   %1169 = load <2 x i64>, ptr %938, align 16, !noalias !378
-  %1170 = and <2 x i64> %1167, %.sroa.0475.12107
-  %1171 = and <2 x i64> %1168, %.sroa.24.12108
-  %1172 = and <2 x i64> %1169, %.sroa.26.12109
+  %1170 = and <2 x i64> %1167, %.sroa.0473.12102
+  %1171 = and <2 x i64> %1168, %.sroa.24.12103
+  %1172 = and <2 x i64> %1169, %.sroa.26.12104
   %1173 = or <2 x i64> %1171, %1170
   %1174 = or <2 x i64> %1173, %1172
   %1175 = bitcast <2 x i64> %1174 to <16 x i8>
   %1176 = icmp ne <16 x i8> %1175, zeroinitializer
   %1177 = bitcast <16 x i1> %1176 to i16
-  %.not2040 = icmp eq i16 %1177, 0
-  br i1 %.not2040, label %.critedge.i28, label %nfaExecLimEx384_Stream.exit.sink.split.sink.split, !prof !80
+  %.not2035 = icmp eq i16 %1177, 0
+  br i1 %.not2035, label %.critedge.i28, label %nfaExecLimEx384_Stream.exit.sink.split.sink.split, !prof !80
 
 .critedge.i28:                                    ; preds = %1166, %1164
-  %1178 = add i64 %.118972105, %4
-  %.sroa.01752.0.copyload2041 = load <16 x i8>, ptr %939, align 16
+  %1178 = add i64 %.118952100, %4
+  %.sroa.01750.0.copyload2036 = load <16 x i8>, ptr %939, align 16
   %1179 = bitcast <2 x i64> %1142 to <16 x i8>
-  %1180 = icmp ne <16 x i8> %.sroa.01752.0.copyload2041, %1179
+  %1180 = icmp ne <16 x i8> %.sroa.01750.0.copyload2036, %1179
   %1181 = bitcast <16 x i1> %1180 to i16
   %.not.i206 = icmp eq i16 %1181, 0
   br i1 %.not.i206, label %1182, label %diff384.exit208.thread
 
 1182:                                             ; preds = %.critedge.i28
-  %.sroa.51754.0.copyload2043 = load <16 x i8>, ptr %.sroa.51754.0..sroa_idx, align 16
-  %.sroa.41753.0.copyload2042 = load <16 x i8>, ptr %.sroa.41753.0..sroa_idx, align 16
+  %.sroa.51752.0.copyload2038 = load <16 x i8>, ptr %.sroa.51752.0..sroa_idx, align 16
+  %.sroa.41751.0.copyload2037 = load <16 x i8>, ptr %.sroa.41751.0..sroa_idx, align 16
   %1183 = bitcast <2 x i64> %1143 to <16 x i8>
-  %1184 = icmp ne <16 x i8> %.sroa.41753.0.copyload2042, %1183
+  %1184 = icmp ne <16 x i8> %.sroa.41751.0.copyload2037, %1183
   %1185 = bitcast <16 x i1> %1184 to i16
   %.not1.i207 = icmp eq i16 %1185, 0
   %1186 = bitcast <2 x i64> %1144 to <16 x i8>
-  %1187 = icmp ne <16 x i8> %.sroa.51754.0.copyload2043, %1186
+  %1187 = icmp ne <16 x i8> %.sroa.51752.0.copyload2038, %1186
   %1188 = bitcast <16 x i1> %1187 to i16
-  %.not2044 = icmp eq i16 %1188, 0
-  %or.cond2056 = select i1 %.not1.i207, i1 %.not2044, i1 false
-  br i1 %or.cond2056, label %1189, label %diff384.exit208.thread
+  %.not2039 = icmp eq i16 %1188, 0
+  %or.cond2051 = select i1 %.not1.i207, i1 %.not2039, i1 false
+  br i1 %or.cond2051, label %1189, label %diff384.exit208.thread
 
 1189:                                             ; preds = %1182
-  %.sroa.01643.0.copyload = load <2 x i64>, ptr %944, align 16
-  %.sroa.41644.0.copyload = load <2 x i64>, ptr %.sroa.41644.0..sroa_idx, align 16
-  %.sroa.51645.0.copyload = load <2 x i64>, ptr %.sroa.51645.0..sroa_idx, align 16
-  %1190 = or <2 x i64> %.sroa.01643.0.copyload, %.sroa.0376.1
-  %1191 = or <2 x i64> %.sroa.41644.0.copyload, %.sroa.27.1
-  %1192 = or <2 x i64> %.sroa.51645.0.copyload, %.sroa.35.1
+  %.sroa.01641.0.copyload = load <2 x i64>, ptr %944, align 16
+  %.sroa.41642.0.copyload = load <2 x i64>, ptr %.sroa.41642.0..sroa_idx, align 16
+  %.sroa.51643.0.copyload = load <2 x i64>, ptr %.sroa.51643.0..sroa_idx, align 16
+  %1190 = or <2 x i64> %.sroa.01641.0.copyload, %.sroa.0374.1
+  %1191 = or <2 x i64> %.sroa.41642.0.copyload, %.sroa.27.1
+  %1192 = or <2 x i64> %.sroa.51643.0.copyload, %.sroa.35.1
   br label %1341
 
 diff384.exit208.thread:                           ; preds = %.critedge.i28, %1182
@@ -6476,8 +6476,8 @@ diff384.exit208.thread:                           ; preds = %.critedge.i28, %118
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store <2 x i64> %1142, ptr %13, align 16
-  store <2 x i64> %1143, ptr %.sroa.71565.0..sroa_idx1566, align 16
-  store <2 x i64> %1144, ptr %.sroa.81572.0..sroa_idx1573, align 16
+  store <2 x i64> %1143, ptr %.sroa.71563.0..sroa_idx1564, align 16
+  store <2 x i64> %1144, ptr %.sroa.81570.0..sroa_idx1571, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %14, ptr noundef nonnull align 64 dereferenceable(48) %933, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 16
@@ -6485,26 +6485,26 @@ diff384.exit208.thread:                           ; preds = %.critedge.i28, %118
 
 1193:                                             ; preds = %diff384.exit208.thread, %1193
   %1194 = phi i32 [ 0, %diff384.exit208.thread ], [ %1199, %1193 ]
-  %indvars.iv2144 = phi i64 [ 0, %diff384.exit208.thread ], [ %indvars.iv.next2145, %1193 ]
-  %1195 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv2144
+  %indvars.iv2139 = phi i64 [ 0, %diff384.exit208.thread ], [ %indvars.iv.next2140, %1193 ]
+  %1195 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv2139
   %1196 = load i64, ptr %1195, align 8
   %1197 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1196)
   %1198 = trunc nuw nsw i64 %1197 to i32
   %1199 = add i32 %1194, %1198
-  %indvars.iv.next2145 = add nuw nsw i64 %indvars.iv2144, 1
-  %1200 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next2145
+  %indvars.iv.next2140 = add nuw nsw i64 %indvars.iv2139, 1
+  %1200 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next2140
   store i32 %1199, ptr %1200, align 4
-  %exitcond2147.not = icmp eq i64 %indvars.iv.next2145, 5
-  br i1 %exitcond2147.not, label %.preheader, label %1193
+  %exitcond2142.not = icmp eq i64 %indvars.iv.next2140, 5
+  br i1 %exitcond2142.not, label %.preheader, label %1193
 
 .preheader:                                       ; preds = %1193, %1330
-  %.sroa.0376.8 = phi <2 x i64> [ %.sroa.0376.14, %1330 ], [ %.sroa.0376.1, %1193 ]
+  %.sroa.0374.8 = phi <2 x i64> [ %.sroa.0374.14, %1330 ], [ %.sroa.0374.1, %1193 ]
   %.sroa.27.8 = phi <2 x i64> [ %.sroa.27.14, %1330 ], [ %.sroa.27.1, %1193 ]
   %.sroa.35.8 = phi <2 x i64> [ %.sroa.35.14, %1330 ], [ %.sroa.35.1, %1193 ]
-  %.01889 = phi i32 [ %.51894, %1330 ], [ 1, %1193 ]
-  %.sroa.01623.4 = phi i8 [ %.sroa.01623.9, %1330 ], [ 0, %1193 ]
-  %.01888 = phi i32 [ %1331, %1330 ], [ %1163, %1193 ]
-  %1201 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01888) #13, !srcloc !131
+  %.01887 = phi i32 [ %.51892, %1330 ], [ 1, %1193 ]
+  %.sroa.01621.4 = phi i8 [ %.sroa.01621.9, %1330 ], [ 0, %1193 ]
+  %.01886 = phi i32 [ %1331, %1330 ], [ %1163, %1193 ]
+  %1201 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01886) #13, !srcloc !131
   %1202 = extractvalue { i32, i32 } %1201, 0
   %1203 = lshr i32 %1202, 1
   %1204 = zext nneg i32 %1203 to i64
@@ -6514,14 +6514,14 @@ diff384.exit208.thread:                           ; preds = %.critedge.i28, %118
   %1208 = getelementptr inbounds nuw i32, ptr %15, i64 %1204
   br label %1209
 
-1209:                                             ; preds = %runException384.exit237, %.preheader
-  %.sroa.0376.9 = phi <2 x i64> [ %.sroa.0376.8, %.preheader ], [ %.sroa.0376.14, %runException384.exit237 ]
-  %.sroa.27.9 = phi <2 x i64> [ %.sroa.27.8, %.preheader ], [ %.sroa.27.14, %runException384.exit237 ]
-  %.sroa.35.9 = phi <2 x i64> [ %.sroa.35.8, %.preheader ], [ %.sroa.35.14, %runException384.exit237 ]
-  %.01895 = phi i64 [ %1206, %.preheader ], [ %1212, %runException384.exit237 ]
-  %.11890 = phi i32 [ %.01889, %.preheader ], [ %.51894, %runException384.exit237 ]
-  %.sroa.01623.5 = phi i8 [ %.sroa.01623.4, %.preheader ], [ %.sroa.01623.9, %runException384.exit237 ]
-  %1210 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01895) #13, !srcloc !132
+1209:                                             ; preds = %runException384.exit235, %.preheader
+  %.sroa.0374.9 = phi <2 x i64> [ %.sroa.0374.8, %.preheader ], [ %.sroa.0374.14, %runException384.exit235 ]
+  %.sroa.27.9 = phi <2 x i64> [ %.sroa.27.8, %.preheader ], [ %.sroa.27.14, %runException384.exit235 ]
+  %.sroa.35.9 = phi <2 x i64> [ %.sroa.35.8, %.preheader ], [ %.sroa.35.14, %runException384.exit235 ]
+  %.01893 = phi i64 [ %1206, %.preheader ], [ %1212, %runException384.exit235 ]
+  %.11888 = phi i32 [ %.01887, %.preheader ], [ %.51892, %runException384.exit235 ]
+  %.sroa.01621.5 = phi i8 [ %.sroa.01621.4, %.preheader ], [ %.sroa.01621.9, %runException384.exit235 ]
+  %1210 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01893) #13, !srcloc !132
   %1211 = extractvalue { i64, i64 } %1210, 0
   %1212 = extractvalue { i64, i64 } %1210, 1
   %1213 = load i64, ptr %1207, align 8
@@ -6537,8 +6537,8 @@ diff384.exit208.thread:                           ; preds = %.critedge.i28, %118
   %1222 = getelementptr inbounds nuw %struct.NFAException384, ptr %29, i64 %1221
   %1223 = getelementptr inbounds nuw i8, ptr %1222, i64 105
   %1224 = load i8, ptr %1223, align 1
-  %.not69.i225 = icmp eq i8 %1224, 0
-  br i1 %.not69.i225, label %.critedge.i226.thread, label %1225
+  %.not69.i224 = icmp eq i8 %1224, 0
+  br i1 %.not69.i224, label %.critedge.i225.thread, label %1225
 
 1225:                                             ; preds = %1209
   %1226 = getelementptr inbounds nuw i8, ptr %1222, i64 100
@@ -6557,28 +6557,28 @@ diff384.exit208.thread:                           ; preds = %.critedge.i28, %118
   %1239 = zext i32 %1238 to i64
   %1240 = getelementptr inbounds nuw i8, ptr %1236, i64 %1239
   %1241 = icmp eq i8 %1224, 1
-  br i1 %1241, label %testbit384.exit.i233, label %1264
+  br i1 %1241, label %testbit384.exit.i231, label %1264
 
-testbit384.exit.i233:                             ; preds = %1225
+testbit384.exit.i231:                             ; preds = %1225
   %1242 = load i32, ptr %1229, align 4
   %1243 = icmp ult i32 %1242, 128
   %1244 = icmp ult i32 %1242, 256
-  %spec.select2019 = select i1 %1244, <2 x i64> %.sroa.24.12108, <2 x i64> %.sroa.26.12109
-  %.0.in.i.i234.sroa.speculated = select i1 %1243, <2 x i64> %.sroa.0475.12107, <2 x i64> %spec.select2019
+  %spec.select2014 = select i1 %1244, <2 x i64> %.sroa.24.12103, <2 x i64> %.sroa.26.12104
+  %.0.in.i.i232.sroa.speculated = select i1 %1243, <2 x i64> %.sroa.0473.12102, <2 x i64> %spec.select2014
   %1245 = and i32 %1242, 127
   %1246 = shl nuw nsw i32 %1245, 6
   %1247 = and i32 %1246, 448
   %1248 = lshr i32 %1245, 3
-  %reass.sub2115 = sub nsw i32 %1247, %1248
-  %1249 = sext i32 %reass.sub2115 to i64
+  %reass.sub2110 = sub nsw i32 %1247, %1248
+  %1249 = sext i32 %reass.sub2110 to i64
   %1250 = getelementptr i8, ptr @simd_onebit_masks, i64 %1249
   %1251 = getelementptr i8, ptr %1250, i64 95
   %1252 = load <2 x i64>, ptr %1251, align 1
-  %1253 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %1252, <2 x i64> %.0.in.i.i234.sroa.speculated)
-  %.not.i.i236 = icmp eq i32 %1253, 0
-  %1254 = zext i1 %.not.i.i236 to i8
+  %1253 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %1252, <2 x i64> %.0.in.i.i232.sroa.speculated)
+  %.not.i.i234 = icmp eq i32 %1253, 0
+  %1254 = zext i1 %.not.i.i234 to i8
   %1255 = load i8, ptr %1230, align 4
-  switch i8 %1255, label %.critedge.i226.thread [
+  switch i8 %1255, label %.critedge.i225.thread [
     i8 0, label %1256
     i8 1, label %1257
     i8 2, label %1259
@@ -6588,40 +6588,40 @@ testbit384.exit.i233:                             ; preds = %1225
     i8 6, label %1263
   ]
 
-1256:                                             ; preds = %testbit384.exit.i233
+1256:                                             ; preds = %testbit384.exit.i231
   call void @repeatStoreRing(ptr noundef nonnull %1230, ptr noundef %1235, ptr noundef %1240, i64 noundef %1178, i8 noundef signext range(i8 0, 2) %1254) #12
-  br label %.critedge.i226.thread
+  br label %.critedge.i225.thread
 
-1257:                                             ; preds = %testbit384.exit.i233
-  br i1 %.not.i.i236, label %.critedge.i226.thread, label %1258
+1257:                                             ; preds = %testbit384.exit.i231
+  br i1 %.not.i.i234, label %.critedge.i225.thread, label %1258
 
 1258:                                             ; preds = %1257
   store i64 %1178, ptr %1235, align 8
-  br label %.critedge.i226.thread
+  br label %.critedge.i225.thread
 
-1259:                                             ; preds = %testbit384.exit.i233
+1259:                                             ; preds = %testbit384.exit.i231
   store i64 %1178, ptr %1235, align 8
-  br label %.critedge.i226.thread
+  br label %.critedge.i225.thread
 
-1260:                                             ; preds = %testbit384.exit.i233
+1260:                                             ; preds = %testbit384.exit.i231
   call void @repeatStoreRange(ptr noundef nonnull %1230, ptr noundef %1235, ptr noundef %1240, i64 noundef %1178, i8 noundef signext range(i8 0, 2) %1254) #12
-  br label %.critedge.i226.thread
+  br label %.critedge.i225.thread
 
-1261:                                             ; preds = %testbit384.exit.i233
+1261:                                             ; preds = %testbit384.exit.i231
   call void @repeatStoreBitmap(ptr noundef nonnull %1230, ptr noundef %1235, i64 noundef %1178, i8 noundef signext range(i8 0, 2) %1254) #12
-  br label %.critedge.i226.thread
+  br label %.critedge.i225.thread
 
-1262:                                             ; preds = %testbit384.exit.i233
+1262:                                             ; preds = %testbit384.exit.i231
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %1230, ptr noundef %1235, ptr noundef %1240, i64 noundef %1178, i8 noundef signext range(i8 0, 2) %1254) #12
-  br label %.critedge.i226.thread
+  br label %.critedge.i225.thread
 
-1263:                                             ; preds = %testbit384.exit.i233
+1263:                                             ; preds = %testbit384.exit.i231
   call void @repeatStoreTrailer(ptr noundef nonnull %1230, ptr noundef %1235, i64 noundef %1178, i8 noundef signext range(i8 0, 2) %1254) #12
-  br label %.critedge.i226.thread
+  br label %.critedge.i225.thread
 
 1264:                                             ; preds = %1225
   %1265 = load i8, ptr %1230, align 4
-  switch i8 %1265, label %runException384.exit237 [
+  switch i8 %1265, label %runException384.exit235 [
     i8 0, label %1266
     i8 1, label %1268
     i8 2, label %1275
@@ -6629,12 +6629,12 @@ testbit384.exit.i233:                             ; preds = %1225
     i8 4, label %1289
     i8 5, label %1291
     i8 6, label %1293
-    i8 7, label %repeatHasMatch.exit257.thread1983
+    i8 7, label %repeatHasMatch.exit255.thread1979
   ]
 
 1266:                                             ; preds = %1264
   %1267 = call i32 @repeatHasMatchRing(ptr noundef nonnull %1230, ptr noundef %1235, ptr noundef %1240, i64 noundef %1178) #12
-  br label %repeatHasMatch.exit257
+  br label %repeatHasMatch.exit255
 
 1268:                                             ; preds = %1264
   %1269 = load i64, ptr %1235, align 8
@@ -6643,7 +6643,7 @@ testbit384.exit.i233:                             ; preds = %1225
   %1272 = zext i32 %1271 to i64
   %1273 = add i64 %1269, %1272
   %1274 = icmp ult i64 %1178, %1273
-  br i1 %1274, label %runException384.exit237, label %repeatHasMatch.exit257.thread1983
+  br i1 %1274, label %runException384.exit235, label %repeatHasMatch.exit255.thread1979
 
 1275:                                             ; preds = %1264
   %1276 = load i64, ptr %1235, align 8
@@ -6652,48 +6652,48 @@ testbit384.exit.i233:                             ; preds = %1225
   %1279 = zext i32 %1278 to i64
   %1280 = add i64 %1276, %1279
   %1281 = icmp ult i64 %1178, %1280
-  br i1 %1281, label %runException384.exit237, label %1282
+  br i1 %1281, label %runException384.exit235, label %1282
 
 1282:                                             ; preds = %1275
   %1283 = getelementptr inbounds nuw i8, ptr %1229, i64 32
   %1284 = load i32, ptr %1283, align 4
   %1285 = zext i32 %1284 to i64
   %1286 = add i64 %1276, %1285
-  %.not.i261 = icmp ugt i64 %1178, %1286
-  br i1 %.not.i261, label %repeatHasMatch.exit257.thread1985, label %repeatHasMatch.exit257.thread1983
+  %.not.i259 = icmp ugt i64 %1178, %1286
+  br i1 %.not.i259, label %repeatHasMatch.exit255.thread1981, label %repeatHasMatch.exit255.thread1979
 
 1287:                                             ; preds = %1264
   %1288 = call i32 @repeatHasMatchRange(ptr noundef nonnull %1230, ptr noundef %1235, ptr noundef %1240, i64 noundef %1178) #12
-  br label %repeatHasMatch.exit257
+  br label %repeatHasMatch.exit255
 
 1289:                                             ; preds = %1264
   %1290 = call i32 @repeatHasMatchBitmap(ptr noundef nonnull %1230, ptr noundef %1235, i64 noundef %1178) #12
-  br label %repeatHasMatch.exit257
+  br label %repeatHasMatch.exit255
 
 1291:                                             ; preds = %1264
   %1292 = call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %1230, ptr noundef %1235, ptr noundef %1240, i64 noundef %1178) #12
-  br label %repeatHasMatch.exit257
+  br label %repeatHasMatch.exit255
 
 1293:                                             ; preds = %1264
   %1294 = call i32 @repeatHasMatchTrailer(ptr noundef nonnull %1230, ptr noundef %1235, i64 noundef %1178) #12
-  br label %repeatHasMatch.exit257
+  br label %repeatHasMatch.exit255
 
-repeatHasMatch.exit257:                           ; preds = %1266, %1287, %1289, %1291, %1293
-  %.0.i256 = phi i32 [ %1267, %1266 ], [ %1288, %1287 ], [ %1290, %1289 ], [ %1292, %1291 ], [ %1294, %1293 ]
-  switch i32 %.0.i256, label %runException384.exit237 [
-    i32 1, label %repeatHasMatch.exit257.thread1983
-    i32 2, label %repeatHasMatch.exit257.thread1985
+repeatHasMatch.exit255:                           ; preds = %1266, %1287, %1289, %1291, %1293
+  %.0.i254 = phi i32 [ %1267, %1266 ], [ %1288, %1287 ], [ %1290, %1289 ], [ %1292, %1291 ], [ %1294, %1293 ]
+  switch i32 %.0.i254, label %runException384.exit235 [
+    i32 1, label %repeatHasMatch.exit255.thread1979
+    i32 2, label %repeatHasMatch.exit255.thread1981
   ]
 
-repeatHasMatch.exit257.thread1983:                ; preds = %1282, %1264, %1268, %repeatHasMatch.exit257
+repeatHasMatch.exit255.thread1979:                ; preds = %1282, %1264, %1268, %repeatHasMatch.exit255
   %1295 = getelementptr inbounds nuw i8, ptr %1229, i64 32
   %1296 = load i32, ptr %1295, align 4
   %1297 = icmp eq i32 %1296, 65535
-  %spec.select2020 = select i1 %1297, i32 %.11890, i32 2
-  %spec.select2021 = select i1 %1297, i8 1, i8 %.sroa.01623.5
-  br label %.critedge.i226.thread
+  %spec.select2015 = select i1 %1297, i32 %.11888, i32 2
+  %spec.select2016 = select i1 %1297, i8 1, i8 %.sroa.01621.5
+  br label %.critedge.i225.thread
 
-repeatHasMatch.exit257.thread1985:                ; preds = %1282, %repeatHasMatch.exit257
+repeatHasMatch.exit255.thread1981:                ; preds = %1282, %repeatHasMatch.exit255
   call void @llvm.assume(i1 true) [ "align"(ptr %1222, i64 16) ], !noalias !381
   %1298 = load <2 x i64>, ptr %1222, align 16, !noalias !381
   %1299 = getelementptr inbounds nuw i8, ptr %1222, i64 16
@@ -6702,21 +6702,21 @@ repeatHasMatch.exit257.thread1985:                ; preds = %1282, %repeatHasMat
   %1301 = getelementptr inbounds nuw i8, ptr %1222, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1301, i64 16) ], !noalias !381
   %1302 = load <2 x i64>, ptr %1301, align 16, !noalias !381
-  %1303 = and <2 x i64> %1298, %.sroa.0376.9
+  %1303 = and <2 x i64> %1298, %.sroa.0374.9
   %1304 = and <2 x i64> %1300, %.sroa.27.9
   %1305 = and <2 x i64> %1302, %.sroa.35.9
-  br label %runException384.exit237
+  br label %runException384.exit235
 
-.critedge.i226.thread:                            ; preds = %repeatHasMatch.exit257.thread1983, %1263, %1262, %1261, %1260, %1259, %1256, %testbit384.exit.i233, %1257, %1258, %1209
-  %.31892 = phi i32 [ %.11890, %1209 ], [ 2, %1263 ], [ 2, %1262 ], [ 2, %1261 ], [ 2, %1260 ], [ 2, %1259 ], [ 2, %1256 ], [ 2, %testbit384.exit.i233 ], [ 2, %1257 ], [ 2, %1258 ], [ %spec.select2020, %repeatHasMatch.exit257.thread1983 ]
-  %.sroa.01623.8 = phi i8 [ %.sroa.01623.5, %1209 ], [ %.sroa.01623.5, %1263 ], [ %.sroa.01623.5, %1262 ], [ %.sroa.01623.5, %1261 ], [ %.sroa.01623.5, %1260 ], [ %.sroa.01623.5, %1259 ], [ %.sroa.01623.5, %1256 ], [ %.sroa.01623.5, %testbit384.exit.i233 ], [ %.sroa.01623.5, %1257 ], [ %.sroa.01623.5, %1258 ], [ %spec.select2021, %repeatHasMatch.exit257.thread1983 ]
+.critedge.i225.thread:                            ; preds = %repeatHasMatch.exit255.thread1979, %1263, %1262, %1261, %1260, %1259, %1256, %testbit384.exit.i231, %1257, %1258, %1209
+  %.31890 = phi i32 [ %.11888, %1209 ], [ 2, %1263 ], [ 2, %1262 ], [ 2, %1261 ], [ 2, %1260 ], [ 2, %1259 ], [ 2, %1256 ], [ 2, %testbit384.exit.i231 ], [ 2, %1257 ], [ 2, %1258 ], [ %spec.select2015, %repeatHasMatch.exit255.thread1979 ]
+  %.sroa.01621.8 = phi i8 [ %.sroa.01621.5, %1209 ], [ %.sroa.01621.5, %1263 ], [ %.sroa.01621.5, %1262 ], [ %.sroa.01621.5, %1261 ], [ %.sroa.01621.5, %1260 ], [ %.sroa.01621.5, %1259 ], [ %.sroa.01621.5, %1256 ], [ %.sroa.01621.5, %testbit384.exit.i231 ], [ %.sroa.01621.5, %1257 ], [ %.sroa.01621.5, %1258 ], [ %spec.select2016, %repeatHasMatch.exit255.thread1979 ]
   %1306 = getelementptr inbounds nuw i8, ptr %1222, i64 96
   %1307 = load i32, ptr %1306, align 16
-  %.not70.i230 = icmp ne i32 %1307, -1
-  %brmerge2022.not2046 = and i1 %1165, %.not70.i230
-  %1308 = icmp eq i32 %.31892, 1
-  %or.cond2023 = select i1 %brmerge2022.not2046, i1 %1308, i1 false
-  %.41893 = select i1 %or.cond2023, i32 0, i32 %.31892
+  %.not70.i228 = icmp ne i32 %1307, -1
+  %brmerge2017.not2041 = and i1 %1165, %.not70.i228
+  %1308 = icmp eq i32 %.31890, 1
+  %or.cond2018 = select i1 %brmerge2017.not2041, i1 %1308, i1 false
+  %.41891 = select i1 %or.cond2018, i32 0, i32 %.31890
   %1309 = getelementptr inbounds nuw i8, ptr %1222, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %1309, i64 16) ], !noalias !384
   %1310 = load <2 x i64>, ptr %1309, align 16, !noalias !384
@@ -6726,23 +6726,23 @@ repeatHasMatch.exit257.thread1985:                ; preds = %1282, %repeatHasMat
   %1313 = getelementptr inbounds nuw i8, ptr %1222, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %1313, i64 16) ], !noalias !384
   %1314 = load <2 x i64>, ptr %1313, align 16, !noalias !384
-  %.sroa.01872.0.copyload = load <2 x i64>, ptr %940, align 16
-  %.sroa.41873.0.copyload = load <2 x i64>, ptr %.sroa.41627.0..sroa_idx, align 16
-  %.sroa.51874.0.copyload = load <2 x i64>, ptr %.sroa.51628.0..sroa_idx, align 16
-  %1315 = or <2 x i64> %.sroa.01872.0.copyload, %1310
-  %1316 = or <2 x i64> %.sroa.41873.0.copyload, %1312
-  %1317 = or <2 x i64> %.sroa.51874.0.copyload, %1314
+  %.sroa.01870.0.copyload = load <2 x i64>, ptr %940, align 16
+  %.sroa.41871.0.copyload = load <2 x i64>, ptr %.sroa.41625.0..sroa_idx, align 16
+  %.sroa.51872.0.copyload = load <2 x i64>, ptr %.sroa.51626.0..sroa_idx, align 16
+  %1315 = or <2 x i64> %.sroa.01870.0.copyload, %1310
+  %1316 = or <2 x i64> %.sroa.41871.0.copyload, %1312
+  %1317 = or <2 x i64> %.sroa.51872.0.copyload, %1314
   store <2 x i64> %1315, ptr %940, align 16
-  store <2 x i64> %1316, ptr %.sroa.41627.0..sroa_idx, align 16
-  store <2 x i64> %1317, ptr %.sroa.51628.0..sroa_idx, align 16
+  store <2 x i64> %1316, ptr %.sroa.41625.0..sroa_idx, align 16
+  store <2 x i64> %1317, ptr %.sroa.51626.0..sroa_idx, align 16
   %1318 = getelementptr inbounds nuw i8, ptr %1222, i64 104
   %1319 = load i8, ptr %1318, align 8
-  switch i8 %1319, label %runException384.exit237 [
+  switch i8 %1319, label %runException384.exit235 [
     i8 1, label %1320
     i8 3, label %1320
   ]
 
-1320:                                             ; preds = %.critedge.i226.thread, %.critedge.i226.thread
+1320:                                             ; preds = %.critedge.i225.thread, %.critedge.i225.thread
   call void @llvm.assume(i1 true) [ "align"(ptr %1222, i64 16) ], !noalias !387
   %1321 = load <2 x i64>, ptr %1222, align 16, !noalias !387
   %1322 = getelementptr inbounds nuw i8, ptr %1222, i64 16
@@ -6751,46 +6751,46 @@ repeatHasMatch.exit257.thread1985:                ; preds = %1282, %repeatHasMat
   %1324 = getelementptr inbounds nuw i8, ptr %1222, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1324, i64 16) ], !noalias !387
   %1325 = load <2 x i64>, ptr %1324, align 16, !noalias !387
-  %1326 = and <2 x i64> %1321, %.sroa.0376.9
+  %1326 = and <2 x i64> %1321, %.sroa.0374.9
   %1327 = and <2 x i64> %1323, %.sroa.27.9
   %1328 = and <2 x i64> %1325, %.sroa.35.9
-  %1329 = icmp eq i32 %.41893, 1
-  %spec.select2024 = select i1 %1329, i32 0, i32 %.41893
-  br label %runException384.exit237
+  %1329 = icmp eq i32 %.41891, 1
+  %spec.select2019 = select i1 %1329, i32 0, i32 %.41891
+  br label %runException384.exit235
 
-runException384.exit237:                          ; preds = %1320, %1268, %1264, %1275, %.critedge.i226.thread, %repeatHasMatch.exit257, %repeatHasMatch.exit257.thread1985
-  %.sroa.0376.14 = phi <2 x i64> [ %.sroa.0376.9, %.critedge.i226.thread ], [ %1303, %repeatHasMatch.exit257.thread1985 ], [ %.sroa.0376.9, %repeatHasMatch.exit257 ], [ %.sroa.0376.9, %1275 ], [ %.sroa.0376.9, %1264 ], [ %.sroa.0376.9, %1268 ], [ %1326, %1320 ]
-  %.sroa.27.14 = phi <2 x i64> [ %.sroa.27.9, %.critedge.i226.thread ], [ %1304, %repeatHasMatch.exit257.thread1985 ], [ %.sroa.27.9, %repeatHasMatch.exit257 ], [ %.sroa.27.9, %1275 ], [ %.sroa.27.9, %1264 ], [ %.sroa.27.9, %1268 ], [ %1327, %1320 ]
-  %.sroa.35.14 = phi <2 x i64> [ %.sroa.35.9, %.critedge.i226.thread ], [ %1305, %repeatHasMatch.exit257.thread1985 ], [ %.sroa.35.9, %repeatHasMatch.exit257 ], [ %.sroa.35.9, %1275 ], [ %.sroa.35.9, %1264 ], [ %.sroa.35.9, %1268 ], [ %1328, %1320 ]
-  %.51894 = phi i32 [ %.41893, %.critedge.i226.thread ], [ 2, %repeatHasMatch.exit257.thread1985 ], [ 2, %repeatHasMatch.exit257 ], [ 2, %1275 ], [ 2, %1264 ], [ 2, %1268 ], [ %spec.select2024, %1320 ]
-  %.sroa.01623.9 = phi i8 [ %.sroa.01623.8, %.critedge.i226.thread ], [ %.sroa.01623.5, %repeatHasMatch.exit257.thread1985 ], [ %.sroa.01623.5, %repeatHasMatch.exit257 ], [ %.sroa.01623.5, %1275 ], [ %.sroa.01623.5, %1264 ], [ %.sroa.01623.5, %1268 ], [ %.sroa.01623.8, %1320 ]
+runException384.exit235:                          ; preds = %1320, %1268, %1264, %1275, %.critedge.i225.thread, %repeatHasMatch.exit255, %repeatHasMatch.exit255.thread1981
+  %.sroa.0374.14 = phi <2 x i64> [ %.sroa.0374.9, %.critedge.i225.thread ], [ %1303, %repeatHasMatch.exit255.thread1981 ], [ %.sroa.0374.9, %repeatHasMatch.exit255 ], [ %.sroa.0374.9, %1275 ], [ %.sroa.0374.9, %1264 ], [ %.sroa.0374.9, %1268 ], [ %1326, %1320 ]
+  %.sroa.27.14 = phi <2 x i64> [ %.sroa.27.9, %.critedge.i225.thread ], [ %1304, %repeatHasMatch.exit255.thread1981 ], [ %.sroa.27.9, %repeatHasMatch.exit255 ], [ %.sroa.27.9, %1275 ], [ %.sroa.27.9, %1264 ], [ %.sroa.27.9, %1268 ], [ %1327, %1320 ]
+  %.sroa.35.14 = phi <2 x i64> [ %.sroa.35.9, %.critedge.i225.thread ], [ %1305, %repeatHasMatch.exit255.thread1981 ], [ %.sroa.35.9, %repeatHasMatch.exit255 ], [ %.sroa.35.9, %1275 ], [ %.sroa.35.9, %1264 ], [ %.sroa.35.9, %1268 ], [ %1328, %1320 ]
+  %.51892 = phi i32 [ %.41891, %.critedge.i225.thread ], [ 2, %repeatHasMatch.exit255.thread1981 ], [ 2, %repeatHasMatch.exit255 ], [ 2, %1275 ], [ 2, %1264 ], [ 2, %1268 ], [ %spec.select2019, %1320 ]
+  %.sroa.01621.9 = phi i8 [ %.sroa.01621.8, %.critedge.i225.thread ], [ %.sroa.01621.5, %repeatHasMatch.exit255.thread1981 ], [ %.sroa.01621.5, %repeatHasMatch.exit255 ], [ %.sroa.01621.5, %1275 ], [ %.sroa.01621.5, %1264 ], [ %.sroa.01621.5, %1268 ], [ %.sroa.01621.8, %1320 ]
   %.not57.i = icmp eq i64 %1212, 0
   br i1 %.not57.i, label %1330, label %1209
 
-1330:                                             ; preds = %runException384.exit237
+1330:                                             ; preds = %runException384.exit235
   %1331 = extractvalue { i32, i32 } %1201, 1
   %.not58.i = icmp eq i32 %1331, 0
   br i1 %.not58.i, label %1332, label %.preheader
 
 1332:                                             ; preds = %1330
-  %.sroa.01637.0.copyload = load <2 x i64>, ptr %940, align 16
-  %.sroa.41638.0.copyload = load <2 x i64>, ptr %.sroa.41627.0..sroa_idx, align 16
-  %.sroa.51639.0.copyload = load <2 x i64>, ptr %.sroa.51628.0..sroa_idx, align 16
-  %1333 = or <2 x i64> %.sroa.01637.0.copyload, %.sroa.0376.14
-  %1334 = or <2 x i64> %.sroa.41638.0.copyload, %.sroa.27.14
-  %1335 = or <2 x i64> %.sroa.51639.0.copyload, %.sroa.35.14
-  switch i32 %.51894, label %1340 [
+  %.sroa.01635.0.copyload = load <2 x i64>, ptr %940, align 16
+  %.sroa.41636.0.copyload = load <2 x i64>, ptr %.sroa.41625.0..sroa_idx, align 16
+  %.sroa.51637.0.copyload = load <2 x i64>, ptr %.sroa.51626.0..sroa_idx, align 16
+  %1333 = or <2 x i64> %.sroa.01635.0.copyload, %.sroa.0374.14
+  %1334 = or <2 x i64> %.sroa.41636.0.copyload, %.sroa.27.14
+  %1335 = or <2 x i64> %.sroa.51637.0.copyload, %.sroa.35.14
+  switch i32 %.51892, label %1340 [
     i32 1, label %1336
     i32 2, label %1337
   ]
 
 1336:                                             ; preds = %1332
   store <2 x i64> %1142, ptr %939, align 32
-  store <2 x i64> %1143, ptr %.sroa.41753.0..sroa_idx, align 16
-  store <2 x i64> %1144, ptr %.sroa.51754.0..sroa_idx, align 32
+  store <2 x i64> %1143, ptr %.sroa.41751.0..sroa_idx, align 16
+  store <2 x i64> %1144, ptr %.sroa.51752.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %944, ptr noundef nonnull align 16 dereferenceable(48) %940, i64 48, i1 false)
   store ptr null, ptr %945, align 8
-  store i8 %.sroa.01623.9, ptr %943, align 64
+  store i8 %.sroa.01621.9, ptr %943, align 64
   br label %1340
 
 1337:                                             ; preds = %1332
@@ -6809,10 +6809,10 @@ runException384.exit237:                          ; preds = %1320, %1268, %1264,
   br label %1341
 
 1341:                                             ; preds = %1138, %1340, %1189
-  %.sroa.0376.7.ph = phi <2 x i64> [ %1333, %1340 ], [ %1190, %1189 ], [ %.sroa.0376.1, %1138 ]
+  %.sroa.0374.7.ph = phi <2 x i64> [ %1333, %1340 ], [ %1190, %1189 ], [ %.sroa.0374.1, %1138 ]
   %.sroa.27.7.ph = phi <2 x i64> [ %1334, %1340 ], [ %1191, %1189 ], [ %.sroa.27.1, %1138 ]
   %.sroa.35.7.ph = phi <2 x i64> [ %1335, %1340 ], [ %1192, %1189 ], [ %.sroa.35.1, %1138 ]
-  %1342 = getelementptr inbounds nuw i8, ptr %1, i64 %.118972105
+  %1342 = getelementptr inbounds nuw i8, ptr %1, i64 %.118952100
   %1343 = load i8, ptr %1342, align 1
   %1344 = zext i8 %1343 to i64
   %1345 = getelementptr inbounds nuw i8, ptr %0, i64 %1344
@@ -6827,18 +6827,18 @@ runException384.exit237:                          ; preds = %1320, %1268, %1264,
   %1352 = getelementptr inbounds nuw i8, ptr %1348, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1352, i64 16) ], !noalias !390
   %1353 = load <2 x i64>, ptr %1352, align 16, !noalias !390
-  %1354 = and <2 x i64> %1349, %.sroa.0376.7.ph
+  %1354 = and <2 x i64> %1349, %.sroa.0374.7.ph
   %1355 = and <2 x i64> %1351, %.sroa.27.7.ph
   %1356 = and <2 x i64> %1353, %.sroa.35.7.ph
-  %1357 = add i64 %.118972105, 1
+  %1357 = add i64 %.118952100, 1
   %.not121.i = icmp eq i64 %1357, %2
   br i1 %.not121.i, label %.loopexit, label %946
 
 .loopexit:                                        ; preds = %1341, %nfaExecLimEx384_Loop_No_Accel.exit12, %975
-  %.sroa.0475.4 = phi <2 x i64> [ %.sroa.0475.2, %975 ], [ %.sroa.0475.0, %nfaExecLimEx384_Loop_No_Accel.exit12 ], [ %1354, %1341 ]
+  %.sroa.0473.4 = phi <2 x i64> [ %.sroa.0473.2, %975 ], [ %.sroa.0473.0, %nfaExecLimEx384_Loop_No_Accel.exit12 ], [ %1354, %1341 ]
   %.sroa.24.4 = phi <2 x i64> [ %.sroa.24.2, %975 ], [ %.sroa.24.0, %nfaExecLimEx384_Loop_No_Accel.exit12 ], [ %1355, %1341 ]
   %.sroa.26.4 = phi <2 x i64> [ %.sroa.26.2, %975 ], [ %.sroa.26.0, %nfaExecLimEx384_Loop_No_Accel.exit12 ], [ %1356, %1341 ]
-  store <2 x i64> %.sroa.0475.4, ptr %3, align 64
+  store <2 x i64> %.sroa.0473.4, ptr %3, align 64
   store <2 x i64> %.sroa.24.4, ptr %.sroa.24.0..sroa_idx, align 16
   store <2 x i64> %.sroa.26.4, ptr %.sroa.26.0..sroa_idx, align 32
   %1358 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -6856,7 +6856,7 @@ runException384.exit237:                          ; preds = %1320, %1268, %1264,
   %1365 = getelementptr inbounds nuw i8, ptr %0, i64 464
   call void @llvm.assume(i1 true) [ "align"(ptr %1365, i64 16) ], !noalias !393
   %1366 = load <2 x i64>, ptr %1365, align 16, !noalias !393
-  %1367 = and <2 x i64> %1362, %.sroa.0475.4
+  %1367 = and <2 x i64> %1362, %.sroa.0473.4
   %1368 = and <2 x i64> %1364, %.sroa.24.4
   %1369 = and <2 x i64> %1366, %.sroa.26.4
   %1370 = or <2 x i64> %1368, %1367
@@ -6864,29 +6864,29 @@ runException384.exit237:                          ; preds = %1320, %1268, %1264,
   %1372 = bitcast <2 x i64> %1371 to <16 x i8>
   %1373 = icmp ne <16 x i8> %1372, zeroinitializer
   %1374 = bitcast <16 x i1> %1373 to i16
-  %.not2047 = icmp eq i16 %1374, 0
-  br i1 %.not2047, label %nfaExecLimEx384_Stream.exit, label %nfaExecLimEx384_Stream.exit.sink.split, !prof !80
+  %.not2042 = icmp eq i16 %1374, 0
+  br i1 %.not2042, label %nfaExecLimEx384_Stream.exit, label %nfaExecLimEx384_Stream.exit.sink.split, !prof !80
 
 nfaExecLimEx384_Stream.exit.sink.split.sink.split: ; preds = %274, %705, %1166
-  %.sroa.0475.12107.lcssa2171.sink = phi <2 x i64> [ %.sroa.0475.12107, %1166 ], [ %.sroa.0865.02089, %705 ], [ %.sroa.01190.02080, %274 ]
-  %.sroa.15.02090.lcssa2180.sink.ph = phi <2 x i64> [ %.sroa.24.12108, %1166 ], [ %.sroa.15.02090, %705 ], [ %.sroa.14.02081, %274 ]
-  %.sroa.18.02091.lcssa2181.sink.ph = phi <2 x i64> [ %.sroa.26.12109, %1166 ], [ %.sroa.18.02091, %705 ], [ %.sroa.17.02082, %274 ]
-  %.045.i2092.lcssa2182.sink.ph.ph = phi i64 [ %.118972105, %1166 ], [ %.045.i2092, %705 ], [ %.045.i72083, %274 ]
-  store <2 x i64> %.sroa.0475.12107.lcssa2171.sink, ptr %3, align 64
+  %.sroa.0473.12102.lcssa2166.sink = phi <2 x i64> [ %.sroa.0473.12102, %1166 ], [ %.sroa.0863.02084, %705 ], [ %.sroa.01188.02075, %274 ]
+  %.sroa.15.02085.lcssa2175.sink.ph = phi <2 x i64> [ %.sroa.24.12103, %1166 ], [ %.sroa.15.02085, %705 ], [ %.sroa.14.02076, %274 ]
+  %.sroa.18.02086.lcssa2176.sink.ph = phi <2 x i64> [ %.sroa.26.12104, %1166 ], [ %.sroa.18.02086, %705 ], [ %.sroa.17.02077, %274 ]
+  %.045.i2087.lcssa2177.sink.ph.ph = phi i64 [ %.118952100, %1166 ], [ %.045.i2087, %705 ], [ %.045.i72078, %274 ]
+  store <2 x i64> %.sroa.0473.12102.lcssa2166.sink, ptr %3, align 64
   br label %nfaExecLimEx384_Stream.exit.sink.split
 
 nfaExecLimEx384_Stream.exit.sink.split:           ; preds = %nfaExecLimEx384_Stream.exit.sink.split.sink.split, %1360
-  %.sroa.15.02090.lcssa2180.sink = phi <2 x i64> [ %.sroa.24.4, %1360 ], [ %.sroa.15.02090.lcssa2180.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
-  %.sroa.18.02091.lcssa2181.sink = phi <2 x i64> [ %.sroa.26.4, %1360 ], [ %.sroa.18.02091.lcssa2181.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
-  %.045.i2092.lcssa2182.sink.ph = phi i64 [ %2, %1360 ], [ %.045.i2092.lcssa2182.sink.ph.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
-  store <2 x i64> %.sroa.15.02090.lcssa2180.sink, ptr %.sroa.24.0..sroa_idx, align 16
-  store <2 x i64> %.sroa.18.02091.lcssa2181.sink, ptr %.sroa.26.0..sroa_idx, align 32
+  %.sroa.15.02085.lcssa2175.sink = phi <2 x i64> [ %.sroa.24.4, %1360 ], [ %.sroa.15.02085.lcssa2175.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
+  %.sroa.18.02086.lcssa2176.sink = phi <2 x i64> [ %.sroa.26.4, %1360 ], [ %.sroa.18.02086.lcssa2176.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
+  %.045.i2087.lcssa2177.sink.ph = phi i64 [ %2, %1360 ], [ %.045.i2087.lcssa2177.sink.ph.ph, %nfaExecLimEx384_Stream.exit.sink.split.sink.split ]
+  store <2 x i64> %.sroa.15.02085.lcssa2175.sink, ptr %.sroa.24.0..sroa_idx, align 16
+  store <2 x i64> %.sroa.18.02086.lcssa2176.sink, ptr %.sroa.26.0..sroa_idx, align 32
   br label %nfaExecLimEx384_Stream.exit
 
 nfaExecLimEx384_Stream.exit:                      ; preds = %nfaExecLimEx384_Stream.exit.sink.split, %.loopexit, %1360
-  %.045.i2092.lcssa2182.sink = phi i64 [ %2, %1360 ], [ %2, %.loopexit ], [ %.045.i2092.lcssa2182.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split ]
+  %.045.i2087.lcssa2177.sink = phi i64 [ %2, %1360 ], [ %2, %.loopexit ], [ %.045.i2087.lcssa2177.sink.ph, %nfaExecLimEx384_Stream.exit.sink.split ]
   %.3.i = phi i8 [ 1, %1360 ], [ 1, %.loopexit ], [ 0, %nfaExecLimEx384_Stream.exit.sink.split ]
-  store i64 %.045.i2092.lcssa2182.sink, ptr %5, align 8
+  store i64 %.045.i2087.lcssa2177.sink, ptr %5, align 8
   ret i8 %.3.i
 }
 
@@ -7609,7 +7609,7 @@ define internal fastcc void @nfaExecLimEx384_Stream_Silent(ptr noundef %0, ptr n
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
-  %.sroa.0467.0.copyload = load <2 x i64>, ptr %3, align 64
+  %.sroa.0465.0.copyload = load <2 x i64>, ptr %3, align 64
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.22.0.copyload = load <2 x i64>, ptr %.sroa.22.0..sroa_idx, align 16
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -7622,8 +7622,8 @@ define internal fastcc void @nfaExecLimEx384_Stream_Silent(ptr noundef %0, ptr n
   br i1 %or.cond.i, label %33, label %nfaExecLimEx384_Loop_No_Accel.exit11
 
 33:                                               ; preds = %939, %5
-  %.21795 = phi i64 [ 0, %5 ], [ %928, %939 ]
-  %.sroa.0467.3 = phi <2 x i64> [ %.sroa.0467.0.copyload, %5 ], [ %.sroa.0467.2, %939 ]
+  %.21793 = phi i64 [ 0, %5 ], [ %928, %939 ]
+  %.sroa.0465.3 = phi <2 x i64> [ %.sroa.0465.0.copyload, %5 ], [ %.sroa.0465.2, %939 ]
   %.sroa.22.3 = phi <2 x i64> [ %.sroa.22.0.copyload, %5 ], [ %.sroa.22.2, %939 ]
   %.sroa.24.3 = phi <2 x i64> [ %.sroa.24.0.copyload, %5 ], [ %.sroa.24.2, %939 ]
   %.0107.i = phi i64 [ %2, %5 ], [ %.3110.i, %939 ]
@@ -7634,11 +7634,11 @@ define internal fastcc void @nfaExecLimEx384_Stream_Silent(ptr noundef %0, ptr n
   %37 = load i32, ptr %25, align 8
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
-  %.not.i41925 = icmp eq i64 %.21795, %.0107.i
+  %.not.i41920 = icmp eq i64 %.21793, %.0107.i
   br i1 %.not.i, label %449, label %40
 
 40:                                               ; preds = %33
-  br i1 %.not.i41925, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph
+  br i1 %.not.i41920, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 912
@@ -7684,35 +7684,35 @@ define internal fastcc void @nfaExecLimEx384_Stream_Silent(ptr noundef %0, ptr n
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 800
   call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 16) ], !noalias !431
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.7.0..sroa_idx1397 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.8.0..sroa_idx1403 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.41590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.7.0..sroa_idx1395 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.8.0..sroa_idx1401 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41609.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41607.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51608.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %lshift64_m128.exit127
 
 lshift64_m128.exit127:                            ; preds = %.lr.ph, %nfaExecLimEx384_Run_Exceptions.exit
-  %.045.i61920 = phi i64 [ %.21795, %.lr.ph ], [ %448, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.sroa.17.01919 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph ], [ %447, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.sroa.14.01918 = phi <2 x i64> [ %.sroa.22.3, %.lr.ph ], [ %446, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.sroa.01162.01917 = phi <2 x i64> [ %.sroa.0467.3, %.lr.ph ], [ %445, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.045.i61915 = phi i64 [ %.21793, %.lr.ph ], [ %448, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.sroa.17.01914 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph ], [ %447, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.sroa.14.01913 = phi <2 x i64> [ %.sroa.22.3, %.lr.ph ], [ %446, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.sroa.01160.01912 = phi <2 x i64> [ %.sroa.0465.3, %.lr.ph ], [ %445, %nfaExecLimEx384_Run_Exceptions.exit ]
   %84 = load <2 x i64>, ptr %42, align 16, !noalias !428
   %85 = load <2 x i64>, ptr %43, align 16, !noalias !428
-  %86 = and <2 x i64> %84, %.sroa.14.01918
-  %87 = and <2 x i64> %85, %.sroa.17.01919
+  %86 = and <2 x i64> %84, %.sroa.14.01913
+  %87 = and <2 x i64> %85, %.sroa.17.01914
   %88 = load i8, ptr %44, align 4
   %89 = zext i8 %88 to i32
   %90 = load <2 x i64>, ptr %41, align 16, !noalias !428
-  %91 = and <2 x i64> %90, %.sroa.01162.01917
+  %91 = and <2 x i64> %90, %.sroa.01160.01912
   %92 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %89, i64 0
   %93 = bitcast <4 x i32> %92 to <2 x i64>
   %94 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %91, <2 x i64> %93)
@@ -7740,11 +7740,11 @@ lshift64_m128.exit169:                            ; preds = %lshift64_m128.exit1
   %103 = load <2 x i64>, ptr %47, align 16, !noalias !434
   call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 16) ], !noalias !434
   %104 = load <2 x i64>, ptr %48, align 16, !noalias !434
-  %105 = and <2 x i64> %103, %.sroa.14.01918
-  %106 = and <2 x i64> %104, %.sroa.17.01919
+  %105 = and <2 x i64> %103, %.sroa.14.01913
+  %106 = and <2 x i64> %104, %.sroa.17.01914
   %107 = load i8, ptr %49, align 1
   %108 = zext i8 %107 to i32
-  %109 = and <2 x i64> %102, %.sroa.01162.01917
+  %109 = and <2 x i64> %102, %.sroa.01160.01912
   %110 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %108, i64 0
   %111 = bitcast <4 x i32> %110 to <2 x i64>
   %112 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %109, <2 x i64> %111)
@@ -7760,20 +7760,20 @@ lshift64_m128.exit169:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit163
 
 lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit169, %lshift64_m128.exit127
-  %.sroa.01084.6 = phi <2 x i64> [ %119, %lshift64_m128.exit169 ], [ %94, %lshift64_m128.exit127 ]
-  %.sroa.271100.6 = phi <2 x i64> [ %120, %lshift64_m128.exit169 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.351131.6 = phi <2 x i64> [ %121, %lshift64_m128.exit169 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.01082.6 = phi <2 x i64> [ %119, %lshift64_m128.exit169 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271098.6 = phi <2 x i64> [ %120, %lshift64_m128.exit169 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351129.6 = phi <2 x i64> [ %121, %lshift64_m128.exit169 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 16) ], !noalias !437
   %122 = load <2 x i64>, ptr %50, align 16, !noalias !437
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 16) ], !noalias !437
   %123 = load <2 x i64>, ptr %51, align 16, !noalias !437
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ], !noalias !437
   %124 = load <2 x i64>, ptr %52, align 16, !noalias !437
-  %125 = and <2 x i64> %123, %.sroa.14.01918
-  %126 = and <2 x i64> %124, %.sroa.17.01919
+  %125 = and <2 x i64> %123, %.sroa.14.01913
+  %126 = and <2 x i64> %124, %.sroa.17.01914
   %127 = load i8, ptr %53, align 2
   %128 = zext i8 %127 to i32
-  %129 = and <2 x i64> %122, %.sroa.01162.01917
+  %129 = and <2 x i64> %122, %.sroa.01160.01912
   %130 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %128, i64 0
   %131 = bitcast <4 x i32> %130 to <2 x i64>
   %132 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %129, <2 x i64> %131)
@@ -7783,26 +7783,26 @@ lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit1
   %136 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %128, i64 0
   %137 = bitcast <4 x i32> %136 to <2 x i64>
   %138 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %126, <2 x i64> %137)
-  %139 = or <2 x i64> %132, %.sroa.01084.6
-  %140 = or <2 x i64> %135, %.sroa.271100.6
-  %141 = or <2 x i64> %138, %.sroa.351131.6
+  %139 = or <2 x i64> %132, %.sroa.01082.6
+  %140 = or <2 x i64> %135, %.sroa.271098.6
+  %141 = or <2 x i64> %138, %.sroa.351129.6
   br label %lshift64_m128.exit157
 
 lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit163, %lshift64_m128.exit127
-  %.sroa.01084.5 = phi <2 x i64> [ %139, %lshift64_m128.exit163 ], [ %94, %lshift64_m128.exit127 ]
-  %.sroa.271100.5 = phi <2 x i64> [ %140, %lshift64_m128.exit163 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.351131.5 = phi <2 x i64> [ %141, %lshift64_m128.exit163 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.01082.5 = phi <2 x i64> [ %139, %lshift64_m128.exit163 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271098.5 = phi <2 x i64> [ %140, %lshift64_m128.exit163 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351129.5 = phi <2 x i64> [ %141, %lshift64_m128.exit163 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 16) ], !noalias !440
   %142 = load <2 x i64>, ptr %54, align 16, !noalias !440
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ], !noalias !440
   %143 = load <2 x i64>, ptr %55, align 16, !noalias !440
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ], !noalias !440
   %144 = load <2 x i64>, ptr %56, align 16, !noalias !440
-  %145 = and <2 x i64> %143, %.sroa.14.01918
-  %146 = and <2 x i64> %144, %.sroa.17.01919
+  %145 = and <2 x i64> %143, %.sroa.14.01913
+  %146 = and <2 x i64> %144, %.sroa.17.01914
   %147 = load i8, ptr %57, align 1
   %148 = zext i8 %147 to i32
-  %149 = and <2 x i64> %142, %.sroa.01162.01917
+  %149 = and <2 x i64> %142, %.sroa.01160.01912
   %150 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %148, i64 0
   %151 = bitcast <4 x i32> %150 to <2 x i64>
   %152 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %149, <2 x i64> %151)
@@ -7812,26 +7812,26 @@ lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit1
   %156 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %148, i64 0
   %157 = bitcast <4 x i32> %156 to <2 x i64>
   %158 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %146, <2 x i64> %157)
-  %159 = or <2 x i64> %152, %.sroa.01084.5
-  %160 = or <2 x i64> %155, %.sroa.271100.5
-  %161 = or <2 x i64> %158, %.sroa.351131.5
+  %159 = or <2 x i64> %152, %.sroa.01082.5
+  %160 = or <2 x i64> %155, %.sroa.271098.5
+  %161 = or <2 x i64> %158, %.sroa.351129.5
   br label %lshift64_m128.exit151
 
 lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit157, %lshift64_m128.exit127
-  %.sroa.01084.4 = phi <2 x i64> [ %159, %lshift64_m128.exit157 ], [ %94, %lshift64_m128.exit127 ]
-  %.sroa.271100.4 = phi <2 x i64> [ %160, %lshift64_m128.exit157 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.351131.4 = phi <2 x i64> [ %161, %lshift64_m128.exit157 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.01082.4 = phi <2 x i64> [ %159, %lshift64_m128.exit157 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271098.4 = phi <2 x i64> [ %160, %lshift64_m128.exit157 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351129.4 = phi <2 x i64> [ %161, %lshift64_m128.exit157 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 16) ], !noalias !443
   %162 = load <2 x i64>, ptr %58, align 16, !noalias !443
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ], !noalias !443
   %163 = load <2 x i64>, ptr %59, align 16, !noalias !443
   call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ], !noalias !443
   %164 = load <2 x i64>, ptr %60, align 16, !noalias !443
-  %165 = and <2 x i64> %163, %.sroa.14.01918
-  %166 = and <2 x i64> %164, %.sroa.17.01919
+  %165 = and <2 x i64> %163, %.sroa.14.01913
+  %166 = and <2 x i64> %164, %.sroa.17.01914
   %167 = load i8, ptr %61, align 8
   %168 = zext i8 %167 to i32
-  %169 = and <2 x i64> %162, %.sroa.01162.01917
+  %169 = and <2 x i64> %162, %.sroa.01160.01912
   %170 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %168, i64 0
   %171 = bitcast <4 x i32> %170 to <2 x i64>
   %172 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %169, <2 x i64> %171)
@@ -7841,26 +7841,26 @@ lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit1
   %176 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %168, i64 0
   %177 = bitcast <4 x i32> %176 to <2 x i64>
   %178 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %166, <2 x i64> %177)
-  %179 = or <2 x i64> %172, %.sroa.01084.4
-  %180 = or <2 x i64> %175, %.sroa.271100.4
-  %181 = or <2 x i64> %178, %.sroa.351131.4
+  %179 = or <2 x i64> %172, %.sroa.01082.4
+  %180 = or <2 x i64> %175, %.sroa.271098.4
+  %181 = or <2 x i64> %178, %.sroa.351129.4
   br label %lshift64_m128.exit145
 
 lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit151, %lshift64_m128.exit127
-  %.sroa.01084.3 = phi <2 x i64> [ %179, %lshift64_m128.exit151 ], [ %94, %lshift64_m128.exit127 ]
-  %.sroa.271100.3 = phi <2 x i64> [ %180, %lshift64_m128.exit151 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.351131.3 = phi <2 x i64> [ %181, %lshift64_m128.exit151 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.01082.3 = phi <2 x i64> [ %179, %lshift64_m128.exit151 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271098.3 = phi <2 x i64> [ %180, %lshift64_m128.exit151 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351129.3 = phi <2 x i64> [ %181, %lshift64_m128.exit151 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 16) ], !noalias !446
   %182 = load <2 x i64>, ptr %62, align 16, !noalias !446
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 16) ], !noalias !446
   %183 = load <2 x i64>, ptr %63, align 16, !noalias !446
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 16) ], !noalias !446
   %184 = load <2 x i64>, ptr %64, align 16, !noalias !446
-  %185 = and <2 x i64> %183, %.sroa.14.01918
-  %186 = and <2 x i64> %184, %.sroa.17.01919
+  %185 = and <2 x i64> %183, %.sroa.14.01913
+  %186 = and <2 x i64> %184, %.sroa.17.01914
   %187 = load i8, ptr %65, align 1
   %188 = zext i8 %187 to i32
-  %189 = and <2 x i64> %182, %.sroa.01162.01917
+  %189 = and <2 x i64> %182, %.sroa.01160.01912
   %190 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %188, i64 0
   %191 = bitcast <4 x i32> %190 to <2 x i64>
   %192 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %189, <2 x i64> %191)
@@ -7870,26 +7870,26 @@ lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit1
   %196 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %188, i64 0
   %197 = bitcast <4 x i32> %196 to <2 x i64>
   %198 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %186, <2 x i64> %197)
-  %199 = or <2 x i64> %192, %.sroa.01084.3
-  %200 = or <2 x i64> %195, %.sroa.271100.3
-  %201 = or <2 x i64> %198, %.sroa.351131.3
+  %199 = or <2 x i64> %192, %.sroa.01082.3
+  %200 = or <2 x i64> %195, %.sroa.271098.3
+  %201 = or <2 x i64> %198, %.sroa.351129.3
   br label %lshift64_m128.exit139
 
 lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit145, %lshift64_m128.exit127
-  %.sroa.01084.2 = phi <2 x i64> [ %199, %lshift64_m128.exit145 ], [ %94, %lshift64_m128.exit127 ]
-  %.sroa.271100.2 = phi <2 x i64> [ %200, %lshift64_m128.exit145 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.351131.2 = phi <2 x i64> [ %201, %lshift64_m128.exit145 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.01082.2 = phi <2 x i64> [ %199, %lshift64_m128.exit145 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271098.2 = phi <2 x i64> [ %200, %lshift64_m128.exit145 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351129.2 = phi <2 x i64> [ %201, %lshift64_m128.exit145 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %66, i64 16) ], !noalias !449
   %202 = load <2 x i64>, ptr %66, align 16, !noalias !449
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 16) ], !noalias !449
   %203 = load <2 x i64>, ptr %67, align 16, !noalias !449
   call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 16) ], !noalias !449
   %204 = load <2 x i64>, ptr %68, align 16, !noalias !449
-  %205 = and <2 x i64> %203, %.sroa.14.01918
-  %206 = and <2 x i64> %204, %.sroa.17.01919
+  %205 = and <2 x i64> %203, %.sroa.14.01913
+  %206 = and <2 x i64> %204, %.sroa.17.01914
   %207 = load i8, ptr %69, align 2
   %208 = zext i8 %207 to i32
-  %209 = and <2 x i64> %202, %.sroa.01162.01917
+  %209 = and <2 x i64> %202, %.sroa.01160.01912
   %210 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %208, i64 0
   %211 = bitcast <4 x i32> %210 to <2 x i64>
   %212 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %209, <2 x i64> %211)
@@ -7899,26 +7899,26 @@ lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit1
   %216 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %208, i64 0
   %217 = bitcast <4 x i32> %216 to <2 x i64>
   %218 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %206, <2 x i64> %217)
-  %219 = or <2 x i64> %212, %.sroa.01084.2
-  %220 = or <2 x i64> %215, %.sroa.271100.2
-  %221 = or <2 x i64> %218, %.sroa.351131.2
+  %219 = or <2 x i64> %212, %.sroa.01082.2
+  %220 = or <2 x i64> %215, %.sroa.271098.2
+  %221 = or <2 x i64> %218, %.sroa.351129.2
   br label %lshift64_m128.exit133
 
 lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit139, %lshift64_m128.exit127
-  %.sroa.01084.0 = phi <2 x i64> [ %219, %lshift64_m128.exit139 ], [ %94, %lshift64_m128.exit127 ]
-  %.sroa.271100.0 = phi <2 x i64> [ %220, %lshift64_m128.exit139 ], [ %97, %lshift64_m128.exit127 ]
-  %.sroa.351131.0 = phi <2 x i64> [ %221, %lshift64_m128.exit139 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.01082.0 = phi <2 x i64> [ %219, %lshift64_m128.exit139 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271098.0 = phi <2 x i64> [ %220, %lshift64_m128.exit139 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351129.0 = phi <2 x i64> [ %221, %lshift64_m128.exit139 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 16) ], !noalias !452
   %222 = load <2 x i64>, ptr %70, align 16, !noalias !452
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 16) ], !noalias !452
   %223 = load <2 x i64>, ptr %71, align 16, !noalias !452
   call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 16) ], !noalias !452
   %224 = load <2 x i64>, ptr %72, align 16, !noalias !452
-  %225 = and <2 x i64> %223, %.sroa.14.01918
-  %226 = and <2 x i64> %224, %.sroa.17.01919
+  %225 = and <2 x i64> %223, %.sroa.14.01913
+  %226 = and <2 x i64> %224, %.sroa.17.01914
   %227 = load i8, ptr %73, align 1
   %228 = zext i8 %227 to i32
-  %229 = and <2 x i64> %222, %.sroa.01162.01917
+  %229 = and <2 x i64> %222, %.sroa.01160.01912
   %230 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %228, i64 0
   %231 = bitcast <4 x i32> %230 to <2 x i64>
   %232 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %229, <2 x i64> %231)
@@ -7928,21 +7928,21 @@ lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit1
   %236 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %228, i64 0
   %237 = bitcast <4 x i32> %236 to <2 x i64>
   %238 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %226, <2 x i64> %237)
-  %239 = or <2 x i64> %232, %.sroa.01084.0
-  %240 = or <2 x i64> %235, %.sroa.271100.0
-  %241 = or <2 x i64> %238, %.sroa.351131.0
+  %239 = or <2 x i64> %232, %.sroa.01082.0
+  %240 = or <2 x i64> %235, %.sroa.271098.0
+  %241 = or <2 x i64> %238, %.sroa.351129.0
   br label %242
 
 242:                                              ; preds = %lshift64_m128.exit133, %lshift64_m128.exit127
-  %.sroa.01084.1 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %239, %lshift64_m128.exit133 ]
-  %.sroa.271100.1 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %240, %lshift64_m128.exit133 ]
-  %.sroa.351131.1 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %241, %lshift64_m128.exit133 ]
+  %.sroa.01082.1 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %239, %lshift64_m128.exit133 ]
+  %.sroa.271098.1 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %240, %lshift64_m128.exit133 ]
+  %.sroa.351129.1 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %241, %lshift64_m128.exit133 ]
   %243 = load <2 x i64>, ptr %74, align 16, !noalias !431
   %244 = load <2 x i64>, ptr %75, align 16, !noalias !431
   %245 = load <2 x i64>, ptr %76, align 16, !noalias !431
-  %246 = and <2 x i64> %243, %.sroa.01162.01917
-  %247 = and <2 x i64> %244, %.sroa.14.01918
-  %248 = and <2 x i64> %245, %.sroa.17.01919
+  %246 = and <2 x i64> %243, %.sroa.01160.01912
+  %247 = and <2 x i64> %244, %.sroa.14.01913
+  %248 = and <2 x i64> %245, %.sroa.17.01914
   %249 = bitcast <2 x i64> %246 to <4 x i32>
   %250 = icmp eq <4 x i32> %249, zeroinitializer
   %251 = sext <4 x i1> %250 to <4 x i32>
@@ -7966,36 +7966,36 @@ lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit1
   br i1 %.not.i12, label %nfaExecLimEx384_Run_Exceptions.exit, label %268, !prof !80
 
 268:                                              ; preds = %242
-  %269 = icmp eq i64 %.045.i61920, 0
-  %270 = add i64 %.045.i61920, %4
-  %.sroa.01637.0.copyload1878 = load <16 x i8>, ptr %77, align 16
+  %269 = icmp eq i64 %.045.i61915, 0
+  %270 = add i64 %.045.i61915, %4
+  %.sroa.01635.0.copyload1873 = load <16 x i8>, ptr %77, align 16
   %271 = bitcast <2 x i64> %246 to <16 x i8>
-  %272 = icmp ne <16 x i8> %.sroa.01637.0.copyload1878, %271
+  %272 = icmp ne <16 x i8> %.sroa.01635.0.copyload1873, %271
   %273 = bitcast <16 x i1> %272 to i16
   %.not.i199 = icmp eq i16 %273, 0
   br i1 %.not.i199, label %274, label %diff384.exit.thread
 
 274:                                              ; preds = %268
-  %.sroa.51639.0.copyload1880 = load <16 x i8>, ptr %.sroa.51639.0..sroa_idx, align 16
-  %.sroa.41638.0.copyload1879 = load <16 x i8>, ptr %.sroa.41638.0..sroa_idx, align 16
+  %.sroa.51637.0.copyload1875 = load <16 x i8>, ptr %.sroa.51637.0..sroa_idx, align 16
+  %.sroa.41636.0.copyload1874 = load <16 x i8>, ptr %.sroa.41636.0..sroa_idx, align 16
   %275 = bitcast <2 x i64> %247 to <16 x i8>
-  %276 = icmp ne <16 x i8> %.sroa.41638.0.copyload1879, %275
+  %276 = icmp ne <16 x i8> %.sroa.41636.0.copyload1874, %275
   %277 = bitcast <16 x i1> %276 to i16
   %.not1.i = icmp eq i16 %277, 0
   %278 = bitcast <2 x i64> %248 to <16 x i8>
-  %279 = icmp ne <16 x i8> %.sroa.51639.0.copyload1880, %278
+  %279 = icmp ne <16 x i8> %.sroa.51637.0.copyload1875, %278
   %280 = bitcast <16 x i1> %279 to i16
   %.not = icmp eq i16 %280, 0
-  %or.cond1899 = select i1 %.not1.i, i1 %.not, i1 false
-  br i1 %or.cond1899, label %281, label %diff384.exit.thread
+  %or.cond1894 = select i1 %.not1.i, i1 %.not, i1 false
+  br i1 %or.cond1894, label %281, label %diff384.exit.thread
 
 281:                                              ; preds = %274
-  %.sroa.01608.0.copyload = load <2 x i64>, ptr %82, align 16
-  %.sroa.41609.0.copyload = load <2 x i64>, ptr %.sroa.41609.0..sroa_idx, align 16
-  %.sroa.51610.0.copyload = load <2 x i64>, ptr %.sroa.51610.0..sroa_idx, align 16
-  %282 = or <2 x i64> %.sroa.01608.0.copyload, %.sroa.01084.1
-  %283 = or <2 x i64> %.sroa.41609.0.copyload, %.sroa.271100.1
-  %284 = or <2 x i64> %.sroa.51610.0.copyload, %.sroa.351131.1
+  %.sroa.01606.0.copyload = load <2 x i64>, ptr %82, align 16
+  %.sroa.41607.0.copyload = load <2 x i64>, ptr %.sroa.41607.0..sroa_idx, align 16
+  %.sroa.51608.0.copyload = load <2 x i64>, ptr %.sroa.51608.0..sroa_idx, align 16
+  %282 = or <2 x i64> %.sroa.01606.0.copyload, %.sroa.01082.1
+  %283 = or <2 x i64> %.sroa.41607.0.copyload, %.sroa.271098.1
+  %284 = or <2 x i64> %.sroa.51608.0.copyload, %.sroa.351129.1
   br label %nfaExecLimEx384_Run_Exceptions.exit
 
 diff384.exit.thread:                              ; preds = %268, %274
@@ -8003,8 +8003,8 @@ diff384.exit.thread:                              ; preds = %268, %274
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> %246, ptr %6, align 16
-  store <2 x i64> %247, ptr %.sroa.7.0..sroa_idx1397, align 16
-  store <2 x i64> %248, ptr %.sroa.8.0..sroa_idx1403, align 16
+  store <2 x i64> %247, ptr %.sroa.7.0..sroa_idx1395, align 16
+  store <2 x i64> %248, ptr %.sroa.8.0..sroa_idx1401, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 64 dereferenceable(48) %74, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 16
@@ -8022,14 +8022,14 @@ diff384.exit.thread:                              ; preds = %268, %274
   %292 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
   store i32 %291, ptr %292, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader1909, label %285
+  br i1 %exitcond.not, label %.preheader1904, label %285
 
-.preheader1909:                                   ; preds = %285, %422
-  %.sroa.01084.8 = phi <2 x i64> [ %.sroa.01084.14, %422 ], [ %.sroa.01084.1, %285 ]
-  %.sroa.271100.8 = phi <2 x i64> [ %.sroa.271100.14, %422 ], [ %.sroa.271100.1, %285 ]
-  %.sroa.351131.8 = phi <2 x i64> [ %.sroa.351131.14, %422 ], [ %.sroa.351131.1, %285 ]
-  %.01775 = phi i32 [ %.5, %422 ], [ 1, %285 ]
-  %.sroa.01588.5 = phi i8 [ %.sroa.01588.10, %422 ], [ 0, %285 ]
+.preheader1904:                                   ; preds = %285, %422
+  %.sroa.01082.8 = phi <2 x i64> [ %.sroa.01082.14, %422 ], [ %.sroa.01082.1, %285 ]
+  %.sroa.271098.8 = phi <2 x i64> [ %.sroa.271098.14, %422 ], [ %.sroa.271098.1, %285 ]
+  %.sroa.351129.8 = phi <2 x i64> [ %.sroa.351129.14, %422 ], [ %.sroa.351129.1, %285 ]
+  %.01773 = phi i32 [ %.5, %422 ], [ 1, %285 ]
+  %.sroa.01586.5 = phi i8 [ %.sroa.01586.10, %422 ], [ 0, %285 ]
   %.0 = phi i32 [ %423, %422 ], [ %267, %285 ]
   %293 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.0) #13, !srcloc !131
   %294 = extractvalue { i32, i32 } %293, 0
@@ -8041,14 +8041,14 @@ diff384.exit.thread:                              ; preds = %268, %274
   %300 = getelementptr inbounds nuw i32, ptr %8, i64 %296
   br label %301
 
-301:                                              ; preds = %runException384.exit, %.preheader1909
-  %.sroa.01084.9 = phi <2 x i64> [ %.sroa.01084.8, %.preheader1909 ], [ %.sroa.01084.14, %runException384.exit ]
-  %.sroa.271100.9 = phi <2 x i64> [ %.sroa.271100.8, %.preheader1909 ], [ %.sroa.271100.14, %runException384.exit ]
-  %.sroa.351131.9 = phi <2 x i64> [ %.sroa.351131.8, %.preheader1909 ], [ %.sroa.351131.14, %runException384.exit ]
-  %.01776 = phi i64 [ %298, %.preheader1909 ], [ %304, %runException384.exit ]
-  %.1 = phi i32 [ %.01775, %.preheader1909 ], [ %.5, %runException384.exit ]
-  %.sroa.01588.6 = phi i8 [ %.sroa.01588.5, %.preheader1909 ], [ %.sroa.01588.10, %runException384.exit ]
-  %302 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01776) #13, !srcloc !132
+301:                                              ; preds = %runException384.exit, %.preheader1904
+  %.sroa.01082.9 = phi <2 x i64> [ %.sroa.01082.8, %.preheader1904 ], [ %.sroa.01082.14, %runException384.exit ]
+  %.sroa.271098.9 = phi <2 x i64> [ %.sroa.271098.8, %.preheader1904 ], [ %.sroa.271098.14, %runException384.exit ]
+  %.sroa.351129.9 = phi <2 x i64> [ %.sroa.351129.8, %.preheader1904 ], [ %.sroa.351129.14, %runException384.exit ]
+  %.01774 = phi i64 [ %298, %.preheader1904 ], [ %304, %runException384.exit ]
+  %.1 = phi i32 [ %.01773, %.preheader1904 ], [ %.5, %runException384.exit ]
+  %.sroa.01586.6 = phi i8 [ %.sroa.01586.5, %.preheader1904 ], [ %.sroa.01586.10, %runException384.exit ]
+  %302 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01774) #13, !srcloc !132
   %303 = extractvalue { i64, i64 } %302, 0
   %304 = extractvalue { i64, i64 } %302, 1
   %305 = load i64, ptr %299, align 8
@@ -8090,8 +8090,8 @@ testbit384.exit.i:                                ; preds = %317
   %334 = load i32, ptr %321, align 4
   %335 = icmp ult i32 %334, 128
   %336 = icmp ult i32 %334, 256
-  %spec.select = select i1 %336, <2 x i64> %.sroa.14.01918, <2 x i64> %.sroa.17.01919
-  %.0.in.i.i.sroa.speculated = select i1 %335, <2 x i64> %.sroa.01162.01917, <2 x i64> %spec.select
+  %spec.select = select i1 %336, <2 x i64> %.sroa.14.01913, <2 x i64> %.sroa.17.01914
+  %.0.in.i.i.sroa.speculated = select i1 %335, <2 x i64> %.sroa.01160.01912, <2 x i64> %spec.select
   %337 = and i32 %334, 127
   %338 = shl nuw nsw i32 %337, 6
   %339 = and i32 %338, 448
@@ -8156,7 +8156,7 @@ testbit384.exit.i:                                ; preds = %317
     i8 4, label %381
     i8 5, label %383
     i8 6, label %385
-    i8 7, label %repeatHasMatch.exit.thread1802
+    i8 7, label %repeatHasMatch.exit.thread1800
   ]
 
 358:                                              ; preds = %356
@@ -8170,7 +8170,7 @@ testbit384.exit.i:                                ; preds = %317
   %364 = zext i32 %363 to i64
   %365 = add i64 %361, %364
   %366 = icmp ult i64 %270, %365
-  br i1 %366, label %runException384.exit, label %repeatHasMatch.exit.thread1802
+  br i1 %366, label %runException384.exit, label %repeatHasMatch.exit.thread1800
 
 367:                                              ; preds = %356
   %368 = load i64, ptr %327, align 8
@@ -8186,8 +8186,8 @@ testbit384.exit.i:                                ; preds = %317
   %376 = load i32, ptr %375, align 4
   %377 = zext i32 %376 to i64
   %378 = add i64 %368, %377
-  %.not.i265 = icmp ugt i64 %270, %378
-  br i1 %.not.i265, label %repeatHasMatch.exit.thread1804, label %repeatHasMatch.exit.thread1802
+  %.not.i263 = icmp ugt i64 %270, %378
+  br i1 %.not.i263, label %repeatHasMatch.exit.thread1802, label %repeatHasMatch.exit.thread1800
 
 379:                                              ; preds = %356
   %380 = call i32 @repeatHasMatchRange(ptr noundef nonnull %322, ptr noundef %327, ptr noundef %332, i64 noundef %270) #12
@@ -8206,21 +8206,21 @@ testbit384.exit.i:                                ; preds = %317
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %358, %379, %381, %383, %385
-  %.0.i250 = phi i32 [ %359, %358 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ]
-  switch i32 %.0.i250, label %runException384.exit [
-    i32 1, label %repeatHasMatch.exit.thread1802
-    i32 2, label %repeatHasMatch.exit.thread1804
+  %.0.i248 = phi i32 [ %359, %358 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ]
+  switch i32 %.0.i248, label %runException384.exit [
+    i32 1, label %repeatHasMatch.exit.thread1800
+    i32 2, label %repeatHasMatch.exit.thread1802
   ]
 
-repeatHasMatch.exit.thread1802:                   ; preds = %374, %356, %360, %repeatHasMatch.exit
+repeatHasMatch.exit.thread1800:                   ; preds = %374, %356, %360, %repeatHasMatch.exit
   %387 = getelementptr inbounds nuw i8, ptr %321, i64 32
   %388 = load i32, ptr %387, align 4
   %389 = icmp eq i32 %388, 65535
-  %spec.select1863 = select i1 %389, i32 %.1, i32 2
-  %spec.select1864 = select i1 %389, i8 1, i8 %.sroa.01588.6
+  %spec.select1858 = select i1 %389, i32 %.1, i32 2
+  %spec.select1859 = select i1 %389, i8 1, i8 %.sroa.01586.6
   br label %.critedge.i206.thread
 
-repeatHasMatch.exit.thread1804:                   ; preds = %374, %repeatHasMatch.exit
+repeatHasMatch.exit.thread1802:                   ; preds = %374, %repeatHasMatch.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %314, i64 16) ], !noalias !455
   %390 = load <2 x i64>, ptr %314, align 16, !noalias !455
   %391 = getelementptr inbounds nuw i8, ptr %314, i64 16
@@ -8229,20 +8229,20 @@ repeatHasMatch.exit.thread1804:                   ; preds = %374, %repeatHasMatc
   %393 = getelementptr inbounds nuw i8, ptr %314, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %393, i64 16) ], !noalias !455
   %394 = load <2 x i64>, ptr %393, align 16, !noalias !455
-  %395 = and <2 x i64> %390, %.sroa.01084.9
-  %396 = and <2 x i64> %392, %.sroa.271100.9
-  %397 = and <2 x i64> %394, %.sroa.351131.9
+  %395 = and <2 x i64> %390, %.sroa.01082.9
+  %396 = and <2 x i64> %392, %.sroa.271098.9
+  %397 = and <2 x i64> %394, %.sroa.351129.9
   br label %runException384.exit
 
-.critedge.i206.thread:                            ; preds = %repeatHasMatch.exit.thread1802, %355, %354, %353, %352, %351, %348, %testbit384.exit.i, %349, %350, %301
-  %.3 = phi i32 [ %.1, %301 ], [ 2, %355 ], [ 2, %354 ], [ 2, %353 ], [ 2, %352 ], [ 2, %351 ], [ 2, %348 ], [ 2, %testbit384.exit.i ], [ 2, %349 ], [ 2, %350 ], [ %spec.select1863, %repeatHasMatch.exit.thread1802 ]
-  %.sroa.01588.9 = phi i8 [ %.sroa.01588.6, %301 ], [ %.sroa.01588.6, %355 ], [ %.sroa.01588.6, %354 ], [ %.sroa.01588.6, %353 ], [ %.sroa.01588.6, %352 ], [ %.sroa.01588.6, %351 ], [ %.sroa.01588.6, %348 ], [ %.sroa.01588.6, %testbit384.exit.i ], [ %.sroa.01588.6, %349 ], [ %.sroa.01588.6, %350 ], [ %spec.select1864, %repeatHasMatch.exit.thread1802 ]
+.critedge.i206.thread:                            ; preds = %repeatHasMatch.exit.thread1800, %355, %354, %353, %352, %351, %348, %testbit384.exit.i, %349, %350, %301
+  %.3 = phi i32 [ %.1, %301 ], [ 2, %355 ], [ 2, %354 ], [ 2, %353 ], [ 2, %352 ], [ 2, %351 ], [ 2, %348 ], [ 2, %testbit384.exit.i ], [ 2, %349 ], [ 2, %350 ], [ %spec.select1858, %repeatHasMatch.exit.thread1800 ]
+  %.sroa.01586.9 = phi i8 [ %.sroa.01586.6, %301 ], [ %.sroa.01586.6, %355 ], [ %.sroa.01586.6, %354 ], [ %.sroa.01586.6, %353 ], [ %.sroa.01586.6, %352 ], [ %.sroa.01586.6, %351 ], [ %.sroa.01586.6, %348 ], [ %.sroa.01586.6, %testbit384.exit.i ], [ %.sroa.01586.6, %349 ], [ %.sroa.01586.6, %350 ], [ %spec.select1859, %repeatHasMatch.exit.thread1800 ]
   %398 = getelementptr inbounds nuw i8, ptr %314, i64 96
   %399 = load i32, ptr %398, align 16
   %.not70.i = icmp ne i32 %399, -1
-  %brmerge.not1882 = and i1 %269, %.not70.i
+  %brmerge.not1877 = and i1 %269, %.not70.i
   %400 = icmp eq i32 %.3, 1
-  %or.cond = select i1 %brmerge.not1882, i1 %400, i1 false
+  %or.cond = select i1 %brmerge.not1877, i1 %400, i1 false
   %.4 = select i1 %or.cond, i32 0, i32 %.3
   %401 = getelementptr inbounds nuw i8, ptr %314, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %401, i64 16) ], !noalias !458
@@ -8253,15 +8253,15 @@ repeatHasMatch.exit.thread1804:                   ; preds = %374, %repeatHasMatc
   %405 = getelementptr inbounds nuw i8, ptr %314, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %405, i64 16) ], !noalias !458
   %406 = load <2 x i64>, ptr %405, align 16, !noalias !458
-  %.sroa.01687.0.copyload = load <2 x i64>, ptr %78, align 16
-  %.sroa.41688.0.copyload = load <2 x i64>, ptr %.sroa.41592.0..sroa_idx, align 16
-  %.sroa.51689.0.copyload = load <2 x i64>, ptr %.sroa.51593.0..sroa_idx, align 16
-  %407 = or <2 x i64> %.sroa.01687.0.copyload, %402
-  %408 = or <2 x i64> %.sroa.41688.0.copyload, %404
-  %409 = or <2 x i64> %.sroa.51689.0.copyload, %406
+  %.sroa.01685.0.copyload = load <2 x i64>, ptr %78, align 16
+  %.sroa.41686.0.copyload = load <2 x i64>, ptr %.sroa.41590.0..sroa_idx, align 16
+  %.sroa.51687.0.copyload = load <2 x i64>, ptr %.sroa.51591.0..sroa_idx, align 16
+  %407 = or <2 x i64> %.sroa.01685.0.copyload, %402
+  %408 = or <2 x i64> %.sroa.41686.0.copyload, %404
+  %409 = or <2 x i64> %.sroa.51687.0.copyload, %406
   store <2 x i64> %407, ptr %78, align 16
-  store <2 x i64> %408, ptr %.sroa.41592.0..sroa_idx, align 16
-  store <2 x i64> %409, ptr %.sroa.51593.0..sroa_idx, align 16
+  store <2 x i64> %408, ptr %.sroa.41590.0..sroa_idx, align 16
+  store <2 x i64> %409, ptr %.sroa.51591.0..sroa_idx, align 16
   %410 = getelementptr inbounds nuw i8, ptr %314, i64 104
   %411 = load i8, ptr %410, align 8
   switch i8 %411, label %runException384.exit [
@@ -8278,34 +8278,34 @@ repeatHasMatch.exit.thread1804:                   ; preds = %374, %repeatHasMatc
   %416 = getelementptr inbounds nuw i8, ptr %314, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %416, i64 16) ], !noalias !461
   %417 = load <2 x i64>, ptr %416, align 16, !noalias !461
-  %418 = and <2 x i64> %413, %.sroa.01084.9
-  %419 = and <2 x i64> %415, %.sroa.271100.9
-  %420 = and <2 x i64> %417, %.sroa.351131.9
+  %418 = and <2 x i64> %413, %.sroa.01082.9
+  %419 = and <2 x i64> %415, %.sroa.271098.9
+  %420 = and <2 x i64> %417, %.sroa.351129.9
   %421 = icmp eq i32 %.4, 1
-  %spec.select1865 = select i1 %421, i32 0, i32 %.4
+  %spec.select1860 = select i1 %421, i32 0, i32 %.4
   br label %runException384.exit
 
-runException384.exit:                             ; preds = %412, %360, %356, %367, %.critedge.i206.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread1804
-  %.sroa.01084.14 = phi <2 x i64> [ %.sroa.01084.9, %.critedge.i206.thread ], [ %395, %repeatHasMatch.exit.thread1804 ], [ %.sroa.01084.9, %repeatHasMatch.exit ], [ %.sroa.01084.9, %367 ], [ %.sroa.01084.9, %356 ], [ %.sroa.01084.9, %360 ], [ %418, %412 ]
-  %.sroa.271100.14 = phi <2 x i64> [ %.sroa.271100.9, %.critedge.i206.thread ], [ %396, %repeatHasMatch.exit.thread1804 ], [ %.sroa.271100.9, %repeatHasMatch.exit ], [ %.sroa.271100.9, %367 ], [ %.sroa.271100.9, %356 ], [ %.sroa.271100.9, %360 ], [ %419, %412 ]
-  %.sroa.351131.14 = phi <2 x i64> [ %.sroa.351131.9, %.critedge.i206.thread ], [ %397, %repeatHasMatch.exit.thread1804 ], [ %.sroa.351131.9, %repeatHasMatch.exit ], [ %.sroa.351131.9, %367 ], [ %.sroa.351131.9, %356 ], [ %.sroa.351131.9, %360 ], [ %420, %412 ]
-  %.5 = phi i32 [ %.4, %.critedge.i206.thread ], [ 2, %repeatHasMatch.exit.thread1804 ], [ 2, %repeatHasMatch.exit ], [ 2, %367 ], [ 2, %356 ], [ 2, %360 ], [ %spec.select1865, %412 ]
-  %.sroa.01588.10 = phi i8 [ %.sroa.01588.9, %.critedge.i206.thread ], [ %.sroa.01588.6, %repeatHasMatch.exit.thread1804 ], [ %.sroa.01588.6, %repeatHasMatch.exit ], [ %.sroa.01588.6, %367 ], [ %.sroa.01588.6, %356 ], [ %.sroa.01588.6, %360 ], [ %.sroa.01588.9, %412 ]
+runException384.exit:                             ; preds = %412, %360, %356, %367, %.critedge.i206.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread1802
+  %.sroa.01082.14 = phi <2 x i64> [ %.sroa.01082.9, %.critedge.i206.thread ], [ %395, %repeatHasMatch.exit.thread1802 ], [ %.sroa.01082.9, %repeatHasMatch.exit ], [ %.sroa.01082.9, %367 ], [ %.sroa.01082.9, %356 ], [ %.sroa.01082.9, %360 ], [ %418, %412 ]
+  %.sroa.271098.14 = phi <2 x i64> [ %.sroa.271098.9, %.critedge.i206.thread ], [ %396, %repeatHasMatch.exit.thread1802 ], [ %.sroa.271098.9, %repeatHasMatch.exit ], [ %.sroa.271098.9, %367 ], [ %.sroa.271098.9, %356 ], [ %.sroa.271098.9, %360 ], [ %419, %412 ]
+  %.sroa.351129.14 = phi <2 x i64> [ %.sroa.351129.9, %.critedge.i206.thread ], [ %397, %repeatHasMatch.exit.thread1802 ], [ %.sroa.351129.9, %repeatHasMatch.exit ], [ %.sroa.351129.9, %367 ], [ %.sroa.351129.9, %356 ], [ %.sroa.351129.9, %360 ], [ %420, %412 ]
+  %.5 = phi i32 [ %.4, %.critedge.i206.thread ], [ 2, %repeatHasMatch.exit.thread1802 ], [ 2, %repeatHasMatch.exit ], [ 2, %367 ], [ 2, %356 ], [ 2, %360 ], [ %spec.select1860, %412 ]
+  %.sroa.01586.10 = phi i8 [ %.sroa.01586.9, %.critedge.i206.thread ], [ %.sroa.01586.6, %repeatHasMatch.exit.thread1802 ], [ %.sroa.01586.6, %repeatHasMatch.exit ], [ %.sroa.01586.6, %367 ], [ %.sroa.01586.6, %356 ], [ %.sroa.01586.6, %360 ], [ %.sroa.01586.9, %412 ]
   %.not57.i190 = icmp eq i64 %304, 0
   br i1 %.not57.i190, label %422, label %301
 
 422:                                              ; preds = %runException384.exit
   %423 = extractvalue { i32, i32 } %293, 1
   %.not58.i191 = icmp eq i32 %423, 0
-  br i1 %.not58.i191, label %424, label %.preheader1909
+  br i1 %.not58.i191, label %424, label %.preheader1904
 
 424:                                              ; preds = %422
-  %.sroa.01602.0.copyload = load <2 x i64>, ptr %78, align 16
-  %.sroa.41603.0.copyload = load <2 x i64>, ptr %.sroa.41592.0..sroa_idx, align 16
-  %.sroa.51604.0.copyload = load <2 x i64>, ptr %.sroa.51593.0..sroa_idx, align 16
-  %425 = or <2 x i64> %.sroa.01602.0.copyload, %.sroa.01084.14
-  %426 = or <2 x i64> %.sroa.41603.0.copyload, %.sroa.271100.14
-  %427 = or <2 x i64> %.sroa.51604.0.copyload, %.sroa.351131.14
+  %.sroa.01600.0.copyload = load <2 x i64>, ptr %78, align 16
+  %.sroa.41601.0.copyload = load <2 x i64>, ptr %.sroa.41590.0..sroa_idx, align 16
+  %.sroa.51602.0.copyload = load <2 x i64>, ptr %.sroa.51591.0..sroa_idx, align 16
+  %425 = or <2 x i64> %.sroa.01600.0.copyload, %.sroa.01082.14
+  %426 = or <2 x i64> %.sroa.41601.0.copyload, %.sroa.271098.14
+  %427 = or <2 x i64> %.sroa.51602.0.copyload, %.sroa.351129.14
   switch i32 %.5, label %432 [
     i32 1, label %428
     i32 2, label %429
@@ -8313,11 +8313,11 @@ runException384.exit:                             ; preds = %412, %360, %356, %3
 
 428:                                              ; preds = %424
   store <2 x i64> %246, ptr %77, align 32
-  store <2 x i64> %247, ptr %.sroa.41638.0..sroa_idx, align 16
-  store <2 x i64> %248, ptr %.sroa.51639.0..sroa_idx, align 32
+  store <2 x i64> %247, ptr %.sroa.41636.0..sroa_idx, align 16
+  store <2 x i64> %248, ptr %.sroa.51637.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %82, ptr noundef nonnull align 16 dereferenceable(48) %78, i64 48, i1 false)
   store ptr null, ptr %83, align 8
-  store i8 %.sroa.01588.10, ptr %81, align 64
+  store i8 %.sroa.01586.10, ptr %81, align 64
   br label %432
 
 429:                                              ; preds = %424
@@ -8336,10 +8336,10 @@ runException384.exit:                             ; preds = %412, %360, %356, %3
   br label %nfaExecLimEx384_Run_Exceptions.exit
 
 nfaExecLimEx384_Run_Exceptions.exit:              ; preds = %242, %432, %281
-  %.sroa.01084.7 = phi <2 x i64> [ %.sroa.01084.1, %242 ], [ %282, %281 ], [ %425, %432 ]
-  %.sroa.271100.7 = phi <2 x i64> [ %.sroa.271100.1, %242 ], [ %283, %281 ], [ %426, %432 ]
-  %.sroa.351131.7 = phi <2 x i64> [ %.sroa.351131.1, %242 ], [ %284, %281 ], [ %427, %432 ]
-  %433 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i61920
+  %.sroa.01082.7 = phi <2 x i64> [ %.sroa.01082.1, %242 ], [ %282, %281 ], [ %425, %432 ]
+  %.sroa.271098.7 = phi <2 x i64> [ %.sroa.271098.1, %242 ], [ %283, %281 ], [ %426, %432 ]
+  %.sroa.351129.7 = phi <2 x i64> [ %.sroa.351129.1, %242 ], [ %284, %281 ], [ %427, %432 ]
+  %433 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i61915
   %434 = load i8, ptr %433, align 1
   %435 = zext i8 %434 to i64
   %436 = getelementptr inbounds nuw i8, ptr %0, i64 %435
@@ -8354,17 +8354,17 @@ nfaExecLimEx384_Run_Exceptions.exit:              ; preds = %242, %432, %281
   %443 = getelementptr inbounds nuw i8, ptr %439, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %443, i64 16) ], !noalias !464
   %444 = load <2 x i64>, ptr %443, align 16, !noalias !464
-  %445 = and <2 x i64> %440, %.sroa.01084.7
-  %446 = and <2 x i64> %442, %.sroa.271100.7
-  %447 = and <2 x i64> %444, %.sroa.351131.7
-  %448 = add i64 %.045.i61920, 1
+  %445 = and <2 x i64> %440, %.sroa.01082.7
+  %446 = and <2 x i64> %442, %.sroa.271098.7
+  %447 = and <2 x i64> %444, %.sroa.351129.7
+  %448 = add i64 %.045.i61915, 1
   %.not.i7 = icmp eq i64 %448, %.0107.i
   br i1 %.not.i7, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %lshift64_m128.exit127
 
 449:                                              ; preds = %33
-  br i1 %.not.i41925, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph1930
+  br i1 %.not.i41920, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %.lr.ph1925
 
-.lr.ph1930:                                       ; preds = %449
+.lr.ph1925:                                       ; preds = %449
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 944
@@ -8402,34 +8402,34 @@ nfaExecLimEx384_Run_Exceptions.exit:              ; preds = %242, %432, %281
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %486 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %487 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.71433.0..sroa_idx1434 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.81440.0..sroa_idx1441 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.41556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.71431.0..sroa_idx1432 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.81438.0..sroa_idx1439 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %488 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %489 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %490 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %491 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %492 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %493
 
-493:                                              ; preds = %.lr.ph1930, %nfaExecLimEx384_Run_Exceptions.exit20
-  %.045.i1929 = phi i64 [ %.21795, %.lr.ph1930 ], [ %863, %nfaExecLimEx384_Run_Exceptions.exit20 ]
-  %.sroa.18.01928 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph1930 ], [ %862, %nfaExecLimEx384_Run_Exceptions.exit20 ]
-  %.sroa.15.01927 = phi <2 x i64> [ %.sroa.22.3, %.lr.ph1930 ], [ %861, %nfaExecLimEx384_Run_Exceptions.exit20 ]
-  %.sroa.0837.01926 = phi <2 x i64> [ %.sroa.0467.3, %.lr.ph1930 ], [ %860, %nfaExecLimEx384_Run_Exceptions.exit20 ]
-  %494 = or <2 x i64> %.sroa.15.01927, %.sroa.0837.01926
-  %495 = or <2 x i64> %494, %.sroa.18.01928
+493:                                              ; preds = %.lr.ph1925, %nfaExecLimEx384_Run_Exceptions.exit20
+  %.045.i1924 = phi i64 [ %.21793, %.lr.ph1925 ], [ %863, %nfaExecLimEx384_Run_Exceptions.exit20 ]
+  %.sroa.18.01923 = phi <2 x i64> [ %.sroa.24.3, %.lr.ph1925 ], [ %862, %nfaExecLimEx384_Run_Exceptions.exit20 ]
+  %.sroa.15.01922 = phi <2 x i64> [ %.sroa.22.3, %.lr.ph1925 ], [ %861, %nfaExecLimEx384_Run_Exceptions.exit20 ]
+  %.sroa.0835.01921 = phi <2 x i64> [ %.sroa.0465.3, %.lr.ph1925 ], [ %860, %nfaExecLimEx384_Run_Exceptions.exit20 ]
+  %494 = or <2 x i64> %.sroa.15.01922, %.sroa.0835.01921
+  %495 = or <2 x i64> %494, %.sroa.18.01923
   %496 = bitcast <2 x i64> %495 to <16 x i8>
   %497 = icmp ne <16 x i8> %496, zeroinitializer
   %498 = bitcast <16 x i1> %497 to i16
-  %.not1883 = icmp eq i16 %498, 0
-  br i1 %.not1883, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %lshift64_m128.exit79
+  %.not1878 = icmp eq i16 %498, 0
+  br i1 %.not1878, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %lshift64_m128.exit79
 
 lshift64_m128.exit79:                             ; preds = %493
   call void @llvm.assume(i1 true) [ "align"(ptr %450, i64 16) ], !noalias !467
@@ -8438,11 +8438,11 @@ lshift64_m128.exit79:                             ; preds = %493
   %500 = load <2 x i64>, ptr %451, align 16, !noalias !467
   call void @llvm.assume(i1 true) [ "align"(ptr %452, i64 16) ], !noalias !467
   %501 = load <2 x i64>, ptr %452, align 16, !noalias !467
-  %502 = and <2 x i64> %500, %.sroa.15.01927
-  %503 = and <2 x i64> %501, %.sroa.18.01928
+  %502 = and <2 x i64> %500, %.sroa.15.01922
+  %503 = and <2 x i64> %501, %.sroa.18.01923
   %504 = load i8, ptr %453, align 4
   %505 = zext i8 %504 to i32
-  %506 = and <2 x i64> %499, %.sroa.0837.01926
+  %506 = and <2 x i64> %499, %.sroa.0835.01921
   %507 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %505, i64 0
   %508 = bitcast <4 x i32> %507 to <2 x i64>
   %509 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %506, <2 x i64> %508)
@@ -8470,11 +8470,11 @@ lshift64_m128.exit121:                            ; preds = %lshift64_m128.exit7
   %518 = load <2 x i64>, ptr %456, align 16, !noalias !470
   call void @llvm.assume(i1 true) [ "align"(ptr %457, i64 16) ], !noalias !470
   %519 = load <2 x i64>, ptr %457, align 16, !noalias !470
-  %520 = and <2 x i64> %518, %.sroa.15.01927
-  %521 = and <2 x i64> %519, %.sroa.18.01928
+  %520 = and <2 x i64> %518, %.sroa.15.01922
+  %521 = and <2 x i64> %519, %.sroa.18.01923
   %522 = load i8, ptr %458, align 1
   %523 = zext i8 %522 to i32
-  %524 = and <2 x i64> %517, %.sroa.0837.01926
+  %524 = and <2 x i64> %517, %.sroa.0835.01921
   %525 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %523, i64 0
   %526 = bitcast <4 x i32> %525 to <2 x i64>
   %527 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %524, <2 x i64> %526)
@@ -8490,20 +8490,20 @@ lshift64_m128.exit121:                            ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit115
 
 lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit121, %lshift64_m128.exit79
-  %.sroa.0759.6 = phi <2 x i64> [ %534, %lshift64_m128.exit121 ], [ %509, %lshift64_m128.exit79 ]
-  %.sroa.27775.6 = phi <2 x i64> [ %535, %lshift64_m128.exit121 ], [ %512, %lshift64_m128.exit79 ]
-  %.sroa.35806.6 = phi <2 x i64> [ %536, %lshift64_m128.exit121 ], [ %515, %lshift64_m128.exit79 ]
+  %.sroa.0757.6 = phi <2 x i64> [ %534, %lshift64_m128.exit121 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27773.6 = phi <2 x i64> [ %535, %lshift64_m128.exit121 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35804.6 = phi <2 x i64> [ %536, %lshift64_m128.exit121 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %459, i64 16) ], !noalias !473
   %537 = load <2 x i64>, ptr %459, align 16, !noalias !473
   call void @llvm.assume(i1 true) [ "align"(ptr %460, i64 16) ], !noalias !473
   %538 = load <2 x i64>, ptr %460, align 16, !noalias !473
   call void @llvm.assume(i1 true) [ "align"(ptr %461, i64 16) ], !noalias !473
   %539 = load <2 x i64>, ptr %461, align 16, !noalias !473
-  %540 = and <2 x i64> %538, %.sroa.15.01927
-  %541 = and <2 x i64> %539, %.sroa.18.01928
+  %540 = and <2 x i64> %538, %.sroa.15.01922
+  %541 = and <2 x i64> %539, %.sroa.18.01923
   %542 = load i8, ptr %462, align 2
   %543 = zext i8 %542 to i32
-  %544 = and <2 x i64> %537, %.sroa.0837.01926
+  %544 = and <2 x i64> %537, %.sroa.0835.01921
   %545 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %543, i64 0
   %546 = bitcast <4 x i32> %545 to <2 x i64>
   %547 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %544, <2 x i64> %546)
@@ -8513,26 +8513,26 @@ lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit1
   %551 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %543, i64 0
   %552 = bitcast <4 x i32> %551 to <2 x i64>
   %553 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %541, <2 x i64> %552)
-  %554 = or <2 x i64> %547, %.sroa.0759.6
-  %555 = or <2 x i64> %550, %.sroa.27775.6
-  %556 = or <2 x i64> %553, %.sroa.35806.6
+  %554 = or <2 x i64> %547, %.sroa.0757.6
+  %555 = or <2 x i64> %550, %.sroa.27773.6
+  %556 = or <2 x i64> %553, %.sroa.35804.6
   br label %lshift64_m128.exit109
 
 lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit115, %lshift64_m128.exit79
-  %.sroa.0759.5 = phi <2 x i64> [ %554, %lshift64_m128.exit115 ], [ %509, %lshift64_m128.exit79 ]
-  %.sroa.27775.5 = phi <2 x i64> [ %555, %lshift64_m128.exit115 ], [ %512, %lshift64_m128.exit79 ]
-  %.sroa.35806.5 = phi <2 x i64> [ %556, %lshift64_m128.exit115 ], [ %515, %lshift64_m128.exit79 ]
+  %.sroa.0757.5 = phi <2 x i64> [ %554, %lshift64_m128.exit115 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27773.5 = phi <2 x i64> [ %555, %lshift64_m128.exit115 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35804.5 = phi <2 x i64> [ %556, %lshift64_m128.exit115 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %463, i64 16) ], !noalias !476
   %557 = load <2 x i64>, ptr %463, align 16, !noalias !476
   call void @llvm.assume(i1 true) [ "align"(ptr %464, i64 16) ], !noalias !476
   %558 = load <2 x i64>, ptr %464, align 16, !noalias !476
   call void @llvm.assume(i1 true) [ "align"(ptr %465, i64 16) ], !noalias !476
   %559 = load <2 x i64>, ptr %465, align 16, !noalias !476
-  %560 = and <2 x i64> %558, %.sroa.15.01927
-  %561 = and <2 x i64> %559, %.sroa.18.01928
+  %560 = and <2 x i64> %558, %.sroa.15.01922
+  %561 = and <2 x i64> %559, %.sroa.18.01923
   %562 = load i8, ptr %466, align 1
   %563 = zext i8 %562 to i32
-  %564 = and <2 x i64> %557, %.sroa.0837.01926
+  %564 = and <2 x i64> %557, %.sroa.0835.01921
   %565 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %563, i64 0
   %566 = bitcast <4 x i32> %565 to <2 x i64>
   %567 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %564, <2 x i64> %566)
@@ -8542,26 +8542,26 @@ lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit1
   %571 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %563, i64 0
   %572 = bitcast <4 x i32> %571 to <2 x i64>
   %573 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %561, <2 x i64> %572)
-  %574 = or <2 x i64> %567, %.sroa.0759.5
-  %575 = or <2 x i64> %570, %.sroa.27775.5
-  %576 = or <2 x i64> %573, %.sroa.35806.5
+  %574 = or <2 x i64> %567, %.sroa.0757.5
+  %575 = or <2 x i64> %570, %.sroa.27773.5
+  %576 = or <2 x i64> %573, %.sroa.35804.5
   br label %lshift64_m128.exit103
 
 lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit109, %lshift64_m128.exit79
-  %.sroa.0759.4 = phi <2 x i64> [ %574, %lshift64_m128.exit109 ], [ %509, %lshift64_m128.exit79 ]
-  %.sroa.27775.4 = phi <2 x i64> [ %575, %lshift64_m128.exit109 ], [ %512, %lshift64_m128.exit79 ]
-  %.sroa.35806.4 = phi <2 x i64> [ %576, %lshift64_m128.exit109 ], [ %515, %lshift64_m128.exit79 ]
+  %.sroa.0757.4 = phi <2 x i64> [ %574, %lshift64_m128.exit109 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27773.4 = phi <2 x i64> [ %575, %lshift64_m128.exit109 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35804.4 = phi <2 x i64> [ %576, %lshift64_m128.exit109 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %467, i64 16) ], !noalias !479
   %577 = load <2 x i64>, ptr %467, align 16, !noalias !479
   call void @llvm.assume(i1 true) [ "align"(ptr %468, i64 16) ], !noalias !479
   %578 = load <2 x i64>, ptr %468, align 16, !noalias !479
   call void @llvm.assume(i1 true) [ "align"(ptr %469, i64 16) ], !noalias !479
   %579 = load <2 x i64>, ptr %469, align 16, !noalias !479
-  %580 = and <2 x i64> %578, %.sroa.15.01927
-  %581 = and <2 x i64> %579, %.sroa.18.01928
+  %580 = and <2 x i64> %578, %.sroa.15.01922
+  %581 = and <2 x i64> %579, %.sroa.18.01923
   %582 = load i8, ptr %470, align 8
   %583 = zext i8 %582 to i32
-  %584 = and <2 x i64> %577, %.sroa.0837.01926
+  %584 = and <2 x i64> %577, %.sroa.0835.01921
   %585 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %583, i64 0
   %586 = bitcast <4 x i32> %585 to <2 x i64>
   %587 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %584, <2 x i64> %586)
@@ -8571,26 +8571,26 @@ lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit1
   %591 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %583, i64 0
   %592 = bitcast <4 x i32> %591 to <2 x i64>
   %593 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %581, <2 x i64> %592)
-  %594 = or <2 x i64> %587, %.sroa.0759.4
-  %595 = or <2 x i64> %590, %.sroa.27775.4
-  %596 = or <2 x i64> %593, %.sroa.35806.4
+  %594 = or <2 x i64> %587, %.sroa.0757.4
+  %595 = or <2 x i64> %590, %.sroa.27773.4
+  %596 = or <2 x i64> %593, %.sroa.35804.4
   br label %lshift64_m128.exit97
 
 lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit103, %lshift64_m128.exit79
-  %.sroa.0759.3 = phi <2 x i64> [ %594, %lshift64_m128.exit103 ], [ %509, %lshift64_m128.exit79 ]
-  %.sroa.27775.3 = phi <2 x i64> [ %595, %lshift64_m128.exit103 ], [ %512, %lshift64_m128.exit79 ]
-  %.sroa.35806.3 = phi <2 x i64> [ %596, %lshift64_m128.exit103 ], [ %515, %lshift64_m128.exit79 ]
+  %.sroa.0757.3 = phi <2 x i64> [ %594, %lshift64_m128.exit103 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27773.3 = phi <2 x i64> [ %595, %lshift64_m128.exit103 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35804.3 = phi <2 x i64> [ %596, %lshift64_m128.exit103 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %471, i64 16) ], !noalias !482
   %597 = load <2 x i64>, ptr %471, align 16, !noalias !482
   call void @llvm.assume(i1 true) [ "align"(ptr %472, i64 16) ], !noalias !482
   %598 = load <2 x i64>, ptr %472, align 16, !noalias !482
   call void @llvm.assume(i1 true) [ "align"(ptr %473, i64 16) ], !noalias !482
   %599 = load <2 x i64>, ptr %473, align 16, !noalias !482
-  %600 = and <2 x i64> %598, %.sroa.15.01927
-  %601 = and <2 x i64> %599, %.sroa.18.01928
+  %600 = and <2 x i64> %598, %.sroa.15.01922
+  %601 = and <2 x i64> %599, %.sroa.18.01923
   %602 = load i8, ptr %474, align 1
   %603 = zext i8 %602 to i32
-  %604 = and <2 x i64> %597, %.sroa.0837.01926
+  %604 = and <2 x i64> %597, %.sroa.0835.01921
   %605 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %603, i64 0
   %606 = bitcast <4 x i32> %605 to <2 x i64>
   %607 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %604, <2 x i64> %606)
@@ -8600,26 +8600,26 @@ lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit1
   %611 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %603, i64 0
   %612 = bitcast <4 x i32> %611 to <2 x i64>
   %613 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %601, <2 x i64> %612)
-  %614 = or <2 x i64> %607, %.sroa.0759.3
-  %615 = or <2 x i64> %610, %.sroa.27775.3
-  %616 = or <2 x i64> %613, %.sroa.35806.3
+  %614 = or <2 x i64> %607, %.sroa.0757.3
+  %615 = or <2 x i64> %610, %.sroa.27773.3
+  %616 = or <2 x i64> %613, %.sroa.35804.3
   br label %lshift64_m128.exit91
 
 lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit97, %lshift64_m128.exit79
-  %.sroa.0759.2 = phi <2 x i64> [ %614, %lshift64_m128.exit97 ], [ %509, %lshift64_m128.exit79 ]
-  %.sroa.27775.2 = phi <2 x i64> [ %615, %lshift64_m128.exit97 ], [ %512, %lshift64_m128.exit79 ]
-  %.sroa.35806.2 = phi <2 x i64> [ %616, %lshift64_m128.exit97 ], [ %515, %lshift64_m128.exit79 ]
+  %.sroa.0757.2 = phi <2 x i64> [ %614, %lshift64_m128.exit97 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27773.2 = phi <2 x i64> [ %615, %lshift64_m128.exit97 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35804.2 = phi <2 x i64> [ %616, %lshift64_m128.exit97 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %475, i64 16) ], !noalias !485
   %617 = load <2 x i64>, ptr %475, align 16, !noalias !485
   call void @llvm.assume(i1 true) [ "align"(ptr %476, i64 16) ], !noalias !485
   %618 = load <2 x i64>, ptr %476, align 16, !noalias !485
   call void @llvm.assume(i1 true) [ "align"(ptr %477, i64 16) ], !noalias !485
   %619 = load <2 x i64>, ptr %477, align 16, !noalias !485
-  %620 = and <2 x i64> %618, %.sroa.15.01927
-  %621 = and <2 x i64> %619, %.sroa.18.01928
+  %620 = and <2 x i64> %618, %.sroa.15.01922
+  %621 = and <2 x i64> %619, %.sroa.18.01923
   %622 = load i8, ptr %478, align 2
   %623 = zext i8 %622 to i32
-  %624 = and <2 x i64> %617, %.sroa.0837.01926
+  %624 = and <2 x i64> %617, %.sroa.0835.01921
   %625 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %623, i64 0
   %626 = bitcast <4 x i32> %625 to <2 x i64>
   %627 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %624, <2 x i64> %626)
@@ -8629,26 +8629,26 @@ lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit9
   %631 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %623, i64 0
   %632 = bitcast <4 x i32> %631 to <2 x i64>
   %633 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %621, <2 x i64> %632)
-  %634 = or <2 x i64> %627, %.sroa.0759.2
-  %635 = or <2 x i64> %630, %.sroa.27775.2
-  %636 = or <2 x i64> %633, %.sroa.35806.2
+  %634 = or <2 x i64> %627, %.sroa.0757.2
+  %635 = or <2 x i64> %630, %.sroa.27773.2
+  %636 = or <2 x i64> %633, %.sroa.35804.2
   br label %lshift64_m128.exit85
 
 lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit91, %lshift64_m128.exit79
-  %.sroa.0759.0 = phi <2 x i64> [ %634, %lshift64_m128.exit91 ], [ %509, %lshift64_m128.exit79 ]
-  %.sroa.27775.0 = phi <2 x i64> [ %635, %lshift64_m128.exit91 ], [ %512, %lshift64_m128.exit79 ]
-  %.sroa.35806.0 = phi <2 x i64> [ %636, %lshift64_m128.exit91 ], [ %515, %lshift64_m128.exit79 ]
+  %.sroa.0757.0 = phi <2 x i64> [ %634, %lshift64_m128.exit91 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27773.0 = phi <2 x i64> [ %635, %lshift64_m128.exit91 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35804.0 = phi <2 x i64> [ %636, %lshift64_m128.exit91 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %479, i64 16) ], !noalias !488
   %637 = load <2 x i64>, ptr %479, align 16, !noalias !488
   call void @llvm.assume(i1 true) [ "align"(ptr %480, i64 16) ], !noalias !488
   %638 = load <2 x i64>, ptr %480, align 16, !noalias !488
   call void @llvm.assume(i1 true) [ "align"(ptr %481, i64 16) ], !noalias !488
   %639 = load <2 x i64>, ptr %481, align 16, !noalias !488
-  %640 = and <2 x i64> %638, %.sroa.15.01927
-  %641 = and <2 x i64> %639, %.sroa.18.01928
+  %640 = and <2 x i64> %638, %.sroa.15.01922
+  %641 = and <2 x i64> %639, %.sroa.18.01923
   %642 = load i8, ptr %482, align 1
   %643 = zext i8 %642 to i32
-  %644 = and <2 x i64> %637, %.sroa.0837.01926
+  %644 = and <2 x i64> %637, %.sroa.0835.01921
   %645 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %643, i64 0
   %646 = bitcast <4 x i32> %645 to <2 x i64>
   %647 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %644, <2 x i64> %646)
@@ -8658,24 +8658,24 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
   %651 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %643, i64 0
   %652 = bitcast <4 x i32> %651 to <2 x i64>
   %653 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %641, <2 x i64> %652)
-  %654 = or <2 x i64> %647, %.sroa.0759.0
-  %655 = or <2 x i64> %650, %.sroa.27775.0
-  %656 = or <2 x i64> %653, %.sroa.35806.0
+  %654 = or <2 x i64> %647, %.sroa.0757.0
+  %655 = or <2 x i64> %650, %.sroa.27773.0
+  %656 = or <2 x i64> %653, %.sroa.35804.0
   br label %657
 
 657:                                              ; preds = %lshift64_m128.exit85, %lshift64_m128.exit79
-  %.sroa.0759.1 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %654, %lshift64_m128.exit85 ]
-  %.sroa.27775.1 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %655, %lshift64_m128.exit85 ]
-  %.sroa.35806.1 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %656, %lshift64_m128.exit85 ]
+  %.sroa.0757.1 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %654, %lshift64_m128.exit85 ]
+  %.sroa.27773.1 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %655, %lshift64_m128.exit85 ]
+  %.sroa.35804.1 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %656, %lshift64_m128.exit85 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %483, i64 16) ], !noalias !491
   %658 = load <2 x i64>, ptr %483, align 16, !noalias !491
   call void @llvm.assume(i1 true) [ "align"(ptr %484, i64 16) ], !noalias !491
   %659 = load <2 x i64>, ptr %484, align 16, !noalias !491
   call void @llvm.assume(i1 true) [ "align"(ptr %485, i64 16) ], !noalias !491
   %660 = load <2 x i64>, ptr %485, align 16, !noalias !491
-  %661 = and <2 x i64> %658, %.sroa.0837.01926
-  %662 = and <2 x i64> %659, %.sroa.15.01927
-  %663 = and <2 x i64> %660, %.sroa.18.01928
+  %661 = and <2 x i64> %658, %.sroa.0835.01921
+  %662 = and <2 x i64> %659, %.sroa.15.01922
+  %663 = and <2 x i64> %660, %.sroa.18.01923
   %664 = bitcast <2 x i64> %661 to <4 x i32>
   %665 = icmp eq <4 x i32> %664, zeroinitializer
   %666 = sext <4 x i1> %665 to <4 x i32>
@@ -8699,36 +8699,36 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
   br i1 %.not.i15, label %nfaExecLimEx384_Run_Exceptions.exit20, label %683, !prof !80
 
 683:                                              ; preds = %657
-  %684 = icmp eq i64 %.045.i1929, 0
-  %685 = add i64 %.045.i1929, %4
-  %.sroa.01643.0.copyload1884 = load <16 x i8>, ptr %486, align 16
+  %684 = icmp eq i64 %.045.i1924, 0
+  %685 = add i64 %.045.i1924, %4
+  %.sroa.01641.0.copyload1879 = load <16 x i8>, ptr %486, align 16
   %686 = bitcast <2 x i64> %661 to <16 x i8>
-  %687 = icmp ne <16 x i8> %.sroa.01643.0.copyload1884, %686
+  %687 = icmp ne <16 x i8> %.sroa.01641.0.copyload1879, %686
   %688 = bitcast <16 x i1> %687 to i16
   %.not.i200 = icmp eq i16 %688, 0
   br i1 %.not.i200, label %689, label %diff384.exit202.thread
 
 689:                                              ; preds = %683
-  %.sroa.51645.0.copyload1886 = load <16 x i8>, ptr %.sroa.51645.0..sroa_idx, align 16
-  %.sroa.41644.0.copyload1885 = load <16 x i8>, ptr %.sroa.41644.0..sroa_idx, align 16
+  %.sroa.51643.0.copyload1881 = load <16 x i8>, ptr %.sroa.51643.0..sroa_idx, align 16
+  %.sroa.41642.0.copyload1880 = load <16 x i8>, ptr %.sroa.41642.0..sroa_idx, align 16
   %690 = bitcast <2 x i64> %662 to <16 x i8>
-  %691 = icmp ne <16 x i8> %.sroa.41644.0.copyload1885, %690
+  %691 = icmp ne <16 x i8> %.sroa.41642.0.copyload1880, %690
   %692 = bitcast <16 x i1> %691 to i16
   %.not1.i201 = icmp eq i16 %692, 0
   %693 = bitcast <2 x i64> %663 to <16 x i8>
-  %694 = icmp ne <16 x i8> %.sroa.51645.0.copyload1886, %693
+  %694 = icmp ne <16 x i8> %.sroa.51643.0.copyload1881, %693
   %695 = bitcast <16 x i1> %694 to i16
-  %.not1887 = icmp eq i16 %695, 0
-  %or.cond1902 = select i1 %.not1.i201, i1 %.not1887, i1 false
-  br i1 %or.cond1902, label %696, label %diff384.exit202.thread
+  %.not1882 = icmp eq i16 %695, 0
+  %or.cond1897 = select i1 %.not1.i201, i1 %.not1882, i1 false
+  br i1 %or.cond1897, label %696, label %diff384.exit202.thread
 
 696:                                              ; preds = %689
-  %.sroa.01574.0.copyload = load <2 x i64>, ptr %491, align 16
-  %.sroa.41575.0.copyload = load <2 x i64>, ptr %.sroa.41575.0..sroa_idx, align 16
-  %.sroa.51576.0.copyload = load <2 x i64>, ptr %.sroa.51576.0..sroa_idx, align 16
-  %697 = or <2 x i64> %.sroa.01574.0.copyload, %.sroa.0759.1
-  %698 = or <2 x i64> %.sroa.41575.0.copyload, %.sroa.27775.1
-  %699 = or <2 x i64> %.sroa.51576.0.copyload, %.sroa.35806.1
+  %.sroa.01572.0.copyload = load <2 x i64>, ptr %491, align 16
+  %.sroa.41573.0.copyload = load <2 x i64>, ptr %.sroa.41573.0..sroa_idx, align 16
+  %.sroa.51574.0.copyload = load <2 x i64>, ptr %.sroa.51574.0..sroa_idx, align 16
+  %697 = or <2 x i64> %.sroa.01572.0.copyload, %.sroa.0757.1
+  %698 = or <2 x i64> %.sroa.41573.0.copyload, %.sroa.27773.1
+  %699 = or <2 x i64> %.sroa.51574.0.copyload, %.sroa.35804.1
   br label %nfaExecLimEx384_Run_Exceptions.exit20
 
 diff384.exit202.thread:                           ; preds = %683, %689
@@ -8736,8 +8736,8 @@ diff384.exit202.thread:                           ; preds = %683, %689
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> %661, ptr %9, align 16
-  store <2 x i64> %662, ptr %.sroa.71433.0..sroa_idx1434, align 16
-  store <2 x i64> %663, ptr %.sroa.81440.0..sroa_idx1441, align 16
+  store <2 x i64> %662, ptr %.sroa.71431.0..sroa_idx1432, align 16
+  store <2 x i64> %663, ptr %.sroa.81438.0..sroa_idx1439, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 64 dereferenceable(48) %483, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 16
@@ -8745,26 +8745,26 @@ diff384.exit202.thread:                           ; preds = %683, %689
 
 700:                                              ; preds = %diff384.exit202.thread, %700
   %701 = phi i32 [ 0, %diff384.exit202.thread ], [ %706, %700 ]
-  %indvars.iv1964 = phi i64 [ 0, %diff384.exit202.thread ], [ %indvars.iv.next1965, %700 ]
-  %702 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv1964
+  %indvars.iv1959 = phi i64 [ 0, %diff384.exit202.thread ], [ %indvars.iv.next1960, %700 ]
+  %702 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv1959
   %703 = load i64, ptr %702, align 8
   %704 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %703)
   %705 = trunc nuw nsw i64 %704 to i32
   %706 = add i32 %701, %705
-  %indvars.iv.next1965 = add nuw nsw i64 %indvars.iv1964, 1
-  %707 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next1965
+  %indvars.iv.next1960 = add nuw nsw i64 %indvars.iv1959, 1
+  %707 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next1960
   store i32 %706, ptr %707, align 4
-  %exitcond1967.not = icmp eq i64 %indvars.iv.next1965, 5
-  br i1 %exitcond1967.not, label %.preheader1908, label %700
+  %exitcond1962.not = icmp eq i64 %indvars.iv.next1960, 5
+  br i1 %exitcond1962.not, label %.preheader1903, label %700
 
-.preheader1908:                                   ; preds = %700, %837
-  %.sroa.0759.8 = phi <2 x i64> [ %.sroa.0759.14, %837 ], [ %.sroa.0759.1, %700 ]
-  %.sroa.27775.8 = phi <2 x i64> [ %.sroa.27775.14, %837 ], [ %.sroa.27775.1, %700 ]
-  %.sroa.35806.8 = phi <2 x i64> [ %.sroa.35806.14, %837 ], [ %.sroa.35806.1, %700 ]
-  %.01778 = phi i32 [ %.51783, %837 ], [ 1, %700 ]
-  %.sroa.01554.5 = phi i8 [ %.sroa.01554.10, %837 ], [ 0, %700 ]
-  %.01777 = phi i32 [ %838, %837 ], [ %682, %700 ]
-  %708 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01777) #13, !srcloc !131
+.preheader1903:                                   ; preds = %700, %837
+  %.sroa.0757.8 = phi <2 x i64> [ %.sroa.0757.14, %837 ], [ %.sroa.0757.1, %700 ]
+  %.sroa.27773.8 = phi <2 x i64> [ %.sroa.27773.14, %837 ], [ %.sroa.27773.1, %700 ]
+  %.sroa.35804.8 = phi <2 x i64> [ %.sroa.35804.14, %837 ], [ %.sroa.35804.1, %700 ]
+  %.01776 = phi i32 [ %.51781, %837 ], [ 1, %700 ]
+  %.sroa.01552.5 = phi i8 [ %.sroa.01552.10, %837 ], [ 0, %700 ]
+  %.01775 = phi i32 [ %838, %837 ], [ %682, %700 ]
+  %708 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01775) #13, !srcloc !131
   %709 = extractvalue { i32, i32 } %708, 0
   %710 = lshr i32 %709, 1
   %711 = zext nneg i32 %710 to i64
@@ -8774,14 +8774,14 @@ diff384.exit202.thread:                           ; preds = %683, %689
   %715 = getelementptr inbounds nuw i32, ptr %11, i64 %711
   br label %716
 
-716:                                              ; preds = %runException384.exit221, %.preheader1908
-  %.sroa.0759.9 = phi <2 x i64> [ %.sroa.0759.8, %.preheader1908 ], [ %.sroa.0759.14, %runException384.exit221 ]
-  %.sroa.27775.9 = phi <2 x i64> [ %.sroa.27775.8, %.preheader1908 ], [ %.sroa.27775.14, %runException384.exit221 ]
-  %.sroa.35806.9 = phi <2 x i64> [ %.sroa.35806.8, %.preheader1908 ], [ %.sroa.35806.14, %runException384.exit221 ]
-  %.01784 = phi i64 [ %713, %.preheader1908 ], [ %719, %runException384.exit221 ]
-  %.11779 = phi i32 [ %.01778, %.preheader1908 ], [ %.51783, %runException384.exit221 ]
-  %.sroa.01554.6 = phi i8 [ %.sroa.01554.5, %.preheader1908 ], [ %.sroa.01554.10, %runException384.exit221 ]
-  %717 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01784) #13, !srcloc !132
+716:                                              ; preds = %runException384.exit220, %.preheader1903
+  %.sroa.0757.9 = phi <2 x i64> [ %.sroa.0757.8, %.preheader1903 ], [ %.sroa.0757.14, %runException384.exit220 ]
+  %.sroa.27773.9 = phi <2 x i64> [ %.sroa.27773.8, %.preheader1903 ], [ %.sroa.27773.14, %runException384.exit220 ]
+  %.sroa.35804.9 = phi <2 x i64> [ %.sroa.35804.8, %.preheader1903 ], [ %.sroa.35804.14, %runException384.exit220 ]
+  %.01782 = phi i64 [ %713, %.preheader1903 ], [ %719, %runException384.exit220 ]
+  %.11777 = phi i32 [ %.01776, %.preheader1903 ], [ %.51781, %runException384.exit220 ]
+  %.sroa.01552.6 = phi i8 [ %.sroa.01552.5, %.preheader1903 ], [ %.sroa.01552.10, %runException384.exit220 ]
+  %717 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01782) #13, !srcloc !132
   %718 = extractvalue { i64, i64 } %717, 0
   %719 = extractvalue { i64, i64 } %717, 1
   %720 = load i64, ptr %714, align 8
@@ -8817,26 +8817,26 @@ diff384.exit202.thread:                           ; preds = %683, %689
   %746 = zext i32 %745 to i64
   %747 = getelementptr inbounds nuw i8, ptr %743, i64 %746
   %748 = icmp eq i8 %731, 1
-  br i1 %748, label %testbit384.exit.i217, label %771
+  br i1 %748, label %testbit384.exit.i216, label %771
 
-testbit384.exit.i217:                             ; preds = %732
+testbit384.exit.i216:                             ; preds = %732
   %749 = load i32, ptr %736, align 4
   %750 = icmp ult i32 %749, 128
   %751 = icmp ult i32 %749, 256
-  %spec.select1866 = select i1 %751, <2 x i64> %.sroa.15.01927, <2 x i64> %.sroa.18.01928
-  %.0.in.i.i218.sroa.speculated = select i1 %750, <2 x i64> %.sroa.0837.01926, <2 x i64> %spec.select1866
+  %spec.select1861 = select i1 %751, <2 x i64> %.sroa.15.01922, <2 x i64> %.sroa.18.01923
+  %.0.in.i.i217.sroa.speculated = select i1 %750, <2 x i64> %.sroa.0835.01921, <2 x i64> %spec.select1861
   %752 = and i32 %749, 127
   %753 = shl nuw nsw i32 %752, 6
   %754 = and i32 %753, 448
   %755 = lshr i32 %752, 3
-  %reass.sub1950 = sub nsw i32 %754, %755
-  %756 = sext i32 %reass.sub1950 to i64
+  %reass.sub1945 = sub nsw i32 %754, %755
+  %756 = sext i32 %reass.sub1945 to i64
   %757 = getelementptr i8, ptr @simd_onebit_masks, i64 %756
   %758 = getelementptr i8, ptr %757, i64 95
   %759 = load <2 x i64>, ptr %758, align 1
-  %760 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %759, <2 x i64> %.0.in.i.i218.sroa.speculated)
-  %.not.i.i220 = icmp eq i32 %760, 0
-  %761 = zext i1 %.not.i.i220 to i8
+  %760 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %759, <2 x i64> %.0.in.i.i217.sroa.speculated)
+  %.not.i.i219 = icmp eq i32 %760, 0
+  %761 = zext i1 %.not.i.i219 to i8
   %762 = load i8, ptr %737, align 4
   switch i8 %762, label %.critedge.i210.thread [
     i8 0, label %763
@@ -8848,40 +8848,40 @@ testbit384.exit.i217:                             ; preds = %732
     i8 6, label %770
   ]
 
-763:                                              ; preds = %testbit384.exit.i217
+763:                                              ; preds = %testbit384.exit.i216
   call void @repeatStoreRing(ptr noundef nonnull %737, ptr noundef %742, ptr noundef %747, i64 noundef %685, i8 noundef signext range(i8 0, 2) %761) #12
   br label %.critedge.i210.thread
 
-764:                                              ; preds = %testbit384.exit.i217
-  br i1 %.not.i.i220, label %.critedge.i210.thread, label %765
+764:                                              ; preds = %testbit384.exit.i216
+  br i1 %.not.i.i219, label %.critedge.i210.thread, label %765
 
 765:                                              ; preds = %764
   store i64 %685, ptr %742, align 8
   br label %.critedge.i210.thread
 
-766:                                              ; preds = %testbit384.exit.i217
+766:                                              ; preds = %testbit384.exit.i216
   store i64 %685, ptr %742, align 8
   br label %.critedge.i210.thread
 
-767:                                              ; preds = %testbit384.exit.i217
+767:                                              ; preds = %testbit384.exit.i216
   call void @repeatStoreRange(ptr noundef nonnull %737, ptr noundef %742, ptr noundef %747, i64 noundef %685, i8 noundef signext range(i8 0, 2) %761) #12
   br label %.critedge.i210.thread
 
-768:                                              ; preds = %testbit384.exit.i217
+768:                                              ; preds = %testbit384.exit.i216
   call void @repeatStoreBitmap(ptr noundef nonnull %737, ptr noundef %742, i64 noundef %685, i8 noundef signext range(i8 0, 2) %761) #12
   br label %.critedge.i210.thread
 
-769:                                              ; preds = %testbit384.exit.i217
+769:                                              ; preds = %testbit384.exit.i216
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %737, ptr noundef %742, ptr noundef %747, i64 noundef %685, i8 noundef signext range(i8 0, 2) %761) #12
   br label %.critedge.i210.thread
 
-770:                                              ; preds = %testbit384.exit.i217
+770:                                              ; preds = %testbit384.exit.i216
   call void @repeatStoreTrailer(ptr noundef nonnull %737, ptr noundef %742, i64 noundef %685, i8 noundef signext range(i8 0, 2) %761) #12
   br label %.critedge.i210.thread
 
 771:                                              ; preds = %732
   %772 = load i8, ptr %737, align 4
-  switch i8 %772, label %runException384.exit221 [
+  switch i8 %772, label %runException384.exit220 [
     i8 0, label %773
     i8 1, label %775
     i8 2, label %782
@@ -8889,12 +8889,12 @@ testbit384.exit.i217:                             ; preds = %732
     i8 4, label %796
     i8 5, label %798
     i8 6, label %800
-    i8 7, label %repeatHasMatch.exit252.thread1824
+    i8 7, label %repeatHasMatch.exit250.thread1821
   ]
 
 773:                                              ; preds = %771
   %774 = call i32 @repeatHasMatchRing(ptr noundef nonnull %737, ptr noundef %742, ptr noundef %747, i64 noundef %685) #12
-  br label %repeatHasMatch.exit252
+  br label %repeatHasMatch.exit250
 
 775:                                              ; preds = %771
   %776 = load i64, ptr %742, align 8
@@ -8903,7 +8903,7 @@ testbit384.exit.i217:                             ; preds = %732
   %779 = zext i32 %778 to i64
   %780 = add i64 %776, %779
   %781 = icmp ult i64 %685, %780
-  br i1 %781, label %runException384.exit221, label %repeatHasMatch.exit252.thread1824
+  br i1 %781, label %runException384.exit220, label %repeatHasMatch.exit250.thread1821
 
 782:                                              ; preds = %771
   %783 = load i64, ptr %742, align 8
@@ -8912,48 +8912,48 @@ testbit384.exit.i217:                             ; preds = %732
   %786 = zext i32 %785 to i64
   %787 = add i64 %783, %786
   %788 = icmp ult i64 %685, %787
-  br i1 %788, label %runException384.exit221, label %789
+  br i1 %788, label %runException384.exit220, label %789
 
 789:                                              ; preds = %782
   %790 = getelementptr inbounds nuw i8, ptr %736, i64 32
   %791 = load i32, ptr %790, align 4
   %792 = zext i32 %791 to i64
   %793 = add i64 %783, %792
-  %.not.i261 = icmp ugt i64 %685, %793
-  br i1 %.not.i261, label %repeatHasMatch.exit252.thread1826, label %repeatHasMatch.exit252.thread1824
+  %.not.i259 = icmp ugt i64 %685, %793
+  br i1 %.not.i259, label %repeatHasMatch.exit250.thread1823, label %repeatHasMatch.exit250.thread1821
 
 794:                                              ; preds = %771
   %795 = call i32 @repeatHasMatchRange(ptr noundef nonnull %737, ptr noundef %742, ptr noundef %747, i64 noundef %685) #12
-  br label %repeatHasMatch.exit252
+  br label %repeatHasMatch.exit250
 
 796:                                              ; preds = %771
   %797 = call i32 @repeatHasMatchBitmap(ptr noundef nonnull %737, ptr noundef %742, i64 noundef %685) #12
-  br label %repeatHasMatch.exit252
+  br label %repeatHasMatch.exit250
 
 798:                                              ; preds = %771
   %799 = call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %737, ptr noundef %742, ptr noundef %747, i64 noundef %685) #12
-  br label %repeatHasMatch.exit252
+  br label %repeatHasMatch.exit250
 
 800:                                              ; preds = %771
   %801 = call i32 @repeatHasMatchTrailer(ptr noundef nonnull %737, ptr noundef %742, i64 noundef %685) #12
-  br label %repeatHasMatch.exit252
+  br label %repeatHasMatch.exit250
 
-repeatHasMatch.exit252:                           ; preds = %773, %794, %796, %798, %800
-  %.0.i251 = phi i32 [ %774, %773 ], [ %795, %794 ], [ %797, %796 ], [ %799, %798 ], [ %801, %800 ]
-  switch i32 %.0.i251, label %runException384.exit221 [
-    i32 1, label %repeatHasMatch.exit252.thread1824
-    i32 2, label %repeatHasMatch.exit252.thread1826
+repeatHasMatch.exit250:                           ; preds = %773, %794, %796, %798, %800
+  %.0.i249 = phi i32 [ %774, %773 ], [ %795, %794 ], [ %797, %796 ], [ %799, %798 ], [ %801, %800 ]
+  switch i32 %.0.i249, label %runException384.exit220 [
+    i32 1, label %repeatHasMatch.exit250.thread1821
+    i32 2, label %repeatHasMatch.exit250.thread1823
   ]
 
-repeatHasMatch.exit252.thread1824:                ; preds = %789, %771, %775, %repeatHasMatch.exit252
+repeatHasMatch.exit250.thread1821:                ; preds = %789, %771, %775, %repeatHasMatch.exit250
   %802 = getelementptr inbounds nuw i8, ptr %736, i64 32
   %803 = load i32, ptr %802, align 4
   %804 = icmp eq i32 %803, 65535
-  %spec.select1867 = select i1 %804, i32 %.11779, i32 2
-  %spec.select1868 = select i1 %804, i8 1, i8 %.sroa.01554.6
+  %spec.select1862 = select i1 %804, i32 %.11777, i32 2
+  %spec.select1863 = select i1 %804, i8 1, i8 %.sroa.01552.6
   br label %.critedge.i210.thread
 
-repeatHasMatch.exit252.thread1826:                ; preds = %789, %repeatHasMatch.exit252
+repeatHasMatch.exit250.thread1823:                ; preds = %789, %repeatHasMatch.exit250
   call void @llvm.assume(i1 true) [ "align"(ptr %729, i64 16) ], !noalias !494
   %805 = load <2 x i64>, ptr %729, align 16, !noalias !494
   %806 = getelementptr inbounds nuw i8, ptr %729, i64 16
@@ -8962,21 +8962,21 @@ repeatHasMatch.exit252.thread1826:                ; preds = %789, %repeatHasMatc
   %808 = getelementptr inbounds nuw i8, ptr %729, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %808, i64 16) ], !noalias !494
   %809 = load <2 x i64>, ptr %808, align 16, !noalias !494
-  %810 = and <2 x i64> %805, %.sroa.0759.9
-  %811 = and <2 x i64> %807, %.sroa.27775.9
-  %812 = and <2 x i64> %809, %.sroa.35806.9
-  br label %runException384.exit221
+  %810 = and <2 x i64> %805, %.sroa.0757.9
+  %811 = and <2 x i64> %807, %.sroa.27773.9
+  %812 = and <2 x i64> %809, %.sroa.35804.9
+  br label %runException384.exit220
 
-.critedge.i210.thread:                            ; preds = %repeatHasMatch.exit252.thread1824, %770, %769, %768, %767, %766, %763, %testbit384.exit.i217, %764, %765, %716
-  %.31781 = phi i32 [ %.11779, %716 ], [ 2, %770 ], [ 2, %769 ], [ 2, %768 ], [ 2, %767 ], [ 2, %766 ], [ 2, %763 ], [ 2, %testbit384.exit.i217 ], [ 2, %764 ], [ 2, %765 ], [ %spec.select1867, %repeatHasMatch.exit252.thread1824 ]
-  %.sroa.01554.9 = phi i8 [ %.sroa.01554.6, %716 ], [ %.sroa.01554.6, %770 ], [ %.sroa.01554.6, %769 ], [ %.sroa.01554.6, %768 ], [ %.sroa.01554.6, %767 ], [ %.sroa.01554.6, %766 ], [ %.sroa.01554.6, %763 ], [ %.sroa.01554.6, %testbit384.exit.i217 ], [ %.sroa.01554.6, %764 ], [ %.sroa.01554.6, %765 ], [ %spec.select1868, %repeatHasMatch.exit252.thread1824 ]
+.critedge.i210.thread:                            ; preds = %repeatHasMatch.exit250.thread1821, %770, %769, %768, %767, %766, %763, %testbit384.exit.i216, %764, %765, %716
+  %.31779 = phi i32 [ %.11777, %716 ], [ 2, %770 ], [ 2, %769 ], [ 2, %768 ], [ 2, %767 ], [ 2, %766 ], [ 2, %763 ], [ 2, %testbit384.exit.i216 ], [ 2, %764 ], [ 2, %765 ], [ %spec.select1862, %repeatHasMatch.exit250.thread1821 ]
+  %.sroa.01552.9 = phi i8 [ %.sroa.01552.6, %716 ], [ %.sroa.01552.6, %770 ], [ %.sroa.01552.6, %769 ], [ %.sroa.01552.6, %768 ], [ %.sroa.01552.6, %767 ], [ %.sroa.01552.6, %766 ], [ %.sroa.01552.6, %763 ], [ %.sroa.01552.6, %testbit384.exit.i216 ], [ %.sroa.01552.6, %764 ], [ %.sroa.01552.6, %765 ], [ %spec.select1863, %repeatHasMatch.exit250.thread1821 ]
   %813 = getelementptr inbounds nuw i8, ptr %729, i64 96
   %814 = load i32, ptr %813, align 16
-  %.not70.i214 = icmp ne i32 %814, -1
-  %brmerge1869.not1889 = and i1 %684, %.not70.i214
-  %815 = icmp eq i32 %.31781, 1
-  %or.cond1870 = select i1 %brmerge1869.not1889, i1 %815, i1 false
-  %.41782 = select i1 %or.cond1870, i32 0, i32 %.31781
+  %.not70.i213 = icmp ne i32 %814, -1
+  %brmerge1864.not1884 = and i1 %684, %.not70.i213
+  %815 = icmp eq i32 %.31779, 1
+  %or.cond1865 = select i1 %brmerge1864.not1884, i1 %815, i1 false
+  %.41780 = select i1 %or.cond1865, i32 0, i32 %.31779
   %816 = getelementptr inbounds nuw i8, ptr %729, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %816, i64 16) ], !noalias !497
   %817 = load <2 x i64>, ptr %816, align 16, !noalias !497
@@ -8986,18 +8986,18 @@ repeatHasMatch.exit252.thread1826:                ; preds = %789, %repeatHasMatc
   %820 = getelementptr inbounds nuw i8, ptr %729, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %820, i64 16) ], !noalias !497
   %821 = load <2 x i64>, ptr %820, align 16, !noalias !497
-  %.sroa.01728.0.copyload = load <2 x i64>, ptr %487, align 16
-  %.sroa.41729.0.copyload = load <2 x i64>, ptr %.sroa.41558.0..sroa_idx, align 16
-  %.sroa.51730.0.copyload = load <2 x i64>, ptr %.sroa.51559.0..sroa_idx, align 16
-  %822 = or <2 x i64> %.sroa.01728.0.copyload, %817
-  %823 = or <2 x i64> %.sroa.41729.0.copyload, %819
-  %824 = or <2 x i64> %.sroa.51730.0.copyload, %821
+  %.sroa.01726.0.copyload = load <2 x i64>, ptr %487, align 16
+  %.sroa.41727.0.copyload = load <2 x i64>, ptr %.sroa.41556.0..sroa_idx, align 16
+  %.sroa.51728.0.copyload = load <2 x i64>, ptr %.sroa.51557.0..sroa_idx, align 16
+  %822 = or <2 x i64> %.sroa.01726.0.copyload, %817
+  %823 = or <2 x i64> %.sroa.41727.0.copyload, %819
+  %824 = or <2 x i64> %.sroa.51728.0.copyload, %821
   store <2 x i64> %822, ptr %487, align 16
-  store <2 x i64> %823, ptr %.sroa.41558.0..sroa_idx, align 16
-  store <2 x i64> %824, ptr %.sroa.51559.0..sroa_idx, align 16
+  store <2 x i64> %823, ptr %.sroa.41556.0..sroa_idx, align 16
+  store <2 x i64> %824, ptr %.sroa.51557.0..sroa_idx, align 16
   %825 = getelementptr inbounds nuw i8, ptr %729, i64 104
   %826 = load i8, ptr %825, align 8
-  switch i8 %826, label %runException384.exit221 [
+  switch i8 %826, label %runException384.exit220 [
     i8 1, label %827
     i8 3, label %827
   ]
@@ -9011,46 +9011,46 @@ repeatHasMatch.exit252.thread1826:                ; preds = %789, %repeatHasMatc
   %831 = getelementptr inbounds nuw i8, ptr %729, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %831, i64 16) ], !noalias !500
   %832 = load <2 x i64>, ptr %831, align 16, !noalias !500
-  %833 = and <2 x i64> %828, %.sroa.0759.9
-  %834 = and <2 x i64> %830, %.sroa.27775.9
-  %835 = and <2 x i64> %832, %.sroa.35806.9
-  %836 = icmp eq i32 %.41782, 1
-  %spec.select1871 = select i1 %836, i32 0, i32 %.41782
-  br label %runException384.exit221
+  %833 = and <2 x i64> %828, %.sroa.0757.9
+  %834 = and <2 x i64> %830, %.sroa.27773.9
+  %835 = and <2 x i64> %832, %.sroa.35804.9
+  %836 = icmp eq i32 %.41780, 1
+  %spec.select1866 = select i1 %836, i32 0, i32 %.41780
+  br label %runException384.exit220
 
-runException384.exit221:                          ; preds = %827, %775, %771, %782, %.critedge.i210.thread, %repeatHasMatch.exit252, %repeatHasMatch.exit252.thread1826
-  %.sroa.0759.14 = phi <2 x i64> [ %.sroa.0759.9, %.critedge.i210.thread ], [ %810, %repeatHasMatch.exit252.thread1826 ], [ %.sroa.0759.9, %repeatHasMatch.exit252 ], [ %.sroa.0759.9, %782 ], [ %.sroa.0759.9, %771 ], [ %.sroa.0759.9, %775 ], [ %833, %827 ]
-  %.sroa.27775.14 = phi <2 x i64> [ %.sroa.27775.9, %.critedge.i210.thread ], [ %811, %repeatHasMatch.exit252.thread1826 ], [ %.sroa.27775.9, %repeatHasMatch.exit252 ], [ %.sroa.27775.9, %782 ], [ %.sroa.27775.9, %771 ], [ %.sroa.27775.9, %775 ], [ %834, %827 ]
-  %.sroa.35806.14 = phi <2 x i64> [ %.sroa.35806.9, %.critedge.i210.thread ], [ %812, %repeatHasMatch.exit252.thread1826 ], [ %.sroa.35806.9, %repeatHasMatch.exit252 ], [ %.sroa.35806.9, %782 ], [ %.sroa.35806.9, %771 ], [ %.sroa.35806.9, %775 ], [ %835, %827 ]
-  %.51783 = phi i32 [ %.41782, %.critedge.i210.thread ], [ 2, %repeatHasMatch.exit252.thread1826 ], [ 2, %repeatHasMatch.exit252 ], [ 2, %782 ], [ 2, %771 ], [ 2, %775 ], [ %spec.select1871, %827 ]
-  %.sroa.01554.10 = phi i8 [ %.sroa.01554.9, %.critedge.i210.thread ], [ %.sroa.01554.6, %repeatHasMatch.exit252.thread1826 ], [ %.sroa.01554.6, %repeatHasMatch.exit252 ], [ %.sroa.01554.6, %782 ], [ %.sroa.01554.6, %771 ], [ %.sroa.01554.6, %775 ], [ %.sroa.01554.9, %827 ]
+runException384.exit220:                          ; preds = %827, %775, %771, %782, %.critedge.i210.thread, %repeatHasMatch.exit250, %repeatHasMatch.exit250.thread1823
+  %.sroa.0757.14 = phi <2 x i64> [ %.sroa.0757.9, %.critedge.i210.thread ], [ %810, %repeatHasMatch.exit250.thread1823 ], [ %.sroa.0757.9, %repeatHasMatch.exit250 ], [ %.sroa.0757.9, %782 ], [ %.sroa.0757.9, %771 ], [ %.sroa.0757.9, %775 ], [ %833, %827 ]
+  %.sroa.27773.14 = phi <2 x i64> [ %.sroa.27773.9, %.critedge.i210.thread ], [ %811, %repeatHasMatch.exit250.thread1823 ], [ %.sroa.27773.9, %repeatHasMatch.exit250 ], [ %.sroa.27773.9, %782 ], [ %.sroa.27773.9, %771 ], [ %.sroa.27773.9, %775 ], [ %834, %827 ]
+  %.sroa.35804.14 = phi <2 x i64> [ %.sroa.35804.9, %.critedge.i210.thread ], [ %812, %repeatHasMatch.exit250.thread1823 ], [ %.sroa.35804.9, %repeatHasMatch.exit250 ], [ %.sroa.35804.9, %782 ], [ %.sroa.35804.9, %771 ], [ %.sroa.35804.9, %775 ], [ %835, %827 ]
+  %.51781 = phi i32 [ %.41780, %.critedge.i210.thread ], [ 2, %repeatHasMatch.exit250.thread1823 ], [ 2, %repeatHasMatch.exit250 ], [ 2, %782 ], [ 2, %771 ], [ 2, %775 ], [ %spec.select1866, %827 ]
+  %.sroa.01552.10 = phi i8 [ %.sroa.01552.9, %.critedge.i210.thread ], [ %.sroa.01552.6, %repeatHasMatch.exit250.thread1823 ], [ %.sroa.01552.6, %repeatHasMatch.exit250 ], [ %.sroa.01552.6, %782 ], [ %.sroa.01552.6, %771 ], [ %.sroa.01552.6, %775 ], [ %.sroa.01552.9, %827 ]
   %.not57.i177 = icmp eq i64 %719, 0
   br i1 %.not57.i177, label %837, label %716
 
-837:                                              ; preds = %runException384.exit221
+837:                                              ; preds = %runException384.exit220
   %838 = extractvalue { i32, i32 } %708, 1
   %.not58.i178 = icmp eq i32 %838, 0
-  br i1 %.not58.i178, label %839, label %.preheader1908
+  br i1 %.not58.i178, label %839, label %.preheader1903
 
 839:                                              ; preds = %837
-  %.sroa.01568.0.copyload = load <2 x i64>, ptr %487, align 16
-  %.sroa.41569.0.copyload = load <2 x i64>, ptr %.sroa.41558.0..sroa_idx, align 16
-  %.sroa.51570.0.copyload = load <2 x i64>, ptr %.sroa.51559.0..sroa_idx, align 16
-  %840 = or <2 x i64> %.sroa.01568.0.copyload, %.sroa.0759.14
-  %841 = or <2 x i64> %.sroa.41569.0.copyload, %.sroa.27775.14
-  %842 = or <2 x i64> %.sroa.51570.0.copyload, %.sroa.35806.14
-  switch i32 %.51783, label %847 [
+  %.sroa.01566.0.copyload = load <2 x i64>, ptr %487, align 16
+  %.sroa.41567.0.copyload = load <2 x i64>, ptr %.sroa.41556.0..sroa_idx, align 16
+  %.sroa.51568.0.copyload = load <2 x i64>, ptr %.sroa.51557.0..sroa_idx, align 16
+  %840 = or <2 x i64> %.sroa.01566.0.copyload, %.sroa.0757.14
+  %841 = or <2 x i64> %.sroa.41567.0.copyload, %.sroa.27773.14
+  %842 = or <2 x i64> %.sroa.51568.0.copyload, %.sroa.35804.14
+  switch i32 %.51781, label %847 [
     i32 1, label %843
     i32 2, label %844
   ]
 
 843:                                              ; preds = %839
   store <2 x i64> %661, ptr %486, align 32
-  store <2 x i64> %662, ptr %.sroa.41644.0..sroa_idx, align 16
-  store <2 x i64> %663, ptr %.sroa.51645.0..sroa_idx, align 32
+  store <2 x i64> %662, ptr %.sroa.41642.0..sroa_idx, align 16
+  store <2 x i64> %663, ptr %.sroa.51643.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %491, ptr noundef nonnull align 16 dereferenceable(48) %487, i64 48, i1 false)
   store ptr null, ptr %492, align 8
-  store i8 %.sroa.01554.10, ptr %490, align 64
+  store i8 %.sroa.01552.10, ptr %490, align 64
   br label %847
 
 844:                                              ; preds = %839
@@ -9069,10 +9069,10 @@ runException384.exit221:                          ; preds = %827, %775, %771, %7
   br label %nfaExecLimEx384_Run_Exceptions.exit20
 
 nfaExecLimEx384_Run_Exceptions.exit20:            ; preds = %657, %847, %696
-  %.sroa.0759.7 = phi <2 x i64> [ %.sroa.0759.1, %657 ], [ %697, %696 ], [ %840, %847 ]
-  %.sroa.27775.7 = phi <2 x i64> [ %.sroa.27775.1, %657 ], [ %698, %696 ], [ %841, %847 ]
-  %.sroa.35806.7 = phi <2 x i64> [ %.sroa.35806.1, %657 ], [ %699, %696 ], [ %842, %847 ]
-  %848 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i1929
+  %.sroa.0757.7 = phi <2 x i64> [ %.sroa.0757.1, %657 ], [ %697, %696 ], [ %840, %847 ]
+  %.sroa.27773.7 = phi <2 x i64> [ %.sroa.27773.1, %657 ], [ %698, %696 ], [ %841, %847 ]
+  %.sroa.35804.7 = phi <2 x i64> [ %.sroa.35804.1, %657 ], [ %699, %696 ], [ %842, %847 ]
+  %848 = getelementptr inbounds nuw i8, ptr %1, i64 %.045.i1924
   %849 = load i8, ptr %848, align 1
   %850 = zext i8 %849 to i64
   %851 = getelementptr inbounds nuw i8, ptr %0, i64 %850
@@ -9087,23 +9087,23 @@ nfaExecLimEx384_Run_Exceptions.exit20:            ; preds = %657, %847, %696
   %858 = getelementptr inbounds nuw i8, ptr %854, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %858, i64 16) ], !noalias !503
   %859 = load <2 x i64>, ptr %858, align 16, !noalias !503
-  %860 = and <2 x i64> %855, %.sroa.0759.7
-  %861 = and <2 x i64> %857, %.sroa.27775.7
-  %862 = and <2 x i64> %859, %.sroa.35806.7
-  %863 = add i64 %.045.i1929, 1
+  %860 = and <2 x i64> %855, %.sroa.0757.7
+  %861 = and <2 x i64> %857, %.sroa.27773.7
+  %862 = and <2 x i64> %859, %.sroa.35804.7
+  %863 = add i64 %.045.i1924, 1
   %.not.i4 = icmp eq i64 %863, %.0107.i
   br i1 %.not.i4, label %nfaExecLimEx384_Loop_No_Accel.exit11, label %493
 
 nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %nfaExecLimEx384_Run_Exceptions.exit, %nfaExecLimEx384_Run_Exceptions.exit20, %493, %40, %449, %5
-  %.01793 = phi i64 [ 0, %5 ], [ %.21795, %449 ], [ %.21795, %40 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.045.i1929, %493 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.sroa.0467.0 = phi <2 x i64> [ %.sroa.0467.0.copyload, %5 ], [ %.sroa.0467.3, %449 ], [ %.sroa.0467.3, %40 ], [ %860, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.sroa.0837.01926, %493 ], [ %445, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.sroa.22.0 = phi <2 x i64> [ %.sroa.22.0.copyload, %5 ], [ %.sroa.22.3, %449 ], [ %.sroa.22.3, %40 ], [ %861, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.sroa.15.01927, %493 ], [ %446, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.sroa.24.0 = phi <2 x i64> [ %.sroa.24.0.copyload, %5 ], [ %.sroa.24.3, %449 ], [ %.sroa.24.3, %40 ], [ %862, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.sroa.18.01928, %493 ], [ %447, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.1108.i = phi i64 [ 0, %5 ], [ %.21795, %449 ], [ %.21795, %40 ], [ %.0107.i, %493 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit ]
-  %.not121.i1941 = icmp eq i64 %.01793, %2
-  br i1 %.not121.i1941, label %nfaExecLimEx384_Stream.exit, label %.lr.ph1946
+  %.01791 = phi i64 [ 0, %5 ], [ %.21793, %449 ], [ %.21793, %40 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.045.i1924, %493 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.sroa.0465.0 = phi <2 x i64> [ %.sroa.0465.0.copyload, %5 ], [ %.sroa.0465.3, %449 ], [ %.sroa.0465.3, %40 ], [ %860, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.sroa.0835.01921, %493 ], [ %445, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.sroa.22.0 = phi <2 x i64> [ %.sroa.22.0.copyload, %5 ], [ %.sroa.22.3, %449 ], [ %.sroa.22.3, %40 ], [ %861, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.sroa.15.01922, %493 ], [ %446, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.sroa.24.0 = phi <2 x i64> [ %.sroa.24.0.copyload, %5 ], [ %.sroa.24.3, %449 ], [ %.sroa.24.3, %40 ], [ %862, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.sroa.18.01923, %493 ], [ %447, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.1108.i = phi i64 [ 0, %5 ], [ %.21793, %449 ], [ %.21793, %40 ], [ %.0107.i, %493 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit20 ], [ %.0107.i, %nfaExecLimEx384_Run_Exceptions.exit ]
+  %.not121.i1936 = icmp eq i64 %.01791, %2
+  br i1 %.not121.i1936, label %nfaExecLimEx384_Stream.exit, label %.lr.ph1941
 
-.lr.ph1946:                                       ; preds = %nfaExecLimEx384_Loop_No_Accel.exit11
+.lr.ph1941:                                       ; preds = %nfaExecLimEx384_Loop_No_Accel.exit11
   %864 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %865 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %866 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -9144,28 +9144,28 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %nfaExecLimEx384_Run
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %902 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %903 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.41650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.51651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.41648.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.51649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %904 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.41524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.51525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.71471.0..sroa_idx1472 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.81478.0..sroa_idx1479 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.41522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.51523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.71469.0..sroa_idx1470 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.81476.0..sroa_idx1477 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %905 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %906 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %907 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %908 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %909 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.41541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.51542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.41539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.51540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %910
 
-910:                                              ; preds = %.lr.ph1946, %nfaExecLimEx384_Run_Exceptions.exit26
-  %.sroa.24.11945 = phi <2 x i64> [ %.sroa.24.0, %.lr.ph1946 ], [ %1307, %nfaExecLimEx384_Run_Exceptions.exit26 ]
-  %.sroa.22.11944 = phi <2 x i64> [ %.sroa.22.0, %.lr.ph1946 ], [ %1306, %nfaExecLimEx384_Run_Exceptions.exit26 ]
-  %.sroa.0467.11943 = phi <2 x i64> [ %.sroa.0467.0, %.lr.ph1946 ], [ %1305, %nfaExecLimEx384_Run_Exceptions.exit26 ]
-  %.117941942 = phi i64 [ %.01793, %.lr.ph1946 ], [ %1308, %nfaExecLimEx384_Run_Exceptions.exit26 ]
-  %911 = add i64 %.117941942, 16
+910:                                              ; preds = %.lr.ph1941, %nfaExecLimEx384_Run_Exceptions.exit26
+  %.sroa.24.11940 = phi <2 x i64> [ %.sroa.24.0, %.lr.ph1941 ], [ %1307, %nfaExecLimEx384_Run_Exceptions.exit26 ]
+  %.sroa.22.11939 = phi <2 x i64> [ %.sroa.22.0, %.lr.ph1941 ], [ %1306, %nfaExecLimEx384_Run_Exceptions.exit26 ]
+  %.sroa.0465.11938 = phi <2 x i64> [ %.sroa.0465.0, %.lr.ph1941 ], [ %1305, %nfaExecLimEx384_Run_Exceptions.exit26 ]
+  %.117921937 = phi i64 [ %.01791, %.lr.ph1941 ], [ %1308, %nfaExecLimEx384_Run_Exceptions.exit26 ]
+  %911 = add i64 %.117921937, 16
   %.not122.i = icmp ugt i64 %911, %2
   br i1 %.not122.i, label %lshift64_m128.exit31, label %912
 
@@ -9177,29 +9177,29 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %nfaExecLimEx384_Run
   call void @llvm.assume(i1 true) [ "align"(ptr %866, i64 16) ], !noalias !506
   %915 = load <2 x i64>, ptr %866, align 16, !noalias !506
   %916 = xor <2 x i64> %913, splat (i64 -1)
-  %917 = and <2 x i64> %.sroa.0467.11943, %916
+  %917 = and <2 x i64> %.sroa.0465.11938, %916
   %918 = xor <2 x i64> %914, splat (i64 -1)
-  %919 = and <2 x i64> %.sroa.22.11944, %918
+  %919 = and <2 x i64> %.sroa.22.11939, %918
   %920 = xor <2 x i64> %915, splat (i64 -1)
-  %921 = and <2 x i64> %.sroa.24.11945, %920
+  %921 = and <2 x i64> %.sroa.24.11940, %920
   %922 = or <2 x i64> %919, %917
   %923 = or <2 x i64> %922, %921
   %924 = bitcast <2 x i64> %923 to <16 x i8>
   %925 = icmp ne <16 x i8> %924, zeroinitializer
   %926 = bitcast <16 x i1> %925 to i16
-  %.not1890 = icmp eq i16 %926, 0
-  br i1 %.not1890, label %927, label %lshift64_m128.exit31
+  %.not1885 = icmp eq i16 %926, 0
+  br i1 %.not1885, label %927, label %lshift64_m128.exit31
 
 927:                                              ; preds = %912
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store <2 x i64> %.sroa.0467.11943, ptr %15, align 16
-  %.sroa.22.0..sroa_idx515 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store <2 x i64> %.sroa.22.11944, ptr %.sroa.22.0..sroa_idx515, align 16
-  %.sroa.24.0..sroa_idx549 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store <2 x i64> %.sroa.24.11945, ptr %.sroa.24.0..sroa_idx549, align 16
-  %928 = call i64 @doAccel384(ptr noundef nonnull align 16 %15, ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %24, ptr noundef %1, i64 noundef %.117941942, i64 noundef %2) #12
+  store <2 x i64> %.sroa.0465.11938, ptr %15, align 16
+  %.sroa.22.0..sroa_idx513 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store <2 x i64> %.sroa.22.11939, ptr %.sroa.22.0..sroa_idx513, align 16
+  %.sroa.24.0..sroa_idx547 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store <2 x i64> %.sroa.24.11940, ptr %.sroa.24.0..sroa_idx547, align 16
+  %928 = call i64 @doAccel384(ptr noundef nonnull align 16 %15, ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %24, ptr noundef %1, i64 noundef %.117921937, i64 noundef %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not124.i = icmp eq i64 %928, %.117941942
+  %.not124.i = icmp eq i64 %928, %.117921937
   br i1 %.not124.i, label %939, label %929
 
 929:                                              ; preds = %927
@@ -9212,16 +9212,16 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %nfaExecLimEx384_Run
   %934 = load <2 x i64>, ptr %932, align 16, !noalias !509
   call void @llvm.assume(i1 true) [ "align"(ptr %931, i64 16) ], !noalias !509
   %935 = load <2 x i64>, ptr %931, align 16, !noalias !509
-  %936 = and <2 x i64> %933, %.sroa.0467.11943
-  %937 = and <2 x i64> %934, %.sroa.22.11944
-  %938 = and <2 x i64> %935, %.sroa.24.11945
+  %936 = and <2 x i64> %933, %.sroa.0465.11938
+  %937 = and <2 x i64> %934, %.sroa.22.11939
+  %938 = and <2 x i64> %935, %.sroa.24.11940
   br label %939
 
 939:                                              ; preds = %929, %927
-  %.sroa.0467.2 = phi <2 x i64> [ %.sroa.0467.11943, %927 ], [ %936, %929 ]
-  %.sroa.22.2 = phi <2 x i64> [ %.sroa.22.11944, %927 ], [ %937, %929 ]
-  %.sroa.24.2 = phi <2 x i64> [ %.sroa.24.11945, %927 ], [ %938, %929 ]
-  %.not125.i = icmp ne i64 %.117941942, 0
+  %.sroa.0465.2 = phi <2 x i64> [ %.sroa.0465.11938, %927 ], [ %936, %929 ]
+  %.sroa.22.2 = phi <2 x i64> [ %.sroa.22.11939, %927 ], [ %937, %929 ]
+  %.sroa.24.2 = phi <2 x i64> [ %.sroa.24.11940, %927 ], [ %938, %929 ]
+  %.not125.i = icmp ne i64 %.117921937, 0
   %940 = add i64 %.1108.i, 4
   %941 = icmp ult i64 %928, %940
   %or.cond136.i = and i1 %.not125.i, %941
@@ -9240,11 +9240,11 @@ lshift64_m128.exit31:                             ; preds = %912, %910
   %945 = load <2 x i64>, ptr %868, align 16, !noalias !512
   call void @llvm.assume(i1 true) [ "align"(ptr %869, i64 16) ], !noalias !512
   %946 = load <2 x i64>, ptr %869, align 16, !noalias !512
-  %947 = and <2 x i64> %945, %.sroa.22.11944
-  %948 = and <2 x i64> %946, %.sroa.24.11945
+  %947 = and <2 x i64> %945, %.sroa.22.11939
+  %948 = and <2 x i64> %946, %.sroa.24.11940
   %949 = load i8, ptr %870, align 4
   %950 = zext i8 %949 to i32
-  %951 = and <2 x i64> %944, %.sroa.0467.11943
+  %951 = and <2 x i64> %944, %.sroa.0465.11938
   %952 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %950, i64 0
   %953 = bitcast <4 x i32> %952 to <2 x i64>
   %954 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %951, <2 x i64> %953)
@@ -9272,11 +9272,11 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit3
   %963 = load <2 x i64>, ptr %873, align 16, !noalias !515
   call void @llvm.assume(i1 true) [ "align"(ptr %874, i64 16) ], !noalias !515
   %964 = load <2 x i64>, ptr %874, align 16, !noalias !515
-  %965 = and <2 x i64> %963, %.sroa.22.11944
-  %966 = and <2 x i64> %964, %.sroa.24.11945
+  %965 = and <2 x i64> %963, %.sroa.22.11939
+  %966 = and <2 x i64> %964, %.sroa.24.11940
   %967 = load i8, ptr %875, align 1
   %968 = zext i8 %967 to i32
-  %969 = and <2 x i64> %962, %.sroa.0467.11943
+  %969 = and <2 x i64> %962, %.sroa.0465.11938
   %970 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %968, i64 0
   %971 = bitcast <4 x i32> %970 to <2 x i64>
   %972 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %969, <2 x i64> %971)
@@ -9292,7 +9292,7 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit67
 
 lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit73, %lshift64_m128.exit31
-  %.sroa.0368.6 = phi <2 x i64> [ %979, %lshift64_m128.exit73 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.0366.6 = phi <2 x i64> [ %979, %lshift64_m128.exit73 ], [ %954, %lshift64_m128.exit31 ]
   %.sroa.27.6 = phi <2 x i64> [ %980, %lshift64_m128.exit73 ], [ %957, %lshift64_m128.exit31 ]
   %.sroa.35.6 = phi <2 x i64> [ %981, %lshift64_m128.exit73 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %876, i64 16) ], !noalias !518
@@ -9301,11 +9301,11 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %983 = load <2 x i64>, ptr %877, align 16, !noalias !518
   call void @llvm.assume(i1 true) [ "align"(ptr %878, i64 16) ], !noalias !518
   %984 = load <2 x i64>, ptr %878, align 16, !noalias !518
-  %985 = and <2 x i64> %983, %.sroa.22.11944
-  %986 = and <2 x i64> %984, %.sroa.24.11945
+  %985 = and <2 x i64> %983, %.sroa.22.11939
+  %986 = and <2 x i64> %984, %.sroa.24.11940
   %987 = load i8, ptr %879, align 2
   %988 = zext i8 %987 to i32
-  %989 = and <2 x i64> %982, %.sroa.0467.11943
+  %989 = and <2 x i64> %982, %.sroa.0465.11938
   %990 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %988, i64 0
   %991 = bitcast <4 x i32> %990 to <2 x i64>
   %992 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %989, <2 x i64> %991)
@@ -9315,13 +9315,13 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %996 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %988, i64 0
   %997 = bitcast <4 x i32> %996 to <2 x i64>
   %998 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %986, <2 x i64> %997)
-  %999 = or <2 x i64> %992, %.sroa.0368.6
+  %999 = or <2 x i64> %992, %.sroa.0366.6
   %1000 = or <2 x i64> %995, %.sroa.27.6
   %1001 = or <2 x i64> %998, %.sroa.35.6
   br label %lshift64_m128.exit61
 
 lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit67, %lshift64_m128.exit31
-  %.sroa.0368.5 = phi <2 x i64> [ %999, %lshift64_m128.exit67 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.0366.5 = phi <2 x i64> [ %999, %lshift64_m128.exit67 ], [ %954, %lshift64_m128.exit31 ]
   %.sroa.27.5 = phi <2 x i64> [ %1000, %lshift64_m128.exit67 ], [ %957, %lshift64_m128.exit31 ]
   %.sroa.35.5 = phi <2 x i64> [ %1001, %lshift64_m128.exit67 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %880, i64 16) ], !noalias !521
@@ -9330,11 +9330,11 @@ lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit6
   %1003 = load <2 x i64>, ptr %881, align 16, !noalias !521
   call void @llvm.assume(i1 true) [ "align"(ptr %882, i64 16) ], !noalias !521
   %1004 = load <2 x i64>, ptr %882, align 16, !noalias !521
-  %1005 = and <2 x i64> %1003, %.sroa.22.11944
-  %1006 = and <2 x i64> %1004, %.sroa.24.11945
+  %1005 = and <2 x i64> %1003, %.sroa.22.11939
+  %1006 = and <2 x i64> %1004, %.sroa.24.11940
   %1007 = load i8, ptr %883, align 1
   %1008 = zext i8 %1007 to i32
-  %1009 = and <2 x i64> %1002, %.sroa.0467.11943
+  %1009 = and <2 x i64> %1002, %.sroa.0465.11938
   %1010 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1008, i64 0
   %1011 = bitcast <4 x i32> %1010 to <2 x i64>
   %1012 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1009, <2 x i64> %1011)
@@ -9344,13 +9344,13 @@ lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit6
   %1016 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1008, i64 0
   %1017 = bitcast <4 x i32> %1016 to <2 x i64>
   %1018 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1006, <2 x i64> %1017)
-  %1019 = or <2 x i64> %1012, %.sroa.0368.5
+  %1019 = or <2 x i64> %1012, %.sroa.0366.5
   %1020 = or <2 x i64> %1015, %.sroa.27.5
   %1021 = or <2 x i64> %1018, %.sroa.35.5
   br label %lshift64_m128.exit55
 
 lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit61, %lshift64_m128.exit31
-  %.sroa.0368.4 = phi <2 x i64> [ %1019, %lshift64_m128.exit61 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.0366.4 = phi <2 x i64> [ %1019, %lshift64_m128.exit61 ], [ %954, %lshift64_m128.exit31 ]
   %.sroa.27.4 = phi <2 x i64> [ %1020, %lshift64_m128.exit61 ], [ %957, %lshift64_m128.exit31 ]
   %.sroa.35.4 = phi <2 x i64> [ %1021, %lshift64_m128.exit61 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %884, i64 16) ], !noalias !524
@@ -9359,11 +9359,11 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit6
   %1023 = load <2 x i64>, ptr %885, align 16, !noalias !524
   call void @llvm.assume(i1 true) [ "align"(ptr %886, i64 16) ], !noalias !524
   %1024 = load <2 x i64>, ptr %886, align 16, !noalias !524
-  %1025 = and <2 x i64> %1023, %.sroa.22.11944
-  %1026 = and <2 x i64> %1024, %.sroa.24.11945
+  %1025 = and <2 x i64> %1023, %.sroa.22.11939
+  %1026 = and <2 x i64> %1024, %.sroa.24.11940
   %1027 = load i8, ptr %887, align 8
   %1028 = zext i8 %1027 to i32
-  %1029 = and <2 x i64> %1022, %.sroa.0467.11943
+  %1029 = and <2 x i64> %1022, %.sroa.0465.11938
   %1030 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1028, i64 0
   %1031 = bitcast <4 x i32> %1030 to <2 x i64>
   %1032 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1029, <2 x i64> %1031)
@@ -9373,13 +9373,13 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit6
   %1036 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1028, i64 0
   %1037 = bitcast <4 x i32> %1036 to <2 x i64>
   %1038 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1026, <2 x i64> %1037)
-  %1039 = or <2 x i64> %1032, %.sroa.0368.4
+  %1039 = or <2 x i64> %1032, %.sroa.0366.4
   %1040 = or <2 x i64> %1035, %.sroa.27.4
   %1041 = or <2 x i64> %1038, %.sroa.35.4
   br label %lshift64_m128.exit49
 
 lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit55, %lshift64_m128.exit31
-  %.sroa.0368.3 = phi <2 x i64> [ %1039, %lshift64_m128.exit55 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.0366.3 = phi <2 x i64> [ %1039, %lshift64_m128.exit55 ], [ %954, %lshift64_m128.exit31 ]
   %.sroa.27.3 = phi <2 x i64> [ %1040, %lshift64_m128.exit55 ], [ %957, %lshift64_m128.exit31 ]
   %.sroa.35.3 = phi <2 x i64> [ %1041, %lshift64_m128.exit55 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %888, i64 16) ], !noalias !527
@@ -9388,11 +9388,11 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit5
   %1043 = load <2 x i64>, ptr %889, align 16, !noalias !527
   call void @llvm.assume(i1 true) [ "align"(ptr %890, i64 16) ], !noalias !527
   %1044 = load <2 x i64>, ptr %890, align 16, !noalias !527
-  %1045 = and <2 x i64> %1043, %.sroa.22.11944
-  %1046 = and <2 x i64> %1044, %.sroa.24.11945
+  %1045 = and <2 x i64> %1043, %.sroa.22.11939
+  %1046 = and <2 x i64> %1044, %.sroa.24.11940
   %1047 = load i8, ptr %891, align 1
   %1048 = zext i8 %1047 to i32
-  %1049 = and <2 x i64> %1042, %.sroa.0467.11943
+  %1049 = and <2 x i64> %1042, %.sroa.0465.11938
   %1050 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1048, i64 0
   %1051 = bitcast <4 x i32> %1050 to <2 x i64>
   %1052 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1049, <2 x i64> %1051)
@@ -9402,13 +9402,13 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit5
   %1056 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1048, i64 0
   %1057 = bitcast <4 x i32> %1056 to <2 x i64>
   %1058 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1046, <2 x i64> %1057)
-  %1059 = or <2 x i64> %1052, %.sroa.0368.3
+  %1059 = or <2 x i64> %1052, %.sroa.0366.3
   %1060 = or <2 x i64> %1055, %.sroa.27.3
   %1061 = or <2 x i64> %1058, %.sroa.35.3
   br label %lshift64_m128.exit43
 
 lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit49, %lshift64_m128.exit31
-  %.sroa.0368.2 = phi <2 x i64> [ %1059, %lshift64_m128.exit49 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.0366.2 = phi <2 x i64> [ %1059, %lshift64_m128.exit49 ], [ %954, %lshift64_m128.exit31 ]
   %.sroa.27.2 = phi <2 x i64> [ %1060, %lshift64_m128.exit49 ], [ %957, %lshift64_m128.exit31 ]
   %.sroa.35.2 = phi <2 x i64> [ %1061, %lshift64_m128.exit49 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %892, i64 16) ], !noalias !530
@@ -9417,11 +9417,11 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit4
   %1063 = load <2 x i64>, ptr %893, align 16, !noalias !530
   call void @llvm.assume(i1 true) [ "align"(ptr %894, i64 16) ], !noalias !530
   %1064 = load <2 x i64>, ptr %894, align 16, !noalias !530
-  %1065 = and <2 x i64> %1063, %.sroa.22.11944
-  %1066 = and <2 x i64> %1064, %.sroa.24.11945
+  %1065 = and <2 x i64> %1063, %.sroa.22.11939
+  %1066 = and <2 x i64> %1064, %.sroa.24.11940
   %1067 = load i8, ptr %895, align 2
   %1068 = zext i8 %1067 to i32
-  %1069 = and <2 x i64> %1062, %.sroa.0467.11943
+  %1069 = and <2 x i64> %1062, %.sroa.0465.11938
   %1070 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1068, i64 0
   %1071 = bitcast <4 x i32> %1070 to <2 x i64>
   %1072 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1069, <2 x i64> %1071)
@@ -9431,13 +9431,13 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit4
   %1076 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1068, i64 0
   %1077 = bitcast <4 x i32> %1076 to <2 x i64>
   %1078 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1066, <2 x i64> %1077)
-  %1079 = or <2 x i64> %1072, %.sroa.0368.2
+  %1079 = or <2 x i64> %1072, %.sroa.0366.2
   %1080 = or <2 x i64> %1075, %.sroa.27.2
   %1081 = or <2 x i64> %1078, %.sroa.35.2
   br label %lshift64_m128.exit37
 
 lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit43, %lshift64_m128.exit31
-  %.sroa.0368.0 = phi <2 x i64> [ %1079, %lshift64_m128.exit43 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.0366.0 = phi <2 x i64> [ %1079, %lshift64_m128.exit43 ], [ %954, %lshift64_m128.exit31 ]
   %.sroa.27.0 = phi <2 x i64> [ %1080, %lshift64_m128.exit43 ], [ %957, %lshift64_m128.exit31 ]
   %.sroa.35.0 = phi <2 x i64> [ %1081, %lshift64_m128.exit43 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %896, i64 16) ], !noalias !533
@@ -9446,11 +9446,11 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   %1083 = load <2 x i64>, ptr %897, align 16, !noalias !533
   call void @llvm.assume(i1 true) [ "align"(ptr %898, i64 16) ], !noalias !533
   %1084 = load <2 x i64>, ptr %898, align 16, !noalias !533
-  %1085 = and <2 x i64> %1083, %.sroa.22.11944
-  %1086 = and <2 x i64> %1084, %.sroa.24.11945
+  %1085 = and <2 x i64> %1083, %.sroa.22.11939
+  %1086 = and <2 x i64> %1084, %.sroa.24.11940
   %1087 = load i8, ptr %899, align 1
   %1088 = zext i8 %1087 to i32
-  %1089 = and <2 x i64> %1082, %.sroa.0467.11943
+  %1089 = and <2 x i64> %1082, %.sroa.0465.11938
   %1090 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1088, i64 0
   %1091 = bitcast <4 x i32> %1090 to <2 x i64>
   %1092 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1089, <2 x i64> %1091)
@@ -9460,13 +9460,13 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   %1096 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %1088, i64 0
   %1097 = bitcast <4 x i32> %1096 to <2 x i64>
   %1098 = call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %1086, <2 x i64> %1097)
-  %1099 = or <2 x i64> %1092, %.sroa.0368.0
+  %1099 = or <2 x i64> %1092, %.sroa.0366.0
   %1100 = or <2 x i64> %1095, %.sroa.27.0
   %1101 = or <2 x i64> %1098, %.sroa.35.0
   br label %1102
 
 1102:                                             ; preds = %lshift64_m128.exit37, %lshift64_m128.exit31
-  %.sroa.0368.1 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %1099, %lshift64_m128.exit37 ]
+  %.sroa.0366.1 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %1099, %lshift64_m128.exit37 ]
   %.sroa.27.1 = phi <2 x i64> [ %957, %lshift64_m128.exit31 ], [ %1100, %lshift64_m128.exit37 ]
   %.sroa.35.1 = phi <2 x i64> [ %960, %lshift64_m128.exit31 ], [ %1101, %lshift64_m128.exit37 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %900, i64 16) ], !noalias !536
@@ -9475,9 +9475,9 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   %1104 = load <2 x i64>, ptr %901, align 16, !noalias !536
   call void @llvm.assume(i1 true) [ "align"(ptr %902, i64 16) ], !noalias !536
   %1105 = load <2 x i64>, ptr %902, align 16, !noalias !536
-  %1106 = and <2 x i64> %1103, %.sroa.0467.11943
-  %1107 = and <2 x i64> %1104, %.sroa.22.11944
-  %1108 = and <2 x i64> %1105, %.sroa.24.11945
+  %1106 = and <2 x i64> %1103, %.sroa.0465.11938
+  %1107 = and <2 x i64> %1104, %.sroa.22.11939
+  %1108 = and <2 x i64> %1105, %.sroa.24.11940
   %1109 = bitcast <2 x i64> %1106 to <4 x i32>
   %1110 = icmp eq <4 x i32> %1109, zeroinitializer
   %1111 = sext <4 x i1> %1110 to <4 x i32>
@@ -9501,36 +9501,36 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
   br i1 %.not.i21, label %nfaExecLimEx384_Run_Exceptions.exit26, label %1128, !prof !80
 
 1128:                                             ; preds = %1102
-  %1129 = icmp eq i64 %.117941942, 0
-  %1130 = add i64 %.117941942, %4
-  %.sroa.01649.0.copyload1891 = load <16 x i8>, ptr %903, align 16
+  %1129 = icmp eq i64 %.117921937, 0
+  %1130 = add i64 %.117921937, %4
+  %.sroa.01647.0.copyload1886 = load <16 x i8>, ptr %903, align 16
   %1131 = bitcast <2 x i64> %1106 to <16 x i8>
-  %1132 = icmp ne <16 x i8> %.sroa.01649.0.copyload1891, %1131
+  %1132 = icmp ne <16 x i8> %.sroa.01647.0.copyload1886, %1131
   %1133 = bitcast <16 x i1> %1132 to i16
   %.not.i203 = icmp eq i16 %1133, 0
   br i1 %.not.i203, label %1134, label %diff384.exit205.thread
 
 1134:                                             ; preds = %1128
-  %.sroa.51651.0.copyload1893 = load <16 x i8>, ptr %.sroa.51651.0..sroa_idx, align 16
-  %.sroa.41650.0.copyload1892 = load <16 x i8>, ptr %.sroa.41650.0..sroa_idx, align 16
+  %.sroa.51649.0.copyload1888 = load <16 x i8>, ptr %.sroa.51649.0..sroa_idx, align 16
+  %.sroa.41648.0.copyload1887 = load <16 x i8>, ptr %.sroa.41648.0..sroa_idx, align 16
   %1135 = bitcast <2 x i64> %1107 to <16 x i8>
-  %1136 = icmp ne <16 x i8> %.sroa.41650.0.copyload1892, %1135
+  %1136 = icmp ne <16 x i8> %.sroa.41648.0.copyload1887, %1135
   %1137 = bitcast <16 x i1> %1136 to i16
   %.not1.i204 = icmp eq i16 %1137, 0
   %1138 = bitcast <2 x i64> %1108 to <16 x i8>
-  %1139 = icmp ne <16 x i8> %.sroa.51651.0.copyload1893, %1138
+  %1139 = icmp ne <16 x i8> %.sroa.51649.0.copyload1888, %1138
   %1140 = bitcast <16 x i1> %1139 to i16
-  %.not1894 = icmp eq i16 %1140, 0
-  %or.cond1905 = select i1 %.not1.i204, i1 %.not1894, i1 false
-  br i1 %or.cond1905, label %1141, label %diff384.exit205.thread
+  %.not1889 = icmp eq i16 %1140, 0
+  %or.cond1900 = select i1 %.not1.i204, i1 %.not1889, i1 false
+  br i1 %or.cond1900, label %1141, label %diff384.exit205.thread
 
 1141:                                             ; preds = %1134
-  %.sroa.01540.0.copyload = load <2 x i64>, ptr %908, align 16
-  %.sroa.41541.0.copyload = load <2 x i64>, ptr %.sroa.41541.0..sroa_idx, align 16
-  %.sroa.51542.0.copyload = load <2 x i64>, ptr %.sroa.51542.0..sroa_idx, align 16
-  %1142 = or <2 x i64> %.sroa.01540.0.copyload, %.sroa.0368.1
-  %1143 = or <2 x i64> %.sroa.41541.0.copyload, %.sroa.27.1
-  %1144 = or <2 x i64> %.sroa.51542.0.copyload, %.sroa.35.1
+  %.sroa.01538.0.copyload = load <2 x i64>, ptr %908, align 16
+  %.sroa.41539.0.copyload = load <2 x i64>, ptr %.sroa.41539.0..sroa_idx, align 16
+  %.sroa.51540.0.copyload = load <2 x i64>, ptr %.sroa.51540.0..sroa_idx, align 16
+  %1142 = or <2 x i64> %.sroa.01538.0.copyload, %.sroa.0366.1
+  %1143 = or <2 x i64> %.sroa.41539.0.copyload, %.sroa.27.1
+  %1144 = or <2 x i64> %.sroa.51540.0.copyload, %.sroa.35.1
   br label %nfaExecLimEx384_Run_Exceptions.exit26
 
 diff384.exit205.thread:                           ; preds = %1128, %1134
@@ -9538,8 +9538,8 @@ diff384.exit205.thread:                           ; preds = %1128, %1134
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> %1106, ptr %12, align 16
-  store <2 x i64> %1107, ptr %.sroa.71471.0..sroa_idx1472, align 16
-  store <2 x i64> %1108, ptr %.sroa.81478.0..sroa_idx1479, align 16
+  store <2 x i64> %1107, ptr %.sroa.71469.0..sroa_idx1470, align 16
+  store <2 x i64> %1108, ptr %.sroa.81476.0..sroa_idx1477, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef nonnull align 64 dereferenceable(48) %900, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 16
@@ -9547,26 +9547,26 @@ diff384.exit205.thread:                           ; preds = %1128, %1134
 
 1145:                                             ; preds = %diff384.exit205.thread, %1145
   %1146 = phi i32 [ 0, %diff384.exit205.thread ], [ %1151, %1145 ]
-  %indvars.iv1968 = phi i64 [ 0, %diff384.exit205.thread ], [ %indvars.iv.next1969, %1145 ]
-  %1147 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv1968
+  %indvars.iv1963 = phi i64 [ 0, %diff384.exit205.thread ], [ %indvars.iv.next1964, %1145 ]
+  %1147 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv1963
   %1148 = load i64, ptr %1147, align 8
   %1149 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1148)
   %1150 = trunc nuw nsw i64 %1149 to i32
   %1151 = add i32 %1146, %1150
-  %indvars.iv.next1969 = add nuw nsw i64 %indvars.iv1968, 1
-  %1152 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next1969
+  %indvars.iv.next1964 = add nuw nsw i64 %indvars.iv1963, 1
+  %1152 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next1964
   store i32 %1151, ptr %1152, align 4
-  %exitcond1971.not = icmp eq i64 %indvars.iv.next1969, 5
-  br i1 %exitcond1971.not, label %.preheader, label %1145
+  %exitcond1966.not = icmp eq i64 %indvars.iv.next1964, 5
+  br i1 %exitcond1966.not, label %.preheader, label %1145
 
 .preheader:                                       ; preds = %1145, %1282
-  %.sroa.0368.8 = phi <2 x i64> [ %.sroa.0368.14, %1282 ], [ %.sroa.0368.1, %1145 ]
+  %.sroa.0366.8 = phi <2 x i64> [ %.sroa.0366.14, %1282 ], [ %.sroa.0366.1, %1145 ]
   %.sroa.27.8 = phi <2 x i64> [ %.sroa.27.14, %1282 ], [ %.sroa.27.1, %1145 ]
   %.sroa.35.8 = phi <2 x i64> [ %.sroa.35.14, %1282 ], [ %.sroa.35.1, %1145 ]
-  %.01786 = phi i32 [ %.51791, %1282 ], [ 1, %1145 ]
-  %.sroa.01520.4 = phi i8 [ %.sroa.01520.9, %1282 ], [ 0, %1145 ]
-  %.01785 = phi i32 [ %1283, %1282 ], [ %1127, %1145 ]
-  %1153 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01785) #13, !srcloc !131
+  %.01784 = phi i32 [ %.51789, %1282 ], [ 1, %1145 ]
+  %.sroa.01518.4 = phi i8 [ %.sroa.01518.9, %1282 ], [ 0, %1145 ]
+  %.01783 = phi i32 [ %1283, %1282 ], [ %1127, %1145 ]
+  %1153 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.01783) #13, !srcloc !131
   %1154 = extractvalue { i32, i32 } %1153, 0
   %1155 = lshr i32 %1154, 1
   %1156 = zext nneg i32 %1155 to i64
@@ -9576,14 +9576,14 @@ diff384.exit205.thread:                           ; preds = %1128, %1134
   %1160 = getelementptr inbounds nuw i32, ptr %14, i64 %1156
   br label %1161
 
-1161:                                             ; preds = %runException384.exit234, %.preheader
-  %.sroa.0368.9 = phi <2 x i64> [ %.sroa.0368.8, %.preheader ], [ %.sroa.0368.14, %runException384.exit234 ]
-  %.sroa.27.9 = phi <2 x i64> [ %.sroa.27.8, %.preheader ], [ %.sroa.27.14, %runException384.exit234 ]
-  %.sroa.35.9 = phi <2 x i64> [ %.sroa.35.8, %.preheader ], [ %.sroa.35.14, %runException384.exit234 ]
-  %.01792 = phi i64 [ %1158, %.preheader ], [ %1164, %runException384.exit234 ]
-  %.11787 = phi i32 [ %.01786, %.preheader ], [ %.51791, %runException384.exit234 ]
-  %.sroa.01520.5 = phi i8 [ %.sroa.01520.4, %.preheader ], [ %.sroa.01520.9, %runException384.exit234 ]
-  %1162 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01792) #13, !srcloc !132
+1161:                                             ; preds = %runException384.exit232, %.preheader
+  %.sroa.0366.9 = phi <2 x i64> [ %.sroa.0366.8, %.preheader ], [ %.sroa.0366.14, %runException384.exit232 ]
+  %.sroa.27.9 = phi <2 x i64> [ %.sroa.27.8, %.preheader ], [ %.sroa.27.14, %runException384.exit232 ]
+  %.sroa.35.9 = phi <2 x i64> [ %.sroa.35.8, %.preheader ], [ %.sroa.35.14, %runException384.exit232 ]
+  %.01790 = phi i64 [ %1158, %.preheader ], [ %1164, %runException384.exit232 ]
+  %.11785 = phi i32 [ %.01784, %.preheader ], [ %.51789, %runException384.exit232 ]
+  %.sroa.01518.5 = phi i8 [ %.sroa.01518.4, %.preheader ], [ %.sroa.01518.9, %runException384.exit232 ]
+  %1162 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.01790) #13, !srcloc !132
   %1163 = extractvalue { i64, i64 } %1162, 0
   %1164 = extractvalue { i64, i64 } %1162, 1
   %1165 = load i64, ptr %1159, align 8
@@ -9599,8 +9599,8 @@ diff384.exit205.thread:                           ; preds = %1128, %1134
   %1174 = getelementptr inbounds nuw %struct.NFAException384, ptr %28, i64 %1173
   %1175 = getelementptr inbounds nuw i8, ptr %1174, i64 105
   %1176 = load i8, ptr %1175, align 1
-  %.not69.i222 = icmp eq i8 %1176, 0
-  br i1 %.not69.i222, label %.critedge.i223.thread, label %1177
+  %.not69.i221 = icmp eq i8 %1176, 0
+  br i1 %.not69.i221, label %.critedge.i222.thread, label %1177
 
 1177:                                             ; preds = %1161
   %1178 = getelementptr inbounds nuw i8, ptr %1174, i64 100
@@ -9619,28 +9619,28 @@ diff384.exit205.thread:                           ; preds = %1128, %1134
   %1191 = zext i32 %1190 to i64
   %1192 = getelementptr inbounds nuw i8, ptr %1188, i64 %1191
   %1193 = icmp eq i8 %1176, 1
-  br i1 %1193, label %testbit384.exit.i230, label %1216
+  br i1 %1193, label %testbit384.exit.i228, label %1216
 
-testbit384.exit.i230:                             ; preds = %1177
+testbit384.exit.i228:                             ; preds = %1177
   %1194 = load i32, ptr %1181, align 4
   %1195 = icmp ult i32 %1194, 128
   %1196 = icmp ult i32 %1194, 256
-  %spec.select1872 = select i1 %1196, <2 x i64> %.sroa.22.11944, <2 x i64> %.sroa.24.11945
-  %.0.in.i.i231.sroa.speculated = select i1 %1195, <2 x i64> %.sroa.0467.11943, <2 x i64> %spec.select1872
+  %spec.select1867 = select i1 %1196, <2 x i64> %.sroa.22.11939, <2 x i64> %.sroa.24.11940
+  %.0.in.i.i229.sroa.speculated = select i1 %1195, <2 x i64> %.sroa.0465.11938, <2 x i64> %spec.select1867
   %1197 = and i32 %1194, 127
   %1198 = shl nuw nsw i32 %1197, 6
   %1199 = and i32 %1198, 448
   %1200 = lshr i32 %1197, 3
-  %reass.sub1951 = sub nsw i32 %1199, %1200
-  %1201 = sext i32 %reass.sub1951 to i64
+  %reass.sub1946 = sub nsw i32 %1199, %1200
+  %1201 = sext i32 %reass.sub1946 to i64
   %1202 = getelementptr i8, ptr @simd_onebit_masks, i64 %1201
   %1203 = getelementptr i8, ptr %1202, i64 95
   %1204 = load <2 x i64>, ptr %1203, align 1
-  %1205 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %1204, <2 x i64> %.0.in.i.i231.sroa.speculated)
-  %.not.i.i233 = icmp eq i32 %1205, 0
-  %1206 = zext i1 %.not.i.i233 to i8
+  %1205 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %1204, <2 x i64> %.0.in.i.i229.sroa.speculated)
+  %.not.i.i231 = icmp eq i32 %1205, 0
+  %1206 = zext i1 %.not.i.i231 to i8
   %1207 = load i8, ptr %1182, align 4
-  switch i8 %1207, label %.critedge.i223.thread [
+  switch i8 %1207, label %.critedge.i222.thread [
     i8 0, label %1208
     i8 1, label %1209
     i8 2, label %1211
@@ -9650,40 +9650,40 @@ testbit384.exit.i230:                             ; preds = %1177
     i8 6, label %1215
   ]
 
-1208:                                             ; preds = %testbit384.exit.i230
+1208:                                             ; preds = %testbit384.exit.i228
   call void @repeatStoreRing(ptr noundef nonnull %1182, ptr noundef %1187, ptr noundef %1192, i64 noundef %1130, i8 noundef signext range(i8 0, 2) %1206) #12
-  br label %.critedge.i223.thread
+  br label %.critedge.i222.thread
 
-1209:                                             ; preds = %testbit384.exit.i230
-  br i1 %.not.i.i233, label %.critedge.i223.thread, label %1210
+1209:                                             ; preds = %testbit384.exit.i228
+  br i1 %.not.i.i231, label %.critedge.i222.thread, label %1210
 
 1210:                                             ; preds = %1209
   store i64 %1130, ptr %1187, align 8
-  br label %.critedge.i223.thread
+  br label %.critedge.i222.thread
 
-1211:                                             ; preds = %testbit384.exit.i230
+1211:                                             ; preds = %testbit384.exit.i228
   store i64 %1130, ptr %1187, align 8
-  br label %.critedge.i223.thread
+  br label %.critedge.i222.thread
 
-1212:                                             ; preds = %testbit384.exit.i230
+1212:                                             ; preds = %testbit384.exit.i228
   call void @repeatStoreRange(ptr noundef nonnull %1182, ptr noundef %1187, ptr noundef %1192, i64 noundef %1130, i8 noundef signext range(i8 0, 2) %1206) #12
-  br label %.critedge.i223.thread
+  br label %.critedge.i222.thread
 
-1213:                                             ; preds = %testbit384.exit.i230
+1213:                                             ; preds = %testbit384.exit.i228
   call void @repeatStoreBitmap(ptr noundef nonnull %1182, ptr noundef %1187, i64 noundef %1130, i8 noundef signext range(i8 0, 2) %1206) #12
-  br label %.critedge.i223.thread
+  br label %.critedge.i222.thread
 
-1214:                                             ; preds = %testbit384.exit.i230
+1214:                                             ; preds = %testbit384.exit.i228
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %1182, ptr noundef %1187, ptr noundef %1192, i64 noundef %1130, i8 noundef signext range(i8 0, 2) %1206) #12
-  br label %.critedge.i223.thread
+  br label %.critedge.i222.thread
 
-1215:                                             ; preds = %testbit384.exit.i230
+1215:                                             ; preds = %testbit384.exit.i228
   call void @repeatStoreTrailer(ptr noundef nonnull %1182, ptr noundef %1187, i64 noundef %1130, i8 noundef signext range(i8 0, 2) %1206) #12
-  br label %.critedge.i223.thread
+  br label %.critedge.i222.thread
 
 1216:                                             ; preds = %1177
   %1217 = load i8, ptr %1182, align 4
-  switch i8 %1217, label %runException384.exit234 [
+  switch i8 %1217, label %runException384.exit232 [
     i8 0, label %1218
     i8 1, label %1220
     i8 2, label %1227
@@ -9691,12 +9691,12 @@ testbit384.exit.i230:                             ; preds = %1177
     i8 4, label %1241
     i8 5, label %1243
     i8 6, label %1245
-    i8 7, label %repeatHasMatch.exit254.thread1846
+    i8 7, label %repeatHasMatch.exit252.thread1842
   ]
 
 1218:                                             ; preds = %1216
   %1219 = call i32 @repeatHasMatchRing(ptr noundef nonnull %1182, ptr noundef %1187, ptr noundef %1192, i64 noundef %1130) #12
-  br label %repeatHasMatch.exit254
+  br label %repeatHasMatch.exit252
 
 1220:                                             ; preds = %1216
   %1221 = load i64, ptr %1187, align 8
@@ -9705,7 +9705,7 @@ testbit384.exit.i230:                             ; preds = %1177
   %1224 = zext i32 %1223 to i64
   %1225 = add i64 %1221, %1224
   %1226 = icmp ult i64 %1130, %1225
-  br i1 %1226, label %runException384.exit234, label %repeatHasMatch.exit254.thread1846
+  br i1 %1226, label %runException384.exit232, label %repeatHasMatch.exit252.thread1842
 
 1227:                                             ; preds = %1216
   %1228 = load i64, ptr %1187, align 8
@@ -9714,48 +9714,48 @@ testbit384.exit.i230:                             ; preds = %1177
   %1231 = zext i32 %1230 to i64
   %1232 = add i64 %1228, %1231
   %1233 = icmp ult i64 %1130, %1232
-  br i1 %1233, label %runException384.exit234, label %1234
+  br i1 %1233, label %runException384.exit232, label %1234
 
 1234:                                             ; preds = %1227
   %1235 = getelementptr inbounds nuw i8, ptr %1181, i64 32
   %1236 = load i32, ptr %1235, align 4
   %1237 = zext i32 %1236 to i64
   %1238 = add i64 %1228, %1237
-  %.not.i258 = icmp ugt i64 %1130, %1238
-  br i1 %.not.i258, label %repeatHasMatch.exit254.thread1848, label %repeatHasMatch.exit254.thread1846
+  %.not.i256 = icmp ugt i64 %1130, %1238
+  br i1 %.not.i256, label %repeatHasMatch.exit252.thread1844, label %repeatHasMatch.exit252.thread1842
 
 1239:                                             ; preds = %1216
   %1240 = call i32 @repeatHasMatchRange(ptr noundef nonnull %1182, ptr noundef %1187, ptr noundef %1192, i64 noundef %1130) #12
-  br label %repeatHasMatch.exit254
+  br label %repeatHasMatch.exit252
 
 1241:                                             ; preds = %1216
   %1242 = call i32 @repeatHasMatchBitmap(ptr noundef nonnull %1182, ptr noundef %1187, i64 noundef %1130) #12
-  br label %repeatHasMatch.exit254
+  br label %repeatHasMatch.exit252
 
 1243:                                             ; preds = %1216
   %1244 = call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %1182, ptr noundef %1187, ptr noundef %1192, i64 noundef %1130) #12
-  br label %repeatHasMatch.exit254
+  br label %repeatHasMatch.exit252
 
 1245:                                             ; preds = %1216
   %1246 = call i32 @repeatHasMatchTrailer(ptr noundef nonnull %1182, ptr noundef %1187, i64 noundef %1130) #12
-  br label %repeatHasMatch.exit254
+  br label %repeatHasMatch.exit252
 
-repeatHasMatch.exit254:                           ; preds = %1218, %1239, %1241, %1243, %1245
-  %.0.i253 = phi i32 [ %1219, %1218 ], [ %1240, %1239 ], [ %1242, %1241 ], [ %1244, %1243 ], [ %1246, %1245 ]
-  switch i32 %.0.i253, label %runException384.exit234 [
-    i32 1, label %repeatHasMatch.exit254.thread1846
-    i32 2, label %repeatHasMatch.exit254.thread1848
+repeatHasMatch.exit252:                           ; preds = %1218, %1239, %1241, %1243, %1245
+  %.0.i251 = phi i32 [ %1219, %1218 ], [ %1240, %1239 ], [ %1242, %1241 ], [ %1244, %1243 ], [ %1246, %1245 ]
+  switch i32 %.0.i251, label %runException384.exit232 [
+    i32 1, label %repeatHasMatch.exit252.thread1842
+    i32 2, label %repeatHasMatch.exit252.thread1844
   ]
 
-repeatHasMatch.exit254.thread1846:                ; preds = %1234, %1216, %1220, %repeatHasMatch.exit254
+repeatHasMatch.exit252.thread1842:                ; preds = %1234, %1216, %1220, %repeatHasMatch.exit252
   %1247 = getelementptr inbounds nuw i8, ptr %1181, i64 32
   %1248 = load i32, ptr %1247, align 4
   %1249 = icmp eq i32 %1248, 65535
-  %spec.select1873 = select i1 %1249, i32 %.11787, i32 2
-  %spec.select1874 = select i1 %1249, i8 1, i8 %.sroa.01520.5
-  br label %.critedge.i223.thread
+  %spec.select1868 = select i1 %1249, i32 %.11785, i32 2
+  %spec.select1869 = select i1 %1249, i8 1, i8 %.sroa.01518.5
+  br label %.critedge.i222.thread
 
-repeatHasMatch.exit254.thread1848:                ; preds = %1234, %repeatHasMatch.exit254
+repeatHasMatch.exit252.thread1844:                ; preds = %1234, %repeatHasMatch.exit252
   call void @llvm.assume(i1 true) [ "align"(ptr %1174, i64 16) ], !noalias !539
   %1250 = load <2 x i64>, ptr %1174, align 16, !noalias !539
   %1251 = getelementptr inbounds nuw i8, ptr %1174, i64 16
@@ -9764,21 +9764,21 @@ repeatHasMatch.exit254.thread1848:                ; preds = %1234, %repeatHasMat
   %1253 = getelementptr inbounds nuw i8, ptr %1174, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1253, i64 16) ], !noalias !539
   %1254 = load <2 x i64>, ptr %1253, align 16, !noalias !539
-  %1255 = and <2 x i64> %1250, %.sroa.0368.9
+  %1255 = and <2 x i64> %1250, %.sroa.0366.9
   %1256 = and <2 x i64> %1252, %.sroa.27.9
   %1257 = and <2 x i64> %1254, %.sroa.35.9
-  br label %runException384.exit234
+  br label %runException384.exit232
 
-.critedge.i223.thread:                            ; preds = %repeatHasMatch.exit254.thread1846, %1215, %1214, %1213, %1212, %1211, %1208, %testbit384.exit.i230, %1209, %1210, %1161
-  %.31789 = phi i32 [ %.11787, %1161 ], [ 2, %1215 ], [ 2, %1214 ], [ 2, %1213 ], [ 2, %1212 ], [ 2, %1211 ], [ 2, %1208 ], [ 2, %testbit384.exit.i230 ], [ 2, %1209 ], [ 2, %1210 ], [ %spec.select1873, %repeatHasMatch.exit254.thread1846 ]
-  %.sroa.01520.8 = phi i8 [ %.sroa.01520.5, %1161 ], [ %.sroa.01520.5, %1215 ], [ %.sroa.01520.5, %1214 ], [ %.sroa.01520.5, %1213 ], [ %.sroa.01520.5, %1212 ], [ %.sroa.01520.5, %1211 ], [ %.sroa.01520.5, %1208 ], [ %.sroa.01520.5, %testbit384.exit.i230 ], [ %.sroa.01520.5, %1209 ], [ %.sroa.01520.5, %1210 ], [ %spec.select1874, %repeatHasMatch.exit254.thread1846 ]
+.critedge.i222.thread:                            ; preds = %repeatHasMatch.exit252.thread1842, %1215, %1214, %1213, %1212, %1211, %1208, %testbit384.exit.i228, %1209, %1210, %1161
+  %.31787 = phi i32 [ %.11785, %1161 ], [ 2, %1215 ], [ 2, %1214 ], [ 2, %1213 ], [ 2, %1212 ], [ 2, %1211 ], [ 2, %1208 ], [ 2, %testbit384.exit.i228 ], [ 2, %1209 ], [ 2, %1210 ], [ %spec.select1868, %repeatHasMatch.exit252.thread1842 ]
+  %.sroa.01518.8 = phi i8 [ %.sroa.01518.5, %1161 ], [ %.sroa.01518.5, %1215 ], [ %.sroa.01518.5, %1214 ], [ %.sroa.01518.5, %1213 ], [ %.sroa.01518.5, %1212 ], [ %.sroa.01518.5, %1211 ], [ %.sroa.01518.5, %1208 ], [ %.sroa.01518.5, %testbit384.exit.i228 ], [ %.sroa.01518.5, %1209 ], [ %.sroa.01518.5, %1210 ], [ %spec.select1869, %repeatHasMatch.exit252.thread1842 ]
   %1258 = getelementptr inbounds nuw i8, ptr %1174, i64 96
   %1259 = load i32, ptr %1258, align 16
-  %.not70.i227 = icmp ne i32 %1259, -1
-  %brmerge1875.not1896 = and i1 %1129, %.not70.i227
-  %1260 = icmp eq i32 %.31789, 1
-  %or.cond1876 = select i1 %brmerge1875.not1896, i1 %1260, i1 false
-  %.41790 = select i1 %or.cond1876, i32 0, i32 %.31789
+  %.not70.i225 = icmp ne i32 %1259, -1
+  %brmerge1870.not1891 = and i1 %1129, %.not70.i225
+  %1260 = icmp eq i32 %.31787, 1
+  %or.cond1871 = select i1 %brmerge1870.not1891, i1 %1260, i1 false
+  %.41788 = select i1 %or.cond1871, i32 0, i32 %.31787
   %1261 = getelementptr inbounds nuw i8, ptr %1174, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %1261, i64 16) ], !noalias !542
   %1262 = load <2 x i64>, ptr %1261, align 16, !noalias !542
@@ -9788,23 +9788,23 @@ repeatHasMatch.exit254.thread1848:                ; preds = %1234, %repeatHasMat
   %1265 = getelementptr inbounds nuw i8, ptr %1174, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %1265, i64 16) ], !noalias !542
   %1266 = load <2 x i64>, ptr %1265, align 16, !noalias !542
-  %.sroa.01769.0.copyload = load <2 x i64>, ptr %904, align 16
-  %.sroa.41770.0.copyload = load <2 x i64>, ptr %.sroa.41524.0..sroa_idx, align 16
-  %.sroa.51771.0.copyload = load <2 x i64>, ptr %.sroa.51525.0..sroa_idx, align 16
-  %1267 = or <2 x i64> %.sroa.01769.0.copyload, %1262
-  %1268 = or <2 x i64> %.sroa.41770.0.copyload, %1264
-  %1269 = or <2 x i64> %.sroa.51771.0.copyload, %1266
+  %.sroa.01767.0.copyload = load <2 x i64>, ptr %904, align 16
+  %.sroa.41768.0.copyload = load <2 x i64>, ptr %.sroa.41522.0..sroa_idx, align 16
+  %.sroa.51769.0.copyload = load <2 x i64>, ptr %.sroa.51523.0..sroa_idx, align 16
+  %1267 = or <2 x i64> %.sroa.01767.0.copyload, %1262
+  %1268 = or <2 x i64> %.sroa.41768.0.copyload, %1264
+  %1269 = or <2 x i64> %.sroa.51769.0.copyload, %1266
   store <2 x i64> %1267, ptr %904, align 16
-  store <2 x i64> %1268, ptr %.sroa.41524.0..sroa_idx, align 16
-  store <2 x i64> %1269, ptr %.sroa.51525.0..sroa_idx, align 16
+  store <2 x i64> %1268, ptr %.sroa.41522.0..sroa_idx, align 16
+  store <2 x i64> %1269, ptr %.sroa.51523.0..sroa_idx, align 16
   %1270 = getelementptr inbounds nuw i8, ptr %1174, i64 104
   %1271 = load i8, ptr %1270, align 8
-  switch i8 %1271, label %runException384.exit234 [
+  switch i8 %1271, label %runException384.exit232 [
     i8 1, label %1272
     i8 3, label %1272
   ]
 
-1272:                                             ; preds = %.critedge.i223.thread, %.critedge.i223.thread
+1272:                                             ; preds = %.critedge.i222.thread, %.critedge.i222.thread
   call void @llvm.assume(i1 true) [ "align"(ptr %1174, i64 16) ], !noalias !545
   %1273 = load <2 x i64>, ptr %1174, align 16, !noalias !545
   %1274 = getelementptr inbounds nuw i8, ptr %1174, i64 16
@@ -9813,46 +9813,46 @@ repeatHasMatch.exit254.thread1848:                ; preds = %1234, %repeatHasMat
   %1276 = getelementptr inbounds nuw i8, ptr %1174, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1276, i64 16) ], !noalias !545
   %1277 = load <2 x i64>, ptr %1276, align 16, !noalias !545
-  %1278 = and <2 x i64> %1273, %.sroa.0368.9
+  %1278 = and <2 x i64> %1273, %.sroa.0366.9
   %1279 = and <2 x i64> %1275, %.sroa.27.9
   %1280 = and <2 x i64> %1277, %.sroa.35.9
-  %1281 = icmp eq i32 %.41790, 1
-  %spec.select1877 = select i1 %1281, i32 0, i32 %.41790
-  br label %runException384.exit234
+  %1281 = icmp eq i32 %.41788, 1
+  %spec.select1872 = select i1 %1281, i32 0, i32 %.41788
+  br label %runException384.exit232
 
-runException384.exit234:                          ; preds = %1272, %1220, %1216, %1227, %.critedge.i223.thread, %repeatHasMatch.exit254, %repeatHasMatch.exit254.thread1848
-  %.sroa.0368.14 = phi <2 x i64> [ %.sroa.0368.9, %.critedge.i223.thread ], [ %1255, %repeatHasMatch.exit254.thread1848 ], [ %.sroa.0368.9, %repeatHasMatch.exit254 ], [ %.sroa.0368.9, %1227 ], [ %.sroa.0368.9, %1216 ], [ %.sroa.0368.9, %1220 ], [ %1278, %1272 ]
-  %.sroa.27.14 = phi <2 x i64> [ %.sroa.27.9, %.critedge.i223.thread ], [ %1256, %repeatHasMatch.exit254.thread1848 ], [ %.sroa.27.9, %repeatHasMatch.exit254 ], [ %.sroa.27.9, %1227 ], [ %.sroa.27.9, %1216 ], [ %.sroa.27.9, %1220 ], [ %1279, %1272 ]
-  %.sroa.35.14 = phi <2 x i64> [ %.sroa.35.9, %.critedge.i223.thread ], [ %1257, %repeatHasMatch.exit254.thread1848 ], [ %.sroa.35.9, %repeatHasMatch.exit254 ], [ %.sroa.35.9, %1227 ], [ %.sroa.35.9, %1216 ], [ %.sroa.35.9, %1220 ], [ %1280, %1272 ]
-  %.51791 = phi i32 [ %.41790, %.critedge.i223.thread ], [ 2, %repeatHasMatch.exit254.thread1848 ], [ 2, %repeatHasMatch.exit254 ], [ 2, %1227 ], [ 2, %1216 ], [ 2, %1220 ], [ %spec.select1877, %1272 ]
-  %.sroa.01520.9 = phi i8 [ %.sroa.01520.8, %.critedge.i223.thread ], [ %.sroa.01520.5, %repeatHasMatch.exit254.thread1848 ], [ %.sroa.01520.5, %repeatHasMatch.exit254 ], [ %.sroa.01520.5, %1227 ], [ %.sroa.01520.5, %1216 ], [ %.sroa.01520.5, %1220 ], [ %.sroa.01520.8, %1272 ]
+runException384.exit232:                          ; preds = %1272, %1220, %1216, %1227, %.critedge.i222.thread, %repeatHasMatch.exit252, %repeatHasMatch.exit252.thread1844
+  %.sroa.0366.14 = phi <2 x i64> [ %.sroa.0366.9, %.critedge.i222.thread ], [ %1255, %repeatHasMatch.exit252.thread1844 ], [ %.sroa.0366.9, %repeatHasMatch.exit252 ], [ %.sroa.0366.9, %1227 ], [ %.sroa.0366.9, %1216 ], [ %.sroa.0366.9, %1220 ], [ %1278, %1272 ]
+  %.sroa.27.14 = phi <2 x i64> [ %.sroa.27.9, %.critedge.i222.thread ], [ %1256, %repeatHasMatch.exit252.thread1844 ], [ %.sroa.27.9, %repeatHasMatch.exit252 ], [ %.sroa.27.9, %1227 ], [ %.sroa.27.9, %1216 ], [ %.sroa.27.9, %1220 ], [ %1279, %1272 ]
+  %.sroa.35.14 = phi <2 x i64> [ %.sroa.35.9, %.critedge.i222.thread ], [ %1257, %repeatHasMatch.exit252.thread1844 ], [ %.sroa.35.9, %repeatHasMatch.exit252 ], [ %.sroa.35.9, %1227 ], [ %.sroa.35.9, %1216 ], [ %.sroa.35.9, %1220 ], [ %1280, %1272 ]
+  %.51789 = phi i32 [ %.41788, %.critedge.i222.thread ], [ 2, %repeatHasMatch.exit252.thread1844 ], [ 2, %repeatHasMatch.exit252 ], [ 2, %1227 ], [ 2, %1216 ], [ 2, %1220 ], [ %spec.select1872, %1272 ]
+  %.sroa.01518.9 = phi i8 [ %.sroa.01518.8, %.critedge.i222.thread ], [ %.sroa.01518.5, %repeatHasMatch.exit252.thread1844 ], [ %.sroa.01518.5, %repeatHasMatch.exit252 ], [ %.sroa.01518.5, %1227 ], [ %.sroa.01518.5, %1216 ], [ %.sroa.01518.5, %1220 ], [ %.sroa.01518.8, %1272 ]
   %.not57.i = icmp eq i64 %1164, 0
   br i1 %.not57.i, label %1282, label %1161
 
-1282:                                             ; preds = %runException384.exit234
+1282:                                             ; preds = %runException384.exit232
   %1283 = extractvalue { i32, i32 } %1153, 1
   %.not58.i = icmp eq i32 %1283, 0
   br i1 %.not58.i, label %1284, label %.preheader
 
 1284:                                             ; preds = %1282
-  %.sroa.01534.0.copyload = load <2 x i64>, ptr %904, align 16
-  %.sroa.41535.0.copyload = load <2 x i64>, ptr %.sroa.41524.0..sroa_idx, align 16
-  %.sroa.51536.0.copyload = load <2 x i64>, ptr %.sroa.51525.0..sroa_idx, align 16
-  %1285 = or <2 x i64> %.sroa.01534.0.copyload, %.sroa.0368.14
-  %1286 = or <2 x i64> %.sroa.41535.0.copyload, %.sroa.27.14
-  %1287 = or <2 x i64> %.sroa.51536.0.copyload, %.sroa.35.14
-  switch i32 %.51791, label %1292 [
+  %.sroa.01532.0.copyload = load <2 x i64>, ptr %904, align 16
+  %.sroa.41533.0.copyload = load <2 x i64>, ptr %.sroa.41522.0..sroa_idx, align 16
+  %.sroa.51534.0.copyload = load <2 x i64>, ptr %.sroa.51523.0..sroa_idx, align 16
+  %1285 = or <2 x i64> %.sroa.01532.0.copyload, %.sroa.0366.14
+  %1286 = or <2 x i64> %.sroa.41533.0.copyload, %.sroa.27.14
+  %1287 = or <2 x i64> %.sroa.51534.0.copyload, %.sroa.35.14
+  switch i32 %.51789, label %1292 [
     i32 1, label %1288
     i32 2, label %1289
   ]
 
 1288:                                             ; preds = %1284
   store <2 x i64> %1106, ptr %903, align 32
-  store <2 x i64> %1107, ptr %.sroa.41650.0..sroa_idx, align 16
-  store <2 x i64> %1108, ptr %.sroa.51651.0..sroa_idx, align 32
+  store <2 x i64> %1107, ptr %.sroa.41648.0..sroa_idx, align 16
+  store <2 x i64> %1108, ptr %.sroa.51649.0..sroa_idx, align 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %908, ptr noundef nonnull align 16 dereferenceable(48) %904, i64 48, i1 false)
   store ptr null, ptr %909, align 8
-  store i8 %.sroa.01520.9, ptr %907, align 64
+  store i8 %.sroa.01518.9, ptr %907, align 64
   br label %1292
 
 1289:                                             ; preds = %1284
@@ -9871,10 +9871,10 @@ runException384.exit234:                          ; preds = %1272, %1220, %1216,
   br label %nfaExecLimEx384_Run_Exceptions.exit26
 
 nfaExecLimEx384_Run_Exceptions.exit26:            ; preds = %1102, %1292, %1141
-  %.sroa.0368.7 = phi <2 x i64> [ %.sroa.0368.1, %1102 ], [ %1142, %1141 ], [ %1285, %1292 ]
+  %.sroa.0366.7 = phi <2 x i64> [ %.sroa.0366.1, %1102 ], [ %1142, %1141 ], [ %1285, %1292 ]
   %.sroa.27.7 = phi <2 x i64> [ %.sroa.27.1, %1102 ], [ %1143, %1141 ], [ %1286, %1292 ]
   %.sroa.35.7 = phi <2 x i64> [ %.sroa.35.1, %1102 ], [ %1144, %1141 ], [ %1287, %1292 ]
-  %1293 = getelementptr inbounds nuw i8, ptr %1, i64 %.117941942
+  %1293 = getelementptr inbounds nuw i8, ptr %1, i64 %.117921937
   %1294 = load i8, ptr %1293, align 1
   %1295 = zext i8 %1294 to i64
   %1296 = getelementptr inbounds nuw i8, ptr %0, i64 %1295
@@ -9889,18 +9889,18 @@ nfaExecLimEx384_Run_Exceptions.exit26:            ; preds = %1102, %1292, %1141
   %1303 = getelementptr inbounds nuw i8, ptr %1299, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %1303, i64 16) ], !noalias !548
   %1304 = load <2 x i64>, ptr %1303, align 16, !noalias !548
-  %1305 = and <2 x i64> %1300, %.sroa.0368.7
+  %1305 = and <2 x i64> %1300, %.sroa.0366.7
   %1306 = and <2 x i64> %1302, %.sroa.27.7
   %1307 = and <2 x i64> %1304, %.sroa.35.7
-  %1308 = add i64 %.117941942, 1
+  %1308 = add i64 %.117921937, 1
   %.not121.i = icmp eq i64 %1308, %2
   br i1 %.not121.i, label %nfaExecLimEx384_Stream.exit, label %910
 
 nfaExecLimEx384_Stream.exit:                      ; preds = %nfaExecLimEx384_Run_Exceptions.exit26, %nfaExecLimEx384_Loop_No_Accel.exit11, %939
-  %.sroa.0467.4 = phi <2 x i64> [ %.sroa.0467.2, %939 ], [ %.sroa.0467.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1305, %nfaExecLimEx384_Run_Exceptions.exit26 ]
+  %.sroa.0465.4 = phi <2 x i64> [ %.sroa.0465.2, %939 ], [ %.sroa.0465.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1305, %nfaExecLimEx384_Run_Exceptions.exit26 ]
   %.sroa.22.4 = phi <2 x i64> [ %.sroa.22.2, %939 ], [ %.sroa.22.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1306, %nfaExecLimEx384_Run_Exceptions.exit26 ]
   %.sroa.24.4 = phi <2 x i64> [ %.sroa.24.2, %939 ], [ %.sroa.24.0, %nfaExecLimEx384_Loop_No_Accel.exit11 ], [ %1307, %nfaExecLimEx384_Run_Exceptions.exit26 ]
-  store <2 x i64> %.sroa.0467.4, ptr %3, align 64
+  store <2 x i64> %.sroa.0465.4, ptr %3, align 64
   store <2 x i64> %.sroa.22.4, ptr %.sroa.22.0..sroa_idx, align 16
   store <2 x i64> %.sroa.24.4, ptr %.sroa.24.0..sroa_idx, align 32
   ret void
@@ -10433,7 +10433,7 @@ define internal fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef %0, ptr noun
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
-  %.sroa.0283.0.copyload = load <2 x i64>, ptr %3, align 64
+  %.sroa.0282.0.copyload = load <2 x i64>, ptr %3, align 64
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.17.0.copyload = load <2 x i64>, ptr %.sroa.17.0..sroa_idx, align 16
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -10475,39 +10475,39 @@ define internal fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef %0, ptr noun
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.4562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.5563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.sroa.4561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.sroa.5562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.4532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.5533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.7.0..sroa_idx493 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.8.0..sroa_idx499 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.4531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.5532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %.sroa.7.0..sroa_idx492 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.8.0..sroa_idx498 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %.sroa.4549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %.sroa.5550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %.sroa.4548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %.sroa.5549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %58
 
 58:                                               ; preds = %5, %processExceptional384.exit.thread
-  %.054686 = phi i64 [ %2, %5 ], [ %365, %processExceptional384.exit.thread ]
-  %.sroa.18.0685 = phi <2 x i64> [ %.sroa.18.0.copyload, %5 ], [ %364, %processExceptional384.exit.thread ]
-  %.sroa.17.0684 = phi <2 x i64> [ %.sroa.17.0.copyload, %5 ], [ %363, %processExceptional384.exit.thread ]
-  %.sroa.0283.0683 = phi <2 x i64> [ %.sroa.0283.0.copyload, %5 ], [ %362, %processExceptional384.exit.thread ]
-  %59 = or <2 x i64> %.sroa.17.0684, %.sroa.0283.0683
-  %60 = or <2 x i64> %59, %.sroa.18.0685
+  %.054684 = phi i64 [ %2, %5 ], [ %365, %processExceptional384.exit.thread ]
+  %.sroa.18.0683 = phi <2 x i64> [ %.sroa.18.0.copyload, %5 ], [ %364, %processExceptional384.exit.thread ]
+  %.sroa.17.0682 = phi <2 x i64> [ %.sroa.17.0.copyload, %5 ], [ %363, %processExceptional384.exit.thread ]
+  %.sroa.0282.0681 = phi <2 x i64> [ %.sroa.0282.0.copyload, %5 ], [ %362, %processExceptional384.exit.thread ]
+  %59 = or <2 x i64> %.sroa.17.0682, %.sroa.0282.0681
+  %60 = or <2 x i64> %59, %.sroa.18.0683
   %61 = bitcast <2 x i64> %60 to <16 x i8>
   %62 = icmp ne <16 x i8> %61, zeroinitializer
   %63 = bitcast <16 x i1> %62 to i16
-  %.not658 = icmp eq i16 %63, 0
-  br i1 %.not658, label %.critedge.thread651, label %lshift64_m128.exit109
+  %.not656 = icmp eq i16 %63, 0
+  br i1 %.not656, label %.critedge.thread649, label %lshift64_m128.exit109
 
-.critedge.thread651:                              ; preds = %58
-  store <2 x i64> %.sroa.0283.0683, ptr %3, align 64
-  store <2 x i64> %.sroa.17.0684, ptr %.sroa.17.0..sroa_idx, align 16
-  store <2 x i64> %.sroa.18.0685, ptr %.sroa.18.0..sroa_idx, align 32
+.critedge.thread649:                              ; preds = %58
+  store <2 x i64> %.sroa.0282.0681, ptr %3, align 64
+  store <2 x i64> %.sroa.17.0682, ptr %.sroa.17.0..sroa_idx, align 16
+  store <2 x i64> %.sroa.18.0683, ptr %.sroa.18.0..sroa_idx, align 32
   br label %.critedge
 
 lshift64_m128.exit109:                            ; preds = %58
@@ -10517,11 +10517,11 @@ lshift64_m128.exit109:                            ; preds = %58
   %65 = load <2 x i64>, ptr %16, align 16, !noalias !572
   call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 16) ], !noalias !572
   %66 = load <2 x i64>, ptr %17, align 16, !noalias !572
-  %67 = and <2 x i64> %65, %.sroa.17.0684
-  %68 = and <2 x i64> %66, %.sroa.18.0685
+  %67 = and <2 x i64> %65, %.sroa.17.0682
+  %68 = and <2 x i64> %66, %.sroa.18.0683
   %69 = load i8, ptr %18, align 4
   %70 = zext i8 %69 to i32
-  %71 = and <2 x i64> %64, %.sroa.0283.0683
+  %71 = and <2 x i64> %64, %.sroa.0282.0681
   %72 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %70, i64 0
   %73 = bitcast <4 x i32> %72 to <2 x i64>
   %74 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %71, <2 x i64> %73)
@@ -10549,11 +10549,11 @@ lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit1
   %83 = load <2 x i64>, ptr %21, align 16, !noalias !575
   call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ], !noalias !575
   %84 = load <2 x i64>, ptr %22, align 16, !noalias !575
-  %85 = and <2 x i64> %83, %.sroa.17.0684
-  %86 = and <2 x i64> %84, %.sroa.18.0685
+  %85 = and <2 x i64> %83, %.sroa.17.0682
+  %86 = and <2 x i64> %84, %.sroa.18.0683
   %87 = load i8, ptr %23, align 1
   %88 = zext i8 %87 to i32
-  %89 = and <2 x i64> %82, %.sroa.0283.0683
+  %89 = and <2 x i64> %82, %.sroa.0282.0681
   %90 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %88, i64 0
   %91 = bitcast <4 x i32> %90 to <2 x i64>
   %92 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %89, <2 x i64> %91)
@@ -10569,7 +10569,7 @@ lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit97
 
 lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit103, %lshift64_m128.exit109
-  %.sroa.0217.0 = phi <2 x i64> [ %99, %lshift64_m128.exit103 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.0216.0 = phi <2 x i64> [ %99, %lshift64_m128.exit103 ], [ %74, %lshift64_m128.exit109 ]
   %.sroa.25.0 = phi <2 x i64> [ %100, %lshift64_m128.exit103 ], [ %77, %lshift64_m128.exit109 ]
   %.sroa.33.0 = phi <2 x i64> [ %101, %lshift64_m128.exit103 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 16) ], !noalias !578
@@ -10578,11 +10578,11 @@ lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit1
   %103 = load <2 x i64>, ptr %25, align 16, !noalias !578
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 16) ], !noalias !578
   %104 = load <2 x i64>, ptr %26, align 16, !noalias !578
-  %105 = and <2 x i64> %103, %.sroa.17.0684
-  %106 = and <2 x i64> %104, %.sroa.18.0685
+  %105 = and <2 x i64> %103, %.sroa.17.0682
+  %106 = and <2 x i64> %104, %.sroa.18.0683
   %107 = load i8, ptr %27, align 2
   %108 = zext i8 %107 to i32
-  %109 = and <2 x i64> %102, %.sroa.0283.0683
+  %109 = and <2 x i64> %102, %.sroa.0282.0681
   %110 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %108, i64 0
   %111 = bitcast <4 x i32> %110 to <2 x i64>
   %112 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %109, <2 x i64> %111)
@@ -10592,13 +10592,13 @@ lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit1
   %116 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %108, i64 0
   %117 = bitcast <4 x i32> %116 to <2 x i64>
   %118 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %106, <2 x i64> %117)
-  %119 = or <2 x i64> %112, %.sroa.0217.0
+  %119 = or <2 x i64> %112, %.sroa.0216.0
   %120 = or <2 x i64> %115, %.sroa.25.0
   %121 = or <2 x i64> %118, %.sroa.33.0
   br label %lshift64_m128.exit91
 
 lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit97, %lshift64_m128.exit109
-  %.sroa.0217.1 = phi <2 x i64> [ %119, %lshift64_m128.exit97 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.0216.1 = phi <2 x i64> [ %119, %lshift64_m128.exit97 ], [ %74, %lshift64_m128.exit109 ]
   %.sroa.25.1 = phi <2 x i64> [ %120, %lshift64_m128.exit97 ], [ %77, %lshift64_m128.exit109 ]
   %.sroa.33.1 = phi <2 x i64> [ %121, %lshift64_m128.exit97 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 16) ], !noalias !581
@@ -10607,11 +10607,11 @@ lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit9
   %123 = load <2 x i64>, ptr %29, align 16, !noalias !581
   call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 16) ], !noalias !581
   %124 = load <2 x i64>, ptr %30, align 16, !noalias !581
-  %125 = and <2 x i64> %123, %.sroa.17.0684
-  %126 = and <2 x i64> %124, %.sroa.18.0685
+  %125 = and <2 x i64> %123, %.sroa.17.0682
+  %126 = and <2 x i64> %124, %.sroa.18.0683
   %127 = load i8, ptr %31, align 1
   %128 = zext i8 %127 to i32
-  %129 = and <2 x i64> %122, %.sroa.0283.0683
+  %129 = and <2 x i64> %122, %.sroa.0282.0681
   %130 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %128, i64 0
   %131 = bitcast <4 x i32> %130 to <2 x i64>
   %132 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %129, <2 x i64> %131)
@@ -10621,13 +10621,13 @@ lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit9
   %136 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %128, i64 0
   %137 = bitcast <4 x i32> %136 to <2 x i64>
   %138 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %126, <2 x i64> %137)
-  %139 = or <2 x i64> %132, %.sroa.0217.1
+  %139 = or <2 x i64> %132, %.sroa.0216.1
   %140 = or <2 x i64> %135, %.sroa.25.1
   %141 = or <2 x i64> %138, %.sroa.33.1
   br label %lshift64_m128.exit85
 
 lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit91, %lshift64_m128.exit109
-  %.sroa.0217.2 = phi <2 x i64> [ %139, %lshift64_m128.exit91 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.0216.2 = phi <2 x i64> [ %139, %lshift64_m128.exit91 ], [ %74, %lshift64_m128.exit109 ]
   %.sroa.25.2 = phi <2 x i64> [ %140, %lshift64_m128.exit91 ], [ %77, %lshift64_m128.exit109 ]
   %.sroa.33.2 = phi <2 x i64> [ %141, %lshift64_m128.exit91 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 16) ], !noalias !584
@@ -10636,11 +10636,11 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
   %143 = load <2 x i64>, ptr %33, align 16, !noalias !584
   call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 16) ], !noalias !584
   %144 = load <2 x i64>, ptr %34, align 16, !noalias !584
-  %145 = and <2 x i64> %143, %.sroa.17.0684
-  %146 = and <2 x i64> %144, %.sroa.18.0685
+  %145 = and <2 x i64> %143, %.sroa.17.0682
+  %146 = and <2 x i64> %144, %.sroa.18.0683
   %147 = load i8, ptr %35, align 8
   %148 = zext i8 %147 to i32
-  %149 = and <2 x i64> %142, %.sroa.0283.0683
+  %149 = and <2 x i64> %142, %.sroa.0282.0681
   %150 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %148, i64 0
   %151 = bitcast <4 x i32> %150 to <2 x i64>
   %152 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %149, <2 x i64> %151)
@@ -10650,13 +10650,13 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
   %156 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %148, i64 0
   %157 = bitcast <4 x i32> %156 to <2 x i64>
   %158 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %146, <2 x i64> %157)
-  %159 = or <2 x i64> %152, %.sroa.0217.2
+  %159 = or <2 x i64> %152, %.sroa.0216.2
   %160 = or <2 x i64> %155, %.sroa.25.2
   %161 = or <2 x i64> %158, %.sroa.33.2
   br label %lshift64_m128.exit79
 
 lshift64_m128.exit79:                             ; preds = %lshift64_m128.exit85, %lshift64_m128.exit109
-  %.sroa.0217.3 = phi <2 x i64> [ %159, %lshift64_m128.exit85 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.0216.3 = phi <2 x i64> [ %159, %lshift64_m128.exit85 ], [ %74, %lshift64_m128.exit109 ]
   %.sroa.25.3 = phi <2 x i64> [ %160, %lshift64_m128.exit85 ], [ %77, %lshift64_m128.exit109 ]
   %.sroa.33.3 = phi <2 x i64> [ %161, %lshift64_m128.exit85 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 16) ], !noalias !587
@@ -10665,11 +10665,11 @@ lshift64_m128.exit79:                             ; preds = %lshift64_m128.exit8
   %163 = load <2 x i64>, ptr %37, align 16, !noalias !587
   call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 16) ], !noalias !587
   %164 = load <2 x i64>, ptr %38, align 16, !noalias !587
-  %165 = and <2 x i64> %163, %.sroa.17.0684
-  %166 = and <2 x i64> %164, %.sroa.18.0685
+  %165 = and <2 x i64> %163, %.sroa.17.0682
+  %166 = and <2 x i64> %164, %.sroa.18.0683
   %167 = load i8, ptr %39, align 1
   %168 = zext i8 %167 to i32
-  %169 = and <2 x i64> %162, %.sroa.0283.0683
+  %169 = and <2 x i64> %162, %.sroa.0282.0681
   %170 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %168, i64 0
   %171 = bitcast <4 x i32> %170 to <2 x i64>
   %172 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %169, <2 x i64> %171)
@@ -10679,13 +10679,13 @@ lshift64_m128.exit79:                             ; preds = %lshift64_m128.exit8
   %176 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %168, i64 0
   %177 = bitcast <4 x i32> %176 to <2 x i64>
   %178 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %166, <2 x i64> %177)
-  %179 = or <2 x i64> %172, %.sroa.0217.3
+  %179 = or <2 x i64> %172, %.sroa.0216.3
   %180 = or <2 x i64> %175, %.sroa.25.3
   %181 = or <2 x i64> %178, %.sroa.33.3
   br label %lshift64_m128.exit73
 
 lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit79, %lshift64_m128.exit109
-  %.sroa.0217.4 = phi <2 x i64> [ %179, %lshift64_m128.exit79 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.0216.4 = phi <2 x i64> [ %179, %lshift64_m128.exit79 ], [ %74, %lshift64_m128.exit109 ]
   %.sroa.25.4 = phi <2 x i64> [ %180, %lshift64_m128.exit79 ], [ %77, %lshift64_m128.exit109 ]
   %.sroa.33.4 = phi <2 x i64> [ %181, %lshift64_m128.exit79 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 16) ], !noalias !590
@@ -10694,11 +10694,11 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit7
   %183 = load <2 x i64>, ptr %41, align 16, !noalias !590
   call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 16) ], !noalias !590
   %184 = load <2 x i64>, ptr %42, align 16, !noalias !590
-  %185 = and <2 x i64> %183, %.sroa.17.0684
-  %186 = and <2 x i64> %184, %.sroa.18.0685
+  %185 = and <2 x i64> %183, %.sroa.17.0682
+  %186 = and <2 x i64> %184, %.sroa.18.0683
   %187 = load i8, ptr %43, align 2
   %188 = zext i8 %187 to i32
-  %189 = and <2 x i64> %182, %.sroa.0283.0683
+  %189 = and <2 x i64> %182, %.sroa.0282.0681
   %190 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %188, i64 0
   %191 = bitcast <4 x i32> %190 to <2 x i64>
   %192 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %189, <2 x i64> %191)
@@ -10708,13 +10708,13 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit7
   %196 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %188, i64 0
   %197 = bitcast <4 x i32> %196 to <2 x i64>
   %198 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %186, <2 x i64> %197)
-  %199 = or <2 x i64> %192, %.sroa.0217.4
+  %199 = or <2 x i64> %192, %.sroa.0216.4
   %200 = or <2 x i64> %195, %.sroa.25.4
   %201 = or <2 x i64> %198, %.sroa.33.4
   br label %lshift64_m128.exit67
 
 lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit73, %lshift64_m128.exit109
-  %.sroa.0217.5 = phi <2 x i64> [ %199, %lshift64_m128.exit73 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.0216.5 = phi <2 x i64> [ %199, %lshift64_m128.exit73 ], [ %74, %lshift64_m128.exit109 ]
   %.sroa.25.5 = phi <2 x i64> [ %200, %lshift64_m128.exit73 ], [ %77, %lshift64_m128.exit109 ]
   %.sroa.33.5 = phi <2 x i64> [ %201, %lshift64_m128.exit73 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 16) ], !noalias !593
@@ -10723,11 +10723,11 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %203 = load <2 x i64>, ptr %45, align 16, !noalias !593
   call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 16) ], !noalias !593
   %204 = load <2 x i64>, ptr %46, align 16, !noalias !593
-  %205 = and <2 x i64> %203, %.sroa.17.0684
-  %206 = and <2 x i64> %204, %.sroa.18.0685
+  %205 = and <2 x i64> %203, %.sroa.17.0682
+  %206 = and <2 x i64> %204, %.sroa.18.0683
   %207 = load i8, ptr %47, align 1
   %208 = zext i8 %207 to i32
-  %209 = and <2 x i64> %202, %.sroa.0283.0683
+  %209 = and <2 x i64> %202, %.sroa.0282.0681
   %210 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %208, i64 0
   %211 = bitcast <4 x i32> %210 to <2 x i64>
   %212 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %209, <2 x i64> %211)
@@ -10737,13 +10737,13 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %216 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %208, i64 0
   %217 = bitcast <4 x i32> %216 to <2 x i64>
   %218 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %206, <2 x i64> %217)
-  %219 = or <2 x i64> %212, %.sroa.0217.5
+  %219 = or <2 x i64> %212, %.sroa.0216.5
   %220 = or <2 x i64> %215, %.sroa.25.5
   %221 = or <2 x i64> %218, %.sroa.33.5
   br label %222
 
 222:                                              ; preds = %lshift64_m128.exit67, %lshift64_m128.exit109
-  %.sroa.0217.6 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %219, %lshift64_m128.exit67 ]
+  %.sroa.0216.6 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %219, %lshift64_m128.exit67 ]
   %.sroa.25.6 = phi <2 x i64> [ %77, %lshift64_m128.exit109 ], [ %220, %lshift64_m128.exit67 ]
   %.sroa.33.6 = phi <2 x i64> [ %80, %lshift64_m128.exit109 ], [ %221, %lshift64_m128.exit67 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 16) ], !noalias !596
@@ -10752,9 +10752,9 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %224 = load <2 x i64>, ptr %49, align 16, !noalias !596
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 16) ], !noalias !596
   %225 = load <2 x i64>, ptr %50, align 16, !noalias !596
-  %226 = and <2 x i64> %223, %.sroa.0283.0683
-  %227 = and <2 x i64> %224, %.sroa.17.0684
-  %228 = and <2 x i64> %225, %.sroa.18.0685
+  %226 = and <2 x i64> %223, %.sroa.0282.0681
+  %227 = and <2 x i64> %224, %.sroa.17.0682
+  %228 = and <2 x i64> %225, %.sroa.18.0683
   %229 = bitcast <2 x i64> %226 to <4 x i32>
   %230 = icmp eq <4 x i32> %229, zeroinitializer
   %231 = sext <4 x i1> %230 to <4 x i32>
@@ -10778,35 +10778,35 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   br i1 %.not.i, label %processExceptional384.exit.thread, label %248, !prof !80
 
 248:                                              ; preds = %222
-  %249 = add i64 %.054686, %4
-  %.sroa.0561.0.copyload659 = load <16 x i8>, ptr %51, align 16
+  %249 = add i64 %.054684, %4
+  %.sroa.0560.0.copyload657 = load <16 x i8>, ptr %51, align 16
   %250 = bitcast <2 x i64> %226 to <16 x i8>
-  %251 = icmp ne <16 x i8> %.sroa.0561.0.copyload659, %250
+  %251 = icmp ne <16 x i8> %.sroa.0560.0.copyload657, %250
   %252 = bitcast <16 x i1> %251 to i16
   %.not.i111 = icmp eq i16 %252, 0
   br i1 %.not.i111, label %253, label %diff384.exit.thread
 
 253:                                              ; preds = %248
-  %.sroa.5563.0.copyload661 = load <16 x i8>, ptr %.sroa.5563.0..sroa_idx, align 16
-  %.sroa.4562.0.copyload660 = load <16 x i8>, ptr %.sroa.4562.0..sroa_idx, align 16
+  %.sroa.5562.0.copyload659 = load <16 x i8>, ptr %.sroa.5562.0..sroa_idx, align 16
+  %.sroa.4561.0.copyload658 = load <16 x i8>, ptr %.sroa.4561.0..sroa_idx, align 16
   %254 = bitcast <2 x i64> %227 to <16 x i8>
-  %255 = icmp ne <16 x i8> %.sroa.4562.0.copyload660, %254
+  %255 = icmp ne <16 x i8> %.sroa.4561.0.copyload658, %254
   %256 = bitcast <16 x i1> %255 to i16
   %.not1.i = icmp eq i16 %256, 0
   %257 = bitcast <2 x i64> %228 to <16 x i8>
-  %258 = icmp ne <16 x i8> %.sroa.5563.0.copyload661, %257
+  %258 = icmp ne <16 x i8> %.sroa.5562.0.copyload659, %257
   %259 = bitcast <16 x i1> %258 to i16
-  %.not662 = icmp eq i16 %259, 0
-  %or.cond = select i1 %.not1.i, i1 %.not662, i1 false
+  %.not660 = icmp eq i16 %259, 0
+  %or.cond = select i1 %.not1.i, i1 %.not660, i1 false
   br i1 %or.cond, label %260, label %diff384.exit.thread
 
 260:                                              ; preds = %253
-  %.sroa.0548.0.copyload = load <2 x i64>, ptr %56, align 16
-  %.sroa.4549.0.copyload = load <2 x i64>, ptr %.sroa.4549.0..sroa_idx, align 16
-  %.sroa.5550.0.copyload = load <2 x i64>, ptr %.sroa.5550.0..sroa_idx, align 16
-  %261 = or <2 x i64> %.sroa.0548.0.copyload, %.sroa.0217.6
-  %262 = or <2 x i64> %.sroa.4549.0.copyload, %.sroa.25.6
-  %263 = or <2 x i64> %.sroa.5550.0.copyload, %.sroa.33.6
+  %.sroa.0547.0.copyload = load <2 x i64>, ptr %56, align 16
+  %.sroa.4548.0.copyload = load <2 x i64>, ptr %.sroa.4548.0..sroa_idx, align 16
+  %.sroa.5549.0.copyload = load <2 x i64>, ptr %.sroa.5549.0..sroa_idx, align 16
+  %261 = or <2 x i64> %.sroa.0547.0.copyload, %.sroa.0216.6
+  %262 = or <2 x i64> %.sroa.4548.0.copyload, %.sroa.25.6
+  %263 = or <2 x i64> %.sroa.5549.0.copyload, %.sroa.33.6
   %264 = load ptr, ptr %57, align 8
   %.not54.i = icmp eq ptr %264, null
   br i1 %.not54.i, label %processExceptional384.exit.thread, label %265
@@ -10815,29 +10815,29 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   %266 = load ptr, ptr %53, align 32
   %267 = load ptr, ptr %54, align 8
   %268 = load i32, ptr %264, align 4
-  %.not.i.i680 = icmp eq i32 %268, -1
-  br i1 %.not.i.i680, label %processExceptional384.exit.thread, label %.lr.ph682
+  %.not.i.i678 = icmp eq i32 %268, -1
+  br i1 %.not.i.i678, label %processExceptional384.exit.thread, label %.lr.ph680
 
-269:                                              ; preds = %.lr.ph682
-  %270 = getelementptr inbounds nuw i8, ptr %.09.i.i681, i64 4
+269:                                              ; preds = %.lr.ph680
+  %270 = getelementptr inbounds nuw i8, ptr %.09.i.i679, i64 4
   %271 = load i32, ptr %270, align 4
   %.not.i.i = icmp eq i32 %271, -1
-  br i1 %.not.i.i, label %processExceptional384.exit.thread, label %.lr.ph682
+  br i1 %.not.i.i, label %processExceptional384.exit.thread, label %.lr.ph680
 
-.lr.ph682:                                        ; preds = %265, %269
+.lr.ph680:                                        ; preds = %265, %269
   %272 = phi i32 [ %271, %269 ], [ %268, %265 ]
-  %.09.i.i681 = phi ptr [ %270, %269 ], [ %264, %265 ]
+  %.09.i.i679 = phi ptr [ %270, %269 ], [ %264, %265 ]
   %273 = tail call i32 %266(i64 noundef 0, i64 noundef %249, i32 noundef %272, ptr noundef %267) #12
-  %.not664 = icmp eq i32 %273, 0
-  br i1 %.not664, label %.critedge, label %269
+  %.not662 = icmp eq i32 %273, 0
+  br i1 %.not662, label %.critedge, label %269
 
 diff384.exit.thread:                              ; preds = %248, %253
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %52, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> %226, ptr %6, align 16
-  store <2 x i64> %227, ptr %.sroa.7.0..sroa_idx493, align 16
-  store <2 x i64> %228, ptr %.sroa.8.0..sroa_idx499, align 16
+  store <2 x i64> %227, ptr %.sroa.7.0..sroa_idx492, align 16
+  store <2 x i64> %228, ptr %.sroa.8.0..sroa_idx498, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 64 dereferenceable(48) %48, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 16
@@ -10858,11 +10858,11 @@ diff384.exit.thread:                              ; preds = %248, %253
   br i1 %exitcond.not, label %.preheader, label %274
 
 .preheader:                                       ; preds = %274, %343
-  %.sroa.0217.8 = phi <2 x i64> [ %.sroa.0217.12.ph, %343 ], [ %.sroa.0217.6, %274 ]
+  %.sroa.0216.8 = phi <2 x i64> [ %.sroa.0216.12.ph, %343 ], [ %.sroa.0216.6, %274 ]
   %.sroa.25.8 = phi <2 x i64> [ %.sroa.25.12.ph, %343 ], [ %.sroa.25.6, %274 ]
   %.sroa.33.8 = phi <2 x i64> [ %.sroa.33.12.ph, %343 ], [ %.sroa.33.6, %274 ]
-  %.0588 = phi i32 [ %.4591.ph, %343 ], [ 1, %274 ]
-  %.sroa.4529.2 = phi ptr [ %.sroa.4529.6, %343 ], [ null, %274 ]
+  %.0587 = phi i32 [ %.4590.ph, %343 ], [ 1, %274 ]
+  %.sroa.4528.2 = phi ptr [ %.sroa.4528.6, %343 ], [ null, %274 ]
   %.0 = phi i32 [ %284, %343 ], [ %247, %274 ]
   %282 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.0) #13, !srcloc !131
   %283 = extractvalue { i32, i32 } %282, 0
@@ -10876,13 +10876,13 @@ diff384.exit.thread:                              ; preds = %248, %253
   br label %291
 
 291:                                              ; preds = %342, %.preheader
-  %.sroa.0217.9 = phi <2 x i64> [ %.sroa.0217.8, %.preheader ], [ %.sroa.0217.12.ph, %342 ]
+  %.sroa.0216.9 = phi <2 x i64> [ %.sroa.0216.8, %.preheader ], [ %.sroa.0216.12.ph, %342 ]
   %.sroa.25.9 = phi <2 x i64> [ %.sroa.25.8, %.preheader ], [ %.sroa.25.12.ph, %342 ]
   %.sroa.33.9 = phi <2 x i64> [ %.sroa.33.8, %.preheader ], [ %.sroa.33.12.ph, %342 ]
-  %.0592 = phi i64 [ %288, %.preheader ], [ %294, %342 ]
-  %.1589 = phi i32 [ %.0588, %.preheader ], [ %.4591.ph, %342 ]
-  %.sroa.4529.3 = phi ptr [ %.sroa.4529.2, %.preheader ], [ %.sroa.4529.6, %342 ]
-  %292 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0592) #13, !srcloc !132
+  %.0591 = phi i64 [ %288, %.preheader ], [ %294, %342 ]
+  %.1588 = phi i32 [ %.0587, %.preheader ], [ %.4590.ph, %342 ]
+  %.sroa.4528.3 = phi ptr [ %.sroa.4528.2, %.preheader ], [ %.sroa.4528.6, %342 ]
+  %292 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0591) #13, !srcloc !132
   %293 = extractvalue { i64, i64 } %292, 0
   %294 = extractvalue { i64, i64 } %292, 1
   %295 = load i64, ptr %289, align 8
@@ -10907,37 +10907,37 @@ diff384.exit.thread:                              ; preds = %248, %253
   %310 = load ptr, ptr %53, align 32
   %311 = load ptr, ptr %54, align 8
   %312 = load i32, ptr %309, align 4
-  %.not.i75.i678 = icmp eq i32 %312, -1
-  br i1 %.not.i75.i678, label %limexRunReports.exit.i114, label %.lr.ph
+  %.not.i74.i676 = icmp eq i32 %312, -1
+  br i1 %.not.i74.i676, label %limexRunReports.exit.i113, label %.lr.ph
 
 313:                                              ; preds = %.lr.ph
-  %314 = getelementptr inbounds nuw i8, ptr %.09.i.i112679, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %.09.i.i112677, i64 4
   %315 = load i32, ptr %314, align 4
-  %.not.i75.i = icmp eq i32 %315, -1
-  br i1 %.not.i75.i, label %limexRunReports.exit.i114, label %.lr.ph
+  %.not.i74.i = icmp eq i32 %315, -1
+  br i1 %.not.i74.i, label %limexRunReports.exit.i113, label %.lr.ph
 
 .lr.ph:                                           ; preds = %307, %313
   %316 = phi i32 [ %315, %313 ], [ %312, %307 ]
-  %.09.i.i112679 = phi ptr [ %314, %313 ], [ %309, %307 ]
+  %.09.i.i112677 = phi ptr [ %314, %313 ], [ %309, %307 ]
   %317 = tail call i32 %310(i64 noundef 0, i64 noundef %249, i32 noundef %316, ptr noundef %311) #12
-  %.not663 = icmp eq i32 %317, 0
-  br i1 %.not663, label %processExceptional384.exit, label %313
+  %.not661 = icmp eq i32 %317, 0
+  br i1 %.not661, label %processExceptional384.exit, label %313
 
-limexRunReports.exit.i114:                        ; preds = %313, %307
-  %318 = icmp eq i32 %.1589, 1
+limexRunReports.exit.i113:                        ; preds = %313, %307
+  %318 = icmp eq i32 %.1588, 1
   br i1 %318, label %319, label %.thread
 
-319:                                              ; preds = %limexRunReports.exit.i114
-  %.not73.i = icmp eq ptr %.sroa.4529.3, null
-  %320 = icmp eq ptr %.sroa.4529.3, %309
+319:                                              ; preds = %limexRunReports.exit.i113
+  %.not73.i = icmp eq ptr %.sroa.4528.3, null
+  %320 = icmp eq ptr %.sroa.4528.3, %309
   %or.cond.i = or i1 %.not73.i, %320
   %spec.select = zext i1 %or.cond.i to i32
-  %spec.select656 = select i1 %or.cond.i, ptr %309, ptr %.sroa.4529.3
+  %spec.select654 = select i1 %or.cond.i, ptr %309, ptr %.sroa.4528.3
   br label %.thread
 
-.thread:                                          ; preds = %319, %limexRunReports.exit.i114, %291
-  %.3590 = phi i32 [ %.1589, %291 ], [ 0, %limexRunReports.exit.i114 ], [ %spec.select, %319 ]
-  %.sroa.4529.6 = phi ptr [ %.sroa.4529.3, %291 ], [ %.sroa.4529.3, %limexRunReports.exit.i114 ], [ %spec.select656, %319 ]
+.thread:                                          ; preds = %319, %limexRunReports.exit.i113, %291
+  %.3589 = phi i32 [ %.1588, %291 ], [ 0, %limexRunReports.exit.i113 ], [ %spec.select, %319 ]
+  %.sroa.4528.6 = phi ptr [ %.sroa.4528.3, %291 ], [ %.sroa.4528.3, %limexRunReports.exit.i113 ], [ %spec.select654, %319 ]
   %321 = getelementptr inbounds nuw i8, ptr %304, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr %321, i64 16) ], !noalias !599
   %322 = load <2 x i64>, ptr %321, align 16, !noalias !599
@@ -10947,15 +10947,15 @@ limexRunReports.exit.i114:                        ; preds = %313, %307
   %325 = getelementptr inbounds nuw i8, ptr %304, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %325, i64 16) ], !noalias !599
   %326 = load <2 x i64>, ptr %325, align 16, !noalias !599
-  %.sroa.0582.0.copyload = load <2 x i64>, ptr %52, align 16
-  %.sroa.4583.0.copyload = load <2 x i64>, ptr %.sroa.4532.0..sroa_idx, align 16
-  %.sroa.5584.0.copyload = load <2 x i64>, ptr %.sroa.5533.0..sroa_idx, align 16
-  %327 = or <2 x i64> %.sroa.0582.0.copyload, %322
-  %328 = or <2 x i64> %.sroa.4583.0.copyload, %324
-  %329 = or <2 x i64> %.sroa.5584.0.copyload, %326
+  %.sroa.0581.0.copyload = load <2 x i64>, ptr %52, align 16
+  %.sroa.4582.0.copyload = load <2 x i64>, ptr %.sroa.4531.0..sroa_idx, align 16
+  %.sroa.5583.0.copyload = load <2 x i64>, ptr %.sroa.5532.0..sroa_idx, align 16
+  %327 = or <2 x i64> %.sroa.0581.0.copyload, %322
+  %328 = or <2 x i64> %.sroa.4582.0.copyload, %324
+  %329 = or <2 x i64> %.sroa.5583.0.copyload, %326
   store <2 x i64> %327, ptr %52, align 16
-  store <2 x i64> %328, ptr %.sroa.4532.0..sroa_idx, align 16
-  store <2 x i64> %329, ptr %.sroa.5533.0..sroa_idx, align 16
+  store <2 x i64> %328, ptr %.sroa.4531.0..sroa_idx, align 16
+  store <2 x i64> %329, ptr %.sroa.5532.0..sroa_idx, align 16
   %330 = getelementptr inbounds nuw i8, ptr %304, i64 104
   %331 = load i8, ptr %330, align 8
   switch i8 %331, label %342 [
@@ -10972,18 +10972,18 @@ limexRunReports.exit.i114:                        ; preds = %313, %307
   %336 = getelementptr inbounds nuw i8, ptr %304, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %336, i64 16) ], !noalias !602
   %337 = load <2 x i64>, ptr %336, align 16, !noalias !602
-  %338 = and <2 x i64> %333, %.sroa.0217.9
+  %338 = and <2 x i64> %333, %.sroa.0216.9
   %339 = and <2 x i64> %335, %.sroa.25.9
   %340 = and <2 x i64> %337, %.sroa.33.9
-  %341 = icmp eq i32 %.3590, 1
-  %spec.select657 = select i1 %341, i32 0, i32 %.3590
+  %341 = icmp eq i32 %.3589, 1
+  %spec.select655 = select i1 %341, i32 0, i32 %.3589
   br label %342
 
 342:                                              ; preds = %332, %.thread
-  %.sroa.0217.12.ph = phi <2 x i64> [ %.sroa.0217.9, %.thread ], [ %338, %332 ]
+  %.sroa.0216.12.ph = phi <2 x i64> [ %.sroa.0216.9, %.thread ], [ %338, %332 ]
   %.sroa.25.12.ph = phi <2 x i64> [ %.sroa.25.9, %.thread ], [ %339, %332 ]
   %.sroa.33.12.ph = phi <2 x i64> [ %.sroa.33.9, %.thread ], [ %340, %332 ]
-  %.4591.ph = phi i32 [ %.3590, %.thread ], [ %spec.select657, %332 ]
+  %.4590.ph = phi i32 [ %.3589, %.thread ], [ %spec.select655, %332 ]
   %.not57.i = icmp eq i64 %294, 0
   br i1 %.not57.i, label %343, label %291
 
@@ -10992,22 +10992,22 @@ limexRunReports.exit.i114:                        ; preds = %313, %307
   br i1 %.not58.i, label %344, label %.preheader
 
 344:                                              ; preds = %343
-  %345 = or <2 x i64> %327, %.sroa.0217.12.ph
+  %345 = or <2 x i64> %327, %.sroa.0216.12.ph
   %346 = or <2 x i64> %328, %.sroa.25.12.ph
   %347 = or <2 x i64> %329, %.sroa.33.12.ph
-  %cond = icmp eq i32 %.4591.ph, 1
-  br i1 %cond, label %348, label %processExceptional384.exit.thread633
+  %cond = icmp eq i32 %.4590.ph, 1
+  br i1 %cond, label %348, label %processExceptional384.exit.thread631
 
 348:                                              ; preds = %344
   store <2 x i64> %226, ptr %51, align 32
-  store <2 x i64> %227, ptr %.sroa.4562.0..sroa_idx, align 16
-  store <2 x i64> %228, ptr %.sroa.5563.0..sroa_idx, align 32
+  store <2 x i64> %227, ptr %.sroa.4561.0..sroa_idx, align 16
+  store <2 x i64> %228, ptr %.sroa.5562.0..sroa_idx, align 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %56, ptr noundef nonnull align 16 dereferenceable(48) %52, i64 48, i1 false)
-  store ptr %.sroa.4529.6, ptr %57, align 8
+  store ptr %.sroa.4528.6, ptr %57, align 8
   store i8 0, ptr %55, align 64
-  br label %processExceptional384.exit.thread633
+  br label %processExceptional384.exit.thread631
 
-processExceptional384.exit.thread633:             ; preds = %344, %348
+processExceptional384.exit.thread631:             ; preds = %344, %348
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11019,11 +11019,11 @@ processExceptional384.exit:                       ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-processExceptional384.exit.thread:                ; preds = %269, %265, %260, %222, %processExceptional384.exit.thread633
-  %.sroa.0217.7.ph = phi <2 x i64> [ %345, %processExceptional384.exit.thread633 ], [ %.sroa.0217.6, %222 ], [ %261, %260 ], [ %261, %265 ], [ %261, %269 ]
-  %.sroa.25.7.ph = phi <2 x i64> [ %346, %processExceptional384.exit.thread633 ], [ %.sroa.25.6, %222 ], [ %262, %260 ], [ %262, %265 ], [ %262, %269 ]
-  %.sroa.33.7.ph = phi <2 x i64> [ %347, %processExceptional384.exit.thread633 ], [ %.sroa.33.6, %222 ], [ %263, %260 ], [ %263, %265 ], [ %263, %269 ]
-  %349 = getelementptr i8, ptr %1, i64 %.054686
+processExceptional384.exit.thread:                ; preds = %269, %265, %260, %222, %processExceptional384.exit.thread631
+  %.sroa.0216.7.ph = phi <2 x i64> [ %345, %processExceptional384.exit.thread631 ], [ %.sroa.0216.6, %222 ], [ %261, %260 ], [ %261, %265 ], [ %261, %269 ]
+  %.sroa.25.7.ph = phi <2 x i64> [ %346, %processExceptional384.exit.thread631 ], [ %.sroa.25.6, %222 ], [ %262, %260 ], [ %262, %265 ], [ %262, %269 ]
+  %.sroa.33.7.ph = phi <2 x i64> [ %347, %processExceptional384.exit.thread631 ], [ %.sroa.33.6, %222 ], [ %263, %260 ], [ %263, %265 ], [ %263, %269 ]
+  %349 = getelementptr i8, ptr %1, i64 %.054684
   %350 = getelementptr i8, ptr %349, i64 -1
   %351 = load i8, ptr %350, align 1
   %352 = zext i8 %351 to i64
@@ -11039,10 +11039,10 @@ processExceptional384.exit.thread:                ; preds = %269, %265, %260, %2
   %360 = getelementptr inbounds nuw i8, ptr %356, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %360, i64 16) ], !noalias !605
   %361 = load <2 x i64>, ptr %360, align 16, !noalias !605
-  %362 = and <2 x i64> %357, %.sroa.0217.7.ph
+  %362 = and <2 x i64> %357, %.sroa.0216.7.ph
   %363 = and <2 x i64> %359, %.sroa.25.7.ph
   %364 = and <2 x i64> %361, %.sroa.33.7.ph
-  %365 = add i64 %.054686, -1
+  %365 = add i64 %.054684, -1
   %.not = icmp eq i64 %365, 0
   br i1 %.not, label %.critedge.thread, label %58
 
@@ -11073,7 +11073,7 @@ processExceptional384.exit.thread:                ; preds = %269, %265, %260, %2
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %379 = load i32, ptr %378, align 4
   %.not60 = icmp eq i32 %379, 0
-  br i1 %.not60, label %.thread653, label %380
+  br i1 %.not60, label %.thread651, label %380
 
 380:                                              ; preds = %.critedge.thread
   %381 = and <2 x i64> %367, %362
@@ -11084,20 +11084,20 @@ processExceptional384.exit.thread:                ; preds = %269, %265, %260, %2
   %386 = bitcast <2 x i64> %385 to <16 x i8>
   %387 = icmp ne <16 x i8> %386, zeroinitializer
   %388 = bitcast <16 x i1> %387 to i16
-  %.not665 = icmp eq i16 %388, 0
-  br i1 %.not665, label %.thread653, label %389, !prof !80
+  %.not663 = icmp eq i16 %388, 0
+  br i1 %.not663, label %.thread651, label %389, !prof !80
 
 389:                                              ; preds = %380
   %390 = load ptr, ptr %53, align 32
   %391 = load ptr, ptr %54, align 8
   %392 = call fastcc signext i8 @moProcessAcceptsNoSquash384(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %9, ptr noundef nonnull %377, i64 noundef %4, ptr noundef %390, ptr noundef %391)
-  br label %.thread653
+  br label %.thread651
 
-.thread653:                                       ; preds = %389, %380, %.critedge.thread
+.thread651:                                       ; preds = %389, %380, %.critedge.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph682, %processExceptional384.exit, %.critedge.thread651, %.thread653
+.critedge:                                        ; preds = %.lr.ph680, %processExceptional384.exit, %.critedge.thread649, %.thread651
   ret void
 }
 

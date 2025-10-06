@@ -8385,8 +8385,8 @@ define internal fastcc noundef zeroext i1 @_ZL10seenBeforePKN5clang4StmtES2_S2_(
   %9 = icmp ne ptr %8, %.sroa.419.24.copyload
   %10 = load i64, ptr %7, align 8
   %11 = icmp ne i64 %10, %.sroa.6.24.copyload
-  %.not3.i.not.not28 = select i1 %9, i1 true, i1 %11
-  br i1 %.not3.i.not.not28, label %.lr.ph, label %.thread
+  %.not3.i25 = select i1 %9, i1 true, i1 %11
+  br i1 %.not3.i25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %12 = phi i64 [ %37, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %10, %3 ]
@@ -8407,15 +8407,15 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 19:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %20 = icmp eq ptr %18, %1
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %._crit_edge, label %21
 
 21:                                               ; preds = %19
   %22 = icmp eq ptr %18, %2
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %._crit_edge, label %23
 
 23:                                               ; preds = %21
   %24 = call fastcc noundef zeroext i1 @_ZL10seenBeforePKN5clang4StmtES2_S2_(ptr noundef nonnull %18, ptr noundef %1, ptr noundef %2)
-  br label %.thread
+  br label %._crit_edge
 
 25:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %26 = load i64, ptr %7, align 8, !tbaa !697
@@ -8446,15 +8446,13 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   %36 = icmp ne ptr %35, %.sroa.419.24.copyload
   %37 = load i64, ptr %7, align 8
   %38 = icmp ne i64 %37, %.sroa.6.24.copyload
-  %.not3.i.not.not = select i1 %36, i1 true, i1 %38
-  br i1 %.not3.i.not.not, label %.lr.ph, label %.thread
+  %.not3.i = select i1 %36, i1 true, i1 %38
+  br i1 %.not3.i, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %3, %23, %19, %21
-  %.not3.i.not.not27 = phi i1 [ true, %21 ], [ true, %19 ], [ true, %23 ], [ false, %3 ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
-  %.1 = phi i1 [ false, %21 ], [ true, %19 ], [ %24, %23 ], [ undef, %3 ], [ undef, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
+._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %3, %23, %19, %21
+  %39 = phi i1 [ false, %21 ], [ true, %19 ], [ %24, %23 ], [ false, %3 ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %spec.select = and i1 %.not3.i.not.not27, %.1
-  ret i1 %spec.select
+  ret i1 %39
 }
 
 declare void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr dead_on_unwind writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(696), i64) local_unnamed_addr #1

@@ -6488,17 +6488,17 @@ _ZNSt6vectorIS_IPN4llvm17MachineMemOperandESaIS2_EESaIS4_EEC2EmRKS5_.exit.i: ; p
   %2680 = zext i32 %2679 to i64
   %.idx.i.i.i365 = shl nuw nsw i64 %2680, 3
   %2681 = getelementptr inbounds nuw i8, ptr %2678, i64 %.idx.i.i.i365
-  %.not36.i.i.i = icmp eq i32 %2679, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i223.i
+  %.not34.i.i.i = icmp eq i32 %2679, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i223.i
 
 .lr.ph.i.i223.i:                                  ; preds = %2677, %.critedge.i.i.i366
-  %.02937.i.i.i = phi ptr [ %2683, %.critedge.i.i.i366 ], [ %2678, %2677 ]
-  %2682 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !56, !noalias !486
+  %.02935.i.i.i = phi ptr [ %2683, %.critedge.i.i.i366 ], [ %2678, %2677 ]
+  %2682 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !56, !noalias !486
   %.not17.i.i.i = icmp eq ptr %2682, %2674
   br i1 %.not17.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_10AllocaInstEE6insertES3_.exit.i, label %.critedge.i.i.i366
 
 .critedge.i.i.i366:                               ; preds = %.lr.ph.i.i223.i
-  %2683 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %2683 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i367 = icmp eq ptr %2683, %2681
   br i1 %.not.i.i.i367, label %._crit_edge.i.i.i, label %.lr.ph.i.i223.i, !llvm.loop !489
 
@@ -6532,17 +6532,17 @@ _ZN4llvm15SmallPtrSetImplIPKNS_10AllocaInstEE6insertES3_.exit.i: ; preds = %.lr.
   %2696 = zext i32 %2691 to i64
   %.idx.i.i241.i = shl nuw nsw i64 %2696, 3
   %2697 = getelementptr inbounds nuw i8, ptr %2692, i64 %.idx.i.i241.i
-  %.not36.i.i242.i = icmp eq i32 %2691, 0
-  br i1 %.not36.i.i242.i, label %._crit_edge.i.i248.i, label %.lr.ph.i.i243.i
+  %.not34.i.i242.i = icmp eq i32 %2691, 0
+  br i1 %.not34.i.i242.i, label %._crit_edge.i.i248.i, label %.lr.ph.i.i243.i
 
 .lr.ph.i.i243.i:                                  ; preds = %2695, %.critedge.i.i246.i
-  %.02937.i.i244.i = phi ptr [ %2699, %.critedge.i.i246.i ], [ %2692, %2695 ]
-  %2698 = load ptr, ptr %.02937.i.i244.i, align 8, !tbaa !56, !noalias !490
+  %.02935.i.i244.i = phi ptr [ %2699, %.critedge.i.i246.i ], [ %2692, %2695 ]
+  %2698 = load ptr, ptr %.02935.i.i244.i, align 8, !tbaa !56, !noalias !490
   %.not17.i.i245.i = icmp eq ptr %2698, %2654
   br i1 %.not17.i.i245.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_10AllocaInstEE6insertES3_.exit253.i, label %.critedge.i.i246.i
 
 .critedge.i.i246.i:                               ; preds = %.lr.ph.i.i243.i
-  %2699 = getelementptr inbounds nuw i8, ptr %.02937.i.i244.i, i64 8
+  %2699 = getelementptr inbounds nuw i8, ptr %.02935.i.i244.i, i64 8
   %.not.i.i247.i = icmp eq ptr %2699, %2697
   br i1 %.not.i.i247.i, label %._crit_edge.i.i248.i, label %.lr.ph.i.i243.i, !llvm.loop !489
 
@@ -9244,8 +9244,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113StackColoring20isL
   %20 = getelementptr inbounds nuw i64, ptr %19, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !55
   %22 = and i64 %21, %16
-  %.not64 = icmp eq i64 %22, 0
-  br i1 %.not64, label %.thread, label %23
+  %.not61 = icmp eq i64 %22, 0
+  br i1 %.not61, label %.thread, label %23
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9287,8 +9287,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %23, %28
 
 _ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit: ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %.val43 = load ptr, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i64, ptr %.val43, i64 %18
+  %.val42 = load ptr, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i64, ptr %.val42, i64 %18
   %47 = load i64, ptr %46, align 8, !tbaa !55
   %48 = and i64 %47, %16
   %.not2.i = icmp eq i64 %48, 0
@@ -9297,14 +9297,14 @@ _ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit: ; preds = %40
 49:                                               ; preds = %4
   %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23LifetimeStartOnFirstUse, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
   %51 = trunc nuw i8 %50 to i1
-  %.not60 = xor i1 %51, true
+  %.not57 = xor i1 %51, true
   %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL25ProtectFromEscapedAllocas, i64 120), align 8, !range !48
   %53 = trunc nuw i8 %52 to i1
-  %or.cond = select i1 %.not60, i1 true, i1 %53
+  %or.cond = select i1 %.not57, i1 true, i1 %53
   %.off.i = add i16 %6, -14
   %switch.i = icmp ult i16 %.off.i, 5
-  %or.cond62 = or i1 %switch.i, %or.cond
-  br i1 %or.cond62, label %.thread, label %54
+  %or.cond59 = or i1 %switch.i, %or.cond
+  br i1 %or.cond59, label %.thread, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -9314,8 +9314,8 @@ _ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit: ; preds = %40
   %59 = zext i24 %58 to i64
   %.idx = shl nuw nsw i64 %59, 5
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx
-  %.not65 = icmp eq i24 %58, 0
-  br i1 %.not65, label %.thread, label %.lr.ph
+  %.not62 = icmp eq i24 %58, 0
+  br i1 %.not62, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1256
@@ -9325,33 +9325,33 @@ _ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit: ; preds = %40
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread, %.lr.ph
-  %.03567.ph = phi i1 [ true, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread ], [ false, %.lr.ph ]
-  %.03866.ph = phi ptr [ %105, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread ], [ %56, %.lr.ph ]
+.outer:                                           ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread, %.lr.ph
+  %.03564.ph = phi i1 [ true, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread ], [ false, %.lr.ph ]
+  %.03863.ph = phi ptr [ %105, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread ], [ %56, %.lr.ph ]
   %66 = load ptr, ptr %61, align 8
   %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23LifetimeStartOnFirstUse, i64 120), align 8, !range !48
   %68 = trunc nuw i8 %67 to i1
-  %.not.i45 = xor i1 %68, true
+  %.not.i44 = xor i1 %68, true
   %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL25ProtectFromEscapedAllocas, i64 120), align 8, !range !48
   %70 = trunc nuw i8 %69 to i1
-  %.val44 = load ptr, ptr %62, align 8
+  %.val43 = load ptr, ptr %62, align 8
   br label %71
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread
-  br i1 %.03567.ph, label %.thread.sink.split, label %.thread
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread
+  br i1 %.03564.ph, label %.thread.sink.split, label %.thread
 
-71:                                               ; preds = %.outer, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread
-  %.03866 = phi ptr [ %98, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread ], [ %.03866.ph, %.outer ]
-  %72 = load i32, ptr %.03866, align 8
+71:                                               ; preds = %.outer, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread
+  %.03863 = phi ptr [ %98, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread ], [ %.03863.ph, %.outer ]
+  %72 = load i32, ptr %.03863, align 8
   %73 = and i32 %72, 255
   %74 = icmp eq i32 %73, 5
-  br i1 %74, label %75, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread
+  br i1 %74, label %75, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %.03866, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.03863, i64 16
   %77 = load i32, ptr %76, align 8, !tbaa !322
   %78 = icmp slt i32 %77, 0
-  br i1 %78, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread, label %79
+  br i1 %78, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread, label %79
 
 79:                                               ; preds = %75
   %80 = and i32 %77, 63
@@ -9362,38 +9362,38 @@ _ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit: ; preds = %40
   %85 = getelementptr inbounds nuw i64, ptr %66, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !55
   %87 = and i64 %86, %82
-  %.not63 = icmp eq i64 %87, 0
-  %88 = select i1 %.not63, i1 true, i1 %.not.i45
+  %.not60 = icmp eq i64 %87, 0
+  %88 = select i1 %.not60, i1 true, i1 %.not.i44
   %brmerge = select i1 %88, i1 true, i1 %70
-  br i1 %brmerge, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49
+  br i1 %brmerge, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48
 
-_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49: ; preds = %79
-  %89 = getelementptr inbounds nuw i64, ptr %.val44, i64 %84
+_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48: ; preds = %79
+  %89 = getelementptr inbounds nuw i64, ptr %.val43, i64 %84
   %90 = load i64, ptr %89, align 8, !tbaa !55
   %91 = and i64 %90, %82
-  %.not2.i47 = icmp eq i64 %91, 0
-  br i1 %.not2.i47, label %92, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread
+  %.not2.i46 = icmp eq i64 %91, 0
+  br i1 %.not2.i46, label %92, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread
 
-92:                                               ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49
+92:                                               ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48
   %93 = load i32, ptr %63, align 8, !tbaa !26
   %94 = load i32, ptr %64, align 4, !tbaa !27
-  %.not.i.i.not.i50 = icmp ult i32 %93, %94
-  br i1 %.not.i.i.not.i50, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread, label %95, !prof !33
+  %.not.i.i.not.i49 = icmp ult i32 %93, %94
+  br i1 %.not.i.i.not.i49, label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread, label %95, !prof !33
 
 95:                                               ; preds = %92
   %96 = zext i32 %93 to i64
   %97 = add nuw nsw i64 %96, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %65, i64 noundef %97, i64 noundef 4) #24
-  %.pre.i51 = load i32, ptr %63, align 8, !tbaa !26
-  br label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread
+  %.pre.i50 = load i32, ptr %63, align 8, !tbaa !26
+  br label %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread
 
-_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread: ; preds = %79, %75, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49, %71
-  %98 = getelementptr inbounds nuw i8, ptr %.03866, i64 32
+_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread: ; preds = %79, %75, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48, %71
+  %98 = getelementptr inbounds nuw i8, ptr %.03863, i64 32
   %.not = icmp eq ptr %98, %60
   br i1 %.not, label %._crit_edge, label %71
 
-_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread: ; preds = %95, %92
-  %99 = phi i32 [ %93, %92 ], [ %.pre.i51, %95 ]
+_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread: ; preds = %95, %92
+  %99 = phi i32 [ %93, %92 ], [ %.pre.i50, %95 ]
   %100 = load ptr, ptr %2, align 8, !tbaa !25
   %101 = zext i32 %99 to i64
   %102 = getelementptr inbounds nuw i32, ptr %100, i64 %101
@@ -9401,12 +9401,12 @@ _ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread: ; preds 
   %103 = load i32, ptr %63, align 8, !tbaa !26
   %104 = add i32 %103, 1
   store i32 %104, ptr %63, align 8, !tbaa !26
-  %105 = getelementptr inbounds nuw i8, ptr %.03866, i64 32
-  %.not74 = icmp eq ptr %105, %60
-  br i1 %.not74, label %.thread.sink.split, label %.outer
+  %105 = getelementptr inbounds nuw i8, ptr %.03863, i64 32
+  %.not71 = icmp eq ptr %105, %60
+  br i1 %.not71, label %.thread.sink.split, label %.outer
 
-.thread.sink.split:                               ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread, %._crit_edge, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit, %40, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %.sink = phi i8 [ 0, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 1, %40 ], [ 1, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit ], [ 1, %._crit_edge ], [ 1, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit49.thread.thread ]
+.thread.sink.split:                               ; preds = %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread, %._crit_edge, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit, %40, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
+  %.sink = phi i8 [ 0, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 1, %40 ], [ 1, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit ], [ 1, %._crit_edge ], [ 1, %_ZN12_GLOBAL__N_113StackColoring13applyFirstUseEi.exit48.thread.thread ]
   store i8 %.sink, ptr %3, align 1, !tbaa !47
   br label %.thread
 
@@ -9915,8 +9915,8 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_
   %23 = load i32, ptr %20, align 8, !tbaa !26
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
-  %.not.not43 = icmp eq ptr %21, %25
-  br i1 %.not.not43, label %.thread, label %.lr.ph
+  %.not.not42 = icmp eq ptr %21, %25
+  br i1 %.not.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.critedge.backedge
   %26 = phi ptr [ %44, %.critedge.backedge ], [ %21, %18 ]
@@ -9933,36 +9933,36 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_
   %34 = zext i32 %33 to i64
   %.idx.i.i.i = shl nuw nsw i64 %34, 3
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %33, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %31, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %37, %.critedge.i.i.i ], [ %32, %31 ]
-  %36 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !56, !noalias !573
+  %.02935.i.i.i = phi ptr [ %37, %.critedge.i.i.i ], [ %32, %31 ]
+  %36 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !56, !noalias !573
   %.not17.i.i.i = icmp eq ptr %36, %28
   br i1 %.not17.i.i.i, label %.critedge.backedge, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %37, %35
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !489
 
 ._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %31
   %38 = load i32, ptr %6, align 8, !tbaa !29, !noalias !573
   %39 = icmp ult i32 %33, %38
-  br i1 %39, label %.critedge37, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+  br i1 %39, label %.critedge36, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-.critedge37:                                      ; preds = %._crit_edge.i.i.i
+.critedge36:                                      ; preds = %._crit_edge.i.i.i
   %40 = add nuw i32 %33, 1
   store i32 %40, ptr %5, align 4, !tbaa !30, !noalias !573
   store ptr %28, ptr %35, align 8, !tbaa !56, !noalias !573
-  br label %.loopexit38
+  br label %.loopexit37
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %.lr.ph
   %41 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %28) #24, !noalias !573
   %42 = extractvalue { ptr, i8 } %41, 1
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.loopexit38, label %.critedge.backedge
+  br i1 %43, label %.loopexit37, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   %44 = load ptr, ptr %11, align 8, !tbaa !292
@@ -9973,14 +9973,14 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   %.not.not = icmp eq ptr %44, %48
   br i1 %.not.not, label %.thread, label %.lr.ph
 
-.loopexit38:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge37
+.loopexit37:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge36
   %49 = load ptr, ptr %3, align 8, !tbaa !276
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %51 = load ptr, ptr %50, align 8, !tbaa !280
   %.not.i.i = icmp eq ptr %49, %51
   br i1 %.not.i.i, label %55, label %52
 
-52:                                               ; preds = %.loopexit38
+52:                                               ; preds = %.loopexit37
   store ptr %28, ptr %49, align 8
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i8 0, ptr %.sroa.512.0..sroa_idx, align 8
@@ -9989,7 +9989,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   store ptr %54, ptr %3, align 8, !tbaa !276
   br label %.loopexit
 
-55:                                               ; preds = %.loopexit38
+55:                                               ; preds = %.loopexit37
   %56 = load ptr, ptr %2, align 8, !tbaa !279
   %57 = ptrtoint ptr %49 to i64
   %58 = ptrtoint ptr %56 to i64

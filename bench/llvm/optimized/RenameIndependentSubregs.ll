@@ -1931,8 +1931,8 @@ _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i: ; preds = %_ZNK
 _ZNK4llvm9SlotIndex11getPrevSlotEv.exit.i.i:      ; preds = %835, %830
   %.sroa.05.0.i.i.i = phi i64 [ %834, %830 ], [ %839, %835 ]
   %.val.i113.i = load ptr, ptr %751, align 8, !tbaa !236
-  %.not6.not.i.i.i = icmp eq ptr %.val.i113.i, null
-  br i1 %.not6.not.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i, label %.lr.ph.i.i114.i
+  %.not7.not.i.i.i = icmp eq ptr %.val.i113.i, null
+  br i1 %.not7.not.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i, label %.lr.ph.i.i114.i
 
 .lr.ph.i.i114.i:                                  ; preds = %_ZNK4llvm9SlotIndex11getPrevSlotEv.exit.i.i
   %840 = and i64 %.sroa.05.0.i.i.i, -8
@@ -1944,10 +1944,10 @@ _ZNK4llvm9SlotIndex11getPrevSlotEv.exit.i.i:      ; preds = %835, %830
   br label %846
 
 846:                                              ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i, %.lr.ph.i.i114.i
-  %.sroa.01.07.i.i.i = phi ptr [ %.val.i113.i, %.lr.ph.i.i114.i ], [ %864, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i ]
-  %847 = call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01.07.i.i.i, i64 %.sroa.05.0.i.i.i) #16
-  %848 = load ptr, ptr %.sroa.01.07.i.i.i, align 8, !tbaa !233
-  %849 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i, i64 8
+  %.sroa.01.08.i.i.i = phi ptr [ %.val.i113.i, %.lr.ph.i.i114.i ], [ %864, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i ]
+  %847 = call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01.08.i.i.i, i64 %.sroa.05.0.i.i.i) #16
+  %848 = load ptr, ptr %.sroa.01.08.i.i.i, align 8, !tbaa !233
+  %849 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.i.i, i64 8
   %850 = load i32, ptr %849, align 8, !tbaa !232
   %851 = zext i32 %850 to i64
   %852 = getelementptr inbounds nuw %"struct.llvm::LiveRange::Segment", ptr %848, i64 %851
@@ -1966,11 +1966,11 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i.i.i: ; preds = %846
   %860 = or i32 %859, %856
   %861 = load i32, ptr %842, align 8, !tbaa !375
   %862 = or i32 %861, %845
-  %.not5.i.i.i = icmp ugt i32 %860, %862
-  br i1 %.not5.i.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i
+  %.not6.i.i.i = icmp ugt i32 %860, %862
+  br i1 %.not6.i.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i.i.i, %846
-  %863 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i, i64 104
+  %863 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.i.i, i64 104
   %864 = load ptr, ptr %863, align 8, !tbaa !398
   %.not.not.i105.i.i = icmp eq ptr %864, null
   br i1 %.not.not.i105.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i, label %846
@@ -2664,8 +2664,8 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit.i103.i: 
   %1202 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i104.i, i64 8
   %.sroa.010.0.copyload.i.i.i105.i = load i64, ptr %1202, align 8, !tbaa !279
   %.val92.i.i = load ptr, ptr %751, align 8, !tbaa !236
-  %.not6.not.i121.i.i = icmp eq ptr %.val92.i.i, null
-  br i1 %.not6.not.i121.i.i, label %.loopexit49.i.i, label %.lr.ph.i122.i.i
+  %.not7.not.i121.i.i = icmp eq ptr %.val92.i.i, null
+  br i1 %.not7.not.i121.i.i, label %.loopexit49.i.i, label %.lr.ph.i122.i.i
 
 .lr.ph.i122.i.i:                                  ; preds = %_ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit.i103.i
   %1203 = and i64 %.sroa.010.0.copyload.i.i.i105.i, -8
@@ -2677,10 +2677,10 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit.i103.i: 
   br label %1209
 
 1209:                                             ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i129.i.i, %.lr.ph.i122.i.i
-  %.sroa.01.07.i123.i.i = phi ptr [ %.val92.i.i, %.lr.ph.i122.i.i ], [ %1227, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i129.i.i ]
-  %1210 = call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01.07.i123.i.i, i64 %.sroa.010.0.copyload.i.i.i105.i) #16
-  %1211 = load ptr, ptr %.sroa.01.07.i123.i.i, align 8, !tbaa !233
-  %1212 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i123.i.i, i64 8
+  %.sroa.01.08.i123.i.i = phi ptr [ %.val92.i.i, %.lr.ph.i122.i.i ], [ %1227, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i129.i.i ]
+  %1210 = call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01.08.i123.i.i, i64 %.sroa.010.0.copyload.i.i.i105.i) #16
+  %1211 = load ptr, ptr %.sroa.01.08.i123.i.i, align 8, !tbaa !233
+  %1212 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i123.i.i, i64 8
   %1213 = load i32, ptr %1212, align 8, !tbaa !232
   %1214 = zext i32 %1213 to i64
   %1215 = getelementptr inbounds nuw %"struct.llvm::LiveRange::Segment", ptr %1211, i64 %1214
@@ -2699,11 +2699,11 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i125.i.i: ; preds = %1209
   %1223 = or i32 %1222, %1219
   %1224 = load i32, ptr %1205, align 8, !tbaa !375
   %1225 = or i32 %1224, %1208
-  %.not5.i127.i.i = icmp ugt i32 %1223, %1225
-  br i1 %.not5.i127.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i129.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit131.loopexit.i.i
+  %.not6.i127.i.i = icmp ugt i32 %1223, %1225
+  br i1 %.not6.i127.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i129.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit131.loopexit.i.i
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i129.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i125.i.i, %1209
-  %1226 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i123.i.i, i64 104
+  %1226 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i123.i.i, i64 104
   %1227 = load ptr, ptr %1226, align 8, !tbaa !398
   %.not.not.i130.i.i = icmp eq ptr %1227, null
   br i1 %.not.not.i130.i.i, label %.loopexit49.loopexit.i.i, label %1209
@@ -2845,8 +2845,8 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit159.i.i: 
   %1288 = and i64 %.sroa.010.0.copyload.i.i157.i.i, -8
   %1289 = or disjoint i64 %1288, 6
   %.val93.i.i = load ptr, ptr %751, align 8, !tbaa !236
-  %.not6.not.i161.i.i = icmp eq ptr %.val93.i.i, null
-  br i1 %.not6.not.i161.i.i, label %.loopexit48.i.i, label %.lr.ph.i162.i.i
+  %.not7.not.i161.i.i = icmp eq ptr %.val93.i.i, null
+  br i1 %.not7.not.i161.i.i, label %.loopexit48.i.i, label %.lr.ph.i162.i.i
 
 .lr.ph.i162.i.i:                                  ; preds = %_ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit159.i.i
   %1290 = inttoptr i64 %1288 to ptr
@@ -2854,10 +2854,10 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit159.i.i: 
   br label %1292
 
 1292:                                             ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i169.i.i, %.lr.ph.i162.i.i
-  %.sroa.01.07.i163.i.i = phi ptr [ %.val93.i.i, %.lr.ph.i162.i.i ], [ %1310, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i169.i.i ]
-  %1293 = call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01.07.i163.i.i, i64 %1289) #16
-  %1294 = load ptr, ptr %.sroa.01.07.i163.i.i, align 8, !tbaa !233
-  %1295 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i163.i.i, i64 8
+  %.sroa.01.08.i163.i.i = phi ptr [ %.val93.i.i, %.lr.ph.i162.i.i ], [ %1310, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i169.i.i ]
+  %1293 = call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01.08.i163.i.i, i64 %1289) #16
+  %1294 = load ptr, ptr %.sroa.01.08.i163.i.i, align 8, !tbaa !233
+  %1295 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i163.i.i, i64 8
   %1296 = load i32, ptr %1295, align 8, !tbaa !232
   %1297 = zext i32 %1296 to i64
   %1298 = getelementptr inbounds nuw %"struct.llvm::LiveRange::Segment", ptr %1294, i64 %1297
@@ -2876,11 +2876,11 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i165.i.i: ; preds = %1292
   %1306 = or i32 %1305, %1302
   %1307 = load i32, ptr %1291, align 8, !tbaa !375
   %1308 = or i32 %1307, 3
-  %.not5.i167.i.i = icmp ugt i32 %1306, %1308
-  br i1 %.not5.i167.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i169.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit171.i.i.preheader
+  %.not6.i167.i.i = icmp ugt i32 %1306, %1308
+  br i1 %.not6.i167.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i169.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit171.i.i.preheader
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i169.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i165.i.i, %1292
-  %1309 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i163.i.i, i64 104
+  %1309 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i163.i.i, i64 104
   %1310 = load ptr, ptr %1309, align 8, !tbaa !398
   %.not.not.i170.i.i = icmp eq ptr %1310, null
   br i1 %.not.not.i170.i.i, label %.loopexit48.loopexit.i.i, label %1292

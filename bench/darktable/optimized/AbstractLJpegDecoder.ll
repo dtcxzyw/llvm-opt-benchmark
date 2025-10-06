@@ -580,7 +580,7 @@ _ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i: ; preds = %_ZN8rawspeed10Byt
   %32 = add i8 %.0.copyload.i.i.i.i.i10.i.us.i.i, -1
   %33 = icmp ult i8 %32, -2
   %or.cond5.i.us.i.i = and i1 %31, %33
-  br i1 %or.cond5.i.us.i.i, label %.split12.us.loopexit.i.i, label %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i
+  br i1 %or.cond5.i.us.i.i, label %.split11.us.loopexit.i.i, label %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i
 
 _ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i
   %indvars.i.i = trunc i64 %indvars.iv.next.i.i to i32
@@ -590,17 +590,17 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i: ; preds = %_ZNK8rawspeed10Byte
   %36 = icmp ugt i32 %35, 1
   br i1 %36, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i, label %.loopexit.i15, !llvm.loop !80
 
-.split12.us.loopexit.i.i:                         ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i
+.split11.us.loopexit.i.i:                         ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i
   %37 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %37, ptr %.sroa.413.0..sroa_idx.i, align 8
   %.not.i.not.i.i.i.i.i.i18 = icmp ugt i32 %26, %37
   br i1 %.not.i.not.i.i.i.i.i.i18, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i19, label %38
 
-38:                                               ; preds = %.split12.us.loopexit.i.i
+38:                                               ; preds = %.split11.us.loopexit.i.i
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15
   unreachable
 
-_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i19:  ; preds = %.split12.us.loopexit.i.i
+_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i19:  ; preds = %.split11.us.loopexit.i.i
   %39 = add nuw nsw i32 %37, 1
   %.not.i.not.i.i.i.i9.i.i20 = icmp samesign ult i32 %39, %26
   br i1 %.not.i.not.i.i.i.i9.i.i20, label %_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit23, label %40
@@ -850,7 +850,7 @@ _ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i: ; preds = %_ZN8rawspeed10ByteS
   %13 = add i8 %.0.copyload.i.i.i.i.i10.i.us.i, -1
   %14 = icmp ult i8 %13, -2
   %or.cond5.i.us.i = and i1 %12, %14
-  br i1 %or.cond5.i.us.i, label %.split12.us.loopexit.i, label %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i
+  br i1 %or.cond5.i.us.i, label %.split11.us.loopexit.i, label %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i
 
 _ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i:   ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
@@ -871,12 +871,12 @@ _ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i:    ; preds = %_ZNK8rawspeed10Byte
   %or.cond5.i.i = and i1 %20, %22
   br i1 %or.cond5.i.i, label %_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit, label %.loopexit
 
-.split12.us.loopexit.i:                           ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i
+.split11.us.loopexit.i:                           ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit
 
-_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i, %.split12.us.loopexit.i
-  %.sroa.02.sroa.6.0 = phi i32 [ %23, %.split12.us.loopexit.i ], [ %.sroa.413.0.copyload, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i ]
+_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i, %.split11.us.loopexit.i
+  %.sroa.02.sroa.6.0 = phi i32 [ %23, %.split11.us.loopexit.i ], [ %.sroa.413.0.copyload, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i ]
   store i32 %.sroa.02.sroa.6.0, ptr %.sroa.413.0..sroa_idx, align 8
   %.not.i.not.i.i.i.i.i = icmp ult i32 %.sroa.02.sroa.6.0, %.sroa.2.0.copyload
   br i1 %.not.i.not.i.i.i.i.i, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i, label %24

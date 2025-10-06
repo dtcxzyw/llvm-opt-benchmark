@@ -241,8 +241,8 @@ r_mark_regions.exit:                              ; preds = %39, %52, %59, %66, 
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %76, ptr %77, align 8
   %78 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 16) #2
-  %.not.i67 = icmp eq i32 %78, 0
-  br i1 %.not.i67, label %90, label %79
+  %.not.i64 = icmp eq i32 %78, 0
+  br i1 %.not.i64, label %90, label %79
 
 79:                                               ; preds = %r_mark_regions.exit
   %80 = load i32, ptr %2, align 8
@@ -280,8 +280,8 @@ r_mark_regions.exit:                              ; preds = %39, %52, %59, %66, 
   store i32 %91, ptr %2, align 8
   store i32 %91, ptr %77, align 8
   %92 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 25) #2
-  %.not.i69 = icmp eq i32 %92, 0
-  br i1 %.not.i69, label %114, label %93
+  %.not.i66 = icmp eq i32 %92, 0
+  br i1 %.not.i66, label %114, label %93
 
 93:                                               ; preds = %90
   %94 = load i32, ptr %2, align 8
@@ -298,8 +298,8 @@ r_mark_regions.exit:                              ; preds = %39, %52, %59, %66, 
 95:                                               ; preds = %93
   %.val51.i = load ptr, ptr %42, align 8
   %.val51.val.i = load i32, ptr %.val51.i, align 4
-  %.not.i.not.i71 = icmp sgt i32 %.val51.val.i, %94
-  br i1 %.not.i.not.i71, label %114, label %96
+  %.not.i.not.i68 = icmp sgt i32 %.val51.val.i, %94
+  br i1 %.not.i.not.i68, label %114, label %96
 
 96:                                               ; preds = %95
   %97 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
@@ -337,8 +337,8 @@ r_mark_regions.exit:                              ; preds = %39, %52, %59, %66, 
   store i32 %115, ptr %77, align 8
   %116 = add i32 %115, -2
   %117 = load i32, ptr %75, align 8
-  %.not.i72 = icmp sgt i32 %116, %117
-  br i1 %.not.i72, label %118, label %143
+  %.not.i69 = icmp sgt i32 %116, %117
+  br i1 %.not.i69, label %118, label %143
 
 118:                                              ; preds = %114
   %119 = load ptr, ptr %0, align 8
@@ -375,8 +375,8 @@ r_mark_regions.exit:                              ; preds = %39, %52, %59, %66, 
   %.val47.i = load ptr, ptr %42, align 8
   %134 = getelementptr i8, ptr %.val47.i, i64 8
   %.val47.val.i = load i32, ptr %134, align 4
-  %.not.i.not.i74 = icmp sgt i32 %.val47.val.i, %132
-  br i1 %.not.i.not.i74, label %143, label %135
+  %.not.i.not.i71 = icmp sgt i32 %.val47.val.i, %132
+  br i1 %.not.i.not.i71, label %143, label %135
 
 135:                                              ; preds = %133
   %136 = tail call i32 @slice_del(ptr noundef nonnull %0) #2

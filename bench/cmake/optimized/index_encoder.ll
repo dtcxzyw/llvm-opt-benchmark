@@ -90,7 +90,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
     i32 2, label %31
     i32 3, label %31
     i32 5, label %40
-    i32 6, label %.loopexit90
+    i32 6, label %.loopexit85
   ]
 
 18:                                               ; preds = %15
@@ -116,7 +116,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
 25:                                               ; preds = %15
   %26 = tail call zeroext i8 @lzma_index_iter_next(ptr noundef nonnull %13, i32 noundef 2) #5
   %.not74 = icmp eq i8 %26, 0
-  br i1 %.not74, label %.thread111, label %27
+  br i1 %.not74, label %.thread106, label %27
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %14, align 8, !tbaa !20
@@ -126,7 +126,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   store i32 5, ptr %0, align 8, !tbaa !13
   br label %66
 
-.thread111:                                       ; preds = %25
+.thread106:                                       ; preds = %25
   store i32 2, ptr %0, align 8, !tbaa !13
   br label %33
 
@@ -134,7 +134,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   %32 = icmp eq i32 %.fr, 2
   br i1 %32, label %33, label %34
 
-33:                                               ; preds = %.thread111, %31
+33:                                               ; preds = %.thread106, %31
   br label %34
 
 34:                                               ; preds = %31, %33
@@ -143,9 +143,9 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   %36 = load i64, ptr %.in, align 8, !tbaa !23
   %37 = tail call i32 @lzma_vli_encode(i64 noundef %36, ptr noundef nonnull %12, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #5
   %.not75 = icmp eq i32 %37, 1
-  br i1 %.not75, label %.thread84, label %._crit_edge
+  br i1 %.not75, label %.thread81, label %._crit_edge
 
-.thread84:                                        ; preds = %34
+.thread81:                                        ; preds = %34
   store i64 0, ptr %12, align 8, !tbaa !21
   %38 = load i32, ptr %0, align 8, !tbaa !13
   %39 = add i32 %38, 1
@@ -174,14 +174,14 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   %51 = tail call i32 @lzma_crc32(ptr noundef %47, i64 noundef %48, i32 noundef %50) #6
   store i32 %51, ptr %49, align 8, !tbaa !22
   store i32 6, ptr %0, align 8, !tbaa !13
-  br label %.loopexit90
+  br label %.loopexit85
 
-.loopexit90:                                      ; preds = %15, %46
+.loopexit85:                                      ; preds = %15, %46
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %53
 
-53:                                               ; preds = %56, %.loopexit90
-  %54 = phi i64 [ %63, %56 ], [ %.promoted, %.loopexit90 ]
+53:                                               ; preds = %56, %.loopexit85
+  %54 = phi i64 [ %63, %56 ], [ %.promoted, %.loopexit85 ]
   %55 = icmp eq i64 %54, %7
   br i1 %55, label %.loopexit, label %56
 
@@ -201,21 +201,21 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   %65 = icmp ult i64 %64, 4
   br i1 %65, label %53, label %.loopexit, !llvm.loop !25
 
-66:                                               ; preds = %.thread84, %.thread, %42, %27, %18
-  %67 = phi i32 [ %39, %.thread84 ], [ 4, %.thread ], [ %.fr, %42 ], [ 5, %27 ], [ 1, %18 ]
-  %68 = phi i32 [ %39, %.thread84 ], [ 4, %.thread ], [ 5, %42 ], [ 5, %27 ], [ 1, %18 ]
+66:                                               ; preds = %.thread81, %.thread, %42, %27, %18
+  %67 = phi i32 [ %39, %.thread81 ], [ 4, %.thread ], [ %.fr, %42 ], [ 5, %27 ], [ 1, %18 ]
+  %68 = phi i32 [ %39, %.thread81 ], [ 4, %.thread ], [ 5, %42 ], [ 5, %27 ], [ 1, %18 ]
   %69 = load i64, ptr %6, align 8, !tbaa !23
   %70 = icmp ult i64 %69, %7
   br i1 %70, label %15, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %66, %21, %34
   %.3.ph = phi i32 [ 0, %66 ], [ %24, %21 ], [ %37, %34 ]
-  %.pre102 = load i64, ptr %6, align 8, !tbaa !23
-  %.not77 = icmp eq i64 %.pre102, %10
+  %.pre97 = load i64, ptr %6, align 8, !tbaa !23
+  %.not77 = icmp eq i64 %.pre97, %10
   br i1 %.not77, label %.loopexit, label %71
 
 71:                                               ; preds = %._crit_edge
-  %72 = sub i64 %.pre102, %10
+  %72 = sub i64 %.pre97, %10
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %75 = load i32, ptr %74, align 8, !tbaa !22

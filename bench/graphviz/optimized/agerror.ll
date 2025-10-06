@@ -503,12 +503,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @default_usererrf(ptr noundef readonly captures(none) %0) unnamed_addr #16 {
   %2 = load i8, ptr %0, align 1, !tbaa !9
-  %.not24 = icmp eq i8 %2, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i8 %2, 0
+  br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %13
   %3 = phi i8 [ %15, %13 ], [ %2, %1 ]
-  %.01525 = phi ptr [ %14, %13 ], [ %0, %1 ]
+  %.01527 = phi ptr [ %14, %13 ], [ %0, %1 ]
   %4 = sext i8 %3 to i32
   %or.cond.i = icmp ult i8 %3, 32
   %5 = icmp eq i8 %3, 127
@@ -529,23 +529,23 @@ gv_isspace.exit:                                  ; preds = %6
   %7 = load ptr, ptr @stderr, align 8, !tbaa !10
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, i32 noundef %4) #20
   %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %13, label %._crit_edge
+  br i1 %9, label %13, label %.thread
 
 gv_isspace.exit.thread:                           ; preds = %6, %6, %6, %6, %6, %6, %.lr.ph
   %10 = load ptr, ptr @stderr, align 8, !tbaa !10
   %11 = tail call i32 @putc(i32 noundef %4, ptr noundef %10)
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %._crit_edge
+  br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %gv_isspace.exit.thread, %gv_isspace.exit
-  %14 = getelementptr inbounds nuw i8, ptr %.01525, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01527, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !9
   %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %gv_isspace.exit.thread, %gv_isspace.exit, %13, %1
-  %spec.select = phi i32 [ 0, %1 ], [ 0, %13 ], [ %8, %gv_isspace.exit ], [ %11, %gv_isspace.exit.thread ]
-  ret i32 %spec.select
+.thread:                                          ; preds = %13, %gv_isspace.exit.thread, %gv_isspace.exit, %1
+  %16 = phi i32 [ 0, %1 ], [ %8, %gv_isspace.exit ], [ %11, %gv_isspace.exit.thread ], [ 0, %13 ]
+  ret i32 %16
 }
 
 ; Function Attrs: nofree nounwind

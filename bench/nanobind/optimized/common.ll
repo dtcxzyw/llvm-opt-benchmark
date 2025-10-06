@@ -872,17 +872,17 @@ define noundef nonnull ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS
   br i1 %.not32, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %.not49 = icmp eq i64 %12, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not47 = icmp eq i64 %12, 0
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
-  %15 = add nuw i64 %.02644, 1
+  %15 = add nuw i64 %.02642, 1
   %exitcond.not = icmp eq i64 %15, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.02644 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02644
+  %.02642 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
+  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02642
   %17 = load ptr, ptr %16, align 8
   %.not33 = icmp eq ptr %17, null
   br i1 %.not33, label %.loopexit, label %14
@@ -895,13 +895,13 @@ define noundef nonnull ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS
 .loopexit:                                        ; preds = %.lr.ph, %10, %._crit_edge
   %.030 = phi ptr [ %18, %._crit_edge ], [ null, %10 ], [ null, %.lr.ph ]
   %.028 = phi i1 [ false, %._crit_edge ], [ false, %10 ], [ true, %.lr.ph ]
-  %.not50 = icmp eq i64 %12, 0
-  br i1 %.not50, label %._crit_edge48, label %.lr.ph47
+  %.not48 = icmp eq i64 %12, 0
+  br i1 %.not48, label %._crit_edge46, label %.lr.ph45
 
-._crit_edge48:                                    ; preds = %_ZL11_Py_XDECREFP7_object.exit38, %.loopexit
+._crit_edge46:                                    ; preds = %_ZL11_Py_XDECREFP7_object.exit38, %.loopexit
   br i1 %.not, label %_ZL11_Py_XDECREFP7_object.exit, label %19
 
-19:                                               ; preds = %._crit_edge48
+19:                                               ; preds = %._crit_edge46
   %20 = load i64, ptr %3, align 8
   %21 = add nsw i64 %20, -1
   store i64 %21, ptr %3, align 8
@@ -912,7 +912,7 @@ define noundef nonnull ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS
   tail call void @_Py_Dealloc(ptr noundef nonnull %3)
   br label %_ZL11_Py_XDECREFP7_object.exit
 
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %._crit_edge48, %19, %22
+_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %._crit_edge46, %19, %22
   %23 = load i64, ptr %0, align 8
   %24 = add nsw i64 %23, -1
   store i64 %24, ptr %0, align 8
@@ -927,14 +927,14 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL11_Py_XDECREFP7_
   %.not34 = icmp eq ptr %.030, null
   br i1 %.not34, label %33, label %38
 
-.lr.ph47:                                         ; preds = %.loopexit, %_ZL11_Py_XDECREFP7_object.exit38
-  %.045 = phi i64 [ %32, %_ZL11_Py_XDECREFP7_object.exit38 ], [ 0, %.loopexit ]
-  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %.045
+.lr.ph45:                                         ; preds = %.loopexit, %_ZL11_Py_XDECREFP7_object.exit38
+  %.043 = phi i64 [ %32, %_ZL11_Py_XDECREFP7_object.exit38 ], [ 0, %.loopexit ]
+  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %.043
   %27 = load ptr, ptr %26, align 8
   %.not.i36 = icmp eq ptr %27, null
   br i1 %.not.i36, label %_ZL11_Py_XDECREFP7_object.exit38, label %28
 
-28:                                               ; preds = %.lr.ph47
+28:                                               ; preds = %.lr.ph45
   %29 = load i64, ptr %27, align 8
   %30 = add nsw i64 %29, -1
   store i64 %30, ptr %27, align 8
@@ -945,10 +945,10 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL11_Py_XDECREFP7_
   tail call void @_Py_Dealloc(ptr noundef nonnull %27)
   br label %_ZL11_Py_XDECREFP7_object.exit38
 
-_ZL11_Py_XDECREFP7_object.exit38:                 ; preds = %.lr.ph47, %28, %31
-  %32 = add nuw i64 %.045, 1
-  %exitcond51.not = icmp eq i64 %32, %12
-  br i1 %exitcond51.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !9
+_ZL11_Py_XDECREFP7_object.exit38:                 ; preds = %.lr.ph45, %28, %31
+  %32 = add nuw i64 %.043, 1
+  %exitcond49.not = icmp eq i64 %32, %12
+  br i1 %exitcond49.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !9
 
 33:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit
   br i1 %.028, label %34, label %35
@@ -2569,8 +2569,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_u8EP7_objecthPh(ptr noundef 
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %60
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
-  %.not15 = icmp eq i32 %27, 0
-  br i1 %.not15, label %28, label %_ZN8nanobind6detail8load_intIhLb1EEEbP7_objectjPT_.exit
+  %.not14 = icmp eq i32 %27, 0
+  br i1 %.not14, label %28, label %_ZN8nanobind6detail8load_intIhLb1EEEbP7_objectjPT_.exit
 
 28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %29 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -2583,8 +2583,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
 31:                                               ; preds = %30
   %32 = getelementptr i8, ptr %29, i64 8
   %.val = load ptr, ptr %32, align 8
-  %.not16 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not16, label %33, label %_ZN8nanobind6detail8load_intIhLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not15 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not15, label %33, label %_ZN8nanobind6detail8load_intIhLb0EEEbP7_objectjPT_.exit, !prof !4
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -2633,8 +2633,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
   unreachable
 
 _ZN8nanobind6detail8load_intIhLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %52, %38
-  %.sink21 = phi i64 [ %42, %38 ], [ %45, %52 ]
-  %56 = trunc nuw i64 %.sink21 to i8
+  %.sink20 = phi i64 [ %42, %38 ], [ %45, %52 ]
+  %56 = trunc nuw i64 %.sink20 to i8
   store i8 %56, ptr %2, align 1
   br label %_ZN8nanobind6detail8load_intIhLb0EEEbP7_objectjPT_.exit
 
@@ -2662,8 +2662,8 @@ _ZN8nanobind6detail8load_intIhLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intIhLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %10
-  %.sink22 = phi i64 [ %14, %10 ], [ %17, %23 ]
-  %63 = trunc nuw i64 %.sink22 to i8
+  %.sink21 = phi i64 [ %14, %10 ], [ %17, %23 ]
+  %63 = trunc nuw i64 %.sink21 to i8
   store i8 %63, ptr %2, align 1
   br label %_ZN8nanobind6detail8load_intIhLb1EEEbP7_objectjPT_.exit
 
@@ -2728,8 +2728,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_i8EP7_objecthPa(ptr noundef 
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %62
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
-  %.not15 = icmp eq i32 %28, 0
-  br i1 %.not15, label %29, label %_ZN8nanobind6detail8load_intIaLb1EEEbP7_objectjPT_.exit
+  %.not14 = icmp eq i32 %28, 0
+  br i1 %.not14, label %29, label %_ZN8nanobind6detail8load_intIaLb1EEEbP7_objectjPT_.exit
 
 29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %30 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -2742,8 +2742,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
 32:                                               ; preds = %31
   %33 = getelementptr i8, ptr %30, i64 8
   %.val = load ptr, ptr %33, align 8
-  %.not16 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not16, label %34, label %_ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not15 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not15, label %34, label %_ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit, !prof !4
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -2794,8 +2794,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
   unreachable
 
 _ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %53, %51, %39
-  %.sink19 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
-  %58 = trunc nsw i64 %.sink19 to i8
+  %.sink18 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
+  %58 = trunc nsw i64 %.sink18 to i8
   store i8 %58, ptr %2, align 1
   br label %_ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit
 
@@ -2823,8 +2823,8 @@ _ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intIaLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %22, %10
-  %.sink20 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
-  %65 = trunc nsw i64 %.sink20 to i8
+  %.sink19 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
+  %65 = trunc nsw i64 %.sink19 to i8
   store i8 %65, ptr %2, align 1
   br label %_ZN8nanobind6detail8load_intIaLb1EEEbP7_objectjPT_.exit
 
@@ -2887,8 +2887,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u16EP7_objecthPt(ptr noundef
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %60
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
-  %.not15 = icmp eq i32 %27, 0
-  br i1 %.not15, label %28, label %_ZN8nanobind6detail8load_intItLb1EEEbP7_objectjPT_.exit
+  %.not14 = icmp eq i32 %27, 0
+  br i1 %.not14, label %28, label %_ZN8nanobind6detail8load_intItLb1EEEbP7_objectjPT_.exit
 
 28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %29 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -2901,8 +2901,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
 31:                                               ; preds = %30
   %32 = getelementptr i8, ptr %29, i64 8
   %.val = load ptr, ptr %32, align 8
-  %.not16 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not16, label %33, label %_ZN8nanobind6detail8load_intItLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not15 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not15, label %33, label %_ZN8nanobind6detail8load_intItLb0EEEbP7_objectjPT_.exit, !prof !4
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -2951,8 +2951,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
   unreachable
 
 _ZN8nanobind6detail8load_intItLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %52, %38
-  %.sink21 = phi i64 [ %42, %38 ], [ %45, %52 ]
-  %56 = trunc nuw i64 %.sink21 to i16
+  %.sink20 = phi i64 [ %42, %38 ], [ %45, %52 ]
+  %56 = trunc nuw i64 %.sink20 to i16
   store i16 %56, ptr %2, align 2
   br label %_ZN8nanobind6detail8load_intItLb0EEEbP7_objectjPT_.exit
 
@@ -2980,8 +2980,8 @@ _ZN8nanobind6detail8load_intItLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intItLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %10
-  %.sink22 = phi i64 [ %14, %10 ], [ %17, %23 ]
-  %63 = trunc nuw i64 %.sink22 to i16
+  %.sink21 = phi i64 [ %14, %10 ], [ %17, %23 ]
+  %63 = trunc nuw i64 %.sink21 to i16
   store i16 %63, ptr %2, align 2
   br label %_ZN8nanobind6detail8load_intItLb1EEEbP7_objectjPT_.exit
 
@@ -3046,8 +3046,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i16EP7_objecthPs(ptr noundef
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %62
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
-  %.not15 = icmp eq i32 %28, 0
-  br i1 %.not15, label %29, label %_ZN8nanobind6detail8load_intIsLb1EEEbP7_objectjPT_.exit
+  %.not14 = icmp eq i32 %28, 0
+  br i1 %.not14, label %29, label %_ZN8nanobind6detail8load_intIsLb1EEEbP7_objectjPT_.exit
 
 29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %30 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -3060,8 +3060,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
 32:                                               ; preds = %31
   %33 = getelementptr i8, ptr %30, i64 8
   %.val = load ptr, ptr %33, align 8
-  %.not16 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not16, label %34, label %_ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not15 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not15, label %34, label %_ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit, !prof !4
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -3112,8 +3112,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
   unreachable
 
 _ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %53, %51, %39
-  %.sink19 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
-  %58 = trunc nsw i64 %.sink19 to i16
+  %.sink18 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
+  %58 = trunc nsw i64 %.sink18 to i16
   store i16 %58, ptr %2, align 2
   br label %_ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit
 
@@ -3141,8 +3141,8 @@ _ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intIsLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %22, %10
-  %.sink20 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
-  %65 = trunc nsw i64 %.sink20 to i16
+  %.sink19 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
+  %65 = trunc nsw i64 %.sink19 to i16
   store i16 %65, ptr %2, align 2
   br label %_ZN8nanobind6detail8load_intIsLb1EEEbP7_objectjPT_.exit
 
@@ -3205,8 +3205,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u32EP7_objecthPj(ptr noundef
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %60
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
-  %.not15 = icmp eq i32 %27, 0
-  br i1 %.not15, label %28, label %_ZN8nanobind6detail8load_intIjLb1EEEbP7_objectjPT_.exit
+  %.not14 = icmp eq i32 %27, 0
+  br i1 %.not14, label %28, label %_ZN8nanobind6detail8load_intIjLb1EEEbP7_objectjPT_.exit
 
 28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %29 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -3219,8 +3219,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
 31:                                               ; preds = %30
   %32 = getelementptr i8, ptr %29, i64 8
   %.val = load ptr, ptr %32, align 8
-  %.not16 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not16, label %33, label %_ZN8nanobind6detail8load_intIjLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not15 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not15, label %33, label %_ZN8nanobind6detail8load_intIjLb0EEEbP7_objectjPT_.exit, !prof !4
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -3269,8 +3269,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
   unreachable
 
 _ZN8nanobind6detail8load_intIjLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %52, %38
-  %.sink21 = phi i64 [ %42, %38 ], [ %45, %52 ]
-  %56 = trunc nuw i64 %.sink21 to i32
+  %.sink20 = phi i64 [ %42, %38 ], [ %45, %52 ]
+  %56 = trunc nuw i64 %.sink20 to i32
   store i32 %56, ptr %2, align 4
   br label %_ZN8nanobind6detail8load_intIjLb0EEEbP7_objectjPT_.exit
 
@@ -3298,8 +3298,8 @@ _ZN8nanobind6detail8load_intIjLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intIjLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %10
-  %.sink22 = phi i64 [ %14, %10 ], [ %17, %23 ]
-  %63 = trunc nuw i64 %.sink22 to i32
+  %.sink21 = phi i64 [ %14, %10 ], [ %17, %23 ]
+  %63 = trunc nuw i64 %.sink21 to i32
   store i32 %63, ptr %2, align 4
   br label %_ZN8nanobind6detail8load_intIjLb1EEEbP7_objectjPT_.exit
 
@@ -3364,8 +3364,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i32EP7_objecthPi(ptr noundef
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %62
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
-  %.not15 = icmp eq i32 %28, 0
-  br i1 %.not15, label %29, label %_ZN8nanobind6detail8load_intIiLb1EEEbP7_objectjPT_.exit
+  %.not14 = icmp eq i32 %28, 0
+  br i1 %.not14, label %29, label %_ZN8nanobind6detail8load_intIiLb1EEEbP7_objectjPT_.exit
 
 29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %30 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -3378,8 +3378,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
 32:                                               ; preds = %31
   %33 = getelementptr i8, ptr %30, i64 8
   %.val = load ptr, ptr %33, align 8
-  %.not16 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not16, label %34, label %_ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not15 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not15, label %34, label %_ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit, !prof !4
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -3430,8 +3430,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
   unreachable
 
 _ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %53, %51, %39
-  %.sink19 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
-  %58 = trunc nsw i64 %.sink19 to i32
+  %.sink18 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
+  %58 = trunc nsw i64 %.sink18 to i32
   store i32 %58, ptr %2, align 4
   br label %_ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit
 
@@ -3459,8 +3459,8 @@ _ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intIiLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %22, %10
-  %.sink20 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
-  %65 = trunc nsw i64 %.sink20 to i32
+  %.sink19 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
+  %65 = trunc nsw i64 %.sink19 to i32
   store i32 %65, ptr %2, align 4
   br label %_ZN8nanobind6detail8load_intIiLb1EEEbP7_objectjPT_.exit
 
@@ -3519,8 +3519,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u64EP7_objecthPm(ptr noundef
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %57
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %25
-  %.not12 = icmp eq i32 %26, 0
-  br i1 %.not12, label %27, label %_ZN8nanobind6detail8load_intImLb1EEEbP7_objectjPT_.exit
+  %.not11 = icmp eq i32 %26, 0
+  br i1 %.not11, label %27, label %_ZN8nanobind6detail8load_intImLb1EEEbP7_objectjPT_.exit
 
 27:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %28 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -3533,8 +3533,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %25
 30:                                               ; preds = %29
   %31 = getelementptr i8, ptr %28, i64 8
   %.val = load ptr, ptr %31, align 8
-  %.not13 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not13, label %32, label %_ZN8nanobind6detail8load_intImLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not12 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not12, label %32, label %_ZN8nanobind6detail8load_intImLb0EEEbP7_objectjPT_.exit, !prof !4
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -3607,8 +3607,8 @@ _ZN8nanobind6detail8load_intImLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intImLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %18, %22, %10
-  %.sink16 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %18 ]
-  store i64 %.sink16, ptr %2, align 8
+  %.sink15 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %18 ]
+  store i64 %.sink15, ptr %2, align 8
   br label %_ZN8nanobind6detail8load_intImLb1EEEbP7_objectjPT_.exit
 
 _ZN8nanobind6detail8load_intImLb1EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind6detail8load_intImLb1EEEbP7_objectjPT_.exit.sink.split, %.invoke, %56, %_ZN8nanobind6detail8load_intImLb0EEEbP7_objectjPT_.exit, %23, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %10
@@ -3665,8 +3665,8 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i64EP7_objecthPl(ptr noundef
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %55
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %24
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %26, label %_ZN8nanobind6detail8load_intIlLb1EEEbP7_objectjPT_.exit
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %26, label %_ZN8nanobind6detail8load_intIlLb1EEEbP7_objectjPT_.exit
 
 26:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %27 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
@@ -3679,8 +3679,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %24
 29:                                               ; preds = %28
   %30 = getelementptr i8, ptr %27, i64 8
   %.val = load ptr, ptr %30, align 8
-  %.not13 = icmp eq ptr %.val, @PyLong_Type
-  br i1 %.not13, label %31, label %_ZN8nanobind6detail8load_intIlLb0EEEbP7_objectjPT_.exit, !prof !4
+  %.not12 = icmp eq ptr %.val, @PyLong_Type
+  br i1 %.not12, label %31, label %_ZN8nanobind6detail8load_intIlLb0EEEbP7_objectjPT_.exit, !prof !4
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -3752,8 +3752,8 @@ _ZN8nanobind6detail8load_intIlLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
   unreachable
 
 _ZN8nanobind6detail8load_intIlLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %17, %21, %10
-  %.sink14 = phi i64 [ %14, %10 ], [ %16, %21 ], [ %16, %17 ]
-  store i64 %.sink14, ptr %2, align 8
+  %.sink13 = phi i64 [ %14, %10 ], [ %16, %21 ], [ %16, %17 ]
+  store i64 %.sink13, ptr %2, align 8
   br label %_ZN8nanobind6detail8load_intIlLb1EEEbP7_objectjPT_.exit
 
 _ZN8nanobind6detail8load_intIlLb1EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind6detail8load_intIlLb1EEEbP7_objectjPT_.exit.sink.split, %.invoke, %54, %_ZN8nanobind6detail8load_intIlLb0EEEbP7_objectjPT_.exit, %22, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
@@ -5540,7 +5540,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit:             ; preds = %_ZN8nanobind6object
   store ptr %6, ptr %2, align 8
   %7 = tail call i32 @PyGILState_Check()
   %.not32.i = icmp eq i32 %7, 0
-  br i1 %.not32.i, label %.loopexit.i, label %._crit_edge48.i
+  br i1 %.not32.i, label %.loopexit.i, label %._crit_edge46.i
 
 _ZNKR8nanobind6handle7inc_refEv.exit.thread:      ; preds = %_ZN8nanobind6objectD2Ev.exit
   %8 = load i64, ptr %6, align 8
@@ -5549,7 +5549,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit.thread:      ; preds = %_ZN8nanobind6object
   store ptr %6, ptr %2, align 8
   %10 = tail call i32 @PyGILState_Check()
   %.not32.i16 = icmp eq i32 %10, 0
-  br i1 %.not32.i16, label %.lr.ph47.i.preheader, label %.lr.ph.i.preheader14
+  br i1 %.not32.i16, label %.lr.ph45.i.preheader, label %.lr.ph.i.preheader14
 
 .lr.ph.i.preheader14:                             ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.thread
   %11 = call noundef ptr @PyObject_VectorcallMethod(ptr noundef %5, ptr noundef nonnull %2, i64 noundef -9223372036854775807, ptr noundef null), !callees !8
@@ -5560,27 +5560,27 @@ _ZNKR8nanobind6handle7inc_refEv.exit.thread:      ; preds = %_ZN8nanobind6object
   %12 = phi ptr [ %.pre, %.lr.ph.i.preheader14 ], [ %6, %_ZNKR8nanobind6handle7inc_refEv.exit ]
   %.030.i = phi ptr [ %11, %.lr.ph.i.preheader14 ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ]
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %._crit_edge48.i, label %.lr.ph47.i.preheader
+  br i1 %13, label %._crit_edge46.i, label %.lr.ph45.i.preheader
 
-._crit_edge48.i:                                  ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit, %.lr.ph47.i.preheader, %20, %.loopexit.i
-  %.028.i28 = phi i1 [ false, %.loopexit.i ], [ false, %20 ], [ false, %.lr.ph47.i.preheader ], [ true, %_ZNKR8nanobind6handle7inc_refEv.exit ]
-  %.030.i26 = phi ptr [ %.030.i, %.loopexit.i ], [ %.030.i35, %20 ], [ %.030.i35, %.lr.ph47.i.preheader ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ]
-  %.not32.i1824 = phi i1 [ %.not.i.i, %.loopexit.i ], [ %.not32.i1834, %20 ], [ %.not32.i1834, %.lr.ph47.i.preheader ], [ false, %_ZNKR8nanobind6handle7inc_refEv.exit ]
+._crit_edge46.i:                                  ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit, %.lr.ph45.i.preheader, %20, %.loopexit.i
+  %.028.i28 = phi i1 [ false, %.loopexit.i ], [ false, %20 ], [ false, %.lr.ph45.i.preheader ], [ true, %_ZNKR8nanobind6handle7inc_refEv.exit ]
+  %.030.i26 = phi ptr [ %.030.i, %.loopexit.i ], [ %.030.i35, %20 ], [ %.030.i35, %.lr.ph45.i.preheader ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ]
+  %.not32.i1824 = phi i1 [ %.not.i.i, %.loopexit.i ], [ %.not32.i1834, %20 ], [ %.not32.i1834, %.lr.ph45.i.preheader ], [ false, %_ZNKR8nanobind6handle7inc_refEv.exit ]
   %14 = load i64, ptr %5, align 8
   %15 = add nsw i64 %14, -1
   store i64 %15, ptr %5, align 8
   %.not.i35.i = icmp eq i64 %15, 0
   br i1 %.not.i35.i, label %16, label %_ZL10_Py_DECREFP7_object.exit.i
 
-16:                                               ; preds = %._crit_edge48.i
+16:                                               ; preds = %._crit_edge46.i
   call void @_Py_Dealloc(ptr noundef nonnull %5)
   br label %_ZL10_Py_DECREFP7_object.exit.i
 
-_ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %16, %._crit_edge48.i
+_ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %16, %._crit_edge46.i
   %.not34.i = icmp eq ptr %.030.i26, null
   br i1 %.not34.i, label %21, label %_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b.exit
 
-.lr.ph47.i.preheader:                             ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.thread, %.loopexit.i
+.lr.ph45.i.preheader:                             ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.thread, %.loopexit.i
   %.030.i35 = phi ptr [ %.030.i, %.loopexit.i ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit.thread ]
   %17 = phi ptr [ %12, %.loopexit.i ], [ %6, %_ZNKR8nanobind6handle7inc_refEv.exit.thread ]
   %.not32.i1834 = phi i1 [ %.not.i.i, %.loopexit.i ], [ true, %_ZNKR8nanobind6handle7inc_refEv.exit.thread ]
@@ -5588,11 +5588,11 @@ _ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %16, %._crit_edge48.
   %19 = add nsw i64 %18, -1
   store i64 %19, ptr %17, align 8
   %.not.i.i37.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i37.i, label %20, label %._crit_edge48.i
+  br i1 %.not.i.i37.i, label %20, label %._crit_edge46.i
 
-20:                                               ; preds = %.lr.ph47.i.preheader
+20:                                               ; preds = %.lr.ph45.i.preheader
   call void @_Py_Dealloc(ptr noundef nonnull %17)
-  br label %._crit_edge48.i
+  br label %._crit_edge46.i
 
 21:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit.i
   br i1 %.028.i28, label %22, label %23
@@ -5979,13 +5979,13 @@ _ZNKR8nanobind6handle7inc_refEv.exit:             ; preds = %_ZN8nanobind6detail
   br i1 %.not32.i, label %.loopexit.i, label %.lr.ph.i
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = add nuw nsw i64 %.02644.i, 1
+  %35 = add nuw nsw i64 %.02642.i, 1
   %exitcond.not.i = icmp eq i64 %35, 4
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit, %34
-  %.02644.i = phi i64 [ %35, %34 ], [ 0, %_ZNKR8nanobind6handle7inc_refEv.exit ]
-  %36 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02644.i
+  %.02642.i = phi i64 [ %35, %34 ], [ 0, %_ZNKR8nanobind6handle7inc_refEv.exit ]
+  %36 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02642.i
   %37 = load ptr, ptr %36, align 8
   %.not33.i = icmp eq ptr %37, null
   br i1 %.not33.i, label %.loopexit.i, label %34
@@ -6020,31 +6020,31 @@ _ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i: ; preds = %_ZL21PyVectorcal
 .loopexit.i:                                      ; preds = %.lr.ph.i, %48, %_ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i, %_ZNKR8nanobind6handle7inc_refEv.exit
   %.030.i = phi ptr [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ], [ %47, %_ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i ], [ %50, %48 ], [ null, %.lr.ph.i ]
   %.028.i = phi i1 [ false, %_ZNKR8nanobind6handle7inc_refEv.exit ], [ false, %_ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i ], [ false, %48 ], [ true, %.lr.ph.i ]
-  br label %.lr.ph47.i
+  br label %.lr.ph45.i
 
-._crit_edge48.i:                                  ; preds = %_ZL11_Py_XDECREFP7_object.exit38.i
+._crit_edge46.i:                                  ; preds = %_ZL11_Py_XDECREFP7_object.exit38.i
   %51 = load i64, ptr %32, align 8
   %52 = add nsw i64 %51, -1
   store i64 %52, ptr %32, align 8
   %.not.i35.i = icmp eq i64 %52, 0
   br i1 %.not.i35.i, label %53, label %_ZL10_Py_DECREFP7_object.exit.i
 
-53:                                               ; preds = %._crit_edge48.i
+53:                                               ; preds = %._crit_edge46.i
   call void @_Py_Dealloc(ptr noundef nonnull %32)
   br label %_ZL10_Py_DECREFP7_object.exit.i
 
-_ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %53, %._crit_edge48.i
+_ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %53, %._crit_edge46.i
   %.not34.i = icmp eq ptr %.030.i, null
   br i1 %.not34.i, label %61, label %_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b.exit
 
-.lr.ph47.i:                                       ; preds = %.loopexit.i, %_ZL11_Py_XDECREFP7_object.exit38.i
-  %.045.i = phi i64 [ %60, %_ZL11_Py_XDECREFP7_object.exit38.i ], [ 0, %.loopexit.i ]
-  %54 = getelementptr inbounds nuw ptr, ptr %12, i64 %.045.i
+.lr.ph45.i:                                       ; preds = %.loopexit.i, %_ZL11_Py_XDECREFP7_object.exit38.i
+  %.043.i = phi i64 [ %60, %_ZL11_Py_XDECREFP7_object.exit38.i ], [ 0, %.loopexit.i ]
+  %54 = getelementptr inbounds nuw ptr, ptr %12, i64 %.043.i
   %55 = load ptr, ptr %54, align 8
   %.not.i36.i = icmp eq ptr %55, null
   br i1 %.not.i36.i, label %_ZL11_Py_XDECREFP7_object.exit38.i, label %56
 
-56:                                               ; preds = %.lr.ph47.i
+56:                                               ; preds = %.lr.ph45.i
   %57 = load i64, ptr %55, align 8
   %58 = add nsw i64 %57, -1
   store i64 %58, ptr %55, align 8
@@ -6055,10 +6055,10 @@ _ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %53, %._crit_edge48.
   call void @_Py_Dealloc(ptr noundef nonnull %55)
   br label %_ZL11_Py_XDECREFP7_object.exit38.i
 
-_ZL11_Py_XDECREFP7_object.exit38.i:               ; preds = %59, %56, %.lr.ph47.i
-  %60 = add nuw nsw i64 %.045.i, 1
-  %exitcond51.not.i = icmp eq i64 %60, 4
-  br i1 %exitcond51.not.i, label %._crit_edge48.i, label %.lr.ph47.i, !llvm.loop !9
+_ZL11_Py_XDECREFP7_object.exit38.i:               ; preds = %59, %56, %.lr.ph45.i
+  %60 = add nuw nsw i64 %.043.i, 1
+  %exitcond49.not.i = icmp eq i64 %60, 4
+  br i1 %exitcond49.not.i, label %._crit_edge46.i, label %.lr.ph45.i, !llvm.loop !9
 
 61:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit.i
   br i1 %.028.i, label %62, label %63

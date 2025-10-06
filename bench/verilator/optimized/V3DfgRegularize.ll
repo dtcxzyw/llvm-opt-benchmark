@@ -1282,20 +1282,20 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN13DfgRegularizeC1ER8DfgGra
   store ptr @_ZNSt17_Function_handlerIFbRK12DfgVertexVarEZZN13DfgRegularizeC1ER8DfgGraphR22V3DfgRegularizeContextENKUlvE_clEvEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %5, align 8, !tbaa !79
   store ptr @_ZNSt17_Function_handlerIFbRK12DfgVertexVarEZZN13DfgRegularizeC1ER8DfgGraphR22V3DfgRegularizeContextENKUlvE_clEvEUlS2_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4, align 8, !tbaa !82
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.01117.i = load ptr, ptr %6, align 8, !tbaa !83
-  %.not18.i = icmp eq ptr %.01117.i, null
-  br i1 %.not18.i, label %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread, label %.lr.ph.i
+  %.01120.i = load ptr, ptr %6, align 8, !tbaa !83
+  %.not21.i = icmp eq ptr %.01120.i, null
+  br i1 %.not21.i, label %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %16
-  %.01119.i = phi ptr [ %.011.i, %16 ], [ %.01117.i, %1 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.01119.i, i64 24
+  %.01122.i = phi ptr [ %.011.i, %16 ], [ %.01120.i, %1 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.01122.i, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %9, align 8, !tbaa !85
   %10 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
   %spec.select.i.i.i.i = icmp ne i16 %10, 152
-  %.not1316.i = icmp eq ptr %8, null
-  %.not13.i = or i1 %.not1316.i, %spec.select.i.i.i.i
+  %.not1319.i = icmp eq ptr %8, null
+  %.not13.i = or i1 %.not1319.i, %spec.select.i.i.i.i
   br i1 %.not13.i, label %16, label %11
 
 11:                                               ; preds = %.lr.ph.i
@@ -1319,18 +1319,18 @@ _ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit.i: ; preds = %11
   br i1 %15, label %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit, label %16
 
 16:                                               ; preds = %.noexc4, %.lr.ph.i
-  %.011.i = load ptr, ptr %.01119.i, align 8, !tbaa !83
+  %.011.i = load ptr, ptr %.01122.i, align 8, !tbaa !83
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit, label %.lr.ph.i, !llvm.loop !86
 
 _ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit: ; preds = %16, %.noexc4
-  %spec.select.i.ph = phi i1 [ true, %16 ], [ false, %.noexc4 ]
+  %.ph = phi i1 [ false, %.noexc4 ], [ true, %16 ]
   %.pr = load ptr, ptr %4, align 8, !tbaa !82
   %.not.i5 = icmp eq ptr %.pr, null
   br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit, label %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread
 
 _ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread: ; preds = %1, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit
-  %.not12 = phi i1 [ %spec.select.i.ph, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit ], [ true, %1 ]
+  %.not11 = phi i1 [ %.ph, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit ], [ true, %1 ]
   %17 = phi ptr [ %.pr, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit ], [ @_ZNSt17_Function_handlerIFbRK12DfgVertexVarEZZN13DfgRegularizeC1ER8DfgGraphR22V3DfgRegularizeContextENKUlvE_clEvEUlS2_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, %1 ]
   %18 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %19
@@ -1343,8 +1343,8 @@ _ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread: ; 
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread
-  %.not13 = phi i1 [ %spec.select.i.ph, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit ], [ %.not12, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread ]
-  br i1 %.not13, label %29, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
+  %.not12 = phi i1 [ %.ph, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit ], [ %.not11, %_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE.exit.thread ]
+  br i1 %.not12, label %29, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2004,9 +2004,9 @@ declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 imma
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex8findSinkI12DfgVertexVarEEPT_St8functionIFbRKS2_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #7 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.01117 = load ptr, ptr %3, align 8, !tbaa !83
-  %.not18 = icmp eq ptr %.01117, null
-  br i1 %.not18, label %.thread, label %.lr.ph
+  %.01120 = load ptr, ptr %3, align 8, !tbaa !83
+  %.not21 = icmp eq ptr %.01120, null
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2014,15 +2014,15 @@ define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex8findSinkI12DfgVertexVa
   br label %6
 
 6:                                                ; preds = %.lr.ph, %16
-  %.01119 = phi ptr [ %.01117, %.lr.ph ], [ %.011, %16 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.01119, i64 24
+  %.01122 = phi ptr [ %.01120, %.lr.ph ], [ %.011, %16 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.01122, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %9, align 8, !tbaa !85
   %10 = and i16 %.sroa.0.0.copyload.i.i.i.i, -2
   %spec.select.i.i.i = icmp ne i16 %10, 152
-  %.not1316 = icmp eq ptr %8, null
-  %.not13 = or i1 %.not1316, %spec.select.i.i.i
+  %.not1319 = icmp eq ptr %8, null
+  %.not13 = or i1 %.not1319, %spec.select.i.i.i
   br i1 %.not13, label %16, label %11
 
 11:                                               ; preds = %6
@@ -2037,16 +2037,16 @@ define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex8findSinkI12DfgVertexVa
 _ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit:  ; preds = %11
   %14 = load ptr, ptr %5, align 8, !tbaa !79
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(99) %8)
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %6, %_ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit
-  %.011 = load ptr, ptr %.01119, align 8, !tbaa !83
+  %.011 = load ptr, ptr %.01122, align 8, !tbaa !83
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %.thread, label %6, !llvm.loop !86
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !86
 
-.thread:                                          ; preds = %16, %_ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit, %2
-  %spec.select = phi ptr [ null, %2 ], [ %8, %_ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit ], [ null, %16 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit, %16, %2
+  %17 = phi ptr [ null, %2 ], [ null, %16 ], [ %8, %_ZNKSt8functionIFbRK12DfgVertexVarEEclES2_.exit ]
+  ret ptr %17
 }
 
 ; Function Attrs: noreturn
@@ -3121,36 +3121,36 @@ define linkonce_odr dso_local noundef i32 @_ZNK8FileLine15operatorCompareERKS_(p
   %42 = select i1 %41, i32 -1, i32 1
   br label %.loopexit
 
-_ZNKSt6bitsetILm121EE4testEm.exit36:              ; preds = %.preheader, %58
-  %.01939 = phi i64 [ 0, %.preheader ], [ %59, %58 ]
+_ZNKSt6bitsetILm121EE4testEm.exit36:              ; preds = %.preheader, %54
+  %.01941 = phi i64 [ 0, %.preheader ], [ %55, %54 ]
   %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %44 = lshr i64 %.01939, 6
+  %44 = lshr i64 %.01941, 6
   %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !25
-  %47 = and i64 %.01939, 63
+  %47 = and i64 %.01941, 63
   %48 = shl nuw i64 1, %47
   %49 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %50 = getelementptr inbounds nuw i64, ptr %49, i64 %44
   %51 = load i64, ptr %50, align 8, !tbaa !25
   %52 = xor i64 %51, %46
   %53 = and i64 %52, %48
-  %.not37 = icmp eq i64 %53, 0
-  br i1 %.not37, label %58, label %54
+  %.not39 = icmp eq i64 %53, 0
+  br i1 %.not39, label %54, label %57
 
 54:                                               ; preds = %_ZNKSt6bitsetILm121EE4testEm.exit36
-  %55 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %56 = tail call noundef zeroext i1 @_ZNKSt6bitsetILm121EE4testEm(ptr noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %.01939)
-  %57 = select i1 %56, i32 -1, i32 1
+  %55 = add nuw nsw i64 %.01941, 1
+  %56 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %exitcond.not = icmp eq i64 %55, 121
+  br i1 %exitcond.not, label %.loopexit, label %_ZNKSt6bitsetILm121EE4testEm.exit36, !llvm.loop !220
+
+57:                                               ; preds = %_ZNKSt6bitsetILm121EE4testEm.exit36
+  %58 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
+  %59 = tail call noundef zeroext i1 @_ZNKSt6bitsetILm121EE4testEm(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef %.01941)
+  %60 = select i1 %59, i32 -1, i32 1
   br label %.loopexit
 
-58:                                               ; preds = %_ZNKSt6bitsetILm121EE4testEm.exit36
-  %59 = add nuw nsw i64 %.01939, 1
-  %60 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %exitcond = icmp eq i64 %59, 121
-  br i1 %exitcond, label %.loopexit, label %_ZNKSt6bitsetILm121EE4testEm.exit36, !llvm.loop !220
-
-.loopexit:                                        ; preds = %58, %54, %40, %31, %23, %15, %7
-  %.020 = phi i32 [ %9, %7 ], [ %17, %15 ], [ %25, %23 ], [ %33, %31 ], [ %42, %40 ], [ %57, %54 ], [ 0, %58 ]
+.loopexit:                                        ; preds = %54, %57, %40, %31, %23, %15, %7
+  %.020 = phi i32 [ %9, %7 ], [ %17, %15 ], [ %25, %23 ], [ %33, %31 ], [ %42, %40 ], [ %60, %57 ], [ 0, %54 ]
   ret i32 %.020
 }
 

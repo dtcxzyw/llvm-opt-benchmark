@@ -6182,23 +6182,23 @@ nsphash_distance.exit.i.i:                        ; preds = %72, %spcachekey_equ
   %.0.i.i.i = sub i32 %.pn.i.i.i, %71
   %76 = icmp ugt i32 %.085.i29.i, %.0.i.i.i
   %77 = add i32 %.083.i30.i, 1
-  br i1 %76, label %.preheader110.i.preheader.i, label %106
+  br i1 %76, label %.preheader109.i.preheader.i, label %106
 
-.preheader110.i.preheader.i:                      ; preds = %nsphash_distance.exit.i.i
+.preheader109.i.preheader.i:                      ; preds = %nsphash_distance.exit.i.i
   %78 = and i32 %77, %.val91.i.i
   %79 = zext i32 %78 to i64
   %80 = getelementptr inbounds nuw %struct.SearchPathCacheEntry, ptr %54, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 38
   %82 = load i8, ptr %81, align 2
-  %.not109.i35.i = icmp eq i8 %82, 0
-  br i1 %.not109.i35.i, label %.preheader.i.i, label %.lr.ph37.i
+  %.not108.i35.i = icmp eq i8 %82, 0
+  br i1 %.not108.i35.i, label %.preheader.i.i, label %.lr.ph37.i
 
-.lr.ph37.i:                                       ; preds = %.preheader110.i.preheader.i, %.preheader110.i.i
-  %83 = phi i32 [ %94, %.preheader110.i.i ], [ %78, %.preheader110.i.preheader.i ]
-  %.073.i36.i = phi i32 [ %84, %.preheader110.i.i ], [ 0, %.preheader110.i.preheader.i ]
+.lr.ph37.i:                                       ; preds = %.preheader109.i.preheader.i, %.preheader109.i.i
+  %83 = phi i32 [ %94, %.preheader109.i.i ], [ %78, %.preheader109.i.preheader.i ]
+  %.073.i36.i = phi i32 [ %84, %.preheader109.i.i ], [ 0, %.preheader109.i.preheader.i ]
   %84 = add i32 %.073.i36.i, 1
   %85 = icmp sgt i32 %84, 150
-  br i1 %85, label %86, label %.preheader110.i.i, !prof !22
+  br i1 %85, label %86, label %.preheader109.i.i, !prof !22
 
 86:                                               ; preds = %.lr.ph37.i
   %87 = load i32, ptr %40, align 8
@@ -6207,35 +6207,35 @@ nsphash_distance.exit.i.i:                        ; preds = %72, %spcachekey_equ
   %90 = uitofp i64 %89 to double
   %91 = fdiv double %88, %90
   %92 = fcmp ult double %91, 1.000000e-01
-  br i1 %92, label %.preheader110.i.i, label %.loopexit.loopexit.i.i
+  br i1 %92, label %.preheader109.i.i, label %.loopexit.loopexit.i.i
 
-.preheader110.i.i:                                ; preds = %86, %.lr.ph37.i
+.preheader109.i.i:                                ; preds = %86, %.lr.ph37.i
   %93 = add i32 %83, 1
   %94 = and i32 %93, %.val91.i.i
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw %struct.SearchPathCacheEntry, ptr %54, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 38
   %98 = load i8, ptr %97, align 2
-  %.not109.i.i = icmp eq i8 %98, 0
-  br i1 %.not109.i.i, label %.preheader.i.i, label %.lr.ph37.i
+  %.not108.i.i = icmp eq i8 %98, 0
+  br i1 %.not108.i.i, label %.preheader.i.i, label %.lr.ph37.i
 
-.preheader.i.i:                                   ; preds = %.preheader110.i.i, %.preheader110.i.preheader.i
-  %.lcssa20.i = phi i32 [ %78, %.preheader110.i.preheader.i ], [ %94, %.preheader110.i.i ]
-  %.lcssa18.i = phi ptr [ %80, %.preheader110.i.preheader.i ], [ %96, %.preheader110.i.i ]
+.preheader.i.i:                                   ; preds = %.preheader109.i.i, %.preheader109.i.preheader.i
+  %.lcssa20.i = phi i32 [ %78, %.preheader109.i.preheader.i ], [ %94, %.preheader109.i.i ]
+  %.lcssa18.i = phi ptr [ %80, %.preheader109.i.preheader.i ], [ %96, %.preheader109.i.i ]
   %99 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.lcssa6.lcssa.i = getelementptr inbounds nuw i8, ptr %63, i64 38
-  %.not90138.i.i = icmp eq i32 %.lcssa20.i, %.083.i30.i
-  br i1 %.not90138.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i20
+  %.not90137.i.i = icmp eq i32 %.lcssa20.i, %.083.i30.i
+  br i1 %.not90137.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i20
 
 .lr.ph.i.i20:                                     ; preds = %.preheader.i.i, %.lr.ph.i.i20
-  %.075140.i.i = phi i32 [ %101, %.lr.ph.i.i20 ], [ %.lcssa20.i, %.preheader.i.i ]
-  %.279139.i.i = phi ptr [ %103, %.lr.ph.i.i20 ], [ %.lcssa18.i, %.preheader.i.i ]
+  %.075139.i.i = phi i32 [ %101, %.lr.ph.i.i20 ], [ %.lcssa20.i, %.preheader.i.i ]
+  %.279138.i.i = phi ptr [ %103, %.lr.ph.i.i20 ], [ %.lcssa18.i, %.preheader.i.i ]
   %.val96.i.i = load i32, ptr %43, align 4
-  %100 = add i32 %.075140.i.i, -1
+  %100 = add i32 %.075139.i.i, -1
   %101 = and i32 %.val96.i.i, %100
   %102 = zext i32 %101 to i64
   %103 = getelementptr inbounds nuw %struct.SearchPathCacheEntry, ptr %54, i64 %102
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.279139.i.i, ptr noundef nonnull align 8 dereferenceable(40) %103, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.279138.i.i, ptr noundef nonnull align 8 dereferenceable(40) %103, i64 40, i1 false)
   %.not90.i.i = icmp eq i32 %101, %.083.i30.i
   br i1 %.not90.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i20, !llvm.loop !23
 
@@ -6954,13 +6954,13 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #13 {
   %17 = and i64 %15, -9187201950435737472
   %18 = xor i64 %17, -9187201950435737472
   %19 = and i64 %18, %16
-  %.not22.i.i = icmp eq i64 %19, 0
-  br i1 %.not22.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not21.i.i = icmp eq i64 %19, 0
+  br i1 %.not21.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
   %20 = phi i64 [ %28, %.lr.ph.i.i ], [ %10, %14 ]
   %21 = phi i64 [ %30, %.lr.ph.i.i ], [ %15, %14 ]
-  %.01723.i.i = phi ptr [ %29, %.lr.ph.i.i ], [ %0, %14 ]
+  %.01722.i.i = phi ptr [ %29, %.lr.ph.i.i ], [ %0, %14 ]
   %22 = lshr i64 %21, 23
   %23 = xor i64 %22, %21
   %24 = mul i64 %23, 2388976653695081527
@@ -6968,7 +6968,7 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #13 {
   %26 = xor i64 %20, %25
   %27 = xor i64 %26, %24
   %28 = mul i64 %27, -8645972361240307355
-  %29 = getelementptr inbounds nuw i8, ptr %.01723.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.01722.i.i, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, -72340172838076673
   %32 = and i64 %30, -9187201950435737472
@@ -7265,17 +7265,17 @@ nsphash_update_parameters.exit:                   ; preds = %nsphash_compute_siz
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink.i, ptr %36, align 8
-  %.not74 = icmp eq i64 %3, 0
-  br i1 %.not74, label %._crit_edge, label %.lr.ph
+  %.not73 = icmp eq i64 %3, 0
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %nsphash_update_parameters.exit, %46
   %37 = phi i64 [ %48, %46 ], [ 0, %nsphash_update_parameters.exit ]
-  %.066 = phi i32 [ %47, %46 ], [ 0, %nsphash_update_parameters.exit ]
+  %.065 = phi i32 [ %47, %46 ], [ 0, %nsphash_update_parameters.exit ]
   %38 = getelementptr inbounds nuw %struct.SearchPathCacheEntry, ptr %5, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 38
   %40 = load i8, ptr %39, align 2
   %.not = icmp eq i8 %40, 1
-  br i1 %.not, label %41, label %.lr.ph73.preheader
+  br i1 %.not, label %41, label %.lr.ph72.preheader
 
 41:                                               ; preds = %.lr.ph
   %.val59 = load ptr, ptr %38, align 8
@@ -7283,30 +7283,30 @@ nsphash_update_parameters.exit:                   ; preds = %nsphash_compute_siz
   %.val60 = load i32, ptr %42, align 8
   %43 = tail call fastcc i32 @spcachekey_hash(ptr readonly %.val59, i32 %.val60)
   %44 = and i32 %43, %30
-  %45 = icmp eq i32 %44, %.066
-  br i1 %45, label %.lr.ph73.preheader, label %46
+  %45 = icmp eq i32 %44, %.065
+  br i1 %45, label %.lr.ph72.preheader, label %46
 
 46:                                               ; preds = %41
-  %47 = add i32 %.066, 1
+  %47 = add i32 %.065, 1
   %48 = zext i32 %47 to i64
   %49 = icmp ugt i64 %3, %48
-  br i1 %49, label %.lr.ph, label %.lr.ph73.preheader, !llvm.loop !26
+  br i1 %49, label %.lr.ph, label %.lr.ph72.preheader, !llvm.loop !26
 
-.lr.ph73.preheader:                               ; preds = %46, %.lr.ph, %41
-  %.05171.ph = phi i32 [ %.066, %41 ], [ %.066, %.lr.ph ], [ 0, %46 ]
-  br label %.lr.ph73
+.lr.ph72.preheader:                               ; preds = %46, %.lr.ph, %41
+  %.05170.ph = phi i32 [ %.065, %41 ], [ %.065, %.lr.ph ], [ 0, %46 ]
+  br label %.lr.ph72
 
-.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %66
-  %.172 = phi i32 [ %69, %66 ], [ 0, %.lr.ph73.preheader ]
-  %.05171 = phi i32 [ %spec.store.select, %66 ], [ %.05171.ph, %.lr.ph73.preheader ]
-  %50 = zext i32 %.05171 to i64
+.lr.ph72:                                         ; preds = %.lr.ph72.preheader, %66
+  %.171 = phi i32 [ %69, %66 ], [ 0, %.lr.ph72.preheader ]
+  %.05170 = phi i32 [ %spec.store.select, %66 ], [ %.05170.ph, %.lr.ph72.preheader ]
+  %50 = zext i32 %.05170 to i64
   %51 = getelementptr inbounds nuw %struct.SearchPathCacheEntry, ptr %5, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 38
   %53 = load i8, ptr %52, align 2
   %54 = icmp eq i8 %53, 1
   br i1 %54, label %55, label %66
 
-55:                                               ; preds = %.lr.ph73
+55:                                               ; preds = %.lr.ph72
   %.val61 = load ptr, ptr %51, align 8
   %56 = getelementptr i8, ptr %51, i64 8
   %.val62 = load i32, ptr %56, align 8
@@ -7329,15 +7329,15 @@ nsphash_update_parameters.exit:                   ; preds = %nsphash_compute_siz
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(40) %51, i64 40, i1 false)
   br label %66
 
-66:                                               ; preds = %65, %.lr.ph73
-  %67 = add i32 %.05171, 1
+66:                                               ; preds = %65, %.lr.ph72
+  %67 = add i32 %.05170, 1
   %68 = zext i32 %67 to i64
   %.not55 = icmp ugt i64 %3, %68
   %spec.store.select = select i1 %.not55, i32 %67, i32 0
-  %69 = add i32 %.172, 1
+  %69 = add i32 %.171, 1
   %70 = zext i32 %69 to i64
   %71 = icmp ugt i64 %3, %70
-  br i1 %71, label %.lr.ph73, label %._crit_edge, !llvm.loop !27
+  br i1 %71, label %.lr.ph72, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %66, %nsphash_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #18

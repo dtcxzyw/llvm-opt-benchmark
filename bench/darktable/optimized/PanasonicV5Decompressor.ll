@@ -601,65 +601,65 @@ _ZNSt12__shared_ptrIN8rawspeed12RawImageDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 define hidden void @_ZNK8rawspeed23PanasonicV5Decompressor10decompressEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !25
-  %switch = icmp eq i32 %3, 12
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !114, !nonnull !113, !noundef !113
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !117
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %5 to i64
-  %10 = sub i64 %8, %9
-  %11 = sdiv exact i64 %10, 40
-  %12 = and i64 %11, 2147483648
-  %13 = icmp eq i64 %12, 0
-  tail call void @llvm.assume(i1 %13)
-  %14 = and i64 %11, 2147483647
-  %.idx.i = mul nuw nsw i64 %14, 40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.not11.i = icmp eq i64 %14, 0
-  br i1 %switch, label %16, label %23
+  %4 = icmp eq i32 %3, 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = load ptr, ptr %5, align 8, !tbaa !114, !nonnull !113, !noundef !113
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = load ptr, ptr %7, align 8, !tbaa !117
+  %9 = ptrtoint ptr %8 to i64
+  %10 = ptrtoint ptr %6 to i64
+  %11 = sub i64 %9, %10
+  %12 = sdiv exact i64 %11, 40
+  %13 = and i64 %12, 2147483648
+  %14 = icmp eq i64 %13, 0
+  tail call void @llvm.assume(i1 %14)
+  %15 = and i64 %12, 2147483647
+  %.idx.i = mul nuw nsw i64 %15, 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
+  %.not11.i = icmp eq i64 %15, 0
+  br i1 %4, label %17, label %24
 
-16:                                               ; preds = %1
+17:                                               ; preds = %1
   br i1 %.not11.i, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16, %21
-  %.012.i = phi ptr [ %22, %21 ], [ %5, %16 ]
+.lr.ph.i:                                         ; preds = %17, %22
+  %.012.i = phi ptr [ %23, %22 ], [ %6, %17 ]
   invoke void @_ZNK8rawspeed23PanasonicV5Decompressor12processBlockIL_ZNS0_15TwelveBitPacketEEEEvRKNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %.012.i)
-          to label %21 unwind label %17
+          to label %22 unwind label %18
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %.lr.ph.i
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #22
+  %20 = extractvalue { ptr, i32 } %19, 0
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #22
   unreachable
 
-21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
-  %.not.i = icmp eq ptr %22, %15
+22:                                               ; preds = %.lr.ph.i
+  %23 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
+  %.not.i = icmp eq ptr %23, %16
   br i1 %.not.i, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i
 
-23:                                               ; preds = %1
+24:                                               ; preds = %1
   br i1 %.not11.i, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i3
 
-.lr.ph.i3:                                        ; preds = %23, %28
-  %.012.i4 = phi ptr [ %29, %28 ], [ %5, %23 ]
+.lr.ph.i3:                                        ; preds = %24, %29
+  %.012.i4 = phi ptr [ %30, %29 ], [ %6, %24 ]
   invoke void @_ZNK8rawspeed23PanasonicV5Decompressor12processBlockIL_ZNS0_17FourteenBitPacketEEEEvRKNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %.012.i4)
-          to label %28 unwind label %24
+          to label %29 unwind label %25
 
-24:                                               ; preds = %.lr.ph.i3
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %.lr.ph.i3
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  %27 = tail call ptr @__cxa_begin_catch(ptr %26) #22
+  %27 = extractvalue { ptr, i32 } %26, 0
+  %28 = tail call ptr @__cxa_begin_catch(ptr %27) #22
   unreachable
 
-28:                                               ; preds = %.lr.ph.i3
-  %29 = getelementptr inbounds nuw i8, ptr %.012.i4, i64 40
-  %.not.i5 = icmp eq ptr %29, %15
+29:                                               ; preds = %.lr.ph.i3
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i4, i64 40
+  %.not.i5 = icmp eq ptr %30, %16
   br i1 %.not.i5, label %_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit, label %.lr.ph.i3
 
-_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit: ; preds = %28, %21, %23, %16
+_ZNK8rawspeed23PanasonicV5Decompressor18decompressInternalIL_ZNS0_15TwelveBitPacketEEEEvv.exit: ; preds = %29, %22, %24, %17
   ret void
 }
 

@@ -2075,16 +2075,15 @@ _ZplPKcRK7QString.exit44:                         ; preds = %.noexc41
   %47 = load ptr, ptr %13, align 8, !noalias !16
   store ptr %47, ptr %12, align 8, !alias.scope !16
   %48 = load atomic i32, ptr %47 monotonic, align 4, !noalias !16
-  switch i32 %48, label %49 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i
-  ]
+  %.off.i.i.i = add i32 %48, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %49, label %_ZN7QStringC2ERKS_.exit.i
 
 49:                                               ; preds = %46
   %50 = atomicrmw add ptr %47, i32 1 seq_cst, align 4, !noalias !16
   br label %_ZN7QStringC2ERKS_.exit.i
 
-_ZN7QStringC2ERKS_.exit.i:                        ; preds = %49, %46, %46
+_ZN7QStringC2ERKS_.exit.i:                        ; preds = %49, %46
   %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZplRK7QStringS1_.exit unwind label %52
 
@@ -2456,16 +2455,15 @@ _ZN7QStringD2Ev.exit94:                           ; preds = %_ZN7QStringD2Ev.exi
   %148 = load ptr, ptr %9, align 8
   store ptr %148, ptr %20, align 8
   %149 = load atomic i32, ptr %148 monotonic, align 4
-  switch i32 %149, label %150 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %149, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %150, label %_ZN7QStringC2ERKS_.exit
 
 150:                                              ; preds = %_ZN7QStringD2Ev.exit94
   %151 = atomicrmw add ptr %148, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %_ZN7QStringD2Ev.exit94, %_ZN7QStringD2Ev.exit94, %150
+_ZN7QStringC2ERKS_.exit:                          ; preds = %_ZN7QStringD2Ev.exit94, %150
   %152 = invoke noundef zeroext i1 @_ZNK12FilterScript4saveE7QString(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef nonnull %20)
           to label %153 unwind label %187
 
@@ -2706,16 +2704,15 @@ define linkonce_odr void @_ZplRK7QStringPKc(ptr dead_on_unwind noalias writable 
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
-  switch i32 %6, label %7 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %6, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %7, label %_ZN7QStringC2ERKS_.exit
 
 7:                                                ; preds = %3
   %8 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %3, %7
+_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %9
 
@@ -2919,16 +2916,15 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %_ZN7QStringD2Ev.exi
   %37 = load ptr, ptr %36, align 8
   store ptr %24, ptr %6, align 8
   %38 = load atomic i32, ptr %24 monotonic, align 4
-  switch i32 %38, label %39 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %38, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %39, label %_ZN7QStringC2ERKS_.exit
 
 39:                                               ; preds = %35
   %40 = atomicrmw add ptr %24, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %35, %35, %39
+_ZN7QStringC2ERKS_.exit:                          ; preds = %35, %39
   %41 = invoke noundef zeroext i1 @_ZN12FilterScript4openE7QString(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull %6)
           to label %42 unwind label %52
 
@@ -3310,16 +3306,15 @@ define void @_ZN18FilterScriptDialog23on_moveUpButton_clickedEv(ptr noundef nonn
   %29 = load ptr, ptr %28, align 8, !noalias !29
   store ptr %29, ptr %5, align 8, !alias.scope !29
   %30 = load atomic i32, ptr %29 monotonic, align 4, !noalias !29
-  switch i32 %30, label %31 [
-    i32 -1, label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
-    i32 0, label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
-  ]
+  %.off.i.i.i = add i32 %30, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %31, label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
 
 31:                                               ; preds = %27
   %32 = atomicrmw add ptr %29, i32 1 seq_cst, align 4, !noalias !29
   br label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
 
-_ZNK29FilterNameParameterValuesPair10filterNameEv.exit: ; preds = %27, %27, %31
+_ZNK29FilterNameParameterValuesPair10filterNameEv.exit: ; preds = %27, %31
   %33 = call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   %34 = load ptr, ptr %5, align 8
   %35 = load atomic i32, ptr %34 monotonic, align 4
@@ -3513,16 +3508,15 @@ _ZN5QListI29FilterNameParameterValuesPairE6detachEv.exit: ; preds = %3, %7
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
   %22 = load atomic i32, ptr %21 monotonic, align 4
-  switch i32 %22, label %23 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i
-  ]
+  %.off.i.i.i.i = add i32 %22, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %23, label %_ZN7QStringC2ERKS_.exit.i.i
 
 23:                                               ; preds = %_ZN5QListI29FilterNameParameterValuesPairE6detachEv.exit
   %24 = atomicrmw add ptr %21, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %23, %_ZN5QListI29FilterNameParameterValuesPairE6detachEv.exit, %_ZN5QListI29FilterNameParameterValuesPairE6detachEv.exit
+_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %23, %_ZN5QListI29FilterNameParameterValuesPairE6detachEv.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
@@ -3573,16 +3567,15 @@ define linkonce_odr void @_ZNK29FilterNameParameterValuesPair10filterNameEv(ptr 
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
-  switch i32 %5, label %6 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %5, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %6, label %_ZN7QStringC2ERKS_.exit
 
 6:                                                ; preds = %2
   %7 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %6
+_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %6
   ret void
 }
 
@@ -3604,16 +3597,15 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE6insertEiRKS
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %10, align 8
   %13 = load atomic i32, ptr %12 monotonic, align 4
-  switch i32 %13, label %14 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i.i
-  ]
+  %.off.i.i.i.i.i = add i32 %13, -1
+  %switch.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i, -2
+  br i1 %switch.i.i.i.i.i, label %14, label %_ZN7QStringC2ERKS_.exit.i.i.i
 
 14:                                               ; preds = %.noexc
   %15 = atomicrmw add ptr %12, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %14, %.noexc, %.noexc
+_ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %14, %.noexc
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -3656,37 +3648,36 @@ _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
 26:                                               ; preds = %3
   %27 = tail call noundef ptr @_ZN9QListData6insertEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
   %28 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-          to label %.noexc16 unwind label %38
+          to label %.noexc18 unwind label %38
 
-.noexc16:                                         ; preds = %26
+.noexc18:                                         ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
   %32 = load atomic i32, ptr %31 monotonic, align 4
-  switch i32 %32, label %33 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i.i14
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i.i14
-  ]
+  %.off.i.i.i.i.i14 = add i32 %32, -1
+  %switch.i.i.i.i.i15 = icmp ult i32 %.off.i.i.i.i.i14, -2
+  br i1 %switch.i.i.i.i.i15, label %33, label %_ZN7QStringC2ERKS_.exit.i.i.i16
 
-33:                                               ; preds = %.noexc16
+33:                                               ; preds = %.noexc18
   %34 = atomicrmw add ptr %31, i32 1 seq_cst, align 4
-  br label %_ZN7QStringC2ERKS_.exit.i.i.i14
+  br label %_ZN7QStringC2ERKS_.exit.i.i.i16
 
-_ZN7QStringC2ERKS_.exit.i.i.i14:                  ; preds = %33, %.noexc16, %.noexc16
+_ZN7QStringC2ERKS_.exit.i.i.i16:                  ; preds = %33, %.noexc18
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
-          to label %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit19 unwind label %.body.i15
+          to label %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit21 unwind label %.body.i17
 
-.body.i15:                                        ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i14
+.body.i17:                                        ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i16
   %37 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #20
   tail call void @_ZdlPv(ptr noundef nonnull %28) #19
-  br label %.body17
+  br label %.body19
 
-_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit19: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i14
+_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit21: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %28, align 8
   store ptr %28, ptr %27, align 8
   br label %45
@@ -3694,26 +3685,26 @@ _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
 38:                                               ; preds = %26
   %39 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body17
+  br label %.body19
 
-.body17:                                          ; preds = %.body.i15, %38
-  %eh.lpad-body18 = phi { ptr, i32 } [ %39, %38 ], [ %37, %.body.i15 ]
-  %40 = extractvalue { ptr, i32 } %eh.lpad-body18, 0
+.body19:                                          ; preds = %.body.i17, %38
+  %eh.lpad-body20 = phi { ptr, i32 } [ %39, %38 ], [ %37, %.body.i17 ]
+  %40 = extractvalue { ptr, i32 } %eh.lpad-body20, 0
   %41 = tail call ptr @__cxa_begin_catch(ptr %40) #20
   invoke void @_ZN9QListData6removeEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
           to label %42 unwind label %43
 
-42:                                               ; preds = %.body17
+42:                                               ; preds = %.body19
   invoke void @__cxa_rethrow() #24
           to label %50 unwind label %43
 
-43:                                               ; preds = %42, %.body17
+43:                                               ; preds = %42, %.body19
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %46 unwind label %47
 
-45:                                               ; preds = %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit19, %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
+45:                                               ; preds = %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit21, %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
   ret void
 
 46:                                               ; preds = %43, %24
@@ -3741,18 +3732,17 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
-  switch i32 %6, label %7 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %6, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %7, label %_ZN7QStringC2ERKS_.exit
 
 7:                                                ; preds = %2
   %8 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   %.pre = load ptr, ptr %4, align 8, !noalias !32
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %7
-  %9 = phi ptr [ %5, %2 ], [ %5, %2 ], [ %.pre, %7 ]
+_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %7
+  %9 = phi ptr [ %5, %2 ], [ %.pre, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
   %11 = icmp eq ptr %9, @_ZN10QArrayData11shared_nullE
@@ -4033,16 +4023,15 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE9node_copyEP
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
   %11 = load atomic i32, ptr %10 monotonic, align 4
-  switch i32 %11, label %12 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i
-  ]
+  %.off.i.i.i.i = add i32 %11, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %12, label %_ZN7QStringC2ERKS_.exit.i.i
 
 12:                                               ; preds = %6
   %13 = atomicrmw add ptr %10, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %6, %6
+_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %6
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
@@ -4524,16 +4513,15 @@ define void @_ZN18FilterScriptDialog25on_moveDownButton_clickedEv(ptr noundef no
   %38 = load ptr, ptr %37, align 8, !noalias !40
   store ptr %38, ptr %5, align 8, !alias.scope !40
   %39 = load atomic i32, ptr %38 monotonic, align 4, !noalias !40
-  switch i32 %39, label %40 [
-    i32 -1, label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
-    i32 0, label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
-  ]
+  %.off.i.i.i = add i32 %39, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %40, label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
 
 40:                                               ; preds = %36
   %41 = atomicrmw add ptr %38, i32 1 seq_cst, align 4, !noalias !40
   br label %_ZNK29FilterNameParameterValuesPair10filterNameEv.exit
 
-_ZNK29FilterNameParameterValuesPair10filterNameEv.exit: ; preds = %36, %36, %40
+_ZNK29FilterNameParameterValuesPair10filterNameEv.exit: ; preds = %36, %40
   %42 = call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   %43 = load ptr, ptr %5, align 8
   %44 = load atomic i32, ptr %43 monotonic, align 4

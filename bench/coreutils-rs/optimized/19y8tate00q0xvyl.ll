@@ -32,8 +32,8 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   %7 = alloca [16384 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16384) %7, i8 0, i64 16384, i1 false)
-  %.not49 = icmp eq i64 %2, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not45 = icmp eq i64 %2, 0
+  br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -41,7 +41,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   br label %10
 
 10:                                               ; preds = %.lr.ph, %18
-  %.052 = phi i64 [ %2, %.lr.ph ], [ %19, %18 ]
+  %.048 = phi i64 [ %2, %.lr.ph ], [ %19, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN3nix6unistd4read17h949cd14f2df1350eE(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %0, ptr noalias noundef nonnull align 1 %7, i64 noundef 16384)
@@ -79,13 +79,13 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   unreachable
 
 18:                                               ; preds = %26
-  %19 = sub i64 %.052, %12
+  %19 = sub i64 %.048, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %._crit_edge, label %10
 
 .preheader:                                       ; preds = %.preheader.preheader, %26
-  %.01948 = phi i64 [ %27, %26 ], [ 0, %.preheader.preheader ]
+  %.01944 = phi i64 [ %27, %26 ], [ 0, %.preheader.preheader ]
   br i1 %16, label %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
 
 20:                                               ; preds = %.preheader
@@ -93,8 +93,8 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit": ; preds = %.preheader
-  %21 = sub nuw nsw i64 %12, %.01948
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.01948
+  %21 = sub nuw nsw i64 %12, %.01944
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.01944
   %23 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly align 1 %22, i64 noundef %21), !noalias !10
   switch i64 %23, label %26 [
     i64 -1, label %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
@@ -110,7 +110,7 @@ _ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..o
   unreachable
 
 26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
-  %27 = add i64 %23, %.01948
+  %27 = add i64 %23, %.01944
   %28 = icmp ult i64 %27, %12
   br i1 %28, label %.preheader, label %18
 

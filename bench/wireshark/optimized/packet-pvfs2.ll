@@ -1647,44 +1647,44 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
 571:                                              ; preds = %563
   %572 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 52)
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %572, i32 %567)
-  %.not176.i.i = icmp eq i32 %564, 0
-  br i1 %.not176.i.i, label %.loopexit.i.i, label %.lr.ph172.i.i
+  %.not175.i.i = icmp eq i32 %564, 0
+  br i1 %.not175.i.i, label %.loopexit.i.i, label %.lr.ph171.i.i
 
-.lr.ph172.i.i:                                    ; preds = %571
+.lr.ph171.i.i:                                    ; preds = %571
   %573 = getelementptr inbounds nuw i8, ptr %4, i64 255
   %574 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %575 = load ptr, ptr @g_ascii_table, align 8
   br label %576
 
-576:                                              ; preds = %625, %.lr.ph172.i.i
-  %.098171.i.i = phi ptr [ null, %.lr.ph172.i.i ], [ %.3.i.i, %625 ]
-  %.099170.i.i = phi i32 [ 52, %.lr.ph172.i.i ], [ %627, %625 ]
-  %.0102169.i.i = phi ptr [ %570, %.lr.ph172.i.i ], [ %628, %625 ]
-  %.0105168.i.i = phi i32 [ 0, %.lr.ph172.i.i ], [ %629, %625 ]
-  %.0110167.i.i = phi i32 [ 0, %.lr.ph172.i.i ], [ %630, %625 ]
+576:                                              ; preds = %625, %.lr.ph171.i.i
+  %.098170.i.i = phi ptr [ null, %.lr.ph171.i.i ], [ %.3.i.i, %625 ]
+  %.099169.i.i = phi i32 [ 52, %.lr.ph171.i.i ], [ %627, %625 ]
+  %.0102168.i.i = phi ptr [ %570, %.lr.ph171.i.i ], [ %628, %625 ]
+  %.0105167.i.i = phi i32 [ 0, %.lr.ph171.i.i ], [ %629, %625 ]
+  %.0110166.i.i = phi i32 [ 0, %.lr.ph171.i.i ], [ %630, %625 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %577 = icmp ult i32 %.0105168.i.i, %spec.select.i.i
+  %577 = icmp ult i32 %.0105167.i.i, %spec.select.i.i
   br i1 %577, label %.lr.ph.i82.i, label %.critedge.thread.i.i
 
 .lr.ph.i82.i:                                     ; preds = %576, %579
-  %.094157.i.i = phi i32 [ %583, %579 ], [ 0, %576 ]
-  %.096156.i.i = phi ptr [ %581, %579 ], [ %4, %576 ]
-  %.1103155.i.i = phi ptr [ %580, %579 ], [ %.0102169.i.i, %576 ]
-  %.2107154.i.i = phi i32 [ %582, %579 ], [ %.0105168.i.i, %576 ]
-  %578 = load i8, ptr %.1103155.i.i, align 1
+  %.094156.i.i = phi i32 [ %583, %579 ], [ 0, %576 ]
+  %.096155.i.i = phi ptr [ %581, %579 ], [ %4, %576 ]
+  %.1103154.i.i = phi ptr [ %580, %579 ], [ %.0102168.i.i, %576 ]
+  %.2107153.i.i = phi i32 [ %582, %579 ], [ %.0105167.i.i, %576 ]
+  %578 = load i8, ptr %.1103154.i.i, align 1
   switch i8 %578, label %579 [
     i8 10, label %.critedge.thread.i.i
     i8 0, label %.critedge.thread.i.i
   ]
 
 579:                                              ; preds = %.lr.ph.i82.i
-  %580 = getelementptr i8, ptr %.1103155.i.i, i64 1
-  %581 = getelementptr i8, ptr %.096156.i.i, i64 1
-  store i8 %578, ptr %.096156.i.i, align 1
-  %582 = add nuw i32 %.2107154.i.i, 1
-  %583 = add nuw nsw i32 %.094157.i.i, 1
+  %580 = getelementptr i8, ptr %.1103154.i.i, i64 1
+  %581 = getelementptr i8, ptr %.096155.i.i, i64 1
+  store i8 %578, ptr %.096155.i.i, align 1
+  %582 = add nuw i32 %.2107153.i.i, 1
+  %583 = add nuw nsw i32 %.094156.i.i, 1
   %584 = icmp ult i32 %582, %spec.select.i.i
-  %585 = icmp samesign ult i32 %.094157.i.i, 255
+  %585 = icmp samesign ult i32 %.094156.i.i, 255
   %or.cond.i.i = select i1 %584, i1 %585, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i82.i, label %.critedge.i.i, !llvm.loop !17
 
@@ -1700,33 +1700,33 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   ]
 
 .critedge.thread.i.i:                             ; preds = %.lr.ph.i82.i, %.lr.ph.i82.i, %587, %587, %.critedge.i.i, %576
-  %.2107144.i.i = phi i32 [ %582, %587 ], [ %582, %587 ], [ %582, %.critedge.i.i ], [ %.0105168.i.i, %576 ], [ %.2107154.i.i, %.lr.ph.i82.i ], [ %.2107154.i.i, %.lr.ph.i82.i ]
-  %.1103140.i.i = phi ptr [ %580, %587 ], [ %580, %587 ], [ %580, %.critedge.i.i ], [ %.0102169.i.i, %576 ], [ %.1103155.i.i, %.lr.ph.i82.i ], [ %.1103155.i.i, %.lr.ph.i82.i ]
-  %.096138.i.i = phi ptr [ %581, %587 ], [ %581, %587 ], [ %581, %.critedge.i.i ], [ %4, %576 ], [ %.096156.i.i, %.lr.ph.i82.i ], [ %.096156.i.i, %.lr.ph.i82.i ]
-  %.094136.i.i = phi i32 [ 256, %587 ], [ 256, %587 ], [ %583, %.critedge.i.i ], [ 0, %576 ], [ %.094157.i.i, %.lr.ph.i82.i ], [ %.094157.i.i, %.lr.ph.i82.i ]
-  %589 = icmp eq i32 %.2107144.i.i, %spec.select.i.i
+  %.2107143.i.i = phi i32 [ %582, %587 ], [ %582, %587 ], [ %582, %.critedge.i.i ], [ %.0105167.i.i, %576 ], [ %.2107153.i.i, %.lr.ph.i82.i ], [ %.2107153.i.i, %.lr.ph.i82.i ]
+  %.1103139.i.i = phi ptr [ %580, %587 ], [ %580, %587 ], [ %580, %.critedge.i.i ], [ %.0102168.i.i, %576 ], [ %.1103154.i.i, %.lr.ph.i82.i ], [ %.1103154.i.i, %.lr.ph.i82.i ]
+  %.096137.i.i = phi ptr [ %581, %587 ], [ %581, %587 ], [ %581, %.critedge.i.i ], [ %4, %576 ], [ %.096155.i.i, %.lr.ph.i82.i ], [ %.096155.i.i, %.lr.ph.i82.i ]
+  %.094135.i.i = phi i32 [ 256, %587 ], [ 256, %587 ], [ %583, %.critedge.i.i ], [ 0, %576 ], [ %.094156.i.i, %.lr.ph.i82.i ], [ %.094156.i.i, %.lr.ph.i82.i ]
+  %589 = icmp eq i32 %.2107143.i.i, %spec.select.i.i
   br i1 %589, label %.thread128.i.i, label %590
 
 590:                                              ; preds = %.critedge.thread.i.i
-  store i8 0, ptr %.096138.i.i, align 1
+  store i8 0, ptr %.096137.i.i, align 1
   %591 = load ptr, ptr %574, align 8
-  %592 = call ptr @get_ascii_string(ptr noundef %591, ptr noundef nonnull %4, i32 noundef %.094136.i.i)
+  %592 = call ptr @get_ascii_string(ptr noundef %591, ptr noundef nonnull %4, i32 noundef %.094135.i.i)
   %593 = call i64 @strlen(ptr noundef %592) #12
   %594 = trunc i64 %593 to i32
-  %.not120161.i.i = icmp eq i32 %594, 0
-  br i1 %.not120161.i.i, label %.critedge2.i.i, label %.lr.ph164.preheader.i.i
+  %.not120160.i.i = icmp eq i32 %594, 0
+  br i1 %.not120160.i.i, label %.critedge2.i.i, label %.lr.ph163.preheader.i.i
 
-.lr.ph164.preheader.i.i:                          ; preds = %590
+.lr.ph163.preheader.i.i:                          ; preds = %590
   %scevgep.i.i = getelementptr i8, ptr %592, i64 1
   %595 = add i64 %593, 4294967295
   %596 = and i64 %595, 4294967295
-  %scevgep192.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %596
-  br label %.lr.ph164.i.i
+  %scevgep191.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %596
+  br label %.lr.ph163.i.i
 
-.lr.ph164.i.i:                                    ; preds = %602, %.lr.ph164.preheader.i.i
-  %.093163.i.i = phi i32 [ %604, %602 ], [ %594, %.lr.ph164.preheader.i.i ]
-  %.095162.i.i = phi ptr [ %603, %602 ], [ %592, %.lr.ph164.preheader.i.i ]
-  %597 = load i8, ptr %.095162.i.i, align 1
+.lr.ph163.i.i:                                    ; preds = %602, %.lr.ph163.preheader.i.i
+  %.093162.i.i = phi i32 [ %604, %602 ], [ %594, %.lr.ph163.preheader.i.i ]
+  %.095161.i.i = phi ptr [ %603, %602 ], [ %592, %.lr.ph163.preheader.i.i ]
+  %597 = load i8, ptr %.095161.i.i, align 1
   %598 = zext i8 %597 to i64
   %599 = getelementptr i16, ptr %575, i64 %598
   %600 = load i16, ptr %599, align 2
@@ -1736,79 +1736,79 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %or.cond124.i.i = or i1 %.not122.i.i, %.not121.i.i
   br i1 %or.cond124.i.i, label %.critedge2.thread.i.i, label %602
 
-602:                                              ; preds = %.lr.ph164.i.i
-  %603 = getelementptr i8, ptr %.095162.i.i, i64 1
-  %604 = add i32 %.093163.i.i, -1
+602:                                              ; preds = %.lr.ph163.i.i
+  %603 = getelementptr i8, ptr %.095161.i.i, i64 1
+  %604 = add i32 %.093162.i.i, -1
   %.not120.i.i = icmp eq i32 %604, 0
-  br i1 %.not120.i.i, label %.critedge2.i.i, label %.lr.ph164.i.i, !llvm.loop !18
+  br i1 %.not120.i.i, label %.critedge2.i.i, label %.lr.ph163.i.i, !llvm.loop !18
 
 .critedge2.i.i:                                   ; preds = %602, %590
-  %.095.lcssa.i.i = phi ptr [ %592, %590 ], [ %scevgep192.i.i, %602 ]
+  %.095.lcssa.i.i = phi ptr [ %592, %590 ], [ %scevgep191.i.i, %602 ]
   %605 = load i8, ptr %.095.lcssa.i.i, align 1
   %606 = icmp eq i8 %605, 60
   br i1 %606, label %607, label %619
 
-.critedge2.thread.i.i:                            ; preds = %.lr.ph164.i.i
+.critedge2.thread.i.i:                            ; preds = %.lr.ph163.i.i
   br i1 %.not122.i.i, label %607, label %621
 
 607:                                              ; preds = %.critedge2.thread.i.i, %.critedge2.i.i
-  %.095148.i.i = phi ptr [ %.095162.i.i, %.critedge2.thread.i.i ], [ %.095.lcssa.i.i, %.critedge2.i.i ]
-  %.093146.i.i = phi i32 [ %.093163.i.i, %.critedge2.thread.i.i ], [ 0, %.critedge2.i.i ]
-  %608 = add i32 %.093146.i.i, -1
+  %.095147.i.i = phi ptr [ %.095161.i.i, %.critedge2.thread.i.i ], [ %.095.lcssa.i.i, %.critedge2.i.i ]
+  %.093145.i.i = phi i32 [ %.093162.i.i, %.critedge2.thread.i.i ], [ 0, %.critedge2.i.i ]
+  %608 = add i32 %.093145.i.i, -1
   %609 = zext i32 %608 to i64
-  %610 = getelementptr i8, ptr %.095148.i.i, i64 %609
+  %610 = getelementptr i8, ptr %.095147.i.i, i64 %609
   %611 = load i8, ptr %610, align 1
   %612 = icmp eq i8 %611, 62
   br i1 %612, label %613, label %.thread128.i.i
 
 613:                                              ; preds = %607
-  %614 = getelementptr i8, ptr %.095148.i.i, i64 1
+  %614 = getelementptr i8, ptr %.095147.i.i, i64 1
   %615 = load i8, ptr %614, align 1
   %.not123.i.i = icmp eq i8 %615, 47
   br i1 %.not123.i.i, label %625, label %616
 
 616:                                              ; preds = %613
   %617 = load i32, ptr @ett_pvfs_server_config_branch, align 4
-  %618 = call ptr @proto_tree_add_subtree(ptr noundef %558, ptr noundef %0, i32 noundef %.099170.i.i, i32 noundef %.093146.i.i, i32 noundef %617, ptr noundef null, ptr noundef %.095148.i.i)
+  %618 = call ptr @proto_tree_add_subtree(ptr noundef %558, ptr noundef %0, i32 noundef %.099169.i.i, i32 noundef %.093145.i.i, i32 noundef %617, ptr noundef null, ptr noundef %.095147.i.i)
   br label %625
 
 619:                                              ; preds = %.critedge2.i.i
-  %620 = icmp eq ptr %.098171.i.i, null
-  %spec.select125.i.i = select i1 %620, ptr %558, ptr %.098171.i.i
+  %620 = icmp eq ptr %.098170.i.i, null
+  %spec.select125.i.i = select i1 %620, ptr %558, ptr %.098170.i.i
   br label %625
 
 621:                                              ; preds = %.critedge2.thread.i.i
-  %622 = icmp eq ptr %.098171.i.i, null
-  %spec.select125126.i.i = select i1 %622, ptr %558, ptr %.098171.i.i
+  %622 = icmp eq ptr %.098170.i.i, null
+  %spec.select125126.i.i = select i1 %622, ptr %558, ptr %.098170.i.i
   %623 = load i32, ptr @hf_pvfs_getconfig_response_entry, align 4
-  %624 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %spec.select125126.i.i, i32 noundef %623, ptr noundef %0, i32 noundef %.099170.i.i, i32 noundef %.093163.i.i, ptr noundef %.095162.i.i, ptr noundef nonnull @.str.428, ptr noundef %.095162.i.i)
+  %624 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %spec.select125126.i.i, i32 noundef %623, ptr noundef %0, i32 noundef %.099169.i.i, i32 noundef %.093162.i.i, ptr noundef %.095161.i.i, ptr noundef nonnull @.str.428, ptr noundef %.095161.i.i)
   br label %625
 
 .thread128.i.i:                                   ; preds = %607, %.critedge.thread.i.i, %587
-  %.2107142.i.i = phi i32 [ %582, %587 ], [ %spec.select.i.i, %.critedge.thread.i.i ], [ %.2107144.i.i, %607 ]
+  %.2107141.i.i = phi i32 [ %582, %587 ], [ %spec.select.i.i, %.critedge.thread.i.i ], [ %.2107143.i.i, %607 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i.i
 
 625:                                              ; preds = %621, %619, %616, %613
   %.3.i.i = phi ptr [ %618, %616 ], [ %spec.select125126.i.i, %621 ], [ %spec.select125.i.i, %619 ], [ null, %613 ]
-  %626 = add i32 %.099170.i.i, 1
-  %627 = add i32 %626, %.094136.i.i
-  %628 = getelementptr i8, ptr %.1103140.i.i, i64 1
-  %629 = add i32 %.2107144.i.i, 1
+  %626 = add i32 %.099169.i.i, 1
+  %627 = add i32 %626, %.094135.i.i
+  %628 = getelementptr i8, ptr %.1103139.i.i, i64 1
+  %629 = add i32 %.2107143.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %630 = add nuw i32 %.0110167.i.i, 1
+  %630 = add nuw i32 %.0110166.i.i, 1
   %exitcond.not.i81.i = icmp eq i32 %630, %564
   br i1 %exitcond.not.i81.i, label %.loopexit.i.i, label %576, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %625, %.thread128.i.i, %571
-  %.099152.i.i = phi i32 [ %.099170.i.i, %.thread128.i.i ], [ 52, %571 ], [ %627, %625 ]
-  %.098150.i.i = phi ptr [ %.098171.i.i, %.thread128.i.i ], [ null, %571 ], [ %.3.i.i, %625 ]
-  %.1106.i.i = phi i32 [ %.2107142.i.i, %.thread128.i.i ], [ 0, %571 ], [ %629, %625 ]
+  %.099151.i.i = phi i32 [ %.099169.i.i, %.thread128.i.i ], [ 52, %571 ], [ %627, %625 ]
+  %.098149.i.i = phi ptr [ %.098170.i.i, %.thread128.i.i ], [ null, %571 ], [ %.3.i.i, %625 ]
+  %.1106.i.i = phi i32 [ %.2107141.i.i, %.thread128.i.i ], [ 0, %571 ], [ %629, %625 ]
   %631 = icmp ult i32 %.1106.i.i, %spec.select.i.i
   br i1 %631, label %632, label %dissect_pvfs2_request.exit
 
 632:                                              ; preds = %.loopexit.i.i
-  %633 = call ptr @proto_tree_add_expert(ptr noundef %.098150.i.i, ptr noundef %1, ptr noundef nonnull @ei_pvfs_malformed, ptr noundef %0, i32 noundef %.099152.i.i, i32 noundef -1)
+  %633 = call ptr @proto_tree_add_expert(ptr noundef %.098149.i.i, ptr noundef %1, ptr noundef nonnull @ei_pvfs_malformed, ptr noundef %0, i32 noundef %.099151.i.i, i32 noundef -1)
   br label %dissect_pvfs2_request.exit
 
 634:                                              ; preds = %dissect_pvfs2_error.exit.i

@@ -6177,8 +6177,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit376: ; preds = %_ZNSt6vectorIN4cvc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit352, %_ZNSt6vectorIjSaIjEED2Ev.exit240, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit376
-  %switch = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit376 ], [ true, %_ZNSt6vectorIjSaIjEED2Ev.exit240 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit352 ]
-  ret i1 %switch
+  %941 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit376 ], [ true, %_ZNSt6vectorIjSaIjEED2Ev.exit240 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit352 ]
+  ret i1 %941
 
 _ZNSt6vectorIjSaIjEED2Ev.exit305:                 ; preds = %689, %.body, %883
   %.pn125.pn.pn = phi { ptr, i32 } [ %.pn125.pn, %883 ], [ %.pn122.pn, %.body ], [ %.pn122.pn, %689 ]

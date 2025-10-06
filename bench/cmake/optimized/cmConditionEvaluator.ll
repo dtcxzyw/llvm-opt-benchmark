@@ -884,8 +884,8 @@ _ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedComm
   br i1 %.not, label %.loopexit, label %15, !llvm.loop !70
 
 .loopexit:                                        ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit.thread, %4, %.thread
-  %switch = phi i1 [ false, %.thread ], [ true, %4 ], [ true, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit.thread ]
-  ret i1 %switch
+  %147 = phi i1 [ false, %.thread ], [ true, %4 ], [ true, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit.thread ]
+  ret i1 %147
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1511,40 +1511,40 @@ _ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit: ; preds = %
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %.sroa.26.0..sroa_idx309 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.37.0..sroa_idx333 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sroa.26.0..sroa_idx311 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.37.0..sroa_idx335 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.26.0..sroa_idx313 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.37.0..sroa_idx337 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sroa.26.0..sroa_idx315 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.37.0..sroa_idx339 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sroa.26.0..sroa_idx317 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sroa.37.0..sroa_idx341 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sroa.26.0..sroa_idx308 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.37.0..sroa_idx332 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.26.0..sroa_idx310 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.37.0..sroa_idx334 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.26.0..sroa_idx312 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sroa.37.0..sroa_idx336 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.26.0..sroa_idx314 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.37.0..sroa_idx338 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.26.0..sroa_idx316 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.37.0..sroa_idx340 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sroa.26.0..sroa_idx319 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sroa.37.0..sroa_idx343 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sroa.26.0..sroa_idx318 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.37.0..sroa_idx342 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sroa.26.0..sroa_idx321 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sroa.37.0..sroa_idx345 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sroa.26.0..sroa_idx320 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.sroa.37.0..sroa_idx344 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 16
   br label %60
 
 60:                                               ; preds = %.lr.ph, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
-  %.sroa.37.0441 = phi ptr [ %.sroa.0.0.i9.i.i, %.lr.ph ], [ %.sroa.0.0.i16.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
-  %.sroa.26.0440 = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
-  %.sroa.0290.0438 = phi ptr [ %31, %.lr.ph ], [ %500, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
-  %.not391 = icmp eq ptr %.sroa.26.0440, %1
-  br i1 %.not391, label %.critedge117, label %61
+  %.sroa.37.0440 = phi ptr [ %.sroa.0.0.i9.i.i, %.lr.ph ], [ %.sroa.0.0.i16.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %.sroa.26.0439 = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %.sroa.0289.0437 = phi ptr [ %31, %.lr.ph ], [ %500, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %.not390 = icmp eq ptr %.sroa.26.0439, %1
+  br i1 %.not390, label %.critedge117, label %61
 
 61:                                               ; preds = %60
   %.sroa.038.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_110keyMATCHESE, align 8
   %.sroa.239.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keyMATCHESE, i64 8), align 8
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %63 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %62)
   br i1 %63, label %.critedge, label %64
 
@@ -1566,20 +1566,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %70
   br i1 %72, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit, label %.critedge
 
 _ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %70
-  store ptr %.sroa.0290.0438, ptr %8, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx, align 8, !tbaa !80
+  store ptr %.sroa.0289.0437, ptr %8, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx, align 8, !tbaa !80
   call void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_21CurrentAndTwoMoreIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %8)
   br label %.critedge117
 
 .critedge:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %64, %61
-  %73 = icmp eq ptr %.sroa.37.0441, %1
+  %73 = icmp eq ptr %.sroa.37.0440, %1
   br i1 %73, label %.critedge117, label %74
 
 74:                                               ; preds = %.critedge
   %.sroa.036.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_110keyMATCHESE, align 8
   %.sroa.237.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keyMATCHESE, i64 8), align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.26.0440, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.26.0439, i64 16
   %76 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
   br i1 %76, label %205, label %77
 
@@ -1593,26 +1593,26 @@ _ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedComm
 
 83:                                               ; preds = %77
   %84 = icmp eq i64 %.sroa.036.0.copyload, 0
-  br i1 %84, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit126, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i123
+  br i1 %84, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit125, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i122
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i123: ; preds = %83
-  %bcmp.i.i124 = call i32 @bcmp(ptr %79, ptr readonly %.sroa.237.0.copyload, i64 %.sroa.036.0.copyload)
-  %85 = icmp eq i32 %bcmp.i.i124, 0
-  br i1 %85, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit126, label %205
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i122: ; preds = %83
+  %bcmp.i.i123 = call i32 @bcmp(ptr %79, ptr readonly %.sroa.237.0.copyload, i64 %.sroa.036.0.copyload)
+  %85 = icmp eq i32 %bcmp.i.i123, 0
+  br i1 %85, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit125, label %205
 
-_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit126: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i123, %83
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit125: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i122, %83
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %87 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %86)
   br i1 %87, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread: ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit126
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread: ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit125
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %34, ptr %9, align 8, !tbaa !60
   store i64 0, ptr %35, align 8, !tbaa !30
   store i8 0, ptr %34, align 8, !tbaa !27
   br label %91
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit: ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit126
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit: ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit125
   %88 = load ptr, ptr %0, align 8, !tbaa !71
   %89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %86)
   %90 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %88, ptr noundef nonnull align 8 dereferenceable(32) %89)
@@ -1620,12 +1620,12 @@ _ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgumen
   store ptr %34, ptr %9, align 8, !tbaa !60
   store i64 0, ptr %35, align 8, !tbaa !30
   store i8 0, ptr %34, align 8, !tbaa !27
-  %.not392 = icmp eq ptr %90, null
-  br i1 %.not392, label %91, label %95
+  %.not391 = icmp eq ptr %90, null
+  br i1 %.not391, label %91, label %95
 
 91:                                               ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit
   %92 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %86)
-          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread375 unwind label %93
+          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread374 unwind label %93
 
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
@@ -1640,34 +1640,34 @@ _ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgumen
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !30
   %100 = icmp eq i64 %99, 0
-  br i1 %100, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread375, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  br i1 %100, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread374, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %97
   %101 = load ptr, ptr %96, align 8, !tbaa !35
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %99, i64 12)
-  %bcmp.i.i127 = call i32 @bcmp(ptr %101, ptr nonnull @.str.78, i64 %.sroa.speculated.i.i.i.i)
-  %102 = icmp eq i32 %bcmp.i.i127, 0
+  %bcmp.i.i126 = call i32 @bcmp(ptr %101, ptr nonnull @.str.78, i64 %.sroa.speculated.i.i.i.i)
+  %102 = icmp eq i32 %bcmp.i.i126, 0
   %103 = icmp ugt i64 %99, 11
-  %or.cond390 = and i1 %103, %102
-  br i1 %or.cond390, label %104, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread375
+  %or.cond389 = and i1 %103, %102
+  br i1 %or.cond389, label %104, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread374
 
 104:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %90)
-          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread375 unwind label %105
+          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread374 unwind label %105
 
-105:                                              ; preds = %104, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread375, %95
+105:                                              ; preds = %104, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread374, %95
   %106 = landingpad { ptr, i32 }
           cleanup
   br label %200
 
-_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread375: ; preds = %104, %91, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %97
-  %.sroa.0283.0 = phi ptr [ %90, %97 ], [ %90, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %92, %91 ], [ %9, %104 ]
+_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread374: ; preds = %104, %91, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %97
+  %.sroa.0282.0 = phi ptr [ %90, %97 ], [ %90, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %92, %91 ], [ %9, %104 ]
   %107 = load ptr, ptr %0, align 8, !tbaa !71
   invoke void @_ZN10cmMakefile12ClearMatchesEv(ptr noundef nonnull align 8 dereferenceable(2880) %107)
           to label %108 unwind label %105
 
-108:                                              ; preds = %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread375
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.37.0441, i64 16
+108:                                              ; preds = %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread374
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.37.0440, i64 16
   %110 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %109)
           to label %111 unwind label %170
 
@@ -1701,9 +1701,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %115
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %121 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull @.str.80, i64 noundef 16)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128 unwind label %176
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit127 unwind label %176
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit127: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
@@ -1716,10 +1716,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128: ; preds = %_ZSt
   %124 = icmp ugt ptr %122, %123
   %.08.i.i.i = select i1 %124, ptr %122, ptr %123
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
-  %.not.i.i129 = select i1 %.not.i.not.i.i, i1 true, i1 %.not5.i.i
-  br i1 %.not.i.i129, label %137, label %125
+  %.not.i.i128 = select i1 %.not.i.not.i.i, i1 true, i1 %.not5.i.i
+  br i1 %.not.i.i128, label %137, label %125
 
-125:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128
+125:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit127
   %126 = load ptr, ptr %42, align 8, !tbaa !95, !noalias !90
   %127 = ptrtoint ptr %.08.i.i.i to i64
   %128 = ptrtoint ptr %126 to i64
@@ -1740,7 +1740,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPvm(ptr noundef %133, i64 noundef %136) #25
   br label %.body
 
-137:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128
+137:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit127
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit unwind label %131
 
@@ -1802,8 +1802,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thr
   store i64 %155, ptr %45, align 8, !tbaa !30
   %156 = load i64, ptr %38, align 8, !tbaa !27
   store i64 %156, ptr %44, align 8, !tbaa !27
-  %.not.i130 = icmp eq ptr %138, null
-  br i1 %.not.i130, label %158, label %157
+  %.not.i129 = icmp eq ptr %138, null
+  br i1 %.not.i129, label %158, label %157
 
 157:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
   store ptr %138, ptr %12, align 8, !tbaa !35
@@ -1888,7 +1888,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %196
 
 180:                                              ; preds = %_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %181 = load ptr, ptr %.sroa.0283.0, align 8, !tbaa !35
+  %181 = load ptr, ptr %.sroa.0282.0, align 8, !tbaa !35
   %182 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %10, ptr noundef %181, ptr noundef nonnull align 8 dereferenceable(560) %10, i64 noundef 0, i32 noundef 0)
           to label %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmj.exit unwind label %185
 
@@ -1906,9 +1906,9 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %196
 
 187:                                              ; preds = %183, %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmj.exit
-  store ptr %.sroa.0290.0438, ptr %13, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx309, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx333, align 8, !tbaa !80
+  store ptr %.sroa.0289.0437, ptr %13, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx308, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx332, align 8, !tbaa !80
   invoke void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %182, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %13)
           to label %188 unwind label %185
 
@@ -1925,15 +1925,15 @@ _ZN5cmsys17RegularExpressionD2Ev.exit:            ; preds = %188, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %192 = load ptr, ptr %9, align 8, !tbaa !35
   %193 = icmp eq ptr %192, %34
-  br i1 %193, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133
+  br i1 %193, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i132
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133: ; preds = %_ZN5cmsys17RegularExpressionD2Ev.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i132: ; preds = %_ZN5cmsys17RegularExpressionD2Ev.exit
   %194 = load i64, ptr %34, align 8, !tbaa !27
   %195 = add i64 %194, 1
   call void @_ZdlPvm(ptr noundef %192, i64 noundef %195) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_ZN5cmsys17RegularExpressionD2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_ZN5cmsys17RegularExpressionD2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i132
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %113, label %.critedge117, label %.critedge2
 
@@ -1941,41 +1941,41 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %.pn110 = phi { ptr, i32 } [ %186, %185 ], [ %.pn107.pn, %179 ], [ %173, %172 ]
   %197 = load ptr, ptr %37, align 8, !tbaa !96
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %_ZN5cmsys17RegularExpressionD2Ev.exit136, label %199
+  br i1 %198, label %_ZN5cmsys17RegularExpressionD2Ev.exit135, label %199
 
 199:                                              ; preds = %196
   call void @_ZdaPv(ptr noundef nonnull %197) #25
-  br label %_ZN5cmsys17RegularExpressionD2Ev.exit136
+  br label %_ZN5cmsys17RegularExpressionD2Ev.exit135
 
-_ZN5cmsys17RegularExpressionD2Ev.exit136:         ; preds = %199, %196
+_ZN5cmsys17RegularExpressionD2Ev.exit135:         ; preds = %199, %196
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %200
 
-200:                                              ; preds = %170, %_ZN5cmsys17RegularExpressionD2Ev.exit136, %105, %93
-  %.pn110.pn.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %94, %93 ], [ %.pn110, %_ZN5cmsys17RegularExpressionD2Ev.exit136 ], [ %171, %170 ]
+200:                                              ; preds = %170, %_ZN5cmsys17RegularExpressionD2Ev.exit135, %105, %93
+  %.pn110.pn.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %94, %93 ], [ %.pn110, %_ZN5cmsys17RegularExpressionD2Ev.exit135 ], [ %171, %170 ]
   %201 = load ptr, ptr %9, align 8, !tbaa !35
   %202 = icmp eq ptr %201, %34
-  br i1 %202, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137
+  br i1 %202, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137: ; preds = %200
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136: ; preds = %200
   %203 = load i64, ptr %34, align 8, !tbaa !27
   %204 = add i64 %203, 1
   call void @_ZdlPvm(ptr noundef %201, i64 noundef %204) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %200, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %200, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge119
 
-205:                                              ; preds = %74, %77, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i123
+205:                                              ; preds = %74, %77, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i122
   %.sroa.026.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_17keyLESSE, align 8
   %.sroa.227.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_17keyLESSE, i64 8), align 8
   %.sroa.024.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_113keyLESS_EQUALE, align 8
   %.sroa.225.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113keyLESS_EQUALE, i64 8), align 8
-  %.sroa.0280.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_110keyGREATERE, align 8
-  %.sroa.0280.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keyGREATERE, i64 8), align 8
-  %.sroa.0279.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_116keyGREATER_EQUALE, align 8
-  %.sroa.0279.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_116keyGREATER_EQUALE, i64 8), align 8
+  %.sroa.0279.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_110keyGREATERE, align 8
+  %.sroa.0279.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keyGREATERE, i64 8), align 8
+  %.sroa.0278.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_116keyGREATER_EQUALE, align 8
+  %.sroa.0278.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_116keyGREATER_EQUALE, i64 8), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_18keyEQUALE, i64 16, i1 false)
   %206 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2025,14 +2025,14 @@ _ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK
   br label %228
 
 _ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit: ; preds = %216, %218, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
-  %227 = call noundef i32 @_ZN20cmConditionEvaluator13matchKeysImplILi3EN2cm18static_string_viewEJS2_S2_EEEiRK25cmExpandedCommandArgumentT0_DpT1_(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %75, i64 %.sroa.0280.sroa.0.0.copyload, ptr %.sroa.0280.sroa.2.0.copyload, i64 %.sroa.0279.sroa.0.0.copyload, ptr %.sroa.0279.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.cm::static_string_view") align 8 %7)
+  %227 = call noundef i32 @_ZN20cmConditionEvaluator13matchKeysImplILi3EN2cm18static_string_viewEJS2_S2_EEEiRK25cmExpandedCommandArgumentT0_DpT1_(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %75, i64 %.sroa.0279.sroa.0.0.copyload, ptr %.sroa.0279.sroa.2.0.copyload, i64 %.sroa.0278.sroa.0.0.copyload, ptr %.sroa.0278.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.cm::static_string_view") align 8 %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not94 = icmp eq i32 %227, 0
   br i1 %.not94, label %264, label %228
 
 228:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit.thread, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
-  %.0.i.i378 = phi i32 [ %.0.i.i.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit.thread ], [ %227, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit ]
-  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+  %.0.i.i377 = phi i32 [ %.0.i.i.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit.thread ], [ %227, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit ]
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %230 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %229)
   br i1 %230, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i
 
@@ -2040,8 +2040,8 @@ _ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgumen
   %231 = load ptr, ptr %0, align 8, !tbaa !71
   %232 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %229)
   %233 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %231, ptr noundef nonnull align 8 dereferenceable(32) %232)
-  %.not.i140 = icmp eq ptr %233, null
-  br i1 %.not.i140, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
+  %.not.i139 = icmp eq ptr %233, null
+  br i1 %.not.i139, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
 
 _ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i, %228
   %234 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %229)
@@ -2049,23 +2049,23 @@ _ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgumen
 
 _ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i
   %.sroa.03.0.i = phi ptr [ %233, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i ], [ %234, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i ]
-  %235 = getelementptr inbounds nuw i8, ptr %.sroa.37.0441, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %.sroa.37.0440, i64 16
   %236 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %235)
-  br i1 %236, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i144, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i141
+  br i1 %236, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i143, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i140
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i141: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i140: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
   %237 = load ptr, ptr %0, align 8, !tbaa !71
   %238 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %235)
   %239 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %237, ptr noundef nonnull align 8 dereferenceable(32) %238)
-  %.not.i142 = icmp eq ptr %239, null
-  br i1 %.not.i142, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i144, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145
+  %.not.i141 = icmp eq ptr %239, null
+  br i1 %.not.i141, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i143, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit144
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i144: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i141, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i143: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i140, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
   %240 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %235)
-  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145
+  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit144
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i141, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i144
-  %.sroa.03.0.i143 = phi ptr [ %239, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i141 ], [ %240, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i144 ]
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit144: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i140, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i143
+  %.sroa.03.0.i142 = phi ptr [ %239, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i140 ], [ %240, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i143 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %241 = load ptr, ptr %.sroa.03.0.i, align 8, !tbaa !35
@@ -2073,8 +2073,8 @@ _ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.ex
   %243 = icmp eq i32 %242, 1
   br i1 %243, label %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit", label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit": ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145
-  %244 = load ptr, ptr %.sroa.03.0.i143, align 8, !tbaa !35
+"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit": ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit144
+  %244 = load ptr, ptr %.sroa.03.0.i142, align 8, !tbaa !35
   %245 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %244, ptr noundef nonnull @.str.84, ptr noundef nonnull %15) #24
   %246 = icmp eq i32 %245, 1
   br i1 %246, label %247, label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
@@ -2082,7 +2082,7 @@ _ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.ex
 247:                                              ; preds = %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit"
   %248 = load double, ptr %14, align 8, !tbaa !97
   %249 = load double, ptr %15, align 8, !tbaa !97
-  switch i32 %.0.i.i378, label %256 [
+  switch i32 %.0.i.i377, label %256 [
     i32 1, label %250
     i32 3, label %254
     i32 2, label %252
@@ -2101,7 +2101,7 @@ _ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.ex
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
 256:                                              ; preds = %247
-  %257 = add nsw i32 %.0.i.i378, -3
+  %257 = add nsw i32 %.0.i.i377, -3
   %cond.i.i.i = icmp eq i32 %257, 1
   br i1 %cond.i.i.i, label %258, label %260
 
@@ -2115,11 +2115,11 @@ _ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.ex
   %spec.select.i.i.i.i.i = and i1 %261, %262
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145, %260, %258, %254, %252, %250, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit"
-  %263 = phi i1 [ false, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit" ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %spec.select.i.i.i.i.i, %260 ], [ %259, %258 ], [ false, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145 ]
-  store ptr %.sroa.0290.0438, ptr %16, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx311, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx335, align 8, !tbaa !80
+_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit144, %260, %258, %254, %252, %250, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit"
+  %263 = phi i1 [ false, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit" ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %spec.select.i.i.i.i.i, %260 ], [ %259, %258 ], [ false, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit144 ]
+  store ptr %.sroa.0289.0437, ptr %16, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx310, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx334, align 8, !tbaa !80
   call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %263, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2130,10 +2130,10 @@ _ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_e
   %.sroa.222.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keySTRLESSE, i64 8), align 8
   %.sroa.019.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_116keySTRLESS_EQUALE, align 8
   %.sroa.220.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_116keySTRLESS_EQUALE, i64 8), align 8
-  %.sroa.0275.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_113keySTRGREATERE, align 8
-  %.sroa.0275.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113keySTRGREATERE, i64 8), align 8
-  %.sroa.0274.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_119keySTRGREATER_EQUALE, align 8
-  %.sroa.0274.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119keySTRGREATER_EQUALE, i64 8), align 8
+  %.sroa.0274.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_113keySTRGREATERE, align 8
+  %.sroa.0274.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113keySTRGREATERE, i64 8), align 8
+  %.sroa.0273.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_119keySTRGREATER_EQUALE, align 8
+  %.sroa.0273.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119keySTRGREATER_EQUALE, i64 8), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_111keySTREQUALE, i64 16, i1 false)
   %265 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2149,16 +2149,16 @@ _ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_e
 
 272:                                              ; preds = %266
   %273 = icmp eq i64 %.sroa.021.0.copyload, 0
-  br i1 %273, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i157
+  br i1 %273, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i156
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i157: ; preds = %272
-  %bcmp.i.i.i.i158 = call i32 @bcmp(ptr %268, ptr readonly %.sroa.222.0.copyload, i64 %.sroa.021.0.copyload)
-  %274 = icmp eq i32 %bcmp.i.i.i.i158, 0
-  br i1 %274, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159.thread, label %275
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i156: ; preds = %272
+  %bcmp.i.i.i.i157 = call i32 @bcmp(ptr %268, ptr readonly %.sroa.222.0.copyload, i64 %.sroa.021.0.copyload)
+  %274 = icmp eq i32 %bcmp.i.i.i.i157, 0
+  br i1 %274, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158.thread, label %275
 
-275:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i157, %266, %264
+275:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i156, %266, %264
   %276 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
-  br i1 %276, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159, label %277
+  br i1 %276, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158, label %277
 
 277:                                              ; preds = %275
   %278 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2166,80 +2166,80 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i157: ; preds = %272
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %281 = load i64, ptr %280, align 8, !tbaa !30
   %282 = icmp eq i64 %281, %.sroa.019.0.copyload
-  br i1 %282, label %283, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159
+  br i1 %282, label %283, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158
 
 283:                                              ; preds = %277
   %284 = icmp eq i64 %.sroa.019.0.copyload, 0
-  br i1 %284, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i155
+  br i1 %284, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i154
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i155: ; preds = %283
-  %bcmp.i.i.i.i.i156 = call i32 @bcmp(ptr %279, ptr readonly %.sroa.220.0.copyload, i64 %.sroa.019.0.copyload)
-  %285 = icmp eq i32 %bcmp.i.i.i.i.i156, 0
-  br i1 %285, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159.thread, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i154: ; preds = %283
+  %bcmp.i.i.i.i.i155 = call i32 @bcmp(ptr %279, ptr readonly %.sroa.220.0.copyload, i64 %.sroa.019.0.copyload)
+  %285 = icmp eq i32 %bcmp.i.i.i.i.i155, 0
+  br i1 %285, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158.thread, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158
 
-_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159.thread: ; preds = %272, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i157, %283, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i155
-  %.0.i.i154.ph = phi i32 [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i155 ], [ 2, %283 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i157 ], [ 1, %272 ]
+_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158.thread: ; preds = %272, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i156, %283, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i154
+  %.0.i.i153.ph = phi i32 [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i154 ], [ 2, %283 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i156 ], [ 1, %272 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %287
 
-_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159: ; preds = %275, %277, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i155
-  %286 = call noundef i32 @_ZN20cmConditionEvaluator13matchKeysImplILi3EN2cm18static_string_viewEJS2_S2_EEEiRK25cmExpandedCommandArgumentT0_DpT1_(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %75, i64 %.sroa.0275.sroa.0.0.copyload, ptr %.sroa.0275.sroa.2.0.copyload, i64 %.sroa.0274.sroa.0.0.copyload, ptr %.sroa.0274.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.cm::static_string_view") align 8 %6)
+_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158: ; preds = %275, %277, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i154
+  %286 = call noundef i32 @_ZN20cmConditionEvaluator13matchKeysImplILi3EN2cm18static_string_viewEJS2_S2_EEEiRK25cmExpandedCommandArgumentT0_DpT1_(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %75, i64 %.sroa.0274.sroa.0.0.copyload, ptr %.sroa.0274.sroa.2.0.copyload, i64 %.sroa.0273.sroa.0.0.copyload, ptr %.sroa.0273.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.cm::static_string_view") align 8 %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not95 = icmp eq i32 %286, 0
   br i1 %.not95, label %322, label %287
 
-287:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159.thread, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159
-  %.0.i.i154381 = phi i32 [ %.0.i.i154.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159.thread ], [ %286, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159 ]
-  %288 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+287:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158.thread, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158
+  %.0.i.i153380 = phi i32 [ %.0.i.i153.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158.thread ], [ %286, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158 ]
+  %288 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %289 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %288)
-  br i1 %289, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i163, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i160
+  br i1 %289, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i162, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i159
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i160: ; preds = %287
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i159: ; preds = %287
   %290 = load ptr, ptr %0, align 8, !tbaa !71
   %291 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %288)
   %292 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %290, ptr noundef nonnull align 8 dereferenceable(32) %291)
-  %.not.i161 = icmp eq ptr %292, null
-  br i1 %.not.i161, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i163, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit164
+  %.not.i160 = icmp eq ptr %292, null
+  br i1 %.not.i160, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i162, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit163
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i163: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i160, %287
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i162: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i159, %287
   %293 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %288)
-  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit164
+  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit163
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit164: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i160, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i163
-  %.sroa.03.0.i162 = phi ptr [ %292, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i160 ], [ %293, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i163 ]
-  %294 = getelementptr inbounds nuw i8, ptr %.sroa.37.0441, i64 16
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit163: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i159, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i162
+  %.sroa.03.0.i161 = phi ptr [ %292, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i159 ], [ %293, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i162 ]
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.37.0440, i64 16
   %295 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %294)
-  br i1 %295, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i168, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i165
+  br i1 %295, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i167, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i164
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i165: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit164
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i164: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit163
   %296 = load ptr, ptr %0, align 8, !tbaa !71
   %297 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %294)
   %298 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %296, ptr noundef nonnull align 8 dereferenceable(32) %297)
-  %.not.i166 = icmp eq ptr %298, null
-  br i1 %.not.i166, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i168, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit169
+  %.not.i165 = icmp eq ptr %298, null
+  br i1 %.not.i165, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i167, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit168
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i168: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i165, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit164
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i167: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i164, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit163
   %299 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %294)
-  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit169
+  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit168
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit169: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i165, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i168
-  %.sroa.03.0.i167 = phi ptr [ %298, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i165 ], [ %299, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i168 ]
-  %300 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i162, i64 8
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit168: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i164, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i167
+  %.sroa.03.0.i166 = phi ptr [ %298, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i164 ], [ %299, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i167 ]
+  %300 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i161, i64 8
   %301 = load i64, ptr %300, align 8, !tbaa !30
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i167, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i166, i64 8
   %303 = load i64, ptr %302, align 8, !tbaa !30
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %303, i64 %301)
   %304 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %304, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit169
-  %305 = load ptr, ptr %.sroa.03.0.i167, align 8, !tbaa !35
-  %306 = load ptr, ptr %.sroa.03.0.i162, align 8, !tbaa !35
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit168
+  %305 = load ptr, ptr %.sroa.03.0.i166, align 8, !tbaa !35
+  %306 = load ptr, ptr %.sroa.03.0.i161, align 8, !tbaa !35
   %307 = call i32 @memcmp(ptr noundef %306, ptr noundef %305, i64 noundef %.sroa.speculated.i) #24
-  %.not.i174 = icmp eq i32 %307, 0
-  br i1 %.not.i174, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
+  %.not.i173 = icmp eq i32 %307, 0
+  br i1 %.not.i173, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit169
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit168
   %308 = sub i64 %301, %303
   %spec.select7.i.i = call i64 @llvm.smax.i64(i64 %308, i64 -2147483648)
   %.08.i.i = call i64 @llvm.smin.i64(i64 %spec.select7.i.i, i64 2147483647)
@@ -2247,57 +2247,57 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_trai
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i
-  %.0.i175 = phi i32 [ %307, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ], [ %.0.i6.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i ]
-  switch i32 %.0.i.i154381, label %315 [
+  %.0.i174 = phi i32 [ %307, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ], [ %.0.i6.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i ]
+  switch i32 %.0.i.i153380, label %315 [
     i32 1, label %309
     i32 3, label %313
     i32 2, label %311
   ]
 
 309:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
-  %310 = icmp slt i32 %.0.i175, 0
+  %310 = icmp slt i32 %.0.i174, 0
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
 311:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
-  %312 = icmp slt i32 %.0.i175, 1
+  %312 = icmp slt i32 %.0.i174, 1
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
 313:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
-  %314 = icmp sgt i32 %.0.i175, 0
+  %314 = icmp sgt i32 %.0.i174, 0
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
 315:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit
-  %316 = add nsw i32 %.0.i.i154381, -3
-  %cond.i.i.i177 = icmp eq i32 %316, 1
-  br i1 %cond.i.i.i177, label %317, label %319
+  %316 = add nsw i32 %.0.i.i153380, -3
+  %cond.i.i.i176 = icmp eq i32 %316, 1
+  br i1 %cond.i.i.i176, label %317, label %319
 
 317:                                              ; preds = %315
-  %318 = icmp sgt i32 %.0.i175, -1
+  %318 = icmp sgt i32 %.0.i174, -1
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
 319:                                              ; preds = %315
   %320 = icmp eq i32 %316, 2
-  %321 = icmp eq i32 %.0.i175, 0
-  %spec.select.i.i.i.i.i178 = and i1 %320, %321
+  %321 = icmp eq i32 %.0.i174, 0
+  %spec.select.i.i.i.i.i177 = and i1 %320, %321
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
 _ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit: ; preds = %309, %311, %313, %317, %319
-  %.0.i176 = phi i1 [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %spec.select.i.i.i.i.i178, %319 ], [ %318, %317 ]
-  store ptr %.sroa.0290.0438, ptr %17, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx313, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx337, align 8, !tbaa !80
-  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.0.i176, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %17)
+  %.0.i175 = phi i1 [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %spec.select.i.i.i.i.i177, %319 ], [ %318, %317 ]
+  store ptr %.sroa.0289.0437, ptr %17, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx312, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx336, align 8, !tbaa !80
+  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.0.i175, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %17)
   br label %.critedge117
 
-322:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit159
+322:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit158
   %.sroa.015.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_115keyVERSION_LESSE, align 8
   %.sroa.216.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_115keyVERSION_LESSE, i64 8), align 8
   %.sroa.013.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_121keyVERSION_LESS_EQUALE, align 8
   %.sroa.214.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_121keyVERSION_LESS_EQUALE, i64 8), align 8
-  %.sroa.0270.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_118keyVERSION_GREATERE, align 8
-  %.sroa.0270.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_118keyVERSION_GREATERE, i64 8), align 8
-  %.sroa.0269.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_124keyVERSION_GREATER_EQUALE, align 8
-  %.sroa.0269.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_124keyVERSION_GREATER_EQUALE, i64 8), align 8
+  %.sroa.0269.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_118keyVERSION_GREATERE, align 8
+  %.sroa.0269.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_118keyVERSION_GREATERE, i64 8), align 8
+  %.sroa.0268.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_124keyVERSION_GREATER_EQUALE, align 8
+  %.sroa.0268.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_124keyVERSION_GREATER_EQUALE, i64 8), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_116keyVERSION_EQUALE, i64 16, i1 false)
   %323 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2313,16 +2313,16 @@ _ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_e
 
 330:                                              ; preds = %324
   %331 = icmp eq i64 %.sroa.015.0.copyload, 0
-  br i1 %331, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i188
+  br i1 %331, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i187
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i188: ; preds = %330
-  %bcmp.i.i.i.i189 = call i32 @bcmp(ptr %326, ptr readonly %.sroa.216.0.copyload, i64 %.sroa.015.0.copyload)
-  %332 = icmp eq i32 %bcmp.i.i.i.i189, 0
-  br i1 %332, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread, label %333
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i187: ; preds = %330
+  %bcmp.i.i.i.i188 = call i32 @bcmp(ptr %326, ptr readonly %.sroa.216.0.copyload, i64 %.sroa.015.0.copyload)
+  %332 = icmp eq i32 %bcmp.i.i.i.i188, 0
+  br i1 %332, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread, label %333
 
-333:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i188, %324, %322
+333:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i187, %324, %322
   %334 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
-  br i1 %334, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190, label %335
+  br i1 %334, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189, label %335
 
 335:                                              ; preds = %333
   %336 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2330,76 +2330,76 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i188: ; preds = %330
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %339 = load i64, ptr %338, align 8, !tbaa !30
   %340 = icmp eq i64 %339, %.sroa.013.0.copyload
-  br i1 %340, label %341, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190
+  br i1 %340, label %341, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189
 
 341:                                              ; preds = %335
   %342 = icmp eq i64 %.sroa.013.0.copyload, 0
-  br i1 %342, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i186
+  br i1 %342, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i185
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i186: ; preds = %341
-  %bcmp.i.i.i.i.i187 = call i32 @bcmp(ptr %337, ptr readonly %.sroa.214.0.copyload, i64 %.sroa.013.0.copyload)
-  %343 = icmp eq i32 %bcmp.i.i.i.i.i187, 0
-  br i1 %343, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i185: ; preds = %341
+  %bcmp.i.i.i.i.i186 = call i32 @bcmp(ptr %337, ptr readonly %.sroa.214.0.copyload, i64 %.sroa.013.0.copyload)
+  %343 = icmp eq i32 %bcmp.i.i.i.i.i186, 0
+  br i1 %343, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189
 
-_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread: ; preds = %330, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i188, %341, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i186
-  %.0.i.i185.ph = phi i32 [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i186 ], [ 2, %341 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i188 ], [ 1, %330 ]
+_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread: ; preds = %330, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i187, %341, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i185
+  %.0.i.i184.ph = phi i32 [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i185 ], [ 2, %341 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i187 ], [ 1, %330 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %345
 
-_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190: ; preds = %333, %335, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i186
-  %344 = call noundef i32 @_ZN20cmConditionEvaluator13matchKeysImplILi3EN2cm18static_string_viewEJS2_S2_EEEiRK25cmExpandedCommandArgumentT0_DpT1_(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %75, i64 %.sroa.0270.sroa.0.0.copyload, ptr %.sroa.0270.sroa.2.0.copyload, i64 %.sroa.0269.sroa.0.0.copyload, ptr %.sroa.0269.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.cm::static_string_view") align 8 %5)
+_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189: ; preds = %333, %335, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i185
+  %344 = call noundef i32 @_ZN20cmConditionEvaluator13matchKeysImplILi3EN2cm18static_string_viewEJS2_S2_EEEiRK25cmExpandedCommandArgumentT0_DpT1_(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %75, i64 %.sroa.0269.sroa.0.0.copyload, ptr %.sroa.0269.sroa.2.0.copyload, i64 %.sroa.0268.sroa.0.0.copyload, ptr %.sroa.0268.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.cm::static_string_view") align 8 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not96 = icmp eq i32 %344, 0
   br i1 %.not96, label %363, label %345
 
-345:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190
-  %.0.i.i185384 = phi i32 [ %.0.i.i185.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread ], [ %344, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190 ]
-  %346 = sext i32 %.0.i.i185384 to i64
+345:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189
+  %.0.i.i184383 = phi i32 [ %.0.i.i184.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread ], [ %344, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189 ]
+  %346 = sext i32 %.0.i.i184383 to i64
   %347 = getelementptr i32, ptr @_ZN12_GLOBAL__N_111MATCH2CMPOPE, i64 %346
   %348 = getelementptr i8, ptr %347, i64 -4
   %349 = load i32, ptr %348, align 4, !tbaa !99
-  %350 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %351 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %350)
-  br i1 %351, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i194, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i191
+  br i1 %351, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i193, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i190
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i191: ; preds = %345
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i190: ; preds = %345
   %352 = load ptr, ptr %0, align 8, !tbaa !71
   %353 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %350)
   %354 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %352, ptr noundef nonnull align 8 dereferenceable(32) %353)
-  %.not.i192 = icmp eq ptr %354, null
-  br i1 %.not.i192, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i194, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit195
+  %.not.i191 = icmp eq ptr %354, null
+  br i1 %.not.i191, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i193, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit194
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i194: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i191, %345
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i193: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i190, %345
   %355 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %350)
-  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit195
+  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit194
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit195: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i191, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i194
-  %.sroa.03.0.i193 = phi ptr [ %354, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i191 ], [ %355, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i194 ]
-  %356 = getelementptr inbounds nuw i8, ptr %.sroa.37.0441, i64 16
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit194: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i190, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i193
+  %.sroa.03.0.i192 = phi ptr [ %354, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i190 ], [ %355, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i193 ]
+  %356 = getelementptr inbounds nuw i8, ptr %.sroa.37.0440, i64 16
   %357 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %356)
-  br i1 %357, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i199, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i196
+  br i1 %357, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i198, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i195
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i196: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit195
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i195: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit194
   %358 = load ptr, ptr %0, align 8, !tbaa !71
   %359 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %356)
   %360 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %358, ptr noundef nonnull align 8 dereferenceable(32) %359)
-  %.not.i197 = icmp eq ptr %360, null
-  br i1 %.not.i197, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i199, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit200
+  %.not.i196 = icmp eq ptr %360, null
+  br i1 %.not.i196, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i198, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit199
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i199: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i196, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit195
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i198: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i195, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit194
   %361 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %356)
-  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit200
+  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit199
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit200: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i196, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i199
-  %.sroa.03.0.i198 = phi ptr [ %360, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i196 ], [ %361, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i199 ]
-  %362 = call noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(i32 noundef %349, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i193, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i198)
-  store ptr %.sroa.0290.0438, ptr %18, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx315, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx339, align 8, !tbaa !80
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit199: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i195, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i198
+  %.sroa.03.0.i197 = phi ptr [ %360, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i195 ], [ %361, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i198 ]
+  %362 = call noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(i32 noundef %349, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i192, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i197)
+  store ptr %.sroa.0289.0437, ptr %18, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx314, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx338, align 8, !tbaa !80
   call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %362, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %18)
   br label %.critedge117
 
-363:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190
+363:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189
   %.sroa.09.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_116keyIS_NEWER_THANE, align 8
   %.sroa.210.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_116keyIS_NEWER_THANE, i64 8), align 8
   %364 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2415,19 +2415,19 @@ _ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.ex
 
 371:                                              ; preds = %365
   %372 = icmp eq i64 %.sroa.09.0.copyload, 0
-  br i1 %372, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit209, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i206
+  br i1 %372, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit208, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i205
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i206: ; preds = %371
-  %bcmp.i.i207 = call i32 @bcmp(ptr %367, ptr readonly %.sroa.210.0.copyload, i64 %.sroa.09.0.copyload)
-  %373 = icmp eq i32 %bcmp.i.i207, 0
-  br i1 %373, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit209, label %383
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i205: ; preds = %371
+  %bcmp.i.i206 = call i32 @bcmp(ptr %367, ptr readonly %.sroa.210.0.copyload, i64 %.sroa.09.0.copyload)
+  %373 = icmp eq i32 %bcmp.i.i206, 0
+  br i1 %373, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit208, label %383
 
-_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit209: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i206, %371
+_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit208: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i205, %371
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4, !tbaa !28
-  %374 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %375 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %374)
-  %376 = getelementptr inbounds nuw i8, ptr %.sroa.37.0441, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %.sroa.37.0440, i64 16
   %377 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %376)
   %378 = call i64 @_ZN5cmsys11SystemTools15FileTimeCompareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pi(ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef nonnull %19)
   %379 = and i64 %378, 4294967295
@@ -2435,14 +2435,14 @@ _ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedComm
   %381 = load i32, ptr %19, align 4
   %382 = icmp ult i32 %381, 2
   %spec.select = select i1 %380, i1 true, i1 %382
-  store ptr %.sroa.0290.0438, ptr %20, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx317, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx341, align 8, !tbaa !80
+  store ptr %.sroa.0289.0437, ptr %20, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx316, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx340, align 8, !tbaa !80
   call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %spec.select, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.critedge117
 
-383:                                              ; preds = %363, %365, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i206
+383:                                              ; preds = %363, %365, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i205
   %.sroa.07.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_110keyIN_LISTE, align 8
   %.sroa.28.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keyIN_LISTE, i64 8), align 8
   %384 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2458,44 +2458,44 @@ _ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedComm
 
 391:                                              ; preds = %385
   %392 = icmp eq i64 %.sroa.07.0.copyload, 0
-  br i1 %392, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit214, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i211
+  br i1 %392, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit213, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i210
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i211: ; preds = %391
-  %bcmp.i.i212 = call i32 @bcmp(ptr %387, ptr readonly %.sroa.28.0.copyload, i64 %.sroa.07.0.copyload)
-  %393 = icmp eq i32 %bcmp.i.i212, 0
-  br i1 %393, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit214, label %419
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i210: ; preds = %391
+  %bcmp.i.i211 = call i32 @bcmp(ptr %387, ptr readonly %.sroa.28.0.copyload, i64 %.sroa.07.0.copyload)
+  %393 = icmp eq i32 %bcmp.i.i211, 0
+  br i1 %393, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit213, label %419
 
-_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit214: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i211, %391
-  %394 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit213: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i210, %391
+  %394 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %395 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %394)
-  br i1 %395, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i218, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i215
+  br i1 %395, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i217, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i214
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i215: ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit214
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i214: ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit213
   %396 = load ptr, ptr %0, align 8, !tbaa !71
   %397 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %394)
   %398 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %396, ptr noundef nonnull align 8 dereferenceable(32) %397)
-  %.not.i216 = icmp eq ptr %398, null
-  br i1 %.not.i216, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i218, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit219
+  %.not.i215 = icmp eq ptr %398, null
+  br i1 %.not.i215, label %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i217, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit218
 
-_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i218: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i215, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit214
+_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i217: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i214, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit213
   %399 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %394)
-  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit219
+  br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit218
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit219: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i215, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i218
-  %.sroa.03.0.i217 = phi ptr [ %398, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i215 ], [ %399, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i218 ]
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit218: ; preds = %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i214, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i217
+  %.sroa.03.0.i216 = phi ptr [ %398, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.i214 ], [ %399, %_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument.exit.thread.i217 ]
   %400 = load ptr, ptr %0, align 8, !tbaa !71
-  %401 = getelementptr inbounds nuw i8, ptr %.sroa.37.0441, i64 16
+  %401 = getelementptr inbounds nuw i8, ptr %.sroa.37.0440, i64 16
   %402 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %401)
   %403 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %400, ptr noundef nonnull align 8 dereferenceable(32) %402)
-  %.not395 = icmp eq ptr %403, null
-  br i1 %.not395, label %411, label %404
+  %.not394 = icmp eq ptr %403, null
+  br i1 %.not394, label %411, label %404
 
-404:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit219
+404:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit218
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZN6cmListC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EmptyElementsE(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(32) %403, i32 noundef 1)
   %405 = load ptr, ptr %21, align 8, !tbaa !101
   %406 = load ptr, ptr %53, align 8, !tbaa !101
-  %407 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %405, ptr %406, ptr nonnull align 8 dereferenceable(32) %.sroa.03.0.i217)
+  %407 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %405, ptr %406, ptr nonnull align 8 dereferenceable(32) %.sroa.03.0.i216)
           to label %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit unwind label %.thread
 
 .thread:                                          ; preds = %404
@@ -2508,16 +2508,16 @@ _ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt
   %410 = icmp ne ptr %407, %409
   br label %411
 
-411:                                              ; preds = %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit219
-  %412 = phi i1 [ %410, %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit ], [ false, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit219 ]
-  store ptr %.sroa.0290.0438, ptr %22, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx319, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx343, align 8, !tbaa !80
+411:                                              ; preds = %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit218
+  %412 = phi i1 [ %410, %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit ], [ false, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit218 ]
+  store ptr %.sroa.0289.0437, ptr %22, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx318, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx342, align 8, !tbaa !80
   invoke void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %412, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %22)
           to label %413 unwind label %415
 
 413:                                              ; preds = %411
-  br i1 %.not395, label %.critedge117, label %414
+  br i1 %.not394, label %.critedge117, label %414
 
 414:                                              ; preds = %413
   call void @_ZN6cmListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #24
@@ -2527,7 +2527,7 @@ _ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt
 415:                                              ; preds = %411
   %416 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not395, label %.critedge119, label %417
+  br i1 %.not394, label %.critedge119, label %417
 
 417:                                              ; preds = %.thread, %415
   %418 = phi { ptr, i32 } [ %408, %.thread ], [ %416, %415 ]
@@ -2535,7 +2535,7 @@ _ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge119
 
-419:                                              ; preds = %383, %385, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i211
+419:                                              ; preds = %383, %385, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i210
   %.sroa.0.0.copyload = load i64, ptr @_ZN12_GLOBAL__N_113keyPATH_EQUALE, align 8
   %.sroa.2.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113keyPATH_EQUALE, i64 8), align 8
   %420 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %75)
@@ -2551,22 +2551,22 @@ _ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt
 
 427:                                              ; preds = %421
   %428 = icmp eq i64 %.sroa.0.0.copyload, 0
-  br i1 %428, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit228, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i225
+  br i1 %428, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit227, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i224
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i225: ; preds = %427
-  %bcmp.i.i226 = call i32 @bcmp(ptr %423, ptr readonly %.sroa.2.0.copyload, i64 %.sroa.0.0.copyload)
-  %429 = icmp eq i32 %bcmp.i.i226, 0
-  br i1 %429, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit228, label %.critedge117
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i224: ; preds = %427
+  %bcmp.i.i225 = call i32 @bcmp(ptr %423, ptr readonly %.sroa.2.0.copyload, i64 %.sroa.0.0.copyload)
+  %429 = icmp eq i32 %bcmp.i.i225, 0
+  br i1 %429, label %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit227, label %.critedge117
 
-_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit228: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i225, %427
+_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit227: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i224, %427
   %430 = load i32, ptr %54, align 8, !tbaa !15
-  %switch121 = icmp ult i32 %430, 2
-  br i1 %switch121, label %464, label %431
+  %switch = icmp ult i32 %430, 2
+  br i1 %switch, label %464, label %431
 
-431:                                              ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit228
-  %432 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
+431:                                              ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit227
+  %432 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16
   %433 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %432)
-  %434 = getelementptr inbounds nuw i8, ptr %.sroa.37.0441, i64 16
+  %434 = getelementptr inbounds nuw i8, ptr %.sroa.37.0440, i64 16
   %435 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %434)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %433)
@@ -2588,32 +2588,32 @@ _ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedComm
   call void @_ZN11cmCMakePathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #24
   %441 = load ptr, ptr %26, align 8, !tbaa !35
   %442 = icmp eq ptr %441, %55
-  br i1 %442, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i233
+  br i1 %442, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i232
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i233: ; preds = %438
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i232: ; preds = %438
   %443 = load i64, ptr %55, align 8, !tbaa !27
   %444 = add i64 %443, 1
   call void @_ZdlPvm(ptr noundef %441, i64 noundef %444) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235: ; preds = %438, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i233
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234: ; preds = %438, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i232
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN11cmCMakePathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #24
   %445 = load ptr, ptr %24, align 8, !tbaa !35
   %446 = icmp eq ptr %445, %56
-  br i1 %446, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i236
+  br i1 %446, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i235
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i236: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i235: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234
   %447 = load i64, ptr %56, align 8, !tbaa !27
   %448 = add i64 %447, 1
   call void @_ZdlPvm(ptr noundef %445, i64 noundef %448) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i236
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i235
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  store ptr %.sroa.0290.0438, ptr %27, align 8, !tbaa !80
-  store ptr %.sroa.26.0440, ptr %.sroa.26.0..sroa_idx321, align 8, !tbaa !80
-  store ptr %.sroa.37.0441, ptr %.sroa.37.0..sroa_idx345, align 8, !tbaa !80
+  store ptr %.sroa.0289.0437, ptr %27, align 8, !tbaa !80
+  store ptr %.sroa.26.0439, ptr %.sroa.26.0..sroa_idx320, align 8, !tbaa !80
+  store ptr %.sroa.37.0440, ptr %.sroa.37.0..sroa_idx344, align 8, !tbaa !80
   call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %440, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %27)
   br label %.critedge117
 
@@ -2625,44 +2625,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238: ; preds = %_Z
 451:                                              ; preds = %436
   %452 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240
 
 453:                                              ; preds = %437
   %454 = landingpad { ptr, i32 }
           cleanup
   %455 = load ptr, ptr %26, align 8, !tbaa !35
   %456 = icmp eq ptr %455, %55
-  br i1 %456, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i239
+  br i1 %456, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i238
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i239: ; preds = %453
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i238: ; preds = %453
   %457 = load i64, ptr %55, align 8, !tbaa !27
   %458 = add i64 %457, 1
   call void @_ZdlPvm(ptr noundef %455, i64 noundef %458) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241: ; preds = %453, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i239, %451
-  %.pn103 = phi { ptr, i32 } [ %452, %451 ], [ %454, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i239 ], [ %454, %453 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240: ; preds = %453, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i238, %451
+  %.pn103 = phi { ptr, i32 } [ %452, %451 ], [ %454, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i238 ], [ %454, %453 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN11cmCMakePathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #24
   br label %459
 
-459:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241, %449
-  %.pn103.pn = phi { ptr, i32 } [ %.pn103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241 ], [ %450, %449 ]
+459:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240, %449
+  %.pn103.pn = phi { ptr, i32 } [ %.pn103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240 ], [ %450, %449 ]
   %460 = load ptr, ptr %24, align 8, !tbaa !35
   %461 = icmp eq ptr %460, %56
-  br i1 %461, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i242
+  br i1 %461, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i241
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i242: ; preds = %459
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i241: ; preds = %459
   %462 = load i64, ptr %56, align 8, !tbaa !27
   %463 = add i64 %462, 1
   call void @_ZdlPvm(ptr noundef %460, i64 noundef %463) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %459, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i242
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243: ; preds = %459, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i241
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.critedge119
 
-464:                                              ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit228
+464:                                              ; preds = %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit227
   %465 = icmp eq i32 %430, 1
   br i1 %465, label %466, label %.critedge117
 
@@ -2677,46 +2677,46 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %45
   %468 = load ptr, ptr %29, align 8, !tbaa !35
   %469 = load i64, ptr %57, align 8, !tbaa !30
   %470 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %468, i64 noundef %469)
-          to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit245 unwind label %485
+          to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit244 unwind label %485
 
-_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit245: ; preds = %467
+_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit244: ; preds = %467
   %471 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %470, ptr noundef nonnull @.str.81, i64 noundef 137)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit246 unwind label %485
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit245 unwind label %485
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit246: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit245
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit245: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit244
   %472 = load ptr, ptr %29, align 8, !tbaa !35
   %473 = icmp eq ptr %472, %58
-  br i1 %473, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i247
+  br i1 %473, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i246
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i247: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit246
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i246: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit245
   %474 = load i64, ptr %58, align 8, !tbaa !27
   %475 = add i64 %474, 1
   call void @_ZdlPvm(ptr noundef %472, i64 noundef %475) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit246, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i247
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i246
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %476 = load ptr, ptr %0, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 8 dereferenceable(112) %28)
           to label %477 unwind label %491
 
-477:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249
+477:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248
   invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %476, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %478 unwind label %493
 
 478:                                              ; preds = %477
   %479 = load ptr, ptr %30, align 8, !tbaa !35
   %480 = icmp eq ptr %479, %59
-  br i1 %480, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250
+  br i1 %480, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250: ; preds = %478
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249: ; preds = %478
   %481 = load i64, ptr %59, align 8, !tbaa !27
   %482 = add i64 %481, 1
   call void @_ZdlPvm(ptr noundef %479, i64 noundef %482) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %478, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %478, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %28) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -2725,59 +2725,59 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %47
 483:                                              ; preds = %466
   %484 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254
 
-485:                                              ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit245, %467
+485:                                              ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit244, %467
   %486 = landingpad { ptr, i32 }
           cleanup
   %487 = load ptr, ptr %29, align 8, !tbaa !35
   %488 = icmp eq ptr %487, %58
-  br i1 %488, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i253
+  br i1 %488, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i252
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i253: ; preds = %485
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i252: ; preds = %485
   %489 = load i64, ptr %58, align 8, !tbaa !27
   %490 = add i64 %489, 1
   call void @_ZdlPvm(ptr noundef %487, i64 noundef %490) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %485, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i253, %483
-  %.pn = phi { ptr, i32 } [ %484, %483 ], [ %486, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i253 ], [ %486, %485 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254: ; preds = %485, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i252, %483
+  %.pn = phi { ptr, i32 } [ %484, %483 ], [ %486, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i252 ], [ %486, %485 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %499
 
-491:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249
+491:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248
   %492 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257
 
 493:                                              ; preds = %477
   %494 = landingpad { ptr, i32 }
           cleanup
   %495 = load ptr, ptr %30, align 8, !tbaa !35
   %496 = icmp eq ptr %495, %59
-  br i1 %496, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i256
+  br i1 %496, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i255
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i256: ; preds = %493
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i255: ; preds = %493
   %497 = load i64, ptr %59, align 8, !tbaa !27
   %498 = add i64 %497, 1
   call void @_ZdlPvm(ptr noundef %495, i64 noundef %498) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258: ; preds = %493, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i256, %491
-  %.pn100 = phi { ptr, i32 } [ %492, %491 ], [ %494, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i256 ], [ %494, %493 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257: ; preds = %493, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i255, %491
+  %.pn100 = phi { ptr, i32 } [ %492, %491 ], [ %494, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i255 ], [ %494, %493 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %499
 
-499:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255
-  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ]
+499:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254
+  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %28) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.critedge119
 
-.critedge117:                                     ; preds = %60, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit209, %464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit200, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit, %413, %414, %419, %421, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i225, %.critedge
-  %500 = load ptr, ptr %.sroa.0290.0438, align 8, !tbaa !41, !noalias !103
-  %.not.i259 = icmp eq ptr %500, %1
-  br i1 %.not.i259, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, label %.preheader.i.i.i8.preheader.i
+.critedge117:                                     ; preds = %60, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit, %_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument.exit208, %464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit199, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit, %413, %414, %419, %421, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i224, %.critedge
+  %500 = load ptr, ptr %.sroa.0289.0437, align 8, !tbaa !41, !noalias !103
+  %.not.i258 = icmp eq ptr %500, %1
+  br i1 %.not.i258, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, label %.preheader.i.i.i8.preheader.i
 
 .preheader.i.i.i8.preheader.i:                    ; preds = %.critedge117
   %501 = load ptr, ptr %500, align 8, !tbaa !41, !noalias !103
@@ -2785,8 +2785,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258: ; preds = %49
 
 _ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i: ; preds = %.preheader.i.i.i8.preheader.i, %.critedge117
   %.sroa.0.0.i.i = phi ptr [ %500, %.critedge117 ], [ %501, %.preheader.i.i.i8.preheader.i ]
-  %.not22.i260 = icmp eq ptr %.sroa.0.0.i.i, %1
-  br i1 %.not22.i260, label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, label %.preheader.i.i.i17.preheader.i
+  %.not22.i259 = icmp eq ptr %.sroa.0.0.i.i, %1
+  br i1 %.not22.i259, label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, label %.preheader.i.i.i17.preheader.i
 
 .preheader.i.i.i17.preheader.i:                   ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
   %502 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !41, !noalias !103
@@ -2794,14 +2794,14 @@ _ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_tra
 
 _ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, %.preheader.i.i.i17.preheader.i
   %.sroa.0.0.i16.i = phi ptr [ %.sroa.0.0.i.i, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i ], [ %502, %.preheader.i.i.i17.preheader.i ]
-  br i1 %.not.i259, label %.critedge2, label %60, !llvm.loop !106
+  br i1 %.not.i258, label %.critedge2, label %60, !llvm.loop !106
 
-.critedge119:                                     ; preds = %417, %415, %499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139
-  %.pn110.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn103.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244 ], [ %.pn100.pn, %499 ], [ %416, %415 ], [ %418, %417 ]
+.critedge119:                                     ; preds = %417, %415, %499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
+  %.pn110.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ], [ %.pn103.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243 ], [ %.pn100.pn, %499 ], [ %416, %415 ], [ %418, %417 ]
   resume { ptr, i32 } %.pn110.pn.pn.pn.pn
 
-.critedge2:                                       ; preds = %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
-  %.not.lcssa = phi i1 [ true, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ true, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+.critedge2:                                       ; preds = %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
+  %.not.lcssa = phi i1 [ true, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134 ], [ true, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
   ret i1 %.not.lcssa
 }
 

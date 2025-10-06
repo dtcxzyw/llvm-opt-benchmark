@@ -135,22 +135,22 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %68, label %.preheader36
+  br i1 %.not, label %68, label %.preheader35
 
-.preheader36:                                     ; preds = %12
+.preheader35:                                     ; preds = %12
   %19 = icmp sgt i32 %16, 0
   br i1 %19, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader36
+.lr.ph:                                           ; preds = %.preheader35
   %.not.i = icmp eq ptr %5, null
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %21 = ptrtoint ptr %1 to i64
-  %wide.trip.count60 = and i64 %15, 2147483647
+  %wide.trip.count59 = and i64 %15, 2147483647
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %37
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %37 ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %18, i64 %indvars.iv57
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %37 ], [ 0, %.lr.ph ]
+  %22 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %18, i64 %indvars.iv56
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 15
@@ -173,9 +173,9 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
   br i1 %36, label %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit, label %37
 
 37:                                               ; preds = %31, %27, %.lr.ph.split.us
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph ]
@@ -220,10 +220,10 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
 
 _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; preds = %58, %31
   %.us-phi = phi i64 [ %34, %31 ], [ %60, %58 ]
-  %.us-phi40 = phi ptr [ %22, %31 ], [ %38, %58 ]
+  %.us-phi39 = phi ptr [ %22, %31 ], [ %38, %58 ]
   %63 = trunc i64 %.us-phi to i32
   store i32 %63, ptr %4, align 4
-  %64 = load i32, ptr %.us-phi40, align 8
+  %64 = load i32, ptr %.us-phi39, align 8
   store i32 %64, ptr %3, align 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %66 = load i32, ptr %65, align 8
@@ -232,7 +232,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
 
 67:                                               ; preds = %57, %58, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 68:                                               ; preds = %12
@@ -252,9 +252,9 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
 
 .preheader:                                       ; preds = %74
   %78 = icmp sgt i32 %16, 0
-  br i1 %78, label %.lr.ph42, label %._crit_edge
+  br i1 %78, label %.lr.ph41, label %._crit_edge
 
-.lr.ph42:                                         ; preds = %.preheader
+.lr.ph41:                                         ; preds = %.preheader
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.not.i27 = icmp eq ptr %5, null
@@ -262,14 +262,14 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = ptrtoint ptr %1 to i64
-  br i1 %.not.i27, label %.lr.ph42.split.us, label %.lr.ph42.split
+  br i1 %.not.i27, label %.lr.ph41.split.us, label %.lr.ph41.split
 
-.lr.ph42.split.us:                                ; preds = %.lr.ph42, %98
-  %.041.us = phi i32 [ %99, %98 ], [ 0, %.lr.ph42 ]
+.lr.ph41.split.us:                                ; preds = %.lr.ph41, %98
+  %.040.us = phi i32 [ %99, %98 ], [ 0, %.lr.ph41 ]
   %85 = call noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 24) #3
   br i1 %85, label %86, label %.split.us
 
-86:                                               ; preds = %.lr.ph42.split.us
+86:                                               ; preds = %.lr.ph41.split.us
   %87 = load i8, ptr %79, align 4
   %88 = and i8 %87, 15
   %89 = icmp eq i8 %88, 2
@@ -289,24 +289,24 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
   br i1 %97, label %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30, label %98
 
 98:                                               ; preds = %93, %90, %86
-  %99 = add nuw nsw i32 %.041.us, 1
-  %exitcond63.not = icmp eq i32 %99, %16
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph42.split.us, !llvm.loop !8
+  %99 = add nuw nsw i32 %.040.us, 1
+  %exitcond62.not = icmp eq i32 %99, %16
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph41.split.us, !llvm.loop !8
 
 100:                                              ; preds = %74, %68
   store i32 2, ptr %9, align 8
   br label %.thread
 
-.lr.ph42.split:                                   ; preds = %.lr.ph42, %127
-  %.041 = phi i32 [ %128, %127 ], [ 0, %.lr.ph42 ]
+.lr.ph41.split:                                   ; preds = %.lr.ph41, %127
+  %.040 = phi i32 [ %128, %127 ], [ 0, %.lr.ph41 ]
   %101 = call noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 24) #3
   br i1 %101, label %102, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph42.split, %.lr.ph42.split.us
+.split.us:                                        ; preds = %.lr.ph41.split, %.lr.ph41.split.us
   store i32 2, ptr %9, align 8
   br label %.thread
 
-102:                                              ; preds = %.lr.ph42.split
+102:                                              ; preds = %.lr.ph41.split
   %103 = load i8, ptr %79, align 4
   %104 = and i8 %103, 15
   %105 = icmp eq i8 %104, 2
@@ -342,8 +342,8 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
   br i1 %122, label %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30, label %127
 
 _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30: ; preds = %118, %93
-  %.us-phi43 = phi i64 [ %95, %93 ], [ %120, %118 ]
-  %123 = trunc i64 %.us-phi43 to i32
+  %.us-phi42 = phi i64 [ %95, %93 ], [ %120, %118 ]
+  %123 = trunc i64 %.us-phi42 to i32
   store i32 %123, ptr %4, align 4
   %124 = load i32, ptr %8, align 8
   store i32 %124, ptr %3, align 4
@@ -353,9 +353,9 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30: ; 
   br label %.thread
 
 127:                                              ; preds = %117, %118, %102
-  %128 = add nuw nsw i32 %.041, 1
-  %exitcond62.not = icmp eq i32 %128, %16
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph42.split, !llvm.loop !8
+  %128 = add nuw nsw i32 %.040, 1
+  %exitcond61.not = icmp eq i32 %128, %16
+  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph41.split, !llvm.loop !8
 
 .thread:                                          ; preds = %.split.us, %100, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30
   %.1.ph = phi i1 [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30 ], [ false, %100 ], [ false, %.split.us ]
@@ -366,8 +366,8 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30: ; 
   call void @_ZN16MarkedFileReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %67, %37, %.preheader36, %._crit_edge, %.thread, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit, %6
-  %.024 = phi i1 [ false, %6 ], [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit ], [ %.1.ph, %.thread ], [ false, %._crit_edge ], [ false, %.preheader36 ], [ false, %37 ], [ false, %67 ]
+.loopexit:                                        ; preds = %67, %37, %.preheader35, %._crit_edge, %.thread, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit, %6
+  %.024 = phi i1 [ false, %6 ], [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit ], [ %.1.ph, %.thread ], [ false, %._crit_edge ], [ false, %.preheader35 ], [ false, %37 ], [ false, %67 ]
   ret i1 %.024
 }
 

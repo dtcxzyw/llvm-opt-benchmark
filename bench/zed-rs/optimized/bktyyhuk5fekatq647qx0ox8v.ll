@@ -8440,10 +8440,8 @@ define void @"_ZN66_$LT$proto..CreateDevServer$u20$as$u20$prost..message..Messag
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %3, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8451,7 +8449,7 @@ define void @"_ZN66_$LT$proto..CreateDevServer$u20$as$u20$prost..message..Messag
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !1997
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %3, align 8
   ret void
 }
@@ -8750,10 +8748,8 @@ define noundef zeroext i1 @"_ZN158_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 ; Function Attrs: nounwind nonlazybind uwtable
 define void @"_ZN68_$LT$proto..ShutdownDevServer$u20$as$u20$prost..message..Message$GT$5clear17hde71e35fb8fbb872E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.val = load i64, ptr %0, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8761,7 +8757,7 @@ define void @"_ZN68_$LT$proto..ShutdownDevServer$u20$as$u20$prost..message..Mess
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !2006
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -8862,10 +8858,8 @@ define void @"_ZN66_$LT$proto..RenameDevServer$u20$as$u20$prost..message..Messag
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %4, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8873,7 +8867,7 @@ define void @"_ZN66_$LT$proto..RenameDevServer$u20$as$u20$prost..message..Messag
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !2015
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %4, align 8
   ret void
 }
@@ -10447,10 +10441,8 @@ define void @"_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$prost..message.
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.val = load i64, ptr %4, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10458,7 +10450,7 @@ define void @"_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$prost..message.
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !2451
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %6, align 8
@@ -10851,10 +10843,8 @@ define void @"_ZN67_$LT$proto..CopyProjectEntry$u20$as$u20$prost..message..Messa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.val = load i64, ptr %4, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10862,7 +10852,7 @@ define void @"_ZN67_$LT$proto..CopyProjectEntry$u20$as$u20$prost..message..Messa
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !2465
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %4, align 8
   ret void
 }
@@ -13813,10 +13803,8 @@ define void @"_ZN61_$LT$proto..SaveBuffer$u20$as$u20$prost..message..Message$GT$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.val = load i64, ptr %4, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proto..ProjectPath$GT$$GT$17h57d8bd2c7f4e989cE.exit"
-    i64 0, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proto..ProjectPath$GT$$GT$17h57d8bd2c7f4e989cE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proto..ProjectPath$GT$$GT$17h57d8bd2c7f4e989cE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i": ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -13824,7 +13812,7 @@ define void @"_ZN61_$LT$proto..SaveBuffer$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !2722
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proto..ProjectPath$GT$$GT$17h57d8bd2c7f4e989cE.exit"
 
-"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proto..ProjectPath$GT$$GT$17h57d8bd2c7f4e989cE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", %1, %1
+"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proto..ProjectPath$GT$$GT$17h57d8bd2c7f4e989cE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i"
   store i64 -9223372036854775808, ptr %4, align 8
   ret void
 }
@@ -16353,11 +16341,8 @@ define noundef zeroext i1 @"_ZN161_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 ; Function Attrs: nounwind nonlazybind uwtable
 define void @"_ZN71_$LT$proto..ParameterInformation$u20$as$u20$prost..message..Message$GT$5clear17h1bfb200ebd1ad69bE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.val = load i64, ptr %0, align 8, !range !2971, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i" [
-    i64 -9223372036854775807, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$proto..parameter_information..Label$GT$$GT$17hcb639e6d62e3271fE.exit"
-    i64 -9223372036854775808, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$proto..parameter_information..Label$GT$$GT$17hcb639e6d62e3271fE.exit"
-    i64 0, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$proto..parameter_information..Label$GT$$GT$17hcb639e6d62e3271fE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$proto..parameter_information..Label$GT$$GT$17hcb639e6d62e3271fE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i": ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16365,7 +16350,7 @@ define void @"_ZN71_$LT$proto..ParameterInformation$u20$as$u20$prost..message..M
   tail call void @__rust_dealloc(ptr noundef nonnull %.val9, i64 noundef %.val, i64 noundef 1) #21, !noalias !3014
   br label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$proto..parameter_information..Label$GT$$GT$17hcb639e6d62e3271fE.exit"
 
-"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$proto..parameter_information..Label$GT$$GT$17hcb639e6d62e3271fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", %1, %1, %1
+"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$proto..parameter_information..Label$GT$$GT$17hcb639e6d62e3271fE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i"
   store i64 -9223372036854775807, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3023)
@@ -16730,10 +16715,8 @@ define void @"_ZN61_$LT$proto..HoverBlock$u20$as$u20$prost..message..Message$GT$
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %3, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16741,7 +16724,7 @@ define void @"_ZN61_$LT$proto..HoverBlock$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !3095
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %5, align 8
@@ -17858,10 +17841,8 @@ define void @"_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$5
   store i64 3, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i64, ptr %7, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabel$GT$$GT$17hb52301609496948cE.exit"
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -17869,7 +17850,7 @@ define void @"_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$5
   tail call void @__rust_dealloc(ptr noundef nonnull %.val18, i64 noundef %.val, i64 noundef 1) #21, !noalias !3131
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabel$GT$$GT$17hb52301609496948cE.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabel$GT$$GT$17hb52301609496948cE.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabel$GT$$GT$17hb52301609496948cE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 0, ptr %9, align 8
@@ -17912,11 +17893,8 @@ define void @"_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$5
   store i64 -9223372036854775806, ptr %11, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val19 = load i64, ptr %23, align 8, !range !2971, !noundef !4
-  switch i64 %.val19, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i.i.i" [
-    i64 -9223372036854775807, label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$proto..ResolveState$GT$$GT$17h6dce3342ecfc1cbeE.exit"
-    i64 -9223372036854775808, label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$proto..ResolveState$GT$$GT$17h6dce3342ecfc1cbeE.exit"
-    i64 0, label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$proto..ResolveState$GT$$GT$17h6dce3342ecfc1cbeE.exit"
-  ]
+  %switch21 = icmp sgt i64 %.val19, 0
+  br i1 %switch21, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i.i.i", label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$proto..ResolveState$GT$$GT$17h6dce3342ecfc1cbeE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$proto..InlayHintTooltip$GT$$GT$17h6a91e685fb6747a5E.exit"
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -17924,7 +17902,7 @@ define void @"_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$5
   tail call void @__rust_dealloc(ptr noundef nonnull %.val20, i64 noundef %.val19, i64 noundef 1) #21, !noalias !3166
   br label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$proto..ResolveState$GT$$GT$17h6dce3342ecfc1cbeE.exit"
 
-"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$proto..ResolveState$GT$$GT$17h6dce3342ecfc1cbeE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i.i.i", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$proto..InlayHintTooltip$GT$$GT$17h6a91e685fb6747a5E.exit", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$proto..InlayHintTooltip$GT$$GT$17h6a91e685fb6747a5E.exit", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$proto..InlayHintTooltip$GT$$GT$17h6a91e685fb6747a5E.exit"
+"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$proto..ResolveState$GT$$GT$17h6dce3342ecfc1cbeE.exit": ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$proto..InlayHintTooltip$GT$$GT$17h6a91e685fb6747a5E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i.i.i"
   store i64 -9223372036854775807, ptr %23, align 8
   ret void
 }
@@ -18387,10 +18365,8 @@ define void @"_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Mes
   store i64 -9223372036854775806, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %15, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabelPartTooltip$GT$$GT$17hdee4dd4fa99b0db1E.exit"
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -18398,7 +18374,7 @@ define void @"_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Mes
   tail call void @__rust_dealloc(ptr noundef nonnull %.val13, i64 noundef %.val, i64 noundef 1) #21, !noalias !3319
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabelPartTooltip$GT$$GT$17hdee4dd4fa99b0db1E.exit", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabelPartTooltip$GT$$GT$17hdee4dd4fa99b0db1E.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$proto..InlayHintLabelPartTooltip$GT$$GT$17hdee4dd4fa99b0db1E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %17, align 8
@@ -18741,10 +18717,8 @@ define void @"_ZN63_$LT$proto..ResolveState$u20$as$u20$prost..message..Message$G
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %.val = load i64, ptr %0, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$proto..resolve_state..LspResolveState$GT$$GT$17h9b03c9e3d9aac9f1E.exit"
-    i64 0, label %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$proto..resolve_state..LspResolveState$GT$$GT$17h9b03c9e3d9aac9f1E.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", label %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$proto..resolve_state..LspResolveState$GT$$GT$17h9b03c9e3d9aac9f1E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i": ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18752,7 +18726,7 @@ define void @"_ZN63_$LT$proto..ResolveState$u20$as$u20$prost..message..Message$G
   tail call void @__rust_dealloc(ptr noundef nonnull %.val5, i64 noundef %.val, i64 noundef 1) #21, !noalias !3368
   br label %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$proto..resolve_state..LspResolveState$GT$$GT$17h9b03c9e3d9aac9f1E.exit"
 
-"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$proto..resolve_state..LspResolveState$GT$$GT$17h9b03c9e3d9aac9f1E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", %1, %1
+"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$proto..resolve_state..LspResolveState$GT$$GT$17h9b03c9e3d9aac9f1E.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i"
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -20216,10 +20190,8 @@ define void @"_ZN70_$LT$proto..StartLanguageServer$u20$as$u20$prost..message..Me
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %2, align 8
   %.val = load i64, ptr %0, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..LanguageServer$GT$$GT$17hc6e2c911d48fbedeE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..LanguageServer$GT$$GT$17hc6e2c911d48fbedeE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..LanguageServer$GT$$GT$17hc6e2c911d48fbedeE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i": ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20227,7 +20199,7 @@ define void @"_ZN70_$LT$proto..StartLanguageServer$u20$as$u20$prost..message..Me
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !3496
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..LanguageServer$GT$$GT$17hc6e2c911d48fbedeE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..LanguageServer$GT$$GT$17hc6e2c911d48fbedeE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..LanguageServer$GT$$GT$17hc6e2c911d48fbedeE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i"
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -20290,10 +20262,8 @@ define void @"_ZN74_$LT$proto..UpdateDiagnosticSummary$u20$as$u20$prost..message
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.val = load i64, ptr %0, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..DiagnosticSummary$GT$$GT$17h308110be4408be27E.exit"
-    i64 0, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..DiagnosticSummary$GT$$GT$17h308110be4408be27E.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..DiagnosticSummary$GT$$GT$17h308110be4408be27E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i": ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20301,7 +20271,7 @@ define void @"_ZN74_$LT$proto..UpdateDiagnosticSummary$u20$as$u20$prost..message
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !3507
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..DiagnosticSummary$GT$$GT$17h308110be4408be27E.exit"
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..DiagnosticSummary$GT$$GT$17h308110be4408be27E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i", %1, %1
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proto..DiagnosticSummary$GT$$GT$17h308110be4408be27E.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i.i"
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -20506,10 +20476,8 @@ define void @"_ZN71_$LT$proto..UpdateLanguageServer$u20$as$u20$prost..message..M
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.llvm.15179913521650988880.exit3.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i2.i.i.i", %18, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h491997595450597dE.exit.i.i.i"
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8, !range !27, !alias.scope !3568, !noundef !4
-  switch i64 %23, label %"_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17ha76dc267564e58b0E.exit.sink.split.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit"
-    i64 0, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit"
-  ]
+  %switch.i = icmp sgt i64 %23, 0
+  br i1 %switch.i, label %"_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17ha76dc267564e58b0E.exit.sink.split.i.i", label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit"
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20531,10 +20499,8 @@ define void @"_ZN71_$LT$proto..UpdateLanguageServer$u20$as$u20$prost..message..M
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h491997595450597dE.exit.i2.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i1.i.i", %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i64, ptr %30, align 8, !range !27, !alias.scope !3592, !noundef !4
-  switch i64 %31, label %"_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17ha76dc267564e58b0E.exit.sink.split.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit"
-    i64 0, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit"
-  ]
+  %switch2.i = icmp sgt i64 %31, 0
+  br i1 %switch2.i, label %"_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17ha76dc267564e58b0E.exit.sink.split.i.i", label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit"
 
 32:                                               ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20542,7 +20508,7 @@ define void @"_ZN71_$LT$proto..UpdateLanguageServer$u20$as$u20$prost..message..M
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit", label %"_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17ha76dc267564e58b0E.exit.sink.split.i.i"
 
-"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit": ; preds = %32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h491997595450597dE.exit.i2.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h491997595450597dE.exit.i2.i.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.llvm.15179913521650988880.exit3.i.i.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.llvm.15179913521650988880.exit3.i.i.i", %"_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17ha76dc267564e58b0E.exit.sink.split.i.i", %5, %1
+"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17hdd1bc645afe8cf25E.exit": ; preds = %32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h491997595450597dE.exit.i2.i.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.llvm.15179913521650988880.exit3.i.i.i", %"_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17ha76dc267564e58b0E.exit.sink.split.i.i", %5, %1
   store i64 -9223372036854775804, ptr %0, align 8
   ret void
 }
@@ -20612,10 +20578,8 @@ define void @"_ZN63_$LT$proto..LspWorkStart$u20$as$u20$prost..message..Message$G
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val10 = load i64, ptr %3, align 8, !range !27, !noundef !4
-  switch i64 %.val10, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val10, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -20623,16 +20587,14 @@ define void @"_ZN63_$LT$proto..LspWorkStart$u20$as$u20$prost..message..Message$G
   tail call void @__rust_dealloc(ptr noundef nonnull %.val11, i64 noundef %.val10, i64 noundef 1) #21, !noalias !3610
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %6, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i12" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit13"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit13"
-  ]
+  %switch14 = icmp sgt i64 %.val, 0
+  br i1 %switch14, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i12", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit13"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i12": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20640,7 +20602,7 @@ define void @"_ZN63_$LT$proto..LspWorkStart$u20$as$u20$prost..message..Message$G
   tail call void @__rust_dealloc(ptr noundef nonnull %.val9, i64 noundef %.val, i64 noundef 1) #21, !noalias !3619
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit13"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit13": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i12", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit13": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i12"
   store i64 -9223372036854775808, ptr %6, align 8
   ret void
 }
@@ -20852,10 +20814,8 @@ define void @"_ZN66_$LT$proto..LspWorkProgress$u20$as$u20$prost..message..Messag
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %3, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20863,7 +20823,7 @@ define void @"_ZN66_$LT$proto..LspWorkProgress$u20$as$u20$prost..message..Messag
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !3628
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8
@@ -22444,10 +22404,8 @@ define void @"_ZN60_$LT$proto..DevServer$u20$as$u20$prost..message..Message$GT$5
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %5, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -22455,7 +22413,7 @@ define void @"_ZN60_$LT$proto..DevServer$u20$as$u20$prost..message..Message$GT$5
   tail call void @__rust_dealloc(ptr noundef nonnull %.val5, i64 noundef %.val, i64 noundef 1) #21, !noalias !3838
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %5, align 8
   ret void
 }
@@ -29299,10 +29257,8 @@ define void @"_ZN66_$LT$proto..RepositoryEntry$u20$as$u20$prost..message..Messag
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
   %.val = load i64, ptr %0, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29310,7 +29266,7 @@ define void @"_ZN66_$LT$proto..RepositoryEntry$u20$as$u20$prost..message..Messag
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !4458
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -29577,10 +29533,8 @@ define void @"_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.val = load i64, ptr %13, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..File$GT$$GT$17h4b546c8969510b2cE.exit"
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -29588,7 +29542,7 @@ define void @"_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT
   tail call void @__rust_dealloc(ptr noundef nonnull %.val11, i64 noundef %.val, i64 noundef 1) #21, !noalias !4496
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..File$GT$$GT$17h4b546c8969510b2cE.exit", %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..File$GT$$GT$17h4b546c8969510b2cE.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..File$GT$$GT$17h4b546c8969510b2cE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %15, align 8
@@ -30491,10 +30445,8 @@ define void @"_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$
   store i64 2, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.val20 = load i64, ptr %3, align 8, !range !27, !noundef !4
-  switch i64 %.val20, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val20, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -30502,7 +30454,7 @@ define void @"_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val21, i64 noundef %.val20, i64 noundef 1) #21, !noalias !4527
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %5, align 8
@@ -30510,10 +30462,8 @@ define void @"_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val18 = load i64, ptr %7, align 8, !range !27, !noundef !4
-  switch i64 %.val18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i22" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23"
-  ]
+  %switch26 = icmp sgt i64 %.val18, 0
+  br i1 %switch26, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i22", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i22": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -30521,7 +30471,7 @@ define void @"_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val19, i64 noundef %.val18, i64 noundef 1) #21, !noalias !4536
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i22", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i22"
   store i64 -9223372036854775808, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 0, ptr %9, align 8
@@ -30529,10 +30479,8 @@ define void @"_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %10, align 4
   %.val = load i64, ptr %11, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i24" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit25"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit25"
-  ]
+  %switch27 = icmp sgt i64 %.val, 0
+  br i1 %switch27, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i24", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit25"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i24": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23"
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -30540,7 +30488,7 @@ define void @"_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val17, i64 noundef %.val, i64 noundef 1) #21, !noalias !4545
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit25"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit25": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i24", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit25": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit23", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i24"
   store i64 -9223372036854775808, ptr %11, align 8
   ret void
 }
@@ -31909,10 +31857,8 @@ define void @"_ZN65_$LT$proto..UpdateDiffBase$u20$as$u20$prost..message..Message
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.val = load i64, ptr %0, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -31920,7 +31866,7 @@ define void @"_ZN65_$LT$proto..UpdateDiffBase$u20$as$u20$prost..message..Message
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !4662
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -33813,10 +33759,8 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val46 = load i64, ptr %6, align 8, !range !27, !noundef !4
-  switch i64 %.val46, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val46, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -33824,14 +33768,12 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val47, i64 noundef %.val46, i64 noundef 1) #21, !noalias !4848
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.val44 = load i64, ptr %8, align 8, !range !27, !noundef !4
-  switch i64 %.val44, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i48" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49"
-  ]
+  %switch62 = icmp sgt i64 %.val44, 0
+  br i1 %switch62, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i48", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i48": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -33839,15 +33781,13 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val45, i64 noundef %.val44, i64 noundef 1) #21, !noalias !4857
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i48", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i48"
   store i64 -9223372036854775808, ptr %8, align 8
   store i64 0, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val42 = load i64, ptr %10, align 8, !range !27, !noundef !4
-  switch i64 %.val42, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i50" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51"
-  ]
+  %switch63 = icmp sgt i64 %.val42, 0
+  br i1 %switch63, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i50", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i50": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49"
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -33855,14 +33795,12 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val43, i64 noundef %.val42, i64 noundef 1) #21, !noalias !4866
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i50", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit49", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i50"
   store i64 -9223372036854775808, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.val40 = load i64, ptr %12, align 8, !range !27, !noundef !4
-  switch i64 %.val40, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i52" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53"
-  ]
+  %switch64 = icmp sgt i64 %.val40, 0
+  br i1 %switch64, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i52", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i52": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51"
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -33870,14 +33808,12 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val41, i64 noundef %.val40, i64 noundef 1) #21, !noalias !4875
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i52", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit51", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i52"
   store i64 -9223372036854775808, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.val38 = load i64, ptr %14, align 8, !range !27, !noundef !4
-  switch i64 %.val38, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i54" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55"
-  ]
+  %switch65 = icmp sgt i64 %.val38, 0
+  br i1 %switch65, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i54", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i54": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53"
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -33885,16 +33821,14 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val39, i64 noundef %.val38, i64 noundef 1) #21, !noalias !4884
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i54", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit53", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i54"
   store i64 -9223372036854775808, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.val36 = load i64, ptr %17, align 8, !range !27, !noundef !4
-  switch i64 %.val36, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i56" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57"
-  ]
+  %switch66 = icmp sgt i64 %.val36, 0
+  br i1 %switch66, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i56", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i56": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55"
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -33902,14 +33836,12 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val37, i64 noundef %.val36, i64 noundef 1) #21, !noalias !4893
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i56", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit55", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i56"
   store i64 -9223372036854775808, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val34 = load i64, ptr %19, align 8, !range !27, !noundef !4
-  switch i64 %.val34, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i58" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59"
-  ]
+  %switch67 = icmp sgt i64 %.val34, 0
+  br i1 %switch67, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i58", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i58": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -33917,14 +33849,12 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val35, i64 noundef %.val34, i64 noundef 1) #21, !noalias !4902
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i58", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit57", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i58"
   store i64 -9223372036854775808, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.val = load i64, ptr %21, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i60" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit61"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit61"
-  ]
+  %switch68 = icmp sgt i64 %.val, 0
+  br i1 %switch68, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i60", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit61"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i60": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59"
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -33932,7 +33862,7 @@ define void @"_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.val33, i64 noundef %.val, i64 noundef 1) #21, !noalias !4911
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit61"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit61": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i60", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit61": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit59", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i60"
   store i64 -9223372036854775808, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %23, align 8
@@ -34815,10 +34745,8 @@ define void @"_ZN70_$LT$proto..BlameBufferResponse$u20$as$u20$prost..message..Me
 "_ZN4core3ptr53drop_in_place$LT$$u5b$proto..CommitPermalink$u5d$$GT$17h7618072e43180b34E.exit": ; preds = %"_ZN4core3ptr43drop_in_place$LT$proto..CommitPermalink$GT$17hd691d9b92a8c25f7E.exit.i", %"_ZN4core3ptr51drop_in_place$LT$$u5b$proto..CommitMessage$u5d$$GT$17hf709ebd381133e60E.exit"
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i64, ptr %55, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i10" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i10", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i10": ; preds = %"_ZN4core3ptr53drop_in_place$LT$$u5b$proto..CommitPermalink$u5d$$GT$17h7618072e43180b34E.exit"
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -34826,7 +34754,7 @@ define void @"_ZN70_$LT$proto..BlameBufferResponse$u20$as$u20$prost..message..Me
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !4998
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i10", %"_ZN4core3ptr53drop_in_place$LT$$u5b$proto..CommitPermalink$u5d$$GT$17h7618072e43180b34E.exit", %"_ZN4core3ptr53drop_in_place$LT$$u5b$proto..CommitPermalink$u5d$$GT$17h7618072e43180b34E.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$$u5b$proto..CommitPermalink$u5d$$GT$17h7618072e43180b34E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i10"
   store i64 -9223372036854775808, ptr %55, align 8
   ret void
 }
@@ -35659,10 +35587,8 @@ define noundef zeroext i1 @"_ZN152_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN62_$LT$proto..TaskContext$u20$as$u20$prost..message..Message$GT$5clear17h4699207293c8f024E"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.val = load i64, ptr %0, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35670,7 +35596,7 @@ define void @"_ZN62_$LT$proto..TaskContext$u20$as$u20$prost..message..Message$GT
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !5110
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -36450,10 +36376,8 @@ common.resume:                                    ; preds = %21, %48
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17ha42b97970635d042E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h7ecdd0159ca69d89E.exit", %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val = load i64, ptr %26, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i13" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i13", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i13": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17ha42b97970635d042E.exit"
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -36461,7 +36385,7 @@ common.resume:                                    ; preds = %21, %48
   tail call void @__rust_dealloc(ptr noundef nonnull %.val11, i64 noundef %.val, i64 noundef 1) #21, !noalias !5236
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i13", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17ha42b97970635d042E.exit", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17ha42b97970635d042E.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17ha42b97970635d042E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i13"
   store i64 -9223372036854775808, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 0, ptr %28, align 8
@@ -37577,10 +37501,8 @@ define void @"_ZN76_$LT$proto..SlashCommandOutputSection$u20$as$u20$prost..messa
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val = load i64, ptr %4, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -37588,7 +37510,7 @@ define void @"_ZN76_$LT$proto..SlashCommandOutputSection$u20$as$u20$prost..messa
   tail call void @__rust_dealloc(ptr noundef nonnull %.val6, i64 noundef %.val, i64 noundef 1) #21, !noalias !5511
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %4, align 8
   ret void
 }
@@ -38041,10 +37963,8 @@ define void @"_ZN66_$LT$proto..ContextMetadata$u20$as$u20$prost..message..Messag
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %3, align 8, !range !27, !noundef !4
-  switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i": ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38052,7 +37972,7 @@ define void @"_ZN66_$LT$proto..ContextMetadata$u20$as$u20$prost..message..Messag
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val, i64 noundef 1) #21, !noalias !5680
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i", %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he62c0b58c8b30ecaE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15179913521650988880.exit.i.i1.i.i.i"
   store i64 -9223372036854775808, ptr %3, align 8
   ret void
 }
@@ -49640,8 +49560,8 @@ common.resume:                                    ; preds = %2252, %2252, %1321,
   %.sroa.229.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.1375, %111 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1376, %117 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1377, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0c1ed806b1047772E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1378, %138 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1379, %143 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1380, %150 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1381, %155 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1382, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6a81d045998dacfdE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1383, %176 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1384, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda7cd9716f0c4006E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1385, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d0cd4021ba13e90E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1386, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hceab3e49c7efbd9dE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1387, %231 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1388, %236 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1389, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb6097f9d27270867E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1390, %258 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1391, %265 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1392, %274 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1393, %281 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1394, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfef5fc07f6bf7ed4E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1395, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4caf643d2db4f2e9E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1396, %322 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1397, %329 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1398, %336 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1399, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h05b288da3744dc93E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1400, %359 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1401, %366 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1402, %372 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1403, %378 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1404, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h62b581239fd9730aE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1405, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h67be542d94e25fffE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1406, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he353bacb2eb58bb9E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1407, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7378fdb2dc5233c6E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1408, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hab3b69dbf517334dE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1409, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5c0fbc7b41f89e11E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1410, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h073fd825828df438E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1411, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb24071816e88c96dE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1412, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8e178730016dbf5bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1413, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha1aa5f82164320cbE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1414, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5cbee555179bb41aE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1415, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha1d22c372ef4b636E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1416, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he9596fddf69d31aaE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1417, %566 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1418, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6caa5ccfb9492f64E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1419, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb642be79c5ec3793E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1420, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc08fda3041f4d839E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1421, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h69d9c06ff6abc7e4E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1422, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbe62ad978bea0ed3E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1423, %641 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1424, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h26efa5012879ac96E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1425, %658 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1426, %667 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1427, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1122f27392ea3f02E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1428, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h47ec0b55fdb2c2d2E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1429, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h783c3d3c642a45b9E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1430, %711 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1431, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he48741c52ec0aab5E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1432, %730 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1433, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd457a457706ca139E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1434, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6df723e6a37ae1afE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1435, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2e29bc345314891aE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1436, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf59702ca8ea083adE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1437, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7d2ce158ce1696a7E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1438, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfd75d84974f7007fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1439, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd86177b8dc53cfc2E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1440, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc4074e1c61e6038E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1441, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h329f8e91ce1b5241E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1442, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h180fc07c882d1249E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1443, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h397998b1e5ce25ecE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1444, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7f18d1ae5c8a0b95E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1445, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hefe4173b6d96ae87E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1446, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h50c7f14238de29faE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1447, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hec0c1b5330cd2bc5E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1448, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hba8aad3277292495E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1449, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb9c5766eceb88b0bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1450, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1f0dc63dfed0d70cE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1451, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf4600c3ab5cba0f6E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1452, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1481dc82df2c6374E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1453, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9b54471be4ddef41E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1454, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2089ab2ab5324d67E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1455, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h15782ee7effda90fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1456, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17had6a5ebc97b05aa3E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1457, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h65f0ea6e3ff7819bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1458, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h600114fd007c7b25E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1459, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7d82a3d5f4f277bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1460, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he5ec0e284d40ecc8E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1461, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hceabc9bcae46b3e2E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1462, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h696d4db607164973E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1463, %1174 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1464, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf7e62fffb824f22fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1465, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1eb5bd2dc61f2948E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1466, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h160c9f26e4b421c6E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1467, %1217 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1468, %1224 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1469, %1233 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1470, %1240 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1471, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8276f156a248cca9E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1472, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc995806612a300a3E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1473, %1281 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1474, %1287 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1475, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h825f193c2eceeb65E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1476, %1308 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1477, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9dcd825e7a423de0E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1478, %1324 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1479, %1329 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1480, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6f38a8a8cb0b2375E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1481, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he735f8547c662091E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1482, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he48073e61e4d4fb9E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1483, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha97b889acd724f26E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1484, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfb2c2ec2240dd115E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1485, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221367b7a08db668E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1486, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdb5b80b59639efb5E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1487, %1450 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1488, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h526ecfa41cb768f7E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1489, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3598a197b8dee6c1E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1490, %1483 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1491, %1489 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1492, %1498 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1493, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5c893801b1268e22E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1494, %1523 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1495, %1530 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1496, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h142584373f39a097E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1497, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h491bc0b5d4766955E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1498, %1563 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1499, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h83b8ff5d9e2f5ce3E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1500, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6ac476ab3e1886eaE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1501, %1595 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1502, %1600 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1503, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9115b8c5c3badd7eE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1504, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8495ab5c45dd68d7E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1505, %1639 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1506, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8b424db0e4e90150E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1507, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h854c76e6fe0a6d4bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1508, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5cfb28ff6225926fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1509, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h58ad02cb20ea0f98E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1510, %1702 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1511, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf0298f514d59fcd5E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1512, %1725 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1513, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e68bdc0794e32fdE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1514, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h533d126713812bdaE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1515, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf45ab3a6eaa7e7aaE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1516, %1780 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1517, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he321f8206d870addE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1518, %1805 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1519, %1814 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1520, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d12eb5cb0336ba9E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1521, %1835 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1522, %1844 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1523, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbc6c9e1f337b1504E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1524, %1869 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1525, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h462d33048b8dec88E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1526, %1894 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1527, %1901 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1528, %1908 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1529, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heac4cfe816485449E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1530, %1930 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1531, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5bf1b5311ba697a9E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1532, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1982bd65c30926b3E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1533, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2ae5487556c30b1dE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1534, %1980 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1535, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf80b362b330932e1E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1536, %1997 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1537, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h727373de31b5fe72E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1538, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8e22a41b9807029dE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1539, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1c7245ce88e5bf03E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1540, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb2de7e06c18d895fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1541, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda366b6b8e4e01e8E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1542, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1a0f364fcf87ba1fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1543, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7664fbbae463d991E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1544, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h738a1a349bba9047E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1545, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3969e37feee53e6E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1546, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd21c0aefe2407c19E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1547, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h535d9dcb2ee52fffE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1548, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he701921dfe0dc8b5E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1549, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h237e02720a9d3d46E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1550, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0508c721895210beE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1551, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9cf87261074aa1ffE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1552, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he3b53727c901950bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1553, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h543809fad560360bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1554, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd373c76eb960b96fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1555, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h601ea14fdce2ff82E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1556, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc7e283b9f0873bd5E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1557, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h64cc8c3870696632E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1558, %2319 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1559, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5b1f182bd44fca68E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1560, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h034017bfa1c8ef65E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1561, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h52de99df4ec8c779E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1562, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hcecc39bda0154e7fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1563, %2384 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1564, %2391 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1565, %2398 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1566, %2405 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1567, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h134c3d86cca76879E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1568, %2420 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1569, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd0493c2cda7f36deE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1570, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h720b6ce2969367a6E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1571, %2453 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1572, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1a6a00f907ef8e7aE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1573, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01866520285c9a07E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1574, %2491 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1575, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc0f08b83a571bd56E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1576, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc6ddc241ea469406E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1577, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1d023036590f3d2E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1578, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heda5f78a0a81a7b8E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1579, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd584bfc4af76bd36E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1580, %2567 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1581, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5b1f42afd7054695E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1582, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h07bc940467e7d096E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1583, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf6250d864dceb584E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1584, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he47fa968f4e58a9bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1585, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he2a502d16fd2af75E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1586, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h105421e8a7e7ce4fE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1587, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6e53fe73b800614eE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1588, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h41f2d9b913497064E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1589, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17haf36bec931334598E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1590, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02a612f9eae03a41E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1591, %2718 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1592, %2725 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1593, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfd5d3a4e7ea90d80E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1594, %2740 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1595, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9cb94bffd8555539E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1596, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h83decbb50bbe0ba8E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1597, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01bd23fbe3c8b68bE.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1598, %2787 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1599, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9a98cf6e5cb6231E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1600, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4ca31997bdee7e92E.exit" ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1601, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc387689a2521c4dcE.exit" ], [ undef, %5 ]
   %.sroa.0.0 = phi ptr [ %116, %111 ], [ %121, %117 ], [ %133, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0c1ed806b1047772E.exit" ], [ %142, %138 ], [ %149, %143 ], [ %154, %150 ], [ %159, %155 ], [ %171, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6a81d045998dacfdE.exit" ], [ %182, %176 ], [ %194, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda7cd9716f0c4006E.exit" ], [ %210, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d0cd4021ba13e90E.exit" ], [ %226, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hceab3e49c7efbd9dE.exit" ], [ %235, %231 ], [ %241, %236 ], [ %253, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb6097f9d27270867E.exit" ], [ %264, %258 ], [ %273, %265 ], [ %280, %274 ], [ %286, %281 ], [ %298, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfef5fc07f6bf7ed4E.exit" ], [ %317, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4caf643d2db4f2e9E.exit" ], [ %328, %322 ], [ %335, %329 ], [ %342, %336 ], [ %354, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h05b288da3744dc93E.exit" ], [ %365, %359 ], [ %371, %366 ], [ %377, %372 ], [ %383, %378 ], [ %389, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h62b581239fd9730aE.exit" ], [ %407, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h67be542d94e25fffE.exit" ], [ %417, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he353bacb2eb58bb9E.exit" ], [ %435, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7378fdb2dc5233c6E.exit" ], [ %445, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hab3b69dbf517334dE.exit" ], [ %463, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5c0fbc7b41f89e11E.exit" ], [ %473, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h073fd825828df438E.exit" ], [ %491, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb24071816e88c96dE.exit" ], [ %501, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8e178730016dbf5bE.exit" ], [ %519, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha1aa5f82164320cbE.exit" ], [ %529, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5cbee555179bb41aE.exit" ], [ %545, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha1d22c372ef4b636E.exit" ], [ %561, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he9596fddf69d31aaE.exit" ], [ %572, %566 ], [ %584, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6caa5ccfb9492f64E.exit" ], [ %600, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb642be79c5ec3793E.exit" ], [ %610, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc08fda3041f4d839E.exit" ], [ %620, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h69d9c06ff6abc7e4E.exit" ], [ %636, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbe62ad978bea0ed3E.exit" ], [ %646, %641 ], [ %652, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h26efa5012879ac96E.exit" ], [ %666, %658 ], [ %673, %667 ], [ %679, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1122f27392ea3f02E.exit" ], [ %688, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h47ec0b55fdb2c2d2E.exit" ], [ %703, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h783c3d3c642a45b9E.exit" ], [ %719, %711 ], [ %725, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he48741c52ec0aab5E.exit" ], [ %736, %730 ], [ %748, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd457a457706ca139E.exit" ], [ %767, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6df723e6a37ae1afE.exit" ], [ %777, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2e29bc345314891aE.exit" ], [ %794, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf59702ca8ea083adE.exit" ], [ %804, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7d2ce158ce1696a7E.exit" ], [ %816, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfd75d84974f7007fE.exit" ], [ %828, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd86177b8dc53cfc2E.exit" ], [ %846, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc4074e1c61e6038E.exit" ], [ %865, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h329f8e91ce1b5241E.exit" ], [ %881, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h180fc07c882d1249E.exit" ], [ %891, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h397998b1e5ce25ecE.exit" ], [ %909, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7f18d1ae5c8a0b95E.exit" ], [ %922, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hefe4173b6d96ae87E.exit" ], [ %940, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h50c7f14238de29faE.exit" ], [ %950, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hec0c1b5330cd2bc5E.exit" ], [ %966, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hba8aad3277292495E.exit" ], [ %982, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb9c5766eceb88b0bE.exit" ], [ %998, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1f0dc63dfed0d70cE.exit" ], [ %1008, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf4600c3ab5cba0f6E.exit" ], [ %1026, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1481dc82df2c6374E.exit" ], [ %1036, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9b54471be4ddef41E.exit" ], [ %1054, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2089ab2ab5324d67E.exit" ], [ %1064, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h15782ee7effda90fE.exit" ], [ %1081, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17had6a5ebc97b05aa3E.exit" ], [ %1094, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h65f0ea6e3ff7819bE.exit" ], [ %1106, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h600114fd007c7b25E.exit" ], [ %1124, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7d82a3d5f4f277bE.exit" ], [ %1140, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he5ec0e284d40ecc8E.exit" ], [ %1159, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hceabc9bcae46b3e2E.exit" ], [ %1169, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h696d4db607164973E.exit" ], [ %1178, %1174 ], [ %1184, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf7e62fffb824f22fE.exit" ], [ %1196, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1eb5bd2dc61f2948E.exit" ], [ %1212, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h160c9f26e4b421c6E.exit" ], [ %1223, %1217 ], [ %1232, %1224 ], [ %1239, %1233 ], [ %1245, %1240 ], [ %1257, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8276f156a248cca9E.exit" ], [ %1272, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc995806612a300a3E.exit" ], [ %1286, %1281 ], [ %1291, %1287 ], [ %1303, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h825f193c2eceeb65E.exit" ], [ %1314, %1308 ], [ %1320, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9dcd825e7a423de0E.exit" ], [ %1328, %1324 ], [ %1335, %1329 ], [ %1347, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6f38a8a8cb0b2375E.exit" ], [ %1363, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he735f8547c662091E.exit" ], [ %1379, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he48073e61e4d4fb9E.exit" ], [ %1389, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha97b889acd724f26E.exit" ], [ %1407, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfb2c2ec2240dd115E.exit" ], [ %1423, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h221367b7a08db668E.exit" ], [ %1442, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdb5b80b59639efb5E.exit" ], [ %1456, %1450 ], [ %1462, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h526ecfa41cb768f7E.exit" ], [ %1478, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3598a197b8dee6c1E.exit" ], [ %1488, %1483 ], [ %1497, %1489 ], [ %1506, %1498 ], [ %1518, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5c893801b1268e22E.exit" ], [ %1529, %1523 ], [ %1536, %1530 ], [ %1542, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h142584373f39a097E.exit" ], [ %1558, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h491bc0b5d4766955E.exit" ], [ %1568, %1563 ], [ %1574, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h83b8ff5d9e2f5ce3E.exit" ], [ %1590, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6ac476ab3e1886eaE.exit" ], [ %1599, %1595 ], [ %1606, %1600 ], [ %1618, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9115b8c5c3badd7eE.exit" ], [ %1634, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8495ab5c45dd68d7E.exit" ], [ %1645, %1639 ], [ %1651, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8b424db0e4e90150E.exit" ], [ %1669, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h854c76e6fe0a6d4bE.exit" ], [ %1685, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5cfb28ff6225926fE.exit" ], [ %1695, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h58ad02cb20ea0f98E.exit" ], [ %1708, %1702 ], [ %1720, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf0298f514d59fcd5E.exit" ], [ %1731, %1725 ], [ %1743, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e68bdc0794e32fdE.exit" ], [ %1759, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h533d126713812bdaE.exit" ], [ %1775, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf45ab3a6eaa7e7aaE.exit" ], [ %1788, %1780 ], [ %1800, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he321f8206d870addE.exit" ], [ %1813, %1805 ], [ %1822, %1814 ], [ %1828, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d12eb5cb0336ba9E.exit" ], [ %1843, %1835 ], [ %1852, %1844 ], [ %1864, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbc6c9e1f337b1504E.exit" ], [ %1877, %1869 ], [ %1889, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h462d33048b8dec88E.exit" ], [ %1900, %1894 ], [ %1907, %1901 ], [ %1913, %1908 ], [ %1925, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heac4cfe816485449E.exit" ], [ %1935, %1930 ], [ %1947, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5bf1b5311ba697a9E.exit" ], [ %1957, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1982bd65c30926b3E.exit" ], [ %1975, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2ae5487556c30b1dE.exit" ], [ %1986, %1980 ], [ %1992, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf80b362b330932e1E.exit" ], [ %2003, %1997 ], [ %2015, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h727373de31b5fe72E.exit" ], [ %2031, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8e22a41b9807029dE.exit" ], [ %2047, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1c7245ce88e5bf03E.exit" ], [ %2063, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb2de7e06c18d895fE.exit" ], [ %2079, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda366b6b8e4e01e8E.exit" ], [ %2095, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1a0f364fcf87ba1fE.exit" ], [ %2105, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7664fbbae463d991E.exit" ], [ %2123, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h738a1a349bba9047E.exit" ], [ %2139, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3969e37feee53e6E.exit" ], [ %2155, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd21c0aefe2407c19E.exit" ], [ %2171, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h535d9dcb2ee52fffE.exit" ], [ %2181, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he701921dfe0dc8b5E.exit" ], [ %2193, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h237e02720a9d3d46E.exit" ], [ %2209, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0508c721895210beE.exit" ], [ %2225, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9cf87261074aa1ffE.exit" ], [ %2241, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he3b53727c901950bE.exit" ], [ %2251, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h543809fad560360bE.exit" ], [ %2266, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd373c76eb960b96fE.exit" ], [ %2282, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h601ea14fdce2ff82E.exit" ], [ %2298, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc7e283b9f0873bd5E.exit" ], [ %2314, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h64cc8c3870696632E.exit" ], [ %2325, %2319 ], [ %2337, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5b1f182bd44fca68E.exit" ], [ %2353, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h034017bfa1c8ef65E.exit" ], [ %2369, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h52de99df4ec8c779E.exit" ], [ %2379, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hcecc39bda0154e7fE.exit" ], [ %2390, %2384 ], [ %2397, %2391 ], [ %2404, %2398 ], [ %2409, %2405 ], [ %2415, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h134c3d86cca76879E.exit" ], [ %2426, %2420 ], [ %2432, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd0493c2cda7f36deE.exit" ], [ %2448, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h720b6ce2969367a6E.exit" ], [ %2458, %2453 ], [ %2470, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1a6a00f907ef8e7aE.exit" ], [ %2486, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01866520285c9a07E.exit" ], [ %2496, %2491 ], [ %2502, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc0f08b83a571bd56E.exit" ], [ %2520, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc6ddc241ea469406E.exit" ], [ %2536, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1d023036590f3d2E.exit" ], [ %2546, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heda5f78a0a81a7b8E.exit" ], [ %2562, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd584bfc4af76bd36E.exit" ], [ %2573, %2567 ], [ %2585, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5b1f42afd7054695E.exit" ], [ %2601, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h07bc940467e7d096E.exit" ], [ %2617, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf6250d864dceb584E.exit" ], [ %2633, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he47fa968f4e58a9bE.exit" ], [ %2643, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he2a502d16fd2af75E.exit" ], [ %2661, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h105421e8a7e7ce4fE.exit" ], [ %2671, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6e53fe73b800614eE.exit" ], [ %2687, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h41f2d9b913497064E.exit" ], [ %2703, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17haf36bec931334598E.exit" ], [ %2713, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02a612f9eae03a41E.exit" ], [ %2724, %2718 ], [ %2729, %2725 ], [ %2735, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfd5d3a4e7ea90d80E.exit" ], [ %2748, %2740 ], [ %2754, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9cb94bffd8555539E.exit" ], [ %2770, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h83decbb50bbe0ba8E.exit" ], [ %2780, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01bd23fbe3c8b68bE.exit" ], [ %2795, %2787 ], [ %2801, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9a98cf6e5cb6231E.exit" ], [ %2811, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4ca31997bdee7e92E.exit" ], [ %2821, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc387689a2521c4dcE.exit" ], [ null, %5 ]
   %2827 = load i64, ptr %4, align 8, !range !1319, !noundef !4
-  %.not.not = icmp eq i64 %2827, 229
-  br i1 %.not.not, label %"_ZN4core3ptr39drop_in_place$LT$proto..RoomUpdated$GT$17h54dc9e214ccb832dE.exit", label %2828
+  %.not = icmp eq i64 %2827, 229
+  br i1 %.not, label %"_ZN4core3ptr39drop_in_place$LT$proto..RoomUpdated$GT$17h54dc9e214ccb832dE.exit", label %2828
 
 2828:                                             ; preds = %2826
   %2829 = add nsw i64 %2827, -2
@@ -51930,8 +51850,8 @@ define void @"_ZN69_$LT$proto..AckBufferOperation$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52019,8 +51939,8 @@ define void @"_ZN66_$LT$proto..AddNotification$u20$as$u20$proto..EnvelopedMessag
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52100,8 +52020,8 @@ define void @"_ZN66_$LT$proto..ApplyCodeAction$u20$as$u20$proto..EnvelopedMessag
 
 4:                                                ; preds = %2
   store i64 4, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52140,8 +52060,8 @@ define void @"_ZN74_$LT$proto..ApplyCodeActionResponse$u20$as$u20$proto..Envelop
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52180,8 +52100,8 @@ define void @"_ZN81_$LT$proto..ApplyCompletionAdditionalEdits$u20$as$u20$proto..
 
 4:                                                ; preds = %2
   store i64 4, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52220,8 +52140,8 @@ define void @"_ZN89_$LT$proto..ApplyCompletionAdditionalEditsResponse$u20$as$u20
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52260,8 +52180,8 @@ define void @"_ZN65_$LT$proto..BufferReloaded$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52300,8 +52220,8 @@ define void @"_ZN62_$LT$proto..BufferSaved$u20$as$u20$proto..EnvelopedMessage$GT
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52466,8 +52386,8 @@ define void @"_ZN69_$LT$proto..ChannelMessageSent$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52506,8 +52426,8 @@ define void @"_ZN71_$LT$proto..ChannelMessageUpdate$u20$as$u20$proto..EnvelopedM
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52546,8 +52466,8 @@ define void @"_ZN68_$LT$proto..ComputeEmbeddings$u20$as$u20$proto..EnvelopedMess
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr45drop_in_place$LT$proto..ComputeEmbeddings$GT$17hb03bb7f3375bfdc8E.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr45drop_in_place$LT$proto..ComputeEmbeddings$GT$17hb03bb7f3375bfdc8E.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52586,8 +52506,8 @@ define void @"_ZN76_$LT$proto..ComputeEmbeddingsResponse$u20$as$u20$proto..Envel
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52626,8 +52546,8 @@ define void @"_ZN67_$LT$proto..CopyProjectEntry$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52666,8 +52586,8 @@ define void @"_ZN70_$LT$proto..CreateBufferForPeer$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 4, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52706,8 +52626,8 @@ define void @"_ZN64_$LT$proto..CreateChannel$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52746,8 +52666,8 @@ define void @"_ZN72_$LT$proto..CreateChannelResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52786,8 +52706,8 @@ define void @"_ZN69_$LT$proto..CreateProjectEntry$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52855,8 +52775,8 @@ define void @"_ZN69_$LT$proto..CreateRoomResponse$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53006,8 +52926,8 @@ define void @"_ZN69_$LT$proto..UpdateNotification$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53116,8 +53036,8 @@ define void @"_ZN56_$LT$proto..Error$u20$as$u20$proto..EnvelopedMessage$GT$13fro
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr33drop_in_place$LT$proto..Error$GT$17h0da15fdb1d48a489E.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr33drop_in_place$LT$proto..Error$GT$17h0da15fdb1d48a489E.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53282,8 +53202,8 @@ define void @"_ZN65_$LT$proto..FollowResponse$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 9, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53322,8 +53242,8 @@ define void @"_ZN64_$LT$proto..FormatBuffers$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53362,8 +53282,8 @@ define void @"_ZN72_$LT$proto..FormatBuffersResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53402,8 +53322,8 @@ define void @"_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53442,8 +53362,8 @@ define void @"_ZN70_$LT$proto..GetCachedEmbeddings$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53482,8 +53402,8 @@ define void @"_ZN78_$LT$proto..GetCachedEmbeddingsResponse$u20$as$u20$proto..Env
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53522,8 +53442,8 @@ define void @"_ZN68_$LT$proto..GetChannelMembers$u20$as$u20$proto..EnvelopedMess
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53562,8 +53482,8 @@ define void @"_ZN76_$LT$proto..GetChannelMembersResponse$u20$as$u20$proto..Envel
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53651,8 +53571,8 @@ define void @"_ZN73_$LT$proto..GetChannelMessagesById$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53691,8 +53611,8 @@ define void @"_ZN77_$LT$proto..GetChannelMessagesResponse$u20$as$u20$proto..Enve
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53731,8 +53651,8 @@ define void @"_ZN65_$LT$proto..GetCodeActions$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53771,8 +53691,8 @@ define void @"_ZN73_$LT$proto..GetCodeActionsResponse$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53811,8 +53731,8 @@ define void @"_ZN65_$LT$proto..GetCompletions$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53851,8 +53771,8 @@ define void @"_ZN73_$LT$proto..GetCompletionsResponse$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53891,8 +53811,8 @@ define void @"_ZN64_$LT$proto..GetDefinition$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53931,8 +53851,8 @@ define void @"_ZN72_$LT$proto..GetDefinitionResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53971,8 +53891,8 @@ define void @"_ZN65_$LT$proto..GetDeclaration$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54011,8 +53931,8 @@ define void @"_ZN73_$LT$proto..GetDeclarationResponse$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54051,8 +53971,8 @@ define void @"_ZN72_$LT$proto..GetDocumentHighlights$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54091,8 +54011,8 @@ define void @"_ZN80_$LT$proto..GetDocumentHighlightsResponse$u20$as$u20$proto..E
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54131,8 +54051,8 @@ define void @"_ZN59_$LT$proto..GetHover$u20$as$u20$proto..EnvelopedMessage$GT$13
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54171,8 +54091,8 @@ define void @"_ZN67_$LT$proto..GetHoverResponse$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54252,8 +54172,8 @@ define void @"_ZN75_$LT$proto..GetNotificationsResponse$u20$as$u20$proto..Envelo
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54321,8 +54241,8 @@ define void @"_ZN77_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$proto..Enve
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr54drop_in_place$LT$proto..GetPrivateUserInfoResponse$GT$17h0ab4b3b3f2e99fceE.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr54drop_in_place$LT$proto..GetPrivateUserInfoResponse$GT$17h0ab4b3b3f2e99fceE.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54361,8 +54281,8 @@ define void @"_ZN68_$LT$proto..GetProjectSymbols$u20$as$u20$proto..EnvelopedMess
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54401,8 +54321,8 @@ define void @"_ZN76_$LT$proto..GetProjectSymbolsResponse$u20$as$u20$proto..Envel
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54441,8 +54361,8 @@ define void @"_ZN64_$LT$proto..GetReferences$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54481,8 +54401,8 @@ define void @"_ZN72_$LT$proto..GetReferencesResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54521,8 +54441,8 @@ define void @"_ZN67_$LT$proto..GetSignatureHelp$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54561,8 +54481,8 @@ define void @"_ZN75_$LT$proto..GetSignatureHelpResponse$u20$as$u20$proto..Envelo
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54630,8 +54550,8 @@ define void @"_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$proto..Env
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54670,8 +54590,8 @@ define void @"_ZN68_$LT$proto..GetTypeDefinition$u20$as$u20$proto..EnvelopedMess
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54710,8 +54630,8 @@ define void @"_ZN76_$LT$proto..GetTypeDefinitionResponse$u20$as$u20$proto..Envel
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54750,8 +54670,8 @@ define void @"_ZN68_$LT$proto..GetImplementation$u20$as$u20$proto..EnvelopedMess
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54790,8 +54710,8 @@ define void @"_ZN76_$LT$proto..GetImplementationResponse$u20$as$u20$proto..Envel
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54859,8 +54779,8 @@ define void @"_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54899,8 +54819,8 @@ define void @"_ZN59_$LT$proto..GetUsers$u20$as$u20$proto..EnvelopedMessage$GT$13
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54979,8 +54899,8 @@ define void @"_ZN63_$LT$proto..IncomingCall$u20$as$u20$proto..EnvelopedMessage$G
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55019,8 +54939,8 @@ define void @"_ZN61_$LT$proto..InlayHints$u20$as$u20$proto..EnvelopedMessage$GT$
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55059,8 +54979,8 @@ define void @"_ZN69_$LT$proto..InlayHintsResponse$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55215,8 +55135,8 @@ define void @"_ZN76_$LT$proto..JoinChannelBufferResponse$u20$as$u20$proto..Envel
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55292,8 +55212,8 @@ define void @"_ZN74_$LT$proto..JoinChannelChatResponse$u20$as$u20$proto..Envelop
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55406,8 +55326,8 @@ define void @"_ZN70_$LT$proto..JoinProjectResponse$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55483,8 +55403,8 @@ define void @"_ZN67_$LT$proto..JoinRoomResponse$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55749,8 +55669,8 @@ define void @"_ZN67_$LT$proto..OnTypeFormatting$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55789,8 +55709,8 @@ define void @"_ZN75_$LT$proto..OnTypeFormattingResponse$u20$as$u20$proto..Envelo
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55878,8 +55798,8 @@ define void @"_ZN67_$LT$proto..OpenBufferByPath$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -55918,8 +55838,8 @@ define void @"_ZN70_$LT$proto..OpenBufferForSymbol$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56032,8 +55952,8 @@ define void @"_ZN64_$LT$proto..PerformRename$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56072,8 +55992,8 @@ define void @"_ZN72_$LT$proto..PerformRenameResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56141,8 +56061,8 @@ define void @"_ZN64_$LT$proto..PrepareRename$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56181,8 +56101,8 @@ define void @"_ZN72_$LT$proto..PrepareRenameResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56221,8 +56141,8 @@ define void @"_ZN71_$LT$proto..ProjectEntryResponse$u20$as$u20$proto..EnvelopedM
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56261,8 +56181,8 @@ define void @"_ZN75_$LT$proto..CountLanguageModelTokens$u20$as$u20$proto..Envelo
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56375,8 +56295,8 @@ define void @"_ZN71_$LT$proto..RejoinChannelBuffers$u20$as$u20$proto..EnvelopedM
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56415,8 +56335,8 @@ define void @"_ZN79_$LT$proto..RejoinChannelBuffersResponse$u20$as$u20$proto..En
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56455,8 +56375,8 @@ define void @"_ZN61_$LT$proto..RejoinRoom$u20$as$u20$proto..EnvelopedMessage$GT$
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56495,8 +56415,8 @@ define void @"_ZN69_$LT$proto..RejoinRoomResponse$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56535,8 +56455,8 @@ define void @"_ZN64_$LT$proto..ReloadBuffers$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56575,8 +56495,8 @@ define void @"_ZN72_$LT$proto..ReloadBuffersResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56713,8 +56633,8 @@ define void @"_ZN71_$LT$proto..UpdateChannelMessage$u20$as$u20$proto..EnvelopedM
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56831,8 +56751,8 @@ define void @"_ZN64_$LT$proto..RenameChannel$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56871,8 +56791,8 @@ define void @"_ZN72_$LT$proto..RenameChannelResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56911,8 +56831,8 @@ define void @"_ZN69_$LT$proto..RenameProjectEntry$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56988,8 +56908,8 @@ define void @"_ZN81_$LT$proto..ResolveCompletionDocumentation$u20$as$u20$proto..
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57028,8 +56948,8 @@ define void @"_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57068,8 +56988,8 @@ define void @"_ZN67_$LT$proto..ResolveInlayHint$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 4, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57108,8 +57028,8 @@ define void @"_ZN75_$LT$proto..ResolveInlayHintResponse$u20$as$u20$proto..Envelo
 
 4:                                                ; preds = %2
   store i64 4, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57239,8 +57159,8 @@ define void @"_ZN62_$LT$proto..RoomUpdated$u20$as$u20$proto..EnvelopedMessage$GT
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57279,8 +57199,8 @@ define void @"_ZN61_$LT$proto..SaveBuffer$u20$as$u20$proto..EnvelopedMessage$GT$
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57410,8 +57330,8 @@ define void @"_ZN69_$LT$proto..SendChannelMessage$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57450,8 +57370,8 @@ define void @"_ZN77_$LT$proto..SendChannelMessageResponse$u20$as$u20$proto..Enve
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57490,8 +57410,8 @@ define void @"_ZN63_$LT$proto..ShareProject$u20$as$u20$proto..EnvelopedMessage$G
 
 4:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr40drop_in_place$LT$proto..ShareProject$GT$17h659f0e3e70a26299E.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr40drop_in_place$LT$proto..ShareProject$GT$17h659f0e3e70a26299E.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57596,8 +57516,8 @@ define void @"_ZN70_$LT$proto..StartLanguageServer$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57665,8 +57585,8 @@ define void @"_ZN69_$LT$proto..SynchronizeBuffers$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57705,8 +57625,8 @@ define void @"_ZN77_$LT$proto..SynchronizeBuffersResponse$u20$as$u20$proto..Enve
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57785,8 +57705,8 @@ define void @"_ZN62_$LT$proto..TaskContext$u20$as$u20$proto..EnvelopedMessage$GT
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -57865,8 +57785,8 @@ define void @"_ZN72_$LT$proto..TaskTemplatesResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58019,8 +57939,8 @@ define void @"_ZN63_$LT$proto..UpdateBuffer$u20$as$u20$proto..EnvelopedMessage$G
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58059,8 +57979,8 @@ define void @"_ZN67_$LT$proto..UpdateBufferFile$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58099,8 +58019,8 @@ define void @"_ZN70_$LT$proto..UpdateChannelBuffer$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58139,8 +58059,8 @@ define void @"_ZN83_$LT$proto..UpdateChannelBufferCollaborators$u20$as$u20$proto
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58179,8 +58099,8 @@ define void @"_ZN65_$LT$proto..UpdateChannels$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58219,8 +58139,8 @@ define void @"_ZN69_$LT$proto..UpdateUserChannels$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58259,8 +58179,8 @@ define void @"_ZN65_$LT$proto..UpdateContacts$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58299,8 +58219,8 @@ define void @"_ZN74_$LT$proto..UpdateDiagnosticSummary$u20$as$u20$proto..Envelop
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58339,8 +58259,8 @@ define void @"_ZN65_$LT$proto..UpdateDiffBase$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58373,43 +58293,43 @@ define void @"_ZN66_$LT$proto..UpdateFollowers$u20$as$u20$proto..EnvelopedMessag
 define void @"_ZN66_$LT$proto..UpdateFollowers$u20$as$u20$proto..EnvelopedMessage$GT$13from_envelope17he29ecb252d9c931dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([384 x i8]) align 8 captures(none) dereferenceable(384) initializes((0, 8)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(408) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !1319, !noundef !4
   %4 = icmp eq i64 %3, 229
-  br i1 %4, label %.thread, label %5
-
-.thread:                                          ; preds = %2
-  store i64 2, ptr %0, align 8
-  br label %"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit"
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = add nsw i64 %3, -2
   %7 = icmp ugt i64 %6, 226
   %8 = icmp eq i64 %6, 97
   %9 = or i1 %7, %8
-  br i1 %9, label %10, label %12
+  br i1 %9, label %11, label %13
 
-10:                                               ; preds = %5
+10:                                               ; preds = %2
+  store i64 2, ptr %0, align 8
+  br label %"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit"
+
+11:                                               ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %1, i64 384, i1 false)
   br label %"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit": ; preds = %.thread, %10, %18, %14, %11
+"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit": ; preds = %19, %15, %11, %10, %12
   ret void
 
-11:                                               ; preds = %12
+12:                                               ; preds = %13
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17hecac2c5638b4ad2dE"(ptr noalias noundef align 8 dereferenceable(384) %1)
   br label %"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit"
 
-12:                                               ; preds = %5
+13:                                               ; preds = %5
   store i64 2, ptr %0, align 8
-  %13 = icmp eq i64 %3, 99
-  br i1 %13, label %14, label %11
+  %14 = icmp eq i64 %3, 99
+  br i1 %14, label %15, label %12
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !range !535, !alias.scope !7729, !noundef !4
-  %17 = icmp eq i64 %16, 12
-  br i1 %17, label %"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit", label %18
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load i64, ptr %16, align 8, !range !535, !alias.scope !7729, !noundef !4
+  %18 = icmp eq i64 %17, 12
+  br i1 %18, label %"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit", label %19
 
-18:                                               ; preds = %14
-  tail call void @"_ZN4core3ptr53drop_in_place$LT$proto..update_followers..Variant$GT$17hbcd3c8e7710d6685E.llvm.15179913521650988880"(ptr noalias noundef nonnull align 8 dereferenceable(360) %15)
+19:                                               ; preds = %15
+  tail call void @"_ZN4core3ptr53drop_in_place$LT$proto..update_followers..Variant$GT$17hbcd3c8e7710d6685E.llvm.15179913521650988880"(ptr noalias noundef nonnull align 8 dereferenceable(360) %16)
   br label %"_ZN4core3ptr43drop_in_place$LT$proto..UpdateFollowers$GT$17hf3b97c8e43d65b23E.exit"
 }
 
@@ -58437,8 +58357,8 @@ define void @"_ZN67_$LT$proto..UpdateInviteInfo$u20$as$u20$proto..EnvelopedMessa
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58477,8 +58397,8 @@ define void @"_ZN71_$LT$proto..UpdateLanguageServer$u20$as$u20$proto..EnvelopedM
 
 4:                                                ; preds = %2
   store i64 -9223372036854775803, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58557,8 +58477,8 @@ define void @"_ZN64_$LT$proto..UpdateProject$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr41drop_in_place$LT$proto..UpdateProject$GT$17h84a3a7159f4622feE.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr41drop_in_place$LT$proto..UpdateProject$GT$17h84a3a7159f4622feE.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58675,8 +58595,8 @@ define void @"_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$proto..EnvelopedMessage
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58715,8 +58635,8 @@ define void @"_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58755,8 +58675,8 @@ define void @"_ZN64_$LT$proto..UsersResponse$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58835,8 +58755,8 @@ define void @"_ZN76_$LT$proto..LspExtExpandMacroResponse$u20$as$u20$proto..Envel
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58917,8 +58837,8 @@ define void @"_ZN62_$LT$proto..BlameBuffer$u20$as$u20$proto..EnvelopedMessage$GT
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58957,8 +58877,8 @@ define void @"_ZN70_$LT$proto..BlameBufferResponse$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58997,8 +58917,8 @@ define void @"_ZN73_$LT$proto..CreateDevServerProject$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59037,8 +58957,8 @@ define void @"_ZN81_$LT$proto..CreateDevServerProjectResponse$u20$as$u20$proto..
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr58drop_in_place$LT$proto..CreateDevServerProjectResponse$GT$17h25f2e7754f12f621E.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr58drop_in_place$LT$proto..CreateDevServerProjectResponse$GT$17h25f2e7754f12f621E.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59077,8 +58997,8 @@ define void @"_ZN66_$LT$proto..CreateDevServer$u20$as$u20$proto..EnvelopedMessag
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59117,8 +59037,8 @@ define void @"_ZN74_$LT$proto..CreateDevServerResponse$u20$as$u20$proto..Envelop
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59157,8 +59077,8 @@ define void @"_ZN72_$LT$proto..DevServerInstructions$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59197,8 +59117,8 @@ define void @"_ZN68_$LT$proto..ShutdownDevServer$u20$as$u20$proto..EnvelopedMess
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59237,8 +59157,8 @@ define void @"_ZN69_$LT$proto..ReconnectDevServer$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59277,8 +59197,8 @@ define void @"_ZN77_$LT$proto..ReconnectDevServerResponse$u20$as$u20$proto..Enve
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59317,8 +59237,8 @@ define void @"_ZN72_$LT$proto..ShareDevServerProject$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr49drop_in_place$LT$proto..ShareDevServerProject$GT$17he977f1ac7d5b25bcE.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr49drop_in_place$LT$proto..ShareDevServerProject$GT$17he977f1ac7d5b25bcE.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59394,8 +59314,8 @@ define void @"_ZN71_$LT$proto..RejoinRemoteProjects$u20$as$u20$proto..EnvelopedM
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59434,8 +59354,8 @@ define void @"_ZN79_$LT$proto..RejoinRemoteProjectsResponse$u20$as$u20$proto..En
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59474,8 +59394,8 @@ define void @"_ZN64_$LT$proto..MultiLspQuery$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 7, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59514,8 +59434,8 @@ define void @"_ZN72_$LT$proto..MultiLspQueryResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59554,8 +59474,8 @@ define void @"_ZN74_$LT$proto..DevServerProjectsUpdate$u20$as$u20$proto..Envelop
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59594,8 +59514,8 @@ define void @"_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$proto.
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59634,8 +59554,8 @@ define void @"_ZN70_$LT$proto..ListRemoteDirectory$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59674,8 +59594,8 @@ define void @"_ZN78_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$proto..Env
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr55drop_in_place$LT$proto..ListRemoteDirectoryResponse$GT$17hd848d6b86b315343E.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr55drop_in_place$LT$proto..ListRemoteDirectoryResponse$GT$17hd848d6b86b315343E.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59714,8 +59634,8 @@ define void @"_ZN73_$LT$proto..UpdateDevServerProject$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %"_ZN4core3ptr50drop_in_place$LT$proto..UpdateDevServerProject$GT$17h362953669ce670d0E.exit", label %7
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %"_ZN4core3ptr50drop_in_place$LT$proto..UpdateDevServerProject$GT$17h362953669ce670d0E.exit", label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59865,8 +59785,8 @@ define void @"_ZN83_$LT$proto..RegenerateDevServerTokenResponse$u20$as$u20$proto
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59905,8 +59825,8 @@ define void @"_ZN66_$LT$proto..RenameDevServer$u20$as$u20$proto..EnvelopedMessag
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59982,8 +59902,8 @@ define void @"_ZN73_$LT$proto..RestartLanguageServers$u20$as$u20$proto..Envelope
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60022,8 +59942,8 @@ define void @"_ZN69_$LT$proto..LinkedEditingRange$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 3, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60062,8 +59982,8 @@ define void @"_ZN77_$LT$proto..LinkedEditingRangeResponse$u20$as$u20$proto..Enve
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60102,8 +60022,8 @@ define void @"_ZN68_$LT$proto..AdvertiseContexts$u20$as$u20$proto..EnvelopedMess
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60142,8 +60062,8 @@ define void @"_ZN62_$LT$proto..OpenContext$u20$as$u20$proto..EnvelopedMessage$GT
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60182,8 +60102,8 @@ define void @"_ZN70_$LT$proto..OpenContextResponse$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60259,8 +60179,8 @@ define void @"_ZN72_$LT$proto..CreateContextResponse$u20$as$u20$proto..Enveloped
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60299,8 +60219,8 @@ define void @"_ZN64_$LT$proto..UpdateContext$u20$as$u20$proto..EnvelopedMessage$
 
 4:                                                ; preds = %2
   store i64 11, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60339,8 +60259,8 @@ define void @"_ZN70_$LT$proto..SynchronizeContexts$u20$as$u20$proto..EnvelopedMe
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60379,8 +60299,8 @@ define void @"_ZN78_$LT$proto..SynchronizeContextsResponse$u20$as$u20$proto..Env
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60468,8 +60388,8 @@ define void @"_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$proto
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60508,8 +60428,8 @@ define void @"_ZN62_$LT$proto..AddWorktree$u20$as$u20$proto..EnvelopedMessage$GT
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60585,8 +60505,8 @@ define void @"_ZN71_$LT$proto..FindSearchCandidates$u20$as$u20$proto..EnvelopedM
 
 4:                                                ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60625,8 +60545,8 @@ define void @"_ZN79_$LT$proto..FindSearchCandidatesResponse$u20$as$u20$proto..En
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60714,8 +60634,8 @@ define void @"_ZN69_$LT$proto..UpdateUserSettings$u20$as$u20$proto..EnvelopedMes
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60754,8 +60674,8 @@ define void @"_ZN66_$LT$proto..CheckFileExists$u20$as$u20$proto..EnvelopedMessag
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60794,8 +60714,8 @@ define void @"_ZN74_$LT$proto..CheckFileExistsResponse$u20$as$u20$proto..Envelop
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %3, 229
-  br i1 %.not.not, label %7, label %8
+  %.not = icmp eq i64 %3, 229
+  br i1 %.not, label %7, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8

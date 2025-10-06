@@ -1413,8 +1413,8 @@ define dso_local i64 @_ZNK5clang15ObjCMessageExpr17getCallReturnTypeERNS_10ASTCo
   %.not.i = icmp eq i32 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %.not.not10 = icmp eq i64 %7, 0
-  %.not.not = select i1 %.not.i, i1 true, i1 %.not.not10
+  %.not.not9 = icmp eq i64 %7, 0
+  %.not.not = select i1 %.not.i, i1 true, i1 %.not.not9
   br i1 %.not.not, label %22, label %8
 
 8:                                                ; preds = %2

@@ -53,24 +53,24 @@ define dso_local ptr @cb_insert(ptr noundef captures(none) %0, ptr noundef %1, i
 
 cb_internal_best_match.exit:                      ; preds = %21, %6
   %.0.lcssa.i = phi ptr [ %4, %6 ], [ %30, %21 ]
-  %.not87 = icmp eq i64 %2, 0
-  br i1 %.not87, label %.loopexit, label %.lr.ph
+  %.not86 = icmp eq i64 %2, 0
+  br i1 %.not86, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %cb_internal_best_match.exit
   %33 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 21
   br label %34
 
 34:                                               ; preds = %.lr.ph, %39
-  %.06179 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.06179
+  %.06178 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.06178
   %36 = load i8, ptr %35, align 1, !tbaa !12
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 %.06179
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 %.06178
   %38 = load i8, ptr %37, align 1, !tbaa !12
   %.not70 = icmp eq i8 %36, %38
   br i1 %.not70, label %39, label %41
 
 39:                                               ; preds = %34
-  %40 = add nuw i64 %.06179, 1
+  %40 = add nuw i64 %.06178, 1
   %exitcond.not = icmp eq i64 %40, %2
   br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !16
 
@@ -91,7 +91,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %55 = or i64 %53, %54
   %56 = add nuw nsw i64 %55, 1
   %57 = lshr i64 %56, 8
-  %58 = trunc i64 %.06179 to i32
+  %58 = trunc i64 %.06178 to i32
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %58, ptr %59, align 8, !tbaa !10
   %60 = trunc nuw i64 %53 to i8
@@ -103,41 +103,41 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %64 = load ptr, ptr %0, align 8, !tbaa !13
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, 1
-  %.not7180 = icmp eq i64 %66, 0
-  br i1 %.not7180, label %._crit_edge, label %.lr.ph82.preheader
+  %.not7179 = icmp eq i64 %66, 0
+  br i1 %.not7179, label %._crit_edge, label %.lr.ph81.preheader
 
-.lr.ph82.preheader:                               ; preds = %41
+.lr.ph81.preheader:                               ; preds = %41
   %67 = add nsw i64 %65, -1
   %68 = inttoptr i64 %67 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8, !tbaa !10
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %.06179, %71
-  br i1 %72, label %._crit_edge, label %.lr.ph113
+  %72 = icmp ult i64 %.06178, %71
+  br i1 %72, label %._crit_edge, label %.lr.ph112
 
-.lr.ph82:                                         ; preds = %._crit_edge93
+.lr.ph81:                                         ; preds = %._crit_edge92
   %73 = add nsw i64 %95, -1
   %74 = inttoptr i64 %73 to ptr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !10
   %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %.06179, %77
-  br i1 %78, label %._crit_edge, label %.lr.ph113
+  %78 = icmp ult i64 %.06178, %77
+  br i1 %78, label %._crit_edge, label %.lr.ph112
 
-.lr.ph113:                                        ; preds = %.lr.ph82.preheader, %.lr.ph82
-  %79 = phi i64 [ %77, %.lr.ph82 ], [ %71, %.lr.ph82.preheader ]
-  %80 = phi ptr [ %74, %.lr.ph82 ], [ %68, %.lr.ph82.preheader ]
-  %.06381112 = phi ptr [ %93, %.lr.ph82 ], [ %0, %.lr.ph82.preheader ]
-  %81 = phi ptr [ %94, %.lr.ph82 ], [ %64, %.lr.ph82.preheader ]
-  %82 = icmp eq i64 %.06179, %79
+.lr.ph112:                                        ; preds = %.lr.ph81.preheader, %.lr.ph81
+  %79 = phi i64 [ %77, %.lr.ph81 ], [ %71, %.lr.ph81.preheader ]
+  %80 = phi ptr [ %74, %.lr.ph81 ], [ %68, %.lr.ph81.preheader ]
+  %.06380111 = phi ptr [ %93, %.lr.ph81 ], [ %0, %.lr.ph81.preheader ]
+  %81 = phi ptr [ %94, %.lr.ph81 ], [ %64, %.lr.ph81.preheader ]
+  %82 = icmp eq i64 %.06178, %79
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 20
   %84 = load i8, ptr %83, align 4, !tbaa !12
   %85 = zext i8 %84 to i64
   %86 = icmp samesign ult i64 %53, %85
   %or.cond = select i1 %82, i1 %86, i1 false
-  br i1 %or.cond, label %._crit_edge, label %._crit_edge93
+  br i1 %or.cond, label %._crit_edge, label %._crit_edge92
 
-._crit_edge93:                                    ; preds = %.lr.ph113
+._crit_edge92:                                    ; preds = %.lr.ph112
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 %79
   %88 = load i8, ptr %87, align 1, !tbaa !12
   %89 = or i8 %84, %88
@@ -149,11 +149,11 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %95 = ptrtoint ptr %94 to i64
   %96 = and i64 %95, 1
   %.not71 = icmp eq i64 %96, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph82
+  br i1 %.not71, label %._crit_edge, label %.lr.ph81
 
-._crit_edge:                                      ; preds = %.lr.ph113, %._crit_edge93, %.lr.ph82, %.lr.ph82.preheader, %41
-  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph82.preheader ], [ %94, %.lr.ph82 ], [ %94, %._crit_edge93 ], [ %81, %.lr.ph113 ]
-  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph82.preheader ], [ %93, %.lr.ph82 ], [ %93, %._crit_edge93 ], [ %.06381112, %.lr.ph113 ]
+._crit_edge:                                      ; preds = %.lr.ph112, %._crit_edge92, %.lr.ph81, %.lr.ph81.preheader, %41
+  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph81.preheader ], [ %94, %.lr.ph81 ], [ %94, %._crit_edge92 ], [ %81, %.lr.ph112 ]
+  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph81.preheader ], [ %93, %.lr.ph81 ], [ %93, %._crit_edge92 ], [ %.06380111, %.lr.ph112 ]
   %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %57
   store ptr %97, ptr %98, align 8, !tbaa !13
   %99 = ptrtoint ptr %1 to i64

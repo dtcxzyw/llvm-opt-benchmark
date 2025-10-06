@@ -2126,11 +2126,11 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
   br i1 %.not.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
-  %.01220 = phi ptr [ %19, %.lr.ph ], [ %15, %13 ]
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm11GlobPattern14SubGlobPattern5matchENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %.01220, ptr %8, i64 %9)
-  %19 = getelementptr inbounds nuw i8, ptr %.01220, i64 40
-  %.not.not = icmp eq ptr %19, %17
-  %or.cond26 = select i1 %18, i1 true, i1 %.not.not
+  %.01221 = phi ptr [ %19, %.lr.ph ], [ %15, %13 ]
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm11GlobPattern14SubGlobPattern5matchENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %.01221, ptr %8, i64 %9)
+  %19 = getelementptr inbounds nuw i8, ptr %.01221, i64 40
+  %.not = icmp eq ptr %19, %17
+  %or.cond26 = select i1 %18, i1 true, i1 %.not
   br i1 %or.cond26, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %.lr.ph
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %.lr.ph, %13, %7, %3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i

@@ -310,15 +310,15 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %40, label %.preheader52
+  br i1 %.not, label %40, label %.preheader49
 
-.preheader52:                                     ; preds = %3
+.preheader49:                                     ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %.loopexit53
+  br i1 %15, label %.lr.ph, label %.loopexit50
 
-.lr.ph:                                           ; preds = %.preheader52
+.lr.ph:                                           ; preds = %.preheader49
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %17 = load ptr, ptr %16, align 8
   %wide.trip.count = zext nneg i32 %14 to i64
@@ -343,30 +343,30 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str.9, ptr noundef %28, ptr noundef %30) #7
   %.pre = load i32, ptr %13, align 8
   %32 = icmp sgt i32 %.pre, %24
-  br label %.loopexit53
+  br label %.loopexit50
 
 33:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit53.thread, label %18, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit50.thread, label %18, !llvm.loop !6
 
-.loopexit53:                                      ; preds = %.preheader52, %23
-  %.03861 = phi i1 [ %32, %23 ], [ false, %.preheader52 ]
-  %.2 = phi ptr [ %19, %23 ], [ %0, %.preheader52 ]
-  br i1 %.03861, label %40, label %.loopexit53.thread
+.loopexit50:                                      ; preds = %.preheader49, %23
+  %.03858 = phi i1 [ %32, %23 ], [ false, %.preheader49 ]
+  %.2 = phi ptr [ %19, %23 ], [ %0, %.preheader49 ]
+  br i1 %.03858, label %40, label %.loopexit50.thread
 
-.loopexit53.thread:                               ; preds = %33, %.loopexit53
-  %.288 = phi ptr [ %.2, %.loopexit53 ], [ %0, %33 ]
+.loopexit50.thread:                               ; preds = %33, %.loopexit50
+  %.285 = phi ptr [ %.2, %.loopexit50 ], [ %0, %33 ]
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 %34
   %36 = sub i64 1000, %34
-  %37 = getelementptr inbounds nuw i8, ptr %.288, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.285, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %35, i64 noundef %36, ptr noundef nonnull @.str.10, i32 noundef %38) #7
   br label %40
 
-40:                                               ; preds = %.loopexit53, %.loopexit53.thread, %3
-  %.0 = phi ptr [ %.288, %.loopexit53.thread ], [ %.2, %.loopexit53 ], [ %0, %3 ]
+40:                                               ; preds = %.loopexit50, %.loopexit50.thread, %3
+  %.0 = phi ptr [ %.285, %.loopexit50.thread ], [ %.2, %.loopexit50 ], [ %0, %3 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   %42 = load i32, ptr %41, align 4
   %.not41 = icmp eq i32 %42, 0
@@ -376,24 +376,24 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph65, label %.loopexit.thread
+  br i1 %45, label %.lr.ph62, label %.loopexit.thread
 
-.lr.ph65:                                         ; preds = %.preheader
+.lr.ph62:                                         ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %47 = load ptr, ptr %46, align 8
-  %wide.trip.count78 = zext nneg i32 %44 to i64
+  %wide.trip.count75 = zext nneg i32 %44 to i64
   br label %48
 
-48:                                               ; preds = %.lr.ph65, %62
-  %indvars.iv75 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next76, %62 ]
-  %49 = getelementptr inbounds nuw %struct.RelInfo, ptr %47, i64 %indvars.iv75
+48:                                               ; preds = %.lr.ph62, %62
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next73, %62 ]
+  %49 = getelementptr inbounds nuw %struct.RelInfo, ptr %47, i64 %indvars.iv72
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, %42
   br i1 %52, label %.loopexit, label %62
 
 .loopexit:                                        ; preds = %48
-  %53 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv72 to i32
   %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 %54
   %56 = sub i64 1000, %54
@@ -401,14 +401,14 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %55, i64 noundef %56, ptr noundef nonnull @.str.11, ptr noundef %57, ptr noundef %59) #7
-  %.pre80 = load i32, ptr %43, align 8
-  %61 = icmp sgt i32 %.pre80, %53
+  %.pre77 = load i32, ptr %43, align 8
+  %61 = icmp sgt i32 %.pre77, %53
   br i1 %61, label %68, label %.loopexit.thread
 
 62:                                               ; preds = %48
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %.loopexit.thread, label %48, !llvm.loop !7
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
+  br i1 %exitcond76.not, label %.loopexit.thread, label %48, !llvm.loop !7
 
 .loopexit.thread:                                 ; preds = %62, %.preheader, %.loopexit
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8

@@ -14189,11 +14189,11 @@ _ZNK9grpc_core24ClientChannelLbCallState16GetCallAttributeINS_20RequestHashAttri
 52:                                               ; preds = %49
   %53 = inttoptr i64 %50 to ptr
   %54 = atomicrmw add ptr %53, i32 1 monotonic, align 4
-  %.pre280 = load i64, ptr %6, align 8, !tbaa !84
+  %.pre279 = load i64, ptr %6, align 8, !tbaa !84
   br label %_ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit
 
 _ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit: ; preds = %49, %52
-  %55 = phi i64 [ %50, %49 ], [ %.pre280, %52 ]
+  %55 = phi i64 [ %50, %49 ], [ %.pre279, %52 ]
   store i64 %50, ptr %0, align 8, !tbaa !84
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 2, ptr %56, align 8, !tbaa !438
@@ -14520,8 +14520,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166: ; preds = %19
   br i1 %.0, label %288, label %.preheader
 
 .preheader:                                       ; preds = %.thread
-  %.not111249.not = icmp eq ptr %.val142, %.val141
-  br i1 %.not111249.not, label %.critedge122, label %.lr.ph
+  %.not111248.not = icmp eq ptr %.val142, %.val141
+  br i1 %.not111248.not, label %.critedge122, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -14529,8 +14529,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166: ; preds = %19
   br label %227
 
 227:                                              ; preds = %.lr.ph, %286
-  %.0103250 = phi i64 [ 0, %.lr.ph ], [ %287, %286 ]
-  %228 = add i64 %.0103250, %.0101
+  %.0103249 = phi i64 [ 0, %.lr.ph ], [ %287, %286 ]
+  %228 = add i64 %.0103249, %.0101
   %229 = urem i64 %228, %206
   %230 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.val141, i64 %229
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
@@ -14664,29 +14664,29 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit174: ; preds =
   br label %common.resume
 
 286:                                              ; preds = %227
-  %287 = add nuw i64 %.0103250, 1
+  %287 = add nuw i64 %.0103249, 1
   %exitcond.not = icmp eq i64 %287, %206
   br i1 %exitcond.not, label %.critedge122, label %227, !llvm.loop !472
 
 288:                                              ; preds = %.thread
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %290 = load i8, ptr %289, align 8, !tbaa !317, !range !175, !noundef !176
-  %.not115253.not = icmp eq ptr %.val142, %.val141
-  br i1 %.not115253.not, label %._crit_edge, label %.lr.ph257
+  %.not115252.not = icmp eq ptr %.val142, %.val141
+  br i1 %.not115252.not, label %._crit_edge, label %.lr.ph256
 
-.lr.ph257:                                        ; preds = %288
+.lr.ph256:                                        ; preds = %288
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %293
 
-293:                                              ; preds = %.lr.ph257, %353
-  %294 = phi i64 [ %206, %.lr.ph257 ], [ %358, %353 ]
-  %.val133256 = phi ptr [ %.val141, %.lr.ph257 ], [ %.val133, %353 ]
-  %.093255 = phi i64 [ 0, %.lr.ph257 ], [ %354, %353 ]
-  %.094254 = phi i8 [ %290, %.lr.ph257 ], [ %.296.ph, %353 ]
-  %295 = add i64 %.093255, %.0101
+293:                                              ; preds = %.lr.ph256, %353
+  %294 = phi i64 [ %206, %.lr.ph256 ], [ %358, %353 ]
+  %.val133255 = phi ptr [ %.val141, %.lr.ph256 ], [ %.val133, %353 ]
+  %.093254 = phi i64 [ 0, %.lr.ph256 ], [ %354, %353 ]
+  %.094253 = phi i8 [ %290, %.lr.ph256 ], [ %.296.ph, %353 ]
+  %295 = add i64 %.093254, %.0101
   %296 = urem i64 %295, %294
-  %297 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.val133256, i64 %296
+  %297 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.val133255, i64 %296
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load i64, ptr %298, align 8, !tbaa !468
   %.val148 = load ptr, ptr %291, align 8, !tbaa !311
@@ -14694,10 +14694,10 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit174: ; preds =
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %301, align 8, !tbaa !332
   %.not114 = icmp eq i32 %302, 2
-  br i1 %.not114, label %.thread226, label %303
+  br i1 %.not114, label %.thread225, label %303
 
 303:                                              ; preds = %293
-  %304 = trunc nuw i8 %.094254 to i1
+  %304 = trunc nuw i8 %.094253 to i1
   %305 = icmp ne i32 %302, 0
   %or.cond124.not = or i1 %305, %304
   br i1 %or.cond124.not, label %353, label %306
@@ -14806,7 +14806,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit188: ; preds =
   call void @_ZdlPvm(ptr noundef nonnull %307, i64 noundef 48) #37
   br label %common.resume
 
-.thread226:                                       ; preds = %293
+.thread225:                                       ; preds = %293
   %348 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %349 = load ptr, ptr %348, align 8, !tbaa !262
   %350 = load ptr, ptr %349, align 8, !tbaa !22
@@ -14816,8 +14816,8 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit188: ; preds =
   br label %.critedge126
 
 353:                                              ; preds = %329, %325, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHash16RingHashEndpointEED2Ev.exit182, %303
-  %.296.ph = phi i8 [ 1, %329 ], [ 1, %325 ], [ 1, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHash16RingHashEndpointEED2Ev.exit182 ], [ %.094254, %303 ]
-  %354 = add nuw i64 %.093255, 1
+  %.296.ph = phi i8 [ 1, %329 ], [ 1, %325 ], [ 1, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHash16RingHashEndpointEED2Ev.exit182 ], [ %.094253, %303 ]
+  %354 = add nuw i64 %.093254, 1
   %.val133 = load ptr, ptr %201, align 8, !tbaa !189
   %.val134 = load ptr, ptr %202, align 8, !tbaa !193
   %355 = ptrtoint ptr %.val134 to i64
@@ -14828,7 +14828,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit188: ; preds =
   br i1 %.not115, label %293, label %._crit_edge, !llvm.loop !476
 
 ._crit_edge:                                      ; preds = %353, %288
-  %.val155279 = phi ptr [ %.val141, %288 ], [ %.val133, %353 ]
+  %.val155278 = phi ptr [ %.val141, %288 ], [ %.val133, %353 ]
   %.094.lcssa = phi i8 [ %290, %288 ], [ %.296.ph, %353 ]
   %359 = trunc nuw i8 %.094.lcssa to i1
   br i1 %359, label %360, label %.critedge122
@@ -14839,7 +14839,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit188: ; preds =
   br label %.critedge126
 
 .critedge122:                                     ; preds = %286, %.preheader, %._crit_edge
-  %.val155 = phi ptr [ %.val141, %.preheader ], [ %.val155279, %._crit_edge ], [ %.val141, %286 ]
+  %.val155 = phi ptr [ %.val141, %.preheader ], [ %.val155278, %._crit_edge ], [ %.val141, %286 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 59, ptr %15, align 8
@@ -14997,7 +14997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206: ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
-.critedge126:                                     ; preds = %_ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit, %58, %.thread226, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203, %360
+.critedge126:                                     ; preds = %_ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit, %58, %.thread225, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203, %360
   ret void
 }
 

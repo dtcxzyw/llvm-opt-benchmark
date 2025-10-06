@@ -1962,9 +1962,9 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang10extractapi21SymbolGraphSerializer19getConstraintStringENS1_14ConstraintKindE(i32 noundef %0) local_unnamed_addr #5 align 2 {
-  %switch = icmp eq i32 %0, 0
-  %. = select i1 %switch, i64 11, i64 22
-  %.str.15..str.16 = select i1 %switch, ptr @.str.15, ptr @.str.16
+  %2 = icmp eq i32 %0, 0
+  %. = select i1 %2, i64 11, i64 22
+  %.str.15..str.16 = select i1 %2, ptr @.str.15, ptr @.str.16
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.str.15..str.16, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %., 1
   ret { ptr, i64 } %.fca.1.insert
@@ -4826,7 +4826,7 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE23traverseName
 .lr.ph.i:                                         ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE23traverseNamespaceRecordEPKNS0_15NamespaceRecordE.exit, %11
   %.sroa.0.019.i = phi ptr [ %.sroa.0.0.i, %11 ], [ %.sroa.0.017.i, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE23traverseNamespaceRecordEPKNS0_15NamespaceRecordE.exit ]
   %13 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i)
-  br i1 %13, label %11, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+  br i1 %13, label %11, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 14:                                               ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -4838,25 +4838,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE23traverseName
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalFunctionRecordEPKNS0_20GlobalFunctionRecordE.exit: ; preds = %14
   %19 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i157 = icmp eq ptr %19, null
-  br i1 %.not.i157, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %20
+  %.not.i156 = icmp eq ptr %19, null
+  br i1 %.not.i156, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %20
 
 20:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalFunctionRecordEPKNS0_20GlobalFunctionRecordE.exit
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sroa.0.017.i158 = load ptr, ptr %21, align 8, !tbaa !198
-  %.not1618.i159 = icmp eq ptr %.sroa.0.017.i158, null
-  br i1 %.not1618.i159, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i160
+  %.sroa.0.017.i157 = load ptr, ptr %21, align 8, !tbaa !198
+  %.not1618.i158 = icmp eq ptr %.sroa.0.017.i157, null
+  br i1 %.not1618.i158, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i159
 
-22:                                               ; preds = %.lr.ph.i160
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i161, i64 360
-  %.sroa.0.0.i163 = load ptr, ptr %23, align 8, !tbaa !198
-  %.not16.i164 = icmp eq ptr %.sroa.0.0.i163, null
-  br i1 %.not16.i164, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i160
+22:                                               ; preds = %.lr.ph.i159
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i160, i64 360
+  %.sroa.0.0.i162 = load ptr, ptr %23, align 8, !tbaa !198
+  %.not16.i163 = icmp eq ptr %.sroa.0.0.i162, null
+  br i1 %.not16.i163, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i159
 
-.lr.ph.i160:                                      ; preds = %20, %22
-  %.sroa.0.019.i161 = phi ptr [ %.sroa.0.0.i163, %22 ], [ %.sroa.0.017.i158, %20 ]
-  %24 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i161)
-  br i1 %24, label %22, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i159:                                      ; preds = %20, %22
+  %.sroa.0.019.i160 = phi ptr [ %.sroa.0.0.i162, %22 ], [ %.sroa.0.017.i157, %20 ]
+  %24 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i160)
+  br i1 %24, label %22, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 25:                                               ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -4869,25 +4869,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlob
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalFunctionTemplateRecordEPKNS0_28GlobalFunctionTemplateRecordE.exit: ; preds = %25
   %31 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i166 = icmp eq ptr %31, null
-  br i1 %.not.i166, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %32
+  %.not.i165 = icmp eq ptr %31, null
+  br i1 %.not.i165, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %32
 
 32:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalFunctionTemplateRecordEPKNS0_28GlobalFunctionTemplateRecordE.exit
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.0.017.i167 = load ptr, ptr %33, align 8, !tbaa !198
-  %.not1618.i168 = icmp eq ptr %.sroa.0.017.i167, null
-  br i1 %.not1618.i168, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i169
+  %.sroa.0.017.i166 = load ptr, ptr %33, align 8, !tbaa !198
+  %.not1618.i167 = icmp eq ptr %.sroa.0.017.i166, null
+  br i1 %.not1618.i167, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i168
 
-34:                                               ; preds = %.lr.ph.i169
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i170, i64 360
-  %.sroa.0.0.i172 = load ptr, ptr %35, align 8, !tbaa !198
-  %.not16.i173 = icmp eq ptr %.sroa.0.0.i172, null
-  br i1 %.not16.i173, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i169
+34:                                               ; preds = %.lr.ph.i168
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i169, i64 360
+  %.sroa.0.0.i171 = load ptr, ptr %35, align 8, !tbaa !198
+  %.not16.i172 = icmp eq ptr %.sroa.0.0.i171, null
+  br i1 %.not16.i172, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i168
 
-.lr.ph.i169:                                      ; preds = %32, %34
-  %.sroa.0.019.i170 = phi ptr [ %.sroa.0.0.i172, %34 ], [ %.sroa.0.017.i167, %32 ]
-  %36 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i170)
-  br i1 %36, label %34, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i168:                                      ; preds = %32, %34
+  %.sroa.0.019.i169 = phi ptr [ %.sroa.0.0.i171, %34 ], [ %.sroa.0.017.i166, %32 ]
+  %36 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i169)
+  br i1 %36, label %34, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 37:                                               ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -4899,99 +4899,99 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlob
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalFunctionTemplateSpecializationRecordEPKNS0_42GlobalFunctionTemplateSpecializationRecordE.exit: ; preds = %37
   %42 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i175 = icmp eq ptr %42, null
-  br i1 %.not.i175, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %43
+  %.not.i174 = icmp eq ptr %42, null
+  br i1 %.not.i174, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %43
 
 43:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalFunctionTemplateSpecializationRecordEPKNS0_42GlobalFunctionTemplateSpecializationRecordE.exit
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.sroa.0.017.i176 = load ptr, ptr %44, align 8, !tbaa !198
-  %.not1618.i177 = icmp eq ptr %.sroa.0.017.i176, null
-  br i1 %.not1618.i177, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i178
+  %.sroa.0.017.i175 = load ptr, ptr %44, align 8, !tbaa !198
+  %.not1618.i176 = icmp eq ptr %.sroa.0.017.i175, null
+  br i1 %.not1618.i176, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i177
 
-45:                                               ; preds = %.lr.ph.i178
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i179, i64 360
-  %.sroa.0.0.i181 = load ptr, ptr %46, align 8, !tbaa !198
-  %.not16.i182 = icmp eq ptr %.sroa.0.0.i181, null
-  br i1 %.not16.i182, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i178
+45:                                               ; preds = %.lr.ph.i177
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i178, i64 360
+  %.sroa.0.0.i180 = load ptr, ptr %46, align 8, !tbaa !198
+  %.not16.i181 = icmp eq ptr %.sroa.0.0.i180, null
+  br i1 %.not16.i181, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i177
 
-.lr.ph.i178:                                      ; preds = %43, %45
-  %.sroa.0.019.i179 = phi ptr [ %.sroa.0.0.i181, %45 ], [ %.sroa.0.017.i176, %43 ]
-  %47 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i179)
-  br i1 %47, label %45, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i177:                                      ; preds = %43, %45
+  %.sroa.0.019.i178 = phi ptr [ %.sroa.0.0.i180, %45 ], [ %.sroa.0.017.i175, %43 ]
+  %47 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i178)
+  br i1 %47, label %45, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i185 = load ptr, ptr %48, align 8, !tbaa !198
-  %.not1618.i186 = icmp eq ptr %.sroa.0.017.i185, null
-  br i1 %.not1618.i186, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i187
+  %.sroa.0.017.i184 = load ptr, ptr %48, align 8, !tbaa !198
+  %.not1618.i185 = icmp eq ptr %.sroa.0.017.i184, null
+  br i1 %.not1618.i185, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i186
 
-49:                                               ; preds = %.lr.ph.i187
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i188, i64 360
-  %.sroa.0.0.i190 = load ptr, ptr %50, align 8, !tbaa !198
-  %.not16.i191 = icmp eq ptr %.sroa.0.0.i190, null
-  br i1 %.not16.i191, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i187
+49:                                               ; preds = %.lr.ph.i186
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i187, i64 360
+  %.sroa.0.0.i189 = load ptr, ptr %50, align 8, !tbaa !198
+  %.not16.i190 = icmp eq ptr %.sroa.0.0.i189, null
+  br i1 %.not16.i190, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i186
 
-.lr.ph.i187:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit, %49
-  %.sroa.0.019.i188 = phi ptr [ %.sroa.0.0.i190, %49 ], [ %.sroa.0.017.i185, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit ]
-  %51 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i188)
-  br i1 %51, label %49, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i186:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit, %49
+  %.sroa.0.019.i187 = phi ptr [ %.sroa.0.0.i189, %49 ], [ %.sroa.0.017.i184, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit ]
+  %51 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i187)
+  br i1 %51, label %49, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %52 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer33visitGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i194 = load ptr, ptr %53, align 8, !tbaa !198
-  %.not1618.i195 = icmp eq ptr %.sroa.0.017.i194, null
-  br i1 %.not1618.i195, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i196
+  %.sroa.0.017.i193 = load ptr, ptr %53, align 8, !tbaa !198
+  %.not1618.i194 = icmp eq ptr %.sroa.0.017.i193, null
+  br i1 %.not1618.i194, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i195
 
-54:                                               ; preds = %.lr.ph.i196
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i197, i64 360
-  %.sroa.0.0.i199 = load ptr, ptr %55, align 8, !tbaa !198
-  %.not16.i200 = icmp eq ptr %.sroa.0.0.i199, null
-  br i1 %.not16.i200, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i196
+54:                                               ; preds = %.lr.ph.i195
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i196, i64 360
+  %.sroa.0.0.i198 = load ptr, ptr %55, align 8, !tbaa !198
+  %.not16.i199 = icmp eq ptr %.sroa.0.0.i198, null
+  br i1 %.not16.i199, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i195
 
-.lr.ph.i196:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit, %54
-  %.sroa.0.019.i197 = phi ptr [ %.sroa.0.0.i199, %54 ], [ %.sroa.0.017.i194, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit ]
-  %56 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i197)
-  br i1 %56, label %54, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i195:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit, %54
+  %.sroa.0.019.i196 = phi ptr [ %.sroa.0.0.i198, %54 ], [ %.sroa.0.017.i193, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit ]
+  %56 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i196)
+  br i1 %56, label %54, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i203 = load ptr, ptr %57, align 8, !tbaa !198
-  %.not1618.i204 = icmp eq ptr %.sroa.0.017.i203, null
-  br i1 %.not1618.i204, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i205
+  %.sroa.0.017.i202 = load ptr, ptr %57, align 8, !tbaa !198
+  %.not1618.i203 = icmp eq ptr %.sroa.0.017.i202, null
+  br i1 %.not1618.i203, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i204
 
-58:                                               ; preds = %.lr.ph.i205
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i206, i64 360
-  %.sroa.0.0.i208 = load ptr, ptr %59, align 8, !tbaa !198
-  %.not16.i209 = icmp eq ptr %.sroa.0.0.i208, null
-  br i1 %.not16.i209, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i205
+58:                                               ; preds = %.lr.ph.i204
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i205, i64 360
+  %.sroa.0.0.i207 = load ptr, ptr %59, align 8, !tbaa !198
+  %.not16.i208 = icmp eq ptr %.sroa.0.0.i207, null
+  br i1 %.not16.i208, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i204
 
-.lr.ph.i205:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit, %58
-  %.sroa.0.019.i206 = phi ptr [ %.sroa.0.0.i208, %58 ], [ %.sroa.0.017.i203, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit ]
-  %60 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i206)
-  br i1 %60, label %58, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i204:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit, %58
+  %.sroa.0.019.i205 = phi ptr [ %.sroa.0.0.i207, %58 ], [ %.sroa.0.017.i202, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit ]
+  %60 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i205)
+  br i1 %60, label %58, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %61 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer54visitGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i212 = load ptr, ptr %62, align 8, !tbaa !198
-  %.not1618.i213 = icmp eq ptr %.sroa.0.017.i212, null
-  br i1 %.not1618.i213, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i214
+  %.sroa.0.017.i211 = load ptr, ptr %62, align 8, !tbaa !198
+  %.not1618.i212 = icmp eq ptr %.sroa.0.017.i211, null
+  br i1 %.not1618.i212, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i213
 
-63:                                               ; preds = %.lr.ph.i214
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i215, i64 360
-  %.sroa.0.0.i217 = load ptr, ptr %64, align 8, !tbaa !198
-  %.not16.i218 = icmp eq ptr %.sroa.0.0.i217, null
-  br i1 %.not16.i218, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i214
+63:                                               ; preds = %.lr.ph.i213
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i214, i64 360
+  %.sroa.0.0.i216 = load ptr, ptr %64, align 8, !tbaa !198
+  %.not16.i217 = icmp eq ptr %.sroa.0.0.i216, null
+  br i1 %.not16.i217, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i213
 
-.lr.ph.i214:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit, %63
-  %.sroa.0.019.i215 = phi ptr [ %.sroa.0.0.i217, %63 ], [ %.sroa.0.017.i212, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit ]
-  %65 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i215)
-  br i1 %65, label %63, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i213:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit, %63
+  %.sroa.0.019.i214 = phi ptr [ %.sroa.0.0.i216, %63 ], [ %.sroa.0.017.i211, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit ]
+  %65 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i214)
+  br i1 %65, label %63, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 66:                                               ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5002,152 +5002,152 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlob
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseEnumConstantRecordEPKNS0_18EnumConstantRecordE.exit: ; preds = %66
   %70 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i220 = icmp eq ptr %70, null
-  br i1 %.not.i220, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %71
+  %.not.i219 = icmp eq ptr %70, null
+  br i1 %.not.i219, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %71
 
 71:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseEnumConstantRecordEPKNS0_18EnumConstantRecordE.exit
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %.sroa.0.017.i221 = load ptr, ptr %72, align 8, !tbaa !198
-  %.not1618.i222 = icmp eq ptr %.sroa.0.017.i221, null
-  br i1 %.not1618.i222, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i223
+  %.sroa.0.017.i220 = load ptr, ptr %72, align 8, !tbaa !198
+  %.not1618.i221 = icmp eq ptr %.sroa.0.017.i220, null
+  br i1 %.not1618.i221, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i222
 
-73:                                               ; preds = %.lr.ph.i223
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i224, i64 360
-  %.sroa.0.0.i226 = load ptr, ptr %74, align 8, !tbaa !198
-  %.not16.i227 = icmp eq ptr %.sroa.0.0.i226, null
-  br i1 %.not16.i227, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i223
+73:                                               ; preds = %.lr.ph.i222
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i223, i64 360
+  %.sroa.0.0.i225 = load ptr, ptr %74, align 8, !tbaa !198
+  %.not16.i226 = icmp eq ptr %.sroa.0.0.i225, null
+  br i1 %.not16.i226, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i222
 
-.lr.ph.i223:                                      ; preds = %71, %73
-  %.sroa.0.019.i224 = phi ptr [ %.sroa.0.0.i226, %73 ], [ %.sroa.0.017.i221, %71 ]
-  %75 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i224)
-  br i1 %75, label %73, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i222:                                      ; preds = %71, %73
+  %.sroa.0.019.i223 = phi ptr [ %.sroa.0.0.i225, %73 ], [ %.sroa.0.017.i220, %71 ]
+  %75 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i223)
+  br i1 %75, label %73, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i230 = load ptr, ptr %76, align 8, !tbaa !198
-  %.not1618.i231 = icmp eq ptr %.sroa.0.017.i230, null
-  br i1 %.not1618.i231, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i232
+  %.sroa.0.017.i229 = load ptr, ptr %76, align 8, !tbaa !198
+  %.not1618.i230 = icmp eq ptr %.sroa.0.017.i229, null
+  br i1 %.not1618.i230, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i231
 
-77:                                               ; preds = %.lr.ph.i232
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i233, i64 360
-  %.sroa.0.0.i235 = load ptr, ptr %78, align 8, !tbaa !198
-  %.not16.i236 = icmp eq ptr %.sroa.0.0.i235, null
-  br i1 %.not16.i236, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i232
+77:                                               ; preds = %.lr.ph.i231
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i232, i64 360
+  %.sroa.0.0.i234 = load ptr, ptr %78, align 8, !tbaa !198
+  %.not16.i235 = icmp eq ptr %.sroa.0.0.i234, null
+  br i1 %.not16.i235, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i231
 
-.lr.ph.i232:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit, %77
-  %.sroa.0.019.i233 = phi ptr [ %.sroa.0.0.i235, %77 ], [ %.sroa.0.017.i230, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit ]
-  %79 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i233)
-  br i1 %79, label %77, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i231:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit, %77
+  %.sroa.0.019.i232 = phi ptr [ %.sroa.0.0.i234, %77 ], [ %.sroa.0.017.i229, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit ]
+  %79 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i232)
+  br i1 %79, label %77, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i239 = load ptr, ptr %80, align 8, !tbaa !198
-  %.not1618.i240 = icmp eq ptr %.sroa.0.017.i239, null
-  br i1 %.not1618.i240, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i241
+  %.sroa.0.017.i238 = load ptr, ptr %80, align 8, !tbaa !198
+  %.not1618.i239 = icmp eq ptr %.sroa.0.017.i238, null
+  br i1 %.not1618.i239, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i240
 
-81:                                               ; preds = %.lr.ph.i241
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i242, i64 360
-  %.sroa.0.0.i244 = load ptr, ptr %82, align 8, !tbaa !198
-  %.not16.i245 = icmp eq ptr %.sroa.0.0.i244, null
-  br i1 %.not16.i245, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i241
+81:                                               ; preds = %.lr.ph.i240
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i241, i64 360
+  %.sroa.0.0.i243 = load ptr, ptr %82, align 8, !tbaa !198
+  %.not16.i244 = icmp eq ptr %.sroa.0.0.i243, null
+  br i1 %.not16.i244, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i240
 
-.lr.ph.i241:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit, %81
-  %.sroa.0.019.i242 = phi ptr [ %.sroa.0.0.i244, %81 ], [ %.sroa.0.017.i239, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit ]
-  %83 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i242)
-  br i1 %83, label %81, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i240:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit, %81
+  %.sroa.0.019.i241 = phi ptr [ %.sroa.0.0.i243, %81 ], [ %.sroa.0.017.i238, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit ]
+  %83 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i241)
+  br i1 %83, label %81, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i248 = load ptr, ptr %84, align 8, !tbaa !198
-  %.not1618.i249 = icmp eq ptr %.sroa.0.017.i248, null
-  br i1 %.not1618.i249, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i250
+  %.sroa.0.017.i247 = load ptr, ptr %84, align 8, !tbaa !198
+  %.not1618.i248 = icmp eq ptr %.sroa.0.017.i247, null
+  br i1 %.not1618.i248, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i249
 
-85:                                               ; preds = %.lr.ph.i250
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i251, i64 360
-  %.sroa.0.0.i253 = load ptr, ptr %86, align 8, !tbaa !198
-  %.not16.i254 = icmp eq ptr %.sroa.0.0.i253, null
-  br i1 %.not16.i254, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i250
+85:                                               ; preds = %.lr.ph.i249
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i250, i64 360
+  %.sroa.0.0.i252 = load ptr, ptr %86, align 8, !tbaa !198
+  %.not16.i253 = icmp eq ptr %.sroa.0.0.i252, null
+  br i1 %.not16.i253, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i249
 
-.lr.ph.i250:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit, %85
-  %.sroa.0.019.i251 = phi ptr [ %.sroa.0.0.i253, %85 ], [ %.sroa.0.017.i248, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit ]
-  %87 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i251)
-  br i1 %87, label %85, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i249:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit, %85
+  %.sroa.0.019.i250 = phi ptr [ %.sroa.0.0.i252, %85 ], [ %.sroa.0.017.i247, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit ]
+  %87 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i250)
+  br i1 %87, label %85, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i257 = load ptr, ptr %88, align 8, !tbaa !198
-  %.not1618.i258 = icmp eq ptr %.sroa.0.017.i257, null
-  br i1 %.not1618.i258, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i259
+  %.sroa.0.017.i256 = load ptr, ptr %88, align 8, !tbaa !198
+  %.not1618.i257 = icmp eq ptr %.sroa.0.017.i256, null
+  br i1 %.not1618.i257, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i258
 
-89:                                               ; preds = %.lr.ph.i259
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i260, i64 360
-  %.sroa.0.0.i262 = load ptr, ptr %90, align 8, !tbaa !198
-  %.not16.i263 = icmp eq ptr %.sroa.0.0.i262, null
-  br i1 %.not16.i263, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i259
+89:                                               ; preds = %.lr.ph.i258
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i259, i64 360
+  %.sroa.0.0.i261 = load ptr, ptr %90, align 8, !tbaa !198
+  %.not16.i262 = icmp eq ptr %.sroa.0.0.i261, null
+  br i1 %.not16.i262, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i258
 
-.lr.ph.i259:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit, %89
-  %.sroa.0.019.i260 = phi ptr [ %.sroa.0.0.i262, %89 ], [ %.sroa.0.017.i257, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit ]
-  %91 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i260)
-  br i1 %91, label %89, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i258:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit, %89
+  %.sroa.0.019.i259 = phi ptr [ %.sroa.0.0.i261, %89 ], [ %.sroa.0.017.i256, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit ]
+  %91 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i259)
+  br i1 %91, label %89, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i266 = load ptr, ptr %92, align 8, !tbaa !198
-  %.not1618.i267 = icmp eq ptr %.sroa.0.017.i266, null
-  br i1 %.not1618.i267, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i268
+  %.sroa.0.017.i265 = load ptr, ptr %92, align 8, !tbaa !198
+  %.not1618.i266 = icmp eq ptr %.sroa.0.017.i265, null
+  br i1 %.not1618.i266, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i267
 
-93:                                               ; preds = %.lr.ph.i268
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i269, i64 360
-  %.sroa.0.0.i271 = load ptr, ptr %94, align 8, !tbaa !198
-  %.not16.i272 = icmp eq ptr %.sroa.0.0.i271, null
-  br i1 %.not16.i272, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i268
+93:                                               ; preds = %.lr.ph.i267
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i268, i64 360
+  %.sroa.0.0.i270 = load ptr, ptr %94, align 8, !tbaa !198
+  %.not16.i271 = icmp eq ptr %.sroa.0.0.i270, null
+  br i1 %.not16.i271, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i267
 
-.lr.ph.i268:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit, %93
-  %.sroa.0.019.i269 = phi ptr [ %.sroa.0.0.i271, %93 ], [ %.sroa.0.017.i266, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit ]
-  %95 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i269)
-  br i1 %95, label %93, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i267:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit, %93
+  %.sroa.0.019.i268 = phi ptr [ %.sroa.0.0.i270, %93 ], [ %.sroa.0.017.i265, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit ]
+  %95 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i268)
+  br i1 %95, label %93, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i275 = load ptr, ptr %96, align 8, !tbaa !198
-  %.not1618.i276 = icmp eq ptr %.sroa.0.017.i275, null
-  br i1 %.not1618.i276, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i277
+  %.sroa.0.017.i274 = load ptr, ptr %96, align 8, !tbaa !198
+  %.not1618.i275 = icmp eq ptr %.sroa.0.017.i274, null
+  br i1 %.not1618.i275, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i276
 
-97:                                               ; preds = %.lr.ph.i277
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i278, i64 360
-  %.sroa.0.0.i280 = load ptr, ptr %98, align 8, !tbaa !198
-  %.not16.i281 = icmp eq ptr %.sroa.0.0.i280, null
-  br i1 %.not16.i281, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i277
+97:                                               ; preds = %.lr.ph.i276
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i277, i64 360
+  %.sroa.0.0.i279 = load ptr, ptr %98, align 8, !tbaa !198
+  %.not16.i280 = icmp eq ptr %.sroa.0.0.i279, null
+  br i1 %.not16.i280, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i276
 
-.lr.ph.i277:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit, %97
-  %.sroa.0.019.i278 = phi ptr [ %.sroa.0.0.i280, %97 ], [ %.sroa.0.017.i275, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit ]
-  %99 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i278)
-  br i1 %99, label %97, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i276:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit, %97
+  %.sroa.0.019.i277 = phi ptr [ %.sroa.0.0.i279, %97 ], [ %.sroa.0.017.i274, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit ]
+  %99 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i277)
+  br i1 %99, label %97, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %100 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer27visitCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i284 = load ptr, ptr %101, align 8, !tbaa !198
-  %.not1618.i285 = icmp eq ptr %.sroa.0.017.i284, null
-  br i1 %.not1618.i285, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i286
+  %.sroa.0.017.i283 = load ptr, ptr %101, align 8, !tbaa !198
+  %.not1618.i284 = icmp eq ptr %.sroa.0.017.i283, null
+  br i1 %.not1618.i284, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i285
 
-102:                                              ; preds = %.lr.ph.i286
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i287, i64 360
-  %.sroa.0.0.i289 = load ptr, ptr %103, align 8, !tbaa !198
-  %.not16.i290 = icmp eq ptr %.sroa.0.0.i289, null
-  br i1 %.not16.i290, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i286
+102:                                              ; preds = %.lr.ph.i285
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i286, i64 360
+  %.sroa.0.0.i288 = load ptr, ptr %103, align 8, !tbaa !198
+  %.not16.i289 = icmp eq ptr %.sroa.0.0.i288, null
+  br i1 %.not16.i289, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i285
 
-.lr.ph.i286:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit, %102
-  %.sroa.0.019.i287 = phi ptr [ %.sroa.0.0.i289, %102 ], [ %.sroa.0.017.i284, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit ]
-  %104 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i287)
-  br i1 %104, label %102, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i285:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit, %102
+  %.sroa.0.019.i286 = phi ptr [ %.sroa.0.0.i288, %102 ], [ %.sroa.0.017.i283, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit ]
+  %104 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i286)
+  br i1 %104, label %102, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 105:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5159,25 +5159,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXF
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXConstructorRecordEPKNS0_20CXXConstructorRecordE.exit: ; preds = %105
   %110 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i292 = icmp eq ptr %110, null
-  br i1 %.not.i292, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %111
+  %.not.i291 = icmp eq ptr %110, null
+  br i1 %.not.i291, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %111
 
 111:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXConstructorRecordEPKNS0_20CXXConstructorRecordE.exit
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %.sroa.0.017.i293 = load ptr, ptr %112, align 8, !tbaa !198
-  %.not1618.i294 = icmp eq ptr %.sroa.0.017.i293, null
-  br i1 %.not1618.i294, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i295
+  %.sroa.0.017.i292 = load ptr, ptr %112, align 8, !tbaa !198
+  %.not1618.i293 = icmp eq ptr %.sroa.0.017.i292, null
+  br i1 %.not1618.i293, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i294
 
-113:                                              ; preds = %.lr.ph.i295
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i296, i64 360
-  %.sroa.0.0.i298 = load ptr, ptr %114, align 8, !tbaa !198
-  %.not16.i299 = icmp eq ptr %.sroa.0.0.i298, null
-  br i1 %.not16.i299, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i295
+113:                                              ; preds = %.lr.ph.i294
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i295, i64 360
+  %.sroa.0.0.i297 = load ptr, ptr %114, align 8, !tbaa !198
+  %.not16.i298 = icmp eq ptr %.sroa.0.0.i297, null
+  br i1 %.not16.i298, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i294
 
-.lr.ph.i295:                                      ; preds = %111, %113
-  %.sroa.0.019.i296 = phi ptr [ %.sroa.0.0.i298, %113 ], [ %.sroa.0.017.i293, %111 ]
-  %115 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i296)
-  br i1 %115, label %113, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i294:                                      ; preds = %111, %113
+  %.sroa.0.019.i295 = phi ptr [ %.sroa.0.0.i297, %113 ], [ %.sroa.0.017.i292, %111 ]
+  %115 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i295)
+  br i1 %115, label %113, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 116:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5189,25 +5189,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXDestructorRecordEPKNS0_19CXXDestructorRecordE.exit: ; preds = %116
   %121 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i301 = icmp eq ptr %121, null
-  br i1 %.not.i301, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %122
+  %.not.i300 = icmp eq ptr %121, null
+  br i1 %.not.i300, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %122
 
 122:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXDestructorRecordEPKNS0_19CXXDestructorRecordE.exit
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %.sroa.0.017.i302 = load ptr, ptr %123, align 8, !tbaa !198
-  %.not1618.i303 = icmp eq ptr %.sroa.0.017.i302, null
-  br i1 %.not1618.i303, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i304
+  %.sroa.0.017.i301 = load ptr, ptr %123, align 8, !tbaa !198
+  %.not1618.i302 = icmp eq ptr %.sroa.0.017.i301, null
+  br i1 %.not1618.i302, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i303
 
-124:                                              ; preds = %.lr.ph.i304
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i305, i64 360
-  %.sroa.0.0.i307 = load ptr, ptr %125, align 8, !tbaa !198
-  %.not16.i308 = icmp eq ptr %.sroa.0.0.i307, null
-  br i1 %.not16.i308, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i304
+124:                                              ; preds = %.lr.ph.i303
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i304, i64 360
+  %.sroa.0.0.i306 = load ptr, ptr %125, align 8, !tbaa !198
+  %.not16.i307 = icmp eq ptr %.sroa.0.0.i306, null
+  br i1 %.not16.i307, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i303
 
-.lr.ph.i304:                                      ; preds = %122, %124
-  %.sroa.0.019.i305 = phi ptr [ %.sroa.0.0.i307, %124 ], [ %.sroa.0.017.i302, %122 ]
-  %126 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i305)
-  br i1 %126, label %124, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i303:                                      ; preds = %122, %124
+  %.sroa.0.019.i304 = phi ptr [ %.sroa.0.0.i306, %124 ], [ %.sroa.0.017.i301, %122 ]
+  %126 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i304)
+  br i1 %126, label %124, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 127:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5219,25 +5219,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXD
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXStaticMethodRecordEPKNS0_21CXXStaticMethodRecordE.exit: ; preds = %127
   %132 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i310 = icmp eq ptr %132, null
-  br i1 %.not.i310, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %133
+  %.not.i309 = icmp eq ptr %132, null
+  br i1 %.not.i309, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %133
 
 133:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXStaticMethodRecordEPKNS0_21CXXStaticMethodRecordE.exit
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %.sroa.0.017.i311 = load ptr, ptr %134, align 8, !tbaa !198
-  %.not1618.i312 = icmp eq ptr %.sroa.0.017.i311, null
-  br i1 %.not1618.i312, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i313
+  %.sroa.0.017.i310 = load ptr, ptr %134, align 8, !tbaa !198
+  %.not1618.i311 = icmp eq ptr %.sroa.0.017.i310, null
+  br i1 %.not1618.i311, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i312
 
-135:                                              ; preds = %.lr.ph.i313
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i314, i64 360
-  %.sroa.0.0.i316 = load ptr, ptr %136, align 8, !tbaa !198
-  %.not16.i317 = icmp eq ptr %.sroa.0.0.i316, null
-  br i1 %.not16.i317, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i313
+135:                                              ; preds = %.lr.ph.i312
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i313, i64 360
+  %.sroa.0.0.i315 = load ptr, ptr %136, align 8, !tbaa !198
+  %.not16.i316 = icmp eq ptr %.sroa.0.0.i315, null
+  br i1 %.not16.i316, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i312
 
-.lr.ph.i313:                                      ; preds = %133, %135
-  %.sroa.0.019.i314 = phi ptr [ %.sroa.0.0.i316, %135 ], [ %.sroa.0.017.i311, %133 ]
-  %137 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i314)
-  br i1 %137, label %135, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i312:                                      ; preds = %133, %135
+  %.sroa.0.019.i313 = phi ptr [ %.sroa.0.0.i315, %135 ], [ %.sroa.0.017.i310, %133 ]
+  %137 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i313)
+  br i1 %137, label %135, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 138:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5249,25 +5249,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXS
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXInstanceMethodRecordEPKNS0_23CXXInstanceMethodRecordE.exit: ; preds = %138
   %143 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i319 = icmp eq ptr %143, null
-  br i1 %.not.i319, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %144
+  %.not.i318 = icmp eq ptr %143, null
+  br i1 %.not.i318, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %144
 
 144:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXInstanceMethodRecordEPKNS0_23CXXInstanceMethodRecordE.exit
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %.sroa.0.017.i320 = load ptr, ptr %145, align 8, !tbaa !198
-  %.not1618.i321 = icmp eq ptr %.sroa.0.017.i320, null
-  br i1 %.not1618.i321, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i322
+  %.sroa.0.017.i319 = load ptr, ptr %145, align 8, !tbaa !198
+  %.not1618.i320 = icmp eq ptr %.sroa.0.017.i319, null
+  br i1 %.not1618.i320, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i321
 
-146:                                              ; preds = %.lr.ph.i322
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i323, i64 360
-  %.sroa.0.0.i325 = load ptr, ptr %147, align 8, !tbaa !198
-  %.not16.i326 = icmp eq ptr %.sroa.0.0.i325, null
-  br i1 %.not16.i326, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i322
+146:                                              ; preds = %.lr.ph.i321
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i322, i64 360
+  %.sroa.0.0.i324 = load ptr, ptr %147, align 8, !tbaa !198
+  %.not16.i325 = icmp eq ptr %.sroa.0.0.i324, null
+  br i1 %.not16.i325, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i321
 
-.lr.ph.i322:                                      ; preds = %144, %146
-  %.sroa.0.019.i323 = phi ptr [ %.sroa.0.0.i325, %146 ], [ %.sroa.0.017.i320, %144 ]
-  %148 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i323)
-  br i1 %148, label %146, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i321:                                      ; preds = %144, %146
+  %.sroa.0.019.i322 = phi ptr [ %.sroa.0.0.i324, %146 ], [ %.sroa.0.017.i319, %144 ]
+  %148 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i322)
+  br i1 %148, label %146, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 149:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5280,25 +5280,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXI
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXMethodTemplateRecordEPKNS0_23CXXMethodTemplateRecordE.exit: ; preds = %149
   %155 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i328 = icmp eq ptr %155, null
-  br i1 %.not.i328, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %156
+  %.not.i327 = icmp eq ptr %155, null
+  br i1 %.not.i327, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %156
 
 156:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXMethodTemplateRecordEPKNS0_23CXXMethodTemplateRecordE.exit
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %.sroa.0.017.i329 = load ptr, ptr %157, align 8, !tbaa !198
-  %.not1618.i330 = icmp eq ptr %.sroa.0.017.i329, null
-  br i1 %.not1618.i330, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i331
+  %.sroa.0.017.i328 = load ptr, ptr %157, align 8, !tbaa !198
+  %.not1618.i329 = icmp eq ptr %.sroa.0.017.i328, null
+  br i1 %.not1618.i329, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i330
 
-158:                                              ; preds = %.lr.ph.i331
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i332, i64 360
-  %.sroa.0.0.i334 = load ptr, ptr %159, align 8, !tbaa !198
-  %.not16.i335 = icmp eq ptr %.sroa.0.0.i334, null
-  br i1 %.not16.i335, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i331
+158:                                              ; preds = %.lr.ph.i330
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i331, i64 360
+  %.sroa.0.0.i333 = load ptr, ptr %159, align 8, !tbaa !198
+  %.not16.i334 = icmp eq ptr %.sroa.0.0.i333, null
+  br i1 %.not16.i334, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i330
 
-.lr.ph.i331:                                      ; preds = %156, %158
-  %.sroa.0.019.i332 = phi ptr [ %.sroa.0.0.i334, %158 ], [ %.sroa.0.017.i329, %156 ]
-  %160 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i332)
-  br i1 %160, label %158, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i330:                                      ; preds = %156, %158
+  %.sroa.0.019.i331 = phi ptr [ %.sroa.0.0.i333, %158 ], [ %.sroa.0.017.i328, %156 ]
+  %160 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i331)
+  br i1 %160, label %158, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 161:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5310,25 +5310,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXM
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXMethodTemplateSpecializationRecordEPKNS0_37CXXMethodTemplateSpecializationRecordE.exit: ; preds = %161
   %166 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i337 = icmp eq ptr %166, null
-  br i1 %.not.i337, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %167
+  %.not.i336 = icmp eq ptr %166, null
+  br i1 %.not.i336, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %167
 
 167:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXMethodTemplateSpecializationRecordEPKNS0_37CXXMethodTemplateSpecializationRecordE.exit
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %.sroa.0.017.i338 = load ptr, ptr %168, align 8, !tbaa !198
-  %.not1618.i339 = icmp eq ptr %.sroa.0.017.i338, null
-  br i1 %.not1618.i339, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i340
+  %.sroa.0.017.i337 = load ptr, ptr %168, align 8, !tbaa !198
+  %.not1618.i338 = icmp eq ptr %.sroa.0.017.i337, null
+  br i1 %.not1618.i338, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i339
 
-169:                                              ; preds = %.lr.ph.i340
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i341, i64 360
-  %.sroa.0.0.i343 = load ptr, ptr %170, align 8, !tbaa !198
-  %.not16.i344 = icmp eq ptr %.sroa.0.0.i343, null
-  br i1 %.not16.i344, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i340
+169:                                              ; preds = %.lr.ph.i339
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i340, i64 360
+  %.sroa.0.0.i342 = load ptr, ptr %170, align 8, !tbaa !198
+  %.not16.i343 = icmp eq ptr %.sroa.0.0.i342, null
+  br i1 %.not16.i343, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i339
 
-.lr.ph.i340:                                      ; preds = %167, %169
-  %.sroa.0.019.i341 = phi ptr [ %.sroa.0.0.i343, %169 ], [ %.sroa.0.017.i338, %167 ]
-  %171 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i341)
-  br i1 %171, label %169, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i339:                                      ; preds = %167, %169
+  %.sroa.0.019.i340 = phi ptr [ %.sroa.0.0.i342, %169 ], [ %.sroa.0.017.i337, %167 ]
+  %171 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i340)
+  br i1 %171, label %169, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 172:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5339,25 +5339,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXM
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstancePropertyRecordEPKNS0_26ObjCInstancePropertyRecordE.exit: ; preds = %172
   %176 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i346 = icmp eq ptr %176, null
-  br i1 %.not.i346, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %177
+  %.not.i345 = icmp eq ptr %176, null
+  br i1 %.not.i345, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %177
 
 177:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstancePropertyRecordEPKNS0_26ObjCInstancePropertyRecordE.exit
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %.sroa.0.017.i347 = load ptr, ptr %178, align 8, !tbaa !198
-  %.not1618.i348 = icmp eq ptr %.sroa.0.017.i347, null
-  br i1 %.not1618.i348, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i349
+  %.sroa.0.017.i346 = load ptr, ptr %178, align 8, !tbaa !198
+  %.not1618.i347 = icmp eq ptr %.sroa.0.017.i346, null
+  br i1 %.not1618.i347, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i348
 
-179:                                              ; preds = %.lr.ph.i349
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i350, i64 360
-  %.sroa.0.0.i352 = load ptr, ptr %180, align 8, !tbaa !198
-  %.not16.i353 = icmp eq ptr %.sroa.0.0.i352, null
-  br i1 %.not16.i353, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i349
+179:                                              ; preds = %.lr.ph.i348
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i349, i64 360
+  %.sroa.0.0.i351 = load ptr, ptr %180, align 8, !tbaa !198
+  %.not16.i352 = icmp eq ptr %.sroa.0.0.i351, null
+  br i1 %.not16.i352, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i348
 
-.lr.ph.i349:                                      ; preds = %177, %179
-  %.sroa.0.019.i350 = phi ptr [ %.sroa.0.0.i352, %179 ], [ %.sroa.0.017.i347, %177 ]
-  %181 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i350)
-  br i1 %181, label %179, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i348:                                      ; preds = %177, %179
+  %.sroa.0.019.i349 = phi ptr [ %.sroa.0.0.i351, %179 ], [ %.sroa.0.017.i346, %177 ]
+  %181 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i349)
+  br i1 %181, label %179, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 182:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5368,25 +5368,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjCClassPropertyRecordEPKNS0_23ObjCClassPropertyRecordE.exit: ; preds = %182
   %186 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i355 = icmp eq ptr %186, null
-  br i1 %.not.i355, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %187
+  %.not.i354 = icmp eq ptr %186, null
+  br i1 %.not.i354, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %187
 
 187:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjCClassPropertyRecordEPKNS0_23ObjCClassPropertyRecordE.exit
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %.sroa.0.017.i356 = load ptr, ptr %188, align 8, !tbaa !198
-  %.not1618.i357 = icmp eq ptr %.sroa.0.017.i356, null
-  br i1 %.not1618.i357, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i358
+  %.sroa.0.017.i355 = load ptr, ptr %188, align 8, !tbaa !198
+  %.not1618.i356 = icmp eq ptr %.sroa.0.017.i355, null
+  br i1 %.not1618.i356, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i357
 
-189:                                              ; preds = %.lr.ph.i358
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i359, i64 360
-  %.sroa.0.0.i361 = load ptr, ptr %190, align 8, !tbaa !198
-  %.not16.i362 = icmp eq ptr %.sroa.0.0.i361, null
-  br i1 %.not16.i362, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i358
+189:                                              ; preds = %.lr.ph.i357
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i358, i64 360
+  %.sroa.0.0.i360 = load ptr, ptr %190, align 8, !tbaa !198
+  %.not16.i361 = icmp eq ptr %.sroa.0.0.i360, null
+  br i1 %.not16.i361, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i357
 
-.lr.ph.i358:                                      ; preds = %187, %189
-  %.sroa.0.019.i359 = phi ptr [ %.sroa.0.0.i361, %189 ], [ %.sroa.0.017.i356, %187 ]
-  %191 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i359)
-  br i1 %191, label %189, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i357:                                      ; preds = %187, %189
+  %.sroa.0.019.i358 = phi ptr [ %.sroa.0.0.i360, %189 ], [ %.sroa.0.017.i355, %187 ]
+  %191 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i358)
+  br i1 %191, label %189, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 192:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5397,25 +5397,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstanceVariableRecordEPKNS0_26ObjCInstanceVariableRecordE.exit: ; preds = %192
   %196 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i364 = icmp eq ptr %196, null
-  br i1 %.not.i364, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %197
+  %.not.i363 = icmp eq ptr %196, null
+  br i1 %.not.i363, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %197
 
 197:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstanceVariableRecordEPKNS0_26ObjCInstanceVariableRecordE.exit
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %.sroa.0.017.i365 = load ptr, ptr %198, align 8, !tbaa !198
-  %.not1618.i366 = icmp eq ptr %.sroa.0.017.i365, null
-  br i1 %.not1618.i366, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i367
+  %.sroa.0.017.i364 = load ptr, ptr %198, align 8, !tbaa !198
+  %.not1618.i365 = icmp eq ptr %.sroa.0.017.i364, null
+  br i1 %.not1618.i365, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i366
 
-199:                                              ; preds = %.lr.ph.i367
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i368, i64 360
-  %.sroa.0.0.i370 = load ptr, ptr %200, align 8, !tbaa !198
-  %.not16.i371 = icmp eq ptr %.sroa.0.0.i370, null
-  br i1 %.not16.i371, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i367
+199:                                              ; preds = %.lr.ph.i366
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i367, i64 360
+  %.sroa.0.0.i369 = load ptr, ptr %200, align 8, !tbaa !198
+  %.not16.i370 = icmp eq ptr %.sroa.0.0.i369, null
+  br i1 %.not16.i370, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i366
 
-.lr.ph.i367:                                      ; preds = %197, %199
-  %.sroa.0.019.i368 = phi ptr [ %.sroa.0.0.i370, %199 ], [ %.sroa.0.017.i365, %197 ]
-  %201 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i368)
-  br i1 %201, label %199, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i366:                                      ; preds = %197, %199
+  %.sroa.0.019.i367 = phi ptr [ %.sroa.0.0.i369, %199 ], [ %.sroa.0.017.i364, %197 ]
+  %201 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i367)
+  br i1 %201, label %199, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 202:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5427,25 +5427,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjCInstanceMethodRecordEPKNS0_24ObjCInstanceMethodRecordE.exit: ; preds = %202
   %207 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i373 = icmp eq ptr %207, null
-  br i1 %.not.i373, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %208
+  %.not.i372 = icmp eq ptr %207, null
+  br i1 %.not.i372, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %208
 
 208:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjCInstanceMethodRecordEPKNS0_24ObjCInstanceMethodRecordE.exit
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %.sroa.0.017.i374 = load ptr, ptr %209, align 8, !tbaa !198
-  %.not1618.i375 = icmp eq ptr %.sroa.0.017.i374, null
-  br i1 %.not1618.i375, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i376
+  %.sroa.0.017.i373 = load ptr, ptr %209, align 8, !tbaa !198
+  %.not1618.i374 = icmp eq ptr %.sroa.0.017.i373, null
+  br i1 %.not1618.i374, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i375
 
-210:                                              ; preds = %.lr.ph.i376
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i377, i64 360
-  %.sroa.0.0.i379 = load ptr, ptr %211, align 8, !tbaa !198
-  %.not16.i380 = icmp eq ptr %.sroa.0.0.i379, null
-  br i1 %.not16.i380, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i376
+210:                                              ; preds = %.lr.ph.i375
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i376, i64 360
+  %.sroa.0.0.i378 = load ptr, ptr %211, align 8, !tbaa !198
+  %.not16.i379 = icmp eq ptr %.sroa.0.0.i378, null
+  br i1 %.not16.i379, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i375
 
-.lr.ph.i376:                                      ; preds = %208, %210
-  %.sroa.0.019.i377 = phi ptr [ %.sroa.0.0.i379, %210 ], [ %.sroa.0.017.i374, %208 ]
-  %212 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i377)
-  br i1 %212, label %210, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i375:                                      ; preds = %208, %210
+  %.sroa.0.019.i376 = phi ptr [ %.sroa.0.0.i378, %210 ], [ %.sroa.0.017.i373, %208 ]
+  %212 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i376)
+  br i1 %212, label %210, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 213:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5457,43 +5457,43 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseObjCClassMethodRecordEPKNS0_21ObjCClassMethodRecordE.exit: ; preds = %213
   %218 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i382 = icmp eq ptr %218, null
-  br i1 %.not.i382, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %219
+  %.not.i381 = icmp eq ptr %218, null
+  br i1 %.not.i381, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %219
 
 219:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseObjCClassMethodRecordEPKNS0_21ObjCClassMethodRecordE.exit
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  %.sroa.0.017.i383 = load ptr, ptr %220, align 8, !tbaa !198
-  %.not1618.i384 = icmp eq ptr %.sroa.0.017.i383, null
-  br i1 %.not1618.i384, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i385
+  %.sroa.0.017.i382 = load ptr, ptr %220, align 8, !tbaa !198
+  %.not1618.i383 = icmp eq ptr %.sroa.0.017.i382, null
+  br i1 %.not1618.i383, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i384
 
-221:                                              ; preds = %.lr.ph.i385
-  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i386, i64 360
-  %.sroa.0.0.i388 = load ptr, ptr %222, align 8, !tbaa !198
-  %.not16.i389 = icmp eq ptr %.sroa.0.0.i388, null
-  br i1 %.not16.i389, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i385
+221:                                              ; preds = %.lr.ph.i384
+  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i385, i64 360
+  %.sroa.0.0.i387 = load ptr, ptr %222, align 8, !tbaa !198
+  %.not16.i388 = icmp eq ptr %.sroa.0.0.i387, null
+  br i1 %.not16.i388, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i384
 
-.lr.ph.i385:                                      ; preds = %219, %221
-  %.sroa.0.019.i386 = phi ptr [ %.sroa.0.0.i388, %221 ], [ %.sroa.0.017.i383, %219 ]
-  %223 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i386)
-  br i1 %223, label %221, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i384:                                      ; preds = %219, %221
+  %.sroa.0.019.i385 = phi ptr [ %.sroa.0.0.i387, %221 ], [ %.sroa.0.017.i382, %219 ]
+  %223 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i385)
+  br i1 %223, label %221, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i392 = load ptr, ptr %224, align 8, !tbaa !198
-  %.not1618.i393 = icmp eq ptr %.sroa.0.017.i392, null
-  br i1 %.not1618.i393, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i394
+  %.sroa.0.017.i391 = load ptr, ptr %224, align 8, !tbaa !198
+  %.not1618.i392 = icmp eq ptr %.sroa.0.017.i391, null
+  br i1 %.not1618.i392, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i393
 
-225:                                              ; preds = %.lr.ph.i394
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i395, i64 360
-  %.sroa.0.0.i397 = load ptr, ptr %226, align 8, !tbaa !198
-  %.not16.i398 = icmp eq ptr %.sroa.0.0.i397, null
-  br i1 %.not16.i398, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i394
+225:                                              ; preds = %.lr.ph.i393
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i394, i64 360
+  %.sroa.0.0.i396 = load ptr, ptr %226, align 8, !tbaa !198
+  %.not16.i397 = icmp eq ptr %.sroa.0.0.i396, null
+  br i1 %.not16.i397, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i393
 
-.lr.ph.i394:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit, %225
-  %.sroa.0.019.i395 = phi ptr [ %.sroa.0.0.i397, %225 ], [ %.sroa.0.017.i392, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit ]
-  %227 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i395)
-  br i1 %227, label %225, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i393:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit, %225
+  %.sroa.0.019.i394 = phi ptr [ %.sroa.0.0.i396, %225 ], [ %.sroa.0.017.i391, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit ]
+  %227 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i394)
+  br i1 %227, label %225, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 228:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5537,20 +5537,20 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStat
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit: ; preds = %241, %228, %231
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i401 = load ptr, ptr %246, align 8, !tbaa !198
-  %.not1618.i402 = icmp eq ptr %.sroa.0.017.i401, null
-  br i1 %.not1618.i402, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i403
+  %.sroa.0.017.i400 = load ptr, ptr %246, align 8, !tbaa !198
+  %.not1618.i401 = icmp eq ptr %.sroa.0.017.i400, null
+  br i1 %.not1618.i401, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i402
 
-247:                                              ; preds = %.lr.ph.i403
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i404, i64 360
-  %.sroa.0.0.i406 = load ptr, ptr %248, align 8, !tbaa !198
-  %.not16.i407 = icmp eq ptr %.sroa.0.0.i406, null
-  br i1 %.not16.i407, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i403
+247:                                              ; preds = %.lr.ph.i402
+  %248 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i403, i64 360
+  %.sroa.0.0.i405 = load ptr, ptr %248, align 8, !tbaa !198
+  %.not16.i406 = icmp eq ptr %.sroa.0.0.i405, null
+  br i1 %.not16.i406, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i402
 
-.lr.ph.i403:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit, %247
-  %.sroa.0.019.i404 = phi ptr [ %.sroa.0.0.i406, %247 ], [ %.sroa.0.017.i401, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit ]
-  %249 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i404)
-  br i1 %249, label %247, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i402:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit, %247
+  %.sroa.0.019.i403 = phi ptr [ %.sroa.0.0.i405, %247 ], [ %.sroa.0.017.i400, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit ]
+  %249 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i403)
+  br i1 %249, label %247, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 250:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5595,20 +5595,20 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXC
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit: ; preds = %263, %250, %253
   %268 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer24visitClassTemplateRecordEPKNS0_19ClassTemplateRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i410 = load ptr, ptr %269, align 8, !tbaa !198
-  %.not1618.i411 = icmp eq ptr %.sroa.0.017.i410, null
-  br i1 %.not1618.i411, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i412
+  %.sroa.0.017.i409 = load ptr, ptr %269, align 8, !tbaa !198
+  %.not1618.i410 = icmp eq ptr %.sroa.0.017.i409, null
+  br i1 %.not1618.i410, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i411
 
-270:                                              ; preds = %.lr.ph.i412
-  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i413, i64 360
-  %.sroa.0.0.i415 = load ptr, ptr %271, align 8, !tbaa !198
-  %.not16.i416 = icmp eq ptr %.sroa.0.0.i415, null
-  br i1 %.not16.i416, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i412
+270:                                              ; preds = %.lr.ph.i411
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i412, i64 360
+  %.sroa.0.0.i414 = load ptr, ptr %271, align 8, !tbaa !198
+  %.not16.i415 = icmp eq ptr %.sroa.0.0.i414, null
+  br i1 %.not16.i415, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i411
 
-.lr.ph.i412:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit, %270
-  %.sroa.0.019.i413 = phi ptr [ %.sroa.0.0.i415, %270 ], [ %.sroa.0.017.i410, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit ]
-  %272 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i413)
-  br i1 %272, label %270, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i411:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit, %270
+  %.sroa.0.019.i412 = phi ptr [ %.sroa.0.0.i414, %270 ], [ %.sroa.0.017.i409, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit ]
+  %272 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i412)
+  br i1 %272, label %270, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 273:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5652,20 +5652,20 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClas
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit: ; preds = %286, %273, %276
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i419 = load ptr, ptr %291, align 8, !tbaa !198
-  %.not1618.i420 = icmp eq ptr %.sroa.0.017.i419, null
-  br i1 %.not1618.i420, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i421
+  %.sroa.0.017.i418 = load ptr, ptr %291, align 8, !tbaa !198
+  %.not1618.i419 = icmp eq ptr %.sroa.0.017.i418, null
+  br i1 %.not1618.i419, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i420
 
-292:                                              ; preds = %.lr.ph.i421
-  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i422, i64 360
-  %.sroa.0.0.i424 = load ptr, ptr %293, align 8, !tbaa !198
-  %.not16.i425 = icmp eq ptr %.sroa.0.0.i424, null
-  br i1 %.not16.i425, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i421
+292:                                              ; preds = %.lr.ph.i420
+  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i421, i64 360
+  %.sroa.0.0.i423 = load ptr, ptr %293, align 8, !tbaa !198
+  %.not16.i424 = icmp eq ptr %.sroa.0.0.i423, null
+  br i1 %.not16.i424, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i420
 
-.lr.ph.i421:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit, %292
-  %.sroa.0.019.i422 = phi ptr [ %.sroa.0.0.i424, %292 ], [ %.sroa.0.017.i419, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit ]
-  %294 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i422)
-  br i1 %294, label %292, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i420:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit, %292
+  %.sroa.0.019.i421 = phi ptr [ %.sroa.0.0.i423, %292 ], [ %.sroa.0.017.i418, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit ]
+  %294 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i421)
+  br i1 %294, label %292, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 295:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5710,20 +5710,20 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClas
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit: ; preds = %308, %295, %298
   %313 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer45visitClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i428 = load ptr, ptr %314, align 8, !tbaa !198
-  %.not1618.i429 = icmp eq ptr %.sroa.0.017.i428, null
-  br i1 %.not1618.i429, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i430
+  %.sroa.0.017.i427 = load ptr, ptr %314, align 8, !tbaa !198
+  %.not1618.i428 = icmp eq ptr %.sroa.0.017.i427, null
+  br i1 %.not1618.i428, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i429
 
-315:                                              ; preds = %.lr.ph.i430
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i431, i64 360
-  %.sroa.0.0.i433 = load ptr, ptr %316, align 8, !tbaa !198
-  %.not16.i434 = icmp eq ptr %.sroa.0.0.i433, null
-  br i1 %.not16.i434, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i430
+315:                                              ; preds = %.lr.ph.i429
+  %316 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i430, i64 360
+  %.sroa.0.0.i432 = load ptr, ptr %316, align 8, !tbaa !198
+  %.not16.i433 = icmp eq ptr %.sroa.0.0.i432, null
+  br i1 %.not16.i433, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i429
 
-.lr.ph.i430:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit, %315
-  %.sroa.0.019.i431 = phi ptr [ %.sroa.0.0.i433, %315 ], [ %.sroa.0.017.i428, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit ]
-  %317 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i431)
-  br i1 %317, label %315, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i429:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit, %315
+  %.sroa.0.019.i430 = phi ptr [ %.sroa.0.0.i432, %315 ], [ %.sroa.0.017.i427, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit ]
+  %317 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i430)
+  br i1 %317, label %315, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 318:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5735,50 +5735,50 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClas
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseConceptRecordEPKNS0_13ConceptRecordE.exit: ; preds = %318
   %323 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i436 = icmp eq ptr %323, null
-  br i1 %.not.i436, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %324
+  %.not.i435 = icmp eq ptr %323, null
+  br i1 %.not.i435, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %324
 
 324:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseConceptRecordEPKNS0_13ConceptRecordE.exit
   %325 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  %.sroa.0.017.i437 = load ptr, ptr %325, align 8, !tbaa !198
-  %.not1618.i438 = icmp eq ptr %.sroa.0.017.i437, null
-  br i1 %.not1618.i438, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i439
+  %.sroa.0.017.i436 = load ptr, ptr %325, align 8, !tbaa !198
+  %.not1618.i437 = icmp eq ptr %.sroa.0.017.i436, null
+  br i1 %.not1618.i437, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i438
 
-326:                                              ; preds = %.lr.ph.i439
-  %327 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i440, i64 360
-  %.sroa.0.0.i442 = load ptr, ptr %327, align 8, !tbaa !198
-  %.not16.i443 = icmp eq ptr %.sroa.0.0.i442, null
-  br i1 %.not16.i443, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i439
+326:                                              ; preds = %.lr.ph.i438
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i439, i64 360
+  %.sroa.0.0.i441 = load ptr, ptr %327, align 8, !tbaa !198
+  %.not16.i442 = icmp eq ptr %.sroa.0.0.i441, null
+  br i1 %.not16.i442, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i438
 
-.lr.ph.i439:                                      ; preds = %324, %326
-  %.sroa.0.019.i440 = phi ptr [ %.sroa.0.0.i442, %326 ], [ %.sroa.0.017.i437, %324 ]
-  %328 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i440)
-  br i1 %328, label %326, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i438:                                      ; preds = %324, %326
+  %.sroa.0.019.i439 = phi ptr [ %.sroa.0.0.i441, %326 ], [ %.sroa.0.017.i436, %324 ]
+  %328 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i439)
+  br i1 %328, label %326, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 329:                                              ; preds = %2
   %330 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer26traverseObjCCategoryRecordEPKNS0_18ObjCCategoryRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
-  br i1 %330, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+  br i1 %330, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 331:                                              ; preds = %2
   %332 = tail call noundef zeroext i1 @_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29walkUpFromObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
-  br i1 %332, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+  br i1 %332, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit: ; preds = %331
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i446 = load ptr, ptr %333, align 8, !tbaa !198
-  %.not1618.i447 = icmp eq ptr %.sroa.0.017.i446, null
-  br i1 %.not1618.i447, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i448
+  %.sroa.0.017.i445 = load ptr, ptr %333, align 8, !tbaa !198
+  %.not1618.i446 = icmp eq ptr %.sroa.0.017.i445, null
+  br i1 %.not1618.i446, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i447
 
-334:                                              ; preds = %.lr.ph.i448
-  %335 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i449, i64 360
-  %.sroa.0.0.i451 = load ptr, ptr %335, align 8, !tbaa !198
-  %.not16.i452 = icmp eq ptr %.sroa.0.0.i451, null
-  br i1 %.not16.i452, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i448
+334:                                              ; preds = %.lr.ph.i447
+  %335 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i448, i64 360
+  %.sroa.0.0.i450 = load ptr, ptr %335, align 8, !tbaa !198
+  %.not16.i451 = icmp eq ptr %.sroa.0.0.i450, null
+  br i1 %.not16.i451, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i447
 
-.lr.ph.i448:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, %334
-  %.sroa.0.019.i449 = phi ptr [ %.sroa.0.0.i451, %334 ], [ %.sroa.0.017.i446, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit ]
-  %336 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i449)
-  br i1 %336, label %334, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i447:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, %334
+  %.sroa.0.019.i448 = phi ptr [ %.sroa.0.0.i450, %334 ], [ %.sroa.0.017.i445, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit ]
+  %336 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i448)
+  br i1 %336, label %334, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 337:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5822,20 +5822,20 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit: ; preds = %350, %337, %340
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i455 = load ptr, ptr %355, align 8, !tbaa !198
-  %.not1618.i456 = icmp eq ptr %.sroa.0.017.i455, null
-  br i1 %.not1618.i456, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i457
+  %.sroa.0.017.i454 = load ptr, ptr %355, align 8, !tbaa !198
+  %.not1618.i455 = icmp eq ptr %.sroa.0.017.i454, null
+  br i1 %.not1618.i455, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i456
 
-356:                                              ; preds = %.lr.ph.i457
-  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i458, i64 360
-  %.sroa.0.0.i460 = load ptr, ptr %357, align 8, !tbaa !198
-  %.not16.i461 = icmp eq ptr %.sroa.0.0.i460, null
-  br i1 %.not16.i461, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i457
+356:                                              ; preds = %.lr.ph.i456
+  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i457, i64 360
+  %.sroa.0.0.i459 = load ptr, ptr %357, align 8, !tbaa !198
+  %.not16.i460 = icmp eq ptr %.sroa.0.0.i459, null
+  br i1 %.not16.i460, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i456
 
-.lr.ph.i457:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit, %356
-  %.sroa.0.019.i458 = phi ptr [ %.sroa.0.0.i460, %356 ], [ %.sroa.0.017.i455, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit ]
-  %358 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i458)
-  br i1 %358, label %356, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i456:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit, %356
+  %.sroa.0.019.i457 = phi ptr [ %.sroa.0.0.i459, %356 ], [ %.sroa.0.017.i454, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit ]
+  %358 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i457)
+  br i1 %358, label %356, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 359:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5846,25 +5846,25 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseMacroDefinitionRecordEPKNS0_21MacroDefinitionRecordE.exit: ; preds = %359
   %363 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i463 = icmp eq ptr %363, null
-  br i1 %.not.i463, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %364
+  %.not.i462 = icmp eq ptr %363, null
+  br i1 %.not.i462, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %364
 
 364:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseMacroDefinitionRecordEPKNS0_21MacroDefinitionRecordE.exit
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  %.sroa.0.017.i464 = load ptr, ptr %365, align 8, !tbaa !198
-  %.not1618.i465 = icmp eq ptr %.sroa.0.017.i464, null
-  br i1 %.not1618.i465, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i466
+  %.sroa.0.017.i463 = load ptr, ptr %365, align 8, !tbaa !198
+  %.not1618.i464 = icmp eq ptr %.sroa.0.017.i463, null
+  br i1 %.not1618.i464, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i465
 
-366:                                              ; preds = %.lr.ph.i466
-  %367 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i467, i64 360
-  %.sroa.0.0.i469 = load ptr, ptr %367, align 8, !tbaa !198
-  %.not16.i470 = icmp eq ptr %.sroa.0.0.i469, null
-  br i1 %.not16.i470, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i466
+366:                                              ; preds = %.lr.ph.i465
+  %367 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i466, i64 360
+  %.sroa.0.0.i468 = load ptr, ptr %367, align 8, !tbaa !198
+  %.not16.i469 = icmp eq ptr %.sroa.0.0.i468, null
+  br i1 %.not16.i469, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i465
 
-.lr.ph.i466:                                      ; preds = %364, %366
-  %.sroa.0.019.i467 = phi ptr [ %.sroa.0.0.i469, %366 ], [ %.sroa.0.017.i464, %364 ]
-  %368 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i467)
-  br i1 %368, label %366, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+.lr.ph.i465:                                      ; preds = %364, %366
+  %.sroa.0.019.i466 = phi ptr [ %.sroa.0.0.i468, %366 ], [ %.sroa.0.017.i463, %364 ]
+  %368 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i466)
+  br i1 %368, label %366, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 369:                                              ; preds = %2
   %370 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer18visitTypedefRecordEPKNS0_13TypedefRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5880,20 +5880,20 @@ _ZN4llvm8dyn_castIN5clang10extractapi13RecordContextEKNS2_13TypedefRecordEEEDcPT
 
 375:                                              ; preds = %_ZN4llvm8dyn_castIN5clang10extractapi13RecordContextEKNS2_13TypedefRecordEEEDcPT0_.exit
   %376 = getelementptr inbounds nuw i8, ptr %374, i64 8
-  %.sroa.0.0152 = load ptr, ptr %376, align 8, !tbaa !198
-  %.not153 = icmp eq ptr %.sroa.0.0152, null
-  br i1 %.not153, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph
+  %.sroa.0.0150 = load ptr, ptr %376, align 8, !tbaa !198
+  %.not151 = icmp eq ptr %.sroa.0.0150, null
+  br i1 %.not151, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph
 
 377:                                              ; preds = %.lr.ph
-  %378 = getelementptr inbounds nuw i8, ptr %.sroa.0.0154, i64 360
+  %378 = getelementptr inbounds nuw i8, ptr %.sroa.0.0152, i64 360
   %.sroa.0.0 = load ptr, ptr %378, align 8, !tbaa !198
   %.not = icmp eq ptr %.sroa.0.0, null
   br i1 %.not, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph
 
 .lr.ph:                                           ; preds = %375, %377
-  %.sroa.0.0154 = phi ptr [ %.sroa.0.0, %377 ], [ %.sroa.0.0152, %375 ]
-  %379 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.0154)
-  br i1 %379, label %377, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+  %.sroa.0.0152 = phi ptr [ %.sroa.0.0, %377 ], [ %.sroa.0.0150, %375 ]
+  %379 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.0152)
+  br i1 %379, label %377, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 380:                                              ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
@@ -5903,10 +5903,10 @@ _ZN4llvm8dyn_castIN5clang10extractapi13RecordContextEKNS2_13TypedefRecordEEEDcPT
   unreachable
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148: ; preds = %377, %366, %356, %334, %326, %315, %292, %270, %247, %225, %221, %210, %199, %189, %179, %169, %158, %146, %135, %124, %113, %102, %97, %93, %89, %85, %81, %77, %73, %63, %58, %54, %49, %45, %34, %22, %11, %359, %364, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseMacroDefinitionRecordEPKNS0_21MacroDefinitionRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, %318, %324, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseConceptRecordEPKNS0_13ConceptRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit, %213, %219, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseObjCClassMethodRecordEPKNS0_21ObjCClassMethodRecordE.exit, %202, %208, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjCInstanceMethodRecordEPKNS0_24ObjCInstanceMethodRecordE.exit, %192, %197, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstanceVariableRecordEPKNS0_26ObjCInstanceVariableRecordE.exit, %182, %187, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjCClassPropertyRecordEPKNS0_23ObjCClassPropertyRecordE.exit, %172, %177, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstancePropertyRecordEPKNS0_26ObjCInstancePropertyRecordE.exit, %161, %167, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXMethodTemplateSpecializationRecordEPKNS0_37CXXMethodTemplateSpecializationRecordE.exit, %149, %156, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXMethodTemplateRecordEPKNS0_23CXXMethodTemplateRecordE.exit, %138, %144, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXInstanceMethodRecordEPKNS0_23CXXInstanceMethodRecordE.exit, %127, %133, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXStaticMethodRecordEPKNS0_21CXXStaticMethodRecordE.exit, %116, %122, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXDestructorRecordEPKNS0_19CXXDestructorRecordE.exit, %105, %111, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXConstructorRecordEPKNS0_20CXXConstructorRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit, %66, %71, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseEnumConstantRecordEPKNS0_18EnumConstantRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit, %37, %43, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalFunctionTemplateSpecializationRecordEPKNS0_42GlobalFunctionTemplateSpecializationRecordE.exit, %25, %32, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalFunctionTemplateRecordEPKNS0_28GlobalFunctionTemplateRecordE.exit, %14, %20, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalFunctionRecordEPKNS0_20GlobalFunctionRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE23traverseNamespaceRecordEPKNS0_15NamespaceRecordE.exit, %375, %369, %_ZN4llvm8dyn_castIN5clang10extractapi13RecordContextEKNS2_13TypedefRecordEEEDcPT0_.exit, %380, %329
-  br label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
+  br label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
-_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread: ; preds = %.lr.ph, %.lr.ph.i466, %.lr.ph.i457, %.lr.ph.i448, %.lr.ph.i439, %.lr.ph.i430, %.lr.ph.i421, %.lr.ph.i412, %.lr.ph.i403, %.lr.ph.i394, %.lr.ph.i385, %.lr.ph.i376, %.lr.ph.i367, %.lr.ph.i358, %.lr.ph.i349, %.lr.ph.i340, %.lr.ph.i331, %.lr.ph.i322, %.lr.ph.i313, %.lr.ph.i304, %.lr.ph.i295, %.lr.ph.i286, %.lr.ph.i277, %.lr.ph.i268, %.lr.ph.i259, %.lr.ph.i250, %.lr.ph.i241, %.lr.ph.i232, %.lr.ph.i223, %.lr.ph.i214, %.lr.ph.i205, %.lr.ph.i196, %.lr.ph.i187, %.lr.ph.i178, %.lr.ph.i169, %.lr.ph.i160, %.lr.ph.i, %331, %329, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148
-  %.0 = phi i1 [ true, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148 ], [ false, %329 ], [ false, %331 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i160 ], [ false, %.lr.ph.i169 ], [ false, %.lr.ph.i178 ], [ false, %.lr.ph.i187 ], [ false, %.lr.ph.i196 ], [ false, %.lr.ph.i205 ], [ false, %.lr.ph.i214 ], [ false, %.lr.ph.i223 ], [ false, %.lr.ph.i232 ], [ false, %.lr.ph.i241 ], [ false, %.lr.ph.i250 ], [ false, %.lr.ph.i259 ], [ false, %.lr.ph.i268 ], [ false, %.lr.ph.i277 ], [ false, %.lr.ph.i286 ], [ false, %.lr.ph.i295 ], [ false, %.lr.ph.i304 ], [ false, %.lr.ph.i313 ], [ false, %.lr.ph.i322 ], [ false, %.lr.ph.i331 ], [ false, %.lr.ph.i340 ], [ false, %.lr.ph.i349 ], [ false, %.lr.ph.i358 ], [ false, %.lr.ph.i367 ], [ false, %.lr.ph.i376 ], [ false, %.lr.ph.i385 ], [ false, %.lr.ph.i394 ], [ false, %.lr.ph.i403 ], [ false, %.lr.ph.i412 ], [ false, %.lr.ph.i421 ], [ false, %.lr.ph.i430 ], [ false, %.lr.ph.i439 ], [ false, %.lr.ph.i448 ], [ false, %.lr.ph.i457 ], [ false, %.lr.ph.i466 ], [ false, %.lr.ph ]
+_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit: ; preds = %.lr.ph, %.lr.ph.i465, %.lr.ph.i456, %.lr.ph.i447, %.lr.ph.i438, %.lr.ph.i429, %.lr.ph.i420, %.lr.ph.i411, %.lr.ph.i402, %.lr.ph.i393, %.lr.ph.i384, %.lr.ph.i375, %.lr.ph.i366, %.lr.ph.i357, %.lr.ph.i348, %.lr.ph.i339, %.lr.ph.i330, %.lr.ph.i321, %.lr.ph.i312, %.lr.ph.i303, %.lr.ph.i294, %.lr.ph.i285, %.lr.ph.i276, %.lr.ph.i267, %.lr.ph.i258, %.lr.ph.i249, %.lr.ph.i240, %.lr.ph.i231, %.lr.ph.i222, %.lr.ph.i213, %.lr.ph.i204, %.lr.ph.i195, %.lr.ph.i186, %.lr.ph.i177, %.lr.ph.i168, %.lr.ph.i159, %.lr.ph.i, %331, %329, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148
+  %.0 = phi i1 [ true, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148 ], [ false, %329 ], [ false, %331 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i159 ], [ false, %.lr.ph.i168 ], [ false, %.lr.ph.i177 ], [ false, %.lr.ph.i186 ], [ false, %.lr.ph.i195 ], [ false, %.lr.ph.i204 ], [ false, %.lr.ph.i213 ], [ false, %.lr.ph.i222 ], [ false, %.lr.ph.i231 ], [ false, %.lr.ph.i240 ], [ false, %.lr.ph.i249 ], [ false, %.lr.ph.i258 ], [ false, %.lr.ph.i267 ], [ false, %.lr.ph.i276 ], [ false, %.lr.ph.i285 ], [ false, %.lr.ph.i294 ], [ false, %.lr.ph.i303 ], [ false, %.lr.ph.i312 ], [ false, %.lr.ph.i321 ], [ false, %.lr.ph.i330 ], [ false, %.lr.ph.i339 ], [ false, %.lr.ph.i348 ], [ false, %.lr.ph.i357 ], [ false, %.lr.ph.i366 ], [ false, %.lr.ph.i375 ], [ false, %.lr.ph.i384 ], [ false, %.lr.ph.i393 ], [ false, %.lr.ph.i402 ], [ false, %.lr.ph.i411 ], [ false, %.lr.ph.i420 ], [ false, %.lr.ph.i429 ], [ false, %.lr.ph.i438 ], [ false, %.lr.ph.i447 ], [ false, %.lr.ph.i456 ], [ false, %.lr.ph.i465 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

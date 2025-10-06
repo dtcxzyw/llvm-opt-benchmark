@@ -2208,30 +2208,30 @@ define void @b2RayCastSegment(ptr dead_on_unwind noalias writable writeonly sret
 ..thread_crit_edge:                               ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.021.0.copyload.pre = load <2 x float>, ptr %.phi.trans.insert, align 4
-  %.pre105 = extractelement <2 x float> %.sroa.022.0.copyload.pre, i64 0
+  %.pre104 = extractelement <2 x float> %.sroa.022.0.copyload.pre, i64 0
   %foldExtExtBinop = fsub <2 x float> %.sroa.021.0.copyload.pre, %.sroa.022.0.copyload.pre
-  %.pre106 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %.pre108 = extractelement <2 x float> %.sroa.022.0.copyload.pre, i64 1
-  %foldExtExtBinop113 = fsub <2 x float> %.sroa.021.0.copyload.pre, %.sroa.022.0.copyload.pre
-  %.pre109 = extractelement <2 x float> %foldExtExtBinop113, i64 1
+  %.pre105 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %.pre107 = extractelement <2 x float> %.sroa.022.0.copyload.pre, i64 1
+  %foldExtExtBinop112 = fsub <2 x float> %.sroa.021.0.copyload.pre, %.sroa.022.0.copyload.pre
+  %.pre108 = extractelement <2 x float> %foldExtExtBinop112, i64 1
   br label %.thread
 
 5:                                                ; preds = %4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.022.0.copyload.pre, i64 0
-  %foldExtExtBinop115 = fsub <2 x float> %.sroa.028.0.copyload.pre, %.sroa.022.0.copyload.pre
-  %6 = extractelement <2 x float> %foldExtExtBinop115, i64 0
+  %foldExtExtBinop114 = fsub <2 x float> %.sroa.028.0.copyload.pre, %.sroa.022.0.copyload.pre
+  %6 = extractelement <2 x float> %foldExtExtBinop114, i64 0
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.022.0.copyload.pre, i64 1
-  %foldExtExtBinop117 = fsub <2 x float> %.sroa.028.0.copyload.pre, %.sroa.022.0.copyload.pre
+  %foldExtExtBinop116 = fsub <2 x float> %.sroa.028.0.copyload.pre, %.sroa.022.0.copyload.pre
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load <2 x float>, ptr %7, align 4
-  %foldExtExtBinop119 = fsub <2 x float> %8, %.sroa.022.0.copyload.pre
-  %9 = extractelement <2 x float> %foldExtExtBinop119, i64 0
-  %foldExtExtBinop121 = fsub <2 x float> %8, %.sroa.022.0.copyload.pre
-  %10 = extractelement <2 x float> %foldExtExtBinop121, i64 1
+  %foldExtExtBinop118 = fsub <2 x float> %8, %.sroa.022.0.copyload.pre
+  %9 = extractelement <2 x float> %foldExtExtBinop118, i64 0
+  %foldExtExtBinop120 = fsub <2 x float> %8, %.sroa.022.0.copyload.pre
+  %10 = extractelement <2 x float> %foldExtExtBinop120, i64 1
   %11 = fmul float %6, %10
-  %shift = shufflevector <2 x float> %foldExtExtBinop117, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop123 = fmul <2 x float> %shift, %foldExtExtBinop119
-  %12 = extractelement <2 x float> %foldExtExtBinop123, i64 0
+  %shift = shufflevector <2 x float> %foldExtExtBinop116, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop122 = fmul <2 x float> %shift, %foldExtExtBinop118
+  %12 = extractelement <2 x float> %foldExtExtBinop122, i64 0
   %13 = fcmp olt float %11, %12
   br i1 %13, label %14, label %.thread
 
@@ -2240,15 +2240,15 @@ define void @b2RayCastSegment(ptr dead_on_unwind noalias writable writeonly sret
   br label %61
 
 .thread:                                          ; preds = %..thread_crit_edge, %5
-  %.pre-phi110 = phi float [ %.pre109, %..thread_crit_edge ], [ %10, %5 ]
-  %.sroa.0.4.vec.extract.i62.pre-phi = phi float [ %.pre108, %..thread_crit_edge ], [ %.sroa.0.4.vec.extract.i, %5 ]
-  %.pre-phi = phi float [ %.pre106, %..thread_crit_edge ], [ %9, %5 ]
-  %.sroa.0.0.vec.extract.i59.pre-phi = phi float [ %.pre105, %..thread_crit_edge ], [ %.sroa.0.0.vec.extract.i, %5 ]
+  %.pre-phi109 = phi float [ %.pre108, %..thread_crit_edge ], [ %10, %5 ]
+  %.sroa.0.4.vec.extract.i62.pre-phi = phi float [ %.pre107, %..thread_crit_edge ], [ %.sroa.0.4.vec.extract.i, %5 ]
+  %.pre-phi = phi float [ %.pre105, %..thread_crit_edge ], [ %9, %5 ]
+  %.sroa.0.0.vec.extract.i59.pre-phi = phi float [ %.pre104, %..thread_crit_edge ], [ %.sroa.0.0.vec.extract.i, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.025.0.copyload = load <2 x float>, ptr %15, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   %16 = fmul float %.pre-phi, %.pre-phi
-  %17 = fmul float %.pre-phi110, %.pre-phi110
+  %17 = fmul float %.pre-phi109, %.pre-phi109
   %18 = fadd float %16, %17
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %18)
   %19 = fcmp olt float %sqrt.i.i, 0x3E80000000000000
@@ -2258,7 +2258,7 @@ define void @b2RayCastSegment(ptr dead_on_unwind noalias writable writeonly sret
   %21 = fdiv float 1.000000e+00, %sqrt.i.i
   %22 = fmul float %.pre-phi, %21
   %.sroa.06.0.vec.insert.i = insertelement <2 x float> poison, float %22, i64 0
-  %23 = fmul float %.pre-phi110, %21
+  %23 = fmul float %.pre-phi109, %21
   %.sroa.06.4.vec.insert.i = insertelement <2 x float> %.sroa.06.0.vec.insert.i, float %23, i64 1
   br label %b2GetLengthAndNormalize.exit
 

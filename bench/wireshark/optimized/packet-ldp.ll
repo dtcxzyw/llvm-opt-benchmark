@@ -2521,10 +2521,10 @@ define internal fastcc range(i32 -2147483648, 65540) i32 @dissect_tlv(ptr nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %234
-  %.0430499 = phi i32 [ %227, %234 ], [ %19, %.lr.ph.preheader ]
-  %.0431498 = phi i32 [ %236, %234 ], [ %219, %.lr.ph.preheader ]
-  %.0437497 = phi i32 [ %235, %234 ], [ %18, %.lr.ph.preheader ]
-  %220 = add i32 %.0431498, 1
+  %.0430498 = phi i32 [ %227, %234 ], [ %19, %.lr.ph.preheader ]
+  %.0431497 = phi i32 [ %236, %234 ], [ %219, %.lr.ph.preheader ]
+  %.0437496 = phi i32 [ %235, %234 ], [ %18, %.lr.ph.preheader ]
+  %220 = add i32 %.0431497, 1
   %221 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %220)
   %222 = zext i8 %221 to i32
   %223 = icmp ult i8 %221, 2
@@ -2535,22 +2535,22 @@ define internal fastcc range(i32 -2147483648, 65540) i32 @dissect_tlv(ptr nounde
   br label %.thread484
 
 226:                                              ; preds = %.lr.ph
-  %227 = sub nsw i32 %.0430499, %222
+  %227 = sub nsw i32 %.0430498, %222
   %228 = icmp slt i32 %227, 0
-  %229 = icmp samesign ult i32 %.0437497, %222
+  %229 = icmp samesign ult i32 %.0437496, %222
   %or.cond460 = select i1 %228, i1 %229, i1 false
   br i1 %or.cond460, label %230, label %234
 
 230:                                              ; preds = %226
-  %231 = add i32 %.0431498, 2
-  %232 = tail call i32 @llvm.umin.i32(i32 %.0430499, i32 %.0437497)
+  %231 = add i32 %.0431497, 2
+  %232 = tail call i32 @llvm.umin.i32(i32 %.0430498, i32 %.0437496)
   %233 = tail call ptr @proto_tree_add_expert(ptr noundef %42, ptr noundef %1, ptr noundef nonnull @ei_ldp_malformed_data, ptr noundef %0, i32 noundef %231, i32 noundef %232)
   br label %.thread484
 
 234:                                              ; preds = %226
-  tail call fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0, i32 noundef %.0431498, ptr noundef %42, i32 noundef %222, ptr noundef nonnull @dissect_tlv.interface_params_header_fields)
-  %235 = sub nsw i32 %.0437497, %222
-  %236 = add i32 %.0431498, %222
+  tail call fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0, i32 noundef %.0431497, ptr noundef %42, i32 noundef %222, ptr noundef nonnull @dissect_tlv.interface_params_header_fields)
+  %235 = sub nsw i32 %.0437496, %222
+  %236 = add i32 %.0431497, %222
   %237 = icmp sgt i32 %227, 1
   %238 = icmp sgt i32 %235, 1
   %239 = select i1 %237, i1 %238, i1 false

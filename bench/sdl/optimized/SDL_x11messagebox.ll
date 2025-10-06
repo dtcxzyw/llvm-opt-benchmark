@@ -1169,12 +1169,12 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %307
   br label %.backedge.i.outer
 
 .backedge.i.outer:                                ; preds = %.backedge.i.outer.backedge, %536
-  %.062136.i.ph = phi i1 [ true, %536 ], [ %.264128.i, %.backedge.i.outer.backedge ]
-  %.066135.i.ph = phi i64 [ 16777215, %536 ], [ %.268127.i, %.backedge.i.outer.backedge ]
+  %.062135.i.ph = phi i1 [ true, %536 ], [ %.264127.i, %.backedge.i.outer.backedge ]
+  %.066134.i.ph = phi i64 [ 16777215, %536 ], [ %.268126.i, %.backedge.i.outer.backedge ]
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.outer, %X11_MessageBoxDraw.exit.i.thread
-  %.062136.i = phi i1 [ %.163.i.ph, %X11_MessageBoxDraw.exit.i.thread ], [ %.062136.i.ph, %.backedge.i.outer ]
+  %.062135.i = phi i1 [ %.163.i.ph, %X11_MessageBoxDraw.exit.i.thread ], [ %.062135.i.ph, %.backedge.i.outer ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %561 = load ptr, ptr @X11_XIfEvent, align 8
   %562 = load ptr, ptr %29, align 8
@@ -1191,9 +1191,9 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %307
 
 568:                                              ; preds = %565
   %.pr.i26 = load i32, ptr %5, align 8
-  switch i32 %.pr.i26, label %.thread122.i.loopexit136 [
+  switch i32 %.pr.i26, label %.thread121.i.loopexit136 [
     i32 12, label %.thread.i33
-    i32 9, label %.thread122.i
+    i32 9, label %.thread121.i
     i32 10, label %569
     i32 6, label %570
     i32 33, label %593
@@ -1206,10 +1206,10 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %307
 569:                                              ; preds = %568
   store i32 -1, ptr %537, align 8
   store i32 -1, ptr %538, align 4
-  br label %.thread122.i
+  br label %.thread121.i
 
 570:                                              ; preds = %568
-  br i1 %.062136.i, label %571, label %.thread122.i
+  br i1 %.062135.i, label %571, label %.thread121.i
 
 571:                                              ; preds = %570
   %572 = load i32, ptr %538, align 4
@@ -1263,8 +1263,8 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %307
 GetHitButtonIndex.exit.i:                         ; preds = %591, %._crit_edge.loopexit.split.loop.exit.i.i, %571
   %.2.i.i = phi i32 [ -1, %571 ], [ %592, %._crit_edge.loopexit.split.loop.exit.i.i ], [ -1, %591 ]
   store i32 %.2.i.i, ptr %538, align 4
-  %.not130.i = icmp eq i32 %.2.i.i, %572
-  br i1 %.not130.i, label %X11_MessageBoxDraw.exit.i.thread, label %.thread122.i
+  %.not129.i = icmp eq i32 %.2.i.i, %572
+  br i1 %.not129.i, label %X11_MessageBoxDraw.exit.i.thread, label %.thread121.i
 
 593:                                              ; preds = %568
   %594 = load i64, ptr %543, align 8
@@ -1273,39 +1273,39 @@ GetHitButtonIndex.exit.i:                         ; preds = %591, %._crit_edge.l
   %597 = load i32, ptr %545, align 8
   %598 = icmp eq i32 %597, 32
   %or.cond.i = select i1 %596, i1 %598, i1 false
-  br i1 %or.cond.i, label %599, label %.thread122.i
+  br i1 %or.cond.i, label %599, label %.thread121.i
 
 599:                                              ; preds = %593
   %600 = load i64, ptr %546, align 8
   %601 = load i64, ptr %547, align 8
   %602 = icmp eq i64 %600, %601
-  br label %.thread122.i
+  br label %.thread121.i
 
 603:                                              ; preds = %568
   %604 = load ptr, ptr @X11_XLookupKeysym, align 8
   %605 = call i64 %604(ptr noundef nonnull %5, i32 noundef 0) #11
-  br label %.thread122.i
+  br label %.thread121.i
 
 606:                                              ; preds = %568
   %607 = load ptr, ptr @X11_XLookupKeysym, align 8
   %608 = call i64 %607(ptr noundef nonnull %5, i32 noundef 0) #11
-  %.not79.i = icmp eq i64 %608, %.066135.i.ph
-  br i1 %.not79.i, label %609, label %.thread122.i
+  %.not79.i = icmp eq i64 %608, %.066134.i.ph
+  br i1 %.not79.i, label %609, label %.thread121.i
 
 609:                                              ; preds = %606
-  %610 = icmp eq i64 %.066135.i.ph, 65307
+  %610 = icmp eq i64 %.066134.i.ph, 65307
   br i1 %610, label %.preheader.i, label %611
 
 611:                                              ; preds = %609
-  %612 = and i64 %.066135.i.ph, -129
+  %612 = and i64 %.066134.i.ph, -129
   %or.cond4.not.i = icmp eq i64 %612, 65293
-  br i1 %or.cond4.not.i, label %.preheader.i, label %.thread122.i
+  br i1 %or.cond4.not.i, label %.preheader.i, label %.thread121.i
 
 .preheader.i:                                     ; preds = %611, %609
   %.069115.ph.i = phi i32 [ 2, %609 ], [ 1, %611 ]
   %613 = load i32, ptr %174, align 8
   %614 = icmp sgt i32 %613, 0
-  br i1 %614, label %.lr.ph.preheader.i, label %.thread122.i
+  br i1 %614, label %.lr.ph.preheader.i, label %.thread121.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i27 = zext nneg i32 %613 to i64
@@ -1314,7 +1314,7 @@ GetHitButtonIndex.exit.i:                         ; preds = %591, %._crit_edge.l
 615:                                              ; preds = %.lr.ph.i28
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i27
-  br i1 %exitcond.not.i31, label %.thread122.i, label %.lr.ph.i28, !llvm.loop !13
+  br i1 %exitcond.not.i31, label %.thread121.i, label %.lr.ph.i28, !llvm.loop !13
 
 .lr.ph.i28:                                       ; preds = %615, %.lr.ph.preheader.i
   %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i30, %615 ]
@@ -1331,13 +1331,13 @@ GetHitButtonIndex.exit.i:                         ; preds = %591, %._crit_edge.l
   %623 = load i32, ptr %622, align 4
   %624 = load ptr, ptr %542, align 8
   store i32 %623, ptr %624, align 4
-  br label %.thread122.i
+  br label %.thread121.i
 
 625:                                              ; preds = %568
   store i32 -1, ptr %537, align 8
   %626 = load i32, ptr %539, align 4
   %627 = icmp eq i32 %626, 1
-  br i1 %627, label %628, label %.thread122.i
+  br i1 %627, label %628, label %.thread121.i
 
 628:                                              ; preds = %625
   %629 = load i32, ptr %540, align 8
@@ -1390,7 +1390,7 @@ GetHitButtonIndex.exit.i:                         ; preds = %591, %._crit_edge.l
 GetHitButtonIndex.exit97.i:                       ; preds = %647, %._crit_edge.loopexit.split.loop.exit.i94.i, %628
   %.2.i85.i = phi i32 [ -1, %628 ], [ %648, %._crit_edge.loopexit.split.loop.exit.i94.i ], [ -1, %647 ]
   store i32 %.2.i85.i, ptr %537, align 8
-  br label %.thread122.i
+  br label %.thread121.i
 
 649:                                              ; preds = %568
   %650 = load i32, ptr %539, align 4
@@ -1465,20 +1465,20 @@ GetHitButtonIndex.exit110.i:                      ; preds = %670
 GetHitButtonIndex.exit110.thread.i:               ; preds = %674, %677, %GetHitButtonIndex.exit110.i, %655, %652, %649
   %.8.i = phi i1 [ false, %652 ], [ false, %649 ], [ true, %677 ], [ false, %GetHitButtonIndex.exit110.i ], [ false, %655 ], [ false, %674 ]
   store i32 -1, ptr %537, align 8
-  br label %.thread122.i
+  br label %.thread121.i
 
 .thread.i33:                                      ; preds = %568, %.backedge.i
   %685 = load i32, ptr %546, align 8
   %686 = icmp slt i32 %685, 1
-  br i1 %686, label %.thread122.i, label %X11_MessageBoxDraw.exit.i.thread
+  br i1 %686, label %.thread121.i, label %X11_MessageBoxDraw.exit.i.thread
 
-.thread122.i.loopexit136:                         ; preds = %568
-  br label %.thread122.i
+.thread121.i.loopexit136:                         ; preds = %568
+  br label %.thread121.i
 
-.thread122.i:                                     ; preds = %.thread.i33, %GetHitButtonIndex.exit.i, %570, %615, %568, %.thread122.i.loopexit136, %GetHitButtonIndex.exit110.thread.i, %GetHitButtonIndex.exit97.i, %625, %621, %.preheader.i, %611, %606, %603, %599, %593, %569
-  %.2129.i = phi i1 [ false, %611 ], [ true, %621 ], [ false, %606 ], [ %602, %599 ], [ %.8.i, %GetHitButtonIndex.exit110.thread.i ], [ false, %625 ], [ false, %GetHitButtonIndex.exit97.i ], [ false, %603 ], [ false, %593 ], [ false, %569 ], [ false, %.preheader.i ], [ false, %568 ], [ false, %615 ], [ false, %570 ], [ false, %GetHitButtonIndex.exit.i ], [ false, %.thread.i33 ], [ false, %.thread122.i.loopexit136 ]
-  %.264128.i = phi i1 [ %.062136.i, %611 ], [ %.062136.i, %621 ], [ %.062136.i, %606 ], [ %.062136.i, %599 ], [ %.062136.i, %GetHitButtonIndex.exit110.thread.i ], [ %.062136.i, %625 ], [ %.062136.i, %GetHitButtonIndex.exit97.i ], [ %.062136.i, %603 ], [ %.062136.i, %593 ], [ false, %569 ], [ %.062136.i, %.preheader.i ], [ true, %568 ], [ %.062136.i, %615 ], [ false, %570 ], [ true, %GetHitButtonIndex.exit.i ], [ %.062136.i, %.thread.i33 ], [ %.062136.i, %.thread122.i.loopexit136 ]
-  %.268127.i = phi i64 [ %.066135.i.ph, %611 ], [ %.066135.i.ph, %621 ], [ %.066135.i.ph, %606 ], [ %.066135.i.ph, %599 ], [ %.066135.i.ph, %GetHitButtonIndex.exit110.thread.i ], [ %.066135.i.ph, %625 ], [ %.066135.i.ph, %GetHitButtonIndex.exit97.i ], [ %605, %603 ], [ %.066135.i.ph, %593 ], [ %.066135.i.ph, %569 ], [ %.066135.i.ph, %.preheader.i ], [ %.066135.i.ph, %568 ], [ %.066135.i.ph, %615 ], [ %.066135.i.ph, %570 ], [ %.066135.i.ph, %GetHitButtonIndex.exit.i ], [ %.066135.i.ph, %.thread.i33 ], [ %.066135.i.ph, %.thread122.i.loopexit136 ]
+.thread121.i:                                     ; preds = %.thread.i33, %GetHitButtonIndex.exit.i, %570, %615, %568, %.thread121.i.loopexit136, %GetHitButtonIndex.exit110.thread.i, %GetHitButtonIndex.exit97.i, %625, %621, %.preheader.i, %611, %606, %603, %599, %593, %569
+  %.2128.i = phi i1 [ false, %611 ], [ true, %621 ], [ false, %606 ], [ %602, %599 ], [ %.8.i, %GetHitButtonIndex.exit110.thread.i ], [ false, %625 ], [ false, %GetHitButtonIndex.exit97.i ], [ false, %603 ], [ false, %593 ], [ false, %569 ], [ false, %.preheader.i ], [ false, %568 ], [ false, %615 ], [ false, %570 ], [ false, %GetHitButtonIndex.exit.i ], [ false, %.thread.i33 ], [ false, %.thread121.i.loopexit136 ]
+  %.264127.i = phi i1 [ %.062135.i, %611 ], [ %.062135.i, %621 ], [ %.062135.i, %606 ], [ %.062135.i, %599 ], [ %.062135.i, %GetHitButtonIndex.exit110.thread.i ], [ %.062135.i, %625 ], [ %.062135.i, %GetHitButtonIndex.exit97.i ], [ %.062135.i, %603 ], [ %.062135.i, %593 ], [ false, %569 ], [ %.062135.i, %.preheader.i ], [ true, %568 ], [ %.062135.i, %615 ], [ false, %570 ], [ true, %GetHitButtonIndex.exit.i ], [ %.062135.i, %.thread.i33 ], [ %.062135.i, %.thread121.i.loopexit136 ]
+  %.268126.i = phi i64 [ %.066134.i.ph, %611 ], [ %.066134.i.ph, %621 ], [ %.066134.i.ph, %606 ], [ %.066134.i.ph, %599 ], [ %.066134.i.ph, %GetHitButtonIndex.exit110.thread.i ], [ %.066134.i.ph, %625 ], [ %.066134.i.ph, %GetHitButtonIndex.exit97.i ], [ %605, %603 ], [ %.066134.i.ph, %593 ], [ %.066134.i.ph, %569 ], [ %.066134.i.ph, %.preheader.i ], [ %.066134.i.ph, %568 ], [ %.066134.i.ph, %615 ], [ %.066134.i.ph, %570 ], [ %.066134.i.ph, %GetHitButtonIndex.exit.i ], [ %.066134.i.ph, %.thread.i33 ], [ %.066134.i.ph, %.thread121.i.loopexit136 ]
   %687 = load i64, ptr %323, align 8
   %688 = load ptr, ptr %29, align 8
   %689 = load i32, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -1488,14 +1488,14 @@ GetHitButtonIndex.exit110.thread.i:               ; preds = %674, %677, %GetHitB
   %or.cond = select i1 %.not.i111.i, i1 %691, i1 false
   br i1 %or.cond, label %692, label %696
 
-692:                                              ; preds = %.thread122.i
+692:                                              ; preds = %.thread121.i
   %693 = load i64, ptr %549, align 8
   %694 = load ptr, ptr @X11_XdbeBeginIdiom, align 8
   %695 = call i32 %694(ptr noundef %688) #11
   br label %696
 
-696:                                              ; preds = %692, %.thread122.i
-  %.0103.i.i = phi i64 [ %693, %692 ], [ %687, %.thread122.i ]
+696:                                              ; preds = %692, %.thread121.i
+  %.0103.i.i = phi i64 [ %693, %692 ], [ %687, %.thread121.i ]
   %697 = load ptr, ptr @X11_XSetForeground, align 8
   %698 = load i32, ptr %517, align 8
   %699 = zext i32 %698 to i64
@@ -1677,16 +1677,16 @@ GetHitButtonIndex.exit110.thread.i:               ; preds = %674, %677, %GetHitB
   %833 = call i32 %831(ptr noundef %832) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.2129.i, label %834, label %.backedge.i.outer.backedge
+  br i1 %.2128.i, label %834, label %.backedge.i.outer.backedge
 
 X11_MessageBoxDraw.exit.i.thread:                 ; preds = %565, %.thread.i33, %GetHitButtonIndex.exit.i
-  %.163.i.ph = phi i1 [ true, %GetHitButtonIndex.exit.i ], [ %.062136.i, %.thread.i33 ], [ %.062136.i, %565 ]
+  %.163.i.ph = phi i1 [ true, %GetHitButtonIndex.exit.i ], [ %.062135.i, %.thread.i33 ], [ %.062135.i, %565 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge.i
 
 X11_MessageBoxDraw.exit.i:                        ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.2129.i, label %834, label %.backedge.i.outer.backedge
+  br i1 %.2128.i, label %834, label %.backedge.i.outer.backedge
 
 .backedge.i.outer.backedge:                       ; preds = %X11_MessageBoxDraw.exit.i, %826
   br label %.backedge.i.outer

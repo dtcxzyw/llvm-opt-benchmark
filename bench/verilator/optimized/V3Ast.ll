@@ -15098,12 +15098,12 @@ _ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit:   ; preds = %2
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %3, align 8, !tbaa !30
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 97
   %spec.select = select i1 %4, ptr %0, ptr %1
-  %spec.select37 = select i1 %4, ptr %1, ptr %0
+  %spec.select36 = select i1 %4, ptr %1, ptr %0
   br label %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit.thread
 
 _ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit.thread: ; preds = %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit, %2
   %.031 = phi ptr [ %1, %2 ], [ %spec.select, %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit ]
-  %.030 = phi ptr [ null, %2 ], [ %spec.select37, %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit ]
+  %.030 = phi ptr [ null, %2 ], [ %spec.select36, %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %.030, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %.031, i64 72
@@ -15135,14 +15135,14 @@ _ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit.thread: ; preds = %_ZN7AstNode9pr
   br i1 %18, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %16, %30
-  %.0841 = phi ptr [ %29, %30 ], [ %15, %16 ]
+  %.0840 = phi ptr [ %29, %30 ], [ %15, %16 ]
   %19 = load ptr, ptr %7, align 8, !tbaa !44
-  %20 = tail call i8 @_ZN7AstNode15computeCastableEPK12AstNodeDTypeS2_PKS_(ptr noundef nonnull %.0841, ptr noundef %19, ptr noundef nonnull %.031)
+  %20 = tail call i8 @_ZN7AstNode15computeCastableEPK12AstNodeDTypeS2_PKS_(ptr noundef nonnull %.0840, ptr noundef %19, ptr noundef nonnull %.031)
   %21 = icmp eq i8 %20, 2
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %.0841, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %.0840, i64 168
   %24 = load ptr, ptr %23, align 8, !tbaa !334
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !145
@@ -15176,7 +15176,7 @@ _ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit.thread: ; preds = %_ZN7AstNode9pr
   unreachable
 
 .thread:                                          ; preds = %27, %22, %.lr.ph, %16, %14, %12, %10
-  %.1 = phi ptr [ %13, %12 ], [ %11, %10 ], [ null, %14 ], [ null, %16 ], [ null, %27 ], [ null, %22 ], [ %.0841, %.lr.ph ]
+  %.1 = phi ptr [ %13, %12 ], [ %11, %10 ], [ null, %14 ], [ null, %16 ], [ null, %27 ], [ null, %22 ], [ %.0840, %.lr.ph ]
   ret ptr %.1
 }
 

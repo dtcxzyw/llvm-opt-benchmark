@@ -49,26 +49,26 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
 define hidden { i64, i64 } @_ZN4core5slice5index5range17hff8bce715b2e363cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val = load i64, ptr %0, align 8, !range !16, !noundef !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val24 = load ptr, ptr %4, align 8
-  switch i64 %.val, label %default.unreachable28 [
+  %.val23 = load ptr, ptr %4, align 8
+  switch i64 %.val, label %default.unreachable27 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %14
   ]
 
-default.unreachable28:                            ; preds = %14, %3
+default.unreachable27:                            ; preds = %14, %3
   unreachable
 
 5:                                                ; preds = %3
-  %6 = icmp ne ptr %.val24, null
+  %6 = icmp ne ptr %.val23, null
   tail call void @llvm.assume(i1 %6)
-  %7 = load i64, ptr %.val24, align 8, !noundef !15
+  %7 = load i64, ptr %.val23, align 8, !noundef !15
   br label %14
 
 8:                                                ; preds = %3
-  %9 = icmp ne ptr %.val24, null
+  %9 = icmp ne ptr %.val23, null
   tail call void @llvm.assume(i1 %9)
-  %10 = load i64, ptr %.val24, align 8, !noundef !15
+  %10 = load i64, ptr %.val23, align 8, !noundef !15
   %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 1)
   %12 = extractvalue { i64, i1 } %11, 0
   %13 = extractvalue { i64, i1 } %11, 1
@@ -77,10 +77,10 @@ default.unreachable28:                            ; preds = %14, %3
 14:                                               ; preds = %8, %3, %5
   %.020 = phi i64 [ %7, %5 ], [ 0, %3 ], [ %12, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val25 = load i64, ptr %15, align 8, !range !16, !noundef !15
+  %.val24 = load i64, ptr %15, align 8, !range !16, !noundef !15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val26 = load ptr, ptr %16, align 8
-  switch i64 %.val25, label %default.unreachable28 [
+  %.val25 = load ptr, ptr %16, align 8
+  switch i64 %.val24, label %default.unreachable27 [
     i64 0, label %18
     i64 1, label %24
     i64 2, label %28
@@ -91,18 +91,18 @@ default.unreachable28:                            ; preds = %14, %3
   unreachable
 
 18:                                               ; preds = %14
-  %19 = icmp ne ptr %.val26, null
+  %19 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %19)
-  %20 = load i64, ptr %.val26, align 8, !noundef !15
+  %20 = load i64, ptr %.val25, align 8, !noundef !15
   %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 1)
   %22 = extractvalue { i64, i1 } %21, 0
   %23 = extractvalue { i64, i1 } %21, 1
   br i1 %23, label %27, label %28
 
 24:                                               ; preds = %14
-  %25 = icmp ne ptr %.val26, null
+  %25 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %25)
-  %26 = load i64, ptr %.val26, align 8, !noundef !15
+  %26 = load i64, ptr %.val25, align 8, !noundef !15
   br label %28
 
 27:                                               ; preds = %18

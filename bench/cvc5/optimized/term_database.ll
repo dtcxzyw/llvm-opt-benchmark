@@ -12037,7 +12037,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKNS1_ILb0EEE.exit: ; preds = %_ZN4cvc58
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33: ; preds = %130, %134, %140
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %144 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq15EqClassIteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %145 unwind label %.loopexit55
+          to label %145 unwind label %.loopexit54
 
 145:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33
   store ptr %131, ptr %11, align 8, !tbaa !366
@@ -12071,7 +12071,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33: ; preds = %130, %134, %140
 
 159:                                              ; preds = %153
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %92)
-          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %.loopexit.split-lp56
+          to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %.loopexit.split-lp55
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %159, %153, %150
   store ptr %131, ptr %0, align 8, !tbaa !123
@@ -12099,7 +12099,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %159, %153, %150
   %174 = or i64 %160, 1152920405095219200
   store i64 %174, ptr %131, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %131)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKNS1_ILb0EEE.exit.thread unwind label %.loopexit.split-lp56
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKNS1_ILb0EEE.exit.thread unwind label %.loopexit.split-lp55
 
 175:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit
   %176 = landingpad { ptr, i32 }
@@ -12128,13 +12128,13 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %159, %153, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %263
 
-.loopexit55:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33
-  %lpad.loopexit57 = landingpad { ptr, i32 }
+.loopexit54:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33
+  %lpad.loopexit56 = landingpad { ptr, i32 }
           cleanup
   br label %263
 
-.loopexit.split-lp56:                             ; preds = %159, %173
-  %lpad.loopexit.split-lp58 = landingpad { ptr, i32 }
+.loopexit.split-lp55:                             ; preds = %159, %173
+  %lpad.loopexit.split-lp57 = landingpad { ptr, i32 }
           cleanup
   br label %263
 
@@ -12326,8 +12326,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47: ; preds = %_ZN4cvc58internal12
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %263
 
-263:                                              ; preds = %.loopexit55, %.loopexit.split-lp56, %.loopexit, %.loopexit.split-lp, %179, %181, %262, %177
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %262 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit57, %.loopexit55 ], [ %lpad.loopexit.split-lp58, %.loopexit.split-lp56 ]
+263:                                              ; preds = %.loopexit54, %.loopexit.split-lp55, %.loopexit, %.loopexit.split-lp, %179, %181, %262, %177
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %262 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %264
 

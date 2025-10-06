@@ -769,14 +769,14 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.03848.i = phi i64 [ 8, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
+  %.03847.i = phi i64 [ 8, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %127 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %124, i64 %indvars.iv.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %129 = load i16, ptr %128, align 4
   %130 = icmp slt i16 %129, 0
   %narrow.i = select i1 %130, i16 4, i16 %129
   %.1.v.i = zext i16 %narrow.i to i64
-  %.1.i = add i64 %.03848.i, %.1.v.i
+  %.1.i = add i64 %.03847.i, %.1.v.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
@@ -1294,8 +1294,8 @@ define internal fastcc zeroext i1 @gistProcessItup(ptr noundef readonly captures
 
 16:                                               ; preds = %15, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %cond102 = icmp eq i32 %3, 0
-  br i1 %cond102, label %.loopexit, label %.lr.ph
+  %cond101 = icmp eq i32 %3, 0
+  br i1 %cond101, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -1304,22 +1304,22 @@ define internal fastcc zeroext i1 @gistProcessItup(ptr noundef readonly captures
   br label %20
 
 20:                                               ; preds = %.lr.ph, %63
-  %.064106 = phi i32 [ %2, %.lr.ph ], [ %53, %63 ]
-  %.066105 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
+  %.064105 = phi i32 [ %2, %.lr.ph ], [ %53, %63 ]
+  %.066104 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
   %21 = load i32, ptr %17, align 8
-  %22 = srem i32 %.066105, %21
+  %22 = srem i32 %.066104, %21
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %18, align 8
-  %.not73 = icmp eq i32 %.066105, %25
-  %.not74 = icmp eq i32 %.066105, %3
+  %.not73 = icmp eq i32 %.066104, %25
+  %.not74 = icmp eq i32 %.066104, %3
   %or.cond = or i1 %.not74, %.not73
   br i1 %or.cond, label %26, label %65
 
 26:                                               ; preds = %20, %24
-  %27 = call i32 @ReadBuffer(ptr noundef %13, i32 noundef %.064106) #9
+  %27 = call i32 @ReadBuffer(ptr noundef %13, i32 noundef %.064105) #9
   call void @LockBuffer(i32 noundef %27, i32 noundef 2) #9
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %35
@@ -1358,7 +1358,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   %51 = shl nuw i32 %50, 16
   %52 = zext i16 %.val79 to i32
   %53 = or disjoint i32 %51, %52
-  %54 = icmp sgt i32 %.066105, 1
+  %54 = icmp sgt i32 %.066104, 1
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %BufferGetPage.exit
@@ -1368,7 +1368,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = call ptr @hash_search(ptr noundef %.val80, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #9
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i32 %.064106, ptr %57, align 4
+  store i32 %.064105, ptr %57, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
@@ -1380,7 +1380,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   br i1 %.not75, label %62, label %60
 
 60:                                               ; preds = %58
-  %61 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %27, i32 noundef %.066105, ptr noundef nonnull %8, i32 noundef 1, i16 noundef zeroext %42, i32 noundef -1, i16 noundef zeroext 0)
+  %61 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %27, i32 noundef %.066104, ptr noundef nonnull %8, i32 noundef 1, i16 noundef zeroext %42, i32 noundef -1, i16 noundef zeroext 0)
   br label %63
 
 62:                                               ; preds = %58
@@ -1388,8 +1388,8 @@ BufferGetPage.exit:                               ; preds = %29, %35
   br label %63
 
 63:                                               ; preds = %60, %62
-  %.2 = phi i32 [ %61, %60 ], [ %.064106, %62 ]
-  %64 = add i32 %.066105, -1
+  %.2 = phi i32 [ %61, %60 ], [ %.064105, %62 ]
+  %64 = add i32 %.066104, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %64, 0
@@ -1397,7 +1397,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
 
 65:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %66 = call ptr @gistGetNodeBuffer(ptr noundef nonnull %12, ptr noundef %10, i32 noundef %.064106, i32 noundef %.066105) #9
+  %66 = call ptr @gistGetNodeBuffer(ptr noundef nonnull %12, ptr noundef %10, i32 noundef %.064105, i32 noundef %.066104) #9
   %67 = load ptr, ptr %7, align 8
   call void @gistPushItupToNodeBuffer(ptr noundef nonnull %12, ptr noundef %66, ptr noundef %67) #9
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 4

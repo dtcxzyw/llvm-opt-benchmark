@@ -4173,18 +4173,18 @@ define hidden void @_ZN5wasmi6engine10block_type9BlockType9func_type17hde9096d1d
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i16 @_ZN5wasmi6engine10block_type9BlockType10len_params17h0217ac449d4f3808E(ptr noalias noundef readonly align 4 dereferenceable(12) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4, !range !700, !noundef !3
-  %switch = icmp samesign ult i32 %3, 2
-  br i1 %switch, label %9, label %4
+  %4 = icmp eq i32 %3, 2
+  br i1 %4, label %5, label %10
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = tail call noundef i16 @_ZN5wasmi6engine11EngineInner17resolve_func_type17h0bbd7c88f7992b0dE(ptr noundef nonnull align 8 %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
-  br label %9
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = tail call noundef i16 @_ZN5wasmi6engine11EngineInner17resolve_func_type17h0bbd7c88f7992b0dE(ptr noundef nonnull align 8 %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6)
+  br label %10
 
-9:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i16 [ %8, %4 ], [ 0, %2 ]
+10:                                               ; preds = %2, %5
+  %.sroa.0.0 = phi i16 [ %9, %5 ], [ 0, %2 ]
   ret i16 %.sroa.0.0
 }
 
@@ -7910,23 +7910,23 @@ define hidden void @_ZN5wasmi6module9init_expr9ConstExpr3new7expr_op17h112913781
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit": ; preds = %198, %181, %167, %153, %134, %104, %71, %60, %211, %212
-  %eh.lpad-body170 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %212 ], [ %lpad.thr_comm.split-lp, %211 ], [ %61, %60 ], [ %72, %71 ], [ %105, %104 ], [ %135, %134 ], [ %154, %153 ], [ %168, %167 ], [ %182, %181 ], [ %199, %198 ]
+"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit": ; preds = %198, %181, %167, %153, %134, %104, %71, %60, %211, %213
+  %eh.lpad-body170 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %213 ], [ %lpad.thr_comm.split-lp, %211 ], [ %61, %60 ], [ %72, %71 ], [ %105, %104 ], [ %135, %134 ], [ %154, %153 ], [ %168, %167 ], [ %182, %181 ], [ %199, %198 ]
   resume { ptr, i32 } %eh.lpad-body170
 
 211:                                              ; preds = %.thread175
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %switch.not.i = icmp eq i32 %.sroa.053.0.copyload, 3
-  br i1 %switch.not.i, label %212, label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit"
+  %212 = icmp eq i32 %.sroa.053.0.copyload, 3
+  br i1 %212, label %213, label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit"
 
-212:                                              ; preds = %211
-  %213 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmi..module..init_expr..ExprOp$GT$17hbdbac27f9772c870E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %213)
-          to label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit" unwind label %214
+213:                                              ; preds = %211
+  %214 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmi..module..init_expr..ExprOp$GT$17hbdbac27f9772c870E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %214)
+          to label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit" unwind label %215
 
-214:                                              ; preds = %212
-  %215 = landingpad { ptr, i32 }
+215:                                              ; preds = %213
+  %216 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
   unreachable
@@ -8568,23 +8568,23 @@ define hidden void @_ZN5wasmi6module9init_expr9ConstExpr3new7expr_op17hb879280d7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit": ; preds = %198, %181, %167, %153, %134, %104, %71, %60, %211, %212
-  %eh.lpad-body170 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %212 ], [ %lpad.thr_comm.split-lp, %211 ], [ %61, %60 ], [ %72, %71 ], [ %105, %104 ], [ %135, %134 ], [ %154, %153 ], [ %168, %167 ], [ %182, %181 ], [ %199, %198 ]
+"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit": ; preds = %198, %181, %167, %153, %134, %104, %71, %60, %211, %213
+  %eh.lpad-body170 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %213 ], [ %lpad.thr_comm.split-lp, %211 ], [ %61, %60 ], [ %72, %71 ], [ %105, %104 ], [ %135, %134 ], [ %154, %153 ], [ %168, %167 ], [ %182, %181 ], [ %199, %198 ]
   resume { ptr, i32 } %eh.lpad-body170
 
 211:                                              ; preds = %.thread175
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %switch.not.i = icmp eq i32 %.sroa.053.0.copyload, 3
-  br i1 %switch.not.i, label %212, label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit"
+  %212 = icmp eq i32 %.sroa.053.0.copyload, 3
+  br i1 %212, label %213, label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit"
 
-212:                                              ; preds = %211
-  %213 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmi..module..init_expr..ExprOp$GT$17hbdbac27f9772c870E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %213)
-          to label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit" unwind label %214
+213:                                              ; preds = %211
+  %214 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmi..module..init_expr..ExprOp$GT$17hbdbac27f9772c870E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %214)
+          to label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit" unwind label %215
 
-214:                                              ; preds = %212
-  %215 = landingpad { ptr, i32 }
+215:                                              ; preds = %213
+  %216 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
   unreachable

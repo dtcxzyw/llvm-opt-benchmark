@@ -5741,17 +5741,17 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiED2Ev.exit10.i.i.i: ; preds = %36,
 .preheader.i.i.i.i:                               ; preds = %88
   %90 = icmp ne ptr %75, %74
   %91 = icmp ne ptr %82, %81
-  %.not3.i24.i.i.i.i = and i1 %90, %91
-  br i1 %.not3.i24.i.i.i.i, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.not3.i22.i.i.i.i = and i1 %90, %91
+  br i1 %.not3.i22.i.i.i.i, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %102
-  %.sroa.7.026.i.i.i.i = phi ptr [ %103, %102 ], [ %75, %.preheader.i.i.i.i ]
-  %.sroa.03.025.i.i.i.i = phi ptr [ %104, %102 ], [ %82, %.preheader.i.i.i.i ]
-  %92 = load ptr, ptr %.sroa.7.026.i.i.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i.i.i = phi ptr [ %103, %102 ], [ %75, %.preheader.i.i.i.i ]
+  %.sroa.03.023.i.i.i.i = phi ptr [ %104, %102 ], [ %82, %.preheader.i.i.i.i ]
+  %92 = load ptr, ptr %.sroa.7.024.i.i.i.i, align 8, !tbaa !19
   %93 = load ptr, ptr %92, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %93, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !157
-  %94 = load ptr, ptr %.sroa.03.025.i.i.i.i, align 8, !tbaa !19
+  %94 = load ptr, ptr %.sroa.03.023.i.i.i.i, align 8, !tbaa !19
   %95 = load ptr, ptr %94, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 32
   %.sroa.2.0.copyload.i.i26.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i.i.i, align 8, !tbaa !157
@@ -5782,8 +5782,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.
   br i1 %spec.select.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit.thread124.i.i", label %102
 
 102:                                              ; preds = %.thread.i.i45.i.i.i.i
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i.i.i, i64 8
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i.i.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i.i.i, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i.i.i, i64 8
   %105 = icmp ne ptr %103, %74
   %106 = icmp ne ptr %104, %81
   %.not3.i.i.i.i.i = select i1 %105, i1 %106, i1 false
@@ -5818,17 +5818,17 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.
 .preheader.i.i26.i.i:                             ; preds = %120
   %122 = icmp ne ptr %82, %81
   %123 = icmp ne ptr %114, %113
-  %.not3.i24.i.i27.i.i = and i1 %122, %123
-  br i1 %.not3.i24.i.i27.i.i, label %.lr.ph.i.i30.i.i, label %._crit_edge.i.i28.i.i
+  %.not3.i22.i.i27.i.i = and i1 %122, %123
+  br i1 %.not3.i22.i.i27.i.i, label %.lr.ph.i.i30.i.i, label %._crit_edge.i.i28.i.i
 
 .lr.ph.i.i30.i.i:                                 ; preds = %.preheader.i.i26.i.i, %134
-  %.sroa.7.026.i.i31.i.i = phi ptr [ %135, %134 ], [ %82, %.preheader.i.i26.i.i ]
-  %.sroa.03.025.i.i32.i.i = phi ptr [ %136, %134 ], [ %114, %.preheader.i.i26.i.i ]
-  %124 = load ptr, ptr %.sroa.7.026.i.i31.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i31.i.i = phi ptr [ %135, %134 ], [ %82, %.preheader.i.i26.i.i ]
+  %.sroa.03.023.i.i32.i.i = phi ptr [ %136, %134 ], [ %114, %.preheader.i.i26.i.i ]
+  %124 = load ptr, ptr %.sroa.7.024.i.i31.i.i, align 8, !tbaa !19
   %125 = load ptr, ptr %124, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i33.i.i = getelementptr inbounds nuw i8, ptr %125, i64 32
   %.sroa.2.0.copyload.i.i.i.i34.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i33.i.i, align 8, !tbaa !157
-  %126 = load ptr, ptr %.sroa.03.025.i.i32.i.i, align 8, !tbaa !19
+  %126 = load ptr, ptr %.sroa.03.023.i.i32.i.i, align 8, !tbaa !19
   %127 = load ptr, ptr %126, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i35.i.i = getelementptr inbounds nuw i8, ptr %127, i64 32
   %.sroa.2.0.copyload.i.i26.i.i36.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i35.i.i, align 8, !tbaa !157
@@ -5859,8 +5859,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i: ; preds = %.lr.ph.
   br i1 %spec.select.i.i.i46.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit49.thread128.i.i", label %134
 
 134:                                              ; preds = %.thread.i.i45.i.i45.i.i
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i31.i.i, i64 8
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i32.i.i, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i31.i.i, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i32.i.i, i64 8
   %137 = icmp ne ptr %135, %81
   %138 = icmp ne ptr %136, %113
   %.not3.i.i.i47.i.i = select i1 %137, i1 %138, i1 false
@@ -5903,17 +5903,17 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i: ; preds = %.lr.ph.
 .preheader.i.i50.i.i:                             ; preds = %151
   %153 = icmp ne ptr %75, %74
   %154 = icmp ne ptr %114, %113
-  %.not3.i24.i.i51.i.i = and i1 %153, %154
-  br i1 %.not3.i24.i.i51.i.i, label %.lr.ph.i.i54.i.i, label %._crit_edge.i.i52.i.i
+  %.not3.i22.i.i51.i.i = and i1 %153, %154
+  br i1 %.not3.i22.i.i51.i.i, label %.lr.ph.i.i54.i.i, label %._crit_edge.i.i52.i.i
 
 .lr.ph.i.i54.i.i:                                 ; preds = %.preheader.i.i50.i.i, %165
-  %.sroa.7.026.i.i55.i.i = phi ptr [ %166, %165 ], [ %75, %.preheader.i.i50.i.i ]
-  %.sroa.03.025.i.i56.i.i = phi ptr [ %167, %165 ], [ %114, %.preheader.i.i50.i.i ]
-  %155 = load ptr, ptr %.sroa.7.026.i.i55.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i55.i.i = phi ptr [ %166, %165 ], [ %75, %.preheader.i.i50.i.i ]
+  %.sroa.03.023.i.i56.i.i = phi ptr [ %167, %165 ], [ %114, %.preheader.i.i50.i.i ]
+  %155 = load ptr, ptr %.sroa.7.024.i.i55.i.i, align 8, !tbaa !19
   %156 = load ptr, ptr %155, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i57.i.i = getelementptr inbounds nuw i8, ptr %156, i64 32
   %.sroa.2.0.copyload.i.i.i.i58.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i57.i.i, align 8, !tbaa !157
-  %157 = load ptr, ptr %.sroa.03.025.i.i56.i.i, align 8, !tbaa !19
+  %157 = load ptr, ptr %.sroa.03.023.i.i56.i.i, align 8, !tbaa !19
   %158 = load ptr, ptr %157, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i59.i.i = getelementptr inbounds nuw i8, ptr %158, i64 32
   %.sroa.2.0.copyload.i.i26.i.i60.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i59.i.i, align 8, !tbaa !157
@@ -5944,8 +5944,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i62.i.i: ; preds = %.lr.ph.
   br i1 %spec.select.i.i.i70.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit73.thread132.i.i", label %165
 
 165:                                              ; preds = %.thread.i.i45.i.i69.i.i
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i55.i.i, i64 8
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i56.i.i, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i55.i.i, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i56.i.i, i64 8
   %168 = icmp ne ptr %166, %74
   %169 = icmp ne ptr %167, %113
   %.not3.i.i.i71.i.i = select i1 %168, i1 %169, i1 false
@@ -6007,17 +6007,17 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i62.i.i: ; preds = %.lr.ph.
 .preheader.i.i74.i.i:                             ; preds = %192
   %194 = icmp ne ptr %75, %74
   %195 = icmp ne ptr %186, %185
-  %.not3.i24.i.i75.i.i = and i1 %194, %195
-  br i1 %.not3.i24.i.i75.i.i, label %.lr.ph.i.i78.i.i, label %._crit_edge.i.i76.i.i
+  %.not3.i22.i.i75.i.i = and i1 %194, %195
+  br i1 %.not3.i22.i.i75.i.i, label %.lr.ph.i.i78.i.i, label %._crit_edge.i.i76.i.i
 
 .lr.ph.i.i78.i.i:                                 ; preds = %.preheader.i.i74.i.i, %206
-  %.sroa.7.026.i.i79.i.i = phi ptr [ %207, %206 ], [ %75, %.preheader.i.i74.i.i ]
-  %.sroa.03.025.i.i80.i.i = phi ptr [ %208, %206 ], [ %186, %.preheader.i.i74.i.i ]
-  %196 = load ptr, ptr %.sroa.7.026.i.i79.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i79.i.i = phi ptr [ %207, %206 ], [ %75, %.preheader.i.i74.i.i ]
+  %.sroa.03.023.i.i80.i.i = phi ptr [ %208, %206 ], [ %186, %.preheader.i.i74.i.i ]
+  %196 = load ptr, ptr %.sroa.7.024.i.i79.i.i, align 8, !tbaa !19
   %197 = load ptr, ptr %196, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i81.i.i = getelementptr inbounds nuw i8, ptr %197, i64 32
   %.sroa.2.0.copyload.i.i.i.i82.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i81.i.i, align 8, !tbaa !157
-  %198 = load ptr, ptr %.sroa.03.025.i.i80.i.i, align 8, !tbaa !19
+  %198 = load ptr, ptr %.sroa.03.023.i.i80.i.i, align 8, !tbaa !19
   %199 = load ptr, ptr %198, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i83.i.i = getelementptr inbounds nuw i8, ptr %199, i64 32
   %.sroa.2.0.copyload.i.i26.i.i84.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i83.i.i, align 8, !tbaa !157
@@ -6048,8 +6048,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i86.i.i: ; preds = %.lr.ph.
   br i1 %spec.select.i.i.i94.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit97.thread136.i.i", label %206
 
 206:                                              ; preds = %.thread.i.i45.i.i93.i.i
-  %207 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i79.i.i, i64 8
-  %208 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i80.i.i, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i79.i.i, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i80.i.i, i64 8
   %209 = icmp ne ptr %207, %74
   %210 = icmp ne ptr %208, %185
   %.not3.i.i.i95.i.i = select i1 %209, i1 %210, i1 false
@@ -6090,17 +6090,17 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i86.i.i: ; preds = %.lr.ph.
 .preheader.i.i98.i.i:                             ; preds = %221
   %223 = icmp ne ptr %82, %81
   %224 = icmp ne ptr %186, %185
-  %.not3.i24.i.i99.i.i = and i1 %223, %224
-  br i1 %.not3.i24.i.i99.i.i, label %.lr.ph.i.i102.i.i, label %._crit_edge.i.i100.i.i
+  %.not3.i22.i.i99.i.i = and i1 %223, %224
+  br i1 %.not3.i22.i.i99.i.i, label %.lr.ph.i.i102.i.i, label %._crit_edge.i.i100.i.i
 
 .lr.ph.i.i102.i.i:                                ; preds = %.preheader.i.i98.i.i, %235
-  %.sroa.7.026.i.i103.i.i = phi ptr [ %236, %235 ], [ %82, %.preheader.i.i98.i.i ]
-  %.sroa.03.025.i.i104.i.i = phi ptr [ %237, %235 ], [ %186, %.preheader.i.i98.i.i ]
-  %225 = load ptr, ptr %.sroa.7.026.i.i103.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i103.i.i = phi ptr [ %236, %235 ], [ %82, %.preheader.i.i98.i.i ]
+  %.sroa.03.023.i.i104.i.i = phi ptr [ %237, %235 ], [ %186, %.preheader.i.i98.i.i ]
+  %225 = load ptr, ptr %.sroa.7.024.i.i103.i.i, align 8, !tbaa !19
   %226 = load ptr, ptr %225, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i105.i.i = getelementptr inbounds nuw i8, ptr %226, i64 32
   %.sroa.2.0.copyload.i.i.i.i106.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i105.i.i, align 8, !tbaa !157
-  %227 = load ptr, ptr %.sroa.03.025.i.i104.i.i, align 8, !tbaa !19
+  %227 = load ptr, ptr %.sroa.03.023.i.i104.i.i, align 8, !tbaa !19
   %228 = load ptr, ptr %227, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i107.i.i = getelementptr inbounds nuw i8, ptr %228, i64 32
   %.sroa.2.0.copyload.i.i26.i.i108.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i107.i.i, align 8, !tbaa !157
@@ -6131,8 +6131,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i110.i.i: ; preds = %.lr.ph
   br i1 %spec.select.i.i.i118.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit121.thread140.i.i", label %235
 
 235:                                              ; preds = %.thread.i.i45.i.i117.i.i
-  %236 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i103.i.i, i64 8
-  %237 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i104.i.i, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i103.i.i, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i104.i.i, i64 8
   %238 = icmp ne ptr %236, %81
   %239 = icmp ne ptr %237, %185
   %.not3.i.i.i119.i.i = select i1 %238, i1 %239, i1 false
@@ -6249,13 +6249,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i110.i.i: ; preds = %.lr.ph
   br i1 %.not88.i.i, label %._crit_edge.i.i.i33.i, label %.lr.ph.i.i.i14.i
 
 .lr.ph.i.i.i14.i:                                 ; preds = %.preheader.i.i.i13.i, %301
-  %.sroa.7.026.i.i.i15.i = phi ptr [ %302, %301 ], [ %283, %.preheader.i.i.i13.i ]
-  %.sroa.03.025.i.i.i16.i = phi ptr [ %303, %301 ], [ %.fr86.i.i, %.preheader.i.i.i13.i ]
-  %291 = load ptr, ptr %.sroa.7.026.i.i.i15.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i.i15.i = phi ptr [ %302, %301 ], [ %283, %.preheader.i.i.i13.i ]
+  %.sroa.03.023.i.i.i16.i = phi ptr [ %303, %301 ], [ %.fr86.i.i, %.preheader.i.i.i13.i ]
+  %291 = load ptr, ptr %.sroa.7.024.i.i.i15.i, align 8, !tbaa !19
   %292 = load ptr, ptr %291, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %292, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i17.i, align 8, !tbaa !157
-  %293 = load ptr, ptr %.sroa.03.025.i.i.i16.i, align 8, !tbaa !19
+  %293 = load ptr, ptr %.sroa.03.023.i.i.i16.i, align 8, !tbaa !19
   %294 = load ptr, ptr %293, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i.i19.i = getelementptr inbounds nuw i8, ptr %294, i64 32
   %.sroa.2.0.copyload.i.i26.i.i.i20.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i.i19.i, align 8, !tbaa !157
@@ -6286,8 +6286,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i22.i: ; preds = %.lr.ph.
   br i1 %spec.select.i.i.i.i31.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit.thread39.i.i", label %301
 
 301:                                              ; preds = %.thread.i.i45.i.i.i30.i
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i.i15.i, i64 8
-  %303 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i.i16.i, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i.i15.i, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i.i16.i, i64 8
   %304 = icmp ne ptr %302, %282
   %305 = icmp ne ptr %303, %.fr87.i.i
   %.not3.i.i.i.i32.i = select i1 %304, i1 %305, i1 false
@@ -6364,13 +6364,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i22.i: ; preds = %.lr.ph.
   br i1 %.not90.i.i, label %._crit_edge.i.i10.i.i, label %.lr.ph.i.i12.i.i
 
 .lr.ph.i.i12.i.i:                                 ; preds = %.preheader.i.i8.i.i, %349
-  %.sroa.7.026.i.i13.i.i = phi ptr [ %350, %349 ], [ %.fr86.i.i, %.preheader.i.i8.i.i ]
-  %.sroa.03.025.i.i14.i.i = phi ptr [ %351, %349 ], [ %331, %.preheader.i.i8.i.i ]
-  %339 = load ptr, ptr %.sroa.7.026.i.i13.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i13.i.i = phi ptr [ %350, %349 ], [ %.fr86.i.i, %.preheader.i.i8.i.i ]
+  %.sroa.03.023.i.i14.i.i = phi ptr [ %351, %349 ], [ %331, %.preheader.i.i8.i.i ]
+  %339 = load ptr, ptr %.sroa.7.024.i.i13.i.i, align 8, !tbaa !19
   %340 = load ptr, ptr %339, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i15.i.i = getelementptr inbounds nuw i8, ptr %340, i64 32
   %.sroa.2.0.copyload.i.i.i.i16.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i15.i.i, align 8, !tbaa !157
-  %341 = load ptr, ptr %.sroa.03.025.i.i14.i.i, align 8, !tbaa !19
+  %341 = load ptr, ptr %.sroa.03.023.i.i14.i.i, align 8, !tbaa !19
   %342 = load ptr, ptr %341, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i17.i.i = getelementptr inbounds nuw i8, ptr %342, i64 32
   %.sroa.2.0.copyload.i.i26.i.i18.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i17.i.i, align 8, !tbaa !157
@@ -6401,8 +6401,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i20.i.i: ; preds = %.lr.ph.
   br i1 %spec.select.i.i.i28.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit31.thread43.i.i", label %349
 
 349:                                              ; preds = %.thread.i.i45.i.i27.i.i
-  %350 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i13.i.i, i64 8
-  %351 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i14.i.i, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i13.i.i, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i14.i.i, i64 8
   %352 = icmp ne ptr %350, %.fr87.i.i
   %353 = icmp ne ptr %351, %330
   %.not3.i.i.i29.i.i = select i1 %352, i1 %353, i1 false
@@ -6501,17 +6501,17 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 .preheader.i.i:                                   ; preds = %28
   %30 = icmp ne ptr %15, %14
   %31 = icmp ne ptr %22, %21
-  %.not3.i24.i.i = and i1 %30, %31
-  br i1 %.not3.i24.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not3.i22.i.i = and i1 %30, %31
+  br i1 %.not3.i22.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %42
-  %.sroa.7.026.i.i = phi ptr [ %43, %42 ], [ %15, %.preheader.i.i ]
-  %.sroa.03.025.i.i = phi ptr [ %44, %42 ], [ %22, %.preheader.i.i ]
-  %32 = load ptr, ptr %.sroa.7.026.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i = phi ptr [ %43, %42 ], [ %15, %.preheader.i.i ]
+  %.sroa.03.023.i.i = phi ptr [ %44, %42 ], [ %22, %.preheader.i.i ]
+  %32 = load ptr, ptr %.sroa.7.024.i.i, align 8, !tbaa !19
   %33 = load ptr, ptr %32, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 32
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !157
-  %34 = load ptr, ptr %.sroa.03.025.i.i, align 8, !tbaa !19
+  %34 = load ptr, ptr %.sroa.03.023.i.i, align 8, !tbaa !19
   %35 = load ptr, ptr %34, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i = getelementptr inbounds nuw i8, ptr %35, i64 32
   %.sroa.2.0.copyload.i.i26.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i, align 8, !tbaa !157
@@ -6542,8 +6542,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit.thread45", label %42
 
 42:                                               ; preds = %.thread.i.i45.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i, i64 8
   %45 = icmp ne ptr %43, %14
   %46 = icmp ne ptr %44, %21
   %.not3.i.i.i = select i1 %45, i1 %46, i1 false
@@ -6749,13 +6749,13 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.i.us: ; preds = %133
   br i1 %.not56, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %162
-  %.sroa.7.026.i.i.i = phi ptr [ %163, %162 ], [ %144, %.preheader.i.i.i ]
-  %.sroa.03.025.i.i.i = phi ptr [ %164, %162 ], [ %.fr54, %.preheader.i.i.i ]
-  %152 = load ptr, ptr %.sroa.7.026.i.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i.i = phi ptr [ %163, %162 ], [ %144, %.preheader.i.i.i ]
+  %.sroa.03.023.i.i.i = phi ptr [ %164, %162 ], [ %.fr54, %.preheader.i.i.i ]
+  %152 = load ptr, ptr %.sroa.7.024.i.i.i, align 8, !tbaa !19
   %153 = load ptr, ptr %152, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %153, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !157
-  %154 = load ptr, ptr %.sroa.03.025.i.i.i, align 8, !tbaa !19
+  %154 = load ptr, ptr %.sroa.03.023.i.i.i, align 8, !tbaa !19
   %155 = load ptr, ptr %154, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i.i = getelementptr inbounds nuw i8, ptr %155, i64 32
   %.sroa.2.0.copyload.i.i26.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i.i, align 8, !tbaa !157
@@ -6786,8 +6786,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.
   br i1 %spec.select.i.i.i.i, label %.critedge.i, label %162
 
 162:                                              ; preds = %.thread.i.i45.i.i.i
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i.i, i64 8
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i.i, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i.i, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i.i, i64 8
   %165 = icmp ne ptr %163, %143
   %166 = icmp ne ptr %164, %.fr55
   %.not3.i.i.i.i = select i1 %165, i1 %166, i1 false
@@ -6905,17 +6905,17 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
 .preheader.i.i:                                   ; preds = %23
   %25 = icmp ne ptr %11, %10
   %26 = icmp ne ptr %17, %16
-  %.not3.i24.i.i = and i1 %25, %26
-  br i1 %.not3.i24.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not3.i22.i.i = and i1 %25, %26
+  br i1 %.not3.i22.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %37
-  %.sroa.7.026.i.i = phi ptr [ %38, %37 ], [ %11, %.preheader.i.i ]
-  %.sroa.03.025.i.i = phi ptr [ %39, %37 ], [ %17, %.preheader.i.i ]
-  %27 = load ptr, ptr %.sroa.7.026.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i = phi ptr [ %38, %37 ], [ %11, %.preheader.i.i ]
+  %.sroa.03.023.i.i = phi ptr [ %39, %37 ], [ %17, %.preheader.i.i ]
+  %27 = load ptr, ptr %.sroa.7.024.i.i, align 8, !tbaa !19
   %28 = load ptr, ptr %27, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !157
-  %29 = load ptr, ptr %.sroa.03.025.i.i, align 8, !tbaa !19
+  %29 = load ptr, ptr %.sroa.03.023.i.i, align 8, !tbaa !19
   %30 = load ptr, ptr %29, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   %.sroa.2.0.copyload.i.i26.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i, align 8, !tbaa !157
@@ -6946,8 +6946,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPKNS2_6RecordESaISI_EEiESF_ISL_SaISL_EEEESP_EEbT_T0_.exit.thread21", label %37
 
 37:                                               ; preds = %.thread.i.i45.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i, i64 8
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i, i64 8
   %40 = icmp ne ptr %38, %10
   %41 = icmp ne ptr %39, %16
   %.not3.i.i.i = select i1 %40, i1 %41, i1 false
@@ -7143,13 +7143,13 @@ _ZNSt4pairISt6vectorIPKN4llvm6RecordESaIS4_EEiEaSEOS7_.exit.us: ; preds = %32, %
   br i1 %.not23, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %59
-  %.sroa.7.026.i.i = phi ptr [ %60, %59 ], [ %.fr21, %.preheader.i.i ]
-  %.sroa.03.025.i.i = phi ptr [ %61, %59 ], [ %41, %.preheader.i.i ]
-  %49 = load ptr, ptr %.sroa.7.026.i.i, align 8, !tbaa !19
+  %.sroa.7.024.i.i = phi ptr [ %60, %59 ], [ %.fr21, %.preheader.i.i ]
+  %.sroa.03.023.i.i = phi ptr [ %61, %59 ], [ %41, %.preheader.i.i ]
+  %49 = load ptr, ptr %.sroa.7.024.i.i, align 8, !tbaa !19
   %50 = load ptr, ptr %49, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 32
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !157
-  %51 = load ptr, ptr %.sroa.03.025.i.i, align 8, !tbaa !19
+  %51 = load ptr, ptr %.sroa.03.023.i.i, align 8, !tbaa !19
   %52 = load ptr, ptr %51, align 8, !tbaa !155
   %.sroa.2.0..sroa_idx.i.i25.i.i = getelementptr inbounds nuw i8, ptr %52, i64 32
   %.sroa.2.0.copyload.i.i26.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i25.i.i, align 8, !tbaa !157
@@ -7180,8 +7180,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclISt4pairISt6vectorIPKNS2_6RecordESaISH_EEiENS_17__normal_iteratorIPSK_SE_ISK_SaISK_EEEEEEbRT_T0_.exit.thread16", label %59
 
 59:                                               ; preds = %.thread.i.i45.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.7.026.i.i, i64 8
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.03.025.i.i, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.7.024.i.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.03.023.i.i, i64 8
   %62 = icmp ne ptr %60, %.fr22
   %63 = icmp ne ptr %61, %40
   %.not3.i.i.i = select i1 %62, i1 %63, i1 false

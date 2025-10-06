@@ -304,7 +304,7 @@ define hidden range(i32 -25, 1) i32 @_sodium_argon2_initialize(ptr noundef captu
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %153, label %9
+  br i1 %or.cond, label %152, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -315,7 +315,7 @@ define hidden range(i32 -25, 1) i32 @_sodium_argon2_initialize(ptr noundef captu
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %153, label %17
+  br i1 %16, label %152, label %17
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -335,20 +335,19 @@ define hidden range(i32 -25, 1) i32 @_sodium_argon2_initialize(ptr noundef captu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %27 = tail call ptr @mmap(ptr noundef null, i64 noundef %21, i32 noundef 3, i32 noundef 32802, i32 noundef -1, i64 noundef 0) #10
   %magicptr.i = ptrtoint ptr %27 to i64
-  switch i64 %magicptr.i, label %40 [
-    i64 -1, label %28
-    i64 0, label %28
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  %28 = load ptr, ptr %0, align 8
+  br i1 %switch.i, label %40, label %29
 
-28:                                               ; preds = %26, %26
-  %29 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %29) #10
+29:                                               ; preds = %26
+  tail call void @free(ptr noundef %28) #10
   store ptr null, ptr %0, align 8
   %.pre = load ptr, ptr %15, align 8
   br label %30
 
-30:                                               ; preds = %28, %17, %23
-  %31 = phi ptr [ %.pre, %28 ], [ %14, %17 ], [ %14, %23 ]
+30:                                               ; preds = %29, %17, %23
+  %31 = phi ptr [ %.pre, %29 ], [ %14, %17 ], [ %14, %23 ]
   tail call void @free(ptr noundef %31) #10
   store ptr null, ptr %15, align 8
   %32 = load ptr, ptr %0, align 8
@@ -373,208 +372,207 @@ define hidden range(i32 -25, 1) i32 @_sodium_argon2_initialize(ptr noundef captu
 
 argon2_free_instance.exit:                        ; preds = %35, %39
   store ptr null, ptr %0, align 8
-  br label %153
+  br label %152
 
 40:                                               ; preds = %26
+  store ptr %27, ptr %28, align 8
   %41 = load ptr, ptr %0, align 8
-  store ptr %27, ptr %41, align 8
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %27, ptr %43, align 8
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i64 %21, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %47 = load i32, ptr %46, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %27, ptr %42, align 8
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store i64 %21, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %46 = load i32, ptr %45, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %48 = call i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, i64 noundef 64) #10
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %50 = load i32, ptr %49, align 4
-  store i32 %50, ptr %5, align 4
-  %51 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load i32, ptr %52, align 8
-  store i32 %53, ptr %5, align 4
-  %54 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %56 = load i32, ptr %55, align 8
-  store i32 %56, ptr %5, align 4
-  %57 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %59 = load i32, ptr %58, align 4
-  store i32 %59, ptr %5, align 4
-  %60 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %47 = call i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, i64 noundef 64) #10
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %5, align 4
+  %50 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load i32, ptr %51, align 8
+  store i32 %52, ptr %5, align 4
+  %53 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %55 = load i32, ptr %54, align 8
+  store i32 %55, ptr %5, align 4
+  %56 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %58 = load i32, ptr %57, align 4
+  store i32 %58, ptr %5, align 4
+  %59 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
   store i32 19, ptr %5, align 4
+  %60 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  store i32 %46, ptr %5, align 4
   %61 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  store i32 %47, ptr %5, align 4
-  %62 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %64 = load i32, ptr %63, align 8
-  store i32 %64, ptr %5, align 4
-  %65 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %.not.i = icmp eq ptr %67, null
-  br i1 %.not.i, label %79, label %68
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %63 = load i32, ptr %62, align 8
+  store i32 %63, ptr %5, align 4
+  %64 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %.not.i = icmp eq ptr %66, null
+  br i1 %.not.i, label %78, label %67
 
-68:                                               ; preds = %40
-  %69 = load i32, ptr %63, align 8
-  %70 = zext i32 %69 to i64
-  %71 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %67, i64 noundef %70) #10
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %73 = load i32, ptr %72, align 4
-  %74 = and i32 %73, 1
-  %.not37.i = icmp eq i32 %74, 0
-  br i1 %.not37.i, label %79, label %75
+67:                                               ; preds = %40
+  %68 = load i32, ptr %62, align 8
+  %69 = zext i32 %68 to i64
+  %70 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %66, i64 noundef %69) #10
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %72 = load i32, ptr %71, align 4
+  %73 = and i32 %72, 1
+  %.not37.i = icmp eq i32 %73, 0
+  br i1 %.not37.i, label %78, label %74
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr %66, align 8
-  %77 = load i32, ptr %63, align 8
-  %78 = zext i32 %77 to i64
-  call void @sodium_memzero(ptr noundef %76, i64 noundef %78) #10
-  store i32 0, ptr %63, align 8
-  br label %79
+74:                                               ; preds = %67
+  %75 = load ptr, ptr %65, align 8
+  %76 = load i32, ptr %62, align 8
+  %77 = zext i32 %76 to i64
+  call void @sodium_memzero(ptr noundef %75, i64 noundef %77) #10
+  store i32 0, ptr %62, align 8
+  br label %78
 
-79:                                               ; preds = %75, %68, %40
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %81 = load i32, ptr %80, align 8
-  store i32 %81, ptr %5, align 4
-  %82 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %84 = load ptr, ptr %83, align 8
-  %.not38.i = icmp eq ptr %84, null
-  br i1 %.not38.i, label %89, label %85
+78:                                               ; preds = %74, %67, %40
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %80 = load i32, ptr %79, align 8
+  store i32 %80, ptr %5, align 4
+  %81 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %83 = load ptr, ptr %82, align 8
+  %.not38.i = icmp eq ptr %83, null
+  br i1 %.not38.i, label %88, label %84
 
-85:                                               ; preds = %79
-  %86 = load i32, ptr %80, align 8
-  %87 = zext i32 %86 to i64
-  %88 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %84, i64 noundef %87) #10
-  br label %89
+84:                                               ; preds = %78
+  %85 = load i32, ptr %79, align 8
+  %86 = zext i32 %85 to i64
+  %87 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %83, i64 noundef %86) #10
+  br label %88
 
-89:                                               ; preds = %85, %79
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %91 = load i32, ptr %90, align 8
-  store i32 %91, ptr %5, align 4
-  %92 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %94 = load ptr, ptr %93, align 8
-  %.not39.i = icmp eq ptr %94, null
-  br i1 %.not39.i, label %106, label %95
+88:                                               ; preds = %84, %78
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %90 = load i32, ptr %89, align 8
+  store i32 %90, ptr %5, align 4
+  %91 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %93 = load ptr, ptr %92, align 8
+  %.not39.i = icmp eq ptr %93, null
+  br i1 %.not39.i, label %105, label %94
 
-95:                                               ; preds = %89
-  %96 = load i32, ptr %90, align 8
-  %97 = zext i32 %96 to i64
-  %98 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %94, i64 noundef %97) #10
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %100 = load i32, ptr %99, align 4
-  %101 = and i32 %100, 2
-  %.not40.i = icmp eq i32 %101, 0
-  br i1 %.not40.i, label %106, label %102
+94:                                               ; preds = %88
+  %95 = load i32, ptr %89, align 8
+  %96 = zext i32 %95 to i64
+  %97 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %93, i64 noundef %96) #10
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %99 = load i32, ptr %98, align 4
+  %100 = and i32 %99, 2
+  %.not40.i = icmp eq i32 %100, 0
+  br i1 %.not40.i, label %105, label %101
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr %93, align 8
-  %104 = load i32, ptr %90, align 8
-  %105 = zext i32 %104 to i64
-  call void @sodium_memzero(ptr noundef %103, i64 noundef %105) #10
-  store i32 0, ptr %90, align 8
-  br label %106
+101:                                              ; preds = %94
+  %102 = load ptr, ptr %92, align 8
+  %103 = load i32, ptr %89, align 8
+  %104 = zext i32 %103 to i64
+  call void @sodium_memzero(ptr noundef %102, i64 noundef %104) #10
+  store i32 0, ptr %89, align 8
+  br label %105
 
-106:                                              ; preds = %102, %95, %89
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %108 = load i32, ptr %107, align 8
-  store i32 %108, ptr %5, align 4
-  %109 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %111 = load ptr, ptr %110, align 8
-  %.not41.i = icmp eq ptr %111, null
-  br i1 %.not41.i, label %argon2_initial_hash.exit, label %112
+105:                                              ; preds = %101, %94, %88
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %107 = load i32, ptr %106, align 8
+  store i32 %107, ptr %5, align 4
+  %108 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4) #10
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %110 = load ptr, ptr %109, align 8
+  %.not41.i = icmp eq ptr %110, null
+  br i1 %.not41.i, label %argon2_initial_hash.exit, label %111
 
-112:                                              ; preds = %106
-  %113 = load i32, ptr %107, align 8
-  %114 = zext i32 %113 to i64
-  %115 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %111, i64 noundef %114) #10
+111:                                              ; preds = %105
+  %112 = load i32, ptr %106, align 8
+  %113 = zext i32 %112 to i64
+  %114 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %4, ptr noundef nonnull %110, i64 noundef %113) #10
   br label %argon2_initial_hash.exit
 
-argon2_initial_hash.exit:                         ; preds = %106, %112
-  %116 = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef 64) #10
+argon2_initial_hash.exit:                         ; preds = %105, %111
+  %115 = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef 64) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  call void @sodium_memzero(ptr noundef nonnull %117, i64 noundef 8) #10
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  call void @sodium_memzero(ptr noundef nonnull %116, i64 noundef 8) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %119 = load i32, ptr %118, align 4
-  %.not.i17 = icmp eq i32 %119, 0
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %118 = load i32, ptr %117, align 4
+  %.not.i17 = icmp eq i32 %118, 0
   br i1 %.not.i17, label %argon2_fill_first_blocks.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %argon2_initial_hash.exit
-  %120 = getelementptr inbounds nuw i8, ptr %6, i64 68
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %122
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 68
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %121
 
-122:                                              ; preds = %load_block.exit17.i, %.lr.ph.i
-  %.018.i = phi i32 [ 0, %.lr.ph.i ], [ %150, %load_block.exit17.i ]
-  store i32 0, ptr %117, align 16
-  store i32 %.018.i, ptr %120, align 4
-  %123 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %6, i64 noundef 72) #10
-  %124 = load ptr, ptr %0, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = load i32, ptr %121, align 8
-  %128 = mul i32 %127, %.018.i
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr %struct.block_, ptr %126, i64 %129
-  br label %131
+121:                                              ; preds = %load_block.exit17.i, %.lr.ph.i
+  %.018.i = phi i32 [ 0, %.lr.ph.i ], [ %149, %load_block.exit17.i ]
+  store i32 0, ptr %116, align 16
+  store i32 %.018.i, ptr %119, align 4
+  %122 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %6, i64 noundef 72) #10
+  %123 = load ptr, ptr %0, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i32, ptr %120, align 8
+  %127 = mul i32 %126, %.018.i
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr %struct.block_, ptr %125, i64 %128
+  br label %130
 
-131:                                              ; preds = %131, %122
-  %indvars.iv.i.i = phi i64 [ 0, %122 ], [ %indvars.iv.next.i.i, %131 ]
-  %132 = shl nuw nsw i64 %indvars.iv.i.i, 3
-  %133 = getelementptr i8, ptr %3, i64 %132
-  %134 = load i64, ptr %133, align 8
-  %135 = getelementptr i64, ptr %130, i64 %indvars.iv.i.i
-  store i64 %134, ptr %135, align 8
+130:                                              ; preds = %130, %121
+  %indvars.iv.i.i = phi i64 [ 0, %121 ], [ %indvars.iv.next.i.i, %130 ]
+  %131 = shl nuw nsw i64 %indvars.iv.i.i, 3
+  %132 = getelementptr i8, ptr %3, i64 %131
+  %133 = load i64, ptr %132, align 8
+  %134 = getelementptr i64, ptr %129, i64 %indvars.iv.i.i
+  store i64 %133, ptr %134, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
-  br i1 %exitcond.not.i.i, label %load_block.exit.i, label %131, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %load_block.exit.i, label %130, !llvm.loop !16
 
-load_block.exit.i:                                ; preds = %131
-  store i32 1, ptr %117, align 16
-  %136 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %6, i64 noundef 72) #10
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = load i32, ptr %121, align 8
-  %141 = mul i32 %140, %.018.i
-  %142 = add i32 %141, 1
-  %143 = zext i32 %142 to i64
-  %144 = getelementptr %struct.block_, ptr %139, i64 %143
-  br label %145
+load_block.exit.i:                                ; preds = %130
+  store i32 1, ptr %116, align 16
+  %135 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull %6, i64 noundef 72) #10
+  %136 = load ptr, ptr %0, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = load i32, ptr %120, align 8
+  %140 = mul i32 %139, %.018.i
+  %141 = add i32 %140, 1
+  %142 = zext i32 %141 to i64
+  %143 = getelementptr %struct.block_, ptr %138, i64 %142
+  br label %144
 
-145:                                              ; preds = %145, %load_block.exit.i
-  %indvars.iv.i14.i = phi i64 [ 0, %load_block.exit.i ], [ %indvars.iv.next.i15.i, %145 ]
-  %146 = shl nuw nsw i64 %indvars.iv.i14.i, 3
-  %147 = getelementptr i8, ptr %3, i64 %146
-  %148 = load i64, ptr %147, align 8
-  %149 = getelementptr i64, ptr %144, i64 %indvars.iv.i14.i
-  store i64 %148, ptr %149, align 8
+144:                                              ; preds = %144, %load_block.exit.i
+  %indvars.iv.i14.i = phi i64 [ 0, %load_block.exit.i ], [ %indvars.iv.next.i15.i, %144 ]
+  %145 = shl nuw nsw i64 %indvars.iv.i14.i, 3
+  %146 = getelementptr i8, ptr %3, i64 %145
+  %147 = load i64, ptr %146, align 8
+  %148 = getelementptr i64, ptr %143, i64 %indvars.iv.i14.i
+  store i64 %147, ptr %148, align 8
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 128
-  br i1 %exitcond.not.i16.i, label %load_block.exit17.i, label %145, !llvm.loop !16
+  br i1 %exitcond.not.i16.i, label %load_block.exit17.i, label %144, !llvm.loop !16
 
-load_block.exit17.i:                              ; preds = %145
-  %150 = add nuw i32 %.018.i, 1
-  %151 = load i32, ptr %118, align 4
-  %152 = icmp ult i32 %150, %151
-  br i1 %152, label %122, label %argon2_fill_first_blocks.exit, !llvm.loop !17
+load_block.exit17.i:                              ; preds = %144
+  %149 = add nuw i32 %.018.i, 1
+  %150 = load i32, ptr %117, align 4
+  %151 = icmp ult i32 %149, %150
+  br i1 %151, label %121, label %argon2_fill_first_blocks.exit, !llvm.loop !17
 
 argon2_fill_first_blocks.exit:                    ; preds = %load_block.exit17.i, %argon2_initial_hash.exit
   call void @sodium_memzero(ptr noundef nonnull %3, i64 noundef 1024) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @sodium_memzero(ptr noundef nonnull %6, i64 noundef 72) #10
-  br label %153
+  br label %152
 
-153:                                              ; preds = %9, %2, %argon2_fill_first_blocks.exit, %argon2_free_instance.exit
+152:                                              ; preds = %9, %2, %argon2_fill_first_blocks.exit, %argon2_free_instance.exit
   %.0 = phi i32 [ -22, %argon2_free_instance.exit ], [ 0, %argon2_fill_first_blocks.exit ], [ -25, %2 ], [ -22, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

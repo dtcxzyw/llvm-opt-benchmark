@@ -435,12 +435,12 @@ uv__fs_close.exit:                                ; preds = %159, %163
 
 241:                                              ; preds = %235, %229
   %242 = load i64, ptr %137, align 8
-  %cond226 = icmp eq i64 %242, 0
-  br i1 %cond226, label %.thread, label %.lr.ph
+  %cond228 = icmp eq i64 %242, 0
+  br i1 %cond228, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %241, %247
-  %.060.i228 = phi i64 [ %249, %247 ], [ 0, %241 ]
-  %.061.i227 = phi i64 [ %248, %247 ], [ %242, %241 ]
+  %.060.i230 = phi i64 [ %249, %247 ], [ 0, %241 ]
+  %.061.i229 = phi i64 [ %248, %247 ], [ %242, %241 ]
   store i32 6, ptr %118, align 8
   store i32 5, ptr %119, align 8
   store ptr null, ptr %123, align 8
@@ -448,8 +448,8 @@ uv__fs_close.exit:                                ; preds = %159, %163
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %121, i8 0, i64 40, i1 false)
   store i32 %170, ptr %125, align 4
   store i32 %185, ptr %138, align 8
-  store i64 %.060.i228, ptr %139, align 8
-  store i64 %.061.i227, ptr %140, align 8
+  store i64 %.060.i230, ptr %139, align 8
+  store i64 %.061.i229, ptr %140, align 8
   call void @uv__fs_work(ptr noundef nonnull %127)
   %243 = load i64, ptr %120, align 8
   call void @uv_fs_req_cleanup(ptr noundef nonnull %18)
@@ -461,8 +461,8 @@ uv__fs_close.exit:                                ; preds = %159, %163
   br label %250
 
 247:                                              ; preds = %.lr.ph
-  %248 = sub nsw i64 %.061.i227, %243
-  %249 = add nuw nsw i64 %243, %.060.i228
+  %248 = sub nsw i64 %.061.i229, %243
+  %249 = add nuw nsw i64 %243, %.060.i230
   %cond = icmp eq i64 %248, 0
   br i1 %cond, label %.thread, label %.lr.ph
 
@@ -1246,9 +1246,9 @@ uv__fs_closedir.exit:                             ; preds = %571, %575
   br i1 %595, label %uv__fs_readlink.exit.thread, label %596
 
 596:                                              ; preds = %592, %590
-  %.lcssa285 = phi i64 [ %spec.store.select.i.i, %592 ], [ %587, %590 ]
+  %.lcssa289 = phi i64 [ %spec.store.select.i.i, %592 ], [ %587, %590 ]
   %.0.i98 = phi ptr [ %594, %592 ], [ %582, %590 ]
-  %597 = getelementptr inbounds i8, ptr %.0.i98, i64 %.lcssa285
+  %597 = getelementptr inbounds i8, ptr %.0.i98, i64 %.lcssa289
   store i8 0, ptr %597, align 1
   br label %.thread160
 
@@ -1464,10 +1464,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   br i1 %670, label %.outer.split.i.i, label %.outer68.i.i
 
 .split122.us.i.i:                                 ; preds = %.split102.us109.i.i
-  switch i64 %.048104.us.i.i, label %.loopexit.thread.i.i [
-    i64 -1, label %uv__fs_sendfile_emul.exit.i
-    i64 0, label %uv__fs_sendfile_emul.exit.i
-  ]
+  br i1 %665, label %uv__fs_sendfile_emul.exit.i, label %.loopexit.thread.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.backedge, %.outer.split.i.i
   %671 = call i64 @write(i32 noundef %654, ptr noundef nonnull %678, i64 noundef %677) #15
@@ -1540,8 +1537,8 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   store i64 %.047.ph95.i.i, ptr %29, align 8
   br label %uv__fs_sendfile_emul.exit.i
 
-uv__fs_sendfile_emul.exit.i:                      ; preds = %663, %672, %.loopexit.thread.i.i, %.loopexit.i.i, %.critedge6.i.i, %.split122.us.i.i, %.split122.us.i.i
-  %.161.i.i = phi i64 [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.loopexit.i.i ], [ -1, %.critedge6.i.i ], [ -1, %.split122.us.i.i ], [ -1, %.split122.us.i.i ], [ -1, %672 ], [ -1, %663 ]
+uv__fs_sendfile_emul.exit.i:                      ; preds = %663, %672, %.loopexit.thread.i.i, %.loopexit.i.i, %.critedge6.i.i, %.split122.us.i.i
+  %.161.i.i = phi i64 [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.loopexit.i.i ], [ -1, %.critedge6.i.i ], [ -1, %.split122.us.i.i ], [ -1, %672 ], [ -1, %663 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %uv__fs_sendfile.exit
@@ -1918,8 +1915,8 @@ uv__fs_write_all.exit:                            ; preds = %.loopexit.i, %851
   unreachable
 
 .thread160:                                       ; preds = %602, %596, %uv__fs_closedir.exit
-  %.lcssa391.sink = phi ptr [ %.0.i98, %596 ], [ null, %uv__fs_closedir.exit ], [ %603, %602 ]
-  store ptr %.lcssa391.sink, ptr %42, align 8
+  %.lcssa397.sink = phi ptr [ %.0.i98, %596 ], [ null, %uv__fs_closedir.exit ], [ %603, %602 ]
+  store ptr %.lcssa397.sink, ptr %42, align 8
   %853 = getelementptr inbounds i8, ptr %0, i64 -248
   store i64 0, ptr %853, align 8
   br label %863

@@ -2779,7 +2779,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 185:                                              ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %.037.idx439 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.037.add, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.sroa.6373.0438 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %.sroa.0372.0437 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi23.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
+  %.sroa.0372.0437 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi22.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.037.ptr440 = getelementptr inbounds nuw i8, ptr %7, i64 %.037.idx439
   %186 = load float, ptr %.037.ptr440, align 4, !tbaa !69
   %187 = getelementptr inbounds nuw i8, ptr %.037.ptr440, i64 4
@@ -4321,13 +4321,13 @@ _ZN7testing15AssertionResultD2Ev.exit315:         ; preds = %644, %_ZNKSt14defau
   %.034435 = phi float [ %653, %_ZN7testing15AssertionResultD2Ev.exit315 ], [ %.1, %837 ]
   %.035434 = phi float [ %652, %_ZN7testing15AssertionResultD2Ev.exit315 ], [ %.136, %837 ]
   %.sroa.6373.1433 = phi i64 [ %.sroa.6373.0438, %_ZN7testing15AssertionResultD2Ev.exit315 ], [ %.us-phi.i.i, %837 ]
-  %.sroa.0372.1432 = phi i64 [ %.sroa.0372.0437, %_ZN7testing15AssertionResultD2Ev.exit315 ], [ %.us-phi23.i.i, %837 ]
+  %.sroa.0372.1432 = phi i64 [ %.sroa.0372.0437, %_ZN7testing15AssertionResultD2Ev.exit315 ], [ %.us-phi22.i.i, %837 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %657 = load float, ptr %24, align 8, !tbaa !69
   %658 = load float, ptr %157, align 8, !tbaa !73
-  %.fr25.i.i = freeze float %658
+  %.fr24.i.i = freeze float %658
   %659 = load float, ptr %156, align 4, !tbaa !72
-  %660 = call i1 @llvm.is.fpclass.f32(float %.fr25.i.i, i32 384)
+  %660 = call i1 @llvm.is.fpclass.f32(float %.fr24.i.i, i32 384)
   br i1 %660, label %.split.i.i, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %656
@@ -4362,15 +4362,15 @@ _ZN7testing15AssertionResultD2Ev.exit315:         ; preds = %644, %_ZNKSt14defau
 
 _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i: ; preds = %664, %.split.us.i.i
   %.0.i.us.i.i = phi float [ %675, %664 ], [ 0.000000e+00, %.split.us.i.i ]
-  %676 = call float @llvm.fmuladd.f32(float %.0.i.us.i.i, float %.fr25.i.i, float %657)
+  %676 = call float @llvm.fmuladd.f32(float %.0.i.us.i.i, float %.fr24.i.i, float %657)
   br label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEfRT_.exit
 
 .split.i.i:                                       ; preds = %656, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.narrow.i.i.i.i.i.i20.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6373.1433, %656 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.0372.1432, %656 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6373.1433, %656 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.0372.1432, %656 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i
   %677 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i = add i128 %677, 1442695040888963407
@@ -4399,15 +4399,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %680, %.split.i.i
   %.0.i.i.i = phi float [ %691, %680 ], [ 0.000000e+00, %.split.i.i ]
-  %692 = call float @llvm.fmuladd.f32(float %.0.i.i.i, float %.fr25.i.i, float %657)
+  %692 = call float @llvm.fmuladd.f32(float %.0.i.i.i, float %.fr24.i.i, float %657)
   %693 = fcmp uge float %692, %659
   br i1 %693, label %.split.i.i, label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEfRT_.exit
 
 _ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEfRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i
   %.us-phi.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  %.us-phi23.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  %.us-phi24.i.i = phi float [ %676, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %692, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  store float %.us-phi24.i.i, ptr %61, align 4, !tbaa !74
+  %.us-phi22.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  %.us-phi23.i.i = phi float [ %676, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %692, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  store float %.us-phi23.i.i, ptr %61, align 4, !tbaa !74
   %694 = fcmp oeq float %657, %659
   br i1 %694, label %695, label %756
 
@@ -4415,7 +4415,7 @@ _ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBase
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store float %657, ptr %63, align 4, !tbaa !74
-  %696 = fcmp oeq float %.us-phi24.i.i, %657
+  %696 = fcmp oeq float %.us-phi23.i.i, %657
   br i1 %696, label %697, label %698
 
 697:                                              ; preds = %695
@@ -4626,7 +4626,7 @@ _ZN7testing15AssertionResultD2Ev.exit331:         ; preds = %747, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store float %657, ptr %67, align 4, !tbaa !74
-  %757 = fcmp ult float %.us-phi24.i.i, %657
+  %757 = fcmp ult float %.us-phi23.i.i, %657
   br i1 %757, label %759, label %758
 
 758:                                              ; preds = %756
@@ -8603,7 +8603,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 189:                                              ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %.072.idx412 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.072.add, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.sroa.6346.0411 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %.sroa.0345.0410 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi23.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
+  %.sroa.0345.0410 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi22.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.072.ptr413 = getelementptr inbounds nuw i8, ptr %7, i64 %.072.idx412
   %190 = load double, ptr %.072.ptr413, align 8, !tbaa !146
   %191 = getelementptr inbounds nuw i8, ptr %.072.ptr413, i64 8
@@ -10135,13 +10135,13 @@ _ZN7testing15AssertionResultD2Ev.exit288:         ; preds = %650, %_ZNKSt14defau
   %.022408 = phi double [ %659, %_ZN7testing15AssertionResultD2Ev.exit288 ], [ %.1, %839 ]
   %.023407 = phi double [ %658, %_ZN7testing15AssertionResultD2Ev.exit288 ], [ %.124, %839 ]
   %.sroa.6346.1406 = phi i64 [ %.sroa.6346.0411, %_ZN7testing15AssertionResultD2Ev.exit288 ], [ %.us-phi.i.i, %839 ]
-  %.sroa.0345.1405 = phi i64 [ %.sroa.0345.0410, %_ZN7testing15AssertionResultD2Ev.exit288 ], [ %.us-phi23.i.i, %839 ]
+  %.sroa.0345.1405 = phi i64 [ %.sroa.0345.0410, %_ZN7testing15AssertionResultD2Ev.exit288 ], [ %.us-phi22.i.i, %839 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %663 = load double, ptr %24, align 8, !tbaa !146
   %664 = load double, ptr %157, align 8, !tbaa !149
-  %.fr25.i.i = freeze double %664
+  %.fr24.i.i = freeze double %664
   %665 = load double, ptr %156, align 8, !tbaa !148
-  %666 = call i1 @llvm.is.fpclass.f64(double %.fr25.i.i, i32 384)
+  %666 = call i1 @llvm.is.fpclass.f64(double %.fr24.i.i, i32 384)
   br i1 %666, label %.split.i.i, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %662
@@ -10174,15 +10174,15 @@ _ZN7testing15AssertionResultD2Ev.exit288:         ; preds = %650, %_ZNKSt14defau
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i: ; preds = %670, %.split.us.i.i
   %.0.i.us.i.i = phi double [ %679, %670 ], [ 0.000000e+00, %.split.us.i.i ]
-  %680 = call double @llvm.fmuladd.f64(double %.0.i.us.i.i, double %.fr25.i.i, double %663)
+  %680 = call double @llvm.fmuladd.f64(double %.0.i.us.i.i, double %.fr24.i.i, double %663)
   br label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 .split.i.i:                                       ; preds = %662, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.narrow.i.i.i.i.i.i20.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6346.1406, %662 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.0345.1405, %662 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6346.1406, %662 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.0345.1405, %662 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i
   %681 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i = add i128 %681, 1442695040888963407
@@ -10209,15 +10209,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %684, %.split.i.i
   %.0.i.i.i = phi double [ %693, %684 ], [ 0.000000e+00, %.split.i.i ]
-  %694 = call double @llvm.fmuladd.f64(double %.0.i.i.i, double %.fr25.i.i, double %663)
+  %694 = call double @llvm.fmuladd.f64(double %.0.i.i.i, double %.fr24.i.i, double %663)
   %695 = fcmp uge double %694, %665
   br i1 %695, label %.split.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i
   %.us-phi.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  %.us-phi23.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  %.us-phi24.i.i = phi double [ %680, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %694, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  store double %.us-phi24.i.i, ptr %61, align 8, !tbaa !60
+  %.us-phi22.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  %.us-phi23.i.i = phi double [ %680, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %694, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  store double %.us-phi23.i.i, ptr %61, align 8, !tbaa !60
   %696 = fcmp oeq double %663, %665
   br i1 %696, label %697, label %758
 
@@ -10225,7 +10225,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store double %663, ptr %63, align 8, !tbaa !60
-  %698 = fcmp oeq double %.us-phi24.i.i, %663
+  %698 = fcmp oeq double %.us-phi23.i.i, %663
   br i1 %698, label %699, label %700
 
 699:                                              ; preds = %697
@@ -10436,7 +10436,7 @@ _ZN7testing15AssertionResultD2Ev.exit304:         ; preds = %749, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store double %663, ptr %67, align 8, !tbaa !60
-  %759 = fcmp ult double %.us-phi24.i.i, %663
+  %759 = fcmp ult double %.us-phi23.i.i, %663
   br i1 %759, label %761, label %760
 
 760:                                              ; preds = %758
@@ -13789,7 +13789,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 186:                                              ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %.029.idx380 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.029.add, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.sroa.6341.0379 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %.sroa.0340.0378 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi24.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
+  %.sroa.0340.0378 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi23.i.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.029.ptr381 = getelementptr inbounds nuw i8, ptr %5, i64 %.029.idx380
   %187 = load x86_fp80, ptr %.029.ptr381, align 16, !tbaa !196
   %188 = getelementptr inbounds nuw i8, ptr %.029.ptr381, i64 16
@@ -15345,18 +15345,18 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 665:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit289, %861
   %.0377 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit289 ], [ %862, %861 ]
   %.sroa.6341.1374 = phi i64 [ %.sroa.6341.0379, %_ZN7testing15AssertionResultD2Ev.exit289 ], [ %.us-phi.i.i, %861 ]
-  %.sroa.0340.1373 = phi i64 [ %.sroa.0340.0378, %_ZN7testing15AssertionResultD2Ev.exit289 ], [ %.us-phi24.i.i, %861 ]
+  %.sroa.0340.1373 = phi i64 [ %.sroa.0340.0378, %_ZN7testing15AssertionResultD2Ev.exit289 ], [ %.us-phi23.i.i, %861 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %666 = load x86_fp80, ptr %22, align 16, !tbaa !196
   %667 = load x86_fp80, ptr %154, align 16, !tbaa !200
-  %.fr26.i.i = freeze x86_fp80 %667
+  %.fr25.i.i = freeze x86_fp80 %667
   %668 = load x86_fp80, ptr %153, align 16, !tbaa !199
-  %669 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr26.i.i)
+  %669 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i.i)
   %670 = fcmp ueq x86_fp80 %669, 0xK7FFF8000000000000000
   br i1 %670, label %.split.us.i.i, label %.split.i.preheader.i
 
 .split.i.preheader.i:                             ; preds = %665
-  %671 = fcmp ugt x86_fp80 %.fr26.i.i, 0xK00000000000000000000
+  %671 = fcmp ugt x86_fp80 %.fr25.i.i, 0xK00000000000000000000
   br i1 %671, label %.split.i.i, label %.split.i.us.i
 
 .split.i.us.i:                                    ; preds = %.split.i.preheader.i
@@ -15390,7 +15390,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i: ; preds = %675, %.split.i.us.i
   %.0.i.i.us.i = phi x86_fp80 [ %685, %675 ], [ 0xK00000000000000000000, %.split.i.us.i ]
-  %686 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr26.i.i, x86_fp80 %666)
+  %686 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr25.i.i, x86_fp80 %666)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_.exit
 
 .split.us.i.i:                                    ; preds = %665
@@ -15424,15 +15424,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i: ; preds = %690, %.split.us.i.i
   %.0.i.us.i.i = phi x86_fp80 [ %700, %690 ], [ 0xK00000000000000000000, %.split.us.i.i ]
-  %701 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i, x86_fp80 %.fr26.i.i, x86_fp80 %666)
+  %701 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i, x86_fp80 %.fr25.i.i, x86_fp80 %666)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_.exit
 
 .split.i.i:                                       ; preds = %.split.i.preheader.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.narrow.i.i.i.i.i.i21.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6341.1374, %.split.i.preheader.i ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i20.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.0340.1373, %.split.i.preheader.i ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i21.i.i to i128
+  %.narrow.i.i.i.i.i.i20.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6341.1374, %.split.i.preheader.i ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.0340.1373, %.split.i.preheader.i ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i20.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i
   %702 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i = add i128 %702, 1442695040888963407
@@ -15460,15 +15460,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %705, %.split.i.i
   %.0.i.i.i = phi x86_fp80 [ %715, %705 ], [ 0xK00000000000000000000, %.split.i.i ]
-  %716 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i, x86_fp80 %.fr26.i.i, x86_fp80 %666)
+  %716 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i, x86_fp80 %.fr25.i.i, x86_fp80 %666)
   %717 = fcmp olt x86_fp80 %716, %668
   br i1 %717, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_.exit, label %.split.i.i
 
 _ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i
   %.us-phi.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.narrow.i.i.i.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i ], [ %.narrow.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  %.us-phi24.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  %.us-phi25.i.i = phi x86_fp80 [ %701, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %686, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i ], [ %716, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  store x86_fp80 %.us-phi25.i.i, ptr %59, align 16, !tbaa !201
+  %.us-phi23.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  %.us-phi24.i.i = phi x86_fp80 [ %701, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i ], [ %686, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i ], [ %716, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  store x86_fp80 %.us-phi24.i.i, ptr %59, align 16, !tbaa !201
   %718 = fcmp oeq x86_fp80 %666, %668
   br i1 %718, label %719, label %780
 
@@ -15476,7 +15476,7 @@ _ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBase
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store x86_fp80 %666, ptr %61, align 16, !tbaa !201
-  %720 = fcmp oeq x86_fp80 %.us-phi25.i.i, %666
+  %720 = fcmp oeq x86_fp80 %.us-phi24.i.i, %666
   br i1 %720, label %721, label %722
 
 721:                                              ; preds = %719
@@ -15687,7 +15687,7 @@ _ZN7testing15AssertionResultD2Ev.exit307:         ; preds = %771, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store x86_fp80 %666, ptr %65, align 16, !tbaa !201
-  %781 = fcmp ult x86_fp80 %.us-phi25.i.i, %666
+  %781 = fcmp ult x86_fp80 %.us-phi24.i.i, %666
   br i1 %781, label %783, label %782
 
 782:                                              ; preds = %780
@@ -16327,17 +16327,17 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
   %3 = load x86_fp80, ptr %0, align 16, !tbaa !196
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load x86_fp80, ptr %4, align 16, !tbaa !200
-  %.fr26.i = freeze x86_fp80 %5
+  %.fr25.i = freeze x86_fp80 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load x86_fp80, ptr %6, align 16, !tbaa !199
-  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr26.i)
+  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i)
   %9 = fcmp ueq x86_fp80 %8, 0xK7FFF8000000000000000
   %.promoted.i = load i64, ptr %1, align 16, !tbaa !63
   %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !63
   br i1 %9, label %.split.us.i, label %.split.i.preheader
 
 .split.i.preheader:                               ; preds = %2
-  %10 = fcmp ugt x86_fp80 %.fr26.i, 0xK00000000000000000000
+  %10 = fcmp ugt x86_fp80 %.fr25.i, 0xK00000000000000000000
   br i1 %10, label %.split.i, label %.split.i.us
 
 .split.i.us:                                      ; preds = %.split.i.preheader
@@ -16371,7 +16371,7 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us: ; preds = %14, %.split.i.us
   %.0.i.i.us = phi x86_fp80 [ %24, %14 ], [ 0xK00000000000000000000, %.split.i.us ]
-  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr26.i, x86_fp80 %3)
+  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr25.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.us.i:                                      ; preds = %2
@@ -16405,15 +16405,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i: ; preds = %29, %.split.us.i
   %.0.i.us.i = phi x86_fp80 [ %39, %29 ], [ 0xK00000000000000000000, %.split.us.i ]
-  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr26.i, x86_fp80 %3)
+  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr25.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.i:                                         ; preds = %.split.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i
-  %.narrow.i.i.i.i.i.i21.i = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i, %.split.i.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i20.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.promoted.i, %.split.i.preheader ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i21.i to i128
+  %.narrow.i.i.i.i.i.i20.i = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i, %.split.i.preheader ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.promoted.i, %.split.i.preheader ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i20.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i
   %41 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i = add i128 %41, 1442695040888963407
@@ -16441,17 +16441,17 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i: ; preds = %44, %.split.i
   %.0.i.i = phi x86_fp80 [ %54, %44 ], [ 0xK00000000000000000000, %.split.i ]
-  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr26.i, x86_fp80 %3)
+  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr25.i, x86_fp80 %3)
   %56 = fcmp olt x86_fp80 %55, %7
   br i1 %56, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_RKNS1_10param_typeE.exit, label %.split.i
 
 _ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_RKNS1_10param_typeE.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i
   %.us-phi.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %.narrow.i.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
-  %.us-phi24.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
-  %.us-phi25.i = phi x86_fp80 [ %40, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %25, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %55, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
-  store i64 %.us-phi24.i, ptr %1, align 16, !tbaa !63
+  %.us-phi23.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
+  %.us-phi24.i = phi x86_fp80 [ %40, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %25, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %55, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
+  store i64 %.us-phi23.i, ptr %1, align 16, !tbaa !63
   store i64 %.us-phi.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !63
-  ret x86_fp80 %.us-phi25.i
+  ret x86_fp80 %.us-phi24.i
 }
 
 ; Function Attrs: nounwind
@@ -22931,11 +22931,11 @@ define internal void @_ZN12_GLOBAL__N_144UniformRealDistributionTest_TestMoments
           to label %35 unwind label %41
 
 .split.i.i:                                       ; preds = %.split.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.narrow.i.i.i.i.i20.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6.097, %.split.i.i.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.088.096, %.split.i.i.preheader ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i20.i.i to i128
+  %.narrow.i.i.i.i.i19.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6.097, %.split.i.i.preheader ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.088.096, %.split.i.i.preheader ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i19.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i
   %17 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i = add i128 %17, 1442695040888963407
@@ -23554,11 +23554,11 @@ define internal void @_ZN12_GLOBAL__N_144UniformRealDistributionTest_TestMoments
           to label %32 unwind label %38
 
 .split.i.i:                                       ; preds = %.split.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.narrow.i.i.i.i.i20.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6.097, %.split.i.i.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.088.096, %.split.i.i.preheader ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i20.i.i to i128
+  %.narrow.i.i.i.i.i19.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.6.097, %.split.i.i.preheader ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.088.096, %.split.i.i.preheader ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i19.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i
   %17 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i = add i128 %17, 1442695040888963407
@@ -24720,17 +24720,17 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
   %3 = load x86_fp80, ptr %0, align 16, !tbaa !196
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load x86_fp80, ptr %4, align 16, !tbaa !200
-  %.fr26.i = freeze x86_fp80 %5
+  %.fr25.i = freeze x86_fp80 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load x86_fp80, ptr %6, align 16, !tbaa !199
-  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr26.i)
+  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i)
   %9 = fcmp ueq x86_fp80 %8, 0xK7FFF8000000000000000
   %.promoted.i = load i64, ptr %1, align 16, !tbaa !63
   %.sroa.22.0..sroa_idx.i.i.i.promoted.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !63
   br i1 %9, label %.split.us.i, label %.split.i.preheader
 
 .split.i.preheader:                               ; preds = %2
-  %10 = fcmp ugt x86_fp80 %.fr26.i, 0xK00000000000000000000
+  %10 = fcmp ugt x86_fp80 %.fr25.i, 0xK00000000000000000000
   br i1 %10, label %.split.i, label %.split.i.us
 
 .split.i.us:                                      ; preds = %.split.i.preheader
@@ -24764,7 +24764,7 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us: ; preds = %14, %.split.i.us
   %.0.i.i.us = phi x86_fp80 [ %24, %14 ], [ 0xK00000000000000000000, %.split.i.us ]
-  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr26.i, x86_fp80 %3)
+  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr25.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.us.i:                                      ; preds = %2
@@ -24798,15 +24798,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i: ; preds = %29, %.split.us.i
   %.0.i.us.i = phi x86_fp80 [ %39, %29 ], [ 0xK00000000000000000000, %.split.us.i ]
-  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr26.i, x86_fp80 %3)
+  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr25.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.i:                                         ; preds = %.split.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i
-  %.narrow.i.i.i.i.i21.i = phi i64 [ %.narrow.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.sroa.22.0..sroa_idx.i.i.i.promoted.i, %.split.i.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i20.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.promoted.i, %.split.i.preheader ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i21.i to i128
+  %.narrow.i.i.i.i.i20.i = phi i64 [ %.narrow.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.sroa.22.0..sroa_idx.i.i.i.promoted.i, %.split.i.preheader ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ], [ %.promoted.i, %.split.i.preheader ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i20.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i20.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i
   %41 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i = add i128 %41, 1442695040888963407
@@ -24834,17 +24834,17 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i: ; preds = %44, %.split.i
   %.0.i.i = phi x86_fp80 [ %54, %44 ], [ 0xK00000000000000000000, %.split.i ]
-  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr26.i, x86_fp80 %3)
+  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr25.i, x86_fp80 %3)
   %56 = fcmp olt x86_fp80 %55, %7
   br i1 %56, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_RKNS1_10param_typeE.exit, label %.split.i
 
 _ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_RKNS1_10param_typeE.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i
   %.us-phi.i = phi i64 [ %.narrow.i.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %.narrow.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %.narrow.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
-  %.us-phi24.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
-  %.us-phi25.i = phi x86_fp80 [ %40, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %25, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %55, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
-  store i64 %.us-phi24.i, ptr %1, align 16, !tbaa !63
+  %.us-phi23.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.us.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
+  %.us-phi24.i = phi x86_fp80 [ %40, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i ], [ %25, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us ], [ %55, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i ]
+  store i64 %.us-phi23.i, ptr %1, align 16, !tbaa !63
   store i64 %.us-phi.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !63
-  ret x86_fp80 %.us-phi25.i
+  ret x86_fp80 %.us-phi24.i
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -24938,8 +24938,8 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
   %37 = fdiv double 5.000000e+01, %36
   %.sroa.7106.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr137, i64 8
   %.sroa.7106.0.copyload = load float, ptr %.sroa.7106.0..0.sroa_idx, align 4, !tbaa !74
-  %.fr25.i.i = freeze float %.sroa.7106.0.copyload
-  %38 = tail call i1 @llvm.is.fpclass.f32(float %.fr25.i.i, i32 384)
+  %.fr24.i.i = freeze float %.sroa.7106.0.copyload
+  %38 = tail call i1 @llvm.is.fpclass.f32(float %.fr24.i.i, i32 384)
   br i1 %38, label %.split.i.i.preheader.us, label %.split.us.i.i
 
 .split.i.i.preheader.us:                          ; preds = %.noexc, %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.loopexit.us
@@ -24949,11 +24949,11 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
   br label %.split.i.i.us
 
 .split.i.i.us:                                    ; preds = %.split.i.i.preheader.us, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
-  %.narrow.i.i.i.i.i20.i.i.us = phi i64 [ %.narrow.i.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.6122.1131.us, %.split.i.i.preheader.us ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.0121.1130.us, %.split.i.i.preheader.us ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i20.i.i.us to i128
+  %.narrow.i.i.i.i.i19.i.i.us = phi i64 [ %.narrow.i.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.6122.1131.us, %.split.i.i.preheader.us ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.0121.1130.us, %.split.i.i.preheader.us ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i19.i.i.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i.us to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i.us to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us
   %39 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.us = add i128 %39, 1442695040888963407
@@ -24982,7 +24982,7 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
 
 _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %42, %.split.i.i.us
   %.0.i.i.i.us = phi float [ %53, %42 ], [ 0.000000e+00, %.split.i.i.us ]
-  %54 = tail call float @llvm.fmuladd.f32(float %.0.i.i.i.us, float %.fr25.i.i, float %30)
+  %54 = tail call float @llvm.fmuladd.f32(float %.0.i.i.i.us, float %.fr24.i.i, float %30)
   %55 = fcmp uge float %54, %32
   br i1 %55, label %.split.i.i.us, label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.loopexit.us
 
@@ -25056,7 +25056,7 @@ _ZN4absl15random_internal21ChiSquareWithExpectedIN9__gnu_cxx17__normal_iteratorI
 
 _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i: ; preds = %73, %.split.us.i.i
   %.0.i.us.i.i = phi float [ %84, %73 ], [ 0.000000e+00, %.split.us.i.i ]
-  %85 = tail call float @llvm.fmuladd.f32(float %.0.i.us.i.i, float %.fr25.i.i, float %30)
+  %85 = tail call float @llvm.fmuladd.f32(float %.0.i.us.i.i, float %.fr24.i.i, float %30)
   %86 = fpext float %85 to double
   %87 = fsub double %86, %34
   %88 = fmul double %37, %87
@@ -25509,8 +25509,8 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
   %35 = fdiv double 5.000000e+01, %34
   %.sroa.7106.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr137, i64 16
   %.sroa.7106.0.copyload = load double, ptr %.sroa.7106.0..0.sroa_idx, align 8, !tbaa !60
-  %.fr25.i.i = freeze double %.sroa.7106.0.copyload
-  %36 = tail call i1 @llvm.is.fpclass.f64(double %.fr25.i.i, i32 384)
+  %.fr24.i.i = freeze double %.sroa.7106.0.copyload
+  %36 = tail call i1 @llvm.is.fpclass.f64(double %.fr24.i.i, i32 384)
   br i1 %36, label %.split.i.i.preheader.us, label %.split.us.i.i
 
 .split.i.i.preheader.us:                          ; preds = %.noexc, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.loopexit.us
@@ -25520,11 +25520,11 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
   br label %.split.i.i.us
 
 .split.i.i.us:                                    ; preds = %.split.i.i.preheader.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
-  %.narrow.i.i.i.i.i20.i.i.us = phi i64 [ %.narrow.i.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.6122.1131.us, %.split.i.i.preheader.us ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.0121.1130.us, %.split.i.i.preheader.us ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i20.i.i.us to i128
+  %.narrow.i.i.i.i.i19.i.i.us = phi i64 [ %.narrow.i.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.6122.1131.us, %.split.i.i.preheader.us ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.0121.1130.us, %.split.i.i.preheader.us ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i19.i.i.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i.us to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i18.i.i.us to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us
   %37 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.us = add i128 %37, 1442695040888963407
@@ -25551,7 +25551,7 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %40, %.split.i.i.us
   %.0.i.i.i.us = phi double [ %49, %40 ], [ 0.000000e+00, %.split.i.i.us ]
-  %50 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %.fr25.i.i, double %30)
+  %50 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %.fr24.i.i, double %30)
   %51 = fcmp uge double %50, %32
   br i1 %51, label %.split.i.i.us, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.loopexit.us
 
@@ -25622,7 +25622,7 @@ _ZN4absl15random_internal21ChiSquareWithExpectedIN9__gnu_cxx17__normal_iteratorI
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i: ; preds = %68, %.split.us.i.i
   %.0.i.us.i.i = phi double [ %77, %68 ], [ 0.000000e+00, %.split.us.i.i ]
-  %78 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i, double %.fr25.i.i, double %30)
+  %78 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i, double %.fr24.i.i, double %30)
   %79 = fsub double %78, %30
   %80 = fmul double %35, %79
   %81 = fptoui double %80 to i64
@@ -26060,8 +26060,8 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
   %37 = fdiv double 5.000000e+01, %36
   %.sroa.7108.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr151, i64 32
   %.sroa.7108.0.copyload = load x86_fp80, ptr %.sroa.7108.0..0.sroa_idx, align 16
-  %.fr26.i.i = freeze x86_fp80 %.sroa.7108.0.copyload
-  %38 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr26.i.i)
+  %.fr25.i.i = freeze x86_fp80 %.sroa.7108.0.copyload
+  %38 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i.i)
   %39 = fcmp ueq x86_fp80 %38, 0xK7FFF8000000000000000
   %40 = fpext double %34 to x86_fp80
   %41 = fpext double %37 to x86_fp80
@@ -26101,7 +26101,7 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.us: ; preds = %45, %.split.us.i.i.us
   %.0.i.us.i.i.us = phi x86_fp80 [ %55, %45 ], [ 0xK00000000000000000000, %.split.us.i.i.us ]
-  %56 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i.us, x86_fp80 %.fr26.i.i, x86_fp80 %30)
+  %56 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i.us, x86_fp80 %.fr25.i.i, x86_fp80 %30)
   %57 = fsub x86_fp80 %56, %40
   %58 = fmul x86_fp80 %57, %41
   %59 = fptoui x86_fp80 %58 to i64
@@ -26114,7 +26114,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %exitcond164.not, label %.lr.ph.i.preheader, label %.split.us.i.i.us, !llvm.loop !335
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.split:      ; preds = %.noexc
-  %64 = fcmp ugt x86_fp80 %.fr26.i.i, 0xK00000000000000000000
+  %64 = fcmp ugt x86_fp80 %.fr25.i.i, 0xK00000000000000000000
   br i1 %64, label %.split.i.preheader.i.us, label %.split.i.preheader.i
 
 .split.i.preheader.i.us:                          ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.split, %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_.exit.loopexit.us
@@ -26124,11 +26124,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.split:      ; preds = %.noexc
   br label %.split.i.i.us
 
 .split.i.i.us:                                    ; preds = %.split.i.preheader.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
-  %.narrow.i.i.i.i.i21.i.i.us = phi i64 [ %.narrow.i.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.6124.1134.us138, %.split.i.preheader.i.us ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i20.i.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.0123.1133.us139, %.split.i.preheader.i.us ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i21.i.i.us to i128
+  %.narrow.i.i.i.i.i20.i.i.us = phi i64 [ %.narrow.i.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.6124.1134.us138, %.split.i.preheader.i.us ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %.sroa.0123.1133.us139, %.split.i.preheader.i.us ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i20.i.i.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.us, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i20.i.i.us to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i19.i.i.us to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.us
   %65 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.us = add i128 %65, 1442695040888963407
@@ -26156,7 +26156,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.split:      ; preds = %.noexc
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %68, %.split.i.i.us
   %.0.i.i.i.us = phi x86_fp80 [ %78, %68 ], [ 0xK00000000000000000000, %.split.i.i.us ]
-  %79 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i.us, x86_fp80 %.fr26.i.i, x86_fp80 %30)
+  %79 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i.us, x86_fp80 %.fr25.i.i, x86_fp80 %30)
   %80 = fcmp olt x86_fp80 %79, %32
   br i1 %80, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_.exit.loopexit.us, label %.split.i.i.us
 
@@ -26228,7 +26228,7 @@ _ZN4absl15random_internal21ChiSquareWithExpectedIN9__gnu_cxx17__normal_iteratorI
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i: ; preds = %97, %.split.i.preheader.i
   %.0.i.i.us.i = phi x86_fp80 [ %107, %97 ], [ 0xK00000000000000000000, %.split.i.preheader.i ]
-  %108 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr26.i.i, x86_fp80 %30)
+  %108 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr25.i.i, x86_fp80 %30)
   %109 = fsub x86_fp80 %108, %40
   %110 = fmul x86_fp80 %109, %41
   %111 = fptoui x86_fp80 %110 to i64

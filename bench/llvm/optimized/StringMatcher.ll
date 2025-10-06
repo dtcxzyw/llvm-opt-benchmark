@@ -472,15 +472,15 @@ _ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load i64, ptr %192, align 8, !tbaa !14
   %194 = trunc i64 %193 to i32
-  %.not16.i = icmp eq i32 %194, 0
-  br i1 %.not16.i, label %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit, label %.lr.ph19.i
+  %.not14.i = icmp eq i32 %194, 0
+  br i1 %.not14.i, label %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit, label %.lr.ph17.i
 
-.lr.ph19.i:                                       ; preds = %190
+.lr.ph17.i:                                       ; preds = %190
   %195 = load ptr, ptr %191, align 8, !tbaa !18
-  %.not1114.i = icmp eq ptr %.val, %.val49
-  br i1 %.not1114.i, label %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit, label %.lr.ph.i.preheader
+  %.not912.i = icmp eq ptr %.val, %.val49
+  br i1 %.not912.i, label %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph19.i
+.lr.ph.i.preheader:                               ; preds = %.lr.ph17.i
   %196 = and i64 %193, 4294967295
   br label %.lr.ph.i
 
@@ -491,13 +491,13 @@ _ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES
   br label %201
 
 199:                                              ; preds = %201
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.01.015.i, i64 8
-  %.not11.i = icmp eq ptr %200, %.val49
-  br i1 %.not11.i, label %._crit_edge.i, label %201
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.01.013.i, i64 8
+  %.not9.i = icmp eq ptr %200, %.val49
+  br i1 %.not9.i, label %._crit_edge.i, label %201
 
 201:                                              ; preds = %199, %.lr.ph.i
-  %.sroa.01.015.i = phi ptr [ %.val, %.lr.ph.i ], [ %200, %199 ]
-  %202 = load ptr, ptr %.sroa.01.015.i, align 8, !tbaa !12
+  %.sroa.01.013.i = phi ptr [ %.val, %.lr.ph.i ], [ %200, %199 ]
+  %202 = load ptr, ptr %.sroa.01.013.i, align 8, !tbaa !12
   %203 = load ptr, ptr %202, align 8, !tbaa !18
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 %indvars.iv
   %205 = load i8, ptr %204, align 1, !tbaa !22
@@ -513,8 +513,8 @@ _ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt
   %206 = trunc nuw i64 %indvars.iv to i32
   br label %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit
 
-_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit: ; preds = %._crit_edge.i, %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit.loopexit, %190, %.lr.ph19.i
-  %.5.i = phi i32 [ 0, %190 ], [ %194, %.lr.ph19.i ], [ %206, %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit.loopexit ], [ %194, %._crit_edge.i ]
+_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit: ; preds = %._crit_edge.i, %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit.loopexit, %190, %.lr.ph17.i
+  %.5.i = phi i32 [ 0, %190 ], [ %194, %.lr.ph17.i ], [ %206, %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit.loopexit ], [ %194, %._crit_edge.i ]
   %207 = sub i32 %.5.i, %2
   %208 = icmp eq i32 %207, 1
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 24

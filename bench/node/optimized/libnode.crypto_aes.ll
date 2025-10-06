@@ -5483,29 +5483,29 @@ if.end:                                           ; preds = %_ZNSt10shared_ptrIN
   br i1 %call5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end
-  %switch = icmp eq i32 %call322, 2
+  %17 = icmp eq i32 %call322, 2
   %_M_finish.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %_M_end_of_storage.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  br i1 %switch, label %sw.bb8, label %sw.bb7
+  br i1 %17, label %sw.bb8, label %sw.bb7
 
 sw.bb7:                                           ; preds = %if.then6
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.130)
-  %17 = load ptr, ptr %_M_finish.i.i8, align 8
-  %18 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
-  %cmp.not.i.i = icmp eq ptr %17, %18
+  %18 = load ptr, ptr %_M_finish.i.i8, align 8
+  %19 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
+  %cmp.not.i.i = icmp eq ptr %18, %19
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
-  %19 = load ptr, ptr %_M_finish.i.i8, align 8
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
+  %20 = load ptr, ptr %_M_finish.i.i8, align 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i8, align 8
   br label %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit
 
 if.else.i.i:                                      ; preds = %sw.bb7
   %errors_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i6, ptr %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i6, ptr %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   br label %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit
 
 _ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -5516,21 +5516,21 @@ _ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit: 
 sw.bb8:                                           ; preds = %if.then6
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i7)
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i7, ptr noundef nonnull @.str.127)
-  %20 = load ptr, ptr %_M_finish.i.i8, align 8
-  %21 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
-  %cmp.not.i.i10 = icmp eq ptr %20, %21
+  %21 = load ptr, ptr %_M_finish.i.i8, align 8
+  %22 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
+  %cmp.not.i.i10 = icmp eq ptr %21, %22
   br i1 %cmp.not.i.i10, label %if.else.i.i13, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %sw.bb8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7) #17
-  %22 = load ptr, ptr %_M_finish.i.i8, align 8
-  %incdec.ptr.i.i12 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7) #17
+  %23 = load ptr, ptr %_M_finish.i.i8, align 8
+  %incdec.ptr.i.i12 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %incdec.ptr.i.i12, ptr %_M_finish.i.i8, align 8
   br label %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15
 
 if.else.i.i13:                                    ; preds = %sw.bb8
   %errors_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i14, ptr %20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i14, ptr %21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7)
   br label %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15
 
 _ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15: ; preds = %if.then.i.i11, %if.else.i.i13

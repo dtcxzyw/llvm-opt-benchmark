@@ -4918,8 +4918,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean4nameES1_SaIS1_E
   %13 = load ptr, ptr %1, align 8, !tbaa !19
   %14 = load ptr, ptr %12, align 8, !tbaa !19
   %15 = tail call zeroext i8 @lean_name_eq(ptr noundef %13, ptr noundef %14)
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %10, label %.loopexit, !llvm.loop !94
+  %.not31 = icmp eq i8 %15, 0
+  br i1 %.not31, label %10, label %.loopexit, !llvm.loop !94
 
 .thread:                                          ; preds = %10, %4
   %16 = load ptr, ptr %1, align 8, !tbaa !19
@@ -4940,8 +4940,8 @@ _ZNKSt8__detail15_Hash_code_baseIN4lean4nameES2_NS_9_IdentityENS1_12name_hash_fn
   %23 = load i64, ptr %22, align 8, !tbaa !15
   %24 = urem i64 %.0.i.i.i.i.i, %23
   %25 = load i64, ptr %6, align 8, !tbaa !66
-  %.not34 = icmp eq i64 %25, 0
-  br i1 %.not34, label %.critedge, label %26
+  %.not32 = icmp eq i64 %25, 0
+  br i1 %.not32, label %.critedge, label %26
 
 26:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN4lean4nameES2_NS_9_IdentityENS1_12name_hash_fnENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS2_EEmRKT_.exit
   %27 = load ptr, ptr %0, align 8, !tbaa !3

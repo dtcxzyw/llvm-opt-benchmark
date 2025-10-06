@@ -639,26 +639,26 @@ define hidden noundef zeroext i1 @zend_accel_blacklist_is_blacklisted(ptr nounde
   br i1 %7, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %17
-  %.01931 = phi ptr [ %.120, %17 ], [ %5, %3 ]
-  %8 = load ptr, ptr %.01931, align 8, !tbaa !15
+  %.01929 = phi ptr [ %.120, %17 ], [ %5, %3 ]
+  %8 = load ptr, ptr %.01929, align 8, !tbaa !15
   %9 = tail call ptr @php_pcre_create_match_data(i32 noundef 0, ptr noundef %8) #13
   %.not24 = icmp eq ptr %9, null
   br i1 %.not24, label %17, label %10
 
 10:                                               ; preds = %.preheader
-  %11 = load ptr, ptr %.01931, align 8, !tbaa !15
+  %11 = load ptr, ptr %.01929, align 8, !tbaa !15
   %12 = tail call i32 @php_pcre2_match(ptr noundef %11, ptr noundef %1, i64 noundef %2, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %9, ptr noundef %6) #13
   %13 = icmp sgt i32 %12, -1
   tail call void @php_pcre_free_match_data(ptr noundef nonnull %9) #13
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %.01931, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01929, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   br label %17
 
 17:                                               ; preds = %14, %.preheader
-  %.120 = phi ptr [ %.01931, %.preheader ], [ %16, %14 ]
+  %.120 = phi ptr [ %.01929, %.preheader ], [ %16, %14 ]
   %.not.not = icmp eq ptr %.120, null
   br i1 %.not.not, label %.loopexit, label %.preheader
 

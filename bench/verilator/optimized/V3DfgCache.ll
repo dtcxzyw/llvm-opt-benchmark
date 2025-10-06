@@ -3354,8 +3354,8 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgS
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %50, align 8, !tbaa !4
   %51 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  %.not.not7.i.i.i = icmp eq ptr %49, null
-  %.not.not.i.i.i = or i1 %.not.not7.i.i.i, %51
+  %.not.not6.i.i.i = icmp eq ptr %49, null
+  %.not.not.i.i.i = or i1 %.not.not6.i.i.i, %51
   br i1 %.not.not.i.i.i, label %55, label %52
 
 52:                                               ; preds = %.critedge
@@ -3993,8 +3993,8 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14D
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %30, align 8, !tbaa !4
   %31 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  %.not.not7.i.i.i = icmp eq ptr %29, null
-  %.not.not.i.i.i = or i1 %.not.not7.i.i.i, %31
+  %.not.not6.i.i.i = icmp eq ptr %29, null
+  %.not.not.i.i.i = or i1 %.not.not6.i.i.i, %31
   br i1 %.not.not.i.i.i, label %35, label %32
 
 32:                                               ; preds = %.critedge
@@ -4432,8 +4432,8 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %47, align 8, !tbaa !4
   %48 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  %.not.not7.i.i.i = icmp eq ptr %46, null
-  %.not.not.i.i.i = or i1 %.not.not7.i.i.i, %48
+  %.not.not6.i.i.i = icmp eq ptr %46, null
+  %.not.not.i.i.i = or i1 %.not.not6.i.i.i, %48
   br i1 %.not.not.i.i.i, label %52, label %49
 
 49:                                               ; preds = %.critedge
@@ -4460,8 +4460,8 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit.i.i: ; preds = %49, %52
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i2.i.i = load i16, ptr %64, align 8, !tbaa !4
   %65 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i2.i.i, 0
-  %.not.not7.i3.i.i = icmp eq ptr %63, null
-  %.not.not.i4.i.i = or i1 %.not.not7.i3.i.i, %65
+  %.not.not6.i3.i.i = icmp eq ptr %63, null
+  %.not.not.i4.i.i = or i1 %.not.not6.i3.i.i, %65
   br i1 %.not.not.i4.i.i, label %69, label %66
 
 66:                                               ; preds = %_ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit.i.i
@@ -5172,8 +5172,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK18V3DfgCacheInternal10KeyTernary4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %4, align 8, !tbaa !4
   %5 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i, 0
-  %.not.not7.i = icmp eq ptr %3, null
-  %.not.not.i = or i1 %.not.not7.i, %5
+  %.not.not6.i = icmp eq ptr %3, null
+  %.not.not.i = or i1 %.not.not6.i, %5
   br i1 %.not.not.i, label %9, label %6
 
 6:                                                ; preds = %2
@@ -5201,8 +5201,8 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit: ; preds = %6, %9
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i4 = load i16, ptr %22, align 8, !tbaa !4
   %23 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i4, 0
-  %.not.not7.i5 = icmp eq ptr %21, null
-  %.not.not.i6 = or i1 %.not.not7.i5, %23
+  %.not.not6.i5 = icmp eq ptr %21, null
+  %.not.not.i6 = or i1 %.not.not6.i5, %23
   br i1 %.not.not.i6, label %27, label %24
 
 24:                                               ; preds = %_ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit
@@ -5230,8 +5230,8 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit8: ; preds = %24, %27
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i9 = load i16, ptr %40, align 8, !tbaa !4
   %41 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i9, 0
-  %.not.not7.i10 = icmp eq ptr %39, null
-  %.not.not.i11 = or i1 %.not.not7.i10, %41
+  %.not.not6.i10 = icmp eq ptr %39, null
+  %.not.not.i11 = or i1 %.not.not6.i10, %41
   br i1 %.not.not.i11, label %45, label %42
 
 42:                                               ; preds = %_ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit8
@@ -5435,8 +5435,8 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgS
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %34, align 8, !tbaa !4
   %35 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  %.not.not7.i.i.i = icmp eq ptr %33, null
-  %.not.not.i.i.i = or i1 %.not.not7.i.i.i, %35
+  %.not.not6.i.i.i = icmp eq ptr %33, null
+  %.not.not.i.i.i = or i1 %.not.not6.i.i.i, %35
   br i1 %.not.not.i.i.i, label %39, label %36
 
 36:                                               ; preds = %32
@@ -5605,8 +5605,8 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14D
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %21, align 8, !tbaa !4
   %22 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  %.not.not7.i.i.i = icmp eq ptr %20, null
-  %.not.not.i.i.i = or i1 %.not.not7.i.i.i, %22
+  %.not.not6.i.i.i = icmp eq ptr %20, null
+  %.not.not.i.i.i = or i1 %.not.not6.i.i.i, %22
   br i1 %.not.not.i.i.i, label %26, label %23
 
 23:                                               ; preds = %19
@@ -5772,8 +5772,8 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %35, align 8, !tbaa !4
   %36 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  %.not.not7.i.i.i = icmp eq ptr %34, null
-  %.not.not.i.i.i = or i1 %.not.not7.i.i.i, %36
+  %.not.not6.i.i.i = icmp eq ptr %34, null
+  %.not.not.i.i.i = or i1 %.not.not6.i.i.i, %36
   br i1 %.not.not.i.i.i, label %40, label %37
 
 37:                                               ; preds = %33
@@ -5801,8 +5801,8 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit.i.i: ; preds = %40, %37
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i2.i.i = load i16, ptr %53, align 8, !tbaa !4
   %54 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i.i2.i.i, 0
-  %.not.not7.i3.i.i = icmp eq ptr %52, null
-  %.not.not.i4.i.i = or i1 %.not.not7.i3.i.i, %54
+  %.not.not6.i3.i.i = icmp eq ptr %52, null
+  %.not.not.i4.i.i = or i1 %.not.not6.i3.i.i, %54
   br i1 %.not.not.i4.i.i, label %58, label %55
 
 55:                                               ; preds = %_ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit.i.i

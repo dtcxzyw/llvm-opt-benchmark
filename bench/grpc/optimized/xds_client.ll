@@ -3274,18 +3274,18 @@ define void @_ZN9grpc_core9XdsClient10XdsChannel17UnsubscribeLockedEPKNS_15XdsRe
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %.not13.not.i = icmp eq ptr %12, %13
-  br i1 %.not13.not.i, label %.loopexit, label %.lr.ph.i
+  %.not14.not.i = icmp eq ptr %12, %13
+  br i1 %.not14.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %16
-  %.sroa.010.014.i = phi ptr [ %17, %16 ], [ %12, %10 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i, i64 120
+  %.sroa.010.015.i = phi ptr [ %17, %16 ], [ %12, %10 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 120
   %15 = load i64, ptr %14, align 8, !tbaa !27
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %16, label %_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubscribedResourcesEv.exit
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014.i) #45
+  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015.i) #45
   %.not.not.i = icmp eq ptr %17, %13
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i
 
@@ -3373,19 +3373,19 @@ _ZNSt3mapIPKN9grpc_core15XdsResourceTypeENS0_9XdsClient10XdsChannel7AdsCall17Res
 34:                                               ; preds = %30, %_ZNSt3mapIPKN9grpc_core15XdsResourceTypeENS0_9XdsClient10XdsChannel7AdsCall17ResourceTypeStateESt4lessIS3_ESaISt4pairIKS3_S7_EEEixERSB_.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %36 = load ptr, ptr %35, align 8
-  %.not13.not.i = icmp eq ptr %36, %11
-  %or.cond = select i1 %3, i1 true, i1 %.not13.not.i
+  %.not14.not.i = icmp eq ptr %36, %11
+  %or.cond = select i1 %3, i1 true, i1 %.not14.not.i
   br i1 %or.cond, label %_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubscribedResourcesEv.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %39
-  %.sroa.010.014.i = phi ptr [ %40, %39 ], [ %36, %34 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i, i64 120
+  %.sroa.010.015.i = phi ptr [ %40, %39 ], [ %36, %34 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 120
   %38 = load i64, ptr %37, align 8, !tbaa !27
   %.not.i = icmp eq i64 %38, 0
   br i1 %.not.i, label %39, label %_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubscribedResourcesEv.exit
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014.i) #45
+  %40 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015.i) #45
   %.not.not.i = icmp eq ptr %40, %11
   br i1 %.not.not.i, label %_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubscribedResourcesEv.exit.thread, label %.lr.ph.i
 
@@ -3403,23 +3403,23 @@ define noundef zeroext i1 @_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubs
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.not13.not = icmp eq ptr %3, %4
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
+  %.not14.not = icmp eq ptr %3, %4
+  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
-  %.sroa.010.014 = phi ptr [ %8, %7 ], [ %3, %1 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 120
+  %.sroa.010.015 = phi ptr [ %8, %7 ], [ %3, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 120
   %6 = load i64, ptr %5, align 8, !tbaa !27
-  %.not.not20 = icmp ne i64 %6, 0
-  br i1 %.not.not20, label %._crit_edge, label %7
+  %.not.not21 = icmp ne i64 %6, 0
+  br i1 %.not.not21, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014) #45
+  %8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015) #45
   %.not.not = icmp eq ptr %8, %4
   br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ %.not.not20, %7 ], [ %.not.not20, %.lr.ph ]
+  %.not.lcssa = phi i1 [ false, %1 ], [ %.not.not21, %7 ], [ %.not.not21, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
@@ -3921,39 +3921,39 @@ define noundef zeroext i1 @_ZN9grpc_core9XdsClient10XdsChannel19MaybeFallbackLoc
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.not35.not.i = icmp eq ptr %23, %24
-  br i1 %.not35.not.i, label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EED2Ev.exit131, label %.lr.ph39.i
+  %.not37.not.i = icmp eq ptr %23, %24
+  br i1 %.not37.not.i, label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EED2Ev.exit131, label %.lr.ph41.i
 
-.lr.ph39.i:                                       ; preds = %3, %._crit_edge.i
-  %.sroa.025.036.i = phi ptr [ %35, %._crit_edge.i ], [ %23, %3 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i, i64 64
+.lr.ph41.i:                                       ; preds = %3, %._crit_edge.i
+  %.sroa.025.038.i = phi ptr [ %35, %._crit_edge.i ], [ %23, %3 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.038.i, i64 64
   %26 = load ptr, ptr %25, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i, i64 48
-  %.not2933.i = icmp eq ptr %26, %27
-  br i1 %.not2933.i, label %._crit_edge.i, label %.lr.ph.i
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.025.038.i, i64 48
+  %.not3135.i = icmp eq ptr %26, %27
+  br i1 %.not3135.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph39.i, %.critedge.i
-  %.sroa.021.034.i = phi ptr [ %34, %.critedge.i ], [ %26, %.lr.ph39.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.021.034.i, i64 96
+.lr.ph.i:                                         ; preds = %.lr.ph41.i, %.critedge.i
+  %.sroa.021.036.i = phi ptr [ %34, %.critedge.i ], [ %26, %.lr.ph41.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.021.036.i, i64 96
   %29 = load i64, ptr %28, align 8, !tbaa !108
   %.not.i.i.i = icmp ugt i64 %29, 1
   br i1 %.not.i.i.i, label %30, label %.critedge.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.021.034.i, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.021.036.i, i64 136
   %32 = load i32, ptr %31, align 8, !tbaa !225
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %_ZN9grpc_core9XdsClient20HasUncachedResourcesERKNS0_14AuthorityStateE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %30, %.lr.ph.i
-  %34 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.034.i) #45
-  %.not29.i = icmp eq ptr %34, %27
-  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i
+  %34 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.036.i) #45
+  %.not31.i = icmp eq ptr %34, %27
+  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.critedge.i, %.lr.ph39.i
-  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.036.i) #45
+._crit_edge.i:                                    ; preds = %.critedge.i, %.lr.ph41.i
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.038.i) #45
   %.not.not.i = icmp eq ptr %35, %24
-  br i1 %.not.not.i, label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EED2Ev.exit131, label %.lr.ph39.i
+  br i1 %.not.not.i, label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EED2Ev.exit131, label %.lr.ph41.i
 
 _ZN9grpc_core9XdsClient20HasUncachedResourcesERKNS0_14AuthorityStateE.exit: ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5659,43 +5659,43 @@ define noundef zeroext i1 @_ZN9grpc_core9XdsClient20HasUncachedResourcesERKNS0_1
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.not35.not = icmp eq ptr %4, %5
-  br i1 %.not35.not, label %.thread, label %.lr.ph39
+  %.not37.not = icmp eq ptr %4, %5
+  br i1 %.not37.not, label %.loopexit, label %.lr.ph41
 
-.lr.ph39:                                         ; preds = %2, %._crit_edge
-  %.sroa.025.036 = phi ptr [ %16, %._crit_edge ], [ %4, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.025.036, i64 64
+.lr.ph41:                                         ; preds = %2, %._crit_edge
+  %.sroa.025.038 = phi ptr [ %16, %._crit_edge ], [ %4, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.025.038, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !25
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.025.036, i64 48
-  %.not2933 = icmp eq ptr %7, %8
-  br i1 %.not2933, label %._crit_edge, label %.lr.ph
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.025.038, i64 48
+  %.not3135 = icmp eq ptr %7, %8
+  br i1 %.not3135, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph39, %.critedge
-  %.sroa.021.034 = phi ptr [ %15, %.critedge ], [ %7, %.lr.ph39 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.021.034, i64 96
+.lr.ph:                                           ; preds = %.lr.ph41, %.critedge
+  %.sroa.021.036 = phi ptr [ %15, %.critedge ], [ %7, %.lr.ph41 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 96
   %10 = load i64, ptr %9, align 8, !tbaa !108
   %.not.i.i = icmp ugt i64 %10, 1
   br i1 %.not.i.i, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.021.034, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 136
   %13 = load i32, ptr %12, align 8, !tbaa !225
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %.thread, label %.critedge
+  br i1 %14, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %11, %.lr.ph
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.034) #45
-  %.not29 = icmp eq ptr %15, %8
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.036) #45
+  %.not31 = icmp eq ptr %15, %8
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge, %.lr.ph39
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.036) #45
+._crit_edge:                                      ; preds = %.critedge, %.lr.ph41
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.038) #45
   %.not.not = icmp eq ptr %16, %5
-  br i1 %.not.not, label %.thread, label %.lr.ph39
+  br i1 %.not.not, label %.loopexit, label %.lr.ph41
 
-.thread:                                          ; preds = %._crit_edge, %11, %2
-  %.not32 = phi i1 [ false, %2 ], [ true, %11 ], [ false, %._crit_edge ]
-  ret i1 %.not32
+.loopexit:                                        ; preds = %._crit_edge, %11, %2
+  %.not34 = phi i1 [ false, %2 ], [ true, %11 ], [ false, %._crit_edge ]
+  ret i1 %.not34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -25717,18 +25717,18 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core9XdsClient15XdsResourceNameEEdeEv.ex
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 120
   %91 = load ptr, ptr %90, align 8, !tbaa !25
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 104
-  %.not13.not.i.i = icmp eq ptr %91, %92
-  br i1 %.not13.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
+  %.not14.not.i.i = icmp eq ptr %91, %92
+  br i1 %.not14.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc44, %95
-  %.sroa.010.014.i.i = phi ptr [ %96, %95 ], [ %91, %.noexc44 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 120
+  %.sroa.010.015.i.i = phi ptr [ %96, %95 ], [ %91, %.noexc44 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i, i64 120
   %94 = load i64, ptr %93, align 8, !tbaa !27
   %.not.i.i43 = icmp eq i64 %94, 0
   br i1 %.not.i.i43, label %95, label %_ZN9grpc_core9XdsClient10XdsChannel17UnsubscribeLockedEPKNS_15XdsResourceTypeERKNS0_15XdsResourceNameEb.exit
 
 95:                                               ; preds = %.lr.ph.i.i
-  %96 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014.i.i) #45
+  %96 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015.i.i) #45
   %.not.not.i.i = icmp eq ptr %96, %92
   br i1 %.not.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 

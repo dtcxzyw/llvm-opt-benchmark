@@ -235,24 +235,24 @@ define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, 
   %5 = urem i64 %3, 5
   %.not = icmp eq i64 %5, 0
   %or.cond = and i1 %4, %.not
-  br i1 %or.cond, label %.preheader49, label %.thread
+  br i1 %or.cond, label %.preheader48, label %.thread
 
-.preheader49:                                     ; preds = %2
+.preheader48:                                     ; preds = %2
   %6 = load i8, ptr %1, align 1, !tbaa !32
-  %.not3953 = icmp eq i8 %6, 0
-  br i1 %.not3953, label %._crit_edge.thread, label %.lr.ph
+  %.not3952 = icmp eq i8 %6, 0
+  br i1 %.not3952, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader49, %.loopexit
-  %7 = phi i8 [ %36, %.loopexit ], [ %6, %.preheader49 ]
-  %.02856 = phi i32 [ %.129, %.loopexit ], [ 0, %.preheader49 ]
-  %.03055 = phi i32 [ %11, %.loopexit ], [ 0, %.preheader49 ]
-  %.03154 = phi i32 [ %.132, %.loopexit ], [ 0, %.preheader49 ]
-  %8 = icmp ugt i32 %.03154, 50529027
+.lr.ph:                                           ; preds = %.preheader48, %.loopexit
+  %7 = phi i8 [ %36, %.loopexit ], [ %6, %.preheader48 ]
+  %.02855 = phi i32 [ %.129, %.loopexit ], [ 0, %.preheader48 ]
+  %.03054 = phi i32 [ %11, %.loopexit ], [ 0, %.preheader48 ]
+  %.03153 = phi i32 [ %.132, %.loopexit ], [ 0, %.preheader48 ]
+  %8 = icmp ugt i32 %.03153, 50529027
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = mul nuw i32 %.03154, 85
-  %11 = add i32 %.03055, 1
+  %10 = mul nuw i32 %.03153, 85
+  %11 = add i32 %.03054, 1
   %12 = icmp slt i8 %7, 32
   br i1 %12, label %.thread, label %13
 
@@ -275,26 +275,26 @@ define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, 
   br i1 %25, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %22
-  %26 = add i32 %.02856, 4
+  %26 = add i32 %.02855, 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.02652 = phi i32 [ %33, %.preheader ], [ 16777216, %.preheader.preheader ]
-  %.451 = phi i32 [ %30, %.preheader ], [ %.02856, %.preheader.preheader ]
-  %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.02652, i1 true)
+  %.02651 = phi i32 [ %33, %.preheader ], [ 16777216, %.preheader.preheader ]
+  %.450 = phi i32 [ %30, %.preheader ], [ %.02855, %.preheader.preheader ]
+  %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.02651, i1 true)
   %28 = lshr i32 %23, %27
   %29 = trunc i32 %28 to i8
-  %30 = add i32 %.451, 1
-  %31 = zext i32 %.451 to i64
+  %30 = add i32 %.450, 1
+  %31 = zext i32 %.450 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
   store i8 %29, ptr %32, align 1, !tbaa !32
-  %33 = lshr i32 %.02652, 8
+  %33 = lshr i32 %.02651, 8
   %exitcond = icmp eq i32 %30, %26
   br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.preheader, %22
   %.132 = phi i32 [ %23, %22 ], [ 0, %.preheader ]
-  %.129 = phi i32 [ %.02856, %22 ], [ %26, %.preheader ]
+  %.129 = phi i32 [ %.02855, %22 ], [ %26, %.preheader ]
   %34 = zext i32 %11 to i64
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !32
@@ -311,8 +311,8 @@ define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, 
   store i32 22, ptr %39, align 4, !tbaa !31
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader49, %._crit_edge, %.thread
-  %.027 = phi ptr [ null, %.thread ], [ %0, %._crit_edge ], [ %0, %.preheader49 ]
+._crit_edge.thread:                               ; preds = %.preheader48, %._crit_edge, %.thread
+  %.027 = phi ptr [ null, %.thread ], [ %0, %._crit_edge ], [ %0, %.preheader48 ]
   ret ptr %.027
 }
 

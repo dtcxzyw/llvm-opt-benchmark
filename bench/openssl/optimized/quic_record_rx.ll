@@ -713,7 +713,7 @@ qrx_ensure_free_rxe.exit.i.i.i.i:                 ; preds = %ossl_list_rxe_inser
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 112
   %86 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %8, i64 noundef %84, i32 noundef %83, i32 noundef 0, ptr noundef nonnull %85, ptr noundef nonnull %7, ptr noundef null) #11
   %.not96.i.i.i.i = icmp eq i32 %86, 0
-  %.pre203.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !64
+  %.pre202.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !64
   br i1 %.not96.i.i.i.i, label %PACKET_forward.exit136.i.i.i.i, label %87
 
 87:                                               ; preds = %qrx_ensure_free_rxe.exit.i.i.i.i
@@ -741,8 +741,8 @@ qrx_ensure_free_rxe.exit.i.i.i.i:                 ; preds = %ossl_list_rxe_inser
   br i1 %98, label %qrx_relocate_buffer.exit.i.i.i.i, label %99
 
 99:                                               ; preds = %95
-  %.pre205.i.i.i.i = and i32 %96, 253
-  %100 = icmp eq i32 %.pre205.i.i.i.i, 4
+  %.pre204.i.i.i.i = and i32 %96, 253
+  %100 = icmp eq i32 %.pre204.i.i.i.i, 4
   br i1 %88, label %qrx_validate_hdr_early.exit.i.i.i.i, label %101
 
 101:                                              ; preds = %99
@@ -1000,7 +1000,7 @@ qrx_validate_hdr.exit.i:                          ; preds = %195, %switch.lookup
   br i1 %.not106.i.i.i.i, label %218, label %209
 
 209:                                              ; preds = %207
-  %210 = ptrtoint ptr %.pre203.i.i.i.i to i64
+  %210 = ptrtoint ptr %.pre202.i.i.i.i to i64
   %211 = ptrtoint ptr %.val113.i.i.i.i to i64
   %212 = getelementptr inbounds nuw i8, ptr %.0175.i.i.i.i, i64 184
   %213 = load i64, ptr %212, align 8, !tbaa !77
@@ -1365,7 +1365,7 @@ ossl_list_rxe_insert_tail.exit129.i.i.i.i:        ; preds = %380, %377
 
 383:                                              ; preds = %168, %qrx_determine_enc_level.exit.i.i.i.i
   %.val115.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !64
-  %384 = ptrtoint ptr %.pre203.i.i.i.i to i64
+  %384 = ptrtoint ptr %.pre202.i.i.i.i to i64
   %385 = ptrtoint ptr %.val115.i.i.i.i to i64
   %386 = sub i64 %384, %385
   %.val.i.i.i.i.i = load i64, ptr %14, align 8, !tbaa !66
@@ -1380,30 +1380,30 @@ ossl_list_rxe_insert_tail.exit129.i.i.i.i:        ; preds = %380, %377
   br label %qrx_process_pkt.exit.i.i.i
 
 qrx_relocate_buffer.exit.i.i.i.i:                 ; preds = %319, %qrx_decrypt_pkt_body.exit.thread.i, %qrx_validate_hdr.exit.i, %189, %187, %179, %qrx_determine_enc_level.exit.i.i.i.i, %110, %ossl_quic_conn_id_eq.exit.i.i.i.i.i, %105, %102, %101, %95, %92, %91
-  %.not110.i.i.i.i = icmp eq ptr %.pre203.i.i.i.i, null
-  %.pre204.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !64
+  %.not110.i.i.i.i = icmp eq ptr %.pre202.i.i.i.i, null
+  %.pre203.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !64
   br i1 %.not110.i.i.i.i, label %PACKET_forward.exit136.i.i.i.i, label %391
 
 391:                                              ; preds = %qrx_relocate_buffer.exit.i.i.i.i
   %392 = load i64, ptr %47, align 8, !tbaa !13
   %393 = or i64 %392, %78
   store i64 %393, ptr %47, align 8, !tbaa !13
-  %394 = ptrtoint ptr %.pre203.i.i.i.i to i64
-  %395 = ptrtoint ptr %.pre204.i.i.i.i to i64
+  %394 = ptrtoint ptr %.pre202.i.i.i.i to i64
+  %395 = ptrtoint ptr %.pre203.i.i.i.i to i64
   %396 = sub i64 %394, %395
   %.val.i131.i.i.i.i = load i64, ptr %14, align 8, !tbaa !66
   %397 = icmp ult i64 %.val.i131.i.i.i.i, %396
   br i1 %397, label %405, label %398
 
 398:                                              ; preds = %391
-  %399 = getelementptr inbounds nuw i8, ptr %.pre204.i.i.i.i, i64 %396
+  %399 = getelementptr inbounds nuw i8, ptr %.pre203.i.i.i.i, i64 %396
   store ptr %399, ptr %8, align 8, !tbaa !64
   %400 = sub nuw i64 %.val.i131.i.i.i.i, %396
   store i64 %400, ptr %14, align 8, !tbaa !66
   br label %405
 
 PACKET_forward.exit136.i.i.i.i:                   ; preds = %qrx_relocate_buffer.exit.i.i.i.i, %.PACKET_forward.exit136_crit_edge.i.i.i.i, %qrx_ensure_free_rxe.exit.i.i.i.i
-  %401 = phi ptr [ %.pre.i.i.i.i, %.PACKET_forward.exit136_crit_edge.i.i.i.i ], [ %.pre203.i.i.i.i, %qrx_ensure_free_rxe.exit.i.i.i.i ], [ %.pre204.i.i.i.i, %qrx_relocate_buffer.exit.i.i.i.i ]
+  %401 = phi ptr [ %.pre.i.i.i.i, %.PACKET_forward.exit136_crit_edge.i.i.i.i ], [ %.pre202.i.i.i.i, %qrx_ensure_free_rxe.exit.i.i.i.i ], [ %.pre203.i.i.i.i, %qrx_relocate_buffer.exit.i.i.i.i ]
   %402 = load i64, ptr %47, align 8, !tbaa !13
   %403 = or i64 %402, %78
   store i64 %403, ptr %47, align 8, !tbaa !13

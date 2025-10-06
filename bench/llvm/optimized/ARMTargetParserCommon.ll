@@ -942,18 +942,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit62.thread134:    ; preds = %_ZN4llvmeqENS_9Stri
   store i32 4, ptr %16, align 4, !tbaa !28
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.88, i64 1, i32 noundef -1, i1 noundef zeroext true) #8
   %17 = load i32, ptr %15, align 8, !tbaa !27
-  %.not177 = icmp eq i32 %17, 0
-  br i1 %.not177, label %.critedge, label %.lr.ph180
+  %.not176 = icmp eq i32 %17, 0
+  br i1 %.not176, label %.critedge, label %.lr.ph179
 
-.lr.ph180:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134
+.lr.ph179:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = add i32 %17, -1
   br label %21
 
-21:                                               ; preds = %.lr.ph180, %.thread
-  %.049178 = phi i32 [ 0, %.lr.ph180 ], [ %64, %.thread ]
-  %22 = sext i32 %.049178 to i64
+21:                                               ; preds = %.lr.ph179, %.thread
+  %.049177 = phi i32 [ 0, %.lr.ph179 ], [ %64, %.thread ]
+  %22 = sext i32 %.049177 to i64
   %23 = load ptr, ptr %9, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %23, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -976,7 +976,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit62.thread134:    ; preds = %_ZN4llvmeqENS_9Stri
   %37 = load ptr, ptr %7, align 8, !tbaa !17
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %35, i64 %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  switch i64 %.sroa.speculated.i.i.i.i, label %.critedge.sink.split.loopexit202 [
+  switch i64 %.sroa.speculated.i.i.i.i, label %.critedge.sink.split.loopexit201 [
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit66
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit70
     i64 0, label %.critedge.sink.split
@@ -994,14 +994,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit66.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit70:              ; preds = %21
   %bcmp.i69 = call i32 @bcmp(ptr %37, ptr nonnull @.str.91, i64 %.sroa.speculated.i.i.i.i)
   %39 = icmp eq i32 %bcmp.i69, 0
-  br i1 %39, label %_ZN4llvmeqENS_9StringRefES0_.exit70.thread, label %.critedge.sink.split.loopexit202
+  br i1 %39, label %_ZN4llvmeqENS_9StringRefES0_.exit70.thread, label %.critedge.sink.split.loopexit201
 
 _ZN4llvmeqENS_9StringRefES0_.exit70.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit70
   store ptr @.str.87, ptr %2, align 8, !tbaa !3
   store i64 8, ptr %.sroa.4128.0..sroa_idx, align 8, !tbaa !8
-  %40 = add nsw i32 %.049178, 1
-  %.not57170 = icmp eq i32 %40, %17
-  br i1 %.not57170, label %.thread, label %.lr.ph.preheader
+  %40 = add nsw i32 %.049177, 1
+  %.not57169 = icmp eq i32 %40, %17
+  br i1 %.not57169, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit70.thread
   %41 = sext i32 %40 to i64
@@ -1009,7 +1009,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit70.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
-  %.251171 = phi i32 [ %.049178, %.lr.ph.preheader ], [ %62, %60 ]
+  %.251170 = phi i32 [ %.049177, %.lr.ph.preheader ], [ %62, %60 ]
   %42 = load ptr, ptr %9, align 8, !tbaa !24
   %43 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %42, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1077,31 +1077,31 @@ _ZN4llvmeqENS_9StringRefES0_.exit87.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit91:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit66
   %bcmp.i90 = call i32 @bcmp(ptr nonnull %37, ptr nonnull @.str.97, i64 %.sroa.speculated.i.i.i.i)
   %63 = icmp eq i32 %bcmp.i90, 0
-  br i1 %63, label %_ZN4llvmeqENS_9StringRefES0_.exit91.thread, label %.critedge.sink.split.loopexit202
+  br i1 %63, label %_ZN4llvmeqENS_9StringRefES0_.exit91.thread, label %.critedge.sink.split.loopexit201
 
 _ZN4llvmeqENS_9StringRefES0_.exit91.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit91
   store i8 1, ptr %.sroa.9.0..sroa_idx, align 2, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %60, %_ZN4llvmeqENS_9StringRefES0_.exit87, %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit79, %_ZN4llvmeqENS_9StringRefES0_.exit83, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread, %_ZN4llvmeqENS_9StringRefES0_.exit66.thread, %_ZN4llvmeqENS_9StringRefES0_.exit91.thread
-  %.150 = phi i32 [ %.049178, %_ZN4llvmeqENS_9StringRefES0_.exit66.thread ], [ %.049178, %_ZN4llvmeqENS_9StringRefES0_.exit91.thread ], [ %.049178, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread ], [ %.251171, %_ZN4llvmeqENS_9StringRefES0_.exit83 ], [ %.251171, %_ZN4llvmeqENS_9StringRefES0_.exit79 ], [ %20, %60 ], [ %.251171, %_ZN4llvmeqENS_9StringRefES0_.exit87 ], [ %.251171, %.lr.ph ]
+  %.150 = phi i32 [ %.049177, %_ZN4llvmeqENS_9StringRefES0_.exit66.thread ], [ %.049177, %_ZN4llvmeqENS_9StringRefES0_.exit91.thread ], [ %.049177, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread ], [ %.251170, %_ZN4llvmeqENS_9StringRefES0_.exit83 ], [ %.251170, %_ZN4llvmeqENS_9StringRefES0_.exit79 ], [ %20, %60 ], [ %.251170, %_ZN4llvmeqENS_9StringRefES0_.exit87 ], [ %.251170, %.lr.ph ]
   %64 = add nsw i32 %.150, 1
   %.not = icmp eq i32 %64, %17
   br i1 %.not, label %.critedge, label %21, !llvm.loop !31
 
-.critedge.sink.split.loopexit202:                 ; preds = %21, %_ZN4llvmeqENS_9StringRefES0_.exit70, %_ZN4llvmeqENS_9StringRefES0_.exit91
+.critedge.sink.split.loopexit201:                 ; preds = %21, %_ZN4llvmeqENS_9StringRefES0_.exit70, %_ZN4llvmeqENS_9StringRefES0_.exit91
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %21, %.critedge.sink.split.loopexit202
-  %.str.98.sink = phi ptr [ %37, %.critedge.sink.split.loopexit202 ], [ @.str.98, %21 ]
-  %.sink = phi i64 [ %.sroa.speculated.i.i.i.i, %.critedge.sink.split.loopexit202 ], [ 7, %21 ]
+.critedge.sink.split:                             ; preds = %21, %.critedge.sink.split.loopexit201
+  %.str.98.sink = phi ptr [ %37, %.critedge.sink.split.loopexit201 ], [ @.str.98, %21 ]
+  %.sink = phi i64 [ %.sroa.speculated.i.i.i.i, %.critedge.sink.split.loopexit201 ], [ 7, %21 ]
   store ptr %.str.98.sink, ptr %3, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sink, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !8
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %.critedge.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134
-  %.not162 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134 ], [ false, %.critedge.sink.split ], [ true, %.thread ]
+  %.not161 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134 ], [ false, %.critedge.sink.split ], [ true, %.thread ]
   %65 = load ptr, ptr %9, align 8, !tbaa !24
   %66 = icmp eq ptr %65, %14
   br i1 %66, label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit, label %67
@@ -1115,7 +1115,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit: ; preds = %.critedge, %67
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread
-  %.0 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread ], [ %.not162, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.0 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread ], [ %.not161, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   ret i1 %.0
 }
 

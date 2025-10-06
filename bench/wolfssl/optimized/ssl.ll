@@ -1654,8 +1654,8 @@ HashObject.exit:                                  ; preds = %14
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !97
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.not47 = icmp eq i32 %42, 0
-  br i1 %.not47, label %.thread, label %.lr.ph
+  %.not46 = icmp eq i32 %42, 0
+  br i1 %.not46, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %44 = call noundef i32 @llvm.umin.i32(i32 %42, i32 24)
@@ -1668,9 +1668,9 @@ HashObject.exit:                                  ; preds = %14
   br label %49
 
 49:                                               ; preds = %.lr.ph, %76
-  %.03344 = phi i32 [ %44, %.lr.ph ], [ %81, %76 ]
-  %.03443 = phi i32 [ %spec.store.select, %.lr.ph ], [ %80, %76 ]
-  %50 = sext i32 %.03443 to i64
+  %.03343 = phi i32 [ %44, %.lr.ph ], [ %81, %76 ]
+  %.03442 = phi i32 [ %spec.store.select, %.lr.ph ], [ %80, %76 ]
+  %50 = sext i32 %.03442 to i64
   %51 = getelementptr inbounds %struct.ClientSession, ptr %43, i64 %50
   %52 = load i16, ptr %51, align 8, !tbaa !100
   %53 = icmp ugt i16 %52, 10
@@ -1710,11 +1710,11 @@ HashObject.exit:                                  ; preds = %14
 
 76:                                               ; preds = %56, %66
   %77 = call i32 @wc_UnLockRwLock(ptr noundef nonnull @session_lock) #22
-  %78 = icmp sgt i32 %.03443, 0
-  %79 = add nsw i32 %.03443, -1
+  %78 = icmp sgt i32 %.03442, 0
+  %79 = add nsw i32 %.03442, -1
   %80 = select i1 %78, i32 %79, i32 23
-  %81 = add nsw i32 %.03344, -1
-  %82 = icmp sgt i32 %.03344, 1
+  %81 = add nsw i32 %.03343, -1
+  %82 = icmp sgt i32 %.03343, 1
   br i1 %82, label %49, label %.thread, !llvm.loop !103
 
 .thread:                                          ; preds = %76, %49, %54, %27, %74
@@ -6232,19 +6232,19 @@ define range(i32 0, 2) i32 @AlreadySigner(ptr noundef %0, ptr noundef readonly c
   %26 = urem i32 %25, 11
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
-  %.01828 = load ptr, ptr %28, align 8, !tbaa !177
-  %.not2329 = icmp eq ptr %.01828, null
-  br i1 %.not2329, label %.thread, label %.lr.ph
+  %.01827 = load ptr, ptr %28, align 8, !tbaa !177
+  %.not2328 = icmp eq ptr %.01827, null
+  br i1 %.not2328, label %.thread, label %.lr.ph
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i8, ptr %.01830, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %.01829, i64 104
   %.018 = load ptr, ptr %30, align 8, !tbaa !177
   %.not23 = icmp eq ptr %.018, null
   br i1 %.not23, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %29
-  %.01830 = phi ptr [ %.018, %29 ], [ %.01828, %15 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.01830, i64 76
+  %.01829 = phi ptr [ %.018, %29 ], [ %.01827, %15 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.01829, i64 76
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1, ptr noundef nonnull dereferenceable(20) %31, i64 20)
   %32 = icmp eq i32 %bcmp, 0
   br i1 %32, label %.thread, label %29
@@ -6293,25 +6293,25 @@ define ptr @GetCA(ptr noundef %0, ptr noundef readonly captures(address_is_null)
   %26 = urem i32 %25, 11
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
-  %.01929 = load ptr, ptr %28, align 8, !tbaa !177
-  %.not2430 = icmp eq ptr %.01929, null
-  br i1 %.not2430, label %.thread, label %.lr.ph
+  %.01928 = load ptr, ptr %28, align 8, !tbaa !177
+  %.not2429 = icmp eq ptr %.01928, null
+  br i1 %.not2429, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %31
-  %.01931 = phi ptr [ %.019, %31 ], [ %.01929, %15 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.01931, i64 76
+  %.01930 = phi ptr [ %.019, %31 ], [ %.01928, %15 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.01930, i64 76
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1, ptr noundef nonnull dereferenceable(20) %29, i64 20)
   %30 = icmp eq i32 %bcmp, 0
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.01931, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %.01930, i64 104
   %.019 = load ptr, ptr %32, align 8, !tbaa !177
   %.not24 = icmp eq ptr %.019, null
   br i1 %.not24, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %31, %.lr.ph, %15
-  %.019.lcssa = phi ptr [ null, %15 ], [ %.01931, %.lr.ph ], [ null, %31 ]
+  %.019.lcssa = phi ptr [ null, %15 ], [ %.01930, %.lr.ph ], [ null, %31 ]
   %33 = tail call i32 @wc_UnLockMutex(ptr noundef nonnull %13) #22
   br label %34
 
@@ -6403,19 +6403,19 @@ define range(i32 -173, 1) i32 @AddSigner(ptr noundef %0, ptr noundef %1) local_u
   %27 = urem i32 %26, 11
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
-  %.01828.i = load ptr, ptr %29, align 8, !tbaa !177
-  %.not2329.i = icmp eq ptr %.01828.i, null
-  br i1 %.not2329.i, label %AlreadySigner.exit.thread23, label %.lr.ph.i
+  %.01827.i = load ptr, ptr %29, align 8, !tbaa !177
+  %.not2328.i = icmp eq ptr %.01827.i, null
+  br i1 %.not2328.i, label %AlreadySigner.exit.thread23, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i8, ptr %.01830.i, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 104
   %.018.i = load ptr, ptr %31, align 8, !tbaa !177
   %.not23.i = icmp eq ptr %.018.i, null
   br i1 %.not23.i, label %AlreadySigner.exit.thread23, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %30
-  %.01830.i = phi ptr [ %.018.i, %30 ], [ %.01828.i, %16 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.01830.i, i64 76
+  %.01829.i = phi ptr [ %.018.i, %30 ], [ %.01827.i, %16 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 76
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %6, ptr noundef nonnull dereferenceable(20) %32, i64 20)
   %33 = icmp eq i32 %bcmp.i, 0
   br i1 %33, label %35, label %30
@@ -6577,19 +6577,19 @@ define range(i32 1, 0) i32 @AddCA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %73 = urem i32 %72, 11
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %74
-  %.01828.i = load ptr, ptr %75, align 8, !tbaa !177
-  %.not2329.i = icmp eq ptr %.01828.i, null
-  br i1 %.not2329.i, label %AlreadySigner.exit.thread95, label %.lr.ph.i
+  %.01827.i = load ptr, ptr %75, align 8, !tbaa !177
+  %.not2328.i = icmp eq ptr %.01827.i, null
+  br i1 %.not2328.i, label %AlreadySigner.exit.thread95, label %.lr.ph.i
 
 76:                                               ; preds = %.lr.ph.i
-  %77 = getelementptr inbounds nuw i8, ptr %.01830.i, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 104
   %.018.i = load ptr, ptr %77, align 8, !tbaa !177
   %.not23.i = icmp eq ptr %.018.i, null
   br i1 %.not23.i, label %AlreadySigner.exit.thread95, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %62, %76
-  %.01830.i = phi ptr [ %.018.i, %76 ], [ %.01828.i, %62 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.01830.i, i64 76
+  %.01829.i = phi ptr [ %.018.i, %76 ], [ %.01827.i, %62 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 76
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %16, ptr noundef nonnull dereferenceable(20) %78, i64 20)
   %79 = icmp eq i32 %bcmp.i, 0
   br i1 %79, label %AlreadySigner.exit, label %76
@@ -7174,14 +7174,14 @@ ProcessBufferPrivateKey.exit:                     ; preds = %wolfSSL_CTX_GetDevI
   br i1 %46, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %207
-  %.050118.i.us = phi i32 [ %210, %207 ], [ 0, %.lr.ph.i ]
-  %.054117.i.us = phi i1 [ %173, %207 ], [ false, %.lr.ph.i ]
-  %.057116.i.us = phi i64 [ %209, %207 ], [ %162, %.lr.ph.i ]
-  %.078115.i.us = phi i32 [ %.28087107.i.us, %207 ], [ 0, %.lr.ph.i ]
+  %.050117.i.us = phi i32 [ %210, %207 ], [ 0, %.lr.ph.i ]
+  %.054116.i.us = phi i1 [ %173, %207 ], [ false, %.lr.ph.i ]
+  %.057115.i.us = phi i64 [ %209, %207 ], [ %162, %.lr.ph.i ]
+  %.078114.i.us = phi i32 [ %.28087106.i.us, %207 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !31
-  %174 = getelementptr inbounds i8, ptr %1, i64 %.057116.i.us
-  %175 = sub nsw i64 %2, %.057116.i.us
+  %174 = getelementptr inbounds i8, ptr %1, i64 %.057115.i.us
+  %175 = sub nsw i64 %2, %.057115.i.us
   store i64 0, ptr %25, align 8, !tbaa !192
   %176 = and i64 %175, 4294967295
   %177 = call i32 @PemToDer(ptr noundef %174, i64 noundef %176, i32 noundef %4, ptr noundef nonnull %17, ptr noundef %161, ptr noundef nonnull %25, ptr noundef null) #22
@@ -7197,13 +7197,13 @@ DataToDerBuffer.exit.thread82.i.us:               ; preds = %.lr.ph.i.split.us
   %180 = load ptr, ptr %17, align 8, !tbaa !31
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load i32, ptr %181, align 8, !tbaa !34
-  %183 = add i32 %.078115.i.us, 3
+  %183 = add i32 %.078114.i.us, 3
   %184 = add i32 %182, %183
   %.not.i72.i.us = icmp ugt i32 %184, %166
   br i1 %.not.i72.i.us, label %ProcessUserCert.exit.thread.thread.i, label %185
 
 185:                                              ; preds = %DataToDerBuffer.exit.thread82.i.us
-  %186 = zext i32 %.078115.i.us to i64
+  %186 = zext i32 %.078114.i.us to i64
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i, i64 %186
   %188 = lshr i32 %182, 16
   %189 = trunc i32 %188 to i8
@@ -7223,9 +7223,9 @@ DataToDerBuffer.exit.thread82.i.us:               ; preds = %.lr.ph.i.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr align 1 %197, i64 %199, i1 false)
   %200 = load i32, ptr %181, align 8, !tbaa !34
   %201 = add i32 %200, %183
-  br i1 %40, label %202, label %ProcessUserCert.exit.thread.thread103.i.us
+  br i1 %40, label %202, label %ProcessUserCert.exit.thread.thread102.i.us
 
-ProcessUserCert.exit.thread.thread103.i.us:       ; preds = %185
+ProcessUserCert.exit.thread.thread102.i.us:       ; preds = %185
   call void @FreeDer(ptr noundef nonnull %17) #22
   br label %207
 
@@ -7236,10 +7236,10 @@ ProcessUserCert.exit.thread.thread103.i.us:       ; preds = %185
   br label %ProcessUserCert.exit.i.us
 
 ProcessUserCert.exit.i.us:                        ; preds = %202, %178
-  %.280.i.us = phi i32 [ %201, %202 ], [ %.078115.i.us, %178 ]
+  %.280.i.us = phi i32 [ %201, %202 ], [ %.078114.i.us, %178 ]
   %.2.i84.us = phi i32 [ %spec.store.select.i.i.us, %202 ], [ %177, %178 ]
   %205 = icmp eq i32 %.2.i84.us, -162
-  %or.cond.i85.us = and i1 %.054117.i.us, %205
+  %or.cond.i85.us = and i1 %.054116.i.us, %205
   br i1 %or.cond.i85.us, label %.loopexit.sink.split.i, label %ProcessUserCert.exit.thread.i.us
 
 ProcessUserCert.exit.thread.i.us:                 ; preds = %ProcessUserCert.exit.i.us
@@ -7247,24 +7247,24 @@ ProcessUserCert.exit.thread.i.us:                 ; preds = %ProcessUserCert.exi
   %206 = icmp eq i32 %.2.i84.us, 0
   br i1 %206, label %207, label %.loopexit.sink.split.i
 
-207:                                              ; preds = %ProcessUserCert.exit.thread.i.us, %ProcessUserCert.exit.thread.thread103.i.us
-  %.28087107.i.us = phi i32 [ %201, %ProcessUserCert.exit.thread.thread103.i.us ], [ %.280.i.us, %ProcessUserCert.exit.thread.i.us ]
+207:                                              ; preds = %ProcessUserCert.exit.thread.i.us, %ProcessUserCert.exit.thread.thread102.i.us
+  %.28087106.i.us = phi i32 [ %201, %ProcessUserCert.exit.thread.thread102.i.us ], [ %.280.i.us, %ProcessUserCert.exit.thread.i.us ]
   %208 = load i64, ptr %25, align 8, !tbaa !192
-  %209 = add nsw i64 %208, %.057116.i.us
-  %210 = add nuw nsw i32 %.050118.i.us, 1
+  %209 = add nsw i64 %208, %.057115.i.us
+  %210 = add nuw nsw i32 %.050117.i.us, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %211 = icmp slt i64 %209, %2
   br i1 %211, label %.lr.ph.i.split.us, label %.loopexit.i
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %254
-  %.050118.i = phi i32 [ %257, %254 ], [ 0, %.lr.ph.i ]
-  %.054117.i = phi i1 [ %173, %254 ], [ false, %.lr.ph.i ]
-  %.057116.i = phi i64 [ %256, %254 ], [ %162, %.lr.ph.i ]
-  %.078115.i = phi i32 [ %.28087107.i, %254 ], [ 0, %.lr.ph.i ]
+  %.050117.i = phi i32 [ %257, %254 ], [ 0, %.lr.ph.i ]
+  %.054116.i = phi i1 [ %173, %254 ], [ false, %.lr.ph.i ]
+  %.057115.i = phi i64 [ %256, %254 ], [ %162, %.lr.ph.i ]
+  %.078114.i = phi i32 [ %.28087106.i, %254 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !31
-  %212 = getelementptr inbounds i8, ptr %1, i64 %.057116.i
-  %213 = sub nsw i64 %2, %.057116.i
+  %212 = getelementptr inbounds i8, ptr %1, i64 %.057115.i
+  %213 = sub nsw i64 %2, %.057115.i
   store i64 0, ptr %25, align 8, !tbaa !192
   %214 = trunc i64 %213 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -7296,13 +7296,13 @@ DataToDerBuffer.exit.thread82.i:                  ; preds = %DataToDerBuffer.exi
   %227 = load ptr, ptr %17, align 8, !tbaa !31
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %229 = load i32, ptr %228, align 8, !tbaa !34
-  %230 = add i32 %.078115.i, 3
+  %230 = add i32 %.078114.i, 3
   %231 = add i32 %229, %230
   %.not.i72.i = icmp ugt i32 %231, %166
   br i1 %.not.i72.i, label %ProcessUserCert.exit.thread.thread.i, label %232
 
 232:                                              ; preds = %DataToDerBuffer.exit.thread82.i
-  %233 = zext i32 %.078115.i to i64
+  %233 = zext i32 %.078114.i to i64
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i, i64 %233
   %235 = lshr i32 %229, 16
   %236 = trunc i32 %235 to i8
@@ -7322,9 +7322,9 @@ DataToDerBuffer.exit.thread82.i:                  ; preds = %DataToDerBuffer.exi
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %243, ptr align 1 %244, i64 %246, i1 false)
   %247 = load i32, ptr %228, align 8, !tbaa !34
   %248 = add i32 %247, %230
-  br i1 %40, label %249, label %ProcessUserCert.exit.thread.thread103.i
+  br i1 %40, label %249, label %ProcessUserCert.exit.thread.thread102.i
 
-ProcessUserCert.exit.thread.thread103.i:          ; preds = %232
+ProcessUserCert.exit.thread.thread102.i:          ; preds = %232
   call void @FreeDer(ptr noundef nonnull %17) #22
   br label %254
 
@@ -7335,16 +7335,16 @@ ProcessUserCert.exit.thread.thread103.i:          ; preds = %232
   br label %ProcessUserCert.exit.i
 
 ProcessUserCert.exit.i:                           ; preds = %249, %DataToDerBuffer.exit.i
-  %.280.i = phi i32 [ %.078115.i, %DataToDerBuffer.exit.i ], [ %248, %249 ]
+  %.280.i = phi i32 [ %.078114.i, %DataToDerBuffer.exit.i ], [ %248, %249 ]
   %.2.i84 = phi i32 [ %224, %DataToDerBuffer.exit.i ], [ %spec.store.select.i.i, %249 ]
   %252 = icmp eq i32 %.2.i84, -162
-  %or.cond.i85 = and i1 %.054117.i, %252
+  %or.cond.i85 = and i1 %.054116.i, %252
   br i1 %or.cond.i85, label %.loopexit.sink.split.i, label %ProcessUserCert.exit.thread.i
 
 ProcessUserCert.exit.thread.thread.i:             ; preds = %.lr.ph.i.split, %DataToDerBuffer.exit.thread82.i, %DataToDerBuffer.exit.thread82.i.us
-  %.us-phi = phi i32 [ %.050118.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.050118.i, %DataToDerBuffer.exit.thread82.i ], [ %.050118.i, %.lr.ph.i.split ]
-  %.us-phi154 = phi i64 [ %.057116.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.057116.i, %DataToDerBuffer.exit.thread82.i ], [ %.057116.i, %.lr.ph.i.split ]
-  %.us-phi155 = phi i32 [ %.078115.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.078115.i, %DataToDerBuffer.exit.thread82.i ], [ %.078115.i, %.lr.ph.i.split ]
+  %.us-phi = phi i32 [ %.050117.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.050117.i, %DataToDerBuffer.exit.thread82.i ], [ %.050117.i, %.lr.ph.i.split ]
+  %.us-phi154 = phi i64 [ %.057115.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.057115.i, %DataToDerBuffer.exit.thread82.i ], [ %.057115.i, %.lr.ph.i.split ]
+  %.us-phi155 = phi i32 [ %.078114.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.078114.i, %DataToDerBuffer.exit.thread82.i ], [ %.078114.i, %.lr.ph.i.split ]
   %.us-phi156 = phi i32 [ -132, %DataToDerBuffer.exit.thread82.i.us ], [ -140, %.lr.ph.i.split ], [ -132, %DataToDerBuffer.exit.thread82.i ]
   call void @FreeDer(ptr noundef nonnull %17) #22
   br label %.loopexit.sink.split.i
@@ -7354,38 +7354,38 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
   %253 = icmp eq i32 %.2.i84, 0
   br i1 %253, label %254, label %.loopexit.sink.split.i
 
-254:                                              ; preds = %ProcessUserCert.exit.thread.i, %ProcessUserCert.exit.thread.thread103.i
-  %.28087107.i = phi i32 [ %248, %ProcessUserCert.exit.thread.thread103.i ], [ %.280.i, %ProcessUserCert.exit.thread.i ]
+254:                                              ; preds = %ProcessUserCert.exit.thread.i, %ProcessUserCert.exit.thread.thread102.i
+  %.28087106.i = phi i32 [ %248, %ProcessUserCert.exit.thread.thread102.i ], [ %.280.i, %ProcessUserCert.exit.thread.i ]
   %255 = load i64, ptr %25, align 8, !tbaa !192
-  %256 = add nsw i64 %255, %.057116.i
-  %257 = add nuw nsw i32 %.050118.i, 1
+  %256 = add nsw i64 %255, %.057115.i
+  %257 = add nuw nsw i32 %.050117.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %258 = icmp slt i64 %256, %2
   br i1 %258, label %.lr.ph.i.split, label %.loopexit.i
 
 .loopexit.sink.split.i:                           ; preds = %ProcessUserCert.exit.i, %ProcessUserCert.exit.thread.i, %ProcessUserCert.exit.thread.i.us, %ProcessUserCert.exit.i.us, %ProcessUserCert.exit.thread.thread.i
-  %.050118.i152 = phi i32 [ %.us-phi, %ProcessUserCert.exit.thread.thread.i ], [ %.050118.i.us, %ProcessUserCert.exit.i.us ], [ %.050118.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.050118.i, %ProcessUserCert.exit.thread.i ], [ %.050118.i, %ProcessUserCert.exit.i ]
-  %.057116.i149 = phi i64 [ %.us-phi154, %ProcessUserCert.exit.thread.thread.i ], [ %.057116.i.us, %ProcessUserCert.exit.i.us ], [ %.057116.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.057116.i, %ProcessUserCert.exit.thread.i ], [ %.057116.i, %ProcessUserCert.exit.i ]
-  %.049109.ph.i = phi i32 [ %.us-phi156, %ProcessUserCert.exit.thread.thread.i ], [ %.2.i84.us, %ProcessUserCert.exit.thread.i.us ], [ 0, %ProcessUserCert.exit.i.us ], [ 0, %ProcessUserCert.exit.i ], [ %.2.i84, %ProcessUserCert.exit.thread.i ]
+  %.050117.i152 = phi i32 [ %.us-phi, %ProcessUserCert.exit.thread.thread.i ], [ %.050117.i.us, %ProcessUserCert.exit.i.us ], [ %.050117.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.050117.i, %ProcessUserCert.exit.thread.i ], [ %.050117.i, %ProcessUserCert.exit.i ]
+  %.057115.i149 = phi i64 [ %.us-phi154, %ProcessUserCert.exit.thread.thread.i ], [ %.057115.i.us, %ProcessUserCert.exit.i.us ], [ %.057115.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.057115.i, %ProcessUserCert.exit.thread.i ], [ %.057115.i, %ProcessUserCert.exit.i ]
+  %.049108.ph.i = phi i32 [ %.us-phi156, %ProcessUserCert.exit.thread.thread.i ], [ %.2.i84.us, %ProcessUserCert.exit.thread.i.us ], [ 0, %ProcessUserCert.exit.i.us ], [ 0, %ProcessUserCert.exit.i ], [ %.2.i84, %ProcessUserCert.exit.thread.i ]
   %.179.ph.i = phi i32 [ %.us-phi155, %ProcessUserCert.exit.thread.thread.i ], [ %.280.i.us, %ProcessUserCert.exit.i.us ], [ %.280.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.280.i, %ProcessUserCert.exit.thread.i ], [ %.280.i, %ProcessUserCert.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %254, %207, %.loopexit.sink.split.i, %168
-  %.sroa.0.0142.i = phi ptr [ %16, %168 ], [ %.sroa.0.0.ph.i, %.loopexit.sink.split.i ], [ %.sroa.0.0.ph.i, %207 ], [ %.sroa.0.0.ph.i, %254 ]
-  %.not.i75139.i = phi i1 [ true, %168 ], [ %167, %.loopexit.sink.split.i ], [ %167, %207 ], [ %167, %254 ]
-  %.057113.i = phi i64 [ %162, %168 ], [ %.057116.i149, %.loopexit.sink.split.i ], [ %209, %207 ], [ %256, %254 ]
-  %.050111.i = phi i32 [ 0, %168 ], [ %.050118.i152, %.loopexit.sink.split.i ], [ %210, %207 ], [ %257, %254 ]
-  %.049109.i = phi i32 [ -125, %168 ], [ %.049109.ph.i, %.loopexit.sink.split.i ], [ 0, %207 ], [ 0, %254 ]
-  %.179.i = phi i32 [ 0, %168 ], [ %.179.ph.i, %.loopexit.sink.split.i ], [ %.28087107.i.us, %207 ], [ %.28087107.i, %254 ]
+  %.sroa.0.0141.i = phi ptr [ %16, %168 ], [ %.sroa.0.0.ph.i, %.loopexit.sink.split.i ], [ %.sroa.0.0.ph.i, %207 ], [ %.sroa.0.0.ph.i, %254 ]
+  %.not.i75138.i = phi i1 [ true, %168 ], [ %167, %.loopexit.sink.split.i ], [ %167, %207 ], [ %167, %254 ]
+  %.057112.i = phi i64 [ %162, %168 ], [ %.057115.i149, %.loopexit.sink.split.i ], [ %209, %207 ], [ %256, %254 ]
+  %.050110.i = phi i32 [ 0, %168 ], [ %.050117.i152, %.loopexit.sink.split.i ], [ %210, %207 ], [ %257, %254 ]
+  %.049108.i = phi i32 [ -125, %168 ], [ %.049108.ph.i, %.loopexit.sink.split.i ], [ 0, %207 ], [ 0, %254 ]
+  %.179.i = phi i32 [ 0, %168 ], [ %.179.ph.i, %.loopexit.sink.split.i ], [ %.28087106.i.us, %207 ], [ %.28087106.i, %254 ]
   br i1 %.not80, label %260, label %259
 
 259:                                              ; preds = %.loopexit.i
-  store i64 %.057113.i, ptr %6, align 8, !tbaa !27
+  store i64 %.057112.i, ptr %6, align 8, !tbaa !27
   br label %260
 
 260:                                              ; preds = %259, %.loopexit.i
-  %261 = icmp eq i32 %.049109.i, 0
+  %261 = icmp eq i32 %.049108.i, 0
   %262 = icmp ne i32 %.179.i, 0
   %or.cond3.i = select i1 %261, i1 %262, i1 false
   br i1 %or.cond3.i, label %263, label %ProcessUserChainRetain.exit.i
@@ -7406,12 +7406,12 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
 
 269:                                              ; preds = %267, %264
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 600
-  %271 = call i32 @AllocCopyDer(ptr noundef nonnull %270, ptr noundef nonnull %.sroa.0.0142.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
+  %271 = call i32 @AllocCopyDer(ptr noundef nonnull %270, ptr noundef nonnull %.sroa.0.0141.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
   %272 = icmp eq i32 %271, 0
   %273 = zext i1 %272 to i8
   store i8 %273, ptr %265, align 1, !tbaa !199
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 608
-  store i32 %.050111.i, ptr %274, align 16, !tbaa !200
+  store i32 %.050110.i, ptr %274, align 16, !tbaa !200
   br label %ProcessUserChainRetain.exit.i
 
 275:                                              ; preds = %263
@@ -7420,18 +7420,18 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
 276:                                              ; preds = %275
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @FreeDer(ptr noundef nonnull %277) #22
-  %278 = call i32 @AllocCopyDer(ptr noundef nonnull %277, ptr noundef nonnull %.sroa.0.0142.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
+  %278 = call i32 @AllocCopyDer(ptr noundef nonnull %277, ptr noundef nonnull %.sroa.0.0141.i, i32 noundef range(i32 1, 0) %.179.i, i32 noundef %4, ptr noundef %161) #22
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %.050111.i, ptr %279, align 8, !tbaa !201
+  store i32 %.050110.i, ptr %279, align 8, !tbaa !201
   br label %ProcessUserChainRetain.exit.i
 
 ProcessUserChainRetain.exit.i:                    ; preds = %276, %275, %269, %260
-  %.4.i = phi i32 [ %.049109.i, %260 ], [ %271, %269 ], [ %278, %276 ], [ 0, %275 ]
+  %.4.i = phi i32 [ %.049108.i, %260 ], [ %271, %269 ], [ %278, %276 ], [ 0, %275 ]
   %.4.i.fr = freeze i32 %.4.i
-  br i1 %.not.i75139.i, label %ProcessUserChain.exit, label %280
+  br i1 %.not.i75138.i, label %ProcessUserChain.exit, label %280
 
 280:                                              ; preds = %ProcessUserChainRetain.exit.i
-  call void @wolfSSL_Free(ptr noundef nonnull %.sroa.0.0142.i) #22
+  call void @wolfSSL_Free(ptr noundef nonnull %.sroa.0.0141.i) #22
   br label %ProcessUserChain.exit
 
 ProcessUserChain.exit:                            ; preds = %ProcessUserChainRetain.exit.i, %280

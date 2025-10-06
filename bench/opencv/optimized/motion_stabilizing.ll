@@ -1547,11 +1547,11 @@ define internal fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfff
   br i1 %exitcond.not.i, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, label %34, !llvm.loop !111
 
 _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ; preds = %44, %101
-  %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %101 ], [ 0, %44 ]
-  %45 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %indvars.iv59.i
+  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %101 ], [ 0, %44 ]
+  %45 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %indvars.iv56.i
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %45, align 8
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %46 = and i64 %indvars.iv.next60.i, 3
+  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
+  %46 = and i64 %indvars.iv.next57.i, 3
   %47 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %46
   %.sroa.02.0.copyload.i = load <2 x float>, ptr %47, align 8
   %.sroa.014.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.02.0.copyload.i, i64 1
@@ -1564,11 +1564,11 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   br label %52
 
 52:                                               ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i
-  %indvars.iv55.i = phi i64 [ 0, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i ], [ %indvars.iv.next56.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i ]
-  %53 = getelementptr inbounds nuw %"class.cv::Point_", ptr %6, i64 %indvars.iv55.i
+  %indvars.iv52.i = phi i64 [ 0, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i ], [ %indvars.iv.next53.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i ]
+  %53 = getelementptr inbounds nuw %"class.cv::Point_", ptr %6, i64 %indvars.iv52.i
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %53, align 8
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %54 = and i64 %indvars.iv.next56.i, 3
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %54 = and i64 %indvars.iv.next53.i, 3
   %55 = getelementptr inbounds nuw %"class.cv::Point_", ptr %6, i64 %54
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %55, align 8
   %.sroa.013.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
@@ -1636,12 +1636,12 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   br i1 %100, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
 
 _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; preds = %76, %52
-  %exitcond58.i = icmp eq i64 %indvars.iv.next56.i, 4
-  br i1 %exitcond58.i, label %101, label %52, !llvm.loop !112
+  %exitcond55.i = icmp eq i64 %indvars.iv.next53.i, 4
+  br i1 %exitcond55.i, label %101, label %52, !llvm.loop !112
 
 101:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
-  %exitcond62.i = icmp eq i64 %indvars.iv.next60.i, 4
-  br i1 %exitcond62.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !113
+  %exitcond59.i = icmp eq i64 %indvars.iv.next57.i, 4
+  br i1 %exitcond59.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !113
 
 _ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %39, %101, %76
   %.1.i = phi i1 [ false, %76 ], [ true, %101 ], [ false, %39 ]
@@ -1898,11 +1898,11 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit:                 ; preds = %30
   br i1 %exitcond.not.i, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, label %94, !llvm.loop !111
 
 _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ; preds = %104, %161
-  %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %161 ], [ 0, %104 ]
-  %105 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i64 %indvars.iv59.i
+  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %161 ], [ 0, %104 ]
+  %105 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i64 %indvars.iv56.i
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %105, align 8
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %106 = and i64 %indvars.iv.next60.i, 3
+  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
+  %106 = and i64 %indvars.iv.next57.i, 3
   %107 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i64 %106
   %.sroa.02.0.copyload.i = load <2 x float>, ptr %107, align 8
   %.sroa.014.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.02.0.copyload.i, i64 1
@@ -1915,11 +1915,11 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   br label %112
 
 112:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i
-  %indvars.iv55.i = phi i64 [ 0, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i ], [ %indvars.iv.next56.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i ]
-  %113 = getelementptr inbounds nuw %"class.cv::Point_", ptr %8, i64 %indvars.iv55.i
+  %indvars.iv52.i = phi i64 [ 0, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i ], [ %indvars.iv.next53.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i ]
+  %113 = getelementptr inbounds nuw %"class.cv::Point_", ptr %8, i64 %indvars.iv52.i
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %113, align 8
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %114 = and i64 %indvars.iv.next56.i, 3
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %114 = and i64 %indvars.iv.next53.i, 3
   %115 = getelementptr inbounds nuw %"class.cv::Point_", ptr %8, i64 %114
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %115, align 8
   %.sroa.013.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
@@ -1987,12 +1987,12 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   br i1 %160, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
 
 _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; preds = %136, %112
-  %exitcond58.i = icmp eq i64 %indvars.iv.next56.i, 4
-  br i1 %exitcond58.i, label %161, label %112, !llvm.loop !112
+  %exitcond55.i = icmp eq i64 %indvars.iv.next53.i, 4
+  br i1 %exitcond55.i, label %161, label %112, !llvm.loop !112
 
 161:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
-  %exitcond62.i = icmp eq i64 %indvars.iv.next60.i, 4
-  br i1 %exitcond62.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !113
+  %exitcond59.i = icmp eq i64 %indvars.iv.next57.i, 4
+  br i1 %exitcond59.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !113
 
 _ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %99, %161, %136
   %162 = phi float [ %87, %136 ], [ %.05184, %161 ], [ %87, %99 ]

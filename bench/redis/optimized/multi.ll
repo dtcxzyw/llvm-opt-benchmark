@@ -1037,8 +1037,8 @@ define dso_local void @touchWatchedKey(ptr noundef %0, ptr noundef %1) local_unn
   call void @listRewind(ptr noundef nonnull %13, ptr noundef nonnull %3) #10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = call ptr @listNext(ptr noundef nonnull %3) #10
-  %.not2127 = icmp eq ptr %16, null
-  br i1 %.not2127, label %.thread, label %.lr.ph
+  %.not2125 = icmp eq ptr %16, null
+  br i1 %.not2125, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %42
   %17 = phi ptr [ %43, %42 ], [ %16, %14 ]

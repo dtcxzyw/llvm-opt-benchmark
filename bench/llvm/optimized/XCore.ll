@@ -213,8 +213,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit29:
   %25 = and i64 %22, 4294967295
   %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
   %27 = getelementptr ptr, ptr %24, i64 %.sroa.4.0.extract.shift.i.i44
-  %.not30.i.i.i.i45 = icmp samesign eq i64 %25, %.sroa.4.0.extract.shift.i.i44
-  br i1 %.not30.i.i.i.i45, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i53, label %.lr.ph.i.i.i.i47
+  %.not29.i.i.i.i45 = icmp samesign eq i64 %25, %.sroa.4.0.extract.shift.i.i44
+  br i1 %.not29.i.i.i.i45, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i53, label %.lr.ph.i.i.i.i47
 
 .lr.ph.i.i.i.i47:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit29, %.thread25.i.i.i.i50
   %.sroa.024.0.i.i48 = phi ptr [ %31, %.thread25.i.i.i.i50 ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit29 ]
@@ -248,8 +248,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %37 = or i8 %36, 1
   store i8 %37, ptr %35, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i58, i64 8
-  %.not30.i.i.i61 = icmp eq ptr %38, %27
-  br i1 %.not30.i.i.i61, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit70.thread119, label %.lr.ph.i.i.i62
+  %.not29.i.i.i61 = icmp eq ptr %38, %27
+  br i1 %.not29.i.i.i61, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit70.thread119, label %.lr.ph.i.i.i62
 
 .lr.ph.i.i.i62:                                   ; preds = %.lr.ph.split.i57, %.thread25.i.i.i65
   %.sroa.0.1.i63 = phi ptr [ %42, %.thread25.i.i.i65 ], [ %38, %.lr.ph.split.i57 ]
@@ -308,8 +308,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   %56 = and i64 %54, 4294967295
   %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   %58 = getelementptr ptr, ptr %55, i64 %.sroa.4.0.extract.shift.i.i
-  %.not30.i.i.i.i = icmp samesign eq i64 %56, %.sroa.4.0.extract.shift.i.i
-  br i1 %.not30.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
+  %.not29.i.i.i.i = icmp samesign eq i64 %56, %.sroa.4.0.extract.shift.i.i
+  br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit70.thread, %.thread25.i.i.i.i
   %.sroa.024.0.i.i = phi ptr [ %62, %.thread25.i.i.i.i ], [ %57, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit70.thread ]
@@ -343,8 +343,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %68 = or i8 %67, 1
   store i8 %68, ptr %66, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 8
-  %.not30.i.i.i = icmp eq ptr %69, %58
-  br i1 %.not30.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread121, label %.lr.ph.i.i.i
+  %.not29.i.i.i = icmp eq ptr %69, %58
+  br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread121, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split.i, %.thread25.i.i.i
   %.sroa.0.1.i = phi ptr [ %73, %.thread25.i.i.i ], [ %69, %.lr.ph.split.i ]
@@ -708,8 +708,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit15: ; preds = %7
   %28 = and i64 %25, 4294967295
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = getelementptr ptr, ptr %27, i64 %.sroa.4.0.extract.shift.i.i
-  %.not30.i.i.i.i = icmp samesign eq i64 %28, %.sroa.4.0.extract.shift.i.i
-  br i1 %.not30.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
+  %.not29.i.i.i.i = icmp samesign eq i64 %28, %.sroa.4.0.extract.shift.i.i
+  br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %24, %.thread25.i.i.i.i
   %.sroa.024.0.i.i = phi ptr [ %34, %.thread25.i.i.i.i ], [ %29, %24 ]
@@ -743,8 +743,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %40 = or i8 %39, 1
   store i8 %40, ptr %38, align 4
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 8
-  %.not30.i.i.i = icmp eq ptr %41, %30
-  br i1 %.not30.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread45, label %.lr.ph.i.i.i
+  %.not29.i.i.i = icmp eq ptr %41, %30
+  br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread45, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split.i, %.thread25.i.i.i
   %.sroa.0.1.i = phi ptr [ %45, %.thread25.i.i.i ], [ %41, %.lr.ph.split.i ]
@@ -1010,8 +1010,8 @@ define hidden void @_ZNK5clang6driver10toolchains14XCoreToolChain25AddClangSyste
   %12 = and i64 %9, 4294967295
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = getelementptr ptr, ptr %11, i64 %.sroa.4.0.extract.shift.i.i
-  %.not30.i.i.i.i = icmp samesign eq i64 %12, %.sroa.4.0.extract.shift.i.i
-  br i1 %.not30.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
+  %.not29.i.i.i.i = icmp samesign eq i64 %12, %.sroa.4.0.extract.shift.i.i
+  br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.thread25.i.i.i.i
   %.sroa.024.0.i.i = phi ptr [ %18, %.thread25.i.i.i.i ], [ %13, %3 ]
@@ -1045,8 +1045,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %24 = or i8 %23, 1
   store i8 %24, ptr %22, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 8
-  %.not30.i.i.i = icmp eq ptr %25, %14
-  br i1 %.not30.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread63, label %.lr.ph.i.i.i
+  %.not29.i.i.i = icmp eq ptr %25, %14
+  br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread63, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split.i, %.thread25.i.i.i
   %.sroa.0.1.i = phi ptr [ %29, %.thread25.i.i.i ], [ %25, %.lr.ph.split.i ]
@@ -1081,8 +1081,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   %32 = and i64 %30, 4294967295
   %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
   %34 = getelementptr ptr, ptr %31, i64 %.sroa.4.0.extract.shift.i.i8
-  %.not30.i.i.i.i9 = icmp samesign eq i64 %32, %.sroa.4.0.extract.shift.i.i8
-  br i1 %.not30.i.i.i.i9, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i17, label %.lr.ph.i.i.i.i11
+  %.not29.i.i.i.i9 = icmp samesign eq i64 %32, %.sroa.4.0.extract.shift.i.i8
+  br i1 %.not29.i.i.i.i9, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i17, label %.lr.ph.i.i.i.i11
 
 .lr.ph.i.i.i.i11:                                 ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread, %.thread25.i.i.i.i14
   %.sroa.024.0.i.i12 = phi ptr [ %38, %.thread25.i.i.i.i14 ], [ %33, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread ]
@@ -1116,8 +1116,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %44 = or i8 %43, 1
   store i8 %44, ptr %42, align 4
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i22, i64 8
-  %.not30.i.i.i25 = icmp eq ptr %45, %34
-  br i1 %.not30.i.i.i25, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread63, label %.lr.ph.i.i.i26
+  %.not29.i.i.i25 = icmp eq ptr %45, %34
+  br i1 %.not29.i.i.i25, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread63, label %.lr.ph.i.i.i26
 
 .lr.ph.i.i.i26:                                   ; preds = %.lr.ph.split.i21, %.thread25.i.i.i29
   %.sroa.0.1.i27 = phi ptr [ %49, %.thread25.i.i.i29 ], [ %45, %.lr.ph.split.i21 ]
@@ -1272,8 +1272,8 @@ define hidden void @_ZNK5clang6driver10toolchains14XCoreToolChain28AddClangCXXSt
   %13 = and i64 %10, 4294967295
   %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = getelementptr ptr, ptr %12, i64 %.sroa.4.0.extract.shift.i.i
-  %.not30.i.i.i.i = icmp samesign eq i64 %13, %.sroa.4.0.extract.shift.i.i
-  br i1 %.not30.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
+  %.not29.i.i.i.i = icmp samesign eq i64 %13, %.sroa.4.0.extract.shift.i.i
+  br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.thread25.i.i.i.i
   %.sroa.024.0.i.i = phi ptr [ %19, %.thread25.i.i.i.i ], [ %14, %3 ]
@@ -1307,8 +1307,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %25 = or i8 %24, 1
   store i8 %25, ptr %23, align 4
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 8
-  %.not30.i.i.i = icmp eq ptr %26, %15
-  br i1 %.not30.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread105, label %.lr.ph.i.i.i
+  %.not29.i.i.i = icmp eq ptr %26, %15
+  br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread105, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split.i, %.thread25.i.i.i
   %.sroa.0.1.i = phi ptr [ %30, %.thread25.i.i.i ], [ %26, %.lr.ph.split.i ]
@@ -1343,8 +1343,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   %33 = and i64 %31, 4294967295
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
   %35 = getelementptr ptr, ptr %32, i64 %.sroa.4.0.extract.shift.i.i9
-  %.not30.i.i.i.i10 = icmp samesign eq i64 %33, %.sroa.4.0.extract.shift.i.i9
-  br i1 %.not30.i.i.i.i10, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i18, label %.lr.ph.i.i.i.i12
+  %.not29.i.i.i.i10 = icmp samesign eq i64 %33, %.sroa.4.0.extract.shift.i.i9
+  br i1 %.not29.i.i.i.i10, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i18, label %.lr.ph.i.i.i.i12
 
 .lr.ph.i.i.i.i12:                                 ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread, %.thread25.i.i.i.i15
   %.sroa.024.0.i.i13 = phi ptr [ %39, %.thread25.i.i.i.i15 ], [ %34, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread ]
@@ -1378,8 +1378,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %45 = or i8 %44, 1
   store i8 %45, ptr %43, align 4
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i23, i64 8
-  %.not30.i.i.i26 = icmp eq ptr %46, %35
-  br i1 %.not30.i.i.i26, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread105, label %.lr.ph.i.i.i27
+  %.not29.i.i.i26 = icmp eq ptr %46, %35
+  br i1 %.not29.i.i.i26, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread105, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %.lr.ph.split.i22, %.thread25.i.i.i30
   %.sroa.0.1.i28 = phi ptr [ %50, %.thread25.i.i.i30 ], [ %46, %.lr.ph.split.i22 ]
@@ -1414,8 +1414,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   %53 = and i64 %51, 4294967295
   %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   %55 = getelementptr ptr, ptr %52, i64 %.sroa.4.0.extract.shift.i.i36
-  %.not30.i.i.i.i37 = icmp samesign eq i64 %53, %.sroa.4.0.extract.shift.i.i36
-  br i1 %.not30.i.i.i.i37, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i45, label %.lr.ph.i.i.i.i39
+  %.not29.i.i.i.i37 = icmp samesign eq i64 %53, %.sroa.4.0.extract.shift.i.i36
+  br i1 %.not29.i.i.i.i37, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i45, label %.lr.ph.i.i.i.i39
 
 .lr.ph.i.i.i.i39:                                 ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit35.thread, %.thread25.i.i.i.i42
   %.sroa.024.0.i.i40 = phi ptr [ %59, %.thread25.i.i.i.i42 ], [ %54, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit35.thread ]
@@ -1449,8 +1449,8 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %65 = or i8 %64, 1
   store i8 %65, ptr %63, align 4
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i50, i64 8
-  %.not30.i.i.i53 = icmp eq ptr %66, %55
-  br i1 %.not30.i.i.i53, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread105, label %.lr.ph.i.i.i54
+  %.not29.i.i.i53 = icmp eq ptr %66, %55
+  br i1 %.not29.i.i.i53, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread105, label %.lr.ph.i.i.i54
 
 .lr.ph.i.i.i54:                                   ; preds = %.lr.ph.split.i49, %.thread25.i.i.i57
   %.sroa.0.1.i55 = phi ptr [ %70, %.thread25.i.i.i57 ], [ %66, %.lr.ph.split.i49 ]

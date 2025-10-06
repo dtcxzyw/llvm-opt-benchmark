@@ -4015,9 +4015,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_18WaitImplEPSt4pairISt10shared_ptrI
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
   %9 = alloca %"struct.xgboost::collective::Result", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.fr64 = freeze i64 %1
-  %11 = icmp slt i64 %.fr64, 1
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.fr64, i64 1800)
+  %.fr63 = freeze i64 %1
+  %11 = icmp slt i64 %.fr63, 1
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.fr63, i64 1800)
   %.0 = select i1 %11, i64 1800, i64 %.sroa.speculated
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.0, ptr %5, align 8, !tbaa !150
@@ -4080,11 +4080,11 @@ _ZNSt10shared_ptrIN7xgboost10collective7TrackerEEC2ERKS3_.exit: ; preds = %2, %2
 
 _ZNSt13shared_futureIN7xgboost10collective6ResultEEC2ERKS3_.exit: ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7TrackerEEC2ERKS3_.exit, %34, %37
   %39 = phi ptr [ %27, %_ZNSt10shared_ptrIN7xgboost10collective7TrackerEEC2ERKS3_.exit ], [ %27, %34 ], [ %.pre, %37 ]
-  %.not4855 = icmp eq ptr %39, null
-  br i1 %.not4855, label %.critedge.thread, label %.lr.ph
+  %.not4754 = icmp eq ptr %39, null
+  br i1 %.not4754, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13shared_futureIN7xgboost10collective6ResultEEC2ERKS3_.exit
-  %40 = sitofp i64 %.fr64 to double
+  %40 = sitofp i64 %.fr63 to double
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4098,33 +4098,33 @@ _ZNSt13shared_futureIN7xgboost10collective6ResultEEC2ERKS3_.exit: ; preds = %_ZN
 45:                                               ; preds = %.lr.ph.split.us
   switch i32 %44, label %.critedge.us [
     i32 2, label %46
-    i32 0, label %.split57.us
+    i32 0, label %.split56.us
   ], !prof !151
 
 46:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %47 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %.noexc.us unwind label %.split59.us
+          to label %.noexc.us unwind label %.split58.us
 
 .noexc.us:                                        ; preds = %46
   invoke void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %47, ptr noundef nonnull @.str, i32 noundef 92)
-          to label %_ZN4dmlc15LogMessageFatalC2EPKci.exit.us unwind label %.split59.us
+          to label %_ZN4dmlc15LogMessageFatalC2EPKci.exit.us unwind label %.split58.us
 
 _ZN4dmlc15LogMessageFatalC2EPKci.exit.us:         ; preds = %.noexc.us
   %48 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.us unwind label %.split62.us
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.us unwind label %.split61.us
 
 _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.us: ; preds = %_ZN4dmlc15LogMessageFatalC2EPKci.exit.us
   %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @.str.52, i64 noundef 49)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us unwind label %.split62.us
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us unwind label %.split61.us
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.us
   %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @.str.10, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us unwind label %.split62.us
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us unwind label %.split61.us
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %51 unwind label %.split59.us
+          to label %51 unwind label %.split58.us
 
 51:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4133,20 +4133,20 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us: ; preds = %_Z
 .critedge.us:                                     ; preds = %51, %45
   %52 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
   %53 = load ptr, ptr %7, align 8, !tbaa !146
-  %.not48.us = icmp eq ptr %53, null
-  br i1 %.not48.us, label %.critedge.thread, label %.lr.ph.split.us
+  %.not47.us = icmp eq ptr %53, null
+  br i1 %.not47.us, label %.critedge.thread, label %.lr.ph.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %123
 
-.split59.us:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us, %.noexc.us, %46
+.split58.us:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us, %.noexc.us, %46
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %69
 
-.split62.us:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.us, %_ZN4dmlc15LogMessageFatalC2EPKci.exit.us
+.split61.us:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.us, %_ZN4dmlc15LogMessageFatalC2EPKci.exit.us
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %68
@@ -4158,33 +4158,33 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24.us: ; preds = %_Z
 58:                                               ; preds = %.lr.ph.split
   switch i32 %57, label %75 [
     i32 2, label %59
-    i32 0, label %.split57.us
+    i32 0, label %.split56.us
   ], !prof !151
 
 59:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %60 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %.noexc unwind label %.split59
+          to label %.noexc unwind label %.split58
 
 .noexc:                                           ; preds = %59
   invoke void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %60, ptr noundef nonnull @.str, i32 noundef 92)
-          to label %_ZN4dmlc15LogMessageFatalC2EPKci.exit unwind label %.split59
+          to label %_ZN4dmlc15LogMessageFatalC2EPKci.exit unwind label %.split58
 
 _ZN4dmlc15LogMessageFatalC2EPKci.exit:            ; preds = %.noexc
   %61 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit unwind label %.split62
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit unwind label %.split61
 
 _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %_ZN4dmlc15LogMessageFatalC2EPKci.exit
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.52, i64 noundef 49)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %.split62
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %.split61
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
   %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.10, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24 unwind label %.split62
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24 unwind label %.split61
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %64 unwind label %.split59
+          to label %64 unwind label %.split58
 
 64:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4195,36 +4195,36 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24: ; preds = %_ZStl
           cleanup
   br label %123
 
-.split59:                                         ; preds = %.noexc, %59, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24
+.split58:                                         ; preds = %.noexc, %59, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24
   %66 = landingpad { ptr, i32 }
           cleanup
   br label %69
 
-.split62:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %_ZN4dmlc15LogMessageFatalC2EPKci.exit
+.split61:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %_ZN4dmlc15LogMessageFatalC2EPKci.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %68
 
-68:                                               ; preds = %.split62.us, %.split62
-  %.us-phi63 = phi { ptr, i32 } [ %67, %.split62 ], [ %56, %.split62.us ]
+68:                                               ; preds = %.split61.us, %.split61
+  %.us-phi62 = phi { ptr, i32 } [ %67, %.split61 ], [ %56, %.split61.us ]
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %69 unwind label %168
 
-69:                                               ; preds = %.split59, %.split59.us, %68
-  %.pn = phi { ptr, i32 } [ %.us-phi63, %68 ], [ %66, %.split59 ], [ %55, %.split59.us ]
+69:                                               ; preds = %.split58, %.split58.us, %68
+  %.pn = phi { ptr, i32 } [ %.us-phi62, %68 ], [ %66, %.split58 ], [ %55, %.split58.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %123
 
-.split57.us:                                      ; preds = %58, %45
+.split56.us:                                      ; preds = %58, %45
   %70 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt14__basic_futureIN7xgboost10collective6ResultEE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %71 unwind label %73
 
-71:                                               ; preds = %.split57.us
+71:                                               ; preds = %.split56.us
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   invoke void @_ZN7xgboost10collective8SafeCollERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(8) %72)
           to label %.critedge.thread unwind label %73
 
-73:                                               ; preds = %.split57.us, %71
+73:                                               ; preds = %.split56.us, %71
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %123
@@ -4377,8 +4377,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %.bo
 
 .critedge:                                        ; preds = %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %122 = load ptr, ptr %7, align 8, !tbaa !146
-  %.not48 = icmp eq ptr %122, null
-  br i1 %.not48, label %.critedge.thread, label %.lr.ph.split
+  %.not47 = icmp eq ptr %122, null
+  br i1 %.not47, label %.critedge.thread, label %.lr.ph.split
 
 123:                                              ; preds = %.split, %.split.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %73, %69
   %.pn18 = phi { ptr, i32 } [ %74, %73 ], [ %.pn15.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ %.pn, %69 ], [ %65, %.split ], [ %54, %.split.us ]

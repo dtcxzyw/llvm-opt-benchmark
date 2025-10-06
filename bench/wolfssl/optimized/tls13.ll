@@ -5568,19 +5568,19 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
-  %.not348 = icmp eq i64 %5, 2
-  br i1 %.not348, label %31, label %6
+  %.not347 = icmp eq i64 %5, 2
+  br i1 %.not347, label %31, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %8 = load ptr, ptr %7, align 8, !tbaa !128
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.thread310, label %9
+  br i1 %.not, label %.thread309, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %8, align 8, !tbaa !129
   %.not236 = icmp eq ptr %10, null
-  br i1 %.not236, label %.thread310, label %11
+  br i1 %.not236, label %.thread309, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -5663,14 +5663,14 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   br label %66
 
 66:                                               ; preds = %.lr.ph, %290
-  %.2194331 = phi i32 [ %.1193, %.lr.ph ], [ %.6, %290 ]
-  %.1200330 = phi ptr [ %.0199, %.lr.ph ], [ %.3202, %290 ]
-  %.0206329 = phi i32 [ 2, %.lr.ph ], [ %.2208, %290 ]
-  %.0212328 = phi i32 [ 0, %.lr.ph ], [ %.2214, %290 ]
-  %.0259327 = phi i32 [ 0, %.lr.ph ], [ %.2261, %290 ]
+  %.2194330 = phi i32 [ %.1193, %.lr.ph ], [ %.6, %290 ]
+  %.1200329 = phi ptr [ %.0199, %.lr.ph ], [ %.3202, %290 ]
+  %.0206328 = phi i32 [ 2, %.lr.ph ], [ %.2208, %290 ]
+  %.0212327 = phi i32 [ 0, %.lr.ph ], [ %.2214, %290 ]
+  %.0259326 = phi i32 [ 0, %.lr.ph ], [ %.2261, %290 ]
   %67 = load i32, ptr %32, align 16, !tbaa !154
   %68 = icmp eq i32 %67, 0
-  %69 = tail call i32 @llvm.umin.i32(i32 %.2194331, i32 %36)
+  %69 = tail call i32 @llvm.umin.i32(i32 %.2194330, i32 %36)
   %70 = add nuw i32 %69, 5
   %.1185 = select i1 %68, i32 %., i32 %69
   %.0181 = select i1 %68, i32 9, i32 5
@@ -5678,7 +5678,7 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   %71 = add nsw i32 %.0180, 102
   %72 = tail call i32 @CheckAvailableSize(ptr noundef nonnull %0, i32 noundef %71) #11
   %.not241 = icmp eq i32 %72, 0
-  br i1 %.not241, label %73, label %.thread310
+  br i1 %.not241, label %73, label %.thread309
 
 73:                                               ; preds = %66
   %74 = tail call ptr @GetOutputBuffer(ptr noundef nonnull %0) #11
@@ -5719,7 +5719,7 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 3
   store i8 %51, ptr %94, align 1, !tbaa !57
   %95 = add nuw nsw i32 %.0181, 4
-  %96 = add nsw i32 %.2194331, -4
+  %96 = add nsw i32 %.2194330, -4
   %97 = add i32 %.1185, -4
   br i1 %.not243, label %.thread, label %.thread270
 
@@ -5732,7 +5732,7 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i8 %56, ptr %101, align 1, !tbaa !57
   %102 = add nuw nsw i32 %.0181, 7
-  %103 = add nsw i32 %.2194331, -7
+  %103 = add nsw i32 %.2194330, -7
   %104 = add i32 %.1185, -7
   br label %113
 
@@ -5754,7 +5754,7 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
 113:                                              ; preds = %.thread270, %105
   %.1182277 = phi i32 [ %102, %.thread270 ], [ %.0181, %105 ]
   %.2186276 = phi i32 [ %104, %.thread270 ], [ %.1185, %105 ]
-  %.4196275 = phi i32 [ %103, %.thread270 ], [ %.2194331, %105 ]
+  %.4196275 = phi i32 [ %103, %.thread270 ], [ %.2194330, %105 ]
   %114 = load i32, ptr %32, align 16, !tbaa !154
   %115 = icmp ult i32 %114, %57
   br i1 %115, label %116, label %.thread
@@ -5781,7 +5781,7 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   %.042.i = phi i32 [ %124, %120 ], [ 0, %116 ]
   %129 = add i32 %114, %.042.i
   %130 = sub i32 %57, %129
-  br i1 %.not348, label %139, label %131
+  br i1 %.not347, label %139, label %131
 
 131:                                              ; preds = %128
   %.not.i = icmp ugt i32 %130, %.2186276
@@ -5830,7 +5830,7 @@ AddCertExt.exit:                                  ; preds = %120, %131, %132, %1
   br label %.thread
 
 .thread:                                          ; preds = %77, %AddCertExt.exit, %157, %113, %105
-  %.5197 = phi i32 [ %.4196275, %113 ], [ %.2194331, %105 ], [ %154, %157 ], [ %154, %AddCertExt.exit ], [ %96, %77 ]
+  %.5197 = phi i32 [ %.4196275, %113 ], [ %.2194330, %105 ], [ %154, %157 ], [ %154, %AddCertExt.exit ], [ %96, %77 ]
   %.3187 = phi i32 [ %.2186276, %113 ], [ %.1185, %105 ], [ %155, %157 ], [ %155, %AddCertExt.exit ], [ %97, %77 ]
   %.2183 = phi i32 [ %.1182277, %113 ], [ %.0181, %105 ], [ %151, %157 ], [ %151, %AddCertExt.exit ], [ %95, %77 ]
   %158 = icmp ne i32 %.3187, 0
@@ -5838,13 +5838,13 @@ AddCertExt.exit:                                  ; preds = %120, %131, %132, %1
   br i1 %or.cond8, label %.preheader, label %.thread297
 
 .preheader:                                       ; preds = %.thread
-  br i1 %.not348, label %.preheader.split, label %.preheader.split.us
+  br i1 %.not347, label %.preheader.split, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader, %208
-  %.3262.us = phi i32 [ %.4263285.us, %208 ], [ %.0259327, %.preheader ]
-  %.3215.us = phi i32 [ %.4216288.us, %208 ], [ %.0212328, %.preheader ]
-  %.3209.us = phi i32 [ %211, %208 ], [ %.0206329, %.preheader ]
-  %.4203.us = phi ptr [ %.5204295.us, %208 ], [ %.1200330, %.preheader ]
+  %.3262.us = phi i32 [ %.4263285.us, %208 ], [ %.0259326, %.preheader ]
+  %.3215.us = phi i32 [ %.4216288.us, %208 ], [ %.0212327, %.preheader ]
+  %.3209.us = phi i32 [ %211, %208 ], [ %.0206328, %.preheader ]
+  %.4203.us = phi ptr [ %.5204295.us, %208 ], [ %.1200329, %.preheader ]
   %.7.us = phi i32 [ %213, %208 ], [ %.5197, %.preheader ]
   %.4188.us = phi i32 [ %212, %208 ], [ %.3187, %.preheader ]
   %.4.us = phi i32 [ %214, %208 ], [ %.2183, %.preheader ]
@@ -5943,10 +5943,10 @@ NextCert.exit.us:                                 ; preds = %165
   br i1 %.old7.not.us, label %.thread297, label %.preheader.split.us
 
 .preheader.split:                                 ; preds = %.preheader, %269
-  %.3262 = phi i32 [ %.4263285, %269 ], [ %.0259327, %.preheader ]
-  %.3215 = phi i32 [ %276, %269 ], [ %.0212328, %.preheader ]
-  %.3209 = phi i32 [ %272, %269 ], [ %.0206329, %.preheader ]
-  %.4203 = phi ptr [ %.5204295, %269 ], [ %.1200330, %.preheader ]
+  %.3262 = phi i32 [ %.4263285, %269 ], [ %.0259326, %.preheader ]
+  %.3215 = phi i32 [ %276, %269 ], [ %.0212327, %.preheader ]
+  %.3209 = phi i32 [ %272, %269 ], [ %.0206328, %.preheader ]
+  %.4203 = phi ptr [ %.5204295, %269 ], [ %.1200329, %.preheader ]
   %.7 = phi i32 [ %274, %269 ], [ %.5197, %.preheader ]
   %.4188 = phi i32 [ %273, %269 ], [ %.3187, %.preheader ]
   %.4 = phi i32 [ %275, %269 ], [ %.2183, %.preheader ]
@@ -5987,9 +5987,9 @@ NextCert.exit:                                    ; preds = %217
   %242 = zext i32 %.4 to i64
   %243 = getelementptr inbounds nuw i8, ptr %74, i64 %242
   %244 = icmp ult i32 %.3209, %.3215
-  br i1 %244, label %245, label %._crit_edge339
+  br i1 %244, label %245, label %._crit_edge338
 
-._crit_edge339:                                   ; preds = %241
+._crit_edge338:                                   ; preds = %241
   %.pre = zext i32 %.3209 to i64
   br label %252
 
@@ -6008,14 +6008,14 @@ NextCert.exit:                                    ; preds = %217
   %.not48.i253 = icmp ugt i32 %.4188, %247
   br i1 %.not48.i253, label %252, label %269
 
-252:                                              ; preds = %._crit_edge339, %245
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge339 ], [ %249, %245 ]
-  %253 = phi ptr [ %243, %._crit_edge339 ], [ %246, %245 ]
-  %.5204296 = phi ptr [ %.4203, %._crit_edge339 ], [ %.5204294, %245 ]
-  %.4210292 = phi i32 [ %.3209, %._crit_edge339 ], [ %.4210293, %245 ]
-  %.4216289 = phi i32 [ %.3215, %._crit_edge339 ], [ %.4216290, %245 ]
-  %.4263286 = phi i32 [ %.3262, %._crit_edge339 ], [ %.4263287, %245 ]
-  %.042.i248 = phi i32 [ 0, %._crit_edge339 ], [ %248, %245 ]
+252:                                              ; preds = %._crit_edge338, %245
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge338 ], [ %249, %245 ]
+  %253 = phi ptr [ %243, %._crit_edge338 ], [ %246, %245 ]
+  %.5204296 = phi ptr [ %.4203, %._crit_edge338 ], [ %.5204294, %245 ]
+  %.4210292 = phi i32 [ %.3209, %._crit_edge338 ], [ %.4210293, %245 ]
+  %.4216289 = phi i32 [ %.3215, %._crit_edge338 ], [ %.4216290, %245 ]
+  %.4263286 = phi i32 [ %.3262, %._crit_edge338 ], [ %.4263287, %245 ]
+  %.042.i248 = phi i32 [ 0, %._crit_edge338 ], [ %248, %245 ]
   %254 = add i32 %.4216289, %.sroa.0.0
   %255 = add i32 %.4210292, %.042.i248
   %256 = sub i32 %254, %255
@@ -6053,21 +6053,21 @@ NextCert.exit:                                    ; preds = %217
   br i1 %.old7.not, label %.thread297, label %.preheader.split
 
 .thread297:                                       ; preds = %208, %165, %269, %217, %.thread
-  %.2261 = phi i32 [ %.0259327, %.thread ], [ %.3262, %217 ], [ %.4263285, %269 ], [ %.3262.us, %165 ], [ %.4263285.us, %208 ]
-  %.2214 = phi i32 [ %.0212328, %.thread ], [ 0, %217 ], [ %276, %269 ], [ 0, %165 ], [ %.4216288.us, %208 ]
-  %.2208 = phi i32 [ %.0206329, %.thread ], [ 0, %217 ], [ %272, %269 ], [ 0, %165 ], [ %211, %208 ]
-  %.3202 = phi ptr [ %.1200330, %.thread ], [ %221, %217 ], [ %.5204295, %269 ], [ %169, %165 ], [ %.5204295.us, %208 ]
+  %.2261 = phi i32 [ %.0259326, %.thread ], [ %.3262, %217 ], [ %.4263285, %269 ], [ %.3262.us, %165 ], [ %.4263285.us, %208 ]
+  %.2214 = phi i32 [ %.0212327, %.thread ], [ 0, %217 ], [ %276, %269 ], [ 0, %165 ], [ %.4216288.us, %208 ]
+  %.2208 = phi i32 [ %.0206328, %.thread ], [ 0, %217 ], [ %272, %269 ], [ 0, %165 ], [ %211, %208 ]
+  %.3202 = phi ptr [ %.1200329, %.thread ], [ %221, %217 ], [ %.5204295, %269 ], [ %169, %165 ], [ %.5204295.us, %208 ]
   %.6 = phi i32 [ %.5197, %.thread ], [ %.7, %217 ], [ %274, %269 ], [ %.7.us, %165 ], [ %213, %208 ]
   %.3 = phi i32 [ %.2183, %.thread ], [ %.4, %217 ], [ %275, %269 ], [ %.4.us, %165 ], [ %214, %208 ]
   %277 = icmp slt i32 %.3, 5
-  br i1 %277, label %.thread310, label %278
+  br i1 %277, label %.thread309, label %278
 
 278:                                              ; preds = %.thread297
   %279 = add nsw i32 %.3, -5
   %280 = getelementptr inbounds nuw i8, ptr %74, i64 5
   %281 = tail call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %74, i32 noundef %71, ptr noundef nonnull %280, i32 noundef %279, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 poison)
   %282 = icmp slt i32 %281, 0
-  br i1 %282, label %.thread310, label %283
+  br i1 %282, label %.thread309, label %283
 
 283:                                              ; preds = %278
   %284 = load i32, ptr %65, align 16, !tbaa !108
@@ -6092,24 +6092,24 @@ NextCert.exit:                                    ; preds = %217
 
 ._crit_edge:                                      ; preds = %290
   %.not239 = icmp eq i32 %.1178, -327
-  br i1 %.not239, label %.thread310, label %._crit_edge.thread
+  br i1 %.not239, label %.thread309, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.0177.lcssa351 = phi i32 [ %.1178, %._crit_edge ], [ 0, %31 ]
+  %.0177.lcssa350 = phi i32 [ %.1178, %._crit_edge ], [ 0, %31 ]
   store i8 0, ptr %2, align 8, !tbaa !93
   store i32 0, ptr %32, align 16, !tbaa !154
   %294 = load i64, ptr %3, align 16
   %295 = and i64 %294, 48
   %296 = icmp eq i64 %295, 0
-  br i1 %296, label %297, label %.thread310
+  br i1 %296, label %297, label %.thread309
 
 297:                                              ; preds = %._crit_edge.thread
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 1043
   store i8 5, ptr %298, align 1, !tbaa !114
-  br label %.thread310
+  br label %.thread309
 
-.thread310:                                       ; preds = %278, %.thread297, %66, %._crit_edge, %297, %._crit_edge.thread, %9, %6
-  %.0 = phi i32 [ -440, %6 ], [ -440, %9 ], [ %.0177.lcssa351, %._crit_edge.thread ], [ %.0177.lcssa351, %297 ], [ -327, %._crit_edge ], [ %72, %66 ], [ -132, %.thread297 ], [ %281, %278 ]
+.thread309:                                       ; preds = %278, %.thread297, %66, %._crit_edge, %297, %._crit_edge.thread, %9, %6
+  %.0 = phi i32 [ -440, %6 ], [ -440, %9 ], [ %.0177.lcssa350, %._crit_edge.thread ], [ %.0177.lcssa350, %297 ], [ -327, %._crit_edge ], [ %72, %66 ], [ -132, %.thread297 ], [ %281, %278 ]
   ret i32 %.0
 }
 

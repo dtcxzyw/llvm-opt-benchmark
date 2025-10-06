@@ -6635,8 +6635,8 @@ gc_check_possible_root.exit.thread:               ; preds = %25
   %44 = load ptr, ptr %.0.i.ph, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !25
-  %.not113164 = icmp eq i32 %46, 0
-  br i1 %.not113164, label %.critedge.thread, label %.lr.ph
+  %.not113163 = icmp eq i32 %46, 0
+  br i1 %.not113163, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -6650,9 +6650,9 @@ gc_check_possible_root.exit.thread:               ; preds = %25
   br label %55
 
 55:                                               ; preds = %.lr.ph, %zend_string_release_ex.exit127
-  %.098166 = phi i32 [ %46, %.lr.ph ], [ %109, %zend_string_release_ex.exit127 ]
-  %.099165 = phi ptr [ %48, %.lr.ph ], [ %108, %zend_string_release_ex.exit127 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.099165, i64 8
+  %.098165 = phi i32 [ %46, %.lr.ph ], [ %109, %zend_string_release_ex.exit127 ]
+  %.099164 = phi ptr [ %48, %.lr.ph ], [ %108, %zend_string_release_ex.exit127 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.099164, i64 8
   %57 = load i8, ptr %56, align 8, !tbaa !4
   switch i8 %57, label %61 [
     i8 0, label %zend_string_release_ex.exit127
@@ -6660,15 +6660,15 @@ gc_check_possible_root.exit.thread:               ; preds = %25
   ], !prof !142
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %.099165, align 8, !tbaa !4
+  %59 = load ptr, ptr %.099164, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %.phi.trans.insert169 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %.pre170 = load i8, ptr %.phi.trans.insert169, align 8, !tbaa !4
+  %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %.pre169 = load i8, ptr %.phi.trans.insert168, align 8, !tbaa !4
   br label %61
 
 61:                                               ; preds = %55, %58
-  %62 = phi i8 [ %.pre170, %58 ], [ %57, %55 ]
-  %.097 = phi ptr [ %60, %58 ], [ %.099165, %55 ]
+  %62 = phi i8 [ %.pre169, %58 ], [ %57, %55 ]
+  %.097 = phi ptr [ %60, %58 ], [ %.099164, %55 ]
   switch i8 %62, label %63 [
     i8 6, label %65
     i8 8, label %zval_try_get_string.exit
@@ -6767,9 +6767,9 @@ zend_string_release_ex.exit125:                   ; preds = %87, %92, %97
   br label %zend_string_release_ex.exit127
 
 zend_string_release_ex.exit127:                   ; preds = %55, %zend_string_release_ex.exit125, %101, %106
-  %107 = getelementptr inbounds nuw i8, ptr %.099165, i64 %54
+  %107 = getelementptr inbounds nuw i8, ptr %.099164, i64 %54
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = add i32 %.098166, -1
+  %109 = add i32 %.098165, -1
   %.not113 = icmp eq i32 %109, 0
   br i1 %.not113, label %.critedge.thread, label %55
 
@@ -6789,12 +6789,12 @@ zend_string_release_ex.exit127:                   ; preds = %55, %zend_string_re
 115:                                              ; preds = %111
   %116 = load ptr, ptr %110, align 8, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %.phi.trans.insert171 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %.pre172 = load i8, ptr %.phi.trans.insert171, align 8, !tbaa !4
+  %.phi.trans.insert170 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %.pre171 = load i8, ptr %.phi.trans.insert170, align 8, !tbaa !4
   br label %118
 
 118:                                              ; preds = %115, %111
-  %119 = phi i8 [ %113, %111 ], [ %.pre172, %115 ]
+  %119 = phi i8 [ %113, %111 ], [ %.pre171, %115 ]
   %.0.i130.ph = phi ptr [ %110, %111 ], [ %117, %115 ]
   %.not116 = icmp eq i8 %119, 4
   br i1 %.not116, label %122, label %120
@@ -6922,12 +6922,12 @@ zend_hash_str_find_deref.exit131:                 ; preds = %126, %.critedge.thr
 .thread157:                                       ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !4
-  %.phi.trans.insert173 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %.pre174 = load i32, ptr %.phi.trans.insert173, align 4, !tbaa !4
+  %.phi.trans.insert172 = getelementptr inbounds nuw i8, ptr %181, i64 4
+  %.pre173 = load i32, ptr %.phi.trans.insert172, align 4, !tbaa !4
   br label %182
 
 182:                                              ; preds = %.thread157, %171
-  %183 = phi i32 [ %174, %171 ], [ %.pre174, %.thread157 ]
+  %183 = phi i32 [ %174, %171 ], [ %.pre173, %.thread157 ]
   %.06.i = phi ptr [ %172, %171 ], [ %181, %.thread157 ]
   %184 = and i32 %183, -1008
   %185 = icmp eq i32 %184, 0
@@ -7766,8 +7766,8 @@ define internal fastcc void @php_var_serialize_class(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !25
-  %.not146.i = icmp eq i32 %14, 0
-  br i1 %.not146.i, label %zend_tmp_string_release.exit.i, label %.lr.ph.i
+  %.not144.i = icmp eq i32 %14, 0
+  br i1 %.not144.i, label %zend_tmp_string_release.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7776,31 +7776,31 @@ define internal fastcc void @php_var_serialize_class(ptr noundef %0, ptr noundef
   br label %18
 
 18:                                               ; preds = %.thread127.i, %.lr.ph.i
-  %.068149.i = phi i32 [ %14, %.lr.ph.i ], [ %200, %.thread127.i ]
-  %.069148.i = phi ptr [ %16, %.lr.ph.i ], [ %.170.i, %.thread127.i ]
+  %.068147.i = phi i32 [ %14, %.lr.ph.i ], [ %200, %.thread127.i ]
+  %.069146.i = phi ptr [ %16, %.lr.ph.i ], [ %.170.i, %.thread127.i ]
   %19 = load i32, ptr %12, align 8, !tbaa !4
   %20 = and i32 %19, 4
   %.not74.i = icmp eq i32 %20, 0
   br i1 %.not74.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.069148.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.069146.i, i64 16
   br label %30
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %.069148.i, i64 32
-  %25 = getelementptr inbounds nuw i8, ptr %.069148.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.069146.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.069146.i, i64 8
   %26 = load i8, ptr %25, align 8, !tbaa !4
   %27 = icmp eq i8 %26, 12
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %.069148.i, align 8, !tbaa !4
+  %29 = load ptr, ptr %.069146.i, align 8, !tbaa !4
   br label %30
 
 30:                                               ; preds = %28, %23, %21
   %.170.i = phi ptr [ %22, %21 ], [ %24, %28 ], [ %24, %23 ]
-  %.066.i = phi ptr [ %.069148.i, %21 ], [ %29, %28 ], [ %.069148.i, %23 ]
+  %.066.i = phi ptr [ %.069146.i, %21 ], [ %29, %28 ], [ %.069146.i, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %.066.i, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !4
   switch i8 %32, label %36 [
@@ -8164,13 +8164,13 @@ zend_string_release.exit.i:                       ; preds = %177, %176, %169, %1
   br label %.thread127.i
 
 .thread127.i:                                     ; preds = %199, %194, %190, %189, %164, %163, %156, %zend_tmp_string_release.exit106.i, %109, %108, %101, %zend_tmp_string_release.exit98.i, %59, %54, %50, %49, %zval_get_tmp_string.exit.thread.i, %30
-  %200 = add i32 %.068149.i, -1
+  %200 = add i32 %.068147.i, -1
   %.not.i = icmp eq i32 %200, 0
   br i1 %.not.i, label %zend_tmp_string_release.exit.i, label %18
 
 zend_tmp_string_release.exit.sink.split.i:        ; preds = %184, %129, %68
-  %.0121125135.lcssa157.sink.i = phi ptr [ %43, %68 ], [ %.0121125135.i, %129 ], [ %.0121125135.i, %184 ]
-  call void @_efree(ptr noundef nonnull %.0121125135.lcssa157.sink.i) #14
+  %.0121125135.lcssa155.sink.i = phi ptr [ %43, %68 ], [ %.0121125135.i, %129 ], [ %.0121125135.i, %184 ]
+  call void @_efree(ptr noundef nonnull %.0121125135.lcssa155.sink.i) #14
   br label %zend_tmp_string_release.exit.i
 
 zend_tmp_string_release.exit.i:                   ; preds = %.thread127.i, %.thread130.i, %zend_tmp_string_release.exit.sink.split.i, %184, %180, %179, %129, %125, %124, %68, %64, %63, %4

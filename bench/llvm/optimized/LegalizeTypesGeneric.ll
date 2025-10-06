@@ -358,8 +358,8 @@ _ZN4llvm16DAGTypeLegalizer13GetExpandedOpENS_7SDValueERS1_S2_.exit: ; preds = %1
   %.sroa.0273.0.copyload = load i16, ptr %19, align 8, !tbaa !23
   %105 = icmp ne i16 %.sroa.0273.0.copyload, 16
   %.not = xor i1 %.not.i.i.i, %105
-  %.not526 = select i1 %104, i1 true, i1 %.not
-  br i1 %.not526, label %107, label %106
+  %.not525 = select i1 %104, i1 true, i1 %.not
+  br i1 %.not525, label %107, label %106
 
 106:                                              ; preds = %_ZN4llvm16DAGTypeLegalizer13GetExpandedOpENS_7SDValueERS1_S2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -667,8 +667,8 @@ _ZNK4llvm3EVT9isIntegerEv.exit.thread:            ; preds = %222, %226
   %228 = icmp ult i16 %switch.tableidx, 12
   %switch.shifted = lshr i16 3961, %switch.tableidx
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond580 = select i1 %228, i1 %switch.lobit, i1 false
-  br i1 %or.cond580, label %switch.lookup, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
+  %or.cond579 = select i1 %228, i1 %switch.lobit, i1 false
+  br i1 %or.cond579, label %switch.lookup, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
 
 _ZN4llvm3MVT11getVectorVTES0_j.exit:              ; preds = %_ZNK4llvm3EVT9isIntegerEv.exit.thread
   %.sroa.2151.0.copyload = load ptr, ptr %.sroa.2151.0..sroa_idx, align 8, !tbaa !25
@@ -705,9 +705,9 @@ _ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit: ; preds = %switch.lookup
   br label %242
 
 242:                                              ; preds = %.lr.ph, %274
-  %.0368530 = phi i32 [ 2, %.lr.ph ], [ %255, %274 ]
-  %.sroa.11.0529 = phi ptr [ %.sroa.3.0.i, %.lr.ph ], [ %.sroa.3.0.i409, %274 ]
-  %.sroa.0152.0528 = phi i16 [ %.sroa.0.0.i, %.lr.ph ], [ %.sroa.0.0.i410, %274 ]
+  %.0368529 = phi i32 [ 2, %.lr.ph ], [ %255, %274 ]
+  %.sroa.11.0528 = phi ptr [ %.sroa.3.0.i, %.lr.ph ], [ %.sroa.3.0.i409, %274 ]
+  %.sroa.0152.0527 = phi i16 [ %.sroa.0.0.i, %.lr.ph ], [ %.sroa.0.0.i410, %274 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %243 = load i16, ptr %28, align 8, !tbaa !192
   %.not.i400 = icmp eq i16 %243, 0
@@ -742,7 +742,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %244, %248
   br i1 %253, label %.thread, label %254
 
 254:                                              ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
-  %255 = shl i32 %.0368530, 1
+  %255 = shl i32 %.0368529, 1
   switch i32 %252, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i [
     i32 128, label %259
     i32 64, label %258
@@ -805,9 +805,9 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %254, %256, %257,
   br i1 %280, label %.thread, label %242
 
 .thread:                                          ; preds = %274, %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit
-  %.sroa.0152.0.lcssa = phi i16 [ %.sroa.0.0.i, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit ], [ %.sroa.0152.0528, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ %.sroa.0.0.i410, %274 ]
-  %.sroa.11.0.lcssa = phi ptr [ %.sroa.3.0.i, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit ], [ %.sroa.11.0529, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ %.sroa.3.0.i409, %274 ]
-  %.0368.lcssa = phi i32 [ 2, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit ], [ %.0368530, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ %255, %274 ]
+  %.sroa.0152.0.lcssa = phi i16 [ %.sroa.0.0.i, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit ], [ %.sroa.0152.0527, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ %.sroa.0.0.i410, %274 ]
+  %.sroa.11.0.lcssa = phi ptr [ %.sroa.3.0.i, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit ], [ %.sroa.11.0528, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ %.sroa.3.0.i409, %274 ]
+  %.0368.lcssa = phi i32 [ 2, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit ], [ %.0368529, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ %255, %274 ]
   %281 = load ptr, ptr %0, align 8, !tbaa !27
   %282 = load ptr, ptr %48, align 8, !tbaa !46
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 64
@@ -831,10 +831,10 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %254, %256, %257,
   store i32 0, ptr %291, align 8, !tbaa !194
   %292 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 8, ptr %292, align 4, !tbaa !195
-  %.not544 = icmp eq i32 %.0368.lcssa, 0
-  br i1 %.not544, label %._crit_edge542, label %.lr.ph537
+  %.not543 = icmp eq i32 %.0368.lcssa, 0
+  br i1 %.not543, label %._crit_edge541, label %.lr.ph536
 
-.lr.ph537:                                        ; preds = %287
+.lr.ph536:                                        ; preds = %287
   %.sroa.4126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.2109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %wide.trip.count = zext i32 %.0368.lcssa to i64
@@ -842,9 +842,9 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %254, %256, %257,
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit
   %293 = icmp ugt i32 %309, 2
-  br i1 %293, label %.lr.ph541, label %._crit_edge542
+  br i1 %293, label %.lr.ph540, label %._crit_edge541
 
-.lr.ph541:                                        ; preds = %._crit_edge
+.lr.ph540:                                        ; preds = %._crit_edge
   %294 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.7.0..sroa_idx486 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -853,8 +853,8 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %254, %256, %257,
   %.sroa.7503.0..sroa_idx504 = getelementptr inbounds nuw i8, ptr %35, i64 12
   br label %322
 
-295:                                              ; preds = %.lr.ph537, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph537 ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit ]
+295:                                              ; preds = %.lr.ph536, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph536 ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit ]
   %296 = load ptr, ptr %48, align 8, !tbaa !46
   %.sroa.0110.0.copyload = load i16, ptr %28, align 8, !tbaa !23
   %.sroa.2112.0.copyload = load ptr, ptr %.sroa.2151.0..sroa_idx, align 8, !tbaa !25
@@ -895,7 +895,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %295, !llvm.loop !196
 
-._crit_edge542:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427, %287, %._crit_edge
+._crit_edge541:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427, %287, %._crit_edge
   %.0371.lcssa = phi i32 [ 0, %._crit_edge ], [ 0, %287 ], [ %373, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427 ]
   %310 = or disjoint i32 %.0371.lcssa, 1
   %311 = zext i32 %.0371.lcssa to i64
@@ -913,10 +913,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %321 = trunc nuw i8 %320 to i1
   br i1 %321, label %377, label %378
 
-322:                                              ; preds = %.lr.ph541, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427
-  %.0371539 = phi i32 [ 0, %.lr.ph541 ], [ %373, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427 ]
-  %.0372538 = phi i32 [ %309, %.lr.ph541 ], [ %374, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427 ]
-  %323 = zext i32 %.0371539 to i64
+322:                                              ; preds = %.lr.ph540, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427
+  %.0371538 = phi i32 [ 0, %.lr.ph540 ], [ %373, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427 ]
+  %.0372537 = phi i32 [ %309, %.lr.ph540 ], [ %374, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427 ]
+  %323 = zext i32 %.0371538 to i64
   %324 = load ptr, ptr %30, align 8, !tbaa !193
   %325 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %324, i64 %323
   %.sroa.0482.0.copyload = load ptr, ptr %325, align 8, !tbaa !138
@@ -924,7 +924,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !139
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %325, i64 12
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
-  %326 = or disjoint i32 %.0371539, 1
+  %326 = or disjoint i32 %.0371538, 1
   %327 = zext i32 %326 to i64
   %328 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %324, i64 %327
   %.sroa.0496.0.copyload = load ptr, ptr %328, align 8, !tbaa !138
@@ -1060,13 +1060,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427: ; pre
   %372 = add i32 %371, 1
   store i32 %372, ptr %291, align 8, !tbaa !194
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %373 = add i32 %.0371539, 2
-  %374 = add i32 %.0372538, 1
+  %373 = add i32 %.0371538, 2
+  %374 = add i32 %.0372537, 1
   %375 = sub i32 %374, %373
   %376 = icmp ugt i32 %375, 2
-  br i1 %376, label %322, label %._crit_edge542, !llvm.loop !197
+  br i1 %376, label %322, label %._crit_edge541, !llvm.loop !197
 
-377:                                              ; preds = %._crit_edge542
+377:                                              ; preds = %._crit_edge541
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !137
@@ -1074,7 +1074,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit427: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %378
 
-378:                                              ; preds = %377, %._crit_edge542
+378:                                              ; preds = %377, %._crit_edge541
   %379 = load ptr, ptr %30, align 8, !tbaa !193
   %380 = icmp eq ptr %379, %290
   br i1 %380, label %_ZN4llvm11SmallVectorINS_7SDValueELj8EED2Ev.exit, label %381

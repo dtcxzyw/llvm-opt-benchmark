@@ -1062,18 +1062,18 @@ define noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typemb(ptr noundef nonnul
   br i1 %12, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %9
-  %.not48 = icmp eq i64 %2, 0
-  br i1 %.not48, label %._crit_edge46, label %.preheader.us
+  %.not46 = icmp eq i64 %2, 0
+  br i1 %.not46, label %._crit_edge44, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %31
-  %.145.us = phi i1 [ %.3.us, %31 ], [ undef, %.preheader.lr.ph ]
-  %.02844.us = phi i64 [ %32, %31 ], [ 0, %.preheader.lr.ph ]
+  %.143.us = phi i1 [ %.3.us, %31 ], [ undef, %.preheader.lr.ph ]
+  %.02842.us = phi i64 [ %32, %31 ], [ 0, %.preheader.lr.ph ]
   br label %20
 
 13:                                               ; preds = %._crit_edge.us
   %14 = load ptr, ptr %7, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2440
-  %16 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %15, i64 %.02844.us
+  %16 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %15, i64 %.02842.us
   %17 = load ptr, ptr %16, align 8, !tbaa !196
   %18 = tail call noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #27
   br label %19
@@ -1083,36 +1083,36 @@ define noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typemb(ptr noundef nonnul
   br i1 %27, label %.loopexit, label %31
 
 20:                                               ; preds = %.preheader.us, %20
-  %.03142.us = phi i1 [ false, %.preheader.us ], [ %27, %20 ]
-  %.03241.us = phi i64 [ 0, %.preheader.us ], [ %29, %20 ]
-  %.03340.us = phi i1 [ true, %.preheader.us ], [ %28, %20 ]
-  %21 = add i64 %.03241.us, %1
+  %.03140.us = phi i1 [ false, %.preheader.us ], [ %27, %20 ]
+  %.03239.us = phi i64 [ 0, %.preheader.us ], [ %29, %20 ]
+  %.03338.us = phi i1 [ true, %.preheader.us ], [ %28, %20 ]
+  %21 = add i64 %.03239.us, %1
   %22 = load ptr, ptr %7, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2440
-  %24 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %23, i64 %.02844.us
+  %24 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %23, i64 %.02842.us
   %25 = load ptr, ptr %24, align 8, !tbaa !196
   %26 = tail call noundef zeroext i1 @_ZNK13pmpaddr_csr_t6match4Em(ptr noundef nonnull align 8 dereferenceable(64) %25, i64 noundef %21) #27
-  %27 = or i1 %.03142.us, %26
-  %28 = and i1 %.03340.us, %26
-  %29 = add i64 %.03241.us, 4
+  %27 = or i1 %.03140.us, %26
+  %28 = and i1 %.03338.us, %26
+  %29 = add i64 %.03239.us, 4
   %30 = icmp ult i64 %29, %2
   br i1 %30, label %20, label %._crit_edge.us, !llvm.loop !199
 
 31:                                               ; preds = %19
-  %32 = add nuw i64 %.02844.us, 1
+  %32 = add nuw i64 %.02842.us, 1
   %33 = load ptr, ptr %7, align 8, !tbaa !39
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 266616
   %35 = load i64, ptr %34, align 8, !tbaa !195
   %36 = icmp ult i64 %32, %35
-  br i1 %36, label %.preheader.us, label %._crit_edge46, !llvm.loop !200
+  br i1 %36, label %.preheader.us, label %._crit_edge44, !llvm.loop !200
 
 ._crit_edge.us:                                   ; preds = %20
   %.031.not.us = xor i1 %27, true
   %37 = select i1 %27, i1 %28, i1 false
-  %.1.mux.us = select i1 %.031.not.us, i1 %.145.us, i1 false
+  %.1.mux.us = select i1 %.031.not.us, i1 %.143.us, i1 false
   br i1 %37, label %13, label %19
 
-._crit_edge46:                                    ; preds = %31, %.preheader.lr.ph
+._crit_edge44:                                    ; preds = %31, %.preheader.lr.ph
   %38 = phi ptr [ %8, %.preheader.lr.ph ], [ %33, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2424
   %40 = load ptr, ptr %39, align 8, !tbaa !201
@@ -1125,14 +1125,14 @@ define noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typemb(ptr noundef nonnul
   %or.cond = or i1 %46, %45
   br i1 %or.cond, label %.loopexit, label %47
 
-47:                                               ; preds = %._crit_edge46
+47:                                               ; preds = %._crit_edge44
   %48 = icmp ult i32 %3, 2
   %not. = xor i1 %41, true
   %spec.select = or i1 %48, %not.
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %47, %._crit_edge46, %6, %9
-  %.0 = phi i1 [ true, %9 ], [ true, %6 ], [ false, %._crit_edge46 ], [ %spec.select, %47 ], [ %.3.us, %19 ]
+.loopexit:                                        ; preds = %19, %47, %._crit_edge44, %6, %9
+  %.0 = phi i1 [ true, %9 ], [ true, %6 ], [ false, %._crit_edge44 ], [ %spec.select, %47 ], [ %.3.us, %19 ]
   ret i1 %.0
 }
 
@@ -1519,8 +1519,8 @@ _ZNK5mmu_t7in_mprvEv.exit:                        ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i64, ptr %29, align 8, !tbaa !216
   %31 = and i64 %30, 131072
-  %.not42 = icmp eq i64 %31, 0
-  br i1 %.not42, label %_ZNK5mmu_t7in_mprvEv.exit.thread, label %88
+  %.not41 = icmp eq i64 %31, 0
+  br i1 %.not41, label %_ZNK5mmu_t7in_mprvEv.exit.thread, label %89
 
 _ZNK5mmu_t7in_mprvEv.exit.thread:                 ; preds = %5, %16, %22, %_ZNK5mmu_t7in_mprvEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 39056
@@ -1596,54 +1596,54 @@ _ZNK5mmu_t7in_mprvEv.exit.thread:                 ; preds = %5, %16, %22, %_ZNK5
 .preheader.i:                                     ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 266616
   %70 = load i64, ptr %69, align 8, !tbaa !195
-  %.not1314.i = icmp eq i64 %70, 0
-  br i1 %.not1314.i, label %.loopexit, label %.lr.ph.i
+  %.not17.i = icmp eq i64 %70, 0
+  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
 
 71:                                               ; preds = %.lr.ph.i
-  %72 = add nuw i64 %.01015.i, 1
+  %72 = add nuw i64 %.01014.i, 1
   %73 = load ptr, ptr %11, align 8, !tbaa !39
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 266616
   %75 = load i64, ptr %74, align 8, !tbaa !195
-  %.not13.not.i = icmp ult i64 %72, %75
-  br i1 %.not13.not.i, label %.lr.ph.i, label %.loopexit, !llvm.loop !228
+  %76 = icmp ult i64 %72, %75
+  br i1 %76, label %.lr.ph.i, label %.loopexit, !llvm.loop !228
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %71
-  %76 = phi ptr [ %73, %71 ], [ %68, %.preheader.i ]
-  %.01015.i = phi i64 [ %72, %71 ], [ 0, %.preheader.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 2440
-  %78 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %77, i64 %.01015.i
-  %79 = load ptr, ptr %78, align 8, !tbaa !196
-  %80 = tail call noundef zeroext i1 @_ZNK13pmpaddr_csr_t12subset_matchEmm(ptr noundef nonnull align 8 dereferenceable(64) %79, i64 noundef %67, i64 noundef 4096) #27
-  br i1 %80, label %_ZN5mmu_t15pmp_homogeneousEmm.exit, label %71
+  %77 = phi ptr [ %73, %71 ], [ %68, %.preheader.i ]
+  %.01014.i = phi i64 [ %72, %71 ], [ 0, %.preheader.i ]
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 2440
+  %79 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %78, i64 %.01014.i
+  %80 = load ptr, ptr %79, align 8, !tbaa !196
+  %81 = tail call noundef zeroext i1 @_ZNK13pmpaddr_csr_t12subset_matchEmm(ptr noundef nonnull align 8 dereferenceable(64) %80, i64 noundef %67, i64 noundef 4096) #27
+  br i1 %81, label %_ZN5mmu_t15pmp_homogeneousEmm.exit, label %71
 
 .loopexit:                                        ; preds = %71, %66, %.preheader.i
-  br i1 %53, label %81, label %82
+  br i1 %53, label %82, label %83
 
-81:                                               ; preds = %.loopexit
+82:                                               ; preds = %.loopexit
   store i64 %.0, ptr %45, align 8, !tbaa !193
   br label %_ZN5mmu_t15pmp_homogeneousEmm.exit
 
-82:                                               ; preds = %.loopexit
-  %83 = icmp eq i32 %4, 1
-  br i1 %83, label %84, label %85
+83:                                               ; preds = %.loopexit
+  %84 = icmp eq i32 %4, 1
+  br i1 %84, label %85, label %86
 
-84:                                               ; preds = %82
+85:                                               ; preds = %83
   store i64 %.0, ptr %39, align 8, !tbaa !193
   br label %_ZN5mmu_t15pmp_homogeneousEmm.exit
 
-85:                                               ; preds = %82
+86:                                               ; preds = %83
   store i64 %.0, ptr %33, align 8, !tbaa !193
   br label %_ZN5mmu_t15pmp_homogeneousEmm.exit
 
-_ZN5mmu_t15pmp_homogeneousEmm.exit:               ; preds = %.lr.ph.i, %81, %85, %84
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %87 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %86, i64 %7
-  store ptr %9, ptr %87, align 8, !tbaa !212
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 8
+_ZN5mmu_t15pmp_homogeneousEmm.exit:               ; preds = %.lr.ph.i, %82, %86, %85
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32912
+  %88 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %87, i64 %7
+  store ptr %9, ptr %88, align 8, !tbaa !212
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %10, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !193
-  br label %88
+  br label %89
 
-88:                                               ; preds = %_ZNK5mmu_t7in_mprvEv.exit, %_ZN5mmu_t15pmp_homogeneousEmm.exit
+89:                                               ; preds = %_ZNK5mmu_t7in_mprvEv.exit, %_ZN5mmu_t15pmp_homogeneousEmm.exit
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %9, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %10, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2215,13 +2215,13 @@ _ZN5mmu_t9translateE17mem_access_info_tm.exit:    ; preds = %24, %27
   br i1 %.not.i35, label %.loopexit, label %.lr.ph.i
 
 66:                                               ; preds = %.lr.ph.i
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.011.014.i, i64 8
-  %.not17.i = icmp eq ptr %67, %65
-  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 8
+  %.not18.i = icmp eq ptr %67, %65
+  br i1 %.not18.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %60, %66
-  %.sroa.011.014.i = phi ptr [ %67, %66 ], [ %63, %60 ]
-  %68 = load ptr, ptr %.sroa.011.014.i, align 8, !tbaa !233
+  %.sroa.011.015.i = phi ptr [ %67, %66 ], [ %63, %60 ]
+  %68 = load ptr, ptr %.sroa.011.015.i, align 8, !tbaa !233
   %69 = load ptr, ptr %68, align 8, !tbaa !40
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
@@ -2357,15 +2357,15 @@ define linkonce_odr noundef zeroext i1 @_ZN16memtracer_list_t19interested_in_ran
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.sroa.011.014 = phi ptr [ %14, %.lr.ph ], [ %6, %4 ]
-  %9 = load ptr, ptr %.sroa.011.014, align 8, !tbaa !233
+  %.sroa.011.015 = phi ptr [ %14, %.lr.ph ], [ %6, %4 ]
+  %9 = load ptr, ptr %.sroa.011.015, align 8, !tbaa !233
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %1, i64 noundef %2, i32 noundef %3)
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.011.014, i64 8
-  %.not17 = icmp eq ptr %14, %8
-  %or.cond = select i1 %13, i1 true, i1 %.not17
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
+  %.not18 = icmp eq ptr %14, %8
+  %or.cond = select i1 %13, i1 true, i1 %.not18
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -2624,13 +2624,13 @@ _ZN5mmu_t9translateE17mem_access_info_tm.exit:    ; preds = %26, %29
   br i1 %.not.i29, label %.loopexit, label %.lr.ph.i
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.011.014.i, i64 8
-  %.not17.i = icmp eq ptr %53, %51
-  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 8
+  %.not18.i = icmp eq ptr %53, %51
+  br i1 %.not18.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %52
-  %.sroa.011.014.i = phi ptr [ %53, %52 ], [ %49, %46 ]
-  %54 = load ptr, ptr %.sroa.011.014.i, align 8, !tbaa !233
+  %.sroa.011.015.i = phi ptr [ %53, %52 ], [ %49, %46 ]
+  %54 = load ptr, ptr %.sroa.011.015.i, align 8, !tbaa !233
   %55 = load ptr, ptr %54, align 8, !tbaa !40
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
@@ -2905,33 +2905,33 @@ define noundef range(i64 0, 2) i64 @_ZN5mmu_t15pmp_homogeneousEmm(ptr noundef no
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %.not12 = icmp eq ptr %10, null
-  br i1 %.not12, label %._crit_edge, label %.preheader
+  br i1 %.not12, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 266616
   %12 = load i64, ptr %11, align 8, !tbaa !195
-  %.not1314 = icmp eq i64 %12, 0
-  br i1 %.not1314, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq i64 %12, 0
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
-  %14 = add nuw i64 %.01015, 1
+  %14 = add nuw i64 %.01014, 1
   %15 = load ptr, ptr %9, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 266616
   %17 = load i64, ptr %16, align 8, !tbaa !195
-  %.not13.not = icmp ult i64 %14, %17
-  br i1 %.not13.not, label %.lr.ph, label %._crit_edge, !llvm.loop !228
+  %18 = icmp ult i64 %14, %17
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !228
 
 .lr.ph:                                           ; preds = %.preheader, %13
-  %18 = phi ptr [ %15, %13 ], [ %10, %.preheader ]
-  %.01015 = phi i64 [ %14, %13 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2440
-  %20 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %19, i64 %.01015
-  %21 = load ptr, ptr %20, align 8, !tbaa !196
-  %22 = tail call noundef zeroext i1 @_ZNK13pmpaddr_csr_t12subset_matchEmm(ptr noundef nonnull align 8 dereferenceable(64) %21, i64 noundef %1, i64 noundef %2) #27
-  br i1 %22, label %._crit_edge, label %13
+  %19 = phi ptr [ %15, %13 ], [ %10, %.preheader ]
+  %.01014 = phi i64 [ %14, %13 ], [ 0, %.preheader ]
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 2440
+  %21 = getelementptr inbounds nuw %"class.std::shared_ptr.78", ptr %20, i64 %.01014
+  %22 = load ptr, ptr %21, align 8, !tbaa !196
+  %23 = tail call noundef zeroext i1 @_ZNK13pmpaddr_csr_t12subset_matchEmm(ptr noundef nonnull align 8 dereferenceable(64) %22, i64 noundef %1, i64 noundef %2) #27
+  br i1 %23, label %.loopexit, label %13
 
-._crit_edge:                                      ; preds = %.lr.ph, %13, %.preheader, %8
-  %.011 = phi i64 [ 1, %8 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %13 ]
+.loopexit:                                        ; preds = %13, %.lr.ph, %.preheader, %8
+  %.011 = phi i64 [ 1, %8 ], [ 1, %.preheader ], [ 1, %13 ], [ 0, %.lr.ph ]
   ret i64 %.011
 }
 

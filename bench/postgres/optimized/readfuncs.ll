@@ -440,7 +440,7 @@ define internal fastcc ptr @_readBitmapset() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %50
   %34 = phi ptr [ %53, %50 ], [ %26, %.preheader ]
-  %.01430 = phi ptr [ %52, %50 ], [ null, %.preheader ]
+  %.01429 = phi ptr [ %52, %50 ], [ null, %.preheader ]
   %35 = load i32, ptr %1, align 4
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %40
@@ -468,7 +468,7 @@ define internal fastcc ptr @_readBitmapset() unnamed_addr #0 {
 
 50:                                               ; preds = %40
   %51 = trunc i64 %41 to i32
-  %52 = call ptr @bms_add_member(ptr noundef %.01430, i32 noundef %51) #9
+  %52 = call ptr @bms_add_member(ptr noundef %.01429, i32 noundef %51) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -478,7 +478,7 @@ define internal fastcc ptr @_readBitmapset() unnamed_addr #0 {
 55:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret ptr %.01430
+  ret ptr %.01429
 }
 
 ; Function Attrs: nounwind uwtable

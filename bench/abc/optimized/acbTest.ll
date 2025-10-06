@@ -2502,8 +2502,8 @@ define range(i32 0, 2) i32 @Acb_NtkCheckPiOrder(ptr noundef captures(none) %0, p
   br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !111
 
 .loopexit:                                        ; preds = %2, %25
-  %.01829 = phi i32 [ %26, %25 ], [ 0, %2 ]
-  %28 = icmp eq i32 %.01829, %.val
+  %.01828 = phi i32 [ %26, %25 ], [ 0, %2 ]
+  %28 = icmp eq i32 %.01828, %.val
   br i1 %28, label %.loopexit.thread, label %29
 
 .loopexit.thread:                                 ; preds = %27, %.loopexit

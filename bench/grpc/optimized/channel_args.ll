@@ -3071,8 +3071,8 @@ define noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channe
   br i1 %.not90, label %.loopexit74, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader73
-  %.not9.not.i = icmp eq i64 %2, 0
-  br i1 %.not9.not.i, label %.loopexit74, label %.lr.ph.split
+  %.not.i = icmp eq i64 %2, 0
+  br i1 %.not.i, label %.loopexit74, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3137,7 +3137,7 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %13
 
 .lr.ph82:                                         ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not9.not.i54 = icmp eq i64 %2, 0
+  %.not.i54 = icmp eq i64 %2, 0
   br label %34
 
 34:                                               ; preds = %.lr.ph82, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59
@@ -3150,7 +3150,7 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %13
   %37 = getelementptr inbounds nuw %struct.grpc_arg, ptr %36, i64 %.04381
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !40
-  br i1 %.not9.not.i54, label %.loopexit, label %.lr.ph.i55
+  br i1 %.not.i54, label %.loopexit, label %.lr.ph.i55
 
 38:                                               ; preds = %.lr.ph.i55
   %39 = add nuw i64 %.0710.i56, 1
@@ -3391,21 +3391,21 @@ define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noun
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !40
   %34 = load i64, ptr %0, align 8, !tbaa !51
-  %.not20.i = icmp eq i64 %34, 0
-  br i1 %.not20.i, label %.loopexit, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %34, 0
+  br i1 %.not18.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %35 = load ptr, ptr %20, align 8, !tbaa !53
   br label %38
 
 36:                                               ; preds = %38
-  %37 = add nuw i64 %.01017.i, 1
+  %37 = add nuw i64 %.01015.i, 1
   %exitcond.not.i = icmp eq i64 %37, %34
   br i1 %exitcond.not.i, label %.loopexit, label %38, !llvm.loop !179
 
 38:                                               ; preds = %36, %.lr.ph.i
-  %.01017.i = phi i64 [ 0, %.lr.ph.i ], [ %37, %36 ]
-  %39 = getelementptr inbounds nuw %struct.grpc_arg, ptr %35, i64 %.01017.i
+  %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %37, %36 ]
+  %39 = getelementptr inbounds nuw %struct.grpc_arg, ptr %35, i64 %.01015.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !40
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %33) #44
@@ -3438,8 +3438,8 @@ define noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr nound
 
 .preheader:                                       ; preds = %2
   %3 = load i64, ptr %0, align 8, !tbaa !51
-  %.not20 = icmp eq i64 %3, 0
-  br i1 %.not20, label %.thread, label %.lr.ph
+  %.not18 = icmp eq i64 %3, 0
+  br i1 %.not18, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3447,21 +3447,21 @@ define noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr nound
   br label %8
 
 6:                                                ; preds = %8
-  %7 = add nuw i64 %.01017, 1
+  %7 = add nuw i64 %.01015, 1
   %exitcond.not = icmp eq i64 %7, %3
   br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !179
 
 8:                                                ; preds = %.lr.ph, %6
-  %.01017 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw %struct.grpc_arg, ptr %5, i64 %.01017
+  %.01015 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
+  %9 = getelementptr inbounds nuw %struct.grpc_arg, ptr %5, i64 %.01015
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #44
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %6
 
-.thread:                                          ; preds = %6, %8, %.preheader, %2
-  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %6 ], [ %9, %8 ]
+.thread:                                          ; preds = %8, %6, %.preheader, %2
+  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %9, %8 ], [ null, %6 ]
   ret ptr %.1
 }
 
@@ -3943,8 +3943,8 @@ define noundef i32 @_Z30grpc_channel_args_find_integerPK17grpc_channel_argsPKc20
 
 .preheader.i:                                     ; preds = %4
   %5 = load i64, ptr %0, align 8, !tbaa !51
-  %.not20.i = icmp eq i64 %5, 0
-  br i1 %.not20.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %5, 0
+  br i1 %.not18.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3952,13 +3952,13 @@ define noundef i32 @_Z30grpc_channel_args_find_integerPK17grpc_channel_argsPKc20
   br label %10
 
 8:                                                ; preds = %10
-  %9 = add nuw i64 %.01017.i, 1
+  %9 = add nuw i64 %.01015.i, 1
   %exitcond.not.i = icmp eq i64 %9, %5
   br i1 %exitcond.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %10, !llvm.loop !179
 
 10:                                               ; preds = %8, %.lr.ph.i
-  %.01017.i = phi i64 [ 0, %.lr.ph.i ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw %struct.grpc_arg, ptr %7, i64 %.01017.i
+  %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %9, %8 ]
+  %11 = getelementptr inbounds nuw %struct.grpc_arg, ptr %7, i64 %.01015.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %1) #44
@@ -3966,7 +3966,7 @@ define noundef i32 @_Z30grpc_channel_args_find_integerPK17grpc_channel_argsPKc20
   br i1 %15, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %8
 
 _Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit: ; preds = %8, %10, %4, %.preheader.i
-  %.1.i = phi ptr [ null, %4 ], [ null, %.preheader.i ], [ %11, %10 ], [ null, %8 ]
+  %.1.i = phi ptr [ null, %4 ], [ null, %.preheader.i ], [ null, %8 ], [ %11, %10 ]
   %16 = tail call noundef i32 @_Z28grpc_channel_arg_get_integerPK8grpc_arg20grpc_integer_options(ptr noundef %.1.i, i64 %2, i32 %3)
   ret i32 %16
 }
@@ -4023,8 +4023,8 @@ define noundef ptr @_Z29grpc_channel_args_find_stringPK17grpc_channel_argsPKc(pt
 
 .preheader.i:                                     ; preds = %2
   %4 = load i64, ptr %0, align 8, !tbaa !51
-  %.not20.i = icmp eq i64 %4, 0
-  br i1 %.not20.i, label %_Z27grpc_channel_arg_get_stringPK8grpc_arg.exit, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %4, 0
+  br i1 %.not18.i, label %_Z27grpc_channel_arg_get_stringPK8grpc_arg.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4032,13 +4032,13 @@ define noundef ptr @_Z29grpc_channel_args_find_stringPK17grpc_channel_argsPKc(pt
   br label %9
 
 7:                                                ; preds = %9
-  %8 = add nuw i64 %.01017.i, 1
+  %8 = add nuw i64 %.01015.i, 1
   %exitcond.not.i = icmp eq i64 %8, %4
   br i1 %exitcond.not.i, label %_Z27grpc_channel_arg_get_stringPK8grpc_arg.exit, label %9, !llvm.loop !179
 
 9:                                                ; preds = %7, %.lr.ph.i
-  %.01017.i = phi i64 [ 0, %.lr.ph.i ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %6, i64 %.01017.i
+  %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %8, %7 ]
+  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %6, i64 %.01015.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %1) #44
@@ -4181,8 +4181,8 @@ define noundef zeroext i1 @_Z27grpc_channel_args_find_boolPK17grpc_channel_argsP
 
 .preheader.i:                                     ; preds = %3
   %4 = load i64, ptr %0, align 8, !tbaa !51
-  %.not20.i = icmp eq i64 %4, 0
-  br i1 %.not20.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %4, 0
+  br i1 %.not18.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4190,13 +4190,13 @@ define noundef zeroext i1 @_Z27grpc_channel_args_find_boolPK17grpc_channel_argsP
   br label %9
 
 7:                                                ; preds = %9
-  %8 = add nuw i64 %.01017.i, 1
+  %8 = add nuw i64 %.01015.i, 1
   %exitcond.not.i = icmp eq i64 %8, %4
   br i1 %exitcond.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %9, !llvm.loop !179
 
 9:                                                ; preds = %7, %.lr.ph.i
-  %.01017.i = phi i64 [ 0, %.lr.ph.i ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %6, i64 %.01017.i
+  %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %8, %7 ]
+  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %6, i64 %.01015.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %1) #44
@@ -4204,7 +4204,7 @@ define noundef zeroext i1 @_Z27grpc_channel_args_find_boolPK17grpc_channel_argsP
   br i1 %14, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %7
 
 _Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit: ; preds = %7, %9, %3, %.preheader.i
-  %.1.i = phi ptr [ null, %3 ], [ null, %.preheader.i ], [ %10, %9 ], [ null, %7 ]
+  %.1.i = phi ptr [ null, %3 ], [ null, %.preheader.i ], [ null, %7 ], [ %10, %9 ]
   %15 = tail call noundef zeroext i1 @_Z25grpc_channel_arg_get_boolPK8grpc_argb(ptr noundef %.1.i, i1 noundef zeroext %2)
   ret i1 %15
 }
@@ -4216,8 +4216,8 @@ define noundef zeroext i1 @_Z36grpc_channel_args_want_minimal_stackPK17grpc_chan
 
 .preheader.i:                                     ; preds = %1
   %2 = load i64, ptr %0, align 8, !tbaa !51
-  %.not20.i = icmp eq i64 %2, 0
-  br i1 %.not20.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %2, 0
+  br i1 %.not18.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4225,13 +4225,13 @@ define noundef zeroext i1 @_Z36grpc_channel_args_want_minimal_stackPK17grpc_chan
   br label %7
 
 5:                                                ; preds = %7
-  %6 = add nuw i64 %.01017.i, 1
+  %6 = add nuw i64 %.01015.i, 1
   %exitcond.not.i = icmp eq i64 %6, %2
   br i1 %exitcond.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %7, !llvm.loop !179
 
 7:                                                ; preds = %5, %.lr.ph.i
-  %.01017.i = phi i64 [ 0, %.lr.ph.i ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw %struct.grpc_arg, ptr %4, i64 %.01017.i
+  %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %6, %5 ]
+  %8 = getelementptr inbounds nuw %struct.grpc_arg, ptr %4, i64 %.01015.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(19) @.str) #44
@@ -4239,7 +4239,7 @@ define noundef zeroext i1 @_Z36grpc_channel_args_want_minimal_stackPK17grpc_chan
   br i1 %12, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %5
 
 _Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit: ; preds = %5, %7, %1, %.preheader.i
-  %.1.i = phi ptr [ null, %1 ], [ null, %.preheader.i ], [ %8, %7 ], [ null, %5 ]
+  %.1.i = phi ptr [ null, %1 ], [ null, %.preheader.i ], [ null, %5 ], [ %8, %7 ]
   %13 = tail call noundef zeroext i1 @_Z25grpc_channel_arg_get_boolPK8grpc_argb(ptr noundef %.1.i, i1 noundef zeroext false)
   ret i1 %13
 }

@@ -334,15 +334,15 @@ define noundef ptr @_ZN5boost4urls6detail9formatterINS_4core17basic_string_viewI
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !45
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !38
   %44 = load i8, ptr %26, align 1, !tbaa !37
-  %.not1891 = icmp eq i8 %44, 0
-  br i1 %.not1891, label %65, label %_ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEEEEERNS0_19variant_alternativeIXT_ENS3_IJDpT0_EEEE4typeERSC_.exit
+  %.not1890 = icmp eq i8 %44, 0
+  br i1 %.not1890, label %65, label %_ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEEEEERNS0_19variant_alternativeIXT_ENS3_IJDpT0_EEEE4typeERSC_.exit
 
 45:                                               ; preds = %37
   store ptr %34, ptr %5, align 8, !tbaa !6, !noalias !45
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !13, !noalias !56
   %47 = and i64 %46, -2
-  %switch.i.i.i.i.i10.i.i.i.i = icmp eq i64 %47, -5572340897628102704
-  br i1 %switch.i.i.i.i.i10.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i
+  %switch.i.i.i.i.i.i.i.i.i = icmp eq i64 %47, -5572340897628102704
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i: ; preds = %45
   %48 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !56
@@ -390,8 +390,8 @@ _ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_v
 _ZN5boost8variant23getILm0EJNS_4core17basic_string_viewIcEEmEEERNS0_19variant_alternativeIXT_ENS0_7variantIJDpT0_EEEE4typeERS9_.exit: ; preds = %61
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.12.1, ptr %62, align 8, !tbaa !6
-  %.sroa.16.8..sroa_idx43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.16.1, ptr %.sroa.16.8..sroa_idx43, align 8, !tbaa !61
+  %.sroa.16.8..sroa_idx41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.16.1, ptr %.sroa.16.8..sroa_idx41, align 8, !tbaa !61
   br label %65
 
 .noexc26:                                         ; preds = %61
@@ -478,8 +478,8 @@ define noundef i64 @_ZNK5boost4urls6detail9formatterINS_4core17basic_string_view
   br i1 %.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.i:                                 ; preds = %16, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
-  %.014.i.i = phi i64 [ %22, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %16 ]
-  %18 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i20, i64 %.014.i.i
+  %.012.i.i = phi i64 [ %22, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %16 ]
+  %18 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i20, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !71
   %19 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i25
@@ -493,13 +493,13 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %.lr.ph.i.sp
   br i1 %21, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %.lr.ph.i.split.i
-  %22 = add nuw i64 %.014.i.i, 1
+  %22 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %22, %.sroa.2.0.copyload.i22
   br i1 %exitcond.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread, label %.lr.ph.i.split.i, !llvm.loop !74
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %14
   %.sroa.0.0.copyload.i28 = phi ptr [ %.sroa.0.0.copyload.i, %14 ], [ %.sroa.0.0.copyload.i20, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %.sink50.i = phi i64 [ %8, %14 ], [ %.014.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
+  %.sink50.i = phi i64 [ %8, %14 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %23 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i28, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
@@ -621,21 +621,21 @@ define void @_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_
   br i1 %10, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us
-  %.014.i.us = phi i64 [ %13, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.014.i.us
+  %.012.i.us = phi i64 [ %13, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us ], [ 0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.012.i.us
   %.sroa.2.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sroa.2.0.copyload.i.i.us = load i64, ptr %.sroa.2.0..sroa_idx.i.i.us, align 8, !tbaa !61, !noalias !81
   %12 = icmp eq i64 %.sroa.2.0.copyload.i.i.us, 0
   br i1 %12, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us: ; preds = %.lr.ph.i.split.us
-  %13 = add nuw i64 %.014.i.us, 1
+  %13 = add nuw i64 %.012.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %13, %4
   br i1 %exitcond.not.i.us, label %_ZNK5boost4urls6detail11format_args3getEm.exit, label %.lr.ph.i.split.us, !llvm.loop !74
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i
-  %.014.i = phi i64 [ %18, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.014.i
+  %.012.i = phi i64 [ %18, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i ], [ 0, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.012.i
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !61, !noalias !81
   %15 = icmp eq i64 %.sroa.2.0.copyload.i.i, %.fr38
@@ -649,12 +649,12 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i: ; preds = %.lr.ph.i.spli
   br i1 %17, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i, %.lr.ph.i.split
-  %18 = add nuw i64 %.014.i, 1
+  %18 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %18, %4
   br i1 %exitcond.not.i, label %_ZNK5boost4urls6detail11format_args3getEm.exit, label %.lr.ph.i.split, !llvm.loop !74
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i, %.lr.ph.i.split.us, %7
-  %.sink50 = phi i64 [ %0, %7 ], [ %.014.i.us, %.lr.ph.i.split.us ], [ %.014.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i ]
+  %.sink50 = phi i64 [ %0, %7 ], [ %.012.i.us, %.lr.ph.i.split.us ], [ %.012.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i ]
   %19 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %3, i64 %.sink50
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
   %.sroa.7.sroa.5.0.copyload = load i64, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 8, !tbaa !61
@@ -701,8 +701,8 @@ define noundef ptr @_ZNK5boost4urls6detail9formatterINS_4core17basic_string_view
   br i1 %.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.i:                                 ; preds = %15, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
-  %.014.i.i = phi i64 [ %21, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %15 ]
-  %17 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i54, i64 %.014.i.i
+  %.012.i.i = phi i64 [ %21, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %15 ]
+  %17 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i54, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !84
   %18 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i59
@@ -716,13 +716,13 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %.lr.ph.i.sp
   br i1 %20, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %.lr.ph.i.split.i
-  %21 = add nuw i64 %.014.i.i, 1
+  %21 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %21, %.sroa.2.0.copyload.i56
   br i1 %exitcond.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, label %.lr.ph.i.split.i, !llvm.loop !74
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %13
   %.sroa.0.0.copyload.i62 = phi ptr [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload.i54, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %.sink50.i = phi i64 [ %7, %13 ], [ %.014.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
+  %.sink50.i = phi i64 [ %7, %13 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %22 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i62, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
@@ -1004,11 +1004,11 @@ thread-pre-split:                                 ; preds = %24, %31
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store ptr %45, ptr %5, align 8, !tbaa !6
-  %.pre87 = load i8, ptr %45, align 1, !tbaa !23
+  %.pre86 = load i8, ptr %45, align 1, !tbaa !23
   br label %46
 
 46:                                               ; preds = %44, %40
-  %47 = phi i8 [ %.pre87, %44 ], [ %41, %40 ]
+  %47 = phi i8 [ %.pre86, %44 ], [ %41, %40 ]
   %48 = phi ptr [ %45, %44 ], [ %42, %40 ]
   %49 = icmp eq i8 %47, 48
   br i1 %49, label %50, label %56
@@ -1058,15 +1058,15 @@ thread-pre-split:                                 ; preds = %24, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !103
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !96
   %67 = load i8, ptr %26, align 1, !tbaa !93
-  %.not1894 = icmp eq i8 %67, 0
-  br i1 %.not1894, label %88, label %_ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEEEEERNS0_19variant_alternativeIXT_ENS3_IJDpT0_EEEE4typeERSC_.exit
+  %.not1893 = icmp eq i8 %67, 0
+  br i1 %.not1893, label %88, label %_ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEEEEERNS0_19variant_alternativeIXT_ENS3_IJDpT0_EEEE4typeERSC_.exit
 
 68:                                               ; preds = %60
   store ptr %57, ptr %5, align 8, !tbaa !6, !noalias !103
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !13, !noalias !106
   %70 = and i64 %69, -2
-  %switch.i.i.i.i.i10.i.i.i.i = icmp eq i64 %70, -5572340897628102704
-  br i1 %switch.i.i.i.i.i10.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i
+  %switch.i.i.i.i.i.i.i.i.i = icmp eq i64 %70, -5572340897628102704
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i: ; preds = %68
   %71 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !106
@@ -1114,8 +1114,8 @@ _ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_v
 _ZN5boost8variant23getILm0EJNS_4core17basic_string_viewIcEEmEEERNS0_19variant_alternativeIXT_ENS0_7variantIJDpT0_EEEE4typeERS9_.exit: ; preds = %84
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.12.1, ptr %85, align 8, !tbaa !6
-  %.sroa.16.8..sroa_idx43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.16.1, ptr %.sroa.16.8..sroa_idx43, align 8, !tbaa !61
+  %.sroa.16.8..sroa_idx41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.16.1, ptr %.sroa.16.8..sroa_idx41, align 8, !tbaa !61
   br label %88
 
 .noexc26:                                         ; preds = %84
@@ -1137,11 +1137,11 @@ _ZN5boost8variant23getILm1EJNS_4core17basic_string_viewIcEEmEEERNS0_19variant_al
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 1
   store ptr %93, ptr %5, align 8, !tbaa !6
-  %.pre88 = load i8, ptr %93, align 1, !tbaa !23
+  %.pre87 = load i8, ptr %93, align 1, !tbaa !23
   br label %94
 
 94:                                               ; preds = %92, %88
-  %95 = phi i8 [ %.pre88, %92 ], [ %90, %88 ]
+  %95 = phi i8 [ %.pre87, %92 ], [ %90, %88 ]
   %96 = phi ptr [ %93, %92 ], [ %89, %88 ]
   %.not19 = icmp eq i8 %95, 125
   br i1 %.not19, label %_ZN5boost6system6resultINS_8variant27variantIJmNS_8optionalINS3_IJNS_4core17basic_string_viewIcEEmEEEEEEEENS0_10error_codeEED2Ev.exit, label %97
@@ -1253,8 +1253,8 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureExRNS1
   br i1 %.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.i:                                 ; preds = %47, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
-  %.014.i.i = phi i64 [ %53, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %47 ]
-  %49 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i47, i64 %.014.i.i
+  %.012.i.i = phi i64 [ %53, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %47 ]
+  %49 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i47, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !114
   %50 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i52
@@ -1268,13 +1268,13 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %.lr.ph.i.sp
   br i1 %52, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %.lr.ph.i.split.i
-  %53 = add nuw i64 %.014.i.i, 1
+  %53 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %53, %.sroa.2.0.copyload.i49
   br i1 %exitcond.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread, label %.lr.ph.i.split.i, !llvm.loop !74
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %45
   %.sroa.0.0.copyload.i55 = phi ptr [ %.sroa.0.0.copyload.i, %45 ], [ %.sroa.0.0.copyload.i47, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %.sink50.i = phi i64 [ %39, %45 ], [ %.014.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
+  %.sink50.i = phi i64 [ %39, %45 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %54 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i55, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
@@ -1401,8 +1401,8 @@ define noundef i64 @_ZNK5boost4urls6detail22integer_formatter_impl7measureEyRNS1
   br i1 %.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.i:                                 ; preds = %39, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
-  %.014.i.i = phi i64 [ %45, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %39 ]
-  %41 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i38, i64 %.014.i.i
+  %.012.i.i = phi i64 [ %45, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %39 ]
+  %41 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i38, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !118
   %42 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i43
@@ -1416,13 +1416,13 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %.lr.ph.i.sp
   br i1 %44, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %.lr.ph.i.split.i
-  %45 = add nuw i64 %.014.i.i, 1
+  %45 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %45, %.sroa.2.0.copyload.i40
   br i1 %exitcond.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread, label %.lr.ph.i.split.i, !llvm.loop !74
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %37
   %.sroa.0.0.copyload.i46 = phi ptr [ %.sroa.0.0.copyload.i, %37 ], [ %.sroa.0.0.copyload.i38, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %.sink50.i = phi i64 [ %31, %37 ], [ %.014.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
+  %.sink50.i = phi i64 [ %31, %37 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %46 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i46, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
@@ -1529,8 +1529,8 @@ define noundef ptr @_ZNK5boost4urls6detail22integer_formatter_impl6formatExRNS1_
   br i1 %.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.i:                                 ; preds = %24, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
-  %.014.i.i = phi i64 [ %30, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %24 ]
-  %26 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i113, i64 %.014.i.i
+  %.012.i.i = phi i64 [ %30, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %24 ]
+  %26 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i113, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !122
   %27 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i118
@@ -1544,13 +1544,13 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %.lr.ph.i.sp
   br i1 %29, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %.lr.ph.i.split.i
-  %30 = add nuw i64 %.014.i.i, 1
+  %30 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %30, %.sroa.2.0.copyload.i115
   br i1 %exitcond.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, label %.lr.ph.i.split.i, !llvm.loop !74
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %22
   %.sroa.0.0.copyload.i121 = phi ptr [ %.sroa.0.0.copyload.i, %22 ], [ %.sroa.0.0.copyload.i113, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %.sink50.i = phi i64 [ %16, %22 ], [ %.014.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
+  %.sink50.i = phi i64 [ %16, %22 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %31 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i121, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
@@ -1904,8 +1904,8 @@ define noundef ptr @_ZNK5boost4urls6detail22integer_formatter_impl6formatEyRNS1_
   br i1 %.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.i:                                 ; preds = %22, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
-  %.014.i.i = phi i64 [ %28, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %22 ]
-  %24 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i95, i64 %.014.i.i
+  %.012.i.i = phi i64 [ %28, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ], [ 0, %22 ]
+  %24 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i95, i64 %.012.i.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !noalias !130
   %25 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, %.fr38.i100
@@ -1919,13 +1919,13 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %.lr.ph.i.sp
   br i1 %27, label %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %.lr.ph.i.split.i
-  %28 = add nuw i64 %.014.i.i, 1
+  %28 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %28, %.sroa.2.0.copyload.i97
   br i1 %exitcond.not.i.i, label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, label %.lr.ph.i.split.i, !llvm.loop !74
 
 _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split.i: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i, %20
   %.sroa.0.0.copyload.i103 = phi ptr [ %.sroa.0.0.copyload.i, %20 ], [ %.sroa.0.0.copyload.i95, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
-  %.sink50.i = phi i64 [ %14, %20 ], [ %.014.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
+  %.sink50.i = phi i64 [ %14, %20 ], [ %.012.i.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.i.i ]
   %29 = getelementptr inbounds nuw %"class.boost::urls::detail::format_arg", ptr %.sroa.0.0.copyload.i103, i64 %.sink50.i
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 40
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit
@@ -2537,8 +2537,8 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx.i.i, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !153
   store i8 %18, ptr %10, align 8
-  %.sroa.7.0..sroa_idx8.i.i = getelementptr inbounds nuw i8, ptr %9, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx8.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, i64 23, i1 false)
+  %.sroa.7.0..sroa_idx7.i.i = getelementptr inbounds nuw i8, ptr %9, i64 9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx7.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.i)
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread
 
@@ -2563,30 +2563,30 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pr = load i32, ptr %11, align 8, !tbaa !48, !noalias !163
   call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  %switch.i.i.i.i.i.i.i.i.i = icmp eq i32 %.pr, 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %23, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread
+  %23 = icmp eq i32 %.pr, 1
+  br i1 %23, label %24, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread
 
-23:                                               ; preds = %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit
+24:                                               ; preds = %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit
   store i8 0, ptr %0, align 8, !tbaa !50, !alias.scope !163
-  %24 = load i8, ptr %10, align 8, !tbaa !50, !range !54, !noalias !163, !noundef !55
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit
+  %25 = load i8, ptr %10, align 8, !tbaa !50, !range !54, !noalias !163, !noundef !55
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread: ; preds = %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 24, i1 false), !tbaa.struct !166
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   store i8 1, ptr %0, align 8, !tbaa !50, !alias.scope !163
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit
 
-_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit: ; preds = %23, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread, %26
-  %.sink = phi i32 [ 2, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread ], [ 1, %26 ], [ 1, %23 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink, ptr %29, align 8, !tbaa !48, !alias.scope !163
+_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit: ; preds = %24, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread, %27
+  %.sink = phi i32 [ 2, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread ], [ 1, %27 ], [ 1, %24 ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.sink, ptr %30, align 8, !tbaa !48, !alias.scope !163
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
@@ -2709,8 +2709,8 @@ _ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_strin
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx.i.i, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !193
   store i8 %46, ptr %35, align 8
-  %.sroa.7.0..sroa_idx8.i.i = getelementptr inbounds nuw i8, ptr %0, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx8.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, i64 23, i1 false)
+  %.sroa.7.0..sroa_idx7.i.i = getelementptr inbounds nuw i8, ptr %0, i64 9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx7.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, i64 23, i1 false)
   store i32 2, ptr %37, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.i)
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm2ELm1EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit

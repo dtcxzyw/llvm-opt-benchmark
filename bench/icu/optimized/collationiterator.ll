@@ -1424,8 +1424,8 @@ define noundef i64 @_ZN6icu_7717CollationIterator14nextCEFromCE32EPKNS_13Collati
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 align 2 {
   %7 = and i32 %3, 192
-  %.not371 = icmp eq i32 %7, 192
-  br i1 %.not371, label %.lr.ph, label %._crit_edge
+  %.not364 = icmp eq i32 %7, 192
+  br i1 %.not364, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %.not150 = icmp eq i8 %4, 0
@@ -1436,11 +1436,11 @@ define void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDa
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
-  %.0376 = phi ptr [ %1, %.lr.ph ], [ %.1, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
-  %.0122373 = phi i32 [ %2, %.lr.ph ], [ %.1123, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
-  %.0125372 = phi i32 [ %3, %.lr.ph ], [ %.1126, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
-  %13 = and i32 %.0125372, 15
-  switch i32 %13, label %default.unreachable500 [
+  %.0367 = phi ptr [ %1, %.lr.ph ], [ %.1, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
+  %.0122366 = phi i32 [ %2, %.lr.ph ], [ %.1123, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
+  %.0125365 = phi i32 [ %3, %.lr.ph ], [ %.1126, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
+  %13 = and i32 %.0125365, 15
+  switch i32 %13, label %default.unreachable489 [
     i32 0, label %14
     i32 3, label %14
     i32 1, label %18
@@ -1451,12 +1451,12 @@ define void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDa
     i32 7, label %252
     i32 8, label %324
     i32 9, label %334
-    i32 10, label %471
-    i32 11, label %481
-    i32 12, label %524
-    i32 13, label %664
-    i32 14, label %742
-    i32 15, label %785
+    i32 10, label %473
+    i32 11, label %483
+    i32 12, label %526
+    i32 13, label %666
+    i32 14, label %744
+    i32 15, label %787
   ]
 
 14:                                               ; preds = %12, %12
@@ -1470,7 +1470,7 @@ define void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDa
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = and i32 %.0125372, -256
+  %20 = and i32 %.0125365, -256
   %21 = zext i32 %20 to i64
   %22 = shl nuw i64 %21, 32
   %23 = or disjoint i64 %22, 83887360
@@ -1550,73 +1550,73 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
 
 55:                                               ; preds = %12
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %57 = and i32 %.0125372, -256
+  %57 = and i32 %.0125365, -256
   %58 = zext i32 %57 to i64
   %59 = load i32, ptr %56, align 8, !tbaa !20
   %60 = icmp slt i32 %59, 40
-  br i1 %60, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i181, label %61
+  br i1 %60, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i180, label %61
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load i32, ptr %63, align 8, !tbaa !19
-  %.not.i.not.i169 = icmp slt i32 %59, %64
-  br i1 %.not.i.not.i169, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i181, label %65
+  %.not.i.not.i168 = icmp slt i32 %59, %64
+  br i1 %.not.i.not.i168, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i180, label %65
 
 65:                                               ; preds = %61
   %66 = load i32, ptr %5, align 4, !tbaa !13
   %67 = icmp slt i32 %66, 1
-  br i1 %67, label %.preheader.i.i170, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+  br i1 %67, label %.preheader.i.i169, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i.i170:                                ; preds = %65, %.preheader.i.i170
-  %.012.i.i171 = phi i32 [ %.113.i.i173, %.preheader.i.i170 ], [ %64, %65 ]
-  %68 = icmp slt i32 %.012.i.i171, 1000
-  %.113.v.i.i172 = select i1 %68, i32 2, i32 1
-  %.113.i.i173 = shl nsw i32 %.012.i.i171, %.113.v.i.i172
-  %.not.i174 = icmp sgt i32 %.113.i.i173, %59
-  br i1 %.not.i174, label %69, label %.preheader.i.i170, !llvm.loop !22
+.preheader.i.i169:                                ; preds = %65, %.preheader.i.i169
+  %.012.i.i170 = phi i32 [ %.113.i.i172, %.preheader.i.i169 ], [ %64, %65 ]
+  %68 = icmp slt i32 %.012.i.i170, 1000
+  %.113.v.i.i171 = select i1 %68, i32 2, i32 1
+  %.113.i.i172 = shl nsw i32 %.012.i.i170, %.113.v.i.i171
+  %.not.i173 = icmp sgt i32 %.113.i.i172, %59
+  br i1 %.not.i173, label %69, label %.preheader.i.i169, !llvm.loop !22
 
-69:                                               ; preds = %.preheader.i.i170
-  %70 = icmp sgt i32 %.012.i.i171, 0
+69:                                               ; preds = %.preheader.i.i169
+  %70 = icmp sgt i32 %.012.i.i170, 0
   br i1 %70, label %71, label %83
 
 71:                                               ; preds = %69
-  %72 = zext nneg i32 %.113.i.i173 to i64
+  %72 = zext nneg i32 %.113.i.i172 to i64
   %73 = shl nuw nsw i64 %72, 3
   %74 = tail call noalias ptr @uprv_malloc_77(i64 noundef %73) #22
-  %.not.i.i.i175 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i175, label %83, label %75
+  %.not.i.i.i174 = icmp eq ptr %74, null
+  br i1 %.not.i.i.i174, label %83, label %75
 
 75:                                               ; preds = %71
   %76 = load i32, ptr %63, align 8, !tbaa !19
-  %spec.select.i.i.i176 = tail call i32 @llvm.smin.i32(i32 %59, i32 %76)
-  %.1.i.i.i177 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i176, i32 %.113.i.i173)
+  %spec.select.i.i.i175 = tail call i32 @llvm.smin.i32(i32 %59, i32 %76)
+  %.1.i.i.i176 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i175, i32 %.113.i.i172)
   %77 = load ptr, ptr %62, align 8, !tbaa !18
-  %78 = sext i32 %.1.i.i.i177 to i64
+  %78 = sext i32 %.1.i.i.i176 to i64
   %79 = shl nsw i64 %78, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %74, ptr align 8 %77, i64 %79, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %81 = load i8, ptr %80, align 4, !tbaa !15
-  %.not.i.i.i.i178 = icmp eq i8 %81, 0
-  br i1 %.not.i.i.i.i178, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i179, label %82
+  %.not.i.i.i.i177 = icmp eq i8 %81, 0
+  br i1 %.not.i.i.i.i177, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i178, label %82
 
 82:                                               ; preds = %75
   tail call void @uprv_free_77(ptr noundef %77)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i179
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i178
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i179: ; preds = %82, %75
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i178: ; preds = %82, %75
   store ptr %74, ptr %62, align 8, !tbaa !18
-  store i32 %.113.i.i173, ptr %63, align 8, !tbaa !19
+  store i32 %.113.i.i172, ptr %63, align 8, !tbaa !19
   store i8 1, ptr %80, align 4, !tbaa !15
-  %.pre.i180 = load i32, ptr %56, align 8, !tbaa !20
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i181
+  %.pre.i179 = load i32, ptr %56, align 8, !tbaa !20
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i180
 
 83:                                               ; preds = %71, %69
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i181: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i179, %61, %55
-  %84 = phi i32 [ %.pre.i180, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i179 ], [ %59, %61 ], [ %59, %55 ]
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i180: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i178, %61, %55
+  %84 = phi i32 [ %.pre.i179, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i178 ], [ %59, %61 ], [ %59, %55 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %86 = add nsw i32 %84, 1
   store i32 %86, ptr %56, align 8, !tbaa !20
@@ -1633,11 +1633,11 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   %94 = load i32, ptr %93, align 8, !tbaa !19
   %95 = load i32, ptr %91, align 8, !tbaa !20
   %96 = add nsw i32 %95, 2
-  %.not.i183 = icmp sgt i32 %96, %94
-  br i1 %.not.i183, label %97, label %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge
+  %.not.i182 = icmp sgt i32 %96, %94
+  br i1 %.not.i182, label %97, label %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge
 
 ._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge: ; preds = %90
-  %.pre434 = load ptr, ptr %92, align 8, !tbaa !18
+  %.pre423 = load ptr, ptr %92, align 8, !tbaa !18
   br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
 
 97:                                               ; preds = %90
@@ -1681,8 +1681,8 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
 115:                                              ; preds = %110, %108
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %117 = load i8, ptr %116, align 4, !tbaa !15
-  %.not.i.i.i184 = icmp eq i8 %117, 0
-  br i1 %.not.i.i.i184, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i, label %118
+  %.not.i.i.i183 = icmp eq i8 %117, 0
+  br i1 %.not.i.i.i183, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i, label %118
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr %92, align 8, !tbaa !18
@@ -1693,8 +1693,8 @@ _ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i: ; preds = %118, %115
   store ptr %107, ptr %92, align 8, !tbaa !18
   store i32 %.113.i, ptr %93, align 8, !tbaa !19
   store i8 1, ptr %116, align 4, !tbaa !15
-  %.pre433 = load i32, ptr %91, align 8, !tbaa !37
-  %.pre435 = add nsw i32 %.pre433, 2
+  %.pre422 = load i32, ptr %91, align 8, !tbaa !37
+  %.pre424 = add nsw i32 %.pre422, 2
   br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
 
 120:                                              ; preds = %104, %102
@@ -1702,13 +1702,13 @@ _ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i: ; preds = %118, %115
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
 _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit: ; preds = %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i
-  %.pre-phi = phi i32 [ %96, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge ], [ %.pre435, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i ]
-  %121 = phi ptr [ %.pre434, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge ], [ %107, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i ]
-  %122 = phi i32 [ %95, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge ], [ %.pre433, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i ]
-  %123 = and i32 %.0125372, -16777216
+  %.pre-phi = phi i32 [ %96, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge ], [ %.pre424, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i ]
+  %121 = phi ptr [ %.pre423, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge ], [ %107, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i ]
+  %122 = phi i32 [ %95, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit_crit_edge ], [ %.pre422, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i ]
+  %123 = and i32 %.0125365, -16777216
   %124 = zext i32 %123 to i64
   %125 = shl nuw i64 %124, 32
-  %126 = lshr i32 %.0125372, 8
+  %126 = lshr i32 %.0125365, 8
   %127 = and i32 %126, 65280
   %128 = zext nneg i32 %127 to i64
   %129 = or disjoint i64 %125, %128
@@ -1716,7 +1716,7 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   %131 = sext i32 %122 to i64
   %132 = getelementptr i64, ptr %121, i64 %131
   store i64 %130, ptr %132, align 8, !tbaa !38
-  %133 = shl i32 %.0125372, 16
+  %133 = shl i32 %.0125365, 16
   %134 = and i32 %133, -16777216
   %135 = or disjoint i32 %134, 1280
   %136 = zext i32 %135 to i64
@@ -1726,12 +1726,12 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
 138:                                              ; preds = %12
-  %139 = getelementptr inbounds nuw i8, ptr %.0376, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.0367, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !67
-  %141 = lshr i32 %.0125372, 13
+  %141 = lshr i32 %.0125365, 13
   %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds nuw i32, ptr %140, i64 %142
-  %144 = lshr i32 %.0125372, 8
+  %144 = lshr i32 %.0125365, 8
   %145 = and i32 %144, 31
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1739,36 +1739,36 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   %149 = load i32, ptr %148, align 8, !tbaa !19
   %150 = load i32, ptr %146, align 8, !tbaa !20
   %151 = add nsw i32 %150, %145
-  %.not.i185 = icmp sgt i32 %151, %149
-  br i1 %.not.i185, label %152, label %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196_crit_edge
+  %.not.i184 = icmp sgt i32 %151, %149
+  br i1 %.not.i184, label %152, label %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195_crit_edge
 
-._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196_crit_edge: ; preds = %138
-  %.pre431 = load ptr, ptr %147, align 8, !tbaa !18
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196
+._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195_crit_edge: ; preds = %138
+  %.pre420 = load ptr, ptr %147, align 8, !tbaa !18
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195
 
 152:                                              ; preds = %138
   %153 = load i32, ptr %5, align 4, !tbaa !13
   %154 = icmp slt i32 %153, 1
-  br i1 %154, label %.preheader.i187, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+  br i1 %154, label %.preheader.i186, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i187:                                  ; preds = %152, %.preheader.i187
-  %.012.i188 = phi i32 [ %.113.i190, %.preheader.i187 ], [ %149, %152 ]
-  %155 = icmp slt i32 %.012.i188, 1000
-  %.113.v.i189 = select i1 %155, i32 2, i32 1
-  %.113.i190 = shl nsw i32 %.012.i188, %.113.v.i189
-  %156 = icmp slt i32 %.113.i190, %151
-  br i1 %156, label %.preheader.i187, label %157, !llvm.loop !22
+.preheader.i186:                                  ; preds = %152, %.preheader.i186
+  %.012.i187 = phi i32 [ %.113.i189, %.preheader.i186 ], [ %149, %152 ]
+  %155 = icmp slt i32 %.012.i187, 1000
+  %.113.v.i188 = select i1 %155, i32 2, i32 1
+  %.113.i189 = shl nsw i32 %.012.i187, %.113.v.i188
+  %156 = icmp slt i32 %.113.i189, %151
+  br i1 %156, label %.preheader.i186, label %157, !llvm.loop !22
 
-157:                                              ; preds = %.preheader.i187
-  %158 = icmp sgt i32 %.012.i188, 0
+157:                                              ; preds = %.preheader.i186
+  %158 = icmp sgt i32 %.012.i187, 0
   br i1 %158, label %159, label %175
 
 159:                                              ; preds = %157
-  %160 = zext nneg i32 %.113.i190 to i64
+  %160 = zext nneg i32 %.113.i189 to i64
   %161 = shl nuw nsw i64 %160, 3
   %162 = tail call noalias ptr @uprv_malloc_77(i64 noundef %161) #22
-  %.not.i.i191 = icmp eq ptr %162, null
-  br i1 %.not.i.i191, label %175, label %163
+  %.not.i.i190 = icmp eq ptr %162, null
+  br i1 %.not.i.i190, label %175, label %163
 
 163:                                              ; preds = %159
   %164 = icmp sgt i32 %150, 0
@@ -1776,10 +1776,10 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
 
 165:                                              ; preds = %163
   %166 = load i32, ptr %148, align 8, !tbaa !19
-  %spec.select.i.i194 = tail call i32 @llvm.smin.i32(i32 %150, i32 %166)
-  %.1.i.i195 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i194, i32 %.113.i190)
+  %spec.select.i.i193 = tail call i32 @llvm.smin.i32(i32 %150, i32 %166)
+  %.1.i.i194 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i193, i32 %.113.i189)
   %167 = load ptr, ptr %147, align 8, !tbaa !18
-  %168 = sext i32 %.1.i.i195 to i64
+  %168 = sext i32 %.1.i.i194 to i64
   %169 = shl nsw i64 %168, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr align 8 %167, i64 %169, i1 false)
   br label %170
@@ -1787,35 +1787,35 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
 170:                                              ; preds = %165, %163
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %172 = load i8, ptr %171, align 4, !tbaa !15
-  %.not.i.i.i192 = icmp eq i8 %172, 0
-  br i1 %.not.i.i.i192, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i193, label %173
+  %.not.i.i.i191 = icmp eq i8 %172, 0
+  br i1 %.not.i.i.i191, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i192, label %173
 
 173:                                              ; preds = %170
   %174 = load ptr, ptr %147, align 8, !tbaa !18
   tail call void @uprv_free_77(ptr noundef %174)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i193
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i192
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i193: ; preds = %173, %170
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i192: ; preds = %173, %170
   store ptr %162, ptr %147, align 8, !tbaa !18
-  store i32 %.113.i190, ptr %148, align 8, !tbaa !19
+  store i32 %.113.i189, ptr %148, align 8, !tbaa !19
   store i8 1, ptr %171, align 4, !tbaa !15
-  %.promoted380.pre = load i32, ptr %146, align 8, !tbaa !20
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196
+  %.promoted369.pre = load i32, ptr %146, align 8, !tbaa !20
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195
 
 175:                                              ; preds = %159, %157
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196: ; preds = %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196_crit_edge, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i193
-  %.promoted380 = phi i32 [ %150, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196_crit_edge ], [ %.promoted380.pre, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i193 ]
-  %176 = phi ptr [ %.pre431, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196_crit_edge ], [ %162, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i193 ]
-  %177 = sext i32 %.promoted380 to i64
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195: ; preds = %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195_crit_edge, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i192
+  %.promoted369 = phi i32 [ %150, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195_crit_edge ], [ %.promoted369.pre, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i192 ]
+  %176 = phi ptr [ %.pre420, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195_crit_edge ], [ %162, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i192 ]
+  %177 = sext i32 %.promoted369 to i64
   br label %178
 
-178:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196, %_ZN6icu_779Collation10ceFromCE32Ej.exit
-  %indvars.iv426 = phi i64 [ %177, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196 ], [ %indvars.iv.next427, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
-  %.0134 = phi i32 [ %145, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196 ], [ %204, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
-  %.0129 = phi ptr [ %143, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit196 ], [ %179, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
+178:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195, %_ZN6icu_779Collation10ceFromCE32Ej.exit
+  %indvars.iv415 = phi i64 [ %177, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195 ], [ %indvars.iv.next416, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
+  %.0134 = phi i32 [ %145, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195 ], [ %204, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
+  %.0129 = phi ptr [ %143, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit195 ], [ %179, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
   %179 = getelementptr inbounds nuw i8, ptr %.0129, i64 4
   %180 = load i32, ptr %.0129, align 4, !tbaa !12
   %181 = and i32 %180, 255
@@ -1848,23 +1848,23 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   br label %_ZN6icu_779Collation10ceFromCE32Ej.exit
 
 _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %183, %194, %199
-  %.0.i197 = phi i64 [ %193, %183 ], [ %201, %199 ], [ %198, %194 ]
-  %indvars.iv.next427 = add nsw i64 %indvars.iv426, 1
-  %202 = trunc nsw i64 %indvars.iv.next427 to i32
+  %.0.i196 = phi i64 [ %193, %183 ], [ %201, %199 ], [ %198, %194 ]
+  %indvars.iv.next416 = add nsw i64 %indvars.iv415, 1
+  %202 = trunc nsw i64 %indvars.iv.next416 to i32
   store i32 %202, ptr %146, align 8, !tbaa !20
-  %203 = getelementptr inbounds i64, ptr %176, i64 %indvars.iv426
-  store i64 %.0.i197, ptr %203, align 8, !tbaa !38
+  %203 = getelementptr inbounds i64, ptr %176, i64 %indvars.iv415
+  store i64 %.0.i196, ptr %203, align 8, !tbaa !38
   %204 = add nsw i32 %.0134, -1
   %205 = icmp sgt i32 %.0134, 1
   br i1 %205, label %178, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit, !llvm.loop !68
 
 206:                                              ; preds = %12
-  %207 = getelementptr inbounds nuw i8, ptr %.0376, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %.0367, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !69
-  %209 = lshr i32 %.0125372, 13
+  %209 = lshr i32 %.0125365, 13
   %210 = zext nneg i32 %209 to i64
   %211 = getelementptr inbounds nuw i64, ptr %208, i64 %210
-  %212 = lshr i32 %.0125372, 8
+  %212 = lshr i32 %.0125365, 8
   %213 = and i32 %212, 31
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1872,36 +1872,36 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %183, %194, %199
   %217 = load i32, ptr %216, align 8, !tbaa !19
   %218 = load i32, ptr %214, align 8, !tbaa !20
   %219 = add nsw i32 %218, %213
-  %.not.i198 = icmp sgt i32 %219, %217
-  br i1 %.not.i198, label %220, label %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209_crit_edge
+  %.not.i197 = icmp sgt i32 %219, %217
+  br i1 %.not.i197, label %220, label %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208_crit_edge
 
-._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209_crit_edge: ; preds = %206
-  %.pre429 = load ptr, ptr %215, align 8, !tbaa !18
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209
+._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208_crit_edge: ; preds = %206
+  %.pre418 = load ptr, ptr %215, align 8, !tbaa !18
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208
 
 220:                                              ; preds = %206
   %221 = load i32, ptr %5, align 4, !tbaa !13
   %222 = icmp slt i32 %221, 1
-  br i1 %222, label %.preheader.i200, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+  br i1 %222, label %.preheader.i199, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i200:                                  ; preds = %220, %.preheader.i200
-  %.012.i201 = phi i32 [ %.113.i203, %.preheader.i200 ], [ %217, %220 ]
-  %223 = icmp slt i32 %.012.i201, 1000
-  %.113.v.i202 = select i1 %223, i32 2, i32 1
-  %.113.i203 = shl nsw i32 %.012.i201, %.113.v.i202
-  %224 = icmp slt i32 %.113.i203, %219
-  br i1 %224, label %.preheader.i200, label %225, !llvm.loop !22
+.preheader.i199:                                  ; preds = %220, %.preheader.i199
+  %.012.i200 = phi i32 [ %.113.i202, %.preheader.i199 ], [ %217, %220 ]
+  %223 = icmp slt i32 %.012.i200, 1000
+  %.113.v.i201 = select i1 %223, i32 2, i32 1
+  %.113.i202 = shl nsw i32 %.012.i200, %.113.v.i201
+  %224 = icmp slt i32 %.113.i202, %219
+  br i1 %224, label %.preheader.i199, label %225, !llvm.loop !22
 
-225:                                              ; preds = %.preheader.i200
-  %226 = icmp sgt i32 %.012.i201, 0
+225:                                              ; preds = %.preheader.i199
+  %226 = icmp sgt i32 %.012.i200, 0
   br i1 %226, label %227, label %243
 
 227:                                              ; preds = %225
-  %228 = zext nneg i32 %.113.i203 to i64
+  %228 = zext nneg i32 %.113.i202 to i64
   %229 = shl nuw nsw i64 %228, 3
   %230 = tail call noalias ptr @uprv_malloc_77(i64 noundef %229) #22
-  %.not.i.i204 = icmp eq ptr %230, null
-  br i1 %.not.i.i204, label %243, label %231
+  %.not.i.i203 = icmp eq ptr %230, null
+  br i1 %.not.i.i203, label %243, label %231
 
 231:                                              ; preds = %227
   %232 = icmp sgt i32 %218, 0
@@ -1909,10 +1909,10 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %183, %194, %199
 
 233:                                              ; preds = %231
   %234 = load i32, ptr %216, align 8, !tbaa !19
-  %spec.select.i.i207 = tail call i32 @llvm.smin.i32(i32 %218, i32 %234)
-  %.1.i.i208 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i207, i32 %.113.i203)
+  %spec.select.i.i206 = tail call i32 @llvm.smin.i32(i32 %218, i32 %234)
+  %.1.i.i207 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i206, i32 %.113.i202)
   %235 = load ptr, ptr %215, align 8, !tbaa !18
-  %236 = sext i32 %.1.i.i208 to i64
+  %236 = sext i32 %.1.i.i207 to i64
   %237 = shl nsw i64 %236, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %230, ptr align 8 %235, i64 %237, i1 false)
   br label %238
@@ -1920,35 +1920,35 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %183, %194, %199
 238:                                              ; preds = %233, %231
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %240 = load i8, ptr %239, align 4, !tbaa !15
-  %.not.i.i.i205 = icmp eq i8 %240, 0
-  br i1 %.not.i.i.i205, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i206, label %241
+  %.not.i.i.i204 = icmp eq i8 %240, 0
+  br i1 %.not.i.i.i204, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i205, label %241
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr %215, align 8, !tbaa !18
   tail call void @uprv_free_77(ptr noundef %242)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i206
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i205
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i206: ; preds = %241, %238
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i205: ; preds = %241, %238
   store ptr %230, ptr %215, align 8, !tbaa !18
-  store i32 %.113.i203, ptr %216, align 8, !tbaa !19
+  store i32 %.113.i202, ptr %216, align 8, !tbaa !19
   store i8 1, ptr %239, align 4, !tbaa !15
   %.promoted.pre = load i32, ptr %214, align 8, !tbaa !20
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208
 
 243:                                              ; preds = %227, %225
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209: ; preds = %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209_crit_edge, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i206
-  %.promoted = phi i32 [ %218, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209_crit_edge ], [ %.promoted.pre, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i206 ]
-  %244 = phi ptr [ %.pre429, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209_crit_edge ], [ %230, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i206 ]
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208: ; preds = %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208_crit_edge, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i205
+  %.promoted = phi i32 [ %218, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208_crit_edge ], [ %.promoted.pre, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i205 ]
+  %244 = phi ptr [ %.pre418, %._ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208_crit_edge ], [ %230, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i205 ]
   %245 = sext i32 %.promoted to i64
   br label %246
 
-246:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209, %246
-  %indvars.iv = phi i64 [ %245, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209 ], [ %indvars.iv.next, %246 ]
-  %.0136 = phi i32 [ %213, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209 ], [ %250, %246 ]
-  %.0135 = phi ptr [ %211, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit209 ], [ %247, %246 ]
+246:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208, %246
+  %indvars.iv = phi i64 [ %245, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208 ], [ %indvars.iv.next, %246 ]
+  %.0136 = phi i32 [ %213, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208 ], [ %250, %246 ]
+  %.0135 = phi ptr [ %211, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit208 ], [ %247, %246 ]
   %247 = getelementptr inbounds nuw i8, ptr %.0135, i64 8
   %248 = load i64, ptr %.0135, align 8, !tbaa !38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1956,13 +1956,13 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   store i64 %248, ptr %249, align 8, !tbaa !38
   %250 = add nsw i32 %.0136, -1
   %251 = icmp samesign ugt i32 %.0136, 1
-  br i1 %251, label %246, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit.loopexit327, !llvm.loop !70
+  br i1 %251, label %246, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit.loopexit320, !llvm.loop !70
 
 252:                                              ; preds = %12
   %253 = load ptr, ptr %0, align 8, !tbaa !24
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 120
   %255 = load ptr, ptr %254, align 8
-  %256 = tail call noundef i32 %255(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef %.0125372, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %256 = tail call noundef i32 %255(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef %.0125365, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %257 = load i32, ptr %5, align 4, !tbaa !13
   %258 = icmp slt i32 %257, 1
   br i1 %258, label %259, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
@@ -1978,49 +1978,49 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   %265 = load ptr, ptr %264, align 8, !tbaa !58
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %267 = load ptr, ptr %266, align 8, !tbaa !59
-  %268 = icmp ult i32 %.0122373, 55296
+  %268 = icmp ult i32 %.0122366, 55296
   br i1 %268, label %269, label %279
 
 269:                                              ; preds = %261
   %270 = load ptr, ptr %265, align 8, !tbaa !63
-  %271 = lshr i32 %.0122373, 5
+  %271 = lshr i32 %.0122366, 5
   %272 = zext nneg i32 %271 to i64
   %273 = getelementptr inbounds nuw i16, ptr %270, i64 %272
   %274 = load i16, ptr %273, align 2, !tbaa !64
   %275 = zext i16 %274 to i32
   %276 = shl nuw nsw i32 %275, 2
-  %277 = and i32 %.0122373, 31
+  %277 = and i32 %.0122366, 31
   %278 = add nuw nsw i32 %276, %277
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit
 
 279:                                              ; preds = %261
-  %280 = icmp ult i32 %.0122373, 65536
+  %280 = icmp ult i32 %.0122366, 65536
   br i1 %280, label %281, label %294
 
 281:                                              ; preds = %279
   %282 = load ptr, ptr %265, align 8, !tbaa !63
-  %283 = icmp samesign ult i32 %.0122373, 56320
+  %283 = icmp samesign ult i32 %.0122366, 56320
   %284 = select i1 %283, i32 320, i32 0
-  %285 = lshr i32 %.0122373, 5
+  %285 = lshr i32 %.0122366, 5
   %286 = add nuw nsw i32 %284, %285
   %287 = zext nneg i32 %286 to i64
   %288 = getelementptr inbounds nuw i16, ptr %282, i64 %287
   %289 = load i16, ptr %288, align 2, !tbaa !64
   %290 = zext i16 %289 to i32
   %291 = shl nuw nsw i32 %290, 2
-  %292 = and i32 %.0122373, 31
+  %292 = and i32 %.0122366, 31
   %293 = add nuw nsw i32 %291, %292
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit
 
 294:                                              ; preds = %279
-  %295 = icmp ugt i32 %.0122373, 1114111
+  %295 = icmp ugt i32 %.0122366, 1114111
   br i1 %295, label %_ZNK6icu_7713CollationData7getCE32Ei.exit, label %296
 
 296:                                              ; preds = %294
   %297 = getelementptr inbounds nuw i8, ptr %265, i64 44
   %298 = load i32, ptr %297, align 4, !tbaa !65
-  %.not.i210 = icmp slt i32 %.0122373, %298
-  br i1 %.not.i210, label %302, label %299
+  %.not.i209 = icmp slt i32 %.0122366, %298
+  br i1 %.not.i209, label %302, label %299
 
 299:                                              ; preds = %296
   %300 = getelementptr inbounds nuw i8, ptr %265, i64 48
@@ -2029,13 +2029,13 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
 
 302:                                              ; preds = %296
   %303 = load ptr, ptr %265, align 8, !tbaa !63
-  %304 = lshr i32 %.0122373, 11
+  %304 = lshr i32 %.0122366, 11
   %305 = zext nneg i32 %304 to i64
   %306 = getelementptr inbounds nuw i16, ptr %303, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 4160
   %308 = load i16, ptr %307, align 2, !tbaa !64
   %309 = zext i16 %308 to i32
-  %310 = lshr i32 %.0122373, 5
+  %310 = lshr i32 %.0122366, 5
   %311 = and i32 %310, 63
   %312 = add nuw nsw i32 %311, %309
   %313 = zext nneg i32 %312 to i64
@@ -2043,7 +2043,7 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   %315 = load i16, ptr %314, align 2, !tbaa !64
   %316 = zext i16 %315 to i32
   %317 = shl nuw nsw i32 %316, 2
-  %318 = and i32 %.0122373, 31
+  %318 = and i32 %.0122366, 31
   %319 = add nuw nsw i32 %317, %318
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit
 
@@ -2058,7 +2058,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %269, %281, %294, %2
   br i1 %.not150, label %.thread, label %326
 
 .thread:                                          ; preds = %324
-  %325 = tail call noundef i32 @_ZN6icu_7717CollationIterator17getCE32FromPrefixEPKNS_13CollationDataEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef %.0376, i32 noundef %.0125372, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %325 = tail call noundef i32 @_ZN6icu_7717CollationIterator17getCE32FromPrefixEPKNS_13CollationDataEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef %.0367, i32 noundef %.0125365, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
 326:                                              ; preds = %324
@@ -2066,7 +2066,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %269, %281, %294, %2
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 104
   %329 = load ptr, ptr %328, align 8
   tail call void %329(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %330 = tail call noundef i32 @_ZN6icu_7717CollationIterator17getCE32FromPrefixEPKNS_13CollationDataEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef %.0376, i32 noundef %.0125372, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %330 = tail call noundef i32 @_ZN6icu_7717CollationIterator17getCE32FromPrefixEPKNS_13CollationDataEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef %.0367, i32 noundef %.0125365, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %331 = load ptr, ptr %0, align 8, !tbaa !24
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 96
   %333 = load ptr, ptr %332, align 8
@@ -2074,9 +2074,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %269, %281, %294, %2
   br label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
 334:                                              ; preds = %12
-  %335 = getelementptr inbounds nuw i8, ptr %.0376, i64 24
+  %335 = getelementptr inbounds nuw i8, ptr %.0367, i64 24
   %336 = load ptr, ptr %335, align 8, !tbaa !71
-  %337 = lshr i32 %.0125372, 13
+  %337 = lshr i32 %.0125365, 13
   %338 = zext nneg i32 %337 to i64
   %339 = getelementptr inbounds nuw i16, ptr %336, i64 %338
   %340 = load i16, ptr %339, align 2, !tbaa !72
@@ -2105,9 +2105,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %269, %281, %294, %2
   br i1 %357, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread, label %358
 
 358:                                              ; preds = %352
-  %359 = and i32 %.0125372, 512
+  %359 = and i32 %.0125365, 512
   %.not156 = icmp eq i32 %359, 0
-  br i1 %.not156, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit, label %360
+  br i1 %.not156, label %469, label %360
 
 360:                                              ; preds = %358
   %361 = icmp samesign ult i32 %356, 768
@@ -2123,8 +2123,8 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %269, %281, %294, %2
   %368 = zext nneg i32 %367 to i64
   %369 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %368
   %370 = load i8, ptr %369, align 1, !tbaa !43
-  %.not.i211 = icmp eq i8 %370, 0
-  br i1 %.not.i211, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit
+  %.not.i210 = icmp eq i8 %370, 0
+  br i1 %.not.i210, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit
 
 _ZN6icu_7712CollationFCD11mayHaveLcccEi.exit:     ; preds = %362
   %371 = zext i8 %370 to i64
@@ -2134,7 +2134,7 @@ _ZN6icu_7712CollationFCD11mayHaveLcccEi.exit:     ; preds = %362
   %375 = shl nuw i32 1, %374
   %376 = and i32 %373, %375
   %.not157 = icmp eq i32 %376, 0
-  br i1 %.not157, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit
+  br i1 %.not157, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, label %469
 
 _ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread: ; preds = %362, %360, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit
   %377 = load ptr, ptr %0, align 8, !tbaa !24
@@ -2203,57 +2203,57 @@ _ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread: ; preds = %362, %360, %_ZN6
   %418 = icmp sgt i32 %417, 0
   %419 = icmp sgt i32 %405, -1
   %or.cond3.i = and i1 %419, %418
-  br i1 %or.cond3.i, label %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread308, label %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit
+  br i1 %or.cond3.i, label %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread307, label %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread308: ; preds = %416
+_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread307: ; preds = %416
   %420 = add nsw i32 %417, -1
   store i32 %420, ptr %10, align 8, !tbaa !35
   br label %422
 
 _ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit: ; preds = %392, %416
-  %.0.i214 = phi i32 [ %394, %392 ], [ %405, %416 ]
-  %421 = icmp slt i32 %.0.i214, 0
+  %.0.i213 = phi i32 [ %394, %392 ], [ %405, %416 ]
+  %421 = icmp slt i32 %.0.i213, 0
   br i1 %421, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread, label %422
 
-422:                                              ; preds = %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread308, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit
-  %.0.i214310 = phi i32 [ %405, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread308 ], [ %.0.i214, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ]
-  %423 = and i32 %.0125372, 512
+422:                                              ; preds = %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread307, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit
+  %.0.i213309 = phi i32 [ %405, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread307 ], [ %.0.i213, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ]
+  %423 = and i32 %.0125365, 512
   %.not154 = icmp eq i32 %423, 0
-  br i1 %.not154, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit, label %424
+  br i1 %.not154, label %469, label %424
 
 424:                                              ; preds = %422
-  %425 = icmp samesign ult i32 %.0.i214310, 768
-  br i1 %425, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread, label %426
+  %425 = icmp samesign ult i32 %.0.i213309, 768
+  br i1 %425, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217.thread, label %426
 
 426:                                              ; preds = %424
-  %427 = icmp samesign ugt i32 %.0.i214310, 65535
-  %428 = lshr i32 %.0.i214310, 10
+  %427 = icmp samesign ugt i32 %.0.i213309, 65535
+  %428 = lshr i32 %.0.i213309, 10
   %429 = add nuw nsw i32 %428, 55232
   %430 = and i32 %429, 65535
-  %.07.i215 = select i1 %427, i32 %430, i32 %.0.i214310
-  %431 = lshr i32 %.07.i215, 5
+  %.07.i214 = select i1 %427, i32 %430, i32 %.0.i213309
+  %431 = lshr i32 %.07.i214, 5
   %432 = zext nneg i32 %431 to i64
   %433 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %432
   %434 = load i8, ptr %433, align 1, !tbaa !43
-  %.not.i216 = icmp eq i8 %434, 0
-  br i1 %.not.i216, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218
+  %.not.i215 = icmp eq i8 %434, 0
+  br i1 %.not.i215, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217.thread, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217
 
-_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218:  ; preds = %426
+_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217:  ; preds = %426
   %435 = zext i8 %434 to i64
   %436 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 %435
   %437 = load i32, ptr %436, align 4, !tbaa !12
-  %438 = and i32 %.07.i215, 31
+  %438 = and i32 %.07.i214, 31
   %439 = shl nuw i32 1, %438
   %440 = and i32 %437, %439
   %.not155 = icmp eq i32 %440, 0
-  br i1 %.not155, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit
+  br i1 %.not155, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217.thread, label %469
 
-_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread: ; preds = %426, %424, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218
+_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217.thread: ; preds = %426, %424, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217
   %441 = load ptr, ptr %9, align 8, !tbaa !34
-  %.not.i219 = icmp eq ptr %441, null
-  br i1 %.not.i219, label %461, label %442
+  %.not.i218 = icmp eq ptr %441, null
+  br i1 %.not.i218, label %461, label %442
 
-442:                                              ; preds = %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread
+442:                                              ; preds = %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217.thread
   %443 = getelementptr inbounds nuw i8, ptr %441, i64 16
   %444 = load i16, ptr %443, align 8, !tbaa !43
   %445 = icmp ugt i16 %444, 31
@@ -2286,756 +2286,756 @@ _ZN6icu_7712SkippedState21backwardNumCodePointsEi.exit.i: ; preds = %458, %456
   store i32 %.sink.i.i, ptr %453, align 8, !tbaa !45
   br label %461
 
-461:                                              ; preds = %_ZN6icu_7712SkippedState21backwardNumCodePointsEi.exit.i, %442, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread
-  %.0.i220 = phi i32 [ 1, %442 ], [ %.0.i.i, %_ZN6icu_7712SkippedState21backwardNumCodePointsEi.exit.i ], [ 1, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread ]
+461:                                              ; preds = %_ZN6icu_7712SkippedState21backwardNumCodePointsEi.exit.i, %442, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217.thread
+  %.0.i219 = phi i32 [ 1, %442 ], [ %.0.i.i, %_ZN6icu_7712SkippedState21backwardNumCodePointsEi.exit.i ], [ 1, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217.thread ]
   %462 = load ptr, ptr %0, align 8, !tbaa !24
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 104
   %464 = load ptr, ptr %463, align 8
-  tail call void %464(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef %.0.i220, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  tail call void %464(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef %.0.i219, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %465 = load i32, ptr %10, align 8, !tbaa !35
   %466 = icmp sgt i32 %465, -1
   br i1 %466, label %467, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
 467:                                              ; preds = %461
-  %468 = add nuw nsw i32 %465, %.0.i220
+  %468 = add nuw nsw i32 %465, %.0.i219
   store i32 %468, ptr %10, align 8, !tbaa !35
   br label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit: ; preds = %358, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit, %422, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218
-  %.0130 = phi i32 [ %356, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit ], [ %356, %358 ], [ %.0.i214310, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218 ], [ %.0.i214310, %422 ]
-  %469 = getelementptr inbounds nuw i8, ptr %339, i64 4
-  %470 = tail call noundef i32 @_ZN6icu_7717CollationIterator23nextCE32FromContractionEPKNS_13CollationDataEjPKDsjiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull %.0376, i32 noundef %.0125372, ptr noundef nonnull %469, i32 noundef %346, i32 noundef %.0130, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %.not326 = icmp eq i32 %470, 1
-  br i1 %.not326, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
+469:                                              ; preds = %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217, %422, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit, %358
+  %.0130 = phi i32 [ %356, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit ], [ %356, %358 ], [ %.0.i213309, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit217 ], [ %.0.i213309, %422 ]
+  %470 = getelementptr inbounds nuw i8, ptr %339, i64 4
+  %471 = tail call noundef i32 @_ZN6icu_7717CollationIterator23nextCE32FromContractionEPKNS_13CollationDataEjPKDsjiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull %.0367, i32 noundef %.0125365, ptr noundef nonnull %470, i32 noundef %346, i32 noundef %.0130, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %472 = icmp eq i32 %471, 1
+  br i1 %472, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-471:                                              ; preds = %12
-  %472 = load i8, ptr %8, align 4, !tbaa !36
-  %.not152 = icmp eq i8 %472, 0
-  br i1 %.not152, label %474, label %473
+473:                                              ; preds = %12
+  %474 = load i8, ptr %8, align 4, !tbaa !36
+  %.not152 = icmp eq i8 %474, 0
+  br i1 %.not152, label %476, label %475
 
-473:                                              ; preds = %471
-  tail call void @_ZN6icu_7717CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef %.0125372, i8 noundef signext %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+475:                                              ; preds = %473
+  tail call void @_ZN6icu_7717CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef %.0125365, i8 noundef signext %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-474:                                              ; preds = %471
-  %475 = getelementptr inbounds nuw i8, ptr %.0376, i64 8
-  %476 = load ptr, ptr %475, align 8, !tbaa !67
-  %477 = lshr i32 %.0125372, 13
-  %478 = zext nneg i32 %477 to i64
-  %479 = getelementptr inbounds nuw i32, ptr %476, i64 %478
-  %480 = load i32, ptr %479, align 4, !tbaa !12
+476:                                              ; preds = %473
+  %477 = getelementptr inbounds nuw i8, ptr %.0367, i64 8
+  %478 = load ptr, ptr %477, align 8, !tbaa !67
+  %479 = lshr i32 %.0125365, 13
+  %480 = zext nneg i32 %479 to i64
+  %481 = getelementptr inbounds nuw i32, ptr %478, i64 %480
+  %482 = load i32, ptr %481, align 4, !tbaa !12
   br label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-481:                                              ; preds = %12
-  br i1 %.not150, label %520, label %482
+483:                                              ; preds = %12
+  br i1 %.not150, label %522, label %484
 
-482:                                              ; preds = %481
-  %483 = load ptr, ptr %0, align 8, !tbaa !24
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 80
-  %485 = load ptr, ptr %484, align 8
-  %486 = tail call noundef signext i8 %485(ptr noundef nonnull align 8 dereferenceable(389) %0)
-  %.not151 = icmp eq i8 %486, 0
-  br i1 %.not151, label %520, label %487
+484:                                              ; preds = %483
+  %485 = load ptr, ptr %0, align 8, !tbaa !24
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 80
+  %487 = load ptr, ptr %486, align 8
+  %488 = tail call noundef signext i8 %487(ptr noundef nonnull align 8 dereferenceable(389) %0)
+  %.not151 = icmp eq i8 %488, 0
+  br i1 %.not151, label %522, label %489
 
-487:                                              ; preds = %482
-  %488 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %489 = load i32, ptr %488, align 8, !tbaa !20
-  %490 = icmp slt i32 %489, 40
-  br i1 %490, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i234, label %491
+489:                                              ; preds = %484
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %491 = load i32, ptr %490, align 8, !tbaa !20
+  %492 = icmp slt i32 %491, 40
+  br i1 %492, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i233, label %493
 
-491:                                              ; preds = %487
-  %492 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %493 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %494 = load i32, ptr %493, align 8, !tbaa !19
-  %.not.i.not.i222 = icmp slt i32 %489, %494
-  br i1 %.not.i.not.i222, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i234, label %495
+493:                                              ; preds = %489
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %496 = load i32, ptr %495, align 8, !tbaa !19
+  %.not.i.not.i221 = icmp slt i32 %491, %496
+  br i1 %.not.i.not.i221, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i233, label %497
 
-495:                                              ; preds = %491
-  %496 = load i32, ptr %5, align 4, !tbaa !13
-  %497 = icmp slt i32 %496, 1
-  br i1 %497, label %.preheader.i.i223, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+497:                                              ; preds = %493
+  %498 = load i32, ptr %5, align 4, !tbaa !13
+  %499 = icmp slt i32 %498, 1
+  br i1 %499, label %.preheader.i.i222, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i.i223:                                ; preds = %495, %.preheader.i.i223
-  %.012.i.i224 = phi i32 [ %.113.i.i226, %.preheader.i.i223 ], [ %494, %495 ]
-  %498 = icmp slt i32 %.012.i.i224, 1000
-  %.113.v.i.i225 = select i1 %498, i32 2, i32 1
-  %.113.i.i226 = shl nsw i32 %.012.i.i224, %.113.v.i.i225
-  %.not.i227 = icmp sgt i32 %.113.i.i226, %489
-  br i1 %.not.i227, label %499, label %.preheader.i.i223, !llvm.loop !22
+.preheader.i.i222:                                ; preds = %497, %.preheader.i.i222
+  %.012.i.i223 = phi i32 [ %.113.i.i225, %.preheader.i.i222 ], [ %496, %497 ]
+  %500 = icmp slt i32 %.012.i.i223, 1000
+  %.113.v.i.i224 = select i1 %500, i32 2, i32 1
+  %.113.i.i225 = shl nsw i32 %.012.i.i223, %.113.v.i.i224
+  %.not.i226 = icmp sgt i32 %.113.i.i225, %491
+  br i1 %.not.i226, label %501, label %.preheader.i.i222, !llvm.loop !22
 
-499:                                              ; preds = %.preheader.i.i223
-  %500 = icmp sgt i32 %.012.i.i224, 0
-  br i1 %500, label %501, label %513
+501:                                              ; preds = %.preheader.i.i222
+  %502 = icmp sgt i32 %.012.i.i223, 0
+  br i1 %502, label %503, label %515
 
-501:                                              ; preds = %499
-  %502 = zext nneg i32 %.113.i.i226 to i64
-  %503 = shl nuw nsw i64 %502, 3
-  %504 = tail call noalias ptr @uprv_malloc_77(i64 noundef %503) #22
-  %.not.i.i.i228 = icmp eq ptr %504, null
-  br i1 %.not.i.i.i228, label %513, label %505
+503:                                              ; preds = %501
+  %504 = zext nneg i32 %.113.i.i225 to i64
+  %505 = shl nuw nsw i64 %504, 3
+  %506 = tail call noalias ptr @uprv_malloc_77(i64 noundef %505) #22
+  %.not.i.i.i227 = icmp eq ptr %506, null
+  br i1 %.not.i.i.i227, label %515, label %507
 
-505:                                              ; preds = %501
-  %506 = load i32, ptr %493, align 8, !tbaa !19
-  %spec.select.i.i.i229 = tail call i32 @llvm.smin.i32(i32 %489, i32 %506)
-  %.1.i.i.i230 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i229, i32 %.113.i.i226)
-  %507 = load ptr, ptr %492, align 8, !tbaa !18
-  %508 = sext i32 %.1.i.i.i230 to i64
-  %509 = shl nsw i64 %508, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %504, ptr align 8 %507, i64 %509, i1 false)
-  %510 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %511 = load i8, ptr %510, align 4, !tbaa !15
-  %.not.i.i.i.i231 = icmp eq i8 %511, 0
-  br i1 %.not.i.i.i.i231, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i232, label %512
+507:                                              ; preds = %503
+  %508 = load i32, ptr %495, align 8, !tbaa !19
+  %spec.select.i.i.i228 = tail call i32 @llvm.smin.i32(i32 %491, i32 %508)
+  %.1.i.i.i229 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i228, i32 %.113.i.i225)
+  %509 = load ptr, ptr %494, align 8, !tbaa !18
+  %510 = sext i32 %.1.i.i.i229 to i64
+  %511 = shl nsw i64 %510, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %506, ptr align 8 %509, i64 %511, i1 false)
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %513 = load i8, ptr %512, align 4, !tbaa !15
+  %.not.i.i.i.i230 = icmp eq i8 %513, 0
+  br i1 %.not.i.i.i.i230, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i231, label %514
 
-512:                                              ; preds = %505
-  tail call void @uprv_free_77(ptr noundef %507)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i232
+514:                                              ; preds = %507
+  tail call void @uprv_free_77(ptr noundef %509)
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i231
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i232: ; preds = %512, %505
-  store ptr %504, ptr %492, align 8, !tbaa !18
-  store i32 %.113.i.i226, ptr %493, align 8, !tbaa !19
-  store i8 1, ptr %510, align 4, !tbaa !15
-  %.pre.i233 = load i32, ptr %488, align 8, !tbaa !20
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i234
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i231: ; preds = %514, %507
+  store ptr %506, ptr %494, align 8, !tbaa !18
+  store i32 %.113.i.i225, ptr %495, align 8, !tbaa !19
+  store i8 1, ptr %512, align 4, !tbaa !15
+  %.pre.i232 = load i32, ptr %490, align 8, !tbaa !20
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i233
 
-513:                                              ; preds = %501, %499
+515:                                              ; preds = %503, %501
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i234: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i232, %491, %487
-  %514 = phi i32 [ %.pre.i233, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i232 ], [ %489, %491 ], [ %489, %487 ]
-  %515 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %516 = add nsw i32 %514, 1
-  store i32 %516, ptr %488, align 8, !tbaa !20
-  %517 = sext i32 %514 to i64
-  %518 = load ptr, ptr %515, align 8, !tbaa !18
-  %519 = getelementptr inbounds i64, ptr %518, i64 %517
-  store i64 4311744768, ptr %519, align 8, !tbaa !38
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i233: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i231, %493, %489
+  %516 = phi i32 [ %.pre.i232, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i231 ], [ %491, %493 ], [ %491, %489 ]
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %518 = add nsw i32 %516, 1
+  store i32 %518, ptr %490, align 8, !tbaa !20
+  %519 = sext i32 %516 to i64
+  %520 = load ptr, ptr %517, align 8, !tbaa !18
+  %521 = getelementptr inbounds i64, ptr %520, i64 %519
+  store i64 4311744768, ptr %521, align 8, !tbaa !38
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-520:                                              ; preds = %482, %481
-  %521 = getelementptr inbounds nuw i8, ptr %.0376, i64 8
-  %522 = load ptr, ptr %521, align 8, !tbaa !67
-  %523 = load i32, ptr %522, align 4, !tbaa !12
+522:                                              ; preds = %484, %483
+  %523 = getelementptr inbounds nuw i8, ptr %.0367, i64 8
+  %524 = load ptr, ptr %523, align 8, !tbaa !67
+  %525 = load i32, ptr %524, align 4, !tbaa !12
   br label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-524:                                              ; preds = %12
-  %525 = getelementptr inbounds nuw i8, ptr %.0376, i64 40
-  %526 = load ptr, ptr %525, align 8, !tbaa !74
-  %527 = add nsw i32 %.0122373, -44032
-  %528 = srem i32 %527, 28
-  %529 = sdiv i32 %527, 28
-  %530 = srem i32 %529, 21
-  %531 = sdiv i32 %527, 588
-  %532 = and i32 %.0125372, 256
-  %.not147 = icmp eq i32 %532, 0
-  br i1 %.not147, label %650, label %533
+526:                                              ; preds = %12
+  %527 = getelementptr inbounds nuw i8, ptr %.0367, i64 40
+  %528 = load ptr, ptr %527, align 8, !tbaa !74
+  %529 = add nsw i32 %.0122366, -44032
+  %530 = srem i32 %529, 28
+  %531 = sdiv i32 %529, 28
+  %532 = srem i32 %531, 21
+  %533 = sdiv i32 %529, 588
+  %534 = and i32 %.0125365, 256
+  %.not147 = icmp eq i32 %534, 0
+  br i1 %.not147, label %652, label %535
 
-533:                                              ; preds = %524
-  %534 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %535 = icmp eq i32 %528, 0
-  %536 = select i1 %535, i32 2, i32 3
-  %537 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %538 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %539 = load i32, ptr %538, align 8, !tbaa !19
-  %540 = load i32, ptr %534, align 8, !tbaa !20
-  %541 = add nsw i32 %540, %536
-  %.not.i236 = icmp sgt i32 %541, %539
-  br i1 %.not.i236, label %542, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit247
+535:                                              ; preds = %526
+  %536 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %537 = icmp eq i32 %530, 0
+  %538 = select i1 %537, i32 2, i32 3
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %540 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %541 = load i32, ptr %540, align 8, !tbaa !19
+  %542 = load i32, ptr %536, align 8, !tbaa !20
+  %543 = add nsw i32 %542, %538
+  %.not.i235 = icmp sgt i32 %543, %541
+  br i1 %.not.i235, label %544, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit246
 
-542:                                              ; preds = %533
-  %543 = load i32, ptr %5, align 4, !tbaa !13
-  %544 = icmp slt i32 %543, 1
-  br i1 %544, label %.preheader.i238, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+544:                                              ; preds = %535
+  %545 = load i32, ptr %5, align 4, !tbaa !13
+  %546 = icmp slt i32 %545, 1
+  br i1 %546, label %.preheader.i237, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i238:                                  ; preds = %542, %.preheader.i238
-  %.012.i239 = phi i32 [ %.113.i241, %.preheader.i238 ], [ %539, %542 ]
-  %545 = icmp slt i32 %.012.i239, 1000
-  %.113.v.i240 = select i1 %545, i32 2, i32 1
-  %.113.i241 = shl nsw i32 %.012.i239, %.113.v.i240
-  %546 = icmp slt i32 %.113.i241, %541
-  br i1 %546, label %.preheader.i238, label %547, !llvm.loop !22
+.preheader.i237:                                  ; preds = %544, %.preheader.i237
+  %.012.i238 = phi i32 [ %.113.i240, %.preheader.i237 ], [ %541, %544 ]
+  %547 = icmp slt i32 %.012.i238, 1000
+  %.113.v.i239 = select i1 %547, i32 2, i32 1
+  %.113.i240 = shl nsw i32 %.012.i238, %.113.v.i239
+  %548 = icmp slt i32 %.113.i240, %543
+  br i1 %548, label %.preheader.i237, label %549, !llvm.loop !22
 
-547:                                              ; preds = %.preheader.i238
-  %548 = icmp sgt i32 %.012.i239, 0
-  br i1 %548, label %549, label %565
+549:                                              ; preds = %.preheader.i237
+  %550 = icmp sgt i32 %.012.i238, 0
+  br i1 %550, label %551, label %567
 
-549:                                              ; preds = %547
-  %550 = zext nneg i32 %.113.i241 to i64
-  %551 = shl nuw nsw i64 %550, 3
-  %552 = tail call noalias ptr @uprv_malloc_77(i64 noundef %551) #22
-  %.not.i.i242 = icmp eq ptr %552, null
-  br i1 %.not.i.i242, label %565, label %553
+551:                                              ; preds = %549
+  %552 = zext nneg i32 %.113.i240 to i64
+  %553 = shl nuw nsw i64 %552, 3
+  %554 = tail call noalias ptr @uprv_malloc_77(i64 noundef %553) #22
+  %.not.i.i241 = icmp eq ptr %554, null
+  br i1 %.not.i.i241, label %567, label %555
 
-553:                                              ; preds = %549
-  %554 = icmp sgt i32 %540, 0
-  br i1 %554, label %555, label %560
+555:                                              ; preds = %551
+  %556 = icmp sgt i32 %542, 0
+  br i1 %556, label %557, label %562
 
-555:                                              ; preds = %553
-  %556 = load i32, ptr %538, align 8, !tbaa !19
-  %spec.select.i.i245 = tail call i32 @llvm.smin.i32(i32 %540, i32 %556)
-  %.1.i.i246 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i245, i32 %.113.i241)
-  %557 = load ptr, ptr %537, align 8, !tbaa !18
-  %558 = sext i32 %.1.i.i246 to i64
-  %559 = shl nsw i64 %558, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %552, ptr align 8 %557, i64 %559, i1 false)
-  br label %560
+557:                                              ; preds = %555
+  %558 = load i32, ptr %540, align 8, !tbaa !19
+  %spec.select.i.i244 = tail call i32 @llvm.smin.i32(i32 %542, i32 %558)
+  %.1.i.i245 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i244, i32 %.113.i240)
+  %559 = load ptr, ptr %539, align 8, !tbaa !18
+  %560 = sext i32 %.1.i.i245 to i64
+  %561 = shl nsw i64 %560, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %554, ptr align 8 %559, i64 %561, i1 false)
+  br label %562
 
-560:                                              ; preds = %555, %553
-  %561 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %562 = load i8, ptr %561, align 4, !tbaa !15
-  %.not.i.i.i243 = icmp eq i8 %562, 0
-  br i1 %.not.i.i.i243, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i244, label %563
+562:                                              ; preds = %557, %555
+  %563 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %564 = load i8, ptr %563, align 4, !tbaa !15
+  %.not.i.i.i242 = icmp eq i8 %564, 0
+  br i1 %.not.i.i.i242, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i243, label %565
 
-563:                                              ; preds = %560
-  %564 = load ptr, ptr %537, align 8, !tbaa !18
-  tail call void @uprv_free_77(ptr noundef %564)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i244
+565:                                              ; preds = %562
+  %566 = load ptr, ptr %539, align 8, !tbaa !18
+  tail call void @uprv_free_77(ptr noundef %566)
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i243
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i244: ; preds = %563, %560
-  store ptr %552, ptr %537, align 8, !tbaa !18
-  store i32 %.113.i241, ptr %538, align 8, !tbaa !19
-  store i8 1, ptr %561, align 4, !tbaa !15
-  %.pre = load i32, ptr %534, align 8, !tbaa !37
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit247
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i243: ; preds = %565, %562
+  store ptr %554, ptr %539, align 8, !tbaa !18
+  store i32 %.113.i240, ptr %540, align 8, !tbaa !19
+  store i8 1, ptr %563, align 4, !tbaa !15
+  %.pre = load i32, ptr %536, align 8, !tbaa !37
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit246
 
-565:                                              ; preds = %549, %547
+567:                                              ; preds = %551, %549
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit247: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i244, %533
-  %566 = phi i32 [ %.pre, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i244 ], [ %540, %533 ]
-  %567 = sext i32 %531 to i64
-  %568 = getelementptr inbounds i32, ptr %526, i64 %567
-  %569 = load i32, ptr %568, align 4, !tbaa !12
-  %570 = and i32 %569, 255
-  %571 = icmp samesign ult i32 %570, 192
-  br i1 %571, label %572, label %583
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit246: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i243, %535
+  %568 = phi i32 [ %.pre, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i243 ], [ %542, %535 ]
+  %569 = sext i32 %533 to i64
+  %570 = getelementptr inbounds i32, ptr %528, i64 %569
+  %571 = load i32, ptr %570, align 4, !tbaa !12
+  %572 = and i32 %571, 255
+  %573 = icmp samesign ult i32 %572, 192
+  br i1 %573, label %574, label %585
 
-572:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit247
-  %573 = and i32 %569, -65536
-  %574 = zext i32 %573 to i64
-  %575 = shl nuw i64 %574, 32
-  %576 = shl i32 %569, 16
-  %577 = and i32 %576, -16777216
-  %578 = zext i32 %577 to i64
-  %579 = or disjoint i64 %575, %578
-  %580 = shl nuw nsw i32 %570, 8
-  %581 = zext nneg i32 %580 to i64
-  %582 = or disjoint i64 %579, %581
-  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit249
+574:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit246
+  %575 = and i32 %571, -65536
+  %576 = zext i32 %575 to i64
+  %577 = shl nuw i64 %576, 32
+  %578 = shl i32 %571, 16
+  %579 = and i32 %578, -16777216
+  %580 = zext i32 %579 to i64
+  %581 = or disjoint i64 %577, %580
+  %582 = shl nuw nsw i32 %572, 8
+  %583 = zext nneg i32 %582 to i64
+  %584 = or disjoint i64 %581, %583
+  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit248
 
-583:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit247
-  %584 = and i32 %569, -256
-  %585 = and i32 %569, 15
-  %586 = icmp eq i32 %585, 1
-  %587 = zext i32 %584 to i64
-  br i1 %586, label %588, label %_ZN6icu_779Collation10ceFromCE32Ej.exit249
+585:                                              ; preds = %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit246
+  %586 = and i32 %571, -256
+  %587 = and i32 %571, 15
+  %588 = icmp eq i32 %587, 1
+  %589 = zext i32 %586 to i64
+  br i1 %588, label %590, label %_ZN6icu_779Collation10ceFromCE32Ej.exit248
 
-588:                                              ; preds = %583
-  %589 = shl nuw i64 %587, 32
-  %590 = or disjoint i64 %589, 83887360
-  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit249
+590:                                              ; preds = %585
+  %591 = shl nuw i64 %589, 32
+  %592 = or disjoint i64 %591, 83887360
+  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit248
 
-_ZN6icu_779Collation10ceFromCE32Ej.exit249:       ; preds = %572, %583, %588
-  %.0.i248 = phi i64 [ %582, %572 ], [ %590, %588 ], [ %587, %583 ]
-  %591 = sext i32 %566 to i64
-  %592 = load ptr, ptr %537, align 8, !tbaa !18
-  %593 = getelementptr i64, ptr %592, i64 %591
-  store i64 %.0.i248, ptr %593, align 8, !tbaa !38
-  %594 = sext i32 %530 to i64
-  %595 = getelementptr i32, ptr %526, i64 %594
-  %596 = getelementptr i8, ptr %595, i64 76
-  %597 = load i32, ptr %596, align 4, !tbaa !12
-  %598 = and i32 %597, 255
-  %599 = icmp samesign ult i32 %598, 192
-  br i1 %599, label %600, label %611
+_ZN6icu_779Collation10ceFromCE32Ej.exit248:       ; preds = %574, %585, %590
+  %.0.i247 = phi i64 [ %584, %574 ], [ %592, %590 ], [ %589, %585 ]
+  %593 = sext i32 %568 to i64
+  %594 = load ptr, ptr %539, align 8, !tbaa !18
+  %595 = getelementptr i64, ptr %594, i64 %593
+  store i64 %.0.i247, ptr %595, align 8, !tbaa !38
+  %596 = sext i32 %532 to i64
+  %597 = getelementptr i32, ptr %528, i64 %596
+  %598 = getelementptr i8, ptr %597, i64 76
+  %599 = load i32, ptr %598, align 4, !tbaa !12
+  %600 = and i32 %599, 255
+  %601 = icmp samesign ult i32 %600, 192
+  br i1 %601, label %602, label %613
 
-600:                                              ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit249
-  %601 = and i32 %597, -65536
-  %602 = zext i32 %601 to i64
-  %603 = shl nuw i64 %602, 32
-  %604 = shl i32 %597, 16
-  %605 = and i32 %604, -16777216
-  %606 = zext i32 %605 to i64
-  %607 = or disjoint i64 %603, %606
-  %608 = shl nuw nsw i32 %598, 8
-  %609 = zext nneg i32 %608 to i64
-  %610 = or disjoint i64 %607, %609
-  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit251
+602:                                              ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit248
+  %603 = and i32 %599, -65536
+  %604 = zext i32 %603 to i64
+  %605 = shl nuw i64 %604, 32
+  %606 = shl i32 %599, 16
+  %607 = and i32 %606, -16777216
+  %608 = zext i32 %607 to i64
+  %609 = or disjoint i64 %605, %608
+  %610 = shl nuw nsw i32 %600, 8
+  %611 = zext nneg i32 %610 to i64
+  %612 = or disjoint i64 %609, %611
+  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit250
 
-611:                                              ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit249
-  %612 = and i32 %597, -256
-  %613 = and i32 %597, 15
-  %614 = icmp eq i32 %613, 1
-  %615 = zext i32 %612 to i64
-  br i1 %614, label %616, label %_ZN6icu_779Collation10ceFromCE32Ej.exit251
+613:                                              ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit248
+  %614 = and i32 %599, -256
+  %615 = and i32 %599, 15
+  %616 = icmp eq i32 %615, 1
+  %617 = zext i32 %614 to i64
+  br i1 %616, label %618, label %_ZN6icu_779Collation10ceFromCE32Ej.exit250
 
-616:                                              ; preds = %611
-  %617 = shl nuw i64 %615, 32
-  %618 = or disjoint i64 %617, 83887360
-  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit251
+618:                                              ; preds = %613
+  %619 = shl nuw i64 %617, 32
+  %620 = or disjoint i64 %619, 83887360
+  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit250
 
-_ZN6icu_779Collation10ceFromCE32Ej.exit251:       ; preds = %600, %611, %616
-  %.0.i250 = phi i64 [ %610, %600 ], [ %618, %616 ], [ %615, %611 ]
-  %619 = getelementptr i8, ptr %593, i64 8
-  store i64 %.0.i250, ptr %619, align 8, !tbaa !38
-  %620 = add nsw i32 %566, 2
-  store i32 %620, ptr %534, align 8, !tbaa !37
-  br i1 %535, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit, label %621
+_ZN6icu_779Collation10ceFromCE32Ej.exit250:       ; preds = %602, %613, %618
+  %.0.i249 = phi i64 [ %612, %602 ], [ %620, %618 ], [ %617, %613 ]
+  %621 = getelementptr i8, ptr %595, i64 8
+  store i64 %.0.i249, ptr %621, align 8, !tbaa !38
+  %622 = add nsw i32 %568, 2
+  store i32 %622, ptr %536, align 8, !tbaa !37
+  br i1 %537, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit, label %623
 
-621:                                              ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit251
-  %622 = sext i32 %528 to i64
-  %623 = getelementptr i32, ptr %526, i64 %622
-  %624 = getelementptr i8, ptr %623, i64 156
-  %625 = load i32, ptr %624, align 4, !tbaa !12
-  %626 = and i32 %625, 255
-  %627 = icmp samesign ult i32 %626, 192
-  br i1 %627, label %628, label %639
+623:                                              ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit250
+  %624 = sext i32 %530 to i64
+  %625 = getelementptr i32, ptr %528, i64 %624
+  %626 = getelementptr i8, ptr %625, i64 156
+  %627 = load i32, ptr %626, align 4, !tbaa !12
+  %628 = and i32 %627, 255
+  %629 = icmp samesign ult i32 %628, 192
+  br i1 %629, label %630, label %641
 
-628:                                              ; preds = %621
-  %629 = and i32 %625, -65536
-  %630 = zext i32 %629 to i64
-  %631 = shl nuw i64 %630, 32
-  %632 = shl i32 %625, 16
-  %633 = and i32 %632, -16777216
-  %634 = zext i32 %633 to i64
-  %635 = or disjoint i64 %631, %634
-  %636 = shl nuw nsw i32 %626, 8
-  %637 = zext nneg i32 %636 to i64
-  %638 = or disjoint i64 %635, %637
-  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit253
+630:                                              ; preds = %623
+  %631 = and i32 %627, -65536
+  %632 = zext i32 %631 to i64
+  %633 = shl nuw i64 %632, 32
+  %634 = shl i32 %627, 16
+  %635 = and i32 %634, -16777216
+  %636 = zext i32 %635 to i64
+  %637 = or disjoint i64 %633, %636
+  %638 = shl nuw nsw i32 %628, 8
+  %639 = zext nneg i32 %638 to i64
+  %640 = or disjoint i64 %637, %639
+  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit252
 
-639:                                              ; preds = %621
-  %640 = and i32 %625, -256
-  %641 = and i32 %625, 15
-  %642 = icmp eq i32 %641, 1
-  %643 = zext i32 %640 to i64
-  br i1 %642, label %644, label %_ZN6icu_779Collation10ceFromCE32Ej.exit253
+641:                                              ; preds = %623
+  %642 = and i32 %627, -256
+  %643 = and i32 %627, 15
+  %644 = icmp eq i32 %643, 1
+  %645 = zext i32 %642 to i64
+  br i1 %644, label %646, label %_ZN6icu_779Collation10ceFromCE32Ej.exit252
 
-644:                                              ; preds = %639
-  %645 = shl nuw i64 %643, 32
-  %646 = or disjoint i64 %645, 83887360
-  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit253
+646:                                              ; preds = %641
+  %647 = shl nuw i64 %645, 32
+  %648 = or disjoint i64 %647, 83887360
+  br label %_ZN6icu_779Collation10ceFromCE32Ej.exit252
 
-_ZN6icu_779Collation10ceFromCE32Ej.exit253:       ; preds = %628, %639, %644
-  %.0.i252 = phi i64 [ %638, %628 ], [ %646, %644 ], [ %643, %639 ]
-  %647 = add nsw i32 %566, 3
-  store i32 %647, ptr %534, align 8, !tbaa !20
-  %648 = sext i32 %620 to i64
-  %649 = getelementptr inbounds i64, ptr %592, i64 %648
-  store i64 %.0.i252, ptr %649, align 8, !tbaa !38
+_ZN6icu_779Collation10ceFromCE32Ej.exit252:       ; preds = %630, %641, %646
+  %.0.i251 = phi i64 [ %640, %630 ], [ %648, %646 ], [ %645, %641 ]
+  %649 = add nsw i32 %568, 3
+  store i32 %649, ptr %536, align 8, !tbaa !20
+  %650 = sext i32 %622 to i64
+  %651 = getelementptr inbounds i64, ptr %594, i64 %650
+  store i64 %.0.i251, ptr %651, align 8, !tbaa !38
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-650:                                              ; preds = %524
-  %651 = sext i32 %531 to i64
-  %652 = getelementptr inbounds i32, ptr %526, i64 %651
-  %653 = load i32, ptr %652, align 4, !tbaa !12
-  tail call void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull %.0376, i32 noundef -1, i32 noundef %653, i8 noundef signext %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %654 = sext i32 %530 to i64
-  %655 = getelementptr i32, ptr %526, i64 %654
-  %656 = getelementptr i8, ptr %655, i64 76
-  %657 = load i32, ptr %656, align 4, !tbaa !12
-  tail call void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull %.0376, i32 noundef -1, i32 noundef %657, i8 noundef signext %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %658 = icmp eq i32 %528, 0
-  br i1 %658, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit, label %659
+652:                                              ; preds = %526
+  %653 = sext i32 %533 to i64
+  %654 = getelementptr inbounds i32, ptr %528, i64 %653
+  %655 = load i32, ptr %654, align 4, !tbaa !12
+  tail call void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull %.0367, i32 noundef -1, i32 noundef %655, i8 noundef signext %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %656 = sext i32 %532 to i64
+  %657 = getelementptr i32, ptr %528, i64 %656
+  %658 = getelementptr i8, ptr %657, i64 76
+  %659 = load i32, ptr %658, align 4, !tbaa !12
+  tail call void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull %.0367, i32 noundef -1, i32 noundef %659, i8 noundef signext %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %660 = icmp eq i32 %530, 0
+  br i1 %660, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit, label %661
 
-659:                                              ; preds = %650
-  %660 = sext i32 %528 to i64
-  %661 = getelementptr i32, ptr %526, i64 %660
-  %662 = getelementptr i8, ptr %661, i64 156
-  %663 = load i32, ptr %662, align 4, !tbaa !12
+661:                                              ; preds = %652
+  %662 = sext i32 %530 to i64
+  %663 = getelementptr i32, ptr %528, i64 %662
+  %664 = getelementptr i8, ptr %663, i64 156
+  %665 = load i32, ptr %664, align 4, !tbaa !12
   br label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-664:                                              ; preds = %12
-  %665 = load ptr, ptr %0, align 8, !tbaa !24
-  %666 = getelementptr inbounds nuw i8, ptr %665, i64 72
-  %667 = load ptr, ptr %666, align 8
-  %668 = tail call noundef zeroext i16 %667(ptr noundef nonnull align 8 dereferenceable(389) %0)
-  %669 = zext i16 %668 to i32
-  %670 = and i32 %669, 64512
-  %671 = icmp eq i32 %670, 56320
-  br i1 %671, label %672, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
+666:                                              ; preds = %12
+  %667 = load ptr, ptr %0, align 8, !tbaa !24
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 72
+  %669 = load ptr, ptr %668, align 8
+  %670 = tail call noundef zeroext i16 %669(ptr noundef nonnull align 8 dereferenceable(389) %0)
+  %671 = zext i16 %670 to i32
+  %672 = and i32 %671, 64512
+  %673 = icmp eq i32 %672, 56320
+  br i1 %673, label %674, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-672:                                              ; preds = %664
-  %673 = shl i32 %.0122373, 10
-  %674 = add i32 %673, -56613888
-  %675 = add i32 %674, %669
-  %676 = and i32 %.0125372, 768
-  switch i32 %676, label %677 [
+674:                                              ; preds = %666
+  %675 = shl i32 %.0122366, 10
+  %676 = add i32 %675, -56613888
+  %677 = add i32 %676, %671
+  %678 = and i32 %.0125365, 768
+  switch i32 %678, label %679 [
     i32 0, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
-    i32 256, label %709
+    i32 256, label %711
   ]
 
-677:                                              ; preds = %672
-  %678 = load ptr, ptr %.0376, align 8, !tbaa !58
-  %679 = getelementptr inbounds nuw i8, ptr %678, i64 16
-  %680 = load ptr, ptr %679, align 8, !tbaa !59
-  %681 = getelementptr inbounds nuw i8, ptr %678, i64 44
-  %682 = load i32, ptr %681, align 4, !tbaa !65
-  %.not.i254 = icmp slt i32 %675, %682
-  br i1 %.not.i254, label %686, label %683
+679:                                              ; preds = %674
+  %680 = load ptr, ptr %.0367, align 8, !tbaa !58
+  %681 = getelementptr inbounds nuw i8, ptr %680, i64 16
+  %682 = load ptr, ptr %681, align 8, !tbaa !59
+  %683 = getelementptr inbounds nuw i8, ptr %680, i64 44
+  %684 = load i32, ptr %683, align 4, !tbaa !65
+  %.not.i253 = icmp slt i32 %677, %684
+  br i1 %.not.i253, label %688, label %685
 
-683:                                              ; preds = %677
-  %684 = getelementptr inbounds nuw i8, ptr %678, i64 48
-  %685 = load i32, ptr %684, align 8, !tbaa !66
+685:                                              ; preds = %679
+  %686 = getelementptr inbounds nuw i8, ptr %680, i64 48
+  %687 = load i32, ptr %686, align 8, !tbaa !66
   br label %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit
 
-686:                                              ; preds = %677
-  %687 = load ptr, ptr %678, align 8, !tbaa !63
-  %688 = ashr i32 %675, 11
-  %689 = sext i32 %688 to i64
-  %690 = getelementptr i16, ptr %687, i64 %689
-  %691 = getelementptr i8, ptr %690, i64 4160
-  %692 = load i16, ptr %691, align 2, !tbaa !64
-  %693 = zext i16 %692 to i32
-  %694 = lshr i32 %675, 5
-  %695 = and i32 %694, 63
-  %696 = add nuw nsw i32 %695, %693
-  %697 = zext nneg i32 %696 to i64
-  %698 = getelementptr inbounds nuw i16, ptr %687, i64 %697
-  %699 = load i16, ptr %698, align 2, !tbaa !64
-  %700 = zext i16 %699 to i32
-  %701 = shl nuw nsw i32 %700, 2
-  %702 = and i32 %669, 31
-  %703 = add nuw nsw i32 %701, %702
+688:                                              ; preds = %679
+  %689 = load ptr, ptr %680, align 8, !tbaa !63
+  %690 = ashr i32 %677, 11
+  %691 = sext i32 %690 to i64
+  %692 = getelementptr i16, ptr %689, i64 %691
+  %693 = getelementptr i8, ptr %692, i64 4160
+  %694 = load i16, ptr %693, align 2, !tbaa !64
+  %695 = zext i16 %694 to i32
+  %696 = lshr i32 %677, 5
+  %697 = and i32 %696, 63
+  %698 = add nuw nsw i32 %697, %695
+  %699 = zext nneg i32 %698 to i64
+  %700 = getelementptr inbounds nuw i16, ptr %689, i64 %699
+  %701 = load i16, ptr %700, align 2, !tbaa !64
+  %702 = zext i16 %701 to i32
+  %703 = shl nuw nsw i32 %702, 2
+  %704 = and i32 %671, 31
+  %705 = add nuw nsw i32 %703, %704
   br label %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit
 
-_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit: ; preds = %683, %686
-  %704 = phi i32 [ %685, %683 ], [ %703, %686 ]
-  %705 = sext i32 %704 to i64
-  %706 = getelementptr inbounds i32, ptr %680, i64 %705
-  %707 = load i32, ptr %706, align 4, !tbaa !12
-  %708 = icmp eq i32 %707, 192
-  br i1 %708, label %709, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
+_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit: ; preds = %685, %688
+  %706 = phi i32 [ %687, %685 ], [ %705, %688 ]
+  %707 = sext i32 %706 to i64
+  %708 = getelementptr inbounds i32, ptr %682, i64 %707
+  %709 = load i32, ptr %708, align 4, !tbaa !12
+  %710 = icmp eq i32 %709, 192
+  br i1 %710, label %711, label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-709:                                              ; preds = %672, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit
-  %710 = getelementptr inbounds nuw i8, ptr %.0376, i64 32
-  %711 = load ptr, ptr %710, align 8, !tbaa !52
-  %712 = load ptr, ptr %711, align 8, !tbaa !58
-  %713 = getelementptr inbounds nuw i8, ptr %712, i64 16
-  %714 = load ptr, ptr %713, align 8, !tbaa !59
-  %715 = getelementptr inbounds nuw i8, ptr %712, i64 44
-  %716 = load i32, ptr %715, align 4, !tbaa !65
-  %.not.i255 = icmp slt i32 %675, %716
-  br i1 %.not.i255, label %720, label %717
+711:                                              ; preds = %674, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit
+  %712 = getelementptr inbounds nuw i8, ptr %.0367, i64 32
+  %713 = load ptr, ptr %712, align 8, !tbaa !52
+  %714 = load ptr, ptr %713, align 8, !tbaa !58
+  %715 = getelementptr inbounds nuw i8, ptr %714, i64 16
+  %716 = load ptr, ptr %715, align 8, !tbaa !59
+  %717 = getelementptr inbounds nuw i8, ptr %714, i64 44
+  %718 = load i32, ptr %717, align 4, !tbaa !65
+  %.not.i254 = icmp slt i32 %677, %718
+  br i1 %.not.i254, label %722, label %719
 
-717:                                              ; preds = %709
-  %718 = getelementptr inbounds nuw i8, ptr %712, i64 48
-  %719 = load i32, ptr %718, align 8, !tbaa !66
-  br label %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256
+719:                                              ; preds = %711
+  %720 = getelementptr inbounds nuw i8, ptr %714, i64 48
+  %721 = load i32, ptr %720, align 8, !tbaa !66
+  br label %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit255
 
-720:                                              ; preds = %709
-  %721 = load ptr, ptr %712, align 8, !tbaa !63
-  %722 = ashr i32 %675, 11
-  %723 = sext i32 %722 to i64
-  %724 = getelementptr i16, ptr %721, i64 %723
-  %725 = getelementptr i8, ptr %724, i64 4160
-  %726 = load i16, ptr %725, align 2, !tbaa !64
-  %727 = zext i16 %726 to i32
-  %728 = lshr i32 %675, 5
-  %729 = and i32 %728, 63
-  %730 = add nuw nsw i32 %729, %727
-  %731 = zext nneg i32 %730 to i64
-  %732 = getelementptr inbounds nuw i16, ptr %721, i64 %731
-  %733 = load i16, ptr %732, align 2, !tbaa !64
-  %734 = zext i16 %733 to i32
-  %735 = shl nuw nsw i32 %734, 2
-  %736 = and i32 %669, 31
-  %737 = add nuw nsw i32 %735, %736
-  br label %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256
+722:                                              ; preds = %711
+  %723 = load ptr, ptr %714, align 8, !tbaa !63
+  %724 = ashr i32 %677, 11
+  %725 = sext i32 %724 to i64
+  %726 = getelementptr i16, ptr %723, i64 %725
+  %727 = getelementptr i8, ptr %726, i64 4160
+  %728 = load i16, ptr %727, align 2, !tbaa !64
+  %729 = zext i16 %728 to i32
+  %730 = lshr i32 %677, 5
+  %731 = and i32 %730, 63
+  %732 = add nuw nsw i32 %731, %729
+  %733 = zext nneg i32 %732 to i64
+  %734 = getelementptr inbounds nuw i16, ptr %723, i64 %733
+  %735 = load i16, ptr %734, align 2, !tbaa !64
+  %736 = zext i16 %735 to i32
+  %737 = shl nuw nsw i32 %736, 2
+  %738 = and i32 %671, 31
+  %739 = add nuw nsw i32 %737, %738
+  br label %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit255
 
-_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256: ; preds = %717, %720
-  %738 = phi i32 [ %719, %717 ], [ %737, %720 ]
-  %739 = sext i32 %738 to i64
-  %740 = getelementptr inbounds i32, ptr %714, i64 %739
-  %741 = load i32, ptr %740, align 4, !tbaa !12
+_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit255: ; preds = %719, %722
+  %740 = phi i32 [ %721, %719 ], [ %739, %722 ]
+  %741 = sext i32 %740 to i64
+  %742 = getelementptr inbounds i32, ptr %716, i64 %741
+  %743 = load i32, ptr %742, align 4, !tbaa !12
   br label %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread
 
-742:                                              ; preds = %12
-  %743 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %744 = getelementptr inbounds nuw i8, ptr %.0376, i64 16
-  %745 = load ptr, ptr %744, align 8, !tbaa !69
-  %746 = lshr i32 %.0125372, 13
-  %747 = zext nneg i32 %746 to i64
-  %748 = getelementptr inbounds nuw i64, ptr %745, i64 %747
-  %749 = load i64, ptr %748, align 8, !tbaa !38
-  %750 = tail call noundef i32 @_ZN6icu_779Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %.0122373, i64 noundef %749)
-  %751 = zext i32 %750 to i64
-  %752 = shl nuw i64 %751, 32
-  %753 = or disjoint i64 %752, 83887360
-  %754 = load i32, ptr %743, align 8, !tbaa !20
-  %755 = icmp slt i32 %754, 40
-  br i1 %755, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i269, label %756
+744:                                              ; preds = %12
+  %745 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %746 = getelementptr inbounds nuw i8, ptr %.0367, i64 16
+  %747 = load ptr, ptr %746, align 8, !tbaa !69
+  %748 = lshr i32 %.0125365, 13
+  %749 = zext nneg i32 %748 to i64
+  %750 = getelementptr inbounds nuw i64, ptr %747, i64 %749
+  %751 = load i64, ptr %750, align 8, !tbaa !38
+  %752 = tail call noundef i32 @_ZN6icu_779Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %.0122366, i64 noundef %751)
+  %753 = zext i32 %752 to i64
+  %754 = shl nuw i64 %753, 32
+  %755 = or disjoint i64 %754, 83887360
+  %756 = load i32, ptr %745, align 8, !tbaa !20
+  %757 = icmp slt i32 %756, 40
+  br i1 %757, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i268, label %758
 
-756:                                              ; preds = %742
-  %757 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %758 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %759 = load i32, ptr %758, align 8, !tbaa !19
-  %.not.i.not.i257 = icmp slt i32 %754, %759
-  br i1 %.not.i.not.i257, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i269, label %760
+758:                                              ; preds = %744
+  %759 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %761 = load i32, ptr %760, align 8, !tbaa !19
+  %.not.i.not.i256 = icmp slt i32 %756, %761
+  br i1 %.not.i.not.i256, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i268, label %762
 
-760:                                              ; preds = %756
-  %761 = load i32, ptr %5, align 4, !tbaa !13
-  %762 = icmp slt i32 %761, 1
-  br i1 %762, label %.preheader.i.i258, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+762:                                              ; preds = %758
+  %763 = load i32, ptr %5, align 4, !tbaa !13
+  %764 = icmp slt i32 %763, 1
+  br i1 %764, label %.preheader.i.i257, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i.i258:                                ; preds = %760, %.preheader.i.i258
-  %.012.i.i259 = phi i32 [ %.113.i.i261, %.preheader.i.i258 ], [ %759, %760 ]
-  %763 = icmp slt i32 %.012.i.i259, 1000
-  %.113.v.i.i260 = select i1 %763, i32 2, i32 1
-  %.113.i.i261 = shl nsw i32 %.012.i.i259, %.113.v.i.i260
-  %.not.i262 = icmp sgt i32 %.113.i.i261, %754
-  br i1 %.not.i262, label %764, label %.preheader.i.i258, !llvm.loop !22
+.preheader.i.i257:                                ; preds = %762, %.preheader.i.i257
+  %.012.i.i258 = phi i32 [ %.113.i.i260, %.preheader.i.i257 ], [ %761, %762 ]
+  %765 = icmp slt i32 %.012.i.i258, 1000
+  %.113.v.i.i259 = select i1 %765, i32 2, i32 1
+  %.113.i.i260 = shl nsw i32 %.012.i.i258, %.113.v.i.i259
+  %.not.i261 = icmp sgt i32 %.113.i.i260, %756
+  br i1 %.not.i261, label %766, label %.preheader.i.i257, !llvm.loop !22
 
-764:                                              ; preds = %.preheader.i.i258
-  %765 = icmp sgt i32 %.012.i.i259, 0
-  br i1 %765, label %766, label %778
+766:                                              ; preds = %.preheader.i.i257
+  %767 = icmp sgt i32 %.012.i.i258, 0
+  br i1 %767, label %768, label %780
 
-766:                                              ; preds = %764
-  %767 = zext nneg i32 %.113.i.i261 to i64
-  %768 = shl nuw nsw i64 %767, 3
-  %769 = tail call noalias ptr @uprv_malloc_77(i64 noundef %768) #22
-  %.not.i.i.i263 = icmp eq ptr %769, null
-  br i1 %.not.i.i.i263, label %778, label %770
+768:                                              ; preds = %766
+  %769 = zext nneg i32 %.113.i.i260 to i64
+  %770 = shl nuw nsw i64 %769, 3
+  %771 = tail call noalias ptr @uprv_malloc_77(i64 noundef %770) #22
+  %.not.i.i.i262 = icmp eq ptr %771, null
+  br i1 %.not.i.i.i262, label %780, label %772
 
-770:                                              ; preds = %766
-  %771 = load i32, ptr %758, align 8, !tbaa !19
-  %spec.select.i.i.i264 = tail call i32 @llvm.smin.i32(i32 %754, i32 %771)
-  %.1.i.i.i265 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i264, i32 %.113.i.i261)
-  %772 = load ptr, ptr %757, align 8, !tbaa !18
-  %773 = sext i32 %.1.i.i.i265 to i64
-  %774 = shl nsw i64 %773, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %769, ptr align 8 %772, i64 %774, i1 false)
-  %775 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %776 = load i8, ptr %775, align 4, !tbaa !15
-  %.not.i.i.i.i266 = icmp eq i8 %776, 0
-  br i1 %.not.i.i.i.i266, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i267, label %777
+772:                                              ; preds = %768
+  %773 = load i32, ptr %760, align 8, !tbaa !19
+  %spec.select.i.i.i263 = tail call i32 @llvm.smin.i32(i32 %756, i32 %773)
+  %.1.i.i.i264 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i263, i32 %.113.i.i260)
+  %774 = load ptr, ptr %759, align 8, !tbaa !18
+  %775 = sext i32 %.1.i.i.i264 to i64
+  %776 = shl nsw i64 %775, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %771, ptr align 8 %774, i64 %776, i1 false)
+  %777 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %778 = load i8, ptr %777, align 4, !tbaa !15
+  %.not.i.i.i.i265 = icmp eq i8 %778, 0
+  br i1 %.not.i.i.i.i265, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i266, label %779
 
-777:                                              ; preds = %770
-  tail call void @uprv_free_77(ptr noundef %772)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i267
+779:                                              ; preds = %772
+  tail call void @uprv_free_77(ptr noundef %774)
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i266
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i267: ; preds = %777, %770
-  store ptr %769, ptr %757, align 8, !tbaa !18
-  store i32 %.113.i.i261, ptr %758, align 8, !tbaa !19
-  store i8 1, ptr %775, align 4, !tbaa !15
-  %.pre.i268 = load i32, ptr %743, align 8, !tbaa !20
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i269
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i266: ; preds = %779, %772
+  store ptr %771, ptr %759, align 8, !tbaa !18
+  store i32 %.113.i.i260, ptr %760, align 8, !tbaa !19
+  store i8 1, ptr %777, align 4, !tbaa !15
+  %.pre.i267 = load i32, ptr %745, align 8, !tbaa !20
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i268
 
-778:                                              ; preds = %766, %764
+780:                                              ; preds = %768, %766
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i269: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i267, %756, %742
-  %779 = phi i32 [ %.pre.i268, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i267 ], [ %754, %756 ], [ %754, %742 ]
-  %780 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %781 = add nsw i32 %779, 1
-  store i32 %781, ptr %743, align 8, !tbaa !20
-  %782 = sext i32 %779 to i64
-  %783 = load ptr, ptr %780, align 8, !tbaa !18
-  %784 = getelementptr inbounds i64, ptr %783, i64 %782
-  store i64 %753, ptr %784, align 8, !tbaa !38
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i268: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i266, %758, %744
+  %781 = phi i32 [ %.pre.i267, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i266 ], [ %756, %758 ], [ %756, %744 ]
+  %782 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %783 = add nsw i32 %781, 1
+  store i32 %783, ptr %745, align 8, !tbaa !20
+  %784 = sext i32 %781 to i64
+  %785 = load ptr, ptr %782, align 8, !tbaa !18
+  %786 = getelementptr inbounds i64, ptr %785, i64 %784
+  store i64 %755, ptr %786, align 8, !tbaa !38
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-785:                                              ; preds = %12
-  %786 = and i32 %.0122373, -2048
-  %787 = icmp eq i32 %786, 55296
-  br i1 %787, label %788, label %793
+787:                                              ; preds = %12
+  %788 = and i32 %.0122366, -2048
+  %789 = icmp eq i32 %788, 55296
+  br i1 %789, label %790, label %795
 
-788:                                              ; preds = %785
-  %789 = load ptr, ptr %0, align 8, !tbaa !24
-  %790 = getelementptr inbounds nuw i8, ptr %789, i64 88
-  %791 = load ptr, ptr %790, align 8
-  %792 = tail call noundef signext i8 %791(ptr noundef nonnull align 8 dereferenceable(389) %0)
-  %.not146 = icmp eq i8 %792, 0
-  br i1 %.not146, label %793, label %._crit_edge
+790:                                              ; preds = %787
+  %791 = load ptr, ptr %0, align 8, !tbaa !24
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 88
+  %793 = load ptr, ptr %792, align 8
+  %794 = tail call noundef signext i8 %793(ptr noundef nonnull align 8 dereferenceable(389) %0)
+  %.not146 = icmp eq i8 %794, 0
+  br i1 %.not146, label %795, label %._crit_edge
 
-793:                                              ; preds = %788, %785
-  %794 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %795 = tail call noundef i32 @_ZN6icu_779Collation30unassignedPrimaryFromCodePointEi(i32 noundef %.0122373)
-  %796 = zext i32 %795 to i64
-  %797 = shl nuw i64 %796, 32
-  %798 = or disjoint i64 %797, 83887360
-  %799 = load i32, ptr %794, align 8, !tbaa !20
-  %800 = icmp slt i32 %799, 40
-  br i1 %800, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i283, label %801
+795:                                              ; preds = %790, %787
+  %796 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %797 = tail call noundef i32 @_ZN6icu_779Collation30unassignedPrimaryFromCodePointEi(i32 noundef %.0122366)
+  %798 = zext i32 %797 to i64
+  %799 = shl nuw i64 %798, 32
+  %800 = or disjoint i64 %799, 83887360
+  %801 = load i32, ptr %796, align 8, !tbaa !20
+  %802 = icmp slt i32 %801, 40
+  br i1 %802, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i282, label %803
 
-801:                                              ; preds = %793
-  %802 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %803 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %804 = load i32, ptr %803, align 8, !tbaa !19
-  %.not.i.not.i271 = icmp slt i32 %799, %804
-  br i1 %.not.i.not.i271, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i283, label %805
+803:                                              ; preds = %795
+  %804 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %805 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %806 = load i32, ptr %805, align 8, !tbaa !19
+  %.not.i.not.i270 = icmp slt i32 %801, %806
+  br i1 %.not.i.not.i270, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i282, label %807
 
-805:                                              ; preds = %801
-  %806 = load i32, ptr %5, align 4, !tbaa !13
-  %807 = icmp slt i32 %806, 1
-  br i1 %807, label %.preheader.i.i272, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+807:                                              ; preds = %803
+  %808 = load i32, ptr %5, align 4, !tbaa !13
+  %809 = icmp slt i32 %808, 1
+  br i1 %809, label %.preheader.i.i271, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i.i272:                                ; preds = %805, %.preheader.i.i272
-  %.012.i.i273 = phi i32 [ %.113.i.i275, %.preheader.i.i272 ], [ %804, %805 ]
-  %808 = icmp slt i32 %.012.i.i273, 1000
-  %.113.v.i.i274 = select i1 %808, i32 2, i32 1
-  %.113.i.i275 = shl nsw i32 %.012.i.i273, %.113.v.i.i274
-  %.not.i276 = icmp sgt i32 %.113.i.i275, %799
-  br i1 %.not.i276, label %809, label %.preheader.i.i272, !llvm.loop !22
+.preheader.i.i271:                                ; preds = %807, %.preheader.i.i271
+  %.012.i.i272 = phi i32 [ %.113.i.i274, %.preheader.i.i271 ], [ %806, %807 ]
+  %810 = icmp slt i32 %.012.i.i272, 1000
+  %.113.v.i.i273 = select i1 %810, i32 2, i32 1
+  %.113.i.i274 = shl nsw i32 %.012.i.i272, %.113.v.i.i273
+  %.not.i275 = icmp sgt i32 %.113.i.i274, %801
+  br i1 %.not.i275, label %811, label %.preheader.i.i271, !llvm.loop !22
 
-809:                                              ; preds = %.preheader.i.i272
-  %810 = icmp sgt i32 %.012.i.i273, 0
-  br i1 %810, label %811, label %823
+811:                                              ; preds = %.preheader.i.i271
+  %812 = icmp sgt i32 %.012.i.i272, 0
+  br i1 %812, label %813, label %825
 
-811:                                              ; preds = %809
-  %812 = zext nneg i32 %.113.i.i275 to i64
-  %813 = shl nuw nsw i64 %812, 3
-  %814 = tail call noalias ptr @uprv_malloc_77(i64 noundef %813) #22
-  %.not.i.i.i277 = icmp eq ptr %814, null
-  br i1 %.not.i.i.i277, label %823, label %815
+813:                                              ; preds = %811
+  %814 = zext nneg i32 %.113.i.i274 to i64
+  %815 = shl nuw nsw i64 %814, 3
+  %816 = tail call noalias ptr @uprv_malloc_77(i64 noundef %815) #22
+  %.not.i.i.i276 = icmp eq ptr %816, null
+  br i1 %.not.i.i.i276, label %825, label %817
 
-815:                                              ; preds = %811
-  %816 = load i32, ptr %803, align 8, !tbaa !19
-  %spec.select.i.i.i278 = tail call i32 @llvm.smin.i32(i32 %799, i32 %816)
-  %.1.i.i.i279 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i278, i32 %.113.i.i275)
-  %817 = load ptr, ptr %802, align 8, !tbaa !18
-  %818 = sext i32 %.1.i.i.i279 to i64
-  %819 = shl nsw i64 %818, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %814, ptr align 8 %817, i64 %819, i1 false)
-  %820 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %821 = load i8, ptr %820, align 4, !tbaa !15
-  %.not.i.i.i.i280 = icmp eq i8 %821, 0
-  br i1 %.not.i.i.i.i280, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i281, label %822
+817:                                              ; preds = %813
+  %818 = load i32, ptr %805, align 8, !tbaa !19
+  %spec.select.i.i.i277 = tail call i32 @llvm.smin.i32(i32 %801, i32 %818)
+  %.1.i.i.i278 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i277, i32 %.113.i.i274)
+  %819 = load ptr, ptr %804, align 8, !tbaa !18
+  %820 = sext i32 %.1.i.i.i278 to i64
+  %821 = shl nsw i64 %820, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %816, ptr align 8 %819, i64 %821, i1 false)
+  %822 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %823 = load i8, ptr %822, align 4, !tbaa !15
+  %.not.i.i.i.i279 = icmp eq i8 %823, 0
+  br i1 %.not.i.i.i.i279, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i280, label %824
 
-822:                                              ; preds = %815
-  tail call void @uprv_free_77(ptr noundef %817)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i281
+824:                                              ; preds = %817
+  tail call void @uprv_free_77(ptr noundef %819)
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i280
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i281: ; preds = %822, %815
-  store ptr %814, ptr %802, align 8, !tbaa !18
-  store i32 %.113.i.i275, ptr %803, align 8, !tbaa !19
-  store i8 1, ptr %820, align 4, !tbaa !15
-  %.pre.i282 = load i32, ptr %794, align 8, !tbaa !20
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i283
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i280: ; preds = %824, %817
+  store ptr %816, ptr %804, align 8, !tbaa !18
+  store i32 %.113.i.i274, ptr %805, align 8, !tbaa !19
+  store i8 1, ptr %822, align 4, !tbaa !15
+  %.pre.i281 = load i32, ptr %796, align 8, !tbaa !20
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i282
 
-823:                                              ; preds = %811, %809
+825:                                              ; preds = %813, %811
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i283: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i281, %801, %793
-  %824 = phi i32 [ %.pre.i282, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i281 ], [ %799, %801 ], [ %799, %793 ]
-  %825 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %826 = add nsw i32 %824, 1
-  store i32 %826, ptr %794, align 8, !tbaa !20
-  %827 = sext i32 %824 to i64
-  %828 = load ptr, ptr %825, align 8, !tbaa !18
-  %829 = getelementptr inbounds i64, ptr %828, i64 %827
-  store i64 %798, ptr %829, align 8, !tbaa !38
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i282: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i280, %803, %795
+  %826 = phi i32 [ %.pre.i281, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i280 ], [ %801, %803 ], [ %801, %795 ]
+  %827 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %828 = add nsw i32 %826, 1
+  store i32 %828, ptr %796, align 8, !tbaa !20
+  %829 = sext i32 %826 to i64
+  %830 = load ptr, ptr %827, align 8, !tbaa !18
+  %831 = getelementptr inbounds i64, ptr %830, i64 %829
+  store i64 %800, ptr %831, align 8, !tbaa !38
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-default.unreachable500:                           ; preds = %12
+default.unreachable489:                           ; preds = %12
   unreachable
 
-_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread: ; preds = %399, %467, %461, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit, %352, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, %334, %659, %.thread, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256, %672, %664, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit, %326, %259, %_ZNK6icu_7713CollationData7getCE32Ei.exit, %520, %474
-  %.1126 = phi i32 [ %323, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %256, %259 ], [ %330, %326 ], [ %470, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit ], [ %480, %474 ], [ %523, %520 ], [ %663, %659 ], [ %741, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256 ], [ %707, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ -1, %672 ], [ -1, %664 ], [ %325, %.thread ], [ %346, %334 ], [ %346, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread ], [ %346, %352 ], [ %346, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ], [ %346, %461 ], [ %346, %467 ], [ %346, %399 ]
-  %.1123 = phi i32 [ %.0122373, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %.0122373, %259 ], [ %.0122373, %326 ], [ %.0122373, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit ], [ %.0122373, %474 ], [ %.0122373, %520 ], [ -1, %659 ], [ %675, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256 ], [ %675, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ %675, %672 ], [ %.0122373, %664 ], [ %.0122373, %.thread ], [ %.0122373, %334 ], [ %.0122373, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread ], [ %.0122373, %352 ], [ %.0122373, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ], [ %.0122373, %461 ], [ %.0122373, %467 ], [ %.0122373, %399 ]
-  %.1 = phi ptr [ %264, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %.0376, %259 ], [ %.0376, %326 ], [ %.0376, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit ], [ %.0376, %474 ], [ %.0376, %520 ], [ %.0376, %659 ], [ %711, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256 ], [ %.0376, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ %.0376, %672 ], [ %.0376, %664 ], [ %.0376, %.thread ], [ %.0376, %334 ], [ %.0376, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread ], [ %.0376, %352 ], [ %.0376, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ], [ %.0376, %461 ], [ %.0376, %467 ], [ %.0376, %399 ]
-  %830 = and i32 %.1126, 192
-  %.not = icmp eq i32 %830, 192
+_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread: ; preds = %399, %467, %461, %469, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit, %352, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, %334, %661, %.thread, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit255, %674, %666, %326, %259, %_ZNK6icu_7713CollationData7getCE32Ei.exit, %522, %476
+  %.1126 = phi i32 [ %323, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %256, %259 ], [ %330, %326 ], [ %482, %476 ], [ %525, %522 ], [ %665, %661 ], [ %743, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit255 ], [ %709, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ -1, %674 ], [ -1, %666 ], [ %325, %.thread ], [ %346, %467 ], [ %346, %461 ], [ %471, %469 ], [ %346, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ], [ %346, %352 ], [ %346, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread ], [ %346, %334 ], [ %346, %399 ]
+  %.1123 = phi i32 [ %.0122366, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %.0122366, %259 ], [ %.0122366, %326 ], [ %.0122366, %476 ], [ %.0122366, %522 ], [ -1, %661 ], [ %677, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit255 ], [ %677, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ %677, %674 ], [ %.0122366, %666 ], [ %.0122366, %.thread ], [ %.0122366, %467 ], [ %.0122366, %461 ], [ %.0122366, %469 ], [ %.0122366, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ], [ %.0122366, %352 ], [ %.0122366, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread ], [ %.0122366, %334 ], [ %.0122366, %399 ]
+  %.1 = phi ptr [ %264, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %.0367, %259 ], [ %.0367, %326 ], [ %.0367, %476 ], [ %.0367, %522 ], [ %.0367, %661 ], [ %713, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit255 ], [ %.0367, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ %.0367, %674 ], [ %.0367, %666 ], [ %.0367, %.thread ], [ %.0367, %467 ], [ %.0367, %461 ], [ %.0367, %469 ], [ %.0367, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit ], [ %.0367, %352 ], [ %.0367, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread ], [ %.0367, %334 ], [ %.0367, %399 ]
+  %832 = and i32 %.1126, 192
+  %.not = icmp eq i32 %832, 192
   br i1 %.not, label %12, label %._crit_edge, !llvm.loop !75
 
-._crit_edge:                                      ; preds = %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread, %788, %6
-  %.0125.lcssa = phi i32 [ %3, %6 ], [ -195323, %788 ], [ %.1126, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
-  %831 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %832 = and i32 %.0125.lcssa, -65536
-  %833 = zext i32 %832 to i64
-  %834 = shl nuw i64 %833, 32
-  %835 = shl i32 %.0125.lcssa, 16
-  %836 = and i32 %835, -16777216
-  %837 = zext i32 %836 to i64
-  %838 = or disjoint i64 %834, %837
-  %839 = shl i32 %.0125.lcssa, 8
-  %840 = and i32 %839, 65280
-  %841 = zext nneg i32 %840 to i64
-  %842 = or disjoint i64 %838, %841
-  %843 = load i32, ptr %831, align 8, !tbaa !20
-  %844 = icmp slt i32 %843, 40
-  br i1 %844, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i297, label %845
+._crit_edge:                                      ; preds = %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread, %790, %6
+  %.0125.lcssa = phi i32 [ %3, %6 ], [ -195323, %790 ], [ %.1126, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
+  %833 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %834 = and i32 %.0125.lcssa, -65536
+  %835 = zext i32 %834 to i64
+  %836 = shl nuw i64 %835, 32
+  %837 = shl i32 %.0125.lcssa, 16
+  %838 = and i32 %837, -16777216
+  %839 = zext i32 %838 to i64
+  %840 = or disjoint i64 %836, %839
+  %841 = shl i32 %.0125.lcssa, 8
+  %842 = and i32 %841, 65280
+  %843 = zext nneg i32 %842 to i64
+  %844 = or disjoint i64 %840, %843
+  %845 = load i32, ptr %833, align 8, !tbaa !20
+  %846 = icmp slt i32 %845, 40
+  br i1 %846, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i296, label %847
 
-845:                                              ; preds = %._crit_edge
-  %846 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %847 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %848 = load i32, ptr %847, align 8, !tbaa !19
-  %.not.i.not.i285 = icmp slt i32 %843, %848
-  br i1 %.not.i.not.i285, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i297, label %849
+847:                                              ; preds = %._crit_edge
+  %848 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %849 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %850 = load i32, ptr %849, align 8, !tbaa !19
+  %.not.i.not.i284 = icmp slt i32 %845, %850
+  br i1 %.not.i.not.i284, label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i296, label %851
 
-849:                                              ; preds = %845
-  %850 = load i32, ptr %5, align 4, !tbaa !13
-  %851 = icmp slt i32 %850, 1
-  br i1 %851, label %.preheader.i.i286, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
+851:                                              ; preds = %847
+  %852 = load i32, ptr %5, align 4, !tbaa !13
+  %853 = icmp slt i32 %852, 1
+  br i1 %853, label %.preheader.i.i285, label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-.preheader.i.i286:                                ; preds = %849, %.preheader.i.i286
-  %.012.i.i287 = phi i32 [ %.113.i.i289, %.preheader.i.i286 ], [ %848, %849 ]
-  %852 = icmp slt i32 %.012.i.i287, 1000
-  %.113.v.i.i288 = select i1 %852, i32 2, i32 1
-  %.113.i.i289 = shl nsw i32 %.012.i.i287, %.113.v.i.i288
-  %.not.i290 = icmp sgt i32 %.113.i.i289, %843
-  br i1 %.not.i290, label %853, label %.preheader.i.i286, !llvm.loop !22
+.preheader.i.i285:                                ; preds = %851, %.preheader.i.i285
+  %.012.i.i286 = phi i32 [ %.113.i.i288, %.preheader.i.i285 ], [ %850, %851 ]
+  %854 = icmp slt i32 %.012.i.i286, 1000
+  %.113.v.i.i287 = select i1 %854, i32 2, i32 1
+  %.113.i.i288 = shl nsw i32 %.012.i.i286, %.113.v.i.i287
+  %.not.i289 = icmp sgt i32 %.113.i.i288, %845
+  br i1 %.not.i289, label %855, label %.preheader.i.i285, !llvm.loop !22
 
-853:                                              ; preds = %.preheader.i.i286
-  %854 = icmp sgt i32 %.012.i.i287, 0
-  br i1 %854, label %855, label %867
+855:                                              ; preds = %.preheader.i.i285
+  %856 = icmp sgt i32 %.012.i.i286, 0
+  br i1 %856, label %857, label %869
 
-855:                                              ; preds = %853
-  %856 = zext nneg i32 %.113.i.i289 to i64
-  %857 = shl nuw nsw i64 %856, 3
-  %858 = tail call noalias ptr @uprv_malloc_77(i64 noundef %857) #22
-  %.not.i.i.i291 = icmp eq ptr %858, null
-  br i1 %.not.i.i.i291, label %867, label %859
+857:                                              ; preds = %855
+  %858 = zext nneg i32 %.113.i.i288 to i64
+  %859 = shl nuw nsw i64 %858, 3
+  %860 = tail call noalias ptr @uprv_malloc_77(i64 noundef %859) #22
+  %.not.i.i.i290 = icmp eq ptr %860, null
+  br i1 %.not.i.i.i290, label %869, label %861
 
-859:                                              ; preds = %855
-  %860 = load i32, ptr %847, align 8, !tbaa !19
-  %spec.select.i.i.i292 = tail call i32 @llvm.smin.i32(i32 %843, i32 %860)
-  %.1.i.i.i293 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i292, i32 %.113.i.i289)
-  %861 = load ptr, ptr %846, align 8, !tbaa !18
-  %862 = sext i32 %.1.i.i.i293 to i64
-  %863 = shl nsw i64 %862, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %858, ptr align 8 %861, i64 %863, i1 false)
-  %864 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %865 = load i8, ptr %864, align 4, !tbaa !15
-  %.not.i.i.i.i294 = icmp eq i8 %865, 0
-  br i1 %.not.i.i.i.i294, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i295, label %866
+861:                                              ; preds = %857
+  %862 = load i32, ptr %849, align 8, !tbaa !19
+  %spec.select.i.i.i291 = tail call i32 @llvm.smin.i32(i32 %845, i32 %862)
+  %.1.i.i.i292 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i291, i32 %.113.i.i288)
+  %863 = load ptr, ptr %848, align 8, !tbaa !18
+  %864 = sext i32 %.1.i.i.i292 to i64
+  %865 = shl nsw i64 %864, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %860, ptr align 8 %863, i64 %865, i1 false)
+  %866 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %867 = load i8, ptr %866, align 4, !tbaa !15
+  %.not.i.i.i.i293 = icmp eq i8 %867, 0
+  br i1 %.not.i.i.i.i293, label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i294, label %868
 
-866:                                              ; preds = %859
-  tail call void @uprv_free_77(ptr noundef %861)
-  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i295
+868:                                              ; preds = %861
+  tail call void @uprv_free_77(ptr noundef %863)
+  br label %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i294
 
-_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i295: ; preds = %866, %859
-  store ptr %858, ptr %846, align 8, !tbaa !18
-  store i32 %.113.i.i289, ptr %847, align 8, !tbaa !19
-  store i8 1, ptr %864, align 4, !tbaa !15
-  %.pre.i296 = load i32, ptr %831, align 8, !tbaa !20
-  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i297
+_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i294: ; preds = %868, %861
+  store ptr %860, ptr %848, align 8, !tbaa !18
+  store i32 %.113.i.i288, ptr %849, align 8, !tbaa !19
+  store i8 1, ptr %866, align 4, !tbaa !15
+  %.pre.i295 = load i32, ptr %833, align 8, !tbaa !20
+  br label %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i296
 
-867:                                              ; preds = %855, %853
+869:                                              ; preds = %857, %855
   store i32 7, ptr %5, align 4, !tbaa !13
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i297: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i295, %845, %._crit_edge
-  %868 = phi i32 [ %.pre.i296, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i295 ], [ %843, %845 ], [ %843, %._crit_edge ]
-  %869 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %870 = add nsw i32 %868, 1
-  store i32 %870, ptr %831, align 8, !tbaa !20
-  %871 = sext i32 %868 to i64
-  %872 = load ptr, ptr %869, align 8, !tbaa !18
-  %873 = getelementptr inbounds i64, ptr %872, i64 %871
-  store i64 %842, ptr %873, align 8, !tbaa !38
+_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i296: ; preds = %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i294, %847, %._crit_edge
+  %870 = phi i32 [ %.pre.i295, %_ZN6icu_7715MaybeStackArrayIlLi40EE6resizeEii.exit.i.i294 ], [ %845, %847 ], [ %845, %._crit_edge ]
+  %871 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %872 = add nsw i32 %870, 1
+  store i32 %872, ptr %833, align 8, !tbaa !20
+  %873 = sext i32 %870 to i64
+  %874 = load ptr, ptr %871, align 8, !tbaa !18
+  %875 = getelementptr inbounds i64, ptr %874, i64 %873
+  store i64 %844, ptr %875, align 8, !tbaa !38
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit.loopexit327: ; preds = %246
-  %874 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %874, ptr %214, align 8, !tbaa !20
+_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit.loopexit320: ; preds = %246
+  %876 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %876, ptr %214, align 8, !tbaa !20
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit: ; preds = %650, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit, %252, %_ZN6icu_779Collation10ceFromCE32Ej.exit, %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit.loopexit327, %565, %542, %_ZN6icu_779Collation10ceFromCE32Ej.exit253, %_ZN6icu_779Collation10ceFromCE32Ej.exit251, %243, %220, %175, %152, %120, %97, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i297, %867, %849, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i283, %823, %805, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i269, %778, %760, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i234, %513, %495, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i181, %83, %65, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i, %48, %30, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit, %14, %17, %473
+_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit: ; preds = %652, %469, %252, %_ZN6icu_779Collation10ceFromCE32Ej.exit, %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit.loopexit320, %567, %544, %_ZN6icu_779Collation10ceFromCE32Ej.exit252, %_ZN6icu_779Collation10ceFromCE32Ej.exit250, %243, %220, %175, %152, %120, %97, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i296, %869, %851, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i282, %825, %807, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i268, %780, %762, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i233, %515, %497, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i180, %83, %65, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit.i, %48, %30, %_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit, %14, %17, %475
   ret void
 }
 
@@ -3994,19 +3994,19 @@ define void @_ZN6icu_7717CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr
   %7 = load ptr, ptr %5, align 8, !tbaa !3
   store i8 0, ptr %7, align 1, !tbaa !43
   %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %.preheader98, label %.preheader100
+  br i1 %.not, label %.preheader95, label %.preheader97
 
-.preheader100:                                    ; preds = %4
+.preheader97:                                     ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
-.preheader98:                                     ; preds = %4
+.preheader95:                                     ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %171
 
-11:                                               ; preds = %.backedge, %.preheader100
-  %.048 = phi i32 [ %1, %.preheader100 ], [ %.3, %.backedge ]
+11:                                               ; preds = %.backedge, %.preheader97
+  %.048 = phi i32 [ %1, %.preheader97 ], [ %.3, %.backedge ]
   %12 = lshr i32 %.048, 8
   %13 = trunc i32 %12 to i8
   %14 = and i8 %13, 15
@@ -4016,7 +4016,7 @@ define void @_ZN6icu_7717CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr
 16:                                               ; preds = %11
   %17 = load i32, ptr %8, align 8, !tbaa !35
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.thread88, label %21
+  br i1 %18, label %.thread87, label %21
 
 19:                                               ; preds = %11
   %20 = landingpad { ptr, i32 }
@@ -4028,19 +4028,19 @@ define void @_ZN6icu_7717CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = invoke noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %26 unwind label %.loopexit102
+          to label %26 unwind label %.loopexit99
 
 26:                                               ; preds = %21
   %27 = icmp slt i32 %25, 0
-  br i1 %27, label %.thread88, label %28
+  br i1 %27, label %.thread87, label %28
 
-.loopexit102:                                     ; preds = %21
-  %lpad.loopexit104 = landingpad { ptr, i32 }
+.loopexit99:                                      ; preds = %21
+  %lpad.loopexit101 = landingpad { ptr, i32 }
           cleanup
   br label %358
 
-.loopexit.split-lp103:                            ; preds = %162
-  %lpad.loopexit.split-lp105 = landingpad { ptr, i32 }
+.loopexit.split-lp100:                            ; preds = %162
+  %lpad.loopexit.split-lp102 = landingpad { ptr, i32 }
           cleanup
   br label %358
 
@@ -4054,7 +4054,7 @@ define void @_ZN6icu_7717CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr
 
 34:                                               ; preds = %28
   %35 = icmp samesign ult i32 %25, 65536
-  br i1 %35, label %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129, label %36
+  br i1 %35, label %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread126, label %36
 
 36:                                               ; preds = %34
   %37 = icmp samesign ugt i32 %25, 1114111
@@ -4099,7 +4099,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %36, %41, %44
   %66 = icmp eq i32 %65, 192
   br i1 %66, label %107, label %160
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129: ; preds = %34
+_ZNK6icu_7713CollationData7getCE32Ei.exit.thread126: ; preds = %34
   %67 = load ptr, ptr %30, align 8, !tbaa !63
   %68 = icmp samesign ult i32 %25, 56320
   %69 = select i1 %68, i32 320, i32 0
@@ -4116,7 +4116,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread129: ; preds = %34
   %80 = getelementptr inbounds nuw i32, ptr %32, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !12
   %82 = icmp eq i32 %81, 192
-  br i1 %82, label %.thread130, label %160
+  br i1 %82, label %.thread127, label %160
 
 _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %83 = load ptr, ptr %30, align 8, !tbaa !63
@@ -4146,7 +4146,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %104 = zext i16 %103 to i32
   %105 = shl nuw nsw i32 %104, 2
   %106 = add nuw nsw i32 %105, %90
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit80
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit79
 
 107:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit
   %108 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -4155,9 +4155,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !59
   %113 = icmp samesign ugt i32 %25, 1114111
-  br i1 %113, label %_ZNK6icu_7713CollationData7getCE32Ei.exit80, label %131
+  br i1 %113, label %_ZNK6icu_7713CollationData7getCE32Ei.exit79, label %131
 
-.thread130:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129
+.thread127:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread126
   %114 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %115 = load ptr, ptr %114, align 8, !tbaa !52
   %116 = load ptr, ptr %115, align 8, !tbaa !58
@@ -4175,18 +4175,18 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %128 = shl nuw nsw i32 %127, 2
   %129 = and i32 %25, 31
   %130 = add nuw nsw i32 %128, %129
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit80
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit79
 
 131:                                              ; preds = %107
   %132 = getelementptr inbounds nuw i8, ptr %110, i64 44
   %133 = load i32, ptr %132, align 4, !tbaa !65
-  %.not.i79 = icmp slt i32 %25, %133
-  br i1 %.not.i79, label %137, label %134
+  %.not.i78 = icmp slt i32 %25, %133
+  br i1 %.not.i78, label %137, label %134
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %136 = load i32, ptr %135, align 8, !tbaa !66
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit80
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit79
 
 137:                                              ; preds = %131
   %138 = load ptr, ptr %110, align 8, !tbaa !63
@@ -4206,18 +4206,18 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %152 = shl nuw nsw i32 %151, 2
   %153 = and i32 %25, 31
   %154 = add nuw nsw i32 %152, %153
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit80
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit79
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread130, %107, %134, %137
-  %155 = phi ptr [ %100, %.thread ], [ %118, %.thread130 ], [ %112, %107 ], [ %112, %134 ], [ %112, %137 ]
-  %156 = phi i32 [ %106, %.thread ], [ %130, %.thread130 ], [ 128, %107 ], [ %136, %134 ], [ %154, %137 ]
+_ZNK6icu_7713CollationData7getCE32Ei.exit79:      ; preds = %.thread, %.thread127, %107, %134, %137
+  %155 = phi ptr [ %100, %.thread ], [ %118, %.thread127 ], [ %112, %107 ], [ %112, %134 ], [ %112, %137 ]
+  %156 = phi i32 [ %106, %.thread ], [ %130, %.thread127 ], [ 128, %107 ], [ %136, %134 ], [ %154, %137 ]
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i32, ptr %155, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !12
   br label %160
 
-160:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit80, %_ZNK6icu_7713CollationData7getCE32Ei.exit
-  %.3 = phi i32 [ %159, %_ZNK6icu_7713CollationData7getCE32Ei.exit80 ], [ %65, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %94, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %81, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129 ]
+160:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread126, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit79, %_ZNK6icu_7713CollationData7getCE32Ei.exit
+  %.3 = phi i32 [ %159, %_ZNK6icu_7713CollationData7getCE32Ei.exit79 ], [ %65, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %94, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %81, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread126 ]
   %161 = and i32 %.3, 207
   %narrow.i.not = icmp eq i32 %161, 202
   br i1 %narrow.i.not, label %166, label %162
@@ -4227,7 +4227,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread13
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 104
   %165 = load ptr, ptr %164, align 8
   invoke void %165(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %.thread88 unwind label %.loopexit.split-lp103
+          to label %.thread87 unwind label %.loopexit.split-lp100
 
 166:                                              ; preds = %160
   %167 = load i32, ptr %8, align 8, !tbaa !35
@@ -4242,8 +4242,8 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread13
 .backedge:                                        ; preds = %169, %166
   br label %11
 
-171:                                              ; preds = %.preheader98, %317
-  %.4 = phi i32 [ %.6, %317 ], [ %1, %.preheader98 ]
+171:                                              ; preds = %.preheader95, %317
+  %.4 = phi i32 [ %.6, %317 ], [ %1, %.preheader95 ]
   %172 = lshr i32 %.4, 8
   %173 = trunc i32 %172 to i8
   %174 = and i8 %173, 15
@@ -4259,7 +4259,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread13
 
 181:                                              ; preds = %176
   %182 = icmp slt i32 %180, 0
-  br i1 %182, label %.loopexit99, label %185
+  br i1 %182, label %.loopexit96, label %185
 
 183:                                              ; preds = %171
   %184 = landingpad { ptr, i32 }
@@ -4282,26 +4282,26 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread13
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load ptr, ptr %188, align 8, !tbaa !59
   %190 = icmp samesign ult i32 %180, 55296
-  br i1 %190, label %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread, label %191
+  br i1 %190, label %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread, label %191
 
 191:                                              ; preds = %185
   %192 = icmp samesign ult i32 %180, 65536
-  br i1 %192, label %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131, label %193
+  br i1 %192, label %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread128, label %193
 
 193:                                              ; preds = %191
   %194 = icmp samesign ugt i32 %180, 1114111
-  br i1 %194, label %_ZNK6icu_7713CollationData7getCE32Ei.exit83, label %195
+  br i1 %194, label %_ZNK6icu_7713CollationData7getCE32Ei.exit82, label %195
 
 195:                                              ; preds = %193
   %196 = getelementptr inbounds nuw i8, ptr %187, i64 44
   %197 = load i32, ptr %196, align 4, !tbaa !65
-  %.not.i82 = icmp slt i32 %180, %197
-  br i1 %.not.i82, label %201, label %198
+  %.not.i81 = icmp slt i32 %180, %197
+  br i1 %.not.i81, label %201, label %198
 
 198:                                              ; preds = %195
   %199 = getelementptr inbounds nuw i8, ptr %187, i64 48
   %200 = load i32, ptr %199, align 8, !tbaa !66
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit83
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit82
 
 201:                                              ; preds = %195
   %202 = load ptr, ptr %187, align 8, !tbaa !63
@@ -4321,9 +4321,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread13
   %216 = shl nuw nsw i32 %215, 2
   %217 = and i32 %180, 31
   %218 = add nuw nsw i32 %216, %217
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit83
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit82
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit83:      ; preds = %193, %198, %201
+_ZNK6icu_7713CollationData7getCE32Ei.exit82:      ; preds = %193, %198, %201
   %219 = phi i32 [ 128, %193 ], [ %200, %198 ], [ %218, %201 ]
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i32, ptr %189, i64 %220
@@ -4331,7 +4331,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83:      ; preds = %193, %198, %201
   %223 = icmp eq i32 %222, 192
   br i1 %223, label %264, label %317
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131: ; preds = %191
+_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread128: ; preds = %191
   %224 = load ptr, ptr %187, align 8, !tbaa !63
   %225 = icmp samesign ult i32 %180, 56320
   %226 = select i1 %225, i32 320, i32 0
@@ -4348,9 +4348,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131: ; preds = %191
   %237 = getelementptr inbounds nuw i32, ptr %189, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !12
   %239 = icmp eq i32 %238, 192
-  br i1 %239, label %.thread132, label %317
+  br i1 %239, label %.thread129, label %317
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
+_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread: ; preds = %185
   %240 = load ptr, ptr %187, align 8, !tbaa !63
   %241 = lshr i32 %180, 5
   %242 = zext nneg i32 %241 to i64
@@ -4364,9 +4364,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
   %250 = getelementptr inbounds nuw i32, ptr %189, i64 %249
   %251 = load i32, ptr %250, align 4, !tbaa !12
   %252 = icmp eq i32 %251, 192
-  br i1 %252, label %.thread92, label %317
+  br i1 %252, label %.thread90, label %317
 
-.thread92:                                        ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread
+.thread90:                                        ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread
   %253 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %254 = load ptr, ptr %253, align 8, !tbaa !52
   %255 = load ptr, ptr %254, align 8, !tbaa !58
@@ -4378,18 +4378,18 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
   %261 = zext i16 %260 to i32
   %262 = shl nuw nsw i32 %261, 2
   %263 = add nuw nsw i32 %262, %247
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit85
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit84
 
-264:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83
+264:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit82
   %265 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %266 = load ptr, ptr %265, align 8, !tbaa !52
   %267 = load ptr, ptr %266, align 8, !tbaa !58
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = load ptr, ptr %268, align 8, !tbaa !59
   %270 = icmp samesign ugt i32 %180, 1114111
-  br i1 %270, label %_ZNK6icu_7713CollationData7getCE32Ei.exit85, label %288
+  br i1 %270, label %_ZNK6icu_7713CollationData7getCE32Ei.exit84, label %288
 
-.thread132:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131
+.thread129:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread128
   %271 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %272 = load ptr, ptr %271, align 8, !tbaa !52
   %273 = load ptr, ptr %272, align 8, !tbaa !58
@@ -4407,18 +4407,18 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
   %285 = shl nuw nsw i32 %284, 2
   %286 = and i32 %180, 31
   %287 = add nuw nsw i32 %285, %286
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit85
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit84
 
 288:                                              ; preds = %264
   %289 = getelementptr inbounds nuw i8, ptr %267, i64 44
   %290 = load i32, ptr %289, align 4, !tbaa !65
-  %.not.i84 = icmp slt i32 %180, %290
-  br i1 %.not.i84, label %294, label %291
+  %.not.i83 = icmp slt i32 %180, %290
+  br i1 %.not.i83, label %294, label %291
 
 291:                                              ; preds = %288
   %292 = getelementptr inbounds nuw i8, ptr %267, i64 48
   %293 = load i32, ptr %292, align 8, !tbaa !66
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit85
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit84
 
 294:                                              ; preds = %288
   %295 = load ptr, ptr %267, align 8, !tbaa !63
@@ -4438,59 +4438,59 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
   %309 = shl nuw nsw i32 %308, 2
   %310 = and i32 %180, 31
   %311 = add nuw nsw i32 %309, %310
-  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit85
+  br label %_ZNK6icu_7713CollationData7getCE32Ei.exit84
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread132, %264, %291, %294
-  %312 = phi ptr [ %257, %.thread92 ], [ %275, %.thread132 ], [ %269, %264 ], [ %269, %291 ], [ %269, %294 ]
-  %313 = phi i32 [ %263, %.thread92 ], [ %287, %.thread132 ], [ 128, %264 ], [ %293, %291 ], [ %311, %294 ]
+_ZNK6icu_7713CollationData7getCE32Ei.exit84:      ; preds = %.thread90, %.thread129, %264, %291, %294
+  %312 = phi ptr [ %257, %.thread90 ], [ %275, %.thread129 ], [ %269, %264 ], [ %269, %291 ], [ %269, %294 ]
+  %313 = phi i32 [ %263, %.thread90 ], [ %287, %.thread129 ], [ 128, %264 ], [ %293, %291 ], [ %311, %294 ]
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds i32, ptr %312, i64 %314
   %316 = load i32, ptr %315, align 4, !tbaa !12
   br label %317
 
-317:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit85, %_ZNK6icu_7713CollationData7getCE32Ei.exit83
-  %.6 = phi i32 [ %316, %_ZNK6icu_7713CollationData7getCE32Ei.exit85 ], [ %222, %_ZNK6icu_7713CollationData7getCE32Ei.exit83 ], [ %251, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread ], [ %238, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131 ]
+317:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread128, %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit84, %_ZNK6icu_7713CollationData7getCE32Ei.exit82
+  %.6 = phi i32 [ %316, %_ZNK6icu_7713CollationData7getCE32Ei.exit84 ], [ %222, %_ZNK6icu_7713CollationData7getCE32Ei.exit82 ], [ %251, %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread ], [ %238, %_ZNK6icu_7713CollationData7getCE32Ei.exit82.thread128 ]
   %318 = and i32 %.6, 207
-  %narrow.i87.not = icmp eq i32 %318, 202
-  br i1 %narrow.i87.not, label %171, label %319
+  %narrow.i86.not = icmp eq i32 %318, 202
+  br i1 %narrow.i86.not, label %171, label %319
 
 319:                                              ; preds = %317
   %320 = load ptr, ptr %0, align 8, !tbaa !24
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 96
   %322 = load ptr, ptr %321, align 8
   invoke void %322(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %.loopexit99 unwind label %.loopexit.split-lp
+          to label %.loopexit96 unwind label %.loopexit.split-lp
 
-.loopexit99:                                      ; preds = %181, %319
+.loopexit96:                                      ; preds = %181, %319
   %323 = load i32, ptr %6, align 8, !tbaa !94
   %324 = icmp sgt i32 %323, 1
-  br i1 %324, label %.lr.ph.preheader, label %.thread88
+  br i1 %324, label %.lr.ph.preheader, label %.thread87
 
-.lr.ph.preheader:                                 ; preds = %.loopexit99
+.lr.ph.preheader:                                 ; preds = %.loopexit96
   %325 = load ptr, ptr %5, align 8, !tbaa !3
   %326 = zext nneg i32 %323 to i64
   %327 = getelementptr i8, ptr %325, i64 %326
-  %.050107 = getelementptr i8, ptr %327, i64 -1
+  %.050104 = getelementptr i8, ptr %327, i64 -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.050109 = phi ptr [ %.050, %.lr.ph ], [ %.050107, %.lr.ph.preheader ]
-  %.051108 = phi ptr [ %330, %.lr.ph ], [ %325, %.lr.ph.preheader ]
-  %328 = load i8, ptr %.051108, align 1, !tbaa !43
-  %329 = load i8, ptr %.050109, align 1, !tbaa !43
-  %330 = getelementptr inbounds nuw i8, ptr %.051108, i64 1
-  store i8 %329, ptr %.051108, align 1, !tbaa !43
-  store i8 %328, ptr %.050109, align 1, !tbaa !43
-  %.050 = getelementptr inbounds i8, ptr %.050109, i64 -1
+  %.050106 = phi ptr [ %.050, %.lr.ph ], [ %.050104, %.lr.ph.preheader ]
+  %.051105 = phi ptr [ %330, %.lr.ph ], [ %325, %.lr.ph.preheader ]
+  %328 = load i8, ptr %.051105, align 1, !tbaa !43
+  %329 = load i8, ptr %.050106, align 1, !tbaa !43
+  %330 = getelementptr inbounds nuw i8, ptr %.051105, i64 1
+  store i8 %329, ptr %.051105, align 1, !tbaa !43
+  store i8 %328, ptr %.050106, align 1, !tbaa !43
+  %.050 = getelementptr inbounds i8, ptr %.050106, i64 -1
   %331 = icmp ult ptr %330, %.050
-  br i1 %331, label %.lr.ph, label %.thread88, !llvm.loop !96
+  br i1 %331, label %.lr.ph, label %.thread87, !llvm.loop !96
 
-.thread88:                                        ; preds = %26, %16, %.lr.ph, %.loopexit99, %162
+.thread87:                                        ; preds = %26, %16, %.lr.ph, %.loopexit96, %162
   %332 = load i32, ptr %3, align 4, !tbaa !13
   %333 = icmp slt i32 %332, 1
   br i1 %333, label %.preheader.preheader, label %.critedge2
 
-.preheader.preheader:                             ; preds = %.thread88
+.preheader.preheader:                             ; preds = %.thread87
   %.pre = load i32, ptr %6, align 8, !tbaa !94
   br label %.preheader
 
@@ -4499,36 +4499,36 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread
   %.0 = phi i32 [ %355, %354 ], [ 0, %.preheader.preheader ]
   %335 = add nsw i32 %334, -1
   %336 = icmp slt i32 %.0, %335
-  %.pre118 = load ptr, ptr %5, align 8, !tbaa !3
-  br i1 %336, label %.lr.ph111, label %.critedge
+  %.pre115 = load ptr, ptr %5, align 8, !tbaa !3
+  br i1 %336, label %.lr.ph108, label %.critedge
 
-.lr.ph111:                                        ; preds = %.preheader
+.lr.ph108:                                        ; preds = %.preheader
   %337 = sext i32 %.0 to i64
   %338 = sext i32 %335 to i64
   br label %339
 
-339:                                              ; preds = %.lr.ph111, %343
-  %indvars.iv = phi i64 [ %337, %.lr.ph111 ], [ %indvars.iv.next, %343 ]
-  %340 = getelementptr inbounds i8, ptr %.pre118, i64 %indvars.iv
+339:                                              ; preds = %.lr.ph108, %343
+  %indvars.iv = phi i64 [ %337, %.lr.ph108 ], [ %indvars.iv.next, %343 ]
+  %340 = getelementptr inbounds i8, ptr %.pre115, i64 %indvars.iv
   %341 = load i8, ptr %340, align 1, !tbaa !43
   %342 = icmp eq i8 %341, 0
-  br i1 %342, label %343, label %.critedge.loopexit.split.loop.exit134
+  br i1 %342, label %343, label %.critedge.loopexit.split.loop.exit131
 
 343:                                              ; preds = %339
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %344 = icmp slt i64 %indvars.iv.next, %338
   br i1 %344, label %339, label %.critedge, !llvm.loop !97
 
-.critedge.loopexit.split.loop.exit134:            ; preds = %339
+.critedge.loopexit.split.loop.exit131:            ; preds = %339
   %345 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %343, %.critedge.loopexit.split.loop.exit134, %.preheader
-  %.1.lcssa = phi i32 [ %.0, %.preheader ], [ %345, %.critedge.loopexit.split.loop.exit134 ], [ %335, %343 ]
+.critedge:                                        ; preds = %343, %.critedge.loopexit.split.loop.exit131, %.preheader
+  %.1.lcssa = phi i32 [ %.0, %.preheader ], [ %345, %.critedge.loopexit.split.loop.exit131 ], [ %335, %343 ]
   %346 = sub nsw i32 %334, %.1.lcssa
   %spec.store.select = call i32 @llvm.smin.i32(i32 %346, i32 254)
   %347 = sext i32 %.1.lcssa to i64
-  %348 = getelementptr inbounds i8, ptr %.pre118, i64 %347
+  %348 = getelementptr inbounds i8, ptr %.pre115, i64 %347
   invoke void @_ZN6icu_7717CollationIterator23appendNumericSegmentCEsEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef %348, i32 noundef %spec.store.select, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %351 unwind label %349
 
@@ -4548,13 +4548,13 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread
   %357 = icmp slt i32 %355, %356
   br i1 %357, label %.preheader, label %.critedge2, !llvm.loop !98
 
-.critedge2:                                       ; preds = %354, %351, %.thread88
+.critedge2:                                       ; preds = %354, %351, %.thread87
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-358:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit102, %.loopexit.split-lp103, %183, %19, %349
-  %.pn74 = phi { ptr, i32 } [ %350, %349 ], [ %20, %19 ], [ %184, %183 ], [ %lpad.loopexit104, %.loopexit102 ], [ %lpad.loopexit.split-lp105, %.loopexit.split-lp103 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+358:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit99, %.loopexit.split-lp100, %183, %19, %349
+  %.pn74 = phi { ptr, i32 } [ %350, %349 ], [ %20, %19 ], [ %184, %183 ], [ %lpad.loopexit101, %.loopexit99 ], [ %lpad.loopexit.split-lp102, %.loopexit.split-lp100 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn74
@@ -4687,11 +4687,11 @@ _ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit: ; preds 
   br i1 %79, label %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit._ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread_crit_edge, label %109
 
 _ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit._ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread_crit_edge: ; preds = %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit
-  %.pre169 = load ptr, ptr %35, align 8, !tbaa !34
+  %.pre168 = load ptr, ptr %35, align 8, !tbaa !34
   br label %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread
 
 _ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread: ; preds = %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit._ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread_crit_edge, %55
-  %80 = phi ptr [ %.pre169, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit._ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread_crit_edge ], [ %36, %55 ]
+  %80 = phi ptr [ %.pre168, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit._ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit.thread_crit_edge ], [ %36, %55 ]
   %.not.i96 = icmp eq ptr %80, null
   br i1 %.not.i96, label %100, label %81
 
@@ -4899,8 +4899,8 @@ _ZN6icu_7712SkippedState21backwardNumCodePointsEi.exit.i106: ; preds = %155, %15
   %196 = load ptr, ptr %195, align 8
   %197 = tail call noundef i32 %196(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %198 = tail call noundef i32 @_ZN6icu_7710UCharsTrie17firstForCodePointEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %197)
-  %.not91161 = icmp eq i32 %4, 2
-  br i1 %.not91161, label %._crit_edge, label %.lr.ph
+  %.not91160 = icmp eq i32 %4, 2
+  br i1 %.not91160, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %190
   %199 = load ptr, ptr %0, align 8, !tbaa !24
@@ -4908,26 +4908,26 @@ _ZN6icu_7712SkippedState21backwardNumCodePointsEi.exit.i106: ; preds = %155, %15
   %201 = load ptr, ptr %200, align 8
   tail call void %201(ptr noundef nonnull align 8 dereferenceable(389) %0, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.pre = load ptr, ptr %35, align 8, !tbaa !34
-  %.pre166 = load ptr, ptr %185, align 8, !tbaa !78
-  %.pre167 = load ptr, ptr %187, align 8, !tbaa !79
-  %.pre168 = load i32, ptr %188, align 8, !tbaa !80
+  %.pre165 = load ptr, ptr %185, align 8, !tbaa !78
+  %.pre166 = load ptr, ptr %187, align 8, !tbaa !79
+  %.pre167 = load i32, ptr %188, align 8, !tbaa !80
   br label %208
 
 .lr.ph:                                           ; preds = %190, %.lr.ph
-  %.069162 = phi i32 [ %207, %.lr.ph ], [ 3, %190 ]
+  %.069161 = phi i32 [ %207, %.lr.ph ], [ 3, %190 ]
   %202 = load ptr, ptr %0, align 8, !tbaa !24
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 48
   %204 = load ptr, ptr %203, align 8
   %205 = tail call noundef i32 %204(ptr noundef nonnull align 8 dereferenceable(389) %0, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %206 = tail call noundef i32 @_ZN6icu_7710UCharsTrie16nextForCodePointEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %205)
-  %207 = add nuw i32 %.069162, 1
-  %exitcond.not = icmp eq i32 %.069162, %4
+  %207 = add nuw i32 %.069161, 1
+  %exitcond.not = icmp eq i32 %.069161, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 208:                                              ; preds = %._crit_edge, %183
-  %209 = phi i32 [ %.pre168, %._crit_edge ], [ -1, %183 ]
-  %210 = phi ptr [ %.pre167, %._crit_edge ], [ %186, %183 ]
-  %211 = phi ptr [ %.pre166, %._crit_edge ], [ %186, %183 ]
+  %209 = phi i32 [ %.pre167, %._crit_edge ], [ -1, %183 ]
+  %210 = phi ptr [ %.pre166, %._crit_edge ], [ %186, %183 ]
+  %211 = phi ptr [ %.pre165, %._crit_edge ], [ %186, %183 ]
   %212 = phi ptr [ %.pre, %._crit_edge ], [ %184, %183 ]
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 144
   store ptr %211, ptr %213, align 8, !tbaa !82

@@ -618,9 +618,9 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter12set_cutparamEPK
 14:                                               ; preds = %13
   %15 = tail call noundef i32 @_ZNK4ncnn3Net24find_layer_index_by_nameEPKc(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %2)
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %20, label %.thread26
+  br i1 %16, label %20, label %.thread24
 
-.thread26:                                        ; preds = %14
+.thread24:                                        ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %15, ptr %17, align 8, !tbaa !27
   %18 = load ptr, ptr @stderr, align 8, !tbaa !5
@@ -632,8 +632,8 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN11ModelWriter12set_cutparamEPK
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #27
   br label %23
 
-23:                                               ; preds = %13, %.thread26, %20, %10
-  %.2 = phi i32 [ -1, %20 ], [ -1, %10 ], [ 0, %.thread26 ], [ 0, %13 ]
+23:                                               ; preds = %13, %.thread24, %20, %10
+  %.2 = phi i32 [ -1, %20 ], [ -1, %10 ], [ 0, %.thread24 ], [ 0, %13 ]
   ret i32 %.2
 }
 

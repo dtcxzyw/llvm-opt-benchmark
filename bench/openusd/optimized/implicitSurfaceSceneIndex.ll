@@ -28748,8 +28748,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 .noexc19:                                         ; preds = %167
   %168 = load ptr, ptr %10, align 8
-  %.not21.i = icmp eq ptr %168, null
-  br i1 %.not21.i, label %176, label %169
+  %.not20.i = icmp eq ptr %168, null
+  br i1 %.not20.i, label %176, label %169
 
 169:                                              ; preds = %.noexc19
   %170 = load ptr, ptr %168, align 8
@@ -28767,8 +28767,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %.2.i = phi double [ %173, %169 ], [ %.09.i, %.noexc19 ]
   %177 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %178 = load ptr, ptr %177, align 8
-  %.not.i.i.i14.i = icmp eq ptr %178, null
-  br i1 %.not.i.i.i14.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i, label %179
+  %.not.i.i.i13.i = icmp eq ptr %178, null
+  br i1 %.not.i.i.i13.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i, label %179
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -28785,12 +28785,12 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = load ptr, ptr %187, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(16) %178) #25
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i
 
 189:                                              ; preds = %179
   %190 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i15.i = icmp eq i8 %190, 0
-  br i1 %.not.i.i.i.i15.i, label %193, label %191
+  %.not.i.i.i.i14.i = icmp eq i8 %190, 0
+  br i1 %.not.i.i.i.i14.i, label %193, label %191
 
 191:                                              ; preds = %189
   %192 = add nsw i32 %183, -1
@@ -28802,9 +28802,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %195
 
 195:                                              ; preds = %193, %191
-  %.0.i.i.i.i16.i = phi i32 [ %183, %191 ], [ %194, %193 ]
-  %196 = icmp eq i32 %.0.i.i.i.i16.i, 1
-  br i1 %196, label %197, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+  %.0.i.i.i.i15.i = phi i32 [ %183, %191 ], [ %194, %193 ]
+  %196 = icmp eq i32 %.0.i.i.i.i15.i, 1
+  br i1 %196, label %197, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
 
 197:                                              ; preds = %195
   %198 = load ptr, ptr %178, align 8
@@ -28813,8 +28813,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void %200(ptr noundef nonnull align 8 dereferenceable(16) %178) #25
   %201 = getelementptr inbounds nuw i8, ptr %178, i64 12
   %202 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i17.i = icmp eq i8 %202, 0
-  br i1 %.not.i.i.i.i.i.i17.i, label %206, label %203
+  %.not.i.i.i.i.i.i16.i = icmp eq i8 %202, 0
+  br i1 %.not.i.i.i.i.i.i16.i, label %206, label %203
 
 203:                                              ; preds = %197
   %204 = load i32, ptr %201, align 4
@@ -28827,21 +28827,21 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %208
 
 208:                                              ; preds = %206, %203
-  %.0.i.i.i.i.i.i18.i = phi i32 [ %204, %203 ], [ %207, %206 ]
-  %209 = icmp eq i32 %.0.i.i.i.i.i.i18.i, 1
-  br i1 %209, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+  %.0.i.i.i.i.i.i17.i = phi i32 [ %204, %203 ], [ %207, %206 ]
+  %209 = icmp eq i32 %.0.i.i.i.i.i.i17.i, 1
+  br i1 %209, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i: ; preds = %208, %184
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i: ; preds = %208, %184
   %210 = load ptr, ptr %178, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = load ptr, ptr %211, align 8
   call void %212(ptr noundef nonnull align 8 dereferenceable(16) %178) #25
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i, %208, %195, %176
-  br i1 %.not21.i, label %213, label %215
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i, %208, %195, %176
+  br i1 %.not20.i, label %213, label %215
 
-213:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+213:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
   br label %215
 
 214:                                              ; preds = %174, %128
@@ -28850,8 +28850,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i) #25
   br label %.body
 
-215:                                              ; preds = %213, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i
-  %.110.i = phi double [ 1.000000e+00, %213 ], [ %.2.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i ], [ %.09.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i ]
+215:                                              ; preds = %213, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i
+  %.110.i = phi double [ 1.000000e+00, %213 ], [ %.2.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i ], [ %.09.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -28960,8 +28960,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 .noexc42:                                         ; preds = %261
   %262 = load ptr, ptr %8, align 8
-  %.not21.i29 = icmp eq ptr %262, null
-  br i1 %.not21.i29, label %270, label %263
+  %.not20.i29 = icmp eq ptr %262, null
+  br i1 %.not20.i29, label %270, label %263
 
 263:                                              ; preds = %.noexc42
   %264 = load ptr, ptr %262, align 8
@@ -28979,8 +28979,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %.2.i30 = phi double [ %267, %263 ], [ %.09.i23, %.noexc42 ]
   %271 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %272 = load ptr, ptr %271, align 8
-  %.not.i.i.i14.i31 = icmp eq ptr %272, null
-  br i1 %.not.i.i.i14.i31, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34, label %273
+  %.not.i.i.i13.i31 = icmp eq ptr %272, null
+  br i1 %.not.i.i.i13.i31, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34, label %273
 
 273:                                              ; preds = %270
   %274 = getelementptr inbounds nuw i8, ptr %272, i64 8
@@ -28997,12 +28997,12 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
   %282 = load ptr, ptr %281, align 8
   call void %282(ptr noundef nonnull align 8 dereferenceable(16) %272) #25
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37
 
 283:                                              ; preds = %273
   %284 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i15.i32 = icmp eq i8 %284, 0
-  br i1 %.not.i.i.i.i15.i32, label %287, label %285
+  %.not.i.i.i.i14.i32 = icmp eq i8 %284, 0
+  br i1 %.not.i.i.i.i14.i32, label %287, label %285
 
 285:                                              ; preds = %283
   %286 = add nsw i32 %277, -1
@@ -29014,9 +29014,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %289
 
 289:                                              ; preds = %287, %285
-  %.0.i.i.i.i16.i33 = phi i32 [ %277, %285 ], [ %288, %287 ]
-  %290 = icmp eq i32 %.0.i.i.i.i16.i33, 1
-  br i1 %290, label %291, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+  %.0.i.i.i.i15.i33 = phi i32 [ %277, %285 ], [ %288, %287 ]
+  %290 = icmp eq i32 %.0.i.i.i.i15.i33, 1
+  br i1 %290, label %291, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
 
 291:                                              ; preds = %289
   %292 = load ptr, ptr %272, align 8
@@ -29025,8 +29025,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void %294(ptr noundef nonnull align 8 dereferenceable(16) %272) #25
   %295 = getelementptr inbounds nuw i8, ptr %272, i64 12
   %296 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i17.i35 = icmp eq i8 %296, 0
-  br i1 %.not.i.i.i.i.i.i17.i35, label %300, label %297
+  %.not.i.i.i.i.i.i16.i35 = icmp eq i8 %296, 0
+  br i1 %.not.i.i.i.i.i.i16.i35, label %300, label %297
 
 297:                                              ; preds = %291
   %298 = load i32, ptr %295, align 4
@@ -29039,21 +29039,21 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %302
 
 302:                                              ; preds = %300, %297
-  %.0.i.i.i.i.i.i18.i36 = phi i32 [ %298, %297 ], [ %301, %300 ]
-  %303 = icmp eq i32 %.0.i.i.i.i.i.i18.i36, 1
-  br i1 %303, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+  %.0.i.i.i.i.i.i17.i36 = phi i32 [ %298, %297 ], [ %301, %300 ]
+  %303 = icmp eq i32 %.0.i.i.i.i.i.i17.i36, 1
+  br i1 %303, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37: ; preds = %302, %278
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37: ; preds = %302, %278
   %304 = load ptr, ptr %272, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
   %306 = load ptr, ptr %305, align 8
   call void %306(ptr noundef nonnull align 8 dereferenceable(16) %272) #25
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37, %302, %289, %270
-  br i1 %.not21.i29, label %307, label %309
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37, %302, %289, %270
+  br i1 %.not20.i29, label %307, label %309
 
-307:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+307:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
   br label %309
 
 308:                                              ; preds = %268, %222
@@ -29062,8 +29062,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i21) #25
   br label %.body
 
-309:                                              ; preds = %307, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27
-  %.110.i28 = phi double [ 1.000000e+00, %307 ], [ %.2.i30, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34 ], [ %.09.i23, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27 ]
+309:                                              ; preds = %307, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27
+  %.110.i28 = phi double [ 1.000000e+00, %307 ], [ %.2.i30, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34 ], [ %.09.i23, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -34879,8 +34879,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 .noexc19:                                         ; preds = %167
   %168 = load ptr, ptr %10, align 8
-  %.not21.i = icmp eq ptr %168, null
-  br i1 %.not21.i, label %176, label %169
+  %.not20.i = icmp eq ptr %168, null
+  br i1 %.not20.i, label %176, label %169
 
 169:                                              ; preds = %.noexc19
   %170 = load ptr, ptr %168, align 8
@@ -34898,8 +34898,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %.2.i = phi double [ %173, %169 ], [ %.09.i, %.noexc19 ]
   %177 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %178 = load ptr, ptr %177, align 8
-  %.not.i.i.i14.i = icmp eq ptr %178, null
-  br i1 %.not.i.i.i14.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i, label %179
+  %.not.i.i.i13.i = icmp eq ptr %178, null
+  br i1 %.not.i.i.i13.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i, label %179
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -34916,12 +34916,12 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = load ptr, ptr %187, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(16) %178) #25
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i
 
 189:                                              ; preds = %179
   %190 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i15.i = icmp eq i8 %190, 0
-  br i1 %.not.i.i.i.i15.i, label %193, label %191
+  %.not.i.i.i.i14.i = icmp eq i8 %190, 0
+  br i1 %.not.i.i.i.i14.i, label %193, label %191
 
 191:                                              ; preds = %189
   %192 = add nsw i32 %183, -1
@@ -34933,9 +34933,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %195
 
 195:                                              ; preds = %193, %191
-  %.0.i.i.i.i16.i = phi i32 [ %183, %191 ], [ %194, %193 ]
-  %196 = icmp eq i32 %.0.i.i.i.i16.i, 1
-  br i1 %196, label %197, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+  %.0.i.i.i.i15.i = phi i32 [ %183, %191 ], [ %194, %193 ]
+  %196 = icmp eq i32 %.0.i.i.i.i15.i, 1
+  br i1 %196, label %197, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
 
 197:                                              ; preds = %195
   %198 = load ptr, ptr %178, align 8
@@ -34944,8 +34944,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void %200(ptr noundef nonnull align 8 dereferenceable(16) %178) #25
   %201 = getelementptr inbounds nuw i8, ptr %178, i64 12
   %202 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i17.i = icmp eq i8 %202, 0
-  br i1 %.not.i.i.i.i.i.i17.i, label %206, label %203
+  %.not.i.i.i.i.i.i16.i = icmp eq i8 %202, 0
+  br i1 %.not.i.i.i.i.i.i16.i, label %206, label %203
 
 203:                                              ; preds = %197
   %204 = load i32, ptr %201, align 4
@@ -34958,21 +34958,21 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %208
 
 208:                                              ; preds = %206, %203
-  %.0.i.i.i.i.i.i18.i = phi i32 [ %204, %203 ], [ %207, %206 ]
-  %209 = icmp eq i32 %.0.i.i.i.i.i.i18.i, 1
-  br i1 %209, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+  %.0.i.i.i.i.i.i17.i = phi i32 [ %204, %203 ], [ %207, %206 ]
+  %209 = icmp eq i32 %.0.i.i.i.i.i.i17.i, 1
+  br i1 %209, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i: ; preds = %208, %184
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i: ; preds = %208, %184
   %210 = load ptr, ptr %178, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = load ptr, ptr %211, align 8
   call void %212(ptr noundef nonnull align 8 dereferenceable(16) %178) #25
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i, %208, %195, %176
-  br i1 %.not21.i, label %213, label %215
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i, %208, %195, %176
+  br i1 %.not20.i, label %213, label %215
 
-213:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i
+213:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i
   br label %215
 
 214:                                              ; preds = %174, %128
@@ -34981,8 +34981,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i) #25
   br label %.body
 
-215:                                              ; preds = %213, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i
-  %.110.i = phi double [ 5.000000e-01, %213 ], [ %.2.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i ], [ %.09.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i ]
+215:                                              ; preds = %213, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i
+  %.110.i = phi double [ 5.000000e-01, %213 ], [ %.2.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i ], [ %.09.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -35091,8 +35091,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 .noexc42:                                         ; preds = %261
   %262 = load ptr, ptr %8, align 8
-  %.not21.i29 = icmp eq ptr %262, null
-  br i1 %.not21.i29, label %270, label %263
+  %.not20.i29 = icmp eq ptr %262, null
+  br i1 %.not20.i29, label %270, label %263
 
 263:                                              ; preds = %.noexc42
   %264 = load ptr, ptr %262, align 8
@@ -35110,8 +35110,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %.2.i30 = phi double [ %267, %263 ], [ %.09.i23, %.noexc42 ]
   %271 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %272 = load ptr, ptr %271, align 8
-  %.not.i.i.i14.i31 = icmp eq ptr %272, null
-  br i1 %.not.i.i.i14.i31, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34, label %273
+  %.not.i.i.i13.i31 = icmp eq ptr %272, null
+  br i1 %.not.i.i.i13.i31, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34, label %273
 
 273:                                              ; preds = %270
   %274 = getelementptr inbounds nuw i8, ptr %272, i64 8
@@ -35128,12 +35128,12 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
   %282 = load ptr, ptr %281, align 8
   call void %282(ptr noundef nonnull align 8 dereferenceable(16) %272) #25
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37
 
 283:                                              ; preds = %273
   %284 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i15.i32 = icmp eq i8 %284, 0
-  br i1 %.not.i.i.i.i15.i32, label %287, label %285
+  %.not.i.i.i.i14.i32 = icmp eq i8 %284, 0
+  br i1 %.not.i.i.i.i14.i32, label %287, label %285
 
 285:                                              ; preds = %283
   %286 = add nsw i32 %277, -1
@@ -35145,9 +35145,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %289
 
 289:                                              ; preds = %287, %285
-  %.0.i.i.i.i16.i33 = phi i32 [ %277, %285 ], [ %288, %287 ]
-  %290 = icmp eq i32 %.0.i.i.i.i16.i33, 1
-  br i1 %290, label %291, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+  %.0.i.i.i.i15.i33 = phi i32 [ %277, %285 ], [ %288, %287 ]
+  %290 = icmp eq i32 %.0.i.i.i.i15.i33, 1
+  br i1 %290, label %291, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
 
 291:                                              ; preds = %289
   %292 = load ptr, ptr %272, align 8
@@ -35156,8 +35156,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void %294(ptr noundef nonnull align 8 dereferenceable(16) %272) #25
   %295 = getelementptr inbounds nuw i8, ptr %272, i64 12
   %296 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i17.i35 = icmp eq i8 %296, 0
-  br i1 %.not.i.i.i.i.i.i17.i35, label %300, label %297
+  %.not.i.i.i.i.i.i16.i35 = icmp eq i8 %296, 0
+  br i1 %.not.i.i.i.i.i.i16.i35, label %300, label %297
 
 297:                                              ; preds = %291
   %298 = load i32, ptr %295, align 4
@@ -35170,21 +35170,21 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %302
 
 302:                                              ; preds = %300, %297
-  %.0.i.i.i.i.i.i18.i36 = phi i32 [ %298, %297 ], [ %301, %300 ]
-  %303 = icmp eq i32 %.0.i.i.i.i.i.i18.i36, 1
-  br i1 %303, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+  %.0.i.i.i.i.i.i17.i36 = phi i32 [ %298, %297 ], [ %301, %300 ]
+  %303 = icmp eq i32 %.0.i.i.i.i.i.i17.i36, 1
+  br i1 %303, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37: ; preds = %302, %278
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37: ; preds = %302, %278
   %304 = load ptr, ptr %272, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
   %306 = load ptr, ptr %305, align 8
   call void %306(ptr noundef nonnull align 8 dereferenceable(16) %272) #25
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19.i37, %302, %289, %270
-  br i1 %.not21.i29, label %307, label %309
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18.i37, %302, %289, %270
+  br i1 %.not20.i29, label %307, label %309
 
-307:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34
+307:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34
   br label %309
 
 308:                                              ; preds = %268, %222
@@ -35193,8 +35193,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i21) #25
   br label %.body
 
-309:                                              ; preds = %307, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27
-  %.110.i28 = phi double [ 5.000000e-01, %307 ], [ %.2.i30, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit20.i34 ], [ %.09.i23, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27 ]
+309:                                              ; preds = %307, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27
+  %.110.i28 = phi double [ 5.000000e-01, %307 ], [ %.2.i30, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit19.i34 ], [ %.09.i23, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

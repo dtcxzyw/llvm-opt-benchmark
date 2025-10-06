@@ -710,8 +710,8 @@ define dso_local range(i32 -1, 8004) i32 @load_plugins(ptr noundef captures(none
   %23 = load ptr, ptr @default_plugin_path, align 8
   %.075 = select i1 %.not84, ptr %23, ptr %22
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.not115 = icmp eq ptr %.075, null
-  br i1 %.not115, label %plugrack_read_dir.exit.thread, label %24
+  %.not114 = icmp eq ptr %.075, null
+  br i1 %.not114, label %plugrack_read_dir.exit.thread, label %24
 
 24:                                               ; preds = %15
   %25 = tail call ptr @xstrdup(ptr noundef nonnull %.075) #11
@@ -766,7 +766,7 @@ plugrack_read_dir.exit:                           ; preds = %30
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 776), align 8
   %43 = call ptr @slurm_strerror(i32 noundef -1) #11
   %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.load_plugins, ptr noundef %42, ptr noundef %43) #11
-  br label %.thread109
+  br label %.thread108
 
 .thread:                                          ; preds = %plugrack_read_dir.exit, %6
   %.1 = phi ptr [ %14, %6 ], [ %16, %plugrack_read_dir.exit ]
@@ -788,7 +788,7 @@ plugrack_read_dir.exit:                           ; preds = %30
   %51 = load ptr, ptr %49, align 8
   %52 = call i32 @list_for_each(ptr noundef %51, ptr noundef nonnull @_foreach_plugin, ptr noundef nonnull %8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread101
+  br label %.thread100
 
 53:                                               ; preds = %45, %.thread
   %.not88 = icmp eq ptr %2, null
@@ -830,18 +830,18 @@ plugrack_read_dir.exit:                           ; preds = %30
   %69 = call ptr @xstrdup(ptr noundef nonnull %2) #11
   store ptr %69, ptr %11, align 8
   %70 = call ptr @strtok_r(ptr noundef %69, ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #11
-  %.not89121 = icmp eq ptr %70, null
-  br i1 %.not89121, label %._crit_edge, label %.lr.ph
+  %.not89120 = icmp eq ptr %70, null
+  br i1 %.not89120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
-  %.073122 = phi ptr [ %75, %.lr.ph ], [ %70, %67 ]
+  %.073121 = phi ptr [ %75, %.lr.ph ], [ %70, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %71 = load ptr, ptr %12, align 8
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #12
-  %73 = call i32 @xstrncmp(ptr noundef nonnull %.073122, ptr noundef nonnull %71, i64 noundef %72) #11
+  %73 = call i32 @xstrncmp(ptr noundef nonnull %.073121, ptr noundef nonnull %71, i64 noundef %72) #11
   %.not90 = icmp eq i32 %73, 0
   %.072.idx = select i1 %.not90, i64 %72, i64 0
-  %.072 = getelementptr inbounds nuw i8, ptr %.073122, i64 %.072.idx
+  %.072 = getelementptr inbounds nuw i8, ptr %.073121, i64 %.072.idx
   %74 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef %1, ptr noundef nonnull %.072) #11
   store ptr %74, ptr %13, align 8
   call void @_plugrack_foreach(ptr noundef %74, ptr noundef null, ptr noundef null, ptr noundef nonnull %.1)
@@ -862,21 +862,21 @@ plugrack_read_dir.exit:                           ; preds = %30
 76:                                               ; preds = %._crit_edge, %66, %63, %54
   %77 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %78 = load i64, ptr %77, align 8
-  %.not128 = icmp eq i64 %78, 0
-  br i1 %.not128, label %.loopexit, label %.lr.ph125
+  %.not127 = icmp eq i64 %78, 0
+  br i1 %.not127, label %.loopexit, label %.lr.ph124
 
-.lr.ph125:                                        ; preds = %76
+.lr.ph124:                                        ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %81 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %.pre = load ptr, ptr %79, align 8
   br label %82
 
-82:                                               ; preds = %.lr.ph125, %105
-  %83 = phi i64 [ %78, %.lr.ph125 ], [ %106, %105 ]
-  %84 = phi ptr [ %.pre, %.lr.ph125 ], [ %107, %105 ]
-  %.070123 = phi i64 [ 0, %.lr.ph125 ], [ %108, %105 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.070123
+82:                                               ; preds = %.lr.ph124, %105
+  %83 = phi i64 [ %78, %.lr.ph124 ], [ %106, %105 ]
+  %84 = phi ptr [ %.pre, %.lr.ph124 ], [ %107, %105 ]
+  %.070122 = phi i64 [ 0, %.lr.ph124 ], [ %108, %105 ]
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.070122
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %105
@@ -884,39 +884,39 @@ plugrack_read_dir.exit:                           ; preds = %30
 88:                                               ; preds = %82
   %89 = load ptr, ptr %80, align 8
   %90 = load ptr, ptr %81, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %.070123
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %.070122
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @plugrack_use_by_type(ptr noundef %89, ptr noundef %92)
   %94 = load ptr, ptr %79, align 8
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %.070123
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %.070122
   store ptr %93, ptr %95, align 8
   %96 = load ptr, ptr %79, align 8
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %.070123
+  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %.070122
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %._crit_edge131
+  br i1 %99, label %100, label %._crit_edge130
 
-._crit_edge131:                                   ; preds = %88
-  %.pre132 = load i64, ptr %77, align 8
+._crit_edge130:                                   ; preds = %88
+  %.pre131 = load i64, ptr %77, align 8
   br label %105
 
 100:                                              ; preds = %88
   %101 = load ptr, ptr %81, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %.070123
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %.070122
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.load_plugins, ptr noundef %103) #11
-  %.pre133 = load i64, ptr %77, align 8
+  %.pre132 = load i64, ptr %77, align 8
   br label %.loopexit
 
-105:                                              ; preds = %._crit_edge131, %82
-  %106 = phi i64 [ %83, %82 ], [ %.pre132, %._crit_edge131 ]
-  %107 = phi ptr [ %84, %82 ], [ %96, %._crit_edge131 ]
-  %108 = add nuw i64 %.070123, 1
+105:                                              ; preds = %._crit_edge130, %82
+  %106 = phi i64 [ %83, %82 ], [ %.pre131, %._crit_edge130 ]
+  %107 = phi ptr [ %84, %82 ], [ %96, %._crit_edge130 ]
+  %108 = add nuw i64 %.070122, 1
   %109 = icmp ult i64 %108, %106
   br i1 %109, label %82, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %105, %76, %100
-  %110 = phi i64 [ %.pre133, %100 ], [ 0, %76 ], [ %106, %105 ]
+  %110 = phi i64 [ %.pre132, %100 ], [ 0, %76 ], [ %106, %105 ]
   %111 = phi i1 [ true, %100 ], [ false, %76 ], [ false, %105 ]
   %.2 = phi i32 [ 8002, %100 ], [ 0, %76 ], [ 0, %105 ]
   %112 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -924,26 +924,26 @@ plugrack_read_dir.exit:                           ; preds = %30
   %114 = load i64, ptr %77, align 8
   %115 = icmp eq i64 %114, 0
   %or.cond = or i1 %111, %115
-  br i1 %or.cond, label %145, label %.lr.ph127
+  br i1 %or.cond, label %145, label %.lr.ph126
 
-.lr.ph127:                                        ; preds = %.loopexit
+.lr.ph126:                                        ; preds = %.loopexit
   %116 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %117 = add i64 %5, 1
   %118 = trunc i64 %5 to i32
   br label %119
 
-119:                                              ; preds = %.lr.ph127, %141
-  %120 = phi i64 [ %114, %.lr.ph127 ], [ %142, %141 ]
-  %.0126 = phi i64 [ 0, %.lr.ph127 ], [ %143, %141 ]
+119:                                              ; preds = %.lr.ph126, %141
+  %120 = phi i64 [ %114, %.lr.ph126 ], [ %142, %141 ]
+  %.0125 = phi i64 [ 0, %.lr.ph126 ], [ %143, %141 ]
   %121 = load ptr, ptr %112, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %.0126
+  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %.0125
   %123 = load ptr, ptr %122, align 8
   %.not91 = icmp eq ptr %123, null
   br i1 %.not91, label %124, label %141
 
 124:                                              ; preds = %119
   %125 = load ptr, ptr %116, align 8
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %.0126
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %.0125
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %130
@@ -955,42 +955,42 @@ plugrack_read_dir.exit:                           ; preds = %30
 130:                                              ; preds = %124
   %131 = call ptr @slurm_xrecalloc(ptr noundef nonnull %122, i64 noundef %117, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @__func__.load_plugins) #11
   %132 = load ptr, ptr %116, align 8
-  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %.0126
+  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %.0125
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %112, align 8
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %.0126
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %.0125
   %137 = load ptr, ptr %136, align 8
   %138 = call i32 @plugin_get_syms(ptr noundef %134, i32 noundef %118, ptr noundef %4, ptr noundef %137) #11
   %139 = sext i32 %138 to i64
   %140 = icmp ugt i64 %5, %139
-  br i1 %140, label %.thread109, label %._crit_edge134
+  br i1 %140, label %.thread108, label %._crit_edge133
 
-._crit_edge134:                                   ; preds = %130
-  %.pre135 = load i64, ptr %77, align 8
+._crit_edge133:                                   ; preds = %130
+  %.pre134 = load i64, ptr %77, align 8
   br label %141
 
-141:                                              ; preds = %._crit_edge134, %119
-  %142 = phi i64 [ %.pre135, %._crit_edge134 ], [ %120, %119 ]
-  %143 = add nuw i64 %.0126, 1
+141:                                              ; preds = %._crit_edge133, %119
+  %142 = phi i64 [ %.pre134, %._crit_edge133 ], [ %120, %119 ]
+  %143 = add nuw i64 %.0125, 1
   %144 = icmp ult i64 %143, %142
-  br i1 %144, label %119, label %.thread101, !llvm.loop !18
+  br i1 %144, label %119, label %.thread100, !llvm.loop !18
 
 145:                                              ; preds = %.loopexit
-  br i1 %111, label %.thread109, label %.thread101
+  br i1 %111, label %.thread108, label %.thread100
 
-.thread101:                                       ; preds = %141, %47, %145
+.thread100:                                       ; preds = %141, %47, %145
   store ptr %.1, ptr %0, align 8
   br label %146
 
-.thread109:                                       ; preds = %130, %41, %145
-  %.076114 = phi ptr [ %.1, %145 ], [ %16, %41 ], [ %.1, %130 ]
-  %.077113 = phi i32 [ %.2, %145 ], [ -1, %41 ], [ 8003, %130 ]
-  call void @unload_plugins(ptr noundef %.076114)
+.thread108:                                       ; preds = %130, %41, %145
+  %.076113 = phi ptr [ %.1, %145 ], [ %16, %41 ], [ %.1, %130 ]
+  %.077112 = phi i32 [ %.2, %145 ], [ -1, %41 ], [ 8003, %130 ]
+  call void @unload_plugins(ptr noundef %.076113)
   br label %146
 
-146:                                              ; preds = %.thread101, %.thread109
-  %.077105 = phi i32 [ 0, %.thread101 ], [ %.077113, %.thread109 ]
-  ret i32 %.077105
+146:                                              ; preds = %.thread100, %.thread108
+  %.077104 = phi i32 [ 0, %.thread100 ], [ %.077112, %.thread108 ]
+  ret i32 %.077104
 }
 
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1009,63 +1009,63 @@ define internal void @_plugrack_foreach(ptr noundef %0, ptr noundef %1, ptr noun
 9:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i64, ptr %5, align 8
-  %.not11.i = icmp ugt i64 %10, %indvars.iv.next.i
-  br i1 %.not11.i, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !19
+  %11 = icmp ugt i64 %10, %indvars.iv.next.i
+  br i1 %11, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef %13) #11
-  %.not.i = icmp eq i32 %14, 0
+  %12 = load ptr, ptr %8, align 8
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef %14) #11
+  %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_plugin_loaded.exit, label %9
 
 _plugin_loaded.exit:                              ; preds = %.lr.ph.i
-  %15 = tail call i32 @get_log_level() #11
-  %16 = icmp sgt i32 %15, 4
-  br i1 %16, label %17, label %41
+  %16 = tail call i32 @get_log_level() #11
+  %17 = icmp sgt i32 %16, 4
+  br i1 %17, label %18, label %42
 
-17:                                               ; preds = %_plugin_loaded.exit
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__._plugrack_foreach, ptr noundef %21, ptr noundef %0) #11
-  br label %41
+18:                                               ; preds = %_plugin_loaded.exit
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__._plugrack_foreach, ptr noundef %22, ptr noundef %0) #11
+  br label %42
 
 .loopexit.loopexit:                               ; preds = %9
-  %22 = add i64 %10, 1
+  %23 = add i64 %10, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %23 = phi i64 [ %22, %.loopexit.loopexit ], [ 1, %4 ]
-  store i64 %23, ptr %5, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef %23, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @__func__._plugrack_foreach) #11
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %27 = load i64, ptr %5, align 8
-  %28 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %26, i64 noundef %27, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 502, ptr noundef nonnull @__func__._plugrack_foreach) #11
-  %29 = tail call ptr @xstrdup(ptr noundef %0) #11
-  %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %6
-  store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %6
-  store ptr %2, ptr %33, align 8
-  %34 = tail call i32 @get_log_level() #11
-  %35 = icmp sgt i32 %34, 4
-  br i1 %35, label %36, label %41
+  %24 = phi i64 [ %23, %.loopexit.loopexit ], [ 1, %4 ]
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef %24, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @__func__._plugrack_foreach) #11
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %28 = load i64, ptr %5, align 8
+  %29 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %27, i64 noundef %28, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 502, ptr noundef nonnull @__func__._plugrack_foreach) #11
+  %30 = tail call ptr @xstrdup(ptr noundef %0) #11
+  %31 = load ptr, ptr %27, align 8
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %6
+  store ptr %30, ptr %32, align 8
+  %33 = load ptr, ptr %25, align 8
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %6
+  store ptr %2, ptr %34, align 8
+  %35 = tail call i32 @get_log_level() #11
+  %36 = icmp sgt i32 %35, 4
+  br i1 %36, label %37, label %42
 
-36:                                               ; preds = %.loopexit
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._plugrack_foreach, ptr noundef %40, ptr noundef %0, ptr noundef %1) #11
-  br label %41
+37:                                               ; preds = %.loopexit
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._plugrack_foreach, ptr noundef %41, ptr noundef %0, ptr noundef %1) #11
+  br label %42
 
-41:                                               ; preds = %.loopexit, %36, %_plugin_loaded.exit, %17
+42:                                               ; preds = %.loopexit, %37, %_plugin_loaded.exit, %18
   ret void
 }
 

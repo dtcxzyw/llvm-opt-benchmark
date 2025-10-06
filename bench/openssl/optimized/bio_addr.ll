@@ -410,7 +410,7 @@ BIO_ADDR_rawport.exit:                            ; preds = %22, %.sink.split.i
 37:                                               ; preds = %36
   %38 = load ptr, ptr %2, align 8, !tbaa !14
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread39, label %40
+  br i1 %39, label %.thread38, label %40
 
 40:                                               ; preds = %37, %36
   br i1 %.not33, label %46, label %41
@@ -421,31 +421,31 @@ BIO_ADDR_rawport.exit:                            ; preds = %22, %.sink.split.i
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
-  br i1 %.not32, label %.thread40, label %.thread39.thread
+  br i1 %.not32, label %.thread39, label %.thread38.thread
 
-.thread39.thread:                                 ; preds = %44
+.thread38.thread:                                 ; preds = %44
   %.pre = load ptr, ptr %2, align 8, !tbaa !14
   call void @CRYPTO_free(ptr noundef %.pre, ptr noundef nonnull @.str, i32 noundef 288) #15
   store ptr null, ptr %2, align 8, !tbaa !14
-  br label %.thread39..thread40_crit_edge
+  br label %.thread38..thread39_crit_edge
 
-.thread39:                                        ; preds = %37
+.thread38:                                        ; preds = %37
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 288) #15
   store ptr null, ptr %2, align 8, !tbaa !14
-  br i1 %.not33, label %46, label %.thread39..thread40_crit_edge
+  br i1 %.not33, label %46, label %.thread38..thread39_crit_edge
 
-.thread39..thread40_crit_edge:                    ; preds = %.thread39.thread, %.thread39
-  %.pre42 = load ptr, ptr %3, align 8, !tbaa !14
-  br label %.thread40
+.thread38..thread39_crit_edge:                    ; preds = %.thread38.thread, %.thread38
+  %.pre41 = load ptr, ptr %3, align 8, !tbaa !14
+  br label %.thread39
 
-.thread40:                                        ; preds = %.thread39..thread40_crit_edge, %44
-  %45 = phi ptr [ %.pre42, %.thread39..thread40_crit_edge ], [ null, %44 ]
+.thread39:                                        ; preds = %.thread38..thread39_crit_edge, %44
+  %45 = phi ptr [ %.pre41, %.thread38..thread39_crit_edge ], [ null, %44 ]
   call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 292) #15
   store ptr null, ptr %3, align 8, !tbaa !14
   br label %46
 
-46:                                               ; preds = %35, %40, %41, %.thread39, %.thread40, %4
-  %.024 = phi i32 [ 0, %35 ], [ 0, %4 ], [ 0, %.thread40 ], [ 0, %.thread39 ], [ 1, %41 ], [ 1, %40 ]
+46:                                               ; preds = %35, %40, %41, %.thread38, %.thread39, %4
+  %.024 = phi i32 [ 0, %35 ], [ 0, %4 ], [ 0, %.thread39 ], [ 0, %.thread38 ], [ 1, %41 ], [ 1, %40 ]
   ret i32 %.024
 }
 

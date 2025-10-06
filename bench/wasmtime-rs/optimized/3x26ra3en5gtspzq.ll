@@ -749,7 +749,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit: ;
   %18 = xor i64 %17, -1
   %19 = add i64 %16, %18
   %20 = icmp ult i64 %19, %16
-  br i1 %20, label %21, label %37, !prof !138
+  br i1 %20, label %21, label %38, !prof !138
 
 21:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -785,34 +785,34 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit: ;
 _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit.i: ; preds = %32, %21
   %.pre-phi10.i = phi i64 [ %28, %21 ], [ %.pre9.i, %32 ]
   %34 = phi i32 [ %26, %21 ], [ %.pr.i, %32 ]
-  %switch.not.i.i = icmp eq i32 %34, 3
-  %.0.in.idx.i = select i1 %switch.not.i.i, i64 0, i64 8
+  %35 = icmp eq i32 %34, 3
+  %.0.in.idx.i = select i1 %35, i64 0, i64 8
   %.0.in.i = getelementptr inbounds nuw i8, ptr %24, i64 %.0.in.idx.i
   %.0.i = load i64, ptr %.0.in.i, align 8, !noalias !140, !noundef !5
-  %35 = sub i64 %8, %.0.i
-  %36 = icmp ugt i64 %.0.i, %8
-  br i1 %36, label %38, label %_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE.exit
+  %36 = sub i64 %8, %.0.i
+  %37 = icmp ugt i64 %.0.i, %8
+  br i1 %37, label %39, label %_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE.exit
 
-37:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit
+38:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %19, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3173fd90961c2687e753c9f58856bde0.207) #9, !noalias !140
   unreachable
 
-38:                                               ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit.i
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %35, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.21.llvm.1704480944486436820) #9, !noalias !147
+39:                                               ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit.i
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %36, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.21.llvm.1704480944486436820) #9, !noalias !147
   unreachable
 
 _ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE.exit: ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit.i
   %.not.i6.i = icmp samesign ult i32 %34, 2
-  %39 = select i1 %.not.i6.i, i64 0, i64 %.pre-phi10.i
-  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %39
+  %40 = select i1 %.not.i6.i, i64 0, i64 %.pre-phi10.i
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 %switch.load
-  %.0.i8.i = load i32, ptr %40, align 4, !alias.scope !150, !noalias !140, !noundef !5
-  %41 = getelementptr inbounds i32, ptr %12, i64 %35
-  %42 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  %43 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator17canonicalise_brif17h856579f4136fdc1eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %14, i32 noundef %.0.i8.i, ptr noalias noundef nonnull readonly align 4 %41, i64 noundef %.0.i, i32 noundef %42, ptr noalias noundef nonnull readonly align 4 @anon.3173fd90961c2687e753c9f58856bde0.3, i64 noundef 0)
-  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %42)
-  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder15switch_to_block17h0ad797f5d6836863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %42)
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 %switch.load
+  %.0.i8.i = load i32, ptr %41, align 4, !alias.scope !150, !noalias !140, !noundef !5
+  %42 = getelementptr inbounds i32, ptr %12, i64 %36
+  %43 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  %44 = tail call noundef i32 @_ZN14cranelift_wasm15code_translator17canonicalise_brif17h856579f4136fdc1eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %14, i32 noundef %.0.i8.i, ptr noalias noundef nonnull readonly align 4 %42, i64 noundef %.0.i, i32 noundef %43, ptr noalias noundef nonnull readonly align 4 @anon.3173fd90961c2687e753c9f58856bde0.3, i64 noundef 0)
+  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %43)
+  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder15switch_to_block17h0ad797f5d6836863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %43)
   ret void
 }
 
@@ -824,7 +824,7 @@ define void @_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf67
   %7 = xor i64 %6, -1
   %8 = add i64 %5, %7
   %9 = icmp ult i64 %8, %5
-  br i1 %9, label %10, label %30, !prof !138
+  br i1 %9, label %10, label %31, !prof !138
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -860,40 +860,40 @@ define void @_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf67
 _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit: ; preds = %10, %21
   %.pre-phi10 = phi i64 [ %17, %10 ], [ %.pre9, %21 ]
   %23 = phi i32 [ %15, %10 ], [ %.pr, %21 ]
-  %switch.not.i = icmp eq i32 %23, 3
-  %.0.in.idx = select i1 %switch.not.i, i64 0, i64 8
+  %24 = icmp eq i32 %23, 3
+  %.0.in.idx = select i1 %24, i64 0, i64 8
   %.0.in = getelementptr inbounds nuw i8, ptr %13, i64 %.0.in.idx
   %.0 = load i64, ptr %.0.in, align 8, !noundef !5
   %.not.i6 = icmp samesign ult i32 %23, 2
-  %24 = select i1 %.not.i6, i64 0, i64 %.pre-phi10
-  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %24
+  %25 = select i1 %.not.i6, i64 0, i64 %.pre-phi10
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %25
   %switch.load = load i64, ptr %switch.gep, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
-  %.0.i8 = load i32, ptr %25, align 4, !alias.scope !159, !noundef !5
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
+  %.0.i8 = load i32, ptr %26, align 4, !alias.scope !159, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = load i64, ptr %26, align 8, !alias.scope !162, !noundef !5
-  %28 = sub i64 %27, %.0
-  %29 = icmp ugt i64 %.0, %27
-  br i1 %29, label %31, label %_ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17hf414566f25f2d02dE.exit
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %28 = load i64, ptr %27, align 8, !alias.scope !162, !noundef !5
+  %29 = sub i64 %28, %.0
+  %30 = icmp ugt i64 %.0, %28
+  br i1 %30, label %32, label %_ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17hf414566f25f2d02dE.exit
 
-30:                                               ; preds = %3
+31:                                               ; preds = %3
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %8, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3173fd90961c2687e753c9f58856bde0.207) #9
   unreachable
 
-31:                                               ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %28, i64 noundef %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.21.llvm.1704480944486436820) #9, !noalias !162
+32:                                               ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %29, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.21.llvm.1704480944486436820) #9, !noalias !162
   unreachable
 
 _ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17hf414566f25f2d02dE.exit: ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load ptr, ptr %32, align 8, !alias.scope !162, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds i32, ptr %33, i64 %28
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = load ptr, ptr %33, align 8, !alias.scope !162, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i32, ptr %34, i64 %29
   store i32 %.0.i8, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0, ptr %36, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.0, ptr %37, align 8
   ret void
 }
 

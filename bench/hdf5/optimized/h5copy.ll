@@ -125,8 +125,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .preheader:                                       ; preds = %2
   %8 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.63, ptr noundef nonnull @l_opts) #14
-  %.not162 = icmp eq i32 %8, -1
-  br i1 %.not162, label %._crit_edge, label %.lr.ph
+  %.not161 = icmp eq i32 %8, -1
+  br i1 %.not161, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %2
   tail call fastcc void @usage()
@@ -135,9 +135,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph:                                           ; preds = %.preheader, %60
   %10 = phi i32 [ %61, %60 ], [ %8, %.preheader ]
-  %.071165 = phi i32 [ %.172, %60 ], [ 0, %.preheader ]
-  %.073164 = phi i32 [ %.174, %60 ], [ 0, %.preheader ]
-  %.0128163 = phi i32 [ %.1129, %60 ], [ 0, %.preheader ]
+  %.071164 = phi i32 [ %.172, %60 ], [ 0, %.preheader ]
+  %.073163 = phi i32 [ %.174, %60 ], [ 0, %.preheader ]
+  %.0128162 = phi i32 [ %.1129, %60 ], [ 0, %.preheader ]
   %sext = shl i32 %10, 24
   %11 = ashr exact i32 %sext, 24
   switch i32 %11, label %59 [
@@ -197,7 +197,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 parse_flag.exit:                                  ; preds = %15, %19, %22, %25, %28, %31, %34
   %.0.i = phi i32 [ 1, %15 ], [ 2, %19 ], [ 4, %22 ], [ 8, %25 ], [ 16, %28 ], [ 127, %31 ], [ 32, %34 ]
-  %37 = or i32 %.0.i, %.0128163
+  %37 = or i32 %.0.i, %.0128162
   %38 = tail call noalias ptr @strdup(ptr noundef nonnull %16) #14
   store ptr %38, ptr @str_flag, align 8, !tbaa !4
   br label %60
@@ -261,9 +261,9 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   unreachable
 
 60:                                               ; preds = %.lr.ph, %55, %58, %52, %47, %44, %41, %parse_flag.exit, %12
-  %.1129 = phi i32 [ %.0128163, %12 ], [ %37, %parse_flag.exit ], [ %.0128163, %41 ], [ %.0128163, %44 ], [ %.0128163, %.lr.ph ], [ %.0128163, %47 ], [ %.0128163, %52 ], [ %.0128163, %58 ], [ %.0128163, %55 ]
-  %.174 = phi i32 [ %.073164, %12 ], [ %.073164, %parse_flag.exit ], [ %.073164, %41 ], [ %.073164, %44 ], [ 1, %.lr.ph ], [ %.073164, %47 ], [ %.073164, %52 ], [ %.073164, %58 ], [ %.073164, %55 ]
-  %.172 = phi i32 [ %.071165, %12 ], [ %.071165, %parse_flag.exit ], [ %.071165, %41 ], [ %.071165, %44 ], [ %.071165, %.lr.ph ], [ %.071165, %47 ], [ 1, %52 ], [ %.071165, %58 ], [ %.071165, %55 ]
+  %.1129 = phi i32 [ %.0128162, %12 ], [ %37, %parse_flag.exit ], [ %.0128162, %41 ], [ %.0128162, %44 ], [ %.0128162, %.lr.ph ], [ %.0128162, %47 ], [ %.0128162, %52 ], [ %.0128162, %58 ], [ %.0128162, %55 ]
+  %.174 = phi i32 [ %.073163, %12 ], [ %.073163, %parse_flag.exit ], [ %.073163, %41 ], [ %.073163, %44 ], [ 1, %.lr.ph ], [ %.073163, %47 ], [ %.073163, %52 ], [ %.073163, %58 ], [ %.073163, %55 ]
+  %.172 = phi i32 [ %.071164, %12 ], [ %.071164, %parse_flag.exit ], [ %.071164, %41 ], [ %.071164, %44 ], [ %.071164, %.lr.ph ], [ %.071164, %47 ], [ 1, %52 ], [ %.071164, %58 ], [ %.071164, %55 ]
   %61 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.63, ptr noundef nonnull @l_opts) #14
   %.not = icmp eq i32 %61, -1
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
@@ -505,9 +505,9 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br label %346
 
 184:                                              ; preds = %165
-  br i1 %.071.lcssa, label %.thread144, label %.thread147
+  br i1 %.071.lcssa, label %.thread143, label %.thread146
 
-.thread147:                                       ; preds = %184
+.thread146:                                       ; preds = %184
   %185 = tail call ptr @h5tools_getprogname() #14
   %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %185)
   br label %220
@@ -516,21 +516,21 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   %188 = load ptr, ptr @oname_dst, align 8, !tbaa !4
   %189 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %188) #15
   %190 = icmp ugt i64 %189, 1
-  br i1 %190, label %.lr.ph170, label %._crit_edge171
+  br i1 %190, label %.lr.ph169, label %._crit_edge170
 
-.lr.ph170:                                        ; preds = %187, %.lr.ph170._crit_edge
-  %191 = phi ptr [ %219, %.lr.ph170._crit_edge ], [ %188, %187 ]
-  %.068168 = phi i64 [ %195, %.lr.ph170._crit_edge ], [ 1, %187 ]
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.068168
+.lr.ph169:                                        ; preds = %187, %.lr.ph169._crit_edge
+  %191 = phi ptr [ %219, %.lr.ph169._crit_edge ], [ %188, %187 ]
+  %.068167 = phi i64 [ %195, %.lr.ph169._crit_edge ], [ 1, %187 ]
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.068167
   %193 = load i8, ptr %192, align 1, !tbaa !17
   %194 = icmp eq i8 %193, 47
-  %195 = add nuw i64 %.068168, 1
-  br i1 %194, label %196, label %.lr.ph170._crit_edge
+  %195 = add nuw i64 %.068167, 1
+  br i1 %194, label %196, label %.lr.ph169._crit_edge
 
-196:                                              ; preds = %.lr.ph170
+196:                                              ; preds = %.lr.ph169
   %197 = tail call noalias ptr @calloc(i64 noundef %195, i64 noundef 1) #17
-  %198 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull dereferenceable(1) %191, i64 noundef %.068168) #14
-  %199 = getelementptr inbounds nuw i8, ptr %197, i64 %.068168
+  %198 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull dereferenceable(1) %191, i64 noundef %.068167) #14
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 %.068167
   store i8 0, ptr %199, align 1, !tbaa !17
   %200 = tail call i32 @H5Lexists(i64 noundef %.067136, ptr noundef nonnull %197, i64 noundef 0) #14
   %201 = icmp sgt i32 %200, 0
@@ -567,22 +567,22 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
 218:                                              ; preds = %196
   %.pre = load ptr, ptr @oname_dst, align 8, !tbaa !4
   tail call void @free(ptr noundef nonnull %197) #14
-  br label %.lr.ph170._crit_edge
+  br label %.lr.ph169._crit_edge
 
-.lr.ph170._crit_edge:                             ; preds = %.lr.ph170, %218
-  %219 = phi ptr [ %.pre, %218 ], [ %191, %.lr.ph170 ]
+.lr.ph169._crit_edge:                             ; preds = %.lr.ph169, %218
+  %219 = phi ptr [ %.pre, %218 ], [ %191, %.lr.ph169 ]
   %exitcond.not = icmp eq i64 %195, %189
-  br i1 %exitcond.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !18
 
-._crit_edge171:                                   ; preds = %.lr.ph170._crit_edge, %187
-  br i1 %.071.lcssa, label %.thread144, label %220
+._crit_edge170:                                   ; preds = %.lr.ph169._crit_edge, %187
+  br i1 %.071.lcssa, label %.thread143, label %220
 
-220:                                              ; preds = %.thread147, %._crit_edge171
+220:                                              ; preds = %.thread146, %._crit_edge170
   %221 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store i32 1, ptr %221, align 4, !tbaa !19
-  br label %.thread144
+  br label %.thread143
 
-.thread144:                                       ; preds = %184, %220, %._crit_edge171
+.thread143:                                       ; preds = %184, %220, %._crit_edge170
   %222 = load ptr, ptr @oname_src, align 8, !tbaa !4
   %223 = call i32 @H5tools_get_symlink_info(i64 noundef %83, ptr noundef %222, ptr noundef nonnull %3, i1 noundef zeroext true) #14
   %224 = icmp eq i32 %223, 0
@@ -590,7 +590,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   %226 = load ptr, ptr @oname_dst, align 8, !tbaa !4
   br i1 %224, label %227, label %246
 
-227:                                              ; preds = %.thread144
+227:                                              ; preds = %.thread143
   %228 = call i32 @H5Lcopy(i64 noundef %83, ptr noundef %225, i64 noundef %.067136, ptr noundef %226, i64 noundef 0, i64 noundef 0) #14
   %229 = icmp slt i32 %228, 0
   br i1 %229, label %230, label %265
@@ -621,7 +621,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   %fputc117 = call i32 @fputc(i32 10, ptr %245)
   br label %346
 
-246:                                              ; preds = %.thread144
+246:                                              ; preds = %.thread143
   %247 = call i32 @H5Ocopy(i64 noundef %83, ptr noundef %225, i64 noundef %.067136, ptr noundef %226, i64 noundef %106, i64 noundef %146) #14
   %248 = icmp slt i32 %247, 0
   br i1 %248, label %249, label %265

@@ -4677,13 +4677,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2250:          ; preds = %1291
 1322:                                             ; preds = %1319, %1315, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i2250
   %1323 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %1324 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2703 = icmp eq ptr %1323, %1324
-  br i1 %.not2223.i2703, label %._crit_edge.i2708, label %.lr.ph.i2704
+  %.not2021.i2703 = icmp eq ptr %1323, %1324
+  br i1 %.not2021.i2703, label %._crit_edge.i2708, label %.lr.ph.i2704
 
 1325:                                             ; preds = %.lr.ph.i2704
-  %1326 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2705, i64 4
-  %.not22.i2707 = icmp eq ptr %1326, %1324
-  br i1 %.not22.i2707, label %._crit_edge.i2708, label %.lr.ph.i2704
+  %1326 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2705, i64 4
+  %.not20.i2707 = icmp eq ptr %1326, %1324
+  br i1 %.not20.i2707, label %._crit_edge.i2708, label %.lr.ph.i2704
 
 1327:                                             ; preds = %1317
   %1328 = landingpad { ptr, i32 }
@@ -4692,8 +4692,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2250:          ; preds = %1291
   br label %.body2712
 
 .lr.ph.i2704:                                     ; preds = %1322, %1325
-  %.sroa.014.024.i2705 = phi ptr [ %1326, %1325 ], [ %1323, %1322 ]
-  %1329 = load i32, ptr %.sroa.014.024.i2705, align 4, !tbaa !19
+  %.sroa.014.022.i2705 = phi ptr [ %1326, %1325 ], [ %1323, %1322 ]
+  %1329 = load i32, ptr %.sroa.014.022.i2705, align 4, !tbaa !19
   %.not12.i2706 = icmp ult i32 %1329, %1312
   br i1 %.not12.i2706, label %1325, label %.noexc2269
 
@@ -5817,13 +5817,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2272:          ; preds = %1726
 1757:                                             ; preds = %1754, %1750, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i2272
   %1758 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %1759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2755 = icmp eq ptr %1758, %1759
-  br i1 %.not2223.i2755, label %._crit_edge.i2760, label %.lr.ph.i2756
+  %.not2021.i2755 = icmp eq ptr %1758, %1759
+  br i1 %.not2021.i2755, label %._crit_edge.i2760, label %.lr.ph.i2756
 
 1760:                                             ; preds = %.lr.ph.i2756
-  %1761 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2757, i64 4
-  %.not22.i2759 = icmp eq ptr %1761, %1759
-  br i1 %.not22.i2759, label %._crit_edge.i2760, label %.lr.ph.i2756
+  %1761 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2757, i64 4
+  %.not20.i2759 = icmp eq ptr %1761, %1759
+  br i1 %.not20.i2759, label %._crit_edge.i2760, label %.lr.ph.i2756
 
 1762:                                             ; preds = %1752
   %1763 = landingpad { ptr, i32 }
@@ -5832,8 +5832,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2272:          ; preds = %1726
   br label %.body2764
 
 .lr.ph.i2756:                                     ; preds = %1757, %1760
-  %.sroa.014.024.i2757 = phi ptr [ %1761, %1760 ], [ %1758, %1757 ]
-  %1764 = load i32, ptr %.sroa.014.024.i2757, align 4, !tbaa !19
+  %.sroa.014.022.i2757 = phi ptr [ %1761, %1760 ], [ %1758, %1757 ]
+  %1764 = load i32, ptr %.sroa.014.022.i2757, align 4, !tbaa !19
   %.not12.i2758 = icmp ult i32 %1764, %1747
   br i1 %.not12.i2758, label %1760, label %.noexc2294
 
@@ -7301,13 +7301,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %2357
 2388:                                             ; preds = %2385, %2381, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i
   %2389 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %2390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i = icmp eq ptr %2389, %2390
-  br i1 %.not2223.i, label %._crit_edge.i1841, label %.lr.ph.i1840
+  %.not2021.i = icmp eq ptr %2389, %2390
+  br i1 %.not2021.i, label %._crit_edge.i1841, label %.lr.ph.i1840
 
 2391:                                             ; preds = %.lr.ph.i1840
-  %2392 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i, i64 4
-  %.not22.i = icmp eq ptr %2392, %2390
-  br i1 %.not22.i, label %._crit_edge.i1841, label %.lr.ph.i1840
+  %2392 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 4
+  %.not20.i = icmp eq ptr %2392, %2390
+  br i1 %.not20.i, label %._crit_edge.i1841, label %.lr.ph.i1840
 
 2393:                                             ; preds = %2383
   %2394 = landingpad { ptr, i32 }
@@ -7316,8 +7316,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %2357
   br label %.body1844
 
 .lr.ph.i1840:                                     ; preds = %2388, %2391
-  %.sroa.014.024.i = phi ptr [ %2392, %2391 ], [ %2389, %2388 ]
-  %2395 = load i32, ptr %.sroa.014.024.i, align 4, !tbaa !19
+  %.sroa.014.022.i = phi ptr [ %2392, %2391 ], [ %2389, %2388 ]
+  %2395 = load i32, ptr %.sroa.014.022.i, align 4, !tbaa !19
   %.not12.i = icmp ult i32 %2395, %2378
   br i1 %.not12.i, label %2391, label %.noexc1145
 
@@ -7883,13 +7883,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1926:          ; preds = %2640
 2668:                                             ; preds = %2665, %2661, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1926
   %2669 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %2670 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2408 = icmp eq ptr %2669, %2670
-  br i1 %.not2223.i2408, label %._crit_edge.i2413, label %.lr.ph.i2409
+  %.not2021.i2408 = icmp eq ptr %2669, %2670
+  br i1 %.not2021.i2408, label %._crit_edge.i2413, label %.lr.ph.i2409
 
 2671:                                             ; preds = %.lr.ph.i2409
-  %2672 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2410, i64 4
-  %.not22.i2412 = icmp eq ptr %2672, %2670
-  br i1 %.not22.i2412, label %._crit_edge.i2413, label %.lr.ph.i2409
+  %2672 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2410, i64 4
+  %.not20.i2412 = icmp eq ptr %2672, %2670
+  br i1 %.not20.i2412, label %._crit_edge.i2413, label %.lr.ph.i2409
 
 2673:                                             ; preds = %2663
   %2674 = landingpad { ptr, i32 }
@@ -7898,8 +7898,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1926:          ; preds = %2640
   br label %.body1844
 
 .lr.ph.i2409:                                     ; preds = %2668, %2671
-  %.sroa.014.024.i2410 = phi ptr [ %2672, %2671 ], [ %2669, %2668 ]
-  %2675 = load i32, ptr %.sroa.014.024.i2410, align 4, !tbaa !19
+  %.sroa.014.022.i2410 = phi ptr [ %2672, %2671 ], [ %2669, %2668 ]
+  %2675 = load i32, ptr %.sroa.014.022.i2410, align 4, !tbaa !19
   %.not12.i2411 = icmp ult i32 %2675, %2658
   br i1 %.not12.i2411, label %2671, label %.noexc1948
 
@@ -8398,13 +8398,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1878:          ; preds = %2893, %_ZNSt6vector
 2911:                                             ; preds = %2908, %2904, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1878
   %2912 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %2913 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2356 = icmp eq ptr %2912, %2913
-  br i1 %.not2223.i2356, label %._crit_edge.i2361, label %.lr.ph.i2357
+  %.not2021.i2356 = icmp eq ptr %2912, %2913
+  br i1 %.not2021.i2356, label %._crit_edge.i2361, label %.lr.ph.i2357
 
 2914:                                             ; preds = %.lr.ph.i2357
-  %2915 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2358, i64 4
-  %.not22.i2360 = icmp eq ptr %2915, %2913
-  br i1 %.not22.i2360, label %._crit_edge.i2361, label %.lr.ph.i2357
+  %2915 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2358, i64 4
+  %.not20.i2360 = icmp eq ptr %2915, %2913
+  br i1 %.not20.i2360, label %._crit_edge.i2361, label %.lr.ph.i2357
 
 2916:                                             ; preds = %2906
   %2917 = landingpad { ptr, i32 }
@@ -8413,8 +8413,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1878:          ; preds = %2893, %_ZNSt6vector
   br label %.body1844
 
 .lr.ph.i2357:                                     ; preds = %2911, %2914
-  %.sroa.014.024.i2358 = phi ptr [ %2915, %2914 ], [ %2912, %2911 ]
-  %2918 = load i32, ptr %.sroa.014.024.i2358, align 4, !tbaa !19
+  %.sroa.014.022.i2358 = phi ptr [ %2915, %2914 ], [ %2912, %2911 ]
+  %2918 = load i32, ptr %.sroa.014.022.i2358, align 4, !tbaa !19
   %.not12.i2359 = icmp ult i32 %2918, %2901
   br i1 %.not12.i2359, label %2914, label %.noexc1892
 
@@ -9635,13 +9635,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1952:          ; preds = %3452
 3480:                                             ; preds = %3477, %3473, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1952
   %3481 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %3482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2460 = icmp eq ptr %3481, %3482
-  br i1 %.not2223.i2460, label %._crit_edge.i2465, label %.lr.ph.i2461
+  %.not2021.i2460 = icmp eq ptr %3481, %3482
+  br i1 %.not2021.i2460, label %._crit_edge.i2465, label %.lr.ph.i2461
 
 3483:                                             ; preds = %.lr.ph.i2461
-  %3484 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2462, i64 4
-  %.not22.i2464 = icmp eq ptr %3484, %3482
-  br i1 %.not22.i2464, label %._crit_edge.i2465, label %.lr.ph.i2461
+  %3484 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2462, i64 4
+  %.not20.i2464 = icmp eq ptr %3484, %3482
+  br i1 %.not20.i2464, label %._crit_edge.i2465, label %.lr.ph.i2461
 
 3485:                                             ; preds = %3475
   %3486 = landingpad { ptr, i32 }
@@ -9650,8 +9650,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1952:          ; preds = %3452
   br label %.body2469
 
 .lr.ph.i2461:                                     ; preds = %3480, %3483
-  %.sroa.014.024.i2462 = phi ptr [ %3484, %3483 ], [ %3481, %3480 ]
-  %3487 = load i32, ptr %.sroa.014.024.i2462, align 4, !tbaa !19
+  %.sroa.014.022.i2462 = phi ptr [ %3484, %3483 ], [ %3481, %3480 ]
+  %3487 = load i32, ptr %.sroa.014.022.i2462, align 4, !tbaa !19
   %.not12.i2463 = icmp ult i32 %3487, %3470
   br i1 %.not12.i2463, label %3483, label %.noexc1973
 
@@ -11462,13 +11462,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2631:          ; preds = %4167
 4198:                                             ; preds = %4195, %4191, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i2631
   %4199 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %4200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2985 = icmp eq ptr %4199, %4200
-  br i1 %.not2223.i2985, label %._crit_edge.i2990, label %.lr.ph.i2986
+  %.not2021.i2985 = icmp eq ptr %4199, %4200
+  br i1 %.not2021.i2985, label %._crit_edge.i2990, label %.lr.ph.i2986
 
 4201:                                             ; preds = %.lr.ph.i2986
-  %4202 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2987, i64 4
-  %.not22.i2989 = icmp eq ptr %4202, %4200
-  br i1 %.not22.i2989, label %._crit_edge.i2990, label %.lr.ph.i2986
+  %4202 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2987, i64 4
+  %.not20.i2989 = icmp eq ptr %4202, %4200
+  br i1 %.not20.i2989, label %._crit_edge.i2990, label %.lr.ph.i2986
 
 4203:                                             ; preds = %4193
   %4204 = landingpad { ptr, i32 }
@@ -11477,8 +11477,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2631:          ; preds = %4167
   br label %.body2994
 
 .lr.ph.i2986:                                     ; preds = %4198, %4201
-  %.sroa.014.024.i2987 = phi ptr [ %4202, %4201 ], [ %4199, %4198 ]
-  %4205 = load i32, ptr %.sroa.014.024.i2987, align 4, !tbaa !19
+  %.sroa.014.022.i2987 = phi ptr [ %4202, %4201 ], [ %4199, %4198 ]
+  %4205 = load i32, ptr %.sroa.014.022.i2987, align 4, !tbaa !19
   %.not12.i2988 = icmp ult i32 %4205, %4188
   br i1 %.not12.i2988, label %4201, label %.noexc2653
 
@@ -12219,13 +12219,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2598:          ; preds = %4476
 4507:                                             ; preds = %4504, %4500, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i2598
   %4508 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %4509 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2933 = icmp eq ptr %4508, %4509
-  br i1 %.not2223.i2933, label %._crit_edge.i2938, label %.lr.ph.i2934
+  %.not2021.i2933 = icmp eq ptr %4508, %4509
+  br i1 %.not2021.i2933, label %._crit_edge.i2938, label %.lr.ph.i2934
 
 4510:                                             ; preds = %.lr.ph.i2934
-  %4511 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2935, i64 4
-  %.not22.i2937 = icmp eq ptr %4511, %4509
-  br i1 %.not22.i2937, label %._crit_edge.i2938, label %.lr.ph.i2934
+  %4511 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2935, i64 4
+  %.not20.i2937 = icmp eq ptr %4511, %4509
+  br i1 %.not20.i2937, label %._crit_edge.i2938, label %.lr.ph.i2934
 
 4512:                                             ; preds = %4502
   %4513 = landingpad { ptr, i32 }
@@ -12234,8 +12234,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2598:          ; preds = %4476
   br label %.body2942
 
 .lr.ph.i2934:                                     ; preds = %4507, %4510
-  %.sroa.014.024.i2935 = phi ptr [ %4511, %4510 ], [ %4508, %4507 ]
-  %4514 = load i32, ptr %.sroa.014.024.i2935, align 4, !tbaa !19
+  %.sroa.014.022.i2935 = phi ptr [ %4511, %4510 ], [ %4508, %4507 ]
+  %4514 = load i32, ptr %.sroa.014.022.i2935, align 4, !tbaa !19
   %.not12.i2936 = icmp ult i32 %4514, %4497
   br i1 %.not12.i2936, label %4510, label %.noexc2620
 
@@ -15875,13 +15875,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2565:          ; preds = %5867
 5898:                                             ; preds = %5895, %5891, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i2565
   %5899 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %5900 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2881 = icmp eq ptr %5899, %5900
-  br i1 %.not2223.i2881, label %._crit_edge.i2886, label %.lr.ph.i2882
+  %.not2021.i2881 = icmp eq ptr %5899, %5900
+  br i1 %.not2021.i2881, label %._crit_edge.i2886, label %.lr.ph.i2882
 
 5901:                                             ; preds = %.lr.ph.i2882
-  %5902 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2883, i64 4
-  %.not22.i2885 = icmp eq ptr %5902, %5900
-  br i1 %.not22.i2885, label %._crit_edge.i2886, label %.lr.ph.i2882
+  %5902 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2883, i64 4
+  %.not20.i2885 = icmp eq ptr %5902, %5900
+  br i1 %.not20.i2885, label %._crit_edge.i2886, label %.lr.ph.i2882
 
 5903:                                             ; preds = %5893
   %5904 = landingpad { ptr, i32 }
@@ -15890,8 +15890,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2565:          ; preds = %5867
   br label %.body2890
 
 .lr.ph.i2882:                                     ; preds = %5898, %5901
-  %.sroa.014.024.i2883 = phi ptr [ %5902, %5901 ], [ %5899, %5898 ]
-  %5905 = load i32, ptr %.sroa.014.024.i2883, align 4, !tbaa !19
+  %.sroa.014.022.i2883 = phi ptr [ %5902, %5901 ], [ %5899, %5898 ]
+  %5905 = load i32, ptr %.sroa.014.022.i2883, align 4, !tbaa !19
   %.not12.i2884 = icmp ult i32 %5905, %5888
   br i1 %.not12.i2884, label %5901, label %.noexc2587
 
@@ -16344,13 +16344,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2539:          ; preds = %6070
 6101:                                             ; preds = %6098, %6094, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i2539
   %6102 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %6103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2829 = icmp eq ptr %6102, %6103
-  br i1 %.not2223.i2829, label %._crit_edge.i2834, label %.lr.ph.i2830
+  %.not2021.i2829 = icmp eq ptr %6102, %6103
+  br i1 %.not2021.i2829, label %._crit_edge.i2834, label %.lr.ph.i2830
 
 6104:                                             ; preds = %.lr.ph.i2830
-  %6105 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2831, i64 4
-  %.not22.i2833 = icmp eq ptr %6105, %6103
-  br i1 %.not22.i2833, label %._crit_edge.i2834, label %.lr.ph.i2830
+  %6105 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2831, i64 4
+  %.not20.i2833 = icmp eq ptr %6105, %6103
+  br i1 %.not20.i2833, label %._crit_edge.i2834, label %.lr.ph.i2830
 
 6106:                                             ; preds = %6096
   %6107 = landingpad { ptr, i32 }
@@ -16359,8 +16359,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2539:          ; preds = %6070
   br label %.body2838
 
 .lr.ph.i2830:                                     ; preds = %6101, %6104
-  %.sroa.014.024.i2831 = phi ptr [ %6105, %6104 ], [ %6102, %6101 ]
-  %6108 = load i32, ptr %.sroa.014.024.i2831, align 4, !tbaa !19
+  %.sroa.014.022.i2831 = phi ptr [ %6105, %6104 ], [ %6102, %6101 ]
+  %6108 = load i32, ptr %.sroa.014.022.i2831, align 4, !tbaa !19
   %.not12.i2832 = icmp ult i32 %6108, %6091
   br i1 %.not12.i2832, label %6104, label %.noexc2561
 
@@ -18082,13 +18082,13 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1976:          ; preds = %.loopexit3412
 6764:                                             ; preds = %6761, %6757, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1976
   %6765 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %6766 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223.i2512 = icmp eq ptr %6765, %6766
-  br i1 %.not2223.i2512, label %._crit_edge.i2517, label %.lr.ph.i2513
+  %.not2021.i2512 = icmp eq ptr %6765, %6766
+  br i1 %.not2021.i2512, label %._crit_edge.i2517, label %.lr.ph.i2513
 
 6767:                                             ; preds = %.lr.ph.i2513
-  %6768 = getelementptr inbounds nuw i8, ptr %.sroa.014.024.i2514, i64 4
-  %.not22.i2516 = icmp eq ptr %6768, %6766
-  br i1 %.not22.i2516, label %._crit_edge.i2517, label %.lr.ph.i2513
+  %6768 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i2514, i64 4
+  %.not20.i2516 = icmp eq ptr %6768, %6766
+  br i1 %.not20.i2516, label %._crit_edge.i2517, label %.lr.ph.i2513
 
 6769:                                             ; preds = %6759
   %6770 = landingpad { ptr, i32 }
@@ -18097,8 +18097,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1976:          ; preds = %.loopexit3412
   br label %.body2521
 
 .lr.ph.i2513:                                     ; preds = %6764, %6767
-  %.sroa.014.024.i2514 = phi ptr [ %6768, %6767 ], [ %6765, %6764 ]
-  %6771 = load i32, ptr %.sroa.014.024.i2514, align 4, !tbaa !19
+  %.sroa.014.022.i2514 = phi ptr [ %6768, %6767 ], [ %6765, %6764 ]
+  %6771 = load i32, ptr %.sroa.014.022.i2514, align 4, !tbaa !19
   %.not12.i2515 = icmp ult i32 %6771, %6754
   br i1 %.not12.i2515, label %6767, label %.noexc1995
 
@@ -20758,13 +20758,13 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef
 11:                                               ; preds = %8, %4, %1
   %12 = load ptr, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, align 8, !tbaa !47
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes, i64 8), align 8, !tbaa !47
-  %.not2223 = icmp eq ptr %12, %13
-  br i1 %.not2223, label %._crit_edge, label %.lr.ph
+  %.not2021 = icmp eq ptr %12, %13
+  br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.014.024, i64 4
-  %.not22 = icmp eq ptr %15, %13
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 4
+  %.not20 = icmp eq ptr %15, %13
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 16:                                               ; preds = %6
   %17 = landingpad { ptr, i32 }
@@ -20773,8 +20773,8 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef
   br label %24
 
 .lr.ph:                                           ; preds = %11, %14
-  %.sroa.014.024 = phi ptr [ %15, %14 ], [ %12, %11 ]
-  %18 = load i32, ptr %.sroa.014.024, align 4, !tbaa !19
+  %.sroa.014.022 = phi ptr [ %15, %14 ], [ %12, %11 ]
+  %18 = load i32, ptr %.sroa.014.022, align 4, !tbaa !19
   %.not12 = icmp ult i32 %18, %0
   br i1 %.not12, label %14, label %23
 

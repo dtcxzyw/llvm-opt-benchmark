@@ -6867,8 +6867,8 @@ define dso_local { i64, i64 } @_ZNK4llvm19LegacyLegalizerInfo9getActionERKNS_13L
   %3 = alloca %"struct.llvm::InstrAspect", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !177
-  %.not25 = icmp eq i64 %5, 0
-  br i1 %.not25, label %.loopexit, label %.lr.ph
+  %.not23 = icmp eq i64 %5, 0
+  br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6878,14 +6878,14 @@ define dso_local { i64, i64 } @_ZNK4llvm19LegacyLegalizerInfo9getActionERKNS_13L
 
 9:                                                ; preds = %.lr.ph, %.critedge
   %10 = phi i64 [ 0, %.lr.ph ], [ %23, %.critedge ]
-  %.024 = phi i32 [ 0, %.lr.ph ], [ %22, %.critedge ]
+  %.022 = phi i32 [ 0, %.lr.ph ], [ %22, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load i32, ptr %1, align 8, !tbaa !180
   %12 = load ptr, ptr %6, align 8, !tbaa !184
   %13 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %12, i64 %10
   %.sroa.01.0.copyload = load i64, ptr %13, align 8, !tbaa !43
   store i32 %11, ptr %3, align 8, !tbaa !143
-  store i32 %.024, ptr %7, align 4, !tbaa !147
+  store i32 %.022, ptr %7, align 4, !tbaa !147
   store i64 %.sroa.01.0.copyload, ptr %8, align 8, !tbaa !43
   %14 = and i64 %.sroa.01.0.copyload, 1
   %.not.i = icmp eq i64 %14, 0
@@ -6914,7 +6914,7 @@ _ZNK4llvm19LegacyLegalizerInfo15getAspectActionERKNS_11InstrAspectE.exit: ; pred
   br i1 %.not, label %.critedge, label %26
 
 .critedge:                                        ; preds = %_ZNK4llvm19LegacyLegalizerInfo15getAspectActionERKNS_11InstrAspectE.exit
-  %22 = add i32 %.024, 1
+  %22 = add i32 %.022, 1
   %23 = zext i32 %22 to i64
   %24 = load i64, ptr %4, align 8, !tbaa !177
   %25 = icmp ugt i64 %24, %23
@@ -6922,7 +6922,7 @@ _ZNK4llvm19LegacyLegalizerInfo15getAspectActionERKNS_11InstrAspectE.exit: ; pred
 
 26:                                               ; preds = %_ZNK4llvm19LegacyLegalizerInfo15getAspectActionERKNS_11InstrAspectE.exit
   %27 = extractvalue { i8, i64 } %.pn.i, 1
-  %28 = zext i32 %.024 to i64
+  %28 = zext i32 %.022 to i64
   %29 = shl nuw i64 %28, 32
   %30 = zext i8 %21 to i64
   %31 = or disjoint i64 %29, %30

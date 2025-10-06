@@ -4631,14 +4631,14 @@ opj_j2k_get_marker_handler.exit:                  ; preds = %113
 
 .thread.i:                                        ; preds = %181
   store ptr %189, ptr %192, align 8, !tbaa !210
-  %.phi.trans.insert60.i = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %.pre61.i = load i32, ptr %.phi.trans.insert60.i, align 8, !tbaa !221
-  %.pre62.i = add i32 %.pre61.i, 1
+  %.phi.trans.insert59.i = getelementptr inbounds nuw i8, ptr %191, i64 24
+  %.pre60.i = load i32, ptr %.phi.trans.insert59.i, align 8, !tbaa !221
+  %.pre61.i = add i32 %.pre60.i, 1
   br label %193
 
 193:                                              ; preds = %.thread.i, %._crit_edge.i
-  %.pre-phi.i = phi i32 [ %177, %._crit_edge.i ], [ %.pre62.i, %.thread.i ]
-  %194 = phi i32 [ %176, %._crit_edge.i ], [ %.pre61.i, %.thread.i ]
+  %.pre-phi.i = phi i32 [ %177, %._crit_edge.i ], [ %.pre61.i, %.thread.i ]
+  %194 = phi i32 [ %176, %._crit_edge.i ], [ %.pre60.i, %.thread.i ]
   %195 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %189, %.thread.i ]
   %196 = phi ptr [ %172, %._crit_edge.i ], [ %190, %.thread.i ]
   %197 = trunc i32 %114 to i16
@@ -4921,9 +4921,9 @@ opj_j2k_get_marker_handler.exit:                  ; preds = %113
 
 .thread.i.i:                                      ; preds = %340
   store ptr %348, ptr %351, align 8, !tbaa !210
-  %.phi.trans.insert60.i.i = getelementptr inbounds nuw i8, ptr %350, i64 24
-  %.pre61.i.i = load i32, ptr %.phi.trans.insert60.i.i, align 8, !tbaa !221
-  %.pre62.i.i = add i32 %.pre61.i.i, 1
+  %.phi.trans.insert59.i.i = getelementptr inbounds nuw i8, ptr %350, i64 24
+  %.pre60.i.i = load i32, ptr %.phi.trans.insert59.i.i, align 8, !tbaa !221
+  %.pre61.i.i = add i32 %.pre60.i.i, 1
   br label %.critedge.i
 
 352:                                              ; preds = %340
@@ -4941,8 +4941,8 @@ opj_j2k_get_marker_handler.exit:                  ; preds = %113
   br label %.critedge278
 
 .critedge.i:                                      ; preds = %.thread.i.i, %._crit_edge.i.i
-  %.pre-phi.i.i = phi i32 [ %336, %._crit_edge.i.i ], [ %.pre62.i.i, %.thread.i.i ]
-  %360 = phi i32 [ %335, %._crit_edge.i.i ], [ %.pre61.i.i, %.thread.i.i ]
+  %.pre-phi.i.i = phi i32 [ %336, %._crit_edge.i.i ], [ %.pre61.i.i, %.thread.i.i ]
+  %360 = phi i32 [ %335, %._crit_edge.i.i ], [ %.pre60.i.i, %.thread.i.i ]
   %361 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %348, %.thread.i.i ]
   %362 = phi ptr [ %317, %._crit_edge.i.i ], [ %349, %.thread.i.i ]
   %363 = getelementptr inbounds nuw %struct.opj_tile_index, ptr %362, i64 %319
@@ -5086,7 +5086,7 @@ opj_j2k_get_marker_handler.exit:                  ; preds = %113
   %442 = load i8, ptr %30, align 8
   %443 = and i8 %442, 9
   %or.cond = icmp eq i8 %443, 1
-  br i1 %or.cond, label %444, label %.thread315
+  br i1 %or.cond, label %444, label %.thread316
 
 444:                                              ; preds = %441
   %445 = or disjoint i8 %442, 8
@@ -5098,7 +5098,7 @@ opj_j2k_get_marker_handler.exit:                  ; preds = %113
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 5612
   %451 = load i32, ptr %450, align 4, !tbaa !236
   %452 = icmp eq i32 %451, 1
-  br i1 %452, label %.thread315, label %453
+  br i1 %452, label %.thread316, label %453
 
 453:                                              ; preds = %444
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -5110,12 +5110,12 @@ opj_j2k_get_marker_handler.exit:                  ; preds = %113
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %454 = call i32 @opj_stream_has_seek(ptr noundef %9) #21
   %.not.i291 = icmp eq i32 %454, 0
-  br i1 %.not.i291, label %opj_j2k_need_nb_tile_parts_correction.exit.thread309, label %455
+  br i1 %.not.i291, label %opj_j2k_need_nb_tile_parts_correction.exit.thread310, label %455
 
 455:                                              ; preds = %453
   %456 = call i64 @opj_stream_tell(ptr noundef %9) #21
   %457 = icmp eq i64 %456, -1
-  br i1 %457, label %opj_j2k_need_nb_tile_parts_correction.exit.thread309, label %.preheader.i
+  br i1 %457, label %opj_j2k_need_nb_tile_parts_correction.exit.thread310, label %.preheader.i
 
 .preheader.i:                                     ; preds = %455, %476
   %458 = call i64 @opj_stream_read_data(ptr noundef %9, ptr noundef nonnull %12, i64 noundef 2, ptr noundef %10) #21
@@ -5193,7 +5193,7 @@ opj_j2k_need_nb_tile_parts_correction.exit.thread: ; preds = %469, %465, %463, %
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge284
 
-opj_j2k_need_nb_tile_parts_correction.exit.thread309: ; preds = %453, %455
+opj_j2k_need_nb_tile_parts_correction.exit.thread310: ; preds = %453, %455
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5201,7 +5201,7 @@ opj_j2k_need_nb_tile_parts_correction.exit.thread309: ; preds = %453, %455
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread315
+  br label %.thread316
 
 opj_j2k_need_nb_tile_parts_correction.exit:       ; preds = %476, %473, %459, %.preheader.i, %482
   %.2 = phi i1 [ %485, %482 ], [ true, %.preheader.i ], [ true, %459 ], [ true, %473 ], [ true, %476 ]
@@ -5221,7 +5221,7 @@ opj_j2k_need_nb_tile_parts_correction.exit:       ; preds = %476, %473, %459, %.
   br label %.critedge278
 
 489:                                              ; preds = %opj_j2k_need_nb_tile_parts_correction.exit
-  br i1 %.2, label %.thread315, label %490
+  br i1 %.2, label %.thread316, label %490
 
 490:                                              ; preds = %489
   %491 = load i8, ptr %30, align 8
@@ -5254,21 +5254,21 @@ opj_j2k_need_nb_tile_parts_correction.exit:       ; preds = %476, %473, %459, %.
 
 ._crit_edge:                                      ; preds = %501, %490
   %502 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.48) #21
-  br label %.thread315
+  br label %.thread316
 
 503:                                              ; preds = %259
   %504 = and i8 %260, -6
   store i8 %504, ptr %30, align 8
   store i32 8, ptr %26, align 8, !tbaa !12
-  br label %.thread315
+  br label %.thread316
 
-.thread315:                                       ; preds = %opj_j2k_need_nb_tile_parts_correction.exit.thread309, %444, %._crit_edge, %489, %441, %503
+.thread316:                                       ; preds = %opj_j2k_need_nb_tile_parts_correction.exit.thread310, %444, %._crit_edge, %489, %441, %503
   %505 = load i8, ptr %30, align 8
   %506 = and i8 %505, 1
   %.not270 = icmp eq i8 %506, 0
   br i1 %.not270, label %507, label %.backedge
 
-507:                                              ; preds = %.thread315
+507:                                              ; preds = %.thread316
   %508 = load ptr, ptr %36, align 8, !tbaa !12
   %509 = call i64 @opj_stream_read_data(ptr noundef %9, ptr noundef %508, i64 noundef 2, ptr noundef %10) #21
   %.not271 = icmp eq i64 %509, 2
@@ -5323,7 +5323,7 @@ opj_j2k_need_nb_tile_parts_correction.exit:       ; preds = %476, %473, %459, %.
   call void @opj_read_bytes_LE(ptr noundef %530, ptr noundef nonnull %19, i32 noundef 2) #21
   br label %.backedge
 
-.backedge:                                        ; preds = %.thread315, %529, %436
+.backedge:                                        ; preds = %.thread316, %529, %436
   %531 = load i8, ptr %30, align 8
   %532 = and i8 %531, 1
   %.not239 = icmp eq i8 %532, 0
@@ -5483,11 +5483,11 @@ thread-pre-split:                                 ; preds = %256
   store ptr null, ptr %605, align 8, !tbaa !40
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 8
   store i32 0, ptr %606, align 8, !tbaa !242
-  %.pre60.i = load i32, ptr %572, align 8, !tbaa !192
+  %.pre60.i300 = load i32, ptr %572, align 8, !tbaa !192
   br label %607
 
 607:                                              ; preds = %591, %.lr.ph52.i
-  %608 = phi i32 [ %.pre60.i, %591 ], [ %587, %.lr.ph52.i ]
+  %608 = phi i32 [ %.pre60.i300, %591 ], [ %587, %.lr.ph52.i ]
   %609 = phi ptr [ %604, %591 ], [ %588, %.lr.ph52.i ]
   %.2.i = phi i32 [ %602, %591 ], [ %.150.i, %.lr.ph52.i ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
@@ -9775,8 +9775,8 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_header_procedure(ptr noundef i
 
 .thread.i.i:                                      ; preds = %27
   store ptr %35, ptr %31, align 8, !tbaa !198
-  %.pre28.i.i = load i32, ptr %21, align 8, !tbaa !270
-  %.pre29.i.i = add i32 %.pre28.i.i, 1
+  %.pre27.i.i = load i32, ptr %21, align 8, !tbaa !270
+  %.pre28.i.i = add i32 %.pre27.i.i, 1
   br label %41
 
 36:                                               ; preds = %27
@@ -9795,8 +9795,8 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_header_procedure(ptr noundef i
   br label %233
 
 41:                                               ; preds = %.thread.i.i, %._crit_edge.i.i
-  %.pre-phi.i.i = phi i32 [ %23, %._crit_edge.i.i ], [ %.pre29.i.i, %.thread.i.i ]
-  %42 = phi i32 [ %22, %._crit_edge.i.i ], [ %.pre28.i.i, %.thread.i.i ]
+  %.pre-phi.i.i = phi i32 [ %23, %._crit_edge.i.i ], [ %.pre28.i.i, %.thread.i.i ]
+  %42 = phi i32 [ %22, %._crit_edge.i.i ], [ %.pre27.i.i, %.thread.i.i ]
   %43 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %35, %.thread.i.i ]
   %44 = zext i32 %42 to i64
   %45 = getelementptr inbounds nuw %struct.opj_marker_info, ptr %43, i64 %44
@@ -9932,8 +9932,8 @@ opj_j2k_get_marker_handler.exit.i:                ; preds = %.preheader.i
 
 .thread.i.i105:                                   ; preds = %92
   store ptr %100, ptr %96, align 8, !tbaa !198
-  %.pre28.i.i106 = load i32, ptr %86, align 8, !tbaa !270
-  %.pre29.i.i107 = add i32 %.pre28.i.i106, 1
+  %.pre27.i.i106 = load i32, ptr %86, align 8, !tbaa !270
+  %.pre28.i.i107 = add i32 %.pre27.i.i106, 1
   br label %110
 
 101:                                              ; preds = %92
@@ -9963,8 +9963,8 @@ opj_j2k_get_marker_handler.exit.i:                ; preds = %.preheader.i
   br label %233
 
 110:                                              ; preds = %._crit_edge.i.i100, %.thread.i.i105
-  %.pre-phi.i.i104 = phi i32 [ %88, %._crit_edge.i.i100 ], [ %.pre29.i.i107, %.thread.i.i105 ]
-  %111 = phi i32 [ %87, %._crit_edge.i.i100 ], [ %.pre28.i.i106, %.thread.i.i105 ]
+  %.pre-phi.i.i104 = phi i32 [ %88, %._crit_edge.i.i100 ], [ %.pre28.i.i107, %.thread.i.i105 ]
+  %111 = phi i32 [ %87, %._crit_edge.i.i100 ], [ %.pre27.i.i106, %.thread.i.i105 ]
   %112 = phi ptr [ %.pre.i.i102, %._crit_edge.i.i100 ], [ %100, %.thread.i.i105 ]
   %113 = zext i32 %111 to i64
   %114 = getelementptr inbounds nuw %struct.opj_marker_info, ptr %112, i64 %113
@@ -10120,8 +10120,8 @@ opj_j2k_get_marker_handler.exit111:               ; preds = %.preheader, %opj_j2
 
 .thread.i:                                        ; preds = %183
   store ptr %191, ptr %187, align 8, !tbaa !198
-  %.pre28.i = load i32, ptr %177, align 8, !tbaa !270
-  %.pre29.i = add i32 %.pre28.i, 1
+  %.pre27.i = load i32, ptr %177, align 8, !tbaa !270
+  %.pre28.i = add i32 %.pre27.i, 1
   br label %195
 
 192:                                              ; preds = %183
@@ -10134,8 +10134,8 @@ opj_j2k_get_marker_handler.exit111:               ; preds = %.preheader, %opj_j2
   br label %233
 
 195:                                              ; preds = %.thread.i, %._crit_edge.i112
-  %.pre-phi.i = phi i32 [ %179, %._crit_edge.i112 ], [ %.pre29.i, %.thread.i ]
-  %196 = phi i32 [ %178, %._crit_edge.i112 ], [ %.pre28.i, %.thread.i ]
+  %.pre-phi.i = phi i32 [ %179, %._crit_edge.i112 ], [ %.pre28.i, %.thread.i ]
+  %196 = phi i32 [ %178, %._crit_edge.i112 ], [ %.pre27.i, %.thread.i ]
   %197 = phi ptr [ %.pre.i, %._crit_edge.i112 ], [ %191, %.thread.i ]
   %198 = trunc i32 %122 to i16
   %199 = zext i32 %196 to i64
@@ -10732,9 +10732,9 @@ define internal fastcc void @opj_j2k_build_tp_index_from_tlm(ptr noundef capture
 8:                                                ; preds = %2
   %9 = load i32, ptr %6, align 8, !tbaa !393
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.preheader69, label %.loopexit
+  br i1 %.not, label %.preheader68, label %.loopexit
 
-.preheader69:                                     ; preds = %8
+.preheader68:                                     ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8, !tbaa !394
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -10747,15 +10747,15 @@ define internal fastcc void @opj_j2k_build_tp_index_from_tlm(ptr noundef capture
 .preheader:                                       ; preds = %18
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %17 = load i32, ptr %16, align 4, !tbaa !204
-  %.not83 = icmp eq i32 %17, 0
-  br i1 %.not83, label %.lr.ph79, label %.lr.ph
+  %.not82 = icmp eq i32 %17, 0
+  br i1 %.not82, label %.lr.ph78, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %wide.trip.count92 = zext i32 %17 to i64
+  %wide.trip.count91 = zext i32 %17 to i64
   br label %27
 
-18:                                               ; preds = %.preheader69, %18
-  %indvars.iv = phi i64 [ 0, %.preheader69 ], [ %indvars.iv.next, %18 ]
+18:                                               ; preds = %.preheader68, %18
+  %indvars.iv = phi i64 [ 0, %.preheader68 ], [ %indvars.iv.next, %18 ]
   %19 = getelementptr inbounds nuw %struct.opj_j2k_tlm_tile_part_info, ptr %11, i64 %indvars.iv
   %20 = load i16, ptr %19, align 4, !tbaa !395
   %21 = zext i16 %20 to i32
@@ -10771,34 +10771,34 @@ define internal fastcc void @opj_j2k_build_tp_index_from_tlm(ptr noundef capture
   br i1 %exitcond.not, label %.preheader, label %18, !llvm.loop !399
 
 27:                                               ; preds = %.lr.ph, %35
-  %indvars.iv89 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next90, %35 ]
-  %28 = getelementptr inbounds nuw %struct.opj_tile_index, ptr %15, i64 %indvars.iv89
+  %indvars.iv88 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next89, %35 ]
+  %28 = getelementptr inbounds nuw %struct.opj_tile_index, ptr %15, i64 %indvars.iv88
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !398
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %27
-  %33 = trunc nuw i64 %indvars.iv89 to i32
+  %33 = trunc nuw i64 %indvars.iv88 to i32
   %34 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.175, i32 noundef %33) #21
   br label %74
 
 35:                                               ; preds = %27
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %.lr.ph79, label %27, !llvm.loop !400
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
+  br i1 %exitcond92.not, label %.lr.ph78, label %27, !llvm.loop !400
 
-.lr.ph79:                                         ; preds = %35, %.preheader
+.lr.ph78:                                         ; preds = %35, %.preheader
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !277
   br label %38
 
-38:                                               ; preds = %.lr.ph79, %57
-  %39 = phi i32 [ %4, %.lr.ph79 ], [ %58, %57 ]
-  %40 = phi ptr [ %11, %.lr.ph79 ], [ %59, %57 ]
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next95, %57 ]
-  %.05876 = phi i64 [ %37, %.lr.ph79 ], [ %69, %57 ]
-  %41 = getelementptr inbounds nuw %struct.opj_j2k_tlm_tile_part_info, ptr %40, i64 %indvars.iv94
+38:                                               ; preds = %.lr.ph78, %57
+  %39 = phi i32 [ %4, %.lr.ph78 ], [ %58, %57 ]
+  %40 = phi ptr [ %11, %.lr.ph78 ], [ %59, %57 ]
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next94, %57 ]
+  %.05875 = phi i64 [ %37, %.lr.ph78 ], [ %69, %57 ]
+  %41 = getelementptr inbounds nuw %struct.opj_j2k_tlm_tile_part_info, ptr %40, i64 %indvars.iv93
   %42 = load i16, ptr %41, align 4, !tbaa !395
   %43 = load ptr, ptr %12, align 8, !tbaa !46
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
@@ -10817,57 +10817,57 @@ define internal fastcc void @opj_j2k_build_tp_index_from_tlm(ptr noundef capture
   %54 = tail call ptr @opj_calloc(i64 noundef %53, i64 noundef 24) #21
   store ptr %54, ptr %48, align 8, !tbaa !209
   %.not62 = icmp eq ptr %54, null
-  br i1 %.not62, label %55, label %._crit_edge100
+  br i1 %.not62, label %55, label %._crit_edge99
 
-._crit_edge100:                                   ; preds = %50
+._crit_edge99:                                    ; preds = %50
   %.pre = load ptr, ptr %10, align 8, !tbaa !394
-  %.pre101 = load i32, ptr %3, align 8, !tbaa !390
+  %.pre100 = load i32, ptr %3, align 8, !tbaa !390
   br label %57
 
 55:                                               ; preds = %50
   %56 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.176) #21
   br label %74
 
-57:                                               ; preds = %._crit_edge100, %38
-  %58 = phi i32 [ %39, %38 ], [ %.pre101, %._crit_edge100 ]
-  %59 = phi ptr [ %40, %38 ], [ %.pre, %._crit_edge100 ]
-  %60 = phi ptr [ %49, %38 ], [ %54, %._crit_edge100 ]
+57:                                               ; preds = %._crit_edge99, %38
+  %58 = phi i32 [ %39, %38 ], [ %.pre100, %._crit_edge99 ]
+  %59 = phi ptr [ %40, %38 ], [ %.pre, %._crit_edge99 ]
+  %60 = phi ptr [ %49, %38 ], [ %54, %._crit_edge99 ]
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !228
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw %struct.opj_tp_index, ptr %60, i64 %63
-  store i64 %.05876, ptr %64, align 8, !tbaa !229
-  %65 = getelementptr inbounds nuw %struct.opj_j2k_tlm_tile_part_info, ptr %59, i64 %indvars.iv94
+  store i64 %.05875, ptr %64, align 8, !tbaa !229
+  %65 = getelementptr inbounds nuw %struct.opj_j2k_tlm_tile_part_info, ptr %59, i64 %indvars.iv93
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !401
   %68 = zext i32 %67 to i64
-  %69 = add nsw i64 %.05876, %68
+  %69 = add nsw i64 %.05875, %68
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i64 %69, ptr %70, align 8, !tbaa !235
   %71 = add i32 %62, 1
   store i32 %71, ptr %61, align 4, !tbaa !228
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %72 = zext i32 %58 to i64
-  %73 = icmp samesign ult i64 %indvars.iv.next95, %72
+  %73 = icmp samesign ult i64 %indvars.iv.next94, %72
   br i1 %73, label %38, label %.loopexit, !llvm.loop !402
 
 74:                                               ; preds = %55, %32
   store i32 1, ptr %6, align 8, !tbaa !393
   %75 = load i32, ptr %3, align 8, !tbaa !390
-  %.not85 = icmp eq i32 %75, 0
-  br i1 %.not85, label %.loopexit, label %.lr.ph82
+  %.not84 = icmp eq i32 %75, 0
+  br i1 %.not84, label %.loopexit, label %.lr.ph81
 
-.lr.ph82:                                         ; preds = %74
-  %.pre102 = load ptr, ptr %12, align 8, !tbaa !46
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre102, i64 48
-  %.pre103 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !203
+.lr.ph81:                                         ; preds = %74
+  %.pre101 = load ptr, ptr %12, align 8, !tbaa !46
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre101, i64 48
+  %.pre102 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !203
   br label %76
 
-76:                                               ; preds = %.lr.ph82, %76
-  %77 = phi ptr [ %.pre103, %.lr.ph82 ], [ %88, %76 ]
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next98, %76 ]
+76:                                               ; preds = %.lr.ph81, %76
+  %77 = phi ptr [ %.pre102, %.lr.ph81 ], [ %88, %76 ]
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next97, %76 ]
   %78 = load ptr, ptr %10, align 8, !tbaa !394
-  %79 = getelementptr inbounds nuw %struct.opj_j2k_tlm_tile_part_info, ptr %78, i64 %indvars.iv97
+  %79 = getelementptr inbounds nuw %struct.opj_j2k_tlm_tile_part_info, ptr %78, i64 %indvars.iv96
   %80 = load i16, ptr %79, align 4, !tbaa !395
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw %struct.opj_tile_index, ptr %77, i64 %81
@@ -10882,10 +10882,10 @@ define internal fastcc void @opj_j2k_build_tp_index_from_tlm(ptr noundef capture
   %89 = getelementptr inbounds nuw %struct.opj_tile_index, ptr %88, i64 %81
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr null, ptr %90, align 8, !tbaa !209
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %91 = load i32, ptr %3, align 8, !tbaa !390
   %92 = zext i32 %91 to i64
-  %93 = icmp samesign ult i64 %indvars.iv.next98, %92
+  %93 = icmp samesign ult i64 %indvars.iv.next97, %92
   br i1 %93, label %76, label %.loopexit, !llvm.loop !403
 
 .loopexit:                                        ; preds = %57, %76, %74, %8, %7

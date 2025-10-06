@@ -397,11 +397,11 @@ define dso_local range(i32 -1, 1) i32 @copy_to_file(ptr noundef captures(none) %
   br label %8
 
 8:                                                ; preds = %6, %24
-  %.03456 = phi i64 [ %2, %6 ], [ %18, %24 ]
-  %.03655 = phi i64 [ 0, %6 ], [ %19, %24 ]
-  %.03954 = phi i64 [ %3, %6 ], [ %17, %24 ]
-  %..039 = tail call i64 @llvm.umin.i64(i64 %.03954, i64 1024)
-  %9 = tail call i32 @fseeko64(ptr noundef %0, i64 noundef %.03456, i32 noundef 0)
+  %.03455 = phi i64 [ %2, %6 ], [ %18, %24 ]
+  %.03654 = phi i64 [ 0, %6 ], [ %19, %24 ]
+  %.03953 = phi i64 [ %3, %6 ], [ %17, %24 ]
+  %..039 = tail call i64 @llvm.umin.i64(i64 %.03953, i64 1024)
+  %9 = tail call i32 @fseeko64(ptr noundef %0, i64 noundef %.03455, i32 noundef 0)
   %10 = tail call i64 @fread(ptr noundef nonnull @copy_to_file.buf, i64 noundef 1, i64 noundef %..039, ptr noundef %0)
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %.critedge
@@ -417,10 +417,10 @@ define dso_local range(i32 -1, 1) i32 @copy_to_file(ptr noundef captures(none) %
   br i1 %.not44, label %.critedge, label %.thread
 
 .critedge:                                        ; preds = %8, %14
-  %16 = tail call i32 @fseeko64(ptr noundef %1, i64 noundef %.03655, i32 noundef 0)
-  %17 = sub i64 %.03954, %10
-  %18 = add nsw i64 %10, %.03456
-  %19 = add nsw i64 %10, %.03655
+  %16 = tail call i32 @fseeko64(ptr noundef %1, i64 noundef %.03654, i32 noundef 0)
+  %17 = sub i64 %.03953, %10
+  %18 = add nsw i64 %10, %.03455
+  %19 = add nsw i64 %10, %.03654
   %20 = tail call i64 @fwrite(ptr noundef nonnull @copy_to_file.buf, i64 noundef 1, i64 noundef %10, ptr noundef %1)
   %.not45 = icmp eq i64 %20, %10
   br i1 %.not45, label %21, label %.thread

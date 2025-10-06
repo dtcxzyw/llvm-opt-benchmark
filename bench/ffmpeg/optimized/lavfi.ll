@@ -85,19 +85,19 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 23:                                               ; preds = %20
   %24 = call i32 @av_dict_set(ptr noundef nonnull %6, ptr noundef nonnull @.str.14, ptr noundef nonnull %22, i32 noundef 0) #10
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.thread263, label %._crit_edge375
+  br i1 %25, label %.thread258, label %._crit_edge364
 
-._crit_edge375:                                   ; preds = %23
+._crit_edge364:                                   ; preds = %23
   %.pre = load ptr, ptr %14, align 8, !tbaa !26
   br label %26
 
-26:                                               ; preds = %._crit_edge375, %20
-  %27 = phi ptr [ %.pre, %._crit_edge375 ], [ %15, %20 ]
+26:                                               ; preds = %._crit_edge364, %20
+  %27 = phi ptr [ %.pre, %._crit_edge364 ], [ %15, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %29 = call i32 @avio_open2(ptr noundef nonnull %5, ptr noundef %27, i32 noundef 1, ptr noundef nonnull %28, ptr noundef nonnull %6) #10
   call void @av_dict_free(ptr noundef nonnull %6) #10
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %.thread263, label %31
+  br i1 %30, label %.thread258, label %31
 
 31:                                               ; preds = %26
   call void @av_bprint_init(ptr noundef nonnull %4, i32 noundef 0, i32 noundef -1) #10
@@ -109,14 +109,14 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 
 35:                                               ; preds = %31
   %36 = call i32 @av_bprint_finalize(ptr noundef nonnull %4, ptr noundef null) #10
-  br label %.thread263
+  br label %.thread258
 
 37:                                               ; preds = %31
   %38 = call i32 @av_bprint_finalize(ptr noundef nonnull %4, ptr noundef nonnull %17) #10
   %.not222 = icmp eq i32 %38, 0
-  br i1 %.not222, label %39, label %.thread263
+  br i1 %.not222, label %39, label %.thread258
 
-.thread263:                                       ; preds = %35, %23, %26, %37
+.thread258:                                       ; preds = %35, %23, %26, %37
   %.1173.ph = phi i32 [ %38, %37 ], [ %29, %26 ], [ %24, %23 ], [ %33, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -158,28 +158,28 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 53:                                               ; preds = %49
   %54 = load ptr, ptr %2, align 8, !tbaa !24
   %.not225 = icmp eq ptr %54, null
-  br i1 %.not225, label %.preheader297, label %55
+  br i1 %.not225, label %.preheader286, label %55
 
-.preheader297:                                    ; preds = %53
-  %.0171316 = load ptr, ptr %3, align 8, !tbaa !24
-  %.not226317 = icmp eq ptr %.0171316, null
-  br i1 %.not226317, label %._crit_edge, label %.lr.ph
+.preheader286:                                    ; preds = %53
+  %.0171305 = load ptr, ptr %3, align 8, !tbaa !24
+  %.not226306 = icmp eq ptr %.0171305, null
+  br i1 %.not226306, label %._crit_edge, label %.lr.ph
 
 55:                                               ; preds = %53
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15) #10
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader297, %.lr.ph
-  %.0171319 = phi ptr [ %.0171, %.lr.ph ], [ %.0171316, %.preheader297 ]
-  %.0181318 = phi i32 [ %56, %.lr.ph ], [ 0, %.preheader297 ]
-  %56 = add nuw nsw i32 %.0181318, 1
-  %57 = getelementptr inbounds nuw i8, ptr %.0171319, i64 24
+.lr.ph:                                           ; preds = %.preheader286, %.lr.ph
+  %.0171308 = phi ptr [ %.0171, %.lr.ph ], [ %.0171305, %.preheader286 ]
+  %.0181307 = phi i32 [ %56, %.lr.ph ], [ 0, %.preheader286 ]
+  %56 = add nuw nsw i32 %.0181307, 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0171308, i64 24
   %.0171 = load ptr, ptr %57, align 8, !tbaa !24
   %.not226 = icmp eq ptr %.0171, null
   br i1 %.not226, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader297
-  %.0181.lcssa = phi i32 [ 0, %.preheader297 ], [ %56, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader286
+  %.0181.lcssa = phi i32 [ 0, %.preheader286 ], [ %56, %.lr.ph ]
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store i32 %.0181.lcssa, ptr %58, align 8, !tbaa !43
   %59 = zext i32 %.0181.lcssa to i64
@@ -209,53 +209,53 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr %70, ptr %71, align 8, !tbaa !47
   %.not230 = icmp eq ptr %70, null
-  br i1 %.not230, label %.loopexit, label %.preheader296
+  br i1 %.not230, label %.loopexit, label %.preheader285
 
-.preheader296:                                    ; preds = %69
-  %.not344 = icmp eq i32 %.0181.lcssa, 0
-  br i1 %.not344, label %.preheader295, label %.lr.ph321
+.preheader285:                                    ; preds = %69
+  %.not333 = icmp eq i32 %.0181.lcssa, 0
+  br i1 %.not333, label %.preheader284, label %.lr.ph310
 
-.lr.ph321:                                        ; preds = %.preheader296
+.lr.ph310:                                        ; preds = %.preheader285
   %72 = load ptr, ptr %68, align 8, !tbaa !46
   call void @llvm.memset.p0.i64(ptr align 4 %72, i8 -1, i64 %60, i1 false), !tbaa !48
-  br label %.preheader295
+  br label %.preheader284
 
-.preheader295:                                    ; preds = %.lr.ph321, %.preheader296
-  %.1322 = load ptr, ptr %3, align 8, !tbaa !24
-  %.not231323 = icmp eq ptr %.1322, null
-  br i1 %.not231323, label %._crit_edge332, label %.lr.ph326
+.preheader284:                                    ; preds = %.lr.ph310, %.preheader285
+  %.1311 = load ptr, ptr %3, align 8, !tbaa !24
+  %.not231312 = icmp eq ptr %.1311, null
+  br i1 %.not231312, label %._crit_edge321, label %.lr.ph315
 
-.preheader293:                                    ; preds = %97
-  %.2327.pre = load ptr, ptr %3, align 8, !tbaa !24
-  %.not232328 = icmp eq ptr %.2327.pre, null
-  br i1 %.not232328, label %._crit_edge332, label %.lr.ph331
+.preheader282:                                    ; preds = %97
+  %.2316.pre = load ptr, ptr %3, align 8, !tbaa !24
+  %.not232317 = icmp eq ptr %.2316.pre, null
+  br i1 %.not232317, label %._crit_edge321, label %.lr.ph320
 
-.lr.ph326:                                        ; preds = %.preheader295, %97
-  %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.preheader295 ]
-  %.1325 = phi ptr [ %.1, %97 ], [ %.1322, %.preheader295 ]
+.lr.ph315:                                        ; preds = %.preheader284, %97
+  %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.preheader284 ]
+  %.1314 = phi ptr [ %.1, %97 ], [ %.1311, %.preheader284 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !48
-  %73 = load ptr, ptr %.1325, align 8, !tbaa !49
+  %73 = load ptr, ptr %.1314, align 8, !tbaa !49
   %.not239 = icmp eq ptr %73, null
   br i1 %.not239, label %74, label %76
 
-74:                                               ; preds = %.lr.ph326
+74:                                               ; preds = %.lr.ph315
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %75) #10
-  br label %.thread268
+  br label %.thread262
 
-76:                                               ; preds = %.lr.ph326
+76:                                               ; preds = %.lr.ph315
   %77 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %73, ptr noundef nonnull @.str.17, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %78 = load i32, ptr %8, align 4, !tbaa !48
   %.not240 = icmp eq i32 %78, 0
-  %79 = load ptr, ptr %.1325, align 8, !tbaa !49
+  %79 = load ptr, ptr %.1314, align 8, !tbaa !49
   br i1 %.not240, label %80, label %81
 
 80:                                               ; preds = %76
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18, ptr noundef %79) #10
-  br label %.thread268
+  br label %.thread262
 
 81:                                               ; preds = %76
   %82 = sext i32 %78 to i64
@@ -271,7 +271,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 
 87:                                               ; preds = %85
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.20, ptr noundef nonnull %79) #10
-  br label %.thread268
+  br label %.thread262
 
 88:                                               ; preds = %85, %81
   %89 = load i32, ptr %7, align 4, !tbaa !48
@@ -280,7 +280,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 
 90:                                               ; preds = %88
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, ptr noundef nonnull %79, i32 noundef %.0181.lcssa) #10
-  br label %.thread268
+  br label %.thread262
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %68, align 8, !tbaa !46
@@ -292,9 +292,9 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 
 96:                                               ; preds = %91
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %89) #10
-  br label %.thread268
+  br label %.thread262
 
-.thread268:                                       ; preds = %87, %90, %96, %80, %74
+.thread262:                                       ; preds = %87, %90, %96, %80, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
@@ -315,28 +315,28 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %107 = getelementptr inbounds nuw i8, ptr %.1325, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %.1314, i64 24
   %.1 = load ptr, ptr %107, align 8, !tbaa !24
   %.not231 = icmp eq ptr %.1, null
-  br i1 %.not231, label %.preheader293, label %.lr.ph326, !llvm.loop !53
+  br i1 %.not231, label %.preheader282, label %.lr.ph315, !llvm.loop !53
 
-.lr.ph331:                                        ; preds = %.preheader293, %109
-  %.2330 = phi ptr [ %.2, %109 ], [ %.2327.pre, %.preheader293 ]
-  %.2178329 = phi i32 [ %111, %109 ], [ 0, %.preheader293 ]
+.lr.ph320:                                        ; preds = %.preheader282, %109
+  %.2319 = phi ptr [ %.2, %109 ], [ %.2316.pre, %.preheader282 ]
+  %.2178318 = phi i32 [ %111, %109 ], [ 0, %.preheader282 ]
   %108 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #10
   %.not238 = icmp eq ptr %108, null
   br i1 %.not238, label %.loopexit, label %109
 
-109:                                              ; preds = %.lr.ph331
+109:                                              ; preds = %.lr.ph320
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  store i32 %.2178329, ptr %110, align 4, !tbaa !54
-  %111 = add nuw nsw i32 %.2178329, 1
-  %112 = getelementptr inbounds nuw i8, ptr %.2330, i64 24
+  store i32 %.2178318, ptr %110, align 4, !tbaa !54
+  %111 = add nuw nsw i32 %.2178318, 1
+  %112 = getelementptr inbounds nuw i8, ptr %.2319, i64 24
   %.2 = load ptr, ptr %112, align 8, !tbaa !24
   %.not232 = icmp eq ptr %.2, null
-  br i1 %.not232, label %._crit_edge332, label %.lr.ph331, !llvm.loop !57
+  br i1 %.not232, label %._crit_edge321, label %.lr.ph320, !llvm.loop !57
 
-._crit_edge332:                                   ; preds = %109, %.preheader295, %.preheader293
+._crit_edge321:                                   ; preds = %109, %.preheader284, %.preheader282
   %113 = load i32, ptr %58, align 8, !tbaa !43
   %114 = sext i32 %113 to i64
   %115 = call ptr @av_malloc_array(i64 noundef %114, i64 noundef 8) #10
@@ -345,37 +345,37 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %.not233 = icmp eq ptr %115, null
   br i1 %.not233, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge332
-  %.3333 = load ptr, ptr %3, align 8, !tbaa !24
-  %.not234334 = icmp eq ptr %.3333, null
-  br i1 %.not234334, label %._crit_edge338, label %.lr.ph337
+.preheader:                                       ; preds = %._crit_edge321
+  %.3322 = load ptr, ptr %3, align 8, !tbaa !24
+  %.not234323 = icmp eq ptr %.3322, null
+  br i1 %.not234323, label %._crit_edge327, label %.lr.ph326
 
-.lr.ph337:                                        ; preds = %.preheader
+.lr.ph326:                                        ; preds = %.preheader
   %117 = icmp ne ptr %12, null
   %118 = icmp ne ptr %13, null
   br label %119
 
-119:                                              ; preds = %.lr.ph337, %161
-  %indvars.iv369 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next370, %161 ]
-  %.3336 = phi ptr [ %.3333, %.lr.ph337 ], [ %.3, %161 ]
+119:                                              ; preds = %.lr.ph326, %161
+  %indvars.iv358 = phi i64 [ 0, %.lr.ph326 ], [ %indvars.iv.next359, %161 ]
+  %.3325 = phi ptr [ %.3322, %.lr.ph326 ], [ %.3, %161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %120 = getelementptr inbounds nuw i8, ptr %.3336, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.3325, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !59
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %123 = load ptr, ptr %122, align 8, !tbaa !60
-  %124 = getelementptr inbounds nuw i8, ptr %.3336, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.3325, i64 16
   %125 = load i32, ptr %124, align 8, !tbaa !67
   %126 = call i32 @avfilter_pad_get_type(ptr noundef %123, i32 noundef %125) #10
   %127 = icmp ne i32 %126, 0
   %or.cond = select i1 %127, i1 true, i1 %117
   %128 = icmp ne i32 %126, 1
   %or.cond3 = select i1 %128, i1 true, i1 %118
-  %or.cond343 = select i1 %or.cond, i1 %or.cond3, i1 false
-  br i1 %or.cond343, label %130, label %129
+  %or.cond332 = select i1 %or.cond, i1 %or.cond3, i1 false
+  br i1 %or.cond332, label %130, label %129
 
 129:                                              ; preds = %119
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23) #10
-  br label %.thread279
+  br label %.thread271
 
 130:                                              ; preds = %119
   switch i32 %126, label %151 [
@@ -384,73 +384,73 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   ]
 
 131:                                              ; preds = %130
-  %132 = load ptr, ptr %.3336, align 8, !tbaa !49
+  %132 = load ptr, ptr %.3325, align 8, !tbaa !49
   %133 = load ptr, ptr %48, align 8, !tbaa !40
   %134 = call i32 @avfilter_graph_create_filter(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %132, ptr noundef null, ptr noundef null, ptr noundef %133) #10
   %135 = icmp slt i32 %134, 0
-  br i1 %135, label %.thread279, label %153
+  br i1 %135, label %.thread271, label %153
 
 136:                                              ; preds = %130
   %137 = load ptr, ptr %48, align 8, !tbaa !40
-  %138 = load ptr, ptr %.3336, align 8, !tbaa !49
+  %138 = load ptr, ptr %.3325, align 8, !tbaa !49
   %139 = call ptr @avfilter_graph_alloc_filter(ptr noundef %137, ptr noundef %13, ptr noundef %138) #10
   store ptr %139, ptr %9, align 8, !tbaa !68
   %.not237 = icmp eq ptr %139, null
-  br i1 %.not237, label %.thread279, label %140
+  br i1 %.not237, label %.thread271, label %140
 
 140:                                              ; preds = %136
   %141 = call i32 @av_opt_set_bin(ptr noundef nonnull %139, ptr noundef nonnull @.str.24, ptr noundef nonnull @lavfi_read_header.sample_fmts, i32 noundef 20, i32 noundef 1) #10
   %142 = icmp slt i32 %141, 0
-  br i1 %142, label %.thread279, label %143
+  br i1 %142, label %.thread271, label %143
 
 143:                                              ; preds = %140
   %144 = load ptr, ptr %9, align 8, !tbaa !68
   %145 = call i32 @av_opt_set_int(ptr noundef %144, ptr noundef nonnull @.str.25, i64 noundef 1, i32 noundef 1) #10
   %146 = icmp slt i32 %145, 0
-  br i1 %146, label %.thread279, label %147
+  br i1 %146, label %.thread271, label %147
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %9, align 8, !tbaa !68
   %149 = call i32 @avfilter_init_dict(ptr noundef %148, ptr noundef null) #10
   %150 = icmp slt i32 %149, 0
-  br i1 %150, label %.thread279, label %153
+  br i1 %150, label %.thread271, label %153
 
 151:                                              ; preds = %130
-  %152 = load ptr, ptr %.3336, align 8, !tbaa !49
+  %152 = load ptr, ptr %.3325, align 8, !tbaa !49
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.26, ptr noundef %152) #10
-  br label %.thread279
+  br label %.thread271
 
 153:                                              ; preds = %147, %131
   %154 = load ptr, ptr %9, align 8, !tbaa !68
   %155 = load ptr, ptr %116, align 8, !tbaa !58
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv369
+  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv358
   store ptr %154, ptr %156, align 8, !tbaa !68
   %157 = load ptr, ptr %120, align 8, !tbaa !59
   %158 = load i32, ptr %124, align 8, !tbaa !67
   %159 = call i32 @avfilter_link(ptr noundef %157, i32 noundef %158, ptr noundef %154, i32 noundef 0) #10
   %160 = icmp slt i32 %159, 0
-  br i1 %160, label %.thread279, label %161
+  br i1 %160, label %.thread271, label %161
 
-.thread279:                                       ; preds = %131, %136, %140, %143, %147, %153, %151, %129
+.thread271:                                       ; preds = %131, %136, %140, %143, %147, %153, %151, %129
   %.6.ph = phi i32 [ -1279870712, %129 ], [ -22, %151 ], [ %159, %153 ], [ %134, %131 ], [ -12, %136 ], [ %141, %140 ], [ %145, %143 ], [ %149, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 161:                                              ; preds = %153
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
-  %162 = getelementptr inbounds nuw i8, ptr %.3336, i64 24
+  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
+  %162 = getelementptr inbounds nuw i8, ptr %.3325, i64 24
   %.3 = load ptr, ptr %162, align 8, !tbaa !24
   %.not234 = icmp eq ptr %.3, null
-  br i1 %.not234, label %._crit_edge338, label %119, !llvm.loop !69
+  br i1 %.not234, label %._crit_edge327, label %119, !llvm.loop !69
 
-._crit_edge338:                                   ; preds = %161, %.preheader
+._crit_edge327:                                   ; preds = %161, %.preheader
   %163 = load ptr, ptr %48, align 8, !tbaa !40
   %164 = call i32 @avfilter_graph_config(ptr noundef %163, ptr noundef nonnull %0) #10
   %165 = icmp slt i32 %164, 0
   br i1 %165, label %.loopexit, label %166
 
-166:                                              ; preds = %._crit_edge338
+166:                                              ; preds = %._crit_edge327
   %167 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %168 = load ptr, ptr %167, align 8, !tbaa !70
   %.not235 = icmp eq ptr %168, null
@@ -460,9 +460,9 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %170 = load ptr, ptr %48, align 8, !tbaa !40
   %171 = call ptr @avfilter_graph_dump(ptr noundef %170, ptr noundef nonnull %168) #10
   %.not236 = icmp eq ptr %171, null
-  br i1 %.not236, label %.loopexit, label %.thread283
+  br i1 %.not236, label %.loopexit, label %.thread274
 
-.thread283:                                       ; preds = %169
+.thread274:                                       ; preds = %169
   %172 = load ptr, ptr @stderr, align 8, !tbaa !71
   %173 = call i32 @fputs(ptr noundef nonnull %171, ptr noundef %172) #12
   %174 = load ptr, ptr @stderr, align 8, !tbaa !71
@@ -470,21 +470,21 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   call void @av_free(ptr noundef nonnull %171) #10
   br label %176
 
-176:                                              ; preds = %.thread283, %166
+176:                                              ; preds = %.thread274, %166
   %177 = load i32, ptr %58, align 8, !tbaa !43
   %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %.lr.ph341, label %._crit_edge342
+  br i1 %178, label %.lr.ph330, label %._crit_edge331
 
-.lr.ph341:                                        ; preds = %176
+.lr.ph330:                                        ; preds = %176
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %181
 
-181:                                              ; preds = %.lr.ph341, %229
-  %indvars.iv372 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next373, %229 ]
+181:                                              ; preds = %.lr.ph330, %229
+  %indvars.iv361 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next362, %229 ]
   %182 = load ptr, ptr %116, align 8, !tbaa !58
   %183 = load ptr, ptr %68, align 8, !tbaa !46
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv372
+  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv361
   %185 = load i32, ptr %184, align 4, !tbaa !48
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds ptr, ptr %182, i64 %186
@@ -495,7 +495,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %190 = call i64 @av_buffersink_get_frame_rate(ptr noundef %188) #10
   %191 = load ptr, ptr %179, align 8, !tbaa !73
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv372
+  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv361
   %193 = load ptr, ptr %192, align 8, !tbaa !74
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8, !tbaa !76
@@ -568,18 +568,18 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   br label %229
 
 229:                                              ; preds = %181, %226, %220, %197, %211
-  %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %230 = load i32, ptr %58, align 8, !tbaa !43
   %231 = sext i32 %230 to i64
-  %232 = icmp slt i64 %indvars.iv.next373, %231
-  br i1 %232, label %181, label %._crit_edge342, !llvm.loop !86
+  %232 = icmp slt i64 %indvars.iv.next362, %231
+  br i1 %232, label %181, label %._crit_edge331, !llvm.loop !86
 
-._crit_edge342:                                   ; preds = %229, %176
+._crit_edge331:                                   ; preds = %229, %176
   %233 = call fastcc i32 @create_subcc_streams(ptr noundef nonnull %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph331, %214, %169, %.thread279, %.thread268, %.thread263, %._crit_edge332, %69, %66, %63, %._crit_edge, %46, %._crit_edge342, %._crit_edge338, %49, %55, %19
-  %.0172 = phi i32 [ -22, %19 ], [ %51, %49 ], [ -22, %55 ], [ %164, %._crit_edge338 ], [ %233, %._crit_edge342 ], [ -12, %46 ], [ -12, %._crit_edge ], [ -12, %63 ], [ -12, %66 ], [ -12, %69 ], [ -12, %._crit_edge332 ], [ %.1173.ph, %.thread263 ], [ -22, %.thread268 ], [ %.6.ph, %.thread279 ], [ -12, %169 ], [ %218, %214 ], [ -12, %.lr.ph331 ]
+.loopexit:                                        ; preds = %.lr.ph320, %214, %169, %.thread271, %.thread262, %.thread258, %._crit_edge321, %69, %66, %63, %._crit_edge, %46, %._crit_edge331, %._crit_edge327, %49, %55, %19
+  %.0172 = phi i32 [ -22, %19 ], [ %51, %49 ], [ -22, %55 ], [ %164, %._crit_edge327 ], [ %233, %._crit_edge331 ], [ -12, %46 ], [ -12, %._crit_edge ], [ -12, %63 ], [ -12, %66 ], [ -12, %69 ], [ -12, %._crit_edge321 ], [ %.1173.ph, %.thread258 ], [ -22, %.thread262 ], [ %.6.ph, %.thread271 ], [ -12, %169 ], [ %218, %214 ], [ -12, %.lr.ph320 ]
   call void @avfilter_inout_free(ptr noundef nonnull %2) #10
   call void @avfilter_inout_free(ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -1013,7 +1013,7 @@ _ZNK4llvm15ConstantFPRange10isEmptySetEv.exit.thread: ; preds = %3, %25, %34
   br i1 %51, label %52, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %50
-  %.pre93 = load ptr, ptr %19, align 8
+  %.pre92 = load ptr, ptr %19, align 8
   br label %53
 
 52:                                               ; preds = %50
@@ -1021,7 +1021,7 @@ _ZNK4llvm15ConstantFPRange10isEmptySetEv.exit.thread: ; preds = %3, %25, %34
   br label %.critedge
 
 53:                                               ; preds = %._crit_edge, %_ZNK4llvm15ConstantFPRange10isEmptySetEv.exit.thread
-  %54 = phi ptr [ %.pre93, %._crit_edge ], [ %20, %_ZNK4llvm15ConstantFPRange10isEmptySetEv.exit.thread ]
+  %54 = phi ptr [ %.pre92, %._crit_edge ], [ %20, %_ZNK4llvm15ConstantFPRange10isEmptySetEv.exit.thread ]
   %55 = phi ptr [ %.pre, %._crit_edge ], [ %17, %_ZNK4llvm15ConstantFPRange10isEmptySetEv.exit.thread ]
   %.not.i.i.i.i.i40 = icmp eq ptr %55, %18
   %.0.i.i.i.i.i41 = select i1 %.not.i.i.i.i.i40, ptr %54, ptr %2

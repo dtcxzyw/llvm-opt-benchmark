@@ -296,13 +296,13 @@ av_fifo_can_write.exit.i:                         ; preds = %14, %5
   %40 = load i64, ptr %10, align 8, !tbaa !17
   %41 = load i64, ptr %12, align 8, !tbaa !18
   %.not45.i.i = icmp ugt i64 %40, %41
-  br i1 %.not45.i.i, label %fifo_check_space.exit.thread99, label %42
+  br i1 %.not45.i.i, label %fifo_check_space.exit.thread98, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i32, ptr %43, align 8, !tbaa !14
   %.not46.i.i = icmp eq i32 %44, 0
-  br i1 %.not46.i.i, label %45, label %fifo_check_space.exit.thread99
+  br i1 %.not46.i.i, label %45, label %fifo_check_space.exit.thread98
 
 45:                                               ; preds = %42
   %..i.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %40)
@@ -339,9 +339,9 @@ av_fifo_can_write.exit.i:                         ; preds = %14, %5
 65:                                               ; preds = %62, %61, %53
   %storemerge.i.i = phi i64 [ %60, %53 ], [ %64, %62 ], [ 0, %61 ]
   store i64 %storemerge.i.i, ptr %10, align 8, !tbaa !17
-  br label %fifo_check_space.exit.thread99
+  br label %fifo_check_space.exit.thread98
 
-fifo_check_space.exit.thread99:                   ; preds = %39, %42, %65
+fifo_check_space.exit.thread98:                   ; preds = %39, %42, %65
   %66 = phi i64 [ %storemerge.i.i, %65 ], [ %40, %42 ], [ %40, %39 ]
   %67 = load i64, ptr %8, align 8, !tbaa !12
   %68 = add i64 %67, %30
@@ -349,12 +349,12 @@ fifo_check_space.exit.thread99:                   ; preds = %39, %42, %65
   br label %.lr.ph
 
 fifo_check_space.exit:                            ; preds = %av_fifo_can_write.exit.i
-  %.not71 = icmp eq i64 %7, 0
-  br i1 %.not71, label %.loopexit, label %.lr.ph
+  %.not70 = icmp eq i64 %7, 0
+  br i1 %.not70, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %fifo_check_space.exit.thread99, %fifo_check_space.exit
-  %69 = phi i64 [ %66, %fifo_check_space.exit.thread99 ], [ %11, %fifo_check_space.exit ]
-  %70 = phi i64 [ %68, %fifo_check_space.exit.thread99 ], [ %9, %fifo_check_space.exit ]
+.lr.ph:                                           ; preds = %fifo_check_space.exit.thread98, %fifo_check_space.exit
+  %69 = phi i64 [ %66, %fifo_check_space.exit.thread98 ], [ %11, %fifo_check_space.exit ]
+  %70 = phi i64 [ %68, %fifo_check_space.exit.thread98 ], [ %9, %fifo_check_space.exit ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -366,40 +366,40 @@ fifo_check_space.exit:                            ; preds = %av_fifo_can_write.e
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %72 = phi i64 [ %79, %.lr.ph.split.us ], [ %.pre, %.lr.ph.split.us.preheader ]
   %73 = phi i64 [ %83, %.lr.ph.split.us ], [ %70, %.lr.ph.split.us.preheader ]
-  %.04274.us = phi i64 [ %spec.store.select.us, %.lr.ph.split.us ], [ %69, %.lr.ph.split.us.preheader ]
-  %.04573.us = phi i64 [ %84, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
-  %.04872.us = phi ptr [ %81, %.lr.ph.split.us ], [ %1, %.lr.ph.split.us.preheader ]
+  %.04273.us = phi i64 [ %spec.store.select.us, %.lr.ph.split.us ], [ %69, %.lr.ph.split.us.preheader ]
+  %.04572.us = phi i64 [ %84, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
+  %.04871.us = phi ptr [ %81, %.lr.ph.split.us ], [ %1, %.lr.ph.split.us.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %74 = sub i64 %73, %.04274.us
-  %.045..us = tail call i64 @llvm.umin.i64(i64 %74, i64 %.04573.us)
+  %74 = sub i64 %73, %.04273.us
+  %.045..us = tail call i64 @llvm.umin.i64(i64 %74, i64 %.04572.us)
   %75 = load ptr, ptr %0, align 8, !tbaa !4
-  %76 = mul i64 %72, %.04274.us
+  %76 = mul i64 %72, %.04273.us
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   %78 = mul i64 %72, %.045..us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 1 %.04872.us, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 1 %.04871.us, i64 %78, i1 false)
   %79 = load i64, ptr %71, align 8, !tbaa !13
   %80 = mul i64 %79, %.045..us
-  %81 = getelementptr inbounds nuw i8, ptr %.04872.us, i64 %80
-  %82 = add i64 %.045..us, %.04274.us
+  %81 = getelementptr inbounds nuw i8, ptr %.04871.us, i64 %80
+  %82 = add i64 %.045..us, %.04273.us
   %83 = load i64, ptr %8, align 8, !tbaa !12
   %.not57.us = icmp ult i64 %82, %83
   %spec.store.select.us = select i1 %.not57.us, i64 %82, i64 0
-  %84 = sub i64 %.04573.us, %.045..us
+  %84 = sub i64 %.04572.us, %.045..us
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.us = icmp eq i64 %84, 0
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %95
   %85 = phi i64 [ %97, %95 ], [ %70, %.lr.ph ]
-  %.04274 = phi i64 [ %spec.store.select, %95 ], [ %69, %.lr.ph ]
-  %.04573 = phi i64 [ %98, %95 ], [ %7, %.lr.ph ]
+  %.04273 = phi i64 [ %spec.store.select, %95 ], [ %69, %.lr.ph ]
+  %.04572 = phi i64 [ %98, %95 ], [ %7, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %86 = sub i64 %85, %.04274
-  %.045. = call i64 @llvm.umin.i64(i64 %86, i64 %.04573)
+  %86 = sub i64 %85, %.04273
+  %.045. = call i64 @llvm.umin.i64(i64 %86, i64 %.04572)
   store i64 %.045., ptr %6, align 8, !tbaa !19
   %87 = load ptr, ptr %0, align 8, !tbaa !4
   %88 = load i64, ptr %71, align 8, !tbaa !13
-  %89 = mul i64 %88, %.04274
+  %89 = mul i64 %88, %.04273
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 %89
   %91 = call i32 %3(ptr noundef %4, ptr noundef %90, ptr noundef nonnull %6) #10
   %92 = icmp slt i32 %91, 0
@@ -413,22 +413,22 @@ fifo_check_space.exit:                            ; preds = %av_fifo_can_write.e
   br label %.loopexit
 
 95:                                               ; preds = %.lr.ph.split
-  %96 = add i64 %93, %.04274
+  %96 = add i64 %93, %.04273
   %97 = load i64, ptr %8, align 8, !tbaa !12
   %.not57 = icmp ult i64 %96, %97
   %spec.store.select = select i1 %.not57, i64 %96, i64 0
-  %98 = sub i64 %.04573, %93
+  %98 = sub i64 %.04572, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i64 %98, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %95, %.lr.ph.split.us, %fifo_check_space.exit, %.thread
-  %.04570 = phi i64 [ %.04573, %.thread ], [ 0, %fifo_check_space.exit ], [ 0, %.lr.ph.split.us ], [ 0, %95 ]
-  %.04268 = phi i64 [ %.04274, %.thread ], [ %11, %fifo_check_space.exit ], [ %spec.store.select.us, %.lr.ph.split.us ], [ %spec.store.select, %95 ]
+  %.04569 = phi i64 [ %.04572, %.thread ], [ 0, %fifo_check_space.exit ], [ 0, %.lr.ph.split.us ], [ 0, %95 ]
+  %.04267 = phi i64 [ %.04273, %.thread ], [ %11, %fifo_check_space.exit ], [ %spec.store.select.us, %.lr.ph.split.us ], [ %spec.store.select, %95 ]
   %.1 = phi i32 [ %91, %.thread ], [ 0, %fifo_check_space.exit ], [ 0, %.lr.ph.split.us ], [ %91, %95 ]
-  store i64 %.04268, ptr %10, align 8, !tbaa !17
+  store i64 %.04267, ptr %10, align 8, !tbaa !17
   %99 = load i64, ptr %2, align 8, !tbaa !19
-  %.not58 = icmp eq i64 %99, %.04570
+  %.not58 = icmp eq i64 %99, %.04569
   br i1 %.not58, label %102, label %100
 
 100:                                              ; preds = %.loopexit
@@ -437,7 +437,7 @@ fifo_check_space.exit:                            ; preds = %av_fifo_can_write.e
   br label %102
 
 102:                                              ; preds = %100, %.loopexit
-  %103 = sub i64 %99, %.04570
+  %103 = sub i64 %99, %.04569
   store i64 %103, ptr %2, align 8, !tbaa !19
   br label %fifo_check_space.exit.thread
 
@@ -485,8 +485,8 @@ av_fifo_can_read.exit.i:                          ; preds = %16, %11
 
 19:                                               ; preds = %av_fifo_can_read.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not6680.i = icmp eq i64 %2, 0
-  br i1 %.not6680.i, label %fifo_peek_common.exit, label %.lr.ph.i
+  %.not6679.i = icmp eq i64 %2, 0
+  br i1 %.not6679.i, label %fifo_peek_common.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19
   %21 = load i64, ptr %20, align 8, !tbaa !12
@@ -500,24 +500,24 @@ av_fifo_can_read.exit.i:                          ; preds = %16, %11
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i
   %24 = phi i64 [ %31, %.lr.ph.split.us.i ], [ %.pre.i, %.lr.ph.i ]
   %25 = phi i64 [ %35, %.lr.ph.split.us.i ], [ %21, %.lr.ph.i ]
-  %.04883.us.i = phi ptr [ %33, %.lr.ph.split.us.i ], [ %1, %.lr.ph.i ]
-  %.15282.us.i = phi i64 [ %spec.store.select.us.i, %.lr.ph.split.us.i ], [ %.051.i11, %.lr.ph.i ]
-  %.05481.us.i = phi i64 [ %36, %.lr.ph.split.us.i ], [ %2, %.lr.ph.i ]
-  %26 = sub i64 %25, %.15282.us.i
-  %.054..us.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %.05481.us.i)
+  %.04882.us.i = phi ptr [ %33, %.lr.ph.split.us.i ], [ %1, %.lr.ph.i ]
+  %.15281.us.i = phi i64 [ %spec.store.select.us.i, %.lr.ph.split.us.i ], [ %.051.i11, %.lr.ph.i ]
+  %.05480.us.i = phi i64 [ %36, %.lr.ph.split.us.i ], [ %2, %.lr.ph.i ]
+  %26 = sub i64 %25, %.15281.us.i
+  %.054..us.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %.05480.us.i)
   %27 = load ptr, ptr %0, align 8, !tbaa !4
-  %28 = mul i64 %.15282.us.i, %24
+  %28 = mul i64 %.15281.us.i, %24
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
   %30 = mul i64 %.054..us.i, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04883.us.i, ptr align 1 %29, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04882.us.i, ptr align 1 %29, i64 %30, i1 false)
   %31 = load i64, ptr %23, align 8, !tbaa !13
   %32 = mul i64 %31, %.054..us.i
-  %33 = getelementptr inbounds nuw i8, ptr %.04883.us.i, i64 %32
-  %34 = add i64 %.054..us.i, %.15282.us.i
+  %33 = getelementptr inbounds nuw i8, ptr %.04882.us.i, i64 %32
+  %34 = add i64 %.054..us.i, %.15281.us.i
   %35 = load i64, ptr %20, align 8, !tbaa !12
   %.not68.us.i = icmp ult i64 %34, %35
   %spec.store.select.us.i = select i1 %.not68.us.i, i64 %34, i64 0
-  %36 = sub i64 %.05481.us.i, %.054..us.i
+  %36 = sub i64 %.05480.us.i, %.054..us.i
   %.not66.us.i = icmp eq i64 %36, 0
   br i1 %.not66.us.i, label %fifo_peek_common.exit.loopexit, label %.lr.ph.split.us.i
 
@@ -620,8 +620,8 @@ av_fifo_can_read.exit:                            ; preds = %16, %21
 
 26:                                               ; preds = %av_fifo_can_read.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not6680 = icmp eq i64 %8, 0
-  br i1 %.not6680, label %.loopexit, label %.lr.ph
+  %.not6679 = icmp eq i64 %8, 0
+  br i1 %.not6679, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %28 = load i64, ptr %27, align 8, !tbaa !12
@@ -641,40 +641,40 @@ av_fifo_can_read.exit:                            ; preds = %16, %21
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %32 = phi i64 [ %39, %.lr.ph.split.us ], [ %.pre, %.lr.ph.split.us.preheader ]
   %33 = phi i64 [ %43, %.lr.ph.split.us ], [ %28, %.lr.ph.split.us.preheader ]
-  %.04883.us = phi ptr [ %41, %.lr.ph.split.us ], [ %1, %.lr.ph.split.us.preheader ]
-  %.15282.us = phi i64 [ %spec.store.select.us, %.lr.ph.split.us ], [ %.051, %.lr.ph.split.us.preheader ]
-  %.05481.us = phi i64 [ %44, %.lr.ph.split.us ], [ %8, %.lr.ph.split.us.preheader ]
+  %.04882.us = phi ptr [ %41, %.lr.ph.split.us ], [ %1, %.lr.ph.split.us.preheader ]
+  %.15281.us = phi i64 [ %spec.store.select.us, %.lr.ph.split.us ], [ %.051, %.lr.ph.split.us.preheader ]
+  %.05480.us = phi i64 [ %44, %.lr.ph.split.us ], [ %8, %.lr.ph.split.us.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %34 = sub i64 %33, %.15282.us
-  %.054..us = tail call i64 @llvm.umin.i64(i64 %34, i64 %.05481.us)
+  %34 = sub i64 %33, %.15281.us
+  %.054..us = tail call i64 @llvm.umin.i64(i64 %34, i64 %.05480.us)
   %35 = load ptr, ptr %0, align 8, !tbaa !4
-  %36 = mul i64 %32, %.15282.us
+  %36 = mul i64 %32, %.15281.us
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %38 = mul i64 %32, %.054..us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04883.us, ptr align 1 %37, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04882.us, ptr align 1 %37, i64 %38, i1 false)
   %39 = load i64, ptr %31, align 8, !tbaa !13
   %40 = mul i64 %39, %.054..us
-  %41 = getelementptr inbounds nuw i8, ptr %.04883.us, i64 %40
-  %42 = add i64 %.054..us, %.15282.us
+  %41 = getelementptr inbounds nuw i8, ptr %.04882.us, i64 %40
+  %42 = add i64 %.054..us, %.15281.us
   %43 = load i64, ptr %27, align 8, !tbaa !12
   %.not68.us = icmp ult i64 %42, %43
   %spec.store.select.us = select i1 %.not68.us, i64 %42, i64 0
-  %44 = sub i64 %.05481.us, %.054..us
+  %44 = sub i64 %.05480.us, %.054..us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not66.us = icmp eq i64 %44, 0
   br i1 %.not66.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %45 = phi i64 [ %57, %55 ], [ %28, %.lr.ph ]
-  %.15282 = phi i64 [ %spec.store.select, %55 ], [ %.051, %.lr.ph ]
-  %.05481 = phi i64 [ %58, %55 ], [ %8, %.lr.ph ]
+  %.15281 = phi i64 [ %spec.store.select, %55 ], [ %.051, %.lr.ph ]
+  %.05480 = phi i64 [ %58, %55 ], [ %8, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %46 = sub i64 %45, %.15282
-  %.054. = call i64 @llvm.umin.i64(i64 %46, i64 %.05481)
+  %46 = sub i64 %45, %.15281
+  %.054. = call i64 @llvm.umin.i64(i64 %46, i64 %.05480)
   store i64 %.054., ptr %7, align 8, !tbaa !19
   %47 = load ptr, ptr %0, align 8, !tbaa !4
   %48 = load i64, ptr %31, align 8, !tbaa !13
-  %49 = mul i64 %48, %.15282
+  %49 = mul i64 %48, %.15281
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
   %51 = call i32 %4(ptr noundef %5, ptr noundef %50, ptr noundef nonnull %7) #10
   %52 = icmp slt i32 %51, 0
@@ -688,20 +688,20 @@ av_fifo_can_read.exit:                            ; preds = %16, %21
   br label %.loopexit
 
 55:                                               ; preds = %.lr.ph.split
-  %56 = add i64 %53, %.15282
+  %56 = add i64 %53, %.15281
   %57 = load i64, ptr %27, align 8, !tbaa !12
   %.not68 = icmp ult i64 %56, %57
   %spec.store.select = select i1 %.not68, i64 %56, i64 0
-  %58 = sub i64 %.05481, %53
+  %58 = sub i64 %.05480, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not66 = icmp eq i64 %58, 0
   br i1 %.not66, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %55, %.lr.ph.split.us, %26, %.thread
-  %.05479 = phi i64 [ %.05481, %.thread ], [ 0, %26 ], [ 0, %.lr.ph.split.us ], [ 0, %55 ]
+  %.05478 = phi i64 [ %.05480, %.thread ], [ 0, %26 ], [ 0, %.lr.ph.split.us ], [ 0, %55 ]
   %.1 = phi i32 [ %51, %.thread ], [ 0, %26 ], [ 0, %.lr.ph.split.us ], [ %51, %55 ]
   %59 = load i64, ptr %2, align 8, !tbaa !19
-  %60 = sub i64 %59, %.05479
+  %60 = sub i64 %59, %.05478
   br label %61
 
 61:                                               ; preds = %av_fifo_can_read.exit, %.loopexit
@@ -863,8 +863,8 @@ av_fifo_can_read.exit.i:                          ; preds = %17, %12
 
 22:                                               ; preds = %av_fifo_can_read.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not6680.i = icmp eq i64 %2, 0
-  br i1 %.not6680.i, label %fifo_peek_common.exit, label %.lr.ph.i
+  %.not6679.i = icmp eq i64 %2, 0
+  br i1 %.not6679.i, label %fifo_peek_common.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -880,24 +880,24 @@ av_fifo_can_read.exit.i:                          ; preds = %17, %12
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i
   %28 = phi i64 [ %35, %.lr.ph.split.us.i ], [ %.pre.i, %.lr.ph.i ]
   %29 = phi i64 [ %39, %.lr.ph.split.us.i ], [ %24, %.lr.ph.i ]
-  %.04883.us.i = phi ptr [ %37, %.lr.ph.split.us.i ], [ %1, %.lr.ph.i ]
-  %.15282.us.i = phi i64 [ %spec.store.select.us.i, %.lr.ph.split.us.i ], [ %.051.i, %.lr.ph.i ]
-  %.05481.us.i = phi i64 [ %40, %.lr.ph.split.us.i ], [ %2, %.lr.ph.i ]
-  %30 = sub i64 %29, %.15282.us.i
-  %.054..us.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %.05481.us.i)
+  %.04882.us.i = phi ptr [ %37, %.lr.ph.split.us.i ], [ %1, %.lr.ph.i ]
+  %.15281.us.i = phi i64 [ %spec.store.select.us.i, %.lr.ph.split.us.i ], [ %.051.i, %.lr.ph.i ]
+  %.05480.us.i = phi i64 [ %40, %.lr.ph.split.us.i ], [ %2, %.lr.ph.i ]
+  %30 = sub i64 %29, %.15281.us.i
+  %.054..us.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %.05480.us.i)
   %31 = load ptr, ptr %0, align 8, !tbaa !4
-  %32 = mul i64 %.15282.us.i, %28
+  %32 = mul i64 %.15281.us.i, %28
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   %34 = mul i64 %.054..us.i, %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04883.us.i, ptr align 1 %33, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04882.us.i, ptr align 1 %33, i64 %34, i1 false)
   %35 = load i64, ptr %27, align 8, !tbaa !13
   %36 = mul i64 %35, %.054..us.i
-  %37 = getelementptr inbounds nuw i8, ptr %.04883.us.i, i64 %36
-  %38 = add i64 %.054..us.i, %.15282.us.i
+  %37 = getelementptr inbounds nuw i8, ptr %.04882.us.i, i64 %36
+  %38 = add i64 %.054..us.i, %.15281.us.i
   %39 = load i64, ptr %23, align 8, !tbaa !12
   %.not68.us.i = icmp ult i64 %38, %39
   %spec.store.select.us.i = select i1 %.not68.us.i, i64 %38, i64 0
-  %40 = sub i64 %.05481.us.i, %.054..us.i
+  %40 = sub i64 %.05480.us.i, %.054..us.i
   %.not66.us.i = icmp eq i64 %40, 0
   br i1 %.not66.us.i, label %fifo_peek_common.exit, label %.lr.ph.split.us.i
 

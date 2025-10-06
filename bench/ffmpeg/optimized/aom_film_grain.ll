@@ -3432,11 +3432,11 @@ define range(i32 -12, 1) i32 @ff_aom_attach_film_grain_sets(ptr noundef %0, ptr 
 
 12:                                               ; preds = %10, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %.loopexit, label %7, !llvm.loop !119
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !119
 
-.loopexit:                                        ; preds = %12, %10, %2
-  %.011 = phi i32 [ 0, %2 ], [ -12, %10 ], [ 0, %12 ]
+.loopexit:                                        ; preds = %10, %12, %2
+  %.011 = phi i32 [ 0, %2 ], [ 0, %12 ], [ -12, %10 ]
   ret i32 %.011
 }
 

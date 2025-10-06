@@ -1755,16 +1755,16 @@ filesize.exit:                                    ; preds = %3, %16, %19
 
 145:                                              ; preds = %.thread.i.i, %140
   %146 = phi i64 [ 0, %140 ], [ %191, %.thread.i.i ]
-  %.066.i.i = phi i64 [ -9223372036854775808, %140 ], [ %.1.i.i, %.thread.i.i ]
-  %.04465.i.i = phi i32 [ 0, %140 ], [ %.042.i.i, %.thread.i.i ]
+  %.064.i.i = phi i64 [ -9223372036854775808, %140 ], [ %.1.i.i, %.thread.i.i ]
+  %.04463.i.i = phi i32 [ 0, %140 ], [ %.042.i.i, %.thread.i.i ]
   %147 = getelementptr inbounds nuw i64, ptr %144, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !165
-  %149 = add nuw nsw i32 %.04465.i.i, 1
+  %149 = add nuw nsw i32 %.04463.i.i, 1
   %150 = icmp eq i64 %148, -9223372036854775808
   br i1 %150, label %.thread.i.i, label %151
 
 151:                                              ; preds = %145
-  %152 = icmp eq i64 %.066.i.i, -9223372036854775808
+  %152 = icmp eq i64 %.064.i.i, -9223372036854775808
   br i1 %152, label %153, label %.lr.ph.preheader.i.i
 
 153:                                              ; preds = %151
@@ -1775,7 +1775,7 @@ filesize.exit:                                    ; preds = %3, %16, %19
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %153, %151
-  %.2.i.i = phi i64 [ %154, %153 ], [ %.066.i.i, %151 ]
+  %.2.i.i = phi i64 [ %154, %153 ], [ %.064.i.i, %151 ]
   %158 = zext nneg i32 %149 to i64
   br label %.lr.ph.i.i
 
@@ -1836,7 +1836,7 @@ filesize.exit:                                    ; preds = %3, %16, %19
 
 .thread.i.i:                                      ; preds = %185, %166, %145
   %.042.i.i = phi i32 [ %149, %145 ], [ %167, %185 ], [ %167, %166 ]
-  %.1.i.i = phi i64 [ %.066.i.i, %145 ], [ %.2.i.i, %185 ], [ %.2.i.i, %166 ]
+  %.1.i.i = phi i64 [ %.064.i.i, %145 ], [ %.2.i.i, %185 ], [ %.2.i.i, %166 ]
   %191 = zext nneg i32 %.042.i.i to i64
   %192 = icmp ult i32 %.042.i.i, 7
   br i1 %192, label %145, label %.loopexit.i.i, !llvm.loop !167
@@ -1875,11 +1875,11 @@ av_ts_make_string.exit.i.i:                       ; preds = %197, %196
 
 206:                                              ; preds = %av_ts_make_string.exit.i.i
   %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.33, i64 noundef %203) #11
-  %.pre74.i.i = load i64, ptr %86, align 8, !tbaa !85
+  %.pre72.i.i = load i64, ptr %86, align 8, !tbaa !85
   br label %av_ts_make_string.exit56.i.i
 
 av_ts_make_string.exit56.i.i:                     ; preds = %206, %205
-  %208 = phi i64 [ -9223372036854775808, %205 ], [ %.pre74.i.i, %206 ]
+  %208 = phi i64 [ -9223372036854775808, %205 ], [ %.pre72.i.i, %206 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %209 = load ptr, ptr %77, align 8, !tbaa !86
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
@@ -1897,11 +1897,11 @@ av_ts_make_string.exit56.i.i:                     ; preds = %206, %205
 
 216:                                              ; preds = %av_ts_make_string.exit56.i.i
   %217 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 32, ptr noundef nonnull @.str.33, i64 noundef %213) #11
-  %.pre75.i.i = load i64, ptr %212, align 8, !tbaa !162
+  %.pre73.i.i = load i64, ptr %212, align 8, !tbaa !162
   br label %mux_log_debug_ts.exit.i
 
 mux_log_debug_ts.exit.i:                          ; preds = %216, %215
-  %218 = phi i64 [ -9223372036854775808, %215 ], [ %.pre75.i.i, %216 ]
+  %218 = phi i64 [ -9223372036854775808, %215 ], [ %.pre73.i.i, %216 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %219 = load ptr, ptr %77, align 8, !tbaa !86
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 32

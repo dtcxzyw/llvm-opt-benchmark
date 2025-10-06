@@ -68,7 +68,7 @@ define internal fastcc void @kh_resize_oid_set(ptr noundef captures(none) %0, i3
   tail call void @llvm.memset.p0.i64(ptr align 4 %26, i8 -86, i64 %25, i1 false)
   %27 = load i32, ptr %0, align 8, !tbaa !12
   %28 = icmp ult i32 %27, %spec.store.select
-  br i1 %28, label %29, label %.lr.ph112
+  br i1 %28, label %29, label %.lr.ph111
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -78,25 +78,25 @@ define internal fastcc void @kh_resize_oid_set(ptr noundef captures(none) %0, i3
   %34 = tail call ptr @xrealloc(ptr noundef %31, i64 noundef %33) #16
   store ptr %34, ptr %30, align 8, !tbaa !13
   %.pre = load i32, ptr %0, align 8, !tbaa !12
-  %.not109 = icmp eq i32 %.pre, 0
-  br i1 %.not109, label %._crit_edge113.thread, label %.lr.ph112
+  %.not108 = icmp eq i32 %.pre, 0
+  br i1 %.not108, label %._crit_edge112.thread, label %.lr.ph111
 
-.lr.ph112:                                        ; preds = %20, %29
+.lr.ph111:                                        ; preds = %20, %29
   %35 = phi i32 [ %.pre, %29 ], [ %27, %20 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = add i32 %spec.store.select, -1
   br label %39
 
-39:                                               ; preds = %.lr.ph112, %99
-  %40 = phi i32 [ %35, %.lr.ph112 ], [ %100, %99 ]
-  %.1110 = phi i32 [ 0, %.lr.ph112 ], [ %101, %99 ]
+39:                                               ; preds = %.lr.ph111, %99
+  %40 = phi i32 [ %35, %.lr.ph111 ], [ %100, %99 ]
+  %.1109 = phi i32 [ 0, %.lr.ph111 ], [ %101, %99 ]
   %41 = load ptr, ptr %36, align 8, !tbaa !14
-  %42 = lshr i32 %.1110, 4
+  %42 = lshr i32 %.1109, 4
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw i32, ptr %41, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !15
-  %46 = shl i32 %.1110, 1
+  %46 = shl i32 %.1109, 1
   %47 = and i32 %46, 30
   %48 = shl nuw i32 3, %47
   %49 = and i32 %45, %48
@@ -106,7 +106,7 @@ define internal fastcc void @kh_resize_oid_set(ptr noundef captures(none) %0, i3
 51:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %52 = load ptr, ptr %37, align 8, !tbaa !13
-  %53 = zext i32 %.1110 to i64
+  %53 = zext i32 %.1109 to i64
   %54 = getelementptr inbounds nuw %struct.object_id, ptr %52, i64 %53
   %.sroa.0.0.copyload = load i32, ptr %54, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 4
@@ -119,23 +119,23 @@ define internal fastcc void @kh_resize_oid_set(ptr noundef captures(none) %0, i3
 57:                                               ; preds = %88, %51
   %58 = phi ptr [ %41, %51 ], [ %92, %88 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %51 ], [ %.sroa.090.0.copyload, %88 ]
-  %.078100 = and i32 %.sroa.0.0, %38
-  %59 = lshr i32 %.078100, 4
+  %.07899 = and i32 %.sroa.0.0, %38
+  %59 = lshr i32 %.07899, 4
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds nuw i32, ptr %26, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !15
-  %63 = shl i32 %.078100, 1
+  %63 = shl i32 %.07899, 1
   %64 = and i32 %63, 30
   %65 = shl nuw i32 2, %64
   %66 = and i32 %65, %62
-  %.not83101 = icmp eq i32 %66, 0
-  br i1 %.not83101, label %.lr.ph, label %._crit_edge
+  %.not83100 = icmp eq i32 %66, 0
+  br i1 %.not83100, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
-  %.078103 = phi i32 [ %.078, %.lr.ph ], [ %.078100, %57 ]
-  %.077102 = phi i32 [ %67, %.lr.ph ], [ 0, %57 ]
-  %67 = add i32 %.077102, 1
-  %68 = add i32 %67, %.078103
+  %.078102 = phi i32 [ %.078, %.lr.ph ], [ %.07899, %57 ]
+  %.077101 = phi i32 [ %67, %.lr.ph ], [ 0, %57 ]
+  %67 = add i32 %.077101, 1
+  %68 = add i32 %67, %.078102
   %.078 = and i32 %68, %38
   %69 = lshr i32 %.078, 4
   %70 = zext nneg i32 %69 to i64
@@ -149,36 +149,36 @@ define internal fastcc void @kh_resize_oid_set(ptr noundef captures(none) %0, i3
   br i1 %.not83, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %57
-  %.lcssa99 = phi i64 [ %60, %57 ], [ %70, %.lr.ph ]
-  %.078.lcssa = phi i32 [ %.078100, %57 ], [ %.078, %.lr.ph ]
-  %.lcssa95 = phi i32 [ %62, %57 ], [ %72, %.lr.ph ]
-  %.lcssa94 = phi i32 [ %64, %57 ], [ %74, %.lr.ph ]
+  %.lcssa98 = phi i64 [ %60, %57 ], [ %70, %.lr.ph ]
+  %.078.lcssa = phi i32 [ %.07899, %57 ], [ %.078, %.lr.ph ]
+  %.lcssa94 = phi i32 [ %62, %57 ], [ %72, %.lr.ph ]
+  %.lcssa93 = phi i32 [ %64, %57 ], [ %74, %.lr.ph ]
   %.lcssa = phi i32 [ %65, %57 ], [ %75, %.lr.ph ]
-  %77 = getelementptr inbounds nuw i32, ptr %26, i64 %.lcssa99
+  %77 = getelementptr inbounds nuw i32, ptr %26, i64 %.lcssa98
   %78 = xor i32 %.lcssa, -1
-  %79 = and i32 %.lcssa95, %78
+  %79 = and i32 %.lcssa94, %78
   store i32 %79, ptr %77, align 4, !tbaa !15
   %80 = load i32, ptr %0, align 8, !tbaa !12
   %81 = icmp ult i32 %.078.lcssa, %80
   br i1 %81, label %82, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre121 = load ptr, ptr %37, align 8, !tbaa !13
+  %.pre120 = load ptr, ptr %37, align 8, !tbaa !13
   br label %split
 
 82:                                               ; preds = %._crit_edge
-  %83 = getelementptr inbounds nuw i32, ptr %58, i64 %.lcssa99
+  %83 = getelementptr inbounds nuw i32, ptr %58, i64 %.lcssa98
   %84 = load i32, ptr %83, align 4, !tbaa !15
-  %85 = shl nuw i32 3, %.lcssa94
+  %85 = shl nuw i32 3, %.lcssa93
   %86 = and i32 %84, %85
   %87 = icmp eq i32 %86, 0
-  %.pre122 = load ptr, ptr %37, align 8, !tbaa !13
+  %.pre121 = load ptr, ptr %37, align 8, !tbaa !13
   br i1 %87, label %88, label %split
 
 88:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %89 = zext i32 %.078.lcssa to i64
-  %90 = getelementptr inbounds nuw %struct.object_id, ptr %.pre122, i64 %89
+  %90 = getelementptr inbounds nuw %struct.object_id, ptr %.pre121, i64 %89
   %.sroa.090.0.copyload = load i32, ptr %90, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx, i64 32, i1 false), !tbaa.struct !16
@@ -186,45 +186,45 @@ define internal fastcc void @kh_resize_oid_set(ptr noundef captures(none) %0, i3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7, i64 32, i1 false), !tbaa.struct !16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4, i64 32, i1 false), !tbaa.struct !16
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  %91 = shl nuw nsw i32 1, %.lcssa94
+  %91 = shl nuw nsw i32 1, %.lcssa93
   %92 = load ptr, ptr %36, align 8, !tbaa !14
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %.lcssa99
+  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %.lcssa98
   %94 = load i32, ptr %93, align 4, !tbaa !15
   %95 = or i32 %94, %91
   store i32 %95, ptr %93, align 4, !tbaa !15
   br label %57
 
 split:                                            ; preds = %82, %._crit_edge._crit_edge
-  %96 = phi ptr [ %.pre121, %._crit_edge._crit_edge ], [ %.pre122, %82 ]
+  %96 = phi ptr [ %.pre120, %._crit_edge._crit_edge ], [ %.pre121, %82 ]
   %97 = zext i32 %.078.lcssa to i64
   %98 = getelementptr inbounds nuw %struct.object_id, ptr %96, i64 %97
   store i32 %.sroa.0.0, ptr %98, align 4
   %.sroa.7.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %98, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx89, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7, i64 32, i1 false), !tbaa.struct !16
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  %.pre123 = load i32, ptr %0, align 8, !tbaa !12
+  %.pre122 = load i32, ptr %0, align 8, !tbaa !12
   br label %99
 
 99:                                               ; preds = %39, %split
-  %100 = phi i32 [ %40, %39 ], [ %.pre123, %split ]
-  %101 = add i32 %.1110, 1
+  %100 = phi i32 [ %40, %39 ], [ %.pre122, %split ]
+  %101 = add i32 %.1109, 1
   %.not = icmp eq i32 %101, %100
-  br i1 %.not, label %._crit_edge113, label %39, !llvm.loop !20
+  br i1 %.not, label %._crit_edge112, label %39, !llvm.loop !20
 
-._crit_edge113:                                   ; preds = %99
+._crit_edge112:                                   ; preds = %99
   %102 = icmp ugt i32 %100, %spec.store.select
-  br i1 %102, label %103, label %._crit_edge113.thread
+  br i1 %102, label %103, label %._crit_edge112.thread
 
-103:                                              ; preds = %._crit_edge113
+103:                                              ; preds = %._crit_edge112
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = load ptr, ptr %104, align 8, !tbaa !13
   %106 = zext i32 %spec.store.select to i64
   %107 = mul nuw nsw i64 %106, 36
   %108 = tail call ptr @xrealloc(ptr noundef %105, i64 noundef %107) #16
   store ptr %108, ptr %104, align 8, !tbaa !13
-  br label %._crit_edge113.thread
+  br label %._crit_edge112.thread
 
-._crit_edge113.thread:                            ; preds = %29, %103, %._crit_edge113
+._crit_edge112.thread:                            ; preds = %29, %103, %._crit_edge112
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !14
   tail call void @free(ptr noundef %110) #16
@@ -237,7 +237,7 @@ split:                                            ; preds = %82, %._crit_edge._c
   store i32 %19, ptr %113, align 4, !tbaa !22
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %._crit_edge113.thread
+.critedge:                                        ; preds = %2, %._crit_edge112.thread
   ret void
 }
 

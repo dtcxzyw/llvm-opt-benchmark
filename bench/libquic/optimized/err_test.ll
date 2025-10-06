@@ -33,32 +33,32 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %12, %0
-  %.01421.i = phi i32 [ 0, %0 ], [ %13, %12 ]
-  %13 = add nuw nsw i32 %.01421.i, 1
+  %.01419.i = phi i32 [ 0, %0 ], [ %13, %12 ]
+  %13 = add nuw nsw i32 %.01419.i, 1
   tail call void @ERR_put_error(i32 noundef 1, i32 noundef 0, i32 noundef %13, ptr noundef nonnull @.str.1, i32 noundef 1)
   %exitcond.not.i = icmp eq i32 %13, 32
   br i1 %exitcond.not.i, label %.preheader.i, label %12, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %12, %19
-  %.01322.i = phi i32 [ %20, %19 ], [ 0, %12 ]
+  %.01320.i = phi i32 [ %20, %19 ], [ 0, %12 ]
   %14 = tail call i32 @ERR_get_error()
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %.preheader.i
   %17 = and i32 %14, 4095
-  %18 = add nuw nsw i32 %.01322.i, 18
+  %18 = add nuw nsw i32 %.01320.i, 18
   %.not.i = icmp eq i32 %17, %18
   br i1 %.not.i, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = add nuw nsw i32 %.01322.i, 1
-  %exitcond24.not.i = icmp eq i32 %20, 15
-  br i1 %exitcond24.not.i, label %24, label %.preheader.i, !llvm.loop !8
+  %20 = add nuw nsw i32 %.01320.i, 1
+  %exitcond22.not.i = icmp eq i32 %20, 15
+  br i1 %exitcond22.not.i, label %24, label %.preheader.i, !llvm.loop !8
 
 21:                                               ; preds = %16, %.preheader.i
   %22 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef %.01322.i) #6
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef %.01320.i) #6
   br label %_ZL12TestOverflowv.exit.thread
 
 24:                                               ; preds = %19

@@ -3142,8 +3142,8 @@ define hidden void @_ZN2bv6solver12new_diseq_ehERKN3euf5th_eqE(ptr noundef nonnu
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %23
   %29 = getelementptr inbounds i8, ptr %27, i64 -4
   %30 = load i32, ptr %29, align 4, !tbaa !58
-  %switch103 = icmp ult i32 %30, 2
-  br i1 %switch103, label %.thread82, label %.lr.ph
+  %switch = icmp ult i32 %30, 2
+  br i1 %switch, label %.thread82, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %31 = zext i32 %7 to i64

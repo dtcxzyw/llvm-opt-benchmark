@@ -860,8 +860,8 @@ _ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %78 = load i16, ptr %77, align 8, !tbaa !17
   %79 = and i16 %78, 1
-  %.not6694 = icmp eq i16 %79, 0
-  br i1 %.not6694, label %.lr.ph, label %.loopexit
+  %.not6693 = icmp eq i16 %79, 0
+  br i1 %.not6693, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 56

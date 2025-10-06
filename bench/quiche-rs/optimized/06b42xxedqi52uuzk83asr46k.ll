@@ -1270,8 +1270,8 @@ default.unreachable1:                             ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i64 16, 33) i64 @_ZN6quiche6crypto9Algorithm7key_len17h23ff726c35af9065E(i8 noundef range(i8 0, 3) %0) unnamed_addr #3 {
-  %switch = icmp eq i8 %0, 0
-  %. = select i1 %switch, i64 16, i64 32
+  %2 = icmp eq i8 %0, 0
+  %. = select i1 %2, i64 16, i64 32
   ret i64 %.
 }
 
@@ -3439,44 +3439,44 @@ define internal fastcc void @_ZN6quiche6crypto18derive_next_secret17h5fb2d1ad1e7
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @_ZN6quiche6crypto14derive_hdr_key17haf40660889ebaf86E(i8 noundef range(i8 0, 3) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 1 %3, i64 noundef %4) unnamed_addr #0 {
-  %switch.i = icmp eq i8 %0, 0
-  %..i = select i1 %switch.i, i64 16, i64 32
-  %6 = icmp ugt i64 %..i, %4
-  br i1 %6, label %10, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
+  %6 = icmp eq i8 %0, 0
+  %..i = select i1 %6, i64 16, i64 32
+  %7 = icmp ugt i64 %..i, %4
+  br i1 %7, label %11, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit": ; preds = %5
-  %7 = tail call fastcc { i64, i64 } @_ZN6quiche6crypto17hkdf_expand_label17h1d84b5eaff072c92E(i8 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.d3532c359de83a36efb23c8f8954d829.39, i64 noundef 7, ptr noalias noundef nonnull align 1 %3, i64 noundef %..i)
-  %8 = extractvalue { i64, i64 } %7, 0
-  %9 = extractvalue { i64, i64 } %7, 1
-  br label %10
+  %8 = tail call fastcc { i64, i64 } @_ZN6quiche6crypto17hkdf_expand_label17h1d84b5eaff072c92E(i8 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.d3532c359de83a36efb23c8f8954d829.39, i64 noundef 7, ptr noalias noundef nonnull align 1 %3, i64 noundef %..i)
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  br label %11
 
-10:                                               ; preds = %5, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
-  %.sroa.3.0 = phi i64 [ %9, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ undef, %5 ]
-  %.sroa.0.0 = phi i64 [ %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ 8, %5 ]
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %12
+11:                                               ; preds = %5, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
+  %.sroa.3.0 = phi i64 [ %10, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i64 [ %9, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ 8, %5 ]
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @_ZN6quiche6crypto14derive_pkt_key17h4669f62566d891a0E(i8 noundef range(i8 0, 3) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 1 %3, i64 noundef %4) unnamed_addr #0 {
-  %switch.i = icmp eq i8 %0, 0
-  %..i = select i1 %switch.i, i64 16, i64 32
-  %6 = icmp ugt i64 %..i, %4
-  br i1 %6, label %10, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
+  %6 = icmp eq i8 %0, 0
+  %..i = select i1 %6, i64 16, i64 32
+  %7 = icmp ugt i64 %..i, %4
+  br i1 %7, label %11, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit": ; preds = %5
-  %7 = tail call fastcc { i64, i64 } @_ZN6quiche6crypto17hkdf_expand_label17h1d84b5eaff072c92E(i8 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.d3532c359de83a36efb23c8f8954d829.42, i64 noundef 8, ptr noalias noundef nonnull align 1 %3, i64 noundef %..i)
-  %8 = extractvalue { i64, i64 } %7, 0
-  %9 = extractvalue { i64, i64 } %7, 1
-  br label %10
+  %8 = tail call fastcc { i64, i64 } @_ZN6quiche6crypto17hkdf_expand_label17h1d84b5eaff072c92E(i8 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.d3532c359de83a36efb23c8f8954d829.42, i64 noundef 8, ptr noalias noundef nonnull align 1 %3, i64 noundef %..i)
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  br label %11
 
-10:                                               ; preds = %5, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
-  %.sroa.3.0 = phi i64 [ %9, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ undef, %5 ]
-  %.sroa.0.0 = phi i64 [ %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ 8, %5 ]
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %12
+11:                                               ; preds = %5, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit"
+  %.sroa.3.0 = phi i64 [ %10, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i64 [ %9, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h776a9f1fccab26e2E.exit" ], [ 8, %5 ]
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable

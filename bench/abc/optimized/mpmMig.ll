@@ -614,12 +614,9 @@ Mig_ObjHasFanin.exit:                             ; preds = %.preheader, %37
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %37 ]
   %35 = getelementptr inbounds nuw %struct.Mig_Fan_t_, ptr %.043, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
-  switch i32 %36, label %37 [
-    i32 -1, label %.critedge2
-    i32 -2, label %.critedge2
-    i32 1, label %.critedge2
-    i32 0, label %.critedge2
-  ]
+  %.off = add i32 %36, -2
+  %switch = icmp ult i32 %.off, -4
+  br i1 %switch, label %37, label %.critedge2
 
 37:                                               ; preds = %Mig_ObjHasFanin.exit
   %38 = lshr i32 %36, 1
@@ -633,7 +630,7 @@ Mig_ObjHasFanin.exit:                             ; preds = %.preheader, %37
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.critedge2, label %Mig_ObjHasFanin.exit, !llvm.loop !37
 
-.critedge2:                                       ; preds = %Mig_ObjHasFanin.exit, %Mig_ObjHasFanin.exit, %Mig_ObjHasFanin.exit, %Mig_ObjHasFanin.exit, %37
+.critedge2:                                       ; preds = %Mig_ObjHasFanin.exit, %37
   %.val.i.i = load i32, ptr %34, align 4
   %43 = lshr i32 %.val.i.i, 1
   %44 = and i32 %43, 4095

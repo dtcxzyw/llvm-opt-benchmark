@@ -3298,8 +3298,8 @@ _ZN23EventJavaMonitorInflateC2E14EventStartTime.exit: ; preds = %3, %12
   br label %72
 
 ._crit_edge:                                      ; preds = %.backedge, %_ZN23EventJavaMonitorInflateC2E14EventStartTime.exit
-  %.lcssa201 = phi i64 [ %14, %_ZN23EventJavaMonitorInflateC2E14EventStartTime.exit ], [ %78, %.backedge ]
-  %23 = and i64 %.lcssa201, -4
+  %.lcssa199 = phi i64 [ %14, %_ZN23EventJavaMonitorInflateC2E14EventStartTime.exit ], [ %78, %.backedge ]
+  %23 = and i64 %.lcssa199, -4
   %24 = inttoptr i64 %23 to ptr
   %25 = load volatile i64, ptr %24, align 8
   %26 = load i32, ptr @LockingMode, align 4
@@ -3410,8 +3410,8 @@ _ZN9LockStack6removeEP7oopDesc.exit:              ; preds = %_ZN13ObjectMonitor2
   %74 = load i32, ptr @LockingMode, align 4
   %.not = icmp ne i32 %74, 2
   %75 = icmp eq i64 %73, 0
-  %or.cond193 = select i1 %.not, i1 %75, i1 false
-  br i1 %or.cond193, label %76, label %81
+  %or.cond191 = select i1 %.not, i1 %75, i1 false
+  br i1 %or.cond191, label %76, label %81
 
 76:                                               ; preds = %72
   %77 = call fastcc i64 @_ZL16read_stable_markP7oopDesc(ptr noundef nonnull %1)
@@ -3484,10 +3484,10 @@ _ZNK9LockStack8containsEP7oopDesc.exit100:        ; preds = %96
   br i1 %.not.i.i102, label %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit, label %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit.sink.split
 
 _ZN13ObjectMonitor14set_owner_fromEPvS0_.exit.sink.split: ; preds = %.loopexit, %_ZNK9LockStack8containsEP7oopDesc.exit100
-  %.sink230 = phi i64 [ %22, %_ZNK9LockStack8containsEP7oopDesc.exit100 ], [ 1, %.loopexit ]
+  %.sink228 = phi i64 [ %22, %_ZNK9LockStack8containsEP7oopDesc.exit100 ], [ 1, %.loopexit ]
   %.ph = phi i1 [ true, %_ZNK9LockStack8containsEP7oopDesc.exit100 ], [ false, %.loopexit ]
   %104 = ptrtoint ptr %87 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.75, i64 noundef %104, i64 noundef 0, i64 noundef %.sink230)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.75, i64 noundef %104, i64 noundef 0, i64 noundef %.sink228)
   br label %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit
 
 _ZN13ObjectMonitor14set_owner_fromEPvS0_.exit:    ; preds = %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit.sink.split, %.loopexit, %_ZNK9LockStack8containsEP7oopDesc.exit100
@@ -3601,8 +3601,8 @@ _ZN11MonitorList3addEP13ObjectMonitor.exit:       ; preds = %138, %143
 
 154:                                              ; preds = %149, %146, %_ZN11MonitorList3addEP13ObjectMonitor.exit
   %155 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not196 = icmp eq ptr %155, null
-  br i1 %.not196, label %_ZN12ResourceMarkD2Ev.exit, label %156
+  %.not194 = icmp eq ptr %155, null
+  br i1 %.not194, label %_ZN12ResourceMarkD2Ev.exit, label %156
 
 156:                                              ; preds = %154
   %157 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -3718,8 +3718,8 @@ _ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit: ; preds = %199, %
   %217 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 200, i8 noundef zeroext 26, i32 noundef 0) #18
   call void @_ZN13ObjectMonitorC1EP7oopDesc(ptr noundef nonnull align 8 dereferenceable(200) %217, ptr noundef nonnull %1) #18
   %218 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, i64 %73, ptr nonnull align 8 dereferenceable(16) %1) #18, !srcloc !6
-  %.not194 = icmp eq i64 %218, %73
-  br i1 %.not194, label %219, label %397, !llvm.loop !42
+  %.not192 = icmp eq i64 %218, %73
+  br i1 %.not192, label %219, label %397, !llvm.loop !42
 
 219:                                              ; preds = %216
   %220 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -3794,8 +3794,8 @@ _ZN11MonitorList3addEP13ObjectMonitor.exit124:    ; preds = %238, %243
 
 254:                                              ; preds = %249, %246, %_ZN11MonitorList3addEP13ObjectMonitor.exit124
   %255 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not195 = icmp eq ptr %255, null
-  br i1 %.not195, label %_ZN12ResourceMarkD2Ev.exit129, label %256
+  %.not193 = icmp eq ptr %255, null
+  br i1 %.not193, label %_ZN12ResourceMarkD2Ev.exit129, label %256
 
 256:                                              ; preds = %254
   %257 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -3909,8 +3909,8 @@ _ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136: ; preds = %299
   %314 = ptrtoint ptr %313 to i64
   %315 = or i64 %314, 2
   %316 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %315, i64 %73, ptr nonnull align 8 dereferenceable(16) %1) #18, !srcloc !6
-  %.not197 = icmp eq i64 %316, %73
-  br i1 %.not197, label %317, label %397, !llvm.loop !42
+  %.not195 = icmp eq i64 %316, %73
+  br i1 %.not195, label %317, label %397, !llvm.loop !42
 
 317:                                              ; preds = %.thread
   %318 = getelementptr inbounds nuw i8, ptr %313, i64 128
@@ -3954,8 +3954,8 @@ _ZN11MonitorList3addEP13ObjectMonitor.exit138:    ; preds = %322, %327
 
 338:                                              ; preds = %333, %330, %_ZN11MonitorList3addEP13ObjectMonitor.exit138
   %339 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not198 = icmp eq ptr %339, null
-  br i1 %.not198, label %_ZN12ResourceMarkD2Ev.exit143, label %340
+  %.not196 = icmp eq ptr %339, null
+  br i1 %.not196, label %_ZN12ResourceMarkD2Ev.exit143, label %340
 
 340:                                              ; preds = %338
   %341 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -4073,9 +4073,9 @@ _ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150: ; preds = %383
   br label %_ZNK9LockStack8containsEP7oopDesc.exit
 
 397:                                              ; preds = %.thread, %216, %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit
-  %.sink231 = phi ptr [ %87, %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit ], [ %217, %216 ], [ %313, %.thread ]
-  call void @_ZN13ObjectMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.sink231) #18
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink231) #18
+  %.sink229 = phi ptr [ %87, %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit ], [ %217, %216 ], [ %313, %.thread ]
+  call void @_ZN13ObjectMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.sink229) #18
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink229) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
   br label %.backedge
 

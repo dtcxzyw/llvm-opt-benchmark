@@ -67965,8 +67965,8 @@ entry:
   %queue = alloca %"class.node::CallbackQueue", align 8
   %native_immediates_interrupts_ = getelementptr inbounds nuw i8, ptr %this, i64 2520
   %0 = load atomic i64, ptr %native_immediates_interrupts_ seq_cst, align 8
-  %cmp.not20 = icmp eq i64 %0, 0
-  br i1 %cmp.not20, label %while.end8, label %while.body.lr.ph
+  %cmp.not19 = icmp eq i64 %0, 0
+  br i1 %cmp.not19, label %while.end8, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %native_immediates_threadsafe_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 2456
@@ -68018,8 +68018,8 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit: ; preds = 
   store atomic i64 0, ptr %native_immediates_interrupts_ seq_cst, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %native_immediates_threadsafe_mutex_) #24
   %11 = load i64, ptr %head_6.i, align 8, !noalias !1004
-  %cmp.i.not.i19 = icmp eq i64 %11, 0
-  br i1 %cmp.i.not.i19, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEED2Ev.exit, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
+  %cmp.i.not.i18 = icmp eq i64 %11, 0
+  br i1 %cmp.i.not.i18, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEED2Ev.exit, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i: ; preds = %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit, %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE5ShiftEv.exit.thread
   %.in = phi i64 [ %18, %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE5ShiftEv.exit.thread ], [ %11, %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE10ConcatMoveEOS3_.exit ]

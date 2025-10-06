@@ -25572,27 +25572,27 @@ define hidden noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming6chec
   %3 = load i64, ptr %2, align 16, !range !2681, !noundef !7
   %4 = icmp ne i64 %3, -9223372036854775803
   tail call void @llvm.assume(i1 %4)
-  switch i64 %3, label %12 [
+  switch i64 %3, label %13 [
     i64 -9223372036854775807, label %5
-    i64 -9223372036854775806, label %8
-    i64 -9223372036854775804, label %8
-    i64 -9223372036854775799, label %8
+    i64 -9223372036854775806, label %9
+    i64 -9223372036854775804, label %9
+    i64 -9223372036854775799, label %9
   ]
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %7 = load i8, ptr %6, align 2, !range !245, !noundef !7
-  %switch = icmp samesign ult i8 %7, 2
-  br i1 %switch, label %8, label %12
+  %8 = icmp eq i8 %7, 2
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %5, %1, %1, %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %10 = tail call noundef zeroext i1 @_ZN10polars_ops5frame4join4args14JoinValidation12needs_checks17h142a40c615f3d9f9E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9)
-  %11 = xor i1 %10, true
-  br label %12
+9:                                                ; preds = %5, %1, %1, %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  %11 = tail call noundef zeroext i1 @_ZN10polars_ops5frame4join4args14JoinValidation12needs_checks17h142a40c615f3d9f9E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10)
+  %12 = xor i1 %11, true
+  br label %13
 
-12:                                               ; preds = %1, %5, %8
-  %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %5 ], [ false, %1 ]
+13:                                               ; preds = %1, %5, %9
+  %.sroa.0.0 = phi i1 [ %12, %9 ], [ false, %5 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 

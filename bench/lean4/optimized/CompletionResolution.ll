@@ -308,8 +308,8 @@ lean_dec.exit69:                                  ; preds = %79, %78, %76, %lean
 82:                                               ; preds = %lean_dec.exit69
   %83 = ptrtoint ptr %80 to i64
   %84 = and i64 %83, 1
-  %.not14.i = icmp eq i64 %84, 0
-  br i1 %.not14.i, label %85, label %lean_dec.exit.i
+  %.not13.i = icmp eq i64 %84, 0
+  br i1 %.not13.i, label %85, label %lean_dec.exit.i
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %80, align 4, !tbaa !8
@@ -839,8 +839,8 @@ lean_dec.exit67:                                  ; preds = %73, %72, %70, %lean
 76:                                               ; preds = %lean_dec.exit67
   %77 = ptrtoint ptr %74 to i64
   %78 = and i64 %77, 1
-  %.not14.i = icmp eq i64 %78, 0
-  br i1 %.not14.i, label %79, label %lean_dec.exit.i
+  %.not13.i = icmp eq i64 %78, 0
+  br i1 %.not13.i, label %79, label %lean_dec.exit.i
 
 79:                                               ; preds = %76
   %80 = load i32, ptr %74, align 4, !tbaa !8

@@ -91,13 +91,13 @@ define hidden ptr @_ctypes_alloc_callback(ptr noundef %0, ptr noundef %1, ptr no
   br label %35
 
 35:                                               ; preds = %.lr.ph, %35
-  %.05375 = phi i64 [ 0, %.lr.ph ], [ %40, %35 ]
-  %36 = getelementptr ptr, ptr %32, i64 %.05375
+  %.05374 = phi i64 [ 0, %.lr.ph ], [ %40, %35 ]
+  %36 = getelementptr ptr, ptr %32, i64 %.05374
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = tail call ptr @_ctypes_get_ffi_type(ptr noundef nonnull %0, ptr noundef %37) #6
-  %39 = getelementptr ptr, ptr %34, i64 %.05375
+  %39 = getelementptr ptr, ptr %34, i64 %.05374
   store ptr %38, ptr %39, align 8, !tbaa !14
-  %40 = add nuw nsw i64 %.05375, 1
+  %40 = add nuw nsw i64 %.05374, 1
   %exitcond.not = icmp eq i64 %40, %.val
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !34
 

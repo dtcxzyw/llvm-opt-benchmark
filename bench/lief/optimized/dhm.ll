@@ -742,7 +742,7 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
 
 14:                                               ; preds = %10
   %15 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4) #10
-  switch i32 %15, label %.thread57 [
+  switch i32 %15, label %.thread56 [
     i32 0, label %16
     i32 -4224, label %..thread46_crit_edge
   ]
@@ -751,7 +751,7 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
   %.pre = load i64, ptr %4, align 8, !tbaa !9
   br label %.thread46
 
-.thread57:                                        ; preds = %14
+.thread56:                                        ; preds = %14
   call void @mbedtls_pem_free(ptr noundef nonnull %7) #10
   br label %46
 
@@ -797,7 +797,7 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
 36:                                               ; preds = %31
   %37 = load ptr, ptr %6, align 8, !tbaa !3
   %.not35 = icmp eq ptr %37, %29
-  br i1 %.not35, label %.thread53, label %38
+  br i1 %.not35, label %.thread52, label %38
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -823,9 +823,9 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
 
 44:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread53
+  br label %.thread52
 
-.thread53:                                        ; preds = %44, %36
+.thread52:                                        ; preds = %44, %36
   call void @mbedtls_pem_free(ptr noundef nonnull %7) #10
   br label %47
 
@@ -835,17 +835,17 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
   %.not38 = icmp eq i32 %.1, 0
   br i1 %.not38, label %47, label %46
 
-46:                                               ; preds = %.thread57, %45
-  %.160 = phi i32 [ %15, %.thread57 ], [ %.1, %45 ]
+46:                                               ; preds = %.thread56, %45
+  %.159 = phi i32 [ %15, %.thread56 ], [ %.1, %45 ]
   call void @mbedtls_dhm_free(ptr noundef %0)
   br label %47
 
-47:                                               ; preds = %.thread53, %45, %46
-  %.156 = phi i32 [ 0, %.thread53 ], [ 0, %45 ], [ %.160, %46 ]
+47:                                               ; preds = %.thread52, %45, %46
+  %.155 = phi i32 [ 0, %.thread52 ], [ 0, %45 ], [ %.159, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.156
+  ret i32 %.155
 }
 
 declare void @mbedtls_pem_init(ptr noundef) local_unnamed_addr #3

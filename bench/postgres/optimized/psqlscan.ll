@@ -148,16 +148,16 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %32, %35, %44
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
-  %.pre2140 = load ptr, ptr %22, align 8
-  %.pre2141 = load i64, ptr %50, align 8
-  %.phi.trans.insert2142 = getelementptr inbounds nuw ptr, ptr %.pre2140, i64 %.pre2141
-  %.pre2143 = load ptr, ptr %.phi.trans.insert2142, align 8
+  %.pre2139 = load ptr, ptr %22, align 8
+  %.pre2140 = load i64, ptr %50, align 8
+  %.phi.trans.insert2141 = getelementptr inbounds nuw ptr, ptr %.pre2139, i64 %.pre2140
+  %.pre2142 = load ptr, ptr %.phi.trans.insert2141, align 8
   br label %53
 
 53:                                               ; preds = %psql_yyensure_buffer_stack.exit, %24
-  %54 = phi ptr [ %.pre2143, %psql_yyensure_buffer_stack.exit ], [ %28, %24 ]
-  %55 = phi i64 [ %.pre2141, %psql_yyensure_buffer_stack.exit ], [ %26, %24 ]
-  %56 = phi ptr [ %.pre2140, %psql_yyensure_buffer_stack.exit ], [ %23, %24 ]
+  %54 = phi ptr [ %.pre2142, %psql_yyensure_buffer_stack.exit ], [ %28, %24 ]
+  %55 = phi i64 [ %.pre2140, %psql_yyensure_buffer_stack.exit ], [ %26, %24 ]
+  %56 = phi ptr [ %.pre2139, %psql_yyensure_buffer_stack.exit ], [ %23, %24 ]
   %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %59 = load i32, ptr %58, align 4
@@ -252,12 +252,12 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
 
 125:                                              ; preds = %112
   %126 = sub nsw i32 0, %122
-  br label %.loopexit1401
+  br label %.loopexit1400
 
-.loopexit1401:                                    ; preds = %.loopexit1401.backedge, %125
-  %.1703 = phi ptr [ %.0702, %125 ], [ %.1703.be, %.loopexit1401.backedge ]
-  %.2698 = phi ptr [ %.1697, %125 ], [ %.2698.be, %.loopexit1401.backedge ]
-  %.2 = phi i32 [ %126, %125 ], [ %.2.be, %.loopexit1401.backedge ]
+.loopexit1400:                                    ; preds = %.loopexit1400.backedge, %125
+  %.1703 = phi ptr [ %.0702, %125 ], [ %.1703.be, %.loopexit1400.backedge ]
+  %.2698 = phi ptr [ %.1697, %125 ], [ %.2698.be, %.loopexit1400.backedge ]
+  %.2 = phi i32 [ %126, %125 ], [ %.2.be, %.loopexit1400.backedge ]
   %127 = sext i32 %.2 to i64
   %128 = getelementptr inbounds i16, ptr @yy_accept, i64 %127
   %129 = load i16, ptr %128, align 2
@@ -274,8 +274,8 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   store ptr %.2698, ptr %79, align 8
   br label %136
 
-136:                                              ; preds = %yy_get_previous_state.exit1377, %.loopexit1401
-  %.0706 = phi i32 [ %130, %.loopexit1401 ], [ %2485, %yy_get_previous_state.exit1377 ]
+136:                                              ; preds = %yy_get_previous_state.exit1377, %.loopexit1400
+  %.0706 = phi i32 [ %130, %.loopexit1400 ], [ %2485, %yy_get_previous_state.exit1377 ]
   switch i32 %.0706, label %2486 [
     i32 1, label %137
     i32 2, label %162
@@ -3364,11 +3364,11 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   %1596 = load ptr, ptr %81, align 8
   %1597 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1596, ptr noundef nonnull dereferenceable(1) @.str.1) #28
   %1598 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1596, ptr noundef nonnull dereferenceable(1) @.str.2) #28
-  %.not1399 = icmp eq ptr %1597, null
+  %.not1398 = icmp eq ptr %1597, null
   %1599 = icmp ne ptr %1598, null
   %1600 = icmp ugt ptr %1597, %1598
   %1601 = and i1 %1599, %1600
-  %1602 = select i1 %.not1399, i1 true, i1 %1601
+  %1602 = select i1 %.not1398, i1 true, i1 %1601
   %.0712 = select i1 %1602, ptr %1598, ptr %1597
   %.not743 = icmp eq ptr %.0712, null
   %1603 = ptrtoint ptr %.0712 to i64
@@ -3395,8 +3395,8 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   br label %.lr.ph
 
 .critedge30.preheader:                            ; preds = %1617
-  %.not1862 = icmp eq i32 %.0713, 2
-  br i1 %.not1862, label %.critedge, label %.lr.ph1860
+  %.not1861 = icmp eq i32 %.0713, 2
+  br i1 %.not1861, label %.critedge, label %.lr.ph1859
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %1617
   %indvars.iv = phi i64 [ %1614, %.lr.ph.preheader ], [ %indvars.iv.next, %1617 ]
@@ -3421,28 +3421,28 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   %1619 = icmp sgt i32 %1618, 0
   br i1 %1619, label %.lr.ph, label %.critedge30.preheader, !llvm.loop !11
 
-.lr.ph1860:                                       ; preds = %.critedge30.preheader, %.critedge30.backedge
-  %indvars.iv2137 = phi i64 [ %indvars.iv.next2138, %.critedge30.backedge ], [ %1609, %.critedge30.preheader ]
-  %indvars.iv.next2138 = add nsw i64 %indvars.iv2137, -1
-  %1620 = getelementptr i8, ptr %1596, i64 %indvars.iv2137
+.lr.ph1859:                                       ; preds = %.critedge30.preheader, %.critedge30.backedge
+  %indvars.iv2136 = phi i64 [ %indvars.iv.next2137, %.critedge30.backedge ], [ %1609, %.critedge30.preheader ]
+  %indvars.iv.next2137 = add nsw i64 %indvars.iv2136, -1
+  %1620 = getelementptr i8, ptr %1596, i64 %indvars.iv2136
   %1621 = getelementptr i8, ptr %1620, i64 -2
   %1622 = load i8, ptr %1621, align 1
-  switch i8 %1622, label %.critedge.loopexit.split.loop.exit2692 [
+  switch i8 %1622, label %.critedge.loopexit.split.loop.exit2691 [
     i8 43, label %.critedge30.backedge
     i8 45, label %.critedge30.backedge
   ]
 
-.critedge30.backedge:                             ; preds = %.lr.ph1860, %.lr.ph1860
-  %1623 = trunc nuw i64 %indvars.iv2137 to i32
+.critedge30.backedge:                             ; preds = %.lr.ph1859, %.lr.ph1859
+  %1623 = trunc nuw i64 %indvars.iv2136 to i32
   %1624 = icmp sgt i32 %1623, 3
-  br i1 %1624, label %.lr.ph1860, label %.critedge
+  br i1 %1624, label %.lr.ph1859, label %.critedge
 
-.critedge.loopexit.split.loop.exit2692:           ; preds = %.lr.ph1860
-  %indvars.le = trunc i64 %indvars.iv.next2138 to i32
+.critedge.loopexit.split.loop.exit2691:           ; preds = %.lr.ph1859
+  %indvars.le = trunc i64 %indvars.iv.next2137 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit2692, %.critedge30.preheader, %1608, %1594
-  %.1714 = phi i32 [ %.0713, %1594 ], [ %.0713, %1608 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit2692 ], [ 1, %.critedge30.backedge ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit2691, %.critedge30.preheader, %1608, %1594
+  %.1714 = phi i32 [ %.0713, %1594 ], [ %.0713, %1608 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit2691 ], [ 1, %.critedge30.backedge ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ]
   %1625 = icmp slt i32 %.1714, %1595
   br i1 %1625, label %1626, label %1631
 
@@ -3458,13 +3458,13 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   store i8 %1630, ptr %80, align 8
   store i8 0, ptr %1629, align 1
   store ptr %1629, ptr %79, align 8
-  %.pre2152 = load ptr, ptr %81, align 8
-  %.pre2153 = load i32, ptr %82, align 8
+  %.pre2151 = load ptr, ptr %81, align 8
+  %.pre2152 = load i32, ptr %82, align 8
   br label %1631
 
 1631:                                             ; preds = %1626, %.critedge
-  %1632 = phi i32 [ %.pre2153, %1626 ], [ %1595, %.critedge ]
-  %1633 = phi ptr [ %.pre2152, %1626 ], [ %1596, %.critedge ]
+  %1632 = phi i32 [ %.pre2152, %1626 ], [ %1595, %.critedge ]
+  %1633 = phi ptr [ %.pre2151, %1626 ], [ %1596, %.critedge ]
   %1634 = load ptr, ptr %72, align 8
   %1635 = load i8, ptr %94, align 4, !range !6, !noundef !7
   %1636 = trunc nuw i8 %1635 to i1
@@ -4559,16 +4559,16 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
   %2187 = load ptr, ptr %2186, align 8
   %2188 = getelementptr inbounds nuw i8, ptr %2187, i64 56
   store i32 1, ptr %2188, align 8
-  %.pre2144 = load ptr, ptr %83, align 8
-  %.pre2145 = load i64, ptr %84, align 8
-  %.phi.trans.insert2146 = getelementptr inbounds nuw ptr, ptr %.pre2144, i64 %.pre2145
-  %.pre2147 = load ptr, ptr %.phi.trans.insert2146, align 8
+  %.pre2143 = load ptr, ptr %83, align 8
+  %.pre2144 = load i64, ptr %84, align 8
+  %.phi.trans.insert2145 = getelementptr inbounds nuw ptr, ptr %.pre2143, i64 %.pre2144
+  %.pre2146 = load ptr, ptr %.phi.trans.insert2145, align 8
   br label %2189
 
 2189:                                             ; preds = %2179, %2169
-  %2190 = phi ptr [ %.pre2147, %2179 ], [ %2175, %2169 ]
-  %2191 = phi i64 [ %.pre2145, %2179 ], [ %2173, %2169 ]
-  %2192 = phi ptr [ %.pre2144, %2179 ], [ %2172, %2169 ]
+  %2190 = phi ptr [ %.pre2146, %2179 ], [ %2175, %2169 ]
+  %2191 = phi i64 [ %.pre2144, %2179 ], [ %2173, %2169 ]
+  %2192 = phi ptr [ %.pre2143, %2179 ], [ %2172, %2169 ]
   %2193 = load ptr, ptr %79, align 8
   %2194 = getelementptr inbounds nuw i8, ptr %2190, i64 8
   %2195 = load ptr, ptr %2194, align 8
@@ -4624,13 +4624,13 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %2226 = getelementptr inbounds nuw i8, ptr %2225, i64 2
   %2227 = load i16, ptr %2226, align 2
   %.not742 = icmp slt i16 %2227, 1
-  br i1 %.not742, label %.loopexit1401.backedge, label %2228
+  br i1 %.not742, label %.loopexit1400.backedge, label %2228
 
-.loopexit1401.backedge:                           ; preds = %2475, %yy_get_previous_state.exit, %yy_get_next_buffer.exit.thread1397
-  %.1703.be = phi ptr [ %2462, %yy_get_next_buffer.exit.thread1397 ], [ %2205, %yy_get_previous_state.exit ], [ %2462, %2475 ]
-  %.2698.be = phi ptr [ %2464, %yy_get_next_buffer.exit.thread1397 ], [ %2207, %yy_get_previous_state.exit ], [ %2464, %2475 ]
-  %.2.be = phi i32 [ %2465, %yy_get_next_buffer.exit.thread1397 ], [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %2479, %2475 ]
-  br label %.loopexit1401
+.loopexit1400.backedge:                           ; preds = %2475, %yy_get_previous_state.exit, %yy_get_next_buffer.exit.thread1396
+  %.1703.be = phi ptr [ %2462, %yy_get_next_buffer.exit.thread1396 ], [ %2205, %yy_get_previous_state.exit ], [ %2462, %2475 ]
+  %.2698.be = phi ptr [ %2464, %yy_get_next_buffer.exit.thread1396 ], [ %2207, %yy_get_previous_state.exit ], [ %2464, %2475 ]
+  %.2.be = phi i32 [ %2465, %yy_get_next_buffer.exit.thread1396 ], [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %2479, %2475 ]
+  br label %.loopexit1400
 
 2228:                                             ; preds = %yy_get_previous_state.exit
   %2229 = zext nneg i16 %2227 to i32
@@ -4667,7 +4667,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
 2244:                                             ; preds = %2238
   %2245 = sub i64 %2242, %2243
   %2246 = icmp eq i64 %2245, 1
-  br i1 %2246, label %yy_get_previous_state.exit1377, label %yy_get_next_buffer.exit.thread1397
+  br i1 %2246, label %yy_get_previous_state.exit1377, label %yy_get_next_buffer.exit.thread1396
 
 2247:                                             ; preds = %2238
   %2248 = xor i64 %2243, -1
@@ -5025,20 +5025,20 @@ yy_get_next_buffer.exit:                          ; preds = %2381, %2410
   %2435 = getelementptr inbounds nuw i8, ptr %2434, i64 8
   %2436 = load ptr, ptr %2435, align 8
   store ptr %2436, ptr %81, align 8
-  switch i32 %.0135.i, label %default.unreachable2342 [
+  switch i32 %.0135.i, label %default.unreachable2341 [
     i32 1, label %yy_get_previous_state.exit1377
     i32 0, label %2438
-    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge
+    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge
   ]
 
-yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge: ; preds = %yy_get_next_buffer.exit
+yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge: ; preds = %yy_get_next_buffer.exit
   %2437 = getelementptr inbounds nuw ptr, ptr %2431, i64 %2432
-  %.pre2148 = load ptr, ptr %2437, align 8
-  %.phi.trans.insert2149 = getelementptr inbounds nuw i8, ptr %.pre2148, i64 8
-  %.pre2150 = load ptr, ptr %.phi.trans.insert2149, align 8
-  %.pre2151 = load i32, ptr %85, align 4
-  %.pre2154 = sext i32 %.pre2151 to i64
-  br label %yy_get_next_buffer.exit.thread1397
+  %.pre2147 = load ptr, ptr %2437, align 8
+  %.phi.trans.insert2148 = getelementptr inbounds nuw i8, ptr %.pre2147, i64 8
+  %.pre2149 = load ptr, ptr %.phi.trans.insert2148, align 8
+  %.pre2150 = load i32, ptr %85, align 4
+  %.pre2153 = sext i32 %.pre2150 to i64
+  br label %yy_get_next_buffer.exit.thread1396
 
 2438:                                             ; preds = %yy_get_next_buffer.exit
   %2439 = ptrtoint ptr %.2698 to i64
@@ -5078,19 +5078,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge: ; preds = 
   %exitcond.not.i1376 = icmp eq ptr %2461, %2445
   br i1 %exitcond.not.i1376, label %.loopexit.backedge, label %.lr.ph.i1372, !llvm.loop !12
 
-yy_get_next_buffer.exit.thread1397:               ; preds = %2244, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge
-  %.pre-phi = phi i64 [ %.pre2154, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge ], [ %2197, %2244 ]
-  %2462 = phi ptr [ %2436, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge ], [ %2232, %2244 ]
-  %2463 = phi ptr [ %.pre2150, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge ], [ %2195, %2244 ]
+yy_get_next_buffer.exit.thread1396:               ; preds = %2244, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge
+  %.pre-phi = phi i64 [ %.pre2153, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge ], [ %2197, %2244 ]
+  %2462 = phi ptr [ %2436, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge ], [ %2232, %2244 ]
+  %2463 = phi ptr [ %.pre2149, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge ], [ %2195, %2244 ]
   %2464 = getelementptr inbounds i8, ptr %2463, i64 %.pre-phi
   store ptr %2464, ptr %79, align 8
   %2465 = load i32, ptr %78, align 4
   %2466 = icmp ult ptr %2462, %2464
-  br i1 %2466, label %.lr.ph.i1380, label %.loopexit1401.backedge
+  br i1 %2466, label %.lr.ph.i1380, label %.loopexit1400.backedge
 
-.lr.ph.i1380:                                     ; preds = %yy_get_next_buffer.exit.thread1397, %2475
-  %.011.i1381 = phi i32 [ %2479, %2475 ], [ %2465, %yy_get_next_buffer.exit.thread1397 ]
-  %.0910.i1382 = phi ptr [ %2480, %2475 ], [ %2462, %yy_get_next_buffer.exit.thread1397 ]
+.lr.ph.i1380:                                     ; preds = %yy_get_next_buffer.exit.thread1396, %2475
+  %.011.i1381 = phi i32 [ %2479, %2475 ], [ %2465, %yy_get_next_buffer.exit.thread1396 ]
+  %.0910.i1382 = phi ptr [ %2480, %2475 ], [ %2462, %yy_get_next_buffer.exit.thread1396 ]
   %2467 = sext i32 %.011.i1381 to i64
   %2468 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2467
   %2469 = load i8, ptr %.0910.i1382, align 1
@@ -5111,9 +5111,9 @@ yy_get_next_buffer.exit.thread1397:               ; preds = %2244, %yy_get_next_
   %2479 = sext i16 %2478 to i32
   %2480 = getelementptr inbounds nuw i8, ptr %.0910.i1382, i64 1
   %exitcond.not.i1384 = icmp eq ptr %2480, %2464
-  br i1 %exitcond.not.i1384, label %.loopexit1401.backedge, label %.lr.ph.i1380, !llvm.loop !12
+  br i1 %exitcond.not.i1384, label %.loopexit1400.backedge, label %.lr.ph.i1380, !llvm.loop !12
 
-default.unreachable2342:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable2341:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit1377:                   ; preds = %yy_get_next_buffer.exit, %2244

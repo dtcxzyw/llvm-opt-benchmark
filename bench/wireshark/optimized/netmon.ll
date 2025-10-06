@@ -1014,16 +1014,16 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr noundef readonly captures(none) 
   br label %.critedge10
 
 .lr.ph:                                           ; preds = %2, %.thread
-  %.076112 = phi i32 [ %37, %.thread ], [ 0, %2 ]
-  %.080111 = phi i64 [ %.484, %.thread ], [ 0, %2 ]
-  %5 = zext i32 %.076112 to i64
+  %.076109 = phi i32 [ %37, %.thread ], [ 0, %2 ]
+  %.080108 = phi i64 [ %.484, %.thread ], [ 0, %2 ]
+  %5 = zext i32 %.076109 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
-  %.val101 = load i8, ptr %6, align 1
+  %.val100 = load i8, ptr %6, align 1
   %7 = getelementptr i8, ptr %6, i64 1
-  %.val102 = load i8, ptr %7, align 1
-  %8 = zext i8 %.val102 to i16
+  %.val101 = load i8, ptr %7, align 1
+  %8 = zext i8 %.val101 to i16
   %9 = shl nuw i16 %8, 8
-  %10 = zext i8 %.val101 to i16
+  %10 = zext i8 %.val100 to i16
   %11 = or disjoint i16 %9, %10
   %12 = zext i16 %11 to i32
   %.not = icmp eq i16 %11, 0
@@ -1037,20 +1037,20 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr noundef readonly captures(none) 
   ]
 
 15:                                               ; preds = %13
-  %16 = add i32 %.076112, 2
-  %17 = add i32 %.076112, 3
+  %16 = add i32 %.076109, 2
+  %17 = add i32 %.076109, 3
   %.not91 = icmp ult i32 %17, %1
   br i1 %.not91, label %18, label %.critedge
 
 18:                                               ; preds = %15
   %19 = zext i32 %16 to i64
   %20 = getelementptr i8, ptr %0, i64 %19
-  %.val99 = load i8, ptr %20, align 1
+  %.val98 = load i8, ptr %20, align 1
   %21 = getelementptr i8, ptr %20, i64 1
-  %.val100 = load i8, ptr %21, align 1
-  %22 = zext i8 %.val100 to i16
+  %.val99 = load i8, ptr %21, align 1
+  %22 = zext i8 %.val99 to i16
   %23 = shl nuw i16 %22, 8
-  %24 = zext i8 %.val99 to i16
+  %24 = zext i8 %.val98 to i16
   %25 = or disjoint i16 %23, %24
   %26 = zext i16 %25 to i32
   %27 = icmp eq i16 %25, 0
@@ -1069,52 +1069,52 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr noundef readonly captures(none) 
 
 .thread.sink.split:                               ; preds = %13, %30
   %.sink = phi i32 [ %33, %30 ], [ %12, %13 ]
-  %.177.ph = phi i32 [ %16, %30 ], [ %.076112, %13 ]
+  %.177.ph = phi i32 [ %16, %30 ], [ %.076109, %13 ]
   %34 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink, ptr noundef null)
   %35 = sext i32 %34 to i64
-  %36 = add i64 %.080111, %35
+  %36 = add i64 %.080108, %35
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %13, %28
-  %.484 = phi i64 [ %.080111, %28 ], [ %.080111, %13 ], [ %36, %.thread.sink.split ]
-  %.177 = phi i32 [ %16, %28 ], [ %.076112, %13 ], [ %.177.ph, %.thread.sink.split ]
+  %.484 = phi i64 [ %.080108, %28 ], [ %.080108, %13 ], [ %36, %.thread.sink.split ]
+  %.177 = phi i32 [ %16, %28 ], [ %.076109, %13 ], [ %.177.ph, %.thread.sink.split ]
   %37 = add i32 %.177, 2
   %38 = add i32 %.177, 3
   %39 = icmp ult i32 %38, %1
   br i1 %39, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %.thread, %18, %15
-  %.080.lcssa.ph = phi i64 [ %.080111, %.lr.ph ], [ %.484, %.thread ], [ %.080111, %18 ], [ %.080111, %15 ]
+  %.080.lcssa.ph = phi i64 [ %.080108, %.lr.ph ], [ %.484, %.thread ], [ %.080108, %18 ], [ %.080108, %15 ]
   %40 = add i64 %.080.lcssa.ph, 1
   %41 = tail call noalias ptr @g_malloc(i64 noundef %40) #12
-  br label %.lr.ph121
+  br label %.lr.ph118
 
-.lr.ph121:                                        ; preds = %.critedge, %.thread107
-  %.0120 = phi ptr [ %.4, %.thread107 ], [ %41, %.critedge ]
-  %.278119 = phi i32 [ %74, %.thread107 ], [ 0, %.critedge ]
-  %42 = zext i32 %.278119 to i64
+.lr.ph118:                                        ; preds = %.critedge, %.thread105
+  %.0117 = phi ptr [ %.4, %.thread105 ], [ %41, %.critedge ]
+  %.278116 = phi i32 [ %74, %.thread105 ], [ 0, %.critedge ]
+  %42 = zext i32 %.278116 to i64
   %43 = getelementptr i8, ptr %0, i64 %42
-  %.val97 = load i8, ptr %43, align 1
+  %.val96 = load i8, ptr %43, align 1
   %44 = getelementptr i8, ptr %43, i64 1
-  %.val98 = load i8, ptr %44, align 1
-  %45 = zext i8 %.val98 to i16
+  %.val97 = load i8, ptr %44, align 1
+  %45 = zext i8 %.val97 to i16
   %46 = shl nuw i16 %45, 8
-  %47 = zext i8 %.val97 to i16
+  %47 = zext i8 %.val96 to i16
   %48 = or disjoint i16 %46, %47
   %49 = zext i16 %48 to i32
   %.not92 = icmp eq i16 %48, 0
   br i1 %.not92, label %.critedge10, label %50
 
-50:                                               ; preds = %.lr.ph121
+50:                                               ; preds = %.lr.ph118
   %51 = and i16 %46, -1024
-  switch i16 %51, label %.thread107.sink.split [
+  switch i16 %51, label %.thread105.sink.split [
     i16 -10240, label %52
-    i16 -9216, label %.thread107
+    i16 -9216, label %.thread105
   ]
 
 52:                                               ; preds = %50
-  %53 = add i32 %.278119, 2
-  %54 = add i32 %.278119, 3
+  %53 = add i32 %.278116, 2
+  %54 = add i32 %.278116, 3
   %.not93 = icmp ult i32 %54, %1
   br i1 %.not93, label %55, label %.critedge10
 
@@ -1123,8 +1123,8 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr noundef readonly captures(none) 
   %57 = getelementptr i8, ptr %0, i64 %56
   %.val = load i8, ptr %57, align 1
   %58 = getelementptr i8, ptr %57, i64 1
-  %.val96 = load i8, ptr %58, align 1
-  %59 = zext i8 %.val96 to i16
+  %.val95 = load i8, ptr %58, align 1
+  %59 = zext i8 %.val95 to i16
   %60 = shl nuw i16 %59, 8
   %61 = zext i8 %.val to i16
   %62 = or disjoint i16 %60, %61
@@ -1135,33 +1135,33 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr noundef readonly captures(none) 
 65:                                               ; preds = %55
   %66 = and i16 %59, 252
   %or.cond16 = icmp eq i16 %66, 220
-  br i1 %or.cond16, label %67, label %.thread107
+  br i1 %or.cond16, label %67, label %.thread105
 
 67:                                               ; preds = %65
   %68 = shl nuw nsw i32 %49, 10
   %69 = add nsw i32 %68, -56613888
   %70 = add nsw i32 %69, %63
-  br label %.thread107.sink.split
+  br label %.thread105.sink.split
 
-.thread107.sink.split:                            ; preds = %50, %67
-  %.sink133 = phi i32 [ %70, %67 ], [ %49, %50 ]
-  %.379.ph = phi i32 [ %53, %67 ], [ %.278119, %50 ]
-  %71 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink133, ptr noundef %.0120)
+.thread105.sink.split:                            ; preds = %50, %67
+  %.sink130 = phi i32 [ %70, %67 ], [ %49, %50 ]
+  %.379.ph = phi i32 [ %53, %67 ], [ %.278116, %50 ]
+  %71 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink130, ptr noundef %.0117)
   %72 = sext i32 %71 to i64
-  %73 = getelementptr i8, ptr %.0120, i64 %72
-  br label %.thread107
+  %73 = getelementptr i8, ptr %.0117, i64 %72
+  br label %.thread105
 
-.thread107:                                       ; preds = %.thread107.sink.split, %50, %65
-  %.379 = phi i32 [ %53, %65 ], [ %.278119, %50 ], [ %.379.ph, %.thread107.sink.split ]
-  %.4 = phi ptr [ %.0120, %65 ], [ %.0120, %50 ], [ %73, %.thread107.sink.split ]
+.thread105:                                       ; preds = %.thread105.sink.split, %50, %65
+  %.379 = phi i32 [ %53, %65 ], [ %.278116, %50 ], [ %.379.ph, %.thread105.sink.split ]
+  %.4 = phi ptr [ %.0117, %65 ], [ %.0117, %50 ], [ %73, %.thread105.sink.split ]
   %74 = add i32 %.379, 2
   %75 = add i32 %.379, 3
   %76 = icmp ult i32 %75, %1
-  br i1 %76, label %.lr.ph121, label %.critedge10, !llvm.loop !10
+  br i1 %76, label %.lr.ph118, label %.critedge10, !llvm.loop !10
 
-.critedge10:                                      ; preds = %.lr.ph121, %.thread107, %55, %52, %.critedge.thread
-  %77 = phi ptr [ %4, %.critedge.thread ], [ %41, %52 ], [ %41, %55 ], [ %41, %.thread107 ], [ %41, %.lr.ph121 ]
-  %.0.lcssa = phi ptr [ %4, %.critedge.thread ], [ %.0120, %.lr.ph121 ], [ %.4, %.thread107 ], [ %.0120, %55 ], [ %.0120, %52 ]
+.critedge10:                                      ; preds = %.lr.ph118, %.thread105, %55, %52, %.critedge.thread
+  %77 = phi ptr [ %4, %.critedge.thread ], [ %41, %52 ], [ %41, %55 ], [ %41, %.thread105 ], [ %41, %.lr.ph118 ]
+  %.0.lcssa = phi ptr [ %4, %.critedge.thread ], [ %.0117, %.lr.ph118 ], [ %.4, %.thread105 ], [ %.0117, %55 ], [ %.0117, %52 ]
   store i8 0, ptr %.0.lcssa, align 1
   ret ptr %77
 }

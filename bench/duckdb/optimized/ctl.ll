@@ -606,11 +606,11 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %._crit_edge43
+  br i1 %44, label %45, label %._crit_edge42
 
-._crit_edge43:                                    ; preds = %39
+._crit_edge42:                                    ; preds = %39
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
+  %.pre43 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
   br label %53
 
 45:                                               ; preds = %39
@@ -629,9 +629,9 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   store ptr %47, ptr %52, align 8, !tbaa !28
   br label %53
 
-53:                                               ; preds = %._crit_edge43, %48
-  %54 = phi ptr [ %.pre44, %._crit_edge43 ], [ %49, %48 ]
-  %.1.i24.ph = phi ptr [ %43, %._crit_edge43 ], [ %47, %48 ]
+53:                                               ; preds = %._crit_edge42, %48
+  %54 = phi ptr [ %.pre43, %._crit_edge42 ], [ %49, %48 ]
+  %.1.i24.ph = phi ptr [ %43, %._crit_edge42 ], [ %47, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %.1.i24.ph, i64 24
   store i32 0, ptr %55, align 8, !tbaa !36
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_dss_prec_names, i64 24), align 8, !tbaa !37
@@ -747,60 +747,60 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   %12 = ptrtoint ptr %2 to i64
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %.thread97, label %.preheader105
+  br i1 %14, label %.thread95, label %.preheader102
 
-.preheader105:                                    ; preds = %9
+.preheader102:                                    ; preds = %9
   %15 = load i64, ptr %5, align 8, !tbaa !3
-  %.not127 = icmp eq i64 %15, 0
-  br i1 %.not127, label %.loopexit106, label %.lr.ph126
+  %.not124 = icmp eq i64 %15, 0
+  br i1 %.not124, label %.loopexit103, label %.lr.ph123
 
-.lr.ph126:                                        ; preds = %.preheader105, %57
-  %.065125 = phi ptr [ %54, %57 ], [ %2, %.preheader105 ]
-  %.066124 = phi ptr [ %.5, %57 ], [ %1, %.preheader105 ]
-  %.072123 = phi i64 [ %62, %57 ], [ 0, %.preheader105 ]
-  %.073122 = phi i64 [ %61, %57 ], [ %13, %.preheader105 ]
-  %.074121 = phi ptr [ %58, %57 ], [ %10, %.preheader105 ]
-  %16 = getelementptr i8, ptr %.066124, i64 24
+.lr.ph123:                                        ; preds = %.preheader102, %57
+  %.065122 = phi ptr [ %54, %57 ], [ %2, %.preheader102 ]
+  %.066121 = phi ptr [ %.5, %57 ], [ %1, %.preheader102 ]
+  %.072120 = phi i64 [ %62, %57 ], [ 0, %.preheader102 ]
+  %.073119 = phi i64 [ %61, %57 ], [ %13, %.preheader102 ]
+  %.074118 = phi ptr [ %58, %57 ], [ %10, %.preheader102 ]
+  %16 = getelementptr i8, ptr %.066121, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = load i8, ptr %17, align 1, !tbaa !44, !range !45, !noundef !46
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.preheader, label %33
 
-.preheader:                                       ; preds = %.lr.ph126
-  %20 = getelementptr inbounds nuw i8, ptr %.066124, i64 16
+.preheader:                                       ; preds = %.lr.ph123
+  %20 = getelementptr inbounds nuw i8, ptr %.066121, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !47
-  %.not128 = icmp eq i64 %21, 0
-  br i1 %.not128, label %.thread97, label %.lr.ph
+  %.not125 = icmp eq i64 %21, 0
+  br i1 %.not125, label %.thread95, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %30
-  %.071120 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw %struct.ctl_named_node_s, ptr %17, i64 %.071120
+  %.071117 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
+  %22 = getelementptr inbounds nuw %struct.ctl_named_node_s, ptr %17, i64 %.071117
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !48
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #15
-  %26 = icmp eq i64 %25, %.073122
+  %26 = icmp eq i64 %25, %.073119
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.lr.ph
-  %28 = tail call i32 @strncmp(ptr noundef nonnull %.065125, ptr noundef nonnull %24, i64 noundef %.073122) #15
+  %28 = tail call i32 @strncmp(ptr noundef nonnull %.065122, ptr noundef nonnull %24, i64 noundef %.073119) #15
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %27, %.lr.ph
-  %31 = add nuw i64 %.071120, 1
+  %31 = add nuw i64 %.071117, 1
   %exitcond.not = icmp eq i64 %31, %21
-  br i1 %exitcond.not, label %.thread97, label %.lr.ph
+  br i1 %exitcond.not, label %.thread95, label %.lr.ph
 
 .loopexit:                                        ; preds = %27
-  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %.072123
-  store i64 %.071120, ptr %32, align 8, !tbaa !3
-  %.not104 = icmp eq ptr %22, %.066124
-  br i1 %.not104, label %.thread97, label %45
+  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %.072120
+  store i64 %.071117, ptr %32, align 8, !tbaa !3
+  %.not101 = icmp eq ptr %22, %.066121
+  br i1 %.not101, label %.thread95, label %45
 
-33:                                               ; preds = %.lr.ph126
-  %34 = tail call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %.065125, ptr noundef null, i32 noundef 10) #14
+33:                                               ; preds = %.lr.ph123
+  %34 = tail call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %.065122, ptr noundef null, i32 noundef 10) #14
   %35 = icmp eq i64 %34, -1
-  br i1 %35, label %.thread97, label %36
+  br i1 %35, label %.thread95, label %36
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %16, align 8, !tbaa !43
@@ -809,10 +809,10 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   %40 = load i64, ptr %5, align 8, !tbaa !3
   %41 = tail call ptr %39(ptr noundef %0, ptr noundef %4, i64 noundef %40, i64 noundef %34) #14
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread97, label %43
+  br i1 %42, label %.thread95, label %43
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %.072123
+  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %.072120
   store i64 %34, ptr %44, align 8, !tbaa !3
   br label %45
 
@@ -821,23 +821,23 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   %46 = getelementptr inbounds nuw i8, ptr %.5, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !10
   %.not83 = icmp eq ptr %47, null
-  %48 = load i8, ptr %.074121, align 1, !tbaa !51
+  %48 = load i8, ptr %.074118, align 1, !tbaa !51
   %49 = icmp eq i8 %48, 0
   br i1 %.not83, label %50, label %51
 
 50:                                               ; preds = %45
-  br i1 %49, label %.thread101, label %53
+  br i1 %49, label %.thread98, label %53
 
 51:                                               ; preds = %45
-  br i1 %49, label %.thread101, label %.thread97
+  br i1 %49, label %.thread98, label %.thread95
 
-.thread101:                                       ; preds = %50, %51
-  %52 = add i64 %.072123, 1
+.thread98:                                        ; preds = %50, %51
+  %52 = add i64 %.072120, 1
   store i64 %52, ptr %5, align 8, !tbaa !3
-  br label %.loopexit106
+  br label %.loopexit103
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %.074121, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.074118, i64 1
   %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 46) #15
   %.not84 = icmp eq ptr %55, null
   br i1 %.not84, label %56, label %57
@@ -852,22 +852,22 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %54 to i64
   %61 = sub i64 %59, %60
-  %62 = add nuw i64 %.072123, 1
+  %62 = add nuw i64 %.072120, 1
   %63 = load i64, ptr %5, align 8, !tbaa !3
   %64 = icmp ult i64 %62, %63
-  br i1 %64, label %.lr.ph126, label %.loopexit106
+  br i1 %64, label %.lr.ph123, label %.loopexit103
 
-.loopexit106:                                     ; preds = %57, %.preheader105, %.thread101
-  %.167 = phi ptr [ %.5, %.thread101 ], [ %1, %.preheader105 ], [ %.5, %57 ]
+.loopexit103:                                     ; preds = %57, %.preheader102, %.thread98
+  %.167 = phi ptr [ %.5, %.thread98 ], [ %1, %.preheader102 ], [ %.5, %57 ]
   %.not88 = icmp eq ptr %3, null
-  br i1 %.not88, label %.thread97, label %65
+  br i1 %.not88, label %.thread95, label %65
 
-65:                                               ; preds = %.loopexit106
+65:                                               ; preds = %.loopexit103
   store ptr %.167, ptr %3, align 8, !tbaa !7
-  br label %.thread97
+  br label %.thread95
 
-.thread97:                                        ; preds = %.preheader, %36, %33, %.loopexit, %30, %9, %51, %65, %.loopexit106
-  %.0 = phi i32 [ 2, %9 ], [ 2, %51 ], [ 0, %65 ], [ 0, %.loopexit106 ], [ 2, %30 ], [ 2, %.loopexit ], [ 2, %33 ], [ 2, %36 ], [ 2, %.preheader ]
+.thread95:                                        ; preds = %.preheader, %36, %33, %.loopexit, %30, %9, %51, %65, %.loopexit103
+  %.0 = phi i32 [ 2, %9 ], [ 2, %51 ], [ 0, %65 ], [ 0, %.loopexit103 ], [ 2, %30 ], [ 2, %.loopexit ], [ 2, %33 ], [ 2, %36 ], [ 2, %.preheader ]
   ret i32 %.0
 }
 
@@ -3125,7 +3125,7 @@ malloc_mutex_lock.exit63:                         ; preds = %20, %24
   store i64 %46, ptr @duckdb_je_max_background_threads, align 8, !tbaa !3
   store atomic i8 1, ptr @duckdb_je_background_thread_enabled_state monotonic, align 1
   %57 = tail call zeroext i1 @duckdb_je_background_threads_enable(ptr noundef %0) #14
-  %spec.select67 = select i1 %57, i32 14, i32 0
+  %spec.select66 = select i1 %57, i32 14, i32 0
   br label %.thread
 
 58:                                               ; preds = %51
@@ -3133,7 +3133,7 @@ malloc_mutex_lock.exit63:                         ; preds = %20, %24
   br label %.thread
 
 .thread:                                          ; preds = %56, %54, %48, %45, %35, %28, %58, %36, %43, %34
-  %.047 = phi i32 [ 22, %34 ], [ 22, %43 ], [ 22, %36 ], [ 0, %58 ], [ 0, %28 ], [ 0, %35 ], [ 14, %54 ], [ 22, %48 ], [ 0, %45 ], [ %spec.select67, %56 ]
+  %.047 = phi i32 [ 22, %34 ], [ 22, %43 ], [ 22, %36 ], [ 0, %58 ], [ 0, %28 ], [ 0, %35 ], [ 14, %54 ], [ 22, %48 ], [ 0, %45 ], [ %spec.select66, %56 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 64) monotonic, align 8
   %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 72)) #14
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
@@ -34191,7 +34191,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   %9 = icmp eq ptr %3, null
   %10 = icmp eq ptr %5, null
   %or.cond = and i1 %9, %10
-  br i1 %or.cond, label %.thread45, label %11
+  br i1 %or.cond, label %.thread43, label %11
 
 11:                                               ; preds = %7
   br i1 %9, label %18, label %12
@@ -34221,30 +34221,30 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread45
+  br label %.thread43
 
 18:                                               ; preds = %.thread, %11
-  br i1 %10, label %.thread45, label %19
+  br i1 %10, label %.thread43, label %19
 
 19:                                               ; preds = %18
   %20 = load i8, ptr @duckdb_je_opt_prof, align 1, !tbaa !133, !range !45, !noundef !46
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %.thread45
+  br i1 %21, label %22, label %.thread43
 
 22:                                               ; preds = %19
   %.not37 = icmp eq i64 %6, 8
-  br i1 %.not37, label %23, label %.thread45
+  br i1 %.not37, label %23, label %.thread43
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr %5, align 8, !tbaa !213
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread45, label %26
+  br i1 %25, label %.thread43, label %26
 
 26:                                               ; preds = %23
   tail call void @duckdb_je_prof_backtrace_hook_set(ptr noundef nonnull %24) #14
-  br label %.thread45
+  br label %.thread43
 
-.thread45:                                        ; preds = %23, %22, %18, %26, %17, %7, %19
+.thread43:                                        ; preds = %23, %22, %18, %26, %17, %7, %19
   %.028 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 0, %26 ], [ 0, %18 ], [ 22, %22 ], [ 22, %23 ]
   ret i32 %.028
 }
@@ -34297,15 +34297,15 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
 
 22:                                               ; preds = %19
   %.not36 = icmp eq i64 %6, 8
-  br i1 %.not36, label %.thread43, label %24
+  br i1 %.not36, label %.thread41, label %24
 
-.thread43:                                        ; preds = %22
+.thread41:                                        ; preds = %22
   %23 = load ptr, ptr %5, align 8, !tbaa !213
   tail call void @duckdb_je_prof_dump_hook_set(ptr noundef %23) #14
   br label %24
 
-24:                                               ; preds = %18, %.thread43, %22, %17, %7, %19
-  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread43 ], [ 0, %18 ]
+24:                                               ; preds = %18, %.thread41, %22, %17, %7, %19
+  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread41 ], [ 0, %18 ]
   ret i32 %.027
 }
 
@@ -34357,15 +34357,15 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_ctl(ptr rea
 
 22:                                               ; preds = %19
   %.not36 = icmp eq i64 %6, 8
-  br i1 %.not36, label %.thread43, label %24
+  br i1 %.not36, label %.thread41, label %24
 
-.thread43:                                        ; preds = %22
+.thread41:                                        ; preds = %22
   %23 = load ptr, ptr %5, align 8, !tbaa !213
   tail call void @duckdb_je_prof_sample_hook_set(ptr noundef %23) #14
   br label %24
 
-24:                                               ; preds = %18, %.thread43, %22, %17, %7, %19
-  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread43 ], [ 0, %18 ]
+24:                                               ; preds = %18, %.thread41, %22, %17, %7, %19
+  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread41 ], [ 0, %18 ]
   ret i32 %.027
 }
 
@@ -34417,15 +34417,15 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_free_ctl(pt
 
 22:                                               ; preds = %19
   %.not36 = icmp eq i64 %6, 8
-  br i1 %.not36, label %.thread43, label %24
+  br i1 %.not36, label %.thread41, label %24
 
-.thread43:                                        ; preds = %22
+.thread41:                                        ; preds = %22
   %23 = load ptr, ptr %5, align 8, !tbaa !213
   tail call void @duckdb_je_prof_sample_free_hook_set(ptr noundef %23) #14
   br label %24
 
-24:                                               ; preds = %18, %.thread43, %22, %17, %7, %19
-  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread43 ], [ 0, %18 ]
+24:                                               ; preds = %18, %.thread41, %22, %17, %7, %19
+  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread41 ], [ 0, %18 ]
   ret i32 %.027
 }
 

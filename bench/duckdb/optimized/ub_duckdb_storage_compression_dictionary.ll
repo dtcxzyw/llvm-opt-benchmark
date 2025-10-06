@@ -5232,9 +5232,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_EN
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.046 = load ptr, ptr %8, align 8, !tbaa !137
-  %.not47 = icmp eq ptr %.sroa.028.046, null
-  br i1 %.not47, label %.thread, label %.lr.ph
+  %.sroa.028.044 = load ptr, ptr %8, align 8, !tbaa !137
+  %.not45 = icmp eq ptr %.sroa.028.044, null
+  br i1 %.not45, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %1, align 8
@@ -5248,32 +5248,32 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_EN
   br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us
-  %.sroa.028.048.us = phi ptr [ %.sroa.028.0.us, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us ], [ %.sroa.028.046, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.028.048.us, i64 8
+  %.sroa.028.046.us = phi ptr [ %.sroa.028.0.us, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us ], [ %.sroa.028.044, %.lr.ph ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.028.046.us, i64 8
   %.0.copyload.i12.i.i.i.i.i.us = load i64, ptr %14, align 1
   %.not.i.i.i.i.i.us = icmp eq i64 %.0.copyload.i.i.i.i.i.i.fr, %.0.copyload.i12.i.i.i.i.i.us
   br i1 %.not.i.i.i.i.i.us, label %15, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us
 
 15:                                               ; preds = %.lr.ph.split.us
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.028.048.us, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.028.046.us, i64 16
   %.0.copyload.i14.i.i.i.i.i.us = load i64, ptr %16, align 1
   %17 = icmp eq i64 %.0.copyload.i13.i.i.i.i.i, %.0.copyload.i14.i.i.i.i.i.us
   br i1 %17, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us
 
 _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us: ; preds = %15, %.lr.ph.split.us
-  %.sroa.028.0.us = load ptr, ptr %.sroa.028.048.us, align 8, !tbaa !137
+  %.sroa.028.0.us = load ptr, ptr %.sroa.028.046.us, align 8, !tbaa !137
   %.not.us = icmp eq ptr %.sroa.028.0.us, null
   br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !303
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
-  %.sroa.028.048 = phi ptr [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ %.sroa.028.046, %.lr.ph ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.028.048, i64 8
+  %.sroa.028.046 = phi ptr [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ %.sroa.028.044, %.lr.ph ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.028.046, i64 8
   %.0.copyload.i12.i.i.i.i.i = load i64, ptr %18, align 1
   %.not.i.i.i.i.i = icmp eq i64 %.0.copyload.i.i.i.i.i.i.fr, %.0.copyload.i12.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
 
 19:                                               ; preds = %.lr.ph.split
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.028.048, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.028.046, i64 16
   %.0.copyload.i14.i.i.i.i.i = load i64, ptr %20, align 1
   %21 = icmp eq i64 %.0.copyload.i13.i.i.i.i.i, %.0.copyload.i14.i.i.i.i.i
   br i1 %21, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %22
@@ -5285,7 +5285,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %24, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
 
 _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %22, %.lr.ph.split
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.048, align 8, !tbaa !137
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.046, align 8, !tbaa !137
   %.not = icmp eq ptr %.sroa.028.0, null
   br i1 %.not, label %.thread, label %.lr.ph.split, !llvm.loop !303
 
@@ -5298,8 +5298,8 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %27 = load i64, ptr %26, align 8, !tbaa !103
   %28 = urem i64 %25, %27
   %29 = load i64, ptr %5, align 8, !tbaa !297
-  %.not39 = icmp eq i64 %29, 0
-  br i1 %.not39, label %.critedge, label %30
+  %.not37 = icmp eq i64 %29, 0
+  br i1 %.not37, label %.critedge, label %30
 
 30:                                               ; preds = %.thread
   %31 = load ptr, ptr %0, align 8, !tbaa !96
@@ -5402,7 +5402,7 @@ _ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14Strin
   resume { ptr, i32 } %72
 
 _ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %22, %19, %15, %57, %60, %44, %.critedge
-  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %60 ], [ %.0.i.i, %57 ], [ %.sroa.028.048.us, %15 ], [ %.sroa.028.048, %19 ], [ %.sroa.028.048, %22 ]
+  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %60 ], [ %.0.i.i, %57 ], [ %.sroa.028.046.us, %15 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %44 ], [ 0, %60 ], [ 0, %57 ], [ 0, %15 ], [ 0, %19 ], [ 0, %22 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
@@ -5617,9 +5617,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_EN
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.046 = load ptr, ptr %8, align 8, !tbaa !137
-  %.not47 = icmp eq ptr %.sroa.028.046, null
-  br i1 %.not47, label %.thread, label %.lr.ph
+  %.sroa.028.044 = load ptr, ptr %8, align 8, !tbaa !137
+  %.not45 = icmp eq ptr %.sroa.028.044, null
+  br i1 %.not45, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %1, align 8
@@ -5633,32 +5633,32 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_EN
   br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us
-  %.sroa.028.048.us = phi ptr [ %.sroa.028.0.us, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us ], [ %.sroa.028.046, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.028.048.us, i64 8
+  %.sroa.028.046.us = phi ptr [ %.sroa.028.0.us, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us ], [ %.sroa.028.044, %.lr.ph ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.028.046.us, i64 8
   %.0.copyload.i12.i.i.i.i.i.us = load i64, ptr %14, align 1
   %.not.i.i.i.i.i.us = icmp eq i64 %.0.copyload.i.i.i.i.i.i.fr, %.0.copyload.i12.i.i.i.i.i.us
   br i1 %.not.i.i.i.i.i.us, label %15, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us
 
 15:                                               ; preds = %.lr.ph.split.us
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.028.048.us, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.028.046.us, i64 16
   %.0.copyload.i14.i.i.i.i.i.us = load i64, ptr %16, align 1
   %17 = icmp eq i64 %.0.copyload.i13.i.i.i.i.i, %.0.copyload.i14.i.i.i.i.i.us
   br i1 %17, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us
 
 _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.us: ; preds = %15, %.lr.ph.split.us
-  %.sroa.028.0.us = load ptr, ptr %.sroa.028.048.us, align 8, !tbaa !137
+  %.sroa.028.0.us = load ptr, ptr %.sroa.028.046.us, align 8, !tbaa !137
   %.not.us = icmp eq ptr %.sroa.028.0.us, null
   br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !308
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
-  %.sroa.028.048 = phi ptr [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ %.sroa.028.046, %.lr.ph ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.028.048, i64 8
+  %.sroa.028.046 = phi ptr [ %.sroa.028.0, %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ %.sroa.028.044, %.lr.ph ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.028.046, i64 8
   %.0.copyload.i12.i.i.i.i.i = load i64, ptr %18, align 1
   %.not.i.i.i.i.i = icmp eq i64 %.0.copyload.i.i.i.i.i.i.fr, %.0.copyload.i12.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %19, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
 
 19:                                               ; preds = %.lr.ph.split
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.028.048, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.028.046, i64 16
   %.0.copyload.i14.i.i.i.i.i = load i64, ptr %20, align 1
   %21 = icmp eq i64 %.0.copyload.i13.i.i.i.i.i, %.0.copyload.i14.i.i.i.i.i
   br i1 %21, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %22
@@ -5670,7 +5670,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %24, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
 
 _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14StringEqualityENS1_10StringHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %22, %.lr.ph.split
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.048, align 8, !tbaa !137
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.046, align 8, !tbaa !137
   %.not = icmp eq ptr %.sroa.028.0, null
   br i1 %.not, label %.thread, label %.lr.ph.split, !llvm.loop !308
 
@@ -5683,8 +5683,8 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %27 = load i64, ptr %26, align 8, !tbaa !103
   %28 = urem i64 %25, %27
   %29 = load i64, ptr %5, align 8, !tbaa !297
-  %.not39 = icmp eq i64 %29, 0
-  br i1 %.not39, label %.critedge, label %30
+  %.not37 = icmp eq i64 %29, 0
+  br i1 %.not37, label %.critedge, label %30
 
 30:                                               ; preds = %.thread
   %31 = load ptr, ptr %0, align 8, !tbaa !96
@@ -5787,7 +5787,7 @@ _ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14Strin
   resume { ptr, i32 } %72
 
 _ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %22, %19, %15, %57, %60, %44, %.critedge
-  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %60 ], [ %.0.i.i, %57 ], [ %.sroa.028.048.us, %15 ], [ %.sroa.028.048, %19 ], [ %.sroa.028.048, %22 ]
+  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %60 ], [ %.0.i.i, %57 ], [ %.sroa.028.046.us, %15 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %44 ], [ 0, %60 ], [ 0, %57 ], [ 0, %15 ], [ 0, %19 ], [ 0, %22 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1

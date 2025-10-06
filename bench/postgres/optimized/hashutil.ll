@@ -629,18 +629,18 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %39 = trunc i32 %38 to i16
   %.0.i = select i1 %35, i16 0, i16 %39
   %40 = icmp sgt i32 %7, 0
-  br i1 %40, label %.lr.ph61, label %.critedge
+  br i1 %40, label %.lr.ph60, label %.critedge
 
-.lr.ph61:                                         ; preds = %BufferGetPage.exit
+.lr.ph60:                                         ; preds = %BufferGetPage.exit
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %43 = getelementptr i8, ptr %.0.i.i, i64 20
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.outer
 
-.outer:                                           ; preds = %.loopexit.thread, %.lr.ph61
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next67, %.loopexit.thread ], [ 0, %.lr.ph61 ]
-  %.04659.ph = phi i1 [ true, %.loopexit.thread ], [ false, %.lr.ph61 ]
+.outer:                                           ; preds = %.loopexit.thread, %.lr.ph60
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next66, %.loopexit.thread ], [ 0, %.lr.ph60 ]
+  %.04658.ph = phi i1 [ true, %.loopexit.thread ], [ false, %.lr.ph60 ]
   br label %44
 
 44:                                               ; preds = %.outer, %.loopexit
@@ -652,17 +652,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %49 = getelementptr inbounds %struct.HashScanPosItem, ptr %42, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 6
   %51 = load i16, ptr %50, align 2
-  %.not57 = icmp ugt i16 %51, %.0.i
-  br i1 %.not57, label %.loopexit, label %.lr.ph
+  %.not56 = icmp ugt i16 %51, %.0.i
+  br i1 %.not56, label %.loopexit, label %.lr.ph
 
 52:                                               ; preds = %.lr.ph
-  %53 = add i16 %.04458, 1
+  %53 = add i16 %.04457, 1
   %.not = icmp ugt i16 %53, %.0.i
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %52
-  %.04458 = phi i16 [ %53, %52 ], [ %51, %44 ]
-  %54 = zext i16 %.04458 to i64
+  %.04457 = phi i16 [ %53, %52 ], [ %51, %44 ]
+  %54 = zext i16 %.04457 to i64
   %55 = getelementptr %struct.ItemIdData, ptr %43, i64 %54
   %.val50 = load i32, ptr %55, align 4
   %56 = and i32 %.val50, 32767
@@ -681,12 +681,12 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %61 = load i32, ptr %60, align 4
   %62 = or i32 %61, 98304
   store i32 %62, ptr %60, align 4
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not68 = icmp eq i64 %indvars.iv.next67, %wide.trip.count
-  br i1 %exitcond.not68, label %._crit_edge.thread, label %.outer, !llvm.loop !9
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not67 = icmp eq i64 %indvars.iv.next66, %wide.trip.count
+  br i1 %exitcond.not67, label %._crit_edge.thread, label %.outer, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %.04659.ph, label %._crit_edge.thread, label %.critedge
+  br i1 %.04658.ph, label %._crit_edge.thread, label %.critedge
 
 ._crit_edge.thread:                               ; preds = %.loopexit.thread, %._crit_edge
   %63 = getelementptr inbounds nuw i8, ptr %33, i64 12

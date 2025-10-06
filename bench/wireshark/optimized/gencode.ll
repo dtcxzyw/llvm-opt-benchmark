@@ -785,13 +785,13 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef range(i
   br label %34
 
 34:                                               ; preds = %30, %23
-  %.sink44 = phi ptr [ %31, %30 ], [ %25, %23 ]
+  %.sink45 = phi ptr [ %31, %30 ], [ %25, %23 ]
   %35 = load i32, ptr %10, align 8
-  store i32 %35, ptr %.sink44, align 8
+  store i32 %35, ptr %.sink45, align 8
   %36 = add i32 %35, 1
   store i32 %36, ptr %10, align 8
   %37 = load ptr, ptr %11, align 8
-  call void @g_ptr_array_add(ptr noundef %37, ptr noundef %.sink44)
+  call void @g_ptr_array_add(ptr noundef %37, ptr noundef %.sink45)
   %38 = load ptr, ptr %7, align 8
   call void @g_slist_foreach(ptr noundef %38, ptr noundef nonnull @fixup_jumps, ptr noundef %0)
   %39 = load ptr, ptr %7, align 8
@@ -806,53 +806,46 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef range(i
   br i1 %40, label %select_opcode.exit, label %41
 
 41:                                               ; preds = %._crit_edge
-  switch i32 %1, label %default.unreachable [
-    i32 31, label %46
-    i32 29, label %46
-    i32 28, label %42
-    i32 30, label %42
-  ]
+  %42 = icmp eq i32 %1, 30
+  br i1 %42, label %43, label %47
 
-42:                                               ; preds = %41, %41
-  %43 = icmp ne i32 %2, 2
-  %44 = zext i1 %43 to i32
-  %45 = add nuw nsw i32 %1, %44
+43:                                               ; preds = %41
+  %44 = icmp ne i32 %2, 2
+  %45 = zext i1 %44 to i32
+  %46 = or disjoint i32 %45, 30
   br label %select_opcode.exit
 
-46:                                               ; preds = %41, %41
-  %47 = icmp ne i32 %2, 1
-  %48 = sext i1 %47 to i32
-  %49 = add nsw i32 %1, %48
+47:                                               ; preds = %41
+  %48 = icmp ne i32 %2, 1
+  %49 = sext i1 %48 to i32
+  %50 = add nsw i32 %1, %49
   br label %select_opcode.exit
 
-default.unreachable:                              ; preds = %41
-  unreachable
-
-select_opcode.exit:                               ; preds = %._crit_edge, %42, %46
-  %.0.i = phi i32 [ %45, %42 ], [ %49, %46 ], [ %1, %._crit_edge ]
-  %50 = call ptr @dfvm_insn_new(i32 noundef %.0.i)
-  %51 = call ptr @dfvm_value_ref(ptr noundef %8)
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %54 = load i32, ptr %53, align 8
-  store i32 %54, ptr %50, align 8
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %53, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8
-  call void @g_ptr_array_add(ptr noundef %57, ptr noundef %50)
-  %58 = call ptr @dfvm_insn_new(i32 noundef 34)
-  %59 = load i32, ptr %53, align 8
-  store i32 %59, ptr %58, align 8
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %53, align 8
-  %61 = load ptr, ptr %56, align 8
-  call void @g_ptr_array_add(ptr noundef %61, ptr noundef %58)
-  %62 = load ptr, ptr %6, align 8
-  call void @g_slist_foreach(ptr noundef %62, ptr noundef nonnull @fixup_jumps, ptr noundef %0)
+select_opcode.exit:                               ; preds = %._crit_edge, %43, %47
+  %.0.i = phi i32 [ %46, %43 ], [ %50, %47 ], [ %1, %._crit_edge ]
+  %51 = call ptr @dfvm_insn_new(i32 noundef %.0.i)
+  %52 = call ptr @dfvm_value_ref(ptr noundef %8)
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %55 = load i32, ptr %54, align 8
+  store i32 %55, ptr %51, align 8
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %54, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %58 = load ptr, ptr %57, align 8
+  call void @g_ptr_array_add(ptr noundef %58, ptr noundef %51)
+  %59 = call ptr @dfvm_insn_new(i32 noundef 34)
+  %60 = load i32, ptr %54, align 8
+  store i32 %60, ptr %59, align 8
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %54, align 8
+  %62 = load ptr, ptr %57, align 8
+  call void @g_ptr_array_add(ptr noundef %62, ptr noundef %59)
   %63 = load ptr, ptr %6, align 8
-  call void @g_slist_free(ptr noundef %63)
+  call void @g_slist_foreach(ptr noundef %63, ptr noundef nonnull @fixup_jumps, ptr noundef %0)
+  %64 = load ptr, ptr %6, align 8
+  call void @g_slist_free(ptr noundef %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

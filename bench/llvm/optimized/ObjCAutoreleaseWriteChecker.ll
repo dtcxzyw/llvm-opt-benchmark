@@ -10350,8 +10350,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   %18 = zext i32 %17 to i64
   %.idx = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
-  %.not24 = icmp eq i32 %17, 0
-  br i1 %.not24, label %.thread, label %.lr.ph
+  %.not26 = icmp eq i32 %17, 0
+  br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -10363,13 +10363,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   br label %28
 
 26:                                               ; preds = %54
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 8
   %.not = icmp eq ptr %27, %19
   br i1 %.not, label %.thread, label %28
 
 28:                                               ; preds = %.lr.ph, %26
-  %.sroa.018.025 = phi ptr [ %15, %.lr.ph ], [ %27, %26 ]
-  %29 = load ptr, ptr %.sroa.018.025, align 8, !tbaa !901
+  %.sroa.018.027 = phi ptr [ %15, %.lr.ph ], [ %27, %26 ]
+  %29 = load ptr, ptr %.sroa.018.027, align 8, !tbaa !901
   %30 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   br i1 %30, label %31, label %35
 
@@ -10446,8 +10446,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapE
   br i1 %40, label %.thread, label %26
 
 .thread:                                          ; preds = %54, %26, %31, %4
-  %not.switch = phi i1 [ false, %4 ], [ false, %31 ], [ false, %26 ], [ true, %54 ]
-  ret i1 %not.switch
+  %55 = phi i1 [ false, %4 ], [ false, %31 ], [ false, %26 ], [ true, %54 ]
+  ret i1 %55
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -10512,8 +10512,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   %11 = and i32 %10, 524280
   %.idx = zext nneg i32 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %.not24 = icmp eq i32 %11, 0
-  br i1 %.not24, label %.thread, label %.lr.ph
+  %.not26 = icmp eq i32 %11, 0
+  br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -10525,13 +10525,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   br label %21
 
 19:                                               ; preds = %47
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 8
   %.not = icmp eq ptr %20, %12
   br i1 %.not, label %.thread, label %21
 
 21:                                               ; preds = %.lr.ph, %19
-  %.sroa.018.025 = phi ptr [ %7, %.lr.ph ], [ %20, %19 ]
-  %22 = load ptr, ptr %.sroa.018.025, align 8, !tbaa !901
+  %.sroa.018.027 = phi ptr [ %7, %.lr.ph ], [ %20, %19 ]
+  %22 = load ptr, ptr %.sroa.018.027, align 8, !tbaa !901
   %23 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   br i1 %23, label %24, label %28
 
@@ -10608,8 +10608,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapE
   br i1 %33, label %.thread, label %19
 
 .thread:                                          ; preds = %47, %19, %24, %4
-  %not.switch = phi i1 [ false, %4 ], [ false, %24 ], [ false, %19 ], [ true, %47 ]
-  ret i1 %not.switch
+  %48 = phi i1 [ false, %4 ], [ false, %24 ], [ false, %19 ], [ true, %47 ]
+  ret i1 %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11743,8 +11743,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal31match
 define linkonce_odr noundef ptr @_ZN5clang12ast_matchers8internal26matchesFirstInPointerRangeINS1_7MatcherINS_11ParmVarDeclEEEPKPKS4_EET0_RKT_SA_SA_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 comdat {
   %6 = alloca %"class.clang::DynTypedNode", align 8
   %7 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
-  %.not17 = icmp eq ptr %1, %2
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %1, %2
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -11755,13 +11755,13 @@ define linkonce_odr noundef ptr @_ZN5clang12ast_matchers8internal26matchesFirstI
   br label %15
 
 13:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit
-  %14 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01321, i64 8
   %.not = icmp eq ptr %14, %2
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !1043
 
 15:                                               ; preds = %.lr.ph, %13
-  %.01319 = phi ptr [ %1, %.lr.ph ], [ %14, %13 ]
-  %.01418 = phi ptr [ undef, %.lr.ph ], [ %.2, %13 ]
+  %.01321 = phi ptr [ %1, %.lr.ph ], [ %14, %13 ]
+  %.01420 = phi ptr [ undef, %.lr.ph ], [ %.2, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !77
   store i32 0, ptr %9, align 8, !tbaa !74
@@ -11775,7 +11775,7 @@ define linkonce_odr noundef ptr @_ZN5clang12ast_matchers8internal26matchesFirstI
   br label %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit
 
 _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit: ; preds = %15, %17
-  %19 = load ptr, ptr %.01319, align 8, !tbaa !1044
+  %19 = load ptr, ptr %.01321, align 8, !tbaa !1044
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !1046)
   call void @llvm.experimental.noalias.scope.decl(metadata !1049)
@@ -11791,7 +11791,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit: ; preds = 
   br label %24
 
 24:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit, %22
-  %.2 = phi ptr [ %.01319, %22 ], [ %.01418, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit ]
+  %.2 = phi ptr [ %.01321, %22 ], [ %.01420, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit ]
   %25 = load ptr, ptr %7, align 8, !tbaa !77
   %26 = load i32, ptr %9, align 8, !tbaa !74
   %.not4.i.i.i = icmp eq i32 %26, 0
@@ -11830,8 +11830,8 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit: ; preds = %_ZN
   br i1 %21, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit, %13, %5
-  %spec.select = phi ptr [ %2, %5 ], [ %2, %13 ], [ %.2, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit ]
-  ret ptr %spec.select
+  %35 = phi ptr [ %2, %5 ], [ %2, %13 ], [ %.2, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit ]
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12322,8 +12322,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal31match
 define linkonce_odr noundef ptr @_ZN5clang12ast_matchers8internal26matchesFirstInPointerRangeINS1_7MatcherINS_11ParmVarDeclEEEPKPS4_EET0_RKT_S9_S9_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 comdat {
   %6 = alloca %"class.clang::DynTypedNode", align 8
   %7 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
-  %.not17 = icmp eq ptr %1, %2
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %1, %2
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -12334,13 +12334,13 @@ define linkonce_odr noundef ptr @_ZN5clang12ast_matchers8internal26matchesFirstI
   br label %15
 
 13:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit
-  %14 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01321, i64 8
   %.not = icmp eq ptr %14, %2
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !1114
 
 15:                                               ; preds = %.lr.ph, %13
-  %.01319 = phi ptr [ %1, %.lr.ph ], [ %14, %13 ]
-  %.01418 = phi ptr [ undef, %.lr.ph ], [ %.2, %13 ]
+  %.01321 = phi ptr [ %1, %.lr.ph ], [ %14, %13 ]
+  %.01420 = phi ptr [ undef, %.lr.ph ], [ %.2, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !77
   store i32 0, ptr %9, align 8, !tbaa !74
@@ -12354,7 +12354,7 @@ define linkonce_odr noundef ptr @_ZN5clang12ast_matchers8internal26matchesFirstI
   br label %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit
 
 _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit: ; preds = %15, %17
-  %19 = load ptr, ptr %.01319, align 8, !tbaa !1044
+  %19 = load ptr, ptr %.01321, align 8, !tbaa !1044
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   call void @llvm.experimental.noalias.scope.decl(metadata !1118)
@@ -12370,7 +12370,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit: ; preds = 
   br label %24
 
 24:                                               ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit, %22
-  %.2 = phi ptr [ %.01319, %22 ], [ %.01418, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit ]
+  %.2 = phi ptr [ %.01321, %22 ], [ %.01420, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit ]
   %25 = load ptr, ptr %7, align 8, !tbaa !77
   %26 = load i32, ptr %9, align 8, !tbaa !74
   %.not4.i.i.i = icmp eq i32 %26, 0
@@ -12409,8 +12409,8 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit: ; preds = %_ZN
   br i1 %21, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit, %13, %5
-  %spec.select = phi ptr [ %2, %5 ], [ %2, %13 ], [ %.2, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit ]
-  ret ptr %spec.select
+  %35 = phi ptr [ %2, %5 ], [ %2, %13 ], [ %.2, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit ]
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

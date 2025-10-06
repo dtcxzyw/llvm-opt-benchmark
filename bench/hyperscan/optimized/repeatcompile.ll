@@ -1214,11 +1214,11 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge38, %21
   br i1 %.not6.i37.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %67
-  %.03220.us.i = phi i32 [ %68, %67 ], [ 1, %.lr.ph.i ]
-  %44 = sub i32 %38, %.03220.us.i
+  %.03218.us.i = phi i32 [ %68, %67 ], [ 1, %.lr.ph.i ]
+  %44 = sub i32 %38, %.03218.us.i
   %45 = zext i32 %44 to i64
   %.not.us.i = icmp ult i64 %42, %45
-  %.not6.i.us.i = icmp eq i32 %.03220.us.i, %38
+  %.not6.i.us.i = icmp eq i32 %.03218.us.i, %38
   %or.cond.i = or i1 %.not6.i.us.i, %.not.us.i
   br i1 %or.cond.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit, label %.lr.ph.i.us.i
 
@@ -1276,21 +1276,21 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
   br i1 %.not13.i.i.i.us.i, label %67, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit
 
 67:                                               ; preds = %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i
-  %68 = add i32 %.03220.us.i, 1
+  %68 = add i32 %.03218.us.i, 1
   %69 = zext i32 %68 to i64
   %70 = icmp ugt i64 %36, %69
   br i1 %70, label %.lr.ph.split.us.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit, !llvm.loop !20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %117
   %71 = phi i64 [ %119, %117 ], [ 1, %.lr.ph.i ]
-  %.03220.i = phi i32 [ %118, %117 ], [ 1, %.lr.ph.i ]
-  %72 = sub i32 %38, %.03220.i
+  %.03218.i = phi i32 [ %118, %117 ], [ 1, %.lr.ph.i ]
+  %72 = sub i32 %38, %.03218.i
   %73 = zext i32 %72 to i64
   %.not.i = icmp ult i64 %42, %73
   br i1 %.not.i, label %.lr.ph.i38.i, label %74
 
 74:                                               ; preds = %.lr.ph.split.i
-  %.not6.i.i = icmp eq i32 %.03220.i, %38
+  %.not6.i.i = icmp eq i32 %.03218.i, %38
   br i1 %.not6.i.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %74
@@ -1400,13 +1400,13 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
   br i1 %.not13.i.i.i43.i, label %117, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit
 
 117:                                              ; preds = %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i
-  %118 = add i32 %.03220.i, 1
+  %118 = add i32 %.03218.i, 1
   %119 = zext i32 %118 to i64
   %120 = icmp ugt i64 %36, %119
   br i1 %120, label %.lr.ph.split.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit, !llvm.loop !20
 
 _ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit: ; preds = %117, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i, %74, %67, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i, %.lr.ph.split.us.i, %27
-  %.3.i = phi i32 [ %38, %27 ], [ %38, %67 ], [ %.03220.us.i, %.lr.ph.split.us.i ], [ %.03220.us.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i ], [ %38, %117 ], [ %.03220.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i ], [ %.03220.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i ], [ %38, %74 ]
+  %.3.i = phi i32 [ %38, %27 ], [ %38, %67 ], [ %.03218.us.i, %.lr.ph.split.us.i ], [ %.03218.us.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i ], [ %38, %117 ], [ %38, %74 ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i ]
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.3.i, i32 %.133)
   %121 = zext i32 %.3.i to i64
   %122 = getelementptr inbounds nuw i64, ptr %.pre44, i64 %.034

@@ -1027,63 +1027,63 @@ _ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit: ; preds = %44, %42, 
   br label %_ZN10OopStorage20block_for_allocationEv.exit.thread
 
 _ZN10OopStorage20block_for_allocationEv.exit.thread: ; preds = %15, %17, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit
-  %switch = phi i1 [ true, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ false, %17 ], [ false, %15 ]
-  %50 = phi ptr [ %21, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ null, %17 ], [ null, %15 ]
+  %50 = phi i1 [ true, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ false, %17 ], [ false, %15 ]
+  %51 = phi ptr [ %21, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ null, %17 ], [ null, %15 ]
   %.032 = phi i64 [ %48, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ undef, %17 ], [ undef, %15 ]
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %51
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %52
 
-51:                                               ; preds = %_ZN10OopStorage20block_for_allocationEv.exit.thread
+52:                                               ; preds = %_ZN10OopStorage20block_for_allocationEv.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #20
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10OopStorage20block_for_allocationEv.exit.thread, %51
-  br i1 %switch, label %52, label %71
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10OopStorage20block_for_allocationEv.exit.thread, %52
+  br i1 %50, label %53, label %72
 
-52:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  %53 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.032)
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %55 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %53, ptr nonnull %54) #20, !srcloc !10
-  %56 = tail call noundef i64 @llvm.umin.i64(i64 %53, i64 %2)
-  %.not40 = icmp eq i64 %56, 0
+53:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+  %54 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.032)
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %56 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %54, ptr nonnull %55) #20, !srcloc !10
+  %57 = tail call noundef i64 @llvm.umin.i64(i64 %54, i64 %2)
+  %.not40 = icmp eq i64 %57, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %52, %.lr.ph
-  %.03139 = phi i64 [ %62, %.lr.ph ], [ 0, %52 ]
-  %.13338 = phi i64 [ %59, %.lr.ph ], [ %.032, %52 ]
-  %57 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.13338, i1 true)
-  %58 = shl nuw i64 1, %57
-  %59 = xor i64 %58, %.13338
-  %60 = getelementptr inbounds nuw ptr, ptr %50, i64 %57
-  %61 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03139
-  store ptr %60, ptr %61, align 8
-  %62 = add nuw nsw i64 %.03139, 1
-  %exitcond.not = icmp eq i64 %62, %56
+.lr.ph:                                           ; preds = %53, %.lr.ph
+  %.03139 = phi i64 [ %63, %.lr.ph ], [ 0, %53 ]
+  %.13338 = phi i64 [ %60, %.lr.ph ], [ %.032, %53 ]
+  %58 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.13338, i1 true)
+  %59 = shl nuw i64 1, %58
+  %60 = xor i64 %59, %.13338
+  %61 = getelementptr inbounds nuw ptr, ptr %51, i64 %58
+  %62 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03139
+  store ptr %61, ptr %62, align 8
+  %63 = add nuw nsw i64 %.03139, 1
+  %exitcond.not = icmp eq i64 %63, %57
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %52
-  %.133.lcssa = phi i64 [ %.032, %52 ], [ %59, %.lr.ph ]
-  %63 = icmp eq i64 %.133.lcssa, 0
-  br i1 %63, label %66, label %64
+._crit_edge:                                      ; preds = %.lr.ph, %53
+  %.133.lcssa = phi i64 [ %.032, %53 ], [ %60, %.lr.ph ]
+  %64 = icmp eq i64 %.133.lcssa, 0
+  br i1 %64, label %67, label %65
 
-64:                                               ; preds = %._crit_edge
-  tail call void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonnull align 8 dereferenceable(576) %50, i64 noundef %.133.lcssa, ptr noundef nonnull %0)
-  %.neg = sub nsw i64 %56, %53
-  %65 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.neg, ptr nonnull %54) #20, !srcloc !10
-  br label %66
+65:                                               ; preds = %._crit_edge
+  tail call void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonnull align 8 dereferenceable(576) %51, i64 noundef %.133.lcssa, ptr noundef nonnull %0)
+  %.neg = sub nsw i64 %57, %54
+  %66 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.neg, ptr nonnull %55) #20, !srcloc !10
+  br label %67
 
-66:                                               ; preds = %._crit_edge, %64
-  %67 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE104ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %67, null
-  br i1 %.not, label %71, label %68
+67:                                               ; preds = %._crit_edge, %65
+  %68 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE104ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %72, label %69
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %0, align 8
-  %70 = sub nsw i64 %53, %56
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE104ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef %69, i64 noundef %56, i64 noundef %70)
-  br label %71
+69:                                               ; preds = %67
+  %70 = load ptr, ptr %0, align 8
+  %71 = sub nsw i64 %54, %57
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE104ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef %70, i64 noundef %57, i64 noundef %71)
+  br label %72
 
-71:                                               ; preds = %68, %66, %_ZN11MutexLockerD2Ev.exit
-  %.1 = phi i64 [ 0, %_ZN11MutexLockerD2Ev.exit ], [ %56, %66 ], [ %56, %68 ]
+72:                                               ; preds = %69, %67, %_ZN11MutexLockerD2Ev.exit
+  %.1 = phi i64 [ 0, %_ZN11MutexLockerD2Ev.exit ], [ %57, %67 ], [ %57, %69 ]
   ret i64 %.1
 }
 
@@ -2554,20 +2554,20 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZNK10OopSt
 
 43:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %25, %30, %35
   %.013 = phi i32 [ %., %35 ], [ undef, %30 ], [ undef, %25 ], [ undef, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
-  %switch = phi i1 [ false, %35 ], [ true, %30 ], [ true, %25 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %44
+  %44 = phi i1 [ false, %35 ], [ true, %30 ], [ true, %25 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %45
 
-44:                                               ; preds = %43
+45:                                               ; preds = %43
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #20
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %43, %44
-  br i1 %switch, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread, label %45
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %43, %45
+  br i1 %44, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread, label %46
 
 _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread: ; preds = %12, %_ZN11MutexLockerD2Ev.exit
-  br label %45
+  br label %46
 
-45:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread
+46:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread
   %.1 = phi i32 [ 0, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread ], [ %.013, %_ZN11MutexLockerD2Ev.exit ]
   ret i32 %.1
 }

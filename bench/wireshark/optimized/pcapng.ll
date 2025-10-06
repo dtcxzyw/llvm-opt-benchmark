@@ -5908,7 +5908,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
   %16 = getelementptr ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc zeroext i1 @pcapng_write_decryption_secrets_block(ptr noundef %0, ptr noundef %17, ptr noundef %1)
-  br i1 %18, label %19, label %.critedge79.thread
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %.lr.ph
   %20 = load i32, ptr %8, align 4
@@ -5934,18 +5934,18 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = icmp ult i32 %31, %33
-  br i1 %34, label %.lr.ph100, label %.critedge79
+  br i1 %34, label %.lr.ph91, label %.critedge79
 
-.lr.ph100:                                        ; preds = %29
+.lr.ph91:                                         ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %36 = zext i32 %31 to i64
   br label %37
 
-37:                                               ; preds = %.lr.ph100, %62
-  %indvars.iv108 = phi i64 [ %36, %.lr.ph100 ], [ %indvars.iv.next109, %62 ]
-  %38 = phi ptr [ %28, %.lr.ph100 ], [ %65, %62 ]
+37:                                               ; preds = %.lr.ph91, %62
+  %indvars.iv99 = phi i64 [ %36, %.lr.ph91 ], [ %indvars.iv.next100, %62 ]
+  %38 = phi ptr [ %28, %.lr.ph91 ], [ %65, %62 ]
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %indvars.iv108
+  %40 = getelementptr ptr, ptr %39, i64 %indvars.iv99
   %41 = load ptr, ptr %40, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = call ptr @wtap_block_get_mandatory_data(ptr noundef %41)
@@ -5983,23 +5983,23 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
 
 pcapng_write_meta_event_block.exit.thread:        ; preds = %58, %37, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge79.thread
+  br label %.critedge
 
 pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %61 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %35, i64 noundef 4, ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %61, label %62, label %.critedge79.thread
+  br i1 %61, label %62, label %.critedge
 
 62:                                               ; preds = %pcapng_write_meta_event_block.exit
   %63 = load i32, ptr %30, align 8
   %64 = add i32 %63, 1
   store i32 %64, ptr %30, align 8
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %65 = load ptr, ptr %27, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = icmp samesign ult i64 %indvars.iv.next109, %68
+  %69 = icmp samesign ult i64 %indvars.iv.next100, %68
   br i1 %69, label %37, label %.critedge79, !llvm.loop !66
 
 .critedge79:                                      ; preds = %62, %29, %.critedge.thread
@@ -6042,7 +6042,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %91, ptr %92, align 8
   %93 = call fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr noundef %0, ptr noundef %.064, ptr noundef %1)
-  br i1 %93, label %.thread, label %.critedge79.thread
+  br i1 %93, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %85
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
@@ -6066,7 +6066,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %104 = load ptr, ptr %103, align 8
   %.not77 = icmp eq ptr %104, null
-  br i1 %.not77, label %.critedge79.thread, label %105
+  br i1 %.not77, label %.critedge, label %105
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -6074,35 +6074,35 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %109 = load i32, ptr %108, align 8
   %110 = icmp ult i32 %107, %109
-  br i1 %110, label %.lr.ph102.preheader, label %.critedge79.thread
+  br i1 %110, label %.lr.ph93.preheader, label %.critedge
 
-.lr.ph102.preheader:                              ; preds = %105
+.lr.ph93.preheader:                               ; preds = %105
   %111 = zext i32 %107 to i64
-  br label %.lr.ph102
+  br label %.lr.ph93
 
-.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %117
-  %indvars.iv111 = phi i64 [ %111, %.lr.ph102.preheader ], [ %indvars.iv.next112, %117 ]
-  %112 = phi ptr [ %104, %.lr.ph102.preheader ], [ %120, %117 ]
+.lr.ph93:                                         ; preds = %.lr.ph93.preheader, %117
+  %indvars.iv102 = phi i64 [ %111, %.lr.ph93.preheader ], [ %indvars.iv.next103, %117 ]
+  %112 = phi ptr [ %104, %.lr.ph93.preheader ], [ %120, %117 ]
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr ptr, ptr %113, i64 %indvars.iv111
+  %114 = getelementptr ptr, ptr %113, i64 %indvars.iv102
   %115 = load ptr, ptr %114, align 8
   %116 = call fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr noundef %0, ptr noundef %115, ptr noundef %1)
-  br i1 %116, label %117, label %.critedge79.thread
+  br i1 %116, label %117, label %.critedge
 
-117:                                              ; preds = %.lr.ph102
+117:                                              ; preds = %.lr.ph93
   %118 = load i32, ptr %106, align 8
   %119 = add i32 %118, 1
   store i32 %119, ptr %106, align 8
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %120 = load ptr, ptr %103, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
-  %124 = icmp samesign ult i64 %indvars.iv.next112, %123
-  br i1 %124, label %.lr.ph102, label %.critedge79.thread, !llvm.loop !67
+  %124 = icmp samesign ult i64 %indvars.iv.next103, %123
+  br i1 %124, label %.lr.ph93, label %.critedge, !llvm.loop !67
 
-.critedge79.thread:                               ; preds = %.lr.ph, %pcapng_write_meta_event_block.exit, %117, %.lr.ph102, %105, %85, %pcapng_write_meta_event_block.exit.thread, %102
-  %.4 = phi i1 [ true, %102 ], [ false, %pcapng_write_meta_event_block.exit.thread ], [ false, %85 ], [ true, %105 ], [ %116, %.lr.ph102 ], [ %116, %117 ], [ false, %pcapng_write_meta_event_block.exit ], [ false, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %pcapng_write_meta_event_block.exit, %.lr.ph93, %117, %105, %85, %pcapng_write_meta_event_block.exit.thread, %102
+  %.4 = phi i1 [ true, %102 ], [ false, %pcapng_write_meta_event_block.exit.thread ], [ false, %85 ], [ true, %105 ], [ %116, %117 ], [ %116, %.lr.ph93 ], [ false, %pcapng_write_meta_event_block.exit ], [ false, %.lr.ph ]
   ret i1 %.4
 }
 

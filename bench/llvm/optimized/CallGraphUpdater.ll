@@ -347,17 +347,17 @@ _ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit32: ; preds = %.lr.ph.i.i.i.i
   %164 = zext i32 %163 to i64
   %.idx.i.i34 = shl nuw nsw i64 %164, 3
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx.i.i34
-  %.not36.i.i = icmp eq i32 %163, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i35
+  %.not34.i.i = icmp eq i32 %163, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i35
 
 .lr.ph.i.i35:                                     ; preds = %160, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %167, %.critedge.i.i ], [ %161, %160 ]
-  %166 = load ptr, ptr %.02937.i.i, align 8, !tbaa !41, !noalias !99
+  %.02935.i.i = phi ptr [ %167, %.critedge.i.i ], [ %161, %160 ]
+  %166 = load ptr, ptr %.02935.i.i, align 8, !tbaa !41, !noalias !99
   %.not17.i.i = icmp eq ptr %166, %156
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph3SCCEE6insertES3_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i35
-  %167 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i36 = icmp eq ptr %167, %165
   br i1 %.not.i.i36, label %._crit_edge.i.i, label %.lr.ph.i.i35, !llvm.loop !102
 
@@ -640,17 +640,17 @@ define dso_local void @_ZN4llvm16CallGraphUpdater19replaceFunctionWithERNS_8Func
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %11, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %11, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %15, %.critedge.i.i ], [ %9, %8 ]
-  %14 = load ptr, ptr %.02937.i.i, align 8, !tbaa !41, !noalias !112
+  %.02935.i.i = phi ptr [ %15, %.critedge.i.i ], [ %9, %8 ]
+  %14 = load ptr, ptr %.02935.i.i, align 8, !tbaa !41, !noalias !112
   %.not17.i.i = icmp eq ptr %14, %1
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !102
 

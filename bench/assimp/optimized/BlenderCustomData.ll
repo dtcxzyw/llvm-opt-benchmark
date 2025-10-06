@@ -1992,13 +1992,13 @@ define hidden void @_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
-  %.not13 = icmp eq ptr %6, %8
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq ptr %6, %8
+  br i1 %.not11, label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %31
   %9 = phi ptr [ %32, %31 ], [ %8, %4 ]
-  %.sroa.04.014 = phi ptr [ %33, %31 ], [ %6, %4 ]
-  %10 = load ptr, ptr %.sroa.04.014, align 8
+  %.sroa.04.012 = phi ptr [ %33, %31 ], [ %6, %4 ]
+  %10 = load ptr, ptr %.sroa.04.012, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %2
@@ -2008,17 +2008,17 @@ define hidden void @_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %15) #21
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %._crit_edge16
+  br i1 %17, label %18, label %._crit_edge
 
-._crit_edge16:                                    ; preds = %14
+._crit_edge:                                      ; preds = %14
   %.pre = load ptr, ptr %7, align 8
   br label %31
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %.sroa.04.014, align 8
+  %19 = load ptr, ptr %.sroa.04.012, align 8
   store ptr %19, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.014, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.012, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %22, null
@@ -2040,17 +2040,17 @@ define hidden void @_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS
   %30 = atomicrmw volatile add ptr %24, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit.thread
 
-31:                                               ; preds = %._crit_edge16, %.lr.ph
-  %32 = phi ptr [ %.pre, %._crit_edge16 ], [ %9, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.014, i64 16
+31:                                               ; preds = %._crit_edge, %.lr.ph
+  %32 = phi ptr [ %.pre, %._crit_edge ], [ %9, %.lr.ph ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.012, i64 16
   %.not = icmp eq ptr %33, %32
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %31, %4
+_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit: ; preds = %31, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit.thread
 
-_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit.thread: ; preds = %29, %26, %18, %._crit_edge
+_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit.thread: ; preds = %29, %26, %18, %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit
   ret void
 }
 
@@ -2060,13 +2060,13 @@ define hidden noundef ptr @_ZN6Assimp7Blender22getCustomDataLayerDataERKNS0_10Cu
   %5 = load ptr, ptr %4, align 8, !noalias !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !16
-  %.not13.i = icmp eq ptr %5, %7
-  br i1 %.not13.i, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.lr.ph.i
+  %.not11.i = icmp eq ptr %5, %7
+  br i1 %.not11.i, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %29
   %8 = phi ptr [ %30, %29 ], [ %7, %3 ]
-  %.sroa.04.014.i = phi ptr [ %31, %29 ], [ %5, %3 ]
-  %9 = load ptr, ptr %.sroa.04.014.i, align 8, !noalias !16
+  %.sroa.04.012.i = phi ptr [ %31, %29 ], [ %5, %3 ]
+  %9 = load ptr, ptr %.sroa.04.012.i, align 8, !noalias !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !noalias !16
   %12 = icmp eq i32 %11, %1
@@ -2076,15 +2076,15 @@ define hidden noundef ptr @_ZN6Assimp7Blender22getCustomDataLayerDataERKNS0_10Cu
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %14) #21, !noalias !16
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %._crit_edge16.i
+  br i1 %16, label %17, label %._crit_edge.i
 
-._crit_edge16.i:                                  ; preds = %13
+._crit_edge.i:                                    ; preds = %13
   %.pre.i = load ptr, ptr %6, align 8, !noalias !16
   br label %29
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %.sroa.04.014.i, align 8, !noalias !16
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.014.i, i64 8
+  %18 = load ptr, ptr %.sroa.04.012.i, align 8, !noalias !16
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.012.i, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !16
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %21
@@ -2105,9 +2105,9 @@ define hidden noundef ptr @_ZN6Assimp7Blender22getCustomDataLayerDataERKNS0_10Cu
   %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4, !noalias !16
   br label %_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-29:                                               ; preds = %._crit_edge16.i, %.lr.ph.i
-  %30 = phi ptr [ %.pre.i, %._crit_edge16.i ], [ %8, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.014.i, i64 16
+29:                                               ; preds = %._crit_edge.i, %.lr.ph.i
+  %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %8, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.012.i, i64 16
   %.not.i = icmp eq ptr %31, %30
   br i1 %.not.i, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.lr.ph.i, !llvm.loop !15
 

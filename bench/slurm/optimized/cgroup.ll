@@ -562,7 +562,7 @@ define dso_local noundef ptr @autodetect_cgroup_version() #0 {
   br label %31
 
 24:                                               ; preds = %6, %12, %14
-  %switch = phi ptr [ @.str.11, %6 ], [ @.str.11, %14 ], [ @.str.10, %12 ]
+  %.str.10..str.11 = phi ptr [ @.str.11, %6 ], [ @.str.11, %14 ], [ @.str.10, %12 ]
   %.0 = phi i32 [ 2, %6 ], [ 2, %14 ], [ 1, %12 ]
   %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %26 = and i64 %25, 36028797018963968
@@ -579,7 +579,7 @@ define dso_local noundef ptr @autodetect_cgroup_version() #0 {
   br label %31
 
 31:                                               ; preds = %24, %30, %27, %22, %20, %18, %16, %10, %4
-  %.03 = phi ptr [ null, %4 ], [ null, %10 ], [ null, %16 ], [ null, %18 ], [ null, %20 ], [ null, %22 ], [ %switch, %27 ], [ %switch, %30 ], [ %switch, %24 ]
+  %.03 = phi ptr [ null, %4 ], [ null, %10 ], [ null, %16 ], [ null, %18 ], [ null, %20 ], [ null, %22 ], [ %.str.10..str.11, %27 ], [ %.str.10..str.11, %30 ], [ %.str.10..str.11, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.03
 }

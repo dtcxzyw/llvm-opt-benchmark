@@ -3194,8 +3194,8 @@ _ZN12dt2bv_tactic8check_fdclEP3var.exit:          ; preds = %.noexc65, %.noexc63
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 65536
-  %.not211 = icmp eq i32 %86, 0
-  br i1 %.not211, label %91, label %_ZN12dt2bv_tactic8check_fdclEP3var.exit91, !llvm.loop !172
+  %.not210 = icmp eq i32 %86, 0
+  br i1 %.not210, label %91, label %_ZN12dt2bv_tactic8check_fdclEP3var.exit91, !llvm.loop !172
 
 87:                                               ; preds = %._crit_edge
   %88 = landingpad { ptr, i32 }
@@ -3279,8 +3279,8 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit86:       ; preds = %._crit_edge.i.i82, 
 112:                                              ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit86, %74
   %113 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %114 = load i32, ptr %113, align 4
-  %trunc212 = trunc i32 %114 to i16
-  switch i16 %trunc212, label %161 [
+  %trunc211 = trunc i32 %114 to i16
+  switch i16 %trunc211, label %161 [
     i16 1, label %115
     i16 2, label %124
     i16 0, label %140
@@ -3461,12 +3461,12 @@ _ZN12dt2bv_tactic8check_fdclEP3var.exit91:        ; preds = %.noexc90, %.noexc88
   br i1 %164, label %74, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %_ZN12dt2bv_tactic8check_fdclEP3var.exit91
-  %.pre249 = load i32, ptr %40, align 8, !tbaa !162
-  %.pre250 = add i32 %.pre249, -1
+  %.pre248 = load i32, ptr %40, align 8, !tbaa !162
+  %.pre249 = add i32 %.pre248, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67, %._crit_edge.loopexit
-  %.pre-phi = phi i32 [ %.pre250, %._crit_edge.loopexit ], [ %48, %67 ]
+  %.pre-phi = phi i32 [ %.pre249, %._crit_edge.loopexit ], [ %48, %67 ]
   store i32 %.pre-phi, ptr %40, align 8, !tbaa !162
   invoke void @_ZN12dt2bv_tactic8check_fdclEP3app(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %51)
           to label %thread-pre-splitthread-pre-split unwind label %87
@@ -3538,8 +3538,8 @@ _ZN12dt2bv_tactic8check_fdclEP3var.exit91:        ; preds = %.noexc90, %.noexc88
   %205 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %206 = load i32, ptr %205, align 4
   %207 = and i32 %206, 65536
-  %.not210 = icmp eq i32 %207, 0
-  br i1 %.not210, label %210, label %179, !llvm.loop !180
+  %.not209 = icmp eq i32 %207, 0
+  br i1 %.not209, label %210, label %179, !llvm.loop !180
 
 208:                                              ; preds = %222, %215
   %209 = landingpad { ptr, i32 }
@@ -3692,11 +3692,11 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i164: ; preds = %.noexc169, 
 
 249:                                              ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i164, %._crit_edge.i166, %._crit_edge.i125, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i123, %._crit_edge.i106, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i104
   %.sink = phi i32 [ %125, %._crit_edge.i106 ], [ %.pre2.i105, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i104 ], [ %146, %._crit_edge.i125 ], [ %.pre2.i124, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i123 ], [ %232, %._crit_edge.i166 ], [ %.pre2.i165, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i164 ]
-  %.sink303 = phi ptr [ %.pre.i107, %._crit_edge.i106 ], [ %131, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i104 ], [ %.pre.i126, %._crit_edge.i125 ], [ %152, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i123 ], [ %.pre.i167, %._crit_edge.i166 ], [ %238, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i164 ]
-  %.0.i274.sink = phi ptr [ %78, %._crit_edge.i106 ], [ %78, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i104 ], [ %78, %._crit_edge.i125 ], [ %78, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i123 ], [ %.0.i, %._crit_edge.i166 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i164 ]
+  %.sink302 = phi ptr [ %.pre.i107, %._crit_edge.i106 ], [ %131, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i104 ], [ %.pre.i126, %._crit_edge.i125 ], [ %152, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i123 ], [ %.pre.i167, %._crit_edge.i166 ], [ %238, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i164 ]
+  %.0.i273.sink = phi ptr [ %78, %._crit_edge.i106 ], [ %78, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i104 ], [ %78, %._crit_edge.i125 ], [ %78, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i123 ], [ %.0.i, %._crit_edge.i166 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i164 ]
   %250 = zext i32 %.sink to i64
-  %251 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink303, i64 %250
-  store ptr %.0.i274.sink, ptr %251, align 8
+  %251 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink302, i64 %250
+  store ptr %.0.i273.sink, ptr %251, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %251, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
   %252 = load i32, ptr %40, align 8, !tbaa !162
@@ -5042,7 +5042,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   %5 = phi i32 [ %.pre, %2 ], [ %46, %41 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %41 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable27 [
+  switch i32 %6, label %default.unreachable26 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit
@@ -5123,7 +5123,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef %37, ptr noundef nonnull %33)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread
 
-default.unreachable27:                            ; preds = %4
+default.unreachable26:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i
@@ -6464,7 +6464,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
   %5 = phi i32 [ %.pre, %2 ], [ %54, %49 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %49 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable27 [
+  switch i32 %6, label %default.unreachable26 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
@@ -6553,7 +6553,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %43, i64 noundef %45, ptr noundef nonnull %41)
   br label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread
 
-default.unreachable27:                            ; preds = %4
+default.unreachable26:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE7dec_refEjPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i

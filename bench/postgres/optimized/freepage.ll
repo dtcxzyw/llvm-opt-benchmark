@@ -458,8 +458,8 @@ define internal fastcc i64 @FreePageBtreeCleanup(ptr noundef %0) unnamed_addr #1
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not104 = icmp eq i64 %6, 0
-  br i1 %.not104, label %.thread, label %.lr.ph
+  %.not101 = icmp eq i64 %6, 0
+  br i1 %.not101, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -524,8 +524,8 @@ define internal fastcc i64 @FreePageBtreeCleanup(ptr noundef %0) unnamed_addr #1
   %45 = ptrtoint ptr %42 to i64
   %46 = select i1 %40, i64 0, i64 %45
   %47 = ptrtoint ptr %38 to i64
-  %reass.sub109 = sub i64 %46, %47
-  %48 = add i64 %reass.sub109, 1
+  %reass.sub106 = sub i64 %46, %47
+  %48 = add i64 %reass.sub106, 1
   %.0.i.i = select i1 %40, i64 0, i64 %48
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %.0.i.i, ptr %49, align 8
@@ -631,7 +631,7 @@ FreePagePopSpanLeader.exit:                       ; preds = %87, %90
   %115 = load i64, ptr %103, align 8
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 23
   store i64 %115, ptr %116, align 8
-  br label %FreePagePopSpanLeader.exit76
+  br label %FreePagePopSpanLeader.exit75
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -641,9 +641,9 @@ FreePagePopSpanLeader.exit:                       ; preds = %87, %90
   %122 = getelementptr i8, ptr %0, i64 56
   %123 = getelementptr %union.RelptrFreePageSpanLeader, ptr %122, i64 %120
   store i64 %121, ptr %123, align 8
-  br label %FreePagePopSpanLeader.exit76
+  br label %FreePagePopSpanLeader.exit75
 
-FreePagePopSpanLeader.exit76:                     ; preds = %114, %117
+FreePagePopSpanLeader.exit75:                     ; preds = %114, %117
   %124 = load i64, ptr %57, align 8
   store i64 %124, ptr %8, align 8
   %125 = load i64, ptr %59, align 8
@@ -674,21 +674,21 @@ FreePagePopSpanLeader.exit76:                     ; preds = %114, %117
   %145 = ptrtoint ptr %132 to i64
   %reass.sub = sub i64 %144, %145
   %146 = add i64 %reass.sub, 1
-  %.0.i.i79 = select i1 %137, i64 0, i64 %146
+  %.0.i.i78 = select i1 %137, i64 0, i64 %146
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  store i64 %.0.i.i79, ptr %147, align 8
+  store i64 %.0.i.i78, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store i64 0, ptr %148, align 8
-  %.pre.i80 = or disjoint i64 %140, 1
+  %.pre.i79 = or disjoint i64 %140, 1
   br i1 %137, label %FreePagePushSpanLeader.exit, label %149
 
-149:                                              ; preds = %FreePagePopSpanLeader.exit76
+149:                                              ; preds = %FreePagePopSpanLeader.exit75
   %150 = getelementptr inbounds nuw i8, ptr %138, i64 15
-  store i64 %.pre.i80, ptr %150, align 8
+  store i64 %.pre.i79, ptr %150, align 8
   br label %FreePagePushSpanLeader.exit
 
-FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLeader.exit76, %149
-  store i64 %.pre.i80, ptr %135, align 8
+FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLeader.exit75, %149
+  store i64 %.pre.i79, ptr %135, align 8
   %151 = load i64, ptr %9, align 8
   br label %.thread
 
@@ -705,17 +705,17 @@ FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLead
   %.1 = phi i64 [ 0, %53 ], [ 0, %66 ], [ %151, %FreePagePushSpanLeader.exit ], [ 0, %56 ], [ 0, %1 ], [ 0, %12 ], [ 0, %152 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %157 = load i32, ptr %156, align 4
-  %.not71106 = icmp eq i32 %157, 0
-  br i1 %.not71106, label %.loopexit, label %.lr.ph108
+  %.not71103 = icmp eq i32 %157, 0
+  br i1 %.not71103, label %.loopexit, label %.lr.ph105
 
-.lr.ph108:                                        ; preds = %.thread
+.lr.ph105:                                        ; preds = %.thread
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %159 = ptrtoint ptr %4 to i64
   br label %160
 
-160:                                              ; preds = %.lr.ph108, %205
-  %161 = phi i32 [ %157, %.lr.ph108 ], [ %206, %205 ]
-  %.5107 = phi i64 [ %.1, %.lr.ph108 ], [ %spec.select, %205 ]
+160:                                              ; preds = %.lr.ph105, %205
+  %161 = phi i32 [ %157, %.lr.ph105 ], [ %206, %205 ]
+  %.5104 = phi i64 [ %.1, %.lr.ph105 ], [ %spec.select, %205 ]
   %162 = load i64, ptr %0, align 8
   %163 = sub i64 1, %162
   %164 = getelementptr inbounds i8, ptr %0, i64 %163
@@ -766,37 +766,37 @@ FreePageBtreeGetRecycled.exit:                    ; preds = %160, %.split.i
   %195 = ptrtoint ptr %191 to i64
   %196 = select i1 %189, i64 0, i64 %195
   %197 = ptrtoint ptr %187 to i64
-  %reass.sub110 = sub i64 %196, %197
-  %198 = add i64 %reass.sub110, 1
-  %.0.i.i82 = select i1 %189, i64 0, i64 %198
+  %reass.sub107 = sub i64 %196, %197
+  %198 = add i64 %reass.sub107, 1
+  %.0.i.i81 = select i1 %189, i64 0, i64 %198
   %199 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  store i64 %.0.i.i82, ptr %199, align 8
+  store i64 %.0.i.i81, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store i64 0, ptr %200, align 8
-  %.pre.i83 = or disjoint i64 %192, 1
-  br i1 %189, label %.thread88, label %201
+  %.pre.i82 = or disjoint i64 %192, 1
+  br i1 %189, label %.thread86, label %201
 
 201:                                              ; preds = %184
   %202 = getelementptr inbounds nuw i8, ptr %190, i64 15
-  store i64 %.pre.i83, ptr %202, align 8
-  br label %.thread88
+  store i64 %.pre.i82, ptr %202, align 8
+  br label %.thread86
 
-.thread88:                                        ; preds = %201, %184
-  store i64 %.pre.i83, ptr %158, align 8
+.thread86:                                        ; preds = %201, %184
+  store i64 %.pre.i82, ptr %158, align 8
   %203 = load i32, ptr %156, align 4
   %204 = add i32 %203, 1
   store i32 %204, ptr %156, align 4
   br label %.loopexit
 
 205:                                              ; preds = %FreePageBtreeGetRecycled.exit
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %182, i64 %.5107)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %182, i64 %.5104)
   %206 = load i32, ptr %156, align 4
   %.not71 = icmp eq i32 %206, 0
   br i1 %.not71, label %.loopexit, label %160
 
-.loopexit:                                        ; preds = %205, %.thread, %.thread88
-  %.596 = phi i64 [ %.5107, %.thread88 ], [ %.1, %.thread ], [ %spec.select, %205 ]
-  ret i64 %.596
+.loopexit:                                        ; preds = %205, %.thread, %.thread86
+  %.593 = phi i64 [ %.5104, %.thread86 ], [ %.1, %.thread ], [ %spec.select, %205 ]
+  ret i64 %.593
 }
 
 ; Function Attrs: nounwind uwtable
@@ -910,8 +910,8 @@ define internal fastcc i64 @FreePageManagerPutInternal(ptr noundef %0, i64 nound
   %30 = ptrtoint ptr %26 to i64
   %31 = select i1 %24, i64 0, i64 %30
   %32 = ptrtoint ptr %10 to i64
-  %reass.sub475 = sub i64 %31, %32
-  %33 = add i64 %reass.sub475, 1
+  %reass.sub474 = sub i64 %31, %32
+  %33 = add i64 %reass.sub474, 1
   %.0.i.i = select i1 %24, i64 0, i64 %33
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 %.0.i.i, ptr %34, align 8
@@ -996,8 +996,8 @@ FreePagePopSpanLeader.exit:                       ; preds = %58, %61
   %83 = ptrtoint ptr %79 to i64
   %84 = select i1 %77, i64 0, i64 %83
   %85 = ptrtoint ptr %72 to i64
-  %reass.sub474 = sub i64 %84, %85
-  %86 = add i64 %reass.sub474, 1
+  %reass.sub473 = sub i64 %84, %85
+  %86 = add i64 %reass.sub473, 1
   %.0.i.i265 = select i1 %77, i64 0, i64 %86
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store i64 %.0.i.i265, ptr %87, align 8
@@ -1081,8 +1081,8 @@ FreePagePopSpanLeader.exit268:                    ; preds = %109, %112
   %134 = ptrtoint ptr %130 to i64
   %135 = select i1 %128, i64 0, i64 %134
   %136 = ptrtoint ptr %123 to i64
-  %reass.sub473 = sub i64 %135, %136
-  %137 = add i64 %reass.sub473, 1
+  %reass.sub472 = sub i64 %135, %136
+  %137 = add i64 %reass.sub472, 1
   %.0.i.i270 = select i1 %128, i64 0, i64 %137
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store i64 %.0.i.i270, ptr %138, align 8
@@ -1216,13 +1216,13 @@ FreePageBtreeGetRecycled.exit:                    ; preds = %147, %.split.i
   br label %238
 
 .lr.ph:                                           ; preds = %.preheader, %214
-  %.pn563 = phi i64 [ %217, %214 ], [ %194, %.preheader ]
+  %.pn562 = phi i64 [ %217, %214 ], [ %194, %.preheader ]
   %.pn = phi ptr [ %200, %214 ], [ %188, %.preheader ]
-  %.027.i453 = phi i32 [ %215, %214 ], [ 0, %.preheader ]
-  %199 = getelementptr inbounds nuw i8, ptr %10, i64 %.pn563
+  %.027.i452 = phi i32 [ %215, %214 ], [ 0, %.preheader ]
+  %199 = getelementptr inbounds nuw i8, ptr %10, i64 %.pn562
   %200 = getelementptr inbounds i8, ptr %199, i64 -1
-  %.023.val.i454.in = getelementptr i8, ptr %.pn, i64 24
-  %.023.val.i454 = load i64, ptr %.023.val.i454.in, align 8
+  %.023.val.i453.in = getelementptr i8, ptr %.pn, i64 24
+  %.023.val.i453 = load i64, ptr %.023.val.i453.in, align 8
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 7
   %202 = load i64, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 23
@@ -1239,8 +1239,8 @@ FreePageBtreeGetRecycled.exit:                    ; preds = %147, %.split.i
   %208 = lshr i64 %207, 1
   %209 = getelementptr inbounds nuw %struct.FreePageBtreeInternalKey, ptr %203, i64 %208
   %210 = load i64, ptr %209, align 8
-  %.not.i.i = icmp eq i64 %.023.val.i454, %210
-  %211 = icmp ult i64 %.023.val.i454, %210
+  %.not.i.i = icmp eq i64 %.023.val.i453, %210
+  %211 = icmp ult i64 %.023.val.i453, %210
   %212 = add nuw i64 %208, 1
   %.222.i.i = select i1 %211, i64 %208, i64 %.020.i.i
   %.219.i.i = select i1 %211, i64 %.017.i.i, i64 %212
@@ -1253,7 +1253,7 @@ FreePageBtreeSearchInternal.exit.i:               ; preds = %206, %204
   br i1 %.not.i, label %.preheader.i, label %214
 
 214:                                              ; preds = %FreePageBtreeSearchInternal.exit.i
-  %215 = add i32 %.027.i453, 1
+  %215 = add i32 %.027.i452, 1
   %216 = getelementptr inbounds nuw i8, ptr %199, i64 15
   %217 = load i64, ptr %216, align 8
   %218 = icmp eq i64 %217, 0
@@ -1267,12 +1267,12 @@ FreePageBtreeSearchInternal.exit.i:               ; preds = %206, %204
   %223 = getelementptr inbounds nuw i8, ptr %10, i64 %221
   %224 = getelementptr inbounds i8, ptr %223, i64 -1
   %225 = select i1 %222, ptr null, ptr %224
-  %226 = icmp sgt i32 %.027.i453, 0
+  %226 = icmp sgt i32 %.027.i452, 0
   br i1 %226, label %.lr.ph.i, label %FreePageBtreeFindRightSibling.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %227 = phi i64 [ %230, %.lr.ph.i ], [ %221, %.preheader.i ]
-  %.22941.i = phi i32 [ %231, %.lr.ph.i ], [ %.027.i453, %.preheader.i ]
+  %.22941.i = phi i32 [ %231, %.lr.ph.i ], [ %.027.i452, %.preheader.i ]
   %228 = getelementptr inbounds nuw i8, ptr %10, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 31
   %230 = load i64, ptr %229, align 8
@@ -1430,8 +1430,8 @@ FreePagePopSpanLeader.exit276:                    ; preds = %298, %301
   %323 = ptrtoint ptr %319 to i64
   %324 = select i1 %317, i64 0, i64 %323
   %325 = ptrtoint ptr %312 to i64
-  %reass.sub460 = sub i64 %324, %325
-  %326 = add i64 %reass.sub460, 1
+  %reass.sub459 = sub i64 %324, %325
+  %326 = add i64 %reass.sub459, 1
   %.0.i.i278 = select i1 %317, i64 0, i64 %326
   %327 = getelementptr inbounds nuw i8, ptr %321, i64 24
   store i64 %.0.i.i278, ptr %327, align 8
@@ -1527,8 +1527,8 @@ FreePagePopSpanLeader.exit281:                    ; preds = %358, %361
   %381 = ptrtoint ptr %377 to i64
   %382 = select i1 %375, i64 0, i64 %381
   %383 = ptrtoint ptr %370 to i64
-  %reass.sub461 = sub i64 %382, %383
-  %384 = add i64 %reass.sub461, 1
+  %reass.sub460 = sub i64 %382, %383
+  %384 = add i64 %reass.sub460, 1
   %.0.i.i283 = select i1 %375, i64 0, i64 %384
   %385 = getelementptr inbounds nuw i8, ptr %379, i64 24
   store i64 %.0.i.i283, ptr %385, align 8
@@ -1633,9 +1633,9 @@ FreePageBtreeAdjustAncestorKeys.exit.loopexit:    ; preds = %394, %423
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %431 = load i32, ptr %430, align 4
   %432 = icmp ugt i32 %427, %431
-  br i1 %432, label %.lr.ph456, label %.thread528
+  br i1 %432, label %.lr.ph455, label %.thread527
 
-.lr.ph456:                                        ; preds = %429
+.lr.ph455:                                        ; preds = %429
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %433 = sub nuw i32 %427, %431
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1643,8 +1643,8 @@ FreePageBtreeAdjustAncestorKeys.exit.loopexit:    ; preds = %394, %423
   %umax = zext i32 %435 to i64
   br label %436
 
-436:                                              ; preds = %.lr.ph456, %FreePageBtreeRecycle.exit
-  %.0233455 = phi i64 [ 0, %.lr.ph456 ], [ %463, %FreePageBtreeRecycle.exit ]
+436:                                              ; preds = %.lr.ph455, %FreePageBtreeRecycle.exit
+  %.0233454 = phi i64 [ 0, %.lr.ph455 ], [ %463, %FreePageBtreeRecycle.exit ]
   %437 = call fastcc zeroext i1 @FreePageManagerGetInternal(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %7)
   br i1 %437, label %441, label %438
 
@@ -1671,8 +1671,8 @@ FreePageBtreeAdjustAncestorKeys.exit.loopexit:    ; preds = %394, %423
   %453 = ptrtoint ptr %449 to i64
   %454 = select i1 %447, i64 0, i64 %453
   %455 = ptrtoint ptr %445 to i64
-  %reass.sub463 = sub i64 %454, %455
-  %456 = add i64 %reass.sub463, 1
+  %reass.sub462 = sub i64 %454, %455
+  %456 = add i64 %reass.sub462, 1
   %.0.i.i296 = select i1 %447, i64 0, i64 %456
   %457 = getelementptr inbounds nuw i8, ptr %451, i64 24
   store i64 %.0.i.i296, ptr %457, align 8
@@ -1691,34 +1691,34 @@ FreePageBtreeRecycle.exit:                        ; preds = %441, %459
   %461 = load i32, ptr %430, align 4
   %462 = add i32 %461, 1
   store i32 %462, ptr %430, align 4
-  %463 = add nuw nsw i64 %.0233455, 1
+  %463 = add nuw nsw i64 %.0233454, 1
   %exitcond.not = icmp eq i64 %463, %umax
   br i1 %exitcond.not, label %464, label %436, !llvm.loop !13
 
 464:                                              ; preds = %FreePageBtreeRecycle.exit
   call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre500 = load i32, ptr %426, align 4
-  %.pre501.pre = load ptr, ptr %5, align 8
-  %465 = icmp eq i32 %.pre500, 0
-  br i1 %465, label %._crit_edge502, label %.thread528
+  %.pre499 = load i32, ptr %426, align 4
+  %.pre500.pre = load ptr, ptr %5, align 8
+  %465 = icmp eq i32 %.pre499, 0
+  br i1 %465, label %._crit_edge501, label %.thread527
 
-._crit_edge502:                                   ; preds = %464
-  %.pre503 = load i64, ptr %186, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre501.pre, i64 8
-  %.pre504 = load i64, ptr %.phi.trans.insert, align 8
+._crit_edge501:                                   ; preds = %464
+  %.pre502 = load i64, ptr %186, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre500.pre, i64 8
+  %.pre503 = load i64, ptr %.phi.trans.insert, align 8
   br label %756
 
-.thread528:                                       ; preds = %429, %464
-  %.pre501531 = phi ptr [ %.pre501.pre, %464 ], [ %188, %429 ]
+.thread527:                                       ; preds = %429, %464
+  %.pre500530 = phi ptr [ %.pre500.pre, %464 ], [ %188, %429 ]
   %466 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %467 = ptrtoint ptr %10 to i64
   br label %FreePageBtreeAdjustAncestorKeys.exit383
 
-FreePageBtreeAdjustAncestorKeys.exit383:          ; preds = %672, %.thread528
-  %.0238 = phi i64 [ %1, %.thread528 ], [ %673, %672 ]
-  %.0236 = phi ptr [ null, %.thread528 ], [ %485, %672 ]
-  %.0234 = phi ptr [ %.pre501531, %.thread528 ], [ %472, %672 ]
+FreePageBtreeAdjustAncestorKeys.exit383:          ; preds = %672, %.thread527
+  %.0238 = phi i64 [ %1, %.thread527 ], [ %673, %672 ]
+  %.0236 = phi ptr [ null, %.thread527 ], [ %485, %672 ]
+  %.0234 = phi ptr [ %.pre500530, %.thread527 ], [ %472, %672 ]
   %468 = getelementptr inbounds nuw i8, ptr %.0234, i64 16
   %469 = load i64, ptr %468, align 8
   %470 = icmp eq i64 %469, 0
@@ -1812,15 +1812,15 @@ FreePageBtreeSplitPage.exit:                      ; preds = %514, %504, %506
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load i64, ptr %527, align 8
   %529 = getelementptr inbounds nuw i8, ptr %526, i64 24
-  br i1 %523, label %.preheader564, label %.preheader566
+  br i1 %523, label %.preheader563, label %.preheader565
 
-.preheader564:                                    ; preds = %FreePageBtreeSplitPage.exit, %531
+.preheader563:                                    ; preds = %FreePageBtreeSplitPage.exit, %531
   %.020.i = phi i64 [ %.222.i, %531 ], [ %528, %FreePageBtreeSplitPage.exit ]
   %.017.i = phi i64 [ %.219.i, %531 ], [ 0, %FreePageBtreeSplitPage.exit ]
   %530 = icmp ult i64 %.017.i, %.020.i
   br i1 %530, label %531, label %FreePageBtreeSearchLeaf.exit
 
-531:                                              ; preds = %.preheader564
+531:                                              ; preds = %.preheader563
   %532 = add i64 %.017.i, %.020.i
   %533 = lshr i64 %532, 1
   %534 = getelementptr inbounds nuw %struct.FreePageBtreeLeafKey, ptr %529, i64 %533
@@ -1830,10 +1830,10 @@ FreePageBtreeSplitPage.exit:                      ; preds = %514, %504, %506
   %537 = add nuw i64 %533, 1
   %.222.i = select i1 %536, i64 %533, i64 %.020.i
   %.219.i = select i1 %536, i64 %.017.i, i64 %537
-  br i1 %.not.i300, label %FreePageBtreeSearchLeaf.exit, label %.preheader564, !llvm.loop !15
+  br i1 %.not.i300, label %FreePageBtreeSearchLeaf.exit, label %.preheader563, !llvm.loop !15
 
-FreePageBtreeSearchLeaf.exit:                     ; preds = %.preheader564, %531
-  %.2.i299 = phi i64 [ %533, %531 ], [ %.017.i, %.preheader564 ]
+FreePageBtreeSearchLeaf.exit:                     ; preds = %.preheader563, %531
+  %.2.i299 = phi i64 [ %533, %531 ], [ %.017.i, %.preheader563 ]
   %538 = getelementptr %struct.FreePageBtreeLeafKey, ptr %529, i64 %.2.i299
   %539 = getelementptr i8, ptr %538, i64 16
   %540 = sub i64 %528, %.2.i299
@@ -1916,13 +1916,13 @@ FreePageBtreeSearchInternal.exit.i306:            ; preds = %564, %562
   %.not38.i311 = icmp eq i64 %.131.i310, 0
   br i1 %.not38.i311, label %551, label %FreePageBtreeAdjustAncestorKeys.exit316
 
-.preheader566:                                    ; preds = %FreePageBtreeSplitPage.exit, %583
+.preheader565:                                    ; preds = %FreePageBtreeSplitPage.exit, %583
   %.020.i317 = phi i64 [ %.222.i321, %583 ], [ %528, %FreePageBtreeSplitPage.exit ]
   %.017.i318 = phi i64 [ %.219.i322, %583 ], [ 0, %FreePageBtreeSplitPage.exit ]
   %582 = icmp ult i64 %.017.i318, %.020.i317
   br i1 %582, label %583, label %FreePageBtreeSearchInternal.exit
 
-583:                                              ; preds = %.preheader566
+583:                                              ; preds = %.preheader565
   %584 = add i64 %.017.i318, %.020.i317
   %585 = lshr i64 %584, 1
   %586 = getelementptr inbounds nuw %struct.FreePageBtreeInternalKey, ptr %529, i64 %585
@@ -1932,10 +1932,10 @@ FreePageBtreeSearchInternal.exit.i306:            ; preds = %564, %562
   %589 = add nuw i64 %585, 1
   %.222.i321 = select i1 %588, i64 %585, i64 %.020.i317
   %.219.i322 = select i1 %588, i64 %.017.i318, i64 %589
-  br i1 %.not.i320, label %FreePageBtreeSearchInternal.exit, label %.preheader566, !llvm.loop !11
+  br i1 %.not.i320, label %FreePageBtreeSearchInternal.exit, label %.preheader565, !llvm.loop !11
 
-FreePageBtreeSearchInternal.exit:                 ; preds = %.preheader566, %583
-  %.2.i319 = phi i64 [ %585, %583 ], [ %.017.i318, %.preheader566 ]
+FreePageBtreeSearchInternal.exit:                 ; preds = %.preheader565, %583
+  %.2.i319 = phi i64 [ %585, %583 ], [ %.017.i318, %.preheader565 ]
   %590 = getelementptr %struct.FreePageBtreeInternalKey, ptr %529, i64 %.2.i319
   %591 = getelementptr i8, ptr %590, i64 16
   %592 = sub i64 %528, %.2.i319
@@ -1943,16 +1943,16 @@ FreePageBtreeSearchInternal.exit:                 ; preds = %.preheader566, %583
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %591, ptr nonnull align 8 %590, i64 %593, i1 false)
   store i64 %.0238, ptr %590, align 8
   %594 = ptrtoint ptr %.0236 to i64
-  %reass.sub464 = sub i64 %594, %467
-  %595 = add i64 %reass.sub464, 1
+  %reass.sub463 = sub i64 %594, %467
+  %595 = add i64 %reass.sub463, 1
   %596 = getelementptr inbounds nuw i8, ptr %590, i64 8
   store i64 %595, ptr %596, align 8
   %597 = load i64, ptr %527, align 8
   %598 = add i64 %597, 1
   store i64 %598, ptr %527, align 8
   %599 = ptrtoint ptr %526 to i64
-  %reass.sub465 = sub i64 %599, %467
-  %600 = add i64 %reass.sub465, 1
+  %reass.sub464 = sub i64 %599, %467
+  %600 = add i64 %reass.sub464, 1
   %601 = getelementptr inbounds nuw i8, ptr %.0236, i64 16
   store i64 %600, ptr %601, align 8
   %602 = icmp eq i64 %.2.i319, 0
@@ -2064,22 +2064,22 @@ FreePageBtreeGetRecycled.exit344:                 ; preds = %639, %.split.i343
   %.0234.val = load i64, ptr %501, align 8
   store i64 %.0234.val, ptr %646, align 8
   %659 = ptrtoint ptr %.0234 to i64
-  %reass.sub468 = sub i64 %659, %467
-  %660 = add i64 %reass.sub468, 1
+  %reass.sub467 = sub i64 %659, %467
+  %660 = add i64 %reass.sub467, 1
   %661 = getelementptr inbounds nuw i8, ptr %645, i64 31
   store i64 %660, ptr %661, align 8
   %662 = ptrtoint ptr %653 to i64
   %663 = select i1 %654, i64 0, i64 %662
-  %reass.sub469 = sub i64 %663, %467
-  %664 = add i64 %reass.sub469, 1
+  %reass.sub468 = sub i64 %663, %467
+  %664 = add i64 %reass.sub468, 1
   %.0.i350 = select i1 %654, i64 0, i64 %664
   store i64 %.0.i350, ptr %468, align 8
   %.val = load i64, ptr %478, align 8
   %665 = getelementptr inbounds nuw i8, ptr %645, i64 39
   store i64 %.val, ptr %665, align 8
   %666 = ptrtoint ptr %487 to i64
-  %reass.sub470 = sub i64 %666, %467
-  %667 = add i64 %reass.sub470, 1
+  %reass.sub469 = sub i64 %666, %467
+  %667 = add i64 %reass.sub469, 1
   %.0.i352 = select i1 %486, i64 0, i64 %667
   %668 = getelementptr inbounds nuw i8, ptr %645, i64 47
   store i64 %.0.i352, ptr %668, align 8
@@ -2131,8 +2131,8 @@ FreePageBtreeSearchInternal.exit363:              ; preds = %681, %683
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %691, ptr nonnull align 8 %690, i64 %693, i1 false)
   store i64 %673, ptr %690, align 8
   %694 = ptrtoint ptr %487 to i64
-  %reass.sub466 = sub i64 %694, %467
-  %695 = add i64 %reass.sub466, 1
+  %reass.sub465 = sub i64 %694, %467
+  %695 = add i64 %reass.sub465, 1
   %.0.i.i365 = select i1 %486, i64 0, i64 %695
   %696 = getelementptr inbounds nuw i8, ptr %690, i64 8
   store i64 %.0.i.i365, ptr %696, align 8
@@ -2228,8 +2228,8 @@ FreePageBtreeSearchInternal.exit.i373:            ; preds = %717, %715
   %748 = ptrtoint ptr %744 to i64
   %749 = select i1 %742, i64 0, i64 %748
   %750 = ptrtoint ptr %737 to i64
-  %reass.sub471 = sub i64 %749, %750
-  %751 = add i64 %reass.sub471, 1
+  %reass.sub470 = sub i64 %749, %750
+  %751 = add i64 %reass.sub470, 1
   %.0.i.i385 = select i1 %742, i64 0, i64 %751
   %752 = getelementptr inbounds nuw i8, ptr %746, i64 24
   store i64 %.0.i.i385, ptr %752, align 8
@@ -2247,10 +2247,10 @@ FreePagePushSpanLeader.exit387:                   ; preds = %.loopexit, %754
   store i64 %.pre.i386, ptr %740, align 8
   br label %FreePageBtreeAdjustAncestorKeys.exit
 
-756:                                              ; preds = %._crit_edge502, %425
-  %757 = phi i64 [ %.pre504, %._crit_edge502 ], [ %191, %425 ]
-  %758 = phi i64 [ %.pre503, %._crit_edge502 ], [ %187, %425 ]
-  %759 = phi ptr [ %.pre501.pre, %._crit_edge502 ], [ %188, %425 ]
+756:                                              ; preds = %._crit_edge501, %425
+  %757 = phi i64 [ %.pre503, %._crit_edge501 ], [ %191, %425 ]
+  %758 = phi i64 [ %.pre502, %._crit_edge501 ], [ %187, %425 ]
+  %759 = phi ptr [ %.pre500.pre, %._crit_edge501 ], [ %188, %425 ]
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 24
   %761 = getelementptr %struct.FreePageBtreeLeafKey, ptr %760, i64 %758
   %762 = getelementptr i8, ptr %761, i64 16
@@ -2265,11 +2265,11 @@ FreePagePushSpanLeader.exit387:                   ; preds = %.loopexit, %754
   %768 = add i64 %767, 1
   store i64 %768, ptr %763, align 8
   %769 = icmp eq i64 %758, 0
-  %.pre506 = load i64, ptr %0, align 8
+  %.pre505 = load i64, ptr %0, align 8
   br i1 %769, label %770, label %FreePageBtreeAdjustAncestorKeys.exit403
 
 770:                                              ; preds = %756
-  %771 = sub i64 1, %.pre506
+  %771 = sub i64 1, %.pre505
   %772 = getelementptr inbounds i8, ptr %0, i64 %771
   %.0.i389 = load i64, ptr %760, align 8
   br label %773
@@ -2334,11 +2334,11 @@ FreePageBtreeSearchInternal.exit.i393:            ; preds = %786, %784
   br i1 %.not38.i398, label %773, label %FreePageBtreeAdjustAncestorKeys.exit403.loopexit
 
 FreePageBtreeAdjustAncestorKeys.exit403.loopexit: ; preds = %773, %802
-  %.pre505 = load i64, ptr %0, align 8
+  %.pre504 = load i64, ptr %0, align 8
   br label %FreePageBtreeAdjustAncestorKeys.exit403
 
 FreePageBtreeAdjustAncestorKeys.exit403:          ; preds = %FreePageBtreeAdjustAncestorKeys.exit403.loopexit, %756
-  %804 = phi i64 [ %.pre505, %FreePageBtreeAdjustAncestorKeys.exit403.loopexit ], [ %.pre506, %756 ]
+  %804 = phi i64 [ %.pre504, %FreePageBtreeAdjustAncestorKeys.exit403.loopexit ], [ %.pre505, %756 ]
   %805 = sub i64 1, %804
   %806 = getelementptr inbounds i8, ptr %0, i64 %805
   %807 = tail call i64 @llvm.umin.i64(i64 %2, i64 129)
@@ -2356,8 +2356,8 @@ FreePageBtreeAdjustAncestorKeys.exit403:          ; preds = %FreePageBtreeAdjust
   %817 = ptrtoint ptr %813 to i64
   %818 = select i1 %811, i64 0, i64 %817
   %819 = ptrtoint ptr %806 to i64
-  %reass.sub472 = sub i64 %818, %819
-  %820 = add i64 %reass.sub472, 1
+  %reass.sub471 = sub i64 %818, %819
+  %820 = add i64 %reass.sub471, 1
   %.0.i.i405 = select i1 %811, i64 0, i64 %820
   %821 = getelementptr inbounds nuw i8, ptr %815, i64 24
   store i64 %.0.i.i405, ptr %821, align 8

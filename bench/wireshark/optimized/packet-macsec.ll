@@ -173,351 +173,350 @@ define internal i32 @dissect_macsec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #10
   %23 = trunc i64 %22 to i32
   %.not.i = icmp eq i32 %23, 32
-  br i1 %.not.i, label %27, label %24
+  br i1 %.not.i, label %26, label %24
 
 24:                                               ; preds = %21
   store ptr null, ptr @psk_bin, align 8
-  %25 = and i32 %23, -2
-  %26 = icmp eq i32 %25, 32
+  %25 = icmp eq i32 %23, 33
   br label %pref_key_string_to_bin.exit
 
-27:                                               ; preds = %21
-  %28 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
-  store ptr %28, ptr @psk_bin, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 0, ptr %29, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br label %31
+26:                                               ; preds = %21
+  %27 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
+  store ptr %27, ptr @psk_bin, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 0, ptr %28, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  br label %30
 
-31:                                               ; preds = %31, %27
-  %indvars.iv3.i = phi i64 [ 0, %27 ], [ %indvars.iv.next4.i, %31 ]
-  %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr i8, ptr %18, i64 %indvars.iv3.i
-  %33 = load i8, ptr %32, align 1
-  store i8 %33, ptr %5, align 1
-  %34 = getelementptr i8, ptr %32, i64 1
-  %35 = load i8, ptr %34, align 1
-  store i8 %35, ptr %30, align 1
-  %36 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #12
-  %37 = trunc i64 %36 to i8
-  %38 = load ptr, ptr @psk_bin, align 8
-  %39 = getelementptr i8, ptr %38, i64 %indvars.iv.i
-  store i8 %37, ptr %39, align 1
+30:                                               ; preds = %30, %26
+  %indvars.iv3.i = phi i64 [ 0, %26 ], [ %indvars.iv.next4.i, %30 ]
+  %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %30 ]
+  %31 = getelementptr i8, ptr %18, i64 %indvars.iv3.i
+  %32 = load i8, ptr %31, align 1
+  store i8 %32, ptr %5, align 1
+  %33 = getelementptr i8, ptr %31, i64 1
+  %34 = load i8, ptr %33, align 1
+  store i8 %34, ptr %29, align 1
+  %35 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #12
+  %36 = trunc i64 %35 to i8
+  %37 = load ptr, ptr @psk_bin, align 8
+  %38 = getelementptr i8, ptr %37, i64 %indvars.iv.i
+  store i8 %36, ptr %38, align 1
   %indvars.iv.next4.i = add nuw nsw i64 %indvars.iv3.i, 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %pref_key_string_to_bin.exit, label %31, !llvm.loop !6
+  br i1 %exitcond.not.i, label %pref_key_string_to_bin.exit, label %30, !llvm.loop !6
 
-pref_key_string_to_bin.exit:                      ; preds = %31, %20, %24
-  %.020.i = phi i1 [ false, %20 ], [ %26, %24 ], [ true, %31 ]
+pref_key_string_to_bin.exit:                      ; preds = %30, %20, %24
+  %.020.i = phi i1 [ false, %20 ], [ %25, %24 ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %41 = zext i8 %40 to i32
-  %42 = and i32 %41, 12
-  %or.cond.not = icmp eq i32 %42, 0
-  %.not173 = icmp sgt i8 %40, -1
-  br i1 %.not173, label %43, label %190
+  %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %40 = zext i8 %39 to i32
+  %41 = and i32 %40, 12
+  %or.cond.not = icmp eq i32 %41, 0
+  %.not173 = icmp sgt i8 %39, -1
+  br i1 %.not173, label %42, label %189
 
-43:                                               ; preds = %pref_key_string_to_bin.exit
-  %44 = and i32 %41, 32
-  %.not174.not = icmp eq i32 %44, 0
+42:                                               ; preds = %pref_key_string_to_bin.exit
+  %43 = and i32 %40, 32
+  %.not174.not = icmp eq i32 %43, 0
   %..neg199 = select i1 %.not174.not, i32 -6, i32 -14
   %. = select i1 %.not174.not, i32 6, i32 14
-  %45 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %46 = or disjoint i32 %., 16
-  %.not175 = icmp ugt i32 %45, %46
-  br i1 %.not175, label %47, label %190
+  %44 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %45 = or disjoint i32 %., 16
+  %.not175 = icmp ugt i32 %44, %45
+  br i1 %.not175, label %46, label %189
 
-47:                                               ; preds = %43
-  %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %.not176 = icmp eq i8 %48, 0
-  br i1 %.not176, label %54, label %49
+46:                                               ; preds = %42
+  %47 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not176 = icmp eq i8 %47, 0
+  br i1 %.not176, label %53, label %48
 
-49:                                               ; preds = %47
-  %50 = zext i8 %48 to i32
-  %51 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %52 = add nuw nsw i32 %., %50
-  %reass.sub.neg = sub i32 %52, %51
+48:                                               ; preds = %46
+  %49 = zext i8 %47 to i32
+  %50 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %51 = add nuw nsw i32 %., %49
+  %reass.sub.neg = sub i32 %51, %50
   %.neg = add i32 %reass.sub.neg, 16
-  %53 = add nuw nsw i32 %52, 16
-  tail call void @set_actual_length(ptr noundef %0, i32 noundef %53)
-  br label %58
+  %52 = add nuw nsw i32 %51, 16
+  tail call void @set_actual_length(ptr noundef %0, i32 noundef %52)
+  br label %57
 
-54:                                               ; preds = %47
-  %55 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %56 = add nsw i32 %..neg199, -16
-  %57 = add i32 %56, %55
-  %.pre = add i32 %57, %.
-  br label %58
+53:                                               ; preds = %46
+  %54 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %55 = add nsw i32 %..neg199, -16
+  %56 = add i32 %55, %54
+  %.pre = add i32 %56, %.
+  br label %57
 
-58:                                               ; preds = %54, %49
-  %.pre-phi = phi i32 [ %.pre, %54 ], [ %52, %49 ]
-  %.0151.neg200 = phi i32 [ 0, %54 ], [ %.neg, %49 ]
-  %.0150 = phi i32 [ %57, %54 ], [ %50, %49 ]
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %60 = load ptr, ptr %59, align 8
-  tail call void @col_set_str(ptr noundef %60, i32 noundef 35, ptr noundef nonnull @.str.49)
-  %61 = load ptr, ptr %59, align 8
-  tail call void @col_set_str(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.50)
+57:                                               ; preds = %53, %48
+  %.pre-phi = phi i32 [ %.pre, %53 ], [ %51, %48 ]
+  %.0151.neg200 = phi i32 [ 0, %53 ], [ %.neg, %48 ]
+  %.0150 = phi i32 [ %56, %53 ], [ %49, %48 ]
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load ptr, ptr %58, align 8
+  tail call void @col_set_str(ptr noundef %59, i32 noundef 35, ptr noundef nonnull @.str.49)
+  %60 = load ptr, ptr %58, align 8
+  tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.50)
   %.not177 = icmp eq ptr %2, null
-  br i1 %.not177, label %82, label %62
+  br i1 %.not177, label %81, label %61
 
-62:                                               ; preds = %58
-  %63 = load i32, ptr @proto_macsec, align 4
-  %64 = add nuw nsw i32 %., 2
-  %.sink = select i1 %or.cond.not, i32 %64, i32 %.
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %63, ptr noundef %0, i32 noundef 0, i32 noundef %.sink, i32 noundef 0)
-  %66 = load i32, ptr @ett_macsec, align 4
-  %67 = tail call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66)
-  %68 = load i32, ptr @hf_macsec_TCI, align 4
-  %69 = load i32, ptr @ett_macsec_tci, align 4
-  %70 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef %68, i32 noundef %69, ptr noundef nonnull @dissect_macsec.flags, i32 noundef 0, i32 noundef 8)
-  %71 = load i32, ptr @hf_macsec_AN, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %71, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %73 = load i32, ptr @hf_macsec_SL, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %73, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %75 = load i32, ptr @hf_macsec_PN, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0)
-  br i1 %.not174.not, label %82, label %77
+61:                                               ; preds = %57
+  %62 = load i32, ptr @proto_macsec, align 4
+  %63 = add nuw nsw i32 %., 2
+  %.sink = select i1 %or.cond.not, i32 %63, i32 %.
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef %.sink, i32 noundef 0)
+  %65 = load i32, ptr @ett_macsec, align 4
+  %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65)
+  %67 = load i32, ptr @hf_macsec_TCI, align 4
+  %68 = load i32, ptr @ett_macsec_tci, align 4
+  %69 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %66, ptr noundef %0, i32 noundef 0, i32 noundef %67, i32 noundef %68, ptr noundef nonnull @dissect_macsec.flags, i32 noundef 0, i32 noundef 8)
+  %70 = load i32, ptr @hf_macsec_AN, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %72 = load i32, ptr @hf_macsec_SL, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %74 = load i32, ptr @hf_macsec_PN, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %74, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0)
+  br i1 %.not174.not, label %81, label %76
 
-77:                                               ; preds = %62
-  %78 = load i32, ptr @hf_macsec_SCI_system_identifier, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %78, ptr noundef %0, i32 noundef 6, i32 noundef 6, i32 noundef 0)
-  %80 = load i32, ptr @hf_macsec_SCI_port_identifier, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %80, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  br label %82
+76:                                               ; preds = %61
+  %77 = load i32, ptr @hf_macsec_SCI_system_identifier, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %77, ptr noundef %0, i32 noundef 6, i32 noundef 6, i32 noundef 0)
+  %79 = load i32, ptr @hf_macsec_SCI_port_identifier, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %79, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  br label %81
 
-82:                                               ; preds = %62, %77, %58
-  %.0154 = phi ptr [ %67, %77 ], [ %67, %62 ], [ null, %58 ]
-  %83 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %., i32 noundef %.0150)
-  br i1 %.020.i, label %84, label %130
+81:                                               ; preds = %61, %76, %57
+  %.0154 = phi ptr [ %66, %76 ], [ %66, %61 ], [ null, %57 ]
+  %82 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %., i32 noundef %.0150)
+  br i1 %.020.i, label %83, label %129
 
-84:                                               ; preds = %82
+83:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %7, i8 0, i64 12, i1 false)
-  %85 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 6, i64 noundef 6)
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  %87 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %86, i32 noundef 12, i64 noundef 2)
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %89 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %88, i32 noundef 2, i64 noundef 4)
-  %90 = call i32 @gcry_cipher_open(ptr noundef nonnull %6, i32 noundef 7, i32 noundef 9, i32 noundef 0)
-  %.not178 = icmp eq i32 %90, 0
-  br i1 %.not178, label %92, label %91
+  %84 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 6, i64 noundef 6)
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %86 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %85, i32 noundef 12, i64 noundef 2)
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %88 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %87, i32 noundef 2, i64 noundef 4)
+  %89 = call i32 @gcry_cipher_open(ptr noundef nonnull %6, i32 noundef 7, i32 noundef 9, i32 noundef 0)
+  %.not178 = icmp eq i32 %89, 0
+  br i1 %.not178, label %91, label %90
 
-91:                                               ; preds = %84
+90:                                               ; preds = %83
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.51, i32 noundef 5, ptr noundef nonnull @.str.52, i64 noundef 267, ptr noundef nonnull @__func__.dissect_macsec, ptr noundef nonnull @.str.53)
   br label %.sink.split
 
-92:                                               ; preds = %84
-  %93 = load ptr, ptr %6, align 8
-  %94 = load ptr, ptr @psk_bin, align 8
-  %95 = call i32 @gcry_cipher_setkey(ptr noundef %93, ptr noundef %94, i64 noundef 16)
-  %.not179 = icmp eq i32 %95, 0
-  br i1 %.not179, label %97, label %96
+91:                                               ; preds = %83
+  %92 = load ptr, ptr %6, align 8
+  %93 = load ptr, ptr @psk_bin, align 8
+  %94 = call i32 @gcry_cipher_setkey(ptr noundef %92, ptr noundef %93, i64 noundef 16)
+  %.not179 = icmp eq i32 %94, 0
+  br i1 %.not179, label %96, label %95
 
-96:                                               ; preds = %92
+95:                                               ; preds = %91
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.51, i32 noundef 5, ptr noundef nonnull @.str.52, i64 noundef 273, ptr noundef nonnull @__func__.dissect_macsec, ptr noundef nonnull @.str.54)
   br label %.sink.split
 
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %6, align 8
-  %99 = call i32 @gcry_cipher_setiv(ptr noundef %98, ptr noundef nonnull %7, i64 noundef 12)
-  %.not180 = icmp eq i32 %99, 0
-  br i1 %.not180, label %101, label %100
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %6, align 8
+  %98 = call i32 @gcry_cipher_setiv(ptr noundef %97, ptr noundef nonnull %7, i64 noundef 12)
+  %.not180 = icmp eq i32 %98, 0
+  br i1 %.not180, label %100, label %99
 
-100:                                              ; preds = %97
+99:                                               ; preds = %96
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.51, i32 noundef 5, ptr noundef nonnull @.str.52, i64 noundef 279, ptr noundef nonnull @__func__.dissect_macsec, ptr noundef nonnull @.str.55)
   br label %.sink.split
 
-101:                                              ; preds = %97
-  br i1 %or.cond.not, label %114, label %102
+100:                                              ; preds = %96
+  br i1 %or.cond.not, label %113, label %101
 
-102:                                              ; preds = %101
-  %103 = call i32 @tvb_captured_length(ptr noundef %83)
-  %104 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 14)
+101:                                              ; preds = %100
+  %102 = call i32 @tvb_captured_length(ptr noundef %82)
+  %103 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @aad, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.0, i64 12, i1 false)
   store i16 -6776, ptr getelementptr inbounds nuw (i8, ptr @aad, i64 12), align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) getelementptr inbounds nuw (i8, ptr @aad, i64 14), ptr noundef align 1 dereferenceable(14) %104, i64 noundef 14, i1 noundef false) #12
-  %105 = load ptr, ptr %6, align 8
-  %106 = call i32 @gcry_cipher_authenticate(ptr noundef %105, ptr noundef nonnull @aad, i64 noundef 28)
-  %.not182 = icmp eq i32 %106, 0
-  br i1 %.not182, label %108, label %107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) getelementptr inbounds nuw (i8, ptr @aad, i64 14), ptr noundef align 1 dereferenceable(14) %103, i64 noundef 14, i1 noundef false) #12
+  %104 = load ptr, ptr %6, align 8
+  %105 = call i32 @gcry_cipher_authenticate(ptr noundef %104, ptr noundef nonnull @aad, i64 noundef 28)
+  %.not182 = icmp eq i32 %105, 0
+  br i1 %.not182, label %107, label %106
 
-107:                                              ; preds = %102
+106:                                              ; preds = %101
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.51, i32 noundef 5, ptr noundef nonnull @.str.52, i64 noundef 296, ptr noundef nonnull @__func__.dissect_macsec, ptr noundef nonnull @.str.56)
   br label %.sink.split
 
-108:                                              ; preds = %102
-  %109 = zext i32 %103 to i64
-  %110 = call ptr @tvb_memcpy(ptr noundef %83, ptr noundef nonnull @macsec_payload, i32 noundef 0, i64 noundef %109)
-  %111 = load ptr, ptr %6, align 8
-  %112 = call i32 @gcry_cipher_decrypt(ptr noundef %111, ptr noundef nonnull @macsec_payload, i64 noundef %109, ptr noundef null, i64 noundef 0)
-  %.not183 = icmp eq i32 %112, 0
-  br i1 %.not183, label %.thread190, label %113
+107:                                              ; preds = %101
+  %108 = zext i32 %102 to i64
+  %109 = call ptr @tvb_memcpy(ptr noundef %82, ptr noundef nonnull @macsec_payload, i32 noundef 0, i64 noundef %108)
+  %110 = load ptr, ptr %6, align 8
+  %111 = call i32 @gcry_cipher_decrypt(ptr noundef %110, ptr noundef nonnull @macsec_payload, i64 noundef %108, ptr noundef null, i64 noundef 0)
+  %.not183 = icmp eq i32 %111, 0
+  br i1 %.not183, label %.thread190, label %112
 
-113:                                              ; preds = %108
+112:                                              ; preds = %107
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.51, i32 noundef 5, ptr noundef nonnull @.str.52, i64 noundef 305, ptr noundef nonnull @__func__.dissect_macsec, ptr noundef nonnull @.str.57)
   br label %.sink.split
 
-114:                                              ; preds = %101
-  %115 = call i32 @tvb_captured_length(ptr noundef %0)
-  %116 = add i32 %115, -2
-  %117 = add i32 %115, -16
+113:                                              ; preds = %100
+  %114 = call i32 @tvb_captured_length(ptr noundef %0)
+  %115 = add i32 %114, -2
+  %116 = add i32 %114, -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @aad, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.0, i64 12, i1 false)
   store i16 -6776, ptr getelementptr inbounds nuw (i8, ptr @aad, i64 12), align 4
-  %118 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %117)
-  %119 = zext i32 %117 to i64
-  %120 = call ptr @__memcpy_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @aad, i64 14), ptr noundef %118, i64 noundef range(i64 0, 4294967296) %119, i64 noundef 1486) #12, !alias.scope !8
-  %121 = load ptr, ptr %6, align 8
-  %122 = zext i32 %116 to i64
-  %123 = call i32 @gcry_cipher_authenticate(ptr noundef %121, ptr noundef nonnull @aad, i64 noundef %122)
-  %.not181 = icmp eq i32 %123, 0
-  br i1 %.not181, label %.thread190, label %124
+  %117 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %116)
+  %118 = zext i32 %116 to i64
+  %119 = call ptr @__memcpy_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @aad, i64 14), ptr noundef %117, i64 noundef range(i64 0, 4294967296) %118, i64 noundef 1486) #12, !alias.scope !8
+  %120 = load ptr, ptr %6, align 8
+  %121 = zext i32 %115 to i64
+  %122 = call i32 @gcry_cipher_authenticate(ptr noundef %120, ptr noundef nonnull @aad, i64 noundef %121)
+  %.not181 = icmp eq i32 %122, 0
+  br i1 %.not181, label %.thread190, label %123
 
-124:                                              ; preds = %114
+123:                                              ; preds = %113
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.51, i32 noundef 5, ptr noundef nonnull @.str.52, i64 noundef 324, ptr noundef nonnull @__func__.dissect_macsec, ptr noundef nonnull @.str.56)
   br label %.sink.split
 
-.thread190:                                       ; preds = %114, %108
-  %.1157 = phi i32 [ %103, %108 ], [ %117, %114 ]
+.thread190:                                       ; preds = %113, %107
+  %.1157 = phi i32 [ %102, %107 ], [ %116, %113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %125 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.pre-phi, i64 noundef 16)
-  %126 = load ptr, ptr %6, align 8
-  %127 = call i32 @gcry_cipher_checktag(ptr noundef %126, ptr noundef nonnull %8, i64 noundef 16)
-  %.not184 = icmp eq i32 %127, 0
-  br i1 %.not184, label %129, label %128
+  %124 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.pre-phi, i64 noundef 16)
+  %125 = load ptr, ptr %6, align 8
+  %126 = call i32 @gcry_cipher_checktag(ptr noundef %125, ptr noundef nonnull %8, i64 noundef 16)
+  %.not184 = icmp eq i32 %126, 0
+  br i1 %.not184, label %128, label %127
 
-128:                                              ; preds = %.thread190
+127:                                              ; preds = %.thread190
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.51, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.58)
-  br label %129
+  br label %128
 
-129:                                              ; preds = %128, %.thread190
-  %.1162 = phi i32 [ 0, %128 ], [ 1, %.thread190 ]
+128:                                              ; preds = %127, %.thread190
+  %.1162 = phi i32 [ 0, %127 ], [ 1, %.thread190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %113, %107, %124, %100, %96, %91, %129
-  %spec.select.ph = phi i32 [ %.1162, %129 ], [ 0, %91 ], [ 0, %96 ], [ 0, %100 ], [ 0, %124 ], [ 0, %107 ], [ 0, %113 ]
-  %.2163.ph = phi i1 [ %.not184, %129 ], [ false, %91 ], [ false, %96 ], [ false, %100 ], [ false, %124 ], [ false, %107 ], [ false, %113 ]
-  %.2158.ph = phi i32 [ %.1157, %129 ], [ undef, %91 ], [ undef, %96 ], [ undef, %100 ], [ %117, %124 ], [ %103, %107 ], [ %103, %113 ]
+.sink.split:                                      ; preds = %112, %106, %123, %99, %95, %90, %128
+  %spec.select.ph = phi i32 [ %.1162, %128 ], [ 0, %90 ], [ 0, %95 ], [ 0, %99 ], [ 0, %123 ], [ 0, %106 ], [ 0, %112 ]
+  %.2163.ph = phi i1 [ %.not184, %128 ], [ false, %90 ], [ false, %95 ], [ false, %99 ], [ false, %123 ], [ false, %106 ], [ false, %112 ]
+  %.2158.ph = phi i32 [ %.1157, %128 ], [ undef, %90 ], [ undef, %95 ], [ undef, %99 ], [ %116, %123 ], [ %102, %106 ], [ %102, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %130
+  br label %129
 
-130:                                              ; preds = %.sink.split, %82
-  %spec.select = phi i32 [ 2, %82 ], [ %spec.select.ph, %.sink.split ]
-  %.2163 = phi i1 [ false, %82 ], [ %.2163.ph, %.sink.split ]
-  %.2158 = phi i32 [ undef, %82 ], [ %.2158.ph, %.sink.split ]
-  %131 = load ptr, ptr %6, align 8
-  %.not185 = icmp eq ptr %131, null
-  br i1 %.not185, label %133, label %132
+129:                                              ; preds = %.sink.split, %81
+  %spec.select = phi i32 [ 2, %81 ], [ %spec.select.ph, %.sink.split ]
+  %.2163 = phi i1 [ false, %81 ], [ %.2163.ph, %.sink.split ]
+  %.2158 = phi i32 [ undef, %81 ], [ %.2158.ph, %.sink.split ]
+  %130 = load ptr, ptr %6, align 8
+  %.not185 = icmp eq ptr %130, null
+  br i1 %.not185, label %132, label %131
 
-132:                                              ; preds = %130
-  call void @gcry_cipher_close(ptr noundef nonnull %131)
-  br label %133
+131:                                              ; preds = %129
+  call void @gcry_cipher_close(ptr noundef nonnull %130)
+  br label %132
 
-133:                                              ; preds = %132, %130
-  %134 = call i32 @call_data_dissector(ptr noundef %83, ptr noundef %1, ptr noundef %2)
-  %135 = add nuw nsw i32 %., 2
-  %136 = add i32 %.0150, -2
-  %137 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %135, i32 noundef %136)
-  %138 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.)
-  store i16 %138, ptr %9, align 8
-  br i1 %.2163, label %139, label %157
+132:                                              ; preds = %131, %129
+  %133 = call i32 @call_data_dissector(ptr noundef %82, ptr noundef %1, ptr noundef %2)
+  %134 = add nuw nsw i32 %., 2
+  %135 = add i32 %.0150, -2
+  %136 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %134, i32 noundef %135)
+  %137 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.)
+  store i16 %137, ptr %9, align 8
+  br i1 %.2163, label %138, label %156
 
-139:                                              ; preds = %133
-  br i1 %or.cond.not, label %153, label %140
+138:                                              ; preds = %132
+  br i1 %or.cond.not, label %152, label %139
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %142 = load ptr, ptr %141, align 8
-  %143 = zext i32 %.2158 to i64
-  %144 = call ptr @wmem_memdup(ptr noundef %142, ptr noundef nonnull @macsec_payload, i64 noundef %143) #13
-  %145 = call ptr @tvb_new_child_real_data(ptr noundef %137, ptr noundef %144, i32 noundef %.2158, i32 noundef %.2158)
-  %146 = call zeroext i16 @tvb_get_ntohs(ptr noundef %145, i32 noundef 0)
-  store i16 %146, ptr %9, align 8
-  %147 = add i32 %.2158, -2
-  %148 = call ptr @tvb_new_subset_length(ptr noundef %145, i32 noundef 2, i32 noundef %147)
-  %149 = load i32, ptr @hf_macsec_decrypted_data, align 4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %149, ptr noundef %145, i32 noundef 0, i32 noundef %.2158, i32 noundef 0)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %145, ptr noundef nonnull @.str.40)
-  %151 = load i32, ptr @hf_macsec_etype, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %151, ptr noundef %145, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  br label %157
+139:                                              ; preds = %138
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %141 = load ptr, ptr %140, align 8
+  %142 = zext i32 %.2158 to i64
+  %143 = call ptr @wmem_memdup(ptr noundef %141, ptr noundef nonnull @macsec_payload, i64 noundef %142) #13
+  %144 = call ptr @tvb_new_child_real_data(ptr noundef %136, ptr noundef %143, i32 noundef %.2158, i32 noundef %.2158)
+  %145 = call zeroext i16 @tvb_get_ntohs(ptr noundef %144, i32 noundef 0)
+  store i16 %145, ptr %9, align 8
+  %146 = add i32 %.2158, -2
+  %147 = call ptr @tvb_new_subset_length(ptr noundef %144, i32 noundef 2, i32 noundef %146)
+  %148 = load i32, ptr @hf_macsec_decrypted_data, align 4
+  %149 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %148, ptr noundef %144, i32 noundef 0, i32 noundef %.2158, i32 noundef 0)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %144, ptr noundef nonnull @.str.40)
+  %150 = load i32, ptr @hf_macsec_etype, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %150, ptr noundef %144, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  br label %156
 
-153:                                              ; preds = %139
-  %154 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %135, i32 noundef %136)
-  %155 = load i32, ptr @hf_macsec_etype, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %155, ptr noundef %0, i32 noundef %., i32 noundef 2, i32 noundef 0)
-  br label %157
+152:                                              ; preds = %138
+  %153 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %134, i32 noundef %135)
+  %154 = load i32, ptr @hf_macsec_etype, align 4
+  %155 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %154, ptr noundef %0, i32 noundef %., i32 noundef 2, i32 noundef 0)
+  br label %156
 
-157:                                              ; preds = %140, %153, %133
-  %.0153 = phi ptr [ %148, %140 ], [ %154, %153 ], [ %137, %133 ]
-  %158 = load i32, ptr @hf_macsec_ICV, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %.0154, i32 noundef %158, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 16, i32 noundef 0)
+156:                                              ; preds = %139, %152, %132
+  %.0153 = phi ptr [ %147, %139 ], [ %153, %152 ], [ %136, %132 ]
+  %157 = load i32, ptr @hf_macsec_ICV, align 4
+  %158 = call ptr @proto_tree_add_item(ptr noundef %.0154, i32 noundef %157, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 16, i32 noundef 0)
   call void @proto_tree_set_appendix(ptr noundef %.0154, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 16)
   %brmerge = or i1 %or.cond.not, %.2163
-  br i1 %brmerge, label %160, label %175
+  br i1 %brmerge, label %159, label %174
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %164 = load i32, ptr %163, align 8
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load i32, ptr %162, align 8
   %.neg197 = add nsw i32 %..neg199, -18
   %.neg198 = add i32 %.neg197, %.0151.neg200
-  %165 = add i32 %.neg198, %164
-  store i32 %165, ptr %163, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %166, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.0154, ptr %167, align 8
-  %168 = load i32, ptr @hf_macsec_eth_padding, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %168, ptr %169, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 0, ptr %170, align 4
-  %171 = load ptr, ptr @ethertype_handle, align 8
-  %172 = call i32 @call_dissector_with_data(ptr noundef %171, ptr noundef %.0153, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
-  %173 = load ptr, ptr %161, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 %164, ptr %174, align 8
-  br label %175
+  %164 = add i32 %.neg198, %163
+  store i32 %164, ptr %162, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %165, align 4
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %.0154, ptr %166, align 8
+  %167 = load i32, ptr @hf_macsec_eth_padding, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 %167, ptr %168, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store i32 0, ptr %169, align 4
+  %170 = load ptr, ptr @ethertype_handle, align 8
+  %171 = call i32 @call_dissector_with_data(ptr noundef %170, ptr noundef %.0153, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %172 = load ptr, ptr %160, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  store i32 %163, ptr %173, align 8
+  br label %174
 
-175:                                              ; preds = %157, %160
-  %176 = icmp eq i32 %spec.select, 0
-  br i1 %176, label %177, label %179
+174:                                              ; preds = %156, %159
+  %175 = icmp eq i32 %spec.select, 0
+  br i1 %175, label %176, label %178
 
-177:                                              ; preds = %175
-  %178 = load ptr, ptr %59, align 8
-  call void @col_append_str(ptr noundef %178, i32 noundef 25, ptr noundef nonnull @.str.59)
-  br label %179
+176:                                              ; preds = %174
+  %177 = load ptr, ptr %58, align 8
+  call void @col_append_str(ptr noundef %177, i32 noundef 25, ptr noundef nonnull @.str.59)
+  br label %178
 
-179:                                              ; preds = %177, %175
-  %180 = load i32, ptr @hf_macsec_ICV_check_success, align 4
-  %181 = call ptr @proto_tree_add_uint(ptr noundef %.0154, i32 noundef %180, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %spec.select)
-  %.not.i187 = icmp eq ptr %181, null
-  br i1 %.not.i187, label %proto_item_set_generated.exit, label %182
+178:                                              ; preds = %176, %174
+  %179 = load i32, ptr @hf_macsec_ICV_check_success, align 4
+  %180 = call ptr @proto_tree_add_uint(ptr noundef %.0154, i32 noundef %179, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %spec.select)
+  %.not.i187 = icmp eq ptr %180, null
+  br i1 %.not.i187, label %proto_item_set_generated.exit, label %181
 
-182:                                              ; preds = %179
-  %183 = getelementptr inbounds nuw i8, ptr %181, i64 40
-  %184 = load ptr, ptr %183, align 8
-  %.not5.i = icmp eq ptr %184, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %185
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 40
+  %183 = load ptr, ptr %182, align 8
+  %.not5.i = icmp eq ptr %183, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %184
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds nuw i8, ptr %184, i64 28
-  %187 = load i32, ptr %186, align 4
-  %188 = or i32 %187, 2
-  store i32 %188, ptr %186, align 4
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 28
+  %186 = load i32, ptr %185, align 4
+  %187 = or i32 %186, 2
+  store i32 %187, ptr %185, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %179, %182, %185
-  %189 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %190
+proto_item_set_generated.exit:                    ; preds = %178, %181, %184
+  %188 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %189
 
-190:                                              ; preds = %43, %pref_key_string_to_bin.exit, %proto_item_set_generated.exit
-  %.0 = phi i32 [ %189, %proto_item_set_generated.exit ], [ 0, %pref_key_string_to_bin.exit ], [ 0, %43 ]
+189:                                              ; preds = %42, %pref_key_string_to_bin.exit, %proto_item_set_generated.exit
+  %.0 = phi i32 [ %188, %proto_item_set_generated.exit ], [ 0, %pref_key_string_to_bin.exit ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

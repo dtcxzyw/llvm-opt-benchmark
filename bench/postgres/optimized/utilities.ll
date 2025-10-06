@@ -1703,7 +1703,7 @@ increase_size.exit:                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %33, ptr %31, align 4
   %.pre = load ptr, ptr %0, align 8
-  %.pre30 = load i32, ptr %3, align 4
+  %.pre29 = load i32, ptr %3, align 4
   br label %36
 
 35:                                               ; preds = %27
@@ -1711,7 +1711,7 @@ increase_size.exit:                               ; preds = %27
   br label %lose_s.exit
 
 36:                                               ; preds = %22, %increase_size.exit
-  %37 = phi i32 [ %.pre30, %increase_size.exit ], [ %4, %22 ]
+  %37 = phi i32 [ %.pre29, %increase_size.exit ], [ %4, %22 ]
   %38 = phi ptr [ %.pre, %increase_size.exit ], [ %15, %22 ]
   %.018 = phi ptr [ %34, %increase_size.exit ], [ %1, %22 ]
   %39 = sext i32 %37 to i64

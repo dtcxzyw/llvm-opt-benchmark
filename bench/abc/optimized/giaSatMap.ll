@@ -1352,7 +1352,7 @@ define void @Sbm_AddCardinConstrTest() local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %57, %0
-  %.val3548 = phi ptr [ %5, %0 ], [ %.val35, %57 ]
+  %.val3547 = phi ptr [ %5, %0 ], [ %.val35, %57 ]
   %.033 = phi i32 [ 1, %0 ], [ %58, %57 ]
   %20 = call i32 @sat_solver_solve(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %17, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #18
   %.not = icmp eq i32 %20, 1
@@ -1364,8 +1364,8 @@ define void @Sbm_AddCardinConstrTest() local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %21, %Vec_IntPush.exit
-  %.val3549 = phi ptr [ %.val3548, %21 ], [ %.val35, %Vec_IntPush.exit ]
-  %24 = phi ptr [ %.val3548, %21 ], [ %.pre.i46, %Vec_IntPush.exit ]
+  %.val3548 = phi ptr [ %.val3547, %21 ], [ %.val35, %Vec_IntPush.exit ]
+  %24 = phi ptr [ %.val3547, %21 ], [ %.pre.i45, %Vec_IntPush.exit ]
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %Vec_IntPush.exit ]
   %.val36 = load ptr, ptr %18, align 8, !tbaa !72
   %25 = getelementptr inbounds nuw i32, ptr %.val36, i64 %indvars.iv
@@ -1412,19 +1412,19 @@ define void @Sbm_AddCardinConstrTest() local_unnamed_addr #0 {
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink54 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink53 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
   %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
-  store ptr %.sink54, ptr %6, align 8, !tbaa !22
+  store ptr %.sink53, ptr %6, align 8, !tbaa !22
   store i32 %.sink, ptr %3, align 8, !tbaa !21
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %23
-  %.val35 = phi ptr [ %.val3549, %23 ], [ %.sink54, %Vec_IntPush.exit.sink.split ]
-  %.pre.i46 = phi ptr [ %24, %23 ], [ %.sink54, %Vec_IntPush.exit.sink.split ]
+  %.val35 = phi ptr [ %.val3548, %23 ], [ %.sink53, %Vec_IntPush.exit.sink.split ]
+  %.pre.i45 = phi ptr [ %24, %23 ], [ %.sink53, %Vec_IntPush.exit.sink.split ]
   %49 = add nsw i32 %31, 1
   store i32 %49, ptr %4, align 4, !tbaa !13
   %50 = sext i32 %31 to i64
-  %51 = getelementptr inbounds i32, ptr %.pre.i46, i64 %50
+  %51 = getelementptr inbounds i32, ptr %.pre.i45, i64 %50
   store i32 %30, ptr %51, align 4, !tbaa !23
   %.val37 = load ptr, ptr %18, align 8, !tbaa !72
   %52 = getelementptr inbounds nuw i32, ptr %.val37, i64 %indvars.iv
@@ -1445,7 +1445,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %61, label %select.unfold, label %19
 
 select.unfold:                                    ; preds = %57, %19
-  %62 = phi ptr [ %.val35, %57 ], [ %.val3548, %19 ]
+  %62 = phi ptr [ %.val35, %57 ], [ %.val3547, %19 ]
   call void @sat_solver_delete(ptr noundef %7) #18
   %63 = load ptr, ptr %10, align 8, !tbaa !22
   %.not.i = icmp eq ptr %63, null

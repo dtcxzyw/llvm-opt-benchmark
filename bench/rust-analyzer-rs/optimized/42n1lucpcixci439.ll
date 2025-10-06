@@ -457,15 +457,15 @@ _ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i: ; preds = %29
   %30 = load i64, ptr %7, align 8, !range !134, !noalias !131, !noundef !5
   %trunc.i = trunc nuw i64 %30 to i1
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %trunc.i, label %.thread19.i, label %34
+  br i1 %trunc.i, label %.thread18.i, label %34
 
-.thread19.i:                                      ; preds = %_ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i
+.thread18.i:                                      ; preds = %_ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !152
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0108648349ed49ecE.llvm.1604671798424797212"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31), !noalias !131
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i64, ptr %32, align 8, !range !4, !noalias !152, !noundef !5
-  %.not.i.i.i.i.i.i.i1.i7.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i.i.i.i.i1.i7.i, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i", label %36
+  %.not.i.i.i.i.i.i.i1.i6.i = icmp eq i64 %33, 0
+  br i1 %.not.i.i.i.i.i.i.i1.i6.i, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit13.i", label %36
 
 34:                                               ; preds = %_ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i
   %.sroa.0.0.copyload13 = load i64, ptr %31, align 8
@@ -473,22 +473,22 @@ _ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i: ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx14, i64 16, i1 false)
   br label %35
 
-35:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i", %34
-  %.sroa.0.1 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i" ], [ %.sroa.0.0.copyload13, %34 ]
+35:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit13.i", %34
+  %.sroa.0.1 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit13.i" ], [ %.sroa.0.0.copyload13, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !131
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !131
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !131
   br label %_ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit
 
-36:                                               ; preds = %.thread19.i
+36:                                               ; preds = %.thread18.i
   %37 = load ptr, ptr %4, align 8, !noalias !152, !nonnull !5, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !152, !noundef !5
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1604671798424797212"(ptr noalias noundef nonnull readonly align 1 %40, ptr noundef nonnull %37, i64 noundef %33, i64 noundef %39), !noalias !131
-  br label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i"
+  br label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit13.i"
 
-"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i": ; preds = %36, %.thread19.i
+"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit13.i": ; preds = %36, %.thread18.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !152
   br label %35
 

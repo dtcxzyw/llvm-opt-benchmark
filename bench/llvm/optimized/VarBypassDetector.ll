@@ -288,14 +288,14 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4StmtEjELb1EE9push_backES6_.e
 _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %48, %52
   %.0.i.i.i = phi ptr [ %49, %48 ], [ %55, %52 ]
   %.0.i.i1.i = phi ptr [ %51, %48 ], [ %58, %52 ]
-  %.not136 = icmp eq ptr %.0.i.i.i, %.0.i.i1.i
-  br i1 %.not136, label %.critedge, label %.lr.ph
+  %.not135 = icmp eq ptr %.0.i.i.i, %.0.i.i1.i
+  br i1 %.not135, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang8DeclStmt5declsEv.exit, %.lr.ph
-  %.070137 = phi ptr [ %61, %.lr.ph ], [ %.0.i.i.i, %_ZNK5clang8DeclStmt5declsEv.exit ]
-  %59 = load ptr, ptr %.070137, align 8, !tbaa !52
+  %.070136 = phi ptr [ %61, %.lr.ph ], [ %.0.i.i.i, %_ZNK5clang8DeclStmt5declsEv.exit ]
+  %59 = load ptr, ptr %.070136, align 8, !tbaa !52
   %60 = tail call noundef zeroext i1 @_ZN5clang7CodeGen17VarBypassDetector21BuildScopeInformationEPKNS_4DeclERj(ptr noundef nonnull align 8 dereferenceable(1105) %0, ptr noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %61 = getelementptr inbounds nuw i8, ptr %.070137, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.070136, i64 8
   %.not = icmp ne ptr %61, %.0.i.i1.i
   %or.cond.not = select i1 %60, i1 %.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
@@ -316,17 +316,17 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %48, %52
   %66 = icmp eq ptr %65, %.sroa.490.24.copyload
   %67 = load i64, ptr %64, align 8
   %68 = icmp eq i64 %67, %.sroa.6.24.copyload
-  %.not3.i.not140 = select i1 %66, i1 %68, i1 false
-  br i1 %.not3.i.not140, label %.loopexit, label %.lr.ph143
+  %.not3.i.not139 = select i1 %66, i1 %68, i1 false
+  br i1 %.not3.i.not139, label %.loopexit, label %.lr.ph142
 
-.lr.ph143:                                        ; preds = %62
+.lr.ph142:                                        ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   br label %70
 
-70:                                               ; preds = %.lr.ph143, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
-  %71 = phi i64 [ %67, %.lr.ph143 ], [ %112, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
-  %72 = phi ptr [ %65, %.lr.ph143 ], [ %110, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
-  %.653141 = phi i32 [ %.552, %.lr.ph143 ], [ %.754.ph, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
+70:                                               ; preds = %.lr.ph142, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
+  %71 = phi i64 [ %67, %.lr.ph142 ], [ %112, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
+  %72 = phi ptr [ %65, %.lr.ph142 ], [ %110, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
+  %.653140 = phi i32 [ %.552, %.lr.ph142 ], [ %.754.ph, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = and i64 %71, 3
   %74 = icmp eq i64 %73, 0
@@ -341,15 +341,15 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   %77 = load ptr, ptr %.in.i, align 8, !tbaa !15
   store ptr %77, ptr %7, align 8, !tbaa !15
   %.not76 = icmp eq ptr %77, null
-  br i1 %.not76, label %select.unfold121, label %78
+  br i1 %.not76, label %select.unfold120, label %78
 
 78:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %.not77 = icmp eq i32 %.653141, 0
+  %.not77 = icmp eq i32 %.653140, 0
   br i1 %.not77, label %.preheader, label %79
 
 79:                                               ; preds = %78
-  %80 = add nsw i32 %.653141, -1
-  br label %select.unfold121
+  %80 = add nsw i32 %.653140, -1
+  br label %select.unfold120
 
 .preheader:                                       ; preds = %78, %.thread
   %81 = phi ptr [ %.560.ph, %.thread ], [ %77, %78 ]
@@ -379,8 +379,8 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 93:                                               ; preds = %.preheader
   %94 = and i16 %82, 511
-  %.not131 = icmp eq i16 %94, 2
-  br i1 %.not131, label %95, label %.thread107
+  %.not130 = icmp eq i16 %94, 2
+  br i1 %.not130, label %95, label %.thread107
 
 95:                                               ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -397,27 +397,27 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 .thread107:                                       ; preds = %93
   %99 = call noundef zeroext i1 @_ZN5clang7CodeGen17VarBypassDetector21BuildScopeInformationEPKNS_4StmtERj(ptr noundef nonnull align 8 dereferenceable(1105) %0, ptr noundef nonnull %81, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  br i1 %99, label %select.unfold121, label %100
+  br i1 %99, label %select.unfold120, label %100
 
 100:                                              ; preds = %.thread107
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-select.unfold121:                                 ; preds = %.thread107, %79, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %.754.ph = phi i32 [ %.653141, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit ], [ %80, %79 ], [ 0, %.thread107 ]
+select.unfold120:                                 ; preds = %.thread107, %79, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %.754.ph = phi i32 [ %.653140, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit ], [ %80, %79 ], [ 0, %.thread107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %101 = load i64, ptr %64, align 8, !tbaa !57
   %102 = and i64 %101, 3
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %104, label %107
 
-104:                                              ; preds = %select.unfold121
+104:                                              ; preds = %select.unfold120
   %105 = load ptr, ptr %6, align 8, !tbaa !56
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %106, ptr %6, align 8, !tbaa !56
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-107:                                              ; preds = %select.unfold121
+107:                                              ; preds = %select.unfold120
   %.not.i88 = icmp ult i64 %101, 4
   br i1 %.not.i88, label %109, label %108
 
@@ -438,12 +438,12 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br i1 %.not3.i.not, label %.loopexit, label %70
 
 .loopexit:                                        ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %62, %100
-  %.not3.i.not135 = phi i1 [ false, %100 ], [ true, %62 ], [ true, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
+  %.not3.i.not134 = phi i1 [ false, %100 ], [ true, %62 ], [ true, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNK5clang8DeclStmt5declsEv.exit, %.loopexit, %21, %18, %3
-  %.1 = phi i1 [ false, %3 ], [ %.not3.i.not135, %.loopexit ], [ false, %18 ], [ false, %21 ], [ true, %_ZNK5clang8DeclStmt5declsEv.exit ], [ %60, %.lr.ph ]
+  %.1 = phi i1 [ false, %3 ], [ %.not3.i.not134, %.loopexit ], [ false, %18 ], [ false, %21 ], [ true, %_ZNK5clang8DeclStmt5declsEv.exit ], [ %60, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1
 }

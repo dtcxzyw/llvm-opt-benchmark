@@ -4046,9 +4046,9 @@ define internal fastcc void @jpeg2000_decode_sig_emb(ptr noundef nonnull capture
 15:                                               ; preds = %13
   %16 = tail call fastcc i32 @jpeg2000_decode_mel_sym(ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef %11)
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %20, label %.thread2
+  br i1 %17, label %20, label %.thread1
 
-.thread2:                                         ; preds = %15
+.thread1:                                         ; preds = %15
   %18 = zext i32 %12 to i64
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
   tail call fastcc void @jpeg2000_bitbuf_refill_backwards(ptr noundef nonnull %2, ptr noundef %19)
@@ -4078,7 +4078,7 @@ define internal fastcc void @jpeg2000_decode_sig_emb(ptr noundef nonnull capture
   tail call void @abort() #10
   unreachable
 
-jpeg2000_decode_ctx_vlc.exit:                     ; preds = %.thread2, %26
+jpeg2000_decode_ctx_vlc.exit:                     ; preds = %.thread1, %26
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load i64, ptr %31, align 8, !tbaa !38
   %33 = and i64 %32, 127

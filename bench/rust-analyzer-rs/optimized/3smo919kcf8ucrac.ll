@@ -815,8 +815,8 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h877f0a1dd
   br i1 %21, label %.thread.i.thread.i.i, label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader.i.i.i
-  %.sroa.01.08.i.i.i = phi i32 [ %22, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %22 = add nuw nsw i32 %.sroa.01.08.i.i.i, 1
+  %.sroa.01.07.i.i.i = phi i32 [ %22, %.preheader.i.i.i ], [ 0, %.lr.ph.i.i ]
+  %22 = add nuw nsw i32 %.sroa.01.07.i.i.i, 1
   tail call void @llvm.x86.sse2.pause() #10
   %.sroa.01.0.highbits.i.i.i = lshr i32 %22, %.02.i.i
   %23 = icmp eq i32 %.sroa.01.0.highbits.i.i.i, 0
@@ -897,8 +897,8 @@ _ZN4core3cmp6max_by17h799b4e1ccdc67c8bE.exit:     ; preds = %39, %"_ZN77_$LT$std
   br i1 %49, label %.thread.i.thread.i.i29, label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit.i.i27
 
 .preheader.i.i.i30:                               ; preds = %.lr.ph.i.i24, %.preheader.i.i.i30
-  %.sroa.01.08.i.i.i31 = phi i32 [ %50, %.preheader.i.i.i30 ], [ 0, %.lr.ph.i.i24 ]
-  %50 = add nuw nsw i32 %.sroa.01.08.i.i.i31, 1
+  %.sroa.01.07.i.i.i31 = phi i32 [ %50, %.preheader.i.i.i30 ], [ 0, %.lr.ph.i.i24 ]
+  %50 = add nuw nsw i32 %.sroa.01.07.i.i.i31, 1
   tail call void @llvm.x86.sse2.pause() #10, !noalias !58
   %.sroa.01.0.highbits.i.i.i32 = lshr i32 %50, %.02.i.i25
   %51 = icmp eq i32 %.sroa.01.0.highbits.i.i.i32, 0

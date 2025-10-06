@@ -916,36 +916,36 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   %22 = load i32, ptr %21, align 8, !tbaa !91
   %23 = and i32 %22, 1
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.thread130, label %24
+  br i1 %.not, label %.thread128, label %24
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %26 = load i32, ptr %25, align 8, !tbaa !93
   %.not116 = icmp eq i32 %26, 0
-  br i1 %.not116, label %.thread130, label %.preheader139
+  br i1 %.not116, label %.thread128, label %.preheader137
 
-.preheader139:                                    ; preds = %24
+.preheader137:                                    ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %28 = load i32, ptr %27, align 8, !tbaa !94
   br label %29
 
-29:                                               ; preds = %.preheader139, %40
-  %indvars.iv = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next, %40 ]
+29:                                               ; preds = %.preheader137, %40
+  %indvars.iv = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next, %40 ]
   %30 = getelementptr inbounds nuw i16, ptr @ff_mpa_freq_tab, i64 %indvars.iv
   %31 = load i16, ptr %30, align 2, !tbaa !95
   %32 = zext i16 %31 to i32
   %33 = icmp eq i32 %28, %32
-  br i1 %33, label %.thread125, label %34
+  br i1 %33, label %.thread123, label %34
 
 34:                                               ; preds = %29
   %35 = lshr i32 %32, 1
   %36 = icmp eq i32 %28, %35
-  br i1 %36, label %.thread125, label %37
+  br i1 %36, label %.thread123, label %37
 
 37:                                               ; preds = %34
   %38 = lshr i32 %32, 2
   %39 = icmp eq i32 %28, %38
-  br i1 %39, label %.thread125, label %40
+  br i1 %39, label %.thread123, label %40
 
 40:                                               ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -954,11 +954,11 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
 
 41:                                               ; preds = %40
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.14) #12
-  br label %.thread130
+  br label %.thread128
 
-.thread125:                                       ; preds = %34, %29, %37
+.thread123:                                       ; preds = %34, %29, %37
   %.ph = phi i64 [ 1, %34 ], [ 0, %29 ], [ 1, %37 ]
-  %.196128.ph = phi i32 [ 1048576, %34 ], [ 1572864, %29 ], [ 0, %37 ]
+  %.196126.ph = phi i32 [ 1048576, %34 ], [ 1572864, %29 ], [ 0, %37 ]
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 132
   %44 = load i32, ptr %43, align 4, !tbaa !98
@@ -967,15 +967,15 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
     i32 2, label %45
   ]
 
-45:                                               ; preds = %.thread125
+45:                                               ; preds = %.thread123
   br label %47
 
-46:                                               ; preds = %.thread125
+46:                                               ; preds = %.thread123
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.15) #12
-  br label %.thread130
+  br label %.thread128
 
-47:                                               ; preds = %.thread125, %45
-  %.0104 = phi i32 [ 0, %45 ], [ 192, %.thread125 ]
+47:                                               ; preds = %.thread123, %45
+  %.0104 = phi i32 [ 0, %45 ], [ 192, %.thread123 ]
   %48 = getelementptr inbounds nuw [3 x [15 x i16]], ptr @ff_mpa_bitrate_tab, i64 %.ph
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 60
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -983,27 +983,27 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   br label %52
 
 52:                                               ; preds = %47, %52
-  %indvars.iv157 = phi i64 [ 1, %47 ], [ %indvars.iv.next158, %52 ]
-  %.098147 = phi i32 [ 2147483647, %47 ], [ %.199, %52 ]
-  %.0100146 = phi i32 [ -1, %47 ], [ %.1101, %52 ]
-  %53 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv157
+  %indvars.iv155 = phi i64 [ 1, %47 ], [ %indvars.iv.next156, %52 ]
+  %.098145 = phi i32 [ 2147483647, %47 ], [ %.199, %52 ]
+  %.0100144 = phi i32 [ -1, %47 ], [ %.1101, %52 ]
+  %53 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv155
   %54 = load i16, ptr %53, align 2, !tbaa !95
   %55 = zext i16 %54 to i64
   %56 = mul nuw nsw i64 %55, 1000
   %57 = sub nsw i64 %56, %51
   %58 = tail call i64 @llvm.abs.i64(i64 %57, i1 true)
   %59 = trunc i64 %58 to i32
-  %60 = icmp sgt i32 %.098147, %59
-  %61 = trunc nuw nsw i64 %indvars.iv157 to i32
-  %.1101 = select i1 %60, i32 %61, i32 %.0100146
-  %.199 = tail call i32 @llvm.smin.i32(i32 %.098147, i32 %59)
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next158, 15
-  br i1 %exitcond160.not, label %62, label %52, !llvm.loop !100
+  %60 = icmp sgt i32 %.098145, %59
+  %61 = trunc nuw nsw i64 %indvars.iv155 to i32
+  %.1101 = select i1 %60, i32 %61, i32 %.0100144
+  %.199 = tail call i32 @llvm.smin.i32(i32 %.098145, i32 %59)
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %exitcond158.not = icmp eq i64 %indvars.iv.next156, 15
+  br i1 %exitcond158.not, label %62, label %52, !llvm.loop !100
 
 62:                                               ; preds = %52
   %63 = shl nuw nsw i32 %42, 10
-  %64 = or i32 %63, %.196128.ph
+  %64 = or i32 %63, %.196126.ph
   %65 = or disjoint i32 %64, %.0104
   %66 = or i32 %65, -1900544
   %67 = icmp sgt i32 %.1101, -1
@@ -1011,7 +1011,7 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
 
 .preheader:                                       ; preds = %62
   %68 = icmp eq i32 %.1101, 15
-  br i1 %68, label %.thread130, label %.lr.ph
+  br i1 %68, label %.thread128, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -1025,10 +1025,10 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   unreachable
 
 73:                                               ; preds = %.lr.ph, %93
-  %.084149 = phi i32 [ %66, %.lr.ph ], [ %95, %93 ]
-  %.1103148 = phi i32 [ %.1101, %.lr.ph ], [ %96, %93 ]
-  %74 = shl i32 %.1103148, 12
-  %75 = or i32 %.084149, %74
+  %.084147 = phi i32 [ %66, %.lr.ph ], [ %95, %93 ]
+  %.1103146 = phi i32 [ %.1101, %.lr.ph ], [ %96, %93 ]
+  %74 = shl i32 %.1103146, 12
+  %75 = or i32 %.084147, %74
   %76 = call i32 @avpriv_mpegaudio_decode_header(ptr noundef nonnull %3, i32 noundef %75) #12
   %77 = icmp sgt i32 %76, -1
   br i1 %77, label %79, label %78
@@ -1058,15 +1058,15 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
 
 93:                                               ; preds = %79
   %94 = xor i32 %74, -1
-  %95 = and i32 %.084149, %94
-  %96 = add nuw nsw i32 %.1103148, 1
+  %95 = and i32 %.084147, %94
+  %96 = add nuw nsw i32 %.1103146, 1
   %97 = icmp eq i32 %96, 15
-  br i1 %97, label %.thread130, label %73
+  br i1 %97, label %.thread128, label %73
 
 98:                                               ; preds = %79
   %99 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %2) #12
   %100 = icmp slt i32 %99, 0
-  br i1 %100, label %.thread130, label %101
+  br i1 %100, label %.thread128, label %101
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %2, align 8, !tbaa !105
@@ -1096,16 +1096,16 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   br label %116
 
 116:                                              ; preds = %101, %116
-  %.190150 = phi i32 [ 0, %101 ], [ %120, %116 ]
+  %.190148 = phi i32 [ 0, %101 ], [ %120, %116 ]
   %117 = load ptr, ptr %2, align 8, !tbaa !105
-  %118 = trunc nuw nsw i32 %.190150 to i16
+  %118 = trunc nuw nsw i32 %.190148 to i16
   %.lhs.trunc = mul nuw i16 %118, 255
   %119 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %119 to i32
   call void @avio_w8(ptr noundef %117, i32 noundef %.zext) #12
-  %120 = add nuw nsw i32 %.190150, 1
-  %exitcond161.not = icmp eq i32 %120, 100
-  br i1 %exitcond161.not, label %121, label %116, !llvm.loop !108
+  %120 = add nuw nsw i32 %.190148, 1
+  %exitcond159.not = icmp eq i32 %120, 100
+  br i1 %exitcond159.not, label %121, label %116, !llvm.loop !108
 
 121:                                              ; preds = %116
   %122 = load ptr, ptr %2, align 8, !tbaa !105
@@ -1193,9 +1193,9 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   %163 = load i32, ptr %156, align 8, !tbaa !82
   %164 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 %163, ptr %164, align 8, !tbaa !79
-  br label %.thread130
+  br label %.thread128
 
-.thread130:                                       ; preds = %93, %.preheader, %98, %1, %24, %136, %46, %41
+.thread128:                                       ; preds = %93, %.preheader, %98, %1, %24, %136, %46, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

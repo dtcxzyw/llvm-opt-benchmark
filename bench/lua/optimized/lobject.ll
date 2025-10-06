@@ -153,7 +153,7 @@ define hidden i64 @luaO_applyparam(i8 noundef zeroext %0, i64 noundef %1) local_
 define hidden range(i32 0, 2) i32 @luaO_rawarith(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  switch i32 %1, label %56 [
+  switch i32 %1, label %57 [
     i32 7, label %8
     i32 8, label %8
     i32 9, label %8
@@ -215,12 +215,12 @@ define hidden range(i32 0, 2) i32 @luaO_rawarith(ptr noundef %0, i32 noundef %1,
   %.0 = phi i32 [ 1, %24 ], [ 0, %22 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %101
+  br label %102
 
 30:                                               ; preds = %5, %5
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !7
-  switch i8 %32, label %101 [
+  switch i8 %32, label %102 [
     i8 19, label %33
     i8 3, label %35
   ]
@@ -238,7 +238,7 @@ define hidden range(i32 0, 2) i32 @luaO_rawarith(ptr noundef %0, i32 noundef %1,
   %.053 = phi double [ %34, %33 ], [ %37, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load i8, ptr %39, align 8, !tbaa !7
-  switch i8 %40, label %101 [
+  switch i8 %40, label %102 [
     i8 19, label %41
     i8 3, label %43
   ]
@@ -254,145 +254,145 @@ define hidden range(i32 0, 2) i32 @luaO_rawarith(ptr noundef %0, i32 noundef %1,
 
 46:                                               ; preds = %41, %43
   %.054 = phi double [ %42, %41 ], [ %45, %43 ]
-  %switch = icmp eq i32 %1, 4
-  br i1 %switch, label %49, label %47
+  %47 = icmp eq i32 %1, 4
+  br i1 %47, label %50, label %48
 
-47:                                               ; preds = %46
-  %48 = fdiv double %.053, %.054
+48:                                               ; preds = %46
+  %49 = fdiv double %.053, %.054
   br label %numarith.exit
 
-49:                                               ; preds = %46
-  %50 = fcmp oeq double %.054, 2.000000e+00
-  br i1 %50, label %51, label %53
+50:                                               ; preds = %46
+  %51 = fcmp oeq double %.054, 2.000000e+00
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %49
-  %52 = fmul double %.053, %.053
+52:                                               ; preds = %50
+  %53 = fmul double %.053, %.053
   br label %numarith.exit
 
-53:                                               ; preds = %49
-  %54 = tail call double @pow(double noundef %.053, double noundef %.054) #18, !tbaa !12
+54:                                               ; preds = %50
+  %55 = tail call double @pow(double noundef %.053, double noundef %.054) #18, !tbaa !12
   br label %numarith.exit
 
-numarith.exit:                                    ; preds = %47, %51, %53
-  %.0.i = phi double [ %48, %47 ], [ %52, %51 ], [ %54, %53 ]
+numarith.exit:                                    ; preds = %48, %52, %54
+  %.0.i = phi double [ %49, %48 ], [ %53, %52 ], [ %55, %54 ]
   store double %.0.i, ptr %4, align 8, !tbaa !4
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 19, ptr %55, align 8, !tbaa !7
-  br label %101
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 19, ptr %56, align 8, !tbaa !7
+  br label %102
 
-56:                                               ; preds = %5
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = load i8, ptr %57, align 8, !tbaa !7
-  switch i8 %58, label %101 [
-    i8 3, label %59
-    i8 19, label %68
+57:                                               ; preds = %5
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %59 = load i8, ptr %58, align 8, !tbaa !7
+  switch i8 %59, label %102 [
+    i8 3, label %60
+    i8 19, label %69
   ]
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %61 = load i8, ptr %60, align 8, !tbaa !7
-  %62 = icmp eq i8 %61, 3
-  %63 = load i64, ptr %2, align 8, !tbaa !4
-  br i1 %62, label %64, label %.thread
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %62 = load i8, ptr %61, align 8, !tbaa !7
+  %63 = icmp eq i8 %62, 3
+  %64 = load i64, ptr %2, align 8, !tbaa !4
+  br i1 %63, label %65, label %.thread
 
-64:                                               ; preds = %59
-  %65 = load i64, ptr %3, align 8, !tbaa !4
-  %66 = tail call fastcc i64 @intarith(ptr noundef %0, i32 noundef %1, i64 noundef %63, i64 noundef %65)
-  store i64 %66, ptr %4, align 8, !tbaa !4
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 3, ptr %67, align 8, !tbaa !7
-  br label %101
+65:                                               ; preds = %60
+  %66 = load i64, ptr %3, align 8, !tbaa !4
+  %67 = tail call fastcc i64 @intarith(ptr noundef %0, i32 noundef %1, i64 noundef %64, i64 noundef %66)
+  store i64 %67, ptr %4, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 3, ptr %68, align 8, !tbaa !7
+  br label %102
 
-68:                                               ; preds = %56
-  %69 = load double, ptr %2, align 8, !tbaa !4
+69:                                               ; preds = %57
+  %70 = load double, ptr %2, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre62 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !7
-  br label %71
+  br label %72
 
-.thread:                                          ; preds = %59
-  %70 = sitofp i64 %63 to double
-  br label %71
+.thread:                                          ; preds = %60
+  %71 = sitofp i64 %64 to double
+  br label %72
 
-71:                                               ; preds = %68, %.thread
-  %72 = phi i8 [ %.pre62, %68 ], [ %61, %.thread ]
-  %.052 = phi double [ %69, %68 ], [ %70, %.thread ]
-  switch i8 %72, label %101 [
-    i8 19, label %73
-    i8 3, label %75
+72:                                               ; preds = %69, %.thread
+  %73 = phi i8 [ %.pre62, %69 ], [ %62, %.thread ]
+  %.052 = phi double [ %70, %69 ], [ %71, %.thread ]
+  switch i8 %73, label %102 [
+    i8 19, label %74
+    i8 3, label %76
   ]
 
-73:                                               ; preds = %71
-  %74 = load double, ptr %3, align 8, !tbaa !4
-  br label %78
+74:                                               ; preds = %72
+  %75 = load double, ptr %3, align 8, !tbaa !4
+  br label %79
 
-75:                                               ; preds = %71
-  %76 = load i64, ptr %3, align 8, !tbaa !4
-  %77 = sitofp i64 %76 to double
-  br label %78
+76:                                               ; preds = %72
+  %77 = load i64, ptr %3, align 8, !tbaa !4
+  %78 = sitofp i64 %77 to double
+  br label %79
 
-78:                                               ; preds = %73, %75
-  %.051 = phi double [ %74, %73 ], [ %77, %75 ]
+79:                                               ; preds = %74, %76
+  %.051 = phi double [ %75, %74 ], [ %78, %76 ]
   switch i32 %1, label %numarith.exit61 [
-    i32 0, label %79
-    i32 1, label %81
-    i32 2, label %83
-    i32 5, label %85
-    i32 4, label %87
-    i32 6, label %93
-    i32 12, label %96
-    i32 3, label %98
+    i32 0, label %80
+    i32 1, label %82
+    i32 2, label %84
+    i32 5, label %86
+    i32 4, label %88
+    i32 6, label %94
+    i32 12, label %97
+    i32 3, label %99
   ]
 
-79:                                               ; preds = %78
-  %80 = fadd double %.052, %.051
+80:                                               ; preds = %79
+  %81 = fadd double %.052, %.051
   br label %numarith.exit61
 
-81:                                               ; preds = %78
-  %82 = fsub double %.052, %.051
+82:                                               ; preds = %79
+  %83 = fsub double %.052, %.051
   br label %numarith.exit61
 
-83:                                               ; preds = %78
-  %84 = fmul double %.052, %.051
+84:                                               ; preds = %79
+  %85 = fmul double %.052, %.051
   br label %numarith.exit61
 
-85:                                               ; preds = %78
-  %86 = fdiv double %.052, %.051
+86:                                               ; preds = %79
+  %87 = fdiv double %.052, %.051
   br label %numarith.exit61
 
-87:                                               ; preds = %78
-  %88 = fcmp oeq double %.051, 2.000000e+00
-  br i1 %88, label %89, label %91
+88:                                               ; preds = %79
+  %89 = fcmp oeq double %.051, 2.000000e+00
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %87
-  %90 = fmul double %.052, %.052
+90:                                               ; preds = %88
+  %91 = fmul double %.052, %.052
   br label %numarith.exit61
 
-91:                                               ; preds = %87
-  %92 = tail call double @pow(double noundef %.052, double noundef %.051) #18, !tbaa !12
+92:                                               ; preds = %88
+  %93 = tail call double @pow(double noundef %.052, double noundef %.051) #18, !tbaa !12
   br label %numarith.exit61
 
-93:                                               ; preds = %78
-  %94 = fdiv double %.052, %.051
-  %95 = tail call double @llvm.floor.f64(double %94)
+94:                                               ; preds = %79
+  %95 = fdiv double %.052, %.051
+  %96 = tail call double @llvm.floor.f64(double %95)
   br label %numarith.exit61
 
-96:                                               ; preds = %78
-  %97 = fneg double %.052
+97:                                               ; preds = %79
+  %98 = fneg double %.052
   br label %numarith.exit61
 
-98:                                               ; preds = %78
-  %99 = tail call double @luaV_modf(ptr noundef %0, double noundef %.052, double noundef %.051) #18
+99:                                               ; preds = %79
+  %100 = tail call double @luaV_modf(ptr noundef %0, double noundef %.052, double noundef %.051) #18
   br label %numarith.exit61
 
-numarith.exit61:                                  ; preds = %78, %79, %81, %83, %85, %89, %91, %93, %96, %98
-  %.0.i60 = phi double [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %95, %93 ], [ %97, %96 ], [ %99, %98 ], [ %90, %89 ], [ %92, %91 ], [ 0.000000e+00, %78 ]
+numarith.exit61:                                  ; preds = %79, %80, %82, %84, %86, %90, %92, %94, %97, %99
+  %.0.i60 = phi double [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %96, %94 ], [ %98, %97 ], [ %100, %99 ], [ %91, %90 ], [ %93, %92 ], [ 0.000000e+00, %79 ]
   store double %.0.i60, ptr %4, align 8, !tbaa !4
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 19, ptr %100, align 8, !tbaa !7
-  br label %101
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 19, ptr %101, align 8, !tbaa !7
+  br label %102
 
-101:                                              ; preds = %56, %64, %numarith.exit61, %71, %numarith.exit, %38, %30, %29
-  %.1 = phi i32 [ %.0, %29 ], [ 1, %numarith.exit ], [ 0, %38 ], [ 0, %30 ], [ 1, %64 ], [ 1, %numarith.exit61 ], [ 0, %71 ], [ 0, %56 ]
+102:                                              ; preds = %57, %65, %numarith.exit61, %72, %numarith.exit, %38, %30, %29
+  %.1 = phi i32 [ %.0, %29 ], [ 1, %numarith.exit ], [ 0, %38 ], [ 0, %30 ], [ 1, %65 ], [ 1, %numarith.exit61 ], [ 0, %72 ], [ 0, %57 ]
   ret i32 %.1
 }
 

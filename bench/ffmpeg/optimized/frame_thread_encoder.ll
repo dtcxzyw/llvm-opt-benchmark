@@ -184,8 +184,8 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
   %78 = add nsw i32 %77, 2
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 100
   store i32 %78, ptr %79, align 4, !tbaa !52
-  %.not142 = icmp eq i32 %78, 0
-  br i1 %.not142, label %._crit_edge, label %.lr.ph
+  %.not140 = icmp eq i32 %78, 0
+  br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 104
@@ -227,9 +227,9 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
 .preheader:                                       ; preds = %92
   %95 = load i32, ptr %15, align 8, !tbaa !37
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph140, label %._crit_edge141
+  br i1 %96, label %.lr.ph138, label %._crit_edge139
 
-.lr.ph140:                                        ; preds = %.preheader
+.lr.ph138:                                        ; preds = %.preheader
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -242,8 +242,8 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
   %106 = getelementptr inbounds nuw i8, ptr %69, i64 2320
   br label %107
 
-107:                                              ; preds = %.lr.ph140, %172
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next150, %172 ]
+107:                                              ; preds = %.lr.ph138, %172
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next148, %172 ]
   %108 = load ptr, ptr %9, align 8, !tbaa !31
   %109 = call ptr @avcodec_alloc_context3(ptr noundef %108) #7
   store ptr %109, ptr %2, align 8, !tbaa !4
@@ -354,24 +354,24 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
 
 166:                                              ; preds = %160
   store ptr %69, ptr %163, align 8, !tbaa !42
-  %167 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv149
+  %167 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv147
   %168 = call i32 @pthread_create(ptr noundef nonnull %167, ptr noundef null, ptr noundef nonnull @worker, ptr noundef nonnull %109) #7
   %.not126 = icmp eq i32 %168, 0
   br i1 %.not126, label %172, label %169
 
 169:                                              ; preds = %166
-  %170 = trunc nuw nsw i64 %indvars.iv149 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv147 to i32
   %171 = sub nsw i32 0, %168
   br label %.thread129
 
 172:                                              ; preds = %166
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %173 = load i32, ptr %15, align 8, !tbaa !37
   %174 = sext i32 %173 to i64
-  %175 = icmp slt i64 %indvars.iv.next150, %174
-  br i1 %175, label %107, label %._crit_edge141, !llvm.loop !68
+  %175 = icmp slt i64 %indvars.iv.next148, %174
+  br i1 %175, label %107, label %._crit_edge139, !llvm.loop !68
 
-._crit_edge141:                                   ; preds = %172, %.preheader
+._crit_edge139:                                   ; preds = %172, %.preheader
   call void @avcodec_parameters_free(ptr noundef nonnull %3) #7
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i32 1, ptr %176, align 8, !tbaa !59
@@ -379,7 +379,7 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
 
 .thread129.loopexit:                              ; preds = %110, %114, %121, %146, %107, %133, %138, %143
   %.081.ph = phi i32 [ %112, %110 ], [ %115, %114 ], [ %125, %121 ], [ %158, %146 ], [ -12, %107 ], [ -12, %133 ], [ -12, %138 ], [ -12, %143 ]
-  %177 = trunc nuw nsw i64 %indvars.iv149 to i32
+  %177 = trunc nuw nsw i64 %indvars.iv147 to i32
   br label %.thread129
 
 .thread129:                                       ; preds = %85, %88, %.thread129.loopexit, %._crit_edge, %92, %72, %169
@@ -392,8 +392,8 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
   call void @ff_frame_thread_encoder_free(ptr noundef %0)
   br label %178
 
-178:                                              ; preds = %68, %60, %57, %1, %8, %.thread129, %._crit_edge141
-  %.082 = phi i32 [ %.081, %.thread129 ], [ 0, %._crit_edge141 ], [ 0, %8 ], [ 0, %1 ], [ 0, %57 ], [ -22, %60 ], [ -12, %68 ]
+178:                                              ; preds = %68, %60, %57, %1, %8, %.thread129, %._crit_edge139
+  %.082 = phi i32 [ %.081, %.thread129 ], [ 0, %._crit_edge139 ], [ 0, %8 ], [ 0, %1 ], [ 0, %57 ], [ -22, %60 ], [ -12, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.082

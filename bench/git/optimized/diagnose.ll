@@ -131,7 +131,7 @@ define dso_local i32 @create_diagnostics_archive(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
   %10 = icmp eq i32 %2, 0
-  br i1 %10, label %.thread56, label %11
+  br i1 %10, label %.thread54, label %11
 
 11:                                               ; preds = %3
   %12 = tail call i32 @dup(i32 noundef 1) #12
@@ -150,7 +150,7 @@ define dso_local i32 @create_diagnostics_archive(ptr noundef %0, ptr noundef rea
 _.exit:                                           ; preds = %14, %16
   %.0.i = phi ptr [ %17, %16 ], [ @.str.6, %14 ]
   %18 = tail call i32 (ptr, ...) @error_errno(ptr noundef %.0.i) #12
-  br label %.thread56
+  br label %.thread54
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -419,13 +419,13 @@ loose_objs_stats.exit:                            ; preds = %strbuf_setlen.exit4
   br i1 %122, label %.preheader, label %.thread
 
 123:                                              ; preds = %.preheader
-  %124 = add nuw nsw i64 %.02563, 1
+  %124 = add nuw nsw i64 %.02561, 1
   %exitcond.not = icmp eq i64 %124, 5
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !66
 
 .preheader:                                       ; preds = %loose_objs_stats.exit, %123
-  %.02563 = phi i64 [ %124, %123 ], [ 0, %loose_objs_stats.exit ]
-  %125 = getelementptr inbounds nuw %struct.archive_dir, ptr @__const.create_diagnostics_archive.archive_dirs, i64 %.02563
+  %.02561 = phi i64 [ %124, %123 ], [ 0, %loose_objs_stats.exit ]
+  %125 = getelementptr inbounds nuw %struct.archive_dir, ptr @__const.create_diagnostics_archive.archive_dirs, i64 %.02561
   %126 = load ptr, ptr %125, align 16, !tbaa !67
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load i32, ptr %127, align 8, !tbaa !69
@@ -489,23 +489,23 @@ _.exit52:                                         ; preds = %149, %151
   %.029 = phi ptr [ null, %_.exit39 ], [ %145, %_.exit52 ], [ %145, %154 ], [ null, %134 ]
   %.026 = phi i32 [ -1, %_.exit39 ], [ %148, %_.exit52 ], [ 0, %154 ], [ -1, %134 ]
   %159 = icmp sgt i32 %22, -1
-  br i1 %159, label %160, label %.thread56
+  br i1 %159, label %160, label %.thread54
 
 160:                                              ; preds = %158
   %161 = call i32 @dup2(i32 noundef %12, i32 noundef 1) #12
   %162 = call i32 @close(i32 noundef %12) #12
   %163 = call i32 @close(i32 noundef %22) #12
-  br label %.thread56
+  br label %.thread54
 
-.thread56:                                        ; preds = %3, %_.exit, %160, %158
-  %.02662 = phi i32 [ %.026, %160 ], [ %.026, %158 ], [ 0, %3 ], [ -1, %_.exit ]
-  %.02961 = phi ptr [ %.029, %160 ], [ %.029, %158 ], [ null, %3 ], [ null, %_.exit ]
-  call void @free(ptr noundef %.02961) #12
+.thread54:                                        ; preds = %3, %_.exit, %160, %158
+  %.02660 = phi i32 [ %.026, %160 ], [ %.026, %158 ], [ 0, %3 ], [ -1, %_.exit ]
+  %.02959 = phi ptr [ %.029, %160 ], [ %.029, %158 ], [ null, %3 ], [ null, %_.exit ]
+  call void @free(ptr noundef %.02959) #12
   call void @strvec_clear(ptr noundef nonnull %8) #12
   call void @strbuf_release(ptr noundef nonnull %9) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %.02662
+  ret i32 %.02660
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

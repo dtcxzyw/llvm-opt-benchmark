@@ -8697,15 +8697,12 @@ if.else18:                                        ; preds = %if.else
 
 lor.lhs.false:                                    ; preds = %if.else18
   %cmp27 = icmp sgt i64 %.fr, -1
-  br i1 %cmp27, label %switch.early.test, label %if.else37
+  %and.off = add nsw i64 %and, -1
+  %switch = icmp ult i64 %and.off, 32766
+  %or.cond18 = select i1 %cmp27, i1 %switch, i1 false
+  br i1 %or.cond18, label %if.then28, label %if.else37
 
-switch.early.test:                                ; preds = %lor.lhs.false
-  switch i64 %and, label %if.then28 [
-    i64 32767, label %if.else37
-    i64 0, label %if.else37
-  ]
-
-if.then28:                                        ; preds = %switch.early.test, %if.else18
+if.then28:                                        ; preds = %lor.lhs.false, %if.else18
   %bf.clear31 = and i8 %bf.set, -8
   %bf.set32 = or disjoint i8 %bf.clear31, 1
   store i8 %bf.set32, ptr %sign, align 2
@@ -8714,7 +8711,7 @@ if.then28:                                        ; preds = %switch.early.test, 
   store i64 0, ptr %arrayidx36, align 8
   br label %if.end52
 
-if.else37:                                        ; preds = %switch.early.test, %switch.early.test, %lor.lhs.false
+if.else37:                                        ; preds = %lor.lhs.false
   %bf.clear40 = and i8 %bf.set, -8
   %bf.set41 = or disjoint i8 %bf.clear40, 2
   store i8 %bf.set41, ptr %sign, align 2
@@ -9521,7 +9518,85 @@ if.end7:                                          ; preds = %if.end4
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7
-  tail call void @_ZN4llvh6detail9IEEEFloat26initFromF80LongDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(12) %api)
+  %BitWidth.i.i.i86 = getelementptr inbounds nuw i8, ptr %api, i64 8
+  %15 = load i32, ptr %BitWidth.i.i.i86, align 8
+  %cmp.i.i.i87 = icmp ult i32 %15, 65
+  %16 = load ptr, ptr %api, align 8
+  %retval.0.i.i88 = select i1 %cmp.i.i.i87, ptr %api, ptr %16
+  %17 = load i64, ptr %retval.0.i.i88, align 8
+  %.fr.i = freeze i64 %17
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i88, i64 8
+  %18 = load i64, ptr %arrayidx3.i, align 8
+  %and.i89 = and i64 %18, 32767
+  store ptr @_ZN4llvhL20semX87DoubleExtendedE, ptr %this, align 8
+  %call2.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #24
+  %significand.i.i90 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store ptr %call2.i.i, ptr %significand.i.i90, align 8
+  %sign.i91 = getelementptr inbounds nuw i8, ptr %this, i64 18
+  %bf.load.i92 = load i8, ptr %sign.i91, align 2
+  %sh.diff.i93 = lshr i64 %18, 12
+  %tr.sh.diff.i94 = trunc i64 %sh.diff.i93 to i8
+  %bf.shl.i95 = and i8 %tr.sh.diff.i94, 8
+  %bf.clear.i96 = and i8 %bf.load.i92, -9
+  %bf.set.i97 = or disjoint i8 %bf.clear.i96, %bf.shl.i95
+  %cmp.i98 = icmp eq i64 %and.i89, 0
+  %19 = or i64 %and.i89, %.fr.i
+  %or.cond.i99 = icmp eq i64 %19, 0
+  br i1 %or.cond.i99, label %if.then.i104, label %if.else.i100
+
+if.then.i104:                                     ; preds = %if.then9
+  %bf.clear8.i = and i8 %bf.set.i97, -8
+  %bf.set9.i = or disjoint i8 %bf.clear8.i, 3
+  store i8 %bf.set9.i, ptr %sign.i91, align 2
+  br label %return
+
+if.else.i100:                                     ; preds = %if.then9
+  %cmp10.i = icmp eq i64 %and.i89, 32767
+  %cmp12.i = icmp eq i64 %.fr.i, -9223372036854775808
+  %or.cond1.i101 = and i1 %cmp12.i, %cmp10.i
+  br i1 %or.cond1.i101, label %if.then13.i, label %if.else18.i
+
+if.then13.i:                                      ; preds = %if.else.i100
+  %bf.clear16.i = and i8 %bf.set.i97, -8
+  store i8 %bf.clear16.i, ptr %sign.i91, align 2
+  br label %return
+
+if.else18.i:                                      ; preds = %if.else.i100
+  %cmp21.i = icmp ne i64 %.fr.i, -9223372036854775808
+  %or.cond2.i102 = and i1 %cmp21.i, %cmp10.i
+  br i1 %or.cond2.i102, label %if.then28.i, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.else18.i
+  %cmp27.i = icmp sgt i64 %.fr.i, -1
+  %and.off.i = add nsw i64 %and.i89, -1
+  %switch.i = icmp ult i64 %and.off.i, 32766
+  %or.cond18.i = select i1 %cmp27.i, i1 %switch.i, i1 false
+  br i1 %or.cond18.i, label %if.then28.i, label %if.else37.i
+
+if.then28.i:                                      ; preds = %lor.lhs.false.i, %if.else18.i
+  %bf.clear31.i = and i8 %bf.set.i97, -8
+  %bf.set32.i = or disjoint i8 %bf.clear31.i, 1
+  store i8 %bf.set32.i, ptr %sign.i91, align 2
+  store i64 %.fr.i, ptr %call2.i.i, align 8
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 8
+  store i64 0, ptr %arrayidx36.i, align 8
+  br label %return
+
+if.else37.i:                                      ; preds = %lor.lhs.false.i
+  %bf.clear40.i = and i8 %bf.set.i97, -8
+  %bf.set41.i = or disjoint i8 %bf.clear40.i, 2
+  store i8 %bf.set41.i, ptr %sign.i91, align 2
+  %20 = trunc nuw nsw i64 %and.i89 to i16
+  %conv42.i = add nsw i16 %20, -16383
+  %exponent.i103 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store i16 %conv42.i, ptr %exponent.i103, align 8
+  store i64 %.fr.i, ptr %call2.i.i, align 8
+  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 8
+  store i64 0, ptr %arrayidx46.i, align 8
+  br i1 %cmp.i98, label %if.then48.i, label %return
+
+if.then48.i:                                      ; preds = %if.else37.i
+  store i16 -16382, ptr %exponent.i103, align 8
   br label %return
 
 if.end10:                                         ; preds = %if.end7
@@ -9538,7 +9613,7 @@ if.end13:                                         ; preds = %if.end10
   tail call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(12) %api)
   br label %return
 
-return:                                           ; preds = %if.else36.i, %if.then34.i, %if.then20.i78, %if.then11.i81, %if.then.i83, %if.else38.i40, %if.then36.i42, %if.then20.i43, %if.then11.i47, %if.then.i49, %if.else38.i, %if.then36.i, %if.then20.i, %if.then11.i, %if.then.i, %if.end13, %if.then12, %if.then9
+return:                                           ; preds = %if.then48.i, %if.else37.i, %if.then28.i, %if.then13.i, %if.then.i104, %if.else36.i, %if.then34.i, %if.then20.i78, %if.then11.i81, %if.then.i83, %if.else38.i40, %if.then36.i42, %if.then20.i43, %if.then11.i47, %if.then.i49, %if.else38.i, %if.then36.i, %if.then20.i, %if.then11.i, %if.then.i, %if.end13, %if.then12
   ret void
 }
 
@@ -19580,23 +19655,23 @@ _ZN4llvh5APInt15getAllOnesValueEj.exit.thread:    ; preds = %sw.bb
 _ZN4llvh5APInt15getAllOnesValueEj.exit:           ; preds = %sw.bb
   call void @_ZN4llvh5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, i64 noundef -1, i1 noundef zeroext true) #26
   %.pr = load ptr, ptr %ref.tmp, align 8
-  %.pre102 = load i32, ptr %BitWidth.i.i, align 8
-  %.pre102.fr = freeze i32 %.pre102
-  %3 = icmp ult i32 %.pre102.fr, 65
+  %.pre106 = load i32, ptr %BitWidth.i.i, align 8
+  %.pre106.fr = freeze i32 %.pre106
+  %3 = icmp ult i32 %.pre106.fr, 65
   %spec.select = select i1 %3, ptr %ref.tmp, ptr %.pr
   br label %4
 
 4:                                                ; preds = %_ZN4llvh5APInt15getAllOnesValueEj.exit, %_ZN4llvh5APInt15getAllOnesValueEj.exit.thread
   %5 = phi ptr [ %2, %_ZN4llvh5APInt15getAllOnesValueEj.exit.thread ], [ %.pr, %_ZN4llvh5APInt15getAllOnesValueEj.exit ]
-  %cmp.i.i.i.i111 = phi i1 [ true, %_ZN4llvh5APInt15getAllOnesValueEj.exit.thread ], [ %3, %_ZN4llvh5APInt15getAllOnesValueEj.exit ]
+  %cmp.i.i.i.i115 = phi i1 [ true, %_ZN4llvh5APInt15getAllOnesValueEj.exit.thread ], [ %3, %_ZN4llvh5APInt15getAllOnesValueEj.exit ]
   %6 = phi ptr [ %ref.tmp, %_ZN4llvh5APInt15getAllOnesValueEj.exit.thread ], [ %spec.select, %_ZN4llvh5APInt15getAllOnesValueEj.exit ]
-  %U.i113 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %U.i117 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %7 = load i64, ptr %6, align 8
   %conv.i.i = trunc i64 %7 to i32
   %shr.i.i = lshr i32 %conv.i.i, 10
   %and.i.i = and i32 %shr.i.i, 31
   %and2.i.i = and i32 %conv.i.i, 1023
-  store ptr @_ZN4llvhL11semIEEEhalfE, ptr %U.i113, align 8
+  store ptr @_ZN4llvhL11semIEEEhalfE, ptr %U.i117, align 8
   %sign.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 26
   %bf.load.i.i = load i8, ptr %sign.i.i, align 2
   %sh.diff.i.i = lshr i64 %7, 12
@@ -19663,7 +19738,7 @@ if.else38.i.i:                                    ; preds = %if.else27.i.i
 
 _ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %if.then.i.i, %if.then11.i.i, %if.then20.i.i, %if.then36.i.i, %if.else38.i.i
   %isnull.i = icmp eq ptr %5, null
-  %or.cond = select i1 %cmp.i.i.i.i111, i1 true, i1 %isnull.i
+  %or.cond = select i1 %cmp.i.i.i.i115, i1 true, i1 %isnull.i
   br i1 %or.cond, label %return, label %return.sink.split
 
 sw.bb1:                                           ; preds = %if.then
@@ -19683,24 +19758,24 @@ _ZN4llvh5APInt15getAllOnesValueEj.exit17.thread:  ; preds = %sw.bb1
 
 _ZN4llvh5APInt15getAllOnesValueEj.exit17:         ; preds = %sw.bb1
   call void @_ZN4llvh5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp2, i64 noundef -1, i1 noundef zeroext true) #26
-  %.pr97 = load ptr, ptr %ref.tmp2, align 8
-  %.pre101 = load i32, ptr %BitWidth.i.i8, align 8
-  %.pre101.fr = freeze i32 %.pre101
-  %11 = icmp ult i32 %.pre101.fr, 65
-  %spec.select131 = select i1 %11, ptr %ref.tmp2, ptr %.pr97
+  %.pr98 = load ptr, ptr %ref.tmp2, align 8
+  %.pre105 = load i32, ptr %BitWidth.i.i8, align 8
+  %.pre105.fr = freeze i32 %.pre105
+  %11 = icmp ult i32 %.pre105.fr, 65
+  %spec.select158 = select i1 %11, ptr %ref.tmp2, ptr %.pr98
   br label %12
 
 12:                                               ; preds = %_ZN4llvh5APInt15getAllOnesValueEj.exit17, %_ZN4llvh5APInt15getAllOnesValueEj.exit17.thread
-  %13 = phi ptr [ %10, %_ZN4llvh5APInt15getAllOnesValueEj.exit17.thread ], [ %.pr97, %_ZN4llvh5APInt15getAllOnesValueEj.exit17 ]
-  %cmp.i.i.i12.i119 = phi i1 [ true, %_ZN4llvh5APInt15getAllOnesValueEj.exit17.thread ], [ %11, %_ZN4llvh5APInt15getAllOnesValueEj.exit17 ]
-  %14 = phi ptr [ %ref.tmp2, %_ZN4llvh5APInt15getAllOnesValueEj.exit17.thread ], [ %spec.select131, %_ZN4llvh5APInt15getAllOnesValueEj.exit17 ]
-  %U.i18121 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %13 = phi ptr [ %10, %_ZN4llvh5APInt15getAllOnesValueEj.exit17.thread ], [ %.pr98, %_ZN4llvh5APInt15getAllOnesValueEj.exit17 ]
+  %cmp.i.i.i12.i123 = phi i1 [ true, %_ZN4llvh5APInt15getAllOnesValueEj.exit17.thread ], [ %11, %_ZN4llvh5APInt15getAllOnesValueEj.exit17 ]
+  %14 = phi ptr [ %ref.tmp2, %_ZN4llvh5APInt15getAllOnesValueEj.exit17.thread ], [ %spec.select158, %_ZN4llvh5APInt15getAllOnesValueEj.exit17 ]
+  %U.i18125 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %15 = load i64, ptr %14, align 8
   %conv.i14.i = trunc i64 %15 to i32
   %shr.i15.i = lshr i32 %conv.i14.i, 23
   %and.i16.i = and i32 %shr.i15.i, 255
   %and2.i17.i = and i32 %conv.i14.i, 8388607
-  store ptr @_ZN4llvhL13semIEEEsingleE, ptr %U.i18121, align 8
+  store ptr @_ZN4llvhL13semIEEEsingleE, ptr %U.i18125, align 8
   %sign.i18.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 26
   %bf.load.i19.i = load i8, ptr %sign.i18.i, align 2
   %sh.diff.i20.i = lshr i32 %conv.i14.i, 28
@@ -19767,8 +19842,8 @@ if.else38.i40.i:                                  ; preds = %if.else27.i35.i
 
 _ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit95: ; preds = %if.then.i49.i, %if.then11.i47.i, %if.then20.i43.i, %if.then36.i42.i, %if.else38.i40.i
   %isnull.i22 = icmp eq ptr %13, null
-  %or.cond99 = select i1 %cmp.i.i.i12.i119, i1 true, i1 %isnull.i22
-  br i1 %or.cond99, label %return, label %return.sink.split
+  %or.cond101 = select i1 %cmp.i.i.i12.i123, i1 true, i1 %isnull.i22
+  br i1 %or.cond101, label %return, label %return.sink.split
 
 sw.bb3:                                           ; preds = %if.then
   %BitWidth.i.i25 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
@@ -19787,23 +19862,23 @@ _ZN4llvh5APInt15getAllOnesValueEj.exit34.thread:  ; preds = %sw.bb3
 
 _ZN4llvh5APInt15getAllOnesValueEj.exit34:         ; preds = %sw.bb3
   call void @_ZN4llvh5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp4, i64 noundef -1, i1 noundef zeroext true) #26
-  %.pr98 = load ptr, ptr %ref.tmp4, align 8
-  %.pre = load i32, ptr %BitWidth.i.i25, align 8
-  %.pre.fr = freeze i32 %.pre
-  %19 = icmp ult i32 %.pre.fr, 65
-  %spec.select132 = select i1 %19, ptr %ref.tmp4, ptr %.pr98
+  %.pr99 = load ptr, ptr %ref.tmp4, align 8
+  %.pre104 = load i32, ptr %BitWidth.i.i25, align 8
+  %.pre104.fr = freeze i32 %.pre104
+  %19 = icmp ult i32 %.pre104.fr, 65
+  %spec.select159 = select i1 %19, ptr %ref.tmp4, ptr %.pr99
   br label %20
 
 20:                                               ; preds = %_ZN4llvh5APInt15getAllOnesValueEj.exit34, %_ZN4llvh5APInt15getAllOnesValueEj.exit34.thread
-  %21 = phi ptr [ %18, %_ZN4llvh5APInt15getAllOnesValueEj.exit34.thread ], [ %.pr98, %_ZN4llvh5APInt15getAllOnesValueEj.exit34 ]
-  %cmp.i.i.i53.i127 = phi i1 [ true, %_ZN4llvh5APInt15getAllOnesValueEj.exit34.thread ], [ %19, %_ZN4llvh5APInt15getAllOnesValueEj.exit34 ]
-  %22 = phi ptr [ %ref.tmp4, %_ZN4llvh5APInt15getAllOnesValueEj.exit34.thread ], [ %spec.select132, %_ZN4llvh5APInt15getAllOnesValueEj.exit34 ]
-  %U.i35129 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %21 = phi ptr [ %18, %_ZN4llvh5APInt15getAllOnesValueEj.exit34.thread ], [ %.pr99, %_ZN4llvh5APInt15getAllOnesValueEj.exit34 ]
+  %cmp.i.i.i53.i131 = phi i1 [ true, %_ZN4llvh5APInt15getAllOnesValueEj.exit34.thread ], [ %19, %_ZN4llvh5APInt15getAllOnesValueEj.exit34 ]
+  %22 = phi ptr [ %ref.tmp4, %_ZN4llvh5APInt15getAllOnesValueEj.exit34.thread ], [ %spec.select159, %_ZN4llvh5APInt15getAllOnesValueEj.exit34 ]
+  %U.i35133 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %23 = load i64, ptr %22, align 8
   %shr.i55.i = lshr i64 %23, 52
   %and.i56.i = and i64 %shr.i55.i, 2047
   %and2.i57.i = and i64 %23, 4503599627370495
-  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i35129, align 8
+  store ptr @_ZN4llvhL13semIEEEdoubleE, ptr %U.i35133, align 8
   %sign.i58.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 26
   %bf.load.i59.i = load i8, ptr %sign.i58.i, align 2
   %sh.diff.i60.i = lshr i64 %23, 60
@@ -19868,36 +19943,127 @@ if.else36.i.i:                                    ; preds = %if.else26.i.i
 
 _ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit96: ; preds = %if.then.i83.i, %if.then11.i81.i, %if.then20.i78.i, %if.then34.i.i, %if.else36.i.i
   %isnull.i39 = icmp eq ptr %21, null
-  %or.cond100 = select i1 %cmp.i.i.i53.i127, i1 true, i1 %isnull.i39
-  br i1 %or.cond100, label %return, label %return.sink.split
+  %or.cond102 = select i1 %cmp.i.i.i53.i131, i1 true, i1 %isnull.i39
+  br i1 %or.cond102, label %return, label %return.sink.split
 
 sw.bb5:                                           ; preds = %if.then
   %BitWidth.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   store i32 %BitWidth, ptr %BitWidth.i.i42, align 8, !alias.scope !130
-  br i1 %cmp.i.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i45, label %if.else.i.i44
+  br i1 %cmp.i.i.i, label %.thread, label %_ZN4llvh5APInt15getAllOnesValueEj.exit51
 
-_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i45:     ; preds = %sw.bb5
+.thread:                                          ; preds = %sw.bb5
   %sub.i.i.i46 = add nuw nsw i32 %BitWidth, 63
   %rem.i.i.i47 = and i32 %sub.i.i.i46, 63
   %sub2.i.i.i48 = xor i32 %rem.i.i.i47, 63
   %sh_prom.i.i.i49 = zext nneg i32 %sub2.i.i.i48 to i64
   %shr.i.i.i50 = lshr i64 -1, %sh_prom.i.i.i49
-  store i64 %shr.i.i.i50, ptr %ref.tmp6, align 8, !alias.scope !130
-  br label %_ZN4llvh5APInt15getAllOnesValueEj.exit51
+  %.fr.i.i146 = freeze i64 %shr.i.i.i50
+  store i64 %.fr.i.i146, ptr %ref.tmp6, align 8, !alias.scope !130
+  %26 = inttoptr i64 %.fr.i.i146 to ptr
+  br label %32
 
-if.else.i.i44:                                    ; preds = %sw.bb5
+_ZN4llvh5APInt15getAllOnesValueEj.exit51:         ; preds = %sw.bb5
   call void @_ZN4llvh5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp6, i64 noundef -1, i1 noundef zeroext true) #26
-  br label %_ZN4llvh5APInt15getAllOnesValueEj.exit51
+  %.pr100 = load ptr, ptr %ref.tmp6, align 8
+  %.pre = load i32, ptr %BitWidth.i.i42, align 8
+  %.pre.fr = freeze i32 %.pre
+  %27 = icmp ult i32 %.pre.fr, 65
+  br i1 %27, label %28, label %30
 
-_ZN4llvh5APInt15getAllOnesValueEj.exit51:         ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i45, %if.else.i.i44
-  %U.i52 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat26initFromF80LongDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i52, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp6)
-  %26 = load i32, ptr %BitWidth.i.i42, align 8
-  %cmp.i.i.i54 = icmp ult i32 %26, 65
-  %27 = load ptr, ptr %ref.tmp6, align 8
-  %isnull.i56 = icmp eq ptr %27, null
-  %or.cond133 = select i1 %cmp.i.i.i54, i1 true, i1 %isnull.i56
-  br i1 %or.cond133, label %return, label %return.sink.split
+28:                                               ; preds = %_ZN4llvh5APInt15getAllOnesValueEj.exit51
+  %29 = load i64, ptr %ref.tmp6, align 8
+  %.fr.i.i155 = freeze i64 %29
+  br label %32
+
+30:                                               ; preds = %_ZN4llvh5APInt15getAllOnesValueEj.exit51
+  %31 = load i64, ptr %.pr100, align 8
+  %.fr.i.i = freeze i64 %31
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %.pr100, i64 8
+  br label %32
+
+32:                                               ; preds = %30, %.thread, %28
+  %.fr.i.i153 = phi i64 [ %.fr.i.i146, %.thread ], [ %.fr.i.i155, %28 ], [ %.fr.i.i, %30 ]
+  %cmp.i.i.i87.i139151 = phi i1 [ true, %.thread ], [ true, %28 ], [ false, %30 ]
+  %33 = phi ptr [ %26, %.thread ], [ %.pr100, %28 ], [ %.pr100, %30 ]
+  %34 = phi ptr [ %BitWidth.i.i42, %.thread ], [ %BitWidth.i.i42, %28 ], [ %.sroa.gep, %30 ]
+  %U.i52141149 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %35 = load i64, ptr %34, align 8
+  %and.i89.i = and i64 %35, 32767
+  store ptr @_ZN4llvhL20semX87DoubleExtendedE, ptr %U.i52141149, align 8
+  %call2.i.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #24
+  %significand.i.i90.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store ptr %call2.i.i.i, ptr %significand.i.i90.i, align 8
+  %sign.i91.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 26
+  %bf.load.i92.i = load i8, ptr %sign.i91.i, align 2
+  %sh.diff.i93.i = lshr i64 %35, 12
+  %tr.sh.diff.i94.i = trunc i64 %sh.diff.i93.i to i8
+  %bf.shl.i95.i = and i8 %tr.sh.diff.i94.i, 8
+  %bf.clear.i96.i = and i8 %bf.load.i92.i, -9
+  %bf.set.i97.i = or disjoint i8 %bf.clear.i96.i, %bf.shl.i95.i
+  %cmp.i98.i = icmp eq i64 %and.i89.i, 0
+  %36 = or i64 %and.i89.i, %.fr.i.i153
+  %or.cond.i99.i = icmp eq i64 %36, 0
+  br i1 %or.cond.i99.i, label %if.then.i104.i, label %if.else.i100.i
+
+if.then.i104.i:                                   ; preds = %32
+  %bf.clear8.i.i = and i8 %bf.set.i97.i, -8
+  %bf.set9.i.i = or disjoint i8 %bf.clear8.i.i, 3
+  store i8 %bf.set9.i.i, ptr %sign.i91.i, align 2
+  br label %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97
+
+if.else.i100.i:                                   ; preds = %32
+  %cmp10.i.i = icmp eq i64 %and.i89.i, 32767
+  %cmp12.i.i = icmp eq i64 %.fr.i.i153, -9223372036854775808
+  %or.cond1.i101.i = and i1 %cmp12.i.i, %cmp10.i.i
+  br i1 %or.cond1.i101.i, label %if.then13.i.i, label %if.else18.i.i
+
+if.then13.i.i:                                    ; preds = %if.else.i100.i
+  %bf.clear16.i.i = and i8 %bf.set.i97.i, -8
+  store i8 %bf.clear16.i.i, ptr %sign.i91.i, align 2
+  br label %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97
+
+if.else18.i.i:                                    ; preds = %if.else.i100.i
+  %cmp21.i.i = icmp ne i64 %.fr.i.i153, -9223372036854775808
+  %or.cond2.i102.i = and i1 %cmp21.i.i, %cmp10.i.i
+  br i1 %or.cond2.i102.i, label %if.then28.i.i, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %if.else18.i.i
+  %cmp27.i.i = icmp sgt i64 %.fr.i.i153, -1
+  %and.off.i.i = add nsw i64 %and.i89.i, -1
+  %switch.i.i = icmp ult i64 %and.off.i.i, 32766
+  %or.cond18.i.i = select i1 %cmp27.i.i, i1 %switch.i.i, i1 false
+  br i1 %or.cond18.i.i, label %if.then28.i.i, label %if.else37.i.i
+
+if.then28.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.else18.i.i
+  %bf.clear31.i.i = and i8 %bf.set.i97.i, -8
+  %bf.set32.i.i = or disjoint i8 %bf.clear31.i.i, 1
+  store i8 %bf.set32.i.i, ptr %sign.i91.i, align 2
+  store i64 %.fr.i.i153, ptr %call2.i.i.i, align 8
+  %arrayidx36.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 8
+  store i64 0, ptr %arrayidx36.i.i, align 8
+  br label %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97
+
+if.else37.i.i:                                    ; preds = %lor.lhs.false.i.i
+  %bf.clear40.i.i = and i8 %bf.set.i97.i, -8
+  %bf.set41.i.i = or disjoint i8 %bf.clear40.i.i, 2
+  store i8 %bf.set41.i.i, ptr %sign.i91.i, align 2
+  %37 = trunc nuw nsw i64 %and.i89.i to i16
+  %conv42.i.i = add nsw i16 %37, -16383
+  %exponent.i103.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  store i16 %conv42.i.i, ptr %exponent.i103.i, align 8
+  store i64 %.fr.i.i153, ptr %call2.i.i.i, align 8
+  %arrayidx46.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 8
+  store i64 0, ptr %arrayidx46.i.i, align 8
+  br i1 %cmp.i98.i, label %if.then48.i.i, label %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97
+
+if.then48.i.i:                                    ; preds = %if.else37.i.i
+  store i16 -16382, ptr %exponent.i103.i, align 8
+  br label %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97
+
+_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97: ; preds = %if.then.i104.i, %if.then13.i.i, %if.then28.i.i, %if.else37.i.i, %if.then48.i.i
+  %isnull.i56 = icmp eq ptr %33, null
+  %or.cond103 = select i1 %cmp.i.i.i87.i139151, i1 true, i1 %isnull.i56
+  br i1 %or.cond103, label %return, label %return.sink.split
 
 sw.bb7:                                           ; preds = %if.then
   %BitWidth.i.i59 = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
@@ -19920,12 +20086,12 @@ if.else.i.i61:                                    ; preds = %sw.bb7
 _ZN4llvh5APInt15getAllOnesValueEj.exit68:         ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i62, %if.else.i.i61
   %U.i69 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZN4llvh6detail9IEEEFloat22initFromQuadrupleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i69, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp8)
-  %28 = load i32, ptr %BitWidth.i.i59, align 8
-  %cmp.i.i.i71 = icmp ult i32 %28, 65
-  %29 = load ptr, ptr %ref.tmp8, align 8
-  %isnull.i73 = icmp eq ptr %29, null
-  %or.cond134 = select i1 %cmp.i.i.i71, i1 true, i1 %isnull.i73
-  br i1 %or.cond134, label %return, label %return.sink.split
+  %38 = load i32, ptr %BitWidth.i.i59, align 8
+  %cmp.i.i.i71 = icmp ult i32 %38, 65
+  %39 = load ptr, ptr %ref.tmp8, align 8
+  %isnull.i73 = icmp eq ptr %39, null
+  %or.cond161 = select i1 %cmp.i.i.i71, i1 true, i1 %isnull.i73
+  br i1 %or.cond161, label %return, label %return.sink.split
 
 sw.default:                                       ; preds = %if.then
   unreachable
@@ -19951,19 +20117,19 @@ if.else.i.i78:                                    ; preds = %if.else
 _ZN4llvh5APInt15getAllOnesValueEj.exit85:         ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i79, %if.else.i.i78
   %U.i86 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZN4llvh6detail13DoubleAPFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i86, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp9)
-  %30 = load i32, ptr %BitWidth.i.i76, align 8
-  %cmp.i.i.i88 = icmp ult i32 %30, 65
-  %31 = load ptr, ptr %ref.tmp9, align 8
-  %isnull.i90 = icmp eq ptr %31, null
-  %or.cond135 = select i1 %cmp.i.i.i88, i1 true, i1 %isnull.i90
-  br i1 %or.cond135, label %return, label %return.sink.split
+  %40 = load i32, ptr %BitWidth.i.i76, align 8
+  %cmp.i.i.i88 = icmp ult i32 %40, 65
+  %41 = load ptr, ptr %ref.tmp9, align 8
+  %isnull.i90 = icmp eq ptr %41, null
+  %or.cond162 = select i1 %cmp.i.i.i88, i1 true, i1 %isnull.i90
+  br i1 %or.cond162, label %return, label %return.sink.split
 
-return.sink.split:                                ; preds = %_ZN4llvh5APInt15getAllOnesValueEj.exit85, %_ZN4llvh5APInt15getAllOnesValueEj.exit68, %_ZN4llvh5APInt15getAllOnesValueEj.exit51, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit96, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit95, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit
-  %.sink = phi ptr [ %5, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit ], [ %13, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit95 ], [ %21, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit96 ], [ %27, %_ZN4llvh5APInt15getAllOnesValueEj.exit51 ], [ %29, %_ZN4llvh5APInt15getAllOnesValueEj.exit68 ], [ %31, %_ZN4llvh5APInt15getAllOnesValueEj.exit85 ]
+return.sink.split:                                ; preds = %_ZN4llvh5APInt15getAllOnesValueEj.exit85, %_ZN4llvh5APInt15getAllOnesValueEj.exit68, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit96, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit95, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit
+  %.sink = phi ptr [ %5, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit ], [ %13, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit95 ], [ %21, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit96 ], [ %33, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97 ], [ %39, %_ZN4llvh5APInt15getAllOnesValueEj.exit68 ], [ %41, %_ZN4llvh5APInt15getAllOnesValueEj.exit85 ]
   call void @_ZdaPv(ptr noundef nonnull %.sink) #25
   br label %return
 
-return:                                           ; preds = %return.sink.split, %_ZN4llvh5APInt15getAllOnesValueEj.exit85, %_ZN4llvh5APInt15getAllOnesValueEj.exit68, %_ZN4llvh5APInt15getAllOnesValueEj.exit51, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit96, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit95, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit
+return:                                           ; preds = %return.sink.split, %_ZN4llvh5APInt15getAllOnesValueEj.exit85, %_ZN4llvh5APInt15getAllOnesValueEj.exit68, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit97, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit96, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit95, %_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE.exit
   ret void
 }
 

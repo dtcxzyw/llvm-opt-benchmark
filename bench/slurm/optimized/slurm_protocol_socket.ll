@@ -416,29 +416,29 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %17
 
-.preheader94:                                     ; preds = %17
+.preheader92:                                     ; preds = %17
   %13 = call i32 @timeval_tot_wait(ptr noundef nonnull %6) #12
   %14 = sub nsw i32 %3, %13
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader94
+.lr.ph:                                           ; preds = %.preheader92
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 6
   br label %27
 
 17:                                               ; preds = %4, %17
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %17 ]
-  %.066107 = phi i64 [ 0, %4 ], [ %21, %17 ]
+  %.066105 = phi i64 [ 0, %4 ], [ %21, %17 ]
   %18 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = add i64 %20, %.066107
+  %21 = add i64 %20, %.066105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader94, label %17, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader92, label %17, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader94
-  %.0.lcssa = phi i32 [ 0, %.preheader94 ], [ %.1, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %.preheader92
+  %.0.lcssa = phi i32 [ 0, %.preheader92 ], [ %.1, %.loopexit ]
   %22 = call i32 @get_log_level() #12
   %23 = icmp sgt i32 %22, 4
   br i1 %23, label %24, label %25
@@ -450,11 +450,11 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 25:                                               ; preds = %24, %._crit_edge
   %26 = tail call ptr @__errno_location() #11
   store i32 5004, ptr %26, align 4
-  br label %.thread
+  br label %135
 
 27:                                               ; preds = %.lr.ph, %.loopexit
   %28 = phi i32 [ %14, %.lr.ph ], [ %133, %.loopexit ]
-  %.0110 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
+  %.0108 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %29 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %28) #12
   %30 = icmp slt i32 %29, 1
   br i1 %30, label %31, label %43
@@ -479,12 +479,12 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 39:                                               ; preds = %36
   %40 = load i32, ptr %34, align 4
   %41 = call ptr @strerror(i32 noundef %40) #12
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__._writev_timeout, i32 noundef %.0110, i64 noundef %21, ptr noundef %41) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__._writev_timeout, i32 noundef %.0108, i64 noundef %21, ptr noundef %41) #12
   br label %42
 
 42:                                               ; preds = %39, %36
   store i32 1002, ptr %34, align 4
-  br label %.thread
+  br label %135
 
 43:                                               ; preds = %27
   %44 = load i16, ptr %16, align 2
@@ -511,9 +511,9 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %50, %52
-  %.sink158 = phi i32 [ %53, %52 ], [ %47, %50 ]
+  %.sink156 = phi i32 [ %53, %52 ], [ %47, %50 ]
   %.str.4.sink = phi ptr [ @.str.4, %52 ], [ @.str.28, %50 ]
-  %54 = call ptr @slurm_strerror(i32 noundef %.sink158) #12
+  %54 = call ptr @slurm_strerror(i32 noundef %.sink156) #12
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull %.str.4.sink, ptr noundef nonnull @__func__._writev_timeout, ptr noundef %54) #12
   br label %55
 
@@ -522,7 +522,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   %57 = tail call ptr @__errno_location() #11
   store i32 %56, ptr %57, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread
+  br label %135
 
 58:                                               ; preds = %43
   %59 = and i16 %44, 48
@@ -543,28 +543,28 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   br i1 %.not86, label %68, label %67
 
 67:                                               ; preds = %63
-  br i1 %66, label %.sink.split159, label %72
+  br i1 %66, label %.sink.split157, label %72
 
 68:                                               ; preds = %63
   br i1 %66, label %69, label %72
 
 69:                                               ; preds = %68
   %70 = load i32, ptr %9, align 4
-  br label %.sink.split159
+  br label %.sink.split157
 
-.sink.split159:                                   ; preds = %67, %69
-  %.sink160 = phi i32 [ %70, %69 ], [ %64, %67 ]
+.sink.split157:                                   ; preds = %67, %69
+  %.sink158 = phi i32 [ %70, %69 ], [ %64, %67 ]
   %.str.6.sink = phi ptr [ @.str.6, %69 ], [ @.str.29, %67 ]
-  %71 = call ptr @slurm_strerror(i32 noundef %.sink160) #12
+  %71 = call ptr @slurm_strerror(i32 noundef %.sink158) #12
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull %.str.6.sink, ptr noundef nonnull @__func__._writev_timeout, ptr noundef %71) #12
   br label %72
 
-72:                                               ; preds = %.sink.split159, %68, %67
+72:                                               ; preds = %.sink.split157, %68, %67
   %73 = load i32, ptr %9, align 4
   %74 = tail call ptr @__errno_location() #11
   store i32 %73, ptr %74, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread
+  br label %135
 
 75:                                               ; preds = %60
   %76 = load i16, ptr %16, align 2
@@ -614,7 +614,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 
 100:                                              ; preds = %95
   store i32 1002, ptr %85, align 4
-  br label %.thread
+  br label %135
 
 101:                                              ; preds = %81
   %102 = icmp eq i64 %82, 0
@@ -632,12 +632,12 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   br i1 %108, label %109, label %.loopexit, !llvm.loop !12
 
 109:                                              ; preds = %106
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._writev_timeout, i32 noundef %0, i32 noundef %.0110, i64 noundef %21) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._writev_timeout, i32 noundef %0, i32 noundef %.0108, i64 noundef %21) #12
   br label %.loopexit, !llvm.loop !12
 
 110:                                              ; preds = %101
   %111 = trunc i64 %82 to i32
-  %112 = add i32 %.0110, %111
+  %112 = add i32 %.0108, %111
   %113 = sext i32 %112 to i64
   %.not82 = icmp ugt i64 %21, %113
   br i1 %.not82, label %.preheader, label %114
@@ -646,74 +646,74 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %116 = and i64 %115, 1024
   %.not83 = icmp eq i64 %116, 0
-  br i1 %.not83, label %.thread, label %117
+  br i1 %.not83, label %135, label %117
 
 117:                                              ; preds = %114
   %118 = call i32 @get_log_level() #12
   %119 = icmp sgt i32 %118, 3
-  br i1 %119, label %120, label %.thread
+  br i1 %119, label %120, label %135
 
 120:                                              ; preds = %117
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__._writev_timeout, i32 noundef %0, i32 noundef %112, i64 noundef %21) #12
-  br label %.thread
+  br label %135
 
 .preheader:                                       ; preds = %110, %130
-  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %130 ], [ 0, %110 ]
-  %.067108 = phi i64 [ %131, %130 ], [ %82, %110 ]
-  %121 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv127
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %130 ], [ 0, %110 ]
+  %.067106 = phi i64 [ %131, %130 ], [ %82, %110 ]
+  %121 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv125
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8
-  %124 = icmp ult i64 %.067108, %123
+  %124 = icmp ult i64 %.067106, %123
   br i1 %124, label %125, label %130
 
 125:                                              ; preds = %.preheader
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %127 = load ptr, ptr %121, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.067108
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.067106
   store ptr %128, ptr %121, align 8
-  %129 = sub nuw i64 %123, %.067108
+  %129 = sub nuw i64 %123, %.067106
   store i64 %129, ptr %126, align 8
   br label %.loopexit
 
 130:                                              ; preds = %.preheader
-  %131 = sub nuw nsw i64 %.067108, %123
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
+  %131 = sub nuw nsw i64 %.067106, %123
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false)
-  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond129.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %130, %125, %103, %109, %106, %84, %31, %33, %33, %98
-  %.1 = phi i32 [ %.0110, %98 ], [ %.0110, %33 ], [ %.0110, %33 ], [ %.0110, %31 ], [ %.0110, %84 ], [ %.0110, %106 ], [ %.0110, %109 ], [ %.0110, %103 ], [ %112, %125 ], [ %112, %130 ]
+  %.1 = phi i32 [ %.0108, %98 ], [ %.0108, %33 ], [ %.0108, %33 ], [ %.0108, %31 ], [ %.0108, %84 ], [ %.0108, %106 ], [ %.0108, %109 ], [ %.0108, %103 ], [ %112, %125 ], [ %112, %130 ]
   %132 = call i32 @timeval_tot_wait(ptr noundef nonnull %6) #12
   %133 = sub nsw i32 %3, %132
   %134 = icmp slt i32 %133, 1
   br i1 %134, label %._crit_edge, label %27
 
-.thread:                                          ; preds = %114, %120, %117, %100, %72, %55, %42, %25
-  %.193 = phi i32 [ %112, %114 ], [ %112, %120 ], [ %112, %117 ], [ -1, %100 ], [ -1, %72 ], [ -1, %55 ], [ -1, %42 ], [ -1, %25 ]
+135:                                              ; preds = %25, %42, %55, %72, %100, %117, %120, %114
+  %.1.ph = phi i32 [ %112, %114 ], [ %112, %120 ], [ %112, %117 ], [ -1, %100 ], [ -1, %72 ], [ -1, %55 ], [ -1, %42 ], [ -1, %25 ]
   %.not88 = icmp eq i32 %11, -1
-  br i1 %.not88, label %143, label %135
+  br i1 %.not88, label %144, label %136
 
-135:                                              ; preds = %.thread
-  %136 = tail call ptr @__errno_location() #11
-  %137 = load i32, ptr %136, align 4
-  %138 = call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 4, i32 noundef %11) #12
-  %139 = icmp slt i32 %138, 0
-  br i1 %139, label %140, label %142
+136:                                              ; preds = %135
+  %137 = tail call ptr @__errno_location() #11
+  %138 = load i32, ptr %137, align 4
+  %139 = call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 4, i32 noundef %11) #12
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %141, label %143
 
-140:                                              ; preds = %135
-  %141 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__._writev_timeout) #12
-  br label %142
-
-142:                                              ; preds = %140, %135
-  store i32 %137, ptr %136, align 4
+141:                                              ; preds = %136
+  %142 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__._writev_timeout) #12
   br label %143
 
-143:                                              ; preds = %142, %.thread
+143:                                              ; preds = %141, %136
+  store i32 %138, ptr %137, align 4
+  br label %144
+
+144:                                              ; preds = %143, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.193
+  ret i32 %.1.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1571,23 +1571,23 @@ define dso_local range(i32 -1, 1) i32 @slurm_unpack_addr_no_alloc(ptr noundef %0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = call i32 @unpack32(ptr noundef nonnull %19, ptr noundef %1) #12
   %.not19 = icmp eq i32 %20, 0
-  br i1 %.not19, label %21, label %.thread33
+  br i1 %.not19, label %21, label %.thread31
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %23 = call i32 @unpack16(ptr noundef nonnull %22, ptr noundef %1) #12
   %.not20 = icmp eq i32 %23, 0
-  br i1 %.not20, label %25, label %.thread33
+  br i1 %.not20, label %25, label %.thread31
 
-.thread33:                                        ; preds = %18, %21
+.thread31:                                        ; preds = %18, %21
   br label %25
 
 24:                                               ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   br label %25
 
-25:                                               ; preds = %2, %.thread, %.thread33, %21, %17, %24
-  %.0 = phi i32 [ 0, %17 ], [ 0, %24 ], [ 0, %21 ], [ -1, %.thread33 ], [ -1, %.thread ], [ -1, %2 ]
+25:                                               ; preds = %2, %.thread, %.thread31, %21, %17, %24
+  %.0 = phi i32 [ 0, %17 ], [ 0, %24 ], [ 0, %21 ], [ -1, %.thread31 ], [ -1, %.thread ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

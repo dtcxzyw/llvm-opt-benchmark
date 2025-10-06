@@ -395,28 +395,28 @@ define void @_ZN5folly13SocketAddress16setFromLocalPortEt(ptr noundef nonnull al
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 6, ptr noundef nonnull @.str.34, i32 noundef %4) #27
   %6 = call noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull readnone align 8 poison, ptr noundef null, ptr noundef nonnull %3, i32 noundef 32)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not14.i = icmp ne ptr %6, null
-  call void @llvm.assume(i1 %.not14.i)
+  %.not12.i = icmp ne ptr %6, null
+  call void @llvm.assume(i1 %.not12.i)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %10
-  %.0915.i = phi ptr [ %12, %10 ], [ %6, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 4
+  %.0913.i = phi ptr [ %12, %10 ], [ %6, %2 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !34
   %9 = icmp eq i32 %8, 10
   br i1 %9, label %._crit_edge.i, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %10, %.lr.ph.i
-  %.0915.lcssa.sink22.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %6, %10 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 24
+  %.0913.lcssa.sink20.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %6, %10 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20.i, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !19
-  %15 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20.i, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !26
   invoke void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %14, i32 noundef %16)
           to label %_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit unwind label %17
@@ -434,27 +434,27 @@ _ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit: ; preds = %._crit_e
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
-  %.not14 = icmp eq ptr %1, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not12 = icmp eq ptr %1, null
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %6
-  %.0915 = phi ptr [ %8, %6 ], [ %1, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.0915, i64 4
+  %.0913 = phi ptr [ %8, %6 ], [ %1, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.0913, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !34
   %5 = icmp eq i32 %4, 10
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.0915, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.0913, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !35
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %2
-  %.0915.lcssa.sink22 = phi ptr [ %1, %2 ], [ %.0915, %.lr.ph ], [ %1, %6 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22, i64 24
+  %.0913.lcssa.sink20 = phi ptr [ %1, %2 ], [ %.0913, %.lr.ph ], [ %1, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !19
-  %11 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !26
   tail call void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %10, i32 noundef %12)
   ret void
@@ -463,28 +463,28 @@ define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly13SocketAddress16setFromLocalPortEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull align 8 poison, ptr noundef null, ptr noundef %1, i32 noundef 32)
-  %.not14.i = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not14.i)
+  %.not12.i = icmp ne ptr %3, null
+  tail call void @llvm.assume(i1 %.not12.i)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %7
-  %.0915.i = phi ptr [ %9, %7 ], [ %3, %2 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 4
+  %.0913.i = phi ptr [ %9, %7 ], [ %3, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !34
   %6 = icmp eq i32 %5, 10
   br i1 %6, label %._crit_edge.i, label %7
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %7, %.lr.ph.i
-  %.0915.lcssa.sink22.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %3, %7 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 24
+  %.0913.lcssa.sink20.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %3, %7 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20.i, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20.i, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !26
   invoke void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %11, i32 noundef %13)
           to label %_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit unwind label %14
@@ -627,28 +627,28 @@ _ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit:       ; preds = %2, %9, %17, %21
           to label %24 unwind label %35
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit
-  %.not14.i = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %.not14.i)
+  %.not12.i = icmp ne ptr %23, null
+  tail call void @llvm.assume(i1 %.not12.i)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24, %28
-  %.0915.i = phi ptr [ %30, %28 ], [ %23, %24 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 4
+  %.0913.i = phi ptr [ %30, %28 ], [ %23, %24 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !34
   %27 = icmp eq i32 %26, 10
   br i1 %27, label %._crit_edge.i, label %28
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !35
   %.not.i8 = icmp eq ptr %30, null
   br i1 %.not.i8, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %28, %.lr.ph.i
-  %.0915.lcssa.sink22.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %23, %28 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 24
+  %.0913.lcssa.sink20.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %23, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20.i, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw i8, ptr %.0915.lcssa.sink22.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0913.lcssa.sink20.i, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !26
   invoke void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 dereferenceable(27) %0, ptr noundef %32, i32 noundef %34)
           to label %_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit unwind label %37

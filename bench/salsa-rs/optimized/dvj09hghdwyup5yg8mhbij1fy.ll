@@ -793,21 +793,20 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hc72766e8268cece8E.exit: ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %53 = load ptr, ptr %52, align 8, !invariant.load !6, !nonnull !6
   %54 = tail call noundef i8 %53(ptr noundef nonnull align 1 %49, ptr noundef nonnull align 8 %0, i32 noundef %19)
-  %.off = add i8 %54, -1
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %.outer.backedge, label %55
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %56, label %.outer.backedge
 
-55:                                               ; preds = %_ZN5salsa5zalsa5Zalsa17lookup_ingredient17hc72766e8268cece8E.exit
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 80
-  %57 = load ptr, ptr %56, align 8, !invariant.load !6, !nonnull !6
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 1 %49, ptr noundef nonnull align 8 %0, i32 noundef %19)
-  br i1 %58, label %.outer.backedge, label %.loopexit
+56:                                               ; preds = %_ZN5salsa5zalsa5Zalsa17lookup_ingredient17hc72766e8268cece8E.exit
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 80
+  %58 = load ptr, ptr %57, align 8, !invariant.load !6, !nonnull !6
+  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 1 %49, ptr noundef nonnull align 8 %0, i32 noundef %19)
+  br i1 %59, label %.outer.backedge, label %.loopexit
 
-.outer.backedge:                                  ; preds = %55, %_ZN5salsa5zalsa5Zalsa17lookup_ingredient17hc72766e8268cece8E.exit
+.outer.backedge:                                  ; preds = %56, %_ZN5salsa5zalsa5Zalsa17lookup_ingredient17hc72766e8268cece8E.exit
   br label %.outer
 
-.loopexit:                                        ; preds = %55, %14
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.ph, %14 ], [ false, %55 ]
+.loopexit:                                        ; preds = %56, %14
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0.ph, %14 ], [ false, %56 ]
   ret i1 %.sroa.0.1
 }
 

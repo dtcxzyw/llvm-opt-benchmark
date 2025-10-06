@@ -4169,14 +4169,14 @@ _ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph: ; preds = %_ZN6vectorI11expr
   br label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit
 
 thread-pre-split:                                 ; preds = %_ZNK12substitution9get_colorERK11expr_offset.exit5.thread.thread-pre-split_crit_edge, %84, %91, %80, %_ZNK12substitution9get_colorERK11expr_offset.exit5
-  %.pr = phi ptr [ %.pr.pre, %_ZNK12substitution9get_colorERK11expr_offset.exit5.thread.thread-pre-split_crit_edge ], [ %85, %84 ], [ %92, %91 ], [ %.pr8, %80 ], [ %.pr8, %_ZNK12substitution9get_colorERK11expr_offset.exit5 ]
+  %.pr = phi ptr [ %.pr.pre, %_ZNK12substitution9get_colorERK11expr_offset.exit5.thread.thread-pre-split_crit_edge ], [ %85, %84 ], [ %92, %91 ], [ %.pr7, %80 ], [ %.pr7, %_ZNK12substitution9get_colorERK11expr_offset.exit5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = icmp eq ptr %.pr, null
   br i1 %49, label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit
 
 _ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit:     ; preds = %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph, %thread-pre-split
-  %.pr8 = phi ptr [ %44, %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph ], [ %.pr, %thread-pre-split ]
-  %50 = getelementptr inbounds i8, ptr %.pr8, i64 -4
+  %.pr7 = phi ptr [ %44, %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.lr.ph ], [ %.pr, %thread-pre-split ]
+  %50 = getelementptr inbounds i8, ptr %.pr7, i64 -4
   %51 = load i32, ptr %50, align 4, !tbaa !43
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.thread, label %_ZN6vectorI11expr_offsetLb0EjE4backEv.exit
@@ -4185,7 +4185,7 @@ _ZN6vectorI11expr_offsetLb0EjE4backEv.exit:       ; preds = %_ZNK6vectorI11expr_
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %53 = add i32 %51, -1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %class.expr_offset, ptr %.pr8, i64 %54
+  %55 = getelementptr inbounds nuw %class.expr_offset, ptr %.pr7, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !76
   %56 = load i32, ptr %47, align 8, !tbaa !77
   %57 = load ptr, ptr %8, align 8, !tbaa !152

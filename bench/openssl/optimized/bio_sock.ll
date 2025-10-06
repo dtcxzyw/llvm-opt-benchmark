@@ -467,10 +467,10 @@ define range(i32 0, 2) i32 @BIO_sock_info(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %15, label %.thread, label %16
 
 .thread:                                          ; preds = %13, %10
-  %.sink8 = phi i32 [ 410, %10 ], [ 414, %13 ]
+  %.sink7 = phi i32 [ 410, %10 ], [ 414, %13 ]
   %.sink = phi i32 [ 132, %10 ], [ 133, %13 ]
   call void @ERR_new() #9
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8, ptr noundef nonnull @__func__.BIO_sock_info) #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink7, ptr noundef nonnull @__func__.BIO_sock_info) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef %.sink, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18

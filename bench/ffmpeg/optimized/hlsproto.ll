@@ -590,20 +590,20 @@ free_segment_list.exit:                           ; preds = %24, %19
 79:                                               ; preds = %78
   %80 = call noalias ptr @av_malloc(i64 noundef 4100) #7
   %.not65 = icmp eq ptr %80, null
-  br i1 %.not65, label %.loopexit, label %.thread75
+  br i1 %.not65, label %.loopexit, label %.thread73
 
-.thread75:                                        ; preds = %79
+.thread73:                                        ; preds = %79
   store i32 %.044.ph, ptr %80, align 4, !tbaa !27
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = call i32 @ff_make_absolute_url(ptr noundef nonnull %81, i32 noundef 4096, ptr noundef %1, ptr noundef nonnull %4) #7
   call void @av_dynarray_add(ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %80) #7
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.thread75, %.thread, %49, %61, %78, %71, %64, %55, %43
-  %.046.ph.be = phi i64 [ %.046.ph, %43 ], [ %.046.ph, %49 ], [ %.046.ph, %55 ], [ %.046.ph, %61 ], [ %68, %64 ], [ %.046.ph, %78 ], [ %.046.ph, %71 ], [ %.046.ph, %.thread ], [ %.046.ph, %.thread75 ]
-  %.044.ph.be = phi i32 [ %46, %43 ], [ %.044.ph, %49 ], [ %.044.ph, %55 ], [ %.044.ph, %61 ], [ %.044.ph, %64 ], [ %.044.ph, %78 ], [ %.044.ph, %71 ], [ %.044.ph, %.thread ], [ %.044.ph, %.thread75 ]
-  %.041.ph.be = phi i32 [ 1, %43 ], [ %.041.ph, %49 ], [ %.041.ph, %55 ], [ %.041.ph, %61 ], [ %.041.ph, %64 ], [ 0, %78 ], [ %.041.ph, %71 ], [ %.041.ph, %.thread ], [ 0, %.thread75 ]
-  %.038.ph.be = phi i32 [ %.038.ph, %43 ], [ %.038.ph, %49 ], [ %.038.ph, %55 ], [ %.038.ph, %61 ], [ 1, %64 ], [ 0, %78 ], [ %.038.ph, %71 ], [ 0, %.thread ], [ 0, %.thread75 ]
+.outer.backedge:                                  ; preds = %.thread73, %.thread, %49, %61, %78, %71, %64, %55, %43
+  %.046.ph.be = phi i64 [ %.046.ph, %43 ], [ %.046.ph, %49 ], [ %.046.ph, %55 ], [ %.046.ph, %61 ], [ %68, %64 ], [ %.046.ph, %78 ], [ %.046.ph, %71 ], [ %.046.ph, %.thread ], [ %.046.ph, %.thread73 ]
+  %.044.ph.be = phi i32 [ %46, %43 ], [ %.044.ph, %49 ], [ %.044.ph, %55 ], [ %.044.ph, %61 ], [ %.044.ph, %64 ], [ %.044.ph, %78 ], [ %.044.ph, %71 ], [ %.044.ph, %.thread ], [ %.044.ph, %.thread73 ]
+  %.041.ph.be = phi i32 [ 1, %43 ], [ %.041.ph, %49 ], [ %.041.ph, %55 ], [ %.041.ph, %61 ], [ %.041.ph, %64 ], [ 0, %78 ], [ %.041.ph, %71 ], [ %.041.ph, %.thread ], [ 0, %.thread73 ]
+  %.038.ph.be = phi i32 [ %.038.ph, %43 ], [ %.038.ph, %49 ], [ %.038.ph, %55 ], [ %.038.ph, %61 ], [ 1, %64 ], [ 0, %78 ], [ %.038.ph, %71 ], [ 0, %.thread ], [ 0, %.thread73 ]
   br label %.outer, !llvm.loop !48
 
 83:                                               ; preds = %36

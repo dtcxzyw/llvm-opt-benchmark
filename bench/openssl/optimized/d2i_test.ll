@@ -102,23 +102,23 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %18 = phi ptr [ %22, %.lr.ph ], [ %16, %15 ]
-  %.01422 = phi i64 [ %21, %.lr.ph ], [ 0, %15 ]
+  %.01421 = phi i64 [ %21, %.lr.ph ], [ 0, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.26, ptr noundef %20) #6
-  %21 = add i64 %.01422, 1
+  %21 = add i64 %.01421, 1
   %22 = tail call ptr @ASN1_ITEM_get(i64 noundef %21) #6
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit, label %.lr.ph
 
 24:                                               ; preds = %.preheader
-  %25 = add nuw nsw i64 %.121, 1
+  %25 = add nuw nsw i64 %.120, 1
   %exitcond.not = icmp eq i64 %25, 5
   br i1 %exitcond.not, label %thread-pre-split, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %12, %24
-  %.121 = phi i64 [ %25, %24 ], [ 0, %12 ]
-  %26 = getelementptr inbounds nuw %struct.error_enum, ptr @setup_tests.expected_errors, i64 %.121
+  %.120 = phi i64 [ %25, %24 ], [ 0, %12 ]
+  %26 = getelementptr inbounds nuw %struct.error_enum, ptr @setup_tests.expected_errors, i64 %.120
   %27 = load ptr, ptr %26, align 16, !tbaa !17
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %7) #7
   %29 = icmp eq i32 %28, 0

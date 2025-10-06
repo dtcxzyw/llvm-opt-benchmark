@@ -262,11 +262,11 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit: ; preds = %_ZN4llvm5E
   br i1 %38, label %39, label %thread-pre-split.i, !prof !42
 
 39:                                               ; preds = %34
-  %.not44.i = icmp eq i32 %.028.i, 63
+  %.not43.i = icmp eq i32 %.028.i, 63
   %.not.i4 = icmp samesign ugt i8 %36, 1
   %40 = icmp ne i8 %36, 0
-  %or.cond43.i = select i1 %.not44.i, i1 %.not.i4, i1 %40
-  br i1 %or.cond43.i, label %_ZN4llvm5ErrorD2Ev.exit5, label %thread-pre-split.i
+  %or.cond42.i = select i1 %.not43.i, i1 %.not.i4, i1 %40
+  br i1 %or.cond42.i, label %_ZN4llvm5ErrorD2Ev.exit5, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %39, %34
   %41 = zext nneg i32 %.028.i to i64

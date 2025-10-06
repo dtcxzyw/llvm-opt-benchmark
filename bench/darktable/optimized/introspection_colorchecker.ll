@@ -1344,7 +1344,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %27 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 0)
   %28 = add nuw nsw i32 %27, 4
   %29 = icmp sgt i32 %26, 0
-  br i1 %29, label %.lr.ph, label %.preheader523
+  br i1 %29, label %.lr.ph, label %.preheader516
 
 .lr.ph:                                           ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -1353,19 +1353,19 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %36
 
-.preheader523:                                    ; preds = %36, %4
+.preheader516:                                    ; preds = %36, %4
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 592
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 804
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 1016
-  %wide.trip.count554 = zext nneg i32 %28 to i64
+  %wide.trip.count547 = zext nneg i32 %28 to i64
   br label %56
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %37 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !14
-  %.idx632 = mul nuw nsw i64 %indvars.iv, 12
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx632
+  %.idx625 = mul nuw nsw i64 %indvars.iv, 12
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx625
   store float %38, ptr %39, align 4, !tbaa !14
   %40 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !14
@@ -1377,7 +1377,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   store float %44, ptr %45, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader523, label %36
+  br i1 %exitcond.not, label %.preheader516, label %36
 
 46:                                               ; preds = %56
   %47 = add nuw nsw i32 %27, 1
@@ -1400,17 +1400,17 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
     i32 4, label %303
   ]
 
-56:                                               ; preds = %.preheader523, %56
-  %indvars.iv551 = phi i64 [ 0, %.preheader523 ], [ %indvars.iv.next552, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv551
+56:                                               ; preds = %.preheader516, %56
+  %indvars.iv544 = phi i64 [ 0, %.preheader516 ], [ %indvars.iv.next545, %56 ]
+  %57 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv544
   store float 0.000000e+00, ptr %57, align 4, !tbaa !14
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv551
+  %58 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv544
   store float 0.000000e+00, ptr %58, align 4, !tbaa !14
-  %59 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv551
+  %59 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv544
   store float 0.000000e+00, ptr %59, align 4, !tbaa !14
-  %indvars.iv.next552 = add nuw nsw i64 %indvars.iv551, 1
-  %exitcond555.not = icmp eq i64 %indvars.iv.next552, %wide.trip.count554
-  br i1 %exitcond555.not, label %46, label %56
+  %indvars.iv.next545 = add nuw nsw i64 %indvars.iv544, 1
+  %exitcond548.not = icmp eq i64 %indvars.iv.next545, %wide.trip.count547
+  br i1 %exitcond548.not, label %46, label %56
 
 60:                                               ; preds = %46
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 588
@@ -1999,75 +1999,75 @@ gauss_solve_triangular.exit:                      ; preds = %388
   %422 = load float, ptr %421, align 4, !tbaa !14
   %423 = fpext reassoc nsz arcp contract afn float %422 to double
   store double %423, ptr %420, align 8, !tbaa !53
-  br label %.lr.ph.preheader.i385
+  br label %.lr.ph.preheader.i382
 
-.loopexit.i395:                                   ; preds = %.lr.ph.i390
-  %indvars.iv.next63.i388 = add nuw nsw i64 %indvars.iv62.i386, 1
-  %indvars.iv.next.i396 = add nuw nsw i64 %indvars.iv.i387, 1
-  %exitcond66.not.i397 = icmp eq i64 %indvars.iv.next63.i388, 3
-  br i1 %exitcond66.not.i397, label %.lr.ph58.i398, label %.lr.ph.preheader.i385
+.loopexit.i392:                                   ; preds = %.lr.ph.i387
+  %indvars.iv.next63.i385 = add nuw nsw i64 %indvars.iv62.i383, 1
+  %indvars.iv.next.i393 = add nuw nsw i64 %indvars.iv.i384, 1
+  %exitcond66.not.i394 = icmp eq i64 %indvars.iv.next63.i385, 3
+  br i1 %exitcond66.not.i394, label %.lr.ph58.i395, label %.lr.ph.preheader.i382
 
-.lr.ph.preheader.i385:                            ; preds = %.loopexit.i395, %gauss_solve_triangular.exit
-  %indvars.iv62.i386 = phi i64 [ 0, %gauss_solve_triangular.exit ], [ %indvars.iv.next63.i388, %.loopexit.i395 ]
-  %indvars.iv.i387 = phi i64 [ 1, %gauss_solve_triangular.exit ], [ %indvars.iv.next.i396, %.loopexit.i395 ]
-  %424 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv62.i386
+.lr.ph.preheader.i382:                            ; preds = %.loopexit.i392, %gauss_solve_triangular.exit
+  %indvars.iv62.i383 = phi i64 [ 0, %gauss_solve_triangular.exit ], [ %indvars.iv.next63.i385, %.loopexit.i392 ]
+  %indvars.iv.i384 = phi i64 [ 1, %gauss_solve_triangular.exit ], [ %indvars.iv.next.i393, %.loopexit.i392 ]
+  %424 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv62.i383
   %425 = load i32, ptr %424, align 4, !tbaa !13
   %426 = sext i32 %425 to i64
   %427 = getelementptr inbounds double, ptr %21, i64 %426
   %428 = load double, ptr %427, align 8, !tbaa !53
-  %429 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv62.i386
+  %429 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv62.i383
   %430 = load double, ptr %429, align 8, !tbaa !53
   store double %430, ptr %427, align 8, !tbaa !53
   store double %428, ptr %429, align 8, !tbaa !53
-  %invariant.gep.i389 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv62.i386
-  br label %.lr.ph.i390
+  %invariant.gep.i386 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv62.i383
+  br label %.lr.ph.i387
 
-.lr.ph.i390:                                      ; preds = %.lr.ph.i390, %.lr.ph.preheader.i385
-  %indvars.iv59.i391 = phi i64 [ %indvars.iv.i387, %.lr.ph.preheader.i385 ], [ %indvars.iv.next60.i393, %.lr.ph.i390 ]
-  %gep.i392.idx = shl nuw nsw i64 %indvars.iv59.i391, 5
-  %gep.i392 = getelementptr inbounds nuw i8, ptr %invariant.gep.i389, i64 %gep.i392.idx
-  %431 = load double, ptr %gep.i392, align 8, !tbaa !53
+.lr.ph.i387:                                      ; preds = %.lr.ph.i387, %.lr.ph.preheader.i382
+  %indvars.iv59.i388 = phi i64 [ %indvars.iv.i384, %.lr.ph.preheader.i382 ], [ %indvars.iv.next60.i390, %.lr.ph.i387 ]
+  %gep.i389.idx = shl nuw nsw i64 %indvars.iv59.i388, 5
+  %gep.i389 = getelementptr inbounds nuw i8, ptr %invariant.gep.i386, i64 %gep.i389.idx
+  %431 = load double, ptr %gep.i389, align 8, !tbaa !53
   %432 = fmul reassoc nsz arcp contract afn double %431, %428
-  %433 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv59.i391
+  %433 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv59.i388
   %434 = load double, ptr %433, align 8, !tbaa !53
   %435 = fadd reassoc nsz arcp contract afn double %434, %432
   store double %435, ptr %433, align 8, !tbaa !53
-  %indvars.iv.next60.i393 = add nuw nsw i64 %indvars.iv59.i391, 1
-  %exitcond.not.i394 = icmp eq i64 %indvars.iv.next60.i393, 4
-  br i1 %exitcond.not.i394, label %.loopexit.i395, label %.lr.ph.i390
+  %indvars.iv.next60.i390 = add nuw nsw i64 %indvars.iv59.i388, 1
+  %exitcond.not.i391 = icmp eq i64 %indvars.iv.next60.i390, 4
+  br i1 %exitcond.not.i391, label %.loopexit.i392, label %.lr.ph.i387
 
-.lr.ph58.i398:                                    ; preds = %.loopexit.i395, %441
-  %indvars.iv72.i399 = phi i64 [ %indvars.iv.next73.i405, %441 ], [ 3, %.loopexit.i395 ]
-  %.idx509 = mul nuw nsw i64 %indvars.iv72.i399, 40
-  %436 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx509
+.lr.ph58.i395:                                    ; preds = %.loopexit.i392, %441
+  %indvars.iv72.i396 = phi i64 [ %indvars.iv.next73.i402, %441 ], [ 3, %.loopexit.i392 ]
+  %.idx502 = mul nuw nsw i64 %indvars.iv72.i396, 40
+  %436 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx502
   %437 = load double, ptr %436, align 8, !tbaa !53
-  %438 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv72.i399
+  %438 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv72.i396
   %439 = load double, ptr %438, align 8, !tbaa !53
   %440 = fdiv reassoc nsz arcp contract afn double %439, %437
   store double %440, ptr %438, align 8, !tbaa !53
-  %invariant.gep75.i400 = getelementptr double, ptr %18, i64 %indvars.iv72.i399
+  %invariant.gep75.i397 = getelementptr double, ptr %18, i64 %indvars.iv72.i396
   br label %443
 
 441:                                              ; preds = %443
-  %indvars.iv.next73.i405 = add nsw i64 %indvars.iv72.i399, -1
-  %442 = icmp samesign ugt i64 %indvars.iv72.i399, 1
-  br i1 %442, label %.lr.ph58.i398, label %gauss_solve_triangular.exit406
+  %indvars.iv.next73.i402 = add nsw i64 %indvars.iv72.i396, -1
+  %442 = icmp samesign ugt i64 %indvars.iv72.i396, 1
+  br i1 %442, label %.lr.ph58.i395, label %gauss_solve_triangular.exit403
 
-443:                                              ; preds = %443, %.lr.ph58.i398
-  %indvars.iv67.i401 = phi i64 [ 0, %.lr.ph58.i398 ], [ %indvars.iv.next68.i403, %443 ]
-  %gep76.i402.idx = shl i64 %indvars.iv67.i401, 5
-  %gep76.i402 = getelementptr i8, ptr %invariant.gep75.i400, i64 %gep76.i402.idx
-  %444 = load double, ptr %gep76.i402, align 8, !tbaa !53
+443:                                              ; preds = %443, %.lr.ph58.i395
+  %indvars.iv67.i398 = phi i64 [ 0, %.lr.ph58.i395 ], [ %indvars.iv.next68.i400, %443 ]
+  %gep76.i399.idx = shl i64 %indvars.iv67.i398, 5
+  %gep76.i399 = getelementptr i8, ptr %invariant.gep75.i397, i64 %gep76.i399.idx
+  %444 = load double, ptr %gep76.i399, align 8, !tbaa !53
   %445 = fmul reassoc nsz arcp contract afn double %444, %440
-  %446 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv67.i401
+  %446 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv67.i398
   %447 = load double, ptr %446, align 8, !tbaa !53
   %448 = fsub reassoc nsz arcp contract afn double %447, %445
   store double %448, ptr %446, align 8, !tbaa !53
-  %indvars.iv.next68.i403 = add nuw nsw i64 %indvars.iv67.i401, 1
-  %exitcond71.not.i404 = icmp eq i64 %indvars.iv.next68.i403, %indvars.iv72.i399
-  br i1 %exitcond71.not.i404, label %441, label %443
+  %indvars.iv.next68.i400 = add nuw nsw i64 %indvars.iv67.i398, 1
+  %exitcond71.not.i401 = icmp eq i64 %indvars.iv.next68.i400, %indvars.iv72.i396
+  br i1 %exitcond71.not.i401, label %441, label %443
 
-gauss_solve_triangular.exit406:                   ; preds = %441
+gauss_solve_triangular.exit403:                   ; preds = %441
   %449 = load double, ptr %21, align 16, !tbaa !53
   %450 = fdiv reassoc nsz arcp contract afn double %449, %396
   %451 = fptrunc reassoc nsz arcp contract afn double %450 to float
@@ -2105,75 +2105,75 @@ gauss_solve_triangular.exit406:                   ; preds = %441
   %474 = load float, ptr %473, align 4, !tbaa !14
   %475 = fpext reassoc nsz arcp contract afn float %474 to double
   store double %475, ptr %472, align 8, !tbaa !53
-  br label %.lr.ph.preheader.i407
+  br label %.lr.ph.preheader.i404
 
-.loopexit.i417:                                   ; preds = %.lr.ph.i412
-  %indvars.iv.next63.i410 = add nuw nsw i64 %indvars.iv62.i408, 1
-  %indvars.iv.next.i418 = add nuw nsw i64 %indvars.iv.i409, 1
-  %exitcond66.not.i419 = icmp eq i64 %indvars.iv.next63.i410, 3
-  br i1 %exitcond66.not.i419, label %.lr.ph58.i420, label %.lr.ph.preheader.i407
+.loopexit.i414:                                   ; preds = %.lr.ph.i409
+  %indvars.iv.next63.i407 = add nuw nsw i64 %indvars.iv62.i405, 1
+  %indvars.iv.next.i415 = add nuw nsw i64 %indvars.iv.i406, 1
+  %exitcond66.not.i416 = icmp eq i64 %indvars.iv.next63.i407, 3
+  br i1 %exitcond66.not.i416, label %.lr.ph58.i417, label %.lr.ph.preheader.i404
 
-.lr.ph.preheader.i407:                            ; preds = %.loopexit.i417, %gauss_solve_triangular.exit406
-  %indvars.iv62.i408 = phi i64 [ 0, %gauss_solve_triangular.exit406 ], [ %indvars.iv.next63.i410, %.loopexit.i417 ]
-  %indvars.iv.i409 = phi i64 [ 1, %gauss_solve_triangular.exit406 ], [ %indvars.iv.next.i418, %.loopexit.i417 ]
-  %476 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv62.i408
+.lr.ph.preheader.i404:                            ; preds = %.loopexit.i414, %gauss_solve_triangular.exit403
+  %indvars.iv62.i405 = phi i64 [ 0, %gauss_solve_triangular.exit403 ], [ %indvars.iv.next63.i407, %.loopexit.i414 ]
+  %indvars.iv.i406 = phi i64 [ 1, %gauss_solve_triangular.exit403 ], [ %indvars.iv.next.i415, %.loopexit.i414 ]
+  %476 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv62.i405
   %477 = load i32, ptr %476, align 4, !tbaa !13
   %478 = sext i32 %477 to i64
   %479 = getelementptr inbounds double, ptr %22, i64 %478
   %480 = load double, ptr %479, align 8, !tbaa !53
-  %481 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv62.i408
+  %481 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv62.i405
   %482 = load double, ptr %481, align 8, !tbaa !53
   store double %482, ptr %479, align 8, !tbaa !53
   store double %480, ptr %481, align 8, !tbaa !53
-  %invariant.gep.i411 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv62.i408
-  br label %.lr.ph.i412
+  %invariant.gep.i408 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv62.i405
+  br label %.lr.ph.i409
 
-.lr.ph.i412:                                      ; preds = %.lr.ph.i412, %.lr.ph.preheader.i407
-  %indvars.iv59.i413 = phi i64 [ %indvars.iv.i409, %.lr.ph.preheader.i407 ], [ %indvars.iv.next60.i415, %.lr.ph.i412 ]
-  %gep.i414.idx = shl nuw nsw i64 %indvars.iv59.i413, 5
-  %gep.i414 = getelementptr inbounds nuw i8, ptr %invariant.gep.i411, i64 %gep.i414.idx
-  %483 = load double, ptr %gep.i414, align 8, !tbaa !53
+.lr.ph.i409:                                      ; preds = %.lr.ph.i409, %.lr.ph.preheader.i404
+  %indvars.iv59.i410 = phi i64 [ %indvars.iv.i406, %.lr.ph.preheader.i404 ], [ %indvars.iv.next60.i412, %.lr.ph.i409 ]
+  %gep.i411.idx = shl nuw nsw i64 %indvars.iv59.i410, 5
+  %gep.i411 = getelementptr inbounds nuw i8, ptr %invariant.gep.i408, i64 %gep.i411.idx
+  %483 = load double, ptr %gep.i411, align 8, !tbaa !53
   %484 = fmul reassoc nsz arcp contract afn double %483, %480
-  %485 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv59.i413
+  %485 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv59.i410
   %486 = load double, ptr %485, align 8, !tbaa !53
   %487 = fadd reassoc nsz arcp contract afn double %486, %484
   store double %487, ptr %485, align 8, !tbaa !53
-  %indvars.iv.next60.i415 = add nuw nsw i64 %indvars.iv59.i413, 1
-  %exitcond.not.i416 = icmp eq i64 %indvars.iv.next60.i415, 4
-  br i1 %exitcond.not.i416, label %.loopexit.i417, label %.lr.ph.i412
+  %indvars.iv.next60.i412 = add nuw nsw i64 %indvars.iv59.i410, 1
+  %exitcond.not.i413 = icmp eq i64 %indvars.iv.next60.i412, 4
+  br i1 %exitcond.not.i413, label %.loopexit.i414, label %.lr.ph.i409
 
-.lr.ph58.i420:                                    ; preds = %.loopexit.i417, %493
-  %indvars.iv72.i421 = phi i64 [ %indvars.iv.next73.i427, %493 ], [ 3, %.loopexit.i417 ]
-  %.idx510 = mul nuw nsw i64 %indvars.iv72.i421, 40
-  %488 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx510
+.lr.ph58.i417:                                    ; preds = %.loopexit.i414, %493
+  %indvars.iv72.i418 = phi i64 [ %indvars.iv.next73.i424, %493 ], [ 3, %.loopexit.i414 ]
+  %.idx503 = mul nuw nsw i64 %indvars.iv72.i418, 40
+  %488 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx503
   %489 = load double, ptr %488, align 8, !tbaa !53
-  %490 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv72.i421
+  %490 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv72.i418
   %491 = load double, ptr %490, align 8, !tbaa !53
   %492 = fdiv reassoc nsz arcp contract afn double %491, %489
   store double %492, ptr %490, align 8, !tbaa !53
-  %invariant.gep75.i422 = getelementptr double, ptr %18, i64 %indvars.iv72.i421
+  %invariant.gep75.i419 = getelementptr double, ptr %18, i64 %indvars.iv72.i418
   br label %495
 
 493:                                              ; preds = %495
-  %indvars.iv.next73.i427 = add nsw i64 %indvars.iv72.i421, -1
-  %494 = icmp samesign ugt i64 %indvars.iv72.i421, 1
-  br i1 %494, label %.lr.ph58.i420, label %gauss_solve_triangular.exit428
+  %indvars.iv.next73.i424 = add nsw i64 %indvars.iv72.i418, -1
+  %494 = icmp samesign ugt i64 %indvars.iv72.i418, 1
+  br i1 %494, label %.lr.ph58.i417, label %gauss_solve_triangular.exit425
 
-495:                                              ; preds = %495, %.lr.ph58.i420
-  %indvars.iv67.i423 = phi i64 [ 0, %.lr.ph58.i420 ], [ %indvars.iv.next68.i425, %495 ]
-  %gep76.i424.idx = shl i64 %indvars.iv67.i423, 5
-  %gep76.i424 = getelementptr i8, ptr %invariant.gep75.i422, i64 %gep76.i424.idx
-  %496 = load double, ptr %gep76.i424, align 8, !tbaa !53
+495:                                              ; preds = %495, %.lr.ph58.i417
+  %indvars.iv67.i420 = phi i64 [ 0, %.lr.ph58.i417 ], [ %indvars.iv.next68.i422, %495 ]
+  %gep76.i421.idx = shl i64 %indvars.iv67.i420, 5
+  %gep76.i421 = getelementptr i8, ptr %invariant.gep75.i419, i64 %gep76.i421.idx
+  %496 = load double, ptr %gep76.i421, align 8, !tbaa !53
   %497 = fmul reassoc nsz arcp contract afn double %496, %492
-  %498 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv67.i423
+  %498 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv67.i420
   %499 = load double, ptr %498, align 8, !tbaa !53
   %500 = fsub reassoc nsz arcp contract afn double %499, %497
   store double %500, ptr %498, align 8, !tbaa !53
-  %indvars.iv.next68.i425 = add nuw nsw i64 %indvars.iv67.i423, 1
-  %exitcond71.not.i426 = icmp eq i64 %indvars.iv.next68.i425, %indvars.iv72.i421
-  br i1 %exitcond71.not.i426, label %493, label %495
+  %indvars.iv.next68.i422 = add nuw nsw i64 %indvars.iv67.i420, 1
+  %exitcond71.not.i423 = icmp eq i64 %indvars.iv.next68.i422, %indvars.iv72.i418
+  br i1 %exitcond71.not.i423, label %493, label %495
 
-gauss_solve_triangular.exit428:                   ; preds = %493
+gauss_solve_triangular.exit425:                   ; preds = %493
   %501 = load double, ptr %22, align 16, !tbaa !53
   %502 = fdiv reassoc nsz arcp contract afn double %501, %396
   %503 = fptrunc reassoc nsz arcp contract afn double %502 to float
@@ -2193,53 +2193,53 @@ gauss_solve_triangular.exit428:                   ; preds = %493
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %513
 
-513:                                              ; preds = %303, %gauss_solve_triangular.exit428
+513:                                              ; preds = %303, %gauss_solve_triangular.exit425
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %735
 
 514:                                              ; preds = %46
-  %515 = shl nuw nsw i64 %wide.trip.count554, 3
-  %516 = mul nuw nsw i64 %515, %wide.trip.count554
+  %515 = shl nuw nsw i64 %wide.trip.count547, 3
+  %516 = mul nuw nsw i64 %515, %wide.trip.count547
   %517 = tail call noalias ptr @malloc(i64 noundef %516) #28
   %518 = tail call noalias ptr @malloc(i64 noundef %515) #28
-  br i1 %29, label %.preheader522.lr.ph, label %.preheader517
+  br i1 %29, label %.preheader515.lr.ph, label %.preheader510
 
-.preheader522.lr.ph:                              ; preds = %514
+.preheader515.lr.ph:                              ; preds = %514
   %519 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %520 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %521 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %522 = zext nneg i32 %spec.select to i64
-  %wide.trip.count562 = zext nneg i32 %spec.select to i64
-  br label %.preheader522
+  %wide.trip.count555 = zext nneg i32 %spec.select to i64
+  br label %.preheader515
 
-.preheader522:                                    ; preds = %.preheader522.lr.ph, %528
-  %indvars.iv556 = phi i64 [ 0, %.preheader522.lr.ph ], [ %indvars.iv.next557, %528 ]
-  %.idx633 = mul nuw nsw i64 %indvars.iv556, 12
-  %523 = getelementptr inbounds nuw i8, ptr %519, i64 %.idx633
-  %524 = mul nuw nsw i64 %indvars.iv556, %wide.trip.count554
-  %invariant.gep = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv556
-  %invariant.gep638 = getelementptr inbounds nuw double, ptr %517, i64 %524
+.preheader515:                                    ; preds = %.preheader515.lr.ph, %528
+  %indvars.iv549 = phi i64 [ 0, %.preheader515.lr.ph ], [ %indvars.iv.next550, %528 ]
+  %.idx626 = mul nuw nsw i64 %indvars.iv549, 12
+  %523 = getelementptr inbounds nuw i8, ptr %519, i64 %.idx626
+  %524 = mul nuw nsw i64 %indvars.iv549, %wide.trip.count547
+  %invariant.gep = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv549
+  %invariant.gep631 = getelementptr inbounds nuw double, ptr %517, i64 %524
   br label %529
 
-.lr.ph529:                                        ; preds = %528
+.lr.ph522:                                        ; preds = %528
   %525 = mul nuw nsw i32 %28, %27
   %526 = zext nneg i32 %525 to i64
   %527 = zext nneg i32 %27 to i64
-  %wide.trip.count567 = zext nneg i32 %spec.select to i64
-  %invariant.gep640 = getelementptr inbounds nuw double, ptr %517, i64 %526
-  %invariant.gep642 = getelementptr inbounds nuw double, ptr %517, i64 %527
+  %wide.trip.count560 = zext nneg i32 %spec.select to i64
+  %invariant.gep633 = getelementptr inbounds nuw double, ptr %517, i64 %526
+  %invariant.gep635 = getelementptr inbounds nuw double, ptr %517, i64 %527
   br label %565
 
 528:                                              ; preds = %kernel.exit
-  %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
-  %exitcond563.not = icmp eq i64 %indvars.iv.next557, %wide.trip.count562
-  br i1 %exitcond563.not, label %.lr.ph529, label %.preheader522
+  %indvars.iv.next550 = add nuw nsw i64 %indvars.iv549, 1
+  %exitcond556.not = icmp eq i64 %indvars.iv.next550, %wide.trip.count555
+  br i1 %exitcond556.not, label %.lr.ph522, label %.preheader515
 
-529:                                              ; preds = %.preheader522, %kernel.exit
-  %indvars.iv558 = phi i64 [ %indvars.iv556, %.preheader522 ], [ %indvars.iv.next559, %kernel.exit ]
-  %.idx634 = mul nuw nsw i64 %indvars.iv558, 12
-  %530 = getelementptr inbounds nuw i8, ptr %519, i64 %.idx634
+529:                                              ; preds = %.preheader515, %kernel.exit
+  %indvars.iv551 = phi i64 [ %indvars.iv549, %.preheader515 ], [ %indvars.iv.next552, %kernel.exit ]
+  %.idx627 = mul nuw nsw i64 %indvars.iv551, 12
+  %530 = getelementptr inbounds nuw i8, ptr %519, i64 %.idx627
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %531
 
@@ -2254,8 +2254,8 @@ gauss_solve_triangular.exit428:                   ; preds = %493
   %538 = fmul reassoc nsz arcp contract afn float %536, %536
   store float %538, ptr %537, align 4, !tbaa !14
   %539 = add nuw nsw i64 %.011.i, 1
-  %exitcond.not.i429 = icmp eq i64 %539, 4
-  br i1 %exitcond.not.i429, label %kernel.exit, label %531
+  %exitcond.not.i426 = icmp eq i64 %539, 4
+  br i1 %exitcond.not.i426, label %kernel.exit, label %531
 
 kernel.exit:                                      ; preds = %531
   %540 = load float, ptr %5, align 16, !tbaa !14
@@ -2281,92 +2281,92 @@ kernel.exit:                                      ; preds = %531
   %557 = fmul reassoc nsz arcp contract afn float %556, %555
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %558 = fpext reassoc nsz arcp contract afn float %557 to double
-  %559 = mul nuw nsw i64 %indvars.iv558, %wide.trip.count554
+  %559 = mul nuw nsw i64 %indvars.iv551, %wide.trip.count547
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %559
   store double %558, ptr %gep, align 8, !tbaa !53
-  %gep639 = getelementptr inbounds nuw double, ptr %invariant.gep638, i64 %indvars.iv558
-  store double %558, ptr %gep639, align 8, !tbaa !53
-  %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
-  %560 = icmp samesign ult i64 %indvars.iv.next559, %522
+  %gep632 = getelementptr inbounds nuw double, ptr %invariant.gep631, i64 %indvars.iv551
+  store double %558, ptr %gep632, align 8, !tbaa !53
+  %indvars.iv.next552 = add nuw nsw i64 %indvars.iv551, 1
+  %560 = icmp samesign ult i64 %indvars.iv.next552, %522
   br i1 %560, label %529, label %528
 
-.lr.ph531:                                        ; preds = %565
+.lr.ph524:                                        ; preds = %565
   %561 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %562 = mul nuw nsw i32 %47, %28
   %563 = zext nneg i32 %562 to i64
   %564 = zext nneg i32 %27 to i64
-  %wide.trip.count572 = zext nneg i32 %spec.select to i64
-  %invariant.gep644 = getelementptr inbounds nuw double, ptr %517, i64 %563
-  %invariant.gep646 = getelementptr inbounds nuw double, ptr %517, i64 %564
+  %wide.trip.count565 = zext nneg i32 %spec.select to i64
+  %invariant.gep637 = getelementptr inbounds nuw double, ptr %517, i64 %563
+  %invariant.gep639 = getelementptr inbounds nuw double, ptr %517, i64 %564
   br label %570
 
-565:                                              ; preds = %.lr.ph529, %565
-  %indvars.iv564 = phi i64 [ 0, %.lr.ph529 ], [ %indvars.iv.next565, %565 ]
-  %gep641 = getelementptr inbounds nuw double, ptr %invariant.gep640, i64 %indvars.iv564
-  store double 1.000000e+00, ptr %gep641, align 8, !tbaa !53
-  %566 = mul nuw nsw i64 %indvars.iv564, %wide.trip.count554
-  %gep643 = getelementptr inbounds nuw double, ptr %invariant.gep642, i64 %566
-  store double 1.000000e+00, ptr %gep643, align 8, !tbaa !53
-  %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
-  %exitcond568.not = icmp eq i64 %indvars.iv.next565, %wide.trip.count567
-  br i1 %exitcond568.not, label %.lr.ph531, label %565
+565:                                              ; preds = %.lr.ph522, %565
+  %indvars.iv557 = phi i64 [ 0, %.lr.ph522 ], [ %indvars.iv.next558, %565 ]
+  %gep634 = getelementptr inbounds nuw double, ptr %invariant.gep633, i64 %indvars.iv557
+  store double 1.000000e+00, ptr %gep634, align 8, !tbaa !53
+  %566 = mul nuw nsw i64 %indvars.iv557, %wide.trip.count547
+  %gep636 = getelementptr inbounds nuw double, ptr %invariant.gep635, i64 %566
+  store double 1.000000e+00, ptr %gep636, align 8, !tbaa !53
+  %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
+  %exitcond561.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count560
+  br i1 %exitcond561.not, label %.lr.ph524, label %565
 
-.lr.ph533:                                        ; preds = %570
+.lr.ph526:                                        ; preds = %570
   %567 = mul nuw nsw i32 %50, %28
   %568 = zext nneg i32 %567 to i64
   %569 = zext nneg i32 %27 to i64
-  %wide.trip.count577 = zext nneg i32 %spec.select to i64
-  %invariant.gep648 = getelementptr inbounds nuw double, ptr %517, i64 %568
-  %invariant.gep650 = getelementptr inbounds nuw double, ptr %517, i64 %569
+  %wide.trip.count570 = zext nneg i32 %spec.select to i64
+  %invariant.gep641 = getelementptr inbounds nuw double, ptr %517, i64 %568
+  %invariant.gep643 = getelementptr inbounds nuw double, ptr %517, i64 %569
   br label %579
 
-570:                                              ; preds = %.lr.ph531, %570
-  %indvars.iv569 = phi i64 [ 0, %.lr.ph531 ], [ %indvars.iv.next570, %570 ]
-  %.idx635 = mul nuw nsw i64 %indvars.iv569, 12
-  %571 = getelementptr inbounds nuw i8, ptr %561, i64 %.idx635
+570:                                              ; preds = %.lr.ph524, %570
+  %indvars.iv562 = phi i64 [ 0, %.lr.ph524 ], [ %indvars.iv.next563, %570 ]
+  %.idx628 = mul nuw nsw i64 %indvars.iv562, 12
+  %571 = getelementptr inbounds nuw i8, ptr %561, i64 %.idx628
   %572 = load float, ptr %571, align 4, !tbaa !14
   %573 = fpext reassoc nsz arcp contract afn float %572 to double
-  %gep645 = getelementptr inbounds nuw double, ptr %invariant.gep644, i64 %indvars.iv569
-  store double %573, ptr %gep645, align 8, !tbaa !53
-  %574 = mul nuw nsw i64 %indvars.iv569, %wide.trip.count554
-  %gep647 = getelementptr inbounds nuw double, ptr %invariant.gep646, i64 %574
-  %575 = getelementptr inbounds nuw i8, ptr %gep647, i64 8
+  %gep638 = getelementptr inbounds nuw double, ptr %invariant.gep637, i64 %indvars.iv562
+  store double %573, ptr %gep638, align 8, !tbaa !53
+  %574 = mul nuw nsw i64 %indvars.iv562, %wide.trip.count547
+  %gep640 = getelementptr inbounds nuw double, ptr %invariant.gep639, i64 %574
+  %575 = getelementptr inbounds nuw i8, ptr %gep640, i64 8
   store double %573, ptr %575, align 8, !tbaa !53
-  %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
-  %exitcond573.not = icmp eq i64 %indvars.iv.next570, %wide.trip.count572
-  br i1 %exitcond573.not, label %.lr.ph533, label %570
+  %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
+  %exitcond566.not = icmp eq i64 %indvars.iv.next563, %wide.trip.count565
+  br i1 %exitcond566.not, label %.lr.ph526, label %570
 
-.lr.ph535:                                        ; preds = %579
+.lr.ph528:                                        ; preds = %579
   %576 = mul nuw nsw i32 %53, %28
   %577 = zext nneg i32 %576 to i64
   %578 = zext nneg i32 %27 to i64
-  %wide.trip.count582 = zext nneg i32 %spec.select to i64
-  %invariant.gep652 = getelementptr inbounds nuw double, ptr %517, i64 %577
-  %invariant.gep654 = getelementptr inbounds nuw double, ptr %517, i64 %578
+  %wide.trip.count575 = zext nneg i32 %spec.select to i64
+  %invariant.gep645 = getelementptr inbounds nuw double, ptr %517, i64 %577
+  %invariant.gep647 = getelementptr inbounds nuw double, ptr %517, i64 %578
   br label %595
 
-579:                                              ; preds = %.lr.ph533, %579
-  %indvars.iv574 = phi i64 [ 0, %.lr.ph533 ], [ %indvars.iv.next575, %579 ]
-  %.idx636 = mul nuw nsw i64 %indvars.iv574, 12
-  %580 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx636
+579:                                              ; preds = %.lr.ph526, %579
+  %indvars.iv567 = phi i64 [ 0, %.lr.ph526 ], [ %indvars.iv.next568, %579 ]
+  %.idx629 = mul nuw nsw i64 %indvars.iv567, 12
+  %580 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx629
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %582 = load float, ptr %581, align 4, !tbaa !14
   %583 = fpext reassoc nsz arcp contract afn float %582 to double
-  %gep649 = getelementptr inbounds nuw double, ptr %invariant.gep648, i64 %indvars.iv574
-  store double %583, ptr %gep649, align 8, !tbaa !53
-  %584 = mul nuw nsw i64 %indvars.iv574, %wide.trip.count554
-  %gep651 = getelementptr inbounds nuw double, ptr %invariant.gep650, i64 %584
-  %585 = getelementptr inbounds nuw i8, ptr %gep651, i64 16
+  %gep642 = getelementptr inbounds nuw double, ptr %invariant.gep641, i64 %indvars.iv567
+  store double %583, ptr %gep642, align 8, !tbaa !53
+  %584 = mul nuw nsw i64 %indvars.iv567, %wide.trip.count547
+  %gep644 = getelementptr inbounds nuw double, ptr %invariant.gep643, i64 %584
+  %585 = getelementptr inbounds nuw i8, ptr %gep644, i64 16
   store double %583, ptr %585, align 8, !tbaa !53
-  %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
-  %exitcond578.not = icmp eq i64 %indvars.iv.next575, %wide.trip.count577
-  br i1 %exitcond578.not, label %.lr.ph535, label %579
+  %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 1
+  %exitcond571.not = icmp eq i64 %indvars.iv.next568, %wide.trip.count570
+  br i1 %exitcond571.not, label %.lr.ph528, label %579
 
-.preheader517:                                    ; preds = %595, %514
+.preheader510:                                    ; preds = %595, %514
   %586 = icmp ult i32 %spec.select, %28
-  br i1 %586, label %.preheader516.preheader, label %._crit_edge
+  br i1 %586, label %.preheader509.preheader, label %._crit_edge
 
-.preheader516.preheader:                          ; preds = %.preheader517
+.preheader509.preheader:                          ; preds = %.preheader510
   %587 = mul nuw nsw i32 %spec.select, %28
   %588 = add nuw nsw i32 %27, %587
   %589 = zext nneg i32 %588 to i64
@@ -2375,369 +2375,369 @@ kernel.exit:                                      ; preds = %531
   %narrow = add nuw nsw i32 %591, 32
   %592 = zext nneg i32 %narrow to i64
   %593 = sub nuw nsw i32 %28, %spec.select
-  %wide.trip.count587 = zext nneg i32 %593 to i64
+  %wide.trip.count580 = zext nneg i32 %593 to i64
   %594 = getelementptr nuw i8, ptr %517, i64 %590
-  br label %.preheader516
+  br label %.preheader509
 
-595:                                              ; preds = %.lr.ph535, %595
-  %indvars.iv579 = phi i64 [ 0, %.lr.ph535 ], [ %indvars.iv.next580, %595 ]
-  %.idx637 = mul nuw nsw i64 %indvars.iv579, 12
-  %596 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx637
+595:                                              ; preds = %.lr.ph528, %595
+  %indvars.iv572 = phi i64 [ 0, %.lr.ph528 ], [ %indvars.iv.next573, %595 ]
+  %.idx630 = mul nuw nsw i64 %indvars.iv572, 12
+  %596 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx630
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 12
   %598 = load float, ptr %597, align 4, !tbaa !14
   %599 = fpext reassoc nsz arcp contract afn float %598 to double
-  %gep653 = getelementptr inbounds nuw double, ptr %invariant.gep652, i64 %indvars.iv579
-  store double %599, ptr %gep653, align 8, !tbaa !53
-  %600 = mul nuw nsw i64 %indvars.iv579, %wide.trip.count554
-  %gep655 = getelementptr inbounds nuw double, ptr %invariant.gep654, i64 %600
-  %601 = getelementptr inbounds nuw i8, ptr %gep655, i64 24
+  %gep646 = getelementptr inbounds nuw double, ptr %invariant.gep645, i64 %indvars.iv572
+  store double %599, ptr %gep646, align 8, !tbaa !53
+  %600 = mul nuw nsw i64 %indvars.iv572, %wide.trip.count547
+  %gep648 = getelementptr inbounds nuw double, ptr %invariant.gep647, i64 %600
+  %601 = getelementptr inbounds nuw i8, ptr %gep648, i64 24
   store double %599, ptr %601, align 8, !tbaa !53
-  %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
-  %exitcond583.not = icmp eq i64 %indvars.iv.next580, %wide.trip.count582
-  br i1 %exitcond583.not, label %.preheader517, label %595
+  %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
+  %exitcond576.not = icmp eq i64 %indvars.iv.next573, %wide.trip.count575
+  br i1 %exitcond576.not, label %.preheader510, label %595
 
-.preheader516:                                    ; preds = %.preheader516.preheader, %.preheader516
-  %indvar = phi i64 [ 0, %.preheader516.preheader ], [ %indvar.next, %.preheader516 ]
+.preheader509:                                    ; preds = %.preheader509.preheader, %.preheader509
+  %indvar = phi i64 [ 0, %.preheader509.preheader ], [ %indvar.next, %.preheader509 ]
   %602 = mul nuw nsw i64 %indvar, %592
   %scevgep = getelementptr nuw i8, ptr %594, i64 %602
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false), !tbaa !53
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond588.not = icmp eq i64 %indvar.next, %wide.trip.count587
-  br i1 %exitcond588.not, label %._crit_edge, label %.preheader516
+  %exitcond581.not = icmp eq i64 %indvar.next, %wide.trip.count580
+  br i1 %exitcond581.not, label %._crit_edge, label %.preheader509
 
-._crit_edge:                                      ; preds = %.preheader516, %.preheader517
-  %603 = shl nuw nsw i64 %wide.trip.count554, 2
+._crit_edge:                                      ; preds = %.preheader509, %.preheader510
+  %603 = shl nuw nsw i64 %wide.trip.count547, 2
   %604 = tail call noalias ptr @malloc(i64 noundef %603) #28
   %605 = tail call fastcc i32 @gauss_make_triangular(ptr noundef %517, ptr noundef %604, i32 noundef %28)
   %.not378 = icmp eq i32 %605, 0
-  br i1 %.not378, label %.loopexit, label %.preheader515
+  br i1 %.not378, label %.loopexit, label %.preheader508
 
-.preheader515:                                    ; preds = %._crit_edge
-  br i1 %29, label %.lr.ph539, label %.preheader514
+.preheader508:                                    ; preds = %._crit_edge
+  br i1 %29, label %.lr.ph532, label %.preheader507
 
-.lr.ph539:                                        ; preds = %.preheader515
+.lr.ph532:                                        ; preds = %.preheader508
   %606 = getelementptr inbounds nuw i8, ptr %1, i64 588
-  %wide.trip.count592 = zext nneg i32 %spec.select to i64
+  %wide.trip.count585 = zext nneg i32 %spec.select to i64
   br label %609
 
-.preheader514:                                    ; preds = %609, %.preheader515
+.preheader507:                                    ; preds = %609, %.preheader508
   %607 = shl nuw nsw i32 %27, 3
   %608 = zext nneg i32 %607 to i64
-  %scevgep594 = getelementptr i8, ptr %518, i64 %608
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep594, i8 0, i64 32, i1 false), !tbaa !53
-  br label %.lr.ph.preheader.i430
+  %scevgep587 = getelementptr i8, ptr %518, i64 %608
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep587, i8 0, i64 32, i1 false), !tbaa !53
+  br label %.lr.ph.preheader.i427
 
-609:                                              ; preds = %.lr.ph539, %609
-  %indvars.iv589 = phi i64 [ 0, %.lr.ph539 ], [ %indvars.iv.next590, %609 ]
-  %610 = getelementptr inbounds nuw float, ptr %606, i64 %indvars.iv589
+609:                                              ; preds = %.lr.ph532, %609
+  %indvars.iv582 = phi i64 [ 0, %.lr.ph532 ], [ %indvars.iv.next583, %609 ]
+  %610 = getelementptr inbounds nuw float, ptr %606, i64 %indvars.iv582
   %611 = load float, ptr %610, align 4, !tbaa !14
   %612 = fpext reassoc nsz arcp contract afn float %611 to double
-  %613 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv589
+  %613 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv582
   store double %612, ptr %613, align 8, !tbaa !53
-  %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 1
-  %exitcond593.not = icmp eq i64 %indvars.iv.next590, %wide.trip.count592
-  br i1 %exitcond593.not, label %.preheader514, label %609
+  %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
+  %exitcond586.not = icmp eq i64 %indvars.iv.next583, %wide.trip.count585
+  br i1 %exitcond586.not, label %.preheader507, label %609
 
-.loopexit.i440:                                   ; preds = %.lr.ph.i435
-  %indvars.iv.next63.i433 = add nuw nsw i64 %indvars.iv62.i431, 1
-  %indvars.iv.next.i441 = add nuw nsw i64 %indvars.iv.i432, 1
-  %exitcond66.not.i442 = icmp eq i64 %indvars.iv.next63.i433, %54
-  br i1 %exitcond66.not.i442, label %.lr.ph58.i443, label %.lr.ph.preheader.i430
+.loopexit.i437:                                   ; preds = %.lr.ph.i432
+  %indvars.iv.next63.i430 = add nuw nsw i64 %indvars.iv62.i428, 1
+  %indvars.iv.next.i438 = add nuw nsw i64 %indvars.iv.i429, 1
+  %exitcond66.not.i439 = icmp eq i64 %indvars.iv.next63.i430, %54
+  br i1 %exitcond66.not.i439, label %.lr.ph58.i440, label %.lr.ph.preheader.i427
 
-.lr.ph58.i443:                                    ; preds = %.loopexit.i440
+.lr.ph58.i440:                                    ; preds = %.loopexit.i437
   %614 = add nuw nsw i32 %27, 5
   %615 = zext nneg i32 %614 to i64
   br label %629
 
-.lr.ph.preheader.i430:                            ; preds = %.loopexit.i440, %.preheader514
-  %indvars.iv62.i431 = phi i64 [ 0, %.preheader514 ], [ %indvars.iv.next63.i433, %.loopexit.i440 ]
-  %indvars.iv.i432 = phi i64 [ 1, %.preheader514 ], [ %indvars.iv.next.i441, %.loopexit.i440 ]
-  %616 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv62.i431
+.lr.ph.preheader.i427:                            ; preds = %.loopexit.i437, %.preheader507
+  %indvars.iv62.i428 = phi i64 [ 0, %.preheader507 ], [ %indvars.iv.next63.i430, %.loopexit.i437 ]
+  %indvars.iv.i429 = phi i64 [ 1, %.preheader507 ], [ %indvars.iv.next.i438, %.loopexit.i437 ]
+  %616 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv62.i428
   %617 = load i32, ptr %616, align 4, !tbaa !13
   %618 = sext i32 %617 to i64
   %619 = getelementptr inbounds double, ptr %518, i64 %618
   %620 = load double, ptr %619, align 8, !tbaa !53
-  %621 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv62.i431
+  %621 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv62.i428
   %622 = load double, ptr %621, align 8, !tbaa !53
   store double %622, ptr %619, align 8, !tbaa !53
   store double %620, ptr %621, align 8, !tbaa !53
-  %invariant.gep.i434 = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv62.i431
-  br label %.lr.ph.i435
+  %invariant.gep.i431 = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv62.i428
+  br label %.lr.ph.i432
 
-.lr.ph.i435:                                      ; preds = %.lr.ph.i435, %.lr.ph.preheader.i430
-  %indvars.iv59.i436 = phi i64 [ %indvars.iv.i432, %.lr.ph.preheader.i430 ], [ %indvars.iv.next60.i438, %.lr.ph.i435 ]
-  %623 = mul nuw nsw i64 %indvars.iv59.i436, %wide.trip.count554
-  %gep.i437 = getelementptr inbounds nuw double, ptr %invariant.gep.i434, i64 %623
-  %624 = load double, ptr %gep.i437, align 8, !tbaa !53
+.lr.ph.i432:                                      ; preds = %.lr.ph.i432, %.lr.ph.preheader.i427
+  %indvars.iv59.i433 = phi i64 [ %indvars.iv.i429, %.lr.ph.preheader.i427 ], [ %indvars.iv.next60.i435, %.lr.ph.i432 ]
+  %623 = mul nuw nsw i64 %indvars.iv59.i433, %wide.trip.count547
+  %gep.i434 = getelementptr inbounds nuw double, ptr %invariant.gep.i431, i64 %623
+  %624 = load double, ptr %gep.i434, align 8, !tbaa !53
   %625 = fmul reassoc nsz arcp contract afn double %624, %620
-  %626 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv59.i436
+  %626 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv59.i433
   %627 = load double, ptr %626, align 8, !tbaa !53
   %628 = fadd reassoc nsz arcp contract afn double %627, %625
   store double %628, ptr %626, align 8, !tbaa !53
-  %indvars.iv.next60.i438 = add nuw nsw i64 %indvars.iv59.i436, 1
-  %exitcond.not.i439 = icmp eq i64 %indvars.iv.next60.i438, %wide.trip.count554
-  br i1 %exitcond.not.i439, label %.loopexit.i440, label %.lr.ph.i435
+  %indvars.iv.next60.i435 = add nuw nsw i64 %indvars.iv59.i433, 1
+  %exitcond.not.i436 = icmp eq i64 %indvars.iv.next60.i435, %wide.trip.count547
+  br i1 %exitcond.not.i436, label %.loopexit.i437, label %.lr.ph.i432
 
-629:                                              ; preds = %636, %.lr.ph58.i443
-  %indvars.iv72.i444 = phi i64 [ %54, %.lr.ph58.i443 ], [ %indvars.iv.next73.i450, %636 ]
-  %630 = mul nuw nsw i64 %indvars.iv72.i444, %615
+629:                                              ; preds = %636, %.lr.ph58.i440
+  %indvars.iv72.i441 = phi i64 [ %54, %.lr.ph58.i440 ], [ %indvars.iv.next73.i447, %636 ]
+  %630 = mul nuw nsw i64 %indvars.iv72.i441, %615
   %631 = getelementptr inbounds nuw double, ptr %517, i64 %630
   %632 = load double, ptr %631, align 8, !tbaa !53
-  %633 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv72.i444
+  %633 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv72.i441
   %634 = load double, ptr %633, align 8, !tbaa !53
   %635 = fdiv reassoc nsz arcp contract afn double %634, %632
   store double %635, ptr %633, align 8, !tbaa !53
-  %invariant.gep75.i445 = getelementptr double, ptr %517, i64 %indvars.iv72.i444
+  %invariant.gep75.i442 = getelementptr double, ptr %517, i64 %indvars.iv72.i441
   br label %638
 
 636:                                              ; preds = %638
-  %indvars.iv.next73.i450 = add nsw i64 %indvars.iv72.i444, -1
-  %637 = icmp sgt i64 %indvars.iv72.i444, 1
-  br i1 %637, label %629, label %gauss_solve_triangular.exit451
+  %indvars.iv.next73.i447 = add nsw i64 %indvars.iv72.i441, -1
+  %637 = icmp sgt i64 %indvars.iv72.i441, 1
+  br i1 %637, label %629, label %gauss_solve_triangular.exit448
 
 638:                                              ; preds = %638, %629
-  %indvars.iv67.i446 = phi i64 [ 0, %629 ], [ %indvars.iv.next68.i448, %638 ]
-  %639 = mul nuw nsw i64 %indvars.iv67.i446, %wide.trip.count554
-  %gep76.i447 = getelementptr double, ptr %invariant.gep75.i445, i64 %639
-  %640 = load double, ptr %gep76.i447, align 8, !tbaa !53
+  %indvars.iv67.i443 = phi i64 [ 0, %629 ], [ %indvars.iv.next68.i445, %638 ]
+  %639 = mul nuw nsw i64 %indvars.iv67.i443, %wide.trip.count547
+  %gep76.i444 = getelementptr double, ptr %invariant.gep75.i442, i64 %639
+  %640 = load double, ptr %gep76.i444, align 8, !tbaa !53
   %641 = fmul reassoc nsz arcp contract afn double %640, %635
-  %642 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv67.i446
+  %642 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv67.i443
   %643 = load double, ptr %642, align 8, !tbaa !53
   %644 = fsub reassoc nsz arcp contract afn double %643, %641
   store double %644, ptr %642, align 8, !tbaa !53
-  %indvars.iv.next68.i448 = add nuw nsw i64 %indvars.iv67.i446, 1
-  %exitcond71.not.i449 = icmp eq i64 %indvars.iv.next68.i448, %indvars.iv72.i444
-  br i1 %exitcond71.not.i449, label %636, label %638
+  %indvars.iv.next68.i445 = add nuw nsw i64 %indvars.iv67.i443, 1
+  %exitcond71.not.i446 = icmp eq i64 %indvars.iv.next68.i445, %indvars.iv72.i441
+  br i1 %exitcond71.not.i446, label %636, label %638
 
-gauss_solve_triangular.exit451:                   ; preds = %636
+gauss_solve_triangular.exit448:                   ; preds = %636
   %645 = load double, ptr %517, align 8, !tbaa !53
   %646 = load double, ptr %518, align 8, !tbaa !53
   %647 = fdiv reassoc nsz arcp contract afn double %646, %645
   store double %647, ptr %518, align 8, !tbaa !53
   br label %649
 
-.preheader513:                                    ; preds = %649
-  br i1 %29, label %.lr.ph543, label %.preheader512
+.preheader506:                                    ; preds = %649
+  br i1 %29, label %.lr.ph536, label %.preheader505
 
-.lr.ph543:                                        ; preds = %.preheader513
+.lr.ph536:                                        ; preds = %.preheader506
   %648 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %wide.trip.count606 = zext nneg i32 %spec.select to i64
+  %wide.trip.count599 = zext nneg i32 %spec.select to i64
   br label %654
 
-649:                                              ; preds = %gauss_solve_triangular.exit451, %649
-  %indvars.iv598 = phi i64 [ 0, %gauss_solve_triangular.exit451 ], [ %indvars.iv.next599, %649 ]
-  %650 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv598
+649:                                              ; preds = %gauss_solve_triangular.exit448, %649
+  %indvars.iv591 = phi i64 [ 0, %gauss_solve_triangular.exit448 ], [ %indvars.iv.next592, %649 ]
+  %650 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv591
   %651 = load double, ptr %650, align 8, !tbaa !53
   %652 = fptrunc reassoc nsz arcp contract afn double %651 to float
-  %653 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv598
+  %653 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv591
   store float %652, ptr %653, align 4, !tbaa !14
-  %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
-  %exitcond602.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count554
-  br i1 %exitcond602.not, label %.preheader513, label %649
+  %indvars.iv.next592 = add nuw nsw i64 %indvars.iv591, 1
+  %exitcond595.not = icmp eq i64 %indvars.iv.next592, %wide.trip.count547
+  br i1 %exitcond595.not, label %.preheader506, label %649
 
-.preheader512:                                    ; preds = %654, %.preheader513
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep594, i8 0, i64 32, i1 false), !tbaa !53
-  br label %.lr.ph.preheader.i453
+.preheader505:                                    ; preds = %654, %.preheader506
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep587, i8 0, i64 32, i1 false), !tbaa !53
+  br label %.lr.ph.preheader.i450
 
-654:                                              ; preds = %.lr.ph543, %654
-  %indvars.iv603 = phi i64 [ 0, %.lr.ph543 ], [ %indvars.iv.next604, %654 ]
-  %655 = getelementptr inbounds nuw float, ptr %648, i64 %indvars.iv603
+654:                                              ; preds = %.lr.ph536, %654
+  %indvars.iv596 = phi i64 [ 0, %.lr.ph536 ], [ %indvars.iv.next597, %654 ]
+  %655 = getelementptr inbounds nuw float, ptr %648, i64 %indvars.iv596
   %656 = load float, ptr %655, align 4, !tbaa !14
   %657 = fpext reassoc nsz arcp contract afn float %656 to double
-  %658 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv603
+  %658 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv596
   store double %657, ptr %658, align 8, !tbaa !53
-  %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
-  %exitcond607.not = icmp eq i64 %indvars.iv.next604, %wide.trip.count606
-  br i1 %exitcond607.not, label %.preheader512, label %654
+  %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596, 1
+  %exitcond600.not = icmp eq i64 %indvars.iv.next597, %wide.trip.count599
+  br i1 %exitcond600.not, label %.preheader505, label %654
 
-.loopexit.i463:                                   ; preds = %.lr.ph.i458
-  %indvars.iv.next63.i456 = add nuw nsw i64 %indvars.iv62.i454, 1
-  %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i455, 1
-  %exitcond66.not.i465 = icmp eq i64 %indvars.iv.next63.i456, %54
-  br i1 %exitcond66.not.i465, label %.lr.ph58.i466, label %.lr.ph.preheader.i453
+.loopexit.i460:                                   ; preds = %.lr.ph.i455
+  %indvars.iv.next63.i453 = add nuw nsw i64 %indvars.iv62.i451, 1
+  %indvars.iv.next.i461 = add nuw nsw i64 %indvars.iv.i452, 1
+  %exitcond66.not.i462 = icmp eq i64 %indvars.iv.next63.i453, %54
+  br i1 %exitcond66.not.i462, label %.lr.ph58.i463, label %.lr.ph.preheader.i450
 
-.lr.ph.preheader.i453:                            ; preds = %.preheader512, %.loopexit.i463
-  %indvars.iv62.i454 = phi i64 [ %indvars.iv.next63.i456, %.loopexit.i463 ], [ 0, %.preheader512 ]
-  %indvars.iv.i455 = phi i64 [ %indvars.iv.next.i464, %.loopexit.i463 ], [ 1, %.preheader512 ]
-  %659 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv62.i454
+.lr.ph.preheader.i450:                            ; preds = %.preheader505, %.loopexit.i460
+  %indvars.iv62.i451 = phi i64 [ %indvars.iv.next63.i453, %.loopexit.i460 ], [ 0, %.preheader505 ]
+  %indvars.iv.i452 = phi i64 [ %indvars.iv.next.i461, %.loopexit.i460 ], [ 1, %.preheader505 ]
+  %659 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv62.i451
   %660 = load i32, ptr %659, align 4, !tbaa !13
   %661 = sext i32 %660 to i64
   %662 = getelementptr inbounds double, ptr %518, i64 %661
   %663 = load double, ptr %662, align 8, !tbaa !53
-  %664 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv62.i454
+  %664 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv62.i451
   %665 = load double, ptr %664, align 8, !tbaa !53
   store double %665, ptr %662, align 8, !tbaa !53
   store double %663, ptr %664, align 8, !tbaa !53
-  %invariant.gep.i457 = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv62.i454
-  br label %.lr.ph.i458
+  %invariant.gep.i454 = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv62.i451
+  br label %.lr.ph.i455
 
-.lr.ph.i458:                                      ; preds = %.lr.ph.i458, %.lr.ph.preheader.i453
-  %indvars.iv59.i459 = phi i64 [ %indvars.iv.i455, %.lr.ph.preheader.i453 ], [ %indvars.iv.next60.i461, %.lr.ph.i458 ]
-  %666 = mul nuw nsw i64 %indvars.iv59.i459, %wide.trip.count554
-  %gep.i460 = getelementptr inbounds nuw double, ptr %invariant.gep.i457, i64 %666
-  %667 = load double, ptr %gep.i460, align 8, !tbaa !53
+.lr.ph.i455:                                      ; preds = %.lr.ph.i455, %.lr.ph.preheader.i450
+  %indvars.iv59.i456 = phi i64 [ %indvars.iv.i452, %.lr.ph.preheader.i450 ], [ %indvars.iv.next60.i458, %.lr.ph.i455 ]
+  %666 = mul nuw nsw i64 %indvars.iv59.i456, %wide.trip.count547
+  %gep.i457 = getelementptr inbounds nuw double, ptr %invariant.gep.i454, i64 %666
+  %667 = load double, ptr %gep.i457, align 8, !tbaa !53
   %668 = fmul reassoc nsz arcp contract afn double %667, %663
-  %669 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv59.i459
+  %669 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv59.i456
   %670 = load double, ptr %669, align 8, !tbaa !53
   %671 = fadd reassoc nsz arcp contract afn double %670, %668
   store double %671, ptr %669, align 8, !tbaa !53
-  %indvars.iv.next60.i461 = add nuw nsw i64 %indvars.iv59.i459, 1
-  %exitcond.not.i462 = icmp eq i64 %indvars.iv.next60.i461, %wide.trip.count554
-  br i1 %exitcond.not.i462, label %.loopexit.i463, label %.lr.ph.i458
+  %indvars.iv.next60.i458 = add nuw nsw i64 %indvars.iv59.i456, 1
+  %exitcond.not.i459 = icmp eq i64 %indvars.iv.next60.i458, %wide.trip.count547
+  br i1 %exitcond.not.i459, label %.loopexit.i460, label %.lr.ph.i455
 
-.lr.ph58.i466:                                    ; preds = %.loopexit.i463, %678
-  %indvars.iv72.i467 = phi i64 [ %indvars.iv.next73.i473, %678 ], [ %54, %.loopexit.i463 ]
-  %672 = mul nuw nsw i64 %indvars.iv72.i467, %615
+.lr.ph58.i463:                                    ; preds = %.loopexit.i460, %678
+  %indvars.iv72.i464 = phi i64 [ %indvars.iv.next73.i470, %678 ], [ %54, %.loopexit.i460 ]
+  %672 = mul nuw nsw i64 %indvars.iv72.i464, %615
   %673 = getelementptr inbounds nuw double, ptr %517, i64 %672
   %674 = load double, ptr %673, align 8, !tbaa !53
-  %675 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv72.i467
+  %675 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv72.i464
   %676 = load double, ptr %675, align 8, !tbaa !53
   %677 = fdiv reassoc nsz arcp contract afn double %676, %674
   store double %677, ptr %675, align 8, !tbaa !53
-  %invariant.gep75.i468 = getelementptr double, ptr %517, i64 %indvars.iv72.i467
+  %invariant.gep75.i465 = getelementptr double, ptr %517, i64 %indvars.iv72.i464
   br label %680
 
 678:                                              ; preds = %680
-  %indvars.iv.next73.i473 = add nsw i64 %indvars.iv72.i467, -1
-  %679 = icmp sgt i64 %indvars.iv72.i467, 1
-  br i1 %679, label %.lr.ph58.i466, label %gauss_solve_triangular.exit474
+  %indvars.iv.next73.i470 = add nsw i64 %indvars.iv72.i464, -1
+  %679 = icmp sgt i64 %indvars.iv72.i464, 1
+  br i1 %679, label %.lr.ph58.i463, label %gauss_solve_triangular.exit471
 
-680:                                              ; preds = %680, %.lr.ph58.i466
-  %indvars.iv67.i469 = phi i64 [ 0, %.lr.ph58.i466 ], [ %indvars.iv.next68.i471, %680 ]
-  %681 = mul nuw nsw i64 %indvars.iv67.i469, %wide.trip.count554
-  %gep76.i470 = getelementptr double, ptr %invariant.gep75.i468, i64 %681
-  %682 = load double, ptr %gep76.i470, align 8, !tbaa !53
+680:                                              ; preds = %680, %.lr.ph58.i463
+  %indvars.iv67.i466 = phi i64 [ 0, %.lr.ph58.i463 ], [ %indvars.iv.next68.i468, %680 ]
+  %681 = mul nuw nsw i64 %indvars.iv67.i466, %wide.trip.count547
+  %gep76.i467 = getelementptr double, ptr %invariant.gep75.i465, i64 %681
+  %682 = load double, ptr %gep76.i467, align 8, !tbaa !53
   %683 = fmul reassoc nsz arcp contract afn double %682, %677
-  %684 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv67.i469
+  %684 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv67.i466
   %685 = load double, ptr %684, align 8, !tbaa !53
   %686 = fsub reassoc nsz arcp contract afn double %685, %683
   store double %686, ptr %684, align 8, !tbaa !53
-  %indvars.iv.next68.i471 = add nuw nsw i64 %indvars.iv67.i469, 1
-  %exitcond71.not.i472 = icmp eq i64 %indvars.iv.next68.i471, %indvars.iv72.i467
-  br i1 %exitcond71.not.i472, label %678, label %680
+  %indvars.iv.next68.i468 = add nuw nsw i64 %indvars.iv67.i466, 1
+  %exitcond71.not.i469 = icmp eq i64 %indvars.iv.next68.i468, %indvars.iv72.i464
+  br i1 %exitcond71.not.i469, label %678, label %680
 
-gauss_solve_triangular.exit474:                   ; preds = %678
+gauss_solve_triangular.exit471:                   ; preds = %678
   %687 = load double, ptr %518, align 8, !tbaa !53
   %688 = fdiv reassoc nsz arcp contract afn double %687, %645
   store double %688, ptr %518, align 8, !tbaa !53
   br label %690
 
-.preheader511:                                    ; preds = %690
-  br i1 %29, label %.lr.ph547, label %.preheader
+.preheader504:                                    ; preds = %690
+  br i1 %29, label %.lr.ph540, label %.preheader
 
-.lr.ph547:                                        ; preds = %.preheader511
+.lr.ph540:                                        ; preds = %.preheader504
   %689 = getelementptr inbounds nuw i8, ptr %1, i64 980
-  %wide.trip.count620 = zext nneg i32 %spec.select to i64
+  %wide.trip.count613 = zext nneg i32 %spec.select to i64
   br label %695
 
-690:                                              ; preds = %gauss_solve_triangular.exit474, %690
-  %indvars.iv612 = phi i64 [ 0, %gauss_solve_triangular.exit474 ], [ %indvars.iv.next613, %690 ]
-  %691 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv612
+690:                                              ; preds = %gauss_solve_triangular.exit471, %690
+  %indvars.iv605 = phi i64 [ 0, %gauss_solve_triangular.exit471 ], [ %indvars.iv.next606, %690 ]
+  %691 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv605
   %692 = load double, ptr %691, align 8, !tbaa !53
   %693 = fptrunc reassoc nsz arcp contract afn double %692 to float
-  %694 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv612
+  %694 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv605
   store float %693, ptr %694, align 4, !tbaa !14
-  %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
-  %exitcond616.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count554
-  br i1 %exitcond616.not, label %.preheader511, label %690
+  %indvars.iv.next606 = add nuw nsw i64 %indvars.iv605, 1
+  %exitcond609.not = icmp eq i64 %indvars.iv.next606, %wide.trip.count547
+  br i1 %exitcond609.not, label %.preheader504, label %690
 
-.preheader:                                       ; preds = %695, %.preheader511
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep594, i8 0, i64 32, i1 false), !tbaa !53
-  br label %.lr.ph.preheader.i476
+.preheader:                                       ; preds = %695, %.preheader504
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep587, i8 0, i64 32, i1 false), !tbaa !53
+  br label %.lr.ph.preheader.i473
 
-695:                                              ; preds = %.lr.ph547, %695
-  %indvars.iv617 = phi i64 [ 0, %.lr.ph547 ], [ %indvars.iv.next618, %695 ]
-  %696 = getelementptr inbounds nuw float, ptr %689, i64 %indvars.iv617
+695:                                              ; preds = %.lr.ph540, %695
+  %indvars.iv610 = phi i64 [ 0, %.lr.ph540 ], [ %indvars.iv.next611, %695 ]
+  %696 = getelementptr inbounds nuw float, ptr %689, i64 %indvars.iv610
   %697 = load float, ptr %696, align 4, !tbaa !14
   %698 = fpext reassoc nsz arcp contract afn float %697 to double
-  %699 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv617
+  %699 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv610
   store double %698, ptr %699, align 8, !tbaa !53
-  %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
-  %exitcond621.not = icmp eq i64 %indvars.iv.next618, %wide.trip.count620
-  br i1 %exitcond621.not, label %.preheader, label %695
+  %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
+  %exitcond614.not = icmp eq i64 %indvars.iv.next611, %wide.trip.count613
+  br i1 %exitcond614.not, label %.preheader, label %695
 
-.loopexit.i486:                                   ; preds = %.lr.ph.i481
-  %indvars.iv.next63.i479 = add nuw nsw i64 %indvars.iv62.i477, 1
-  %indvars.iv.next.i487 = add nuw nsw i64 %indvars.iv.i478, 1
-  %exitcond66.not.i488 = icmp eq i64 %indvars.iv.next63.i479, %54
-  br i1 %exitcond66.not.i488, label %.lr.ph58.i489, label %.lr.ph.preheader.i476
+.loopexit.i483:                                   ; preds = %.lr.ph.i478
+  %indvars.iv.next63.i476 = add nuw nsw i64 %indvars.iv62.i474, 1
+  %indvars.iv.next.i484 = add nuw nsw i64 %indvars.iv.i475, 1
+  %exitcond66.not.i485 = icmp eq i64 %indvars.iv.next63.i476, %54
+  br i1 %exitcond66.not.i485, label %.lr.ph58.i486, label %.lr.ph.preheader.i473
 
-.lr.ph.preheader.i476:                            ; preds = %.preheader, %.loopexit.i486
-  %indvars.iv62.i477 = phi i64 [ %indvars.iv.next63.i479, %.loopexit.i486 ], [ 0, %.preheader ]
-  %indvars.iv.i478 = phi i64 [ %indvars.iv.next.i487, %.loopexit.i486 ], [ 1, %.preheader ]
-  %700 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv62.i477
+.lr.ph.preheader.i473:                            ; preds = %.preheader, %.loopexit.i483
+  %indvars.iv62.i474 = phi i64 [ %indvars.iv.next63.i476, %.loopexit.i483 ], [ 0, %.preheader ]
+  %indvars.iv.i475 = phi i64 [ %indvars.iv.next.i484, %.loopexit.i483 ], [ 1, %.preheader ]
+  %700 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv62.i474
   %701 = load i32, ptr %700, align 4, !tbaa !13
   %702 = sext i32 %701 to i64
   %703 = getelementptr inbounds double, ptr %518, i64 %702
   %704 = load double, ptr %703, align 8, !tbaa !53
-  %705 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv62.i477
+  %705 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv62.i474
   %706 = load double, ptr %705, align 8, !tbaa !53
   store double %706, ptr %703, align 8, !tbaa !53
   store double %704, ptr %705, align 8, !tbaa !53
-  %invariant.gep.i480 = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv62.i477
-  br label %.lr.ph.i481
+  %invariant.gep.i477 = getelementptr inbounds nuw double, ptr %517, i64 %indvars.iv62.i474
+  br label %.lr.ph.i478
 
-.lr.ph.i481:                                      ; preds = %.lr.ph.i481, %.lr.ph.preheader.i476
-  %indvars.iv59.i482 = phi i64 [ %indvars.iv.i478, %.lr.ph.preheader.i476 ], [ %indvars.iv.next60.i484, %.lr.ph.i481 ]
-  %707 = mul nuw nsw i64 %indvars.iv59.i482, %wide.trip.count554
-  %gep.i483 = getelementptr inbounds nuw double, ptr %invariant.gep.i480, i64 %707
-  %708 = load double, ptr %gep.i483, align 8, !tbaa !53
+.lr.ph.i478:                                      ; preds = %.lr.ph.i478, %.lr.ph.preheader.i473
+  %indvars.iv59.i479 = phi i64 [ %indvars.iv.i475, %.lr.ph.preheader.i473 ], [ %indvars.iv.next60.i481, %.lr.ph.i478 ]
+  %707 = mul nuw nsw i64 %indvars.iv59.i479, %wide.trip.count547
+  %gep.i480 = getelementptr inbounds nuw double, ptr %invariant.gep.i477, i64 %707
+  %708 = load double, ptr %gep.i480, align 8, !tbaa !53
   %709 = fmul reassoc nsz arcp contract afn double %708, %704
-  %710 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv59.i482
+  %710 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv59.i479
   %711 = load double, ptr %710, align 8, !tbaa !53
   %712 = fadd reassoc nsz arcp contract afn double %711, %709
   store double %712, ptr %710, align 8, !tbaa !53
-  %indvars.iv.next60.i484 = add nuw nsw i64 %indvars.iv59.i482, 1
-  %exitcond.not.i485 = icmp eq i64 %indvars.iv.next60.i484, %wide.trip.count554
-  br i1 %exitcond.not.i485, label %.loopexit.i486, label %.lr.ph.i481
+  %indvars.iv.next60.i481 = add nuw nsw i64 %indvars.iv59.i479, 1
+  %exitcond.not.i482 = icmp eq i64 %indvars.iv.next60.i481, %wide.trip.count547
+  br i1 %exitcond.not.i482, label %.loopexit.i483, label %.lr.ph.i478
 
-.lr.ph58.i489:                                    ; preds = %.loopexit.i486, %719
-  %indvars.iv72.i490 = phi i64 [ %indvars.iv.next73.i496, %719 ], [ %54, %.loopexit.i486 ]
-  %713 = mul nuw nsw i64 %indvars.iv72.i490, %615
+.lr.ph58.i486:                                    ; preds = %.loopexit.i483, %719
+  %indvars.iv72.i487 = phi i64 [ %indvars.iv.next73.i493, %719 ], [ %54, %.loopexit.i483 ]
+  %713 = mul nuw nsw i64 %indvars.iv72.i487, %615
   %714 = getelementptr inbounds nuw double, ptr %517, i64 %713
   %715 = load double, ptr %714, align 8, !tbaa !53
-  %716 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv72.i490
+  %716 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv72.i487
   %717 = load double, ptr %716, align 8, !tbaa !53
   %718 = fdiv reassoc nsz arcp contract afn double %717, %715
   store double %718, ptr %716, align 8, !tbaa !53
-  %invariant.gep75.i491 = getelementptr double, ptr %517, i64 %indvars.iv72.i490
+  %invariant.gep75.i488 = getelementptr double, ptr %517, i64 %indvars.iv72.i487
   br label %721
 
 719:                                              ; preds = %721
-  %indvars.iv.next73.i496 = add nsw i64 %indvars.iv72.i490, -1
-  %720 = icmp sgt i64 %indvars.iv72.i490, 1
-  br i1 %720, label %.lr.ph58.i489, label %gauss_solve_triangular.exit497
+  %indvars.iv.next73.i493 = add nsw i64 %indvars.iv72.i487, -1
+  %720 = icmp sgt i64 %indvars.iv72.i487, 1
+  br i1 %720, label %.lr.ph58.i486, label %gauss_solve_triangular.exit494
 
-721:                                              ; preds = %721, %.lr.ph58.i489
-  %indvars.iv67.i492 = phi i64 [ 0, %.lr.ph58.i489 ], [ %indvars.iv.next68.i494, %721 ]
-  %722 = mul nuw nsw i64 %indvars.iv67.i492, %wide.trip.count554
-  %gep76.i493 = getelementptr double, ptr %invariant.gep75.i491, i64 %722
-  %723 = load double, ptr %gep76.i493, align 8, !tbaa !53
+721:                                              ; preds = %721, %.lr.ph58.i486
+  %indvars.iv67.i489 = phi i64 [ 0, %.lr.ph58.i486 ], [ %indvars.iv.next68.i491, %721 ]
+  %722 = mul nuw nsw i64 %indvars.iv67.i489, %wide.trip.count547
+  %gep76.i490 = getelementptr double, ptr %invariant.gep75.i488, i64 %722
+  %723 = load double, ptr %gep76.i490, align 8, !tbaa !53
   %724 = fmul reassoc nsz arcp contract afn double %723, %718
-  %725 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv67.i492
+  %725 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv67.i489
   %726 = load double, ptr %725, align 8, !tbaa !53
   %727 = fsub reassoc nsz arcp contract afn double %726, %724
   store double %727, ptr %725, align 8, !tbaa !53
-  %indvars.iv.next68.i494 = add nuw nsw i64 %indvars.iv67.i492, 1
-  %exitcond71.not.i495 = icmp eq i64 %indvars.iv.next68.i494, %indvars.iv72.i490
-  br i1 %exitcond71.not.i495, label %719, label %721
+  %indvars.iv.next68.i491 = add nuw nsw i64 %indvars.iv67.i489, 1
+  %exitcond71.not.i492 = icmp eq i64 %indvars.iv.next68.i491, %indvars.iv72.i487
+  br i1 %exitcond71.not.i492, label %719, label %721
 
-gauss_solve_triangular.exit497:                   ; preds = %719
+gauss_solve_triangular.exit494:                   ; preds = %719
   %728 = load double, ptr %518, align 8, !tbaa !53
   %729 = fdiv reassoc nsz arcp contract afn double %728, %645
   store double %729, ptr %518, align 8, !tbaa !53
   br label %730
 
-730:                                              ; preds = %gauss_solve_triangular.exit497, %730
-  %indvars.iv626 = phi i64 [ 0, %gauss_solve_triangular.exit497 ], [ %indvars.iv.next627, %730 ]
-  %731 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv626
+730:                                              ; preds = %gauss_solve_triangular.exit494, %730
+  %indvars.iv619 = phi i64 [ 0, %gauss_solve_triangular.exit494 ], [ %indvars.iv.next620, %730 ]
+  %731 = getelementptr inbounds nuw double, ptr %518, i64 %indvars.iv619
   %732 = load double, ptr %731, align 8, !tbaa !53
   %733 = fptrunc reassoc nsz arcp contract afn double %732 to float
-  %734 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv626
+  %734 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv619
   store float %733, ptr %734, align 4, !tbaa !14
-  %indvars.iv.next627 = add nuw nsw i64 %indvars.iv626, 1
-  %exitcond630.not = icmp eq i64 %indvars.iv.next627, %wide.trip.count554
-  br i1 %exitcond630.not, label %.loopexit, label %730
+  %indvars.iv.next620 = add nuw nsw i64 %indvars.iv619, 1
+  %exitcond623.not = icmp eq i64 %indvars.iv.next620, %wide.trip.count547
+  br i1 %exitcond623.not, label %.loopexit, label %730
 
 .loopexit:                                        ; preds = %730, %._crit_edge
   tail call void @free(ptr noundef %604) #22
@@ -2857,139 +2857,139 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr noundef ca
   %8 = zext nneg i32 %2 to i64
   br label %9
 
-.loopexit:                                        ; preds = %._crit_edge119.us, %.preheader109
+.loopexit:                                        ; preds = %._crit_edge120.us, %.preheader110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %7
-  br i1 %exitcond149.not, label %.critedge, label %9
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %7
+  br i1 %exitcond150.not, label %.critedge, label %9
 
 9:                                                ; preds = %3, %.loopexit
-  %indvars.iv145 = phi i64 [ 0, %3 ], [ %indvars.iv.next146, %.loopexit ]
+  %indvars.iv146 = phi i64 [ 0, %3 ], [ %indvars.iv.next147, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %.loopexit ]
-  %indvars147 = trunc i64 %indvars.iv145 to i32
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %10 = icmp samesign ult i64 %indvars.iv.next146, %8
+  %indvars148 = trunc i64 %indvars.iv146 to i32
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %10 = icmp samesign ult i64 %indvars.iv.next147, %8
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %9
-  %invariant.gep = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
-  %11 = getelementptr double, ptr %0, i64 %indvars.iv145
+  %invariant.gep = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv146
+  %11 = getelementptr double, ptr %0, i64 %indvars.iv146
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %.0101.lcssa = phi i32 [ %indvars147, %9 ], [ %.1102, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv145
+  %.0101.lcssa = phi i32 [ %indvars148, %9 ], [ %.1102, %.lr.ph ]
+  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv146
   store i32 %.0101.lcssa, ptr %12, align 4, !tbaa !13
   %13 = mul nsw i32 %.0101.lcssa, %2
   %14 = sext i32 %13 to i64
-  %15 = getelementptr double, ptr %0, i64 %indvars.iv145
+  %15 = getelementptr double, ptr %0, i64 %indvars.iv146
   %16 = getelementptr double, ptr %15, i64 %14
   %17 = load double, ptr %16, align 8, !tbaa !53
-  %18 = mul nuw nsw i64 %indvars.iv145, %8
-  %19 = mul nuw nsw i32 %2, %indvars147
+  %18 = mul nuw nsw i64 %indvars.iv146, %8
+  %19 = mul nuw nsw i32 %2, %indvars148
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
+  %21 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv146
   %22 = getelementptr inbounds nuw double, ptr %21, i64 %20
   %23 = load double, ptr %22, align 8, !tbaa !53
   store double %23, ptr %16, align 8, !tbaa !53
   store double %17, ptr %22, align 8, !tbaa !53
   %24 = fcmp reassoc nsz arcp contract afn une double %17, 0.000000e+00
-  br i1 %24, label %.preheader109, label %.critedge
+  br i1 %24, label %.preheader110, label %.critedge
 
-.preheader109:                                    ; preds = %._crit_edge
-  br i1 %10, label %.lr.ph113, label %.loopexit
+.preheader110:                                    ; preds = %._crit_edge
+  br i1 %10, label %.lr.ph114, label %.loopexit
 
-.lr.ph113:                                        ; preds = %.preheader109
-  %invariant.gep153 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
+.lr.ph114:                                        ; preds = %.preheader110
+  %invariant.gep154 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv146
   %25 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %17
   br label %37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv122 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next123, %.lr.ph ]
-  %.0101110 = phi i32 [ %indvars147, %.lr.ph.preheader ], [ %.1102, %.lr.ph ]
-  %26 = mul nuw nsw i64 %indvars.iv122, %7
+  %indvars.iv123 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next124, %.lr.ph ]
+  %.0101111 = phi i32 [ %indvars148, %.lr.ph.preheader ], [ %.1102, %.lr.ph ]
+  %26 = mul nuw nsw i64 %indvars.iv123, %7
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %26
   %27 = load double, ptr %gep, align 8, !tbaa !53
   %28 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %27)
-  %29 = mul nsw i32 %.0101110, %2
+  %29 = mul nsw i32 %.0101111, %2
   %30 = sext i32 %29 to i64
   %31 = getelementptr double, ptr %11, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !53
   %33 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %32)
   %34 = fcmp reassoc nsz arcp contract afn ogt double %28, %33
-  %35 = trunc nuw nsw i64 %indvars.iv122 to i32
-  %.1102 = select i1 %34, i32 %35, i32 %.0101110
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next123, %7
+  %35 = trunc nuw nsw i64 %indvars.iv123 to i32
+  %.1102 = select i1 %34, i32 %35, i32 %.0101111
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next124, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge114:                                   ; preds = %37
+._crit_edge115:                                   ; preds = %37
   %36 = zext i32 %.0101.lcssa to i64
-  %.not.not = icmp eq i64 %indvars.iv145, %36
-  br i1 %.not.not, label %.preheader.us.preheader, label %.lr.ph116.preheader
+  %.not.not = icmp eq i64 %indvars.iv146, %36
+  br i1 %.not.not, label %.preheader.us.preheader, label %.lr.ph117.preheader
 
-.lr.ph116.preheader:                              ; preds = %._crit_edge114
-  %invariant.gep155 = getelementptr double, ptr %0, i64 %14
-  %invariant.gep157 = getelementptr inbounds nuw double, ptr %0, i64 %18
-  br label %.lr.ph116
+.lr.ph117.preheader:                              ; preds = %._crit_edge115
+  %invariant.gep156 = getelementptr double, ptr %0, i64 %14
+  %invariant.gep158 = getelementptr inbounds nuw double, ptr %0, i64 %18
+  br label %.lr.ph117
 
-37:                                               ; preds = %.lr.ph113, %37
-  %indvars.iv125 = phi i64 [ %indvars.iv, %.lr.ph113 ], [ %indvars.iv.next126, %37 ]
-  %38 = mul nuw nsw i64 %indvars.iv125, %7
-  %gep154 = getelementptr inbounds nuw double, ptr %invariant.gep153, i64 %38
-  %39 = load double, ptr %gep154, align 8, !tbaa !53
+37:                                               ; preds = %.lr.ph114, %37
+  %indvars.iv126 = phi i64 [ %indvars.iv, %.lr.ph114 ], [ %indvars.iv.next127, %37 ]
+  %38 = mul nuw nsw i64 %indvars.iv126, %7
+  %gep155 = getelementptr inbounds nuw double, ptr %invariant.gep154, i64 %38
+  %39 = load double, ptr %gep155, align 8, !tbaa !53
   %40 = fneg reassoc nsz arcp contract afn double %39
   %41 = fmul reassoc nsz arcp contract afn double %40, %25
-  store double %41, ptr %gep154, align 8, !tbaa !53
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %7
-  br i1 %exitcond129.not, label %._crit_edge114, label %37
+  store double %41, ptr %gep155, align 8, !tbaa !53
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %7
+  br i1 %exitcond130.not, label %._crit_edge115, label %37
 
-.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
-  %indvars.iv130 = phi i64 [ %indvars.iv, %.lr.ph116.preheader ], [ %indvars.iv.next131, %.lr.ph116 ]
-  %gep156 = getelementptr double, ptr %invariant.gep155, i64 %indvars.iv130
-  %42 = load double, ptr %gep156, align 8, !tbaa !53
-  %gep158 = getelementptr inbounds nuw double, ptr %invariant.gep157, i64 %indvars.iv130
-  %43 = load double, ptr %gep158, align 8, !tbaa !53
-  store double %43, ptr %gep156, align 8, !tbaa !53
-  store double %42, ptr %gep158, align 8, !tbaa !53
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond134.not = icmp eq i64 %indvars.iv.next131, %7
-  br i1 %exitcond134.not, label %.preheader.us.preheader, label %.lr.ph116
+.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
+  %indvars.iv131 = phi i64 [ %indvars.iv, %.lr.ph117.preheader ], [ %indvars.iv.next132, %.lr.ph117 ]
+  %gep157 = getelementptr double, ptr %invariant.gep156, i64 %indvars.iv131
+  %42 = load double, ptr %gep157, align 8, !tbaa !53
+  %gep159 = getelementptr inbounds nuw double, ptr %invariant.gep158, i64 %indvars.iv131
+  %43 = load double, ptr %gep159, align 8, !tbaa !53
+  store double %43, ptr %gep157, align 8, !tbaa !53
+  store double %42, ptr %gep159, align 8, !tbaa !53
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %7
+  br i1 %exitcond135.not, label %.preheader.us.preheader, label %.lr.ph117
 
-.preheader.us.preheader:                          ; preds = %.lr.ph116, %._crit_edge114
-  %invariant.gep163 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
-  %invariant.gep159 = getelementptr inbounds nuw double, ptr %0, i64 %18
+.preheader.us.preheader:                          ; preds = %.lr.ph117, %._crit_edge115
+  %invariant.gep164 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv146
+  %invariant.gep160 = getelementptr inbounds nuw double, ptr %0, i64 %18
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge119.us
-  %indvars.iv140 = phi i64 [ %indvars.iv, %.preheader.us.preheader ], [ %indvars.iv.next141, %._crit_edge119.us ]
-  %44 = mul nuw nsw i64 %indvars.iv140, %7
-  %gep164 = getelementptr inbounds nuw double, ptr %invariant.gep163, i64 %44
-  %invariant.gep161 = getelementptr inbounds nuw double, ptr %0, i64 %44
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge120.us
+  %indvars.iv141 = phi i64 [ %indvars.iv, %.preheader.us.preheader ], [ %indvars.iv.next142, %._crit_edge120.us ]
+  %44 = mul nuw nsw i64 %indvars.iv141, %7
+  %gep165 = getelementptr inbounds nuw double, ptr %invariant.gep164, i64 %44
+  %invariant.gep162 = getelementptr inbounds nuw double, ptr %0, i64 %44
   br label %45
 
 45:                                               ; preds = %.preheader.us, %45
-  %indvars.iv135 = phi i64 [ %indvars.iv, %.preheader.us ], [ %indvars.iv.next136, %45 ]
-  %46 = load double, ptr %gep164, align 8, !tbaa !53
-  %gep160 = getelementptr inbounds nuw double, ptr %invariant.gep159, i64 %indvars.iv135
-  %47 = load double, ptr %gep160, align 8, !tbaa !53
+  %indvars.iv136 = phi i64 [ %indvars.iv, %.preheader.us ], [ %indvars.iv.next137, %45 ]
+  %46 = load double, ptr %gep165, align 8, !tbaa !53
+  %gep161 = getelementptr inbounds nuw double, ptr %invariant.gep160, i64 %indvars.iv136
+  %47 = load double, ptr %gep161, align 8, !tbaa !53
   %48 = fmul reassoc nsz arcp contract afn double %47, %46
-  %gep162 = getelementptr inbounds nuw double, ptr %invariant.gep161, i64 %indvars.iv135
-  %49 = load double, ptr %gep162, align 8, !tbaa !53
+  %gep163 = getelementptr inbounds nuw double, ptr %invariant.gep162, i64 %indvars.iv136
+  %49 = load double, ptr %gep163, align 8, !tbaa !53
   %50 = fadd reassoc nsz arcp contract afn double %49, %48
-  store double %50, ptr %gep162, align 8, !tbaa !53
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %7
-  br i1 %exitcond139.not, label %._crit_edge119.us, label %45
+  store double %50, ptr %gep163, align 8, !tbaa !53
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %7
+  br i1 %exitcond140.not, label %._crit_edge120.us, label %45
 
-._crit_edge119.us:                                ; preds = %45
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %7
-  br i1 %exitcond144.not, label %.loopexit, label %.preheader.us
+._crit_edge120.us:                                ; preds = %45
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %7
+  br i1 %exitcond145.not, label %.loopexit, label %.preheader.us
 
 .critedge:                                        ; preds = %._crit_edge, %.loopexit
-  %switch = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge ]
-  ret i32 %switch
+  %51 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge ]
+  ret i32 %51
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable

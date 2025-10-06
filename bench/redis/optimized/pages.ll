@@ -101,10 +101,9 @@ os_pages_unmap.exit:                              ; preds = %15, %25
   %39 = load i32, ptr @mmap_flags, align 4, !tbaa !4
   %40 = call ptr @mmap(ptr noundef null, i64 noundef %28, i32 noundef %38, i32 noundef %39, i32 noundef -1, i64 noundef 0) #8
   %magicptr.i = ptrtoint ptr %40 to i64
-  switch i64 %magicptr.i, label %41 [
-    i64 -1, label %pages_map_slow.exit
-    i64 0, label %pages_map_slow.exit
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %41, label %pages_map_slow.exit
 
 41:                                               ; preds = %37
   %42 = add i64 %13, %magicptr.i
@@ -175,8 +174,8 @@ os_pages_unmap.exit.i.i:                          ; preds = %57, %47, %41
   %73 = inttoptr i64 %43 to ptr
   br label %pages_map_slow.exit
 
-pages_map_slow.exit:                              ; preds = %37, %37, %.thread.loopexit.split.loop.exit.i, %os_pages_unmap.exit, %11, %4
-  %.0 = phi ptr [ %8, %4 ], [ %8, %11 ], [ null, %os_pages_unmap.exit ], [ %73, %.thread.loopexit.split.loop.exit.i ], [ null, %37 ], [ null, %37 ]
+pages_map_slow.exit:                              ; preds = %37, %.thread.loopexit.split.loop.exit.i, %os_pages_unmap.exit, %11, %4
+  %.0 = phi ptr [ %8, %4 ], [ %8, %11 ], [ null, %os_pages_unmap.exit ], [ %73, %.thread.loopexit.split.loop.exit.i ], [ null, %37 ]
   ret ptr %.0
 }
 
@@ -648,10 +647,9 @@ init_thp_state.exit:                              ; preds = %62, %66, %70, %71
   %74 = load i32, ptr @mmap_flags, align 4, !tbaa !4
   %75 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %spec.select, i32 noundef %74, i32 noundef -1, i64 noundef 0) #8
   %magicptr = ptrtoint ptr %75 to i64
-  switch i64 %magicptr, label %76 [
-    i64 -1, label %os_pages_unmap.exit
-    i64 0, label %os_pages_unmap.exit
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %76, label %os_pages_unmap.exit
 
 76:                                               ; preds = %init_thp_state.exit
   %.b.i = load i1, ptr @pages_can_purge_lazy_runtime, align 1
@@ -659,8 +657,8 @@ init_thp_state.exit:                              ; preds = %62, %66, %70, %71
 
 je_pages_purge_lazy.exit:                         ; preds = %76
   %77 = call i32 @madvise(ptr noundef nonnull %75, i64 noundef 4096, i32 noundef 8) #8
-  %.not13 = icmp eq i32 %77, 0
-  br i1 %.not13, label %78, label %je_pages_purge_lazy.exit.thread
+  %.not12 = icmp eq i32 %77, 0
+  br i1 %.not12, label %78, label %je_pages_purge_lazy.exit.thread
 
 je_pages_purge_lazy.exit.thread:                  ; preds = %76, %je_pages_purge_lazy.exit
   store i1 true, ptr @pages_can_purge_lazy_runtime, align 1
@@ -689,8 +687,8 @@ je_pages_purge_lazy.exit.thread:                  ; preds = %76, %je_pages_purge
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %os_pages_unmap.exit
 
-os_pages_unmap.exit:                              ; preds = %init_thp_state.exit, %init_thp_state.exit, %78, %88, %7
-  %.04 = phi i1 [ true, %7 ], [ false, %78 ], [ false, %88 ], [ true, %init_thp_state.exit ], [ true, %init_thp_state.exit ]
+os_pages_unmap.exit:                              ; preds = %init_thp_state.exit, %78, %88, %7
+  %.04 = phi i1 [ true, %7 ], [ false, %78 ], [ false, %88 ], [ true, %init_thp_state.exit ]
   ret i1 %.04
 }
 

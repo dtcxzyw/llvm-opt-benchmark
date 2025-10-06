@@ -743,23 +743,23 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 174:                                              ; preds = %198, %171
   %.sroa.04.0.i32.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i31.i.i.i, %171 ], [ %199, %198 ]
   %175 = icmp ult i64 %.sroa.04.0.i32.i.i.i, %149
-  br i1 %175, label %176, label %.preheader8.i.i.i
+  br i1 %175, label %176, label %.preheader7.i.i.i
 
 176:                                              ; preds = %174
   %177 = add i64 %.sroa.04.0.i32.i.i.i, %159
   %178 = icmp ult i64 %177, %147
   br i1 %178, label %198, label %204
 
-.preheader8.i.i.i:                                ; preds = %174, %191
+.preheader7.i.i.i:                                ; preds = %174, %191
   %.sroa.59.0.i33.i.i.i = phi i64 [ %183, %191 ], [ %155, %174 ]
   %179 = icmp ult i64 %160, %.sroa.59.0.i33.i.i.i
   br i1 %179, label %182, label %180
 
-180:                                              ; preds = %.preheader8.i.i.i
+180:                                              ; preds = %.preheader7.i.i.i
   %181 = add i64 %159, %149
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h238d8b33407f05d5E.exit.i.i"
 
-182:                                              ; preds = %.preheader8.i.i.i
+182:                                              ; preds = %.preheader7.i.i.i
   %183 = add i64 %.sroa.59.0.i33.i.i.i, -1
   %184 = icmp ult i64 %183, %149
   br i1 %184, label %185, label %.invoke
@@ -785,7 +785,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %194 = getelementptr inbounds i8, ptr %146, i64 %186
   %195 = load i8, ptr %194, align 1, !alias.scope !199, !noalias !205, !noundef !5
   %.not.i34.i.i.i = icmp eq i8 %193, %195
-  br i1 %.not.i34.i.i.i, label %.preheader8.i.i.i, label %196
+  br i1 %.not.i34.i.i.i, label %.preheader7.i.i.i, label %196
 
 196:                                              ; preds = %191
   %197 = add i64 %159, %156
@@ -839,7 +839,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %223 = shl nuw i64 1, %222
   %224 = and i64 %223, %212
   %225 = icmp eq i64 %224, 0
-  br i1 %225, label %226, label %.preheader7.i.i.i
+  br i1 %225, label %226, label %.preheader6.i.i.i
 
 226:                                              ; preds = %216
   %227 = add i64 %217, %149
@@ -851,12 +851,12 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %231 = icmp ult i64 %230, %147
   br i1 %231, label %216, label %"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.thread.i"
 
-.preheader7.i.i.i:                                ; preds = %216, %247
+.preheader6.i.i.i:                                ; preds = %216, %247
   %.sroa.04.0.i.i.i.i = phi i64 [ %248, %247 ], [ %.fr.i.i, %216 ]
   %232 = icmp ult i64 %.sroa.04.0.i.i.i.i, %149
   br i1 %232, label %243, label %.preheader.i.preheader.i.i
 
-.preheader.i.preheader.i.i:                       ; preds = %.preheader7.i.i.i
+.preheader.i.preheader.i.i:                       ; preds = %.preheader6.i.i.i
   br i1 %.first_iter.i.i.i, label %.preheader.i.us.i.i, label %.preheader.i.i.i
 
 .preheader.i.us.i.i:                              ; preds = %.preheader.i.preheader.i.i, %237
@@ -882,7 +882,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %242 = add i64 %217, %214
   br label %228
 
-243:                                              ; preds = %.preheader7.i.i.i
+243:                                              ; preds = %.preheader6.i.i.i
   %244 = add i64 %.sroa.04.0.i.i.i.i, %217
   %245 = icmp ult i64 %244, %147
   br i1 %245, label %247, label %253
@@ -902,7 +902,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %251 = getelementptr inbounds i8, ptr %146, i64 %244
   %252 = load i8, ptr %251, align 1, !alias.scope !210, !noalias !216, !noundef !5
   %.not24.i.i.i.i = icmp eq i8 %250, %252
-  br i1 %.not24.i.i.i.i, label %.preheader7.i.i.i, label %255
+  br i1 %.not24.i.i.i.i, label %.preheader6.i.i.i, label %255
 
 253:                                              ; preds = %243
   %254 = add i64 %217, %.fr.i.i
@@ -964,7 +964,7 @@ default.unreachable:                              ; preds = %.noexc21
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hec17a9df0169e266E.llvm.17595068327711128686.exit.i.i.i": ; preds = %.noexc20, %263
   %.sroa.6.0.i.i.i = phi i64 [ %265, %263 ], [ undef, %.noexc20 ]
   %.sroa.4.0.i.i.i = phi i64 [ %264, %263 ], [ undef, %.noexc20 ]
-  %switch.i.i.i = phi i1 [ true, %263 ], [ false, %.noexc20 ]
+  %storemerge.i.i.i.i.i = phi i1 [ true, %263 ], [ false, %.noexc20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !226
   br label %267
 
@@ -986,20 +986,20 @@ default.unreachable:                              ; preds = %.noexc21
   br label %267
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hfc27cf8b24a14ed7E.llvm.17595068327711128686.exit.i.i.i": ; preds = %.noexc21
-  %.sroa.0.0.i.i.i = select i1 %switch.i.i.i, i64 %.sroa.4.0.i.i.i, i64 0
-  %.sroa.01.0.i.i.i = select i1 %switch.i.i.i, i64 %.sroa.6.0.i.i.i, i64 0
+  %.sroa.0.0.i.i.i = select i1 %storemerge.i.i.i.i.i, i64 %.sroa.4.0.i.i.i, i64 0
+  %.sroa.01.0.i.i.i = select i1 %storemerge.i.i.i.i.i, i64 %.sroa.6.0.i.i.i, i64 0
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h8646811e1ae3dbe5E.exit.i.i"
 
 270:                                              ; preds = %.noexc21
   %271 = load i64, ptr %65, align 8, !noalias !234, !noundef !5
-  %.sroa.0.011.i.i.i = select i1 %switch.i.i.i, i64 %.sroa.4.0.i.i.i, i64 0
+  %.sroa.0.010.i.i.i = select i1 %storemerge.i.i.i.i.i, i64 %.sroa.4.0.i.i.i, i64 0
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h8646811e1ae3dbe5E.exit.i.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h8646811e1ae3dbe5E.exit.i.i": ; preds = %270, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hfc27cf8b24a14ed7E.llvm.17595068327711128686.exit.i.i.i"
-  %.sroa.0.014.i.i.i = phi i64 [ %.sroa.0.011.i.i.i, %270 ], [ %.sroa.0.0.i.i.i, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hfc27cf8b24a14ed7E.llvm.17595068327711128686.exit.i.i.i" ]
+  %.sroa.0.013.i.i.i = phi i64 [ %.sroa.0.010.i.i.i, %270 ], [ %.sroa.0.0.i.i.i, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hfc27cf8b24a14ed7E.llvm.17595068327711128686.exit.i.i.i" ]
   %272 = phi i64 [ %271, %270 ], [ %.sroa.01.0.i.i.i, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hfc27cf8b24a14ed7E.llvm.17595068327711128686.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !234
-  %273 = sub nuw i64 %272, %.sroa.0.014.i.i.i
+  %273 = sub nuw i64 %272, %.sroa.0.013.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !218
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !241
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h5cffea60d0a92870E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %273, i1 noundef zeroext false)
@@ -1020,7 +1020,7 @@ default.unreachable:                              ; preds = %.noexc21
   unreachable
 
 "_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.i": ; preds = %.noexc22
-  %278 = getelementptr inbounds i8, ptr %258, i64 %.sroa.0.014.i.i.i
+  %278 = getelementptr inbounds i8, ptr %258, i64 %.sroa.0.013.i.i.i
   %279 = load ptr, ptr %67, align 8, !noalias !241, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !241
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %279, ptr nonnull readonly align 1 %278, i64 %273, i1 false), !noalias !245

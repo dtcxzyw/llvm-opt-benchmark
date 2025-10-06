@@ -729,18 +729,18 @@ cleanup.loopexit:                                 ; preds = %while.body.i, %whil
 
 cleanup:                                          ; preds = %cleanup.loopexit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i, %if.else.i.i163, %if.end82.i, %invoke.cont6
   %46 = phi i64 [ %29, %invoke.cont6 ], [ %inc83.i, %if.end82.i ], [ %add, %if.else.i.i163 ], [ %add, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ %size, %cleanup.loopexit ]
-  %switch = phi i1 [ true, %invoke.cont6 ], [ true, %if.end82.i ], [ false, %if.else.i.i163 ], [ false, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ true, %cleanup.loopexit ]
-  %47 = load ptr, ptr %tmp_str, align 8
-  %cmp.i.i.i = icmp eq ptr %47, %0
+  %47 = phi i1 [ true, %invoke.cont6 ], [ true, %if.end82.i ], [ false, %if.else.i.i163 ], [ false, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ true, %cleanup.loopexit ]
+  %48 = load ptr, ptr %tmp_str, align 8
+  %cmp.i.i.i = icmp eq ptr %48, %0
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i165
 
 if.then.i.i165:                                   ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %47) #18
+  call void @_ZdlPv(ptr noundef %48) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %cleanup, %if.then.i.i165
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str) #15
-  br i1 %switch, label %return, label %while.cond
+  br i1 %47, label %return, label %while.cond
 
 sw.default:                                       ; preds = %if.end
   %conv = trunc i64 %tag.0 to i32

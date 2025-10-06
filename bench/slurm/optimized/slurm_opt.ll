@@ -1580,8 +1580,8 @@ _find_option_idx.exit:                            ; preds = %5
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %49 = load ptr, ptr %48, align 8
   %.not58 = icmp eq ptr %49, null
-  %brmerge63 = or i1 %.not50, %.not58
-  br i1 %brmerge63, label %_find_option_idx.exit.thread, label %50
+  %brmerge62 = or i1 %.not50, %.not58
+  br i1 %brmerge62, label %_find_option_idx.exit.thread, label %50
 
 50:                                               ; preds = %47, %44, %38, %36, %._crit_edge
   %.sink = phi ptr [ %32, %._crit_edge ], [ %35, %36 ], [ %40, %38 ], [ %43, %44 ], [ %49, %47 ]

@@ -491,8 +491,8 @@ define void @_ZN5arrow7compute8internal18ChunkedIndexMapper17LogicalToPhysicalEv
   br i1 %13, label %14, label %.preheader, !prof !94
 
 .preheader:                                       ; preds = %2
-  %.not37 = icmp eq ptr %9, %8
-  br i1 %.not37, label %._crit_edge, label %.critedge
+  %.not35 = icmp eq ptr %9, %8
+  br i1 %.not35, label %._crit_edge, label %.critedge
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -520,13 +520,13 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %14, %16, %20
   br label %53
 
 21:                                               ; preds = %.critedge
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 8
   %.not = icmp eq ptr %22, %8
   br i1 %.not, label %._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %21
-  %.sroa.031.038 = phi ptr [ %22, %21 ], [ %9, %.preheader ]
-  %23 = load i64, ptr %.sroa.031.038, align 8, !tbaa !54
+  %.sroa.031.036 = phi ptr [ %22, %21 ], [ %9, %.preheader ]
+  %23 = load i64, ptr %.sroa.031.036, align 8, !tbaa !54
   %24 = icmp ult i64 %23, 1099511627777
   br i1 %24, label %21, label %25, !prof !98
 
@@ -564,10 +564,10 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %14, %16, %20
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = lshr exact i64 %12, 3
-  %.not56 = icmp eq ptr %8, %9
-  br i1 %.not56, label %._crit_edge46, label %.lr.ph45
+  %.not54 = icmp eq ptr %8, %9
+  br i1 %.not54, label %._crit_edge44, label %.lr.ph43
 
-._crit_edge46:                                    ; preds = %._crit_edge41, %._crit_edge
+._crit_edge44:                                    ; preds = %._crit_edge39, %._crit_edge
   %41 = getelementptr inbounds i8, ptr %36, i64 %39
   store ptr null, ptr %0, align 8, !tbaa !95
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -576,37 +576,37 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %14, %16, %20
   store ptr %41, ptr %.sroa.4.0..sroa_idx, align 8
   br label %53
 
-.lr.ph45:                                         ; preds = %._crit_edge, %._crit_edge41
-  %.02143 = phi i64 [ %47, %._crit_edge41 ], [ 0, %._crit_edge ]
-  %.02242 = phi i64 [ %46, %._crit_edge41 ], [ 0, %._crit_edge ]
-  %43 = getelementptr inbounds nuw i64, ptr %9, i64 %.02143
+.lr.ph43:                                         ; preds = %._crit_edge, %._crit_edge39
+  %.02141 = phi i64 [ %47, %._crit_edge39 ], [ 0, %._crit_edge ]
+  %.02240 = phi i64 [ %46, %._crit_edge39 ], [ 0, %._crit_edge ]
+  %43 = getelementptr inbounds nuw i64, ptr %9, i64 %.02141
   %44 = load i64, ptr %43, align 8, !tbaa !54
   %45 = icmp sgt i64 %44, 0
-  br i1 %45, label %.lr.ph.preheader, label %._crit_edge41
+  br i1 %45, label %.lr.ph.preheader, label %._crit_edge39
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph45
-  %invariant.gep = getelementptr i64, ptr %36, i64 %.02242
+.lr.ph.preheader:                                 ; preds = %.lr.ph43
+  %invariant.gep = getelementptr i64, ptr %36, i64 %.02240
   br label %.lr.ph
 
-._crit_edge41:                                    ; preds = %.lr.ph, %.lr.ph45
-  %46 = add nsw i64 %44, %.02242
-  %47 = add nuw nsw i64 %.02143, 1
-  %exitcond47.not = icmp eq i64 %47, %40
-  br i1 %exitcond47.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !117
+._crit_edge39:                                    ; preds = %.lr.ph, %.lr.ph43
+  %46 = add nsw i64 %44, %.02240
+  %47 = add nuw nsw i64 %.02141, 1
+  %exitcond45.not = icmp eq i64 %47, %40
+  br i1 %exitcond45.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !117
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.039 = phi i64 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %.039
+  %.037 = phi i64 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %.037
   %48 = load i64, ptr %gep, align 8, !tbaa !54
-  %49 = sub i64 %48, %.02242
+  %49 = sub i64 %48, %.02240
   %50 = shl i64 %49, 24
-  %51 = or i64 %50, %.02143
+  %51 = or i64 %50, %.02141
   store i64 %51, ptr %gep, align 8, !tbaa !54
-  %52 = add nuw nsw i64 %.039, 1
+  %52 = add nuw nsw i64 %.037, 1
   %exitcond.not = icmp eq i64 %52, %44
-  br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph, !llvm.loop !118
+  br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph, !llvm.loop !118
 
-53:                                               ; preds = %32, %._crit_edge46, %_ZN5arrow6StatusD2Ev.exit
+53:                                               ; preds = %32, %._crit_edge44, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 

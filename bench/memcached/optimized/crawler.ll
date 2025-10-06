@@ -738,11 +738,11 @@ define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(n
 
 11:                                               ; preds = %8, %1
   %12 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4, !tbaa !10
-  %.not76 = icmp eq i32 %12, 0
-  br i1 %.not76, label %._crit_edge80, label %.lr.ph79
+  %.not75 = icmp eq i32 %12, 0
+  br i1 %.not75, label %._crit_edge79, label %.lr.ph78
 
-.lr.ph79:                                         ; preds = %11, %241
-  %.03877 = phi i32 [ %.139, %241 ], [ %3, %11 ]
+.lr.ph78:                                         ; preds = %11, %241
+  %.03876 = phi i32 [ %.139, %241 ], [ %3, %11 ]
   %13 = call i32 @pthread_cond_wait(ptr noundef nonnull @lru_crawler_cond, ptr noundef nonnull @lru_crawler_lock) #18
   %14 = load i32, ptr @crawler_count, align 4, !tbaa !10
   switch i32 %14, label %.preheader [
@@ -750,7 +750,7 @@ define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(n
     i32 0, label %.loopexit
   ]
 
-15:                                               ; preds = %.lr.ph79
+15:                                               ; preds = %.lr.ph78
   %16 = call ptr @assoc_get_iterator() #18
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 232), align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -777,7 +777,7 @@ define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(n
   br i1 %.not19.i, label %30, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp sgt i32 %.013.ph27.i, 16
+  %27 = icmp sgt i32 %.013.ph26.i, 16
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %26
@@ -793,8 +793,8 @@ define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(n
   br i1 %34, label %lru_crawler_expand_buf.exit.i, label %35
 
 35:                                               ; preds = %30, %28, %26
-  %.114.i = phi i32 [ 0, %28 ], [ %.013.ph27.i, %26 ], [ %.013.ph27.i, %30 ]
-  %36 = icmp slt i32 %.0.ph28.i, 1
+  %.114.i = phi i32 [ 0, %28 ], [ %.013.ph26.i, %26 ], [ %.013.ph26.i, %30 ]
+  %36 = icmp slt i32 %.0.ph27.i, 1
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 200), align 8
   %38 = icmp ne i32 %37, 0
   %or.cond.i = select i1 %36, i1 %38, i1 false
@@ -818,13 +818,13 @@ define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(n
 
 .outer.backedge.i:                                ; preds = %lru_crawler_expand_buf.exit.thread23.i, %46, %45, %39
   %.013.ph.be.i = phi i32 [ %75, %lru_crawler_expand_buf.exit.thread23.i ], [ %.114.i, %45 ], [ %.114.i, %46 ], [ %.114.i, %39 ]
-  %.0.ph.be.i = phi i32 [ %74, %lru_crawler_expand_buf.exit.thread23.i ], [ %.0.ph28.i, %45 ], [ %.0.ph28.i, %46 ], [ %44, %39 ]
+  %.0.ph.be.i = phi i32 [ %74, %lru_crawler_expand_buf.exit.thread23.i ], [ %.0.ph27.i, %45 ], [ %.0.ph27.i, %46 ], [ %44, %39 ]
   %49 = call zeroext i1 @assoc_iterate(ptr noundef nonnull %16, ptr noundef nonnull %2) #18
   br i1 %49, label %.lr.ph.i, label %lru_crawler_expand_buf.exit.i, !llvm.loop !59
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.outer.backedge.i
-  %.0.ph28.i = phi i32 [ %.0.ph.be.i, %.outer.backedge.i ], [ %17, %.preheader.i ]
-  %.013.ph27.i = phi i32 [ %.013.ph.be.i, %.outer.backedge.i ], [ 0, %.preheader.i ]
+  %.0.ph27.i = phi i32 [ %.0.ph.be.i, %.outer.backedge.i ], [ %17, %.preheader.i ]
+  %.013.ph26.i = phi i32 [ %.013.ph.be.i, %.outer.backedge.i ], [ 0, %.preheader.i ]
   br label %21
 
 50:                                               ; preds = %21
@@ -872,8 +872,8 @@ lru_crawler_expand_buf.exit.thread23.i:           ; preds = %lru_crawler_expand_
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !63
   call void %73(ptr noundef nonnull @active_crawler_mod, ptr noundef %70, i32 noundef 0, i32 noundef 0) #18
-  %74 = add nsw i32 %.0.ph28.i, -1
-  %75 = add nsw i32 %.013.ph27.i, 1
+  %74 = add nsw i32 %.0.ph27.i, -1
+  %75 = add nsw i32 %.013.ph26.i, 1
   br label %.outer.backedge.i
 
 lru_crawler_expand_buf.exit.i:                    ; preds = %64, %.outer.backedge.i, %30, %28, %55, %.preheader.i
@@ -890,9 +890,9 @@ thread-pre-split:                                 ; preds = %lru_crawler_class_d
   %.not45 = icmp eq i32 %.pr, 0
   br i1 %.not45, label %.loopexit, label %.preheader.backedge
 
-.preheader:                                       ; preds = %.lr.ph79, %.preheader.backedge
-  %indvars.iv = phi i64 [ %indvars.iv.be, %.preheader.backedge ], [ 1, %.lr.ph79 ]
-  %.369 = phi i32 [ %.4, %.preheader.backedge ], [ %.03877, %.lr.ph79 ]
+.preheader:                                       ; preds = %.lr.ph78, %.preheader.backedge
+  %indvars.iv = phi i64 [ %indvars.iv.be, %.preheader.backedge ], [ 1, %.lr.ph78 ]
+  %.368 = phi i32 [ %.4, %.preheader.backedge ], [ %.03876, %.lr.ph78 ]
   %76 = getelementptr inbounds nuw %struct.crawler, ptr @crawlers, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 38
   %78 = load i16, ptr %77, align 2, !tbaa !64
@@ -997,10 +997,10 @@ lru_crawler_class_done.exit.thread61:             ; preds = %81, %86, %104
 135:                                              ; preds = %132, %lru_crawler_class_done.exit.thread61
   %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !30
   %137 = icmp sgt i32 %136, 2
-  br i1 %137, label %138, label %._crit_edge88
+  br i1 %137, label %138, label %._crit_edge87
 
-._crit_edge88:                                    ; preds = %135
-  %.pre89 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge87:                                    ; preds = %135
+  %.pre88 = trunc nuw nsw i64 %indvars.iv to i32
   br label %142
 
 138:                                              ; preds = %135
@@ -1009,8 +1009,8 @@ lru_crawler_class_done.exit.thread61:             ; preds = %81, %86, %104
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.19, i32 noundef %140) #19
   br label %142
 
-142:                                              ; preds = %._crit_edge88, %138
-  %.pre-phi = phi i32 [ %.pre89, %._crit_edge88 ], [ %140, %138 ]
+142:                                              ; preds = %._crit_edge87, %138
+  %.pre-phi = phi i32 [ %.pre88, %._crit_edge87 ], [ %140, %138 ]
   store i16 0, ptr %77, align 2, !tbaa !64
   %143 = load i32, ptr @crawler_count, align 4, !tbaa !10
   %144 = add nsw i32 %143, -1
@@ -1103,8 +1103,8 @@ lru_crawler_class_done.exit.thread61:             ; preds = %81, %86, %104
   br label %200
 
 200:                                              ; preds = %198, %189
-  %201 = add nsw i32 %.369, -1
-  %202 = icmp slt i32 %.369, 1
+  %201 = add nsw i32 %.368, -1
+  %202 = icmp slt i32 %.368, 1
   %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 200), align 8
   %204 = icmp ne i32 %203, 0
   %or.cond = select i1 %202, i1 %204, i1 false
@@ -1127,7 +1127,7 @@ lru_crawler_class_done.exit.thread61:             ; preds = %81, %86, %104
   br label %lru_crawler_class_done.exit
 
 lru_crawler_class_done.exit:                      ; preds = %155, %142, %124, %109, %88, %103, %171, %177, %211, %212, %205, %.preheader
-  %.4 = phi i32 [ %.369, %.preheader ], [ %.369, %171 ], [ %.369, %177 ], [ %210, %205 ], [ %201, %211 ], [ %201, %212 ], [ %.369, %103 ], [ %.369, %88 ], [ %.369, %109 ], [ %.369, %124 ], [ %.369, %142 ], [ %.369, %155 ]
+  %.4 = phi i32 [ %.368, %.preheader ], [ %.368, %171 ], [ %.368, %177 ], [ %210, %205 ], [ %201, %211 ], [ %201, %212 ], [ %.368, %103 ], [ %.368, %88 ], [ %.368, %109 ], [ %.368, %124 ], [ %.368, %142 ], [ %.368, %155 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %thread-pre-split, label %.preheader.backedge
@@ -1136,8 +1136,8 @@ lru_crawler_class_done.exit:                      ; preds = %155, %142, %124, %1
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %lru_crawler_class_done.exit ], [ 1, %thread-pre-split ]
   br label %.preheader, !llvm.loop !69
 
-.loopexit:                                        ; preds = %thread-pre-split, %.lr.ph79, %item_crawl_hash.exit
-  %.139 = phi i32 [ %.03877, %item_crawl_hash.exit ], [ %.03877, %.lr.ph79 ], [ %.4, %thread-pre-split ]
+.loopexit:                                        ; preds = %thread-pre-split, %.lr.ph78, %item_crawl_hash.exit
+  %.139 = phi i32 [ %.03876, %item_crawl_hash.exit ], [ %.03876, %.lr.ph78 ], [ %.4, %thread-pre-split ]
   %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 40), align 8, !tbaa !55
   %.not52 = icmp eq ptr %215, null
   br i1 %.not52, label %235, label %216
@@ -1170,12 +1170,12 @@ lru_crawler_class_done.exit:                      ; preds = %155, %142, %124, %1
   br i1 %231, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %220
-  %.lcssa68 = phi ptr [ %221, %220 ], [ %227, %.lr.ph ]
+  %.lcssa67 = phi ptr [ %221, %220 ], [ %227, %.lr.ph ]
   %.lcssa = phi i1 [ %222, %220 ], [ %228, %.lr.ph ]
   br i1 %.lcssa, label %232, label %234
 
 232:                                              ; preds = %._crit_edge
-  call void @redispatch_conn(ptr noundef nonnull %.lcssa68) #18
+  call void @redispatch_conn(ptr noundef nonnull %.lcssa67) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 8), align 8, !tbaa !72
   %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 32), align 8, !tbaa !62
   call void @free(ptr noundef %233) #18
@@ -1202,20 +1202,20 @@ lru_crawler_class_done.exit:                      ; preds = %155, %142, %124, %1
   call void @STATS_UNLOCK() #18
   %242 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4, !tbaa !10
   %.not = icmp eq i32 %242, 0
-  br i1 %.not, label %._crit_edge80, label %.lr.ph79, !llvm.loop !76
+  br i1 %.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !76
 
-._crit_edge80:                                    ; preds = %241, %11
+._crit_edge79:                                    ; preds = %241, %11
   %243 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #18
   %244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !30
   %245 = icmp sgt i32 %244, 2
   br i1 %245, label %246, label %249
 
-246:                                              ; preds = %._crit_edge80
+246:                                              ; preds = %._crit_edge79
   %247 = load ptr, ptr @stderr, align 8, !tbaa !34
   %248 = call i64 @fwrite(ptr nonnull @.str.21, i64 28, i64 1, ptr %247) #20
   br label %249
 
-249:                                              ; preds = %246, %._crit_edge80
+249:                                              ; preds = %246, %._crit_edge79
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 134), align 2, !tbaa !52
   ret ptr null
 }

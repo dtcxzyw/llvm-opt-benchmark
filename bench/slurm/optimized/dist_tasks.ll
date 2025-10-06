@@ -1114,12 +1114,12 @@ _validate_mask.exit:                              ; preds = %103, %105, %108, %1
   %174 = call ptr @slurm_xstrdup(ptr noundef %173) #7
   store ptr %174, ptr %19, align 8
   %175 = call ptr @strtok_r(ptr noundef %174, ptr noundef nonnull @.str.19, ptr noundef nonnull %20) #7
-  %.not3544.i = icmp eq ptr %175, null
-  br i1 %.not3544.i, label %._crit_edge.i157, label %.lr.ph.i154
+  %.not3543.i = icmp eq ptr %175, null
+  br i1 %.not3543.i, label %._crit_edge.i157, label %.lr.ph.i154
 
 .lr.ph.i154:                                      ; preds = %172, %.critedge.i156
-  %.02545.i = phi ptr [ %189, %.critedge.i156 ], [ %175, %172 ]
-  %176 = call i64 @strtol(ptr noundef nonnull captures(none) %.02545.i, ptr noundef null, i32 noundef 10) #7
+  %.02544.i = phi ptr [ %189, %.critedge.i156 ], [ %175, %172 ]
+  %176 = call i64 @strtol(ptr noundef nonnull captures(none) %.02544.i, ptr noundef null, i32 noundef 10) #7
   %177 = and i64 %176, 4294966272
   %178 = icmp eq i64 %177, 0
   br i1 %178, label %179, label %.thread.i155
@@ -1460,16 +1460,16 @@ switch.early.test:                                ; preds = %219
   %335 = and i16 %334, 8192
   %.not127.i = icmp eq i16 %335, 0
   %336 = call i32 @slurm_bit_set_count(ptr noundef nonnull %329) #7
-  br i1 %.not127.i, label %.thread.i159, label %.thread148.i
+  br i1 %.not127.i, label %.thread.i159, label %.thread147.i
 
 337:                                              ; preds = %330
   %338 = zext i16 %332 to i32
   %339 = call i32 @slurm_bit_set_count(ptr noundef nonnull %329) #7
-  br label %.thread148.i
+  br label %.thread147.i
 
-.thread148.i:                                     ; preds = %337, %333
+.thread147.i:                                     ; preds = %337, %333
   %340 = phi i32 [ %339, %337 ], [ %336, %333 ]
-  %.094151.i = phi i32 [ %338, %337 ], [ 1, %333 ]
+  %.094150.i = phi i32 [ %338, %337 ], [ 1, %333 ]
   %341 = load ptr, ptr @conf, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 4158
   %343 = load i16, ptr %342, align 2
@@ -1477,10 +1477,10 @@ switch.early.test:                                ; preds = %219
   %.not129.i = icmp ugt i16 %343, %344
   br i1 %.not129.i, label %.thread.i159, label %345
 
-345:                                              ; preds = %.thread148.i
+345:                                              ; preds = %.thread147.i
   %346 = load i16, ptr %319, align 2
   %347 = zext i16 %346 to i32
-  %.rhs.trunc.i = trunc nuw i32 %.094151.i to i16
+  %.rhs.trunc.i = trunc nuw i32 %.094150.i to i16
   %348 = udiv i16 %343, %.rhs.trunc.i
   %.zext.i = zext i16 %348 to i32
   %349 = mul nuw nsw i32 %.zext.i, %347
@@ -1492,10 +1492,10 @@ switch.early.test:                                ; preds = %219
   call void @slurm_bit_free(ptr noundef nonnull %15) #7
   br label %_task_layout_lllp_cyclic.exit
 
-.thread.i159:                                     ; preds = %345, %.thread148.i, %333
-  %.not128147.i = phi i1 [ false, %345 ], [ false, %.thread148.i ], [ true, %333 ]
-  %353 = phi i32 [ %340, %345 ], [ %340, %.thread148.i ], [ %336, %333 ]
-  %.094146.i = phi i32 [ %.094151.i, %345 ], [ %.094151.i, %.thread148.i ], [ 0, %333 ]
+.thread.i159:                                     ; preds = %345, %.thread147.i, %333
+  %.not128146.i = phi i1 [ false, %345 ], [ false, %.thread147.i ], [ true, %333 ]
+  %353 = phi i32 [ %340, %345 ], [ %340, %.thread147.i ], [ %336, %333 ]
+  %.094145.i = phi i32 [ %.094150.i, %345 ], [ %.094150.i, %.thread147.i ], [ 0, %333 ]
   %354 = icmp slt i32 %353, %318
   br i1 %354, label %355, label %362
 
@@ -1554,17 +1554,17 @@ switch.early.test:                                ; preds = %219
   %386 = call ptr @slurm_xcalloc(i64 noundef %385, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.33, i32 noundef 1032, ptr noundef nonnull @__func__._task_layout_lllp_cyclic) #7
   store ptr %386, ptr %27, align 8
   %387 = call i64 @slurm_bit_size(ptr noundef nonnull %329) #7
-  %.fr195.i = freeze i64 %387
-  %388 = trunc i64 %.fr195.i to i32
-  %.not194.i = icmp eq i16 %317, 0
-  br i1 %.not194.i, label %._crit_edge193.thread.i, label %.lr.ph192.i
+  %.fr192.i = freeze i64 %387
+  %388 = trunc i64 %.fr192.i to i32
+  %.not191.i = icmp eq i16 %317, 0
+  br i1 %.not191.i, label %._crit_edge190.thread.i, label %.lr.ph189.i
 
-._crit_edge193.thread.i:                          ; preds = %374
+._crit_edge190.thread.i:                          ; preds = %374
   %389 = load i16, ptr %66, align 8
   call fastcc void @_expand_masks(i16 noundef zeroext %389, i32 noundef %318, ptr noundef %386, i16 noundef zeroext %377, i16 noundef zeroext %379, i16 noundef zeroext %375, ptr noundef nonnull %329)
   br label %514
 
-.lr.ph192.i:                                      ; preds = %374
+.lr.ph189.i:                                      ; preds = %374
   %390 = mul i16 %379, %375
   %391 = icmp sgt i32 %388, 0
   %392 = zext i16 %390 to i32
@@ -1572,23 +1572,23 @@ switch.early.test:                                ; preds = %219
   %394 = shl nuw nsw i64 %378, 2
   %395 = mul nuw nsw i64 %394, %380
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 78
-  br i1 %391, label %.lr.ph192.split.us.i, label %.split.us.thread.i
+  br i1 %391, label %.lr.ph189.split.us.i, label %.split.us.thread.i
 
-.split.us.thread.i:                               ; preds = %.lr.ph192.i
+.split.us.thread.i:                               ; preds = %.lr.ph189.i
   %397 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.34) #7
   br label %511
 
-.lr.ph192.split.us.i:                             ; preds = %.lr.ph192.i, %._crit_edge179.us.i
-  %.095190.us.i = phi i32 [ %.096189.us.i, %._crit_edge179.us.i ], [ -1, %.lr.ph192.i ]
-  %.096189.us.i = phi i32 [ %.2.us.i, %._crit_edge179.us.i ], [ 0, %.lr.ph192.i ]
-  %.098188.us.i = phi i16 [ %.2100.us.i, %._crit_edge179.us.i ], [ 0, %.lr.ph192.i ]
-  %.0102187.us.i = phi i16 [ %.2104.us.i, %._crit_edge179.us.i ], [ 0, %.lr.ph192.i ]
-  %398 = icmp eq i32 %.096189.us.i, %.095190.us.i
+.lr.ph189.split.us.i:                             ; preds = %.lr.ph189.i, %._crit_edge176.us.i
+  %.095187.us.i = phi i32 [ %.096186.us.i, %._crit_edge176.us.i ], [ -1, %.lr.ph189.i ]
+  %.096186.us.i = phi i32 [ %.2.us.i, %._crit_edge176.us.i ], [ 0, %.lr.ph189.i ]
+  %.098185.us.i = phi i16 [ %.2100.us.i, %._crit_edge176.us.i ], [ 0, %.lr.ph189.i ]
+  %.0102184.us.i = phi i16 [ %.2104.us.i, %._crit_edge176.us.i ], [ 0, %.lr.ph189.i ]
+  %398 = icmp eq i32 %.096186.us.i, %.095187.us.i
   br i1 %398, label %.split.us.i, label %.preheader.us.i
 
 399:                                              ; preds = %.lr.ph.us.i, %410
-  %.3101170.us.i = phi i16 [ %.199176.us.i, %.lr.ph.us.i ], [ %403, %410 ]
-  %400 = zext i16 %.3101170.us.i to i32
+  %.3101167.us.i = phi i16 [ %.199173.us.i, %.lr.ph.us.i ], [ %403, %410 ]
+  %400 = zext i16 %.3101167.us.i to i32
   %401 = add nuw nsw i32 %400, 1
   %402 = urem i32 %401, %393
   %403 = trunc nuw i32 %402 to i16
@@ -1618,22 +1618,22 @@ switch.early.test:                                ; preds = %219
   br i1 %.not131.us.i, label %._crit_edge.us.i, label %399, !llvm.loop !26
 
 ._crit_edge.us.i:                                 ; preds = %410, %.preheader.us.i
-  %.lcssa168.us.i = phi i64 [ %503, %.preheader.us.i ], [ %411, %410 ]
-  %.3101.lcssa.us.i = phi i16 [ %.199176.us.i, %.preheader.us.i ], [ %403, %410 ]
-  %.lcssa165.us.i = phi i32 [ %505, %.preheader.us.i ], [ %413, %410 ]
-  %414 = getelementptr inbounds nuw i32, ptr %502, i64 %.lcssa168.us.i
+  %.lcssa165.us.i = phi i64 [ %503, %.preheader.us.i ], [ %411, %410 ]
+  %.3101.lcssa.us.i = phi i16 [ %.199173.us.i, %.preheader.us.i ], [ %403, %410 ]
+  %.lcssa162.us.i = phi i32 [ %505, %.preheader.us.i ], [ %413, %410 ]
+  %414 = getelementptr inbounds nuw i32, ptr %502, i64 %.lcssa165.us.i
   %415 = zext i16 %.3101.lcssa.us.i to i32
   %416 = mul nuw nsw i32 %415, %392
-  %417 = add nsw i32 %416, %.lcssa165.us.i
+  %417 = add nsw i32 %416, %.lcssa162.us.i
   %418 = and i32 %417, 65535
   %419 = urem i32 %418, %388
-  %420 = add nsw i32 %.lcssa165.us.i, 1
+  %420 = add nsw i32 %.lcssa162.us.i, 1
   store i32 %420, ptr %414, align 4
   %421 = load ptr, ptr %15, align 8
   %422 = zext nneg i32 %419 to i64
   %423 = call i32 @slurm_bit_test(ptr noundef %421, i64 noundef %422) #7
   %.not132.us.i = icmp eq i32 %423, 0
-  br i1 %.not132.us.i, label %.thread153.us.i, label %424
+  br i1 %.not132.us.i, label %select.unfold152.us.i, label %424
 
 424:                                              ; preds = %._crit_edge.us.i
   %425 = udiv i32 %419, %376
@@ -1648,21 +1648,21 @@ switch.early.test:                                ; preds = %219
   %431 = getelementptr inbounds nuw i32, ptr %429, i64 %430
   %432 = load i32, ptr %431, align 4
   %.not134.us.i = icmp slt i32 %432, %428
-  br i1 %.not134.us.i, label %433, label %.thread153.us.i
+  br i1 %.not134.us.i, label %433, label %select.unfold152.us.i
 
 433:                                              ; preds = %427, %424
-  br i1 %.not128147.i, label %439, label %434
+  br i1 %.not128146.i, label %439, label %434
 
 434:                                              ; preds = %433
   %435 = load ptr, ptr %18, align 8
   %436 = zext nneg i32 %425 to i64
   %437 = getelementptr inbounds nuw i32, ptr %435, i64 %436
   %438 = load i32, ptr %437, align 4
-  %.not135.us.i = icmp slt i32 %438, %.094146.i
-  br i1 %.not135.us.i, label %439, label %.thread153.us.i
+  %.not135.us.i = icmp slt i32 %438, %.094145.i
+  br i1 %.not135.us.i, label %439, label %select.unfold152.us.i
 
 439:                                              ; preds = %434, %433
-  %440 = sext i32 %.1178.us.i to i64
+  %440 = sext i32 %.1175.us.i to i64
   %441 = getelementptr inbounds ptr, ptr %386, i64 %440
   %442 = load ptr, ptr %441, align 8
   %.not136.us.i = icmp eq ptr %442, null
@@ -1683,8 +1683,8 @@ switch.early.test:                                ; preds = %219
   %451 = load i32, ptr %286, align 8
   %452 = and i32 %451, 61695
   %.off.us.i = add nsw i32 %452, -49
-  %switch143.us.i = icmp ult i32 %.off.us.i, 2
-  br i1 %switch143.us.i, label %453, label %457
+  %switch.us.i = icmp ult i32 %.off.us.i, 2
+  br i1 %switch.us.i, label %453, label %457
 
 453:                                              ; preds = %449
   %454 = add nuw nsw i32 %415, 1
@@ -1700,10 +1700,10 @@ switch.early.test:                                ; preds = %219
   %461 = load i32, ptr %460, align 4
   %462 = add nsw i32 %461, 1
   store i32 %462, ptr %460, align 4
-  %463 = add i16 %.1103175.us.i, 1
+  %463 = add i16 %.1103172.us.i, 1
   %464 = load i16, ptr %319, align 2
   %465 = icmp ult i16 %463, %464
-  br i1 %465, label %.thread153.us.i, label %466
+  br i1 %465, label %select.unfold152.us.i, label %466
 
 466:                                              ; preds = %457
   %467 = load ptr, ptr %17, align 8
@@ -1746,7 +1746,7 @@ switch.early.test:                                ; preds = %219
   br label %490
 
 490:                                              ; preds = %484, %473
-  br i1 %switch143.us.i, label %496, label %491
+  br i1 %switch.us.i, label %496, label %491
 
 491:                                              ; preds = %490
   %492 = zext i16 %.5.us.i to i32
@@ -1757,45 +1757,45 @@ switch.early.test:                                ; preds = %219
 
 496:                                              ; preds = %491, %490
   %.6.us.i = phi i16 [ %.5.us.i, %490 ], [ %495, %491 ]
-  %497 = add nsw i32 %.1178.us.i, 1
-  %.not138.not.us.i = icmp slt i32 %497, %318
-  br i1 %.not138.not.us.i, label %.thread153.us.i, label %._crit_edge179.us.i
+  %497 = add nsw i32 %.1175.us.i, 1
+  %.not138.us.i = icmp slt i32 %497, %318
+  br i1 %.not138.us.i, label %select.unfold152.us.i, label %._crit_edge176.us.i
 
-._crit_edge179.us.i:                              ; preds = %.thread153.us.i, %496
-  %.2104.us.i = phi i16 [ 0, %496 ], [ %.3105160.us.i, %.thread153.us.i ]
-  %.2100.us.i = phi i16 [ %.6.us.i, %496 ], [ %.4161.us.i, %.thread153.us.i ]
-  %.2.us.i = phi i32 [ %497, %496 ], [ %.3162.us.i, %.thread153.us.i ]
+._crit_edge176.us.i:                              ; preds = %select.unfold152.us.i, %496
+  %.2104.us.i = phi i16 [ 0, %496 ], [ %.3105.ph.us.i, %select.unfold152.us.i ]
+  %.2100.us.i = phi i16 [ %.6.us.i, %496 ], [ %.4.ph.us.i, %select.unfold152.us.i ]
+  %.2.us.i = phi i32 [ %497, %496 ], [ %.3.ph.us.i, %select.unfold152.us.i ]
   %498 = icmp slt i32 %.2.us.i, %318
-  br i1 %498, label %.lr.ph192.split.us.i, label %._crit_edge193.i, !llvm.loop !27
+  br i1 %498, label %.lr.ph189.split.us.i, label %._crit_edge190.i, !llvm.loop !27
 
-.thread153.us.i:                                  ; preds = %496, %457, %434, %427, %._crit_edge.us.i
-  %.3162.us.i = phi i32 [ %497, %496 ], [ %.1178.us.i, %._crit_edge.us.i ], [ %.1178.us.i, %427 ], [ %.1178.us.i, %434 ], [ %.1178.us.i, %457 ]
-  %.4161.us.i = phi i16 [ %.6.us.i, %496 ], [ %.3101.lcssa.us.i, %._crit_edge.us.i ], [ %.3101.lcssa.us.i, %427 ], [ %.3101.lcssa.us.i, %434 ], [ %.5.us.i, %457 ]
-  %.3105160.us.i = phi i16 [ 0, %496 ], [ %.1103175.us.i, %._crit_edge.us.i ], [ %.1103175.us.i, %427 ], [ %.1103175.us.i, %434 ], [ %463, %457 ]
-  %499 = add i16 %.097177.us.i, 1
+select.unfold152.us.i:                            ; preds = %496, %457, %434, %427, %._crit_edge.us.i
+  %.3105.ph.us.i = phi i16 [ %463, %457 ], [ %.1103172.us.i, %434 ], [ %.1103172.us.i, %427 ], [ %.1103172.us.i, %._crit_edge.us.i ], [ 0, %496 ]
+  %.4.ph.us.i = phi i16 [ %.5.us.i, %457 ], [ %.3101.lcssa.us.i, %434 ], [ %.3101.lcssa.us.i, %427 ], [ %.3101.lcssa.us.i, %._crit_edge.us.i ], [ %.6.us.i, %496 ]
+  %.3.ph.us.i = phi i32 [ %.1175.us.i, %457 ], [ %.1175.us.i, %434 ], [ %.1175.us.i, %427 ], [ %.1175.us.i, %._crit_edge.us.i ], [ %497, %496 ]
+  %499 = add i16 %.097174.us.i, 1
   %500 = zext i16 %499 to i32
   %501 = icmp slt i32 %500, %388
-  br i1 %501, label %.preheader.us.i, label %._crit_edge179.us.i, !llvm.loop !28
+  br i1 %501, label %.preheader.us.i, label %._crit_edge176.us.i, !llvm.loop !28
 
-.preheader.us.i:                                  ; preds = %.lr.ph192.split.us.i, %.thread153.us.i
-  %.1178.us.i = phi i32 [ %.3162.us.i, %.thread153.us.i ], [ %.096189.us.i, %.lr.ph192.split.us.i ]
-  %.097177.us.i = phi i16 [ %499, %.thread153.us.i ], [ 0, %.lr.ph192.split.us.i ]
-  %.199176.us.i = phi i16 [ %.4161.us.i, %.thread153.us.i ], [ %.098188.us.i, %.lr.ph192.split.us.i ]
-  %.1103175.us.i = phi i16 [ %.3105160.us.i, %.thread153.us.i ], [ %.0102187.us.i, %.lr.ph192.split.us.i ]
+.preheader.us.i:                                  ; preds = %.lr.ph189.split.us.i, %select.unfold152.us.i
+  %.1175.us.i = phi i32 [ %.3.ph.us.i, %select.unfold152.us.i ], [ %.096186.us.i, %.lr.ph189.split.us.i ]
+  %.097174.us.i = phi i16 [ %499, %select.unfold152.us.i ], [ 0, %.lr.ph189.split.us.i ]
+  %.199173.us.i = phi i16 [ %.4.ph.us.i, %select.unfold152.us.i ], [ %.098185.us.i, %.lr.ph189.split.us.i ]
+  %.1103172.us.i = phi i16 [ %.3105.ph.us.i, %select.unfold152.us.i ], [ %.0102184.us.i, %.lr.ph189.split.us.i ]
   %502 = load ptr, ptr %16, align 8
-  %503 = zext i16 %.199176.us.i to i64
+  %503 = zext i16 %.199173.us.i to i64
   %504 = getelementptr inbounds nuw i32, ptr %502, i64 %503
   %505 = load i32, ptr %504, align 4
-  %.not131169.us.i = icmp slt i32 %505, %392
-  br i1 %.not131169.us.i, label %._crit_edge.us.i, label %.lr.ph.us.i
+  %.not131166.us.i = icmp slt i32 %505, %392
+  br i1 %.not131166.us.i, label %._crit_edge.us.i, label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.preheader.us.i
-  %506 = zext i16 %.199176.us.i to i32
+  %506 = zext i16 %.199173.us.i to i32
   %507 = load ptr, ptr %17, align 8
   %508 = load ptr, ptr %18, align 8
   br label %399
 
-.split.us.i:                                      ; preds = %.lr.ph192.split.us.i
+.split.us.i:                                      ; preds = %.lr.ph189.split.us.i
   %.pre.i = load ptr, ptr %15, align 8
   %509 = icmp eq ptr %.pre.i, null
   %510 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.34) #7
@@ -1812,18 +1812,18 @@ switch.early.test:                                ; preds = %219
   call void @slurm_xfree(ptr noundef nonnull %16) #7
   br label %_task_layout_lllp_cyclic.exit
 
-._crit_edge193.i:                                 ; preds = %._crit_edge179.us.i
-  %.pre199.i = load ptr, ptr %15, align 8
+._crit_edge190.i:                                 ; preds = %._crit_edge176.us.i
+  %.pre196.i = load ptr, ptr %15, align 8
   %513 = load i16, ptr %66, align 8
-  call fastcc void @_expand_masks(i16 noundef zeroext %513, i32 noundef %318, ptr noundef %386, i16 noundef zeroext %377, i16 noundef zeroext %379, i16 noundef zeroext %375, ptr noundef %.pre199.i)
-  %.not130.i = icmp eq ptr %.pre199.i, null
+  call fastcc void @_expand_masks(i16 noundef zeroext %513, i32 noundef %318, ptr noundef %386, i16 noundef zeroext %377, i16 noundef zeroext %379, i16 noundef zeroext %375, ptr noundef %.pre196.i)
+  %.not130.i = icmp eq ptr %.pre196.i, null
   br i1 %.not130.i, label %515, label %514
 
-514:                                              ; preds = %._crit_edge193.i, %._crit_edge193.thread.i
+514:                                              ; preds = %._crit_edge190.i, %._crit_edge190.thread.i
   call void @slurm_bit_free(ptr noundef nonnull %15) #7
   br label %515
 
-515:                                              ; preds = %514, %._crit_edge193.i
+515:                                              ; preds = %514, %._crit_edge190.i
   store ptr null, ptr %15, align 8
   call void @slurm_xfree(ptr noundef nonnull %17) #7
   call void @slurm_xfree(ptr noundef nonnull %18) #7

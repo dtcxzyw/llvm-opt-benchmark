@@ -688,24 +688,24 @@ define noundef i32 @_ZN5ZXing5ToECIENS_12CharacterSetE(i8 noundef zeroext %0) lo
   br i1 %5, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %8
-  %.sroa.012.017 = phi ptr [ %9, %8 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 36
+  %.sroa.012.019 = phi ptr [ %9, %8 ], [ %4, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 36
   %7 = load i8, ptr %6, align 1, !tbaa !41
   %.not = icmp eq i8 %7, %0
-  br i1 %.not, label %.loopexit.split.loop.exit15, label %8
+  br i1 %.not, label %.loopexit.split.loop.exit17, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.012.017) #22
+  %9 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.012.019) #22
   %10 = icmp eq ptr %9, getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL14ECI_TO_CHARSETE, i64 8)
   br i1 %10, label %.loopexit, label %.lr.ph
 
-.loopexit.split.loop.exit15:                      ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 32
+.loopexit.split.loop.exit17:                      ; preds = %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 32
   %12 = load i32, ptr %11, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %.loopexit.split.loop.exit15, %3, %1, %2
-  %.0 = phi i32 [ 2, %2 ], [ 3, %1 ], [ %12, %.loopexit.split.loop.exit15 ], [ -1, %3 ], [ -1, %8 ]
+.loopexit:                                        ; preds = %8, %.loopexit.split.loop.exit17, %3, %1, %2
+  %.0 = phi i32 [ 2, %2 ], [ 3, %1 ], [ %12, %.loopexit.split.loop.exit17 ], [ -1, %3 ], [ -1, %8 ]
   ret i32 %.0
 }
 

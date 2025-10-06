@@ -5924,12 +5924,12 @@ Py_DECREF.exit:                                   ; preds = %21, %18, %16, %10, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @defdict_traverse(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val25 = load ptr, ptr %4, align 8, !tbaa !22
-  %.not = icmp eq ptr %.val25, null
+  %.val24 = load ptr, ptr %4, align 8, !tbaa !22
+  %.not = icmp eq ptr %.val24, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val25, ptr noundef %2) #9
+  %6 = tail call i32 %1(ptr noundef nonnull %.val24, ptr noundef %2) #9
   %.not20.not = icmp eq i32 %6, 0
   br i1 %.not20.not, label %7, label %15
 
@@ -6391,12 +6391,12 @@ Py_DECREF.exit:                                   ; preds = %dequeiter_clear.exi
 ; Function Attrs: nounwind uwtable
 define internal i32 @dequeiter_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val22 = load ptr, ptr %4, align 8, !tbaa !22
-  %.not = icmp eq ptr %.val22, null
+  %.val21 = load ptr, ptr %4, align 8, !tbaa !22
+  %.not = icmp eq ptr %.val21, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val22, ptr noundef %2) #9
+  %6 = tail call i32 %1(ptr noundef nonnull %.val21, ptr noundef %2) #9
   %.not17.not = icmp eq i32 %6, 0
   br i1 %.not17.not, label %7, label %13
 
@@ -7142,8 +7142,8 @@ define internal ptr @tuplegetter_new(ptr noundef %0, ptr noundef readonly captur
 19:                                               ; preds = %17, %16, %9
   %20 = getelementptr i8, ptr %1, i64 16
   %.val36 = load i64, ptr %20, align 8, !tbaa !52
-  %or.cond45 = icmp eq i64 %.val36, 2
-  br i1 %or.cond45, label %23, label %21
+  %or.cond44 = icmp eq i64 %.val36, 2
+  br i1 %or.cond44, label %23, label %21
 
 21:                                               ; preds = %19
   %22 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.83, i64 noundef %.val36, i64 noundef 2, i64 noundef 2) #9

@@ -13894,64 +13894,64 @@ define internal fastcc i64 @__vma_reservation_common(ptr noundef readonly captur
   %36 = zext nneg i32 %30 to i64
   %37 = lshr i64 %35, %36
   %38 = add i64 %33, %37
-  %switch = icmp eq i32 %3, 4
-  %39 = add i64 %38, 1
-  br i1 %switch, label %49, label %40
+  %39 = icmp eq i32 %3, 4
+  %40 = add i64 %38, 1
+  br i1 %39, label %50, label %41
 
-40:                                               ; preds = %26
-  br i1 %8, label %43, label %41
+41:                                               ; preds = %26
+  br i1 %8, label %44, label %42
 
-41:                                               ; preds = %40
-  %42 = tail call fastcc i64 @region_add(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %39, i64 noundef 1, ptr noundef null, ptr noundef null)
-  br label %58
+42:                                               ; preds = %41
+  %43 = tail call fastcc i64 @region_add(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %40, i64 noundef 1, ptr noundef null, ptr noundef null)
+  br label %59
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  tail call void @_raw_spin_lock(ptr noundef nonnull %44) #22
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, -1
-  store i64 %47, ptr %45, align 8
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %44) #22
-  %48 = tail call fastcc i64 @region_del(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %39)
-  br label %58
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  tail call void @_raw_spin_lock(ptr noundef nonnull %45) #22
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, -1
+  store i64 %48, ptr %46, align 8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %45) #22
+  %49 = tail call fastcc i64 @region_del(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %40)
+  br label %59
 
-49:                                               ; preds = %26
-  br i1 %8, label %56, label %50
+50:                                               ; preds = %26
+  br i1 %8, label %57, label %51
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  tail call void @_raw_spin_lock(ptr noundef nonnull %51) #22
-  %52 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %53 = load i64, ptr %52, align 8
-  %54 = add i64 %53, -1
-  store i64 %54, ptr %52, align 8
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %51) #22
-  %55 = tail call fastcc i64 @region_del(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %39)
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  tail call void @_raw_spin_lock(ptr noundef nonnull %52) #22
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, -1
+  store i64 %55, ptr %53, align 8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %52) #22
+  %56 = tail call fastcc i64 @region_del(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %40)
   br label %.thread
 
-56:                                               ; preds = %49
-  %57 = tail call fastcc i64 @region_add(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %39, i64 noundef 1, ptr noundef null, ptr noundef null)
+57:                                               ; preds = %50
+  %58 = tail call fastcc i64 @region_add(ptr noundef nonnull %24, i64 noundef %38, i64 noundef %40, i64 noundef 1, ptr noundef null, ptr noundef null)
   br label %.thread
 
-58:                                               ; preds = %43, %41
-  %59 = phi i64 [ %42, %41 ], [ %48, %43 ]
-  %60 = load i64, ptr %5, align 8
-  %61 = and i64 %60, 128
-  %.not = icmp eq i64 %61, 0
-  br i1 %.not, label %62, label %.thread
+59:                                               ; preds = %44, %42
+  %60 = phi i64 [ %43, %42 ], [ %49, %44 ]
+  %61 = load i64, ptr %5, align 8
+  %62 = and i64 %61, 128
+  %.not = icmp eq i64 %62, 0
+  br i1 %.not, label %63, label %.thread
 
-62:                                               ; preds = %58
-  %63 = icmp sgt i64 %59, 0
-  br i1 %63, label %.thread, label %64
+63:                                               ; preds = %59
+  %64 = icmp sgt i64 %60, 0
+  br i1 %64, label %.thread, label %65
 
-64:                                               ; preds = %62
-  %65 = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
+65:                                               ; preds = %63
+  %66 = tail call i64 @llvm.umax.i64(i64 %60, i64 1)
   br label %.thread
 
-.thread:                                          ; preds = %50, %56, %64, %62, %58, %23
-  %66 = phi i64 [ 1, %23 ], [ %59, %58 ], [ 0, %62 ], [ %65, %64 ], [ %57, %56 ], [ %55, %50 ]
-  ret i64 %66
+.thread:                                          ; preds = %51, %57, %65, %63, %59, %23
+  %67 = phi i64 [ 1, %23 ], [ %60, %59 ], [ 0, %63 ], [ %66, %65 ], [ %58, %57 ], [ %56, %51 ]
+  ret i64 %67
 }
 
 ; Function Attrs: null_pointer_is_valid

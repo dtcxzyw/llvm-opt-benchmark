@@ -905,16 +905,15 @@ _ZN4QMapI7QStringP7QActionE6detachEv.exit:        ; preds = %3, %7
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %22, align 8
   %24 = load atomic i32, ptr %23 monotonic, align 4
-  switch i32 %24, label %25 [
-    i32 -1, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-    i32 0, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-  ]
+  %.off.i.i.i = add i32 %24, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %25, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
 25:                                               ; preds = %.thread
   %26 = atomicrmw add ptr %23, i32 1 seq_cst, align 4
   br label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
-_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %.thread, %.thread, %25
+_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %.thread, %25
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %28 = load ptr, ptr %2, align 8
   store ptr %28, ptr %27, align 8
@@ -998,16 +997,15 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeI7QStringP7QActionE4copyEP8QMapDat
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %6, align 8
   %8 = load atomic i32, ptr %7 monotonic, align 4
-  switch i32 %8, label %9 [
-    i32 -1, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-    i32 0, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-  ]
+  %.off.i.i.i = add i32 %8, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %9, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
 9:                                                ; preds = %2
   %10 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
   br label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
-_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %2, %2, %9
+_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %2, %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %4, align 8
   store ptr %12, ptr %11, align 8
@@ -1462,12 +1460,12 @@ define noundef ptr @_ZNK21FilterPluginContainer14pluginOfFilterEPK7QAction(ptr n
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %.not29 = icmp eq ptr %4, %6
-  br i1 %.not29, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit._crit_edge, label %.lr.ph
+  %.not28 = icmp eq ptr %4, %6
+  br i1 %.not28, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread
-  %.sroa.019.030 = phi ptr [ %18, %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.019.030, align 8
+  %.sroa.019.029 = phi ptr [ %18, %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread ], [ %4, %2 ]
+  %7 = load ptr, ptr %.sroa.019.029, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load ptr, ptr %9, align 8
@@ -1500,11 +1498,11 @@ _ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %15, 
   br i1 %.not.i.i.i11, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i10, !llvm.loop !10
 
 _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit:    ; preds = %.lr.ph.i.i.i10
-  %.not28 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i, %3
-  br i1 %.not28, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit._crit_edge
+  %.not27 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i, %3
+  br i1 %.not27, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit._crit_edge
 
 _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread: ; preds = %.lr.ph, %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.019.030, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.019.029, i64 8
   %.not = icmp eq ptr %18, %6
   br i1 %.not, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit._crit_edge, label %.lr.ph
 

@@ -2568,26 +2568,26 @@ define hidden void @_ZN6winnow5token8literal_17h08c45f661f855e13E(ptr dead_on_un
 
 "_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit.thread": ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !246
-  br label %27
+  br label %26
 
 "_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit": ; preds = %17, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !246
-  %22 = icmp ult i64 %9, %3
-  br i1 %22, label %27, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+  %.not = icmp ult i64 %9, %3
+  br i1 %.not, label %26, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
 
 "_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit"
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %3
-  %24 = sub nuw i64 %9, %3
-  store ptr %23, ptr %6, align 8, !alias.scope !257
-  store i64 %24, ptr %8, align 8, !alias.scope !257
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %3, ptr %26, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %3
+  %23 = sub nuw i64 %9, %3
+  store ptr %22, ptr %6, align 8, !alias.scope !257
+  store i64 %23, ptr %8, align 8, !alias.scope !257
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %7, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %3, ptr %25, align 8
   store i64 3, ptr %0, align 8
-  br label %28
+  br label %27
 
-27:                                               ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit", %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit.thread"
+26:                                               ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit", %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit.thread"
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
@@ -2595,9 +2595,9 @@ define hidden void @_ZN6winnow5token8literal_17h08c45f661f855e13E(ptr dead_on_un
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+27:                                               ; preds = %26, %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
   ret void
 }
 
@@ -2643,8 +2643,8 @@ define hidden void @_ZN6winnow5token8literal_17h2e61e81035834e51E(ptr dead_on_un
 
 "_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit": ; preds = %16, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !267
-  %21 = icmp ult i64 %8, 3
-  br i1 %21, label %26, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+  %21 = icmp ugt i64 %8, 2
+  br i1 %21, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit", label %26
 
 "_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit"
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -2714,8 +2714,8 @@ define hidden void @_ZN6winnow5token8literal_17h2ea4544479d7c8d7E(ptr dead_on_un
 
 "_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit": ; preds = %16, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !288
-  %21 = icmp ult i64 %8, 3
-  br i1 %21, label %26, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+  %21 = icmp ugt i64 %8, 2
+  br i1 %21, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit", label %26
 
 "_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit"
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -2861,26 +2861,26 @@ define hidden void @_ZN6winnow5token8literal_17he81323a5b3e55a21E(ptr dead_on_un
 
 "_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit.thread": ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !325
-  br label %27
+  br label %26
 
 "_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit": ; preds = %17, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !325
-  %22 = icmp ult i64 %9, %3
-  br i1 %22, label %27, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+  %.not = icmp ult i64 %9, %3
+  br i1 %.not, label %26, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
 
 "_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit"
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %3
-  %24 = sub nuw i64 %9, %3
-  store ptr %23, ptr %6, align 8, !alias.scope !336
-  store i64 %24, ptr %8, align 8, !alias.scope !336
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %3, ptr %26, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %3
+  %23 = sub nuw i64 %9, %3
+  store ptr %22, ptr %6, align 8, !alias.scope !336
+  store i64 %23, ptr %8, align 8, !alias.scope !336
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %7, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %3, ptr %25, align 8
   store i64 3, ptr %0, align 8
-  br label %28
+  br label %27
 
-27:                                               ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit.thread", %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit"
+26:                                               ; preds = %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit.thread", %"_ZN84_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$$RF$$u5b$u8$u5d$$GT$$GT$7compare17h6e268aaeb274871aE.exit"
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
@@ -2888,9 +2888,9 @@ define hidden void @_ZN6winnow5token8literal_17he81323a5b3e55a21E(ptr dead_on_un
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+27:                                               ; preds = %26, %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
   ret void
 }
 

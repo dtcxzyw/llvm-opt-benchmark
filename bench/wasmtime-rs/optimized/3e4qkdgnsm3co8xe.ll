@@ -196,7 +196,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %4 = alloca { { ptr, ptr, {} } }, align 8
   %5 = load i64, ptr %1, align 8, !range !5, !noundef !3
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %.preheader, label %75
+  br i1 %6, label %.preheader, label %76
 
 .preheader:                                       ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -262,7 +262,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
 "_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread9": ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %88
+  br label %89
 
 46:                                               ; preds = %38
   %47 = icmp eq i32 %.0.i, 1114112
@@ -322,7 +322,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
 "_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread": ; preds = %22, %25, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %91
+  br label %92
 
 "_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread5": ; preds = %55, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -335,48 +335,48 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %switch = icmp eq i64 %65, 0
-  br i1 %switch, label %88, label %91
+  %75 = icmp eq i64 %65, 0
+  br i1 %75, label %89, label %92
 
-75:                                               ; preds = %2
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %78 = load i64, ptr %77, align 8, !noundef !3
-  %79 = icmp eq i64 %78, -1
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %81 = load ptr, ptr %80, align 8, !nonnull !3, !align !4, !noundef !3
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %83 = load i64, ptr %82, align 8, !noundef !3
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %85 = load ptr, ptr %84, align 8, !nonnull !3, !align !4, !noundef !3
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %87 = load i64, ptr %86, align 8, !noundef !3
-  br i1 %79, label %94, label %93
+76:                                               ; preds = %2
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %79 = load i64, ptr %78, align 8, !noundef !3
+  %80 = icmp eq i64 %79, -1
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %82 = load ptr, ptr %81, align 8, !nonnull !3, !align !4, !noundef !3
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %84 = load i64, ptr %83, align 8, !noundef !3
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %86 = load ptr, ptr %85, align 8, !nonnull !3, !align !4, !noundef !3
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %88 = load i64, ptr %87, align 8, !noundef !3
+  br i1 %80, label %95, label %94
 
-88:                                               ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit", %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread9"
+89:                                               ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit", %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread9"
   %.sroa.8.114 = phi i64 [ %31, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread9" ], [ %67, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit" ]
   %.sroa.12.113 = phi i64 [ %31, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread9" ], [ %.sroa.12.0.copyload, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit" ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.8.114, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.12.113, ptr %90, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.8.114, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.12.113, ptr %91, align 8
   store i64 1, ptr %0, align 8
-  br label %92
+  br label %93
 
-91:                                               ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit", %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread"
+92:                                               ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit", %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread"
   store i64 0, ptr %0, align 8
-  br label %92
+  br label %93
 
-92:                                               ; preds = %93, %94, %88, %91
+93:                                               ; preds = %94, %95, %89, %92
   ret void
 
-93:                                               ; preds = %75
-  tail call void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %76, ptr nonnull align 1 %81, i64 %83, ptr nonnull align 1 %85, i64 %87, i1 zeroext false)
-  br label %92
+94:                                               ; preds = %76
+  tail call void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %77, ptr nonnull align 1 %82, i64 %84, ptr nonnull align 1 %86, i64 %88, i1 zeroext false)
+  br label %93
 
-94:                                               ; preds = %75
-  tail call void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %76, ptr nonnull align 1 %81, i64 %83, ptr nonnull align 1 %85, i64 %87, i1 zeroext true)
-  br label %92
+95:                                               ; preds = %76
+  tail call void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %77, ptr nonnull align 1 %82, i64 %84, ptr nonnull align 1 %86, i64 %88, i1 zeroext true)
+  br label %93
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

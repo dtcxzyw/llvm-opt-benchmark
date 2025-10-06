@@ -10966,9 +10966,9 @@ define internal fastcc void @_mpd_qdiv(i32 noundef range(i32 0, 2) %0, ptr nound
 27:                                               ; preds = %25
   %.val = load i8, ptr %2, align 8, !tbaa !19
   %28 = and i8 %.val, 2
-  %.not.i216 = icmp eq i8 %28, 0
+  %.not.i215 = icmp eq i8 %28, 0
   %29 = load i8, ptr %3, align 8, !tbaa !19
-  br i1 %.not.i216, label %76, label %30
+  br i1 %.not.i215, label %76, label %30
 
 30:                                               ; preds = %27
   %31 = and i8 %29, 2
@@ -11086,23 +11086,23 @@ mpd_setspecial.exit.i:                            ; preds = %70, %58, %54
   %88 = getelementptr i64, ptr %86, i64 %87
   %89 = getelementptr i8, ptr %88, i64 -8
   %90 = load i64, ptr %89, align 8, !tbaa !3
-  %.not231 = icmp eq i64 %90, 0
+  %.not228 = icmp eq i64 %90, 0
   %91 = load ptr, ptr %.0.sroa.gep138, align 8, !tbaa !17
   %92 = load i64, ptr %.0.sroa.gep134, align 8, !tbaa !18
   %93 = getelementptr i64, ptr %91, i64 %92
   %94 = getelementptr i8, ptr %93, i64 -8
   %95 = load i64, ptr %94, align 8, !tbaa !3
-  %.not232 = icmp eq i64 %95, 0
-  br i1 %.not231, label %96, label %143
+  %.not229 = icmp eq i64 %95, 0
+  br i1 %.not228, label %96, label %143
 
 96:                                               ; preds = %85
-  br i1 %.not232, label %97, label %119
+  br i1 %.not229, label %97, label %119
 
 97:                                               ; preds = %96
   %98 = load i8, ptr %1, align 8, !tbaa !19
   %99 = and i8 %98, 32
-  %.not.i.i217 = icmp eq i8 %99, 0
-  br i1 %.not.i.i217, label %100, label %mpd_seterror.exit
+  %.not.i.i216 = icmp eq i8 %99, 0
+  br i1 %.not.i.i216, label %100, label %mpd_seterror.exit
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -11148,8 +11148,8 @@ mpd_seterror.exit:                                ; preds = %97, %100, %112
   %120 = xor i8 %22, %20
   %121 = load i8, ptr %1, align 8, !tbaa !19
   %122 = and i8 %121, 32
-  %.not.i.i218 = icmp eq i8 %122, 0
-  br i1 %.not.i.i218, label %123, label %mpd_setspecial.exit
+  %.not.i.i217 = icmp eq i8 %122, 0
+  br i1 %.not.i.i217, label %123, label %mpd_setspecial.exit
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -11166,8 +11166,8 @@ mpd_seterror.exit:                                ; preds = %97, %100, %112
   %131 = call ptr @mpd_realloc(ptr noundef %130, i64 noundef %126, i64 noundef 8, ptr noundef nonnull %7) #33
   store ptr %131, ptr %129, align 8, !tbaa !17
   %132 = load i8, ptr %7, align 1, !tbaa !22
-  %.not5.i.i219 = icmp eq i8 %132, 0
-  br i1 %.not5.i.i219, label %133, label %135
+  %.not5.i.i218 = icmp eq i8 %132, 0
+  br i1 %.not5.i.i218, label %133, label %135
 
 133:                                              ; preds = %128
   %134 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
@@ -11176,11 +11176,11 @@ mpd_seterror.exit:                                ; preds = %97, %100, %112
 
 135:                                              ; preds = %133, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre.i220 = load i8, ptr %1, align 8, !tbaa !19
+  %.pre.i219 = load i8, ptr %1, align 8, !tbaa !19
   br label %mpd_setspecial.exit
 
 mpd_setspecial.exit:                              ; preds = %119, %123, %135
-  %136 = phi i8 [ %121, %119 ], [ %121, %123 ], [ %.pre.i220, %135 ]
+  %136 = phi i8 [ %121, %119 ], [ %121, %123 ], [ %.pre.i219, %135 ]
   %137 = and i8 %136, -16
   %138 = or disjoint i8 %120, %137
   %139 = or disjoint i8 %138, 2
@@ -11193,7 +11193,7 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
   br label %_mpd_qdiv_inf.exit
 
 143:                                              ; preds = %85
-  br i1 %.not232, label %144, label %151
+  br i1 %.not229, label %144, label %151
 
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11219,9 +11219,9 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
   %161 = load i64, ptr %160, align 8, !tbaa !7
   %162 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %163 = load i64, ptr %162, align 8, !tbaa !7
-  %.neg235 = xor i64 %158, -1
-  %.neg236 = add i64 %161, %.neg235
-  %164 = sub i64 %.neg236, %163
+  %.neg232 = xor i64 %158, -1
+  %.neg233 = add i64 %161, %.neg232
+  %164 = sub i64 %.neg233, %163
   %165 = icmp ult i64 %158, 9223372036854775807
   br i1 %165, label %166, label %169
 
@@ -11239,7 +11239,7 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %169
-  %172 = call i32 @mpd_qshiftl(ptr noundef nonnull %12, ptr noundef nonnull %3, i64 noundef %.neg235, ptr noundef %5)
+  %172 = call i32 @mpd_qshiftl(ptr noundef nonnull %12, ptr noundef nonnull %3, i64 noundef %.neg232, ptr noundef %5)
   %.not186 = icmp eq i32 %172, 0
   br i1 %.not186, label %173, label %174
 
@@ -11261,8 +11261,8 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
   %.not188 = icmp eq ptr %1, %.0128
   %.not189 = icmp ne ptr %1, %.0
   %179 = icmp sgt i64 %178, %176
-  %or.cond230 = select i1 %.not188, i1 %179, i1 %.not189
-  br i1 %or.cond230, label %180, label %mpd_qresize.exit215.thread
+  %or.cond227 = select i1 %.not188, i1 %179, i1 %.not189
+  br i1 %or.cond227, label %180, label %mpd_qresize.exit214.thread
 
 180:                                              ; preds = %174
   %181 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
@@ -11270,45 +11270,45 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %184 = load i64, ptr %183, align 8, !tbaa !21
   %185 = icmp eq i64 %182, %184
-  br i1 %185, label %mpd_qresize.exit215.thread, label %186
+  br i1 %185, label %mpd_qresize.exit214.thread, label %186
 
 186:                                              ; preds = %180
   %187 = load i8, ptr %1, align 8, !tbaa !19
   %188 = and i8 %187, 32
-  %.not.i213 = icmp eq i8 %188, 0
-  br i1 %.not.i213, label %193, label %189
+  %.not.i212 = icmp eq i8 %188, 0
+  br i1 %.not.i212, label %193, label %189
 
 189:                                              ; preds = %186
   %190 = icmp sgt i64 %182, %184
-  br i1 %190, label %191, label %mpd_qresize.exit215.thread
+  br i1 %190, label %191, label %mpd_qresize.exit214.thread
 
 191:                                              ; preds = %189
   %192 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %182, ptr noundef %5) #33
-  br label %mpd_qresize.exit215
+  br label %mpd_qresize.exit214
 
 193:                                              ; preds = %186
   %194 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %182, ptr noundef %5) #33
-  br label %mpd_qresize.exit215
+  br label %mpd_qresize.exit214
 
-mpd_qresize.exit215:                              ; preds = %191, %193
-  %.0.i214 = phi i32 [ %192, %191 ], [ %194, %193 ]
-  %.not190 = icmp eq i32 %.0.i214, 0
-  br i1 %.not190, label %195, label %mpd_qresize.exit215.mpd_qresize.exit215.thread_crit_edge
+mpd_qresize.exit214:                              ; preds = %191, %193
+  %.0.i213 = phi i32 [ %192, %191 ], [ %194, %193 ]
+  %.not190 = icmp eq i32 %.0.i213, 0
+  br i1 %.not190, label %195, label %mpd_qresize.exit214.mpd_qresize.exit214.thread_crit_edge
 
-mpd_qresize.exit215.mpd_qresize.exit215.thread_crit_edge: ; preds = %mpd_qresize.exit215
+mpd_qresize.exit214.mpd_qresize.exit214.thread_crit_edge: ; preds = %mpd_qresize.exit214
   %.pre = load i64, ptr %.0128.sroa.phi174, align 8, !tbaa !18
-  br label %mpd_qresize.exit215.thread
+  br label %mpd_qresize.exit214.thread
 
-195:                                              ; preds = %mpd_qresize.exit215
+195:                                              ; preds = %mpd_qresize.exit214
   call void @mpd_seterror(ptr noundef nonnull %1, i32 noundef 512, ptr noundef %5)
   br label %300
 
-mpd_qresize.exit215.thread:                       ; preds = %mpd_qresize.exit215.mpd_qresize.exit215.thread_crit_edge, %174, %189, %180
-  %196 = phi i64 [ %.pre, %mpd_qresize.exit215.mpd_qresize.exit215.thread_crit_edge ], [ %176, %174 ], [ %176, %189 ], [ %176, %180 ]
+mpd_qresize.exit214.thread:                       ; preds = %mpd_qresize.exit214.mpd_qresize.exit214.thread_crit_edge, %174, %189, %180
+  %196 = phi i64 [ %.pre, %mpd_qresize.exit214.mpd_qresize.exit214.thread_crit_edge ], [ %176, %174 ], [ %176, %189 ], [ %176, %180 ]
   %197 = icmp eq i64 %196, 1
   br i1 %197, label %198, label %206
 
-198:                                              ; preds = %mpd_qresize.exit215.thread
+198:                                              ; preds = %mpd_qresize.exit214.thread
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %200 = load ptr, ptr %199, align 8, !tbaa !17
   %201 = load ptr, ptr %.0.sroa.phi144, align 8, !tbaa !17
@@ -11318,7 +11318,7 @@ mpd_qresize.exit215.thread:                       ; preds = %mpd_qresize.exit215
   %205 = call i64 @_mpd_shortdiv(ptr noundef %200, ptr noundef %201, i64 noundef %202, i64 noundef %204) #33
   br label %255
 
-206:                                              ; preds = %mpd_qresize.exit215.thread
+206:                                              ; preds = %mpd_qresize.exit214.thread
   %207 = icmp slt i64 %196, 1025
   br i1 %207, label %208, label %218
 
@@ -11366,26 +11366,26 @@ mpd_qresize.exit215.thread:                       ; preds = %mpd_qresize.exit215
 228:                                              ; preds = %225, %218
   call void @mpd_setspecial(ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext 4)
   %229 = load i8, ptr %14, align 8, !tbaa !19
-  %.not.i5.i207 = icmp ugt i8 %229, 31
-  br i1 %.not.i5.i207, label %233, label %230
+  %.not.i5.i206 = icmp ugt i8 %229, 31
+  br i1 %.not.i5.i206, label %233, label %230
 
 230:                                              ; preds = %228
   %231 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %232 = load ptr, ptr %222, align 8, !tbaa !17
   call void %231(ptr noundef %232) #33
-  %.pre237 = load i8, ptr %14, align 8, !tbaa !19
+  %.pre234 = load i8, ptr %14, align 8, !tbaa !19
   br label %233
 
 233:                                              ; preds = %230, %228
-  %234 = phi i8 [ %.pre237, %230 ], [ %229, %228 ]
+  %234 = phi i8 [ %.pre234, %230 ], [ %229, %228 ]
   %235 = and i8 %234, 16
-  %.not.i.i209.not = icmp eq i8 %235, 0
-  br i1 %.not.i.i209.not, label %236, label %mpd_del.exit211.thread
+  %.not.i.i208.not = icmp eq i8 %235, 0
+  br i1 %.not.i.i208.not, label %236, label %mpd_del.exit210.thread
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   call void %237(ptr noundef nonnull %14) #33
-  br label %mpd_del.exit211.thread
+  br label %mpd_del.exit210.thread
 
 238:                                              ; preds = %225
   %239 = load ptr, ptr %222, align 8, !tbaa !17
@@ -11395,41 +11395,41 @@ mpd_qresize.exit215.thread:                       ; preds = %mpd_qresize.exit215
   %243 = load i64, ptr %242, align 8, !tbaa !3
   %244 = icmp ne i64 %243, 0
   %245 = zext i1 %244 to i64
-  %.not.i5.i202 = icmp ugt i8 %226, 31
-  br i1 %.not.i5.i202, label %248, label %246
+  %.not.i5.i201 = icmp ugt i8 %226, 31
+  br i1 %.not.i5.i201, label %248, label %246
 
 246:                                              ; preds = %238
   %247 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   call void %247(ptr noundef nonnull %239) #33
-  %.pre238 = load i8, ptr %14, align 8, !tbaa !19
+  %.pre235 = load i8, ptr %14, align 8, !tbaa !19
   br label %248
 
 248:                                              ; preds = %246, %238
-  %249 = phi i8 [ %.pre238, %246 ], [ %226, %238 ]
+  %249 = phi i8 [ %.pre235, %246 ], [ %226, %238 ]
   %250 = and i8 %249, 16
-  %.not.i.i204.not = icmp eq i8 %250, 0
-  br i1 %.not.i.i204.not, label %251, label %mpd_del.exit211
+  %.not.i.i203.not = icmp eq i8 %250, 0
+  br i1 %.not.i.i203.not, label %251, label %mpd_del.exit210
 
 251:                                              ; preds = %248
   %252 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   call void %252(ptr noundef nonnull %14) #33
-  br label %mpd_del.exit211
+  br label %mpd_del.exit210
 
-mpd_del.exit211.thread:                           ; preds = %233, %236
+mpd_del.exit210.thread:                           ; preds = %233, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %300
 
-mpd_del.exit211:                                  ; preds = %251, %248
+mpd_del.exit210:                                  ; preds = %251, %248
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %254 = load i64, ptr %253, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %255
 
-255:                                              ; preds = %mpd_del.exit211, %.thread, %198
-  %.0132 = phi i64 [ %178, %198 ], [ %254, %mpd_del.exit211 ], [ %178, %.thread ]
-  %.0129 = phi i64 [ %205, %198 ], [ %245, %mpd_del.exit211 ], [ %216, %.thread ]
+255:                                              ; preds = %mpd_del.exit210, %.thread, %198
+  %.0132 = phi i64 [ %178, %198 ], [ %254, %mpd_del.exit210 ], [ %178, %.thread ]
+  %.0129 = phi i64 [ %205, %198 ], [ %245, %mpd_del.exit210 ], [ %216, %.thread ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %257 = load ptr, ptr %256, align 8, !tbaa !17
   %258 = icmp sgt i64 %.0132, 1
@@ -11460,8 +11460,8 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %263, %25
 271:                                              ; preds = %_mpd_real_size.exit
   %272 = load i8, ptr %1, align 8, !tbaa !19
   %273 = and i8 %272, 32
-  %.not.i212 = icmp eq i8 %273, 0
-  br i1 %.not.i212, label %278, label %274
+  %.not.i211 = icmp eq i8 %273, 0
+  br i1 %.not.i211, label %278, label %274
 
 274:                                              ; preds = %271
   %275 = icmp sgt i64 %267, %269
@@ -11519,7 +11519,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   store i64 %.0131, ptr %299, align 8, !tbaa !7
   br label %300
 
-300:                                              ; preds = %mpd_del.exit211.thread, %217, %298, %195, %173, %168
+300:                                              ; preds = %mpd_del.exit210.thread, %217, %298, %195, %173, %168
   %301 = load i8, ptr %12, align 8, !tbaa !19
   %.not.i5.i = icmp ugt i8 %301, 31
   br i1 %.not.i5.i, label %305, label %302
@@ -11528,11 +11528,11 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   %303 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %304 = load ptr, ptr %18, align 8, !tbaa !17
   call void %303(ptr noundef %304) #33
-  %.pre239 = load i8, ptr %12, align 8, !tbaa !19
+  %.pre236 = load i8, ptr %12, align 8, !tbaa !19
   br label %305
 
 305:                                              ; preds = %302, %300
-  %306 = phi i8 [ %.pre239, %302 ], [ %301, %300 ]
+  %306 = phi i8 [ %.pre236, %302 ], [ %301, %300 ]
   %307 = and i8 %306, 16
   %.not.i.i.not = icmp eq i8 %307, 0
   br i1 %.not.i.i.not, label %308, label %mpd_del.exit
@@ -12189,15 +12189,15 @@ mpd_qresize.exit.i:                               ; preds = %44, %42
 mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i: ; preds = %mpd_qresize.exit.i
   %.pre.i = load i8, ptr %1, align 8, !tbaa !19
   %.pre21.i = load i64, ptr %.0.sroa.gep130, align 8, !tbaa !18
-  %.pre271 = load i8, ptr %2, align 8, !tbaa !19
-  %.pre272 = load i64, ptr %20, align 8, !tbaa !7
-  %.pre273 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
+  %.pre270 = load i8, ptr %2, align 8, !tbaa !19
+  %.pre271 = load i64, ptr %20, align 8, !tbaa !7
+  %.pre272 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
   br label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i, %40, %32
-  %46 = phi ptr [ %.pre273, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %25, %40 ], [ %25, %32 ]
-  %47 = phi i64 [ %.pre272, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %21, %40 ], [ %21, %32 ]
-  %48 = phi i8 [ %.pre271, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %15, %40 ], [ %15, %32 ]
+  %46 = phi ptr [ %.pre272, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %25, %40 ], [ %25, %32 ]
+  %47 = phi i64 [ %.pre271, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %21, %40 ], [ %21, %32 ]
+  %48 = phi i8 [ %.pre270, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %15, %40 ], [ %15, %32 ]
   %49 = phi i64 [ %.pre21.i, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %26, %40 ], [ %26, %32 ]
   %50 = phi i8 [ %.pre.i, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %.pre20.i, %40 ], [ %.pre20.i, %32 ]
   %51 = and i8 %50, -16
@@ -12288,17 +12288,17 @@ mpd_qresize.exit.i234:                            ; preds = %94, %92
 mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237: ; preds = %mpd_qresize.exit.i234
   %.pre.i238 = load i8, ptr %1, align 8, !tbaa !19
   %.pre21.i239 = load i64, ptr %.0.sroa.gep130, align 8, !tbaa !18
-  %.pre266 = load i8, ptr %2, align 8, !tbaa !19
-  %.pre267 = load i64, ptr %20, align 8, !tbaa !7
-  %.pre268 = load i64, ptr %66, align 8, !tbaa !11
-  %.pre269 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
+  %.pre265 = load i8, ptr %2, align 8, !tbaa !19
+  %.pre266 = load i64, ptr %20, align 8, !tbaa !7
+  %.pre267 = load i64, ptr %66, align 8, !tbaa !11
+  %.pre268 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
   br label %mpd_qresize.exit.thread.i232
 
 mpd_qresize.exit.thread.i232:                     ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237, %90, %82
-  %96 = phi ptr [ %.pre269, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %25, %90 ], [ %25, %82 ]
-  %97 = phi i64 [ %.pre268, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %67, %90 ], [ %67, %82 ]
-  %98 = phi i64 [ %.pre267, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %21, %90 ], [ %21, %82 ]
-  %99 = phi i8 [ %.pre266, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %15, %90 ], [ %15, %82 ]
+  %96 = phi ptr [ %.pre268, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %25, %90 ], [ %25, %82 ]
+  %97 = phi i64 [ %.pre267, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %67, %90 ], [ %67, %82 ]
+  %98 = phi i64 [ %.pre266, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %21, %90 ], [ %21, %82 ]
+  %99 = phi i8 [ %.pre265, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %15, %90 ], [ %15, %82 ]
   %100 = phi i64 [ %.pre21.i239, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %26, %90 ], [ %26, %82 ]
   %101 = phi i8 [ %.pre.i238, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %.pre20.i230, %90 ], [ %.pre20.i230, %82 ]
   %102 = and i8 %101, -16
@@ -12366,8 +12366,8 @@ mpd_qcopy.exit240.thread:                         ; preds = %80, %mpd_qresize.ex
 131:                                              ; preds = %124
   %132 = icmp eq ptr %0, %.0127
   %133 = icmp slt i64 %128, %126
-  %or.cond262 = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond262, label %mpd_qresize.exit226.thread, label %134
+  %or.cond261 = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond261, label %mpd_qresize.exit226.thread, label %134
 
 134:                                              ; preds = %131
   %135 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
@@ -12763,11 +12763,11 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   %352 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %353 = load ptr, ptr %14, align 8, !tbaa !17
   call void %352(ptr noundef %353) #33
-  %.pre270 = load i8, ptr %10, align 8, !tbaa !19
+  %.pre269 = load i8, ptr %10, align 8, !tbaa !19
   br label %354
 
 354:                                              ; preds = %351, %349
-  %355 = phi i8 [ %.pre270, %351 ], [ %350, %349 ]
+  %355 = phi i8 [ %.pre269, %351 ], [ %350, %349 ]
   %356 = and i8 %355, 16
   %.not.i.i.not = icmp eq i8 %356, 0
   br i1 %.not.i.i.not, label %357, label %mpd_del.exit
@@ -12778,9 +12778,9 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   br label %mpd_del.exit
 
 mpd_qcopy.exit.sink.split:                        ; preds = %mpd_setdigits.exit, %194, %112
-  %.sink305 = phi i32 [ 8, %112 ], [ 512, %194 ], [ 8, %mpd_setdigits.exit ]
+  %.sink304 = phi i32 [ 8, %112 ], [ 512, %194 ], [ 8, %mpd_setdigits.exit ]
   %359 = load i32, ptr %5, align 4, !tbaa !23
-  %360 = or i32 %359, %.sink305
+  %360 = or i32 %359, %.sink304
   store i32 %360, ptr %5, align 4, !tbaa !23
   br label %mpd_qcopy.exit
 
@@ -16789,7 +16789,7 @@ define internal fastcc void @_mpd_qln(ptr noundef initializes((8, 32)) %0, ptr n
   store ptr %14, ptr %31, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %32 = icmp eq ptr %11, %1
-  br i1 %32, label %.thread143, label %33
+  br i1 %32, label %.thread142, label %33
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -16876,32 +16876,32 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %43
   %74 = load ptr, ptr %73, align 8, !tbaa !17
   %75 = shl i64 %64, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 8 %74, i64 %75, i1 false)
-  %.pre118 = load i64, ptr %19, align 8, !tbaa !11
-  %.pre119 = load ptr, ptr %22, align 8, !tbaa !17
-  %.pre120 = load i64, ptr %20, align 8, !tbaa !18
-  %76 = freeze i64 %.pre118
+  %.pre117 = load i64, ptr %19, align 8, !tbaa !11
+  %.pre118 = load ptr, ptr %22, align 8, !tbaa !17
+  %.pre119 = load i64, ptr %20, align 8, !tbaa !18
+  %76 = freeze i64 %.pre117
   %77 = urem i64 %76, 19
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %.thread143, label %82
+  br i1 %78, label %.thread142, label %82
 
-.thread143:                                       ; preds = %4, %62
-  %.ph = phi ptr [ %10, %4 ], [ %.pre119, %62 ]
-  %.ph142 = phi i64 [ 0, %4 ], [ %.pre120, %62 ]
-  %79 = getelementptr i64, ptr %.ph, i64 %.ph142
+.thread142:                                       ; preds = %4, %62
+  %.ph = phi ptr [ %10, %4 ], [ %.pre118, %62 ]
+  %.ph141 = phi i64 [ 0, %4 ], [ %.pre119, %62 ]
+  %79 = getelementptr i64, ptr %.ph, i64 %.ph141
   %80 = getelementptr i8, ptr %79, i64 -8
   %81 = load i64, ptr %80, align 8, !tbaa !3
   br label %86
 
 82:                                               ; preds = %62
-  %83 = getelementptr i64, ptr %.pre119, i64 %.pre120
+  %83 = getelementptr i64, ptr %.pre118, i64 %.pre119
   %84 = getelementptr i8, ptr %83, i64 -8
   %85 = load i64, ptr %84, align 8, !tbaa !3
   %.not.i81 = icmp samesign ult i64 %77, 3
   br i1 %.not.i81, label %93, label %86
 
-86:                                               ; preds = %.thread143, %82
-  %87 = phi i64 [ %81, %.thread143 ], [ %85, %82 ]
-  %88 = phi i64 [ 19, %.thread143 ], [ %77, %82 ]
+86:                                               ; preds = %.thread142, %82
+  %87 = phi i64 [ %81, %.thread142 ], [ %85, %82 ]
+  %88 = phi i64 [ 19, %.thread142 ], [ %77, %82 ]
   %89 = getelementptr i64, ptr @mpd_pow10, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -24
   %91 = load i64, ptr %90, align 8, !tbaa !3
@@ -16909,7 +16909,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %43
   br label %_mpd_get_msdigits.exit
 
 93:                                               ; preds = %82
-  %94 = icmp sgt i64 %.pre120, 1
+  %94 = icmp sgt i64 %.pre119, 1
   br i1 %94, label %95, label %_mpd_get_msdigits.exit
 
 95:                                               ; preds = %93
@@ -16981,11 +16981,11 @@ _mpd_get_msdigits.exit:                           ; preds = %95, %86, %93
 
 133:                                              ; preds = %131, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre121 = load i8, ptr %0, align 8, !tbaa !19
+  %.pre120 = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_minalloc.exit
 
 mpd_minalloc.exit:                                ; preds = %113, %121, %133
-  %134 = phi i8 [ %119, %113 ], [ %119, %121 ], [ %.pre121, %133 ]
+  %134 = phi i8 [ %119, %113 ], [ %119, %121 ], [ %.pre120, %133 ]
   %135 = and i8 %134, -16
   store i8 %135, ptr %0, align 8, !tbaa !19
   %136 = getelementptr i16, ptr @lnapprox, i64 %114
@@ -17133,8 +17133,8 @@ mpd_setdigits.exit:                               ; preds = %152, %156, %163, %1
   %220 = icmp eq i64 %.059, 0
   %221 = add i64 %.1104, -900
   %or.cond = icmp ult i64 %221, -784
-  %or.cond114 = select i1 %220, i1 %or.cond, i1 false
-  br i1 %or.cond114, label %222, label %.thread109
+  %or.cond113 = select i1 %220, i1 %or.cond, i1 false
+  br i1 %or.cond113, label %222, label %.thread109
 
 222:                                              ; preds = %216
   %223 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %11, ptr noundef nonnull @one)
@@ -17191,24 +17191,24 @@ mpd_seterror.exit86:                              ; preds = %227, %230, %241
 
 247:                                              ; preds = %222
   %248 = icmp slt i32 %223, 0
-  %.pre122 = load i64, ptr %28, align 8, !tbaa !7
+  %.pre121 = load i64, ptr %28, align 8, !tbaa !7
   br i1 %248, label %249, label %251
 
 249:                                              ; preds = %247
-  %250 = add i64 %.pre122, 1
+  %250 = add i64 %.pre121, 1
   store i64 %250, ptr %28, align 8, !tbaa !7
   br label %251
 
 251:                                              ; preds = %249, %247
-  %252 = phi i64 [ %250, %249 ], [ %.pre122, %247 ]
+  %252 = phi i64 [ %250, %249 ], [ %.pre121, %247 ]
   %253 = load i64, ptr %29, align 8, !tbaa !11
   %254 = add i64 %252, -1
   %255 = add i64 %254, %253
   %256 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %257 = load i64, ptr %256, align 8, !tbaa !12
   %258 = load i64, ptr %2, align 8, !tbaa !15
-  %.neg115 = add i64 %257, 1
-  %259 = sub i64 %.neg115, %258
+  %.neg114 = add i64 %257, 1
+  %259 = sub i64 %.neg114, %258
   %260 = icmp slt i64 %255, %259
   br i1 %260, label %261, label %264
 
@@ -17250,11 +17250,11 @@ ln_schedule_prec.exit:                            ; preds = %.preheader.i
 
 .lr.ph.preheader:                                 ; preds = %ln_schedule_prec.exit
   %275 = zext nneg i32 %.0.i88 to i64
-  %.pre123 = load i8, ptr %0, align 8, !tbaa !19
+  %.pre122 = load i8, ptr %0, align 8, !tbaa !19
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %mpd_qadd.exit, %.lr.ph.preheader
-  %276 = phi i8 [ %.pre123, %.lr.ph.preheader ], [ %311, %mpd_qadd.exit ]
+  %276 = phi i8 [ %.pre122, %.lr.ph.preheader ], [ %311, %mpd_qadd.exit ]
   %indvars.iv = phi i64 [ %275, %.lr.ph.preheader ], [ %indvars.iv.next, %mpd_qadd.exit ]
   %277 = getelementptr i64, ptr %16, i64 %indvars.iv
   %278 = load i64, ptr %277, align 8, !tbaa !3
@@ -17281,8 +17281,8 @@ ln_schedule_prec.exit:                            ; preds = %.preheader.i
   br label %292
 
 292:                                              ; preds = %.lr.ph, %287
-  %.sink147 = phi ptr [ %13, %287 ], [ %11, %.lr.ph ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink147, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %8, ptr noundef %3)
+  %.sink146 = phi ptr [ %13, %287 ], [ %11, %.lr.ph ]
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink146, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %8, ptr noundef %3)
   call void @mpd_qfinalize(ptr noundef nonnull %15, ptr noundef nonnull readonly %8, ptr noundef %3)
   %293 = load i8, ptr %15, align 8, !tbaa !19
   %294 = and i8 %293, 14
@@ -17340,8 +17340,8 @@ mpd_qadd.exit:                                    ; preds = %304, %306, %309
   %.not65 = icmp eq i8 %312, 0
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %313 = icmp sgt i64 %indvars.iv, 0
-  %or.cond146 = and i1 %.not65, %313
-  br i1 %or.cond146, label %.lr.ph, label %mpd_qadd.exit._crit_edge, !llvm.loop !62
+  %or.cond145 = and i1 %.not65, %313
+  br i1 %or.cond145, label %.lr.ph, label %mpd_qadd.exit._crit_edge, !llvm.loop !62
 
 mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit, %.thread109, %ln_schedule_prec.exit
   %314 = add i64 %.057, 1
@@ -17388,11 +17388,11 @@ mpd_qadd.exit96:                                  ; preds = %325, %322, %320, %m
   %331 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %332 = load ptr, ptr %22, align 8, !tbaa !17
   call void %331(ptr noundef %332) #33
-  %.pre124 = load i8, ptr %11, align 8, !tbaa !19
+  %.pre123 = load i8, ptr %11, align 8, !tbaa !19
   br label %333
 
 333:                                              ; preds = %330, %mpd_qadd.exit96
-  %334 = phi i8 [ %.pre124, %330 ], [ %329, %mpd_qadd.exit96 ]
+  %334 = phi i8 [ %.pre123, %330 ], [ %329, %mpd_qadd.exit96 ]
   %335 = and i8 %334, 16
   %.not.i.i73.not = icmp eq i8 %335, 0
   br i1 %.not.i.i73.not, label %336, label %mpd_del.exit75
@@ -17411,11 +17411,11 @@ mpd_del.exit75:                                   ; preds = %333, %336
   %340 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %341 = load ptr, ptr %26, align 8, !tbaa !17
   call void %340(ptr noundef %341) #33
-  %.pre125 = load i8, ptr %13, align 8, !tbaa !19
+  %.pre124 = load i8, ptr %13, align 8, !tbaa !19
   br label %342
 
 342:                                              ; preds = %339, %mpd_del.exit75
-  %343 = phi i8 [ %.pre125, %339 ], [ %338, %mpd_del.exit75 ]
+  %343 = phi i8 [ %.pre124, %339 ], [ %338, %mpd_del.exit75 ]
   %344 = and i8 %343, 16
   %.not.i.i68.not = icmp eq i8 %344, 0
   br i1 %.not.i.i68.not, label %345, label %mpd_del.exit70
@@ -17434,11 +17434,11 @@ mpd_del.exit70:                                   ; preds = %342, %345
   %349 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %350 = load ptr, ptr %31, align 8, !tbaa !17
   call void %349(ptr noundef %350) #33
-  %.pre126 = load i8, ptr %15, align 8, !tbaa !19
+  %.pre125 = load i8, ptr %15, align 8, !tbaa !19
   br label %351
 
 351:                                              ; preds = %348, %mpd_del.exit70
-  %352 = phi i8 [ %.pre126, %348 ], [ %347, %mpd_del.exit70 ]
+  %352 = phi i8 [ %.pre125, %348 ], [ %347, %mpd_del.exit70 ]
   %353 = and i8 %352, 16
   %.not.i.i.not = icmp eq i8 %353, 0
   br i1 %.not.i.i.not, label %354, label %mpd_del.exit
@@ -22786,11 +22786,11 @@ _mpd_qpow_mpd.exit:                               ; preds = %mpd_seterror.exit.i
 
 275:                                              ; preds = %mpd_qcopy.exit.thread
   call fastcc void @_mpd_qpow_uint(ptr noundef %0, ptr noundef %17, i64 noundef %126, i8 noundef zeroext %3, ptr noundef %15, ptr noundef %5)
-  %.pre69 = load i8, ptr %0, align 8, !tbaa !19
+  %.pre68 = load i8, ptr %0, align 8, !tbaa !19
   br label %276
 
 276:                                              ; preds = %275, %_mpd_qpow_mpd.exit
-  %277 = phi i8 [ %.pre69, %275 ], [ %274, %_mpd_qpow_mpd.exit ]
+  %277 = phi i8 [ %.pre68, %275 ], [ %274, %_mpd_qpow_mpd.exit ]
   %278 = and i8 %277, 2
   %.not31 = icmp eq i8 %278, 0
   br i1 %.not31, label %280, label %279
@@ -22808,11 +22808,11 @@ _mpd_qpow_mpd.exit:                               ; preds = %mpd_seterror.exit.i
   %283 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %284 = load ptr, ptr %26, align 8, !tbaa !17
   call void %283(ptr noundef %284) #33
-  %.pre70 = load i8, ptr %17, align 8, !tbaa !19
+  %.pre69 = load i8, ptr %17, align 8, !tbaa !19
   br label %285
 
 285:                                              ; preds = %282, %280
-  %286 = phi i8 [ %.pre70, %282 ], [ %281, %280 ]
+  %286 = phi i8 [ %.pre69, %282 ], [ %281, %280 ]
   %287 = and i8 %286, 16
   %.not.i.i34.not = icmp eq i8 %287, 0
   br i1 %.not.i.i34.not, label %288, label %mpd_del.exit36
@@ -22831,11 +22831,11 @@ mpd_del.exit36:                                   ; preds = %285, %288
   %292 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %293 = load ptr, ptr %32, align 8, !tbaa !17
   call void %292(ptr noundef %293) #33
-  %.pre71 = load i8, ptr %19, align 8, !tbaa !19
+  %.pre70 = load i8, ptr %19, align 8, !tbaa !19
   br label %294
 
 294:                                              ; preds = %291, %mpd_del.exit36
-  %295 = phi i8 [ %.pre71, %291 ], [ %290, %mpd_del.exit36 ]
+  %295 = phi i8 [ %.pre70, %291 ], [ %290, %mpd_del.exit36 ]
   %296 = and i8 %295, 16
   %.not.i.i.not = icmp eq i8 %296, 0
   br i1 %.not.i.i.not, label %297, label %mpd_del.exit
@@ -24726,8 +24726,8 @@ _mpd_rnd_incr.exit.thread24:                      ; preds = %10, %_mpd_rnd_incr.
   br i1 %.not19, label %_mpd_rnd_incr.exit.thread24._crit_edge, label %54
 
 _mpd_rnd_incr.exit.thread24._crit_edge:           ; preds = %_mpd_rnd_incr.exit.thread24
-  %.pre31 = load ptr, ptr %49, align 8, !tbaa !17
-  %.pre32 = load i64, ptr %51, align 8, !tbaa !18
+  %.pre30 = load ptr, ptr %49, align 8, !tbaa !17
+  %.pre31 = load i64, ptr %51, align 8, !tbaa !18
   br label %76
 
 54:                                               ; preds = %_mpd_rnd_incr.exit.thread24
@@ -24778,8 +24778,8 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   br label %76
 
 76:                                               ; preds = %_mpd_rnd_incr.exit.thread24._crit_edge, %mpd_qresize.exit.thread
-  %77 = phi i64 [ %.pre32, %_mpd_rnd_incr.exit.thread24._crit_edge ], [ %75, %mpd_qresize.exit.thread ]
-  %78 = phi ptr [ %.pre31, %_mpd_rnd_incr.exit.thread24._crit_edge ], [ %72, %mpd_qresize.exit.thread ]
+  %77 = phi i64 [ %.pre31, %_mpd_rnd_incr.exit.thread24._crit_edge ], [ %75, %mpd_qresize.exit.thread ]
+  %78 = phi ptr [ %.pre30, %_mpd_rnd_incr.exit.thread24._crit_edge ], [ %72, %mpd_qresize.exit.thread ]
   %79 = getelementptr i64, ptr %78, i64 %77
   %80 = getelementptr i8, ptr %79, i64 -8
   %81 = load i64, ptr %80, align 8, !tbaa !3

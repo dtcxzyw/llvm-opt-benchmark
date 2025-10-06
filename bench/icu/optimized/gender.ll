@@ -863,7 +863,7 @@ define noundef ptr @_ZN6icu_7710GenderInfo12loadInstanceERKNS_6LocaleER10UErrorC
 
 25:                                               ; preds = %21
   %26 = icmp eq ptr %24, null
-  br i1 %26, label %27, label %.thread41
+  br i1 %26, label %27, label %.thread40
 
 27:                                               ; preds = %25
   store i32 0, ptr %6, align 4, !tbaa !13
@@ -956,7 +956,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %48
 56:                                               ; preds = %_ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread41
+  br label %.thread40
 
 57:                                               ; preds = %40
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #17
@@ -966,16 +966,16 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %48
   %58 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   br label %75
 
-.thread41:                                        ; preds = %25, %56
-  %.043 = phi ptr [ %51, %56 ], [ %24, %25 ]
+.thread40:                                        ; preds = %25, %56
+  %.042 = phi ptr [ %51, %56 ], [ %24, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %10, i8 0, i64 256, i1 false)
   %59 = load i32, ptr %5, align 4, !tbaa !12
   %60 = add nsw i32 %59, 1
-  invoke void @u_UCharsToChars_77(ptr noundef nonnull %.043, ptr noundef nonnull %10, i32 noundef %60)
+  invoke void @u_UCharsToChars_77(ptr noundef nonnull %.042, ptr noundef nonnull %10, i32 noundef %60)
           to label %61 unwind label %64
 
-61:                                               ; preds = %.thread41
+61:                                               ; preds = %.thread40
   %lhsv = load i64, ptr %10, align 16
   %.not31 = icmp eq i64 %lhsv, 30506441692767598
   br i1 %.not31, label %62, label %66
@@ -984,7 +984,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %48
   %63 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   br label %74
 
-64:                                               ; preds = %.thread41
+64:                                               ; preds = %.thread40
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

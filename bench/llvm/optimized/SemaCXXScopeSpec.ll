@@ -212,8 +212,8 @@ define dso_local noundef ptr @_ZN5clang4Sema18computeDeclContextENS_8QualTypeE(p
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = and i16 %7, 4
-  %.not21 = icmp eq i16 %8, 0
-  br i1 %.not21, label %9, label %.thread
+  %.not20 = icmp eq i16 %8, 0
+  br i1 %.not20, label %9, label %.thread
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -284,9 +284,9 @@ _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread: ; preds = %9, %_ZNK5clang
   br label %_ZL25getCurrentInstantiationOfN5clang8QualTypeEPNS_11DeclContextE.exit
 
 _ZL25getCurrentInstantiationOfN5clang8QualTypeEPNS_11DeclContextE.exit: ; preds = %42, %40, %38, %34, %.thread, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread
-  %.sink25 = phi ptr [ %22, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread ], [ null, %.thread ], [ %43, %42 ], [ %35, %34 ], [ null, %40 ], [ %spec.select.i, %38 ]
-  %44 = icmp eq ptr %.sink25, null
-  %45 = getelementptr inbounds nuw i8, ptr %.sink25, i64 64
+  %.sink24 = phi ptr [ %22, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread ], [ null, %.thread ], [ %43, %42 ], [ %35, %34 ], [ null, %40 ], [ %spec.select.i, %38 ]
+  %44 = icmp eq ptr %.sink24, null
+  %45 = getelementptr inbounds nuw i8, ptr %.sink24, i64 64
   %spec.select = select i1 %44, ptr null, ptr %45
   ret ptr %spec.select
 }
@@ -589,13 +589,13 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %130
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, 127
   %137 = icmp ne i32 %136, 75
-  %.not.not8.i = icmp eq ptr %133, null
-  %.not.not.i = or i1 %.not.not8.i, %137
+  %.not.not7.i = icmp eq ptr %133, null
+  %.not.not.i = or i1 %.not.not7.i, %137
   br i1 %.not.not.i, label %_ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit, label %tailrecurse.i
 
 _ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit: ; preds = %tailrecurse.i
   %138 = getelementptr inbounds nuw i8, ptr %133, i64 48
-  %spec.select10 = select i1 %.not.not8.i, ptr null, ptr %138
+  %spec.select10 = select i1 %.not.not7.i, ptr null, ptr %138
   br label %.thread126
 
 139:                                              ; preds = %124, %124
@@ -984,8 +984,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema23RequireCompleteEnumDeclEPNS
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %17 = load i8, ptr %16, align 2
   %18 = and i8 %17, 1
-  %.not90 = icmp eq i8 %18, 0
-  br i1 %.not90, label %28, label %19
+  %.not89 = icmp eq i8 %18, 0
+  br i1 %.not89, label %28, label %19
 
 19:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1005,7 +1005,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema23RequireCompleteEnumDeclEPNS
 27:                                               ; preds = %19, %21
   %.0 = phi i1 [ %24, %21 ], [ false, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread88
+  br label %.thread87
 
 28:                                               ; preds = %4
   %29 = tail call noundef ptr @_ZNK5clang8EnumDecl29getInstantiatedFromMemberEnumEv(ptr noundef nonnull align 8 dereferenceable(156) %1) #16
@@ -1037,11 +1037,11 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema23RequireCompleteEnumDeclEPNS
 
 _ZN5clang30MultiLevelTemplateArgumentListD2Ev.exit: ; preds = %34, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %36, label %41, label %.thread88
+  br i1 %36, label %41, label %.thread87
 
 41:                                               ; preds = %_ZN5clang30MultiLevelTemplateArgumentListD2Ev.exit
   %.not40 = icmp eq ptr %3, null
-  br i1 %.not40, label %.thread88, label %42
+  br i1 %.not40, label %.thread87, label %42
 
 42:                                               ; preds = %41
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
@@ -1062,7 +1062,7 @@ _ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit: ; preds = %42, %45
   store ptr null, ptr %47, align 8, !tbaa !680
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %48, align 8, !tbaa !1081
-  br label %.thread88
+  br label %.thread87
 
 select.unfold:                                    ; preds = %30, %28
   %.not41 = icmp eq ptr %3, null
@@ -1309,7 +1309,7 @@ _ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit53: ; preds = %_ZNK5cl
   store ptr null, ptr %162, align 8, !tbaa !680
   %163 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %163, align 8, !tbaa !1081
-  br label %.thread88
+  br label %.thread87
 
 164:                                              ; preds = %select.unfold
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -1480,9 +1480,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit58: ; 
   %.sroa.0.0.copyload.i59 = load i32, ptr %246, align 8, !tbaa !1080
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %49, i32 %.sroa.0.0.copyload.i59, i32 noundef 103, i1 noundef zeroext false) #16
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #16
-  br label %.thread88
+  br label %.thread87
 
-.thread88:                                        ; preds = %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit, %41, %_ZN5clang30MultiLevelTemplateArgumentListD2Ev.exit, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit53, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit58, %27
+.thread87:                                        ; preds = %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit, %41, %_ZN5clang30MultiLevelTemplateArgumentListD2Ev.exit, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit53, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit58, %27
   %.1 = phi i1 [ %.0, %27 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit58 ], [ true, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit53 ], [ false, %_ZN5clang30MultiLevelTemplateArgumentListD2Ev.exit ], [ true, %41 ], [ true, %_ZN5clang12CXXScopeSpec10SetInvalidENS_11SourceRangeE.exit ]
   ret i1 %.1
 }
@@ -5923,8 +5923,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -6034,8 +6034,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

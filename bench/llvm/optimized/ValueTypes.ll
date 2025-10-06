@@ -190,8 +190,8 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm3EVT13getSizeInBitsEv(ptr nound
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 255
   %13 = icmp ne i32 %12, 12
-  %.not.not17.i = icmp eq ptr %9, null
-  %.not.not.i = or i1 %.not.not17.i, %13
+  %.not.not16.i = icmp eq ptr %9, null
+  %.not.not.i = or i1 %.not.not16.i, %13
   br i1 %.not.not.i, label %17, label %14
 
 14:                                               ; preds = %7
@@ -202,7 +202,7 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm3EVT13getSizeInBitsEv(ptr nound
 17:                                               ; preds = %7
   %18 = add nsw i32 %12, -19
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %18, -2
-  %.not12.i = or i1 %.not.not17.i, %spec.select.i.i.i.i.i.i.i.i.i
+  %.not12.i = or i1 %.not.not16.i, %spec.select.i.i.i.i.i.i.i.i.i
   br i1 %.not12.i, label %_ZNK4llvm3EVT21getExtendedSizeInBitsEv.exit, label %19
 
 19:                                               ; preds = %17
@@ -286,8 +286,8 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit.i:            ; preds = %._crit_edge.i.i, %2
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 255
   %36 = icmp ne i32 %35, 12
-  %.not.not17.i.i.i = icmp eq ptr %27, null
-  %.not.not.i.i.i = or i1 %.not.not17.i.i.i, %36
+  %.not.not16.i.i.i = icmp eq ptr %27, null
+  %.not.not.i.i.i = or i1 %.not.not16.i.i.i, %36
   br i1 %.not.not.i.i.i, label %40, label %37
 
 37:                                               ; preds = %32
@@ -298,7 +298,7 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit.i:            ; preds = %._crit_edge.i.i, %2
 40:                                               ; preds = %32
   %41 = add nsw i32 %35, -17
   %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %41, 2
-  %42 = xor i1 %.not.not17.i.i.i, true
+  %42 = xor i1 %.not.not16.i.i.i, true
   tail call void @llvm.assume(i1 %42)
   tail call void @llvm.assume(i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i)
   %43 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
@@ -2465,8 +2465,8 @@ define dso_local { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp ne i32 %6, 12
-  %.not.not17 = icmp eq ptr %3, null
-  %.not.not = or i1 %.not.not17, %7
+  %.not.not16 = icmp eq ptr %3, null
+  %.not.not = or i1 %.not.not16, %7
   br i1 %.not.not, label %11, label %8
 
 8:                                                ; preds = %1
@@ -2477,7 +2477,7 @@ define dso_local { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef
 11:                                               ; preds = %1
   %12 = add nsw i32 %6, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %12, -2
-  %.not12 = or i1 %.not.not17, %spec.select.i.i.i.i.i.i.i.i
+  %.not12 = or i1 %.not.not16, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not12, label %15, label %13
 
 13:                                               ; preds = %11

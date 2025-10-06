@@ -143,17 +143,17 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
 39:                                               ; preds = %34, %33
   %.070 = phi ptr [ %38, %34 ], [ null, %33 ]
   %40 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef 0)
-  br i1 %40, label %.lr.ph131, label %.thread
+  br i1 %40, label %.lr.ph130, label %.thread
 
-.lr.ph131:                                        ; preds = %39
+.lr.ph130:                                        ; preds = %39
   %41 = load ptr, ptr @g_ascii_table, align 8
   br label %42
 
-42:                                               ; preds = %.lr.ph131, %is_icap_message.exit84.thread
-  %.072129 = phi i32 [ 0, %.lr.ph131 ], [ %83, %is_icap_message.exit84.thread ]
-  %.0103128 = phi i32 [ 4, %.lr.ph131 ], [ %.2111, %is_icap_message.exit84.thread ]
-  %43 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.072129, i32 noundef -1, ptr noundef nonnull %5, i1 noundef zeroext false)
-  %44 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.072129, i32 noundef %43)
+42:                                               ; preds = %.lr.ph130, %is_icap_message.exit84.thread
+  %.072128 = phi i32 [ 0, %.lr.ph130 ], [ %83, %is_icap_message.exit84.thread ]
+  %.0103127 = phi i32 [ 4, %.lr.ph130 ], [ %.2111, %is_icap_message.exit84.thread ]
+  %43 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.072128, i32 noundef -1, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %44 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.072128, i32 noundef %43)
   %45 = sext i32 %43 to i64
   %46 = getelementptr i8, ptr %44, i64 %45
   %47 = icmp sgt i32 %43, 4
@@ -165,7 +165,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
-  %52 = icmp eq i32 %.0103128, 4
+  %52 = icmp eq i32 %.0103127, 4
   br i1 %52, label %.thread15.sink.split.i82, label %is_icap_message.exit84.thread
 
 53:                                               ; preds = %48
@@ -178,7 +178,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %55
-  %59 = icmp eq i32 %.0103128, 4
+  %59 = icmp eq i32 %.0103127, 4
   br i1 %59, label %.thread15.sink.split.i82, label %is_icap_message.exit84.thread
 
 60:                                               ; preds = %55
@@ -191,7 +191,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %61
-  %65 = icmp eq i32 %.0103128, 4
+  %65 = icmp eq i32 %.0103127, 4
   br i1 %65, label %.thread15.sink.split.i82, label %is_icap_message.exit84.thread
 
 66:                                               ; preds = %61
@@ -200,7 +200,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %68, label %69, label %.preheader
 
 69:                                               ; preds = %66
-  %70 = icmp eq i32 %.0103128, 4
+  %70 = icmp eq i32 %.0103127, 4
   br i1 %70, label %.thread15.sink.split.i82, label %is_icap_message.exit84.thread
 
 .thread15.sink.split.i82:                         ; preds = %69, %64, %58, %51
@@ -216,9 +216,9 @@ is_icap_message.exit84:                           ; preds = %42
   br i1 %.not, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %79
-  %.071121 = phi ptr [ %72, %79 ], [ %44, %.preheader ]
-  %72 = getelementptr i8, ptr %.071121, i64 1
-  %73 = load i8, ptr %.071121, align 1
+  %.071120 = phi ptr [ %72, %79 ], [ %44, %.preheader ]
+  %72 = getelementptr i8, ptr %.071120, i64 1
+  %73 = load i8, ptr %.071120, align 1
   %74 = zext i8 %73 to i64
   %75 = getelementptr i16, ptr %41, i64 %74
   %76 = load i16, ptr %75, align 2
@@ -248,25 +248,25 @@ is_icap_message.exit84:                           ; preds = %42
   ]
 
 79:                                               ; preds = %78
-  %.not160 = icmp ult ptr %72, %46
-  br i1 %.not160, label %.lr.ph, label %.thread, !llvm.loop !6
+  %.not159 = icmp ult ptr %72, %46
+  br i1 %.not159, label %.lr.ph, label %.thread, !llvm.loop !6
 
 is_icap_message.exit84.thread:                    ; preds = %78, %.thread15.sink.split.i82, %69, %64, %58, %51, %is_icap_message.exit84
-  %.2111 = phi i32 [ %.0103128, %is_icap_message.exit84 ], [ %.0103128, %69 ], [ %.0103128, %64 ], [ %.0103128, %58 ], [ %.0103128, %51 ], [ %.sink.i83, %.thread15.sink.split.i82 ], [ %.0103128, %78 ]
+  %.2111 = phi i32 [ %.0103127, %is_icap_message.exit84 ], [ %.0103127, %69 ], [ %.0103127, %64 ], [ %.0103127, %58 ], [ %.0103127, %51 ], [ %.sink.i83, %.thread15.sink.split.i82 ], [ %.0103127, %78 ]
   %80 = load i32, ptr %5, align 4
-  %81 = sub i32 %80, %.072129
-  %82 = call ptr @proto_tree_add_format_text(ptr noundef %.070, ptr noundef %0, i32 noundef %.072129, i32 noundef %81)
+  %81 = sub i32 %80, %.072128
+  %82 = call ptr @proto_tree_add_format_text(ptr noundef %.070, ptr noundef %0, i32 noundef %.072128, i32 noundef %81)
   %83 = load i32, ptr %5, align 4
   %84 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %83)
   br i1 %84, label %42, label %.thread
 
 .thread:                                          ; preds = %is_icap_message.exit84.thread, %.preheader, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %79, %.lr.ph, %39
-  %.0103120 = phi i32 [ 4, %39 ], [ %.0103128, %.lr.ph ], [ %.0103128, %79 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %.preheader ], [ %.2111, %is_icap_message.exit84.thread ]
-  %.072118 = phi i32 [ 0, %39 ], [ %.072129, %.lr.ph ], [ %.072129, %79 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %78 ], [ %.072129, %.preheader ], [ %83, %is_icap_message.exit84.thread ]
+  %.0103119 = phi i32 [ 4, %39 ], [ %.0103127, %.lr.ph ], [ %.0103127, %79 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %78 ], [ %.0103127, %.preheader ], [ %.2111, %is_icap_message.exit84.thread ]
+  %.072117 = phi i32 [ 0, %39 ], [ %.072128, %.lr.ph ], [ %.072128, %79 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %78 ], [ %.072128, %.preheader ], [ %83, %is_icap_message.exit84.thread ]
   br i1 %.not76, label %proto_item_set_hidden.exit, label %85
 
 85:                                               ; preds = %.thread
-  switch i32 %.0103120, label %proto_item_set_hidden.exit [
+  switch i32 %.0103119, label %proto_item_set_hidden.exit [
     i32 0, label %86
     i32 1, label %92
     i32 2, label %98
@@ -322,15 +322,15 @@ is_icap_message.exit84.thread:                    ; preds = %78, %.thread15.sink
   br i1 %.not5.i93, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %107, %101, %95, %89
-  %.sink159 = phi ptr [ %91, %89 ], [ %97, %95 ], [ %103, %101 ], [ %109, %107 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sink159, i64 28
+  %.sink158 = phi ptr [ %91, %89 ], [ %97, %95 ], [ %103, %101 ], [ %109, %107 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.sink158, i64 28
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, 1
   store i32 %112, ptr %110, align 4
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidden.exit.sink.split, %107, %104, %101, %98, %95, %92, %89, %86, %85, %.thread
-  %113 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.072118)
+  %113 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.072117)
   %114 = icmp sgt i32 %113, 0
   %115 = load ptr, ptr @http_handle, align 8
   %116 = icmp ne ptr %115, null
@@ -338,7 +338,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
   br i1 %or.cond3, label %117, label %121
 
 117:                                              ; preds = %proto_item_set_hidden.exit
-  %118 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.072118)
+  %118 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.072117)
   %119 = load ptr, ptr @http_handle, align 8
   %120 = call i32 @call_dissector(ptr noundef %119, ptr noundef %118, ptr noundef %1, ptr noundef %.070)
   br label %121

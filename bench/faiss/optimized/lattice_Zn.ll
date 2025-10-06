@@ -1522,8 +1522,8 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr noundef nonnull readonly a
   %.val = load ptr, ptr %6, align 8, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val42 = load ptr, ptr %7, align 8
-  %.not17.i = icmp eq ptr %.val, %.val42
-  br i1 %.not17.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %.val, %.val42
+  br i1 %.not16.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
@@ -1531,14 +1531,14 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr noundef nonnull readonly a
   br label %10
 
 10:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i, %.lr.ph.i
-  %.022.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
-  %.02521.i = phi i32 [ %3, %.lr.ph.i ], [ %46, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
-  %.03620.i = phi i64 [ 1, %.lr.ph.i ], [ %45, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
-  %.03719.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
-  %.sroa.01.018.i = phi ptr [ %.val, %.lr.ph.i ], [ %47, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
-  %11 = xor i64 %.022.i, -1
-  %12 = load float, ptr %.sroa.01.018.i, align 4, !tbaa !85
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.018.i, i64 4
+  %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %.02520.i = phi i32 [ %3, %.lr.ph.i ], [ %46, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %.03619.i = phi i64 [ 1, %.lr.ph.i ], [ %45, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %.03718.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %.sroa.01.017.i = phi ptr [ %.val, %.lr.ph.i ], [ %47, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %11 = xor i64 %.021.i, -1
+  %12 = load float, ptr %.sroa.01.017.i, align 4, !tbaa !85
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.017.i, i64 4
   br label %14
 
 14:                                               ; preds = %34, %10
@@ -1546,7 +1546,7 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr noundef nonnull readonly a
   %.030.i = phi i32 [ 0, %10 ], [ %.131.i, %34 ]
   %.027.i = phi i64 [ 0, %10 ], [ %.128.i, %34 ]
   %.026.i = phi i64 [ %11, %10 ], [ %18, %34 ]
-  %.1.i = phi i64 [ %.022.i, %10 ], [ %.2.i, %34 ]
+  %.1.i = phi i64 [ %.021.i, %10 ], [ %.2.i, %34 ]
   %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.026.i, i1 true)
   %16 = shl nuw i64 1, %15
   %17 = xor i64 %16, -1
@@ -1558,8 +1558,8 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr noundef nonnull readonly a
 
 22:                                               ; preds = %14
   %23 = add nsw i32 %.030.i, 1
-  %.not15.i = icmp slt i32 %.030.i, %.033.i
-  br i1 %.not15.i, label %24, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+  %.not14.i = icmp slt i32 %.030.i, %.033.i
+  br i1 %.not14.i, label %24, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
 
 24:                                               ; preds = %22
   %25 = mul nsw i32 %.033.i, %8
@@ -1585,11 +1585,11 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %24, %22
   br label %14
 
 36:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
-  %.not29.i = icmp slt i32 %.030.i, %.02521.i
-  br i1 %.not29.i, label %37, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i
+  %.not26.i = icmp slt i32 %.030.i, %.02520.i
+  br i1 %.not26.i, label %37, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i
 
 37:                                               ; preds = %36
-  %38 = mul nsw i32 %.02521.i, %8
+  %38 = mul nsw i32 %.02520.i, %8
   %39 = add nsw i32 %23, %38
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds nuw i64, ptr %9, i64 %40
@@ -1598,11 +1598,11 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %24, %22
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i:      ; preds = %37, %36
   %.0.i40.i = phi i64 [ %42, %37 ], [ 0, %36 ]
-  %43 = mul i64 %30, %.03620.i
-  %44 = add i64 %43, %.03719.i
-  %45 = mul i64 %.0.i40.i, %.03620.i
-  %46 = sub nsw i32 %.02521.i, %23
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.01.018.i, i64 8
+  %43 = mul i64 %30, %.03619.i
+  %44 = add i64 %43, %.03718.i
+  %45 = mul i64 %.0.i40.i, %.03619.i
+  %46 = sub nsw i32 %.02520.i, %23
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.01.017.i, i64 8
   %.not.i = icmp eq ptr %47, %.val42
   br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit, label %10, !llvm.loop !91
 
@@ -1749,8 +1749,8 @@ define void @_ZNK5faiss7Repeats6decodeEmPf(ptr noundef nonnull readonly align 8 
   %.val = load ptr, ptr %7, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val42 = load ptr, ptr %8, align 8
-  %.not21.i = icmp eq ptr %.val, %.val42
-  br i1 %.not21.i, label %_ZN5faiss12_GLOBAL__N_117repeats_decode_64ERKSt6vectorINS_6RepeatESaIS2_EEimPf.exit, label %.lr.ph.i
+  %.not20.i = icmp eq ptr %.val, %.val42
+  br i1 %.not20.i, label %_ZN5faiss12_GLOBAL__N_117repeats_decode_64ERKSt6vectorINS_6RepeatESaIS2_EEimPf.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
@@ -1762,24 +1762,24 @@ define void @_ZNK5faiss7Repeats6decodeEmPf(ptr noundef nonnull readonly align 8 
   br label %13
 
 13:                                               ; preds = %76, %.lr.ph.i
-  %.025.i = phi i64 [ %1, %.lr.ph.i ], [ %38, %76 ]
-  %.03324.i = phi i64 [ 0, %.lr.ph.i ], [ %53, %76 ]
-  %.03723.i = phi i32 [ %4, %.lr.ph.i ], [ %77, %76 ]
-  %.sroa.02.022.i = phi ptr [ %.val, %.lr.ph.i ], [ %78, %76 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.02.022.i, i64 4
+  %.024.i = phi i64 [ %1, %.lr.ph.i ], [ %38, %76 ]
+  %.03323.i = phi i64 [ 0, %.lr.ph.i ], [ %53, %76 ]
+  %.03722.i = phi i32 [ %4, %.lr.ph.i ], [ %77, %76 ]
+  %.sroa.02.021.i = phi ptr [ %.val, %.lr.ph.i ], [ %78, %76 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.02.021.i, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !87
-  %16 = icmp sgt i32 %15, %.03723.i
+  %16 = icmp sgt i32 %15, %.03722.i
   br i1 %16, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i: ; preds = %13
-  %17 = mul nsw i32 %.03723.i, %9
+  %17 = mul nsw i32 %.03722.i, %9
   %18 = add nsw i32 %15, %17
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds nuw i64, ptr %10, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !44
-  %22 = urem i64 %.025.i, %21
-  %23 = udiv i64 %.025.i, %21
-  %24 = sext i32 %.03723.i to i64
+  %22 = urem i64 %.024.i, %21
+  %23 = udiv i64 %.024.i, %21
+  %24 = sext i32 %.03722.i to i64
   %25 = sext i32 %15 to i64
   %invariant.gep.i.i = getelementptr i64, ptr %10, i64 %25
   %26 = add i32 %15, -1
@@ -1810,10 +1810,10 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i.i:      ; preds = %30, %_ZNK5faiss12_G
 _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i: ; preds = %30, %31, %13
   %38 = phi i64 [ %23, %31 ], [ poison, %13 ], [ %23, %30 ]
   %39 = phi i64 [ %22, %31 ], [ poison, %13 ], [ %22, %30 ]
-  %.011.i.i = phi i32 [ %32, %31 ], [ %.03723.i, %13 ], [ %26, %30 ]
+  %.011.i.i = phi i32 [ %32, %31 ], [ %.03722.i, %13 ], [ %26, %30 ]
   %.0.i7.i.i = phi i64 [ %37, %31 ], [ 0, %13 ], [ 0, %30 ]
   %40 = sub i64 %39, %.0.i7.i.i
-  %.reass.i.reass.reass = xor i64 %.03324.i, %invariant.op
+  %.reass.i.reass.reass = xor i64 %.03323.i, %invariant.op
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %42 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %43 = sext i32 %41 to i64
@@ -1821,9 +1821,9 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i: ; preds = %30, %31, %13
 
 .outer:                                           ; preds = %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i
   %.010.i.ph = phi i64 [ %75, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ %40, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
-  %.134.i.ph = phi i64 [ %53, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ %.03324.i, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
+  %.134.i.ph = phi i64 [ %53, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ %.03323.i, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
   %.030.i.ph = phi i32 [ %56, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ 0, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
-  %.029.i.ph = phi i32 [ %50, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ %.03723.i, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
+  %.029.i.ph = phi i32 [ %50, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ %.03722.i, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
   %.028.i.ph = phi i32 [ %.011.i46.i, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ %.011.i.i, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
   %.027.i.ph = phi i64 [ %49, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i ], [ %.reass.i.reass.reass, %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i ]
   br label %44
@@ -1842,7 +1842,7 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i: ; preds = %30, %31, %13
 
 52:                                               ; preds = %44
   %53 = or i64 %47, %.134.i.ph
-  %54 = load float, ptr %.sroa.02.022.i, align 4, !tbaa !85
+  %54 = load float, ptr %.sroa.02.021.i, align 4, !tbaa !85
   %55 = getelementptr inbounds nuw float, ptr %2, i64 %46
   store float %54, ptr %55, align 4, !tbaa !32
   %56 = add nuw nsw i32 %.030.i.ph, 1
@@ -1890,8 +1890,8 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit51.i: ; preds = %67, %68, %58
   br label %.outer
 
 76:                                               ; preds = %52
-  %77 = sub nsw i32 %.03723.i, %15
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.02.022.i, i64 8
+  %77 = sub nsw i32 %.03722.i, %15
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.02.021.i, i64 8
   %.not.i = icmp eq ptr %78, %.val42
   br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_117repeats_decode_64ERKSt6vectorINS_6RepeatESaIS2_EEimPf.exit, label %13, !llvm.loop !95
 

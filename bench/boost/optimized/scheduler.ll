@@ -898,28 +898,28 @@ _ZNSt13random_deviceD2Ev.exit.i:                  ; preds = %85
 .preheader:                                       ; preds = %_ZNSt13random_deviceD2Ev.exit.i, %_ZN5boost6fibers9scheduler19release_terminated_Ev.exit
   br label %91
 
-91:                                               ; preds = %.preheader, %._crit_edge22.i
-  %.014.i = phi i64 [ %111, %._crit_edge22.i ], [ 0, %.preheader ]
+91:                                               ; preds = %.preheader, %._crit_edge21.i
+  %.014.i = phi i64 [ %111, %._crit_edge21.i ], [ 0, %.preheader ]
   %92 = load atomic i32, ptr %16 monotonic, align 8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %.lr.ph.i10, label %._crit_edge.i
 
 .lr.ph.i10:                                       ; preds = %91, %103
-  %.0919.i = phi i64 [ %.1.i, %103 ], [ 0, %91 ]
-  %94 = icmp ult i64 %.0919.i, 32
+  %.0918.i = phi i64 [ %.1.i, %103 ], [ 0, %91 ]
+  %94 = icmp ult i64 %.0918.i, 32
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %.lr.ph.i10
-  %96 = add nuw nsw i64 %.0919.i, 1
+  %96 = add nuw nsw i64 %.0918.i, 1
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !96
   br label %103
 
 97:                                               ; preds = %.lr.ph.i10
-  %98 = icmp ult i64 %.0919.i, 64
+  %98 = icmp ult i64 %.0918.i, 64
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %97
-  %100 = add nuw nsw i64 %.0919.i, 1
+  %100 = add nuw nsw i64 %.0918.i, 1
   br label %103
 
 101:                                              ; preds = %97
@@ -927,7 +927,7 @@ _ZNSt13random_deviceD2Ev.exit.i:                  ; preds = %85
   br label %103
 
 103:                                              ; preds = %101, %99, %95
-  %.1.i = phi i64 [ %96, %95 ], [ %100, %99 ], [ %.0919.i, %101 ]
+  %.1.i = phi i64 [ %96, %95 ], [ %100, %99 ], [ %.0918.i, %101 ]
   %104 = load atomic i32, ptr %16 monotonic, align 8
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %.lr.ph.i10, label %._crit_edge.i, !llvm.loop !97
@@ -949,16 +949,16 @@ _ZNSt13random_deviceD2Ev.exit.i:                  ; preds = %85
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i: ; preds = %108
   %111 = add i64 %.014.i, 1
   %.not.i9 = icmp eq i64 %110, 0
-  br i1 %.not.i9, label %._crit_edge22.i, label %.lr.ph21.i
+  br i1 %.not.i9, label %._crit_edge21.i, label %.lr.ph20.i
 
-.lr.ph21.i:                                       ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i, %.lr.ph21.i
-  %.0820.i = phi i64 [ %112, %.lr.ph21.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i ]
+.lr.ph20.i:                                       ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i, %.lr.ph20.i
+  %.0819.i = phi i64 [ %112, %.lr.ph20.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i ]
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !101
-  %112 = add nuw i64 %.0820.i, 1
+  %112 = add nuw i64 %.0819.i, 1
   %exitcond.not.i = icmp eq i64 %112, %110
-  br i1 %exitcond.not.i, label %._crit_edge22.i, label %.lr.ph21.i, !llvm.loop !102
+  br i1 %exitcond.not.i, label %._crit_edge21.i, label %.lr.ph20.i, !llvm.loop !102
 
-._crit_edge22.i:                                  ; preds = %.lr.ph21.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i
+._crit_edge21.i:                                  ; preds = %.lr.ph20.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %91
 
@@ -1902,28 +1902,28 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5boost6fibers6detail13spinlock_ttas4lockEvE9generator)
   br label %18
 
-18:                                               ; preds = %._crit_edge22, %15
-  %.014 = phi i64 [ 0, %15 ], [ %38, %._crit_edge22 ]
+18:                                               ; preds = %._crit_edge21, %15
+  %.014 = phi i64 [ 0, %15 ], [ %38, %._crit_edge21 ]
   %19 = load atomic i32, ptr %0 monotonic, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18, %30
-  %.0919 = phi i64 [ %.1, %30 ], [ 0, %18 ]
-  %21 = icmp ult i64 %.0919, 32
+  %.0918 = phi i64 [ %.1, %30 ], [ 0, %18 ]
+  %21 = icmp ult i64 %.0918, 32
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph
-  %23 = add nuw nsw i64 %.0919, 1
+  %23 = add nuw nsw i64 %.0918, 1
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !96
   br label %30
 
 24:                                               ; preds = %.lr.ph
-  %25 = icmp ult i64 %.0919, 64
+  %25 = icmp ult i64 %.0918, 64
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = add nuw nsw i64 %.0919, 1
+  %27 = add nuw nsw i64 %.0918, 1
   br label %30
 
 28:                                               ; preds = %24
@@ -1931,7 +1931,7 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
   br label %30
 
 30:                                               ; preds = %26, %28, %22
-  %.1 = phi i64 [ %23, %22 ], [ %27, %26 ], [ %.0919, %28 ]
+  %.1 = phi i64 [ %23, %22 ], [ %27, %26 ], [ %.0918, %28 ]
   %31 = load atomic i32, ptr %0 monotonic, align 4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !97
@@ -1953,16 +1953,16 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit: ; preds = %35
   %38 = add i64 %.014, 1
   %.not = icmp eq i64 %37, 0
-  br i1 %.not, label %._crit_edge22, label %.lr.ph21
+  br i1 %.not, label %._crit_edge21, label %.lr.ph20
 
-.lr.ph21:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph21
-  %.0820 = phi i64 [ %39, %.lr.ph21 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
+.lr.ph20:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph20
+  %.0819 = phi i64 [ %39, %.lr.ph20 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !101
-  %39 = add nuw i64 %.0820, 1
+  %39 = add nuw i64 %.0819, 1
   %exitcond.not = icmp eq i64 %39, %37
-  br i1 %exitcond.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge21, label %.lr.ph20, !llvm.loop !102
 
-._crit_edge22:                                    ; preds = %.lr.ph21, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit
+._crit_edge21:                                    ; preds = %.lr.ph20, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
@@ -2321,25 +2321,25 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
   br i1 %4, label %.thread142, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121
-  %.0201 = phi ptr [ %.086200, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121 ], [ %1, %3 ]
-  %.086200 = phi ptr [ %.288, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121 ], [ %2, %3 ]
-  %.not = icmp eq ptr %.0201, null
+  %.0200 = phi ptr [ %.086199, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121 ], [ %1, %3 ]
+  %.086199 = phi ptr [ %.288, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121 ], [ %2, %3 ]
+  %.not = icmp eq ptr %.0200, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.0201, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.0200, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !39
   %.not108 = icmp eq i32 %7, 1
-  br i1 %.not108, label %8, label %.thread147
+  br i1 %.not108, label %8, label %.thread146
 
 8:                                                ; preds = %5, %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.086200, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.086199, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
-  %11 = icmp eq ptr %.0201, %10
+  %11 = icmp eq ptr %.0200, %10
   br i1 %11, label %12, label %92
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %.086200, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.086199, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !39
@@ -2348,12 +2348,12 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
 
 18:                                               ; preds = %12
   store i32 1, ptr %15, align 8, !tbaa !39
-  %19 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.086199, i64 24
   store i32 0, ptr %19, align 8, !tbaa !39
-  %20 = load ptr, ptr %.086200, align 8, !tbaa !35
+  %20 = load ptr, ptr %.086199, align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !23
-  %23 = icmp eq ptr %22, %.086200
+  %23 = icmp eq ptr %22, %.086199
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !23
   store ptr %25, ptr %13, align 8, !tbaa !30
@@ -2361,12 +2361,12 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
   br i1 %.not.i.i, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i, label %26
 
 26:                                               ; preds = %18
-  store ptr %.086200, ptr %25, align 8, !tbaa !35
+  store ptr %.086199, ptr %25, align 8, !tbaa !35
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i: ; preds = %26, %18
-  store ptr %.086200, ptr %24, align 8, !tbaa !23
-  store ptr %14, ptr %.086200, align 8, !tbaa !35
+  store ptr %.086199, ptr %24, align 8, !tbaa !23
+  store ptr %14, ptr %.086199, align 8, !tbaa !35
   store ptr %20, ptr %14, align 8, !tbaa !35
   %27 = icmp eq ptr %20, %0
   br i1 %27, label %28, label %29
@@ -2385,11 +2385,11 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %14, ptr %32, align 8, !tbaa !30
-  %.pre247 = load ptr, ptr %13, align 8, !tbaa !30
+  %.pre246 = load ptr, ptr %13, align 8, !tbaa !30
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit: ; preds = %31, %30, %28, %12
-  %.091 = phi ptr [ %14, %12 ], [ %25, %28 ], [ %25, %30 ], [ %.pre247, %31 ]
+  %.091 = phi ptr [ %14, %12 ], [ %25, %28 ], [ %25, %30 ], [ %.pre246, %31 ]
   %33 = getelementptr inbounds nuw i8, ptr %.091, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %.091, i64 16
@@ -2411,7 +2411,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotat
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !39
   %45 = icmp eq i32 %44, 1
-  br i1 %45, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread275
+  br i1 %45, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread274
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %.091, i64 8
@@ -2419,10 +2419,10 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotat
   br i1 %.not115, label %49, label %.thread
 
 .thread:                                          ; preds = %46
-  %.phi.trans.insert248 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %.pre249 = load i32, ptr %.phi.trans.insert248, align 8, !tbaa !39
-  %48 = icmp eq i32 %.pre249, 1
-  br i1 %48, label %49, label %.thread275
+  %.phi.trans.insert247 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %.pre248 = load i32, ptr %.phi.trans.insert247, align 8, !tbaa !39
+  %48 = icmp eq i32 %.pre248, 1
+  br i1 %48, label %49, label %.thread274
 
 49:                                               ; preds = %.thread, %46
   %50 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -2466,8 +2466,8 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
   store ptr %34, ptr %64, align 8, !tbaa !30
   br label %68
 
-.thread275:                                       ; preds = %42, %.thread
-  %65 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
+.thread274:                                       ; preds = %42, %.thread
+  %65 = getelementptr inbounds nuw i8, ptr %.086199, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !39
   %67 = getelementptr inbounds nuw i8, ptr %.091, i64 24
   store i32 %66, ptr %67, align 8, !tbaa !39
@@ -2476,29 +2476,29 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
 
 68:                                               ; preds = %63, %62, %60
   %69 = load ptr, ptr %13, align 8, !tbaa !30
-  %.phi.trans.insert250 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %.pre251 = load ptr, ptr %.phi.trans.insert250, align 8, !tbaa !30
-  %70 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
+  %.phi.trans.insert249 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %.pre250 = load ptr, ptr %.phi.trans.insert249, align 8, !tbaa !30
+  %70 = getelementptr inbounds nuw i8, ptr %.086199, i64 24
   %71 = load i32, ptr %70, align 8, !tbaa !39
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i32 %71, ptr %72, align 8, !tbaa !39
   store i32 1, ptr %70, align 8, !tbaa !39
-  %.not116 = icmp eq ptr %.pre251, null
+  %.not116 = icmp eq ptr %.pre250, null
   br i1 %.not116, label %77, label %73
 
-73:                                               ; preds = %.thread275, %68
-  %74 = phi ptr [ %.091, %.thread275 ], [ %69, %68 ]
-  %75 = phi ptr [ %36, %.thread275 ], [ %.pre251, %68 ]
+73:                                               ; preds = %.thread274, %68
+  %74 = phi ptr [ %.091, %.thread274 ], [ %69, %68 ]
+  %75 = phi ptr [ %36, %.thread274 ], [ %.pre250, %68 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i32 1, ptr %76, align 8, !tbaa !39
   br label %77
 
 77:                                               ; preds = %73, %68
   %78 = phi ptr [ %74, %73 ], [ %69, %68 ]
-  %79 = load ptr, ptr %.086200, align 8, !tbaa !35
+  %79 = load ptr, ptr %.086199, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !23
-  %82 = icmp eq ptr %81, %.086200
+  %82 = icmp eq ptr %81, %.086199
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !23
   store ptr %84, ptr %13, align 8, !tbaa !30
@@ -2506,12 +2506,12 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
   br i1 %.not.i.i119, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i120, label %85
 
 85:                                               ; preds = %77
-  store ptr %.086200, ptr %84, align 8, !tbaa !35
+  store ptr %.086199, ptr %84, align 8, !tbaa !35
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i120
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i120: ; preds = %85, %77
-  store ptr %.086200, ptr %83, align 8, !tbaa !23
-  store ptr %78, ptr %.086200, align 8, !tbaa !35
+  store ptr %.086199, ptr %83, align 8, !tbaa !23
+  store ptr %78, ptr %.086199, align 8, !tbaa !35
   store ptr %79, ptr %78, align 8, !tbaa !35
   %86 = icmp eq ptr %79, %0
   br i1 %86, label %87, label %88
@@ -2540,12 +2540,12 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
 
 96:                                               ; preds = %92
   store i32 1, ptr %93, align 8, !tbaa !39
-  %97 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.086199, i64 24
   store i32 0, ptr %97, align 8, !tbaa !39
-  %98 = load ptr, ptr %.086200, align 8, !tbaa !35
+  %98 = load ptr, ptr %.086199, align 8, !tbaa !35
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !23
-  %101 = icmp eq ptr %100, %.086200
+  %101 = icmp eq ptr %100, %.086199
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !30
   store ptr %103, ptr %9, align 8, !tbaa !23
@@ -2553,12 +2553,12 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
   br i1 %.not.i.i122, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i123, label %104
 
 104:                                              ; preds = %96
-  store ptr %.086200, ptr %103, align 8, !tbaa !35
+  store ptr %.086199, ptr %103, align 8, !tbaa !35
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i123
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i123: ; preds = %104, %96
-  store ptr %.086200, ptr %102, align 8, !tbaa !30
-  store ptr %10, ptr %.086200, align 8, !tbaa !35
+  store ptr %.086199, ptr %102, align 8, !tbaa !30
+  store ptr %10, ptr %.086199, align 8, !tbaa !35
   store ptr %98, ptr %10, align 8, !tbaa !35
   %105 = icmp eq ptr %98, %0
   br i1 %105, label %106, label %107
@@ -2603,7 +2603,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotat
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !39
   %123 = icmp eq i32 %122, 1
-  br i1 %123, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread278
+  br i1 %123, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, label %.thread277
 
 124:                                              ; preds = %115
   %125 = getelementptr inbounds nuw i8, ptr %.093, i64 16
@@ -2612,9 +2612,9 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotat
 
 .thread136:                                       ; preds = %124
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %.pre244 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !39
-  %126 = icmp eq i32 %.pre244, 1
-  br i1 %126, label %127, label %.thread278
+  %.pre243 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !39
+  %126 = icmp eq i32 %.pre243, 1
+  br i1 %126, label %127, label %.thread277
 
 127:                                              ; preds = %.thread136, %124
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -2658,8 +2658,8 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
   store ptr %114, ptr %142, align 8, !tbaa !30
   br label %146
 
-.thread278:                                       ; preds = %120, %.thread136
-  %143 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
+.thread277:                                       ; preds = %120, %.thread136
+  %143 = getelementptr inbounds nuw i8, ptr %.086199, i64 24
   %144 = load i32, ptr %143, align 8, !tbaa !39
   %145 = getelementptr inbounds nuw i8, ptr %.093, i64 24
   store i32 %144, ptr %145, align 8, !tbaa !39
@@ -2668,29 +2668,29 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
 
 146:                                              ; preds = %141, %140, %138
   %147 = load ptr, ptr %9, align 8, !tbaa !23
-  %.phi.trans.insert245 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %.pre246 = load ptr, ptr %.phi.trans.insert245, align 8, !tbaa !23
-  %148 = getelementptr inbounds nuw i8, ptr %.086200, i64 24
+  %.phi.trans.insert244 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %.pre245 = load ptr, ptr %.phi.trans.insert244, align 8, !tbaa !23
+  %148 = getelementptr inbounds nuw i8, ptr %.086199, i64 24
   %149 = load i32, ptr %148, align 8, !tbaa !39
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store i32 %149, ptr %150, align 8, !tbaa !39
   store i32 1, ptr %148, align 8, !tbaa !39
-  %.not112 = icmp eq ptr %.pre246, null
+  %.not112 = icmp eq ptr %.pre245, null
   br i1 %.not112, label %155, label %151
 
-151:                                              ; preds = %.thread278, %146
-  %152 = phi ptr [ %.093, %.thread278 ], [ %147, %146 ]
-  %153 = phi ptr [ %112, %.thread278 ], [ %.pre246, %146 ]
+151:                                              ; preds = %.thread277, %146
+  %152 = phi ptr [ %.093, %.thread277 ], [ %147, %146 ]
+  %153 = phi ptr [ %112, %.thread277 ], [ %.pre245, %146 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i32 1, ptr %154, align 8, !tbaa !39
   br label %155
 
 155:                                              ; preds = %151, %146
   %156 = phi ptr [ %152, %151 ], [ %147, %146 ]
-  %157 = load ptr, ptr %.086200, align 8, !tbaa !35
+  %157 = load ptr, ptr %.086199, align 8, !tbaa !35
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !23
-  %160 = icmp eq ptr %159, %.086200
+  %160 = icmp eq ptr %159, %.086199
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !30
   store ptr %162, ptr %9, align 8, !tbaa !23
@@ -2698,12 +2698,12 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
   br i1 %.not.i.i128, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i129, label %163
 
 163:                                              ; preds = %155
-  store ptr %.086200, ptr %162, align 8, !tbaa !35
+  store ptr %.086199, ptr %162, align 8, !tbaa !35
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i129
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit.i129: ; preds = %163, %155
-  store ptr %.086200, ptr %161, align 8, !tbaa !30
-  store ptr %156, ptr %.086200, align 8, !tbaa !35
+  store ptr %.086199, ptr %161, align 8, !tbaa !30
+  store ptr %156, ptr %.086199, align 8, !tbaa !35
   store ptr %157, ptr %156, align 8, !tbaa !35
   %164 = icmp eq ptr %157, %0
   br i1 %164, label %165, label %166
@@ -2728,22 +2728,22 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotat
   %.091.sink = phi ptr [ %.091, %41 ], [ %.091, %42 ], [ %.093, %119 ], [ %.093, %120 ]
   %170 = getelementptr inbounds nuw i8, ptr %.091.sink, i64 24
   store i32 0, ptr %170, align 8, !tbaa !39
-  %.288 = load ptr, ptr %.086200, align 8, !tbaa !35
+  %.288 = load ptr, ptr %.086199, align 8, !tbaa !35
   %171 = icmp eq ptr %.288, %0
-  br i1 %171, label %.thread147, label %.lr.ph
+  br i1 %171, label %.thread146, label %.lr.ph
 
 .thread142:                                       ; preds = %3, %168, %167, %165, %90, %89, %87
-  %.0162 = phi ptr [ %.0201, %168 ], [ %.0201, %167 ], [ %.0201, %165 ], [ %.0201, %90 ], [ %.0201, %89 ], [ %.0201, %87 ], [ %1, %3 ]
-  %.not117 = icmp eq ptr %.0162, null
-  br i1 %.not117, label %173, label %.thread147
+  %.0161 = phi ptr [ %.0200, %168 ], [ %.0200, %167 ], [ %.0200, %165 ], [ %.0200, %90 ], [ %.0200, %89 ], [ %.0200, %87 ], [ %1, %3 ]
+  %.not117 = icmp eq ptr %.0161, null
+  br i1 %.not117, label %173, label %.thread146
 
-.thread147:                                       ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, %5, %.thread142
-  %.0169 = phi ptr [ %.0162, %.thread142 ], [ %.086200, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121 ], [ %.0201, %5 ]
-  %172 = getelementptr inbounds nuw i8, ptr %.0169, i64 24
+.thread146:                                       ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121, %5, %.thread142
+  %.0168 = phi ptr [ %.0161, %.thread142 ], [ %.086199, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121 ], [ %.0200, %5 ]
+  %172 = getelementptr inbounds nuw i8, ptr %.0168, i64 24
   store i32 1, ptr %172, align 8, !tbaa !39
   br label %173
 
-173:                                              ; preds = %.thread147, %.thread142
+173:                                              ; preds = %.thread146, %.thread142
   ret void
 }
 
@@ -2757,7 +2757,7 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
 
 .lr.ph:                                           ; preds = %2, %72
   %6 = phi ptr [ %73, %72 ], [ %4, %2 ]
-  %.062 = phi ptr [ %7, %72 ], [ %1, %2 ]
+  %.061 = phi ptr [ %7, %72 ], [ %1, %2 ]
   %7 = load ptr, ptr %6, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !39
@@ -2794,14 +2794,14 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !23
-  %30 = icmp eq ptr %29, %.062
+  %30 = icmp eq ptr %29, %.061
   br i1 %16, label %31, label %51
 
 31:                                               ; preds = %26
   br i1 %30, label %37, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %.062, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.061, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %34, ptr %35, align 8, !tbaa !30
@@ -2814,11 +2814,11 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit: ; preds = %32, %36
   store ptr %6, ptr %33, align 8, !tbaa !23
-  store ptr %.062, ptr %6, align 8, !tbaa !35
+  store ptr %.061, ptr %6, align 8, !tbaa !35
   br label %37
 
 37:                                               ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit, %31
-  %.041 = phi ptr [ %6, %31 ], [ %.062, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit ]
+  %.041 = phi ptr [ %6, %31 ], [ %.061, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit ]
   %38 = load ptr, ptr %7, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !23
@@ -2860,7 +2860,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
   br i1 %30, label %52, label %56
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %.062, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.061, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !30
   store ptr %54, ptr %28, align 8, !tbaa !23
   %.not.i51 = icmp eq ptr %54, null
@@ -2872,14 +2872,14 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit: ; preds = %52, %55
   store ptr %6, ptr %53, align 8, !tbaa !30
-  store ptr %.062, ptr %6, align 8, !tbaa !35
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.062, i64 8
+  store ptr %.061, ptr %6, align 8, !tbaa !35
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.061, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   br label %56
 
 56:                                               ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit, %51
   %57 = phi ptr [ %.pre, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit ], [ %29, %51 ]
-  %.243 = phi ptr [ %.062, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit ], [ %6, %51 ]
+  %.243 = phi ptr [ %.061, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotate_right_no_parent_fixEPNS0_11rbtree_nodeIS3_EES8_.exit ], [ %6, %51 ]
   %58 = load ptr, ptr %7, align 8, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !23

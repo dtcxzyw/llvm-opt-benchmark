@@ -2251,15 +2251,15 @@ define void @_ZN6Assimp22FindInvalidDataProcess23ProcessAnimationChannelEP10aiNo
   %22 = load float, ptr %21, align 8
   %23 = fcmp ueq float %22, 0.000000e+00
   %24 = add i32 %7, -1
-  %wide.trip.count43.i = zext i32 %24 to i64
-  br i1 %23, label %.preheader.i, label %.preheader34.i
+  %wide.trip.count38.i = zext i32 %24 to i64
+  br i1 %23, label %.preheader.i, label %.preheader29.i
 
-.preheader34.i:                                   ; preds = %18, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i
+.preheader29.i:                                   ; preds = %18, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i ], [ 0, %18 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count43.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count38.i
   br i1 %exitcond.not.i, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit, label %25
 
-25:                                               ; preds = %.preheader34.i
+25:                                               ; preds = %.preheader29.i
   %26 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %20, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %20, i64 %indvars.iv.next.i
@@ -2290,17 +2290,17 @@ _Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i: ; preds = %35
   %47 = fsub float %44, %46
   %48 = tail call noundef float @llvm.fabs.f32(float %47)
   %49 = fcmp ogt float %48, %22
-  br i1 %49, label %.preheader34.i, label %.thread, !llvm.loop !23
+  br i1 %49, label %.preheader29.i, label %.thread, !llvm.loop !23
 
 .preheader.i:                                     ; preds = %18, %_ZNK11aiVectorKeyneERKS_.exit.i
-  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZNK11aiVectorKeyneERKS_.exit.i ], [ 0, %18 ]
-  %exitcond44.not.i = icmp eq i64 %indvars.iv40.i, %wide.trip.count43.i
-  br i1 %exitcond44.not.i, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit, label %50
+  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %_ZNK11aiVectorKeyneERKS_.exit.i ], [ 0, %18 ]
+  %exitcond39.not.i = icmp eq i64 %indvars.iv35.i, %wide.trip.count38.i
+  br i1 %exitcond39.not.i, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit, label %50
 
 50:                                               ; preds = %.preheader.i
-  %51 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %20, i64 %indvars.iv40.i
-  %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %52 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %20, i64 %indvars.iv.next41.i
+  %51 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %20, i64 %indvars.iv35.i
+  %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
+  %52 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %20, i64 %indvars.iv.next36.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load float, ptr %53, align 4
@@ -2324,7 +2324,7 @@ _ZNK11aiVectorKeyneERKS_.exit.i:                  ; preds = %58
   %68 = fcmp une float %65, %67
   br i1 %68, label %.thread, label %.preheader.i, !llvm.loop !24
 
-_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit:       ; preds = %.preheader34.i, %.preheader.i
+_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit:       ; preds = %.preheader29.i, %.preheader.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   tail call void @_ZdaPv(ptr noundef %20) #23
@@ -2349,15 +2349,15 @@ _Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit:       ; preds = %.preheader34.i, %.p
   %77 = load float, ptr %76, align 8
   %78 = fcmp ueq float %77, 0.000000e+00
   %79 = add i32 %71, -1
-  %wide.trip.count43.i34 = zext i32 %79 to i64
-  br i1 %78, label %.preheader.i40, label %.preheader34.i35
+  %wide.trip.count38.i34 = zext i32 %79 to i64
+  br i1 %78, label %.preheader.i40, label %.preheader29.i35
 
-.preheader34.i35:                                 ; preds = %73, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i
+.preheader29.i35:                                 ; preds = %73, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i38, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i ], [ 0, %73 ]
-  %exitcond.not.i37 = icmp eq i64 %indvars.iv.i36, %wide.trip.count43.i34
+  %exitcond.not.i37 = icmp eq i64 %indvars.iv.i36, %wide.trip.count38.i34
   br i1 %exitcond.not.i37, label %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit, label %80
 
-80:                                               ; preds = %.preheader34.i35
+80:                                               ; preds = %.preheader29.i35
   %81 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %75, i64 %indvars.iv.i36
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i36, 1
   %82 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %75, i64 %indvars.iv.next.i38
@@ -2398,17 +2398,17 @@ _Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i:   ; preds = %100
   %110 = fsub float %108, %109
   %111 = tail call noundef float @llvm.fabs.f32(float %110)
   %112 = fcmp ogt float %111, %77
-  br i1 %112, label %.preheader34.i35, label %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit.thread, !llvm.loop !25
+  br i1 %112, label %.preheader29.i35, label %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit.thread, !llvm.loop !25
 
 .preheader.i40:                                   ; preds = %73, %_ZNK9aiQuatKeyneERKS_.exit.i
-  %indvars.iv40.i41 = phi i64 [ %indvars.iv.next41.i43, %_ZNK9aiQuatKeyneERKS_.exit.i ], [ 0, %73 ]
-  %exitcond44.not.i42 = icmp eq i64 %indvars.iv40.i41, %wide.trip.count43.i34
-  br i1 %exitcond44.not.i42, label %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit, label %113
+  %indvars.iv35.i41 = phi i64 [ %indvars.iv.next36.i43, %_ZNK9aiQuatKeyneERKS_.exit.i ], [ 0, %73 ]
+  %exitcond39.not.i42 = icmp eq i64 %indvars.iv35.i41, %wide.trip.count38.i34
+  br i1 %exitcond39.not.i42, label %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit, label %113
 
 113:                                              ; preds = %.preheader.i40
-  %114 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %75, i64 %indvars.iv40.i41
-  %indvars.iv.next41.i43 = add nuw nsw i64 %indvars.iv40.i41, 1
-  %115 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %75, i64 %indvars.iv.next41.i43
+  %114 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %75, i64 %indvars.iv35.i41
+  %indvars.iv.next36.i43 = add nuw nsw i64 %indvars.iv35.i41, 1
+  %115 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %75, i64 %indvars.iv.next36.i43
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 12
@@ -2440,7 +2440,7 @@ _ZNK9aiQuatKeyneERKS_.exit.i:                     ; preds = %129
   %137 = fcmp une float %135, %136
   br i1 %137, label %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit.thread, label %.preheader.i40, !llvm.loop !26
 
-_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit:          ; preds = %.preheader34.i35, %.preheader.i40
+_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit:          ; preds = %.preheader29.i35, %.preheader.i40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false)
   tail call void @_ZdaPv(ptr noundef %75) #23
@@ -2465,15 +2465,15 @@ _Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit.thread:   ; preds = %_Z14EpsilonCompareI
   %146 = load float, ptr %145, align 8
   %147 = fcmp ueq float %146, 0.000000e+00
   %148 = add i32 %140, -1
-  %wide.trip.count43.i44 = zext i32 %148 to i64
-  br i1 %147, label %.preheader.i51, label %.preheader34.i45
+  %wide.trip.count38.i44 = zext i32 %148 to i64
+  br i1 %147, label %.preheader.i51, label %.preheader29.i45
 
-.preheader34.i45:                                 ; preds = %142, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i50
+.preheader29.i45:                                 ; preds = %142, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i50
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i48, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i50 ], [ 0, %142 ]
-  %exitcond.not.i47 = icmp eq i64 %indvars.iv.i46, %wide.trip.count43.i44
+  %exitcond.not.i47 = icmp eq i64 %indvars.iv.i46, %wide.trip.count38.i44
   br i1 %exitcond.not.i47, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56, label %149
 
-149:                                              ; preds = %.preheader34.i45
+149:                                              ; preds = %.preheader29.i45
   %150 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %144, i64 %indvars.iv.i46
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
   %151 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %144, i64 %indvars.iv.next.i48
@@ -2504,17 +2504,17 @@ _Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i50: ; preds = %159
   %171 = fsub float %168, %170
   %172 = tail call noundef float @llvm.fabs.f32(float %171)
   %173 = fcmp ogt float %172, %146
-  br i1 %173, label %.preheader34.i45, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56.thread, !llvm.loop !23
+  br i1 %173, label %.preheader29.i45, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56.thread, !llvm.loop !23
 
 .preheader.i51:                                   ; preds = %142, %_ZNK11aiVectorKeyneERKS_.exit.i55
-  %indvars.iv40.i52 = phi i64 [ %indvars.iv.next41.i54, %_ZNK11aiVectorKeyneERKS_.exit.i55 ], [ 0, %142 ]
-  %exitcond44.not.i53 = icmp eq i64 %indvars.iv40.i52, %wide.trip.count43.i44
-  br i1 %exitcond44.not.i53, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56, label %174
+  %indvars.iv35.i52 = phi i64 [ %indvars.iv.next36.i54, %_ZNK11aiVectorKeyneERKS_.exit.i55 ], [ 0, %142 ]
+  %exitcond39.not.i53 = icmp eq i64 %indvars.iv35.i52, %wide.trip.count38.i44
+  br i1 %exitcond39.not.i53, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56, label %174
 
 174:                                              ; preds = %.preheader.i51
-  %175 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %144, i64 %indvars.iv40.i52
-  %indvars.iv.next41.i54 = add nuw nsw i64 %indvars.iv40.i52, 1
-  %176 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %144, i64 %indvars.iv.next41.i54
+  %175 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %144, i64 %indvars.iv35.i52
+  %indvars.iv.next36.i54 = add nuw nsw i64 %indvars.iv35.i52, 1
+  %176 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %144, i64 %indvars.iv.next36.i54
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %179 = load float, ptr %177, align 4
@@ -2538,7 +2538,7 @@ _ZNK11aiVectorKeyneERKS_.exit.i55:                ; preds = %182
   %192 = fcmp une float %189, %191
   br i1 %192, label %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56.thread, label %.preheader.i51, !llvm.loop !24
 
-_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56:     ; preds = %.preheader34.i45, %.preheader.i51
+_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit56:     ; preds = %.preheader29.i45, %.preheader.i51
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %144, i64 24, i1 false)
   tail call void @_ZdaPv(ptr noundef %144) #23
@@ -2900,9 +2900,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2938,7 +2938,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -2966,10 +2966,10 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !40
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

@@ -2300,9 +2300,9 @@ define internal fastcc range(i64 1, 0) i64 @BITv05_initDStream(ptr noundef nonnu
   %68 = getelementptr i8, ptr %67, i64 -1
   %69 = load i8, ptr %68, align 1, !tbaa !27
   %70 = icmp eq i8 %69, 0
-  br i1 %70, label %78, label %.thread52
+  br i1 %70, label %78, label %.thread50
 
-.thread52:                                        ; preds = %66
+.thread50:                                        ; preds = %66
   %71 = zext i8 %69 to i32
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2313,8 +2313,8 @@ define internal fastcc range(i64 1, 0) i64 @BITv05_initDStream(ptr noundef nonnu
   store i32 %77, ptr %73, align 8, !tbaa !42
   br label %78
 
-78:                                               ; preds = %.thread, %.thread52, %66, %9, %5
-  %.0 = phi i64 [ -72, %5 ], [ -1, %9 ], [ -1, %66 ], [ %2, %.thread52 ], [ %2, %.thread ]
+78:                                               ; preds = %.thread, %.thread50, %66, %9, %5
+  %.0 = phi i64 [ -72, %5 ], [ -1, %9 ], [ -1, %66 ], [ %2, %.thread50 ], [ %2, %.thread ]
   ret i64 %.0
 }
 
@@ -2830,9 +2830,9 @@ define i64 @HUFv05_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %96 = getelementptr i8, ptr %22, i64 -1
   %97 = load i8, ptr %96, align 1, !tbaa !27
   %98 = icmp eq i8 %97, 0
-  br i1 %98, label %BITv05_initDStream.exit.thread, label %.thread52.i
+  br i1 %98, label %BITv05_initDStream.exit.thread, label %.thread50.i
 
-.thread52.i:                                      ; preds = %95
+.thread50.i:                                      ; preds = %95
   %99 = zext i8 %97 to i32
   %100 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %99, i1 true)
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2843,7 +2843,7 @@ define i64 @HUFv05_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   store i32 %104, ptr %101, align 8, !tbaa !42
   br label %105
 
-105:                                              ; preds = %.thread52.i, %.thread.i
+105:                                              ; preds = %.thread50.i, %.thread.i
   %106 = icmp eq i16 %.val148, 0
   br i1 %106, label %BITv05_initDStream.exit.thread, label %107
 
@@ -2945,9 +2945,9 @@ define i64 @HUFv05_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %166 = getelementptr i8, ptr %23, i64 -1
   %167 = load i8, ptr %166, align 1, !tbaa !27
   %168 = icmp eq i8 %167, 0
-  br i1 %168, label %BITv05_initDStream.exit.thread, label %.thread52.i150
+  br i1 %168, label %BITv05_initDStream.exit.thread, label %.thread50.i150
 
-.thread52.i150:                                   ; preds = %165
+.thread50.i150:                                   ; preds = %165
   %169 = zext i8 %167 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2958,7 +2958,7 @@ define i64 @HUFv05_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   store i32 %174, ptr %171, align 8, !tbaa !42
   br label %175
 
-175:                                              ; preds = %.thread52.i150, %.thread.i153
+175:                                              ; preds = %.thread50.i150, %.thread.i153
   %176 = icmp eq i16 %.val149, 0
   br i1 %176, label %BITv05_initDStream.exit.thread, label %177
 
@@ -3060,9 +3060,9 @@ define i64 @HUFv05_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %236 = getelementptr i8, ptr %24, i64 -1
   %237 = load i8, ptr %236, align 1, !tbaa !27
   %238 = icmp eq i8 %237, 0
-  br i1 %238, label %BITv05_initDStream.exit.thread, label %.thread52.i155
+  br i1 %238, label %BITv05_initDStream.exit.thread, label %.thread50.i155
 
-.thread52.i155:                                   ; preds = %235
+.thread50.i155:                                   ; preds = %235
   %239 = zext i8 %237 to i32
   %240 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %239, i1 true)
   %241 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3073,7 +3073,7 @@ define i64 @HUFv05_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   store i32 %244, ptr %241, align 8, !tbaa !42
   br label %245
 
-245:                                              ; preds = %.thread52.i155, %.thread.i158
+245:                                              ; preds = %.thread50.i155, %.thread.i158
   %246 = call fastcc i64 @BITv05_initDStream(ptr noundef %9, ptr noundef nonnull %24, i64 noundef %33)
   %247 = icmp ult i64 %246, -119
   br i1 %247, label %248, label %BITv05_initDStream.exit.thread
@@ -4749,9 +4749,9 @@ define i64 @HUFv05_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %95 = getelementptr i8, ptr %21, i64 -1
   %96 = load i8, ptr %95, align 1, !tbaa !27
   %97 = icmp eq i8 %96, 0
-  br i1 %97, label %BITv05_initDStream.exit.thread, label %.thread52.i
+  br i1 %97, label %BITv05_initDStream.exit.thread, label %.thread50.i
 
-.thread52.i:                                      ; preds = %94
+.thread50.i:                                      ; preds = %94
   %98 = zext i8 %96 to i32
   %99 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %98, i1 true)
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4762,7 +4762,7 @@ define i64 @HUFv05_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   store i32 %103, ptr %100, align 8, !tbaa !42
   br label %104
 
-104:                                              ; preds = %.thread52.i, %.thread.i
+104:                                              ; preds = %.thread50.i, %.thread.i
   %105 = icmp eq i16 %.val164, 0
   br i1 %105, label %BITv05_initDStream.exit.thread, label %106
 
@@ -4864,9 +4864,9 @@ define i64 @HUFv05_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %165 = getelementptr i8, ptr %22, i64 -1
   %166 = load i8, ptr %165, align 1, !tbaa !27
   %167 = icmp eq i8 %166, 0
-  br i1 %167, label %BITv05_initDStream.exit.thread, label %.thread52.i166
+  br i1 %167, label %BITv05_initDStream.exit.thread, label %.thread50.i166
 
-.thread52.i166:                                   ; preds = %164
+.thread50.i166:                                   ; preds = %164
   %168 = zext i8 %166 to i32
   %169 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %168, i1 true)
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4877,7 +4877,7 @@ define i64 @HUFv05_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   store i32 %173, ptr %170, align 8, !tbaa !42
   br label %174
 
-174:                                              ; preds = %.thread52.i166, %.thread.i169
+174:                                              ; preds = %.thread50.i166, %.thread.i169
   %175 = icmp eq i16 %.val, 0
   br i1 %175, label %BITv05_initDStream.exit.thread, label %176
 
@@ -4979,9 +4979,9 @@ define i64 @HUFv05_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %235 = getelementptr i8, ptr %23, i64 -1
   %236 = load i8, ptr %235, align 1, !tbaa !27
   %237 = icmp eq i8 %236, 0
-  br i1 %237, label %BITv05_initDStream.exit.thread, label %.thread52.i171
+  br i1 %237, label %BITv05_initDStream.exit.thread, label %.thread50.i171
 
-.thread52.i171:                                   ; preds = %234
+.thread50.i171:                                   ; preds = %234
   %238 = zext i8 %236 to i32
   %239 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %238, i1 true)
   %240 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4992,7 +4992,7 @@ define i64 @HUFv05_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   store i32 %243, ptr %240, align 8, !tbaa !42
   br label %244
 
-244:                                              ; preds = %.thread52.i171, %.thread.i174
+244:                                              ; preds = %.thread50.i171, %.thread.i174
   %245 = call fastcc i64 @BITv05_initDStream(ptr noundef %9, ptr noundef nonnull %23, i64 noundef %32)
   %246 = icmp ult i64 %245, -119
   br i1 %246, label %247, label %BITv05_initDStream.exit.thread

@@ -15275,9 +15275,9 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
 
 188:                                              ; preds = %186
   %189 = icmp samesign ult i32 %177, -614
-  br i1 %189, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread24.i.i
+  br i1 %189, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread22.i.i
 
-.thread24.i.i:                                    ; preds = %188
+.thread22.i.i:                                    ; preds = %188
   %190 = urem i64 %176, 10
   %191 = uitofp nneg i64 %190 to double
   %192 = sub nuw i64 %176, %190
@@ -15332,9 +15332,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
   %226 = fadd double %225, %224
   %227 = fdiv double %226, 0x7FAC7B1F3CAC7433
   %228 = icmp samesign ult i32 %209, -614
-  br i1 %228, label %.critedge, label %.thread24.i
+  br i1 %228, label %.critedge, label %.thread22.i
 
-.thread24.i:                                      ; preds = %221
+.thread22.i:                                      ; preds = %221
   %229 = zext nneg i32 %208 to i64
   %230 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %229
   %231 = getelementptr i8, ptr %230, i64 -2456
@@ -15350,8 +15350,8 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
   %239 = fdiv double %235, %238
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread.i.i, %.thread24.i.i, %201, %221, %212, %234, %.thread24.i, %.thread.i90
-  %.2108 = phi double [ 0x7FF8000000000000, %212 ], [ %227, %221 ], [ %239, %234 ], [ %218, %.thread.i90 ], [ %233, %.thread24.i ], [ %200, %.thread24.i.i ], [ %185, %.thread.i.i ], [ %207, %201 ]
+.critedge:                                        ; preds = %.thread.i.i, %.thread22.i.i, %201, %221, %212, %234, %.thread22.i, %.thread.i90
+  %.2108 = phi double [ 0x7FF8000000000000, %212 ], [ %227, %221 ], [ %239, %234 ], [ %218, %.thread.i90 ], [ %233, %.thread22.i ], [ %200, %.thread22.i.i ], [ %185, %.thread.i.i ], [ %207, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
 
@@ -15394,9 +15394,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   %259 = fadd double %258, %257
   %260 = fdiv double %259, 0x7FAC7B1F3CAC7433
   %261 = icmp samesign ult i32 %242, -614
-  br i1 %261, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96, label %.thread24.i94
+  br i1 %261, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96, label %.thread22.i94
 
-.thread24.i94:                                    ; preds = %254
+.thread22.i94:                                    ; preds = %254
   %262 = zext nneg i32 %240 to i64
   %263 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %262
   %264 = getelementptr i8, ptr %263, i64 -2456
@@ -15438,9 +15438,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 
 286:                                              ; preds = %284
   %287 = icmp samesign ult i32 %.050187196200, -614
-  br i1 %287, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit102, label %.thread24.i100
+  br i1 %287, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit102, label %.thread22.i100
 
-.thread24.i100:                                   ; preds = %286
+.thread22.i100:                                   ; preds = %286
   %288 = urem i64 %274, 10
   %289 = uitofp nneg i64 %288 to double
   %290 = sub nuw i64 %274, %288
@@ -15467,8 +15467,8 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   %307 = uitofp i64 %274 to double
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
 
-_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96: ; preds = %.thread.i101, %.thread24.i100, %299, %254, %245, %267, %.thread24.i94, %.thread.i95, %.critedge, %306
-  %.3 = phi double [ %.2108, %.critedge ], [ %307, %306 ], [ 0x7FF8000000000000, %245 ], [ %260, %254 ], [ %272, %267 ], [ %251, %.thread.i95 ], [ %266, %.thread24.i94 ], [ %298, %.thread24.i100 ], [ %283, %.thread.i101 ], [ %305, %299 ]
+_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96: ; preds = %.thread.i101, %.thread22.i100, %299, %254, %245, %267, %.thread22.i94, %.thread.i95, %.critedge, %306
+  %.3 = phi double [ %.2108, %.critedge ], [ %307, %306 ], [ 0x7FF8000000000000, %245 ], [ %260, %254 ], [ %272, %267 ], [ %251, %.thread.i95 ], [ %266, %.thread22.i94 ], [ %298, %.thread22.i100 ], [ %283, %.thread.i101 ], [ %305, %299 ]
   %308 = call double @llvm.fabs.f64(double %.3)
   %309 = fneg double %308
   %310 = select i1 %.0.i.i, double %309, double %.3
@@ -33903,9 +33903,9 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
 
 293:                                              ; preds = %291
   %294 = icmp samesign ult i32 %282, -614
-  br i1 %294, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread24.i.i
+  br i1 %294, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread22.i.i
 
-.thread24.i.i:                                    ; preds = %293
+.thread22.i.i:                                    ; preds = %293
   %295 = urem i64 %281, 10
   %296 = uitofp nneg i64 %295 to double
   %297 = sub nuw i64 %281, %295
@@ -33960,9 +33960,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
   %331 = fadd double %330, %329
   %332 = fdiv double %331, 0x7FAC7B1F3CAC7433
   %333 = icmp samesign ult i32 %314, -614
-  br i1 %333, label %.critedge, label %.thread24.i
+  br i1 %333, label %.critedge, label %.thread22.i
 
-.thread24.i:                                      ; preds = %326
+.thread22.i:                                      ; preds = %326
   %334 = zext nneg i32 %313 to i64
   %335 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %334
   %336 = getelementptr i8, ptr %335, i64 -2456
@@ -33978,8 +33978,8 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
   %344 = fdiv double %340, %343
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread.i.i, %.thread24.i.i, %306, %326, %317, %339, %.thread24.i, %.thread.i90
-  %.2111 = phi double [ 0x7FF8000000000000, %317 ], [ %332, %326 ], [ %344, %339 ], [ %323, %.thread.i90 ], [ %338, %.thread24.i ], [ %305, %.thread24.i.i ], [ %290, %.thread.i.i ], [ %312, %306 ]
+.critedge:                                        ; preds = %.thread.i.i, %.thread22.i.i, %306, %326, %317, %339, %.thread22.i, %.thread.i90
+  %.2111 = phi double [ 0x7FF8000000000000, %317 ], [ %332, %326 ], [ %344, %339 ], [ %323, %.thread.i90 ], [ %338, %.thread22.i ], [ %305, %.thread22.i.i ], [ %290, %.thread.i.i ], [ %312, %306 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
 
@@ -34022,9 +34022,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   %364 = fadd double %363, %362
   %365 = fdiv double %364, 0x7FAC7B1F3CAC7433
   %366 = icmp samesign ult i32 %347, -614
-  br i1 %366, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96, label %.thread24.i94
+  br i1 %366, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96, label %.thread22.i94
 
-.thread24.i94:                                    ; preds = %359
+.thread22.i94:                                    ; preds = %359
   %367 = zext nneg i32 %345 to i64
   %368 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %367
   %369 = getelementptr i8, ptr %368, i64 -2456
@@ -34066,9 +34066,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 
 391:                                              ; preds = %389
   %392 = icmp samesign ult i32 %.050263276283, -614
-  br i1 %392, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit102, label %.thread24.i100
+  br i1 %392, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit102, label %.thread22.i100
 
-.thread24.i100:                                   ; preds = %391
+.thread22.i100:                                   ; preds = %391
   %393 = urem i64 %379, 10
   %394 = uitofp nneg i64 %393 to double
   %395 = sub nuw i64 %379, %393
@@ -34095,8 +34095,8 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   %412 = uitofp i64 %379 to double
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
 
-_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96: ; preds = %.thread.i101, %.thread24.i100, %404, %359, %350, %372, %.thread24.i94, %.thread.i95, %.critedge, %411
-  %.3 = phi double [ %.2111, %.critedge ], [ %412, %411 ], [ 0x7FF8000000000000, %350 ], [ %365, %359 ], [ %377, %372 ], [ %356, %.thread.i95 ], [ %371, %.thread24.i94 ], [ %403, %.thread24.i100 ], [ %388, %.thread.i101 ], [ %410, %404 ]
+_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96: ; preds = %.thread.i101, %.thread22.i100, %404, %359, %350, %372, %.thread22.i94, %.thread.i95, %.critedge, %411
+  %.3 = phi double [ %.2111, %.critedge ], [ %412, %411 ], [ 0x7FF8000000000000, %350 ], [ %365, %359 ], [ %377, %372 ], [ %356, %.thread.i95 ], [ %371, %.thread22.i94 ], [ %403, %.thread22.i100 ], [ %388, %.thread.i101 ], [ %410, %404 ]
   %413 = call double @llvm.fabs.f64(double %.3)
   %414 = fneg double %413
   %415 = select i1 %.0.i.i, double %414, double %.3

@@ -5519,17 +5519,17 @@ entry:
   br i1 %spec.select.i, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp56.not = icmp eq i64 %count, 0
-  br i1 %cmp56.not, label %for.end, label %for.body
+  %cmp54.not = icmp eq i64 %count, 0
+  br i1 %cmp54.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.058 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %msg_size.057 = phi i64 [ %add, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %struct.uv_buf_t, ptr %bufs_ptr, i64 %i.058
+  %i.056 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %msg_size.055 = phi i64 [ %add, %for.body ], [ 0, %for.cond.preheader ]
+  %arrayidx = getelementptr inbounds %struct.uv_buf_t, ptr %bufs_ptr, i64 %i.056
   %len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %len, align 8
-  %add = add i64 %2, %msg_size.057
-  %inc = add nuw i64 %i.058, 1
+  %add = add i64 %2, %msg_size.055
+  %inc = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -5656,21 +5656,21 @@ if.else:                                          ; preds = %if.then6
 
 if.then12:                                        ; preds = %if.else
   %conv13 = zext nneg i32 %call7 to i64
-  br i1 %cmp56.not, label %do.body33, label %land.rhs
+  br i1 %cmp54.not, label %do.body33, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then12, %while.body
-  %sent.062 = phi i64 [ %sub, %while.body ], [ %conv13, %if.then12 ]
-  %bufs_ptr.addr.161 = phi ptr [ %incdec.ptr, %while.body ], [ %bufs_ptr, %if.then12 ]
-  %count.addr.160 = phi i64 [ %dec, %while.body ], [ %count, %if.then12 ]
-  %len15 = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.161, i64 8
+  %sent.060 = phi i64 [ %sub, %while.body ], [ %conv13, %if.then12 ]
+  %bufs_ptr.addr.159 = phi ptr [ %incdec.ptr, %while.body ], [ %bufs_ptr, %if.then12 ]
+  %count.addr.158 = phi i64 [ %dec, %while.body ], [ %count, %if.then12 ]
+  %len15 = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.159, i64 8
   %22 = load i64, ptr %len15, align 8
-  %cmp16.not = icmp ugt i64 %22, %sent.062
+  %cmp16.not = icmp ugt i64 %22, %sent.060
   br i1 %cmp16.not, label %if.end49, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub = sub nuw nsw i64 %sent.062, %22
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.161, i64 16
-  %dec = add i64 %count.addr.160, -1
+  %sub = sub nuw nsw i64 %sent.060, %22
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.159, i64 16
+  %dec = add i64 %count.addr.158, -1
   %cmp14.not = icmp eq i64 %dec, 0
   br i1 %cmp14.not, label %do.body33, label %land.rhs, !llvm.loop !11
 
@@ -5688,18 +5688,18 @@ do.end44:                                         ; preds = %do.body33
   br label %return
 
 if.end49:                                         ; preds = %land.rhs
-  %len15.le = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.161, i64 8
-  %23 = load ptr, ptr %bufs_ptr.addr.161, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %23, i64 %sent.062
-  store ptr %add.ptr, ptr %bufs_ptr.addr.161, align 8
-  %sub31 = sub nuw i64 %22, %sent.062
+  %len15.le = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.159, i64 8
+  %23 = load ptr, ptr %bufs_ptr.addr.159, align 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %23, i64 %sent.060
+  store ptr %add.ptr, ptr %bufs_ptr.addr.159, align 8
+  %sub31 = sub nuw i64 %22, %sent.060
   store i64 %sub31, ptr %len15.le, align 8
   %cmp50 = icmp eq i32 %call7, 0
   br i1 %cmp50, label %if.then51, label %if.end67
 
 if.then51:                                        ; preds = %if.end8.sink.split.i.i.i.i, %_ZN4node11Environment7optionsEv.exit, %if.then6, %if.then6, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit, %if.end49
-  %bufs_ptr.addr.043 = phi ptr [ %bufs_ptr.addr.161, %if.end49 ], [ %bufs_ptr, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %_ZN4node11Environment7optionsEv.exit ], [ %bufs_ptr, %if.end8.sink.split.i.i.i.i ]
-  %count.addr.042 = phi i64 [ %count.addr.160, %if.end49 ], [ %count, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %count, %if.then6 ], [ %count, %if.then6 ], [ %count, %_ZN4node11Environment7optionsEv.exit ], [ %count, %if.end8.sink.split.i.i.i.i ]
+  %bufs_ptr.addr.043 = phi ptr [ %bufs_ptr.addr.159, %if.end49 ], [ %bufs_ptr, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %_ZN4node11Environment7optionsEv.exit ], [ %bufs_ptr, %if.end8.sink.split.i.i.i.i ]
+  %count.addr.042 = phi i64 [ %count.addr.158, %if.end49 ], [ %count, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %count, %if.then6 ], [ %count, %if.then6 ], [ %count, %_ZN4node11Environment7optionsEv.exit ], [ %count, %if.end8.sink.split.i.i.i.i ]
   call void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeC1EPNS_9AsyncWrapE(ptr noundef nonnull align 8 dereferenceable(16) %trigger_scope, ptr noundef nonnull %this) #20
   %listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %24 = load ptr, ptr %listener_.i, align 8

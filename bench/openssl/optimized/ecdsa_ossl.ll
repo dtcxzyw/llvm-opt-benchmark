@@ -303,7 +303,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   %53 = sext i32 %5 to i64
   br i1 %.not96, label %.split.us.us, label %.preheader.split
 
-54:                                               ; preds = %.split120.us.us
+54:                                               ; preds = %.split119.us.us
   %55 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %34, ptr noundef null, ptr noundef nonnull %.078) #4
   %.not100.us = icmp eq i32 %55, 0
   br i1 %.not100.us, label %.sink.split, label %56
@@ -316,7 +316,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
 58:                                               ; preds = %56
   %59 = tail call i32 @BN_is_zero(ptr noundef nonnull %33) #4
   %.not102.us = icmp eq i32 %59, 0
-  br i1 %.not102.us, label %.split129.us, label %.split.us.us.backedge
+  br i1 %.not102.us, label %.split128.us, label %.split.us.us.backedge
 
 .split.us.us:                                     ; preds = %.preheader, %.split.us.us.backedge
   %60 = tail call i32 @ossl_bn_priv_rand_range_fixed_top(ptr noundef nonnull %32, ptr noundef nonnull %42, i32 noundef 0, ptr noundef nonnull %.078) #4
@@ -326,12 +326,12 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
 61:                                               ; preds = %.split.us.us
   %62 = tail call i32 @ossl_bn_is_word_fixed_top(ptr noundef nonnull %32, i64 noundef 0) #4
   %.not98.us.us = icmp eq i32 %62, 0
-  br i1 %.not98.us.us, label %.split120.us.us, label %.split.us.us.backedge
+  br i1 %.not98.us.us, label %.split119.us.us, label %.split.us.us.backedge
 
 .split.us.us.backedge:                            ; preds = %61, %58
   br label %.split.us.us, !llvm.loop !32
 
-.split120.us.us:                                  ; preds = %61
+.split119.us.us:                                  ; preds = %61
   %63 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %32, ptr noundef null, ptr noundef null, ptr noundef nonnull %.078) #4
   %.not99.us = icmp eq i32 %63, 0
   br i1 %.not99.us, label %.sink.split, label %54
@@ -340,38 +340,38 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   %64 = icmp eq i32 %6, 1
   br i1 %64, label %.split.us, label %.split
 
-65:                                               ; preds = %.split120.split.us.us
+65:                                               ; preds = %.split119.split.us.us
   %66 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %34, ptr noundef null, ptr noundef nonnull %.078) #4
-  %.not100.us132 = icmp eq i32 %66, 0
-  br i1 %.not100.us132, label %.sink.split, label %67
+  %.not100.us131 = icmp eq i32 %66, 0
+  br i1 %.not100.us131, label %.sink.split, label %67
 
 67:                                               ; preds = %65
   %68 = tail call i32 @BN_nnmod(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %42, ptr noundef nonnull %.078) #4
-  %.not101.us133 = icmp eq i32 %68, 0
-  br i1 %.not101.us133, label %.sink.split, label %69
+  %.not101.us132 = icmp eq i32 %68, 0
+  br i1 %.not101.us132, label %.sink.split, label %69
 
 69:                                               ; preds = %67
   %70 = tail call i32 @BN_is_zero(ptr noundef nonnull %33) #4
-  %.not102.us134 = icmp eq i32 %70, 0
-  br i1 %.not102.us134, label %.split129.us, label %.split.us.backedge
+  %.not102.us133 = icmp eq i32 %70, 0
+  br i1 %.not102.us133, label %.split128.us, label %.split.us.backedge
 
 .split.us:                                        ; preds = %.preheader.split, %.split.us.backedge
   %71 = tail call i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef nonnull %32, ptr noundef nonnull %42, ptr noundef nonnull %17, ptr noundef nonnull %4, i64 noundef %53, ptr noundef %7, ptr noundef %8, ptr noundef %9) #4
-  %.not97.us122.us = icmp eq i32 %71, 0
-  br i1 %.not97.us122.us, label %.sink.split, label %72
+  %.not97.us121.us = icmp eq i32 %71, 0
+  br i1 %.not97.us121.us, label %.sink.split, label %72
 
 72:                                               ; preds = %.split.us
   %73 = tail call i32 @ossl_bn_is_word_fixed_top(ptr noundef nonnull %32, i64 noundef 0) #4
-  %.not98.us123.us = icmp eq i32 %73, 0
-  br i1 %.not98.us123.us, label %.split120.split.us.us, label %.split.us.backedge
+  %.not98.us122.us = icmp eq i32 %73, 0
+  br i1 %.not98.us122.us, label %.split119.split.us.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %72, %69
   br label %.split.us, !llvm.loop !32
 
-.split120.split.us.us:                            ; preds = %72
+.split119.split.us.us:                            ; preds = %72
   %74 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %32, ptr noundef null, ptr noundef null, ptr noundef nonnull %.078) #4
-  %.not99.us135 = icmp eq i32 %74, 0
-  br i1 %.not99.us135, label %.sink.split, label %65
+  %.not99.us134 = icmp eq i32 %74, 0
+  br i1 %.not99.us134, label %.sink.split, label %65
 
 .split:                                           ; preds = %.preheader.split, %.split.backedge
   %75 = tail call i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef nonnull %32, ptr noundef nonnull %42, ptr noundef nonnull %17, ptr noundef nonnull %4, i64 noundef %53, ptr noundef nonnull %.078) #4
@@ -381,17 +381,17 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
 76:                                               ; preds = %.split
   %77 = tail call i32 @ossl_bn_is_word_fixed_top(ptr noundef nonnull %32, i64 noundef 0) #4
   %.not98 = icmp eq i32 %77, 0
-  br i1 %.not98, label %.split120.split, label %.split.backedge
+  br i1 %.not98, label %.split119.split, label %.split.backedge
 
 .split.backedge:                                  ; preds = %76, %83
   br label %.split, !llvm.loop !32
 
-.split120.split:                                  ; preds = %76
+.split119.split:                                  ; preds = %76
   %78 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %32, ptr noundef null, ptr noundef null, ptr noundef nonnull %.078) #4
   %.not99 = icmp eq i32 %78, 0
   br i1 %.not99, label %.sink.split, label %79
 
-79:                                               ; preds = %.split120.split
+79:                                               ; preds = %.split119.split
   %80 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %34, ptr noundef null, ptr noundef nonnull %.078) #4
   %.not100 = icmp eq i32 %80, 0
   br i1 %.not100, label %.sink.split, label %81
@@ -404,14 +404,14 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
 83:                                               ; preds = %81
   %84 = tail call i32 @BN_is_zero(ptr noundef nonnull %33) #4
   %.not102 = icmp eq i32 %84, 0
-  br i1 %.not102, label %.split129.us, label %.split.backedge
+  br i1 %.not102, label %.split128.us, label %.split.backedge
 
-.split129.us:                                     ; preds = %83, %69, %58
+.split128.us:                                     ; preds = %83, %69, %58
   %85 = tail call i32 @ossl_ec_group_do_inverse_ord(ptr noundef nonnull %13, ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %.078) #4
   %.not103 = icmp eq i32 %85, 0
   br i1 %.not103, label %.sink.split, label %86
 
-86:                                               ; preds = %.split129.us
+86:                                               ; preds = %.split128.us
   %87 = load ptr, ptr %3, align 8, !tbaa !30
   tail call void @BN_clear_free(ptr noundef %87) #4
   %88 = load ptr, ptr %2, align 8, !tbaa !30
@@ -420,12 +420,12 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   store ptr %32, ptr %2, align 8, !tbaa !30
   br label %90
 
-.sink.split:                                      ; preds = %81, %79, %.split120.split, %.split, %67, %65, %.split120.split.us.us, %.split.us, %56, %54, %.split120.us.us, %.split.us.us, %.split129.us, %41, %38, %31
-  %.sink167 = phi i32 [ 172, %31 ], [ 176, %38 ], [ 181, %41 ], [ 240, %.split129.us ], [ 223, %.split120.us.us ], [ 228, %54 ], [ 233, %56 ], [ 216, %.split.us.us ], [ 223, %.split120.split.us.us ], [ 228, %65 ], [ 233, %67 ], [ 216, %.split.us ], [ 223, %.split120.split ], [ 228, %79 ], [ 233, %81 ], [ 216, %.split ]
-  %.sink = phi i32 [ 524291, %31 ], [ 524304, %38 ], [ 524304, %41 ], [ 524291, %.split129.us ], [ 524304, %.split120.us.us ], [ 524304, %54 ], [ 524291, %56 ], [ 158, %.split.us.us ], [ 524304, %.split120.split.us.us ], [ 524304, %65 ], [ 524291, %67 ], [ 158, %.split.us ], [ 524304, %.split120.split ], [ 524304, %79 ], [ 524291, %81 ], [ 158, %.split ]
-  %.080.ph.ph = phi ptr [ null, %31 ], [ null, %38 ], [ %39, %41 ], [ %39, %.split129.us ], [ %39, %.split.us.us ], [ %39, %.split120.us.us ], [ %39, %54 ], [ %39, %56 ], [ %39, %.split.us ], [ %39, %.split120.split.us.us ], [ %39, %65 ], [ %39, %67 ], [ %39, %.split ], [ %39, %.split120.split ], [ %39, %79 ], [ %39, %81 ]
+.sink.split:                                      ; preds = %81, %79, %.split119.split, %.split, %67, %65, %.split119.split.us.us, %.split.us, %56, %54, %.split119.us.us, %.split.us.us, %.split128.us, %41, %38, %31
+  %.sink166 = phi i32 [ 172, %31 ], [ 176, %38 ], [ 181, %41 ], [ 240, %.split128.us ], [ 223, %.split119.us.us ], [ 228, %54 ], [ 233, %56 ], [ 216, %.split.us.us ], [ 223, %.split119.split.us.us ], [ 228, %65 ], [ 233, %67 ], [ 216, %.split.us ], [ 223, %.split119.split ], [ 228, %79 ], [ 233, %81 ], [ 216, %.split ]
+  %.sink = phi i32 [ 524291, %31 ], [ 524304, %38 ], [ 524304, %41 ], [ 524291, %.split128.us ], [ 524304, %.split119.us.us ], [ 524304, %54 ], [ 524291, %56 ], [ 158, %.split.us.us ], [ 524304, %.split119.split.us.us ], [ 524304, %65 ], [ 524291, %67 ], [ 158, %.split.us ], [ 524304, %.split119.split ], [ 524304, %79 ], [ 524291, %81 ], [ 158, %.split ]
+  %.080.ph.ph = phi ptr [ null, %31 ], [ null, %38 ], [ %39, %41 ], [ %39, %.split128.us ], [ %39, %.split.us.us ], [ %39, %.split119.us.us ], [ %39, %54 ], [ %39, %56 ], [ %39, %.split.us ], [ %39, %.split119.split.us.us ], [ %39, %65 ], [ %39, %67 ], [ %39, %.split ], [ %39, %.split119.split ], [ %39, %79 ], [ %39, %81 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink167, ptr noundef nonnull @__func__.ecdsa_sign_setup) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink166, ptr noundef nonnull @__func__.ecdsa_sign_setup) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #4
   br label %89
 
@@ -436,8 +436,8 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br label %90
 
 90:                                               ; preds = %86, %89
-  %.079115 = phi i32 [ 0, %89 ], [ 1, %86 ]
-  %.080113 = phi ptr [ %.080.ph, %89 ], [ %39, %86 ]
+  %.079114 = phi i32 [ 0, %89 ], [ 1, %86 ]
+  %.080112 = phi ptr [ %.080.ph, %89 ], [ %39, %86 ]
   %.not105 = icmp eq ptr %.078, %1
   br i1 %.not105, label %92, label %91
 
@@ -446,12 +446,12 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br label %92
 
 92:                                               ; preds = %91, %90
-  tail call void @EC_POINT_free(ptr noundef %.080113) #4
+  tail call void @EC_POINT_free(ptr noundef %.080112) #4
   tail call void @BN_clear_free(ptr noundef %34) #4
   br label %93
 
 93:                                               ; preds = %92, %30, %22, %19, %15
-  %.077 = phi i32 [ 0, %15 ], [ 0, %19 ], [ 0, %30 ], [ %.079115, %92 ], [ 0, %22 ]
+  %.077 = phi i32 [ 0, %15 ], [ 0, %19 ], [ 0, %30 ], [ %.079114, %92 ], [ 0, %22 ]
   ret i32 %.077
 }
 

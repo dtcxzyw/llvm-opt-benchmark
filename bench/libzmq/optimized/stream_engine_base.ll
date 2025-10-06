@@ -2792,7 +2792,7 @@ define noundef zeroext i1 @_ZN3zmq20stream_engine_base_t17in_event_internalEv(pt
 82:                                               ; preds = %115, %79
   %83 = load i64, ptr %51, align 8, !tbaa !143
   %.not18 = icmp eq i64 %83, 0
-  br i1 %.not18, label %.thread31, label %84
+  br i1 %.not18, label %.thread30, label %84
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr %36, align 8, !tbaa !134
@@ -2813,11 +2813,11 @@ define noundef zeroext i1 @_ZN3zmq20stream_engine_base_t17in_event_internalEv(pt
   %97 = call i32 @fflush(ptr noundef %96)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.9)
   %.pre = load i64, ptr %3, align 8, !tbaa !96
-  %.pre36 = load i64, ptr %51, align 8, !tbaa !143
+  %.pre35 = load i64, ptr %51, align 8, !tbaa !143
   br label %98
 
 98:                                               ; preds = %93, %84
-  %99 = phi i64 [ %.pre36, %93 ], [ %92, %84 ]
+  %99 = phi i64 [ %.pre35, %93 ], [ %92, %84 ]
   %100 = phi i64 [ %.pre, %93 ], [ %91, %84 ]
   %101 = load ptr, ptr %80, align 8, !tbaa !144
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %100
@@ -2856,19 +2856,19 @@ define noundef zeroext i1 @_ZN3zmq20stream_engine_base_t17in_event_internalEv(pt
   %121 = call noundef ptr %120(ptr noundef nonnull align 8 dereferenceable(8) %117)
   %122 = call noundef i32 %116(ptr noundef nonnull align 8 dereferenceable(1689) %106, ptr noundef %121)
   %123 = icmp eq i32 %122, -1
-  br i1 %123, label %.thread29, label %82, !llvm.loop !146
+  br i1 %123, label %.thread28, label %82, !llvm.loop !146
 
 124:                                              ; preds = %98
   %125 = icmp eq i32 %90, -1
-  br i1 %125, label %.thread29, label %.thread31
+  br i1 %125, label %.thread28, label %.thread30
 
-.thread29:                                        ; preds = %115, %124
+.thread28:                                        ; preds = %115, %124
   %126 = tail call ptr @__errno_location() #29
   %127 = load i32, ptr %126, align 4, !tbaa !19
   %.not23 = icmp eq i32 %127, 11
   br i1 %.not23, label %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread, label %128
 
-128:                                              ; preds = %.thread29
+128:                                              ; preds = %.thread28
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1472
@@ -2876,7 +2876,7 @@ define noundef zeroext i1 @_ZN3zmq20stream_engine_base_t17in_event_internalEv(pt
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %134 = load i64, ptr %133, align 8, !tbaa !14
   %135 = icmp eq i64 %132, %134
-  br i1 %135, label %136, label %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread33
+  br i1 %135, label %136, label %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread32
 
 136:                                              ; preds = %128
   %137 = icmp eq i64 %132, 0
@@ -2887,30 +2887,30 @@ _ZNK3zmq19endpoint_uri_pair_t5clashEv.exit:       ; preds = %136
   %139 = load ptr, ptr %129, align 8, !tbaa !18
   %bcmp.i.i = call i32 @bcmp(ptr %139, ptr %138, i64 %132)
   %140 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %140, label %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread, label %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread33
+  br i1 %140, label %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread, label %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread32
 
-_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread33: ; preds = %128, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit
+_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread32: ; preds = %128, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit
   %141 = load ptr, ptr %0, align 8, !tbaa !3
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 96
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(1689) %0, i32 noundef 0)
   br label %148
 
-_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread: ; preds = %136, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit, %.thread29
+_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread: ; preds = %136, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit, %.thread28
   store i8 1, ptr %44, align 8, !tbaa !142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %145 = load ptr, ptr %144, align 8, !tbaa !87
   call void @_ZN3zmq11io_object_t12reset_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %145)
-  br label %.thread31
+  br label %.thread30
 
-.thread31:                                        ; preds = %82, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread, %124
+.thread30:                                        ; preds = %82, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread, %124
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %147 = load ptr, ptr %146, align 8, !tbaa !136
   call void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull align 8 dereferenceable(1624) %147)
   br label %148
 
-148:                                              ; preds = %.thread31, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread33
-  %.2 = phi i1 [ true, %.thread31 ], [ false, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread33 ]
+148:                                              ; preds = %.thread30, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread32
+  %.2 = phi i1 [ true, %.thread30 ], [ false, %_ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %149
 
@@ -3271,8 +3271,8 @@ define noundef zeroext i1 @_ZN3zmq20stream_engine_base_t13restart_inputEv(ptr no
 .preheader:                                       ; preds = %38
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %48 = load i64, ptr %47, align 8, !tbaa !143
-  %.not1833 = icmp eq i64 %48, 0
-  br i1 %.not1833, label %.thread28, label %.lr.ph
+  %.not1832 = icmp eq i64 %48, 0
+  br i1 %.not1832, label %.thread27, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1360
@@ -3318,11 +3318,11 @@ define noundef zeroext i1 @_ZN3zmq20stream_engine_base_t13restart_inputEv(ptr no
   %74 = call i32 @fflush(ptr noundef %73)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.9)
   %.pre = load i64, ptr %2, align 8, !tbaa !96
-  %.pre36 = load i64, ptr %47, align 8, !tbaa !143
+  %.pre35 = load i64, ptr %47, align 8, !tbaa !143
   br label %75
 
 75:                                               ; preds = %70, %60
-  %76 = phi i64 [ %.pre36, %70 ], [ %69, %60 ]
+  %76 = phi i64 [ %.pre35, %70 ], [ %69, %60 ]
   %77 = phi i64 [ %.pre, %70 ], [ %68, %60 ]
   %78 = load ptr, ptr %49, align 8, !tbaa !144
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 %77
@@ -3362,56 +3362,56 @@ define noundef zeroext i1 @_ZN3zmq20stream_engine_base_t13restart_inputEv(ptr no
   %99 = call noundef i32 %93(ptr noundef nonnull align 8 dereferenceable(1689) %83, ptr noundef %98)
   %100 = icmp eq i32 %99, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %100, label %.thread30, label %101
+  br i1 %100, label %.thread29, label %101
 
 101:                                              ; preds = %92
   %102 = load i64, ptr %47, align 8, !tbaa !143
   %.not18 = icmp eq i64 %102, 0
-  br i1 %.not18, label %.thread28, label %60
+  br i1 %.not18, label %.thread27, label %60
 
 103:                                              ; preds = %75
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %104 = icmp eq i32 %67, -1
-  br i1 %104, label %.thread30, label %.thread28
+  br i1 %104, label %.thread29, label %.thread27
 
-.thread30:                                        ; preds = %92, %103
+.thread29:                                        ; preds = %92, %103
   %105 = tail call ptr @__errno_location() #29
   %106 = load i32, ptr %105, align 4, !tbaa !19
   %107 = icmp eq i32 %106, 11
-  br i1 %107, label %108, label %.thread28.thread
+  br i1 %107, label %108, label %.thread27.thread
 
-108:                                              ; preds = %.thread30
+108:                                              ; preds = %.thread29
   %109 = load ptr, ptr %12, align 8, !tbaa !136
   call void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull align 8 dereferenceable(1624) %109)
   br label %129
 
-.thread28:                                        ; preds = %101, %.preheader, %103
+.thread27:                                        ; preds = %101, %.preheader, %103
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %111 = load i8, ptr %110, align 8, !tbaa !90, !range !123, !noundef !124
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %116, label %124
 
-.thread28.thread:                                 ; preds = %.thread30
+.thread27.thread:                                 ; preds = %.thread29
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %114 = load i8, ptr %113, align 8, !tbaa !90, !range !123, !noundef !124
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %120
 
-116:                                              ; preds = %.thread28.thread, %.thread28
+116:                                              ; preds = %.thread27.thread, %.thread27
   %117 = load ptr, ptr %0, align 8, !tbaa !3
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 96
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull align 8 dereferenceable(1689) %0, i32 noundef 1)
   br label %130
 
-120:                                              ; preds = %.thread28.thread
+120:                                              ; preds = %.thread27.thread
   %121 = load ptr, ptr %0, align 8, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 96
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(1689) %0, i32 noundef 0)
   br label %130
 
-124:                                              ; preds = %.thread28
+124:                                              ; preds = %.thread27
   store i8 0, ptr %3, align 8, !tbaa !142
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %126 = load ptr, ptr %125, align 8, !tbaa !87

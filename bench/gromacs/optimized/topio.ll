@@ -860,32 +860,32 @@ define internal fastcc void @_ZL37describeAtomsForRBDihedralOfGivenTypeB5cxx11RK
   %6 = load ptr, ptr %5, align 8, !tbaa !67
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = load ptr, ptr %7, align 8, !tbaa !67
-  %.not4854 = icmp eq ptr %6, %8
-  br i1 %.not4854, label %._crit_edge58, label %.lr.ph57
+  %.not4652 = icmp eq ptr %6, %8
+  br i1 %.not4652, label %._crit_edge56, label %.lr.ph55
 
-.lr.ph57:                                         ; preds = %3
+.lr.ph55:                                         ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   br label %11
 
-11:                                               ; preds = %.lr.ph57, %._crit_edge
-  %.sroa.037.055 = phi ptr [ %6, %.lr.ph57 ], [ %34, %._crit_edge ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 560
+11:                                               ; preds = %.lr.ph55, %._crit_edge
+  %.sroa.037.053 = phi ptr [ %6, %.lr.ph55 ], [ %34, %._crit_edge ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.037.053, i64 560
   %13 = load ptr, ptr %12, align 8, !tbaa !62
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 568
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.037.053, i64 568
   %15 = load ptr, ptr %14, align 8, !tbaa !59
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %16, %17
   %19 = lshr exact i64 %18, 2
   %20 = trunc i64 %19 to i32
-  %.not3651 = icmp sgt i32 %20, 0
-  br i1 %.not3651, label %.lr.ph, label %._crit_edge
+  %.not3649 = icmp sgt i32 %20, 0
+  br i1 %.not3649, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %22
-  %.03253 = phi ptr [ %32, %22 ], [ %13, %11 ]
-  %.03452 = phi i32 [ %33, %22 ], [ 0, %11 ]
-  %21 = load i32, ptr %.03253, align 4, !tbaa !63
+  %.03251 = phi ptr [ %32, %22 ], [ %13, %11 ]
+  %.03450 = phi i32 [ %33, %22 ], [ 0, %11 ]
+  %21 = load i32, ptr %.03251, align 4, !tbaa !63
   %.not = icmp eq i32 %21, %2
   br i1 %.not, label %38, label %22
 
@@ -899,26 +899,26 @@ define internal fastcc void @_ZL37describeAtomsForRBDihedralOfGivenTypeB5cxx11RK
   %29 = load i32, ptr %28, align 16, !tbaa !68
   %30 = add nsw i32 %29, 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %.03253, i64 %31
-  %33 = add nsw i32 %30, %.03452
+  %32 = getelementptr inbounds i32, ptr %.03251, i64 %31
+  %33 = add nsw i32 %30, %.03450
   %.not36 = icmp slt i32 %33, %20
   br i1 %.not36, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %11
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.037.055, i64 2408
-  %.not48 = icmp eq ptr %34, %8
-  br i1 %.not48, label %._crit_edge58, label %11
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.037.053, i64 2408
+  %.not46 = icmp eq ptr %34, %8
+  br i1 %.not46, label %._crit_edge56, label %11
 
-._crit_edge58:                                    ; preds = %._crit_edge, %3
+._crit_edge56:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(129) @.str.13, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 244, ptr noundef nonnull @.str.14, i32 noundef %2) #30
           to label %35 unwind label %36
 
-35:                                               ; preds = %._crit_edge58
+35:                                               ; preds = %._crit_edge56
   unreachable
 
-36:                                               ; preds = %._crit_edge58
+36:                                               ; preds = %._crit_edge56
   %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #31
@@ -926,15 +926,15 @@ define internal fastcc void @_ZL37describeAtomsForRBDihedralOfGivenTypeB5cxx11RK
   resume { ptr, i32 } %37
 
 38:                                               ; preds = %.lr.ph
-  %39 = load ptr, ptr %.sroa.037.055, align 8, !tbaa !70
+  %39 = load ptr, ptr %.sroa.037.053, align 8, !tbaa !70
   %40 = load ptr, ptr %39, align 8, !tbaa !52
-  %41 = getelementptr inbounds nuw i8, ptr %.03253, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.03251, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !63
-  %43 = getelementptr inbounds nuw i8, ptr %.03253, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.03251, i64 8
   %44 = load i32, ptr %43, align 4, !tbaa !63
-  %45 = getelementptr inbounds nuw i8, ptr %.03253, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.03251, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !63
-  %47 = getelementptr inbounds nuw i8, ptr %.03253, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.03251, i64 16
   %48 = load i32, ptr %47, align 4, !tbaa !63
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.12, ptr noundef %40, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48)
   ret void

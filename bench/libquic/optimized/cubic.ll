@@ -134,17 +134,17 @@ define noundef i64 @_ZN3net5Cubic24CongestionWindowAfterAckEmNS_8QuicTime5DeltaE
   store i64 %12, ptr %26, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !20
-  %.not45 = icmp eq i64 %28, 0
-  br i1 %.not45, label %29, label %.critedge._crit_edge
+  %.not44 = icmp eq i64 %28, 0
+  br i1 %.not44, label %29, label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %.critedge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !21
-  %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre53 = load i64, ptr %.phi.trans.insert52, align 8, !tbaa !22
-  %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.promoted.pre = load i64, ptr %.phi.trans.insert54, align 8, !tbaa !23
-  %.promoted47.pre = load i64, ptr %5, align 8, !tbaa !16
+  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !22
+  %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.promoted.pre = load i64, ptr %.phi.trans.insert53, align 8, !tbaa !23
+  %.promoted46.pre = load i64, ptr %5, align 8, !tbaa !16
   br label %44
 
 29:                                               ; preds = %.critedge
@@ -177,9 +177,9 @@ define noundef i64 @_ZN3net5Cubic24CongestionWindowAfterAckEmNS_8QuicTime5DeltaE
   br label %44
 
 44:                                               ; preds = %.critedge._crit_edge, %36, %33
-  %.promoted47 = phi i64 [ %.promoted47.pre, %.critedge._crit_edge ], [ 1, %36 ], [ 1, %33 ]
-  %.pre58 = phi i64 [ %.promoted.pre, %.critedge._crit_edge ], [ %1, %36 ], [ %1, %33 ]
-  %45 = phi i64 [ %.pre53, %.critedge._crit_edge ], [ %32, %36 ], [ %1, %33 ]
+  %.promoted46 = phi i64 [ %.promoted46.pre, %.critedge._crit_edge ], [ 1, %36 ], [ 1, %33 ]
+  %.pre57 = phi i64 [ %.promoted.pre, %.critedge._crit_edge ], [ %1, %36 ], [ %1, %33 ]
+  %45 = phi i64 [ %.pre52, %.critedge._crit_edge ], [ %32, %36 ], [ %1, %33 ]
   %46 = phi i32 [ %.pre, %.critedge._crit_edge ], [ %41, %36 ], [ 0, %33 ]
   %.sroa.0.0.copyload = phi i64 [ %28, %.critedge._crit_edge ], [ %12, %36 ], [ %12, %33 ]
   %47 = add nsw i64 %12, %3
@@ -208,16 +208,16 @@ define noundef i64 @_ZN3net5Cubic24CongestionWindowAfterAckEmNS_8QuicTime5DeltaE
   %70 = fmul float %69, %68
   %71 = fadd float %65, 1.000000e+00
   %72 = fdiv float %70, %71
-  %73 = uitofp i64 %.pre58 to float
+  %73 = uitofp i64 %.pre57 to float
   %74 = fdiv float %73, %72
   %75 = fptoui float %74 to i64
-  %76 = icmp ult i64 %.promoted47, %75
-  br i1 %76, label %._crit_edge57, label %.lr.ph
+  %76 = icmp ult i64 %.promoted46, %75
+  br i1 %76, label %._crit_edge56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %.lr.ph
   %77 = phi i64 [ %84, %.lr.ph ], [ %75, %44 ]
-  %78 = phi i64 [ %81, %.lr.ph ], [ %.pre58, %44 ]
-  %79 = phi i64 [ %80, %.lr.ph ], [ %.promoted47, %44 ]
+  %78 = phi i64 [ %81, %.lr.ph ], [ %.pre57, %44 ]
+  %79 = phi i64 [ %80, %.lr.ph ], [ %.promoted46, %44 ]
   %80 = sub nuw i64 %79, %77
   %81 = add i64 %78, 1
   %82 = uitofp i64 %81 to float
@@ -229,17 +229,17 @@ define noundef i64 @_ZN3net5Cubic24CongestionWindowAfterAckEmNS_8QuicTime5DeltaE
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 %80, ptr %5, align 8, !tbaa !16
   store i64 %81, ptr %58, align 8, !tbaa !23
-  br label %._crit_edge57
+  br label %._crit_edge56
 
-._crit_edge57:                                    ; preds = %44, %._crit_edge
-  %86 = phi i64 [ %81, %._crit_edge ], [ %.pre58, %44 ]
+._crit_edge56:                                    ; preds = %44, %._crit_edge
+  %86 = phi i64 [ %81, %._crit_edge ], [ %.pre57, %44 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %57, ptr %87, align 8, !tbaa !13
   %spec.select = tail call i64 @llvm.umax.i64(i64 %57, i64 %86)
   br label %88
 
-88:                                               ; preds = %._crit_edge57, %20
-  %.0 = phi i64 [ %25, %20 ], [ %spec.select, %._crit_edge57 ]
+88:                                               ; preds = %._crit_edge56, %20
+  %.0 = phi i64 [ %25, %20 ], [ %spec.select, %._crit_edge56 ]
   ret i64 %.0
 }
 

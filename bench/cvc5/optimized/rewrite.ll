@@ -158,8 +158,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !221
   %9 = load ptr, ptr %6, align 8, !tbaa !224
-  %.not31 = icmp eq ptr %8, %9
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %8, %9
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = ptrtoint ptr %8 to i64
@@ -171,14 +171,14 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   br label %18
 
 16:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26
-  %17 = add nuw i64 %.02132, 1
+  %17 = add nuw i64 %.02128, 1
   %exitcond.not = icmp eq i64 %17, %13
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !225
 
 18:                                               ; preds = %.lr.ph, %16
-  %.02132 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
+  %.02128 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
   %19 = load ptr, ptr %6, align 8, !tbaa !224
-  %20 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %19, i64 %.02132
+  %20 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %19, i64 %.02128
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load ptr, ptr %20, align 8, !tbaa !227
   store ptr %21, ptr %4, align 8, !tbaa !230
@@ -216,7 +216,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %34, %28, %36
   %39 = icmp eq ptr %38, null
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %spec.select = select i1 %39, ptr null, ptr %40
-  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorENS0_7TrustIdE(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02132, ptr noundef nonnull %5, ptr noundef %spec.select, i32 noundef 68)
+  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorENS0_7TrustIdE(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02128, ptr noundef nonnull %5, ptr noundef %spec.select, i32 noundef 68)
           to label %41 unwind label %72
 
 41:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
@@ -297,8 +297,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26: ; preds = %_ZN4cvc58internal12
   resume { ptr, i32 } %.pn
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, %16, %2
-  %.not.lcssa = phi i32 [ 1, %2 ], [ 1, %16 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26 ]
-  ret i32 %.not.lcssa
+  %75 = phi i32 [ 1, %2 ], [ 1, %16 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26 ]
+  ret i32 %75
 }
 
 declare void @_ZNK4cvc58internal6EnvObj7rewriteENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0

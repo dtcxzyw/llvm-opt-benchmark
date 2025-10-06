@@ -3896,8 +3896,8 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit651: ; preds = 
   %1874 = load ptr, ptr %72, align 8, !tbaa !11
   %1875 = load i32, ptr %1245, align 8, !tbaa !14
   %1876 = zext i32 %1875 to i64
-  %.not13.not.i = icmp eq i32 %1875, 0
-  br i1 %.not13.not.i, label %_ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit670.thread, label %.lr.ph.i662
+  %.not15.not.i = icmp eq i32 %1875, 0
+  br i1 %.not15.not.i, label %_ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit670.thread, label %.lr.ph.i662
 
 .lr.ph.i662:                                      ; preds = %1873, %1884
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %1884 ], [ 0, %1873 ]
@@ -3987,7 +3987,7 @@ _ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.e
   br i1 %or.cond20, label %1915, label %_ZL18isOperandMentionedjN4llvm8ArrayRefIN5clang10GCCAsmStmt14AsmStringPieceEEE.exit681
 
 1915:                                             ; preds = %1914
-  br i1 %.not13.not.i, label %.loopexit, label %.lr.ph.i676
+  br i1 %.not15.not.i, label %.loopexit, label %.lr.ph.i676
 
 .lr.ph.i676:                                      ; preds = %1915, %1923
   %indvars.iv.i677 = phi i64 [ %indvars.iv.next.i678, %1923 ], [ 0, %1915 ]
@@ -5631,7 +5631,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
 59:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i
   %60 = add nsw i16 %55, -91
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i16 %60, -10
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %.thread61.i, label %61
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %.thread60.i, label %61
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -5659,30 +5659,30 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
   %78 = zext i32 %53 to i64
   %.idx.i = shl nuw nsw i64 %78, 3
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx.i
-  %.not3877.i = icmp eq i32 %53, 0
-  br i1 %.not3877.i, label %.thread61.i, label %.lr.ph.i
+  %.not3876.i = icmp eq i32 %53, 0
+  br i1 %.not3876.i, label %.thread60.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
-  %.02978.i = phi ptr [ %84, %.lr.ph.i ], [ %77, %71 ]
-  %80 = load ptr, ptr %.02978.i, align 8, !tbaa !1047
+  %.02977.i = phi ptr [ %84, %.lr.ph.i ], [ %77, %71 ]
+  %80 = load ptr, ptr %.02977.i, align 8, !tbaa !1047
   %81 = load i24, ptr %80, align 8
   %82 = and i24 %81, -1537
   %83 = or disjoint i24 %82, %76
   store i24 %83, ptr %80, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.02978.i, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.02977.i, i64 8
   %.not38.i = icmp eq ptr %84, %79
-  br i1 %.not38.i, label %.thread61.i, label %.lr.ph.i
+  br i1 %.not38.i, label %.thread60.i, label %.lr.ph.i
 
-.thread61.i:                                      ; preds = %59, %.lr.ph.i, %71
+.thread60.i:                                      ; preds = %59, %.lr.ph.i, %71
   %85 = load ptr, ptr %4, align 8, !tbaa !11
   %86 = icmp eq ptr %85, %38
   br i1 %86, label %_ZL24removeLValueToRValueCastPN5clang4ExprE.exit, label %87
 
-87:                                               ; preds = %.thread61.i
+87:                                               ; preds = %.thread60.i
   call void @free(ptr noundef %85) #21
   br label %_ZL24removeLValueToRValueCastPN5clang4ExprE.exit
 
-_ZL24removeLValueToRValueCastPN5clang4ExprE.exit: ; preds = %.thread61.i, %87
+_ZL24removeLValueToRValueCastPN5clang4ExprE.exit: ; preds = %.thread60.i, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5781,18 +5781,18 @@ _ZNK4llvm5APInt12isSignedIntNEj.exit:             ; preds = %26, %28, %35, %38, 
   br i1 %.not.i.i, label %_ZNK4llvm8SmallSetIiLj4ESt4lessIiEE5vfindERKi.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %50, %56
-  %.0914.i.i = phi ptr [ %57, %56 ], [ %51, %50 ]
-  %54 = load i32, ptr %.0914.i.i, align 4, !tbaa !693
+  %.0912.i.i = phi ptr [ %57, %56 ], [ %51, %50 ]
+  %54 = load i32, ptr %.0912.i.i, align 4, !tbaa !693
   %55 = icmp eq i32 %54, %49
   br i1 %55, label %_ZNK4llvm8SmallSetIiLj4ESt4lessIiEE5vfindERKi.exit.i, label %56
 
 56:                                               ; preds = %.lr.ph.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 4
   %.not.i.i7 = icmp eq ptr %57, %53
   br i1 %.not.i.i7, label %_ZNK4llvm8SmallSetIiLj4ESt4lessIiEE5vfindERKi.exit.i, label %.lr.ph.i.i, !llvm.loop !1181
 
 _ZNK4llvm8SmallSetIiLj4ESt4lessIiEE5vfindERKi.exit.i: ; preds = %56, %.lr.ph.i.i, %50
-  %.1.i.i = phi ptr [ %53, %50 ], [ %.0914.i.i, %.lr.ph.i.i ], [ %53, %56 ]
+  %.1.i.i = phi ptr [ %53, %50 ], [ %53, %56 ], [ %.0912.i.i, %.lr.ph.i.i ]
   %58 = getelementptr inbounds nuw i32, ptr %51, i64 %52
   %59 = icmp ne ptr %.1.i.i, %58
   br label %_ZNK4llvm8SmallSetIiLj4ESt4lessIiEE8containsERKi.exit
@@ -6504,8 +6504,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = icmp ne i8 %7, 13
-  %.not.not24 = icmp eq ptr %5, null
-  %.not.not = or i1 %.not.not24, %8
+  %.not.not21 = icmp eq ptr %5, null
+  %.not.not = or i1 %.not.not21, %8
   br i1 %.not.not, label %14, label %9
 
 9:                                                ; preds = %1
@@ -6518,7 +6518,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
 
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
-  %.not13.not = or i1 %.not.not24, %15
+  %.not13.not = or i1 %.not.not21, %15
   br i1 %.not13.not, label %29, label %16
 
 16:                                               ; preds = %14
@@ -6672,8 +6672,8 @@ define internal fastcc i32 @_ZL26getClobberConflictLocationN4llvm15MutableArrayR
   %38 = and i32 %37, 127
   %39 = add nsw i32 %38, -45
   %40 = icmp ult i32 %39, -7
-  %.not2033.i = icmp eq ptr %35, null
-  %.not20.i = or i1 %.not2033.i, %40
+  %.not2032.i = icmp eq ptr %35, null
+  %.not20.i = or i1 %.not2032.i, %40
   br i1 %.not20.i, label %_ZL19extractRegisterNamePKN5clang4ExprERKNS_10TargetInfoE.exit, label %41
 
 41:                                               ; preds = %33

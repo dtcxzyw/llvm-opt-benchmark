@@ -3176,10 +3176,10 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean15max_sharing_ke
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.032.047 = load ptr, ptr %9, align 8, !tbaa !49
-  %.not48 = icmp eq ptr %.sroa.032.047, null
-  %.pre53 = load i64, ptr %1, align 8, !tbaa !57
-  br i1 %.not48, label %.thread, label %.lr.ph
+  %.sroa.032.045 = load ptr, ptr %9, align 8, !tbaa !49
+  %.not46 = icmp eq ptr %.sroa.032.045, null
+  %.pre51 = load i64, ptr %1, align 8, !tbaa !57
+  br i1 %.not46, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3190,16 +3190,16 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean15max_sharing_ke
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
-  %.sroa.032.049 = phi ptr [ %.sroa.032.047, %.lr.ph ], [ %.sroa.032.0, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.032.049, i64 16
+  %.sroa.032.047 = phi ptr [ %.sroa.032.045, %.lr.ph ], [ %.sroa.032.0, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.032.047, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !59
   %.not.i.i = icmp eq i64 %11, %17
   br i1 %.not.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.032.049, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.032.047, i64 8
   %19 = load ptr, ptr %14, align 8, !tbaa !45
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.pre53
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.pre51
   %21 = load i64, ptr %18, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %bcmp.i.i = tail call i32 @bcmp(ptr %20, ptr %22, i64 %11)
@@ -3207,12 +3207,12 @@ _ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14
   br i1 %23, label %_ZNKSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS4_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %15, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
-  %.sroa.032.0 = load ptr, ptr %.sroa.032.049, align 8, !tbaa !49
+  %.sroa.032.0 = load ptr, ptr %.sroa.032.047, align 8, !tbaa !49
   %.not = icmp eq ptr %.sroa.032.0, null
   br i1 %.not, label %.thread, label %15, !llvm.loop !125
 
 .thread:                                          ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread, %..thread_crit_edge, %8
-  %24 = phi i64 [ %.pre, %..thread_crit_edge ], [ %.pre53, %8 ], [ %.pre53, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ]
+  %24 = phi i64 [ %.pre, %..thread_crit_edge ], [ %.pre51, %8 ], [ %.pre51, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !59
   %27 = load ptr, ptr %0, align 8, !tbaa !121
@@ -3225,8 +3225,8 @@ _ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14
   %34 = load i64, ptr %33, align 8, !tbaa !27
   %35 = urem i64 %32, %34
   %36 = load i64, ptr %6, align 8, !tbaa !119
-  %.not43 = icmp eq i64 %36, 0
-  br i1 %.not43, label %.critedge, label %37
+  %.not41 = icmp eq i64 %36, 0
+  br i1 %.not41, label %.critedge, label %37
 
 37:                                               ; preds = %.thread
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3364,7 +3364,7 @@ _ZNSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail
   resume { ptr, i32 } %102
 
 _ZNKSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS4_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, %_ZNSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %.sroa.035.1 = phi ptr [ %67, %_ZNSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %51, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ %.sroa.032.049, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ]
+  %.sroa.035.1 = phi ptr [ %67, %_ZNSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %51, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ %.sroa.032.047, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ]
   %.sroa.436.1 = phi i8 [ 1, %_ZNSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.035.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.436.1, 1

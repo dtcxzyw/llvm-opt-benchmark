@@ -75,8 +75,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8, !alias.scope !11, !noalias !14, !noundef !17
   %.promoted.i.i = load i64, ptr %3, align 8, !alias.scope !11, !noalias !14
-  %.not.i7.i.i = icmp eq i64 %5, %.promoted.i.i
-  br i1 %.not.i7.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha78705180952190fE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
+  %.not.i5.i.i = icmp eq i64 %5, %.promoted.i.i
+  br i1 %.not.i5.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha78705180952190fE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %6 = phi i64 [ %15, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
@@ -114,8 +114,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.not.i7.i.i = icmp eq i64 %.sroa.5.0.copyload, %.sroa.0.0.copyload
-  br i1 %.not.i7.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf36cd3ef5665e5d3E.llvm.14088187458212701541.exit", label %.lr.ph.i.i
+  %.not.i5.i.i = icmp eq i64 %.sroa.5.0.copyload, %.sroa.0.0.copyload
+  br i1 %.not.i5.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf36cd3ef5665e5d3E.llvm.14088187458212701541.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -152,8 +152,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !alias.scope !63, !noalias !66, !noundef !17
   %.promoted.i.i = load i64, ptr %3, align 8, !alias.scope !63, !noalias !66
-  %.not.i7.i.i = icmp eq i64 %5, %.promoted.i.i
-  br i1 %.not.i7.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha793c13ed7d2c4dfE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
+  %.not.i5.i.i = icmp eq i64 %5, %.promoted.i.i
+  br i1 %.not.i5.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha793c13ed7d2c4dfE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %6 = phi i64 [ %15, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
@@ -250,8 +250,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8, !alias.scope !116, !noalias !119, !noundef !17
   %.promoted.i.i = load i64, ptr %3, align 8, !alias.scope !116, !noalias !119
-  %.not.i7.i.i = icmp eq i64 %5, %.promoted.i.i
-  br i1 %.not.i7.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70b2a87ee4dd1184E.llvm.14088187458212701541.exit", label %.lr.ph.i.i
+  %.not.i5.i.i = icmp eq i64 %5, %.promoted.i.i
+  br i1 %.not.i5.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70b2a87ee4dd1184E.llvm.14088187458212701541.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %6 = phi i64 [ %15, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
@@ -289,8 +289,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.not.i7.i.i = icmp eq i64 %.sroa.5.0.copyload, %.sroa.0.0.copyload
-  br i1 %.not.i7.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4ae717770d59197bE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
+  %.not.i5.i.i = icmp eq i64 %.sroa.5.0.copyload, %.sroa.0.0.copyload
+  br i1 %.not.i5.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4ae717770d59197bE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -327,8 +327,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !166, !noalias !169, !noundef !17
   %.promoted.i.i = load i64, ptr %3, align 8, !alias.scope !166, !noalias !169
-  %.not.i7.i.i = icmp eq i64 %5, %.promoted.i.i
-  br i1 %.not.i7.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hec493729218b344aE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
+  %.not.i5.i.i = icmp eq i64 %5, %.promoted.i.i
+  br i1 %.not.i5.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hec493729218b344aE.llvm.14088187458212701541.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %6 = phi i64 [ %15, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
@@ -5994,18 +5994,18 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h55d977fc88
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1270, !noundef !17
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1270
-  %.not.i7 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i7, label %20, label %.lr.ph
+  %.not.i5 = icmp eq i64 %5, %.promoted
+  br i1 %.not.i5, label %20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1273, !noalias !1280, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8 = load i64, ptr %8, align 8, !alias.scope !1273, !noalias !1280
+  %.promoted6 = load i64, ptr %8, align 8, !alias.scope !1273, !noalias !1280
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
-  %10 = phi i64 [ %.promoted8, %.lr.ph ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6, %.lr.ph ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted, %.lr.ph ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 5
@@ -6144,18 +6144,18 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8295545c51
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1333, !noundef !17
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1333
-  %.not.i7 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i7, label %20, label %.lr.ph
+  %.not.i5 = icmp eq i64 %5, %.promoted
+  br i1 %.not.i5, label %20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1336, !noalias !1343, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8 = load i64, ptr %8, align 8, !alias.scope !1336, !noalias !1343
+  %.promoted6 = load i64, ptr %8, align 8, !alias.scope !1336, !noalias !1343
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
-  %10 = phi i64 [ %.promoted8, %.lr.ph ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6, %.lr.ph ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted, %.lr.ph ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 2
@@ -6191,18 +6191,18 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h86da4dd222
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1351, !noundef !17
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1351
-  %.not.i7 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i7, label %20, label %.lr.ph
+  %.not.i5 = icmp eq i64 %5, %.promoted
+  br i1 %.not.i5, label %20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1354, !noalias !1361, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8 = load i64, ptr %8, align 8, !alias.scope !1354, !noalias !1361
+  %.promoted6 = load i64, ptr %8, align 8, !alias.scope !1354, !noalias !1361
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
-  %10 = phi i64 [ %.promoted8, %.lr.ph ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6, %.lr.ph ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted, %.lr.ph ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 4
@@ -6238,18 +6238,18 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h921ffa994e
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1369, !noundef !17
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1369
-  %.not.i7 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i7, label %20, label %.lr.ph
+  %.not.i5 = icmp eq i64 %5, %.promoted
+  br i1 %.not.i5, label %20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1372, !noalias !1379, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8 = load i64, ptr %8, align 8, !alias.scope !1372, !noalias !1379
+  %.promoted6 = load i64, ptr %8, align 8, !alias.scope !1372, !noalias !1379
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
-  %10 = phi i64 [ %.promoted8, %.lr.ph ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6, %.lr.ph ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted, %.lr.ph ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 3
@@ -6285,21 +6285,21 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h930a33c244
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1387, !noundef !17
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1387
-  %.not.i7 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i7, label %12, label %.lr.ph
+  %.not.i5 = icmp eq i64 %5, %.promoted
+  br i1 %.not.i5, label %12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1390, !noalias !1397, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not.i = icmp eq i64 %5, 1
-  %.promoted8 = load i64, ptr %8, align 8, !alias.scope !1390, !noalias !1397
+  %.promoted6 = load i64, ptr %8, align 8, !alias.scope !1390, !noalias !1397
   %9 = icmp eq i64 %.promoted, 0
   tail call void @llvm.assume(i1 %.not.i)
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted8
+  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %11 = add i64 %.promoted8, 1
+  %11 = add i64 %.promoted6, 1
   store i64 1, ptr %0, align 8, !alias.scope !1387
   store i64 %11, ptr %8, align 8, !alias.scope !1390, !noalias !1397
   br label %12
@@ -6313,21 +6313,21 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcdb60fae83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1401, !noundef !17
   %.promoted = load i64, ptr %0, align 8, !alias.scope !1401
-  %.not.i7 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i7, label %12, label %.lr.ph
+  %.not.i5 = icmp eq i64 %5, %.promoted
+  br i1 %.not.i5, label %12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1404, !noalias !1411, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not.i = icmp eq i64 %5, 1
-  %.promoted8 = load i64, ptr %8, align 8, !alias.scope !1404, !noalias !1411
+  %.promoted6 = load i64, ptr %8, align 8, !alias.scope !1404, !noalias !1411
   %9 = icmp eq i64 %.promoted, 0
   tail call void @llvm.assume(i1 %.not.i)
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted8
+  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %11 = add i64 %.promoted8, 1
+  %11 = add i64 %.promoted6, 1
   store i64 1, ptr %0, align 8, !alias.scope !1401
   store i64 %11, ptr %8, align 8, !alias.scope !1404, !noalias !1411
   br label %12
@@ -7287,8 +7287,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !1630, !noalias !1633, !noundef !17
   %.promoted.i = load i64, ptr %0, align 8, !alias.scope !1630, !noalias !1633
-  %.not.i7.i = icmp eq i64 %4, %.promoted.i
-  br i1 %.not.i7.i, label %._crit_edge, label %.lr.ph.i
+  %.not.i5.i = icmp eq i64 %4, %.promoted.i
+  br i1 %.not.i5.i, label %._crit_edge, label %.lr.ph.i
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7301,13 +7301,13 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %7 = load ptr, ptr %6, align 8, !alias.scope !1646, !noalias !1653, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not.i.i = icmp eq i64 %4, 1
-  %.promoted8.i = load i64, ptr %8, align 8, !alias.scope !1646, !noalias !1653
+  %.promoted6.i = load i64, ptr %8, align 8, !alias.scope !1646, !noalias !1653
   %9 = icmp eq i64 %.promoted.i, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted8.i
+  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted6.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !1657
-  %11 = add i64 %.promoted8.i, 1
+  %11 = add i64 %.promoted6.i, 1
   store i64 1, ptr %0, align 8, !alias.scope !1630, !noalias !1633
   store i64 %11, ptr %8, align 8, !alias.scope !1646, !noalias !1653
   br label %"_ZN4core3ptr97drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..builder..str..Str$C$1_usize$GT$$GT$17h5eb88abf46ee36a2E.exit"
@@ -7333,8 +7333,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8, !alias.scope !1670, !noalias !1673, !noundef !17
   %.promoted.i = load i64, ptr %3, align 8, !alias.scope !1670, !noalias !1673
-  %.not.i7.i = icmp eq i64 %5, %.promoted.i
-  br i1 %.not.i7.i, label %._crit_edge, label %.lr.ph.i
+  %.not.i5.i = icmp eq i64 %5, %.promoted.i
+  br i1 %.not.i5.i, label %._crit_edge, label %.lr.ph.i
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7345,11 +7345,11 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1685, !noalias !1692, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8.i = load i64, ptr %8, align 8, !alias.scope !1685, !noalias !1692
+  %.promoted6.i = load i64, ptr %8, align 8, !alias.scope !1685, !noalias !1692
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %10 = phi i64 [ %.promoted8.i, %.lr.ph.i ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6.i, %.lr.ph.i ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 5
@@ -7397,8 +7397,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8, !alias.scope !1714, !noalias !1717, !noundef !17
   %.promoted.i = load i64, ptr %3, align 8, !alias.scope !1714, !noalias !1717
-  %.not.i7.i = icmp eq i64 %5, %.promoted.i
-  br i1 %.not.i7.i, label %._crit_edge, label %.lr.ph.i
+  %.not.i5.i = icmp eq i64 %5, %.promoted.i
+  br i1 %.not.i5.i, label %._crit_edge, label %.lr.ph.i
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7409,11 +7409,11 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1729, !noalias !1736, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8.i = load i64, ptr %8, align 8, !alias.scope !1729, !noalias !1736
+  %.promoted6.i = load i64, ptr %8, align 8, !alias.scope !1729, !noalias !1736
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %10 = phi i64 [ %.promoted8.i, %.lr.ph.i ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6.i, %.lr.ph.i ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 4
@@ -7461,8 +7461,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !alias.scope !1758, !noalias !1761, !noundef !17
   %.promoted.i = load i64, ptr %3, align 8, !alias.scope !1758, !noalias !1761
-  %.not.i7.i = icmp eq i64 %5, %.promoted.i
-  br i1 %.not.i7.i, label %._crit_edge, label %.lr.ph.i
+  %.not.i5.i = icmp eq i64 %5, %.promoted.i
+  br i1 %.not.i5.i, label %._crit_edge, label %.lr.ph.i
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7473,11 +7473,11 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1773, !noalias !1780, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8.i = load i64, ptr %8, align 8, !alias.scope !1773, !noalias !1780
+  %.promoted6.i = load i64, ptr %8, align 8, !alias.scope !1773, !noalias !1780
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %10 = phi i64 [ %.promoted8.i, %.lr.ph.i ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6.i, %.lr.ph.i ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 3
@@ -7525,8 +7525,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !1802, !noalias !1805, !noundef !17
   %.promoted.i = load i64, ptr %3, align 8, !alias.scope !1802, !noalias !1805
-  %.not.i7.i = icmp eq i64 %5, %.promoted.i
-  br i1 %.not.i7.i, label %._crit_edge, label %.lr.ph.i
+  %.not.i5.i = icmp eq i64 %5, %.promoted.i
+  br i1 %.not.i5.i, label %._crit_edge, label %.lr.ph.i
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7537,11 +7537,11 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1817, !noalias !1824, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted8.i = load i64, ptr %8, align 8, !alias.scope !1817, !noalias !1824
+  %.promoted6.i = load i64, ptr %8, align 8, !alias.scope !1817, !noalias !1824
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %10 = phi i64 [ %.promoted8.i, %.lr.ph.i ], [ %19, %9 ]
+  %10 = phi i64 [ %.promoted6.i, %.lr.ph.i ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
   %13 = icmp ult i64 %11, 2
@@ -7587,8 +7587,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !1844, !noalias !1847, !noundef !17
   %.promoted.i = load i64, ptr %0, align 8, !alias.scope !1844, !noalias !1847
-  %.not.i7.i = icmp eq i64 %4, %.promoted.i
-  br i1 %.not.i7.i, label %._crit_edge, label %.lr.ph.i
+  %.not.i5.i = icmp eq i64 %4, %.promoted.i
+  br i1 %.not.i5.i, label %._crit_edge, label %.lr.ph.i
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7601,13 +7601,13 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %7 = load ptr, ptr %6, align 8, !alias.scope !1860, !noalias !1867, !noundef !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not.i.i = icmp eq i64 %4, 1
-  %.promoted8.i = load i64, ptr %8, align 8, !alias.scope !1860, !noalias !1867
+  %.promoted6.i = load i64, ptr %8, align 8, !alias.scope !1860, !noalias !1867
   %9 = icmp eq i64 %.promoted.i, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted8.i
+  %10 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %7, i64 %.promoted6.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !1871
-  %11 = add i64 %.promoted8.i, 1
+  %11 = add i64 %.promoted6.i, 1
   store i64 1, ptr %0, align 8, !alias.scope !1844, !noalias !1847
   store i64 %11, ptr %8, align 8, !alias.scope !1860, !noalias !1867
   br label %"_ZN4core3ptr102drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..builder..os_str..OsStr$C$1_usize$GT$$GT$17hf2a795ec1b27b1a9E.exit"

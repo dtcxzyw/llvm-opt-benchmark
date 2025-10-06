@@ -427,11 +427,11 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
   %24 = load i32, ptr %6, align 4, !tbaa !4
   %25 = add i32 %24, -1
   %.pre = load i64, ptr @maxfilesize, align 8, !tbaa !24
-  %.pre122 = zext i32 %25 to i64
+  %.pre117 = zext i32 %25 to i64
   br label %26
 
 26:                                               ; preds = %23, %12
-  %.pre-phi = phi i64 [ %.pre122, %23 ], [ %8, %12 ]
+  %.pre-phi = phi i64 [ %.pre117, %23 ], [ %8, %12 ]
   %27 = phi i64 [ %.pre, %23 ], [ %9, %12 ]
   %28 = phi i32 [ %25, %23 ], [ %7, %12 ]
   %29 = add i64 %2, %.pre-phi
@@ -447,23 +447,23 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
   br i1 %.not91, label %48, label %.preheader
 
 .preheader:                                       ; preds = %26
-  %.not97119 = icmp eq i64 %spec.select, 0
-  br i1 %.not97119, label %.thread, label %.lr.ph
+  %.not97114 = icmp eq i64 %spec.select, 0
+  br i1 %.not97114, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %37
 
 37:                                               ; preds = %.lr.ph, %44
-  %.078121 = phi ptr [ %1, %.lr.ph ], [ %47, %44 ]
-  %.181120 = phi i64 [ %spec.select, %.lr.ph ], [ %46, %44 ]
+  %.078116 = phi ptr [ %1, %.lr.ph ], [ %47, %44 ]
+  %.181115 = phi i64 [ %spec.select, %.lr.ph ], [ %46, %44 ]
   %38 = load i32, ptr %36, align 8, !tbaa !20
-  %39 = tail call i64 @write(i32 noundef %38, ptr noundef %.078121, i64 noundef %.181120) #19
+  %39 = tail call i64 @write(i32 noundef %38, ptr noundef %.078116, i64 noundef %.181115) #19
   %40 = and i64 %39, 4294967295
   %41 = icmp eq i64 %40, 4294967295
-  br i1 %41, label %.thread105, label %44
+  br i1 %41, label %.thread102, label %44
 
-.thread105:                                       ; preds = %37
+.thread102:                                       ; preds = %37
   %42 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.60) #19
   tail call fastcc void @nullify(ptr noundef %3, ptr noundef %0, i32 noundef 3)
   %43 = load i32, ptr @FailAction, align 4, !tbaa !13
@@ -472,8 +472,8 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
 44:                                               ; preds = %37
   %sext = shl i64 %39, 32
   %45 = ashr exact i64 %sext, 32
-  %46 = sub i64 %.181120, %45
-  %47 = getelementptr inbounds i8, ptr %.078121, i64 %45
+  %46 = sub i64 %.181115, %45
+  %47 = getelementptr inbounds i8, ptr %.078116, i64 %45
   %.not97 = icmp eq i64 %46, 0
   br i1 %.not97, label %.thread, label %37
 
@@ -483,9 +483,9 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
   %51 = sub i32 1424, %50
   %52 = zext i32 %51 to i64
   %53 = icmp ult i64 %spec.select, %52
-  br i1 %53, label %.thread110, label %58
+  br i1 %53, label %.thread106, label %58
 
-.thread110:                                       ; preds = %48
+.thread106:                                       ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %55 = zext i32 %50 to i64
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
@@ -569,8 +569,8 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
   %95 = load i32, ptr @FailAction, align 4, !tbaa !13
   br label %.thread
 
-.thread:                                          ; preds = %44, %.preheader, %.thread110, %92, %21, %18, %93, %.thread105, %4
-  %.073 = phi i32 [ %95, %93 ], [ 0, %4 ], [ %43, %.thread105 ], [ %22, %21 ], [ %20, %18 ], [ 0, %92 ], [ 0, %.thread110 ], [ 0, %.preheader ], [ 0, %44 ]
+.thread:                                          ; preds = %44, %.preheader, %.thread106, %92, %21, %18, %93, %.thread102, %4
+  %.073 = phi i32 [ %95, %93 ], [ 0, %4 ], [ %43, %.thread102 ], [ %22, %21 ], [ %20, %18 ], [ 0, %92 ], [ 0, %.thread106 ], [ 0, %.preheader ], [ 0, %44 ]
   ret i32 %.073
 }
 

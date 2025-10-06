@@ -194,8 +194,8 @@ define zeroext i1 @lv_tree_walk(ptr noundef %0, i8 noundef zeroext %1, ptr nound
 16:                                               ; preds = %14, %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !20
-  %.not56 = icmp eq i32 %18, 0
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+  %.not54 = icmp eq i32 %18, 0
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8

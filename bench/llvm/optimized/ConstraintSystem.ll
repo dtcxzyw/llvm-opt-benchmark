@@ -1313,17 +1313,17 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.thread.i:    ; preds = %_ZSt4copyIPKlPlET0_
   br label %_ZN4llvm16ConstraintSystem13negateOrEqualENS_11SmallVectorIlLj8EEE.exit
 
 32:                                               ; preds = %.critedge.i
-  %33 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %.not.i = icmp eq ptr %33, %28
   br i1 %.not.i, label %._crit_edge.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %32
-  %.016.i = phi ptr [ %33, %32 ], [ %.pre6, %.critedge.i.preheader ]
-  %34 = load i64, ptr %.016.i, align 8, !tbaa !44, !noalias !49
-  %.not14.i = icmp eq i64 %34, -9223372036854775808
+  %.014.i = phi ptr [ %33, %32 ], [ %.pre6, %.critedge.i.preheader ]
+  %34 = load i64, ptr %.014.i, align 8, !tbaa !44, !noalias !49
+  %.not12.i = icmp eq i64 %34, -9223372036854775808
   %35 = sub i64 0, %34
-  store i64 %35, ptr %.016.i, align 8, !noalias !49
-  br i1 %.not14.i, label %36, label %32
+  store i64 %35, ptr %.014.i, align 8, !noalias !49
+  br i1 %.not12.i, label %36, label %32
 
 36:                                               ; preds = %.critedge.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16

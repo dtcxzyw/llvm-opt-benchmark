@@ -3644,7 +3644,7 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
 .thread78:                                        ; preds = %4, %5, %46, %47, %52
   %.str.2005.sink = phi ptr [ @.str.2005, %52 ], [ @.str.2004, %47 ], [ @.str.2004, %46 ], [ @.str.2004, %5 ], [ @.str.2004, %4 ]
   %french_isup_message_type_value_acro_ext.sink = phi ptr [ @french_isup_message_type_value_acro_ext, %52 ], [ @isup_message_type_value_acro_ext, %47 ], [ @isup_message_type_value_acro_ext, %46 ], [ @isup_message_type_value_acro_ext, %5 ], [ @isup_message_type_value_acro_ext, %4 ]
-  %.281 = phi i8 [ 1, %52 ], [ 0, %47 ], [ 0, %46 ], [ 0, %5 ], [ 0, %4 ]
+  %.280 = phi i8 [ 1, %52 ], [ 0, %47 ], [ 0, %46 ], [ 0, %5 ], [ 0, %4 ]
   store i1 false, ptr @isup_standard, align 4
   %53 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3667,7 +3667,7 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
 64:                                               ; preds = %59, %.thread78
   %.3 = phi ptr [ %63, %59 ], [ null, %.thread78 ]
   %65 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0)
-  tail call fastcc void @dissect_isup_message(ptr noundef %65, ptr noundef %1, ptr noundef %.3, i8 noundef zeroext %.281, i32 noundef 0)
+  tail call fastcc void @dissect_isup_message(ptr noundef %65, ptr noundef %1, ptr noundef %.3, i8 noundef zeroext %.280, i32 noundef 0)
   br label %66
 
 66:                                               ; preds = %50, %64

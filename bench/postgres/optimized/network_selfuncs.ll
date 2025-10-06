@@ -1263,7 +1263,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %85 = icmp sgt i32 %.072, 0
-  %or.cond33.i = and i1 %.079.shrunk, %85
+  %or.cond30.i = and i1 %.079.shrunk, %85
   %wide.trip.count.i106 = zext nneg i32 %.072 to i64
   %86 = fcmp ogt double %.081, 0.000000e+00
   %or.cond.i = and i1 %.077.shrunk, %86
@@ -1284,7 +1284,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %96 = load ptr, ptr %82, align 8
   %97 = load ptr, ptr %83, align 8
   %98 = load i32, ptr %84, align 8
-  br i1 %or.cond33.i, label %.lr.ph.i107, label %.thread.i
+  br i1 %or.cond30.i, label %.lr.ph.i107, label %.thread.i
 
 99:                                               ; preds = %.lr.ph.i107
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
@@ -1338,7 +1338,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thre
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %121 = icmp sgt i32 %.072, 0
-  %or.cond33.i111 = and i1 %.079.shrunk, %121
+  %or.cond30.i111 = and i1 %.079.shrunk, %121
   %wide.trip.count.i116 = zext nneg i32 %.072 to i64
   %122 = fcmp ogt double %.081, 0.000000e+00
   %or.cond.i113 = and i1 %.077.shrunk, %122
@@ -1356,7 +1356,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thre
   %129 = load ptr, ptr %118, align 8
   %130 = load ptr, ptr %119, align 8
   %131 = load i32, ptr %120, align 8
-  br i1 %or.cond33.i111, label %.lr.ph.i117, label %.thread.i112
+  br i1 %or.cond30.i111, label %.lr.ph.i117, label %.thread.i112
 
 132:                                              ; preds = %.lr.ph.i117
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i118, 1

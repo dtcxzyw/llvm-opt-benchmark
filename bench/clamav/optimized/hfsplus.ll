@@ -1689,24 +1689,24 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
   store ptr %17, ptr %19, align 8, !tbaa !94
   store i32 4096, ptr %47, align 8, !tbaa !95
   store ptr %18, ptr %48, align 8, !tbaa !96
-  %.not3991633 = icmp eq i32 %.pre-phi, 0
-  br i1 %.not3991633, label %.loopexit135, label %.lr.ph1635
+  %.not3991632 = icmp eq i32 %.pre-phi, 0
+  br i1 %.not3991632, label %.loopexit135, label %.lr.ph1634
 
 388:                                              ; preds = %401
   %.not399 = icmp eq i32 %403, 0
-  br i1 %.not399, label %.loopexit135, label %.lr.ph1635
+  br i1 %.not399, label %.loopexit135, label %.lr.ph1634
 
-.lr.ph1635:                                       ; preds = %.thread64, %388
-  %.32351634 = phi i64 [ %402, %388 ], [ %.2234467, %.thread64 ]
+.lr.ph1634:                                       ; preds = %.thread64, %388
+  %.32351633 = phi i64 [ %402, %388 ], [ %.2234467, %.thread64 ]
   %389 = call i32 @inflate(ptr noundef nonnull %19, i32 noundef 0) #12
   %or.cond15 = icmp ugt i32 %389, 1
   br i1 %or.cond15, label %390, label %391
 
-390:                                              ; preds = %.lr.ph1635
+390:                                              ; preds = %.lr.ph1634
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.88, i32 noundef %389) #12
   br label %426
 
-391:                                              ; preds = %.lr.ph1635
+391:                                              ; preds = %.lr.ph1634
   %392 = load i32, ptr %8, align 4, !tbaa !83
   %393 = load i32, ptr %47, align 8, !tbaa !95
   %394 = zext i32 %393 to i64
@@ -1723,7 +1723,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
   br label %426
 
 401:                                              ; preds = %391
-  %402 = add i64 %396, %.32351634
+  %402 = add i64 %396, %.32351633
   store i32 4096, ptr %47, align 8, !tbaa !95
   store ptr %18, ptr %48, align 8, !tbaa !96
   %403 = load i32, ptr %46, align 8, !tbaa !91
@@ -1965,17 +1965,17 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
 
 .sink.split:                                      ; preds = %468, %147
   %.sink = phi ptr [ %148, %147 ], [ %469, %468 ]
-  %.3291.ph1300 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ]
+  %.3291.ph1299 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ]
   %.3268.ph = phi i1 [ %.2267486, %147 ], [ %.22287, %468 ]
-  %.3.ph1301 = phi i32 [ %.2489, %147 ], [ %.23, %468 ]
+  %.3.ph1300 = phi i32 [ %.2489, %147 ], [ %.23, %468 ]
   call void @free(ptr noundef nonnull %.sink) #12
   store ptr null, ptr %9, align 8, !tbaa !82
   br label %470
 
 470:                                              ; preds = %.sink.split, %147, %468
-  %.3291 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ], [ %.3291.ph1300, %.sink.split ]
+  %.3291 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ], [ %.3291.ph1299, %.sink.split ]
   %.3268 = phi i1 [ %.2267486, %147 ], [ %.22287, %468 ], [ %.3268.ph, %.sink.split ]
-  %.3 = phi i32 [ %.2489, %147 ], [ %.23, %468 ], [ %.3.ph1301, %.sink.split ]
+  %.3 = phi i32 [ %.2489, %147 ], [ %.23, %468 ], [ %.3.ph1300, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %471 = trunc nuw i64 %indvars.iv.next to i32

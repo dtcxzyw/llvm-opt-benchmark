@@ -667,8 +667,8 @@ _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit: ; p
   store i64 %34, ptr %35, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !24
-  %.not24 = icmp eq ptr %37, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq ptr %37, null
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8

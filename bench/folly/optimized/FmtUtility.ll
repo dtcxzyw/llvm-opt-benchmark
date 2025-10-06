@@ -407,53 +407,53 @@ define void @_ZNK5folly35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8, !tbaa !13
   store i8 0, ptr %5, align 8, !tbaa !16
-  %.not3949.i = icmp eq i64 %2, 0
-  br i1 %.not3949.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
+  %.not3747.i = icmp eq i64 %2, 0
+  br i1 %.not3747.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %4, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
   %.0 = phi ptr [ %.2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %3, %4 ]
-  %.sroa.11.051.i = phi ptr [ %.sroa.11.1.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %3, %4 ]
-  %.sroa.06.050.i = phi i64 [ %.sroa.06.1.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %2, %4 ]
-  %7 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.sroa.11.051.i, i32 noundef 123, i64 noundef %.sroa.06.050.i) #16
+  %.sroa.11.049.i = phi ptr [ %.sroa.11.1.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %3, %4 ]
+  %.sroa.06.048.i = phi i64 [ %.sroa.06.1.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %2, %4 ]
+  %7 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.sroa.11.049.i, i32 noundef 123, i64 noundef %.sroa.06.048.i) #16
   %.not.i.i = icmp eq ptr %7, null
   %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %.sroa.11.051.i to i64
+  %9 = ptrtoint ptr %.sroa.11.049.i to i64
   %10 = sub i64 %8, %9
   %11 = icmp eq i64 %10, -1
-  %or.cond38.i = or i1 %.not.i.i, %11
-  br i1 %or.cond38.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit", label %12
+  %or.cond36.i = or i1 %.not.i.i, %11
+  br i1 %or.cond36.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit", label %12
 
 12:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %13 = add nuw i64 %10, 1
-  %14 = icmp eq i64 %13, %.sroa.06.050.i
+  %14 = icmp eq i64 %13, %.sroa.06.048.i
   br i1 %14, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit", label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.11.051.i, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.11.049.i, i64 %13
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, 123
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
   %20 = add i64 %10, 2
-  %21 = icmp ugt i64 %20, %.sroa.06.050.i
+  %21 = icmp ugt i64 %20, %.sroa.06.048.i
   br i1 %21, label %.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, !llvm.loop !34
 
 .invoke:                                          ; preds = %.thread27.i, %19
   %22 = phi i64 [ %20, %19 ], [ %34, %.thread27.i ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i64 noundef %22, i64 noundef %.sroa.06.050.i) #18
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i64 noundef %22, i64 noundef %.sroa.06.048.i) #18
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
 23:                                               ; preds = %15
-  %24 = icmp ult i64 %10, %.sroa.06.050.i
+  %24 = icmp ult i64 %10, %.sroa.06.048.i
   br i1 %24, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit"
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35.i: ; preds = %23
-  %25 = sub nuw i64 %.sroa.06.050.i, %10
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.11.051.i, i64 %10
+  %25 = sub nuw i64 %.sroa.06.048.i, %10
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.11.049.i, i64 %10
   %27 = tail call ptr @memchr(ptr noundef nonnull %26, i32 noundef 125, i64 noundef %25) #16
   %.not.i28.i = icmp eq ptr %27, null
   %28 = ptrtoint ptr %27 to i64
@@ -470,7 +470,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35.i: ; preds = %23
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit38.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35.i
   %36 = sub i64 %34, %13
-  %37 = sub nuw i64 %.sroa.06.050.i, %13
+  %37 = sub nuw i64 %.sroa.06.048.i, %13
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %37, i64 %36)
   %38 = icmp eq i64 %34, %13
   br i1 %38, label %.thread27.i, label %39
@@ -501,16 +501,16 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit38.i: ; preds = %_Z
 
 .thread27.i:                                      ; preds = %.noexc5, %39, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit38.i
   %.1 = phi ptr [ %.0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit38.i ], [ %.0, %39 ], [ %48, %.noexc5 ]
-  %49 = icmp ugt i64 %34, %.sroa.06.050.i
+  %49 = icmp ugt i64 %34, %.sroa.06.048.i
   br i1 %49, label %.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %.thread27.i, %19
   %.2 = phi ptr [ %.0, %19 ], [ %.1, %.thread27.i ]
   %.pn.i = phi i64 [ %20, %19 ], [ %34, %.thread27.i ]
-  %.sroa.11.1.i = getelementptr inbounds nuw i8, ptr %.sroa.11.051.i, i64 %.pn.i
-  %.sroa.06.1.i = sub nuw i64 %.sroa.06.050.i, %.pn.i
-  %.not39.i = icmp eq i64 %.sroa.06.1.i, 0
-  br i1 %.not39.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
+  %.sroa.11.1.i = getelementptr inbounds nuw i8, ptr %.sroa.11.049.i, i64 %.pn.i
+  %.sroa.06.1.i = sub nuw i64 %.sroa.06.048.i, %.pn.i
+  %.not37.i = icmp eq i64 %.sroa.06.1.i, 0
+  br i1 %.not37.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 "_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit": ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %12, %23, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
   %.3.ph = phi ptr [ %.0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.0, %12 ], [ %.2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %.0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35.i ], [ %.0, %23 ]

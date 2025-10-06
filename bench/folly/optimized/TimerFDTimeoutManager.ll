@@ -601,9 +601,9 @@ define void @_ZN5folly21TimerFDTimeoutManager20processExpiredTimersEv(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load i64, ptr %4, align 8, !tbaa !7
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %.thread, label %.lr.ph20
+  br i1 %6, label %.thread, label %.lr.ph19
 
-.lr.ph20:                                         ; preds = %1
+.lr.ph19:                                         ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -615,7 +615,7 @@ define void @_ZN5folly21TimerFDTimeoutManager20processExpiredTimersEv(ptr nounde
   %11 = icmp eq i64 %.pre, 0
   br i1 %11, label %.thread, label %12
 
-12:                                               ; preds = %.lr.ph20, %.loopexit
+12:                                               ; preds = %.lr.ph19, %.loopexit
   %13 = load ptr, ptr %7, align 8, !tbaa !16
   %14 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   %15 = sdiv i64 %14, 1000

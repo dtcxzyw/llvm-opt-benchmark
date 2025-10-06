@@ -1231,13 +1231,13 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_3refI4TestEE
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8, !tbaa !52
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.thread14, label %9
+  br i1 %.not, label %.thread13, label %9
 
-.thread14:                                        ; preds = %5
+.thread13:                                        ; preds = %5
   %7 = icmp eq i32 %1, 0
   %8 = icmp eq i32 %1, 1
-  %spec.store.select.i15 = select i1 %8, i32 5, i32 %1
-  %.0.i16 = select i1 %7, i32 2, i32 %spec.store.select.i15
+  %spec.store.select.i14 = select i1 %8, i32 5, i32 %1
+  %.0.i15 = select i1 %7, i32 2, i32 %spec.store.select.i14
   br label %_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit
 
 9:                                                ; preds = %5
@@ -1267,11 +1267,11 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_3refI4TestEE
   %20 = load ptr, ptr %19, align 8
   br label %_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit
 
-_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit: ; preds = %.thread14, %.thread, %17
-  %.0.i18 = phi i32 [ %.0.i, %17 ], [ %.0.i, %.thread ], [ %.0.i16, %.thread14 ]
-  %21 = phi ptr [ %.pr, %17 ], [ null, %.thread ], [ null, %.thread14 ]
-  %22 = phi ptr [ %20, %17 ], [ null, %.thread ], [ null, %.thread14 ]
-  %23 = tail call noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI4Test, ptr noundef %22, ptr noundef %21, i32 noundef %.0.i18, ptr noundef %2, ptr noundef null) #17
+_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit: ; preds = %.thread13, %.thread, %17
+  %.0.i17 = phi i32 [ %.0.i, %17 ], [ %.0.i, %.thread ], [ %.0.i15, %.thread13 ]
+  %21 = phi ptr [ %.pr, %17 ], [ null, %.thread ], [ null, %.thread13 ]
+  %22 = phi ptr [ %20, %17 ], [ null, %.thread ], [ null, %.thread13 ]
+  %23 = tail call noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI4Test, ptr noundef %22, ptr noundef %21, i32 noundef %.0.i17, ptr noundef %2, ptr noundef null) #17
   br label %24
 
 24:                                               ; preds = %12, %_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit

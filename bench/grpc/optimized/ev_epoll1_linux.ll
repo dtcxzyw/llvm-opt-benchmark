@@ -3443,14 +3443,14 @@ define internal fastcc noundef zeroext i1 @_ZL39check_neighborhood_for_available
   %13 = load i32, ptr %.0, align 8, !tbaa !71
   switch i32 %13, label %25 [
     i32 0, label %14
-    i32 2, label %.thread58
+    i32 2, label %.thread57
   ]
 
 14:                                               ; preds = %.preheader
   %15 = ptrtoint ptr %.0 to i64
   %16 = cmpxchg ptr @_ZL15g_active_poller, i64 0, i64 %15 monotonic monotonic, align 8
   %17 = extractvalue { i64, i1 } %16, 1
-  br i1 %17, label %18, label %.thread58
+  br i1 %17, label %18, label %.thread57
 
 18:                                               ; preds = %14
   store i32 2, ptr %.0, align 8, !tbaa !71
@@ -3459,12 +3459,12 @@ define internal fastcc noundef zeroext i1 @_ZL39check_neighborhood_for_available
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !76, !range !45, !noundef !46
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %.thread58
+  br i1 %22, label %23, label %.thread57
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   tail call void @gpr_cv_signal(ptr noundef nonnull %24)
-  br label %.thread58
+  br label %.thread57
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -3486,7 +3486,7 @@ define internal fastcc noundef zeroext i1 @_ZL39check_neighborhood_for_available
   store ptr %spec.select, ptr %3, align 8, !tbaa !32
   br label %34
 
-.thread58:                                        ; preds = %.preheader, %14, %18, %23
+.thread57:                                        ; preds = %.preheader, %14, %18, %23
   tail call void @gpr_mu_unlock(ptr noundef nonnull %6)
   br label %.thread52
 
@@ -3505,8 +3505,8 @@ define internal fastcc noundef zeroext i1 @_ZL39check_neighborhood_for_available
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread52, label %.lr.ph, !llvm.loop !144
 
-.thread52:                                        ; preds = %34, %1, %.thread58
-  %43 = phi i1 [ true, %.thread58 ], [ false, %1 ], [ false, %34 ]
+.thread52:                                        ; preds = %34, %1, %.thread57
+  %43 = phi i1 [ true, %.thread57 ], [ false, %1 ], [ false, %34 ]
   ret i1 %43
 }
 

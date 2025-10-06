@@ -1866,8 +1866,8 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   %5 = alloca %"class.icu_77::UTF16CollationIterator", align 8
   %6 = alloca [1 x i16], align 2
   %7 = and i32 %3, 192
-  %.not92 = icmp eq i32 %7, 192
-  br i1 %.not92, label %.lr.ph, label %._crit_edge
+  %.not91 = icmp eq i32 %7, 192
+  br i1 %.not91, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
   %8 = load ptr, ptr %0, align 8
@@ -1900,9 +1900,9 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   br label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
 
 27:                                               ; preds = %.lr.ph, %236
-  %.093 = phi i32 [ %3, %.lr.ph ], [ %.1, %236 ]
-  %28 = and i32 %.093, 15
-  switch i32 %28, label %default.unreachable131 [
+  %.092 = phi i32 [ %3, %.lr.ph ], [ %.1, %236 ]
+  %28 = and i32 %.092, 15
+  switch i32 %28, label %default.unreachable130 [
     i32 0, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
     i32 3, label %29
     i32 7, label %29
@@ -1938,7 +1938,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   br i1 %.not68, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = and i32 %.093, -256
+  %38 = and i32 %.092, -256
   %39 = zext i32 %38 to i64
   %40 = shl nuw i64 %39, 32
   %41 = or disjoint i64 %40, 83887360
@@ -1955,7 +1955,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   br i1 %.not67, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %48
 
 48:                                               ; preds = %45
-  %49 = and i32 %.093, -256
+  %49 = and i32 %.092, -256
   %50 = zext i32 %49 to i64
   %51 = load ptr, ptr %47, align 8, !tbaa !75
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -1970,17 +1970,17 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   br i1 %.not65, label %75, label %57
 
 57:                                               ; preds = %54
-  %58 = and i32 %.093, -16777216
+  %58 = and i32 %.092, -16777216
   %59 = zext i32 %58 to i64
   %60 = shl nuw i64 %59, 32
-  %61 = lshr i32 %.093, 8
+  %61 = lshr i32 %.092, 8
   %62 = and i32 %61, 65280
   %63 = zext nneg i32 %62 to i64
   %64 = or disjoint i64 %60, %63
   %65 = or disjoint i64 %64, 83886080
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 %65, ptr %66, align 8, !tbaa !52
-  %67 = shl i32 %.093, 16
+  %67 = shl i32 %.092, 16
   %68 = and i32 %67, -16777216
   %69 = or disjoint i32 %68, 1280
   %70 = zext i32 %69 to i64
@@ -2025,21 +2025,21 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   br i1 %.not63, label %129, label %92
 
 92:                                               ; preds = %89
-  %93 = lshr i32 %.093, 8
+  %93 = lshr i32 %.092, 8
   %94 = and i32 %93, 31
-  %.not103 = icmp eq i32 %94, 0
-  br i1 %.not103, label %._crit_edge102, label %.lr.ph101
+  %.not102 = icmp eq i32 %94, 0
+  br i1 %.not102, label %._crit_edge101, label %.lr.ph100
 
-.lr.ph101:                                        ; preds = %92
+.lr.ph100:                                        ; preds = %92
   %95 = load ptr, ptr %9, align 8, !tbaa !54
-  %96 = lshr i32 %.093, 13
+  %96 = lshr i32 %.092, 13
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds nuw i32, ptr %95, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %wide.trip.count = zext nneg i32 %94 to i64
   br label %104
 
-._crit_edge102:                                   ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit, %92
+._crit_edge101:                                   ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit, %92
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %101 = load ptr, ptr %91, align 8, !tbaa !75
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
@@ -2047,11 +2047,11 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   tail call void %103(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull %100, i32 noundef %94)
   br label %129
 
-104:                                              ; preds = %.lr.ph101, %_ZN6icu_779Collation10ceFromCE32Ej.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
-  %.05099 = phi ptr [ %98, %.lr.ph101 ], [ %105, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
-  %105 = getelementptr inbounds nuw i8, ptr %.05099, i64 4
-  %106 = load i32, ptr %.05099, align 4, !tbaa !37
+104:                                              ; preds = %.lr.ph100, %_ZN6icu_779Collation10ceFromCE32Ej.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
+  %.05098 = phi ptr [ %98, %.lr.ph100 ], [ %105, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
+  %105 = getelementptr inbounds nuw i8, ptr %.05098, i64 4
+  %106 = load i32, ptr %.05098, align 4, !tbaa !37
   %107 = and i32 %106, 255
   %108 = icmp samesign ult i32 %107, 192
   br i1 %108, label %109, label %120
@@ -2086,10 +2086,10 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %128 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv
   store i64 %.0.i, ptr %128, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond116.not, label %._crit_edge102, label %104, !llvm.loop !78
+  %exitcond115.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond115.not, label %._crit_edge101, label %104, !llvm.loop !78
 
-129:                                              ; preds = %._crit_edge102, %89
+129:                                              ; preds = %._crit_edge101, %89
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %131 = load i16, ptr %130, align 8, !tbaa !57
   %132 = icmp ugt i16 %131, 31
@@ -2122,11 +2122,11 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   br i1 %.not61, label %157, label %146
 
 146:                                              ; preds = %143
-  %147 = lshr i32 %.093, 8
+  %147 = lshr i32 %.092, 8
   %148 = and i32 %147, 31
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !51
-  %151 = lshr i32 %.093, 13
+  %151 = lshr i32 %.092, 13
   %152 = zext nneg i32 %151 to i64
   %153 = getelementptr inbounds nuw i64, ptr %150, i64 %152
   %154 = load ptr, ptr %145, align 8, !tbaa !75
@@ -2162,16 +2162,16 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   br label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
 
 171:                                              ; preds = %27
-  tail call void @_ZN6icu_7725ContractionsAndExpansions14handlePrefixesEiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %.093)
+  tail call void @_ZN6icu_7725ContractionsAndExpansions14handlePrefixesEiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %.092)
   br label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
 
 172:                                              ; preds = %27
-  tail call void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %.093)
+  tail call void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %.092)
   br label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
 
 173:                                              ; preds = %27
   %174 = load ptr, ptr %9, align 8, !tbaa !54
-  %175 = lshr i32 %.093, 13
+  %175 = lshr i32 %.092, 13
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds nuw i32, ptr %174, i64 %176
   br label %236
@@ -2216,10 +2216,10 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %196, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.not57.not94 = icmp sgt i32 %1, %2
-  br i1 %.not57.not94, label %.critedge.thread, label %.lr.ph97
+  %.not57.not93 = icmp sgt i32 %1, %2
+  br i1 %.not57.not93, label %.critedge.thread, label %.lr.ph96
 
-.lr.ph97:                                         ; preds = %183
+.lr.ph96:                                         ; preds = %183
   %199 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 760
   br label %201
@@ -2230,9 +2230,9 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %222
 
-201:                                              ; preds = %.lr.ph97, %219
-  %.04995 = phi i32 [ %1, %.lr.ph97 ], [ %220, %219 ]
-  %202 = trunc i32 %.04995 to i16
+201:                                              ; preds = %.lr.ph96, %219
+  %.04994 = phi i32 [ %1, %.lr.ph96 ], [ %220, %219 ]
+  %202 = trunc i32 %.04994 to i16
   store i16 %202, ptr %6, align 2, !tbaa !42
   invoke void @_ZN6icu_7717CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(416) %5)
           to label %203 unwind label %208
@@ -2270,8 +2270,8 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
           to label %219 unwind label %210
 
 219:                                              ; preds = %212
-  %220 = add i32 %.04995, 1
-  %exitcond.not = icmp eq i32 %.04995, %2
+  %220 = add i32 %.04994, 1
+  %exitcond.not = icmp eq i32 %.04994, %2
   br i1 %exitcond.not, label %.critedge.thread, label %201, !llvm.loop !97
 
 .critedge:                                        ; preds = %205
@@ -2313,7 +2313,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   call void @_ZN6icu_7725ContractionsAndExpansions10addStringsEiiPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, ptr noundef %231)
   br label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
 
-default.unreachable131:                           ; preds = %27
+default.unreachable130:                           ; preds = %27
   unreachable
 
 236:                                              ; preds = %178, %173

@@ -483,8 +483,8 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
 8:                                                ; preds = %4
   %9 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #4
   %10 = tail call ptr @slurm_list_next(ptr noundef %9) #4
-  %.not435764 = icmp eq ptr %10, null
-  br i1 %.not435764, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not435663 = icmp eq ptr %10, null
+  br i1 %.not435663, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 154
@@ -493,8 +493,8 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %13 = phi ptr [ %10, %.lr.ph.lr.ph ], [ %33, %.outer ]
-  %.031.ph66 = phi i1 [ false, %.lr.ph.lr.ph ], [ true, %.outer ]
-  %.033.ph65 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.outer ]
+  %.031.ph65 = phi i1 [ false, %.lr.ph.lr.ph ], [ true, %.outer ]
+  %.033.ph64 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.outer ]
   br label %14
 
 14:                                               ; preds = %.lr.ph, %26
@@ -530,22 +530,22 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   store i32 0, ptr %3, align 4
   %30 = load ptr, ptr %5, align 8
   %31 = call ptr @next_node_bitmap(ptr noundef %30, ptr noundef nonnull %3) #4
-  %.not4659 = icmp eq ptr %31, null
-  br i1 %.not4659, label %.outer, label %.lr.ph62
+  %.not4658 = icmp eq ptr %31, null
+  br i1 %.not4658, label %.outer, label %.lr.ph61
 
-.lr.ph62:                                         ; preds = %28
+.lr.ph61:                                         ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 4
   br label %34
 
 .outer:                                           ; preds = %57, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = call ptr @slurm_list_next(ptr noundef %9) #4
-  %.not4357 = icmp eq ptr %33, null
-  br i1 %.not4357, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
+  %.not4356 = icmp eq ptr %33, null
+  br i1 %.not4356, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
 
-34:                                               ; preds = %.lr.ph62, %57
-  %indvars.iv = phi i64 [ -1, %.lr.ph62 ], [ %indvars.iv.next, %57 ]
-  %35 = phi ptr [ %31, %.lr.ph62 ], [ %61, %57 ]
+34:                                               ; preds = %.lr.ph61, %57
+  %indvars.iv = phi i64 [ -1, %.lr.ph61 ], [ %indvars.iv.next, %57 ]
+  %35 = phi ptr [ %31, %.lr.ph61 ], [ %61, %57 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %36 = load i8, ptr %11, align 2
   %37 = and i8 %36, 1
@@ -578,7 +578,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   %51 = mul i64 %.4, %.03550
   %52 = load ptr, ptr %12, align 8
   %53 = getelementptr inbounds i64, ptr %52, i64 %indvars.iv.next
-  br i1 %.033.ph65, label %.sink.split, label %54
+  br i1 %.033.ph64, label %.sink.split, label %54
 
 54:                                               ; preds = %50
   %55 = load i64, ptr %53, align 8
@@ -600,7 +600,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   br i1 %.not46, label %.outer, label %34, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.outer, %26, %8
-  %.031.ph.lcssa = phi i1 [ false, %8 ], [ %.031.ph66, %26 ], [ true, %.outer ]
+  %.031.ph.lcssa = phi i1 [ false, %8 ], [ %.031.ph65, %26 ], [ true, %.outer ]
   call void @slurm_list_iterator_destroy(ptr noundef %9) #4
   br label %62
 

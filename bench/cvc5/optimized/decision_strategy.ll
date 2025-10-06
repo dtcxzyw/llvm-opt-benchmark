@@ -553,8 +553,8 @@ define hidden void @_ZN4cvc58internal6theory19DecisionStrategyFmf10getLiteralEj(
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 3
-  %.not45 = icmp ugt i64 %16, %8
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  %.not44 = icmp ugt i64 %16, %8
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 136

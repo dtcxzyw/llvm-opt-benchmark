@@ -42,13 +42,13 @@ define noundef i32 @_ZN5boost7archive17archive_exception6appendEjPKc(ptr noundef
 
 7:                                                ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.0914 = phi ptr [ %2, %.lr.ph ], [ %11, %10 ]
-  %8 = load i8, ptr %.0914, align 1, !tbaa !3
+  %.0913 = phi ptr [ %2, %.lr.ph ], [ %11, %10 ]
+  %8 = load i8, ptr %.0913, align 1, !tbaa !3
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.thread.loopexit.split.loop.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.0914, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0913, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %8, ptr %12, align 1, !tbaa !3
@@ -100,10 +100,10 @@ define void @_ZN5boost7archive17archive_exceptionC2ENS1_14exception_codeEPKcS4_(
   ]
 
 .preheader500:                                    ; preds = %5, %.preheader500
-  %.0914.i562 = phi ptr [ %15, %.preheader500 ], [ @.str, %5 ]
+  %.0913.i562 = phi ptr [ %15, %.preheader500 ], [ @.str, %5 ]
   %indvars.iv.i561 = phi i64 [ %indvars.iv.next.i, %.preheader500 ], [ 0, %5 ]
-  %14 = load i8, ptr %.0914.i562, align 1, !tbaa !3
-  %15 = getelementptr inbounds nuw i8, ptr %.0914.i562, i64 1
+  %14 = load i8, ptr %.0913.i562, align 1, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %.0913.i562, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i561, 1
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i561
   store i8 %14, ptr %16, align 1, !tbaa !3
@@ -116,10 +116,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit: ; preds = %.preheader500
   br label %219
 
 .preheader501:                                    ; preds = %5, %.preheader501
-  %.0914.i69558 = phi ptr [ %19, %.preheader501 ], [ @.str.1, %5 ]
+  %.0913.i69558 = phi ptr [ %19, %.preheader501 ], [ @.str.1, %5 ]
   %indvars.iv.i68557 = phi i64 [ %indvars.iv.next.i70, %.preheader501 ], [ 0, %5 ]
-  %18 = load i8, ptr %.0914.i69558, align 1, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %.0914.i69558, i64 1
+  %18 = load i8, ptr %.0913.i69558, align 1, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %.0913.i69558, i64 1
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i68557, 1
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i68557
   store i8 %18, ptr %20, align 1, !tbaa !3
@@ -133,10 +133,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit74: ; preds = %.preheader50
   br i1 %.not67, label %219, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit74, %.lr.ph.i
-  %.0914.i77560 = phi ptr [ %23, %.lr.ph.i ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit74 ]
+  %.0913.i77560 = phi ptr [ %23, %.lr.ph.i ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit74 ]
   %indvars.iv.i76559 = phi i64 [ %indvars.iv.next.i78, %.lr.ph.i ], [ 18, %_ZN5boost7archive17archive_exception6appendEjPKc.exit74 ]
-  %22 = load i8, ptr %.0914.i77560, align 1, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %.0914.i77560, i64 1
+  %22 = load i8, ptr %.0913.i77560, align 1, !tbaa !3
+  %23 = getelementptr inbounds nuw i8, ptr %.0913.i77560, i64 1
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76559, 1
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i76559
   store i8 %22, ptr %24, align 1, !tbaa !3
@@ -150,13 +150,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit74: ; preds = %.preheader50
 
 .lr.ph.i83:                                       ; preds = %.lr.ph.i83.preheader, %28
   %indvars.iv.i84 = phi i64 [ %indvars.iv.next.i86, %28 ], [ 21, %.lr.ph.i83.preheader ]
-  %.0914.i85 = phi ptr [ %29, %28 ], [ %3, %.lr.ph.i83.preheader ]
-  %26 = load i8, ptr %.0914.i85, align 1, !tbaa !3
+  %.0913.i85 = phi ptr [ %29, %28 ], [ %3, %.lr.ph.i83.preheader ]
+  %26 = load i8, ptr %.0913.i85, align 1, !tbaa !3
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.thread.loopexit.split.loop.exit.i88, label %28
 
 28:                                               ; preds = %.lr.ph.i83
-  %29 = getelementptr inbounds nuw i8, ptr %.0914.i85, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0913.i85, i64 1
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i84, 1
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i84
   store i8 %26, ptr %30, align 1, !tbaa !3
@@ -175,10 +175,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit89: ; preds = %28, %.thread
   br label %219
 
 .preheader502:                                    ; preds = %5, %.preheader502
-  %.0914.i92556 = phi ptr [ %35, %.preheader502 ], [ @.str.3, %5 ]
+  %.0913.i92556 = phi ptr [ %35, %.preheader502 ], [ @.str.3, %5 ]
   %indvars.iv.i91555 = phi i64 [ %indvars.iv.next.i93, %.preheader502 ], [ 0, %5 ]
-  %34 = load i8, ptr %.0914.i92556, align 1, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %.0914.i92556, i64 1
+  %34 = load i8, ptr %.0913.i92556, align 1, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %.0913.i92556, i64 1
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i91555, 1
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i91555
   store i8 %34, ptr %36, align 1, !tbaa !3
@@ -191,10 +191,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit97: ; preds = %.preheader50
   br label %219
 
 .preheader503:                                    ; preds = %5, %.preheader503
-  %.0914.i100554 = phi ptr [ %39, %.preheader503 ], [ @.str.4, %5 ]
+  %.0913.i100554 = phi ptr [ %39, %.preheader503 ], [ @.str.4, %5 ]
   %indvars.iv.i99553 = phi i64 [ %indvars.iv.next.i101, %.preheader503 ], [ 0, %5 ]
-  %38 = load i8, ptr %.0914.i100554, align 1, !tbaa !3
-  %39 = getelementptr inbounds nuw i8, ptr %.0914.i100554, i64 1
+  %38 = load i8, ptr %.0913.i100554, align 1, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %.0913.i100554, i64 1
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i99553, 1
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i99553
   store i8 %38, ptr %40, align 1, !tbaa !3
@@ -207,10 +207,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit105: ; preds = %.preheader5
   br label %219
 
 .preheader504:                                    ; preds = %5, %.preheader504
-  %.0914.i108552 = phi ptr [ %43, %.preheader504 ], [ @.str.5, %5 ]
+  %.0913.i108552 = phi ptr [ %43, %.preheader504 ], [ @.str.5, %5 ]
   %indvars.iv.i107551 = phi i64 [ %indvars.iv.next.i109, %.preheader504 ], [ 0, %5 ]
-  %42 = load i8, ptr %.0914.i108552, align 1, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %.0914.i108552, i64 1
+  %42 = load i8, ptr %.0913.i108552, align 1, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %.0913.i108552, i64 1
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i107551, 1
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i107551
   store i8 %42, ptr %44, align 1, !tbaa !3
@@ -223,10 +223,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit113: ; preds = %.preheader5
   br label %219
 
 .preheader505:                                    ; preds = %5, %.preheader505
-  %.0914.i116548 = phi ptr [ %47, %.preheader505 ], [ @.str.6, %5 ]
+  %.0913.i116548 = phi ptr [ %47, %.preheader505 ], [ @.str.6, %5 ]
   %indvars.iv.i115547 = phi i64 [ %indvars.iv.next.i117, %.preheader505 ], [ 0, %5 ]
-  %46 = load i8, ptr %.0914.i116548, align 1, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %.0914.i116548, i64 1
+  %46 = load i8, ptr %.0913.i116548, align 1, !tbaa !3
+  %47 = getelementptr inbounds nuw i8, ptr %.0913.i116548, i64 1
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i115547, 1
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i115547
   store i8 %46, ptr %48, align 1, !tbaa !3
@@ -240,10 +240,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit121: ; preds = %.preheader5
   br i1 %.not66, label %219, label %.lr.ph.i123
 
 .lr.ph.i123:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit121, %.lr.ph.i123
-  %.0914.i125550 = phi ptr [ %51, %.lr.ph.i123 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit121 ]
+  %.0913.i125550 = phi ptr [ %51, %.lr.ph.i123 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit121 ]
   %indvars.iv.i124549 = phi i64 [ %indvars.iv.next.i126, %.lr.ph.i123 ], [ 26, %_ZN5boost7archive17archive_exception6appendEjPKc.exit121 ]
-  %50 = load i8, ptr %.0914.i125550, align 1, !tbaa !3
-  %51 = getelementptr inbounds nuw i8, ptr %.0914.i125550, i64 1
+  %50 = load i8, ptr %.0913.i125550, align 1, !tbaa !3
+  %51 = getelementptr inbounds nuw i8, ptr %.0913.i125550, i64 1
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i124549, 1
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i124549
   store i8 %50, ptr %52, align 1, !tbaa !3
@@ -257,13 +257,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit121: ; preds = %.preheader5
 
 .lr.ph.i131:                                      ; preds = %.lr.ph.i131.preheader, %56
   %indvars.iv.i132 = phi i64 [ %indvars.iv.next.i134, %56 ], [ 29, %.lr.ph.i131.preheader ]
-  %.0914.i133 = phi ptr [ %57, %56 ], [ %3, %.lr.ph.i131.preheader ]
-  %54 = load i8, ptr %.0914.i133, align 1, !tbaa !3
+  %.0913.i133 = phi ptr [ %57, %56 ], [ %3, %.lr.ph.i131.preheader ]
+  %54 = load i8, ptr %.0913.i133, align 1, !tbaa !3
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %.thread.loopexit.split.loop.exit.i136, label %56
 
 56:                                               ; preds = %.lr.ph.i131
-  %57 = getelementptr inbounds nuw i8, ptr %.0914.i133, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0913.i133, i64 1
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i132, 1
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i132
   store i8 %54, ptr %58, align 1, !tbaa !3
@@ -282,10 +282,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit137: ; preds = %56, %.threa
   br label %219
 
 .preheader506:                                    ; preds = %5, %.preheader506
-  %.0914.i140546 = phi ptr [ %63, %.preheader506 ], [ @.str.7, %5 ]
+  %.0913.i140546 = phi ptr [ %63, %.preheader506 ], [ @.str.7, %5 ]
   %indvars.iv.i139545 = phi i64 [ %indvars.iv.next.i141, %.preheader506 ], [ 0, %5 ]
-  %62 = load i8, ptr %.0914.i140546, align 1, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %.0914.i140546, i64 1
+  %62 = load i8, ptr %.0913.i140546, align 1, !tbaa !3
+  %63 = getelementptr inbounds nuw i8, ptr %.0913.i140546, i64 1
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i139545, 1
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i139545
   store i8 %62, ptr %64, align 1, !tbaa !3
@@ -298,10 +298,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit145: ; preds = %.preheader5
   br label %219
 
 .preheader507:                                    ; preds = %5, %.preheader507
-  %.0914.i148543 = phi ptr [ %67, %.preheader507 ], [ @.str.8, %5 ]
+  %.0913.i148543 = phi ptr [ %67, %.preheader507 ], [ @.str.8, %5 ]
   %indvars.iv.i147542 = phi i64 [ %indvars.iv.next.i149, %.preheader507 ], [ 0, %5 ]
-  %66 = load i8, ptr %.0914.i148543, align 1, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %.0914.i148543, i64 1
+  %66 = load i8, ptr %.0913.i148543, align 1, !tbaa !3
+  %67 = getelementptr inbounds nuw i8, ptr %.0913.i148543, i64 1
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i147542, 1
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i147542
   store i8 %66, ptr %68, align 1, !tbaa !3
@@ -323,13 +323,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit153: ; preds = %.preheader5
 
 .lr.ph.i163:                                      ; preds = %.lr.ph.i155, %74
   %indvars.iv.i164 = phi i64 [ %indvars.iv.next.i166, %74 ], [ 19, %.lr.ph.i155 ]
-  %.0914.i165 = phi ptr [ %75, %74 ], [ %3, %.lr.ph.i155 ]
-  %72 = load i8, ptr %.0914.i165, align 1, !tbaa !3
+  %.0913.i165 = phi ptr [ %75, %74 ], [ %3, %.lr.ph.i155 ]
+  %72 = load i8, ptr %.0913.i165, align 1, !tbaa !3
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %.thread.loopexit.split.loop.exit.i168, label %74
 
 74:                                               ; preds = %.lr.ph.i163
-  %75 = getelementptr inbounds nuw i8, ptr %.0914.i165, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0913.i165, i64 1
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i164, 1
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i164
   store i8 %72, ptr %76, align 1, !tbaa !3
@@ -364,14 +364,14 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit153: ; preds = %.preheader5
 
 84:                                               ; preds = %85, %.lr.ph.i171
   %indvars.iv.i172 = phi i64 [ %83, %.lr.ph.i171 ], [ %indvars.iv.next.i174, %85 ]
-  %.0914.i173.idx = phi i64 [ 0, %.lr.ph.i171 ], [ %.0914.i173.add, %85 ]
-  %exitcond448 = icmp eq i64 %.0914.i173.idx, 1
+  %.0913.i173.idx = phi i64 [ 0, %.lr.ph.i171 ], [ %.0913.i173.add, %85 ]
+  %exitcond448 = icmp eq i64 %.0913.i173.idx, 1
   br i1 %exitcond448, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit177, label %85
 
 85:                                               ; preds = %84
-  %.0914.i173.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0914.i173.idx
-  %86 = load i8, ptr %.0914.i173.ptr, align 1, !tbaa !3
-  %.0914.i173.add = add nuw nsw i64 %.0914.i173.idx, 1
+  %.0913.i173.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0913.i173.idx
+  %86 = load i8, ptr %.0913.i173.ptr, align 1, !tbaa !3
+  %.0913.i173.add = add nuw nsw i64 %.0913.i173.idx, 1
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i172, 1
   %87 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i172
   store i8 %86, ptr %87, align 1, !tbaa !3
@@ -396,13 +396,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit177: ; preds = %84
 
 .lr.ph.i179:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit177, %97
   %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i182, %97 ], [ %92, %_ZN5boost7archive17archive_exception6appendEjPKc.exit177 ]
-  %.0914.i181 = phi ptr [ %98, %97 ], [ %4, %_ZN5boost7archive17archive_exception6appendEjPKc.exit177 ]
-  %95 = load i8, ptr %.0914.i181, align 1, !tbaa !3
+  %.0913.i181 = phi ptr [ %98, %97 ], [ %4, %_ZN5boost7archive17archive_exception6appendEjPKc.exit177 ]
+  %95 = load i8, ptr %.0913.i181, align 1, !tbaa !3
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %.thread.loopexit.split.loop.exit.i184, label %97
 
 97:                                               ; preds = %.lr.ph.i179
-  %98 = getelementptr inbounds nuw i8, ptr %.0914.i181, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.0913.i181, i64 1
   %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i180, 1
   %99 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i180
   store i8 %95, ptr %99, align 1, !tbaa !3
@@ -422,10 +422,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit185: ; preds = %97, %_ZN5bo
   br label %219
 
 .preheader508:                                    ; preds = %5, %.preheader508
-  %.0914.i188541 = phi ptr [ %105, %.preheader508 ], [ @.str.10, %5 ]
+  %.0913.i188541 = phi ptr [ %105, %.preheader508 ], [ @.str.10, %5 ]
   %indvars.iv.i187540 = phi i64 [ %indvars.iv.next.i189, %.preheader508 ], [ 0, %5 ]
-  %104 = load i8, ptr %.0914.i188541, align 1, !tbaa !3
-  %105 = getelementptr inbounds nuw i8, ptr %.0914.i188541, i64 1
+  %104 = load i8, ptr %.0913.i188541, align 1, !tbaa !3
+  %105 = getelementptr inbounds nuw i8, ptr %.0913.i188541, i64 1
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i187540, 1
   %106 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i187540
   store i8 %104, ptr %106, align 1, !tbaa !3
@@ -438,10 +438,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit193: ; preds = %.preheader5
   br label %219
 
 .preheader509:                                    ; preds = %5, %.preheader509
-  %.0914.i196539 = phi ptr [ %109, %.preheader509 ], [ @.str.11, %5 ]
+  %.0913.i196539 = phi ptr [ %109, %.preheader509 ], [ @.str.11, %5 ]
   %indvars.iv.i195538 = phi i64 [ %indvars.iv.next.i197, %.preheader509 ], [ 0, %5 ]
-  %108 = load i8, ptr %.0914.i196539, align 1, !tbaa !3
-  %109 = getelementptr inbounds nuw i8, ptr %.0914.i196539, i64 1
+  %108 = load i8, ptr %.0913.i196539, align 1, !tbaa !3
+  %109 = getelementptr inbounds nuw i8, ptr %.0913.i196539, i64 1
   %indvars.iv.next.i197 = add nuw nsw i64 %indvars.iv.i195538, 1
   %110 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i195538
   store i8 %108, ptr %110, align 1, !tbaa !3
@@ -458,13 +458,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit193: ; preds = %.preheader5
 .lr.ph.i203:                                      ; preds = %.lr.ph.i203.preheader, %115
   %indvars.iv = phi i32 [ 25, %.lr.ph.i203.preheader ], [ %indvars.iv.next, %115 ]
   %indvars.iv.i204 = phi i64 [ 23, %.lr.ph.i203.preheader ], [ %indvars.iv.next.i206, %115 ]
-  %.0914.i205 = phi ptr [ %112, %.lr.ph.i203.preheader ], [ %116, %115 ]
-  %113 = load i8, ptr %.0914.i205, align 1, !tbaa !3
+  %.0913.i205 = phi ptr [ %112, %.lr.ph.i203.preheader ], [ %116, %115 ]
+  %113 = load i8, ptr %.0913.i205, align 1, !tbaa !3
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit209, label %115
 
 115:                                              ; preds = %.lr.ph.i203
-  %116 = getelementptr inbounds nuw i8, ptr %.0914.i205, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %.0913.i205, i64 1
   %indvars.iv.next.i206 = add nuw nsw i64 %indvars.iv.i204, 1
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i204
   store i8 %113, ptr %117, align 1, !tbaa !3
@@ -488,14 +488,14 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit209: ; preds = %.lr.ph.i203
 
 .lr.ph.i211:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit209, %124
   %indvars.iv.i212 = phi i64 [ %indvars.iv.next.i214, %124 ], [ %121, %_ZN5boost7archive17archive_exception6appendEjPKc.exit209 ]
-  %.0914.i213 = phi ptr [ %126, %124 ], [ @.str.13, %_ZN5boost7archive17archive_exception6appendEjPKc.exit209 ]
+  %.0913.i213 = phi ptr [ %126, %124 ], [ @.str.13, %_ZN5boost7archive17archive_exception6appendEjPKc.exit209 ]
   %lftr.wideiv = trunc i64 %indvars.iv.i212 to i32
   %exitcond444 = icmp eq i32 %indvars.iv, %lftr.wideiv
   br i1 %exitcond444, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit217, label %124
 
 124:                                              ; preds = %.lr.ph.i211
-  %125 = load i8, ptr %.0914.i213, align 1, !tbaa !3
-  %126 = getelementptr inbounds nuw i8, ptr %.0914.i213, i64 1
+  %125 = load i8, ptr %.0913.i213, align 1, !tbaa !3
+  %126 = getelementptr inbounds nuw i8, ptr %.0913.i213, i64 1
   %indvars.iv.next.i214 = add nuw nsw i64 %indvars.iv.i212, 1
   %127 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i212
   store i8 %125, ptr %127, align 1, !tbaa !3
@@ -524,13 +524,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit217: ; preds = %.lr.ph.i211
 
 .lr.ph.i219:                                      ; preds = %.lr.ph.i219.preheader, %137
   %indvars.iv.i220 = phi i64 [ %indvars.iv.next.i222, %137 ], [ %131, %.lr.ph.i219.preheader ]
-  %.0914.i221 = phi ptr [ %138, %137 ], [ %134, %.lr.ph.i219.preheader ]
-  %135 = load i8, ptr %.0914.i221, align 1, !tbaa !3
+  %.0913.i221 = phi ptr [ %138, %137 ], [ %134, %.lr.ph.i219.preheader ]
+  %135 = load i8, ptr %.0913.i221, align 1, !tbaa !3
   %136 = icmp eq i8 %135, 0
   br i1 %136, label %.thread.loopexit.split.loop.exit.i224, label %137
 
 137:                                              ; preds = %.lr.ph.i219
-  %138 = getelementptr inbounds nuw i8, ptr %.0914.i221, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.0913.i221, i64 1
   %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i220, 1
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i220
   store i8 %135, ptr %139, align 1, !tbaa !3
@@ -550,10 +550,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit225: ; preds = %137, %_ZN5b
   br label %219
 
 .preheader510:                                    ; preds = %5, %.preheader510
-  %.0914.i228537 = phi ptr [ %145, %.preheader510 ], [ @.str.14, %5 ]
+  %.0913.i228537 = phi ptr [ %145, %.preheader510 ], [ @.str.14, %5 ]
   %indvars.iv.i227536 = phi i64 [ %indvars.iv.next.i229, %.preheader510 ], [ 0, %5 ]
-  %144 = load i8, ptr %.0914.i228537, align 1, !tbaa !3
-  %145 = getelementptr inbounds nuw i8, ptr %.0914.i228537, i64 1
+  %144 = load i8, ptr %.0913.i228537, align 1, !tbaa !3
+  %145 = getelementptr inbounds nuw i8, ptr %.0913.i228537, i64 1
   %indvars.iv.next.i229 = add nuw nsw i64 %indvars.iv.i227536, 1
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i227536
   store i8 %144, ptr %146, align 1, !tbaa !3
@@ -569,13 +569,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit225: ; preds = %137, %_ZN5b
 
 .lr.ph.i235:                                      ; preds = %.lr.ph.i235.preheader, %151
   %indvars.iv.i236 = phi i64 [ %indvars.iv.next.i238, %151 ], [ 14, %.lr.ph.i235.preheader ]
-  %.0914.i237 = phi ptr [ %152, %151 ], [ %148, %.lr.ph.i235.preheader ]
-  %149 = load i8, ptr %.0914.i237, align 1, !tbaa !3
+  %.0913.i237 = phi ptr [ %152, %151 ], [ %148, %.lr.ph.i235.preheader ]
+  %149 = load i8, ptr %.0913.i237, align 1, !tbaa !3
   %150 = icmp eq i8 %149, 0
   br i1 %150, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit241, label %151
 
 151:                                              ; preds = %.lr.ph.i235
-  %152 = getelementptr inbounds nuw i8, ptr %.0914.i237, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %.0913.i237, i64 1
   %indvars.iv.next.i238 = add nuw nsw i64 %indvars.iv.i236, 1
   %153 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i236
   store i8 %149, ptr %153, align 1, !tbaa !3
@@ -591,10 +591,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit241: ; preds = %.lr.ph.i235
   br label %219
 
 .preheader511:                                    ; preds = %5, %.preheader511
-  %.0914.i244535 = phi ptr [ %158, %.preheader511 ], [ @.str.16, %5 ]
+  %.0913.i244535 = phi ptr [ %158, %.preheader511 ], [ @.str.16, %5 ]
   %indvars.iv.i243534 = phi i64 [ %indvars.iv.next.i245, %.preheader511 ], [ 0, %5 ]
-  %157 = load i8, ptr %.0914.i244535, align 1, !tbaa !3
-  %158 = getelementptr inbounds nuw i8, ptr %.0914.i244535, i64 1
+  %157 = load i8, ptr %.0913.i244535, align 1, !tbaa !3
+  %158 = getelementptr inbounds nuw i8, ptr %.0913.i244535, i64 1
   %indvars.iv.next.i245 = add nuw nsw i64 %indvars.iv.i243534, 1
   %159 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i243534
   store i8 %157, ptr %159, align 1, !tbaa !3
@@ -607,10 +607,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit249: ; preds = %.preheader5
   br label %219
 
 .preheader512:                                    ; preds = %5, %.preheader512
-  %.0914.i252531 = phi ptr [ %162, %.preheader512 ], [ @.str.17, %5 ]
+  %.0913.i252531 = phi ptr [ %162, %.preheader512 ], [ @.str.17, %5 ]
   %indvars.iv.i251530 = phi i64 [ %indvars.iv.next.i253, %.preheader512 ], [ 0, %5 ]
-  %161 = load i8, ptr %.0914.i252531, align 1, !tbaa !3
-  %162 = getelementptr inbounds nuw i8, ptr %.0914.i252531, i64 1
+  %161 = load i8, ptr %.0913.i252531, align 1, !tbaa !3
+  %162 = getelementptr inbounds nuw i8, ptr %.0913.i252531, i64 1
   %indvars.iv.next.i253 = add nuw nsw i64 %indvars.iv.i251530, 1
   %163 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i251530
   store i8 %161, ptr %163, align 1, !tbaa !3
@@ -624,10 +624,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit257: ; preds = %.preheader5
   br i1 %.not60, label %219, label %.lr.ph.i259
 
 .lr.ph.i259:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit257, %.lr.ph.i259
-  %.0914.i261533 = phi ptr [ %166, %.lr.ph.i259 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit257 ]
+  %.0913.i261533 = phi ptr [ %166, %.lr.ph.i259 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit257 ]
   %indvars.iv.i260532 = phi i64 [ %indvars.iv.next.i262, %.lr.ph.i259 ], [ 41, %_ZN5boost7archive17archive_exception6appendEjPKc.exit257 ]
-  %165 = load i8, ptr %.0914.i261533, align 1, !tbaa !3
-  %166 = getelementptr inbounds nuw i8, ptr %.0914.i261533, i64 1
+  %165 = load i8, ptr %.0913.i261533, align 1, !tbaa !3
+  %166 = getelementptr inbounds nuw i8, ptr %.0913.i261533, i64 1
   %indvars.iv.next.i262 = add nuw nsw i64 %indvars.iv.i260532, 1
   %167 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i260532
   store i8 %165, ptr %167, align 1, !tbaa !3
@@ -641,13 +641,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit257: ; preds = %.preheader5
 
 .lr.ph.i267:                                      ; preds = %.lr.ph.i267.preheader, %171
   %indvars.iv.i268 = phi i64 [ %indvars.iv.next.i270, %171 ], [ 44, %.lr.ph.i267.preheader ]
-  %.0914.i269 = phi ptr [ %172, %171 ], [ %3, %.lr.ph.i267.preheader ]
-  %169 = load i8, ptr %.0914.i269, align 1, !tbaa !3
+  %.0913.i269 = phi ptr [ %172, %171 ], [ %3, %.lr.ph.i267.preheader ]
+  %169 = load i8, ptr %.0913.i269, align 1, !tbaa !3
   %170 = icmp eq i8 %169, 0
   br i1 %170, label %.thread.loopexit.split.loop.exit.i272, label %171
 
 171:                                              ; preds = %.lr.ph.i267
-  %172 = getelementptr inbounds nuw i8, ptr %.0914.i269, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.0913.i269, i64 1
   %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i268, 1
   %173 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i268
   store i8 %169, ptr %173, align 1, !tbaa !3
@@ -666,10 +666,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit273: ; preds = %171, %.thre
   br label %219
 
 .preheader513:                                    ; preds = %5, %.preheader513
-  %.0914.i276528 = phi ptr [ %178, %.preheader513 ], [ @.str.18, %5 ]
+  %.0913.i276528 = phi ptr [ %178, %.preheader513 ], [ @.str.18, %5 ]
   %indvars.iv.i275527 = phi i64 [ %indvars.iv.next.i277, %.preheader513 ], [ 0, %5 ]
-  %177 = load i8, ptr %.0914.i276528, align 1, !tbaa !3
-  %178 = getelementptr inbounds nuw i8, ptr %.0914.i276528, i64 1
+  %177 = load i8, ptr %.0913.i276528, align 1, !tbaa !3
+  %178 = getelementptr inbounds nuw i8, ptr %.0913.i276528, i64 1
   %indvars.iv.next.i277 = add nuw nsw i64 %indvars.iv.i275527, 1
   %179 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i275527
   store i8 %177, ptr %179, align 1, !tbaa !3
@@ -691,13 +691,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit281: ; preds = %.preheader5
 
 .lr.ph.i291:                                      ; preds = %.lr.ph.i283, %185
   %indvars.iv.i292 = phi i64 [ %indvars.iv.next.i294, %185 ], [ 20, %.lr.ph.i283 ]
-  %.0914.i293 = phi ptr [ %186, %185 ], [ %3, %.lr.ph.i283 ]
-  %183 = load i8, ptr %.0914.i293, align 1, !tbaa !3
+  %.0913.i293 = phi ptr [ %186, %185 ], [ %3, %.lr.ph.i283 ]
+  %183 = load i8, ptr %.0913.i293, align 1, !tbaa !3
   %184 = icmp eq i8 %183, 0
   br i1 %184, label %.thread.loopexit.split.loop.exit.i296, label %185
 
 185:                                              ; preds = %.lr.ph.i291
-  %186 = getelementptr inbounds nuw i8, ptr %.0914.i293, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %.0913.i293, i64 1
   %indvars.iv.next.i294 = add nuw nsw i64 %indvars.iv.i292, 1
   %187 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i292
   store i8 %183, ptr %187, align 1, !tbaa !3
@@ -732,14 +732,14 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit281: ; preds = %.preheader5
 
 195:                                              ; preds = %196, %.lr.ph.i299
   %indvars.iv.i300 = phi i64 [ %194, %.lr.ph.i299 ], [ %indvars.iv.next.i302, %196 ]
-  %.0914.i301.idx = phi i64 [ 0, %.lr.ph.i299 ], [ %.0914.i301.add, %196 ]
-  %exitcond437 = icmp eq i64 %.0914.i301.idx, 1
+  %.0913.i301.idx = phi i64 [ 0, %.lr.ph.i299 ], [ %.0913.i301.add, %196 ]
+  %exitcond437 = icmp eq i64 %.0913.i301.idx, 1
   br i1 %exitcond437, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit305, label %196
 
 196:                                              ; preds = %195
-  %.0914.i301.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0914.i301.idx
-  %197 = load i8, ptr %.0914.i301.ptr, align 1, !tbaa !3
-  %.0914.i301.add = add nuw nsw i64 %.0914.i301.idx, 1
+  %.0913.i301.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0913.i301.idx
+  %197 = load i8, ptr %.0913.i301.ptr, align 1, !tbaa !3
+  %.0913.i301.add = add nuw nsw i64 %.0913.i301.idx, 1
   %indvars.iv.next.i302 = add nuw nsw i64 %indvars.iv.i300, 1
   %198 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i300
   store i8 %197, ptr %198, align 1, !tbaa !3
@@ -764,13 +764,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit305: ; preds = %195
 
 .lr.ph.i307:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit305, %208
   %indvars.iv.i308 = phi i64 [ %indvars.iv.next.i310, %208 ], [ %203, %_ZN5boost7archive17archive_exception6appendEjPKc.exit305 ]
-  %.0914.i309 = phi ptr [ %209, %208 ], [ %4, %_ZN5boost7archive17archive_exception6appendEjPKc.exit305 ]
-  %206 = load i8, ptr %.0914.i309, align 1, !tbaa !3
+  %.0913.i309 = phi ptr [ %209, %208 ], [ %4, %_ZN5boost7archive17archive_exception6appendEjPKc.exit305 ]
+  %206 = load i8, ptr %.0913.i309, align 1, !tbaa !3
   %207 = icmp eq i8 %206, 0
   br i1 %207, label %.thread.loopexit.split.loop.exit.i312, label %208
 
 208:                                              ; preds = %.lr.ph.i307
-  %209 = getelementptr inbounds nuw i8, ptr %.0914.i309, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.0913.i309, i64 1
   %indvars.iv.next.i310 = add nuw nsw i64 %indvars.iv.i308, 1
   %210 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i308
   store i8 %206, ptr %210, align 1, !tbaa !3
@@ -790,10 +790,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit313: ; preds = %208, %_ZN5b
   br label %219
 
 .preheader:                                       ; preds = %5, %.preheader
-  %.0914.i316564 = phi ptr [ %216, %.preheader ], [ @.str.19, %5 ]
+  %.0913.i316564 = phi ptr [ %216, %.preheader ], [ @.str.19, %5 ]
   %indvars.iv.i315563 = phi i64 [ %indvars.iv.next.i317, %.preheader ], [ 0, %5 ]
-  %215 = load i8, ptr %.0914.i316564, align 1, !tbaa !3
-  %216 = getelementptr inbounds nuw i8, ptr %.0914.i316564, i64 1
+  %215 = load i8, ptr %.0913.i316564, align 1, !tbaa !3
+  %216 = getelementptr inbounds nuw i8, ptr %.0913.i316564, i64 1
   %indvars.iv.next.i317 = add nuw nsw i64 %indvars.iv.i315563, 1
   %217 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i315563
   store i8 %215, ptr %217, align 1, !tbaa !3
@@ -833,10 +833,10 @@ define void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(
   ]
 
 .preheader499:                                    ; preds = %4, %.preheader499
-  %.0914.i561 = phi ptr [ %8, %.preheader499 ], [ @.str, %4 ]
+  %.0913.i561 = phi ptr [ %8, %.preheader499 ], [ @.str, %4 ]
   %indvars.iv.i560 = phi i64 [ %indvars.iv.next.i, %.preheader499 ], [ 0, %4 ]
-  %7 = load i8, ptr %.0914.i561, align 1, !tbaa !3
-  %8 = getelementptr inbounds nuw i8, ptr %.0914.i561, i64 1
+  %7 = load i8, ptr %.0913.i561, align 1, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %.0913.i561, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i560, 1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i560
   store i8 %7, ptr %9, align 1, !tbaa !3
@@ -849,10 +849,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit: ; preds = %.preheader499
   br label %212
 
 .preheader500:                                    ; preds = %4, %.preheader500
-  %.0914.i68557 = phi ptr [ %12, %.preheader500 ], [ @.str.1, %4 ]
+  %.0913.i68557 = phi ptr [ %12, %.preheader500 ], [ @.str.1, %4 ]
   %indvars.iv.i67556 = phi i64 [ %indvars.iv.next.i69, %.preheader500 ], [ 0, %4 ]
-  %11 = load i8, ptr %.0914.i68557, align 1, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %.0914.i68557, i64 1
+  %11 = load i8, ptr %.0913.i68557, align 1, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %.0913.i68557, i64 1
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i67556, 1
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i67556
   store i8 %11, ptr %13, align 1, !tbaa !3
@@ -866,10 +866,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit73: ; preds = %.preheader50
   br i1 %.not66, label %212, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit73, %.lr.ph.i
-  %.0914.i76559 = phi ptr [ %16, %.lr.ph.i ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit73 ]
+  %.0913.i76559 = phi ptr [ %16, %.lr.ph.i ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit73 ]
   %indvars.iv.i75558 = phi i64 [ %indvars.iv.next.i77, %.lr.ph.i ], [ 18, %_ZN5boost7archive17archive_exception6appendEjPKc.exit73 ]
-  %15 = load i8, ptr %.0914.i76559, align 1, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %.0914.i76559, i64 1
+  %15 = load i8, ptr %.0913.i76559, align 1, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %.0913.i76559, i64 1
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75558, 1
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i75558
   store i8 %15, ptr %17, align 1, !tbaa !3
@@ -883,13 +883,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit73: ; preds = %.preheader50
 
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82.preheader, %21
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %21 ], [ 21, %.lr.ph.i82.preheader ]
-  %.0914.i84 = phi ptr [ %22, %21 ], [ %2, %.lr.ph.i82.preheader ]
-  %19 = load i8, ptr %.0914.i84, align 1, !tbaa !3
+  %.0913.i84 = phi ptr [ %22, %21 ], [ %2, %.lr.ph.i82.preheader ]
+  %19 = load i8, ptr %.0913.i84, align 1, !tbaa !3
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread.loopexit.split.loop.exit.i87, label %21
 
 21:                                               ; preds = %.lr.ph.i82
-  %22 = getelementptr inbounds nuw i8, ptr %.0914.i84, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.0913.i84, i64 1
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i83
   store i8 %19, ptr %23, align 1, !tbaa !3
@@ -908,10 +908,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit88: ; preds = %21, %.thread
   br label %212
 
 .preheader501:                                    ; preds = %4, %.preheader501
-  %.0914.i91555 = phi ptr [ %28, %.preheader501 ], [ @.str.3, %4 ]
+  %.0913.i91555 = phi ptr [ %28, %.preheader501 ], [ @.str.3, %4 ]
   %indvars.iv.i90554 = phi i64 [ %indvars.iv.next.i92, %.preheader501 ], [ 0, %4 ]
-  %27 = load i8, ptr %.0914.i91555, align 1, !tbaa !3
-  %28 = getelementptr inbounds nuw i8, ptr %.0914.i91555, i64 1
+  %27 = load i8, ptr %.0913.i91555, align 1, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %.0913.i91555, i64 1
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i90554, 1
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i90554
   store i8 %27, ptr %29, align 1, !tbaa !3
@@ -924,10 +924,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit96: ; preds = %.preheader50
   br label %212
 
 .preheader502:                                    ; preds = %4, %.preheader502
-  %.0914.i99553 = phi ptr [ %32, %.preheader502 ], [ @.str.4, %4 ]
+  %.0913.i99553 = phi ptr [ %32, %.preheader502 ], [ @.str.4, %4 ]
   %indvars.iv.i98552 = phi i64 [ %indvars.iv.next.i100, %.preheader502 ], [ 0, %4 ]
-  %31 = load i8, ptr %.0914.i99553, align 1, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %.0914.i99553, i64 1
+  %31 = load i8, ptr %.0913.i99553, align 1, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %.0913.i99553, i64 1
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i98552, 1
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i98552
   store i8 %31, ptr %33, align 1, !tbaa !3
@@ -940,10 +940,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit104: ; preds = %.preheader5
   br label %212
 
 .preheader503:                                    ; preds = %4, %.preheader503
-  %.0914.i107551 = phi ptr [ %36, %.preheader503 ], [ @.str.5, %4 ]
+  %.0913.i107551 = phi ptr [ %36, %.preheader503 ], [ @.str.5, %4 ]
   %indvars.iv.i106550 = phi i64 [ %indvars.iv.next.i108, %.preheader503 ], [ 0, %4 ]
-  %35 = load i8, ptr %.0914.i107551, align 1, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %.0914.i107551, i64 1
+  %35 = load i8, ptr %.0913.i107551, align 1, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %.0913.i107551, i64 1
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i106550, 1
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i106550
   store i8 %35, ptr %37, align 1, !tbaa !3
@@ -956,10 +956,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit112: ; preds = %.preheader5
   br label %212
 
 .preheader504:                                    ; preds = %4, %.preheader504
-  %.0914.i115547 = phi ptr [ %40, %.preheader504 ], [ @.str.6, %4 ]
+  %.0913.i115547 = phi ptr [ %40, %.preheader504 ], [ @.str.6, %4 ]
   %indvars.iv.i114546 = phi i64 [ %indvars.iv.next.i116, %.preheader504 ], [ 0, %4 ]
-  %39 = load i8, ptr %.0914.i115547, align 1, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i115547, i64 1
+  %39 = load i8, ptr %.0913.i115547, align 1, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %.0913.i115547, i64 1
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i114546, 1
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i114546
   store i8 %39, ptr %41, align 1, !tbaa !3
@@ -973,10 +973,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit120: ; preds = %.preheader5
   br i1 %.not65, label %212, label %.lr.ph.i122
 
 .lr.ph.i122:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit120, %.lr.ph.i122
-  %.0914.i124549 = phi ptr [ %44, %.lr.ph.i122 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit120 ]
+  %.0913.i124549 = phi ptr [ %44, %.lr.ph.i122 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit120 ]
   %indvars.iv.i123548 = phi i64 [ %indvars.iv.next.i125, %.lr.ph.i122 ], [ 26, %_ZN5boost7archive17archive_exception6appendEjPKc.exit120 ]
-  %43 = load i8, ptr %.0914.i124549, align 1, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %.0914.i124549, i64 1
+  %43 = load i8, ptr %.0913.i124549, align 1, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %.0913.i124549, i64 1
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123548, 1
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i123548
   store i8 %43, ptr %45, align 1, !tbaa !3
@@ -990,13 +990,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit120: ; preds = %.preheader5
 
 .lr.ph.i130:                                      ; preds = %.lr.ph.i130.preheader, %49
   %indvars.iv.i131 = phi i64 [ %indvars.iv.next.i133, %49 ], [ 29, %.lr.ph.i130.preheader ]
-  %.0914.i132 = phi ptr [ %50, %49 ], [ %2, %.lr.ph.i130.preheader ]
-  %47 = load i8, ptr %.0914.i132, align 1, !tbaa !3
+  %.0913.i132 = phi ptr [ %50, %49 ], [ %2, %.lr.ph.i130.preheader ]
+  %47 = load i8, ptr %.0913.i132, align 1, !tbaa !3
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %.thread.loopexit.split.loop.exit.i135, label %49
 
 49:                                               ; preds = %.lr.ph.i130
-  %50 = getelementptr inbounds nuw i8, ptr %.0914.i132, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0913.i132, i64 1
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i131, 1
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i131
   store i8 %47, ptr %51, align 1, !tbaa !3
@@ -1015,10 +1015,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit136: ; preds = %49, %.threa
   br label %212
 
 .preheader505:                                    ; preds = %4, %.preheader505
-  %.0914.i139545 = phi ptr [ %56, %.preheader505 ], [ @.str.7, %4 ]
+  %.0913.i139545 = phi ptr [ %56, %.preheader505 ], [ @.str.7, %4 ]
   %indvars.iv.i138544 = phi i64 [ %indvars.iv.next.i140, %.preheader505 ], [ 0, %4 ]
-  %55 = load i8, ptr %.0914.i139545, align 1, !tbaa !3
-  %56 = getelementptr inbounds nuw i8, ptr %.0914.i139545, i64 1
+  %55 = load i8, ptr %.0913.i139545, align 1, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %.0913.i139545, i64 1
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i138544, 1
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i138544
   store i8 %55, ptr %57, align 1, !tbaa !3
@@ -1031,10 +1031,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit144: ; preds = %.preheader5
   br label %212
 
 .preheader506:                                    ; preds = %4, %.preheader506
-  %.0914.i147542 = phi ptr [ %60, %.preheader506 ], [ @.str.8, %4 ]
+  %.0913.i147542 = phi ptr [ %60, %.preheader506 ], [ @.str.8, %4 ]
   %indvars.iv.i146541 = phi i64 [ %indvars.iv.next.i148, %.preheader506 ], [ 0, %4 ]
-  %59 = load i8, ptr %.0914.i147542, align 1, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %.0914.i147542, i64 1
+  %59 = load i8, ptr %.0913.i147542, align 1, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %.0913.i147542, i64 1
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i146541, 1
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i146541
   store i8 %59, ptr %61, align 1, !tbaa !3
@@ -1056,13 +1056,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit152: ; preds = %.preheader5
 
 .lr.ph.i162:                                      ; preds = %.lr.ph.i154, %67
   %indvars.iv.i163 = phi i64 [ %indvars.iv.next.i165, %67 ], [ 19, %.lr.ph.i154 ]
-  %.0914.i164 = phi ptr [ %68, %67 ], [ %2, %.lr.ph.i154 ]
-  %65 = load i8, ptr %.0914.i164, align 1, !tbaa !3
+  %.0913.i164 = phi ptr [ %68, %67 ], [ %2, %.lr.ph.i154 ]
+  %65 = load i8, ptr %.0913.i164, align 1, !tbaa !3
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %.thread.loopexit.split.loop.exit.i167, label %67
 
 67:                                               ; preds = %.lr.ph.i162
-  %68 = getelementptr inbounds nuw i8, ptr %.0914.i164, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.0913.i164, i64 1
   %indvars.iv.next.i165 = add nuw nsw i64 %indvars.iv.i163, 1
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i163
   store i8 %65, ptr %69, align 1, !tbaa !3
@@ -1097,14 +1097,14 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit152: ; preds = %.preheader5
 
 77:                                               ; preds = %78, %.lr.ph.i170
   %indvars.iv.i171 = phi i64 [ %76, %.lr.ph.i170 ], [ %indvars.iv.next.i173, %78 ]
-  %.0914.i172.idx = phi i64 [ 0, %.lr.ph.i170 ], [ %.0914.i172.add, %78 ]
-  %exitcond447 = icmp eq i64 %.0914.i172.idx, 1
+  %.0913.i172.idx = phi i64 [ 0, %.lr.ph.i170 ], [ %.0913.i172.add, %78 ]
+  %exitcond447 = icmp eq i64 %.0913.i172.idx, 1
   br i1 %exitcond447, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit176, label %78
 
 78:                                               ; preds = %77
-  %.0914.i172.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0914.i172.idx
-  %79 = load i8, ptr %.0914.i172.ptr, align 1, !tbaa !3
-  %.0914.i172.add = add nuw nsw i64 %.0914.i172.idx, 1
+  %.0913.i172.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0913.i172.idx
+  %79 = load i8, ptr %.0913.i172.ptr, align 1, !tbaa !3
+  %.0913.i172.add = add nuw nsw i64 %.0913.i172.idx, 1
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i171, 1
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i171
   store i8 %79, ptr %80, align 1, !tbaa !3
@@ -1129,13 +1129,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit176: ; preds = %77
 
 .lr.ph.i178:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit176, %90
   %indvars.iv.i179 = phi i64 [ %indvars.iv.next.i181, %90 ], [ %85, %_ZN5boost7archive17archive_exception6appendEjPKc.exit176 ]
-  %.0914.i180 = phi ptr [ %91, %90 ], [ %3, %_ZN5boost7archive17archive_exception6appendEjPKc.exit176 ]
-  %88 = load i8, ptr %.0914.i180, align 1, !tbaa !3
+  %.0913.i180 = phi ptr [ %91, %90 ], [ %3, %_ZN5boost7archive17archive_exception6appendEjPKc.exit176 ]
+  %88 = load i8, ptr %.0913.i180, align 1, !tbaa !3
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %.thread.loopexit.split.loop.exit.i183, label %90
 
 90:                                               ; preds = %.lr.ph.i178
-  %91 = getelementptr inbounds nuw i8, ptr %.0914.i180, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0913.i180, i64 1
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i179, 1
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i179
   store i8 %88, ptr %92, align 1, !tbaa !3
@@ -1155,10 +1155,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit184: ; preds = %90, %_ZN5bo
   br label %212
 
 .preheader507:                                    ; preds = %4, %.preheader507
-  %.0914.i187540 = phi ptr [ %98, %.preheader507 ], [ @.str.10, %4 ]
+  %.0913.i187540 = phi ptr [ %98, %.preheader507 ], [ @.str.10, %4 ]
   %indvars.iv.i186539 = phi i64 [ %indvars.iv.next.i188, %.preheader507 ], [ 0, %4 ]
-  %97 = load i8, ptr %.0914.i187540, align 1, !tbaa !3
-  %98 = getelementptr inbounds nuw i8, ptr %.0914.i187540, i64 1
+  %97 = load i8, ptr %.0913.i187540, align 1, !tbaa !3
+  %98 = getelementptr inbounds nuw i8, ptr %.0913.i187540, i64 1
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i186539, 1
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i186539
   store i8 %97, ptr %99, align 1, !tbaa !3
@@ -1171,10 +1171,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit192: ; preds = %.preheader5
   br label %212
 
 .preheader508:                                    ; preds = %4, %.preheader508
-  %.0914.i195538 = phi ptr [ %102, %.preheader508 ], [ @.str.11, %4 ]
+  %.0913.i195538 = phi ptr [ %102, %.preheader508 ], [ @.str.11, %4 ]
   %indvars.iv.i194537 = phi i64 [ %indvars.iv.next.i196, %.preheader508 ], [ 0, %4 ]
-  %101 = load i8, ptr %.0914.i195538, align 1, !tbaa !3
-  %102 = getelementptr inbounds nuw i8, ptr %.0914.i195538, i64 1
+  %101 = load i8, ptr %.0913.i195538, align 1, !tbaa !3
+  %102 = getelementptr inbounds nuw i8, ptr %.0913.i195538, i64 1
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i194537, 1
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i194537
   store i8 %101, ptr %103, align 1, !tbaa !3
@@ -1191,13 +1191,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit192: ; preds = %.preheader5
 .lr.ph.i202:                                      ; preds = %.lr.ph.i202.preheader, %108
   %indvars.iv = phi i32 [ 25, %.lr.ph.i202.preheader ], [ %indvars.iv.next, %108 ]
   %indvars.iv.i203 = phi i64 [ 23, %.lr.ph.i202.preheader ], [ %indvars.iv.next.i205, %108 ]
-  %.0914.i204 = phi ptr [ %105, %.lr.ph.i202.preheader ], [ %109, %108 ]
-  %106 = load i8, ptr %.0914.i204, align 1, !tbaa !3
+  %.0913.i204 = phi ptr [ %105, %.lr.ph.i202.preheader ], [ %109, %108 ]
+  %106 = load i8, ptr %.0913.i204, align 1, !tbaa !3
   %107 = icmp eq i8 %106, 0
   br i1 %107, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit208, label %108
 
 108:                                              ; preds = %.lr.ph.i202
-  %109 = getelementptr inbounds nuw i8, ptr %.0914.i204, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.0913.i204, i64 1
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i203, 1
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i203
   store i8 %106, ptr %110, align 1, !tbaa !3
@@ -1221,14 +1221,14 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit208: ; preds = %.lr.ph.i202
 
 .lr.ph.i210:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit208, %117
   %indvars.iv.i211 = phi i64 [ %indvars.iv.next.i213, %117 ], [ %114, %_ZN5boost7archive17archive_exception6appendEjPKc.exit208 ]
-  %.0914.i212 = phi ptr [ %119, %117 ], [ @.str.13, %_ZN5boost7archive17archive_exception6appendEjPKc.exit208 ]
+  %.0913.i212 = phi ptr [ %119, %117 ], [ @.str.13, %_ZN5boost7archive17archive_exception6appendEjPKc.exit208 ]
   %lftr.wideiv = trunc i64 %indvars.iv.i211 to i32
   %exitcond443 = icmp eq i32 %indvars.iv, %lftr.wideiv
   br i1 %exitcond443, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit216, label %117
 
 117:                                              ; preds = %.lr.ph.i210
-  %118 = load i8, ptr %.0914.i212, align 1, !tbaa !3
-  %119 = getelementptr inbounds nuw i8, ptr %.0914.i212, i64 1
+  %118 = load i8, ptr %.0913.i212, align 1, !tbaa !3
+  %119 = getelementptr inbounds nuw i8, ptr %.0913.i212, i64 1
   %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i211, 1
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i211
   store i8 %118, ptr %120, align 1, !tbaa !3
@@ -1257,13 +1257,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit216: ; preds = %.lr.ph.i210
 
 .lr.ph.i218:                                      ; preds = %.lr.ph.i218.preheader, %130
   %indvars.iv.i219 = phi i64 [ %indvars.iv.next.i221, %130 ], [ %124, %.lr.ph.i218.preheader ]
-  %.0914.i220 = phi ptr [ %131, %130 ], [ %127, %.lr.ph.i218.preheader ]
-  %128 = load i8, ptr %.0914.i220, align 1, !tbaa !3
+  %.0913.i220 = phi ptr [ %131, %130 ], [ %127, %.lr.ph.i218.preheader ]
+  %128 = load i8, ptr %.0913.i220, align 1, !tbaa !3
   %129 = icmp eq i8 %128, 0
   br i1 %129, label %.thread.loopexit.split.loop.exit.i223, label %130
 
 130:                                              ; preds = %.lr.ph.i218
-  %131 = getelementptr inbounds nuw i8, ptr %.0914.i220, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.0913.i220, i64 1
   %indvars.iv.next.i221 = add nuw nsw i64 %indvars.iv.i219, 1
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i219
   store i8 %128, ptr %132, align 1, !tbaa !3
@@ -1283,10 +1283,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit224: ; preds = %130, %_ZN5b
   br label %212
 
 .preheader509:                                    ; preds = %4, %.preheader509
-  %.0914.i227536 = phi ptr [ %138, %.preheader509 ], [ @.str.14, %4 ]
+  %.0913.i227536 = phi ptr [ %138, %.preheader509 ], [ @.str.14, %4 ]
   %indvars.iv.i226535 = phi i64 [ %indvars.iv.next.i228, %.preheader509 ], [ 0, %4 ]
-  %137 = load i8, ptr %.0914.i227536, align 1, !tbaa !3
-  %138 = getelementptr inbounds nuw i8, ptr %.0914.i227536, i64 1
+  %137 = load i8, ptr %.0913.i227536, align 1, !tbaa !3
+  %138 = getelementptr inbounds nuw i8, ptr %.0913.i227536, i64 1
   %indvars.iv.next.i228 = add nuw nsw i64 %indvars.iv.i226535, 1
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i226535
   store i8 %137, ptr %139, align 1, !tbaa !3
@@ -1302,13 +1302,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit224: ; preds = %130, %_ZN5b
 
 .lr.ph.i234:                                      ; preds = %.lr.ph.i234.preheader, %144
   %indvars.iv.i235 = phi i64 [ %indvars.iv.next.i237, %144 ], [ 14, %.lr.ph.i234.preheader ]
-  %.0914.i236 = phi ptr [ %145, %144 ], [ %141, %.lr.ph.i234.preheader ]
-  %142 = load i8, ptr %.0914.i236, align 1, !tbaa !3
+  %.0913.i236 = phi ptr [ %145, %144 ], [ %141, %.lr.ph.i234.preheader ]
+  %142 = load i8, ptr %.0913.i236, align 1, !tbaa !3
   %143 = icmp eq i8 %142, 0
   br i1 %143, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit240, label %144
 
 144:                                              ; preds = %.lr.ph.i234
-  %145 = getelementptr inbounds nuw i8, ptr %.0914.i236, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %.0913.i236, i64 1
   %indvars.iv.next.i237 = add nuw nsw i64 %indvars.iv.i235, 1
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i235
   store i8 %142, ptr %146, align 1, !tbaa !3
@@ -1324,10 +1324,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit240: ; preds = %.lr.ph.i234
   br label %212
 
 .preheader510:                                    ; preds = %4, %.preheader510
-  %.0914.i243534 = phi ptr [ %151, %.preheader510 ], [ @.str.16, %4 ]
+  %.0913.i243534 = phi ptr [ %151, %.preheader510 ], [ @.str.16, %4 ]
   %indvars.iv.i242533 = phi i64 [ %indvars.iv.next.i244, %.preheader510 ], [ 0, %4 ]
-  %150 = load i8, ptr %.0914.i243534, align 1, !tbaa !3
-  %151 = getelementptr inbounds nuw i8, ptr %.0914.i243534, i64 1
+  %150 = load i8, ptr %.0913.i243534, align 1, !tbaa !3
+  %151 = getelementptr inbounds nuw i8, ptr %.0913.i243534, i64 1
   %indvars.iv.next.i244 = add nuw nsw i64 %indvars.iv.i242533, 1
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i242533
   store i8 %150, ptr %152, align 1, !tbaa !3
@@ -1340,10 +1340,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit248: ; preds = %.preheader5
   br label %212
 
 .preheader511:                                    ; preds = %4, %.preheader511
-  %.0914.i251530 = phi ptr [ %155, %.preheader511 ], [ @.str.17, %4 ]
+  %.0913.i251530 = phi ptr [ %155, %.preheader511 ], [ @.str.17, %4 ]
   %indvars.iv.i250529 = phi i64 [ %indvars.iv.next.i252, %.preheader511 ], [ 0, %4 ]
-  %154 = load i8, ptr %.0914.i251530, align 1, !tbaa !3
-  %155 = getelementptr inbounds nuw i8, ptr %.0914.i251530, i64 1
+  %154 = load i8, ptr %.0913.i251530, align 1, !tbaa !3
+  %155 = getelementptr inbounds nuw i8, ptr %.0913.i251530, i64 1
   %indvars.iv.next.i252 = add nuw nsw i64 %indvars.iv.i250529, 1
   %156 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i250529
   store i8 %154, ptr %156, align 1, !tbaa !3
@@ -1357,10 +1357,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit256: ; preds = %.preheader5
   br i1 %.not59, label %212, label %.lr.ph.i258
 
 .lr.ph.i258:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit256, %.lr.ph.i258
-  %.0914.i260532 = phi ptr [ %159, %.lr.ph.i258 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit256 ]
+  %.0913.i260532 = phi ptr [ %159, %.lr.ph.i258 ], [ @.str.2, %_ZN5boost7archive17archive_exception6appendEjPKc.exit256 ]
   %indvars.iv.i259531 = phi i64 [ %indvars.iv.next.i261, %.lr.ph.i258 ], [ 41, %_ZN5boost7archive17archive_exception6appendEjPKc.exit256 ]
-  %158 = load i8, ptr %.0914.i260532, align 1, !tbaa !3
-  %159 = getelementptr inbounds nuw i8, ptr %.0914.i260532, i64 1
+  %158 = load i8, ptr %.0913.i260532, align 1, !tbaa !3
+  %159 = getelementptr inbounds nuw i8, ptr %.0913.i260532, i64 1
   %indvars.iv.next.i261 = add nuw nsw i64 %indvars.iv.i259531, 1
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i259531
   store i8 %158, ptr %160, align 1, !tbaa !3
@@ -1374,13 +1374,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit256: ; preds = %.preheader5
 
 .lr.ph.i266:                                      ; preds = %.lr.ph.i266.preheader, %164
   %indvars.iv.i267 = phi i64 [ %indvars.iv.next.i269, %164 ], [ 44, %.lr.ph.i266.preheader ]
-  %.0914.i268 = phi ptr [ %165, %164 ], [ %2, %.lr.ph.i266.preheader ]
-  %162 = load i8, ptr %.0914.i268, align 1, !tbaa !3
+  %.0913.i268 = phi ptr [ %165, %164 ], [ %2, %.lr.ph.i266.preheader ]
+  %162 = load i8, ptr %.0913.i268, align 1, !tbaa !3
   %163 = icmp eq i8 %162, 0
   br i1 %163, label %.thread.loopexit.split.loop.exit.i271, label %164
 
 164:                                              ; preds = %.lr.ph.i266
-  %165 = getelementptr inbounds nuw i8, ptr %.0914.i268, i64 1
+  %165 = getelementptr inbounds nuw i8, ptr %.0913.i268, i64 1
   %indvars.iv.next.i269 = add nuw nsw i64 %indvars.iv.i267, 1
   %166 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i267
   store i8 %162, ptr %166, align 1, !tbaa !3
@@ -1399,10 +1399,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit272: ; preds = %164, %.thre
   br label %212
 
 .preheader512:                                    ; preds = %4, %.preheader512
-  %.0914.i275527 = phi ptr [ %171, %.preheader512 ], [ @.str.18, %4 ]
+  %.0913.i275527 = phi ptr [ %171, %.preheader512 ], [ @.str.18, %4 ]
   %indvars.iv.i274526 = phi i64 [ %indvars.iv.next.i276, %.preheader512 ], [ 0, %4 ]
-  %170 = load i8, ptr %.0914.i275527, align 1, !tbaa !3
-  %171 = getelementptr inbounds nuw i8, ptr %.0914.i275527, i64 1
+  %170 = load i8, ptr %.0913.i275527, align 1, !tbaa !3
+  %171 = getelementptr inbounds nuw i8, ptr %.0913.i275527, i64 1
   %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i274526, 1
   %172 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i274526
   store i8 %170, ptr %172, align 1, !tbaa !3
@@ -1424,13 +1424,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit280: ; preds = %.preheader5
 
 .lr.ph.i290:                                      ; preds = %.lr.ph.i282, %178
   %indvars.iv.i291 = phi i64 [ %indvars.iv.next.i293, %178 ], [ 20, %.lr.ph.i282 ]
-  %.0914.i292 = phi ptr [ %179, %178 ], [ %2, %.lr.ph.i282 ]
-  %176 = load i8, ptr %.0914.i292, align 1, !tbaa !3
+  %.0913.i292 = phi ptr [ %179, %178 ], [ %2, %.lr.ph.i282 ]
+  %176 = load i8, ptr %.0913.i292, align 1, !tbaa !3
   %177 = icmp eq i8 %176, 0
   br i1 %177, label %.thread.loopexit.split.loop.exit.i295, label %178
 
 178:                                              ; preds = %.lr.ph.i290
-  %179 = getelementptr inbounds nuw i8, ptr %.0914.i292, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %.0913.i292, i64 1
   %indvars.iv.next.i293 = add nuw nsw i64 %indvars.iv.i291, 1
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i291
   store i8 %176, ptr %180, align 1, !tbaa !3
@@ -1465,14 +1465,14 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit280: ; preds = %.preheader5
 
 188:                                              ; preds = %189, %.lr.ph.i298
   %indvars.iv.i299 = phi i64 [ %187, %.lr.ph.i298 ], [ %indvars.iv.next.i301, %189 ]
-  %.0914.i300.idx = phi i64 [ 0, %.lr.ph.i298 ], [ %.0914.i300.add, %189 ]
-  %exitcond436 = icmp eq i64 %.0914.i300.idx, 1
+  %.0913.i300.idx = phi i64 [ 0, %.lr.ph.i298 ], [ %.0913.i300.add, %189 ]
+  %exitcond436 = icmp eq i64 %.0913.i300.idx, 1
   br i1 %exitcond436, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit304, label %189
 
 189:                                              ; preds = %188
-  %.0914.i300.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0914.i300.idx
-  %190 = load i8, ptr %.0914.i300.ptr, align 1, !tbaa !3
-  %.0914.i300.add = add nuw nsw i64 %.0914.i300.idx, 1
+  %.0913.i300.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.0913.i300.idx
+  %190 = load i8, ptr %.0913.i300.ptr, align 1, !tbaa !3
+  %.0913.i300.add = add nuw nsw i64 %.0913.i300.idx, 1
   %indvars.iv.next.i301 = add nuw nsw i64 %indvars.iv.i299, 1
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i299
   store i8 %190, ptr %191, align 1, !tbaa !3
@@ -1497,13 +1497,13 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit304: ; preds = %188
 
 .lr.ph.i306:                                      ; preds = %_ZN5boost7archive17archive_exception6appendEjPKc.exit304, %201
   %indvars.iv.i307 = phi i64 [ %indvars.iv.next.i309, %201 ], [ %196, %_ZN5boost7archive17archive_exception6appendEjPKc.exit304 ]
-  %.0914.i308 = phi ptr [ %202, %201 ], [ %3, %_ZN5boost7archive17archive_exception6appendEjPKc.exit304 ]
-  %199 = load i8, ptr %.0914.i308, align 1, !tbaa !3
+  %.0913.i308 = phi ptr [ %202, %201 ], [ %3, %_ZN5boost7archive17archive_exception6appendEjPKc.exit304 ]
+  %199 = load i8, ptr %.0913.i308, align 1, !tbaa !3
   %200 = icmp eq i8 %199, 0
   br i1 %200, label %.thread.loopexit.split.loop.exit.i311, label %201
 
 201:                                              ; preds = %.lr.ph.i306
-  %202 = getelementptr inbounds nuw i8, ptr %.0914.i308, i64 1
+  %202 = getelementptr inbounds nuw i8, ptr %.0913.i308, i64 1
   %indvars.iv.next.i309 = add nuw nsw i64 %indvars.iv.i307, 1
   %203 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i307
   store i8 %199, ptr %203, align 1, !tbaa !3
@@ -1523,10 +1523,10 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit312: ; preds = %201, %_ZN5b
   br label %212
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.0914.i315563 = phi ptr [ %209, %.preheader ], [ @.str.19, %4 ]
+  %.0913.i315563 = phi ptr [ %209, %.preheader ], [ @.str.19, %4 ]
   %indvars.iv.i314562 = phi i64 [ %indvars.iv.next.i316, %.preheader ], [ 0, %4 ]
-  %208 = load i8, ptr %.0914.i315563, align 1, !tbaa !3
-  %209 = getelementptr inbounds nuw i8, ptr %.0914.i315563, i64 1
+  %208 = load i8, ptr %.0913.i315563, align 1, !tbaa !3
+  %209 = getelementptr inbounds nuw i8, ptr %.0913.i315563, i64 1
   %indvars.iv.next.i316 = add nuw nsw i64 %indvars.iv.i314562, 1
   %210 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i314562
   store i8 %208, ptr %210, align 1, !tbaa !3

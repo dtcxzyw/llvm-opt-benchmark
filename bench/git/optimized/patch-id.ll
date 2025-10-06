@@ -236,14 +236,14 @@ oidclr.exit.i.i:                                  ; preds = %90, %.split.loop.ex
   store i32 %.2.i.i.i.i, ptr %76, align 4, !tbaa !46
   %93 = load ptr, ptr @stdin, align 8, !tbaa !48
   %94 = call i32 @strbuf_getwholeline(ptr noundef nonnull %11, ptr noundef %93, i32 noundef 10) #9
-  %.not155.i.i = icmp eq i32 %94, -1
-  br i1 %.not155.i.i, label %scan_hunk_header.exit.thread.i.i, label %.lr.ph.i.i
+  %.not151.i.i = icmp eq i32 %94, -1
+  br i1 %.not151.i.i, label %scan_hunk_header.exit.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %oidclr.exit.i.i, %scan_hunk_header.exit.i.i
-  %.057159.i.i = phi i64 [ %.2.i.i, %scan_hunk_header.exit.i.i ], [ 0, %oidclr.exit.i.i ]
-  %.063158.i.i = phi i32 [ %.164.i.i, %scan_hunk_header.exit.i.i ], [ 0, %oidclr.exit.i.i ]
-  %.0114157.i.i = phi i32 [ %.1115.i.i, %scan_hunk_header.exit.i.i ], [ -1, %oidclr.exit.i.i ]
-  %.0118156.i.i = phi i32 [ %.1119.i.i, %scan_hunk_header.exit.i.i ], [ -1, %oidclr.exit.i.i ]
+  %.057155.i.i = phi i64 [ %.2.i.i, %scan_hunk_header.exit.i.i ], [ 0, %oidclr.exit.i.i ]
+  %.063154.i.i = phi i32 [ %.164.i.i, %scan_hunk_header.exit.i.i ], [ 0, %oidclr.exit.i.i ]
+  %.0114153.i.i = phi i32 [ %.1115.i.i, %scan_hunk_header.exit.i.i ], [ -1, %oidclr.exit.i.i ]
+  %.0118152.i.i = phi i32 [ %.1119.i.i, %scan_hunk_header.exit.i.i ], [ -1, %oidclr.exit.i.i ]
   %95 = load ptr, ptr %77, align 8, !tbaa !53
   %scevgep.i.i = getelementptr i8, ptr %95, i64 7
   br label %96
@@ -264,14 +264,14 @@ oidclr.exit.i.i:                                  ; preds = %90, %.split.loop.ex
   br i1 %101, label %96, label %skip_prefix.exit.preheader.i.i, !llvm.loop !56
 
 skip_prefix.exit.preheader.i.i:                   ; preds = %97
-  %scevgep171.i.i = getelementptr i8, ptr %95, i64 5
+  %scevgep167.i.i = getelementptr i8, ptr %95, i64 5
   br label %skip_prefix.exit.i.i
 
 skip_prefix.exit.i.i:                             ; preds = %102, %skip_prefix.exit.preheader.i.i
   %.07.i90.i.i = phi ptr [ %104, %102 ], [ %95, %skip_prefix.exit.preheader.i.i ]
   %.06.i91.idx.i.i = phi i64 [ %.06.i91.add.i.i, %102 ], [ 0, %skip_prefix.exit.preheader.i.i ]
-  %exitcond172.i.i = icmp eq i64 %.06.i91.idx.i.i, 5
-  br i1 %exitcond172.i.i, label %skip_prefix.exit.thread.i.i, label %102
+  %exitcond168.i.i = icmp eq i64 %.06.i91.idx.i.i, 5
+  br i1 %exitcond168.i.i, label %skip_prefix.exit.thread.i.i, label %102
 
 102:                                              ; preds = %skip_prefix.exit.i.i
   %.06.i91.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.06.i91.idx.i.i
@@ -305,13 +305,13 @@ skip_prefix.exit93.i.i:                           ; preds = %102
   br label %scan_hunk_header.exit.i.i, !llvm.loop !57
 
 skip_prefix.exit.thread.i.i:                      ; preds = %96, %skip_prefix.exit.i.i, %108, %skip_prefix.exit93.i.i
-  %.0111.i.i = phi ptr [ %95, %skip_prefix.exit93.i.i ], [ %95, %108 ], [ %scevgep171.i.i, %skip_prefix.exit.i.i ], [ %scevgep.i.i, %96 ]
+  %.0111.i.i = phi ptr [ %95, %skip_prefix.exit93.i.i ], [ %95, %108 ], [ %scevgep167.i.i, %skip_prefix.exit.i.i ], [ %scevgep.i.i, %96 ]
   %118 = call i32 @get_oid_hex(ptr noundef %.0111.i.i, ptr noundef nonnull %9) #9
   %.not73.i.i = icmp eq i32 %118, 0
   br i1 %.not73.i.i, label %get_one_patchid.exit.i, label %119
 
 119:                                              ; preds = %skip_prefix.exit.thread.i.i
-  %.not74.i.i = icmp eq i64 %.057159.i.i, 0
+  %.not74.i.i = icmp eq i64 %.057155.i.i, 0
   br i1 %.not74.i.i, label %120, label %122
 
 120:                                              ; preds = %119
@@ -320,7 +320,7 @@ skip_prefix.exit.thread.i.i:                      ; preds = %96, %skip_prefix.ex
   br i1 %.not75.i.i, label %scan_hunk_header.exit.i.i, label %122, !llvm.loop !57
 
 122:                                              ; preds = %120, %119
-  %123 = icmp eq i32 %.0118156.i.i, -1
+  %123 = icmp eq i32 %.0118152.i.i, -1
   br i1 %123, label %124, label %164
 
 124:                                              ; preds = %122
@@ -334,7 +334,7 @@ skip_prefix.exit.thread.i.i:                      ; preds = %96, %skip_prefix.ex
   br i1 %.not77.i.i, label %.preheader.preheader.i.i, label %128
 
 .preheader.preheader.i.i:                         ; preds = %126
-  %scevgep173.i.i = getelementptr i8, ptr %95, i64 6
+  %scevgep169.i.i = getelementptr i8, ptr %95, i64 6
   br label %.preheader.i.i
 
 128:                                              ; preds = %126, %124
@@ -361,8 +361,8 @@ skip_prefix.exit.thread.i.i:                      ; preds = %96, %skip_prefix.ex
 .preheader.i.i:                                   ; preds = %142, %.preheader.preheader.i.i
   %.07.i94.i.i = phi ptr [ %144, %142 ], [ %95, %.preheader.preheader.i.i ]
   %.06.i95.idx.i.i = phi i64 [ %.06.i95.add.i.i, %142 ], [ 0, %.preheader.preheader.i.i ]
-  %exitcond174.i.i = icmp eq i64 %.06.i95.idx.i.i, 6
-  br i1 %exitcond174.i.i, label %147, label %142
+  %exitcond170.i.i = icmp eq i64 %.06.i95.idx.i.i, 6
+  br i1 %exitcond170.i.i, label %147, label %142
 
 142:                                              ; preds = %.preheader.i.i
   %.06.i95.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.15, i64 %.06.i95.idx.i.i
@@ -393,7 +393,7 @@ skip_prefix.exit.thread.i.i:                      ; preds = %96, %skip_prefix.ex
   %.1132.i.i = phi ptr [ %153, %150 ], [ %strchr.i.i, %149 ]
   store i8 0, ptr %.1132.i.i, align 1, !tbaa !55
   store i8 0, ptr %148, align 1, !tbaa !55
-  %154 = call i64 @gitstrlcpy(ptr noundef nonnull %5, ptr noundef %scevgep173.i.i, i64 noundef 65) #9
+  %154 = call i64 @gitstrlcpy(ptr noundef nonnull %5, ptr noundef %scevgep169.i.i, i64 noundef 65) #9
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 2
   %156 = call i64 @gitstrlcpy(ptr noundef nonnull %6, ptr noundef nonnull %155, i64 noundef 65) #9
   br label %scan_hunk_header.exit.i.i
@@ -413,16 +413,16 @@ skip_prefix.exit97.i.i:                           ; preds = %142
   br i1 %.not79.i.i, label %scan_hunk_header.exit.thread.i.i, label %164
 
 164:                                              ; preds = %158, %skip_prefix.exit97.i.i, %122
-  %.2120.i.i = phi i32 [ -1, %158 ], [ %.0118156.i.i, %122 ], [ 1, %skip_prefix.exit97.i.i ]
-  %.2116.i.i = phi i32 [ %.0114157.i.i, %158 ], [ %.0114157.i.i, %122 ], [ 1, %skip_prefix.exit97.i.i ]
-  %.not80.i.i = icmp eq i32 %.063158.i.i, 0
+  %.2120.i.i = phi i32 [ -1, %158 ], [ %.0118152.i.i, %122 ], [ 1, %skip_prefix.exit97.i.i ]
+  %.2116.i.i = phi i32 [ %.0114153.i.i, %158 ], [ %.0114153.i.i, %122 ], [ 1, %skip_prefix.exit97.i.i ]
+  %.not80.i.i = icmp eq i32 %.063154.i.i, 0
   br i1 %.not80.i.i, label %167, label %165
 
 165:                                              ; preds = %164
   %166 = call i32 @starts_with(ptr noundef %95, ptr noundef nonnull @.str.12) #9
   %.not85.i.i = icmp eq i32 %166, 0
   %spec.select.i.i = select i1 %.not85.i.i, i32 %.2120.i.i, i32 -1
-  %spec.select146.i.i = zext i1 %.not85.i.i to i32
+  %spec.select142.i.i = zext i1 %.not85.i.i to i32
   br label %scan_hunk_header.exit.i.i, !llvm.loop !57
 
 167:                                              ; preds = %164
@@ -577,7 +577,7 @@ remove_space.exit.i.i:                            ; preds = %231, %222
 
 236:                                              ; preds = %remove_space.exit.i.i, %220
   %237 = phi i64 [ %221, %220 ], [ %235, %remove_space.exit.i.i ]
-  %238 = add i64 %237, %.057159.i.i
+  %238 = add i64 %237, %.057155.i.i
   %239 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 400
   %241 = load ptr, ptr %240, align 8, !tbaa !26
@@ -587,17 +587,17 @@ remove_space.exit.i.i:                            ; preds = %231, %222
   br label %scan_hunk_header.exit.i.i
 
 scan_hunk_header.exit.i.i:                        ; preds = %236, %203, %196, %192, %188, %185, %165, %.thread130.i.i, %147, %141, %128, %120, %112, %111
-  %.1119.i.i = phi i32 [ %.0118156.i.i, %120 ], [ -1, %.thread130.i.i ], [ %.4122.i.i, %236 ], [ 0, %128 ], [ 0, %141 ], [ %.0118156.i.i, %111 ], [ %.0118156.i.i, %112 ], [ %.5123.i.i, %185 ], [ %.5123.i.i, %188 ], [ %.5123.i.i, %192 ], [ -1, %147 ], [ %spec.select.i.i, %165 ], [ %.5123.i.i, %196 ], [ %.5123.i.i, %203 ]
-  %.1115.i.i = phi i32 [ %.0114157.i.i, %120 ], [ %.0114157.i.i, %.thread130.i.i ], [ %.4.i.i, %236 ], [ %.0114157.i.i, %128 ], [ %.0114157.i.i, %141 ], [ %.0114157.i.i, %111 ], [ %.0114157.i.i, %112 ], [ 0, %185 ], [ 0, %188 ], [ 0, %192 ], [ %.0114157.i.i, %147 ], [ %.2116.i.i, %165 ], [ 1, %196 ], [ %207, %203 ]
-  %.164.i.i = phi i32 [ %.063158.i.i, %120 ], [ %.063158.i.i, %.thread130.i.i ], [ 0, %236 ], [ 1, %128 ], [ 1, %141 ], [ %.063158.i.i, %111 ], [ %.063158.i.i, %112 ], [ 0, %185 ], [ 0, %188 ], [ 0, %192 ], [ %.063158.i.i, %147 ], [ %spec.select146.i.i, %165 ], [ 0, %196 ], [ 0, %203 ]
-  %.2.i.i = phi i64 [ 0, %120 ], [ %.057159.i.i, %.thread130.i.i ], [ %238, %236 ], [ %.057159.i.i, %128 ], [ %.057159.i.i, %141 ], [ %.057159.i.i, %111 ], [ %.057159.i.i, %112 ], [ %.057159.i.i, %185 ], [ %.057159.i.i, %188 ], [ %.057159.i.i, %192 ], [ %.057159.i.i, %147 ], [ %.057159.i.i, %165 ], [ %.057159.i.i, %196 ], [ %.057159.i.i, %203 ]
+  %.1119.i.i = phi i32 [ %.0118152.i.i, %120 ], [ -1, %.thread130.i.i ], [ %.4122.i.i, %236 ], [ 0, %128 ], [ 0, %141 ], [ %.0118152.i.i, %111 ], [ %.0118152.i.i, %112 ], [ %.5123.i.i, %185 ], [ %.5123.i.i, %188 ], [ %.5123.i.i, %192 ], [ -1, %147 ], [ %spec.select.i.i, %165 ], [ %.5123.i.i, %196 ], [ %.5123.i.i, %203 ]
+  %.1115.i.i = phi i32 [ %.0114153.i.i, %120 ], [ %.0114153.i.i, %.thread130.i.i ], [ %.4.i.i, %236 ], [ %.0114153.i.i, %128 ], [ %.0114153.i.i, %141 ], [ %.0114153.i.i, %111 ], [ %.0114153.i.i, %112 ], [ 0, %185 ], [ 0, %188 ], [ 0, %192 ], [ %.0114153.i.i, %147 ], [ %.2116.i.i, %165 ], [ 1, %196 ], [ %207, %203 ]
+  %.164.i.i = phi i32 [ %.063154.i.i, %120 ], [ %.063154.i.i, %.thread130.i.i ], [ 0, %236 ], [ 1, %128 ], [ 1, %141 ], [ %.063154.i.i, %111 ], [ %.063154.i.i, %112 ], [ 0, %185 ], [ 0, %188 ], [ 0, %192 ], [ %.063154.i.i, %147 ], [ %spec.select142.i.i, %165 ], [ 0, %196 ], [ 0, %203 ]
+  %.2.i.i = phi i64 [ 0, %120 ], [ %.057155.i.i, %.thread130.i.i ], [ %238, %236 ], [ %.057155.i.i, %128 ], [ %.057155.i.i, %141 ], [ %.057155.i.i, %111 ], [ %.057155.i.i, %112 ], [ %.057155.i.i, %185 ], [ %.057155.i.i, %188 ], [ %.057155.i.i, %192 ], [ %.057155.i.i, %147 ], [ %.057155.i.i, %165 ], [ %.057155.i.i, %196 ], [ %.057155.i.i, %203 ]
   %244 = load ptr, ptr @stdin, align 8, !tbaa !48
   %245 = call i32 @strbuf_getwholeline(ptr noundef nonnull %11, ptr noundef %244, i32 noundef 10) #9
   %.not.i.i = icmp eq i32 %245, -1
   br i1 %.not.i.i, label %scan_hunk_header.exit.thread.i.i, label %.lr.ph.i.i
 
 scan_hunk_header.exit.thread.i.i:                 ; preds = %scan_hunk_header.exit.i.i, %208, %158, %oidclr.exit.i.i
-  %.057.lcssa.i.i = phi i64 [ 0, %oidclr.exit.i.i ], [ %.2.i.i, %scan_hunk_header.exit.i.i ], [ %.057159.i.i, %158 ], [ %.057159.i.i, %208 ]
+  %.057.lcssa.i.i = phi i64 [ 0, %oidclr.exit.i.i ], [ %.2.i.i, %scan_hunk_header.exit.i.i ], [ %.057155.i.i, %158 ], [ %.057155.i.i, %208 ]
   %246 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 400
   %248 = load ptr, ptr %247, align 8, !tbaa !26
@@ -625,12 +625,12 @@ oidclr.exit105.i.i:                               ; preds = %251, %.split.loop.e
   br label %get_one_patchid.exit.i
 
 get_one_patchid.exit.i:                           ; preds = %skip_prefix.exit.thread.i.i, %oidclr.exit105.i.i
-  %.057153.i.i = phi i64 [ %.057.lcssa.i.i, %oidclr.exit105.i.i ], [ %.057159.i.i, %skip_prefix.exit.thread.i.i ]
+  %.057149.i.i = phi i64 [ %.057.lcssa.i.i, %oidclr.exit105.i.i ], [ %.057155.i.i, %skip_prefix.exit.thread.i.i ]
   call void @flush_one_hunk(ptr noundef nonnull %10, ptr noundef nonnull %7) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.i3.i = icmp eq i64 %.057153.i.i, 0
+  %.not.i3.i = icmp eq i64 %.057149.i.i, 0
   br i1 %.not.i3.i, label %flush_current_id.exit.i, label %254
 
 254:                                              ; preds = %get_one_patchid.exit.i

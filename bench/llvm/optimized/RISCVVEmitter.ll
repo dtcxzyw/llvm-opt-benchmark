@@ -8426,8 +8426,8 @@ _ZN12_GLOBAL__N_118SemaSignatureTable4initEN4llvm8ArrayRefINS_10SemaRecordEEE.ex
   br label %42
 
 42:                                               ; preds = %61, %.lr.ph.i.i.i.i.i
-  %.0913.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %62, %61 ]
-  %43 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val.i.i.i.i, i64 %.0913.i.i.i.i.i
+  %.0911.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %62, %61 ]
+  %43 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val.i.i.i.i, i64 %.0911.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %58, %42
@@ -8461,12 +8461,12 @@ _ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = 
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !146
 
 61:                                               ; preds = %_ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i.i.i.i.i, %47, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %62 = add nuw i64 %.0913.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %.0913.i.i.i.i.i, %reass.sub.i.i.i.i.i
+  %62 = add nuw i64 %.0911.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %.0911.i.i.i.i.i, %reass.sub.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.thread.i.i.i.i, label %42, !llvm.loop !147
 
 _ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.i.i.i.i: ; preds = %58
-  %63 = and i64 %.0913.i.i.i.i.i, 4294967295
+  %63 = and i64 %.0911.i.i.i.i.i, 4294967295
   %.not.i.i.i.i = icmp eq i64 %63, 4294967295
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.thread.i.i.i.i, label %_ZN12_GLOBAL__N_118SemaSignatureTable6insertEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.i.i.i
 
@@ -8577,8 +8577,8 @@ _ZNSt6vectorIN5clang5RISCV18RVVIntrinsicRecordESaIS2_EE12emplace_backIJS2_EEERS2
   br label %102
 
 102:                                              ; preds = %121, %.lr.ph.i70.i.i
-  %.0913.i.i.i = phi i64 [ 0, %.lr.ph.i70.i.i ], [ %122, %121 ]
-  %103 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val61.i.i, i64 %.0913.i.i.i
+  %.0911.i.i.i = phi i64 [ 0, %.lr.ph.i70.i.i ], [ %122, %121 ]
+  %103 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val61.i.i, i64 %.0911.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %118, %102
@@ -8612,12 +8612,12 @@ _ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i.i.i: ; preds = %107
   br i1 %.not.i.i.i.i.i.i.i, label %123, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !146
 
 121:                                              ; preds = %_ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i.i.i, %107, %.lr.ph.i.i.i.i.i.i.i
-  %122 = add nuw i64 %.0913.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %.0913.i.i.i, %reass.sub.i.i.i
+  %122 = add nuw i64 %.0911.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %.0911.i.i.i, %reass.sub.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.i.i, label %102, !llvm.loop !147
 
 123:                                              ; preds = %118
-  %124 = trunc i64 %.0913.i.i.i to i16
+  %124 = trunc i64 %.0911.i.i.i to i16
   br label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.i.i
 
 _ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.i.i: ; preds = %121, %123, %96, %_ZNSt6vectorIN5clang5RISCV18RVVIntrinsicRecordESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit.i.i
@@ -8647,8 +8647,8 @@ _ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19Pr
   br label %137
 
 137:                                              ; preds = %156, %.lr.ph.i73.i.i
-  %.0913.i76.i.i = phi i64 [ 0, %.lr.ph.i73.i.i ], [ %157, %156 ]
-  %138 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val61.i.i, i64 %.0913.i76.i.i
+  %.0911.i76.i.i = phi i64 [ 0, %.lr.ph.i73.i.i ], [ %157, %156 ]
+  %138 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val61.i.i, i64 %.0911.i76.i.i
   br label %.lr.ph.i.i.i.i.i77.i.i
 
 .lr.ph.i.i.i.i.i77.i.i:                           ; preds = %153, %137
@@ -8682,12 +8682,12 @@ _ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i82.i.i: ; preds = %1
   br i1 %.not.i.i.i.i.i83.i.i, label %158, label %.lr.ph.i.i.i.i.i77.i.i, !llvm.loop !146
 
 156:                                              ; preds = %_ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i82.i.i, %142, %.lr.ph.i.i.i.i.i77.i.i
-  %157 = add nuw i64 %.0913.i76.i.i, 1
-  %exitcond.not.i80.i.i = icmp eq i64 %.0913.i76.i.i, %reass.sub.i74.i.i
+  %157 = add nuw i64 %.0911.i76.i.i, 1
+  %exitcond.not.i80.i.i = icmp eq i64 %.0911.i76.i.i, %reass.sub.i74.i.i
   br i1 %exitcond.not.i80.i.i, label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit84.i.i, label %137, !llvm.loop !147
 
 158:                                              ; preds = %153
-  %159 = trunc i64 %.0913.i76.i.i to i16
+  %159 = trunc i64 %.0911.i76.i.i to i16
   br label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit84.i.i
 
 _ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit84.i.i: ; preds = %156, %158, %131, %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit.i.i
@@ -8717,8 +8717,8 @@ _ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19Pr
   br label %172
 
 172:                                              ; preds = %191, %.lr.ph.i86.i.i
-  %.0913.i89.i.i = phi i64 [ 0, %.lr.ph.i86.i.i ], [ %192, %191 ]
-  %173 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val61.i.i, i64 %.0913.i89.i.i
+  %.0911.i89.i.i = phi i64 [ 0, %.lr.ph.i86.i.i ], [ %192, %191 ]
+  %173 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %.val61.i.i, i64 %.0911.i89.i.i
   br label %.lr.ph.i.i.i.i.i90.i.i
 
 .lr.ph.i.i.i.i.i90.i.i:                           ; preds = %188, %172
@@ -8752,12 +8752,12 @@ _ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i95.i.i: ; preds = %1
   br i1 %.not.i.i.i.i.i96.i.i, label %193, label %.lr.ph.i.i.i.i.i90.i.i, !llvm.loop !146
 
 191:                                              ; preds = %_ZNK5clang5RISCV19PrototypeDescriptoreqERKS1_.exit.i.i.i.i.i95.i.i, %177, %.lr.ph.i.i.i.i.i90.i.i
-  %192 = add nuw i64 %.0913.i89.i.i, 1
-  %exitcond.not.i93.i.i = icmp eq i64 %.0913.i89.i.i, %reass.sub.i87.i.i
+  %192 = add nuw i64 %.0911.i89.i.i, 1
+  %exitcond.not.i93.i.i = icmp eq i64 %.0911.i89.i.i, %reass.sub.i87.i.i
   br i1 %exitcond.not.i93.i.i, label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit97.i.i, label %172, !llvm.loop !147
 
 193:                                              ; preds = %188
-  %194 = trunc i64 %.0913.i89.i.i to i16
+  %194 = trunc i64 %.0911.i89.i.i to i16
   br label %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit97.i.i
 
 _ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit97.i.i: ; preds = %191, %193, %166, %_ZN12_GLOBAL__N_118SemaSignatureTable8getIndexEN4llvm8ArrayRefIN5clang5RISCV19PrototypeDescriptorEEE.exit84.i.i

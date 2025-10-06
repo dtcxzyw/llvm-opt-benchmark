@@ -588,14 +588,14 @@ read_text_file.exit:                              ; preds = %11, %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   %.not67 = icmp eq ptr %31, null
-  br i1 %.not67, label %.thread108, label %32
+  br i1 %.not67, label %.thread106, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !9
   %35 = call ptr @test_mk_file_path(ptr noundef %34, ptr noundef nonnull %31) #8
-  %.not.i89 = icmp eq ptr %35, null
-  br i1 %.not.i89, label %load_pem_cert.exit, label %36
+  %.not.i88 = icmp eq ptr %35, null
+  br i1 %.not.i88, label %load_pem_cert.exit, label %36
 
 36:                                               ; preds = %32
   %37 = call ptr @BIO_new_file(ptr noundef nonnull %35, ptr noundef nonnull @.str.32) #8
@@ -607,19 +607,19 @@ read_text_file.exit:                              ; preds = %11, %19
   br label %40
 
 40:                                               ; preds = %38, %36
-  %.1.i90 = phi ptr [ %39, %38 ], [ null, %36 ]
+  %.1.i89 = phi ptr [ %39, %38 ], [ null, %36 ]
   %41 = call i32 @BIO_free(ptr noundef %37) #8
   br label %load_pem_cert.exit
 
 load_pem_cert.exit:                               ; preds = %32, %40
-  %.0.i91 = phi ptr [ %.1.i90, %40 ], [ null, %32 ]
+  %.0.i90 = phi ptr [ %.1.i89, %40 ], [ null, %32 ]
   call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str.16, i32 noundef 104) #8
-  %42 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 257, ptr noundef nonnull @.str.24, ptr noundef %.0.i91) #8
+  %42 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 257, ptr noundef nonnull @.str.24, ptr noundef %.0.i90) #8
   %.not68 = icmp eq i32 %42, 0
   br i1 %.not68, label %.thread, label %43
 
 43:                                               ; preds = %load_pem_cert.exit
-  %44 = call i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr noundef %8, ptr noundef %.0.i91) #8
+  %44 = call i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr noundef %8, ptr noundef %.0.i90) #8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !16
   %.not69 = icmp eq ptr %46, null
@@ -628,38 +628,38 @@ load_pem_cert.exit:                               ; preds = %32, %40
 47:                                               ; preds = %43
   %48 = load ptr, ptr %33, align 8, !tbaa !9
   %49 = call ptr @test_mk_file_path(ptr noundef %48, ptr noundef nonnull %46) #8
-  %.not.i92 = icmp eq ptr %49, null
-  br i1 %.not.i92, label %load_pem_cert.exit96, label %50
+  %.not.i91 = icmp eq ptr %49, null
+  br i1 %.not.i91, label %load_pem_cert.exit95, label %50
 
 50:                                               ; preds = %47
   %51 = call ptr @BIO_new_file(ptr noundef nonnull %49, ptr noundef nonnull @.str.32) #8
-  %.not11.i93 = icmp eq ptr %51, null
-  br i1 %.not11.i93, label %54, label %52
+  %.not11.i92 = icmp eq ptr %51, null
+  br i1 %.not11.i92, label %54, label %52
 
 52:                                               ; preds = %50
   %53 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %51, ptr noundef null, ptr noundef null, ptr noundef null) #8
   br label %54
 
 54:                                               ; preds = %52, %50
-  %.1.i94 = phi ptr [ %53, %52 ], [ null, %50 ]
+  %.1.i93 = phi ptr [ %53, %52 ], [ null, %50 ]
   %55 = call i32 @BIO_free(ptr noundef %51) #8
-  br label %load_pem_cert.exit96
+  br label %load_pem_cert.exit95
 
-load_pem_cert.exit96:                             ; preds = %47, %54
-  %.0.i95 = phi ptr [ %.1.i94, %54 ], [ null, %47 ]
+load_pem_cert.exit95:                             ; preds = %47, %54
+  %.0.i94 = phi ptr [ %.1.i93, %54 ], [ null, %47 ]
   call void @CRYPTO_free(ptr noundef %49, ptr noundef nonnull @.str.16, i32 noundef 104) #8
-  %56 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 264, ptr noundef nonnull @.str.25, ptr noundef %.0.i95) #8
+  %56 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 264, ptr noundef nonnull @.str.25, ptr noundef %.0.i94) #8
   %.not70 = icmp eq i32 %56, 0
   br i1 %.not70, label %.thread, label %57
 
-57:                                               ; preds = %load_pem_cert.exit96
-  %58 = call i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr noundef %8, ptr noundef %.0.i95) #8
+57:                                               ; preds = %load_pem_cert.exit95
+  %58 = call i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr noundef %8, ptr noundef %.0.i94) #8
   br label %59
 
 59:                                               ; preds = %57, %43
-  %.3 = phi ptr [ %.0.i95, %57 ], [ null, %43 ]
-  %60 = call i32 @X509_get_ext_by_NID(ptr noundef %.0.i91, i32 noundef 951, i32 noundef -1) #8
-  %61 = call ptr @X509_get_ext(ptr noundef %.0.i91, i32 noundef %60) #8
+  %.3 = phi ptr [ %.0.i94, %57 ], [ null, %43 ]
+  %60 = call i32 @X509_get_ext_by_NID(ptr noundef %.0.i90, i32 noundef 951, i32 noundef -1) #8
+  %61 = call ptr @X509_get_ext(ptr noundef %.0.i90, i32 noundef %60) #8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load i32, ptr %62, align 8, !tbaa !17
   %64 = icmp sgt i32 %63, 0
@@ -681,8 +681,8 @@ load_pem_cert.exit96:                             ; preds = %47, %54
   %70 = call ptr @BIO_s_mem() #8
   %71 = call ptr @BIO_new(ptr noundef %70) #8
   %72 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 159, ptr noundef nonnull @.str.33, ptr noundef %71) #8
-  %.not.i97 = icmp eq i32 %72, 0
-  br i1 %.not.i97, label %compare_extension_printout.exit.thread, label %73
+  %.not.i96 = icmp eq i32 %72, 0
+  br i1 %.not.i96, label %compare_extension_printout.exit.thread, label %73
 
 73:                                               ; preds = %69
   %74 = call i32 @X509V3_EXT_print(ptr noundef %71, ptr noundef %61, i64 noundef 0, i32 noundef 0) #8
@@ -730,14 +730,14 @@ compare_extension_printout.exit:                  ; preds = %83
   br i1 %96, label %.lr.ph, label %._crit_edge
 
 97:                                               ; preds = %.lr.ph
-  %98 = add nuw nsw i32 %.056118, 1
+  %98 = add nuw nsw i32 %.056114, 1
   %99 = call i32 @OPENSSL_sk_num(ptr noundef %94) #8
   %100 = icmp slt i32 %98, %99
   br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %93, %97
-  %.056118 = phi i32 [ %98, %97 ], [ 0, %93 ]
-  %101 = call ptr @OPENSSL_sk_value(ptr noundef %94, i32 noundef %.056118) #8
+  %.056114 = phi i32 [ %98, %97 ], [ 0, %93 ]
+  %101 = call ptr @OPENSSL_sk_value(ptr noundef %94, i32 noundef %.056114) #8
   %102 = call i32 @SCT_get_source(ptr noundef %101) #8
   %103 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 286, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %102, i32 noundef 2) #8
   %.not77.not = icmp eq i32 %103, 0
@@ -747,27 +747,27 @@ compare_extension_printout.exit:                  ; preds = %83
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %105 = load i32, ptr %104, align 8, !tbaa !23
   %.not75 = icmp eq i32 %105, 0
-  br i1 %.not75, label %.thread108, label %106
+  br i1 %.not75, label %.thread106, label %106
 
 106:                                              ; preds = %._crit_edge
   %107 = call fastcc i32 @assert_validity(ptr noundef %0, ptr noundef %94, ptr noundef %8)
   %.not76 = icmp eq i32 %107, 0
-  br i1 %.not76, label %.thread, label %.thread108
+  br i1 %.not76, label %.thread, label %.thread106
 
 108:                                              ; preds = %59
   %109 = call i32 @test_ptr_null(ptr noundef nonnull @.str.16, i32 noundef 295, ptr noundef nonnull @.str.26, ptr noundef %61) #8
   %.not71 = icmp eq i32 %109, 0
-  br i1 %.not71, label %.thread, label %.thread108
+  br i1 %.not71, label %.thread, label %.thread106
 
-.thread108:                                       ; preds = %108, %._crit_edge, %106, %25
+.thread106:                                       ; preds = %108, %._crit_edge, %106, %25
   %.161 = phi ptr [ null, %25 ], [ %.3, %106 ], [ %.3, %._crit_edge ], [ %.3, %108 ]
-  %.159 = phi ptr [ null, %25 ], [ %.0.i91, %106 ], [ %.0.i91, %._crit_edge ], [ %.0.i91, %108 ]
+  %.159 = phi ptr [ null, %25 ], [ %.0.i90, %106 ], [ %.0.i90, %._crit_edge ], [ %.0.i90, %108 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %111 = load ptr, ptr %110, align 8, !tbaa !25
   %.not78 = icmp eq ptr %111, null
   br i1 %.not78, label %.thread, label %112
 
-112:                                              ; preds = %.thread108
+112:                                              ; preds = %.thread106
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %111, ptr %7, align 8, !tbaa !4
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -775,7 +775,7 @@ compare_extension_printout.exit:                  ; preds = %83
   %115 = call ptr @o2i_SCT_LIST(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %114) #8
   %116 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 303, ptr noundef nonnull @.str.29, ptr noundef %115) #8
   %.not79 = icmp eq i32 %116, 0
-  br i1 %.not79, label %.thread115, label %117
+  br i1 %.not79, label %.thread112, label %117
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -789,7 +789,7 @@ compare_extension_printout.exit:                  ; preds = %83
   %123 = load ptr, ptr %4, align 8, !tbaa !30
   %124 = call fastcc i32 @assert_validity(ptr noundef %0, ptr noundef %123, ptr noundef %8)
   %.not80 = icmp eq i32 %124, 0
-  br i1 %.not80, label %.thread115, label %125
+  br i1 %.not80, label %.thread112, label %125
 
 125:                                              ; preds = %122, %117
   %126 = load ptr, ptr %9, align 8, !tbaa !21
@@ -803,8 +803,8 @@ compare_extension_printout.exit:                  ; preds = %83
   %129 = call ptr @BIO_s_mem() #8
   %130 = call ptr @BIO_new(ptr noundef %129) #8
   %131 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 133, ptr noundef nonnull @.str.33, ptr noundef %130) #8
-  %.not.i99 = icmp eq i32 %131, 0
-  br i1 %.not.i99, label %compare_sct_list_printout.exit.thread, label %132
+  %.not.i98 = icmp eq i32 %131, 0
+  br i1 %.not.i98, label %compare_sct_list_printout.exit.thread, label %132
 
 132:                                              ; preds = %127
   call void @SCT_LIST_print(ptr noundef %128, ptr noundef %130, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef null) #8
@@ -818,16 +818,16 @@ compare_extension_printout.exit:                  ; preds = %83
 compare_sct_list_printout.exit.thread:            ; preds = %132, %127
   %137 = call i32 @BIO_free(ptr noundef %130) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread115
+  br label %.thread112
 
 compare_sct_list_printout.exit:                   ; preds = %132
   %138 = call i64 @BIO_ctrl(ptr noundef %130, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %2) #8
   %139 = load ptr, ptr %2, align 8, !tbaa !4
   %140 = call i32 @test_str_eq(ptr noundef nonnull @.str.16, i32 noundef 143, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef %139, ptr noundef nonnull %5) #8
-  %.not7.i100.not = icmp eq i32 %140, 0
+  %.not7.i99.not = icmp eq i32 %140, 0
   %141 = call i32 @BIO_free(ptr noundef %130) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not7.i100.not, label %.thread115, label %142
+  br i1 %.not7.i99.not, label %.thread112, label %142
 
 142:                                              ; preds = %compare_sct_list_printout.exit, %125
   %143 = load ptr, ptr %4, align 8, !tbaa !30
@@ -838,9 +838,9 @@ compare_sct_list_printout.exit:                   ; preds = %132
   %148 = load ptr, ptr %6, align 8, !tbaa !4
   %149 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 318, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef %146, i64 noundef %147, ptr noundef %148, i64 noundef %145) #8
   %.not83 = icmp eq i32 %149, 0
-  br i1 %.not83, label %.thread115, label %150
+  br i1 %.not83, label %.thread112, label %150
 
-.thread115:                                       ; preds = %112, %122, %compare_sct_list_printout.exit, %compare_sct_list_printout.exit.thread, %142
+.thread112:                                       ; preds = %112, %122, %compare_sct_list_printout.exit, %compare_sct_list_printout.exit.thread, %142
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -848,10 +848,10 @@ compare_sct_list_printout.exit:                   ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %compare_extension_printout.exit.thread, %108, %106, %compare_extension_printout.exit, %65, %load_pem_cert.exit96, %load_pem_cert.exit, %.thread108, %150, %.thread115, %read_text_file.exit
-  %.060 = phi ptr [ null, %read_text_file.exit ], [ %.161, %.thread115 ], [ %.161, %150 ], [ %.161, %.thread108 ], [ %.3, %compare_extension_printout.exit.thread ], [ %.3, %108 ], [ %.3, %106 ], [ %.3, %compare_extension_printout.exit ], [ %.3, %65 ], [ %.0.i95, %load_pem_cert.exit96 ], [ null, %load_pem_cert.exit ], [ %.3, %.lr.ph ]
-  %.058 = phi ptr [ null, %read_text_file.exit ], [ %.159, %.thread115 ], [ %.159, %150 ], [ %.159, %.thread108 ], [ %.0.i91, %compare_extension_printout.exit.thread ], [ %.0.i91, %108 ], [ %.0.i91, %106 ], [ %.0.i91, %compare_extension_printout.exit ], [ %.0.i91, %65 ], [ %.0.i91, %load_pem_cert.exit96 ], [ %.0.i91, %load_pem_cert.exit ], [ %.0.i91, %.lr.ph ]
-  %.057 = phi i32 [ 0, %read_text_file.exit ], [ 0, %.thread115 ], [ 1, %150 ], [ 1, %.thread108 ], [ 0, %compare_extension_printout.exit.thread ], [ 0, %108 ], [ 0, %106 ], [ 0, %compare_extension_printout.exit ], [ 0, %65 ], [ 0, %load_pem_cert.exit96 ], [ 0, %load_pem_cert.exit ], [ 0, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %compare_extension_printout.exit.thread, %108, %106, %compare_extension_printout.exit, %65, %load_pem_cert.exit95, %load_pem_cert.exit, %.thread106, %150, %.thread112, %read_text_file.exit
+  %.060 = phi ptr [ null, %read_text_file.exit ], [ %.161, %.thread112 ], [ %.161, %150 ], [ %.161, %.thread106 ], [ %.3, %compare_extension_printout.exit.thread ], [ %.3, %108 ], [ %.3, %106 ], [ %.3, %compare_extension_printout.exit ], [ %.3, %65 ], [ %.0.i94, %load_pem_cert.exit95 ], [ null, %load_pem_cert.exit ], [ %.3, %.lr.ph ]
+  %.058 = phi ptr [ null, %read_text_file.exit ], [ %.159, %.thread112 ], [ %.159, %150 ], [ %.159, %.thread106 ], [ %.0.i90, %compare_extension_printout.exit.thread ], [ %.0.i90, %108 ], [ %.0.i90, %106 ], [ %.0.i90, %compare_extension_printout.exit ], [ %.0.i90, %65 ], [ %.0.i90, %load_pem_cert.exit95 ], [ %.0.i90, %load_pem_cert.exit ], [ %.0.i90, %.lr.ph ]
+  %.057 = phi i32 [ 0, %read_text_file.exit ], [ 0, %.thread112 ], [ 1, %150 ], [ 1, %.thread106 ], [ 0, %compare_extension_printout.exit.thread ], [ 0, %108 ], [ 0, %106 ], [ 0, %compare_extension_printout.exit ], [ 0, %65 ], [ 0, %load_pem_cert.exit95 ], [ 0, %load_pem_cert.exit ], [ 0, %.lr.ph ]
   call void @X509_free(ptr noundef %.058) #8
   call void @X509_free(ptr noundef %.060) #8
   %151 = load ptr, ptr %4, align 8, !tbaa !30

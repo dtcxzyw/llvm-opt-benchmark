@@ -3712,7 +3712,7 @@ define dso_local noundef range(i32 -19, 1) i32 @__bio_queue_enter(ptr noundef %0
 
 blk_try_enter_queue.exit:                         ; preds = %.loopexit.i
   call void @__rcu_read_unlock() #18
-  br label %107
+  br label %108
 
 .loopexit:                                        ; preds = %33, %20, %53, %23
   call void @__rcu_read_unlock() #18
@@ -3737,7 +3737,7 @@ blk_try_enter_queue.exit:                         ; preds = %.loopexit.i
   store i16 %66, ptr %6, align 4
   store i8 12, ptr %7, align 8
   call void @bio_endio(ptr noundef %1) #18
-  br label %107
+  br label %108
 
 67:                                               ; preds = %.loopexit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !71
@@ -3812,17 +3812,17 @@ blk_try_enter_queue.exit:                         ; preds = %.loopexit.i
   %104 = getelementptr inbounds nuw i8, ptr %56, i64 352
   %105 = load volatile i64, ptr %104, align 8
   %106 = and i64 %105, 4
-  %switch = icmp eq i64 %106, 0
-  br i1 %switch, label %14, label %.thread2
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %14, label %.thread2
 
 .thread2:                                         ; preds = %103, %60
   store i8 10, ptr %7, align 8
   call void @bio_endio(ptr noundef %1) #18
-  br label %107
+  br label %108
 
-107:                                              ; preds = %.thread, %blk_try_enter_queue.exit, %.thread2
-  %108 = phi i32 [ -19, %.thread2 ], [ 0, %blk_try_enter_queue.exit ], [ -11, %.thread ]
-  ret i32 %108
+108:                                              ; preds = %.thread, %blk_try_enter_queue.exit, %.thread2
+  %109 = phi i32 [ -19, %.thread2 ], [ 0, %blk_try_enter_queue.exit ], [ -11, %.thread ]
+  ret i32 %109
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

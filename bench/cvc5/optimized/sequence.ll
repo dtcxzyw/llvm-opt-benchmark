@@ -945,8 +945,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal8Sequence3cmpERKS1
   %4 = load ptr, ptr %1, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %.not17 = icmp eq ptr %5, %6
-  br i1 %.not17, label %14, label %7
+  %.not19 = icmp eq ptr %5, %6
+  br i1 %.not19, label %14, label %7
 
 7:                                                ; preds = %2
   %8 = load i64, ptr %5, align 8
@@ -978,8 +978,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal8Sequence3cmpERKS1
   br i1 %.not, label %.preheader, label %31
 
 .preheader:                                       ; preds = %14
-  %.not1921.not = icmp eq ptr %17, %18
-  br i1 %.not1921.not, label %.loopexit, label %.lr.ph
+  %.not23 = icmp eq ptr %17, %18
+  br i1 %.not23, label %.loopexit, label %.lr.ph
 
 31:                                               ; preds = %14
   %32 = icmp ult i64 %22, %30
@@ -997,8 +997,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal8Sequence3cmpERKS1
   %37 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %26, i64 %.01622
   %38 = load ptr, ptr %36, align 8, !tbaa !19
   %39 = load ptr, ptr %37, align 8, !tbaa !19
-  %.not18 = icmp eq ptr %38, %39
-  br i1 %.not18, label %34, label %40
+  %.not20 = icmp eq ptr %38, %39
+  br i1 %.not20, label %34, label %40
 
 40:                                               ; preds = %.lr.ph
   %41 = load i64, ptr %38, align 8
@@ -1364,8 +1364,8 @@ _ZNK4cvc58internal8Sequence6prefixEm.exit:        ; preds = %27
   %36 = load ptr, ptr %4, align 8, !tbaa !11
   %37 = load ptr, ptr %35, align 8, !tbaa !3
   %38 = load ptr, ptr %36, align 8, !tbaa !3
-  %.not17.i.i = icmp eq ptr %37, %38
-  br i1 %.not17.i.i, label %39, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
+  %.not19.i.i = icmp eq ptr %37, %38
+  br i1 %.not19.i.i, label %39, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
 
 39:                                               ; preds = %_ZNK4cvc58internal8Sequence6prefixEm.exit
   %40 = load ptr, ptr %22, align 8, !tbaa !13
@@ -1383,8 +1383,8 @@ _ZNK4cvc58internal8Sequence6prefixEm.exit:        ; preds = %27
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
 
 .preheader.i.i:                                   ; preds = %39
-  %.not1921.not.i.i = icmp eq ptr %40, %41
-  br i1 %.not1921.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i
+  %.not23.i.i = icmp eq ptr %40, %41
+  br i1 %.not23.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i
 
 51:                                               ; preds = %.lr.ph.i.i
   %52 = add nuw i64 %.01622.i.i, 1
@@ -1397,11 +1397,11 @@ _ZNK4cvc58internal8Sequence6prefixEm.exit:        ; preds = %27
   %54 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %47, i64 %.01622.i.i
   %55 = load ptr, ptr %53, align 8, !tbaa !19
   %56 = load ptr, ptr %54, align 8, !tbaa !19
-  %.not18.i.i = icmp eq ptr %55, %56
-  br i1 %.not18.i.i, label %51, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
+  %.not20.i.i = icmp eq ptr %55, %56
+  br i1 %.not20.i.i, label %51, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
 
 _ZNK4cvc58internal8SequenceeqERKS1_.exit:         ; preds = %.lr.ph.i.i, %51, %39, %_ZNK4cvc58internal8Sequence6prefixEm.exit, %.preheader.i.i
-  %57 = phi i1 [ true, %.preheader.i.i ], [ false, %_ZNK4cvc58internal8Sequence6prefixEm.exit ], [ false, %39 ], [ %.not18.i.i, %51 ], [ %.not18.i.i, %.lr.ph.i.i ]
+  %57 = phi i1 [ true, %.preheader.i.i ], [ false, %_ZNK4cvc58internal8Sequence6prefixEm.exit ], [ false, %39 ], [ %.not20.i.i, %51 ], [ %.not20.i.i, %.lr.ph.i.i ]
   %58 = phi i64 [ %.01521, %.preheader.i.i ], [ %.01620, %_ZNK4cvc58internal8Sequence6prefixEm.exit ], [ %.01620, %39 ], [ %.01620, %.lr.ph.i.i ], [ %.01521, %51 ]
   call void @_ZN4cvc58internal8SequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1479,8 +1479,8 @@ _ZNK4cvc58internal8Sequence6suffixEm.exit:        ; preds = %27
   %36 = load ptr, ptr %4, align 8, !tbaa !11
   %37 = load ptr, ptr %35, align 8, !tbaa !3
   %38 = load ptr, ptr %36, align 8, !tbaa !3
-  %.not17.i.i = icmp eq ptr %37, %38
-  br i1 %.not17.i.i, label %39, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
+  %.not19.i.i = icmp eq ptr %37, %38
+  br i1 %.not19.i.i, label %39, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
 
 39:                                               ; preds = %_ZNK4cvc58internal8Sequence6suffixEm.exit
   %40 = load ptr, ptr %22, align 8, !tbaa !13
@@ -1498,8 +1498,8 @@ _ZNK4cvc58internal8Sequence6suffixEm.exit:        ; preds = %27
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
 
 .preheader.i.i:                                   ; preds = %39
-  %.not1921.not.i.i = icmp eq ptr %40, %41
-  br i1 %.not1921.not.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i
+  %.not23.i.i = icmp eq ptr %40, %41
+  br i1 %.not23.i.i, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit, label %.lr.ph.i.i
 
 51:                                               ; preds = %.lr.ph.i.i
   %52 = add nuw i64 %.01622.i.i, 1
@@ -1512,11 +1512,11 @@ _ZNK4cvc58internal8Sequence6suffixEm.exit:        ; preds = %27
   %54 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %47, i64 %.01622.i.i
   %55 = load ptr, ptr %53, align 8, !tbaa !19
   %56 = load ptr, ptr %54, align 8, !tbaa !19
-  %.not18.i.i = icmp eq ptr %55, %56
-  br i1 %.not18.i.i, label %51, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
+  %.not20.i.i = icmp eq ptr %55, %56
+  br i1 %.not20.i.i, label %51, label %_ZNK4cvc58internal8SequenceeqERKS1_.exit
 
 _ZNK4cvc58internal8SequenceeqERKS1_.exit:         ; preds = %.lr.ph.i.i, %51, %39, %_ZNK4cvc58internal8Sequence6suffixEm.exit, %.preheader.i.i
-  %57 = phi i1 [ true, %.preheader.i.i ], [ false, %_ZNK4cvc58internal8Sequence6suffixEm.exit ], [ false, %39 ], [ %.not18.i.i, %51 ], [ %.not18.i.i, %.lr.ph.i.i ]
+  %57 = phi i1 [ true, %.preheader.i.i ], [ false, %_ZNK4cvc58internal8Sequence6suffixEm.exit ], [ false, %39 ], [ %.not20.i.i, %51 ], [ %.not20.i.i, %.lr.ph.i.i ]
   %58 = phi i64 [ %.01521, %.preheader.i.i ], [ %.01620, %_ZNK4cvc58internal8Sequence6suffixEm.exit ], [ %.01620, %39 ], [ %.01620, %.lr.ph.i.i ], [ %.01521, %51 ]
   call void @_ZN4cvc58internal8SequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -5245,8 +5245,8 @@ entry:
   %1 = load i32, ptr %method_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
-  %switch.i = icmp eq i32 %1, 0
-  br i1 %switch.i, label %sw.bb.i, label %sw.bb1.i
+  %2 = icmp eq i32 %1, 0
+  br i1 %2, label %sw.bb.i, label %sw.bb1.i
 
 sw.bb.i:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #25, !noalias !22
@@ -5263,10 +5263,10 @@ call.i.noexc.i:                                   ; preds = %sw.bb.i
           to label %if.end.i23 unwind label %terminate.lpad.i.i22
 
 terminate.lpad.i.i22:                             ; preds = %.noexc.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #24
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #24
   unreachable
 
 if.end.i23:                                       ; preds = %.noexc.i
@@ -5281,7 +5281,7 @@ invoke.cont.i26:                                  ; preds = %if.end.i23
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit28 unwind label %lpad.i25
 
 lpad.i25:                                         ; preds = %invoke.cont.i26, %if.end.i23
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i20) #25
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
@@ -5292,7 +5292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
   br label %_ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace18CreateBigIntRecord6MethodE.exit
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %sw.bb.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
 
@@ -5311,10 +5311,10 @@ call.i.noexc6.i:                                  ; preds = %sw.bb1.i
           to label %if.end.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %.noexc8.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #24
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #24
   unreachable
 
 if.end.i:                                         ; preds = %.noexc8.i
@@ -5329,7 +5329,7 @@ invoke.cont.i:                                    ; preds = %if.end.i
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit unwind label %lpad.i18
 
 lpad.i18:                                         ; preds = %invoke.cont.i, %if.end.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #25
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
@@ -5340,17 +5340,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
   br label %_ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace18CreateBigIntRecord6MethodE.exit
 
 lpad3.i:                                          ; preds = %call.i.noexc6.i, %sw.bb1.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
 
 common.resume:                                    ; preds = %lpad, %lpad5, %eh.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %12, %lpad5 ], [ %11, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %13, %lpad5 ], [ %12, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 eh.resume.i:                                      ; preds = %lpad3.i, %lpad.i18, %lpad.i, %lpad.i25
   %ref.tmp2.sink11.i = phi ptr [ %ref.tmp.i, %lpad.i25 ], [ %ref.tmp.i, %lpad.i ], [ %ref.tmp2.i, %lpad.i18 ], [ %ref.tmp2.i, %lpad3.i ]
-  %.pn.i = phi { ptr, i32 } [ %4, %lpad.i25 ], [ %5, %lpad.i ], [ %8, %lpad.i18 ], [ %9, %lpad3.i ]
+  %.pn.i = phi { ptr, i32 } [ %5, %lpad.i25 ], [ %6, %lpad.i ], [ %9, %lpad.i18 ], [ %10, %lpad3.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.sink11.i) #25
   br label %common.resume
 
@@ -5371,8 +5371,8 @@ _ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %10 = load i64, ptr %bits_, align 8
-  call void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4, i64 noundef %10)
+  %11 = load i64, ptr %bits_, align 8
+  call void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4, i64 noundef %11)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.55, i64 4)
           to label %.noexc14 unwind label %lpad5
 
@@ -5387,13 +5387,13 @@ invoke.cont6:                                     ; preds = %.noexc14
   ret void
 
 lpad:                                             ; preds = %.noexc, %_ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace18CreateBigIntRecord6MethodE.exit
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
   br label %common.resume
 
 lpad5:                                            ; preds = %.noexc14, %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #25
   br label %common.resume

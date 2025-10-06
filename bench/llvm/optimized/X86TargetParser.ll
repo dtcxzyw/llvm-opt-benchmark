@@ -390,44 +390,44 @@ define dso_local noundef i32 @_ZN4llvm3X8612parseArchX86ENS_9StringRefEb(ptr rea
   br i1 %2, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us
-  %.016.idx28.us = phi i64 [ %.016.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us ], [ 0, %3 ]
-  %.016.ptr29.us = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx28.us
-  %5 = getelementptr inbounds nuw i8, ptr %.016.ptr29.us, i64 49
+  %.016.idx31.us = phi i64 [ %.016.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us ], [ 0, %3 ]
+  %.016.ptr32.us = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx31.us
+  %5 = getelementptr inbounds nuw i8, ptr %.016.ptr32.us, i64 49
   %6 = load i8, ptr %5, align 1, !tbaa !3, !range !17, !noundef !18
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us, label %8
 
 8:                                                ; preds = %.split.us
-  %.sroa.02.0.copyload.us = load ptr, ptr %.016.ptr29.us, align 8, !tbaa !19
-  %.sroa.23.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.016.ptr29.us, i64 8
+  %.sroa.02.0.copyload.us = load ptr, ptr %.016.ptr32.us, align 8, !tbaa !19
+  %.sroa.23.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.016.ptr32.us, i64 8
   %.sroa.23.0.copyload.us = load i64, ptr %.sroa.23.0..sroa_idx.us, align 8, !tbaa !20
   %.not.i.us = icmp eq i64 %.sroa.23.0.copyload.us, %1
   br i1 %.not.i.us, label %9, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us
 
 9:                                                ; preds = %8
-  br i1 %4, label %.split31.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.us
+  br i1 %4, label %.split34.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.us:             ; preds = %9
   %bcmp.i.us = tail call i32 @bcmp(ptr %.sroa.02.0.copyload.us, ptr %0, i64 %1)
   %10 = icmp eq i32 %bcmp.i.us, 0
-  br i1 %10, label %.split31.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us
+  br i1 %10, label %.split34.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread21.us:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.us, %8, %.split.us
-  %.016.add.us = add nuw nsw i64 %.016.idx28.us, 56
+  %.016.add.us = add nuw nsw i64 %.016.idx31.us, 56
   %.not19.us = icmp eq i64 %.016.add.us, 7280
   br i1 %.not19.us, label %.loopexit, label %.split.us
 
 .split:                                           ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21
-  %.016.idx28 = phi i64 [ %.016.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21 ], [ 0, %3 ]
-  %.016.ptr29 = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx28
-  %11 = getelementptr inbounds nuw i8, ptr %.016.ptr29, i64 49
+  %.016.idx31 = phi i64 [ %.016.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21 ], [ 0, %3 ]
+  %.016.ptr32 = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx31
+  %11 = getelementptr inbounds nuw i8, ptr %.016.ptr32, i64 49
   %12 = load i8, ptr %11, align 1, !tbaa !3, !range !17, !noundef !18
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21, label %14
 
 14:                                               ; preds = %.split
-  %.sroa.02.0.copyload = load ptr, ptr %.016.ptr29, align 8, !tbaa !19
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.016.ptr29, i64 8
+  %.sroa.02.0.copyload = load ptr, ptr %.016.ptr32, align 8, !tbaa !19
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.016.ptr32, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !20
   %.not.i = icmp eq i64 %.sroa.23.0.copyload, %1
   br i1 %.not.i, label %15, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21
@@ -441,27 +441,27 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %15
   br i1 %16, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %15, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %17 = getelementptr inbounds nuw i8, ptr %.016.ptr29, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.016.ptr32, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !20
   %19 = and i64 %18, 2199023255552
-  %.not26 = icmp eq i64 %19, 0
-  br i1 %.not26, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21, label %.split31.us
+  %.not29 = icmp eq i64 %19, 0
+  br i1 %.not29, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21, label %.split34.us
 
-.split31.us:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.us, %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %20 = phi i64 [ %.016.idx28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.016.idx28.us, %9 ], [ %.016.idx28.us, %_ZN4llvmeqENS_9StringRefES0_.exit.us ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread21:       ; preds = %14, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %.split
+  %.016.add = add nuw nsw i64 %.016.idx31, 56
+  %.not19 = icmp eq i64 %.016.add, 7280
+  br i1 %.not19, label %.loopexit, label %.split
+
+.split34.us:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.us, %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  %20 = phi i64 [ %.016.idx31, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.016.idx31.us, %9 ], [ %.016.idx31.us, %_ZN4llvmeqENS_9StringRefES0_.exit.us ]
   %21 = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !21
   br label %.loopexit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread21:       ; preds = %14, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %.split
-  %.016.add = add nuw nsw i64 %.016.idx28, 56
-  %.not19 = icmp eq i64 %.016.add, 7280
-  br i1 %.not19, label %.loopexit, label %.split
-
-.loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21, %.split31.us
-  %spec.select = phi i32 [ %23, %.split31.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us ]
-  ret i32 %spec.select
+.loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21, %.split34.us
+  %24 = phi i32 [ %23, %.split34.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us ]
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -485,103 +485,103 @@ define dso_local noundef i32 @_ZN4llvm3X8612parseTuneCPUENS_9StringRefEb(ptr %0,
   br i1 %2, label %.split.i.preheader, label %.split.us.i.preheader
 
 .split.us.i.preheader:                            ; preds = %7
-  br i1 %8, label %.split31.us.i, label %.split.us.i
+  br i1 %8, label %.split34.us.i, label %.split.us.i
 
 .split.i.preheader:                               ; preds = %7
   br i1 %8, label %.split.i.us, label %.split.i
 
 .split.i.us:                                      ; preds = %.split.i.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us
-  %.016.idx28.i.us = phi i64 [ %.016.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us ], [ 0, %.split.i.preheader ]
-  %.016.ptr29.i.us = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx28.i.us
-  %9 = getelementptr inbounds nuw i8, ptr %.016.ptr29.i.us, i64 49
+  %.016.idx31.i.us = phi i64 [ %.016.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us ], [ 0, %.split.i.preheader ]
+  %.016.ptr32.i.us = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx31.i.us
+  %9 = getelementptr inbounds nuw i8, ptr %.016.ptr32.i.us, i64 49
   %10 = load i8, ptr %9, align 1, !tbaa !3, !range !17, !noundef !18
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us, label %12
 
 12:                                               ; preds = %.split.i.us
-  %.sroa.23.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.016.ptr29.i.us, i64 8
+  %.sroa.23.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.016.ptr32.i.us, i64 8
   %.sroa.23.0.copyload.i.us = load i64, ptr %.sroa.23.0..sroa_idx.i.us, align 8, !tbaa !20
   %.not.i.i.us = icmp eq i64 %.sroa.23.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.us:    ; preds = %12
-  %13 = getelementptr inbounds nuw i8, ptr %.016.ptr29.i.us, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.016.ptr32.i.us, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !20
   %15 = and i64 %14, 2199023255552
-  %.not26.i.us = icmp eq i64 %15, 0
-  br i1 %.not26.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us, label %.split31.us.i
+  %.not29.i.us = icmp eq i64 %15, 0
+  br i1 %.not29.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us, label %.split34.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.us, %12, %.split.i.us
-  %.016.add.i.us = add nuw nsw i64 %.016.idx28.i.us, 56
+  %.016.add.i.us = add nuw nsw i64 %.016.idx31.i.us, 56
   %.not19.i.us = icmp eq i64 %.016.add.i.us, 7280
   br i1 %.not19.i.us, label %_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit, label %.split.i.us
 
 .split.us.i:                                      ; preds = %.split.us.i.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i
-  %.016.idx28.us.i = phi i64 [ %.016.add.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i ], [ 0, %.split.us.i.preheader ]
-  %.016.ptr29.us.i = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx28.us.i
-  %16 = getelementptr inbounds nuw i8, ptr %.016.ptr29.us.i, i64 49
+  %.016.idx31.us.i = phi i64 [ %.016.add.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i ], [ 0, %.split.us.i.preheader ]
+  %.016.ptr32.us.i = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx31.us.i
+  %16 = getelementptr inbounds nuw i8, ptr %.016.ptr32.us.i, i64 49
   %17 = load i8, ptr %16, align 1, !tbaa !3, !range !17, !noundef !18
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i, label %19
 
 19:                                               ; preds = %.split.us.i
-  %.sroa.23.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %.016.ptr29.us.i, i64 8
+  %.sroa.23.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %.016.ptr32.us.i, i64 8
   %.sroa.23.0.copyload.us.i = load i64, ptr %.sroa.23.0..sroa_idx.us.i, align 8, !tbaa !20
   %.not.i.us.i = icmp eq i64 %.sroa.23.0.copyload.us.i, %.sroa.2.0.copyload.fr
   br i1 %.not.i.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.us.i:           ; preds = %19
-  %.sroa.02.0.copyload.us.i = load ptr, ptr %.016.ptr29.us.i, align 8, !tbaa !19
+  %.sroa.02.0.copyload.us.i = load ptr, ptr %.016.ptr32.us.i, align 8, !tbaa !19
   %bcmp.i.us.i = call i32 @bcmp(ptr %.sroa.02.0.copyload.us.i, ptr readonly %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload.fr)
   %20 = icmp eq i32 %bcmp.i.us.i, 0
-  br i1 %20, label %.split31.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i
+  br i1 %20, label %.split34.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.us.i, %19, %.split.us.i
-  %.016.add.us.i = add nuw nsw i64 %.016.idx28.us.i, 56
+  %.016.add.us.i = add nuw nsw i64 %.016.idx31.us.i, 56
   %.not19.us.i = icmp eq i64 %.016.add.us.i, 7280
   br i1 %.not19.us.i, label %_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit, label %.split.us.i
 
 .split.i:                                         ; preds = %.split.i.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
-  %.016.idx28.i = phi i64 [ %.016.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ 0, %.split.i.preheader ]
-  %.016.ptr29.i = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx28.i
-  %21 = getelementptr inbounds nuw i8, ptr %.016.ptr29.i, i64 49
+  %.016.idx31.i = phi i64 [ %.016.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ 0, %.split.i.preheader ]
+  %.016.ptr32.i = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %.016.idx31.i
+  %21 = getelementptr inbounds nuw i8, ptr %.016.ptr32.i, i64 49
   %22 = load i8, ptr %21, align 1, !tbaa !3, !range !17, !noundef !18
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, label %24
 
 24:                                               ; preds = %.split.i
-  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.016.ptr29.i, i64 8
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.016.ptr32.i, i64 8
   %.sroa.23.0.copyload.i = load i64, ptr %.sroa.23.0..sroa_idx.i, align 8, !tbaa !20
   %.not.i.i = icmp eq i64 %.sroa.23.0.copyload.i, %.sroa.2.0.copyload.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %24
-  %.sroa.02.0.copyload.i = load ptr, ptr %.016.ptr29.i, align 8, !tbaa !19
+  %.sroa.02.0.copyload.i = load ptr, ptr %.016.ptr32.i, align 8, !tbaa !19
   %bcmp.i.i = call i32 @bcmp(ptr %.sroa.02.0.copyload.i, ptr readonly %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload.fr)
   %25 = icmp eq i32 %bcmp.i.i, 0
   br i1 %25, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %.016.ptr29.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.016.ptr32.i, i64 24
   %27 = load i64, ptr %26, align 8, !tbaa !20
   %28 = and i64 %27, 2199023255552
-  %.not26.i = icmp eq i64 %28, 0
-  br i1 %.not26.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, label %.split31.us.i
+  %.not29.i = icmp eq i64 %28, 0
+  br i1 %.not29.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, label %.split34.us.i
 
-.split31.us.i:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.us, %.split.us.i.preheader
-  %29 = phi i64 [ 0, %.split.us.i.preheader ], [ %.016.idx28.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.us ], [ %.016.idx28.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %.016.idx28.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.us.i ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %24, %.split.i
+  %.016.add.i = add nuw nsw i64 %.016.idx31.i, 56
+  %.not19.i = icmp eq i64 %.016.add.i, 7280
+  br i1 %.not19.i, label %_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit, label %.split.i
+
+.split34.us.i:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.us, %.split.us.i.preheader
+  %29 = phi i64 [ 0, %.split.us.i.preheader ], [ %.016.idx31.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.us ], [ %.016.idx31.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %.016.idx31.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.us.i ]
   %30 = getelementptr inbounds nuw i8, ptr @_ZL10Processors, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !21
   br label %_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %24, %.split.i
-  %.016.add.i = add nuw nsw i64 %.016.idx28.i, 56
-  %.not19.i = icmp eq i64 %.016.add.i, 7280
-  br i1 %.not19.i, label %_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit, label %.split.i
-
-_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us, %.split31.us.i, %3
-  %.0 = phi i32 [ 0, %3 ], [ %32, %.split31.us.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i ]
+_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us, %.split34.us.i, %3
+  %.0 = phi i32 [ 0, %3 ], [ %32, %.split34.us.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i ]
   ret i32 %.0
 }
 

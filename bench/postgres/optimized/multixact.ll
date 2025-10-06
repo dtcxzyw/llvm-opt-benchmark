@@ -857,7 +857,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = load i32, ptr %72, align 4
-  %.fr164 = freeze i32 %75
+  %.fr163 = freeze i32 %75
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr @MainLWLockArray, align 8
@@ -875,7 +875,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   unreachable
 
 86:                                               ; preds = %68
-  %87 = sub i32 %0, %.fr164
+  %87 = sub i32 %0, %.fr163
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %.preheader, label %114
 
@@ -885,7 +885,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %91 = and i32 %0, 2047
   %92 = zext nneg i32 %91 to i64
   %93 = add i32 %0, 1
-  %94 = icmp eq i32 %.fr164, %93
+  %94 = icmp eq i32 %.fr163, %93
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %93, i32 1)
   %95 = lshr i32 %spec.store.select, 11
   %96 = zext nneg i32 %95 to i64
@@ -914,7 +914,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i32, ptr %111, i64 %92
   %113 = load i32, ptr %112, align 4
-  %.1104197 = sub i32 %77, %113
+  %.1104196 = sub i32 %77, %113
   tail call void @LWLockRelease(ptr noundef %103) #12
   br label %156
 
@@ -952,8 +952,8 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %MultiXactOffsetCtlData.val135 = load i16, ptr getelementptr inbounds nuw (i8, ptr @MultiXactOffsetCtlData, i64 8), align 8
   %134 = getelementptr i8, ptr %125, i64 56
   %MultiXactOffsetCtlData.val134.val = load ptr, ptr %134, align 8
-  %.rhs.trunc150 = zext i16 %MultiXactOffsetCtlData.val135 to i32
-  %135 = urem i32 %95, %.rhs.trunc150
+  %.rhs.trunc149 = zext i16 %MultiXactOffsetCtlData.val135 to i32
+  %135 = urem i32 %95, %.rhs.trunc149
   %136 = shl nuw nsw i32 %135, 7
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %MultiXactOffsetCtlData.val134.val, i64 %137
@@ -970,14 +970,14 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %142 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %96, i1 noundef zeroext true, i32 noundef %spec.store.select) #12
   %.pre = load ptr, ptr @MultiXactOffsetCtlData, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre167 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre168 = sext i32 %142 to i64
-  %.phi.trans.insert169 = getelementptr inbounds ptr, ptr %.pre167, i64 %.pre168
-  %.pre170 = load ptr, ptr %.phi.trans.insert169, align 8
+  %.pre166 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre167 = sext i32 %142 to i64
+  %.phi.trans.insert168 = getelementptr inbounds ptr, ptr %.pre166, i64 %.pre167
+  %.pre169 = load ptr, ptr %.phi.trans.insert168, align 8
   br label %143
 
 143:                                              ; preds = %141, %.preheader.split
-  %144 = phi ptr [ %.pre170, %141 ], [ %130, %.preheader.split ]
+  %144 = phi ptr [ %.pre169, %141 ], [ %130, %.preheader.split ]
   %.1111 = phi ptr [ %.2112, %141 ], [ %122, %.preheader.split ]
   %.1100 = phi i32 [ %142, %141 ], [ %124, %.preheader.split ]
   %145 = getelementptr inbounds nuw i32, ptr %144, i64 %98
@@ -1011,17 +1011,17 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   br label %156
 
 156:                                              ; preds = %.thread.thread, %154, %.thread
-  %.1104200 = phi i32 [ %.1104197, %.thread.thread ], [ %.1104, %154 ], [ %.1104, %.thread ]
-  %.us-phi156199 = phi i32 [ %105, %.thread.thread ], [ %.1100, %154 ], [ %.1100, %.thread ]
-  %.us-phi153198 = phi i32 [ %113, %.thread.thread ], [ %132, %154 ], [ %132, %.thread ]
-  %157 = sext i32 %.1104200 to i64
+  %.1104199 = phi i32 [ %.1104196, %.thread.thread ], [ %.1104, %154 ], [ %.1104, %.thread ]
+  %.us-phi155198 = phi i32 [ %105, %.thread.thread ], [ %.1100, %154 ], [ %.1100, %.thread ]
+  %.us-phi152197 = phi i32 [ %113, %.thread.thread ], [ %132, %154 ], [ %132, %.thread ]
+  %157 = sext i32 %.1104199 to i64
   %158 = shl nsw i64 %157, 3
   %159 = tail call ptr @palloc(i64 noundef %158) #12
-  %160 = icmp sgt i32 %.1104200, 0
+  %160 = icmp sgt i32 %.1104199, 0
   br i1 %160, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %156
-  %.pre172.pre173 = load ptr, ptr @MultiXactMemberCtlData, align 8
+  %.pre171.pre172 = load ptr, ptr @MultiXactMemberCtlData, align 8
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %201, %156
@@ -1032,43 +1032,43 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   br label %.sink.split
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %201
-  %.pre172 = phi ptr [ %.pre172174, %201 ], [ %.pre172.pre173, %.lr.ph.preheader ]
-  %.098162 = phi i64 [ %.1, %201 ], [ -1, %.lr.ph.preheader ]
-  %.2161 = phi i32 [ %.3, %201 ], [ %.us-phi156199, %.lr.ph.preheader ]
-  %.0101160 = phi i32 [ %202, %201 ], [ 0, %.lr.ph.preheader ]
-  %.0102159 = phi i32 [ %203, %201 ], [ %.us-phi153198, %.lr.ph.preheader ]
-  %.3113158 = phi ptr [ %.4, %201 ], [ null, %.lr.ph.preheader ]
-  %.0114157 = phi i32 [ %.1115, %201 ], [ 0, %.lr.ph.preheader ]
-  %161 = udiv i32 %.0102159, 1636
+  %.pre171 = phi ptr [ %.pre171173, %201 ], [ %.pre171.pre172, %.lr.ph.preheader ]
+  %.098161 = phi i64 [ %.1, %201 ], [ -1, %.lr.ph.preheader ]
+  %.2160 = phi i32 [ %.3, %201 ], [ %.us-phi155198, %.lr.ph.preheader ]
+  %.0101159 = phi i32 [ %202, %201 ], [ 0, %.lr.ph.preheader ]
+  %.0102158 = phi i32 [ %203, %201 ], [ %.us-phi152197, %.lr.ph.preheader ]
+  %.3113157 = phi ptr [ %.4, %201 ], [ null, %.lr.ph.preheader ]
+  %.0114156 = phi i32 [ %.1115, %201 ], [ 0, %.lr.ph.preheader ]
+  %161 = udiv i32 %.0102158, 1636
   %162 = zext nneg i32 %161 to i64
-  %163 = lshr i32 %.0102159, 2
+  %163 = lshr i32 %.0102158, 2
   %164 = urem i32 %163, 409
   %narrow.i.i = mul nuw nsw i32 %164, 20
-  %165 = shl i32 %.0102159, 2
+  %165 = shl i32 %.0102158, 2
   %166 = and i32 %165, 12
   %167 = add nuw nsw i32 %166, 4
   %narrow.i = add nuw nsw i32 %167, %narrow.i.i
-  %.not129 = icmp eq i64 %.098162, %162
+  %.not129 = icmp eq i64 %.098161, %162
   br i1 %.not129, label %180, label %168
 
 168:                                              ; preds = %.lr.ph
   %MultiXactMemberCtlData.val136 = load i16, ptr getelementptr inbounds nuw (i8, ptr @MultiXactMemberCtlData, i64 8), align 8
-  %169 = getelementptr i8, ptr %.pre172, i64 56
+  %169 = getelementptr i8, ptr %.pre171, i64 56
   %MultiXactMemberCtlData.val.val = load ptr, ptr %169, align 8
-  %.rhs.trunc147 = zext i16 %MultiXactMemberCtlData.val136 to i32
-  %170 = urem i32 %161, %.rhs.trunc147
+  %.rhs.trunc146 = zext i16 %MultiXactMemberCtlData.val136 to i32
+  %170 = urem i32 %161, %.rhs.trunc146
   %171 = shl nuw nsw i32 %170, 7
   %172 = zext nneg i32 %171 to i64
   %173 = getelementptr inbounds nuw i8, ptr %MultiXactMemberCtlData.val.val, i64 %172
-  %.not130 = icmp eq ptr %173, %.3113158
+  %.not130 = icmp eq ptr %173, %.3113157
   br i1 %.not130, label %178, label %174
 
 174:                                              ; preds = %168
-  %.not131 = icmp eq ptr %.3113158, null
+  %.not131 = icmp eq ptr %.3113157, null
   br i1 %.not131, label %176, label %175
 
 175:                                              ; preds = %174
-  tail call void @LWLockRelease(ptr noundef nonnull %.3113158) #12
+  tail call void @LWLockRelease(ptr noundef nonnull %.3113157) #12
   br label %176
 
 176:                                              ; preds = %175, %174
@@ -1076,17 +1076,17 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   br label %178
 
 178:                                              ; preds = %176, %168
-  %.5 = phi ptr [ %173, %176 ], [ %.3113158, %168 ]
+  %.5 = phi ptr [ %173, %176 ], [ %.3113157, %168 ]
   %179 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactMemberCtlData, i64 noundef %162, i1 noundef zeroext true, i32 noundef %0) #12
-  %.pre171 = load ptr, ptr @MultiXactMemberCtlData, align 8
+  %.pre170 = load ptr, ptr @MultiXactMemberCtlData, align 8
   br label %180
 
 180:                                              ; preds = %178, %.lr.ph
-  %.pre172175 = phi ptr [ %.pre171, %178 ], [ %.pre172, %.lr.ph ]
-  %.4 = phi ptr [ %.5, %178 ], [ %.3113158, %.lr.ph ]
-  %.3 = phi i32 [ %179, %178 ], [ %.2161, %.lr.ph ]
-  %.1 = phi i64 [ %162, %178 ], [ %.098162, %.lr.ph ]
-  %181 = getelementptr inbounds nuw i8, ptr %.pre172175, i64 8
+  %.pre171174 = phi ptr [ %.pre170, %178 ], [ %.pre171, %.lr.ph ]
+  %.4 = phi ptr [ %.5, %178 ], [ %.3113157, %.lr.ph ]
+  %.3 = phi i32 [ %179, %178 ], [ %.2160, %.lr.ph ]
+  %.1 = phi i64 [ %162, %178 ], [ %.098161, %.lr.ph ]
+  %181 = getelementptr inbounds nuw i8, ptr %.pre171174, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = sext i32 %.3 to i64
   %184 = getelementptr inbounds ptr, ptr %182, i64 %183
@@ -1098,11 +1098,11 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   br i1 %.not132, label %201, label %189
 
 189:                                              ; preds = %180
-  %190 = shl i32 %.0102159, 3
+  %190 = shl i32 %.0102158, 3
   %191 = and i32 %190, 24
   %192 = zext nneg i32 %narrow.i.i to i64
   %193 = getelementptr inbounds nuw i8, ptr %185, i64 %192
-  %194 = sext i32 %.0114157 to i64
+  %194 = sext i32 %.0114156 to i64
   %195 = getelementptr inbounds %struct.MultiXactMember, ptr %159, i64 %194
   store i32 %188, ptr %195, align 4
   %196 = load i32, ptr %193, align 4
@@ -1110,16 +1110,16 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %198 = and i32 %197, 255
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 4
   store i32 %198, ptr %199, align 4
-  %200 = add i32 %.0114157, 1
-  %.pre172.pre = load ptr, ptr @MultiXactMemberCtlData, align 8
+  %200 = add i32 %.0114156, 1
+  %.pre171.pre = load ptr, ptr @MultiXactMemberCtlData, align 8
   br label %201
 
 201:                                              ; preds = %180, %189
-  %.pre172174 = phi ptr [ %.pre172.pre, %189 ], [ %.pre172175, %180 ]
-  %.1115 = phi i32 [ %200, %189 ], [ %.0114157, %180 ]
-  %202 = add nuw nsw i32 %.0101160, 1
-  %203 = add i32 %.0102159, 1
-  %exitcond.not = icmp eq i32 %202, %.1104200
+  %.pre171173 = phi ptr [ %.pre171.pre, %189 ], [ %.pre171174, %180 ]
+  %.1115 = phi i32 [ %200, %189 ], [ %.0114156, %180 ]
+  %202 = add nuw nsw i32 %.0101159, 1
+  %203 = add i32 %.0102158, 1
+  %exitcond.not = icmp eq i32 %202, %.1104199
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .sink.split:                                      ; preds = %60, %4, %._crit_edge

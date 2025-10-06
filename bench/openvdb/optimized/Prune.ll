@@ -11396,16 +11396,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i4.i.i = icmp eq i64 %4, -1
-  switch i64 %4, label %if.then.i.i [
-    i64 -1, label %land.rhs.i5.i.i.preheader
-    i64 0, label %land.rhs.i5.i.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %if.then.i.i, label %land.rhs.i5.i.i
 
-land.rhs.i5.i.i.preheader:                        ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i5.i.i
-
-land.rhs.i5.i.i:                                  ; preds = %land.rhs.i5.i.i.preheader, %while.body.i.i.i6
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %land.rhs.i5.i.i.preheader ]
+land.rhs.i5.i.i:                                  ; preds = %lor.lhs.false.i.i, %while.body.i.i.i6
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %5 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %5, %4
@@ -12203,16 +12199,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %tobool.i = trunc i8 %5 to i1
   %6 = load i64, ptr %4, align 8
   %cmp.i.i.i2 = icmp eq i64 %6, -1
-  switch i64 %6, label %for.inc [
-    i64 -1, label %land.rhs.i.i.i3.preheader
-    i64 0, label %land.rhs.i.i.i3.preheader
-  ]
+  %.off = add i64 %6, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i.i.i3
 
-land.rhs.i.i.i3.preheader:                        ; preds = %for.body, %for.body
-  br label %land.rhs.i.i.i3
-
-land.rhs.i.i.i3:                                  ; preds = %land.rhs.i.i.i3.preheader, %while.body.i.i.i
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %land.rhs.i.i.i3.preheader ]
+land.rhs.i.i.i3:                                  ; preds = %for.body, %while.body.i.i.i
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %for.body ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %w.0.idx6.i.i.i
   %7 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %7, %6
@@ -13198,16 +13190,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 33280
   %6 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i4.i.i = icmp eq i64 %6, -1
-  switch i64 %6, label %for.inc [
-    i64 -1, label %land.rhs.i5.i.i.preheader
-    i64 0, label %land.rhs.i5.i.i.preheader
-  ]
+  %.off = add i64 %6, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i5.i.i
 
-land.rhs.i5.i.i.preheader:                        ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i5.i.i
-
-land.rhs.i5.i.i:                                  ; preds = %land.rhs.i5.i.i.preheader, %while.body.i.i.i
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %land.rhs.i5.i.i.preheader ]
+land.rhs.i5.i.i:                                  ; preds = %lor.lhs.false.i.i, %while.body.i.i.i
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %7 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %7, %6
@@ -17534,16 +17522,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %4, -1
-  switch i64 %4, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RiRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RiRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i6
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i6
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %5 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %5, %4
@@ -21806,16 +21790,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 33280
   %6 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %6, -1
-  switch i64 %6, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RiRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %6, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RiRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %7 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %7, %6
@@ -27175,16 +27155,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %4, -1
-  switch i64 %4, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RlRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RlRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i6
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i6
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %5 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %5, %4
@@ -30985,16 +30961,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 33280
   %6 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %6, -1
-  switch i64 %6, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RlRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %6, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RlRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %7 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %7, %6
@@ -36275,16 +36247,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %4, -1
-  switch i64 %4, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RfRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RfRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i6
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i6
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %5 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %5, %4
@@ -40253,16 +40221,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 33280
   %6 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %6, -1
-  switch i64 %6, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RfRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %6, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RfRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %7 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %7, %6
@@ -45644,16 +45608,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %4, -1
-  switch i64 %4, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RdRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELj0EE10isConstantISA_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RdRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i6
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i6
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i6 ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %5 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %5, %4
@@ -49621,16 +49581,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 33280
   %6 = load i64, ptr %mValueMask.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %6, -1
-  switch i64 %6, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RdRb.exit.thread [
-    i64 -1, label %land.rhs.i17.i.i.preheader
-    i64 0, label %land.rhs.i17.i.i.preheader
-  ]
+  %.off = add i64 %6, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZNK7openvdb5v11_05tools16TolerancePruneOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELj0EE10isConstantIS9_EENSt9enable_ifIXntsr3std7is_sameIbNT_9ValueTypeEEE5valueEbE4typeERSG_RdRb.exit.thread, label %land.rhs.i17.i.i
 
-land.rhs.i17.i.i.preheader:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
-  br label %land.rhs.i17.i.i
-
-land.rhs.i17.i.i:                                 ; preds = %land.rhs.i17.i.i.preheader, %while.body.i.i.i
-  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %land.rhs.i17.i.i.preheader ]
+land.rhs.i17.i.i:                                 ; preds = %lor.lhs.false.i.i, %while.body.i.i.i
+  %w.0.idx6.i.i.i = phi i64 [ %w.0.add.i.i.i, %while.body.i.i.i ], [ 8, %lor.lhs.false.i.i ]
   %w.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i.i, i64 %w.0.idx6.i.i.i
   %7 = load i64, ptr %w.0.ptr.i.i.i, align 8
   %cmp12.i.i.i = icmp eq i64 %7, %6

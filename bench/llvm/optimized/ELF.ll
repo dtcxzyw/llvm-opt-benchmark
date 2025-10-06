@@ -10713,8 +10713,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %76 = load ptr, ptr %6, align 8, !tbaa !55
-  %.not74 = icmp eq ptr %76, null
-  br i1 %.not74, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not73 = icmp eq ptr %76, null
+  br i1 %.not73, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -20835,8 +20835,8 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8Ar
   %15 = icmp ne i64 %14, 0
   %16 = select i1 %15, i32 3, i32 2
   call void %3(i64 noundef %4, i64 noundef %13, i1 noundef zeroext %15) #20
-  %.not3 = icmp ult i64 %12, 8
-  br i1 %.not3, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit, label %.lr.ph
+  %.not2 = icmp ult i64 %12, 8
+  br i1 %.not2, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %17 = xor i32 %16, 7
@@ -20847,15 +20847,15 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8Ar
   br label %22
 
 22:                                               ; preds = %.lr.ph, %56
-  %.08 = phi i64 [ %13, %.lr.ph ], [ %58, %56 ]
-  %.0317 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
-  %.0326 = phi i32 [ 0, %.lr.ph ], [ %.133, %56 ]
-  %.0345 = phi i32 [ 0, %.lr.ph ], [ %.135, %56 ]
-  %.0374 = phi i32 [ 0, %.lr.ph ], [ %.138, %56 ]
+  %.07 = phi i64 [ %13, %.lr.ph ], [ %58, %56 ]
+  %.0316 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
+  %.0325 = phi i32 [ 0, %.lr.ph ], [ %.133, %56 ]
+  %.0344 = phi i32 [ 0, %.lr.ph ], [ %.135, %56 ]
+  %.0373 = phi i32 [ 0, %.lr.ph ], [ %.138, %56 ]
   %23 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %11) #20
   %24 = zext i8 %23 to i32
   %25 = lshr i32 %24, %16
-  %26 = add i32 %25, %.0317
+  %26 = add i32 %25, %.0316
   %27 = icmp slt i8 %23, 0
   br i1 %27, label %28, label %34
 
@@ -20876,11 +20876,11 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8Ar
 36:                                               ; preds = %34
   %37 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %11) #20
   %38 = trunc i64 %37 to i32
-  %39 = add i32 %.0345, %38
+  %39 = add i32 %.0344, %38
   br label %40
 
 40:                                               ; preds = %36, %34
-  %.135 = phi i32 [ %39, %36 ], [ %.0345, %34 ]
+  %.135 = phi i32 [ %39, %36 ], [ %.0344, %34 ]
   %41 = and i32 %24, 2
   %.not40 = icmp eq i32 %41, 0
   br i1 %.not40, label %46, label %42
@@ -20888,11 +20888,11 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8Ar
 42:                                               ; preds = %40
   %43 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %11) #20
   %44 = trunc i64 %43 to i32
-  %45 = add i32 %.0374, %44
+  %45 = add i32 %.0373, %44
   br label %46
 
 46:                                               ; preds = %42, %40
-  %.138 = phi i32 [ %45, %42 ], [ %.0374, %40 ]
+  %.138 = phi i32 [ %45, %42 ], [ %.0373, %40 ]
   %47 = and i32 %24, 4
   %48 = zext nneg i32 %47 to i64
   %49 = and i64 %12, %48
@@ -20902,11 +20902,11 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8Ar
 50:                                               ; preds = %46
   %51 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %11) #20
   %52 = trunc i64 %51 to i32
-  %53 = add i32 %.0326, %52
+  %53 = add i32 %.0325, %52
   br label %54
 
 54:                                               ; preds = %50, %46
-  %.133 = phi i32 [ %53, %50 ], [ %.0326, %46 ]
+  %.133 = phi i32 [ %53, %50 ], [ %.0325, %46 ]
   %55 = load ptr, ptr %11, align 8, !tbaa !55
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %56, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit
@@ -20922,7 +20922,7 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8Ar
   %.sroa.3.8.insert.ext = zext i32 %.138 to i64
   %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.sroa.3.8.insert.ext
   call void %.0.val(i64 noundef %.8.val, i64 %.sroa.0.0.insert.insert, i64 %.sroa.3.8.insert.insert) #20
-  %58 = add nsw i64 %.08, -1
+  %58 = add nsw i64 %.07, -1
   %.not = icmp eq i64 %58, 0
   br i1 %.not, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit, label %22, !llvm.loop !2153
 
@@ -32209,8 +32209,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %77 = load ptr, ptr %6, align 8, !tbaa !55
-  %.not74 = icmp eq ptr %77, null
-  br i1 %.not74, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not73 = icmp eq ptr %77, null
+  br i1 %.not73, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -53523,8 +53523,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %76 = load ptr, ptr %6, align 8, !tbaa !55
-  %.not74 = icmp eq ptr %76, null
-  br i1 %.not74, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not73 = icmp eq ptr %76, null
+  br i1 %.not73, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -64385,8 +64385,8 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8Ar
   %17 = select i1 %16, i32 3, i32 2
   %18 = and i64 %13, 3
   call void %3(i64 noundef %4, i64 noundef %14, i1 noundef zeroext %16) #20
-  %.not5 = icmp ult i64 %13, 8
-  br i1 %.not5, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit, label %.lr.ph
+  %.not4 = icmp ult i64 %13, 8
+  br i1 %.not4, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %19 = xor i32 %17, 7
@@ -64399,16 +64399,16 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8Ar
   br label %23
 
 23:                                               ; preds = %.lr.ph, %56
-  %.02910 = phi i64 [ %14, %.lr.ph ], [ %58, %56 ]
-  %.0309 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
-  %.0318 = phi i32 [ 0, %.lr.ph ], [ %.132, %56 ]
-  %.0337 = phi i64 [ 0, %.lr.ph ], [ %.134, %56 ]
-  %.0356 = phi i64 [ 0, %.lr.ph ], [ %.136, %56 ]
+  %.0299 = phi i64 [ %14, %.lr.ph ], [ %58, %56 ]
+  %.0308 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
+  %.0317 = phi i32 [ 0, %.lr.ph ], [ %.132, %56 ]
+  %.0336 = phi i64 [ 0, %.lr.ph ], [ %.134, %56 ]
+  %.0355 = phi i64 [ 0, %.lr.ph ], [ %.136, %56 ]
   %24 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %12) #20
   %25 = zext i8 %24 to i32
   %26 = lshr i32 %25, %17
   %27 = zext nneg i32 %26 to i64
-  %28 = add i64 %.0356, %27
+  %28 = add i64 %.0355, %27
   %29 = icmp slt i8 %24, 0
   br i1 %29, label %30, label %35
 
@@ -64428,11 +64428,11 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8Ar
 37:                                               ; preds = %35
   %38 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %12) #20
   %39 = trunc i64 %38 to i32
-  %40 = add i32 %.0318, %39
+  %40 = add i32 %.0317, %39
   br label %41
 
 41:                                               ; preds = %37, %35
-  %.132 = phi i32 [ %40, %37 ], [ %.0318, %35 ]
+  %.132 = phi i32 [ %40, %37 ], [ %.0317, %35 ]
   %42 = and i32 %25, 2
   %.not38 = icmp eq i32 %42, 0
   br i1 %.not38, label %47, label %43
@@ -64440,11 +64440,11 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8Ar
 43:                                               ; preds = %41
   %44 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %12) #20
   %45 = trunc i64 %44 to i32
-  %46 = add i32 %.0309, %45
+  %46 = add i32 %.0308, %45
   br label %47
 
 47:                                               ; preds = %43, %41
-  %.1 = phi i32 [ %46, %43 ], [ %.0309, %41 ]
+  %.1 = phi i32 [ %46, %43 ], [ %.0308, %41 ]
   %48 = and i32 %25, 4
   %49 = zext nneg i32 %48 to i64
   %50 = and i64 %13, %49
@@ -64453,11 +64453,11 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8Ar
 
 51:                                               ; preds = %47
   %52 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %12) #20
-  %53 = add i64 %52, %.0337
+  %53 = add i64 %52, %.0336
   br label %54
 
 54:                                               ; preds = %51, %47
-  %.134 = phi i64 [ %53, %51 ], [ %.0337, %47 ]
+  %.134 = phi i64 [ %53, %51 ], [ %.0336, %47 ]
   %55 = load ptr, ptr %12, align 8, !tbaa !55
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %56, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit
@@ -64471,7 +64471,7 @@ define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8Ar
   store i64 %.134, ptr %.sroa.4.0..sroa_idx, align 8
   call void %.0.val(i64 noundef %.8.val, ptr noundef nonnull byval(%"struct.llvm::object::Elf_Crel_Impl.824") align 8 %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %58 = add nsw i64 %.02910, -1
+  %58 = add nsw i64 %.0299, -1
   %.not = icmp eq i64 %58, 0
   br i1 %.not, label %_ZN4llvm13DataExtractor6CursorD2Ev.exit, label %23, !llvm.loop !7921
 
@@ -75712,8 +75712,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %77 = load ptr, ptr %6, align 8, !tbaa !55
-  %.not74 = icmp eq ptr %77, null
-  br i1 %.not74, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not73 = icmp eq ptr %77, null
+  br i1 %.not73, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

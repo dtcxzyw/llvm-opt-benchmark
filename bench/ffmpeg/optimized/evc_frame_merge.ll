@@ -63,8 +63,8 @@ define internal range(i32 -2147483648, 1) i32 @evc_frame_merge_filter(ptr nounde
   %.pre = load i32, ptr %10, align 8, !tbaa !23
   br label %22
 
-22:                                               ; preds = %2, %129
-  %23 = phi i32 [ %.pre, %2 ], [ %136, %129 ]
+22:                                               ; preds = %2, %130
+  %23 = phi i32 [ %.pre, %2 ], [ %137, %130 ]
   %.not97 = icmp eq i32 %23, 0
   br i1 %.not97, label %24, label %41
 
@@ -248,19 +248,19 @@ thread-pre-split:                                 ; preds = %38, %35, %33
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 1
   %114 = load i8, ptr %113, align 1, !tbaa !46
   %115 = icmp ne i8 %114, 0
-  %switch = icmp eq i32 %69, 0
-  %or.cond133 = and i1 %switch, %115
-  br i1 %or.cond133, label %116, label %parse_nal_unit.exit.thread111
+  %116 = icmp eq i32 %69, 0
+  %or.cond133 = and i1 %116, %115
+  br i1 %or.cond133, label %117, label %parse_nal_unit.exit.thread111
 
-116:                                              ; preds = %112
-  %117 = load i32, ptr %96, align 4, !tbaa !51
-  %118 = getelementptr inbounds nuw i8, ptr %53, i64 660
-  %119 = load i32, ptr %118, align 4, !tbaa !52
-  %.not.i103.not = icmp eq i32 %117, %119
+117:                                              ; preds = %112
+  %118 = load i32, ptr %96, align 4, !tbaa !51
+  %119 = getelementptr inbounds nuw i8, ptr %53, i64 660
+  %120 = load i32, ptr %119, align 4, !tbaa !52
+  %.not.i103.not = icmp eq i32 %118, %120
   br label %parse_nal_unit.exit.thread111
 
-parse_nal_unit.exit.thread111:                    ; preds = %116, %112
-  %.1.i.ph = phi i1 [ false, %112 ], [ %.not.i103.not, %116 ]
+parse_nal_unit.exit.thread111:                    ; preds = %117, %112
+  %.1.i.ph = phi i1 [ false, %112 ], [ %.not.i103.not, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_nal_unit.exit.thread107
 
@@ -278,78 +278,78 @@ parse_nal_unit.exit.thread:                       ; preds = %51, %89, %84, %71, 
 parse_nal_unit.exit.thread107:                    ; preds = %80, %85, %72, %parse_nal_unit.exit.thread111
   %.0.i109 = phi i1 [ %.1.i.ph, %parse_nal_unit.exit.thread111 ], [ true, %72 ], [ true, %85 ], [ true, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %120 = load i64, ptr %20, align 8, !tbaa !27
-  %121 = zext nneg i32 %49 to i64
-  %122 = add i64 %120, %121
-  %123 = icmp ugt i64 %122, 2147483583
-  br i1 %123, label %124, label %125
+  %121 = load i64, ptr %20, align 8, !tbaa !27
+  %122 = zext nneg i32 %49 to i64
+  %123 = add i64 %121, %122
+  %124 = icmp ugt i64 %123, 2147483583
+  br i1 %124, label %125, label %126
 
-124:                                              ; preds = %parse_nal_unit.exit.thread107
+125:                                              ; preds = %parse_nal_unit.exit.thread107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #7
   br label %.thread
 
-125:                                              ; preds = %parse_nal_unit.exit.thread107
-  %126 = load ptr, ptr %19, align 8, !tbaa !53
-  %127 = call ptr @av_fast_realloc(ptr noundef %126, ptr noundef nonnull %21, i64 noundef %122) #7
-  %.not101 = icmp eq ptr %127, null
-  br i1 %.not101, label %128, label %129
+126:                                              ; preds = %parse_nal_unit.exit.thread107
+  %127 = load ptr, ptr %19, align 8, !tbaa !53
+  %128 = call ptr @av_fast_realloc(ptr noundef %127, ptr noundef nonnull %21, i64 noundef %123) #7
+  %.not101 = icmp eq ptr %128, null
+  br i1 %.not101, label %129, label %130
 
-128:                                              ; preds = %125
+129:                                              ; preds = %126
   call void @av_freep(ptr noundef nonnull %19) #7
   br label %.thread
 
-129:                                              ; preds = %125
-  store ptr %127, ptr %19, align 8, !tbaa !53
-  %130 = load i64, ptr %20, align 8, !tbaa !27
-  %131 = getelementptr inbounds nuw i8, ptr %127, i64 %130
-  %132 = load ptr, ptr %14, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %131, ptr noundef nonnull align 1 dereferenceable(1) %132, i64 %121, i1 false)
-  store i64 %122, ptr %20, align 8, !tbaa !27
+130:                                              ; preds = %126
+  store ptr %128, ptr %19, align 8, !tbaa !53
+  %131 = load i64, ptr %20, align 8, !tbaa !27
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %131
   %133 = load ptr, ptr %14, align 8, !tbaa !28
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %121
-  store ptr %134, ptr %14, align 8, !tbaa !28
-  %135 = load i32, ptr %10, align 8, !tbaa !23
-  %136 = sub i32 %135, %49
-  store i32 %136, ptr %10, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %132, ptr noundef nonnull align 1 dereferenceable(1) %133, i64 %122, i1 false)
+  store i64 %123, ptr %20, align 8, !tbaa !27
+  %134 = load ptr, ptr %14, align 8, !tbaa !28
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %122
+  store ptr %135, ptr %14, align 8, !tbaa !28
+  %136 = load i32, ptr %10, align 8, !tbaa !23
+  %137 = sub i32 %136, %49
+  store i32 %137, ptr %10, align 8, !tbaa !23
   br i1 %.0.i109, label %22, label %.thread124
 
-.thread124:                                       ; preds = %129, %29
+.thread124:                                       ; preds = %130, %29
   call void @av_packet_unref(ptr noundef nonnull %7) #7
-  %137 = load i64, ptr %20, align 8, !tbaa !27
+  %138 = load i64, ptr %20, align 8, !tbaa !27
   store i64 0, ptr %20, align 8, !tbaa !27
   call void @av_buffer_unref(ptr noundef %9) #7
-  %138 = add i64 %137, 64
-  %139 = call i32 @av_buffer_realloc(ptr noundef %9, i64 noundef %138) #7
-  %140 = icmp slt i32 %139, 0
-  br i1 %140, label %.thread, label %141
+  %139 = add i64 %138, 64
+  %140 = call i32 @av_buffer_realloc(ptr noundef %9, i64 noundef %139) #7
+  %141 = icmp slt i32 %140, 0
+  br i1 %141, label %.thread, label %142
 
-141:                                              ; preds = %.thread124
-  %142 = load ptr, ptr %9, align 8, !tbaa !54
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !55
-  store ptr %144, ptr %11, align 8, !tbaa !28
-  %145 = trunc i64 %137 to i32
-  %146 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 %145, ptr %146, align 8, !tbaa !23
+142:                                              ; preds = %.thread124
+  %143 = load ptr, ptr %9, align 8, !tbaa !54
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8, !tbaa !55
+  store ptr %145, ptr %11, align 8, !tbaa !28
+  %146 = trunc i64 %138 to i32
+  %147 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i32 %146, ptr %147, align 8, !tbaa !23
   call void @av_packet_move_ref(ptr noundef %1, ptr noundef nonnull %9) #7
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %148 = load ptr, ptr %147, align 8, !tbaa !28
-  %149 = load ptr, ptr %19, align 8, !tbaa !53
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %148, ptr align 1 %149, i64 %137, i1 false)
-  %150 = load ptr, ptr %147, align 8, !tbaa !28
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %137
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %151, i8 0, i64 64, i1 false)
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %149 = load ptr, ptr %148, align 8, !tbaa !28
+  %150 = load ptr, ptr %19, align 8, !tbaa !53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr align 1 %150, i64 %138, i1 false)
+  %151 = load ptr, ptr %148, align 8, !tbaa !28
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %138
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %152, i8 0, i64 64, i1 false)
   br label %.thread119
 
-.thread:                                          ; preds = %48, %38, %128, %124, %parse_nal_unit.exit.thread, %47, %.thread124
-  %.3.ph = phi i32 [ %139, %.thread124 ], [ -1094995529, %128 ], [ -34, %124 ], [ %.0.i105, %parse_nal_unit.exit.thread ], [ -1094995529, %47 ], [ %39, %38 ], [ -1094995529, %48 ]
+.thread:                                          ; preds = %48, %38, %129, %125, %parse_nal_unit.exit.thread, %47, %.thread124
+  %.3.ph = phi i32 [ %140, %.thread124 ], [ -1094995529, %129 ], [ -34, %125 ], [ %.0.i105, %parse_nal_unit.exit.thread ], [ -1094995529, %47 ], [ %39, %38 ], [ -1094995529, %48 ]
   call void @av_packet_unref(ptr noundef nonnull %7) #7
   call void @av_packet_unref(ptr noundef %9) #7
   store i64 0, ptr %20, align 8, !tbaa !27
   br label %.thread119
 
-.thread119:                                       ; preds = %41, %27, %29, %141, %.thread
-  %.2 = phi i32 [ %.3.ph, %.thread ], [ 0, %141 ], [ -541478725, %29 ], [ %25, %27 ], [ -1094995529, %41 ]
+.thread119:                                       ; preds = %41, %27, %29, %142, %.thread
+  %.2 = phi i32 [ %.3.ph, %.thread ], [ 0, %142 ], [ -541478725, %29 ], [ %25, %27 ], [ -1094995529, %41 ]
   ret i32 %.2
 }
 

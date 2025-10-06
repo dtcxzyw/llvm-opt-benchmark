@@ -376,9 +376,9 @@ define internal void @_lib_viewswitcher_view_changed_callback(ptr readnone captu
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !21
   %10 = tail call ptr @dt_view_manager_name(ptr noundef %9) #8
-  %.03243 = load ptr, ptr %8, align 8, !tbaa !57
-  %.not44 = icmp eq ptr %.03243, null
-  br i1 %.not44, label %._crit_edge.thread, label %.lr.ph
+  %.03242 = load ptr, ptr %8, align 8, !tbaa !57
+  %.not43 = icmp eq ptr %.03242, null
+  br i1 %.not43, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -391,25 +391,25 @@ define internal void @_lib_viewswitcher_view_changed_callback(ptr readnone captu
   br label %19
 
 ._crit_edge:                                      ; preds = %19
-  %15 = icmp eq i32 %..03045, 0
+  %15 = icmp eq i32 %..03044, 0
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %17, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_dropdown_changed, ptr noundef nonnull %8) #8
   br i1 %15, label %36, label %26
 
 19:                                               ; preds = %.lr.ph, %19
-  %.03246 = phi ptr [ %.03243, %.lr.ph ], [ %.032, %19 ]
-  %.03045 = phi i32 [ 0, %.lr.ph ], [ %..03045, %19 ]
-  %20 = load ptr, ptr %.03246, align 8, !tbaa !58
+  %.03245 = phi ptr [ %.03242, %.lr.ph ], [ %.032, %19 ]
+  %.03044 = phi i32 [ 0, %.lr.ph ], [ %..03044, %19 ]
+  %20 = load ptr, ptr %.03245, align 8, !tbaa !58
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %14) #8
   %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef 80) #8
   %23 = tail call ptr @g_object_get_data(ptr noundef %22, ptr noundef nonnull @.str.5) #8
   %24 = tail call i32 @g_strcmp0(ptr noundef %23, ptr noundef %10) #8
   %.not37 = icmp eq i32 %24, 0
   %. = select i1 %.not37, i32 4, i32 0
-  %..03045 = select i1 %.not37, i32 1, i32 %.03045
+  %..03044 = select i1 %.not37, i32 1, i32 %.03044
   tail call void @gtk_widget_set_state_flags(ptr noundef %21, i32 noundef %., i32 noundef 1) #8
-  %25 = getelementptr inbounds nuw i8, ptr %.03246, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.03245, i64 8
   %.032 = load ptr, ptr %25, align 8, !tbaa !57
   %.not = icmp eq ptr %.032, null
   br i1 %.not, label %._crit_edge, label %19

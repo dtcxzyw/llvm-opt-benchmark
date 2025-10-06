@@ -1341,12 +1341,12 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   br label %36
 
 36:                                               ; preds = %35, %36
-  %.083113 = phi ptr [ %11, %35 ], [ %41, %36 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.083113, i64 32
+  %.083112 = phi ptr [ %11, %35 ], [ %41, %36 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.083112, i64 32
   %38 = load i64, ptr %37, align 8, !tbaa !121
   %39 = add i64 %28, %38
   store i64 %39, ptr %37, align 8, !tbaa !121
-  %40 = getelementptr inbounds nuw i8, ptr %.083113, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %.083112, i64 72
   %41 = load ptr, ptr %40, align 8, !tbaa !122
   %.not98 = icmp eq ptr %41, null
   br i1 %.not98, label %.critedge, label %36, !llvm.loop !123
@@ -1388,8 +1388,8 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   %59 = load ptr, ptr %.in86, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !124
-  %.not114 = icmp eq i32 %61, 0
-  br i1 %.not114, label %.critedge, label %.lr.ph
+  %.not113 = icmp eq i32 %61, 0
+  br i1 %.not113, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53
   %62 = load ptr, ptr %.077, align 8, !tbaa !125

@@ -264,16 +264,16 @@ define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr noundef readonly cap
 define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i16, ptr %6, align 8, !tbaa !32
-  %.not51 = icmp eq i16 %7, 0
-  br i1 %.not51, label %.loopexit, label %.lr.ph53.preheader
+  %.not50 = icmp eq i16 %7, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph52.preheader
 
-.lr.ph53.preheader:                               ; preds = %5
-  %.pre58 = load ptr, ptr %0, align 8, !tbaa !19
-  br label %.lr.ph53
+.lr.ph52.preheader:                               ; preds = %5
+  %.pre57 = load ptr, ptr %0, align 8, !tbaa !19
+  br label %.lr.ph52
 
-.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.thread
-  %8 = phi ptr [ %47, %.thread ], [ %.pre58, %.lr.ph53.preheader ]
-  %9 = phi i16 [ %49, %.thread ], [ %7, %.lr.ph53.preheader ]
+.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.thread
+  %8 = phi ptr [ %47, %.thread ], [ %.pre57, %.lr.ph52.preheader ]
+  %9 = phi i16 [ %49, %.thread ], [ %7, %.lr.ph52.preheader ]
   %10 = zext i16 %9 to i64
   %11 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -282,29 +282,29 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
   %15 = icmp eq ptr %2, %14
   br i1 %15, label %16, label %19
 
-16:                                               ; preds = %.lr.ph53
+16:                                               ; preds = %.lr.ph52
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !29
   br label %.loopexit.sink.split
 
-19:                                               ; preds = %.lr.ph53
+19:                                               ; preds = %.lr.ph52
   %20 = load i32, ptr %11, align 8, !tbaa !28
   %21 = and i32 %20, -251723776
   %22 = icmp eq i32 %21, -2147287040
   br i1 %22, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %19
-  %.pn.in45 = and i32 %20, 65535
-  %.pn46 = zext nneg i32 %.pn.in45 to i64
-  %.03147 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %.pn46
-  %23 = load i32, ptr %.03147, align 8, !tbaa !28
+  %.pn.in44 = and i32 %20, 65535
+  %.pn45 = zext nneg i32 %.pn.in44 to i64
+  %.03146 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %.pn45
+  %23 = load i32, ptr %.03146, align 8, !tbaa !28
   %24 = icmp slt i32 %23, -1879048192
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %34
   %25 = phi i32 [ %35, %34 ], [ %23, %.preheader ]
-  %26 = phi i64 [ %.pn, %34 ], [ %.pn46, %.preheader ]
-  %.03048 = phi i32 [ %.1, %34 ], [ 0, %.preheader ]
+  %26 = phi i64 [ %.pn, %34 ], [ %.pn45, %.preheader ]
+  %.03047 = phi i32 [ %.1, %34 ], [ 0, %.preheader ]
   %27 = and i32 %25, 16711680
   %28 = icmp eq i32 %27, 65536
   br i1 %28, label %29, label %34
@@ -313,11 +313,11 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
   %30 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !29
-  %33 = or i32 %32, %.03048
+  %33 = or i32 %32, %.03047
   br label %34
 
 34:                                               ; preds = %29, %.lr.ph
-  %.1 = phi i32 [ %33, %29 ], [ %.03048, %.lr.ph ]
+  %.1 = phi i32 [ %33, %29 ], [ %.03047, %.lr.ph ]
   %.pn.in = and i32 %25, 65535
   %.pn = zext nneg i32 %.pn.in to i64
   %.031 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %.pn
@@ -327,7 +327,7 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
 
 ._crit_edge:                                      ; preds = %34, %.preheader
   %.030.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %34 ]
-  %.031.lcssa = phi ptr [ %.03147, %.preheader ], [ %.031, %34 ]
+  %.031.lcssa = phi ptr [ %.03146, %.preheader ], [ %.031, %34 ]
   %37 = tail call ptr @lj_ctype_getfieldq(ptr noundef nonnull %0, ptr noundef nonnull %.031.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not39.not = icmp eq ptr %37, null
   %.pre = load ptr, ptr %0, align 8, !tbaa !19
@@ -355,7 +355,7 @@ define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, pt
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %49 = load i16, ptr %48, align 8, !tbaa !32
   %.not = icmp eq i16 %49, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph53, !llvm.loop !37
+  br i1 %.not, label %.loopexit, label %.lr.ph52, !llvm.loop !37
 
 .loopexit.sink.split:                             ; preds = %16, %42
   %.sink = phi i32 [ %46, %42 ], [ %18, %16 ]

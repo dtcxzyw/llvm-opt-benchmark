@@ -1607,27 +1607,27 @@ define dso_local void @log_newpage_range(ptr noundef %0, i32 noundef %1, i32 nou
 
 XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   %41 = icmp ult i32 %2, %3
-  br i1 %41, label %.lr.ph55, label %.loopexit
+  br i1 %41, label %.lr.ph54, label %.loopexit
 
-.lr.ph55:                                         ; preds = %XLogEnsureRecordSpace.exit, %._crit_edge53
-  %.03554 = phi i32 [ %68, %._crit_edge53 ], [ %2, %XLogEnsureRecordSpace.exit ]
+.lr.ph54:                                         ; preds = %XLogEnsureRecordSpace.exit, %._crit_edge52
+  %.03553 = phi i32 [ %68, %._crit_edge52 ], [ %2, %XLogEnsureRecordSpace.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %44, label %43, !prof !14
 
-43:                                               ; preds = %.lr.ph55
+43:                                               ; preds = %.lr.ph54
   tail call void @ProcessInterrupts() #9
   br label %44
 
-44:                                               ; preds = %43, %.lr.ph55
-  %45 = icmp ult i32 %.03554, %3
+44:                                               ; preds = %43, %.lr.ph54
+  %45 = icmp ult i32 %.03553, %3
   br i1 %45, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %44, %67
-  %.03344 = phi i32 [ %.134, %67 ], [ 0, %44 ]
-  %.13643 = phi i32 [ %68, %67 ], [ %.03554, %44 ]
-  %46 = tail call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %.13643, i32 noundef 0, ptr noundef null) #9
+  %.03343 = phi i32 [ %.134, %67 ], [ 0, %44 ]
+  %.13642 = phi i32 [ %68, %67 ], [ %.03553, %44 ]
+  %46 = tail call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %.13642, i32 noundef 0, ptr noundef null) #9
   tail call void @LockBuffer(i32 noundef %46, i32 noundef 2) #9
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %54
@@ -1656,8 +1656,8 @@ BufferGetPage.exit:                               ; preds = %48, %54
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %BufferGetPage.exit
-  %63 = add nsw i32 %.03344, 1
-  %64 = sext i32 %.03344 to i64
+  %63 = add nsw i32 %.03343, 1
+  %64 = sext i32 %.03343 to i64
   %65 = getelementptr inbounds i32, ptr %6, i64 %64
   store i32 %46, ptr %65, align 4
   br label %67
@@ -1667,8 +1667,8 @@ BufferGetPage.exit:                               ; preds = %48, %54
   br label %67
 
 67:                                               ; preds = %66, %62
-  %.134 = phi i32 [ %.03344, %66 ], [ %63, %62 ]
-  %68 = add nuw i32 %.13643, 1
+  %.134 = phi i32 [ %.03343, %66 ], [ %63, %62 ]
+  %68 = add nuw i32 %.13642, 1
   %69 = icmp slt i32 %.134, 32
   %70 = icmp ult i32 %68, %3
   %71 = select i1 %69, i1 %70, i1 false
@@ -1688,18 +1688,18 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %75 = add i32 %74, 1
   store volatile i32 %75, ptr @CritSectionCount, align 4
   %76 = icmp sgt i32 %.134, 0
-  br i1 %76, label %.lr.ph48.preheader, label %._crit_edge49.thread
+  br i1 %76, label %.lr.ph47.preheader, label %._crit_edge48.thread
 
-._crit_edge49.thread:                             ; preds = %73
+._crit_edge48.thread:                             ; preds = %73
   %77 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
-  br label %._crit_edge53
+  br label %._crit_edge52
 
-.lr.ph48.preheader:                               ; preds = %73
+.lr.ph47.preheader:                               ; preds = %73
   %wide.trip.count = zext nneg i32 %.134 to i64
-  br label %.lr.ph48
+  br label %.lr.ph47
 
-.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %XLogRegisterBuffer.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next, %XLogRegisterBuffer.exit ]
+.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %XLogRegisterBuffer.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %XLogRegisterBuffer.exit ]
   %78 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   tail call void @MarkBufferDirty(i32 noundef %79) #9
@@ -1709,7 +1709,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %.not.i38 = icmp sgt i32 %82, %81
   br i1 %.not.i38, label %90, label %83
 
-83:                                               ; preds = %.lr.ph48
+83:                                               ; preds = %.lr.ph47
   %84 = load i32, ptr @max_registered_buffers, align 4
   %.not15.i = icmp sgt i32 %84, %81
   br i1 %.not15.i, label %88, label %85
@@ -1725,7 +1725,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   store i32 %89, ptr @max_registered_block_id, align 4
   br label %90
 
-90:                                               ; preds = %88, %.lr.ph48
+90:                                               ; preds = %88, %.lr.ph47
   %91 = load ptr, ptr @registered_buffers, align 8
   %92 = and i64 %indvars.iv, 255
   %93 = getelementptr inbounds nuw %struct.registered_buffer, ptr %91, i64 %92
@@ -1766,19 +1766,19 @@ XLogRegisterBuffer.exit:                          ; preds = %98, %104
   store i8 1, ptr %93, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !16
 
-._crit_edge49:                                    ; preds = %XLogRegisterBuffer.exit
+._crit_edge48:                                    ; preds = %XLogRegisterBuffer.exit
   %115 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
   %116 = lshr i64 %115, 32
   %117 = trunc nuw i64 %116 to i32
   %118 = trunc i64 %115 to i32
-  %wide.trip.count60 = zext nneg i32 %.134 to i64
+  %wide.trip.count59 = zext nneg i32 %.134 to i64
   br label %119
 
-119:                                              ; preds = %._crit_edge49, %BufferGetPage.exit40
-  %indvars.iv57 = phi i64 [ 0, %._crit_edge49 ], [ %indvars.iv.next58, %BufferGetPage.exit40 ]
-  %120 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv57
+119:                                              ; preds = %._crit_edge48, %BufferGetPage.exit40
+  %indvars.iv56 = phi i64 [ 0, %._crit_edge48 ], [ %indvars.iv.next57, %BufferGetPage.exit40 ]
+  %120 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv56
   %121 = load i32, ptr %120, align 4
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %123, label %129
@@ -1805,19 +1805,19 @@ BufferGetPage.exit40:                             ; preds = %123, %129
   %135 = getelementptr inbounds nuw i8, ptr %.0.i.i39, i64 4
   store i32 %118, ptr %135, align 4
   tail call void @UnlockReleaseBuffer(i32 noundef %121) #9
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge53, label %119, !llvm.loop !17
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %._crit_edge52, label %119, !llvm.loop !17
 
-._crit_edge53:                                    ; preds = %BufferGetPage.exit40, %._crit_edge49.thread
+._crit_edge52:                                    ; preds = %BufferGetPage.exit40, %._crit_edge48.thread
   %136 = load volatile i32, ptr @CritSectionCount, align 4
   %137 = add i32 %136, -1
   store volatile i32 %137, ptr @CritSectionCount, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %138 = icmp ult i32 %68, %3
-  br i1 %138, label %.lr.ph55, label %.loopexit
+  br i1 %138, label %.lr.ph54, label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge53, %XLogEnsureRecordSpace.exit, %.thread
+.loopexit:                                        ; preds = %._crit_edge52, %XLogEnsureRecordSpace.exit, %.thread
   ret void
 }
 

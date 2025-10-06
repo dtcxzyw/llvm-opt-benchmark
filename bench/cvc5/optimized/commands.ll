@@ -15505,8 +15505,8 @@ define void @_ZN4cvc56parser24DefineFunctionRecCommand6invokeEPNS_6SolverEPNS0_1
   %14 = load ptr, ptr %13, align 8, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !116
-  %.not79 = icmp eq ptr %14, %16
-  br i1 %.not79, label %._crit_edge, label %.lr.ph
+  %.not77 = icmp eq ptr %14, %16
+  br i1 %.not77, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -15517,18 +15517,18 @@ define void @_ZN4cvc56parser24DefineFunctionRecCommand6invokeEPNS_6SolverEPNS0_1
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i55
-  %.sroa.066.080 = phi ptr [ %14, %.lr.ph ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i55 ]
+  %.sroa.066.078 = phi ptr [ %14, %.lr.ph ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @_ZNK4cvc54Term9getSymbolB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.066.080)
+  invoke void @_ZNK4cvc54Term9getSymbolB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.066.078)
           to label %23 unwind label %135
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %.sroa.066.080, align 8, !tbaa !92
+  %24 = load ptr, ptr %.sroa.066.078, align 8, !tbaa !92
   store ptr %24, ptr %7, align 8, !tbaa !92
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.066.080, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.066.078, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !98
   store ptr %26, ptr %17, align 8, !tbaa !98
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.066.080, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.066.078, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !25
   store ptr %28, ptr %18, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq ptr %28, null
@@ -15545,9 +15545,9 @@ _ZN4cvc54TermC2ERKS0_.exit.thread:                ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !3
   %.not.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN4cvc54TermC2ERKS0_.exit, label %_ZN4cvc54TermC2ERKS0_.exit.thread108
+  br i1 %.not.i.i.i.i.i, label %_ZN4cvc54TermC2ERKS0_.exit, label %_ZN4cvc54TermC2ERKS0_.exit.thread106
 
-_ZN4cvc54TermC2ERKS0_.exit.thread108:             ; preds = %29
+_ZN4cvc54TermC2ERKS0_.exit.thread106:             ; preds = %29
   %32 = load i32, ptr %30, align 4, !tbaa !31
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %30, align 4, !tbaa !31
@@ -15560,17 +15560,17 @@ _ZN4cvc54TermC2ERKS0_.exit.thread108:             ; preds = %29
 _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %29
   %34 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %7, align 8, !tbaa !92
-  %.pre84 = load ptr, ptr %17, align 8, !tbaa !98
-  %.pre85 = load ptr, ptr %18, align 8, !tbaa !25
+  %.pre82 = load ptr, ptr %17, align 8, !tbaa !98
+  %.pre83 = load ptr, ptr %18, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.pre, ptr %5, align 8, !tbaa !92
-  store ptr %.pre84, ptr %19, align 8, !tbaa !98
-  store ptr %.pre85, ptr %20, align 8, !tbaa !25
-  %.not.i.i.i.i.i42 = icmp eq ptr %.pre85, null
+  store ptr %.pre82, ptr %19, align 8, !tbaa !98
+  store ptr %.pre83, ptr %20, align 8, !tbaa !25
+  %.not.i.i.i.i.i42 = icmp eq ptr %.pre83, null
   br i1 %.not.i.i.i.i.i42, label %_ZN4cvc54TermC2ERKS0_.exit.i, label %35
 
-35:                                               ; preds = %_ZN4cvc54TermC2ERKS0_.exit.thread108, %_ZN4cvc54TermC2ERKS0_.exit
-  %36 = phi ptr [ %28, %_ZN4cvc54TermC2ERKS0_.exit.thread108 ], [ %.pre85, %_ZN4cvc54TermC2ERKS0_.exit ]
+35:                                               ; preds = %_ZN4cvc54TermC2ERKS0_.exit.thread106, %_ZN4cvc54TermC2ERKS0_.exit
+  %36 = phi ptr [ %28, %_ZN4cvc54TermC2ERKS0_.exit.thread106 ], [ %.pre83, %_ZN4cvc54TermC2ERKS0_.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !3
   %.not.i.i.i.i.i.i = icmp eq i8 %38, 0
@@ -15610,9 +15610,9 @@ _ZN4cvc54TermC2ERKS0_.exit.i:                     ; preds = %_ZN4cvc54TermC2ERKS
           to label %48 unwind label %137
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.066.080, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.066.080, i64 8
-  %51 = load ptr, ptr %.sroa.066.080, align 8, !tbaa !92
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.066.078, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.066.078, i64 8
+  %51 = load ptr, ptr %.sroa.066.078, align 8, !tbaa !92
   store ptr %51, ptr %9, align 8, !tbaa !92
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %53 = load ptr, ptr %50, align 8, !tbaa !98
@@ -15870,7 +15870,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i55: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.066.080, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.066.078, i64 24
   %.not = icmp eq ptr %155, %16
   br i1 %.not, label %._crit_edge, label %22
 

@@ -4374,8 +4374,8 @@ define internal noundef i32 @server_helper_thread(ptr noundef readonly captures(
   tail call void @ossl_crypto_mutex_lock(ptr noundef %3) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %5 = load i32, ptr %4, align 4, !tbaa !133
-  %.not16 = icmp eq i32 %5, 0
-  br i1 %.not16, label %.lr.ph, label %._crit_edge
+  %.not14 = icmp eq i32 %5, 0
+  br i1 %.not14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304

@@ -11584,7 +11584,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
 173:                                              ; preds = %161, %169
   %.sroa.042.2 = phi i32 [ %.sroa.042.3, %169 ], [ %.sroa.042.0, %161 ]
   %.sroa.06.5 = phi i64 [ %.sroa.041.0, %169 ], [ %166, %161 ]
-  %174 = shl nuw nsw i32 %.sroa.079.0224229362372, 2
+  %174 = shl nsw i32 %.sroa.079.0224229362372, 2
   %175 = icmp samesign ugt i64 %.sroa.079.0224229362372.in, 536870911
   br i1 %175, label %181, label %176, !prof !46
 
@@ -12230,8 +12230,8 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
 167:                                              ; preds = %155, %163
   %.sroa.042.2 = phi i32 [ %.sroa.042.3, %163 ], [ %.sroa.042.0, %155 ]
   %.sroa.06.5 = phi i64 [ %.sroa.041.0, %163 ], [ %160, %155 ]
-  %168 = shl nuw nsw i32 %.sroa.079.0252257309317, 2
-  %169 = icmp ugt i32 %.sroa.079.0252257309317, 536870911
+  %168 = shl nsw i32 %.sroa.079.0252257309317, 2
+  %169 = icmp sgt i32 %.sroa.079.0252257309317, 536870911
   br i1 %169, label %175, label %170, !prof !46
 
 170:                                              ; preds = %175, %167
@@ -12652,8 +12652,8 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hfba05d7a798fc08e
 123:                                              ; preds = %111, %119
   %.sroa.042.2 = phi i32 [ %.sroa.042.3, %119 ], [ %.sroa.042.0, %111 ]
   %.sroa.06.5 = phi i64 [ %.sroa.041.0, %119 ], [ %116, %111 ]
-  %124 = shl nuw nsw i32 %.sroa.079.0233238295, 2
-  %125 = icmp ugt i32 %.sroa.079.0233238295, 536870911
+  %124 = shl nsw i32 %.sroa.079.0233238295, 2
+  %125 = icmp sgt i32 %.sroa.079.0233238295, 536870911
   br i1 %125, label %131, label %126, !prof !46
 
 126:                                              ; preds = %131, %123
@@ -28149,7 +28149,7 @@ define void @_ZN4fish5input15InputMappingSet3add17h041d9eec3cf85c8fE(ptr noalias
 .thread41:                                        ; preds = %26, %50
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %92
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd0670937e7284bf0E.exit": ; preds = %26
   br i1 %30, label %50, label %54
@@ -28182,7 +28182,7 @@ define void @_ZN4fish5input15InputMappingSet3add17h041d9eec3cf85c8fE(ptr noalias
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  br label %91
+  br label %92
 
 59:                                               ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
@@ -28202,7 +28202,7 @@ define void @_ZN4fish5input15InputMappingSet3add17h041d9eec3cf85c8fE(ptr noalias
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  br label %97
+  br label %98
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %59, %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
@@ -28210,13 +28210,13 @@ define void @_ZN4fish5input15InputMappingSet3add17h041d9eec3cf85c8fE(ptr noalias
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %66 unwind label %.thread58
 
-.thread38:                                        ; preds = %97
-  br i1 %.sroa.06.129.ph, label %98, label %99
+.thread38:                                        ; preds = %98
+  br i1 %.sroa.06.129.ph, label %99, label %100
 
 .thread58:                                        ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit"
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %100
 
 66:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit"
   tail call void @"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$fish..key..Key$GT$$GT$17hb1ccd2167a36b92cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -28252,7 +28252,7 @@ define void @_ZN4fish5input15InputMappingSet3add17h041d9eec3cf85c8fE(ptr noalias
   tail call void @llvm.assume(i1 %75)
   %76 = tail call i8 @llvm.ucmp.i8.i64(i64 %.val20.i.i, i64 %.sroa.2.0.copyload22)
   switch i8 %76, label %77 [
-    i8 -1, label %87
+    i8 -1, label %88
     i8 0, label %_ZN4fish5input27input_mapping_insert_sorted17h90ab0147b21bcbdfE.exit
     i8 1, label %78
   ]
@@ -28261,10 +28261,10 @@ define void @_ZN4fish5input15InputMappingSet3add17h041d9eec3cf85c8fE(ptr noalias
   unreachable
 
 78:                                               ; preds = %._crit_edge.i.i
-  br label %87
+  br label %88
 
 "_ZN4fish5input27input_mapping_insert_sorted28_$u7b$$u7b$closure$u7d$$u7d$17h96857f52838ecc96E.exit24.i.i": ; preds = %68, %"_ZN4fish5input27input_mapping_insert_sorted28_$u7b$$u7b$closure$u7d$$u7d$17h96857f52838ecc96E.exit24.i.i"
-  %.sroa.01.029.i.i = phi i64 [ %85, %"_ZN4fish5input27input_mapping_insert_sorted28_$u7b$$u7b$closure$u7d$$u7d$17h96857f52838ecc96E.exit24.i.i" ], [ %19, %68 ]
+  %.sroa.01.029.i.i = phi i64 [ %86, %"_ZN4fish5input27input_mapping_insert_sorted28_$u7b$$u7b$closure$u7d$$u7d$17h96857f52838ecc96E.exit24.i.i" ], [ %19, %68 ]
   %.sroa.05.028.i.i = phi i64 [ %spec.select.i.i, %"_ZN4fish5input27input_mapping_insert_sorted28_$u7b$$u7b$closure$u7d$$u7d$17h96857f52838ecc96E.exit24.i.i" ], [ 0, %68 ]
   %79 = lshr i64 %.sroa.01.029.i.i, 1
   %80 = add i64 %79, %.sroa.05.028.i.i
@@ -28275,21 +28275,21 @@ define void @_ZN4fish5input15InputMappingSet3add17h041d9eec3cf85c8fE(ptr noalias
   %.val22.i.i = load i64, ptr %83, align 8, !alias.scope !3884, !noalias !3887, !noundef !17
   %84 = icmp ult i64 %.val22.i.i, 1152921504606846976
   tail call void @llvm.assume(i1 %84)
-  %switch.i.i = icmp samesign ult i64 %.val22.i.i, %.sroa.2.0.copyload22
-  %spec.select.i.i = select i1 %switch.i.i, i64 %.sroa.05.028.i.i, i64 %80
-  %85 = sub i64 %.sroa.01.029.i.i, %79
-  %86 = icmp ugt i64 %85, 1
-  br i1 %86, label %"_ZN4fish5input27input_mapping_insert_sorted28_$u7b$$u7b$closure$u7d$$u7d$17h96857f52838ecc96E.exit24.i.i", label %._crit_edge.i.i
+  %85 = icmp samesign ult i64 %.val22.i.i, %.sroa.2.0.copyload22
+  %spec.select.i.i = select i1 %85, i64 %.sroa.05.028.i.i, i64 %80
+  %86 = sub i64 %.sroa.01.029.i.i, %79
+  %87 = icmp ugt i64 %86, 1
+  br i1 %87, label %"_ZN4fish5input27input_mapping_insert_sorted28_$u7b$$u7b$closure$u7d$$u7d$17h96857f52838ecc96E.exit24.i.i", label %._crit_edge.i.i
 
-87:                                               ; preds = %78, %._crit_edge.i.i
-  %88 = phi i64 [ 0, %._crit_edge.i.i ], [ 1, %78 ]
-  %89 = add nuw i64 %88, %.sroa.05.0.lcssa.i.i
-  %90 = icmp ule i64 %89, %19
-  tail call void @llvm.assume(i1 %90)
+88:                                               ; preds = %78, %._crit_edge.i.i
+  %89 = phi i64 [ 0, %._crit_edge.i.i ], [ 1, %78 ]
+  %90 = add nuw i64 %89, %.sroa.05.0.lcssa.i.i
+  %91 = icmp ule i64 %90, %19
+  tail call void @llvm.assume(i1 %91)
   br label %_ZN4fish5input27input_mapping_insert_sorted17h90ab0147b21bcbdfE.exit
 
-_ZN4fish5input27input_mapping_insert_sorted17h90ab0147b21bcbdfE.exit: ; preds = %87, %._crit_edge.i.i, %68
-  %.sroa.4.0.i.i = phi i64 [ %19, %68 ], [ %89, %87 ], [ %.sroa.05.0.lcssa.i.i, %._crit_edge.i.i ]
+_ZN4fish5input27input_mapping_insert_sorted17h90ab0147b21bcbdfE.exit: ; preds = %88, %._crit_edge.i.i, %68
+  %.sroa.4.0.i.i = phi i64 [ %19, %68 ], [ %90, %88 ], [ %.sroa.05.0.lcssa.i.i, %._crit_edge.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3892
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -28308,41 +28308,41 @@ _ZN4fish5input27input_mapping_insert_sorted17h90ab0147b21bcbdfE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3892
   br label %67
 
-91:                                               ; preds = %.thread41, %.thread
+92:                                               ; preds = %.thread41, %.thread
   %.sroa.06.130 = phi i1 [ false, %.thread ], [ true, %.thread41 ]
   %.pn28 = phi { ptr, i32 } [ %58, %.thread ], [ %lpad.thr_comm, %.thread41 ]
-  %92 = load i64, ptr %5, align 8, !range !2264, !alias.scope !3894, !noundef !17
-  %93 = icmp eq i64 %92, -9223372036854775808
-  br i1 %93, label %97, label %94
+  %93 = load i64, ptr %5, align 8, !range !2264, !alias.scope !3894, !noundef !17
+  %94 = icmp eq i64 %93, -9223372036854775808
+  br i1 %94, label %98, label %95
 
-94:                                               ; preds = %91
+95:                                               ; preds = %92
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %97 unwind label %95
+          to label %98 unwind label %96
 
-95:                                               ; preds = %94, %99, %98, %97
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %95, %100, %99, %98
+  %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #33
   unreachable
 
-97:                                               ; preds = %.thread33, %94, %91
-  %.sroa.06.129.ph = phi i1 [ false, %.thread33 ], [ %.sroa.06.130, %94 ], [ %.sroa.06.130, %91 ]
-  %.pn27.ph = phi { ptr, i32 } [ %64, %.thread33 ], [ %.pn28, %94 ], [ %.pn28, %91 ]
+98:                                               ; preds = %.thread33, %95, %92
+  %.sroa.06.129.ph = phi i1 [ false, %.thread33 ], [ %.sroa.06.130, %95 ], [ %.sroa.06.130, %92 ]
+  %.pn27.ph = phi { ptr, i32 } [ %64, %.thread33 ], [ %.pn28, %95 ], [ %.pn28, %92 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #32
-          to label %.thread38 unwind label %95
+          to label %.thread38 unwind label %96
 
-98:                                               ; preds = %.thread38
+99:                                               ; preds = %.thread38
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$widestring..utfstring..Utf32String$GT$$GT$17h7d7bb5ac9a2b0f86E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #32
-          to label %99 unwind label %95
+          to label %100 unwind label %96
 
-.thread66:                                        ; preds = %49, %99
-  %.pn.pn4861 = phi { ptr, i32 } [ %.pn.pn4862, %99 ], [ %44, %49 ]
+.thread66:                                        ; preds = %49, %100
+  %.pn.pn4861 = phi { ptr, i32 } [ %.pn.pn4862, %100 ], [ %44, %49 ]
   resume { ptr, i32 } %.pn.pn4861
 
-99:                                               ; preds = %.thread38, %98, %.thread58
-  %.pn.pn4862 = phi { ptr, i32 } [ %65, %.thread58 ], [ %.pn27.ph, %98 ], [ %.pn27.ph, %.thread38 ]
+100:                                              ; preds = %.thread38, %99, %.thread58
+  %.pn.pn4862 = phi { ptr, i32 } [ %65, %.thread58 ], [ %.pn27.ph, %99 ], [ %.pn27.ph, %.thread38 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$fish..key..Key$GT$$GT$17hb1ccd2167a36b92cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #32
-          to label %.thread66 unwind label %95
+          to label %.thread66 unwind label %96
 }
 
 ; Function Attrs: nonlazybind uwtable

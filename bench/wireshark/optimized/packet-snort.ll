@@ -349,8 +349,8 @@ define internal i32 @snort_dissector(ptr noundef %0, ptr noundef %1, ptr noundef
 .preheader.i:                                     ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
-  %.not24.i = icmp eq i32 %27, 0
-  br i1 %.not24.i, label %get_user_comment_string.exit.thread55, label %.lr.ph.i
+  %.not23.i = icmp eq i32 %27, 0
+  br i1 %.not23.i, label %get_user_comment_string.exit.thread55, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %28 = load ptr, ptr %25, align 8
@@ -638,8 +638,8 @@ get_user_comment_string.exit.thread:              ; preds = %24, %23, %get_user_
 .preheader.i.i:                                   ; preds = %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load i32, ptr %165, align 8
-  %.not21.i.i = icmp eq i32 %166, 0
-  br i1 %.not21.i.i, label %get_reassembled_in_frame.exit.thread412.i, label %.lr.ph.i.i
+  %.not20.i.i = icmp eq i32 %166, 0
+  br i1 %.not20.i.i, label %get_reassembled_in_frame.exit.thread412.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %167 = load ptr, ptr %164, align 8
@@ -755,8 +755,8 @@ get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_sessio
 .preheader.i.i.i:                                 ; preds = %216
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load i32, ptr %218, align 8
-  %.not27.i.i.i = icmp eq i32 %219, 0
-  br i1 %.not27.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i
+  %.not26.i.i.i = icmp eq i32 %219, 0
+  br i1 %.not26.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %220 = load ptr, ptr %217, align 8

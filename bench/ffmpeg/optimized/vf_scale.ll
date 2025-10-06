@@ -1538,8 +1538,8 @@ define internal i32 @do_scale(ptr noundef %0) #1 {
   %57 = load i32, ptr %56, align 8, !tbaa !123
   %58 = getelementptr inbounds nuw i8, ptr %25, i64 60
   %59 = load i32, ptr %58, align 4, !tbaa !102
-  %.not63 = icmp eq i32 %57, %59
-  br i1 %.not63, label %78, label %.critedge
+  %.not62 = icmp eq i32 %57, %59
+  br i1 %.not62, label %78, label %.critedge
 
 .critedge:                                        ; preds = %21, %50, %45, %40, %35, %32, %55
   %60 = getelementptr inbounds nuw i8, ptr %.pre, i64 116

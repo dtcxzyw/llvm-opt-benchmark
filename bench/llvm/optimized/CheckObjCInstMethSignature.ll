@@ -739,8 +739,8 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i45.i.i
   %.pre.i.i.i = load ptr, ptr %13, align 8, !tbaa !84
-  %.pre17.i.i.i = load i32, ptr %38, align 8, !tbaa !87
-  %103 = zext i32 %.pre17.i.i.i to i64
+  %.pre16.i.i.i = load i32, ptr %38, align 8, !tbaa !87
+  %103 = zext i32 %.pre16.i.i.i to i64
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %.loopexit.loopexit.i.i.i, %.lr.ph82.i.i

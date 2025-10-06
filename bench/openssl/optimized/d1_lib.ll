@@ -1197,8 +1197,8 @@ PACKET_get_1.exit185.thread:                      ; preds = %134, %128, %119, %1
   %153 = or i8 %152, %131
   %154 = icmp ne i8 %153, 0
   %155 = icmp samesign ugt i64 %144, %116
-  %or.cond333 = select i1 %154, i1 true, i1 %155
-  br i1 %or.cond333, label %156, label %157
+  %or.cond332 = select i1 %154, i1 true, i1 %155
+  br i1 %or.cond332, label %156, label %157
 
 156:                                              ; preds = %151
   call void @ERR_new() #9
@@ -1243,8 +1243,8 @@ PACKET_get_1.exit185.thread:                      ; preds = %134, %128, %119, %1
   %spec.select162 = select i1 %177, i32 65280, i32 %176
   %178 = icmp ule i32 %174, %spec.select162
   %.not136 = icmp eq i32 %176, 131071
-  %or.cond334 = or i1 %.not136, %178
-  br i1 %or.cond334, label %180, label %179
+  %or.cond333 = or i1 %.not136, %178
+  br i1 %or.cond333, label %180, label %179
 
 179:                                              ; preds = %166
   call void @ERR_new() #9
@@ -1254,8 +1254,8 @@ PACKET_get_1.exit185.thread:                      ; preds = %134, %128, %119, %1
 
 180:                                              ; preds = %166
   %181 = add nsw i64 %144, -2
-  %or.cond335 = icmp samesign ult i64 %181, 33
-  br i1 %or.cond335, label %PACKET_forward.exit.thread, label %182
+  %or.cond334 = icmp samesign ult i64 %181, 33
+  br i1 %or.cond334, label %PACKET_forward.exit.thread, label %182
 
 182:                                              ; preds = %180
   %183 = load i8, ptr %61, align 1, !tbaa !109

@@ -450,11 +450,11 @@ define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %
 
 34:                                               ; preds = %29
   %35 = icmp slt i32 %.pre146, 12
-  br i1 %35, label %.lr.ph.preheader.i, label %.lr.ph43.i.preheader
+  br i1 %35, label %.lr.ph.preheader.i, label %.lr.ph41.i.preheader
 
-.lr.ph43.i.preheader:                             ; preds = %.preheader.i, %34
-  %.241.i.ph = phi i32 [ 0, %34 ], [ %37, %.preheader.i ]
-  br label %.lr.ph43.i
+.lr.ph41.i.preheader:                             ; preds = %.preheader.i, %34
+  %.239.i.ph = phi i32 [ 0, %34 ], [ %37, %.preheader.i ]
+  br label %.lr.ph41.i
 
 .lr.ph.preheader.i:                               ; preds = %34
   %36 = sext i32 %.pre146 to i64
@@ -464,11 +464,11 @@ define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %
 .preheader.i:                                     ; preds = %41
   %.pre.i = load i32, ptr %17, align 8
   %38 = icmp sgt i32 %.pre.i, 0
-  br i1 %38, label %.lr.ph43.i.preheader, label %._crit_edge.i
+  br i1 %38, label %.lr.ph41.i.preheader, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %36, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %.02539.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %42, %41 ]
+  %.02537.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %42, %41 ]
   %39 = load ptr, ptr %16, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %40 = call i32 @slurm_bit_test(ptr noundef %39, i64 noundef %indvars.iv.next.i) #7
@@ -476,32 +476,32 @@ define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %
   br i1 %.not29.i, label %41, label %.thread.i
 
 41:                                               ; preds = %.lr.ph.i
-  %42 = add nuw i32 %.02539.i, 1
+  %42 = add nuw i32 %.02537.i, 1
   %exitcond.not.i = icmp eq i32 %42, %37
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !8
 
-.lr.ph43.i:                                       ; preds = %.lr.ph43.i.preheader, %45
-  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %45 ], [ 0, %.lr.ph43.i.preheader ]
-  %.241.i = phi i32 [ %46, %45 ], [ %.241.i.ph, %.lr.ph43.i.preheader ]
+.lr.ph41.i:                                       ; preds = %.lr.ph41.i.preheader, %45
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %45 ], [ 0, %.lr.ph41.i.preheader ]
+  %.239.i = phi i32 [ %46, %45 ], [ %.239.i.ph, %.lr.ph41.i.preheader ]
   %43 = load ptr, ptr %16, align 8
-  %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
-  %44 = call i32 @slurm_bit_test(ptr noundef %43, i64 noundef %indvars.iv.next49.i) #7
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %44 = call i32 @slurm_bit_test(ptr noundef %43, i64 noundef %indvars.iv.next47.i) #7
   %.not30.i = icmp eq i32 %44, 0
   br i1 %.not30.i, label %45, label %.thread.i
 
-45:                                               ; preds = %.lr.ph43.i
-  %46 = add nuw nsw i32 %.241.i, 1
+45:                                               ; preds = %.lr.ph41.i
+  %46 = add nuw nsw i32 %.239.i, 1
   %47 = load i32, ptr %17, align 8
   %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %indvars.iv.next49.i, %48
-  br i1 %49, label %.lr.ph43.i, label %._crit_edge.i, !llvm.loop !11
+  %49 = icmp slt i64 %indvars.iv.next47.i, %48
+  br i1 %49, label %.lr.ph41.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %45
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5) #8
   unreachable
 
-.thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph43.i
-  %.126.i = phi i32 [ %.241.i, %.lr.ph43.i ], [ %.02539.i, %.lr.ph.i ]
+.thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph41.i
+  %.126.i = phi i32 [ %.239.i, %.lr.ph41.i ], [ %.02537.i, %.lr.ph.i ]
   %50 = load i32, ptr %17, align 8
   %51 = add nsw i32 %50, %.126.i
   store i32 %51, ptr %17, align 8
@@ -1160,7 +1160,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %2) #7
   %.not83 = icmp eq i32 %30, 0
-  br i1 %.not83, label %31, label %.thread137
+  br i1 %.not83, label %31, label %.thread132
 
 31:                                               ; preds = %29
   %32 = load i32, ptr %6, align 4
@@ -1201,7 +1201,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 46:                                               ; preds = %45, %43
   store ptr null, ptr %40, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #7
-  br label %.thread137
+  br label %.thread132
 
 47:                                               ; preds = %35
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1225,9 +1225,9 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %52 = call i32 @unpack32(ptr noundef nonnull %9, ptr noundef %2) #7
   %.not89 = icmp eq i32 %52, 0
-  br i1 %.not89, label %54, label %.thread145
+  br i1 %.not89, label %54, label %.thread138
 
-.thread137:                                       ; preds = %46, %29
+.thread132:                                       ; preds = %46, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %153
@@ -1276,7 +1276,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 69:                                               ; preds = %68, %66
   store ptr null, ptr %63, align 8
   call void @slurm_xfree(ptr noundef nonnull %8) #7
-  br label %.thread145
+  br label %.thread138
 
 70:                                               ; preds = %58
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1285,14 +1285,14 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 
 72:                                               ; preds = %60, %70
   call void @slurm_xfree(ptr noundef nonnull %8) #7
-  br label %.thread141
+  br label %.thread135
 
 73:                                               ; preds = %54
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr null, ptr %74, align 8
-  br label %.thread141
+  br label %.thread135
 
-.thread141:                                       ; preds = %73, %72
+.thread135:                                       ; preds = %73, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1300,9 +1300,9 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %75 = call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %2) #7
   %.not95 = icmp eq i32 %75, 0
-  br i1 %.not95, label %77, label %.thread153
+  br i1 %.not95, label %77, label %.thread144
 
-.thread145:                                       ; preds = %69, %.thread
+.thread138:                                       ; preds = %69, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %153
@@ -1312,7 +1312,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %153
 
-77:                                               ; preds = %.thread141
+77:                                               ; preds = %.thread135
   %78 = load i32, ptr %12, align 4
   %.not96 = icmp eq i32 %78, -2
   br i1 %.not96, label %96, label %79
@@ -1351,7 +1351,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 92:                                               ; preds = %91, %89
   store ptr null, ptr %86, align 8
   call void @slurm_xfree(ptr noundef nonnull %11) #7
-  br label %.thread153
+  br label %.thread144
 
 93:                                               ; preds = %81
   %94 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -1360,14 +1360,14 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 
 95:                                               ; preds = %83, %93
   call void @slurm_xfree(ptr noundef nonnull %11) #7
-  br label %.thread149
+  br label %.thread141
 
 96:                                               ; preds = %77
   %97 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr null, ptr %97, align 8
-  br label %.thread149
+  br label %.thread141
 
-.thread149:                                       ; preds = %96, %95
+.thread141:                                       ; preds = %96, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -1375,9 +1375,9 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %98 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %2) #7
   %.not101 = icmp eq i32 %98, 0
-  br i1 %.not101, label %100, label %.thread161
+  br i1 %.not101, label %100, label %.thread150
 
-.thread153:                                       ; preds = %92, %.thread141
+.thread144:                                       ; preds = %92, %.thread135
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %153
@@ -1387,7 +1387,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %153
 
-100:                                              ; preds = %.thread149
+100:                                              ; preds = %.thread141
   %101 = load i32, ptr %15, align 4
   %.not102 = icmp eq i32 %101, -2
   br i1 %.not102, label %119, label %102
@@ -1426,7 +1426,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 115:                                              ; preds = %114, %112
   store ptr null, ptr %109, align 8
   call void @slurm_xfree(ptr noundef nonnull %14) #7
-  br label %.thread161
+  br label %.thread150
 
 116:                                              ; preds = %104
   %117 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -1435,14 +1435,14 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 
 118:                                              ; preds = %106, %116
   call void @slurm_xfree(ptr noundef nonnull %14) #7
-  br label %.thread157
+  br label %.thread147
 
 119:                                              ; preds = %100
   %120 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %120, align 8
-  br label %.thread157
+  br label %.thread147
 
-.thread157:                                       ; preds = %119, %118
+.thread147:                                       ; preds = %119, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1450,9 +1450,9 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %121 = call i32 @unpack32(ptr noundef nonnull %18, ptr noundef %2) #7
   %.not107 = icmp eq i32 %121, 0
-  br i1 %.not107, label %123, label %.thread169
+  br i1 %.not107, label %123, label %.thread156
 
-.thread161:                                       ; preds = %115, %.thread149
+.thread150:                                       ; preds = %115, %.thread141
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %153
@@ -1462,7 +1462,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %153
 
-123:                                              ; preds = %.thread157
+123:                                              ; preds = %.thread147
   %124 = load i32, ptr %18, align 4
   %.not108 = icmp eq i32 %124, -2
   br i1 %.not108, label %142, label %125
@@ -1501,7 +1501,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 138:                                              ; preds = %137, %135
   store ptr null, ptr %132, align 8
   call void @slurm_xfree(ptr noundef nonnull %17) #7
-  br label %.thread169
+  br label %.thread156
 
 139:                                              ; preds = %127
   %140 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -1510,14 +1510,14 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
 
 141:                                              ; preds = %129, %139
   call void @slurm_xfree(ptr noundef nonnull %17) #7
-  br label %.thread165
+  br label %.thread153
 
 142:                                              ; preds = %123
   %143 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr null, ptr %143, align 8
-  br label %.thread165
+  br label %.thread153
 
-.thread165:                                       ; preds = %142, %141
+.thread153:                                       ; preds = %142, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1527,7 +1527,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.not113, label %147, label %153
 
-.thread169:                                       ; preds = %138, %.thread157
+.thread156:                                       ; preds = %138, %.thread147
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %153
@@ -1537,7 +1537,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %153
 
-147:                                              ; preds = %.thread165
+147:                                              ; preds = %.thread153
   %148 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %149 = call i32 @unpack32(ptr noundef nonnull %148, ptr noundef %2) #7
   %.not114 = icmp eq i32 %149, 0
@@ -1549,8 +1549,8 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   %.not115 = icmp eq i32 %152, 0
   br i1 %.not115, label %154, label %153
 
-153:                                              ; preds = %146, %122, %99, %76, %53, %.thread169, %.thread161, %.thread153, %.thread145, %.thread137, %.thread165, %24, %150, %147, %27, %3
-  %.074 = phi ptr [ null, %3 ], [ %25, %27 ], [ %25, %147 ], [ %25, %150 ], [ %25, %.thread165 ], [ %25, %146 ], [ %25, %122 ], [ %25, %99 ], [ %25, %76 ], [ %25, %53 ], [ %25, %24 ], [ %25, %.thread137 ], [ %25, %.thread145 ], [ %25, %.thread153 ], [ %25, %.thread161 ], [ %25, %.thread169 ]
+153:                                              ; preds = %146, %122, %99, %76, %53, %.thread156, %.thread150, %.thread144, %.thread138, %.thread132, %.thread153, %24, %150, %147, %27, %3
+  %.074 = phi ptr [ null, %3 ], [ %25, %27 ], [ %25, %147 ], [ %25, %150 ], [ %25, %.thread153 ], [ %25, %146 ], [ %25, %122 ], [ %25, %99 ], [ %25, %76 ], [ %25, %53 ], [ %25, %24 ], [ %25, %.thread132 ], [ %25, %.thread138 ], [ %25, %.thread144 ], [ %25, %.thread150 ], [ %25, %.thread156 ]
   store ptr null, ptr %0, align 8
   call void @free_cron_entry(ptr noundef %.074)
   br label %154

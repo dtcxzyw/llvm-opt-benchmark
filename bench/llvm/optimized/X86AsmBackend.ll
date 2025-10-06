@@ -2024,17 +2024,17 @@ _ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread2
   %76 = zext i32 %.val4.i.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %76, 4
   %77 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx.i.i.i
-  %.not2.not.i.i.i = icmp eq i32 %.val4.i.i, 0
-  br i1 %.not2.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not4.not.i.i.i = icmp eq i32 %.val4.i.i, 0
+  br i1 %.not4.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i, %89
-  %.0143.i.i.i = phi ptr [ %90, %89 ], [ %.val.i.i, %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i ]
-  %78 = load i8, ptr %.0143.i.i.i, align 8, !tbaa !215
+  %.0145.i.i.i = phi ptr [ %90, %89 ], [ %.val.i.i, %_ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread29.i ]
+  %78 = load i8, ptr %.0145.i.i.i, align 8, !tbaa !215
   %79 = icmp eq i8 %78, 5
   br i1 %79, label %80, label %89
 
 80:                                               ; preds = %.lr.ph.i.i.i
-  %81 = getelementptr inbounds nuw i8, ptr %.0143.i.i.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0145.i.i.i, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !111
   %83 = load i8, ptr %82, align 8, !tbaa !218
   %84 = icmp eq i8 %83, 2
@@ -2048,7 +2048,7 @@ _ZNK12_GLOBAL__N_113X86AsmBackend12isMacroFusedERKN4llvm6MCInstES4_.exit.thread2
   br i1 %.not18.i.i.i, label %89, label %_ZN12_GLOBAL__N_113X86AsmBackend20emitInstructionBeginERN4llvm16MCObjectStreamerERKNS1_6MCInstERKNS1_15MCSubtargetInfoE.exit
 
 89:                                               ; preds = %85, %80, %.lr.ph.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %.0143.i.i.i, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.0145.i.i.i, i64 16
   %.not.not.i.i.i = icmp eq ptr %90, %77
   br i1 %.not.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -2244,17 +2244,17 @@ _ZN4llvm16dyn_cast_or_nullINS_19MCRelaxableFragmentENS_10MCFragmentEEEDaPT0_.exi
   %187 = zext i32 %.val4.i.i27 to i64
   %.idx.i.i.i28 = shl nuw nsw i64 %187, 4
   %188 = getelementptr inbounds nuw i8, ptr %.val.i.i26, i64 %.idx.i.i.i28
-  %.not2.not.i.i.i29 = icmp eq i32 %.val4.i.i27, 0
-  br i1 %.not2.not.i.i.i29, label %.loopexit.i.i33, label %.lr.ph.i.i.i30
+  %.not4.not.i.i.i29 = icmp eq i32 %.val4.i.i27, 0
+  br i1 %.not4.not.i.i.i29, label %.loopexit.i.i33, label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZN4llvm16dyn_cast_or_nullINS_19MCRelaxableFragmentENS_10MCFragmentEEEDaPT0_.exit.i, %200
-  %.0143.i.i.i31 = phi ptr [ %201, %200 ], [ %.val.i.i26, %_ZN4llvm16dyn_cast_or_nullINS_19MCRelaxableFragmentENS_10MCFragmentEEEDaPT0_.exit.i ]
-  %189 = load i8, ptr %.0143.i.i.i31, align 8, !tbaa !215
+  %.0145.i.i.i31 = phi ptr [ %201, %200 ], [ %.val.i.i26, %_ZN4llvm16dyn_cast_or_nullINS_19MCRelaxableFragmentENS_10MCFragmentEEEDaPT0_.exit.i ]
+  %189 = load i8, ptr %.0145.i.i.i31, align 8, !tbaa !215
   %190 = icmp eq i8 %189, 5
   br i1 %190, label %191, label %200
 
 191:                                              ; preds = %.lr.ph.i.i.i30
-  %192 = getelementptr inbounds nuw i8, ptr %.0143.i.i.i31, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %.0145.i.i.i31, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !111
   %194 = load i8, ptr %193, align 8, !tbaa !218
   %195 = icmp eq i8 %194, 2
@@ -2268,7 +2268,7 @@ _ZN4llvm16dyn_cast_or_nullINS_19MCRelaxableFragmentENS_10MCFragmentEEEDaPT0_.exi
   br i1 %.not18.i.i.i36, label %200, label %.thread.i
 
 200:                                              ; preds = %196, %191, %.lr.ph.i.i.i30
-  %201 = getelementptr inbounds nuw i8, ptr %.0143.i.i.i31, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %.0145.i.i.i31, i64 16
   %.not.not.i.i.i32 = icmp eq ptr %201, %188
   br i1 %.not.not.i.i.i32, label %.loopexit.i.i33, label %.lr.ph.i.i.i30
 
@@ -5993,20 +5993,20 @@ _ZSt7reverseIPjEvT_S1_.exit.i:                    ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %140 = sub i32 6, %.267.ph
   %141 = icmp ult i32 %140, 6
-  br i1 %141, label %.preheader.preheader.i, label %._crit_edge53.i
+  br i1 %141, label %.preheader.preheader.i, label %._crit_edge51.i
 
 .preheader.preheader.i:                           ; preds = %_ZSt7reverseIPjEvT_S1_.exit.i
   %142 = zext nneg i32 %140 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge51.i, %.preheader.preheader.i
-  %indvars.iv60.i = phi i64 [ %142, %.preheader.preheader.i ], [ %indvars.iv.next61.i, %._crit_edge51.i ]
-  %143 = icmp samesign ugt i64 %indvars.iv60.i, %142
-  %144 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv60.i
+.preheader.i:                                     ; preds = %._crit_edge49.i, %.preheader.preheader.i
+  %indvars.iv58.i = phi i64 [ %142, %.preheader.preheader.i ], [ %indvars.iv.next59.i, %._crit_edge49.i ]
+  %143 = icmp samesign ugt i64 %indvars.iv58.i, %142
+  %144 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv58.i
   %145 = load i32, ptr %144, align 4, !tbaa !47
-  br i1 %143, label %.lr.ph50.i, label %._crit_edge51.i
+  br i1 %143, label %.lr.ph48.i, label %._crit_edge49.i
 
-._crit_edge53.i:                                  ; preds = %._crit_edge51.i, %_ZSt7reverseIPjEvT_S1_.exit.i
+._crit_edge51.i:                                  ; preds = %._crit_edge49.i, %_ZSt7reverseIPjEvT_S1_.exit.i
   switch i32 %.267.ph, label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159 [
     i32 6, label %155
     i32 5, label %173
@@ -6016,38 +6016,38 @@ _ZSt7reverseIPjEvT_S1_.exit.i:                    ; preds = %.lr.ph.i.i.i
     i32 1, label %225
   ]
 
-_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159: ; preds = %._crit_edge53.i
+_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159: ; preds = %._crit_edge51.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %231
 
-._crit_edge51.loopexit.i:                         ; preds = %.lr.ph50.i
+._crit_edge49.loopexit.i:                         ; preds = %.lr.ph48.i
   %146 = xor i32 %spec.select.i120, -1
-  br label %._crit_edge51.i
+  br label %._crit_edge49.i
 
-._crit_edge51.i:                                  ; preds = %._crit_edge51.loopexit.i, %.preheader.i
-  %.032.lcssa.i = phi i32 [ %146, %._crit_edge51.loopexit.i ], [ -1, %.preheader.i ]
+._crit_edge49.i:                                  ; preds = %._crit_edge49.loopexit.i, %.preheader.i
+  %.032.lcssa.i = phi i32 [ %146, %._crit_edge49.loopexit.i ], [ -1, %.preheader.i ]
   %147 = add i32 %.032.lcssa.i, %145
-  %148 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv60.i
+  %148 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv58.i
   store i32 %147, ptr %148, align 4, !tbaa !47
-  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %149 = and i64 %indvars.iv.next61.i, 4294967295
-  %exitcond64.not.i = icmp eq i64 %149, 6
-  br i1 %exitcond64.not.i, label %._crit_edge53.i, label %.preheader.i, !llvm.loop !381
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %149 = and i64 %indvars.iv.next59.i, 4294967295
+  %exitcond62.not.i = icmp eq i64 %149, 6
+  br i1 %exitcond62.not.i, label %._crit_edge51.i, label %.preheader.i, !llvm.loop !381
 
-.lr.ph50.i:                                       ; preds = %.preheader.i, %.lr.ph50.i
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph50.i ], [ %142, %.preheader.i ]
-  %.03248.i = phi i32 [ %spec.select.i120, %.lr.ph50.i ], [ 0, %.preheader.i ]
-  %150 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv56.i
+.lr.ph48.i:                                       ; preds = %.preheader.i, %.lr.ph48.i
+  %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %.lr.ph48.i ], [ %142, %.preheader.i ]
+  %.03246.i = phi i32 [ %spec.select.i120, %.lr.ph48.i ], [ 0, %.preheader.i ]
+  %150 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv54.i
   %151 = load i32, ptr %150, align 4, !tbaa !47
   %152 = icmp ult i32 %151, %145
   %153 = zext i1 %152 to i32
-  %spec.select.i120 = add i32 %.03248.i, %153
-  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
-  %154 = and i64 %indvars.iv.next57.i, 4294967295
-  %exitcond59.not.i = icmp eq i64 %154, %indvars.iv60.i
-  br i1 %exitcond59.not.i, label %._crit_edge51.loopexit.i, label %.lr.ph50.i, !llvm.loop !382
+  %spec.select.i120 = add i32 %.03246.i, %153
+  %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
+  %154 = and i64 %indvars.iv.next55.i, 4294967295
+  %exitcond57.not.i = icmp eq i64 %154, %indvars.iv58.i
+  br i1 %exitcond57.not.i, label %._crit_edge49.loopexit.i, label %.lr.ph48.i, !llvm.loop !382
 
-155:                                              ; preds = %._crit_edge53.i
+155:                                              ; preds = %._crit_edge51.i
   %156 = load i32, ptr %4, align 16, !tbaa !47
   %157 = mul i32 %156, 120
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6067,7 +6067,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
   %172 = add i32 %169, %171
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-173:                                              ; preds = %._crit_edge53.i
+173:                                              ; preds = %._crit_edge51.i
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %175 = load i32, ptr %174, align 4, !tbaa !47
   %176 = mul i32 %175, 120
@@ -6088,7 +6088,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
   %191 = add i32 %188, %190
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-192:                                              ; preds = %._crit_edge53.i
+192:                                              ; preds = %._crit_edge51.i
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %194 = load i32, ptr %193, align 8, !tbaa !47
   %195 = mul i32 %194, 60
@@ -6105,7 +6105,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
   %206 = add i32 %203, %205
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-207:                                              ; preds = %._crit_edge53.i
+207:                                              ; preds = %._crit_edge51.i
   %208 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %209 = load i32, ptr %208, align 4, !tbaa !47
   %210 = mul i32 %209, 20
@@ -6118,7 +6118,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
   %217 = add i32 %214, %216
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-218:                                              ; preds = %._crit_edge53.i
+218:                                              ; preds = %._crit_edge51.i
   %219 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %220 = load i32, ptr %219, align 16, !tbaa !47
   %221 = mul i32 %220, 5
@@ -6127,7 +6127,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
   %224 = add i32 %221, %223
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-225:                                              ; preds = %._crit_edge53.i
+225:                                              ; preds = %._crit_edge51.i
   %226 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %227 = load i32, ptr %226, align 4, !tbaa !47
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit

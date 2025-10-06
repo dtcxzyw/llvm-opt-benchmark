@@ -7220,7 +7220,7 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.lr.ph, %_ZN4ncnn3M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4ncnn14layer_to_indexEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define hidden noundef range(i32 -1, 107) i32 @_ZN4ncnn14layer_to_indexEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -7229,20 +7229,20 @@ define hidden noundef i32 @_ZN4ncnn14layer_to_indexEPKc(ptr noundef readonly cap
   %4 = load ptr, ptr %3, align 16, !tbaa !65
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #22
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.split.loop.exit, label %7
+  br i1 %6, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 107
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !67
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 107
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !67
 
-.split.loop.exit:                                 ; preds = %2
+.split.loop.exit11:                               ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit10
+  br label %.split.loop.exit
 
-.split.loop.exit10:                               ; preds = %7, %.split.loop.exit
-  %spec.select = phi i32 [ %8, %.split.loop.exit ], [ -1, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit11
+  %9 = phi i32 [ %8, %.split.loop.exit11 ], [ -1, %7 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -7262,8 +7262,8 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEPKc(ptr noundef readonly captu
 
 7:                                                ; preds = %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 107
-  br i1 %exitcond.i, label %_ZN4ncnn14layer_to_indexEPKc.exit.thread, label %2, !llvm.loop !67
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 107
+  br i1 %exitcond.not.i, label %_ZN4ncnn14layer_to_indexEPKc.exit.thread, label %2, !llvm.loop !67
 
 _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -7431,8 +7431,8 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr noundef readonly
 
 7:                                                ; preds = %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 107
-  br i1 %exitcond.i, label %_ZN4ncnn18create_layer_naiveEi.exit, label %2, !llvm.loop !67
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 107
+  br i1 %exitcond.not.i, label %_ZN4ncnn18create_layer_naiveEi.exit, label %2, !llvm.loop !67
 
 _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -7494,8 +7494,8 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr noundef readonly c
 
 7:                                                ; preds = %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 107
-  br i1 %exitcond.i, label %_ZN4ncnn16create_layer_cpuEi.exit, label %2, !llvm.loop !67
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 107
+  br i1 %exitcond.not.i, label %_ZN4ncnn16create_layer_cpuEi.exit, label %2, !llvm.loop !67
 
 _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32

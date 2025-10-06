@@ -866,8 +866,8 @@ if.end.i16:                                       ; preds = %sw.bb9
   br i1 %cmp4.i20, label %return, label %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24
 
 _ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24: ; preds = %if.end.i16
-  %cmp6.not.i22.not.not = icmp ne i32 %call3.i19, 0
-  %spec.select = sext i1 %cmp6.not.i22.not.not to i32
+  %cmp6.not.i22.not = icmp ne i32 %call3.i19, 0
+  %spec.select = sext i1 %cmp6.not.i22.not to i32
   br label %return
 
 sw.bb15:                                          ; preds = %sw.bb7

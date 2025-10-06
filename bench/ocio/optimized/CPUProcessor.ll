@@ -4302,24 +4302,24 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9isDynami
           to label %7 unwind label %.loopexit.split-lp
 
 7:                                                ; preds = %1
-  br i1 %6, label %.loopexit14, label %8
+  br i1 %6, label %.loopexit12, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !246
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !246
-  %.not15 = icmp eq ptr %10, %12
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %10, %12
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 13:                                               ; preds = %20
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 16
   %.not = icmp eq ptr %14, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %13
-  %.sroa.08.016 = phi ptr [ %14, %13 ], [ %10, %8 ]
-  %15 = load ptr, ptr %.sroa.08.016, align 8, !tbaa !191
+  %.sroa.08.014 = phi ptr [ %14, %13 ], [ %10, %8 ]
+  %15 = load ptr, ptr %.sroa.08.014, align 8, !tbaa !191
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -4327,7 +4327,7 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9isDynami
           to label %20 unwind label %.loopexit
 
 20:                                               ; preds = %.lr.ph
-  br i1 %19, label %.loopexit14, label %13
+  br i1 %19, label %.loopexit12, label %13
 
 ._crit_edge:                                      ; preds = %13, %8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4336,9 +4336,9 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9isDynami
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %.loopexit14 unwind label %.loopexit.split-lp
+          to label %.loopexit12 unwind label %.loopexit.split-lp
 
-.loopexit14:                                      ; preds = %20, %._crit_edge, %7
+.loopexit12:                                      ; preds = %20, %._crit_edge, %7
   %.0 = phi i1 [ true, %7 ], [ %26, %._crit_edge ], [ true, %20 ]
   ret i1 %.0
 
@@ -4381,24 +4381,24 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl18hasDyna
           to label %8 unwind label %.loopexit.split-lp
 
 8:                                                ; preds = %2
-  br i1 %7, label %.loopexit17, label %9
+  br i1 %7, label %.loopexit15, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !246
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !246
-  %.not18 = icmp eq ptr %11, %13
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not16 = icmp eq ptr %11, %13
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 14:                                               ; preds = %21
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.011.017, i64 16
   %.not = icmp eq ptr %15, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %14
-  %.sroa.011.019 = phi ptr [ %15, %14 ], [ %11, %9 ]
-  %16 = load ptr, ptr %.sroa.011.019, align 8, !tbaa !191
+  %.sroa.011.017 = phi ptr [ %15, %14 ], [ %11, %9 ]
+  %16 = load ptr, ptr %.sroa.011.017, align 8, !tbaa !191
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
@@ -4406,7 +4406,7 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl18hasDyna
           to label %21 unwind label %.loopexit
 
 21:                                               ; preds = %.lr.ph
-  br i1 %20, label %.loopexit17, label %14
+  br i1 %20, label %.loopexit15, label %14
 
 ._crit_edge:                                      ; preds = %14, %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4415,9 +4415,9 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl18hasDyna
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %1)
-          to label %.loopexit17 unwind label %.loopexit.split-lp
+          to label %.loopexit15 unwind label %.loopexit.split-lp
 
-.loopexit17:                                      ; preds = %21, %._crit_edge, %8
+.loopexit15:                                      ; preds = %21, %._crit_edge, %8
   %.0 = phi i1 [ true, %8 ], [ %27, %._crit_edge ], [ true, %21 ]
   ret i1 %.0
 
@@ -4452,12 +4452,12 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl18getDynamicPropertyENS
   %11 = load ptr, ptr %10, align 8, !tbaa !246
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !246
-  %.not21 = icmp eq ptr %11, %13
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %11, %13
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.critedge
-  %.sroa.014.022 = phi ptr [ %19, %.critedge ], [ %11, %9 ]
-  %14 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !191
+  %.sroa.014.020 = phi ptr [ %19, %.critedge ], [ %11, %9 ]
+  %14 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !191
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
@@ -4465,7 +4465,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl18getDynamicPropertyENS
   br i1 %18, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 16
   %.not = icmp eq ptr %19, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4494,12 +4494,12 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl18getDynamicPropertyENS
   resume { ptr, i32 } %30
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %3
-  %.sink30.in = phi ptr [ %1, %3 ], [ %20, %._crit_edge ], [ %.sroa.014.022, %.lr.ph ]
-  %.sink30 = load ptr, ptr %.sink30.in, align 8, !tbaa !191
-  %31 = load ptr, ptr %.sink30, align 8, !tbaa !12
+  %.sink28.in = phi ptr [ %1, %3 ], [ %20, %._crit_edge ], [ %.sroa.014.020, %.lr.ph ]
+  %.sink28 = load ptr, ptr %.sink28.in, align 8, !tbaa !191
+  %31 = load ptr, ptr %.sink28, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.192") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink30, i32 noundef %2)
+  tail call void %33(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.192") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink28, i32 noundef %2)
   ret void
 }
 
@@ -5904,17 +5904,17 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor9isDynamicEv(p
   %11 = load ptr, ptr %10, align 8, !tbaa !246
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !246
-  %.not15.i = icmp eq ptr %11, %13
-  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not13.i = icmp eq ptr %11, %13
+  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
 14:                                               ; preds = %21
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.016.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.014.i, i64 16
   %.not.i = icmp eq ptr %15, %13
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %14
-  %.sroa.08.016.i = phi ptr [ %15, %14 ], [ %11, %9 ]
-  %16 = load ptr, ptr %.sroa.08.016.i, align 8, !tbaa !191
+  %.sroa.08.014.i = phi ptr [ %15, %14 ], [ %11, %9 ]
+  %16 = load ptr, ptr %.sroa.08.014.i, align 8, !tbaa !191
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
@@ -5972,17 +5972,17 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12CPUProcessor18hasDynamicPr
   %12 = load ptr, ptr %11, align 8, !tbaa !246
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !246
-  %.not18.i = icmp eq ptr %12, %14
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %12, %14
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 
 15:                                               ; preds = %22
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.011.019.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.011.017.i, i64 16
   %.not.i = icmp eq ptr %16, %14
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %15
-  %.sroa.011.019.i = phi ptr [ %16, %15 ], [ %12, %10 ]
-  %17 = load ptr, ptr %.sroa.011.019.i, align 8, !tbaa !191
+  %.sroa.011.017.i = phi ptr [ %16, %15 ], [ %12, %10 ]
+  %17 = load ptr, ptr %.sroa.011.017.i, align 8, !tbaa !191
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8

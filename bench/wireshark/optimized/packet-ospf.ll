@@ -1860,7 +1860,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %.170.us.i = phi i32 [ %246, %.lr.ph.split.us.i ], [ %243, %.lr.ph.i212 ]
   %246 = call fastcc i32 @dissect_ospf_v2_lsa(ptr noundef %0, ptr noundef %1, i32 noundef %.170.us.i, ptr noundef %20, i1 noundef zeroext false)
   %247 = icmp sgt i32 %237, %246
-  br i1 %247, label %.lr.ph.split.us.i, label %dissect_ospf_hello.exit.thread238.thread296, !llvm.loop !12
+  br i1 %247, label %.lr.ph.split.us.i, label %dissect_ospf_hello.exit.thread238.thread288, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
   %.170.i = phi i32 [ %248, %.lr.ph.split.i ], [ %244, %.lr.ph.split.i.preheader ]
@@ -2012,11 +2012,11 @@ dissect_ospf_hello.exit.thread236.thread244:      ; preds = %.lr.ph.i, %dissect_
 
 dissect_ospf_hello.exit.thread238:                ; preds = %dissect_ospf_hello.exit, %.thread74.i
   switch i8 %11, label %ospf_has_at_block.exit.thread [
-    i8 2, label %dissect_ospf_hello.exit.thread238.thread296
+    i8 2, label %dissect_ospf_hello.exit.thread238.thread288
     i8 3, label %dissect_ospf_hello.exit.thread238.thread
   ]
 
-dissect_ospf_hello.exit.thread238.thread296:      ; preds = %.lr.ph.split.us.i, %dissect_ospf_hello.exit.thread238
+dissect_ospf_hello.exit.thread238.thread288:      ; preds = %.lr.ph.split.us.i, %dissect_ospf_hello.exit.thread238
   %318 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 26)
   %319 = and i8 %318, 16
   %320 = zext nneg i8 %319 to i32
@@ -2028,8 +2028,8 @@ dissect_ospf_hello.exit.thread238.thread:         ; preds = %.lr.ph.split.i, %.t
   %323 = and i32 %322, 512
   br label %ospf_has_lls_block.exit
 
-ospf_has_lls_block.exit:                          ; preds = %dissect_ospf_hello.exit.thread236.thread, %dissect_ospf_hello.exit.thread236.thread244, %dissect_ospf_hello.exit.thread238.thread296, %dissect_ospf_hello.exit.thread238.thread
-  %.0.i227 = phi i32 [ %314, %dissect_ospf_hello.exit.thread236.thread ], [ %317, %dissect_ospf_hello.exit.thread236.thread244 ], [ %320, %dissect_ospf_hello.exit.thread238.thread296 ], [ %323, %dissect_ospf_hello.exit.thread238.thread ]
+ospf_has_lls_block.exit:                          ; preds = %dissect_ospf_hello.exit.thread236.thread, %dissect_ospf_hello.exit.thread236.thread244, %dissect_ospf_hello.exit.thread238.thread288, %dissect_ospf_hello.exit.thread238.thread
+  %.0.i227 = phi i32 [ %314, %dissect_ospf_hello.exit.thread236.thread ], [ %317, %dissect_ospf_hello.exit.thread236.thread244 ], [ %320, %dissect_ospf_hello.exit.thread238.thread288 ], [ %323, %dissect_ospf_hello.exit.thread238.thread ]
   %.not203 = icmp eq i32 %.0.i227, 0
   br i1 %.not203, label %dissect_ospf_lls_data_block.exit, label %324
 
@@ -2129,8 +2129,8 @@ dissect_ospfv2_lls_tlv.exit.us.i:                 ; preds = %._crit_edge.i.us.i,
   %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 -3, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond311 = select i1 %381, i1 %switch.lobit, i1 false
-  br i1 %or.cond311, label %switch.lookup, label %.thread.i.i
+  %or.cond303 = select i1 %381, i1 %switch.lobit, i1 false
+  br i1 %or.cond303, label %switch.lookup, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.lr.ph.split.i231
   %382 = zext i16 %376 to i32

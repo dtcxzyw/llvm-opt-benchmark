@@ -675,18 +675,18 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
 
 278:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5countERS9_.exit.i
   %279 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %280 unwind label %.loopexit84.i
+          to label %280 unwind label %.loopexit82.i
 
 280:                                              ; preds = %278
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %279)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %.loopexit84.i
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %.loopexit82.i
 
 281:                                              ; preds = %.noexc10.i.i32.i, %241
   %282 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69.i
 
-.loopexit84.i:                                    ; preds = %280, %278
+.loopexit82.i:                                    ; preds = %280, %278
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %329
@@ -829,8 +829,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5YosysL10resolve_fnENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-329:                                              ; preds = %318, %.loopexit.split-lp.i, %.loopexit84.i
-  %.pn.i = phi { ptr, i32 } [ %319, %318 ], [ %lpad.loopexit.i, %.loopexit84.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+329:                                              ; preds = %318, %.loopexit.split-lp.i, %.loopexit82.i
+  %.pn.i = phi { ptr, i32 } [ %319, %318 ], [ %lpad.loopexit.i, %.loopexit82.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %330 = load ptr, ptr %8, align 8, !tbaa !18
   %331 = icmp eq ptr %330, %242
   br i1 %331, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67.i
@@ -860,12 +860,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72.i: ; preds = %_
 
 338:                                              ; preds = %215
   %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 24), align 8, !tbaa !73
-  %.not8385.i = icmp eq ptr %339, getelementptr inbounds nuw (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8)
-  br i1 %.not8385.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not8183.i = icmp eq ptr %339, getelementptr inbounds nuw (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8)
+  br i1 %.not8183.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %338, %344
-  %.sroa.073.086.i = phi ptr [ %345, %344 ], [ %339, %338 ]
-  %340 = getelementptr inbounds nuw i8, ptr %.sroa.073.086.i, i64 64
+  %.sroa.073.084.i = phi ptr [ %345, %344 ], [ %339, %338 ]
+  %340 = getelementptr inbounds nuw i8, ptr %.sroa.073.084.i, i64 64
   %341 = load ptr, ptr %340, align 8, !tbaa !74
   %342 = load ptr, ptr %11, align 8, !tbaa !18
   %343 = call ptr @dlsym(ptr noundef %341, ptr noundef %342) #17
@@ -873,9 +873,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72.i: ; preds = %_
   br i1 %.not24.i, label %344, label %_ZN5YosysL10resolve_fnENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 344:                                              ; preds = %.lr.ph.i
-  %345 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.073.086.i) #19
-  %.not83.i = icmp eq ptr %345, getelementptr inbounds nuw (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8)
-  br i1 %.not83.i, label %._crit_edge.i, label %.lr.ph.i
+  %345 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.073.084.i) #19
+  %.not81.i = icmp eq ptr %345, getelementptr inbounds nuw (i8, ptr @_ZN5Yosys14loaded_pluginsB5cxx11E, i64 8)
+  br i1 %.not81.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %344, %338
   %346 = load ptr, ptr %11, align 8, !tbaa !18

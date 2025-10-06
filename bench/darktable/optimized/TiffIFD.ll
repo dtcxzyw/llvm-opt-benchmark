@@ -2431,13 +2431,13 @@ _ZNKSt3mapIN8rawspeed7TiffTagESt10unique_ptrINS0_9TiffEntryESt14default_deleteIS
   br i1 %20, label %.loopexit, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.017.028, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.016.030, i64 8
   %23 = icmp eq ptr %22, %19
   br i1 %23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNKSt3mapIN8rawspeed7TiffTagESt10unique_ptrINS0_9TiffEntryESt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread, %21
-  %.sroa.017.028 = phi ptr [ %22, %21 ], [ %17, %_ZNKSt3mapIN8rawspeed7TiffTagESt10unique_ptrINS0_9TiffEntryESt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread ]
-  %24 = load ptr, ptr %.sroa.017.028, align 8, !tbaa !47
+  %.sroa.016.030 = phi ptr [ %22, %21 ], [ %17, %_ZNKSt3mapIN8rawspeed7TiffTagESt10unique_ptrINS0_9TiffEntryESt14default_deleteIS3_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread ]
+  %24 = load ptr, ptr %.sroa.016.030, align 8, !tbaa !47
   %25 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %24, i16 noundef zeroext %1) #34
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %21, label %.loopexit

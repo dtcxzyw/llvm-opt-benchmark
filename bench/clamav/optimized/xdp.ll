@@ -108,19 +108,19 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   %51 = trunc i64 %50 to i32
   %52 = call ptr @xmlReaderForMemory(ptr noundef nonnull %11, i32 noundef %51, ptr noundef nonnull @.str, ptr noundef null, i32 noundef 2080) #8
   %.not68 = icmp eq ptr %52, null
-  br i1 %.not68, label %95, label %.preheader81
+  br i1 %.not68, label %95, label %.preheader80
 
-.preheader81:                                     ; preds = %47
+.preheader80:                                     ; preds = %47
   %53 = call i32 @xmlTextReaderRead(ptr noundef nonnull %52) #8
   %54 = icmp eq i32 %53, 1
-  br i1 %54, label %.lr.ph95, label %.thread
+  br i1 %54, label %.lr.ph94, label %.thread
 
-.lr.ph95:                                         ; preds = %.preheader81, %.backedge
+.lr.ph94:                                         ; preds = %.preheader80, %.backedge
   %55 = call ptr @xmlTextReaderConstLocalName(ptr noundef nonnull %52) #8
   %.not69 = icmp eq ptr %55, null
   br i1 %.not69, label %.backedge, label %56
 
-56:                                               ; preds = %.lr.ph95
+56:                                               ; preds = %.lr.ph94
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(6) @.str.1) #10
   %.not70 = icmp eq i32 %57, 0
   br i1 %.not70, label %58, label %.backedge
@@ -152,8 +152,8 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86
-  %.05391 = phi i64 [ %87, %86 ], [ 0, %.lr.ph.preheader ]
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 %.05391
+  %.05390 = phi i64 [ %87, %86 ], [ 0, %.lr.ph.preheader ]
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 %.05390
   %72 = load i8, ptr %71, align 1, !tbaa !50
   %.not73 = icmp eq i8 %72, 37
   br i1 %.not73, label %73, label %86
@@ -189,7 +189,7 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   br i1 %85, label %88, label %86
 
 86:                                               ; preds = %79, %76, %73, %82, %.lr.ph
-  %87 = add nuw nsw i64 %.05391, 1
+  %87 = add nuw nsw i64 %.05390, 1
   %exitcond.not = icmp eq i64 %87, %70
   br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
@@ -208,10 +208,10 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   call void %91(ptr noundef nonnull %62) #8
   br label %.backedge
 
-.backedge:                                        ; preds = %56, %58, %90, %61, %.lr.ph95
+.backedge:                                        ; preds = %56, %58, %90, %61, %.lr.ph94
   %92 = call i32 @xmlTextReaderRead(ptr noundef nonnull %52) #8
   %93 = icmp eq i32 %92, 1
-  br i1 %93, label %.lr.ph95, label %.thread
+  br i1 %93, label %.lr.ph94, label %.thread
 
 .thread.sink.split:                               ; preds = %88, %.critedge
   %.1.ph = phi i32 [ 0, %.critedge ], [ %89, %88 ]
@@ -219,8 +219,8 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   call void %94(ptr noundef nonnull %62) #8
   br label %.thread
 
-.thread:                                          ; preds = %.backedge, %.thread.sink.split, %.preheader81
-  %.1 = phi i32 [ 0, %.preheader81 ], [ %.1.ph, %.thread.sink.split ], [ 0, %.backedge ]
+.thread:                                          ; preds = %.backedge, %.thread.sink.split, %.preheader80
+  %.1 = phi i32 [ 0, %.preheader80 ], [ %.1.ph, %.thread.sink.split ], [ 0, %.backedge ]
   call void @xmlFreeTextReader(ptr noundef nonnull %52) #8
   br label %95
 

@@ -2883,8 +2883,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev13GPUSha
   %8 = load ptr, ptr %7, align 8, !tbaa !104
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !104
-  %.not26.not = icmp eq ptr %8, %10
-  br i1 %.not26.not, label %._crit_edge, label %.lr.ph
+  %.not27.not = icmp eq ptr %8, %10
+  br i1 %.not27.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2952,11 +2952,11 @@ _ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformC2ERKS2_.exit.us: ; 
   br label %47
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformD2Ev.exit
-  %.sroa.015.027 = phi ptr [ %82, %_ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformD2Ev.exit ], [ %8, %.lr.ph ]
+  %.sroa.015.028 = phi ptr [ %82, %_ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformD2Ev.exit ], [ %8, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %11, ptr %5, align 8, !tbaa !105
-  %32 = load ptr, ptr %.sroa.015.027, align 8, !tbaa !45
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 8
+  %32 = load ptr, ptr %.sroa.015.028, align 8, !tbaa !45
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.015.028, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %34, ptr %4, align 8, !tbaa !79
@@ -2993,7 +2993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 0, ptr %44, align 1, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.015.028, i64 32
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderDesc11UniformDataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(232) %13, ptr noundef nonnull align 8 dereferenceable(232) %45)
           to label %_ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformC2ERKS2_.exit unwind label %.split
 
@@ -3003,7 +3003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   br label %47
 
 47:                                               ; preds = %.split.us, %.split
-  %.us-phi31 = phi { ptr, i32 } [ %46, %.split ], [ %31, %.split.us ]
+  %.us-phi32 = phi { ptr, i32 } [ %46, %.split ], [ %31, %.split.us ]
   %48 = load ptr, ptr %5, align 8, !tbaa !45
   %49 = icmp eq ptr %48, %11
   br i1 %49, label %common.resume, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -3015,7 +3015,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %83
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %83 ], [ %.us-phi31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.us-phi31, %47 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %83 ], [ %.us-phi32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.us-phi32, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformC2ERKS2_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
@@ -3074,17 +3074,17 @@ _ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformC2ERKS2_.exit: ; pre
 
 67:                                               ; preds = %60
   %68 = icmp eq i64 %64, 0
-  %.pre34 = load ptr, ptr %6, align 8, !tbaa !45
+  %.pre35 = load ptr, ptr %6, align 8, !tbaa !45
   br i1 %68, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %69
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %5, align 8, !tbaa !45
-  %bcmp.i = call i32 @bcmp(ptr %.pre34, ptr %70, i64 %64)
+  %bcmp.i = call i32 @bcmp(ptr %.pre35, ptr %70, i64 %64)
   %71 = icmp eq i32 %bcmp.i, 0
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge, %67, %69
-  %72 = phi ptr [ %.pre, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %.pre34, %69 ], [ %.pre34, %67 ]
+  %72 = phi ptr [ %.pre, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %.pre35, %69 ], [ %.pre35, %67 ]
   %73 = phi i1 [ false, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %71, %69 ], [ true, %67 ]
   %74 = icmp eq ptr %72, %14
   br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -3115,7 +3115,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformD2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 264
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.015.028, i64 264
   %.not.not = icmp eq ptr %82, %10
   %or.cond = select i1 %73, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph.split

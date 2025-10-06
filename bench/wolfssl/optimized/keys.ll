@@ -925,7 +925,7 @@ define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captur
   %19 = tail call ptr @wolfSSL_Malloc(i64 noundef 68) #7
   store ptr %19, ptr %15, align 8, !tbaa !60
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread257, label %.critedge
+  br i1 %20, label %.thread255, label %.critedge
 
 .critedge:                                        ; preds = %14, %13, %18
   %.not223 = icmp eq ptr %1, null
@@ -941,7 +941,7 @@ define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captur
   %26 = tail call ptr @wolfSSL_Malloc(i64 noundef 68) #7
   store ptr %26, ptr %22, align 8, !tbaa !60
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread257, label %.critedge251
+  br i1 %27, label %.thread255, label %.critedge251
 
 .critedge251:                                     ; preds = %21, %.critedge, %25
   %28 = icmp eq i32 %4, 1
@@ -961,7 +961,7 @@ define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captur
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
   %.not226 = icmp eq i32 %36, 0
-  br i1 %.not226, label %39, label %.thread257
+  br i1 %.not226, label %39, label %.thread255
 
 39:                                               ; preds = %30, %29
   br i1 %.not223, label %69, label %40
@@ -977,7 +977,7 @@ define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captur
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false)
   %.not227 = icmp eq i32 %46, 0
-  br i1 %.not227, label %69, label %.thread257
+  br i1 %.not227, label %69, label %.thread255
 
 49:                                               ; preds = %.critedge251
   br i1 %.not, label %59, label %50
@@ -993,7 +993,7 @@ define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captur
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %58, i64 12, i1 false)
   %.not224 = icmp eq i32 %56, 0
-  br i1 %.not224, label %59, label %.thread257
+  br i1 %.not224, label %59, label %.thread255
 
 59:                                               ; preds = %50, %49
   br i1 %.not223, label %69, label %60
@@ -1009,7 +1009,7 @@ define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captur
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull align 4 dereferenceable(12) %68, i64 12, i1 false)
   %.not225 = icmp eq i32 %66, 0
-  br i1 %.not225, label %69, label %.thread257
+  br i1 %.not225, label %69, label %.thread255
 
 69:                                               ; preds = %59, %60, %39, %40
   br i1 %.not, label %72, label %70
@@ -1049,7 +1049,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %83 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
   store ptr %83, ptr %0, align 8, !tbaa !62
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %.thread257, label %86
+  br i1 %84, label %.thread255, label %86
 
 85:                                               ; preds = %79
   tail call void @wc_AesFree(ptr noundef nonnull %80) #7
@@ -1074,15 +1074,15 @@ thread-pre-split:                                 ; preds = %72, %73
   %93 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
   store ptr %93, ptr %1, align 8, !tbaa !62
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread257, label %96
+  br i1 %94, label %.thread255, label %96
 
 95:                                               ; preds = %89
   tail call void @wc_AesFree(ptr noundef nonnull %90) #7
-  %.pre271 = load ptr, ptr %1, align 8, !tbaa !62
+  %.pre266 = load ptr, ptr %1, align 8, !tbaa !62
   br label %96
 
 96:                                               ; preds = %92, %95
-  %97 = phi ptr [ %93, %92 ], [ %.pre271, %95 ]
+  %97 = phi ptr [ %93, %92 ], [ %.pre266, %95 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %97, i8 0, i64 848, i1 false)
   br label %98
 
@@ -1093,7 +1093,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %100 = load ptr, ptr %0, align 8, !tbaa !62
   %101 = tail call i32 @wc_AesInit(ptr noundef %100, ptr noundef %5, i32 noundef %6) #7
   %.not230 = icmp eq i32 %101, 0
-  br i1 %.not230, label %102, label %.thread257
+  br i1 %.not230, label %102, label %.thread255
 
 102:                                              ; preds = %99, %98
   br i1 %.not229, label %106, label %103
@@ -1102,7 +1102,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %104 = load ptr, ptr %1, align 8, !tbaa !62
   %105 = tail call i32 @wc_AesInit(ptr noundef %104, ptr noundef %5, i32 noundef %6) #7
   %.not231 = icmp eq i32 %105, 0
-  br i1 %.not231, label %106, label %.thread257
+  br i1 %.not231, label %106, label %.thread255
 
 106:                                              ; preds = %103, %102
   %107 = icmp eq i32 %4, 1
@@ -1119,7 +1119,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %115 = tail call i32 @wc_AesSetKey(ptr noundef %110, ptr noundef nonnull %111, i32 noundef %113, ptr noundef nonnull %114, i32 noundef 0) #7
   %.not234 = icmp eq i32 %115, 0
-  br i1 %.not234, label %116, label %.thread257
+  br i1 %.not234, label %116, label %.thread255
 
 116:                                              ; preds = %109, %108
   br i1 %.not229, label %140, label %117
@@ -1132,7 +1132,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %123 = tail call i32 @wc_AesSetKey(ptr noundef %118, ptr noundef nonnull %119, i32 noundef %121, ptr noundef nonnull %122, i32 noundef 1) #7
   %.not235 = icmp eq i32 %123, 0
-  br i1 %.not235, label %140, label %.thread257
+  br i1 %.not235, label %140, label %.thread255
 
 124:                                              ; preds = %106
   br i1 %.not228, label %132, label %125
@@ -1145,7 +1145,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %131 = tail call i32 @wc_AesSetKey(ptr noundef %126, ptr noundef nonnull %127, i32 noundef %129, ptr noundef nonnull %130, i32 noundef 0) #7
   %.not232 = icmp eq i32 %131, 0
-  br i1 %.not232, label %132, label %.thread257
+  br i1 %.not232, label %132, label %.thread255
 
 132:                                              ; preds = %125, %124
   br i1 %.not229, label %140, label %133
@@ -1158,7 +1158,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %139 = tail call i32 @wc_AesSetKey(ptr noundef %134, ptr noundef nonnull %135, i32 noundef %137, ptr noundef nonnull %138, i32 noundef 1) #7
   %.not233 = icmp eq i32 %139, 0
-  br i1 %.not233, label %140, label %.thread257
+  br i1 %.not233, label %140, label %.thread255
 
 140:                                              ; preds = %132, %133, %116, %117
   br i1 %.not228, label %143, label %141
@@ -1194,15 +1194,15 @@ thread-pre-split:                                 ; preds = %72, %73
   %154 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
   store ptr %154, ptr %0, align 8, !tbaa !62
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.thread257, label %157
+  br i1 %155, label %.thread255, label %157
 
 156:                                              ; preds = %150
   tail call void @wc_AesFree(ptr noundef nonnull %151) #7
-  %.pre272 = load ptr, ptr %0, align 8, !tbaa !62
+  %.pre267 = load ptr, ptr %0, align 8, !tbaa !62
   br label %157
 
 157:                                              ; preds = %153, %156
-  %158 = phi ptr [ %154, %153 ], [ %.pre272, %156 ]
+  %158 = phi ptr [ %154, %153 ], [ %.pre267, %156 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %158, i8 0, i64 848, i1 false)
   br label %159
 
@@ -1219,15 +1219,15 @@ thread-pre-split:                                 ; preds = %72, %73
   %164 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
   store ptr %164, ptr %1, align 8, !tbaa !62
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %.thread257, label %167
+  br i1 %165, label %.thread255, label %167
 
 166:                                              ; preds = %160
   tail call void @wc_AesFree(ptr noundef nonnull %161) #7
-  %.pre273 = load ptr, ptr %1, align 8, !tbaa !62
+  %.pre268 = load ptr, ptr %1, align 8, !tbaa !62
   br label %167
 
 167:                                              ; preds = %163, %166
-  %168 = phi ptr [ %164, %163 ], [ %.pre273, %166 ]
+  %168 = phi ptr [ %164, %163 ], [ %.pre268, %166 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %168, i8 0, i64 848, i1 false)
   br label %169
 
@@ -1238,7 +1238,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %171 = load ptr, ptr %0, align 8, !tbaa !62
   %172 = tail call i32 @wc_AesInit(ptr noundef %171, ptr noundef %5, i32 noundef %6) #7
   %.not238 = icmp eq i32 %172, 0
-  br i1 %.not238, label %173, label %.thread257
+  br i1 %.not238, label %173, label %.thread255
 
 173:                                              ; preds = %170, %169
   br i1 %.not237, label %177, label %174
@@ -1247,7 +1247,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %175 = load ptr, ptr %1, align 8, !tbaa !62
   %176 = tail call i32 @wc_AesInit(ptr noundef %175, ptr noundef %5, i32 noundef %6) #7
   %.not239 = icmp eq i32 %176, 0
-  br i1 %.not239, label %177, label %.thread257
+  br i1 %.not239, label %177, label %.thread255
 
 177:                                              ; preds = %174, %173
   %178 = icmp eq i32 %4, 1
@@ -1263,7 +1263,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %184 = zext i16 %183 to i32
   %185 = tail call i32 @wc_AesGcmSetKey(ptr noundef %181, ptr noundef nonnull %182, i32 noundef %184) #7
   %.not244 = icmp eq i32 %185, 0
-  br i1 %.not244, label %186, label %.thread257
+  br i1 %.not244, label %186, label %.thread255
 
 186:                                              ; preds = %180
   %187 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -1276,7 +1276,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %190 = load ptr, ptr %0, align 8, !tbaa !62
   %191 = tail call i32 @wc_AesGcmSetIV(ptr noundef %190, i32 noundef 12, ptr noundef nonnull %188, i32 noundef 4, ptr noundef %7) #7
   %.not246 = icmp eq i32 %191, 0
-  br i1 %.not246, label %192, label %.thread257
+  br i1 %.not246, label %192, label %.thread255
 
 192:                                              ; preds = %186, %189, %179
   br i1 %.not237, label %221, label %193
@@ -1288,7 +1288,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %197 = zext i16 %196 to i32
   %198 = tail call i32 @wc_AesGcmSetKey(ptr noundef %194, ptr noundef nonnull %195, i32 noundef %197) #7
   %.not247 = icmp eq i32 %198, 0
-  br i1 %.not247, label %.sink.split, label %.thread257
+  br i1 %.not247, label %.sink.split, label %.thread255
 
 199:                                              ; preds = %177
   br i1 %.not236, label %212, label %200
@@ -1300,7 +1300,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %204 = zext i16 %203 to i32
   %205 = tail call i32 @wc_AesGcmSetKey(ptr noundef %201, ptr noundef nonnull %202, i32 noundef %204) #7
   %.not240 = icmp eq i32 %205, 0
-  br i1 %.not240, label %206, label %.thread257
+  br i1 %.not240, label %206, label %.thread255
 
 206:                                              ; preds = %200
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -1313,7 +1313,7 @@ thread-pre-split:                                 ; preds = %72, %73
   %210 = load ptr, ptr %0, align 8, !tbaa !62
   %211 = tail call i32 @wc_AesGcmSetIV(ptr noundef %210, i32 noundef 12, ptr noundef nonnull %208, i32 noundef 4, ptr noundef %7) #7
   %.not242 = icmp eq i32 %211, 0
-  br i1 %.not242, label %212, label %.thread257
+  br i1 %.not242, label %212, label %.thread255
 
 212:                                              ; preds = %206, %209, %199
   br i1 %.not237, label %221, label %213
@@ -1325,12 +1325,12 @@ thread-pre-split:                                 ; preds = %72, %73
   %217 = zext i16 %216 to i32
   %218 = tail call i32 @wc_AesGcmSetKey(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #7
   %.not243 = icmp eq i32 %218, 0
-  br i1 %.not243, label %.sink.split, label %.thread257
+  br i1 %.not243, label %.sink.split, label %.thread255
 
 .sink.split:                                      ; preds = %213, %193
-  %.sink312 = phi i64 [ 208, %193 ], [ 192, %213 ]
+  %.sink307 = phi i64 [ 208, %193 ], [ 192, %213 ]
   %219 = getelementptr inbounds nuw i8, ptr %2, i64 244
-  %220 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink312
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink307
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %219, ptr noundef nonnull align 4 dereferenceable(12) %220, i64 12, i1 false)
   br label %221
 
@@ -1363,16 +1363,16 @@ thread-pre-split:                                 ; preds = %72, %73
 
 231:                                              ; preds = %228, %227
   %.not249 = icmp eq ptr %1, null
-  br i1 %.not249, label %.thread257, label %232
+  br i1 %.not249, label %.thread255, label %232
 
 232:                                              ; preds = %231
   %233 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store i32 0, ptr %233, align 4, !tbaa !65
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 260
   store i32 0, ptr %234, align 4, !tbaa !66
-  br label %.thread257
+  br label %.thread255
 
-.thread257:                                       ; preds = %213, %209, %200, %193, %189, %180, %174, %170, %163, %153, %133, %125, %117, %109, %103, %99, %92, %82, %60, %50, %40, %30, %25, %18, %231, %232
+.thread255:                                       ; preds = %213, %209, %200, %193, %189, %180, %174, %170, %163, %153, %133, %125, %117, %109, %103, %99, %92, %82, %60, %50, %40, %30, %25, %18, %231, %232
   %.2183 = phi i32 [ 0, %232 ], [ 0, %231 ], [ %66, %60 ], [ %56, %50 ], [ %46, %40 ], [ %36, %30 ], [ -125, %25 ], [ -125, %18 ], [ %139, %133 ], [ %131, %125 ], [ %123, %117 ], [ %115, %109 ], [ -182, %103 ], [ -182, %99 ], [ -125, %92 ], [ -125, %82 ], [ %218, %213 ], [ %211, %209 ], [ %205, %200 ], [ %198, %193 ], [ %191, %189 ], [ %185, %180 ], [ -182, %174 ], [ -182, %170 ], [ -125, %163 ], [ -125, %153 ]
   ret i32 %.2183
 }
@@ -1638,7 +1638,7 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %.lr.ph, %SetPrefix.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %SetPrefix.exit ]
-  %.252 = phi i32 [ 0, %.lr.ph ], [ %.4, %SetPrefix.exit ]
+  %.251 = phi i32 [ 0, %.lr.ph ], [ %.4, %SetPrefix.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %33, label %StoreKeys.exit [
@@ -1701,7 +1701,7 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 81
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %50, ptr noundef nonnull align 4 dereferenceable(32) %51, i64 32, i1 false)
-  %52 = icmp eq i32 %.252, 0
+  %52 = icmp eq i32 %.251, 0
   br i1 %52, label %53, label %.thread39
 
 53:                                               ; preds = %43
@@ -1712,7 +1712,7 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %57, label %58, label %.thread39
 
 .thread39:                                        ; preds = %53, %43
-  %.6.ph = phi i32 [ %56, %53 ], [ %.252, %43 ]
+  %.6.ph = phi i32 [ %56, %53 ], [ %.251, %43 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %31, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
   br label %SetPrefix.exit
 
@@ -1873,7 +1873,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %.thread53.i, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %.thread53.i ]
-  %.266.i = phi i32 [ 0, %27 ], [ %.4.ph.i, %.thread53.i ]
+  %.265.i = phi i32 [ 0, %27 ], [ %.4.ph.i, %.thread53.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   switch i32 %35, label %default.unreachable [
@@ -1913,7 +1913,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %51, ptr noundef nonnull align 4 dereferenceable(32) %52, i64 32, i1 false)
-  %53 = icmp eq i32 %.266.i, 0
+  %53 = icmp eq i32 %.265.i, 0
   br i1 %53, label %54, label %.thread50.i
 
 54:                                               ; preds = %39
@@ -1923,7 +1923,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %57, label %58, label %.thread50.i
 
 .thread50.i:                                      ; preds = %54, %39
-  %.6.ph.i = phi i32 [ %56, %54 ], [ %.266.i, %39 ]
+  %.6.ph.i = phi i32 [ %56, %54 ], [ %.265.i, %39 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %32, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
   br label %.thread53.i
 

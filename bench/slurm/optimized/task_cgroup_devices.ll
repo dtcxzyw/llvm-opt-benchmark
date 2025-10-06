@@ -116,8 +116,8 @@ define dso_local i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_a
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load i32, ptr %19, align 8
   %.off = add i32 %20, 6
-  %switch42 = icmp ult i32 %.off, 3
-  br i1 %switch42, label %32, label %21
+  %switch = icmp ult i32 %.off, 3
+  br i1 %switch, label %32, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -138,13 +138,13 @@ define dso_local i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_a
   %29 = call i32 @list_for_each(ptr noundef nonnull %26, ptr noundef nonnull @_handle_device_access, ptr noundef nonnull %3) #5
   call void @list_destroy(ptr noundef nonnull %26) #5
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %35, label %.thread46
+  br i1 %30, label %35, label %.thread43
 
-.thread46:                                        ; preds = %27
+.thread43:                                        ; preds = %27
   %31 = call i32 @cgroup_g_constrain_apply(i32 noundef 3, i32 noundef 4, i32 noundef -2) #5
   br label %32
 
-32:                                               ; preds = %.thread46, %18, %25, %21
+32:                                               ; preds = %.thread43, %18, %25, %21
   %33 = call i32 @getpid() #5
   store i32 %33, ptr %2, align 4
   %34 = call i32 @cgroup_g_step_addto(i32 noundef 3, ptr noundef nonnull %2, i32 noundef 1) #5

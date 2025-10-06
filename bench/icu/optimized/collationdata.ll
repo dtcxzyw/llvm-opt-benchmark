@@ -820,20 +820,20 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %43 = load i16, ptr %42, align 2, !tbaa !29
   %44 = zext i16 %43 to i32
   %45 = icmp sgt i32 %2, 0
-  br i1 %45, label %.lr.ph.preheader, label %.preheader204
+  br i1 %45, label %.lr.ph.preheader, label %.preheader203
 
 .lr.ph.preheader:                                 ; preds = %32
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.preheader204:                                    ; preds = %.lr.ph, %32
+.preheader203:                                    ; preds = %.lr.ph, %32
   %.0129.lcssa = phi i32 [ 0, %32 ], [ %.1130, %.lr.ph ]
   %invariant.gep = getelementptr i16, ptr %16, i64 %19
   br label %54
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0129219 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1130, %.lr.ph ]
+  %.0129218 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1130, %.lr.ph ]
   %46 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !18
   %48 = and i32 %47, -8
@@ -841,25 +841,25 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %49 = add nsw i32 %47, -4096
   %50 = shl nuw nsw i32 1, %49
   %51 = select i1 %or.cond, i32 %50, i32 0
-  %.1130 = or i32 %51, %.0129219
+  %.1130 = or i32 %51, %.0129218
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader204, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %.preheader203, label %.lr.ph, !llvm.loop !45
 
 52:                                               ; preds = %83
   %53 = icmp eq i32 %.0129.lcssa, 0
   br i1 %53, label %84, label %97
 
-54:                                               ; preds = %.preheader204, %83
-  %indvars.iv256 = phi i64 [ 0, %.preheader204 ], [ %indvars.iv.next257, %83 ]
-  %.0119221 = phi i32 [ %37, %.preheader204 ], [ %.1120, %83 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv256
+54:                                               ; preds = %.preheader203, %83
+  %indvars.iv255 = phi i64 [ 0, %.preheader203 ], [ %indvars.iv.next256, %83 ]
+  %.0119220 = phi i32 [ %37, %.preheader203 ], [ %.1120, %83 ]
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv255
   %55 = load i16, ptr %gep, align 2, !tbaa !29
   %.not167 = icmp eq i16 %55, 0
   br i1 %.not167, label %83, label %56
 
 56:                                               ; preds = %54
-  %57 = trunc nuw nsw i64 %indvars.iv256 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv255 to i32
   %58 = shl nuw nsw i32 1, %57
   %59 = and i32 %58, %.0129.lcssa
   %60 = icmp eq i32 %59, 0
@@ -871,10 +871,10 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   %64 = load i16, ptr %63, align 2, !tbaa !29
   %65 = zext i16 %64 to i32
   %66 = and i32 %65, 255
-  %67 = and i32 %.0119221, 255
+  %67 = and i32 %.0119220, 255
   %68 = icmp samesign ult i32 %66, %67
-  %69 = add nsw i32 %.0119221, 256
-  %spec.select.i = select i1 %68, i32 %69, i32 %.0119221
+  %69 = add nsw i32 %.0119220, 256
+  %spec.select.i = select i1 %68, i32 %69, i32 %.0119220
   %70 = lshr i32 %spec.select.i, 8
   %71 = trunc i32 %70 to i8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 %62
@@ -892,10 +892,10 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   br label %83
 
 83:                                               ; preds = %61, %56, %54
-  %.1120 = phi i32 [ %82, %61 ], [ %.0119221, %56 ], [ %.0119221, %54 ]
-  %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
-  %exitcond259.not = icmp eq i64 %indvars.iv.next257, 8
-  br i1 %exitcond259.not, label %52, label %54, !llvm.loop !46
+  %.1120 = phi i32 [ %82, %61 ], [ %.0119220, %56 ], [ %.0119220, %54 ]
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
+  %exitcond258.not = icmp eq i64 %indvars.iv.next256, 8
+  br i1 %exitcond258.not, label %52, label %54, !llvm.loop !46
 
 84:                                               ; preds = %52
   %85 = load i32, ptr %1, align 4, !tbaa !18
@@ -918,40 +918,40 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
 97:                                               ; preds = %88, %84, %52
   %.0143 = phi i32 [ 0, %84 ], [ %96, %88 ], [ 0, %52 ]
   %.2121 = phi i32 [ %.1120, %84 ], [ %94, %88 ], [ %.1120, %52 ]
-  br i1 %45, label %.lr.ph226, label %.thread182
+  br i1 %45, label %.lr.ph225, label %.thread182
 
-.lr.ph226:                                        ; preds = %97
+.lr.ph225:                                        ; preds = %97
   %98 = add i32 %18, -4096
-  %wide.trip.count263 = zext nneg i32 %2 to i64
+  %wide.trip.count262 = zext nneg i32 %2 to i64
   br label %99
 
-99:                                               ; preds = %.lr.ph226, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread
-  %indvars.iv260 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next261, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
-  %.3122224 = phi i32 [ %.2121, %.lr.ph226 ], [ %.5, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
-  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %100 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv260
+99:                                               ; preds = %.lr.ph225, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread
+  %indvars.iv259 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next260, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+  %.3122223 = phi i32 [ %.2121, %.lr.ph225 ], [ %.5, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
+  %100 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv259
   %101 = load i32, ptr %100, align 4, !tbaa !18
   switch i32 %101, label %147 [
-    i32 103, label %.preheader202
+    i32 103, label %.preheader201
     i32 -1, label %146
   ]
 
-.preheader202:                                    ; preds = %99
-  %102 = trunc nuw nsw i64 %indvars.iv.next261 to i32
+.preheader201:                                    ; preds = %99
+  %102 = trunc nuw nsw i64 %indvars.iv.next260 to i32
   %103 = icmp sgt i32 %2, %102
-  br i1 %103, label %.lr.ph231, label %.thread182
+  br i1 %103, label %.lr.ph230, label %.thread182
 
-.lr.ph231:                                        ; preds = %.preheader202
+.lr.ph230:                                        ; preds = %.preheader201
   %104 = zext nneg i32 %2 to i64
-  %sext = shl i64 %indvars.iv.next261, 32
+  %sext = shl i64 %indvars.iv.next260, 32
   %105 = ashr exact i64 %sext, 32
   br label %106
 
-106:                                              ; preds = %.lr.ph231, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread
-  %indvars.iv265 = phi i64 [ %104, %.lr.ph231 ], [ %indvars.iv.next266, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ]
-  %.2126229 = phi i32 [ %44, %.lr.ph231 ], [ %.4128, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ]
-  %indvars.iv.next266 = add nsw i64 %indvars.iv265, -1
-  %107 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next266
+106:                                              ; preds = %.lr.ph230, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread
+  %indvars.iv264 = phi i64 [ %104, %.lr.ph230 ], [ %indvars.iv.next265, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ]
+  %.2126228 = phi i32 [ %44, %.lr.ph230 ], [ %.4128, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ]
+  %indvars.iv.next265 = add nsw i64 %indvars.iv264, -1
+  %107 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next265
   %108 = load i32, ptr %107, align 4, !tbaa !18
   switch i32 %108, label %110 [
     i32 -1, label %109
@@ -1008,10 +1008,10 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %114, %118
   %129 = load i16, ptr %128, align 2, !tbaa !29
   %130 = zext i16 %129 to i32
   %131 = and i32 %130, 255
-  %132 = and i32 %.2126229, 255
+  %132 = and i32 %.2126228, 255
   %133 = icmp samesign ugt i32 %131, %132
-  %134 = add i32 %.2126229, 65280
-  %spec.select.i169 = select i1 %133, i32 %134, i32 %.2126229
+  %134 = add i32 %.2126228, 65280
+  %spec.select.i169 = select i1 %133, i32 %134, i32 %.2126228
   %135 = load i16, ptr %127, align 2, !tbaa !29
   %136 = zext i16 %135 to i32
   %137 = and i32 %spec.select.i169, 65280
@@ -1027,8 +1027,8 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %114, %118
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread: ; preds = %116, %110, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit, %126
-  %.4128 = phi i32 [ %142, %126 ], [ %.2126229, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit ], [ %.2126229, %110 ], [ %.2126229, %116 ]
-  %145 = icmp slt i64 %105, %indvars.iv.next266
+  %.4128 = phi i32 [ %142, %126 ], [ %.2126228, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit ], [ %.2126228, %110 ], [ %.2126228, %116 ]
+  %145 = icmp slt i64 %105, %indvars.iv.next265
   br i1 %145, label %106, label %.thread182
 
 146:                                              ; preds = %99
@@ -1058,8 +1058,8 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread: ; preds = %116, %110, 
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit173: ; preds = %151, %155
-  %.pn199 = phi i64 [ %152, %151 ], [ %157, %155 ]
-  %.0.shrunk.i171.in = getelementptr inbounds i16, ptr %16, i64 %.pn199
+  %.pn198 = phi i64 [ %152, %151 ], [ %157, %155 ]
+  %.0.shrunk.i171.in = getelementptr inbounds i16, ptr %16, i64 %.pn198
   %.0.shrunk.i171 = load i16, ptr %.0.shrunk.i171.in, align 2, !tbaa !29
   %158 = icmp eq i16 %.0.shrunk.i171, 0
   br i1 %158, label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread, label %159, !llvm.loop !48
@@ -1080,10 +1080,10 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173: ; preds = %151, %155
   %166 = load i16, ptr %165, align 2, !tbaa !29
   %167 = zext i16 %166 to i32
   %168 = and i32 %167, 255
-  %169 = and i32 %.3122224, 255
+  %169 = and i32 %.3122223, 255
   %170 = icmp samesign ult i32 %168, %169
-  %171 = add nsw i32 %.3122224, 256
-  %spec.select.i174 = select i1 %170, i32 %171, i32 %.3122224
+  %171 = add nsw i32 %.3122223, 256
+  %spec.select.i174 = select i1 %170, i32 %171, i32 %.3122223
   %172 = lshr i32 %spec.select.i174, 8
   %173 = trunc i32 %172 to i8
   store i8 %173, ptr %161, align 1, !tbaa !44
@@ -1100,24 +1100,24 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173: ; preds = %151, %155
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %153, %147, %164, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173
-  %.5 = phi i32 [ %183, %164 ], [ %.3122224, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173 ], [ %.3122224, %147 ], [ %.3122224, %153 ]
-  %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count263
-  br i1 %exitcond264.not, label %.thread182, label %99
+  %.5 = phi i32 [ %183, %164 ], [ %.3122223, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173 ], [ %.3122223, %147 ], [ %.3122223, %153 ]
+  %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
+  br i1 %exitcond263.not, label %.thread182, label %99
 
-.thread182:                                       ; preds = %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread, %97, %.preheader202
-  %.3122214 = phi i32 [ %.3122224, %.preheader202 ], [ %.2121, %97 ], [ %.3122224, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %.5, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
-  %.not210 = phi i1 [ true, %.preheader202 ], [ false, %97 ], [ true, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ false, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
-  %.1125 = phi i32 [ %44, %.preheader202 ], [ %44, %97 ], [ %.4128, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %44, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+.thread182:                                       ; preds = %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread, %97, %.preheader201
+  %.3122213 = phi i32 [ %.3122223, %.preheader201 ], [ %.2121, %97 ], [ %.3122223, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %.5, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+  %.not209 = phi i1 [ true, %.preheader201 ], [ false, %97 ], [ true, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ false, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+  %.1125 = phi i32 [ %44, %.preheader201 ], [ %44, %97 ], [ %.4128, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %44, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
   %184 = icmp sgt i32 %39, 2
-  br i1 %184, label %.lr.ph235.preheader, label %._crit_edge
+  br i1 %184, label %.lr.ph234.preheader, label %._crit_edge
 
-.lr.ph235.preheader:                              ; preds = %.thread182
+.lr.ph234.preheader:                              ; preds = %.thread182
   %185 = add nsw i32 %39, -1
-  %wide.trip.count271 = zext nneg i32 %185 to i64
-  br label %.lr.ph235
+  %wide.trip.count270 = zext nneg i32 %185 to i64
+  br label %.lr.ph234
 
 ._crit_edge:                                      ; preds = %213, %.thread182
-  %.7.lcssa = phi i32 [ %.3122214, %.thread182 ], [ %.8, %213 ]
+  %.7.lcssa = phi i32 [ %.3122213, %.thread182 ], [ %.8, %213 ]
   %186 = icmp sgt i32 %.7.lcssa, %.1125
   br i1 %186, label %214, label %.preheader
 
@@ -1127,20 +1127,20 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %153, %14
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %218
 
-.lr.ph235:                                        ; preds = %.lr.ph235.preheader, %213
-  %indvars.iv268 = phi i64 [ 1, %.lr.ph235.preheader ], [ %indvars.iv.next269, %213 ]
-  %.7234 = phi i32 [ %.3122214, %.lr.ph235.preheader ], [ %.8, %213 ]
-  %190 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv268
+.lr.ph234:                                        ; preds = %.lr.ph234.preheader, %213
+  %indvars.iv267 = phi i64 [ 1, %.lr.ph234.preheader ], [ %indvars.iv.next268, %213 ]
+  %.7233 = phi i32 [ %.3122213, %.lr.ph234.preheader ], [ %.8, %213 ]
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv267
   %191 = load i8, ptr %190, align 1, !tbaa !44
   %.not165 = icmp eq i8 %191, 0
   br i1 %.not165, label %192, label %213
 
-192:                                              ; preds = %.lr.ph235
-  %193 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv268
+192:                                              ; preds = %.lr.ph234
+  %193 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv267
   %194 = load i16, ptr %193, align 2, !tbaa !29
   %195 = zext i16 %194 to i32
-  %196 = tail call i32 @llvm.smax.i32(i32 %.7234, i32 %195)
-  %.9 = select i1 %.not210, i32 %.7234, i32 %196
+  %196 = tail call i32 @llvm.smax.i32(i32 %.7233, i32 %195)
+  %.9 = select i1 %.not209, i32 %.7233, i32 %196
   %197 = and i32 %195, 255
   %198 = and i32 %.9, 255
   %199 = icmp samesign ult i32 %197, %198
@@ -1161,11 +1161,11 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %153, %14
   %212 = add nsw i32 %211, %206
   br label %213
 
-213:                                              ; preds = %.lr.ph235, %192
-  %.8 = phi i32 [ %212, %192 ], [ %.7234, %.lr.ph235 ]
-  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
-  br i1 %exitcond272.not, label %._crit_edge, label %.lr.ph235, !llvm.loop !49
+213:                                              ; preds = %.lr.ph234, %192
+  %.8 = phi i32 [ %212, %192 ], [ %.7233, %.lr.ph234 ]
+  %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
+  %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
+  br i1 %exitcond271.not, label %._crit_edge, label %.lr.ph234, !llvm.loop !49
 
 214:                                              ; preds = %._crit_edge
   %215 = sub nsw i32 %.7.lcssa, %.0143
@@ -1186,25 +1186,25 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %153, %14
   %.0113 = phi i32 [ %262, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit ], [ 1, %.preheader ]
   %220 = add nsw i32 %219, -1
   %221 = icmp slt i32 %.0113, %220
-  br i1 %221, label %.lr.ph240, label %.thread188
+  br i1 %221, label %.lr.ph239, label %.thread188
 
-.lr.ph240:                                        ; preds = %218
+.lr.ph239:                                        ; preds = %218
   %222 = load ptr, ptr %33, align 8
   %223 = sext i32 %.0113 to i64
   %224 = sext i32 %220 to i64
   br label %225
 
-225:                                              ; preds = %.lr.ph240, %236
-  %indvars.iv273 = phi i64 [ %223, %.lr.ph240 ], [ %indvars.iv.next274, %236 ]
-  %.0110238 = phi i32 [ %.0117, %.lr.ph240 ], [ %.2112, %236 ]
-  %226 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv273
+225:                                              ; preds = %.lr.ph239, %236
+  %indvars.iv272 = phi i64 [ %223, %.lr.ph239 ], [ %indvars.iv.next273, %236 ]
+  %.0110237 = phi i32 [ %.0117, %.lr.ph239 ], [ %.2112, %236 ]
+  %226 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv272
   %227 = load i8, ptr %226, align 1, !tbaa !44
   %228 = icmp eq i8 %227, -1
   br i1 %228, label %236, label %229
 
 229:                                              ; preds = %225
   %230 = zext i8 %227 to i32
-  %231 = getelementptr inbounds i16, ptr %222, i64 %indvars.iv273
+  %231 = getelementptr inbounds i16, ptr %222, i64 %indvars.iv272
   %232 = load i16, ptr %231, align 2, !tbaa !29
   %233 = lshr i16 %232, 8
   %234 = zext nneg i16 %233 to i32
@@ -1213,13 +1213,13 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %153, %14
   br i1 %.not161, label %236, label %.thread188.loopexit.split.loop.exit
 
 236:                                              ; preds = %225, %229
-  %.2112 = phi i32 [ %.0110238, %225 ], [ %.0117, %229 ]
-  %indvars.iv.next274 = add nsw i64 %indvars.iv273, 1
-  %237 = icmp slt i64 %indvars.iv.next274, %224
+  %.2112 = phi i32 [ %.0110237, %225 ], [ %.0117, %229 ]
+  %indvars.iv.next273 = add nsw i64 %indvars.iv272, 1
+  %237 = icmp slt i64 %indvars.iv.next273, %224
   br i1 %237, label %225, label %.thread188
 
 .thread188.loopexit.split.loop.exit:              ; preds = %229
-  %238 = trunc nsw i64 %indvars.iv273 to i32
+  %238 = trunc nsw i64 %indvars.iv272 to i32
   br label %.thread188
 
 .thread188:                                       ; preds = %236, %.thread188.loopexit.split.loop.exit, %218
@@ -1227,8 +1227,8 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %153, %14
   %.1111 = phi i32 [ %.0117, %218 ], [ %235, %.thread188.loopexit.split.loop.exit ], [ %.2112, %236 ]
   %.not162 = icmp ne i32 %.0117, 0
   %239 = icmp slt i32 %.1114.lcssa, %220
-  %or.cond198 = or i1 %.not162, %239
-  br i1 %or.cond198, label %240, label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit
+  %or.cond197 = or i1 %.not162, %239
+  br i1 %or.cond197, label %240, label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit
 
 240:                                              ; preds = %.thread188
   %241 = load ptr, ptr %33, align 8, !tbaa !38

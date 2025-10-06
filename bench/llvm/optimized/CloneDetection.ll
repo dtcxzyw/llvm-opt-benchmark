@@ -511,17 +511,17 @@ define dso_local void @_ZN5clang26OnlyLargestCloneConstraint9constrainERSt6vecto
   %24 = zext i32 %.val16.i to i64
   %.idx.i.i = mul nuw nsw i64 %24, 24
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i
-  %.not1.not.i.not.i = icmp eq i32 %.val16.i, 0
-  br i1 %.not1.not.i.not.i, label %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread, label %.lr.ph.i.i
+  %.not2.not.i.not.i = icmp eq i32 %.val16.i, 0
+  br i1 %.not2.not.i.not.i, label %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread, label %.lr.ph.i.i
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.0133.i.i, i64 24
   %.not.not.i.i = icmp eq ptr %27, %25
   br i1 %.not.not.i.i, label %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %26
-  %.0132.i.i = phi ptr [ %27, %26 ], [ %.val.i, %.lr.ph.i ]
-  %28 = tail call noundef zeroext i1 @_ZNK5clang12StmtSequence8containsERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(24) %.0154.i, ptr noundef nonnull align 8 dereferenceable(24) %.0132.i.i)
+  %.0133.i.i = phi ptr [ %27, %26 ], [ %.val.i, %.lr.ph.i ]
+  %28 = tail call noundef zeroext i1 @_ZNK5clang12StmtSequence8containsERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(24) %.0154.i, ptr noundef nonnull align 8 dereferenceable(24) %.0133.i.i)
   br i1 %28, label %_ZL18containsAnyInGroupRN5clang12StmtSequenceERN4llvm11SmallVectorIS0_Lj8EEE.exit.i, label %26
 
 _ZL18containsAnyInGroupRN5clang12StmtSequenceERN4llvm11SmallVectorIS0_Lj8EEE.exit.i: ; preds = %.lr.ph.i.i
@@ -808,8 +808,8 @@ define dso_local noundef zeroext i1 @_ZN5clang25FilenamePatternConstraint15isAut
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.02025 = phi ptr [ %14, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i8, ptr %.02025, i64 8
+  %.02026 = phi ptr [ %14, %.lr.ph.preheader ], [ %31, %.lr.ph ]
+  %17 = getelementptr inbounds nuw i8, ptr %.02026, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !11
   %19 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %18) #20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2152
@@ -824,9 +824,9 @@ define dso_local noundef zeroext i1 @_ZN5clang25FilenamePatternConstraint15isAut
   %28 = extractvalue { ptr, i64 } %26, 1
   %29 = load ptr, ptr %10, align 8, !tbaa !393
   %30 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr %27, i64 %28, ptr noundef null, ptr noundef null) #21
-  %31 = getelementptr inbounds nuw i8, ptr %.02025, i64 24
-  %.not.not = icmp eq ptr %31, %16
-  %or.cond = select i1 %30, i1 true, i1 %.not.not
+  %31 = getelementptr inbounds nuw i8, ptr %.02026, i64 24
+  %.not = icmp eq ptr %31, %16
+  %or.cond = select i1 %30, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %6, %9
@@ -1212,8 +1212,8 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   %19 = load i16, ptr %0, align 8
   %20 = and i16 %19, 510
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ne i16 %20, 120
-  %.not318.i.i = icmp eq ptr %0, null
-  %.not.i.i = or i1 %.not318.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
+  %.not317.i.i = icmp eq ptr %0, null
+  %.not.i.i = or i1 %.not317.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %59, label %21
 
 21:                                               ; preds = %3
@@ -1392,7 +1392,7 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
 59:                                               ; preds = %3
   %60 = and i16 %19, 511
   %61 = icmp ne i16 %60, 4
-  %.not314.i.i = or i1 %.not318.i.i, %61
+  %.not314.i.i = or i1 %.not317.i.i, %61
   br i1 %.not314.i.i, label %.critedge.i.i, label %62
 
 62:                                               ; preds = %59
@@ -4064,11 +4064,11 @@ define dso_local void @_ZN5clang15VariablePattern20addVariableOccurenceEPKNS_7Va
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %.not = icmp eq ptr %6, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %_ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12emplace_backIJRmRPKNS0_4StmtEEEERS2_DpOT_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %44
-  %storemerge36 = phi i64 [ %45, %44 ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %storemerge36
+  %storemerge34 = phi i64 [ %45, %44 ], [ 0, %3 ]
+  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %storemerge34
   %13 = load ptr, ptr %12, align 8, !tbaa !455
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %44
@@ -4082,7 +4082,7 @@ define dso_local void @_ZN5clang15VariablePattern20addVariableOccurenceEPKNS_7Va
   br i1 %.not.i, label %23, label %20
 
 20:                                               ; preds = %15
-  store i64 %storemerge36, ptr %17, align 8, !tbaa !461
+  store i64 %storemerge34, ptr %17, align 8, !tbaa !461
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %2, ptr %21, align 8, !tbaa !463
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -4113,7 +4113,7 @@ _ZNKSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12_M_check_len
   %35 = shl nuw nsw i64 %34, 4
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %27
-  store i64 %storemerge36, ptr %37, align 8, !tbaa !461
+  store i64 %storemerge34, ptr %37, align 8, !tbaa !461
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %2, ptr %38, align 8, !tbaa !463
   %.not10.i.i.i.i.i = icmp eq ptr %24, %17
@@ -4146,11 +4146,11 @@ _ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE17_M_realloc_in
   br label %_ZNSt6vectorIPKN5clang7VarDeclESaIS3_EE9push_backERKS3_.exit
 
 44:                                               ; preds = %.lr.ph
-  %45 = add nuw i64 %storemerge36, 1
+  %45 = add nuw i64 %storemerge34, 1
   %exitcond.not = icmp eq i64 %45, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !471
+  br i1 %exitcond.not, label %_ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12emplace_backIJRmRPKNS0_4StmtEEEERS2_DpOT_.exit, label %.lr.ph, !llvm.loop !471
 
-._crit_edge:                                      ; preds = %44, %3
+_ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12emplace_backIJRmRPKNS0_4StmtEEEERS2_DpOT_.exit: ; preds = %44, %3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !457
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4158,7 +4158,7 @@ _ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE17_M_realloc_in
   %.not.i1 = icmp eq ptr %47, %49
   br i1 %.not.i1, label %53, label %50
 
-50:                                               ; preds = %._crit_edge
+50:                                               ; preds = %_ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12emplace_backIJRmRPKNS0_4StmtEEEERS2_DpOT_.exit
   store i64 %11, ptr %47, align 8, !tbaa !461
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %2, ptr %51, align 8, !tbaa !463
@@ -4166,7 +4166,7 @@ _ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE17_M_realloc_in
   store ptr %52, ptr %46, align 8, !tbaa !457
   br label %_ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12emplace_backIJmRPKNS0_4StmtEEEERS2_DpOT_.exit
 
-53:                                               ; preds = %._crit_edge
+53:                                               ; preds = %_ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12emplace_backIJRmRPKNS0_4StmtEEEERS2_DpOT_.exit
   %54 = load ptr, ptr %0, align 8, !tbaa !464
   %55 = ptrtoint ptr %47 to i64
   %56 = ptrtoint ptr %54 to i64
@@ -12436,8 +12436,8 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %552 = load i16, ptr %549, align 8
   %553 = and i16 %552, 510
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ne i16 %553, 120
-  %.not318.i.i = icmp eq ptr %549, null
-  %.not.i.i = or i1 %.not318.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
+  %.not317.i.i = icmp eq ptr %549, null
+  %.not.i.i = or i1 %.not317.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %592, label %554
 
 554:                                              ; preds = %548
@@ -12616,7 +12616,7 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
 592:                                              ; preds = %548
   %593 = and i16 %552, 511
   %594 = icmp ne i16 %593, 4
-  %.not314.i.i = or i1 %.not318.i.i, %594
+  %.not314.i.i = or i1 %.not317.i.i, %594
   br i1 %.not314.i.i, label %.critedge.i.i, label %595
 
 595:                                              ; preds = %592

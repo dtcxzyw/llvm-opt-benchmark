@@ -2991,8 +2991,8 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %.sroa.0.4.vec.insert.i23.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i22.i, float %64, i64 1
   br label %.preheader
 
-.preheader:                                       ; preds = %48, %107
-  %indvars.iv97 = phi i64 [ 0, %48 ], [ %indvars.iv.next98, %107 ]
+.preheader:                                       ; preds = %48, %108
+  %indvars.iv97 = phi i64 [ 0, %48 ], [ %indvars.iv.next98, %108 ]
   %66 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv97
   %67 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv97
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
@@ -3009,11 +3009,11 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %78 = trunc nuw nsw i64 %indvars.iv97 to i32
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.preheader, %106
-  %switch = phi i1 [ false, %.preheader ], [ true, %106 ]
-  %.not.i = phi ptr [ %13, %.preheader ], [ %14, %106 ]
-  %79 = phi i1 [ true, %.preheader ], [ false, %106 ]
-  %.08793 = phi i32 [ 0, %.preheader ], [ 1, %106 ]
+.sink.split.i:                                    ; preds = %.preheader, %107
+  %79 = phi i1 [ false, %.preheader ], [ true, %107 ]
+  %.not.i = phi ptr [ %13, %.preheader ], [ %14, %107 ]
+  %80 = phi i1 [ true, %.preheader ], [ false, %107 ]
+  %.08793 = phi i32 [ 0, %.preheader ], [ 1, %107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -3027,45 +3027,45 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   store float 0.000000e+00, ptr %51, align 4
   store <2 x float> %.sroa.0.4.vec.insert.i23.i, ptr %20, align 8
   store float %65, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %.sink46.i = select i1 %switch, ptr %18, ptr %17
-  %.sink.i = select i1 %switch, float -1.000000e+00, float 1.000000e+00
-  %80 = getelementptr inbounds nuw float, ptr %.sink46.i, i64 %indvars.iv97
-  %81 = load float, ptr %80, align 4
-  store float %81, ptr %66, align 4
+  %.sink46.i = select i1 %79, ptr %18, ptr %17
+  %.sink.i = select i1 %79, float -1.000000e+00, float 1.000000e+00
+  %81 = getelementptr inbounds nuw float, ptr %.sink46.i, i64 %indvars.iv97
+  %82 = load float, ptr %81, align 4
+  store float %82, ptr %66, align 4
   store float %.sink.i, ptr %67, align 4
-  %82 = load float, ptr %20, align 8
-  %83 = fsub float %.sroa.032.0.vec.extract.i, %82
-  %84 = load float, ptr %52, align 4
-  %85 = fsub float %.sroa.032.4.vec.extract.i, %84
-  %86 = load float, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %87 = fsub float %.sroa.22.0.copyload.i, %86
-  %88 = load float, ptr %19, align 4
-  %89 = load float, ptr %50, align 4
-  %90 = fmul float %85, %89
-  %91 = tail call float @llvm.fmuladd.f32(float %83, float %88, float %90)
-  %92 = load float, ptr %51, align 4
-  %93 = tail call noundef float @llvm.fmuladd.f32(float %87, float %92, float %91)
-  %94 = fcmp ule float %93, 0.000000e+00
+  %83 = load float, ptr %20, align 8
+  %84 = fsub float %.sroa.032.0.vec.extract.i, %83
+  %85 = load float, ptr %52, align 4
+  %86 = fsub float %.sroa.032.4.vec.extract.i, %85
+  %87 = load float, ptr %.sroa.24.0..sroa_idx.i, align 8
+  %88 = fsub float %.sroa.22.0.copyload.i, %87
+  %89 = load float, ptr %19, align 4
+  %90 = load float, ptr %50, align 4
+  %91 = fmul float %86, %90
+  %92 = tail call float @llvm.fmuladd.f32(float %84, float %89, float %91)
+  %93 = load float, ptr %51, align 4
+  %94 = tail call noundef float @llvm.fmuladd.f32(float %88, float %93, float %92)
+  %95 = fcmp ule float %94, 0.000000e+00
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %or.cond = and i1 %7, %94
-  br i1 %or.cond, label %106, label %95
+  %or.cond = and i1 %7, %95
+  br i1 %or.cond, label %107, label %96
 
-95:                                               ; preds = %.sink.split.i
+96:                                               ; preds = %.sink.split.i
   %.sroa.019.0.copyload = load <2 x float>, ptr %23, align 8
   %.sroa.220.0.copyload = load float, ptr %.sroa.220.0..sroa_idx, align 8
   %.sroa.017.0.copyload = load <2 x float>, ptr %24, align 8
   %.sroa.218.0.copyload = load float, ptr %.sroa.218.0..sroa_idx, align 8
-  %.sroa.016.0.copyload.sroa.speculated = select i1 %94, i32 %10, i32 %9
+  %.sroa.016.0.copyload.sroa.speculated = select i1 %95, i32 %10, i32 %9
   tail call void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 noundef %78, i32 noundef %.08793, <2 x float> %.sroa.033.0.copyload.pre.pre, float %.sroa.234.0.copyload.pre.pre, <2 x float> %.sroa.031.0.copyload.pre.pre, float %.sroa.232.0.copyload.pre.pre, <2 x float> %.sroa.019.0.copyload, float %.sroa.220.0.copyload, <2 x float> %.sroa.017.0.copyload, float %.sroa.218.0.copyload, float noundef %5, float noundef %6, i32 %.sroa.016.0.copyload.sroa.speculated, float noundef %11)
-  br i1 %8, label %96, label %106
+  br i1 %8, label %97, label %107
 
-96:                                               ; preds = %95
+97:                                               ; preds = %96
   tail call void @glPushAttrib(i32 noundef 16384)
-  %97 = load ptr, ptr @__glewBlendColor, align 8
-  tail call void %97(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 0x3FD99999A0000000)
+  %98 = load ptr, ptr @__glewBlendColor, align 8
+  tail call void %98(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 0x3FD99999A0000000)
   tail call void @glBlendFunc(i32 noundef 32769, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3075,9 +3075,9 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   store float %.sroa.220.0.copyload, ptr %.sroa.210.0..sroa_idx.i, align 8
   store <2 x float> %.sroa.017.0.copyload, ptr %14, align 8
   store float %.sroa.218.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
-  br i1 %or.cond.i, label %_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit, label %98
+  br i1 %or.cond.i, label %_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit, label %99
 
-98:                                               ; preds = %96
+99:                                               ; preds = %97
   tail call void @glPushAttrib(i32 noundef 1048575)
   tail call void @glDisable(i32 noundef 2896)
   tail call void @glPushMatrix()
@@ -3088,36 +3088,36 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   store float 0.000000e+00, ptr %71, align 4
   store float 0.000000e+00, ptr %76, align 4
   store float 0.000000e+00, ptr %77, align 4
-  %99 = load float, ptr %15, align 4
-  %100 = load float, ptr %57, align 4
-  %101 = load float, ptr %58, align 4
-  tail call void @glTranslatef(float noundef %99, float noundef %100, float noundef %101)
-  %102 = load float, ptr %16, align 4
-  %103 = load float, ptr %55, align 4
-  %104 = load float, ptr %56, align 4
-  tail call void @glScalef(float noundef %102, float noundef %103, float noundef %104)
-  %105 = load i32, ptr %59, align 8
-  tail call void @_ZNK26MLSceneGLSharedDataContext4drawEiP10QGLContext(ptr noundef nonnull align 8 dereferenceable(168) %1, i32 noundef %105, ptr noundef nonnull %2)
+  %100 = load float, ptr %15, align 4
+  %101 = load float, ptr %57, align 4
+  %102 = load float, ptr %58, align 4
+  tail call void @glTranslatef(float noundef %100, float noundef %101, float noundef %102)
+  %103 = load float, ptr %16, align 4
+  %104 = load float, ptr %55, align 4
+  %105 = load float, ptr %56, align 4
+  tail call void @glScalef(float noundef %103, float noundef %104, float noundef %105)
+  %106 = load i32, ptr %59, align 8
+  tail call void @_ZNK26MLSceneGLSharedDataContext4drawEiP10QGLContext(ptr noundef nonnull align 8 dereferenceable(168) %1, i32 noundef %106, ptr noundef nonnull %2)
   tail call void @glPopMatrix()
   tail call void @glPopAttrib()
   br label %_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit
 
-_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit: ; preds = %96, %98
+_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit: ; preds = %97, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   tail call void @glPopAttrib()
-  br label %106
+  br label %107
 
-106:                                              ; preds = %.sink.split.i, %_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit, %95
-  br i1 %79, label %.sink.split.i, label %107, !llvm.loop !88
-
-107:                                              ; preds = %106
-  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 3
-  br i1 %exitcond100.not, label %108, label %.preheader, !llvm.loop !89
+107:                                              ; preds = %.sink.split.i, %_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit, %96
+  br i1 %80, label %.sink.split.i, label %108, !llvm.loop !88
 
 108:                                              ; preds = %107
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 3
+  br i1 %exitcond100.not, label %109, label %.preheader, !llvm.loop !89
+
+109:                                              ; preds = %108
   tail call void @glDisable(i32 noundef 3042)
   tail call void @glPopAttrib()
   ret void

@@ -197,8 +197,8 @@ _ZL13isVoidPointerN5clang8QualTypeE.exit.i:       ; preds = %.lr.ph.i.i, %.loope
   %76 = load i32, ptr %75, align 8, !tbaa !76, !noalias !56
   %77 = add i32 %76, -27
   %78 = icmp ult i32 %77, -13
-  %.not90.i = icmp eq ptr %74, null
-  %.not.i = or i1 %.not90.i, %78
+  %.not89.i = icmp eq ptr %74, null
+  %.not.i = or i1 %.not89.i, %78
   br i1 %.not.i, label %.thread.i, label %79
 
 79:                                               ; preds = %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
@@ -212,17 +212,17 @@ _ZL13isVoidPointerN5clang8QualTypeE.exit.i:       ; preds = %.lr.ph.i.i, %.loope
   %85 = zext i32 %84 to i64
   %.idx.i.i.i = shl nuw nsw i64 %85, 3
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %84, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %84, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %82, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %88, %.critedge.i.i.i ], [ %83, %82 ]
-  %87 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !86, !noalias !83
+  %.02935.i.i.i = phi ptr [ %88, %.critedge.i.i.i ], [ %83, %82 ]
+  %87 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !86, !noalias !83
   %.not17.i.i.i = icmp eq ptr %87, %74
   br i1 %.not17.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %88 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %88, %86
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !87
 
@@ -289,17 +289,17 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i: 
   %119 = zext i32 %118 to i64
   %.idx.i.i43.i = shl nuw nsw i64 %119, 3
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i.i43.i
-  %.not36.i.i44.i = icmp eq i32 %118, 0
-  br i1 %.not36.i.i44.i, label %._crit_edge.i.i50.i, label %.lr.ph.i.i45.i
+  %.not34.i.i44.i = icmp eq i32 %118, 0
+  br i1 %.not34.i.i44.i, label %._crit_edge.i.i50.i, label %.lr.ph.i.i45.i
 
 .lr.ph.i.i45.i:                                   ; preds = %116, %.critedge.i.i48.i
-  %.02937.i.i46.i = phi ptr [ %122, %.critedge.i.i48.i ], [ %117, %116 ]
-  %121 = load ptr, ptr %.02937.i.i46.i, align 8, !tbaa !86, !noalias !88
+  %.02935.i.i46.i = phi ptr [ %122, %.critedge.i.i48.i ], [ %117, %116 ]
+  %121 = load ptr, ptr %.02935.i.i46.i, align 8, !tbaa !86, !noalias !88
   %.not17.i.i47.i = icmp eq ptr %121, %spec.select.i25.i
   br i1 %.not17.i.i47.i, label %.thread.i, label %.critedge.i.i48.i
 
 .critedge.i.i48.i:                                ; preds = %.lr.ph.i.i45.i
-  %122 = getelementptr inbounds nuw i8, ptr %.02937.i.i46.i, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.02935.i.i46.i, i64 8
   %.not.i.i49.i = icmp eq ptr %122, %120
   br i1 %.not.i.i49.i, label %._crit_edge.i.i50.i, label %.lr.ph.i.i45.i, !llvm.loop !87
 
@@ -358,19 +358,19 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
   br i1 %151, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %150
-  %.296.i = phi ptr [ %153, %150 ], [ %.180.ph.i, %.preheader.i ]
-  %152 = getelementptr inbounds nuw i8, ptr %.296.i, i64 48
+  %.295.i = phi ptr [ %153, %150 ], [ %.180.ph.i, %.preheader.i ]
+  %152 = getelementptr inbounds nuw i8, ptr %.295.i, i64 48
   %153 = load ptr, ptr %152, align 8, !tbaa !91, !noalias !56
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load i32, ptr %154, align 8, !tbaa !76, !noalias !56
   %156 = add i32 %155, -27
   %157 = icmp ult i32 %156, -13
-  %.not2391.i = icmp eq ptr %153, null
-  %.not23.i = or i1 %.not2391.i, %157
+  %.not2390.i = icmp eq ptr %153, null
+  %.not23.i = or i1 %.not2390.i, %157
   br i1 %.not23.i, label %.thread.i, label %150
 
 .thread.i:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i, %108, %.lr.ph.i.i45.i, %150, %.lr.ph.i, %.preheader.i, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
-  %.sroa.077.0 = phi ptr [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %.180.ph.i, %.preheader.i ], [ %153, %150 ], [ %.296.i, %.lr.ph.i ], [ %spec.select.i25.i, %.lr.ph.i.i45.i ], [ %spec.select.i25.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ null, %108 ]
+  %.sroa.077.0 = phi ptr [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %.180.ph.i, %.preheader.i ], [ %153, %150 ], [ %.295.i, %.lr.ph.i ], [ %spec.select.i25.i, %.lr.ph.i.i45.i ], [ %spec.select.i25.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ null, %108 ]
   %.sroa.4.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %73, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ %73, %.lr.ph.i.i45.i ], [ %73, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ undef, %108 ]
   %.sroa.6.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ false, %.preheader.i ], [ false, %.lr.ph.i ], [ false, %150 ], [ true, %.lr.ph.i.i45.i ], [ true, %108 ], [ true, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ]
   %.sink.i = phi i1 [ false, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ true, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ true, %.lr.ph.i.i45.i ], [ %112, %108 ], [ %112, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ]
@@ -1114,13 +1114,13 @@ define internal void @_ZNK12_GLOBAL__N_117NeedsCastLocField11printPrefixERN4llvm
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp ne i8 %19, 13
-  %.not.not24.i = icmp eq ptr %17, null
-  %.not.not.i = or i1 %.not.not24.i, %20
+  %.not.not21.i = icmp eq ptr %17, null
+  %.not.not.i = or i1 %.not.not21.i, %20
   br i1 %.not.not.i, label %21, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 21:                                               ; preds = %2
   %22 = icmp ne i8 %19, 46
-  %.not13.not.i = or i1 %.not.not24.i, %22
+  %.not13.not.i = or i1 %.not.not21.i, %22
   br i1 %.not13.not.i, label %36, label %23
 
 23:                                               ; preds = %21

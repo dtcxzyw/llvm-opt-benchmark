@@ -583,9 +583,9 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, %11
-  br i1 %.not, label %._crit_edge154, label %25
+  br i1 %.not, label %._crit_edge153, label %25
 
-._crit_edge154:                                   ; preds = %22
+._crit_edge153:                                   ; preds = %22
   %.pre = load i32, ptr %20, align 8
   br label %38
 
@@ -607,9 +607,9 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   store i32 0, ptr %37, align 4
   br label %38
 
-38:                                               ; preds = %._crit_edge154, %25
-  %39 = phi i32 [ 0, %25 ], [ %.pre, %._crit_edge154 ]
-  %.0 = phi ptr [ %36, %25 ], [ %20, %._crit_edge154 ]
+38:                                               ; preds = %._crit_edge153, %25
+  %39 = phi i32 [ 0, %25 ], [ %.pre, %._crit_edge153 ]
+  %.0 = phi ptr [ %36, %25 ], [ %20, %._crit_edge153 ]
   %.not132 = icmp eq i32 %39, %.val
   br i1 %.not132, label %40, label %43
 
@@ -617,10 +617,10 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %42 = load i32, ptr %41, align 4
   %.not133 = icmp eq i32 %42, %.val143
-  br i1 %.not133, label %._crit_edge155, label %43
+  br i1 %.not133, label %._crit_edge154, label %43
 
-._crit_edge155:                                   ; preds = %40
-  %.pre156 = sext i32 %11 to i64
+._crit_edge154:                                   ; preds = %40
+  %.pre155 = sext i32 %11 to i64
   br label %61
 
 43:                                               ; preds = %38, %40
@@ -658,8 +658,8 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   store i32 %11, ptr %60, align 8
   br label %61
 
-61:                                               ; preds = %._crit_edge155, %.loopexit
-  %.pre-phi = phi i64 [ %.pre156, %._crit_edge155 ], [ %44, %.loopexit ]
+61:                                               ; preds = %._crit_edge154, %.loopexit
+  %.pre-phi = phi i64 [ %.pre155, %._crit_edge154 ], [ %44, %.loopexit ]
   %62 = shl nsw i64 %.pre-phi, 3
   %63 = tail call ptr @palloc(i64 noundef %62) #11
   %64 = tail call ptr @palloc(i64 noundef %.pre-phi) #11
@@ -667,18 +667,18 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   call void @initStringInfo(ptr noundef nonnull %3) #11
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 40) #11
   %65 = icmp sgt i32 %11, 0
-  br i1 %65, label %.lr.ph153, label %._crit_edge
+  br i1 %65, label %.lr.ph152, label %._crit_edge
 
-.lr.ph153:                                        ; preds = %61
+.lr.ph152:                                        ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %69
 
-69:                                               ; preds = %.lr.ph153, %179
-  %indvars.iv = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next, %179 ]
-  %.0119152 = phi i1 [ false, %.lr.ph153 ], [ %.1, %179 ]
+69:                                               ; preds = %.lr.ph152, %179
+  %indvars.iv = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next, %179 ]
+  %.0119151 = phi i1 [ false, %.lr.ph152 ], [ %.1, %179 ]
   %70 = load i32, ptr %10, align 8
   %71 = sext i32 %70 to i64
   %72 = shl nsw i64 %71, 4
@@ -694,7 +694,7 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   br i1 %81, label %179, label %82
 
 82:                                               ; preds = %69
-  br i1 %.0119152, label %83, label %84
+  br i1 %.0119151, label %83, label %84
 
 83:                                               ; preds = %82
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 44) #11
@@ -738,11 +738,11 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   %.0123 = phi ptr [ %115, %114 ], [ %102, %98 ]
   switch i8 %106, label %107 [
     i8 0, label %116
-    i8 92, label %.thread148
-    i8 44, label %.thread148
-    i8 41, label %.thread148
-    i8 40, label %.thread148
-    i8 34, label %.thread148
+    i8 92, label %.thread147
+    i8 44, label %.thread147
+    i8 41, label %.thread147
+    i8 40, label %.thread147
+    i8 34, label %.thread147
   ]
 
 107:                                              ; preds = %105
@@ -753,7 +753,7 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 8192
   %.not136 = icmp eq i16 %113, 0
-  br i1 %.not136, label %114, label %.thread148
+  br i1 %.not136, label %114, label %.thread147
 
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %.0123, i64 1
@@ -761,20 +761,20 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   br label %105, !llvm.loop !11
 
 116:                                              ; preds = %105
-  br i1 %104, label %.thread148, label %130
+  br i1 %104, label %.thread147, label %130
 
-.thread148:                                       ; preds = %107, %105, %105, %105, %105, %105, %116
+.thread147:                                       ; preds = %107, %105, %105, %105, %105, %105, %116
   %117 = load i32, ptr %67, align 8
   %118 = add i32 %117, 1
   %119 = load i32, ptr %68, align 4
   %.not137 = icmp slt i32 %118, %119
   br i1 %.not137, label %121, label %120
 
-120:                                              ; preds = %.thread148
+120:                                              ; preds = %.thread147
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 34) #11
   br label %130
 
-121:                                              ; preds = %.thread148
+121:                                              ; preds = %.thread147
   %122 = load ptr, ptr %3, align 8
   %123 = sext i32 %117 to i64
   %124 = getelementptr inbounds i8, ptr %122, i64 %123
@@ -884,7 +884,7 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   br label %179
 
 179:                                              ; preds = %164, %170, %169, %84, %69
-  %.1 = phi i1 [ %.0119152, %69 ], [ true, %84 ], [ true, %169 ], [ true, %170 ], [ true, %164 ]
+  %.1 = phi i1 [ %.0119151, %69 ], [ true, %84 ], [ true, %169 ], [ true, %170 ], [ true, %164 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !13
@@ -1647,7 +1647,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
 54:                                               ; preds = %._crit_edge, %41
   %55 = phi i32 [ 0, %41 ], [ %.pre, %._crit_edge ]
   %.0174 = phi ptr [ %52, %41 ], [ %36, %._crit_edge ]
-  %.0174258 = ptrtoint ptr %.0174 to i64
+  %.0174256 = ptrtoint ptr %.0174 to i64
   %56 = getelementptr inbounds nuw i8, ptr %.0174, i64 4
   %.not190 = icmp eq i32 %55, %.val206
   br i1 %.not190, label %57, label %66
@@ -1683,25 +1683,25 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
 
 74:                                               ; preds = %66
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %.loopexit222, label %.lr.ph.preheader
+  br i1 %.not, label %.loopexit220, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %74
-  %75 = add i64 %69, %.0174258
+  %75 = add i64 %69, %.0174256
   %76 = add i64 %75, 24
-  %77 = add i64 %.0174258, 32
+  %77 = add i64 %.0174256, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %76, i64 %77)
   %78 = add i64 %umax, -25
-  %79 = sub i64 %78, %.0174258
+  %79 = sub i64 %78, %.0174256
   %80 = and i64 %79, -8
   %81 = add i64 %80, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %67, i8 0, i64 %81, i1 false)
-  br label %.loopexit222
+  br label %.loopexit220
 
 82:                                               ; preds = %66
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %69, i1 false)
-  br label %.loopexit222
+  br label %.loopexit220
 
-.loopexit222:                                     ; preds = %.lr.ph.preheader, %74, %82
+.loopexit220:                                     ; preds = %.lr.ph.preheader, %74, %82
   store i32 %.val206, ptr %56, align 4
   %83 = getelementptr inbounds nuw i8, ptr %.0174, i64 8
   store i32 %.val208, ptr %83, align 8
@@ -1711,7 +1711,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   store i32 %.val207, ptr %85, align 8
   br label %86
 
-86:                                               ; preds = %.loopexit222, %63
+86:                                               ; preds = %.loopexit220, %63
   %87 = sext i32 %16 to i64
   %88 = shl nsw i64 %87, 3
   %89 = tail call ptr @palloc(i64 noundef %88) #11
@@ -1725,9 +1725,9 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %95 = icmp sgt i32 %16, 0
   %96 = icmp sgt i32 %20, 0
   %97 = select i1 %95, i1 true, i1 %96
-  br i1 %97, label %.lr.ph243, label %.loopexit.thread
+  br i1 %97, label %.lr.ph241, label %.loopexit.thread
 
-.lr.ph243:                                        ; preds = %86
+.lr.ph241:                                        ; preds = %86
   %98 = getelementptr inbounds nuw i8, ptr %.0174, i64 24
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1739,12 +1739,12 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %107
 
-107:                                              ; preds = %.lr.ph243, %207
-  %108 = phi i1 [ %96, %.lr.ph243 ], [ %209, %207 ]
-  %109 = phi i1 [ %95, %.lr.ph243 ], [ %208, %207 ]
-  %.0175242 = phi i32 [ 0, %.lr.ph243 ], [ %.2177, %207 ]
-  %.0178241 = phi i32 [ 0, %.lr.ph243 ], [ %.2180, %207 ]
-  %.0181240 = phi i32 [ 0, %.lr.ph243 ], [ %.1182, %207 ]
+107:                                              ; preds = %.lr.ph241, %207
+  %108 = phi i1 [ %96, %.lr.ph241 ], [ %209, %207 ]
+  %109 = phi i1 [ %95, %.lr.ph241 ], [ %208, %207 ]
+  %.0175240 = phi i32 [ 0, %.lr.ph241 ], [ %.2177, %207 ]
+  %.0178239 = phi i32 [ 0, %.lr.ph241 ], [ %.2180, %207 ]
+  %.0181238 = phi i32 [ 0, %.lr.ph241 ], [ %.1182, %207 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %109, label %110, label %122
 
@@ -1753,7 +1753,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %112 = sext i32 %111 to i64
   %113 = shl nsw i64 %112, 4
   %114 = getelementptr i8, ptr %15, i64 %113
-  %115 = sext i32 %.0175242 to i64
+  %115 = sext i32 %.0175240 to i64
   %116 = getelementptr %struct.FormData_pg_attribute, ptr %114, i64 %115
   %117 = getelementptr i8, ptr %116, i64 115
   %118 = load i8, ptr %117, align 1, !range !6, !noundef !7
@@ -1761,7 +1761,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %110
-  %121 = add nsw i32 %.0175242, 1
+  %121 = add nsw i32 %.0175240, 1
   br label %207, !llvm.loop !30
 
 122:                                              ; preds = %110, %107
@@ -1772,7 +1772,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %125 = sext i32 %124 to i64
   %126 = shl nsw i64 %125, 4
   %127 = getelementptr i8, ptr %19, i64 %126
-  %128 = sext i32 %.0178241 to i64
+  %128 = sext i32 %.0178239 to i64
   %129 = getelementptr %struct.FormData_pg_attribute, ptr %127, i64 %128
   %130 = getelementptr i8, ptr %129, i64 115
   %131 = load i8, ptr %130, align 1, !range !6, !noundef !7
@@ -1780,7 +1780,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %123
-  %134 = add nsw i32 %.0178241, 1
+  %134 = add nsw i32 %.0178239, 1
   br label %207, !llvm.loop !30
 
 135:                                              ; preds = %123
@@ -1792,7 +1792,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %139 = shl nsw i64 %138, 4
   %140 = getelementptr i8, ptr %15, i64 %139
   %141 = getelementptr i8, ptr %140, i64 24
-  %142 = sext i32 %.0175242 to i64
+  %142 = sext i32 %.0175240 to i64
   %143 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %141, i64 %142
   %144 = getelementptr i8, ptr %127, i64 24
   %145 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %144, i64 %128
@@ -1812,7 +1812,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %156 = call ptr @format_type_be(i32 noundef %155) #11
   %157 = load i32, ptr %152, align 4
   %158 = call ptr @format_type_be(i32 noundef %157) #11
-  %159 = add i32 %.0181240, 1
+  %159 = add i32 %.0181238, 1
   %160 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %156, ptr noundef %158, i32 noundef %159) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @__func__.record_eq) #11
   unreachable
@@ -1824,7 +1824,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %165 = load i32, ptr %164, align 4
   %.not197 = icmp eq i32 %163, %165
   %spec.store.select = select i1 %.not197, i32 %163, i32 0
-  %166 = sext i32 %.0181240 to i64
+  %166 = sext i32 %.0181238 to i64
   %167 = getelementptr inbounds %struct.ColumnCompareData, ptr %98, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
@@ -1866,10 +1866,10 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   br i1 %186, label %190, label %191
 
 190:                                              ; preds = %183
-  br i1 %189, label %203, label %.loopexit.thread272
+  br i1 %189, label %203, label %.loopexit.thread270
 
 191:                                              ; preds = %183
-  br i1 %189, label %.loopexit.thread272, label %192
+  br i1 %189, label %.loopexit.thread270, label %192
 
 192:                                              ; preds = %191
   %193 = getelementptr inbounds nuw i8, ptr %.0173, i64 72
@@ -1892,25 +1892,25 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %201 = load i8, ptr %101, align 4, !range !6, !noundef !7
   %202 = trunc nuw i8 %201 to i1
   %or.cond5.not = select i1 %202, i1 true, i1 %200
-  br i1 %or.cond5.not, label %.loopexit.thread272, label %203
+  br i1 %or.cond5.not, label %.loopexit.thread270, label %203
 
 203:                                              ; preds = %192, %190
-  %204 = add nsw i32 %.0175242, 1
-  %205 = add nsw i32 %.0178241, 1
-  %206 = add i32 %.0181240, 1
+  %204 = add nsw i32 %.0175240, 1
+  %205 = add nsw i32 %.0178239, 1
+  %206 = add i32 %.0181238, 1
   br label %207
 
 207:                                              ; preds = %203, %133, %120
-  %.1182 = phi i32 [ %.0181240, %120 ], [ %.0181240, %133 ], [ %206, %203 ]
-  %.2180 = phi i32 [ %.0178241, %120 ], [ %134, %133 ], [ %205, %203 ]
-  %.2177 = phi i32 [ %121, %120 ], [ %.0175242, %133 ], [ %204, %203 ]
+  %.1182 = phi i32 [ %.0181238, %120 ], [ %.0181238, %133 ], [ %206, %203 ]
+  %.2180 = phi i32 [ %.0178239, %120 ], [ %134, %133 ], [ %205, %203 ]
+  %.2177 = phi i32 [ %121, %120 ], [ %.0175240, %133 ], [ %204, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %208 = icmp slt i32 %.2177, %16
   %209 = icmp slt i32 %.2180, %20
   %210 = select i1 %208, i1 true, i1 %209
   br i1 %210, label %107, label %.loopexit.thread
 
-.loopexit.thread272:                              ; preds = %192, %191, %190
+.loopexit.thread270:                              ; preds = %192, %191, %190
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %215
 
@@ -1919,10 +1919,10 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %207, %86, %.loopexit
-  %.0175230268 = phi i32 [ %.0175242, %.loopexit ], [ 0, %86 ], [ %.2177, %207 ]
-  %.0178234267 = phi i32 [ %.0178241, %.loopexit ], [ 0, %86 ], [ %.2180, %207 ]
-  %.not200 = icmp eq i32 %.0175230268, %16
-  %.not201 = icmp eq i32 %.0178234267, %20
+  %.0175228266 = phi i32 [ %.0175240, %.loopexit ], [ 0, %86 ], [ %.2177, %207 ]
+  %.0178232265 = phi i32 [ %.0178239, %.loopexit ], [ 0, %86 ], [ %.2180, %207 ]
+  %.not200 = icmp eq i32 %.0175228266, %16
+  %.not201 = icmp eq i32 %.0178232265, %20
   %or.cond205 = select i1 %.not200, i1 %.not201, i1 false
   br i1 %or.cond205, label %215, label %211
 
@@ -1933,8 +1933,8 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1265, ptr noundef nonnull @__func__.record_eq) #11
   unreachable
 
-215:                                              ; preds = %.loopexit.thread272, %.loopexit.thread
-  %.1269 = phi i64 [ 1, %.loopexit.thread ], [ 0, %.loopexit.thread272 ]
+215:                                              ; preds = %.loopexit.thread270, %.loopexit.thread
+  %.1267 = phi i64 [ 1, %.loopexit.thread ], [ 0, %.loopexit.thread270 ]
   call void @pfree(ptr noundef %89) #11
   call void @pfree(ptr noundef %90) #11
   call void @pfree(ptr noundef %93) #11
@@ -1981,7 +1981,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
 233:                                              ; preds = %232, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.1269
+  ret i64 %.1267
 }
 
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
@@ -2095,7 +2095,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
 54:                                               ; preds = %._crit_edge, %41
   %55 = phi i32 [ 0, %41 ], [ %.pre, %._crit_edge ]
   %.0171 = phi ptr [ %52, %41 ], [ %36, %._crit_edge ]
-  %.0171253 = ptrtoint ptr %.0171 to i64
+  %.0171251 = ptrtoint ptr %.0171 to i64
   %56 = getelementptr inbounds nuw i8, ptr %.0171, i64 4
   %.not = icmp eq i32 %55, %.val208
   br i1 %.not, label %57, label %66
@@ -2130,16 +2130,16 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   br i1 %or.cond, label %74, label %82
 
 74:                                               ; preds = %66
-  %.not243 = icmp eq i32 %33, 0
-  br i1 %.not243, label %.loopexit, label %.lr.ph.preheader
+  %.not241 = icmp eq i32 %33, 0
+  br i1 %.not241, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %74
-  %75 = add i64 %69, %.0171253
+  %75 = add i64 %69, %.0171251
   %76 = add i64 %75, 24
-  %77 = add i64 %.0171253, 32
+  %77 = add i64 %.0171251, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %76, i64 %77)
   %78 = add i64 %umax, -25
-  %79 = sub i64 %78, %.0171253
+  %79 = sub i64 %78, %.0171251
   %80 = and i64 %79, -8
   %81 = add i64 %80, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %67, i8 0, i64 %81, i1 false)
@@ -2187,9 +2187,9 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %86, %209
   %107 = phi i1 [ %211, %209 ], [ %105, %86 ]
   %108 = phi i1 [ %210, %209 ], [ %104, %86 ]
-  %.0175323 = phi i32 [ %.2177, %209 ], [ 0, %86 ]
-  %.0178322 = phi i32 [ %.2180, %209 ], [ 0, %86 ]
-  %.0181321 = phi i32 [ %.1182, %209 ], [ 0, %86 ]
+  %.0175320 = phi i32 [ %.2177, %209 ], [ 0, %86 ]
+  %.0178319 = phi i32 [ %.2180, %209 ], [ 0, %86 ]
+  %.0181318 = phi i32 [ %.1182, %209 ], [ 0, %86 ]
   br i1 %108, label %109, label %121
 
 109:                                              ; preds = %.lr.ph
@@ -2197,7 +2197,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %111 = sext i32 %110 to i64
   %112 = shl nsw i64 %111, 4
   %113 = getelementptr i8, ptr %15, i64 %112
-  %114 = sext i32 %.0175323 to i64
+  %114 = sext i32 %.0175320 to i64
   %115 = getelementptr %struct.FormData_pg_attribute, ptr %113, i64 %114
   %116 = getelementptr i8, ptr %115, i64 115
   %117 = load i8, ptr %116, align 1, !range !6, !noundef !7
@@ -2205,7 +2205,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %109
-  %120 = add nsw i32 %.0175323, 1
+  %120 = add nsw i32 %.0175320, 1
   br label %209, !llvm.loop !31
 
 121:                                              ; preds = %109, %.lr.ph
@@ -2216,7 +2216,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %124 = sext i32 %123 to i64
   %125 = shl nsw i64 %124, 4
   %126 = getelementptr i8, ptr %19, i64 %125
-  %127 = sext i32 %.0178322 to i64
+  %127 = sext i32 %.0178319 to i64
   %128 = getelementptr %struct.FormData_pg_attribute, ptr %126, i64 %127
   %129 = getelementptr i8, ptr %128, i64 115
   %130 = load i8, ptr %129, align 1, !range !6, !noundef !7
@@ -2224,7 +2224,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %122
-  %133 = add nsw i32 %.0178322, 1
+  %133 = add nsw i32 %.0178319, 1
   br label %209, !llvm.loop !31
 
 134:                                              ; preds = %122
@@ -2236,7 +2236,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %138 = shl nsw i64 %137, 4
   %139 = getelementptr i8, ptr %15, i64 %138
   %140 = getelementptr i8, ptr %139, i64 24
-  %141 = sext i32 %.0175323 to i64
+  %141 = sext i32 %.0175320 to i64
   %142 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %140, i64 %141
   %143 = getelementptr i8, ptr %126, i64 24
   %144 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %143, i64 %127
@@ -2256,7 +2256,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %155 = call ptr @format_type_be(i32 noundef %154) #11
   %156 = load i32, ptr %151, align 4
   %157 = call ptr @format_type_be(i32 noundef %156) #11
-  %158 = add i32 %.0181321, 1
+  %158 = add i32 %.0181318, 1
   %159 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %155, ptr noundef %157, i32 noundef %158) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 952, ptr noundef nonnull @__func__.record_cmp) #11
   unreachable
@@ -2268,7 +2268,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %164 = load i32, ptr %163, align 4
   %.not197 = icmp eq i32 %162, %164
   %spec.store.select = select i1 %.not197, i32 %162, i32 0
-  %165 = sext i32 %.0181321 to i64
+  %165 = sext i32 %.0181318 to i64
   %166 = getelementptr inbounds %struct.ColumnCompareData, ptr %95, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
@@ -2347,35 +2347,35 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
 .thread219.thread:                                ; preds = %194, %190, %.thread
   %.4.ph = phi i32 [ 1, %.thread ], [ -1, %190 ], [ -1, %194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread219.thread267
+  br label %.thread219.thread264
 
 204:                                              ; preds = %194
   %.not200 = icmp eq i32 %202, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not200, label %205, label %.thread219.thread267
+  br i1 %.not200, label %205, label %.thread219.thread264
 
 205:                                              ; preds = %204, %186
-  %206 = add nsw i32 %.0175323, 1
-  %207 = add nsw i32 %.0178322, 1
-  %208 = add i32 %.0181321, 1
+  %206 = add nsw i32 %.0175320, 1
+  %207 = add nsw i32 %.0178319, 1
+  %208 = add i32 %.0181318, 1
   br label %209
 
 209:                                              ; preds = %205, %132, %119
-  %.1182 = phi i32 [ %.0181321, %119 ], [ %.0181321, %132 ], [ %208, %205 ]
-  %.2180 = phi i32 [ %.0178322, %119 ], [ %133, %132 ], [ %207, %205 ]
-  %.2177 = phi i32 [ %120, %119 ], [ %.0175323, %132 ], [ %206, %205 ]
+  %.1182 = phi i32 [ %.0181318, %119 ], [ %.0181318, %132 ], [ %208, %205 ]
+  %.2180 = phi i32 [ %.0178319, %119 ], [ %133, %132 ], [ %207, %205 ]
+  %.2177 = phi i32 [ %120, %119 ], [ %.0175320, %132 ], [ %206, %205 ]
   %210 = icmp slt i32 %.2177, %16
   %211 = icmp slt i32 %.2180, %20
   %212 = select i1 %210, i1 true, i1 %211
   br i1 %212, label %.lr.ph, label %.thread219
 
 .thread219:                                       ; preds = %121, %134, %209, %86
-  %.0178.lcssa = phi i32 [ 0, %86 ], [ %.2180, %209 ], [ %.0178322, %134 ], [ %.0178322, %121 ]
-  %.0175.lcssa = phi i32 [ 0, %86 ], [ %.2177, %209 ], [ %.0175323, %134 ], [ %.0175323, %121 ]
+  %.0178.lcssa = phi i32 [ 0, %86 ], [ %.2180, %209 ], [ %.0178319, %134 ], [ %.0178319, %121 ]
+  %.0175.lcssa = phi i32 [ 0, %86 ], [ %.2177, %209 ], [ %.0175320, %134 ], [ %.0175320, %121 ]
   %.not201 = icmp eq i32 %.0175.lcssa, %16
   %.not202 = icmp eq i32 %.0178.lcssa, %20
   %or.cond207 = select i1 %.not201, i1 %.not202, i1 false
-  br i1 %or.cond207, label %.thread219.thread267, label %213
+  br i1 %or.cond207, label %.thread219.thread264, label %213
 
 213:                                              ; preds = %.thread219
   %214 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -2384,8 +2384,8 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1040, ptr noundef nonnull @__func__.record_cmp) #11
   unreachable
 
-.thread219.thread267:                             ; preds = %204, %.thread219.thread, %.thread219
-  %.1230 = phi i32 [ %.4.ph, %.thread219.thread ], [ 0, %.thread219 ], [ 1, %204 ]
+.thread219.thread264:                             ; preds = %204, %.thread219.thread, %.thread219
+  %.1228 = phi i32 [ %.4.ph, %.thread219.thread ], [ 0, %.thread219 ], [ 1, %204 ]
   call void @pfree(ptr noundef %89) #11
   call void @pfree(ptr noundef %90) #11
   call void @pfree(ptr noundef %93) #11
@@ -2395,11 +2395,11 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %219 = icmp sgt i32 %218, -1
   br i1 %219, label %220, label %221
 
-220:                                              ; preds = %.thread219.thread267
+220:                                              ; preds = %.thread219.thread264
   call void @DecrTupleDescRefCount(ptr noundef nonnull %15) #11
   br label %221
 
-221:                                              ; preds = %.thread219.thread267, %220
+221:                                              ; preds = %.thread219.thread264, %220
   %222 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %223 = load i32, ptr %222, align 4
   %224 = icmp sgt i32 %223, -1
@@ -2432,7 +2432,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
 234:                                              ; preds = %233, %230
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.1230
+  ret i32 %.1228
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2576,7 +2576,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
 53:                                               ; preds = %._crit_edge, %40
   %54 = phi i32 [ 0, %40 ], [ %.pre, %._crit_edge ]
   %.0144 = phi ptr [ %51, %40 ], [ %35, %._crit_edge ]
-  %.0144216 = ptrtoint ptr %.0144 to i64
+  %.0144212 = ptrtoint ptr %.0144 to i64
   %55 = getelementptr inbounds nuw i8, ptr %.0144, i64 4
   %.not = icmp eq i32 %54, %.val170
   br i1 %.not, label %56, label %65
@@ -2611,16 +2611,16 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   br i1 %or.cond, label %73, label %81
 
 73:                                               ; preds = %65
-  %.not210 = icmp eq i32 %32, 0
-  br i1 %.not210, label %.loopexit, label %.lr.ph.preheader
+  %.not206 = icmp eq i32 %32, 0
+  br i1 %.not206, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73
-  %74 = add i64 %68, %.0144216
+  %74 = add i64 %68, %.0144212
   %75 = add i64 %74, 24
-  %76 = add i64 %.0144216, 32
+  %76 = add i64 %.0144212, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %75, i64 %76)
   %77 = add i64 %umax, -25
-  %78 = sub i64 %77, %.0144216
+  %78 = sub i64 %77, %.0144212
   %79 = and i64 %78, -8
   %80 = add i64 %79, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %80, i1 false)
@@ -2654,22 +2654,22 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %94 = icmp sgt i32 %15, 0
   %95 = icmp sgt i32 %19, 0
   %96 = select i1 %94, i1 true, i1 %95
-  br i1 %96, label %.lr.ph202, label %.thread177
+  br i1 %96, label %.lr.ph198, label %.thread177
 
-.lr.ph202:                                        ; preds = %85, %175
+.lr.ph198:                                        ; preds = %85, %175
   %97 = phi i1 [ %177, %175 ], [ %95, %85 ]
   %98 = phi i1 [ %176, %175 ], [ %94, %85 ]
-  %.0145201 = phi i32 [ %.2147, %175 ], [ 0, %85 ]
-  %.0149200 = phi i32 [ %.2151, %175 ], [ 0, %85 ]
-  %.0152199 = phi i32 [ %.1153, %175 ], [ 0, %85 ]
+  %.0145197 = phi i32 [ %.2147, %175 ], [ 0, %85 ]
+  %.0149196 = phi i32 [ %.2151, %175 ], [ 0, %85 ]
+  %.0152195 = phi i32 [ %.1153, %175 ], [ 0, %85 ]
   br i1 %98, label %99, label %111
 
-99:                                               ; preds = %.lr.ph202
+99:                                               ; preds = %.lr.ph198
   %100 = load i32, ptr %14, align 8
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 4
   %103 = getelementptr i8, ptr %14, i64 %102
-  %104 = sext i32 %.0145201 to i64
+  %104 = sext i32 %.0145197 to i64
   %105 = getelementptr %struct.FormData_pg_attribute, ptr %103, i64 %104
   %106 = getelementptr i8, ptr %105, i64 115
   %107 = load i8, ptr %106, align 1, !range !6, !noundef !7
@@ -2677,10 +2677,10 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %99
-  %110 = add nsw i32 %.0145201, 1
+  %110 = add nsw i32 %.0145197, 1
   br label %175, !llvm.loop !32
 
-111:                                              ; preds = %99, %.lr.ph202
+111:                                              ; preds = %99, %.lr.ph198
   br i1 %97, label %112, label %.thread177
 
 112:                                              ; preds = %111
@@ -2688,7 +2688,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %114 = sext i32 %113 to i64
   %115 = shl nsw i64 %114, 4
   %116 = getelementptr i8, ptr %18, i64 %115
-  %117 = sext i32 %.0149200 to i64
+  %117 = sext i32 %.0149196 to i64
   %118 = getelementptr %struct.FormData_pg_attribute, ptr %116, i64 %117
   %119 = getelementptr i8, ptr %118, i64 115
   %120 = load i8, ptr %119, align 1, !range !6, !noundef !7
@@ -2696,7 +2696,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %112
-  %123 = add nsw i32 %.0149200, 1
+  %123 = add nsw i32 %.0149196, 1
   br label %175, !llvm.loop !32
 
 124:                                              ; preds = %112
@@ -2708,7 +2708,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %128 = shl nsw i64 %127, 4
   %129 = getelementptr i8, ptr %14, i64 %128
   %130 = getelementptr i8, ptr %129, i64 24
-  %131 = sext i32 %.0145201 to i64
+  %131 = sext i32 %.0145197 to i64
   %132 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %130, i64 %131
   %133 = getelementptr i8, ptr %116, i64 24
   %134 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %133, i64 %117
@@ -2728,7 +2728,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %145 = call ptr @format_type_be(i32 noundef %144) #11
   %146 = load i32, ptr %141, align 4
   %147 = call ptr @format_type_be(i32 noundef %146) #11
-  %148 = add i32 %.0152199, 1
+  %148 = add i32 %.0152195, 1
   %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %145, ptr noundef %147, i32 noundef %148) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1720, ptr noundef nonnull @__func__.record_image_eq) #11
   unreachable
@@ -2763,23 +2763,23 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   br i1 %170, label %171, label %.thread177.thread
 
 171:                                              ; preds = %159, %157
-  %172 = add nsw i32 %.0145201, 1
-  %173 = add nsw i32 %.0149200, 1
-  %174 = add i32 %.0152199, 1
+  %172 = add nsw i32 %.0145197, 1
+  %173 = add nsw i32 %.0149196, 1
+  %174 = add i32 %.0152195, 1
   br label %175
 
 175:                                              ; preds = %171, %122, %109
-  %.1153 = phi i32 [ %.0152199, %109 ], [ %.0152199, %122 ], [ %174, %171 ]
-  %.2151 = phi i32 [ %.0149200, %109 ], [ %123, %122 ], [ %173, %171 ]
-  %.2147 = phi i32 [ %110, %109 ], [ %.0145201, %122 ], [ %172, %171 ]
+  %.1153 = phi i32 [ %.0152195, %109 ], [ %.0152195, %122 ], [ %174, %171 ]
+  %.2151 = phi i32 [ %.0149196, %109 ], [ %123, %122 ], [ %173, %171 ]
+  %.2147 = phi i32 [ %110, %109 ], [ %.0145197, %122 ], [ %172, %171 ]
   %176 = icmp slt i32 %.2147, %15
   %177 = icmp slt i32 %.2151, %19
   %178 = select i1 %176, i1 true, i1 %177
-  br i1 %178, label %.lr.ph202, label %.thread177
+  br i1 %178, label %.lr.ph198, label %.thread177
 
 .thread177:                                       ; preds = %111, %124, %175, %85
-  %.0149.lcssa = phi i32 [ 0, %85 ], [ %.2151, %175 ], [ %.0149200, %124 ], [ %.0149200, %111 ]
-  %.0145.lcssa = phi i32 [ 0, %85 ], [ %.2147, %175 ], [ %.0145201, %124 ], [ %.0145201, %111 ]
+  %.0149.lcssa = phi i32 [ 0, %85 ], [ %.2151, %175 ], [ %.0149196, %124 ], [ %.0149196, %111 ]
+  %.0145.lcssa = phi i32 [ 0, %85 ], [ %.2147, %175 ], [ %.0145197, %124 ], [ %.0145197, %111 ]
   %.not164 = icmp eq i32 %.0145.lcssa, %15
   %.not165 = icmp eq i32 %.0149.lcssa, %19
   %or.cond169 = select i1 %.not164, i1 %.not165, i1 false
@@ -2950,7 +2950,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
 53:                                               ; preds = %._crit_edge, %40
   %54 = phi i32 [ 0, %40 ], [ %.pre, %._crit_edge ]
   %.0187 = phi ptr [ %51, %40 ], [ %35, %._crit_edge ]
-  %.0187312 = ptrtoint ptr %.0187 to i64
+  %.0187308 = ptrtoint ptr %.0187 to i64
   %55 = getelementptr inbounds nuw i8, ptr %.0187, i64 4
   %.not = icmp eq i32 %54, %.val233
   br i1 %.not, label %56, label %65
@@ -2985,16 +2985,16 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %or.cond, label %73, label %81
 
 73:                                               ; preds = %65
-  %.not298 = icmp eq i32 %32, 0
-  br i1 %.not298, label %.loopexit, label %.lr.ph.preheader
+  %.not294 = icmp eq i32 %32, 0
+  br i1 %.not294, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73
-  %74 = add i64 %68, %.0187312
+  %74 = add i64 %68, %.0187308
   %75 = add i64 %74, 24
-  %76 = add i64 %.0187312, 32
+  %76 = add i64 %.0187308, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %75, i64 %76)
   %77 = add i64 %umax, -25
-  %78 = sub i64 %77, %.0187312
+  %78 = sub i64 %77, %.0187308
   %79 = and i64 %78, -8
   %80 = add i64 %79, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %80, i1 false)
@@ -3033,9 +3033,9 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
 .lr.ph:                                           ; preds = %85, %224
   %97 = phi i1 [ %226, %224 ], [ %95, %85 ]
   %98 = phi i1 [ %225, %224 ], [ %94, %85 ]
-  %.0188377 = phi i32 [ %.2190, %224 ], [ 0, %85 ]
-  %.0191376 = phi i32 [ %.2193, %224 ], [ 0, %85 ]
-  %.0198375 = phi i32 [ %.1199, %224 ], [ 0, %85 ]
+  %.0188372 = phi i32 [ %.2190, %224 ], [ 0, %85 ]
+  %.0191371 = phi i32 [ %.2193, %224 ], [ 0, %85 ]
+  %.0198370 = phi i32 [ %.1199, %224 ], [ 0, %85 ]
   br i1 %98, label %99, label %111
 
 99:                                               ; preds = %.lr.ph
@@ -3043,7 +3043,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 4
   %103 = getelementptr i8, ptr %14, i64 %102
-  %104 = sext i32 %.0188377 to i64
+  %104 = sext i32 %.0188372 to i64
   %105 = getelementptr %struct.FormData_pg_attribute, ptr %103, i64 %104
   %106 = getelementptr i8, ptr %105, i64 115
   %107 = load i8, ptr %106, align 1, !range !6, !noundef !7
@@ -3051,7 +3051,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %99
-  %110 = add nsw i32 %.0188377, 1
+  %110 = add nsw i32 %.0188372, 1
   br label %224, !llvm.loop !33
 
 111:                                              ; preds = %99, %.lr.ph
@@ -3062,7 +3062,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %114 = sext i32 %113 to i64
   %115 = shl nsw i64 %114, 4
   %116 = getelementptr i8, ptr %18, i64 %115
-  %117 = sext i32 %.0191376 to i64
+  %117 = sext i32 %.0191371 to i64
   %118 = getelementptr %struct.FormData_pg_attribute, ptr %116, i64 %117
   %119 = getelementptr i8, ptr %118, i64 115
   %120 = load i8, ptr %119, align 1, !range !6, !noundef !7
@@ -3070,7 +3070,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %112
-  %123 = add nsw i32 %.0191376, 1
+  %123 = add nsw i32 %.0191371, 1
   br label %224, !llvm.loop !33
 
 124:                                              ; preds = %112
@@ -3082,7 +3082,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %128 = shl nsw i64 %127, 4
   %129 = getelementptr i8, ptr %14, i64 %128
   %130 = getelementptr i8, ptr %129, i64 24
-  %131 = sext i32 %.0188377 to i64
+  %131 = sext i32 %.0188372 to i64
   %132 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 68
   %134 = load i32, ptr %133, align 4
@@ -3100,7 +3100,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %143 = call ptr @format_type_be(i32 noundef %142) #11
   %144 = load i32, ptr %139, align 4
   %145 = call ptr @format_type_be(i32 noundef %144) #11
-  %146 = add i32 %.0198375, 1
+  %146 = add i32 %.0198370, 1
   %147 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %143, ptr noundef %145, i32 noundef %146) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1474, ptr noundef nonnull @__func__.record_image_cmp) #11
   unreachable
@@ -3136,7 +3136,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
 
 166:                                              ; preds = %161
   %167 = icmp ult i64 %163, %165
-  %spec.select280 = select i1 %167, i32 -1, i32 1
+  %spec.select276 = select i1 %167, i32 -1, i32 1
   br label %.thread251.thread
 
 168:                                              ; preds = %157
@@ -3227,23 +3227,23 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %.not225, label %.thread240.thread, label %.thread251.thread
 
 .thread240.thread:                                ; preds = %161, %.thread240, %155
-  %221 = add nsw i32 %.0188377, 1
-  %222 = add nsw i32 %.0191376, 1
-  %223 = add i32 %.0198375, 1
+  %221 = add nsw i32 %.0188372, 1
+  %222 = add nsw i32 %.0191371, 1
+  %223 = add i32 %.0198370, 1
   br label %224
 
 224:                                              ; preds = %.thread240.thread, %122, %109
-  %.1199 = phi i32 [ %.0198375, %109 ], [ %.0198375, %122 ], [ %223, %.thread240.thread ]
-  %.2193 = phi i32 [ %.0191376, %109 ], [ %123, %122 ], [ %222, %.thread240.thread ]
-  %.2190 = phi i32 [ %110, %109 ], [ %.0188377, %122 ], [ %221, %.thread240.thread ]
+  %.1199 = phi i32 [ %.0198370, %109 ], [ %.0198370, %122 ], [ %223, %.thread240.thread ]
+  %.2193 = phi i32 [ %.0191371, %109 ], [ %123, %122 ], [ %222, %.thread240.thread ]
+  %.2190 = phi i32 [ %110, %109 ], [ %.0188372, %122 ], [ %221, %.thread240.thread ]
   %225 = icmp slt i32 %.2190, %15
   %226 = icmp slt i32 %.2193, %19
   %227 = select i1 %225, i1 true, i1 %226
   br i1 %227, label %.lr.ph, label %.thread251
 
 .thread251:                                       ; preds = %111, %124, %224, %85
-  %.0191.lcssa = phi i32 [ 0, %85 ], [ %.2193, %224 ], [ %.0191376, %124 ], [ %.0191376, %111 ]
-  %.0188.lcssa = phi i32 [ 0, %85 ], [ %.2190, %224 ], [ %.0188377, %124 ], [ %.0188377, %111 ]
+  %.0191.lcssa = phi i32 [ 0, %85 ], [ %.2193, %224 ], [ %.0191371, %124 ], [ %.0191371, %111 ]
+  %.0188.lcssa = phi i32 [ 0, %85 ], [ %.2190, %224 ], [ %.0188372, %124 ], [ %.0188372, %111 ]
   %.not226 = icmp eq i32 %.0188.lcssa, %15
   %.not227 = icmp eq i32 %.0191.lcssa, %19
   %or.cond232 = select i1 %.not226, i1 %.not227, i1 false
@@ -3257,7 +3257,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   unreachable
 
 .thread251.thread:                                ; preds = %.thread240, %155, %156, %219, %166, %.thread251
-  %.1279 = phi i32 [ 0, %.thread251 ], [ %spec.select280, %166 ], [ 1, %.thread240 ], [ -1, %219 ], [ -1, %156 ], [ 1, %155 ]
+  %.1275 = phi i32 [ 0, %.thread251 ], [ %spec.select276, %166 ], [ 1, %.thread240 ], [ -1, %219 ], [ -1, %156 ], [ 1, %155 ]
   call void @pfree(ptr noundef %88) #11
   call void @pfree(ptr noundef %89) #11
   call void @pfree(ptr noundef %92) #11
@@ -3304,7 +3304,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
 249:                                              ; preds = %248, %245
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.1279
+  ret i32 %.1275
 }
 
 ; Function Attrs: nounwind uwtable

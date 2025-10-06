@@ -11537,8 +11537,8 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit123.thread: ; preds = %66, %72
   %98 = fcmp ogt double %97, %.081
   %99 = load i32, ptr %5, align 4
   %100 = icmp eq i32 %99, 0
-  %or.cond228 = select i1 %98, i1 true, i1 %100
-  br i1 %or.cond228, label %.lr.ph, label %.thread216
+  %or.cond227 = select i1 %98, i1 true, i1 %100
+  br i1 %or.cond227, label %.lr.ph, label %.thread215
 
 .lr.ph:                                           ; preds = %.critedge101.preheader
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -11561,7 +11561,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit123.thread: ; preds = %66, %72
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 72
   %116 = load ptr, ptr %115, align 8
   %117 = tail call noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(49) %113, double noundef %.075, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br i1 %117, label %.thread206.sink.split, label %.critedge99..critedge101.preheader_crit_edge
+  br i1 %117, label %.thread205.sink.split, label %.critedge99..critedge101.preheader_crit_edge
 
 .critedge99..critedge101.preheader_crit_edge:     ; preds = %.critedge99
   %.pre = load double, ptr %2, align 8, !tbaa !143
@@ -11569,7 +11569,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit123.thread: ; preds = %66, %72
 
 118:                                              ; preds = %.lr.ph, %.thread201
   %119 = phi double [ %97, %.lr.ph ], [ %306, %.thread201 ]
-  %.277229 = phi double [ %.075, %.lr.ph ], [ %.580261, %.thread201 ]
+  %.277228 = phi double [ %.075, %.lr.ph ], [ %.580260, %.thread201 ]
   %120 = load ptr, ptr %85, align 8, !tbaa !41
   %121 = load ptr, ptr %120, align 8, !tbaa !8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -11667,7 +11667,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit143:     ; preds = %_ZN5Ipopt8SmartPtrI
           to label %185 unwind label %165
 
 165:                                              ; preds = %259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %198, %192, %164
-  %.378 = phi double [ %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %186, %198 ], [ %186, %192 ], [ %186, %259 ], [ %.277229, %164 ]
+  %.378 = phi double [ %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %186, %198 ], [ %186, %192 ], [ %186, %259 ], [ %.277228, %164 ]
   %166 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt8IpoptNLP10Eval_ErrorE
@@ -11778,7 +11778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5I
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %218 = load ptr, ptr %217, align 8
   invoke void %218(ptr noundef nonnull align 8 dereferenceable(264) %0)
-          to label %.thread206 unwind label %165
+          to label %.thread205 unwind label %165
 
 219:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i, %209
   %220 = landingpad { ptr, i32 }
@@ -11799,7 +11799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit147
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit147:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit145.thread, %181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %165
-  %.479 = phi double [ %.378, %165 ], [ %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %.277229, %181 ], [ %.277229, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit145.thread ]
+  %.479 = phi double [ %.378, %165 ], [ %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %.277228, %181 ], [ %.277228, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit145.thread ]
   %.pn90 = phi { ptr, i32 } [ %166, %165 ], [ %220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %168, %181 ], [ %168, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit145.thread ]
   %.267 = extractvalue { ptr, i32 } %.pn90, 1
   %225 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt8IpoptNLP10Eval_ErrorE) #25
@@ -11867,7 +11867,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   call void @__cxa_end_catch()
   %257 = load i8, ptr %56, align 8, !range !85
   %258 = trunc nuw i8 %257 to i1
-  br i1 %258, label %.thread264, label %276
+  br i1 %258, label %.thread263, label %276
 
 259:                                              ; preds = %189
   %260 = load ptr, ptr %104, align 8, !tbaa !35
@@ -11912,13 +11912,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %26
           to label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit125 unwind label %355
 
 276:                                              ; preds = %.thread, %254
-  %.580261 = phi double [ %.479, %.thread ], [ %186, %254 ]
+  %.580260 = phi double [ %.479, %.thread ], [ %186, %254 ]
   %277 = load i8, ptr %108, align 4, !tbaa !92, !range !85, !noundef !86
   %278 = trunc nuw i8 %277 to i1
   %279 = load i32, ptr %109, align 4
   %280 = icmp sgt i32 %279, 4
   %or.cond108 = select i1 %278, i1 %280, i1 false
-  br i1 %or.cond108, label %.thread216, label %281
+  br i1 %or.cond108, label %.thread215, label %281
 
 281:                                              ; preds = %276
   %282 = load i8, ptr %6, align 1, !tbaa !198, !range !85, !noundef !86
@@ -11947,8 +11947,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %26
   %300 = load ptr, ptr %299, align 8, !tbaa !8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 64
   %302 = load ptr, ptr %301, align 8
-  %303 = call noundef zeroext i1 %302(ptr noundef nonnull align 8 dereferenceable(49) %299, double noundef %.580261, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br i1 %303, label %.thread206.sink.split, label %.thread201
+  %303 = call noundef zeroext i1 %302(ptr noundef nonnull align 8 dereferenceable(49) %299, double noundef %.580260, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br i1 %303, label %.thread205.sink.split, label %.thread201
 
 .thread201:                                       ; preds = %284, %298, %281
   %304 = load double, ptr %110, align 8, !tbaa !415
@@ -11961,51 +11961,51 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %26
   %309 = fcmp ogt double %306, %.081
   %310 = icmp eq i32 %308, 0
   %or.cond = select i1 %309, i1 true, i1 %310
-  br i1 %or.cond, label %118, label %.thread216, !llvm.loop !435
+  br i1 %or.cond, label %118, label %.thread215, !llvm.loop !435
 
-.thread216:                                       ; preds = %276, %.thread201, %.critedge101.preheader
+.thread215:                                       ; preds = %276, %.thread201, %.critedge101.preheader
   %311 = load i8, ptr %56, align 8, !range !85
   %312 = trunc nuw i8 %311 to i1
-  %.mux221 = select i1 %312, i8 119, i8 63
-  br label %.thread264
+  %.mux220 = select i1 %312, i8 119, i8 63
+  br label %.thread263
 
 313:                                              ; preds = %254
   %.not110 = xor i1 %264, true
   %or.cond112 = select i1 %.not110, i1 %256, i1 false
   %.mux = select i1 %or.cond112, i8 119, i8 63
-  br i1 %264, label %.thread206, label %.thread264
+  br i1 %264, label %.thread205, label %.thread263
 
-.thread206.sink.split:                            ; preds = %298, %.critedge99
+.thread205.sink.split:                            ; preds = %298, %.critedge99
   %.sink = phi ptr [ %3, %.critedge99 ], [ %4, %298 ]
-  %.176212.ph = phi double [ %.075, %.critedge99 ], [ %.580261, %298 ]
+  %.176211.ph = phi double [ %.075, %.critedge99 ], [ %.580260, %298 ]
   store i8 1, ptr %.sink, align 1, !tbaa !198
-  br label %.thread206
+  br label %.thread205
 
-.thread206:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread206.sink.split, %313
-  %.176212 = phi double [ %186, %313 ], [ %.176212.ph, %.thread206.sink.split ], [ %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+.thread205:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread205.sink.split, %313
+  %.176211 = phi double [ %186, %313 ], [ %.176211.ph, %.thread205.sink.split ], [ %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %315 = load ptr, ptr %314, align 8, !tbaa !35
   %316 = load ptr, ptr %315, align 8, !tbaa !8
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 80
   %318 = load ptr, ptr %317, align 8
-  %319 = call noundef signext i8 %318(ptr noundef nonnull align 8 dereferenceable(49) %315, double noundef %.176212)
-  br label %.thread264
+  %319 = call noundef signext i8 %318(ptr noundef nonnull align 8 dereferenceable(49) %315, double noundef %.176211)
+  br label %.thread263
 
-.thread264:                                       ; preds = %.thread, %.thread216, %313, %.thread206
-  %320 = phi i1 [ true, %.thread206 ], [ false, %313 ], [ false, %.thread216 ], [ false, %.thread ]
-  %.0 = phi i8 [ %319, %.thread206 ], [ %.mux, %313 ], [ %.mux221, %.thread216 ], [ 119, %.thread ]
+.thread263:                                       ; preds = %.thread, %.thread215, %313, %.thread205
+  %320 = phi i1 [ true, %.thread205 ], [ false, %313 ], [ false, %.thread215 ], [ false, %.thread ]
+  %.0 = phi i8 [ %319, %.thread205 ], [ %.mux, %313 ], [ %.mux220, %.thread215 ], [ 119, %.thread ]
   %321 = load i8, ptr %4, align 1, !tbaa !198, !range !85, !noundef !86
   %322 = trunc nuw i8 %321 to i1
   br i1 %322, label %323, label %327
 
-323:                                              ; preds = %.thread264
+323:                                              ; preds = %.thread263
   %324 = sext i8 %.0 to i32
   %325 = call i32 @toupper(i32 noundef %324) #29
   %326 = trunc i32 %325 to i8
   br label %327
 
-327:                                              ; preds = %323, %.thread264
-  %.1 = phi i8 [ %326, %323 ], [ %.0, %.thread264 ]
+327:                                              ; preds = %323, %.thread263
+  %.1 = phi i8 [ %326, %323 ], [ %.0, %.thread263 ]
   %328 = load ptr, ptr %15, align 8, !tbaa !39
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 136
   store i8 %.1, ptr %329, align 8, !tbaa !87

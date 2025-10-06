@@ -683,8 +683,8 @@ define dso_local ptr @index_file_exists(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not.us, label %same_name.exit, label %.lr.ph.split.us, !llvm.loop !71
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not2027.i.i = icmp eq i32 %2, 0
-  br i1 %.not2027.i.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.not2026.i.i = icmp eq i32 %2, 0
+  br i1 %.not2026.i.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %21
   %.01725.us30 = phi ptr [ %22, %21 ], [ %10, %.lr.ph.split ]
@@ -712,14 +712,14 @@ define dso_local ptr @index_file_exists(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not.i, label %same_name.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %26, %46
-  %.01430.i.i = phi ptr [ %30, %46 ], [ %27, %26 ]
-  %.01529.i.i = phi i32 [ %32, %46 ], [ %2, %26 ]
-  %.01628.i.i = phi ptr [ %28, %46 ], [ %1, %26 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.01628.i.i, i64 1
-  %29 = load i8, ptr %.01628.i.i, align 1, !tbaa !68
-  %30 = getelementptr inbounds nuw i8, ptr %.01430.i.i, i64 1
-  %31 = load i8, ptr %.01430.i.i, align 1, !tbaa !68
-  %32 = add nsw i32 %.01529.i.i, -1
+  %.01429.i.i = phi ptr [ %30, %46 ], [ %27, %26 ]
+  %.01528.i.i = phi i32 [ %32, %46 ], [ %2, %26 ]
+  %.01627.i.i = phi ptr [ %28, %46 ], [ %1, %26 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.01627.i.i, i64 1
+  %29 = load i8, ptr %.01627.i.i, align 1, !tbaa !68
+  %30 = getelementptr inbounds nuw i8, ptr %.01429.i.i, i64 1
+  %31 = load i8, ptr %.01429.i.i, align 1, !tbaa !68
+  %32 = add nsw i32 %.01528.i.i, -1
   %.not21.i.i = icmp eq i8 %29, %31
   br i1 %.not21.i.i, label %46, label %33
 
@@ -941,9 +941,9 @@ define internal fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 n
   %7 = alloca %struct.dir_entry, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = icmp slt i32 %1, %2
-  br i1 %9, label %.lr.ph111, label %.thread
+  br i1 %9, label %.lr.ph109, label %.thread
 
-.lr.ph111:                                        ; preds = %6
+.lr.ph109:                                        ; preds = %6
   %10 = load i64, ptr %8, align 8, !tbaa !65
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.not.i91 = icmp eq ptr %3, null
@@ -958,10 +958,10 @@ define internal fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 n
   %19 = ashr exact i64 %sext73, 32
   br label %20
 
-20:                                               ; preds = %.lr.ph111, %strbuf_setlen.exit
-  %.0108 = phi i32 [ %1, %.lr.ph111 ], [ %.2, %strbuf_setlen.exit ]
+20:                                               ; preds = %.lr.ph109, %strbuf_setlen.exit
+  %.0106 = phi i32 [ %1, %.lr.ph109 ], [ %.2, %strbuf_setlen.exit ]
   %21 = load ptr, ptr %0, align 8, !tbaa !52
-  %22 = sext i32 %.0108 to i64
+  %22 = sext i32 %.0106 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !53
   %25 = load i64, ptr %8, align 8, !tbaa !65
@@ -1111,7 +1111,7 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
   %99 = load i64, ptr %8, align 8, !tbaa !65
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
   store i8 0, ptr %100, align 1, !tbaa !68
-  %101 = add nsw i32 %.0108, 1
+  %101 = add nsw i32 %.0106, 1
   %.not.i = icmp slt i32 %101, %2
   br i1 %.not.i, label %102, label %handle_range_dir.exit
 
@@ -1137,11 +1137,11 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
   br i1 %118, label %handle_range_dir.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %112, %133
-  %.044.i107 = phi i32 [ %.1.i, %133 ], [ %.0108, %112 ]
-  %.045.i106 = phi i32 [ %.146.i, %133 ], [ %2, %112 ]
-  %119 = sub nsw i32 %.045.i106, %.044.i107
+  %.044.i105 = phi i32 [ %.1.i, %133 ], [ %.0106, %112 ]
+  %.045.i104 = phi i32 [ %.146.i, %133 ], [ %2, %112 ]
+  %119 = sub nsw i32 %.045.i104, %.044.i105
   %120 = lshr i32 %119, 1
-  %121 = add nsw i32 %120, %.044.i107
+  %121 = add nsw i32 %120, %.044.i105
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds ptr, ptr %103, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !53
@@ -1163,14 +1163,14 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
   unreachable
 
 133:                                              ; preds = %130, %128
-  %.146.i = phi i32 [ %.045.i106, %128 ], [ %121, %130 ]
-  %.1.i = phi i32 [ %129, %128 ], [ %.044.i107, %130 ]
+  %.146.i = phi i32 [ %.045.i104, %128 ], [ %121, %130 ]
+  %.1.i = phi i32 [ %129, %128 ], [ %.044.i105, %130 ]
   %134 = icmp slt i32 %.1.i, %.146.i
   br i1 %134, label %.lr.ph, label %handle_range_dir.exit, !llvm.loop !75
 
 handle_range_dir.exit:                            ; preds = %133, %strbuf_addch.exit90, %102, %112
   %.0.i = phi i32 [ %2, %strbuf_addch.exit90 ], [ %101, %102 ], [ %2, %112 ], [ %.1.i, %133 ]
-  %135 = call fastcc i32 @handle_range_1(ptr noundef nonnull %0, i32 noundef %.0108, i32 noundef %.0.i, ptr noundef nonnull %.0.i93, ptr noundef nonnull %4, ptr noundef %5)
+  %135 = call fastcc i32 @handle_range_1(ptr noundef nonnull %0, i32 noundef %.0106, i32 noundef %.0.i, ptr noundef nonnull %.0.i93, ptr noundef nonnull %4, ptr noundef %5)
   %sext.i = shl i64 %39, 32
   %136 = ashr exact i64 %sext.i, 32
   %137 = load i64, ptr %4, align 8, !tbaa !74
@@ -1245,7 +1245,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %158 = load i64, ptr %8, align 8, !tbaa !65
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 %158
   store i8 0, ptr %159, align 1, !tbaa !68
-  %160 = call fastcc i32 @handle_range_1(ptr noundef nonnull %0, i32 noundef %.0108, i32 noundef %2, ptr noundef nonnull %.0.i93, ptr noundef %4, ptr noundef %5)
+  %160 = call fastcc i32 @handle_range_1(ptr noundef nonnull %0, i32 noundef %.0106, i32 noundef %2, ptr noundef nonnull %.0.i93, ptr noundef %4, ptr noundef %5)
   %161 = load i64, ptr %4, align 8, !tbaa !74
   %spec.select.i75 = call i64 @llvm.usub.sat.i64(i64 %161, i64 1)
   %162 = icmp ugt i64 %19, %spec.select.i75
@@ -1299,12 +1299,12 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 strbuf_setlen.exit:                               ; preds = %170, %183, %148, %150, %164, %166
   %.pn.pn = phi i32 [ %135, %148 ], [ %135, %150 ], [ %160, %164 ], [ %160, %166 ], [ 1, %183 ], [ 1, %170 ]
-  %.2 = add nsw i32 %.pn.pn, %.0108
+  %.2 = add nsw i32 %.pn.pn, %.0106
   %189 = icmp slt i32 %.2, %2
   br i1 %189, label %20, label %.thread
 
 .thread:                                          ; preds = %strbuf_setlen.exit, %26, %6
-  %.0.lcssa = phi i32 [ %1, %6 ], [ %.0108, %26 ], [ %.2, %strbuf_setlen.exit ]
+  %.0.lcssa = phi i32 [ %1, %6 ], [ %.0106, %26 ], [ %.2, %strbuf_setlen.exit ]
   %190 = sub nsw i32 %.0.lcssa, %1
   ret i32 %190
 }

@@ -242,12 +242,12 @@ pushstr.exit:                                     ; preds = %3, %18
 29:                                               ; preds = %.lr.ph, %209
   %30 = phi ptr [ %20, %.lr.ph ], [ %210, %209 ]
   %31 = phi ptr [ %21, %.lr.ph ], [ %213, %209 ]
-  %.081 = phi ptr [ %1, %.lr.ph ], [ %212, %209 ]
-  %.05380 = phi i32 [ 1, %.lr.ph ], [ %211, %209 ]
+  %.080 = phi ptr [ %1, %.lr.ph ], [ %212, %209 ]
+  %.05379 = phi i32 [ 1, %.lr.ph ], [ %211, %209 ]
   %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %.081 to i64
+  %33 = ptrtoint ptr %.080 to i64
   %34 = sub i64 %32, %33
-  %35 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %.081, i64 noundef %34) #16
+  %35 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %.080, i64 noundef %34) #16
   store ptr %35, ptr %30, align 8, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 4, ptr %36, align 8, !tbaa !10
@@ -416,11 +416,11 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 127:                                              ; preds = %116
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre85 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre84 = load ptr, ptr %7, align 8, !tbaa !23
   br label %128
 
 128:                                              ; preds = %116, %127
-  %129 = phi ptr [ %122, %116 ], [ %.pre85, %127 ]
+  %129 = phi ptr [ %122, %116 ], [ %.pre84, %127 ]
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %130, ptr %7, align 8, !tbaa !23
   br label %209
@@ -460,11 +460,11 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 152:                                              ; preds = %142
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre84 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre83 = load ptr, ptr %7, align 8, !tbaa !23
   br label %153
 
 153:                                              ; preds = %142, %152
-  %154 = phi ptr [ %147, %142 ], [ %.pre84, %152 ]
+  %154 = phi ptr [ %147, %142 ], [ %.pre83, %152 ]
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %155, ptr %7, align 8, !tbaa !23
   br label %209
@@ -575,7 +575,7 @@ pushstr.exit71:                                   ; preds = %196, %206
 
 209:                                              ; preds = %pushstr.exit63, %pushstr.exit65, %128, %153, %pushstr.exit67, %pushstr.exit69, %pushstr.exit71
   %210 = phi ptr [ %76, %pushstr.exit63 ], [ %104, %pushstr.exit65 ], [ %130, %128 ], [ %155, %153 ], [ %183, %pushstr.exit67 ], [ %195, %pushstr.exit69 ], [ %208, %pushstr.exit71 ]
-  %211 = add nuw nsw i32 %.05380, 2
+  %211 = add nuw nsw i32 %.05379, 2
   %212 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %213 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %212, i32 noundef 37) #18
   %214 = icmp eq ptr %213, null

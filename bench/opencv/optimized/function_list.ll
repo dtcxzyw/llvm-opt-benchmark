@@ -82,7 +82,7 @@ define hidden range(i32 0, 2) i32 @opj_procedure_list_add_procedure(ptr noundef 
 
 .thread:                                          ; preds = %8
   store ptr %14, ptr %10, align 8, !tbaa !10
-  %.pre21 = load i32, ptr %0, align 8, !tbaa !11
+  %.pre20 = load i32, ptr %0, align 8, !tbaa !11
   br label %18
 
 15:                                               ; preds = %8
@@ -94,7 +94,7 @@ define hidden range(i32 0, 2) i32 @opj_procedure_list_add_procedure(ptr noundef 
   br label %24
 
 18:                                               ; preds = %._crit_edge, %.thread
-  %19 = phi i32 [ %6, %._crit_edge ], [ %.pre21, %.thread ]
+  %19 = phi i32 [ %6, %._crit_edge ], [ %.pre20, %.thread ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %14, %.thread ]
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21

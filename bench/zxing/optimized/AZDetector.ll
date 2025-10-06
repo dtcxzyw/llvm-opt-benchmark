@@ -1079,9 +1079,9 @@ _ZN5ZXing5AztecL18FindFinderPatternsERKNS_9BitMatrixEb.exit: ; preds = %.thread.
   br label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i, %.lr.ph.preheader.i
-  %.not10.i = phi i1 [ true, %.lr.ph.preheader.i ], [ false, %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i ]
+  %.not8.i = phi i1 [ true, %.lr.ph.preheader.i ], [ false, %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i ]
   %396 = phi i1 [ false, %.lr.ph.preheader.i ], [ true, %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i ]
-  %397 = select i1 %.not10.i, i32 3808, i32 3598
+  %397 = select i1 %.not8.i, i32 3808, i32 3598
   br label %398
 
 398:                                              ; preds = %402, %.lr.ph.i68
@@ -1122,7 +1122,7 @@ _ZN5ZXing5AztecL18FindFinderPatternsERKNS_9BitMatrixEb.exit: ; preds = %.thread.
   br label %_ZSt11rotate_copyIPKN5ZXing6PointTIdEEPS2_ET0_T_S7_S7_S6_.exit.i.i
 
 _ZSt11rotate_copyIPKN5ZXing6PointTIdEEPS2_ET0_T_S7_S7_S6_.exit.i.i: ; preds = %414, %409
-  br i1 %.not10.i, label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i, label %416
+  br i1 %.not8.i, label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i, label %416
 
 416:                                              ; preds = %_ZSt11rotate_copyIPKN5ZXing6PointTIdEEPS2_ET0_T_S7_S7_S6_.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1453,7 +1453,7 @@ _ZN5ZXing5AztecL11ModeMessageERKNS_9BitMatrixERKNS_20PerspectiveTransformEiRb.ex
   br i1 %.not.i, label %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i, label %557
 
 _ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i:  ; preds = %402, %_ZN5ZXing5AztecL11ModeMessageERKNS_9BitMatrixERKNS_20PerspectiveTransformEiRb.exit.i, %_ZN5ZXing5AztecL11ModeMessageERKNS_9BitMatrixERKNS_20PerspectiveTransformEiRb.exit.i.thread
-  br i1 %.not10.i, label %.lr.ph.i68, label %.loopexit.i69, !llvm.loop !108
+  br i1 %.not8.i, label %.lr.ph.i68, label %.loopexit.i69, !llvm.loop !108
 
 .loopexit.i69:                                    ; preds = %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i, %.noexc72
   %555 = add nuw nsw i32 %.0162, 2

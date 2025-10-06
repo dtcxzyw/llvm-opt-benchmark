@@ -1668,8 +1668,8 @@ lean_nat_abs.exit:                                ; preds = %5, %lean_int_neg.ex
 36:                                               ; preds = %32
   %37 = ptrtoint ptr %29 to i64
   %38 = and i64 %37, 1
-  %.not14.i = icmp eq i64 %38, 0
-  br i1 %.not14.i, label %39, label %lean_dec.exit.i
+  %.not13.i = icmp eq i64 %38, 0
+  br i1 %.not13.i, label %39, label %lean_dec.exit.i
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %29, align 4, !tbaa !5

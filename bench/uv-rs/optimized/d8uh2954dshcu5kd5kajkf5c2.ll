@@ -482,20 +482,20 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17ha647792e
 
 14:                                               ; preds = %12
   %.not72 = icmp eq i64 %5, %1
-  br i1 %.not72, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread, label %16
+  br i1 %.not72, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread, label %16
 
 15:                                               ; preds = %12
-  br i1 %6, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread, label %37
+  br i1 %6, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread, label %37
 
 16:                                               ; preds = %14
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 48)
   %18 = extractvalue { i64, i1 } %17, 0
   %19 = extractvalue { i64, i1 } %17, 1
-  br i1 %19, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread, label %20, !prof !3
+  br i1 %19, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread, label %20, !prof !3
 
 20:                                               ; preds = %16
   %21 = tail call noundef zeroext i1 @_ZN4core5alloc6layout6Layout19is_size_align_valid17h8c78d244ad032eaaE(i64 noundef %18, i64 noundef 8), !noalias !37
-  br i1 %21, label %22, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread
+  br i1 %21, label %22, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread
 
 22:                                               ; preds = %20
   br i1 %6, label %29, label %23
@@ -504,29 +504,29 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17ha647792e
   %24 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 48)
   %25 = extractvalue { i64, i1 } %24, 0
   %26 = extractvalue { i64, i1 } %24, 1
-  br i1 %26, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread, label %27, !prof !3
+  br i1 %26, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread, label %27, !prof !3
 
 27:                                               ; preds = %23
   %28 = tail call noundef zeroext i1 @_ZN4core5alloc6layout6Layout19is_size_align_valid17h8c78d244ad032eaaE(i64 noundef %25, i64 noundef 8), !noalias !40
-  br i1 %28, label %32, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread
+  br i1 %28, label %32, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread
 
 29:                                               ; preds = %22
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %31 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %18, i64 noundef 8) #22
-  %.not100 = icmp eq ptr %31, null
-  br i1 %.not100, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread, label %35
+  %.not96 = icmp eq ptr %31, null
+  br i1 %.not96, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread, label %35
 
 32:                                               ; preds = %27
   %33 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %8, i64 noundef %25, i64 noundef 8, i64 noundef %18) #22
-  %.not99 = icmp eq ptr %33, null
-  br i1 %.not99, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread, label %34
+  %.not95 = icmp eq ptr %33, null
+  br i1 %.not95, label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread, label %34
 
 34:                                               ; preds = %32, %35
   %.sroa.053.0 = phi ptr [ %31, %35 ], [ %33, %32 ]
   store ptr %.sroa.053.0, ptr %0, align 8
   store i64 %10, ptr %9, align 8
   store i64 %1, ptr %4, align 8
-  br label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread
+  br label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread
 
 35:                                               ; preds = %29
   %36 = mul nuw nsw i64 %5, 48
@@ -556,9 +556,9 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17ha647792e
 
 _ZN8smallvec10deallocate17ha3a7777b31a3af25E.exit: ; preds = %42
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %40, i64 noundef 8) #22
-  br label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread
+  br label %_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread
 
-_ZN8smallvec12layout_array17haad08ff51d730aabE.exit80.thread: ; preds = %27, %23, %20, %16, %15, %_ZN8smallvec10deallocate17ha3a7777b31a3af25E.exit, %34, %14, %29, %32
+_ZN8smallvec12layout_array17haad08ff51d730aabE.exit78.thread: ; preds = %27, %23, %20, %16, %15, %_ZN8smallvec10deallocate17ha3a7777b31a3af25E.exit, %34, %14, %29, %32
   %.sroa.7.0 = phi i64 [ %18, %32 ], [ %18, %29 ], [ undef, %14 ], [ undef, %34 ], [ undef, %_ZN8smallvec10deallocate17ha3a7777b31a3af25E.exit ], [ undef, %15 ], [ %18, %16 ], [ %18, %20 ], [ %25, %23 ], [ %25, %27 ]
   %.sroa.0.0 = phi i64 [ 8, %32 ], [ 8, %29 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %34 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17ha3a7777b31a3af25E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %20 ], [ 0, %23 ], [ 0, %27 ]
   %46 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0

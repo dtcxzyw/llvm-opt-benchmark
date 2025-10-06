@@ -448,11 +448,11 @@ define hidden void @_ZN12ZDriverMinor10run_threadEv(ptr noundef nonnull align 8 
   %2 = alloca %class.ZDriverRequest, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %4 = tail call { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
-  %.fca.0.extract3 = extractvalue { i64, i32 } %4, 0
-  %.fca.1.extract4 = extractvalue { i64, i32 } %4, 1
-  store i64 %.fca.0.extract3, ptr %2, align 8
+  %.fca.0.extract2 = extractvalue { i64, i32 } %4, 0
+  %.fca.1.extract3 = extractvalue { i64, i32 } %4, 1
+  store i64 %.fca.0.extract2, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.fca.1.extract4, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %.fca.1.extract3, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   %7 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
@@ -828,11 +828,11 @@ define hidden void @_ZN12ZDriverMajor10run_threadEv(ptr noundef nonnull align 8 
   %2 = alloca %class.ZDriverRequest, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %4 = tail call { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
-  %.fca.0.extract5 = extractvalue { i64, i32 } %4, 0
-  %.fca.1.extract6 = extractvalue { i64, i32 } %4, 1
-  store i64 %.fca.0.extract5, ptr %2, align 8
+  %.fca.0.extract4 = extractvalue { i64, i32 } %4, 0
+  %.fca.1.extract5 = extractvalue { i64, i32 } %4, 1
+  store i64 %.fca.0.extract4, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.fca.1.extract6, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %.fca.1.extract5, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   tail call void @_ZN11ZBreakpoint12at_before_gcEv() #13

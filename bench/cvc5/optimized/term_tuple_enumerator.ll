@@ -255,7 +255,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBa
   br label %202
 
 21:                                               ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE9push_backERKm.exit
-  %storemerge162 = phi i64 [ 0, %.lr.ph ], [ %182, %_ZNSt6vectorImSaImEE9push_backERKm.exit ]
+  %storemerge160 = phi i64 [ 0, %.lr.ph ], [ %182, %_ZNSt6vectorImSaImEE9push_backERKm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -314,7 +314,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %40, %46, %48
 .noexc:                                           ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
   %57 = icmp eq i32 %56, 2
   %58 = zext i1 %57 to i64
-  %spec.select.i.i = add nuw i64 %storemerge162, %58
+  %spec.select.i.i = add nuw i64 %storemerge160, %58
   %59 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %sext = shl i64 %spec.select.i.i, 32
   %60 = ashr exact i64 %sext, 29
@@ -483,7 +483,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal8T
   %140 = load ptr, ptr %0, align 8, !tbaa !44
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %142 = load ptr, ptr %141, align 8
-  %143 = call noundef i64 %142(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 noundef %storemerge162)
+  %143 = call noundef i64 %142(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 noundef %storemerge160)
   %144 = icmp eq i64 %143, 0
   br i1 %144, label %145, label %.critedge
 
@@ -586,7 +586,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %159, %_ZNSt6vectorI
   %181 = load i64, ptr %8, align 8, !tbaa !54
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %181, i64 %143)
   store i64 %.sroa.speculated, ptr %8, align 8, !tbaa !28
-  %182 = add nuw i64 %storemerge162, 1
+  %182 = add nuw i64 %storemerge160, 1
   %183 = load i64, ptr %9, align 8, !tbaa !29
   %184 = icmp ult i64 %182, %183
   br i1 %184, label %21, label %._crit_edge, !llvm.loop !56
@@ -907,8 +907,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
-  %.not52.not.i.i = icmp eq ptr %21, %22
-  br i1 %.not52.not.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread28.thread, label %.lr.ph.i.i
+  %.not51.not.i.i = icmp eq ptr %21, %22
+  br i1 %.not51.not.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread28.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20
   %27 = load ptr, ptr %6, align 8
@@ -916,11 +916,11 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
 
 28:                                               ; preds = %.thread.i.i, %.lr.ph.i.i
   %.in.i.i = phi i64 [ %26, %.lr.ph.i.i ], [ %29, %.thread.i.i ]
-  %.03453.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %39, %.thread.i.i ]
+  %.03452.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %39, %.thread.i.i ]
   %29 = add i64 %.in.i.i, -1
   %30 = getelementptr inbounds nuw i64, ptr %22, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !54
-  %.not22.i.i = icmp eq i64 %.03453.i.i, 0
+  %.not22.i.i = icmp eq i64 %.03452.i.i, 0
   br i1 %.not22.i.i, label %.thread.i.i, label %32
 
 32:                                               ; preds = %28
@@ -934,32 +934,32 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   br i1 %or.cond.i.i, label %40, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %32, %28
-  %39 = add i64 %31, %.03453.i.i
+  %39 = add i64 %31, %.03452.i.i
   store i64 0, ptr %30, align 8, !tbaa !54
   %.not.not.i.i = icmp eq i64 %29, 0
   br i1 %.not.not.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread28.thread, label %28
 
 40:                                               ; preds = %32
   store i64 %33, ptr %30, align 8, !tbaa !54
-  %41 = add i64 %.03453.i.i, -1
-  %.not2355.i.i = icmp eq i64 %41, 0
-  br i1 %.not2355.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread, label %.lr.ph58.i.i
+  %41 = add i64 %.03452.i.i, -1
+  %.not2354.i.i = icmp eq i64 %41, 0
+  br i1 %.not2354.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread, label %.lr.ph57.i.i
 
-.lr.ph58.i.i:                                     ; preds = %40, %.lr.ph58.i.i
-  %.057.i.i = phi i64 [ %42, %.lr.ph58.i.i ], [ %26, %40 ]
-  %.356.i.i = phi i64 [ %46, %.lr.ph58.i.i ], [ %41, %40 ]
-  %42 = add i64 %.057.i.i, -1
+.lr.ph57.i.i:                                     ; preds = %40, %.lr.ph57.i.i
+  %.056.i.i = phi i64 [ %42, %.lr.ph57.i.i ], [ %26, %40 ]
+  %.355.i.i = phi i64 [ %46, %.lr.ph57.i.i ], [ %41, %40 ]
+  %42 = add i64 %.056.i.i, -1
   %43 = getelementptr inbounds nuw i64, ptr %27, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !54
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %44, i64 1)
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %spec.select.i.i, i64 %.356.i.i)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %spec.select.i.i, i64 %.355.i.i)
   %45 = getelementptr inbounds nuw i64, ptr %22, i64 %42
   store i64 %.sroa.speculated.i.i, ptr %45, align 8, !tbaa !54
-  %46 = sub i64 %.356.i.i, %.sroa.speculated.i.i
+  %46 = sub i64 %.355.i.i, %.sroa.speculated.i.i
   %.not23.i.i = icmp eq i64 %46, 0
   %.not24.i.i = icmp eq i64 %42, 0
-  %or.cond46.i.i = or i1 %.not24.i.i, %.not23.i.i
-  br i1 %or.cond46.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread, label %.lr.ph58.i.i, !llvm.loop !68
+  %or.cond45.i.i = or i1 %.not24.i.i, %.not23.i.i
+  br i1 %or.cond45.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread, label %.lr.ph57.i.i, !llvm.loop !68
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit: ; preds = %15
   %47 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationMaxEv(ptr noundef nonnull readonly align 8 dereferenceable(168) %0)
@@ -1069,7 +1069,7 @@ _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.
   %.not = icmp ult i64 %.lcssa.i.i, %56
   br i1 %.not, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit.thread, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread
 
-_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread: ; preds = %.lr.ph58.i.i, %40, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit.thread29, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit
+_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread: ; preds = %.lr.ph57.i.i, %40, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit.thread29, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %92 = load ptr, ptr %0, align 8, !tbaa !44
@@ -2004,8 +2004,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
-  %.not52.not.i = icmp eq ptr %10, %11
-  br i1 %.not52.not.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit, label %.lr.ph.i
+  %.not51.not.i = icmp eq ptr %10, %11
+  br i1 %.not51.not.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2015,11 +2015,11 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
 
 19:                                               ; preds = %.thread.i, %.lr.ph.i
   %.in.i = phi i64 [ %15, %.lr.ph.i ], [ %20, %.thread.i ]
-  %.03453.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %.thread.i ]
+  %.03452.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %.thread.i ]
   %20 = add i64 %.in.i, -1
   %21 = getelementptr inbounds nuw i64, ptr %11, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !54
-  %.not22.i = icmp eq i64 %.03453.i, 0
+  %.not22.i = icmp eq i64 %.03452.i, 0
   br i1 %.not22.i, label %.thread.i, label %23
 
 23:                                               ; preds = %19
@@ -2033,39 +2033,39 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   br i1 %or.cond.i, label %31, label %.thread.i
 
 .thread.i:                                        ; preds = %23, %19
-  %30 = add i64 %22, %.03453.i
+  %30 = add i64 %22, %.03452.i
   store i64 0, ptr %21, align 8, !tbaa !54
   %.not.not.i = icmp eq i64 %20, 0
   br i1 %.not.not.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit, label %19
 
 31:                                               ; preds = %23
   store i64 %24, ptr %21, align 8, !tbaa !54
-  %32 = add i64 %.03453.i, -1
-  %.not2355.i = icmp eq i64 %32, 0
-  br i1 %.not2355.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit, label %.lr.ph58.i
+  %32 = add i64 %.03452.i, -1
+  %.not2354.i = icmp eq i64 %32, 0
+  br i1 %.not2354.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit, label %.lr.ph57.i
 
-.lr.ph58.i:                                       ; preds = %31, %.lr.ph58.i
-  %.057.i = phi i64 [ %33, %.lr.ph58.i ], [ %15, %31 ]
-  %.356.i = phi i64 [ %37, %.lr.ph58.i ], [ %32, %31 ]
-  %33 = add i64 %.057.i, -1
+.lr.ph57.i:                                       ; preds = %31, %.lr.ph57.i
+  %.056.i = phi i64 [ %33, %.lr.ph57.i ], [ %15, %31 ]
+  %.355.i = phi i64 [ %37, %.lr.ph57.i ], [ %32, %31 ]
+  %33 = add i64 %.056.i, -1
   %34 = getelementptr inbounds nuw i64, ptr %17, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !54
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %35, i64 1)
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %.356.i)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %.355.i)
   %36 = getelementptr inbounds nuw i64, ptr %11, i64 %33
   store i64 %.sroa.speculated.i, ptr %36, align 8, !tbaa !54
-  %37 = sub i64 %.356.i, %.sroa.speculated.i
+  %37 = sub i64 %.355.i, %.sroa.speculated.i
   %.not23.i = icmp eq i64 %37, 0
   %.not24.i = icmp eq i64 %33, 0
-  %or.cond46.i = or i1 %.not24.i, %.not23.i
-  br i1 %or.cond46.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit, label %.lr.ph58.i, !llvm.loop !68
+  %or.cond45.i = or i1 %.not24.i, %.not23.i
+  br i1 %or.cond45.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit, label %.lr.ph57.i, !llvm.loop !68
 
 38:                                               ; preds = %1
   %39 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationMaxEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   br label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit
 
-_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit: ; preds = %.thread.i, %.lr.ph58.i, %31, %7, %38
-  %40 = phi i1 [ %39, %38 ], [ true, %31 ], [ false, %7 ], [ true, %.lr.ph58.i ], [ false, %.thread.i ]
+_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit: ; preds = %.thread.i, %.lr.ph57.i, %31, %7, %38
+  %40 = phi i1 [ %39, %38 ], [ true, %31 ], [ false, %7 ], [ true, %.lr.ph57.i ], [ false, %.thread.i ]
   ret i1 %40
 }
 
@@ -2079,8 +2079,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %.not52.not = icmp eq ptr %4, %5
-  br i1 %.not52.not, label %.critedge, label %.lr.ph
+  %.not51.not = icmp eq ptr %4, %5
+  br i1 %.not51.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2090,11 +2090,11 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
 
 13:                                               ; preds = %.lr.ph, %.thread
   %.in = phi i64 [ %9, %.lr.ph ], [ %14, %.thread ]
-  %.03453 = phi i64 [ 0, %.lr.ph ], [ %24, %.thread ]
+  %.03452 = phi i64 [ 0, %.lr.ph ], [ %24, %.thread ]
   %14 = add i64 %.in, -1
   %15 = getelementptr inbounds nuw i64, ptr %5, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !54
-  %.not22 = icmp eq i64 %.03453, 0
+  %.not22 = icmp eq i64 %.03452, 0
   br i1 %.not22, label %.thread, label %17
 
 17:                                               ; preds = %13
@@ -2108,36 +2108,36 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   br i1 %or.cond, label %25, label %.thread
 
 .thread:                                          ; preds = %13, %17
-  %24 = add i64 %16, %.03453
+  %24 = add i64 %16, %.03452
   store i64 0, ptr %15, align 8, !tbaa !54
   %.not.not = icmp eq i64 %14, 0
   br i1 %.not.not, label %.critedge, label %13
 
 25:                                               ; preds = %17
   store i64 %18, ptr %15, align 8, !tbaa !54
-  %26 = add i64 %.03453, -1
-  %.not2355 = icmp eq i64 %26, 0
-  br i1 %.not2355, label %.critedge, label %.lr.ph58
+  %26 = add i64 %.03452, -1
+  %.not2354 = icmp eq i64 %26, 0
+  br i1 %.not2354, label %.critedge, label %.lr.ph57
 
-.lr.ph58:                                         ; preds = %25, %.lr.ph58
-  %.057 = phi i64 [ %27, %.lr.ph58 ], [ %9, %25 ]
-  %.356 = phi i64 [ %31, %.lr.ph58 ], [ %26, %25 ]
-  %27 = add i64 %.057, -1
+.lr.ph57:                                         ; preds = %25, %.lr.ph57
+  %.056 = phi i64 [ %27, %.lr.ph57 ], [ %9, %25 ]
+  %.355 = phi i64 [ %31, %.lr.ph57 ], [ %26, %25 ]
+  %27 = add i64 %.056, -1
   %28 = getelementptr inbounds nuw i64, ptr %11, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !54
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %29, i64 1)
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %.356)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %.355)
   %30 = getelementptr inbounds nuw i64, ptr %5, i64 %27
   store i64 %.sroa.speculated, ptr %30, align 8, !tbaa !54
-  %31 = sub i64 %.356, %.sroa.speculated
+  %31 = sub i64 %.355, %.sroa.speculated
   %.not23 = icmp eq i64 %31, 0
   %.not24 = icmp eq i64 %27, 0
-  %or.cond46 = or i1 %.not23, %.not24
-  br i1 %or.cond46, label %.critedge, label %.lr.ph58, !llvm.loop !68
+  %or.cond45 = or i1 %.not23, %.not24
+  br i1 %or.cond45, label %.critedge, label %.lr.ph57, !llvm.loop !68
 
-.critedge:                                        ; preds = %.thread, %.lr.ph58, %1, %25
-  %.not49 = phi i1 [ true, %25 ], [ false, %1 ], [ true, %.lr.ph58 ], [ false, %.thread ]
-  ret i1 %.not49
+.critedge:                                        ; preds = %.thread, %.lr.ph57, %1, %25
+  %.not48 = phi i1 [ true, %25 ], [ false, %1 ], [ true, %.lr.ph57 ], [ false, %.thread ]
+  ret i1 %.not48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

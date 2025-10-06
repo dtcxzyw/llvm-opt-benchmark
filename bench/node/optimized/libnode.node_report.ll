@@ -2806,8 +2806,8 @@ cleanup98.thread.i.i:                             ; preds = %if.then.i.i86.i, %_
 
 if.end.i53.i:                                     ; preds = %if.then.i52.i
   %call27.i54.i = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call19.i.i) #24
-  %cmp54.not.i.i = icmp eq i32 %call27.i54.i, 0
-  br i1 %cmp54.not.i.i, label %cleanup98.i.i, label %for.body.lr.ph.i55.i
+  %cmp53.not.i.i = icmp eq i32 %call27.i54.i, 0
+  br i1 %cmp53.not.i.i, label %cleanup98.i.i, label %for.body.lr.ph.i55.i
 
 for.body.lr.ph.i55.i:                             ; preds = %if.end.i53.i
   %buf_.i.i.i.i = getelementptr inbounds nuw i8, ptr %k.i.i, i64 16
@@ -2819,8 +2819,8 @@ for.body.lr.ph.i55.i:                             ; preds = %if.end.i53.i
   br label %for.body.i57.i
 
 for.body.i57.i:                                   ; preds = %for.inc.i.i, %for.body.lr.ph.i55.i
-  %i.055.i.i = phi i32 [ 0, %for.body.lr.ph.i55.i ], [ %inc.i59.i, %for.inc.i.i ]
-  %call34.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call19.i.i, ptr %call11.i.i, i32 noundef %i.055.i.i) #24
+  %i.054.i.i = phi i32 [ 0, %for.body.lr.ph.i55.i ], [ %inc.i59.i, %for.inc.i.i ]
+  %call34.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call19.i.i, ptr %call11.i.i, i32 noundef %i.054.i.i) #24
   %cmp.i.i.i225.not.i.i = icmp eq ptr %call34.i.i, null
   br i1 %cmp.i.i.i225.not.i.i, label %for.inc.i.i, label %lor.rhs.i.i
 
@@ -2895,7 +2895,7 @@ if.then.i.i27.i.i:                                ; preds = %cleanup.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i27.i.i, %cleanup.i.i, %lor.rhs61.i.i, %if.end44.i.i, %if.end.i.i60.i, %lor.rhs.i.i, %for.body.i57.i
-  %inc.i59.i = add nuw i32 %i.055.i.i, 1
+  %inc.i59.i = add nuw i32 %i.054.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i59.i, %call27.i54.i
   br i1 %exitcond.not.i.i, label %cleanup98.i.i, label %for.body.i57.i, !llvm.loop !25
 

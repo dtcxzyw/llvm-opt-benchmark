@@ -529,8 +529,8 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread: ; preds = %.noexc58
   br i1 %.not.i59, label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %62
-  %.not910.i.not = icmp eq i32 %.sroa.8.0, 0
-  br i1 %.not910.i.not, label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit.thread, label %.lr.ph.preheader.i
+  %.not122 = icmp eq i32 %.sroa.8.0, 0
+  br i1 %.not122, label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %.sroa.8.0 to i64

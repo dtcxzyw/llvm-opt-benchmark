@@ -697,7 +697,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_UpdateDevice(ptr noundef %0) #0 {
 
 44:                                               ; preds = %41
   %45 = icmp eq i32 %42, 10
-  br i1 %45, label %.thread33.i, label %46
+  br i1 %45, label %.thread32.i, label %46
 
 46:                                               ; preds = %44
   %47 = load i8, ptr %25, align 1, !range !5, !noundef !6
@@ -753,7 +753,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_UpdateDevice(ptr noundef %0) #0 {
   %74 = load i8, ptr %35, align 1
   %75 = and i8 %74, 4
   %.not30.i = icmp eq i8 %75, 0
-  br i1 %.not30.i, label %.thread33.i, label %HIDAPI_DriverPS4_IsPacketValid.exit
+  br i1 %.not30.i, label %.thread32.i, label %HIDAPI_DriverPS4_IsPacketValid.exit
 
 76:                                               ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41
   %77 = icmp samesign ult i32 %42, 78
@@ -776,17 +776,17 @@ define internal zeroext i1 @HIDAPI_DriverPS4_UpdateDevice(ptr noundef %0) #0 {
 85:                                               ; preds = %79
   %86 = add i16 %84, 1
   store i16 %86, ptr %24, align 2
-  br label %.thread33.i
+  br label %.thread32.i
 
 87:                                               ; preds = %79
   %.not29.i = icmp eq i16 %84, 0
-  br i1 %.not29.i, label %.thread33.i, label %88
+  br i1 %.not29.i, label %.thread32.i, label %88
 
 88:                                               ; preds = %87
   %89 = add i16 %84, -1
   store i16 %89, ptr %24, align 2
   %90 = icmp ugt i16 %89, 2
-  br i1 %90, label %HIDAPI_DriverPS4_IsPacketValid.exit, label %.thread33.i
+  br i1 %90, label %HIDAPI_DriverPS4_IsPacketValid.exit, label %.thread32.i
 
 HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73, %76, %50, %71, %88
   %91 = load ptr, ptr %18, align 8
@@ -794,12 +794,12 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %41, label %.outer._crit_edge.loopexit, !llvm.loop !7
 
-.thread33.i:                                      ; preds = %87, %88, %44, %73, %85
+.thread32.i:                                      ; preds = %87, %88, %44, %73, %85
   %94 = add nuw nsw i32 %.068.ph90, 1
   store i64 %8, ptr %36, align 8
   br i1 %.not73, label %.outer.backedge, label %95
 
-95:                                               ; preds = %.thread33.i
+95:                                               ; preds = %.thread32.i
   %96 = load i8, ptr %4, align 16
   switch i8 %96, label %.outer.backedge [
     i8 1, label %.outer.backedge.sink.split
@@ -831,7 +831,7 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   call fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %.sink, i32 noundef %101)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %95, %.thread33.i
+.outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %95, %.thread32.i
   %102 = load ptr, ptr %18, align 8
   %103 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %102, ptr noundef nonnull %4, i64 noundef 128, i32 noundef 0) #9
   %104 = icmp sgt i32 %103, 0

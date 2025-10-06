@@ -15629,16 +15629,16 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %66 = zext i16 %65 to i32
   store i32 %66, ptr %57, align 4
   %67 = load i8, ptr %8, align 1
-  %switch = icmp eq i8 %67, 1
-  %. = select i1 %switch, i32 4, i32 6
+  %68 = icmp eq i8 %67, 1
+  %. = select i1 %68, i32 4, i32 6
   store i32 %., ptr %53, align 4
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %54, %50, %49, %40, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, %7, %64, %63
   %.sink = phi i32 [ 0, %64 ], [ %.sroa.229.0.extract.shift, %63 ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %29 ], [ 21, %40 ], [ 28, %49 ], [ 21, %50 ], [ 21, %54 ]
   store i8 1, ptr %0, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %69, align 4
   ret void
 }
 
@@ -15868,16 +15868,16 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %66 = zext i16 %65 to i32
   store i32 %66, ptr %57, align 4
   %67 = load i8, ptr %8, align 1
-  %switch = icmp eq i8 %67, 1
-  %. = select i1 %switch, i32 4, i32 6
+  %68 = icmp eq i8 %67, 1
+  %. = select i1 %68, i32 4, i32 6
   store i32 %., ptr %53, align 4
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %54, %50, %49, %40, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, %7, %64, %63
   %.sink = phi i32 [ 0, %64 ], [ %.sroa.229.0.extract.shift, %63 ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %29 ], [ 21, %40 ], [ 28, %49 ], [ 21, %50 ], [ 21, %54 ]
   store i8 1, ptr %0, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %69, align 4
   ret void
 }
 

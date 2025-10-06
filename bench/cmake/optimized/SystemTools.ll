@@ -6356,8 +6356,8 @@ define dso_local { i64, i32 } @_ZN5cmsys11SystemTools24CopyFileContentBlockwiseE
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !100
   %13 = and i32 %12, 5
-  %.not27 = icmp eq i32 %13, 0
-  br i1 %.not27, label %18, label %14
+  %.not26 = icmp eq i32 %13, 0
+  br i1 %.not26, label %18, label %14
 
 14:                                               ; preds = %2
   %15 = invoke i64 @_ZN5cmsys6Status11POSIX_errnoEv()
@@ -6398,8 +6398,8 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !100
   %34 = and i32 %33, 5
-  %.not28 = icmp eq i32 %34, 0
-  br i1 %.not28, label %.preheader, label %.invoke
+  %.not27 = icmp eq i32 %34, 0
+  br i1 %.not27, label %.preheader, label %.invoke
 
 .preheader:                                       ; preds = %27
   %35 = load ptr, ptr %3, align 8, !tbaa !98
@@ -6409,8 +6409,8 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !100
   %41 = and i32 %40, 5
-  %.not.i1830 = icmp eq i32 %41, 0
-  br i1 %.not.i1830, label %.lr.ph, label %.loopexit
+  %.not.i1829 = icmp eq i32 %41, 0
+  br i1 %.not.i1829, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6514,8 +6514,8 @@ _ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc20, %6
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load i32, ptr %90, align 8, !tbaa !100
   %92 = and i32 %91, 5
-  %.not29 = icmp eq i32 %92, 0
-  br i1 %.not29, label %94, label %.invoke
+  %.not28 = icmp eq i32 %92, 0
+  br i1 %.not28, label %94, label %.invoke
 
 .invoke:                                          ; preds = %27, %85
   %93 = invoke i64 @_ZN5cmsys6Status11POSIX_errnoEv()
@@ -9097,8 +9097,8 @@ define dso_local void @_ZN5cmsys11SystemTools11FindProgramERKSt6vectorINSt7__cxx
   %5 = load ptr, ptr %1, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !27
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %._crit_edge.i.i, label %.lr.ph
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %._crit_edge.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9106,8 +9106,8 @@ define dso_local void @_ZN5cmsys11SystemTools11FindProgramERKSt6vectorINSt7__cxx
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.sroa.014.021 = phi ptr [ %5, %.lr.ph ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  tail call void @_ZN5cmsys11SystemTools11FindProgramERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.021, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
+  %.sroa.014.019 = phi ptr [ %5, %.lr.ph ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  tail call void @_ZN5cmsys11SystemTools11FindProgramERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.019, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
   %11 = load i64, ptr %8, align 8, !tbaa !18
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %.critedge
@@ -9124,7 +9124,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.014.021, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 32
   %.not = icmp eq ptr %18, %7
   br i1 %.not, label %._crit_edge.i.i, label %10
 

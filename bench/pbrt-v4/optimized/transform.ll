@@ -4561,9 +4561,9 @@ define dso_local void @_ZN4pbrt17AnimatedTransformC2ERKNS_9TransformEfS3_f(ptr n
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %24, %5
-  %indvars.iv24.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next25.i.i, %24 ]
-  %15 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv24.i.i
-  %16 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv24.i.i
+  %indvars.iv26.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next27.i.i, %24 ]
+  %15 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv26.i.i
+  %16 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv26.i.i
   br label %18
 
 17:                                               ; preds = %18
@@ -4581,9 +4581,9 @@ define dso_local void @_ZN4pbrt17AnimatedTransformC2ERKNS_9TransformEfS3_f(ptr n
   br i1 %23, label %_ZNK4pbrt9TransformneERKS0_.exit, label %17
 
 24:                                               ; preds = %17
-  %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 4
-  br i1 %exitcond27.not.i.i, label %_ZNK4pbrt9TransformneERKS0_.exit, label %.preheader.i.i, !llvm.loop !157
+  %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
+  %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next27.i.i, 4
+  br i1 %exitcond29.not.i.i, label %_ZNK4pbrt9TransformneERKS0_.exit, label %.preheader.i.i, !llvm.loop !157
 
 _ZNK4pbrt9TransformneERKS0_.exit:                 ; preds = %24, %18
   %25 = zext i1 %23 to i8

@@ -1943,17 +1943,17 @@ _ZN5follyeqINS_5RangeIPKcEEA16_cEENSt9enable_ifIXsr6detail23ComparableAsStringPi
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !39, !noalias !97
   %.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !39, !noalias !97
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not13.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i
-  br i1 %.not13.i.i.i.i.i, label %_ZNR5folly8ExpectedIbNS_14ConversionCodeEE5valueEv.exit, label %.lr.ph.i.i.i.i.i
+  %.not14.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i
+  br i1 %.not14.i.i.i.i.i, label %_ZNR5folly8ExpectedIbNS_14ConversionCodeEE5valueEv.exit, label %.lr.ph.i.i.i.i.i
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %19 = getelementptr inbounds nuw i8, ptr %.01114.i.i.i.i.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01115.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %19, %.sroa.2.0.copyload.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZNR5folly8ExpectedIbNS_14ConversionCodeEE5valueEv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %17, %18
-  %.01114.i.i.i.i.i = phi ptr [ %19, %18 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %17 ]
-  %20 = load i8, ptr %.01114.i.i.i.i.i, align 1, !tbaa !28
+  %.01115.i.i.i.i.i = phi ptr [ %19, %18 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %17 ]
+  %20 = load i8, ptr %.01115.i.i.i.i.i, align 1, !tbaa !28
   %21 = sext i8 %20 to i32
   %22 = call i32 @isspace(i32 noundef %21) #29
   %.not12.not.i.i.i.i.i = icmp eq i32 %22, 0

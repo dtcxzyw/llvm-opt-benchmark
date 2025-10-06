@@ -824,11 +824,11 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.013.idx15.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level3E, i64 %.013.idx15.i
+  %.013.idx16.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level3E, i64 %.013.idx16.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
-  %.013.add.i = add nuw nsw i64 %.013.idx15.i, 4
+  %.013.add.i = add nuw nsw i64 %.013.idx16.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 8
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
   br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %13
@@ -987,11 +987,11 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.013.idx1.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level4E, i64 %.013.idx1.i
+  %.013.idx2.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level4E, i64 %.013.idx2.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
-  %.013.add.i = add nuw nsw i64 %.013.idx1.i, 4
+  %.013.add.i = add nuw nsw i64 %.013.idx2.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 16
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
   br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit, label %13
@@ -1150,11 +1150,11 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.013.idx15.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level5E, i64 %.013.idx15.i
+  %.013.idx16.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level5E, i64 %.013.idx16.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
-  %.013.add.i = add nuw nsw i64 %.013.idx15.i, 4
+  %.013.add.i = add nuw nsw i64 %.013.idx16.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 8
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
   br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %13
@@ -1313,11 +1313,11 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.013.idx1.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level6E, i64 %.013.idx1.i
+  %.013.idx2.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level6E, i64 %.013.idx2.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
-  %.013.add.i = add nuw nsw i64 %.013.idx1.i, 4
+  %.013.add.i = add nuw nsw i64 %.013.idx2.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 12
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
   br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit, label %13
@@ -1460,11 +1460,11 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br label %7
 
 7:                                                ; preds = %7, %2
-  %.013.idx15.i = phi i64 [ 0, %2 ], [ %.013.add.i, %7 ]
-  %.013.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.013.idx15.i
+  %.013.idx16.i = phi i64 [ 0, %2 ], [ %.013.add.i, %7 ]
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.013.idx16.i
   %8 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %8
-  %.013.add.i = add nuw nsw i64 %.013.idx15.i, 4
+  %.013.add.i = add nuw nsw i64 %.013.idx16.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 8
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
   br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %7

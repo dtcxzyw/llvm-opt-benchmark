@@ -164,7 +164,7 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
   %10 = call i32 @avio_close_dyn_buf(ptr noundef %9, ptr noundef nonnull %3) #6
   store ptr null, ptr %8, align 8, !tbaa !57
   %11 = icmp sgt i32 %10, 4
-  %.pre51 = load ptr, ptr %3, align 8, !tbaa !35
+  %.pre50 = load ptr, ptr %3, align 8, !tbaa !35
   br i1 %11, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2
@@ -172,39 +172,39 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
   br label %13
 
 13:                                               ; preds = %.lr.ph, %19
-  %.03449 = phi ptr [ %.pre51, %.lr.ph ], [ %34, %19 ]
-  %.03548 = phi i32 [ %10, %.lr.ph ], [ %35, %19 ]
-  %14 = load i32, ptr %.03449, align 1, !tbaa !58
+  %.03448 = phi ptr [ %.pre50, %.lr.ph ], [ %34, %19 ]
+  %.03547 = phi i32 [ %10, %.lr.ph ], [ %35, %19 ]
+  %14 = load i32, ptr %.03448, align 1, !tbaa !58
   %15 = call i32 @llvm.bswap.i32(i32 %14)
-  %16 = add nsw i32 %.03548, -4
+  %16 = add nsw i32 %.03547, -4
   %17 = icmp ugt i32 %15, %16
   %18 = icmp ult i32 %15, 2
   %or.cond = or i1 %17, %18
   br i1 %or.cond, label %.thread.loopexit, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %.03449, i64 4
-  %21 = getelementptr inbounds nuw i8, ptr %.03449, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %.03448, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.03448, i64 5
   %22 = load i8, ptr %21, align 1, !tbaa !58
   %23 = and i8 %22, -4
   %or.cond41 = icmp eq i8 %23, -64
   %24 = add i8 %22, 56
   %or.cond42 = icmp ult i8 %24, 11
-  %or.cond47 = or i1 %or.cond41, %or.cond42
-  %.033.in.v = select i1 %or.cond47, i64 24, i64 20
+  %or.cond46 = or i1 %or.cond41, %or.cond42
+  %.033.in.v = select i1 %or.cond46, i64 24, i64 20
   %.033.in = getelementptr inbounds nuw i8, ptr %1, i64 %.033.in.v
   %.033 = load i32, ptr %.033.in, align 4, !tbaa !31
-  store i8 36, ptr %.03449, align 1, !tbaa !58
+  store i8 36, ptr %.03448, align 1, !tbaa !58
   %25 = trunc i32 %.033 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %.03449, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.03448, i64 1
   store i8 %25, ptr %26, align 1, !tbaa !58
   %27 = lshr i32 %14, 16
   %28 = trunc nuw i32 %27 to i16
-  %29 = getelementptr inbounds nuw i8, ptr %.03449, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.03448, i64 2
   store i16 %28, ptr %29, align 1, !tbaa !58
   %30 = load ptr, ptr %12, align 8, !tbaa !59
   %31 = add nuw nsw i32 %15, 4
-  %32 = call i32 @ffurl_write2(ptr noundef %30, ptr noundef nonnull %.03449, i32 noundef range(i32 6, -2147483648) %31) #6
+  %32 = call i32 @ffurl_write2(ptr noundef %30, ptr noundef nonnull %.03448, i32 noundef range(i32 6, -2147483648) %31) #6
   %33 = zext nneg i32 %15 to i64
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 %33
   %35 = sub nuw nsw i32 %16, %15
@@ -216,7 +216,7 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %2
-  %37 = phi ptr [ %.pre, %.thread.loopexit ], [ %.pre51, %2 ]
+  %37 = phi ptr [ %.pre, %.thread.loopexit ], [ %.pre50, %2 ]
   call void @av_free(ptr noundef %37) #6
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 9000
   %39 = load i32, ptr %38, align 8, !tbaa !66

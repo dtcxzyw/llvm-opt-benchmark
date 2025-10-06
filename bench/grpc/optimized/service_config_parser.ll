@@ -573,8 +573,8 @@ define noundef i64 @_ZNK9grpc_core19ServiceConfigParser14GetParserIndexESt17basi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = load ptr, ptr %0, align 8, !tbaa !3
-  %.not12.not = icmp eq ptr %5, %6
-  br i1 %.not12.not, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %7 = icmp eq i64 %1, 0
@@ -582,8 +582,8 @@ define noundef i64 @_ZNK9grpc_core19ServiceConfigParser14GetParserIndexESt17basi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %8 = phi ptr [ %23, %20 ], [ %6, %.lr.ph.preheader ]
-  %.01013 = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %.01013
+  %.01015 = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %.01015
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -603,19 +603,19 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %18
   br i1 %19, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, label %20
 
 20:                                               ; preds = %.lr.ph, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %21 = add nuw i64 %.01013, 1
+  %21 = add nuw i64 %.01015, 1
   %22 = load ptr, ptr %4, align 8, !tbaa !9
   %23 = load ptr, ptr %0, align 8, !tbaa !3
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %.not = icmp ult i64 %21, %27
-  br i1 %.not, label %.lr.ph, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, !llvm.loop !36
+  %28 = icmp ult i64 %21, %27
+  br i1 %28, label %.lr.ph, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, !llvm.loop !36
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %20, %18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %3
-  %spec.select = phi i64 [ -1, %3 ], [ %.01013, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.01013, %18 ], [ -1, %20 ]
-  ret i64 %spec.select
+  %29 = phi i64 [ -1, %3 ], [ %.01015, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.01015, %18 ], [ -1, %20 ]
+  ret i64 %29
 }
 
 ; Function Attrs: nobuiltin nounwind

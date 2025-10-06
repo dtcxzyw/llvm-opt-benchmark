@@ -81,8 +81,8 @@ define range(i32 -1, 2) i32 @uudecodeFile(ptr noundef %0, ptr noundef %1, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %16 = load ptr, ptr %15, align 8, !tbaa !7
   %17 = call ptr %16(ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4, i64 noundef 1000) #5
-  %.not30 = icmp eq ptr %17, null
-  br i1 %.not30, label %.loopexit, label %.lr.ph
+  %.not29 = icmp eq ptr %17, null
+  br i1 %.not29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %18 = ptrtoint ptr %7 to i64

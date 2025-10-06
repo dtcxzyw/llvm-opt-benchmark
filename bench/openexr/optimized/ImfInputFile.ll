@@ -2233,10 +2233,10 @@ _ZNK7Imf_3_49InputFile4Data10getPartIdxEv.exit:   ; preds = %3, %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load ptr, ptr %43, align 8, !tbaa !151
   tail call void @_ZN7Imf_3_414TiledInputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(48) %44)
-  %.not98 = icmp sgt i32 %29, %33
-  br i1 %.not98, label %.loopexit, label %.lr.ph101
+  %.not97 = icmp sgt i32 %29, %33
+  br i1 %.not97, label %.loopexit, label %.lr.ph100
 
-.lr.ph101:                                        ; preds = %42
+.lr.ph100:                                        ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2247,82 +2247,82 @@ _ZNK7Imf_3_49InputFile4Data10getPartIdxEv.exit:   ; preds = %3, %9
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %51
 
-51:                                               ; preds = %.lr.ph101, %._crit_edge
-  %.04299 = phi i32 [ %29, %.lr.ph101 ], [ %69, %._crit_edge ]
+51:                                               ; preds = %.lr.ph100, %._crit_edge
+  %.04298 = phi i32 [ %29, %.lr.ph100 ], [ %69, %._crit_edge ]
   %52 = load i32, ptr %45, align 8, !tbaa !91
-  %.not44 = icmp eq i32 %.04299, %52
+  %.not44 = icmp eq i32 %.04298, %52
   br i1 %.not44, label %63, label %53
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %43, align 8, !tbaa !151
-  %.not91 = icmp eq ptr %54, null
-  br i1 %.not91, label %.critedge, label %55
+  %.not90 = icmp eq ptr %54, null
+  br i1 %.not90, label %.critedge, label %55
 
 55:                                               ; preds = %53
   %56 = call ptr @_ZN7Imf_3_411FrameBuffer5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %54)
   %57 = load ptr, ptr %43, align 8, !tbaa !151
   %58 = call ptr @_ZN7Imf_3_411FrameBuffer3endEv(ptr noundef nonnull align 8 dereferenceable(48) %57)
-  %.not92 = icmp eq ptr %56, %58
-  br i1 %.not92, label %.critedge, label %59
+  %.not91 = icmp eq ptr %56, %58
+  br i1 %.not91, label %.critedge, label %59
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %26, align 8, !tbaa !123
   %61 = call noundef i32 @_ZNK7Imf_3_414TiledInputFile9numXTilesEi(ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 0)
   %62 = add nsw i32 %61, -1
-  call void @_ZN7Imf_3_414TiledInputFile9readTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 0, i32 noundef %62, i32 noundef %.04299, i32 noundef %.04299, i32 noundef 0, i32 noundef 0)
+  call void @_ZN7Imf_3_414TiledInputFile9readTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 0, i32 noundef %62, i32 noundef %.04298, i32 noundef %.04298, i32 noundef 0, i32 noundef 0)
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %59, %55
-  store i32 %.04299, ptr %45, align 8, !tbaa !91
+  store i32 %.04298, ptr %45, align 8, !tbaa !91
   br label %63
 
 63:                                               ; preds = %.critedge, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = load ptr, ptr %26, align 8, !tbaa !123
-  call void @_ZNK7Imf_3_414TiledInputFile17dataWindowForTileEiii(ptr dead_on_unwind nonnull writable sret(%"class.Imath_3_2::Box") align 4 %4, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 0, i32 noundef %.04299, i32 noundef 0)
+  call void @_ZNK7Imf_3_414TiledInputFile17dataWindowForTileEiii(ptr dead_on_unwind nonnull writable sret(%"class.Imath_3_2::Box") align 4 %4, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 0, i32 noundef %.04298, i32 noundef 0)
   %65 = load i32, ptr %46, align 4, !tbaa !106
   %.sroa.speculated70 = call i32 @llvm.smax.i32(i32 %.sroa.speculated80, i32 %65)
   %66 = load i32, ptr %47, align 4, !tbaa !106
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %66, i32 %.sroa.speculated77)
   %67 = call ptr @_ZN7Imf_3_411FrameBuffer5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %50)
   %68 = call ptr @_ZN7Imf_3_411FrameBuffer3endEv(ptr noundef nonnull align 8 dereferenceable(48) %50)
-  %.not9396 = icmp eq ptr %67, %68
-  br i1 %.not9396, label %._crit_edge, label %.lr.ph
+  %.not9295 = icmp eq ptr %67, %68
+  br i1 %.not9295, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %78, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %69 = add nsw i32 %.04299, 1
-  %.not.not = icmp slt i32 %.04299, %33
+  %69 = add nsw i32 %.04298, 1
+  %.not.not = icmp slt i32 %.04298, %33
   br i1 %.not.not, label %51, label %.loopexit, !llvm.loop !176
 
 .lr.ph:                                           ; preds = %63, %78
-  %.sroa.055.097 = phi ptr [ %79, %78 ], [ %67, %63 ]
+  %.sroa.055.096 = phi ptr [ %79, %78 ], [ %67, %63 ]
   %70 = load ptr, ptr %43, align 8, !tbaa !151
-  %.not94 = icmp eq ptr %70, null
-  br i1 %.not94, label %.thread, label %71
+  %.not93 = icmp eq ptr %70, null
+  br i1 %.not93, label %.thread, label %71
 
 71:                                               ; preds = %.lr.ph
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.055.097, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.055.096, i64 32
   %73 = call ptr @_ZN7Imf_3_411FrameBuffer4findEPKc(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull %72)
   %74 = load ptr, ptr %43, align 8, !tbaa !151
   %75 = call ptr @_ZN7Imf_3_411FrameBuffer3endEv(ptr noundef nonnull align 8 dereferenceable(48) %74)
-  %.not95 = icmp eq ptr %73, %75
-  br i1 %.not95, label %.thread, label %76
+  %.not94 = icmp eq ptr %73, %75
+  br i1 %.not94, label %.thread, label %76
 
 76:                                               ; preds = %71
   %77 = load i32, ptr %46, align 4, !tbaa !177
-  call void @_ZN7Imf_3_49InputFile4Data16copyCachedBufferENS_11FrameBuffer13ConstIteratorES3_iiiii(ptr nonnull align 8 poison, ptr nonnull %.sroa.055.097, ptr %73, i32 noundef %.sroa.speculated70, i32 noundef %.sroa.speculated, i32 noundef %77, i32 noundef %.sroa.023.0.extract.trunc, i32 noundef %49)
+  call void @_ZN7Imf_3_49InputFile4Data16copyCachedBufferENS_11FrameBuffer13ConstIteratorES3_iiiii(ptr nonnull align 8 poison, ptr nonnull %.sroa.055.096, ptr %73, i32 noundef %.sroa.speculated70, i32 noundef %.sroa.speculated, i32 noundef %77, i32 noundef %.sroa.023.0.extract.trunc, i32 noundef %49)
   br label %78
 
 .thread:                                          ; preds = %71, %.lr.ph
-  call void @_ZN7Imf_3_49InputFile4Data10fillBufferENS_11FrameBuffer13ConstIteratorEiiiii(ptr nonnull align 8 poison, ptr %.sroa.055.097, i32 noundef %.sroa.speculated70, i32 noundef %.sroa.speculated, i32 noundef %.sroa.023.4.extract.trunc, i32 noundef %.sroa.023.0.extract.trunc, i32 noundef %49)
+  call void @_ZN7Imf_3_49InputFile4Data10fillBufferENS_11FrameBuffer13ConstIteratorEiiiii(ptr nonnull align 8 poison, ptr %.sroa.055.096, i32 noundef %.sroa.speculated70, i32 noundef %.sroa.speculated, i32 noundef %.sroa.023.4.extract.trunc, i32 noundef %.sroa.023.0.extract.trunc, i32 noundef %49)
   br label %78
 
 78:                                               ; preds = %76, %.thread
-  %79 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.055.097) #30
+  %79 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.055.096) #30
   %80 = call ptr @_ZN7Imf_3_411FrameBuffer3endEv(ptr noundef nonnull align 8 dereferenceable(48) %50)
-  %.not93 = icmp eq ptr %79, %80
-  br i1 %.not93, label %._crit_edge, label %.lr.ph, !llvm.loop !180
+  %.not92 = icmp eq ptr %79, %80
+  br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !180
 
 .loopexit:                                        ; preds = %._crit_edge, %42, %37
   ret void

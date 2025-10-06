@@ -1941,7 +1941,7 @@ pop.exit:                                         ; preds = %3, %.loopexit
 
 ._crit_edge.i.i.i.i:                              ; preds = %42
   %.pre.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8, !tbaa !61
-  %.pre4.i.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !55
+  %.pre3.i.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !55
   br label %push.exit
 
 46:                                               ; preds = %42
@@ -1995,7 +1995,7 @@ pop.exit:                                         ; preds = %3, %.loopexit
   unreachable
 
 push.exit:                                        ; preds = %._crit_edge.i.i.i.i, %69
-  %75 = phi ptr [ %.pre4.i.i.i.i, %._crit_edge.i.i.i.i ], [ %52, %69 ]
+  %75 = phi ptr [ %.pre3.i.i.i.i, %._crit_edge.i.i.i.i ], [ %52, %69 ]
   %76 = phi i64 [ %44, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %69 ]
   %77 = phi i64 [ %43, %._crit_edge.i.i.i.i ], [ %60, %69 ]
   %78 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %70, %69 ]
@@ -2214,8 +2214,8 @@ define internal fastcc void @printSorted(ptr noundef nonnull %0, i64 noundef %1)
 gv_calloc.exit:                                   ; preds = %.thread.i, %8
   %15 = phi ptr [ %3, %.thread.i ], [ %9, %8 ]
   %16 = tail call ptr @agfstsubg(ptr noundef nonnull %0) #23
-  %.not66 = icmp eq ptr %16, null
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not64 = icmp eq ptr %16, null
+  br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %27, %gv_calloc.exit
   tail call void @qsort(ptr noundef %15, i64 noundef %1, i64 noundef 8, ptr noundef nonnull @cmp) #23
@@ -2224,12 +2224,12 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %8
   br i1 %18, label %29, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  br i1 %.not.i, label %.loopexit, label %.lr.ph70
+  br i1 %.not.i, label %.loopexit, label %.lr.ph68
 
 .lr.ph:                                           ; preds = %gv_calloc.exit, %27
-  %.068 = phi i64 [ %.1, %27 ], [ 0, %gv_calloc.exit ]
-  %.04667 = phi ptr [ %28, %27 ], [ %16, %gv_calloc.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.04667, i64 16
+  %.066 = phi i64 [ %.1, %27 ], [ 0, %gv_calloc.exit ]
+  %.04665 = phi ptr [ %28, %27 ], [ %16, %gv_calloc.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %.04665, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 8, !tbaa !45, !range !68, !noundef !69
@@ -2237,14 +2237,14 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %8
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %.lr.ph
-  %25 = add i64 %.068, 1
-  %26 = getelementptr inbounds nuw ptr, ptr %15, i64 %.068
-  store ptr %.04667, ptr %26, align 8, !tbaa !70
+  %25 = add i64 %.066, 1
+  %26 = getelementptr inbounds nuw ptr, ptr %15, i64 %.066
+  store ptr %.04665, ptr %26, align 8, !tbaa !70
   br label %27
 
 27:                                               ; preds = %.lr.ph, %24
-  %.1 = phi i64 [ %25, %24 ], [ %.068, %.lr.ph ]
-  %28 = tail call ptr @agnxtsubg(ptr noundef nonnull %.04667) #23
+  %.1 = phi i64 [ %25, %24 ], [ %.066, %.lr.ph ]
+  %28 = tail call ptr @agnxtsubg(ptr noundef nonnull %.04665) #23
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
@@ -2274,25 +2274,25 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %8
   %.not59 = icmp ugt i64 %1, %40
   %spec.select = select i1 %.not59, i64 %40, i64 %39
   %.048 = select i1 %.not58, i64 %39, i64 %spec.select
-  %.not6075 = icmp ult i64 %.048, %32
-  br i1 %.not6075, label %.loopexit, label %.lr.ph78
+  %.not6073 = icmp ult i64 %.048, %32
+  br i1 %.not6073, label %.loopexit, label %.lr.ph76
 
-.lr.ph78:                                         ; preds = %37, %44
-  %.276 = phi i64 [ %45, %44 ], [ %32, %37 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %15, i64 %.276
+.lr.ph76:                                         ; preds = %37, %44
+  %.274 = phi i64 [ %45, %44 ], [ %32, %37 ]
+  %41 = getelementptr inbounds nuw ptr, ptr %15, i64 %.274
   %42 = load ptr, ptr %41, align 8, !tbaa !70
   %.b56 = load i1, ptr @doAll, align 1
   br i1 %.b56, label %44, label %43
 
-43:                                               ; preds = %.lr.ph78
+43:                                               ; preds = %.lr.ph76
   tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %42, i32 noundef 0)
   br label %44
 
-44:                                               ; preds = %43, %.lr.ph78
+44:                                               ; preds = %43, %.lr.ph76
   tail call fastcc void @gwrite(ptr noundef %42)
-  %45 = add i64 %.276, 1
-  %exitcond84.not = icmp eq i64 %.276, %.048
-  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph78, !llvm.loop !72
+  %45 = add i64 %.274, 1
+  %exitcond82.not = icmp eq i64 %.274, %.048
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph76, !llvm.loop !72
 
 46:                                               ; preds = %29
   %47 = load i32, ptr @sortFinal, align 4, !tbaa !4
@@ -2306,18 +2306,18 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %8
   br label %52
 
 52:                                               ; preds = %49, %46
-  br i1 %.not.i, label %.loopexit, label %.lr.ph73
+  br i1 %.not.i, label %.loopexit, label %.lr.ph71
 
-.lr.ph73:                                         ; preds = %52, %64
-  %.371 = phi i64 [ %65, %64 ], [ 0, %52 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %15, i64 %.371
+.lr.ph71:                                         ; preds = %52, %64
+  %.369 = phi i64 [ %65, %64 ], [ 0, %52 ]
+  %53 = getelementptr inbounds nuw ptr, ptr %15, i64 %.369
   %54 = load ptr, ptr %53, align 8, !tbaa !70
   %55 = tail call i32 @agnnodes(ptr noundef %54) #23
   %56 = load i32, ptr @sortFinal, align 4, !tbaa !4
   %57 = icmp sgt i32 %55, %56
   br i1 %57, label %64, label %58
 
-58:                                               ; preds = %.lr.ph73
+58:                                               ; preds = %.lr.ph71
   %59 = load i32, ptr @sortIndex, align 4, !tbaa !4
   %60 = icmp slt i32 %55, %59
   br i1 %60, label %.loopexit, label %61
@@ -2334,27 +2334,27 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %8
   tail call fastcc void @gwrite(ptr noundef %54)
   br label %64
 
-64:                                               ; preds = %63, %.lr.ph73
-  %65 = add nuw i64 %.371, 1
-  %exitcond83.not = icmp eq i64 %65, %1
-  br i1 %exitcond83.not, label %.loopexit, label %.lr.ph73, !llvm.loop !73
+64:                                               ; preds = %63, %.lr.ph71
+  %65 = add nuw i64 %.369, 1
+  %exitcond81.not = icmp eq i64 %65, %1
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph71, !llvm.loop !73
 
-.lr.ph70:                                         ; preds = %.preheader, %69
-  %.469 = phi i64 [ %70, %69 ], [ 0, %.preheader ]
-  %66 = getelementptr inbounds nuw ptr, ptr %15, i64 %.469
+.lr.ph68:                                         ; preds = %.preheader, %69
+  %.467 = phi i64 [ %70, %69 ], [ 0, %.preheader ]
+  %66 = getelementptr inbounds nuw ptr, ptr %15, i64 %.467
   %67 = load ptr, ptr %66, align 8, !tbaa !70
   %.b = load i1, ptr @doAll, align 1
   br i1 %.b, label %69, label %68
 
-68:                                               ; preds = %.lr.ph70
+68:                                               ; preds = %.lr.ph68
   tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %67, i32 noundef 0)
   br label %69
 
-69:                                               ; preds = %68, %.lr.ph70
+69:                                               ; preds = %68, %.lr.ph68
   tail call fastcc void @gwrite(ptr noundef %67)
-  %70 = add nuw i64 %.469, 1
+  %70 = add nuw i64 %.467, 1
   %exitcond.not = icmp eq i64 %70, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph70, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph68, !llvm.loop !74
 
 .loopexit:                                        ; preds = %69, %58, %64, %44, %29, %37, %52, %.preheader, %33
   tail call void @free(ptr noundef %15) #23
@@ -2555,7 +2555,7 @@ define internal fastcc void @push(ptr noundef %0) unnamed_addr #10 {
 
 ._crit_edge.i.i.i:                                ; preds = %1
   %.pre.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8, !tbaa !61
-  %.pre4.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !55
+  %.pre3.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !55
   br label %node_stack_push_back.exit
 
 8:                                                ; preds = %1
@@ -2609,7 +2609,7 @@ define internal fastcc void @push(ptr noundef %0) unnamed_addr #10 {
   unreachable
 
 node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, %31
-  %37 = phi ptr [ %.pre4.i.i.i, %._crit_edge.i.i.i ], [ %14, %31 ]
+  %37 = phi ptr [ %.pre3.i.i.i, %._crit_edge.i.i.i ], [ %14, %31 ]
   %38 = phi i64 [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %31 ]
   %39 = phi i64 [ %5, %._crit_edge.i.i.i ], [ %22, %31 ]
   %40 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]

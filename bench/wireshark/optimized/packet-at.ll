@@ -2107,8 +2107,8 @@ define internal noundef zeroext i1 @dissect_cfun_parameter(ptr noundef %0, ptr n
 check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   %.0.i = phi i1 [ false, %13 ], [ false, %13 ], [ false, %13 ], [ %or.cond8.i.not, %14 ]
   %17 = icmp ugt i32 %7, 1
-  %or.cond65 = or i1 %17, %.0.i
-  br i1 %or.cond65, label %75, label %18
+  %or.cond64 = or i1 %17, %.0.i
+  br i1 %or.cond64, label %75, label %18
 
 18:                                               ; preds = %check_cfun.exit
   switch i32 %4, label %75 [
@@ -2209,7 +2209,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   br label %75
 
 75:                                               ; preds = %41, %45, %35, %39, %37, %69, %73, %63, %67, %65, %18, %check_cfun.exit
-  %.0 = xor i1 %or.cond65, true
+  %.0 = xor i1 %or.cond64, true
   ret i1 %.0
 }
 
@@ -3573,101 +3573,101 @@ define internal noundef zeroext i1 @dissect_cmgr_parameter(ptr noundef %0, ptr n
   %or.cond5.not72 = or i1 %15, %16
   %17 = icmp ugt i32 %7, 3
   %or.cond70 = or i1 %or.cond5.not72, %17
-  br i1 %or.cond70, label %74, label %37
+  br i1 %or.cond70, label %75, label %38
 
 18:                                               ; preds = %11
   %.old = icmp ugt i32 %7, 1
-  br i1 %.old, label %74, label %19
+  br i1 %.old, label %75, label %19
 
 19:                                               ; preds = %18
-  %switch = icmp eq i32 %7, 0
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %21 = load ptr, ptr %20, align 8
-  %22 = add i32 %8, 1
-  %23 = sext i32 %22 to i64
-  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %21, i64 noundef %23) #12
-  %25 = sext i32 %8 to i64
-  %26 = icmp ne i32 %22, -1
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef %23) #15
-  %28 = getelementptr i8, ptr %24, i64 %25
-  store i8 0, ptr %28, align 1
-  %29 = tail call i64 @g_ascii_strtoull(ptr noundef %24, ptr noundef null, i32 noundef 10)
-  %30 = trunc i64 %29 to i32
-  br i1 %switch, label %31, label %34
+  %20 = icmp eq i32 %7, 0
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %22 = load ptr, ptr %21, align 8
+  %23 = add i32 %8, 1
+  %24 = sext i32 %23 to i64
+  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #12
+  %26 = sext i32 %8 to i64
+  %27 = icmp ne i32 %23, -1
+  tail call void @llvm.assume(i1 %27)
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef %24) #15
+  %29 = getelementptr i8, ptr %25, i64 %26
+  store i8 0, ptr %29, align 1
+  %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
+  %31 = trunc i64 %30 to i32
+  br i1 %20, label %32, label %35
 
-31:                                               ; preds = %19
-  %32 = load i32, ptr @hf_cmgr_msg_index, align 4
-  %33 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %30)
-  br label %74
+32:                                               ; preds = %19
+  %33 = load i32, ptr @hf_cmgr_msg_index, align 4
+  %34 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %31)
+  br label %75
 
-34:                                               ; preds = %19
-  %35 = load i32, ptr @hf_cmgr_mode, align 4
-  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %30)
-  br label %74
+35:                                               ; preds = %19
+  %36 = load i32, ptr @hf_cmgr_mode, align 4
+  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %31)
+  br label %75
 
-37:                                               ; preds = %14
-  switch i32 %7, label %74 [
-    i32 0, label %38
-    i32 1, label %52
-    i32 2, label %55
+38:                                               ; preds = %14
+  switch i32 %7, label %75 [
+    i32 0, label %39
+    i32 1, label %53
+    i32 2, label %56
   ]
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %40 = load ptr, ptr %39, align 8
-  %41 = add i32 %8, 1
-  %42 = sext i32 %41 to i64
-  %43 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef %42) #12
-  %44 = sext i32 %8 to i64
-  %45 = icmp ne i32 %41, -1
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call ptr @__memcpy_chk(ptr noundef %43, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %44, i64 noundef %42) #15, !alias.scope !91
-  %47 = getelementptr i8, ptr %43, i64 %44
-  store i8 0, ptr %47, align 1
-  %48 = tail call i64 @g_ascii_strtoull(ptr noundef %43, ptr noundef null, i32 noundef 10)
-  %49 = trunc i64 %48 to i32
-  %50 = load i32, ptr @hf_cmgr_stat, align 4
-  %51 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %49)
-  br label %74
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %41 = load ptr, ptr %40, align 8
+  %42 = add i32 %8, 1
+  %43 = sext i32 %42 to i64
+  %44 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef %43) #12
+  %45 = sext i32 %8 to i64
+  %46 = icmp ne i32 %42, -1
+  tail call void @llvm.assume(i1 %46)
+  %47 = tail call ptr @__memcpy_chk(ptr noundef %44, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef %43) #15, !alias.scope !91
+  %48 = getelementptr i8, ptr %44, i64 %45
+  store i8 0, ptr %48, align 1
+  %49 = tail call i64 @g_ascii_strtoull(ptr noundef %44, ptr noundef null, i32 noundef 10)
+  %50 = trunc i64 %49 to i32
+  %51 = load i32, ptr @hf_cmgr_stat, align 4
+  %52 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %50)
+  br label %75
 
-52:                                               ; preds = %37
-  %53 = load i32, ptr @hf_cmgr_address, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
-  br label %74
+53:                                               ; preds = %38
+  %54 = load i32, ptr @hf_cmgr_address, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
+  br label %75
 
-55:                                               ; preds = %37
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %57 = load ptr, ptr %56, align 8
-  %58 = add i32 %8, 1
-  %59 = sext i32 %58 to i64
-  %60 = tail call noalias ptr @wmem_alloc(ptr noundef %57, i64 noundef %59) #12
-  %61 = sext i32 %8 to i64
-  %62 = icmp ne i32 %58, -1
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call ptr @__memcpy_chk(ptr noundef %60, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %61, i64 noundef %59) #15, !alias.scope !95
-  %64 = getelementptr i8, ptr %60, i64 %61
-  store i8 0, ptr %64, align 1
-  %65 = tail call i64 @g_ascii_strtoull(ptr noundef %60, ptr noundef null, i32 noundef 10)
-  %66 = trunc i64 %65 to i32
-  %67 = load i32, ptr @hf_cmgr_msg_length, align 4
-  %68 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %66)
+56:                                               ; preds = %38
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %58 = load ptr, ptr %57, align 8
+  %59 = add i32 %8, 1
+  %60 = sext i32 %59 to i64
+  %61 = tail call noalias ptr @wmem_alloc(ptr noundef %58, i64 noundef %60) #12
+  %62 = sext i32 %8 to i64
+  %63 = icmp ne i32 %59, -1
+  tail call void @llvm.assume(i1 %63)
+  %64 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %62, i64 noundef %60) #15, !alias.scope !95
+  %65 = getelementptr i8, ptr %61, i64 %62
+  store i8 0, ptr %65, align 1
+  %66 = tail call i64 @g_ascii_strtoull(ptr noundef %61, ptr noundef null, i32 noundef 10)
+  %67 = trunc i64 %66 to i32
+  %68 = load i32, ptr @hf_cmgr_msg_length, align 4
+  %69 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %68, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %67)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %74, label %69
+  br i1 %.not.i, label %75, label %70
 
-69:                                               ; preds = %55
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 164
-  store i16 58, ptr %70, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  store i32 1, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %9, i64 172
-  store i32 0, ptr %72, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 184
-  store ptr @dissect_cmgr_data_part, ptr %73, align 8
-  br label %74
+70:                                               ; preds = %56
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 164
+  store i16 58, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  store i32 1, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 172
+  store i32 0, ptr %73, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  store ptr @dissect_cmgr_data_part, ptr %74, align 8
+  br label %75
 
-74:                                               ; preds = %34, %31, %52, %38, %37, %55, %69, %18, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %69 ], [ true, %55 ], [ true, %37 ], [ true, %38 ], [ true, %52 ], [ true, %31 ], [ true, %34 ]
+75:                                               ; preds = %35, %32, %53, %39, %38, %56, %70, %18, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %70 ], [ true, %56 ], [ true, %38 ], [ true, %39 ], [ true, %53 ], [ true, %32 ], [ true, %35 ]
   ret i1 %.0
 }
 

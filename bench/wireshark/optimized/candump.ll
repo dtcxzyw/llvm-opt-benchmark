@@ -298,14 +298,14 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
 39:                                               ; preds = %35
   store i32 -13, ptr %2, align 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread64, label %40
+  br i1 %.not, label %.thread62, label %40
 
 40:                                               ; preds = %39
   %41 = load i8, ptr %12, align 2
   %42 = zext i8 %41 to i32
   %43 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %42, i32 noundef 8)
   store ptr %43, ptr %3, align 8
-  br label %.thread64
+  br label %.thread62
 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -322,7 +322,7 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %53
 
-.thread64:                                        ; preds = %39, %40
+.thread62:                                        ; preds = %39, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
@@ -339,8 +339,8 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
   store i32 6, ptr %58, align 8
   %.val = load i64, ptr %8, align 8
   %59 = getelementptr i8, ptr %0, i64 304
-  %.val59 = load i64, ptr %59, align 8
-  %60 = sub i64 %.val59, %.val
+  %.val58 = load i64, ptr %59, align 8
+  %60 = sub i64 %.val58, %.val
   %61 = trunc i64 %60 to i32
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %61, ptr %62, align 8
@@ -348,8 +348,8 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
   store i32 %61, ptr %63, align 4
   br label %64
 
-64:                                               ; preds = %.thread64, %.thread, %53
-  %.1 = phi i1 [ true, %53 ], [ false, %.thread ], [ false, %.thread64 ]
+64:                                               ; preds = %.thread62, %.thread, %53
+  %.1 = phi i1 [ true, %53 ], [ false, %.thread ], [ false, %.thread62 ]
   ret i1 %.1
 }
 

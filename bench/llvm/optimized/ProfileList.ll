@@ -356,20 +356,20 @@ _ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.
   %.sroa.0.1.i.i = phi ptr [ %23, %21 ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
   %29 = zext i32 %25 to i64
   %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %29
-  %.not1317.not.i = icmp eq ptr %.sroa.0.1.i.i, %30
-  br i1 %.not1317.not.i, label %.loopexit, label %.lr.ph.preheader.i
+  %.not1418.not.i = icmp eq ptr %.sroa.0.1.i.i, %30
+  br i1 %.not1418.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i
   %.pre.i = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !158
   br label %.lr.ph.i
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i: ; preds = %.preheader.i
-  %.not13.not.i = icmp eq ptr %storemerge.i.i, %30
-  br i1 %.not13.not.i, label %.loopexit.loopexit, label %.lr.ph.i
+  %.not14.not.i = icmp eq ptr %storemerge.i.i, %30
+  br i1 %.not14.not.i, label %.loopexit.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i, %.lr.ph.preheader.i
   %31 = phi ptr [ %41, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.sroa.010.018.i = phi ptr [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i ], [ %.sroa.0.1.i.i, %.lr.ph.preheader.i ]
+  %.sroa.010.019.i = phi ptr [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i ], [ %.sroa.0.1.i.i, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.4, i64 3) #11
   %34 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr nonnull @.str.4, i64 3, i32 noundef %33) #11
@@ -379,11 +379,11 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7Sec
   %38 = zext i32 %37 to i64
   %39 = sext i32 %34 to i64
   %40 = icmp ne i64 %39, %38
-  %.not16.not.i = select i1 %35, i1 %40, i1 false
-  br i1 %.not16.not.i, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.preheader.i
+  %.not17.not.i = select i1 %35, i1 %40, i1 false
+  br i1 %.not17.not.i, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i.backedge
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %.preheader.i.backedge ], [ %.sroa.010.018.i, %.lr.ph.i ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %.preheader.i.backedge ], [ %.sroa.010.019.i, %.lr.ph.i ]
   %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %41 = load ptr, ptr %storemerge.i.i, align 8, !tbaa !158
   %magicptr.i.i.i = ptrtoint ptr %41 to i64
@@ -425,20 +425,20 @@ _ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.
   %.sroa.0.1.i.i14 = phi ptr [ %43, %.loopexit ], [ %.sroa.0.0.i.i10, %.preheader.i.i.i.i9 ]
   %47 = zext i32 %42 to i64
   %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %47
-  %.not1317.not.i15 = icmp eq ptr %.sroa.0.1.i.i14, %48
-  br i1 %.not1317.not.i15, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.lr.ph.preheader.i16
+  %.not1418.not.i15 = icmp eq ptr %.sroa.0.1.i.i14, %48
+  br i1 %.not1418.not.i15, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.lr.ph.preheader.i16
 
 .lr.ph.preheader.i16:                             ; preds = %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13
   %.pre.i17 = load ptr, ptr %.sroa.0.1.i.i14, align 8, !tbaa !158
   br label %.lr.ph.i18
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26: ; preds = %.preheader.i21
-  %.not13.not.i27 = icmp eq ptr %storemerge.i.i23, %48
-  br i1 %.not13.not.i27, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.lr.ph.i18
+  %.not14.not.i27 = icmp eq ptr %storemerge.i.i23, %48
+  br i1 %.not14.not.i27, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.lr.ph.i18
 
 .lr.ph.i18:                                       ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26, %.lr.ph.preheader.i16
   %49 = phi ptr [ %59, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ %.pre.i17, %.lr.ph.preheader.i16 ]
-  %.sroa.010.018.i19 = phi ptr [ %storemerge.i.i23, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ %.sroa.0.1.i.i14, %.lr.ph.preheader.i16 ]
+  %.sroa.010.019.i19 = phi ptr [ %storemerge.i.i23, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ %.sroa.0.1.i.i14, %.lr.ph.preheader.i16 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.5, i64 3) #11
   %52 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr nonnull @.str.5, i64 3, i32 noundef %51) #11
@@ -448,11 +448,11 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7Sec
   %56 = zext i32 %55 to i64
   %57 = sext i32 %52 to i64
   %58 = icmp ne i64 %57, %56
-  %.not16.not.i20 = select i1 %53, i1 %58, i1 false
-  br i1 %.not16.not.i20, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.preheader.i21
+  %.not17.not.i20 = select i1 %53, i1 %58, i1 false
+  br i1 %.not17.not.i20, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.preheader.i21
 
 .preheader.i21:                                   ; preds = %.lr.ph.i18, %.preheader.i21.backedge
-  %.pn.i.i22 = phi ptr [ %storemerge.i.i23, %.preheader.i21.backedge ], [ %.sroa.010.018.i19, %.lr.ph.i18 ]
+  %.pn.i.i22 = phi ptr [ %storemerge.i.i23, %.preheader.i21.backedge ], [ %.sroa.010.019.i19, %.lr.ph.i18 ]
   %storemerge.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i22, i64 8
   %59 = load ptr, ptr %storemerge.i.i23, align 8, !tbaa !158
   %magicptr.i.i.i24 = ptrtoint ptr %59 to i64

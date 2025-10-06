@@ -648,11 +648,11 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   br label %30
 
 30:                                               ; preds = %19, %67
-  %.073106 = phi i32 [ %26, %19 ], [ %.174, %67 ]
-  %.075105 = phi i16 [ 0, %19 ], [ %.176, %67 ]
-  %.078104 = phi i32 [ 0, %19 ], [ %.179, %67 ]
-  %.081103 = phi i32 [ 0, %19 ], [ %68, %67 ]
-  %31 = zext i32 %.081103 to i64
+  %.073105 = phi i32 [ %26, %19 ], [ %.174, %67 ]
+  %.075104 = phi i16 [ 0, %19 ], [ %.176, %67 ]
+  %.078103 = phi i32 [ 0, %19 ], [ %.179, %67 ]
+  %.081102 = phi i32 [ 0, %19 ], [ %68, %67 ]
+  %31 = zext i32 %.081102 to i64
   %32 = getelementptr inbounds nuw i32, ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !30
   %34 = zext i32 %33 to i64
@@ -675,7 +675,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i16, ptr %0, i64 %31
   store i16 %20, ptr %42, align 2, !tbaa !4
-  %43 = add nsw i32 %.073106, -1
+  %43 = add nsw i32 %.073105, -1
   br label %67
 
 44:                                               ; preds = %40
@@ -703,19 +703,19 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
 62:                                               ; preds = %51, %44
   %.070 = phi i16 [ %61, %51 ], [ %47, %44 ]
   %63 = zext nneg i16 %.070 to i32
-  %64 = icmp ugt i16 %.070, %.075105
-  %spec.select = select i1 %64, i32 %.081103, i32 %.078104
-  %spec.select90 = tail call i16 @llvm.umax.i16(i16 %.070, i16 %.075105)
+  %64 = icmp ugt i16 %.070, %.075104
+  %spec.select = select i1 %64, i32 %.081102, i32 %.078103
+  %spec.select90 = tail call i16 @llvm.umax.i16(i16 %.070, i16 %.075104)
   %65 = getelementptr inbounds nuw i16, ptr %0, i64 %31
   store i16 %.070, ptr %65, align 2, !tbaa !4
-  %66 = sub nsw i32 %.073106, %63
+  %66 = sub nsw i32 %.073105, %63
   br label %67
 
 67:                                               ; preds = %41, %62, %38
-  %.179 = phi i32 [ %.078104, %38 ], [ %.078104, %41 ], [ %spec.select, %62 ]
-  %.176 = phi i16 [ %.075105, %38 ], [ %.075105, %41 ], [ %spec.select90, %62 ]
-  %.174 = phi i32 [ %.073106, %38 ], [ %43, %41 ], [ %66, %62 ]
-  %68 = add i32 %.081103, 1
+  %.179 = phi i32 [ %.078103, %38 ], [ %.078103, %41 ], [ %spec.select, %62 ]
+  %.176 = phi i16 [ %.075104, %38 ], [ %.075104, %41 ], [ %spec.select90, %62 ]
+  %.174 = phi i32 [ %.073105, %38 ], [ %43, %41 ], [ %66, %62 ]
+  %68 = add i32 %.081102, 1
   %.not86 = icmp ugt i32 %68, %4
   br i1 %.not86, label %69, label %30, !llvm.loop !31
 

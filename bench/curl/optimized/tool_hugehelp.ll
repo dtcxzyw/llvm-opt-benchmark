@@ -116,12 +116,12 @@ define dso_local void @showhelp(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr getelementptr inbounds nuw (i8, ptr @hugehelpgz, i64 10), ptr %4, align 8, !tbaa !15
   %10 = call i32 @inflateInit2_(ptr noundef nonnull %4, i32 noundef -15, ptr noundef nonnull @.str, i32 noundef 112) #10
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %26
+  br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %3
   %12 = call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #11
   %.not12 = icmp eq ptr %12, null
-  br i1 %.not12, label %24, label %.preheader
+  br i1 %.not12, label %25, label %.preheader
 
 .preheader:                                       ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -133,7 +133,7 @@ define dso_local void @showhelp(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %12, ptr %14, align 8, !tbaa !17
   %16 = call i32 @inflate(ptr noundef nonnull %4, i32 noundef 2) #10
   %or.cond = icmp ult i32 %16, 2
-  br i1 %or.cond, label %17, label %23
+  br i1 %or.cond, label %17, label %24
 
 17:                                               ; preds = %15
   %18 = icmp ne i32 %16, 1
@@ -141,18 +141,18 @@ define dso_local void @showhelp(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %20 = sub i32 65536, %19
   %21 = zext i32 %20 to i64
   %22 = call zeroext i1 @helpscan(ptr noundef nonnull %12, i64 noundef %21, ptr noundef nonnull %5) #10
-  %switch = and i1 %18, %22
-  br i1 %switch, label %15, label %23
+  %23 = and i1 %18, %22
+  br i1 %23, label %15, label %24
 
-23:                                               ; preds = %17, %15
+24:                                               ; preds = %17, %15
   call void @free(ptr noundef %12) #10
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %11
-  %25 = call i32 @inflateEnd(ptr noundef nonnull %4) #10
-  br label %26
+25:                                               ; preds = %24, %11
+  %26 = call i32 @inflateEnd(ptr noundef nonnull %4) #10
+  br label %27
 
-26:                                               ; preds = %3, %24
+27:                                               ; preds = %3, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

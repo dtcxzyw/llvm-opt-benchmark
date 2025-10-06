@@ -5788,19 +5788,19 @@ declare i64 @SSL_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #6 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %.not93 = icmp eq i64 %2, 0
-  br i1 %.not93, label %._crit_edge, label %.lr.ph
+  %.not91 = icmp eq i64 %2, 0
+  br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %3 = add i64 %2, -1
   br label %4
 
 4:                                                ; preds = %.lr.ph, %28
-  %.04373 = phi i64 [ 0, %.lr.ph ], [ %29, %28 ]
-  %.04472 = phi i32 [ 1, %.lr.ph ], [ %.2.ph, %28 ]
-  %.04571 = phi i64 [ 0, %.lr.ph ], [ %.247.ph, %28 ]
-  %.04870 = phi i32 [ 0, %.lr.ph ], [ %.250.ph, %28 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.04373
+  %.04371 = phi i64 [ 0, %.lr.ph ], [ %29, %28 ]
+  %.04470 = phi i32 [ 1, %.lr.ph ], [ %.2.ph, %28 ]
+  %.04569 = phi i64 [ 0, %.lr.ph ], [ %.247.ph, %28 ]
+  %.04868 = phi i32 [ 0, %.lr.ph ], [ %.250.ph, %28 ]
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.04371
   %6 = load i8, ptr %5, align 1, !tbaa !25
   %7 = add i8 %6, -97
   %or.cond = icmp ult i8 %7, 26
@@ -5814,7 +5814,7 @@ define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr noundef nonnull read
   br i1 %or.cond8, label %11, label %13
 
 11:                                               ; preds = %8, %4
-  %12 = add nuw nsw i64 %.04571, 1
+  %12 = add nuw nsw i64 %.04569, 1
   br label %28
 
 13:                                               ; preds = %8
@@ -5823,12 +5823,12 @@ define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr noundef nonnull read
   br i1 %or.cond11, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add nuw nsw i64 %.04571, 1
+  %16 = add nuw nsw i64 %.04569, 1
   br label %28
 
 17:                                               ; preds = %13
-  %.not = icmp ne i64 %.04373, 0
-  %18 = icmp ult i64 %.04373, %3
+  %.not = icmp ne i64 %.04371, 0
+  %18 = icmp ult i64 %.04371, %3
   %or.cond59 = and i1 %.not, %18
   br i1 %or.cond59, label %19, label %._crit_edge.loopexit
 
@@ -5839,7 +5839,7 @@ define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr noundef nonnull read
   ]
 
 20:                                               ; preds = %19
-  %21 = add nuw nsw i64 %.04571, 1
+  %21 = add nuw nsw i64 %.04569, 1
   br label %28
 
 22:                                               ; preds = %19
@@ -5857,18 +5857,18 @@ define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr noundef nonnull read
   br i1 %or.cond60, label %._crit_edge.loopexit, label %28
 
 28:                                               ; preds = %11, %15, %20, %25
-  %.250.ph = phi i32 [ 1, %25 ], [ %.04870, %20 ], [ %.04870, %15 ], [ %.04870, %11 ]
+  %.250.ph = phi i32 [ 1, %25 ], [ %.04868, %20 ], [ %.04868, %15 ], [ %.04868, %11 ]
   %.247.ph = phi i64 [ 0, %25 ], [ %21, %20 ], [ %16, %15 ], [ %12, %11 ]
-  %.2.ph = phi i32 [ %.04472, %25 ], [ %.04472, %20 ], [ %.04472, %15 ], [ 0, %11 ]
-  %29 = add nuw i64 %.04373, 1
+  %.2.ph = phi i32 [ %.04470, %25 ], [ %.04470, %20 ], [ %.04470, %15 ], [ 0, %11 ]
+  %29 = add nuw i64 %.04371, 1
   %30 = icmp ult i64 %29, %2
   %31 = icmp ult i64 %.247.ph, 63
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %4, label %._crit_edge.loopexit, !llvm.loop !78
 
 ._crit_edge.loopexit:                             ; preds = %19, %22, %25, %17, %28
-  %.045.lcssa.ph = phi i64 [ %.247.ph, %28 ], [ %.04571, %17 ], [ %.04571, %25 ], [ %.04571, %22 ], [ %.04571, %19 ]
-  %.044.lcssa.ph = phi i32 [ %.2.ph, %28 ], [ %.04472, %17 ], [ %.04472, %25 ], [ %.04472, %22 ], [ %.04472, %19 ]
+  %.045.lcssa.ph = phi i64 [ %.247.ph, %28 ], [ %.04569, %17 ], [ %.04569, %25 ], [ %.04569, %22 ], [ %.04569, %19 ]
+  %.044.lcssa.ph = phi i32 [ %.2.ph, %28 ], [ %.04470, %17 ], [ %.04470, %25 ], [ %.04470, %22 ], [ %.04470, %19 ]
   %.149.ph = phi i32 [ %.250.ph, %28 ], [ 0, %17 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ]
   %33 = icmp eq i32 %.044.lcssa.ph, 0
   %34 = icmp ne i64 %.045.lcssa.ph, 63
@@ -7309,7 +7309,7 @@ declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 6) %1, ptr noundef %2) unnamed_addr #0 {
-  switch i32 %1, label %default.unreachable25 [
+  switch i32 %1, label %default.unreachable22 [
     i32 0, label %4
     i32 1, label %42
     i32 2, label %45
@@ -7404,7 +7404,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.thread
 
-64:                                               ; preds = %58, %61
+64:                                               ; preds = %61, %58
   %.014 = phi i32 [ 1, %58 ], [ 0, %61 ]
   %65 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %66 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %65, ptr noundef nonnull @.str.654) #15
@@ -7424,7 +7424,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
   store i32 1, ptr %73, align 4, !tbaa !67
   br label %.thread
 
-default.unreachable25:                            ; preds = %3
+default.unreachable22:                            ; preds = %3
   unreachable
 
 74:                                               ; preds = %64, %69, %53
@@ -7434,8 +7434,8 @@ default.unreachable25:                            ; preds = %3
   tail call void @ERR_print_errors(ptr noundef %77) #15
   br label %.thread
 
-.thread:                                          ; preds = %61, %64, %53, %74, %72, %45, %42, %39
-  %.015 = phi i32 [ 1, %74 ], [ 3, %39 ], [ 1, %42 ], [ 2, %45 ], [ 4, %64 ], [ 3, %72 ], [ 4, %53 ], [ 0, %61 ]
+.thread:                                          ; preds = %64, %61, %53, %74, %72, %45, %42, %39
+  %.015 = phi i32 [ 1, %74 ], [ 3, %39 ], [ 1, %42 ], [ 2, %45 ], [ 3, %72 ], [ 4, %53 ], [ 4, %64 ], [ 0, %61 ]
   ret i32 %.015
 }
 

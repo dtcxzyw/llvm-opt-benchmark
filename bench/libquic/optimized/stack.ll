@@ -280,11 +280,11 @@ define hidden i64 @sk_insert(ptr noundef captures(address_is_null) %0, ptr nound
   %39 = load ptr, ptr %30, align 8, !tbaa !6
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %2
   store ptr %1, ptr %40, align 8, !tbaa !16
-  %.pre54 = load i64, ptr %0, align 8, !tbaa !14
+  %.pre53 = load i64, ptr %0, align 8, !tbaa !14
   br label %41
 
 41:                                               ; preds = %34, %32
-  %42 = phi i64 [ %.pre54, %34 ], [ %29, %32 ]
+  %42 = phi i64 [ %.pre53, %34 ], [ %29, %32 ]
   %43 = add i64 %42, 1
   store i64 %43, ptr %0, align 8, !tbaa !14
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16

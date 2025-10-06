@@ -1090,9 +1090,9 @@ define void @_ZN7rocksdb13DataBlockIter8PrevImplEv(ptr noundef nonnull align 8 d
   %15 = load i32, ptr %14, align 8, !tbaa !101
   %16 = icmp sgt i32 %15, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  br i1 %16, label %18, label %._crit_edge64
+  br i1 %16, label %18, label %._crit_edge63
 
-._crit_edge64:                                    ; preds = %1
+._crit_edge63:                                    ; preds = %1
   %.pre = load ptr, ptr %17, align 8, !tbaa !110
   br label %56
 
@@ -1161,8 +1161,8 @@ _ZN7rocksdb7IterKey6SetKeyERKNS_5SliceEb.exit:    ; preds = %32, %_ZN7rocksdb7It
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !116
   br label %238
 
-56:                                               ; preds = %._crit_edge64, %18
-  %57 = phi ptr [ %.pre, %._crit_edge64 ], [ %20, %18 ]
+56:                                               ; preds = %._crit_edge63, %18
+  %57 = phi ptr [ %.pre, %._crit_edge63 ], [ %20, %18 ]
   store i32 -1, ptr %14, align 8, !tbaa !101
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -1193,9 +1193,9 @@ _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit: ; 
   %74 = zext i32 %.promoted to i64
   %75 = shl nuw nsw i64 %74, 2
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 %75
-  %.0.copyload.i.i58 = load i32, ptr %76, align 1
-  %.not59 = icmp ult i32 %.0.copyload.i.i58, %66
-  br i1 %.not59, label %._crit_edge, label %.lr.ph
+  %.0.copyload.i.i57 = load i32, ptr %76, align 1
+  %.not58 = icmp ult i32 %.0.copyload.i.i57, %66
+  br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ %74, %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit ]
@@ -1221,8 +1221,8 @@ _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit: ; 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %81, %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit
-  %.lcssa57 = phi i64 [ %75, %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit ], [ %83, %81 ]
-  %85 = getelementptr inbounds nuw i8, ptr %73, i64 %.lcssa57
+  %.lcssa56 = phi i64 [ %75, %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit ], [ %83, %81 ]
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 %.lcssa56
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %86, align 8, !tbaa !57
   %.0.copyload.i.i.i = load i32, ptr %85, align 1
@@ -1382,8 +1382,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %170 = icmp uge i32 %168, %169
   %171 = load i32, ptr %94, align 8
   %.not2.i28 = icmp eq i32 %168, %171
-  %or.cond62 = select i1 %170, i1 true, i1 %.not2.i28
-  br i1 %or.cond62, label %_ZNK7rocksdb13DataBlockIter5valueEv.exit34, label %172
+  %or.cond61 = select i1 %170, i1 true, i1 %.not2.i28
+  br i1 %or.cond61, label %_ZNK7rocksdb13DataBlockIter5valueEv.exit34, label %172
 
 172:                                              ; preds = %167
   %173 = load ptr, ptr %89, align 8, !tbaa !4
@@ -2789,7 +2789,7 @@ define noundef zeroext i1 @_ZN7rocksdb13DataBlockIter14SeekForGetImplERKNS_5Slic
 
 .thread:                                          ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre55 = load i32, ptr %41, align 4, !tbaa !51
+  %.pre54 = load i32, ptr %41, align 4, !tbaa !51
   br label %.loopexit
 
 57:                                               ; preds = %.preheader
@@ -2802,7 +2802,7 @@ define noundef zeroext i1 @_ZN7rocksdb13DataBlockIter14SeekForGetImplERKNS_5Slic
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %57, %.thread, %53
-  %61 = phi i32 [ %.pre55, %.thread ], [ %.0.copyload.i.i, %53 ], [ %59, %57 ]
+  %61 = phi i32 [ %.pre54, %.thread ], [ %.0.copyload.i.i, %53 ], [ %59, %57 ]
   %62 = load i32, ptr %11, align 8, !tbaa !52
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %switch.lookup, label %64

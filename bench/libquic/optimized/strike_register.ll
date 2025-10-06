@@ -382,8 +382,8 @@ define noundef range(i32 0, 6) i32 @_ZN3net14StrikeRegister6InsertEPKhj(ptr noun
   %9 = icmp eq i32 %8, -2147483647
   %10 = load i32, ptr %7, align 8
   %11 = icmp eq i32 %10, -2147483647
-  %or.cond120 = select i1 %9, i1 true, i1 %11
-  br i1 %or.cond120, label %.critedge.lr.ph, label %._crit_edge
+  %or.cond119 = select i1 %9, i1 true, i1 %11
+  br i1 %or.cond119, label %.critedge.lr.ph, label %._crit_edge
 
 .critedge.lr.ph:                                  ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -475,8 +475,8 @@ _ZN3net14StrikeRegister14DropOldestNodeEv.exit:   ; preds = %48, %49
   br i1 %62, label %.critedge, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN3net14StrikeRegister14DropOldestNodeEv.exit, %3
-  %.lcssa118 = phi i32 [ %8, %3 ], [ %25, %_ZN3net14StrikeRegister14DropOldestNodeEv.exit ]
-  %.lcssa116 = phi i32 [ %10, %3 ], [ %61, %_ZN3net14StrikeRegister14DropOldestNodeEv.exit ]
+  %.lcssa117 = phi i32 [ %8, %3 ], [ %25, %_ZN3net14StrikeRegister14DropOldestNodeEv.exit ]
+  %.lcssa115 = phi i32 [ %10, %3 ], [ %61, %_ZN3net14StrikeRegister14DropOldestNodeEv.exit ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i32, ptr %63, align 8, !tbaa !19
   %65 = sub i32 %2, %64
@@ -594,14 +594,14 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit:      ; preds = %112, %.preheader.i
 
 _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %138 = mul i32 %.lcssa118, 24
+  %138 = mul i32 %.lcssa117, 24
   %139 = zext i32 %138 to i64
   %140 = load ptr, ptr %137, align 8, !tbaa !23
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 %139
   %142 = load i32, ptr %141, align 4, !tbaa !3
   store i32 %142, ptr %6, align 4, !tbaa !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %141, ptr noundef nonnull align 16 dereferenceable(24) %4, i64 24, i1 false)
-  %143 = shl i32 %.lcssa118, 8
+  %143 = shl i32 %.lcssa117, 8
   %144 = or i32 %143, -2147483648
   store i32 %144, ptr %106, align 8, !tbaa !29
   br label %273
@@ -609,16 +609,16 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
 145:                                              ; preds = %_ZNK3net14StrikeRegister9BestMatchEPKh.exit
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %147 = load ptr, ptr %146, align 8, !tbaa !22
-  %148 = zext i32 %.lcssa116 to i64
+  %148 = zext i32 %.lcssa115 to i64
   %149 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %147, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !3
   store i32 %150, ptr %7, align 8, !tbaa !24
-  %151 = mul i32 %.lcssa118, 24
+  %151 = mul i32 %.lcssa117, 24
   %152 = zext i32 %151 to i64
   %153 = getelementptr inbounds nuw i8, ptr %134, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !3
   store i32 %154, ptr %6, align 4, !tbaa !25
-  %155 = icmp eq i32 %.lcssa118, %130
+  %155 = icmp eq i32 %.lcssa117, %130
   br i1 %155, label %.preheader.i93, label %176
 
 .preheader.i93:                                   ; preds = %145
@@ -665,27 +665,27 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 %indvars.iv
   %183 = load i8, ptr %182, align 1, !tbaa !31
   %.not82 = icmp eq i8 %181, %183
-  br i1 %.not82, label %184, label %.split.loop.exit124
+  br i1 %.not82, label %184, label %.split.loop.exit123
 
 184:                                              ; preds = %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
   br i1 %exitcond.not, label %.split.loop.exit.loopexit, label %179, !llvm.loop !34
 
-.split.loop.exit124:                              ; preds = %179
+.split.loop.exit123:                              ; preds = %179
   %185 = trunc nuw nsw i64 %indvars.iv to i8
   %186 = xor i8 %183, %181
   br label %.split.loop.exit
 
 .split.loop.exit.loopexit:                        ; preds = %184
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.pre151 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !31
+  %.pre150 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !31
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %.split.loop.exit.loopexit, %.split.loop.exit124
-  %187 = phi i8 [ %181, %.split.loop.exit124 ], [ %.pre151, %.split.loop.exit.loopexit ]
-  %.074.lcssa = phi i8 [ %185, %.split.loop.exit124 ], [ 24, %.split.loop.exit.loopexit ]
-  %.173 = phi i8 [ %186, %.split.loop.exit124 ], [ 0, %.split.loop.exit.loopexit ]
+.split.loop.exit:                                 ; preds = %.split.loop.exit.loopexit, %.split.loop.exit123
+  %187 = phi i8 [ %181, %.split.loop.exit123 ], [ %.pre150, %.split.loop.exit.loopexit ]
+  %.074.lcssa = phi i8 [ %185, %.split.loop.exit123 ], [ 24, %.split.loop.exit.loopexit ]
+  %.173 = phi i8 [ %186, %.split.loop.exit123 ], [ 0, %.split.loop.exit.loopexit ]
   %188 = lshr i8 %.173, 1
   %189 = or i8 %188, %.173
   %190 = lshr i8 %189, 2
@@ -704,7 +704,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %201 = getelementptr inbounds nuw i32, ptr %199, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !3
   %203 = and i32 %202, 255
-  %204 = shl i32 %.lcssa118, 8
+  %204 = shl i32 %.lcssa117, 8
   %205 = or disjoint i32 %204, %203
   %206 = or i32 %205, -2147483648
   store i32 %206, ptr %201, align 4, !tbaa !3
@@ -731,7 +731,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %222 = load i32, ptr %221, align 4, !tbaa !3
   %223 = trunc i32 %222 to i8
   %224 = icmp ult i8 %.074.lcssa, %223
-  br i1 %224, label %.thread111, label %.lr.ph182
+  br i1 %224, label %.thread111, label %.lr.ph181
 
 .lr.ph:                                           ; preds = %245
   %225 = lshr i32 %259, 8
@@ -741,18 +741,18 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %229 = load i32, ptr %228, align 4, !tbaa !3
   %230 = trunc i32 %229 to i8
   %231 = icmp ult i8 %.074.lcssa, %230
-  br i1 %231, label %.thread111, label %.lr.ph182
+  br i1 %231, label %.thread111, label %.lr.ph181
 
-.lr.ph182:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph181:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %232 = phi i8 [ %230, %.lr.ph ], [ %223, %.lr.ph.preheader ]
   %233 = phi i32 [ %229, %.lr.ph ], [ %222, %.lr.ph.preheader ]
   %234 = phi ptr [ %228, %.lr.ph ], [ %221, %.lr.ph.preheader ]
-  %.067131181 = phi ptr [ %258, %.lr.ph ], [ %106, %.lr.ph.preheader ]
+  %.067130180 = phi ptr [ %258, %.lr.ph ], [ %106, %.lr.ph.preheader ]
   %235 = phi i32 [ %259, %.lr.ph ], [ %216, %.lr.ph.preheader ]
   %236 = icmp eq i8 %.074.lcssa, %232
   br i1 %236, label %237, label %245
 
-237:                                              ; preds = %.lr.ph182
+237:                                              ; preds = %.lr.ph181
   %238 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %239 = load i32, ptr %238, align 4, !tbaa !3
   %240 = trunc i32 %239 to i8
@@ -768,11 +768,11 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @.str.4)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre152 = load i32, ptr %234, align 4, !tbaa !3
+  %.pre151 = load i32, ptr %234, align 4, !tbaa !3
   br label %245
 
-245:                                              ; preds = %242, %244, %.lr.ph182
-  %246 = phi i32 [ %233, %242 ], [ %.pre152, %244 ], [ %233, %.lr.ph182 ]
+245:                                              ; preds = %242, %244, %.lr.ph181
+  %246 = phi i32 [ %233, %242 ], [ %.pre151, %244 ], [ %233, %.lr.ph181 ]
   %247 = and i32 %246, 255
   %248 = zext nneg i32 %247 to i64
   %249 = getelementptr inbounds nuw i8, ptr %4, i64 %248
@@ -791,7 +791,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
 
 .thread111:                                       ; preds = %237, %.lr.ph, %245, %.lr.ph.preheader, %.split.loop.exit
   %261 = phi i32 [ %216, %.split.loop.exit ], [ %216, %.lr.ph.preheader ], [ %259, %245 ], [ %259, %.lr.ph ], [ %235, %237 ]
-  %.067.lcssa = phi ptr [ %106, %.split.loop.exit ], [ %106, %.lr.ph.preheader ], [ %258, %245 ], [ %258, %.lr.ph ], [ %.067131181, %237 ]
+  %.067.lcssa = phi ptr [ %106, %.split.loop.exit ], [ %106, %.lr.ph.preheader ], [ %258, %245 ], [ %258, %.lr.ph ], [ %.067130180, %237 ]
   %262 = xor i1 %197, true
   %263 = and i32 %261, -256
   %264 = zext i1 %262 to i64
@@ -802,7 +802,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   store i32 %268, ptr %265, align 4, !tbaa !3
   %269 = load i32, ptr %.067.lcssa, align 4, !tbaa !3
   %270 = and i32 %269, 255
-  %271 = shl i32 %.lcssa116, 8
+  %271 = shl i32 %.lcssa115, 8
   %272 = or disjoint i32 %270, %271
   store i32 %272, ptr %.067.lcssa, align 4, !tbaa !3
   br label %273

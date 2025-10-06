@@ -775,24 +775,24 @@ define internal i32 @hds_write(ptr noundef captures(none) %0, ptr noundef %1, i3
   br label %21
 
 21:                                               ; preds = %61, %.lr.ph.i
-  %.04058.i = phi ptr [ %16, %.lr.ph.i ], [ %63, %61 ]
-  %.04257.i = phi i32 [ %15, %.lr.ph.i ], [ %64, %61 ]
-  %22 = load i8, ptr %.04058.i, align 1, !tbaa !68
-  %23 = getelementptr inbounds nuw i8, ptr %.04058.i, i64 1
+  %.04057.i = phi ptr [ %16, %.lr.ph.i ], [ %63, %61 ]
+  %.04256.i = phi i32 [ %15, %.lr.ph.i ], [ %64, %61 ]
+  %22 = load i8, ptr %.04057.i, align 1, !tbaa !68
+  %23 = getelementptr inbounds nuw i8, ptr %.04057.i, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !68
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 16
-  %27 = getelementptr inbounds nuw i8, ptr %.04058.i, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.04057.i, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !68
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 8
   %31 = or disjoint i32 %30, %26
-  %32 = getelementptr inbounds nuw i8, ptr %.04058.i, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %.04057.i, i64 3
   %33 = load i8, ptr %32, align 1, !tbaa !68
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
   %36 = add nuw nsw i32 %35, 15
-  %37 = icmp samesign ugt i32 %36, %.04257.i
+  %37 = icmp samesign ugt i32 %36, %.04256.i
   br i1 %37, label %parse_header.exit, label %38
 
 38:                                               ; preds = %21
@@ -810,7 +810,7 @@ define internal i32 @hds_write(ptr noundef captures(none) %0, ptr noundef %1, i3
   %45 = getelementptr inbounds nuw i32, ptr %19, i64 %44
   store i32 %36, ptr %45, align 4, !tbaa !25
   %46 = zext nneg i32 %36 to i64
-  %47 = tail call ptr @av_memdup(ptr noundef nonnull %.04058.i, i64 noundef %46) #8
+  %47 = tail call ptr @av_memdup(ptr noundef nonnull %.04057.i, i64 noundef %46) #8
   %48 = load i32, ptr %18, align 8, !tbaa !66
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %20, i64 %49
@@ -834,7 +834,7 @@ define internal i32 @hds_write(ptr noundef captures(none) %0, ptr noundef %1, i3
 
 57:                                               ; preds = %55
   store i32 %35, ptr %8, align 8, !tbaa !99
-  %58 = getelementptr inbounds nuw i8, ptr %.04058.i, i64 11
+  %58 = getelementptr inbounds nuw i8, ptr %.04057.i, i64 11
   %59 = zext nneg i32 %35 to i64
   %60 = tail call ptr @av_memdup(ptr noundef nonnull %58, i64 noundef %59) #8
   store ptr %60, ptr %17, align 8, !tbaa !100
@@ -843,8 +843,8 @@ define internal i32 @hds_write(ptr noundef captures(none) %0, ptr noundef %1, i3
 
 61:                                               ; preds = %57, %53, %51
   %62 = zext nneg i32 %36 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %.04058.i, i64 %62
-  %64 = sub nsw i32 %.04257.i, %36
+  %63 = getelementptr inbounds nuw i8, ptr %.04057.i, i64 %62
+  %64 = sub nsw i32 %.04256.i, %36
   %65 = icmp sgt i32 %64, 14
   br i1 %65, label %21, label %._crit_edge.i
 

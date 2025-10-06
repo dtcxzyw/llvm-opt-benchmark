@@ -476,7 +476,7 @@ define internal ptr @H5FD__log_open(ptr noundef %0, i32 noundef %1, i64 noundef 
   br label %.thread135
 
 29:                                               ; preds = %23
-  %30 = icmp slt i64 %3, 1
+  %30 = icmp slt i64 %3, -1
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
@@ -1597,8 +1597,9 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   br label %119
 
 22:                                               ; preds = %16
-  %23 = or i64 %4, %3
-  %or.cond = icmp sgt i64 %23, -1
+  %23 = icmp sgt i64 %3, -2
+  %.not105 = icmp sgt i64 %4, -1
+  %or.cond = and i1 %23, %.not105
   br i1 %or.cond, label %24, label %27
 
 24:                                               ; preds = %22
@@ -1671,7 +1672,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   %51 = load i32, ptr %48, align 8, !tbaa !23
   %52 = call i64 @pread64(i32 noundef %51, ptr noundef %.096151, i64 noundef %..094, i64 noundef %.188) #19
   %53 = call i64 @llvm.smax.i64(i64 %52, i64 0)
-  %spec.select = add nsw i64 %53, %.188
+  %spec.select = add nuw nsw i64 %53, %.188
   switch i64 %52, label %75 [
     i64 -1, label %54
     i64 0, label %.thread126
@@ -1697,7 +1698,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
 63:                                               ; preds = %.critedge
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %65 = load ptr, ptr %64, align 8, !tbaa !45
-  %66 = add i64 %25, -1
+  %66 = add nsw i64 %25, -1
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.54, i64 noundef %3, i64 noundef %66, i64 noundef %4) #19
   br label %.thread
 
@@ -1771,7 +1772,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %103 = load ptr, ptr %102, align 8, !tbaa !45
-  %104 = add i64 %25, -1
+  %104 = add nsw i64 %25, -1
   %105 = sext i32 %1 to i64
   %106 = getelementptr inbounds ptr, ptr @flavors, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !61
@@ -1829,8 +1830,9 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   br label %139
 
 23:                                               ; preds = %16
-  %24 = or i64 %4, %3
-  %or.cond = icmp sgt i64 %24, -1
+  %24 = icmp sgt i64 %3, -2
+  %.not111 = icmp sgt i64 %4, -1
+  %or.cond = and i1 %24, %.not111
   br i1 %or.cond, label %25, label %28
 
 25:                                               ; preds = %23
@@ -1904,7 +1906,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   %52 = load i32, ptr %49, align 8, !tbaa !23
   %53 = call i64 @pwrite64(i32 noundef %52, ptr noundef %.0104144, i64 noundef %..0102, i64 noundef %.197) #19
   %54 = call i64 @llvm.smax.i64(i64 %53, i64 0)
-  %spec.select = add nsw i64 %54, %.197
+  %spec.select = add nuw nsw i64 %54, %.197
   %55 = icmp eq i64 %53, -1
   br i1 %55, label %56, label %77
 
@@ -1928,7 +1930,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
 65:                                               ; preds = %.critedge
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %67 = load ptr, ptr %66, align 8, !tbaa !45
-  %68 = add i64 %26, -1
+  %68 = add nsw i64 %26, -1
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.60, i64 noundef %3, i64 noundef %68, i64 noundef %4) #19
   br label %.thread
 
@@ -2000,7 +2002,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %106 = load ptr, ptr %105, align 8, !tbaa !45
-  %107 = add i64 %26, -1
+  %107 = add nsw i64 %26, -1
   %108 = sext i32 %1 to i64
   %109 = getelementptr inbounds ptr, ptr @flavors, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !61

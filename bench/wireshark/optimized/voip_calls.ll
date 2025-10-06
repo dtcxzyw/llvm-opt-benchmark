@@ -6230,21 +6230,20 @@ define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr noundef
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
-  switch i32 %10, label %11 [
-    i32 0, label %122
-    i32 -1, label %122
-  ]
+  %.off = add i32 %10, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %11, label %122
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i32, ptr %12, align 8
-  %.off = add i32 %13, -1
-  %switch114 = icmp ult i32 %.off, 10
+  %.off114 = add i32 %13, -1
+  %switch115 = icmp ult i32 %.off114, 10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %. = select i1 %switch114, ptr %15, ptr %14
-  %.115 = select i1 %switch114, ptr %14, ptr %15
-  call void @address_to_str_buf(ptr noundef nonnull %.115, ptr noundef nonnull %6, i32 noundef 128)
+  %. = select i1 %switch115, ptr %15, ptr %14
+  %.116 = select i1 %switch115, ptr %14, ptr %15
+  call void @address_to_str_buf(ptr noundef nonnull %.116, ptr noundef nonnull %6, i32 noundef 128)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @g_queue_peek_nth_link(ptr noundef %17, i32 noundef 0)
@@ -6430,8 +6429,8 @@ copy_address.exit:                                ; preds = %.thread120, %53
   store i32 %121, ptr %119, align 8
   br label %122
 
-122:                                              ; preds = %5, %5, %101
-  %.097 = phi i32 [ 1, %101 ], [ 0, %5 ], [ 0, %5 ]
+122:                                              ; preds = %5, %101
+  %.097 = phi i32 [ 1, %101 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.097
 }
@@ -7766,24 +7765,24 @@ define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @g_queue_peek_nth_link(ptr noundef %20, i32 noundef 0)
-  %.not143 = icmp eq ptr %21, null
-  br i1 %.not143, label %.thread138, label %.lr.ph
+  %.not142 = icmp eq ptr %21, null
+  br i1 %.not142, label %.thread137, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %27
 
-.thread138:                                       ; preds = %41, %18
+.thread137:                                       ; preds = %41, %18
   %23 = load i32, ptr %3, align 8
   %24 = icmp ugt i32 %23, 255
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %.0115140 = select i1 %24, ptr %25, ptr %26
+  %.0115139 = select i1 %24, ptr %25, ptr %26
   br label %50
 
 27:                                               ; preds = %.lr.ph, %41
-  %.0112144 = phi ptr [ %21, %.lr.ph ], [ %43, %41 ]
-  %28 = load ptr, ptr %.0112144, align 8
+  %.0112143 = phi ptr [ %21, %.lr.ph ], [ %43, %41 ]
+  %28 = load ptr, ptr %.0112143, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 76
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 12
@@ -7803,10 +7802,10 @@ define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr nou
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %27, %38
-  %42 = getelementptr inbounds nuw i8, ptr %.0112144, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0112143, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %.thread138, label %27
+  br i1 %.not, label %.thread137, label %27
 
 44:                                               ; preds = %38, %32
   %45 = load i32, ptr %3, align 8
@@ -7817,10 +7816,10 @@ define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr nou
   %49 = icmp eq ptr %28, null
   br i1 %49, label %50, label %96
 
-50:                                               ; preds = %.thread138, %44
-  %.0115141 = phi ptr [ %.0115140, %.thread138 ], [ %.0115, %44 ]
-  %51 = phi ptr [ %26, %.thread138 ], [ %48, %44 ]
-  %52 = phi ptr [ %25, %.thread138 ], [ %47, %44 ]
+50:                                               ; preds = %.thread137, %44
+  %.0115140 = phi ptr [ %.0115139, %.thread137 ], [ %.0115, %44 ]
+  %51 = phi ptr [ %26, %.thread137 ], [ %48, %44 ]
+  %52 = phi ptr [ %25, %.thread137 ], [ %47, %44 ]
   %53 = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0(i64 noundef 152) #13
   store i32 0, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -7851,10 +7850,10 @@ define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr nou
   %68 = getelementptr inbounds nuw i8, ptr %53, i64 72
   store i32 1, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %70 = load i32, ptr %.0115141, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.0115141, i64 4
+  %70 = load i32, ptr %.0115140, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.0115140, i64 4
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %.0115141, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.0115140, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   store i32 %70, ptr %69, align 8
@@ -8015,8 +8014,8 @@ copy_address.exit:                                ; preds = %66, %76
   %161 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %157, ptr noundef %160)
   %.not22.not.i = icmp eq ptr %161, null
   %.not23.i = icmp eq ptr %153, null
-  %or.cond142 = select i1 %.not22.not.i, i1 true, i1 %.not23.i
-  br i1 %or.cond142, label %append_to_frame_graph.exit, label %162
+  %or.cond141 = select i1 %.not22.not.i, i1 true, i1 %.not23.i
+  br i1 %or.cond141, label %append_to_frame_graph.exit, label %162
 
 162:                                              ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 72
@@ -8095,20 +8094,20 @@ define internal range(i32 0, 2) i32 @iax2_calls_packet(ptr noundef %0, ptr nound
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @g_queue_peek_nth_link(ptr noundef %22, i32 noundef 0)
-  %.not102111 = icmp eq ptr %23, null
-  br i1 %.not102111, label %.thread109, label %.lr.ph
+  %.not102110 = icmp eq ptr %23, null
+  br i1 %.not102110, label %.thread108, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 6
   br label %26
 
-.thread109:                                       ; preds = %41, %20
+.thread108:                                       ; preds = %41, %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %47
 
 26:                                               ; preds = %.lr.ph, %41
-  %.095112 = phi ptr [ %23, %.lr.ph ], [ %43, %41 ]
-  %27 = load ptr, ptr %.095112, align 8
+  %.095111 = phi ptr [ %23, %.lr.ph ], [ %43, %41 ]
+  %27 = load ptr, ptr %.095111, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 76
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 13
@@ -8129,18 +8128,18 @@ define internal range(i32 0, 2) i32 @iax2_calls_packet(ptr noundef %0, ptr nound
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %26, %38
-  %42 = getelementptr inbounds nuw i8, ptr %.095112, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.095111, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not102 = icmp eq ptr %43, null
-  br i1 %.not102, label %.thread109, label %26
+  br i1 %.not102, label %.thread108, label %26
 
 44:                                               ; preds = %38, %31
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %46 = icmp eq ptr %27, null
   br i1 %46, label %47, label %106
 
-47:                                               ; preds = %.thread109, %44
-  %48 = phi ptr [ %25, %.thread109 ], [ %45, %44 ]
+47:                                               ; preds = %.thread108, %44
+  %48 = phi ptr [ %25, %.thread108 ], [ %45, %44 ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load i8, ptr %49, align 8
   %.not103 = icmp eq i8 %50, 6

@@ -1233,8 +1233,8 @@ _Z9get_depthPK4expr.exit:                         ; preds = %13, %18, %22
   %26 = load ptr, ptr %25, align 8, !tbaa !94
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
-  %trunc.i39 = trunc i32 %28 to i16
-  switch i16 %trunc.i39, label %_Z9get_depthPK4expr.exit41 [
+  %trunc.i38 = trunc i32 %28 to i16
+  switch i16 %trunc.i38, label %_Z9get_depthPK4expr.exit40 [
     i16 0, label %29
     i16 2, label %33
   ]
@@ -1243,19 +1243,19 @@ _Z9get_depthPK4expr.exit:                         ; preds = %13, %18, %22
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i32
-  br label %_Z9get_depthPK4expr.exit41
+  br label %_Z9get_depthPK4expr.exit40
 
 33:                                               ; preds = %_Z9get_depthPK4expr.exit
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %35 = load i32, ptr %34, align 8, !tbaa !151
-  br label %_Z9get_depthPK4expr.exit41
+  br label %_Z9get_depthPK4expr.exit40
 
-_Z9get_depthPK4expr.exit41:                       ; preds = %_Z9get_depthPK4expr.exit, %29, %33
-  %.0.i40 = phi i32 [ %32, %29 ], [ %35, %33 ], [ 1, %_Z9get_depthPK4expr.exit ]
+_Z9get_depthPK4expr.exit40:                       ; preds = %_Z9get_depthPK4expr.exit, %29, %33
+  %.0.i39 = phi i32 [ %32, %29 ], [ %35, %33 ], [ 1, %_Z9get_depthPK4expr.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !109
   %38 = add i32 %.0.i, 2
-  %39 = add i32 %38, %.0.i40
+  %39 = add i32 %38, %.0.i39
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 152
   %41 = load i32, ptr %40, align 4, !tbaa !155
   %42 = mul i32 %41, 214013
@@ -1267,17 +1267,17 @@ _Z9get_depthPK4expr.exit41:                       ; preds = %_Z9get_depthPK4expr
   %.not = icmp ugt i32 %46, %.0.i
   br i1 %.not, label %49, label %47
 
-47:                                               ; preds = %_Z9get_depthPK4expr.exit41
+47:                                               ; preds = %_Z9get_depthPK4expr.exit40
   %48 = tail call noundef zeroext i1 @_ZN3sls7bv_eval11repair_downEP3appj(ptr noundef nonnull align 8 dereferenceable(865) %7, ptr noundef nonnull %1, i32 noundef 0)
   br i1 %48, label %.thread, label %49
 
-49:                                               ; preds = %47, %_Z9get_depthPK4expr.exit41
+49:                                               ; preds = %47, %_Z9get_depthPK4expr.exit40
   %50 = tail call noundef zeroext i1 @_ZN3sls7bv_eval11repair_downEP3appj(ptr noundef nonnull align 8 dereferenceable(865) %7, ptr noundef nonnull %1, i32 noundef 1)
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef zeroext i1 @_ZN3sls7bv_eval11repair_downEP3appj(ptr noundef nonnull align 8 dereferenceable(865) %7, ptr noundef nonnull %1, i32 noundef 0)
-  br i1 %52, label %.thread, label %.thread47
+  br i1 %52, label %.thread, label %.thread45
 
 53:                                               ; preds = %11
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1293,22 +1293,22 @@ _Z9get_depthPK4expr.exit41:                       ; preds = %_Z9get_depthPK4expr
   br label %65
 
 63:                                               ; preds = %65
-  %64 = add nuw i32 %.03249, 1
+  %64 = add nuw i32 %.03246, 1
   %exitcond.not = icmp eq i32 %64, %4
-  br i1 %exitcond.not, label %.thread47, label %65, !llvm.loop !156
+  br i1 %exitcond.not, label %.thread45, label %65, !llvm.loop !156
 
 65:                                               ; preds = %53, %63
-  %.03249 = phi i32 [ 0, %53 ], [ %64, %63 ]
-  %66 = add i32 %.03249, %62
+  %.03246 = phi i32 [ 0, %53 ], [ %64, %63 ]
+  %66 = add i32 %.03246, %62
   %67 = urem i32 %66, %4
   %68 = tail call noundef zeroext i1 @_ZN3sls7bv_eval11repair_downEP3appj(ptr noundef nonnull align 8 dereferenceable(865) %7, ptr noundef nonnull %1, i32 noundef %67)
   br i1 %68, label %.thread, label %63
 
-.thread47:                                        ; preds = %63, %51
+.thread45:                                        ; preds = %63, %51
   br label %.thread
 
-.thread:                                          ; preds = %65, %51, %49, %47, %2, %6, %9, %.thread47
-  %.033 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %9 ], [ false, %.thread47 ], [ true, %47 ], [ true, %49 ], [ true, %51 ], [ true, %65 ]
+.thread:                                          ; preds = %65, %51, %49, %47, %2, %6, %9, %.thread45
+  %.033 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %9 ], [ false, %.thread45 ], [ true, %47 ], [ true, %49 ], [ true, %51 ], [ true, %65 ]
   tail call void @_ZN3sls9bv_plugin3logEP4exprbb(ptr noundef nonnull align 8 dereferenceable(1049) %0, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext %.033)
   ret i1 %.033
 }
@@ -2108,9 +2108,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %9 = load i32, ptr %8, align 4, !tbaa !99
   %10 = add i32 %9, -1
-  %.not14.i = icmp eq i32 %10, 0
+  %.not12.i = icmp eq i32 %10, 0
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !81
-  br i1 %.not14.i, label %_ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit, label %.lr.ph.i
+  br i1 %.not12.i, label %_ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %wide.trip.count.i = zext i32 %10 to i64

@@ -159,40 +159,40 @@ uriEqualsAuthorityA.exit.thread.i:                ; preds = %uriEqualsAuthorityA
   store i32 0, ptr %67, align 8, !tbaa !20
   %68 = icmp ne ptr %64, null
   %69 = icmp ne ptr %66, null
-  %or.cond3140.i = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond3140.i, label %.lr.ph.i, label %.critedge.i
+  %or.cond3139.i = select i1 %68, i1 %69, i1 false
+  br i1 %or.cond3139.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %62, %.critedge111.i
-  %.083142.i = phi ptr [ %84, %.critedge111.i ], [ %66, %62 ]
-  %.085141.i = phi ptr [ %77, %.critedge111.i ], [ %64, %62 ]
-  %70 = tail call i32 @uriCompareRangeA(ptr noundef nonnull %.085141.i, ptr noundef nonnull %.083142.i) #4
+  %.083141.i = phi ptr [ %84, %.critedge111.i ], [ %66, %62 ]
+  %.085140.i = phi ptr [ %77, %.critedge111.i ], [ %64, %62 ]
+  %70 = tail call i32 @uriCompareRangeA(ptr noundef nonnull %.085140.i, ptr noundef nonnull %.083141.i) #4
   %.not96.i = icmp eq i32 %70, 0
-  br i1 %.not96.i, label %71, label %.lr.ph152.i
+  br i1 %.not96.i, label %71, label %.lr.ph151.i
 
 71:                                               ; preds = %.lr.ph.i
-  %72 = load ptr, ptr %.085141.i, align 8, !tbaa !22
-  %73 = getelementptr inbounds nuw i8, ptr %.085141.i, i64 8
+  %72 = load ptr, ptr %.085140.i, align 8, !tbaa !22
+  %73 = getelementptr inbounds nuw i8, ptr %.085140.i, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !24
   %75 = icmp eq ptr %72, %74
-  %76 = getelementptr inbounds nuw i8, ptr %.085141.i, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.085140.i, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !25
   br i1 %75, label %78, label %..critedge111_crit_edge.i
 
 ..critedge111_crit_edge.i:                        ; preds = %71
-  %.phi.trans.insert165.i = getelementptr inbounds nuw i8, ptr %.083142.i, i64 16
-  %.pre166.i = load ptr, ptr %.phi.trans.insert165.i, align 8, !tbaa !25
+  %.phi.trans.insert164.i = getelementptr inbounds nuw i8, ptr %.083141.i, i64 16
+  %.pre165.i = load ptr, ptr %.phi.trans.insert164.i, align 8, !tbaa !25
   br label %.critedge111.i
 
 78:                                               ; preds = %71
   %79 = icmp eq ptr %77, null
-  %80 = getelementptr inbounds nuw i8, ptr %.083142.i, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.083141.i, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !25
   %82 = icmp ne ptr %81, null
   %83 = xor i1 %79, %82
-  br i1 %83, label %.critedge111.i, label %.lr.ph152.i
+  br i1 %83, label %.critedge111.i, label %.lr.ph151.i
 
 .critedge111.i:                                   ; preds = %78, %..critedge111_crit_edge.i
-  %84 = phi ptr [ %.pre166.i, %..critedge111_crit_edge.i ], [ %81, %78 ]
+  %84 = phi ptr [ %.pre165.i, %..critedge111_crit_edge.i ], [ %81, %78 ]
   %85 = icmp ne ptr %77, null
   %86 = icmp ne ptr %84, null
   %or.cond3.i = select i1 %85, i1 %86, i1 false
@@ -201,23 +201,23 @@ uriEqualsAuthorityA.exit.thread.i:                ; preds = %uriEqualsAuthorityA
 .critedge.i:                                      ; preds = %.critedge111.i, %62
   %.085.lcssa.i = phi ptr [ %64, %62 ], [ %77, %.critedge111.i ]
   %.083.lcssa.i = phi ptr [ %66, %62 ], [ %84, %.critedge111.i ]
-  %.not97150.i = icmp eq ptr %.083.lcssa.i, null
-  br i1 %.not97150.i, label %.critedge5.i, label %.lr.ph152.i
+  %.not97149.i = icmp eq ptr %.083.lcssa.i, null
+  br i1 %.not97149.i, label %.critedge5.i, label %.lr.ph151.i
 
-.lr.ph152.i:                                      ; preds = %78, %.lr.ph.i, %.critedge.i
-  %.083.lcssa194.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083142.i, %.lr.ph.i ], [ %.083142.i, %78 ]
-  %.085.lcssa192.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085141.i, %.lr.ph.i ], [ %.085141.i, %78 ]
+.lr.ph151.i:                                      ; preds = %78, %.lr.ph.i, %.critedge.i
+  %.083.lcssa193.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083141.i, %.lr.ph.i ], [ %.083141.i, %78 ]
+  %.085.lcssa191.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085140.i, %.lr.ph.i ], [ %.085140.i, %78 ]
   %87 = load ptr, ptr @uriConstParentA, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa194.i, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa193.i, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !25
   %.not98.i24 = icmp eq ptr %92, null
   br i1 %.not98.i24, label %.critedge5.i, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph152.i, %uriAppendSegmentA.exit.i
-  %93 = phi ptr [ %106, %uriAppendSegmentA.exit.i ], [ %92, %.lr.ph152.i ]
+.lr.ph:                                           ; preds = %.lr.ph151.i, %uriAppendSegmentA.exit.i
+  %93 = phi ptr [ %106, %uriAppendSegmentA.exit.i ], [ %92, %.lr.ph151.i ]
   %94 = load ptr, ptr %.013, align 8, !tbaa !28
   %95 = tail call ptr %94(ptr noundef nonnull %.013, i64 noundef 32) #4
   %96 = icmp eq ptr %95, null
@@ -249,43 +249,43 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   %.not98.i = icmp eq ptr %106, null
   br i1 %.not98.i, label %.critedge5.i, label %.lr.ph
 
-.critedge5.i:                                     ; preds = %uriAppendSegmentA.exit.i, %.lr.ph152.i, %.critedge.i
-  %.085.lcssa193.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa192.i, %.lr.ph152.i ], [ %.085.lcssa192.i, %uriAppendSegmentA.exit.i ]
-  %.lcssa138.i = phi i1 [ true, %.critedge.i ], [ true, %.lr.ph152.i ], [ false, %uriAppendSegmentA.exit.i ]
-  %.not99160.i = icmp eq ptr %.085.lcssa193.i, null
-  br i1 %.not99160.i, label %.loopexit.i, label %.lr.ph163.i
+.critedge5.i:                                     ; preds = %uriAppendSegmentA.exit.i, %.lr.ph151.i, %.critedge.i
+  %.085.lcssa192.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa191.i, %.lr.ph151.i ], [ %.085.lcssa191.i, %uriAppendSegmentA.exit.i ]
+  %.lcssa137.i = phi i1 [ true, %.critedge.i ], [ true, %.lr.ph151.i ], [ false, %uriAppendSegmentA.exit.i ]
+  %.not99159.i = icmp eq ptr %.085.lcssa192.i, null
+  br i1 %.not99159.i, label %.loopexit.i, label %.lr.ph162.i
 
-.lr.ph163.i:                                      ; preds = %.critedge5.i
+.lr.ph162.i:                                      ; preds = %.critedge5.i
   %107 = load ptr, ptr @uriConstPwdA, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %111
 
-111:                                              ; preds = %158, %.lr.ph163.i
-  %.182162.i = phi i1 [ %.lcssa138.i, %.lr.ph163.i ], [ false, %158 ]
-  %.186161.i = phi ptr [ %.085.lcssa193.i, %.lr.ph163.i ], [ %160, %158 ]
-  %.pre29 = load ptr, ptr %.186161.i, align 8, !tbaa !22
-  br i1 %.182162.i, label %112, label %.critedge115.i
+111:                                              ; preds = %158, %.lr.ph162.i
+  %.182161.i = phi i1 [ %.lcssa137.i, %.lr.ph162.i ], [ false, %158 ]
+  %.186160.i = phi ptr [ %.085.lcssa192.i, %.lr.ph162.i ], [ %160, %158 ]
+  %.pre29 = load ptr, ptr %.186160.i, align 8, !tbaa !22
+  br i1 %.182161.i, label %112, label %.critedge115.i
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.186160.i, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !24
-  %.not101156.i = icmp ult ptr %.pre29, %114
-  br i1 %.not101156.i, label %.lr.ph158.i, label %.critedge113.i
+  %.not101155.i = icmp ult ptr %.pre29, %114
+  br i1 %.not101155.i, label %.lr.ph157.i, label %.critedge113.i
 
-115:                                              ; preds = %.lr.ph158.i
-  %116 = getelementptr inbounds nuw i8, ptr %.0157.i, i64 1
+115:                                              ; preds = %.lr.ph157.i
+  %116 = getelementptr inbounds nuw i8, ptr %.0156.i, i64 1
   %exitcond.not.i = icmp eq ptr %116, %114
-  br i1 %exitcond.not.i, label %.critedge113.i, label %.lr.ph158.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.critedge113.i, label %.lr.ph157.i, !llvm.loop !31
 
-.lr.ph158.i:                                      ; preds = %112, %115
-  %.0157.i = phi ptr [ %116, %115 ], [ %.pre29, %112 ]
-  %117 = load i8, ptr %.0157.i, align 1, !tbaa !32
+.lr.ph157.i:                                      ; preds = %112, %115
+  %.0156.i = phi ptr [ %116, %115 ], [ %.pre29, %112 ]
+  %117 = load i8, ptr %.0156.i, align 1, !tbaa !32
   %118 = icmp eq i8 %117, 58
   br i1 %118, label %119, label %115
 
-119:                                              ; preds = %.lr.ph158.i
+119:                                              ; preds = %.lr.ph157.i
   %120 = load ptr, ptr %.013, align 8, !tbaa !28
   %121 = tail call ptr %120(ptr noundef nonnull %.013, i64 noundef 32) #4
   %122 = icmp eq ptr %121, null
@@ -342,12 +342,12 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
 .critedge115.sink.split.i:                        ; preds = %142, %141, %129, %128
   %.sink.i = phi ptr [ %121, %128 ], [ %121, %129 ], [ %134, %141 ], [ %134, %142 ]
   store ptr %.sink.i, ptr %109, align 8, !tbaa !30
-  %.pre = load ptr, ptr %.186161.i, align 8, !tbaa !22
+  %.pre = load ptr, ptr %.186160.i, align 8, !tbaa !22
   br label %.critedge115.i
 
 .critedge115.i:                                   ; preds = %.critedge115.sink.split.i, %.critedge113.i, %111
   %144 = phi ptr [ %.pre, %.critedge115.sink.split.i ], [ %.pre29, %.critedge113.i ], [ %.pre29, %111 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.186160.i, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !24
   %147 = load ptr, ptr %.013, align 8, !tbaa !28
   %148 = tail call ptr %147(ptr noundef nonnull %.013, i64 noundef 32) #4
@@ -375,7 +375,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
 
 158:                                              ; preds = %156, %155
   store ptr %148, ptr %109, align 8, !tbaa !30
-  %159 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.186160.i, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !25
   %.not99.i = icmp eq ptr %160, null
   br i1 %.not99.i, label %.loopexit.i, label %111, !llvm.loop !33
@@ -551,40 +551,40 @@ uriEqualsAuthorityW.exit.thread.i:                ; preds = %uriEqualsAuthorityW
   store i32 0, ptr %67, align 8, !tbaa !45
   %68 = icmp ne ptr %64, null
   %69 = icmp ne ptr %66, null
-  %or.cond3140.i = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond3140.i, label %.lr.ph.i, label %.critedge.i
+  %or.cond3139.i = select i1 %68, i1 %69, i1 false
+  br i1 %or.cond3139.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %62, %.critedge111.i
-  %.083142.i = phi ptr [ %84, %.critedge111.i ], [ %66, %62 ]
-  %.085141.i = phi ptr [ %77, %.critedge111.i ], [ %64, %62 ]
-  %70 = tail call i32 @uriCompareRangeW(ptr noundef nonnull %.085141.i, ptr noundef nonnull %.083142.i) #4
+  %.083141.i = phi ptr [ %84, %.critedge111.i ], [ %66, %62 ]
+  %.085140.i = phi ptr [ %77, %.critedge111.i ], [ %64, %62 ]
+  %70 = tail call i32 @uriCompareRangeW(ptr noundef nonnull %.085140.i, ptr noundef nonnull %.083141.i) #4
   %.not96.i = icmp eq i32 %70, 0
-  br i1 %.not96.i, label %71, label %.lr.ph152.i
+  br i1 %.not96.i, label %71, label %.lr.ph151.i
 
 71:                                               ; preds = %.lr.ph.i
-  %72 = load ptr, ptr %.085141.i, align 8, !tbaa !47
-  %73 = getelementptr inbounds nuw i8, ptr %.085141.i, i64 8
+  %72 = load ptr, ptr %.085140.i, align 8, !tbaa !47
+  %73 = getelementptr inbounds nuw i8, ptr %.085140.i, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !49
   %75 = icmp eq ptr %72, %74
-  %76 = getelementptr inbounds nuw i8, ptr %.085141.i, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.085140.i, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !50
   br i1 %75, label %78, label %..critedge111_crit_edge.i
 
 ..critedge111_crit_edge.i:                        ; preds = %71
-  %.phi.trans.insert165.i = getelementptr inbounds nuw i8, ptr %.083142.i, i64 16
-  %.pre166.i = load ptr, ptr %.phi.trans.insert165.i, align 8, !tbaa !50
+  %.phi.trans.insert164.i = getelementptr inbounds nuw i8, ptr %.083141.i, i64 16
+  %.pre165.i = load ptr, ptr %.phi.trans.insert164.i, align 8, !tbaa !50
   br label %.critedge111.i
 
 78:                                               ; preds = %71
   %79 = icmp eq ptr %77, null
-  %80 = getelementptr inbounds nuw i8, ptr %.083142.i, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.083141.i, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !50
   %82 = icmp ne ptr %81, null
   %83 = xor i1 %79, %82
-  br i1 %83, label %.critedge111.i, label %.lr.ph152.i
+  br i1 %83, label %.critedge111.i, label %.lr.ph151.i
 
 .critedge111.i:                                   ; preds = %78, %..critedge111_crit_edge.i
-  %84 = phi ptr [ %.pre166.i, %..critedge111_crit_edge.i ], [ %81, %78 ]
+  %84 = phi ptr [ %.pre165.i, %..critedge111_crit_edge.i ], [ %81, %78 ]
   %85 = icmp ne ptr %77, null
   %86 = icmp ne ptr %84, null
   %or.cond3.i = select i1 %85, i1 %86, i1 false
@@ -593,23 +593,23 @@ uriEqualsAuthorityW.exit.thread.i:                ; preds = %uriEqualsAuthorityW
 .critedge.i:                                      ; preds = %.critedge111.i, %62
   %.085.lcssa.i = phi ptr [ %64, %62 ], [ %77, %.critedge111.i ]
   %.083.lcssa.i = phi ptr [ %66, %62 ], [ %84, %.critedge111.i ]
-  %.not97150.i = icmp eq ptr %.083.lcssa.i, null
-  br i1 %.not97150.i, label %.critedge5.i, label %.lr.ph152.i
+  %.not97149.i = icmp eq ptr %.083.lcssa.i, null
+  br i1 %.not97149.i, label %.critedge5.i, label %.lr.ph151.i
 
-.lr.ph152.i:                                      ; preds = %78, %.lr.ph.i, %.critedge.i
-  %.083.lcssa195.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083142.i, %.lr.ph.i ], [ %.083142.i, %78 ]
-  %.085.lcssa193.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085141.i, %.lr.ph.i ], [ %.085141.i, %78 ]
+.lr.ph151.i:                                      ; preds = %78, %.lr.ph.i, %.critedge.i
+  %.083.lcssa194.i = phi ptr [ %.083.lcssa.i, %.critedge.i ], [ %.083141.i, %.lr.ph.i ], [ %.083141.i, %78 ]
+  %.085.lcssa192.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085140.i, %.lr.ph.i ], [ %.085140.i, %78 ]
   %87 = load ptr, ptr @uriConstParentW, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa195.i, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.083.lcssa194.i, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !50
   %.not98.i24 = icmp eq ptr %92, null
   br i1 %.not98.i24, label %.critedge5.i, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph152.i, %uriAppendSegmentW.exit.i
-  %93 = phi ptr [ %106, %uriAppendSegmentW.exit.i ], [ %92, %.lr.ph152.i ]
+.lr.ph:                                           ; preds = %.lr.ph151.i, %uriAppendSegmentW.exit.i
+  %93 = phi ptr [ %106, %uriAppendSegmentW.exit.i ], [ %92, %.lr.ph151.i ]
   %94 = load ptr, ptr %.013, align 8, !tbaa !28
   %95 = tail call ptr %94(ptr noundef nonnull %.013, i64 noundef 32) #4
   %96 = icmp eq ptr %95, null
@@ -641,43 +641,43 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
   %.not98.i = icmp eq ptr %106, null
   br i1 %.not98.i, label %.critedge5.i, label %.lr.ph
 
-.critedge5.i:                                     ; preds = %uriAppendSegmentW.exit.i, %.lr.ph152.i, %.critedge.i
-  %.085.lcssa194.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa193.i, %.lr.ph152.i ], [ %.085.lcssa193.i, %uriAppendSegmentW.exit.i ]
-  %.lcssa138.i = phi i1 [ true, %.critedge.i ], [ true, %.lr.ph152.i ], [ false, %uriAppendSegmentW.exit.i ]
-  %.not99160.i = icmp eq ptr %.085.lcssa194.i, null
-  br i1 %.not99160.i, label %.loopexit.i, label %.lr.ph163.i
+.critedge5.i:                                     ; preds = %uriAppendSegmentW.exit.i, %.lr.ph151.i, %.critedge.i
+  %.085.lcssa193.i = phi ptr [ %.085.lcssa.i, %.critedge.i ], [ %.085.lcssa192.i, %.lr.ph151.i ], [ %.085.lcssa192.i, %uriAppendSegmentW.exit.i ]
+  %.lcssa137.i = phi i1 [ true, %.critedge.i ], [ true, %.lr.ph151.i ], [ false, %uriAppendSegmentW.exit.i ]
+  %.not99159.i = icmp eq ptr %.085.lcssa193.i, null
+  br i1 %.not99159.i, label %.loopexit.i, label %.lr.ph162.i
 
-.lr.ph163.i:                                      ; preds = %.critedge5.i
+.lr.ph162.i:                                      ; preds = %.critedge5.i
   %107 = load ptr, ptr @uriConstPwdW, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %111
 
-111:                                              ; preds = %158, %.lr.ph163.i
-  %.182162.i = phi i1 [ %.lcssa138.i, %.lr.ph163.i ], [ false, %158 ]
-  %.186161.i = phi ptr [ %.085.lcssa194.i, %.lr.ph163.i ], [ %160, %158 ]
-  %.pre29 = load ptr, ptr %.186161.i, align 8, !tbaa !47
-  br i1 %.182162.i, label %112, label %.critedge115.i
+111:                                              ; preds = %158, %.lr.ph162.i
+  %.182161.i = phi i1 [ %.lcssa137.i, %.lr.ph162.i ], [ false, %158 ]
+  %.186160.i = phi ptr [ %.085.lcssa193.i, %.lr.ph162.i ], [ %160, %158 ]
+  %.pre29 = load ptr, ptr %.186160.i, align 8, !tbaa !47
+  br i1 %.182161.i, label %112, label %.critedge115.i
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.186160.i, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !49
-  %.not101156.i = icmp ult ptr %.pre29, %114
-  br i1 %.not101156.i, label %.lr.ph158.i, label %.critedge113.i
+  %.not101155.i = icmp ult ptr %.pre29, %114
+  br i1 %.not101155.i, label %.lr.ph157.i, label %.critedge113.i
 
-115:                                              ; preds = %.lr.ph158.i
-  %116 = getelementptr inbounds nuw i8, ptr %.0157.i, i64 4
+115:                                              ; preds = %.lr.ph157.i
+  %116 = getelementptr inbounds nuw i8, ptr %.0156.i, i64 4
   %.not101.i = icmp ult ptr %116, %114
-  br i1 %.not101.i, label %.lr.ph158.i, label %.critedge113.i, !llvm.loop !53
+  br i1 %.not101.i, label %.lr.ph157.i, label %.critedge113.i, !llvm.loop !53
 
-.lr.ph158.i:                                      ; preds = %112, %115
-  %.0157.i = phi ptr [ %116, %115 ], [ %.pre29, %112 ]
-  %117 = load i32, ptr %.0157.i, align 4, !tbaa !54
+.lr.ph157.i:                                      ; preds = %112, %115
+  %.0156.i = phi ptr [ %116, %115 ], [ %.pre29, %112 ]
+  %117 = load i32, ptr %.0156.i, align 4, !tbaa !54
   %118 = icmp eq i32 %117, 58
   br i1 %118, label %119, label %115
 
-119:                                              ; preds = %.lr.ph158.i
+119:                                              ; preds = %.lr.ph157.i
   %120 = load ptr, ptr %.013, align 8, !tbaa !28
   %121 = tail call ptr %120(ptr noundef nonnull %.013, i64 noundef 32) #4
   %122 = icmp eq ptr %121, null
@@ -734,12 +734,12 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
 .critedge115.sink.split.i:                        ; preds = %142, %141, %129, %128
   %.sink.i = phi ptr [ %121, %128 ], [ %121, %129 ], [ %134, %141 ], [ %134, %142 ]
   store ptr %.sink.i, ptr %109, align 8, !tbaa !52
-  %.pre = load ptr, ptr %.186161.i, align 8, !tbaa !47
+  %.pre = load ptr, ptr %.186160.i, align 8, !tbaa !47
   br label %.critedge115.i
 
 .critedge115.i:                                   ; preds = %.critedge115.sink.split.i, %.critedge113.i, %111
   %144 = phi ptr [ %.pre, %.critedge115.sink.split.i ], [ %.pre29, %.critedge113.i ], [ %.pre29, %111 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.186160.i, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !49
   %147 = load ptr, ptr %.013, align 8, !tbaa !28
   %148 = tail call ptr %147(ptr noundef nonnull %.013, i64 noundef 32) #4
@@ -767,7 +767,7 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
 
 158:                                              ; preds = %156, %155
   store ptr %148, ptr %109, align 8, !tbaa !52
-  %159 = getelementptr inbounds nuw i8, ptr %.186161.i, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.186160.i, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !50
   %.not99.i = icmp eq ptr %160, null
   br i1 %.not99.i, label %.loopexit.i, label %111, !llvm.loop !55

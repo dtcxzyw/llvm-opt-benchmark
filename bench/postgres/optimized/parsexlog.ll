@@ -619,16 +619,16 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
 
 41:                                               ; preds = %.lr.ph, %67
   %42 = phi ptr [ %28, %.lr.ph ], [ %70, %67 ]
-  %.04160 = phi i64 [ %.040, %.lr.ph ], [ %69, %67 ]
-  %.04259 = phi i64 [ 0, %.lr.ph ], [ %.143, %67 ]
-  %.04458 = phi i32 [ 0, %.lr.ph ], [ %.145, %67 ]
+  %.04159 = phi i64 [ %.040, %.lr.ph ], [ %69, %67 ]
+  %.04258 = phi i64 [ 0, %.lr.ph ], [ %.143, %67 ]
+  %.04457 = phi i32 [ 0, %.lr.ph ], [ %.145, %67 ]
   %43 = load i32, ptr %30, align 8
-  %.not = icmp eq i32 %43, %.04458
+  %.not = icmp eq i32 %43, %.04457
   br i1 %.not, label %44, label %46
 
 44:                                               ; preds = %41
   %45 = load i64, ptr %31, align 8
-  %.not50 = icmp eq i64 %45, %.04259
+  %.not50 = icmp eq i64 %45, %.04258
   br i1 %.not50, label %58, label %46
 
 46:                                               ; preds = %44, %41
@@ -649,9 +649,9 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
   br label %58
 
 58:                                               ; preds = %46, %44
-  %.145 = phi i32 [ %48, %46 ], [ %.04458, %44 ]
-  %.143 = phi i64 [ %49, %46 ], [ %.04259, %44 ]
-  %59 = icmp ult i64 %.04160, %.040
+  %.145 = phi i32 [ %48, %46 ], [ %.04457, %44 ]
+  %.143 = phi i64 [ %49, %46 ], [ %.04258, %44 ]
+  %59 = icmp ult i64 %.04159, %.040
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %58
@@ -679,7 +679,7 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
   %.sroa.0.0.copyload = load i64, ptr %74, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
-  store i64 %.04160, ptr %3, align 8
+  store i64 %.04159, ptr %3, align 8
   store i32 %.sroa.4.0.copyload, ptr %4, align 4
   store i64 %.sroa.0.0.copyload, ptr %5, align 8
   call void @XLogReaderFree(ptr noundef nonnull %26) #7

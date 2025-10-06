@@ -5200,18 +5200,18 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit: ; preds = %.lr.ph.i.i.i49
 define noundef zeroext i1 @_ZN7Imf_3_413usesLongNamesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @_ZNK7Imf_3_46Header5beginEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %3 = tail call ptr @_ZNK7Imf_3_46Header3endEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %.not22 = icmp eq ptr %2, %3
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq ptr %2, %3
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %16
-  %.sroa.013.023 = phi ptr [ %17, %16 ], [ %2, %1 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 32
+  %.sroa.013.021 = phi ptr [ %17, %16 ], [ %2, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 32
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %6 = icmp ugt i64 %5, 31
   br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 288
   %9 = load ptr, ptr %8, align 8, !tbaa !151
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5222,7 +5222,7 @@ define noundef zeroext i1 @_ZN7Imf_3_413usesLongNamesERKNS_6HeaderE(ptr noundef 
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %7
-  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.023) #22
+  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.021) #22
   %18 = tail call ptr @_ZNK7Imf_3_46Header3endEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %.not = icmp eq ptr %17, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !155
@@ -5231,24 +5231,24 @@ define noundef zeroext i1 @_ZN7Imf_3_413usesLongNamesERKNS_6HeaderE(ptr noundef 
   %19 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_46Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %20 = tail call ptr @_ZNK7Imf_3_411ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
   %21 = tail call ptr @_ZNK7Imf_3_411ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
-  %.not2024 = icmp eq ptr %20, %21
-  br i1 %.not2024, label %.critedge, label %.lr.ph27
+  %.not1822 = icmp eq ptr %20, %21
+  br i1 %.not1822, label %.critedge, label %.lr.ph25
 
-.lr.ph27:                                         ; preds = %._crit_edge, %25
-  %.sroa.09.025 = phi ptr [ %26, %25 ], [ %20, %._crit_edge ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.025, i64 32
+.lr.ph25:                                         ; preds = %._crit_edge, %25
+  %.sroa.09.023 = phi ptr [ %26, %25 ], [ %20, %._crit_edge ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.023, i64 32
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #22
   %24 = icmp ugt i64 %23, 31
   br i1 %24, label %.critedge, label %25
 
-25:                                               ; preds = %.lr.ph27
-  %26 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.025) #22
+25:                                               ; preds = %.lr.ph25
+  %26 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.023) #22
   %27 = tail call ptr @_ZNK7Imf_3_411ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
-  %.not20 = icmp eq ptr %26, %27
-  br i1 %.not20, label %.critedge, label %.lr.ph27, !llvm.loop !156
+  %.not18 = icmp eq ptr %26, %27
+  br i1 %.not18, label %.critedge, label %.lr.ph25, !llvm.loop !156
 
-.critedge:                                        ; preds = %.lr.ph, %7, %.lr.ph27, %25, %._crit_edge
-  %.1 = phi i1 [ false, %._crit_edge ], [ %24, %25 ], [ %24, %.lr.ph27 ], [ true, %7 ], [ true, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %7, %.lr.ph25, %25, %._crit_edge
+  %.1 = phi i1 [ false, %._crit_edge ], [ %24, %25 ], [ %24, %.lr.ph25 ], [ true, %7 ], [ true, %.lr.ph ]
   ret i1 %.1
 }
 

@@ -932,13 +932,13 @@ xmpp_steal_element_by_name.exit._crit_edge:       ; preds = %xmpp_steal_element_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @xmpp_steal_element_by_attr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.01633 = load ptr, ptr %4, align 8
-  %.not2134 = icmp eq ptr %.01633, null
-  br i1 %.not2134, label %.loopexit, label %.lr.ph
+  %.01632 = load ptr, ptr %4, align 8
+  %.not2133 = icmp eq ptr %.01632, null
+  br i1 %.not2133, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.thread
-  %.01635 = phi ptr [ %.016, %.thread ], [ %.01633, %3 ]
-  %5 = load ptr, ptr %.01635, align 8
+  %.01634 = phi ptr [ %.016, %.thread ], [ %.01632, %3 ]
+  %5 = load ptr, ptr %.01634, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %1)
@@ -967,13 +967,13 @@ define hidden ptr @xmpp_steal_element_by_attr(ptr noundef readonly captures(none
   br i1 %20, label %.thread27, label %.thread
 
 .thread27:                                        ; preds = %17
-  %21 = load ptr, ptr %.01635, align 8
+  %21 = load ptr, ptr %.01634, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store i8 1, ptr %22, align 8
   br label %.loopexit
 
 .thread:                                          ; preds = %9, %12, %17
-  %23 = getelementptr inbounds nuw i8, ptr %.01635, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.01634, i64 8
   %.016 = load ptr, ptr %23, align 8
   %.not21 = icmp eq ptr %.016, null
   br i1 %.not21, label %.loopexit, label %.lr.ph
@@ -986,13 +986,13 @@ define hidden ptr @xmpp_steal_element_by_attr(ptr noundef readonly captures(none
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.01835 = load ptr, ptr %5, align 8
-  %.not2336 = icmp eq ptr %.01835, null
-  br i1 %.not2336, label %.loopexit, label %.lr.ph
+  %.01834 = load ptr, ptr %5, align 8
+  %.not2335 = icmp eq ptr %.01834, null
+  br i1 %.not2335, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.thread
-  %.01837 = phi ptr [ %.018, %.thread ], [ %.01835, %4 ]
-  %6 = load ptr, ptr %.01837, align 8
+  %.01836 = phi ptr [ %.018, %.thread ], [ %.01834, %4 ]
+  %6 = load ptr, ptr %.01836, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %2)
@@ -1027,13 +1027,13 @@ define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr noundef readonly capt
   br i1 %25, label %.thread29, label %.thread
 
 .thread29:                                        ; preds = %22
-  %26 = load ptr, ptr %.01837, align 8
+  %26 = load ptr, ptr %.01836, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store i8 1, ptr %27, align 8
   br label %.loopexit
 
 .thread:                                          ; preds = %10, %13, %18, %22
-  %28 = getelementptr inbounds nuw i8, ptr %.01837, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.01836, i64 8
   %.018 = load ptr, ptr %28, align 8
   %.not23 = icmp eq ptr %.018, null
   br i1 %.not23, label %.loopexit, label %.lr.ph
@@ -2149,13 +2149,13 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr noundef readonly capt
   %23 = load ptr, ptr %17, align 8
   %24 = load ptr, ptr %18, align 8
   %25 = load ptr, ptr %19, align 8
-  %.01835.i = load ptr, ptr %10, align 8
-  %.not2336.i = icmp eq ptr %.01835.i, null
-  br i1 %.not2336.i, label %.critedge, label %.lr.ph.i
+  %.01834.i = load ptr, ptr %10, align 8
+  %.not2335.i = icmp eq ptr %.01834.i, null
+  br i1 %.not2335.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.thread.i
-  %.01837.i = phi ptr [ %.018.i, %.thread.i ], [ %.01835.i, %22 ]
-  %26 = load ptr, ptr %.01837.i, align 8
+  %.01836.i = phi ptr [ %.018.i, %.thread.i ], [ %.01834.i, %22 ]
+  %26 = load ptr, ptr %.01836.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @g_hash_table_lookup(ptr noundef %28, ptr noundef %24)
@@ -2190,13 +2190,13 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr noundef readonly capt
   br i1 %45, label %xmpp_steal_element_by_name_and_attr.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %42, %38, %33, %30
-  %46 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.01836.i, i64 8
   %.018.i = load ptr, ptr %46, align 8
   %.not23.i = icmp eq ptr %.018.i, null
   br i1 %.not23.i, label %.critedge, label %.lr.ph.i
 
 xmpp_steal_element_by_name_and_attr.exit:         ; preds = %42
-  %47 = load ptr, ptr %.01837.i, align 8
+  %47 = load ptr, ptr %.01836.i, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   store i8 1, ptr %48, align 8
   %.not92 = icmp eq ptr %47, null
@@ -2253,13 +2253,13 @@ xmpp_steal_element_by_name.exit:                  ; preds = %57
 76:                                               ; preds = %69, %98
   %77 = load ptr, ptr %72, align 8
   %78 = load ptr, ptr %73, align 8
-  %.01633.i = load ptr, ptr %10, align 8
-  %.not2134.i = icmp eq ptr %.01633.i, null
-  br i1 %.not2134.i, label %.critedge, label %.lr.ph.i96
+  %.01632.i = load ptr, ptr %10, align 8
+  %.not2133.i = icmp eq ptr %.01632.i, null
+  br i1 %.not2133.i, label %.critedge, label %.lr.ph.i96
 
 .lr.ph.i96:                                       ; preds = %76, %.thread.i99
-  %.01635.i = phi ptr [ %.016.i, %.thread.i99 ], [ %.01633.i, %76 ]
-  %79 = load ptr, ptr %.01635.i, align 8
+  %.01634.i = phi ptr [ %.016.i, %.thread.i99 ], [ %.01632.i, %76 ]
+  %79 = load ptr, ptr %.01634.i, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = tail call ptr @g_hash_table_lookup(ptr noundef %81, ptr noundef %77)
@@ -2288,13 +2288,13 @@ xmpp_steal_element_by_name.exit:                  ; preds = %57
   br i1 %94, label %xmpp_steal_element_by_attr.exit, label %.thread.i99
 
 .thread.i99:                                      ; preds = %91, %86, %83
-  %95 = getelementptr inbounds nuw i8, ptr %.01635.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.01634.i, i64 8
   %.016.i = load ptr, ptr %95, align 8
   %.not21.i = icmp eq ptr %.016.i, null
   br i1 %.not21.i, label %.critedge, label %.lr.ph.i96
 
 xmpp_steal_element_by_attr.exit:                  ; preds = %91
-  %96 = load ptr, ptr %.01635.i, align 8
+  %96 = load ptr, ptr %.01634.i, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
   store i8 1, ptr %97, align 8
   %.not90 = icmp eq ptr %96, null

@@ -1853,8 +1853,8 @@ _ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit: ; preds = %_ZNK5clang22Nest
   %.0.copyload.i.i.i.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.0.copyload.i.i.i.i.i, -8
   %8 = inttoptr i64 %7 to ptr
-  %.not55 = icmp eq i64 %7, 0
-  br i1 %.not55, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i, label %_ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit
+  %.not54 = icmp eq i64 %7, 0
+  br i1 %.not54, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i, label %_ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit
 
 _ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i: ; preds = %_ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.040.0, i64 16
@@ -1881,7 +1881,7 @@ _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread
 
 _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread: ; preds = %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit
-  %.sroa.0.0.i464 = phi i32 [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %.0.copyload.i12.i, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split ]
+  %.sroa.0.0.i463 = phi i32 [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %.0.copyload.i12.i, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split ]
   %13 = phi ptr [ %.pre, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %4, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.0.copyload.i.i.i.i.i6 = load i64, ptr %14, align 8
@@ -1952,11 +1952,11 @@ select.unfold.i31:                                ; preds = %23
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36
 
 _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36: ; preds = %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34, %select.unfold.i31, %32
-  %.sroa.0.0.i465 = phi i32 [ %.sroa.0.0.i464, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.sroa.0.0.i464, %select.unfold.i31 ], [ %.sroa.0.0.i464, %32 ], [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
+  %.sroa.0.0.i464 = phi i32 [ %.sroa.0.0.i463, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.sroa.0.0.i463, %select.unfold.i31 ], [ %.sroa.0.0.i463, %32 ], [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
   %.sroa.6.0.i25 = phi i32 [ %.0.copyload.i.i35, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.0.copyload.i13.i33, %select.unfold.i31 ], [ %.0.copyload.i17.i24, %32 ], [ 0, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
   %41 = zext i32 %.sroa.6.0.i25 to i64
   %42 = shl nuw i64 %41, 32
-  %43 = zext i32 %.sroa.0.0.i465 to i64
+  %43 = zext i32 %.sroa.0.0.i464 to i64
   %44 = or disjoint i64 %42, %43
   br label %45
 
@@ -2946,8 +2946,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

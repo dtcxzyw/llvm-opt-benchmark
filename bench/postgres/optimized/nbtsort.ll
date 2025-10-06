@@ -605,7 +605,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   %333 = getelementptr inbounds nuw i8, ptr %309, i64 304
   %334 = load ptr, ptr %333, align 8
   %.not140.i.i = icmp eq ptr %334, null
-  br i1 %.not140.i.i, label %.thread197.i.i, label %335
+  br i1 %.not140.i.i, label %.thread196.i.i, label %335
 
 335:                                              ; preds = %332
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 16
@@ -617,10 +617,10 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   %340 = phi i1 [ false, %328 ], [ false, %305 ], [ %338, %335 ]
   br i1 %.not.i15, label %542, label %341
 
-.thread197.i.i:                                   ; preds = %332
-  br i1 %.not.i15, label %.thread198.i.i, label %341
+.thread196.i.i:                                   ; preds = %332
+  br i1 %.not.i15, label %.thread197.i.i, label %341
 
-341:                                              ; preds = %.thread197.i.i, %339
+341:                                              ; preds = %.thread196.i.i, %339
   %342 = load ptr, ptr %301, align 8
   %343 = call ptr @tuplesort_getindextuple(ptr noundef %342, i1 noundef zeroext true) #9
   %344 = load ptr, ptr %300, align 8
@@ -629,18 +629,18 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   %347 = shl nsw i64 %346, 6
   %348 = call ptr @palloc0(i64 noundef %347) #9
   %349 = icmp sgt i16 %322, 0
-  br i1 %349, label %.lr.ph.preheader.i.i, label %.preheader212.i.i
+  br i1 %349, label %.lr.ph.preheader.i.i, label %.preheader209.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %341
   %wide.trip.count.i.i = zext nneg i32 %323 to i64
   %350 = getelementptr inbounds nuw i8, ptr %311, i64 24
   br label %.lr.ph.i.i
 
-.preheader212.i.i:                                ; preds = %.lr.ph.i.i, %341
-  %.not145222.i.i = icmp slt i16 %322, 1
+.preheader209.i.i:                                ; preds = %.lr.ph.i.i, %341
+  %.not145219.i.i = icmp slt i16 %322, 1
   %351 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %352 = add nsw i32 %323, 1
-  %wide.trip.count254.i.i = zext nneg i32 %352 to i64
+  %wide.trip.count251.i.i = zext nneg i32 %352 to i64
   br label %371
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -672,13 +672,13 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   call void @PrepareSortSupportFromIndexRel(ptr noundef nonnull %309, i16 noundef signext %370, ptr noundef nonnull %353) #9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader212.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.preheader209.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
-371:                                              ; preds = %540, %.preheader212.i.i
-  %.0132.i.i = phi i64 [ %541, %540 ], [ 0, %.preheader212.i.i ]
-  %.0121.i.i = phi ptr [ %.1122.i.i, %540 ], [ %345, %.preheader212.i.i ]
-  %.0119.i.i = phi ptr [ %.1120.i.i, %540 ], [ %343, %.preheader212.i.i ]
-  %.0.i.i16 = phi ptr [ %.1.i.i, %540 ], [ null, %.preheader212.i.i ]
+371:                                              ; preds = %540, %.preheader209.i.i
+  %.0132.i.i = phi i64 [ %541, %540 ], [ 0, %.preheader209.i.i ]
+  %.0121.i.i = phi ptr [ %.1122.i.i, %540 ], [ %345, %.preheader209.i.i ]
+  %.0119.i.i = phi ptr [ %.1120.i.i, %540 ], [ %343, %.preheader209.i.i ]
+  %.0.i.i16 = phi ptr [ %.1.i.i, %540 ], [ null, %.preheader209.i.i ]
   %372 = icmp eq ptr %.0121.i.i, null
   %373 = icmp eq ptr %.0119.i.i, null
   br i1 %372, label %374, label %375
@@ -687,25 +687,25 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   br i1 %373, label %.loopexit.i.i, label %.thread194.thread.i.i
 
 375:                                              ; preds = %371
-  br i1 %373, label %.thread194.thread.i.i, label %.preheader211.i.i
+  br i1 %373, label %.thread194.thread.i.i, label %.preheader208.i.i
 
-.preheader211.i.i:                                ; preds = %375
-  br i1 %.not145222.i.i, label %.loopexit289.i.i, label %.lr.ph224.i.i
+.preheader208.i.i:                                ; preds = %375
+  br i1 %.not145219.i.i, label %.loopexit286.i.i, label %.lr.ph221.i.i
 
-.lr.ph224.i.i:                                    ; preds = %.preheader211.i.i
+.lr.ph221.i.i:                                    ; preds = %.preheader208.i.i
   %376 = getelementptr i8, ptr %.0119.i.i, i64 6
   %377 = getelementptr inbounds nuw i8, ptr %.0119.i.i, i64 8
   %378 = getelementptr i8, ptr %.0121.i.i, i64 6
   %379 = getelementptr inbounds nuw i8, ptr %.0121.i.i, i64 8
   br label %380
 
-380:                                              ; preds = %.thread188.thread205.i.i, %.lr.ph224.i.i
-  %indvars.iv251.i.i = phi i64 [ 1, %.lr.ph224.i.i ], [ %indvars.iv.next252.i.i, %.thread188.thread205.i.i ]
-  %381 = getelementptr inbounds nuw %struct.SortSupportData, ptr %348, i64 %indvars.iv251.i.i
+380:                                              ; preds = %.thread188.thread203.i.i, %.lr.ph221.i.i
+  %indvars.iv248.i.i = phi i64 [ 1, %.lr.ph221.i.i ], [ %indvars.iv.next249.i.i, %.thread188.thread203.i.i ]
+  %381 = getelementptr inbounds nuw %struct.SortSupportData, ptr %348, i64 %indvars.iv248.i.i
   %382 = getelementptr inbounds i8, ptr %381, i64 -64
   %.val.i.i.i = load i16, ptr %376, align 2
   %383 = icmp slt i16 %.val.i.i.i, 0
-  %384 = add nsw i64 %indvars.iv251.i.i, -1
+  %384 = add nsw i64 %indvars.iv248.i.i, -1
   br i1 %383, label %418, label %385
 
 385:                                              ; preds = %380
@@ -763,7 +763,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   br label %index_getattr.exit.i.i
 
 415:                                              ; preds = %385
-  %416 = trunc nuw nsw i64 %indvars.iv251.i.i to i32
+  %416 = trunc nuw nsw i64 %indvars.iv248.i.i to i32
   %417 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0119.i.i, i32 noundef range(i32 -2147483648, 32768) %416, ptr noundef nonnull %318) #9
   br label %index_getattr.exit.i.i
 
@@ -781,7 +781,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   br i1 %.not.i19.i.i.i, label %index_getattr.exit.i.i, label %428
 
 428:                                              ; preds = %418
-  %429 = trunc nuw nsw i64 %indvars.iv251.i.i to i32
+  %429 = trunc nuw nsw i64 %indvars.iv248.i.i to i32
   %430 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0119.i.i, i32 noundef range(i32 -2147483648, 32768) %429, ptr noundef %318) #9
   br label %index_getattr.exit.i.i
 
@@ -847,7 +847,7 @@ index_getattr.exit.i.i:                           ; preds = %428, %418, %415, %4
   br label %index_getattr.exit150.i.i
 
 462:                                              ; preds = %432
-  %463 = trunc nuw nsw i64 %indvars.iv251.i.i to i32
+  %463 = trunc nuw nsw i64 %indvars.iv248.i.i to i32
   %464 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0121.i.i, i32 noundef range(i32 -2147483648, 32768) %463, ptr noundef nonnull %318) #9
   br label %index_getattr.exit150.i.i
 
@@ -865,7 +865,7 @@ index_getattr.exit.i.i:                           ; preds = %428, %418, %415, %4
   br i1 %.not.i19.i149.i.i, label %index_getattr.exit150.thread.i.i, label %475
 
 475:                                              ; preds = %465
-  %476 = trunc nuw nsw i64 %indvars.iv251.i.i to i32
+  %476 = trunc nuw nsw i64 %indvars.iv248.i.i to i32
   %477 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0121.i.i, i32 noundef range(i32 -2147483648, 32768) %476, ptr noundef %318) #9
   br label %index_getattr.exit150.i.i
 
@@ -874,7 +874,7 @@ index_getattr.exit150.i.i:                        ; preds = %475, %462, %460, %4
   br i1 %.0169.i.i, label %478, label %486
 
 index_getattr.exit150.thread.i.i:                 ; preds = %465
-  br i1 %.0169.i.i, label %.thread188.thread205.i.i, label %482
+  br i1 %.0169.i.i, label %.thread188.thread203.i.i, label %482
 
 478:                                              ; preds = %index_getattr.exit150.i.i
   %479 = getelementptr inbounds i8, ptr %381, i64 -51
@@ -912,21 +912,21 @@ ApplySortComparator.exit.i.i:                     ; preds = %493, %486
   br label %.thread194.thread.i.i
 
 .thread188.i.i:                                   ; preds = %ApplySortComparator.exit.i.i
-  %.not240.i.i = icmp eq i32 %.0.i.fr.i.i, 0
-  br i1 %.not240.i.i, label %.thread188.thread205.i.i, label %.thread194.thread.i.i
+  %.not237.i.i = icmp eq i32 %.0.i.fr.i.i, 0
+  br i1 %.not237.i.i, label %.thread188.thread203.i.i, label %.thread194.thread.i.i
 
-.thread188.thread205.i.i:                         ; preds = %.thread188.i.i, %index_getattr.exit150.thread.i.i
-  %indvars.iv.next252.i.i = add nuw nsw i64 %indvars.iv251.i.i, 1
-  %exitcond255.not.i.i = icmp eq i64 %indvars.iv.next252.i.i, %wide.trip.count254.i.i
-  br i1 %exitcond255.not.i.i, label %.loopexit289.i.i, label %380, !llvm.loop !12
+.thread188.thread203.i.i:                         ; preds = %.thread188.i.i, %index_getattr.exit150.thread.i.i
+  %indvars.iv.next249.i.i = add nuw nsw i64 %indvars.iv248.i.i, 1
+  %exitcond252.not.i.i = icmp eq i64 %indvars.iv.next249.i.i, %wide.trip.count251.i.i
+  br i1 %exitcond252.not.i.i, label %.loopexit286.i.i, label %380, !llvm.loop !12
 
-.loopexit289.i.i:                                 ; preds = %.thread188.thread205.i.i, %.preheader211.i.i
+.loopexit286.i.i:                                 ; preds = %.thread188.thread203.i.i, %.preheader208.i.i
   %497 = call i32 @ItemPointerCompare(ptr noundef nonnull %.0119.i.i, ptr noundef nonnull %.0121.i.i) #9
   %498 = icmp slt i32 %497, 1
   br label %.thread194.thread.i.i
 
-.thread194.thread.i.i:                            ; preds = %.thread188.i.i, %ApplySortComparator.exit.i.i, %493, %.loopexit289.i.i, %.thread188.thread.i.i, %482, %478, %375, %374
-  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ %498, %.loopexit289.i.i ], [ true, %.thread188.thread.i.i ], [ false, %482 ], [ false, %478 ], [ false, %493 ], [ false, %ApplySortComparator.exit.i.i ], [ true, %.thread188.i.i ]
+.thread194.thread.i.i:                            ; preds = %.thread188.i.i, %ApplySortComparator.exit.i.i, %493, %.loopexit286.i.i, %.thread188.thread.i.i, %482, %478, %375, %374
+  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ %498, %.loopexit286.i.i ], [ true, %.thread188.thread.i.i ], [ false, %482 ], [ false, %478 ], [ false, %493 ], [ false, %ApplySortComparator.exit.i.i ], [ true, %.thread188.i.i ]
   %499 = icmp eq ptr %.0.i.i16, null
   br i1 %499, label %500, label %533
 
@@ -1013,15 +1013,15 @@ _bt_pagestate.exit.i.i:                           ; preds = %524, %500
   br label %371
 
 542:                                              ; preds = %339
-  br i1 %340, label %.thread198.i.i, label %.preheader.i.i
+  br i1 %340, label %.thread197.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %542
   %543 = load ptr, ptr %301, align 8
   %544 = call ptr @tuplesort_getindextuple(ptr noundef %543, i1 noundef zeroext true) #9
-  %.not141230.i.i = icmp eq ptr %544, null
-  br i1 %.not141230.i.i, label %_bt_leafbuild.exit, label %.lr.ph233.i.i
+  %.not141227.i.i = icmp eq ptr %544, null
+  br i1 %.not141227.i.i, label %_bt_leafbuild.exit, label %.lr.ph230.i.i
 
-.thread198.i.i:                                   ; preds = %542, %.thread197.i.i
+.thread197.i.i:                                   ; preds = %542, %.thread196.i.i
   %545 = call ptr @palloc(i64 noundef 1704) #9
   store i8 1, ptr %545, align 8
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 4
@@ -1035,21 +1035,21 @@ _bt_pagestate.exit.i.i:                           ; preds = %524, %500
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %549, i8 0, i64 36, i1 false)
   %553 = load ptr, ptr %301, align 8
   %554 = call ptr @tuplesort_getindextuple(ptr noundef %553, i1 noundef zeroext true) #9
-  %.not142235.i.i = icmp eq ptr %554, null
-  br i1 %.not142235.i.i, label %.loopexit.i.thread.i, label %.lr.ph238.i.i
+  %.not142232.i.i = icmp eq ptr %554, null
+  br i1 %.not142232.i.i, label %.loopexit.i.thread.i, label %.lr.ph235.i.i
 
-.loopexit.i.thread.i:                             ; preds = %.thread198.i.i
+.loopexit.i.thread.i:                             ; preds = %.thread197.i.i
   call void @pfree(ptr noundef nonnull %545) #9
   br label %_bt_leafbuild.exit
 
-.lr.ph238.i.i:                                    ; preds = %.thread198.i.i, %618
-  %555 = phi ptr [ %621, %618 ], [ %554, %.thread198.i.i ]
-  %.3237.i.i = phi ptr [ %.4.i.i, %618 ], [ null, %.thread198.i.i ]
-  %.1133236.i.i = phi i64 [ %619, %618 ], [ 0, %.thread198.i.i ]
-  %556 = icmp eq ptr %.3237.i.i, null
+.lr.ph235.i.i:                                    ; preds = %.thread197.i.i, %618
+  %555 = phi ptr [ %621, %618 ], [ %554, %.thread197.i.i ]
+  %.3234.i.i = phi ptr [ %.4.i.i, %618 ], [ null, %.thread197.i.i ]
+  %.1133233.i.i = phi i64 [ %619, %618 ], [ 0, %.thread197.i.i ]
+  %556 = icmp eq ptr %.3234.i.i, null
   br i1 %556, label %557, label %591
 
-557:                                              ; preds = %.lr.ph238.i.i
+557:                                              ; preds = %.lr.ph235.i.i
   %558 = call ptr @palloc0(i64 noundef 64) #9
   %.val.i152.i.i = load ptr, ptr %325, align 8
   %559 = call ptr @smgr_bulk_get_buf(ptr noundef %.val.i152.i.i) #9
@@ -1111,7 +1111,7 @@ _bt_pagestate.exit155.i.i:                        ; preds = %581, %557
   store ptr %590, ptr %550, align 8
   br label %.sink.split.i.i
 
-591:                                              ; preds = %.lr.ph238.i.i
+591:                                              ; preds = %.lr.ph235.i.i
   %592 = load ptr, ptr %310, align 8
   %593 = load ptr, ptr %548, align 8
   %594 = call i32 @_bt_keep_natts_fast(ptr noundef %592, ptr noundef %593, ptr noundef nonnull %555) #9
@@ -1129,7 +1129,7 @@ _bt_pagestate.exit155.i.i:                        ; preds = %581, %557
   br i1 %600, label %602, label %603
 
 602:                                              ; preds = %598
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3237.i.i, ptr noundef %601, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3234.i.i, ptr noundef %601, i64 noundef 0)
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
 603:                                              ; preds = %598
@@ -1148,7 +1148,7 @@ _bt_pagestate.exit155.i.i:                        ; preds = %581, %557
   %613 = zext i16 %.val18.i.i.i to i64
   %614 = or disjoint i64 %612, %613
   %615 = sub nsw i64 %609, %614
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3237.i.i, ptr noundef nonnull %606, i64 noundef %615)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3234.i.i, ptr noundef nonnull %606, i64 noundef %615)
   call void @pfree(ptr noundef nonnull %606) #9
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
@@ -1160,19 +1160,19 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %603, %602
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %_bt_sort_dedup_finish_pending.exit.i.i, %_bt_pagestate.exit155.i.i
-  %.4.ph.i.i = phi ptr [ %.3237.i.i, %_bt_sort_dedup_finish_pending.exit.i.i ], [ %558, %_bt_pagestate.exit155.i.i ]
+  %.4.ph.i.i = phi ptr [ %.3234.i.i, %_bt_sort_dedup_finish_pending.exit.i.i ], [ %558, %_bt_pagestate.exit155.i.i ]
   %617 = call ptr @CopyIndexTuple(ptr noundef nonnull %555) #9
   call void @_bt_dedup_start_pending(ptr noundef nonnull %545, ptr noundef %617, i16 noundef zeroext 0) #9
   br label %618
 
 618:                                              ; preds = %.sink.split.i.i, %596
-  %.4.i.i = phi ptr [ %.3237.i.i, %596 ], [ %.4.ph.i.i, %.sink.split.i.i ]
-  %619 = add i64 %.1133236.i.i, 1
+  %.4.i.i = phi ptr [ %.3234.i.i, %596 ], [ %.4.ph.i.i, %.sink.split.i.i ]
+  %619 = add i64 %.1133233.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 12, i64 noundef %619) #9
   %620 = load ptr, ptr %301, align 8
   %621 = call ptr @tuplesort_getindextuple(ptr noundef %620, i1 noundef zeroext true) #9
   %.not142.i.i = icmp eq ptr %621, null
-  br i1 %.not142.i.i, label %._crit_edge.i.i, label %.lr.ph238.i.i, !llvm.loop !13
+  br i1 %.not142.i.i, label %._crit_edge.i.i, label %.lr.ph235.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %618
   %622 = load i32, ptr %552, align 4
@@ -1214,14 +1214,14 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %603, %602
   call void @pfree(ptr noundef nonnull %545) #9
   br label %.lr.ph.i.i.i.preheader
 
-.lr.ph233.i.i:                                    ; preds = %.preheader.i.i, %676
+.lr.ph230.i.i:                                    ; preds = %.preheader.i.i, %676
   %641 = phi ptr [ %679, %676 ], [ %544, %.preheader.i.i ]
-  %.5232.i.i = phi ptr [ %.6.i.i, %676 ], [ null, %.preheader.i.i ]
-  %.2134231.i.i = phi i64 [ %677, %676 ], [ 0, %.preheader.i.i ]
-  %642 = icmp eq ptr %.5232.i.i, null
+  %.5229.i.i = phi ptr [ %.6.i.i, %676 ], [ null, %.preheader.i.i ]
+  %.2134228.i.i = phi i64 [ %677, %676 ], [ 0, %.preheader.i.i ]
+  %642 = icmp eq ptr %.5229.i.i, null
   br i1 %642, label %643, label %676
 
-643:                                              ; preds = %.lr.ph233.i.i
+643:                                              ; preds = %.lr.ph230.i.i
   %644 = call ptr @palloc0(i64 noundef 64) #9
   %.val.i161.i.i = load ptr, ptr %325, align 8
   %645 = call ptr @smgr_bulk_get_buf(ptr noundef %.val.i161.i.i) #9
@@ -1280,15 +1280,15 @@ _bt_pagestate.exit164.i.i:                        ; preds = %667, %643
   store ptr null, ptr %675, align 8
   br label %676
 
-676:                                              ; preds = %_bt_pagestate.exit164.i.i, %.lr.ph233.i.i
-  %.6.i.i = phi ptr [ %644, %_bt_pagestate.exit164.i.i ], [ %.5232.i.i, %.lr.ph233.i.i ]
+676:                                              ; preds = %_bt_pagestate.exit164.i.i, %.lr.ph230.i.i
+  %.6.i.i = phi ptr [ %644, %_bt_pagestate.exit164.i.i ], [ %.5229.i.i, %.lr.ph230.i.i ]
   call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.6.i.i, ptr noundef nonnull %641, i64 noundef 0)
-  %677 = add i64 %.2134231.i.i, 1
+  %677 = add i64 %.2134228.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 12, i64 noundef %677) #9
   %678 = load ptr, ptr %301, align 8
   %679 = call ptr @tuplesort_getindextuple(ptr noundef %678, i1 noundef zeroext true) #9
   %.not141.i.i = icmp eq ptr %679, null
-  br i1 %.not141.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph233.i.i, !llvm.loop !14
+  br i1 %.not141.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph230.i.i, !llvm.loop !14
 
 .loopexit.i.i:                                    ; preds = %374
   call void @pfree(ptr noundef %348) #9

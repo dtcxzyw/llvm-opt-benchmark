@@ -1812,9 +1812,9 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit:             ; preds = %.lr.ph.i, %_ZL11Vec
   tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr noundef nonnull %21, ptr noundef nonnull @.str.28)
   %.not = icmp eq i32 %3, 0
   %47 = icmp sgt i32 %3, -1
-  br i1 %47, label %.lr.ph109, label %.thread97
+  br i1 %47, label %.lr.ph108, label %.thread97
 
-.lr.ph109:                                        ; preds = %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit
+.lr.ph108:                                        ; preds = %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %50 = getelementptr i8, ptr %1, i64 8
@@ -1824,13 +1824,13 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit:             ; preds = %.lr.ph.i, %_ZL11Vec
   br label %57
 
 53:                                               ; preds = %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit
-  %54 = add nuw nsw i32 %.0108, 1
+  %54 = add nuw nsw i32 %.0107, 1
   %55 = icmp slt i32 %54, %3
   %56 = select i1 %.not, i1 true, i1 %55
   br i1 %56, label %57, label %.thread97.loopexit, !llvm.loop !150
 
-57:                                               ; preds = %.lr.ph109, %53
-  %.0108 = phi i32 [ 0, %.lr.ph109 ], [ %54, %53 ]
+57:                                               ; preds = %.lr.ph108, %53
+  %.0107 = phi i32 [ 0, %.lr.ph108 ], [ %54, %53 ]
   %58 = load ptr, ptr %48, align 8, !tbaa !151
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 760
@@ -1853,8 +1853,8 @@ _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit: ; preds = %57, %.preheade
 
 63:                                               ; preds = %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit
   store i32 0, ptr %13, align 4, !tbaa !136
-  %.val69100 = load i32, ptr %6, align 4, !tbaa !136
-  %64 = icmp sgt i32 %.val69100, 0
+  %.val6999 = load i32, ptr %6, align 4, !tbaa !136
+  %64 = icmp sgt i32 %.val6999, 0
   br i1 %64, label %.lr.ph, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %63
@@ -1954,23 +1954,23 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %107 = call i32 @bmcg_sat_solver_minimize_assumptions(ptr noundef %106, ptr noundef %.val73, i32 noundef %.val70, i32 noundef 0)
   store i32 %107, ptr %13, align 4, !tbaa !136
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph103.preheader, label %._crit_edge
+  br i1 %108, label %.lr.ph102.preheader, label %._crit_edge
 
-.lr.ph103.preheader:                              ; preds = %.critedge
+.lr.ph102.preheader:                              ; preds = %.critedge
   %wide.trip.count = zext nneg i32 %107 to i64
-  br label %.lr.ph103
+  br label %.lr.ph102
 
-.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next112, %.lr.ph103 ]
-  %109 = getelementptr inbounds nuw i32, ptr %.val73, i64 %indvars.iv111
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next111, %.lr.ph102 ]
+  %109 = getelementptr inbounds nuw i32, ptr %.val73, i64 %indvars.iv110
   %110 = load i32, ptr %109, align 4, !tbaa !6
   %111 = xor i32 %110, 1
   store i32 %111, ptr %109, align 4, !tbaa !6
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
-  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph103, !llvm.loop !153
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
+  br i1 %exitcond113.not, label %._crit_edge, label %.lr.ph102, !llvm.loop !153
 
-._crit_edge:                                      ; preds = %.lr.ph103, %.critedge
+._crit_edge:                                      ; preds = %.lr.ph102, %.critedge
   %112 = load i32, ptr %21, align 8, !tbaa !147
   %.not.i.i81 = icmp slt i32 %112, %.val
   br i1 %.not.i.i81, label %113, label %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i82
@@ -2004,20 +2004,20 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i82:          ; preds = %119, %._crit_edge
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv.i84
   store i8 45, ptr %122, align 1, !tbaa !59
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next.i85, %smax
-  br i1 %exitcond115.not, label %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87, label %.lr.ph.i83, !llvm.loop !149
+  %exitcond114.not = icmp eq i64 %indvars.iv.next.i85, %smax
+  br i1 %exitcond114.not, label %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87, label %.lr.ph.i83, !llvm.loop !149
 
 _ZL11Vec_StrFillP10Vec_Str_t_ic.exit87:           ; preds = %.lr.ph.i83, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i82
-  br i1 %108, label %.lr.ph106.preheader, label %._crit_edge107
+  br i1 %108, label %.lr.ph105.preheader, label %._crit_edge106
 
-.lr.ph106.preheader:                              ; preds = %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87
-  %wide.trip.count119 = zext nneg i32 %107 to i64
-  br label %.lr.ph106
+.lr.ph105.preheader:                              ; preds = %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87
+  %wide.trip.count118 = zext nneg i32 %107 to i64
+  br label %.lr.ph105
 
-.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %140
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next117, %140 ]
-  %.061105 = phi i32 [ 0, %.lr.ph106.preheader ], [ %.1, %140 ]
-  %123 = getelementptr inbounds nuw i32, ptr %.val73, i64 %indvars.iv116
+.lr.ph105:                                        ; preds = %.lr.ph105.preheader, %140
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next116, %140 ]
+  %.061104 = phi i32 [ 0, %.lr.ph105.preheader ], [ %.1, %140 ]
+  %123 = getelementptr inbounds nuw i32, ptr %.val73, i64 %indvars.iv115
   %124 = load i32, ptr %123, align 4, !tbaa !6
   %125 = ashr i32 %124, 1
   %.val72 = load ptr, ptr %52, align 8, !tbaa !138
@@ -2027,9 +2027,9 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit87:           ; preds = %.lr.ph.i83, %_ZL11V
   %129 = icmp eq i32 %128, -1
   br i1 %129, label %140, label %130
 
-130:                                              ; preds = %.lr.ph106
-  %131 = add nsw i32 %.061105, 1
-  %132 = sext i32 %.061105 to i64
+130:                                              ; preds = %.lr.ph105
+  %131 = add nsw i32 %.061104, 1
+  %132 = sext i32 %.061104 to i64
   %133 = getelementptr inbounds i32, ptr %.val73, i64 %132
   store i32 %124, ptr %133, align 4, !tbaa !6
   %134 = load i32, ptr %123, align 4, !tbaa !6
@@ -2042,13 +2042,13 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit87:           ; preds = %.lr.ph.i83, %_ZL11V
   store i8 %137, ptr %139, align 1, !tbaa !59
   br label %140
 
-140:                                              ; preds = %.lr.ph106, %130
-  %.1 = phi i32 [ %131, %130 ], [ %.061105, %.lr.ph106 ]
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !154
+140:                                              ; preds = %.lr.ph105, %130
+  %.1 = phi i32 [ %131, %130 ], [ %.061104, %.lr.ph105 ]
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
+  br i1 %exitcond119.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !154
 
-._crit_edge107:                                   ; preds = %140, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87
+._crit_edge106:                                   ; preds = %140, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87
   %.061.lcssa = phi i32 [ 0, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87 ], [ %.1, %140 ]
   %.val76 = load ptr, ptr %46, align 8, !tbaa !148
   %141 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val76) #32
@@ -2056,7 +2056,7 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit87:           ; preds = %.lr.ph.i83, %_ZL11V
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %.lr.ph.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit
 
-.lr.ph.i.i:                                       ; preds = %._crit_edge107
+.lr.ph.i.i:                                       ; preds = %._crit_edge106
   %wide.trip.count.i.i = and i64 %141, 2147483647
   br label %144
 
@@ -2128,7 +2128,7 @@ _ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i:          ; preds = %167, %_ZL11Vec_StrG
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit, label %144, !llvm.loop !155
 
-_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit:          ; preds = %_ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i, %._crit_edge107
+_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit:          ; preds = %_ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i, %._crit_edge106
   %173 = load ptr, ptr %48, align 8, !tbaa !151
   %174 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %173, ptr noundef readonly %.val73, i32 noundef %.061.lcssa)
   %.not67 = icmp eq i32 %174, 0
@@ -5589,7 +5589,7 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %45, %24,
   %68 = phi i32 [ %58, %.lr.ph.i4 ], [ %123, %116 ]
   %69 = phi i32 [ %57, %.lr.ph.i4 ], [ %122, %116 ]
   %70 = phi i32 [ %56, %.lr.ph.i4 ], [ %121, %116 ]
-  %.01923.i = phi i32 [ %51, %.lr.ph.i4 ], [ %102, %116 ]
+  %.01922.i = phi i32 [ %51, %.lr.ph.i4 ], [ %102, %116 ]
   %71 = add nsw i32 %70, 2
   %72 = icmp slt i32 %71, %68
   br i1 %72, label %73, label %._crit_edge.i
@@ -5597,9 +5597,9 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %45, %24,
 ._crit_edge.i:                                    ; preds = %67
   %.pre.phi.trans.insert.i = sext i32 %69 to i64
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i32, ptr %14, i64 %.pre.phi.trans.insert.i
-  %.pre26.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !6
-  %.pre.i5 = shl nsw i32 %.pre26.pre.i, 1
-  %.pre36.i = sext i32 %.pre.i5 to i64
+  %.pre25.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !6
+  %.pre.i5 = shl nsw i32 %.pre25.pre.i, 1
+  %.pre35.i = sext i32 %.pre.i5 to i64
   br label %100
 
 73:                                               ; preds = %67
@@ -5634,10 +5634,10 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %45, %24,
   br label %100
 
 100:                                              ; preds = %99, %73, %._crit_edge.i
-  %.pre-phi33.i = phi i64 [ %81, %73 ], [ %.pre36.i, %._crit_edge.i ], [ %90, %99 ]
-  %101 = phi i32 [ %76, %73 ], [ %.pre26.pre.i, %._crit_edge.i ], [ %79, %99 ]
+  %.pre-phi32.i = phi i64 [ %81, %73 ], [ %.pre35.i, %._crit_edge.i ], [ %90, %99 ]
+  %101 = phi i32 [ %76, %73 ], [ %.pre25.pre.i, %._crit_edge.i ], [ %79, %99 ]
   %102 = phi i32 [ %71, %73 ], [ %69, %._crit_edge.i ], [ %69, %99 ]
-  %103 = getelementptr i32, ptr %61, i64 %.pre-phi33.i
+  %103 = getelementptr i32, ptr %61, i64 %.pre-phi32.i
   %104 = load i32, ptr %103, align 4, !tbaa !6
   %105 = sext i32 %104 to i64
   %106 = getelementptr i8, ptr %103, i64 4
@@ -5653,12 +5653,12 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %45, %24,
   br i1 %115, label %116, label %.thread.loopexit.i
 
 116:                                              ; preds = %100
-  %117 = sext i32 %.01923.i to i64
+  %117 = sext i32 %.01922.i to i64
   %118 = getelementptr inbounds i32, ptr %14, i64 %117
   store i32 %101, ptr %118, align 4, !tbaa !6
   %119 = sext i32 %101 to i64
   %120 = getelementptr inbounds i32, ptr %66, i64 %119
-  store i32 %.01923.i, ptr %120, align 4, !tbaa !6
+  store i32 %.01922.i, ptr %120, align 4, !tbaa !6
   %121 = shl nsw i32 %102, 1
   %122 = or disjoint i32 %121, 1
   %123 = load i32, ptr %55, align 8, !tbaa !72
@@ -5666,15 +5666,15 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %45, %24,
   br i1 %124, label %67, label %.thread.loopexit.i
 
 .thread.loopexit.i:                               ; preds = %116, %100
-  %.019.lcssa.ph.i = phi i32 [ %102, %116 ], [ %.01923.i, %100 ]
-  %.pre34.i = sext i32 %.019.lcssa.ph.i to i64
+  %.019.lcssa.ph.i = phi i32 [ %102, %116 ], [ %.01922.i, %100 ]
+  %.pre33.i = sext i32 %.019.lcssa.ph.i to i64
   br label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE13percolateDownEi.exit
 
 _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE13percolateDownEi.exit: ; preds = %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, %.thread.loopexit.i
-  %.pre-phi35.i = phi i64 [ %.pre34.i, %.thread.loopexit.i ], [ %52, %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit ]
+  %.pre-phi34.i = phi i64 [ %.pre33.i, %.thread.loopexit.i ], [ %52, %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit ]
   %125 = phi ptr [ %66, %.thread.loopexit.i ], [ %7, %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit ]
   %.019.lcssa.i = phi i32 [ %.019.lcssa.ph.i, %.thread.loopexit.i ], [ %51, %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit ]
-  %126 = getelementptr inbounds i32, ptr %14, i64 %.pre-phi35.i
+  %126 = getelementptr inbounds i32, ptr %14, i64 %.pre-phi34.i
   store i32 %54, ptr %126, align 4, !tbaa !6
   %127 = sext i32 %54 to i64
   %128 = getelementptr inbounds i32, ptr %125, i64 %127

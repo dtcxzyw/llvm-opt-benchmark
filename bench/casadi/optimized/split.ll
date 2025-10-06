@@ -9419,15 +9419,15 @@ define void @_ZNK6casadi9Vertsplit11get_vertcatERKSt6vectorINS_2MXESaIS2_EE(ptr 
 .preheader:                                       ; preds = %3
   %15 = load ptr, ptr %4, align 8, !tbaa !74
   %16 = load ptr, ptr %2, align 8, !tbaa !77
-  %.not21 = icmp eq ptr %15, %16
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %15, %16
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 17:                                               ; preds = %3
   tail call void @_ZNK6casadi6MXNode11get_vertcatERKSt6vectorINS_2MXESaIS2_EE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %61
 
 18:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
-  %19 = add nuw nsw i64 %.01420, 1
+  %19 = add nuw nsw i64 %.01418, 1
   %20 = load ptr, ptr %4, align 8, !tbaa !74
   %21 = load ptr, ptr %2, align 8, !tbaa !77
   %22 = ptrtoint ptr %20 to i64
@@ -9439,8 +9439,8 @@ define void @_ZNK6casadi9Vertsplit11get_vertcatERKSt6vectorINS_2MXESaIS2_EE(ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %18
   %27 = phi ptr [ %21, %18 ], [ %16, %.preheader ]
-  %.01420 = phi i64 [ %19, %18 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds nuw %"class.casadi::MX", ptr %27, i64 %.01420
+  %.01418 = phi i64 [ %19, %18 ], [ 0, %.preheader ]
+  %28 = getelementptr inbounds nuw %"class.casadi::MX", ptr %27, i64 %.01418
   %29 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 304
@@ -9450,18 +9450,18 @@ define void @_ZNK6casadi9Vertsplit11get_vertcatERKSt6vectorINS_2MXESaIS2_EE(ptr 
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !77
-  %36 = getelementptr inbounds nuw %"class.casadi::MX", ptr %35, i64 %.01420
+  %36 = getelementptr inbounds nuw %"class.casadi::MX", ptr %35, i64 %.01418
   %37 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 320
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(64) %37)
-  %42 = icmp eq i64 %41, %.01420
+  %42 = icmp eq i64 %41, %.01418
   br i1 %42, label %43, label %54
 
 43:                                               ; preds = %34
   %44 = load ptr, ptr %2, align 8, !tbaa !77
-  %45 = getelementptr inbounds nuw %"class.casadi::MX", ptr %44, i64 %.01420
+  %45 = getelementptr inbounds nuw %"class.casadi::MX", ptr %44, i64 %.01418
   %46 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %45)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -9528,15 +9528,15 @@ define void @_ZNK6casadi9Diagsplit11get_diagcatERKSt6vectorINS_2MXESaIS2_EE(ptr 
 .preheader:                                       ; preds = %3
   %15 = load ptr, ptr %4, align 8, !tbaa !74
   %16 = load ptr, ptr %2, align 8, !tbaa !77
-  %.not21 = icmp eq ptr %15, %16
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %15, %16
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 17:                                               ; preds = %3
   tail call void @_ZNK6casadi6MXNode11get_diagcatERKSt6vectorINS_2MXESaIS2_EE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %61
 
 18:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
-  %19 = add nuw nsw i64 %.01420, 1
+  %19 = add nuw nsw i64 %.01418, 1
   %20 = load ptr, ptr %4, align 8, !tbaa !74
   %21 = load ptr, ptr %2, align 8, !tbaa !77
   %22 = ptrtoint ptr %20 to i64
@@ -9548,8 +9548,8 @@ define void @_ZNK6casadi9Diagsplit11get_diagcatERKSt6vectorINS_2MXESaIS2_EE(ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %18
   %27 = phi ptr [ %21, %18 ], [ %16, %.preheader ]
-  %.01420 = phi i64 [ %19, %18 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds nuw %"class.casadi::MX", ptr %27, i64 %.01420
+  %.01418 = phi i64 [ %19, %18 ], [ 0, %.preheader ]
+  %28 = getelementptr inbounds nuw %"class.casadi::MX", ptr %27, i64 %.01418
   %29 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 304
@@ -9559,18 +9559,18 @@ define void @_ZNK6casadi9Diagsplit11get_diagcatERKSt6vectorINS_2MXESaIS2_EE(ptr 
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %2, align 8, !tbaa !77
-  %36 = getelementptr inbounds nuw %"class.casadi::MX", ptr %35, i64 %.01420
+  %36 = getelementptr inbounds nuw %"class.casadi::MX", ptr %35, i64 %.01418
   %37 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 320
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(64) %37)
-  %42 = icmp eq i64 %41, %.01420
+  %42 = icmp eq i64 %41, %.01418
   br i1 %42, label %43, label %54
 
 43:                                               ; preds = %34
   %44 = load ptr, ptr %2, align 8, !tbaa !77
-  %45 = getelementptr inbounds nuw %"class.casadi::MX", ptr %44, i64 %.01420
+  %45 = getelementptr inbounds nuw %"class.casadi::MX", ptr %44, i64 %.01418
   %46 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %45)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40

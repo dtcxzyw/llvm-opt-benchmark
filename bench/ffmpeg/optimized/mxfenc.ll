@@ -4879,16 +4879,16 @@ define internal fastcc void @mxf_write_essence_container_refs(ptr noundef %0) un
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.56, i32 noundef %11) #14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4, !tbaa !121
-  %.not26 = icmp eq i32 %13, 0
-  br i1 %.not26, label %thread-pre-split, label %.lr.ph
+  %.not24 = icmp eq i32 %13, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %15
 
-15:                                               ; preds = %.lr.ph, %.thread
-  %16 = phi i32 [ %13, %.lr.ph ], [ %29, %.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
+15:                                               ; preds = %.lr.ph, %29
+  %16 = phi i32 [ %13, %.lr.ph ], [ %30, %29 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %17 = load ptr, ptr %14, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !31
@@ -4897,7 +4897,7 @@ define internal fastcc void @mxf_write_essence_container_refs(ptr noundef %0) un
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 23
   %23 = load i8, ptr %22, align 1, !tbaa !54
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %24, label %.thread
+  br i1 %.not, label %24, label %29
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -4905,29 +4905,29 @@ define internal fastcc void @mxf_write_essence_container_refs(ptr noundef %0) un
   tail call void @avio_write(ptr noundef %5, ptr noundef %26, i32 noundef 16) #14
   %27 = load i32, ptr %6, align 8, !tbaa !133
   %28 = icmp eq i32 %27, 1
-  br i1 %28, label %.critedge, label %..thread_crit_edge
+  br i1 %28, label %.thread22, label %._crit_edge26
 
-..thread_crit_edge:                               ; preds = %24
+._crit_edge26:                                    ; preds = %24
   %.pre = load i32, ptr %12, align 4, !tbaa !121
-  br label %.thread
+  br label %29
 
-.thread:                                          ; preds = %..thread_crit_edge, %15
-  %29 = phi i32 [ %.pre, %..thread_crit_edge ], [ %16, %15 ]
+29:                                               ; preds = %._crit_edge26, %15
+  %30 = phi i32 [ %.pre, %._crit_edge26 ], [ %16, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = zext i32 %29 to i64
-  %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %15, label %thread-pre-split, !llvm.loop !238
+  %31 = zext i32 %30 to i64
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
+  br i1 %32, label %15, label %._crit_edge, !llvm.loop !238
 
-thread-pre-split:                                 ; preds = %.thread, %1
+._crit_edge:                                      ; preds = %29, %1
   %.pr = load i32, ptr %6, align 8, !tbaa !133
-  %32 = icmp sgt i32 %.pr, 1
-  br i1 %32, label %33, label %.critedge
+  %33 = icmp sgt i32 %.pr, 1
+  br i1 %33, label %34, label %.thread22
 
-33:                                               ; preds = %thread-pre-split
+34:                                               ; preds = %._crit_edge
   tail call void @avio_write(ptr noundef %5, ptr noundef nonnull @multiple_desc_ul, i32 noundef 16) #14
-  br label %.critedge
+  br label %.thread22
 
-.critedge:                                        ; preds = %24, %33, %thread-pre-split
+.thread22:                                        ; preds = %24, %34, %._crit_edge
   ret void
 }
 
@@ -5196,20 +5196,20 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
 
 122:                                              ; preds = %119
   %123 = load i8, ptr %102, align 1, !tbaa !54
-  %.not53.i.i.i = icmp eq i8 %123, 0
-  br i1 %.not53.i.i.i, label %mxf_utf16len.exit.thread.i.i, label %.lr.ph.i.i.i
+  %.not51.i.i.i = icmp eq i8 %123, 0
+  br i1 %.not51.i.i.i, label %mxf_utf16len.exit.thread.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %122, %145
   %124 = phi i8 [ %146, %145 ], [ %123, %122 ]
-  %.02255.i.i.i = phi ptr [ %.12342.i.i.i, %145 ], [ %102, %122 ]
-  %.02954.i.i.i = phi i64 [ %.130.i.i.i, %145 ], [ 0, %122 ]
-  %125 = getelementptr inbounds nuw i8, ptr %.02255.i.i.i, i64 1
+  %.02253.i.i.i = phi ptr [ %.12341.i.i.i, %145 ], [ %102, %122 ]
+  %.02952.i.i.i = phi i64 [ %.130.i.i.i, %145 ], [ 0, %122 ]
+  %125 = getelementptr inbounds nuw i8, ptr %.02253.i.i.i, i64 1
   %126 = zext i8 %124 to i32
   %127 = and i32 %126, 192
   %128 = icmp eq i32 %127, 128
   %129 = icmp ugt i8 %124, -3
   %or.cond.i.i.i = or i1 %129, %128
-  br i1 %or.cond.i.i.i, label %.thread44.i.i.i, label %.preheader.preheader.i.i.i
+  br i1 %or.cond.i.i.i, label %.thread43.i.i.i, label %.preheader.preheader.i.i.i
 
 .preheader.preheader.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %130 = lshr i32 %126, 1
@@ -5233,7 +5233,7 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
   %138 = shl i32 %.127.i.i.i, 6
   %139 = add nuw nsw i32 %137, %138
   %140 = shl i32 %.024.i.i.i, 5
-  br i1 %.not35.i.i.i, label %.preheader.i.i.i, label %.thread44.i.i.i, !llvm.loop !246
+  br i1 %.not35.i.i.i, label %.preheader.i.i.i, label %.thread43.i.i.i, !llvm.loop !246
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %141 = shl i32 %.024.i.i.i, 1
@@ -5241,18 +5241,18 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
   %143 = and i32 %142, %.127.i.i.i
   %144 = icmp ult i32 %143, 65536
   %.231.v.i.i.i = select i1 %144, i64 1, i64 2
-  %.231.i.i.i = add i64 %.231.v.i.i.i, %.02954.i.i.i
+  %.231.i.i.i = add i64 %.231.v.i.i.i, %.02952.i.i.i
   br label %145, !llvm.loop !247
 
-.thread44.i.i.i:                                  ; preds = %133, %.lr.ph.i.i.i
-  %.12349.i.i.i = phi ptr [ %125, %.lr.ph.i.i.i ], [ %134, %133 ]
+.thread43.i.i.i:                                  ; preds = %133, %.lr.ph.i.i.i
+  %.12347.i.i.i = phi ptr [ %125, %.lr.ph.i.i.i ], [ %134, %133 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %145
 
-145:                                              ; preds = %.thread44.i.i.i, %.thread.i.i.i
-  %.12342.i.i.i = phi ptr [ %.2.i.i.i, %.thread.i.i.i ], [ %.12349.i.i.i, %.thread44.i.i.i ]
-  %.130.i.i.i = phi i64 [ %.231.i.i.i, %.thread.i.i.i ], [ %.02954.i.i.i, %.thread44.i.i.i ]
-  %146 = load i8, ptr %.12342.i.i.i, align 1, !tbaa !54
+145:                                              ; preds = %.thread43.i.i.i, %.thread.i.i.i
+  %.12341.i.i.i = phi ptr [ %.2.i.i.i, %.thread.i.i.i ], [ %.12347.i.i.i, %.thread43.i.i.i ]
+  %.130.i.i.i = phi i64 [ %.231.i.i.i, %.thread.i.i.i ], [ %.02952.i.i.i, %.thread43.i.i.i ]
+  %146 = load i8, ptr %.12341.i.i.i, align 1, !tbaa !54
   %.not.i.i.i = icmp eq i8 %146, 0
   br i1 %.not.i.i.i, label %mxf_utf16len.exit.i.i, label %.lr.ph.i.i.i
 
@@ -5279,20 +5279,20 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
 
 152:                                              ; preds = %mxf_utf16_local_tag_length.exit.i
   %153 = load i8, ptr %110, align 1, !tbaa !54
-  %.not53.i.i63.i = icmp eq i8 %153, 0
-  br i1 %.not53.i.i63.i, label %mxf_utf16len.exit.thread.i81.i, label %.lr.ph.i.i64.i
+  %.not51.i.i63.i = icmp eq i8 %153, 0
+  br i1 %.not51.i.i63.i, label %mxf_utf16len.exit.thread.i81.i, label %.lr.ph.i.i64.i
 
 .lr.ph.i.i64.i:                                   ; preds = %152, %175
   %154 = phi i8 [ %176, %175 ], [ %153, %152 ]
-  %.02255.i.i65.i = phi ptr [ %.12342.i.i77.i, %175 ], [ %110, %152 ]
-  %.02954.i.i66.i = phi i64 [ %.130.i.i78.i, %175 ], [ 0, %152 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.02255.i.i65.i, i64 1
+  %.02253.i.i65.i = phi ptr [ %.12341.i.i77.i, %175 ], [ %110, %152 ]
+  %.02952.i.i66.i = phi i64 [ %.130.i.i78.i, %175 ], [ 0, %152 ]
+  %155 = getelementptr inbounds nuw i8, ptr %.02253.i.i65.i, i64 1
   %156 = zext i8 %154 to i32
   %157 = and i32 %156, 192
   %158 = icmp eq i32 %157, 128
   %159 = icmp ugt i8 %154, -3
   %or.cond.i.i67.i = or i1 %159, %158
-  br i1 %or.cond.i.i67.i, label %.thread44.i.i75.i, label %.preheader.preheader.i.i68.i
+  br i1 %or.cond.i.i67.i, label %.thread43.i.i75.i, label %.preheader.preheader.i.i68.i
 
 .preheader.preheader.i.i68.i:                     ; preds = %.lr.ph.i.i64.i
   %160 = lshr i32 %156, 1
@@ -5316,7 +5316,7 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
   %168 = shl i32 %.127.i.i70.i, 6
   %169 = add nuw nsw i32 %167, %168
   %170 = shl i32 %.024.i.i71.i, 5
-  br i1 %.not35.i.i74.i, label %.preheader.i.i69.i, label %.thread44.i.i75.i, !llvm.loop !246
+  br i1 %.not35.i.i74.i, label %.preheader.i.i69.i, label %.thread43.i.i75.i, !llvm.loop !246
 
 .thread.i.i85.i:                                  ; preds = %.preheader.i.i69.i
   %171 = shl i32 %.024.i.i71.i, 1
@@ -5324,18 +5324,18 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
   %173 = and i32 %172, %.127.i.i70.i
   %174 = icmp ult i32 %173, 65536
   %.231.v.i.i86.i = select i1 %174, i64 1, i64 2
-  %.231.i.i87.i = add i64 %.231.v.i.i86.i, %.02954.i.i66.i
+  %.231.i.i87.i = add i64 %.231.v.i.i86.i, %.02952.i.i66.i
   br label %175, !llvm.loop !247
 
-.thread44.i.i75.i:                                ; preds = %163, %.lr.ph.i.i64.i
-  %.12349.i.i76.i = phi ptr [ %155, %.lr.ph.i.i64.i ], [ %164, %163 ]
+.thread43.i.i75.i:                                ; preds = %163, %.lr.ph.i.i64.i
+  %.12347.i.i76.i = phi ptr [ %155, %.lr.ph.i.i64.i ], [ %164, %163 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %175
 
-175:                                              ; preds = %.thread44.i.i75.i, %.thread.i.i85.i
-  %.12342.i.i77.i = phi ptr [ %.2.i.i72.i, %.thread.i.i85.i ], [ %.12349.i.i76.i, %.thread44.i.i75.i ]
-  %.130.i.i78.i = phi i64 [ %.231.i.i87.i, %.thread.i.i85.i ], [ %.02954.i.i66.i, %.thread44.i.i75.i ]
-  %176 = load i8, ptr %.12342.i.i77.i, align 1, !tbaa !54
+175:                                              ; preds = %.thread43.i.i75.i, %.thread.i.i85.i
+  %.12341.i.i77.i = phi ptr [ %.2.i.i72.i, %.thread.i.i85.i ], [ %.12347.i.i76.i, %.thread43.i.i75.i ]
+  %.130.i.i78.i = phi i64 [ %.231.i.i87.i, %.thread.i.i85.i ], [ %.02952.i.i66.i, %.thread43.i.i75.i ]
+  %176 = load i8, ptr %.12341.i.i77.i, align 1, !tbaa !54
   %.not.i.i79.i = icmp eq i8 %176, 0
   br i1 %.not.i.i79.i, label %mxf_utf16len.exit.i80.i, label %.lr.ph.i.i64.i
 
@@ -5359,20 +5359,20 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
   %.0.i84.i = phi i32 [ 0, %179 ], [ %181, %mxf_utf16len.exit.thread.i81.i ], [ 0, %mxf_utf16_local_tag_length.exit.i ]
   %182 = add nuw nsw i32 %.0.i84.i, %.0.i.i
   %183 = load i8, ptr %121, align 1, !tbaa !54
-  %.not53.i.i90.i = icmp eq i8 %183, 0
-  br i1 %.not53.i.i90.i, label %mxf_utf16len.exit.thread.i108.i, label %.lr.ph.i.i91.i
+  %.not51.i.i90.i = icmp eq i8 %183, 0
+  br i1 %.not51.i.i90.i, label %mxf_utf16len.exit.thread.i108.i, label %.lr.ph.i.i91.i
 
 .lr.ph.i.i91.i:                                   ; preds = %mxf_utf16_local_tag_length.exit88.i, %205
   %184 = phi i8 [ %206, %205 ], [ %183, %mxf_utf16_local_tag_length.exit88.i ]
-  %.02255.i.i92.i = phi ptr [ %.12342.i.i104.i, %205 ], [ %121, %mxf_utf16_local_tag_length.exit88.i ]
-  %.02954.i.i93.i = phi i64 [ %.130.i.i105.i, %205 ], [ 0, %mxf_utf16_local_tag_length.exit88.i ]
-  %185 = getelementptr inbounds nuw i8, ptr %.02255.i.i92.i, i64 1
+  %.02253.i.i92.i = phi ptr [ %.12341.i.i104.i, %205 ], [ %121, %mxf_utf16_local_tag_length.exit88.i ]
+  %.02952.i.i93.i = phi i64 [ %.130.i.i105.i, %205 ], [ 0, %mxf_utf16_local_tag_length.exit88.i ]
+  %185 = getelementptr inbounds nuw i8, ptr %.02253.i.i92.i, i64 1
   %186 = zext i8 %184 to i32
   %187 = and i32 %186, 192
   %188 = icmp eq i32 %187, 128
   %189 = icmp ugt i8 %184, -3
   %or.cond.i.i94.i = or i1 %189, %188
-  br i1 %or.cond.i.i94.i, label %.thread44.i.i102.i, label %.preheader.preheader.i.i95.i
+  br i1 %or.cond.i.i94.i, label %.thread43.i.i102.i, label %.preheader.preheader.i.i95.i
 
 .preheader.preheader.i.i95.i:                     ; preds = %.lr.ph.i.i91.i
   %190 = lshr i32 %186, 1
@@ -5396,7 +5396,7 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
   %198 = shl i32 %.127.i.i97.i, 6
   %199 = add nuw nsw i32 %197, %198
   %200 = shl i32 %.024.i.i98.i, 5
-  br i1 %.not35.i.i101.i, label %.preheader.i.i96.i, label %.thread44.i.i102.i, !llvm.loop !246
+  br i1 %.not35.i.i101.i, label %.preheader.i.i96.i, label %.thread43.i.i102.i, !llvm.loop !246
 
 .thread.i.i112.i:                                 ; preds = %.preheader.i.i96.i
   %201 = shl i32 %.024.i.i98.i, 1
@@ -5404,18 +5404,18 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
   %203 = and i32 %202, %.127.i.i97.i
   %204 = icmp ult i32 %203, 65536
   %.231.v.i.i113.i = select i1 %204, i64 1, i64 2
-  %.231.i.i114.i = add i64 %.231.v.i.i113.i, %.02954.i.i93.i
+  %.231.i.i114.i = add i64 %.231.v.i.i113.i, %.02952.i.i93.i
   br label %205, !llvm.loop !247
 
-.thread44.i.i102.i:                               ; preds = %193, %.lr.ph.i.i91.i
-  %.12349.i.i103.i = phi ptr [ %185, %.lr.ph.i.i91.i ], [ %194, %193 ]
+.thread43.i.i102.i:                               ; preds = %193, %.lr.ph.i.i91.i
+  %.12347.i.i103.i = phi ptr [ %185, %.lr.ph.i.i91.i ], [ %194, %193 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %205
 
-205:                                              ; preds = %.thread44.i.i102.i, %.thread.i.i112.i
-  %.12342.i.i104.i = phi ptr [ %.2.i.i99.i, %.thread.i.i112.i ], [ %.12349.i.i103.i, %.thread44.i.i102.i ]
-  %.130.i.i105.i = phi i64 [ %.231.i.i114.i, %.thread.i.i112.i ], [ %.02954.i.i93.i, %.thread44.i.i102.i ]
-  %206 = load i8, ptr %.12342.i.i104.i, align 1, !tbaa !54
+205:                                              ; preds = %.thread43.i.i102.i, %.thread.i.i112.i
+  %.12341.i.i104.i = phi ptr [ %.2.i.i99.i, %.thread.i.i112.i ], [ %.12347.i.i103.i, %.thread43.i.i102.i ]
+  %.130.i.i105.i = phi i64 [ %.231.i.i114.i, %.thread.i.i112.i ], [ %.02952.i.i93.i, %.thread43.i.i102.i ]
+  %206 = load i8, ptr %.12341.i.i104.i, align 1, !tbaa !54
   %.not.i.i106.i = icmp eq i8 %206, 0
   br i1 %.not.i.i106.i, label %mxf_utf16len.exit.i107.i, label %.lr.ph.i.i91.i
 
@@ -5443,20 +5443,20 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
 
 213:                                              ; preds = %mxf_utf16_local_tag_length.exit115.i
   %214 = load i8, ptr %120, align 1, !tbaa !54
-  %.not53.i.i117.i = icmp eq i8 %214, 0
-  br i1 %.not53.i.i117.i, label %mxf_utf16len.exit.thread.i135.i, label %.lr.ph.i.i118.i
+  %.not51.i.i117.i = icmp eq i8 %214, 0
+  br i1 %.not51.i.i117.i, label %mxf_utf16len.exit.thread.i135.i, label %.lr.ph.i.i118.i
 
 .lr.ph.i.i118.i:                                  ; preds = %213, %236
   %215 = phi i8 [ %237, %236 ], [ %214, %213 ]
-  %.02255.i.i119.i = phi ptr [ %.12342.i.i131.i, %236 ], [ %120, %213 ]
-  %.02954.i.i120.i = phi i64 [ %.130.i.i132.i, %236 ], [ 0, %213 ]
-  %216 = getelementptr inbounds nuw i8, ptr %.02255.i.i119.i, i64 1
+  %.02253.i.i119.i = phi ptr [ %.12341.i.i131.i, %236 ], [ %120, %213 ]
+  %.02952.i.i120.i = phi i64 [ %.130.i.i132.i, %236 ], [ 0, %213 ]
+  %216 = getelementptr inbounds nuw i8, ptr %.02253.i.i119.i, i64 1
   %217 = zext i8 %215 to i32
   %218 = and i32 %217, 192
   %219 = icmp eq i32 %218, 128
   %220 = icmp ugt i8 %215, -3
   %or.cond.i.i121.i = or i1 %220, %219
-  br i1 %or.cond.i.i121.i, label %.thread44.i.i129.i, label %.preheader.preheader.i.i122.i
+  br i1 %or.cond.i.i121.i, label %.thread43.i.i129.i, label %.preheader.preheader.i.i122.i
 
 .preheader.preheader.i.i122.i:                    ; preds = %.lr.ph.i.i118.i
   %221 = lshr i32 %217, 1
@@ -5480,7 +5480,7 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
   %229 = shl i32 %.127.i.i124.i, 6
   %230 = add nuw nsw i32 %228, %229
   %231 = shl i32 %.024.i.i125.i, 5
-  br i1 %.not35.i.i128.i, label %.preheader.i.i123.i, label %.thread44.i.i129.i, !llvm.loop !246
+  br i1 %.not35.i.i128.i, label %.preheader.i.i123.i, label %.thread43.i.i129.i, !llvm.loop !246
 
 .thread.i.i139.i:                                 ; preds = %.preheader.i.i123.i
   %232 = shl i32 %.024.i.i125.i, 1
@@ -5488,18 +5488,18 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
   %234 = and i32 %233, %.127.i.i124.i
   %235 = icmp ult i32 %234, 65536
   %.231.v.i.i140.i = select i1 %235, i64 1, i64 2
-  %.231.i.i141.i = add i64 %.231.v.i.i140.i, %.02954.i.i120.i
+  %.231.i.i141.i = add i64 %.231.v.i.i140.i, %.02952.i.i120.i
   br label %236, !llvm.loop !247
 
-.thread44.i.i129.i:                               ; preds = %224, %.lr.ph.i.i118.i
-  %.12349.i.i130.i = phi ptr [ %216, %.lr.ph.i.i118.i ], [ %225, %224 ]
+.thread43.i.i129.i:                               ; preds = %224, %.lr.ph.i.i118.i
+  %.12347.i.i130.i = phi ptr [ %216, %.lr.ph.i.i118.i ], [ %225, %224 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %236
 
-236:                                              ; preds = %.thread44.i.i129.i, %.thread.i.i139.i
-  %.12342.i.i131.i = phi ptr [ %.2.i.i126.i, %.thread.i.i139.i ], [ %.12349.i.i130.i, %.thread44.i.i129.i ]
-  %.130.i.i132.i = phi i64 [ %.231.i.i141.i, %.thread.i.i139.i ], [ %.02954.i.i120.i, %.thread44.i.i129.i ]
-  %237 = load i8, ptr %.12342.i.i131.i, align 1, !tbaa !54
+236:                                              ; preds = %.thread43.i.i129.i, %.thread.i.i139.i
+  %.12341.i.i131.i = phi ptr [ %.2.i.i126.i, %.thread.i.i139.i ], [ %.12347.i.i130.i, %.thread43.i.i129.i ]
+  %.130.i.i132.i = phi i64 [ %.231.i.i141.i, %.thread.i.i139.i ], [ %.02952.i.i120.i, %.thread43.i.i129.i ]
+  %237 = load i8, ptr %.12341.i.i131.i, align 1, !tbaa !54
   %.not.i.i133.i = icmp eq i8 %237, 0
   br i1 %.not.i.i133.i, label %mxf_utf16len.exit.i134.i, label %.lr.ph.i.i118.i
 
@@ -5686,20 +5686,20 @@ mxf_write_content_storage.exit:                   ; preds = %275
 
 291:                                              ; preds = %284
   %292 = load i8, ptr %290, align 1, !tbaa !54
-  %.not53.i.i.i60 = icmp eq i8 %292, 0
-  br i1 %.not53.i.i.i60, label %mxf_utf16len.exit.thread.i.i78, label %.lr.ph.i.i.i61
+  %.not51.i.i.i60 = icmp eq i8 %292, 0
+  br i1 %.not51.i.i.i60, label %mxf_utf16len.exit.thread.i.i78, label %.lr.ph.i.i.i61
 
 .lr.ph.i.i.i61:                                   ; preds = %291, %314
   %293 = phi i8 [ %315, %314 ], [ %292, %291 ]
-  %.02255.i.i.i62 = phi ptr [ %.12342.i.i.i74, %314 ], [ %290, %291 ]
-  %.02954.i.i.i63 = phi i64 [ %.130.i.i.i75, %314 ], [ 0, %291 ]
-  %294 = getelementptr inbounds nuw i8, ptr %.02255.i.i.i62, i64 1
+  %.02253.i.i.i62 = phi ptr [ %.12341.i.i.i74, %314 ], [ %290, %291 ]
+  %.02952.i.i.i63 = phi i64 [ %.130.i.i.i75, %314 ], [ 0, %291 ]
+  %294 = getelementptr inbounds nuw i8, ptr %.02253.i.i.i62, i64 1
   %295 = zext i8 %293 to i32
   %296 = and i32 %295, 192
   %297 = icmp eq i32 %296, 128
   %298 = icmp ugt i8 %293, -3
   %or.cond.i.i.i64 = or i1 %298, %297
-  br i1 %or.cond.i.i.i64, label %.thread44.i.i.i72, label %.preheader.preheader.i.i.i65
+  br i1 %or.cond.i.i.i64, label %.thread43.i.i.i72, label %.preheader.preheader.i.i.i65
 
 .preheader.preheader.i.i.i65:                     ; preds = %.lr.ph.i.i.i61
   %299 = lshr i32 %295, 1
@@ -5723,7 +5723,7 @@ mxf_write_content_storage.exit:                   ; preds = %275
   %307 = shl i32 %.127.i.i.i67, 6
   %308 = add nuw nsw i32 %306, %307
   %309 = shl i32 %.024.i.i.i68, 5
-  br i1 %.not35.i.i.i71, label %.preheader.i.i.i66, label %.thread44.i.i.i72, !llvm.loop !246
+  br i1 %.not35.i.i.i71, label %.preheader.i.i.i66, label %.thread43.i.i.i72, !llvm.loop !246
 
 .thread.i.i.i98:                                  ; preds = %.preheader.i.i.i66
   %310 = shl i32 %.024.i.i.i68, 1
@@ -5731,18 +5731,18 @@ mxf_write_content_storage.exit:                   ; preds = %275
   %312 = and i32 %311, %.127.i.i.i67
   %313 = icmp ult i32 %312, 65536
   %.231.v.i.i.i99 = select i1 %313, i64 1, i64 2
-  %.231.i.i.i100 = add i64 %.231.v.i.i.i99, %.02954.i.i.i63
+  %.231.i.i.i100 = add i64 %.231.v.i.i.i99, %.02952.i.i.i63
   br label %314, !llvm.loop !247
 
-.thread44.i.i.i72:                                ; preds = %302, %.lr.ph.i.i.i61
-  %.12349.i.i.i73 = phi ptr [ %294, %.lr.ph.i.i.i61 ], [ %303, %302 ]
+.thread43.i.i.i72:                                ; preds = %302, %.lr.ph.i.i.i61
+  %.12347.i.i.i73 = phi ptr [ %294, %.lr.ph.i.i.i61 ], [ %303, %302 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %314
 
-314:                                              ; preds = %.thread44.i.i.i72, %.thread.i.i.i98
-  %.12342.i.i.i74 = phi ptr [ %.2.i.i.i69, %.thread.i.i.i98 ], [ %.12349.i.i.i73, %.thread44.i.i.i72 ]
-  %.130.i.i.i75 = phi i64 [ %.231.i.i.i100, %.thread.i.i.i98 ], [ %.02954.i.i.i63, %.thread44.i.i.i72 ]
-  %315 = load i8, ptr %.12342.i.i.i74, align 1, !tbaa !54
+314:                                              ; preds = %.thread43.i.i.i72, %.thread.i.i.i98
+  %.12341.i.i.i74 = phi ptr [ %.2.i.i.i69, %.thread.i.i.i98 ], [ %.12347.i.i.i73, %.thread43.i.i.i72 ]
+  %.130.i.i.i75 = phi i64 [ %.231.i.i.i100, %.thread.i.i.i98 ], [ %.02952.i.i.i63, %.thread43.i.i.i72 ]
+  %315 = load i8, ptr %.12341.i.i.i74, align 1, !tbaa !54
   %.not.i.i.i76 = icmp eq i8 %315, 0
   br i1 %.not.i.i.i76, label %mxf_utf16len.exit.i.i77, label %.lr.ph.i.i.i61
 
@@ -5805,20 +5805,20 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   %342 = load ptr, ptr %3, align 8, !tbaa !4
   %343 = load ptr, ptr %46, align 8, !tbaa !24
   %344 = load i8, ptr %339, align 1, !tbaa !54
-  %.not53.i.i.i.i.i = icmp eq i8 %344, 0
-  br i1 %.not53.i.i.i.i.i, label %mxf_utf16len.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  %.not51.i.i.i.i.i = icmp eq i8 %344, 0
+  br i1 %.not51.i.i.i.i.i, label %mxf_utf16len.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %337, %366
   %345 = phi i8 [ %367, %366 ], [ %344, %337 ]
-  %.02255.i.i.i.i.i = phi ptr [ %.12342.i.i.i.i.i, %366 ], [ %339, %337 ]
-  %.02954.i.i.i.i.i = phi i64 [ %.130.i.i.i.i.i, %366 ], [ 0, %337 ]
-  %346 = getelementptr inbounds nuw i8, ptr %.02255.i.i.i.i.i, i64 1
+  %.02253.i.i.i.i.i = phi ptr [ %.12341.i.i.i.i.i, %366 ], [ %339, %337 ]
+  %.02952.i.i.i.i.i = phi i64 [ %.130.i.i.i.i.i, %366 ], [ 0, %337 ]
+  %346 = getelementptr inbounds nuw i8, ptr %.02253.i.i.i.i.i, i64 1
   %347 = zext i8 %345 to i32
   %348 = and i32 %347, 192
   %349 = icmp eq i32 %348, 128
   %350 = icmp ugt i8 %345, -3
   %or.cond.i.i.i.i.i = or i1 %350, %349
-  br i1 %or.cond.i.i.i.i.i, label %.thread44.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i, label %.thread43.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
   %351 = lshr i32 %347, 1
@@ -5842,7 +5842,7 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   %359 = shl i32 %.127.i.i.i.i.i, 6
   %360 = add nuw nsw i32 %358, %359
   %361 = shl i32 %.024.i.i.i.i.i, 5
-  br i1 %.not35.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %.thread44.i.i.i.i.i, !llvm.loop !246
+  br i1 %.not35.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %.thread43.i.i.i.i.i, !llvm.loop !246
 
 .thread.i.i.i.i.i:                                ; preds = %.preheader.i.i.i.i.i
   %362 = shl i32 %.024.i.i.i.i.i, 1
@@ -5850,18 +5850,18 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   %364 = and i32 %363, %.127.i.i.i.i.i
   %365 = icmp ult i32 %364, 65536
   %.231.v.i.i.i.i.i = select i1 %365, i64 1, i64 2
-  %.231.i.i.i.i.i = add i64 %.231.v.i.i.i.i.i, %.02954.i.i.i.i.i
+  %.231.i.i.i.i.i = add i64 %.231.v.i.i.i.i.i, %.02952.i.i.i.i.i
   br label %366, !llvm.loop !247
 
-.thread44.i.i.i.i.i:                              ; preds = %354, %.lr.ph.i.i.i.i.i
-  %.12349.i.i.i.i.i = phi ptr [ %346, %.lr.ph.i.i.i.i.i ], [ %355, %354 ]
+.thread43.i.i.i.i.i:                              ; preds = %354, %.lr.ph.i.i.i.i.i
+  %.12347.i.i.i.i.i = phi ptr [ %346, %.lr.ph.i.i.i.i.i ], [ %355, %354 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %366
 
-366:                                              ; preds = %.thread44.i.i.i.i.i, %.thread.i.i.i.i.i
-  %.12342.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.12349.i.i.i.i.i, %.thread44.i.i.i.i.i ]
-  %.130.i.i.i.i.i = phi i64 [ %.231.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.02954.i.i.i.i.i, %.thread44.i.i.i.i.i ]
-  %367 = load i8, ptr %.12342.i.i.i.i.i, align 1, !tbaa !54
+366:                                              ; preds = %.thread43.i.i.i.i.i, %.thread.i.i.i.i.i
+  %.12341.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.12347.i.i.i.i.i, %.thread43.i.i.i.i.i ]
+  %.130.i.i.i.i.i = phi i64 [ %.231.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.02952.i.i.i.i.i, %.thread43.i.i.i.i.i ]
+  %367 = load i8, ptr %.12341.i.i.i.i.i, align 1, !tbaa !54
   %.not.i.i.i.i.i = icmp eq i8 %367, 0
   br i1 %.not.i.i.i.i.i, label %mxf_utf16len.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -5888,20 +5888,20 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
 
 373:                                              ; preds = %mxf_utf16_local_tag_length.exit.i.i.i
   %374 = load i8, ptr %341, align 1, !tbaa !54
-  %.not53.i.i28.i.i.i = icmp eq i8 %374, 0
-  br i1 %.not53.i.i28.i.i.i, label %mxf_utf16_local_tag_length.exit53.i.i.i, label %.lr.ph.i.i29.i.i.i
+  %.not51.i.i28.i.i.i = icmp eq i8 %374, 0
+  br i1 %.not51.i.i28.i.i.i, label %mxf_utf16_local_tag_length.exit53.i.i.i, label %.lr.ph.i.i29.i.i.i
 
 .lr.ph.i.i29.i.i.i:                               ; preds = %373, %396
   %375 = phi i8 [ %397, %396 ], [ %374, %373 ]
-  %.02255.i.i30.i.i.i = phi ptr [ %.12342.i.i42.i.i.i, %396 ], [ %341, %373 ]
-  %.02954.i.i31.i.i.i = phi i64 [ %.130.i.i43.i.i.i, %396 ], [ 0, %373 ]
-  %376 = getelementptr inbounds nuw i8, ptr %.02255.i.i30.i.i.i, i64 1
+  %.02253.i.i30.i.i.i = phi ptr [ %.12341.i.i42.i.i.i, %396 ], [ %341, %373 ]
+  %.02952.i.i31.i.i.i = phi i64 [ %.130.i.i43.i.i.i, %396 ], [ 0, %373 ]
+  %376 = getelementptr inbounds nuw i8, ptr %.02253.i.i30.i.i.i, i64 1
   %377 = zext i8 %375 to i32
   %378 = and i32 %377, 192
   %379 = icmp eq i32 %378, 128
   %380 = icmp ugt i8 %375, -3
   %or.cond.i.i32.i.i.i = or i1 %380, %379
-  br i1 %or.cond.i.i32.i.i.i, label %.thread44.i.i40.i.i.i, label %.preheader.preheader.i.i33.i.i.i
+  br i1 %or.cond.i.i32.i.i.i, label %.thread43.i.i40.i.i.i, label %.preheader.preheader.i.i33.i.i.i
 
 .preheader.preheader.i.i33.i.i.i:                 ; preds = %.lr.ph.i.i29.i.i.i
   %381 = lshr i32 %377, 1
@@ -5925,7 +5925,7 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
   %389 = shl i32 %.127.i.i35.i.i.i, 6
   %390 = add nuw nsw i32 %388, %389
   %391 = shl i32 %.024.i.i36.i.i.i, 5
-  br i1 %.not35.i.i39.i.i.i, label %.preheader.i.i34.i.i.i, label %.thread44.i.i40.i.i.i, !llvm.loop !246
+  br i1 %.not35.i.i39.i.i.i, label %.preheader.i.i34.i.i.i, label %.thread43.i.i40.i.i.i, !llvm.loop !246
 
 .thread.i.i50.i.i.i:                              ; preds = %.preheader.i.i34.i.i.i
   %392 = shl i32 %.024.i.i36.i.i.i, 1
@@ -5933,18 +5933,18 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
   %394 = and i32 %393, %.127.i.i35.i.i.i
   %395 = icmp ult i32 %394, 65536
   %.231.v.i.i51.i.i.i = select i1 %395, i64 1, i64 2
-  %.231.i.i52.i.i.i = add i64 %.231.v.i.i51.i.i.i, %.02954.i.i31.i.i.i
+  %.231.i.i52.i.i.i = add i64 %.231.v.i.i51.i.i.i, %.02952.i.i31.i.i.i
   br label %396, !llvm.loop !247
 
-.thread44.i.i40.i.i.i:                            ; preds = %384, %.lr.ph.i.i29.i.i.i
-  %.12349.i.i41.i.i.i = phi ptr [ %376, %.lr.ph.i.i29.i.i.i ], [ %385, %384 ]
+.thread43.i.i40.i.i.i:                            ; preds = %384, %.lr.ph.i.i29.i.i.i
+  %.12347.i.i41.i.i.i = phi ptr [ %376, %.lr.ph.i.i29.i.i.i ], [ %385, %384 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %396
 
-396:                                              ; preds = %.thread44.i.i40.i.i.i, %.thread.i.i50.i.i.i
-  %.12342.i.i42.i.i.i = phi ptr [ %.2.i.i37.i.i.i, %.thread.i.i50.i.i.i ], [ %.12349.i.i41.i.i.i, %.thread44.i.i40.i.i.i ]
-  %.130.i.i43.i.i.i = phi i64 [ %.231.i.i52.i.i.i, %.thread.i.i50.i.i.i ], [ %.02954.i.i31.i.i.i, %.thread44.i.i40.i.i.i ]
-  %397 = load i8, ptr %.12342.i.i42.i.i.i, align 1, !tbaa !54
+396:                                              ; preds = %.thread43.i.i40.i.i.i, %.thread.i.i50.i.i.i
+  %.12341.i.i42.i.i.i = phi ptr [ %.2.i.i37.i.i.i, %.thread.i.i50.i.i.i ], [ %.12347.i.i41.i.i.i, %.thread43.i.i40.i.i.i ]
+  %.130.i.i43.i.i.i = phi i64 [ %.231.i.i52.i.i.i, %.thread.i.i50.i.i.i ], [ %.02952.i.i31.i.i.i, %.thread43.i.i40.i.i.i ]
+  %397 = load i8, ptr %.12341.i.i42.i.i.i, align 1, !tbaa !54
   %.not.i.i44.i.i.i = icmp eq i8 %397, 0
   br i1 %.not.i.i44.i.i.i, label %mxf_utf16len.exit.i45.i.i.i, label %.lr.ph.i.i29.i.i.i
 
@@ -6992,20 +6992,20 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = load i8, ptr %2, align 1, !tbaa !54
-  %.not53.i = icmp eq i8 %6, 0
-  br i1 %.not53.i, label %mxf_utf16len.exit.thread, label %.lr.ph.i
+  %.not51.i = icmp eq i8 %6, 0
+  br i1 %.not51.i, label %mxf_utf16len.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %28
   %7 = phi i8 [ %29, %28 ], [ %6, %3 ]
-  %.02255.i = phi ptr [ %.12342.i, %28 ], [ %2, %3 ]
-  %.02954.i = phi i64 [ %.130.i, %28 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.02255.i, i64 1
+  %.02253.i = phi ptr [ %.12341.i, %28 ], [ %2, %3 ]
+  %.02952.i = phi i64 [ %.130.i, %28 ], [ 0, %3 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.02253.i, i64 1
   %9 = zext i8 %7 to i32
   %10 = and i32 %9, 192
   %11 = icmp eq i32 %10, 128
   %12 = icmp ugt i8 %7, -3
   %or.cond.i = or i1 %12, %11
-  br i1 %or.cond.i, label %.thread44.i, label %.preheader.preheader.i
+  br i1 %or.cond.i, label %.thread43.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %.lr.ph.i
   %13 = lshr i32 %9, 1
@@ -7029,7 +7029,7 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
   %21 = shl i32 %.127.i, 6
   %22 = add nuw nsw i32 %20, %21
   %23 = shl i32 %.024.i, 5
-  br i1 %.not35.i, label %.preheader.i, label %.thread44.i, !llvm.loop !246
+  br i1 %.not35.i, label %.preheader.i, label %.thread43.i, !llvm.loop !246
 
 .thread.i:                                        ; preds = %.preheader.i
   %24 = shl i32 %.024.i, 1
@@ -7037,18 +7037,18 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
   %26 = and i32 %25, %.127.i
   %27 = icmp ult i32 %26, 65536
   %.231.v.i = select i1 %27, i64 1, i64 2
-  %.231.i = add i64 %.231.v.i, %.02954.i
+  %.231.i = add i64 %.231.v.i, %.02952.i
   br label %28, !llvm.loop !247
 
-.thread44.i:                                      ; preds = %16, %.lr.ph.i
-  %.12349.i = phi ptr [ %8, %.lr.ph.i ], [ %17, %16 ]
+.thread43.i:                                      ; preds = %16, %.lr.ph.i
+  %.12347.i = phi ptr [ %8, %.lr.ph.i ], [ %17, %16 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.73) #14
   br label %28
 
-28:                                               ; preds = %.thread44.i, %.thread.i
-  %.12342.i = phi ptr [ %.2.i, %.thread.i ], [ %.12349.i, %.thread44.i ]
-  %.130.i = phi i64 [ %.231.i, %.thread.i ], [ %.02954.i, %.thread44.i ]
-  %29 = load i8, ptr %.12342.i, align 1, !tbaa !54
+28:                                               ; preds = %.thread43.i, %.thread.i
+  %.12341.i = phi ptr [ %.2.i, %.thread.i ], [ %.12347.i, %.thread43.i ]
+  %.130.i = phi i64 [ %.231.i, %.thread.i ], [ %.02952.i, %.thread43.i ]
+  %29 = load i8, ptr %.12341.i, align 1, !tbaa !54
   %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %mxf_utf16len.exit, label %.lr.ph.i
 

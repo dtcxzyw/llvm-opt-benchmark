@@ -405,88 +405,88 @@ define hidden void @_Z16luaF_freeclosureP9lua_StateP7ClosureP8lua_Page(ptr nound
 define hidden noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8, !tbaa !76
-  %.not2021 = icmp sgt i32 %5, 0
-  br i1 %.not2021, label %.lr.ph, label %._crit_edge
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !75
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %8
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.01622 = phi i32 [ %1, %.lr.ph ], [ %.117, %19 ]
-  %9 = getelementptr inbounds nuw %struct.LocVar, ptr %7, i64 %indvars.iv
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !84
-  %.not = icmp slt i32 %2, %11
-  br i1 %.not, label %19, label %12
+9:                                                ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %.01622 = phi i32 [ %1, %.lr.ph ], [ %.117, %20 ]
+  %10 = getelementptr inbounds nuw %struct.LocVar, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 8, !tbaa !84
+  %.not = icmp slt i32 %2, %12
+  br i1 %.not, label %20, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !86
-  %15 = icmp slt i32 %2, %14
-  br i1 %15, label %16, label %19
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %15 = load i32, ptr %14, align 4, !tbaa !86
+  %16 = icmp slt i32 %2, %15
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %12
-  %17 = add nsw i32 %.01622, -1
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %._crit_edge, label %19
+17:                                               ; preds = %13
+  %18 = add nsw i32 %.01622, -1
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %._crit_edge, label %20
 
-19:                                               ; preds = %8, %12, %16
-  %.117 = phi i32 [ %17, %16 ], [ %.01622, %12 ], [ %.01622, %8 ]
+20:                                               ; preds = %9, %13, %17
+  %.117 = phi i32 [ %18, %17 ], [ %.01622, %13 ], [ %.01622, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !87
 
-._crit_edge:                                      ; preds = %19, %16, %3
-  %spec.select = phi ptr [ null, %3 ], [ %9, %16 ], [ null, %19 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %17, %20, %3
+  %21 = phi ptr [ null, %3 ], [ null, %20 ], [ %10, %17 ]
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_Z14luaF_findlocalPK5Protoii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8, !tbaa !76
-  %.not1819 = icmp sgt i32 %5, 0
-  br i1 %.not1819, label %.lr.ph, label %._crit_edge
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !75
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %8
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %9 = getelementptr inbounds nuw %struct.LocVar, ptr %7, i64 %indvars.iv
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i8, ptr %10, align 8, !tbaa !88
-  %12 = zext i8 %11 to i32
-  %13 = icmp eq i32 %1, %12
-  br i1 %13, label %14, label %21
+9:                                                ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
+  %10 = getelementptr inbounds nuw %struct.LocVar, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i8, ptr %11, align 8, !tbaa !88
+  %13 = zext i8 %12 to i32
+  %14 = icmp eq i32 %1, %13
+  br i1 %14, label %15, label %22
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !84
-  %.not = icmp slt i32 %2, %16
-  br i1 %.not, label %21, label %17
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = load i32, ptr %16, align 8, !tbaa !84
+  %.not = icmp slt i32 %2, %17
+  br i1 %.not, label %22, label %18
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !86
-  %20 = icmp slt i32 %2, %19
-  br i1 %20, label %._crit_edge, label %21
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %20 = load i32, ptr %19, align 4, !tbaa !86
+  %21 = icmp slt i32 %2, %20
+  br i1 %21, label %._crit_edge, label %22
 
-21:                                               ; preds = %8, %14, %17
+22:                                               ; preds = %9, %15, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !89
 
-._crit_edge:                                      ; preds = %21, %17, %3
-  %spec.select = phi ptr [ null, %3 ], [ %9, %17 ], [ null, %21 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %18, %22, %3
+  %23 = phi ptr [ null, %3 ], [ null, %22 ], [ %10, %18 ]
+  ret ptr %23
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

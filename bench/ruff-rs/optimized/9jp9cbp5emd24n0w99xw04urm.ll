@@ -15495,9 +15495,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.thread.
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h169fc3b0ab0c8b4cE.exit.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i.i"
   %.val.i.i.i = load i32, ptr %5, align 8, !range !2296, !alias.scope !2346, !noalias !2333, !noundef !6
-  %53 = or disjoint i32 %.val.i.i.i, -8
-  %narrow.i.i.i = icmp samesign ult i32 %53, -2
-  %54 = select i1 %narrow.i.i.i, i64 2, i64 1
+  %53 = icmp samesign ult i32 %.val.i.i.i, 6
+  %54 = select i1 %53, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h8c10e46c6a072925E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %44, i64 noundef %54, i64 noundef 4, i64 noundef 8)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda19a17d29f6d567E.exit.i.i.i" unwind label %51, !noalias !2302
 
@@ -24831,14 +24830,14 @@ define internal fastcc void @_ZN18ty_python_semantic14semantic_index7use_def12sy
   br label %235
 
 235:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit23.i", %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit.i"
-  %.sink77.i = phi ptr [ %248, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit23.i" ], [ %234, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit.i" ]
+  %.sink76.i = phi ptr [ %248, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit23.i" ], [ %234, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit.i" ]
   %.sroa.12.1.ph.ph.sink.i = phi i32 [ %.sroa.12.1.ph.ph.i, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit23.i" ], [ %224, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit.i" ]
-  %.sroa.01.0.i19.sink76.i = phi ptr [ %.sroa.01.0.i19.i, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit23.i" ], [ %.sroa.01.0.i.i10, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit.i" ]
-  %236 = getelementptr inbounds nuw i8, ptr %.sink77.i, i64 4
+  %.sroa.01.0.i19.sink75.i = phi ptr [ %.sroa.01.0.i19.i, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit23.i" ], [ %.sroa.01.0.i.i10, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2921533117a121edE.exit.i" ]
+  %236 = getelementptr inbounds nuw i8, ptr %.sink76.i, i64 4
   store i32 %.sroa.12.1.ph.ph.sink.i, ptr %236, align 4, !noalias !4662
-  %237 = load i64, ptr %.sroa.01.0.i19.sink76.i, align 8, !alias.scope !4610, !noalias !4613, !noundef !6
+  %237 = load i64, ptr %.sroa.01.0.i19.sink75.i, align 8, !alias.scope !4610, !noalias !4613, !noundef !6
   %238 = add i64 %237, 1
-  store i64 %238, ptr %.sroa.01.0.i19.sink76.i, align 8, !alias.scope !4610, !noalias !4613
+  store i64 %238, ptr %.sroa.01.0.i19.sink75.i, align 8, !alias.scope !4610, !noalias !4613
   br label %175
 
 239:                                              ; preds = %220, %219, %215, %214

@@ -1146,8 +1146,8 @@ define dso_local void @_ZNK4llvm8codeview24DebugChecksumsSubsection6commitERNS_1
   %6 = load ptr, ptr %5, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load ptr, ptr %7, align 8, !tbaa !116
-  %.not44 = icmp eq ptr %6, %8
-  br i1 %.not44, label %_ZN4llvm5ErrorD2Ev.exit31, label %.lr.ph
+  %.not42 = icmp eq ptr %6, %8
+  br i1 %.not42, label %_ZN4llvm5ErrorD2Ev.exit31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -1155,29 +1155,29 @@ define dso_local void @_ZNK4llvm8codeview24DebugChecksumsSubsection6commitERNS_1
   br label %13
 
 11:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit29
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.034.045, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.034.043, i64 24
   %.not = icmp eq ptr %12, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit31, label %13
 
 13:                                               ; preds = %.lr.ph, %11
-  %.sroa.034.045 = phi ptr [ %6, %.lr.ph ], [ %12, %11 ]
+  %.sroa.034.043 = phi ptr [ %6, %.lr.ph ], [ %12, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.034.045, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.034.043, i64 4
   %15 = load i8, ptr %14, align 4, !tbaa !38
   store i8 %15, ptr %9, align 1, !tbaa !34
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.034.045, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.034.043, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !117
   %18 = trunc i64 %17 to i8
   store i8 %18, ptr %10, align 4, !tbaa !39
-  %19 = load i32, ptr %.sroa.034.045, align 8, !tbaa !31
+  %19 = load i32, ptr %.sroa.034.043, align 8, !tbaa !31
   store i32 %19, ptr %4, align 4
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(6) %4, i64 6) #17
   %20 = load ptr, ptr %0, align 8, !tbaa !24
-  %.not41 = icmp eq ptr %20, null
-  br i1 %.not41, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge28
+  %.not39 = icmp eq ptr %20, null
+  br i1 %.not39, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge28
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.034.045, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.034.043, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %21, align 8, !tbaa !95
   %.sroa.2.0.copyload = load i64, ptr %16, align 8, !tbaa !45
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
@@ -1202,15 +1202,15 @@ _ZN4llvm18BinaryStreamWriter10writeArrayIhEENS_5ErrorENS_8ArrayRefIT_EE.exit.thr
 _ZN4llvm18BinaryStreamWriter10writeArrayIhEENS_5ErrorENS_8ArrayRefIT_EE.exit: ; preds = %23
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #17
   %.pr = load ptr, ptr %0, align 8, !tbaa !24
-  %.not42 = icmp eq ptr %.pr, null
-  br i1 %.not42, label %_ZN4llvm5ErrorD2Ev.exit29, label %.critedge28
+  %.not40 = icmp eq ptr %.pr, null
+  br i1 %.not40, label %_ZN4llvm5ErrorD2Ev.exit29, label %.critedge28
 
 _ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayIhEENS_5ErrorENS_8ArrayRefIT_EE.exit, %_ZN4llvm18BinaryStreamWriter10writeArrayIhEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread37
   call void @_ZN4llvm18BinaryStreamWriter14padToAlignmentEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef 4) #17
   %26 = load ptr, ptr %0, align 8, !tbaa !24
-  %.not43 = icmp eq ptr %26, null
+  %.not41 = icmp eq ptr %26, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not43, label %11, label %.thread
+  br i1 %.not41, label %11, label %.thread
 
 .critedge28:                                      ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayIhEENS_5ErrorENS_8ArrayRefIT_EE.exit, %13, %_ZN4llvm18BinaryStreamWriter10writeArrayIhEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

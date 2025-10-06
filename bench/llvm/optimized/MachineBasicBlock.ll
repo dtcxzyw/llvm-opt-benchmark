@@ -1948,16 +1948,16 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock17hasEHPadSucce
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not13.not = icmp eq i32 %5, 0
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
+  %.not14.not = icmp eq i32 %5, 0
+  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.01214 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
-  %8 = load ptr, ptr %.01214, align 8, !tbaa !333
+  %.01215 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
+  %8 = load ptr, ptr %.01215, align 8, !tbaa !333
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %10 = load i8, ptr %9, align 8, !tbaa !113, !range !50, !noundef !51
   %11 = trunc nuw i8 %10 to i1
-  %12 = getelementptr inbounds nuw i8, ptr %.01214, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %.not.not = icmp eq ptr %12, %7
   %or.cond = select i1 %11, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -1986,16 +1986,16 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock18mayHaveInline
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not13.not = icmp eq i32 %5, 0
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
+  %.not14.not = icmp eq i32 %5, 0
+  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.01214 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
-  %8 = load ptr, ptr %.01214, align 8, !tbaa !333
+  %.01215 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
+  %8 = load ptr, ptr %.01215, align 8, !tbaa !333
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 262
   %10 = load i8, ptr %9, align 2, !tbaa !354, !range !50, !noundef !51
   %11 = trunc nuw i8 %10 to i1
-  %12 = getelementptr inbounds nuw i8, ptr %.01214, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %.not.not = icmp eq ptr %12, %7
   %or.cond = select i1 %11, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -2067,29 +2067,29 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread: ; preds = %1, %21, %_
   %32 = zext i32 %31 to i64
   %.idx.i = shl nuw nsw i64 %32, 3
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
-  %.not13.not.i = icmp eq i32 %31, 0
-  br i1 %.not13.not.i, label %_ZNK4llvm17MachineBasicBlock17hasEHPadSuccessorEv.exit, label %.lr.ph.i
+  %.not14.not.i = icmp eq i32 %31, 0
+  br i1 %.not14.not.i, label %_ZNK4llvm17MachineBasicBlock17hasEHPadSuccessorEv.exit, label %.lr.ph.i
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = getelementptr inbounds nuw i8, ptr %.01214.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 8
   %.not.not.i = icmp eq ptr %35, %33
   br i1 %.not.not.i, label %.lr.ph.i4, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread, %34
-  %.01214.i = phi ptr [ %35, %34 ], [ %29, %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread ]
-  %36 = load ptr, ptr %.01214.i, align 8, !tbaa !333
+  %.01215.i = phi ptr [ %35, %34 ], [ %29, %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread ]
+  %36 = load ptr, ptr %.01215.i, align 8, !tbaa !333
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 216
   %38 = load i8, ptr %37, align 8, !tbaa !113, !range !50, !noundef !51
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %_ZNK4llvm17MachineBasicBlock17hasEHPadSuccessorEv.exit, label %34
 
 .lr.ph.i4:                                        ; preds = %34, %.lr.ph.i4
-  %.01214.i5 = phi ptr [ %44, %.lr.ph.i4 ], [ %29, %34 ]
-  %40 = load ptr, ptr %.01214.i5, align 8, !tbaa !333
+  %.01215.i5 = phi ptr [ %44, %.lr.ph.i4 ], [ %29, %34 ]
+  %40 = load ptr, ptr %.01215.i5, align 8, !tbaa !333
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 262
   %42 = load i8, ptr %41, align 2, !tbaa !354, !range !50, !noundef !51
   %43 = trunc nuw i8 %42 to i1
-  %44 = getelementptr inbounds nuw i8, ptr %.01214.i5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.01215.i5, i64 8
   %.not.not.i6 = icmp eq ptr %44, %33
   %or.cond = select i1 %43, i1 true, i1 %.not.not.i6
   br i1 %or.cond, label %_ZNK4llvm17MachineBasicBlock17hasEHPadSuccessorEv.exit.loopexit, label %.lr.ph.i4
@@ -11214,22 +11214,22 @@ _ZN4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EED2Ev.exit: ; preds = %._crit_edg
   %896 = zext i32 %895 to i64
   %.idx.i.i.i = shl nuw nsw i64 %896, 2
   %897 = getelementptr inbounds nuw i8, ptr %894, i64 %.idx.i.i.i
-  %.not13.i.i.i = icmp eq i32 %895, 0
-  br i1 %.not13.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i353
+  %.not11.i.i.i = icmp eq i32 %895, 0
+  br i1 %.not11.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i353
 
 .lr.ph.i.i.i353:                                  ; preds = %893, %900
-  %.0914.i.i.i = phi ptr [ %901, %900 ], [ %894, %893 ]
-  %898 = load i32, ptr %.0914.i.i.i, align 4, !tbaa !654
+  %.0912.i.i.i = phi ptr [ %901, %900 ], [ %894, %893 ]
+  %898 = load i32, ptr %.0912.i.i.i, align 4, !tbaa !654
   %899 = icmp eq i32 %898, %890
   br i1 %899, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %900
 
 900:                                              ; preds = %.lr.ph.i.i.i353
-  %901 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 4
+  %901 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 4
   %.not.i.i.i354 = icmp eq ptr %901, %897
   br i1 %.not.i.i.i354, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i353, !llvm.loop !711
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i: ; preds = %900, %.lr.ph.i.i.i353, %893
-  %.1.i.i.i = phi ptr [ %897, %893 ], [ %.0914.i.i.i, %.lr.ph.i.i.i353 ], [ %897, %900 ]
+  %.1.i.i.i = phi ptr [ %897, %893 ], [ %897, %900 ], [ %.0912.i.i.i, %.lr.ph.i.i.i353 ]
   %902 = getelementptr inbounds nuw %"class.llvm::Register", ptr %894, i64 %896
   %.not860 = icmp eq ptr %.1.i.i.i, %902
   br i1 %.not860, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread, label %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread
@@ -16903,23 +16903,23 @@ _ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inse
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.sroa.05.0.copyload.pre = load i32, ptr %2, align 4, !tbaa !461
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !654
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !654
   %38 = icmp eq i32 %37, %.sroa.05.0.copyload.pre
   br i1 %38, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i, !llvm.loop !711
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.llvm::Register", ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EE6insertERKS1_.exit

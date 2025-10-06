@@ -1396,35 +1396,35 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   %49 = load ptr, ptr %18, align 8, !tbaa !10
   store i64 1, ptr %49, align 8, !tbaa !11
   %50 = icmp sgt i32 %33, 1
-  br i1 %50, label %.lr.ph179.preheader.i, label %._crit_edge180.i
+  br i1 %50, label %.lr.ph178.preheader.i, label %._crit_edge179.i
 
-.lr.ph179.preheader.i:                            ; preds = %48
-  %scevgep211.i = getelementptr i8, ptr %49, i64 8
+.lr.ph178.preheader.i:                            ; preds = %48
+  %scevgep210.i = getelementptr i8, ptr %49, i64 8
   %51 = add nsw i32 %33, -1
   %52 = zext nneg i32 %51 to i64
   %53 = shl nuw nsw i64 %52, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep211.i, i8 0, i64 %53, i1 false), !tbaa !11
-  br label %._crit_edge180.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep210.i, i8 0, i64 %53, i1 false), !tbaa !11
+  br label %._crit_edge179.i
 
-._crit_edge180.i:                                 ; preds = %.lr.ph179.preheader.i, %48
+._crit_edge179.i:                                 ; preds = %.lr.ph178.preheader.i, %48
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %33, ptr %54, align 8, !tbaa !3
   %55 = tail call ptr @bn_wexpand(ptr noundef %19, i32 noundef %33) #5
   %.not163.i = icmp eq ptr %55, null
   br i1 %.not163.i, label %BN_GF2m_mod_inv_vartime.exit.thread, label %56
 
-56:                                               ; preds = %._crit_edge180.i
+56:                                               ; preds = %._crit_edge179.i
   %57 = load ptr, ptr %19, align 8, !tbaa !10
   %58 = icmp sgt i32 %33, 0
   %59 = zext nneg i32 %33 to i64
-  br i1 %58, label %.lr.ph183.preheader.i, label %._crit_edge184.i
+  br i1 %58, label %.lr.ph182.preheader.i, label %._crit_edge183.i
 
-.lr.ph183.preheader.i:                            ; preds = %56
+.lr.ph182.preheader.i:                            ; preds = %56
   %60 = shl nuw nsw i64 %59, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %57, i8 0, i64 %60, i1 false), !tbaa !11
-  br label %._crit_edge184.i
+  br label %._crit_edge183.i
 
-._crit_edge184.i:                                 ; preds = %56, %.lr.ph183.preheader.i
+._crit_edge183.i:                                 ; preds = %56, %.lr.ph182.preheader.i
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %33, ptr %61, align 8, !tbaa !3
   %62 = load ptr, ptr %21, align 8, !tbaa !10
@@ -1432,32 +1432,32 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   %wide.trip.count.i = zext nneg i32 %63 to i64
   br label %64
 
-64:                                               ; preds = %.backedge, %._crit_edge184.i
-  %.0148.i = phi i32 [ %30, %._crit_edge184.i ], [ %.0148.i.be, %.backedge ]
-  %.0146.i = phi i32 [ %31, %._crit_edge184.i ], [ %.1147.i, %.backedge ]
-  %.0144.i = phi ptr [ %21, %._crit_edge184.i ], [ %.1145.i, %.backedge ]
-  %.0142.i = phi ptr [ %36, %._crit_edge184.i ], [ %.1143.i, %.backedge ]
-  %.0140.i = phi ptr [ %49, %._crit_edge184.i ], [ %.1141.i, %.backedge ]
-  %.0138.i = phi ptr [ %62, %._crit_edge184.i ], [ %.1139.i, %.backedge ]
-  %.0136.i = phi ptr [ %57, %._crit_edge184.i ], [ %.1137.i, %.backedge ]
-  %.0133.i = phi ptr [ %20, %._crit_edge184.i ], [ %.1134.i, %.backedge ]
-  %.0130.i = phi ptr [ %19, %._crit_edge184.i ], [ %.1131.i, %.backedge ]
-  %.1.i = phi ptr [ %18, %._crit_edge184.i ], [ %.2.i, %.backedge ]
-  %.not164193.i = icmp eq i32 %.0148.i, 0
-  br i1 %.not164193.i, label %.critedge.thread.i, label %.lr.ph196.i
+64:                                               ; preds = %.backedge, %._crit_edge183.i
+  %.0148.i = phi i32 [ %30, %._crit_edge183.i ], [ %.0148.i.be, %.backedge ]
+  %.0146.i = phi i32 [ %31, %._crit_edge183.i ], [ %.1147.i, %.backedge ]
+  %.0144.i = phi ptr [ %21, %._crit_edge183.i ], [ %.1145.i, %.backedge ]
+  %.0142.i = phi ptr [ %36, %._crit_edge183.i ], [ %.1143.i, %.backedge ]
+  %.0140.i = phi ptr [ %49, %._crit_edge183.i ], [ %.1141.i, %.backedge ]
+  %.0138.i = phi ptr [ %62, %._crit_edge183.i ], [ %.1139.i, %.backedge ]
+  %.0136.i = phi ptr [ %57, %._crit_edge183.i ], [ %.1137.i, %.backedge ]
+  %.0133.i = phi ptr [ %20, %._crit_edge183.i ], [ %.1134.i, %.backedge ]
+  %.0130.i = phi ptr [ %19, %._crit_edge183.i ], [ %.1131.i, %.backedge ]
+  %.1.i = phi ptr [ %18, %._crit_edge183.i ], [ %.2.i, %.backedge ]
+  %.not164192.i = icmp eq i32 %.0148.i, 0
+  br i1 %.not164192.i, label %.critedge.thread.i, label %.lr.ph195.i
 
-.critedge.thread.i:                               ; preds = %._crit_edge190.i, %64
+.critedge.thread.i:                               ; preds = %._crit_edge189.i, %64
   %.pr.i = load i64, ptr %.0142.i, align 8, !tbaa !11
   br label %93
 
-.lr.ph196.i:                                      ; preds = %64, %._crit_edge190.i
-  %.1149194.i = phi i32 [ %91, %._crit_edge190.i ], [ %.0148.i, %64 ]
+.lr.ph195.i:                                      ; preds = %64, %._crit_edge189.i
+  %.1149193.i = phi i32 [ %91, %._crit_edge189.i ], [ %.0148.i, %64 ]
   %65 = load i64, ptr %.0142.i, align 8, !tbaa !11
   %66 = and i64 %65, 1
   %.not165.i = icmp eq i64 %66, 0
   br i1 %.not165.i, label %67, label %.critedge.i
 
-67:                                               ; preds = %.lr.ph196.i
+67:                                               ; preds = %.lr.ph195.i
   %68 = load i64, ptr %.0140.i, align 8, !tbaa !11
   %69 = and i64 %68, 1
   %70 = sub nsw i64 0, %69
@@ -1465,16 +1465,16 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   %72 = load i64, ptr %71, align 8, !tbaa !11
   %73 = and i64 %72, %70
   %74 = xor i64 %73, %68
-  br i1 %50, label %.lr.ph189.i, label %._crit_edge190.i
+  br i1 %50, label %.lr.ph188.i, label %._crit_edge189.i
 
-.lr.ph189.i:                                      ; preds = %67, %.lr.ph189.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph189.i ], [ 0, %67 ]
-  %.0132187.i = phi i64 [ %84, %.lr.ph189.i ], [ %74, %67 ]
-  %.0135186.i = phi i64 [ %76, %.lr.ph189.i ], [ %65, %67 ]
+.lr.ph188.i:                                      ; preds = %67, %.lr.ph188.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph188.i ], [ 0, %67 ]
+  %.0132186.i = phi i64 [ %84, %.lr.ph188.i ], [ %74, %67 ]
+  %.0135185.i = phi i64 [ %76, %.lr.ph188.i ], [ %65, %67 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %75 = getelementptr inbounds nuw i64, ptr %.0142.i, i64 %indvars.iv.next.i
   %76 = load i64, ptr %75, align 8, !tbaa !11
-  %77 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %.0135186.i, i64 63)
+  %77 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %.0135185.i, i64 63)
   %78 = getelementptr inbounds nuw i64, ptr %.0142.i, i64 %indvars.iv.i
   store i64 %77, ptr %78, align 8, !tbaa !11
   %79 = getelementptr inbounds nuw i64, ptr %.0140.i, i64 %indvars.iv.next.i
@@ -1483,32 +1483,32 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   %82 = load i64, ptr %81, align 8, !tbaa !11
   %83 = and i64 %82, %70
   %84 = xor i64 %83, %80
-  %85 = tail call i64 @llvm.fshl.i64(i64 %84, i64 %.0132187.i, i64 63)
+  %85 = tail call i64 @llvm.fshl.i64(i64 %84, i64 %.0132186.i, i64 63)
   %86 = getelementptr inbounds nuw i64, ptr %.0140.i, i64 %indvars.iv.i
   store i64 %85, ptr %86, align 8, !tbaa !11
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge190.i, label %.lr.ph189.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge189.i, label %.lr.ph188.i, !llvm.loop !28
 
-._crit_edge190.i:                                 ; preds = %.lr.ph189.i, %67
-  %.3154.lcssa.i = phi i64 [ 0, %67 ], [ %wide.trip.count.i, %.lr.ph189.i ]
-  %.0135.lcssa.i = phi i64 [ %65, %67 ], [ %76, %.lr.ph189.i ]
-  %.0132.lcssa.i = phi i64 [ %74, %67 ], [ %84, %.lr.ph189.i ]
+._crit_edge189.i:                                 ; preds = %.lr.ph188.i, %67
+  %.3154.lcssa.i = phi i64 [ 0, %67 ], [ %wide.trip.count.i, %.lr.ph188.i ]
+  %.0135.lcssa.i = phi i64 [ %65, %67 ], [ %76, %.lr.ph188.i ]
+  %.0132.lcssa.i = phi i64 [ %74, %67 ], [ %84, %.lr.ph188.i ]
   %87 = lshr i64 %.0135.lcssa.i, 1
   %88 = getelementptr inbounds nuw i64, ptr %.0142.i, i64 %.3154.lcssa.i
   store i64 %87, ptr %88, align 8, !tbaa !11
   %89 = lshr i64 %.0132.lcssa.i, 1
   %90 = getelementptr inbounds nuw i64, ptr %.0140.i, i64 %.3154.lcssa.i
   store i64 %89, ptr %90, align 8, !tbaa !11
-  %91 = add nsw i32 %.1149194.i, -1
+  %91 = add nsw i32 %.1149193.i, -1
   %.not164.i = icmp eq i32 %91, 0
-  br i1 %.not164.i, label %.critedge.thread.i, label %.lr.ph196.i, !llvm.loop !29
+  br i1 %.not164.i, label %.critedge.thread.i, label %.lr.ph195.i, !llvm.loop !29
 
-.critedge.i:                                      ; preds = %.lr.ph196.i
-  %92 = icmp slt i32 %.1149194.i, 65
+.critedge.i:                                      ; preds = %.lr.ph195.i
+  %92 = icmp slt i32 %.1149193.i, 65
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %.critedge.i, %.critedge.thread.i
-  %.1149173.i = phi i32 [ 0, %.critedge.thread.i ], [ %.1149194.i, %.critedge.i ]
+  %.1149172.i = phi i32 [ 0, %.critedge.thread.i ], [ %.1149193.i, %.critedge.i ]
   %94 = phi i64 [ %.pr.i, %.critedge.thread.i ], [ %65, %.critedge.i ]
   switch i64 %94, label %95 [
     i64 0, label %BN_GF2m_mod_inv_vartime.exit.thread
@@ -1516,8 +1516,8 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   ]
 
 95:                                               ; preds = %93, %.critedge.i
-  %.1149172.i = phi i32 [ %.1149173.i, %93 ], [ %.1149194.i, %.critedge.i ]
-  %96 = icmp slt i32 %.1149172.i, %.0146.i
+  %.1149171.i = phi i32 [ %.1149172.i, %93 ], [ %.1149193.i, %.critedge.i ]
+  %96 = icmp slt i32 %.1149171.i, %.0146.i
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %95
@@ -1526,8 +1526,8 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   br label %100
 
 100:                                              ; preds = %97, %95
-  %.2150.i = phi i32 [ %.0146.i, %97 ], [ %.1149172.i, %95 ]
-  %.1147.i = phi i32 [ %.1149172.i, %97 ], [ %.0146.i, %95 ]
+  %.2150.i = phi i32 [ %.0146.i, %97 ], [ %.1149171.i, %95 ]
+  %.1147.i = phi i32 [ %.1149171.i, %97 ], [ %.0146.i, %95 ]
   %.1145.i = phi ptr [ %.0133.i, %97 ], [ %.0144.i, %95 ]
   %.1143.i = phi ptr [ %.0138.i, %97 ], [ %.0142.i, %95 ]
   %.1141.i = phi ptr [ %.0136.i, %97 ], [ %.0140.i, %95 ]
@@ -1536,58 +1536,58 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   %.1134.i = phi ptr [ %.0144.i, %97 ], [ %.0133.i, %95 ]
   %.1131.i = phi ptr [ %.1.i, %97 ], [ %.0130.i, %95 ]
   %.2.i = phi ptr [ %.0130.i, %97 ], [ %.1.i, %95 ]
-  br i1 %58, label %.lr.ph200.i, label %._crit_edge201.i
+  br i1 %58, label %.lr.ph199.i, label %._crit_edge200.i
 
-.lr.ph200.i:                                      ; preds = %100, %.lr.ph200.i
-  %indvars.iv215.i = phi i64 [ %indvars.iv.next216.i, %.lr.ph200.i ], [ 0, %100 ]
-  %101 = getelementptr inbounds nuw i64, ptr %.1139.i, i64 %indvars.iv215.i
+.lr.ph199.i:                                      ; preds = %100, %.lr.ph199.i
+  %indvars.iv214.i = phi i64 [ %indvars.iv.next215.i, %.lr.ph199.i ], [ 0, %100 ]
+  %101 = getelementptr inbounds nuw i64, ptr %.1139.i, i64 %indvars.iv214.i
   %102 = load i64, ptr %101, align 8, !tbaa !11
-  %103 = getelementptr inbounds nuw i64, ptr %.1143.i, i64 %indvars.iv215.i
+  %103 = getelementptr inbounds nuw i64, ptr %.1143.i, i64 %indvars.iv214.i
   %104 = load i64, ptr %103, align 8, !tbaa !11
   %105 = xor i64 %104, %102
   store i64 %105, ptr %103, align 8, !tbaa !11
-  %106 = getelementptr inbounds nuw i64, ptr %.1137.i, i64 %indvars.iv215.i
+  %106 = getelementptr inbounds nuw i64, ptr %.1137.i, i64 %indvars.iv214.i
   %107 = load i64, ptr %106, align 8, !tbaa !11
-  %108 = getelementptr inbounds nuw i64, ptr %.1141.i, i64 %indvars.iv215.i
+  %108 = getelementptr inbounds nuw i64, ptr %.1141.i, i64 %indvars.iv214.i
   %109 = load i64, ptr %108, align 8, !tbaa !11
   %110 = xor i64 %109, %107
   store i64 %110, ptr %108, align 8, !tbaa !11
-  %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
-  %exitcond219.not.i = icmp eq i64 %indvars.iv.next216.i, %59
-  br i1 %exitcond219.not.i, label %._crit_edge201.i, label %.lr.ph200.i, !llvm.loop !30
+  %indvars.iv.next215.i = add nuw nsw i64 %indvars.iv214.i, 1
+  %exitcond218.not.i = icmp eq i64 %indvars.iv.next215.i, %59
+  br i1 %exitcond218.not.i, label %._crit_edge200.i, label %.lr.ph199.i, !llvm.loop !30
 
-._crit_edge201.i:                                 ; preds = %.lr.ph200.i, %100
-  %111 = icmp eq i32 %.0146.i, %.1149172.i
+._crit_edge200.i:                                 ; preds = %.lr.ph199.i, %100
+  %111 = icmp eq i32 %.0146.i, %.1149171.i
   br i1 %111, label %112, label %.backedge
 
-112:                                              ; preds = %._crit_edge201.i
+112:                                              ; preds = %._crit_edge200.i
   %113 = add nsw i32 %.2150.i, -1
   %114 = sdiv i32 %113, 64
   %115 = sext i32 %114 to i64
   br label %116
 
 116:                                              ; preds = %116, %112
-  %indvars.iv220.i = phi i64 [ %indvars.iv.next221.i, %116 ], [ %115, %112 ]
-  %117 = getelementptr inbounds i64, ptr %.1143.i, i64 %indvars.iv220.i
+  %indvars.iv219.i = phi i64 [ %indvars.iv.next220.i, %116 ], [ %115, %112 ]
+  %117 = getelementptr inbounds i64, ptr %.1143.i, i64 %indvars.iv219.i
   %118 = load i64, ptr %117, align 8, !tbaa !11
   %119 = icmp eq i64 %118, 0
-  %120 = icmp ne i64 %indvars.iv220.i, 0
+  %120 = icmp ne i64 %indvars.iv219.i, 0
   %121 = and i1 %120, %119
-  %indvars.iv.next221.i = add nsw i64 %indvars.iv220.i, -1
+  %indvars.iv.next220.i = add nsw i64 %indvars.iv219.i, -1
   br i1 %121, label %116, label %122, !llvm.loop !31
 
 122:                                              ; preds = %116
-  %123 = trunc nsw i64 %indvars.iv220.i to i32
+  %123 = trunc nsw i64 %indvars.iv219.i to i32
   %124 = shl nsw i32 %123, 6
   %125 = tail call i32 @BN_num_bits_word(i64 noundef %118) #5
   %126 = add nsw i32 %125, %124
   br label %.backedge
 
-.backedge:                                        ; preds = %122, %._crit_edge201.i
-  %.0148.i.be = phi i32 [ %126, %122 ], [ %.2150.i, %._crit_edge201.i ]
+.backedge:                                        ; preds = %122, %._crit_edge200.i
+  %.0148.i.be = phi i32 [ %126, %122 ], [ %.2150.i, %._crit_edge200.i ]
   br label %64
 
-BN_GF2m_mod_inv_vartime.exit.thread:              ; preds = %93, %17, %25, %27, %23, %29, %._crit_edge.i, %._crit_edge180.i
+BN_GF2m_mod_inv_vartime.exit.thread:              ; preds = %93, %17, %25, %27, %23, %29, %._crit_edge.i, %._crit_edge179.i
   tail call void @BN_CTX_end(ptr noundef %3) #5
   br label %.loopexit
 

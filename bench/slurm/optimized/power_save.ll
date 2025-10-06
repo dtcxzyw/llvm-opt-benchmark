@@ -1319,47 +1319,47 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %80 = load ptr, ptr @partial_node_list, align 8
   %.not.i = icmp eq ptr %80, null
-  br i1 %.not.i, label %.thread308.i, label %81
+  br i1 %.not.i, label %.thread306.i, label %81
 
 81:                                               ; preds = %79
   %82 = call i32 @list_for_each(ptr noundef nonnull %80, ptr noundef nonnull @_pick_exc_nodes, ptr noundef nonnull %7) #12
-  %.pre274.pre.i = load ptr, ptr %7, align 8
+  %.pre272.pre.i = load ptr, ptr %7, align 8
   %83 = load ptr, ptr @exc_node_bitmap, align 8
   %.not160.i = icmp eq ptr %83, null
   br i1 %.not160.i, label %89, label %85
 
-.thread308.i:                                     ; preds = %79
+.thread306.i:                                     ; preds = %79
   %84 = load ptr, ptr @exc_node_bitmap, align 8
-  %.not160310.i = icmp eq ptr %84, null
-  br i1 %.not160310.i, label %.thread315.i, label %.thread312.i
+  %.not160308.i = icmp eq ptr %84, null
+  br i1 %.not160308.i, label %.thread313.i, label %.thread310.i
 
 85:                                               ; preds = %81
-  %.not161.i = icmp eq ptr %.pre274.pre.i, null
-  br i1 %.not161.i, label %.thread312.i, label %86
+  %.not161.i = icmp eq ptr %.pre272.pre.i, null
+  br i1 %.not161.i, label %.thread310.i, label %86
 
 86:                                               ; preds = %85
-  call void @bit_or(ptr noundef nonnull %.pre274.pre.i, ptr noundef nonnull %83) #12
+  call void @bit_or(ptr noundef nonnull %.pre272.pre.i, ptr noundef nonnull %83) #12
   %.pre.i = load ptr, ptr %7, align 8
   br label %89
 
-.thread312.i:                                     ; preds = %85, %.thread308.i
-  %87 = phi ptr [ %83, %85 ], [ %84, %.thread308.i ]
+.thread310.i:                                     ; preds = %85, %.thread306.i
+  %87 = phi ptr [ %83, %85 ], [ %84, %.thread306.i ]
   %88 = call ptr @bit_copy(ptr noundef nonnull %87) #12
   store ptr %88, ptr %7, align 8
   br label %89
 
-89:                                               ; preds = %.thread312.i, %86, %81
-  %90 = phi ptr [ %.pre.i, %86 ], [ %88, %.thread312.i ], [ %.pre274.pre.i, %81 ]
+89:                                               ; preds = %.thread310.i, %86, %81
+  %90 = phi ptr [ %.pre.i, %86 ], [ %88, %.thread310.i ], [ %.pre272.pre.i, %81 ]
   %91 = icmp ne ptr %90, null
   %92 = load i8, ptr @power_save_debug, align 1, !range !13
   %93 = trunc nuw i8 %92 to i1
   %or.cond.i = select i1 %91, i1 %93, i1 false
-  br i1 %or.cond.i, label %94, label %.thread315.i
+  br i1 %or.cond.i, label %94, label %.thread313.i
 
 94:                                               ; preds = %89
   %95 = call i32 @get_log_level() #12
   %96 = icmp sgt i32 %95, 4
-  br i1 %96, label %97, label %.thread315.i
+  br i1 %96, label %97, label %.thread313.i
 
 97:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1378,9 +1378,9 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
 104:                                              ; preds = %102, %97
   call void @slurm_xfree(ptr noundef nonnull %12) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread315.i
+  br label %.thread313.i
 
-.thread315.i:                                     ; preds = %104, %94, %89, %.thread308.i
+.thread313.i:                                     ; preds = %104, %94, %89, %.thread306.i
   %105 = call ptr @data_new() #12
   %106 = call ptr @data_set_dict(ptr noundef %105) #12
   %107 = call ptr @data_key_set(ptr noundef %106, ptr noundef nonnull @.str.46) #12
@@ -1392,11 +1392,11 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
   %112 = load ptr, ptr @resume_job_list, align 8
   %113 = call ptr @list_iterator_create(ptr noundef %112) #12
   %114 = call ptr @list_next(ptr noundef %113) #12
-  %.not162264.i = icmp eq ptr %114, null
-  br i1 %.not162264.i, label %.loopexit.i, label %.lr.ph266.i
+  %.not162262.i = icmp eq ptr %114, null
+  br i1 %.not162262.i, label %.loopexit.i, label %.lr.ph264.i
 
-.lr.ph266.i:                                      ; preds = %.thread315.i, %301
-  %115 = phi ptr [ %302, %301 ], [ %114, %.thread315.i ]
+.lr.ph264.i:                                      ; preds = %.thread313.i, %301
+  %115 = phi ptr [ %302, %301 ], [ %114, %.thread313.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1405,7 +1405,7 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %118, label %142
 
-118:                                              ; preds = %.lr.ph266.i
+118:                                              ; preds = %.lr.ph264.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %119 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #12
@@ -1459,7 +1459,7 @@ _rl_get_tokens.exit.i:                            ; preds = %127, %._crit_edge.i
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.47) #12
   br label %.thread.i
 
-142:                                              ; preds = %_rl_get_tokens.exit.i, %.lr.ph266.i
+142:                                              ; preds = %_rl_get_tokens.exit.i, %.lr.ph264.i
   %143 = load i32, ptr %115, align 4
   %144 = call ptr @find_job_record(i32 noundef %143) #12
   %.not165.i = icmp eq ptr %144, null
@@ -1551,8 +1551,8 @@ _rl_get_tokens.exit.i:                            ; preds = %127, %._crit_edge.i
   store i32 0, ptr %17, align 4
   %188 = load ptr, ptr %15, align 8
   %189 = call ptr @next_node_bitmap(ptr noundef %188, ptr noundef nonnull %17) #12
-  %.not171263.i = icmp eq ptr %189, null
-  br i1 %.not171263.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not171261.i = icmp eq ptr %189, null
+  br i1 %.not171261.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %243, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1776,24 +1776,24 @@ _rl_spend_token.exit.i:                           ; preds = %233, %231, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %302 = call ptr @list_next(ptr noundef %113) #12
   %.not162.i = icmp eq ptr %302, null
-  br i1 %.not162.i, label %.loopexit.i, label %.lr.ph266.i
+  br i1 %.not162.i, label %.loopexit.i, label %.lr.ph264.i
 
-.loopexit.i:                                      ; preds = %301, %.thread.i, %.thread315.i
+.loopexit.i:                                      ; preds = %301, %.thread.i, %.thread313.i
   store i32 0, ptr %6, align 4
   %303 = call ptr @next_node(ptr noundef nonnull %6) #12
-  %.not179267.i = icmp eq ptr %303, null
-  br i1 %.not179267.i, label %._crit_edge272.i, label %.lr.ph271.i
+  %.not179265.i = icmp eq ptr %303, null
+  br i1 %.not179265.i, label %._crit_edge270.i, label %.lr.ph269.i
 
-.lr.ph271.i:                                      ; preds = %.loopexit.i, %565
+.lr.ph269.i:                                      ; preds = %.loopexit.i, %565
   %304 = phi ptr [ %388, %565 ], [ %111, %.loopexit.i ]
   %305 = phi ptr [ %568, %565 ], [ %303, %.loopexit.i ]
-  %.0143269.i = phi i32 [ %spec.select.i, %565 ], [ 0, %.loopexit.i ]
-  %.0144268.i = phi i1 [ %.4.i, %565 ], [ false, %.loopexit.i ]
+  %.0143267.i = phi i32 [ %spec.select.i, %565 ], [ 0, %.loopexit.i ]
+  %.0144266.i = phi i1 [ %.4.i, %565 ], [ false, %.loopexit.i ]
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 320
   %307 = load i32, ptr %306, align 8
   %308 = and i32 %307, 4096
   %309 = lshr exact i32 %308, 12
-  %spec.select.i = add nuw nsw i32 %309, %.0143269.i
+  %spec.select.i = add nuw nsw i32 %309, %.0143267.i
   %310 = getelementptr inbounds nuw i8, ptr %305, i64 208
   %311 = load i32, ptr %310, align 8
   %312 = zext i32 %311 to i64
@@ -1801,7 +1801,7 @@ _rl_spend_token.exit.i:                           ; preds = %233, %231, %228
   %.not195.i = icmp eq i32 %313, 0
   br i1 %.not195.i, label %314, label %338
 
-314:                                              ; preds = %.lr.ph271.i
+314:                                              ; preds = %.lr.ph269.i
   %.not194.i = icmp eq i32 %308, 0
   br i1 %.not194.i, label %387, label %315
 
@@ -1855,7 +1855,7 @@ _rl_get_tokens.exit236.i:                         ; preds = %327, %._crit_edge.i
   %or.cond216.not.i = icmp eq i32 %337, 16777216
   br i1 %or.cond216.not.i, label %338, label %387
 
-338:                                              ; preds = %335, %.lr.ph271.i
+338:                                              ; preds = %335, %.lr.ph269.i
   %339 = load ptr, ptr %9, align 8
   %340 = icmp eq ptr %339, null
   br i1 %340, label %341, label %345
@@ -1873,8 +1873,8 @@ _rl_get_tokens.exit236.i:                         ; preds = %327, %._crit_edge.i
   %348 = call i32 @slurm_bit_test(ptr noundef %304, i64 noundef %347) #12
   %.not199.i = icmp eq i32 %348, 0
   %.b107 = load i1, ptr @resume_rl_config.0, align 8
-  %or.cond261.i = select i1 %.not199.i, i1 %.b107, i1 false
-  br i1 %or.cond261.i, label %349, label %_rl_spend_token.exit238.i
+  %or.cond259.i = select i1 %.not199.i, i1 %.b107, i1 false
+  br i1 %or.cond259.i, label %349, label %_rl_spend_token.exit238.i
 
 349:                                              ; preds = %345
   %350 = load i32, ptr @resume_rl_config.5, align 4
@@ -1940,7 +1940,7 @@ _rl_spend_token.exit238.i:                        ; preds = %353, %351, %345
 
 387:                                              ; preds = %385, %379, %335, %_rl_get_tokens.exit236.i, %314
   %388 = phi ptr [ %304, %335 ], [ %304, %_rl_get_tokens.exit236.i ], [ %304, %314 ], [ %371, %385 ], [ %371, %379 ]
-  %.1145.i = phi i1 [ %.0144268.i, %335 ], [ %.0144268.i, %_rl_get_tokens.exit236.i ], [ %.0144268.i, %314 ], [ true, %385 ], [ true, %379 ]
+  %.1145.i = phi i1 [ %.0144266.i, %335 ], [ %.0144266.i, %_rl_get_tokens.exit236.i ], [ %.0144266.i, %314 ], [ true, %385 ], [ true, %379 ]
   %.val.i = load i32, ptr %306, align 8
   %389 = and i32 %.val.i, 15
   %.off.i.i = add nsw i32 %389, -1
@@ -2086,11 +2086,11 @@ _node_state_should_suspend.exit.i:                ; preds = %427
 
 459:                                              ; preds = %455
   %460 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.70) #12
-  %.pre275.i = load i32, ptr %306, align 8
+  %.pre273.i = load i32, ptr %306, align 8
   br label %_rl_spend_token.exit250.i
 
 _rl_spend_token.exit250.i:                        ; preds = %459, %457, %453
-  %461 = phi i32 [ %454, %453 ], [ %454, %457 ], [ %.pre275.i, %459 ]
+  %461 = phi i32 [ %454, %453 ], [ %454, %457 ], [ %.pre273.i, %459 ]
   %462 = and i32 %461, -8656897
   %463 = or disjoint i32 %462, 262144
   store i32 %463, ptr %306, align 8
@@ -2123,11 +2123,11 @@ _rl_spend_token.exit250.i:                        ; preds = %459, %457, %453
 
 482:                                              ; preds = %478
   call void @trigger_node_up(ptr noundef nonnull %305) #12
-  %.pre276.i = load i32, ptr %306, align 8
+  %.pre274.i = load i32, ptr %306, align 8
   br label %483
 
 483:                                              ; preds = %482, %478
-  %484 = phi i32 [ %.pre276.i, %482 ], [ %479, %478 ]
+  %484 = phi i32 [ %.pre274.i, %482 ], [ %479, %478 ]
   %485 = and i32 %484, -8720
   %486 = or disjoint i32 %485, 2
   store i32 %486, ptr %306, align 8
@@ -2162,17 +2162,17 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   %502 = getelementptr inbounds nuw i8, ptr %305, i64 272
   %503 = load ptr, ptr %502, align 8
   call void @set_node_comm_name(ptr noundef nonnull %305, ptr noundef null, ptr noundef %503) #12
-  %.pre277.i = load i32, ptr %306, align 8
+  %.pre275.i = load i32, ptr %306, align 8
   br label %504
 
 504:                                              ; preds = %501, %497
-  %505 = phi i32 [ %.pre277.i, %501 ], [ %499, %497 ]
+  %505 = phi i32 [ %.pre275.i, %501 ], [ %499, %497 ]
   %506 = and i32 %505, 15
   %507 = icmp ne i32 %506, 1
   %508 = and i32 %505, 8704
   %or.cond220.i = icmp eq i32 %508, 0
-  %or.cond262.i = and i1 %507, %or.cond220.i
-  br i1 %or.cond262.i, label %509, label %510
+  %or.cond260.i = and i1 %507, %or.cond220.i
+  br i1 %or.cond260.i, label %509, label %510
 
 509:                                              ; preds = %504
   call void @make_node_avail(ptr noundef nonnull %305) #12
@@ -2283,9 +2283,9 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   store i32 %567, ptr %6, align 4
   %568 = call ptr @next_node(ptr noundef nonnull %6) #12
   %.not179.i = icmp eq ptr %568, null
-  br i1 %.not179.i, label %._crit_edge272.i, label %.lr.ph271.i, !llvm.loop !17
+  br i1 %.not179.i, label %._crit_edge270.i, label %.lr.ph269.i, !llvm.loop !17
 
-._crit_edge272.i:                                 ; preds = %565, %.loopexit.i
+._crit_edge270.i:                                 ; preds = %565, %.loopexit.i
   %569 = phi ptr [ %111, %.loopexit.i ], [ %388, %565 ]
   %.0144.lcssa.i = phi i1 [ false, %.loopexit.i ], [ %.4.i, %565 ]
   %.0143.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %spec.select.i, %565 ]
@@ -2293,11 +2293,11 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   %.not180.i = icmp eq ptr %570, null
   br i1 %.not180.i, label %572, label %571
 
-571:                                              ; preds = %._crit_edge272.i
+571:                                              ; preds = %._crit_edge270.i
   call void @slurm_bit_free(ptr noundef nonnull %7) #12
   br label %572
 
-572:                                              ; preds = %571, %._crit_edge272.i
+572:                                              ; preds = %571, %._crit_edge270.i
   store ptr null, ptr %7, align 8
   %573 = load i8, ptr @power_save_debug, align 1, !range !13, !noundef !14
   %574 = trunc nuw i8 %573 to i1
@@ -2405,27 +2405,27 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   %618 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %619 = and i64 %618, 4398046511104
   %.not.i252.i = icmp eq i64 %619, 0
-  br i1 %.not.i252.i, label %.thread317.i, label %620
+  br i1 %.not.i252.i, label %.thread315.i, label %620
 
 620:                                              ; preds = %614
   %621 = call i32 @get_log_level() #12
   %622 = icmp sgt i32 %621, 3
-  br i1 %622, label %623, label %.thread317.i
+  br i1 %622, label %623, label %.thread315.i
 
 623:                                              ; preds = %620
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.75, ptr noundef nonnull %607) #12
-  br label %.thread317.i
+  br label %.thread315.i
 
 624:                                              ; preds = %613
   %625 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.65) #12
-  br label %.thread317.i
+  br label %.thread315.i
 
 626:                                              ; preds = %604
   %627 = load ptr, ptr %8, align 8
   %.not189.i = icmp eq ptr %627, null
   br i1 %.not189.i, label %643, label %629
 
-.thread317.i:                                     ; preds = %624, %623, %620, %614
+.thread315.i:                                     ; preds = %624, %623, %620, %614
   call void @slurm_xfree(ptr noundef nonnull %20) #12
   call void @slurm_xfree(ptr noundef nonnull %21) #12
   call void @slurm_bit_free(ptr noundef nonnull %9) #12
@@ -2433,11 +2433,11 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %628 = load ptr, ptr %8, align 8
-  %.not189319.i = icmp eq ptr %628, null
-  br i1 %.not189319.i, label %.thread321.i, label %629
+  %.not189317.i = icmp eq ptr %628, null
+  br i1 %.not189317.i, label %.thread319.i, label %629
 
-629:                                              ; preds = %.thread317.i, %626
-  %630 = phi ptr [ %628, %.thread317.i ], [ %627, %626 ]
+629:                                              ; preds = %.thread315.i, %626
+  %630 = phi ptr [ %628, %.thread315.i ], [ %627, %626 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %631 = call ptr @bitmap2node_name(ptr noundef nonnull %630) #12
   store ptr %631, ptr %22, align 8
@@ -2451,37 +2451,37 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   %635 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %636 = and i64 %635, 4398046511104
   %.not.i253.i = icmp eq i64 %636, 0
-  br i1 %.not.i253.i, label %.thread258.i, label %637
+  br i1 %.not.i253.i, label %.thread256.i, label %637
 
 637:                                              ; preds = %632
   %638 = call i32 @get_log_level() #12
   %639 = icmp sgt i32 %638, 3
-  br i1 %639, label %640, label %.thread258.i
+  br i1 %639, label %640, label %.thread256.i
 
 640:                                              ; preds = %637
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull %631) #12
-  br label %.thread258.i
+  br label %.thread256.i
 
 641:                                              ; preds = %629
   %642 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.65) #12
-  br label %.thread258.i
+  br label %.thread256.i
 
-.thread258.i:                                     ; preds = %641, %640, %637, %632
+.thread256.i:                                     ; preds = %641, %640, %637, %632
   call void @slurm_xfree(ptr noundef nonnull %22) #12
   call void @slurm_bit_free(ptr noundef nonnull %8) #12
   store ptr null, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread321.i
+  br label %.thread319.i
 
 643:                                              ; preds = %626
-  br i1 %.5.i, label %.thread321.i, label %645
+  br i1 %.5.i, label %.thread319.i, label %645
 
-.thread321.i:                                     ; preds = %643, %.thread258.i, %.thread317.i
+.thread319.i:                                     ; preds = %643, %.thread256.i, %.thread315.i
   %644 = call i64 @time(ptr noundef null) #12
   store i64 %644, ptr @last_node_update, align 8
   br label %645
 
-645:                                              ; preds = %.thread321.i, %643
+645:                                              ; preds = %.thread319.i, %643
   %.not192.i = icmp eq ptr %106, null
   br i1 %.not192.i, label %647, label %646
 

@@ -999,11 +999,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento18CallDescriptionSet8contain
   %3 = load ptr, ptr %0, align 8, !tbaa !471
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !471
-  %.not18.i = icmp eq ptr %3, %5
-  br i1 %.not18.i, label %_ZNK5clang4ento18CallDescriptionMapIbE6lookupERKNS0_9CallEventE.exit, label %.lr.ph.i
+  %.not21.i = icmp eq ptr %3, %5
+  br i1 %.not21.i, label %_ZNK5clang4ento18CallDescriptionMapIbE6lookupERKNS0_9CallEventE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i
-  %.sroa.010.019.i = phi ptr [ %33, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i ], [ %3, %2 ]
+  %.sroa.010.022.i = phi ptr [ %33, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i ], [ %3, %2 ]
   %6 = load ptr, ptr %1, align 8, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -1038,17 +1038,17 @@ _ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.i: ; preds = %16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call { ptr, i64 } %29(ptr noundef nonnull align 8 dereferenceable(72) %1) #14
   %31 = extractvalue { ptr, i64 } %30, 1
-  %32 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesImplEPKNS_12FunctionDeclEmm(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.010.019.i, ptr noundef nonnull %15, i64 noundef %26, i64 noundef %31)
+  %32 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesImplEPKNS_12FunctionDeclEmm(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.010.022.i, ptr noundef nonnull %15, i64 noundef %26, i64 noundef %31)
   br i1 %32, label %_ZNK5clang4ento18CallDescriptionMapIbE6lookupERKNS0_9CallEventE.exit, label %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i
 
 _ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i: ; preds = %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.i, %16, %11, %.lr.ph.i
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.010.022.i, i64 72
   %.not.i = icmp eq ptr %33, %5
   br i1 %.not.i, label %_ZNK5clang4ento18CallDescriptionMapIbE6lookupERKNS0_9CallEventE.exit, label %.lr.ph.i
 
 _ZNK5clang4ento18CallDescriptionMapIbE6lookupERKNS0_9CallEventE.exit: ; preds = %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.i, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i, %2
-  %spec.select.i = phi i1 [ false, %2 ], [ true, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.i ], [ false, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i ]
-  ret i1 %spec.select.i
+  %34 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.i ], [ false, %_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE.exit.thread.i ]
+  ret i1 %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1056,15 +1056,15 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento18CallDescriptionSet17contai
   %3 = load ptr, ptr %0, align 8, !tbaa !471
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !471
-  %.not18.i = icmp eq ptr %3, %5
-  br i1 %.not18.i, label %_ZNK5clang4ento18CallDescriptionMapIbE15lookupAsWrittenERKNS_8CallExprE.exit, label %.lr.ph.i
+  %.not21.i = icmp eq ptr %3, %5
+  br i1 %.not21.i, label %_ZNK5clang4ento18CallDescriptionMapIbE15lookupAsWrittenERKNS_8CallExprE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %7
 
 7:                                                ; preds = %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i, %.lr.ph.i
-  %.sroa.010.019.i = phi ptr [ %3, %.lr.ph.i ], [ %25, %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i ]
+  %.sroa.010.022.i = phi ptr [ %3, %.lr.ph.i ], [ %25, %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i ]
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 24
   %10 = zext nneg i32 %9 to i64
@@ -1087,17 +1087,17 @@ _ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.i: ; pre
   %21 = zext i32 %20 to i64
   %22 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %13) #14
   %23 = zext i32 %22 to i64
-  %24 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesImplEPKNS_12FunctionDeclEmm(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.010.019.i, ptr noundef nonnull %13, i64 noundef %21, i64 noundef %23)
+  %24 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesImplEPKNS_12FunctionDeclEmm(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.010.022.i, ptr noundef nonnull %13, i64 noundef %21, i64 noundef %23)
   br i1 %24, label %_ZNK5clang4ento18CallDescriptionMapIbE15lookupAsWrittenERKNS_8CallExprE.exit, label %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i
 
 _ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i: ; preds = %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.i, %14, %7
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.022.i, i64 72
   %.not.i = icmp eq ptr %25, %5
   br i1 %.not.i, label %_ZNK5clang4ento18CallDescriptionMapIbE15lookupAsWrittenERKNS_8CallExprE.exit, label %7
 
 _ZNK5clang4ento18CallDescriptionMapIbE15lookupAsWrittenERKNS_8CallExprE.exit: ; preds = %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.i, %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i, %2
-  %spec.select.i = phi i1 [ false, %2 ], [ true, %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.i ], [ false, %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i ]
-  ret i1 %spec.select.i
+  %26 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.i ], [ false, %_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE.exit.thread.i ]
+  ret i1 %26
 }
 
 declare noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3

@@ -976,8 +976,8 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   store i8 %90, ptr %88, align 8, !tbaa !126
   %91 = add i64 %73, -5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not8298103.i = icmp eq i64 %91, 0
-  br i1 %.not8298103.i, label %.critedge90.thread.i, label %.lr.ph.lr.ph.i
+  %.not8297102.i = icmp eq i64 %91, 0
+  br i1 %.not8297102.i, label %.critedge90.thread.i, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %70, i64 5
@@ -989,9 +989,9 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br label %pop3_state_servergreet_resp.exit.thread
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
-  %.1100.i = phi i64 [ %91, %.lr.ph.lr.ph.i ], [ %.1100.i.be, %.lr.ph.i.backedge ]
-  %.16899.i = phi ptr [ %92, %.lr.ph.lr.ph.i ], [ %.16899.i.be, %.lr.ph.i.backedge ]
-  %94 = load i8, ptr %.16899.i, align 1, !tbaa !7
+  %.199.i = phi i64 [ %91, %.lr.ph.lr.ph.i ], [ %.199.i.be, %.lr.ph.i.backedge ]
+  %.16898.i = phi ptr [ %92, %.lr.ph.lr.ph.i ], [ %.16898.i.be, %.lr.ph.i.backedge ]
+  %94 = load i8, ptr %.16898.i, align 1, !tbaa !7
   switch i8 %94, label %.critedge.preheader.i [
     i8 32, label %.critedge2.i
     i8 9, label %.critedge2.i
@@ -1000,19 +1000,19 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   ]
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %95 = getelementptr inbounds nuw i8, ptr %.16899.i, i64 1
-  %96 = add i64 %.1100.i, -1
+  %95 = getelementptr inbounds nuw i8, ptr %.16898.i, i64 1
+  %96 = add i64 %.199.i, -1
   %.not82.i = icmp eq i64 %96, 0
   br i1 %.not82.i, label %.critedge90.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %.critedge2.i, %.critedge90.i
-  %.1100.i.be = phi i64 [ %96, %.critedge2.i ], [ %107, %.critedge90.i ]
-  %.16899.i.be = phi ptr [ %95, %.critedge2.i ], [ %106, %.critedge90.i ]
+  %.199.i.be = phi i64 [ %96, %.critedge2.i ], [ %107, %.critedge90.i ]
+  %.16898.i.be = phi ptr [ %95, %.critedge2.i ], [ %106, %.critedge90.i ]
   br label %.lr.ph.i, !llvm.loop !128
 
 .critedge.preheader.i:                            ; preds = %.lr.ph.i, %.critedge.i50
-  %.065102.i = phi i64 [ %99, %.critedge.i50 ], [ 0, %.lr.ph.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %.16899.i, i64 %.065102.i
+  %.065101.i = phi i64 [ %99, %.critedge.i50 ], [ 0, %.lr.ph.i ]
+  %97 = getelementptr inbounds nuw i8, ptr %.16898.i, i64 %.065101.i
   %98 = load i8, ptr %97, align 1, !tbaa !7
   switch i8 %98, label %.critedge.i50 [
     i8 32, label %.critedge4.i
@@ -1022,13 +1022,13 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   ]
 
 .critedge.i50:                                    ; preds = %.critedge.preheader.i
-  %99 = add nuw i64 %.065102.i, 1
-  %exitcond.not.i = icmp eq i64 %99, %.1100.i
+  %99 = add nuw i64 %.065101.i, 1
+  %exitcond.not.i = icmp eq i64 %99, %.199.i
   br i1 %exitcond.not.i, label %.critedge4.i, label %.critedge.preheader.i, !llvm.loop !129
 
 .critedge4.i:                                     ; preds = %.critedge.i50, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i
-  %.065.lcssa.i = phi i64 [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.1100.i, %.critedge.i50 ]
-  %100 = call zeroext i16 @Curl_sasl_decode_mech(ptr noundef nonnull %.16899.i, i64 noundef %.065.lcssa.i, ptr noundef nonnull %4) #6
+  %.065.lcssa.i = phi i64 [ %.065101.i, %.critedge.preheader.i ], [ %.065101.i, %.critedge.preheader.i ], [ %.065101.i, %.critedge.preheader.i ], [ %.065101.i, %.critedge.preheader.i ], [ %.199.i, %.critedge.i50 ]
+  %100 = call zeroext i16 @Curl_sasl_decode_mech(ptr noundef nonnull %.16898.i, i64 noundef %.065.lcssa.i, ptr noundef nonnull %4) #6
   %.not87.i = icmp ne i16 %100, 0
   %101 = load i64, ptr %4, align 8
   %102 = icmp eq i64 %101, %.065.lcssa.i
@@ -1042,12 +1042,12 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br label %.critedge90.i
 
 .critedge90.i:                                    ; preds = %103, %.critedge4.i
-  %106 = getelementptr inbounds nuw i8, ptr %.16899.i, i64 %.065.lcssa.i
-  %107 = sub i64 %.1100.i, %.065.lcssa.i
+  %106 = getelementptr inbounds nuw i8, ptr %.16898.i, i64 %.065.lcssa.i
+  %107 = sub i64 %.199.i, %.065.lcssa.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not8298.i = icmp eq i64 %107, 0
-  br i1 %.not8298.i, label %.critedge90.thread.i, label %.lr.ph.i.backedge
+  %.not8297.i = icmp eq i64 %107, 0
+  br i1 %.not8297.i, label %.critedge90.thread.i, label %.lr.ph.i.backedge
 
 108:                                              ; preds = %67
   %109 = getelementptr inbounds nuw i8, ptr %68, i64 1312

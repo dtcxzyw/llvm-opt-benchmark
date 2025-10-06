@@ -2047,8 +2047,8 @@ define internal fastcc void @ssl_tls13_select_ciphersuite(ptr noundef %0, ptr no
   br i1 %.not28, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us
-  %.038.us.us = phi ptr [ %26, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us ], [ %1, %.lr.ph.split.us ]
-  %.0.copyload.i.us.us = load i16, ptr %.038.us.us, align 1
+  %.036.us.us = phi ptr [ %26, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us ], [ %1, %.lr.ph.split.us ]
+  %.0.copyload.i.us.us = load i16, ptr %.036.us.us, align 1
   %13 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.us.us)
   %14 = zext i16 %13 to i32
   %.val.i.us.us = load ptr, ptr %0, align 8, !tbaa !40
@@ -2079,13 +2079,13 @@ mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i.us.us: ; preds = %16
   br i1 %or.cond.us.us, label %ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us, label %.split.us
 
 ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us: ; preds = %21, %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i.us.us
-  %26 = getelementptr inbounds nuw i8, ptr %.038.us.us, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.036.us.us, i64 2
   %27 = icmp ult ptr %26, %2
   br i1 %27, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !111
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us
-  %.038.us = phi ptr [ %46, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us ], [ %1, %.lr.ph.split.us ]
-  %.0.copyload.i.us = load i16, ptr %.038.us, align 1
+  %.036.us = phi ptr [ %46, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us ], [ %1, %.lr.ph.split.us ]
+  %.0.copyload.i.us = load i16, ptr %.036.us, align 1
   %28 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.us)
   %29 = zext i16 %28 to i32
   %.val.i.us = load ptr, ptr %0, align 8, !tbaa !40
@@ -2124,13 +2124,13 @@ mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i.us: ; preds = %31
   br i1 %.not29.us, label %.split.us, label %ssl_tls13_validate_peer_ciphersuite.exit.thread.us
 
 ssl_tls13_validate_peer_ciphersuite.exit.thread.us: ; preds = %41, %36, %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i.us
-  %46 = getelementptr inbounds nuw i8, ptr %.038.us, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.036.us, i64 2
   %47 = icmp ult ptr %46, %2
   br i1 %47, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !111
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ssl_tls13_validate_peer_ciphersuite.exit.thread
-  %.038 = phi ptr [ %61, %ssl_tls13_validate_peer_ciphersuite.exit.thread ], [ %1, %.lr.ph ]
-  %.0.copyload.i = load i16, ptr %.038, align 1
+  %.036 = phi ptr [ %61, %ssl_tls13_validate_peer_ciphersuite.exit.thread ], [ %1, %.lr.ph ]
+  %.0.copyload.i = load i16, ptr %.036, align 1
   %48 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i)
   %49 = zext i16 %48 to i32
   %.val.i = load ptr, ptr %0, align 8, !tbaa !40
@@ -2157,13 +2157,13 @@ mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i: ; preds = %51
   %59 = tail call i32 @mbedtls_ssl_validate_ciphersuite(ptr noundef nonnull %0, ptr noundef %57, i32 noundef %58, i32 noundef %58) #9
   %.not8.i = icmp eq i32 %59, 0
   %60 = icmp ne ptr %57, null
-  %or.cond.not43 = and i1 %60, %.not8.i
+  %or.cond.not41 = and i1 %60, %.not8.i
   %.not30 = icmp eq i32 %3, %49
-  %or.cond41 = and i1 %or.cond.not43, %.not30
-  br i1 %or.cond41, label %.split.us, label %ssl_tls13_validate_peer_ciphersuite.exit.thread
+  %or.cond39 = and i1 %or.cond.not41, %.not30
+  br i1 %or.cond39, label %.split.us, label %ssl_tls13_validate_peer_ciphersuite.exit.thread
 
 ssl_tls13_validate_peer_ciphersuite.exit.thread:  ; preds = %56, %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i
-  %61 = getelementptr inbounds nuw i8, ptr %.038, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %.036, i64 2
   %62 = icmp ult ptr %61, %2
   br i1 %62, label %.lr.ph.split, label %._crit_edge, !llvm.loop !111
 

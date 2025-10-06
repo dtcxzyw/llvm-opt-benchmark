@@ -714,7 +714,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   %63 = load i64, ptr %7, align 8, !tbaa !91
   %64 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 260, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %spec.select, i64 noundef %63) #5
   %.not58 = icmp eq i32 %64, 0
-  br i1 %.not58, label %.thread, label %.thread75
+  br i1 %.not58, label %.thread, label %.thread72
 
 65:                                               ; preds = %54
   %66 = load ptr, ptr %2, align 8, !tbaa !4
@@ -797,26 +797,26 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   %104 = load i64, ptr %7, align 8, !tbaa !91
   %105 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 318, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.55, i64 noundef %104, i64 noundef 9) #5
   %.not56 = icmp eq i32 %105, 0
-  br i1 %.not56, label %.thread, label %.thread75
+  br i1 %.not56, label %.thread, label %.thread72
 
 106:                                              ; preds = %96
   %107 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 326, ptr noundef nonnull @.str.54, i32 noundef %100) #5
   %.not54 = icmp eq i32 %107, 0
-  br i1 %.not54, label %.thread, label %.thread75
+  br i1 %.not54, label %.thread, label %.thread72
 
-.thread75:                                        ; preds = %106, %103, %62
+.thread72:                                        ; preds = %106, %103, %62
   %108 = load ptr, ptr %2, align 8, !tbaa !4
   %109 = call i32 @SSL_free_buffers(ptr noundef %108) #5
   %110 = icmp ne i32 %109, 0
   %111 = zext i1 %110 to i32
   %112 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 335, ptr noundef nonnull @.str.32, i32 noundef %111) #5
   %.not59 = icmp ne i32 %112, 0
-  %spec.select67 = zext i1 %.not59 to i32
+  %spec.select66 = zext i1 %.not59 to i32
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %85, %106, %101, %103, %91, %65, %72, %75, %83, %62, %56, %.thread75, %40, %22, %28, %34, %14, %9
-  %.037 = phi i32 [ 0, %9 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %22 ], [ 0, %14 ], [ %spec.select67, %.thread75 ], [ 0, %56 ], [ 0, %62 ], [ 0, %83 ], [ 0, %75 ], [ 0, %72 ], [ 0, %65 ], [ 0, %91 ], [ 0, %103 ], [ 0, %101 ], [ 0, %106 ], [ 0, %85 ], [ 0, %.preheader ]
-  %.136 = phi ptr [ null, %9 ], [ %.035, %40 ], [ %.035, %34 ], [ %.035, %28 ], [ %.035, %22 ], [ %.035, %14 ], [ %.035, %.thread75 ], [ %.035, %56 ], [ %.035, %62 ], [ %.035, %83 ], [ %.035, %75 ], [ %.035, %72 ], [ %.035, %65 ], [ %.035, %91 ], [ %.035, %103 ], [ %.035, %101 ], [ %.035, %106 ], [ %.035, %85 ], [ %.035, %.preheader ]
+.thread:                                          ; preds = %.preheader, %85, %106, %101, %103, %91, %65, %72, %75, %83, %62, %56, %.thread72, %40, %22, %28, %34, %14, %9
+  %.037 = phi i32 [ 0, %9 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %22 ], [ 0, %14 ], [ %spec.select66, %.thread72 ], [ 0, %56 ], [ 0, %62 ], [ 0, %83 ], [ 0, %75 ], [ 0, %72 ], [ 0, %65 ], [ 0, %91 ], [ 0, %103 ], [ 0, %101 ], [ 0, %106 ], [ 0, %85 ], [ 0, %.preheader ]
+  %.136 = phi ptr [ null, %9 ], [ %.035, %40 ], [ %.035, %34 ], [ %.035, %28 ], [ %.035, %22 ], [ %.035, %14 ], [ %.035, %.thread72 ], [ %.035, %56 ], [ %.035, %62 ], [ %.035, %83 ], [ %.035, %75 ], [ %.035, %72 ], [ %.035, %65 ], [ %.035, %91 ], [ %.035, %103 ], [ %.035, %101 ], [ %.035, %106 ], [ %.035, %85 ], [ %.035, %.preheader ]
   %113 = load ptr, ptr %3, align 8, !tbaa !4
   call void @SSL_free(ptr noundef %113) #5
   %114 = load ptr, ptr %2, align 8, !tbaa !4

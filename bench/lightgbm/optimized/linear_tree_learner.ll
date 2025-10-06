@@ -5701,7 +5701,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %51
+  br i1 %12, label %13, label %52
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -5770,16 +5770,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us: ; preds = %.lr.ph.i.i.i.i.us.preheader, %32
-  %.not6.i.i.i.i31.us = icmp eq i64 %39, -4
-  br i1 %.not6.i.i.i.i31.us, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
+  %46 = icmp eq i64 %39, -4
+  br i1 %46, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
 
 .lr.ph.i.i.i.i32.us.preheader:                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
-  %46 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !237
-  %48 = shl i64 %39, 1
-  %49 = and i64 %48, -8
-  %50 = add i64 %49, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 %50, i1 false), !tbaa !178
+  %47 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
+  %48 = load ptr, ptr %47, align 8, !tbaa !237
+  %49 = shl i64 %39, 1
+  %50 = and i64 %49, -8
+  %51 = add i64 %50, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %51, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us: ; preds = %.lr.ph.i.i.i.i32.us.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
@@ -5799,9 +5799,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %._crit_edge43, %6
+52:                                               ; preds = %._crit_edge43, %6
   ret void
 }
 
@@ -5813,7 +5813,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %44
+  br i1 %11, label %12, label %45
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -5868,16 +5868,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %25
-  %.not6.i.i.i.i23 = icmp eq i64 %32, -4
-  br i1 %.not6.i.i.i.i23, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
+  %39 = icmp eq i64 %32, -4
+  br i1 %39, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
 
 .lr.ph.i.i.i.i24.preheader:                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
-  %39 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8, !tbaa !237
-  %41 = shl i64 %32, 1
-  %42 = and i64 %41, -8
-  %43 = add i64 %42, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %43, i1 false), !tbaa !178
+  %40 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8, !tbaa !237
+  %42 = shl i64 %32, 1
+  %43 = and i64 %42, -8
+  %44 = add i64 %43, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %44, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27: ; preds = %.lr.ph.i.i.i.i24.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
@@ -5892,9 +5892,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %._crit_edge, %5
+45:                                               ; preds = %._crit_edge, %5
   ret void
 }
 
@@ -19261,7 +19261,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %51
+  br i1 %12, label %13, label %52
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -19330,16 +19330,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us: ; preds = %.lr.ph.i.i.i.i.us.preheader, %32
-  %.not6.i.i.i.i31.us = icmp eq i64 %39, -4
-  br i1 %.not6.i.i.i.i31.us, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
+  %46 = icmp eq i64 %39, -4
+  br i1 %46, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
 
 .lr.ph.i.i.i.i32.us.preheader:                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
-  %46 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !237
-  %48 = shl i64 %39, 1
-  %49 = and i64 %48, -8
-  %50 = add i64 %49, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 %50, i1 false), !tbaa !178
+  %47 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
+  %48 = load ptr, ptr %47, align 8, !tbaa !237
+  %49 = shl i64 %39, 1
+  %50 = and i64 %49, -8
+  %51 = add i64 %50, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %51, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us: ; preds = %.lr.ph.i.i.i.i32.us.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
@@ -19359,9 +19359,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %._crit_edge43, %6
+52:                                               ; preds = %._crit_edge43, %6
   ret void
 }
 
@@ -19373,7 +19373,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %44
+  br i1 %11, label %12, label %45
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -19428,16 +19428,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %25
-  %.not6.i.i.i.i23 = icmp eq i64 %32, -4
-  br i1 %.not6.i.i.i.i23, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
+  %39 = icmp eq i64 %32, -4
+  br i1 %39, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
 
 .lr.ph.i.i.i.i24.preheader:                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
-  %39 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8, !tbaa !237
-  %41 = shl i64 %32, 1
-  %42 = and i64 %41, -8
-  %43 = add i64 %42, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %43, i1 false), !tbaa !178
+  %40 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8, !tbaa !237
+  %42 = shl i64 %32, 1
+  %43 = and i64 %42, -8
+  %44 = add i64 %43, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %44, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27: ; preds = %.lr.ph.i.i.i.i24.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
@@ -19452,9 +19452,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %._crit_edge, %5
+45:                                               ; preds = %._crit_edge, %5
   ret void
 }
 
@@ -25482,7 +25482,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %51
+  br i1 %12, label %13, label %52
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -25551,16 +25551,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us: ; preds = %.lr.ph.i.i.i.i.us.preheader, %32
-  %.not6.i.i.i.i31.us = icmp eq i64 %39, -4
-  br i1 %.not6.i.i.i.i31.us, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
+  %46 = icmp eq i64 %39, -4
+  br i1 %46, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
 
 .lr.ph.i.i.i.i32.us.preheader:                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
-  %46 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !237
-  %48 = shl i64 %39, 1
-  %49 = and i64 %48, -8
-  %50 = add i64 %49, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 %50, i1 false), !tbaa !178
+  %47 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
+  %48 = load ptr, ptr %47, align 8, !tbaa !237
+  %49 = shl i64 %39, 1
+  %50 = and i64 %49, -8
+  %51 = add i64 %50, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %51, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us: ; preds = %.lr.ph.i.i.i.i32.us.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
@@ -25580,9 +25580,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %._crit_edge43, %6
+52:                                               ; preds = %._crit_edge43, %6
   ret void
 }
 
@@ -25594,7 +25594,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %44
+  br i1 %11, label %12, label %45
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -25649,16 +25649,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %25
-  %.not6.i.i.i.i23 = icmp eq i64 %32, -4
-  br i1 %.not6.i.i.i.i23, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
+  %39 = icmp eq i64 %32, -4
+  br i1 %39, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
 
 .lr.ph.i.i.i.i24.preheader:                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
-  %39 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8, !tbaa !237
-  %41 = shl i64 %32, 1
-  %42 = and i64 %41, -8
-  %43 = add i64 %42, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %43, i1 false), !tbaa !178
+  %40 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8, !tbaa !237
+  %42 = shl i64 %32, 1
+  %43 = and i64 %42, -8
+  %44 = add i64 %43, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %44, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27: ; preds = %.lr.ph.i.i.i.i24.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
@@ -25673,9 +25673,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %._crit_edge, %5
+45:                                               ; preds = %._crit_edge, %5
   ret void
 }
 
@@ -27178,7 +27178,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %51
+  br i1 %12, label %13, label %52
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -27247,16 +27247,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us: ; preds = %.lr.ph.i.i.i.i.us.preheader, %32
-  %.not6.i.i.i.i31.us = icmp eq i64 %39, -4
-  br i1 %.not6.i.i.i.i31.us, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
+  %46 = icmp eq i64 %39, -4
+  br i1 %46, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us, label %.lr.ph.i.i.i.i32.us.preheader
 
 .lr.ph.i.i.i.i32.us.preheader:                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
-  %46 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !237
-  %48 = shl i64 %39, 1
-  %49 = and i64 %48, -8
-  %50 = add i64 %49, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 %50, i1 false), !tbaa !178
+  %47 = getelementptr inbounds nuw %"class.std::vector.93", ptr %31, i64 %indvars.iv
+  %48 = load ptr, ptr %47, align 8, !tbaa !237
+  %49 = shl i64 %39, 1
+  %50 = and i64 %49, -8
+  %51 = add i64 %50, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %51, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit35.us: ; preds = %.lr.ph.i.i.i.i32.us.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit.us
@@ -27276,9 +27276,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %._crit_edge43, %6
+52:                                               ; preds = %._crit_edge43, %6
   ret void
 }
 
@@ -27290,7 +27290,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %44
+  br i1 %11, label %12, label %45
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -27345,16 +27345,16 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %25
-  %.not6.i.i.i.i23 = icmp eq i64 %32, -4
-  br i1 %.not6.i.i.i.i23, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
+  %39 = icmp eq i64 %32, -4
+  br i1 %39, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27, label %.lr.ph.i.i.i.i24.preheader
 
 .lr.ph.i.i.i.i24.preheader:                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
-  %39 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8, !tbaa !237
-  %41 = shl i64 %32, 1
-  %42 = and i64 %41, -8
-  %43 = add i64 %42, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %43, i1 false), !tbaa !178
+  %40 = getelementptr inbounds nuw %"class.std::vector.93", ptr %22, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8, !tbaa !237
+  %42 = shl i64 %32, 1
+  %43 = and i64 %42, -8
+  %44 = add i64 %43, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %44, i1 false), !tbaa !178
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit27: ; preds = %.lr.ph.i.i.i.i24.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
@@ -27369,9 +27369,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %._crit_edge, %5
+45:                                               ; preds = %._crit_edge, %5
   ret void
 }
 

@@ -112,28 +112,28 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %36, %48
-  %.2.i.i29 = phi ptr [ %.3.i.i, %48 ], [ %.0134.i.i, %36 ]
-  %.2142.i.i28 = phi i32 [ %41, %48 ], [ %.0140.i.i, %36 ]
-  %.2146.i.i27 = phi i32 [ %.3147.i.i, %48 ], [ %.0144.i.i, %36 ]
-  %41 = add i32 %.2142.i.i28, 36
-  %.not187.i.i = icmp ugt ptr %.2.i.i29, %31
+  %.2.i.i27 = phi ptr [ %.3.i.i, %48 ], [ %.0134.i.i, %36 ]
+  %.2142.i.i26 = phi i32 [ %41, %48 ], [ %.0140.i.i, %36 ]
+  %.2146.i.i25 = phi i32 [ %.3147.i.i, %48 ], [ %.0144.i.i, %36 ]
+  %41 = add i32 %.2142.i.i26, 36
+  %.not187.i.i = icmp ugt ptr %.2.i.i27, %31
   br i1 %.not187.i.i, label %44, label %42, !prof !7
 
 42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds nuw i8, ptr %.2.i.i29, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %.2.i.i27, i64 3
   br label %48
 
 44:                                               ; preds = %.lr.ph
-  %45 = ptrtoint ptr %.2.i.i29 to i64
+  %45 = ptrtoint ptr %.2.i.i27 to i64
   %.neg188.i.i = sub i64 %45, %32
   %.tr.neg189.i.i = trunc i64 %.neg188.i.i to i32
   %.neg190.i.i = shl i32 %.tr.neg189.i.i, 3
-  %46 = add i32 %.neg190.i.i, %.2146.i.i27
+  %46 = add i32 %.neg190.i.i, %.2146.i.i25
   %47 = and i32 %46, 31
   br label %48
 
 48:                                               ; preds = %44, %42
-  %.3147.i.i = phi i32 [ %.2146.i.i27, %42 ], [ %47, %44 ]
+  %.3147.i.i = phi i32 [ %.2146.i.i25, %42 ], [ %47, %44 ]
   %.3.i.i = phi ptr [ %43, %42 ], [ %33, %44 ]
   %.val.i12 = load i32, ptr %.3.i.i, align 1, !tbaa !3
   %49 = lshr i32 %.val.i12, %.3147.i.i
@@ -159,20 +159,20 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %60 = add nuw nsw i32 %.2146.i.i.lcssa, 2
   %61 = add nuw nsw i32 %60, %56
   %.not.i.i = icmp ult i32 %59, %13
-  br i1 %.not.i.i, label %62, label %.thread19
+  br i1 %.not.i.i, label %62, label %.thread18
 
 62:                                               ; preds = %._crit_edge
   %.not176.i.i = icmp ugt ptr %.2.i.i.lcssa, %31
   %63 = lshr i32 %61, 3
   %64 = zext nneg i32 %63 to i64
-  br i1 %.not176.i.i, label %65, label %._crit_edge36, !prof !7
+  br i1 %.not176.i.i, label %65, label %._crit_edge34, !prof !7
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %.2.i.i.lcssa, i64 %64
   %.not177.i.i = icmp ugt ptr %66, %33
-  br i1 %.not177.i.i, label %69, label %._crit_edge36
+  br i1 %.not177.i.i, label %69, label %._crit_edge34
 
-._crit_edge36:                                    ; preds = %62, %65
+._crit_edge34:                                    ; preds = %62, %65
   %67 = getelementptr inbounds nuw i8, ptr %.2.i.i.lcssa, i64 %64
   %68 = and i32 %61, 7
   br label %.thread
@@ -186,9 +186,9 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %72 = and i32 %71, 31
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge36, %69
-  %.5149.i.i = phi i32 [ %68, %._crit_edge36 ], [ %72, %69 ]
-  %.5.i.i = phi ptr [ %67, %._crit_edge36 ], [ %33, %69 ]
+.thread:                                          ; preds = %._crit_edge34, %69
+  %.5149.i.i = phi i32 [ %68, %._crit_edge34 ], [ %72, %69 ]
+  %.5.i.i = phi ptr [ %67, %._crit_edge34 ], [ %33, %69 ]
   %.val.i11 = load i32, ptr %.5.i.i, align 1, !tbaa !3
   %73 = lshr i32 %.val.i11, %.5149.i.i
   br label %74
@@ -237,7 +237,7 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
 
 96:                                               ; preds = %86
   %97 = icmp slt i32 %.2163.i.i, 2
-  br i1 %97, label %.thread19, label %98
+  br i1 %97, label %.thread18, label %98
 
 98:                                               ; preds = %96
   %99 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.2163.i.i, i1 true)
@@ -250,20 +250,20 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %.1159.i.i = phi i32 [ %102, %98 ], [ %.0158.i.i, %86 ]
   %.1138.i.i = phi i32 [ %101, %98 ], [ %.0137.i.i, %86 ]
   %.not180.i.i = icmp ult i32 %91, %13
-  br i1 %.not180.i.i, label %104, label %.thread19
+  br i1 %.not180.i.i, label %104, label %.thread18
 
 104:                                              ; preds = %103
   %.not181.i.i = icmp ugt ptr %.1135.i.i, %31
   %105 = lshr i32 %.7151.i.i, 3
   %106 = zext nneg i32 %105 to i64
-  br i1 %.not181.i.i, label %107, label %._crit_edge37, !prof !7
+  br i1 %.not181.i.i, label %107, label %._crit_edge35, !prof !7
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %.1135.i.i, i64 %106
   %.not182.i.i = icmp ugt ptr %108, %33
-  br i1 %.not182.i.i, label %111, label %._crit_edge37
+  br i1 %.not182.i.i, label %111, label %._crit_edge35
 
-._crit_edge37:                                    ; preds = %104, %107
+._crit_edge35:                                    ; preds = %104, %107
   %109 = getelementptr inbounds nuw i8, ptr %.1135.i.i, i64 %106
   %110 = and i32 %.7151.i.i, 7
   br label %115
@@ -277,14 +277,14 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %114 = and i32 %113, 31
   br label %115
 
-115:                                              ; preds = %._crit_edge37, %111
-  %.9.i.i = phi i32 [ %110, %._crit_edge37 ], [ %114, %111 ]
-  %.8.i.i = phi ptr [ %109, %._crit_edge37 ], [ %33, %111 ]
+115:                                              ; preds = %._crit_edge35, %111
+  %.9.i.i = phi i32 [ %110, %._crit_edge35 ], [ %114, %111 ]
+  %.8.i.i = phi ptr [ %109, %._crit_edge35 ], [ %33, %111 ]
   %.val.i = load i32, ptr %.8.i.i, align 1, !tbaa !3
   %116 = lshr i32 %.val.i, %.9.i.i
   br label %35
 
-.thread19:                                        ; preds = %103, %96, %._crit_edge
+.thread18:                                        ; preds = %103, %96, %._crit_edge
   %.1162.i.i = phi i32 [ %.0161.i.i, %._crit_edge ], [ %.2163.i.i, %96 ], [ %.2163.i.i, %103 ]
   %.6150.i.i = phi i32 [ %61, %._crit_edge ], [ %.7151.i.i, %96 ], [ %.7151.i.i, %103 ]
   %.3143.i.i = phi i32 [ %59, %._crit_edge ], [ %91, %96 ], [ %91, %103 ]
@@ -292,7 +292,7 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %.not186.i.i = icmp eq i32 %.1162.i.i, 1
   br i1 %.not186.i.i, label %117, label %_ZN11duckdb_zstdL27FSE_readNCount_body_defaultEPsPjS1_PKvm.exit
 
-117:                                              ; preds = %.thread19
+117:                                              ; preds = %.thread18
   %118 = icmp ugt i32 %.3143.i.i, %13
   br i1 %118, label %_ZN11duckdb_zstdL27FSE_readNCount_body_defaultEPsPjS1_PKvm.exit, label %119
 
@@ -312,8 +312,8 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %129 = sub i64 %127, %128
   br label %_ZN11duckdb_zstdL27FSE_readNCount_body_defaultEPsPjS1_PKvm.exit
 
-_ZN11duckdb_zstdL27FSE_readNCount_body_defaultEPsPjS1_PKvm.exit: ; preds = %121, %119, %117, %.thread19, %20, %15, %8
-  %.0 = phi i64 [ %9, %8 ], [ %.0129.i.i, %15 ], [ %129, %121 ], [ -44, %20 ], [ -20, %.thread19 ], [ -48, %117 ], [ -20, %119 ]
+_ZN11duckdb_zstdL27FSE_readNCount_body_defaultEPsPjS1_PKvm.exit: ; preds = %121, %119, %117, %.thread18, %20, %15, %8
+  %.0 = phi i64 [ %9, %8 ], [ %.0129.i.i, %15 ], [ %129, %121 ], [ -44, %20 ], [ -20, %.thread18 ], [ -48, %117 ], [ -20, %119 ]
   ret i64 %.0
 }
 
@@ -379,28 +379,28 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32, %44
-  %.2.i22 = phi ptr [ %.3.i, %44 ], [ %.0134.i, %32 ]
-  %.2142.i21 = phi i32 [ %37, %44 ], [ %.0140.i, %32 ]
-  %.2146.i20 = phi i32 [ %.3147.i, %44 ], [ %.0144.i, %32 ]
-  %37 = add i32 %.2142.i21, 36
-  %.not187.i = icmp ugt ptr %.2.i22, %27
+  %.2.i20 = phi ptr [ %.3.i, %44 ], [ %.0134.i, %32 ]
+  %.2142.i19 = phi i32 [ %37, %44 ], [ %.0140.i, %32 ]
+  %.2146.i18 = phi i32 [ %.3147.i, %44 ], [ %.0144.i, %32 ]
+  %37 = add i32 %.2142.i19, 36
+  %.not187.i = icmp ugt ptr %.2.i20, %27
   br i1 %.not187.i, label %40, label %38, !prof !7
 
 38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw i8, ptr %.2.i22, i64 3
+  %39 = getelementptr inbounds nuw i8, ptr %.2.i20, i64 3
   br label %44
 
 40:                                               ; preds = %.lr.ph
-  %41 = ptrtoint ptr %.2.i22 to i64
+  %41 = ptrtoint ptr %.2.i20 to i64
   %.neg188.i = sub i64 %41, %28
   %.tr.neg189.i = trunc i64 %.neg188.i to i32
   %.neg190.i = shl i32 %.tr.neg189.i, 3
-  %42 = add i32 %.neg190.i, %.2146.i20
+  %42 = add i32 %.neg190.i, %.2146.i18
   %43 = and i32 %42, 31
   br label %44
 
 44:                                               ; preds = %40, %38
-  %.3147.i = phi i32 [ %.2146.i20, %38 ], [ %43, %40 ]
+  %.3147.i = phi i32 [ %.2146.i18, %38 ], [ %43, %40 ]
   %.3.i = phi ptr [ %39, %38 ], [ %29, %40 ]
   %.val.i4 = load i32, ptr %.3.i, align 1, !tbaa !3
   %45 = lshr i32 %.val.i4, %.3147.i
@@ -426,20 +426,20 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %56 = add nuw nsw i32 %.2146.i.lcssa, 2
   %57 = add nuw nsw i32 %56, %52
   %.not.i = icmp ult i32 %55, %9
-  br i1 %.not.i, label %58, label %.thread12
+  br i1 %.not.i, label %58, label %.thread11
 
 58:                                               ; preds = %._crit_edge
   %.not176.i = icmp ugt ptr %.2.i.lcssa, %27
   %59 = lshr i32 %57, 3
   %60 = zext nneg i32 %59 to i64
-  br i1 %.not176.i, label %61, label %._crit_edge29, !prof !7
+  br i1 %.not176.i, label %61, label %._crit_edge27, !prof !7
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %.2.i.lcssa, i64 %60
   %.not177.i = icmp ugt ptr %62, %29
-  br i1 %.not177.i, label %65, label %._crit_edge29
+  br i1 %.not177.i, label %65, label %._crit_edge27
 
-._crit_edge29:                                    ; preds = %58, %61
+._crit_edge27:                                    ; preds = %58, %61
   %63 = getelementptr inbounds nuw i8, ptr %.2.i.lcssa, i64 %60
   %64 = and i32 %57, 7
   br label %.thread
@@ -453,9 +453,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %68 = and i32 %67, 31
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge29, %65
-  %.5149.i = phi i32 [ %64, %._crit_edge29 ], [ %68, %65 ]
-  %.5.i = phi ptr [ %63, %._crit_edge29 ], [ %29, %65 ]
+.thread:                                          ; preds = %._crit_edge27, %65
+  %.5149.i = phi i32 [ %64, %._crit_edge27 ], [ %68, %65 ]
+  %.5.i = phi ptr [ %63, %._crit_edge27 ], [ %29, %65 ]
   %.val.i5 = load i32, ptr %.5.i, align 1, !tbaa !3
   %69 = lshr i32 %.val.i5, %.5149.i
   br label %70
@@ -504,7 +504,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
 
 92:                                               ; preds = %82
   %93 = icmp slt i32 %.2163.i, 2
-  br i1 %93, label %.thread12, label %94
+  br i1 %93, label %.thread11, label %94
 
 94:                                               ; preds = %92
   %95 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.2163.i, i1 true)
@@ -517,20 +517,20 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %.1159.i = phi i32 [ %98, %94 ], [ %.0158.i, %82 ]
   %.1138.i = phi i32 [ %97, %94 ], [ %.0137.i, %82 ]
   %.not180.i = icmp ult i32 %87, %9
-  br i1 %.not180.i, label %100, label %.thread12
+  br i1 %.not180.i, label %100, label %.thread11
 
 100:                                              ; preds = %99
   %.not181.i = icmp ugt ptr %.1135.i, %27
   %101 = lshr i32 %.7151.i, 3
   %102 = zext nneg i32 %101 to i64
-  br i1 %.not181.i, label %103, label %._crit_edge30, !prof !7
+  br i1 %.not181.i, label %103, label %._crit_edge28, !prof !7
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %.1135.i, i64 %102
   %.not182.i = icmp ugt ptr %104, %29
-  br i1 %.not182.i, label %107, label %._crit_edge30
+  br i1 %.not182.i, label %107, label %._crit_edge28
 
-._crit_edge30:                                    ; preds = %100, %103
+._crit_edge28:                                    ; preds = %100, %103
   %105 = getelementptr inbounds nuw i8, ptr %.1135.i, i64 %102
   %106 = and i32 %.7151.i, 7
   br label %111
@@ -544,14 +544,14 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %110 = and i32 %109, 31
   br label %111
 
-111:                                              ; preds = %._crit_edge30, %107
-  %.9.i = phi i32 [ %106, %._crit_edge30 ], [ %110, %107 ]
-  %.8.i = phi ptr [ %105, %._crit_edge30 ], [ %29, %107 ]
+111:                                              ; preds = %._crit_edge28, %107
+  %.9.i = phi i32 [ %106, %._crit_edge28 ], [ %110, %107 ]
+  %.8.i = phi ptr [ %105, %._crit_edge28 ], [ %29, %107 ]
   %.val.i6 = load i32, ptr %.8.i, align 1, !tbaa !3
   %112 = lshr i32 %.val.i6, %.9.i
   br label %31
 
-.thread12:                                        ; preds = %99, %92, %._crit_edge
+.thread11:                                        ; preds = %99, %92, %._crit_edge
   %.1162.i = phi i32 [ %.0161.i, %._crit_edge ], [ %.2163.i, %92 ], [ %.2163.i, %99 ]
   %.6150.i = phi i32 [ %57, %._crit_edge ], [ %.7151.i, %92 ], [ %.7151.i, %99 ]
   %.3143.i = phi i32 [ %55, %._crit_edge ], [ %87, %92 ], [ %87, %99 ]
@@ -559,7 +559,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %.not186.i = icmp eq i32 %.1162.i, 1
   br i1 %.not186.i, label %113, label %_ZN11duckdb_zstdL19FSE_readNCount_bodyEPsPjS1_PKvm.exit
 
-113:                                              ; preds = %.thread12
+113:                                              ; preds = %.thread11
   %114 = icmp ugt i32 %.3143.i, %9
   br i1 %114, label %_ZN11duckdb_zstdL19FSE_readNCount_bodyEPsPjS1_PKvm.exit, label %115
 
@@ -579,8 +579,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %125 = sub i64 %123, %124
   br label %_ZN11duckdb_zstdL19FSE_readNCount_bodyEPsPjS1_PKvm.exit
 
-_ZN11duckdb_zstdL19FSE_readNCount_bodyEPsPjS1_PKvm.exit: ; preds = %11, %16, %.thread12, %113, %115, %117
-  %.1130.i = phi i64 [ %.0129.i, %11 ], [ %125, %117 ], [ -44, %16 ], [ -20, %.thread12 ], [ -48, %113 ], [ -20, %115 ]
+_ZN11duckdb_zstdL19FSE_readNCount_bodyEPsPjS1_PKvm.exit: ; preds = %11, %16, %.thread11, %113, %115, %117
+  %.1130.i = phi i64 [ %.0129.i, %11 ], [ %125, %117 ], [ -44, %16 ], [ -20, %.thread11 ], [ -48, %113 ], [ -20, %115 ]
   ret i64 %.1130.i
 }
 

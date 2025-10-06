@@ -322,13 +322,13 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
   %85 = icmp eq i64 %.sroa.3246.0170, -1
   call void @llvm.assume(i1 %10)
   %86 = add i64 %.sroa.20.0171, %11
-  %.not3754.i = icmp ult i64 %86, %.sroa.039.sroa.13.0.copyload
+  %.not3451.i = icmp ult i64 %86, %.sroa.039.sroa.13.0.copyload
   br i1 %85, label %139, label %87
 
 87:                                               ; preds = %84
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  br i1 %.not3754.i, label %.lr.ph.i29, label %.loopexit
+  br i1 %.not3451.i, label %.lr.ph.i29, label %.loopexit
 
 .lr.ph.i29:                                       ; preds = %87
   %.sroa.842.sroa.1157.0.insert.ext58 = zext i8 %.sroa.842.sroa.1157.0169 to i64
@@ -342,7 +342,7 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 90:                                               ; preds = %.sink.split.i, %.lr.ph.i29
   %91 = phi i64 [ %.sroa.3246.0170, %.lr.ph.i29 ], [ %.sink.i, %.sink.split.i ]
   %92 = phi i64 [ %86, %.lr.ph.i29 ], [ %104, %.sink.split.i ]
-  %93 = phi i64 [ %.sroa.20.0171, %.lr.ph.i29 ], [ %.ph90.i, %.sink.split.i ]
+  %93 = phi i64 [ %.sroa.20.0171, %.lr.ph.i29 ], [ %.ph87.i, %.sink.split.i ]
   %94 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %92
   %95 = load i8, ptr %94, align 1, !alias.scope !29, !noalias !34, !noundef !4
   %96 = and i8 %95, 63
@@ -362,10 +362,10 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 
 .sink.split.i:                                    ; preds = %136, %123, %101
   %.sink.i = phi i64 [ %89, %123 ], [ 0, %136 ], [ 0, %101 ]
-  %.ph90.i = phi i64 [ %124, %123 ], [ %138, %136 ], [ %102, %101 ]
-  %104 = add i64 %.ph90.i, %11
-  %.not37.i35 = icmp ult i64 %104, %.sroa.039.sroa.13.0.copyload
-  br i1 %.not37.i35, label %90, label %.loopexit
+  %.ph87.i = phi i64 [ %124, %123 ], [ %138, %136 ], [ %102, %101 ]
+  %104 = add i64 %.ph87.i, %11
+  %.not34.i35 = icmp ult i64 %104, %.sroa.039.sroa.13.0.copyload
+  br i1 %.not34.i35, label %90, label %.loopexit
 
 105:                                              ; preds = %128, %103
   %.sroa.04.0.i32 = phi i64 [ %.0.sroa.speculated.i.i31, %103 ], [ %129, %128 ]
@@ -440,7 +440,7 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 139:                                              ; preds = %84
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  br i1 %.not3754.i, label %.lr.ph.i, label %.loopexit
+  br i1 %.not3451.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %139
   %.sroa.842.sroa.1157.0.insert.ext = zext i8 %.sroa.842.sroa.1157.0169 to i64
@@ -471,8 +471,8 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 154:                                              ; preds = %185, %172, %152
   %155 = phi i64 [ %173, %172 ], [ %187, %185 ], [ %153, %152 ]
   %156 = add i64 %155, %11
-  %.not37.i = icmp ult i64 %156, %.sroa.039.sroa.13.0.copyload
-  br i1 %.not37.i, label %142, label %.loopexit
+  %.not34.i = icmp ult i64 %156, %.sroa.039.sroa.13.0.copyload
+  br i1 %.not34.i, label %142, label %.loopexit
 
 .preheader109:                                    ; preds = %142, %177
   %.sroa.04.0.i = phi i64 [ %178, %177 ], [ %.sroa.4.0172, %142 ]

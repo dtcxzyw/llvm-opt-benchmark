@@ -649,8 +649,8 @@ define dso_local void @_ZN4llvm2gi13PatternParser23parseInstructionPatternERKNS_
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !106
   %14 = icmp ne i8 %13, 5
-  %.not1418.i = icmp eq ptr %11, null
-  %.not14.i = or i1 %.not1418.i, %14
+  %.not1417.i = icmp eq ptr %11, null
+  %.not14.i = or i1 %.not1417.i, %14
   br i1 %.not14.i, label %.critedge.i.thread, label %15
 
 15:                                               ; preds = %9
@@ -757,8 +757,8 @@ _ZNSt10unique_ptrIN4llvm2gi25CodeGenInstructionPatternESt14default_deleteIS2_EED
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 8, !tbaa !106
   %72 = icmp ne i8 %71, 5
-  %.not1418.i93 = icmp eq ptr %69, null
-  %.not14.i94 = or i1 %.not1418.i93, %72
+  %.not1417.i93 = icmp eq ptr %69, null
+  %.not14.i94 = or i1 %.not1417.i93, %72
   br i1 %.not14.i94, label %.thread, label %73
 
 73:                                               ; preds = %.critedge.i.thread
@@ -961,8 +961,8 @@ _ZNSt10unique_ptrIN4llvm2gi25CodeGenInstructionPatternESt14default_deleteIS2_EED
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i8, ptr %170, align 8, !tbaa !106
   %172 = icmp ne i8 %171, 5
-  %.not1418.i108 = icmp eq ptr %169, null
-  %.not14.i109 = or i1 %.not1418.i108, %172
+  %.not1417.i108 = icmp eq ptr %169, null
+  %.not14.i109 = or i1 %.not1417.i108, %172
   br i1 %.not14.i109, label %.thread218, label %173
 
 173:                                              ; preds = %.thread
@@ -1018,8 +1018,8 @@ _ZN4llvm28getDagWithOperatorOfSubClassERKNS_4InitENS_9StringRefE.exit111: ; pred
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load i8, ptr %195, align 8, !tbaa !106
   %197 = icmp ne i8 %196, 5
-  %.not1418.i120 = icmp eq ptr %194, null
-  %.not14.i121 = or i1 %.not1418.i120, %197
+  %.not1417.i120 = icmp eq ptr %194, null
+  %.not14.i121 = or i1 %.not1417.i120, %197
   br i1 %.not14.i121, label %.thread175, label %198
 
 198:                                              ; preds = %.thread218
@@ -1093,8 +1093,8 @@ _ZN4llvm28getDagWithOperatorOfSubClassERKNS_4InitENS_9StringRefE.exit111: ; pred
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load i8, ptr %231, align 8, !tbaa !106
   %233 = icmp ne i8 %232, 5
-  %.not1825.i = icmp eq ptr %230, null
-  %.not18.i = or i1 %.not1825.i, %233
+  %.not1824.i = icmp eq ptr %230, null
+  %.not18.i = or i1 %.not1824.i, %233
   br i1 %.not18.i, label %.critedge.i132, label %234
 
 234:                                              ; preds = %228
@@ -1179,8 +1179,8 @@ define dso_local void @_ZN4llvm2gi13PatternParser26parseWipMatchOpcodeMatcherERK
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8, !tbaa !106
   %17 = icmp ne i8 %16, 5
-  %.not1825.i = icmp eq ptr %14, null
-  %.not18.i = or i1 %.not1825.i, %17
+  %.not1824.i = icmp eq ptr %14, null
+  %.not18.i = or i1 %.not1824.i, %17
   br i1 %.not18.i, label %.critedge.i, label %18
 
 18:                                               ; preds = %12
@@ -1454,17 +1454,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordESt10unique_ptrINS_2gi7PatFragES
   %55 = zext i32 %54 to i64
   %.idx.i.i = shl nuw nsw i64 %55, 3
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %54, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i4
+  %.not34.i.i = icmp eq i32 %54, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i4
 
 .lr.ph.i.i4:                                      ; preds = %51, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %58, %.critedge.i.i ], [ %52, %51 ]
-  %57 = load ptr, ptr %.02937.i.i, align 8, !tbaa !215, !noalias !210
+  %.02935.i.i = phi ptr [ %58, %.critedge.i.i ], [ %52, %51 ]
+  %57 = load ptr, ptr %.02935.i.i, align 8, !tbaa !215, !noalias !210
   %.not17.i.i = icmp eq ptr %57, %47
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_2gi7PatFragEE6insertES4_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i4
-  %58 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %58, %56
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i4, !llvm.loop !216
 
@@ -1634,17 +1634,17 @@ _ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EEaSEOS5_.exit: ; pred
   %129 = zext i32 %128 to i64
   %.idx.i.i54 = shl nuw nsw i64 %129, 3
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i54
-  %.not36.i.i55 = icmp eq i32 %128, 0
-  br i1 %.not36.i.i55, label %._crit_edge.i.i61, label %.lr.ph.i.i56
+  %.not34.i.i55 = icmp eq i32 %128, 0
+  br i1 %.not34.i.i55, label %._crit_edge.i.i61, label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %125, %.critedge.i.i59
-  %.02937.i.i57 = phi ptr [ %132, %.critedge.i.i59 ], [ %126, %125 ]
-  %131 = load ptr, ptr %.02937.i.i57, align 8, !tbaa !215, !noalias !236
+  %.02935.i.i57 = phi ptr [ %132, %.critedge.i.i59 ], [ %126, %125 ]
+  %131 = load ptr, ptr %.02935.i.i57, align 8, !tbaa !215, !noalias !236
   %.not17.i.i58 = icmp eq ptr %131, %67
   br i1 %.not17.i.i58, label %_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EED2Ev.exit, label %.critedge.i.i59
 
 .critedge.i.i59:                                  ; preds = %.lr.ph.i.i56
-  %132 = getelementptr inbounds nuw i8, ptr %.02937.i.i57, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.02935.i.i57, i64 8
   %.not.i.i60 = icmp eq ptr %132, %130
   br i1 %.not.i.i60, label %._crit_edge.i.i61, label %.lr.ph.i.i56, !llvm.loop !216
 
@@ -1841,8 +1841,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm2gi13PatternParser30parseInstructio
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i8, ptr %76, align 8, !tbaa !106
   %78 = icmp ne i8 %77, 5
-  %.not1825.i = icmp eq ptr %75, null
-  %.not18.i = or i1 %.not1825.i, %78
+  %.not1824.i = icmp eq ptr %75, null
+  %.not18.i = or i1 %.not1824.i, %78
   br i1 %.not18.i, label %.thread133, label %79
 
 79:                                               ; preds = %73
@@ -3911,8 +3911,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %9 = zext i32 %8 to i64
   %.idx = mul nuw nsw i64 %9, 24
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %.not36.not = icmp eq i32 %8, 0
-  br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
+  %.not37.not = icmp eq i32 %8, 0
+  br i1 %.not37.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3922,14 +3922,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.critedge
-  %.02337 = phi ptr [ %6, %.lr.ph ], [ %37, %.critedge ]
-  %16 = load ptr, ptr %.02337, align 8, !tbaa !135
+  %.02338 = phi ptr [ %6, %.lr.ph ], [ %37, %.critedge ]
+  %16 = load ptr, ptr %.02338, align 8, !tbaa !135
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i8, ptr %18, align 8, !tbaa !106
   %20 = icmp ne i8 %19, 19
-  %.not2735 = icmp eq ptr %17, null
-  %.not27 = or i1 %.not2735, %20
+  %.not2736 = icmp eq ptr %17, null
+  %.not27 = or i1 %.not2736, %20
   br i1 %.not27, label %25, label %21
 
 21:                                               ; preds = %15
@@ -3941,12 +3941,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   br i1 %.not.i, label %23, label %.critedge
 
 23:                                               ; preds = %21
-  br i1 %13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
+  br i1 %13, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %23
   %bcmp.i = call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %1, i64 %2)
   %24 = icmp eq i32 %bcmp.i, 0
-  br i1 %24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
+  br i1 %24, label %.thread, label %.critedge
 
 25:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3984,14 +3984,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0.i29, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
+  br i1 %.0.i29, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %37 = getelementptr inbounds nuw i8, ptr %.02337, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.02338, i64 24
   %.not.not = icmp eq ptr %37, %10
-  br i1 %.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %15
+  br i1 %.not.not, label %.thread, label %15
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %23, %3
+.thread:                                          ; preds = %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %23, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ true, %23 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %.critedge ]
   ret i1 %.not.lcssa
 }

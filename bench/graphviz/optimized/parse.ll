@@ -636,7 +636,7 @@ define internal fastcc void @addCase(ptr noundef nonnull captures(none) %0, ptr 
 ._crit_edge.i.i:                                  ; preds = %10
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !23
-  %.pre45.i.i = load ptr, ptr %0, align 8, !tbaa !24
+  %.pre44.i.i = load ptr, ptr %0, align 8, !tbaa !24
   br label %case_infos_append.exit
 
 16:                                               ; preds = %10
@@ -691,7 +691,7 @@ define internal fastcc void @addCase(ptr noundef nonnull captures(none) %0, ptr 
   unreachable
 
 case_infos_append.exit:                           ; preds = %._crit_edge.i.i, %40
-  %46 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %22, %40 ]
+  %46 = phi ptr [ %.pre44.i.i, %._crit_edge.i.i ], [ %22, %40 ]
   %47 = phi i64 [ %14, %._crit_edge.i.i ], [ %spec.select.i.i, %40 ]
   %48 = phi i64 [ %12, %._crit_edge.i.i ], [ %31, %40 ]
   %49 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %41, %40 ]

@@ -767,18 +767,18 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..0.i.sroa_idx, align 8, !tbaa !41
   %.sroa.6.0..0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..0.i.sroa_idx, align 4
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %.thread.thread, label %.lr.ph
+  %.not19 = icmp eq i64 %1, 0
+  br i1 %.not19, label %.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %34
-  %.0921 = phi i64 [ %1, %.lr.ph ], [ %14, %34 ]
-  %13 = add i64 %.0921, -1
+  %.0920 = phi i64 [ %1, %.lr.ph ], [ %14, %34 ]
+  %13 = add i64 %.0920, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ult i64 %.0921, 17
+  %15 = icmp ult i64 %.0920, 17
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %16, i64 %14
   %18 = load ptr, ptr %7, align 8
@@ -805,9 +805,9 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %12
-  %35 = icmp ult i64 %.0921, 8
-  %36 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %16, i64 %.0921
-  %37 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %18, i64 %.0921
+  %35 = icmp ult i64 %.0920, 8
+  %36 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %16, i64 %.0920
+  %37 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %18, i64 %.0920
   %38 = getelementptr i8, ptr %37, i64 -128
   %.0.i12 = select i1 %35, ptr %36, ptr %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i12, ptr noundef nonnull align 8 dereferenceable(16) %.0.i10, i64 16, i1 false), !tbaa.struct !59
@@ -816,13 +816,13 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
 
 ..thread.loopexit_crit_edge:                      ; preds = %34
   %.pre.pre = load ptr, ptr %4, align 8
-  %.pre24.pre = load ptr, ptr %7, align 8
+  %.pre23.pre = load ptr, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %12, %..thread.loopexit_crit_edge
-  %39 = phi ptr [ %.pre24.pre, %..thread.loopexit_crit_edge ], [ %18, %12 ]
+  %39 = phi ptr [ %.pre23.pre, %..thread.loopexit_crit_edge ], [ %18, %12 ]
   %40 = phi ptr [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %16, %12 ]
-  %.09.lcssa = phi i64 [ %14, %..thread.loopexit_crit_edge ], [ %.0921, %12 ]
+  %.09.lcssa = phi i64 [ %14, %..thread.loopexit_crit_edge ], [ %.0920, %12 ]
   %.09.lcssa.fr = freeze i64 %.09.lcssa
   %41 = icmp ult i64 %.09.lcssa.fr, 8
   %42 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %40, i64 %.09.lcssa.fr
@@ -882,8 +882,8 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 4
   %21 = add i64 %20, %15
-  %.not48 = icmp ult i64 %14, %21
-  br i1 %.not48, label %.lr.ph, label %._crit_edge
+  %.not47 = icmp ult i64 %14, %21
+  br i1 %.not47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -895,31 +895,31 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   %26 = phi ptr [ %9, %.lr.ph ], [ %89, %80 ]
   %27 = phi i64 [ %14, %.lr.ph ], [ %86, %80 ]
   %28 = phi i64 [ %13, %.lr.ph ], [ %85, %80 ]
-  %.049 = phi i64 [ %1, %.lr.ph ], [ %.222, %80 ]
+  %.048 = phi i64 [ %1, %.lr.ph ], [ %.222, %80 ]
   %29 = add nuw i64 %28, 2
-  %30 = icmp eq i64 %.049, 0
+  %30 = icmp eq i64 %.048, 0
   %31 = load i64, ptr %22, align 8
   %32 = icmp ult i64 %31, %25
   %or.cond = select i1 %30, i1 %32, i1 false
-  br i1 %or.cond, label %._crit_edge54, label %33
+  br i1 %or.cond, label %._crit_edge53, label %33
 
-._crit_edge54:                                    ; preds = %24
+._crit_edge53:                                    ; preds = %24
   %.pre = load ptr, ptr %5, align 8
   br label %61
 
 33:                                               ; preds = %24
   %34 = icmp ult i64 %29, %25
-  %.pre55 = load ptr, ptr %5, align 8
+  %.pre54 = load ptr, ptr %5, align 8
   br i1 %34, label %35, label %61
 
 35:                                               ; preds = %33
   %36 = icmp ult i64 %28, 8
-  %37 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %.pre55, i64 %27
+  %37 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %.pre54, i64 %27
   %38 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %26, i64 %27
   %39 = getelementptr i8, ptr %38, i64 -128
   %.0.i26 = select i1 %36, ptr %37, ptr %39
   %40 = icmp ult i64 %28, 6
-  %41 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %.pre55, i64 %29
+  %41 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %.pre54, i64 %29
   %42 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %26, i64 %29
   %43 = getelementptr i8, ptr %42, i64 -128
   %.0.i27 = select i1 %40, ptr %41, ptr %43
@@ -947,9 +947,9 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   %spec.select = select i1 %60, i64 %29, i64 %27
   br label %61
 
-61:                                               ; preds = %._crit_edge54, %35, %33
-  %62 = phi ptr [ %.pre55, %33 ], [ %.pre55, %35 ], [ %.pre, %._crit_edge54 ]
-  %.222 = phi i64 [ %27, %33 ], [ %spec.select, %35 ], [ %31, %._crit_edge54 ]
+61:                                               ; preds = %._crit_edge53, %35, %33
+  %62 = phi ptr [ %.pre54, %33 ], [ %.pre54, %35 ], [ %.pre, %._crit_edge53 ]
+  %.222 = phi i64 [ %27, %33 ], [ %spec.select, %35 ], [ %31, %._crit_edge53 ]
   %63 = icmp ult i64 %.222, 8
   %64 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %62, i64 %.222
   %65 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %26, i64 %.222
@@ -975,9 +975,9 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   br i1 %79, label %80, label %._crit_edge
 
 80:                                               ; preds = %61
-  %81 = icmp ult i64 %.049, 8
-  %82 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %62, i64 %.049
-  %83 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %26, i64 %.049
+  %81 = icmp ult i64 %.048, 8
+  %82 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %62, i64 %.048
+  %83 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %26, i64 %.048
   %84 = getelementptr i8, ptr %83, i64 -128
   %.0.i34 = select i1 %81, ptr %82, ptr %84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i34, ptr noundef nonnull align 8 dereferenceable(16) %.0.i28, i64 16, i1 false), !tbaa.struct !59
@@ -996,7 +996,7 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
 
 ._crit_edge:                                      ; preds = %61, %80, %2
   %95 = phi ptr [ %9, %2 ], [ %89, %80 ], [ %26, %61 ]
-  %.0.lcssa = phi i64 [ %1, %2 ], [ %.222, %80 ], [ %.049, %61 ]
+  %.0.lcssa = phi i64 [ %1, %2 ], [ %.222, %80 ], [ %.048, %61 ]
   %.121.ph = phi i64 [ -1, %2 ], [ %.222, %80 ], [ %.222, %61 ]
   %96 = icmp eq i64 %.0.lcssa, 0
   br i1 %96, label %.split, label %.split24

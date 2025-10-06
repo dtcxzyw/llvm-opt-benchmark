@@ -35,9 +35,9 @@ define hidden i32 @lj_carith_op(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %.not.i = icmp ult ptr %18, %20
   %indvars.iv.i.sroa.gep35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %indvars.iv.i29.sroa.gep48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %.not.i, label %.preheader116.i, label %22
+  br i1 %.not.i, label %.preheader115.i, label %22
 
-.preheader116.i:                                  ; preds = %2
+.preheader115.i:                                  ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %23
 
@@ -45,14 +45,14 @@ define hidden i32 @lj_carith_op(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   tail call void @lj_err_argt(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 10) #7
   unreachable
 
-23:                                               ; preds = %.backedge, %.preheader116.i
-  %.v.i = phi i64 [ 8, %.preheader116.i ], [ -8, %.backedge ]
-  %.not100.i = phi i1 [ true, %.preheader116.i ], [ false, %.backedge ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %8, %.preheader116.i ], [ %indvars.iv.i.sroa.gep35, %.backedge ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader116.i ], [ 1, %.backedge ]
-  %.088124.i = phi ptr [ %17, %.preheader116.i ], [ %.088124.i.be, %.backedge ]
-  %.089123.i = phi i32 [ 1, %.preheader116.i ], [ %.089123.i.be, %.backedge ]
-  %24 = load i64, ptr %.088124.i, align 8, !tbaa !36
+23:                                               ; preds = %.backedge, %.preheader115.i
+  %.v.i = phi i64 [ 8, %.preheader115.i ], [ -8, %.backedge ]
+  %.not100.i = phi i1 [ true, %.preheader115.i ], [ false, %.backedge ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %8, %.preheader115.i ], [ %indvars.iv.i.sroa.gep35, %.backedge ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader115.i ], [ 1, %.backedge ]
+  %.088123.i = phi ptr [ %17, %.preheader115.i ], [ %.088123.i.be, %.backedge ]
+  %.089122.i = phi i32 [ 1, %.preheader115.i ], [ %.089122.i.be, %.backedge ]
+  %24 = load i64, ptr %.088123.i, align 8, !tbaa !36
   %25 = ashr i64 %24, 47
   %26 = icmp eq i64 %25, -11
   br i1 %26, label %27, label %84
@@ -67,8 +67,8 @@ define hidden i32 @lj_carith_op(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %34
 
 34:                                               ; preds = %34, %27
-  %.pn115.i = phi i64 [ %33, %27 ], [ %38, %34 ]
-  %.0.i.i = getelementptr inbounds nuw %struct.CType, ptr %32, i64 %.pn115.i
+  %.pn114.i = phi i64 [ %33, %27 ], [ %38, %34 ]
+  %.0.i.i = getelementptr inbounds nuw %struct.CType, ptr %32, i64 %.pn114.i
   %35 = load i32, ptr %.0.i.i, align 8, !tbaa !41
   %36 = icmp slt i32 %35, -1879048192
   %37 = and i32 %35, 65535
@@ -178,7 +178,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i, %76, 
   br i1 %95, label %96, label %.thread111.i.sink.split
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %.088124.i, i64 %.v.i
+  %97 = getelementptr inbounds i8, ptr %.088123.i, i64 %.v.i
   %98 = load i64, ptr %97, align 8, !tbaa !36
   %99 = and i64 %98, 140737488355327
   %100 = inttoptr i64 %99 to ptr
@@ -231,8 +231,8 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
 
 .thread111.i.sink.split:                          ; preds = %94, %ctype_rawchild.exit.i, %86, %91
   %.sink106 = phi ptr [ %93, %91 ], [ %88, %86 ], [ %.193.i, %ctype_rawchild.exit.i ], [ null, %94 ]
-  %.sink = phi ptr [ null, %91 ], [ %.088124.i, %86 ], [ %.094.i, %ctype_rawchild.exit.i ], [ inttoptr (i64 1 to ptr), %94 ]
-  %.5.i.ph = phi i32 [ %.089123.i, %91 ], [ %.089123.i, %86 ], [ %.089123.i, %ctype_rawchild.exit.i ], [ 0, %94 ]
+  %.sink = phi ptr [ null, %91 ], [ %.088123.i, %86 ], [ %.094.i, %ctype_rawchild.exit.i ], [ inttoptr (i64 1 to ptr), %94 ]
+  %.5.i.ph = phi i32 [ %.089122.i, %91 ], [ %.089122.i, %86 ], [ %.089122.i, %ctype_rawchild.exit.i ], [ 0, %94 ]
   %123 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   store ptr %.sink106, ptr %123, align 8, !tbaa !49
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
@@ -243,8 +243,8 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   br i1 %.not100.i, label %.backedge, label %carith_checkarg.exit
 
 .backedge:                                        ; preds = %.thread111.i, %.thread111.i.thread
-  %.089123.i.be = phi i32 [ %.5.i, %.thread111.i ], [ 1, %.thread111.i.thread ]
-  %.088124.i.be = getelementptr inbounds nuw i8, ptr %.088124.i, i64 8
+  %.089122.i.be = phi i32 [ %.5.i, %.thread111.i ], [ 1, %.thread111.i.thread ]
+  %.088123.i.be = getelementptr inbounds nuw i8, ptr %.088123.i, i64 8
   br label %23, !llvm.loop !51
 
 .thread111.i.thread:                              ; preds = %117

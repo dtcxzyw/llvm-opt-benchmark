@@ -429,53 +429,53 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 5:                                                ; preds = %0
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 668, ptr noundef nonnull @.str.113, ptr noundef %.fr) #7
   %.not48 = icmp eq i32 %6, 0
-  br i1 %.not48, label %.loopexit, label %.preheader60
+  br i1 %.not48, label %.loopexit, label %.preheader59
 
-.preheader60:                                     ; preds = %5, %20
-  %.04461 = phi i64 [ %21, %20 ], [ 0, %5 ]
+.preheader59:                                     ; preds = %5, %20
+  %.04460 = phi i64 [ %21, %20 ], [ 0, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %7 = getelementptr inbounds nuw %struct.gennamedata, ptr @gennames, i64 %.04461
+  %7 = getelementptr inbounds nuw %struct.gennamedata, ptr @gennames, i64 %.04460
   store ptr %7, ptr %1, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !17
   %10 = call ptr @d2i_GENERAL_NAME(ptr noundef null, ptr noundef nonnull %1, i64 noundef %9) #7
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04461
+  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04460
   store ptr %10, ptr %11, align 8, !tbaa !20
   store ptr %7, ptr %1, align 8, !tbaa !12
   %12 = load i64, ptr %8, align 8, !tbaa !17
   %13 = call ptr @d2i_GENERAL_NAME(ptr noundef null, ptr noundef nonnull %1, i64 noundef %12) #7
-  %14 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04461
+  %14 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04460
   store ptr %13, ptr %14, align 8, !tbaa !20
   %15 = load ptr, ptr %11, align 8, !tbaa !20
   %16 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 681, ptr noundef nonnull @.str.114, ptr noundef %15) #7
   %.not51 = icmp eq i32 %16, 0
   br i1 %.not51, label %.thread, label %17
 
-17:                                               ; preds = %.preheader60
+17:                                               ; preds = %.preheader59
   %18 = load ptr, ptr %14, align 8, !tbaa !20
   %19 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 681, ptr noundef nonnull @.str.115, ptr noundef %18) #7
   %.not52 = icmp eq i32 %19, 0
   br i1 %.not52, label %.thread, label %20
 
-.thread:                                          ; preds = %.preheader60, %17
+.thread:                                          ; preds = %.preheader59, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.split.split.preheader
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %21 = add nuw nsw i64 %.04461, 1
+  %21 = add nuw nsw i64 %.04460, 1
   %exitcond.not = icmp eq i64 %21, 27
-  br i1 %exitcond.not, label %.preheader, label %.preheader60, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader, label %.preheader59, !llvm.loop !22
 
 .preheader:                                       ; preds = %20, %38
-  %.163 = phi i64 [ %39, %38 ], [ 0, %20 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %.163
-  %23 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.163
+  %.162 = phi i64 [ %39, %38 ], [ 0, %20 ]
+  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %.162
+  %23 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.162
   br label %24
 
 24:                                               ; preds = %.preheader, %36
-  %.04562 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
-  %25 = icmp eq i64 %.163, %.04562
+  %.04561 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
+  %25 = icmp eq i64 %.162, %.04561
   %26 = load ptr, ptr %22, align 8, !tbaa !20
   br i1 %25, label %27, label %31
 
@@ -487,7 +487,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %.not50, label %.split.split.preheader, label %36
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04562
+  %32 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04561
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = call i32 @GENERAL_NAME_cmp(ptr noundef %26, ptr noundef %33) #7
   %35 = call i32 @test_int_ne(ptr noundef nonnull @.str.2, i32 noundef 692, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.67, i32 noundef %34, i32 noundef 0) #7
@@ -495,14 +495,14 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %.not49, label %.split.split.preheader, label %36
 
 36:                                               ; preds = %27, %31
-  %37 = add nuw nsw i64 %.04562, 1
-  %exitcond72.not = icmp eq i64 %37, 27
-  br i1 %exitcond72.not, label %38, label %24, !llvm.loop !23
+  %37 = add nuw nsw i64 %.04561, 1
+  %exitcond71.not = icmp eq i64 %37, 27
+  br i1 %exitcond71.not, label %38, label %24, !llvm.loop !23
 
 38:                                               ; preds = %36
-  %39 = add nuw nsw i64 %.163, 1
-  %exitcond73.not = icmp eq i64 %39, 27
-  br i1 %exitcond73.not, label %.split.split.preheader, label %.preheader, !llvm.loop !24
+  %39 = add nuw nsw i64 %.162, 1
+  %exitcond72.not = icmp eq i64 %39, 27
+  br i1 %exitcond72.not, label %.split.split.preheader, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %0, %5
   %.not53 = icmp eq ptr %2, null
@@ -510,50 +510,50 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %.not53, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.loopexit
-  br i1 %.not54, label %.split66.us, label %.split.us.split
+  br i1 %.not54, label %.split65.us, label %.split.us.split
 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split
-  %.264.us = phi i64 [ %42, %.split.us.split ], [ 0, %.split.us ]
-  %40 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264.us
+  %.263.us = phi i64 [ %42, %.split.us.split ], [ 0, %.split.us ]
+  %40 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.263.us
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   tail call void @GENERAL_NAME_free(ptr noundef %41) #7
-  %42 = add nuw nsw i64 %.264.us, 1
-  %exitcond76.not = icmp eq i64 %42, 27
-  br i1 %exitcond76.not, label %.split66.us, label %.split.us.split, !llvm.loop !25
+  %42 = add nuw nsw i64 %.263.us, 1
+  %exitcond75.not = icmp eq i64 %42, 27
+  br i1 %exitcond75.not, label %.split65.us, label %.split.us.split, !llvm.loop !25
 
 .split:                                           ; preds = %.loopexit
   br i1 %.not54, label %.split.split.us, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %38, %27, %31, %.thread, %.split
-  %.0428486 = phi i32 [ 0, %.split ], [ 0, %.thread ], [ 0, %31 ], [ 0, %27 ], [ 1, %38 ]
+  %.0428385 = phi i32 [ 0, %.split ], [ 0, %.thread ], [ 0, %31 ], [ 0, %27 ], [ 1, %38 ]
   br label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %.264.us67 = phi i64 [ %45, %.split.split.us ], [ 0, %.split ]
-  %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264.us67
+  %.263.us66 = phi i64 [ %45, %.split.split.us ], [ 0, %.split ]
+  %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %.263.us66
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   tail call void @GENERAL_NAME_free(ptr noundef %44) #7
-  %45 = add nuw nsw i64 %.264.us67, 1
-  %exitcond75.not = icmp eq i64 %45, 27
-  br i1 %exitcond75.not, label %.split66.us, label %.split.split.us, !llvm.loop !25
+  %45 = add nuw nsw i64 %.263.us66, 1
+  %exitcond74.not = icmp eq i64 %45, 27
+  br i1 %exitcond74.not, label %.split65.us, label %.split.split.us, !llvm.loop !25
 
 .split.split:                                     ; preds = %.split.split.preheader, %.split.split
-  %.264 = phi i64 [ %50, %.split.split ], [ 0, %.split.split.preheader ]
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264
+  %.263 = phi i64 [ %50, %.split.split ], [ 0, %.split.split.preheader ]
+  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %.263
   %47 = load ptr, ptr %46, align 8, !tbaa !20
   call void @GENERAL_NAME_free(ptr noundef %47) #7
-  %48 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264
+  %48 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.263
   %49 = load ptr, ptr %48, align 8, !tbaa !20
   call void @GENERAL_NAME_free(ptr noundef %49) #7
-  %50 = add nuw nsw i64 %.264, 1
-  %exitcond74.not = icmp eq i64 %50, 27
-  br i1 %exitcond74.not, label %.split66.us, label %.split.split, !llvm.loop !25
+  %50 = add nuw nsw i64 %.263, 1
+  %exitcond73.not = icmp eq i64 %50, 27
+  br i1 %exitcond73.not, label %.split65.us, label %.split.split, !llvm.loop !25
 
-.split66.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us.split, %.split.us
-  %.04283 = phi i32 [ 0, %.split.us ], [ 0, %.split.us.split ], [ 0, %.split.split.us ], [ %.0428486, %.split.split ]
+.split65.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us.split, %.split.us
+  %.04282 = phi i32 [ 0, %.split.us ], [ 0, %.split.us.split ], [ 0, %.split.split.us ], [ %.0428385, %.split.split ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 706) #7
   call void @CRYPTO_free(ptr noundef %.fr, ptr noundef nonnull @.str.2, i32 noundef 707) #7
-  ret i32 %.04283
+  ret i32 %.04282
 }
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1

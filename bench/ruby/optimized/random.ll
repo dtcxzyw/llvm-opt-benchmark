@@ -4155,17 +4155,17 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %19 = getelementptr i32, ptr %18, i64 %5
   %20 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %18, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.03449 = add i64 %5, -1
-  %22 = icmp sgt i64 %.03449, -1
+  %.03448 = add i64 %5, -1
+  %22 = icmp sgt i64 %.03448, -1
   br i1 %22, label %.lr.ph, label %.loopexit._crit_edge
 
 .lr.ph:                                           ; preds = %17, %.lr.ph.backedge
-  %.03452 = phi i64 [ %.03452.be, %.lr.ph.backedge ], [ %.03449, %17 ]
-  %.03251 = phi i32 [ %.03251.be, %.lr.ph.backedge ], [ 0, %17 ]
-  %.03550 = phi i32 [ %.03550.be, %.lr.ph.backedge ], [ 1, %17 ]
-  %23 = getelementptr i32, ptr %18, i64 %.03452
+  %.03451 = phi i64 [ %.03451.be, %.lr.ph.backedge ], [ %.03448, %17 ]
+  %.03250 = phi i32 [ %.03250.be, %.lr.ph.backedge ], [ 0, %17 ]
+  %.03549 = phi i32 [ %.03549.be, %.lr.ph.backedge ], [ 1, %17 ]
+  %23 = getelementptr i32, ptr %18, i64 %.03451
   %24 = load i32, ptr %23, align 4, !tbaa !22
-  %.not = icmp eq i32 %.03251, 0
+  %.not = icmp eq i32 %.03250, 0
   br i1 %.not, label %25, label %.thread
 
 25:                                               ; preds = %.lr.ph
@@ -4189,7 +4189,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %39 = load ptr, ptr %21, align 8, !tbaa !39
   %40 = call i32 %39(ptr noundef nonnull %1) #22
   %41 = and i32 %40, %38
-  %.not42 = icmp eq i32 %.03550, 0
+  %.not42 = icmp eq i32 %.03549, 0
   br i1 %.not42, label %46, label %42
 
 42:                                               ; preds = %.thread
@@ -4203,18 +4203,18 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
 
 46:                                               ; preds = %25, %.thread, %44
   %47 = phi i32 [ %38, %.thread ], [ 0, %25 ], [ %38, %44 ]
-  %.1 = phi i32 [ 0, %.thread ], [ %.03550, %25 ], [ %spec.select, %44 ]
+  %.1 = phi i32 [ 0, %.thread ], [ %.03549, %25 ], [ %spec.select, %44 ]
   %.033 = phi i32 [ %41, %.thread ], [ 0, %25 ], [ %41, %44 ]
-  %48 = getelementptr i32, ptr %19, i64 %.03452
+  %48 = getelementptr i32, ptr %19, i64 %.03451
   store i32 %.033, ptr %48, align 4, !tbaa !22
-  %.034 = add nsw i64 %.03452, -1
-  %49 = icmp sgt i64 %.03452, 0
+  %.034 = add nsw i64 %.03451, -1
+  %49 = icmp sgt i64 %.03451, 0
   br i1 %49, label %.lr.ph.backedge, label %.loopexit._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %46, %42
-  %.03452.be = phi i64 [ %.034, %46 ], [ %.03449, %42 ]
-  %.03251.be = phi i32 [ %47, %46 ], [ 0, %42 ]
-  %.03550.be = phi i32 [ %.1, %46 ], [ 1, %42 ]
+  %.03451.be = phi i64 [ %.034, %46 ], [ %.03448, %42 ]
+  %.03250.be = phi i32 [ %47, %46 ], [ 0, %42 ]
+  %.03549.be = phi i32 [ %.1, %46 ], [ 1, %42 ]
   br label %.lr.ph, !llvm.loop !99
 
 .loopexit._crit_edge:                             ; preds = %46, %17

@@ -3176,13 +3176,13 @@ _ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pai
   store ptr inttoptr (i64 4096 to ptr), ptr %11, align 8, !tbaa !51
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !40
-  %.not38 = icmp eq i64 %13, 0
+  %.not37 = icmp eq i64 %13, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not38, label %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge37_crit_edge, label %.preheader.lr.ph
+  br i1 %.not37, label %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge36_crit_edge, label %.preheader.lr.ph
 
-_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge37_crit_edge: ; preds = %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit
-  %.pre41 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !53
-  br label %._crit_edge37
+_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge36_crit_edge: ; preds = %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit
+  %.pre40 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !53
+  br label %._crit_edge36
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -3194,11 +3194,11 @@ _ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pai
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %17 = phi i64 [ %13, %.preheader.lr.ph ], [ %51, %._crit_edge ]
   %18 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %52, %._crit_edge ]
-  %.02536 = phi i64 [ 0, %.preheader.lr.ph ], [ %53, %._crit_edge ]
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02536
+  %.02535 = phi i64 [ 0, %.preheader.lr.ph ], [ %53, %._crit_edge ]
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02535
   %20 = load ptr, ptr %19, align 8, !tbaa !51
-  %.not35 = icmp eq ptr %20, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %20, null
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %21 = phi ptr [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %20, %.preheader ]
@@ -3262,7 +3262,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !69
   %43 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !53
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.02536
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.02535
   store ptr %42, ptr %44, align 8, !tbaa !51
   %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %40
   %46 = load ptr, ptr %45, align 8, !tbaa !51
@@ -3281,24 +3281,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
           to label %59 unwind label %65
 
 ._crit_edge.loopexit:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %.pre40 = load i64, ptr %12, align 8, !tbaa !40
+  %.pre39 = load i64, ptr %12, align 8, !tbaa !40
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %51 = phi i64 [ %.pre40, %._crit_edge.loopexit ], [ %17, %.preheader ]
+  %51 = phi i64 [ %.pre39, %._crit_edge.loopexit ], [ %17, %.preheader ]
   %52 = phi ptr [ %43, %._crit_edge.loopexit ], [ %18, %.preheader ]
-  %53 = add nuw i64 %.02536, 1
+  %53 = add nuw i64 %.02535, 1
   %54 = icmp ult i64 %53, %51
-  br i1 %54, label %.preheader, label %._crit_edge37.loopexit, !llvm.loop !103
+  br i1 %54, label %.preheader, label %._crit_edge36.loopexit, !llvm.loop !103
 
-._crit_edge37.loopexit:                           ; preds = %._crit_edge
+._crit_edge36.loopexit:                           ; preds = %._crit_edge
   %55 = shl i64 %51, 3
   %56 = add i64 %55, 8
-  br label %._crit_edge37
+  br label %._crit_edge36
 
-._crit_edge37:                                    ; preds = %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge37_crit_edge, %._crit_edge37.loopexit
-  %57 = phi ptr [ %.pre41, %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge37_crit_edge ], [ %52, %._crit_edge37.loopexit ]
-  %.lcssa = phi i64 [ 8, %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge37_crit_edge ], [ %56, %._crit_edge37.loopexit ]
+._crit_edge36:                                    ; preds = %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge36_crit_edge, %._crit_edge36.loopexit
+  %57 = phi ptr [ %.pre40, %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge36_crit_edge ], [ %52, %._crit_edge36.loopexit ]
+  %.lcssa = phi i64 [ 8, %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_allocate_bucketsEm.exit.._crit_edge36_crit_edge ], [ %56, %._crit_edge36.loopexit ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZdlPvm(ptr noundef %57, i64 noundef %.lcssa) #27
   store i64 %1, ptr %12, align 8, !tbaa !40

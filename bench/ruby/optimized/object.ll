@@ -2696,8 +2696,8 @@ sub_1.i.i:                                        ; preds = %23
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 111, %29
-  %.not14.i.i = icmp eq i8 %28, 111
-  br i1 %.not14.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not13.i.i = icmp eq i8 %28, 111
+  br i1 %.not13.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -3035,8 +3035,8 @@ sub_1.i.i:                                        ; preds = %24
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sub nsw i32 111, %30
-  %.not14.i.i = icmp eq i8 %29, 111
-  br i1 %.not14.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not13.i.i = icmp eq i8 %29, 111
+  br i1 %.not13.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -3300,8 +3300,8 @@ sub_1.i.i:                                        ; preds = %rb_integer_type_p.e
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 111, %18
-  %.not14.i.i = icmp eq i8 %17, 111
-  br i1 %.not14.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not13.i.i = icmp eq i8 %17, 111
+  br i1 %.not13.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -8409,8 +8409,8 @@ sub_1:                                            ; preds = %sub_0
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = sub nsw i32 111, %6
-  %.not14 = icmp eq i8 %5, 111
-  br i1 %.not14, label %sub_2, label %.tail
+  %.not13 = icmp eq i8 %5, 111
+  br i1 %.not13, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2

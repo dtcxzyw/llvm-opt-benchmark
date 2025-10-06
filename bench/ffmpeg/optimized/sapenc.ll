@@ -204,8 +204,8 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
 
 73:                                               ; preds = %68, %71
   %74 = load i32, ptr %64, align 4, !tbaa !35
-  %.not153 = icmp eq i32 %74, 0
-  br i1 %.not153, label %._crit_edge.thread, label %.lr.ph
+  %.not150 = icmp eq i32 %74, 0
+  br i1 %.not150, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -233,7 +233,7 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   %88 = load ptr, ptr %77, align 8, !tbaa !38
   %89 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %13, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %75, ptr noundef null, ptr noundef %87, ptr noundef %88, ptr noundef null) #9
   %.not137 = icmp eq i32 %89, 0
-  br i1 %.not137, label %90, label %.thread147
+  br i1 %.not137, label %90, label %.thread145
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
@@ -244,7 +244,7 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   %96 = trunc nuw nsw i64 %indvars.iv to i32
   %97 = call i32 @ff_rtp_chain_mux_open(ptr noundef %91, ptr noundef nonnull %0, ptr noundef %94, ptr noundef %95, i32 noundef 0, i32 noundef %96) #9
   %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.thread147, label %99
+  br i1 %98, label %.thread145, label %99
 
 99:                                               ; preds = %90
   %100 = load ptr, ptr %7, align 8, !tbaa !25
@@ -264,9 +264,9 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   store i64 %112, ptr %107, align 8
   %113 = call noalias ptr @av_strdup(ptr noundef nonnull %4) #9
   %.not138 = icmp eq ptr %113, null
-  br i1 %.not138, label %.thread147, label %114
+  br i1 %.not138, label %.thread145, label %114
 
-.thread147:                                       ; preds = %86, %90, %99
+.thread145:                                       ; preds = %86, %90, %99
   %.2.ph = phi i32 [ -12, %99 ], [ %97, %90 ], [ -5, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %198
@@ -409,8 +409,8 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18) #9
   br label %198
 
-198:                                              ; preds = %.thread147, %.thread, %165, %144, %136, %._crit_edge.thread, %63, %197, %143
-  %.1108 = phi i32 [ -5, %143 ], [ 0, %197 ], [ -12, %63 ], [ -5, %._crit_edge.thread ], [ -5, %136 ], [ -5, %144 ], [ -1094995529, %165 ], [ -5, %.thread ], [ %.2.ph, %.thread147 ]
+198:                                              ; preds = %.thread145, %.thread, %165, %144, %136, %._crit_edge.thread, %63, %197, %143
+  %.1108 = phi i32 [ -5, %143 ], [ 0, %197 ], [ -12, %63 ], [ -5, %._crit_edge.thread ], [ -5, %136 ], [ -5, %144 ], [ -1094995529, %165 ], [ -5, %.thread ], [ %.2.ph, %.thread145 ]
   %199 = load ptr, ptr %7, align 8, !tbaa !25
   call void @av_free(ptr noundef %199) #9
   %200 = call i32 @sap_write_close(ptr noundef nonnull %0)

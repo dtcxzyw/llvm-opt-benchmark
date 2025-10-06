@@ -863,27 +863,27 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %.lr.ph78, label %.critedge
+  br i1 %76, label %.lr.ph77, label %.critedge
 
-.lr.ph78:                                         ; preds = %.lr.ph
+.lr.ph77:                                         ; preds = %.lr.ph
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %78 = load ptr, ptr %77, align 8
   %wide.trip.count = zext nneg i32 %75 to i64
   br label %79
 
-79:                                               ; preds = %.lr.ph78, %79
-  %indvars.iv82 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next83, %79 ]
-  %.0426577 = phi i8 [ 0, %.lr.ph78 ], [ %.143, %79 ]
-  %.36676 = phi i64 [ %.1, %.lr.ph78 ], [ %.4, %79 ]
-  %80 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv82
+79:                                               ; preds = %.lr.ph77, %79
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next82, %79 ]
+  %.0426476 = phi i8 [ 0, %.lr.ph77 ], [ %.143, %79 ]
+  %.36575 = phi i64 [ %.1, %.lr.ph77 ], [ %.4, %79 ]
+  %80 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv81
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8
-  %84 = icmp ugt i64 %83, %.36676
-  %.143 = select i1 %84, i8 1, i8 %.0426577
-  %.4 = call i64 @llvm.umax.i64(i64 %83, i64 %.36676)
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
+  %84 = icmp ugt i64 %83, %.36575
+  %.143 = select i1 %84, i8 1, i8 %.0426476
+  %.4 = call i64 @llvm.umax.i64(i64 %83, i64 %.36575)
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %79
 
 .critedge:                                        ; preds = %79, %.lr.ph, %.loopexit
@@ -904,28 +904,28 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %92 = load ptr, ptr @MainLWLockArray, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 6272
   %94 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %93, i32 noundef 0) #10
-  %.pre84 = load ptr, ptr @WalSummarizerCtl, align 8
+  %.pre83 = load ptr, ptr @WalSummarizerCtl, align 8
   br i1 %7, label %98, label %95
 
 95:                                               ; preds = %91
-  %96 = load i8, ptr %.pre84, align 8, !range !4, !noundef !5
+  %96 = load i8, ptr %.pre83, align 8, !range !4, !noundef !5
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %103, label %98
 
 98:                                               ; preds = %95, %91
-  store i8 1, ptr %.pre84, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.pre84, i64 8
+  store i8 1, ptr %.pre83, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.pre83, i64 8
   store i64 %.3.lcssa, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.pre84, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.pre83, i64 4
   store i32 %.140, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %.pre84, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.pre83, i64 16
   store i8 %.042.lcssa, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.pre84, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.pre83, i64 24
   store i64 %.3.lcssa, ptr %102, align 8
   br label %106
 
 103:                                              ; preds = %95
-  %104 = getelementptr inbounds nuw i8, ptr %.pre84, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.pre83, i64 8
   %105 = load i64, ptr %104, align 8
   br label %106
 
@@ -935,7 +935,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   br i1 %.not57, label %110, label %107
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw i8, ptr %.pre84, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %.pre83, i64 4
   %109 = load i32, ptr %108, align 4
   store i32 %109, ptr %0, align 4
   br label %110
@@ -945,7 +945,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   br i1 %.not58, label %114, label %111
 
 111:                                              ; preds = %110
-  %112 = getelementptr inbounds nuw i8, ptr %.pre84, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.pre83, i64 16
   %113 = load i8, ptr %112, align 8, !range !4, !noundef !5
   store i8 %113, ptr %1, align 1
   br label %114
@@ -1123,9 +1123,9 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   call fastcc void @HandleWalSummarizerInterrupts()
   %65 = call ptr @XLogReadRecord(ptr noundef nonnull %28, ptr noundef nonnull %15) #10
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %._crit_edge, label %.lr.ph158
+  br i1 %66, label %._crit_edge, label %.lr.ph157
 
-.lr.ph158:                                        ; preds = %64
+.lr.ph157:                                        ; preds = %64
   %67 = icmp eq i64 %.0, 0
   %68 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %69 = getelementptr inbounds nuw i8, ptr %28, i64 104
@@ -1194,8 +1194,8 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1052, ptr noundef nonnull @__func__.SummarizeWAL) #10
   unreachable
 
-113:                                              ; preds = %.lr.ph158, %SummarizeXlogRecord.exit
-  %.0103157 = phi i8 [ 1, %.lr.ph158 ], [ %.4143, %SummarizeXlogRecord.exit ]
+113:                                              ; preds = %.lr.ph157, %SummarizeXlogRecord.exit
+  %.0103156 = phi i8 [ 1, %.lr.ph157 ], [ %.4143, %SummarizeXlogRecord.exit ]
   br i1 %67, label %116, label %114
 
 114:                                              ; preds = %113
@@ -1254,7 +1254,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br i1 %141, label %.loopexit, label %SummarizeDbaseRecord.exit
 
 142:                                              ; preds = %116
-  %143 = trunc nuw i8 %.0103157 to i1
+  %143 = trunc nuw i8 %.0103156 to i1
   br i1 %143, label %SummarizeDbaseRecord.exit.thread, label %144
 
 144:                                              ; preds = %142
@@ -1476,7 +1476,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br label %.preheader
 
 SummarizeDbaseRecord.exit:                        ; preds = %137, %121
-  %.4 = phi i8 [ %.0103157, %121 ], [ %139, %137 ]
+  %.4 = phi i8 [ %.0103156, %121 ], [ %139, %137 ]
   %235 = trunc nuw i8 %.4 to i1
   br i1 %235, label %SummarizeDbaseRecord.exit.thread, label %.preheader
 
@@ -1484,15 +1484,15 @@ SummarizeDbaseRecord.exit:                        ; preds = %137, %121
   %236 = load ptr, ptr %69, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 84
   %238 = load i32, ptr %237, align 4
-  %.not115155 = icmp slt i32 %238, 0
-  br i1 %.not115155, label %SummarizeDbaseRecord.exit.thread, label %.lr.ph
+  %.not115154 = icmp slt i32 %238, 0
+  br i1 %.not115154, label %SummarizeDbaseRecord.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %245
-  %.0107156 = phi i32 [ %246, %245 ], [ 0, %.preheader ]
+  %.0107155 = phi i32 [ %246, %245 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %239 = trunc i32 %.0107156 to i8
+  %239 = trunc i32 %.0107155 to i8
   %240 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %28, i8 noundef zeroext %239, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef null) #10
   br i1 %240, label %241, label %245
 
@@ -1510,7 +1510,7 @@ SummarizeDbaseRecord.exit:                        ; preds = %137, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %246 = add i32 %.0107156, 1
+  %246 = add i32 %.0107155, 1
   %247 = load ptr, ptr %69, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 84
   %249 = load i32, ptr %248, align 4
@@ -1545,7 +1545,7 @@ SummarizeXlogRecord.exit:                         ; preds = %SummarizeDbaseRecor
   br i1 %261, label %._crit_edge, label %113
 
 .loopexit:                                        ; preds = %114, %258, %137, %97
-  %.1104.ph = phi i8 [ %.0103.lcssa, %97 ], [ %.0103157, %114 ], [ %.4143, %258 ], [ %.0103157, %137 ]
+  %.1104.ph = phi i8 [ %.0103.lcssa, %97 ], [ %.0103156, %114 ], [ %.4143, %258 ], [ %.0103156, %137 ]
   %.2.ph = phi i64 [ %98, %97 ], [ %.0, %114 ], [ %250, %258 ], [ %140, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %262 = getelementptr inbounds nuw i8, ptr %28, i64 32

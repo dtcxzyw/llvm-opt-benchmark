@@ -1494,7 +1494,7 @@ define internal noundef i64 @write_sysrq_trigger(ptr readnone captures(none) %0,
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader.backedge
   %.pn = phi { ptr, i8, i64 } [ %21, %.preheader.backedge ], [ %7, %.preheader.preheader ]
   %13 = phi i64 [ %.be, %.preheader.backedge ], [ 0, %.preheader.preheader ]
-  %switch.not9 = phi i1 [ false, %.preheader.backedge ], [ true, %.preheader.preheader ]
+  %.not9 = phi i1 [ false, %.preheader.backedge ], [ true, %.preheader.preheader ]
   %14 = extractvalue { ptr, i8, i64 } %.pn, 1
   %15 = icmp eq i8 %14, 95
   br i1 %15, label %.thread3, label %16
@@ -1503,7 +1503,7 @@ define internal noundef i64 @write_sysrq_trigger(ptr readnone captures(none) %0,
   tail call void @__handle_sysrq(i8 noundef zeroext %14, i1 noundef zeroext false)
   %17 = add nuw i64 %13, 1
   %18 = icmp eq i64 %17, %2
-  %or.cond = select i1 %switch.not9, i1 true, i1 %18
+  %or.cond = select i1 %.not9, i1 true, i1 %18
   br i1 %or.cond, label %.thread, label %.preheader.backedge
 
 .thread3:                                         ; preds = %.lr.ph

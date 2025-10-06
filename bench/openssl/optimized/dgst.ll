@@ -1287,7 +1287,7 @@ define dso_local range(i32 0, 2) i32 @do_fp(ptr noundef %0, ptr noundef %1, ptr 
 26:                                               ; preds = %.critedge
   %27 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.96, ptr noundef %11) #8
-  br label %.thread71
+  br label %.thread68
 
 29:                                               ; preds = %.critedge
   %30 = icmp eq i32 %24, 0
@@ -1326,7 +1326,7 @@ define dso_local range(i32 0, 2) i32 @do_fp(ptr noundef %0, ptr noundef %1, ptr 
 print_verify_result.exit:                         ; preds = %38, %42, %44
   %spec.select = zext i1 %37 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread71
+  br label %.thread68
 
 47:                                               ; preds = %31
   %.not54 = icmp eq ptr %6, null
@@ -1396,9 +1396,9 @@ print_verify_result.exit:                         ; preds = %38, %42, %44
   %72 = load ptr, ptr %17, align 8, !tbaa !23
   %73 = call i32 @EVP_DigestFinalXOF(ptr noundef %72, ptr noundef %.346, i64 noundef %66) #8
   %.not55 = icmp eq i32 %73, 0
-  br i1 %.not55, label %74, label %.thread67
+  br i1 %.not55, label %74, label %.thread65
 
-.thread67:                                        ; preds = %70
+.thread65:                                        ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %81
 
@@ -1413,12 +1413,12 @@ print_verify_result.exit:                         ; preds = %38, %42, %44
   %79 = sext i32 %78 to i64
   store i64 %79, ptr %13, align 8, !tbaa !36
   %80 = icmp slt i32 %78, 0
-  br i1 %80, label %.thread71, label %81
+  br i1 %80, label %.thread68, label %81
 
-81:                                               ; preds = %.thread67, %62, %77
-  %82 = phi i64 [ %.pre, %62 ], [ %79, %77 ], [ %66, %.thread67 ]
-  %.245 = phi ptr [ %.144, %62 ], [ %1, %77 ], [ %.346, %.thread67 ]
-  %.3 = phi ptr [ %.2, %62 ], [ null, %77 ], [ %.4, %.thread67 ]
+81:                                               ; preds = %.thread65, %62, %77
+  %82 = phi i64 [ %.pre, %62 ], [ %79, %77 ], [ %66, %.thread65 ]
+  %.245 = phi ptr [ %.144, %62 ], [ %1, %77 ], [ %.346, %.thread65 ]
+  %.3 = phi ptr [ %.2, %62 ], [ null, %77 ], [ %.4, %.thread65 ]
   call fastcc void @print_out(ptr noundef %0, ptr noundef %.245, i64 noundef %82, i32 noundef %3, i32 noundef %4, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   br label %83
 
@@ -1426,17 +1426,17 @@ print_verify_result.exit:                         ; preds = %38, %42, %44
   %.040 = phi i32 [ 0, %81 ], [ 1, %74 ], [ 1, %.thread ]
   %.038 = phi ptr [ %.3, %81 ], [ %.4, %74 ], [ %.139.ph, %.thread ]
   %.not58 = icmp eq ptr %.038, null
-  br i1 %.not58, label %.thread71, label %84
+  br i1 %.not58, label %.thread68, label %84
 
 84:                                               ; preds = %83
   %85 = load i64, ptr %13, align 8, !tbaa !36
   call void @CRYPTO_clear_free(ptr noundef nonnull %.038, i64 noundef %85, ptr noundef nonnull @.str.95, i32 noundef 690) #8
-  br label %.thread71
+  br label %.thread68
 
-.thread71:                                        ; preds = %77, %print_verify_result.exit, %26, %83, %84
-  %.04075 = phi i32 [ %.040, %83 ], [ %.040, %84 ], [ 1, %77 ], [ %spec.select, %print_verify_result.exit ], [ 1, %26 ]
+.thread68:                                        ; preds = %77, %print_verify_result.exit, %26, %83, %84
+  %.04072 = phi i32 [ %.040, %83 ], [ %.040, %84 ], [ 1, %77 ], [ %spec.select, %print_verify_result.exit ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  ret i32 %.04075
+  ret i32 %.04072
 }
 
 declare ptr @EVP_PKEY_get0_type_name(ptr noundef) local_unnamed_addr #1

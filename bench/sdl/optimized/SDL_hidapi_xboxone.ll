@@ -1251,9 +1251,9 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   store i8 %43, ptr %44, align 1
   %45 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef nonnull %28, ptr noundef nonnull %2, i32 noundef 9, ptr noundef nonnull @HIDAPI_DriverXboxOne_RumbleSent, ptr noundef nonnull %0) #9
   %.not33.not = icmp eq i32 %45, 9
-  br i1 %.not33.not, label %.thread36, label %46
+  br i1 %.not33.not, label %.thread35, label %46
 
-.thread36:                                        ; preds = %36
+.thread35:                                        ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
@@ -1279,9 +1279,9 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   store i8 %55, ptr %56, align 1
   %57 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef 13, ptr noundef nonnull @HIDAPI_DriverXboxOne_RumbleSent, ptr noundef nonnull %0) #9
   %.not32.not = icmp eq i32 %57, 13
-  br i1 %.not32.not, label %.thread39, label %58
+  br i1 %.not32.not, label %.thread37, label %58
 
-.thread39:                                        ; preds = %48
+.thread37:                                        ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
@@ -1290,7 +1290,7 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
-60:                                               ; preds = %.thread39, %.thread36
+60:                                               ; preds = %.thread37, %.thread35
   store i32 1, ptr %4, align 4
   br label %61
 

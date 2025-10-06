@@ -2153,10 +2153,9 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   %238 = lshr i64 %237, 57
   %239 = trunc nuw nsw i64 %238 to i32
   %240 = and i32 %239, 3
-  switch i32 %240, label %241 [
-    i32 3, label %269
-    i32 0, label %269
-  ]
+  %.off = add nsw i32 %240, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %241, label %269
 
 241:                                              ; preds = %233
   %242 = load ptr, ptr %6, align 8, !tbaa !185
@@ -2217,8 +2216,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit26:          ; preds = %_ZNSt7__cxx1112basi
   %.pre32 = load ptr, ptr %8, align 8, !tbaa !11
   br label %269
 
-269:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit26, %233, %233, %198, %192
-  %270 = phi ptr [ %.pre32, %_ZN5clang17DiagnosticBuilderD2Ev.exit26 ], [ %235, %233 ], [ %235, %233 ], [ %.pre33, %198 ], [ %.pre33, %192 ]
+269:                                              ; preds = %233, %_ZN5clang17DiagnosticBuilderD2Ev.exit26, %198, %192
+  %270 = phi ptr [ %235, %233 ], [ %.pre32, %_ZN5clang17DiagnosticBuilderD2Ev.exit26 ], [ %.pre33, %198 ], [ %.pre33, %192 ]
   %271 = load ptr, ptr %270, align 8, !tbaa !194
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 40
   %273 = load i64, ptr %272, align 8
@@ -21014,8 +21013,8 @@ define linkonce_odr hidden void @_ZN5clang12Preprocessor18getMacroDefinitionEPKN
   %.not.i.i.i = icmp eq i64 %12, 0
   %13 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %14 = inttoptr i64 %13 to ptr
-  %.not.not8.i = icmp eq i64 %13, 0
-  %.not.not.i = or i1 %.not.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %13, 0
+  %.not.not.i = or i1 %.not.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %15
 
 15:                                               ; preds = %8

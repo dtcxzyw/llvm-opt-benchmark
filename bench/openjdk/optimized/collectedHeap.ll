@@ -898,9 +898,9 @@ define hidden void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 captures(
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %53, ptr %54, align 8
   %55 = load ptr, ptr %48, align 8
-  %.not15 = icmp eq ptr %55, null
+  %.not14 = icmp eq ptr %55, null
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #18
-  br i1 %.not15, label %56, label %87
+  br i1 %.not14, label %56, label %87
 
 56:                                               ; preds = %50, %1
   %57 = load i8, ptr @LogEvents, align 1
@@ -1063,8 +1063,8 @@ define hidden noundef ptr @_ZN13CollectedHeap34satisfy_failed_metadata_allocatio
   %5 = alloca %class.VM_CollectForMetadataAllocation, align 8
   %6 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   %7 = tail call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %2, i32 noundef %3) #18
-  %.not37 = icmp eq ptr %7, null
-  br i1 %.not37, label %.lr.ph, label %.loopexit
+  %.not35 = icmp eq ptr %7, null
+  br i1 %.not35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1073,7 +1073,7 @@ define hidden noundef ptr @_ZN13CollectedHeap34satisfy_failed_metadata_allocatio
   br label %11
 
 11:                                               ; preds = %.lr.ph, %62
-  %.02238 = phi i32 [ 0, %.lr.ph ], [ %.123, %62 ]
+  %.02236 = phi i32 [ 0, %.lr.ph ], [ %.123, %62 ]
   %12 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
@@ -1149,7 +1149,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br i1 %48, label %59, label %49
 
 49:                                               ; preds = %46
-  %50 = add i32 %.02238, 1
+  %50 = add i32 %.02236, 1
   %51 = load i64, ptr @QueuedAllocationWarningCount, align 8
   %.not28 = icmp eq i64 %51, 0
   br i1 %.not28, label %.thread, label %52
@@ -1162,15 +1162,15 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 56:                                               ; preds = %52
   %57 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not36 = icmp eq ptr %57, null
-  br i1 %.not36, label %.thread, label %58
+  %.not34 = icmp eq ptr %57, null
+  br i1 %.not34, label %.thread, label %58
 
 58:                                               ; preds = %56
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.15, i32 noundef %50, i64 noundef %2)
   br label %.thread
 
 .thread:                                          ; preds = %_ZN11MutexLockerD2Ev.exit, %58, %56, %52, %49
-  %.224.ph = phi i32 [ %50, %49 ], [ %50, %52 ], [ %50, %56 ], [ %50, %58 ], [ %.02238, %_ZN11MutexLockerD2Ev.exit ]
+  %.224.ph = phi i32 [ %50, %49 ], [ %50, %52 ], [ %50, %56 ], [ %50, %58 ], [ %.02236, %_ZN11MutexLockerD2Ev.exit ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #18
   br label %62
 
@@ -1181,7 +1181,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br label %.loopexit
 
 62:                                               ; preds = %.thread, %24
-  %.123 = phi i32 [ %.02238, %24 ], [ %.224.ph, %.thread ]
+  %.123 = phi i32 [ %.02236, %24 ], [ %.224.ph, %.thread ]
   %63 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   %64 = call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %2, i32 noundef %3) #18
   %.not = icmp eq ptr %64, null

@@ -4463,14 +4463,14 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br label %17
 
 .critedge:                                        ; preds = %101, %.thread, %112, %.split.us, %22, %66, %96
-  %.056100 = phi ptr [ %.056, %66 ], [ null, %96 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %.thread ], [ %.056, %101 ]
+  %.05699 = phi ptr [ %.056, %66 ], [ null, %96 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %.thread ], [ %.056, %101 ]
   %.not6474 = phi i1 [ false, %96 ], [ false, %66 ], [ true, %.thread ], [ true, %112 ], [ false, %.split.us ], [ false, %22 ], [ true, %101 ]
   %.05872 = phi i32 [ -1, %96 ], [ -1, %66 ], [ 0, %.thread ], [ 0, %112 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %101 ]
-  %.not67 = icmp eq ptr %.056100, %2
+  %.not67 = icmp eq ptr %.05699, %2
   br i1 %.not67, label %122, label %121
 
 121:                                              ; preds = %.critedge
-  tail call void @slurmdb_destroy_cluster_rec(ptr noundef %.056100) #19
+  tail call void @slurmdb_destroy_cluster_rec(ptr noundef %.05699) #19
   br label %122
 
 122:                                              ; preds = %121, %.critedge

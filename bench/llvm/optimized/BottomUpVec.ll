@@ -3023,8 +3023,8 @@ _ZN4llvm9sandboxir13SeedCollector13getStoreSeedsEv.exit: ; preds = %116, %118
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load i32, ptr %135, align 8, !tbaa !26
   %137 = zext i32 %136 to i64
-  %.not20.i = icmp eq i32 %136, 0
-  br i1 %.not20.i, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit, label %.lr.ph.i
+  %.not18.i = icmp eq i32 %136, 0
+  br i1 %.not18.i, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph101
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 72
@@ -3035,32 +3035,32 @@ _ZN4llvm9sandboxir13SeedCollector13getStoreSeedsEv.exit: ; preds = %116, %118
   br label %144
 
 142:                                              ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i
-  %143 = add nuw nsw i64 %.sroa.010.021.i, 1
+  %143 = add nuw nsw i64 %.sroa.010.019.i, 1
   %.not.i41 = icmp eq i64 %143, %137
   br i1 %.not.i41, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit, label %144
 
 144:                                              ; preds = %142, %.lr.ph.i
-  %.sroa.010.021.i = phi i64 [ 0, %.lr.ph.i ], [ %143, %142 ]
-  %exitcond.not.i = icmp eq i64 %.sroa.010.021.i, %wide.trip.count.i
+  %.sroa.010.019.i = phi i64 [ 0, %.lr.ph.i ], [ %143, %142 ]
+  %exitcond.not.i = icmp eq i64 %.sroa.010.019.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i
 
 _ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i:  ; preds = %144
-  %145 = and i64 %.sroa.010.021.i, 63
+  %145 = and i64 %.sroa.010.019.i, 63
   %146 = shl nuw i64 1, %145
-  %147 = lshr i64 %.sroa.010.021.i, 6
+  %147 = lshr i64 %.sroa.010.019.i, 6
   %148 = and i64 %147, 67108863
   %149 = getelementptr inbounds nuw i64, ptr %141, i64 %148
   %150 = load i64, ptr %149, align 8, !tbaa !53
   %151 = and i64 %150, %146
-  %.not19.i = icmp eq i64 %151, 0
-  br i1 %.not19.i, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i, label %142
+  %.not17.i = icmp eq i64 %151, 0
+  br i1 %.not17.i, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i, label %142
 
-_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i: ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i
-  %152 = trunc i64 %.sroa.010.021.i to i32
+_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i: ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i
+  %152 = trunc i64 %.sroa.010.019.i to i32
   br label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit
 
-_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit: ; preds = %142, %144, %.lr.ph101, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i
-  %.3.i = phi i32 [ 0, %.lr.ph101 ], [ %152, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i ], [ %136, %142 ], [ %140, %144 ]
+_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit: ; preds = %142, %144, %.lr.ph101, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i
+  %.3.i = phi i32 [ 0, %.lr.ph101 ], [ %152, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i ], [ %136, %142 ], [ %140, %144 ]
   %153 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %154 = zext i32 %.3.i to i64
   %155 = load ptr, ptr %153, align 8, !tbaa !25
@@ -3147,8 +3147,8 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
 
 197:                                              ; preds = %193
   %198 = zext i32 %195 to i64
-  %.not20.i43 = icmp eq i32 %195, 0
-  br i1 %.not20.i43, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit53, label %.lr.ph.i44
+  %.not18.i43 = icmp eq i32 %195, 0
+  br i1 %.not18.i43, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit53, label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %197
   %199 = load i32, ptr %192, align 8, !tbaa !345
@@ -3157,32 +3157,32 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   br label %203
 
 201:                                              ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i48
-  %202 = add nuw nsw i64 %.sroa.010.021.i46, 1
+  %202 = add nuw nsw i64 %.sroa.010.019.i46, 1
   %.not.i50 = icmp eq i64 %202, %198
   br i1 %.not.i50, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit53, label %203
 
 203:                                              ; preds = %201, %.lr.ph.i44
-  %.sroa.010.021.i46 = phi i64 [ 0, %.lr.ph.i44 ], [ %202, %201 ]
-  %exitcond.not.i47 = icmp eq i64 %.sroa.010.021.i46, %wide.trip.count.i45
+  %.sroa.010.019.i46 = phi i64 [ 0, %.lr.ph.i44 ], [ %202, %201 ]
+  %exitcond.not.i47 = icmp eq i64 %.sroa.010.019.i46, %wide.trip.count.i45
   br i1 %exitcond.not.i47, label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit53, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i48
 
 _ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i48: ; preds = %203
-  %204 = and i64 %.sroa.010.021.i46, 63
+  %204 = and i64 %.sroa.010.019.i46, 63
   %205 = shl nuw i64 1, %204
-  %206 = lshr i64 %.sroa.010.021.i46, 6
+  %206 = lshr i64 %.sroa.010.019.i46, 6
   %207 = and i64 %206, 67108863
   %208 = getelementptr inbounds nuw i64, ptr %200, i64 %207
   %209 = load i64, ptr %208, align 8, !tbaa !53
   %210 = and i64 %209, %205
-  %.not19.i49 = icmp eq i64 %210, 0
-  br i1 %.not19.i49, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i52, label %201
+  %.not17.i49 = icmp eq i64 %210, 0
+  br i1 %.not17.i49, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i52, label %201
 
-_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i52: ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i48
-  %211 = trunc i64 %.sroa.010.021.i46 to i32
+_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i52: ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.i48
+  %211 = trunc i64 %.sroa.010.019.i46 to i32
   br label %_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit53
 
-_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit53: ; preds = %201, %203, %197, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i52
-  %.3.i51 = phi i32 [ 0, %197 ], [ %211, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit.i52 ], [ %195, %201 ], [ %199, %203 ]
+_ZNK4llvm9sandboxir10SeedBundle24getFirstUnusedElementIdxEv.exit53: ; preds = %201, %203, %197, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i52
+  %.3.i51 = phi i32 [ 0, %197 ], [ %211, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.loopexit.split.loop.exit26.i52 ], [ %195, %201 ], [ %199, %203 ]
   %212 = add i32 %.3.i51, 1
   %213 = icmp ult i32 %212, %195
   br i1 %213, label %.lr.ph, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread._crit_edge

@@ -217,9 +217,9 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   br i1 %.not152, label %65, label %.sink.split
 
 .sink.split:                                      ; preds = %61, %60
-  %.sink199 = phi i32 [ 1, %60 ], [ 128, %61 ]
+  %.sink197 = phi i32 [ 1, %60 ], [ 128, %61 ]
   %63 = load i32, ptr %17, align 8, !tbaa !13
-  %64 = or i32 %63, %.sink199
+  %64 = or i32 %63, %.sink197
   store i32 %64, ptr %17, align 8, !tbaa !13
   br label %65
 
@@ -264,21 +264,21 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %.sink, ptr %84, align 8, !tbaa !50
   call void @PROXY_CERT_INFO_EXTENSION_free(ptr noundef nonnull %66) #8
-  br label %.sink.split200
+  br label %.sink.split198
 
 85:                                               ; preds = %65
   %86 = load i32, ptr %4, align 4, !tbaa !46
   %.not156 = icmp eq i32 %86, -1
-  br i1 %.not156, label %89, label %.sink.split200
+  br i1 %.not156, label %89, label %.sink.split198
 
-.sink.split200:                                   ; preds = %85, %83
-  %.sink203 = phi i32 [ 1024, %83 ], [ 128, %85 ]
+.sink.split198:                                   ; preds = %85, %83
+  %.sink201 = phi i32 [ 1024, %83 ], [ 128, %85 ]
   %87 = load i32, ptr %17, align 8, !tbaa !13
-  %88 = or i32 %87, %.sink203
+  %88 = or i32 %87, %.sink201
   store i32 %88, ptr %17, align 8, !tbaa !13
   br label %89
 
-89:                                               ; preds = %.sink.split200, %85
+89:                                               ; preds = %.sink.split198, %85
   %90 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 83, ptr noundef nonnull %4, ptr noundef null) #8
   %.not159 = icmp eq ptr %90, null
   br i1 %.not159, label %112, label %91
@@ -296,8 +296,8 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %98 = load i8, ptr %97, align 1, !tbaa !54
   %99 = zext i8 %98 to i32
   store i32 %99, ptr %92, align 4, !tbaa !51
-  %.not176 = icmp eq i32 %93, 1
-  br i1 %.not176, label %106, label %100
+  %.not174 = icmp eq i32 %93, 1
+  br i1 %.not174, label %106, label %100
 
 100:                                              ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 1
@@ -321,20 +321,20 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 524, ptr noundef nonnull @__func__.ossl_x509v3_cache_extensions) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 169, ptr noundef null) #8
-  br label %.sink.split204
+  br label %.sink.split202
 
 112:                                              ; preds = %89
   %113 = load i32, ptr %4, align 4, !tbaa !46
   %.not160 = icmp eq i32 %113, -1
-  br i1 %.not160, label %116, label %.sink.split204
+  br i1 %.not160, label %116, label %.sink.split202
 
-.sink.split204:                                   ; preds = %112, %111
+.sink.split202:                                   ; preds = %112, %111
   %114 = load i32, ptr %17, align 8, !tbaa !13
   %115 = or i32 %114, 128
   store i32 %115, ptr %17, align 8, !tbaa !13
   br label %116
 
-116:                                              ; preds = %.sink.split204, %112, %106
+116:                                              ; preds = %.sink.split202, %112, %106
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 0, ptr %117, align 8, !tbaa !55
   %118 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 126, ptr noundef nonnull %4, ptr noundef null) #8
@@ -355,7 +355,7 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %125 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %118, i32 noundef %124) #8
   %126 = call i32 @OBJ_obj2nid(ptr noundef %125) #8
   switch i32 %126, label %137 [
-    i32 129, label %.sink.split207
+    i32 129, label %.sink.split205
     i32 130, label %127
     i32 132, label %128
     i32 131, label %129
@@ -368,37 +368,37 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   ]
 
 127:                                              ; preds = %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
 128:                                              ; preds = %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
 129:                                              ; preds = %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
 130:                                              ; preds = %.lr.ph, %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
 131:                                              ; preds = %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
 132:                                              ; preds = %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
 133:                                              ; preds = %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
 134:                                              ; preds = %.lr.ph
-  br label %.sink.split207
+  br label %.sink.split205
 
-.sink.split207:                                   ; preds = %.lr.ph, %134, %133, %132, %131, %130, %129, %128, %127
-  %.sink210 = phi i32 [ 2, %127 ], [ 4, %128 ], [ 8, %129 ], [ 16, %130 ], [ 32, %131 ], [ 64, %132 ], [ 128, %133 ], [ 256, %134 ], [ 1, %.lr.ph ]
+.sink.split205:                                   ; preds = %.lr.ph, %134, %133, %132, %131, %130, %129, %128, %127
+  %.sink208 = phi i32 [ 2, %127 ], [ 4, %128 ], [ 8, %129 ], [ 16, %130 ], [ 32, %131 ], [ 64, %132 ], [ 128, %133 ], [ 256, %134 ], [ 1, %.lr.ph ]
   %135 = load i32, ptr %117, align 8, !tbaa !55
-  %136 = or i32 %135, %.sink210
+  %136 = or i32 %135, %.sink208
   store i32 %136, ptr %117, align 8, !tbaa !55
   br label %137
 
-137:                                              ; preds = %.sink.split207, %.lr.ph
+137:                                              ; preds = %.sink.split205, %.lr.ph
   %138 = load i32, ptr %4, align 4, !tbaa !46
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %4, align 4, !tbaa !46
@@ -439,9 +439,9 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   br label %157
 
 157:                                              ; preds = %149, %152
-  %.sink182 = phi i32 [ %156, %152 ], [ 0, %149 ]
+  %.sink180 = phi i32 [ %156, %152 ], [ 0, %149 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  store i32 %.sink182, ptr %158, align 4, !tbaa !58
+  store i32 %.sink180, ptr %158, align 4, !tbaa !58
   %159 = load i32, ptr %17, align 8, !tbaa !13
   %160 = or i32 %159, 8
   store i32 %160, ptr %17, align 8, !tbaa !13
@@ -612,8 +612,8 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %249 = zext i8 %248 to i32
   %250 = getelementptr inbounds nuw i8, ptr %230, i64 24
   store i32 %249, ptr %250, align 8, !tbaa !69
-  %.not39.i.i = icmp eq i32 %243, 1
-  br i1 %.not39.i.i, label %.thread.i.i, label %251
+  %.not38.i.i = icmp eq i32 %243, 1
+  br i1 %.not38.i.i, label %.thread.i.i, label %251
 
 251:                                              ; preds = %245
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 1
@@ -650,19 +650,19 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %268 = load ptr, ptr %267, align 8, !tbaa !67
   %269 = call i32 @OPENSSL_sk_num(ptr noundef %268) #8
   %270 = icmp sgt i32 %269, 0
-  br i1 %270, label %.lr.ph.i.i, label %.thread37.i.i
+  br i1 %270, label %.lr.ph.i.i, label %.thread36.i.i
 
 271:                                              ; preds = %.lr.ph.i.i
-  %272 = add nuw nsw i32 %.02640.i.i, 1
+  %272 = add nuw nsw i32 %.02639.i.i, 1
   %273 = load ptr, ptr %267, align 8, !tbaa !67
   %274 = call i32 @OPENSSL_sk_num(ptr noundef %273) #8
   %275 = icmp slt i32 %272, %274
-  br i1 %275, label %.lr.ph.i.i, label %.thread37.i.i, !llvm.loop !72
+  br i1 %275, label %.lr.ph.i.i, label %.thread36.i.i, !llvm.loop !72
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %271
-  %.02640.i.i = phi i32 [ %272, %271 ], [ 0, %.preheader.i.i ]
+  %.02639.i.i = phi i32 [ %272, %271 ], [ 0, %.preheader.i.i ]
   %276 = load ptr, ptr %267, align 8, !tbaa !67
-  %277 = call ptr @OPENSSL_sk_value(ptr noundef %276, i32 noundef %.02640.i.i) #8
+  %277 = call ptr @OPENSSL_sk_value(ptr noundef %276, i32 noundef %.02639.i.i) #8
   %278 = load i32, ptr %277, align 8, !tbaa !73
   %279 = icmp eq i32 %278, 4
   br i1 %279, label %280, label %271
@@ -671,14 +671,14 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %281 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %282 = load ptr, ptr %281, align 8, !tbaa !54
   %283 = icmp eq ptr %282, null
-  br i1 %283, label %.thread37.i.i, label %285
+  br i1 %283, label %.thread36.i.i, label %285
 
-.thread37.i.i:                                    ; preds = %271, %280, %.preheader.i.i
+.thread36.i.i:                                    ; preds = %271, %280, %.preheader.i.i
   %284 = call ptr @X509_get_issuer_name(ptr noundef nonnull %0) #8
   br label %285
 
-285:                                              ; preds = %.thread37.i.i, %280
-  %.3.i.i = phi ptr [ %284, %.thread37.i.i ], [ %282, %280 ]
+285:                                              ; preds = %.thread36.i.i, %280
+  %.3.i.i = phi ptr [ %284, %.thread36.i.i ], [ %282, %280 ]
   %286 = load ptr, ptr %230, align 8, !tbaa !64
   %287 = call i32 @DIST_POINT_set_dpname(ptr noundef %286, ptr noundef %.3.i.i) #8
   %.not31.i.i = icmp eq i32 %287, 0
@@ -740,9 +740,9 @@ setup_crldp.exit.thread:                          ; preds = %288, %285, %.prehea
   store i32 0, ptr %4, align 4, !tbaa !46
   %316 = call i32 @X509_get_ext_count(ptr noundef nonnull %0) #8
   %317 = icmp sgt i32 %316, 0
-  br i1 %317, label %.lr.ph180, label %.loopexit
+  br i1 %317, label %.lr.ph178, label %.loopexit
 
-.lr.ph180:                                        ; preds = %315, %340
+.lr.ph178:                                        ; preds = %315, %340
   %318 = load i32, ptr %4, align 4, !tbaa !46
   %319 = call ptr @X509_get_ext(ptr noundef nonnull %0, i32 noundef %318) #8
   %320 = call ptr @X509_EXTENSION_get_object(ptr noundef %319) #8
@@ -750,13 +750,13 @@ setup_crldp.exit.thread:                          ; preds = %288, %285, %.prehea
   %322 = icmp eq i32 %321, 857
   br i1 %322, label %323, label %326
 
-323:                                              ; preds = %.lr.ph180
+323:                                              ; preds = %.lr.ph178
   %324 = load i32, ptr %17, align 8, !tbaa !13
   %325 = or i32 %324, 4096
   store i32 %325, ptr %17, align 8, !tbaa !13
   br label %326
 
-326:                                              ; preds = %323, %.lr.ph180
+326:                                              ; preds = %323, %.lr.ph178
   %327 = call i32 @X509_EXTENSION_get_critical(ptr noundef %319) #8
   %.not166 = icmp eq i32 %327, 0
   br i1 %.not166, label %340, label %328
@@ -771,13 +771,13 @@ setup_crldp.exit.thread:                          ; preds = %288, %285, %.prehea
 
 X509_supported_extension.exit.thread:             ; preds = %328
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.loopexit177
+  br label %.loopexit175
 
 X509_supported_extension.exit:                    ; preds = %328
   %332 = call ptr @OBJ_bsearch_(ptr noundef nonnull %2, ptr noundef nonnull @X509_supported_extension.supported_nids, i32 noundef 15, i32 noundef 4, ptr noundef nonnull @nid_cmp_BSEARCH_CMP_FN) #8
   %.not.i.not = icmp eq ptr %332, null
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not.i.not, label %.loopexit177, label %333
+  br i1 %.not.i.not, label %.loopexit175, label %333
 
 333:                                              ; preds = %X509_supported_extension.exit
   %switch.tableidx = add i32 %321, -82
@@ -785,10 +785,10 @@ X509_supported_extension.exit:                    ; preds = %328
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 297, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond216 = select i1 %334, i1 %switch.lobit, i1 false
-  br i1 %or.cond216, label %switch.lookup, label %340
+  %or.cond214 = select i1 %334, i1 %switch.lobit, i1 false
+  br i1 %or.cond214, label %switch.lookup, label %340
 
-.loopexit177:                                     ; preds = %X509_supported_extension.exit, %X509_supported_extension.exit.thread
+.loopexit175:                                     ; preds = %X509_supported_extension.exit, %X509_supported_extension.exit.thread
   %335 = load i32, ptr %17, align 8, !tbaa !13
   %336 = or i32 %335, 512
   store i32 %336, ptr %17, align 8, !tbaa !13
@@ -809,9 +809,9 @@ switch.lookup:                                    ; preds = %333
   store i32 %342, ptr %4, align 4, !tbaa !46
   %343 = call i32 @X509_get_ext_count(ptr noundef nonnull %0) #8
   %344 = icmp slt i32 %342, %343
-  br i1 %344, label %.lr.ph180, label %.loopexit, !llvm.loop !78
+  br i1 %344, label %.lr.ph178, label %.loopexit, !llvm.loop !78
 
-.loopexit:                                        ; preds = %340, %315, %.loopexit177
+.loopexit:                                        ; preds = %340, %315, %.loopexit175
   %345 = call i32 @ossl_x509_init_sig_info(ptr noundef nonnull %0) #8
   %346 = load i32, ptr %17, align 8, !tbaa !13
   %347 = or i32 %346, 256
@@ -1498,14 +1498,14 @@ define range(i32 0, 32) i32 @X509_check_akid(ptr noundef %0, ptr noundef readonl
   br i1 %22, label %.lr.ph, label %.thread37
 
 23:                                               ; preds = %.lr.ph
-  %24 = add nuw nsw i32 %.02140, 1
+  %24 = add nuw nsw i32 %.02139, 1
   %25 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %20) #8
   %26 = icmp slt i32 %24, %25
   br i1 %26, label %.lr.ph, label %.thread37, !llvm.loop !92
 
 .lr.ph:                                           ; preds = %.preheader, %23
-  %.02140 = phi i32 [ %24, %23 ], [ 0, %.preheader ]
-  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %20, i32 noundef %.02140) #8
+  %.02139 = phi i32 [ %24, %23 ], [ 0, %.preheader ]
+  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %20, i32 noundef %.02139) #8
   %28 = load i32, ptr %27, align 8, !tbaa !73
   %29 = icmp eq i32 %28, 4
   br i1 %29, label %30, label %23

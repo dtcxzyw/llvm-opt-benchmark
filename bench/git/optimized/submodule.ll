@@ -2282,14 +2282,14 @@ _.exit:                                           ; preds = %70, %76
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr %4, align 8, !tbaa !55
-  %.not2731.i = icmp eq ptr %97, null
-  br i1 %.not2731.i, label %.critedge.i, label %.lr.ph.i33
+  %.not2730.i = icmp eq ptr %97, null
+  br i1 %.not2730.i, label %.critedge.i, label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %96, %.lr.ph.i33
-  %.02232.i47 = phi ptr [ %100, %.lr.ph.i33 ], [ %97, %96 ]
-  %98 = load ptr, ptr %.02232.i47, align 8, !tbaa !56
+  %.02231.i47 = phi ptr [ %100, %.lr.ph.i33 ], [ %97, %96 ]
+  %98 = load ptr, ptr %.02231.i47, align 8, !tbaa !56
   %99 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %7, ptr noundef nonnull @.str.136, ptr noundef %98) #18
-  %100 = getelementptr inbounds nuw i8, ptr %.02232.i47, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.02231.i47, i64 16
   %101 = load ptr, ptr %4, align 8, !tbaa !55
   %102 = load i64, ptr %64, align 8, !tbaa !52
   %103 = getelementptr inbounds nuw %struct.string_list_item, ptr %101, i64 %102
@@ -2306,10 +2306,10 @@ _.exit:                                           ; preds = %70, %76
   %108 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %107) #18
   %109 = load i32, ptr %65, align 4, !tbaa !181
   %110 = icmp sgt i32 %109, 0
-  br i1 %110, label %.lr.ph35.i, label %.loopexit.i
+  br i1 %110, label %.lr.ph34.i, label %.loopexit.i
 
-.lr.ph35.i:                                       ; preds = %106, %.lr.ph35.i
-  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %.lr.ph35.i ], [ 0, %106 ]
+.lr.ph34.i:                                       ; preds = %106, %.lr.ph34.i
+  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %.lr.ph34.i ], [ 0, %106 ]
   %111 = load ptr, ptr %3, align 8, !tbaa !182
   %112 = getelementptr inbounds nuw %struct.refspec_item, ptr %111, i64 %indvars.iv.i34
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
@@ -2319,9 +2319,9 @@ _.exit:                                           ; preds = %70, %76
   %116 = load i32, ptr %65, align 4, !tbaa !181
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next.i35, %117
-  br i1 %118, label %.lr.ph35.i, label %.loopexit.i, !llvm.loop !188
+  br i1 %118, label %.lr.ph34.i, label %.loopexit.i, !llvm.loop !188
 
-.loopexit.i:                                      ; preds = %.lr.ph35.i, %106, %.critedge.i
+.loopexit.i:                                      ; preds = %.lr.ph34.i, %106, %.critedge.i
   call void @prepare_other_repo_env(ptr noundef nonnull %66, ptr noundef nonnull @.str.32) #18
   %119 = load i16, ptr %67, align 8
   %120 = or i16 %119, 9

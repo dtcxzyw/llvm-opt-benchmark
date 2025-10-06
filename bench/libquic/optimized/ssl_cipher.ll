@@ -3134,37 +3134,37 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #1 {
   %4 = load i8, ptr %0, align 1, !tbaa !36
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.thread19, label %.lr.ph.lr.ph.lr.ph
+  br i1 %5, label %.thread18, label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %3, %.critedge40
   %6 = phi i8 [ %158, %.critedge40 ], [ %4, %3 ]
-  %.0161.ph133 = phi i32 [ %.0161.ph33.ph102, %.critedge40 ], [ 0, %3 ]
-  %.0162.ph132 = phi i32 [ %.2164273278, %.critedge40 ], [ 0, %3 ]
-  %.0166.ph131 = phi i32 [ %.4170, %.critedge40 ], [ 1, %3 ]
-  %.0183.ph130 = phi ptr [ %.6, %.critedge40 ], [ %0, %3 ]
+  %.0161.ph132 = phi i32 [ %.0161.ph32.ph101, %.critedge40 ], [ 0, %3 ]
+  %.0162.ph131 = phi i32 [ %.2164272277, %.critedge40 ], [ 0, %3 ]
+  %.0166.ph130 = phi i32 [ %.4170, %.critedge40 ], [ 1, %3 ]
+  %.0183.ph129 = phi ptr [ %.6, %.critedge40 ], [ %0, %3 ]
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.split.us
   %7 = phi i8 [ %6, %.lr.ph.lr.ph.lr.ph ], [ %22, %.split.us ]
-  %.0161.ph33.ph102 = phi i32 [ %.0161.ph133, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
-  %.0162.ph32.ph101 = phi i32 [ %.0162.ph132, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
-  %.0183.ph31.ph100 = phi ptr [ %.0183.ph130, %.lr.ph.lr.ph.lr.ph ], [ %21, %.split.us ]
+  %.0161.ph32.ph101 = phi i32 [ %.0161.ph132, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
+  %.0162.ph31.ph100 = phi i32 [ %.0162.ph131, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
+  %.0183.ph30.ph99 = phi ptr [ %.0183.ph129, %.lr.ph.lr.ph.lr.ph ], [ %21, %.split.us ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer30.backedge
-  %8 = phi i8 [ %7, %.lr.ph.lr.ph ], [ %29, %.outer30.backedge ]
-  %.0162.ph3295 = phi i32 [ %.0162.ph32.ph101, %.lr.ph.lr.ph ], [ %.0162.ph32.be, %.outer30.backedge ]
-  %.0183.ph3194 = phi ptr [ %.0183.ph31.ph100, %.lr.ph.lr.ph ], [ %.0183.ph31.be, %.outer30.backedge ]
-  %.not = icmp eq i32 %.0162.ph3295, 0
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer29.backedge
+  %8 = phi i8 [ %7, %.lr.ph.lr.ph ], [ %29, %.outer29.backedge ]
+  %.0162.ph3194 = phi i32 [ %.0162.ph31.ph100, %.lr.ph.lr.ph ], [ %.0162.ph31.be, %.outer29.backedge ]
+  %.0183.ph3093 = phi ptr [ %.0183.ph30.ph99, %.lr.ph.lr.ph ], [ %.0183.ph30.be, %.outer29.backedge ]
+  %.not = icmp eq i32 %.0162.ph3194, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not23.le = icmp eq i32 %.0161.ph33.ph102, 0
+  %.not22.le = icmp eq i32 %.0161.ph32.ph101, 0
   br label %9
 
 9:                                                ; preds = %17, %.lr.ph.split.us
   %10 = phi i8 [ %8, %.lr.ph.split.us ], [ %19, %17 ]
-  %.018365.us = phi ptr [ %.0183.ph3194, %.lr.ph.split.us ], [ %18, %17 ]
+  %.018364.us = phi ptr [ %.0183.ph3093, %.lr.ph.split.us ], [ %18, %17 ]
   switch i8 %10, label %.thread.us [
     i8 45, label %14
     i8 43, label %13
@@ -3185,14 +3185,14 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 14:                                               ; preds = %13, %12, %11, %9
   %15 = phi i1 [ false, %13 ], [ false, %12 ], [ true, %11 ], [ false, %9 ]
   %.0172.us = phi i32 [ 4, %13 ], [ 2, %12 ], [ 5, %11 ], [ 3, %9 ]
-  %.1184.us = getelementptr inbounds nuw i8, ptr %.018365.us, i64 1
-  br i1 %.not23.le, label %.thread.us, label %.split70.us
+  %.1184.us = getelementptr inbounds nuw i8, ptr %.018364.us, i64 1
+  br i1 %.not22.le, label %.thread.us, label %.split69.us
 
 .thread.us:                                       ; preds = %14, %9
   %.01725.us = phi i32 [ %.0172.us, %14 ], [ 1, %9 ]
   %16 = phi i1 [ %15, %14 ], [ false, %9 ]
-  %.11844.us = phi ptr [ %.1184.us, %14 ], [ %.018365.us, %9 ]
-  switch i8 %10, label %.preheader28 [
+  %.11844.us = phi ptr [ %.1184.us, %14 ], [ %.018364.us, %9 ]
+  switch i8 %10, label %.preheader27 [
     i8 59, label %17
     i8 58, label %17
     i8 44, label %17
@@ -3203,38 +3203,38 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %.11844.us, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !36
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.thread19, label %9
+  br i1 %20, label %.thread18, label %9
 
 .split.us:                                        ; preds = %9
-  %21 = getelementptr inbounds nuw i8, ptr %.018365.us, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.018364.us, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !36
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.outer30._crit_edge.thread298, label %.lr.ph.lr.ph
+  br i1 %23, label %.outer29._crit_edge.thread297, label %.lr.ph.lr.ph
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %24 = phi i8 [ %48, %46 ], [ %8, %.lr.ph ]
-  %.018365 = phi ptr [ %47, %46 ], [ %.0183.ph3194, %.lr.ph ]
+  %.018364 = phi ptr [ %47, %46 ], [ %.0183.ph3093, %.lr.ph ]
   switch i8 %24, label %31 [
     i8 93, label %25
-    i8 124, label %.outer30.backedge
+    i8 124, label %.outer29.backedge
   ]
 
 25:                                               ; preds = %.lr.ph.split
   %26 = load ptr, ptr %2, align 8, !tbaa !31
   %.not215 = icmp eq ptr %26, null
-  br i1 %.not215, label %.outer30.backedge, label %27
+  br i1 %.not215, label %.outer29.backedge, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %28, align 4, !tbaa !35
-  br label %.outer30.backedge
+  br label %.outer29.backedge
 
-.outer30.backedge:                                ; preds = %.lr.ph.split, %25, %27
-  %.0162.ph32.be = phi i32 [ 0, %27 ], [ 0, %25 ], [ 1, %.lr.ph.split ]
-  %.0183.ph31.be = getelementptr inbounds nuw i8, ptr %.018365, i64 1
-  %29 = load i8, ptr %.0183.ph31.be, align 1, !tbaa !36
+.outer29.backedge:                                ; preds = %.lr.ph.split, %25, %27
+  %.0162.ph31.be = phi i32 [ 0, %27 ], [ 0, %25 ], [ 1, %.lr.ph.split ]
+  %.0183.ph30.be = getelementptr inbounds nuw i8, ptr %.018364, i64 1
+  %29 = load i8, ptr %.0183.ph30.be, align 1, !tbaa !36
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.outer30._crit_edge, label %.lr.ph
+  br i1 %30, label %.outer29._crit_edge, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph.split
   %32 = and i8 %24, -33
@@ -3247,32 +3247,32 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 
 35:                                               ; preds = %31
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 224, ptr noundef nonnull @.str, i32 noundef 1198) #16
-  br label %.thread19
+  br label %.thread18
 
-.split70.us:                                      ; preds = %14
+.split69.us:                                      ; preds = %14
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 168, ptr noundef nonnull @.str, i32 noundef 1233) #16
-  br label %.thread19
+  br label %.thread18
 
 .thread:                                          ; preds = %31
-  switch i8 %24, label %.preheader28.split109.preheader [
+  switch i8 %24, label %.preheader27.split108.preheader [
     i8 59, label %46
     i8 58, label %46
     i8 44, label %46
     i8 32, label %46
   ]
 
-.preheader28:                                     ; preds = %.thread.us
-  br i1 %16, label %.preheader28.split109.us, label %.preheader28.split109.preheader
+.preheader27:                                     ; preds = %.thread.us
+  br i1 %16, label %.preheader27.split108.us, label %.preheader27.split108.preheader
 
-.preheader28.split109.preheader:                  ; preds = %.thread, %.preheader28
-  %.us-phi75221 = phi ptr [ %.11844.us, %.preheader28 ], [ %.018365, %.thread ]
-  %.us-phi73217 = phi i32 [ %.01725.us, %.preheader28 ], [ 1, %.thread ]
-  %.0162.ph3295154214 = phi i32 [ 0, %.preheader28 ], [ 1, %.thread ]
-  br label %.preheader28.split109
+.preheader27.split108.preheader:                  ; preds = %.thread, %.preheader27
+  %.us-phi74220 = phi ptr [ %.11844.us, %.preheader27 ], [ %.018364, %.thread ]
+  %.us-phi72216 = phi i32 [ %.01725.us, %.preheader27 ], [ 1, %.thread ]
+  %.0162.ph3194153213 = phi i32 [ 0, %.preheader27 ], [ 1, %.thread ]
+  br label %.preheader27.split108
 
-.preheader28.split109.us:                         ; preds = %.preheader28, %.critedge.us
-  %.3186.us = phi ptr [ %44, %.critedge.us ], [ %.11844.us, %.preheader28 ]
-  %.0158.us = phi i64 [ %45, %.critedge.us ], [ 0, %.preheader28 ]
+.preheader27.split108.us:                         ; preds = %.preheader27, %.critedge.us
+  %.3186.us = phi ptr [ %44, %.critedge.us ], [ %.11844.us, %.preheader27 ]
+  %.0158.us = phi i64 [ %45, %.critedge.us ], [ 0, %.preheader27 ]
   %.0152.us = load i8, ptr %.3186.us, align 1, !tbaa !36
   %36 = add i8 %.0152.us, -65
   %or.cond22.us = icmp ult i8 %36, 26
@@ -3281,7 +3281,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   %or.cond219.us = or i1 %or.cond22.us, %or.cond25.us
   br i1 %or.cond219.us, label %.critedge.us, label %38
 
-38:                                               ; preds = %.preheader28.split109.us
+38:                                               ; preds = %.preheader27.split108.us
   %39 = add i8 %.0152.us, -97
   %or.cond28.us = icmp ult i8 %39, 26
   %40 = add i8 %.0152.us, -45
@@ -3291,34 +3291,34 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 
 42:                                               ; preds = %38
   %43 = icmp eq i64 %.0158.us, 0
-  br i1 %43, label %.split.us110, label %.fold.split
+  br i1 %43, label %.split.us109, label %.fold.split
 
-.critedge.us:                                     ; preds = %38, %.preheader28.split109.us
+.critedge.us:                                     ; preds = %38, %.preheader27.split108.us
   %44 = getelementptr inbounds nuw i8, ptr %.3186.us, i64 1
   %45 = add i64 %.0158.us, 1
-  br label %.preheader28.split109.us, !llvm.loop !46
+  br label %.preheader27.split108.us, !llvm.loop !46
 
 46:                                               ; preds = %.thread, %.thread, %.thread, %.thread
-  %47 = getelementptr inbounds nuw i8, ptr %.018365, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.018364, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !36
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.outer30._crit_edge.thread298, label %.lr.ph.split
+  br i1 %49, label %.outer29._crit_edge.thread297, label %.lr.ph.split
 
-.preheader28.split109:                            ; preds = %.preheader28.split109.preheader, %97
-  %.0198 = phi i32 [ %.2200, %97 ], [ -1, %.preheader28.split109.preheader ]
-  %.0193 = phi i32 [ %.2195, %97 ], [ -1, %.preheader28.split109.preheader ]
-  %.0189 = phi i16 [ %.2191, %97 ], [ 0, %.preheader28.split109.preheader ]
-  %.2185 = phi ptr [ %98, %97 ], [ %.us-phi75221, %.preheader28.split109.preheader ]
-  %.0178 = phi i32 [ %.2180, %97 ], [ -1, %.preheader28.split109.preheader ]
-  %50 = phi i1 [ false, %97 ], [ true, %.preheader28.split109.preheader ]
-  %.0173 = phi i32 [ %.2175, %97 ], [ 0, %.preheader28.split109.preheader ]
-  %.0153 = phi i32 [ %.2155, %97 ], [ 0, %.preheader28.split109.preheader ]
-  %.0151 = phi i32 [ %.2, %97 ], [ -1, %.preheader28.split109.preheader ]
+.preheader27.split108:                            ; preds = %.preheader27.split108.preheader, %97
+  %.0198 = phi i32 [ %.2200, %97 ], [ -1, %.preheader27.split108.preheader ]
+  %.0193 = phi i32 [ %.2195, %97 ], [ -1, %.preheader27.split108.preheader ]
+  %.0189 = phi i16 [ %.2191, %97 ], [ 0, %.preheader27.split108.preheader ]
+  %.2185 = phi ptr [ %98, %97 ], [ %.us-phi74220, %.preheader27.split108.preheader ]
+  %.0178 = phi i32 [ %.2180, %97 ], [ -1, %.preheader27.split108.preheader ]
+  %50 = phi i1 [ false, %97 ], [ true, %.preheader27.split108.preheader ]
+  %.0173 = phi i32 [ %.2175, %97 ], [ 0, %.preheader27.split108.preheader ]
+  %.0153 = phi i32 [ %.2155, %97 ], [ 0, %.preheader27.split108.preheader ]
+  %.0151 = phi i32 [ %.2, %97 ], [ -1, %.preheader27.split108.preheader ]
   br label %51
 
-51:                                               ; preds = %.critedge, %.preheader28.split109
-  %.3186 = phi ptr [ %.2185, %.preheader28.split109 ], [ %58, %.critedge ]
-  %.0158 = phi i64 [ 0, %.preheader28.split109 ], [ %59, %.critedge ]
+51:                                               ; preds = %.critedge, %.preheader27.split108
+  %.3186 = phi ptr [ %.2185, %.preheader27.split108 ], [ %58, %.critedge ]
+  %.0158 = phi i64 [ 0, %.preheader27.split108 ], [ %59, %.critedge ]
   %.0152 = load i8, ptr %.3186, align 1, !tbaa !36
   %52 = add i8 %.0152, -65
   %or.cond22 = icmp ult i8 %52, 26
@@ -3342,61 +3342,61 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 
 60:                                               ; preds = %54
   %61 = icmp eq i64 %.0158, 0
-  br i1 %61, label %.split.us110, label %63
+  br i1 %61, label %.split.us109, label %63
 
-.split.us110:                                     ; preds = %60, %42
-  %.us-phi74219 = phi i1 [ true, %42 ], [ false, %60 ]
-  %.us-phi73216 = phi i32 [ %.01725.us, %42 ], [ %.us-phi73217, %60 ]
+.split.us109:                                     ; preds = %60, %42
+  %.us-phi73218 = phi i1 [ true, %42 ], [ false, %60 ]
+  %.us-phi72215 = phi i32 [ %.01725.us, %42 ], [ %.us-phi72216, %60 ]
   %.us-phi = phi i32 [ -1, %42 ], [ %.0198, %60 ]
-  %.us-phi111 = phi i32 [ -1, %42 ], [ %.0193, %60 ]
-  %.us-phi112 = phi i16 [ 0, %42 ], [ %.0189, %60 ]
-  %.us-phi113 = phi ptr [ %.11844.us, %42 ], [ %.2185, %60 ]
-  %.us-phi114 = phi i32 [ -1, %42 ], [ %.0178, %60 ]
-  %.us-phi115 = phi i32 [ 0, %42 ], [ %.0173, %60 ]
-  %.us-phi116 = phi i32 [ 0, %42 ], [ %.0153, %60 ]
-  %.us-phi117 = phi i32 [ -1, %42 ], [ %.0151, %60 ]
-  %.us-phi118 = phi ptr [ %.3186.us, %42 ], [ %.3186, %60 ]
+  %.us-phi110 = phi i32 [ -1, %42 ], [ %.0193, %60 ]
+  %.us-phi111 = phi i16 [ 0, %42 ], [ %.0189, %60 ]
+  %.us-phi112 = phi ptr [ %.11844.us, %42 ], [ %.2185, %60 ]
+  %.us-phi113 = phi i32 [ -1, %42 ], [ %.0178, %60 ]
+  %.us-phi114 = phi i32 [ 0, %42 ], [ %.0173, %60 ]
+  %.us-phi115 = phi i32 [ 0, %42 ], [ %.0153, %60 ]
+  %.us-phi116 = phi i32 [ -1, %42 ], [ %.0151, %60 ]
+  %.us-phi117 = phi ptr [ %.3186.us, %42 ], [ %.3186, %60 ]
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1265) #16
-  %62 = getelementptr inbounds nuw i8, ptr %.us-phi118, i64 1
-  br label %.loopexit29
+  %62 = getelementptr inbounds nuw i8, ptr %.us-phi117, i64 1
+  br label %.loopexit28
 
 63:                                               ; preds = %60
   %64 = icmp ne i8 %.0152, 43
   %or.cond34 = and i1 %50, %64
-  br i1 %or.cond34, label %.preheader26, label %.loopexit27
+  br i1 %or.cond34, label %.preheader25, label %.loopexit26
 
-.preheader26:                                     ; preds = %63, %rule_equals.exit.thread
-  %.0159107 = phi i64 [ %74, %rule_equals.exit.thread ], [ 0, %63 ]
-  %65 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @kCiphers, i64 %.0159107
+.preheader25:                                     ; preds = %63, %rule_equals.exit.thread
+  %.0159106 = phi i64 [ %74, %rule_equals.exit.thread ], [ 0, %63 ]
+  %65 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @kCiphers, i64 %.0159106
   %66 = load ptr, ptr %65, align 16, !tbaa !47
   %67 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %rule_equals.exit, label %rule_equals.exit.thread
 
-rule_equals.exit:                                 ; preds = %.preheader26
+rule_equals.exit:                                 ; preds = %.preheader25
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.0158
   %70 = load i8, ptr %69, align 1, !tbaa !36
-  %.not24 = icmp eq i8 %70, 0
-  br i1 %.not24, label %71, label %rule_equals.exit.thread
+  %.not23 = icmp eq i8 %70, 0
+  br i1 %.not23, label %71, label %rule_equals.exit.thread
 
 71:                                               ; preds = %rule_equals.exit
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !6
-  br label %.loopexit27
+  br label %.loopexit26
 
-rule_equals.exit.thread:                          ; preds = %.preheader26, %rule_equals.exit
-  %74 = add nuw nsw i64 %.0159107, 1
+rule_equals.exit.thread:                          ; preds = %.preheader25, %rule_equals.exit
+  %74 = add nuw nsw i64 %.0159106, 1
   %exitcond.not = icmp eq i64 %74, 40
-  br i1 %exitcond.not, label %.loopexit27, label %.preheader26, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit26, label %.preheader25, !llvm.loop !48
 
-.loopexit27:                                      ; preds = %rule_equals.exit.thread, %71, %63
+.loopexit26:                                      ; preds = %rule_equals.exit.thread, %71, %63
   %.2155 = phi i32 [ %73, %71 ], [ %.0153, %63 ], [ %.0153, %rule_equals.exit.thread ]
   %75 = icmp eq i32 %.2155, 0
   br i1 %75, label %.preheader, label %.loopexit.thread
 
-.preheader:                                       ; preds = %.loopexit27, %rule_equals.exit223.thread
-  %.1160108 = phi i64 [ %96, %rule_equals.exit223.thread ], [ 0, %.loopexit27 ]
-  %76 = getelementptr inbounds nuw %struct.cipher_alias_st, ptr @kCipherAliases, i64 %.1160108
+.preheader:                                       ; preds = %.loopexit26, %rule_equals.exit223.thread
+  %.1160107 = phi i64 [ %96, %rule_equals.exit223.thread ], [ 0, %.loopexit26 ]
+  %76 = getelementptr inbounds nuw %struct.cipher_alias_st, ptr @kCipherAliases, i64 %.1160107
   %77 = load ptr, ptr %76, align 16, !tbaa !49
   %78 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
   %79 = icmp eq i32 %78, 0
@@ -3405,8 +3405,8 @@ rule_equals.exit.thread:                          ; preds = %.preheader26, %rule
 rule_equals.exit223:                              ; preds = %.preheader
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 %.0158
   %81 = load i8, ptr %80, align 1, !tbaa !36
-  %.not25 = icmp eq i8 %81, 0
-  br i1 %.not25, label %.loopexit, label %rule_equals.exit223.thread
+  %.not24 = icmp eq i8 %81, 0
+  br i1 %.not24, label %.loopexit, label %rule_equals.exit223.thread
 
 .loopexit:                                        ; preds = %rule_equals.exit223
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -3428,43 +3428,43 @@ rule_equals.exit223:                              ; preds = %.preheader
   %.3192 = select i1 %.not210, i16 %.pre, i16 %.0189
   %94 = select i1 %.not210, i1 true, i1 %.not211
   %.3176 = select i1 %94, i32 %.0173, i32 1
-  %95 = icmp eq i64 %.1160108, 37
-  %spec.select360 = select i1 %95, i32 1, i32 %.3176
+  %95 = icmp eq i64 %.1160107, 37
+  %spec.select359 = select i1 %95, i32 1, i32 %.3176
   br label %.loopexit.thread
 
 rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_equals.exit223
-  %96 = add i64 %.1160108, 1
-  %exitcond199.not = icmp eq i64 %96, 37
-  br i1 %exitcond199.not, label %.loopexit.thread, label %.preheader, !llvm.loop !57
+  %96 = add i64 %.1160107, 1
+  %exitcond198.not = icmp eq i64 %96, 37
+  br i1 %exitcond198.not, label %.loopexit.thread, label %.preheader, !llvm.loop !57
 
-.loopexit.thread:                                 ; preds = %rule_equals.exit223.thread, %.loopexit, %.loopexit27
-  %.2200 = phi i32 [ %.0198, %.loopexit27 ], [ %90, %.loopexit ], [ %.0198, %rule_equals.exit223.thread ]
-  %.2195 = phi i32 [ %.0193, %.loopexit27 ], [ %93, %.loopexit ], [ %.0193, %rule_equals.exit223.thread ]
-  %.2191 = phi i16 [ %.0189, %.loopexit27 ], [ %.3192, %.loopexit ], [ %.0189, %rule_equals.exit223.thread ]
-  %.2180 = phi i32 [ %.0178, %.loopexit27 ], [ %87, %.loopexit ], [ %.0178, %rule_equals.exit223.thread ]
-  %.2175 = phi i32 [ %.0173, %.loopexit27 ], [ %spec.select360, %.loopexit ], [ 1, %rule_equals.exit223.thread ]
-  %.2 = phi i32 [ %.0151, %.loopexit27 ], [ %84, %.loopexit ], [ %.0151, %rule_equals.exit223.thread ]
-  br i1 %64, label %.loopexit29, label %97
+.loopexit.thread:                                 ; preds = %rule_equals.exit223.thread, %.loopexit, %.loopexit26
+  %.2200 = phi i32 [ %.0198, %.loopexit26 ], [ %90, %.loopexit ], [ %.0198, %rule_equals.exit223.thread ]
+  %.2195 = phi i32 [ %.0193, %.loopexit26 ], [ %93, %.loopexit ], [ %.0193, %rule_equals.exit223.thread ]
+  %.2191 = phi i16 [ %.0189, %.loopexit26 ], [ %.3192, %.loopexit ], [ %.0189, %rule_equals.exit223.thread ]
+  %.2180 = phi i32 [ %.0178, %.loopexit26 ], [ %87, %.loopexit ], [ %.0178, %rule_equals.exit223.thread ]
+  %.2175 = phi i32 [ %.0173, %.loopexit26 ], [ %spec.select359, %.loopexit ], [ 1, %rule_equals.exit223.thread ]
+  %.2 = phi i32 [ %.0151, %.loopexit26 ], [ %84, %.loopexit ], [ %.0151, %rule_equals.exit223.thread ]
+  br i1 %64, label %.loopexit28, label %97
 
 97:                                               ; preds = %.loopexit.thread
   %98 = getelementptr inbounds nuw i8, ptr %.3186, i64 1
-  br label %.preheader28.split109
+  br label %.preheader27.split108
 
-.loopexit29:                                      ; preds = %.loopexit.thread, %.split.us110
-  %.us-phi74218 = phi i1 [ %.us-phi74219, %.split.us110 ], [ false, %.loopexit.thread ]
-  %.us-phi73215 = phi i32 [ %.us-phi73216, %.split.us110 ], [ %.us-phi73217, %.loopexit.thread ]
-  %.218559 = phi ptr [ %.us-phi113, %.split.us110 ], [ %.2185, %.loopexit.thread ]
-  %.0158.lcssa48 = phi i64 [ 0, %.split.us110 ], [ %.0158, %.loopexit.thread ]
-  %.1199 = phi i32 [ %.us-phi, %.split.us110 ], [ %.2200, %.loopexit.thread ]
-  %.1194 = phi i32 [ %.us-phi111, %.split.us110 ], [ %.2195, %.loopexit.thread ]
-  %.1190 = phi i16 [ %.us-phi112, %.split.us110 ], [ %.2191, %.loopexit.thread ]
-  %.4187 = phi ptr [ %62, %.split.us110 ], [ %.3186, %.loopexit.thread ]
-  %.1179 = phi i32 [ %.us-phi114, %.split.us110 ], [ %.2180, %.loopexit.thread ]
-  %.1174 = phi i32 [ %.us-phi115, %.split.us110 ], [ %.2175, %.loopexit.thread ]
-  %.2168 = phi i32 [ 0, %.split.us110 ], [ %.0166.ph131, %.loopexit.thread ]
-  %.2164 = phi i32 [ 0, %.split.us110 ], [ %.0162.ph3295154214, %.loopexit.thread ]
-  %.1154 = phi i32 [ %.us-phi116, %.split.us110 ], [ %.2155, %.loopexit.thread ]
-  %.1 = phi i32 [ %.us-phi117, %.split.us110 ], [ %.2, %.loopexit.thread ]
+.loopexit28:                                      ; preds = %.loopexit.thread, %.split.us109
+  %.us-phi73217 = phi i1 [ %.us-phi73218, %.split.us109 ], [ false, %.loopexit.thread ]
+  %.us-phi72214 = phi i32 [ %.us-phi72215, %.split.us109 ], [ %.us-phi72216, %.loopexit.thread ]
+  %.218558 = phi ptr [ %.us-phi112, %.split.us109 ], [ %.2185, %.loopexit.thread ]
+  %.0158.lcssa47 = phi i64 [ 0, %.split.us109 ], [ %.0158, %.loopexit.thread ]
+  %.1199 = phi i32 [ %.us-phi, %.split.us109 ], [ %.2200, %.loopexit.thread ]
+  %.1194 = phi i32 [ %.us-phi110, %.split.us109 ], [ %.2195, %.loopexit.thread ]
+  %.1190 = phi i16 [ %.us-phi111, %.split.us109 ], [ %.2191, %.loopexit.thread ]
+  %.4187 = phi ptr [ %62, %.split.us109 ], [ %.3186, %.loopexit.thread ]
+  %.1179 = phi i32 [ %.us-phi113, %.split.us109 ], [ %.2180, %.loopexit.thread ]
+  %.1174 = phi i32 [ %.us-phi114, %.split.us109 ], [ %.2175, %.loopexit.thread ]
+  %.2168 = phi i32 [ 0, %.split.us109 ], [ %.0166.ph130, %.loopexit.thread ]
+  %.2164 = phi i32 [ 0, %.split.us109 ], [ %.0162.ph3194153213, %.loopexit.thread ]
+  %.1154 = phi i32 [ %.us-phi115, %.split.us109 ], [ %.2155, %.loopexit.thread ]
+  %.1 = phi i32 [ %.us-phi116, %.split.us109 ], [ %.2, %.loopexit.thread ]
   switch i32 %.1154, label %.fold.split [
     i32 50384040, label %100
     i32 50383891, label %100
@@ -3472,42 +3472,42 @@ rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_e
     i32 50383892, label %99
   ]
 
-99:                                               ; preds = %.loopexit29, %.loopexit29
-  br i1 %.us-phi74218, label %101, label %156
+99:                                               ; preds = %.loopexit28, %.loopexit28
+  br i1 %.us-phi73217, label %101, label %156
 
-.fold.split:                                      ; preds = %42, %.loopexit29
-  %.1276 = phi i32 [ %.1, %.loopexit29 ], [ -1, %42 ]
-  %.1154275 = phi i32 [ %.1154, %.loopexit29 ], [ 0, %42 ]
-  %.2164274 = phi i32 [ %.2164, %.loopexit29 ], [ 0, %42 ]
-  %.2168272 = phi i32 [ %.2168, %.loopexit29 ], [ %.0166.ph131, %42 ]
-  %.1174270 = phi i32 [ %.1174, %.loopexit29 ], [ 0, %42 ]
-  %.1179268 = phi i32 [ %.1179, %.loopexit29 ], [ -1, %42 ]
-  %.4187267 = phi ptr [ %.4187, %.loopexit29 ], [ %.3186.us, %42 ]
-  %.1190265 = phi i16 [ %.1190, %.loopexit29 ], [ 0, %42 ]
-  %.1194263 = phi i32 [ %.1194, %.loopexit29 ], [ -1, %42 ]
-  %.1199262 = phi i32 [ %.1199, %.loopexit29 ], [ -1, %42 ]
-  %.0158.lcssa48261 = phi i64 [ %.0158.lcssa48, %.loopexit29 ], [ %.0158.us, %42 ]
-  %.218559259 = phi ptr [ %.218559, %.loopexit29 ], [ %.11844.us, %42 ]
-  %.us-phi73215257 = phi i32 [ %.us-phi73215, %.loopexit29 ], [ %.01725.us, %42 ]
-  %.us-phi74218255 = phi i1 [ %.us-phi74218, %.loopexit29 ], [ true, %42 ]
-  br i1 %.us-phi74218255, label %101, label %156
+.fold.split:                                      ; preds = %42, %.loopexit28
+  %.1275 = phi i32 [ %.1, %.loopexit28 ], [ -1, %42 ]
+  %.1154274 = phi i32 [ %.1154, %.loopexit28 ], [ 0, %42 ]
+  %.2164273 = phi i32 [ %.2164, %.loopexit28 ], [ 0, %42 ]
+  %.2168271 = phi i32 [ %.2168, %.loopexit28 ], [ %.0166.ph130, %42 ]
+  %.1174269 = phi i32 [ %.1174, %.loopexit28 ], [ 0, %42 ]
+  %.1179267 = phi i32 [ %.1179, %.loopexit28 ], [ -1, %42 ]
+  %.4187266 = phi ptr [ %.4187, %.loopexit28 ], [ %.3186.us, %42 ]
+  %.1190264 = phi i16 [ %.1190, %.loopexit28 ], [ 0, %42 ]
+  %.1194262 = phi i32 [ %.1194, %.loopexit28 ], [ -1, %42 ]
+  %.1199261 = phi i32 [ %.1199, %.loopexit28 ], [ -1, %42 ]
+  %.0158.lcssa47260 = phi i64 [ %.0158.lcssa47, %.loopexit28 ], [ %.0158.us, %42 ]
+  %.218558258 = phi ptr [ %.218558, %.loopexit28 ], [ %.11844.us, %42 ]
+  %.us-phi72214256 = phi i32 [ %.us-phi72214, %.loopexit28 ], [ %.01725.us, %42 ]
+  %.us-phi73217254 = phi i1 [ %.us-phi73217, %.loopexit28 ], [ true, %42 ]
+  br i1 %.us-phi73217254, label %101, label %156
 
-100:                                              ; preds = %.loopexit29, %.loopexit29
-  br i1 %.us-phi74218, label %101, label %156
+100:                                              ; preds = %.loopexit28, %.loopexit28
+  br i1 %.us-phi73217, label %101, label %156
 
 101:                                              ; preds = %.fold.split, %99, %100
-  %.218559258287 = phi ptr [ %.218559, %99 ], [ %.218559, %100 ], [ %.218559259, %.fold.split ]
-  %.0158.lcssa48260286 = phi i64 [ %.0158.lcssa48, %99 ], [ %.0158.lcssa48, %100 ], [ %.0158.lcssa48261, %.fold.split ]
-  %.4187266283 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187267, %.fold.split ]
-  %.2168271280 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168272, %.fold.split ]
-  %.2164273279 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164274, %.fold.split ]
-  %102 = icmp eq i64 %.0158.lcssa48260286, 8
-  br i1 %102, label %103, label %.thread14
+  %.218558257286 = phi ptr [ %.218558, %99 ], [ %.218558, %100 ], [ %.218558258, %.fold.split ]
+  %.0158.lcssa47259285 = phi i64 [ %.0158.lcssa47, %99 ], [ %.0158.lcssa47, %100 ], [ %.0158.lcssa47260, %.fold.split ]
+  %.4187265282 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187266, %.fold.split ]
+  %.2168270279 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168271, %.fold.split ]
+  %.2164272278 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164273, %.fold.split ]
+  %102 = icmp eq i64 %.0158.lcssa47259285, 8
+  br i1 %102, label %103, label %.thread13
 
 103:                                              ; preds = %101
-  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.218559258287, ptr noundef nonnull dereferenceable(9) @.str.74, i64 noundef 8) #18
+  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.218558257286, ptr noundef nonnull dereferenceable(9) @.str.74, i64 noundef 8) #18
   %.not213 = icmp eq i32 %104, 0
-  br i1 %.not213, label %105, label %.thread14
+  br i1 %.not213, label %105, label %.thread13
 
 105:                                              ; preds = %103
   %.046.i = load ptr, ptr %1, align 8, !tbaa !31
@@ -3587,9 +3587,9 @@ SSL_CIPHER_get_bits.exit38.i:                     ; preds = %120, %119, %118, %1
   %124 = shl nuw nsw i64 %123, 2
   %calloc.i = tail call ptr @calloc(i64 1, i64 %124)
   %.not31.i = icmp eq ptr %calloc.i, null
-  br i1 %.not31.i, label %.thread16, label %125
+  br i1 %.not31.i, label %.thread15, label %125
 
-.thread16:                                        ; preds = %._crit_edge.i
+.thread15:                                        ; preds = %._crit_edge.i
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1136) #16
   br label %151
 
@@ -3666,7 +3666,7 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
   %149 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %149, label %.lr.ph56.i, label %150, !llvm.loop !61
 
-.thread14:                                        ; preds = %101, %103
+.thread13:                                        ; preds = %101, %103
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1347) #16
   br label %151
 
@@ -3674,12 +3674,12 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
   tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %151
 
-151:                                              ; preds = %.thread14, %.thread16, %150
-  %152 = phi i32 [ %.2168271280, %150 ], [ 0, %.thread16 ], [ 0, %.thread14 ]
+151:                                              ; preds = %.thread13, %.thread15, %150
+  %152 = phi i32 [ %.2168270279, %150 ], [ 0, %.thread15 ], [ 0, %.thread13 ]
   br label %153
 
 153:                                              ; preds = %.critedge222, %151
-  %.5188 = phi ptr [ %.4187266283, %151 ], [ %155, %.critedge222 ]
+  %.5188 = phi ptr [ %.4187265282, %151 ], [ %155, %.critedge222 ]
   %154 = load i8, ptr %.5188, align 1, !tbaa !36
   switch i8 %154, label %.critedge222 [
     i8 0, label %.critedge40
@@ -3694,48 +3694,48 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
   br label %153, !llvm.loop !62
 
 156:                                              ; preds = %.fold.split, %99, %100
-  %.4293 = phi i32 [ 4, %99 ], [ 4, %100 ], [ %.1276, %.fold.split ]
-  %.5292 = phi i32 [ 0, %99 ], [ 0, %100 ], [ %.1154275, %.fold.split ]
-  %.4182291 = phi i32 [ 2, %99 ], [ 1, %100 ], [ %.1179268, %.fold.split ]
-  %.4197290 = phi i32 [ 16, %99 ], [ 16, %100 ], [ %.1194263, %.fold.split ]
-  %.4202289 = phi i32 [ 320, %99 ], [ 320, %100 ], [ %.1199262, %.fold.split ]
-  %.us-phi73215256288 = phi i32 [ %.us-phi73215, %99 ], [ %.us-phi73215, %100 ], [ %.us-phi73215257, %.fold.split ]
-  %.1190264285 = phi i16 [ %.1190, %99 ], [ %.1190, %100 ], [ %.1190265, %.fold.split ]
-  %.4187266284 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187267, %.fold.split ]
-  %.1174269282 = phi i32 [ %.1174, %99 ], [ %.1174, %100 ], [ %.1174270, %.fold.split ]
-  %.2168271281 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168272, %.fold.split ]
-  %.2164273277 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164274, %.fold.split ]
-  %.not212 = icmp eq i32 %.1174269282, 0
+  %.4292 = phi i32 [ 4, %99 ], [ 4, %100 ], [ %.1275, %.fold.split ]
+  %.5291 = phi i32 [ 0, %99 ], [ 0, %100 ], [ %.1154274, %.fold.split ]
+  %.4182290 = phi i32 [ 2, %99 ], [ 1, %100 ], [ %.1179267, %.fold.split ]
+  %.4197289 = phi i32 [ 16, %99 ], [ 16, %100 ], [ %.1194262, %.fold.split ]
+  %.4202288 = phi i32 [ 320, %99 ], [ 320, %100 ], [ %.1199261, %.fold.split ]
+  %.us-phi72214255287 = phi i32 [ %.us-phi72214, %99 ], [ %.us-phi72214, %100 ], [ %.us-phi72214256, %.fold.split ]
+  %.1190263284 = phi i16 [ %.1190, %99 ], [ %.1190, %100 ], [ %.1190264, %.fold.split ]
+  %.4187265283 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187266, %.fold.split ]
+  %.1174268281 = phi i32 [ %.1174, %99 ], [ %.1174, %100 ], [ %.1174269, %.fold.split ]
+  %.2168270280 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168271, %.fold.split ]
+  %.2164272276 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164273, %.fold.split ]
+  %.not212 = icmp eq i32 %.1174268281, 0
   br i1 %.not212, label %157, label %.critedge40thread-pre-split
 
 157:                                              ; preds = %156
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %.5292, i32 noundef %.4293, i32 noundef %.4182291, i32 noundef %.4202289, i32 noundef %.4197290, i16 noundef zeroext %.1190264285, i32 noundef %.us-phi73215256288, i32 noundef -1, i32 noundef %.2164273277, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %.5291, i32 noundef %.4292, i32 noundef %.4182290, i32 noundef %.4202288, i32 noundef %.4197289, i16 noundef zeroext %.1190263284, i32 noundef %.us-phi72214255287, i32 noundef -1, i32 noundef %.2164272276, ptr noundef %1, ptr noundef %2)
   br label %.critedge40thread-pre-split
 
 .critedge40thread-pre-split:                      ; preds = %157, %156
-  %.pr = load i8, ptr %.4187266284, align 1, !tbaa !36
+  %.pr = load i8, ptr %.4187265283, align 1, !tbaa !36
   br label %.critedge40
 
 .critedge40:                                      ; preds = %153, %153, %153, %153, %153, %.critedge40thread-pre-split
   %158 = phi i8 [ %.pr, %.critedge40thread-pre-split ], [ %154, %153 ], [ %154, %153 ], [ %154, %153 ], [ %154, %153 ], [ %154, %153 ]
-  %.2164273278 = phi i32 [ %.2164273277, %.critedge40thread-pre-split ], [ %.2164273279, %153 ], [ %.2164273279, %153 ], [ %.2164273279, %153 ], [ %.2164273279, %153 ], [ %.2164273279, %153 ]
-  %.6 = phi ptr [ %.4187266284, %.critedge40thread-pre-split ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ]
-  %.4170 = phi i32 [ %.2168271281, %.critedge40thread-pre-split ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ]
+  %.2164272277 = phi i32 [ %.2164272276, %.critedge40thread-pre-split ], [ %.2164272278, %153 ], [ %.2164272278, %153 ], [ %.2164272278, %153 ], [ %.2164272278, %153 ], [ %.2164272278, %153 ]
+  %.6 = phi ptr [ %.4187265283, %.critedge40thread-pre-split ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ]
+  %.4170 = phi i32 [ %.2168270280, %.critedge40thread-pre-split ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ]
   %159 = icmp eq i8 %158, 0
-  br i1 %159, label %.outer30._crit_edge, label %.lr.ph.lr.ph.lr.ph
+  br i1 %159, label %.outer29._crit_edge, label %.lr.ph.lr.ph.lr.ph
 
-.outer30._crit_edge:                              ; preds = %.critedge40, %.outer30.backedge
-  %.0166.ph.lcssa64 = phi i32 [ %.0166.ph131, %.outer30.backedge ], [ %.4170, %.critedge40 ]
-  %.0162.ph32.lcssa43 = phi i32 [ %.0162.ph32.be, %.outer30.backedge ], [ %.2164273278, %.critedge40 ]
-  %.not216 = icmp eq i32 %.0162.ph32.lcssa43, 0
-  br i1 %.not216, label %.thread19, label %.outer30._crit_edge.thread298
+.outer29._crit_edge:                              ; preds = %.critedge40, %.outer29.backedge
+  %.0166.ph.lcssa63 = phi i32 [ %.0166.ph130, %.outer29.backedge ], [ %.4170, %.critedge40 ]
+  %.0162.ph31.lcssa42 = phi i32 [ %.0162.ph31.be, %.outer29.backedge ], [ %.2164272277, %.critedge40 ]
+  %.not216 = icmp eq i32 %.0162.ph31.lcssa42, 0
+  br i1 %.not216, label %.thread18, label %.outer29._crit_edge.thread297
 
-.outer30._crit_edge.thread298:                    ; preds = %.split.us, %46, %.outer30._crit_edge
+.outer29._crit_edge.thread297:                    ; preds = %.split.us, %46, %.outer29._crit_edge
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1366) #16
-  br label %.thread19
+  br label %.thread18
 
-.thread19:                                        ; preds = %17, %3, %35, %.split70.us, %.outer30._crit_edge.thread298, %.outer30._crit_edge
-  %.5171 = phi i32 [ 0, %.outer30._crit_edge.thread298 ], [ %.0166.ph.lcssa64, %.outer30._crit_edge ], [ 0, %.split70.us ], [ 0, %35 ], [ 1, %3 ], [ %.0166.ph131, %17 ]
+.thread18:                                        ; preds = %17, %3, %35, %.split69.us, %.outer29._crit_edge.thread297, %.outer29._crit_edge
+  %.5171 = phi i32 [ 0, %.outer29._crit_edge.thread297 ], [ %.0166.ph.lcssa63, %.outer29._crit_edge ], [ 0, %.split69.us ], [ 0, %35 ], [ 1, %3 ], [ %.0166.ph130, %17 ]
   ret i32 %.5171
 }
 

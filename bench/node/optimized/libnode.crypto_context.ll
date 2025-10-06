@@ -1593,20 +1593,20 @@ cleanup:                                          ; preds = %if.then118, %if.the
   %min_version.1 = phi i32 [ %call64, %if.then102 ], [ %call64, %if.then108 ], [ %call64, %if.else164 ], [ %call64, %if.then114 ], [ %call64, %if.then118 ], [ 0, %if.then125 ], [ 0, %if.then129 ], [ 769, %if.then136 ], [ 769, %if.then140 ], [ 770, %if.then147 ], [ 770, %if.then151 ], [ 771, %if.then158 ], [ 771, %if.then162 ], [ %call64, %if.else109 ], [ 0, %if.else120 ], [ 769, %if.else131 ], [ 770, %if.else142 ], [ 771, %if.else153 ]
   %max_version.1 = phi i32 [ %spec.store.select, %if.then102 ], [ %spec.store.select, %if.then108 ], [ %spec.store.select, %if.else164 ], [ 771, %if.then114 ], [ 771, %if.then118 ], [ 772, %if.then125 ], [ 772, %if.then129 ], [ 769, %if.then136 ], [ 769, %if.then140 ], [ 770, %if.then147 ], [ 770, %if.then151 ], [ 771, %if.then158 ], [ 771, %if.then162 ], [ 771, %if.else109 ], [ 772, %if.else120 ], [ 769, %if.else131 ], [ 770, %if.else142 ], [ 771, %if.else153 ]
   %method.1 = phi ptr [ %call77, %if.then102 ], [ %call77, %if.then108 ], [ %call77, %if.else164 ], [ %call115, %if.then114 ], [ %call119, %if.then118 ], [ %call126, %if.then125 ], [ %call130, %if.then129 ], [ %call137, %if.then136 ], [ %call141, %if.then140 ], [ %call148, %if.then147 ], [ %call152, %if.then151 ], [ %call159, %if.then158 ], [ %call163, %if.then162 ], [ %call77, %if.else109 ], [ %call77, %if.else120 ], [ %call77, %if.else131 ], [ %call77, %if.else142 ], [ %call77, %if.else153 ]
-  %switch = phi i1 [ false, %if.then102 ], [ false, %if.then108 ], [ false, %if.else164 ], [ true, %if.then114 ], [ true, %if.then118 ], [ true, %if.then125 ], [ true, %if.then129 ], [ true, %if.then136 ], [ true, %if.then140 ], [ true, %if.then147 ], [ true, %if.then151 ], [ true, %if.then158 ], [ true, %if.then162 ], [ true, %if.else109 ], [ true, %if.else120 ], [ true, %if.else131 ], [ true, %if.else142 ], [ true, %if.else153 ]
-  %52 = load ptr, ptr %buf_.i.i, align 8
-  %cmp.i.i.i.i = icmp ne ptr %52, null
+  %52 = phi i1 [ false, %if.then102 ], [ false, %if.then108 ], [ false, %if.else164 ], [ true, %if.then114 ], [ true, %if.then118 ], [ true, %if.then125 ], [ true, %if.then129 ], [ true, %if.then136 ], [ true, %if.then140 ], [ true, %if.then147 ], [ true, %if.then151 ], [ true, %if.then158 ], [ true, %if.then162 ], [ true, %if.else109 ], [ true, %if.else120 ], [ true, %if.else131 ], [ true, %if.else142 ], [ true, %if.else153 ]
+  %53 = load ptr, ptr %buf_.i.i, align 8
+  %cmp.i.i.i.i = icmp ne ptr %53, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %sslmethod, i64 24
-  %cmp.i.i.i = icmp ne ptr %52, %buf_st_.i.i.i
-  %53 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i, i1 false
-  br i1 %53, label %if.then.i.i109, label %_ZN4node9Utf8ValueD2Ev.exit
+  %cmp.i.i.i = icmp ne ptr %53, %buf_st_.i.i.i
+  %54 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i, i1 false
+  br i1 %54, label %if.then.i.i109, label %_ZN4node9Utf8ValueD2Ev.exit
 
 if.then.i.i109:                                   ; preds = %cleanup
-  call void @free(ptr noundef nonnull %52) #20
+  call void @free(ptr noundef nonnull %53) #20
   br label %_ZN4node9Utf8ValueD2Ev.exit
 
 _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %cleanup, %if.then.i.i109
-  br i1 %switch, label %if.end184, label %return
+  br i1 %52, label %if.end184, label %return
 
 if.end184:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273, %_ZN4node9Utf8ValueD2Ev.exit, %if.end.i384
   %min_version.0 = phi i32 [ %min_version.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %call64, %if.end.i384 ], [ %call64, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
@@ -1614,19 +1614,19 @@ if.end184:                                        ; preds = %_ZNK2v820FunctionCa
   %method.0 = phi ptr [ %method.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %call77, %if.end.i384 ], [ %call77, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
   %ctx_ = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 32
   %call185 = call ptr @SSL_CTX_new(ptr noundef %method.0) #20
-  %54 = load ptr, ptr %ctx_, align 8
+  %55 = load ptr, ptr %ctx_, align 8
   store ptr %call185, ptr %ctx_, align 8
-  %tobool.not.i.i = icmp eq ptr %54, null
+  %tobool.not.i.i = icmp eq ptr %55, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit, label %if.then.i.i110
 
 if.then.i.i110:                                   ; preds = %if.end184
-  call void @SSL_CTX_free(ptr noundef nonnull %54) #20
+  call void @SSL_CTX_free(ptr noundef nonnull %55) #20
   %.pr = load ptr, ptr %ctx_, align 8
   br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit
 
 _ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit: ; preds = %if.end184, %if.then.i.i110
-  %55 = phi ptr [ %call185, %if.end184 ], [ %.pr, %if.then.i.i110 ]
-  %cmp.i111.not = icmp eq ptr %55, null
+  %56 = phi ptr [ %call185, %if.end184 ], [ %.pr, %if.then.i.i110 ]
+  %cmp.i111.not = icmp eq ptr %56, null
   br i1 %cmp.i111.not, label %if.then188, label %if.end190
 
 if.then188:                                       ; preds = %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit
@@ -1635,23 +1635,23 @@ if.then188:                                       ; preds = %_ZNSt10unique_ptrI1
   br label %return
 
 if.end190:                                        ; preds = %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit
-  %call193 = call i32 @SSL_CTX_set_ex_data(ptr noundef nonnull %55, i32 noundef 0, ptr noundef nonnull %retval.i11.0.i) #20
-  %56 = load ptr, ptr %ctx_, align 8
-  %call196 = call i64 @SSL_CTX_set_options(ptr noundef %56, i64 noundef 0) #20
+  %call193 = call i32 @SSL_CTX_set_ex_data(ptr noundef nonnull %56, i32 noundef 0, ptr noundef nonnull %retval.i11.0.i) #20
   %57 = load ptr, ptr %ctx_, align 8
-  %call199 = call i64 @SSL_CTX_set_options(ptr noundef %57, i64 noundef 33554432) #20
+  %call196 = call i64 @SSL_CTX_set_options(ptr noundef %57, i64 noundef 0) #20
   %58 = load ptr, ptr %ctx_, align 8
-  %call202 = call i64 @SSL_CTX_set_options(ptr noundef %58, i64 noundef 256) #20
+  %call199 = call i64 @SSL_CTX_set_options(ptr noundef %58, i64 noundef 33554432) #20
   %59 = load ptr, ptr %ctx_, align 8
-  %call205 = call i64 @SSL_CTX_ctrl(ptr noundef %59, i32 noundef 78, i64 noundef 8, ptr noundef null) #20
+  %call202 = call i64 @SSL_CTX_set_options(ptr noundef %59, i64 noundef 256) #20
   %60 = load ptr, ptr %ctx_, align 8
-  %call208 = call i64 @SSL_CTX_ctrl(ptr noundef %60, i32 noundef 44, i64 noundef 899, ptr noundef null) #20
+  %call205 = call i64 @SSL_CTX_ctrl(ptr noundef %60, i32 noundef 78, i64 noundef 8, ptr noundef null) #20
   %61 = load ptr, ptr %ctx_, align 8
-  %conv = sext i32 %min_version.0 to i64
-  %call211 = call i64 @SSL_CTX_ctrl(ptr noundef %61, i32 noundef 123, i64 noundef %conv, ptr noundef null) #20
+  %call208 = call i64 @SSL_CTX_ctrl(ptr noundef %61, i32 noundef 44, i64 noundef 899, ptr noundef null) #20
   %62 = load ptr, ptr %ctx_, align 8
+  %conv = sext i32 %min_version.0 to i64
+  %call211 = call i64 @SSL_CTX_ctrl(ptr noundef %62, i32 noundef 123, i64 noundef %conv, ptr noundef null) #20
+  %63 = load ptr, ptr %ctx_, align 8
   %conv214 = sext i32 %max_version.0 to i64
-  %call215 = call i64 @SSL_CTX_ctrl(ptr noundef %62, i32 noundef 124, i64 noundef %conv214, ptr noundef null) #20
+  %call215 = call i64 @SSL_CTX_ctrl(ptr noundef %63, i32 noundef 124, i64 noundef %conv214, ptr noundef null) #20
   %ticket_key_name_ = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 80
   %call217 = call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %ticket_key_name_, i64 noundef 16) #20
   %tobool.i = trunc i8 %call217 to i1
@@ -1671,14 +1671,14 @@ lor.rhs:                                          ; preds = %lor.lhs.false220
 
 if.then231:                                       ; preds = %lor.lhs.false220, %if.end190, %lor.rhs
   %isolate_.i.i116 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %63 = load ptr, ptr %isolate_.i.i116, align 8
-  %call.i.i117 = call ptr @_ZN4node27ERR_CRYPTO_OPERATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %63, ptr noundef nonnull @.str.71)
-  %call6.i.i118 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr %call.i.i117) #20
+  %64 = load ptr, ptr %isolate_.i.i116, align 8
+  %call.i.i117 = call ptr @_ZN4node27ERR_CRYPTO_OPERATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %64, ptr noundef nonnull @.str.71)
+  %call6.i.i118 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr %call.i.i117) #20
   br label %return
 
 if.end232:                                        ; preds = %lor.rhs
-  %64 = load ptr, ptr %ctx_, align 8
-  %call235 = call i64 @SSL_CTX_callback_ctrl(ptr noundef %64, i32 noundef 72, ptr noundef nonnull @_ZN4node6crypto13SecureContext27TicketCompatibilityCallbackEP6ssl_stPhS4_P17evp_cipher_ctx_stP11hmac_ctx_sti) #20
+  %65 = load ptr, ptr %ctx_, align 8
+  %call235 = call i64 @SSL_CTX_callback_ctrl(ptr noundef %65, i32 noundef 72, ptr noundef nonnull @_ZN4node6crypto13SecureContext27TicketCompatibilityCallbackEP6ssl_stPhS4_P17evp_cipher_ctx_stP11hmac_ctx_sti) #20
   br label %return
 
 return:                                           ; preds = %_ZN4node9Utf8ValueD2Ev.exit, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.end232, %if.then231, %if.then188
@@ -7794,13 +7794,13 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %ctx_, align 8
   %call3 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %1) #20
   %2 = load ptr, ptr %bio, align 8
-  %call516 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef %2, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto18NoPasswordCallbackEPciiPv, ptr noundef null) #20
-  %cmp.i4.not17 = icmp eq ptr %call516, null
-  br i1 %cmp.i4.not17, label %cleanup39, label %while.body
+  %call515 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef %2, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto18NoPasswordCallbackEPciiPv, ptr noundef null) #20
+  %cmp.i4.not16 = icmp eq ptr %call515, null
+  br i1 %cmp.i4.not16, label %cleanup39, label %while.body
 
 while.body:                                       ; preds = %if.end, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit
-  %call519 = phi ptr [ %call5, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit ], [ %call516, %if.end ]
-  %cert_store.018 = phi ptr [ %cert_store.2, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit ], [ %call3, %if.end ]
+  %call518 = phi ptr [ %call5, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit ], [ %call515, %if.end ]
+  %cert_store.017 = phi ptr [ %cert_store.2, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit ], [ %call3, %if.end ]
   %3 = load atomic i8, ptr @_ZGVZN4node6crypto24GetOrCreateRootCertStoreEvE5store acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %3, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit, !prof !5
@@ -7818,7 +7818,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN4node6crypto24GetOrCreateRootCertStoreEv.exit: ; preds = %while.body, %init.check.i, %init.i
   %5 = load ptr, ptr @_ZZN4node6crypto24GetOrCreateRootCertStoreEvE5store, align 8
-  %cmp = icmp eq ptr %cert_store.018, %5
+  %cmp = icmp eq ptr %cert_store.017, %5
   br i1 %cmp, label %if.then8, label %do.body
 
 if.then8:                                         ; preds = %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit
@@ -7828,8 +7828,8 @@ if.then8:                                         ; preds = %_ZN4node6crypto24Ge
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit, %if.then8
-  %cert_store.2 = phi ptr [ %call9, %if.then8 ], [ %cert_store.018, %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit ]
-  %call14 = tail call i32 @X509_STORE_add_cert(ptr noundef %cert_store.2, ptr noundef nonnull %call519) #20
+  %cert_store.2 = phi ptr [ %call9, %if.then8 ], [ %cert_store.017, %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit ]
+  %call14 = tail call i32 @X509_STORE_add_cert(ptr noundef %cert_store.2, ptr noundef nonnull %call518) #20
   %cmp15.not = icmp eq i32 %call14, 1
   br i1 %cmp15.not, label %do.body23, label %do.body19
 
@@ -7840,7 +7840,7 @@ do.body19:                                        ; preds = %do.body
 
 do.body23:                                        ; preds = %do.body
   %7 = load ptr, ptr %ctx_, align 8
-  %call27 = tail call i32 @SSL_CTX_add_client_CA(ptr noundef %7, ptr noundef nonnull %call519) #20
+  %call27 = tail call i32 @SSL_CTX_add_client_CA(ptr noundef %7, ptr noundef nonnull %call518) #20
   %cmp28.not = icmp eq i32 %call27, 1
   br i1 %cmp28.not, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit, label %do.body33
 
@@ -7850,7 +7850,7 @@ do.body33:                                        ; preds = %do.body23
   unreachable
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit: ; preds = %do.body23
-  tail call void @X509_free(ptr noundef nonnull %call519) #20
+  tail call void @X509_free(ptr noundef nonnull %call518) #20
   %8 = load ptr, ptr %bio, align 8
   %call5 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef %8, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto18NoPasswordCallbackEPciiPv, ptr noundef null) #20
   %cmp.i4.not = icmp eq ptr %call5, null
@@ -8481,18 +8481,18 @@ _ZN4node6crypto24GetOrCreateRootCertStoreEv.exit: ; preds = %if.end, %init.check
   br i1 %cmp.i.not.i, label %cleanup14.thread.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit
-  %call424.i = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %call.i4, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto18NoPasswordCallbackEPciiPv, ptr noundef null) #20
-  %cmp.i3.not25.i = icmp eq ptr %call424.i, null
-  br i1 %cmp.i3.not25.i, label %while.end.i, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i
+  %call423.i = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %call.i4, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto18NoPasswordCallbackEPciiPv, ptr noundef null) #20
+  %cmp.i3.not24.i = icmp eq ptr %call423.i, null
+  br i1 %cmp.i3.not24.i, label %while.end.i, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i
 
 cleanup14.thread.i:                               ; preds = %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit
   %call2.i = tail call i64 @ERR_get_error() #20
   br label %_ZN4node6crypto12_GLOBAL__N_116AddCertsFromFileEP13x509_store_stPKc.exit
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i: ; preds = %while.cond.preheader.i, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i
-  %call426.i = phi ptr [ %call4.i, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ %call424.i, %while.cond.preheader.i ]
-  %call7.i = tail call i32 @X509_STORE_add_cert(ptr noundef %2, ptr noundef nonnull %call426.i) #20
-  tail call void @X509_free(ptr noundef nonnull %call426.i) #20
+  %call425.i = phi ptr [ %call4.i, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ %call423.i, %while.cond.preheader.i ]
+  %call7.i = tail call i32 @X509_STORE_add_cert(ptr noundef %2, ptr noundef nonnull %call425.i) #20
+  tail call void @X509_free(ptr noundef nonnull %call425.i) #20
   %call4.i = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %call.i4, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto18NoPasswordCallbackEPciiPv, ptr noundef null) #20
   %cmp.i3.not.i = icmp eq ptr %call4.i, null
   br i1 %cmp.i3.not.i, label %while.end.i, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i
@@ -8509,13 +8509,13 @@ _ZN4node6crypto12_GLOBAL__N_116AddCertsFromFileEP13x509_store_stPKc.exit.thread:
   br label %if.else
 
 _ZN4node6crypto12_GLOBAL__N_116AddCertsFromFileEP13x509_store_stPKc.exit: ; preds = %while.end.i, %cleanup14.thread.i
-  %retval.022.i = phi i64 [ %call2.i, %cleanup14.thread.i ], [ %call8.i, %while.end.i ]
+  %retval.021.i = phi i64 [ %call2.i, %cleanup14.thread.i ], [ %call8.i, %while.end.i ]
   %call.i10.i = tail call i32 @ERR_pop_to_mark() #20
-  %tobool.not = icmp eq i64 %retval.022.i, 0
+  %tobool.not = icmp eq i64 %retval.021.i, 0
   br i1 %tobool.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %_ZN4node6crypto12_GLOBAL__N_116AddCertsFromFileEP13x509_store_stPKc.exit
-  call void @ERR_error_string_n(i64 noundef %retval.022.i, ptr noundef nonnull %buf, i64 noundef 256) #20
+  call void @ERR_error_string_n(i64 noundef %retval.021.i, ptr noundef nonnull %buf, i64 noundef 256) #20
   %4 = load ptr, ptr @stderr, align 8
   %call5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file) #20
   %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.169, ptr noundef %call5, ptr noundef nonnull %buf) #25

@@ -1605,8 +1605,8 @@ _ZNSt6vectorIPN4cvc58internal10BinaryHeapIjNS1_6theory5arith6linear19ComparatorP
 _ZNSt6vectorIPN4cvc58internal10BinaryHeapIjNS1_6theory5arith6linear19ComparatorPivotRuleEE8HElementESaIS9_EE9push_backERKS9_.exit: ; preds = %15, %_ZNSt6vectorIPN4cvc58internal10BinaryHeapIjNS1_6theory5arith6linear19ComparatorPivotRuleEE8HElementESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i
   %.pre.i = phi ptr [ %6, %15 ], [ %25, %_ZNSt6vectorIPN4cvc58internal10BinaryHeapIjNS1_6theory5arith6linear19ComparatorPivotRuleEE8HElementESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ]
   %32 = phi i64 [ %10, %15 ], [ %.pre, %_ZNSt6vectorIPN4cvc58internal10BinaryHeapIjNS1_6theory5arith6linear19ComparatorPivotRuleEE8HElementESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i ]
-  %.not13.i = icmp eq i64 %32, 0
-  br i1 %.not13.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE7up_heapEPNS6_8HElementE.exit, label %.lr.ph.i
+  %.not12.i = icmp eq i64 %32, 0
+  br i1 %.not12.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE7up_heapEPNS6_8HElementE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal10BinaryHeapIjNS1_6theory5arith6linear19ComparatorPivotRuleEE8HElementESaIS9_EE9push_backERKS9_.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1874,8 +1874,8 @@ _ZN4cvc58internal13DeltaRationalD2Ev.exit:        ; preds = %_ZN4cvc58internal8R
 
 50:                                               ; preds = %40
   %51 = load i64, ptr %.sroa.01.0.copyload, align 8, !tbaa !43
-  %.not13.i.i.i = icmp eq i64 %51, 0
-  br i1 %.not13.i.i.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE6updateENS6_6handleERKj.exit, label %.lr.ph.i.i.i
+  %.not12.i.i.i = icmp eq i64 %51, 0
+  br i1 %.not12.i.i.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE6updateENS6_6handleERKj.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %50
   %.pre.i.i.i = load ptr, ptr %34, align 8, !tbaa !91
@@ -1961,8 +1961,8 @@ _ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE7u
 
 102:                                              ; preds = %92
   %103 = load i64, ptr %.sroa.0.0.copyload, align 8, !tbaa !43
-  %.not13.i.i.i13 = icmp eq i64 %103, 0
-  br i1 %.not13.i.i.i13, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE6updateENS6_6handleERKj.exit, label %.lr.ph.i.i.i14
+  %.not12.i.i.i13 = icmp eq i64 %103, 0
+  br i1 %.not12.i.i.i13, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE6updateENS6_6handleERKj.exit, label %.lr.ph.i.i.i14
 
 .lr.ph.i.i.i14:                                   ; preds = %102
   %.pre.i.i.i15 = load ptr, ptr %86, align 8, !tbaa !91
@@ -2201,8 +2201,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arit
 
 53:                                               ; preds = %42
   %54 = load i64, ptr %39, align 8, !tbaa !43
-  %.not13.i.i = icmp eq i64 %54, 0
-  br i1 %.not13.i.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE3popEv.exit, label %.lr.ph.i.i
+  %.not12.i.i = icmp eq i64 %54, 0
+  br i1 %.not12.i.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE3popEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %53
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !91
@@ -4698,7 +4698,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arit
   br i1 %43, label %45, label %..thread.loopexit_crit_edge
 
 ..thread.loopexit_crit_edge:                      ; preds = %41
-  %.pre46 = shl i64 %.pre.pre, 1
+  %.pre45 = shl i64 %.pre.pre, 1
   %44 = icmp uge i64 %18, %9
   br label %.thread
 
@@ -4721,7 +4721,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arit
   br i1 %54, label %16, label %.thread
 
 .thread:                                          ; preds = %49, %..thread.loopexit_crit_edge, %2
-  %.pre-phi = phi i64 [ %11, %2 ], [ %.pre46, %..thread.loopexit_crit_edge ], [ %52, %49 ]
+  %.pre-phi = phi i64 [ %11, %2 ], [ %.pre45, %..thread.loopexit_crit_edge ], [ %52, %49 ]
   %.lcssa = phi i1 [ true, %2 ], [ %44, %..thread.loopexit_crit_edge ], [ true, %49 ]
   %55 = or disjoint i64 %.pre-phi, 1
   %56 = icmp ult i64 %55, %9

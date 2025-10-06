@@ -713,11 +713,11 @@ define internal fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr nounde
 36:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %13, i64 %10, i1 false)
   %.pre = load i64, ptr %9, align 8, !tbaa !70
-  %.pre3 = load ptr, ptr %7, align 8, !tbaa !47
+  %.pre2 = load ptr, ptr %7, align 8, !tbaa !47
   br label %37
 
 37:                                               ; preds = %36, %2
-  %38 = phi ptr [ %.pre3, %36 ], [ %6, %2 ]
+  %38 = phi ptr [ %.pre2, %36 ], [ %6, %2 ]
   %39 = phi i64 [ %.pre, %36 ], [ 0, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %39, ptr %40, align 8, !tbaa !70
@@ -1104,11 +1104,11 @@ _ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit: ; preds 
 93:                                               ; preds = %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %78, i64 %75, i1 false)
   %.pre.i = load i64, ptr %74, align 8, !tbaa !70
-  %.pre3.i = load ptr, ptr %70, align 8, !tbaa !47
+  %.pre2.i = load ptr, ptr %70, align 8, !tbaa !47
   br label %94
 
 94:                                               ; preds = %93, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit
-  %95 = phi ptr [ %.pre3.i, %93 ], [ %72, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit ]
+  %95 = phi ptr [ %.pre2.i, %93 ], [ %72, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit ]
   %96 = phi i64 [ %.pre.i, %93 ], [ 0, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
   store i64 %96, ptr %97, align 8, !tbaa !70

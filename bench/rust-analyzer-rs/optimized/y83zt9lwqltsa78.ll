@@ -771,9 +771,9 @@ define noundef zeroext i1 @_ZN9text_edit15TextEditBuilder18invalidates_offset17h
   %.val3.i = load i32, ptr %12, align 8, !noalias !166, !noundef !16
   %13 = getelementptr i8, ptr %9, i64 28
   %.val4.i = load i32, ptr %13, align 4, !noalias !166, !noundef !16
-  %14 = icmp ule i32 %.val3.i, %1
-  %switch.selectcmp.i.i.i = icmp ule i32 %1, %.val4.i
-  %spec.select.i.i.i = and i1 %14, %switch.selectcmp.i.i.i
+  %switch.i.i.i = icmp ule i32 %.val3.i, %1
+  %switch18.i.i.i = icmp ule i32 %1, %.val4.i
+  %spec.select.i.i.i = and i1 %switch.i.i.i, %switch18.i.i.i
   br i1 %spec.select.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit": ; preds = %8, %10

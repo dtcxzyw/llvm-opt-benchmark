@@ -155,8 +155,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %61, %63
   br i1 %.not15.i.i.i28, label %_ZN4llvm6Record8getValueENS_9StringRefE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit17, %.lr.ph.i.i.i
-  %.01417.i.i.i29 = phi ptr [ %77, %.lr.ph.i.i.i ], [ %71, %_ZN4llvm11raw_ostreamlsEPKc.exit17 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.01417.i.i.i29, i64 56
+  %.01419.i.i.i29 = phi ptr [ %77, %.lr.ph.i.i.i ], [ %71, %_ZN4llvm11raw_ostreamlsEPKc.exit17 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.01419.i.i.i29, i64 56
   %.not.i.i.i = icmp ne ptr %77, %75
   call void @llvm.assume(i1 %.not.i.i.i)
   %78 = load ptr, ptr %77, align 8, !tbaa !64
@@ -164,8 +164,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %61, %63
   br i1 %.not15.i.i.i, label %_ZN4llvm6Record8getValueENS_9StringRefE.exit, label %.lr.ph.i.i.i
 
 _ZN4llvm6Record8getValueENS_9StringRefE.exit:     ; preds = %.lr.ph.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit17
-  %.01417.i.i.i.lcssa = phi ptr [ %71, %_ZN4llvm11raw_ostreamlsEPKc.exit17 ], [ %77, %.lr.ph.i.i.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %.01417.i.i.i.lcssa, i64 24
+  %.01419.i.i.i.lcssa = phi ptr [ %71, %_ZN4llvm11raw_ostreamlsEPKc.exit17 ], [ %77, %.lr.ph.i.i.i ]
+  %79 = getelementptr inbounds nuw i8, ptr %.01419.i.i.i.lcssa, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = load ptr, ptr %80, align 8, !tbaa !70

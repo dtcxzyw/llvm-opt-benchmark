@@ -737,7 +737,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %.split.us.us, label %.split
 
-32:                                               ; preds = %.split119.us.us
+32:                                               ; preds = %.split118.us.us
   %33 = tail call i32 @BN_num_bits(ptr noundef %19) #5
   %34 = tail call i32 @BN_num_bits(ptr noundef %31) #5
   %.not93.us = icmp ugt i32 %33, %34
@@ -751,37 +751,37 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
 37:                                               ; preds = %35, %32
   %38 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %9, ptr noundef nonnull %27, ptr noundef %19, ptr noundef null, ptr noundef null, ptr noundef nonnull %.079) #5
   %.not95.us = icmp eq i32 %38, 0
-  br i1 %.not95.us, label %.split122.us, label %39
+  br i1 %.not95.us, label %.split121.us, label %39
 
 39:                                               ; preds = %37
   %40 = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef nonnull %9, ptr noundef nonnull %27, ptr noundef %21, ptr noundef null, ptr noundef nonnull %.079) #5
   %.not96.us = icmp eq i32 %40, 0
-  br i1 %.not96.us, label %.split124.us, label %41
+  br i1 %.not96.us, label %.split123.us, label %41
 
 41:                                               ; preds = %39
   %42 = tail call i32 @BN_nnmod(ptr noundef %20, ptr noundef %21, ptr noundef %31, ptr noundef nonnull %.079) #5
   %.not97.us = icmp eq i32 %42, 0
-  br i1 %.not97.us, label %.split126.us, label %43
+  br i1 %.not97.us, label %.split125.us, label %43
 
 43:                                               ; preds = %41
   %44 = tail call i32 @BN_is_zero(ptr noundef %20) #5
   %.not98.us = icmp eq i32 %44, 0
-  br i1 %.not98.us, label %.split128.us, label %.split.us.us.backedge
+  br i1 %.not98.us, label %.split127.us, label %.split.us.us.backedge
 
 .split.us.us:                                     ; preds = %30, %.split.us.us.backedge
   %45 = tail call i32 @BN_rand_range(ptr noundef %19, ptr noundef %31) #5
   %.not90.us.us = icmp eq i32 %45, 0
-  br i1 %.not90.us.us, label %.split117.us, label %46
+  br i1 %.not90.us.us, label %.split116.us, label %46
 
 46:                                               ; preds = %.split.us.us
   %47 = tail call i32 @BN_is_zero(ptr noundef %19) #5
   %.not91.us.us = icmp eq i32 %47, 0
-  br i1 %.not91.us.us, label %.split119.us.us, label %.split.us.us.backedge
+  br i1 %.not91.us.us, label %.split118.us.us, label %.split.us.us.backedge
 
 .split.us.us.backedge:                            ; preds = %46, %43
   br label %.split.us.us, !llvm.loop !30
 
-.split119.us.us:                                  ; preds = %46
+.split118.us.us:                                  ; preds = %46
   %48 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %19, ptr noundef %31) #5
   %.not92.us = icmp eq i32 %48, 0
   br i1 %.not92.us, label %.loopexit, label %32
@@ -790,26 +790,26 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   %49 = tail call ptr @EC_KEY_get0_private_key(ptr noundef nonnull %0) #5
   %50 = tail call i32 @BN_generate_dsa_nonce(ptr noundef %19, ptr noundef %31, ptr noundef %49, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %.079) #5
   %.not90 = icmp eq i32 %50, 0
-  br i1 %.not90, label %.split117.us, label %51
+  br i1 %.not90, label %.split116.us, label %51
 
-.split117.us:                                     ; preds = %.split, %.split.us.us
+.split116.us:                                     ; preds = %.split, %.split.us.us
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 104, ptr noundef nonnull @.str, i32 noundef 276) #5
   br label %.loopexit
 
 51:                                               ; preds = %.split
   %52 = tail call i32 @BN_is_zero(ptr noundef %19) #5
   %.not91 = icmp eq i32 %52, 0
-  br i1 %.not91, label %.split119, label %.split.backedge
+  br i1 %.not91, label %.split118, label %.split.backedge
 
 .split.backedge:                                  ; preds = %51, %65
   br label %.split, !llvm.loop !30
 
-.split119:                                        ; preds = %51
+.split118:                                        ; preds = %51
   %53 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %19, ptr noundef %31) #5
   %.not92 = icmp eq i32 %53, 0
   br i1 %.not92, label %.loopexit, label %54
 
-54:                                               ; preds = %.split119
+54:                                               ; preds = %.split118
   %55 = tail call i32 @BN_num_bits(ptr noundef %19) #5
   %56 = tail call i32 @BN_num_bits(ptr noundef %31) #5
   %.not93 = icmp ugt i32 %55, %56
@@ -823,41 +823,41 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
 59:                                               ; preds = %57, %54
   %60 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %9, ptr noundef nonnull %27, ptr noundef %19, ptr noundef null, ptr noundef null, ptr noundef nonnull %.079) #5
   %.not95 = icmp eq i32 %60, 0
-  br i1 %.not95, label %.split122.us, label %61
+  br i1 %.not95, label %.split121.us, label %61
 
-.split122.us:                                     ; preds = %59, %37
+.split121.us:                                     ; preds = %59, %37
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 296) #5
   br label %.loopexit
 
 61:                                               ; preds = %59
   %62 = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef nonnull %9, ptr noundef nonnull %27, ptr noundef %21, ptr noundef null, ptr noundef nonnull %.079) #5
   %.not96 = icmp eq i32 %62, 0
-  br i1 %.not96, label %.split124.us, label %63
+  br i1 %.not96, label %.split123.us, label %63
 
-.split124.us:                                     ; preds = %61, %39
+.split123.us:                                     ; preds = %61, %39
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 300) #5
   br label %.loopexit
 
 63:                                               ; preds = %61
   %64 = tail call i32 @BN_nnmod(ptr noundef %20, ptr noundef %21, ptr noundef %31, ptr noundef nonnull %.079) #5
   %.not97 = icmp eq i32 %64, 0
-  br i1 %.not97, label %.split126.us, label %65
+  br i1 %.not97, label %.split125.us, label %65
 
-.split126.us:                                     ; preds = %63, %41
+.split125.us:                                     ; preds = %63, %41
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 305) #5
   br label %.loopexit
 
 65:                                               ; preds = %63
   %66 = tail call i32 @BN_is_zero(ptr noundef %20) #5
   %.not98 = icmp eq i32 %66, 0
-  br i1 %.not98, label %.split128.us, label %.split.backedge
+  br i1 %.not98, label %.split127.us, label %.split.backedge
 
-.split128.us:                                     ; preds = %65, %43
+.split127.us:                                     ; preds = %65, %43
   %67 = tail call ptr @ec_group_get_mont_data(ptr noundef nonnull %9) #5
   %.not99 = icmp eq ptr %67, null
   br i1 %.not99, label %77, label %68
 
-68:                                               ; preds = %.split128.us
+68:                                               ; preds = %.split127.us
   %69 = tail call i32 @BN_set_word(ptr noundef %21, i64 noundef 2) #5
   %.not101 = icmp eq i32 %69, 0
   br i1 %.not101, label %72, label %70
@@ -882,7 +882,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 322) #5
   br label %.loopexit
 
-77:                                               ; preds = %.split128.us
+77:                                               ; preds = %.split127.us
   %78 = tail call ptr @BN_mod_inverse(ptr noundef %19, ptr noundef %19, ptr noundef %31, ptr noundef nonnull %.079) #5
   %.not100 = icmp eq ptr %78, null
   br i1 %.not100, label %79, label %80
@@ -900,15 +900,15 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   store ptr %19, ptr %2, align 8, !tbaa !29
   br label %83
 
-.loopexit:                                        ; preds = %.split119, %57, %.split119.us.us, %35, %25, %29, %76, %72, %79, %.split126.us, %.split124.us, %.split122.us, %.split117.us
-  %.080.ph = phi ptr [ %27, %.split117.us ], [ %27, %.split122.us ], [ %27, %.split124.us ], [ %27, %.split126.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ null, %29 ], [ null, %25 ], [ %27, %35 ], [ %27, %.split119.us.us ], [ %27, %57 ], [ %27, %.split119 ]
+.loopexit:                                        ; preds = %.split118, %57, %.split118.us.us, %35, %25, %29, %76, %72, %79, %.split125.us, %.split123.us, %.split121.us, %.split116.us
+  %.080.ph = phi ptr [ %27, %.split116.us ], [ %27, %.split121.us ], [ %27, %.split123.us ], [ %27, %.split125.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ null, %29 ], [ null, %25 ], [ %27, %35 ], [ %27, %.split118.us.us ], [ %27, %57 ], [ %27, %.split118 ]
   tail call void @BN_clear_free(ptr noundef %19) #5
   tail call void @BN_clear_free(ptr noundef %20) #5
   br label %83
 
 83:                                               ; preds = %80, %.loopexit
-  %.078114 = phi i32 [ 0, %.loopexit ], [ 1, %80 ]
-  %.080112 = phi ptr [ %.080.ph, %.loopexit ], [ %27, %80 ]
+  %.078113 = phi i32 [ 0, %.loopexit ], [ 1, %80 ]
+  %.080111 = phi ptr [ %.080.ph, %.loopexit ], [ %27, %80 ]
   br i1 %13, label %84, label %85
 
 84:                                               ; preds = %83
@@ -916,12 +916,12 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br label %85
 
 85:                                               ; preds = %84, %83
-  tail call void @EC_POINT_free(ptr noundef %.080112) #5
+  tail call void @EC_POINT_free(ptr noundef %.080111) #5
   tail call void @BN_clear_free(ptr noundef %21) #5
   br label %86
 
 86:                                               ; preds = %85, %17, %11
-  %.076 = phi i32 [ 0, %11 ], [ 0, %17 ], [ %.078114, %85 ]
+  %.076 = phi i32 [ 0, %11 ], [ 0, %17 ], [ %.078113, %85 ]
   ret i32 %.076
 }
 

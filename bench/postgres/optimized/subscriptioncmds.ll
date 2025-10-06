@@ -4382,8 +4382,8 @@ define dso_local signext range(i8 102, 117) i8 @defGetStreamingMode(ptr noundef 
 
 23:                                               ; preds = %20
   %24 = tail call i32 @pg_strcasecmp(ptr noundef %11, ptr noundef nonnull @.str.51) #9
-  %.not17 = icmp eq i32 %24, 0
-  br i1 %.not17, label %.thread, label %25
+  %.not16 = icmp eq i32 %24, 0
+  br i1 %.not16, label %.thread, label %25
 
 25:                                               ; preds = %23, %6
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12

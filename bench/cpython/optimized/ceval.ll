@@ -9295,21 +9295,21 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   br label %3626
 
 3624:                                             ; preds = %3632
-  %3625 = add nuw nsw i64 %.01731.i, 1
+  %3625 = add nuw nsw i64 %.01730.i, 1
   %exitcond.not.i = icmp eq i64 %3625, %.val.i10637
   br i1 %exitcond.not.i, label %.loopexit10896, label %3626, !llvm.loop !230
 
 3626:                                             ; preds = %3624, %.lr.ph.i
-  %.01731.i = phi i64 [ 0, %.lr.ph.i ], [ %3625, %3624 ]
-  %3627 = getelementptr ptr, ptr %3623, i64 %.01731.i
+  %.01730.i = phi i64 [ 0, %.lr.ph.i ], [ %3625, %3624 ]
+  %3627 = getelementptr ptr, ptr %3623, i64 %.01730.i
   %3628 = load ptr, ptr %3627, align 8, !tbaa !100
   %3629 = getelementptr i8, ptr %3628, i64 8
   %.val27.i = load ptr, ptr %3629, align 8, !tbaa !103
   %3630 = getelementptr i8, ptr %.val27.i, i64 168
   %.val27.val.i = load i64, ptr %3630, align 8, !tbaa !104
   %3631 = and i64 %.val27.val.i, 2147483648
-  %.not29.i = icmp eq i64 %3631, 0
-  br i1 %.not29.i, label %.loopexit, label %3632
+  %.not28.i = icmp eq i64 %3631, 0
+  br i1 %.not28.i, label %.loopexit, label %3632
 
 3632:                                             ; preds = %3626
   %3633 = getelementptr i8, ptr %3628, i64 168
@@ -9320,8 +9320,8 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
 
 3635:                                             ; preds = %3610
   %3636 = and i64 %.val25.i, 2147483648
-  %.not30.i = icmp eq i64 %3636, 0
-  br i1 %.not30.i, label %.loopexit, label %3637
+  %.not29.i = icmp eq i64 %3636, 0
+  br i1 %.not29.i, label %.loopexit, label %3637
 
 3637:                                             ; preds = %3635
   %3638 = getelementptr i8, ptr %3615, i64 168
@@ -18029,8 +18029,8 @@ _Py_NewRef.exit10745:                             ; preds = %8183, %8193
   %8240 = getelementptr i8, ptr %.val154.i, i64 168
   %.val154.val.i = load i64, ptr %8240, align 8, !tbaa !104
   %8241 = and i64 %.val154.val.i, 2147483648
-  %.not179.i = icmp eq i64 %8241, 0
-  br i1 %.not179.i, label %8265, label %8242
+  %.not178.i = icmp eq i64 %8241, 0
+  br i1 %.not178.i, label %8265, label %8242
 
 8242:                                             ; preds = %8238
   %8243 = getelementptr i8, ptr %8222, i64 168
@@ -18066,7 +18066,7 @@ _PyVectorcall_FunctionInline.exit.thread.i.i.i:   ; preds = %_PyVectorcall_Funct
 _PyObject_CallNoArgs.exit.i:                      ; preds = %8254, %_PyVectorcall_FunctionInline.exit.thread.i.i.i
   %.0.i.i.i10746 = phi ptr [ %8253, %_PyVectorcall_FunctionInline.exit.thread.i.i.i ], [ %8256, %8254 ]
   %8257 = icmp eq ptr %.0.i.i.i10746, null
-  br i1 %8257, label %.thread172.i, label %8258
+  br i1 %8257, label %.thread171.i, label %8258
 
 8258:                                             ; preds = %_PyObject_CallNoArgs.exit.i
   %8259 = getelementptr i8, ptr %.0.i.i.i10746, i64 8
@@ -18100,21 +18100,21 @@ _PyObject_CallNoArgs.exit.i:                      ; preds = %8254, %_PyVectorcal
 8272:                                             ; preds = %8265
   %8273 = load i32, ptr %8222, align 8, !tbaa !113
   %.not112.i = icmp sgt i32 %8273, -1
-  br i1 %.not112.i, label %8274, label %.thread176.i
+  br i1 %.not112.i, label %8274, label %.thread175.i
 
 8274:                                             ; preds = %8272
   %8275 = add nsw i32 %8273, -1
   store i32 %8275, ptr %8222, align 8, !tbaa !113
   %8276 = icmp eq i32 %8275, 0
-  br i1 %8276, label %8277, label %.thread176.i
+  br i1 %8276, label %8277, label %.thread175.i
 
 8277:                                             ; preds = %8274
   %8278 = getelementptr inbounds nuw i8, ptr %.val154.i, i64 48
   %8279 = load ptr, ptr %8278, align 8, !tbaa !114
   call void %8279(ptr noundef nonnull %8222) #15
-  br label %.thread176.i
+  br label %.thread175.i
 
-.thread176.i:                                     ; preds = %8277, %8274, %8272
+.thread175.i:                                     ; preds = %8277, %8274, %8272
   %8280 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !100
   call void @_PyErr_SetString(ptr noundef %0, ptr noundef %8280, ptr noundef nonnull @.str.99) #15
   br label %8361
@@ -18278,13 +18278,13 @@ _PyObject_CallNoArgs.exit162.i:                   ; preds = %8297, %_PyVectorcal
   %.198.i = phi ptr [ %8222, %8262 ], [ %.097.i, %8305 ], [ %.097.i, %8322 ], [ %.097.i, %_PyObject_CallNoArgs.exit162.i ]
   %8345 = load i32, ptr %.1100.i, align 8, !tbaa !113
   %.not124.i = icmp sgt i32 %8345, -1
-  br i1 %.not124.i, label %8346, label %.thread172.i
+  br i1 %.not124.i, label %8346, label %.thread171.i
 
 8346:                                             ; preds = %.thread.i
   %8347 = add nsw i32 %8345, -1
   store i32 %8347, ptr %.1100.i, align 8, !tbaa !113
   %8348 = icmp eq i32 %8347, 0
-  br i1 %8348, label %8349, label %.thread172.i
+  br i1 %8348, label %8349, label %.thread171.i
 
 8349:                                             ; preds = %8346
   %8350 = getelementptr i8, ptr %.1100.i, i64 8
@@ -18292,29 +18292,29 @@ _PyObject_CallNoArgs.exit162.i:                   ; preds = %8297, %_PyVectorcal
   %8351 = getelementptr inbounds nuw i8, ptr %.1100.val.i, i64 48
   %8352 = load ptr, ptr %8351, align 8, !tbaa !114
   call void %8352(ptr noundef nonnull %.1100.i) #15
-  br label %.thread172.i
+  br label %.thread171.i
 
-.thread172.i:                                     ; preds = %8349, %8346, %.thread.i, %_PyObject_CallNoArgs.exit.i
-  %.198170175.i = phi ptr [ %8222, %_PyObject_CallNoArgs.exit.i ], [ %.198.i, %.thread.i ], [ %.198.i, %8349 ], [ %.198.i, %8346 ]
-  %8353 = load i32, ptr %.198170175.i, align 8, !tbaa !113
+.thread171.i:                                     ; preds = %8349, %8346, %.thread.i, %_PyObject_CallNoArgs.exit.i
+  %.198169174.i = phi ptr [ %8222, %_PyObject_CallNoArgs.exit.i ], [ %.198.i, %.thread.i ], [ %.198.i, %8349 ], [ %.198.i, %8346 ]
+  %8353 = load i32, ptr %.198169174.i, align 8, !tbaa !113
   %.not126.i = icmp sgt i32 %8353, -1
   br i1 %.not126.i, label %8354, label %8361
 
-8354:                                             ; preds = %.thread172.i
+8354:                                             ; preds = %.thread171.i
   %8355 = add nsw i32 %8353, -1
-  store i32 %8355, ptr %.198170175.i, align 8, !tbaa !113
+  store i32 %8355, ptr %.198169174.i, align 8, !tbaa !113
   %8356 = icmp eq i32 %8355, 0
   br i1 %8356, label %8357, label %8361
 
 8357:                                             ; preds = %8354
-  %8358 = getelementptr i8, ptr %.198170175.i, i64 8
+  %8358 = getelementptr i8, ptr %.198169174.i, i64 8
   %.198.val.i = load ptr, ptr %8358, align 8, !tbaa !103
   %8359 = getelementptr inbounds nuw i8, ptr %.198.val.i, i64 48
   %8360 = load ptr, ptr %8359, align 8, !tbaa !114
-  call void %8360(ptr noundef nonnull %.198170175.i) #15
+  call void %8360(ptr noundef nonnull %.198169174.i) #15
   br label %8361
 
-8361:                                             ; preds = %8357, %8354, %.thread172.i, %.thread176.i
+8361:                                             ; preds = %8357, %8354, %.thread171.i, %.thread175.i
   %.not127.i = icmp eq ptr %8220, null
   br i1 %.not127.i, label %do_raise.exit, label %8362
 
@@ -23772,21 +23772,21 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptStarTypeValid(ptr noun
   br label %12
 
 10:                                               ; preds = %18
-  %11 = add nuw nsw i64 %.01731.i, 1
+  %11 = add nuw nsw i64 %.01730.i, 1
   %exitcond.not.i = icmp eq i64 %11, %.val.i
   br i1 %exitcond.not.i, label %.loopexit.thread58, label %12, !llvm.loop !230
 
 12:                                               ; preds = %10, %.lr.ph.i
-  %.01731.i = phi i64 [ 0, %.lr.ph.i ], [ %11, %10 ]
-  %13 = getelementptr ptr, ptr %9, i64 %.01731.i
+  %.01730.i = phi i64 [ 0, %.lr.ph.i ], [ %11, %10 ]
+  %13 = getelementptr ptr, ptr %9, i64 %.01730.i
   %14 = load ptr, ptr %13, align 8, !tbaa !100
   %15 = getelementptr i8, ptr %14, i64 8
   %.val27.i = load ptr, ptr %15, align 8, !tbaa !103
   %16 = getelementptr i8, ptr %.val27.i, i64 168
   %.val27.val.i = load i64, ptr %16, align 8, !tbaa !104
   %17 = and i64 %.val27.val.i, 2147483648
-  %.not29.i = icmp eq i64 %17, 0
-  br i1 %.not29.i, label %.thread45.sink.split, label %18
+  %.not28.i = icmp eq i64 %17, 0
+  br i1 %.not28.i, label %.thread45.sink.split, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr i8, ptr %14, i64 168
@@ -23797,8 +23797,8 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptStarTypeValid(ptr noun
 
 21:                                               ; preds = %2
   %22 = and i64 %.val25.i, 2147483648
-  %.not30.i = icmp eq i64 %22, 0
-  br i1 %.not30.i, label %.thread45.sink.split, label %23
+  %.not29.i = icmp eq i64 %22, 0
+  br i1 %.not29.i, label %.thread45.sink.split, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr i8, ptr %1, i64 168
@@ -24165,21 +24165,21 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptTypeValid(ptr noundef 
   br label %12
 
 10:                                               ; preds = %18
-  %11 = add nuw nsw i64 %.01731, 1
+  %11 = add nuw nsw i64 %.01730, 1
   %exitcond.not = icmp eq i64 %11, %.val
   br i1 %exitcond.not, label %.thread, label %12, !llvm.loop !230
 
 12:                                               ; preds = %.lr.ph, %10
-  %.01731 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
-  %13 = getelementptr ptr, ptr %9, i64 %.01731
+  %.01730 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
+  %13 = getelementptr ptr, ptr %9, i64 %.01730
   %14 = load ptr, ptr %13, align 8, !tbaa !100
   %15 = getelementptr i8, ptr %14, i64 8
   %.val27 = load ptr, ptr %15, align 8, !tbaa !103
   %16 = getelementptr i8, ptr %.val27, i64 168
   %.val27.val = load i64, ptr %16, align 8, !tbaa !104
   %17 = and i64 %.val27.val, 2147483648
-  %.not29 = icmp eq i64 %17, 0
-  br i1 %.not29, label %.thread.sink.split, label %18
+  %.not28 = icmp eq i64 %17, 0
+  br i1 %.not28, label %.thread.sink.split, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr i8, ptr %14, i64 168
@@ -24190,8 +24190,8 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptTypeValid(ptr noundef 
 
 21:                                               ; preds = %2
   %22 = and i64 %.val25, 2147483648
-  %.not30 = icmp eq i64 %22, 0
-  br i1 %.not30, label %.thread.sink.split, label %23
+  %.not29 = icmp eq i64 %22, 0
+  br i1 %.not29, label %.thread.sink.split, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr i8, ptr %1, i64 168
@@ -24705,14 +24705,14 @@ define dso_local ptr @_PyEval_ImportFrom(ptr noundef %0, ptr noundef %1, ptr nou
 14:                                               ; preds = %11
   %15 = load ptr, ptr %5, align 8, !tbaa !100
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread179, label %17
+  br i1 %16, label %.thread178, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %15, i64 8
-  %.val171 = load ptr, ptr %18, align 8, !tbaa !103
-  %19 = getelementptr i8, ptr %.val171, i64 168
-  %.val172 = load i64, ptr %19, align 8, !tbaa !104
-  %20 = and i64 %.val172, 268435456
+  %.val170 = load ptr, ptr %18, align 8, !tbaa !103
+  %19 = getelementptr i8, ptr %.val170, i64 168
+  %.val171 = load i64, ptr %19, align 8, !tbaa !104
+  %20 = and i64 %.val171, 268435456
   %.not126 = icmp eq i64 %20, 0
   br i1 %.not126, label %21, label %29
 
@@ -24720,7 +24720,7 @@ define dso_local ptr @_PyEval_ImportFrom(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr null, ptr %5, align 8, !tbaa !100
   %22 = load i32, ptr %15, align 8, !tbaa !113
   %.not132 = icmp sgt i32 %22, -1
-  br i1 %.not132, label %23, label %.thread179
+  br i1 %.not132, label %23, label %.thread178
 
 23:                                               ; preds = %21
   %24 = add nsw i32 %22, -1
@@ -24729,7 +24729,7 @@ define dso_local ptr @_PyEval_ImportFrom(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %25, label %26, label %_PyErr_Occurred.exit.thread
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %.val171, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.val170, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !114
   call void %28(ptr noundef nonnull %15) #15
   br label %_PyErr_Occurred.exit.thread
@@ -24753,8 +24753,8 @@ define dso_local ptr @_PyEval_ImportFrom(ptr noundef %0, ptr noundef %1, ptr nou
 
 38:                                               ; preds = %35
   %39 = getelementptr i8, ptr %33, i64 8
-  %.val169 = load ptr, ptr %39, align 8, !tbaa !103
-  %40 = getelementptr inbounds nuw i8, ptr %.val169, i64 48
+  %.val168 = load ptr, ptr %39, align 8, !tbaa !103
+  %40 = getelementptr inbounds nuw i8, ptr %.val168, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !114
   call void %41(ptr noundef nonnull %33) #15
   br label %190
@@ -24774,8 +24774,8 @@ define dso_local ptr @_PyEval_ImportFrom(ptr noundef %0, ptr noundef %1, ptr nou
 
 48:                                               ; preds = %45
   %49 = getelementptr i8, ptr %30, i64 8
-  %.val168 = load ptr, ptr %49, align 8, !tbaa !103
-  %50 = getelementptr inbounds nuw i8, ptr %.val168, i64 48
+  %.val167 = load ptr, ptr %49, align 8, !tbaa !103
+  %50 = getelementptr inbounds nuw i8, ptr %.val167, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !114
   call void %51(ptr noundef nonnull %30) #15
   br label %thread-pre-split
@@ -24791,12 +24791,12 @@ thread-pre-split:                                 ; preds = %48, %45
 
 55:                                               ; preds = %52
   %56 = getelementptr i8, ptr %0, i64 112
-  %.val173 = load ptr, ptr %56, align 8, !tbaa !112
-  %57 = icmp eq ptr %.val173, null
+  %.val172 = load ptr, ptr %56, align 8, !tbaa !112
+  %57 = icmp eq ptr %.val172, null
   br i1 %57, label %_PyErr_Occurred.exit.thread, label %_PyErr_Occurred.exit
 
 _PyErr_Occurred.exit:                             ; preds = %55
-  %58 = getelementptr i8, ptr %.val173, i64 8
+  %58 = getelementptr i8, ptr %.val172, i64 8
   %.val.i = load ptr, ptr %58, align 8, !tbaa !103
   %.not128 = icmp eq ptr %.val.i, null
   br i1 %.not128, label %_PyErr_Occurred.exit.thread, label %59
@@ -24815,8 +24815,8 @@ _PyErr_Occurred.exit:                             ; preds = %55
 
 65:                                               ; preds = %62
   %66 = getelementptr i8, ptr %60, i64 8
-  %.val167 = load ptr, ptr %66, align 8, !tbaa !103
-  %67 = getelementptr inbounds nuw i8, ptr %.val167, i64 48
+  %.val166 = load ptr, ptr %66, align 8, !tbaa !103
+  %67 = getelementptr inbounds nuw i8, ptr %.val166, i64 48
   %68 = load ptr, ptr %67, align 8, !tbaa !114
   call void %68(ptr noundef nonnull %60) #15
   br label %69
@@ -24826,17 +24826,17 @@ _PyErr_Occurred.exit:                             ; preds = %55
   br label %190
 
 _PyErr_Occurred.exit.thread:                      ; preds = %55, %23, %26, %_PyErr_Occurred.exit
-  %.pr178 = load ptr, ptr %5, align 8, !tbaa !100
-  %71 = icmp eq ptr %.pr178, null
-  br i1 %71, label %.thread179, label %74
+  %.pr177 = load ptr, ptr %5, align 8, !tbaa !100
+  %71 = icmp eq ptr %.pr177, null
+  br i1 %71, label %.thread178, label %74
 
-.thread179:                                       ; preds = %14, %21, %_PyErr_Occurred.exit.thread
+.thread178:                                       ; preds = %14, %21, %_PyErr_Occurred.exit.thread
   %72 = call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.58) #15
   %73 = icmp eq ptr %72, null
   br i1 %73, label %190, label %74
 
-74:                                               ; preds = %_PyErr_Occurred.exit.thread, %.thread179
-  %.0103 = phi ptr [ %72, %.thread179 ], [ %.pr178, %_PyErr_Occurred.exit.thread ]
+74:                                               ; preds = %_PyErr_Occurred.exit.thread, %.thread178
+  %.0103 = phi ptr [ %72, %.thread178 ], [ %.pr177, %_PyErr_Occurred.exit.thread ]
   store ptr null, ptr %6, align 8, !tbaa !100
   %75 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44336), ptr noundef nonnull %7) #15
   %76 = icmp slt i32 %75, 0
@@ -24855,8 +24855,8 @@ _PyErr_Occurred.exit.thread:                      ; preds = %55, %23, %26, %_PyE
 
 82:                                               ; preds = %79
   %83 = getelementptr i8, ptr %.0103, i64 8
-  %.0103.val166 = load ptr, ptr %83, align 8, !tbaa !103
-  %84 = getelementptr inbounds nuw i8, ptr %.0103.val166, i64 48
+  %.0103.val165 = load ptr, ptr %83, align 8, !tbaa !103
+  %84 = getelementptr inbounds nuw i8, ptr %.0103.val165, i64 48
   %85 = load ptr, ptr %84, align 8, !tbaa !114
   call void %85(ptr noundef nonnull %.0103) #15
   br label %190
@@ -24868,7 +24868,7 @@ _PyErr_Occurred.exit.thread:                      ; preds = %55, %23, %26, %_PyE
 
 89:                                               ; preds = %86
   %90 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.59, ptr noundef %2, ptr noundef nonnull %.0103) #15
-  br label %.thread187
+  br label %.thread185
 
 91:                                               ; preds = %86
   %92 = call i32 @_PyModuleSpec_GetFileOrigin(ptr noundef nonnull %87, ptr noundef nonnull %6) #15
@@ -24883,12 +24883,12 @@ _PyErr_Occurred.exit.thread:                      ; preds = %55, %23, %26, %_PyE
 
 98:                                               ; preds = %94
   %.not133 = icmp eq i32 %96, 0
-  br i1 %.not133, label %.thread181, label %99
+  br i1 %.not133, label %.thread180, label %99
 
 99:                                               ; preds = %98
   %100 = call ptr @PySys_GetObject(ptr noundef nonnull @.str.60) #15
   %.not134 = icmp eq ptr %100, null
-  br i1 %.not134, label %.thread181, label %101
+  br i1 %.not134, label %.thread180, label %101
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -24904,32 +24904,32 @@ _PyErr_Occurred.exit.thread:                      ; preds = %55, %23, %26, %_PyE
   br i1 %.not135, label %108, label %110
 
 108:                                              ; preds = %106
-  %.val164 = load ptr, ptr %102, align 8, !tbaa !103
-  %109 = call i32 @PyType_IsSubtype(ptr noundef %.val164, ptr noundef nonnull @PyFrozenSet_Type) #15
+  %.val163 = load ptr, ptr %102, align 8, !tbaa !103
+  %109 = call i32 @PyType_IsSubtype(ptr noundef %.val163, ptr noundef nonnull @PyFrozenSet_Type) #15
   %.not136 = icmp eq i32 %109, 0
-  br i1 %.not136, label %.thread181, label %110
+  br i1 %.not136, label %.thread180, label %110
 
 110:                                              ; preds = %108, %106, %101
   %111 = call i32 @PySet_Contains(ptr noundef nonnull %100, ptr noundef nonnull %.0103) #15
   %112 = icmp slt i32 %111, 0
-  br i1 %112, label %159, label %.thread181
+  br i1 %112, label %159, label %.thread180
 
-.thread181:                                       ; preds = %110, %99, %108, %98
+.thread180:                                       ; preds = %110, %99, %108, %98
   %.0107 = phi i32 [ 0, %98 ], [ %111, %110 ], [ 0, %99 ], [ 0, %108 ]
   %113 = load ptr, ptr %6, align 8, !tbaa !100
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %124
 
-115:                                              ; preds = %.thread181
+115:                                              ; preds = %.thread180
   %116 = getelementptr i8, ptr %1, i64 8
-  %.val174 = load ptr, ptr %116, align 8, !tbaa !103
-  %.not.i = icmp eq ptr %.val174, @PyModule_Type
+  %.val173 = load ptr, ptr %116, align 8, !tbaa !103
+  %.not.i = icmp eq ptr %.val173, @PyModule_Type
   br i1 %.not.i, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %115
-  %117 = call i32 @PyType_IsSubtype(ptr noundef %.val174, ptr noundef nonnull @PyModule_Type) #15
-  %.not191 = icmp eq i32 %117, 0
-  br i1 %.not191, label %124, label %PyObject_TypeCheck.exit.thread
+  %117 = call i32 @PyType_IsSubtype(ptr noundef %.val173, ptr noundef nonnull @PyModule_Type) #15
+  %.not188 = icmp eq i32 %117, 0
+  br i1 %.not188, label %124, label %PyObject_TypeCheck.exit.thread
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_TypeCheck.exit
   %118 = call ptr @PyModule_GetFilenameObject(ptr noundef nonnull %1) #15
@@ -24947,14 +24947,14 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_Type
   call void @_PyErr_Clear(ptr noundef %0) #15
   br label %124
 
-124:                                              ; preds = %PyObject_TypeCheck.exit.thread, %123, %PyObject_TypeCheck.exit, %.thread181
+124:                                              ; preds = %PyObject_TypeCheck.exit.thread, %123, %PyObject_TypeCheck.exit, %.thread180
   %.not139 = icmp eq i32 %.0107, 0
   br i1 %.not139, label %128, label %125
 
 125:                                              ; preds = %124
   %126 = load ptr, ptr %6, align 8, !tbaa !100
   %127 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.61, ptr noundef %2, ptr noundef nonnull %.0103, ptr noundef %126, ptr noundef nonnull %.0103) #15
-  br label %.thread187
+  br label %.thread185
 
 128:                                              ; preds = %124
   %129 = load ptr, ptr %7, align 8, !tbaa !100
@@ -24972,7 +24972,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_Type
 
 135:                                              ; preds = %134
   %136 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.62, ptr noundef %2, ptr noundef nonnull %.0103, ptr noundef %133) #15
-  br label %.thread187
+  br label %.thread185
 
 137:                                              ; preds = %134
   %.not142 = icmp eq ptr %133, null
@@ -24980,11 +24980,11 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_Type
 
 138:                                              ; preds = %137
   %139 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.63, ptr noundef %2, ptr noundef nonnull %.0103, ptr noundef nonnull %133) #15
-  br label %.thread187
+  br label %.thread185
 
 140:                                              ; preds = %137
   %141 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.64, ptr noundef %2, ptr noundef nonnull %.0103) #15
-  br label %.thread187
+  br label %.thread185
 
 142:                                              ; preds = %132
   %.not141 = icmp eq ptr %133, null
@@ -24992,18 +24992,18 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_Type
 
 143:                                              ; preds = %142
   %144 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.65, ptr noundef %2, ptr noundef nonnull %.0103, ptr noundef nonnull %133) #15
-  br label %.thread187
+  br label %.thread185
 
 145:                                              ; preds = %142
   %146 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.59, ptr noundef %2, ptr noundef nonnull %.0103) #15
-  br label %.thread187
+  br label %.thread185
 
-.thread187:                                       ; preds = %143, %145, %135, %140, %138, %125, %89
+.thread185:                                       ; preds = %143, %145, %135, %140, %138, %125, %89
   %.0104 = phi ptr [ %90, %89 ], [ %127, %125 ], [ %146, %145 ], [ %144, %143 ], [ %141, %140 ], [ %139, %138 ], [ %136, %135 ]
   %.not143 = icmp eq ptr %.0104, null
   br i1 %.not143, label %159, label %147
 
-147:                                              ; preds = %.thread187
+147:                                              ; preds = %.thread185
   %148 = load ptr, ptr %5, align 8, !tbaa !100
   %149 = load ptr, ptr %6, align 8, !tbaa !100
   %150 = call ptr @_PyErr_SetImportErrorWithNameFrom(ptr noundef nonnull %.0104, ptr noundef %148, ptr noundef %149, ptr noundef %2) #15
@@ -25025,7 +25025,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_Type
   call void %158(ptr noundef nonnull %.0104) #15
   br label %159
 
-159:                                              ; preds = %128, %110, %147, %155, %152, %91, %94, %120, %.thread187
+159:                                              ; preds = %128, %110, %147, %155, %152, %91, %94, %120, %.thread185
   %160 = load ptr, ptr %6, align 8, !tbaa !100
   %.not145 = icmp eq ptr %160, null
   br i1 %.not145, label %170, label %161
@@ -25043,8 +25043,8 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_Type
 
 166:                                              ; preds = %163
   %167 = getelementptr i8, ptr %160, i64 8
-  %.val163 = load ptr, ptr %167, align 8, !tbaa !103
-  %168 = getelementptr inbounds nuw i8, ptr %.val163, i64 48
+  %.val162 = load ptr, ptr %167, align 8, !tbaa !103
+  %168 = getelementptr inbounds nuw i8, ptr %.val162, i64 48
   %169 = load ptr, ptr %168, align 8, !tbaa !114
   call void %169(ptr noundef nonnull %160) #15
   br label %170
@@ -25092,8 +25092,8 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %115, %PyObject_Type
   call void %189(ptr noundef nonnull %.0103) #15
   br label %190
 
-190:                                              ; preds = %181, %186, %183, %77, %82, %79, %.thread179, %32, %38, %35, %11, %69, %9
-  %.0 = phi ptr [ %10, %9 ], [ %70, %69 ], [ null, %11 ], [ null, %35 ], [ null, %38 ], [ null, %32 ], [ null, %.thread179 ], [ null, %79 ], [ null, %82 ], [ null, %77 ], [ null, %183 ], [ null, %186 ], [ null, %181 ]
+190:                                              ; preds = %181, %186, %183, %77, %82, %79, %.thread178, %32, %38, %35, %11, %69, %9
+  %.0 = phi ptr [ %10, %9 ], [ %70, %69 ], [ null, %11 ], [ null, %35 ], [ null, %38 ], [ null, %32 ], [ null, %.thread178 ], [ null, %79 ], [ null, %82 ], [ null, %77 ], [ null, %183 ], [ null, %186 ], [ null, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

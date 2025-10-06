@@ -1630,13 +1630,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %125, %122, %120
   %135 = load i32, ptr %134, align 8, !tbaa !133
   %136 = getelementptr inbounds nuw i8, ptr %74, i64 36
   %137 = atomicrmw add ptr %136, i32 1 seq_cst, align 4
-  %.not1943.i.i.i = icmp slt i32 %137, %91
-  br i1 %.not1943.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.not1942.i.i.i = icmp slt i32 %137, %91
+  br i1 %.not1942.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %130, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
   %138 = phi i32 [ %182, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %137, %130 ]
-  %.044.i.i.i = phi i32 [ %139, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %130 ]
-  %139 = add nuw nsw i32 %.044.i.i.i, 1
+  %.043.i.i.i = phi i32 [ %139, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %130 ]
+  %139 = add nuw nsw i32 %.043.i.i.i, 1
   %140 = mul nsw i32 %138, %133
   %141 = add nsw i32 %140, %131
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %135, i32 %138)
@@ -2215,13 +2215,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %180, %177, %175
   %190 = load i32, ptr %189, align 8, !tbaa !133
   %191 = getelementptr inbounds nuw i8, ptr %129, i64 36
   %192 = atomicrmw add ptr %191, i32 1 seq_cst, align 4
-  %.not1943.i.i.i = icmp slt i32 %192, %146
-  br i1 %.not1943.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.not1942.i.i.i = icmp slt i32 %192, %146
+  br i1 %.not1942.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %185, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
   %193 = phi i32 [ %237, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %192, %185 ]
-  %.044.i.i.i = phi i32 [ %194, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %185 ]
-  %194 = add nuw nsw i32 %.044.i.i.i, 1
+  %.043.i.i.i = phi i32 [ %194, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %185 ]
+  %194 = add nuw nsw i32 %.043.i.i.i, 1
   %195 = mul nsw i32 %193, %188
   %196 = add nsw i32 %195, %186
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %190, i32 %193)
@@ -3073,13 +3073,13 @@ _ZNSt14_Function_baseD2Ev.exit27.i.i.i.i.i:       ; preds = %525, %522, %520
   %535 = load i32, ptr %534, align 8, !tbaa !133
   %536 = getelementptr inbounds nuw i8, ptr %473, i64 36
   %537 = atomicrmw add ptr %536, i32 1 seq_cst, align 4
-  %.not1945.i.i.i.i.i = icmp slt i32 %537, %491
-  br i1 %.not1945.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
+  %.not1944.i.i.i.i.i = icmp slt i32 %537, %491
+  br i1 %.not1944.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %530, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i"
   %538 = phi i32 [ %591, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i" ], [ %537, %530 ]
-  %.046.i.i.i.i.i = phi i32 [ %539, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i" ], [ 0, %530 ]
-  %539 = add nuw nsw i32 %.046.i.i.i.i.i, 1
+  %.045.i.i.i.i.i = phi i32 [ %539, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i" ], [ 0, %530 ]
+  %539 = add nuw nsw i32 %.045.i.i.i.i.i, 1
   %540 = mul nsw i32 %538, %533
   %541 = add nsw i32 %540, %531
   %.sroa.speculated.i.i.i.i.i = call i32 @llvm.smin.i32(i32 %535, i32 %538)
@@ -4671,13 +4671,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %238, %235, %233
   %248 = load i32, ptr %247, align 8, !tbaa !133
   %249 = getelementptr inbounds nuw i8, ptr %187, i64 36
   %250 = atomicrmw add ptr %249, i32 1 seq_cst, align 4
-  %.not1942.i.i.i = icmp slt i32 %250, %204
-  br i1 %.not1942.i.i.i, label %.lr.ph.i.i21.i, label %._crit_edge.i.i20.i
+  %.not1941.i.i.i = icmp slt i32 %250, %204
+  br i1 %.not1941.i.i.i, label %.lr.ph.i.i21.i, label %._crit_edge.i.i20.i
 
 .lr.ph.i.i21.i:                                   ; preds = %243, %.lr.ph.i.i21.i
   %251 = phi i32 [ %260, %.lr.ph.i.i21.i ], [ %250, %243 ]
-  %.043.i.i.i = phi i32 [ %252, %.lr.ph.i.i21.i ], [ 0, %243 ]
-  %252 = add nuw nsw i32 %.043.i.i.i, 1
+  %.042.i.i.i = phi i32 [ %252, %.lr.ph.i.i21.i ], [ 0, %243 ]
+  %252 = add nuw nsw i32 %.042.i.i.i, 1
   %253 = mul nsw i32 %251, %246
   %254 = add nsw i32 %253, %244
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %248, i32 %251)
@@ -5411,13 +5411,13 @@ _ZNSt14_Function_baseD2Ev.exit27.i.i.i.i.i:       ; preds = %516, %513, %511
   %526 = load i32, ptr %525, align 8, !tbaa !133
   %527 = getelementptr inbounds nuw i8, ptr %464, i64 36
   %528 = atomicrmw add ptr %527, i32 1 seq_cst, align 4
-  %.not1944.i.i.i.i.i = icmp slt i32 %528, %482
-  br i1 %.not1944.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
+  %.not1943.i.i.i.i.i = icmp slt i32 %528, %482
+  br i1 %.not1943.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %521, %.lr.ph.i.i.i.i.i
   %529 = phi i32 [ %544, %.lr.ph.i.i.i.i.i ], [ %528, %521 ]
-  %.045.i.i.i.i.i = phi i32 [ %530, %.lr.ph.i.i.i.i.i ], [ 0, %521 ]
-  %530 = add nuw nsw i32 %.045.i.i.i.i.i, 1
+  %.044.i.i.i.i.i = phi i32 [ %530, %.lr.ph.i.i.i.i.i ], [ 0, %521 ]
+  %530 = add nuw nsw i32 %.044.i.i.i.i.i, 1
   %531 = mul nsw i32 %529, %524
   %532 = add nsw i32 %531, %522
   %.sroa.speculated.i.i.i.i.i = call i32 @llvm.smin.i32(i32 %526, i32 %529)
@@ -6252,13 +6252,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %177, %174, %172
   %187 = load i32, ptr %186, align 8, !tbaa !133
   %188 = getelementptr inbounds nuw i8, ptr %126, i64 36
   %189 = atomicrmw add ptr %188, i32 1 seq_cst, align 4
-  %.not1942.i.i.i = icmp slt i32 %189, %143
-  br i1 %.not1942.i.i.i, label %.lr.ph.i.i22.i, label %._crit_edge.i.i21.i
+  %.not1941.i.i.i = icmp slt i32 %189, %143
+  br i1 %.not1941.i.i.i, label %.lr.ph.i.i22.i, label %._crit_edge.i.i21.i
 
 .lr.ph.i.i22.i:                                   ; preds = %182, %.lr.ph.i.i22.i
   %190 = phi i32 [ %199, %.lr.ph.i.i22.i ], [ %189, %182 ]
-  %.043.i.i.i = phi i32 [ %191, %.lr.ph.i.i22.i ], [ 0, %182 ]
-  %191 = add nuw nsw i32 %.043.i.i.i, 1
+  %.042.i.i.i = phi i32 [ %191, %.lr.ph.i.i22.i ], [ 0, %182 ]
+  %191 = add nuw nsw i32 %.042.i.i.i, 1
   %192 = mul nsw i32 %190, %185
   %193 = add nsw i32 %192, %183
   %.sroa.speculated.i.i23.i = call i32 @llvm.smin.i32(i32 %187, i32 %190)
@@ -6992,13 +6992,13 @@ _ZNSt14_Function_baseD2Ev.exit27.i.i.i.i.i:       ; preds = %455, %452, %450
   %465 = load i32, ptr %464, align 8, !tbaa !133
   %466 = getelementptr inbounds nuw i8, ptr %403, i64 36
   %467 = atomicrmw add ptr %466, i32 1 seq_cst, align 4
-  %.not1944.i.i.i.i.i = icmp slt i32 %467, %421
-  br i1 %.not1944.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
+  %.not1943.i.i.i.i.i = icmp slt i32 %467, %421
+  br i1 %.not1943.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %460, %.lr.ph.i.i.i.i.i
   %468 = phi i32 [ %483, %.lr.ph.i.i.i.i.i ], [ %467, %460 ]
-  %.045.i.i.i.i.i = phi i32 [ %469, %.lr.ph.i.i.i.i.i ], [ 0, %460 ]
-  %469 = add nuw nsw i32 %.045.i.i.i.i.i, 1
+  %.044.i.i.i.i.i = phi i32 [ %469, %.lr.ph.i.i.i.i.i ], [ 0, %460 ]
+  %469 = add nuw nsw i32 %.044.i.i.i.i.i, 1
   %470 = mul nsw i32 %468, %463
   %471 = add nsw i32 %470, %461
   %.sroa.speculated.i.i.i.i.i = call i32 @llvm.smin.i32(i32 %465, i32 %468)
@@ -12145,8 +12145,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !133
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1943 = icmp slt i32 %98, %13
-  br i1 %.not1943, label %.lr.ph, label %._crit_edge
+  %.not1942 = icmp slt i32 %98, %13
+  br i1 %.not1942, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12154,8 +12154,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit"
   %101 = phi i32 [ %98, %.lr.ph ], [ %151, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %102 = add nuw nsw i32 %.044, 1
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %102 = add nuw nsw i32 %.043, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)
@@ -12907,8 +12907,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !133
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1943 = icmp slt i32 %98, %13
-  br i1 %.not1943, label %.lr.ph, label %._crit_edge
+  %.not1942 = icmp slt i32 %98, %13
+  br i1 %.not1942, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12916,8 +12916,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit"
   %101 = phi i32 [ %98, %.lr.ph ], [ %151, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %102 = add nuw nsw i32 %.044, 1
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %102 = add nuw nsw i32 %.043, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)
@@ -13739,8 +13739,8 @@ _ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !133
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1945 = icmp slt i32 %98, %13
-  br i1 %.not1945, label %.lr.ph, label %._crit_edge
+  %.not1944 = icmp slt i32 %98, %13
+  br i1 %.not1944, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -13748,8 +13748,8 @@ _ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit"
   %101 = phi i32 [ %98, %.lr.ph ], [ %158, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit" ]
-  %.046 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit" ]
-  %102 = add nuw nsw i32 %.046, 1
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit" ]
+  %102 = add nuw nsw i32 %.045, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)
@@ -14763,8 +14763,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !133
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1942 = icmp slt i32 %98, %13
-  br i1 %.not1942, label %.lr.ph, label %._crit_edge
+  %.not1941 = icmp slt i32 %98, %13
+  br i1 %.not1941, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -14772,8 +14772,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %100
   %101 = phi i32 [ %98, %.lr.ph ], [ %113, %100 ]
-  %.043 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
-  %102 = add nuw nsw i32 %.043, 1
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
+  %102 = add nuw nsw i32 %.042, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)
@@ -15431,8 +15431,8 @@ _ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !133
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1944 = icmp slt i32 %98, %13
-  br i1 %.not1944, label %.lr.ph, label %._crit_edge
+  %.not1943 = icmp slt i32 %98, %13
+  br i1 %.not1943, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15440,8 +15440,8 @@ _ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %100
   %101 = phi i32 [ %98, %.lr.ph ], [ %120, %100 ]
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
-  %102 = add nuw nsw i32 %.045, 1
+  %.044 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
+  %102 = add nuw nsw i32 %.044, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)
@@ -16290,8 +16290,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !133
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1942 = icmp slt i32 %98, %13
-  br i1 %.not1942, label %.lr.ph, label %._crit_edge
+  %.not1941 = icmp slt i32 %98, %13
+  br i1 %.not1941, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16299,8 +16299,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %100
   %101 = phi i32 [ %98, %.lr.ph ], [ %113, %100 ]
-  %.043 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
-  %102 = add nuw nsw i32 %.043, 1
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
+  %102 = add nuw nsw i32 %.042, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)
@@ -16958,8 +16958,8 @@ _ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !133
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1944 = icmp slt i32 %98, %13
-  br i1 %.not1944, label %.lr.ph, label %._crit_edge
+  %.not1943 = icmp slt i32 %98, %13
+  br i1 %.not1943, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16967,8 +16967,8 @@ _ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %100
   %101 = phi i32 [ %98, %.lr.ph ], [ %120, %100 ]
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
-  %102 = add nuw nsw i32 %.045, 1
+  %.044 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
+  %102 = add nuw nsw i32 %.044, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)

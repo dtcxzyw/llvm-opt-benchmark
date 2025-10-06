@@ -59,15 +59,15 @@ define ptr @duckdb_je_extent_alloc_dss(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %17, label %atomic_load_b.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %atomic_compare_exchange_weak_b.exit.i
-  %.sroa.0.05.i = phi i32 [ %.sroa.0.2.i, %atomic_compare_exchange_weak_b.exit.i ], [ 0, %15 ]
+  %.sroa.0.04.i = phi i32 [ %.sroa.0.2.i, %atomic_compare_exchange_weak_b.exit.i ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %18 = icmp ult i32 %.sroa.0.05.i, 5
+  %18 = icmp ult i32 %.sroa.0.04.i, 5
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %.lr.ph.i
   store volatile i32 0, ptr %8, align 4, !tbaa !3
   %.0..0..0..0..0..0..0..0.5.i.i = load volatile i32, ptr %8, align 4, !tbaa !3
-  %.0..highbits6.i.i = lshr i32 %.0..0..0..0..0..0..0..0.5.i.i, %.sroa.0.05.i
+  %.0..highbits6.i.i = lshr i32 %.0..0..0..0..0..0..0..0.5.i.i, %.sroa.0.04.i
   %20 = icmp eq i32 %.0..highbits6.i.i, 0
   br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -77,12 +77,12 @@ define ptr @duckdb_je_extent_alloc_dss(ptr noundef %0, ptr noundef %1, ptr nound
   %21 = add i32 %.0..0..0..0..0..0..0..0.1.i.i, 1
   store volatile i32 %21, ptr %8, align 4, !tbaa !3
   %.0..0..0..0..0..0..0..0..i.i = load volatile i32, ptr %8, align 4, !tbaa !3
-  %.0..highbits.i.i = lshr i32 %.0..0..0..0..0..0..0..0..i.i, %.sroa.0.05.i
+  %.0..highbits.i.i = lshr i32 %.0..0..0..0..0..0..0..0..i.i, %.sroa.0.04.i
   %22 = icmp eq i32 %.0..highbits.i.i, 0
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %19
-  %23 = add nuw nsw i32 %.sroa.0.05.i, 1
+  %23 = add nuw nsw i32 %.sroa.0.04.i, 1
   br label %atomic_compare_exchange_weak_b.exit.i
 
 24:                                               ; preds = %.lr.ph.i
@@ -90,7 +90,7 @@ define ptr @duckdb_je_extent_alloc_dss(ptr noundef %0, ptr noundef %1, ptr nound
   br label %atomic_compare_exchange_weak_b.exit.i
 
 atomic_compare_exchange_weak_b.exit.i:            ; preds = %24, %._crit_edge.i.i
-  %.sroa.0.2.i = phi i32 [ %23, %._crit_edge.i.i ], [ %.sroa.0.05.i, %24 ]
+  %.sroa.0.2.i = phi i32 [ %23, %._crit_edge.i.i ], [ %.sroa.0.04.i, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = cmpxchg weak ptr @dss_extending, i8 0, i8 1 acq_rel monotonic, align 1
   %27 = extractvalue { i8, i1 } %26, 1

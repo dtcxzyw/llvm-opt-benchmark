@@ -902,9 +902,9 @@ define internal noundef zeroext i1 @rsakeys_uat_fld_password_chk_cb(ptr noundef 
   store ptr null, ptr %7, align 8
   %15 = call ptr @rsa_load_pkcs12(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull %7)
   %.not23 = icmp eq ptr %15, null
-  br i1 %.not23, label %19, label %.thread26
+  br i1 %.not23, label %19, label %.thread25
 
-.thread26:                                        ; preds = %14
+.thread25:                                        ; preds = %14
   %16 = load ptr, ptr %7, align 8
   call void @g_free(ptr noundef %16)
   call void @gnutls_x509_privkey_deinit(ptr noundef nonnull %15)
@@ -927,7 +927,7 @@ define internal noundef zeroext i1 @rsakeys_uat_fld_password_chk_cb(ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
-24:                                               ; preds = %.thread26, %8, %6
+24:                                               ; preds = %.thread25, %8, %6
   store ptr null, ptr %5, align 8
   br label %25
 
@@ -2223,7 +2223,7 @@ proto_item_set_generated.exit138.i:               ; preds = %257, %254, %251, %2
   br label %345
 
 345:                                              ; preds = %ipv4tonl.exit.i.i, %341
-  %.0109124.i.i = phi i8 [ %337, %341 ], [ %369, %ipv4tonl.exit.i.i ]
+  %.0109123.i.i = phi i8 [ %337, %341 ], [ %369, %ipv4tonl.exit.i.i ]
   %346 = load i32, ptr @hf_tibia_worldlist_entry_id, align 4
   %347 = call ptr @ptvcursor_add(ptr noundef %304, i32 noundef %346, i32 noundef 1, i32 noundef 0)
   %348 = load i32, ptr @ett_world, align 4
@@ -2260,7 +2260,7 @@ proto_item_set_generated.exit138.i:               ; preds = %257, %254, %251, %2
   br i1 %exitcond.not.i.i.i, label %ipv4tonl.exit.i.i, label %363, !llvm.loop !8
 
 ipv4tonl.exit.i.i:                                ; preds = %363
-  %369 = add i8 %.0109124.i.i, -1
+  %369 = add i8 %.0109123.i.i, -1
   %370 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2298,8 +2298,8 @@ ipv4tonl.exit.i.i:                                ; preds = %363
   br label %391
 
 391:                                              ; preds = %391, %387
-  %.0111125.i.i = phi i8 [ %384, %387 ], [ %392, %391 ]
-  %392 = add i8 %.0111125.i.i, -1
+  %.0111124.i.i = phi i8 [ %384, %387 ], [ %392, %391 ]
+  %392 = add i8 %.0111124.i.i, -1
   %393 = load i32, ptr @hf_tibia_worldlist_entry_id, align 4
   %394 = call ptr @ptvcursor_add(ptr noundef %304, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   %395 = load i32, ptr @ett_char, align 4
@@ -2328,8 +2328,8 @@ ipv4tonl.exit.i.i:                                ; preds = %363
   br label %409
 
 409:                                              ; preds = %409, %405
-  %.0110126.i.i = phi i8 [ %337, %405 ], [ %410, %409 ]
-  %410 = add i8 %.0110126.i.i, -1
+  %.0110125.i.i = phi i8 [ %337, %405 ], [ %410, %409 ]
+  %410 = add i8 %.0110125.i.i, -1
   %411 = load i32, ptr @hf_tibia_charlist_entry_name, align 4
   %412 = load i32, ptr %310, align 4
   %413 = or i32 %412, -2147483648

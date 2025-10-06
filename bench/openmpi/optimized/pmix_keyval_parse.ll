@@ -223,7 +223,7 @@ define range(i32 -46, 1) i32 @pmix_util_keyval_parse(ptr noundef %0, ptr noundef
 
 .thread.i.i:                                      ; preds = %52
   store ptr %53, ptr @key_buffer, align 8, !tbaa !3
-  %.pre8.i.i = load ptr, ptr @pmix_util_keyval_yytext, align 8, !tbaa !3
+  %.pre7.i.i = load ptr, ptr @pmix_util_keyval_yytext, align 8, !tbaa !3
   br label %55
 
 save_param_name.exit.i:                           ; preds = %52
@@ -234,7 +234,7 @@ save_param_name.exit.i:                           ; preds = %52
 
 55:                                               ; preds = %.thread.i.i, %.lr.ph.i
   %56 = phi i64 [ %50, %.thread.i.i ], [ %47, %.lr.ph.i ]
-  %57 = phi ptr [ %.pre8.i.i, %.thread.i.i ], [ %48, %.lr.ph.i ]
+  %57 = phi ptr [ %.pre7.i.i, %.thread.i.i ], [ %48, %.lr.ph.i ]
   %58 = phi ptr [ %53, %.thread.i.i ], [ %.pre.i.i, %.lr.ph.i ]
   tail call void @pmix_string_copy(ptr noundef %58, ptr noundef %57, i64 noundef %56) #14
   switch i32 %.02165.i, label %202 [

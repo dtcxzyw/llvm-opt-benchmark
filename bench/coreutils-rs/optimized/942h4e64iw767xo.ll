@@ -651,8 +651,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$20discard_all_messa
   br i1 %.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
-  %9 = add nuw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
+  %9 = add nuw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #14
   %exitcond.not.i = icmp eq i32 %9, %8
   br i1 %exitcond.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
@@ -698,8 +698,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit: ; preds = 
   br i1 %.not.i30, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %22, %.lr.ph.i31
-  %.sroa.01.07.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
-  %24 = add nuw i32 %.sroa.01.07.i32, 1
+  %.sroa.01.06.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
+  %24 = add nuw i32 %.sroa.01.06.i32, 1
   tail call void @llvm.x86.sse2.pause() #14
   %exitcond.not.i33 = icmp eq i32 %24, %23
   br i1 %exitcond.not.i33, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
@@ -755,8 +755,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34: ; preds 
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %39, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %39 ]
-  %41 = add nuw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %39 ]
+  %41 = add nuw i32 %.sroa.01.06.i.i, 1
   tail call void @llvm.x86.sse2.pause() #14
   %exitcond.not.i.i = icmp eq i32 %41, %40
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -796,8 +796,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i.i41, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %54, %.lr.ph.i.i42
-  %.sroa.01.07.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
-  %56 = add nuw i32 %.sroa.01.07.i.i43, 1
+  %.sroa.01.06.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
+  %56 = add nuw i32 %.sroa.01.06.i.i43, 1
   tail call void @llvm.x86.sse2.pause() #14
   %exitcond.not.i.i44 = icmp eq i32 %56, %55
   br i1 %exitcond.not.i.i44, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
@@ -907,8 +907,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv17ha7c02a17378
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
-  %33 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
+  %33 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #14, !noalias !158
   %exitcond.not.i.i = icmp eq i32 %33, %32
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -955,8 +955,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i27.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %48, %.lr.ph.i28.i
-  %.sroa.01.07.i29.i = phi i32 [ %50, %.lr.ph.i28.i ], [ 0, %48 ]
-  %50 = add nuw nsw i32 %.sroa.01.07.i29.i, 1
+  %.sroa.01.06.i29.i = phi i32 [ %50, %.lr.ph.i28.i ], [ 0, %48 ]
+  %50 = add nuw nsw i32 %.sroa.01.06.i29.i, 1
   call void @llvm.x86.sse2.pause() #14, !noalias !158
   %exitcond.not.i30.i = icmp eq i32 %50, %49
   br i1 %exitcond.not.i30.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
@@ -972,7 +972,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
 
 55:                                               ; preds = %52
   %.017.le.i = inttoptr i64 %20 to ptr
-  %56 = icmp samesign ugt i64 %22, 29
+  %56 = icmp eq i64 %22, 30
   br i1 %56, label %61, label %80
 
 57:                                               ; preds = %52
@@ -990,8 +990,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br label %.backedge.i
 
 .lr.ph.i35.i:                                     ; preds = %57, %.lr.ph.i35.i
-  %.sroa.01.07.i36.i = phi i32 [ %60, %.lr.ph.i35.i ], [ 0, %57 ]
-  %60 = add nuw nsw i32 %.sroa.01.07.i36.i, 1
+  %.sroa.01.06.i36.i = phi i32 [ %60, %.lr.ph.i35.i ], [ 0, %57 ]
+  %60 = add nuw nsw i32 %.sroa.01.06.i36.i, 1
   call void @llvm.x86.sse2.pause() #14, !noalias !158
   %exitcond.not.i37.i = icmp eq i32 %60, %58
   br i1 %exitcond.not.i37.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i35.i
@@ -1017,8 +1017,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br i1 %.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %67, %.lr.ph.i.i.i
-  %.sroa.01.07.i.i.i = phi i32 [ %69, %.lr.ph.i.i.i ], [ 0, %67 ]
-  %69 = add nuw i32 %.sroa.01.07.i.i.i, 1
+  %.sroa.01.06.i.i.i = phi i32 [ %69, %.lr.ph.i.i.i ], [ 0, %67 ]
+  %69 = add nuw i32 %.sroa.01.06.i.i.i, 1
   call void @llvm.x86.sse2.pause() #14, !noalias !158
   %exitcond.not.i.i.i = icmp eq i32 %69, %68
   br i1 %exitcond.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
@@ -1074,8 +1074,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not.i.i.i19, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18, label %.lr.ph.i.i.i20
 
 .lr.ph.i.i.i20:                                   ; preds = %88, %.lr.ph.i.i.i20
-  %.sroa.01.07.i.i.i21 = phi i32 [ %90, %.lr.ph.i.i.i20 ], [ 0, %88 ]
-  %90 = add nuw i32 %.sroa.01.07.i.i.i21, 1
+  %.sroa.01.06.i.i.i21 = phi i32 [ %90, %.lr.ph.i.i.i20 ], [ 0, %88 ]
+  %90 = add nuw i32 %.sroa.01.06.i.i.i21, 1
   call void @llvm.x86.sse2.pause() #14, !noalias !162
   %exitcond.not.i.i.i22 = icmp eq i32 %90, %89
   br i1 %exitcond.not.i.i.i22, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18, label %.lr.ph.i.i.i20
@@ -1102,9 +1102,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %100, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17hebff02066f86f071E.exit", label %112
 
 .lr.ph.i4.i:                                      ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h01873998665a333fE.exit.i", %111
-  %.sroa.01.09.i.i = phi i64 [ %101, %111 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h01873998665a333fE.exit.i" ]
-  %101 = add nuw nsw i64 %.sroa.01.09.i.i, 1
-  %102 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i.i
+  %.sroa.01.08.i.i = phi i64 [ %101, %111 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h01873998665a333fE.exit.i" ]
+  %101 = add nuw nsw i64 %.sroa.01.08.i.i, 1
+  %102 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i.i
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %104 = load atomic i64, ptr %103 acquire, align 8, !noalias !162
   %105 = and i64 %104, 2
@@ -1126,9 +1126,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %113, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hfde62785d06752a4E.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %112, %124
-  %.sroa.01.09.i7.i = phi i64 [ %114, %124 ], [ %95, %112 ]
-  %114 = add nuw nsw i64 %.sroa.01.09.i7.i, 1
-  %115 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i7.i
+  %.sroa.01.08.i7.i = phi i64 [ %114, %124 ], [ %95, %112 ]
+  %114 = add nuw nsw i64 %.sroa.01.08.i7.i, 1
+  %115 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i7.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %117 = load atomic i64, ptr %116 acquire, align 8, !noalias !162
   %118 = and i64 %117, 2

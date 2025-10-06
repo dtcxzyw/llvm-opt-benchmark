@@ -5254,8 +5254,8 @@ hwloc__xml_verbose.exit180:                       ; preds = %66, %72
   br label %hwloc__xml_import_support.exit
 
 .lr.ph.i:                                         ; preds = %131, %162
-  %.0106155.i = phi i8 [ %.1.i, %162 ], [ 1, %131 ]
-  %.0107154.i = phi ptr [ %.1108.i, %162 ], [ null, %131 ]
+  %.0106154.i = phi i8 [ %.1.i, %162 ], [ 1, %131 ]
+  %.0107153.i = phi ptr [ %.1108.i, %162 ], [ null, %131 ]
   %137 = load ptr, ptr %17, align 8, !tbaa !22
   %138 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %137, ptr noundef nonnull dereferenceable(5) @.str.34) #24
   %.not.i181 = icmp eq i32 %138, 0
@@ -5310,8 +5310,8 @@ hwloc__xml_verbose.exit.i:                        ; preds = %153, %147
   br label %162
 
 162:                                              ; preds = %155, %hwloc__xml_verbose.exit.i, %143, %139
-  %.1108.i = phi ptr [ %.0107154.i, %155 ], [ %.0107154.i, %hwloc__xml_verbose.exit.i ], [ %.0107154.i, %143 ], [ %140, %139 ]
-  %.1.i = phi i8 [ %.0106155.i, %155 ], [ %.0106155.i, %hwloc__xml_verbose.exit.i ], [ %146, %143 ], [ %.0106155.i, %139 ]
+  %.1108.i = phi ptr [ %.0107153.i, %155 ], [ %.0107153.i, %hwloc__xml_verbose.exit.i ], [ %.0107153.i, %143 ], [ %140, %139 ]
+  %.1.i = phi i8 [ %.0106154.i, %155 ], [ %.0106154.i, %hwloc__xml_verbose.exit.i ], [ %146, %143 ], [ %.0106154.i, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -6555,16 +6555,16 @@ hwloc__xml_import_support.exit:                   ; preds = %644, %647, %335, %3
 702:                                              ; preds = %699
   %703 = getelementptr inbounds nuw i8, ptr %24, i64 696
   %704 = load i32, ptr %703, align 8, !tbaa !170
-  %.not221 = icmp eq i32 %704, 0
-  br i1 %.not221, label %._crit_edge, label %.lr.ph220
+  %.not220 = icmp eq i32 %704, 0
+  br i1 %.not220, label %._crit_edge, label %.lr.ph219
 
-.lr.ph220:                                        ; preds = %702
+.lr.ph219:                                        ; preds = %702
   %705 = load ptr, ptr %106, align 8, !tbaa !171
   %wide.trip.count = zext i32 %704 to i64
   br label %706
 
-706:                                              ; preds = %.lr.ph220, %.tail.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph220 ], [ %indvars.iv.next, %.tail.thread ]
+706:                                              ; preds = %.lr.ph219, %.tail.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next, %.tail.thread ]
   %707 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %705, i64 %indvars.iv
   %708 = load ptr, ptr %707, align 8, !tbaa !138
   %709 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %708, ptr noundef nonnull dereferenceable(8) @.str.69) #24
@@ -6620,14 +6620,14 @@ hwloc__xml_import_support.exit:                   ; preds = %644, %647, %335, %3
 
 sub_0:                                            ; preds = %724, %726
   %727 = load i8, ptr %712, align 1
-  %.not222 = icmp eq i8 %727, 71
-  br i1 %.not222, label %sub_1, label %.tail.thread
+  %.not221 = icmp eq i8 %727, 71
+  br i1 %.not221, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %728 = getelementptr inbounds nuw i8, ptr %712, i64 1
   %729 = load i8, ptr %728, align 1
-  %.not223 = icmp eq i8 %729, 76
-  br i1 %.not223, label %.tail, label %.tail.thread
+  %.not222 = icmp eq i8 %729, 76
+  br i1 %.not222, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %730 = getelementptr inbounds nuw i8, ptr %712, i64 2
@@ -9637,13 +9637,13 @@ define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noun
   %24 = select i1 %.not221, ptr @.str.80, ptr @.str.79
   br label %25
 
-25:                                               ; preds = %.lr.ph, %.tail356
-  %.0161408 = phi i32 [ 0, %.lr.ph ], [ %.1162, %.tail356 ]
-  %.0168407 = phi i32 [ %3, %.lr.ph ], [ %.1169, %.tail356 ]
-  %.0189406 = phi i64 [ 0, %.lr.ph ], [ %.1190, %.tail356 ]
-  %.0193405 = phi ptr [ null, %.lr.ph ], [ %.1194, %.tail356 ]
-  %.0196404 = phi i32 [ %3, %.lr.ph ], [ %.1197, %.tail356 ]
-  %.0199403 = phi i32 [ 0, %.lr.ph ], [ %.1200, %.tail356 ]
+25:                                               ; preds = %.lr.ph, %.tail355
+  %.0161407 = phi i32 [ 0, %.lr.ph ], [ %.1162, %.tail355 ]
+  %.0168406 = phi i32 [ %3, %.lr.ph ], [ %.1169, %.tail355 ]
+  %.0189405 = phi i64 [ 0, %.lr.ph ], [ %.1190, %.tail355 ]
+  %.0193404 = phi ptr [ null, %.lr.ph ], [ %.1194, %.tail355 ]
+  %.0196403 = phi i32 [ %3, %.lr.ph ], [ %.1197, %.tail355 ]
+  %.0199402 = phi i32 [ 0, %.lr.ph ], [ %.1200, %.tail355 ]
   %26 = load ptr, ptr %8, align 8, !tbaa !22
   %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(7) @.str.81) #24
   %.not = icmp eq i32 %27, 0
@@ -9653,7 +9653,7 @@ define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noun
   %29 = load ptr, ptr %9, align 8, !tbaa !22
   %30 = call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #23
   %31 = trunc i64 %30 to i32
-  br label %.tail356
+  br label %.tail355
 
 32:                                               ; preds = %25
   %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.6) #24
@@ -9664,7 +9664,7 @@ define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noun
   %35 = load ptr, ptr %9, align 8, !tbaa !22
   %36 = call i32 @hwloc_type_sscanf(ptr noundef %35, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #23
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %.tail356
+  br i1 %37, label %38, label %.tail355
 
 38:                                               ; preds = %34
   %.b.i = load i1, ptr @hwloc__xml_verbose.checked, align 4
@@ -9707,36 +9707,36 @@ hwloc__xml_verbose.exit:                          ; preds = %38, %44
 sub_0:                                            ; preds = %53
   %55 = load ptr, ptr %9, align 8, !tbaa !22
   %56 = load i8, ptr %55, align 1
-  switch i8 %56, label %.tail356 [
+  switch i8 %56, label %.tail355 [
     i8 111, label %sub_1
-    i8 103, label %sub_1358
+    i8 103, label %sub_1357
   ]
 
 sub_1:                                            ; preds = %sub_0
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %57, align 1
-  %.not428 = icmp eq i8 %58, 115
-  br i1 %.not428, label %.tail, label %.tail356
+  %.not427 = icmp eq i8 %58, 115
+  br i1 %.not427, label %.tail, label %.tail355
 
 .tail:                                            ; preds = %sub_1
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
-  %spec.select = select i1 %61, i32 1, i32 %.0199403
-  br label %.tail356
+  %spec.select = select i1 %61, i32 1, i32 %.0199402
+  br label %.tail355
 
-sub_1358:                                         ; preds = %sub_0
+sub_1357:                                         ; preds = %sub_0
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %63 = load i8, ptr %62, align 1
-  %.not430 = icmp eq i8 %63, 112
-  br i1 %.not430, label %sub_2359, label %.tail356
+  %.not429 = icmp eq i8 %63, 112
+  br i1 %.not429, label %sub_2358, label %.tail355
 
-sub_2359:                                         ; preds = %sub_1358
+sub_2358:                                         ; preds = %sub_1357
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 0
-  %67 = select i1 %66, i32 1, i32 %.0196404
-  br label %.tail356
+  %67 = select i1 %66, i32 1, i32 %.0196403
+  br label %.tail355
 
 68:                                               ; preds = %53
   %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.45) #24
@@ -9746,7 +9746,7 @@ sub_2359:                                         ; preds = %sub_1358
 70:                                               ; preds = %68
   %71 = load ptr, ptr %9, align 8, !tbaa !22
   %72 = call i64 @strtoul(ptr noundef captures(none) %71, ptr noundef null, i32 noundef 10) #23
-  br label %.tail356
+  br label %.tail355
 
 73:                                               ; preds = %68
   %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.34) #24
@@ -9755,7 +9755,7 @@ sub_2359:                                         ; preds = %sub_1358
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr %9, align 8, !tbaa !22
-  br label %.tail356
+  br label %.tail355
 
 77:                                               ; preds = %73
   %.b.i266 = load i1, ptr @hwloc__xml_verbose.checked, align 4
@@ -9779,7 +9779,7 @@ sub_2359:                                         ; preds = %sub_1358
 hwloc__xml_verbose.exit268:                       ; preds = %77, %83
   %84 = load i32, ptr @hwloc__xml_verbose.verbose, align 4, !tbaa !3
   %.not220 = icmp eq i32 %84, 0
-  br i1 %.not220, label %.tail356, label %85
+  br i1 %.not220, label %.tail355, label %85
 
 85:                                               ; preds = %hwloc__xml_verbose.exit268
   %86 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -9788,20 +9788,20 @@ hwloc__xml_verbose.exit268:                       ; preds = %77, %83
   %89 = load ptr, ptr %88, align 8, !tbaa !26
   %90 = load ptr, ptr %8, align 8, !tbaa !22
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.242, ptr noundef %89, ptr noundef nonnull %24, ptr noundef %90) #25
-  br label %.tail356
+  br label %.tail355
 
 .thread:                                          ; preds = %46, %hwloc__xml_verbose.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit361
+  br label %.loopexit360
 
-.tail356:                                         ; preds = %.tail, %sub_0, %sub_1, %sub_2359, %sub_1358, %28, %75, %85, %hwloc__xml_verbose.exit268, %70, %34
-  %.1200 = phi i32 [ %.0199403, %85 ], [ %.0199403, %hwloc__xml_verbose.exit268 ], [ %.0199403, %75 ], [ %.0199403, %70 ], [ %.0199403, %34 ], [ %.0199403, %28 ], [ %.0199403, %sub_1358 ], [ %.0199403, %sub_2359 ], [ %.0199403, %sub_1 ], [ %spec.select, %.tail ], [ %.0199403, %sub_0 ]
-  %.1197 = phi i32 [ %.0196404, %85 ], [ %.0196404, %hwloc__xml_verbose.exit268 ], [ %.0196404, %75 ], [ %.0196404, %70 ], [ %.0196404, %34 ], [ %.0196404, %28 ], [ %.0196404, %sub_1358 ], [ %67, %sub_2359 ], [ %.0196404, %sub_1 ], [ %.0196404, %.tail ], [ %.0196404, %sub_0 ]
-  %.1194 = phi ptr [ %.0193405, %85 ], [ %.0193405, %hwloc__xml_verbose.exit268 ], [ %76, %75 ], [ %.0193405, %70 ], [ %.0193405, %34 ], [ %.0193405, %28 ], [ %.0193405, %sub_1358 ], [ %.0193405, %sub_2359 ], [ %.0193405, %sub_1 ], [ %.0193405, %.tail ], [ %.0193405, %sub_0 ]
-  %.1190 = phi i64 [ %.0189406, %85 ], [ %.0189406, %hwloc__xml_verbose.exit268 ], [ %.0189406, %75 ], [ %72, %70 ], [ %.0189406, %34 ], [ %.0189406, %28 ], [ %.0189406, %sub_1358 ], [ %.0189406, %sub_2359 ], [ %.0189406, %sub_1 ], [ %.0189406, %.tail ], [ %.0189406, %sub_0 ]
-  %.1169 = phi i32 [ %.0168407, %85 ], [ %.0168407, %hwloc__xml_verbose.exit268 ], [ %.0168407, %75 ], [ %.0168407, %70 ], [ %.0168407, %34 ], [ %.0168407, %28 ], [ 1, %sub_1358 ], [ 1, %sub_2359 ], [ 1, %sub_1 ], [ 1, %.tail ], [ 1, %sub_0 ]
-  %.1162 = phi i32 [ %.0161408, %85 ], [ %.0161408, %hwloc__xml_verbose.exit268 ], [ %.0161408, %75 ], [ %.0161408, %70 ], [ %.0161408, %34 ], [ %31, %28 ], [ %.0161408, %sub_1358 ], [ %.0161408, %sub_2359 ], [ %.0161408, %sub_1 ], [ %.0161408, %.tail ], [ %.0161408, %sub_0 ]
+.tail355:                                         ; preds = %.tail, %sub_0, %sub_1, %sub_2358, %sub_1357, %28, %75, %85, %hwloc__xml_verbose.exit268, %70, %34
+  %.1200 = phi i32 [ %.0199402, %85 ], [ %.0199402, %hwloc__xml_verbose.exit268 ], [ %.0199402, %75 ], [ %.0199402, %70 ], [ %.0199402, %34 ], [ %.0199402, %28 ], [ %.0199402, %sub_1357 ], [ %.0199402, %sub_2358 ], [ %.0199402, %sub_1 ], [ %spec.select, %.tail ], [ %.0199402, %sub_0 ]
+  %.1197 = phi i32 [ %.0196403, %85 ], [ %.0196403, %hwloc__xml_verbose.exit268 ], [ %.0196403, %75 ], [ %.0196403, %70 ], [ %.0196403, %34 ], [ %.0196403, %28 ], [ %.0196403, %sub_1357 ], [ %67, %sub_2358 ], [ %.0196403, %sub_1 ], [ %.0196403, %.tail ], [ %.0196403, %sub_0 ]
+  %.1194 = phi ptr [ %.0193404, %85 ], [ %.0193404, %hwloc__xml_verbose.exit268 ], [ %76, %75 ], [ %.0193404, %70 ], [ %.0193404, %34 ], [ %.0193404, %28 ], [ %.0193404, %sub_1357 ], [ %.0193404, %sub_2358 ], [ %.0193404, %sub_1 ], [ %.0193404, %.tail ], [ %.0193404, %sub_0 ]
+  %.1190 = phi i64 [ %.0189405, %85 ], [ %.0189405, %hwloc__xml_verbose.exit268 ], [ %.0189405, %75 ], [ %72, %70 ], [ %.0189405, %34 ], [ %.0189405, %28 ], [ %.0189405, %sub_1357 ], [ %.0189405, %sub_2358 ], [ %.0189405, %sub_1 ], [ %.0189405, %.tail ], [ %.0189405, %sub_0 ]
+  %.1169 = phi i32 [ %.0168406, %85 ], [ %.0168406, %hwloc__xml_verbose.exit268 ], [ %.0168406, %75 ], [ %.0168406, %70 ], [ %.0168406, %34 ], [ %.0168406, %28 ], [ 1, %sub_1357 ], [ 1, %sub_2358 ], [ 1, %sub_1 ], [ 1, %.tail ], [ 1, %sub_0 ]
+  %.1162 = phi i32 [ %.0161407, %85 ], [ %.0161407, %hwloc__xml_verbose.exit268 ], [ %.0161407, %75 ], [ %.0161407, %70 ], [ %.0161407, %34 ], [ %31, %28 ], [ %.0161407, %sub_1357 ], [ %.0161407, %sub_2358 ], [ %.0161407, %sub_1 ], [ %.0161407, %.tail ], [ %.0161407, %sub_0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -9813,7 +9813,7 @@ hwloc__xml_verbose.exit268:                       ; preds = %77, %83
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %._crit_edge, label %25
 
-._crit_edge:                                      ; preds = %.tail356
+._crit_edge:                                      ; preds = %.tail355
   %97 = icmp eq i32 %.1200, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9854,7 +9854,7 @@ hwloc__xml_verbose.exit268:                       ; preds = %77, %83
 hwloc__xml_verbose.exit271:                       ; preds = %104, %110
   %111 = load i32, ptr @hwloc__xml_verbose.verbose, align 4, !tbaa !3
   %.not223 = icmp eq i32 %111, 0
-  br i1 %.not223, label %.loopexit361, label %112
+  br i1 %.not223, label %.loopexit360, label %112
 
 112:                                              ; preds = %hwloc__xml_verbose.exit271
   %113 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -9864,7 +9864,7 @@ hwloc__xml_verbose.exit271:                       ; preds = %104, %110
   %.not224 = icmp eq i32 %3, 0
   %117 = select i1 %.not224, ptr @.str.80, ptr @.str.79
   %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.243, ptr noundef %116, ptr noundef nonnull %117) #25
-  br label %.loopexit361
+  br label %.loopexit360
 
 119:                                              ; preds = %98
   %120 = zext i32 %.1162 to i64
@@ -9902,7 +9902,7 @@ hwloc__xml_verbose.exit271:                       ; preds = %104, %110
   %136 = load ptr, ptr %135, align 8, !tbaa !19
   %137 = call i32 %136(ptr noundef nonnull %2, ptr noundef nonnull %10, ptr noundef nonnull %13) #23
   %138 = icmp slt i32 %137, 1
-  br i1 %138, label %.thread350, label %.lr.ph424
+  br i1 %138, label %.thread349, label %.lr.ph423
 
 139:                                              ; preds = %130
   %.b.i272 = load i1, ptr @hwloc__xml_verbose.checked, align 4
@@ -9926,7 +9926,7 @@ hwloc__xml_verbose.exit271:                       ; preds = %104, %110
 hwloc__xml_verbose.exit274:                       ; preds = %139, %145
   %146 = load i32, ptr @hwloc__xml_verbose.verbose, align 4, !tbaa !3
   %.not226 = icmp eq i32 %146, 0
-  br i1 %.not226, label %.loopexit363, label %147
+  br i1 %.not226, label %.loopexit362, label %147
 
 147:                                              ; preds = %hwloc__xml_verbose.exit274
   %148 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -9935,27 +9935,27 @@ hwloc__xml_verbose.exit274:                       ; preds = %139, %145
   %151 = load ptr, ptr %150, align 8, !tbaa !26
   %152 = select i1 %99, ptr @.str.80, ptr @.str.79
   %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.244, ptr noundef %151, ptr noundef nonnull %152, i32 noundef %.1162) #25
-  br label %.loopexit363
+  br label %.loopexit362
 
-.thread350:                                       ; preds = %.backedge, %.preheader
-  %.0183.lcssa = phi i32 [ 0, %.preheader ], [ %.1184475, %.backedge ]
-  %.0177.lcssa = phi i32 [ 0, %.preheader ], [ %.1178476, %.backedge ]
+.thread349:                                       ; preds = %.backedge, %.preheader
+  %.0183.lcssa = phi i32 [ 0, %.preheader ], [ %.1184474, %.backedge ]
+  %.0177.lcssa = phi i32 [ 0, %.preheader ], [ %.1178475, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit362
+  br label %.loopexit361
 
-.lr.ph424:                                        ; preds = %.preheader, %.backedge
-  %.0177423 = phi i32 [ %.1178476, %.backedge ], [ 0, %.preheader ]
-  %.0183422 = phi i32 [ %.1184475, %.backedge ], [ 0, %.preheader ]
+.lr.ph423:                                        ; preds = %.preheader, %.backedge
+  %.0177422 = phi i32 [ %.1178475, %.backedge ], [ 0, %.preheader ]
+  %.0183421 = phi i32 [ %.1184474, %.backedge ], [ 0, %.preheader ]
   %154 = load ptr, ptr %13, align 8, !tbaa !22
   %155 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(5) @.str.77) #24
   %.not227 = icmp eq i32 %155, 0
   br i1 %.not227, label %156, label %176
 
-156:                                              ; preds = %.lr.ph424
+156:                                              ; preds = %.lr.ph423
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %157 = load ptr, ptr %18, align 8, !tbaa !15
@@ -9979,7 +9979,7 @@ hwloc__xml_verbose.exit274:                       ; preds = %139, %145
 hwloc___xml_import_info.exit.thread:              ; preds = %164
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread346
+  br label %.thread345
 
 select.unfold.i:                                  ; preds = %.lr.ph.i, %164
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -10002,9 +10002,9 @@ hwloc___xml_import_info.exit:                     ; preds = %select.unfold.i, %1
   %174 = call i32 %173(ptr noundef nonnull %2) #23
   %.fr = freeze i32 %174
   %175 = icmp slt i32 %.fr, 0
-  br i1 %175, label %.thread346, label %.loopexit.thread
+  br i1 %175, label %.thread345, label %.loopexit.thread
 
-176:                                              ; preds = %.lr.ph424
+176:                                              ; preds = %.lr.ph423
   %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(8) @.str.85) #24
   %.not228.not = icmp eq i32 %177, 0
   br i1 %.not228.not, label %.thread311, label %178
@@ -10036,7 +10036,7 @@ hwloc___xml_import_info.exit:                     ; preds = %select.unfold.i, %1
 hwloc__xml_verbose.exit278:                       ; preds = %180, %186
   %187 = load i32, ptr @hwloc__xml_verbose.verbose, align 4, !tbaa !3
   %.not230 = icmp eq i32 %187, 0
-  br i1 %.not230, label %.thread346, label %188
+  br i1 %.not230, label %.thread345, label %188
 
 188:                                              ; preds = %hwloc__xml_verbose.exit278
   %189 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10046,7 +10046,7 @@ hwloc__xml_verbose.exit278:                       ; preds = %180, %186
   %193 = select i1 %99, ptr @.str.80, ptr @.str.79
   %194 = load ptr, ptr %13, align 8, !tbaa !22
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.245, ptr noundef %192, ptr noundef nonnull %193, ptr noundef %194) #25
-  br label %.thread346
+  br label %.thread345
 
 .thread311:                                       ; preds = %176, %178
   %196 = load ptr, ptr %18, align 8, !tbaa !15
@@ -10084,7 +10084,7 @@ hwloc__xml_verbose.exit278:                       ; preds = %180, %186
 hwloc__xml_verbose.exit281:                       ; preds = %204, %210
   %211 = load i32, ptr @hwloc__xml_verbose.verbose, align 4, !tbaa !3
   %.not244 = icmp eq i32 %211, 0
-  br i1 %.not244, label %.thread346, label %212
+  br i1 %.not244, label %.thread345, label %212
 
 212:                                              ; preds = %hwloc__xml_verbose.exit281
   %213 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10093,7 +10093,7 @@ hwloc__xml_verbose.exit281:                       ; preds = %204, %210
   %216 = load ptr, ptr %215, align 8, !tbaa !26
   %217 = select i1 %99, ptr @.str.80, ptr @.str.79
   %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.246, ptr noundef %216, ptr noundef nonnull %217) #25
-  br label %.thread346
+  br label %.thread345
 
 219:                                              ; preds = %201
   %220 = load ptr, ptr %12, align 8, !tbaa !22
@@ -10130,7 +10130,7 @@ hwloc__xml_verbose.exit281:                       ; preds = %204, %210
 hwloc__xml_verbose.exit284:                       ; preds = %228, %235
   %236 = load i32, ptr @hwloc__xml_verbose.verbose, align 4, !tbaa !3
   %.not243 = icmp eq i32 %236, 0
-  br i1 %.not243, label %.thread346, label %237
+  br i1 %.not243, label %.thread345, label %237
 
 237:                                              ; preds = %hwloc__xml_verbose.exit284
   %238 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10139,19 +10139,19 @@ hwloc__xml_verbose.exit284:                       ; preds = %228, %235
   %241 = load ptr, ptr %240, align 8, !tbaa !26
   %242 = select i1 %99, ptr @.str.80, ptr @.str.79
   %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.247, ptr noundef %241, ptr noundef nonnull %242, i32 noundef %229) #25
-  br label %.thread346
+  br label %.thread345
 
 244:                                              ; preds = %219
   br i1 %.not228.not, label %245, label %297
 
 245:                                              ; preds = %244
-  %.not235 = icmp ult i32 %.0183422, %.1162
+  %.not235 = icmp ult i32 %.0183421, %.1162
   br i1 %.not235, label %255, label %246
 
 246:                                              ; preds = %245
   %247 = call i32 @hwloc__xml_verbose()
   %.not241 = icmp eq i32 %247, 0
-  br i1 %.not241, label %.thread346, label %248
+  br i1 %.not241, label %.thread345, label %248
 
 248:                                              ; preds = %246
   %249 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10160,14 +10160,14 @@ hwloc__xml_verbose.exit284:                       ; preds = %228, %235
   %252 = load ptr, ptr %251, align 8, !tbaa !26
   %253 = select i1 %99, ptr @.str.80, ptr @.str.79
   %254 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef nonnull @.str.248, ptr noundef %252, ptr noundef nonnull %253, i32 noundef %.1162) #25
-  br label %.thread346
+  br label %.thread345
 
 255:                                              ; preds = %245
   %256 = load ptr, ptr %14, align 8, !tbaa !22
   br label %257
 
 257:                                              ; preds = %296, %255
-  %.3186 = phi i32 [ %.0183422, %255 ], [ %.4187, %296 ]
+  %.3186 = phi i32 [ %.0183421, %255 ], [ %.4187, %296 ]
   %.0163 = phi ptr [ %256, %255 ], [ %.3, %296 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %99, label %285, label %258
@@ -10276,13 +10276,13 @@ hwloc__xml_verbose.exit287:                       ; preds = %263, %269
   ]
 
 297:                                              ; preds = %244
-  %.not232 = icmp ult i32 %.0177423, %123
+  %.not232 = icmp ult i32 %.0177422, %123
   br i1 %.not232, label %307, label %298
 
 298:                                              ; preds = %297
   %299 = call i32 @hwloc__xml_verbose()
   %.not234 = icmp eq i32 %299, 0
-  br i1 %.not234, label %.thread346, label %300
+  br i1 %.not234, label %.thread345, label %300
 
 300:                                              ; preds = %298
   %301 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10291,7 +10291,7 @@ hwloc__xml_verbose.exit287:                       ; preds = %263, %269
   %304 = load ptr, ptr %303, align 8, !tbaa !26
   %305 = select i1 %99, ptr @.str.80, ptr @.str.79
   %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.251, ptr noundef %304, ptr noundef nonnull %305, i32 noundef %123) #25
-  br label %.thread346
+  br label %.thread345
 
 307:                                              ; preds = %297
   %308 = load ptr, ptr %14, align 8, !tbaa !22
@@ -10299,14 +10299,14 @@ hwloc__xml_verbose.exit287:                       ; preds = %263, %269
   %309 = call i64 @strtoull(ptr noundef %308, ptr noundef nonnull %17, i32 noundef 0) #23
   %310 = load ptr, ptr %17, align 8, !tbaa !22
   %311 = icmp eq ptr %310, %308
-  br i1 %311, label %select.unfold334, label %.lr.ph417
+  br i1 %311, label %select.unfold334, label %.lr.ph416
 
-.lr.ph417:                                        ; preds = %307, %319
+.lr.ph416:                                        ; preds = %307, %319
   %312 = phi ptr [ %322, %319 ], [ %310, %307 ]
   %313 = phi i64 [ %321, %319 ], [ %309, %307 ]
-  %.4181415 = phi i32 [ %314, %319 ], [ %.0177423, %307 ]
-  %314 = add i32 %.4181415, 1
-  %315 = zext i32 %.4181415 to i64
+  %.4181414 = phi i32 [ %314, %319 ], [ %.0177422, %307 ]
+  %314 = add i32 %.4181414, 1
+  %315 = zext i32 %.4181414 to i64
   %316 = getelementptr inbounds nuw i64, ptr %126, i64 %315
   store i64 %313, ptr %316, align 8, !tbaa !201
   %317 = load i8, ptr %312, align 1, !tbaa !27
@@ -10315,23 +10315,23 @@ hwloc__xml_verbose.exit287:                       ; preds = %263, %269
   %or.cond261 = or i1 %.not233, %318
   br i1 %or.cond261, label %select.unfold334, label %319
 
-319:                                              ; preds = %.lr.ph417
+319:                                              ; preds = %.lr.ph416
   %320 = getelementptr inbounds nuw i8, ptr %312, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %321 = call i64 @strtoull(ptr noundef nonnull %320, ptr noundef nonnull %17, i32 noundef 0) #23
   %322 = load ptr, ptr %17, align 8, !tbaa !22
   %323 = icmp eq ptr %322, %320
-  br i1 %323, label %select.unfold334, label %.lr.ph417
+  br i1 %323, label %select.unfold334, label %.lr.ph416
 
-select.unfold334:                                 ; preds = %319, %.lr.ph417, %307
-  %.5182.ph = phi i32 [ %.0177423, %307 ], [ %314, %.lr.ph417 ], [ %314, %319 ]
+select.unfold334:                                 ; preds = %319, %.lr.ph416, %307
+  %.5182.ph = phi i32 [ %.0177422, %307 ], [ %314, %.lr.ph416 ], [ %314, %319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread325
 
 .thread325:                                       ; preds = %296, %select.unfold334, %.thread319
-  %.5188 = phi i32 [ %.0183422, %select.unfold334 ], [ %.4187.ph, %.thread319 ], [ %.4187, %296 ]
-  %.2179 = phi i32 [ %.5182.ph, %select.unfold334 ], [ %.0177423, %.thread319 ], [ %.0177423, %296 ]
+  %.5188 = phi i32 [ %.0183421, %select.unfold334 ], [ %.4187.ph, %.thread319 ], [ %.4187, %296 ]
+  %.2179 = phi i32 [ %.5182.ph, %select.unfold334 ], [ %.0177422, %.thread319 ], [ %.0177422, %296 ]
   %324 = load ptr, ptr %18, align 8, !tbaa !15
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 64
   %326 = load ptr, ptr %325, align 8, !tbaa !241
@@ -10346,7 +10346,7 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
 332:                                              ; preds = %.thread325
   %333 = call i32 @hwloc__xml_verbose()
   %.not242 = icmp eq i32 %333, 0
-  br i1 %.not242, label %.thread346, label %334
+  br i1 %.not242, label %.thread345, label %334
 
 334:                                              ; preds = %332
   %335 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10355,7 +10355,7 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
   %338 = load ptr, ptr %337, align 8, !tbaa !26
   %339 = select i1 %99, ptr @.str.80, ptr @.str.79
   %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %335, ptr noundef nonnull @.str.248, ptr noundef %338, ptr noundef nonnull %339, i32 noundef %.1162) #25
-  br label %.thread346
+  br label %.thread345
 
 341:                                              ; preds = %.thread325
   %342 = load ptr, ptr %18, align 8, !tbaa !15
@@ -10364,17 +10364,17 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
   call void %344(ptr noundef nonnull %10) #23
   br label %.loopexit.thread
 
-.thread346:                                       ; preds = %hwloc___xml_import_info.exit, %188, %hwloc__xml_verbose.exit278, %212, %hwloc__xml_verbose.exit281, %237, %hwloc__xml_verbose.exit284, %334, %332, %hwloc___xml_import_info.exit.thread, %248, %246, %298, %300
+.thread345:                                       ; preds = %hwloc___xml_import_info.exit, %188, %hwloc__xml_verbose.exit278, %212, %hwloc__xml_verbose.exit281, %237, %hwloc__xml_verbose.exit284, %334, %332, %hwloc___xml_import_info.exit.thread, %248, %246, %298, %300
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit363
+  br label %.loopexit362
 
 .loopexit.thread:                                 ; preds = %341, %hwloc___xml_import_info.exit
-  %.1184.ph = phi i32 [ %.0183422, %hwloc___xml_import_info.exit ], [ %.5188, %341 ]
-  %.1178.ph = phi i32 [ %.0177423, %hwloc___xml_import_info.exit ], [ %.2179, %341 ]
+  %.1184.ph = phi i32 [ %.0183421, %hwloc___xml_import_info.exit ], [ %.5188, %341 ]
+  %.1178.ph = phi i32 [ %.0177422, %hwloc___xml_import_info.exit ], [ %.2179, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -10388,15 +10388,15 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  switch i32 %.5, label %.loopexit361 [
-    i32 5, label %.loopexit363
-    i32 7, label %.loopexit362
+  switch i32 %.5, label %.loopexit360 [
+    i32 5, label %.loopexit362
+    i32 7, label %.loopexit361
     i32 6, label %.backedge
   ]
 
 .backedge:                                        ; preds = %.loopexit.thread, %.loopexit
-  %.1178476 = phi i32 [ %.1178.ph, %.loopexit.thread ], [ %.0177423, %.loopexit ]
-  %.1184475 = phi i32 [ %.1184.ph, %.loopexit.thread ], [ %.4187, %.loopexit ]
+  %.1178475 = phi i32 [ %.1178.ph, %.loopexit.thread ], [ %.0177422, %.loopexit ]
+  %.1184474 = phi i32 [ %.1184.ph, %.loopexit.thread ], [ %.4187, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -10407,18 +10407,18 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
   %347 = load ptr, ptr %346, align 8, !tbaa !19
   %348 = call i32 %347(ptr noundef nonnull %2, ptr noundef nonnull %10, ptr noundef nonnull %13) #23
   %349 = icmp slt i32 %348, 1
-  br i1 %349, label %.thread350, label %.lr.ph424
+  br i1 %349, label %.thread349, label %.lr.ph423
 
-.loopexit362:                                     ; preds = %.loopexit, %.thread350
-  %.1178355 = phi i32 [ %.0177.lcssa, %.thread350 ], [ %.0177423, %.loopexit ]
-  %.1184354 = phi i32 [ %.0183.lcssa, %.thread350 ], [ %.4187, %.loopexit ]
-  %.not245 = icmp eq i32 %.1184354, %.1162
+.loopexit361:                                     ; preds = %.loopexit, %.thread349
+  %.1178354 = phi i32 [ %.0177.lcssa, %.thread349 ], [ %.0177422, %.loopexit ]
+  %.1184353 = phi i32 [ %.0183.lcssa, %.thread349 ], [ %.4187, %.loopexit ]
+  %.not245 = icmp eq i32 %.1184353, %.1162
   br i1 %.not245, label %359, label %350
 
-350:                                              ; preds = %.loopexit362
+350:                                              ; preds = %.loopexit361
   %351 = call i32 @hwloc__xml_verbose()
   %.not256 = icmp eq i32 %351, 0
-  br i1 %.not256, label %.loopexit363, label %352
+  br i1 %.not256, label %.loopexit362, label %352
 
 352:                                              ; preds = %350
   %353 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10427,16 +10427,16 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
   %356 = load ptr, ptr %355, align 8, !tbaa !26
   %357 = select i1 %99, ptr @.str.80, ptr @.str.79
   %358 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %353, ptr noundef nonnull @.str.252, ptr noundef %356, ptr noundef nonnull %357, i32 noundef %.1162) #25
-  br label %.loopexit363
+  br label %.loopexit362
 
-359:                                              ; preds = %.loopexit362
-  %.not246 = icmp eq i32 %.1178355, %123
+359:                                              ; preds = %.loopexit361
+  %.not246 = icmp eq i32 %.1178354, %123
   br i1 %.not246, label %369, label %360
 
 360:                                              ; preds = %359
   %361 = call i32 @hwloc__xml_verbose()
   %.not255 = icmp eq i32 %361, 0
-  br i1 %.not255, label %.loopexit363, label %362
+  br i1 %.not255, label %.loopexit362, label %362
 
 362:                                              ; preds = %360
   %363 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -10445,7 +10445,7 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
   %366 = load ptr, ptr %365, align 8, !tbaa !26
   %367 = select i1 %99, ptr @.str.80, ptr @.str.79
   %368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %363, ptr noundef nonnull @.str.253, ptr noundef %366, ptr noundef nonnull %367, i32 noundef %123) #25
-  br label %.loopexit363
+  br label %.loopexit362
 
 369:                                              ; preds = %359
   %370 = icmp eq i32 %.1162, 1
@@ -10549,16 +10549,16 @@ select.unfold334:                                 ; preds = %319, %.lr.ph417, %3
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 40
   %421 = load ptr, ptr %420, align 8, !tbaa !28
   %422 = call i32 %421(ptr noundef nonnull %2) #23
-  br label %.loopexit361
+  br label %.loopexit360
 
-.loopexit363:                                     ; preds = %.loopexit, %.thread346, %360, %362, %350, %352, %hwloc__xml_verbose.exit274, %147
+.loopexit362:                                     ; preds = %.loopexit, %.thread345, %360, %362, %350, %352, %hwloc__xml_verbose.exit274, %147
   call void @free(ptr noundef %.0159) #23
   call void @free(ptr noundef %122) #23
   call void @free(ptr noundef %126) #23
-  br label %.loopexit361
+  br label %.loopexit360
 
-.loopexit361:                                     ; preds = %.loopexit, %.thread, %.loopexit363, %112, %hwloc__xml_verbose.exit271, %418
-  %.0 = phi i32 [ %422, %418 ], [ -1, %hwloc__xml_verbose.exit271 ], [ -1, %112 ], [ -1, %.loopexit363 ], [ -1, %.thread ], [ undef, %.loopexit ]
+.loopexit360:                                     ; preds = %.loopexit, %.thread, %.loopexit362, %112, %hwloc__xml_verbose.exit271, %418
+  %.0 = phi i32 [ %422, %418 ], [ -1, %hwloc__xml_verbose.exit271 ], [ -1, %112 ], [ -1, %.loopexit362 ], [ -1, %.thread ], [ undef, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

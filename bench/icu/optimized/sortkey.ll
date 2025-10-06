@@ -405,8 +405,8 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7712CollationKey
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !11
-  %.not20 = icmp eq i32 %5, 2
-  br i1 %.not20, label %6, label %10
+  %.not19 = icmp eq i32 %5, 2
+  br i1 %.not19, label %6, label %10
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -457,8 +457,8 @@ _ZN6icu_7712CollationKey10reallocateEii.exit:     ; preds = %26, %28
 
 34:                                               ; preds = %_ZN6icu_7712CollationKey10reallocateEii.exit, %10
   %35 = phi i32 [ %33, %_ZN6icu_7712CollationKey10reallocateEii.exit ], [ %15, %10 ]
-  %.not21 = icmp eq i32 %13, 0
-  br i1 %.not21, label %.thread, label %36
+  %.not20 = icmp eq i32 %13, 0
+  br i1 %.not20, label %.thread, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16

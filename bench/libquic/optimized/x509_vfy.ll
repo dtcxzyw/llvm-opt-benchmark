@@ -1924,7 +1924,7 @@ define hidden ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 52:                                               ; preds = %50
   %53 = tail call i32 @X509_CRL_set_version(ptr noundef nonnull %51, i64 noundef 1) #14
   %.not71 = icmp eq i32 %53, 0
-  br i1 %.not71, label %.loopexit84, label %54
+  br i1 %.not71, label %.loopexit83, label %54
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %1, align 8, !tbaa !111
@@ -1932,7 +1932,7 @@ define hidden ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %57 = load ptr, ptr %56, align 8, !tbaa !112
   %58 = tail call i32 @X509_CRL_set_issuer_name(ptr noundef nonnull %51, ptr noundef %57) #14
   %.not72 = icmp eq i32 %58, 0
-  br i1 %.not72, label %.loopexit84, label %59
+  br i1 %.not72, label %.loopexit83, label %59
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %1, align 8, !tbaa !111
@@ -1940,7 +1940,7 @@ define hidden ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %62 = load ptr, ptr %61, align 8, !tbaa !115
   %63 = tail call i32 @X509_CRL_set_lastUpdate(ptr noundef nonnull %51, ptr noundef %62) #14
   %.not73 = icmp eq i32 %63, 0
-  br i1 %.not73, label %.loopexit84, label %64
+  br i1 %.not73, label %.loopexit83, label %64
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %1, align 8, !tbaa !111
@@ -1948,13 +1948,13 @@ define hidden ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %67 = load ptr, ptr %66, align 8, !tbaa !116
   %68 = tail call i32 @X509_CRL_set_nextUpdate(ptr noundef nonnull %51, ptr noundef %67) #14
   %.not74 = icmp eq i32 %68, 0
-  br i1 %.not74, label %.loopexit84, label %69
+  br i1 %.not74, label %.loopexit83, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %14, align 8, !tbaa !110
   %71 = tail call i32 @X509_CRL_add1_ext_i2d(ptr noundef nonnull %51, i32 noundef 140, ptr noundef %70, i32 noundef 1, i64 noundef 0) #14
   %.not75 = icmp eq i32 %71, 0
-  br i1 %.not75, label %.loopexit84, label %.preheader
+  br i1 %.not75, label %.loopexit83, label %.preheader
 
 .preheader:                                       ; preds = %69
   %72 = tail call i32 @X509_CRL_get_ext_count(ptr noundef nonnull %1) #14
@@ -1962,36 +1962,36 @@ define hidden ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %73, label %.lr.ph, label %._crit_edge
 
 74:                                               ; preds = %.lr.ph
-  %75 = add nuw nsw i32 %.05785, 1
+  %75 = add nuw nsw i32 %.05784, 1
   %76 = tail call i32 @X509_CRL_get_ext_count(ptr noundef nonnull %1) #14
   %77 = icmp slt i32 %75, %76
   br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 
 .lr.ph:                                           ; preds = %.preheader, %74
-  %.05785 = phi i32 [ %75, %74 ], [ 0, %.preheader ]
-  %78 = tail call ptr @X509_CRL_get_ext(ptr noundef nonnull %1, i32 noundef %.05785) #14
+  %.05784 = phi i32 [ %75, %74 ], [ 0, %.preheader ]
+  %78 = tail call ptr @X509_CRL_get_ext(ptr noundef nonnull %1, i32 noundef %.05784) #14
   %79 = tail call i32 @X509_CRL_add_ext(ptr noundef nonnull %51, ptr noundef %78, i32 noundef -1) #14
   %.not80 = icmp eq i32 %79, 0
-  br i1 %.not80, label %.loopexit84, label %74
+  br i1 %.not80, label %.loopexit83, label %74
 
 ._crit_edge:                                      ; preds = %74, %.preheader
   %80 = load ptr, ptr %1, align 8, !tbaa !111
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !118
   %83 = tail call i64 @sk_num(ptr noundef %82) #14
-  %.not90 = icmp eq i64 %83, 0
-  br i1 %.not90, label %._crit_edge89, label %.lr.ph88
+  %.not89 = icmp eq i64 %83, 0
+  br i1 %.not89, label %._crit_edge88, label %.lr.ph87
 
-.lr.ph88:                                         ; preds = %._crit_edge, %93
-  %.05686 = phi i64 [ %94, %93 ], [ 0, %._crit_edge ]
+.lr.ph87:                                         ; preds = %._crit_edge, %93
+  %.05685 = phi i64 [ %94, %93 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %84 = call ptr @sk_value(ptr noundef %82, i64 noundef %.05686) #14
+  %84 = call ptr @sk_value(ptr noundef %82, i64 noundef %.05685) #14
   %85 = load ptr, ptr %84, align 8, !tbaa !119
   %86 = call i32 @X509_CRL_get0_by_serial(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %85) #14
   %.not77 = icmp eq i32 %86, 0
   br i1 %.not77, label %87, label %93
 
-87:                                               ; preds = %.lr.ph88
+87:                                               ; preds = %.lr.ph87
   %88 = call ptr @X509_REVOKED_dup(ptr noundef nonnull %84) #14
   store ptr %88, ptr %6, align 8, !tbaa !121
   %.not78 = icmp eq ptr %88, null
@@ -2009,26 +2009,26 @@ define hidden ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .loopexit:                                        ; preds = %87, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit84
+  br label %.loopexit83
 
-93:                                               ; preds = %89, %.lr.ph88
+93:                                               ; preds = %89, %.lr.ph87
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %94 = add nuw i64 %.05686, 1
+  %94 = add nuw i64 %.05685, 1
   %95 = call i64 @sk_num(ptr noundef %82) #14
   %96 = icmp ult i64 %94, %95
-  br i1 %96, label %.lr.ph88, label %._crit_edge89, !llvm.loop !123
+  br i1 %96, label %.lr.ph87, label %._crit_edge88, !llvm.loop !123
 
-._crit_edge89:                                    ; preds = %93, %._crit_edge
+._crit_edge88:                                    ; preds = %93, %._crit_edge
   %97 = icmp ne ptr %3, null
   %or.cond = and i1 %42, %97
   br i1 %or.cond, label %98, label %100
 
-98:                                               ; preds = %._crit_edge89
+98:                                               ; preds = %._crit_edge88
   %99 = call i32 @X509_CRL_sign(ptr noundef nonnull %51, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %.not76 = icmp eq i32 %99, 0
-  br i1 %.not76, label %.loopexit84, label %100
+  br i1 %.not76, label %.loopexit83, label %100
 
-.loopexit84:                                      ; preds = %.lr.ph, %52, %54, %59, %64, %69, %98, %.loopexit
+.loopexit83:                                      ; preds = %.lr.ph, %52, %54, %59, %64, %69, %98, %.loopexit
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 2033) #14
   call void @X509_CRL_free(ptr noundef nonnull %51) #14
   br label %100
@@ -2037,8 +2037,8 @@ define hidden ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 2033) #14
   br label %100
 
-100:                                              ; preds = %.loopexit84, %.critedge, %._crit_edge89, %98, %49, %40, %34, %31, %28, %19, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %28 ], [ null, %40 ], [ null, %49 ], [ null, %34 ], [ null, %31 ], [ null, %19 ], [ %51, %98 ], [ %51, %._crit_edge89 ], [ null, %.critedge ], [ null, %.loopexit84 ]
+100:                                              ; preds = %.loopexit83, %.critedge, %._crit_edge88, %98, %49, %40, %34, %31, %28, %19, %12
+  %.0 = phi ptr [ null, %12 ], [ null, %28 ], [ null, %40 ], [ null, %49 ], [ null, %34 ], [ null, %31 ], [ null, %19 ], [ %51, %98 ], [ %51, %._crit_edge88 ], [ null, %.critedge ], [ null, %.loopexit83 ]
   ret ptr %.0
 }
 

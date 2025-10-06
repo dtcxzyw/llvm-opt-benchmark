@@ -281,13 +281,13 @@ define hidden noundef zeroext i1 @_ZN11ModuleEntry19should_show_versionEv(ptr no
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %4, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %52
+  br i1 %or.cond, label %8, label %53
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %51, label %11
+  br i1 %.not, label %52, label %11
 
 11:                                               ; preds = %8
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -339,35 +339,35 @@ define hidden noundef zeroext i1 @_ZN11ModuleEntry19should_show_versionEv(ptr no
   br label %45
 
 45:                                               ; preds = %41, %31, %44
-  %switch = phi i1 [ true, %44 ], [ false, %31 ], [ false, %41 ]
-  %46 = load ptr, ptr %17, align 8
-  %.not.i.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.i, label %48, label %47
+  %46 = phi i1 [ true, %44 ], [ false, %31 ], [ false, %41 ]
+  %47 = load ptr, ptr %17, align 8
+  %.not.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i, label %49, label %48
 
-47:                                               ; preds = %45
+48:                                               ; preds = %45
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef %23) #16
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %17) #16
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %45
-  %49 = load ptr, ptr %18, align 8
-  %.not8.i.i.i.i = icmp eq ptr %49, %19
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %50
+49:                                               ; preds = %48, %45
+  %50 = load ptr, ptr %18, align 8
+  %.not8.i.i.i.i = icmp eq ptr %50, %19
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %51
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   store ptr %17, ptr %16, align 8
   store ptr %19, ptr %18, align 8
   store ptr %21, ptr %20, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
-  br i1 %switch, label %51, label %52
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %49, %51
+  br i1 %46, label %52, label %53
 
-51:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %8
-  br label %52
+52:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %8
+  br label %53
 
-52:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1, %51
-  %.07 = phi i1 [ true, %51 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %1 ]
+53:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1, %52
+  %.07 = phi i1 [ true, %52 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %1 ]
   ret i1 %.07
 }
 

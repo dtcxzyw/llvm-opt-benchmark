@@ -323,29 +323,29 @@ read_atom.exit42.thread:                          ; preds = %131, %read_atom.exi
   %154 = add i32 %.val, -8
   %155 = lshr i32 %154, 2
   store i32 %155, ptr %150, align 4, !tbaa !61
-  %.not5.i = icmp ult i32 %154, 4
-  br i1 %.not5.i, label %.loopexit.i, label %.lr.ph.i
+  %.not4.i = icmp ult i32 %154, 4
+  br i1 %.not4.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %149, %159
-  %.04.i = phi i32 [ %160, %159 ], [ 0, %149 ]
+  %.03.i = phi i32 [ %160, %159 ], [ 0, %149 ]
   %156 = load ptr, ptr %6, align 8, !tbaa !27
   %157 = call i32 @avio_rb32(ptr noundef %156) #6
   %.not.i43 = icmp eq i32 %157, 0
   br i1 %.not.i43, label %158, label %159
 
 158:                                              ; preds = %.lr.ph.i
-  store i32 %.04.i, ptr %150, align 4, !tbaa !61
+  store i32 %.03.i, ptr %150, align 4, !tbaa !61
   br label %.loopexit.i
 
 159:                                              ; preds = %.lr.ph.i
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.22, i32 noundef %.04.i, i32 noundef %157) #6
-  %160 = add nuw nsw i32 %.04.i, 1
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.22, i32 noundef %.03.i, i32 noundef %157) #6
+  %160 = add nuw nsw i32 %.03.i, 1
   %161 = load i32, ptr %150, align 4, !tbaa !61
   %162 = icmp ult i32 %160, %161
   br i1 %162, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !62
 
 .loopexit.i:                                      ; preds = %159, %158, %149
-  %163 = phi i32 [ %155, %149 ], [ %.04.i, %158 ], [ %161, %159 ]
+  %163 = phi i32 [ %155, %149 ], [ %.03.i, %158 ], [ %161, %159 ]
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 88
   %165 = load i32, ptr %164, align 8, !tbaa !64
   %.not23.i = icmp eq i32 %165, 0

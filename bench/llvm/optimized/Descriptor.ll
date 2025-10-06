@@ -1183,8 +1183,8 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor7getTypeEv(ptr noundef nonnul
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  %.not35 = select i1 %26, i1 true, i1 %29
-  br i1 %.not35, label %36, label %30
+  %.not32 = select i1 %26, i1 true, i1 %29
+  br i1 %.not32, label %36, label %30
 
 30:                                               ; preds = %.thread
   %31 = load ptr, ptr %28, align 8, !tbaa !98
@@ -1195,17 +1195,17 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor7getTypeEv(ptr noundef nonnul
   br label %39
 
 36:                                               ; preds = %.thread
-  %.not1236 = icmp ne i64 %4, 0
-  %.not12.not = and i1 %.not1236, %3
+  %.not1233 = icmp ne i64 %4, 0
+  %.not12.not = and i1 %.not1233, %3
   br i1 %.not12.not, label %37, label %39
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.sroa.0.0.copyload.i17 = load i64, ptr %38, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i16 = load i64, ptr %38, align 8, !tbaa !25
   br label %39
 
 39:                                               ; preds = %19, %11, %37, %36, %30
-  %.sroa.0.1 = phi i64 [ %35, %30 ], [ undef, %36 ], [ %.sroa.0.0.copyload.i17, %37 ], [ %23, %19 ], [ %.sroa.0.0.copyload.i, %11 ]
+  %.sroa.0.1 = phi i64 [ %35, %30 ], [ undef, %36 ], [ %.sroa.0.0.copyload.i16, %37 ], [ %23, %19 ], [ %.sroa.0.0.copyload.i, %11 ]
   ret i64 %.sroa.0.1
 }
 
@@ -1253,8 +1253,8 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor15getElemQualTypeEv(ptr nound
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  %.not35.i = select i1 %24, i1 true, i1 %27
-  br i1 %.not35.i, label %34, label %28
+  %.not32.i = select i1 %24, i1 true, i1 %27
+  br i1 %.not32.i, label %34, label %28
 
 28:                                               ; preds = %.thread.i
   %29 = load ptr, ptr %26, align 8, !tbaa !98
@@ -1265,17 +1265,17 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor15getElemQualTypeEv(ptr nound
   br label %_ZNK5clang6interp10Descriptor7getTypeEv.exit
 
 34:                                               ; preds = %.thread.i
-  %.not1236.i = icmp ne i64 %4, 0
-  %.not12.not.i = and i1 %.not1236.i, %3
+  %.not1233.i = icmp ne i64 %4, 0
+  %.not12.not.i = and i1 %.not1233.i, %3
   br i1 %.not12.not.i, label %35, label %_ZNK5clang6interp10Descriptor7getTypeEv.exit
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.sroa.0.0.copyload.i17.i = load i64, ptr %36, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i16.i = load i64, ptr %36, align 8, !tbaa !25
   br label %_ZNK5clang6interp10Descriptor7getTypeEv.exit
 
 _ZNK5clang6interp10Descriptor7getTypeEv.exit:     ; preds = %11, %17, %28, %34, %35
-  %.sroa.0.1.i = phi i64 [ %33, %28 ], [ undef, %34 ], [ %.sroa.0.0.copyload.i17.i, %35 ], [ %21, %17 ], [ %.sroa.0.0.copyload.i.i, %11 ]
+  %.sroa.0.1.i = phi i64 [ %33, %28 ], [ undef, %34 ], [ %.sroa.0.0.copyload.i16.i, %35 ], [ %21, %17 ], [ %.sroa.0.0.copyload.i.i, %11 ]
   %37 = and i64 %.sroa.0.1.i, -16
   %38 = inttoptr i64 %37 to ptr
   %39 = load ptr, ptr %38, align 16, !tbaa !99
@@ -1455,8 +1455,8 @@ define dso_local i32 @_ZNK5clang6interp10Descriptor11getLocationEv(ptr noundef n
   %3 = icmp ne i64 %2, 0
   %4 = and i64 %.sroa.0.0.copyload.i.i, -4
   %5 = inttoptr i64 %4 to ptr
-  %.not.not13 = icmp eq i64 %4, 0
-  %.not.not = or i1 %3, %.not.not13
+  %.not.not12 = icmp eq i64 %4, 0
+  %.not.not = or i1 %3, %.not.not12
   br i1 %.not.not, label %8, label %6
 
 6:                                                ; preds = %1
@@ -1465,8 +1465,8 @@ define dso_local i32 @_ZNK5clang6interp10Descriptor11getLocationEv(ptr noundef n
   br label %11
 
 8:                                                ; preds = %1
-  %.not714 = icmp ne i64 %4, 0
-  %.not7.not = and i1 %.not714, %3
+  %.not713 = icmp ne i64 %4, 0
+  %.not7.not = and i1 %.not713, %3
   br i1 %.not7.not, label %9, label %11
 
 9:                                                ; preds = %8
@@ -1487,8 +1487,8 @@ define dso_local i64 @_ZNK5clang6interp10Descriptor6getLocEv(ptr noundef nonnull
   %2 = and i64 %.sroa.0.0.copyload.i.i, 2
   %3 = icmp ne i64 %2, 0
   %4 = and i64 %.sroa.0.0.copyload.i.i, -4
-  %.not.not13 = icmp eq i64 %4, 0
-  %.not.not = or i1 %3, %.not.not13
+  %.not.not12 = icmp eq i64 %4, 0
+  %.not.not = or i1 %3, %.not.not12
   %5 = and i64 %.sroa.0.0.copyload.i.i, -8
   %6 = or i64 %4, 4
   %.sroa.0.1 = select i1 %.not.not, i64 %6, i64 %5

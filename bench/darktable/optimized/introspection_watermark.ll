@@ -506,7 +506,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %43 = mul nsw i64 %38, %42
   %44 = mul i64 %43, %41
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %44) #19
-  br label %.thread521
+  br label %.thread517
 
 45:                                               ; preds = %33, %6
   %.0 = phi ptr [ %13, %6 ], [ %14, %33 ]
@@ -535,7 +535,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %59 = mul nsw i64 %54, %58
   %60 = mul i64 %59, %57
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %60) #19
-  br label %.thread521
+  br label %.thread517
 
 61:                                               ; preds = %45
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -548,7 +548,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %69 = mul nsw i64 %64, %68
   %70 = mul i64 %69, %67
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %70) #19
-  br label %.thread521
+  br label %.thread517
 
 .critedge:                                        ; preds = %47
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -710,7 +710,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %150 = mul nsw i64 %145, %149
   %151 = mul i64 %150, %148
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %151) #19
-  br label %.thread521
+  br label %.thread517
 
 152:                                              ; preds = %49, %_watermark_get_svgdoc.exit
   %.0393 = phi ptr [ %141, %_watermark_get_svgdoc.exit ], [ null, %49 ]
@@ -731,7 +731,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %164 = mul nsw i64 %159, %163
   %165 = mul i64 %164, %162
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %165) #19
-  br label %.thread521
+  br label %.thread517
 
 166:                                              ; preds = %152
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -753,7 +753,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %179 = mul nsw i64 %175, %178
   %180 = mul i64 %179, %177
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %180) #19
-  br label %.thread521
+  br label %.thread517
 
 181:                                              ; preds = %166
   %182 = load i32, ptr %153, align 4, !tbaa !76
@@ -776,7 +776,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %194 = mul nsw i64 %190, %193
   %195 = mul i64 %194, %192
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %195) #19
-  br label %.thread521
+  br label %.thread517
 
 196:                                              ; preds = %181
   %197 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #19
@@ -813,7 +813,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %216 = load ptr, ptr %15, align 8, !tbaa !105
   call void @g_error_free(ptr noundef %216) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.thread521
+  br label %.thread517
 
 217:                                              ; preds = %198
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -846,7 +846,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %230 = mul i64 %229, %227
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %230) #19
   %231 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #19
-  br label %.thread521
+  br label %.thread517
 
 232:                                              ; preds = %218
   %233 = call i32 @cairo_image_surface_get_width(ptr noundef %219) #19
@@ -854,7 +854,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   br label %235
 
 235:                                              ; preds = %232, %217
-  %.0395449 = phi ptr [ %200, %217 ], [ null, %232 ]
+  %.0395447 = phi ptr [ %200, %217 ], [ null, %232 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %217 ], [ %233, %232 ]
   %.sroa.21.0 = phi i32 [ %.sroa.21.0.copyload, %217 ], [ %234, %232 ]
   %.0397 = phi ptr [ null, %217 ], [ %219, %232 ]
@@ -879,13 +879,13 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %250 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %251 = load i32, ptr %250, align 4, !tbaa !112
   switch i32 %251, label %308 [
-    i32 1, label %.thread462
-    i32 2, label %.thread468
-    i32 3, label %.thread474
+    i32 1, label %.thread458
+    i32 2, label %.thread464
+    i32 3, label %.thread470
     i32 4, label %271
   ]
 
-.thread462:                                       ; preds = %235
+.thread458:                                       ; preds = %235
   %252 = fcmp reassoc nsz arcp contract afn ogt float %238, %241
   %253 = select reassoc nsz arcp contract afn i1 %252, float %238, float %241
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -895,7 +895,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %258 = fdiv reassoc nsz arcp contract afn float %257, %249
   br i1 %245, label %334, label %338
 
-.thread468:                                       ; preds = %235
+.thread464:                                       ; preds = %235
   %259 = fcmp reassoc nsz arcp contract afn olt float %238, %241
   %260 = select reassoc nsz arcp contract afn i1 %259, float %238, float %241
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -905,28 +905,28 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %265 = fdiv reassoc nsz arcp contract afn float %264, %249
   br i1 %245, label %334, label %338
 
-.thread474:                                       ; preds = %235
+.thread470:                                       ; preds = %235
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %267 = load float, ptr %266, align 4, !tbaa !113
   %268 = fmul reassoc nsz arcp contract afn float %244, %241
   %269 = fmul reassoc nsz arcp contract afn float %268, %267
   %270 = fdiv reassoc nsz arcp contract afn float %269, %247
-  br label %.thread508
+  br label %.thread504
 
 271:                                              ; preds = %235
   %272 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %273 = load i32, ptr %272, align 4, !tbaa !114
-  switch i32 %273, label %.thread454 [
-    i32 1, label %.thread454.thread
-    i32 2, label %.thread454.thread554
-    i32 3, label %.thread454.thread558
+  switch i32 %273, label %.thread450 [
+    i32 1, label %.thread450.thread
+    i32 2, label %.thread450.thread550
+    i32 3, label %.thread450.thread554
   ]
 
-.thread454.thread:                                ; preds = %271
+.thread450.thread:                                ; preds = %271
   %274 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %275 = load i32, ptr %274, align 4, !tbaa !115
-  %.fr552 = freeze i32 %275
-  %276 = icmp eq i32 %.fr552, 0
+  %.fr548 = freeze i32 %275
+  %276 = icmp eq i32 %.fr548, 0
   %. = select i1 %276, float %246, float %247
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %278 = load float, ptr %277, align 4, !tbaa !113
@@ -934,14 +934,14 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %280 = fmul reassoc nsz arcp contract afn float %279, %278
   %281 = fdiv reassoc nsz arcp contract afn float %280, %.
   %282 = fmul reassoc nsz arcp contract afn float %244, %238
-  %283 = icmp eq i32 %.fr552, 0
+  %283 = icmp eq i32 %.fr548, 0
   br i1 %283, label %334, label %338
 
-.thread454.thread554:                             ; preds = %271
+.thread450.thread550:                             ; preds = %271
   %284 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %285 = load i32, ptr %284, align 4, !tbaa !115
-  %.fr556 = freeze i32 %285
-  %286 = icmp eq i32 %.fr556, 0
+  %.fr552 = freeze i32 %285
+  %286 = icmp eq i32 %.fr552, 0
   %.441 = select i1 %286, float %246, float %247
   %287 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %288 = load float, ptr %287, align 4, !tbaa !113
@@ -949,16 +949,16 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %290 = fmul reassoc nsz arcp contract afn float %289, %288
   %291 = fdiv reassoc nsz arcp contract afn float %290, %.441
   %292 = fmul reassoc nsz arcp contract afn float %244, %241
-  %293 = icmp eq i32 %.fr556, 0
+  %293 = icmp eq i32 %.fr552, 0
   br i1 %293, label %334, label %338
 
-.thread454.thread558:                             ; preds = %271
+.thread450.thread554:                             ; preds = %271
   %294 = fcmp reassoc nsz arcp contract afn ogt float %238, %241
   %295 = select reassoc nsz arcp contract afn i1 %294, float %238, float %241
   %296 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %297 = load i32, ptr %296, align 4, !tbaa !115
-  %.fr560 = freeze i32 %297
-  %298 = icmp eq i32 %.fr560, 0
+  %.fr556 = freeze i32 %297
+  %298 = icmp eq i32 %.fr556, 0
   %.442 = select i1 %298, float %246, float %247
   %299 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %300 = load float, ptr %299, align 4, !tbaa !113
@@ -968,7 +968,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %304 = fcmp reassoc nsz arcp contract afn ogt float %238, %241
   %305 = select reassoc nsz arcp contract afn i1 %304, float %238, float %241
   %306 = fmul reassoc nsz arcp contract afn float %305, %244
-  %307 = icmp eq i32 %.fr560, 0
+  %307 = icmp eq i32 %.fr556, 0
   br i1 %307, label %334, label %338
 
 308:                                              ; preds = %235
@@ -979,13 +979,13 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %312 = load float, ptr %311, align 4, !tbaa !113
   %313 = fmul reassoc nsz arcp contract afn float %.0403, %244
   %314 = fmul reassoc nsz arcp contract afn float %313, %312
-  br i1 %245, label %.thread524, label %..thread508_crit_edge
+  br i1 %245, label %.thread520, label %..thread504_crit_edge
 
-..thread508_crit_edge:                            ; preds = %308
+..thread504_crit_edge:                            ; preds = %308
   %.pre = fmul reassoc nsz arcp contract afn float %244, %241
-  br label %.thread508
+  br label %.thread504
 
-.thread454:                                       ; preds = %271
+.thread450:                                       ; preds = %271
   %315 = fcmp reassoc nsz arcp contract afn olt float %238, %241
   %316 = select reassoc nsz arcp contract afn i1 %315, float %238, float %241
   %317 = getelementptr inbounds nuw i8, ptr %18, i64 28
@@ -1004,47 +1004,47 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %328 = icmp eq i32 %.fr, 0
   br i1 %328, label %334, label %338
 
-.thread524:                                       ; preds = %308
+.thread520:                                       ; preds = %308
   %329 = fmul reassoc nsz arcp contract afn float %244, %238
   %330 = fmul reassoc nsz arcp contract afn float %329, %247
   %331 = fdiv reassoc nsz arcp contract afn float %330, %246
   br label %342
 
-.thread508:                                       ; preds = %..thread508_crit_edge, %.thread474
-  %.0407.ph.pre-phi = phi float [ %.pre, %..thread508_crit_edge ], [ %268, %.thread474 ]
-  %.ph = phi float [ %314, %..thread508_crit_edge ], [ %270, %.thread474 ]
-  %.ph482 = phi ptr [ %311, %..thread508_crit_edge ], [ %266, %.thread474 ]
+.thread504:                                       ; preds = %..thread504_crit_edge, %.thread470
+  %.0407.ph.pre-phi = phi float [ %.pre, %..thread504_crit_edge ], [ %268, %.thread470 ]
+  %.ph = phi float [ %314, %..thread504_crit_edge ], [ %270, %.thread470 ]
+  %.ph478 = phi ptr [ %311, %..thread504_crit_edge ], [ %266, %.thread470 ]
   %332 = fmul reassoc nsz arcp contract afn float %.0407.ph.pre-phi, %246
   %333 = fdiv reassoc nsz arcp contract afn float %332, %247
   br label %342
 
-334:                                              ; preds = %.thread454.thread558, %.thread454.thread554, %.thread454.thread, %.thread468, %.thread462, %.thread454
-  %.0407501 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread554 ], [ %306, %.thread454.thread558 ]
-  %.0402458500 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread554 ], [ %241, %.thread454.thread558 ]
-  %.0401460499 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread554 ], [ %238, %.thread454.thread558 ]
-  %335 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread554 ], [ %299, %.thread454.thread558 ]
-  %336 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread554 ], [ %303, %.thread454.thread558 ]
-  %.pn = fmul reassoc nsz arcp contract afn float %.0407501, %247
+334:                                              ; preds = %.thread450.thread554, %.thread450.thread550, %.thread450.thread, %.thread464, %.thread458, %.thread450
+  %.0407497 = phi float [ %327, %.thread450 ], [ %256, %.thread458 ], [ %263, %.thread464 ], [ %282, %.thread450.thread ], [ %292, %.thread450.thread550 ], [ %306, %.thread450.thread554 ]
+  %.0402454496 = phi float [ %241, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %241, %.thread450.thread ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread554 ]
+  %.0401456495 = phi float [ %238, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %238, %.thread450.thread ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread554 ]
+  %335 = phi ptr [ %320, %.thread450 ], [ %254, %.thread458 ], [ %261, %.thread464 ], [ %277, %.thread450.thread ], [ %287, %.thread450.thread550 ], [ %299, %.thread450.thread554 ]
+  %336 = phi float [ %324, %.thread450 ], [ %258, %.thread458 ], [ %265, %.thread464 ], [ %281, %.thread450.thread ], [ %291, %.thread450.thread550 ], [ %303, %.thread450.thread554 ]
+  %.pn = fmul reassoc nsz arcp contract afn float %.0407497, %247
   %337 = fdiv reassoc nsz arcp contract afn float %.pn, %246
   br label %342
 
-338:                                              ; preds = %.thread454.thread558, %.thread454.thread554, %.thread454.thread, %.thread468, %.thread462, %.thread454
-  %.0407491 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread554 ], [ %306, %.thread454.thread558 ]
-  %.0402458490 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread554 ], [ %241, %.thread454.thread558 ]
-  %.0401460489 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread554 ], [ %238, %.thread454.thread558 ]
-  %339 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread554 ], [ %299, %.thread454.thread558 ]
-  %340 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread554 ], [ %303, %.thread454.thread558 ]
-  %.pn534 = fmul reassoc nsz arcp contract afn float %.0407491, %246
-  %341 = fdiv reassoc nsz arcp contract afn float %.pn534, %247
+338:                                              ; preds = %.thread450.thread554, %.thread450.thread550, %.thread450.thread, %.thread464, %.thread458, %.thread450
+  %.0407487 = phi float [ %327, %.thread450 ], [ %256, %.thread458 ], [ %263, %.thread464 ], [ %282, %.thread450.thread ], [ %292, %.thread450.thread550 ], [ %306, %.thread450.thread554 ]
+  %.0402454486 = phi float [ %241, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %241, %.thread450.thread ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread554 ]
+  %.0401456485 = phi float [ %238, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %238, %.thread450.thread ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread554 ]
+  %339 = phi ptr [ %320, %.thread450 ], [ %254, %.thread458 ], [ %261, %.thread464 ], [ %277, %.thread450.thread ], [ %287, %.thread450.thread550 ], [ %299, %.thread450.thread554 ]
+  %340 = phi float [ %324, %.thread450 ], [ %258, %.thread458 ], [ %265, %.thread464 ], [ %281, %.thread450.thread ], [ %291, %.thread450.thread550 ], [ %303, %.thread450.thread554 ]
+  %.pn530 = fmul reassoc nsz arcp contract afn float %.0407487, %246
+  %341 = fdiv reassoc nsz arcp contract afn float %.pn530, %247
   br label %342
 
-342:                                              ; preds = %.thread524, %334, %338, %.thread508
-  %343 = phi float [ %.0407491, %338 ], [ %.0407.ph.pre-phi, %.thread508 ], [ %337, %334 ], [ %331, %.thread524 ]
-  %344 = phi float [ %340, %338 ], [ %.ph, %.thread508 ], [ %336, %334 ], [ %314, %.thread524 ]
-  %345 = phi ptr [ %339, %338 ], [ %.ph482, %.thread508 ], [ %335, %334 ], [ %311, %.thread524 ]
-  %.0401460489515 = phi float [ %.0401460489, %338 ], [ %238, %.thread508 ], [ %.0401460499, %334 ], [ %238, %.thread524 ]
-  %.0402458490514 = phi float [ %.0402458490, %338 ], [ %241, %.thread508 ], [ %.0402458500, %334 ], [ %241, %.thread524 ]
-  %346 = phi float [ %341, %338 ], [ %333, %.thread508 ], [ %.0407501, %334 ], [ %329, %.thread524 ]
+342:                                              ; preds = %.thread520, %334, %338, %.thread504
+  %343 = phi float [ %.0407487, %338 ], [ %.0407.ph.pre-phi, %.thread504 ], [ %337, %334 ], [ %331, %.thread520 ]
+  %344 = phi float [ %340, %338 ], [ %.ph, %.thread504 ], [ %336, %334 ], [ %314, %.thread520 ]
+  %345 = phi ptr [ %339, %338 ], [ %.ph478, %.thread504 ], [ %335, %334 ], [ %311, %.thread520 ]
+  %.0401456485511 = phi float [ %.0401456485, %338 ], [ %238, %.thread504 ], [ %.0401456495, %334 ], [ %238, %.thread520 ]
+  %.0402454486510 = phi float [ %.0402454486, %338 ], [ %241, %.thread504 ], [ %.0402454496, %334 ], [ %241, %.thread520 ]
+  %346 = phi float [ %341, %338 ], [ %333, %.thread504 ], [ %.0407497, %334 ], [ %329, %.thread520 ]
   br i1 %.not423.not, label %347, label %384
 
 347:                                              ; preds = %342
@@ -1066,7 +1066,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
 
 361:                                              ; preds = %347
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.11, i32 noundef %356, i32 noundef %357) #19
-  call void @g_object_unref(ptr noundef %.0395449) #19
+  call void @g_object_unref(ptr noundef %.0395447) #19
   call void @g_free(ptr noundef nonnull %171) #19
   %362 = load i32, ptr %153, align 4, !tbaa !76
   %363 = sext i32 %362 to i64
@@ -1077,7 +1077,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %368 = mul i64 %367, %365
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %368) #19
   %369 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #19
-  br label %.thread521
+  br label %.thread517
 
 370:                                              ; preds = %347
   %371 = call ptr @cairo_image_surface_create_for_data(ptr noundef nonnull %360, i32 noundef 0, i32 noundef %353, i32 noundef %356, i32 noundef %357) #19
@@ -1090,7 +1090,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %375 = call ptr @cairo_status_to_string(i32 noundef %374) #19
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.15, ptr noundef %375) #19
   call void @cairo_surface_destroy(ptr noundef %184) #19
-  call void @g_object_unref(ptr noundef %.0395449) #19
+  call void @g_object_unref(ptr noundef %.0395447) #19
   call void @g_free(ptr noundef nonnull %171) #19
   call void @g_free(ptr noundef nonnull %360) #19
   %376 = load i32, ptr %153, align 4, !tbaa !76
@@ -1102,7 +1102,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %382 = mul i64 %381, %379
   call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %382) #19
   %383 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #19
-  br label %.thread521
+  br label %.thread517
 
 384:                                              ; preds = %370, %342
   %.0408 = phi nsz float [ 0.000000e+00, %342 ], [ %349, %370 ]
@@ -1191,11 +1191,11 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   call void @cairo_translate(ptr noundef %385, double noundef %427, double noundef %431) #19
   %432 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %433 = load float, ptr %432, align 4, !tbaa !119
-  %434 = fmul reassoc nsz arcp contract afn float %433, %.0401460489515
+  %434 = fmul reassoc nsz arcp contract afn float %433, %.0401456485511
   %435 = fadd reassoc nsz arcp contract afn float %434, %.0399
   %436 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %437 = load float, ptr %436, align 4, !tbaa !120
-  %438 = fmul reassoc nsz arcp contract afn float %437, %.0402458490514
+  %438 = fmul reassoc nsz arcp contract afn float %437, %.0402454486510
   %439 = fadd reassoc nsz arcp contract afn float %438, %.0400
   %440 = load float, ptr %345, align 4, !tbaa !113
   %441 = fmul reassoc nsz arcp contract afn float %435, %440
@@ -1225,7 +1225,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   call void @cairo_scale(ptr noundef %386, double noundef %456, double noundef %456) #19
   %458 = sitofp i32 %spec.select to double
   %459 = sitofp i32 %.sroa.21.1 to double
-  call void @dt_render_svg(ptr noundef %.0395449, ptr noundef %386, double noundef %458, double noundef %459, double noundef 0.000000e+00, double noundef 0.000000e+00) #19
+  call void @dt_render_svg(ptr noundef %.0395447, ptr noundef %386, double noundef %458, double noundef %459, double noundef 0.000000e+00, double noundef 0.000000e+00) #19
   br label %461
 
 460:                                              ; preds = %424
@@ -1260,7 +1260,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   call void @cairo_surface_destroy(ptr noundef %184) #19
   call void @cairo_surface_destroy(ptr noundef %.1398) #19
   call void @g_free(ptr noundef nonnull %171) #19
-  br i1 %.not423.not, label %510, label %.thread521
+  br i1 %.not423.not, label %510, label %.thread517
 
 473:                                              ; preds = %.lr.ph, %473
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %473 ]
@@ -1310,10 +1310,10 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
 
 510:                                              ; preds = %._crit_edge
   call void @g_free(ptr noundef %.0396) #19
-  call void @g_object_unref(ptr noundef %.0395449) #19
-  br label %.thread521
+  call void @g_object_unref(ptr noundef %.0395447) #19
+  br label %.thread517
 
-.thread521:                                       ; preds = %361, %373, %204, %51, %61, %157, %186, %221, %._crit_edge, %510, %172, %142, %35
+.thread517:                                       ; preds = %361, %373, %204, %51, %61, %157, %186, %221, %._crit_edge, %510, %172, %142, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void

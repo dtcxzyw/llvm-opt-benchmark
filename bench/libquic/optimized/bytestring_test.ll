@@ -1703,13 +1703,13 @@ define internal fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v() unnamed_addr #
   br label %10
 
 8:                                                ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
-  %9 = add nuw nsw i64 %.02048, 1
+  %9 = add nuw nsw i64 %.02045, 1
   %exitcond.not = icmp eq i64 %9, 7
   br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !27
 
 10:                                               ; preds = %0, %8
-  %.02048 = phi i64 [ 0, %0 ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw %struct.ASN1Uint64Test, ptr @_ZL16kASN1Uint64Tests, i64 %.02048
+  %.02045 = phi i64 [ 0, %0 ], [ %9, %8 ]
+  %11 = getelementptr inbounds nuw %struct.ASN1Uint64Test, ptr @_ZL16kASN1Uint64Tests, i64 %.02045
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1758,7 +1758,7 @@ define internal fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v() unnamed_addr #
   %30 = load ptr, ptr %4, align 8, !tbaa !11
   %31 = load i64, ptr %5, align 8, !tbaa !14
   %.not32 = icmp eq i64 %31, %15
-  br i1 %.not32, label %32, label %.critedge39
+  br i1 %.not32, label %32, label %.critedge38
 
 32:                                               ; preds = %29
   %bcmp = call i32 @bcmp(ptr %30, ptr %13, i64 %15)
@@ -1778,17 +1778,17 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %.not33, label %8, label %.thread
 
-.critedge39:                                      ; preds = %29
-  %.not.i40 = icmp eq ptr %30, null
-  br i1 %.not.i40, label %.thread.sink.split, label %34
+.critedge38:                                      ; preds = %29
+  %.not.i39 = icmp eq ptr %30, null
+  br i1 %.not.i39, label %.thread.sink.split, label %34
 
-34:                                               ; preds = %.critedge39
+34:                                               ; preds = %.critedge38
   call void @free(ptr noundef nonnull %30) #12
   br label %.thread.sink.split
 
 .preheader:                                       ; preds = %8, %.preheader
-  %.01949 = phi i64 [ %40, %.preheader ], [ 0, %8 ]
-  %35 = getelementptr inbounds nuw %struct.ASN1InvalidUint64Test, ptr @_ZL23kASN1InvalidUint64Tests, i64 %.01949
+  %.01946 = phi i64 [ %40, %.preheader ], [ 0, %8 ]
+  %35 = getelementptr inbounds nuw %struct.ASN1InvalidUint64Test, ptr @_ZL23kASN1InvalidUint64Tests, i64 %.01946
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = load ptr, ptr %35, align 16, !tbaa !33
@@ -1799,12 +1799,12 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
   %.not34 = icmp eq i32 %39, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %40 = add nuw nsw i64 %.01949, 1
-  %exitcond53 = icmp ne i64 %40, 5
-  %or.cond.not = select i1 %.not34, i1 %exitcond53, i1 false
+  %40 = add nuw nsw i64 %.01946, 1
+  %exitcond50 = icmp ne i64 %40, 5
+  %or.cond.not = select i1 %.not34, i1 %exitcond50, i1 false
   br i1 %or.cond.not, label %.preheader, label %.thread, !llvm.loop !36
 
-.thread.sink.split:                               ; preds = %19, %17, %10, %22, %34, %.critedge39, %28
+.thread.sink.split:                               ; preds = %19, %17, %10, %22, %34, %.critedge38, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

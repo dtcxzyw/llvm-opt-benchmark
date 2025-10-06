@@ -2617,59 +2617,59 @@ declare i32 @SendProcSignal(i32 noundef, i32 noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
   %1 = load i32, ptr @max_wal_senders, align 4
-  %2 = icmp sgt i32 %1, 0
-  br i1 %2, label %.lr.ph, label %.critedge
+  %.not212326 = icmp sgt i32 %1, 0
+  br i1 %.not212326, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %0, %.lr.ph.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.backedge ], [ 0, %0 ]
-  %3 = load ptr, ptr @WalSndCtl, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = getelementptr inbounds nuw %struct.WalSnd, ptr %4, i64 %indvars.iv
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #16, !srcloc !4
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %10, label %8
+  %2 = load ptr, ptr @WalSndCtl, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %4 = getelementptr inbounds nuw %struct.WalSnd, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #16, !srcloc !4
+  %.not = icmp eq i8 %6, 0
+  br i1 %.not, label %9, label %7
 
-8:                                                ; preds = %.lr.ph
-  %9 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, i32 noundef 3753, ptr noundef nonnull @__func__.WalSndWaitStopping) #16
-  br label %10
+7:                                                ; preds = %.lr.ph
+  %8 = tail call i32 @s_lock(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, i32 noundef 3753, ptr noundef nonnull @__func__.WalSndWaitStopping) #16
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %8
-  %11 = load i32, ptr %5, align 8
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %13
+9:                                                ; preds = %.lr.ph, %7
+  %10 = load i32, ptr %4, align 8
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
-.thread:                                          ; preds = %10
+12:                                               ; preds = %9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
-  store i8 0, ptr %6, align 4
-  br label %16
+  store i8 0, ptr %5, align 4
+  br label %select.unfold
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %15 = load i32, ptr %14, align 4
-  %.not15.not = icmp eq i32 %15, 4
+  %.not15 = icmp eq i32 %15, 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
-  store i8 0, ptr %6, align 4
-  br i1 %.not15.not, label %16, label %.critedge30
+  store i8 0, ptr %5, align 4
+  br i1 %.not15, label %select.unfold, label %18
 
-16:                                               ; preds = %.thread, %13
+select.unfold:                                    ; preds = %13, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @max_wal_senders, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph.backedge, label %.critedge
+  %16 = load i32, ptr @max_wal_senders, align 4
+  %17 = sext i32 %16 to i64
+  %.not21 = icmp slt i64 %indvars.iv.next, %17
+  br i1 %.not21, label %.lr.ph.backedge, label %.critedge
 
-.lr.ph.backedge:                                  ; preds = %16, %.critedge30
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.critedge30 ]
+.lr.ph.backedge:                                  ; preds = %select.unfold, %18
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %select.unfold ], [ 0, %18 ]
   br label %.lr.ph, !llvm.loop !54
 
-.critedge30:                                      ; preds = %13
+18:                                               ; preds = %13
   tail call void @pg_usleep(i64 noundef 10000) #16
-  %20 = load i32, ptr @max_wal_senders, align 4
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph.backedge, label %.critedge
+  %19 = load i32, ptr @max_wal_senders, align 4
+  %.not2123 = icmp sgt i32 %19, 0
+  br i1 %.not2123, label %.lr.ph.backedge, label %.critedge
 
-.critedge:                                        ; preds = %.critedge30, %16, %0
+.critedge:                                        ; preds = %18, %select.unfold, %0
   ret void
 }
 

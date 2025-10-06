@@ -12852,8 +12852,8 @@ lean_dec.exit13:                                  ; preds = %22, %21, %19, %lean
 31:                                               ; preds = %27
   %32 = ptrtoint ptr %24 to i64
   %33 = and i64 %32, 1
-  %.not14.i = icmp eq i64 %33, 0
-  br i1 %.not14.i, label %34, label %lean_dec.exit.i
+  %.not13.i = icmp eq i64 %33, 0
+  br i1 %.not13.i, label %34, label %lean_dec.exit.i
 
 34:                                               ; preds = %31
   %35 = load i32, ptr %24, align 4, !tbaa !4

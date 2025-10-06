@@ -51,85 +51,96 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %10 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %18, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i16, ptr %15, align 4
   %17 = icmp eq i16 %16, -1
-  br i1 %17, label %.loopexit, label %.thread
+  br i1 %17, label %.loopexit.thread, label %18
 
-.thread:                                          ; preds = %.lr.ph, %14
+18:                                               ; preds = %.lr.ph, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.thread, %14, %.preheader, %3
-  %.035 = phi i1 [ false, %3 ], [ false, %.preheader ], [ false, %.thread ], [ true, %14 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread50, label %20
+.loopexit:                                        ; preds = %18, %.preheader, %3
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %.thread47, label %38
 
-20:                                               ; preds = %.loopexit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
+.loopexit.thread:                                 ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef %22) #4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %23, ptr %24, align 8
-  br i1 %.035, label %26, label %37
+  %.not50 = icmp eq ptr %22, null
+  br i1 %.not50, label %.thread.thread, label %.thread54
 
-.thread50:                                        ; preds = %.loopexit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %25, align 8
-  br i1 %.035, label %26, label %.thread51
+.thread54:                                        ; preds = %.loopexit.thread
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %22, ptr noundef %24) #4
+  br label %.thread.thread
 
-26:                                               ; preds = %.thread50, %20
+.thread47:                                        ; preds = %.loopexit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr null, ptr %26, align 8
+  br label %48
+
+.thread.thread:                                   ; preds = %.loopexit.thread, %.thread54
+  %.sink = phi ptr [ %25, %.thread54 ], [ null, %.loopexit.thread ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %.sink, ptr %27, align 8
   store ptr @tstoreReceiveSlot_detoast, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8
-  %29 = sext i32 %4 to i64
-  %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @MemoryContextAlloc(ptr noundef %28, i64 noundef %30) #4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %31, ptr %32, align 8
-  %33 = load ptr, ptr %27, align 8
-  %34 = tail call ptr @MemoryContextAlloc(ptr noundef %33, i64 noundef %30) #4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %36, align 8
-  br label %45
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = zext nneg i32 %4 to i64
+  %31 = shl nuw nsw i64 %30, 3
+  %32 = tail call ptr @MemoryContextAlloc(ptr noundef %29, i64 noundef %31) #4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %32, ptr %33, align 8
+  %34 = load ptr, ptr %28, align 8
+  %35 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %31) #4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr null, ptr %37, align 8
+  br label %51
 
-37:                                               ; preds = %20
-  %.not38 = icmp eq ptr %23, null
-  br i1 %.not38, label %.thread51, label %38
-
-38:                                               ; preds = %37
-  store ptr @tstoreReceiveSlot_tupmap, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  %40 = load ptr, ptr %18, align 8
-  %41 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %40, ptr noundef nonnull @TTSOpsVirtual) #4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
+38:                                               ; preds = %.loopexit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call ptr @convert_tuples_by_position(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef %40) #4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %41, ptr %42, align 8
-  br label %45
+  %.not38 = icmp eq ptr %41, null
+  br i1 %.not38, label %48, label %43
 
-.thread51:                                        ; preds = %.thread50, %37
+43:                                               ; preds = %38
+  store ptr @tstoreReceiveSlot_tupmap, ptr %0, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  %45 = load ptr, ptr %19, align 8
+  %46 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %45, ptr noundef nonnull @TTSOpsVirtual) #4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %46, ptr %47, align 8
+  br label %51
+
+48:                                               ; preds = %.thread47, %38
   store ptr @tstoreReceiveSlot_notoast, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %44, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  br label %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr null, ptr %50, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+  br label %51
 
-45:                                               ; preds = %38, %.thread51, %26
+51:                                               ; preds = %43, %48, %.thread.thread
   ret void
 }
 

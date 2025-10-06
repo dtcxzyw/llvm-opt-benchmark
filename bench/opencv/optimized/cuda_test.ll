@@ -5355,8 +5355,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   tail call fastcc void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEEN6cvtest12_GLOBAL__N_112KeyPointLessEEvT_SC_T0_(ptr %140, ptr %141)
   %142 = load ptr, ptr %14, align 8, !tbaa !191
   %143 = load ptr, ptr %3, align 8, !tbaa !194
-  %.not200 = icmp eq ptr %142, %143
-  br i1 %.not200, label %._crit_edge, label %.lr.ph
+  %.not198 = icmp eq ptr %142, %143
+  br i1 %.not198, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139
   %144 = ptrtoint ptr %142 to i64
@@ -5367,9 +5367,9 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %149
 
 149:                                              ; preds = %.lr.ph, %.critedge
-  %.052199 = phi i64 [ 0, %.lr.ph ], [ %376, %.critedge ]
-  %150 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %143, i64 %.052199
-  %151 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %148, i64 %.052199
+  %.052197 = phi i64 [ 0, %.lr.ph ], [ %376, %.critedge ]
+  %150 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %143, i64 %.052197
+  %151 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %148, i64 %.052197
   %.val.i = load float, ptr %150, align 4, !tbaa !203
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %.val14.i = load float, ptr %152, align 4, !tbaa !205
@@ -5441,7 +5441,7 @@ _ZN6cvtest12_GLOBAL__N_115keyPointsEqualsERKN2cv8KeyPointES4_.exit: ; preds = %1
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit89 unwind label %351
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit89: ; preds = %_ZN6cvtest12_GLOBAL__N_115keyPointsEqualsERKN2cv8KeyPointES4_.exit
-  %200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %198, i64 noundef %.052199)
+  %200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %198, i64 noundef %.052197)
           to label %_ZNSolsEm.exit91 unwind label %351
 
 _ZNSolsEm.exit91:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit89
@@ -5872,9 +5872,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189: ; preds = %36
   br i1 %373, label %.body169, label %.body169.sink.split
 
 .body169.sink.split:                              ; preds = %370, %315
-  %.sink233 = phi ptr [ %317, %315 ], [ %372, %370 ]
+  %.sink231 = phi ptr [ %317, %315 ], [ %372, %370 ]
   %.pn56.ph = phi { ptr, i32 } [ %316, %315 ], [ %371, %370 ]
-  call void @_ZdlPv(ptr noundef %.sink233) #28
+  call void @_ZdlPv(ptr noundef %.sink231) #28
   br label %.body169
 
 .body169:                                         ; preds = %.body169.sink.split, %370, %315
@@ -5895,7 +5895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189: ; preds = %36
   br label %386
 
 .critedge:                                        ; preds = %192
-  %376 = add nuw i64 %.052199, 1
+  %376 = add nuw i64 %.052197, 1
   %exitcond.not = icmp eq i64 %376, %147
   br i1 %exitcond.not, label %._crit_edge, label %149, !llvm.loop !219
 

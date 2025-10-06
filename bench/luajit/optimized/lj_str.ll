@@ -84,18 +84,18 @@ define hidden ptr @lj_str_find(ptr noundef %0, ptr noundef readonly captures(non
   %10 = zext i8 %9 to i32
   %11 = add i32 %3, -1
   %12 = sub i32 %2, %11
-  %.not3350 = icmp eq i32 %12, 0
-  br i1 %.not3350, label %.thread46, label %.lr.ph
+  %.not3349 = icmp eq i32 %12, 0
+  br i1 %.not3349, label %.thread46, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %13 = zext i32 %11 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %20
-  %.02652 = phi i32 [ %12, %.lr.ph ], [ %23, %20 ]
-  %.02851 = phi ptr [ %0, %.lr.ph ], [ %18, %20 ]
-  %15 = zext i32 %.02652 to i64
-  %16 = tail call ptr @memchr(ptr noundef %.02851, i32 noundef %10, i64 noundef %15) #14
+  %.02651 = phi i32 [ %12, %.lr.ph ], [ %23, %20 ]
+  %.02850 = phi ptr [ %0, %.lr.ph ], [ %18, %20 ]
+  %15 = zext i32 %.02651 to i64
+  %16 = tail call ptr @memchr(ptr noundef %.02850, i32 noundef %10, i64 noundef %15) #14
   %.not34 = icmp eq ptr %16, null
   br i1 %.not34, label %.thread46, label %17
 
@@ -107,10 +107,10 @@ define hidden ptr @lj_str_find(ptr noundef %0, ptr noundef readonly captures(non
 
 20:                                               ; preds = %17
   %21 = ptrtoint ptr %18 to i64
-  %22 = ptrtoint ptr %.02851 to i64
+  %22 = ptrtoint ptr %.02850 to i64
   %.neg = sub i64 %22, %21
   %.neg35 = trunc i64 %.neg to i32
-  %23 = add i32 %.02652, %.neg35
+  %23 = add i32 %.02651, %.neg35
   %.not33 = icmp eq i32 %23, 0
   br i1 %.not33, label %.thread46, label %14
 

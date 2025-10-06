@@ -32443,8 +32443,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK7testing8internal21QuantifierMatcher
   br label %17
 
 17:                                               ; preds = %.lr.ph, %56
-  %.046 = phi i64 [ 0, %.lr.ph ], [ %58, %56 ]
-  %.sroa.028.045 = phi ptr [ %8, %.lr.ph ], [ %57, %56 ]
+  %.045 = phi i64 [ 0, %.lr.ph ], [ %58, %56 ]
+  %.sroa.028.044 = phi ptr [ %8, %.lr.ph ], [ %57, %56 ]
   store ptr %13, ptr %14, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %6, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
@@ -32452,14 +32452,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK7testing8internal21QuantifierMatcher
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
   %20 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %19)
-          to label %.noexc unwind label %.loopexit38
+          to label %.noexc unwind label %.loopexit37
 
 .noexc:                                           ; preds = %17
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %.noexc
   invoke void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 3, ptr noundef nonnull @.str.80, i32 noundef 250)
-          to label %.noexc18 unwind label %.loopexit38
+          to label %.noexc18 unwind label %.loopexit37
 
 .noexc18:                                         ; preds = %21
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.81)
@@ -32478,8 +32478,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK7testing8internal21QuantifierMatcher
 26:                                               ; preds = %23, %.noexc
   %27 = load ptr, ptr %16, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(249) %.sroa.028.045, ptr noundef nonnull %6)
-          to label %30 unwind label %.loopexit38
+  %29 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(249) %.sroa.028.044, ptr noundef nonnull %6)
+          to label %30 unwind label %.loopexit37
 
 30:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -32502,7 +32502,7 @@ _ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit: ; preds = %35
   br i1 %.not.i21, label %_ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit, label %37
 
 37:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit
-  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %.pr, i64 noundef %.046)
+  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %.pr, i64 noundef %.045)
           to label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit unwind label %.loopexit.split-lp
 
 _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %37
@@ -32546,7 +32546,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @_ZdlPv(ptr noundef %50) #27
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
-.loopexit38:                                      ; preds = %17, %21, %26
+.loopexit37:                                      ; preds = %17, %21, %26
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -32572,14 +32572,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 56:                                               ; preds = %30
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %6, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12) #24
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 256
-  %58 = add i64 %.046, 1
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.028.044, i64 256
+  %58 = add i64 %.045, 1
   %59 = load ptr, ptr %9, align 8
   %60 = icmp eq ptr %57, %59
   br i1 %60, label %.loopexit, label %17, !llvm.loop !231
 
-.body:                                            ; preds = %.loopexit38, %.loopexit.split-lp, %24, %53
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %25, %24 ], [ %lpad.loopexit, %.loopexit38 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit37, %.loopexit.split-lp, %24, %53
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %25, %24 ], [ %lpad.loopexit, %.loopexit37 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %6, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12) #24
   resume { ptr, i32 } %.pn

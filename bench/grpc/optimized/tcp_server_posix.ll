@@ -2524,7 +2524,7 @@ _ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExt
   br i1 %.not68, label %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit._ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit.thread_crit_edge, label %58
 
 _ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit._ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit.thread_crit_edge: ; preds = %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit
-  %.pre111 = load ptr, ptr %51, align 8, !tbaa !123
+  %.pre110 = load ptr, ptr %51, align 8, !tbaa !123
   br label %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit.thread
 
 58:                                               ; preds = %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit
@@ -2610,7 +2610,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev.exit: ; preds = %
   br label %128
 
 _ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit.thread: ; preds = %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit._ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit.thread_crit_edge, %50
-  %86 = phi ptr [ %.pre111, %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit._ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit.thread_crit_edge ], [ null, %50 ]
+  %86 = phi ptr [ %.pre110, %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit._ZN17grpc_event_engine12experimental14QueryExtensionINS0_27ListenerSupportsFdExtensionEEEPT_PNS0_11EventEngine8ListenerE.exit.thread_crit_edge ], [ null, %50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZN17grpc_event_engine12experimental21CreateResolvedAddressERK21grpc_resolved_address(ptr dead_on_unwind nonnull writable sret(%"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress") align 4 %34, ptr noundef nonnull align 4 dereferenceable(132) %2)
@@ -2696,11 +2696,11 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev.exit82: ; preds =
 118:                                              ; preds = %115
   %119 = inttoptr i64 %116 to ptr
   %120 = atomicrmw add ptr %119, i32 1 monotonic, align 4
-  %.pre112 = load i64, ptr %29, align 8, !tbaa !121
+  %.pre111 = load i64, ptr %29, align 8, !tbaa !121
   br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %118, %115
-  %121 = phi i64 [ %.pre112, %118 ], [ %116, %115 ]
+  %121 = phi i64 [ %.pre111, %118 ], [ %116, %115 ]
   %122 = and i64 %121, 1
   %.not.i.i.i84 = icmp eq i64 %122, 0
   br i1 %.not.i.i.i84, label %123, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev.exit85
@@ -2770,17 +2770,17 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev.exit85: ; preds =
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %storemerge108 = load ptr, ptr %144, align 8, !tbaa !19
-  store ptr %storemerge108, ptr %36, align 8, !tbaa !19
-  %.not61109 = icmp eq ptr %storemerge108, null
-  br i1 %.not61109, label %.loopexit, label %.lr.ph
+  %storemerge107 = load ptr, ptr %144, align 8, !tbaa !19
+  store ptr %storemerge107, ptr %36, align 8, !tbaa !19
+  %.not61108 = icmp eq ptr %storemerge107, null
+  br i1 %.not61108, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %37, i64 128
   br label %146
 
 146:                                              ; preds = %.lr.ph, %.thread
-  %147 = phi ptr [ %storemerge108, %.lr.ph ], [ %storemerge, %.thread ]
+  %147 = phi ptr [ %storemerge107, %.lr.ph ], [ %storemerge, %.thread ]
   store i32 128, ptr %145, align 4, !tbaa !199
   %148 = load i32, ptr %147, align 8, !tbaa !171
   %149 = call i32 @getsockname(i32 noundef %148, ptr noundef nonnull %37, ptr noundef nonnull %145) #36
@@ -2789,7 +2789,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev.exit85: ; preds =
 
 151:                                              ; preds = %146
   %152 = invoke noundef i32 @_Z22grpc_sockaddr_get_portPK21grpc_resolved_address(ptr noundef nonnull %37)
-          to label %153 unwind label %.loopexit107
+          to label %153 unwind label %.loopexit106
 
 153:                                              ; preds = %151
   %154 = icmp sgt i32 %152, 0
@@ -2800,7 +2800,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev.exit85: ; preds =
   %156 = invoke noundef i32 @_Z22grpc_sockaddr_set_portP21grpc_resolved_addressi(ptr noundef nonnull %37, i32 noundef %152)
           to label %157 unwind label %.loopexit.split-lp
 
-.loopexit107:                                     ; preds = %151
+.loopexit106:                                     ; preds = %151
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3739,8 +3739,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit96:         ; preds = %_ZN4absl12lts_20240
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %455
 
-.body:                                            ; preds = %.loopexit107, %.loopexit.split-lp, %165, %443, %453
-  %.pn66 = phi { ptr, i32 } [ %454, %453 ], [ %166, %165 ], [ %.pn94.i, %443 ], [ %lpad.loopexit, %.loopexit107 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit106, %.loopexit.split-lp, %165, %443, %453
+  %.pn66 = phi { ptr, i32 } [ %454, %453 ], [ %166, %165 ], [ %.pn94.i, %443 ], [ %lpad.loopexit, %.loopexit106 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -3780,7 +3780,7 @@ define internal noundef i32 @_ZL18tcp_server_port_fdP15grpc_tcp_serverjj(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %.not.i.i = icmp ult i64 %8, 2
-  br i1 %.not.i.i, label %._crit_edge43, label %9, !prof !8
+  br i1 %.not.i.i, label %._crit_edge41, label %9, !prof !8
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -3789,7 +3789,7 @@ define internal noundef i32 @_ZL18tcp_server_port_fdP15grpc_tcp_serverjj(ptr nou
   tail call void @llvm.assume(i1 %12)
   %13 = icmp ult i64 %11, 2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  br i1 %13, label %.lr.ph42.preheader, label %15
+  br i1 %13, label %.lr.ph40.preheader, label %15
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %14, align 8, !tbaa !10, !nonnull !11, !noundef !11
@@ -3797,7 +3797,7 @@ define internal noundef i32 @_ZL18tcp_server_port_fdP15grpc_tcp_serverjj(ptr nou
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %17, align 8, !tbaa !10
   %18 = load i8, ptr %16, align 1, !tbaa !12
   %19 = icmp slt i8 %18, -1
-  br i1 %19, label %.lr.ph.i.i, label %.lr.ph42.preheader
+  br i1 %19, label %.lr.ph.i.i, label %.lr.ph40.preheader
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %20 = phi ptr [ %30, %.lr.ph.i.i ], [ %.sroa.0.0.copyload.i.i.i, %15 ]
@@ -3813,30 +3813,30 @@ define internal noundef i32 @_ZL18tcp_server_port_fdP15grpc_tcp_serverjj(ptr nou
   %30 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %20, i64 %28
   %31 = load i8, ptr %29, align 1, !tbaa !12
   %32 = icmp slt i8 %31, -1
-  br i1 %32, label %.lr.ph.i.i, label %.lr.ph42.preheader, !llvm.loop !14
+  br i1 %32, label %.lr.ph.i.i, label %.lr.ph40.preheader, !llvm.loop !14
 
-.lr.ph42.preheader:                               ; preds = %.lr.ph.i.i, %15, %9
-  %.sroa.8.041.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %15 ], [ %14, %9 ], [ %30, %.lr.ph.i.i ]
-  %.sroa.022.040.ph = phi ptr [ %16, %15 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %9 ], [ %29, %.lr.ph.i.i ]
-  br label %.lr.ph42
+.lr.ph40.preheader:                               ; preds = %.lr.ph.i.i, %15, %9
+  %.sroa.8.039.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %15 ], [ %14, %9 ], [ %30, %.lr.ph.i.i ]
+  %.sroa.022.038.ph = phi ptr [ %16, %15 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %9 ], [ %29, %.lr.ph.i.i ]
+  br label %.lr.ph40
 
-.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i
-  %.sroa.8.041 = phi ptr [ %.sroa.8.1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ %.sroa.8.041.ph, %.lr.ph42.preheader ]
-  %.sroa.022.040 = phi ptr [ %.sroa.022.1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ %.sroa.022.040.ph, %.lr.ph42.preheader ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.8.041, i64 8
+.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i
+  %.sroa.8.039 = phi ptr [ %.sroa.8.1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ %.sroa.8.039.ph, %.lr.ph40.preheader ]
+  %.sroa.022.038 = phi ptr [ %.sroa.022.1, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ %.sroa.022.038.ph, %.lr.ph40.preheader ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.8.039, i64 8
   %34 = load i32, ptr %33, align 4, !tbaa !16
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %36, label %40
 
-36:                                               ; preds = %.lr.ph42
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.8.041, i64 4
+36:                                               ; preds = %.lr.ph40
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.8.039, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !16
   %39 = icmp eq i32 %38, %2
   br i1 %39, label %60, label %40
 
-40:                                               ; preds = %.lr.ph42, %36
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.022.040, i64 1
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.8.041, i64 12
+40:                                               ; preds = %.lr.ph40, %36
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.022.038, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.8.039, i64 12
   %43 = load i8, ptr %41, align 1, !tbaa !12
   %44 = icmp slt i8 %43, -1
   br i1 %44, label %.lr.ph.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i
@@ -3862,14 +3862,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %.sroa.8.1 = phi ptr [ %42, %40 ], [ %55, %.lr.ph.i.i.i ]
   %58 = phi i8 [ %43, %40 ], [ %56, %.lr.ph.i.i.i ]
   %59 = icmp eq i8 %58, -1
-  br i1 %59, label %._crit_edge43, label %.lr.ph42, !prof !8, !llvm.loop !215
+  br i1 %59, label %._crit_edge41, label %.lr.ph40, !prof !8, !llvm.loop !215
 
 60:                                               ; preds = %36
   tail call void @gpr_mu_unlock(ptr noundef nonnull %4)
-  %61 = load i32, ptr %.sroa.8.041, align 4, !tbaa !216
+  %61 = load i32, ptr %.sroa.8.039, align 4, !tbaa !216
   br label %78
 
-._crit_edge43:                                    ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i, %6
+._crit_edge41:                                    ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i, %6
   tail call void @gpr_mu_unlock(ptr noundef nonnull %4)
   br label %78
 
@@ -3900,20 +3900,20 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br i1 %.not.i, label %._crit_edge, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %66, %74
-  %.038 = phi ptr [ %76, %74 ], [ %.014.i, %66 ]
-  %.01837 = phi i32 [ %77, %74 ], [ %2, %66 ]
-  %71 = icmp eq i32 %.01837, 0
+  %.036 = phi ptr [ %76, %74 ], [ %.014.i, %66 ]
+  %.01835 = phi i32 [ %77, %74 ], [ %2, %66 ]
+  %71 = icmp eq i32 %.01835, 0
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %.lr.ph
   tail call void @gpr_mu_unlock(ptr noundef nonnull %4)
-  %73 = load i32, ptr %.038, align 8, !tbaa !171
+  %73 = load i32, ptr %.036, align 8, !tbaa !171
   br label %78
 
 74:                                               ; preds = %.lr.ph
-  %75 = getelementptr inbounds nuw i8, ptr %.038, i64 240
+  %75 = getelementptr inbounds nuw i8, ptr %.036, i64 240
   %76 = load ptr, ptr %75, align 8, !tbaa !33
-  %77 = add i32 %.01837, -1
+  %77 = add i32 %.01835, -1
   %.not = icmp eq ptr %76, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !223
 
@@ -3921,8 +3921,8 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   tail call void @gpr_mu_unlock(ptr noundef nonnull %4)
   br label %78
 
-78:                                               ; preds = %60, %72, %._crit_edge, %._crit_edge43
-  %.1 = phi i32 [ -1, %._crit_edge43 ], [ %61, %60 ], [ %73, %72 ], [ -1, %._crit_edge ]
+78:                                               ; preds = %60, %72, %._crit_edge, %._crit_edge41
+  %.1 = phi i32 [ -1, %._crit_edge41 ], [ %61, %60 ], [ %73, %72 ], [ -1, %._crit_edge ]
   ret i32 %.1
 }
 

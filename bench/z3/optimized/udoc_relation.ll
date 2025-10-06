@@ -2422,54 +2422,54 @@ define hidden noundef zeroext i1 @_ZNK7datalog13udoc_relation13contains_factERKN
   %9 = load ptr, ptr %4, align 8, !tbaa !144
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8, !tbaa !35
-  %.not9.not.i = icmp eq i32 %11, 0
-  br i1 %.not9.not.i, label %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit, label %.lr.ph.i
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit, label %.lr.ph.i
 
 12:                                               ; preds = %.noexc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = load i32, ptr %10, align 8, !tbaa !35
   %14 = zext i32 %13 to i64
-  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %14
-  br i1 %.not.i, label %.lr.ph.i, label %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread, !llvm.loop !188
+  %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
+  br i1 %15, label %.lr.ph.i, label %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread, !llvm.loop !188
 
 .lr.ph.i:                                         ; preds = %2, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %2 ]
-  %15 = load ptr, ptr %8, align 8, !tbaa !32
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !148
-  %18 = invoke noundef zeroext i1 @_ZNK11doc_manager8containsERK3docS2_(ptr noundef nonnull align 8 dereferenceable(1080) %9, ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull align 8 dereferenceable(88) %6)
-          to label %.noexc unwind label %22
+  %16 = load ptr, ptr %8, align 8, !tbaa !32
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %18 = load ptr, ptr %17, align 8, !tbaa !148
+  %19 = invoke noundef zeroext i1 @_ZNK11doc_manager8containsERK3docS2_(ptr noundef nonnull align 8 dereferenceable(1080) %9, ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %6)
+          to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %.lr.ph.i
-  br i1 %18, label %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread, label %12
+  br i1 %19, label %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread, label %12
 
 _ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit: ; preds = %2
   %.not.i3 = icmp eq ptr %6, null
   br i1 %.not.i3, label %_ZN7doc_refD2Ev.exit, label %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread
 
 _ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread: ; preds = %12, %.noexc, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit
-  %.not.lcssa.i6 = phi i1 [ false, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit ], [ %18, %.noexc ], [ %18, %12 ]
+  %.lcssa.i6 = phi i1 [ false, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit ], [ %19, %.noexc ], [ %19, %12 ]
   invoke void @_ZN11doc_manager10deallocateEP3doc(ptr noundef nonnull align 8 dereferenceable(1080) %5, ptr noundef nonnull %6)
-          to label %_ZN7doc_refD2Ev.exit unwind label %19
+          to label %_ZN7doc_refD2Ev.exit unwind label %20
 
-19:                                               ; preds = %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #26
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 _ZN7doc_refD2Ev.exit:                             ; preds = %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread
-  %.not.lcssa.i7 = phi i1 [ false, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit ], [ %.not.lcssa.i6, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread ]
+  %.lcssa.i7 = phi i1 [ false, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit ], [ %.lcssa.i6, %_ZNK10union_bvecI11doc_manager3docE8containsERS0_RS1_.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.not.lcssa.i7
+  ret i1 %.lcssa.i7
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %.lr.ph.i
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doc_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5014,8 +5014,8 @@ _ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit.thread9: ; preds = %12, %_
   br i1 %27, label %_ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit.thread, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, !llvm.loop !433
 
 _ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit.thread: ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %_ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %16, %_ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit.thread9, %2
-  %switch = phi i1 [ true, %2 ], [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %_ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %16 ], [ true, %_ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit.thread9 ]
-  ret i1 %switch
+  %28 = phi i1 [ true, %2 ], [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %_ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %16 ], [ true, %_ZNK7datalog11udoc_plugin14is_finite_sortEP4sort.exit.thread9 ]
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11789,8 +11789,8 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit33:           ; preds = %25, %29
   br i1 %32, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit33
-  %.not41 = icmp eq i32 %3, 0
-  br i1 %.not41, label %._crit_edge, label %.lr.ph.preheader
+  %.not39 = icmp eq i32 %3, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %3 to i64

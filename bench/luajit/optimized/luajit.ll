@@ -1219,14 +1219,14 @@ define internal fastcc i32 @runcmdopt(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 .preheader:                                       ; preds = %3
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 44) #11
-  %.not2632 = icmp eq ptr %5, null
-  br i1 %.not2632, label %._crit_edge.thread, label %.lr.ph
+  %.not2631 = icmp eq ptr %5, null
+  br i1 %.not2631, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %6 = phi i32 [ %17, %14 ], [ 1, %.preheader ]
   %7 = phi ptr [ %16, %14 ], [ %5, %.preheader ]
-  %.02033 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
-  %8 = icmp eq ptr %7, %.02033
+  %.02032 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
+  %8 = icmp eq ptr %7, %.02032
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %.lr.ph
@@ -1235,9 +1235,9 @@ define internal fastcc i32 @runcmdopt(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 10:                                               ; preds = %.lr.ph
   %11 = ptrtoint ptr %7 to i64
-  %12 = ptrtoint ptr %.02033 to i64
+  %12 = ptrtoint ptr %.02032 to i64
   %13 = sub i64 %11, %12
-  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %.02033, i64 noundef %13) #9
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %.02032, i64 noundef %13) #9
   br label %14
 
 14:                                               ; preds = %9, %10
@@ -1253,9 +1253,9 @@ define internal fastcc i32 @runcmdopt(ptr noundef %0, ptr noundef %1) unnamed_ad
   br i1 %18, label %19, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.lcssa45 = phi i32 [ %17, %._crit_edge ], [ 1, %.preheader ]
-  %.020.lcssa44 = phi ptr [ %15, %._crit_edge ], [ %1, %.preheader ]
-  tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.020.lcssa44) #9
+  %.lcssa44 = phi i32 [ %17, %._crit_edge ], [ 1, %.preheader ]
+  %.020.lcssa43 = phi ptr [ %15, %._crit_edge ], [ %1, %.preheader ]
+  tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.020.lcssa43) #9
   br label %20
 
 19:                                               ; preds = %._crit_edge
@@ -1263,7 +1263,7 @@ define internal fastcc i32 @runcmdopt(ptr noundef %0, ptr noundef %1) unnamed_ad
   br label %20
 
 20:                                               ; preds = %._crit_edge.thread, %19, %3, %2
-  %.021 = phi i32 [ %.lcssa45, %._crit_edge.thread ], [ %17, %19 ], [ 0, %3 ], [ 0, %2 ]
+  %.021 = phi i32 [ %.lcssa44, %._crit_edge.thread ], [ %17, %19 ], [ 0, %3 ], [ 0, %2 ]
   %21 = tail call i32 @lua_pcall(ptr noundef %0, i32 noundef %.021, i32 noundef 0, i32 noundef 0) #9
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %report.exit, label %22

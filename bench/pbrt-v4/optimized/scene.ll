@@ -10678,9 +10678,9 @@ _ZN4pbrt19ParameterDictionaryD2Ev.exit:           ; preds = %_ZN4pbrt11SceneEnti
   br label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %159, %147
-  %indvars.iv24.i.i.i.i = phi i64 [ 0, %147 ], [ %indvars.iv.next25.i.i.i.i, %159 ]
-  %150 = getelementptr inbounds nuw [4 x float], ptr %149, i64 %indvars.iv24.i.i.i.i
-  %151 = getelementptr inbounds nuw [4 x float], ptr %148, i64 %indvars.iv24.i.i.i.i
+  %indvars.iv26.i.i.i.i = phi i64 [ 0, %147 ], [ %indvars.iv.next27.i.i.i.i, %159 ]
+  %150 = getelementptr inbounds nuw [4 x float], ptr %149, i64 %indvars.iv26.i.i.i.i
+  %151 = getelementptr inbounds nuw [4 x float], ptr %148, i64 %indvars.iv26.i.i.i.i
   br label %153
 
 152:                                              ; preds = %153
@@ -10698,9 +10698,9 @@ _ZN4pbrt19ParameterDictionaryD2Ev.exit:           ; preds = %_ZN4pbrt11SceneEnti
   br i1 %158, label %160, label %152
 
 159:                                              ; preds = %152
-  %indvars.iv.next25.i.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i.i, 1
-  %exitcond27.not.i.i.i.i = icmp eq i64 %indvars.iv.next25.i.i.i.i, 4
-  br i1 %exitcond27.not.i.i.i.i, label %_ZNK4pbrt17BasicSceneBuilder13CTMIsAnimatedEv.exit, label %.preheader.i.i.i.i, !llvm.loop !419
+  %indvars.iv.next27.i.i.i.i = add nuw nsw i64 %indvars.iv26.i.i.i.i, 1
+  %exitcond29.not.i.i.i.i = icmp eq i64 %indvars.iv.next27.i.i.i.i, 4
+  br i1 %exitcond29.not.i.i.i.i, label %_ZNK4pbrt17BasicSceneBuilder13CTMIsAnimatedEv.exit, label %.preheader.i.i.i.i, !llvm.loop !419
 
 160:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -13581,9 +13581,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %75, %60
-  %indvars.iv24.i.i.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next25.i.i.i.i, %75 ]
-  %66 = getelementptr inbounds nuw [4 x float], ptr %65, i64 %indvars.iv24.i.i.i.i
-  %67 = getelementptr inbounds nuw [4 x float], ptr %64, i64 %indvars.iv24.i.i.i.i
+  %indvars.iv26.i.i.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next27.i.i.i.i, %75 ]
+  %66 = getelementptr inbounds nuw [4 x float], ptr %65, i64 %indvars.iv26.i.i.i.i
+  %67 = getelementptr inbounds nuw [4 x float], ptr %64, i64 %indvars.iv26.i.i.i.i
   br label %69
 
 68:                                               ; preds = %69
@@ -13601,9 +13601,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br i1 %74, label %76, label %68
 
 75:                                               ; preds = %68
-  %indvars.iv.next25.i.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i.i, 1
-  %exitcond27.not.i.i.i.i = icmp eq i64 %indvars.iv.next25.i.i.i.i, 4
-  br i1 %exitcond27.not.i.i.i.i, label %_ZNK4pbrt17BasicSceneBuilder13CTMIsAnimatedEv.exit, label %.preheader.i.i.i.i, !llvm.loop !419
+  %indvars.iv.next27.i.i.i.i = add nuw nsw i64 %indvars.iv26.i.i.i.i, 1
+  %exitcond29.not.i.i.i.i = icmp eq i64 %indvars.iv.next27.i.i.i.i, 4
+  br i1 %exitcond29.not.i.i.i.i, label %_ZNK4pbrt17BasicSceneBuilder13CTMIsAnimatedEv.exit, label %.preheader.i.i.i.i, !llvm.loop !419
 
 76:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -23317,7 +23317,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %85 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %11) #35
   %86 = load i8, ptr %18, align 8, !tbaa !380, !range !168, !noundef !169
   %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %.loopexit53, label %.noexc40
+  br i1 %87, label %.loopexit52, label %.noexc40
 
 .noexc40:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i
   store i64 %.promoted, ptr %0, align 8
@@ -23335,13 +23335,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt5mutex4lockEv.exit
 
-.loopexit53:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i
+.loopexit52:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i
   %89 = load i64, ptr %5, align 8, !tbaa !402
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %89, ptr %0, align 8
   br label %90
 
-90:                                               ; preds = %.loopexit53, %.thread, %9
+90:                                               ; preds = %.loopexit52, %.thread, %9
   ret void
 }
 
@@ -28709,8 +28709,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt12FloatText
   %274 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %275 = load i64, ptr %274, align 8, !tbaa !718, !noalias !740
   %276 = and i64 %275, 144115188075855871
-  %.not52.i.i = icmp ne i64 %276, 0
-  %or.cond.not.i = select i1 %273, i1 %.not52.i.i, i1 false
+  %.not49.i.i = icmp ne i64 %276, 0
+  %or.cond.not.i = select i1 %273, i1 %.not49.i.i, i1 false
   br i1 %or.cond.not.i, label %277, label %.critedge.i.i
 
 277:                                              ; preds = %269

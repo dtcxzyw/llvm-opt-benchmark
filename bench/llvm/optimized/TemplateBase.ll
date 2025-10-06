@@ -387,13 +387,13 @@ define dso_local void @_ZN5clang16TemplateArgumentC2ERKNS_10ASTContextENS_8QualT
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 16
   %15 = icmp ne i8 %14, 13
-  %.not.not22.i = icmp eq ptr %12, null
-  %.not.not.i = or i1 %.not.not22.i, %15
+  %.not.not19.i = icmp eq ptr %12, null
+  %.not.not.i = or i1 %.not.not19.i, %15
   br i1 %.not.not.i, label %16, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
 
 16:                                               ; preds = %5
   %17 = icmp ne i8 %14, 46
-  %.not12.not.i = or i1 %.not.not22.i, %17
+  %.not12.not.i = or i1 %.not.not19.i, %17
   br i1 %.not12.not.i, label %26, label %18
 
 18:                                               ; preds = %16

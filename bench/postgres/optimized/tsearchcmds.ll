@@ -1555,26 +1555,26 @@ define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr no
   store i32 2281, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 2281, ptr %7, align 4
-  %switch.not.not = icmp eq i32 %1, 4
-  %. = select i1 %switch.not.not, i32 1, i32 4
-  %8 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %., ptr noundef nonnull %3, i1 noundef zeroext false) #9
-  %9 = call i32 @get_func_rettype(i32 noundef %8) #9
-  %.not = icmp eq i32 %9, 2281
-  br i1 %.not, label %16, label %10
+  %8 = icmp eq i32 %1, 4
+  %. = select i1 %8, i32 1, i32 4
+  %9 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %., ptr noundef nonnull %3, i1 noundef zeroext false) #9
+  %10 = call i32 @get_func_rettype(i32 noundef %9) #9
+  %.not = icmp eq i32 %10, 2281
+  br i1 %.not, label %17, label %11
 
-10:                                               ; preds = %2
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %12 = call i32 @errcode(i32 noundef 117833860) #9
-  %13 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %., ptr noundef null, ptr noundef nonnull %3) #9
-  %14 = call ptr @format_type_be(i32 noundef 2281) #9
-  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %13, ptr noundef %14) #9
+11:                                               ; preds = %2
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %13 = call i32 @errcode(i32 noundef 117833860) #9
+  %14 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %., ptr noundef null, ptr noundef nonnull %3) #9
+  %15 = call ptr @format_type_be(i32 noundef 2281) #9
+  %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %14, ptr noundef %15) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.get_ts_template_func) #9
   unreachable
 
-16:                                               ; preds = %2
-  %17 = zext i32 %8 to i64
+17:                                               ; preds = %2
+  %18 = zext i32 %9 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i64 %17
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable

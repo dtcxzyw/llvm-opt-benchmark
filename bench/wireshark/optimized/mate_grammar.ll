@@ -206,14 +206,14 @@ yy_find_shift_action.exit:                        ; preds = %12, %22, %25
 
 ._crit_edge:                                      ; preds = %29
   %.pre = load ptr, ptr %5, align 8
-  %.pre159 = load ptr, ptr %0, align 8
+  %.pre158 = load ptr, ptr %0, align 8
   br label %51
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %0, align 8
   %38 = load ptr, ptr %11, align 8
   %.not = icmp ult ptr %37, %38
-  %.pre158 = load ptr, ptr %5, align 8
+  %.pre157 = load ptr, ptr %5, align 8
   br i1 %.not, label %51, label %39
 
 39:                                               ; preds = %36
@@ -244,12 +244,12 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   br i1 %50, label %.lr.ph.i, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %yy_pop_parser_stack.exit.i, %39
-  store ptr %.pre158, ptr %5, align 8
+  store ptr %.pre157, ptr %5, align 8
   br label %1065
 
 51:                                               ; preds = %._crit_edge, %36
-  %52 = phi ptr [ %.pre159, %._crit_edge ], [ %37, %36 ]
-  %53 = phi ptr [ %.pre, %._crit_edge ], [ %.pre158, %36 ]
+  %52 = phi ptr [ %.pre158, %._crit_edge ], [ %37, %36 ]
+  %53 = phi ptr [ %.pre, %._crit_edge ], [ %.pre157, %36 ]
   switch i16 %.0.i, label %991 [
     i16 439, label %54
     i16 440, label %69

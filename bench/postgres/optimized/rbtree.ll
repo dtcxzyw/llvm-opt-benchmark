@@ -1243,15 +1243,15 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, @sentinel
-  br i1 %.not, label %.preheader, label %.preheader35
+  br i1 %.not, label %.preheader, label %.preheader34
 
-.preheader35:                                     ; preds = %11, %.preheader35
-  %storemerge = phi ptr [ %15, %.preheader35 ], [ %13, %11 ]
+.preheader34:                                     ; preds = %11, %.preheader34
+  %storemerge = phi ptr [ %15, %.preheader34 ], [ %13, %11 ]
   store ptr %storemerge, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %15, @sentinel
-  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !12
+  br i1 %.not29, label %select.unfold, label %.preheader34, !llvm.loop !12
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
@@ -1272,8 +1272,8 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   %25 = icmp eq ptr %24, %16
   br i1 %25, label %select.unfold, label %.preheader
 
-select.unfold:                                    ; preds = %.preheader35, %22, %8, %20
-  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader35 ]
+select.unfold:                                    ; preds = %.preheader34, %22, %8, %20
+  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader34 ]
   ret ptr %.023
 }
 
@@ -1301,15 +1301,15 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, @sentinel
-  br i1 %.not, label %.preheader, label %.preheader35
+  br i1 %.not, label %.preheader, label %.preheader34
 
-.preheader35:                                     ; preds = %11, %.preheader35
-  %storemerge = phi ptr [ %15, %.preheader35 ], [ %13, %11 ]
+.preheader34:                                     ; preds = %11, %.preheader34
+  %storemerge = phi ptr [ %15, %.preheader34 ], [ %13, %11 ]
   store ptr %storemerge, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %15, @sentinel
-  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !14
+  br i1 %.not29, label %select.unfold, label %.preheader34, !llvm.loop !14
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
@@ -1330,8 +1330,8 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   %25 = icmp eq ptr %24, %16
   br i1 %25, label %select.unfold, label %.preheader
 
-select.unfold:                                    ; preds = %.preheader35, %22, %8, %20
-  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader35 ]
+select.unfold:                                    ; preds = %.preheader34, %22, %8, %20
+  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader34 ]
   ret ptr %.023
 }
 

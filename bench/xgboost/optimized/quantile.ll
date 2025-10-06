@@ -44542,7 +44542,7 @@ define linkonce_odr void @_ZN7xgboost6common10WXQSummaryIffE8SetPruneERKNS0_9WQS
 
 13:                                               ; preds = %3
   tail call void @_ZN7xgboost6common9WQSummaryIffE8CopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %.loopexit212
+  br label %.loopexit211
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %1, align 8, !tbaa !236
@@ -44570,7 +44570,7 @@ define linkonce_odr void @_ZN7xgboost6common10WXQSummaryIffE8SetPruneERKNS0_9WQS
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !237
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %33, align 8, !tbaa !234
-  br label %.loopexit212
+  br label %.loopexit211
 
 34:                                               ; preds = %14
   %35 = fcmp olt float %22, 0x3F50624DE0000000
@@ -44591,11 +44591,11 @@ define linkonce_odr void @_ZN7xgboost6common10WXQSummaryIffE8SetPruneERKNS0_9WQS
   br i1 %.not148, label %80, label %66
 
 .lr.ph:                                           ; preds = %34, %64
-  %.0132216 = phi i64 [ %65, %64 ], [ 1, %34 ]
-  %.0133215 = phi i64 [ %.1134, %64 ], [ 0, %34 ]
-  %.0135214 = phi float [ %.2137, %64 ], [ 0.000000e+00, %34 ]
-  %.0139213 = phi i64 [ %.1140, %64 ], [ 0, %34 ]
-  %42 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %15, i64 %.0132216
+  %.0132215 = phi i64 [ %65, %64 ], [ 1, %34 ]
+  %.0133214 = phi i64 [ %.1134, %64 ], [ 0, %34 ]
+  %.0135213 = phi float [ %.2137, %64 ], [ 0.000000e+00, %34 ]
+  %.0139212 = phi i64 [ %.1140, %64 ], [ 0, %34 ]
+  %42 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %15, i64 %.0132215
   %43 = load float, ptr %42, align 4, !tbaa !830
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load float, ptr %44, align 4, !tbaa !832
@@ -44608,30 +44608,30 @@ define linkonce_odr void @_ZN7xgboost6common10WXQSummaryIffE8SetPruneERKNS0_9WQS
   br i1 %51, label %52, label %64
 
 52:                                               ; preds = %.lr.ph
-  %53 = add i64 %.0132216, -1
-  %.not162 = icmp eq i64 %.0133215, %53
+  %53 = add i64 %.0132215, -1
+  %.not162 = icmp eq i64 %.0133214, %53
   br i1 %.not162, label %62, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %15, i64 %.0133215
+  %55 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %15, i64 %.0133214
   %56 = load float, ptr %55, align 4, !tbaa !830
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load float, ptr %57, align 4, !tbaa !832
   %59 = fadd float %56, %58
   %60 = fsub float %49, %59
-  %61 = fadd float %.0135214, %60
+  %61 = fadd float %.0135213, %60
   br label %62
 
 62:                                               ; preds = %54, %52
-  %.1136 = phi float [ %61, %54 ], [ %.0135214, %52 ]
-  %63 = add i64 %.0139213, 1
+  %.1136 = phi float [ %61, %54 ], [ %.0135213, %52 ]
+  %63 = add i64 %.0139212, 1
   br label %64
 
 64:                                               ; preds = %.lr.ph, %62
-  %.1140 = phi i64 [ %63, %62 ], [ %.0139213, %.lr.ph ]
-  %.2137 = phi float [ %.1136, %62 ], [ %.0135214, %.lr.ph ]
-  %.1134 = phi i64 [ %.0132216, %62 ], [ %.0133215, %.lr.ph ]
-  %65 = add nuw i64 %.0132216, 1
+  %.1140 = phi i64 [ %63, %62 ], [ %.0139212, %.lr.ph ]
+  %.2137 = phi float [ %.1136, %62 ], [ %.0135213, %.lr.ph ]
+  %.1134 = phi i64 [ %.0132215, %62 ], [ %.0133214, %.lr.ph ]
+  %65 = add nuw i64 %.0132215, 1
   %exitcond.not = icmp eq i64 %65, %39
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1267
 
@@ -44908,27 +44908,27 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit203: ; preds = %_ZSt
   %155 = sub i64 %18, %.0139.lcssa
   %156 = load i64, ptr %11, align 8, !tbaa !234
   %157 = icmp ugt i64 %156, 1
-  br i1 %157, label %.lr.ph238, label %.loopexit212
+  br i1 %157, label %.lr.ph237, label %.loopexit211
 
-.lr.ph238:                                        ; preds = %151
+.lr.ph237:                                        ; preds = %151
   %158 = uitofp i64 %155 to float
-  %.pre240.pre242.pre.pre = load ptr, ptr %1, align 8, !tbaa !236
+  %.pre239.pre241.pre.pre = load ptr, ptr %1, align 8, !tbaa !236
   br label %159
 
-159:                                              ; preds = %.lr.ph238, %243
-  %.pre240.pre242.pre = phi ptr [ %.pre240.pre242.pre.pre, %.lr.ph238 ], [ %.pre240.pre242.pre246, %243 ]
-  %160 = phi i64 [ %156, %.lr.ph238 ], [ %244, %243 ]
-  %.0236 = phi float [ %17, %.lr.ph238 ], [ %.1, %243 ]
-  %.0112235 = phi i64 [ 1, %.lr.ph238 ], [ %245, %243 ]
-  %.0113234 = phi i64 [ 0, %.lr.ph238 ], [ %.7, %243 ]
-  %.0116233 = phi i64 [ 1, %.lr.ph238 ], [ %.3119, %243 ]
-  %.0120232 = phi i64 [ 0, %.lr.ph238 ], [ %.1121, %243 ]
+159:                                              ; preds = %.lr.ph237, %243
+  %.pre239.pre241.pre = phi ptr [ %.pre239.pre241.pre.pre, %.lr.ph237 ], [ %.pre239.pre241.pre245, %243 ]
+  %160 = phi i64 [ %156, %.lr.ph237 ], [ %244, %243 ]
+  %.0235 = phi float [ %17, %.lr.ph237 ], [ %.1, %243 ]
+  %.0112234 = phi i64 [ 1, %.lr.ph237 ], [ %245, %243 ]
+  %.0113233 = phi i64 [ 0, %.lr.ph237 ], [ %.7, %243 ]
+  %.0116232 = phi i64 [ 1, %.lr.ph237 ], [ %.3119, %243 ]
+  %.0120231 = phi i64 [ 0, %.lr.ph237 ], [ %.1121, %243 ]
   %161 = add i64 %160, -1
-  %162 = icmp eq i64 %.0112235, %161
+  %162 = icmp eq i64 %.0112234, %161
   br i1 %162, label %174, label %163
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre240.pre242.pre, i64 %.0112235
+  %164 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre239.pre241.pre, i64 %.0112234
   %165 = load float, ptr %164, align 4, !tbaa !830
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %167 = load float, ptr %166, align 4, !tbaa !832
@@ -44941,46 +44941,46 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit203: ; preds = %_ZSt
   br i1 %173, label %174, label %243
 
 174:                                              ; preds = %163, %159
-  %175 = add i64 %.0112235, -1
-  %.not158 = icmp eq i64 %.0120232, %175
+  %175 = add i64 %.0112234, -1
+  %.not158 = icmp eq i64 %.0120231, %175
   br i1 %.not158, label %.loopexit, label %176
 
 176:                                              ; preds = %174
-  %177 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre240.pre242.pre, i64 %.0112235
+  %177 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre239.pre241.pre, i64 %.0112234
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = load float, ptr %178, align 4, !tbaa !829
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %181 = load float, ptr %180, align 4, !tbaa !832
   %182 = fsub float %179, %181
   %183 = fmul float %182, 2.000000e+00
-  %184 = icmp ult i64 %.0116233, %155
-  br i1 %184, label %.lr.ph224, label %.loopexit
+  %184 = icmp ult i64 %.0116232, %155
+  br i1 %184, label %.lr.ph223, label %.loopexit
 
-.lr.ph224:                                        ; preds = %176, %223
-  %.0110222 = phi i64 [ %.2.lcssa, %223 ], [ %.0120232, %176 ]
-  %.2115221 = phi i64 [ %.4.ph, %223 ], [ %.0113234, %176 ]
-  %.2118220 = phi i64 [ %224, %223 ], [ %.0116233, %176 ]
-  %185 = uitofp i64 %.2118220 to float
+.lr.ph223:                                        ; preds = %176, %223
+  %.0110221 = phi i64 [ %.2.lcssa, %223 ], [ %.0120231, %176 ]
+  %.2115220 = phi i64 [ %.4.ph, %223 ], [ %.0113233, %176 ]
+  %.2118219 = phi i64 [ %224, %223 ], [ %.0116232, %176 ]
+  %185 = uitofp i64 %.2118219 to float
   %186 = fmul float %.3138, %185
   %187 = fdiv float %186, %158
-  %188 = fadd float %.0236, %187
+  %188 = fadd float %.0235, %187
   %189 = fmul float %188, 2.000000e+00
   %190 = fcmp ult float %189, %183
-  %.pre240.pre.pre244 = load ptr, ptr %1, align 8, !tbaa !236
+  %.pre239.pre.pre243 = load ptr, ptr %1, align 8, !tbaa !236
   br i1 %190, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.lr.ph224
-  %umax = call i64 @llvm.umax.i64(i64 %.0110222, i64 %.0112235)
+.preheader:                                       ; preds = %.lr.ph223
+  %umax = call i64 @llvm.umax.i64(i64 %.0110221, i64 %.0112234)
   br label %191
 
 191:                                              ; preds = %.preheader, %193
-  %.2 = phi i64 [ %194, %193 ], [ %.0110222, %.preheader ]
-  %192 = icmp ult i64 %.2, %.0112235
+  %.2 = phi i64 [ %194, %193 ], [ %.0110221, %.preheader ]
+  %192 = icmp ult i64 %.2, %.0112234
   br i1 %192, label %193, label %.critedge
 
 193:                                              ; preds = %191
   %194 = add nuw i64 %.2, 1
-  %195 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre240.pre.pre244, i64 %194
+  %195 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre239.pre.pre243, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load float, ptr %196, align 4, !tbaa !829
   %198 = load float, ptr %195, align 4, !tbaa !830
@@ -44990,17 +44990,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit203: ; preds = %_ZSt
 
 .critedge:                                        ; preds = %191, %193
   %.2.lcssa = phi i64 [ %umax, %191 ], [ %.2, %193 ]
-  %201 = icmp eq i64 %.2.lcssa, %.0112235
+  %201 = icmp eq i64 %.2.lcssa, %.0112234
   br i1 %201, label %.loopexit, label %202
 
 202:                                              ; preds = %.critedge
-  %203 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre240.pre.pre244, i64 %.2.lcssa
+  %203 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre239.pre.pre243, i64 %.2.lcssa
   %204 = load float, ptr %203, align 4, !tbaa !830
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %206 = load float, ptr %205, align 4, !tbaa !832
   %207 = fadd float %204, %206
   %208 = add i64 %.2.lcssa, 1
-  %209 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre240.pre.pre244, i64 %208
+  %209 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre239.pre.pre243, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
   %211 = load float, ptr %210, align 4, !tbaa !829
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 8
@@ -45011,55 +45011,55 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit203: ; preds = %_ZSt
   br i1 %216, label %217, label %218
 
 217:                                              ; preds = %202
-  %.not160 = icmp eq i64 %.2.lcssa, %.2115221
+  %.not160 = icmp eq i64 %.2.lcssa, %.2115220
   br i1 %.not160, label %223, label %.sink.split
 
 218:                                              ; preds = %202
-  %.not159 = icmp eq i64 %208, %.2115221
+  %.not159 = icmp eq i64 %208, %.2115220
   br i1 %.not159, label %223, label %.sink.split
 
 .sink.split:                                      ; preds = %218, %217
-  %.sink273 = phi ptr [ %203, %217 ], [ %209, %218 ]
+  %.sink272 = phi ptr [ %203, %217 ], [ %209, %218 ]
   %.4.ph.ph = phi i64 [ %.2.lcssa, %217 ], [ %208, %218 ]
   %219 = load ptr, ptr %0, align 8, !tbaa !236
   %220 = load i64, ptr %154, align 8, !tbaa !234
   %221 = add i64 %220, 1
   store i64 %221, ptr %154, align 8, !tbaa !234
   %222 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %219, i64 %220
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %222, ptr noundef nonnull align 4 dereferenceable(16) %.sink273, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %222, ptr noundef nonnull align 4 dereferenceable(16) %.sink272, i64 16, i1 false)
   br label %223
 
 223:                                              ; preds = %.sink.split, %218, %217
-  %.4.ph = phi i64 [ %.2115221, %218 ], [ %.2115221, %217 ], [ %.4.ph.ph, %.sink.split ]
-  %224 = add nuw i64 %.2118220, 1
+  %.4.ph = phi i64 [ %.2115220, %218 ], [ %.2115220, %217 ], [ %.4.ph.ph, %.sink.split ]
+  %224 = add nuw i64 %.2118219, 1
   %225 = icmp ult i64 %224, %155
-  br i1 %225, label %.lr.ph224, label %..loopexit.loopexit_crit_edge, !llvm.loop !1269
+  br i1 %225, label %.lr.ph223, label %..loopexit.loopexit_crit_edge, !llvm.loop !1269
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %223
-  %.pre240.pre.pre = load ptr, ptr %1, align 8, !tbaa !236
+  %.pre239.pre.pre = load ptr, ptr %1, align 8, !tbaa !236
   br label %.loopexit, !llvm.loop !1269
 
-.loopexit:                                        ; preds = %.critedge, %.lr.ph224, %..loopexit.loopexit_crit_edge, %176, %174
-  %.pre240.pre242.pre248 = phi ptr [ %.pre240.pre242.pre, %174 ], [ %.pre240.pre242.pre, %176 ], [ %.pre240.pre.pre, %..loopexit.loopexit_crit_edge ], [ %.pre240.pre.pre244, %.lr.ph224 ], [ %.pre240.pre.pre244, %.critedge ]
-  %.1117 = phi i64 [ %.0116233, %174 ], [ %.0116233, %176 ], [ %155, %..loopexit.loopexit_crit_edge ], [ %.2118220, %.lr.ph224 ], [ %.2118220, %.critedge ]
-  %.1114 = phi i64 [ %.0113234, %174 ], [ %.0113234, %176 ], [ %.4.ph, %..loopexit.loopexit_crit_edge ], [ %.2115221, %.lr.ph224 ], [ %.2115221, %.critedge ]
-  %.not161 = icmp eq i64 %.1114, %.0112235
+.loopexit:                                        ; preds = %.critedge, %.lr.ph223, %..loopexit.loopexit_crit_edge, %176, %174
+  %.pre239.pre241.pre247 = phi ptr [ %.pre239.pre241.pre, %174 ], [ %.pre239.pre241.pre, %176 ], [ %.pre239.pre.pre, %..loopexit.loopexit_crit_edge ], [ %.pre239.pre.pre243, %.lr.ph223 ], [ %.pre239.pre.pre243, %.critedge ]
+  %.1117 = phi i64 [ %.0116232, %174 ], [ %.0116232, %176 ], [ %155, %..loopexit.loopexit_crit_edge ], [ %.2118219, %.lr.ph223 ], [ %.2118219, %.critedge ]
+  %.1114 = phi i64 [ %.0113233, %174 ], [ %.0113233, %176 ], [ %.4.ph, %..loopexit.loopexit_crit_edge ], [ %.2115220, %.lr.ph223 ], [ %.2115220, %.critedge ]
+  %.not161 = icmp eq i64 %.1114, %.0112234
   br i1 %.not161, label %232, label %226
 
 226:                                              ; preds = %.loopexit
-  %227 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre240.pre242.pre248, i64 %.0112235
+  %227 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre239.pre241.pre247, i64 %.0112234
   %228 = load ptr, ptr %0, align 8, !tbaa !236
   %229 = load i64, ptr %154, align 8, !tbaa !234
   %230 = add i64 %229, 1
   store i64 %230, ptr %154, align 8, !tbaa !234
   %231 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %228, i64 %229
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %231, ptr noundef nonnull align 4 dereferenceable(16) %227, i64 16, i1 false), !tbaa.struct !237
-  %.pre239 = load ptr, ptr %1, align 8, !tbaa !236
+  %.pre238 = load ptr, ptr %1, align 8, !tbaa !236
   br label %232
 
 232:                                              ; preds = %226, %.loopexit
-  %.pre240.pre242.pre247 = phi ptr [ %.pre239, %226 ], [ %.pre240.pre242.pre248, %.loopexit ]
-  %233 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre240.pre242.pre247, i64 %.0112235
+  %.pre239.pre241.pre246 = phi ptr [ %.pre238, %226 ], [ %.pre239.pre241.pre247, %.loopexit ]
+  %233 = getelementptr inbounds nuw %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.pre239.pre241.pre246, i64 %.0112234
   %234 = load float, ptr %233, align 4, !tbaa !830
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %236 = load float, ptr %235, align 4, !tbaa !832
@@ -45068,22 +45068,22 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit203: ; preds = %_ZSt
   %239 = load float, ptr %238, align 4, !tbaa !829
   %240 = fsub float %239, %236
   %241 = fsub float %237, %240
-  %242 = fadd float %.0236, %241
-  %.pre241 = load i64, ptr %11, align 8, !tbaa !234
+  %242 = fadd float %.0235, %241
+  %.pre240 = load i64, ptr %11, align 8, !tbaa !234
   br label %243
 
 243:                                              ; preds = %163, %232
-  %.pre240.pre242.pre246 = phi ptr [ %.pre240.pre242.pre247, %232 ], [ %.pre240.pre242.pre, %163 ]
-  %244 = phi i64 [ %.pre241, %232 ], [ %160, %163 ]
-  %.1121 = phi i64 [ %.0112235, %232 ], [ %.0120232, %163 ]
-  %.3119 = phi i64 [ %.1117, %232 ], [ %.0116233, %163 ]
-  %.7 = phi i64 [ %.0112235, %232 ], [ %.0113234, %163 ]
-  %.1 = phi float [ %242, %232 ], [ %.0236, %163 ]
-  %245 = add nuw i64 %.0112235, 1
+  %.pre239.pre241.pre245 = phi ptr [ %.pre239.pre241.pre246, %232 ], [ %.pre239.pre241.pre, %163 ]
+  %244 = phi i64 [ %.pre240, %232 ], [ %160, %163 ]
+  %.1121 = phi i64 [ %.0112234, %232 ], [ %.0120231, %163 ]
+  %.3119 = phi i64 [ %.1117, %232 ], [ %.0116232, %163 ]
+  %.7 = phi i64 [ %.0112234, %232 ], [ %.0113233, %163 ]
+  %.1 = phi float [ %242, %232 ], [ %.0235, %163 ]
+  %245 = add nuw i64 %.0112234, 1
   %246 = icmp ult i64 %245, %244
-  br i1 %246, label %159, label %.loopexit212, !llvm.loop !1270
+  br i1 %246, label %159, label %.loopexit211, !llvm.loop !1270
 
-.loopexit212:                                     ; preds = %243, %151, %25, %13
+.loopexit211:                                     ; preds = %243, %151, %25, %13
   ret void
 
 247:                                              ; preds = %150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171

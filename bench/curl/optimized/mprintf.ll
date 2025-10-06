@@ -1430,8 +1430,8 @@ define internal fastcc range(i32 0, 12) i32 @parsefmt(ptr noundef %0, ptr nounde
   %44 = icmp slt i32 %.1.i, 129
   %or.cond.i = and i1 %43, %44
   %45 = icmp eq i8 %41, 36
-  %or.cond28.i = and i1 %45, %or.cond.i
-  br i1 %or.cond28.i, label %dollarstring.exit, label %dollarstring.exit.thread
+  %or.cond27.i = and i1 %45, %or.cond.i
+  br i1 %or.cond27.i, label %dollarstring.exit, label %dollarstring.exit.thread
 
 dollarstring.exit:                                ; preds = %.critedge.i
   %46 = getelementptr inbounds nuw i8, ptr %.020.i, i64 2
@@ -1537,11 +1537,11 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
   %83 = icmp sgt i32 %.1.i305, 128
   %or.cond.i308.not400 = or i1 %82, %83
   %84 = icmp ne i8 %80, 36
-  %or.cond28.i309.not397 = or i1 %84, %or.cond.i308.not400
+  %or.cond27.i309.not397 = or i1 %84, %or.cond.i308.not400
   %85 = getelementptr inbounds nuw i8, ptr %.020.i303, i64 2
   %86 = add nsw i32 %.1.i305, -1
   %87 = icmp slt i32 %.1.i305, 1
-  %or.cond388 = select i1 %or.cond28.i309.not397, i1 true, i1 %87
+  %or.cond388 = select i1 %or.cond27.i309.not397, i1 true, i1 %87
   br i1 %or.cond388, label %.thread364, label %105
 
 88:                                               ; preds = %64
@@ -1685,11 +1685,11 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
   %157 = icmp sgt i32 %.1.i316, 128
   %or.cond.i319.not396 = or i1 %156, %157
   %158 = icmp ne i8 %154, 36
-  %or.cond28.i320.not393 = or i1 %158, %or.cond.i319.not396
+  %or.cond27.i320.not393 = or i1 %158, %or.cond.i319.not396
   %159 = getelementptr inbounds nuw i8, ptr %.020.i314, i64 2
   %160 = add nsw i32 %.1.i316, -1
   %161 = icmp slt i32 %.1.i316, 1
-  %or.cond392 = select i1 %or.cond28.i320.not393, i1 true, i1 %161
+  %or.cond392 = select i1 %or.cond27.i320.not393, i1 true, i1 %161
   br i1 %or.cond392, label %.thread364, label %.critedge5
 
 .critedge5:                                       ; preds = %135, %.critedge.i318, %142, %112, %114, %105, %122, %120, %118, %116, %108, %62, %59, %57, %55

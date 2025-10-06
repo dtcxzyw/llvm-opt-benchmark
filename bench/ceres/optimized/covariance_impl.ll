@@ -7268,13 +7268,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %356, %353, %351
   %366 = load i32, ptr %365, align 8, !tbaa !431
   %367 = getelementptr inbounds nuw i8, ptr %303, i64 36
   %368 = atomicrmw add ptr %367, i32 1 seq_cst, align 4
-  %.not1979.i.i.i = icmp slt i32 %368, %322
-  br i1 %.not1979.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.not1978.i.i.i = icmp slt i32 %368, %322
+  br i1 %.not1978.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %361, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
   %369 = phi i32 [ %492, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %368, %361 ]
-  %.080.i.i.i = phi i32 [ %370, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %361 ]
-  %370 = add nuw nsw i32 %.080.i.i.i, 1
+  %.079.i.i.i = phi i32 [ %370, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %361 ]
+  %370 = add nuw nsw i32 %.079.i.i.i, 1
   %371 = mul nsw i32 %369, %364
   %372 = add nsw i32 %371, %362
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %366, i32 %369)
@@ -9194,13 +9194,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %270, %267, %265
   %280 = load i32, ptr %279, align 8, !tbaa !431
   %281 = getelementptr inbounds nuw i8, ptr %217, i64 36
   %282 = atomicrmw add ptr %281, i32 1 seq_cst, align 4
-  %.not1943.i.i.i = icmp slt i32 %282, %236
-  br i1 %.not1943.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.not1942.i.i.i = icmp slt i32 %282, %236
+  br i1 %.not1942.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %275, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
   %283 = phi i32 [ %401, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %282, %275 ]
-  %.044.i.i.i = phi i32 [ %284, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %275 ]
-  %284 = add nuw nsw i32 %.044.i.i.i, 1
+  %.043.i.i.i = phi i32 [ %284, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %275 ]
+  %284 = add nuw nsw i32 %.043.i.i.i, 1
   %285 = mul nsw i32 %283, %278
   %286 = add nsw i32 %285, %276
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %280, i32 %283)
@@ -10665,13 +10665,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %395, %392, %390
   %405 = load i32, ptr %404, align 8, !tbaa !431
   %406 = getelementptr inbounds nuw i8, ptr %342, i64 36
   %407 = atomicrmw add ptr %406, i32 1 seq_cst, align 4
-  %.not1945.i.i.i = icmp slt i32 %407, %361
-  br i1 %.not1945.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.not1944.i.i.i = icmp slt i32 %407, %361
+  br i1 %.not1944.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %400, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
   %408 = phi i32 [ %522, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %407, %400 ]
-  %.046.i.i.i = phi i32 [ %409, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %400 ]
-  %409 = add nuw nsw i32 %.046.i.i.i, 1
+  %.045.i.i.i = phi i32 [ %409, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %400 ]
+  %409 = add nuw nsw i32 %.045.i.i.i, 1
   %410 = mul i32 %408, %403
   %411 = add i32 %410, %401
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %405, i32 %408)
@@ -24412,8 +24412,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %87, %84, %82
   %98 = load i32, ptr %97, align 8, !tbaa !431
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 20
   %100 = atomicrmw add ptr %99, i32 1 seq_cst, align 4
-  %.not1979 = icmp slt i32 %100, %15
-  br i1 %.not1979, label %.lr.ph, label %._crit_edge
+  %.not1978 = icmp slt i32 %100, %15
+  br i1 %.not1978, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %92
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -24421,8 +24421,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %87, %84, %82
 
 102:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit"
   %103 = phi i32 [ %100, %.lr.ph ], [ %238, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %.080 = phi i32 [ 0, %.lr.ph ], [ %104, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %104 = add nuw nsw i32 %.080, 1
+  %.079 = phi i32 [ 0, %.lr.ph ], [ %104, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %104 = add nuw nsw i32 %.079, 1
   %105 = mul nsw i32 %103, %96
   %106 = add nsw i32 %105, %94
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %98, i32 %103)
@@ -28690,8 +28690,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !431
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1945 = icmp slt i32 %98, %13
-  br i1 %.not1945, label %.lr.ph, label %._crit_edge
+  %.not1944 = icmp slt i32 %98, %13
+  br i1 %.not1944, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -28699,8 +28699,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit"
   %101 = phi i32 [ %98, %.lr.ph ], [ %224, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %.046 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %102 = add nuw nsw i32 %.046, 1
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingSuiteSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %102 = add nuw nsw i32 %.045, 1
   %103 = mul i32 %101, %94
   %104 = add i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)
@@ -44714,19 +44714,19 @@ define linkonce_odr hidden void @_ZN5Eigen8internal38upperbidiagonalization_inpl
   %7 = alloca %"class.Eigen::Ref", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !273
-  %.fr169 = freeze i64 %9
+  %.fr168 = freeze i64 %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !679
   %.fr = freeze i64 %11
-  %.sroa.speculated111 = tail call i64 @llvm.smin.i64(i64 %.fr, i64 %.fr169)
-  %12 = icmp eq i64 %.fr169, 0
+  %.sroa.speculated111 = tail call i64 @llvm.smin.i64(i64 %.fr, i64 %.fr168)
+  %12 = icmp eq i64 %.fr168, 0
   %13 = icmp eq i64 %2, 0
   %or.cond.i.i.i.i = or i1 %13, %12
   br i1 %or.cond.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i, label %14
 
 14:                                               ; preds = %4
   %15 = sdiv i64 9223372036854775807, %2
-  %16 = icmp sgt i64 %.fr169, %15
+  %16 = icmp sgt i64 %.fr168, %15
   br i1 %16, label %.noexc.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
 
 .noexc.i:                                         ; preds = %14
@@ -44736,7 +44736,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal38upperbidiagonalization_inpl
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i: ; preds = %14, %4
-  %18 = mul nsw i64 %.fr169, %2
+  %18 = mul nsw i64 %.fr168, %2
   %19 = icmp sgt i64 %18, 0
   br i1 %19, label %20, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit
 
@@ -44828,26 +44828,26 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit50: ; preds = %_
   br i1 %27, label %.split.us.loopexit, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %74
-  %.038150.us = phi i64 [ %75, %74 ], [ 0, %.lr.ph.split.us ]
-  %55 = sub nsw i64 %.sroa.speculated111, %.038150.us
+  %.038149.us = phi i64 [ %75, %74 ], [ 0, %.lr.ph.split.us ]
+  %55 = sub nsw i64 %.sroa.speculated111, %.038149.us
   %.sroa.speculated.us = call i64 @llvm.smin.i64(i64 %.sroa.speculated102, i64 %55)
-  %56 = sub nsw i64 0, %.038150.us
-  %57 = sub nsw i64 %.fr, %.038150.us
+  %56 = sub nsw i64 0, %.038149.us
+  %57 = sub nsw i64 %.fr, %.038149.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1891)
   %58 = load ptr, ptr %0, align 8, !tbaa !271, !noalias !1891
-  %59 = getelementptr inbounds double, ptr %58, i64 %.038150.us
+  %59 = getelementptr inbounds double, ptr %58, i64 %.038149.us
   %60 = load i64, ptr %8, align 8, !tbaa !273, !noalias !1891
-  %61 = mul nsw i64 %60, %.038150.us
+  %61 = mul nsw i64 %60, %.038149.us
   %62 = getelementptr inbounds double, ptr %59, i64 %61
   store ptr %62, ptr %5, align 8, !tbaa !1282, !alias.scope !1891
   store i64 %56, ptr %42, align 8, !tbaa !244, !alias.scope !1891
   store i64 %57, ptr %43, align 8, !tbaa !244, !alias.scope !1891
   store ptr %0, ptr %44, align 8, !tbaa !688, !alias.scope !1891
-  store i64 %.038150.us, ptr %45, align 8, !tbaa !244, !alias.scope !1891
-  store i64 %.038150.us, ptr %46, align 8, !tbaa !244, !alias.scope !1891
+  store i64 %.038149.us, ptr %45, align 8, !tbaa !244, !alias.scope !1891
+  store i64 %.038149.us, ptr %46, align 8, !tbaa !244, !alias.scope !1891
   store i64 %60, ptr %47, align 8, !tbaa !1284, !alias.scope !1891
-  %63 = add nsw i64 %.sroa.speculated.us, %.038150.us
+  %63 = add nsw i64 %.sroa.speculated.us, %.038149.us
   %64 = icmp eq i64 %63, %.fr
   %65 = icmp slt i64 %57, 48
   %or.cond.us = or i1 %65, %64
@@ -44857,9 +44857,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit50: ; preds = %_
   %67 = load i64, ptr %48, align 8, !tbaa !1273, !noalias !1894
   %68 = load ptr, ptr %1, align 8, !tbaa !1263, !noalias !1894
   %69 = getelementptr inbounds double, ptr %68, i64 %67
-  %70 = getelementptr inbounds double, ptr %69, i64 %.038150.us
+  %70 = getelementptr inbounds double, ptr %69, i64 %.038149.us
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %72 = getelementptr inbounds double, ptr %71, i64 %.038150.us
+  %72 = getelementptr inbounds double, ptr %71, i64 %.038149.us
   %73 = icmp eq i64 %.sroa.speculated.us, 1
   store ptr %.sroa.0.0, ptr %6, align 8, !tbaa !1897
   store i64 %56, ptr %49, align 8, !tbaa !244
@@ -44871,43 +44871,43 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit50: ; preds = %_
   store i64 %.sroa.speculated.us, ptr %53, align 8, !tbaa !244
   store i64 %spec.select, ptr %54, align 8, !tbaa !244
   invoke void @_ZN5Eigen8internal37upperbidiagonalization_blocked_helperINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEEvRT_PNS6_10RealScalarES9_lNS_3RefINS3_INS6_6ScalarELin1ELin1EXansr6traitsIS6_EE5FlagsL_ZNS_L11RowMajorBitEEELin1ELin1EEELi0ENS0_11conditionalIXsr6MatrixISB_L_ZNS_L7DynamicEEL_ZNS_L7DynamicEEXansr6traitsIS6_EE5FlagsL_ZNS_L11RowMajorBitEEEEE21IsVectorAtCompileTimeENS_11InnerStrideILi1EEENS_11OuterStrideILin1EEEE4typeEEESK_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %70, ptr noundef nonnull %72, i64 noundef %.sroa.speculated.us, ptr noundef nonnull %6, ptr noundef nonnull %7)
-          to label %74 unwind label %.split152.us.split
+          to label %74 unwind label %.split151.us.split
 
 74:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %75 = add nsw i64 %.038150.us, %.sroa.speculated102
+  %75 = add nsw i64 %.038149.us, %.sroa.speculated102
   %76 = icmp slt i64 %75, %.sroa.speculated111
   br i1 %76, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !1899
 
-.split152.us.split:                               ; preds = %66
+.split151.us.split:                               ; preds = %66
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %.split152.us
+  br label %.split151.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %27, label %.split.us.loopexit172, label %.lr.ph.split.split
+  br i1 %27, label %.split.us.loopexit171, label %.lr.ph.split.split
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %111
-  %.038150 = phi i64 [ %112, %111 ], [ 0, %.lr.ph.split ]
-  %78 = sub nsw i64 %.sroa.speculated111, %.038150
+  %.038149 = phi i64 [ %112, %111 ], [ 0, %.lr.ph.split ]
+  %78 = sub nsw i64 %.sroa.speculated111, %.038149
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %.sroa.speculated102, i64 %78)
-  %79 = sub nsw i64 %.fr169, %.038150
-  %80 = sub nsw i64 %.fr, %.038150
+  %79 = sub nsw i64 %.fr168, %.038149
+  %80 = sub nsw i64 %.fr, %.038149
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1891)
   %81 = load ptr, ptr %0, align 8, !tbaa !271, !noalias !1891
-  %82 = getelementptr inbounds double, ptr %81, i64 %.038150
+  %82 = getelementptr inbounds double, ptr %81, i64 %.038149
   %83 = load i64, ptr %8, align 8, !tbaa !273, !noalias !1891
-  %84 = mul nsw i64 %83, %.038150
+  %84 = mul nsw i64 %83, %.038149
   %85 = getelementptr inbounds double, ptr %82, i64 %84
   store ptr %85, ptr %5, align 8, !tbaa !1282, !alias.scope !1891
   store i64 %79, ptr %42, align 8, !tbaa !244, !alias.scope !1891
   store i64 %80, ptr %43, align 8, !tbaa !244, !alias.scope !1891
   store ptr %0, ptr %44, align 8, !tbaa !688, !alias.scope !1891
-  store i64 %.038150, ptr %45, align 8, !tbaa !244, !alias.scope !1891
-  store i64 %.038150, ptr %46, align 8, !tbaa !244, !alias.scope !1891
+  store i64 %.038149, ptr %45, align 8, !tbaa !244, !alias.scope !1891
+  store i64 %.038149, ptr %46, align 8, !tbaa !244, !alias.scope !1891
   store i64 %83, ptr %47, align 8, !tbaa !1284, !alias.scope !1891
-  %86 = add nsw i64 %.sroa.speculated, %.038150
+  %86 = add nsw i64 %.sroa.speculated, %.038149
   %87 = icmp eq i64 %86, %.fr
   %88 = icmp slt i64 %80, 48
   %or.cond = or i1 %88, %87
@@ -44922,25 +44922,25 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit50: ; preds = %_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   br label %.split.us.sink.split
 
-.split.us.loopexit172:                            ; preds = %.lr.ph.split
+.split.us.loopexit171:                            ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1891)
   %91 = load ptr, ptr %0, align 8, !tbaa !271, !noalias !1891
   %92 = load i64, ptr %8, align 8, !tbaa !273, !noalias !1891
   store ptr %91, ptr %5, align 8, !tbaa !1282, !alias.scope !1891
-  store i64 %.fr169, ptr %42, align 8, !tbaa !244, !alias.scope !1891
+  store i64 %.fr168, ptr %42, align 8, !tbaa !244, !alias.scope !1891
   store i64 0, ptr %43, align 8, !tbaa !244, !alias.scope !1891
   br label %.split.us.sink.split
 
-.split.us.sink.split:                             ; preds = %.split.us.loopexit, %.split.us.loopexit172
-  %.sink = phi i64 [ %92, %.split.us.loopexit172 ], [ %90, %.split.us.loopexit ]
+.split.us.sink.split:                             ; preds = %.split.us.loopexit, %.split.us.loopexit171
+  %.sink = phi i64 [ %92, %.split.us.loopexit171 ], [ %90, %.split.us.loopexit ]
   store ptr %0, ptr %44, align 8, !tbaa !688, !alias.scope !1891
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   store i64 %.sink, ptr %47, align 8, !tbaa !1284, !alias.scope !1891
   br label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split, %.split.us.sink.split
-  %.us-phi = phi i64 [ 0, %.split.us.sink.split ], [ %.038150.us, %.lr.ph.split.us.split ], [ %.038150, %.lr.ph.split.split ]
+  %.us-phi = phi i64 [ 0, %.split.us.sink.split ], [ %.038149.us, %.lr.ph.split.us.split ], [ %.038149, %.lr.ph.split.split ]
   %93 = load i64, ptr %48, align 8, !tbaa !1273, !noalias !1900
   %94 = load ptr, ptr %1, align 8, !tbaa !1263, !noalias !1900
   %95 = getelementptr inbounds double, ptr %94, i64 %93
@@ -44953,33 +44953,33 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit50: ; preds = %_
 99:                                               ; preds = %.split.us
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %.split152.us
+  br label %.split151.us
 
 101:                                              ; preds = %.lr.ph.split.split
   %102 = load i64, ptr %48, align 8, !tbaa !1273, !noalias !1894
   %103 = load ptr, ptr %1, align 8, !tbaa !1263, !noalias !1894
   %104 = getelementptr inbounds double, ptr %103, i64 %102
-  %105 = getelementptr inbounds double, ptr %104, i64 %.038150
+  %105 = getelementptr inbounds double, ptr %104, i64 %.038149
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %107 = getelementptr inbounds double, ptr %106, i64 %.038150
+  %107 = getelementptr inbounds double, ptr %106, i64 %.038149
   %108 = icmp eq i64 %.sroa.speculated, 1
-  %spec.select168 = select i1 %108, i64 %79, i64 %.fr169
+  %spec.select167 = select i1 %108, i64 %79, i64 %.fr168
   store ptr %.sroa.0.0, ptr %6, align 8, !tbaa !1897
   store i64 %79, ptr %49, align 8, !tbaa !244
   store i64 %.sroa.speculated, ptr %50, align 8, !tbaa !244
-  store i64 %spec.select168, ptr %51, align 8, !tbaa !244
-  %unswitched.select154 = select i1 %108, i64 %80, i64 %.fr
+  store i64 %spec.select167, ptr %51, align 8, !tbaa !244
+  %unswitched.select153 = select i1 %108, i64 %80, i64 %.fr
   store ptr %.sroa.0135.0, ptr %7, align 8, !tbaa !1897
   store i64 %80, ptr %52, align 8, !tbaa !244
   store i64 %.sroa.speculated, ptr %53, align 8, !tbaa !244
-  store i64 %unswitched.select154, ptr %54, align 8, !tbaa !244
+  store i64 %unswitched.select153, ptr %54, align 8, !tbaa !244
   invoke void @_ZN5Eigen8internal37upperbidiagonalization_blocked_helperINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEEvRT_PNS6_10RealScalarES9_lNS_3RefINS3_INS6_6ScalarELin1ELin1EXansr6traitsIS6_EE5FlagsL_ZNS_L11RowMajorBitEEELin1ELin1EEELi0ENS0_11conditionalIXsr6MatrixISB_L_ZNS_L7DynamicEEL_ZNS_L7DynamicEEXansr6traitsIS6_EE5FlagsL_ZNS_L11RowMajorBitEEEEE21IsVectorAtCompileTimeENS_11InnerStrideILi1EEENS_11OuterStrideILin1EEEE4typeEEESK_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %105, ptr noundef nonnull %107, i64 noundef %.sroa.speculated, ptr noundef nonnull %6, ptr noundef nonnull %7)
-          to label %111 unwind label %.split152.split
+          to label %111 unwind label %.split151.split
 
-.split152.split:                                  ; preds = %101
+.split151.split:                                  ; preds = %101
   %109 = landingpad { ptr, i32 }
           cleanup
-  br label %.split152.us
+  br label %.split151.us
 
 110:                                              ; preds = %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -44987,12 +44987,12 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit50: ; preds = %_
 
 111:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %112 = add nsw i64 %.038150, %.sroa.speculated102
+  %112 = add nsw i64 %.038149, %.sroa.speculated102
   %113 = icmp slt i64 %112, %.sroa.speculated111
   br i1 %113, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !1899
 
-.split152.us:                                     ; preds = %.split152.us.split, %.split152.split, %99
-  %.pn43.pn = phi { ptr, i32 } [ %100, %99 ], [ %77, %.split152.us.split ], [ %109, %.split152.split ]
+.split151.us:                                     ; preds = %.split151.us.split, %.split151.split, %99
+  %.pn43.pn = phi { ptr, i32 } [ %100, %99 ], [ %77, %.split151.us.split ], [ %109, %.split151.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @free(ptr noundef %.sroa.0135.0) #40
   br label %.body
@@ -45002,8 +45002,8 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IllEERKT_RKT0_.exit50: ; preds = %_
   call void @free(ptr noundef %.sroa.0.0) #40
   ret void
 
-.body:                                            ; preds = %39, %.split152.us
-  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %.split152.us ], [ %40, %39 ]
+.body:                                            ; preds = %39, %.split151.us
+  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %.split151.us ], [ %40, %39 ]
   call void @free(ptr noundef %.sroa.0.0) #40
   resume { ptr, i32 } %.pn43.pn.pn
 }
@@ -83697,8 +83697,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !431
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1943 = icmp slt i32 %98, %13
-  br i1 %.not1943, label %.lr.ph, label %._crit_edge
+  %.not1942 = icmp slt i32 %98, %13
+  br i1 %.not1942, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -83706,8 +83706,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit"
   %101 = phi i32 [ %98, %.lr.ph ], [ %165, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %102 = add nuw nsw i32 %.044, 1
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %102 = add nuw nsw i32 %.043, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)

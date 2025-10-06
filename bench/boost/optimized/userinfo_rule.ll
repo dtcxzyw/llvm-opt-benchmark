@@ -196,18 +196,18 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   br i1 %12, label %.lr.ph.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %34, %.loopexit
-  %.021.lcssa45.pre-phi.i.i.i.i.i.i.i = phi i64 [ %10, %.loopexit ], [ %36, %34 ]
+  %.021.lcssa44.pre-phi.i.i.i.i.i.i.i = phi i64 [ %10, %.loopexit ], [ %36, %34 ]
   %.021.lcssa.i.i.i.i.i.i.i = phi ptr [ %8, %.loopexit ], [ %35, %34 ]
-  %.not35.i.i.i.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i.i.i.i, %2
-  br i1 %.not35.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %.lr.ph37.preheader.i.i.i.i.i.i.i
+  %.not34.i.i.i.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i.i.i.i, %2
+  br i1 %.not34.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %.lr.ph36.preheader.i.i.i.i.i.i.i
 
-.lr.ph37.preheader.i.i.i.i.i.i.i:                 ; preds = %.preheader.i.i.i.i.i.i.i
-  %13 = sub i64 %7, %.021.lcssa45.pre-phi.i.i.i.i.i.i.i
+.lr.ph36.preheader.i.i.i.i.i.i.i:                 ; preds = %.preheader.i.i.i.i.i.i.i
+  %13 = sub i64 %7, %.021.lcssa44.pre-phi.i.i.i.i.i.i.i
   %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %.021.lcssa.i.i.i.i.i.i.i, i64 %13
-  br label %.lr.ph37.i.i.i.i.i.i.i
+  br label %.lr.ph36.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.loopexit, %34
-  %.02134.i.i.i.i.i.i.i = phi ptr [ %35, %34 ], [ %8, %.loopexit ]
+  %.02133.i.i.i.i.i.i.i = phi ptr [ %35, %34 ], [ %8, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %18
@@ -221,7 +221,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
 
 18:                                               ; preds = %18, %.lr.ph.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %18 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   %20 = load i8, ptr %19, align 1, !tbaa !9
   %21 = and i8 %20, 3
   %22 = zext nneg i8 %21 to i64
@@ -231,8 +231,8 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %26 = zext nneg i8 %25 to i64
   %27 = shl nuw i64 1, %26
   %28 = and i64 %27, %24
-  %.not31.i.i.i.i.i.i.i = icmp eq i64 %28, 0
-  %29 = sext i1 %.not31.i.i.i.i.i.i.i to i8
+  %.not30.i.i.i.i.i.i.i = icmp eq i64 %28, 0
+  %29 = sext i1 %.not30.i.i.i.i.i.i.i to i8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !9
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
@@ -242,21 +242,21 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
 .thread.i.i.i.i.i.i.i:                            ; preds = %14
   %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 true)
   %32 = zext nneg i16 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i.i.i.i, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i.i.i.i, i64 %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit
 
 34:                                               ; preds = %14
-  %35 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i.i.i.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i.i.i.i, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %7, %36
   %38 = icmp sgt i64 %37, 15
   br i1 %38, label %.lr.ph.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
 
-.lr.ph37.i.i.i.i.i.i.i:                           ; preds = %48, %.lr.ph37.preheader.i.i.i.i.i.i.i
-  %.22336.i.i.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.021.lcssa.i.i.i.i.i.i.i, %.lr.ph37.preheader.i.i.i.i.i.i.i ]
-  %39 = load i8, ptr %.22336.i.i.i.i.i.i.i, align 1, !tbaa !9
+.lr.ph36.i.i.i.i.i.i.i:                           ; preds = %48, %.lr.ph36.preheader.i.i.i.i.i.i.i
+  %.22335.i.i.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.021.lcssa.i.i.i.i.i.i.i, %.lr.ph36.preheader.i.i.i.i.i.i.i ]
+  %39 = load i8, ptr %.22335.i.i.i.i.i.i.i, align 1, !tbaa !9
   %40 = and i8 %39, 3
   %41 = zext nneg i8 %40 to i64
   %42 = getelementptr inbounds nuw i64, ptr %9, i64 %41
@@ -265,16 +265,16 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %45 = zext nneg i8 %44 to i64
   %46 = shl nuw i64 1, %45
   %47 = and i64 %46, %43
-  %.not30.i.i.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not30.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %48
+  %.not29.i.i.i.i.i.i.i = icmp eq i64 %47, 0
+  br i1 %.not29.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %48
 
-48:                                               ; preds = %.lr.ph37.i.i.i.i.i.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %.22336.i.i.i.i.i.i.i, i64 1
+48:                                               ; preds = %.lr.ph36.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %.22335.i.i.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i.i.i = icmp eq ptr %49, %2
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %.lr.ph37.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %.lr.ph36.i.i.i.i.i.i.i, !llvm.loop !26
 
-_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit: ; preds = %.lr.ph37.i.i.i.i.i.i.i, %48, %.preheader.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
-  %.promoted = phi ptr [ %33, %.thread.i.i.i.i.i.i.i ], [ %.021.lcssa.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ], [ %.22336.i.i.i.i.i.i.i, %.lr.ph37.i.i.i.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i, %48 ]
+_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit: ; preds = %.lr.ph36.i.i.i.i.i.i.i, %48, %.preheader.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
+  %.promoted = phi ptr [ %33, %.thread.i.i.i.i.i.i.i ], [ %.021.lcssa.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ], [ %.22335.i.i.i.i.i.i.i, %.lr.ph36.i.i.i.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i, %48 ]
   store ptr %.promoted, ptr %1, align 8, !tbaa !17
   %50 = ptrtoint ptr %.promoted to i64
   %51 = sub i64 %50, %10

@@ -894,8 +894,8 @@ emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.
   br i1 %.not34, label %61, label %.thread
 
 61:                                               ; preds = %emit_table_size.exit56, %11
-  %.not83 = icmp eq i64 %3, 0
-  br i1 %.not83, label %.loopexit, label %.lr.ph
+  %.not82 = icmp eq i64 %3, 0
+  br i1 %.not82, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -912,13 +912,13 @@ emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.
   br label %74
 
 72:                                               ; preds = %deflate_nv.exit
-  %73 = add nuw i64 %.02682, 1
+  %73 = add nuw i64 %.02681, 1
   %exitcond.not = icmp eq i64 %73, %3
   br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !81
 
 74:                                               ; preds = %.lr.ph, %72
-  %.02682 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
-  %75 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %2, i64 %.02682
+  %.02681 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
+  %75 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %2, i64 %.02681
   %76 = load ptr, ptr %62, align 8, !tbaa !82
   %77 = load ptr, ptr %75, align 8, !tbaa !83
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16

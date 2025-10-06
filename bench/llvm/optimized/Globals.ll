@@ -937,8 +937,8 @@ _ZNK4llvm11GlobalValue8isTaggedEv.exit.thread:    ; preds = %_ZNK4llvm11GlobalVa
   br i1 %.not11.i, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
 
 _ZNK4llvm11GlobalValue9getComdatEv.exit:          ; preds = %15, %17, %22, %27
-  %.sink15.i = phi ptr [ %30, %27 ], [ %0, %22 ], [ %0, %17 ], [ %0, %15 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 48
+  %.sink14.i = phi ptr [ %30, %27 ], [ %0, %22 ], [ %0, %17 ], [ %0, %15 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   %.not.i3 = icmp eq ptr %37, null
   br i1 %.not.i3, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %38
@@ -1013,8 +1013,8 @@ define dso_local noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr noundef non
   br i1 %.not11, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %1, %4
-  %.sink15 = phi ptr [ %7, %4 ], [ %0, %1 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sink15, i64 48
+  %.sink14 = phi ptr [ %7, %4 ], [ %0, %1 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sink14, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !42
   br label %15
 
@@ -2007,9 +2007,9 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16
   %5 = alloca ptr, align 8
   %6 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %6, label %7 [
-    i8 0, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
-    i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
-    i8 2, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+    i8 0, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
+    i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
+    i8 2, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
   ]
 
 7:                                                ; preds = %2
@@ -2041,18 +2041,18 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   %17 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 18:                                               ; preds = %._crit_edge, %7
   %19 = phi i8 [ %.pre, %._crit_edge ], [ %6, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i8 %19, 5
-  br i1 %.not, label %20, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br i1 %.not, label %20, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = load i16, ptr %21, align 2, !tbaa !107
-  switch i16 %22, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12 [
+  switch i16 %22, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11 [
     i16 13, label %23
     i16 15, label %41
     i16 48, label %59
@@ -2078,11 +2078,11 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !45
   %39 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %.not26 = icmp eq ptr %31, null
-  %.not25 = icmp eq ptr %39, null
-  %40 = select i1 %.not25, ptr %31, ptr null
-  %.3 = select i1 %.not26, ptr %39, ptr %40
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  %.not22 = icmp eq ptr %31, null
+  %.not21 = icmp eq ptr %39, null
+  %40 = select i1 %.not21, ptr %31, ptr null
+  %.3 = select i1 %.not22, ptr %39, ptr %40
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 41:                                               ; preds = %20
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2095,7 +2095,7 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16
   %49 = load ptr, ptr %48, align 8, !tbaa !45
   %50 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not45 = icmp eq ptr %50, null
-  br i1 %.not45, label %51, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br i1 %.not45, label %51, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 51:                                               ; preds = %41
   %52 = load i32, ptr %42, align 4
@@ -2105,7 +2105,7 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16
   %56 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !45
   %58 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 59:                                               ; preds = %20, %20, %20, %20
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2116,9 +2116,9 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16
   %65 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !45
   %67 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
-_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12: ; preds = %41, %59, %51, %23, %2, %2, %2, %20, %18, %13
+_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11: ; preds = %41, %59, %51, %23, %2, %2, %2, %20, %18, %13
   %.1 = phi ptr [ %17, %13 ], [ null, %20 ], [ null, %18 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %41 ], [ %67, %59 ], [ %58, %51 ], [ %.3, %23 ]
   ret ptr %.1
 }
@@ -2929,9 +2929,9 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16
   %5 = alloca ptr, align 8
   %6 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %6, label %7 [
-    i8 0, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
-    i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
-    i8 2, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+    i8 0, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
+    i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
+    i8 2, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
   ]
 
 7:                                                ; preds = %2
@@ -2963,18 +2963,18 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   %17 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 18:                                               ; preds = %._crit_edge, %7
   %19 = phi i8 [ %.pre, %._crit_edge ], [ %6, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i8 %19, 5
-  br i1 %.not, label %20, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br i1 %.not, label %20, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = load i16, ptr %21, align 2, !tbaa !107
-  switch i16 %22, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12 [
+  switch i16 %22, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11 [
     i16 13, label %23
     i16 15, label %41
     i16 48, label %59
@@ -3000,11 +3000,11 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !45
   %39 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %.not26 = icmp eq ptr %31, null
-  %.not25 = icmp eq ptr %39, null
-  %40 = select i1 %.not25, ptr %31, ptr null
-  %.3 = select i1 %.not26, ptr %39, ptr %40
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  %.not22 = icmp eq ptr %31, null
+  %.not21 = icmp eq ptr %39, null
+  %40 = select i1 %.not21, ptr %31, ptr null
+  %.3 = select i1 %.not22, ptr %39, ptr %40
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 41:                                               ; preds = %20
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3017,7 +3017,7 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16
   %49 = load ptr, ptr %48, align 8, !tbaa !45
   %50 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not45 = icmp eq ptr %50, null
-  br i1 %.not45, label %51, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br i1 %.not45, label %51, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 51:                                               ; preds = %41
   %52 = load i32, ptr %42, align 4
@@ -3027,7 +3027,7 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16
   %56 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !45
   %58 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
 59:                                               ; preds = %20, %20, %20, %20
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3038,9 +3038,9 @@ define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16
   %65 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !45
   %67 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12
+  br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11
 
-_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread12: ; preds = %41, %59, %51, %23, %2, %2, %2, %20, %18, %13
+_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread11: ; preds = %41, %59, %51, %23, %2, %2, %2, %20, %18, %13
   %.1 = phi ptr [ %17, %13 ], [ null, %20 ], [ null, %18 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %41 ], [ %67, %59 ], [ %58, %51 ], [ %.3, %23 ]
   ret ptr %.1
 }
@@ -3190,7 +3190,7 @@ define internal fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvR
   %5 = alloca %"struct.std::pair.510", align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr %0, align 8, !tbaa !3
-  switch i8 %7, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57 [
+  switch i8 %7, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread55 [
     i8 0, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit
     i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit
     i8 2, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit
@@ -3201,9 +3201,9 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit: ; preds = %3, %
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !130
   tail call void %8(i64 noundef %10, ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  br label %.thread67
+  br label %.thread63
 
-_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; preds = %3
+_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread55: ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = icmp eq i8 %7, 1
   %spec.select.i.i = select i1 %11, ptr %0, ptr null
@@ -3211,7 +3211,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %.not43 = icmp eq ptr %spec.select.i.i, null
   br i1 %.not43, label %24, label %12
 
-12:                                               ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57
+12:                                               ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread55
   %13 = load ptr, ptr %2, align 8, !tbaa !128
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !130
@@ -3236,18 +3236,18 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %22 = load ptr, ptr %21, align 8, !tbaa !45
   %23 = call fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvRKNS0_11GlobalValueEEEEEPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISG_vEEEERKT_(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread67
+  br label %.thread63
 
-24:                                               ; preds = %._crit_edge, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57
-  %25 = phi i8 [ %.pre, %._crit_edge ], [ %7, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57 ]
+24:                                               ; preds = %._crit_edge, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread55
+  %25 = phi i8 [ %.pre, %._crit_edge ], [ %7, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i8 %25, 5
-  br i1 %.not, label %26, label %.thread67
+  br i1 %.not, label %26, label %.thread63
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %28 = load i16, ptr %27, align 2, !tbaa !107
-  switch i16 %28, label %.thread67 [
+  switch i16 %28, label %.thread63 [
     i16 13, label %29
     i16 15, label %47
     i16 48, label %65
@@ -3273,11 +3273,11 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !45
   %45 = call fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvRKNS0_11GlobalValueEEEEEPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISG_vEEEERKT_(ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %.not73 = icmp eq ptr %37, null
-  %.not72 = icmp eq ptr %45, null
-  %46 = select i1 %.not72, ptr %37, ptr null
-  %.3 = select i1 %.not73, ptr %45, ptr %46
-  br label %.thread67
+  %.not68 = icmp eq ptr %37, null
+  %.not67 = icmp eq ptr %45, null
+  %46 = select i1 %.not67, ptr %37, ptr null
+  %.3 = select i1 %.not68, ptr %45, ptr %46
+  br label %.thread63
 
 47:                                               ; preds = %26
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3290,7 +3290,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %55 = load ptr, ptr %54, align 8, !tbaa !45
   %56 = call fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvRKNS0_11GlobalValueEEEEEPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISG_vEEEERKT_(ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %.not45 = icmp eq ptr %56, null
-  br i1 %.not45, label %57, label %.thread67
+  br i1 %.not45, label %57, label %.thread63
 
 57:                                               ; preds = %47
   %58 = load i32, ptr %48, align 4
@@ -3300,7 +3300,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %62 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !45
   %64 = call fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvRKNS0_11GlobalValueEEEEEPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISG_vEEEERKT_(ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br label %.thread67
+  br label %.thread63
 
 65:                                               ; preds = %26, %26, %26, %26
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3311,9 +3311,9 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %71 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !45
   %73 = call fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvRKNS0_11GlobalValueEEEEEPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISG_vEEEERKT_(ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br label %.thread67
+  br label %.thread63
 
-.thread67:                                        ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit, %47, %65, %57, %29, %26, %24, %19
+.thread63:                                        ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit, %47, %65, %57, %29, %26, %24, %19
   %.1 = phi ptr [ %23, %19 ], [ %0, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit ], [ null, %26 ], [ null, %24 ], [ null, %47 ], [ %73, %65 ], [ %64, %57 ], [ %.3, %29 ]
   ret ptr %.1
 }

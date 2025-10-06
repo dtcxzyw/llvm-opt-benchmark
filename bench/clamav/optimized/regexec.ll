@@ -342,7 +342,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr noundef readonly captures(none) %0,
 
 .thread.i.i:                                      ; preds = %157, %156, %.thread135.i.i, %150
   %.3.i.i = phi i32 [ %.2110138.i.i, %157 ], [ %.2110138.i.i, %156 ], [ %.2110138.i.i, %.thread135.i.i ], [ %.2110.i.i, %150 ]
-  %165 = icmp samesign ugt i32 %.3.i.i, 132
+  %165 = icmp eq i32 %.3.i.i, 133
   br i1 %165, label %.thread139.i.i, label %.thread.thread.i.i
 
 .thread139.i.i:                                   ; preds = %.thread.i.i, %157, %154
@@ -929,7 +929,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
 
 .thread.i.i34:                                    ; preds = %425, %424, %.thread145.i.i, %418
   %.3.i.i35 = phi i32 [ %.2119148.i.i, %425 ], [ %.2119148.i.i, %424 ], [ %.2119148.i.i, %.thread145.i.i ], [ %.2119.i.i, %418 ]
-  %433 = icmp samesign ugt i32 %.3.i.i35, 132
+  %433 = icmp eq i32 %.3.i.i35, 133
   br i1 %433, label %.thread149.i.i, label %.thread.thread.i.i36
 
 .thread149.i.i:                                   ; preds = %.thread.i.i34, %425, %422
@@ -1399,7 +1399,7 @@ define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %0
 
 .thread:                                          ; preds = %.thread129, %97, %96, %87
   %.3 = phi i32 [ %.2104132, %97 ], [ %.2104132, %96 ], [ %.2104132, %.thread129 ], [ %.2104, %87 ]
-  %105 = icmp samesign ugt i32 %.3, 132
+  %105 = icmp eq i32 %.3, 133
   br i1 %105, label %.thread133, label %.thread.thread
 
 .thread133:                                       ; preds = %97, %94, %.thread
@@ -2608,7 +2608,7 @@ define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %0
 
 .thread:                                          ; preds = %.thread135, %110, %109, %100
   %.3 = phi i32 [ %.2111138, %110 ], [ %.2111138, %109 ], [ %.2111138, %.thread135 ], [ %.2111, %100 ]
-  %118 = icmp samesign ugt i32 %.3, 132
+  %118 = icmp eq i32 %.3, 133
   br i1 %118, label %.thread139, label %.thread.thread
 
 .thread139:                                       ; preds = %110, %107, %.thread

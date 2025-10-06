@@ -8849,8 +8849,8 @@ _ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %91, %93, %
 
 113:                                              ; preds = %109
   %114 = add nsw i32 %111, -6
-  %.not1820.not.i = icmp eq i32 %114, 31
-  br i1 %.not1820.not.i, label %_ZN5Ttopt14TruthTableCare4IsDCEii.exit, label %.lr.ph.i
+  %.not1819.not.i = icmp eq i32 %114, 31
+  br i1 %.not1819.not.i, label %_ZN5Ttopt14TruthTableCare4IsDCEii.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %113
   %115 = shl nuw i32 1, %114
@@ -9490,8 +9490,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit25:              ; preds = %32, %26, %_ZNSt6vec
 
 47:                                               ; preds = %.lr.ph41
   %48 = add nsw i32 %45, -6
-  %.not1820.not.i = icmp eq i32 %48, 31
-  br i1 %.not1820.not.i, label %_ZN5Ttopt14TruthTableCare4IsDCEii.exit, label %.lr.ph.i
+  %.not1819.not.i = icmp eq i32 %48, 31
+  br i1 %.not1819.not.i, label %_ZN5Ttopt14TruthTableCare4IsDCEii.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47
   %49 = shl nuw i32 1, %48
@@ -11301,8 +11301,8 @@ _ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %60, %62, %
 
 82:                                               ; preds = %78
   %83 = add nsw i32 %80, -6
-  %.not1820.not.i = icmp eq i32 %83, 31
-  br i1 %.not1820.not.i, label %_ZN5Ttopt17TruthTableRewrite15ShiftToMajorityEii.exit, label %.lr.ph.i
+  %.not1819.not.i = icmp eq i32 %83, 31
+  br i1 %.not1819.not.i, label %_ZN5Ttopt17TruthTableRewrite15ShiftToMajorityEii.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %82
   %84 = shl nuw i32 1, %83

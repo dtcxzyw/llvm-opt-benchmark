@@ -7795,16 +7795,16 @@ define noundef range(i32 -2147483648, 86399001) i32 @_ZN6icu_7714TimeZoneFormat3
   br label %30
 
 30:                                               ; preds = %.lr.ph, %41
-  %indvars.iv92 = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next93, %41 ]
+  %indvars.iv91 = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next92, %41 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %31 = icmp slt i64 %indvars.iv92, %29
-  %32 = trunc nsw i64 %indvars.iv92 to i32
+  %31 = icmp slt i64 %indvars.iv91, %29
+  %32 = trunc nsw i64 %indvars.iv91 to i32
   %33 = icmp ugt i32 %22, %32
-  %or.cond80 = and i1 %31, %33
-  br i1 %or.cond80, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge.loopexit.split.loop.exit106
+  %or.cond79 = and i1 %31, %33
+  br i1 %or.cond79, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge.loopexit.split.loop.exit105
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %30
-  %34 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv92
+  %34 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv91
   %35 = load i16, ptr %34, align 2, !tbaa !24
   %36 = zext i16 %35 to i32
   %37 = add i16 %35, -48
@@ -7818,7 +7818,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %30
   %42 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %39, ptr %42, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %30
 
@@ -7826,12 +7826,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %30
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit106:            ; preds = %30
+.critedge.loopexit.split.loop.exit105:            ; preds = %30
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %41, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit106, %5
-  %.060.lcssa = phi i32 [ 0, %5 ], [ %43, %.critedge.loopexit.split.loop.exit ], [ %44, %.critedge.loopexit.split.loop.exit106 ], [ %13, %41 ]
+.critedge:                                        ; preds = %41, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit105, %5
+  %.060.lcssa = phi i32 [ 0, %5 ], [ %43, %.critedge.loopexit.split.loop.exit ], [ %44, %.critedge.loopexit.split.loop.exit105 ], [ %13, %41 ]
   %45 = and i32 %.060.lcssa, 1
   %.not67 = icmp eq i32 %45, 0
   %or.cond71 = or i1 %.not, %.not67
@@ -7872,8 +7872,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %30
   br label %92
 
 71:                                               ; preds = %.preheader, %82
-  %.487 = phi i32 [ %.3, %.preheader ], [ %83, %82 ]
-  switch i32 %.487, label %78 [
+  %.486 = phi i32 [ %.3, %.preheader ], [ %83, %82 ]
+  switch i32 %.486, label %78 [
     i32 1, label %72
     i32 2, label %73
     i32 3, label %74
@@ -7912,7 +7912,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %30
   br i1 %or.cond6, label %85, label %82
 
 82:                                               ; preds = %78
-  %83 = add i32 %.487, %.neg69
+  %83 = add i32 %.486, %.neg69
   %.not68 = icmp slt i32 %83, %11
   br i1 %.not68, label %.critedge73, label %71, !llvm.loop !96
 
@@ -7923,7 +7923,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %30
 
 85:                                               ; preds = %78
   %86 = mul nsw i32 %.256, 60
-  %87 = add nsw i32 %.487, %8
+  %87 = add nsw i32 %.486, %8
   store i32 %87, ptr %7, align 8, !tbaa !67
   %88 = add nsw i32 %86, %.253
   %89 = mul nsw i32 %88, 60
@@ -8286,8 +8286,8 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13Unicod
 define noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERKNS_13UnicodeStringEiPNS_7UVectorEaRiS6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1024) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef %3, i8 noundef signext %4, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %7) local_unnamed_addr #1 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !48
-  %.not182222 = icmp sgt i32 %10, 0
-  br i1 %.not182222, label %.lr.ph, label %.critedge
+  %.not181221 = icmp sgt i32 %10, 0
+  br i1 %.not181221, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8297,15 +8297,15 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERK
   br label %14
 
 14:                                               ; preds = %.lr.ph, %select.unfold
-  %.064230 = phi i32 [ 0, %.lr.ph ], [ %.266, %select.unfold ]
-  %.074228 = phi i32 [ 0, %.lr.ph ], [ %.276, %select.unfold ]
-  %.079226 = phi i32 [ 0, %.lr.ph ], [ %.281, %select.unfold ]
-  %.087225 = phi i32 [ 0, %.lr.ph ], [ %170, %select.unfold ]
-  %.088223 = phi i32 [ %2, %.lr.ph ], [ %.391, %select.unfold ]
-  %15 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %.087225)
+  %.064229 = phi i32 [ 0, %.lr.ph ], [ %.266, %select.unfold ]
+  %.074227 = phi i32 [ 0, %.lr.ph ], [ %.276, %select.unfold ]
+  %.079225 = phi i32 [ 0, %.lr.ph ], [ %.281, %select.unfold ]
+  %.087224 = phi i32 [ 0, %.lr.ph ], [ %170, %select.unfold ]
+  %.088222 = phi i32 [ %2, %.lr.ph ], [ %.391, %select.unfold ]
+  %15 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %.087224)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !21
-  switch i32 %17, label %.thread168.thread [
+  switch i32 %17, label %.thread167.thread [
     i32 0, label %18
     i32 1, label %64
     i32 2, label %107
@@ -8316,7 +8316,7 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERK
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   %21 = tail call i32 @u_strlen_77(ptr noundef %20)
-  %22 = icmp eq i32 %.087225, 0
+  %22 = icmp eq i32 %.087224, 0
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %18
@@ -8326,11 +8326,11 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERK
   %27 = sext i16 %26 to i32
   %28 = load i32, ptr %12, align 4
   %29 = select i1 %25, i32 %28, i32 %27
-  %30 = icmp slt i32 %.088223, %29
+  %30 = icmp slt i32 %.088222, %29
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %23
-  %32 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088223)
+  %32 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088222)
   %33 = tail call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %32)
   %34 = icmp eq i8 %33, 0
   %35 = icmp sgt i32 %21, 0
@@ -8385,10 +8385,10 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERK
 .thread:                                          ; preds = %54, %56, %23, %31, %18
   %.0139 = phi i32 [ %21, %31 ], [ %21, %23 ], [ %21, %18 ], [ %.1140, %54 ], [ %59, %56 ]
   %.071 = phi ptr [ %20, %31 ], [ %20, %23 ], [ %20, %18 ], [ %.172, %54 ], [ %61, %56 ]
-  %62 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088223, i32 noundef %.0139, ptr noundef %.071, i32 noundef 0, i32 noundef %.0139, i32 noundef 0)
+  %62 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088222, i32 noundef %.0139, ptr noundef %.071, i32 noundef 0, i32 noundef %.0139, i32 noundef 0)
   %.not96 = icmp eq i8 %62, 0
-  %63 = add nsw i32 %.0139, %.088223
-  br i1 %.not96, label %select.unfold, label %.thread168.thread
+  %63 = add nsw i32 %.0139, %.088222
+  br i1 %.not96, label %select.unfold, label %.thread167.thread
 
 64:                                               ; preds = %14
   %65 = load i16, ptr %11, align 8, !tbaa !23
@@ -8397,14 +8397,14 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERK
   %68 = sext i16 %67 to i32
   %69 = load i32, ptr %12, align 4
   %70 = select i1 %66, i32 %69, i32 %68
-  %71 = icmp slt i32 %.088223, %70
-  br i1 %71, label %.lr.ph.i, label %.thread168.thread
+  %71 = icmp slt i32 %.088222, %70
+  br i1 %71, label %.lr.ph.i, label %.thread167.thread
 
 .lr.ph.i:                                         ; preds = %64
   br i1 %.not, label %.lr.ph.i.split, label %.lr.ph.i.split.us
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i
-  %72 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088223)
+  %72 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088222)
   br label %73
 
 73:                                               ; preds = %77, %.lr.ph.i.split.us
@@ -8422,23 +8422,23 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERK
 78:                                               ; preds = %77
   %79 = tail call i32 @u_charDigitValue_77(i32 noundef %72)
   %or.cond.i.i.us = icmp ult i32 %79, 10
-  br i1 %or.cond.i.i.us, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread, label %.thread168.thread
+  br i1 %or.cond.i.i.us, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread, label %.thread167.thread
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread: ; preds = %78
-  %80 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088223, i32 noundef 1)
+  %80 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088222, i32 noundef 1)
   br label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us: ; preds = %73
   %81 = trunc nuw nsw i64 %indvars.iv.i.i.us to i32
-  %82 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088223, i32 noundef 1)
+  %82 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.088222, i32 noundef 1)
   %83 = icmp samesign ugt i64 %indvars.iv.i.i.us, 23
-  br i1 %83, label %.thread168.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
+  br i1 %83, label %.thread167.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %98
-  %.052.i = phi i32 [ %96, %98 ], [ 0, %.lr.ph.i ]
+  %.051.i = phi i32 [ %96, %98 ], [ 0, %.lr.ph.i ]
   %84 = phi i1 [ false, %98 ], [ true, %.lr.ph.i ]
-  %.03150.i = phi i32 [ %94, %98 ], [ %.088223, %.lr.ph.i ]
-  %85 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i)
+  %.03149.i = phi i32 [ %94, %98 ], [ %.088222, %.lr.ph.i ]
+  %85 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i)
   br label %86
 
 86:                                               ; preds = %90, %.lr.ph.i.split
@@ -8464,8 +8464,8 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i: ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i, %91
   %.2.ph.i43.i = phi i32 [ %93, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i ], [ %92, %91 ]
-  %94 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i, i32 noundef 1)
-  %95 = mul nuw nsw i32 %.052.i, 10
+  %94 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i, i32 noundef 1)
+  %95 = mul nuw nsw i32 %.051.i, 10
   %96 = add nuw nsw i32 %.2.ph.i43.i, %95
   %97 = icmp samesign ugt i32 %96, 23
   br i1 %97, label %.thread.i, label %98
@@ -8482,7 +8482,7 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br i1 %106, label %.lr.ph.i.split, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
 
 .thread.i:                                        ; preds = %91, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i
-  br i1 %84, label %.thread168.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
+  br i1 %84, label %.thread167.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
 
 107:                                              ; preds = %14
   %108 = load i16, ptr %11, align 8, !tbaa !23
@@ -8491,14 +8491,14 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   %111 = sext i16 %110 to i32
   %112 = load i32, ptr %12, align 4
   %113 = select i1 %109, i32 %112, i32 %111
-  %114 = icmp slt i32 %.088223, %113
-  br i1 %114, label %.lr.ph.i104, label %.thread168.thread
+  %114 = icmp slt i32 %.088222, %113
+  br i1 %114, label %.lr.ph.i104, label %.thread167.thread
 
 .lr.ph.i104:                                      ; preds = %107, %129
-  %.052.i105 = phi i32 [ %127, %129 ], [ 0, %107 ]
+  %.051.i105 = phi i32 [ %127, %129 ], [ 0, %107 ]
   %115 = phi i1 [ false, %129 ], [ true, %107 ]
-  %.03150.i107 = phi i32 [ %125, %129 ], [ %.088223, %107 ]
-  %116 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i107)
+  %.03149.i107 = phi i32 [ %125, %129 ], [ %.088222, %107 ]
+  %116 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i107)
   br label %117
 
 117:                                              ; preds = %121, %.lr.ph.i104
@@ -8516,7 +8516,7 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 122:                                              ; preds = %121
   %123 = tail call i32 @u_charDigitValue_77(i32 noundef %116)
   %or.cond.i.i111 = icmp ult i32 %123, 10
-  br i1 %or.cond.i.i111, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i112, label %.thread168.thread
+  br i1 %or.cond.i.i111, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i112, label %.thread167.thread
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i114: ; preds = %117
   %124 = trunc nuw nsw i64 %indvars.iv.i.i108 to i32
@@ -8524,11 +8524,11 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i112: ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i114, %122
   %.2.ph.i43.i113 = phi i32 [ %124, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i114 ], [ %123, %122 ]
-  %125 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i107, i32 noundef 1)
-  %126 = mul nuw nsw i32 %.052.i105, 10
+  %125 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i107, i32 noundef 1)
+  %126 = mul nuw nsw i32 %.051.i105, 10
   %127 = add nuw nsw i32 %.2.ph.i43.i113, %126
   %128 = icmp samesign ugt i32 %127, 59
-  br i1 %128, label %.thread168.thread, label %129
+  br i1 %128, label %.thread167.thread, label %129
 
 129:                                              ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i112
   %130 = load i16, ptr %11, align 8, !tbaa !23
@@ -8542,7 +8542,7 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br i1 %137, label %.lr.ph.i104, label %.thread.i99
 
 .thread.i99:                                      ; preds = %129
-  br i1 %115, label %.thread168.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
+  br i1 %115, label %.thread167.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
 
 138:                                              ; preds = %14
   %139 = load i16, ptr %11, align 8, !tbaa !23
@@ -8551,14 +8551,14 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   %142 = sext i16 %141 to i32
   %143 = load i32, ptr %12, align 4
   %144 = select i1 %140, i32 %143, i32 %142
-  %145 = icmp slt i32 %.088223, %144
-  br i1 %145, label %.lr.ph.i121, label %.thread168.thread
+  %145 = icmp slt i32 %.088222, %144
+  br i1 %145, label %.lr.ph.i121, label %.thread167.thread
 
 .lr.ph.i121:                                      ; preds = %138, %160
-  %.052.i122 = phi i32 [ %158, %160 ], [ 0, %138 ]
+  %.051.i122 = phi i32 [ %158, %160 ], [ 0, %138 ]
   %146 = phi i1 [ false, %160 ], [ true, %138 ]
-  %.03150.i124 = phi i32 [ %156, %160 ], [ %.088223, %138 ]
-  %147 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i124)
+  %.03149.i124 = phi i32 [ %156, %160 ], [ %.088222, %138 ]
+  %147 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i124)
   br label %148
 
 148:                                              ; preds = %152, %.lr.ph.i121
@@ -8576,7 +8576,7 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 153:                                              ; preds = %152
   %154 = tail call i32 @u_charDigitValue_77(i32 noundef %147)
   %or.cond.i.i128 = icmp ult i32 %154, 10
-  br i1 %or.cond.i.i128, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i129, label %.thread168.thread
+  br i1 %or.cond.i.i128, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i129, label %.thread167.thread
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i131: ; preds = %148
   %155 = trunc nuw nsw i64 %indvars.iv.i.i125 to i32
@@ -8584,11 +8584,11 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i129: ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i131, %153
   %.2.ph.i43.i130 = phi i32 [ %155, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i131 ], [ %154, %153 ]
-  %156 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i124, i32 noundef 1)
-  %157 = mul nuw nsw i32 %.052.i122, 10
+  %156 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i124, i32 noundef 1)
+  %157 = mul nuw nsw i32 %.051.i122, 10
   %158 = add nuw nsw i32 %.2.ph.i43.i130, %157
   %159 = icmp samesign ugt i32 %158, 59
-  br i1 %159, label %.thread168.thread, label %160
+  br i1 %159, label %.thread167.thread, label %160
 
 160:                                              ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i129
   %161 = load i16, ptr %11, align 8, !tbaa !23
@@ -8602,27 +8602,27 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br i1 %168, label %.lr.ph.i121, label %.thread.i116
 
 .thread.i116:                                     ; preds = %160
-  br i1 %146, label %.thread168.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
+  br i1 %146, label %.thread167.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
 
 _ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit: ; preds = %98, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us, %.thread.i116, %.thread.i99, %.thread.i
-  %.031.lcssa.i156.pn = phi i32 [ %.03150.i, %.thread.i ], [ %125, %.thread.i99 ], [ %156, %.thread.i116 ], [ %82, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %80, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %94, %98 ]
-  %.483 = phi i32 [ %.079226, %.thread.i ], [ %.079226, %.thread.i99 ], [ %158, %.thread.i116 ], [ %.079226, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %.079226, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %.079226, %98 ]
-  %.478 = phi i32 [ %.074228, %.thread.i ], [ %127, %.thread.i99 ], [ %.074228, %.thread.i116 ], [ %.074228, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %.074228, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %.074228, %98 ]
-  %.468 = phi i32 [ %.052.i, %.thread.i ], [ %.064230, %.thread.i99 ], [ %.064230, %.thread.i116 ], [ %81, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %79, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %96, %98 ]
-  %169 = icmp eq i32 %.031.lcssa.i156.pn, %.088223
-  br i1 %169, label %.thread168.thread, label %select.unfold
+  %.031.lcssa.i155.pn = phi i32 [ %.03149.i, %.thread.i ], [ %125, %.thread.i99 ], [ %156, %.thread.i116 ], [ %82, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %80, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %94, %98 ]
+  %.483 = phi i32 [ %.079225, %.thread.i ], [ %.079225, %.thread.i99 ], [ %158, %.thread.i116 ], [ %.079225, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %.079225, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %.079225, %98 ]
+  %.478 = phi i32 [ %.074227, %.thread.i ], [ %127, %.thread.i99 ], [ %.074227, %.thread.i116 ], [ %.074227, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %.074227, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %.074227, %98 ]
+  %.468 = phi i32 [ %.051.i, %.thread.i ], [ %.064229, %.thread.i99 ], [ %.064229, %.thread.i116 ], [ %81, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us ], [ %79, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us.thread ], [ %96, %98 ]
+  %169 = icmp eq i32 %.031.lcssa.i155.pn, %.088222
+  br i1 %169, label %.thread167.thread, label %select.unfold
 
 select.unfold:                                    ; preds = %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit, %.thread
-  %.391 = phi i32 [ %63, %.thread ], [ %.031.lcssa.i156.pn, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
-  %.281 = phi i32 [ %.079226, %.thread ], [ %.483, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
-  %.276 = phi i32 [ %.074228, %.thread ], [ %.478, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
-  %.266 = phi i32 [ %.064230, %.thread ], [ %.468, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
-  %170 = add nuw nsw i32 %.087225, 1
+  %.391 = phi i32 [ %63, %.thread ], [ %.031.lcssa.i155.pn, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
+  %.281 = phi i32 [ %.079225, %.thread ], [ %.483, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
+  %.276 = phi i32 [ %.074227, %.thread ], [ %.478, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
+  %.266 = phi i32 [ %.064229, %.thread ], [ %.468, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit ]
+  %170 = add nuw nsw i32 %.087224, 1
   %171 = load i32, ptr %9, align 8, !tbaa !48
-  %.not182 = icmp slt i32 %170, %171
-  br i1 %.not182, label %14, label %.critedge, !llvm.loop !101
+  %.not181 = icmp slt i32 %170, %171
+  br i1 %.not181, label %14, label %.critedge, !llvm.loop !101
 
-.thread168.thread:                                ; preds = %78, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us, %138, %107, %64, %.thread.i116, %.thread.i99, %.thread.i, %14, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit, %.thread, %153, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i129, %122, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i112
+.thread167.thread:                                ; preds = %78, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i.us, %138, %107, %64, %.thread.i116, %.thread.i99, %.thread.i, %14, %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit, %.thread, %153, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i129, %122, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i112
   store i32 0, ptr %7, align 4, !tbaa !12
   store i32 0, ptr %6, align 4, !tbaa !12
   store i32 0, ptr %5, align 4, !tbaa !12
@@ -8639,8 +8639,8 @@ select.unfold:                                    ; preds = %_ZNK6icu_7714TimeZo
   %172 = sub nsw i32 %.088.lcssa, %2
   br label %173
 
-173:                                              ; preds = %.critedge, %.thread168.thread
-  %.0 = phi i32 [ 0, %.thread168.thread ], [ %172, %.critedge ]
+173:                                              ; preds = %.critedge, %.thread167.thread
+  %.0 = phi i32 [ 0, %.thread167.thread ], [ %172, %.critedge ]
   ret i32 %.0
 }
 
@@ -8671,10 +8671,10 @@ define noundef range(i32 -1, 65536) i32 @_ZNK6icu_7714TimeZoneFormat35parseOffse
   br label %23
 
 23:                                               ; preds = %.lr.ph, %37
-  %.052 = phi i32 [ 0, %.lr.ph ], [ %35, %37 ]
-  %.02751 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
-  %.03150 = phi i32 [ %2, %.lr.ph ], [ %33, %37 ]
-  %24 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150)
+  %.051 = phi i32 [ 0, %.lr.ph ], [ %35, %37 ]
+  %.02750 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
+  %.03149 = phi i32 [ %2, %.lr.ph ], [ %33, %37 ]
+  %24 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149)
   br label %25
 
 25:                                               ; preds = %29, %23
@@ -8700,14 +8700,14 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41: ; preds = %30, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit
   %.2.ph.i43 = phi i32 [ %32, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ], [ %31, %30 ]
-  %33 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150, i32 noundef 1)
-  %34 = mul nuw nsw i32 %.052, 10
+  %33 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149, i32 noundef 1)
+  %34 = mul nuw nsw i32 %.051, 10
   %35 = add nuw nsw i32 %.2.ph.i43, %34
   %36 = icmp samesign ugt i32 %35, %22
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41
-  %38 = add nuw nsw i32 %.02751, 1
+  %38 = add nuw nsw i32 %.02750, 1
   %39 = load i16, ptr %9, align 8, !tbaa !23
   %40 = icmp slt i16 %39, 0
   %41 = ashr i16 %39, 5
@@ -8720,9 +8720,9 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br i1 %47, label %23, label %.thread
 
 .thread:                                          ; preds = %37, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41, %30, %8
-  %.031.lcssa = phi i32 [ %2, %8 ], [ %.03150, %30 ], [ %.03150, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41 ], [ %33, %37 ]
-  %.027.lcssa = phi i32 [ 0, %8 ], [ %.02751, %30 ], [ %.02751, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41 ], [ %38, %37 ]
-  %.0.lcssa = phi i32 [ 0, %8 ], [ %.052, %30 ], [ %.052, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41 ], [ %35, %37 ]
+  %.031.lcssa = phi i32 [ %2, %8 ], [ %.03149, %30 ], [ %.03149, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41 ], [ %33, %37 ]
+  %.027.lcssa = phi i32 [ 0, %8 ], [ %.02750, %30 ], [ %.02750, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41 ], [ %38, %37 ]
+  %.0.lcssa = phi i32 [ 0, %8 ], [ %.051, %30 ], [ %.051, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41 ], [ %35, %37 ]
   %48 = zext i8 %3 to i32
   %49 = icmp samesign ult i32 %.027.lcssa, %48
   %50 = zext i16 %5 to i32
@@ -8751,20 +8751,20 @@ define noundef range(i32 -2147483648, 86399001) i32 @_ZNK6icu_7714TimeZoneFormat
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 720
   br label %10
 
-10:                                               ; preds = %4, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70 ]
-  %.03954 = phi i32 [ %2, %4 ], [ %31, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70 ]
+10:                                               ; preds = %4, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69 ]
+  %.03953 = phi i32 [ %2, %4 ], [ %31, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69 ]
   %11 = load i16, ptr %7, align 8, !tbaa !23
   %12 = icmp slt i16 %11, 0
   %13 = ashr i16 %11, 5
   %14 = sext i16 %13 to i32
   %15 = load i32, ptr %8, align 4
   %16 = select i1 %12, i32 %15, i32 %14
-  %17 = icmp slt i32 %.03954, %16
+  %17 = icmp slt i32 %.03953, %16
   br i1 %17, label %18, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread
 
 18:                                               ; preds = %10
-  %19 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03954)
+  %19 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03953)
   br label %20
 
 20:                                               ; preds = %24, %18
@@ -8782,25 +8782,25 @@ define noundef range(i32 -2147483648, 86399001) i32 @_ZNK6icu_7714TimeZoneFormat
 25:                                               ; preds = %24
   %26 = tail call i32 @u_charDigitValue_77(i32 noundef %19)
   %or.cond.i = icmp ult i32 %26, 10
-  br i1 %or.cond.i, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread
+  br i1 %or.cond.i, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69, label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread: ; preds = %10, %25
-  %indvars67.le87 = trunc i64 %indvars.iv to i32
+  %indvars66.le86 = trunc i64 %indvars.iv to i32
   %27 = and i64 %indvars.iv, 4294967295
   %28 = getelementptr inbounds nuw i32, ptr %5, i64 %27
   store i32 -1, ptr %28, align 4, !tbaa !12
-  %29 = icmp eq i32 %indvars67.le87, 0
+  %29 = icmp eq i32 %indvars66.le86, 0
   br i1 %29, label %.loopexit.sink.split, label %.preheader
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit: ; preds = %20
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70
+  br label %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69
 
-_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70: ; preds = %25, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit
-  %.sink95 = phi i32 [ %30, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ], [ %26, %25 ]
-  %31 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03954, i32 noundef 1)
+_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69: ; preds = %25, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit
+  %.sink94 = phi i32 [ %30, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ], [ %26, %25 ]
+  %31 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03953, i32 noundef 1)
   %32 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  store i32 %.sink95, ptr %32, align 4, !tbaa !12
+  store i32 %.sink94, ptr %32, align 4, !tbaa !12
   %33 = sub nsw i32 %31, %2
   %34 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !12
@@ -8809,11 +8809,11 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br i1 %exitcond.not, label %.lr.ph, label %10, !llvm.loop !102
 
 .preheader:                                       ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread
-  %35 = icmp sgt i32 %indvars67.le87, 0
+  %35 = icmp sgt i32 %indvars66.le86, 0
   br i1 %35, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70, %.preheader
-  %.036537375 = phi i32 [ %indvars67.le87, %.preheader ], [ 6, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread70 ]
+.lr.ph:                                           ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69, %.preheader
+  %.036527274 = phi i32 [ %indvars66.le86, %.preheader ], [ 6, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread69 ]
   %36 = load i32, ptr %5, align 16
   %37 = mul nsw i32 %36, 10
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -8838,8 +8838,8 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %57
 
 57:                                               ; preds = %.lr.ph, %77
-  %.13757 = phi i32 [ %.036537375, %.lr.ph ], [ %78, %77 ]
-  switch i32 %.13757, label %64 [
+  %.13756 = phi i32 [ %.036527274, %.lr.ph ], [ %78, %77 ]
+  switch i32 %.13756, label %64 [
     i32 1, label %58
     i32 2, label %59
     i32 3, label %60
@@ -8883,15 +8883,15 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   %70 = add nsw i32 %69, %68
   %71 = mul nsw i32 %.0, 1000
   %72 = add nsw i32 %70, %71
-  %73 = zext nneg i32 %.13757 to i64
+  %73 = zext nneg i32 %.13756 to i64
   %74 = getelementptr i32, ptr %6, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -4
   %76 = load i32, ptr %75, align 4, !tbaa !12
   br label %.loopexit.sink.split
 
 77:                                               ; preds = %64
-  %78 = add nsw i32 %.13757, -1
-  %79 = icmp sgt i32 %.13757, 1
+  %78 = add nsw i32 %.13756, -1
+  %79 = icmp sgt i32 %.13756, 1
   br i1 %79, label %57, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread, %.thread
@@ -8984,10 +8984,10 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat24parseDefaultOffsetFieldsERKNS_1
   br label %22
 
 22:                                               ; preds = %37, %.lr.ph.i
-  %.052.i = phi i32 [ 0, %.lr.ph.i ], [ %35, %37 ]
+  %.051.i = phi i32 [ 0, %.lr.ph.i ], [ %35, %37 ]
   %23 = phi i1 [ true, %.lr.ph.i ], [ false, %37 ]
-  %.03150.i = phi i32 [ %2, %.lr.ph.i ], [ %33, %37 ]
-  %24 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i)
+  %.03149.i = phi i32 [ %2, %.lr.ph.i ], [ %33, %37 ]
+  %24 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i)
   br label %25
 
 25:                                               ; preds = %29, %22
@@ -9013,8 +9013,8 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i: ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i, %30
   %.2.ph.i43.i = phi i32 [ %32, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i ], [ %31, %30 ]
-  %33 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i, i32 noundef 1)
-  %34 = mul nuw nsw i32 %.052.i, 10
+  %33 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i, i32 noundef 1)
+  %34 = mul nuw nsw i32 %.051.i, 10
   %35 = add nuw nsw i32 %.2.ph.i43.i, %34
   %36 = icmp samesign ugt i32 %35, 23
   br i1 %36, label %.thread.i, label %37
@@ -9034,8 +9034,8 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br i1 %23, label %.thread, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit
 
 _ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit: ; preds = %37, %.thread.i
-  %.0.lcssa.i90 = phi i32 [ %.052.i, %.thread.i ], [ %35, %37 ]
-  %.031.lcssa.i89 = phi i32 [ %.03150.i, %.thread.i ], [ %33, %37 ]
+  %.0.lcssa.i90 = phi i32 [ %.051.i, %.thread.i ], [ %35, %37 ]
+  %.031.lcssa.i89 = phi i32 [ %.03149.i, %.thread.i ], [ %33, %37 ]
   %46 = icmp eq i32 %.031.lcssa.i89, %2
   br i1 %46, label %.thread, label %47
 
@@ -9076,10 +9076,10 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %50, %58
   br i1 %69, label %.lr.ph.i47, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit58.thread
 
 .lr.ph.i47:                                       ; preds = %68, %84
-  %.052.i48 = phi i32 [ %82, %84 ], [ 0, %68 ]
+  %.051.i48 = phi i32 [ %82, %84 ], [ 0, %68 ]
   %70 = phi i1 [ false, %84 ], [ true, %68 ]
-  %.03150.i50 = phi i32 [ %80, %84 ], [ %48, %68 ]
-  %71 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i50)
+  %.03149.i50 = phi i32 [ %80, %84 ], [ %48, %68 ]
+  %71 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i50)
   br label %72
 
 72:                                               ; preds = %76, %.lr.ph.i47
@@ -9105,8 +9105,8 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i55: ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i57, %77
   %.2.ph.i43.i56 = phi i32 [ %79, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i57 ], [ %78, %77 ]
-  %80 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i50, i32 noundef 1)
-  %81 = mul nuw nsw i32 %.052.i48, 10
+  %80 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i50, i32 noundef 1)
+  %81 = mul nuw nsw i32 %.051.i48, 10
   %82 = add nuw nsw i32 %.2.ph.i43.i56, %81
   %83 = icmp samesign ugt i32 %82, 59
   br i1 %83, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit58.thread, label %84
@@ -9166,10 +9166,10 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit61:       ; preds = %97, %105
   br i1 %116, label %.lr.ph.i67, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit58.thread
 
 .lr.ph.i67:                                       ; preds = %115, %131
-  %.052.i68 = phi i32 [ %129, %131 ], [ 0, %115 ]
+  %.051.i68 = phi i32 [ %129, %131 ], [ 0, %115 ]
   %117 = phi i1 [ false, %131 ], [ true, %115 ]
-  %.03150.i70 = phi i32 [ %127, %131 ], [ %95, %115 ]
-  %118 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i70)
+  %.03149.i70 = phi i32 [ %127, %131 ], [ %95, %115 ]
+  %118 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i70)
   br label %119
 
 119:                                              ; preds = %123, %.lr.ph.i67
@@ -9195,8 +9195,8 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 
 _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread41.i75: ; preds = %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i77, %124
   %.2.ph.i43.i76 = phi i32 [ %126, %_ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i77 ], [ %125, %124 ]
-  %127 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03150.i70, i32 noundef 1)
-  %128 = mul nuw nsw i32 %.052.i68, 10
+  %127 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.03149.i70, i32 noundef 1)
+  %128 = mul nuw nsw i32 %.051.i68, 10
   %129 = add nuw nsw i32 %.2.ph.i43.i76, %128
   %130 = icmp samesign ugt i32 %129, 59
   br i1 %130, label %_ZNK6icu_7714TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi.exit58.thread, label %131

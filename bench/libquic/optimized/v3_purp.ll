@@ -477,8 +477,8 @@ define internal fastcc void @x509v3_cache_extensions(ptr noundef %0) unnamed_add
   %170 = zext i8 %169 to i32
   %171 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store i32 %170, ptr %171, align 8, !tbaa !65
-  %.not37.i.i = icmp eq i32 %164, 1
-  br i1 %.not37.i.i, label %.thread.i.i, label %172
+  %.not36.i.i = icmp eq i32 %164, 1
+  br i1 %.not36.i.i, label %.thread.i.i, label %172
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 1
@@ -514,20 +514,20 @@ define internal fastcc void @x509v3_cache_extensions(ptr noundef %0) unnamed_add
   %187 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %188 = load ptr, ptr %187, align 8, !tbaa !69
   %189 = call i64 @sk_num(ptr noundef %188) #10
-  %.not39.i.i = icmp eq i64 %189, 0
-  br i1 %.not39.i.i, label %.thread34.i.i, label %.lr.ph.i.i
+  %.not38.i.i = icmp eq i64 %189, 0
+  br i1 %.not38.i.i, label %.thread33.i.i, label %.lr.ph.i.i
 
 190:                                              ; preds = %.lr.ph.i.i
-  %191 = add nuw i64 %.02338.i.i, 1
+  %191 = add nuw i64 %.02337.i.i, 1
   %192 = load ptr, ptr %187, align 8, !tbaa !69
   %193 = call i64 @sk_num(ptr noundef %192) #10
   %194 = icmp ult i64 %191, %193
-  br i1 %194, label %.lr.ph.i.i, label %.thread34.i.i, !llvm.loop !70
+  br i1 %194, label %.lr.ph.i.i, label %.thread33.i.i, !llvm.loop !70
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %190
-  %.02338.i.i = phi i64 [ %191, %190 ], [ 0, %.preheader.i.i ]
+  %.02337.i.i = phi i64 [ %191, %190 ], [ 0, %.preheader.i.i ]
   %195 = load ptr, ptr %187, align 8, !tbaa !69
-  %196 = call ptr @sk_value(ptr noundef %195, i64 noundef %.02338.i.i) #10
+  %196 = call ptr @sk_value(ptr noundef %195, i64 noundef %.02337.i.i) #10
   %197 = load i32, ptr %196, align 8, !tbaa !71
   %198 = icmp eq i32 %197, 4
   br i1 %198, label %199, label %190
@@ -536,14 +536,14 @@ define internal fastcc void @x509v3_cache_extensions(ptr noundef %0) unnamed_add
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %201 = load ptr, ptr %200, align 8, !tbaa !51
   %.not28.i.i = icmp eq ptr %201, null
-  br i1 %.not28.i.i, label %.thread34.i.i, label %203
+  br i1 %.not28.i.i, label %.thread33.i.i, label %203
 
-.thread34.i.i:                                    ; preds = %190, %199, %.preheader.i.i
+.thread33.i.i:                                    ; preds = %190, %199, %.preheader.i.i
   %202 = call ptr @X509_get_issuer_name(ptr noundef nonnull %0) #10
   br label %203
 
-203:                                              ; preds = %.thread34.i.i, %199
-  %.3.i.i = phi ptr [ %201, %199 ], [ %202, %.thread34.i.i ]
+203:                                              ; preds = %.thread33.i.i, %199
+  %.3.i.i = phi ptr [ %201, %199 ], [ %202, %.thread33.i.i ]
   %204 = load ptr, ptr %160, align 8, !tbaa !66
   %205 = call i32 @DIST_POINT_set_dpname(ptr noundef %204, ptr noundef %.3.i.i) #10
   br label %setup_dp.exit.i
@@ -1387,18 +1387,18 @@ define hidden range(i32 0, 32) i32 @X509_check_akid(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %17
   %20 = tail call i64 @sk_num(ptr noundef nonnull %19) #10
-  %.not42 = icmp eq i64 %20, 0
-  br i1 %.not42, label %.thread38, label %.lr.ph
+  %.not41 = icmp eq i64 %20, 0
+  br i1 %.not41, label %.thread38, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
-  %22 = add nuw i64 %.02141, 1
+  %22 = add nuw i64 %.02140, 1
   %23 = tail call i64 @sk_num(ptr noundef nonnull %19) #10
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %.lr.ph, label %.thread38, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %.preheader, %21
-  %.02141 = phi i64 [ %22, %21 ], [ 0, %.preheader ]
-  %25 = tail call ptr @sk_value(ptr noundef nonnull %19, i64 noundef %.02141) #10
+  %.02140 = phi i64 [ %22, %21 ], [ 0, %.preheader ]
+  %25 = tail call ptr @sk_value(ptr noundef nonnull %19, i64 noundef %.02140) #10
   %26 = load i32, ptr %25, align 8, !tbaa !71
   %27 = icmp eq i32 %26, 4
   br i1 %27, label %28, label %21

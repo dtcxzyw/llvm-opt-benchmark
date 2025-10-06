@@ -58,8 +58,8 @@ define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call { i64, ptr } %18(i8 noundef %15, ptr noundef nonnull readonly align 1 %13, ptr noundef nonnull readonly %16), !noalias !17
   %20 = extractvalue { i64, ptr } %19, 0
-  %switch8.i.i.not = icmp eq i64 %20, 0
-  br i1 %switch8.i.i.not, label %22, label %24
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %22, label %24
 
 21:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit"
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %10, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.23) #5, !noalias !20
@@ -78,8 +78,8 @@ define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..
   tail call void @llvm.assume(i1 %29), !noalias !20
   %30 = add i64 %10, 1
   %31 = add i64 %30, %28
-  %.not.i3 = icmp ugt i64 %10, %31
-  br i1 %.not.i3, label %32, label %33
+  %.not.i2 = icmp ugt i64 %10, %31
+  br i1 %.not.i2, label %32, label %33
 
 32:                                               ; preds = %24
   tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.34161b2a689b304ee0cbfdce161c7f35.20, i64 noundef 28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.22) #5, !noalias !20
@@ -89,19 +89,19 @@ define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..
   %storemerge = phi i64 [ %7, %22 ], [ %31, %24 ]
   store i64 %storemerge, ptr %2, align 8, !alias.scope !6, !noalias !9
   %34 = icmp ugt i64 %storemerge, %5
-  br i1 %34, label %35, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit4"
+  br i1 %34, label %35, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit3"
 
 35:                                               ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %storemerge, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.15) #5, !noalias !21
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit4": ; preds = %33
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit3": ; preds = %33
   %36 = sub nuw i64 %storemerge, %10
   br label %_ZN13grep_searcher5lines8LineStep10next_match17h964aa5be10e959e0E.exit.thread
 
-_ZN13grep_searcher5lines8LineStep10next_match17h964aa5be10e959e0E.exit.thread: ; preds = %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit4"
-  %.sroa.3.0 = phi i64 [ %36, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit4" ], [ undef, %22 ]
-  %.sroa.0.0 = phi ptr [ %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit4" ], [ null, %22 ]
+_ZN13grep_searcher5lines8LineStep10next_match17h964aa5be10e959e0E.exit.thread: ; preds = %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit3"
+  %.sroa.3.0 = phi i64 [ %36, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit3" ], [ undef, %22 ]
+  %.sroa.0.0 = phi ptr [ %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit3" ], [ null, %22 ]
   %37 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %38 = insertvalue { ptr, i64 } %37, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %38
@@ -144,8 +144,8 @@ define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noal
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call { i64, ptr } %17(i8 noundef %14, ptr noundef nonnull readonly align 1 %12, ptr noundef nonnull readonly %15), !noalias !34
   %19 = extractvalue { i64, ptr } %18, 0
-  %switch8.i.i.not = icmp eq i64 %19, 0
-  br i1 %switch8.i.i.not, label %21, label %23
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %21, label %23
 
 20:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit"
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %9, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.23) #5, !noalias !37
@@ -172,12 +172,12 @@ define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noal
   unreachable
 
 _ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit.sink.split: ; preds = %23, %21
-  %.sink11 = phi i64 [ %6, %21 ], [ %30, %23 ]
-  store i64 %.sink11, ptr %1, align 8, !alias.scope !27, !noalias !29
+  %.sink10 = phi i64 [ %6, %21 ], [ %30, %23 ]
+  store i64 %.sink10, ptr %1, align 8, !alias.scope !27, !noalias !29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %32, align 8, !alias.scope !24, !noalias !38
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink11, ptr %33, align 8, !alias.scope !24, !noalias !38
+  store i64 %.sink10, ptr %33, align 8, !alias.scope !24, !noalias !38
   br label %_ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit
 
 _ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit: ; preds = %_ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit.sink.split, %21
@@ -211,7 +211,7 @@ define noundef range(i64 0, -9223372036854775807) i64 @_ZN13grep_searcher5lines9
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit.i"
 
 12:                                               ; preds = %28
-  %13 = add i64 %.01024.i, -1
+  %13 = add i64 %.01023.i, -1
   %14 = icmp ugt i64 %23, %1
   br i1 %14, label %._crit_edge.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit.i"
 
@@ -220,15 +220,15 @@ define noundef range(i64 0, -9223372036854775807) i64 @_ZN13grep_searcher5lines9
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit.i": ; preds = %12, %6
-  %.125.i = phi i64 [ %spec.select.i, %6 ], [ %23, %12 ]
-  %.01024.i = phi i64 [ %3, %6 ], [ %13, %12 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %.125.i
+  %.124.i = phi i64 [ %spec.select.i, %6 ], [ %23, %12 ]
+  %.01023.i = phi i64 [ %3, %6 ], [ %13, %12 ]
+  %15 = getelementptr inbounds i8, ptr %0, i64 %.124.i
   %16 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr11memrchr_raw2FN17h2219dfc322f79655E monotonic, align 8, !noalias !50
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call { i64, ptr } %17(i8 noundef %2, ptr noundef nonnull readonly align 1 %0, ptr noundef nonnull readonly %15), !noalias !53
   %19 = extractvalue { i64, ptr } %18, 0
-  %switch8.i.not.i = icmp eq i64 %19, 0
-  br i1 %switch8.i.not.i, label %_ZN13grep_searcher5lines16preceding_by_pos17h8edd383710dafcd0E.exit, label %20
+  %.not.i = icmp eq i64 %19, 0
+  br i1 %.not.i, label %_ZN13grep_searcher5lines16preceding_by_pos17h8edd383710dafcd0E.exit, label %20
 
 20:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit.i"
   %21 = extractvalue { i64, ptr } %18, 1
@@ -236,7 +236,7 @@ define noundef range(i64 0, -9223372036854775807) i64 @_ZN13grep_searcher5lines9
   %23 = sub i64 %22, %11
   %24 = icmp sgt i64 %23, -1
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp eq i64 %.01024.i, 0
+  %25 = icmp eq i64 %.01023.i, 0
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %20

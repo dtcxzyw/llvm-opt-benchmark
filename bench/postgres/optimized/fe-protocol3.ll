@@ -1299,14 +1299,14 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %.sink = phi i32 [ 1, %14 ], [ 2, %11 ]
   %18 = tail call ptr @PQmakeEmptyPGresult(ptr noundef nonnull %0, i32 noundef %.sink) #16
   %.not97 = icmp eq ptr %18, null
-  br i1 %.not97, label %.thread133, label %.thread
+  br i1 %.not97, label %.thread132, label %.thread
 
 .thread:                                          ; preds = %14, %17
   %.087117 = phi ptr [ %18, %17 ], [ %16, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %.087117, i64 4
   %20 = tail call i32 @pqGetInt(ptr noundef nonnull %19, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not98 = icmp eq i32 %20, 0
-  br i1 %.not98, label %21, label %.thread126
+  br i1 %.not98, label %21, label %.thread125
 
 21:                                               ; preds = %.thread
   %22 = load i32, ptr %19, align 4
@@ -1320,7 +1320,7 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %28 = getelementptr inbounds nuw i8, ptr %.087117, i64 8
   store ptr %27, ptr %28, align 8
   %.not99 = icmp eq ptr %27, null
-  br i1 %.not99, label %.thread126, label %29
+  br i1 %.not99, label %.thread125, label %29
 
 29:                                               ; preds = %24
   %30 = ptrtoint ptr %27 to i64
@@ -1339,18 +1339,18 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %38 = and i64 %37, -8
   %39 = add i64 %38, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %39, i1 false)
-  br label %.lr.ph139
+  br label %.lr.ph138
 
 40:                                               ; preds = %29
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %26, i1 false)
-  br label %.lr.ph139
+  br label %.lr.ph138
 
 .loopexit:                                        ; preds = %21
   %41 = getelementptr inbounds nuw i8, ptr %.087117, i64 108
   store i32 0, ptr %41, align 4
   br label %._crit_edge
 
-.lr.ph139:                                        ; preds = %.lr.ph.preheader, %40
+.lr.ph138:                                        ; preds = %.lr.ph.preheader, %40
   %42 = getelementptr inbounds nuw i8, ptr %.087117, i64 108
   store i32 1, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -1358,8 +1358,8 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %wide.trip.count = zext nneg i32 %22 to i64
   br label %45
 
-45:                                               ; preds = %.lr.ph139, %98
-  %indvars.iv = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next, %98 ]
+45:                                               ; preds = %.lr.ph138, %98
+  %indvars.iv = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next, %98 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1497,24 +1497,24 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread126
+  br label %.thread125
 
-.thread126:                                       ; preds = %106, %24, %.thread
-  %.088131 = phi ptr [ %.2.ph, %106 ], [ null, %24 ], [ @.str.35, %.thread ]
+.thread125:                                       ; preds = %106, %24, %.thread
+  %.088130 = phi ptr [ %.2.ph, %106 ], [ null, %24 ], [ @.str.35, %.thread ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %108 = load ptr, ptr %107, align 8
   %.not112 = icmp eq ptr %.087117, %108
-  br i1 %.not112, label %.thread133, label %109
+  br i1 %.not112, label %.thread132, label %109
 
-109:                                              ; preds = %.thread126
+109:                                              ; preds = %.thread125
   call void @PQclear(ptr noundef nonnull %.087117) #16
-  br label %.thread133
+  br label %.thread132
 
-.thread133:                                       ; preds = %17, %109, %.thread126
-  %.088132 = phi ptr [ %.088131, %109 ], [ %.088131, %.thread126 ], [ null, %17 ]
+.thread132:                                       ; preds = %17, %109, %.thread125
+  %.088131 = phi ptr [ %.088130, %109 ], [ %.088130, %.thread125 ], [ null, %17 ]
   call void @pqClearAsyncResult(ptr noundef nonnull %0) #16
-  %.not113 = icmp eq ptr %.088132, null
-  %spec.store.select = select i1 %.not113, ptr @.str.36, ptr %.088132
+  %.not113 = icmp eq ptr %.088131, null
+  %spec.store.select = select i1 %.not113, ptr @.str.36, ptr %.088131
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %110, ptr noundef nonnull @.str.8, ptr noundef nonnull %spec.store.select) #16
   call void @pqSaveErrorResult(ptr noundef nonnull %0) #16
@@ -1526,7 +1526,7 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   store i32 %114, ptr %115, align 8
   br label %116
 
-116:                                              ; preds = %101, %.thread133, %104
+116:                                              ; preds = %101, %.thread132, %104
   ret void
 }
 
@@ -1584,19 +1584,19 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   %31 = and i64 %30, -8
   %32 = add i64 %31, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %32, i1 false)
-  br label %.lr.ph59
+  br label %.lr.ph58
 
 33:                                               ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %19, i1 false)
-  br label %.lr.ph59
+  br label %.lr.ph58
 
-.lr.ph59:                                         ; preds = %.lr.ph.preheader, %33
+.lr.ph58:                                         ; preds = %.lr.ph.preheader, %33
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %35
 
-35:                                               ; preds = %.lr.ph59, %38
-  %indvars.iv = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next, %38 ]
+35:                                               ; preds = %.lr.ph58, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = call i32 @pqGetInt(ptr noundef nonnull %3, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not53 = icmp eq i32 %36, 0
@@ -1807,22 +1807,22 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %71 = tail call i32 @pg_encoding_max_length(i32 noundef %57) #16
   %.not.i = icmp eq i32 %71, 1
   %72 = load i8, ptr %59, align 1
-  %.not165209.i = icmp eq i8 %72, 0
-  br i1 %.not165209.i, label %.thread181.i, label %.lr.ph.i
+  %.not165208.i = icmp eq i8 %72, 0
+  br i1 %.not165208.i, label %.thread180.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %70, %102
   %73 = phi i8 [ %106, %102 ], [ %72, %70 ]
   %74 = phi ptr [ %105, %102 ], [ %59, %70 ]
-  %.0214.i = phi i32 [ %103, %102 ], [ 0, %70 ]
-  %.0137213.i = phi i32 [ %.3.i, %102 ], [ 0, %70 ]
-  %.0139212.i = phi i32 [ %.2141.i, %102 ], [ 1, %70 ]
-  %.0148211.i = phi i32 [ %.2150.i, %102 ], [ 0, %70 ]
-  %.0154210.i = phi i32 [ %.3157.i, %102 ], [ 0, %70 ]
-  %75 = sext i32 %.0214.i to i64
+  %.0213.i = phi i32 [ %103, %102 ], [ 0, %70 ]
+  %.0137212.i = phi i32 [ %.3.i, %102 ], [ 0, %70 ]
+  %.0139211.i = phi i32 [ %.2141.i, %102 ], [ 1, %70 ]
+  %.0148210.i = phi i32 [ %.2150.i, %102 ], [ 0, %70 ]
+  %.0154209.i = phi i32 [ %.3157.i, %102 ], [ 0, %70 ]
+  %75 = sext i32 %.0213.i to i64
   %76 = getelementptr inbounds i32, ptr %65, i64 %75
-  store i32 %.0137213.i, ptr %76, align 4
+  store i32 %.0137212.i, ptr %76, align 4
   %77 = getelementptr inbounds i32, ptr %68, i64 %75
-  store i32 %.0154210.i, ptr %77, align 4
+  store i32 %.0154209.i, ptr %77, align 4
   %78 = icmp eq i8 %73, 9
   br i1 %78, label %79, label %80
 
@@ -1838,16 +1838,16 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   ]
 
 82:                                               ; preds = %80, %80
-  %83 = icmp slt i32 %.0214.i, %58
-  br i1 %83, label %84, label %.loopexit247.i
+  %83 = icmp slt i32 %.0213.i, %58
+  br i1 %83, label %84, label %.loopexit246.i
 
 84:                                               ; preds = %82
-  %85 = icmp eq i32 %.0214.i, 0
+  %85 = icmp eq i32 %.0213.i, 0
   %or.cond4.i = or i1 %81, %85
   br i1 %or.cond4.i, label %94, label %86
 
 86:                                               ; preds = %84
-  %87 = add i32 %.0214.i, -1
+  %87 = add i32 %.0213.i, -1
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i32, ptr %65, i64 %88
   %90 = load i32, ptr %89, align 4
@@ -1858,17 +1858,17 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not166.i, label %96, label %94
 
 94:                                               ; preds = %86, %84
-  %95 = add i32 %.0139212.i, 1
+  %95 = add i32 %.0139211.i, 1
   br label %96
 
 96:                                               ; preds = %94, %86
-  %.3142.i = phi i32 [ %95, %94 ], [ %.0139212.i, %86 ]
-  %97 = add nsw i32 %.0214.i, 1
+  %.3142.i = phi i32 [ %95, %94 ], [ %.0139211.i, %86 ]
+  %97 = add nsw i32 %.0213.i, 1
   br label %98
 
 98:                                               ; preds = %96, %80, %79
-  %.2150.i = phi i32 [ %.0148211.i, %79 ], [ %97, %96 ], [ %.0148211.i, %80 ]
-  %.2141.i = phi i32 [ %.0139212.i, %79 ], [ %.3142.i, %96 ], [ %.0139212.i, %80 ]
+  %.2150.i = phi i32 [ %.0148210.i, %79 ], [ %97, %96 ], [ %.0148210.i, %80 ]
+  %.2141.i = phi i32 [ %.0139211.i, %79 ], [ %.3142.i, %96 ], [ %.0139211.i, %80 ]
   br i1 %.not.i, label %102, label %99
 
 99:                                               ; preds = %98
@@ -1880,39 +1880,39 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 102:                                              ; preds = %99, %98
   %spec.store.select.pn.i = phi i32 [ %spec.store.select.i, %99 ], [ 1, %98 ]
   %.pn.i = phi i32 [ %101, %99 ], [ 1, %98 ]
-  %.3.i = add i32 %.pn.i, %.0137213.i
-  %.3157.i = add i32 %spec.store.select.pn.i, %.0154210.i
-  %103 = add i32 %.0214.i, 1
+  %.3.i = add i32 %.pn.i, %.0137212.i
+  %.3157.i = add i32 %spec.store.select.pn.i, %.0154209.i
+  %103 = add i32 %.0213.i, 1
   %104 = sext i32 %.3.i to i64
   %105 = getelementptr inbounds i8, ptr %59, i64 %104
   %106 = load i8, ptr %105, align 1
   %.not165.i = icmp eq i8 %106, 0
-  br i1 %.not165.i, label %.thread181.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not165.i, label %.thread180.i, label %.lr.ph.i, !llvm.loop !10
 
-.thread181.i:                                     ; preds = %102, %70
-  %.0154208.i = phi i32 [ 0, %70 ], [ %.3157.i, %102 ]
-  %.0148206.i = phi i32 [ 0, %70 ], [ %.2150.i, %102 ]
-  %.0139203.i = phi i32 [ 1, %70 ], [ %.2141.i, %102 ]
-  %.0137200.i = phi i32 [ 0, %70 ], [ %.3.i, %102 ]
-  %.0198.i = phi i32 [ 0, %70 ], [ %103, %102 ]
-  %107 = sext i32 %.0198.i to i64
+.thread180.i:                                     ; preds = %102, %70
+  %.0154207.i = phi i32 [ 0, %70 ], [ %.3157.i, %102 ]
+  %.0148205.i = phi i32 [ 0, %70 ], [ %.2150.i, %102 ]
+  %.0139202.i = phi i32 [ 1, %70 ], [ %.2141.i, %102 ]
+  %.0137199.i = phi i32 [ 0, %70 ], [ %.3.i, %102 ]
+  %.0197.i = phi i32 [ 0, %70 ], [ %103, %102 ]
+  %107 = sext i32 %.0197.i to i64
   %108 = getelementptr inbounds i32, ptr %65, i64 %107
-  store i32 %.0137200.i, ptr %108, align 4
+  store i32 %.0137199.i, ptr %108, align 4
   %109 = getelementptr inbounds i32, ptr %68, i64 %107
-  store i32 %.0154208.i, ptr %109, align 4
-  br label %.loopexit247.i
+  store i32 %.0154207.i, ptr %109, align 4
+  br label %.loopexit246.i
 
-.loopexit247.i:                                   ; preds = %82, %.thread181.i
-  %110 = phi i32 [ %.0154208.i, %.thread181.i ], [ %.0154210.i, %82 ]
-  %.0148205.i = phi i32 [ %.0148206.i, %.thread181.i ], [ %.0148211.i, %82 ]
-  %.0139202.i = phi i32 [ %.0139203.i, %.thread181.i ], [ %.0139212.i, %82 ]
-  %.0197.i = phi i32 [ %.0198.i, %.thread181.i ], [ %.0214.i, %82 ]
-  %.not167.i = icmp sgt i32 %58, %.0197.i
+.loopexit246.i:                                   ; preds = %82, %.thread180.i
+  %110 = phi i32 [ %.0154207.i, %.thread180.i ], [ %.0154209.i, %82 ]
+  %.0148204.i = phi i32 [ %.0148205.i, %.thread180.i ], [ %.0148210.i, %82 ]
+  %.0139201.i = phi i32 [ %.0139202.i, %.thread180.i ], [ %.0139211.i, %82 ]
+  %.0196.i = phi i32 [ %.0197.i, %.thread180.i ], [ %.0213.i, %82 ]
+  %.not167.i = icmp sgt i32 %58, %.0196.i
   br i1 %.not167.i, label %180, label %111
 
-111:                                              ; preds = %.loopexit247.i
-  %112 = zext nneg i32 %.0197.i to i64
-  %113 = sext i32 %.0148205.i to i64
+111:                                              ; preds = %.loopexit246.i
+  %112 = zext nneg i32 %.0196.i to i64
+  %113 = sext i32 %.0148204.i to i64
   %114 = getelementptr inbounds i32, ptr %68, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = sub i32 %110, %115
@@ -1926,31 +1926,31 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, 10
   %.not168.i = icmp slt i32 %119, %123
-  br i1 %.not168.i, label %.preheader193.i, label %.preheader194.i
+  br i1 %.not168.i, label %.preheader192.i, label %.preheader193.i
 
-.preheader194.i:                                  ; preds = %118, %.preheader194.i
-  %.5.i = phi i32 [ %129, %.preheader194.i ], [ %.0197.i, %118 ]
+.preheader193.i:                                  ; preds = %118, %.preheader193.i
+  %.5.i = phi i32 [ %129, %.preheader193.i ], [ %.0196.i, %118 ]
   %124 = sext i32 %.5.i to i64
   %125 = getelementptr inbounds i32, ptr %68, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = sub i32 %126, %115
   %128 = icmp sgt i32 %127, 60
   %129 = add i32 %.5.i, -1
-  br i1 %128, label %.preheader194.i, label %.loopexit.i, !llvm.loop !11
+  br i1 %128, label %.preheader193.i, label %.loopexit.i, !llvm.loop !11
 
-.preheader193.i:                                  ; preds = %118, %.preheader193.i
-  %.6.i = phi i32 [ %134, %.preheader193.i ], [ %.0197.i, %118 ]
-  %.1134.i = phi i1 [ true, %.preheader193.i ], [ false, %118 ]
+.preheader192.i:                                  ; preds = %118, %.preheader192.i
+  %.6.i = phi i32 [ %134, %.preheader192.i ], [ %.0196.i, %118 ]
+  %.1134.i = phi i1 [ true, %.preheader192.i ], [ false, %118 ]
   %130 = sext i32 %.6.i to i64
   %131 = getelementptr inbounds i32, ptr %68, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = icmp slt i32 %123, %132
   %134 = add i32 %.6.i, -1
-  br i1 %133, label %.preheader193.i, label %.preheader.i, !llvm.loop !12
+  br i1 %133, label %.preheader192.i, label %.preheader.i, !llvm.loop !12
 
-.preheader.i:                                     ; preds = %.preheader193.i, %.preheader.i
-  %.5153.i = phi i32 [ %140, %.preheader.i ], [ %.0148205.i, %.preheader193.i ]
-  %.1136.i = phi i1 [ true, %.preheader.i ], [ false, %.preheader193.i ]
+.preheader.i:                                     ; preds = %.preheader192.i, %.preheader.i
+  %.5153.i = phi i32 [ %140, %.preheader.i ], [ %.0148204.i, %.preheader192.i ]
+  %.1136.i = phi i1 [ true, %.preheader.i ], [ false, %.preheader192.i ]
   %135 = sext i32 %.5153.i to i64
   %136 = getelementptr inbounds i32, ptr %68, i64 %135
   %137 = load i32, ptr %136, align 4
@@ -1959,12 +1959,12 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %140 = add i32 %.5153.i, 1
   br i1 %139, label %.preheader.i, label %.loopexit.i, !llvm.loop !13
 
-.loopexit.i:                                      ; preds = %.preheader194.i, %.preheader.i, %111
-  %141 = phi i32 [ %115, %111 ], [ %137, %.preheader.i ], [ %115, %.preheader194.i ]
-  %.pre-phi.i = phi i64 [ %112, %111 ], [ %130, %.preheader.i ], [ %124, %.preheader194.i ]
-  %.4152.i = phi i32 [ %.0148205.i, %111 ], [ %.5153.i, %.preheader.i ], [ %.0148205.i, %.preheader194.i ]
-  %.0135.i = phi i1 [ false, %111 ], [ %.1136.i, %.preheader.i ], [ false, %.preheader194.i ]
-  %.0133.i = phi i1 [ false, %111 ], [ %.1134.i, %.preheader.i ], [ true, %.preheader194.i ]
+.loopexit.i:                                      ; preds = %.preheader193.i, %.preheader.i, %111
+  %141 = phi i32 [ %115, %111 ], [ %137, %.preheader.i ], [ %115, %.preheader193.i ]
+  %.pre-phi.i = phi i64 [ %112, %111 ], [ %130, %.preheader.i ], [ %124, %.preheader193.i ]
+  %.4152.i = phi i32 [ %.0148204.i, %111 ], [ %.5153.i, %.preheader.i ], [ %.0148204.i, %.preheader193.i ]
+  %.0135.i = phi i1 [ false, %111 ], [ %.1136.i, %.preheader.i ], [ false, %.preheader193.i ]
+  %.0133.i = phi i1 [ false, %111 ], [ %.1134.i, %.preheader.i ], [ true, %.preheader193.i ]
   %142 = getelementptr inbounds i32, ptr %65, i64 %.pre-phi.i
   %143 = load i32, ptr %142, align 4
   %144 = sext i32 %143 to i64
@@ -1973,7 +1973,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %147 = load i64, ptr %146, align 8
   %148 = trunc i64 %147 to i32
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.0139202.i) #16
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.0139201.i) #16
   br i1 %.0135.i, label %149, label %150
 
 149:                                              ; preds = %.loopexit.i
@@ -1981,32 +1981,32 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %150
 
 150:                                              ; preds = %149, %.loopexit.i
-  %sext227.i = shl i64 %147, 32
-  %151 = ashr exact i64 %sext227.i, 32
+  %sext226.i = shl i64 %147, 32
+  %151 = ashr exact i64 %sext226.i, 32
   %152 = load i64, ptr %146, align 8
   %153 = icmp ugt i64 %152, %151
-  br i1 %153, label %.lr.ph221.i, label %._crit_edge.i
+  br i1 %153, label %.lr.ph220.i, label %._crit_edge.i
 
-.lr.ph221.i:                                      ; preds = %150, %.lr.ph221.i
-  %154 = phi i64 [ %163, %.lr.ph221.i ], [ %151, %150 ]
-  %.0131220.i = phi i32 [ %162, %.lr.ph221.i ], [ %148, %150 ]
-  %.4158219.i = phi i32 [ %158, %.lr.ph221.i ], [ 0, %150 ]
+.lr.ph220.i:                                      ; preds = %150, %.lr.ph220.i
+  %154 = phi i64 [ %163, %.lr.ph220.i ], [ %151, %150 ]
+  %.0131219.i = phi i32 [ %162, %.lr.ph220.i ], [ %148, %150 ]
+  %.4158218.i = phi i32 [ %158, %.lr.ph220.i ], [ 0, %150 ]
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 %154
   %157 = tail call i32 @pg_encoding_dsplen(i32 noundef %57, ptr noundef %156) #16
   %spec.store.select5.i = tail call i32 @llvm.smax.i32(i32 %157, i32 1)
-  %158 = add i32 %spec.store.select5.i, %.4158219.i
+  %158 = add i32 %spec.store.select5.i, %.4158218.i
   %159 = load ptr, ptr %0, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 %154
   %161 = tail call i32 @PQmblenBounded(ptr noundef %160, i32 noundef %57) #16
-  %162 = add i32 %161, %.0131220.i
+  %162 = add i32 %161, %.0131219.i
   %163 = sext i32 %162 to i64
   %164 = load i64, ptr %146, align 8
   %165 = icmp ugt i64 %164, %163
-  br i1 %165, label %.lr.ph221.i, label %._crit_edge.i, !llvm.loop !14
+  br i1 %165, label %.lr.ph220.i, label %._crit_edge.i, !llvm.loop !14
 
-._crit_edge.i:                                    ; preds = %.lr.ph221.i, %150
-  %.4158.lcssa.i = phi i32 [ 0, %150 ], [ %158, %.lr.ph221.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph220.i, %150
+  %.4158.lcssa.i = phi i32 [ 0, %150 ], [ %158, %.lr.ph220.i ]
   %166 = sext i32 %.4152.i to i64
   %167 = getelementptr inbounds i32, ptr %65, i64 %166
   %168 = load i32, ptr %167, align 4
@@ -2027,21 +2027,21 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %176 = sub i32 %.4158.lcssa.i, %141
   %177 = add i32 %176, %175
   %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %.lr.ph225.i, label %._crit_edge226.i
+  br i1 %178, label %.lr.ph224.i, label %._crit_edge225.i
 
-.lr.ph225.i:                                      ; preds = %172, %.lr.ph225.i
-  %.1223.i = phi i32 [ %179, %.lr.ph225.i ], [ 0, %172 ]
+.lr.ph224.i:                                      ; preds = %172, %.lr.ph224.i
+  %.1222.i = phi i32 [ %179, %.lr.ph224.i ], [ 0, %172 ]
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 32) #16
-  %179 = add nuw nsw i32 %.1223.i, 1
+  %179 = add nuw nsw i32 %.1222.i, 1
   %exitcond.not.i = icmp eq i32 %179, %177
-  br i1 %exitcond.not.i, label %._crit_edge226.i, label %.lr.ph225.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge225.i, label %.lr.ph224.i, !llvm.loop !15
 
-._crit_edge226.i:                                 ; preds = %.lr.ph225.i, %172
+._crit_edge225.i:                                 ; preds = %.lr.ph224.i, %172
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 94) #16
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 10) #16
   br label %180
 
-180:                                              ; preds = %._crit_edge226.i, %.loopexit247.i
+180:                                              ; preds = %._crit_edge225.i, %.loopexit246.i
   tail call void @free(ptr noundef nonnull %68) #16
   br label %.sink.split.sink.split.i
 

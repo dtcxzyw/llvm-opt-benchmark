@@ -4643,8 +4643,8 @@ define linkonce_odr hidden void @_ZN5arrow2io21CompressedInputStream4Impl18Refil
   %11 = alloca %"class.arrow::Status", align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !252
-  %.not39 = icmp eq ptr %13, null
-  br i1 %.not39, label %46, label %14
+  %.not38 = icmp eq ptr %13, null
+  br i1 %.not38, label %46, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -4659,7 +4659,7 @@ define linkonce_odr hidden void @_ZN5arrow2io21CompressedInputStream4Impl18Refil
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  br i1 %23, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit13
+  br i1 %23, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit12
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4679,20 +4679,20 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %17
 30:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit
   call void @_ZN5arrow6ResultIbEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %3) #27
   %.pr = load ptr, ptr %3, align 8, !tbaa !42
-  %.not.i10 = icmp eq ptr %.pr, null
-  br i1 %.not.i10, label %_ZN5arrow6StatusD2Ev.exit11.thread, label %31, !prof !140
+  %.not.i9 = icmp eq ptr %.pr, null
+  br i1 %.not.i9, label %_ZN5arrow6StatusD2Ev.exit10.thread, label %31, !prof !140
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %.pr, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !46, !range !55, !noundef !56
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %_ZN5arrow6StatusD2Ev.exit11.thread, label %35
+  br i1 %34, label %_ZN5arrow6StatusD2Ev.exit10.thread, label %35
 
 35:                                               ; preds = %31
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
-  br label %_ZN5arrow6StatusD2Ev.exit11.thread
+  br label %_ZN5arrow6StatusD2Ev.exit10.thread
 
-_ZN5arrow6StatusD2Ev.exit11.thread:               ; preds = %30, %31, %35
+_ZN5arrow6StatusD2Ev.exit10.thread:               ; preds = %30, %31, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %99
 
@@ -4700,9 +4700,9 @@ _ZN5arrow6StatusD2Ev.exit11.thread:               ; preds = %30, %31, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 1, ptr %37, align 8, !tbaa !218
-  br label %_ZN5arrow6StatusD2Ev.exit13
+  br label %_ZN5arrow6StatusD2Ev.exit12
 
-_ZN5arrow6StatusD2Ev.exit13:                      ; preds = %36, %17
+_ZN5arrow6StatusD2Ev.exit12:                      ; preds = %36, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5arrow2io21CompressedInputStream4Impl14DecompressDataEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %1)
@@ -4711,37 +4711,37 @@ _ZN5arrow6StatusD2Ev.exit13:                      ; preds = %36, %17
   store ptr %38, ptr %5, align 8, !tbaa !42, !alias.scope !371
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %_ZN5arrow6StatusD2Ev.exit15, label %40, !prof !45
+  br i1 %39, label %_ZN5arrow6StatusD2Ev.exit14, label %40, !prof !45
 
-40:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13
+40:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit12
   call void @_ZN5arrow6ResultIbEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #27
-  %.pr35 = load ptr, ptr %5, align 8, !tbaa !42
-  %.not.i14 = icmp eq ptr %.pr35, null
-  br i1 %.not.i14, label %_ZN5arrow6StatusD2Ev.exit15.thread, label %41, !prof !140
+  %.pr34 = load ptr, ptr %5, align 8, !tbaa !42
+  %.not.i13 = icmp eq ptr %.pr34, null
+  br i1 %.not.i13, label %_ZN5arrow6StatusD2Ev.exit14.thread, label %41, !prof !140
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %.pr35, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.pr34, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !46, !range !55, !noundef !56
   %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %_ZN5arrow6StatusD2Ev.exit15.thread, label %45
+  br i1 %44, label %_ZN5arrow6StatusD2Ev.exit14.thread, label %45
 
 45:                                               ; preds = %41
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
-  br label %_ZN5arrow6StatusD2Ev.exit15.thread
+  br label %_ZN5arrow6StatusD2Ev.exit14.thread
 
-_ZN5arrow6StatusD2Ev.exit15.thread:               ; preds = %40, %41, %45
+_ZN5arrow6StatusD2Ev.exit14.thread:               ; preds = %40, %41, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
-_ZN5arrow6StatusD2Ev.exit15:                      ; preds = %_ZN5arrow6StatusD2Ev.exit13
+_ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZN5arrow6StatusD2Ev.exit12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
-46:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit15, %14, %2
+46:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit14, %14, %2
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %48 = load ptr, ptr %47, align 8, !tbaa !118
-  %.not.i16 = icmp eq ptr %48, null
-  br i1 %.not.i16, label %_ZN5arrow6StatusD2Ev.exit18, label %_ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit
+  %.not.i15 = icmp eq ptr %48, null
+  br i1 %.not.i15, label %_ZN5arrow6StatusD2Ev.exit17, label %_ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit
 
 _ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit: ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -4749,9 +4749,9 @@ _ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit:
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %52 = load i64, ptr %51, align 8, !tbaa !237
   %53 = icmp eq i64 %50, %52
-  br i1 %53, label %_ZN5arrow6StatusD2Ev.exit18, label %97
+  br i1 %53, label %_ZN5arrow6StatusD2Ev.exit17, label %97
 
-_ZN5arrow6StatusD2Ev.exit18:                      ; preds = %46, %_ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit
+_ZN5arrow6StatusD2Ev.exit17:                      ; preds = %46, %_ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5arrow2io21CompressedInputStream4Impl20EnsureCompressedDataEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %1)
@@ -4760,43 +4760,43 @@ _ZN5arrow6StatusD2Ev.exit18:                      ; preds = %46, %_ZNK5arrow2io2
   store ptr %54, ptr %7, align 8, !tbaa !42, !alias.scope !374
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %_ZN5arrow6StatusD2Ev.exit22, label %56, !prof !45
+  br i1 %55, label %_ZN5arrow6StatusD2Ev.exit21, label %56, !prof !45
 
-56:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit18
+56:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit17
   call void @_ZN5arrow6ResultIbEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   %57 = load ptr, ptr %7, align 8, !tbaa !42
-  %.not.i19 = icmp eq ptr %57, null
-  br i1 %.not.i19, label %_ZN5arrow6StatusD2Ev.exit20, label %58, !prof !45
+  %.not.i18 = icmp eq ptr %57, null
+  br i1 %.not.i18, label %_ZN5arrow6StatusD2Ev.exit19, label %58, !prof !45
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %60 = load i8, ptr %59, align 1, !tbaa !46, !range !55, !noundef !56
   %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %_ZN5arrow6StatusD2Ev.exit20, label %62
+  br i1 %61, label %_ZN5arrow6StatusD2Ev.exit19, label %62
 
 62:                                               ; preds = %58
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
-  br label %_ZN5arrow6StatusD2Ev.exit20
+  br label %_ZN5arrow6StatusD2Ev.exit19
 
-_ZN5arrow6StatusD2Ev.exit20:                      ; preds = %56, %58, %62
+_ZN5arrow6StatusD2Ev.exit19:                      ; preds = %56, %58, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %99
 
-_ZN5arrow6StatusD2Ev.exit22:                      ; preds = %_ZN5arrow6StatusD2Ev.exit18
+_ZN5arrow6StatusD2Ev.exit21:                      ; preds = %_ZN5arrow6StatusD2Ev.exit17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %63 = load ptr, ptr %12, align 8, !tbaa !252
-  %.not.i23 = icmp eq ptr %63, null
-  br i1 %.not.i23, label %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit.thread, label %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit
+  %.not.i22 = icmp eq ptr %63, null
+  br i1 %.not.i22, label %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit.thread, label %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit
 
-_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit22
+_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit21
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i64, ptr %64, align 8, !tbaa !119
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %67 = load i64, ptr %66, align 8, !tbaa !377
   %68 = icmp eq i64 %65, %67
-  br i1 %68, label %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit.thread, label %_ZN5arrow6StatusD2Ev.exit27
+  br i1 %68, label %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit.thread, label %_ZN5arrow6StatusD2Ev.exit26
 
-_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit.thread: ; preds = %_ZN5arrow6StatusD2Ev.exit22, %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit
+_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit.thread: ; preds = %_ZN5arrow6StatusD2Ev.exit21, %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %70 = load i8, ptr %69, align 8, !tbaa !218, !range !55, !noundef !56
   %71 = trunc nuw i8 %70 to i1
@@ -4816,20 +4816,20 @@ _ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit.th
   call void @_ZN5arrow6Status8FromArgsIJRA28_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %9, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(28) @.str)
   call void @_ZN5arrow6ResultIbEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %9) #27
   %80 = load ptr, ptr %9, align 8, !tbaa !42
-  %.not.i24 = icmp eq ptr %80, null
-  br i1 %.not.i24, label %_ZN5arrow6StatusD2Ev.exit25, label %81, !prof !45
+  %.not.i23 = icmp eq ptr %80, null
+  br i1 %.not.i23, label %_ZN5arrow6StatusD2Ev.exit24, label %81, !prof !45
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %83 = load i8, ptr %82, align 1, !tbaa !46, !range !55, !noundef !56
   %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %_ZN5arrow6StatusD2Ev.exit25, label %85
+  br i1 %84, label %_ZN5arrow6StatusD2Ev.exit24, label %85
 
 85:                                               ; preds = %81
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
-  br label %_ZN5arrow6StatusD2Ev.exit25
+  br label %_ZN5arrow6StatusD2Ev.exit24
 
-_ZN5arrow6StatusD2Ev.exit25:                      ; preds = %79, %81, %85
+_ZN5arrow6StatusD2Ev.exit24:                      ; preds = %79, %81, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %99
 
@@ -4839,7 +4839,7 @@ _ZN5arrow6StatusD2Ev.exit25:                      ; preds = %79, %81, %85
   store i8 0, ptr %87, align 8, !tbaa !164
   br label %99
 
-_ZN5arrow6StatusD2Ev.exit27:                      ; preds = %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit
+_ZN5arrow6StatusD2Ev.exit26:                      ; preds = %_ZNK5arrow2io21CompressedInputStream4Impl27compressed_buffer_availableEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN5arrow2io21CompressedInputStream4Impl14DecompressDataEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %11, ptr noundef nonnull align 8 dereferenceable(128) %1)
@@ -4848,39 +4848,39 @@ _ZN5arrow6StatusD2Ev.exit27:                      ; preds = %_ZNK5arrow2io21Comp
   store ptr %88, ptr %10, align 8, !tbaa !42, !alias.scope !378
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %_ZN5arrow6StatusD2Ev.exit31, label %90, !prof !45
+  br i1 %89, label %_ZN5arrow6StatusD2Ev.exit30, label %90, !prof !45
 
-90:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit27
+90:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit26
   call void @_ZN5arrow6ResultIbEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   %91 = load ptr, ptr %10, align 8, !tbaa !42
-  %.not.i28 = icmp eq ptr %91, null
-  br i1 %.not.i28, label %_ZN5arrow6StatusD2Ev.exit29, label %92, !prof !45
+  %.not.i27 = icmp eq ptr %91, null
+  br i1 %.not.i27, label %_ZN5arrow6StatusD2Ev.exit28, label %92, !prof !45
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 1
   %94 = load i8, ptr %93, align 1, !tbaa !46, !range !55, !noundef !56
   %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %_ZN5arrow6StatusD2Ev.exit29, label %96
+  br i1 %95, label %_ZN5arrow6StatusD2Ev.exit28, label %96
 
 96:                                               ; preds = %92
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
-  br label %_ZN5arrow6StatusD2Ev.exit29
+  br label %_ZN5arrow6StatusD2Ev.exit28
 
-_ZN5arrow6StatusD2Ev.exit29:                      ; preds = %90, %92, %96
+_ZN5arrow6StatusD2Ev.exit28:                      ; preds = %90, %92, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %99
 
-_ZN5arrow6StatusD2Ev.exit31:                      ; preds = %_ZN5arrow6StatusD2Ev.exit27
+_ZN5arrow6StatusD2Ev.exit30:                      ; preds = %_ZN5arrow6StatusD2Ev.exit26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %97
 
-97:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit31, %_ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit
+97:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit30, %_ZNK5arrow2io21CompressedInputStream4Impl29decompressed_buffer_availableEv.exit
   store ptr null, ptr %0, align 8, !tbaa !42
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %98, align 8, !tbaa !164
   br label %99
 
-99:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit15.thread, %_ZN5arrow6StatusD2Ev.exit11.thread, %_ZN5arrow6StatusD2Ev.exit29, %_ZN5arrow6StatusD2Ev.exit20, %_ZN5arrow6StatusD2Ev.exit25, %86, %97
+99:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit14.thread, %_ZN5arrow6StatusD2Ev.exit10.thread, %_ZN5arrow6StatusD2Ev.exit28, %_ZN5arrow6StatusD2Ev.exit19, %_ZN5arrow6StatusD2Ev.exit24, %86, %97
   ret void
 }
 

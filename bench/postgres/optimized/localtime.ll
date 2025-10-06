@@ -1334,7 +1334,7 @@ getzname.exit:                                    ; preds = %.lr.ph.i, %30, %11
   store i32 0, ptr %1, align 8
   %49 = load i8, ptr %.0205, align 1
   switch i8 %49, label %.lr.ph.i272 [
-    i8 0, label %.thread344
+    i8 0, label %.thread343
     i8 60, label %50
   ]
 
@@ -1436,8 +1436,8 @@ getzname.exit277:                                 ; preds = %.lr.ph.i272, %67
   br i1 %91, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %.pre405442 = load i32, ptr %4, align 4
-  br label %._crit_edge370
+  %.pre404441 = load i32, ptr %4, align 4
+  br label %._crit_edge369
 
 .lr.ph:                                           ; preds = %.preheader
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 16024
@@ -1510,8 +1510,8 @@ getzname.exit277:                                 ; preds = %.lr.ph.i272, %67
   br i1 %127, label %128, label %132
 
 128:                                              ; preds = %124
-  %.urem401 = urem i32 %125, 100
-  %.not260 = icmp eq i32 %.urem401, 0
+  %.urem400 = urem i32 %125, 100
+  %.not260 = icmp eq i32 %.urem400, 0
   br i1 %.not260, label %129, label %132
 
 129:                                              ; preds = %128
@@ -1544,47 +1544,47 @@ getzname.exit277:                                 ; preds = %.lr.ph.i272, %67
   %.pre-phi.i = phi i64 [ %138, %137 ], [ %141, %140 ]
   %144 = add i64 %.pre-phi.i, %.0306
   %145 = icmp samesign ugt i32 %.0216, 1771
-  br i1 %145, label %124, label %.lr.ph376, !llvm.loop !31
+  br i1 %145, label %124, label %.lr.ph375, !llvm.loop !31
 
 .thread:                                          ; preds = %137, %140
   %.not = icmp sgt i32 %.0216, 2147483247
-  br i1 %.not, label %.thread337.thread434, label %.lr.ph376
+  br i1 %.not, label %.thread337.thread433, label %.lr.ph375
 
-.thread337.thread434:                             ; preds = %.thread
+.thread337.thread433:                             ; preds = %.thread
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %146, align 4
   br label %221
 
-.lr.ph376:                                        ; preds = %143, %.thread
-  %.3309313321433 = phi i64 [ %.0306, %.thread ], [ %144, %143 ]
+.lr.ph375:                                        ; preds = %143, %.thread
+  %.3309313321432 = phi i64 [ %.0306, %.thread ], [ %144, %143 ]
   %147 = phi i32 [ %.neg, %.thread ], [ 0, %143 ]
-  %.lcssa431 = phi i32 [ %125, %.thread ], [ 1770, %143 ]
+  %.lcssa430 = phi i32 [ %125, %.thread ], [ 1770, %143 ]
   %148 = add nuw nsw i32 %.0216, 400
   %149 = sub i32 %109, %116
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 16024
   br label %152
 
-152:                                              ; preds = %.lr.ph376, %216
-  %.2219375 = phi i32 [ %147, %.lr.ph376 ], [ 0, %216 ]
-  %.0221374 = phi i32 [ 0, %.lr.ph376 ], [ %.2223, %216 ]
-  %.0225373 = phi i32 [ %148, %.lr.ph376 ], [ %.1226, %216 ]
-  %.0228372 = phi i32 [ %.lcssa431, %.lr.ph376 ], [ %218, %216 ]
-  %.1307371 = phi i64 [ %.3309313321433, %.lr.ph376 ], [ %217, %216 ]
-  %153 = call fastcc i32 @transtime(i32 noundef %.0228372, ptr noundef %6, i32 noundef %109)
-  %154 = call fastcc i32 @transtime(i32 noundef %.0228372, ptr noundef %7, i32 noundef %116)
-  %155 = and i32 %.0228372, 3
+152:                                              ; preds = %.lr.ph375, %216
+  %.2219374 = phi i32 [ %147, %.lr.ph375 ], [ 0, %216 ]
+  %.0221373 = phi i32 [ 0, %.lr.ph375 ], [ %.2223, %216 ]
+  %.0225372 = phi i32 [ %148, %.lr.ph375 ], [ %.1226, %216 ]
+  %.0228371 = phi i32 [ %.lcssa430, %.lr.ph375 ], [ %218, %216 ]
+  %.1307370 = phi i64 [ %.3309313321432, %.lr.ph375 ], [ %217, %216 ]
+  %153 = call fastcc i32 @transtime(i32 noundef %.0228371, ptr noundef %6, i32 noundef %109)
+  %154 = call fastcc i32 @transtime(i32 noundef %.0228371, ptr noundef %7, i32 noundef %116)
+  %155 = and i32 %.0228371, 3
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %161
 
 157:                                              ; preds = %152
-  %.urem402 = urem i32 %.0228372, 100
-  %.not261 = icmp eq i32 %.urem402, 0
+  %.urem401 = urem i32 %.0228371, 100
+  %.not261 = icmp eq i32 %.urem401, 0
   br i1 %.not261, label %158, label %161
 
 158:                                              ; preds = %157
-  %.urem403 = urem i32 %.0228372, 400
-  %159 = icmp eq i32 %.urem403, 0
+  %.urem402 = urem i32 %.0228371, 400
+  %159 = icmp eq i32 %.urem402, 0
   %160 = zext i1 %159 to i64
   br label %161
 
@@ -1610,118 +1610,118 @@ getzname.exit277:                                 ; preds = %.lr.ph.i272, %67
   br i1 %173, label %174, label %increment_overflow_time.exit293.thread
 
 174:                                              ; preds = %170, %161
-  %175 = icmp sgt i32 %.0221374, 1998
+  %175 = icmp sgt i32 %.0221373, 1998
   br i1 %175, label %.thread337.thread, label %177
 
 .thread337.thread:                                ; preds = %174
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.0221374, ptr %176, align 4
+  store i32 %.0221373, ptr %176, align 4
   br label %222
 
 177:                                              ; preds = %174
-  %178 = sext i32 %.0221374 to i64
+  %178 = sext i32 %.0221373 to i64
   %179 = getelementptr inbounds i64, ptr %150, i64 %178
-  store i64 %.1307371, ptr %179, align 8
-  %180 = add i32 %spec.select, %.2219375
+  store i64 %.1307370, ptr %179, align 8
+  %180 = add i32 %spec.select, %.2219374
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %177
   %183 = sext i32 %180 to i64
   %184 = sub nsw i64 -9223372036854775808, %183
-  %.not8.i285 = icmp sgt i64 %184, %.1307371
+  %.not8.i285 = icmp sgt i64 %184, %.1307370
   br i1 %.not8.i285, label %increment_overflow_time.exit286.thread, label %188
 
 185:                                              ; preds = %177
   %186 = zext nneg i32 %180 to i64
   %187 = xor i64 %186, 9223372036854775807
-  %.not.i280 = icmp sgt i64 %.1307371, %187
+  %.not.i280 = icmp sgt i64 %.1307370, %187
   br i1 %.not.i280, label %increment_overflow_time.exit286.thread, label %188
 
 188:                                              ; preds = %185, %182
   %.pre-phi.i283 = phi i64 [ %183, %182 ], [ %186, %185 ]
-  %189 = add i64 %.pre-phi.i283, %.1307371
+  %189 = add i64 %.pre-phi.i283, %.1307370
   store i64 %189, ptr %179, align 8
   %190 = xor i1 %166, true
   %191 = zext i1 %190 to i8
-  %192 = add nsw i32 %.0221374, 1
+  %192 = add nsw i32 %.0221373, 1
   %193 = getelementptr inbounds i8, ptr %151, i64 %178
   store i8 %191, ptr %193, align 1
-  %.pre406 = sext i32 %192 to i64
+  %.pre405 = sext i32 %192 to i64
   br label %increment_overflow_time.exit286.thread
 
 increment_overflow_time.exit286.thread:           ; preds = %182, %185, %188
-  %.pre-phi = phi i64 [ %178, %182 ], [ %178, %185 ], [ %.pre406, %188 ]
-  %.4 = phi i32 [ %.0221374, %182 ], [ %.0221374, %185 ], [ %192, %188 ]
+  %.pre-phi = phi i64 [ %178, %182 ], [ %178, %185 ], [ %.pre405, %188 ]
+  %.4 = phi i32 [ %.0221373, %182 ], [ %.0221373, %185 ], [ %192, %188 ]
   %194 = getelementptr inbounds i64, ptr %150, i64 %.pre-phi
-  store i64 %.1307371, ptr %194, align 8
-  %195 = add i32 %spec.select264, %.2219375
+  store i64 %.1307370, ptr %194, align 8
+  %195 = add i32 %spec.select264, %.2219374
   %196 = icmp slt i32 %195, 0
   br i1 %196, label %197, label %200
 
 197:                                              ; preds = %increment_overflow_time.exit286.thread
   %198 = sext i32 %195 to i64
   %199 = sub nsw i64 -9223372036854775808, %198
-  %.not8.i292 = icmp sgt i64 %199, %.1307371
+  %.not8.i292 = icmp sgt i64 %199, %.1307370
   br i1 %.not8.i292, label %increment_overflow_time.exit293.thread, label %203
 
 200:                                              ; preds = %increment_overflow_time.exit286.thread
   %201 = zext nneg i32 %195 to i64
   %202 = xor i64 %201, 9223372036854775807
-  %.not.i287 = icmp sgt i64 %.1307371, %202
+  %.not.i287 = icmp sgt i64 %.1307370, %202
   br i1 %.not.i287, label %increment_overflow_time.exit293.thread, label %203
 
 203:                                              ; preds = %200, %197
   %.pre-phi.i290 = phi i64 [ %198, %197 ], [ %201, %200 ]
-  %204 = add i64 %.pre-phi.i290, %.1307371
+  %204 = add i64 %.pre-phi.i290, %.1307370
   store i64 %204, ptr %194, align 8
   %205 = add nsw i32 %.4, 1
   %206 = getelementptr inbounds i8, ptr %151, i64 %.pre-phi
   store i8 %167, ptr %206, align 1
-  %207 = add nuw i32 %.0228372, 401
+  %207 = add nuw i32 %.0228371, 401
   br label %increment_overflow_time.exit293.thread
 
 increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %170, %168
-  %.1226 = phi i32 [ %207, %203 ], [ %.0225373, %170 ], [ %.0225373, %168 ], [ %.0225373, %200 ], [ %.0225373, %197 ]
-  %.2223 = phi i32 [ %205, %203 ], [ %.0221374, %170 ], [ %.0221374, %168 ], [ %.4, %200 ], [ %.4, %197 ]
-  %208 = add i32 %165, %.2219375
+  %.1226 = phi i32 [ %207, %203 ], [ %.0225372, %170 ], [ %.0225372, %168 ], [ %.0225372, %200 ], [ %.0225372, %197 ]
+  %.2223 = phi i32 [ %205, %203 ], [ %.0221373, %170 ], [ %.0221373, %168 ], [ %.4, %200 ], [ %.4, %197 ]
+  %208 = add i32 %165, %.2219374
   %209 = icmp slt i32 %208, 0
   br i1 %209, label %210, label %213
 
 210:                                              ; preds = %increment_overflow_time.exit293.thread
   %211 = sext i32 %208 to i64
   %212 = sub nsw i64 -9223372036854775808, %211
-  %.not8.i299 = icmp sgt i64 %212, %.1307371
+  %.not8.i299 = icmp sgt i64 %212, %.1307370
   br i1 %.not8.i299, label %.thread337, label %216
 
 213:                                              ; preds = %increment_overflow_time.exit293.thread
   %214 = zext nneg i32 %208 to i64
   %215 = xor i64 %214, 9223372036854775807
-  %.not.i294 = icmp sgt i64 %.1307371, %215
+  %.not.i294 = icmp sgt i64 %.1307370, %215
   br i1 %.not.i294, label %.thread337, label %216
 
 216:                                              ; preds = %213, %210
   %.pre-phi.i297 = phi i64 [ %211, %210 ], [ %214, %213 ]
-  %217 = add i64 %.pre-phi.i297, %.1307371
-  %218 = add nuw nsw i32 %.0228372, 1
+  %217 = add i64 %.pre-phi.i297, %.1307370
+  %218 = add nuw nsw i32 %.0228371, 1
   %219 = icmp slt i32 %218, %.1226
   br i1 %219, label %152, label %.thread337, !llvm.loop !32
 
 .thread337:                                       ; preds = %216, %213, %210
-  %.0228.lcssa = phi i32 [ %218, %216 ], [ %.0228372, %213 ], [ %.0228372, %210 ]
+  %.0228.lcssa = phi i32 [ %218, %216 ], [ %.0228371, %213 ], [ %.0228371, %210 ]
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.2223, ptr %220, align 4
   %.not262 = icmp eq i32 %.2223, 0
   br i1 %.not262, label %221, label %222
 
-221:                                              ; preds = %.thread337.thread434, %.thread337
+221:                                              ; preds = %.thread337.thread433, %.thread337
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %115, i64 16, i1 false)
   store i32 1, ptr %107, align 8
   br label %226
 
 222:                                              ; preds = %.thread337.thread, %.thread337
-  %.0228354 = phi i32 [ %.0228372, %.thread337.thread ], [ %.0228.lcssa, %.thread337 ]
-  %223 = sub i32 %.0228354, %.lcssa431
+  %.0228353 = phi i32 [ %.0228371, %.thread337.thread ], [ %.0228.lcssa, %.thread337 ]
+  %223 = sub i32 %.0228353, %.lcssa430
   %224 = icmp sgt i32 %223, 400
   br i1 %224, label %225, label %226
 
@@ -1758,7 +1758,7 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
 
 ._crit_edge:                                      ; preds = %227, %236
   %.0202 = phi i32 [ %238, %236 ], [ 0, %227 ]
-  %.pre405 = load i32, ptr %4, align 4
+  %.pre404 = load i32, ptr %4, align 4
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 16024
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 18024
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1766,9 +1766,9 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   br label %243
 
 243:                                              ; preds = %._crit_edge, %265
-  %indvars.iv398 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next399, %265 ]
-  %.1203366 = phi i32 [ %.0202, %._crit_edge ], [ %.2204, %265 ]
-  %244 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv398
+  %indvars.iv397 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next398, %265 ]
+  %.1203365 = phi i32 [ %.0202, %._crit_edge ], [ %.2204, %265 ]
+  %244 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv397
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i64
   %247 = getelementptr inbounds nuw %struct.ttinfo, ptr %240, i64 %246
@@ -1781,17 +1781,17 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   br i1 %252, label %259, label %253
 
 253:                                              ; preds = %243
-  %254 = sub i32 %.pre405, %.1203366
+  %254 = sub i32 %.pre404, %.1203365
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds nuw i64, ptr %241, i64 %indvars.iv398
+  %256 = getelementptr inbounds nuw i64, ptr %241, i64 %indvars.iv397
   %257 = load i64, ptr %256, align 8
   %258 = add i64 %257, %255
   store i64 %258, ptr %256, align 8
-  %.pre404 = load i8, ptr %248, align 4, !range !22
+  %.pre403 = load i8, ptr %248, align 4, !range !22
   br label %259
 
 259:                                              ; preds = %253, %243
-  %260 = phi i8 [ %.pre404, %253 ], [ %249, %243 ]
+  %260 = phi i8 [ %.pre403, %253 ], [ %249, %243 ]
   %261 = trunc nuw i8 %260 to i1
   br i1 %261, label %265, label %262
 
@@ -1801,15 +1801,15 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   br label %265
 
 265:                                              ; preds = %259, %262
-  %.2204 = phi i32 [ %264, %262 ], [ %.1203366, %259 ]
-  %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
-  %266 = icmp samesign ult i64 %indvars.iv.next399, %242
-  br i1 %266, label %243, label %._crit_edge370, !llvm.loop !34
+  %.2204 = phi i32 [ %264, %262 ], [ %.1203365, %259 ]
+  %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
+  %266 = icmp samesign ult i64 %indvars.iv.next398, %242
+  br i1 %266, label %243, label %._crit_edge369, !llvm.loop !34
 
-._crit_edge370:                                   ; preds = %265, %._crit_edge.thread
-  %.pre405443 = phi i32 [ %.pre405442, %._crit_edge.thread ], [ %.pre405, %265 ]
+._crit_edge369:                                   ; preds = %265, %._crit_edge.thread
+  %.pre404442 = phi i32 [ %.pre404441, %._crit_edge.thread ], [ %.pre404, %265 ]
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 18024
-  %268 = sub i32 0, %.pre405443
+  %268 = sub i32 0, %.pre404442
   store i32 %268, ptr %267, align 4
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 18028
   store i8 0, ptr %269, align 4
@@ -1838,7 +1838,7 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   store i32 0, ptr %282, align 8
   br label %297
 
-.thread344:                                       ; preds = %46
+.thread343:                                       ; preds = %46
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1866,7 +1866,7 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   store i8 0, ptr %296, align 1
   br label %.critedge267
 
-297:                                              ; preds = %._crit_edge370, %226
+297:                                              ; preds = %._crit_edge369, %226
   %298 = trunc nuw nsw i64 %76 to i32
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %298, ptr %299, align 4
@@ -1885,8 +1885,8 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge267
 
-.critedge267:                                     ; preds = %15, %52, %86, %.thread344, %297, %.critedge, %80, %74, %73, %43, %40, %37
-  %.0196 = phi i1 [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ false, %80 ], [ false, %.critedge ], [ true, %297 ], [ true, %.thread344 ], [ false, %86 ], [ false, %52 ], [ false, %15 ]
+.critedge267:                                     ; preds = %15, %52, %86, %.thread343, %297, %.critedge, %80, %74, %73, %43, %40, %37
+  %.0196 = phi i1 [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ false, %80 ], [ false, %.critedge ], [ true, %297 ], [ true, %.thread343 ], [ false, %86 ], [ false, %52 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0196

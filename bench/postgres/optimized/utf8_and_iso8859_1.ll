@@ -120,7 +120,7 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr noundef rea
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load i64, ptr %12, align 8
-  %.not64 = icmp eq i64 %13, 0
+  %.not63 = icmp eq i64 %13, 0
   %14 = load i64, ptr %2, align 8
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -131,18 +131,18 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr noundef rea
   br i1 %19, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %1, %45
-  %.04881 = phi ptr [ %46, %45 ], [ %5, %1 ]
-  %.04980 = phi ptr [ %.251, %45 ], [ %8, %1 ]
-  %.05379 = phi i32 [ %47, %45 ], [ %11, %1 ]
-  %20 = load i8, ptr %.04881, align 1
+  %.04880 = phi ptr [ %46, %45 ], [ %5, %1 ]
+  %.04979 = phi ptr [ %.251, %45 ], [ %8, %1 ]
+  %.05378 = phi i32 [ %47, %45 ], [ %11, %1 ]
+  %20 = load i8, ptr %.04880, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph
-  br i1 %.not64, label %23, label %.thread
+  br i1 %.not63, label %23, label %.thread
 
 23:                                               ; preds = %22
-  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %.04881, i32 noundef %.05379) #5
+  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %.04880, i32 noundef %.05378) #5
   unreachable
 
 24:                                               ; preds = %.lr.ph
@@ -150,19 +150,19 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr noundef rea
   br i1 %.not, label %45, label %25
 
 25:                                               ; preds = %24
-  %26 = tail call i32 @pg_utf_mblen_private(ptr noundef nonnull %.04881) #4
-  %27 = icmp sgt i32 %26, %.05379
+  %26 = tail call i32 @pg_utf_mblen_private(ptr noundef nonnull %.04880) #4
+  %27 = icmp sgt i32 %26, %.05378
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %.04881, i32 noundef %26) #4
+  %29 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %.04880, i32 noundef %26) #4
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %28, %25
-  br i1 %.not64, label %31, label %.thread
+  br i1 %.not63, label %31, label %.thread
 
 31:                                               ; preds = %30
-  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %.04881, i32 noundef %.05379) #5
+  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %.04880, i32 noundef %.05378) #5
   unreachable
 
 32:                                               ; preds = %28
@@ -170,10 +170,10 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr noundef rea
   br i1 %.not58, label %35, label %33
 
 33:                                               ; preds = %32
-  br i1 %.not64, label %34, label %.thread
+  br i1 %.not63, label %34, label %.thread
 
 34:                                               ; preds = %33
-  tail call void @report_untranslatable_char(i32 noundef 6, i32 noundef 8, ptr noundef nonnull %.04881, i32 noundef %.05379) #5
+  tail call void @report_untranslatable_char(i32 noundef 6, i32 noundef 8, ptr noundef nonnull %.04880, i32 noundef %.05378) #5
   unreachable
 
 35:                                               ; preds = %32
@@ -182,36 +182,36 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr noundef rea
   br i1 %or.cond, label %39, label %37
 
 37:                                               ; preds = %35
-  br i1 %.not64, label %38, label %.thread
+  br i1 %.not63, label %38, label %.thread
 
 38:                                               ; preds = %37
-  tail call void @report_untranslatable_char(i32 noundef 6, i32 noundef 8, ptr noundef nonnull %.04881, i32 noundef %.05379) #5
+  tail call void @report_untranslatable_char(i32 noundef 6, i32 noundef 8, ptr noundef nonnull %.04880, i32 noundef %.05378) #5
   unreachable
 
 39:                                               ; preds = %35
   %40 = shl i8 %20, 6
-  %41 = getelementptr inbounds nuw i8, ptr %.04881, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.04880, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, %40
   br label %45
 
 45:                                               ; preds = %24, %39
-  %.sink110 = phi i8 [ %44, %39 ], [ %20, %24 ]
-  %.sink109 = phi i64 [ 2, %39 ], [ 1, %24 ]
+  %.sink109 = phi i8 [ %44, %39 ], [ %20, %24 ]
+  %.sink108 = phi i64 [ 2, %39 ], [ 1, %24 ]
   %.sink = phi i32 [ -2, %39 ], [ -1, %24 ]
-  store i8 %.sink110, ptr %.04980, align 1
-  %46 = getelementptr inbounds nuw i8, ptr %.04881, i64 %.sink109
-  %47 = add nsw i32 %.05379, %.sink
-  %.251 = getelementptr inbounds nuw i8, ptr %.04980, i64 1
+  store i8 %.sink109, ptr %.04979, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %.04880, i64 %.sink108
+  %47 = add nsw i32 %.05378, %.sink
+  %.251 = getelementptr inbounds nuw i8, ptr %.04979, i64 1
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph, label %.thread, !llvm.loop !5
 
 .thread:                                          ; preds = %45, %1, %37, %33, %30, %22
-  %.04974 = phi ptr [ %.04980, %37 ], [ %.04980, %33 ], [ %.04980, %30 ], [ %.04980, %22 ], [ %8, %1 ], [ %.251, %45 ]
-  %.04869 = phi ptr [ %.04881, %37 ], [ %.04881, %33 ], [ %.04881, %30 ], [ %.04881, %22 ], [ %5, %1 ], [ %46, %45 ]
-  store i8 0, ptr %.04974, align 1
-  %49 = ptrtoint ptr %.04869 to i64
+  %.04973 = phi ptr [ %.04979, %37 ], [ %.04979, %33 ], [ %.04979, %30 ], [ %.04979, %22 ], [ %8, %1 ], [ %.251, %45 ]
+  %.04868 = phi ptr [ %.04880, %37 ], [ %.04880, %33 ], [ %.04880, %30 ], [ %.04880, %22 ], [ %5, %1 ], [ %46, %45 ]
+  store i8 0, ptr %.04973, align 1
+  %49 = ptrtoint ptr %.04868 to i64
   %50 = sub i64 %49, %4
   %sext = shl i64 %50, 32
   %51 = ashr exact i64 %sext, 32

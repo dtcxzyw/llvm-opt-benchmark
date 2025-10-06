@@ -1966,7 +1966,7 @@ define internal fastcc void @push(ptr noundef captures(none) %0, i32 noundef %1,
 ._crit_edge.i.i.i:                                ; preds = %3
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !75
-  %.pre46.i.i.i = load ptr, ptr %0, align 8, !tbaa !74
+  %.pre45.i.i.i = load ptr, ptr %0, align 8, !tbaa !74
   br label %int_stack_push_back.exit
 
 9:                                                ; preds = %3
@@ -2021,7 +2021,7 @@ define internal fastcc void @push(ptr noundef captures(none) %0, i32 noundef %1,
   unreachable
 
 int_stack_push_back.exit:                         ; preds = %._crit_edge.i.i.i, %33
-  %39 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %15, %33 ]
+  %39 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %15, %33 ]
   %40 = phi i64 [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %33 ]
   %41 = phi i64 [ %5, %._crit_edge.i.i.i ], [ %24, %33 ]
   %.pre.i.i.i5 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %34, %33 ]

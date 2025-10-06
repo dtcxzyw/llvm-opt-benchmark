@@ -934,12 +934,12 @@ define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %0, i32 nou
   %9 = icmp eq i64 %3, %8
   %10 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %60, label %11
+  br i1 %.not, label %62, label %11
 
 11:                                               ; preds = %4
   %12 = and i32 %1, 3
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %60, label %14
+  br i1 %13, label %62, label %14
 
 14:                                               ; preds = %11
   br i1 %9, label %16, label %15
@@ -948,7 +948,7 @@ define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %0, i32 nou
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef 949, ptr noundef nonnull @__func__.ecx_validate) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 173, ptr noundef null) #4
-  br label %60
+  br label %62
 
 16:                                               ; preds = %14
   %17 = and i32 %1, 2
@@ -966,95 +966,95 @@ define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %0, i32 nou
 
 .thread:                                          ; preds = %16
   %24 = and i32 %1, 1
-  %.not2840 = icmp eq i32 %24, 0
-  br i1 %.not2840, label %30, label %.thread42
+  %.not2839 = icmp eq i32 %24, 0
+  br i1 %.not2839, label %30, label %.thread41
 
 25:                                               ; preds = %18
   %.not29 = icmp eq i8 %21, 0
-  br i1 %.not29, label %30, label %.thread42
+  br i1 %.not29, label %30, label %.thread41
 
-.thread42:                                        ; preds = %.thread, %25
+.thread41:                                        ; preds = %.thread, %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = icmp ne ptr %27, null
   %29 = zext i1 %28 to i32
   br label %30
 
-30:                                               ; preds = %.thread, %25, %.thread42, %18
-  %.1 = phi i32 [ %22, %18 ], [ 0, %25 ], [ %29, %.thread42 ], [ 1, %.thread ]
+30:                                               ; preds = %.thread, %25, %.thread41, %18
+  %.1 = phi i32 [ %22, %18 ], [ 0, %25 ], [ %29, %.thread41 ], [ 1, %.thread ]
   %.not30 = icmp eq i32 %12, 3
-  br i1 %.not30, label %31, label %60
+  br i1 %.not30, label %31, label %62
 
 31:                                               ; preds = %30
   %or.cond.not = icmp samesign ult i32 %2, 2
   %.not31 = icmp eq i32 %.1, 0
-  br i1 %or.cond.not, label %49, label %32
+  br i1 %or.cond.not, label %50, label %32
 
 32:                                               ; preds = %31
-  br i1 %.not31, label %60, label %33
+  br i1 %.not31, label %62, label %33
 
 33:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %switch = icmp eq i32 %2, 2
-  %34 = load ptr, ptr %0, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !28
-  br i1 %switch, label %39, label %41
+  %34 = icmp eq i32 %2, 2
+  %35 = load ptr, ptr %0, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !28
+  br i1 %34, label %40, label %42
 
-39:                                               ; preds = %33
-  %40 = call i32 @ossl_ed25519_public_from_private(ptr noundef %34, ptr noundef nonnull %6, ptr noundef %36, ptr noundef %38) #4
-  %.not9.i = icmp eq i32 %40, 0
-  br i1 %.not9.i, label %ecd_key_pairwise_check.exit, label %43
+40:                                               ; preds = %33
+  %41 = call i32 @ossl_ed25519_public_from_private(ptr noundef %35, ptr noundef nonnull %6, ptr noundef %37, ptr noundef %39) #4
+  %.not9.i = icmp eq i32 %41, 0
+  br i1 %.not9.i, label %ecd_key_pairwise_check.exit, label %44
 
-41:                                               ; preds = %33
-  %42 = call i32 @ossl_ed448_public_from_private(ptr noundef %34, ptr noundef nonnull %6, ptr noundef %36, ptr noundef %38) #4
-  %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %ecd_key_pairwise_check.exit, label %43
+42:                                               ; preds = %33
+  %43 = call i32 @ossl_ed448_public_from_private(ptr noundef %35, ptr noundef nonnull %6, ptr noundef %37, ptr noundef %39) #4
+  %.not.i = icmp eq i32 %43, 0
+  br i1 %.not.i, label %ecd_key_pairwise_check.exit, label %44
 
-43:                                               ; preds = %41, %39
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %45 = load i64, ptr %7, align 8, !tbaa !14
-  %46 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %44, ptr noundef nonnull %6, i64 noundef %45) #4
-  %47 = icmp eq i32 %46, 0
-  %48 = zext i1 %47 to i32
+44:                                               ; preds = %42, %40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %46 = load i64, ptr %7, align 8, !tbaa !14
+  %47 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %45, ptr noundef nonnull %6, i64 noundef %46) #4
+  %48 = icmp eq i32 %47, 0
+  %49 = zext i1 %48 to i32
   br label %ecd_key_pairwise_check.exit
 
-ecd_key_pairwise_check.exit:                      ; preds = %39, %41, %43
-  %.0.i = phi i32 [ %48, %43 ], [ 0, %39 ], [ 0, %41 ]
+ecd_key_pairwise_check.exit:                      ; preds = %40, %42, %44
+  %.0.i = phi i32 [ %49, %44 ], [ 0, %40 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %60
+  br label %62
 
-49:                                               ; preds = %31
-  br i1 %.not31, label %60, label %50
+50:                                               ; preds = %31
+  br i1 %.not31, label %62, label %51
 
-50:                                               ; preds = %49
+51:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %switch35 = icmp eq i32 %2, 0
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %52 = load ptr, ptr %51, align 8, !tbaa !3
-  br i1 %switch35, label %53, label %54
+  %52 = icmp eq i32 %2, 0
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %54 = load ptr, ptr %53, align 8, !tbaa !3
+  br i1 %52, label %55, label %56
 
-53:                                               ; preds = %50
-  call void @ossl_x25519_public_from_private(ptr noundef nonnull %5, ptr noundef %52) #4
+55:                                               ; preds = %51
+  call void @ossl_x25519_public_from_private(ptr noundef nonnull %5, ptr noundef %54) #4
   br label %ecx_key_pairwise_check.exit
 
-54:                                               ; preds = %50
-  call void @ossl_x448_public_from_private(ptr noundef nonnull %5, ptr noundef %52) #4
+56:                                               ; preds = %51
+  call void @ossl_x448_public_from_private(ptr noundef nonnull %5, ptr noundef %54) #4
   br label %ecx_key_pairwise_check.exit
 
-ecx_key_pairwise_check.exit:                      ; preds = %54, %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %56 = load i64, ptr %7, align 8, !tbaa !14
-  %57 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef %56) #4
-  %58 = icmp eq i32 %57, 0
-  %59 = zext i1 %58 to i32
+ecx_key_pairwise_check.exit:                      ; preds = %56, %55
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %58 = load i64, ptr %7, align 8, !tbaa !14
+  %59 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %57, ptr noundef nonnull %5, i64 noundef %58) #4
+  %60 = icmp eq i32 %59, 0
+  %61 = zext i1 %60 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %60
+  br label %62
 
-60:                                               ; preds = %ecd_key_pairwise_check.exit, %32, %ecx_key_pairwise_check.exit, %49, %30, %11, %4, %15
-  %.023 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 1, %11 ], [ %.1, %30 ], [ 0, %32 ], [ %.0.i, %ecd_key_pairwise_check.exit ], [ 0, %49 ], [ %59, %ecx_key_pairwise_check.exit ]
+62:                                               ; preds = %ecd_key_pairwise_check.exit, %32, %ecx_key_pairwise_check.exit, %50, %30, %11, %4, %15
+  %.023 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 1, %11 ], [ %.1, %30 ], [ 0, %32 ], [ %.0.i, %ecd_key_pairwise_check.exit ], [ 0, %50 ], [ %61, %ecx_key_pairwise_check.exit ]
   ret i32 %.023
 }
 

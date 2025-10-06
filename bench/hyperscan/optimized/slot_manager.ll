@@ -3629,8 +3629,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt10shared_ptrIKN3ue28
   %19 = load i64, ptr %18, align 8
   %20 = urem i64 %17, %19
   %21 = load i64, ptr %6, align 8
-  %.not32 = icmp eq i64 %21, 0
-  br i1 %.not32, label %.critedge, label %22
+  %.not30 = icmp eq i64 %21, 0
+  br i1 %.not30, label %.critedge, label %22
 
 22:                                               ; preds = %.thread
   %23 = load ptr, ptr %0, align 8

@@ -312,13 +312,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %92,
   br label %.body.thread
 
 97:                                               ; preds = %135, %.lr.ph.i73
-  %.0599.i = phi i32 [ 0, %.lr.ph.i73 ], [ %117, %135 ]
-  %.0608.i = phi i32 [ 0, %.lr.ph.i73 ], [ %114, %135 ]
-  %.0627.i = phi i64 [ 1, %.lr.ph.i73 ], [ %136, %135 ]
-  %.not71.i = icmp ult i64 %.039191, %.0627.i
+  %.0598.i = phi i32 [ 0, %.lr.ph.i73 ], [ %117, %135 ]
+  %.0607.i = phi i32 [ 0, %.lr.ph.i73 ], [ %114, %135 ]
+  %.0626.i = phi i64 [ 1, %.lr.ph.i73 ], [ %136, %135 ]
+  %.not71.i = icmp ult i64 %.039191, %.0626.i
   %.p.v.i = select i1 %.not71.i, i64 %83, i64 0
-  %.p.i = sub i64 %.p.v.i, %.0627.i
-  %98 = add i64 %.0627.i, %.039191
+  %.p.i = sub i64 %.p.v.i, %.0626.i
+  %98 = add i64 %.0626.i, %.039191
   %99 = icmp ult i64 %98, %83
   %100 = select i1 %99, i64 0, i64 %83
   %101 = sub nuw i64 %98, %100
@@ -340,57 +340,57 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %92,
   %.neg.i = sub i32 %110, %90
   %.neg72.i = mul i32 %.neg.i, %106
   %117 = add i32 %.neg72.i, %116
-  %118 = sitofp i32 %.0599.i to double
+  %118 = sitofp i32 %.0598.i to double
   %119 = uitofp nneg i32 %114 to double
   %120 = sitofp i32 %117 to double
-  %121 = sitofp i32 %.0608.i to double
+  %121 = sitofp i32 %.0607.i to double
   %122 = fneg double %121
   %123 = fmul double %122, %120
   %124 = tail call double @llvm.fmuladd.f64(double %118, double %119, double %123)
   %125 = fptrunc double %124 to float
   %126 = bitcast float %125 to i32
-  %127 = icmp ugt i64 %.0627.i, 1
+  %127 = icmp ugt i64 %.0626.i, 1
   br i1 %127, label %128, label %135
 
 128:                                              ; preds = %97
-  %.not73.i = icmp slt i32 %.0608.i, %114
+  %.not73.i = icmp slt i32 %.0607.i, %114
   br i1 %.not73.i, label %129, label %137
 
 129:                                              ; preds = %128
-  %130 = icmp sgt i32 %.0599.i, 0
+  %130 = icmp sgt i32 %.0598.i, 0
   %131 = icmp slt i32 %126, 1
   %or.cond.i = select i1 %130, i1 %131, i1 false
   br i1 %or.cond.i, label %137, label %132
 
 132:                                              ; preds = %129
-  %133 = icmp slt i32 %.0599.i, 0
+  %133 = icmp slt i32 %.0598.i, 0
   %134 = icmp sgt i32 %126, -1
   %or.cond3.i = select i1 %133, i1 %134, i1 false
   br i1 %or.cond3.i, label %137, label %135
 
 135:                                              ; preds = %132, %97
-  %136 = add i64 %.0627.i, 1
+  %136 = add i64 %.0626.i, 1
   %.not.i74 = icmp ugt i64 %136, %83
   br i1 %.not.i74, label %._crit_edge.i, label %97, !llvm.loop !45
 
 137:                                              ; preds = %132, %129, %128
-  %138 = add i64 %.0627.i, -1
+  %138 = add i64 %.0626.i, -1
   %139 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 %138, ptr %139, align 8, !tbaa !46
   br i1 %26, label %.lr.ph.i75, label %200
 
 140:                                              ; preds = %194
-  %141 = add i64 %.0647.i, -1
+  %141 = add i64 %.0646.i, -1
   %.not.i79 = icmp eq i64 %141, 0
   br i1 %.not.i79, label %_ZN12_GLOBAL__N_111calc_cosineERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit, label %.lr.ph.i75, !llvm.loop !47
 
 .lr.ph.i75:                                       ; preds = %137, %140
-  %.0647.i = phi i64 [ %141, %140 ], [ %138, %137 ]
-  %.0656.i = phi i32 [ %195, %140 ], [ 0, %137 ]
-  %.not74.i = icmp ult i64 %.039191, %.0647.i
+  %.0646.i = phi i64 [ %141, %140 ], [ %138, %137 ]
+  %.0655.i = phi i32 [ %195, %140 ], [ 0, %137 ]
+  %.not74.i = icmp ult i64 %.039191, %.0646.i
   %.p.v.i76 = select i1 %.not74.i, i64 %83, i64 0
-  %.p.i77 = sub i64 %.p.v.i76, %.0647.i
-  %142 = add i64 %.0647.i, %.039191
+  %.p.i77 = sub i64 %.p.v.i76, %.0646.i
+  %142 = add i64 %.0646.i, %.039191
   %143 = icmp ult i64 %142, %83
   %144 = select i1 %143, i64 0, i64 %83
   %145 = sub nuw i64 %142, %144
@@ -473,13 +473,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i81: ; preds = %1
 
 194:                                              ; preds = %164
   %195 = bitcast float %183 to i32
-  %196 = icmp uge i64 %.0647.i, %138
-  %.not76.i = icmp slt i32 %.0656.i, %195
+  %196 = icmp uge i64 %.0646.i, %138
+  %.not76.i = icmp slt i32 %.0655.i, %195
   %or.cond80.i = or i1 %196, %.not76.i
   br i1 %or.cond80.i, label %140, label %_ZN12_GLOBAL__N_111calc_cosineERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit
 
 _ZN12_GLOBAL__N_111calc_cosineERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit: ; preds = %194, %.lr.ph.i75, %140
-  %.065.lcssa.i = phi i32 [ %.0656.i, %.lr.ph.i75 ], [ %.0656.i, %194 ], [ %195, %140 ]
+  %.065.lcssa.i = phi i32 [ %.0655.i, %.lr.ph.i75 ], [ %.0655.i, %194 ], [ %195, %140 ]
   %197 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store i32 %.065.lcssa.i, ptr %197, align 8, !tbaa !48
   br label %200
@@ -509,15 +509,15 @@ _ZN12_GLOBAL__N_111calc_cosineERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit: ; pre
   br label %211
 
 209:                                              ; preds = %216
-  %210 = add nuw i64 %.0313.i, 1
-  %exitcond.not.i90 = icmp eq i64 %.0313.i, %208
+  %210 = add nuw i64 %.0312.i, 1
+  %exitcond.not.i90 = icmp eq i64 %.0312.i, %208
   br i1 %exitcond.not.i90, label %_ZN12_GLOBAL__N_116calc_nms_cleanupERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit, label %211, !llvm.loop !50
 
 211:                                              ; preds = %209, %.lr.ph.i86
-  %.0313.i = phi i64 [ 1, %.lr.ph.i86 ], [ %210, %209 ]
-  %.not.i87 = icmp ult i64 %.040195, %.0313.i
+  %.0312.i = phi i64 [ 1, %.lr.ph.i86 ], [ %210, %209 ]
+  %.not.i87 = icmp ult i64 %.040195, %.0312.i
   %.p.v.i88 = select i1 %.not.i87, i64 %83, i64 0
-  %.p.i89 = sub i64 %.p.v.i88, %.0313.i
+  %.p.i89 = sub i64 %.p.v.i88, %.0312.i
   %212 = getelementptr %"struct.(anonymous namespace)::ApproxItem", ptr %202, i64 %.p.i89
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %214 = load i32, ptr %213, align 8, !tbaa !48
@@ -525,7 +525,7 @@ _ZN12_GLOBAL__N_111calc_cosineERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit: ; pre
   br i1 %215, label %225, label %216
 
 216:                                              ; preds = %211
-  %217 = add i64 %.0313.i, %.040195
+  %217 = add i64 %.0312.i, %.040195
   %218 = icmp ult i64 %217, %83
   %219 = select i1 %218, i64 0, i64 %83
   %220 = sub nuw i64 %217, %219

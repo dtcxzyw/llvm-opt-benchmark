@@ -14,26 +14,26 @@ define hidden void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr noundef
   br label %4
 
 4:                                                ; preds = %7, %3
-  %.0710.i.i = phi i64 [ 0, %3 ], [ %8, %7 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %3 ], [ %8, %7 ]
+  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %7, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 7:                                                ; preds = %4
-  %8 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %8, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %4, !llvm.loop !5
+  %8 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %8, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %4, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
-  %9 = shl nuw nsw i64 %.0710.i.i, 6
+  %9 = shl nuw nsw i64 %.0712.i.i, 6
   %10 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
   %11 = or disjoint i64 %10, %9
   %.not18 = icmp eq i64 %11, 256
   br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
-  %12 = and i64 %.0710.i.i, 2
+  %12 = and i64 %.0712.i.i, 2
   %.not1343 = icmp eq i64 %12, 0
   %13 = select i1 %.not1343, ptr %1, ptr %2
   %14 = and i64 %10, 15
@@ -46,7 +46,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
   %21 = trunc nuw i32 %18 to i8
   %22 = or i8 %20, %21
   store i8 %22, ptr %19, align 1
-  %.not.i.i1444 = icmp samesign ult i64 %.0710.i.i, 4
+  %.not.i.i1444 = icmp samesign ult i64 %.0712.i.i, 4
   br i1 %.not.i.i1444, label %.lr.ph46, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %_ZNK3ue29CharReach9find_nextEm.exit, %32, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

@@ -3362,11 +3362,11 @@ _ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %94, %59, %89, %.l
   br i1 %119, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %120
 
 120:                                              ; preds = %113
-  %.not21.i = icmp ult i64 %116, %118
-  br i1 %.not21.i, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %.preheader.i, !llvm.loop !92
+  %.not24.i = icmp ult i64 %116, %118
+  br i1 %.not24.i, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %.preheader.i, !llvm.loop !92
 
 _ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit: ; preds = %.preheader.i, %113, %120, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, %110
-  %121 = phi i1 [ true, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %110 ], [ false, %120 ], [ false, %.preheader.i ], [ true, %113 ]
+  %121 = phi i1 [ true, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %110 ], [ false, %.preheader.i ], [ false, %120 ], [ true, %113 ]
   %.not.i.i52 = phi i1 [ false, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %110 ], [ %.not.i49, %120 ], [ %.not.i49, %113 ], [ %.not.i49, %.preheader.i ]
   br i1 %.not.i, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit
 
@@ -4424,11 +4424,11 @@ _ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %95, %60, %90, %.l
   br i1 %120, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %121
 
 121:                                              ; preds = %114
-  %.not21.i = icmp ult i64 %117, %119
-  br i1 %.not21.i, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %.preheader.i, !llvm.loop !92
+  %.not24.i = icmp ult i64 %117, %119
+  br i1 %.not24.i, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %.preheader.i, !llvm.loop !92
 
 _ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit: ; preds = %.preheader.i, %114, %121, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, %111
-  %122 = phi i1 [ true, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %111 ], [ false, %121 ], [ false, %.preheader.i ], [ true, %114 ]
+  %122 = phi i1 [ true, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %111 ], [ false, %.preheader.i ], [ false, %121 ], [ true, %114 ]
   %.not.i.i52 = phi i1 [ false, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %111 ], [ %.not.i49, %121 ], [ %.not.i49, %114 ], [ %.not.i49, %.preheader.i ]
   br i1 %.not.i, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit
 

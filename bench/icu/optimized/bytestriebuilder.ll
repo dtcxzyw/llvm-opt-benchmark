@@ -739,9 +739,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !34
   %18 = icmp eq i32 %15, %17
-  br i1 %18, label %22, label %.thread28
+  br i1 %18, label %22, label %.thread27
 
-.thread28:                                        ; preds = %13
+.thread27:                                        ; preds = %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
   %19 = add nsw i32 %15, 1
@@ -792,17 +792,17 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
 45:                                               ; preds = %43, %39
   store ptr %29, ptr %40, align 8, !tbaa !30
   store i32 %.014, ptr %16, align 8, !tbaa !34
-  %.pre21 = load i32, ptr %14, align 4, !tbaa !33
-  %.pre22 = load i32, ptr %4, align 4, !tbaa !13
-  %46 = add nsw i32 %.pre21, 1
+  %.pre20 = load i32, ptr %14, align 4, !tbaa !33
+  %.pre21 = load i32, ptr %4, align 4, !tbaa !13
+  %46 = add nsw i32 %.pre20, 1
   store i32 %46, ptr %14, align 4, !tbaa !33
-  %47 = sext i32 %.pre21 to i64
+  %47 = sext i32 %.pre20 to i64
   %48 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %29, i64 %47
-  %49 = icmp slt i32 %.pre22, 1
+  %49 = icmp slt i32 %.pre21, 1
   br i1 %49, label %50, label %_ZN6icu_7716BytesTrieElement5setToENS_11StringPieceEiRNS_10CharStringER10UErrorCode.exit
 
-50:                                               ; preds = %.thread28, %45
-  %51 = phi ptr [ %21, %.thread28 ], [ %48, %45 ]
+50:                                               ; preds = %.thread27, %45
+  %51 = phi ptr [ %21, %.thread27 ], [ %48, %45 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %.in, align 8, !tbaa !23
   %53 = icmp sgt i32 %2, 65535
@@ -968,8 +968,8 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit: ; preds = %34, 
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.0.i, ptr %.sroa.215.0..sroa_idx, align 8
   %56 = load i32, ptr %17, align 4, !tbaa !33
-  %.not3040 = icmp sgt i32 %56, 1
-  br i1 %.not3040, label %.lr.ph, label %.thread38
+  %.not3039 = icmp sgt i32 %56, 1
+  br i1 %.not3039, label %.lr.ph, label %.thread38
 
 .lr.ph:                                           ; preds = %_ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1811,11 +1811,11 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716BytesTrieBuilder14ensureCa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %.thread
-  %.sink25 = phi ptr [ %20, %.thread ], [ %27, %26 ]
+  %.sink24 = phi ptr [ %20, %.thread ], [ %27, %26 ]
   %.sink = phi ptr [ %13, %.thread ], [ null, %26 ]
   %.lcssa.sink = phi i32 [ %10, %.thread ], [ 0, %26 ]
   %.012.ph = phi i8 [ 1, %.thread ], [ 0, %26 ]
-  tail call void @uprv_free_77(ptr noundef %.sink25)
+  tail call void @uprv_free_77(ptr noundef %.sink24)
   store ptr %.sink, ptr %3, align 8, !tbaa !31
   store i32 %.lcssa.sink, ptr %7, align 8, !tbaa !35
   br label %28

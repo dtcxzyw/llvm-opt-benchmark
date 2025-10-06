@@ -429,8 +429,8 @@ define internal fastcc i32 @splice_tree(ptr noundef %0, ptr noundef %1, ptr noun
   call void @init_tree_desc(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %16, i64 noundef %20) #11
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !16
-  %.not4862 = icmp eq i32 %22, 0
-  br i1 %.not4862, label %._crit_edge, label %.lr.ph
+  %.not4861 = icmp eq i32 %22, 0
+  br i1 %.not4861, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 56

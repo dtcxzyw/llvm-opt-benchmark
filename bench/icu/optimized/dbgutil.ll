@@ -628,86 +628,86 @@ declare i32 @udbg_enumCount(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define range(i32 -1, 2147483647) i32 @udbg_enumByString(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #1 {
   %or.cond = icmp ugt i32 %0, 5
-  br i1 %or.cond, label %.loopexit, label %3
+  br i1 %or.cond, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDebugEnumTypei(i32 noundef %0, i32 noundef 0)
   %5 = tail call i32 @udbg_enumCount(i32 noundef %0)
-  %.not1718 = icmp sgt i32 %5, 0
-  br i1 %.not1718, label %.lr.ph, label %.loopexit
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %3
-  %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  br label %9
+  %7 = zext nneg i32 %0 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
+10:                                               ; preds = %.lr.ph, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ]
-  %10 = load ptr, ptr @_ZL4strs, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
-  %12 = load ptr, ptr %11, align 8, !tbaa !18
-  %13 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %12, i64 %indvars.iv
-  %14 = load i16, ptr %7, align 8, !tbaa !22
-  %15 = and i16 %14, 1
-  %.not.i = icmp eq i16 %15, 0
-  br i1 %.not.i, label %20, label %16
+  %11 = load ptr, ptr @_ZL4strs, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %7
+  %13 = load ptr, ptr %12, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %13, i64 %indvars.iv
+  %15 = load i16, ptr %8, align 8, !tbaa !22
+  %16 = and i16 %15, 1
+  %.not.i = icmp eq i16 %16, 0
+  br i1 %.not.i, label %21, label %17
 
-16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i16, ptr %17, align 8, !tbaa !22
-  %19 = and i16 %18, 1
-  %.not = icmp eq i16 %19, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.loopexit.loopexit.split.loop.exit27
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !22
+  %20 = and i16 %19, 1
+  %.not = icmp eq i16 %20, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.thread.loopexit.split.loop.exit
 
-20:                                               ; preds = %9
-  %21 = icmp slt i16 %14, 0
-  %22 = ashr i16 %14, 5
-  %23 = sext i16 %22 to i32
-  %24 = load i32, ptr %8, align 4
-  %25 = select i1 %21, i32 %24, i32 %23
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %27 = load i16, ptr %26, align 8, !tbaa !22
-  %28 = icmp slt i16 %27, 0
-  %29 = ashr i16 %27, 5
-  %30 = sext i16 %29 to i32
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %32 = load i32, ptr %31, align 4
-  %33 = select i1 %28, i32 %32, i32 %30
-  %34 = and i16 %27, 1
-  %.not9.i = icmp eq i16 %34, 0
-  %35 = icmp eq i32 %25, %33
-  %or.cond.i = and i1 %.not9.i, %35
+21:                                               ; preds = %10
+  %22 = icmp slt i16 %15, 0
+  %23 = ashr i16 %15, 5
+  %24 = sext i16 %23 to i32
+  %25 = load i32, ptr %9, align 4
+  %26 = select i1 %22, i32 %25, i32 %24
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %28 = load i16, ptr %27, align 8, !tbaa !22
+  %29 = icmp slt i16 %28, 0
+  %30 = ashr i16 %28, 5
+  %31 = sext i16 %30 to i32
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %33 = load i32, ptr %32, align 4
+  %34 = select i1 %29, i32 %33, i32 %31
+  %35 = and i16 %28, 1
+  %.not9.i = icmp eq i16 %35, 0
+  %36 = icmp eq i32 %26, %34
+  %or.cond.i = and i1 %.not9.i, %36
   br i1 %or.cond.i, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
-_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %20
-  %36 = and i16 %27, 2
-  %.not.i.i.i = icmp eq i16 %36, 0
-  %37 = getelementptr inbounds nuw i8, ptr %13, i64 10
-  %38 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = select i1 %.not.i.i.i, ptr %39, ptr %37
-  %41 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %40, i32 noundef %25)
-  %.not16 = icmp eq i8 %41, 0
-  br i1 %.not16, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.loopexit.loopexit.split.loop.exit25
+_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %21
+  %37 = and i16 %28, 2
+  %.not.i.i.i = icmp eq i16 %37, 0
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 10
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = select i1 %.not.i.i.i, ptr %40, ptr %38
+  %42 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %41, i32 noundef %26)
+  %.not17 = icmp eq i8 %42, 0
+  br i1 %.not17, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.thread.loopexit.split.loop.exit24
 
-_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %20, %16, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %21, %17, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = tail call i32 @udbg_enumCount(i32 noundef %0)
-  %43 = sext i32 %42 to i64
-  %.not17 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %.not17, label %9, label %.loopexit, !llvm.loop !26
+  %43 = tail call i32 @udbg_enumCount(i32 noundef %0)
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next, %44
+  br i1 %45, label %10, label %.thread, !llvm.loop !26
 
-.loopexit.loopexit.split.loop.exit25:             ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %44 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.loopexit
+.thread.loopexit.split.loop.exit:                 ; preds = %17
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.thread
 
-.loopexit.loopexit.split.loop.exit27:             ; preds = %16
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.loopexit
+.thread.loopexit.split.loop.exit24:               ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.thread
 
-.loopexit:                                        ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, %.loopexit.loopexit.split.loop.exit25, %.loopexit.loopexit.split.loop.exit27, %3, %2
-  %.013 = phi i32 [ -1, %2 ], [ -1, %3 ], [ %44, %.loopexit.loopexit.split.loop.exit25 ], [ %45, %.loopexit.loopexit.split.loop.exit27 ], [ -1, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ]
+.thread:                                          ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit24, %3, %2
+  %.013 = phi i32 [ -1, %2 ], [ -1, %3 ], [ %46, %.thread.loopexit.split.loop.exit ], [ %47, %.thread.loopexit.split.loop.exit24 ], [ -1, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ]
   ret i32 %.013
 }
 

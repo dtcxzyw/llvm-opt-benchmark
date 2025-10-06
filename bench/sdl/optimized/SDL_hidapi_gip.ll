@@ -2908,8 +2908,8 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %400 = phi i8 [ %385, %391 ], [ 0, %381 ]
   %401 = icmp ult i16 %226, 2
   %.not169.i.i.i.i = icmp eq i16 %235, 0
-  %or.cond8.i.i = select i1 %401, i1 %.not169.i.i.i.i, i1 false
-  br i1 %or.cond8.i.i, label %427, label %402
+  %or.cond7.i67.i = select i1 %401, i1 %.not169.i.i.i.i, i1 false
+  br i1 %or.cond7.i67.i, label %427, label %402
 
 402:                                              ; preds = %398
   %403 = getelementptr inbounds nuw i8, ptr %249, i64 14
@@ -3020,8 +3020,8 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   store i16 %469, ptr %470, align 2
   %471 = add nuw nsw i32 %450, %.05460.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %434
-  br i1 %exitcond30.not.i.i, label %GIP_ParseMetadata.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
+  %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %434
+  br i1 %exitcond29.not.i.i, label %GIP_ParseMetadata.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
 GIP_ParseDeviceMetadata.exit.thread.i.i.i:        ; preds = %356, %.lr.ph182.i.i.i.i, %443, %.lr.ph.i.i.i, %427, %412, %402, %382, %.loopexit.i.i.i.i, %.loopexit174.i.i.i.i, %319, %.loopexit176.i.i.i.i, %292, %282, %271, %261, %252, %246
   call fastcc void @GIP_MetadataFree(ptr noundef nonnull %9)
@@ -3047,8 +3047,8 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   store i32 0, ptr %480, align 4
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 -1, ptr %481, align 4
-  %.not.i67.i = icmp eq i8 %372, 0
-  br i1 %.not.i67.i, label %.thread.i68.i, label %.lr.ph.i.i
+  %.not.i68.i = icmp eq i8 %372, 0
+  br i1 %.not.i68.i, label %.thread.i69.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %478
   %wide.trip.count.i.i = zext i8 %372 to i64
@@ -3056,8 +3056,8 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
 
 482:                                              ; preds = %509
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond32.not.i.i, label %.thread.i68.i, label %483, !llvm.loop !19
+  %exitcond31.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond31.not.i.i, label %.thread.i69.i, label %483, !llvm.loop !19
 
 483:                                              ; preds = %482, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %482 ]
@@ -3112,42 +3112,42 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   %.not73.ph.i.i = phi i1 [ false, %483 ], [ false, %488 ], [ false, %491 ], [ false, %494 ], [ false, %497 ], [ false, %500 ], [ false, %503 ], [ false, %506 ], [ true, %509 ]
   %.1.ph.i.i = phi ptr [ @GUID_IGamepad, %483 ], [ @GUID_ArcadeStick, %488 ], [ @GUID_ArcadeStick, %491 ], [ @GUID_FlightStick, %494 ], [ @GUID_FlightStick, %497 ], [ @GUID_Wheel, %500 ], [ @GUID_Wheel, %503 ], [ @GUID_NavigationController, %506 ], [ null, %509 ]
   store i32 %.sink.i.i, ptr %481, align 4
-  br label %.thread.i68.i
+  br label %.thread.i69.i
 
-.thread.i68.i:                                    ; preds = %482, %.thread.sink.split.i.i, %478
+.thread.i69.i:                                    ; preds = %482, %.thread.sink.split.i.i, %478
   %.not73.i.i = phi i1 [ true, %478 ], [ %.not73.ph.i.i, %.thread.sink.split.i.i ], [ true, %482 ]
   %.1.i.i = phi ptr [ null, %478 ], [ %.1.ph.i.i, %.thread.sink.split.i.i ], [ null, %482 ]
-  %.not24.i.i = icmp eq i8 %400, 0
-  br i1 %.not24.i.i, label %.preheader.i.i, label %.lr.ph20.i.i
+  %.not23.i.i = icmp eq i8 %400, 0
+  br i1 %.not23.i.i, label %.preheader.i.i, label %.lr.ph19.i.i
 
-.lr.ph20.i.i:                                     ; preds = %.thread.i68.i
-  %wide.trip.count35.i.i = zext i8 %400 to i64
+.lr.ph19.i.i:                                     ; preds = %.thread.i69.i
+  %wide.trip.count34.i.i = zext i8 %400 to i64
   br label %512
 
-.preheader.i.i:                                   ; preds = %537, %.thread.i68.i
-  %.071.lcssa.i.i = phi i1 [ false, %.thread.i68.i ], [ %.172.i.i, %537 ]
-  %.065.lcssa.i.i = phi i1 [ %.not73.i.i, %.thread.i68.i ], [ %.166.i.i, %537 ]
-  br i1 %.not46.i.i.i, label %._crit_edge.i.i, label %.lr.ph23.i.i
+.preheader.i.i:                                   ; preds = %537, %.thread.i69.i
+  %.071.lcssa.i.i = phi i1 [ false, %.thread.i69.i ], [ %.172.i.i, %537 ]
+  %.065.lcssa.i.i = phi i1 [ %.not73.i.i, %.thread.i69.i ], [ %.166.i.i, %537 ]
+  br i1 %.not46.i.i.i, label %._crit_edge.i.i, label %.lr.ph22.i.i
 
-.lr.ph23.i.i:                                     ; preds = %.preheader.i.i
-  %wide.trip.count40.i.i = zext i8 %432 to i64
+.lr.ph22.i.i:                                     ; preds = %.preheader.i.i
+  %wide.trip.count39.i.i = zext i8 %432 to i64
   br label %538
 
-512:                                              ; preds = %537, %.lr.ph20.i.i
-  %indvars.iv33.i.i = phi i64 [ 0, %.lr.ph20.i.i ], [ %indvars.iv.next34.i.i, %537 ]
-  %.06519.i.i = phi i1 [ %.not73.i.i, %.lr.ph20.i.i ], [ %.166.i.i, %537 ]
-  %.07117.i.i = phi i1 [ false, %.lr.ph20.i.i ], [ %.172.i.i, %537 ]
-  %513 = getelementptr inbounds nuw %struct.GUID, ptr %399, i64 %indvars.iv33.i.i
+512:                                              ; preds = %537, %.lr.ph19.i.i
+  %indvars.iv32.i.i = phi i64 [ 0, %.lr.ph19.i.i ], [ %indvars.iv.next33.i.i, %537 ]
+  %.06518.i.i = phi i1 [ %.not73.i.i, %.lr.ph19.i.i ], [ %.166.i.i, %537 ]
+  %.07116.i.i = phi i1 [ false, %.lr.ph19.i.i ], [ %.172.i.i, %537 ]
+  %513 = getelementptr inbounds nuw %struct.GUID, ptr %399, i64 %indvars.iv32.i.i
   br i1 %.not73.i.i, label %517, label %514
 
 514:                                              ; preds = %512
   %515 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.1.i.i, ptr noundef %513, i64 noundef 16) #10
   %516 = icmp eq i32 %515, 0
-  %spec.select.i.i = select i1 %516, i1 true, i1 %.06519.i.i
+  %spec.select.i.i = select i1 %516, i1 true, i1 %.06518.i.i
   br label %517
 
 517:                                              ; preds = %514, %512
-  %.166.i.i = phi i1 [ %.06519.i.i, %512 ], [ %spec.select.i.i, %514 ]
+  %.166.i.i = phi i1 [ %.06518.i.i, %512 ], [ %spec.select.i.i, %514 ]
   %518 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IController, ptr noundef %513, i64 noundef 16) #10
   %519 = icmp eq i32 %518, 0
   br i1 %519, label %537, label %520
@@ -3178,21 +3178,21 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   br i1 %534, label %.sink.split.i.i, label %537
 
 .sink.split.i.i:                                  ; preds = %532, %529, %526, %523, %520
-  %.sink69.i.i = phi i32 [ 16, %520 ], [ 1, %523 ], [ 2, %526 ], [ 4, %529 ], [ 8, %532 ]
+  %.sink68.i.i = phi i32 [ 16, %520 ], [ 1, %523 ], [ 2, %526 ], [ 4, %529 ], [ 8, %532 ]
   %535 = load i32, ptr %480, align 4
-  %536 = or i32 %535, %.sink69.i.i
+  %536 = or i32 %535, %.sink68.i.i
   store i32 %536, ptr %480, align 4
   br label %537
 
 537:                                              ; preds = %.sink.split.i.i, %532, %517
-  %.172.i.i = phi i1 [ true, %517 ], [ %.07117.i.i, %532 ], [ %.07117.i.i, %.sink.split.i.i ]
-  %indvars.iv.next34.i.i = add nuw nsw i64 %indvars.iv33.i.i, 1
-  %exitcond36.not.i.i = icmp eq i64 %indvars.iv.next34.i.i, %wide.trip.count35.i.i
-  br i1 %exitcond36.not.i.i, label %.preheader.i.i, label %512, !llvm.loop !20
+  %.172.i.i = phi i1 [ true, %517 ], [ %.07116.i.i, %532 ], [ %.07116.i.i, %.sink.split.i.i ]
+  %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
+  %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next33.i.i, %wide.trip.count34.i.i
+  br i1 %exitcond35.not.i.i, label %.preheader.i.i, label %512, !llvm.loop !20
 
-538:                                              ; preds = %553, %.lr.ph23.i.i
-  %indvars.iv37.i.i = phi i64 [ 0, %.lr.ph23.i.i ], [ %indvars.iv.next38.i.i, %553 ]
-  %539 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %472, i64 %indvars.iv37.i.i
+538:                                              ; preds = %553, %.lr.ph22.i.i
+  %indvars.iv36.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next37.i.i, %553 ]
+  %539 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %472, i64 %indvars.iv36.i.i
   %540 = load i8, ptr %539, align 4
   %541 = icmp eq i8 %540, 9
   br i1 %541, label %542, label %553
@@ -3217,18 +3217,18 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   br label %553
 
 553:                                              ; preds = %550, %546, %542, %538
-  %indvars.iv.next38.i.i = add nuw nsw i64 %indvars.iv37.i.i, 1
-  %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next38.i.i, %wide.trip.count40.i.i
-  br i1 %exitcond41.not.i.i, label %._crit_edge.i.i, label %538, !llvm.loop !21
+  %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
+  %exitcond40.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, %wide.trip.count39.i.i
+  br i1 %exitcond40.not.i.i, label %._crit_edge.i.i, label %538, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %553, %.preheader.i.i
   br i1 %.065.lcssa.i.i, label %554, label %555
 
 554:                                              ; preds = %._crit_edge.i.i
   %.val.i.i = load i32, ptr %481, align 4
-  %.not11.i.i = icmp eq i32 %.val.i.i, 5
-  %or.cond.i69.i = select i1 %.not11.i.i, i1 true, i1 %.071.lcssa.i.i
-  br i1 %or.cond.i69.i, label %556, label %555
+  %.not10.i.i = icmp eq i32 %.val.i.i, 5
+  %or.cond.i70.i = select i1 %.not10.i.i, i1 true, i1 %.071.lcssa.i.i
+  br i1 %or.cond.i70.i, label %556, label %555
 
 555:                                              ; preds = %554, %._crit_edge.i.i
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.36) #10
@@ -3238,7 +3238,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   %557 = load i32, ptr %480, align 4
   %558 = and i32 %557, 14
   %.not74.i.i = icmp eq i32 %558, 0
-  br i1 %.not74.i.i, label %GIP_SupportsVendorMessage.exit.thread6.i.i, label %559
+  br i1 %.not74.i.i, label %GIP_SupportsVendorMessage.exit.thread5.i.i, label %559
 
 559:                                              ; preds = %556
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -3268,15 +3268,15 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   %571 = getelementptr inbounds nuw i8, ptr %568, i64 8
   %572 = load i32, ptr %571, align 4
   %573 = and i32 %572, 40
-  %or.cond10.not.i.i = icmp eq i32 %573, 0
-  br i1 %or.cond10.not.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %GIP_SupportsVendorMessage.exit.thread6.i.i
+  %or.cond9.not.i.i = icmp eq i32 %573, 0
+  br i1 %or.cond9.not.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %GIP_SupportsVendorMessage.exit.thread5.i.i
 
 GIP_SupportsVendorMessage.exit.thread.i.i:        ; preds = %565, %570, %559
   %574 = and i32 %557, -15
   store i32 %574, ptr %480, align 4
-  br label %GIP_SupportsVendorMessage.exit.thread6.i.i
+  br label %GIP_SupportsVendorMessage.exit.thread5.i.i
 
-GIP_SupportsVendorMessage.exit.thread6.i.i:       ; preds = %GIP_SupportsVendorMessage.exit.thread.i.i, %570, %556
+GIP_SupportsVendorMessage.exit.thread5.i.i:       ; preds = %GIP_SupportsVendorMessage.exit.thread.i.i, %570, %556
   %575 = phi i32 [ %557, %570 ], [ %574, %GIP_SupportsVendorMessage.exit.thread.i.i ], [ %557, %556 ]
   %576 = load ptr, ptr %0, align 8
   %577 = load ptr, ptr %576, align 8
@@ -3285,8 +3285,8 @@ GIP_SupportsVendorMessage.exit.thread6.i.i:       ; preds = %GIP_SupportsVendorM
   %580 = getelementptr inbounds nuw i8, ptr %577, i64 34
   br label %581
 
-581:                                              ; preds = %627, %GIP_SupportsVendorMessage.exit.thread6.i.i
-  %.02935.i.i.i = phi i64 [ 0, %GIP_SupportsVendorMessage.exit.thread6.i.i ], [ %628, %627 ]
+581:                                              ; preds = %627, %GIP_SupportsVendorMessage.exit.thread5.i.i
+  %.02935.i.i.i = phi i64 [ 0, %GIP_SupportsVendorMessage.exit.thread5.i.i ], [ %628, %627 ]
   %582 = getelementptr inbounds nuw %struct.GIP_Quirks, ptr @quirks, i64 %.02935.i.i.i
   %583 = load i16, ptr %582, align 4
   %.not31.i.i.i = icmp eq i16 %583, %579
@@ -3387,8 +3387,8 @@ GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.ex
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %640 = load i32, ptr %639, align 4
   %641 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %640) #10
-  %.not.i70.i = icmp eq ptr %641, null
-  br i1 %.not.i70.i, label %GIP_HandleSystemMessage.exit, label %642
+  %.not.i71.i = icmp eq ptr %641, null
+  br i1 %.not.i71.i, label %GIP_HandleSystemMessage.exit, label %642
 
 642:                                              ; preds = %638
   %643 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -3470,9 +3470,9 @@ GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.ex
 695:                                              ; preds = %691
   %696 = icmp eq i16 %667, 5
   %697 = icmp ult i16 %675, 17
-  %or.cond.i74.i = and i1 %696, %697
+  %or.cond.i75.i = and i1 %696, %697
   %698 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  br i1 %or.cond.i74.i, label %.thread.i75.i, label %699
+  br i1 %or.cond.i75.i, label %.thread.i76.i, label %699
 
 699:                                              ; preds = %695
   store i32 3, ptr %698, align 8
@@ -3484,17 +3484,17 @@ GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.ex
   %703 = icmp eq i32 %702, 2
   br i1 %703, label %.thread3.i.i, label %704
 
-.thread.i75.i:                                    ; preds = %695
+.thread.i76.i:                                    ; preds = %695
   store i32 2, ptr %698, align 8
   br label %.thread3.i.i
 
 704:                                              ; preds = %700
-  %.not.i.i73.i = icmp ne i16 %667, 4
+  %.not.i.i74.i = icmp ne i16 %667, 4
   %705 = icmp ult i16 %675, 17
-  %or.cond4.i.i = and i1 %.not.i.i73.i, %705
+  %or.cond4.i.i = and i1 %.not.i.i74.i, %705
   br i1 %or.cond4.i.i, label %.thread3.i.i, label %716
 
-.thread3.i.i:                                     ; preds = %704, %.thread.i75.i, %700
+.thread3.i.i:                                     ; preds = %704, %.thread.i76.i, %700
   %706 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %707 = load i8, ptr %706, align 4
   %708 = add i8 %707, 1
@@ -3536,16 +3536,16 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   %719 = tail call i64 @SDL_GetTicksNS_REAL() #10
   %720 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %721 = load i32, ptr %720, align 4
-  %.not.i76.i = icmp eq i32 %721, 5
-  br i1 %.not.i76.i, label %722, label %727
+  %.not.i77.i = icmp eq i32 %721, 5
+  br i1 %.not.i77.i, label %722, label %727
 
 722:                                              ; preds = %718
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %724 = load i32, ptr %723, align 8
   %725 = icmp eq i32 %724, 0
   %726 = icmp ne i32 %2, 8
-  %or.cond.i78.i = or i1 %726, %725
-  br i1 %or.cond.i78.i, label %727, label %728
+  %or.cond.i79.i = or i1 %726, %725
+  br i1 %or.cond.i79.i, label %727, label %728
 
 727:                                              ; preds = %722, %718
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.42) #10
@@ -3560,15 +3560,15 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   %734 = zext i8 %733 to i32
   %735 = and i32 %734, 2
   %.not68.i.i = icmp eq i32 %735, 0
-  br i1 %.not68.i.i, label %738, label %.sink.split.i79.i
+  br i1 %.not68.i.i, label %738, label %.sink.split.i80.i
 
-.sink.split.i79.i:                                ; preds = %728
+.sink.split.i80.i:                                ; preds = %728
   %736 = and i32 %730, 2
   %.not69.i.i = icmp ne i32 %736, 0
   %737 = tail call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %719, i32 noundef %724, i32 noundef 0, i32 noundef 225, i1 noundef zeroext %.not69.i.i) #10
   br label %738
 
-738:                                              ; preds = %.sink.split.i79.i, %728
+738:                                              ; preds = %.sink.split.i80.i, %728
   %739 = and i32 %734, 4
   %.not70.i.i = icmp eq i32 %739, 0
   br i1 %.not70.i.i, label %763, label %740
@@ -3659,13 +3659,13 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   %775 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %719, i32 noundef %774, i32 noundef 0, i32 noundef %768, i1 noundef zeroext false) #10
   %776 = load i8, ptr %731, align 1
   %777 = and i8 %776, -3
-  %.not74.i80.i = icmp eq i8 %777, 0
-  br i1 %.not74.i80.i, label %778, label %791
+  %.not74.i81.i = icmp eq i8 %777, 0
+  br i1 %.not74.i81.i, label %778, label %791
 
 778:                                              ; preds = %773
   %779 = load i32, ptr %767, align 8
-  %.not75.i81.i = icmp eq i8 %776, 0
-  br i1 %.not75.i81.i, label %780, label %785
+  %.not75.i82.i = icmp eq i8 %776, 0
+  br i1 %.not75.i82.i, label %780, label %785
 
 780:                                              ; preds = %778
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 310
@@ -3780,7 +3780,7 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   br label %GIP_HandleCommandExtended.exit.i
 
 GIP_HandleCommandExtended.exit.i:                 ; preds = %835, %828, %823, %819
-  %.0.i82.i = phi i1 [ true, %828 ], [ false, %835 ], [ false, %819 ], [ true, %823 ]
+  %.0.i83.i = phi i1 [ true, %828 ], [ false, %835 ], [ false, %819 ], [ true, %823 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %GIP_HandleSystemMessage.exit
 
@@ -4423,7 +4423,7 @@ GIP_HandleArcadeStickReport.exit.i:               ; preds = %1132, %.lr.ph74.i.i
   br label %GIP_HandleSystemMessage.exit
 
 GIP_HandleSystemMessage.exit:                     ; preds = %1212, %945, %942, %935, %GIP_EnsureMetadata.exit.i, %868, %864, %861, %860, %851, %844, %838, %837, %GIP_HandleCommandExtended.exit.i, %818, %727, %717, %716, %GIP_SendVendorMessage.exit.i.i.i, %GIP_SendVendorMessage.exit.thread.i.i.i, %658, %651, %650, %646, %642, %638, %631, %630, %GIP_HandleCommandMetadataRespose.exit.i, %205, %187, %.loopexit.i.i, %176, %175, %168, %160, %159, %141, %133, %109, %45, %44, %42, %1218, %1217, %1216, %1215
-  %.0 = phi i1 [ false, %1218 ], [ false, %1215 ], [ false, %1216 ], [ false, %1217 ], [ false, %838 ], [ false, %44 ], [ %.0.i66.i, %GIP_HandleCommandMetadataRespose.exit.i ], [ false, %630 ], [ false, %650 ], [ %.0.i82.i, %GIP_HandleCommandExtended.exit.i ], [ false, %837 ], [ false, %42 ], [ %122, %109 ], [ false, %45 ], [ true, %141 ], [ true, %159 ], [ true, %133 ], [ false, %175 ], [ false, %160 ], [ false, %168 ], [ false, %176 ], [ true, %.loopexit.i.i ], [ true, %187 ], [ true, %205 ], [ true, %631 ], [ false, %638 ], [ true, %646 ], [ true, %642 ], [ false, %717 ], [ false, %651 ], [ false, %658 ], [ true, %716 ], [ false, %GIP_SendVendorMessage.exit.i.i.i ], [ false, %GIP_SendVendorMessage.exit.thread.i.i.i ], [ false, %727 ], [ true, %818 ], [ false, %860 ], [ true, %844 ], [ true, %851 ], [ true, %868 ], [ true, %864 ], [ true, %861 ], [ true, %942 ], [ false, %945 ], [ true, %1212 ], [ true, %GIP_EnsureMetadata.exit.i ], [ false, %935 ]
+  %.0 = phi i1 [ false, %1218 ], [ false, %1215 ], [ false, %1216 ], [ false, %1217 ], [ false, %838 ], [ false, %44 ], [ %.0.i66.i, %GIP_HandleCommandMetadataRespose.exit.i ], [ false, %630 ], [ false, %650 ], [ %.0.i83.i, %GIP_HandleCommandExtended.exit.i ], [ false, %837 ], [ false, %42 ], [ %122, %109 ], [ false, %45 ], [ true, %141 ], [ true, %159 ], [ true, %133 ], [ false, %175 ], [ false, %160 ], [ false, %168 ], [ false, %176 ], [ true, %.loopexit.i.i ], [ true, %187 ], [ true, %205 ], [ true, %631 ], [ false, %638 ], [ true, %646 ], [ true, %642 ], [ false, %717 ], [ false, %651 ], [ false, %658 ], [ true, %716 ], [ false, %GIP_SendVendorMessage.exit.i.i.i ], [ false, %GIP_SendVendorMessage.exit.thread.i.i.i ], [ false, %727 ], [ true, %818 ], [ false, %860 ], [ true, %844 ], [ true, %851 ], [ true, %868 ], [ true, %864 ], [ true, %861 ], [ true, %942 ], [ false, %945 ], [ true, %1212 ], [ true, %GIP_EnsureMetadata.exit.i ], [ false, %935 ]
   ret i1 %.0
 }
 

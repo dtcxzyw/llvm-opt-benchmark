@@ -2814,17 +2814,17 @@ declare void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127hasUseAfterReturnUnsafeUsesERN4llvm5ValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.050.081 = load ptr, ptr %2, align 8, !tbaa !387
-  %.not7282.not = icmp eq ptr %.sroa.050.081, null
-  br i1 %.not7282.not, label %.thread70, label %.lr.ph
+  %.sroa.050.083 = load ptr, ptr %2, align 8, !tbaa !387
+  %.not7484.not = icmp eq ptr %.sroa.050.083, null
+  br i1 %.not7484.not, label %.thread59, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.thread62
-  %.sroa.050.083 = phi ptr [ %.sroa.050.0, %.thread62 ], [ %.sroa.050.081, %1 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.sroa.050.083, i64 24
+  %.sroa.050.085 = phi ptr [ %.sroa.050.0, %.thread62 ], [ %.sroa.050.083, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.sroa.050.085, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !388
   %5 = load i8, ptr %4, align 8, !tbaa !254
   %6 = icmp ult i8 %5, 29
-  br i1 %6, label %.thread70, label %7
+  br i1 %6, label %.thread59, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction20isLifetimeStartOrEndEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #24
@@ -2849,7 +2849,7 @@ thread-pre-split:                                 ; preds = %13
 
 15:                                               ; preds = %thread-pre-split, %11
   %16 = phi i8 [ %.pr, %thread-pre-split ], [ %12, %11 ]
-  switch i8 %16, label %.thread70 [
+  switch i8 %16, label %.thread59 [
     i8 61, label %.thread62
     i8 62, label %17
     i8 63, label %21
@@ -2860,25 +2860,25 @@ thread-pre-split:                                 ; preds = %13
   %18 = getelementptr inbounds i8, ptr %4, i64 -32
   %19 = load ptr, ptr %18, align 8, !tbaa !259
   %20 = icmp eq ptr %19, %0
-  br i1 %20, label %.thread62, label %.thread70
+  br i1 %20, label %.thread62, label %.thread59
 
 21:                                               ; preds = %15
   %22 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127hasUseAfterReturnUnsafeUsesERN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %4)
-  br i1 %22, label %.thread70, label %.thread62
+  br i1 %22, label %.thread59, label %.thread62
 
 23:                                               ; preds = %15
   %24 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127hasUseAfterReturnUnsafeUsesERN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %4)
-  br i1 %24, label %.thread70, label %.thread62
+  br i1 %24, label %.thread59, label %.thread62
 
 .thread62:                                        ; preds = %15, %23, %21, %17, %13, %7, %9
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.050.083, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.050.085, i64 8
   %.sroa.050.0 = load ptr, ptr %25, align 8, !tbaa !387
-  %.not72.not = icmp eq ptr %.sroa.050.0, null
-  br i1 %.not72.not, label %.thread70, label %.lr.ph
+  %.not74.not = icmp eq ptr %.sroa.050.0, null
+  br i1 %.not74.not, label %.thread59, label %.lr.ph
 
-.thread70:                                        ; preds = %.thread62, %21, %.lr.ph, %23, %15, %17, %1
-  %.not72.lcssa = phi i1 [ false, %1 ], [ true, %17 ], [ true, %15 ], [ true, %23 ], [ true, %.lr.ph ], [ true, %21 ], [ false, %.thread62 ]
-  ret i1 %.not72.lcssa
+.thread59:                                        ; preds = %21, %.lr.ph, %.thread62, %23, %15, %17, %1
+  %.not74.lcssa = phi i1 [ false, %1 ], [ true, %17 ], [ true, %15 ], [ true, %23 ], [ false, %.thread62 ], [ true, %.lr.ph ], [ true, %21 ]
+  ret i1 %.not74.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

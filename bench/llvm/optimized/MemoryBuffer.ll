@@ -628,8 +628,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !noalias !57
   %44 = call { i32, ptr } @_ZN4llvm3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %32, ptr noundef nonnull align 8 dereferenceable(72) %6) #24, !noalias !57
   %45 = extractvalue { i32, ptr } %44, 0
-  %.not79.i = icmp eq i32 %45, 0
-  br i1 %.not79.i, label %51, label %46
+  %.not77.i = icmp eq i32 %45, 0
+  br i1 %.not77.i, label %51, label %46
 
 46:                                               ; preds = %41
   %47 = extractvalue { i32, ptr } %44, 1
@@ -670,8 +670,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %60 = icmp ugt i64 %.037.i, 16383
   %61 = zext i32 %59 to i64
   %62 = icmp uge i64 %.037.i, %61
-  %or.cond22.not29.i.i = and i1 %60, %62
-  br i1 %or.cond22.not29.i.i, label %63, label %92
+  %or.cond22.not28.i.i = and i1 %60, %62
+  br i1 %or.cond22.not28.i.i, label %63, label %92
 
 63:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !57
@@ -709,8 +709,8 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEEC2EbimmRSt
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %82, ptr %84, align 8, !tbaa !9, !noalias !57
   %.pr.i = load i32, ptr %7, align 8, !tbaa !67, !noalias !57
-  %.not80.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not80.i, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i
+  %.not78.i = icmp eq i32 %.pr.i, 0
+  br i1 %.not78.i, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i
 
 _ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i, %63
   %85 = load ptr, ptr %66, align 8, !tbaa !15, !noalias !57
@@ -734,8 +734,8 @@ _ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !57
   call void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineESt8optionalINS_5AlignEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.3") align 8 %8, i64 noundef %.037.i, ptr noundef nonnull align 8 dereferenceable(34) %1, i16 %4), !noalias !57
   %93 = load ptr, ptr %8, align 8, !tbaa !45, !noalias !57
-  %.not81.i = icmp eq ptr %93, null
-  br i1 %.not81.i, label %.loopexit.thread.i, label %98
+  %.not79.i = icmp eq ptr %93, null
+  br i1 %.not79.i, label %.loopexit.thread.i, label %98
 
 .loopexit.thread.i:                               ; preds = %92
   %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #26
@@ -744,9 +744,9 @@ _ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
   %97 = or i8 %96, 1
   store i8 %97, ptr %95, align 8, !alias.scope !57
   store i32 12, ptr %0, align 8, !tbaa !41, !alias.scope !57
-  %.sroa.21.0..sroa_idx.i50.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %94, ptr %.sroa.21.0..sroa_idx.i50.i, align 8, !tbaa !43, !alias.scope !57
-  br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit57.i
+  %.sroa.21.0..sroa_idx.i49.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %94, ptr %.sroa.21.0..sroa_idx.i49.i, align 8, !tbaa !43, !alias.scope !57
+  br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit56.i
 
 98:                                               ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -758,7 +758,7 @@ _ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
   %105 = sub i64 %103, %104
   %106 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.21.0..sroa_idx.i52.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx.i51.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %108
 
 108:                                              ; preds = %_ZN4llvm8ExpectedImED2Ev.exit.i, %98
@@ -766,7 +766,7 @@ _ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
   %.sroa.0.0.i = phi ptr [ %100, %98 ], [ %.sroa.0.1.i, %_ZN4llvm8ExpectedImED2Ev.exit.i ]
   %.038.i = phi i64 [ %3, %98 ], [ %.139.i, %_ZN4llvm8ExpectedImED2Ev.exit.i ]
   %109 = icmp eq i64 %.sroa.7.0.i, 0
-  br i1 %109, label %.thread77.i, label %110
+  br i1 %109, label %.thread75.i, label %110
 
 110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !57
@@ -788,7 +788,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i: ;
   %119 = or i8 %118, 1
   store i8 %119, ptr %107, align 8, !alias.scope !57
   store i32 %116, ptr %0, align 8, !tbaa !41, !alias.scope !57
-  store ptr %117, ptr %.sroa.21.0..sroa_idx.i52.i, align 8, !tbaa !43, !alias.scope !57
+  store ptr %117, ptr %.sroa.21.0..sroa_idx.i51.i, align 8, !tbaa !43, !alias.scope !57
   %120 = load ptr, ptr %10, align 8, !tbaa !52, !noalias !57
   %121 = icmp eq ptr %120, null
   br i1 %121, label %_ZN4llvm5ErrorD2Ev.exit.i, label %122
@@ -826,8 +826,8 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %130, %129, %122, %_
 
 136:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
   %137 = load ptr, ptr %9, align 8, !tbaa !50, !noalias !57
-  %.not.i.i53.i = icmp eq ptr %137, null
-  br i1 %.not.i.i53.i, label %_ZN4llvm8ExpectedImED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+  %.not.i.i52.i = icmp eq ptr %137, null
+  br i1 %.not.i.i52.i, label %_ZN4llvm8ExpectedImED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %136
   %138 = load ptr, ptr %137, align 8, !tbaa !15, !noalias !57
@@ -840,34 +840,34 @@ _ZN4llvm8ExpectedImED2Ev.exit.i:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !57
   switch i32 %.343.i, label %.loopexit.i [
     i32 0, label %108
-    i32 3, label %.thread77.i
+    i32 3, label %.thread75.i
   ], !llvm.loop !74
 
-.thread77.i:                                      ; preds = %_ZN4llvm8ExpectedImED2Ev.exit.i, %108
+.thread75.i:                                      ; preds = %_ZN4llvm8ExpectedImED2Ev.exit.i, %108
   %141 = load i8, ptr %107, align 8, !alias.scope !57
   %142 = and i8 %141, -2
   store i8 %142, ptr %107, align 8, !alias.scope !57
   %143 = load i64, ptr %8, align 8, !tbaa !45, !noalias !57
   store i64 %143, ptr %0, align 8, !tbaa !45, !alias.scope !57
-  br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit57.i
+  br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit56.i
 
 .loopexit.i:                                      ; preds = %_ZN4llvm8ExpectedImED2Ev.exit.i
-  %.pr76.pre.i = load ptr, ptr %8, align 8, !tbaa !45, !noalias !57
-  %.not.i55.i = icmp eq ptr %.pr76.pre.i, null
-  br i1 %.not.i55.i, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit57.i, label %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i56.i
+  %.pr74.pre.i = load ptr, ptr %8, align 8, !tbaa !45, !noalias !57
+  %.not.i54.i = icmp eq ptr %.pr74.pre.i, null
+  br i1 %.not.i54.i, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit56.i, label %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i55.i
 
-_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i56.i: ; preds = %.loopexit.i
-  %144 = load ptr, ptr %.pr76.pre.i, align 8, !tbaa !15, !noalias !57
+_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i55.i: ; preds = %.loopexit.i
+  %144 = load ptr, ptr %.pr74.pre.i, align 8, !tbaa !15, !noalias !57
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8, !noalias !57
-  call void %146(ptr noundef nonnull align 8 dereferenceable(24) %.pr76.pre.i) #24, !noalias !57
-  br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit57.i
+  call void %146(ptr noundef nonnull align 8 dereferenceable(24) %.pr74.pre.i) #24, !noalias !57
+  br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit56.i
 
-_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit57.i: ; preds = %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i56.i, %.loopexit.i, %.thread77.i, %.loopexit.thread.i
+_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit56.i: ; preds = %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i55.i, %.loopexit.i, %.thread75.i, %.loopexit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !57
   br label %_ZL15getOpenFileImplIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbSt8optionalINS0_5AlignEE.exit
 
-_ZL15getOpenFileImplIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbSt8optionalINS0_5AlignEE.exit: ; preds = %.thread.i, %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit57.i
+_ZL15getOpenFileImplIN4llvm20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbSt8optionalINS0_5AlignEE.exit: ; preds = %.thread.i, %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit56.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %147 = call { i32, ptr } @_ZN4llvm3sys2fs9closeFileERi(ptr noundef nonnull align 4 dereferenceable(4) %13) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1315,8 +1315,8 @@ define internal fastcc void @_ZL15getOpenFileImplIN4llvm12MemoryBufferEENS0_7Err
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = call { i32, ptr } @_ZN4llvm3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %11) #24
   %31 = extractvalue { i32, ptr } %30, 0
-  %.not80 = icmp eq i32 %31, 0
-  br i1 %.not80, label %37, label %32
+  %.not78 = icmp eq i32 %31, 0
+  br i1 %.not78, label %37, label %32
 
 32:                                               ; preds = %27
   %33 = extractvalue { i32, ptr } %30, 1
@@ -1390,8 +1390,8 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
   %56 = icmp ugt i64 %.037, 16383
   %57 = zext i32 %54 to i64
   %58 = icmp uge i64 %.037, %57
-  %or.cond22.not29.i = and i1 %56, %58
-  %brmerge.not.i = and i1 %6, %or.cond22.not29.i
+  %or.cond22.not28.i = and i1 %56, %58
+  %brmerge.not.i = and i1 %6, %or.cond22.not28.i
   br i1 %brmerge.not.i, label %59, label %_ZL13shouldUseMmapimmlbib.exit
 
 59:                                               ; preds = %55
@@ -1407,8 +1407,8 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
   %64 = call { i32, ptr } @_ZN4llvm3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %10) #24
   %65 = extractvalue { i32, ptr } %64, 0
-  %.not30.i = icmp eq i32 %65, 0
-  br i1 %.not30.i, label %.thread.i, label %68
+  %.not29.i = icmp eq i32 %65, 0
+  br i1 %.not29.i, label %.thread.i, label %68
 
 .thread.i:                                        ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1430,11 +1430,11 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
   %72 = add nsw i32 %54, -1
   %73 = sext i32 %72 to i64
   %74 = and i64 %.017.i, %73
-  %.not81 = icmp eq i64 %74, 0
-  br i1 %.not81, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %75
+  %.not79 = icmp eq i64 %74, 0
+  br i1 %.not79, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %75
 
 _ZL13shouldUseMmapimmlbib.exit:                   ; preds = %55
-  br i1 %or.cond22.not29.i, label %75, label %_ZL13shouldUseMmapimmlbib.exit.thread
+  br i1 %or.cond22.not28.i, label %75, label %_ZL13shouldUseMmapimmlbib.exit.thread
 
 75:                                               ; preds = %71, %_ZL13shouldUseMmapimmlbib.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1447,8 +1447,8 @@ _ZL13shouldUseMmapimmlbib.exit:                   ; preds = %55
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = call noundef i32 @_ZN4llvm3sys2fs18mapped_file_region9alignmentEv() #24
   %81 = add i32 %80, -1
-  %.not.i.i49 = sext i32 %81 to i64
-  %82 = and i64 %5, %.not.i.i49
+  %.not.i.i48 = sext i32 %81 to i64
+  %82 = and i64 %5, %.not.i.i48
   %83 = add i64 %82, %.037
   %84 = call noundef i32 @_ZN4llvm3sys2fs18mapped_file_region9alignmentEv() #24
   %85 = sub i32 0, %84
@@ -1456,8 +1456,8 @@ _ZL13shouldUseMmapimmlbib.exit:                   ; preds = %55
   %87 = and i64 %5, %86
   call void @_ZN4llvm3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20) %79, i32 noundef %1, i32 noundef 0, i64 noundef %83, i64 noundef %87, ptr noundef nonnull align 8 dereferenceable(16) %13) #24
   %88 = load i32, ptr %13, align 8, !tbaa !67
-  %.not.i50 = icmp eq i32 %88, 0
-  br i1 %.not.i50, label %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEEC2EbimmRSt10error_code.exit, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread
+  %.not.i49 = icmp eq i32 %88, 0
+  br i1 %.not.i49, label %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEEC2EbimmRSt10error_code.exit, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread
 
 _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEEC2EbimmRSt10error_code.exit: ; preds = %75
   %89 = call noundef ptr @_ZNK4llvm3sys2fs18mapped_file_region10const_dataEv(ptr noundef nonnull align 8 dereferenceable(20) %79) #24
@@ -1472,8 +1472,8 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEEC2EbimmRSt10error_
   %96 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr %94, ptr %96, align 8, !tbaa !9
   %.pr = load i32, ptr %13, align 8, !tbaa !67
-  %.not82 = icmp eq i32 %.pr, 0
-  br i1 %.not82, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread
+  %.not80 = icmp eq i32 %.pr, 0
+  br i1 %.not80, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread
 
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEEC2EbimmRSt10error_code.exit, %75
   %97 = load ptr, ptr %78, align 8, !tbaa !15
@@ -1497,8 +1497,8 @@ _ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %69, %53, %68, %_ZNS
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineESt8optionalINS_5AlignEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.3") align 8 %14, i64 noundef %.037, ptr noundef nonnull align 8 dereferenceable(34) %2, i16 %8)
   %104 = load ptr, ptr %14, align 8, !tbaa !45
-  %.not83 = icmp eq ptr %104, null
-  br i1 %.not83, label %.loopexit.thread, label %109
+  %.not81 = icmp eq ptr %104, null
+  br i1 %.not81, label %.loopexit.thread, label %109
 
 .loopexit.thread:                                 ; preds = %_ZL13shouldUseMmapimmlbib.exit.thread
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #26
@@ -1507,8 +1507,8 @@ _ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %69, %53, %68, %_ZNS
   %108 = or i8 %107, 1
   store i8 %108, ptr %106, align 8
   store i32 12, ptr %0, align 8, !tbaa !41
-  %.sroa.21.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %105, ptr %.sroa.21.0..sroa_idx.i52, align 8, !tbaa !43
+  %.sroa.21.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %105, ptr %.sroa.21.0..sroa_idx.i51, align 8, !tbaa !43
   br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
 109:                                              ; preds = %_ZL13shouldUseMmapimmlbib.exit.thread
@@ -1521,7 +1521,7 @@ _ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %69, %53, %68, %_ZNS
   %116 = sub i64 %114, %115
   %117 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.21.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %119
 
 119:                                              ; preds = %_ZN4llvm8ExpectedImED2Ev.exit, %109
@@ -1529,7 +1529,7 @@ _ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %69, %53, %68, %_ZNS
   %.sroa.0.0 = phi ptr [ %111, %109 ], [ %.sroa.0.1, %_ZN4llvm8ExpectedImED2Ev.exit ]
   %.038 = phi i64 [ %5, %109 ], [ %.139, %_ZN4llvm8ExpectedImED2Ev.exit ]
   %120 = icmp eq i64 %.sroa.7.0, 0
-  br i1 %120, label %.thread78, label %121
+  br i1 %120, label %.thread76, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1551,7 +1551,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %130 = or i8 %129, 1
   store i8 %130, ptr %118, align 8
   store i32 %127, ptr %0, align 8, !tbaa !41
-  store ptr %128, ptr %.sroa.21.0..sroa_idx.i54, align 8, !tbaa !43
+  store ptr %128, ptr %.sroa.21.0..sroa_idx.i53, align 8, !tbaa !43
   %131 = load ptr, ptr %16, align 8, !tbaa !52
   %132 = icmp eq ptr %131, null
   br i1 %132, label %_ZN4llvm5ErrorD2Ev.exit, label %133
@@ -1589,8 +1589,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %133, %_ZNSt10unique
 
 147:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %148 = load ptr, ptr %15, align 8, !tbaa !50
-  %.not.i.i55 = icmp eq ptr %148, null
-  br i1 %.not.i.i55, label %_ZN4llvm8ExpectedImED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+  %.not.i.i54 = icmp eq ptr %148, null
+  br i1 %.not.i.i54, label %_ZN4llvm8ExpectedImED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %147
   %149 = load ptr, ptr %148, align 8, !tbaa !15
@@ -1603,10 +1603,10 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %147, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   switch i32 %.343, label %.loopexit [
     i32 0, label %119
-    i32 3, label %.thread78
+    i32 3, label %.thread76
   ], !llvm.loop !86
 
-.thread78:                                        ; preds = %119, %_ZN4llvm8ExpectedImED2Ev.exit
+.thread76:                                        ; preds = %119, %_ZN4llvm8ExpectedImED2Ev.exit
   %152 = load i8, ptr %118, align 8
   %153 = and i8 %152, -2
   store i8 %153, ptr %118, align 8
@@ -1615,18 +1615,18 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %147, %_ZNKSt14defau
   br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedImED2Ev.exit
-  %.pr77.pre = load ptr, ptr %14, align 8, !tbaa !45
-  %.not.i57 = icmp eq ptr %.pr77.pre, null
-  br i1 %.not.i57, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i
+  %.pr75.pre = load ptr, ptr %14, align 8, !tbaa !45
+  %.not.i56 = icmp eq ptr %.pr75.pre, null
+  br i1 %.not.i56, label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i: ; preds = %.loopexit
-  %155 = load ptr, ptr %.pr77.pre, align 8, !tbaa !15
+  %155 = load ptr, ptr %.pr75.pre, align 8, !tbaa !15
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(24) %.pr77.pre) #24
+  call void %157(ptr noundef nonnull align 8 dereferenceable(24) %.pr75.pre) #24
   br label %_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %.loopexit.thread, %.thread78, %.loopexit, %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %.loopexit.thread, %.thread76, %.loopexit, %_ZNKSt14default_deleteIN4llvm20WritableMemoryBufferEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %158
 

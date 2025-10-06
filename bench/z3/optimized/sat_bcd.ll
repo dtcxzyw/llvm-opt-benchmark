@@ -1042,27 +1042,27 @@ _ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread.i: ; preds = %_ZNK3sat3bcd10i
   %139 = zext i32 %138 to i64
   %.idx.i.i = shl nuw nsw i64 %139, 2
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i.i
-  %.not4.not.i.i = icmp eq i32 %138, 0
-  br i1 %.not4.not.i.i, label %.noexc.thread47, label %.lr.ph.i.i
+  %.not5.not.i.i = icmp eq i32 %138, 0
+  br i1 %.not5.not.i.i, label %.noexc.thread47, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread.i
   %141 = load ptr, ptr %6, align 8, !tbaa !27
   br label %142
 
 142:                                              ; preds = %.critedge14.i.i, %.lr.ph.i.i
-  %.0125.i.i = phi ptr [ %136, %.lr.ph.i.i ], [ %149, %.critedge14.i.i ]
-  %143 = load i32, ptr %.0125.i.i, align 4, !tbaa !24
+  %.0126.i.i = phi ptr [ %136, %.lr.ph.i.i ], [ %149, %.critedge14.i.i ]
+  %143 = load i32, ptr %.0126.i.i, align 4, !tbaa !24
   %144 = zext i32 %143 to i64
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !47, !range !63, !noundef !64
   %147 = trunc nuw i8 %146 to i1
   %148 = xor i32 %143, %.sroa.08.0.copyload.i
-  %.not3.i.i = icmp ne i32 %148, 1
-  %or.cond.not.i = and i1 %.not3.i.i, %147
+  %.not4.i.i = icmp ne i32 %148, 1
+  %or.cond.not.i = and i1 %.not4.i.i, %147
   br i1 %or.cond.not.i, label %.critedge.i, label %.critedge14.i.i
 
 .critedge14.i.i:                                  ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %.0125.i.i, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %.0126.i.i, i64 4
   %.not.not.i.i = icmp eq ptr %149, %140
   br i1 %.not.not.i.i, label %.noexc.thread47, label %142
 
@@ -4481,27 +4481,27 @@ _ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread.i: ; preds = %_ZNK3sat3bcd10i
   %147 = zext i32 %146 to i64
   %.idx.i.i = shl nuw nsw i64 %147, 2
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx.i.i
-  %.not4.not.i.i = icmp eq i32 %146, 0
-  br i1 %.not4.not.i.i, label %_ZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalE.exit.thread175, label %.lr.ph.i.i
+  %.not5.not.i.i = icmp eq i32 %146, 0
+  br i1 %.not5.not.i.i, label %_ZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalE.exit.thread175, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread.i
   %149 = load ptr, ptr %95, align 8, !tbaa !27
   br label %150
 
 150:                                              ; preds = %.critedge14.i.i, %.lr.ph.i.i
-  %.0125.i.i = phi ptr [ %144, %.lr.ph.i.i ], [ %157, %.critedge14.i.i ]
-  %151 = load i32, ptr %.0125.i.i, align 4, !tbaa !24
+  %.0126.i.i = phi ptr [ %144, %.lr.ph.i.i ], [ %157, %.critedge14.i.i ]
+  %151 = load i32, ptr %.0126.i.i, align 4, !tbaa !24
   %152 = zext i32 %151 to i64
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !47, !range !63, !noundef !64
   %155 = trunc nuw i8 %154 to i1
   %156 = xor i32 %151, %.sroa.08.0.copyload.i
-  %.not3.i.i = icmp ne i32 %156, 1
-  %or.cond.not.i = and i1 %.not3.i.i, %155
+  %.not4.i.i = icmp ne i32 %156, 1
+  %or.cond.not.i = and i1 %.not4.i.i, %155
   br i1 %or.cond.not.i, label %.critedge.i, label %.critedge14.i.i
 
 .critedge14.i.i:                                  ; preds = %150
-  %157 = getelementptr inbounds nuw i8, ptr %.0125.i.i, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.0126.i.i, i64 4
   %.not.not.i.i = icmp eq ptr %157, %148
   br i1 %.not.not.i.i, label %_ZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalE.exit.thread175, label %150
 
@@ -4941,27 +4941,27 @@ _ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread.i119: ; preds = %_ZNK3sat3bcd
   %322 = zext i32 %321 to i64
   %.idx.i.i120 = shl nuw nsw i64 %322, 2
   %323 = getelementptr inbounds nuw i8, ptr %319, i64 %.idx.i.i120
-  %.not4.not.i.i121 = icmp eq i32 %321, 0
-  br i1 %.not4.not.i.i121, label %_ZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalE.exit131.thread177, label %.lr.ph.i.i122
+  %.not5.not.i.i121 = icmp eq i32 %321, 0
+  br i1 %.not5.not.i.i121, label %_ZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalE.exit131.thread177, label %.lr.ph.i.i122
 
 .lr.ph.i.i122:                                    ; preds = %_ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread.i119
   %324 = load ptr, ptr %95, align 8, !tbaa !27
   br label %325
 
 325:                                              ; preds = %.critedge14.i.i126, %.lr.ph.i.i122
-  %.0125.i.i123 = phi ptr [ %319, %.lr.ph.i.i122 ], [ %332, %.critedge14.i.i126 ]
-  %326 = load i32, ptr %.0125.i.i123, align 4, !tbaa !24
+  %.0126.i.i123 = phi ptr [ %319, %.lr.ph.i.i122 ], [ %332, %.critedge14.i.i126 ]
+  %326 = load i32, ptr %.0126.i.i123, align 4, !tbaa !24
   %327 = zext i32 %326 to i64
   %328 = getelementptr inbounds nuw i8, ptr %324, i64 %327
   %329 = load i8, ptr %328, align 1, !tbaa !47, !range !63, !noundef !64
   %330 = trunc nuw i8 %329 to i1
   %331 = xor i32 %326, %.sroa.08.0.copyload.i74
-  %.not3.i.i124 = icmp ne i32 %331, 1
-  %or.cond.not.i125 = and i1 %.not3.i.i124, %330
+  %.not4.i.i124 = icmp ne i32 %331, 1
+  %or.cond.not.i125 = and i1 %.not4.i.i124, %330
   br i1 %or.cond.not.i125, label %.critedge.i128, label %.critedge14.i.i126
 
 .critedge14.i.i126:                               ; preds = %325
-  %332 = getelementptr inbounds nuw i8, ptr %.0125.i.i123, i64 4
+  %332 = getelementptr inbounds nuw i8, ptr %.0126.i.i123, i64 4
   %.not.not.i.i127 = icmp eq ptr %332, %323
   br i1 %.not.not.i.i127, label %_ZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalE.exit131.thread177, label %325
 
@@ -5508,27 +5508,27 @@ _ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread: ; preds = %_ZNK6vectorIbLb0E
   %40 = zext i32 %39 to i64
   %.idx.i = shl nuw nsw i64 %40, 2
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
-  %.not4.not.i = icmp eq i32 %39, 0
-  br i1 %.not4.not.i, label %"_ZZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalEENK3$_0clERKNS_6clauseE.exit.thread", label %.lr.ph.i
+  %.not5.not.i = icmp eq i32 %39, 0
+  br i1 %.not5.not.i, label %"_ZZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalEENK3$_0clERKNS_6clauseE.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3sat3bcd10is_removedERKNS_6clauseE.exit.thread
   %42 = load ptr, ptr %18, align 8, !tbaa !27
   br label %43
 
 43:                                               ; preds = %.critedge14.i, %.lr.ph.i
-  %.0125.i = phi ptr [ %37, %.lr.ph.i ], [ %50, %.critedge14.i ]
-  %44 = load i32, ptr %.0125.i, align 4, !tbaa !24
+  %.0126.i = phi ptr [ %37, %.lr.ph.i ], [ %50, %.critedge14.i ]
+  %44 = load i32, ptr %.0126.i, align 4, !tbaa !24
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !47, !range !63, !noundef !64
   %48 = trunc nuw i8 %47 to i1
   %49 = xor i32 %44, %2
-  %.not3.i = icmp ne i32 %49, 1
-  %or.cond.not = and i1 %.not3.i, %48
+  %.not4.i = icmp ne i32 %49, 1
+  %or.cond.not = and i1 %.not4.i, %48
   br i1 %or.cond.not, label %.critedge, label %.critedge14.i
 
 .critedge14.i:                                    ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.0126.i, i64 4
   %.not.not.i = icmp eq ptr %50, %41
   br i1 %.not.not.i, label %"_ZZNK3sat3bcd10is_blockedERNS_8use_listENS_7literalEENK3$_0clERKNS_6clauseE.exit.thread", label %43
 

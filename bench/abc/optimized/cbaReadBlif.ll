@@ -7717,17 +7717,17 @@ Prs_ManReadName.exit.thread:                      ; preds = %4, %.lr.ph.i14.i.i,
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %23, align 4, !tbaa !28
-  %.val115.i = load ptr, ptr %3, align 8, !tbaa !20
-  %.val.val116.i = load i8, ptr %.val115.i, align 1, !tbaa !3
-  %.not117.i = icmp eq i8 %.val.val116.i, 10
-  br i1 %.not117.i, label %._crit_edge.thread.i, label %.preheader79.lr.ph.i
+  %.val114.i = load ptr, ptr %3, align 8, !tbaa !20
+  %.val.val115.i = load i8, ptr %.val114.i, align 1, !tbaa !3
+  %.not116.i = icmp eq i8 %.val.val115.i, 10
+  br i1 %.not116.i, label %._crit_edge.thread.i, label %.preheader78.lr.ph.i
 
-.preheader79.lr.ph.i:                             ; preds = %21
+.preheader78.lr.ph.i:                             ; preds = %21
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %.preheader79.i
+  br label %.preheader78.i
 
-.preheader79.i:                                   ; preds = %.preheader79.i.backedge, %.preheader79.lr.ph.i
-  %24 = phi ptr [ %.val115.i, %.preheader79.lr.ph.i ], [ %.be220, %.preheader79.i.backedge ]
+.preheader78.i:                                   ; preds = %.preheader78.i.backedge, %.preheader78.lr.ph.i
+  %24 = phi ptr [ %.val114.i, %.preheader78.lr.ph.i ], [ %.be220, %.preheader78.i.backedge ]
   %.val.val.i.i.i11 = load i8, ptr %24, align 1, !tbaa !3
   switch i8 %.val.val.i.i.i11, label %.preheader.i.i [
     i8 32, label %Prs_ManIsSpace.exit.thread.i.i.i
@@ -7738,17 +7738,17 @@ Prs_ManReadName.exit.thread:                      ; preds = %4, %.lr.ph.i14.i.i,
     i8 10, label %Prs_ManReadName.exit.thread.i
   ]
 
-Prs_ManIsSpace.exit.thread.i.i.i:                 ; preds = %.preheader79.i, %.preheader79.i, %.preheader79.i
+Prs_ManIsSpace.exit.thread.i.i.i:                 ; preds = %.preheader78.i, %.preheader78.i, %.preheader78.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %25, ptr %3, align 8, !tbaa !20
-  br label %.preheader79.i.backedge
+  br label %.preheader78.i.backedge
 
-.preheader79.i.backedge:                          ; preds = %125, %Prs_ManIsSpace.exit.thread.i.i.i, %Prs_ManSkipToChar.exit.i.i.i
+.preheader78.i.backedge:                          ; preds = %125, %Prs_ManIsSpace.exit.thread.i.i.i, %Prs_ManSkipToChar.exit.i.i.i
   %.be220 = phi ptr [ %25, %Prs_ManIsSpace.exit.thread.i.i.i ], [ %28, %Prs_ManSkipToChar.exit.i.i.i ], [ %126, %125 ]
-  br label %.preheader79.i, !llvm.loop !49
+  br label %.preheader78.i, !llvm.loop !49
 
-.lr.ph.i.i.i.i:                                   ; preds = %.preheader79.i, %.lr.ph.i.i.i.i
-  %26 = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %24, %.preheader79.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %.preheader78.i, %.lr.ph.i.i.i.i
+  %26 = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %24, %.preheader78.i ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %27, ptr %3, align 8, !tbaa !20
   %.val.val.i.i.i.i = load i8, ptr %27, align 1, !tbaa !3
@@ -7758,19 +7758,19 @@ Prs_ManIsSpace.exit.thread.i.i.i:                 ; preds = %.preheader79.i, %.p
 Prs_ManSkipToChar.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store ptr %28, ptr %3, align 8, !tbaa !20
-  br label %.preheader79.i.backedge
+  br label %.preheader78.i.backedge
 
-.lr.ph.i14.i.i.i:                                 ; preds = %.preheader79.i, %.lr.ph.i14.i.i.i
-  %29 = phi ptr [ %30, %.lr.ph.i14.i.i.i ], [ %24, %.preheader79.i ]
+.lr.ph.i14.i.i.i:                                 ; preds = %.preheader78.i, %.lr.ph.i14.i.i.i
+  %29 = phi ptr [ %30, %.lr.ph.i14.i.i.i ], [ %24, %.preheader78.i ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %30, ptr %3, align 8, !tbaa !20
   %.val.val.i15.i.i.i = load i8, ptr %30, align 1, !tbaa !3
   %.not.i16.i.i.i = icmp eq i8 %.val.val.i15.i.i.i, 10
   br i1 %.not.i16.i.i.i, label %Prs_ManReadName.exit.thread.i, label %.lr.ph.i14.i.i.i, !llvm.loop !44
 
-.preheader.i.i:                                   ; preds = %.preheader79.i, %32
-  %.val.val.i.i12 = phi i8 [ %.val.val.pre.i.i, %32 ], [ %.val.val.i.i.i11, %.preheader79.i ]
-  %31 = phi ptr [ %33, %32 ], [ %24, %.preheader79.i ]
+.preheader.i.i:                                   ; preds = %.preheader78.i, %32
+  %.val.val.i.i12 = phi i8 [ %.val.val.pre.i.i, %32 ], [ %.val.val.i.i.i11, %.preheader78.i ]
+  %31 = phi ptr [ %33, %32 ], [ %24, %.preheader78.i ]
   switch i8 %.val.val.i.i12, label %32 [
     i8 32, label %.critedge.i.i
     i8 9, label %.critedge.i.i
@@ -7797,7 +7797,7 @@ Prs_ManReadName.exit.i:                           ; preds = %.critedge.i.i
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %Prs_ManReadName.exit.thread.i, label %39
 
-Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exit.i, %.critedge.i.i, %.preheader79.i, %.lr.ph.i14.i.i.i
+Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exit.i, %.critedge.i.i, %.preheader78.i, %.lr.ph.i14.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %38, ptr noundef nonnull align 1 dereferenceable(25) @.str.31, i64 25, i1 false)
   br label %Prs_ManReadList3.exit.thread
@@ -7913,8 +7913,8 @@ Prs_ManSkipSpaces.exit.i17:                       ; preds = %68, %.lr.ph.i14.i.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %77, ptr %3, align 8, !tbaa !20
   %78 = load i8, ptr %76, align 1, !tbaa !3
-  %.not74.i = icmp eq i8 %78, 61
-  br i1 %.not74.i, label %.preheader.i18, label %79
+  %.not73.i = icmp eq i8 %78, 61
+  br i1 %.not73.i, label %.preheader.i18, label %79
 
 79:                                               ; preds = %Prs_ManSkipSpaces.exit.i17
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -8065,7 +8065,7 @@ Vec_IntPush.exit56.i:                             ; preds = %118, %Vec_IntGrow.e
 125:                                              ; preds = %.backedge, %Vec_IntPush.exit56.i
   %126 = phi ptr [ %.promoted26.i57.i, %Vec_IntPush.exit56.i ], [ %storemerge256, %.backedge ]
   %.val.val.i58.i = load i8, ptr %126, align 1, !tbaa !3
-  switch i8 %.val.val.i58.i, label %.preheader79.i.backedge [
+  switch i8 %.val.val.i58.i, label %.preheader78.i.backedge [
     i8 32, label %Prs_ManIsSpace.exit.thread.i66.i
     i8 9, label %Prs_ManIsSpace.exit.thread.i66.i
     i8 13, label %Prs_ManIsSpace.exit.thread.i66.i

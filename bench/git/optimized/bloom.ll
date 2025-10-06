@@ -1363,8 +1363,8 @@ define internal fastcc range(i32 0, 2) i32 @has_entries_with_high_bit(ptr nounde
   %14 = load i64, ptr %13, align 8, !tbaa !131
   call void @init_tree_desc(ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef %12, i64 noundef %14) #14
   %15 = call i32 @tree_entry(ptr noundef nonnull %3, ptr noundef nonnull %4) #14
-  %.not2233 = icmp eq i32 %15, 0
-  br i1 %.not2233, label %.thread29, label %.preheader.lr.ph
+  %.not2232 = icmp eq i32 %15, 0
+  br i1 %.not2232, label %.thread29, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1375,21 +1375,21 @@ define internal fastcc range(i32 0, 2) i32 @has_entries_with_high_bit(ptr nounde
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
   %19 = load i32, ptr %16, align 8, !tbaa !132
   %20 = sext i32 %19 to i64
-  %.not34 = icmp eq i32 %19, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i32 %19, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %21 = load ptr, ptr %17, align 8, !tbaa !134
   br label %24
 
 22:                                               ; preds = %24
-  %23 = add nuw i64 %.01932, 1
+  %23 = add nuw i64 %.01931, 1
   %exitcond.not = icmp eq i64 %23, %20
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !135
 
 24:                                               ; preds = %.lr.ph, %22
-  %.01932 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.01932
+  %.01931 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.01931
   %26 = load i8, ptr %25, align 1, !tbaa !22
   %.not25 = icmp sgt i8 %26, -1
   br i1 %.not25, label %22, label %.thread29.sink.split

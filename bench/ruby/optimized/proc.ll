@@ -2459,8 +2459,8 @@ define hidden i32 @rb_method_entry_arity(ptr noundef readonly captures(none) %0)
 define dso_local i32 @rb_mod_method_arity(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @rb_method_entry(i64 noundef %0, i64 noundef %1) #21
-  %.not16.i = icmp eq ptr %4, null
-  br i1 %.not16.i, label %original_method_entry.exit.thread, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %4, null
+  br i1 %.not15.i, label %original_method_entry.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %10
   %5 = phi ptr [ %18, %10 ], [ %4, %2 ]
@@ -2540,8 +2540,8 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !36
   %19 = tail call ptr @rb_method_entry(i64 noundef %.0.i, i64 noundef %1) #21
-  %.not16.i.i = icmp eq ptr %19, null
-  br i1 %.not16.i.i, label %rb_mod_method_arity.exit, label %.lr.ph.i.i
+  %.not15.i.i = icmp eq ptr %19, null
+  br i1 %.not15.i.i, label %rb_mod_method_arity.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %rb_class_of.exit, %25
   %20 = phi ptr [ %33, %25 ], [ %19, %rb_class_of.exit ]
@@ -6658,29 +6658,29 @@ define internal i64 @bind_local_variables(i64 noundef %0) #0 {
   %.tr.i4 = load ptr, ptr %.tr.i.in3, align 8, !tbaa !133
   %2 = getelementptr i8, ptr %.tr.i4, i64 24
   %.val.i5 = load i32, ptr %2, align 8, !tbaa !14
-  %switch6 = icmp ult i32 %.val.i5, 2
-  br i1 %switch6, label %vm_block_ep.exit, label %tailrecurse.i
+  %3 = icmp eq i32 %.val.i5, 3
+  br i1 %3, label %tailrecurse.i, label %vm_block_ep.exit
 
 vm_block_ep.exit:                                 ; preds = %tailrecurse.i, %1
   %.tr.i.lcssa = phi ptr [ %.tr.i4, %1 ], [ %.tr.i, %tailrecurse.i ]
-  %3 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
-  %5 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %5, align 8, !tbaa !36
-  %6 = inttoptr i64 %.val to ptr
-  %7 = tail call i64 @rb_vm_env_local_variables(ptr noundef %6) #21
-  ret i64 %7
+  %4 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %6 = getelementptr i8, ptr %5, i64 8
+  %.val = load i64, ptr %6, align 8, !tbaa !36
+  %7 = inttoptr i64 %.val to ptr
+  %8 = tail call i64 @rb_vm_env_local_variables(ptr noundef %7) #21
+  ret i64 %8
 
 tailrecurse.i:                                    ; preds = %1, %tailrecurse.i
-  %.tr.i7 = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i4, %1 ]
-  %8 = load i64, ptr %.tr.i7, align 8, !tbaa !35
-  %.pn = inttoptr i64 %8 to ptr
+  %.tr.i6 = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i4, %1 ]
+  %9 = load i64, ptr %.tr.i6, align 8, !tbaa !35
+  %.pn = inttoptr i64 %9 to ptr
   %.tr.i.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.tr.i = load ptr, ptr %.tr.i.in, align 8, !tbaa !133
-  %9 = getelementptr i8, ptr %.tr.i, i64 24
-  %.val.i = load i32, ptr %9, align 8, !tbaa !14
-  %switch = icmp ult i32 %.val.i, 2
-  br i1 %switch, label %vm_block_ep.exit, label %tailrecurse.i
+  %10 = getelementptr i8, ptr %.tr.i, i64 24
+  %.val.i = load i32, ptr %10, align 8, !tbaa !14
+  %11 = icmp eq i32 %.val.i, 3
+  br i1 %11, label %tailrecurse.i, label %vm_block_ep.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6711,7 +6711,7 @@ define internal i64 @bind_local_variable_get(i64 noundef %0, i64 noundef %1) #0 
 check_local_id.exit.thread:                       ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.pre = load i64, ptr %3, align 8, !tbaa !36
-  br label %27
+  br label %29
 
 13:                                               ; preds = %11
   call fastcc void @rb_name_err_raise(ptr noundef nonnull @.str.135, i64 noundef %0, i64 noundef %6) #25
@@ -6724,45 +6724,45 @@ check_local_id.exit.thread:                       ; preds = %11
   %.tr.i11 = load ptr, ptr %.tr.i.in10, align 8, !tbaa !133
   %15 = getelementptr i8, ptr %.tr.i11, i64 24
   %.val.i12 = load i32, ptr %15, align 8, !tbaa !14
-  %switch13 = icmp ult i32 %.val.i12, 2
-  br i1 %switch13, label %vm_block_ep.exit, label %tailrecurse.i
+  %16 = icmp eq i32 %.val.i12, 3
+  br i1 %16, label %tailrecurse.i, label %vm_block_ep.exit
 
 vm_block_ep.exit:                                 ; preds = %tailrecurse.i, %14
   %.tr.i.lcssa = phi ptr [ %.tr.i11, %14 ], [ %.tr.i, %tailrecurse.i ]
-  %16 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !35
-  %18 = getelementptr i8, ptr %17, i64 8
-  %.val = load i64, ptr %18, align 8, !tbaa !36
-  %19 = inttoptr i64 %.val to ptr
-  store ptr %19, ptr %4, align 8, !tbaa !133
-  %20 = call fastcc ptr @get_local_variable_ptr(ptr noundef %4, i64 noundef %5)
-  %.not8 = icmp eq ptr %20, null
-  br i1 %.not8, label %25, label %23
+  %17 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !35
+  %19 = getelementptr i8, ptr %18, i64 8
+  %.val = load i64, ptr %19, align 8, !tbaa !36
+  %20 = inttoptr i64 %.val to ptr
+  store ptr %20, ptr %4, align 8, !tbaa !133
+  %21 = call fastcc ptr @get_local_variable_ptr(ptr noundef %4, i64 noundef %5)
+  %.not8 = icmp eq ptr %21, null
+  br i1 %.not8, label %27, label %25
 
 tailrecurse.i:                                    ; preds = %14, %tailrecurse.i
-  %.tr.i14 = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i11, %14 ]
-  %21 = load i64, ptr %.tr.i14, align 8, !tbaa !35
-  %.pn = inttoptr i64 %21 to ptr
+  %.tr.i13 = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i11, %14 ]
+  %22 = load i64, ptr %.tr.i13, align 8, !tbaa !35
+  %.pn = inttoptr i64 %22 to ptr
   %.tr.i.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.tr.i = load ptr, ptr %.tr.i.in, align 8, !tbaa !133
-  %22 = getelementptr i8, ptr %.tr.i, i64 24
-  %.val.i = load i32, ptr %22, align 8, !tbaa !14
-  %switch = icmp ult i32 %.val.i, 2
-  br i1 %switch, label %vm_block_ep.exit, label %tailrecurse.i
-
-23:                                               ; preds = %vm_block_ep.exit
-  %24 = load i64, ptr %20, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %24
+  %23 = getelementptr i8, ptr %.tr.i, i64 24
+  %.val.i = load i32, ptr %23, align 8, !tbaa !14
+  %24 = icmp eq i32 %.val.i, 3
+  br i1 %24, label %tailrecurse.i, label %vm_block_ep.exit
 
 25:                                               ; preds = %vm_block_ep.exit
-  %26 = call i64 @rb_id2sym(i64 noundef %5) #21
-  store i64 %26, ptr %3, align 8, !tbaa !36
-  br label %27
+  %26 = load i64, ptr %21, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret i64 %26
 
-27:                                               ; preds = %check_local_id.exit.thread, %25
-  %28 = phi i64 [ %.pre, %check_local_id.exit.thread ], [ %26, %25 ]
-  call fastcc void @rb_name_err_raise(ptr noundef nonnull @.str.134, i64 noundef %0, i64 noundef %28) #25
+27:                                               ; preds = %vm_block_ep.exit
+  %28 = call i64 @rb_id2sym(i64 noundef %5) #21
+  store i64 %28, ptr %3, align 8, !tbaa !36
+  br label %29
+
+29:                                               ; preds = %check_local_id.exit.thread, %27
+  %30 = phi i64 [ %.pre, %check_local_id.exit.thread ], [ %28, %27 ]
+  call fastcc void @rb_name_err_raise(ptr noundef nonnull @.str.134, i64 noundef %0, i64 noundef %30) #25
   unreachable
 }
 
@@ -6815,78 +6815,78 @@ check_local_id.exit:                              ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !7
   %24 = getelementptr i8, ptr %23, i64 24
-  %.val.i17 = load i32, ptr %24, align 8, !tbaa !14
-  %switch18 = icmp ult i32 %.val.i17, 2
-  br i1 %switch18, label %vm_block_ep.exit, label %tailrecurse.i
+  %.val.i16 = load i32, ptr %24, align 8, !tbaa !14
+  %25 = icmp eq i32 %.val.i16, 3
+  br i1 %25, label %tailrecurse.i, label %vm_block_ep.exit
 
 vm_block_ep.exit:                                 ; preds = %tailrecurse.i, %19
-  %.tr.i.lcssa = phi ptr [ %23, %19 ], [ %35, %tailrecurse.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !35
-  %27 = getelementptr i8, ptr %26, i64 8
-  %.val = load i64, ptr %27, align 8, !tbaa !36
-  %28 = inttoptr i64 %.val to ptr
-  store ptr %28, ptr %6, align 8, !tbaa !133
-  %29 = call fastcc ptr @get_local_variable_ptr(ptr noundef %6, i64 noundef %20)
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %37, label %vm_block_ep.exit._crit_edge
+  %.tr.i.lcssa = phi ptr [ %23, %19 ], [ %36, %tailrecurse.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %28 = getelementptr i8, ptr %27, i64 8
+  %.val = load i64, ptr %28, align 8, !tbaa !36
+  %29 = inttoptr i64 %.val to ptr
+  store ptr %29, ptr %6, align 8, !tbaa !133
+  %30 = call fastcc ptr @get_local_variable_ptr(ptr noundef %6, i64 noundef %20)
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %39, label %vm_block_ep.exit._crit_edge
 
 vm_block_ep.exit._crit_edge:                      ; preds = %vm_block_ep.exit
   %.pre = load ptr, ptr %6, align 8, !tbaa !133
-  %31 = ptrtoint ptr %.pre to i64
-  br label %47
+  %32 = ptrtoint ptr %.pre to i64
+  br label %51
 
 tailrecurse.i:                                    ; preds = %19, %tailrecurse.i
-  %.tr.i19 = phi ptr [ %35, %tailrecurse.i ], [ %23, %19 ]
-  %32 = load i64, ptr %.tr.i19, align 8, !tbaa !35
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !34
-  %36 = getelementptr i8, ptr %35, i64 24
-  %.val.i = load i32, ptr %36, align 8, !tbaa !14
-  %switch = icmp ult i32 %.val.i, 2
-  br i1 %switch, label %vm_block_ep.exit, label %tailrecurse.i
+  %.tr.i17 = phi ptr [ %36, %tailrecurse.i ], [ %23, %19 ]
+  %33 = load i64, ptr %.tr.i17, align 8, !tbaa !35
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !34
+  %37 = getelementptr i8, ptr %36, i64 24
+  %.val.i = load i32, ptr %37, align 8, !tbaa !14
+  %38 = icmp eq i32 %.val.i, 3
+  br i1 %38, label %tailrecurse.i, label %vm_block_ep.exit
 
-37:                                               ; preds = %vm_block_ep.exit
-  %38 = call ptr @rb_binding_add_dynavars(i64 noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull %5) #21
-  %.val.i1220 = load i32, ptr %24, align 8, !tbaa !14
-  %switch1621 = icmp ult i32 %.val.i1220, 2
-  br i1 %switch1621, label %vm_block_ep.exit14, label %tailrecurse.i10
+39:                                               ; preds = %vm_block_ep.exit
+  %40 = call ptr @rb_binding_add_dynavars(i64 noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull %5) #21
+  %.val.i1218 = load i32, ptr %24, align 8, !tbaa !14
+  %41 = icmp eq i32 %.val.i1218, 3
+  br i1 %41, label %tailrecurse.i10, label %vm_block_ep.exit14
 
-vm_block_ep.exit14:                               ; preds = %tailrecurse.i10, %37
-  %.tr.i11.lcssa = phi ptr [ %23, %37 ], [ %45, %tailrecurse.i10 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.tr.i11.lcssa, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !35
-  %41 = getelementptr i8, ptr %40, i64 8
-  %.val9 = load i64, ptr %41, align 8, !tbaa !36
-  br label %47
+vm_block_ep.exit14:                               ; preds = %tailrecurse.i10, %39
+  %.tr.i11.lcssa = phi ptr [ %23, %39 ], [ %48, %tailrecurse.i10 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.tr.i11.lcssa, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !35
+  %44 = getelementptr i8, ptr %43, i64 8
+  %.val9 = load i64, ptr %44, align 8, !tbaa !36
+  br label %51
 
-tailrecurse.i10:                                  ; preds = %37, %tailrecurse.i10
-  %.tr.i1122 = phi ptr [ %45, %tailrecurse.i10 ], [ %23, %37 ]
-  %42 = load i64, ptr %.tr.i1122, align 8, !tbaa !35
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !34
-  %46 = getelementptr i8, ptr %45, i64 24
-  %.val.i12 = load i32, ptr %46, align 8, !tbaa !14
-  %switch16 = icmp ult i32 %.val.i12, 2
-  br i1 %switch16, label %vm_block_ep.exit14, label %tailrecurse.i10
+tailrecurse.i10:                                  ; preds = %39, %tailrecurse.i10
+  %.tr.i1119 = phi ptr [ %48, %tailrecurse.i10 ], [ %23, %39 ]
+  %45 = load i64, ptr %.tr.i1119, align 8, !tbaa !35
+  %46 = inttoptr i64 %45 to ptr
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %48 = load ptr, ptr %47, align 8, !tbaa !34
+  %49 = getelementptr i8, ptr %48, i64 24
+  %.val.i12 = load i32, ptr %49, align 8, !tbaa !14
+  %50 = icmp eq i32 %.val.i12, 3
+  br i1 %50, label %tailrecurse.i10, label %vm_block_ep.exit14
 
-47:                                               ; preds = %vm_block_ep.exit._crit_edge, %vm_block_ep.exit14
-  %48 = phi i64 [ %.val9, %vm_block_ep.exit14 ], [ %31, %vm_block_ep.exit._crit_edge ]
-  %.0 = phi ptr [ %38, %vm_block_ep.exit14 ], [ %29, %vm_block_ep.exit._crit_edge ]
+51:                                               ; preds = %vm_block_ep.exit._crit_edge, %vm_block_ep.exit14
+  %52 = phi i64 [ %.val9, %vm_block_ep.exit14 ], [ %32, %vm_block_ep.exit._crit_edge ]
+  %.0 = phi ptr [ %40, %vm_block_ep.exit14 ], [ %30, %vm_block_ep.exit._crit_edge ]
   store i64 %2, ptr %.0, align 8, !tbaa !36
-  %49 = icmp eq i64 %2, 0
-  %50 = and i64 %2, 7
-  %51 = icmp ne i64 %50, 0
-  %52 = or i1 %49, %51
-  br i1 %52, label %rb_obj_write.exit, label %53
+  %53 = icmp eq i64 %2, 0
+  %54 = and i64 %2, 7
+  %55 = icmp ne i64 %54, 0
+  %56 = or i1 %53, %55
+  br i1 %56, label %rb_obj_write.exit, label %57
 
-53:                                               ; preds = %47
-  call void @rb_gc_writebarrier(i64 noundef %48, i64 noundef %2) #21
+57:                                               ; preds = %51
+  call void @rb_gc_writebarrier(i64 noundef %52, i64 noundef %2) #21
   br label %rb_obj_write.exit
 
-rb_obj_write.exit:                                ; preds = %47, %53
+rb_obj_write.exit:                                ; preds = %51, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %2
@@ -6919,7 +6919,7 @@ define internal range(i64 0, 21) i64 @bind_local_variable_defined_p(i64 noundef 
 
 check_local_id.exit.thread:                       ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %24
+  br label %26
 
 13:                                               ; preds = %11
   call fastcc void @rb_name_err_raise(ptr noundef nonnull @.str.135, i64 noundef %0, i64 noundef %6) #25
@@ -6932,35 +6932,35 @@ check_local_id.exit.thread:                       ; preds = %11
   %.tr.i9 = load ptr, ptr %.tr.i.in8, align 8, !tbaa !133
   %15 = getelementptr i8, ptr %.tr.i9, i64 24
   %.val.i10 = load i32, ptr %15, align 8, !tbaa !14
-  %switch11 = icmp ult i32 %.val.i10, 2
-  br i1 %switch11, label %vm_block_ep.exit, label %tailrecurse.i
+  %16 = icmp eq i32 %.val.i10, 3
+  br i1 %16, label %tailrecurse.i, label %vm_block_ep.exit
 
 vm_block_ep.exit:                                 ; preds = %tailrecurse.i, %14
   %.tr.i.lcssa = phi ptr [ %.tr.i9, %14 ], [ %.tr.i, %tailrecurse.i ]
-  %16 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !35
-  %18 = getelementptr i8, ptr %17, i64 8
-  %.val = load i64, ptr %18, align 8, !tbaa !36
-  %19 = inttoptr i64 %.val to ptr
-  store ptr %19, ptr %4, align 8, !tbaa !133
-  %20 = call fastcc ptr @get_local_variable_ptr(ptr noundef %4, i64 noundef %5)
-  %.not6 = icmp eq ptr %20, null
-  %21 = select i1 %.not6, i64 0, i64 20
-  br label %24
+  %17 = getelementptr inbounds nuw i8, ptr %.tr.i.lcssa, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !35
+  %19 = getelementptr i8, ptr %18, i64 8
+  %.val = load i64, ptr %19, align 8, !tbaa !36
+  %20 = inttoptr i64 %.val to ptr
+  store ptr %20, ptr %4, align 8, !tbaa !133
+  %21 = call fastcc ptr @get_local_variable_ptr(ptr noundef %4, i64 noundef %5)
+  %.not6 = icmp eq ptr %21, null
+  %22 = select i1 %.not6, i64 0, i64 20
+  br label %26
 
 tailrecurse.i:                                    ; preds = %14, %tailrecurse.i
-  %.tr.i12 = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i9, %14 ]
-  %22 = load i64, ptr %.tr.i12, align 8, !tbaa !35
-  %.pn = inttoptr i64 %22 to ptr
+  %.tr.i11 = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i9, %14 ]
+  %23 = load i64, ptr %.tr.i11, align 8, !tbaa !35
+  %.pn = inttoptr i64 %23 to ptr
   %.tr.i.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.tr.i = load ptr, ptr %.tr.i.in, align 8, !tbaa !133
-  %23 = getelementptr i8, ptr %.tr.i, i64 24
-  %.val.i = load i32, ptr %23, align 8, !tbaa !14
-  %switch = icmp ult i32 %.val.i, 2
-  br i1 %switch, label %vm_block_ep.exit, label %tailrecurse.i
+  %24 = getelementptr i8, ptr %.tr.i, i64 24
+  %.val.i = load i32, ptr %24, align 8, !tbaa !14
+  %25 = icmp eq i32 %.val.i, 3
+  br i1 %25, label %tailrecurse.i, label %vm_block_ep.exit
 
-24:                                               ; preds = %check_local_id.exit.thread, %vm_block_ep.exit
-  %.0 = phi i64 [ %21, %vm_block_ep.exit ], [ 0, %check_local_id.exit.thread ]
+26:                                               ; preds = %check_local_id.exit.thread, %vm_block_ep.exit
+  %.0 = phi i64 [ %22, %vm_block_ep.exit ], [ 0, %check_local_id.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }

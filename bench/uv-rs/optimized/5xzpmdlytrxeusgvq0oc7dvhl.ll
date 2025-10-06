@@ -14,7 +14,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br i1 %7, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit"
-  %.sroa.01.018 = phi i64 [ %33, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit" ], [ %1, %4 ]
+  %.sroa.01.017 = phi i64 [ %33, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit" ], [ %1, %4 ]
   %8 = phi ptr [ %9, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit" ], [ %.promoted, %4 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 -4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -72,7 +72,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br i1 %32, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit", label %35
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit": ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %"_ZN10uv_console5input28_$u7b$$u7b$closure$u7d$$u7d$17h95c5192f05d6ad0aE.exit.i"
-  %33 = add i64 %.sroa.01.018, 1
+  %33 = add i64 %.sroa.01.017, 1
   %34 = icmp eq ptr %6, %9
   br i1 %34, label %..loopexit_crit_edge, label %.lr.ph
 
@@ -86,10 +86,10 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %..loopexit_crit_edge, %35
-  %.sroa.01.017 = phi i64 [ %.sroa.01.018, %35 ], [ %33, %..loopexit_crit_edge ], [ %1, %4 ]
+  %.sroa.01.016 = phi i64 [ %.sroa.01.017, %35 ], [ %33, %..loopexit_crit_edge ], [ %1, %4 ]
   %.sroa.0.0 = phi i64 [ 1, %35 ], [ 0, %..loopexit_crit_edge ], [ 0, %4 ]
   %36 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %37 = insertvalue { i64, i64 } %36, i64 %.sroa.01.017, 1
+  %37 = insertvalue { i64, i64 } %36, i64 %.sroa.01.016, 1
   ret { i64, i64 } %37
 }
 
@@ -104,7 +104,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   br i1 %7, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h8b0dec2a8fcaffbeE.llvm.1186884401960612063.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit.i"
-  %.sroa.01.018.i = phi i64 [ %33, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit.i" ], [ %1, %4 ]
+  %.sroa.01.017.i = phi i64 [ %33, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit.i" ], [ %1, %4 ]
   %8 = phi ptr [ %9, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit.i" ], [ %.promoted.i, %4 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 -4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
@@ -162,7 +162,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   br i1 %32, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit.i", label %35
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit.i": ; preds = %"_ZN10uv_console5input28_$u7b$$u7b$closure$u7d$$u7d$17h95c5192f05d6ad0aE.exit.i.i", %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %33 = add i64 %.sroa.01.018.i, 1
+  %33 = add i64 %.sroa.01.017.i, 1
   %34 = icmp eq ptr %6, %9
   br i1 %34, label %..loopexit_crit_edge.i, label %.lr.ph.i
 
@@ -176,10 +176,10 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h8b0dec2a8fcaffbeE.llvm.1186884401960612063.exit
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h8b0dec2a8fcaffbeE.llvm.1186884401960612063.exit: ; preds = %4, %35, %..loopexit_crit_edge.i
-  %.sroa.01.017.i = phi i64 [ %.sroa.01.018.i, %35 ], [ %33, %..loopexit_crit_edge.i ], [ %1, %4 ]
+  %.sroa.01.016.i = phi i64 [ %.sroa.01.017.i, %35 ], [ %33, %..loopexit_crit_edge.i ], [ %1, %4 ]
   %.sroa.0.0.i = phi i64 [ 1, %35 ], [ 0, %..loopexit_crit_edge.i ], [ 0, %4 ]
   %36 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %37 = insertvalue { i64, i64 } %36, i64 %.sroa.01.017.i, 1
+  %37 = insertvalue { i64, i64 } %36, i64 %.sroa.01.016.i, 1
   ret { i64, i64 } %37
 }
 

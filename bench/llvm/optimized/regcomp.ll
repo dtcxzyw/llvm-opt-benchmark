@@ -4351,13 +4351,13 @@ doemit.exit129:                                   ; preds = %47, %enlarge.exit.i
   %99 = shl nuw nsw i64 %94, 5
   %100 = tail call ptr @realloc(ptr noundef %98, i64 noundef %99) #17
   %101 = icmp eq ptr %100, null
-  %.pre65.i = load ptr, ptr %80, align 8, !tbaa !16
+  %.pre64.i = load ptr, ptr %80, align 8, !tbaa !16
   br i1 %101, label %.thread.i, label %102
 
 102:                                              ; preds = %93
-  %103 = getelementptr inbounds nuw i8, ptr %.pre65.i, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %.pre64.i, i64 24
   store ptr %100, ptr %103, align 8, !tbaa !67
-  %104 = getelementptr inbounds nuw i8, ptr %.pre65.i, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %.pre64.i, i64 32
   %105 = load ptr, ptr %104, align 8, !tbaa !41
   %106 = tail call ptr @realloc(ptr noundef %105, i64 noundef %96) #17
   %107 = icmp eq ptr %106, null
@@ -4408,7 +4408,7 @@ doemit.exit129:                                   ; preds = %47, %enlarge.exit.i
   br i1 %129, label %.thread.i, label %allocset.exit
 
 .thread.i:                                        ; preds = %126, %121, %102, %93, %90
-  %130 = phi ptr [ %.pre.i, %102 ], [ %.pre65.i, %93 ], [ %81, %90 ], [ %122, %121 ], [ %122, %126 ]
+  %130 = phi ptr [ %.pre.i, %102 ], [ %.pre64.i, %93 ], [ %81, %90 ], [ %122, %121 ], [ %122, %126 ]
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8, !tbaa !67
   tail call void @free(ptr noundef %132) #16

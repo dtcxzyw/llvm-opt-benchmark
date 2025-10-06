@@ -396,8 +396,8 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
 
 142:                                              ; preds = %138, %135
   %143 = call i32 @pqGets(ptr noundef nonnull %9, ptr noundef nonnull %2) #10
-  %.not77102.i = icmp eq i32 %143, 0
-  br i1 %.not77102.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not77101.i = icmp eq i32 %143, 0
+  br i1 %.not77101.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %142
   %144 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -412,7 +412,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   br label %259
 
 149:                                              ; preds = %173, %.lr.ph.i
-  %.071103.i = phi ptr [ null, %.lr.ph.i ], [ %.172.i, %173 ]
+  %.071102.i = phi ptr [ null, %.lr.ph.i ], [ %.172.i, %173 ]
   %150 = load i64, ptr %144, align 8
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %.loopexit.i, label %152
@@ -450,7 +450,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
 168:                                              ; preds = %156
   %169 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(14) @.str.41) #12
   %170 = icmp ne i32 %169, 0
-  %171 = icmp ne ptr %.071103.i, null
+  %171 = icmp ne ptr %.071102.i, null
   %or.cond.i52 = select i1 %170, i1 true, i1 %171
   br i1 %or.cond.i52, label %173, label %172
 
@@ -460,13 +460,13 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   br label %173
 
 173:                                              ; preds = %172, %168, %162
-  %.172.i = phi ptr [ %.071103.i, %162 ], [ %.071103.i, %168 ], [ @.str.41, %172 ]
+  %.172.i = phi ptr [ %.071102.i, %162 ], [ %.071102.i, %168 ], [ @.str.41, %172 ]
   %174 = call i32 @pqGets(ptr noundef nonnull %9, ptr noundef nonnull %2) #10
   %.not77.i = icmp eq i32 %174, 0
   br i1 %.not77.i, label %149, label %._crit_edge.i
 
 175:                                              ; preds = %152
-  %.not78.i = icmp eq ptr %.071103.i, null
+  %.not78.i = icmp eq ptr %.071102.i, null
   br i1 %.not78.i, label %176, label %177
 
 176:                                              ; preds = %175
@@ -486,7 +486,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   br i1 %182, label %.thread.i53, label %.critedge101, !llvm.loop !5
 
 .critedge101:                                     ; preds = %.preheader.i
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %178, ptr noundef nonnull %.071103.i) #10
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %178, ptr noundef nonnull %.071102.i) #10
   br label %259
 
 .thread.i53:                                      ; preds = %.preheader.i, %177
@@ -496,7 +496,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   br i1 %185, label %186, label %189
 
 186:                                              ; preds = %.thread.i53
-  %187 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.071103.i, ptr noundef nonnull dereferenceable(19) @.str.38) #12
+  %187 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.071102.i, ptr noundef nonnull dereferenceable(19) @.str.38) #12
   %.not80.i = icmp eq i32 %187, 0
   br i1 %.not80.i, label %189, label %188
 
@@ -525,27 +525,27 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, null
-  br i1 %204, label %205, label %.thread95.i
+  br i1 %204, label %205, label %.thread94.i
 
 205:                                              ; preds = %195
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, null
-  br i1 %208, label %211, label %.thread95.i
+  br i1 %208, label %211, label %.thread94.i
 
-.thread95.i:                                      ; preds = %205, %195
-  %.197.i = phi ptr [ %207, %205 ], [ %203, %195 ]
-  %209 = load i8, ptr %.197.i, align 1
+.thread94.i:                                      ; preds = %205, %195
+  %.196.i = phi ptr [ %207, %205 ], [ %203, %195 ]
+  %209 = load i8, ptr %.196.i, align 1
   %210 = icmp eq i8 %209, 0
   br i1 %210, label %211, label %213
 
-211:                                              ; preds = %.thread95.i, %205
+211:                                              ; preds = %.thread94.i, %205
   %212 = getelementptr inbounds nuw i8, ptr %2, i64 1120
   call void @appendPQExpBufferStr(ptr noundef nonnull %212, ptr noundef nonnull @.str.5) #10
   br label %259
 
-213:                                              ; preds = %.thread95.i, %192, %189
-  %.070.i = phi ptr [ null, %192 ], [ %.197.i, %.thread95.i ], [ null, %189 ]
+213:                                              ; preds = %.thread94.i, %192, %189
+  %.070.i = phi ptr [ null, %192 ], [ %.196.i, %.thread94.i ], [ null, %189 ]
   %214 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %215 = load ptr, ptr %214, align 8
   %.not82.i = icmp eq ptr %215, null
@@ -569,7 +569,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
 225:                                              ; preds = %223
   %226 = load ptr, ptr %145, align 8
   %227 = load ptr, ptr %226, align 8
-  %228 = call ptr %227(ptr noundef nonnull %2, ptr noundef %.070.i, ptr noundef nonnull %.071103.i) #10
+  %228 = call ptr %227(ptr noundef nonnull %2, ptr noundef %.070.i, ptr noundef nonnull %.071102.i) #10
   store ptr %228, ptr %136, align 8
   %.not84.i = icmp eq ptr %228, null
   br i1 %.not84.i, label %..loopexit_crit_edge.i, label %231
@@ -604,7 +604,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   br i1 %.not85.i, label %240, label %259
 
 240:                                              ; preds = %238
-  %241 = call i32 @pqPuts(ptr noundef nonnull %.071103.i, ptr noundef nonnull %2) #10
+  %241 = call i32 @pqPuts(ptr noundef nonnull %.071102.i, ptr noundef nonnull %2) #10
   %.not86.i = icmp eq i32 %241, 0
   br i1 %.not86.i, label %242, label %259
 

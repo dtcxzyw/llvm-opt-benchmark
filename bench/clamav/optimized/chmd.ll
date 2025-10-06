@@ -247,14 +247,14 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(
   %20 = tail call ptr %19(ptr noundef %13, i64 noundef 144) #12
   store ptr %20, ptr %15, align 8, !tbaa !21
   %.not151 = icmp eq ptr %20, null
-  br i1 %.not151, label %21, label %.thread206
+  br i1 %.not151, label %21, label %.thread205
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 6, ptr %22, align 8, !tbaa !20
   br label %196
 
-.thread206:                                       ; preds = %17
+.thread205:                                       ; preds = %17
   store ptr %14, ptr %20, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %23, align 8, !tbaa !49
@@ -284,11 +284,11 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   tail call void %34(ptr noundef nonnull %.pre) #12
-  %.pre177 = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre176 = load ptr, ptr %15, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread206, %29, %32
-  %35 = phi ptr [ %16, %29 ], [ %.pre177, %32 ], [ %26, %.thread206 ]
+.thread:                                          ; preds = %.thread205, %29, %32
+  %35 = phi ptr [ %16, %29 ], [ %.pre176, %32 ], [ %26, %.thread205 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !43
   %.not155 = icmp eq ptr %37, null
@@ -296,11 +296,11 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(
 
 38:                                               ; preds = %.thread
   tail call void @lzxd_free(ptr noundef nonnull %37) #12
-  %.pre178 = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre177 = load ptr, ptr %15, align 8, !tbaa !21
   br label %39
 
 39:                                               ; preds = %38, %.thread
-  %40 = phi ptr [ %.pre178, %38 ], [ %35, %.thread ]
+  %40 = phi ptr [ %.pre177, %38 ], [ %35, %.thread ]
   store ptr %14, ptr %40, align 8, !tbaa !37
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 0, ptr %41, align 8, !tbaa !49
@@ -408,14 +408,14 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(
   br label %104
 
 101:                                              ; preds = %110
-  %102 = sub nsw i64 %.0132176, %spec.select175
+  %102 = sub nsw i64 %.0132175, %spec.select174
   %103 = icmp sgt i64 %102, 0
   br i1 %103, label %104, label %.thread170
 
 104:                                              ; preds = %.lr.ph, %101
-  %.0132176 = phi i64 [ %82, %.lr.ph ], [ %102, %101 ]
-  %spec.select175 = call i64 @llvm.umin.i64(i64 %.0132176, i64 512)
-  %spec.select = trunc nuw nsw i64 %spec.select175 to i32
+  %.0132175 = phi i64 [ %82, %.lr.ph ], [ %102, %101 ]
+  %spec.select174 = call i64 @llvm.umin.i64(i64 %.0132175, i64 512)
+  %spec.select = trunc nuw nsw i64 %spec.select174 to i32
   %105 = load ptr, ptr %99, align 8, !tbaa !63
   %106 = load ptr, ptr %15, align 8, !tbaa !21
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 128
@@ -444,7 +444,7 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !43
   %.not159 = icmp eq ptr %116, null
-  br i1 %.not159, label %.thread174, label %117
+  br i1 %.not159, label %.thread173, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -459,22 +459,22 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(
   %124 = load ptr, ptr %15, align 8, !tbaa !21
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   store ptr null, ptr %125, align 8, !tbaa !43
-  br label %.thread174
+  br label %.thread173
 
-.thread174:                                       ; preds = %113, %123
+.thread173:                                       ; preds = %113, %123
   %126 = tail call fastcc i32 @chmd_init_decomp(ptr noundef %0, ptr noundef %1)
   %.not161 = icmp eq i32 %126, 0
-  br i1 %.not161, label %.thread174._crit_edge, label %192
+  br i1 %.not161, label %.thread173._crit_edge, label %192
 
-.thread174._crit_edge:                            ; preds = %.thread174
-  %.phi.trans.insert179 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre180 = load i64, ptr %.phi.trans.insert179, align 8, !tbaa !59
-  %.pre181 = load ptr, ptr %15, align 8, !tbaa !21
+.thread173._crit_edge:                            ; preds = %.thread173
+  %.phi.trans.insert178 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre179 = load i64, ptr %.phi.trans.insert178, align 8, !tbaa !59
+  %.pre180 = load ptr, ptr %15, align 8, !tbaa !21
   br label %127
 
-127:                                              ; preds = %.thread174._crit_edge, %117
-  %128 = phi ptr [ %.pre181, %.thread174._crit_edge ], [ %114, %117 ]
-  %129 = phi i64 [ %.pre180, %.thread174._crit_edge ], [ %119, %117 ]
+127:                                              ; preds = %.thread173._crit_edge, %117
+  %128 = phi ptr [ %.pre180, %.thread173._crit_edge ], [ %114, %117 ]
+  %129 = phi i64 [ %.pre179, %.thread173._crit_edge ], [ %119, %117 ]
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !65
@@ -516,7 +516,7 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(
   %153 = load ptr, ptr %152, align 8, !tbaa !43
   %154 = tail call i32 @lzxd_decompress(ptr noundef %153, i64 noundef %151) #12
   store i32 %154, ptr %64, align 8, !tbaa !20
-  %.pre184.pre = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre183.pre = load ptr, ptr %15, align 8, !tbaa !21
   br label %155
 
 thread-pre-split:                                 ; preds = %144
@@ -524,14 +524,14 @@ thread-pre-split:                                 ; preds = %144
   br label %155
 
 155:                                              ; preds = %thread-pre-split, %150
-  %.pre184 = phi ptr [ %145, %thread-pre-split ], [ %.pre184.pre, %150 ]
+  %.pre183 = phi ptr [ %145, %thread-pre-split ], [ %.pre183.pre, %150 ]
   %156 = phi i32 [ %.pr, %thread-pre-split ], [ %154, %150 ]
   %.not164 = icmp eq i32 %156, 0
   br i1 %.not164, label %157, label %175
 
 157:                                              ; preds = %155
   %158 = load i64, ptr %57, align 8, !tbaa !55
-  %159 = getelementptr inbounds nuw i8, ptr %.pre184, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.pre183, i64 8
   %160 = load i64, ptr %159, align 8, !tbaa !65
   %161 = load i64, ptr %130, align 8, !tbaa !59
   %162 = sub nsw i64 %160, %161
@@ -544,11 +544,11 @@ thread-pre-split:                                 ; preds = %144
   %167 = sub nsw i64 %158, %162
   tail call void (ptr, ptr, ...) %166(ptr noundef nonnull %53, ptr noundef nonnull @.str.14, i64 noundef %167) #12
   %168 = add nsw i64 %162, 1
-  %.pre182 = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre181 = load ptr, ptr %15, align 8, !tbaa !21
   br label %169
 
 169:                                              ; preds = %164, %157
-  %170 = phi ptr [ %.pre182, %164 ], [ %.pre184, %157 ]
+  %170 = phi ptr [ %.pre181, %164 ], [ %.pre183, %157 ]
   %.0129 = phi i64 [ %168, %164 ], [ %158, %157 ]
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 136
   store ptr %53, ptr %171, align 8, !tbaa !67
@@ -556,11 +556,11 @@ thread-pre-split:                                 ; preds = %144
   %173 = load ptr, ptr %172, align 8, !tbaa !43
   %174 = tail call i32 @lzxd_decompress(ptr noundef %173, i64 noundef %.0129) #12
   store i32 %174, ptr %64, align 8, !tbaa !20
-  %.pre183 = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre182 = load ptr, ptr %15, align 8, !tbaa !21
   br label %175
 
 175:                                              ; preds = %169, %155
-  %176 = phi ptr [ %.pre183, %169 ], [ %.pre184, %155 ]
+  %176 = phi ptr [ %.pre182, %169 ], [ %.pre183, %155 ]
   %177 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %178 = load ptr, ptr %177, align 8, !tbaa !61
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 128
@@ -581,16 +581,16 @@ thread-pre-split:                                 ; preds = %144
 
 188:                                              ; preds = %185
   tail call void @lzxd_free(ptr noundef nonnull %187) #12
-  %.pre185 = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre184 = load ptr, ptr %15, align 8, !tbaa !21
   br label %189
 
 189:                                              ; preds = %188, %185
-  %190 = phi ptr [ %.pre185, %188 ], [ %182, %185 ]
+  %190 = phi ptr [ %.pre184, %188 ], [ %182, %185 ]
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   store ptr null, ptr %191, align 8, !tbaa !43
   br label %192
 
-192:                                              ; preds = %175, %189, %.thread174, %80, %.thread170, %143, %134, %63
+192:                                              ; preds = %175, %189, %.thread173, %80, %.thread170, %143, %134, %63
   %193 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !42
   call void %194(ptr noundef nonnull %53) #12

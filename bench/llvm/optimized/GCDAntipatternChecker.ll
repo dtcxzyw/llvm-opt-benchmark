@@ -2911,8 +2911,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121GCDAntipatternChecker16checkAST
   %135 = and i32 %134, 127
   %136 = add nsw i32 %135, -79
   %137 = icmp ult i32 %136, -63
-  %.not46.i = icmp eq ptr %1, null
-  %.not.i = or i1 %.not46.i, %137
+  %.not43.i = icmp eq ptr %1, null
+  %.not.i = or i1 %.not43.i, %137
   br i1 %.not.i, label %151, label %138
 
 138:                                              ; preds = %4
@@ -2959,7 +2959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit._crit_edge.i: ; p
   %152 = phi i32 [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit._crit_edge.i ], [ %134, %4 ]
   %153 = and i32 %152, 127
   %154 = icmp ne i32 %153, 16
-  %.not22.i = or i1 %.not46.i, %154
+  %.not22.i = or i1 %.not43.i, %154
   br i1 %.not22.i, label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread, label %155
 
 155:                                              ; preds = %151
@@ -2998,22 +2998,22 @@ _ZNK5clang11DeclContext9getParentEv.exit.i:       ; preds = %163, %155
   %175 = load i64, ptr %174, align 8, !tbaa !107
   store i64 %175, ptr %173, align 8, !tbaa !135
   %176 = call noundef i64 @_ZNK4llvm9StringRef16find_insensitiveES0_m(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr nonnull @.str.12, i64 4, i64 noundef 0) #19
-  %.not48.i = icmp eq i64 %176, -1
-  br i1 %.not48.i, label %177, label %.critedge25.i
+  %.not45.i = icmp eq i64 %176, -1
+  br i1 %.not45.i, label %177, label %.critedge25.i
 
 177:                                              ; preds = %170
   %178 = call noundef i64 @_ZNK4llvm9StringRef16find_insensitiveES0_m(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr nonnull @.str.13, i64 4, i64 noundef 0) #19
-  %.not49.i = icmp eq i64 %178, -1
-  br i1 %.not49.i, label %.critedge.i, label %.critedge25.i
+  %.not46.i = icmp eq i64 %178, -1
+  br i1 %.not46.i, label %.critedge.i, label %.critedge25.i
 
 .critedge.i:                                      ; preds = %177
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   %179 = load ptr, ptr %125, align 8, !tbaa !103
   %180 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %181 = icmp eq ptr %179, %180
-  br i1 %181, label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30.i
+  br i1 %181, label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30.i: ; preds = %.critedge.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29.i: ; preds = %.critedge.i
   %182 = load i64, ptr %180, align 8, !tbaa !23
   %183 = add i64 %182, 1
   call void @_ZdlPvm(ptr noundef %179, i64 noundef %183) #22
@@ -3024,19 +3024,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   %184 = load ptr, ptr %125, align 8, !tbaa !103
   %185 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %186 = icmp eq ptr %184, %185
-  br i1 %186, label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread150, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33.i
+  br i1 %186, label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread150, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33.i: ; preds = %.critedge25.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32.i: ; preds = %.critedge25.i
   %187 = load i64, ptr %185, align 8, !tbaa !23
   %188 = add i64 %187, 1
   call void @_ZdlPvm(ptr noundef %184, i64 noundef %188) #22
   br label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread150
 
-_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread150: ; preds = %.critedge25.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33.i
+_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread150: ; preds = %.critedge25.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32.i
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread147
 
-_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit:    ; preds = %.critedge.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30.i
+_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit:    ; preds = %.critedge.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %_ZN12_GLOBAL__N_16isTestEPKN5clang4DeclE.exit.thread
 
@@ -12043,8 +12043,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   %18 = zext i32 %17 to i64
   %.idx = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
-  %.not24 = icmp eq i32 %17, 0
-  br i1 %.not24, label %.thread, label %.lr.ph
+  %.not26 = icmp eq i32 %17, 0
+  br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -12056,13 +12056,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   br label %28
 
 26:                                               ; preds = %54
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 8
   %.not = icmp eq ptr %27, %19
   br i1 %.not, label %.thread, label %28
 
 28:                                               ; preds = %.lr.ph, %26
-  %.sroa.018.025 = phi ptr [ %15, %.lr.ph ], [ %27, %26 ]
-  %29 = load ptr, ptr %.sroa.018.025, align 8, !tbaa !1050
+  %.sroa.018.027 = phi ptr [ %15, %.lr.ph ], [ %27, %26 ]
+  %29 = load ptr, ptr %.sroa.018.027, align 8, !tbaa !1050
   %30 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   br i1 %30, label %31, label %35
 
@@ -12139,8 +12139,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapE
   br i1 %40, label %.thread, label %26
 
 .thread:                                          ; preds = %54, %26, %31, %4
-  %not.switch = phi i1 [ false, %4 ], [ false, %31 ], [ false, %26 ], [ true, %54 ]
-  ret i1 %not.switch
+  %55 = phi i1 [ false, %4 ], [ false, %31 ], [ false, %26 ], [ true, %54 ]
+  ret i1 %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12334,8 +12334,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   %11 = and i32 %10, 524280
   %.idx = zext nneg i32 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %.not24 = icmp eq i32 %11, 0
-  br i1 %.not24, label %.thread, label %.lr.ph
+  %.not26 = icmp eq i32 %11, 0
+  br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -12347,13 +12347,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal30match
   br label %21
 
 19:                                               ; preds = %47
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 8
   %.not = icmp eq ptr %20, %12
   br i1 %.not, label %.thread, label %21
 
 21:                                               ; preds = %.lr.ph, %19
-  %.sroa.018.025 = phi ptr [ %7, %.lr.ph ], [ %20, %19 ]
-  %22 = load ptr, ptr %.sroa.018.025, align 8, !tbaa !1050
+  %.sroa.018.027 = phi ptr [ %7, %.lr.ph ], [ %20, %19 ]
+  %22 = load ptr, ptr %.sroa.018.027, align 8, !tbaa !1050
   %23 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal14ASTMatchFinder32isTraversalIgnoringImplicitNodesEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   br i1 %23, label %24, label %28
 
@@ -12430,8 +12430,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers8internal13BoundNodesMapE
   br i1 %33, label %.thread, label %19
 
 .thread:                                          ; preds = %47, %19, %24, %4
-  %not.switch = phi i1 [ false, %4 ], [ false, %24 ], [ false, %19 ], [ true, %47 ]
-  ret i1 %not.switch
+  %48 = phi i1 [ false, %4 ], [ false, %24 ], [ false, %19 ], [ true, %47 ]
+  ret i1 %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

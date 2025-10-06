@@ -849,31 +849,31 @@ tuplestore_updatemax.exit:                        ; preds = %119, %133
 
 .lr.ph.i:                                         ; preds = %157, %.lr.ph.preheader.i
   %145 = phi i32 [ %158, %157 ], [ %141, %.lr.ph.preheader.i ]
-  %.02127.i = phi i32 [ %160, %157 ], [ 0, %.lr.ph.preheader.i ]
-  %.02226.i = phi ptr [ %159, %157 ], [ %143, %.lr.ph.preheader.i ]
-  %146 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 8
+  %.02126.i = phi i32 [ %160, %157 ], [ 0, %.lr.ph.preheader.i ]
+  %.02225.i = phi ptr [ %159, %157 ], [ %143, %.lr.ph.preheader.i ]
+  %146 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 8
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, %144
   br i1 %148, label %149, label %157
 
 149:                                              ; preds = %.lr.ph.i
-  %150 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 4
   %151 = load i8, ptr %150, align 4, !range !4, !noundef !5
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %157, label %153
 
 153:                                              ; preds = %149
   %154 = load ptr, ptr %108, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 12
-  %156 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 16
   tail call void @BufFileTell(ptr noundef %154, ptr noundef nonnull %155, ptr noundef nonnull %156) #8
   %.pre.i = load i32, ptr %9, align 4
   br label %157
 
 157:                                              ; preds = %153, %149, %.lr.ph.i
   %158 = phi i32 [ %145, %.lr.ph.i ], [ %145, %149 ], [ %.pre.i, %153 ]
-  %159 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 24
-  %160 = add nuw nsw i32 %.02127.i, 1
+  %159 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 24
+  %160 = add nuw nsw i32 %.02126.i, 1
   %161 = icmp slt i32 %160, %158
   br i1 %161, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 

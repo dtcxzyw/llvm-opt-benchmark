@@ -1016,8 +1016,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17VLIWResourceModel13hasDependenceE
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %.01622 = phi ptr [ %20, %19 ], [ %9, %.lr.ph.preheader ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.01622, align 8
+  %.01624 = phi ptr [ %20, %19 ], [ %9, %.lr.ph.preheader ]
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.01624, align 8
   %11 = and i64 %.0.copyload.i.i.i.i.i, 6
   %12 = icmp eq i64 %11, 0
   %13 = and i64 %.0.copyload.i.i.i.i.i, -8
@@ -1027,18 +1027,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm17VLIWResourceModel13hasDependenceE
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.01622, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %.01624, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !128
   %.not17 = icmp eq i32 %18, 0
   br i1 %.not17, label %19, label %.loopexit
 
 19:                                               ; preds = %16, %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.01622, i64 16
-  %.not.not = icmp eq ptr %20, %10
-  br i1 %.not.not, label %.loopexit, label %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %.01624, i64 16
+  %.not = icmp eq ptr %20, %10
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %16, %19, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %16 ], [ false, %19 ]
+.loopexit:                                        ; preds = %19, %16, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %19 ], [ true, %16 ]
   ret i1 %.0
 }
 
@@ -1078,51 +1078,51 @@ define dso_local noundef zeroext i1 @_ZN4llvm17VLIWResourceModel19isResourceAvai
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8, !tbaa !26
   %18 = zext i32 %17 to i64
-  %.idx58 = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx58
-  %.not3652 = icmp eq i32 %17, 0
+  %.idx53 = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx53
+  %.not3647 = icmp eq i32 %17, 0
   br i1 %2, label %20, label %27
 
 20:                                               ; preds = %13
-  br i1 %.not3652, label %.thread, label %.lr.ph54
+  br i1 %.not3647, label %.thread, label %.lr.ph49
 
-.lr.ph54:                                         ; preds = %20, %.lr.ph54
-  %.02753 = phi ptr [ %26, %.lr.ph54 ], [ %15, %20 ]
-  %21 = load ptr, ptr %.02753, align 8, !tbaa !151
+.lr.ph49:                                         ; preds = %20, %.lr.ph49
+  %.02748 = phi ptr [ %26, %.lr.ph49 ], [ %15, %20 ]
+  %21 = load ptr, ptr %.02748, align 8, !tbaa !151
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %21, ptr noundef nonnull %1) #19
-  %26 = getelementptr inbounds nuw i8, ptr %.02753, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.02748, i64 8
   %.not36 = icmp eq ptr %26, %19
   %or.cond = select i1 %25, i1 true, i1 %.not36
-  br i1 %or.cond, label %.thread.loopexit, label %.lr.ph54
+  br i1 %or.cond, label %.thread.loopexit, label %.lr.ph49
 
 27:                                               ; preds = %13
-  br i1 %.not3652, label %.thread, label %.lr.ph
+  br i1 %.not3647, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.02849 = phi ptr [ %33, %.lr.ph ], [ %15, %27 ]
-  %28 = load ptr, ptr %.02849, align 8, !tbaa !151
+  %.02844 = phi ptr [ %33, %.lr.ph ], [ %15, %27 ]
+  %28 = load ptr, ptr %.02844, align 8, !tbaa !151
   %29 = load ptr, ptr %0, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, ptr noundef %28) #19
-  %33 = getelementptr inbounds nuw i8, ptr %.02849, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.02844, i64 8
   %.not35 = icmp eq ptr %33, %19
-  %or.cond66 = select i1 %32, i1 true, i1 %.not35
-  br i1 %or.cond66, label %.thread.loopexit59, label %.lr.ph
+  %or.cond61 = select i1 %32, i1 true, i1 %.not35
+  br i1 %or.cond61, label %.thread.loopexit54, label %.lr.ph
 
-.thread.loopexit:                                 ; preds = %.lr.ph54
+.thread.loopexit:                                 ; preds = %.lr.ph49
   %.0.ph = xor i1 %25, true
   br label %.thread
 
-.thread.loopexit59:                               ; preds = %.lr.ph
-  %.0.ph60 = xor i1 %32, true
+.thread.loopexit54:                               ; preds = %.lr.ph
+  %.0.ph55 = xor i1 %32, true
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit59, %.thread.loopexit, %27, %20, %9, %3, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %3 ], [ false, %9 ], [ true, %20 ], [ true, %27 ], [ %.0.ph, %.thread.loopexit ], [ %.0.ph60, %.thread.loopexit59 ]
+.thread:                                          ; preds = %.thread.loopexit54, %.thread.loopexit, %27, %20, %9, %3, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %3 ], [ false, %9 ], [ true, %20 ], [ true, %27 ], [ %.0.ph, %.thread.loopexit ], [ %.0.ph55, %.thread.loopexit54 ]
   ret i1 %.0
 }
 
@@ -1300,8 +1300,8 @@ define dso_local void @_ZN4llvm20VLIWMachineScheduler8scheduleEv(ptr noundef non
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 1 dereferenceable(1) %4) #19
-  %.not11 = icmp eq ptr %34, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %34, null
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %37
   %35 = phi ptr [ %52, %37 ], [ %34, %23 ]
@@ -4478,12 +4478,12 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler20pickNodeBidrect
   %33 = load i32, ptr %32, align 4, !tbaa !490
   %34 = icmp sgt i32 %31, %33
   %. = zext i1 %34 to i8
-  %.36 = select i1 %34, ptr %4, ptr %3
+  %.33 = select i1 %34, ptr %4, ptr %3
   br label %35
 
 35:                                               ; preds = %29, %27, %25, %20
   %.sink = phi i8 [ 1, %20 ], [ 0, %25 ], [ 1, %27 ], [ %., %29 ]
-  %.4.in = phi ptr [ %4, %20 ], [ %3, %25 ], [ %4, %27 ], [ %.36, %29 ]
+  %.4.in = phi ptr [ %4, %20 ], [ %3, %25 ], [ %4, %27 ], [ %.33, %29 ]
   store i8 %.sink, ptr %1, align 1, !tbaa !49
   %.4 = load ptr, ptr %.4.in, align 8, !tbaa !487
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -1082,10 +1082,10 @@ define noundef ptr @_ZN6icu_7710UCharsTrie25findUniqueValueFromBranchEPKDsiaRi(p
   br i1 %5, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %4, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit
-  %.03160 = phi ptr [ %.0.i42, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit ], [ %0, %4 ]
-  %.03359 = phi i32 [ %35, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit ], [ %1, %4 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.03160, i64 2
-  %7 = getelementptr inbounds nuw i8, ptr %.03160, i64 4
+  %.03159 = phi ptr [ %.0.i42, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit ], [ %0, %4 ]
+  %.03358 = phi i32 [ %35, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit ], [ %1, %4 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.03159, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %.03159, i64 4
   %8 = load i16, ptr %6, align 2, !tbaa !12
   %9 = zext i16 %8 to i32
   %10 = icmp ugt i16 %8, -1025
@@ -1099,17 +1099,17 @@ define noundef ptr @_ZN6icu_7710UCharsTrie25findUniqueValueFromBranchEPKDsiaRi(p
   %14 = load i16, ptr %7, align 2, !tbaa !12
   %15 = zext i16 %14 to i32
   %16 = shl nuw i32 %15, 16
-  %17 = getelementptr inbounds nuw i8, ptr %.03160, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %.03159, i64 6
   %18 = load i16, ptr %17, align 2, !tbaa !12
   %19 = zext i16 %18 to i32
   %20 = or disjoint i32 %16, %19
-  %21 = getelementptr inbounds nuw i8, ptr %.03160, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.03159, i64 8
   br label %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit
 
 22:                                               ; preds = %11
   %23 = shl nuw i32 %9, 16
   %24 = add nsw i32 %23, 67108864
-  %25 = getelementptr inbounds nuw i8, ptr %.03160, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %.03159, i64 6
   %26 = load i16, ptr %7, align 2, !tbaa !12
   %27 = zext i16 %26 to i32
   %28 = or disjoint i32 %24, %27
@@ -1120,13 +1120,13 @@ _ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit:    ; preds = %.lr.ph, %13, %22
   %.0.i = phi i32 [ %20, %13 ], [ %28, %22 ], [ %9, %.lr.ph ]
   %29 = sext i32 %.0.i to i64
   %30 = getelementptr inbounds i16, ptr %.09.i, i64 %29
-  %31 = lshr i32 %.03359, 1
+  %31 = lshr i32 %.03358, 1
   %32 = tail call noundef ptr @_ZN6icu_7710UCharsTrie25findUniqueValueFromBranchEPKDsiaRi(ptr noundef nonnull %30, i32 noundef %31, i8 noundef signext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread50, label %34
 
 34:                                               ; preds = %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit
-  %35 = sub nsw i32 %.03359, %31
+  %35 = sub nsw i32 %.03358, %31
   %36 = load i16, ptr %6, align 2, !tbaa !12
   %37 = icmp ugt i16 %36, -1025
   br i1 %37, label %38, label %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit
@@ -1136,11 +1136,11 @@ _ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit:    ; preds = %.lr.ph, %13, %22
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %.03160, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.03159, i64 8
   br label %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %.03160, i64 6
+  %43 = getelementptr inbounds nuw i8, ptr %.03159, i64 6
   br label %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit
 
 _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %34, %40, %42
@@ -1166,8 +1166,8 @@ _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %34, %40, %42
   br i1 %50, label %_ZN6icu_7710UCharsTrie9skipValueEPKDsi.exit, label %51
 
 51:                                               ; preds = %.preheader
-  %.not54 = icmp eq i16 %48, 32767
-  br i1 %.not54, label %59, label %52
+  %.not53 = icmp eq i16 %48, 32767
+  br i1 %.not53, label %59, label %52
 
 52:                                               ; preds = %51
   %53 = shl nuw nsw i32 %49, 16

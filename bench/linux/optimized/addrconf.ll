@@ -13096,7 +13096,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %6 = load volatile ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %8 = load ptr, ptr %7, align 8
-  switch i64 %1, label %205 [
+  switch i64 %1, label %206 [
     i64 5, label %9
     i64 7, label %25
     i64 1, label %45
@@ -13106,23 +13106,23 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
     i64 11, label %137
     i64 15, label %184
     i64 16, label %184
-    i64 22, label %196
+    i64 22, label %197
   ]
 
 9:                                                ; preds = %3
   %10 = icmp eq ptr %6, null
-  br i1 %10, label %11, label %205
+  br i1 %10, label %11, label %206
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %13, 1279
-  br i1 %14, label %15, label %205
+  br i1 %14, label %15, label %206
 
 15:                                               ; preds = %11
   %16 = tail call fastcc ptr @ipv6_add_dev(ptr noundef %4)
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %18, label %205
+  br i1 %17, label %18, label %206
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %16 to i64
@@ -13131,7 +13131,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %22 = sub i32 1, %20
   %23 = or i32 %22, 32768
   %24 = select i1 %21, i32 1, i32 %23
-  br label %205
+  br label %206
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -13144,7 +13144,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ne ptr %4, %31
   tail call fastcc void @addrconf_ifdown(ptr noundef %4, i1 noundef zeroext %32)
-  br label %205
+  br label %206
 
 33:                                               ; preds = %25
   %34 = icmp eq ptr %6, null
@@ -13155,18 +13155,18 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %36 = load i32, ptr %26, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 688
   store i32 %36, ptr %37, align 8
-  br label %205
+  br label %206
 
 38:                                               ; preds = %33
   %39 = tail call fastcc ptr @ipv6_add_dev(ptr noundef %4)
   %40 = icmp ugt ptr %39, inttoptr (i64 -4096 to ptr)
-  br i1 %40, label %205, label %41
+  br i1 %40, label %206, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 628
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %205, label %45
+  br i1 %44, label %206, label %45
 
 45:                                               ; preds = %41, %3, %3
   %46 = phi ptr [ %6, %3 ], [ %6, %3 ], [ %39, %41 ]
@@ -13178,7 +13178,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 796
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %205
+  br i1 %52, label %53, label %206
 
 53:                                               ; preds = %49, %45
   %54 = load i64, ptr %4, align 8
@@ -13191,18 +13191,18 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %59 = icmp ugt ptr %46, inttoptr (i64 -4096 to ptr)
   %60 = or i1 %58, %59
   %61 = or i1 %48, %60
-  br i1 %61, label %205, label %62
+  br i1 %61, label %206, label %62
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 4097
   %66 = icmp eq i32 %65, 4097
-  br i1 %66, label %67, label %205
+  br i1 %66, label %67, label %206
 
 67:                                               ; preds = %62
   tail call void @ipv6_mc_up(ptr noundef nonnull %46) #20
-  br label %205
+  br label %206
 
 68:                                               ; preds = %53
   switch i64 %1, label %.thread [
@@ -13213,7 +13213,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
 69:                                               ; preds = %68
   tail call fastcc void @addrconf_permanent_addr(ptr noundef %8, ptr noundef %4)
   %70 = tail call fastcc zeroext i1 @addrconf_link_ready(ptr noundef %4)
-  br i1 %70, label %71, label %205
+  br i1 %70, label %71, label %206
 
 71:                                               ; preds = %69
   br i1 %48, label %72, label %78
@@ -13246,7 +13246,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
 
 88:                                               ; preds = %86
   tail call void @rt6_sync_down_dev(ptr noundef %4, i64 noundef 4) #20
-  br label %205
+  br label %206
 
 89:                                               ; preds = %86
   %90 = icmp ugt ptr %46, inttoptr (i64 -4096 to ptr)
@@ -13273,7 +13273,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
 
 102:                                              ; preds = %101, %96
   tail call void @rt6_sync_up(ptr noundef %4, i8 noundef zeroext 16) #20
-  br label %205
+  br label %206
 
 103:                                              ; preds = %92, %83
   %104 = phi i32 [ %85, %83 ], [ %94, %92 ]
@@ -13290,7 +13290,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %110 = icmp eq ptr %108, null
   %111 = icmp ugt ptr %108, inttoptr (i64 -4096 to ptr)
   %112 = or i1 %110, %111
-  br i1 %112, label %205, label %113
+  br i1 %112, label %206, label %113
 
 113:                                              ; preds = %.thread
   %114 = icmp eq i32 %109, 0
@@ -13324,23 +13324,23 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   tail call void @inet6_ifinfo_notify(i32 noundef 16, ptr noundef nonnull %108)
   %129 = load i32, ptr %119, align 8
   %130 = icmp ult i32 %129, 1280
-  br i1 %130, label %131, label %205
+  br i1 %130, label %131, label %206
 
 131:                                              ; preds = %126
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 344
   %133 = load ptr, ptr %132, align 8
   %134 = icmp ne ptr %4, %133
   tail call fastcc void @addrconf_ifdown(ptr noundef %4, i1 noundef zeroext %134)
-  br label %205
+  br label %206
 
 135:                                              ; preds = %3, %3
   %136 = icmp ne i64 %1, 2
   tail call fastcc void @addrconf_ifdown(ptr noundef %4, i1 noundef zeroext %136)
-  br label %205
+  br label %206
 
 137:                                              ; preds = %3
   %138 = icmp eq ptr %6, null
-  br i1 %138, label %205, label %139
+  br i1 %138, label %206, label %139
 
 139:                                              ; preds = %137
   %140 = tail call i32 @snmp6_unregister_dev(ptr noundef nonnull %6) #20
@@ -13403,22 +13403,22 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr readnone captures(n
   %.ph = phi i32 [ -22, %152 ], [ %172, %174 ], [ %164, %162 ], [ -22, %159 ]
   %177 = sub i32 1, %.ph
   %178 = or i32 %177, 32768
-  br label %205
+  br label %206
 
 addrconf_sysctl_register.exit:                    ; preds = %166
   %179 = tail call i32 @snmp6_register_dev(ptr noundef nonnull %6) #20
   %180 = icmp eq i32 %179, 0
-  br i1 %180, label %205, label %181
+  br i1 %180, label %206, label %181
 
 181:                                              ; preds = %addrconf_sysctl_register.exit
   tail call fastcc void @addrconf_sysctl_unregister(ptr noundef nonnull %6)
   %182 = sub i32 1, %179
   %183 = or i32 %182, 32768
-  br label %205
+  br label %206
 
 184:                                              ; preds = %3, %3
   %185 = icmp eq ptr %6, null
-  br i1 %185, label %205, label %186
+  br i1 %185, label %206, label %186
 
 186:                                              ; preds = %184
   %187 = tail call i32 @rtnl_is_locked() #20
@@ -13439,36 +13439,36 @@ addrconf_sysctl_register.exit:                    ; preds = %166
 
 192:                                              ; preds = %191, %186
   %193 = load volatile ptr, ptr %5, align 8
-  %switch = icmp eq i64 %1, 16
-  br i1 %switch, label %194, label %195
-
-194:                                              ; preds = %192
-  tail call void @ipv6_mc_remap(ptr noundef %193) #20
-  br label %205
+  %194 = icmp eq i64 %1, 16
+  br i1 %194, label %195, label %196
 
 195:                                              ; preds = %192
+  tail call void @ipv6_mc_remap(ptr noundef %193) #20
+  br label %206
+
+196:                                              ; preds = %192
   tail call void @ipv6_mc_unmap(ptr noundef %193) #20
-  br label %205
+  br label %206
 
-196:                                              ; preds = %3
-  %197 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %198 = load ptr, ptr %197, align 8
-  %199 = icmp eq ptr %198, null
-  br i1 %199, label %205, label %200
+197:                                              ; preds = %3
+  %198 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %206, label %201
 
-200:                                              ; preds = %196
-  %201 = load i64, ptr %198, align 8
-  %202 = and i64 %201, 262144
-  %203 = icmp eq i64 %202, 0
-  br i1 %203, label %205, label %204
+201:                                              ; preds = %197
+  %202 = load i64, ptr %199, align 8
+  %203 = and i64 %202, 262144
+  %204 = icmp eq i64 %203, 0
+  br i1 %204, label %206, label %205
 
-204:                                              ; preds = %200
+205:                                              ; preds = %201
   tail call fastcc void @addrconf_ifdown(ptr noundef %4, i1 noundef zeroext false)
-  br label %205
+  br label %206
 
-205:                                              ; preds = %204, %200, %196, %195, %194, %184, %181, %addrconf_sysctl_register.exit, %176, %137, %135, %131, %126, %.thread, %102, %88, %69, %67, %62, %57, %49, %41, %38, %35, %29, %18, %15, %11, %9, %3
-  %206 = phi i32 [ %178, %176 ], [ %183, %181 ], [ %24, %18 ], [ 1, %69 ], [ 1, %196 ], [ 1, %200 ], [ 1, %204 ], [ 1, %184 ], [ 1, %137 ], [ 1, %addrconf_sysctl_register.exit ], [ 1, %.thread ], [ 1, %131 ], [ 1, %126 ], [ 1, %57 ], [ 1, %62 ], [ 1, %67 ], [ 1, %49 ], [ 1, %41 ], [ 1, %38 ], [ 1, %9 ], [ 1, %11 ], [ 1, %15 ], [ 1, %3 ], [ 1, %135 ], [ 1, %102 ], [ 1, %88 ], [ 1, %35 ], [ 1, %29 ], [ 1, %194 ], [ 1, %195 ]
-  ret i32 %206
+206:                                              ; preds = %205, %201, %197, %196, %195, %184, %181, %addrconf_sysctl_register.exit, %176, %137, %135, %131, %126, %.thread, %102, %88, %69, %67, %62, %57, %49, %41, %38, %35, %29, %18, %15, %11, %9, %3
+  %207 = phi i32 [ %178, %176 ], [ %183, %181 ], [ %24, %18 ], [ 1, %69 ], [ 1, %197 ], [ 1, %201 ], [ 1, %205 ], [ 1, %184 ], [ 1, %137 ], [ 1, %addrconf_sysctl_register.exit ], [ 1, %.thread ], [ 1, %131 ], [ 1, %126 ], [ 1, %57 ], [ 1, %62 ], [ 1, %67 ], [ 1, %49 ], [ 1, %41 ], [ 1, %38 ], [ 1, %9 ], [ 1, %11 ], [ 1, %15 ], [ 1, %3 ], [ 1, %135 ], [ 1, %102 ], [ 1, %88 ], [ 1, %35 ], [ 1, %29 ], [ 1, %195 ], [ 1, %196 ]
+  ret i32 %207
 }
 
 ; Function Attrs: null_pointer_is_valid

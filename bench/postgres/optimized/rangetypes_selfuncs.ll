@@ -1387,36 +1387,36 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %76
   %indvars.iv = phi i64 [ %60, %.lr.ph.preheader ], [ %indvars.iv.next, %76 ]
-  %.081129 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.2, %76 ]
-  %.086127 = phi double [ %57, %.lr.ph.preheader ], [ %68, %76 ]
-  %.089126 = phi double [ %2, %.lr.ph.preheader ], [ %62, %76 ]
+  %.081128 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.2, %76 ]
+  %.086126 = phi double [ %57, %.lr.ph.preheader ], [ %68, %76 ]
+  %.089125 = phi double [ %2, %.lr.ph.preheader ], [ %62, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
   %62 = load double, ptr %61, align 8
   %63 = fcmp olt double %62, %3
   %64 = fcmp ole double %62, %3
   %or.cond100.not = and i1 %4, %64
-  %or.cond116 = or i1 %63, %or.cond100.not
+  %or.cond115 = or i1 %63, %or.cond100.not
   %65 = trunc nuw i64 %indvars.iv to i32
-  br i1 %or.cond116, label %66, label %79
+  br i1 %or.cond115, label %66, label %79
 
 66:                                               ; preds = %.lr.ph
   %67 = uitofp nneg i32 %65 to double
   %68 = fdiv double %67, %56
-  %69 = fcmp ogt double %.086127, 0.000000e+00
+  %69 = fcmp ogt double %.086126, 0.000000e+00
   %70 = fcmp ogt double %68, 0.000000e+00
   %or.cond3 = select i1 %69, i1 true, i1 %70
   br i1 %or.cond3, label %71, label %76
 
 71:                                               ; preds = %66
-  %72 = fadd double %.086127, %68
+  %72 = fadd double %.086126, %68
   %73 = fmul double %72, 5.000000e-01
-  %74 = fsub double %62, %.089126
-  %75 = tail call double @llvm.fmuladd.f64(double %73, double %74, double %.081129)
+  %74 = fsub double %62, %.089125
+  %75 = tail call double @llvm.fmuladd.f64(double %73, double %74, double %.081128)
   br label %76
 
 76:                                               ; preds = %71, %66
-  %.2 = phi double [ %75, %71 ], [ %.081129, %66 ]
+  %.2 = phi double [ %75, %71 ], [ %.081128, %66 ]
   %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
   br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !12
@@ -1435,28 +1435,28 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %.preheader, %79, %86
-  %.089125 = phi double [ %.089126, %86 ], [ %.089126, %79 ], [ %2, %.preheader ], [ %62, %76 ]
-  %.086123 = phi double [ %.086127, %86 ], [ %.086127, %79 ], [ %57, %.preheader ], [ %68, %76 ]
-  %.183121 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.082, %.preheader ], [ %77, %76 ]
-  %.081119 = phi double [ %.081129, %86 ], [ %.081129, %79 ], [ 0.000000e+00, %.preheader ], [ %.2, %76 ]
+  %.089124 = phi double [ %.089125, %86 ], [ %.089125, %79 ], [ %2, %.preheader ], [ %62, %76 ]
+  %.086122 = phi double [ %.086126, %86 ], [ %.086126, %79 ], [ %57, %.preheader ], [ %68, %76 ]
+  %.183120 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.082, %.preheader ], [ %77, %76 ]
+  %.081118 = phi double [ %.081128, %86 ], [ %.081128, %79 ], [ 0.000000e+00, %.preheader ], [ %.2, %76 ]
   %.185 = phi double [ %87, %86 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
-  %88 = uitofp nneg i32 %.183121 to double
+  %88 = uitofp nneg i32 %.183120 to double
   %89 = fadd double %.185, %88
   %90 = fdiv double %89, %56
-  %91 = fcmp ogt double %.086123, 0.000000e+00
+  %91 = fcmp ogt double %.086122, 0.000000e+00
   %92 = fcmp ogt double %90, 0.000000e+00
   %or.cond5 = select i1 %91, i1 true, i1 %92
   br i1 %or.cond5, label %93, label %98
 
 93:                                               ; preds = %.loopexit
-  %94 = fadd double %.086123, %90
+  %94 = fadd double %.086122, %90
   %95 = fmul double %94, 5.000000e-01
-  %96 = fsub double %3, %.089125
-  %97 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %.081119)
+  %96 = fsub double %3, %.089124
+  %97 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %.081118)
   br label %98
 
 98:                                               ; preds = %.loopexit, %93
-  %.4 = phi double [ %97, %93 ], [ %.081119, %.loopexit ]
+  %.4 = phi double [ %97, %93 ], [ %.081118, %.loopexit ]
   %99 = tail call double @llvm.fabs.f64(double %.4)
   %100 = fcmp oeq double %99, 0x7FF0000000000000
   %brmerge.not = and i1 %9, %100

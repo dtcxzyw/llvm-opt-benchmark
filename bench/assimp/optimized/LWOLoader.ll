@@ -10177,8 +10177,8 @@ define linkonce_odr hidden noundef ptr @_Z9FindEntryIN6Assimp3LWO9UVChannelEEPNS
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not3234 = icmp eq ptr %5, %7
-  br i1 %.not3234, label %._crit_edge, label %.lr.ph
+  %.not3032 = icmp eq ptr %5, %7
+  br i1 %.not3032, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10191,9 +10191,9 @@ define linkonce_odr hidden noundef ptr @_Z9FindEntryIN6Assimp3LWO9UVChannelEEPNS
   br label %12
 
 12:                                               ; preds = %.thread.us, %.lr.ph.split.us
-  %.sroa.019.035.us = phi ptr [ %5, %.lr.ph.split.us ], [ %20, %.thread.us ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 16
+  %.sroa.019.033.us = phi ptr [ %5, %.lr.ph.split.us ], [ %20, %.thread.us ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %9
   br i1 %16, label %17, label %.thread.us
@@ -10208,39 +10208,39 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %19, label %.thread27, label %.thread.us
 
 .thread.us:                                       ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %12
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 112
-  %.not32.us = icmp eq ptr %20, %7
-  br i1 %.not32.us, label %._crit_edge, label %12
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 112
+  %.not30.us = icmp eq ptr %20, %7
+  br i1 %.not30.us, label %._crit_edge, label %12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.sroa.019.035 = phi ptr [ %29, %.thread ], [ %5, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 16
+  %.sroa.019.033 = phi ptr [ %29, %.thread ], [ %5, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %9
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %.lr.ph.split
   %26 = icmp eq i64 %23, 0
-  br i1 %26, label %.thread27.loopexit36, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  br i1 %26, label %.thread27.loopexit34, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %25
   %27 = load ptr, ptr %21, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %27, ptr %10, i64 %23)
   %28 = icmp eq i32 %bcmp.i, 0
-  br i1 %28, label %.thread27.loopexit36, label %.thread
+  br i1 %28, label %.thread27.loopexit34, label %.thread
 
 .thread:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %.lr.ph.split
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 112
-  %.not32 = icmp eq ptr %29, %7
-  br i1 %.not32, label %._crit_edge.loopexit37, label %.lr.ph.split
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 112
+  %.not30 = icmp eq ptr %29, %7
+  br i1 %.not30, label %._crit_edge.loopexit35, label %.lr.ph.split
 
-._crit_edge.loopexit37:                           ; preds = %.thread
+._crit_edge.loopexit35:                           ; preds = %.thread
   %.pre = load ptr, ptr %6, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread.us, %._crit_edge.loopexit37, %3
-  %30 = phi ptr [ %.pre, %._crit_edge.loopexit37 ], [ %7, %3 ], [ %7, %.thread.us ]
+._crit_edge:                                      ; preds = %.thread.us, %._crit_edge.loopexit35, %3
+  %30 = phi ptr [ %.pre, %._crit_edge.loopexit35 ], [ %7, %3 ], [ %7, %.thread.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -10343,13 +10343,13 @@ _ZN6Assimp3LWO9VMapEntryD2Ev.exit:                ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %70
 
-.thread27.loopexit36:                             ; preds = %25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+.thread27.loopexit34:                             ; preds = %25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %71 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %71, ptr noundef nonnull @.str.115)
   br label %.thread27
 
-.thread27:                                        ; preds = %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %.thread27.loopexit36, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit
-  %.3 = phi ptr [ %67, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit ], [ %.sroa.019.035, %.thread27.loopexit36 ], [ %.sroa.019.035.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us ], [ %.sroa.019.035.us, %17 ]
+.thread27:                                        ; preds = %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %.thread27.loopexit34, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit
+  %.3 = phi ptr [ %67, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit ], [ %.sroa.019.033, %.thread27.loopexit34 ], [ %.sroa.019.033.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us ], [ %.sroa.019.033.us, %17 ]
   ret ptr %.3
 }
 
@@ -10457,8 +10457,8 @@ define linkonce_odr hidden noundef ptr @_Z9FindEntryIN6Assimp3LWO13WeightChannel
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not3234 = icmp eq ptr %5, %7
-  br i1 %.not3234, label %._crit_edge, label %.lr.ph
+  %.not3032 = icmp eq ptr %5, %7
+  br i1 %.not3032, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10471,9 +10471,9 @@ define linkonce_odr hidden noundef ptr @_Z9FindEntryIN6Assimp3LWO13WeightChannel
   br label %12
 
 12:                                               ; preds = %.thread.us, %.lr.ph.split.us
-  %.sroa.019.035.us = phi ptr [ %5, %.lr.ph.split.us ], [ %20, %.thread.us ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 16
+  %.sroa.019.033.us = phi ptr [ %5, %.lr.ph.split.us ], [ %20, %.thread.us ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %9
   br i1 %16, label %17, label %.thread.us
@@ -10488,39 +10488,39 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %19, label %.thread27, label %.thread.us
 
 .thread.us:                                       ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %12
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 112
-  %.not32.us = icmp eq ptr %20, %7
-  br i1 %.not32.us, label %._crit_edge, label %12
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 112
+  %.not30.us = icmp eq ptr %20, %7
+  br i1 %.not30.us, label %._crit_edge, label %12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.sroa.019.035 = phi ptr [ %29, %.thread ], [ %5, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 16
+  %.sroa.019.033 = phi ptr [ %29, %.thread ], [ %5, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %9
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %.lr.ph.split
   %26 = icmp eq i64 %23, 0
-  br i1 %26, label %.thread27.loopexit36, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  br i1 %26, label %.thread27.loopexit34, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %25
   %27 = load ptr, ptr %21, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %27, ptr %10, i64 %23)
   %28 = icmp eq i32 %bcmp.i, 0
-  br i1 %28, label %.thread27.loopexit36, label %.thread
+  br i1 %28, label %.thread27.loopexit34, label %.thread
 
 .thread:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %.lr.ph.split
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 112
-  %.not32 = icmp eq ptr %29, %7
-  br i1 %.not32, label %._crit_edge.loopexit37, label %.lr.ph.split
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 112
+  %.not30 = icmp eq ptr %29, %7
+  br i1 %.not30, label %._crit_edge.loopexit35, label %.lr.ph.split
 
-._crit_edge.loopexit37:                           ; preds = %.thread
+._crit_edge.loopexit35:                           ; preds = %.thread
   %.pre = load ptr, ptr %6, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread.us, %._crit_edge.loopexit37, %3
-  %30 = phi ptr [ %.pre, %._crit_edge.loopexit37 ], [ %7, %3 ], [ %7, %.thread.us ]
+._crit_edge:                                      ; preds = %.thread.us, %._crit_edge.loopexit35, %3
+  %30 = phi ptr [ %.pre, %._crit_edge.loopexit35 ], [ %7, %3 ], [ %7, %.thread.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -10623,13 +10623,13 @@ _ZN6Assimp3LWO9VMapEntryD2Ev.exit:                ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %70
 
-.thread27.loopexit36:                             ; preds = %25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+.thread27.loopexit34:                             ; preds = %25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %71 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %71, ptr noundef nonnull @.str.115)
   br label %.thread27
 
-.thread27:                                        ; preds = %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %.thread27.loopexit36, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit
-  %.3 = phi ptr [ %67, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit ], [ %.sroa.019.035, %.thread27.loopexit36 ], [ %.sroa.019.035.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us ], [ %.sroa.019.035.us, %17 ]
+.thread27:                                        ; preds = %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %.thread27.loopexit34, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit
+  %.3 = phi ptr [ %67, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit ], [ %.sroa.019.033, %.thread27.loopexit34 ], [ %.sroa.019.033.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us ], [ %.sroa.019.033.us, %17 ]
   ret ptr %.3
 }
 
@@ -10737,8 +10737,8 @@ define linkonce_odr hidden noundef ptr @_Z9FindEntryIN6Assimp3LWO13VColorChannel
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not3234 = icmp eq ptr %5, %7
-  br i1 %.not3234, label %._crit_edge, label %.lr.ph
+  %.not3032 = icmp eq ptr %5, %7
+  br i1 %.not3032, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10751,9 +10751,9 @@ define linkonce_odr hidden noundef ptr @_Z9FindEntryIN6Assimp3LWO13VColorChannel
   br label %12
 
 12:                                               ; preds = %.thread.us, %.lr.ph.split.us
-  %.sroa.019.035.us = phi ptr [ %5, %.lr.ph.split.us ], [ %20, %.thread.us ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 16
+  %.sroa.019.033.us = phi ptr [ %5, %.lr.ph.split.us ], [ %20, %.thread.us ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %9
   br i1 %16, label %17, label %.thread.us
@@ -10768,39 +10768,39 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %19, label %.thread27, label %.thread.us
 
 .thread.us:                                       ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %12
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.019.035.us, i64 112
-  %.not32.us = icmp eq ptr %20, %7
-  br i1 %.not32.us, label %._crit_edge, label %12
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.us, i64 112
+  %.not30.us = icmp eq ptr %20, %7
+  br i1 %.not30.us, label %._crit_edge, label %12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.sroa.019.035 = phi ptr [ %29, %.thread ], [ %5, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 16
+  %.sroa.019.033 = phi ptr [ %29, %.thread ], [ %5, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %9
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %.lr.ph.split
   %26 = icmp eq i64 %23, 0
-  br i1 %26, label %.thread27.loopexit36, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  br i1 %26, label %.thread27.loopexit34, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %25
   %27 = load ptr, ptr %21, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %27, ptr %10, i64 %23)
   %28 = icmp eq i32 %bcmp.i, 0
-  br i1 %28, label %.thread27.loopexit36, label %.thread
+  br i1 %28, label %.thread27.loopexit34, label %.thread
 
 .thread:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %.lr.ph.split
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 112
-  %.not32 = icmp eq ptr %29, %7
-  br i1 %.not32, label %._crit_edge.loopexit37, label %.lr.ph.split
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 112
+  %.not30 = icmp eq ptr %29, %7
+  br i1 %.not30, label %._crit_edge.loopexit35, label %.lr.ph.split
 
-._crit_edge.loopexit37:                           ; preds = %.thread
+._crit_edge.loopexit35:                           ; preds = %.thread
   %.pre = load ptr, ptr %6, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread.us, %._crit_edge.loopexit37, %3
-  %30 = phi ptr [ %.pre, %._crit_edge.loopexit37 ], [ %7, %3 ], [ %7, %.thread.us ]
+._crit_edge:                                      ; preds = %.thread.us, %._crit_edge.loopexit35, %3
+  %30 = phi ptr [ %.pre, %._crit_edge.loopexit35 ], [ %7, %3 ], [ %7, %.thread.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -10903,13 +10903,13 @@ _ZN6Assimp3LWO9VMapEntryD2Ev.exit:                ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %70
 
-.thread27.loopexit36:                             ; preds = %25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+.thread27.loopexit34:                             ; preds = %25, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %71 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %71, ptr noundef nonnull @.str.115)
   br label %.thread27
 
-.thread27:                                        ; preds = %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %.thread27.loopexit36, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit
-  %.3 = phi ptr [ %67, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit ], [ %.sroa.019.035, %.thread27.loopexit36 ], [ %.sroa.019.035.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us ], [ %.sroa.019.035.us, %17 ]
+.thread27:                                        ; preds = %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %.thread27.loopexit34, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit
+  %.3 = phi ptr [ %67, %_ZN6Assimp3LWO9VMapEntryD2Ev.exit ], [ %.sroa.019.033, %.thread27.loopexit34 ], [ %.sroa.019.033.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us ], [ %.sroa.019.033.us, %17 ]
   ret ptr %.3
 }
 

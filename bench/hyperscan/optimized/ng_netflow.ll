@@ -1945,9 +1945,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
           to label %.noexc13 unwind label %.loopexit.split-lp
 
 .noexc13:                                         ; preds = %.noexc
-  %.sroa.0.0.copyload14.i = load ptr, ptr %13, align 8
+  %.sroa.0.0.copyload13.i = load ptr, ptr %13, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.5.0.copyload5.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8
+  %.sroa.5.0.copyload4.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %56 = load i8, ptr %55, align 8, !range !112, !noundef !113
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1959,12 +1959,12 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   br label %59
 
 59:                                               ; preds = %.noexc16, %.lr.ph.i
-  %.sroa.5.0.copyload7.i = phi i64 [ %.sroa.5.0.copyload5.i, %.lr.ph.i ], [ %.sroa.5.0.copyload.i, %.noexc16 ]
-  %.sroa.0.0.copyload16.i = phi ptr [ %.sroa.0.0.copyload14.i, %.lr.ph.i ], [ %.sroa.0.0.copyload1.i, %.noexc16 ]
+  %.sroa.5.0.copyload6.i = phi i64 [ %.sroa.5.0.copyload4.i, %.lr.ph.i ], [ %.sroa.5.0.copyload.i, %.noexc16 ]
+  %.sroa.0.0.copyload15.i = phi ptr [ %.sroa.0.0.copyload13.i, %.lr.ph.i ], [ %.sroa.0.0.copyload1.i, %.noexc16 ]
   %60 = load i64, ptr %58, align 8
   %61 = add nsw i64 %60, 1
   store i64 %61, ptr %58, align 8
-  invoke void @_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E7augmentESN_(ptr noundef nonnull align 8 dereferenceable(560) %14, ptr %.sroa.0.0.copyload16.i, i64 %.sroa.5.0.copyload7.i)
+  invoke void @_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E7augmentESN_(ptr noundef nonnull align 8 dereferenceable(560) %14, ptr %.sroa.0.0.copyload15.i, i64 %.sroa.5.0.copyload6.i)
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %59

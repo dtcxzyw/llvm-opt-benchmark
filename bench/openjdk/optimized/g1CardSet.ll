@@ -4439,15 +4439,15 @@ _ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8get_nodeIN18G1
   br label %79
 
 79:                                               ; preds = %.thread, %_ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8get_nodeIN18G1CardSetHashTable24G1CardSetHashTableLookUpEEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread62
-  %.1.ph83 = phi i1 [ true, %.thread ], [ false, %_ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8get_nodeIN18G1CardSetHashTable24G1CardSetHashTableLookUpEEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread62 ]
-  %.1.i60.ph81 = phi i64 [ %.1.i61, %.thread ], [ %56, %_ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8get_nodeIN18G1CardSetHashTable24G1CardSetHashTableLookUpEEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread62 ]
+  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %_ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8get_nodeIN18G1CardSetHashTable24G1CardSetHashTableLookUpEEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread62 ]
+  %.1.i60.ph80 = phi i64 [ %.1.i61, %.thread ], [ %56, %_ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8get_nodeIN18G1CardSetHashTable24G1CardSetHashTableLookUpEEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread62 ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %85, label %80
 
 80:                                               ; preds = %79
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %82 = load i64, ptr %81, align 8
-  %83 = icmp ugt i64 %.1.i60.ph81, %82
+  %83 = icmp ugt i64 %.1.i60.ph80, %82
   %84 = zext i1 %83 to i8
   store i8 %84, ptr %5, align 1
   br label %85
@@ -4461,7 +4461,7 @@ _ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8get_nodeIN18G1
   br label %87
 
 87:                                               ; preds = %86, %85
-  ret i1 %.1.ph83
+  ret i1 %.1.ph82
 }
 
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #2

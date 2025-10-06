@@ -753,16 +753,16 @@ define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %0, 
   br i1 %.not50, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %22
-  %.not5161 = icmp eq i64 %spec.select, 0
-  br i1 %.not5161, label %.loopexit, label %.lr.ph
+  %.not5160 = icmp eq i64 %spec.select, 0
+  br i1 %.not5160, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %37
-  %.04563 = phi i64 [ %41, %37 ], [ 0, %.preheader ]
-  %.04662 = phi i32 [ %42, %37 ], [ 1, %.preheader ]
+  %.04562 = phi i64 [ %41, %37 ], [ 0, %.preheader ]
+  %.04661 = phi i32 [ %42, %37 ], [ 1, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %25 = trunc i32 %.04662 to i8
+  %25 = trunc i32 %.04661 to i8
   store i8 %25, ptr %9, align 1, !tbaa !29
-  %26 = icmp ugt i32 %.04662, 1
+  %26 = icmp ugt i32 %.04661, 1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph
@@ -795,13 +795,13 @@ define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %0, 
   br label %.loopexit
 
 37:                                               ; preds = %35
-  %38 = sub i64 %6, %.04563
+  %38 = sub i64 %6, %.04562
   %39 = call i64 @llvm.umin.i64(i64 %38, i64 %13)
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.04563
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.04562
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 16 %8, i64 %39, i1 false)
-  %41 = add i64 %39, %.04563
+  %41 = add i64 %39, %.04562
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %42 = add i32 %.04662, 1
+  %42 = add i32 %.04661, 1
   %43 = zext i32 %42 to i64
   %.not51 = icmp ult i64 %spec.select, %43
   br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !30

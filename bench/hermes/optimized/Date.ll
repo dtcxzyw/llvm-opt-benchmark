@@ -1857,25 +1857,25 @@ entry:
   store double 1.000000e+00, ptr %3, align 16
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 7)
   %conv = zext nneg i32 %.sroa.speculated to i64
-  %cmp24.not = icmp eq i32 %0, 0
-  br i1 %cmp24.not, label %for.end, label %for.body.lr.ph
+  %cmp23.not = icmp eq i32 %0, 0
+  br i1 %cmp23.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %topGCScope_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %4 = load ptr, ptr %topGCScope_.i.i, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %4, i64 192
   %5 = load ptr, ptr %next_.i.i, align 8
   %curChunkIndex_.i.i = getelementptr inbounds nuw i8, ptr %4, i64 208
   %6 = load i32, ptr %curChunkIndex_.i.i, align 8
-  %conv3 = trunc nuw nsw i64 %i.025 to i32
+  %conv3 = trunc nuw nsw i64 %i.024 to i32
   %7 = load i32, ptr %argCount_.i, align 8
   %cmp.i9 = icmp ugt i32 %7, %conv3
   %8 = load ptr, ptr %args, align 8
-  %idx.neg.i.i.i = sub nsw i64 0, %i.025
+  %idx.neg.i.i.i = sub nsw i64 0, %i.024
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %8, i64 %idx.neg.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
   %retval.sroa.0.0.i = select i1 %cmp.i9, ptr %incdec.ptr.i.i.i, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
@@ -1899,7 +1899,7 @@ cleanup:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %12 = extractvalue { i32, i64 } %call8, 1
-  %arrayidx = getelementptr inbounds nuw double, ptr %fields, i64 %i.025
+  %arrayidx = getelementptr inbounds nuw double, ptr %fields, i64 %i.024
   store i64 %12, ptr %arrayidx, align 8
   %chunks_.i.i.i15 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %conv.i.i.i16 = zext i32 %6 to i64
@@ -1911,7 +1911,7 @@ for.inc:                                          ; preds = %for.body
   %curChunkEnd_.i.i.i19 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %add.ptr.i.i.i1118, ptr %curChunkEnd_.i.i.i19, align 8
   store ptr %5, ptr %next_.i.i, align 8
-  %inc = add nuw nsw i64 %i.025, 1
+  %inc = add nuw nsw i64 %i.024, 1
   %exitcond.not = icmp eq i64 %inc, %conv
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !43
 

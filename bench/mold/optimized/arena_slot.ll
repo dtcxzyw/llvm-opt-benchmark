@@ -435,8 +435,8 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %56
   %32 = phi i64 [ %58, %56 ], [ %24, %.lr.ph ]
-  %.03366.us = phi i8 [ %.3.us, %56 ], [ 0, %.lr.ph ]
-  %.03465.us = phi i64 [ %.236.us, %56 ], [ %21, %.lr.ph ]
+  %.03365.us = phi i8 [ %.3.us, %56 ], [ 0, %.lr.ph ]
+  %.03464.us = phi i64 [ %.236.us, %56 ], [ %21, %.lr.ph ]
   %33 = getelementptr ptr, ptr %.0.i.i.i, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8, !tbaa !14
@@ -447,8 +447,8 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !17
   %39 = and i64 %38, 1
-  %.not58.us = icmp eq i64 %39, 0
-  br i1 %.not58.us, label %.thread, label %40
+  %.not57.us = icmp eq i64 %39, 0
+  br i1 %.not57.us, label %.thread, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 64
@@ -471,13 +471,13 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   br i1 %53, label %.thread, label %56
 
 54:                                               ; preds = %.lr.ph.split.us
-  %55 = trunc nuw i8 %.03366.us to i1
-  %spec.select.us = select i1 %55, i64 %.03465.us, i64 %32
+  %55 = trunc nuw i8 %.03365.us to i1
+  %spec.select.us = select i1 %55, i64 %.03464.us, i64 %32
   br label %56
 
 56:                                               ; preds = %54, %51
-  %.236.us = phi i64 [ %.03465.us, %51 ], [ %spec.select.us, %54 ]
-  %.3.us = phi i8 [ 1, %51 ], [ %.03366.us, %54 ]
+  %.236.us = phi i64 [ %.03464.us, %51 ], [ %spec.select.us, %54 ]
+  %.3.us = phi i8 [ 1, %51 ], [ %.03365.us, %54 ]
   %57 = atomicrmw add ptr %20, i64 1 seq_cst, align 8
   %58 = add i64 %57, 1
   %59 = load atomic i64, ptr %22 acquire, align 16
@@ -486,8 +486,8 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %89
   %61 = phi i64 [ %91, %89 ], [ %24, %.lr.ph ]
-  %.03366 = phi i8 [ %.3, %89 ], [ 0, %.lr.ph ]
-  %.03465 = phi i64 [ %.236, %89 ], [ %21, %.lr.ph ]
+  %.03365 = phi i8 [ %.3, %89 ], [ 0, %.lr.ph ]
+  %.03464 = phi i64 [ %.236, %89 ], [ %21, %.lr.ph ]
   %62 = getelementptr ptr, ptr %.0.i.i.i, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -8
   %64 = load ptr, ptr %63, align 8, !tbaa !14
@@ -504,8 +504,8 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !17
   %72 = and i64 %71, 1
-  %.not58 = icmp eq i64 %72, 0
-  br i1 %.not58, label %.thread, label %73
+  %.not57 = icmp eq i64 %72, 0
+  br i1 %.not57, label %.thread, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 64
@@ -528,13 +528,13 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   br i1 %86, label %.thread, label %89
 
 87:                                               ; preds = %.lr.ph.split
-  %88 = trunc nuw i8 %.03366 to i1
-  %spec.select = select i1 %88, i64 %.03465, i64 %61
+  %88 = trunc nuw i8 %.03365 to i1
+  %spec.select = select i1 %88, i64 %.03464, i64 %61
   br label %89
 
 89:                                               ; preds = %87, %84, %65
-  %.236 = phi i64 [ %.03465, %65 ], [ %.03465, %84 ], [ %spec.select, %87 ]
-  %.3 = phi i8 [ 1, %65 ], [ 1, %84 ], [ %.03366, %87 ]
+  %.236 = phi i64 [ %.03464, %65 ], [ %.03464, %84 ], [ %spec.select, %87 ]
+  %.3 = phi i8 [ 1, %65 ], [ 1, %84 ], [ %.03365, %87 ]
   %90 = atomicrmw add ptr %20, i64 1 seq_cst, align 8
   %91 = add i64 %90, 1
   %92 = load atomic i64, ptr %22 acquire, align 16
@@ -543,21 +543,21 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
 
 .thread:                                          ; preds = %69, %78, %73, %84, %36, %40, %45, %51
   %94 = phi i64 [ %32, %51 ], [ %32, %45 ], [ %32, %40 ], [ %32, %36 ], [ %61, %84 ], [ %61, %73 ], [ %61, %78 ], [ %61, %69 ]
-  %.us-phi68 = phi ptr [ %35, %51 ], [ %35, %45 ], [ %35, %40 ], [ %35, %36 ], [ %64, %84 ], [ %64, %73 ], [ %64, %78 ], [ %64, %69 ]
-  %.us-phi69 = phi i64 [ %.03465.us, %51 ], [ %.03465.us, %45 ], [ %.03465.us, %40 ], [ %.03465.us, %36 ], [ %.03465, %84 ], [ %.03465, %73 ], [ %.03465, %78 ], [ %.03465, %69 ]
-  %.us-phi70 = phi i8 [ %.03366.us, %51 ], [ %.03366.us, %45 ], [ %.03366.us, %40 ], [ %.03366.us, %36 ], [ %.03366, %84 ], [ %.03366, %73 ], [ %.03366, %78 ], [ %.03366, %69 ]
-  %95 = trunc nuw i8 %.us-phi70 to i1
-  br i1 %95, label %.thread52, label %.thread55
+  %.us-phi67 = phi ptr [ %35, %51 ], [ %35, %45 ], [ %35, %40 ], [ %35, %36 ], [ %64, %84 ], [ %64, %73 ], [ %64, %78 ], [ %64, %69 ]
+  %.us-phi68 = phi i64 [ %.03464.us, %51 ], [ %.03464.us, %45 ], [ %.03464.us, %40 ], [ %.03464.us, %36 ], [ %.03464, %84 ], [ %.03464, %73 ], [ %.03464, %78 ], [ %.03464, %69 ]
+  %.us-phi69 = phi i8 [ %.03365.us, %51 ], [ %.03365.us, %45 ], [ %.03365.us, %40 ], [ %.03365.us, %36 ], [ %.03365, %84 ], [ %.03365, %73 ], [ %.03365, %78 ], [ %.03365, %69 ]
+  %95 = trunc nuw i8 %.us-phi69 to i1
+  br i1 %95, label %.thread51, label %.thread54
 
-.thread55:                                        ; preds = %.thread
+.thread54:                                        ; preds = %.thread
   store atomic i64 %8, ptr %6 release, align 8
   br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
-.thread52:                                        ; preds = %.thread
+.thread51:                                        ; preds = %.thread
   %96 = getelementptr ptr, ptr %.0.i.i.i, i64 %94
   %97 = getelementptr i8, ptr %96, i64 -8
   store ptr null, ptr %97, align 8, !tbaa !14
-  store atomic i64 %.us-phi69, ptr %20 release, align 16
+  store atomic i64 %.us-phi68, ptr %20 release, align 16
   store atomic i64 %8, ptr %6 release, align 8
   br label %99
 
@@ -569,8 +569,8 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %98 = trunc nuw i8 %.033.lcssa to i1
   br i1 %98, label %99, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
-99:                                               ; preds = %.thread52, %._crit_edge
-  %.13854 = phi ptr [ %.us-phi68, %.thread52 ], [ null, %._crit_edge ]
+99:                                               ; preds = %.thread51, %._crit_edge
+  %.13853 = phi ptr [ %.us-phi67, %.thread51 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !87
   call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, ptr nonnull elementtype(i8) %5) #1, !srcloc !88
@@ -601,8 +601,8 @@ _ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i: ; preds = %102, %99
   call void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768) %1, i32 noundef 0, i32 noundef %110, i1 noundef zeroext true)
   br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
-_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %._crit_edge.thread, %108, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i, %102, %99, %.thread55, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %.us-phi68, %.thread55 ], [ %.13854, %99 ], [ %.13854, %102 ], [ %.13854, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i ], [ %.13854, %108 ], [ null, %._crit_edge.thread ], [ null, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i ]
+_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %._crit_edge.thread, %108, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i, %102, %99, %.thread54, %._crit_edge
+  %.0 = phi ptr [ null, %._crit_edge ], [ %.us-phi67, %.thread54 ], [ %.13853, %99 ], [ %.13853, %102 ], [ %.13853, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i ], [ %.13853, %108 ], [ null, %._crit_edge.thread ], [ null, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i ]
   ret ptr %.0
 }
 

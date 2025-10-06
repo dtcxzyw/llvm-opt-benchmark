@@ -18,13 +18,13 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   br i1 %5, label %.loopexit.thread, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %2, %33
-  %.02655 = phi ptr [ %.1, %33 ], [ null, %2 ]
+  %.02654 = phi ptr [ %.1, %33 ], [ null, %2 ]
   store i32 0, ptr %6, align 4, !tbaa !6
-  %7 = icmp eq ptr %.02655, null
+  %7 = icmp eq ptr %.02654, null
   br i1 %7, label %8, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split
-  %.pre.i = load ptr, ptr %.02655, align 8, !tbaa !10
+  %.pre.i = load ptr, ptr %.02654, align 8, !tbaa !10
   br label %14
 
 8:                                                ; preds = %.lr.ph.split
@@ -36,16 +36,16 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   %11 = call ptr @opendir(ptr noundef nonnull readonly %1)
   store ptr %11, ptr %calloc.i, align 8, !tbaa !10
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.split58, label %14
+  br i1 %12, label %.split57, label %14
 
-.split58:                                         ; preds = %10
+.split57:                                         ; preds = %10
   %13 = load i32, ptr %6, align 4, !tbaa !6
   call void @free(ptr noundef nonnull %calloc.i) #9
   store i32 %13, ptr %6, align 4, !tbaa !6
   br label %.loopexit
 
 14:                                               ; preds = %10, %._crit_edge.i
-  %.1 = phi ptr [ %calloc.i, %10 ], [ %.02655, %._crit_edge.i ]
+  %.1 = phi ptr [ %calloc.i, %10 ], [ %.02654, %._crit_edge.i ]
   %15 = phi ptr [ %11, %10 ], [ %.pre.i, %._crit_edge.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %17 = call i32 @readdir_r(ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %3) #9
@@ -64,24 +64,24 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   %25 = add i64 %23, -1023
   %26 = add i64 %25, %24
   %27 = icmp ult i64 %26, -1025
-  br i1 %27, label %.split64, label %28
+  br i1 %27, label %.split63, label %28
 
-.split64:                                         ; preds = %21
+.split63:                                         ; preds = %21
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 191, ptr noundef nonnull @.str, i32 noundef 199) #9
-  br label %.thread34
+  br label %.thread33
 
 28:                                               ; preds = %21
   %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, ptr noundef nonnull %22) #9
   %30 = add i32 %29, -1024
   %or.cond = icmp ult i32 %30, -1023
-  br i1 %or.cond, label %.thread34, label %31
+  br i1 %or.cond, label %.thread33, label %31
 
 31:                                               ; preds = %28
   %32 = call i32 @SSL_add_file_cert_subjects_to_stack(ptr noundef %0, ptr noundef nonnull %4) #9
   %.not16 = icmp eq i32 %32, 0
-  br i1 %.not16, label %.thread34, label %33
+  br i1 %.not16, label %.thread33, label %33
 
-.thread34:                                        ; preds = %28, %31, %.split64
+.thread33:                                        ; preds = %28, %31, %.split63
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %OPENSSL_DIR_end.exit
 
@@ -100,36 +100,36 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.split58
-  %34 = phi i32 [ %13, %.split58 ], [ %.pre, %.loopexit.loopexit ]
-  %.2.ph = phi ptr [ null, %.split58 ], [ %.1, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.split57
+  %34 = phi i32 [ %13, %.split57 ], [ %.pre, %.loopexit.loopexit ]
+  %.2.ph = phi ptr [ null, %.split57 ], [ %.1, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not15 = icmp eq i32 %34, 0
   br i1 %.not15, label %36, label %35
 
 35:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.2.ph76 = phi ptr [ null, %.loopexit.thread ], [ %.2.ph, %.loopexit ]
+  %.2.ph75 = phi ptr [ null, %.loopexit.thread ], [ %.2.ph, %.loopexit ]
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 211) #9
   call void (i32, ...) @ERR_add_error_data(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull @.str.3) #9
   br label %36
 
 36:                                               ; preds = %.loopexit, %35
-  %.2.ph77 = phi ptr [ %.2.ph76, %35 ], [ %.2.ph, %.loopexit ]
+  %.2.ph76 = phi ptr [ %.2.ph75, %35 ], [ %.2.ph, %.loopexit ]
   %.013 = phi i32 [ 0, %35 ], [ 1, %.loopexit ]
-  %.not17 = icmp eq ptr %.2.ph77, null
+  %.not17 = icmp eq ptr %.2.ph76, null
   br i1 %.not17, label %39, label %OPENSSL_DIR_end.exit
 
-OPENSSL_DIR_end.exit:                             ; preds = %.thread34, %36
-  %.01339 = phi i32 [ 0, %.thread34 ], [ %.013, %36 ]
-  %.23038 = phi ptr [ %.1, %.thread34 ], [ %.2.ph77, %36 ]
-  %37 = load ptr, ptr %.23038, align 8, !tbaa !10
+OPENSSL_DIR_end.exit:                             ; preds = %.thread33, %36
+  %.01338 = phi i32 [ 0, %.thread33 ], [ %.013, %36 ]
+  %.23037 = phi ptr [ %.1, %.thread33 ], [ %.2.ph76, %36 ]
+  %37 = load ptr, ptr %.23037, align 8, !tbaa !10
   %38 = call i32 @closedir(ptr noundef %37)
-  call void @free(ptr noundef nonnull %.23038) #9
+  call void @free(ptr noundef nonnull %.23037) #9
   br label %39
 
 39:                                               ; preds = %36, %OPENSSL_DIR_end.exit
-  %.01340 = phi i32 [ %.013, %36 ], [ %.01339, %OPENSSL_DIR_end.exit ]
-  ret i32 %.01340
+  %.01339 = phi i32 [ %.013, %36 ], [ %.01338, %OPENSSL_DIR_end.exit ]
+  ret i32 %.01339
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

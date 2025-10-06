@@ -101,7 +101,7 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %.not212.i = icmp eq ptr %1, null
+  %.not211.i = icmp eq ptr %1, null
   %8 = icmp ne ptr %2, null
   %.not12.i = icmp eq ptr %3, null
   br label %9
@@ -158,12 +158,12 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   store i8 0, ptr %.02354, align 1, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = load i8, ptr %.02155, align 1, !tbaa !4
-  %.not148.i = icmp eq i8 %29, 0
-  br i1 %.not148.i, label %.critedge.i31, label %.lr.ph.i26
+  %.not147.i = icmp eq i8 %29, 0
+  br i1 %.not147.i, label %.critedge.i31, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %28, %34
   %30 = phi i8 [ %36, %34 ], [ %29, %28 ]
-  %.080149.i = phi ptr [ %35, %34 ], [ %.02155, %28 ]
+  %.080148.i = phi ptr [ %35, %34 ], [ %.02155, %28 ]
   %31 = zext nneg i8 %30 to i64
   %memchr.bounds.i.i27 = icmp ugt i8 %30, 63
   %32 = shl nuw i64 1, %31
@@ -173,13 +173,13 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %memchr1.i.not.i29, label %.critedge.loopexit.i, label %34
 
 34:                                               ; preds = %.lr.ph.i26
-  %35 = getelementptr inbounds nuw i8, ptr %.080149.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.080148.i, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %.not.i30 = icmp eq i8 %36, 0
   br i1 %.not.i30, label %.critedge.loopexit.i, label %.lr.ph.i26, !llvm.loop !9
 
 .critedge.loopexit.i:                             ; preds = %34, %.lr.ph.i26
-  %.080.lcssa.ph.i = phi ptr [ %.080149.i, %.lr.ph.i26 ], [ %35, %34 ]
+  %.080.lcssa.ph.i = phi ptr [ %.080148.i, %.lr.ph.i26 ], [ %35, %34 ]
   %.lcssa.ph.i = phi i8 [ %30, %.lr.ph.i26 ], [ 0, %34 ]
   %37 = icmp ne i8 %.lcssa.ph.i, 47
   br label %.critedge.i31
@@ -187,18 +187,18 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
 .critedge.i31:                                    ; preds = %.critedge.loopexit.i, %28
   %.080.lcssa.i = phi ptr [ %.02155, %28 ], [ %.080.lcssa.ph.i, %.critedge.loopexit.i ]
   %.lcssa.i = phi i1 [ true, %28 ], [ %37, %.critedge.loopexit.i ]
-  %not.134.i = xor i1 %.lcssa.i, true
-  %.1.idx.i = zext i1 %not.134.i to i64
+  %not.133.i = xor i1 %.lcssa.i, true
+  %.1.idx.i = zext i1 %not.133.i to i64
   %.1.i = getelementptr inbounds nuw i8, ptr %.080.lcssa.i, i64 %.1.idx.i
   %38 = load i8, ptr %.1.i, align 1, !tbaa !4
-  switch i8 %38, label %.lr.ph156.i [
+  switch i8 %38, label %.lr.ph155.i [
     i8 0, label %nsvg__parseElement.exit
     i8 63, label %nsvg__parseElement.exit
     i8 33, label %nsvg__parseElement.exit
   ]
 
-.lr.ph156.i:                                      ; preds = %.critedge.i31, %44
-  %.2155.i = phi ptr [ %43, %44 ], [ %.1.i, %.critedge.i31 ]
+.lr.ph155.i:                                      ; preds = %.critedge.i31, %44
+  %.2154.i = phi ptr [ %43, %44 ], [ %.1.i, %.critedge.i31 ]
   %39 = phi i8 [ %.pr.i, %44 ], [ %38, %.critedge.i31 ]
   %40 = zext nneg i8 %39 to i64
   %memchr.bounds.i118.i = icmp ugt i8 %39, 63
@@ -206,39 +206,39 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %42 = and i64 %41, 4294983169
   %memchr.bits.i119.i = icmp eq i64 %42, 0
   %memchr1.i120.not.i = select i1 %memchr.bounds.i118.i, i1 true, i1 %memchr.bits.i119.i
-  %43 = getelementptr inbounds nuw i8, ptr %.2155.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.2154.i, i64 1
   br i1 %memchr1.i120.not.i, label %44, label %.critedge2.i
 
-44:                                               ; preds = %.lr.ph156.i
+44:                                               ; preds = %.lr.ph155.i
   %.pr.i = load i8, ptr %43, align 1, !tbaa !4
   %.not100.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not100.i, label %.critedge2.thread.i, label %.lr.ph156.i, !llvm.loop !10
+  br i1 %.not100.i, label %.critedge2.thread.i, label %.lr.ph155.i, !llvm.loop !10
 
-.critedge2.i:                                     ; preds = %.lr.ph156.i
-  store i8 0, ptr %.2155.i, align 1, !tbaa !4
+.critedge2.i:                                     ; preds = %.lr.ph155.i
+  store i8 0, ptr %.2154.i, align 1, !tbaa !4
   br label %.critedge2.thread.i
 
 .critedge2.thread.i:                              ; preds = %44, %.critedge2.i
-  br i1 %.lcssa.i, label %.lr.ph165.i.preheader, label %.critedge4.thread.i
+  br i1 %.lcssa.i, label %.lr.ph164.i.preheader, label %.critedge4.thread.i
 
-.lr.ph165.i.preheader:                            ; preds = %.critedge2.thread.i
+.lr.ph164.i.preheader:                            ; preds = %.critedge2.thread.i
   %45 = load i8, ptr %43, align 1, !tbaa !4
   %.not57 = icmp eq i8 %45, 0
-  br i1 %.not57, label %.critedge4.i, label %.preheader135.i.preheader
+  br i1 %.not57, label %.critedge4.i, label %.preheader134.i.preheader
 
 .critedge4.thread.i:                              ; preds = %.critedge2.thread.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %79
 
-.preheader135.i.preheader:                        ; preds = %.lr.ph165.i.preheader, %.lr.ph165.i
-  %46 = phi i8 [ %72, %.lr.ph165.i ], [ %45, %.lr.ph165.i.preheader ]
-  %.4164.i49 = phi ptr [ %.11.i, %.lr.ph165.i ], [ %43, %.lr.ph165.i.preheader ]
-  %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i, %.lr.ph165.i ], [ 0, %.lr.ph165.i.preheader ]
-  br label %.preheader135.i
+.preheader134.i.preheader:                        ; preds = %.lr.ph164.i.preheader, %.lr.ph164.i
+  %46 = phi i8 [ %72, %.lr.ph164.i ], [ %45, %.lr.ph164.i.preheader ]
+  %.4163.i49 = phi ptr [ %.11.i, %.lr.ph164.i ], [ %43, %.lr.ph164.i.preheader ]
+  %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i, %.lr.ph164.i ], [ 0, %.lr.ph164.i.preheader ]
+  br label %.preheader134.i
 
-.preheader135.i:                                  ; preds = %.preheader135.i.preheader, %51
-  %.5158.i = phi ptr [ %52, %51 ], [ %.4164.i49, %.preheader135.i.preheader ]
-  %47 = phi i8 [ %.pr127.i, %51 ], [ %46, %.preheader135.i.preheader ]
+.preheader134.i:                                  ; preds = %.preheader134.i.preheader, %51
+  %.5157.i = phi ptr [ %52, %51 ], [ %.4163.i49, %.preheader134.i.preheader ]
+  %47 = phi i8 [ %.pr127.i, %51 ], [ %46, %.preheader134.i.preheader ]
   %48 = zext nneg i8 %47 to i64
   %memchr.bounds.i121.i = icmp ugt i8 %47, 63
   %49 = shl nuw i64 1, %48
@@ -247,19 +247,19 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %memchr1.i123.not.i = select i1 %memchr.bounds.i121.i, i1 true, i1 %memchr.bits.i122.i
   br i1 %memchr1.i123.not.i, label %.critedge6.i, label %51
 
-51:                                               ; preds = %.preheader135.i
-  %52 = getelementptr inbounds nuw i8, ptr %.5158.i, i64 1
+51:                                               ; preds = %.preheader134.i
+  %52 = getelementptr inbounds nuw i8, ptr %.5157.i, i64 1
   %.pr127.i = load i8, ptr %52, align 1, !tbaa !4
   %.not104.i = icmp eq i8 %.pr127.i, 0
-  br i1 %.not104.i, label %.critedge4.i, label %.preheader135.i, !llvm.loop !11
+  br i1 %.not104.i, label %.critedge4.i, label %.preheader134.i, !llvm.loop !11
 
-.critedge6.i:                                     ; preds = %.preheader135.i
+.critedge6.i:                                     ; preds = %.preheader134.i
   %cond.i = icmp eq i8 %47, 47
-  br i1 %cond.i, label %.critedge4.i, label %.lr.ph161.i
+  br i1 %cond.i, label %.critedge4.i, label %.lr.ph160.i
 
-.lr.ph161.i:                                      ; preds = %.critedge6.i, %58
+.lr.ph160.i:                                      ; preds = %.critedge6.i, %58
   %53 = phi i8 [ %59, %58 ], [ %47, %.critedge6.i ]
-  %.7160.i = phi ptr [ %57, %58 ], [ %.5158.i, %.critedge6.i ]
+  %.7159.i = phi ptr [ %57, %58 ], [ %.5157.i, %.critedge6.i ]
   %54 = zext nneg i8 %53 to i64
   %memchr.bounds.i124.i = icmp ult i8 %53, 64
   %55 = shl nuw i64 1, %54
@@ -267,17 +267,17 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %memchr.bits.i125.i = icmp ne i64 %56, 0
   %memchr1.i126.i = select i1 %memchr.bounds.i124.i, i1 %memchr.bits.i125.i, i1 false
   %.not109.i = icmp eq i8 %53, 61
-  %or.cond133.i = or i1 %.not109.i, %memchr1.i126.i
-  %57 = getelementptr inbounds nuw i8, ptr %.7160.i, i64 1
-  br i1 %or.cond133.i, label %60, label %58
+  %or.cond132.i = or i1 %.not109.i, %memchr1.i126.i
+  %57 = getelementptr inbounds nuw i8, ptr %.7159.i, i64 1
+  br i1 %or.cond132.i, label %60, label %58
 
-58:                                               ; preds = %.lr.ph161.i
+58:                                               ; preds = %.lr.ph160.i
   %59 = load i8, ptr %57, align 1, !tbaa !4
   %.not107.i = icmp eq i8 %59, 0
-  br i1 %.not107.i, label %.critedge8.i.preheader, label %.lr.ph161.i, !llvm.loop !12
+  br i1 %.not107.i, label %.critedge8.i.preheader, label %.lr.ph160.i, !llvm.loop !12
 
-60:                                               ; preds = %.lr.ph161.i
-  store i8 0, ptr %.7160.i, align 1, !tbaa !4
+60:                                               ; preds = %.lr.ph160.i
+  store i8 0, ptr %.7159.i, align 1, !tbaa !4
   br label %.critedge8.i.preheader
 
 .critedge8.i.preheader:                           ; preds = %58, %60
@@ -310,16 +310,16 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond.i, label %.critedge12.i, label %66, !llvm.loop !14
 
 .critedge12.i:                                    ; preds = %66
-  br i1 %.not115.i, label %.lr.ph165.i, label %69
+  br i1 %.not115.i, label %.lr.ph164.i, label %69
 
 69:                                               ; preds = %.critedge12.i
   store i8 0, ptr %.10.i, align 1, !tbaa !4
-  br label %.lr.ph165.i
+  br label %.lr.ph164.i
 
-.lr.ph165.i:                                      ; preds = %69, %.critedge12.i
+.lr.ph164.i:                                      ; preds = %69, %.critedge12.i
   %.11.i = phi ptr [ %68, %69 ], [ %.10.i, %.critedge12.i ]
   %70 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i48
-  store ptr %.5158.i, ptr %70, align 16, !tbaa !15
+  store ptr %.5157.i, ptr %70, align 16, !tbaa !15
   %71 = getelementptr i8, ptr %70, i64 8
   store ptr %65, ptr %71, align 8, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i48, 2
@@ -327,15 +327,15 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %73 = icmp ne i8 %72, 0
   %74 = icmp samesign ult i64 %indvars.iv.i48, 251
   %or.cond19.i = select i1 %73, i1 %74, i1 false
-  br i1 %or.cond19.i, label %.preheader135.i.preheader, label %.critedge4.i
+  br i1 %or.cond19.i, label %.preheader134.i.preheader, label %.critedge4.i
 
-.critedge4.i:                                     ; preds = %.lr.ph165.i, %.critedge6.i, %51, %.critedge8.i, %.lr.ph165.i.preheader
-  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph165.i.preheader ], [ %indvars.iv.i48, %.critedge8.i ], [ %indvars.iv.i48, %51 ], [ %indvars.iv.next.i, %.lr.ph165.i ], [ %indvars.iv.i48, %.critedge6.i ]
-  %75 = phi i1 [ false, %.lr.ph165.i.preheader ], [ false, %.critedge8.i ], [ false, %51 ], [ %cond.i, %.critedge6.i ], [ %cond.i, %.lr.ph165.i ]
+.critedge4.i:                                     ; preds = %.lr.ph164.i, %.critedge6.i, %51, %.critedge8.i, %.lr.ph164.i.preheader
+  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph164.i.preheader ], [ %indvars.iv.i48, %.critedge8.i ], [ %indvars.iv.i48, %51 ], [ %indvars.iv.next.i, %.lr.ph164.i ], [ %indvars.iv.i48, %.critedge6.i ]
+  %75 = phi i1 [ false, %.lr.ph164.i.preheader ], [ false, %.critedge8.i ], [ false, %51 ], [ %cond.i, %.critedge6.i ], [ %cond.i, %.lr.ph164.i ]
   %76 = and i64 %indvars.iv.i46, 4294967294
   %77 = getelementptr inbounds nuw ptr, ptr %6, i64 %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, i8 0, i64 16, i1 false)
-  br i1 %.not212.i, label %79, label %78
+  br i1 %.not211.i, label %79, label %78
 
 78:                                               ; preds = %.critedge4.i
   call void %1(ptr noundef %4, ptr noundef nonnull %.080.lcssa.i, ptr noundef nonnull %6) #32

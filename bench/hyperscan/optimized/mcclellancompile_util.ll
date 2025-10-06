@@ -96,24 +96,24 @@ define hidden noundef i32 @_ZN3ue219remove_leading_dotsERNS_7raw_dfaE(ptr nounde
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = icmp ult i64 %9, 2
-  %.not66.i = icmp eq i16 %11, 1
-  %or.cond67.i = select i1 %13, i1 true, i1 %.not66.i
-  br i1 %or.cond67.i, label %.critedge.i, label %.preheader58.lr.ph.i
+  %.not64.i = icmp eq i16 %11, 1
+  %or.cond65.i = select i1 %13, i1 true, i1 %.not64.i
+  br i1 %or.cond65.i, label %.critedge.i, label %.preheader56.lr.ph.i
 
-.preheader58.lr.ph.i:                             ; preds = %1
+.preheader56.lr.ph.i:                             ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i16, ptr %14, align 4
   %16 = add i16 %15, -1
-  %.not92.i = icmp eq i16 %16, 0
-  br i1 %.not92.i, label %.preheader58.i, label %.preheader58.us.preheader.i
+  %.not90.i = icmp eq i16 %16, 0
+  br i1 %.not90.i, label %.preheader56.i, label %.preheader56.us.preheader.i
 
-.preheader58.us.preheader.i:                      ; preds = %.preheader58.lr.ph.i
+.preheader56.us.preheader.i:                      ; preds = %.preheader56.lr.ph.i
   %wide.trip.count.i = zext i16 %16 to i64
   %17 = zext i16 %11 to i64
-  br label %.preheader58.us.i
+  br label %.preheader56.us.i
 
-.preheader58.us.i:                                ; preds = %23, %.preheader58.us.preheader.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 1, %.preheader58.us.preheader.i ]
+.preheader56.us.i:                                ; preds = %23, %.preheader56.us.preheader.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 1, %.preheader56.us.preheader.i ]
   %18 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %5, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -134,10 +134,10 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i: ; preds = %._crit_edge.us
   %24 = icmp ule i64 %9, %indvars.iv.next
   %.not.us.i = icmp eq i64 %indvars.iv.next, %17
   %or.cond.us.i = select i1 %24, i1 true, i1 %.not.us.i
-  br i1 %or.cond.us.i, label %.critedge.i.loopexit18, label %.preheader58.us.i, !llvm.loop !7
+  br i1 %or.cond.us.i, label %.critedge.i.loopexit18, label %.preheader56.us.i, !llvm.loop !7
 
-25:                                               ; preds = %20, %.preheader58.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader58.us.i ], [ %indvars.iv.next.i, %20 ]
+25:                                               ; preds = %20, %.preheader56.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader56.us.i ], [ %indvars.iv.next.i, %20 ]
   %26 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv.i
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i64
@@ -153,9 +153,9 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i: ; preds = %._crit_edge.us
   %.not.i.i.i.us.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.us.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i, label %.critedge.i.loopexit18
 
-.preheader58.i:                                   ; preds = %.preheader58.lr.ph.i, %44
-  %34 = phi i64 [ %46, %44 ], [ 1, %.preheader58.lr.ph.i ]
-  %.03468.i = phi i32 [ %45, %44 ], [ 1, %.preheader58.lr.ph.i ]
+.preheader56.i:                                   ; preds = %.preheader56.lr.ph.i, %44
+  %34 = phi i64 [ %46, %44 ], [ 1, %.preheader56.lr.ph.i ]
+  %.03466.i = phi i32 [ %45, %44 ], [ 1, %.preheader56.lr.ph.i ]
   %35 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %5, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = load i16, ptr %36, align 2
@@ -166,33 +166,33 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i: ; preds = %._crit_edge.us
   %.not.i.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i.i.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i, label %.critedge.i
 
-_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i: ; preds = %.preheader58.i
+_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i: ; preds = %.preheader56.i
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %43 = load i64, ptr %42, align 8
   %.not.i.i3.i.not.i = icmp eq i64 %43, 0
   br i1 %.not.i.i3.i.not.i, label %44, label %.critedge.i
 
 44:                                               ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i
-  %45 = add i32 %.03468.i, 1
+  %45 = add i32 %.03466.i, 1
   %46 = zext i32 %45 to i64
   %47 = icmp ule i64 %9, %46
   %.not.i = icmp eq i32 %45, %12
   %or.cond.i = select i1 %47, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %.critedge.i, label %.preheader58.i, !llvm.loop !7
+  br i1 %or.cond.i, label %.critedge.i, label %.preheader56.i, !llvm.loop !7
 
 .critedge.i.loopexit17:                           ; preds = %25
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge.i
 
 .critedge.i.loopexit18:                           ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i, %23, %._crit_edge.us.i
-  %.03464.i.ph19.in = phi i64 [ %indvars.iv, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i ], [ %indvars.iv.next, %23 ], [ %indvars.iv, %._crit_edge.us.i ]
-  %.03464.i.ph19 = trunc nsw i64 %.03464.i.ph19.in to i32
+  %.03462.i.ph19.in = phi i64 [ %indvars.iv, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i ], [ %indvars.iv.next, %23 ], [ %indvars.iv, %._crit_edge.us.i ]
+  %.03462.i.ph19 = trunc nsw i64 %.03462.i.ph19.in to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %44, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i, %.preheader58.i, %.critedge.i.loopexit18, %.critedge.i.loopexit17, %1
-  %.03464.i = phi i32 [ 1, %1 ], [ %48, %.critedge.i.loopexit17 ], [ %.03464.i.ph19, %.critedge.i.loopexit18 ], [ %.03468.i, %.preheader58.i ], [ %45, %44 ], [ %.03468.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i ]
-  %49 = add i32 %.03464.i, -1
-  %50 = zext i32 %.03464.i to i64
+.critedge.i:                                      ; preds = %44, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i, %.preheader56.i, %.critedge.i.loopexit18, %.critedge.i.loopexit17, %1
+  %.03462.i = phi i32 [ 1, %1 ], [ %48, %.critedge.i.loopexit17 ], [ %.03462.i.ph19, %.critedge.i.loopexit18 ], [ %.03466.i, %.preheader56.i ], [ %45, %44 ], [ %.03466.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i ]
+  %49 = add i32 %.03462.i, -1
+  %50 = zext i32 %.03462.i to i64
   %51 = icmp ugt i64 %9, %50
   br i1 %51, label %.preheader.lr.ph.i, label %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread
 
@@ -200,28 +200,28 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i: ; preds = %.preheader58.i
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %53 = load i16, ptr %52, align 4
   %54 = add i16 %53, -1
-  %.not4689.not.i = icmp eq i16 %54, 0
-  br i1 %.not4689.not.i, label %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread37, label %.preheader.us.preheader.i
+  %.not4687.not.i = icmp eq i16 %54, 0
+  br i1 %.not4687.not.i, label %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread37, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %wide.trip.count103.i = zext i16 %54 to i64
+  %wide.trip.count101.i = zext i16 %54 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %..critedge53_crit_edge.us.i, %.preheader.us.preheader.i
   %55 = phi i64 [ %63, %..critedge53_crit_edge.us.i ], [ %50, %.preheader.us.preheader.i ]
-  %.13591.us.i = phi i32 [ %62, %..critedge53_crit_edge.us.i ], [ %.03464.i, %.preheader.us.preheader.i ]
+  %.13589.us.i = phi i32 [ %62, %..critedge53_crit_edge.us.i ], [ %.03462.i, %.preheader.us.preheader.i ]
   %56 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %5, i64 %55
   %57 = load ptr, ptr %56, align 8
   br label %.critedge51.us.i
 
 58:                                               ; preds = %.critedge51.us.i
-  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %exitcond104.not.i = icmp eq i64 %indvars.iv.next101.i, %wide.trip.count103.i
-  br i1 %exitcond104.not.i, label %..critedge53_crit_edge.us.i, label %.critedge51.us.i, !llvm.loop !8
+  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
+  %exitcond102.not.i = icmp eq i64 %indvars.iv.next99.i, %wide.trip.count101.i
+  br i1 %exitcond102.not.i, label %..critedge53_crit_edge.us.i, label %.critedge51.us.i, !llvm.loop !8
 
 .critedge51.us.i:                                 ; preds = %58, %.preheader.us.i
-  %indvars.iv100.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next101.i, %58 ]
-  %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv100.i
+  %indvars.iv98.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next99.i, %58 ]
+  %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv98.i
   %60 = load i16, ptr %59, align 2
   %.not44.us.i = icmp eq i16 %60, 0
   %61 = zext i16 %60 to i32
@@ -230,7 +230,7 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i: ; preds = %.preheader58.i
   br i1 %or.cond49.us.i, label %58, label %_ZN3ue2L20prune_leading_statesERNS_7raw_dfaEj.exit
 
 ..critedge53_crit_edge.us.i:                      ; preds = %58
-  %62 = add i32 %.13591.us.i, 1
+  %62 = add i32 %.13589.us.i, 1
   %63 = zext i32 %62 to i64
   %64 = icmp ugt i64 %9, %63
   br i1 %64, label %.preheader.us.i, label %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit, !llvm.loop !9
@@ -282,7 +282,7 @@ _ZN3ue26dstateaSERKS0_.exit.lr.ph.i:              ; preds = %_ZN3ue2L10count_dot
 _ZN3ue26dstateaSERKS0_.exit.i:                    ; preds = %.loopexit.i, %_ZN3ue26dstateaSERKS0_.exit.lr.ph.i
   %83 = phi ptr [ %5, %_ZN3ue26dstateaSERKS0_.exit.lr.ph.i ], [ %69, %.loopexit.i ]
   %84 = phi i64 [ %50, %_ZN3ue26dstateaSERKS0_.exit.lr.ph.i ], [ %67, %.loopexit.i ]
-  %.042.i = phi i32 [ %.03464.i, %_ZN3ue26dstateaSERKS0_.exit.lr.ph.i ], [ %.0.i6, %.loopexit.i ]
+  %.042.i = phi i32 [ %.03462.i, %_ZN3ue26dstateaSERKS0_.exit.lr.ph.i ], [ %.0.i6, %.loopexit.i ]
   %85 = sub i32 %.042.i, %49
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %83, i64 %86
@@ -978,15 +978,15 @@ define hidden noundef zeroext i1 @_ZN3ue215has_eod_acceptsERKNS_7raw_dfaE(ptr no
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %.not11.not = icmp eq ptr %3, %5
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 72
+  %.sroa.08.013 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 72
   %7 = load i64, ptr %6, align 8
   %.not.i.i.not = icmp ne i64 %7, 0
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 96
   %.not.not = icmp eq ptr %8, %5
   %or.cond = select i1 %.not.i.i.not, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -1002,15 +1002,15 @@ define hidden noundef zeroext i1 @_ZN3ue219has_non_eod_acceptsERKNS_7raw_dfaE(pt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %.not11.not = icmp eq ptr %3, %5
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 40
+  %.sroa.08.013 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 40
   %7 = load i64, ptr %6, align 8
   %.not.i.i.not = icmp ne i64 %7, 0
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 96
   %.not.not = icmp eq ptr %8, %5
   %or.cond = select i1 %.not.i.i.not, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -1362,8 +1362,8 @@ _ZNKSt8_Rb_treeItSt4pairIKtjESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_bou
 _ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit: ; preds = %_ZNKSt8_Rb_treeItSt4pairIKtjESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %14 = load i16, ptr %13, align 2
-  %.not22 = icmp ult i16 %1, %14
-  br i1 %.not22, label %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %15
+  %.not23 = icmp ult i16 %1, %14
+  br i1 %.not23, label %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %15
 
 15:                                               ; preds = %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit
   %16 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapItjSt4lessItESaISt4pairIKtjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 2 dereferenceable(2) %5)
@@ -1390,20 +1390,20 @@ _ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exi
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
-  %.not2324.not = icmp eq ptr %28, %30
-  br i1 %.not2324.not, label %.loopexit, label %.lr.ph
+  %.not2425 = icmp eq ptr %28, %30
+  br i1 %.not2425, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %31 = add i32 %3, -1
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph
-  %.sroa.018.025 = phi ptr [ %28, %.lr.ph ], [ %35, %32 ]
-  %33 = load i16, ptr %.sroa.018.025, align 2
+  %.sroa.018.026 = phi ptr [ %28, %.lr.ph ], [ %35, %32 ]
+  %33 = load i16, ptr %.sroa.018.026, align 2
   %34 = call fastcc noundef zeroext i1 @_ZN3ue2L13can_die_earlyERKNS_7raw_dfaEtRSt3mapItjSt4lessItESaISt4pairIKtjEEEj(ptr noundef nonnull align 8 dereferenceable(560) %0, i16 noundef zeroext %33, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %31)
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 2
-  %.not23.not = icmp eq ptr %35, %30
-  %or.cond = select i1 %34, i1 true, i1 %.not23.not
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.018.026, i64 2
+  %.not24 = icmp eq ptr %35, %30
+  %or.cond = select i1 %34, i1 true, i1 %.not24
   br i1 %or.cond, label %.loopexit, label %32
 
 .loopexit:                                        ; preds = %32, %23, %21, %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, %15

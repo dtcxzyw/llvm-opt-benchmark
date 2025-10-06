@@ -1022,8 +1022,8 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZN9grpc_coreplENS_
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %66
   %.old = sub i64 %.0.i.i, %55
-  %.old31 = icmp sgt i64 %.old, 0
-  br i1 %.old31, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %.thread
+  %.old30 = icmp sgt i64 %.old, 0
+  br i1 %.old30, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %.thread
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.thread:    ; preds = %69, %57, %66, %.thread.i, %56, %_ZN9grpc_coremiENS_9TimestampES0_.exit
   %.sroa.04.0.i26 = phi i64 [ %.old, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ 9223372036854775807, %56 ], [ 9223372036854775807, %.thread.i ], [ 9223372036854775807, %66 ], [ 9223372036854775807, %57 ], [ %72, %69 ]

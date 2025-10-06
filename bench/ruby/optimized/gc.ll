@@ -15276,8 +15276,8 @@ define internal i64 @os_id2ref(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = tail call i64 @rb_to_int(i64 noundef %1) #6
   %5 = and i64 %4, 1
-  %.not35.i = icmp eq i64 %5, 0
-  br i1 %.not35.i, label %6, label %9
+  %.not34.i = icmp eq i64 %5, 0
+  br i1 %.not34.i, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = tail call i64 @rb_big_size(i64 noundef %4) #6
@@ -20393,19 +20393,19 @@ gc_prof_sweep_timer_start.exit:                   ; preds = %15, %18, %21, %getr
   %.2.ph = phi i32 [ %.058, %105 ], [ %.058, %109 ], [ %104, %97 ], [ %.058, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %.thread87, label %52, !llvm.loop !587
+  br i1 %.not, label %.thread86, label %52, !llvm.loop !587
 
 112:                                              ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not72 = icmp eq ptr %.0.i, null
-  br i1 %.not72, label %.thread87, label %185
+  br i1 %.not72, label %.thread86, label %185
 
-.thread87:                                        ; preds = %111, %112
+.thread86:                                        ; preds = %111, %112
   call fastcc void @gc_sweep_finish_heap(ptr noundef %0, ptr noundef nonnull %1)
   br label %113
 
-113:                                              ; preds = %113, %.thread87
-  %indvars.iv.i = phi i64 [ 0, %.thread87 ], [ %indvars.iv.next.i, %113 ]
+113:                                              ; preds = %113, %.thread86
+  %indvars.iv.i = phi i64 [ 0, %.thread86 ], [ %indvars.iv.next.i, %113 ]
   %114 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
   %115 = getelementptr i8, ptr %114, i64 136
   %116 = load ptr, ptr %115, align 8, !tbaa !167

@@ -6917,16 +6917,15 @@ define internal i32 @e1000_valid_led_default_ich8lan(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %2
   %8 = load i16, ptr %1, align 2
-  switch i16 %8, label %10 [
-    i16 0, label %9
-    i16 -1, label %9
-  ]
+  %.off = add i16 %8, -1
+  %switch = icmp ult i16 %.off, -2
+  br i1 %switch, label %10, label %9
 
-9:                                                ; preds = %7, %7
+9:                                                ; preds = %7
   store i16 6529, ptr %1, align 2
   br label %10
 
-10:                                               ; preds = %9, %7, %2
+10:                                               ; preds = %7, %9, %2
   ret i32 %5
 }
 

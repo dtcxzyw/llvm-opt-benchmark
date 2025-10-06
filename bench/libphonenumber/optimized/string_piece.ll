@@ -329,19 +329,19 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindEcm(ptr 
   br i1 %12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %14
-  %.0712 = phi i64 [ %15, %14 ], [ %.sroa.speculated, %7 ]
-  %13 = icmp eq i64 %.0712, 0
+  %.0713 = phi i64 [ %15, %14 ], [ %.sroa.speculated, %7 ]
+  %13 = icmp eq i64 %.0713, 0
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = add i64 %.0712, -1
+  %15 = add i64 %.0713, -1
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !15
   %18 = icmp eq i8 %17, %1
   br i1 %18, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph, %14, %7, %3
-  %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ -1, %.lr.ph ], [ %15, %14 ]
+.loopexit:                                        ; preds = %14, %.lr.ph, %7, %3
+  %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ %15, %14 ], [ -1, %.lr.ph ]
   ret i64 %.08
 }
 
@@ -669,12 +669,12 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_of
   br i1 %18, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %20
-  %.0712.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i, %11 ]
-  %19 = icmp eq i64 %.0712.i.i, 0
+  %.0713.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i, %11 ]
+  %19 = icmp eq i64 %.0713.i.i, 0
   br i1 %19, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = add i64 %.0712.i.i, -1
+  %21 = add i64 %.0713.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !15
   %24 = icmp eq i8 %23, %13
@@ -722,7 +722,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   br label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit
 
 _ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.ph.i.i, %11, %8, %3, %42
-  %.011 = phi i64 [ %spec.select, %42 ], [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i, %11 ], [ -1, %.lr.ph.i.i ], [ %21, %20 ]
+  %.011 = phi i64 [ %spec.select, %42 ], [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i, %11 ], [ %21, %20 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.011
 }
 
@@ -750,29 +750,29 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   %15 = load ptr, ptr %0, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.speculated
   %17 = load i8, ptr %16, align 1, !tbaa !15
-  %.not.not12.i = icmp eq i8 %17, %14
-  br i1 %.not.not12.i, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit
+  %.not13.i = icmp eq i8 %17, %14
+  br i1 %.not13.i, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit
 
 .lr.ph.i:                                         ; preds = %12, %19
-  %.0713.i = phi i64 [ %20, %19 ], [ %.sroa.speculated, %12 ]
-  %18 = icmp eq i64 %.0713.i, 0
+  %.0714.i = phi i64 [ %20, %19 ], [ %.sroa.speculated, %12 ]
+  %18 = icmp eq i64 %.0714.i, 0
   br i1 %18, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = add i64 %.0713.i, -1
+  %20 = add i64 %.0714.i, -1
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !15
-  %.not.not.i = icmp eq i8 %22, %14
-  br i1 %.not.not.i, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !30
+  %.not.i = icmp eq i8 %22, %14
+  br i1 %.not.i, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !30
 
 23:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %.val = load ptr, ptr %1, align 8, !tbaa !4
-  br label %.lr.ph.i13
+  br label %.lr.ph.i14
 
-.lr.ph.i13:                                       ; preds = %23, %.lr.ph.i13
-  %.01.i = phi i64 [ %28, %.lr.ph.i13 ], [ 0, %23 ]
+.lr.ph.i14:                                       ; preds = %23, %.lr.ph.i14
+  %.01.i = phi i64 [ %28, %.lr.ph.i14 ], [ 0, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 %.01.i
   %25 = load i8, ptr %24, align 1, !tbaa !15
   %26 = zext i8 %25 to i64
@@ -780,9 +780,9 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   store i8 1, ptr %27, align 1, !tbaa !21
   %28 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %28, %11
-  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i13, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i14, !llvm.loop !23
 
-_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i13
+_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i14
   %29 = load ptr, ptr %0, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.speculated
   %31 = load i8, ptr %30, align 1, !tbaa !15
@@ -793,12 +793,12 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
-  %.018 = phi i64 [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ]
-  %36 = icmp eq i64 %.018, 0
+  %.019 = phi i64 [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ], [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ]
+  %36 = icmp eq i64 %.019, 0
   br i1 %36, label %._crit_edge, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %.lr.ph
-  %37 = add i64 %.018, -1
+  %37 = add i64 %.019, -1
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !15
   %40 = zext i8 %39 to i64
@@ -813,7 +813,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   br label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit
 
 _ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit: ; preds = %19, %.lr.ph.i, %12, %._crit_edge, %8, %3
-  %.010 = phi i64 [ -1, %3 ], [ %.2, %._crit_edge ], [ %.sroa.speculated, %8 ], [ %.sroa.speculated, %12 ], [ %20, %19 ], [ -1, %.lr.ph.i ]
+  %.010 = phi i64 [ -1, %3 ], [ %.2, %._crit_edge ], [ %.sroa.speculated, %8 ], [ %.sroa.speculated, %12 ], [ -1, %.lr.ph.i ], [ %20, %19 ]
   ret i64 %.010
 }
 
@@ -830,23 +830,23 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   %9 = load ptr, ptr %0, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.speculated
   %11 = load i8, ptr %10, align 1, !tbaa !15
-  %.not.not12 = icmp eq i8 %11, %1
-  br i1 %.not.not12, label %.lr.ph, label %.loopexit
+  %.not13 = icmp eq i8 %11, %1
+  br i1 %.not13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7, %13
-  %.0713 = phi i64 [ %14, %13 ], [ %.sroa.speculated, %7 ]
-  %12 = icmp eq i64 %.0713, 0
+  %.0714 = phi i64 [ %14, %13 ], [ %.sroa.speculated, %7 ]
+  %12 = icmp eq i64 %.0714, 0
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = add i64 %.0713, -1
+  %14 = add i64 %.0714, -1
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
-  %.not.not = icmp eq i8 %16, %1
-  br i1 %.not.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  %.not = icmp eq i8 %16, %1
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %.lr.ph, %13, %7, %3
-  %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ -1, %.lr.ph ], [ %14, %13 ]
+.loopexit:                                        ; preds = %13, %.lr.ph, %7, %3
+  %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ %14, %13 ], [ -1, %.lr.ph ]
   ret i64 %.08
 }
 

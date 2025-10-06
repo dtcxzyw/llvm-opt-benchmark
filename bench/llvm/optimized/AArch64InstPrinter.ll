@@ -25898,8 +25898,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %24
 
 34:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %35 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef nonnull %.str.102..str.103, i64 noundef 3) #23
-  %.phi.trans.insert131 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %.pre132 = load ptr, ptr %.phi.trans.insert131, align 8, !tbaa !25
+  %.phi.trans.insert130 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %.pre131 = load ptr, ptr %.phi.trans.insert130, align 8, !tbaa !25
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit67
 
 36:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -25911,7 +25911,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %24
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit67
 
 _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %34, %36
-  %40 = phi ptr [ %.pre132, %34 ], [ %39, %36 ]
+  %40 = phi ptr [ %.pre131, %34 ], [ %39, %36 ]
   %.0.i.i66 = phi ptr [ %35, %34 ], [ %.0.i.i, %36 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i66, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !20
@@ -25923,8 +25923,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %34, %36
 
 47:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit67
   %48 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i66, ptr noundef nonnull %.sroa.0119.0.ph, i64 noundef %.sroa.5.0.ph) #23
-  %.phi.trans.insert133 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %.pre134 = load ptr, ptr %.phi.trans.insert133, align 8, !tbaa !25
+  %.phi.trans.insert132 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %.pre133 = load ptr, ptr %.phi.trans.insert132, align 8, !tbaa !25
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 49:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit67
@@ -25936,7 +25936,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %34, %36
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %47, %49
-  %53 = phi ptr [ %.pre134, %47 ], [ %52, %49 ]
+  %53 = phi ptr [ %.pre133, %47 ], [ %52, %49 ]
   %.0.i68 = phi ptr [ %48, %47 ], [ %.0.i.i66, %49 ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.i68, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !20
@@ -26091,19 +26091,19 @@ _ZN4llvm18AArch64InstPrinter12printRegNameERNS_11raw_ostreamENS_10MCRegisterEj.e
   br label %296
 
 _ZL19isTblTbxInstructionjRN4llvm9StringRefERb.exit: ; preds = %7, %141
-  %.011.idx15.i = phi i64 [ %.011.add.i, %141 ], [ 0, %7 ]
-  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL13LdStNInstInfo, i64 %.011.idx15.i
+  %.011.idx17.i = phi i64 [ %.011.add.i, %141 ], [ 0, %7 ]
+  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL13LdStNInstInfo, i64 %.011.idx17.i
   %140 = load i32, ptr %.011.ptr.i, align 8, !tbaa !387
   %.not12.i = icmp eq i32 %140, %13
   br i1 %.not12.i, label %_ZL17getLdStNInstrDescj.exit, label %141
 
 141:                                              ; preds = %_ZL19isTblTbxInstructionjRN4llvm9StringRefERb.exit
-  %.011.add.i = add nuw nsw i64 %.011.idx15.i, 40
+  %.011.add.i = add nuw nsw i64 %.011.idx17.i, 40
   %.not.i81 = icmp eq i64 %.011.add.i, 13600
   br i1 %.not.i81, label %.critedge, label %_ZL19isTblTbxInstructionjRN4llvm9StringRefERb.exit
 
 _ZL17getLdStNInstrDescj.exit:                     ; preds = %_ZL19isTblTbxInstructionjRN4llvm9StringRefERb.exit
-  %.011.ptr.i.le = getelementptr inbounds nuw i8, ptr @_ZL13LdStNInstInfo, i64 %.011.idx15.i
+  %.011.ptr.i.le = getelementptr inbounds nuw i8, ptr @_ZL13LdStNInstInfo, i64 %.011.idx17.i
   %142 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %143 = load ptr, ptr %142, align 8, !tbaa !20
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -27816,26 +27816,25 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit:    ; preds = %8
   br i1 %13, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %14
 
 14:                                               ; preds = %10, %5, %_ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit
-  %.sroa.019.0.extract.trunc = trunc i64 %0 to i32
-  %.sroa.4.0.extract.shift20 = lshr i64 %0, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift20 to i32
-  %.not.i.i = icmp eq i32 %.sroa.4.0.extract.trunc.i, %.sroa.019.0.extract.trunc
+  %.sroa.023.0.extract.trunc = trunc i64 %0 to i32
+  %.sroa.4.0.extract.shift24 = lshr i64 %0, 32
+  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift24 to i32
+  %.not.i.i = icmp eq i32 %.sroa.4.0.extract.trunc.i, %.sroa.023.0.extract.trunc
   br i1 %.not.i.i, label %15, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
 
 15:                                               ; preds = %14
   %sext = shl i64 %0, 32
   %16 = ashr exact i64 %sext, 32
   %17 = and i64 %16, -4294967296
-  switch i64 %17, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread [
-    i64 -4294967296, label %18
-    i64 0, label %18
-  ]
+  %.off.i = add nsw i64 %17, -1
+  %switch.i = icmp ult i64 %.off.i, -4294967297
+  br i1 %switch.i, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread, label %18
 
-18:                                               ; preds = %15, %15
+18:                                               ; preds = %15
   br i1 %.not14.i, label %22, label %19
 
 19:                                               ; preds = %18
-  %20 = add i32 %.sroa.019.0.extract.trunc, 128
+  %20 = add i32 %.sroa.023.0.extract.trunc, 128
   %21 = icmp ult i32 %20, 256
   br i1 %21, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
 
@@ -27845,7 +27844,7 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIlEEbl.exit:    ; preds = %8
   br i1 %.not15.i5, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = add i32 %.sroa.019.0.extract.trunc, 32768
+  %25 = add i32 %.sroa.023.0.extract.trunc, 32768
   %26 = icmp ult i32 %25, 65536
   br i1 %26, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
 
@@ -27863,15 +27862,14 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread: ; preds = %15, %24, %19, %
   br i1 %.not9.i.i.i.i.i.i, label %29, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
 
 29:                                               ; preds = %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
-  %sext31 = shl i64 %0, 48
-  %30 = ashr exact i64 %sext31, 48
+  %sext35 = shl i64 %0, 48
+  %30 = ashr exact i64 %sext35, 48
   %31 = and i64 %30, -65536
-  switch i64 %31, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread [
-    i64 -65536, label %32
-    i64 0, label %32
-  ]
+  %.off.i6 = add nsw i64 %31, -1
+  %switch.i7 = icmp ult i64 %.off.i6, -65537
+  br i1 %switch.i7, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread, label %32
 
-32:                                               ; preds = %29, %29
+32:                                               ; preds = %29
   br i1 %.not14.i, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit, label %33
 
 33:                                               ; preds = %32
@@ -27882,34 +27880,33 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread: ; preds = %15, %24, %19, %
 
 _ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit:    ; preds = %32
   %37 = and i64 %0, 65280
-  %.not15.i8 = icmp ne i64 %37, 0
-  %38 = icmp eq i64 %sext31, 0
-  %spec.select.i = or i1 %38, %.not15.i8
+  %.not15.i10 = icmp ne i64 %37, 0
+  %38 = icmp eq i64 %sext35, 0
+  %spec.select.i = or i1 %38, %.not15.i10
   br i1 %spec.select.i, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
 
 _ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread: ; preds = %29, %33, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIiEEbl.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %0, ptr %2, align 8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %bcmp.i.i.i.i.i.i9 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %39, ptr noundef nonnull align 1 dereferenceable(8) %2, i64 7)
-  %.not9.i.i.i.i.i.i10 = icmp eq i32 %bcmp.i.i.i.i.i.i9, 0
+  %bcmp.i.i.i.i.i.i11 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %39, ptr noundef nonnull align 1 dereferenceable(8) %2, i64 7)
+  %.not9.i.i.i.i.i.i12 = icmp eq i32 %bcmp.i.i.i.i.i.i11, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not9.i.i.i.i.i.i10, label %40, label %.preheader.i.i.preheader
+  br i1 %.not9.i.i.i.i.i.i12, label %40, label %.preheader.i.i.preheader
 
 40:                                               ; preds = %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
-  %sext32 = shl i64 %0, 56
-  %41 = ashr exact i64 %sext32, 56
+  %sext36 = shl i64 %0, 56
+  %41 = ashr exact i64 %sext36, 56
   %42 = and i64 %41, -256
-  switch i64 %42, label %.preheader.i.i.preheader [
-    i64 -256, label %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit
-    i64 0, label %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit
-  ]
+  %.off.i13 = add nsw i64 %42, -1
+  %switch.i14 = icmp ult i64 %.off.i13, -257
+  br i1 %switch.i14, label %.preheader.i.i.preheader, label %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit
 
-_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit:    ; preds = %40, %40
-  %.not14.i11 = icmp ne i64 %4, 0
-  %43 = icmp eq i64 %sext32, 0
-  %spec.select.i12 = or i1 %43, %.not14.i11
-  br i1 %spec.select.i12, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %.preheader.i.i.preheader
+_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit:    ; preds = %40
+  %.not14.i15 = icmp ne i64 %4, 0
+  %43 = icmp eq i64 %sext36, 0
+  %spec.select.i16 = or i1 %43, %.not14.i15
+  br i1 %spec.select.i16, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %40, %_ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit, %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit.thread
   br label %.preheader.i.i
@@ -27923,11 +27920,11 @@ _ZN4llvm10AArch64_AML11isSVECpyImmIaEEbl.exit:    ; preds = %40, %40
   %47 = lshr i64 %0, %45
   %48 = xor i64 %47, %0
   %49 = and i64 %48, %46
-  %.not.i.i14 = icmp eq i64 %49, 0
+  %.not.i.i18 = icmp eq i64 %49, 0
   %50 = and i32 %.045.i.i, -2
-  %.146.i.i = select i1 %.not.i.i14, i32 %44, i32 %50
+  %.146.i.i = select i1 %.not.i.i18, i32 %44, i32 %50
   %51 = icmp ugt i32 %.146.i.i, 2
-  %or.cond52.i.i = and i1 %.not.i.i14, %51
+  %or.cond52.i.i = and i1 %.not.i.i18, %51
   br i1 %or.cond52.i.i, label %.preheader.i.i, label %52, !llvm.loop !403
 
 52:                                               ; preds = %.preheader.i.i

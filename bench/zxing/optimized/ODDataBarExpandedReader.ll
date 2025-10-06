@@ -3339,8 +3339,8 @@ _ZNKSt3mapIiSt6vectorIN5ZXing4OneD7DataBar4PairESaIS4_EESt4lessIiESaISt4pairIKiS
 
 51:                                               ; preds = %.lr.ph, %85
   %52 = phi i1 [ false, %.lr.ph ], [ true, %85 ]
-  %.sroa.028.046 = phi ptr [ %43, %.lr.ph ], [ %86, %85 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.028.046, i64 8
+  %.sroa.028.045 = phi ptr [ %43, %.lr.ph ], [ %86, %85 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 8
   %54 = load i32, ptr %53, align 4, !tbaa !106
   %55 = icmp ne i32 %54, -1
   %or.cond = select i1 %55, i1 true, i1 %48
@@ -3353,7 +3353,7 @@ _ZNKSt3mapIiSt6vectorIN5ZXing4OneD7DataBar4PairESaIS4_EESt4lessIiESaISt4pairIKiS
   br i1 %.not.i25, label %61, label %58
 
 58:                                               ; preds = %.critedge3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %56, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.028.046, i64 36, i1 false), !tbaa.struct !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %56, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.028.045, i64 36, i1 false), !tbaa.struct !39
   %59 = load ptr, ptr %49, align 8, !tbaa !58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
   store ptr %60, ptr %49, align 8, !tbaa !58
@@ -3383,7 +3383,7 @@ _ZNKSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; 
   %73 = mul nuw nsw i64 %72, 36
   %74 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #22
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %75, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.028.046, i64 36, i1 false), !tbaa.struct !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %75, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.028.045, i64 36, i1 false), !tbaa.struct !39
   %.not10.i.i.i.i.i = icmp eq ptr %62, %56
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -3424,7 +3424,7 @@ _ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE9push_backERKS3_.exit: ; preds = 
   br label %85
 
 85:                                               ; preds = %51, %82
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.028.046, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 36
   %87 = icmp eq ptr %86, %45
   %or.cond.not = or i1 %87, %52
   br i1 %or.cond.not, label %.critedge, label %51, !llvm.loop !161
@@ -3606,8 +3606,8 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
   %65 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %58, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = and i64 %65, 4294967295
-  %.not67 = icmp eq i64 %66, 4294967295
-  br i1 %.not67, label %118, label %67
+  %.not66 = icmp eq i64 %66, 4294967295
+  br i1 %.not66, label %118, label %67
 
 67:                                               ; preds = %59
   %.not13 = icmp eq i32 %58, 1
@@ -3626,10 +3626,10 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
 
 75:                                               ; preds = %68, %67
   %76 = load ptr, ptr %1, align 8, !tbaa !29, !noalias !178
-  %.ptr69 = getelementptr inbounds nuw i8, ptr %76, i64 26
+  %.ptr68 = getelementptr inbounds nuw i8, ptr %76, i64 26
   %77 = load ptr, ptr %12, align 8, !tbaa !176, !noalias !178
   %78 = load ptr, ptr %13, align 8, !tbaa !33, !noalias !178
-  %.not1.i.i = icmp ult ptr %.ptr69, %77
+  %.not1.i.i = icmp ult ptr %.ptr68, %77
   br i1 %.not1.i.i, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread, label %_ZNK5ZXing11PatternView7isValidEv.exit
 
 _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %75
@@ -3638,9 +3638,9 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %75
 
 _ZNK5ZXing11PatternView7isValidEv.exit:           ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 42
-  %.not68 = icmp ugt ptr %79, %78
+  %.not67 = icmp ugt ptr %79, %78
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %.not68, label %.thread, label %.lr.ph.i.i.i.i
+  br i1 %.not67, label %.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit, %.lr.ph.i.i.i.i
   %.08.i.i.i.idx.i = phi i64 [ %.08.i.i.i.add.i, %.lr.ph.i.i.i.i ], [ 16, %_ZNK5ZXing11PatternView7isValidEv.exit ]
@@ -3678,7 +3678,7 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit: ; preds = %.lr.p
   br label %98
 
 92:                                               ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit
-  store ptr %.ptr69, ptr %7, align 8, !tbaa !29, !alias.scope !183
+  store ptr %.ptr68, ptr %7, align 8, !tbaa !29, !alias.scope !183
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 8, ptr %93, align 8, !tbaa !32, !alias.scope !183
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3689,8 +3689,8 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit: ; preds = %.lr.p
   %.sroa.9.0.extract.shift = lshr i64 %96, 32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %97 = and i64 %96, 4294967295
-  %.not70 = icmp eq i64 %97, 4294967295
-  br i1 %.not70, label %98, label %_ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit.thread
+  %.not69 = icmp eq i64 %97, 4294967295
+  br i1 %.not69, label %98, label %_ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit.thread
 
 98:                                               ; preds = %.thread, %92
   %.sroa.9.060 = phi i64 [ 0, %.thread ], [ %.sroa.9.0.extract.shift, %92 ]
@@ -3740,8 +3740,8 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing8ContainsI
   store i32 %.05.lcssa.i.i.i, ptr %102, align 4, !tbaa !188
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %. = select i1 %99, i64 8, i64 5
-  %.71 = select i1 %99, i64 26, i64 16
-  %110 = getelementptr inbounds nuw i8, ptr %104, i64 %.71
+  %.70 = select i1 %99, i64 26, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 %.70
   %111 = getelementptr inbounds nuw i16, ptr %110, i64 %.
   %.not6.i.i.i19 = icmp eq ptr %103, %111
   br i1 %.not6.i.i.i19, label %117, label %.lr.ph.i.i.i20

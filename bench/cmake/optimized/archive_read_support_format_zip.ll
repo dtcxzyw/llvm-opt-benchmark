@@ -3418,9 +3418,9 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
 
 10:                                               ; preds = %5
   %11 = icmp samesign ult i64 %3, 4
-  br i1 %11, label %.preheader, label %.preheader391
+  br i1 %11, label %.preheader, label %.preheader390
 
-.preheader391:                                    ; preds = %10
+.preheader390:                                    ; preds = %10
   %12 = add nsw i64 %3, -4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 132
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -3444,13 +3444,13 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %38
 
 32:                                               ; preds = %.preheader
-  %33 = add nuw nsw i64 %.0270410, 1
+  %33 = add nuw nsw i64 %.0270409, 1
   %exitcond.not = icmp eq i64 %33, %3
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !151
 
 .preheader:                                       ; preds = %10, %32
-  %.0270410 = phi i64 [ %33, %32 ], [ 0, %10 ]
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.0270410
+  %.0270409 = phi i64 [ %33, %32 ], [ 0, %10 ]
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.0270409
   %35 = load i8, ptr %34, align 1, !tbaa !36
   %.not334 = icmp eq i8 %35, 0
   br i1 %.not334, label %32, label %36
@@ -3460,9 +3460,9 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.27, i32 noundef %37) #21
   br label %.critedge
 
-38:                                               ; preds = %.preheader391, %.thread377
-  %39 = phi i64 [ 0, %.preheader391 ], [ %345, %.thread377 ]
-  %.0249409 = phi i32 [ 0, %.preheader391 ], [ %344, %.thread377 ]
+38:                                               ; preds = %.preheader390, %.thread377
+  %39 = phi i64 [ 0, %.preheader390 ], [ %345, %.thread377 ]
+  %.0249408 = phi i32 [ 0, %.preheader390 ], [ %344, %.thread377 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %.val356 = load i8, ptr %41, align 1, !tbaa !36
@@ -3472,7 +3472,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %44 = zext i8 %.val356 to i16
   %45 = shl nuw i16 %43, 8
   %46 = or disjoint i16 %45, %44
-  %47 = add i32 %.0249409, 4
+  %47 = add i32 %.0249408, 4
   %48 = zext i16 %46 to i32
   %49 = add i32 %47, %48
   %50 = icmp ugt i32 %49, %31
@@ -3523,7 +3523,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %68 = zext i32 %.val360 to i64
   %69 = or disjoint i64 %66, %68
   store i64 %69, ptr %28, align 8, !tbaa !91
-  %70 = add i32 %.0249409, 12
+  %70 = add i32 %.0249408, 12
   %71 = add i16 %46, -8
   br label %73
 
@@ -3607,7 +3607,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %109 = zext i32 %47 to i64
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !36
-  %112 = add i32 %.0249409, 5
+  %112 = add i32 %.0249408, 5
   %113 = add i16 %46, -1
   %114 = and i8 %111, 1
   %.not330 = icmp eq i8 %114, 0
@@ -3623,7 +3623,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %120 = load i32, ptr %119, align 1
   %121 = zext i32 %120 to i64
   store i64 %121, ptr %25, align 8, !tbaa !125
-  %122 = add i32 %.0249409, 9
+  %122 = add i32 %.0249408, 9
   %123 = add i16 %46, -5
   br label %124
 
@@ -3708,30 +3708,30 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !36
   %168 = zext i8 %167 to i32
-  %169 = add i32 %.0249409, 5
-  %.11282404 = add i16 %46, -1
+  %169 = add i32 %.0249408, 5
+  %.11282403 = add i16 %46, -1
   %170 = icmp slt i8 %167, 0
-  %171 = icmp ne i16 %.11282404, 0
+  %171 = icmp ne i16 %.11282403, 0
   %172 = and i1 %170, %171
   br i1 %172, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %164, %.lr.ph
-  %.11282406 = phi i16 [ %.11282, %.lr.ph ], [ %.11282404, %164 ]
-  %.13405 = phi i32 [ %176, %.lr.ph ], [ %169, %164 ]
-  %173 = zext i32 %.13405 to i64
+  %.11282405 = phi i16 [ %.11282, %.lr.ph ], [ %.11282403, %164 ]
+  %.13404 = phi i32 [ %176, %.lr.ph ], [ %169, %164 ]
+  %173 = zext i32 %.13404 to i64
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !36
-  %176 = add i32 %.13405, 1
-  %.11282 = add i16 %.11282406, -1
+  %176 = add i32 %.13404, 1
+  %.11282 = add i16 %.11282405, -1
   %177 = icmp slt i8 %175, 0
   %178 = icmp ne i16 %.11282, 0
   %179 = select i1 %177, i1 %178, i1 false
   br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.lr.ph, %164
-  %.11282.in.lcssa = phi i16 [ %46, %164 ], [ %.11282406, %.lr.ph ]
+  %.11282.in.lcssa = phi i16 [ %46, %164 ], [ %.11282405, %.lr.ph ]
   %.13.lcssa = phi i32 [ %169, %164 ], [ %176, %.lr.ph ]
-  %.11282.lcssa = phi i16 [ %.11282404, %164 ], [ %.11282, %.lr.ph ]
+  %.11282.lcssa = phi i16 [ %.11282403, %164 ], [ %.11282, %.lr.ph ]
   %180 = and i32 %168, 1
   %.not324 = icmp eq i32 %180, 0
   br i1 %.not324, label %189, label %181
@@ -3851,7 +3851,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br i1 %or.cond, label %.thread377, label %233
 
 233:                                              ; preds = %231
-  %234 = add i32 %.0249409, 9
+  %234 = add i32 %.0249408, 9
   %235 = add i16 %46, -5
   %236 = load ptr, ptr %19, align 8, !tbaa !54
   %237 = icmp eq ptr %236, null
@@ -3929,7 +3929,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br i1 %276, label %277, label %294
 
 277:                                              ; preds = %275
-  %278 = add i32 %.0249409, 5
+  %278 = add i32 %.0249408, 5
   %279 = zext i32 %278 to i64
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 %279
   %281 = load i8, ptr %280, align 1, !tbaa !36
@@ -3956,9 +3956,9 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %290, %283
-  %.sink459 = phi i64 [ %285, %283 ], [ %293, %290 ]
+  %.sink458 = phi i64 [ %285, %283 ], [ %293, %290 ]
   %.0.ph = phi i32 [ 2, %283 ], [ 4, %290 ]
-  store i64 %.sink459, ptr %16, align 8, !tbaa !145
+  store i64 %.sink458, ptr %16, align 8, !tbaa !145
   br label %294
 
 294:                                              ; preds = %.sink.split, %286, %275
@@ -3968,7 +3968,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br i1 %.not319, label %.thread377, label %296
 
 296:                                              ; preds = %294
-  %297 = add i32 %.0249409, 6
+  %297 = add i32 %.0249408, 6
   %298 = add i32 %297, %.0
   %299 = zext i32 %298 to i64
   %300 = getelementptr inbounds nuw i8, ptr %2, i64 %299
@@ -4010,7 +4010,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %.critedge
 
 318:                                              ; preds = %315
-  %319 = add i32 %.0249409, 6
+  %319 = add i32 %.0249408, 6
   %320 = zext i32 %319 to i64
   %321 = getelementptr inbounds nuw i8, ptr %2, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !36
@@ -4018,7 +4018,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br i1 %323, label %324, label %.thread377
 
 324:                                              ; preds = %318
-  %325 = add i32 %.0249409, 7
+  %325 = add i32 %.0249408, 7
   %326 = zext i32 %325 to i64
   %327 = getelementptr inbounds nuw i8, ptr %2, i64 %326
   %328 = load i8, ptr %327, align 1, !tbaa !36
@@ -4031,13 +4031,13 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %.val = load i16, ptr %332, align 1
   %333 = zext i16 %.val to i32
   store i32 %333, ptr %13, align 4, !tbaa !87
-  %334 = add i32 %.0249409, 8
+  %334 = add i32 %.0249408, 8
   %335 = zext i32 %334 to i64
   %336 = getelementptr inbounds nuw i8, ptr %2, i64 %335
   %337 = load i8, ptr %336, align 1, !tbaa !36
   %338 = sext i8 %337 to i32
   store i32 %338, ptr %14, align 4, !tbaa !153
-  %339 = add i32 %.0249409, 9
+  %339 = add i32 %.0249408, 9
   %340 = zext i32 %339 to i64
   %341 = getelementptr inbounds nuw i8, ptr %2, i64 %340
   %342 = load i8, ptr %341, align 1, !tbaa !36

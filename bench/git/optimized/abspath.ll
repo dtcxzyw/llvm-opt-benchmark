@@ -116,8 +116,8 @@ get_root_part.exit:                               ; preds = %12, %19
 28:                                               ; preds = %24, %get_root_part.exit
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !12
-  %.not40109110 = icmp eq i64 %30, 0
-  br i1 %.not40109110, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not40108109 = icmp eq i64 %30, 0
+  br i1 %.not40108109, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -131,7 +131,7 @@ get_root_part.exit:                               ; preds = %12, %19
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.033.ph111 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1, %.outer ]
+  %.033.ph110 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.backedge
@@ -181,14 +181,14 @@ get_next_component.exit:                          ; preds = %.preheader.i, %.pre
   switch i64 %55, label %.thread [
     i64 0, label %.backedge
     i64 1, label %sub_0
-    i64 2, label %sub_099
+    i64 2, label %sub_098
   ]
 
 sub_0:                                            ; preds = %get_next_component.exit
   %56 = load ptr, ptr %32, align 8, !tbaa !7
   %57 = load i8, ptr %56, align 1
-  %.not114 = icmp eq i8 %57, 46
-  br i1 %.not114, label %.tail, label %.thread
+  %.not113 = icmp eq i8 %57, 46
+  br i1 %.not113, label %.tail, label %.thread
 
 .tail:                                            ; preds = %sub_0
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
@@ -196,25 +196,25 @@ sub_0:                                            ; preds = %get_next_component.
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %.backedge, label %.thread
 
-sub_099:                                          ; preds = %get_next_component.exit
+sub_098:                                          ; preds = %get_next_component.exit
   %61 = load ptr, ptr %32, align 8, !tbaa !7
   %62 = load i8, ptr %61, align 1
-  %.not112 = icmp eq i8 %62, 46
-  br i1 %.not112, label %sub_1100, label %.thread
+  %.not111 = icmp eq i8 %62, 46
+  br i1 %.not111, label %sub_199, label %.thread
 
-sub_1100:                                         ; preds = %sub_099
+sub_199:                                          ; preds = %sub_098
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %64 = load i8, ptr %63, align 1
-  %.not113 = icmp eq i8 %64, 46
-  br i1 %.not113, label %.tail98, label %.thread
+  %.not112 = icmp eq i8 %64, 46
+  br i1 %.not112, label %.tail97, label %.thread
 
-.tail98:                                          ; preds = %sub_1100
+.tail97:                                          ; preds = %sub_199
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %.thread
 
-68:                                               ; preds = %.tail98
+68:                                               ; preds = %.tail97
   %69 = load ptr, ptr %17, align 8, !tbaa !7
   %.val.i54 = load i8, ptr %69, align 1, !tbaa !4
   %70 = icmp eq i8 %.val.i54, 47
@@ -280,22 +280,22 @@ sub_1100:                                         ; preds = %sub_099
   %.not40 = icmp eq i64 %93, 0
   br i1 %.not40, label %.outer._crit_edge, label %39, !llvm.loop !19
 
-.thread:                                          ; preds = %sub_1100, %sub_099, %sub_0, %get_next_component.exit, %.tail, %.tail98
+.thread:                                          ; preds = %sub_199, %sub_098, %sub_0, %get_next_component.exit, %.tail, %.tail97
   %94 = load ptr, ptr %17, align 8, !tbaa !7
   %95 = load i64, ptr %16, align 8, !tbaa !12
   %96 = getelementptr i8, ptr %94, i64 %95
   %97 = getelementptr i8, ptr %96, i64 -1
   %98 = load i8, ptr %97, align 1, !tbaa !4
-  %.not97 = icmp eq i8 %98, 47
-  br i1 %.not97, label %107, label %99
+  %.not96 = icmp eq i8 %98, 47
+  br i1 %.not96, label %107, label %99
 
 99:                                               ; preds = %.thread
   %100 = load i64, ptr %0, align 8, !tbaa !18
   %.not.i.i = icmp eq i64 %100, 0
   %.neg.i = add i64 %95, 1
   %.not.i58 = icmp eq i64 %100, %.neg.i
-  %or.cond96 = or i1 %.not.i.i, %.not.i58
-  br i1 %or.cond96, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
+  %or.cond95 = or i1 %.not.i.i, %.not.i58
+  br i1 %or.cond95, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
 strbuf_avail.exit.thread.i:                       ; preds = %99
   call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #12
@@ -362,8 +362,8 @@ strbuf_addch.exit:                                ; preds = %99, %strbuf_avail.e
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %123, %125
-  %126 = add nsw i32 %.033.ph111, 1
-  %127 = icmp sgt i32 %.033.ph111, 32
+  %126 = add nsw i32 %.033.ph110, 1
+  %127 = icmp sgt i32 %.033.ph110, 32
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %strbuf_setlen.exit
@@ -521,15 +521,15 @@ strbuf_addch.exit89:                              ; preds = %strbuf_avail.exit.i
   br label %.outerthread-pre-split
 
 .outerthread-pre-split:                           ; preds = %119, %181
-  %.1.ph = phi i32 [ %.033.ph111, %119 ], [ %126, %181 ]
+  %.1.ph = phi i32 [ %.033.ph110, %119 ], [ %126, %181 ]
   %.pr = load i64, ptr %29, align 8, !tbaa !12
   br label %.outer
 
 .outer:                                           ; preds = %.outerthread-pre-split, %113
   %182 = phi i64 [ %.pr, %.outerthread-pre-split ], [ %114, %113 ]
-  %.1 = phi i32 [ %.1.ph, %.outerthread-pre-split ], [ %.033.ph111, %113 ]
-  %.not40109 = icmp eq i64 %182, 0
-  br i1 %.not40109, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
+  %.1 = phi i32 [ %.1.ph, %.outerthread-pre-split ], [ %.033.ph110, %113 ]
+  %.not40108 = icmp eq i64 %182, 0
+  br i1 %.not40108, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %28
   %183 = load ptr, ptr %17, align 8, !tbaa !7

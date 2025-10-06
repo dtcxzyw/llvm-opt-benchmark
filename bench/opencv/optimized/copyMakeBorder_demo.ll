@@ -329,9 +329,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %83,
   br label %107
 
 107:                                              ; preds = %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56
-  %108 = phi i32 [ %.pre83, %169 ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
-  %109 = phi i32 [ %.pre82, %169 ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
-  %110 = phi i32 [ %.pre81, %169 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
+  %108 = phi i32 [ %.pre82, %169 ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
+  %109 = phi i32 [ %.pre81, %169 ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
+  %110 = phi i32 [ %.pre80, %169 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
   %111 = phi i32 [ %.pre, %169 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %112 = load i64, ptr @rng, align 8, !tbaa !28
@@ -528,9 +528,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %164
 169:                                              ; preds = %.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre = load i32, ptr @top, align 4, !tbaa !26
-  %.pre81 = load i32, ptr @bottom, align 4, !tbaa !26
-  %.pre82 = load i32, ptr @left, align 4, !tbaa !26
-  %.pre83 = load i32, ptr @right, align 4, !tbaa !26
+  %.pre80 = load i32, ptr @bottom, align 4, !tbaa !26
+  %.pre81 = load i32, ptr @left, align 4, !tbaa !26
+  %.pre82 = load i32, ptr @right, align 4, !tbaa !26
   br label %107
 
 170:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70, %162

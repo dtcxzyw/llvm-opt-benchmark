@@ -3475,7 +3475,7 @@ define hidden void @_ZN7datalog22mk_subsumption_checker39collect_ground_uncondit
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !75
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %._crit_edge, label %_ZNK7datalog8rule_set3endEv.exit
+  br i1 %7, label %._crit_edge49, label %_ZNK7datalog8rule_set3endEv.exit
 
 _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
@@ -3483,21 +3483,21 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  %.not48 = icmp eq i32 %9, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph50
+  %.not46 = icmp eq i32 %9, 0
+  br i1 %.not46, label %._crit_edge49, label %.lr.ph48
 
-.lr.ph50:                                         ; preds = %_ZNK7datalog8rule_set3endEv.exit
+.lr.ph48:                                         ; preds = %_ZNK7datalog8rule_set3endEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %16
 
-._crit_edge:                                      ; preds = %.loopexit45, %2, %_ZNK7datalog8rule_set3endEv.exit
+._crit_edge49:                                    ; preds = %.loopexit43, %2, %_ZNK7datalog8rule_set3endEv.exit
   ret void
 
-16:                                               ; preds = %.lr.ph50, %.loopexit45
-  %.049 = phi ptr [ %6, %.lr.ph50 ], [ %90, %.loopexit45 ]
-  %17 = load ptr, ptr %.049, align 8, !tbaa !76
+16:                                               ; preds = %.lr.ph48, %.loopexit43
+  %.047 = phi ptr [ %6, %.lr.ph48 ], [ %90, %.loopexit43 ]
+  %17 = load ptr, ptr %.047, align 8, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -3505,13 +3505,13 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %23 = load i32, ptr %22, align 8, !tbaa !3
   %.not22 = icmp eq i32 %23, 0
-  br i1 %.not22, label %24, label %.loopexit45
+  br i1 %.not22, label %24, label %.loopexit43
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !383
-  %.not51 = icmp eq i32 %26, 0
-  br i1 %.not51, label %.thread, label %.lr.ph
+  %.not50 = icmp eq i32 %26, 0
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -3521,7 +3521,7 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
 28:                                               ; preds = %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %29, !llvm.loop !401
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !401
 
 29:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
@@ -3531,9 +3531,9 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 65535
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %28, label %.loopexit45
+  br i1 %35, label %28, label %.loopexit43
 
-.thread:                                          ; preds = %28, %24
+._crit_edge:                                      ; preds = %28, %24
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %37 = load i32, ptr %36, align 4, !tbaa !30
   %38 = load i32, ptr %14, align 8, !tbaa !297
@@ -3548,12 +3548,12 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
   %.not35.i.i.i = icmp eq i32 %40, %38
   br i1 %.not35.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %52, %.thread
+.preheader.i.i.i:                                 ; preds = %52, %._crit_edge
   %.not2737.i.i.i = icmp eq i32 %40, 0
   br i1 %.not2737.i.i.i, label %.loopexit, label %.lr.ph39.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.thread, %52
-  %.036.i.i.i = phi ptr [ %53, %52 ], [ %43, %.thread ]
+.lr.ph.i.i.i:                                     ; preds = %._crit_edge, %52
+  %.036.i.i.i = phi ptr [ %53, %52 ], [ %43, %._crit_edge ]
   %46 = load ptr, ptr %.036.i.i.i, align 8, !tbaa !390
   %magicptr30.i.i.i = ptrtoint ptr %46 to i64
   switch i64 %magicptr30.i.i.i, label %47 [
@@ -3613,24 +3613,24 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
   call void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI3appEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %36, align 4, !tbaa !30
-  %.pre57 = load i32, ptr %14, align 8, !tbaa !297
-  %.pre58 = load ptr, ptr %13, align 8, !tbaa !296
-  %.pre59 = add i32 %.pre57, -1
-  %.pre60 = and i32 %.pre59, %.pre
-  %.pre62 = zext i32 %.pre60 to i64
-  %.pre64 = shl nuw nsw i64 %.pre62, 4
-  %.pre65 = zext i32 %.pre57 to i64
+  %.pre56 = load i32, ptr %14, align 8, !tbaa !297
+  %.pre57 = load ptr, ptr %13, align 8, !tbaa !296
+  %.pre58 = add i32 %.pre56, -1
+  %.pre59 = and i32 %.pre58, %.pre
+  %.pre61 = zext i32 %.pre59 to i64
+  %.pre63 = shl nuw nsw i64 %.pre61, 4
+  %.pre64 = zext i32 %.pre56 to i64
   br label %_ZNK7obj_mapI9func_declP13obj_hashtableI3appEE8containsEPS0_.exit
 
 _ZNK7obj_mapI9func_declP13obj_hashtableI3appEE8containsEPS0_.exit: ; preds = %47, %55, %.loopexit
-  %.pre-phi66 = phi i64 [ %.pre65, %.loopexit ], [ %44, %55 ], [ %44, %47 ]
-  %.idx.i.i.i23.pre-phi = phi i64 [ %.pre64, %.loopexit ], [ %.idx.i.i.i, %55 ], [ %.idx.i.i.i, %47 ]
-  %.pre-phi61 = phi i32 [ %.pre60, %.loopexit ], [ %40, %55 ], [ %40, %47 ]
-  %67 = phi ptr [ %.pre58, %.loopexit ], [ %41, %55 ], [ %41, %47 ]
-  %68 = phi i32 [ %.pre57, %.loopexit ], [ %38, %55 ], [ %38, %47 ]
+  %.pre-phi65 = phi i64 [ %.pre64, %.loopexit ], [ %44, %55 ], [ %44, %47 ]
+  %.idx.i.i.i23.pre-phi = phi i64 [ %.pre63, %.loopexit ], [ %.idx.i.i.i, %55 ], [ %.idx.i.i.i, %47 ]
+  %.pre-phi60 = phi i32 [ %.pre59, %.loopexit ], [ %40, %55 ], [ %40, %47 ]
+  %67 = phi ptr [ %.pre57, %.loopexit ], [ %41, %55 ], [ %41, %47 ]
+  %68 = phi i32 [ %.pre56, %.loopexit ], [ %38, %55 ], [ %38, %47 ]
   %69 = phi i32 [ %.pre, %.loopexit ], [ %37, %55 ], [ %37, %47 ]
-  %70 = getelementptr inbounds nuw %"class.obj_map<func_decl, obj_hashtable<app> *>::obj_map_entry", ptr %67, i64 %.pre-phi66
-  %.not35.i.i.i24 = icmp eq i32 %.pre-phi61, %68
+  %70 = getelementptr inbounds nuw %"class.obj_map<func_decl, obj_hashtable<app> *>::obj_map_entry", ptr %67, i64 %.pre-phi65
+  %.not35.i.i.i24 = icmp eq i32 %.pre-phi60, %68
   br i1 %.not35.i.i.i24, label %.lr.ph39.i.i.i31.preheader, label %.lr.ph.i.i.i25.preheader
 
 .lr.ph.i.i.i25.preheader:                         ; preds = %_ZNK7obj_mapI9func_declP13obj_hashtableI3appEE8containsEPS0_.exit
@@ -3685,12 +3685,12 @@ _ZN7obj_mapI9func_declP13obj_hashtableI3appEE4findEPS0_.exit: ; preds = %73, %81
   store ptr %19, ptr %3, align 8, !tbaa !23
   call void @_ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %89, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit45
+  br label %.loopexit43
 
-.loopexit45:                                      ; preds = %29, %_ZN7obj_mapI9func_declP13obj_hashtableI3appEE4findEPS0_.exit, %16
-  %90 = getelementptr inbounds nuw i8, ptr %.049, i64 8
+.loopexit43:                                      ; preds = %29, %_ZN7obj_mapI9func_declP13obj_hashtableI3appEE4findEPS0_.exit, %16
+  %90 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %.not = icmp eq ptr %90, %12
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !409
+  br i1 %.not, label %._crit_edge49, label %16, !llvm.loop !409
 }
 
 ; Function Attrs: mustprogress uwtable

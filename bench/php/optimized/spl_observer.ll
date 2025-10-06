@@ -2072,8 +2072,8 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   br i1 %41, label %126, label %.preheader
 
 .preheader:                                       ; preds = %37
-  %.not68 = icmp eq i64 %40, 0
-  br i1 %.not68, label %._crit_edge, label %.lr.ph
+  %.not67 = icmp eq i64 %40, 0
+  br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2086,7 +2086,7 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
 
 48:                                               ; preds = %.lr.ph, %99
   %.in = phi i64 [ %40, %.lr.ph ], [ %49, %99 ]
-  %.sroa.0.067 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0.257, %99 ]
+  %.sroa.0.066 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0.257, %99 ]
   %49 = add nsw i64 %.in, -1
   %50 = call ptr @var_tmp_var(ptr noundef nonnull %8) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2181,7 +2181,7 @@ spl_object_storage_get_hash.exit:                 ; preds = %75
   br label %.thread.sink.split
 
 89:                                               ; preds = %spl_object_storage_get_hash.exit, %spl_object_storage_get_hash.exit.thread
-  %.sroa.0.257 = phi i64 [ %87, %spl_object_storage_get_hash.exit.thread ], [ %.sroa.0.067, %spl_object_storage_get_hash.exit ]
+  %.sroa.0.257 = phi i64 [ %87, %spl_object_storage_get_hash.exit.thread ], [ %.sroa.0.066, %spl_object_storage_get_hash.exit ]
   %.sroa.4.356 = phi ptr [ null, %spl_object_storage_get_hash.exit.thread ], [ %88, %spl_object_storage_get_hash.exit ]
   %90 = call fastcc ptr @spl_object_storage_get(ptr noundef nonnull %13, i64 %.sroa.0.257, ptr %.sroa.4.356)
   call fastcc void @spl_object_storage_free_hash(ptr %.sroa.4.356)

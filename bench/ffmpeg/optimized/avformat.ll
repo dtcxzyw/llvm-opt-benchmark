@@ -781,32 +781,32 @@ declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnam
 define ptr @av_find_program_from_stream(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %5 = load i32, ptr %4, align 4, !tbaa !67
-  %.not2832.not = icmp eq i32 %5, 0
-  br i1 %.not2832.not, label %.thread, label %.lr.ph35
+  %.not38 = icmp eq i32 %5, 0
+  br i1 %.not38, label %.loopexit31, label %.lr.ph37
 
-.lr.ph35:                                         ; preds = %3
+.lr.ph37:                                         ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8, !tbaa !70
-  %wide.trip.count42 = zext i32 %5 to i64
+  %wide.trip.count45 = zext i32 %5 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph35, %.loopexit
-  %indvars.iv39 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next40, %.loopexit ]
-  %.02333 = phi ptr [ %1, %.lr.ph35 ], [ %.124, %.loopexit ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv39
+8:                                                ; preds = %.lr.ph37, %.loopexit
+  %indvars.iv42 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next43, %.loopexit ]
+  %.02335 = phi ptr [ %1, %.lr.ph37 ], [ %.124, %.loopexit ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv42
   %10 = load ptr, ptr %9, align 8, !tbaa !71
-  %11 = icmp eq ptr %10, %.02333
+  %11 = icmp eq ptr %10, %.02335
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %8
-  %.not = icmp eq ptr %.02333, null
+  %.not = icmp eq ptr %.02335, null
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !99
-  %.not2530.not = icmp eq i32 %14, 0
-  br i1 %.not2530.not, label %.loopexit, label %.lr.ph
+  %.not2533.not = icmp eq i32 %14, 0
+  br i1 %.not2533.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -824,17 +824,17 @@ define ptr @av_find_program_from_stream(ptr noundef readonly captures(none) %0, 
   %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !102
   %21 = icmp eq i32 %20, %2
-  br i1 %21, label %.thread, label %17
+  br i1 %21, label %.loopexit31, label %17
 
 .loopexit:                                        ; preds = %17, %.preheader, %8, %12
-  %.124 = phi ptr [ %.02333, %12 ], [ null, %8 ], [ null, %.preheader ], [ null, %17 ]
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %.thread, label %8, !llvm.loop !104
+  %.124 = phi ptr [ %.02335, %12 ], [ null, %8 ], [ null, %.preheader ], [ null, %17 ]
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
+  br i1 %exitcond46.not, label %.loopexit31, label %8, !llvm.loop !104
 
-.thread:                                          ; preds = %.loopexit, %18, %3
-  %spec.select = phi ptr [ null, %3 ], [ %10, %18 ], [ null, %.loopexit ]
-  ret ptr %spec.select
+.loopexit31:                                      ; preds = %.loopexit, %18, %3
+  %22 = phi ptr [ null, %3 ], [ %10, %18 ], [ null, %.loopexit ]
+  ret ptr %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -932,18 +932,18 @@ define i32 @av_find_best_stream(ptr noundef readonly captures(none) %0, i32 noun
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %13 = load i32, ptr %12, align 4, !tbaa !67
-  %.not2832.not.i = icmp eq i32 %13, 0
-  br i1 %.not2832.not.i, label %av_find_program_from_stream.exit.thread, label %.lr.ph35.i
+  %.not38.i = icmp eq i32 %13, 0
+  br i1 %.not38.i, label %av_find_program_from_stream.exit.thread, label %.lr.ph37.i
 
-.lr.ph35.i:                                       ; preds = %11
+.lr.ph37.i:                                       ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load ptr, ptr %14, align 8, !tbaa !70
-  %wide.trip.count42.i = zext i32 %13 to i64
+  %wide.trip.count45.i = zext i32 %13 to i64
   br label %16
 
-16:                                               ; preds = %.loopexit.i, %.lr.ph35.i
-  %indvars.iv39.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next40.i, %.loopexit.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv39.i
+16:                                               ; preds = %.loopexit.i, %.lr.ph37.i
+  %indvars.iv42.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next43.i, %.loopexit.i ]
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv42.i
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit.i, label %.preheader.i
@@ -951,8 +951,8 @@ define i32 @av_find_best_stream(ptr noundef readonly captures(none) %0, i32 noun
 .preheader.i:                                     ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !99
-  %.not2530.not.i = icmp eq i32 %21, 0
-  br i1 %.not2530.not.i, label %.loopexit.i, label %.lr.ph.i
+  %.not2533.not.i = icmp eq i32 %21, 0
+  br i1 %.not2533.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -973,9 +973,9 @@ define i32 @av_find_best_stream(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %28, label %av_find_program_from_stream.exit.thread, label %24
 
 .loopexit.i:                                      ; preds = %24, %.preheader.i, %16
-  %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
-  br i1 %exitcond43.not.i, label %av_find_program_from_stream.exit.thread, label %16, !llvm.loop !104
+  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
+  %exitcond46.not.i = icmp eq i64 %indvars.iv.next43.i, %wide.trip.count45.i
+  br i1 %exitcond46.not.i, label %av_find_program_from_stream.exit.thread, label %16, !llvm.loop !104
 
 av_find_program_from_stream.exit.thread:          ; preds = %.loopexit.i, %25, %11, %6
   %.089 = phi ptr [ null, %6 ], [ null, %11 ], [ %23, %25 ], [ null, %.loopexit.i ]
@@ -999,27 +999,27 @@ av_find_program_from_stream.exit.thread:          ; preds = %.loopexit.i, %25, %
   br i1 %.not106, label %99, label %98
 
 34:                                               ; preds = %.lr.ph, %95
-  %.2138 = phi i32 [ %.0, %.lr.ph ], [ %.3, %95 ]
-  %.075137 = phi i32 [ -1381258232, %.lr.ph ], [ %.176, %95 ]
-  %.077136 = phi i32 [ -1, %.lr.ph ], [ %.178, %95 ]
-  %.079135 = phi i32 [ 0, %.lr.ph ], [ %96, %95 ]
-  %.082134 = phi i32 [ -1, %.lr.ph ], [ %.183, %95 ]
-  %.084133 = phi ptr [ null, %.lr.ph ], [ %.185, %95 ]
-  %.086132 = phi ptr [ null, %.lr.ph ], [ %.187, %95 ]
-  %.291131 = phi ptr [ %.089, %.lr.ph ], [ %.392, %95 ]
-  %.094130 = phi i32 [ -1, %.lr.ph ], [ %.195, %95 ]
-  %.096129 = phi i64 [ -1, %.lr.ph ], [ %.197, %95 ]
-  %.not107 = icmp eq ptr %.291131, null
+  %.2137 = phi i32 [ %.0, %.lr.ph ], [ %.3, %95 ]
+  %.075136 = phi i32 [ -1381258232, %.lr.ph ], [ %.176, %95 ]
+  %.077135 = phi i32 [ -1, %.lr.ph ], [ %.178, %95 ]
+  %.079134 = phi i32 [ 0, %.lr.ph ], [ %96, %95 ]
+  %.082133 = phi i32 [ -1, %.lr.ph ], [ %.183, %95 ]
+  %.084132 = phi ptr [ null, %.lr.ph ], [ %.185, %95 ]
+  %.086131 = phi ptr [ null, %.lr.ph ], [ %.187, %95 ]
+  %.291130 = phi ptr [ %.089, %.lr.ph ], [ %.392, %95 ]
+  %.094129 = phi i32 [ -1, %.lr.ph ], [ %.195, %95 ]
+  %.096128 = phi i64 [ -1, %.lr.ph ], [ %.197, %95 ]
+  %.not107 = icmp eq ptr %.291130, null
   br i1 %.not107, label %39, label %35
 
 35:                                               ; preds = %34
-  %36 = zext i32 %.079135 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %.291131, i64 %36
+  %36 = zext i32 %.079134 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %.291130, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !102
   br label %39
 
 39:                                               ; preds = %34, %35
-  %40 = phi i32 [ %38, %35 ], [ %.079135, %34 ]
+  %40 = phi i32 [ %38, %35 ], [ %.079134, %34 ]
   %41 = load ptr, ptr %29, align 8, !tbaa !52
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
@@ -1030,8 +1030,8 @@ av_find_program_from_stream.exit.thread:          ; preds = %.loopexit.i, %25, %
   %.not108 = icmp eq i32 %47, %1
   %.not109 = icmp eq i32 %40, %2
   %or.cond116 = or i1 %10, %.not109
-  %or.cond140 = and i1 %.not108, %or.cond116
-  br i1 %or.cond140, label %48, label %95
+  %or.cond139 = and i1 %.not108, %or.cond116
+  br i1 %or.cond139, label %48, label %95
 
 48:                                               ; preds = %39
   br i1 %30, label %49, label %55
@@ -1081,12 +1081,12 @@ ff_find_decoder.exit:                             ; preds = %56, %59, %61, %63
   br i1 %.not113, label %66, label %ff_find_decoder.exit.thread
 
 66:                                               ; preds = %ff_find_decoder.exit
-  %67 = icmp slt i32 %.075137, 0
-  %spec.store.select = select i1 %67, i32 -1128613112, i32 %.075137
+  %67 = icmp slt i32 %.075136, 0
+  %spec.store.select = select i1 %67, i32 -1128613112, i32 %.075136
   br label %95
 
 ff_find_decoder.exit.thread:                      ; preds = %63, %61, %59, %ff_find_decoder.exit, %55
-  %.288 = phi ptr [ %65, %ff_find_decoder.exit ], [ %.086132, %55 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ]
+  %.288 = phi ptr [ %65, %ff_find_decoder.exit ], [ %.086131, %55 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ]
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %69 = load i32, ptr %68, align 8, !tbaa !82
   %70 = and i32 %69, 384
@@ -1099,27 +1099,27 @@ ff_find_decoder.exit.thread:                      ; preds = %63, %61, %59, %ff_f
   %76 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %77 = load i64, ptr %76, align 8, !tbaa !118
   %78 = tail call i32 @llvm.smin.i32(i32 %75, i32 5)
-  %79 = icmp sgt i32 %.094130, %73
+  %79 = icmp sgt i32 %.094129, %73
   br i1 %79, label %95, label %80
 
 80:                                               ; preds = %ff_find_decoder.exit.thread
-  %81 = icmp eq i32 %.094130, %73
-  %82 = icmp sgt i32 %.082134, %78
+  %81 = icmp eq i32 %.094129, %73
+  %82 = icmp sgt i32 %.082133, %78
   %or.cond117 = select i1 %81, i1 %82, i1 false
   br i1 %or.cond117, label %95, label %83
 
 83:                                               ; preds = %80
-  %84 = icmp eq i32 %.082134, %78
+  %84 = icmp eq i32 %.082133, %78
   %or.cond118 = select i1 %81, i1 %84, i1 false
-  %85 = icmp sgt i64 %.096129, %77
+  %85 = icmp sgt i64 %.096128, %77
   %or.cond119 = select i1 %or.cond118, i1 %85, i1 false
   br i1 %or.cond119, label %95, label %86
 
 86:                                               ; preds = %83
-  %87 = icmp ne i64 %.096129, %77
+  %87 = icmp ne i64 %.096128, %77
   %not.or.cond118 = xor i1 %or.cond118, true
   %or.cond121 = select i1 %not.or.cond118, i1 true, i1 %87
-  %.not115 = icmp slt i32 %.077136, %75
+  %.not115 = icmp slt i32 %.077135, %75
   %or.cond122 = select i1 %or.cond121, i1 true, i1 %.not115
   br i1 %or.cond122, label %88, label %95
 
@@ -1127,8 +1127,8 @@ ff_find_decoder.exit.thread:                      ; preds = %63, %61, %59, %ff_f
   br i1 %.not107, label %95, label %89
 
 89:                                               ; preds = %88
-  %90 = add nsw i32 %.2138, -1
-  %91 = icmp eq i32 %.079135, %90
+  %90 = add nsw i32 %.2137, -1
+  %91 = icmp eq i32 %.079134, %90
   %92 = icmp slt i32 %40, 0
   %or.cond3 = and i1 %91, %92
   br i1 %or.cond3, label %93, label %95
@@ -1138,16 +1138,16 @@ ff_find_decoder.exit.thread:                      ; preds = %63, %61, %59, %ff_f
   br label %95
 
 95:                                               ; preds = %88, %89, %93, %ff_find_decoder.exit.thread, %80, %83, %86, %49, %52, %39, %66
-  %.197 = phi i64 [ %.096129, %66 ], [ %.096129, %39 ], [ %.096129, %52 ], [ %.096129, %49 ], [ %.096129, %86 ], [ %.096129, %83 ], [ %.096129, %80 ], [ %.096129, %ff_find_decoder.exit.thread ], [ %77, %93 ], [ %77, %89 ], [ %77, %88 ]
-  %.195 = phi i32 [ %.094130, %66 ], [ %.094130, %39 ], [ %.094130, %52 ], [ %.094130, %49 ], [ %.094130, %86 ], [ %.094130, %83 ], [ %.094130, %80 ], [ %.094130, %ff_find_decoder.exit.thread ], [ %73, %93 ], [ %73, %89 ], [ %73, %88 ]
-  %.392 = phi ptr [ %.291131, %66 ], [ %.291131, %39 ], [ %.291131, %52 ], [ %.291131, %49 ], [ %.291131, %86 ], [ %.291131, %83 ], [ %.291131, %80 ], [ %.291131, %ff_find_decoder.exit.thread ], [ null, %93 ], [ %.291131, %89 ], [ null, %88 ]
-  %.187 = phi ptr [ null, %66 ], [ %.086132, %39 ], [ %.086132, %52 ], [ %.086132, %49 ], [ %.288, %86 ], [ %.288, %83 ], [ %.288, %80 ], [ %.288, %ff_find_decoder.exit.thread ], [ %.288, %93 ], [ %.288, %89 ], [ %.288, %88 ]
-  %.185 = phi ptr [ %.084133, %66 ], [ %.084133, %39 ], [ %.084133, %52 ], [ %.084133, %49 ], [ %.084133, %86 ], [ %.084133, %83 ], [ %.084133, %80 ], [ %.084133, %ff_find_decoder.exit.thread ], [ %.288, %93 ], [ %.288, %89 ], [ %.288, %88 ]
-  %.183 = phi i32 [ %.082134, %66 ], [ %.082134, %39 ], [ %.082134, %52 ], [ %.082134, %49 ], [ %.082134, %86 ], [ %.082134, %83 ], [ %.082134, %80 ], [ %.082134, %ff_find_decoder.exit.thread ], [ %78, %93 ], [ %78, %89 ], [ %78, %88 ]
-  %.180 = phi i32 [ %.079135, %66 ], [ %.079135, %39 ], [ %.079135, %52 ], [ %.079135, %49 ], [ %.079135, %86 ], [ %.079135, %83 ], [ %.079135, %80 ], [ %.079135, %ff_find_decoder.exit.thread ], [ 0, %93 ], [ %.079135, %89 ], [ %.079135, %88 ]
-  %.178 = phi i32 [ %.077136, %66 ], [ %.077136, %39 ], [ %.077136, %52 ], [ %.077136, %49 ], [ %.077136, %86 ], [ %.077136, %83 ], [ %.077136, %80 ], [ %.077136, %ff_find_decoder.exit.thread ], [ %75, %93 ], [ %75, %89 ], [ %75, %88 ]
-  %.176 = phi i32 [ %spec.store.select, %66 ], [ %.075137, %39 ], [ %.075137, %52 ], [ %.075137, %49 ], [ %.075137, %86 ], [ %.075137, %83 ], [ %.075137, %80 ], [ %.075137, %ff_find_decoder.exit.thread ], [ %40, %93 ], [ %40, %89 ], [ %40, %88 ]
-  %.3 = phi i32 [ %.2138, %66 ], [ %.2138, %39 ], [ %.2138, %52 ], [ %.2138, %49 ], [ %.2138, %86 ], [ %.2138, %83 ], [ %.2138, %80 ], [ %.2138, %ff_find_decoder.exit.thread ], [ %94, %93 ], [ %.2138, %89 ], [ %.2138, %88 ]
+  %.197 = phi i64 [ %.096128, %66 ], [ %.096128, %39 ], [ %.096128, %52 ], [ %.096128, %49 ], [ %.096128, %86 ], [ %.096128, %83 ], [ %.096128, %80 ], [ %.096128, %ff_find_decoder.exit.thread ], [ %77, %93 ], [ %77, %89 ], [ %77, %88 ]
+  %.195 = phi i32 [ %.094129, %66 ], [ %.094129, %39 ], [ %.094129, %52 ], [ %.094129, %49 ], [ %.094129, %86 ], [ %.094129, %83 ], [ %.094129, %80 ], [ %.094129, %ff_find_decoder.exit.thread ], [ %73, %93 ], [ %73, %89 ], [ %73, %88 ]
+  %.392 = phi ptr [ %.291130, %66 ], [ %.291130, %39 ], [ %.291130, %52 ], [ %.291130, %49 ], [ %.291130, %86 ], [ %.291130, %83 ], [ %.291130, %80 ], [ %.291130, %ff_find_decoder.exit.thread ], [ null, %93 ], [ %.291130, %89 ], [ null, %88 ]
+  %.187 = phi ptr [ null, %66 ], [ %.086131, %39 ], [ %.086131, %52 ], [ %.086131, %49 ], [ %.288, %86 ], [ %.288, %83 ], [ %.288, %80 ], [ %.288, %ff_find_decoder.exit.thread ], [ %.288, %93 ], [ %.288, %89 ], [ %.288, %88 ]
+  %.185 = phi ptr [ %.084132, %66 ], [ %.084132, %39 ], [ %.084132, %52 ], [ %.084132, %49 ], [ %.084132, %86 ], [ %.084132, %83 ], [ %.084132, %80 ], [ %.084132, %ff_find_decoder.exit.thread ], [ %.288, %93 ], [ %.288, %89 ], [ %.288, %88 ]
+  %.183 = phi i32 [ %.082133, %66 ], [ %.082133, %39 ], [ %.082133, %52 ], [ %.082133, %49 ], [ %.082133, %86 ], [ %.082133, %83 ], [ %.082133, %80 ], [ %.082133, %ff_find_decoder.exit.thread ], [ %78, %93 ], [ %78, %89 ], [ %78, %88 ]
+  %.180 = phi i32 [ %.079134, %66 ], [ %.079134, %39 ], [ %.079134, %52 ], [ %.079134, %49 ], [ %.079134, %86 ], [ %.079134, %83 ], [ %.079134, %80 ], [ %.079134, %ff_find_decoder.exit.thread ], [ 0, %93 ], [ %.079134, %89 ], [ %.079134, %88 ]
+  %.178 = phi i32 [ %.077135, %66 ], [ %.077135, %39 ], [ %.077135, %52 ], [ %.077135, %49 ], [ %.077135, %86 ], [ %.077135, %83 ], [ %.077135, %80 ], [ %.077135, %ff_find_decoder.exit.thread ], [ %75, %93 ], [ %75, %89 ], [ %75, %88 ]
+  %.176 = phi i32 [ %spec.store.select, %66 ], [ %.075136, %39 ], [ %.075136, %52 ], [ %.075136, %49 ], [ %.075136, %86 ], [ %.075136, %83 ], [ %.075136, %80 ], [ %.075136, %ff_find_decoder.exit.thread ], [ %40, %93 ], [ %40, %89 ], [ %40, %88 ]
+  %.3 = phi i32 [ %.2137, %66 ], [ %.2137, %39 ], [ %.2137, %52 ], [ %.2137, %49 ], [ %.2137, %86 ], [ %.2137, %83 ], [ %.2137, %80 ], [ %.2137, %ff_find_decoder.exit.thread ], [ %94, %93 ], [ %.2137, %89 ], [ %.2137, %88 ]
   %96 = add nuw i32 %.180, 1
   %97 = icmp ult i32 %96, %.3
   br i1 %97, label %34, label %._crit_edge, !llvm.loop !119
@@ -2553,11 +2553,7 @@ define range(i32 -12, 1) i32 @ff_copy_whiteblacklists(ptr noundef %0, ptr nounde
 20:                                               ; preds = %.preheader
   %21 = tail call noalias ptr @av_strdup(ptr noundef nonnull %19) #13
   %.not30.not = icmp eq ptr %21, null
-  br i1 %.not30.not, label %.thread, label %22
-
-.thread:                                          ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #13
-  br label %.loopexit
+  br i1 %.not30.not, label %24, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %17
@@ -2566,12 +2562,16 @@ define range(i32 -12, 1) i32 @ff_copy_whiteblacklists(ptr noundef %0, ptr nounde
 
 .critedge:                                        ; preds = %22, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !151
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !151
 
-.loopexit:                                        ; preds = %.critedge, %.thread
-  %spec.select = phi i32 [ -12, %.thread ], [ 0, %.critedge ]
-  ret i32 %spec.select
+24:                                               ; preds = %20
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #13
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.critedge, %24
+  %25 = phi i32 [ -12, %24 ], [ 0, %.critedge ]
+  ret i32 %25
 }
 
 declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #1

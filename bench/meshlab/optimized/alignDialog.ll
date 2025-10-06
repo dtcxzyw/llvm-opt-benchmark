@@ -5691,16 +5691,15 @@ _ZNK9MeshModel9shortNameEv.exit.i:                ; preds = %.noexc
 29:                                               ; preds = %2
   store ptr %21, ptr %9, align 8, !alias.scope !16
   %30 = load atomic i32, ptr %21 monotonic, align 4, !noalias !16
-  switch i32 %30, label %31 [
-    i32 -1, label %33
-    i32 0, label %33
-  ]
+  %.off.i.i.i = add i32 %30, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %31, label %33
 
 31:                                               ; preds = %29
   %32 = atomicrmw add ptr %21, i32 1 seq_cst, align 4, !noalias !16
   br label %33
 
-33:                                               ; preds = %_ZNK9MeshModel9shortNameEv.exit.i, %29, %29, %31
+33:                                               ; preds = %_ZNK9MeshModel9shortNameEv.exit.i, %29, %31
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
   %34 = load ptr, ptr %18, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1224

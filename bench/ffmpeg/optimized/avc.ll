@@ -88,9 +88,9 @@ define i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 .lr.ph:                                           ; preds = %.preheader, %75
   %46 = phi i64 [ %79, %75 ], [ %44, %.preheader ]
   %47 = phi ptr [ %77, %75 ], [ %42, %.preheader ]
-  %.071119 = phi i32 [ %.2, %75 ], [ 0, %.preheader ]
-  %.073118 = phi i32 [ %.275, %75 ], [ 0, %.preheader ]
-  %.076117 = phi i32 [ %.278, %75 ], [ 0, %.preheader ]
+  %.071118 = phi i32 [ %.2, %75 ], [ 0, %.preheader ]
+  %.073117 = phi i32 [ %.275, %75 ], [ 0, %.preheader ]
+  %.076116 = phi i32 [ %.278, %75 ], [ 0, %.preheader ]
   %48 = load i32, ptr %47, align 1, !tbaa !13
   %49 = call i32 @llvm.bswap.i32(i32 %48)
   %50 = zext i32 %49 to i64
@@ -109,50 +109,50 @@ define i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 57:                                               ; preds = %.lr.ph
   %58 = icmp samesign ugt i64 %52, 65535
-  %59 = icmp sgt i32 %.076117, 30
+  %59 = icmp sgt i32 %.076116, 30
   %or.cond = select i1 %58, i1 true, i1 %59
   br i1 %or.cond, label %.thread, label %60
 
 60:                                               ; preds = %57
-  %61 = add nsw i32 %.076117, 1
+  %61 = add nsw i32 %.076116, 1
   br label %.sink.split
 
 62:                                               ; preds = %.lr.ph
   %63 = icmp samesign ugt i64 %52, 65535
-  %64 = icmp sgt i32 %.073118, 254
+  %64 = icmp sgt i32 %.073117, 254
   %or.cond3 = select i1 %63, i1 true, i1 %64
   br i1 %or.cond3, label %.thread, label %65
 
 65:                                               ; preds = %62
-  %66 = add nsw i32 %.073118, 1
+  %66 = add nsw i32 %.073117, 1
   br label %.sink.split
 
 67:                                               ; preds = %.lr.ph
   %68 = icmp samesign ugt i64 %52, 65535
-  %69 = icmp sgt i32 %.071119, 254
+  %69 = icmp sgt i32 %.071118, 254
   %or.cond5 = select i1 %68, i1 true, i1 %69
   br i1 %or.cond5, label %.thread, label %70
 
 70:                                               ; preds = %67
-  %71 = add nsw i32 %.071119, 1
+  %71 = add nsw i32 %.071118, 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %70, %60
-  %.sink133 = phi ptr [ %5, %60 ], [ %7, %70 ], [ %6, %65 ]
-  %.278.ph = phi i32 [ %61, %60 ], [ %.076117, %70 ], [ %.076117, %65 ]
-  %.275.ph = phi i32 [ %.073118, %60 ], [ %.073118, %70 ], [ %66, %65 ]
-  %.2.ph = phi i32 [ %.071119, %60 ], [ %71, %70 ], [ %.071119, %65 ]
-  %72 = load ptr, ptr %.sink133, align 8, !tbaa !8
+  %.sink132 = phi ptr [ %5, %60 ], [ %7, %70 ], [ %6, %65 ]
+  %.278.ph = phi i32 [ %61, %60 ], [ %.076116, %70 ], [ %.076116, %65 ]
+  %.275.ph = phi i32 [ %.073117, %60 ], [ %.073117, %70 ], [ %66, %65 ]
+  %.2.ph = phi i32 [ %.071118, %60 ], [ %71, %70 ], [ %.071118, %65 ]
+  %72 = load ptr, ptr %.sink132, align 8, !tbaa !8
   call void @avio_wb16(ptr noundef %72, i32 noundef %53) #6
-  %73 = load ptr, ptr %.sink133, align 8, !tbaa !8
+  %73 = load ptr, ptr %.sink132, align 8, !tbaa !8
   %74 = load ptr, ptr %8, align 8, !tbaa !11
   call void @avio_write(ptr noundef %73, ptr noundef %74, i32 noundef %53) #6
   br label %75
 
 75:                                               ; preds = %.sink.split, %.lr.ph
-  %.278 = phi i32 [ %.076117, %.lr.ph ], [ %.278.ph, %.sink.split ]
-  %.275 = phi i32 [ %.073118, %.lr.ph ], [ %.275.ph, %.sink.split ]
-  %.2 = phi i32 [ %.071119, %.lr.ph ], [ %.2.ph, %.sink.split ]
+  %.278 = phi i32 [ %.076116, %.lr.ph ], [ %.278.ph, %.sink.split ]
+  %.275 = phi i32 [ %.073117, %.lr.ph ], [ %.275.ph, %.sink.split ]
+  %.2 = phi i32 [ %.071118, %.lr.ph ], [ %.2.ph, %.sink.split ]
   %76 = load ptr, ptr %8, align 8, !tbaa !11
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %52
   store ptr %77, ptr %8, align 8, !tbaa !11

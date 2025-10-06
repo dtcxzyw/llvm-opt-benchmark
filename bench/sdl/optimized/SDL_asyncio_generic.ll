@@ -652,16 +652,16 @@ declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef,
 define internal noundef i32 @AsyncIOThreadpoolWorker(ptr readnone captures(none) %0) #0 {
   %2 = load ptr, ptr @threadpool_lock, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %2) #8
-  %.b131419 = load i1, ptr @stop_threadpool, align 1
-  br i1 %.b131419, label %.thread, label %.lr.ph
+  %.b131421 = load i1, ptr @stop_threadpool, align 1
+  br i1 %.b131421, label %.thread19, label %.lr.ph
 
-.thread:                                          ; preds = %.backedge, %1
+.thread19:                                        ; preds = %select.unfold, %1
   %3 = load i32, ptr @running_threadpool_threads, align 4
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr @running_threadpool_threads, align 4
   br label %88
 
-.lr.ph:                                           ; preds = %1, %.backedge
+.lr.ph:                                           ; preds = %1, %select.unfold
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @threadpool_tasks, i64 128), align 8
   %.not15 = icmp eq ptr %5, null
   br i1 %.not15, label %6, label %15
@@ -677,31 +677,27 @@ define internal noundef i32 @AsyncIOThreadpoolWorker(ptr readnone captures(none)
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr @idle_threadpool_threads, align 4
   %14 = icmp eq i32 %13, 0
-  %or.cond.not.not = select i1 %11, i1 true, i1 %14
-  br i1 %or.cond.not.not, label %.backedge, label %85
-
-.backedge:                                        ; preds = %6, %SynchronousIO.exit
-  %.b1314 = load i1, ptr @stop_threadpool, align 1
-  br i1 %.b1314, label %.thread, label %.lr.ph
+  %or.cond.not = select i1 %11, i1 true, i1 %14
+  br i1 %or.cond.not, label %select.unfold, label %85
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %.pre21 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre22 = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %._crit_edge, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  store ptr %.pre21, ptr %19, align 8
+  store ptr %.pre22, ptr %19, align 8
   %.pre = load ptr, ptr %16, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %18
   %20 = phi ptr [ %.pre, %18 ], [ null, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %22 = getelementptr inbounds nuw i8, ptr %.pre21, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %.pre22, i64 128
   store ptr %20, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %23 = load ptr, ptr @threadpool_lock, align 8
@@ -810,7 +806,11 @@ SynchronousIO.exit:                               ; preds = %66, %79
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %83) #8
   %84 = load ptr, ptr @threadpool_lock, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %84) #8
-  br label %.backedge
+  br label %select.unfold
+
+select.unfold:                                    ; preds = %6, %SynchronousIO.exit
+  %.b1314 = load i1, ptr @stop_threadpool, align 1
+  br i1 %.b1314, label %.thread19, label %.lr.ph
 
 85:                                               ; preds = %6
   %.b17.pr = load i1, ptr @stop_threadpool, align 1
@@ -819,7 +819,7 @@ SynchronousIO.exit:                               ; preds = %66, %79
   store i32 %87, ptr @running_threadpool_threads, align 4
   br i1 %.b17.pr, label %88, label %90
 
-88:                                               ; preds = %.thread, %85
+88:                                               ; preds = %.thread19, %85
   %89 = load ptr, ptr @threadpool_condition, align 8
   tail call void @SDL_BroadcastCondition_REAL(ptr noundef %89) #8
   br label %90

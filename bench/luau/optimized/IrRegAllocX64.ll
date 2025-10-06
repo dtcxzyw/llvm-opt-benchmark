@@ -64,9 +64,9 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i8 %1, 5
-  br i1 %4, label %.preheader, label %.preheader56
+  br i1 %4, label %.preheader, label %.preheader51
 
-.preheader56:                                     ; preds = %3
+.preheader51:                                     ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %24
 
@@ -74,44 +74,44 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %7 = load i8, ptr %6, align 4, !tbaa !57
   %8 = zext i8 %7 to i64
-  %.not66 = icmp eq i8 %7, 0
-  br i1 %.not66, label %.thread, label %.lr.ph
+  %.not61 = icmp eq i8 %7, 0
+  br i1 %.not61, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   br label %10
 
 10:                                               ; preds = %.lr.ph, %14
-  %.065 = phi i64 [ 0, %.lr.ph ], [ %15, %14 ]
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.065
+  %.060 = phi i64 [ 0, %.lr.ph ], [ %15, %14 ]
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.060
   %12 = load i8, ptr %11, align 1, !tbaa !59, !range !61, !noundef !62
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = add nuw nsw i64 %.065, 1
+  %15 = add nuw nsw i64 %.060, 1
   %exitcond.not = icmp eq i64 %15, %8
   br i1 %exitcond.not, label %.thread, label %10, !llvm.loop !63
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %.065
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %.060
   store i8 0, ptr %17, align 1, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.065
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.060
   store i32 %2, ptr %19, align 4, !tbaa !60
-  %20 = trunc nuw i64 %.065 to i8
+  %20 = trunc nuw i64 %.060 to i8
   %21 = shl i8 %20, 3
   %22 = or disjoint i8 %21, 5
   br label %94
 
 23:                                               ; preds = %24
-  %.038.add = add nuw nsw i64 %.038.idx63, 1
+  %.038.add = add nuw nsw i64 %.038.idx58, 1
   %.not = icmp eq i64 %.038.add, 10
   br i1 %.not, label %.thread, label %24
 
-24:                                               ; preds = %.preheader56, %23
-  %.038.idx63 = phi i64 [ 0, %.preheader56 ], [ %.038.add, %23 ]
-  %.038.ptr = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L14kGprAllocOrderE, i64 %.038.idx63
+24:                                               ; preds = %.preheader51, %23
+  %.038.idx58 = phi i64 [ 0, %.preheader51 ], [ %.038.add, %23 ]
+  %.038.ptr = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L14kGprAllocOrderE, i64 %.038.idx58
   %.sroa.05.0.copyload = load i8, ptr %.038.ptr, align 1, !tbaa !65
   %25 = lshr i8 %.sroa.05.0.copyload, 3
   %26 = zext nneg i8 %25 to i64
@@ -363,8 +363,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX
 define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i8 noundef zeroext %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   %.idx = shl nuw nsw i64 %4, 2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not48 = icmp eq i64 %4, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not46 = icmp eq i64 %4, 0
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -374,8 +374,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7S
   br label %11
 
 11:                                               ; preds = %.lr.ph, %49
-  %.049 = phi ptr [ %3, %.lr.ph ], [ %50, %49 ]
-  %.sroa.0.0.copyload = load i32, ptr %.049, align 4, !tbaa !65
+  %.047 = phi ptr [ %3, %.lr.ph ], [ %50, %49 ]
+  %.sroa.0.0.copyload = load i32, ptr %.047, align 4, !tbaa !65
   %12 = and i32 %.sroa.0.0.copyload, 15
   %.not32 = icmp eq i32 %12, 4
   br i1 %.not32, label %13, label %49
@@ -433,7 +433,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7S
   br label %52
 
 49:                                               ; preds = %11, %33, %29, %25, %21, %13
-  %50 = getelementptr inbounds nuw i8, ptr %.049, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.047, i64 4
   %.not = icmp eq ptr %50, %6
   br i1 %.not, label %._crit_edge, label %11
 
@@ -489,16 +489,16 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX648preserveERNS0_6IrInst
   %37 = load ptr, ptr %36, align 8, !tbaa !88
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %39 = load ptr, ptr %38, align 8, !tbaa !88
-  %.not2728.i.i.i = icmp eq ptr %37, %39
-  br i1 %.not2728.i.i.i, label %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread, label %.lr.ph.i.i.i
+  %.not2526.i.i.i = icmp eq ptr %37, %39
+  br i1 %.not2526.i.i.i, label %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %35
   %40 = load ptr, ptr %19, align 8, !tbaa !89
   br label %41
 
 41:                                               ; preds = %50, %.lr.ph.i.i.i
-  %.sroa.019.029.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %51, %50 ]
-  %42 = load i32, ptr %.sroa.019.029.i.i.i, align 4, !tbaa !60
+  %.sroa.019.027.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %51, %50 ]
+  %42 = load i32, ptr %.sroa.019.027.i.i.i, align 4, !tbaa !60
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %40, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -513,9 +513,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX648preserveERNS0_6IrInst
   br i1 %.not18.i.i.i, label %50, label %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit
 
 50:                                               ; preds = %47, %41
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.019.029.i.i.i, i64 4
-  %.not27.i.i.i = icmp eq ptr %51, %39
-  br i1 %.not27.i.i.i, label %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread, label %41
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i.i.i, i64 4
+  %.not25.i.i.i = icmp eq ptr %51, %39
+  br i1 %.not25.i.i.i, label %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread, label %41
 
 _ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit: ; preds = %47
   %52 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %30, i64 %26
@@ -530,8 +530,8 @@ _ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread: ;
   br i1 %57, label %_ZNKSt6bitsetILm256EE4testEm.exit.us.i, label %_ZNKSt6bitsetILm256EE4testEm.exit.i
 
 _ZNKSt6bitsetILm256EE4testEm.exit.us.i:           ; preds = %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread, %73
-  %.0914.us.i = phi i32 [ %74, %73 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread ]
-  %58 = zext nneg i32 %.0914.us.i to i64
+  %.0915.us.i = phi i32 [ %74, %73 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread ]
+  %58 = zext nneg i32 %.0915.us.i to i64
   %59 = lshr i64 %58, 6
   %60 = getelementptr inbounds nuw i64, ptr %56, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !97
@@ -542,7 +542,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.us.i:           ; preds = %_ZNK4Luau7CodeGen3X
   br i1 %.not.us.i, label %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i, label %73
 
 _ZNKSt6bitsetILm256EE4testEm.exit12.us.i:         ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.us.i
-  %65 = add nuw nsw i32 %.0914.us.i, 1
+  %65 = add nuw nsw i32 %.0915.us.i, 1
   %66 = zext nneg i32 %65 to i64
   %67 = lshr i64 %66, 6
   %68 = getelementptr inbounds nuw i64, ptr %56, i64 %67
@@ -550,14 +550,14 @@ _ZNKSt6bitsetILm256EE4testEm.exit12.us.i:         ; preds = %_ZNKSt6bitsetILm256
   %70 = and i64 %66, 63
   %71 = shl nuw i64 1, %70
   %72 = and i64 %69, %71
-  %.not13.us.i = icmp eq i64 %72, 0
-  br i1 %.not13.us.i, label %_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit, label %73
+  %.not14.us.i = icmp eq i64 %72, 0
+  br i1 %.not14.us.i, label %_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit, label %73
 
 73:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i, %_ZNKSt6bitsetILm256EE4testEm.exit.us.i
-  %.1.us.i = phi i32 [ %.0914.us.i, %_ZNKSt6bitsetILm256EE4testEm.exit.us.i ], [ %65, %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i ]
+  %.1.us.i = phi i32 [ %.0915.us.i, %_ZNKSt6bitsetILm256EE4testEm.exit.us.i ], [ %65, %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i ]
   %74 = add nuw nsw i32 %.1.us.i, 1
-  %75 = icmp ugt i32 %.1.us.i, 253
-  br i1 %75, label %_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit, label %_ZNKSt6bitsetILm256EE4testEm.exit.us.i, !llvm.loop !98
+  %75 = icmp ult i32 %.1.us.i, 254
+  br i1 %75, label %_ZNKSt6bitsetILm256EE4testEm.exit.us.i, label %_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit, !llvm.loop !98
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread, %82
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %82 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread ]
@@ -568,19 +568,19 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %_ZNK4Luau7CodeGen3X
   %80 = shl nuw i64 1, %79
   %81 = and i64 %80, %78
   %.not.i = icmp eq i64 %81, 0
-  br i1 %.not.i, label %.split16.us.loopexit21.split.loop.exit23.i, label %82
+  br i1 %.not.i, label %.thread.loopexit20.split.loop.exit22.i, label %82
 
 82:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 255
-  br i1 %exitcond.i, label %_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit, label %_ZNKSt6bitsetILm256EE4testEm.exit.i, !llvm.loop !98
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 255
+  br i1 %exitcond.not.i, label %_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit, label %_ZNKSt6bitsetILm256EE4testEm.exit.i, !llvm.loop !98
 
-.split16.us.loopexit21.split.loop.exit23.i:       ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i
+.thread.loopexit20.split.loop.exit22.i:           ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i
   %83 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit
 
-_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit: ; preds = %82, %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i, %73, %.split16.us.loopexit21.split.loop.exit23.i
-  %.us-phi.i = phi i32 [ %83, %.split16.us.loopexit21.split.loop.exit23.i ], [ %.0914.us.i, %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i ], [ -1, %73 ], [ -1, %82 ]
+_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE.exit: ; preds = %82, %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i, %73, %.thread.loopexit20.split.loop.exit22.i
+  %.us-phi.i = phi i32 [ %83, %.thread.loopexit20.split.loop.exit22.i ], [ %.0915.us.i, %_ZNKSt6bitsetILm256EE4testEm.exit12.us.i ], [ -1, %73 ], [ -1, %82 ]
   switch i8 %13, label %96 [
     i8 6, label %84
     i8 5, label %88
@@ -1286,16 +1286,16 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRe
   %23 = load ptr, ptr %22, align 8, !tbaa !88
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %25 = load ptr, ptr %24, align 8, !tbaa !88
-  %.not2728.i.i = icmp eq ptr %23, %25
-  br i1 %.not2728.i.i, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit, label %.lr.ph.i.i
+  %.not2526.i.i = icmp eq ptr %23, %25
+  br i1 %.not2526.i.i, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %21
   %26 = load ptr, ptr %4, align 8, !tbaa !89
   br label %27
 
 27:                                               ; preds = %36, %.lr.ph.i.i
-  %.sroa.019.029.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %37, %36 ]
-  %28 = load i32, ptr %.sroa.019.029.i.i, align 4, !tbaa !60
+  %.sroa.019.027.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %37, %36 ]
+  %28 = load i32, ptr %.sroa.019.027.i.i, align 4, !tbaa !60
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %26, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -1310,9 +1310,9 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRe
   br i1 %.not18.i.i, label %36, label %.loopexit.sink.split.i.i
 
 36:                                               ; preds = %33, %27
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.019.029.i.i, i64 4
-  %.not27.i.i = icmp eq ptr %37, %25
-  br i1 %.not27.i.i, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit, label %27
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i.i, i64 4
+  %.not25.i.i = icmp eq ptr %37, %25
+  br i1 %.not25.i.i, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit, label %27
 
 .loopexit.sink.split.i.i:                         ; preds = %33
   %38 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %16, i64 %12
@@ -1327,14 +1327,14 @@ _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit: ; preds = %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -1, 255) i32 @_ZN4Luau7CodeGen3X6413IrRegAllocX6418findSpillStackSlotENS0_11IrValueKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = icmp eq i8 %1, 6
   br i1 %4, label %_ZNKSt6bitsetILm256EE4testEm.exit.us, label %_ZNKSt6bitsetILm256EE4testEm.exit
 
 _ZNKSt6bitsetILm256EE4testEm.exit.us:             ; preds = %2, %20
-  %.0914.us = phi i32 [ %21, %20 ], [ 0, %2 ]
-  %5 = zext nneg i32 %.0914.us to i64
+  %.0915.us = phi i32 [ %21, %20 ], [ 0, %2 ]
+  %5 = zext nneg i32 %.0915.us to i64
   %6 = lshr i64 %5, 6
   %7 = getelementptr inbounds nuw i64, ptr %3, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !97
@@ -1345,7 +1345,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.us:             ; preds = %2, %20
   br i1 %.not.us, label %_ZNKSt6bitsetILm256EE4testEm.exit12.us, label %20
 
 _ZNKSt6bitsetILm256EE4testEm.exit12.us:           ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.us
-  %12 = add nuw nsw i32 %.0914.us, 1
+  %12 = add nuw nsw i32 %.0915.us, 1
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %13, 6
   %15 = getelementptr inbounds nuw i64, ptr %3, i64 %14
@@ -1353,14 +1353,14 @@ _ZNKSt6bitsetILm256EE4testEm.exit12.us:           ; preds = %_ZNKSt6bitsetILm256
   %17 = and i64 %13, 63
   %18 = shl nuw i64 1, %17
   %19 = and i64 %16, %18
-  %.not13.us = icmp eq i64 %19, 0
-  br i1 %.not13.us, label %.split16.us, label %20
+  %.not14.us = icmp eq i64 %19, 0
+  br i1 %.not14.us, label %.thread, label %20
 
 20:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit12.us, %_ZNKSt6bitsetILm256EE4testEm.exit.us
-  %.1.us = phi i32 [ %.0914.us, %_ZNKSt6bitsetILm256EE4testEm.exit.us ], [ %12, %_ZNKSt6bitsetILm256EE4testEm.exit12.us ]
+  %.1.us = phi i32 [ %.0915.us, %_ZNKSt6bitsetILm256EE4testEm.exit.us ], [ %12, %_ZNKSt6bitsetILm256EE4testEm.exit12.us ]
   %21 = add nuw nsw i32 %.1.us, 1
-  %22 = icmp ugt i32 %.1.us, 253
-  br i1 %22, label %.split16.us, label %_ZNKSt6bitsetILm256EE4testEm.exit.us, !llvm.loop !98
+  %22 = icmp ult i32 %.1.us, 254
+  br i1 %22, label %_ZNKSt6bitsetILm256EE4testEm.exit.us, label %.thread, !llvm.loop !98
 
 _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %2, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %2 ]
@@ -1371,19 +1371,19 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %2, %29
   %27 = shl nuw i64 1, %26
   %28 = and i64 %25, %27
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %.split16.us.loopexit21.split.loop.exit23, label %29
+  br i1 %.not, label %.thread.loopexit20.split.loop.exit22, label %29
 
 29:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 255
-  br i1 %exitcond, label %.split16.us, label %_ZNKSt6bitsetILm256EE4testEm.exit, !llvm.loop !98
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 255
+  br i1 %exitcond.not, label %.thread, label %_ZNKSt6bitsetILm256EE4testEm.exit, !llvm.loop !98
 
-.split16.us.loopexit21.split.loop.exit23:         ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit
+.thread.loopexit20.split.loop.exit22:             ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit
   %30 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split16.us
+  br label %.thread
 
-.split16.us:                                      ; preds = %29, %_ZNKSt6bitsetILm256EE4testEm.exit12.us, %20, %.split16.us.loopexit21.split.loop.exit23
-  %.us-phi = phi i32 [ %30, %.split16.us.loopexit21.split.loop.exit23 ], [ -1, %20 ], [ %.0914.us, %_ZNKSt6bitsetILm256EE4testEm.exit12.us ], [ -1, %29 ]
+.thread:                                          ; preds = %29, %_ZNKSt6bitsetILm256EE4testEm.exit12.us, %20, %.thread.loopexit20.split.loop.exit22
+  %.us-phi = phi i32 [ %30, %.thread.loopexit20.split.loop.exit22 ], [ -1, %20 ], [ %.0915.us, %_ZNKSt6bitsetILm256EE4testEm.exit12.us ], [ -1, %29 ]
   ret i32 %.us-phi
 }
 
@@ -1820,14 +1820,14 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shoul
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.09.idx11 = phi i64 [ %.09.add, %.preheader ], [ 0, %2 ]
-  %.09.ptr = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L14kGprAllocOrderE, i64 %.09.idx11
+  %.09.idx12 = phi i64 [ %.09.add, %.preheader ], [ 0, %2 ]
+  %.09.ptr = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L14kGprAllocOrderE, i64 %.09.idx12
   %.sroa.0.0.copyload = load i8, ptr %.09.ptr, align 1, !tbaa !65
   %.unshifted = xor i8 %.sroa.0.0.copyload, %1
   %4 = icmp ult i8 %.unshifted, 8
-  %.09.add = add nuw nsw i64 %.09.idx11, 1
-  %.not.not = icmp eq i64 %.09.add, 10
-  %or.cond = select i1 %4, i1 true, i1 %.not.not
+  %.09.add = add nuw nsw i64 %.09.idx12, 1
+  %.not = icmp eq i64 %.09.add, 10
+  %or.cond = select i1 %4, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %2

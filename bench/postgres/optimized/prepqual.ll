@@ -47,8 +47,8 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
-  %.not126 = icmp eq i64 %16, 0
-  %17 = tail call ptr @makeBoolConst(i1 noundef zeroext %.not126, i1 noundef zeroext false) #4
+  %.not122 = icmp eq i64 %16, 0
+  %17 = tail call ptr @makeBoolConst(i1 noundef zeroext %.not122, i1 noundef zeroext false) #4
   br label %148
 
 18:                                               ; preds = %6
@@ -142,30 +142,30 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %.not108 = icmp eq ptr %72, null
-  br i1 %.not108, label %.critedge, label %.lr.ph137
+  br i1 %.not108, label %.critedge, label %.lr.ph133
 
-.lr.ph137:                                        ; preds = %70
+.lr.ph133:                                        ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %75 = load i32, ptr %73, align 4
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %.lr.ph145, label %.critedge
+  br i1 %76, label %.lr.ph141, label %.critedge
 
-.lr.ph145:                                        ; preds = %.lr.ph137, %.lr.ph145
-  %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph145 ], [ 0, %.lr.ph137 ]
-  %.098136143 = phi ptr [ %81, %.lr.ph145 ], [ null, %.lr.ph137 ]
+.lr.ph141:                                        ; preds = %.lr.ph133, %.lr.ph141
+  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.lr.ph141 ], [ 0, %.lr.ph133 ]
+  %.098132139 = phi ptr [ %81, %.lr.ph141 ], [ null, %.lr.ph133 ]
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv149
+  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv145
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr @negate_clause(ptr noundef %79)
-  %81 = tail call ptr @lappend(ptr noundef %.098136143, ptr noundef %80) #4
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
+  %81 = tail call ptr @lappend(ptr noundef %.098132139, ptr noundef %80) #4
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %82 = load i32, ptr %73, align 4
   %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next150, %83
-  br i1 %84, label %.lr.ph145, label %.critedge
+  %84 = icmp slt i64 %indvars.iv.next146, %83
+  br i1 %84, label %.lr.ph141, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph145, %.lr.ph137, %70
-  %.098.lcssa = phi ptr [ null, %70 ], [ null, %.lr.ph137 ], [ %81, %.lr.ph145 ]
+.critedge:                                        ; preds = %.lr.ph141, %.lr.ph133, %70
+  %.098.lcssa = phi ptr [ null, %70 ], [ null, %.lr.ph133 ], [ %81, %.lr.ph141 ]
   %85 = tail call ptr @make_orclause(ptr noundef %.098.lcssa) #4
   br label %148
 
@@ -174,30 +174,30 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %.not = icmp eq ptr %88, null
-  br i1 %.not, label %.critedge115, label %.lr.ph
+  br i1 %.not, label %.critedge114, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %91 = load i32, ptr %89, align 4
   %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph134, label %.critedge115
+  br i1 %92, label %.lr.ph130, label %.critedge114
 
-.lr.ph134:                                        ; preds = %.lr.ph, %.lr.ph134
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph134 ], [ 0, %.lr.ph ]
-  %.0100127133 = phi ptr [ %97, %.lr.ph134 ], [ null, %.lr.ph ]
+.lr.ph130:                                        ; preds = %.lr.ph, %.lr.ph130
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph130 ], [ 0, %.lr.ph ]
+  %.0100123129 = phi ptr [ %97, %.lr.ph130 ], [ null, %.lr.ph ]
   %93 = load ptr, ptr %90, align 8
   %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8
   %96 = tail call ptr @negate_clause(ptr noundef %95)
-  %97 = tail call ptr @lappend(ptr noundef %.0100127133, ptr noundef %96) #4
+  %97 = tail call ptr @lappend(ptr noundef %.0100123129, ptr noundef %96) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %89, align 4
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %.lr.ph134, label %.critedge115
+  br i1 %100, label %.lr.ph130, label %.critedge114
 
-.critedge115:                                     ; preds = %.lr.ph134, %.lr.ph, %86
-  %.0100.lcssa = phi ptr [ null, %86 ], [ null, %.lr.ph ], [ %97, %.lr.ph134 ]
+.critedge114:                                     ; preds = %.lr.ph130, %.lr.ph, %86
+  %.0100.lcssa = phi ptr [ null, %86 ], [ null, %.lr.ph ], [ %97, %.lr.ph130 ]
   %101 = tail call ptr @make_andclause(ptr noundef %.0100.lcssa) #4
   br label %148
 
@@ -279,8 +279,8 @@ switch.lookup:                                    ; preds = %130
   %147 = tail call ptr @make_notclause(ptr noundef nonnull %0) #4
   br label %148
 
-148:                                              ; preds = %115, %48, %22, %.critedge, %.critedge115, %102, %12, %14, %.thread, %switch.lookup
-  %.1 = phi ptr [ %147, %.thread ], [ %23, %22 ], [ %49, %48 ], [ %116, %115 ], [ %131, %switch.lookup ], [ %13, %12 ], [ %17, %14 ], [ %85, %.critedge ], [ %101, %.critedge115 ], [ %106, %102 ]
+148:                                              ; preds = %115, %48, %22, %.critedge, %.critedge114, %102, %12, %14, %.thread, %switch.lookup
+  %.1 = phi ptr [ %147, %.thread ], [ %23, %22 ], [ %49, %48 ], [ %116, %115 ], [ %131, %switch.lookup ], [ %13, %12 ], [ %17, %14 ], [ %85, %.critedge ], [ %101, %.critedge114 ], [ %106, %102 ]
   ret ptr %.1
 }
 

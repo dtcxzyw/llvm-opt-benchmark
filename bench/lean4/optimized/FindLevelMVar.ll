@@ -1715,20 +1715,20 @@ lean_dec.exit:                                    ; preds = %15, %14, %12, %4
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldrMUnsafe_fold___at_Lean_FindLevelMVar_main___spec__2(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not38 = icmp eq i64 %2, %3
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp eq i64 %2, %3
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = ptrtoint ptr %0 to i64
   %9 = and i64 %8, 1
-  %.not36 = icmp eq i64 %9, 0
-  br i1 %.not36, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not34 = icmp eq i64 %9, 0
+  br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %28
-  %.02240.us = phi i64 [ %10, %28 ], [ %2, %.lr.ph ]
-  %.02439.us = phi ptr [ %26, %28 ], [ %4, %.lr.ph ]
-  %10 = add i64 %.02240.us, -1
+  %.02238.us = phi i64 [ %10, %28 ], [ %2, %.lr.ph ]
+  %.02437.us = phi ptr [ %26, %28 ], [ %4, %.lr.ph ]
+  %10 = add i64 %.02238.us, -1
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = ptrtoint ptr %12 to i64
@@ -1789,7 +1789,7 @@ lean_inc.exit.us:                                 ; preds = %24, %23, %22
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 18
   store i16 3, ptr %32, align 2, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %.02439.us, ptr %33, align 8, !tbaa !10
+  store ptr %.02437.us, ptr %33, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %0, ptr %34, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -1798,9 +1798,9 @@ lean_inc.exit.us:                                 ; preds = %24, %23, %22
   br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
-  %.02240 = phi i64 [ %36, %56 ], [ %2, %.lr.ph ]
-  %.02439 = phi ptr [ %47, %56 ], [ %4, %.lr.ph ]
-  %36 = add i64 %.02240, -1
+  %.02238 = phi i64 [ %36, %56 ], [ %2, %.lr.ph ]
+  %.02437 = phi ptr [ %47, %56 ], [ %4, %.lr.ph ]
+  %36 = add i64 %.02238, -1
   %37 = getelementptr inbounds nuw ptr, ptr %7, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !10
   %39 = ptrtoint ptr %38 to i64
@@ -1838,12 +1838,12 @@ lean_array_uget.exit:                             ; preds = %.lr.ph.split, %43, 
 
 ._crit_edge:                                      ; preds = %6
   %.pre = ptrtoint ptr %0 to i64
-  %.pre45 = and i64 %.pre, 1
-  %49 = icmp eq i64 %.pre45, 0
-  br i1 %49, label %._crit_edge.thread, label %._crit_edge.thread58
+  %.pre43 = and i64 %.pre, 1
+  %49 = icmp eq i64 %.pre43, 0
+  br i1 %49, label %._crit_edge.thread, label %._crit_edge.thread56
 
 ._crit_edge.thread:                               ; preds = %28, %._crit_edge
-  %.024.lcssa57 = phi ptr [ %4, %._crit_edge ], [ %26, %28 ]
+  %.024.lcssa55 = phi ptr [ %4, %._crit_edge ], [ %26, %28 ]
   %50 = load i32, ptr %0, align 4, !tbaa !4
   %51 = icmp sgt i32 %50, 1
   br i1 %51, label %52, label %54, !prof !9
@@ -1851,15 +1851,15 @@ lean_array_uget.exit:                             ; preds = %.lr.ph.split, %43, 
 52:                                               ; preds = %._crit_edge.thread
   %53 = add nsw i32 %50, -1
   store i32 %53, ptr %0, align 4, !tbaa !4
-  br label %._crit_edge.thread58
+  br label %._crit_edge.thread56
 
 54:                                               ; preds = %._crit_edge.thread
   %.not.i = icmp eq i32 %50, 0
-  br i1 %.not.i, label %._crit_edge.thread58, label %55
+  br i1 %.not.i, label %._crit_edge.thread56, label %55
 
 55:                                               ; preds = %54
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
-  br label %._crit_edge.thread58
+  br label %._crit_edge.thread56
 
 56:                                               ; preds = %lean_array_uget.exit
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -1872,36 +1872,36 @@ lean_array_uget.exit:                             ; preds = %.lr.ph.split, %43, 
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 18
   store i16 3, ptr %60, align 2, !tbaa !12
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %.02439, ptr %61, align 8, !tbaa !10
+  store ptr %.02437, ptr %61, align 8, !tbaa !10
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %0, ptr %62, align 8, !tbaa !10
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr %38, ptr %63, align 8, !tbaa !10
   %.not = icmp eq i64 %36, %3
-  br i1 %.not, label %._crit_edge.thread58, label %.lr.ph.split
+  br i1 %.not, label %._crit_edge.thread56, label %.lr.ph.split
 
-._crit_edge.thread58:                             ; preds = %56, %._crit_edge, %52, %54, %55
-  %.024.lcssa56 = phi ptr [ %4, %._crit_edge ], [ %.024.lcssa57, %52 ], [ %.024.lcssa57, %54 ], [ %.024.lcssa57, %55 ], [ %47, %56 ]
-  %64 = tail call ptr @lean_apply_1(ptr noundef %.024.lcssa56, ptr noundef %5) #3
+._crit_edge.thread56:                             ; preds = %56, %._crit_edge, %52, %54, %55
+  %.024.lcssa54 = phi ptr [ %4, %._crit_edge ], [ %.024.lcssa55, %52 ], [ %.024.lcssa55, %54 ], [ %.024.lcssa55, %55 ], [ %47, %56 ]
+  %64 = tail call ptr @lean_apply_1(ptr noundef %.024.lcssa54, ptr noundef %5) #3
   ret ptr %64
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldrMUnsafe_fold___at_Lean_FindLevelMVar_main___spec__3(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not38 = icmp eq i64 %2, %3
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp eq i64 %2, %3
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = ptrtoint ptr %0 to i64
   %9 = and i64 %8, 1
-  %.not36 = icmp eq i64 %9, 0
-  br i1 %.not36, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not34 = icmp eq i64 %9, 0
+  br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %28
-  %.02240.us = phi i64 [ %10, %28 ], [ %2, %.lr.ph ]
-  %.02439.us = phi ptr [ %26, %28 ], [ %4, %.lr.ph ]
-  %10 = add i64 %.02240.us, -1
+  %.02238.us = phi i64 [ %10, %28 ], [ %2, %.lr.ph ]
+  %.02437.us = phi ptr [ %26, %28 ], [ %4, %.lr.ph ]
+  %10 = add i64 %.02238.us, -1
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = ptrtoint ptr %12 to i64
@@ -1962,7 +1962,7 @@ lean_inc.exit.us:                                 ; preds = %24, %23, %22
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 18
   store i16 3, ptr %32, align 2, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %.02439.us, ptr %33, align 8, !tbaa !10
+  store ptr %.02437.us, ptr %33, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %0, ptr %34, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -1971,9 +1971,9 @@ lean_inc.exit.us:                                 ; preds = %24, %23, %22
   br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
-  %.02240 = phi i64 [ %36, %56 ], [ %2, %.lr.ph ]
-  %.02439 = phi ptr [ %47, %56 ], [ %4, %.lr.ph ]
-  %36 = add i64 %.02240, -1
+  %.02238 = phi i64 [ %36, %56 ], [ %2, %.lr.ph ]
+  %.02437 = phi ptr [ %47, %56 ], [ %4, %.lr.ph ]
+  %36 = add i64 %.02238, -1
   %37 = getelementptr inbounds nuw ptr, ptr %7, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !10
   %39 = ptrtoint ptr %38 to i64
@@ -2011,12 +2011,12 @@ lean_array_uget.exit:                             ; preds = %.lr.ph.split, %43, 
 
 ._crit_edge:                                      ; preds = %6
   %.pre = ptrtoint ptr %0 to i64
-  %.pre45 = and i64 %.pre, 1
-  %49 = icmp eq i64 %.pre45, 0
-  br i1 %49, label %._crit_edge.thread, label %._crit_edge.thread58
+  %.pre43 = and i64 %.pre, 1
+  %49 = icmp eq i64 %.pre43, 0
+  br i1 %49, label %._crit_edge.thread, label %._crit_edge.thread56
 
 ._crit_edge.thread:                               ; preds = %28, %._crit_edge
-  %.024.lcssa57 = phi ptr [ %4, %._crit_edge ], [ %26, %28 ]
+  %.024.lcssa55 = phi ptr [ %4, %._crit_edge ], [ %26, %28 ]
   %50 = load i32, ptr %0, align 4, !tbaa !4
   %51 = icmp sgt i32 %50, 1
   br i1 %51, label %52, label %54, !prof !9
@@ -2024,15 +2024,15 @@ lean_array_uget.exit:                             ; preds = %.lr.ph.split, %43, 
 52:                                               ; preds = %._crit_edge.thread
   %53 = add nsw i32 %50, -1
   store i32 %53, ptr %0, align 4, !tbaa !4
-  br label %._crit_edge.thread58
+  br label %._crit_edge.thread56
 
 54:                                               ; preds = %._crit_edge.thread
   %.not.i = icmp eq i32 %50, 0
-  br i1 %.not.i, label %._crit_edge.thread58, label %55
+  br i1 %.not.i, label %._crit_edge.thread56, label %55
 
 55:                                               ; preds = %54
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
-  br label %._crit_edge.thread58
+  br label %._crit_edge.thread56
 
 56:                                               ; preds = %lean_array_uget.exit
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -2045,17 +2045,17 @@ lean_array_uget.exit:                             ; preds = %.lr.ph.split, %43, 
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 18
   store i16 3, ptr %60, align 2, !tbaa !12
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %.02439, ptr %61, align 8, !tbaa !10
+  store ptr %.02437, ptr %61, align 8, !tbaa !10
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %0, ptr %62, align 8, !tbaa !10
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr %38, ptr %63, align 8, !tbaa !10
   %.not = icmp eq i64 %36, %3
-  br i1 %.not, label %._crit_edge.thread58, label %.lr.ph.split
+  br i1 %.not, label %._crit_edge.thread56, label %.lr.ph.split
 
-._crit_edge.thread58:                             ; preds = %56, %._crit_edge, %52, %54, %55
-  %.024.lcssa56 = phi ptr [ %4, %._crit_edge ], [ %.024.lcssa57, %52 ], [ %.024.lcssa57, %54 ], [ %.024.lcssa57, %55 ], [ %47, %56 ]
-  %64 = tail call ptr @lean_apply_1(ptr noundef %.024.lcssa56, ptr noundef %5) #3
+._crit_edge.thread56:                             ; preds = %56, %._crit_edge, %52, %54, %55
+  %.024.lcssa54 = phi ptr [ %4, %._crit_edge ], [ %.024.lcssa55, %52 ], [ %.024.lcssa55, %54 ], [ %.024.lcssa55, %55 ], [ %47, %56 ]
+  %64 = tail call ptr @lean_apply_1(ptr noundef %.024.lcssa54, ptr noundef %5) #3
   ret ptr %64
 }
 

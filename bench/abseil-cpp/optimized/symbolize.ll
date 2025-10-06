@@ -1548,8 +1548,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %161 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %162 = load i16, ptr %161, align 8, !tbaa !58
   %163 = zext i16 %162 to i32
-  %.not184.i.i.i = icmp eq i16 %162, 0
-  br i1 %.not184.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
+  %.not183.i.i.i = icmp eq i16 %162, 0
+  br i1 %.not183.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i
   %164 = getelementptr inbounds nuw i8, ptr %72, i64 72
@@ -1562,18 +1562,18 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %171
 
 171:                                              ; preds = %205, %.lr.ph.i.i.i
-  %.044183.i.i.i = phi i64 [ %165, %.lr.ph.i.i.i ], [ %194, %205 ]
-  %.046182.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.248.ph.i.i.i, %205 ]
-  %.050181.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %206, %205 ]
-  %.sroa.17.0180.i.i.i = phi i64 [ %.sroa.17.4.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.17.10.i.i.i, %205 ]
-  %.sroa.30.0179.i.i.i = phi i64 [ %.sroa.30.4.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.30.10.i.i.i, %205 ]
+  %.044182.i.i.i = phi i64 [ %165, %.lr.ph.i.i.i ], [ %194, %205 ]
+  %.046181.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.248.ph.i.i.i, %205 ]
+  %.050180.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %206, %205 ]
+  %.sroa.17.0179.i.i.i = phi i64 [ %.sroa.17.4.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.17.10.i.i.i, %205 ]
+  %.sroa.30.0178.i.i.i = phi i64 [ %.sroa.30.4.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.30.10.i.i.i, %205 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %.lr.ph.split.us.preheader.i.i57.i.i.i
 
 .lr.ph.split.us.preheader.i.i57.i.i.i:            ; preds = %.outer.i.i67.i.i.i, %171
-  %.sroa.30.6.i.i.i = phi i64 [ %.sroa.30.0179.i.i.i, %171 ], [ %.sroa.30.9.i.i.i, %.outer.i.i67.i.i.i ]
-  %.sroa.17.6.i.i.i = phi i64 [ %.sroa.17.0180.i.i.i, %171 ], [ %.sroa.17.9.i.i.i, %.outer.i.i67.i.i.i ]
-  %.028.ph72.i.i58.i.i.i = phi i64 [ %.044183.i.i.i, %171 ], [ %190, %.outer.i.i67.i.i.i ]
+  %.sroa.30.6.i.i.i = phi i64 [ %.sroa.30.0178.i.i.i, %171 ], [ %.sroa.30.9.i.i.i, %.outer.i.i67.i.i.i ]
+  %.sroa.17.6.i.i.i = phi i64 [ %.sroa.17.0179.i.i.i, %171 ], [ %.sroa.17.9.i.i.i, %.outer.i.i67.i.i.i ]
+  %.028.ph72.i.i58.i.i.i = phi i64 [ %.044182.i.i.i, %171 ], [ %190, %.outer.i.i67.i.i.i ]
   %.029.ph71.i.i59.i.i.i = phi ptr [ %11, %171 ], [ %188, %.outer.i.i67.i.i.i ]
   %.030.ph70.i.i60.i.i.i = phi i64 [ 0, %171 ], [ %189, %.outer.i.i67.i.i.i ]
   %.not.us.i16.i61.i.i.i = icmp sge i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.6.i.i.i
@@ -1638,7 +1638,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %192, label %193, label %.loopexit.i.i.i
 
 193:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i
-  %194 = add nsw i64 %.044183.i.i.i, %168
+  %194 = add nsw i64 %.044182.i.i.i, %168
   %195 = load i32, ptr %11, align 8, !tbaa !61
   %.not54.i.i.i = icmp eq i32 %195, 1
   br i1 %.not54.i.i.i, label %196, label %205
@@ -1650,31 +1650,31 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %.not55.i.i.i, label %199, label %205
 
 199:                                              ; preds = %196
-  %200 = icmp ult i64 %.046182.i.i.i, 4
+  %200 = icmp ult i64 %.046181.i.i.i, 4
   br i1 %200, label %201, label %.thread156.i.i.i
 
 201:                                              ; preds = %199
-  %202 = add nuw nsw i64 %.046182.i.i.i, 1
-  %203 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %170, i64 %.046182.i.i.i
+  %202 = add nuw nsw i64 %.046181.i.i.i, 1
+  %203 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %170, i64 %.046181.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %203, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
   br label %205
 
 .thread156.i.i.i:                                 ; preds = %199
   %204 = load ptr, ptr %72, align 8, !tbaa !54
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1475, ptr noundef nonnull @.str.26, ptr noundef %204, i64 noundef %.046182.i.i.i, i64 noundef 4)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1475, ptr noundef nonnull @.str.26, ptr noundef %204, i64 noundef %.046181.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %210
 
 205:                                              ; preds = %201, %196, %193
-  %.248.ph.i.i.i = phi i64 [ %.046182.i.i.i, %193 ], [ %.046182.i.i.i, %196 ], [ %202, %201 ]
+  %.248.ph.i.i.i = phi i64 [ %.046181.i.i.i, %193 ], [ %.046181.i.i.i, %196 ], [ %202, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %206 = add nuw nsw i32 %.050181.i.i.i, 1
+  %206 = add nuw nsw i32 %.050180.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %206, %163
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %171, !llvm.loop !64
 
 .loopexit.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i
   %207 = load ptr, ptr %72, align 8, !tbaa !54
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1449, ptr noundef nonnull @.str.25, ptr noundef %207, i32 noundef %.050181.i.i.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1449, ptr noundef nonnull @.str.25, ptr noundef %207, i32 noundef %.050180.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread158.i.i.i
 
@@ -2374,104 +2374,104 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
   br label %7
 
 7:                                                ; preds = %2, %.loopexit
-  %.not51 = phi i1 [ true, %2 ], [ false, %.loopexit ]
-  %8 = load i8, ptr %3, align 8, !tbaa !43, !range !102, !noundef !103
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %.loopexit45
+  %8 = phi i1 [ true, %2 ], [ false, %.loopexit ]
+  %9 = load i8, ptr %3, align 8, !tbaa !43, !range !102, !noundef !103
+  %10 = trunc nuw i8 %9 to i1
+  br i1 %10, label %11, label %.thread45
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr %4, align 1, !tbaa !48, !range !102, !noundef !103
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %16, label %13
+11:                                               ; preds = %7
+  %12 = load i8, ptr %4, align 1, !tbaa !48, !range !102, !noundef !103
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %17, label %14
 
-13:                                               ; preds = %10
+14:                                               ; preds = %11
   store i8 1, ptr %4, align 1, !tbaa !48
-  %14 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m(ptr noundef %0, ptr noundef %5)
-  br i1 %14, label %16, label %15
+  %15 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m(ptr noundef %0, ptr noundef %5)
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   store i8 0, ptr %3, align 8, !tbaa !43
-  br label %.loopexit45
+  br label %.thread45
 
-16:                                               ; preds = %13, %10
+17:                                               ; preds = %14, %11
   %.val = load i64, ptr %0, align 16, !tbaa !99
-  %.not50 = icmp eq i64 %.val, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  %.not52 = icmp eq i64 %.val, 0
+  br i1 %.not52, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16
+.lr.ph:                                           ; preds = %17
   %.val40 = load ptr, ptr %6, align 16, !tbaa !100
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %17
-  %.02648 = phi i64 [ %.val, %.lr.ph ], [ %.127, %17 ]
-  %.02847 = phi i64 [ 0, %.lr.ph ], [ %.129, %17 ]
-  %18 = add i64 %.02648, %.02847
-  %19 = lshr i64 %18, 1
-  %20 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val40, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !104
-  %23 = icmp ult ptr %1, %22
-  %24 = add nuw i64 %19, 1
-  %.129 = select i1 %23, i64 %.02847, i64 %24
-  %.127 = select i1 %23, i64 %19, i64 %.02648
-  %25 = icmp ult i64 %.129, %.127
-  br i1 %25, label %17, label %._crit_edge, !llvm.loop !105
+18:                                               ; preds = %.lr.ph, %18
+  %.02650 = phi i64 [ %.val, %.lr.ph ], [ %.127, %18 ]
+  %.02849 = phi i64 [ 0, %.lr.ph ], [ %.129, %18 ]
+  %19 = add i64 %.02650, %.02849
+  %20 = lshr i64 %19, 1
+  %21 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val40, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !104
+  %24 = icmp ult ptr %1, %23
+  %25 = add nuw i64 %20, 1
+  %.129 = select i1 %24, i64 %.02849, i64 %25
+  %.127 = select i1 %24, i64 %20, i64 %.02650
+  %26 = icmp ult i64 %.129, %.127
+  br i1 %26, label %18, label %._crit_edge, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %17, %16
-  %.028.lcssa = phi i64 [ 0, %16 ], [ %.129, %17 ]
+._crit_edge:                                      ; preds = %18, %17
+  %.028.lcssa = phi i64 [ 0, %17 ], [ %.129, %18 ]
   %.not = icmp eq i64 %.028.lcssa, %.val
-  br i1 %.not, label %35, label %26
+  br i1 %.not, label %36, label %27
 
-26:                                               ; preds = %._crit_edge
+27:                                               ; preds = %._crit_edge
   %.val41 = load ptr, ptr %6, align 16, !tbaa !100
-  %27 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val41, i64 %.028.lcssa
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !104
-  %30 = icmp ugt ptr %29, %1
-  br i1 %30, label %32, label %31
+  %28 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val41, i64 %.028.lcssa
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !104
+  %31 = icmp ugt ptr %30, %1
+  br i1 %31, label %33, label %32
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   tail call void @abort() #29
   unreachable
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !55
-  %.not35 = icmp ult ptr %1, %34
-  br i1 %.not35, label %35, label %.loopexit45
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !55
+  %.not35 = icmp ult ptr %1, %35
+  br i1 %.not35, label %36, label %.thread45
 
-35:                                               ; preds = %32, %._crit_edge
-  br i1 %.not50, label %.loopexit, label %.lr.ph.i
+36:                                               ; preds = %33, %._crit_edge
+  br i1 %.not52, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %35, %43
-  %.010.i = phi i64 [ %44, %43 ], [ 0, %35 ]
+.lr.ph.i:                                         ; preds = %36, %44
+  %.010.i = phi i64 [ %45, %44 ], [ 0, %36 ]
   %.val7.i = load ptr, ptr %6, align 16, !tbaa !100
-  %36 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i, i64 %.010.i
-  %37 = load ptr, ptr %36, align 8, !tbaa !54
-  tail call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %37)
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !51
-  %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %41, label %43
+  %37 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i, i64 %.010.i
+  %38 = load ptr, ptr %37, align 8, !tbaa !54
+  tail call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %38)
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %40 = load i32, ptr %39, align 8, !tbaa !51
+  %41 = icmp sgt i32 %40, -1
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = tail call i32 @close(i32 noundef %39)
-  br label %43
+42:                                               ; preds = %.lr.ph.i
+  %43 = tail call i32 @close(i32 noundef %40)
+  br label %44
 
-43:                                               ; preds = %41, %.lr.ph.i
-  %44 = add i64 %.010.i, 1
+44:                                               ; preds = %42, %.lr.ph.i
+  %45 = add i64 %.010.i, 1
   %.val.i = load i64, ptr %0, align 16, !tbaa !99
-  %.not.i = icmp eq i64 %44, %.val.i
+  %.not.i = icmp eq i64 %45, %.val.i
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !101
 
-.loopexit:                                        ; preds = %43, %35
+.loopexit:                                        ; preds = %44, %36
   store i64 0, ptr %0, align 16, !tbaa !99
   store i8 0, ptr %4, align 1, !tbaa !48
-  br i1 %.not51, label %7, label %.loopexit45, !llvm.loop !106
+  br i1 %8, label %7, label %.thread45, !llvm.loop !106
 
-.loopexit45:                                      ; preds = %32, %7, %.loopexit, %15
-  %spec.select = phi ptr [ null, %15 ], [ %27, %32 ], [ null, %7 ], [ null, %.loopexit ]
-  ret ptr %spec.select
+.thread45:                                        ; preds = %33, %7, %.loopexit, %16
+  %46 = phi ptr [ null, %16 ], [ null, %7 ], [ %28, %33 ], [ null, %.loopexit ]
+  ret ptr %46
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -2565,8 +2565,8 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.
   %25 = ptrtoint ptr %22 to i64
   %26 = sub i64 %24, %25
   %27 = tail call noundef ptr @memchr(ptr noundef nonnull %22, i32 noundef 10, i64 noundef %26) #26
-  %.not27.i = icmp eq ptr %27, null
-  br i1 %.not27.i, label %28, label %34
+  %.not24.i = icmp eq ptr %27, null
+  br i1 %.not24.i, label %28, label %34
 
 28:                                               ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %22, i64 %26, i1 false)
@@ -2577,15 +2577,15 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.
 
 .noexc57:                                         ; preds = %28
   %32 = icmp slt i64 %31, 1
-  br i1 %32, label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread, label %.thread25.i
+  br i1 %32, label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread, label %.thread23.i
 
-.thread25.i:                                      ; preds = %.noexc57
+.thread23.i:                                      ; preds = %.noexc57
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   br label %34
 
-34:                                               ; preds = %.thread25.i, %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i, %.thread.i
-  %.sroa.14.0 = phi ptr [ %1, %.thread.i ], [ %1, %.thread25.i ], [ %22, %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
-  %.sroa.23.1 = phi ptr [ %20, %.thread.i ], [ %33, %.thread25.i ], [ %.sroa.23.0, %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
+34:                                               ; preds = %.thread23.i, %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i, %.thread.i
+  %.sroa.14.0 = phi ptr [ %1, %.thread.i ], [ %1, %.thread23.i ], [ %22, %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
+  %.sroa.23.1 = phi ptr [ %20, %.thread.i ], [ %33, %.thread23.i ], [ %.sroa.23.0, %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
   %35 = ptrtoint ptr %.sroa.23.1 to i64
   %36 = ptrtoint ptr %.sroa.14.0 to i64
   %37 = sub i64 %35, %36
@@ -2610,9 +2610,9 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %49, %.lr.ph.preheader.i.i
-  %.02536.i.i = phi i64 [ %57, %49 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.02635.i.i = phi ptr [ %58, %49 ], [ %.sroa.14.0, %.lr.ph.preheader.i.i ]
-  %46 = load i8, ptr %.02635.i.i, align 1, !tbaa !9
+  %.02535.i.i = phi i64 [ %57, %49 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.02634.i.i = phi ptr [ %58, %49 ], [ %.sroa.14.0, %.lr.ph.preheader.i.i ]
+  %46 = load i8, ptr %.02634.i.i, align 1, !tbaa !9
   %.fr.i.i = freeze i8 %46
   %47 = sext i8 %.fr.i.i to i32
   %48 = add i8 %.fr.i.i, -48
@@ -2636,7 +2636,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
   ]
 
 49:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
-  %50 = shl i64 %.02536.i.i, 4
+  %50 = shl i64 %.02535.i.i, 4
   %51 = icmp samesign ult i8 %.fr.i.i, 65
   %52 = add nsw i32 %47, -48
   %53 = and i32 %47, 15
@@ -2644,13 +2644,13 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
   %55 = select i1 %51, i32 %52, i32 %54
   %56 = zext nneg i32 %55 to i64
   %57 = or i64 %50, %56
-  %58 = getelementptr inbounds nuw i8, ptr %.02635.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.02634.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %58, %38
   br i1 %exitcond.not.i.i, label %switch.early.test._crit_edge.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !108
 
 switch.early.test._crit_edge.i.loopexit.i:        ; preds = %49, %switch.early.test.i.i
-  %.026.lcssa.i.ph.i = phi ptr [ %.02635.i.i, %switch.early.test.i.i ], [ %scevgep.i.i, %49 ]
-  %.025.lcssa.i.ph.i = phi i64 [ %.02536.i.i, %switch.early.test.i.i ], [ %57, %49 ]
+  %.026.lcssa.i.ph.i = phi ptr [ %.02634.i.i, %switch.early.test.i.i ], [ %scevgep.i.i, %49 ]
+  %.025.lcssa.i.ph.i = phi i64 [ %.02535.i.i, %switch.early.test.i.i ], [ %57, %49 ]
   %59 = inttoptr i64 %.025.lcssa.i.ph.i to ptr
   br label %switch.early.test._crit_edge.i.i
 
@@ -2694,9 +2694,9 @@ _ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit: ; preds = %switch.early.te
   br label %.lr.ph.i.i64
 
 .lr.ph.i.i64:                                     ; preds = %75, %.lr.ph.preheader.i.i62
-  %.02536.i.i65 = phi i64 [ %83, %75 ], [ 0, %.lr.ph.preheader.i.i62 ]
-  %.02635.i.i66 = phi ptr [ %84, %75 ], [ %68, %.lr.ph.preheader.i.i62 ]
-  %72 = load i8, ptr %.02635.i.i66, align 1, !tbaa !9
+  %.02535.i.i65 = phi i64 [ %83, %75 ], [ 0, %.lr.ph.preheader.i.i62 ]
+  %.02634.i.i66 = phi ptr [ %84, %75 ], [ %68, %.lr.ph.preheader.i.i62 ]
+  %72 = load i8, ptr %.02634.i.i66, align 1, !tbaa !9
   %.fr.i.i67 = freeze i8 %72
   %73 = sext i8 %.fr.i.i67 to i32
   %74 = add i8 %.fr.i.i67, -48
@@ -2720,7 +2720,7 @@ switch.early.test.i.i69:                          ; preds = %.lr.ph.i.i64
   ]
 
 75:                                               ; preds = %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %.lr.ph.i.i64
-  %76 = shl i64 %.02536.i.i65, 4
+  %76 = shl i64 %.02535.i.i65, 4
   %77 = icmp samesign ult i8 %.fr.i.i67, 65
   %78 = add nsw i32 %73, -48
   %79 = and i32 %73, 15
@@ -2728,13 +2728,13 @@ switch.early.test.i.i69:                          ; preds = %.lr.ph.i.i64
   %81 = select i1 %77, i32 %78, i32 %80
   %82 = zext nneg i32 %81 to i64
   %83 = or i64 %76, %82
-  %84 = getelementptr inbounds nuw i8, ptr %.02635.i.i66, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.02634.i.i66, i64 1
   %exitcond.not.i.i70 = icmp eq ptr %84, %38
   br i1 %exitcond.not.i.i70, label %switch.early.test._crit_edge.i.loopexit.i71, label %.lr.ph.i.i64, !llvm.loop !108
 
 switch.early.test._crit_edge.i.loopexit.i71:      ; preds = %75, %switch.early.test.i.i69
-  %.026.lcssa.i.ph.i72 = phi ptr [ %.02635.i.i66, %switch.early.test.i.i69 ], [ %scevgep.i.i63, %75 ]
-  %.025.lcssa.i.ph.i73 = phi i64 [ %.02536.i.i65, %switch.early.test.i.i69 ], [ %83, %75 ]
+  %.026.lcssa.i.ph.i72 = phi ptr [ %.02634.i.i66, %switch.early.test.i.i69 ], [ %scevgep.i.i63, %75 ]
+  %.025.lcssa.i.ph.i73 = phi i64 [ %.02535.i.i65, %switch.early.test.i.i69 ], [ %83, %75 ]
   %85 = inttoptr i64 %.025.lcssa.i.ph.i73 to ptr
   br label %switch.early.test._crit_edge.i.i58
 
@@ -2830,9 +2830,9 @@ _ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit: ; preds = %102
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.preheader.i
-  %.02536.i = phi i64 [ %124, %116 ], [ 0, %.lr.ph.preheader.i ]
-  %.02635.i = phi ptr [ %125, %116 ], [ %109, %.lr.ph.preheader.i ]
-  %113 = load i8, ptr %.02635.i, align 1, !tbaa !9
+  %.02535.i = phi i64 [ %124, %116 ], [ 0, %.lr.ph.preheader.i ]
+  %.02634.i = phi ptr [ %125, %116 ], [ %109, %.lr.ph.preheader.i ]
+  %113 = load i8, ptr %.02634.i, align 1, !tbaa !9
   %.fr.i = freeze i8 %113
   %114 = sext i8 %.fr.i to i32
   %115 = add i8 %.fr.i, -48
@@ -2856,7 +2856,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   ]
 
 116:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
-  %117 = shl i64 %.02536.i, 4
+  %117 = shl i64 %.02535.i, 4
   %118 = icmp samesign ult i8 %.fr.i, 65
   %119 = add nsw i32 %114, -48
   %120 = and i32 %114, 15
@@ -2864,13 +2864,13 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = zext nneg i32 %122 to i64
   %124 = or i64 %117, %123
-  %125 = getelementptr inbounds nuw i8, ptr %.02635.i, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %.02634.i, i64 1
   %exitcond.not.i = icmp eq ptr %125, %38
   br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !108
 
 switch.early.test._crit_edge.i:                   ; preds = %116, %switch.early.test.i, %108
-  %.026.lcssa.i = phi ptr [ %109, %108 ], [ %scevgep.i, %116 ], [ %.02635.i, %switch.early.test.i ]
-  %.025.lcssa.i = phi i64 [ 0, %108 ], [ %124, %116 ], [ %.02536.i, %switch.early.test.i ]
+  %.026.lcssa.i = phi ptr [ %109, %108 ], [ %scevgep.i, %116 ], [ %.02634.i, %switch.early.test.i ]
+  %.025.lcssa.i = phi i64 [ 0, %108 ], [ %124, %116 ], [ %.02535.i, %switch.early.test.i ]
   %.026.lcssa.i116 = ptrtoint ptr %.026.lcssa.i to i64
   %.not.i75 = icmp ugt ptr %.026.lcssa.i, %38
   br i1 %.not.i75, label %128, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader

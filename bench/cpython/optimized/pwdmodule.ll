@@ -515,9 +515,9 @@ define internal fastcc ptr @mkpwent(ptr noundef %0, ptr noundef nonnull readonly
 63:                                               ; preds = %61, %59
   %64 = phi ptr [ %60, %59 ], [ %62, %61 ]
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %.thread124
+  br i1 %65, label %66, label %.thread112
 
-.thread124:                                       ; preds = %63
+.thread112:                                       ; preds = %63
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %5, i64 noundef 6, ptr noundef nonnull %64) #4
   br label %67
 
@@ -525,8 +525,8 @@ define internal fastcc ptr @mkpwent(ptr noundef %0, ptr noundef nonnull readonly
   tail call void @_Py_DecRef(ptr noundef nonnull %5) #4
   br label %67
 
-67:                                               ; preds = %.thread124, %66, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %66 ], [ %5, %.thread124 ]
+67:                                               ; preds = %.thread112, %66, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %66 ], [ %5, %.thread112 ]
   ret ptr %.0
 }
 

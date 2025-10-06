@@ -582,8 +582,8 @@ _ZN7logging12_GLOBAL__N_19GetModuleERKN4base16BasicStringPieceINSt7__cxx1112basi
   store i64 %.fca.1.load.i, ptr %30, align 8
   %31 = load ptr, ptr %0, align 8, !tbaa !44
   %32 = load ptr, ptr %8, align 8, !tbaa !44
-  %.not19 = icmp eq ptr %31, %32
-  br i1 %.not19, label %.thread15, label %.lr.ph
+  %.not18 = icmp eq ptr %31, %32
+  br i1 %.not18, label %.thread15, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7logging12_GLOBAL__N_19GetModuleERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -594,15 +594,15 @@ _ZN7logging12_GLOBAL__N_19GetModuleERKN4base16BasicStringPieceINSt7__cxx1112basi
   br label %48
 
 34:                                               ; preds = %.lr.ph, %43
-  %.sroa.09.020 = phi ptr [ %31, %.lr.ph ], [ %44, %43 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 36
+  %.sroa.09.019 = phi ptr [ %31, %.lr.ph ], [ %44, %43 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.09.019, i64 36
   %36 = load i32, ptr %35, align 4, !tbaa !19
   %37 = icmp eq i32 %36, 1
   %38 = select i1 %37, ptr %1, ptr %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %39 = load ptr, ptr %.sroa.09.020, align 8, !tbaa !9
+  %39 = load ptr, ptr %.sroa.09.019, align 8, !tbaa !9
   store ptr %39, ptr %6, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.09.019, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !12
   store i64 %41, ptr %33, align 8, !tbaa !31
   %42 = call noundef zeroext i1 @_ZN7logging16MatchVlogPatternERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -610,12 +610,12 @@ _ZN7logging12_GLOBAL__N_19GetModuleERKN4base16BasicStringPieceINSt7__cxx1112basi
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.09.019, i64 40
   %.not = icmp eq ptr %44, %32
   br i1 %.not, label %.thread15, label %34, !llvm.loop !47
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.09.019, i64 32
   %47 = load i32, ptr %46, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53

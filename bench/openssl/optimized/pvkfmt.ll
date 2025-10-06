@@ -1181,12 +1181,12 @@ define internal fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef readonly 
   ]
 
 .thread.sink.split.i:                             ; preds = %80, %48, %39
-  %.sink22.i = phi i32 [ 869, %39 ], [ 883, %48 ], [ 908, %80 ]
+  %.sink21.i = phi i32 [ 869, %39 ], [ 883, %48 ], [ 908, %80 ]
   %.sink.i = phi i32 [ 104, %39 ], [ 125, %48 ], [ 101, %80 ]
   %.257.ph.ph.i = phi ptr [ null, %39 ], [ %44, %48 ], [ %44, %80 ]
   %.2.ph.ph.i = phi ptr [ null, %39 ], [ null, %48 ], [ %57, %80 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22.i, ptr noundef nonnull @__func__.do_PVK_body_key) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21.i, ptr noundef nonnull @__func__.do_PVK_body_key) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink.i, ptr noundef null) #6
   br label %.thread.i
 

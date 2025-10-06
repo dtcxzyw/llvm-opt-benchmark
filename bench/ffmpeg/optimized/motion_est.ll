@@ -12217,7 +12217,7 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
 
 47:                                               ; preds = %8, %88
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %88 ]
-  %.0573747 = phi i32 [ 0, %8 ], [ %.1574, %88 ]
+  %.0573746 = phi i32 [ 0, %8 ], [ %.1574, %88 ]
   %48 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !58
   %50 = add i32 %49, 2098176
@@ -12228,7 +12228,7 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !58
-  %55 = sext i32 %.0573747 to i64
+  %55 = sext i32 %.0573746 to i64
   %56 = getelementptr inbounds %struct.Minima, ptr %9, i64 %55
   store i32 %54, ptr %56, align 16, !tbaa !199
   %57 = and i32 %50, 2047
@@ -12254,8 +12254,8 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   store i32 0, ptr %69, align 4, !tbaa !203
   %.not656 = icmp eq i32 %62, 0
   %.not657 = icmp eq i32 %63, 0
-  %or.cond731 = select i1 %.not656, i1 %.not657, i1 false
-  br i1 %or.cond731, label %86, label %70
+  %or.cond730 = select i1 %.not656, i1 %.not657, i1 false
+  br i1 %or.cond730, label %86, label %70
 
 70:                                               ; preds = %68
   %71 = shl nsw i32 %62, %38
@@ -12277,11 +12277,11 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   br label %86
 
 86:                                               ; preds = %68, %70
-  %87 = add nsw i32 %.0573747, 1
+  %87 = add nsw i32 %.0573746, 1
   br label %88
 
 88:                                               ; preds = %52, %47, %86
-  %.1574 = phi i32 [ %87, %86 ], [ %.0573747, %47 ], [ %.0573747, %52 ]
+  %.1574 = phi i32 [ %87, %86 ], [ %.0573746, %47 ], [ %.0573746, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = icmp samesign ult i64 %indvars.iv, 63
   %90 = icmp slt i32 %.1574, 64
@@ -12299,39 +12299,39 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   br label %97
 
 97:                                               ; preds = %92, %.thread
-  %.0581766 = phi i32 [ 1, %92 ], [ %.1582744, %.thread ]
-  %98 = add nsw i32 %.0581766, -1
+  %.0581765 = phi i32 [ 1, %92 ], [ %.1582743, %.thread ]
+  %98 = add nsw i32 %.0581765, -1
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds [2 x ptr], ptr %10, i64 %99
   %101 = load ptr, ptr %100, align 16, !tbaa !18
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !18
   %104 = icmp ult ptr %101, %103
-  br i1 %104, label %.lr.ph761.preheader, label %.thread
+  br i1 %104, label %.lr.ph760.preheader, label %.thread
 
-.lr.ph761.preheader:                              ; preds = %97
-  %105 = sext i32 %.0581766 to i64
+.lr.ph760.preheader:                              ; preds = %97
+  %105 = sext i32 %.0581765 to i64
   %106 = add nsw i64 %105, -1
-  br label %.lr.ph761
+  br label %.lr.ph760
 
-.lr.ph761:                                        ; preds = %.lr.ph761.preheader, %161
-  %indvars.iv814 = phi i64 [ %106, %.lr.ph761.preheader ], [ %indvars.iv.next815, %161 ]
-  %.0586758 = phi ptr [ %101, %.lr.ph761.preheader ], [ %.2588, %161 ]
-  %.0589757 = phi ptr [ %103, %.lr.ph761.preheader ], [ %.2591, %161 ]
-  %107 = getelementptr inbounds i8, ptr %.0589757, i64 -16
-  %108 = icmp ult ptr %.0586758, %107
+.lr.ph760:                                        ; preds = %.lr.ph760.preheader, %161
+  %indvars.iv813 = phi i64 [ %106, %.lr.ph760.preheader ], [ %indvars.iv.next814, %161 ]
+  %.0586757 = phi ptr [ %101, %.lr.ph760.preheader ], [ %.2588, %161 ]
+  %.0589756 = phi ptr [ %103, %.lr.ph760.preheader ], [ %.2591, %161 ]
+  %107 = getelementptr inbounds i8, ptr %.0589756, i64 -16
+  %108 = icmp ult ptr %.0586757, %107
   br i1 %108, label %109, label %163
 
-109:                                              ; preds = %.lr.ph761
-  %110 = getelementptr inbounds i8, ptr %.0589757, i64 -32
-  %111 = getelementptr inbounds nuw i8, ptr %.0586758, i64 16
-  %112 = ptrtoint ptr %.0589757 to i64
-  %113 = ptrtoint ptr %.0586758 to i64
+109:                                              ; preds = %.lr.ph760
+  %110 = getelementptr inbounds i8, ptr %.0589756, i64 -32
+  %111 = getelementptr inbounds nuw i8, ptr %.0586757, i64 16
+  %112 = ptrtoint ptr %.0589756 to i64
+  %113 = ptrtoint ptr %.0586757 to i64
   %114 = sub i64 %112, %113
   %115 = ashr i64 %114, 5
-  %116 = getelementptr inbounds %struct.Minima, ptr %.0586758, i64 %115
-  %.0586.val = load i32, ptr %.0586758, align 4, !tbaa !199
-  %.0589.val = load i32, ptr %.0589757, align 4, !tbaa !199
+  %116 = getelementptr inbounds %struct.Minima, ptr %.0586757, i64 %115
+  %.0586.val = load i32, ptr %.0586757, align 4, !tbaa !199
+  %.0589.val = load i32, ptr %.0589756, align 4, !tbaa !199
   %117 = icmp sgt i32 %.0586.val, %.0589.val
   %.val = load i32, ptr %116, align 4, !tbaa !199
   br i1 %117, label %118, label %122
@@ -12343,16 +12343,16 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
 120:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(16) %.0586758, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586758, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(16) %.0586757, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586757, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %125
 
 121:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %.0589757, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0589757, ptr noundef nonnull align 4 dereferenceable(16) %.0586758, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586758, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %.0589756, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0589756, ptr noundef nonnull align 4 dereferenceable(16) %.0586757, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586757, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %125
 
@@ -12363,29 +12363,29 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
 124:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(16) %.0586758, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586758, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(16) %.0586757, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586757, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %125
 
 125:                                              ; preds = %122, %124, %120, %121
   %.0593 = phi i32 [ 0, %120 ], [ 0, %121 ], [ 0, %124 ], [ 1, %122 ]
   %.val699 = load i32, ptr %116, align 4, !tbaa !199
-  %.0589.val700 = load i32, ptr %.0589757, align 4, !tbaa !199
+  %.0589.val700 = load i32, ptr %.0589756, align 4, !tbaa !199
   %126 = icmp sgt i32 %.val699, %.0589.val700
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %.0589757, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0589757, ptr noundef nonnull align 4 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %.0589756, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0589756, ptr noundef nonnull align 4 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %128
 
 128:                                              ; preds = %127, %125
   %.1594 = phi i32 [ 0, %127 ], [ %.0593, %125 ]
-  %129 = icmp eq ptr %.0586758, %110
+  %129 = icmp eq ptr %.0586757, %110
   br i1 %129, label %.thread.loopexit, label %130
 
 130:                                              ; preds = %128
@@ -12394,57 +12394,57 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %107, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not651752 = icmp ugt ptr %111, %110
-  br i1 %.not651752, label %._crit_edge, label %.preheader737
+  %.not651751 = icmp ugt ptr %111, %110
+  br i1 %.not651751, label %._crit_edge, label %.preheader736
 
-.preheader737:                                    ; preds = %130, %.critedge660
-  %.0595754 = phi ptr [ %.2597, %.critedge660 ], [ %110, %130 ]
-  %.0599753 = phi ptr [ %.2601, %.critedge660 ], [ %111, %130 ]
+.preheader736:                                    ; preds = %130, %.critedge660
+  %.0595753 = phi ptr [ %.2597, %.critedge660 ], [ %110, %130 ]
+  %.0599752 = phi ptr [ %.2601, %.critedge660 ], [ %111, %130 ]
   %.val701 = load i32, ptr %107, align 4, !tbaa !199
   br label %131
 
-131:                                              ; preds = %.preheader737, %133
-  %.1600749 = phi ptr [ %.0599753, %.preheader737 ], [ %134, %133 ]
-  %.1600.val = load i32, ptr %.1600749, align 4, !tbaa !199
+131:                                              ; preds = %.preheader736, %133
+  %.1600748 = phi ptr [ %.0599752, %.preheader736 ], [ %134, %133 ]
+  %.1600.val = load i32, ptr %.1600748, align 4, !tbaa !199
   %132 = icmp slt i32 %.1600.val, %.val701
   br i1 %132, label %133, label %.critedge
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds nuw i8, ptr %.1600749, i64 16
-  %.not653 = icmp ugt ptr %134, %.0595754
+  %134 = getelementptr inbounds nuw i8, ptr %.1600748, i64 16
+  %.not653 = icmp ugt ptr %134, %.0595753
   br i1 %.not653, label %.critedge, label %131, !llvm.loop !206
 
 .critedge:                                        ; preds = %133, %131
-  %.1600.lcssa = phi ptr [ %134, %133 ], [ %.1600749, %131 ]
-  %.not654750 = icmp ugt ptr %.1600.lcssa, %.0595754
-  br i1 %.not654750, label %.critedge660, label %.lr.ph
+  %.1600.lcssa = phi ptr [ %134, %133 ], [ %.1600748, %131 ]
+  %.not654749 = icmp ugt ptr %.1600.lcssa, %.0595753
+  br i1 %.not654749, label %.critedge660, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %136
-  %.1596751 = phi ptr [ %137, %136 ], [ %.0595754, %.critedge ]
-  %.1596.val = load i32, ptr %.1596751, align 4, !tbaa !199
+  %.1596750 = phi ptr [ %137, %136 ], [ %.0595753, %.critedge ]
+  %.1596.val = load i32, ptr %.1596750, align 4, !tbaa !199
   %135 = icmp sgt i32 %.1596.val, %.val701
   br i1 %135, label %136, label %.critedge5
 
 136:                                              ; preds = %.lr.ph
-  %137 = getelementptr inbounds i8, ptr %.1596751, i64 -16
+  %137 = getelementptr inbounds i8, ptr %.1596750, i64 -16
   %.not654 = icmp ugt ptr %.1600.lcssa, %137
   br i1 %.not654, label %.critedge660, label %.lr.ph, !llvm.loop !207
 
 .critedge5:                                       ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %.1596751, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.1596751, ptr noundef nonnull align 4 dereferenceable(16) %.1600.lcssa, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %.1596750, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.1596750, ptr noundef nonnull align 4 dereferenceable(16) %.1600.lcssa, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.1600.lcssa, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %138 = getelementptr inbounds nuw i8, ptr %.1600.lcssa, i64 16
-  %139 = getelementptr inbounds i8, ptr %.1596751, i64 -16
+  %139 = getelementptr inbounds i8, ptr %.1596750, i64 -16
   br label %.critedge660
 
 .critedge660:                                     ; preds = %136, %.critedge, %.critedge5
   %.2601 = phi ptr [ %138, %.critedge5 ], [ %.1600.lcssa, %.critedge ], [ %.1600.lcssa, %136 ]
-  %.2597 = phi ptr [ %139, %.critedge5 ], [ %.0595754, %.critedge ], [ %137, %136 ]
+  %.2597 = phi ptr [ %139, %.critedge5 ], [ %.0595753, %.critedge ], [ %137, %136 ]
   %.not651 = icmp ugt ptr %.2601, %.2597
-  br i1 %.not651, label %._crit_edge, label %.preheader737, !llvm.loop !208
+  br i1 %.not651, label %._crit_edge, label %.preheader736, !llvm.loop !208
 
 ._crit_edge:                                      ; preds = %.critedge660, %130
   %.0599.lcssa = phi ptr [ %111, %130 ], [ %.2601, %.critedge660 ]
@@ -12462,22 +12462,22 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   %142 = icmp eq ptr %116, %141
   %143 = icmp eq ptr %116, %.0599.lcssa
   %or.cond661 = or i1 %143, %142
-  br i1 %or.cond661, label %.preheader738, label %148
+  br i1 %or.cond661, label %.preheader737, label %148
 
-.preheader738:                                    ; preds = %140, %145
-  %.0602 = phi ptr [ %146, %145 ], [ %.0586758, %140 ]
-  %144 = icmp ult ptr %.0602, %.0589757
+.preheader737:                                    ; preds = %140, %145
+  %.0602 = phi ptr [ %146, %145 ], [ %.0586757, %140 ]
+  %144 = icmp ult ptr %.0602, %.0589756
   br i1 %144, label %145, label %.critedge7
 
-145:                                              ; preds = %.preheader738
+145:                                              ; preds = %.preheader737
   %146 = getelementptr inbounds nuw i8, ptr %.0602, i64 16
   %.0602.val = load i32, ptr %.0602, align 4, !tbaa !199
   %.val703 = load i32, ptr %146, align 4, !tbaa !199
-  %.not732 = icmp sgt i32 %.0602.val, %.val703
-  br i1 %.not732, label %.critedge7, label %.preheader738, !llvm.loop !209
+  %.not731 = icmp sgt i32 %.0602.val, %.val703
+  br i1 %.not731, label %.critedge7, label %.preheader737, !llvm.loop !209
 
-.critedge7:                                       ; preds = %.preheader738, %145
-  %147 = icmp eq ptr %.0602, %.0589757
+.critedge7:                                       ; preds = %.preheader737, %145
+  %147 = icmp eq ptr %.0602, %.0589756
   br i1 %147, label %.thread.loopexit, label %148
 
 148:                                              ; preds = %140, %.critedge7, %._crit_edge
@@ -12488,8 +12488,8 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   br i1 %152, label %153, label %157
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds [2 x ptr], ptr %10, i64 %indvars.iv814
-  store ptr %.0586758, ptr %154, align 16, !tbaa !18
+  %154 = getelementptr inbounds [2 x ptr], ptr %10, i64 %indvars.iv813
+  store ptr %.0586757, ptr %154, align 16, !tbaa !18
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %.0595.lcssa, ptr %155, align 8, !tbaa !18
   %156 = getelementptr inbounds nuw i8, ptr %.0599.lcssa, i64 16
@@ -12497,67 +12497,67 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
 
 157:                                              ; preds = %148
   %158 = getelementptr inbounds nuw i8, ptr %.0599.lcssa, i64 16
-  %159 = getelementptr inbounds [2 x ptr], ptr %10, i64 %indvars.iv814
+  %159 = getelementptr inbounds [2 x ptr], ptr %10, i64 %indvars.iv813
   store ptr %158, ptr %159, align 16, !tbaa !18
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store ptr %.0589757, ptr %160, align 8, !tbaa !18
+  store ptr %.0589756, ptr %160, align 8, !tbaa !18
   br label %161
 
 161:                                              ; preds = %153, %157
-  %.2591 = phi ptr [ %.0589757, %153 ], [ %.0595.lcssa, %157 ]
-  %.2588 = phi ptr [ %156, %153 ], [ %.0586758, %157 ]
-  %indvars.iv.next815 = add nsw i64 %indvars.iv814, 1
+  %.2591 = phi ptr [ %.0589756, %153 ], [ %.0595.lcssa, %157 ]
+  %.2588 = phi ptr [ %156, %153 ], [ %.0586757, %157 ]
+  %indvars.iv.next814 = add nsw i64 %indvars.iv813, 1
   %162 = icmp ult ptr %.2588, %.2591
-  br i1 %162, label %.lr.ph761, label %.thread.loopexit
+  br i1 %162, label %.lr.ph760, label %.thread.loopexit
 
-163:                                              ; preds = %.lr.ph761
-  %164 = trunc nsw i64 %indvars.iv814 to i32
-  %.0586.val704 = load i32, ptr %.0586758, align 4, !tbaa !199
-  %.0589.val705 = load i32, ptr %.0589757, align 4, !tbaa !199
+163:                                              ; preds = %.lr.ph760
+  %164 = trunc nsw i64 %indvars.iv813 to i32
+  %.0586.val704 = load i32, ptr %.0586757, align 4, !tbaa !199
+  %.0589.val705 = load i32, ptr %.0589756, align 4, !tbaa !199
   %165 = icmp sgt i32 %.0586.val704, %.0589.val705
   br i1 %165, label %166, label %.thread
 
 166:                                              ; preds = %163
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %.0589757, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0589757, ptr noundef nonnull align 4 dereferenceable(16) %.0586758, i64 16, i1 false), !tbaa.struct !205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586758, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %.0589756, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0589756, ptr noundef nonnull align 4 dereferenceable(16) %.0586757, i64 16, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0586757, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %.critedge7, %128, %161
-  %.1582744.ph.in = phi i64 [ %indvars.iv814, %.critedge7 ], [ %indvars.iv814, %128 ], [ %indvars.iv.next815, %161 ]
-  %.1582744.ph = trunc i64 %.1582744.ph.in to i32
+  %.1582743.ph.in = phi i64 [ %indvars.iv813, %.critedge7 ], [ %indvars.iv813, %128 ], [ %indvars.iv.next814, %161 ]
+  %.1582743.ph = trunc i64 %.1582743.ph.in to i32
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %97, %163, %166
-  %.1582744 = phi i32 [ %164, %163 ], [ %164, %166 ], [ %98, %97 ], [ %.1582744.ph, %.thread.loopexit ]
-  %.not = icmp eq i32 %.1582744, 0
+  %.1582743 = phi i32 [ %164, %163 ], [ %164, %166 ], [ %98, %97 ], [ %.1582743.ph, %.thread.loopexit ]
+  %.not = icmp eq i32 %.1582743, 0
   br i1 %.not, label %167, label %97, !llvm.loop !210
 
 167:                                              ; preds = %.thread
   %168 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %169 = icmp slt i32 %.1574, %168
-  br i1 %169, label %.lr.ph769.preheader, label %.preheader736
+  br i1 %169, label %.lr.ph768.preheader, label %.preheader735
 
-.lr.ph769.preheader:                              ; preds = %167
+.lr.ph768.preheader:                              ; preds = %167
   %wide.trip.count = zext nneg i32 %168 to i64
-  br label %.lr.ph769
+  br label %.lr.ph768
 
-.preheader736:                                    ; preds = %.lr.ph769, %167
-  %.not780 = icmp eq i32 %20, 0
-  br i1 %.not780, label %._crit_edge772, label %.lr.ph771
+.preheader735:                                    ; preds = %.lr.ph768, %167
+  %.not779 = icmp eq i32 %20, 0
+  br i1 %.not779, label %._crit_edge771, label %.lr.ph770
 
-.lr.ph771:                                        ; preds = %.preheader736
+.lr.ph770:                                        ; preds = %.preheader735
   %170 = zext nneg i32 %168 to i64
   %171 = getelementptr %struct.Minima, ptr %9, i64 %170
   %172 = getelementptr i8, ptr %171, i64 -16
   br label %177
 
-.lr.ph769:                                        ; preds = %.lr.ph769.preheader, %.lr.ph769
-  %indvars.iv818 = phi i64 [ %93, %.lr.ph769.preheader ], [ %indvars.iv.next819, %.lr.ph769 ]
-  %173 = getelementptr inbounds %struct.Minima, ptr %9, i64 %indvars.iv818
+.lr.ph768:                                        ; preds = %.lr.ph768.preheader, %.lr.ph768
+  %indvars.iv817 = phi i64 [ %93, %.lr.ph768.preheader ], [ %indvars.iv.next818, %.lr.ph768 ]
+  %173 = getelementptr inbounds %struct.Minima, ptr %9, i64 %indvars.iv817
   store i32 1073741824, ptr %173, align 16, !tbaa !199
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 12
   store i32 0, ptr %174, align 4, !tbaa !203
@@ -12565,13 +12565,13 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   store i32 0, ptr %175, align 8, !tbaa !202
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 4
   store i32 0, ptr %176, align 4, !tbaa !201
-  %indvars.iv.next819 = add nsw i64 %indvars.iv818, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next819, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader736, label %.lr.ph769, !llvm.loop !211
+  %indvars.iv.next818 = add nsw i64 %indvars.iv817, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next818, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader735, label %.lr.ph768, !llvm.loop !211
 
-177:                                              ; preds = %.lr.ph771, %353
-  %.1569770 = phi i32 [ 0, %.lr.ph771 ], [ %354, %353 ]
-  %178 = sext i32 %.1569770 to i64
+177:                                              ; preds = %.lr.ph770, %353
+  %.1569769 = phi i32 [ 0, %.lr.ph770 ], [ %354, %353 ]
+  %178 = sext i32 %.1569769 to i64
   %179 = getelementptr inbounds %struct.Minima, ptr %9, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %181 = load i32, ptr %180, align 4, !tbaa !201
@@ -12628,18 +12628,18 @@ cmp.exit695:                                      ; preds = %187
   %214 = add nsw i32 %213, %198
   %215 = load i32, ptr %172, align 16, !tbaa !199
   %216 = icmp slt i32 %214, %215
-  br i1 %216, label %.preheader735, label %229
+  br i1 %216, label %.preheader734, label %229
 
-.preheader735:                                    ; preds = %cmp.exit695, %.preheader735
-  %indvars.iv822 = phi i64 [ %indvars.iv.next823, %.preheader735 ], [ 0, %cmp.exit695 ]
-  %217 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv822
+.preheader734:                                    ; preds = %cmp.exit695, %.preheader734
+  %indvars.iv821 = phi i64 [ %indvars.iv.next822, %.preheader734 ], [ 0, %cmp.exit695 ]
+  %217 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv821
   %218 = load i32, ptr %217, align 16, !tbaa !199
   %.not644 = icmp slt i32 %214, %218
-  %indvars.iv.next823 = add nuw nsw i64 %indvars.iv822, 1
-  br i1 %.not644, label %219, label %.preheader735, !llvm.loop !212
+  %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
+  br i1 %.not644, label %219, label %.preheader734, !llvm.loop !212
 
-219:                                              ; preds = %.preheader735
-  %220 = trunc nuw nsw i64 %indvars.iv822 to i32
+219:                                              ; preds = %.preheader734
+  %220 = trunc nuw nsw i64 %indvars.iv821 to i32
   %221 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %222 = xor i32 %220, -1
   %223 = add nsw i32 %168, %222
@@ -12689,18 +12689,18 @@ cmp.exit691:                                      ; preds = %229
   %254 = add nsw i32 %253, %238
   %255 = load i32, ptr %172, align 16, !tbaa !199
   %256 = icmp slt i32 %254, %255
-  br i1 %256, label %.preheader734, label %269
+  br i1 %256, label %.preheader733, label %269
 
-.preheader734:                                    ; preds = %cmp.exit691, %.preheader734
-  %indvars.iv826 = phi i64 [ %indvars.iv.next827, %.preheader734 ], [ 0, %cmp.exit691 ]
-  %257 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv826
+.preheader733:                                    ; preds = %cmp.exit691, %.preheader733
+  %indvars.iv825 = phi i64 [ %indvars.iv.next826, %.preheader733 ], [ 0, %cmp.exit691 ]
+  %257 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv825
   %258 = load i32, ptr %257, align 16, !tbaa !199
   %.not646 = icmp slt i32 %254, %258
-  %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
-  br i1 %.not646, label %259, label %.preheader734, !llvm.loop !213
+  %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
+  br i1 %.not646, label %259, label %.preheader733, !llvm.loop !213
 
-259:                                              ; preds = %.preheader734
-  %260 = trunc nuw nsw i64 %indvars.iv826 to i32
+259:                                              ; preds = %.preheader733
+  %260 = trunc nuw nsw i64 %indvars.iv825 to i32
   %261 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %262 = xor i32 %260, -1
   %263 = add nsw i32 %168, %262
@@ -12752,18 +12752,18 @@ cmp.exit687:                                      ; preds = %269
   %296 = add nsw i32 %295, %280
   %297 = load i32, ptr %172, align 16, !tbaa !199
   %298 = icmp slt i32 %296, %297
-  br i1 %298, label %.preheader733, label %311
+  br i1 %298, label %.preheader732, label %311
 
-.preheader733:                                    ; preds = %cmp.exit687, %.preheader733
-  %indvars.iv830 = phi i64 [ %indvars.iv.next831, %.preheader733 ], [ 0, %cmp.exit687 ]
-  %299 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv830
+.preheader732:                                    ; preds = %cmp.exit687, %.preheader732
+  %indvars.iv829 = phi i64 [ %indvars.iv.next830, %.preheader732 ], [ 0, %cmp.exit687 ]
+  %299 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv829
   %300 = load i32, ptr %299, align 16, !tbaa !199
   %.not648 = icmp slt i32 %296, %300
-  %indvars.iv.next831 = add nuw nsw i64 %indvars.iv830, 1
-  br i1 %.not648, label %301, label %.preheader733, !llvm.loop !214
+  %indvars.iv.next830 = add nuw nsw i64 %indvars.iv829, 1
+  br i1 %.not648, label %301, label %.preheader732, !llvm.loop !214
 
-301:                                              ; preds = %.preheader733
-  %302 = trunc nuw nsw i64 %indvars.iv830 to i32
+301:                                              ; preds = %.preheader732
+  %302 = trunc nuw nsw i64 %indvars.iv829 to i32
   %303 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %304 = xor i32 %302, -1
   %305 = add nsw i32 %168, %304
@@ -12817,15 +12817,15 @@ cmp.exit683:                                      ; preds = %311
   br i1 %339, label %.preheader, label %352
 
 .preheader:                                       ; preds = %cmp.exit683, %.preheader
-  %indvars.iv834 = phi i64 [ %indvars.iv.next835, %.preheader ], [ 0, %cmp.exit683 ]
-  %340 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv834
+  %indvars.iv833 = phi i64 [ %indvars.iv.next834, %.preheader ], [ 0, %cmp.exit683 ]
+  %340 = getelementptr inbounds nuw %struct.Minima, ptr %9, i64 %indvars.iv833
   %341 = load i32, ptr %340, align 16, !tbaa !199
   %.not650 = icmp slt i32 %337, %341
-  %indvars.iv.next835 = add nuw nsw i64 %indvars.iv834, 1
+  %indvars.iv.next834 = add nuw nsw i64 %indvars.iv833, 1
   br i1 %.not650, label %342, label %.preheader, !llvm.loop !215
 
 342:                                              ; preds = %.preheader
-  %343 = trunc nuw nsw i64 %indvars.iv834 to i32
+  %343 = trunc nuw nsw i64 %indvars.iv833 to i32
   %344 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %345 = xor i32 %343, -1
   %346 = add nsw i32 %168, %345
@@ -12846,12 +12846,12 @@ cmp.exit683:                                      ; preds = %311
   br label %353
 
 353:                                              ; preds = %342, %301, %259, %219, %186, %177, %352
-  %.2570 = phi i32 [ %.1569770, %352 ], [ -1, %342 ], [ -1, %301 ], [ -1, %259 ], [ -1, %219 ], [ %.1569770, %177 ], [ %.1569770, %186 ]
+  %.2570 = phi i32 [ %.1569769, %352 ], [ -1, %342 ], [ -1, %301 ], [ -1, %259 ], [ -1, %219 ], [ %.1569769, %177 ], [ %.1569769, %186 ]
   %354 = add nsw i32 %.2570, 1
   %355 = icmp slt i32 %354, %168
-  br i1 %355, label %177, label %._crit_edge772, !llvm.loop !216
+  br i1 %355, label %177, label %._crit_edge771, !llvm.loop !216
 
-._crit_edge772:                                   ; preds = %353, %.preheader736
+._crit_edge771:                                   ; preds = %353, %.preheader735
   %356 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %357 = load i32, ptr %356, align 4, !tbaa !201
   store i32 %357, ptr %1, align 4, !tbaa !58
@@ -12869,7 +12869,7 @@ cmp.exit683:                                      ; preds = %311
   %or.cond667 = select i1 %or.cond666, i1 %365, i1 false
   br i1 %or.cond667, label %366, label %504
 
-366:                                              ; preds = %._crit_edge772
+366:                                              ; preds = %._crit_edge771
   %367 = shl i32 %359, 11
   %368 = add nsw i32 %357, -1
   %369 = add i32 %368, %40
@@ -13054,8 +13054,8 @@ cmp.exit:                                         ; preds = %469
   store i32 %492, ptr %360, align 4, !tbaa !58
   br label %504
 
-504:                                              ; preds = %469, %503, %cmp.exit, %._crit_edge772
-  %.0 = phi i32 [ %361, %._crit_edge772 ], [ %501, %503 ], [ %.3, %cmp.exit ], [ %.3, %469 ]
+504:                                              ; preds = %469, %503, %cmp.exit, %._crit_edge771
+  %.0 = phi i32 [ %361, %._crit_edge771 ], [ %501, %503 ], [ %.3, %cmp.exit ], [ %.3, %469 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

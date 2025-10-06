@@ -214,20 +214,20 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden { i64, i64 } @"_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17hb6ca3650398b6db3E"(i64 noundef %0, ptr readonly captures(address_is_null) %1) unnamed_addr #0 {
-  %switch = icmp ult i64 %0, 2
-  br i1 %switch, label %.sink.split, label %5
+  %3 = icmp eq i64 %0, 2
+  br i1 %3, label %6, label %.sink.split
 
 .sink.split:                                      ; preds = %2
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = load i64, ptr %1, align 8, !noundef !4
-  br label %5
+  %4 = icmp ne ptr %1, null
+  tail call void @llvm.assume(i1 %4)
+  %5 = load i64, ptr %1, align 8, !noundef !4
+  br label %6
 
-5:                                                ; preds = %2, %.sink.split
-  %.sroa.4.0 = phi i64 [ undef, %2 ], [ %4, %.sink.split ]
-  %6 = insertvalue { i64, i64 } poison, i64 %0, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %7
+6:                                                ; preds = %2, %.sink.split
+  %.sroa.4.0 = phi i64 [ undef, %2 ], [ %5, %.sink.split ]
+  %7 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

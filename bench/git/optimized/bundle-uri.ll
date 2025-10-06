@@ -978,8 +978,8 @@ for_all_bundles_in_list.exit.thread:              ; preds = %hashmap_get_size.ex
   %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %.sroa.9.0
   store ptr %.0913.i, ptr %19, align 8, !tbaa !49
   %20 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
-  %.not.i92 = icmp eq ptr %20, null
-  br i1 %.not.i92, label %for_all_bundles_in_list.exit, label %.preheader, !llvm.loop !21
+  %.not.i91 = icmp eq ptr %20, null
+  br i1 %.not.i91, label %for_all_bundles_in_list.exit, label %.preheader, !llvm.loop !21
 
 for_all_bundles_in_list.exit:                     ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -991,8 +991,8 @@ for_all_bundles_in_list.exit:                     ; preds = %.preheader
   br label %88
 
 22:                                               ; preds = %for_all_bundles_in_list.exit
-  %.not105 = icmp eq i64 %.sroa.9.0, 0
-  br i1 %.not105, label %sane_qsort.exit, label %23
+  %.not104 = icmp eq i64 %.sroa.9.0, 0
+  br i1 %.not104, label %sane_qsort.exit, label %23
 
 23:                                               ; preds = %22
   call void @qsort(ptr noundef nonnull %16, i64 noundef range(i64 1, 0) %18, i64 noundef 8, ptr noundef nonnull @compare_creation_token_decreasing) #16
@@ -1026,9 +1026,9 @@ sane_qsort.exit:                                  ; preds = %22, %23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %35 = phi i64 [ %73, %70 ], [ 0, %.lr.ph.preheader ]
-  %.03169 = phi i32 [ %71, %70 ], [ 0, %.lr.ph.preheader ]
-  %.03268 = phi i32 [ %.234, %70 ], [ 0, %.lr.ph.preheader ]
-  %.03567 = phi i64 [ %.3, %70 ], [ 0, %.lr.ph.preheader ]
+  %.03168 = phi i32 [ %71, %70 ], [ 0, %.lr.ph.preheader ]
+  %.03267 = phi i32 [ %.234, %70 ], [ 0, %.lr.ph.preheader ]
+  %.03566 = phi i64 [ %.3, %70 ], [ 0, %.lr.ph.preheader ]
   %36 = getelementptr inbounds nuw ptr, ptr %16, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !49
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -1100,13 +1100,13 @@ _.exit:                                           ; preds = %53, %55
   %68 = or i8 %67, 1
   store i8 %68, ptr %61, align 8
   %69 = load i64, ptr %38, align 8, !tbaa !29
-  %spec.select = call i64 @llvm.umax.i64(i64 %69, i64 %.03567)
+  %spec.select = call i64 @llvm.umax.i64(i64 %69, i64 %.03566)
   br label %70
 
 70:                                               ; preds = %46, %.thread, %59, %64, %66
-  %.3 = phi i64 [ %.03567, %.thread ], [ %.03567, %59 ], [ %.03567, %46 ], [ %.03567, %64 ], [ %spec.select, %66 ]
-  %.234 = phi i32 [ %.03268, %.thread ], [ %.03268, %59 ], [ 1, %46 ], [ 1, %64 ], [ -1, %66 ]
-  %71 = add nsw i32 %.234, %.03169
+  %.3 = phi i64 [ %.03566, %.thread ], [ %.03566, %59 ], [ %.03566, %46 ], [ %.03566, %64 ], [ %spec.select, %66 ]
+  %.234 = phi i32 [ %.03267, %.thread ], [ %.03267, %59 ], [ 1, %46 ], [ 1, %64 ], [ -1, %66 ]
+  %71 = add nsw i32 %.234, %.03168
   %72 = icmp sgt i32 %71, -1
   %73 = sext i32 %71 to i64
   %74 = icmp ugt i64 %18, %73
@@ -1129,27 +1129,27 @@ _.exit:                                           ; preds = %53, %55
 
 81:                                               ; preds = %77
   %82 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i93 = icmp eq i32 %82, 0
-  br i1 %.not4.i93, label %_.exit95, label %83
+  %.not4.i92 = icmp eq i32 %82, 0
+  br i1 %.not4.i92, label %_.exit94, label %83
 
 83:                                               ; preds = %81
   %84 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #16
-  br label %_.exit95
+  br label %_.exit94
 
-_.exit95:                                         ; preds = %81, %83
-  %.0.i94 = phi ptr [ %84, %83 ], [ @.str.48, %81 ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i94) #16
+_.exit94:                                         ; preds = %81, %83
+  %.0.i93 = phi ptr [ %84, %83 ], [ @.str.48, %81 ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i93) #16
   br label %85
 
-85:                                               ; preds = %_.exit95, %77
+85:                                               ; preds = %_.exit94, %77
   call void @strbuf_release(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread53.thread
 
 .thread53.thread:                                 ; preds = %.lr.ph, %_.exit, %85, %.thread53
-  %.03162 = phi i32 [ %71, %85 ], [ %71, %.thread53 ], [ %.03169, %_.exit ], [ %.03169, %.lr.ph ]
+  %.03161 = phi i32 [ %71, %85 ], [ %71, %.thread53 ], [ %.03168, %_.exit ], [ %.03168, %.lr.ph ]
   call void @free(ptr noundef %16) #16
-  %86 = icmp sgt i32 %.03162, -1
+  %86 = icmp sgt i32 %.03161, -1
   %87 = zext i1 %86 to i32
   br label %88
 

@@ -1999,8 +1999,8 @@ define ptr @OSSL_CRMF_ENCRYPTEDVALUE_decrypt(ptr noundef readonly captures(addre
   %66 = load i64, ptr %6, align 8, !tbaa !54
   %67 = sext i32 %43 to i64
   %68 = icmp eq i64 %66, %67
-  %.demorgan101 = and i1 %65, %68
-  br i1 %.demorgan101, label %70, label %69
+  %.demorgan100 = and i1 %65, %68
+  br i1 %.demorgan100, label %70, label %69
 
 69:                                               ; preds = %60
   call void @ERR_clear_error() #7

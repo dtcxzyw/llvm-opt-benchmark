@@ -4252,8 +4252,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6th
   %633 = load i64, ptr %313, align 8, !tbaa !509
   %634 = urem i64 %632, %633
   %635 = load i64, ptr %311, align 8, !tbaa !507
-  %.not32.i = icmp eq i64 %635, 0
-  br i1 %.not32.i, label %.critedge.i, label %636
+  %.not30.i = icmp eq i64 %635, 0
+  br i1 %.not30.i, label %.critedge.i, label %636
 
 636:                                              ; preds = %.noexc319
   %637 = load ptr, ptr %310, align 8, !tbaa !510

@@ -274,13 +274,13 @@ Vec_IntPush.exit.i:                               ; preds = %102, %Vec_IntGrow.e
   %119 = load i32, ptr %118, align 4, !tbaa !30
   %120 = shl nuw nsw i64 %indvars.iv.next44.i, 1
   %121 = or disjoint i64 %120, 1
-  %.val3451.i.i = load i32, ptr %.phi.trans.insert.i13, align 4, !tbaa !23
-  %122 = sext i32 %.val3451.i.i to i64
+  %.val3450.i.i = load i32, ptr %.phi.trans.insert.i13, align 4, !tbaa !23
+  %122 = sext i32 %.val3450.i.i to i64
   %123 = icmp slt i64 %121, %122
   br i1 %123, label %.lr.ph.i.i, label %..thread_crit_edge.i.i
 
 ..thread_crit_edge.i.i:                           ; preds = %117
-  %.pre64.i.i = sext i32 %119 to i64
+  %.pre63.i.i = sext i32 %119 to i64
   %124 = trunc nsw i64 %indvars.iv.next44.i to i32
   br label %xSAT_HeapPercolateDown.exit.i
 
@@ -296,21 +296,21 @@ Vec_IntPush.exit.i:                               ; preds = %102, %Vec_IntGrow.e
   br label %131
 
 131:                                              ; preds = %154, %.lr.ph.i.i
-  %.val3453.i.i = phi i32 [ %.val3451.i.i, %.lr.ph.i.i ], [ %.val34.i.i, %154 ]
+  %.val3452.i.i = phi i32 [ %.val3450.i.i, %.lr.ph.i.i ], [ %.val34.i.i, %154 ]
   %132 = phi i32 [ %128, %.lr.ph.i.i ], [ %159, %154 ]
   %133 = phi i32 [ %129, %.lr.ph.i.i ], [ %158, %154 ]
-  %.03252.i.i = phi i32 [ %130, %.lr.ph.i.i ], [ %152, %154 ]
+  %.03251.i.i = phi i32 [ %130, %.lr.ph.i.i ], [ %152, %154 ]
   %134 = add nuw i32 %133, 2
-  %135 = icmp slt i32 %134, %.val3453.i.i
+  %135 = icmp slt i32 %134, %.val3452.i.i
   br i1 %135, label %136, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %131
   %.pre.phi.trans.insert.i.i = sext i32 %132 to i64
   %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.val40.i.i, i64 %.pre.phi.trans.insert.i.i
-  %.pre56.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !30
-  %.phi.trans.insert57.phi.trans.insert.i.i = sext i32 %.pre56.pre.i.i to i64
-  %.phi.trans.insert58.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.val46.val.i.i, i64 %.phi.trans.insert57.phi.trans.insert.i.i
-  %.pre59.pre.i.i = load i32, ptr %.phi.trans.insert58.phi.trans.insert.i.i, align 4, !tbaa !30
+  %.pre55.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !30
+  %.phi.trans.insert56.phi.trans.insert.i.i = sext i32 %.pre55.pre.i.i to i64
+  %.phi.trans.insert57.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.val46.val.i.i, i64 %.phi.trans.insert56.phi.trans.insert.i.i
+  %.pre58.pre.i.i = load i32, ptr %.phi.trans.insert57.phi.trans.insert.i.i, align 4, !tbaa !30
   br label %149
 
 136:                                              ; preds = %131
@@ -327,26 +327,26 @@ Vec_IntPush.exit.i:                               ; preds = %102, %Vec_IntGrow.e
   %147 = getelementptr inbounds i32, ptr %.val46.val.i.i, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !30
   %.not.i.i = icmp ugt i32 %145, %148
-  br i1 %.not.i.i, label %149, label %._crit_edge63.i.i
+  br i1 %.not.i.i, label %149, label %._crit_edge62.i.i
 
-._crit_edge63.i.i:                                ; preds = %136
+._crit_edge62.i.i:                                ; preds = %136
   br label %149
 
-149:                                              ; preds = %._crit_edge63.i.i, %136, %._crit_edge.i.i
-  %.pre-phi62.i.i = phi i64 [ %143, %136 ], [ %.phi.trans.insert57.phi.trans.insert.i.i, %._crit_edge.i.i ], [ %146, %._crit_edge63.i.i ]
-  %150 = phi i32 [ %145, %136 ], [ %.pre59.pre.i.i, %._crit_edge.i.i ], [ %148, %._crit_edge63.i.i ]
-  %151 = phi i32 [ %139, %136 ], [ %.pre56.pre.i.i, %._crit_edge.i.i ], [ %142, %._crit_edge63.i.i ]
-  %152 = phi i32 [ %134, %136 ], [ %132, %._crit_edge.i.i ], [ %132, %._crit_edge63.i.i ]
+149:                                              ; preds = %._crit_edge62.i.i, %136, %._crit_edge.i.i
+  %.pre-phi61.i.i = phi i64 [ %143, %136 ], [ %.phi.trans.insert56.phi.trans.insert.i.i, %._crit_edge.i.i ], [ %146, %._crit_edge62.i.i ]
+  %150 = phi i32 [ %145, %136 ], [ %.pre58.pre.i.i, %._crit_edge.i.i ], [ %148, %._crit_edge62.i.i ]
+  %151 = phi i32 [ %139, %136 ], [ %.pre55.pre.i.i, %._crit_edge.i.i ], [ %142, %._crit_edge62.i.i ]
+  %152 = phi i32 [ %134, %136 ], [ %132, %._crit_edge.i.i ], [ %132, %._crit_edge62.i.i ]
   %153 = load i32, ptr %127, align 4, !tbaa !30
-  %.not50.i.i = icmp ugt i32 %150, %153
-  br i1 %.not50.i.i, label %154, label %xSAT_HeapPercolateDown.exit.i
+  %.not49.i.i = icmp ugt i32 %150, %153
+  br i1 %.not49.i.i, label %154, label %xSAT_HeapPercolateDown.exit.i
 
 154:                                              ; preds = %149
-  %155 = sext i32 %.03252.i.i to i64
+  %155 = sext i32 %.03251.i.i to i64
   %156 = getelementptr inbounds i32, ptr %.val40.i.i, i64 %155
   store i32 %151, ptr %156, align 4, !tbaa !30
-  %157 = getelementptr inbounds i32, ptr %.val41.i.i, i64 %.pre-phi62.i.i
-  store i32 %.03252.i.i, ptr %157, align 4, !tbaa !30
+  %157 = getelementptr inbounds i32, ptr %.val41.i.i, i64 %.pre-phi61.i.i
+  store i32 %.03251.i.i, ptr %157, align 4, !tbaa !30
   %158 = shl nuw nsw i32 %152, 1
   %159 = or disjoint i32 %158, 1
   %.val34.i.i = load i32, ptr %.phi.trans.insert.i13, align 4, !tbaa !23
@@ -354,12 +354,12 @@ Vec_IntPush.exit.i:                               ; preds = %102, %Vec_IntGrow.e
   br i1 %160, label %131, label %xSAT_HeapPercolateDown.exit.i
 
 xSAT_HeapPercolateDown.exit.i:                    ; preds = %154, %149, %..thread_crit_edge.i.i
-  %.pre-phi65.i.i = phi i64 [ %.pre64.i.i, %..thread_crit_edge.i.i ], [ %126, %149 ], [ %126, %154 ]
-  %.032.lcssa.i.i = phi i32 [ %124, %..thread_crit_edge.i.i ], [ %152, %154 ], [ %.03252.i.i, %149 ]
+  %.pre-phi64.i.i = phi i64 [ %.pre63.i.i, %..thread_crit_edge.i.i ], [ %126, %149 ], [ %126, %154 ]
+  %.032.lcssa.i.i = phi i32 [ %124, %..thread_crit_edge.i.i ], [ %152, %154 ], [ %.03251.i.i, %149 ]
   %161 = sext i32 %.032.lcssa.i.i to i64
   %162 = getelementptr inbounds i32, ptr %.val40.i.i, i64 %161
   store i32 %119, ptr %162, align 4, !tbaa !30
-  %163 = getelementptr inbounds i32, ptr %.val41.i.i, i64 %.pre-phi65.i.i
+  %163 = getelementptr inbounds i32, ptr %.val41.i.i, i64 %.pre-phi64.i.i
   store i32 %.032.lcssa.i.i, ptr %163, align 4, !tbaa !30
   %164 = icmp sgt i64 %indvars.iv43.i, 1
   br i1 %164, label %117, label %xSAT_HeapBuild.exit, !llvm.loop !40
@@ -5152,21 +5152,21 @@ xSAT_HeapRemoveMin.exit.i:                        ; preds = %xSAT_HeapRemoveMin.
   br label %1029
 
 1029:                                             ; preds = %1052, %.lr.ph.i.i.i100
-  %.val3453.i.i.i = phi i32 [ %1023, %.lr.ph.i.i.i100 ], [ %.val34.i.i.i, %1052 ]
+  %.val3452.i.i.i = phi i32 [ %1023, %.lr.ph.i.i.i100 ], [ %.val34.i.i.i, %1052 ]
   %1030 = phi i32 [ 1, %.lr.ph.i.i.i100 ], [ %1057, %1052 ]
   %1031 = phi i32 [ 0, %.lr.ph.i.i.i100 ], [ %1056, %1052 ]
-  %.03252.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i100 ], [ %1050, %1052 ]
+  %.03251.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i100 ], [ %1050, %1052 ]
   %1032 = add nuw i32 %1031, 2
-  %1033 = icmp slt i32 %1032, %.val3453.i.i.i
+  %1033 = icmp slt i32 %1032, %.val3452.i.i.i
   br i1 %1033, label %1034, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %1029
   %.pre.phi.trans.insert.i.i.i = sext i32 %1030 to i64
   %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds i32, ptr %.val11.i.i99, i64 %.pre.phi.trans.insert.i.i.i
-  %.pre56.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !30
-  %.phi.trans.insert57.phi.trans.insert.i.i.i = sext i32 %.pre56.pre.i.i.i to i64
-  %.phi.trans.insert58.phi.trans.insert.i.i.i = getelementptr inbounds i32, ptr %.val46.val.i.i.i, i64 %.phi.trans.insert57.phi.trans.insert.i.i.i
-  %.pre59.pre.i.i.i = load i32, ptr %.phi.trans.insert58.phi.trans.insert.i.i.i, align 4, !tbaa !30
+  %.pre55.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !30
+  %.phi.trans.insert56.phi.trans.insert.i.i.i = sext i32 %.pre55.pre.i.i.i to i64
+  %.phi.trans.insert57.phi.trans.insert.i.i.i = getelementptr inbounds i32, ptr %.val46.val.i.i.i, i64 %.phi.trans.insert56.phi.trans.insert.i.i.i
+  %.pre58.pre.i.i.i = load i32, ptr %.phi.trans.insert57.phi.trans.insert.i.i.i, align 4, !tbaa !30
   br label %1047
 
 1034:                                             ; preds = %1029
@@ -5183,26 +5183,26 @@ xSAT_HeapRemoveMin.exit.i:                        ; preds = %xSAT_HeapRemoveMin.
   %1045 = getelementptr inbounds i32, ptr %.val46.val.i.i.i, i64 %1044
   %1046 = load i32, ptr %1045, align 4, !tbaa !30
   %.not.i.i.i101 = icmp ugt i32 %1043, %1046
-  br i1 %.not.i.i.i101, label %1047, label %._crit_edge63.i.i.i
+  br i1 %.not.i.i.i101, label %1047, label %._crit_edge62.i.i.i
 
-._crit_edge63.i.i.i:                              ; preds = %1034
+._crit_edge62.i.i.i:                              ; preds = %1034
   br label %1047
 
-1047:                                             ; preds = %._crit_edge63.i.i.i, %1034, %._crit_edge.i.i.i
-  %.pre-phi62.i.i.i = phi i64 [ %1041, %1034 ], [ %.phi.trans.insert57.phi.trans.insert.i.i.i, %._crit_edge.i.i.i ], [ %1044, %._crit_edge63.i.i.i ]
-  %1048 = phi i32 [ %1043, %1034 ], [ %.pre59.pre.i.i.i, %._crit_edge.i.i.i ], [ %1046, %._crit_edge63.i.i.i ]
-  %1049 = phi i32 [ %1037, %1034 ], [ %.pre56.pre.i.i.i, %._crit_edge.i.i.i ], [ %1040, %._crit_edge63.i.i.i ]
-  %1050 = phi i32 [ %1032, %1034 ], [ %1030, %._crit_edge.i.i.i ], [ %1030, %._crit_edge63.i.i.i ]
+1047:                                             ; preds = %._crit_edge62.i.i.i, %1034, %._crit_edge.i.i.i
+  %.pre-phi61.i.i.i = phi i64 [ %1041, %1034 ], [ %.phi.trans.insert56.phi.trans.insert.i.i.i, %._crit_edge.i.i.i ], [ %1044, %._crit_edge62.i.i.i ]
+  %1048 = phi i32 [ %1043, %1034 ], [ %.pre58.pre.i.i.i, %._crit_edge.i.i.i ], [ %1046, %._crit_edge62.i.i.i ]
+  %1049 = phi i32 [ %1037, %1034 ], [ %.pre55.pre.i.i.i, %._crit_edge.i.i.i ], [ %1040, %._crit_edge62.i.i.i ]
+  %1050 = phi i32 [ %1032, %1034 ], [ %1030, %._crit_edge.i.i.i ], [ %1030, %._crit_edge62.i.i.i ]
   %1051 = load i32, ptr %1028, align 4, !tbaa !30
-  %.not50.i.i.i = icmp ugt i32 %1048, %1051
-  br i1 %.not50.i.i.i, label %1052, label %xSAT_HeapPercolateDown.exit.i.i
+  %.not49.i.i.i = icmp ugt i32 %1048, %1051
+  br i1 %.not49.i.i.i, label %1052, label %xSAT_HeapPercolateDown.exit.i.i
 
 1052:                                             ; preds = %1047
-  %1053 = sext i32 %.03252.i.i.i to i64
+  %1053 = sext i32 %.03251.i.i.i to i64
   %1054 = getelementptr inbounds i32, ptr %.val11.i.i99, i64 %1053
   store i32 %1049, ptr %1054, align 4, !tbaa !30
-  %1055 = getelementptr inbounds i32, ptr %.val13.i.i, i64 %.pre-phi62.i.i.i
-  store i32 %.03252.i.i.i, ptr %1055, align 4, !tbaa !30
+  %1055 = getelementptr inbounds i32, ptr %.val13.i.i, i64 %.pre-phi61.i.i.i
+  store i32 %.03251.i.i.i, ptr %1055, align 4, !tbaa !30
   %1056 = shl nuw nsw i32 %1050, 1
   %1057 = or disjoint i32 %1056, 1
   %.val34.i.i.i = load i32, ptr %1006, align 4, !tbaa !23
@@ -5210,7 +5210,7 @@ xSAT_HeapRemoveMin.exit.i:                        ; preds = %xSAT_HeapRemoveMin.
   br i1 %1058, label %1029, label %xSAT_HeapPercolateDown.exit.i.i
 
 xSAT_HeapPercolateDown.exit.i.i:                  ; preds = %1052, %1047
-  %.032.lcssa.i.i.i = phi i32 [ %.03252.i.i.i, %1047 ], [ %1050, %1052 ]
+  %.032.lcssa.i.i.i = phi i32 [ %.03251.i.i.i, %1047 ], [ %1050, %1052 ]
   %1059 = sext i32 %.032.lcssa.i.i.i to i64
   %1060 = getelementptr inbounds i32, ptr %.val11.i.i99, i64 %1059
   store i32 %1025, ptr %1060, align 4, !tbaa !30

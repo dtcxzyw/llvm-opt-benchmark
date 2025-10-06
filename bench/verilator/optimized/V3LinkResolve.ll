@@ -3022,8 +3022,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %36,
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 4294967295
-  %.not47136 = icmp eq i64 %50, 0
-  %.not47 = select i1 %47, i1 true, i1 %.not47136
+  %.not47135 = icmp eq i64 %50, 0
+  %.not47 = select i1 %47, i1 true, i1 %.not47135
   br i1 %.not47, label %130, label %51
 
 51:                                               ; preds = %43
@@ -3375,8 +3375,8 @@ _ZN7AstNode9privateAsI11AstStmtExprPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode9priv
   %194 = load ptr, ptr %8, align 8, !tbaa !160
   %195 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %196 = load ptr, ptr %195, align 8, !tbaa !160
-  %.not139 = icmp eq ptr %194, %196
-  br i1 %.not139, label %._crit_edge, label %.lr.ph
+  %.not138 = icmp eq ptr %194, %196
+  br i1 %.not138, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt3mapIPK6AstVarP11AstNodeExprSt4lessIS2_ESaISt4pairIKS2_S4_EEE7emplaceIJRS8_RKS4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit, %_ZN7AstNode9privateAsI11AstStmtExprPS_EEPT_S2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3387,9 +3387,9 @@ _ZN7AstNode9privateAsI11AstStmtExprPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode9priv
           to label %_ZN7AstNode7foreachIZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlP9AstVarRefE_EEvOT_.exit unwind label %275
 
 .lr.ph:                                           ; preds = %_ZN7AstNode9privateAsI11AstStmtExprPS_EEPT_S2_.exit, %_ZNSt3mapIPK6AstVarP11AstNodeExprSt4lessIS2_ESaISt4pairIKS2_S4_EEE7emplaceIJRS8_RKS4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit
-  %.sroa.0125.0140 = phi ptr [ %233, %_ZNSt3mapIPK6AstVarP11AstNodeExprSt4lessIS2_ESaISt4pairIKS2_S4_EEE7emplaceIJRS8_RKS4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit ], [ %194, %_ZN7AstNode9privateAsI11AstStmtExprPS_EEPT_S2_.exit ]
-  %198 = load ptr, ptr %.sroa.0125.0140, align 8, !tbaa !167
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0140, i64 8
+  %.sroa.0125.0139 = phi ptr [ %233, %_ZNSt3mapIPK6AstVarP11AstNodeExprSt4lessIS2_ESaISt4pairIKS2_S4_EEE7emplaceIJRS8_RKS4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit ], [ %194, %_ZN7AstNode9privateAsI11AstStmtExprPS_EEPT_S2_.exit ]
+  %198 = load ptr, ptr %.sroa.0125.0139, align 8, !tbaa !167
+  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0139, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !170
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8, !tbaa !78
@@ -3481,7 +3481,7 @@ _ZNSt8_Rb_treeIPK6AstVarSt4pairIKS2_P11AstNodeExprESt10_Select1stIS7_ESt4lessIS2
   br label %_ZNSt3mapIPK6AstVarP11AstNodeExprSt4lessIS2_ESaISt4pairIKS2_S4_EEE7emplaceIJRS8_RKS4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit
 
 _ZNSt3mapIPK6AstVarP11AstNodeExprSt4lessIS2_ESaISt4pairIKS2_S4_EEE7emplaceIJRS8_RKS4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit: ; preds = %211, %232, %.thread.i, %.lr.ph
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0140, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0139, i64 16
   %.not = icmp eq ptr %233, %196
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

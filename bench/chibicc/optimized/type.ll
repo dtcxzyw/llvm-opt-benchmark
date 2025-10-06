@@ -351,25 +351,25 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %19 = load ptr, ptr %18, align 16, !tbaa !51
   tail call void @add_type(ptr noundef %19)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.092110 = load ptr, ptr %20, align 8, !tbaa !34
-  %.not100111 = icmp eq ptr %.092110, null
-  br i1 %.not100111, label %._crit_edge, label %.lr.ph
+  %.092109 = load ptr, ptr %20, align 8, !tbaa !34
+  %.not100110 = icmp eq ptr %.092109, null
+  br i1 %.not100110, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.093113 = load ptr, ptr %21, align 8, !tbaa !34
-  %.not101114 = icmp eq ptr %.093113, null
-  br i1 %.not101114, label %._crit_edge118, label %.lr.ph117
+  %.093112 = load ptr, ptr %21, align 8, !tbaa !34
+  %.not101113 = icmp eq ptr %.093112, null
+  br i1 %.not101113, label %._crit_edge117, label %.lr.ph116
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.092112 = phi ptr [ %.092, %.lr.ph ], [ %.092110, %5 ]
-  tail call void @add_type(ptr noundef nonnull %.092112)
-  %22 = getelementptr inbounds nuw i8, ptr %.092112, i64 8
+  %.092111 = phi ptr [ %.092, %.lr.ph ], [ %.092109, %5 ]
+  tail call void @add_type(ptr noundef nonnull %.092111)
+  %22 = getelementptr inbounds nuw i8, ptr %.092111, i64 8
   %.092 = load ptr, ptr %22, align 8, !tbaa !34
   %.not100 = icmp eq ptr %.092, null
   br i1 %.not100, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
-._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge
+._crit_edge117:                                   ; preds = %.lr.ph116, %._crit_edge
   %23 = load i32, ptr %0, align 16, !tbaa !53
   switch i32 %23, label %204 [
     i32 42, label %25
@@ -407,19 +407,19 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
     i32 47, label %191
   ]
 
-.lr.ph117:                                        ; preds = %._crit_edge, %.lr.ph117
-  %.093115 = phi ptr [ %.093, %.lr.ph117 ], [ %.093113, %._crit_edge ]
-  tail call void @add_type(ptr noundef nonnull %.093115)
-  %24 = getelementptr inbounds nuw i8, ptr %.093115, i64 8
+.lr.ph116:                                        ; preds = %._crit_edge, %.lr.ph116
+  %.093114 = phi ptr [ %.093, %.lr.ph116 ], [ %.093112, %._crit_edge ]
+  tail call void @add_type(ptr noundef nonnull %.093114)
+  %24 = getelementptr inbounds nuw i8, ptr %.093114, i64 8
   %.093 = load ptr, ptr %24, align 8, !tbaa !34
   %.not101 = icmp eq ptr %.093, null
-  br i1 %.not101, label %._crit_edge118, label %.lr.ph117, !llvm.loop !54
+  br i1 %.not101, label %._crit_edge117, label %.lr.ph116, !llvm.loop !54
 
-25:                                               ; preds = %._crit_edge118
+25:                                               ; preds = %._crit_edge117
   %26 = load ptr, ptr @ty_int, align 8, !tbaa !26
   br label %.sink.split
 
-27:                                               ; preds = %._crit_edge118, %._crit_edge118, %._crit_edge118, %._crit_edge118, %._crit_edge118, %._crit_edge118, %._crit_edge118, %._crit_edge118
+27:                                               ; preds = %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117
   %28 = load ptr, ptr %6, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 16, !tbaa !40
@@ -438,7 +438,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %41 = load ptr, ptr %40, align 16, !tbaa !40
   br label %.sink.split
 
-42:                                               ; preds = %._crit_edge118
+42:                                               ; preds = %._crit_edge117
   %43 = load ptr, ptr @ty_int, align 8, !tbaa !26
   %44 = load ptr, ptr %6, align 16, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -449,7 +449,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   store ptr %49, ptr %6, align 16, !tbaa !45
   br label %.sink.split
 
-50:                                               ; preds = %._crit_edge118
+50:                                               ; preds = %._crit_edge117
   %51 = load ptr, ptr %6, align 16, !tbaa !45
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 16, !tbaa !40
@@ -471,10 +471,10 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   store ptr %60, ptr %8, align 8, !tbaa !46
   %.pre = load ptr, ptr %6, align 16, !tbaa !45
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre119 = load ptr, ptr %.phi.trans.insert, align 16, !tbaa !40
+  %.pre118 = load ptr, ptr %.phi.trans.insert, align 16, !tbaa !40
   br label %.sink.split
 
-61:                                               ; preds = %._crit_edge118, %._crit_edge118, %._crit_edge118, %._crit_edge118
+61:                                               ; preds = %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117
   %62 = load ptr, ptr %6, align 8, !tbaa !34
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 16, !tbaa !40
@@ -491,31 +491,31 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %73 = load ptr, ptr @ty_int, align 8, !tbaa !26
   br label %.sink.split
 
-74:                                               ; preds = %._crit_edge118
+74:                                               ; preds = %._crit_edge117
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %76 = load ptr, ptr %75, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 88
   %78 = load ptr, ptr %77, align 8, !tbaa !24
   br label %.sink.split
 
-79:                                               ; preds = %._crit_edge118, %._crit_edge118, %._crit_edge118
+79:                                               ; preds = %._crit_edge117, %._crit_edge117, %._crit_edge117
   %80 = load ptr, ptr @ty_int, align 8, !tbaa !26
   br label %.sink.split
 
-81:                                               ; preds = %._crit_edge118, %._crit_edge118, %._crit_edge118
+81:                                               ; preds = %._crit_edge117, %._crit_edge117, %._crit_edge117
   %82 = load ptr, ptr %6, align 16, !tbaa !45
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 16, !tbaa !40
   br label %.sink.split
 
-85:                                               ; preds = %._crit_edge118, %._crit_edge118
+85:                                               ; preds = %._crit_edge117, %._crit_edge117
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %87 = load ptr, ptr %86, align 16, !tbaa !57
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !58
   br label %.sink.split
 
-90:                                               ; preds = %._crit_edge118
+90:                                               ; preds = %._crit_edge117
   %91 = load ptr, ptr %12, align 8, !tbaa !48
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 16, !tbaa !40
@@ -542,20 +542,20 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %107 = load ptr, ptr %106, align 16, !tbaa !40
   br label %.sink.split
 
-108:                                              ; preds = %._crit_edge118
+108:                                              ; preds = %._crit_edge117
   %109 = load ptr, ptr %8, align 8, !tbaa !46
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 16, !tbaa !40
   br label %.sink.split
 
-112:                                              ; preds = %._crit_edge118
+112:                                              ; preds = %._crit_edge117
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %114 = load ptr, ptr %113, align 16, !tbaa !63
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !64
   br label %.sink.split
 
-117:                                              ; preds = %._crit_edge118
+117:                                              ; preds = %._crit_edge117
   %118 = load ptr, ptr %6, align 16, !tbaa !45
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 16, !tbaa !40
@@ -582,7 +582,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   store i8 1, ptr %131, align 4, !tbaa !20
   br label %.sink.split
 
-132:                                              ; preds = %._crit_edge118
+132:                                              ; preds = %._crit_edge117
   %133 = load ptr, ptr %6, align 16, !tbaa !45
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load ptr, ptr %134, align 16, !tbaa !40
@@ -608,7 +608,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   tail call void (ptr, ptr, ...) @error_tok(ptr noundef %146, ptr noundef nonnull @.str.14) #13
   unreachable
 
-147:                                              ; preds = %._crit_edge118
+147:                                              ; preds = %._crit_edge117
   %148 = load ptr, ptr %20, align 8, !tbaa !66
   %.not105 = icmp eq ptr %148, null
   br i1 %.not105, label %.thread, label %.preheader
@@ -638,7 +638,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   tail call void (ptr, ptr, ...) @error_tok(ptr noundef %160, ptr noundef nonnull @.str.15) #13
   unreachable
 
-161:                                              ; preds = %._crit_edge118
+161:                                              ; preds = %._crit_edge117
   %162 = load ptr, ptr @ty_void, align 8, !tbaa !26
   %163 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #11
   store i32 10, ptr %163, align 8, !tbaa !7
@@ -652,7 +652,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   store i8 1, ptr %167, align 4, !tbaa !20
   br label %.sink.split
 
-168:                                              ; preds = %._crit_edge118
+168:                                              ; preds = %._crit_edge117
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %170 = load ptr, ptr %169, align 8, !tbaa !69
   tail call void @add_type(ptr noundef %170)
@@ -691,7 +691,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   tail call void (ptr, ptr, ...) @error_tok(ptr noundef %190, ptr noundef nonnull @.str.16) #13
   unreachable
 
-191:                                              ; preds = %._crit_edge118
+191:                                              ; preds = %._crit_edge117
   %192 = load ptr, ptr %6, align 16, !tbaa !45
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 16, !tbaa !40
@@ -713,11 +713,11 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %141, %58, %50, %25, %27, %42, %61, %74, %79, %81, %85, %108, %112, %126, %161, %201, %104, %102, %154
-  %.sink130 = phi ptr [ %158, %154 ], [ %103, %102 ], [ %107, %104 ], [ %203, %201 ], [ %163, %161 ], [ %127, %126 ], [ %116, %112 ], [ %111, %108 ], [ %89, %85 ], [ %84, %81 ], [ %80, %79 ], [ %78, %74 ], [ %73, %61 ], [ %47, %42 ], [ %41, %27 ], [ %26, %25 ], [ %53, %50 ], [ %.pre119, %58 ], [ %137, %141 ]
-  store ptr %.sink130, ptr %3, align 16, !tbaa !40
+  %.sink129 = phi ptr [ %158, %154 ], [ %103, %102 ], [ %107, %104 ], [ %203, %201 ], [ %163, %161 ], [ %127, %126 ], [ %116, %112 ], [ %111, %108 ], [ %89, %85 ], [ %84, %81 ], [ %80, %79 ], [ %78, %74 ], [ %73, %61 ], [ %47, %42 ], [ %41, %27 ], [ %26, %25 ], [ %53, %50 ], [ %.pre118, %58 ], [ %137, %141 ]
+  store ptr %.sink129, ptr %3, align 16, !tbaa !40
   br label %204
 
-204:                                              ; preds = %.sink.split, %183, %1, %2, %._crit_edge118
+204:                                              ; preds = %.sink.split, %183, %1, %2, %._crit_edge117
   ret void
 }
 

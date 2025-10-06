@@ -1600,8 +1600,8 @@ define dso_local range(i32 0, 2) i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) l
   switch i32 %5, label %jvp_array_equal.exit [
     i32 4, label %17
     i32 6, label %20
-    i32 5, label %46
-    i32 7, label %56
+    i32 5, label %47
+    i32 7, label %57
   ]
 
 17:                                               ; preds = %16
@@ -1617,179 +1617,179 @@ define dso_local range(i32 0, 2) i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) l
 
 21:                                               ; preds = %20
   %.sroa.1.0.extract.trunc.i210 = trunc nuw i64 %.sroa.1.0.extract.shift.i209 to i32
-  %22 = icmp eq ptr %1, %3
-  %.unshifted230 = xor i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i
-  %23 = icmp ult i32 %.unshifted230, 65536
-  %or.cond = and i1 %22, %23
-  %.not231242 = icmp slt i32 %.sroa.1.0.extract.trunc.i210, 1
-  %or.cond258 = select i1 %or.cond, i1 true, i1 %.not231242
-  br i1 %or.cond258, label %jvp_array_equal.exit, label %.lr.ph244
+  %22 = icmp ne ptr %1, %3
+  %.unshifted232 = xor i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i
+  %23 = icmp ugt i32 %.unshifted232, 65535
+  %or.cond.not250 = or i1 %22, %23
+  %24 = icmp sgt i32 %.sroa.1.0.extract.trunc.i210, 0
+  %or.cond247 = select i1 %or.cond.not250, i1 %24, i1 false
+  br i1 %or.cond247, label %.lr.ph244, label %jvp_array_equal.exit
 
 .lr.ph244:                                        ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = lshr i64 %0, 16
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = lshr i64 %2, 16
-  %28 = and i64 %25, 65535
-  %29 = and i64 %27, 65535
-  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %24, i64 %28
-  %invariant.gep256 = getelementptr inbounds nuw %struct.jv, ptr %26, i64 %29
-  br label %30
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = lshr i64 %0, 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %28 = lshr i64 %2, 16
+  %29 = and i64 %26, 65535
+  %30 = and i64 %28, 65535
+  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %25, i64 %29
+  %invariant.gep260 = getelementptr inbounds nuw %struct.jv, ptr %27, i64 %30
+  br label %31
 
-30:                                               ; preds = %jv_copy.exit, %.lr.ph244
-  %indvars.iv248 = phi i64 [ 0, %.lr.ph244 ], [ %indvars.iv.next249, %jv_copy.exit ]
-  %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv248
-  %31 = load i64, ptr %gep, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = and i64 %31, 128
-  %.not.i199 = icmp eq i64 %34, 0
-  br i1 %.not.i199, label %jv_copy.exit202, label %35
+31:                                               ; preds = %jv_copy.exit, %.lr.ph244
+  %indvars.iv252 = phi i64 [ 0, %.lr.ph244 ], [ %indvars.iv.next253, %jv_copy.exit ]
+  %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv252
+  %32 = load i64, ptr %gep, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %gep, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = and i64 %32, 128
+  %.not.i199 = icmp eq i64 %35, 0
+  br i1 %.not.i199, label %jv_copy.exit202, label %36
 
-35:                                               ; preds = %30
-  %36 = load i32, ptr %33, align 4, !tbaa !9
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %33, align 4, !tbaa !9
+36:                                               ; preds = %31
+  %37 = load i32, ptr %34, align 4, !tbaa !9
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %34, align 4, !tbaa !9
   br label %jv_copy.exit202
 
-jv_copy.exit202:                                  ; preds = %30, %35
-  %gep257 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep256, i64 %indvars.iv248
-  %38 = load i64, ptr %gep257, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %gep257, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = and i64 %38, 128
-  %.not.i197 = icmp eq i64 %41, 0
-  br i1 %.not.i197, label %jv_copy.exit, label %42
+jv_copy.exit202:                                  ; preds = %31, %36
+  %gep261 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep260, i64 %indvars.iv252
+  %39 = load i64, ptr %gep261, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %gep261, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = and i64 %39, 128
+  %.not.i197 = icmp eq i64 %42, 0
+  br i1 %.not.i197, label %jv_copy.exit, label %43
 
-42:                                               ; preds = %jv_copy.exit202
-  %43 = load i32, ptr %40, align 4, !tbaa !9
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %40, align 4, !tbaa !9
+43:                                               ; preds = %jv_copy.exit202
+  %44 = load i32, ptr %41, align 4, !tbaa !9
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %41, align 4, !tbaa !9
   br label %jv_copy.exit
 
-jv_copy.exit:                                     ; preds = %jv_copy.exit202, %42
-  %45 = tail call i32 @jv_equal(i64 %31, ptr %33, i64 %38, ptr %40)
-  %.not26.i.not = icmp ne i32 %45, 0
-  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %exitcond252.not = icmp ne i64 %indvars.iv.next249, %.sroa.1.0.extract.shift.i209
-  %or.cond259.not = select i1 %.not26.i.not, i1 %exitcond252.not, i1 false
-  br i1 %or.cond259.not, label %30, label %jvp_array_equal.exit, !llvm.loop !44
+jv_copy.exit:                                     ; preds = %jv_copy.exit202, %43
+  %46 = tail call i32 @jv_equal(i64 %32, ptr %34, i64 %39, ptr %41)
+  %.not26.i.not = icmp ne i32 %46, 0
+  %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
+  %exitcond256.not = icmp ne i64 %indvars.iv.next253, %.sroa.1.0.extract.shift.i209
+  %or.cond.not = select i1 %.not26.i.not, i1 %exitcond256.not, i1 false
+  br i1 %or.cond.not, label %31, label %jvp_array_equal.exit, !llvm.loop !44
 
-46:                                               ; preds = %16
-  %47 = getelementptr i8, ptr %1, i64 8
-  %.val8.i = load i32, ptr %47, align 4, !tbaa !4
-  %48 = lshr i32 %.val8.i, 1
-  %49 = getelementptr i8, ptr %3, i64 8
-  %.val7.i = load i32, ptr %49, align 4, !tbaa !4
-  %50 = lshr i32 %.val7.i, 1
-  %.not.i193 = icmp eq i32 %48, %50
-  br i1 %.not.i193, label %51, label %jvp_array_equal.exit
+47:                                               ; preds = %16
+  %48 = getelementptr i8, ptr %1, i64 8
+  %.val8.i = load i32, ptr %48, align 4, !tbaa !4
+  %49 = lshr i32 %.val8.i, 1
+  %50 = getelementptr i8, ptr %3, i64 8
+  %.val7.i = load i32, ptr %50, align 4, !tbaa !4
+  %51 = lshr i32 %.val7.i, 1
+  %.not.i193 = icmp eq i32 %49, %51
+  br i1 %.not.i193, label %52, label %jvp_array_equal.exit
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %54 = zext nneg i32 %48 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %52, ptr nonnull readonly %53, i64 %54)
-  %55 = icmp eq i32 %bcmp.i, 0
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %55 = zext nneg i32 %49 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %53, ptr nonnull readonly %54, i64 %55)
+  %56 = icmp eq i32 %bcmp.i, 0
   br label %jvp_array_equal.exit
 
-56:                                               ; preds = %16
+57:                                               ; preds = %16
   %.sroa.1.0.extract.shift.i.i224 = lshr i64 %2, 32
   %.sroa.1.0.extract.trunc.i.i225 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i224 to i32
-  %57 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i225, 0
-  br i1 %57, label %.lr.ph.i, label %jvp_object_length.exit
+  %58 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i225, 0
+  br i1 %58, label %.lr.ph.i, label %jvp_object_length.exit
 
-.lr.ph.i:                                         ; preds = %56, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %56 ]
-  %.09.i = phi i32 [ %spec.select.i227, %.lr.ph.i ], [ 0, %56 ]
-  %58 = getelementptr inbounds nuw %struct.object_slot, ptr %3, i64 %indvars.iv.i
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = and i64 %60, 15
-  %.not.i226 = icmp ne i64 %61, 1
-  %62 = zext i1 %.not.i226 to i32
-  %spec.select.i227 = add nuw nsw i32 %.09.i, %62
+.lr.ph.i:                                         ; preds = %57, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %57 ]
+  %.09.i = phi i32 [ %spec.select.i227, %.lr.ph.i ], [ 0, %57 ]
+  %59 = getelementptr inbounds nuw %struct.object_slot, ptr %3, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = and i64 %61, 15
+  %.not.i226 = icmp ne i64 %62, 1
+  %63 = zext i1 %.not.i226 to i32
+  %spec.select.i227 = add nuw nsw i32 %.09.i, %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.1.0.extract.shift.i.i224
   br i1 %exitcond.not.i, label %jvp_object_length.exit, label %.lr.ph.i, !llvm.loop !45
 
-jvp_object_length.exit:                           ; preds = %.lr.ph.i, %56
-  %.0.lcssa.i = phi i32 [ 0, %56 ], [ %spec.select.i227, %.lr.ph.i ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+jvp_object_length.exit:                           ; preds = %.lr.ph.i, %57
+  %.0.lcssa.i = phi i32 [ 0, %57 ], [ %spec.select.i227, %.lr.ph.i ]
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.1.0.extract.shift.i222 = lshr i64 %0, 32
   %.sroa.1.0.extract.trunc.i223 = trunc nuw i64 %.sroa.1.0.extract.shift.i222 to i32
-  %.not32.i232 = icmp slt i32 %.sroa.1.0.extract.trunc.i223, 1
-  br i1 %.not32.i232, label %jvp_object_equal.exit, label %.lr.ph
+  %.not32.i233 = icmp slt i32 %.sroa.1.0.extract.trunc.i223, 1
+  br i1 %.not32.i233, label %jvp_object_equal.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %jvp_object_length.exit, %94
-  %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 0, %jvp_object_length.exit ]
-  %.022.i234 = phi i32 [ %.224.i, %94 ], [ 0, %jvp_object_length.exit ]
-  %64 = getelementptr inbounds nuw %struct.object_slot, ptr %63, i64 %indvars.iv
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i64, ptr %65, align 8
-  %67 = and i64 %66, 15
-  %68 = icmp eq i64 %67, 1
-  br i1 %68, label %94, label %69
+.lr.ph:                                           ; preds = %jvp_object_length.exit, %95
+  %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %jvp_object_length.exit ]
+  %.022.i235 = phi i32 [ %.224.i, %95 ], [ 0, %jvp_object_length.exit ]
+  %65 = getelementptr inbounds nuw %struct.object_slot, ptr %64, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, 15
+  %69 = icmp eq i64 %68, 1
+  br i1 %69, label %95, label %70
 
-69:                                               ; preds = %.lr.ph
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call fastcc ptr @jvp_object_find_bucket(i64 %2, ptr %3, ptr %71)
-  %73 = tail call fastcc ptr @jvp_object_find_slot(ptr %3, ptr %71, ptr noundef nonnull %72)
-  %74 = icmp eq ptr %73, null
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  br i1 %74, label %jvp_object_equal.exit, label %76
+70:                                               ; preds = %.lr.ph
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call fastcc ptr @jvp_object_find_bucket(i64 %2, ptr %3, ptr %72)
+  %74 = tail call fastcc ptr @jvp_object_find_slot(ptr %3, ptr %72, ptr noundef nonnull %73)
+  %75 = icmp eq ptr %74, null
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  br i1 %75, label %jvp_object_equal.exit, label %77
 
-76:                                               ; preds = %69
-  %77 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %80 = load ptr, ptr %79, align 8
-  %81 = and i64 %78, 128
-  %.not.i215 = icmp eq i64 %81, 0
-  br i1 %.not.i215, label %jv_copy.exit218, label %82
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %82 = and i64 %79, 128
+  %.not.i215 = icmp eq i64 %82, 0
+  br i1 %.not.i215, label %jv_copy.exit218, label %83
 
-82:                                               ; preds = %76
-  %83 = load i32, ptr %80, align 4, !tbaa !9
-  %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %80, align 4, !tbaa !9
+83:                                               ; preds = %77
+  %84 = load i32, ptr %81, align 4, !tbaa !9
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %81, align 4, !tbaa !9
   br label %jv_copy.exit218
 
-jv_copy.exit218:                                  ; preds = %76, %82
-  %85 = load i64, ptr %75, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %87 = load ptr, ptr %86, align 8
-  %88 = and i64 %85, 128
-  %.not.i211 = icmp eq i64 %88, 0
-  br i1 %.not.i211, label %jv_copy.exit214, label %89
+jv_copy.exit218:                                  ; preds = %77, %83
+  %86 = load i64, ptr %76, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %88 = load ptr, ptr %87, align 8
+  %89 = and i64 %86, 128
+  %.not.i211 = icmp eq i64 %89, 0
+  br i1 %.not.i211, label %jv_copy.exit214, label %90
 
-89:                                               ; preds = %jv_copy.exit218
-  %90 = load i32, ptr %87, align 4, !tbaa !9
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %87, align 4, !tbaa !9
+90:                                               ; preds = %jv_copy.exit218
+  %91 = load i32, ptr %88, align 4, !tbaa !9
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %88, align 4, !tbaa !9
   br label %jv_copy.exit214
 
-jv_copy.exit214:                                  ; preds = %jv_copy.exit218, %89
-  %92 = tail call i32 @jv_equal(i64 %78, ptr %80, i64 %85, ptr %87)
-  %.not31.i = icmp eq i32 %92, 0
-  %93 = add nsw i32 %.022.i234, 1
-  br i1 %.not31.i, label %jvp_object_equal.exit, label %94
+jv_copy.exit214:                                  ; preds = %jv_copy.exit218, %90
+  %93 = tail call i32 @jv_equal(i64 %79, ptr %81, i64 %86, ptr %88)
+  %.not31.i = icmp eq i32 %93, 0
+  %94 = add nsw i32 %.022.i235, 1
+  br i1 %.not31.i, label %jvp_object_equal.exit, label %95
 
-94:                                               ; preds = %.lr.ph, %jv_copy.exit214
-  %.224.i = phi i32 [ %.022.i234, %.lr.ph ], [ %93, %jv_copy.exit214 ]
+95:                                               ; preds = %.lr.ph, %jv_copy.exit214
+  %.224.i = phi i32 [ %.022.i235, %.lr.ph ], [ %94, %jv_copy.exit214 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.1.0.extract.shift.i222
   br i1 %exitcond.not, label %jvp_object_equal.exit, label %.lr.ph, !llvm.loop !46
 
-jvp_object_equal.exit:                            ; preds = %94, %69, %jv_copy.exit214, %jvp_object_length.exit
-  %.022.i.lcssa = phi i32 [ 0, %jvp_object_length.exit ], [ %.022.i234, %jv_copy.exit214 ], [ %.022.i234, %69 ], [ %.224.i, %94 ]
-  %.not32.i.lcssa = phi i1 [ true, %jvp_object_length.exit ], [ false, %jv_copy.exit214 ], [ false, %69 ], [ true, %94 ]
-  %95 = icmp eq i32 %.022.i.lcssa, %.0.lcssa.i
-  %narrow = select i1 %.not32.i.lcssa, i1 %95, i1 false
+jvp_object_equal.exit:                            ; preds = %95, %70, %jv_copy.exit214, %jvp_object_length.exit
+  %.022.i.lcssa = phi i32 [ 0, %jvp_object_length.exit ], [ %.022.i235, %jv_copy.exit214 ], [ %.022.i235, %70 ], [ %.224.i, %95 ]
+  %.not32.i.lcssa = phi i1 [ true, %jvp_object_length.exit ], [ false, %jv_copy.exit214 ], [ false, %70 ], [ true, %95 ]
+  %96 = icmp eq i32 %.022.i.lcssa, %.0.lcssa.i
+  %narrow = select i1 %.not32.i.lcssa, i1 %96, i1 false
   br label %jvp_array_equal.exit
 
-jvp_array_equal.exit:                             ; preds = %jv_copy.exit, %21, %51, %46, %20, %16, %10, %4, %jvp_object_equal.exit, %17
-  %.0.shrunk = phi i1 [ %19, %17 ], [ %narrow, %jvp_object_equal.exit ], [ false, %4 ], [ true, %10 ], [ true, %16 ], [ false, %20 ], [ %55, %51 ], [ false, %46 ], [ true, %21 ], [ %.not26.i.not, %jv_copy.exit ]
+jvp_array_equal.exit:                             ; preds = %jv_copy.exit, %21, %52, %47, %20, %16, %10, %4, %jvp_object_equal.exit, %17
+  %.0.shrunk = phi i1 [ %19, %17 ], [ %narrow, %jvp_object_equal.exit ], [ false, %4 ], [ true, %10 ], [ true, %16 ], [ false, %20 ], [ %56, %52 ], [ false, %47 ], [ true, %21 ], [ %.not26.i.not, %jv_copy.exit ]
   %.0 = zext i1 %.0.shrunk to i32
   tail call void @jv_free(i64 %0, ptr %1)
   tail call void @jv_free(i64 %2, ptr %3)

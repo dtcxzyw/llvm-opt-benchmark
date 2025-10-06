@@ -560,7 +560,7 @@ define dso_local range(i32 -1, 1) i32 @copy_objects(ptr noundef %0, ptr noundef 
   %255 = load i64, ptr %5, align 8
   %256 = icmp ne i64 %255, 0
   %or.cond23 = select i1 %254, i1 true, i1 %256
-  br i1 %or.cond23, label %257, label %.thread390
+  br i1 %or.cond23, label %257, label %.thread389
 
 257:                                              ; preds = %252
   %258 = load i64, ptr @H5P_CLS_FILE_CREATE_ID_g, align 8, !tbaa !9
@@ -644,9 +644,9 @@ define dso_local range(i32 -1, 1) i32 @copy_objects(ptr noundef %0, ptr noundef 
   %305 = load i32, ptr %304, align 4, !tbaa !30
   %306 = call i32 @H5Pset_link_phase_change(i64 noundef %259, i32 noundef %303, i32 noundef %305) #15
   %307 = icmp slt i32 %306, 0
-  br i1 %307, label %309, label %.preheader421
+  br i1 %307, label %309, label %.preheader420
 
-.preheader421:                                    ; preds = %301
+.preheader420:                                    ; preds = %301
   %308 = getelementptr inbounds nuw i8, ptr %2, i64 928
   br label %325
 
@@ -676,16 +676,16 @@ define dso_local range(i32 -1, 1) i32 @copy_objects(ptr noundef %0, ptr noundef 
   %fputc333 = call i32 @fputc(i32 10, ptr %324)
   br label %.thread
 
-325:                                              ; preds = %.preheader421, %334
-  %indvars.iv = phi i64 [ 0, %.preheader421 ], [ %indvars.iv.next, %334 ]
-  %.0213424 = phi i32 [ 0, %.preheader421 ], [ %.1, %334 ]
+325:                                              ; preds = %.preheader420, %334
+  %indvars.iv = phi i64 [ 0, %.preheader420 ], [ %indvars.iv.next, %334 ]
+  %.0213423 = phi i32 [ 0, %.preheader420 ], [ %.1, %334 ]
   %326 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv
   %327 = load i32, ptr %326, align 4, !tbaa !22
   %328 = icmp sgt i32 %327, 0
   br i1 %328, label %switch.lookup, label %334
 
 switch.lookup:                                    ; preds = %325
-  %329 = zext i32 %.0213424 to i64
+  %329 = zext i32 %.0213423 to i64
   %330 = getelementptr inbounds nuw i32, ptr %11, i64 %329
   %331 = and i64 %indvars.iv, 4294967295
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.copy_objects, i64 %331
@@ -693,11 +693,11 @@ switch.lookup:                                    ; preds = %325
   store i32 %switch.load, ptr %330, align 4, !tbaa !22
   %332 = getelementptr inbounds nuw i32, ptr %12, i64 %329
   store i32 %327, ptr %332, align 4, !tbaa !22
-  %333 = add i32 %.0213424, 1
+  %333 = add i32 %.0213423, 1
   br label %334
 
 334:                                              ; preds = %325, %switch.lookup
-  %.1 = phi i32 [ %333, %switch.lookup ], [ %.0213424, %325 ]
+  %.1 = phi i32 [ %333, %switch.lookup ], [ %.0213423, %325 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %335, label %325, !llvm.loop !31
@@ -713,8 +713,8 @@ switch.lookup:                                    ; preds = %325
 
 .preheader:                                       ; preds = %336
   %339 = add i32 %.1, -1
-  %.not426 = icmp eq i32 %339, 0
-  br i1 %.not426, label %.loopexit, label %.lr.ph.preheader
+  %.not425 = icmp eq i32 %339, 0
+  br i1 %.not425, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %339 to i64
@@ -747,17 +747,17 @@ switch.lookup:                                    ; preds = %325
   br label %.thread
 
 356:                                              ; preds = %.lr.ph
-  %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
-  %exitcond431.not = icmp eq i64 %indvars.iv.next429, %wide.trip.count
-  br i1 %exitcond431.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
+  %exitcond430.not = icmp eq i64 %indvars.iv.next428, %wide.trip.count
+  br i1 %exitcond430.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %356
-  %indvars.iv428 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next429, %356 ]
-  %357 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv428
+  %indvars.iv427 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next428, %356 ]
+  %357 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv427
   %358 = load i32, ptr %357, align 4, !tbaa !22
-  %359 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv428
+  %359 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv427
   %360 = load i32, ptr %359, align 4, !tbaa !22
-  %361 = trunc nuw i64 %indvars.iv428 to i32
+  %361 = trunc nuw i64 %indvars.iv427 to i32
   %362 = call i32 @H5Pset_shared_mesg_index(i64 noundef %259, i32 noundef %361, i32 noundef %358, i32 noundef %360) #15
   %363 = icmp slt i32 %362, 0
   br i1 %363, label %364, label %356
@@ -804,28 +804,28 @@ switch.lookup:                                    ; preds = %325
   %.not334 = icmp eq i64 %382, 0
   br i1 %.not334, label %428, label %385
 
-.thread390:                                       ; preds = %252
+.thread389:                                       ; preds = %252
   %383 = getelementptr inbounds nuw i8, ptr %2, i64 968
   %384 = load i64, ptr %383, align 8, !tbaa !34
-  %.not334393 = icmp eq i64 %384, 0
-  br i1 %.not334393, label %428, label %.thread397
+  %.not334392 = icmp eq i64 %384, 0
+  br i1 %.not334392, label %428, label %.thread396
 
 385:                                              ; preds = %380
   %386 = icmp eq i64 %259, 0
-  br i1 %386, label %.thread397, label %407
+  br i1 %386, label %.thread396, label %407
 
-.thread397:                                       ; preds = %.thread390, %385
-  %387 = phi ptr [ %381, %385 ], [ %383, %.thread390 ]
+.thread396:                                       ; preds = %.thread389, %385
+  %387 = phi ptr [ %381, %385 ], [ %383, %.thread389 ]
   %388 = load i64, ptr @H5P_CLS_FILE_CREATE_ID_g, align 8, !tbaa !9
   %389 = call i64 @H5Pcreate(i64 noundef %388) #15
   %390 = icmp slt i64 %389, 0
-  br i1 %390, label %391, label %.thread397._crit_edge
+  br i1 %390, label %391, label %.thread396._crit_edge
 
-.thread397._crit_edge:                            ; preds = %.thread397
+.thread396._crit_edge:                            ; preds = %.thread396
   %.pre = load i64, ptr %387, align 8, !tbaa !34
   br label %407
 
-391:                                              ; preds = %.thread397
+391:                                              ; preds = %.thread396
   %392 = load i32, ptr @enable_error_stack, align 4, !tbaa !22
   %393 = icmp sgt i32 %392, 0
   br i1 %393, label %394, label %875
@@ -851,10 +851,10 @@ switch.lookup:                                    ; preds = %325
   %fputc367 = call i32 @fputc(i32 10, ptr %406)
   br label %875
 
-407:                                              ; preds = %.thread397._crit_edge, %385
-  %408 = phi i64 [ %.pre, %.thread397._crit_edge ], [ %382, %385 ]
-  %409 = phi ptr [ %387, %.thread397._crit_edge ], [ %381, %385 ]
-  %.3 = phi i64 [ %389, %.thread397._crit_edge ], [ %259, %385 ]
+407:                                              ; preds = %.thread396._crit_edge, %385
+  %408 = phi i64 [ %.pre, %.thread396._crit_edge ], [ %382, %385 ]
+  %409 = phi ptr [ %387, %.thread396._crit_edge ], [ %381, %385 ]
+  %.3 = phi i64 [ %389, %.thread396._crit_edge ], [ %259, %385 ]
   %410 = call i32 @H5Pset_userblock(i64 noundef %.3, i64 noundef %408) #15
   %411 = icmp slt i32 %410, 0
   br i1 %411, label %412, label %428
@@ -885,9 +885,9 @@ switch.lookup:                                    ; preds = %325
   %fputc366 = call i32 @fputc(i32 10, ptr %427)
   br label %875
 
-428:                                              ; preds = %.thread390, %407, %380
-  %429 = phi ptr [ %409, %407 ], [ %381, %380 ], [ %383, %.thread390 ]
-  %.2224 = phi i64 [ %.3, %407 ], [ %259, %380 ], [ 0, %.thread390 ]
+428:                                              ; preds = %.thread389, %407, %380
+  %429 = phi ptr [ %409, %407 ], [ %381, %380 ], [ %383, %.thread389 ]
+  %.2224 = phi i64 [ %.3, %407 ], [ %259, %380 ], [ 0, %.thread389 ]
   %430 = getelementptr inbounds nuw i8, ptr %2, i64 992
   %431 = load i64, ptr %430, align 8, !tbaa !35
   %.not335 = icmp eq i64 %431, 0
@@ -906,7 +906,7 @@ switch.lookup:                                    ; preds = %325
   br i1 %438, label %439, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %435
-  %.pre432 = load i64, ptr %430, align 8, !tbaa !35
+  %.pre431 = load i64, ptr %430, align 8, !tbaa !35
   br label %455
 
 439:                                              ; preds = %435
@@ -936,7 +936,7 @@ switch.lookup:                                    ; preds = %325
   br label %875
 
 455:                                              ; preds = %._crit_edge, %432
-  %456 = phi i64 [ %.pre432, %._crit_edge ], [ %431, %432 ]
+  %456 = phi i64 [ %.pre431, %._crit_edge ], [ %431, %432 ]
   %457 = phi i64 [ %437, %._crit_edge ], [ %433, %432 ]
   %458 = getelementptr inbounds nuw i8, ptr %2, i64 984
   %459 = load i64, ptr %458, align 8, !tbaa !36
@@ -986,10 +986,10 @@ switch.lookup:                                    ; preds = %325
   %486 = call i64 @H5Pcreate(i64 noundef %485) #15
   store i64 %486, ptr %205, align 8, !tbaa !28
   %487 = icmp slt i64 %486, 0
-  br i1 %487, label %488, label %._crit_edge433
+  br i1 %487, label %488, label %._crit_edge432
 
-._crit_edge433:                                   ; preds = %484
-  %.pre434 = load i64, ptr %479, align 8, !tbaa !37
+._crit_edge432:                                   ; preds = %484
+  %.pre433 = load i64, ptr %479, align 8, !tbaa !37
   br label %504
 
 488:                                              ; preds = %484
@@ -1018,9 +1018,9 @@ switch.lookup:                                    ; preds = %325
   %fputc363 = call i32 @fputc(i32 10, ptr %503)
   br label %875
 
-504:                                              ; preds = %._crit_edge433, %481
-  %505 = phi i64 [ %.pre434, %._crit_edge433 ], [ %480, %481 ]
-  %506 = phi i64 [ %486, %._crit_edge433 ], [ %482, %481 ]
+504:                                              ; preds = %._crit_edge432, %481
+  %505 = phi i64 [ %.pre433, %._crit_edge432 ], [ %480, %481 ]
+  %506 = phi i64 [ %486, %._crit_edge432 ], [ %482, %481 ]
   %507 = call i32 @H5Pset_meta_block_size(i64 noundef %506, i64 noundef %505) #15
   %508 = icmp slt i32 %507, 0
   br i1 %508, label %509, label %525
@@ -1196,7 +1196,7 @@ switch.lookup:                                    ; preds = %325
   %603 = getelementptr inbounds nuw i8, ptr %2, i64 1016
   %604 = load i64, ptr %603, align 8, !tbaa !42
   switch i64 %604, label %605 [
-    i64 -1, label %.thread402
+    i64 -1, label %.thread401
     i64 0, label %.fold.split386
   ]
 
@@ -1206,15 +1206,15 @@ switch.lookup:                                    ; preds = %325
 605:                                              ; preds = %602, %.fold.split386
   %.0218 = phi i64 [ %569, %.fold.split386 ], [ %604, %602 ]
   %.not341 = icmp eq i64 %.0218, 4096
-  br i1 %.not341, label %624, label %.thread402
+  br i1 %.not341, label %624, label %.thread401
 
-.thread402:                                       ; preds = %602, %605
-  %.0218405 = phi i64 [ %.0218, %605 ], [ 0, %602 ]
-  %606 = call i32 @H5Pset_file_space_page_size(i64 noundef %.4, i64 noundef %.0218405) #15
+.thread401:                                       ; preds = %602, %605
+  %.0218404 = phi i64 [ %.0218, %605 ], [ 0, %602 ]
+  %606 = call i32 @H5Pset_file_space_page_size(i64 noundef %.4, i64 noundef %.0218404) #15
   %607 = icmp slt i32 %606, 0
   br i1 %607, label %608, label %624
 
-608:                                              ; preds = %.thread402
+608:                                              ; preds = %.thread401
   %609 = load i32, ptr @enable_error_stack, align 4, !tbaa !22
   %610 = icmp sgt i32 %609, 0
   br i1 %610, label %611, label %875
@@ -1240,7 +1240,7 @@ switch.lookup:                                    ; preds = %325
   %fputc358 = call i32 @fputc(i32 10, ptr %623)
   br label %875
 
-624:                                              ; preds = %.thread402, %605
+624:                                              ; preds = %.thread401, %605
   %625 = getelementptr inbounds nuw i8, ptr %2, i64 868
   %626 = load i32, ptr %625, align 4, !tbaa !43
   %627 = icmp sgt i32 %626, 0
@@ -1713,7 +1713,7 @@ switch.lookup:                                    ; preds = %325
   br label %902
 
 902:                                              ; preds = %851, %853, %856, %832, %901
-  %.0216419 = phi i32 [ -1, %901 ], [ 0, %832 ], [ 0, %856 ], [ 0, %853 ], [ 0, %851 ]
+  %.0216418 = phi i32 [ -1, %901 ], [ 0, %832 ], [ 0, %856 ], [ 0, %853 ], [ 0, %851 ]
   %903 = load ptr, ptr %4, align 8, !tbaa !4
   %.not383 = icmp eq ptr %903, null
   br i1 %.not383, label %905, label %904
@@ -1730,7 +1730,7 @@ switch.lookup:                                    ; preds = %325
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0216419
+  ret i32 %.0216418
 }
 
 declare i64 @h5tools_fopen(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1

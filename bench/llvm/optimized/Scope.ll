@@ -521,17 +521,17 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %_ZNK4llvm15SmallPtr
   %45 = zext i32 %44 to i64
   %.idx.i.i5.i = shl nuw nsw i64 %45, 3
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i5.i
-  %.not36.i.i.i = icmp eq i32 %44, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i6.i
+  %.not34.i.i.i = icmp eq i32 %44, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i6.i
 
 .lr.ph.i.i6.i:                                    ; preds = %41, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %48, %.critedge.i.i.i ], [ %42, %41 ]
-  %47 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !106, !noalias !107
+  %.02935.i.i.i = phi ptr [ %48, %.critedge.i.i.i ], [ %42, %41 ]
+  %47 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !106, !noalias !107
   %.not17.i.i.i = icmp eq ptr %47, %1
   br i1 %.not17.i.i.i, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit", label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i6.i
-  %48 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %48, %46
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i6.i, !llvm.loop !110
 

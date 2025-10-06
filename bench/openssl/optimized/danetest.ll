@@ -366,7 +366,7 @@ tlsa_import_rr.exit.thread.i:                     ; preds = %.lr.ph.i, %99, %97,
   br i1 %103, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %138
-  %.01528.i.i = phi i32 [ %142, %138 ], [ 0, %.preheader.i.i ]
+  %.01527.i.i = phi i32 [ %142, %138 ], [ 0, %.preheader.i.i ]
   %104 = call i32 @PEM_read_bio(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %106, label %.critedge.i.i
@@ -442,12 +442,12 @@ tlsa_import_rr.exit.thread.i:                     ; preds = %.lr.ph.i, %99, %97,
   store ptr null, ptr %2, align 8, !tbaa !4
   store ptr null, ptr %1, align 8, !tbaa !4
   store ptr null, ptr %3, align 8, !tbaa !4
-  %142 = add nuw nsw i32 %.01528.i.i, 1
+  %142 = add nuw nsw i32 %.01527.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %142, %100
   br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !28
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.015.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.01528.i.i, %.lr.ph.i.i ]
+  %.015.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.01527.i.i, %.lr.ph.i.i ]
   %143 = icmp eq i32 %.015.lcssa.i.i, %100
   br i1 %143, label %.critedge.thread.i.i, label %144
 

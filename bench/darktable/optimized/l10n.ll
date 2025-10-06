@@ -312,15 +312,15 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   %105 = call noalias ptr @strdup(ptr noundef %104) #10
   %106 = call i32 @json_reader_count_elements(ptr noundef %97) #10
   %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %.lr.ph123.i, label %._crit_edge.i
+  br i1 %107, label %.lr.ph121.i, label %._crit_edge.i
 
-.lr.ph123.i:                                      ; preds = %103
-  %.not105120.i = icmp eq ptr %80, null
+.lr.ph121.i:                                      ; preds = %103
+  %.not105118.i = icmp eq ptr %80, null
   br label %108
 
-108:                                              ; preds = %.loopexit.i, %.lr.ph123.i
-  %.087122.i = phi i32 [ 0, %.lr.ph123.i ], [ %172, %.loopexit.i ]
-  %109 = call i32 @json_reader_read_element(ptr noundef %97, i32 noundef %.087122.i) #10
+108:                                              ; preds = %.loopexit.i, %.lr.ph121.i
+  %.087120.i = phi i32 [ 0, %.lr.ph121.i ], [ %172, %.loopexit.i ]
+  %109 = call i32 @json_reader_read_element(ptr noundef %97, i32 noundef %.087120.i) #10
   %110 = call i32 @json_reader_is_object(ptr noundef %97) #10
   %.not96.i = icmp eq i32 %110, 0
   br i1 %.not96.i, label %173, label %111
@@ -369,11 +369,11 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   br i1 %or.cond.i, label %.preheader.i, label %171
 
 .preheader.i:                                     ; preds = %123
-  br i1 %.not105120.i, label %.loopexit.i, label %.lr.ph.i
+  br i1 %.not105118.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %168
-  %.082121.i = phi ptr [ %170, %168 ], [ %80, %.preheader.i ]
-  %126 = load ptr, ptr %.082121.i, align 8, !tbaa !22
+  %.082119.i = phi ptr [ %170, %168 ], [ %80, %.preheader.i ]
+  %126 = load ptr, ptr %.082119.i, align 8, !tbaa !22
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !17
   %129 = call i32 @g_strcmp0(ptr noundef %128, ptr noundef %.085.i) #10
@@ -444,23 +444,23 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   br label %168
 
 168:                                              ; preds = %160, %130
-  %169 = getelementptr inbounds nuw i8, ptr %.082121.i, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %.082119.i, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !28
   %.not105.i = icmp eq ptr %170, null
   br i1 %.not105.i, label %.loopexit.i, label %.lr.ph.i
 
 171:                                              ; preds = %123, %121, %.thread.i
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, i32 noundef %.087122.i) #10
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, i32 noundef %.087120.i) #10
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %168, %171, %.preheader.i
   call void @json_reader_end_element(ptr noundef %97) #10
-  %172 = add nuw nsw i32 %.087122.i, 1
+  %172 = add nuw nsw i32 %.087120.i, 1
   %exitcond.not.i = icmp eq i32 %172, %106
   br i1 %exitcond.not.i, label %._crit_edge.i, label %108
 
 173:                                              ; preds = %108
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef %81, i32 noundef %.087122.i) #10
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef %81, i32 noundef %.087120.i) #10
   call void @free(ptr noundef %105) #10
   br label %177
 

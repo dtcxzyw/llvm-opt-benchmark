@@ -259,8 +259,8 @@ define hidden noundef zeroext i1 @cbor_heuristic(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
   %12 = call i32 @tvb_reported_length(ptr noundef %0)
-  %.not41 = icmp eq i32 %12, 0
-  br i1 %.not41, label %.loopexit, label %.lr.ph
+  %.not40 = icmp eq i32 %12, 0
+  br i1 %.not40, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 48

@@ -209,8 +209,8 @@ define zeroext i1 @df_func_register(ptr noundef %0) local_unnamed_addr #0 {
 .preheader.i:                                     ; preds = %1
   %9 = getelementptr i8, ptr %2, i64 1
   %10 = load i8, ptr %9, align 1
-  %.not1115.i = icmp eq i8 %10, 0
-  br i1 %.not1115.i, label %select.unfold, label %.lr.ph.i
+  %.not1116.i = icmp eq i8 %10, 0
+  br i1 %.not1116.i, label %select.unfold, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %11 = and i16 %7, 1

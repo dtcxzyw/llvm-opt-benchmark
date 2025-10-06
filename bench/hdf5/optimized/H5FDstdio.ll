@@ -231,7 +231,7 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
   br label %372
 
 81:                                               ; preds = %50
-  %82 = icmp slt i64 %3, 1
+  %82 = icmp slt i64 %3, -1
   br i1 %82, label %83, label %112
 
 83:                                               ; preds = %81
@@ -946,8 +946,9 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr noundef captures(none)
   br label %174
 
 38:                                               ; preds = %6
-  %39 = or i64 %4, %3
-  %or.cond = icmp sgt i64 %39, -1
+  %39 = icmp sgt i64 %3, -2
+  %.not = icmp sgt i64 %4, -1
+  %or.cond = and i1 %39, %.not
   br i1 %or.cond, label %40, label %43
 
 40:                                               ; preds = %38
@@ -1222,13 +1223,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 
 15:                                               ; preds = %9
   %16 = tail call i32 @H5open() #12
-  %.pre91 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre92 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre93 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre94 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %17
 
 17:                                               ; preds = %9, %15
-  %18 = phi i8 [ %12, %9 ], [ %.pre92, %15 ]
-  %19 = phi i8 [ %10, %9 ], [ %.pre91, %15 ]
+  %18 = phi i8 [ %12, %9 ], [ %.pre94, %15 ]
+  %19 = phi i8 [ %10, %9 ], [ %.pre93, %15 ]
   %20 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %21 = trunc nuw i8 %19 to i1
   %22 = trunc nuw i8 %18 to i1
@@ -1237,13 +1238,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 
 24:                                               ; preds = %17
   %25 = tail call i32 @H5open() #12
-  %.pre93 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre94 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre95 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre96 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %26
 
 26:                                               ; preds = %17, %24
-  %27 = phi i8 [ %18, %17 ], [ %.pre94, %24 ]
-  %28 = phi i8 [ %19, %17 ], [ %.pre93, %24 ]
+  %27 = phi i8 [ %18, %17 ], [ %.pre96, %24 ]
+  %28 = phi i8 [ %19, %17 ], [ %.pre95, %24 ]
   %29 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
   %30 = trunc nuw i8 %28 to i1
   %31 = trunc nuw i8 %27 to i1
@@ -1260,11 +1261,12 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
   br label %152
 
 38:                                               ; preds = %6
-  %39 = or i64 %4, %3
-  %or.cond = icmp slt i64 %39, 0
+  %39 = icmp slt i64 %3, -1
+  %.not = icmp slt i64 %4, 0
+  %or.cond.not81 = or i1 %39, %.not
   %40 = add i64 %4, %3
   %41 = icmp slt i64 %40, %3
-  %or.cond70 = or i1 %or.cond, %41
+  %or.cond70 = or i1 %or.cond.not81, %41
   br i1 %or.cond70, label %42, label %71
 
 42:                                               ; preds = %38
@@ -1277,13 +1279,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 
 48:                                               ; preds = %42
   %49 = tail call i32 @H5open() #12
-  %.pre87 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre88 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre89 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre90 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %50
 
 50:                                               ; preds = %42, %48
-  %51 = phi i8 [ %45, %42 ], [ %.pre88, %48 ]
-  %52 = phi i8 [ %43, %42 ], [ %.pre87, %48 ]
+  %51 = phi i8 [ %45, %42 ], [ %.pre90, %48 ]
+  %52 = phi i8 [ %43, %42 ], [ %.pre89, %48 ]
   %53 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %54 = trunc nuw i8 %52 to i1
   %55 = trunc nuw i8 %51 to i1
@@ -1292,13 +1294,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 
 57:                                               ; preds = %50
   %58 = tail call i32 @H5open() #12
-  %.pre89 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre90 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre91 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre92 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %59
 
 59:                                               ; preds = %50, %57
-  %60 = phi i8 [ %51, %50 ], [ %.pre90, %57 ]
-  %61 = phi i8 [ %52, %50 ], [ %.pre89, %57 ]
+  %60 = phi i8 [ %51, %50 ], [ %.pre92, %57 ]
+  %61 = phi i8 [ %52, %50 ], [ %.pre91, %57 ]
   %62 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
   %63 = trunc nuw i8 %61 to i1
   %64 = trunc nuw i8 %60 to i1
@@ -1348,11 +1350,11 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 90:                                               ; preds = %83
   %91 = tail call i32 @H5open() #12
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre80 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre82 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %92
 
 92:                                               ; preds = %83, %90
-  %93 = phi i8 [ %87, %83 ], [ %.pre80, %90 ]
+  %93 = phi i8 [ %87, %83 ], [ %.pre82, %90 ]
   %94 = phi i8 [ %85, %83 ], [ %.pre, %90 ]
   %95 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %96 = trunc nuw i8 %94 to i1
@@ -1362,13 +1364,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 
 99:                                               ; preds = %92
   %100 = tail call i32 @H5open() #12
-  %.pre81 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre82 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre83 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre84 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %101
 
 101:                                              ; preds = %92, %99
-  %102 = phi i8 [ %93, %92 ], [ %.pre82, %99 ]
-  %103 = phi i8 [ %94, %92 ], [ %.pre81, %99 ]
+  %102 = phi i8 [ %93, %92 ], [ %.pre84, %99 ]
+  %103 = phi i8 [ %94, %92 ], [ %.pre83, %99 ]
   %104 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
   %105 = trunc nuw i8 %103 to i1
   %106 = trunc nuw i8 %102 to i1
@@ -1413,13 +1415,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 
 125:                                              ; preds = %.split.us
   %126 = tail call i32 @H5open() #12
-  %.pre83 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre84 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre85 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre86 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %127
 
 127:                                              ; preds = %.split.us, %125
-  %128 = phi i8 [ %122, %.split.us ], [ %.pre84, %125 ]
-  %129 = phi i8 [ %120, %.split.us ], [ %.pre83, %125 ]
+  %128 = phi i8 [ %122, %.split.us ], [ %.pre86, %125 ]
+  %129 = phi i8 [ %120, %.split.us ], [ %.pre85, %125 ]
   %130 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %131 = trunc nuw i8 %129 to i1
   %132 = trunc nuw i8 %128 to i1
@@ -1428,13 +1430,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
 
 134:                                              ; preds = %127
   %135 = tail call i32 @H5open() #12
-  %.pre85 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre86 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre87 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre88 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %136
 
 136:                                              ; preds = %127, %134
-  %137 = phi i8 [ %128, %127 ], [ %.pre86, %134 ]
-  %138 = phi i8 [ %129, %127 ], [ %.pre85, %134 ]
+  %137 = phi i8 [ %128, %127 ], [ %.pre88, %134 ]
+  %138 = phi i8 [ %129, %127 ], [ %.pre87, %134 ]
   %139 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
   %140 = trunc nuw i8 %138 to i1
   %141 = trunc nuw i8 %137 to i1

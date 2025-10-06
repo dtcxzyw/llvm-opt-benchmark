@@ -1848,8 +1848,8 @@ _Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_Type
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %21
   %25 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %.val.i, ptr noundef %24)
-  %.not17 = icmp eq i32 %25, 0
-  br i1 %.not17, label %35, label %_Z6isBoolP7_object.exit.thread
+  %.not16 = icmp eq i32 %25, 0
+  br i1 %.not16, label %35, label %_Z6isBoolP7_object.exit.thread
 
 _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %18, %_Z6isBoolP7_object.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1943,7 +1943,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread, label %6
+  br i1 %or.cond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42, label %6
 
 6:                                                ; preds = %3
   %7 = tail call i32 @PySequence_Check(ptr noundef nonnull %0)
@@ -1958,16 +1958,16 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_
 .preheader:                                       ; preds = %8
   %11 = tail call i64 @PySequence_Size(ptr noundef nonnull %0)
   %12 = icmp sgt i64 %11, 0
-  br i1 %12, label %.lr.ph, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread
+  br i1 %12, label %.lr.ph, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %2, align 8, !tbaa !53
   %15 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.12, ptr noundef %14)
-  br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread
+  br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %.02655 = phi i64 [ %34, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %.preheader ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02655)
+  %.02653 = phi i64 [ %34, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %.preheader ]
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02653)
   %17 = getelementptr i8, ptr %16, i64 8
   %.val36 = load ptr, ptr %17, align 8, !tbaa !23
   %.not.i = icmp eq ptr %.val36, @PyFloat_Type
@@ -1978,8 +1978,8 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_
           to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %.loopexit
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %18
-  %.not51 = icmp eq i32 %19, 0
-  br i1 %.not51, label %20, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  %.not49 = icmp eq i32 %19, 0
+  br i1 %.not49, label %20, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 20:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %21 = load ptr, ptr %17, align 8, !tbaa !23
@@ -1994,7 +1994,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %.lr.ph, 
           to label %25 unwind label %.loopexit
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
-  %sext = shl i64 %.02655, 32
+  %sext = shl i64 %.02653, 32
   %26 = ashr exact i64 %sext, 29
   %27 = getelementptr inbounds i8, ptr %1, i64 %26
   store double %24, ptr %27, align 8, !tbaa !34
@@ -2016,10 +2016,10 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %.lr.ph, 
   unreachable
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %30
-  %34 = add nuw nsw i64 %.02655, 1
+  %34 = add nuw nsw i64 %.02653, 1
   %35 = tail call i64 @PySequence_Size(ptr noundef nonnull %0)
   %36 = icmp slt i64 %34, %35
-  br i1 %36, label %.lr.ph, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread, !llvm.loop !104
+  br i1 %36, label %.lr.ph, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42, !llvm.loop !104
 
 .loopexit:                                        ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %18
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2046,11 +2046,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %30
   %43 = add nsw i64 %42, -1
   store i64 %43, ptr %16, align 8, !tbaa !77
   %.not.i.i.i41 = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i41, label %44, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread
+  br i1 %.not.i.i.i41, label %44, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42
 
 44:                                               ; preds = %41
   invoke void @_Py_Dealloc(ptr noundef nonnull %16)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread unwind label %45
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42 unwind label %45
 
 45:                                               ; preds = %44
   %46 = landingpad { ptr, i32 }
@@ -2067,8 +2067,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %30
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44: ; preds = %48
   %50 = tail call i32 @PyType_IsSubtype(ptr noundef %.val35, ptr noundef nonnull @PyFloat_Type)
-  %.not52 = icmp eq i32 %50, 0
-  br i1 %.not52, label %51, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread
+  %.not50 = icmp eq i32 %50, 0
+  br i1 %.not50, label %51, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread
 
 51:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
   %52 = load ptr, ptr %49, align 8, !tbaa !23
@@ -2083,14 +2083,14 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %48, %5
   store double %55, ptr %1, align 8, !tbaa !34
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
-  br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread
+  br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42
 
 57:                                               ; preds = %51
   %58 = load ptr, ptr %2, align 8, !tbaa !53
   %59 = tail call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.13, ptr noundef %58)
-  br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread
+  br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread: ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %.preheader, %44, %41, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, %3, %57, %13
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42:        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %.preheader, %44, %41, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, %3, %57, %13
   %.0 = phi i1 [ false, %13 ], [ false, %57 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread ], [ false, %41 ], [ false, %44 ], [ true, %.preheader ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
   ret i1 %.0
 }
@@ -2230,12 +2230,12 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24: ; preds = %33
   %37 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %29, ptr noundef %36)
-  %.not23.i = icmp eq i32 %37, 0
-  %.pre24.i = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
-  br i1 %.not23.i, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
+  %.not22.i = icmp eq i32 %37, 0
+  %.pre23.i = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
+  br i1 %.not22.i, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24
-  %39 = getelementptr inbounds nuw i8, ptr %.pre24.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.pre23.i, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !58
   %.val.i25 = load ptr, ptr %12, align 8, !tbaa !23
   %.not.i13.i = icmp eq ptr %.val.i25, %40
@@ -2257,7 +2257,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_Typ
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24, %33
-  %44 = phi ptr [ %.pre.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i ], [ %34, %33 ], [ %.pre24.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24 ]
+  %44 = phi ptr [ %.pre.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i ], [ %34, %33 ], [ %.pre23.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 360
   %46 = load ptr, ptr %45, align 8, !tbaa !58
   %47 = tail call noundef ptr %46(i32 noundef 8)
@@ -2823,12 +2823,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarId
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
   %7 = tail call i32 @PyType_IsSubtype(ptr noundef %.val11, ptr noundef %5)
-  %.not18 = icmp eq i32 %7, 0
-  %.pre20 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
-  br i1 %.not18, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  %.not17 = icmp eq i32 %7, 0
+  %.pre19 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
+  br i1 %.not17, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.pre20, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.pre19, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !58
   %.val = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i13 = icmp eq ptr %.val, %10
@@ -2850,7 +2850,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_Typ
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre20, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre19, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 360
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = tail call noundef ptr %16(i32 noundef 12)
@@ -2861,8 +2861,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call noundef ptr %22(ptr noundef nonnull %0)
   %24 = tail call noundef zeroext i8 %20(ptr noundef %23, ptr noundef %17)
-  %.not19 = icmp eq i8 %24, 0
-  br i1 %.not19, label %.thread, label %25
+  %.not18 = icmp eq i8 %24, 0
+  br i1 %.not18, label %.thread, label %25
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
@@ -3044,12 +3044,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIf
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
   %7 = tail call i32 @PyType_IsSubtype(ptr noundef %.val11, ptr noundef %5)
-  %.not18 = icmp eq i32 %7, 0
-  %.pre20 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
-  br i1 %.not18, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  %.not17 = icmp eq i32 %7, 0
+  %.pre19 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
+  br i1 %.not17, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.pre20, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.pre19, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !58
   %.val = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i13 = icmp eq ptr %.val, %10
@@ -3071,7 +3071,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_Typ
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre20, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+  %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre19, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 360
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = tail call noundef ptr %16(i32 noundef 11)
@@ -3082,8 +3082,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call noundef ptr %22(ptr noundef nonnull %0)
   %24 = tail call noundef zeroext i8 %20(ptr noundef %23, ptr noundef %17)
-  %.not19 = icmp eq i8 %24, 0
-  br i1 %.not19, label %.thread, label %25
+  %.not18 = icmp eq i8 %24, 0
+  br i1 %.not18, label %.thread, label %25
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56

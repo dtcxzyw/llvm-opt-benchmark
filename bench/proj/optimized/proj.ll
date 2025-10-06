@@ -1784,7 +1784,7 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
   br i1 %.not40.i, label %._crit_edge.i, label %_ZL7processP8_IO_FILE.exit
 
 ._crit_edge.i:                                    ; preds = %698
-  %.pre49.i = load double, ptr %6, align 8, !tbaa !14
+  %.pre47.i = load double, ptr %6, align 8, !tbaa !14
   br label %750
 
 700:                                              ; preds = %695
@@ -1907,7 +1907,7 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
   br label %750
 
 750:                                              ; preds = %743, %740, %._crit_edge.i
-  %751 = phi double [ %.pre49.i, %._crit_edge.i ], [ %733, %740 ], [ %733, %743 ]
+  %751 = phi double [ %.pre47.i, %._crit_edge.i ], [ %733, %740 ], [ %733, %743 ]
   %752 = fcmp une double %751, 0x7FF0000000000000
   br i1 %752, label %753, label %.thread.i
 
@@ -1995,8 +1995,8 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
   br i1 %.b.i335, label %781, label %784
 
 .thread.i:                                        ; preds = %750
-  %.b57.i = load i1, ptr @_ZL7bin_out, align 4
-  br i1 %.b57.i, label %781, label %.thread59.i
+  %.b55.i = load i1, ptr @_ZL7bin_out, align 4
+  br i1 %.b55.i, label %781, label %.thread57.i
 
 781:                                              ; preds = %.thread.i, %777
   %782 = load ptr, ptr @stdout, align 8, !tbaa !12
@@ -2005,10 +2005,10 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
 
 784:                                              ; preds = %777
   %785 = fcmp oeq double %779, 0x7FF0000000000000
-  br i1 %785, label %.thread59.i, label %787
+  br i1 %785, label %.thread57.i, label %787
 
-.thread59.i:                                      ; preds = %784, %.thread.i
-  %.05862.i = phi i1 [ %780, %784 ], [ true, %.thread.i ]
+.thread57.i:                                      ; preds = %784, %.thread.i
+  %.05660.i = phi i1 [ %780, %784 ], [ true, %.thread.i ]
   %786 = load ptr, ptr @_ZL5oterr, align 8, !tbaa !4
   br label %.noexc355.sink.split
 
@@ -2094,20 +2094,20 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
   invoke void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %821, ptr noundef %822, double noundef %818)
           to label %.noexc355 unwind label %.loopexit.split-lp.loopexit
 
-.noexc355.sink.split:                             ; preds = %.noexc350.invoke, %.thread59.i
-  %.sink = phi ptr [ %786, %.thread59.i ], [ %802, %.noexc350.invoke ]
-  %.05861.i.ph = phi i1 [ %.05862.i, %.thread59.i ], [ %780, %.noexc350.invoke ]
+.noexc355.sink.split:                             ; preds = %.noexc350.invoke, %.thread57.i
+  %.sink = phi ptr [ %786, %.thread57.i ], [ %802, %.noexc350.invoke ]
+  %.05659.i.ph = phi i1 [ %.05660.i, %.thread57.i ], [ %780, %.noexc350.invoke ]
   %823 = load ptr, ptr @stdout, align 8, !tbaa !12
   %824 = call i32 @fputs(ptr noundef %.sink, ptr noundef %823)
   br label %.noexc355
 
 .noexc355:                                        ; preds = %.noexc355.sink.split, %.noexc356.invoke
-  %.05861.i = phi i1 [ %780, %.noexc356.invoke ], [ %.05861.i.ph, %.noexc355.sink.split ]
+  %.05659.i = phi i1 [ %780, %.noexc356.invoke ], [ %.05659.i.ph, %.noexc355.sink.split ]
   %.b31.i = load i1, ptr @_ZL9dofactors, align 4
   br i1 %.b31.i, label %825, label %838
 
 825:                                              ; preds = %.noexc355
-  br i1 %.05861.i, label %826, label %835
+  br i1 %.05659.i, label %826, label %835
 
 826:                                              ; preds = %825
   %827 = load double, ptr @_ZL4facs, align 8, !tbaa !95

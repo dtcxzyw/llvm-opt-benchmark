@@ -224,8 +224,8 @@ define internal fastcc range(i32 -1, 1) i32 @launch_specified_editor(ptr noundef
 
 sub_0:                                            ; preds = %4
   %9 = load i8, ptr %0, align 1
-  %.not41 = icmp eq i8 %9, 58
-  br i1 %.not41, label %.tail, label %.tail.thread
+  %.not40 = icmp eq i8 %9, 58
+  br i1 %.not40, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -244,8 +244,8 @@ sub_0:                                            ; preds = %4
 
 14:                                               ; preds = %.tail.thread
   %15 = tail call i32 @isatty(i32 noundef 2) #10
-  %.not40 = icmp eq i32 %15, 0
-  br i1 %.not40, label %.thread, label %16
+  %.not39 = icmp eq i32 %15, 0
+  br i1 %.not39, label %.thread, label %16
 
 16:                                               ; preds = %14
   %17 = tail call ptr @getenv(ptr noundef nonnull @.str) #10

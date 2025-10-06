@@ -458,17 +458,17 @@ mbedtls_hmac_drbg_reseed.exit:                    ; preds = %41
 
 49:                                               ; preds = %.thread, %47, %44
   %.04876 = phi i64 [ 0, %.thread ], [ %4, %47 ], [ %4, %44 ]
-  %.not6483 = icmp eq i64 %2, 0
-  br i1 %.not6483, label %._crit_edge, label %.lr.ph
+  %.not6482 = icmp eq i64 %2, 0
+  br i1 %.not6482, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %51
 
 51:                                               ; preds = %.lr.ph, %58
-  %.04585 = phi ptr [ %1, %.lr.ph ], [ %59, %58 ]
-  %.04684 = phi i64 [ %2, %.lr.ph ], [ %60, %58 ]
-  %52 = call i64 @llvm.umin.i64(i64 %.04684, i64 %9)
+  %.04584 = phi ptr [ %1, %.lr.ph ], [ %59, %58 ]
+  %.04683 = phi i64 [ %2, %.lr.ph ], [ %60, %58 ]
+  %52 = call i64 @llvm.umin.i64(i64 %.04683, i64 %9)
   %53 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
   %.not66 = icmp eq i32 %53, 0
   br i1 %.not66, label %54, label %.thread77
@@ -484,9 +484,9 @@ mbedtls_hmac_drbg_reseed.exit:                    ; preds = %41
   br i1 %.not68, label %58, label %.thread77
 
 58:                                               ; preds = %56
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04585, ptr nonnull align 8 %50, i64 %52, i1 false)
-  %59 = getelementptr inbounds nuw i8, ptr %.04585, i64 %52
-  %60 = sub i64 %.04684, %52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04584, ptr nonnull align 8 %50, i64 %52, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %.04584, i64 %52
+  %60 = sub i64 %.04683, %52
   %.not64 = icmp eq i64 %60, 0
   br i1 %.not64, label %._crit_edge, label %51
 

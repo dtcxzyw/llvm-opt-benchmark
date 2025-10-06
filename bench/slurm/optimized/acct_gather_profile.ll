@@ -279,11 +279,11 @@ define dso_local void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
 9:                                                ; preds = %5
   %10 = tail call i32 @get_log_level() #15
   %11 = icmp sgt i32 %10, 5
-  br i1 %11, label %12, label %56
+  br i1 %11, label %12, label %57
 
 12:                                               ; preds = %9
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.36) #15
-  br label %56
+  br label %57
 
 13:                                               ; preds = %4
   store i1 false, ptr @acct_gather_profile_running, align 1
@@ -297,8 +297,8 @@ define dso_local void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
-.preheader:                                       ; preds = %13, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %13 ]
+.preheader:                                       ; preds = %13, %36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %13 ]
   %17 = getelementptr inbounds nuw %struct.acct_gather_profile_timer_t, ptr @acct_gather_profile_timer, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #15
@@ -336,73 +336,73 @@ define dso_local void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
 
 32:                                               ; preds = %28
   store i32 0, ptr %17, align 8
-  %switch = icmp eq i64 %indvars.iv, 1
-  br i1 %switch, label %33, label %35
+  %33 = icmp eq i64 %indvars.iv, 1
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %32
-  %34 = tail call i32 @jobacct_gather_endpoll() #15
-  br label %35
+34:                                               ; preds = %32
+  %35 = tail call i32 @jobacct_gather_endpoll() #15
+  br label %36
 
-35:                                               ; preds = %32, %33
+36:                                               ; preds = %32, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %37, label %.preheader, !llvm.loop !8
 
-36:                                               ; preds = %35
-  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @timer_thread_mutex) #15
-  %.not42 = icmp eq i32 %37, 0
-  br i1 %.not42, label %40, label %38
+37:                                               ; preds = %36
+  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @timer_thread_mutex) #15
+  %.not42 = icmp eq i32 %38, 0
+  br i1 %.not42, label %41, label %39
 
-38:                                               ; preds = %36
-  %39 = tail call ptr @__errno_location() #16
-  store i32 %37, ptr %39, align 4
+39:                                               ; preds = %37
+  %40 = tail call ptr @__errno_location() #16
+  store i32 %38, ptr %40, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
-40:                                               ; preds = %36
-  %41 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @timer_thread_cond) #15
-  %.not43 = icmp eq i32 %41, 0
-  br i1 %.not43, label %45, label %42
+41:                                               ; preds = %37
+  %42 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @timer_thread_cond) #15
+  %.not43 = icmp eq i32 %42, 0
+  br i1 %.not43, label %46, label %43
 
-42:                                               ; preds = %40
-  %43 = tail call ptr @__errno_location() #16
-  store i32 %41, ptr %43, align 4
-  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 571, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #15
-  br label %45
+43:                                               ; preds = %41
+  %44 = tail call ptr @__errno_location() #16
+  store i32 %42, ptr %44, align 4
+  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 571, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #15
+  br label %46
 
-45:                                               ; preds = %42, %40
-  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @timer_thread_mutex) #15
-  %.not44 = icmp eq i32 %46, 0
-  br i1 %.not44, label %49, label %47
+46:                                               ; preds = %43, %41
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @timer_thread_mutex) #15
+  %.not44 = icmp eq i32 %47, 0
+  br i1 %.not44, label %50, label %48
 
-47:                                               ; preds = %45
-  %48 = tail call ptr @__errno_location() #16
-  store i32 %46, ptr %48, align 4
+48:                                               ; preds = %46
+  %49 = tail call ptr @__errno_location() #16
+  store i32 %47, ptr %49, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
-49:                                               ; preds = %45
-  %50 = load i64, ptr @timer_thread_id, align 8
-  %.not45 = icmp eq i64 %50, 0
-  br i1 %.not45, label %.thread, label %51
+50:                                               ; preds = %46
+  %51 = load i64, ptr @timer_thread_id, align 8
+  %.not45 = icmp eq i64 %51, 0
+  br i1 %.not45, label %.thread, label %52
 
-51:                                               ; preds = %49
-  %52 = tail call i32 @pthread_join(i64 noundef %50, ptr noundef null) #15
+52:                                               ; preds = %50
+  %53 = tail call i32 @pthread_join(i64 noundef %51, ptr noundef null) #15
   store i64 0, ptr @timer_thread_id, align 8
-  %.not46 = icmp eq i32 %52, 0
-  br i1 %.not46, label %.thread, label %53
+  %.not46 = icmp eq i32 %53, 0
+  br i1 %.not46, label %.thread, label %54
 
-53:                                               ; preds = %51
-  %54 = tail call ptr @__errno_location() #16
-  store i32 %52, ptr %54, align 4
-  %55 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #15
+54:                                               ; preds = %52
+  %55 = tail call ptr @__errno_location() #16
+  store i32 %53, ptr %55, align 4
+  %56 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #15
   br label %.thread
 
-.thread:                                          ; preds = %49, %53, %51
+.thread:                                          ; preds = %50, %54, %52
   store i64 0, ptr @timer_thread_id, align 8
-  br label %56
+  br label %57
 
-56:                                               ; preds = %9, %12, %.thread
+57:                                               ; preds = %9, %12, %.thread
   ret void
 }
 

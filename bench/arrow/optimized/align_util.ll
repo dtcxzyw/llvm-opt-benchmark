@@ -436,19 +436,19 @@ define noundef zeroext i1 @_ZN5arrow4util14CheckAlignmentERKNS_9ArrayDataEl(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %4, align 8, !tbaa !46
   %9 = load ptr, ptr %7, align 8, !tbaa !49
-  %.not52.not.i = icmp eq ptr %8, %9
-  br i1 %.not52.not.i, label %.loopexit, label %.lr.ph54.i
+  %.not48.not.i = icmp eq ptr %8, %9
+  br i1 %.not48.not.i, label %.loopexit, label %.lr.ph50.i
 
-.lr.ph54.i:                                       ; preds = %5, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i
+.lr.ph50.i:                                       ; preds = %5, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i
   %10 = phi ptr [ %25, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i ], [ %9, %5 ]
-  %.02553.i = phi i64 [ %26, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %10, i64 %.02553.i
+  %.02549.i = phi i64 [ %26, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i ], [ 0, %5 ]
+  %11 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %10, i64 %.02549.i
   %12 = load ptr, ptr %11, align 8, !tbaa !50
-  %.not46.i = icmp eq ptr %12, null
-  br i1 %.not46.i, label %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, label %13
+  %.not42.i = icmp eq ptr %12, null
+  br i1 %.not42.i, label %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, label %13
 
-13:                                               ; preds = %.lr.ph54.i
-  %14 = trunc i64 %.02553.i to i32
+13:                                               ; preds = %.lr.ph50.i
+  %14 = trunc i64 %.02549.i to i32
   %15 = tail call noundef i32 @_ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi(i32 noundef %6, i32 noundef %14)
   %16 = icmp slt i32 %15, 1
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !49
@@ -456,7 +456,7 @@ define noundef zeroext i1 @_ZN5arrow4util14CheckAlignmentERKNS_9ArrayDataEl(ptr 
 
 _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i: ; preds = %13
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %.pre.i, i64 %.02553.i
+  %18 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %.pre.i, i64 %.02549.i
   %19 = load ptr, ptr %18, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !32
@@ -465,33 +465,33 @@ _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i: ; preds = %13
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, label %_ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit
 
-_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i: ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i, %13, %.lr.ph54.i
-  %25 = phi ptr [ %.pre.i, %13 ], [ %10, %.lr.ph54.i ], [ %.pre.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ]
-  %26 = add nuw i64 %.02553.i, 1
+_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i: ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i, %13, %.lr.ph50.i
+  %25 = phi ptr [ %.pre.i, %13 ], [ %10, %.lr.ph50.i ], [ %.pre.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ]
+  %26 = add nuw i64 %.02549.i, 1
   %27 = load ptr, ptr %4, align 8, !tbaa !46
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %25 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 4
   %.not.i = icmp ult i64 %26, %31
-  br i1 %.not.i, label %.lr.ph54.i, label %.loopexit, !llvm.loop !51
+  br i1 %.not.i, label %.lr.ph50.i, label %.loopexit, !llvm.loop !51
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !53
   %35 = load ptr, ptr %4, align 8, !tbaa !53
-  %.not4549.i = icmp eq ptr %34, %35
+  %.not4145.i = icmp eq ptr %34, %35
   %36 = icmp slt i64 %1, 1
-  %or.cond.i = or i1 %36, %.not4549.i
+  %or.cond.i = or i1 %36, %.not4145.i
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %32, %.critedge.i
-  %.sroa.035.050.i = phi ptr [ %44, %.critedge.i ], [ %34, %32 ]
-  %37 = load ptr, ptr %.sroa.035.050.i, align 8, !tbaa !50
+  %.sroa.034.046.i = phi ptr [ %44, %.critedge.i ], [ %34, %32 ]
+  %37 = load ptr, ptr %.sroa.034.046.i, align 8, !tbaa !50
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.critedge.i, label %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit34.i
+  br i1 %38, label %.critedge.i, label %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i
 
-_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit34.i: ; preds = %.lr.ph.split.i
+_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i: ; preds = %.lr.ph.split.i
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !32
   %41 = ptrtoint ptr %40 to i64
@@ -499,10 +499,10 @@ _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit34.i: ; preds = %.lr.ph.split.
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %.critedge.i, label %_ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit
 
-.critedge.i:                                      ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit34.i, %.lr.ph.split.i
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.035.050.i, i64 16
-  %.not45.i = icmp eq ptr %44, %35
-  br i1 %.not45.i, label %.loopexit, label %.lr.ph.split.i
+.critedge.i:                                      ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i, %.lr.ph.split.i
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.034.046.i, i64 16
+  %.not41.i = icmp eq ptr %44, %35
+  br i1 %.not41.i, label %.loopexit, label %.lr.ph.split.i
 
 .loopexit:                                        ; preds = %.critedge.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, %5, %32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -537,8 +537,8 @@ _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit34.i: ; preds = %.lr.ph.split.
   %.not19 = icmp eq ptr %57, %53
   br i1 %.not19, label %_ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit, label %.lr.ph
 
-_ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit: ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit34.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i, %55, %.critedge, %49, %47
-  %.0 = phi i1 [ false, %47 ], [ true, %49 ], [ false, %55 ], [ true, %.critedge ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit34.i ]
+_ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit: ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i, %55, %.critedge, %49, %47
+  %.0 = phi i1 [ false, %47 ], [ true, %49 ], [ false, %55 ], [ true, %.critedge ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i ]
   ret i1 %.0
 }
 

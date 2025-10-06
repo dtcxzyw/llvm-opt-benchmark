@@ -40,8 +40,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @_bt_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @_bt_getroot(ptr noundef %0, ptr noundef %1, i32 noundef %4) #6
   store i32 %6, ptr %3, align 4
-  %.not77 = icmp eq i32 %6, 0
-  br i1 %.not77, label %97, label %.preheader
+  %.not76 = icmp eq i32 %6, 0
+  br i1 %.not76, label %97, label %.preheader
 
 .preheader:                                       ; preds = %5
   %7 = icmp eq i32 %4, 2
@@ -2845,9 +2845,9 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %57 = icmp eq i32 %56, 0
   %58 = select i1 %57, i16 1, i16 2
   %59 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val221 = load i16, ptr %59, align 4
-  %60 = icmp ult i16 %.val221, 25
-  %61 = zext i16 %.val221 to i32
+  %.val220 = load i16, ptr %59, align 4
+  %60 = icmp ult i16 %.val220, 25
+  %61 = zext i16 %.val220 to i32
   %62 = add nuw nsw i32 %61, 262120
   %63 = lshr i32 %62, 2
   %64 = trunc i32 %63 to i16
@@ -2889,8 +2889,8 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %82 = zext i16 %.v to i64
   %83 = getelementptr i8, ptr %.0.i.i, i64 20
   %84 = getelementptr %struct.ItemIdData, ptr %83, i64 %82
-  %.val217 = load i32, ptr %84, align 4
-  %85 = and i32 %.val217, 32767
+  %.val216 = load i32, ptr %84, align 4
+  %85 = and i32 %.val216, 32767
   %86 = zext nneg i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %86
   %88 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %87, i32 noundef %52) #6
@@ -2913,8 +2913,8 @@ BufferGetPage.exit:                               ; preds = %13, %19
 
 96:                                               ; preds = %93
   %97 = getelementptr i8, ptr %.0.i.i, i64 24
-  %.val216 = load i32, ptr %97, align 4
-  %98 = and i32 %.val216, 32767
+  %.val215 = load i32, ptr %97, align 4
+  %98 = and i32 %.val215, 32767
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %99
   store ptr %100, ptr %66, align 8
@@ -2932,271 +2932,269 @@ BufferGetPage.exit:                               ; preds = %13, %19
   store i8 0, ptr %106, align 1
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 1, ptr %107, align 4
-  br label %367
+  br label %363
 
 108:                                              ; preds = %104, %96, %93, %92
   %109 = call i16 @llvm.umax.i16(i16 %2, i16 %58)
+  %.not203280 = icmp ugt i16 %109, %.0.i
+  br i1 %.not203280, label %.thread, label %.lr.ph284
+
+.lr.ph284:                                        ; preds = %108
   %110 = getelementptr i8, ptr %.0.i.i, i64 20
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  br label %.outer
+  br label %114
 
-.outer:                                           ; preds = %.loopexit, %108
-  %.0187.ph = phi i32 [ %.3190, %.loopexit ], [ 0, %108 ]
-  %.0184.ph = phi i16 [ %spec.select210, %.loopexit ], [ %109, %108 ]
-  %.not203315 = icmp ugt i16 %.0184.ph, %.0.i
-  br i1 %.not203315, label %.loopexit278, label %.lr.ph317
+114:                                              ; preds = %.lr.ph284, %select.unfold
+  %.0184282 = phi i16 [ %109, %.lr.ph284 ], [ %.1185, %select.unfold ]
+  %.0187281 = phi i32 [ 0, %.lr.ph284 ], [ %.2189, %select.unfold ]
+  %115 = zext i16 %.0184282 to i64
+  %116 = getelementptr %struct.ItemIdData, ptr %110, i64 %115
+  %117 = load i8, ptr %111, align 1, !range !5, !noundef !6
+  %118 = trunc nuw i8 %117 to i1
+  %.val214.pre = load i32, ptr %116, align 4
+  %119 = and i32 %.val214.pre, 98304
+  %120 = icmp eq i32 %119, 98304
+  %or.cond309 = select i1 %118, i1 %120, i1 false
+  br i1 %or.cond309, label %121, label %123
 
-.lr.ph317:                                        ; preds = %.outer, %.backedge
-  %.0184316 = phi i16 [ %.0184.be, %.backedge ], [ %.0184.ph, %.outer ]
-  %114 = zext i16 %.0184316 to i64
-  %115 = getelementptr %struct.ItemIdData, ptr %110, i64 %114
-  %116 = load i8, ptr %111, align 1, !range !5, !noundef !6
-  %117 = trunc nuw i8 %116 to i1
-  %.val215.pre = load i32, ptr %115, align 4
-  %118 = and i32 %.val215.pre, 98304
-  %119 = icmp eq i32 %118, 98304
-  %or.cond294 = select i1 %117, i1 %119, i1 false
-  br i1 %or.cond294, label %120, label %122
+121:                                              ; preds = %114
+  %122 = add i16 %.0184282, 1
+  br label %select.unfold, !llvm.loop !18
 
-120:                                              ; preds = %.lr.ph317
-  %121 = add i16 %.0184316, 1
-  br label %.backedge
+123:                                              ; preds = %114
+  %124 = and i32 %.val214.pre, 32767
+  %125 = zext nneg i32 %124 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %125
+  store i16 %.0184282, ptr %68, align 8
+  %127 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %126, i32 noundef %52) #6
+  br i1 %55, label %128, label %133
 
-.backedge:                                        ; preds = %120, %131
-  %.0184.be = phi i16 [ %121, %120 ], [ %128, %131 ]
-  %.not203 = icmp ugt i16 %.0184.be, %.0.i
-  br i1 %.not203, label %.loopexit278, label %.lr.ph317
+128:                                              ; preds = %123
+  %129 = load i16, ptr %69, align 2
+  %130 = add i16 %129, -1
+  %131 = icmp ult i16 %130, 2048
+  br i1 %131, label %132, label %133
 
-122:                                              ; preds = %.lr.ph317
-  %123 = and i32 %.val215.pre, 32767
-  %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %124
-  store i16 %.0184316, ptr %68, align 8
-  %126 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %125, i32 noundef %52) #6
-  br i1 %55, label %127, label %132
-
-127:                                              ; preds = %122
-  %128 = load i16, ptr %69, align 2
-  %129 = add i16 %128, -1
-  %130 = icmp ult i16 %129, 2048
-  br i1 %130, label %131, label %132
-
-131:                                              ; preds = %127
+132:                                              ; preds = %128
   store i16 0, ptr %69, align 2
-  br label %.backedge
+  br label %select.unfold, !llvm.loop !18
 
-132:                                              ; preds = %127, %122
-  br i1 %126, label %133, label %.loopexit
+133:                                              ; preds = %128, %123
+  br i1 %127, label %134, label %.loopexit
 
-133:                                              ; preds = %132
+134:                                              ; preds = %133
   store i8 1, ptr %72, align 2
-  %134 = getelementptr inbounds nuw i8, ptr %125, i64 6
-  %135 = load i16, ptr %134, align 2
-  %136 = and i16 %135, 8192
-  %137 = icmp eq i16 %136, 0
-  br i1 %137, label %BTreeTupleIsPosting.exit.thread, label %BTreeTupleIsPosting.exit
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 6
+  %136 = load i16, ptr %135, align 2
+  %137 = and i16 %136, 8192
+  %138 = icmp eq i16 %137, 0
+  br i1 %138, label %BTreeTupleIsPosting.exit.thread, label %BTreeTupleIsPosting.exit
 
-BTreeTupleIsPosting.exit:                         ; preds = %133
-  %138 = getelementptr i8, ptr %125, i64 4
-  %.val.i = load i16, ptr %138, align 2
-  %139 = and i16 %.val.i, 8192
-  %.not256 = icmp eq i16 %139, 0
-  br i1 %.not256, label %BTreeTupleIsPosting.exit.thread, label %158
+BTreeTupleIsPosting.exit:                         ; preds = %134
+  %139 = getelementptr i8, ptr %126, i64 4
+  %.val.i = load i16, ptr %139, align 2
+  %140 = and i16 %.val.i, 8192
+  %.not263 = icmp eq i16 %140, 0
+  br i1 %.not263, label %BTreeTupleIsPosting.exit.thread, label %159
 
-BTreeTupleIsPosting.exit.thread:                  ; preds = %133, %BTreeTupleIsPosting.exit
-  %140 = sext i32 %.0187.ph to i64
-  %141 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %140
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %141, ptr noundef nonnull readonly align 2 dereferenceable(6) %125, i64 6, i1 false)
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 6
-  store i16 %.0184316, ptr %142, align 2
-  %143 = load ptr, ptr %113, align 8
-  %.not.i = icmp eq ptr %143, null
-  br i1 %.not.i, label %_bt_saveitem.exit, label %144
+BTreeTupleIsPosting.exit.thread:                  ; preds = %134, %BTreeTupleIsPosting.exit
+  %141 = sext i32 %.0187281 to i64
+  %142 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %142, ptr noundef nonnull readonly align 2 dereferenceable(6) %126, i64 6, i1 false)
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 6
+  store i16 %.0184282, ptr %143, align 2
+  %144 = load ptr, ptr %113, align 8
+  %.not.i = icmp eq ptr %144, null
+  br i1 %.not.i, label %_bt_saveitem.exit, label %145
 
-144:                                              ; preds = %BTreeTupleIsPosting.exit.thread
-  %.val.i223 = load i16, ptr %134, align 2
-  %145 = and i16 %.val.i223, 8191
-  %146 = zext nneg i16 %145 to i64
-  %147 = load i32, ptr %44, align 4
-  %148 = trunc i32 %147 to i16
-  %149 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store i16 %148, ptr %149, align 2
-  %150 = load ptr, ptr %113, align 8
-  %151 = sext i32 %147 to i64
-  %152 = getelementptr inbounds i8, ptr %150, i64 %151
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %152, ptr nonnull readonly align 2 %125, i64 %146, i1 false)
-  %153 = load i32, ptr %44, align 4
-  %narrow.i = add nuw nsw i16 %145, 7
-  %154 = and i16 %narrow.i, 16376
-  %155 = zext nneg i16 %154 to i32
-  %156 = add i32 %153, %155
-  store i32 %156, ptr %44, align 4
+145:                                              ; preds = %BTreeTupleIsPosting.exit.thread
+  %.val.i222 = load i16, ptr %135, align 2
+  %146 = and i16 %.val.i222, 8191
+  %147 = zext nneg i16 %146 to i64
+  %148 = load i32, ptr %44, align 4
+  %149 = trunc i32 %148 to i16
+  %150 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  store i16 %149, ptr %150, align 2
+  %151 = load ptr, ptr %113, align 8
+  %152 = sext i32 %148 to i64
+  %153 = getelementptr inbounds i8, ptr %151, i64 %152
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %153, ptr nonnull readonly align 2 %126, i64 %147, i1 false)
+  %154 = load i32, ptr %44, align 4
+  %narrow.i = add nuw nsw i16 %146, 7
+  %155 = and i16 %narrow.i, 16376
+  %156 = zext nneg i16 %155 to i32
+  %157 = add i32 %154, %156
+  store i32 %157, ptr %44, align 4
   br label %_bt_saveitem.exit
 
-_bt_saveitem.exit:                                ; preds = %BTreeTupleIsPosting.exit.thread, %144
-  %157 = add i32 %.0187.ph, 1
+_bt_saveitem.exit:                                ; preds = %BTreeTupleIsPosting.exit.thread, %145
+  %158 = add i32 %.0187281, 1
   br label %.loopexit
 
-158:                                              ; preds = %BTreeTupleIsPosting.exit
-  %.val.i.i = load i16, ptr %125, align 2
-  %159 = getelementptr i8, ptr %125, i64 2
-  %.val2.i.i = load i16, ptr %159, align 2
-  %160 = zext i16 %.val.i.i to i64
-  %161 = shl nuw nsw i64 %160, 16
-  %162 = zext i16 %.val2.i.i to i64
-  %163 = getelementptr inbounds nuw i8, ptr %125, i64 %161
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 %162
-  %165 = sext i32 %.0187.ph to i64
-  %166 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %166, ptr noundef nonnull readonly align 2 dereferenceable(6) %164, i64 6, i1 false)
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 6
-  store i16 %.0184316, ptr %167, align 2
-  %168 = load ptr, ptr %113, align 8
-  %.not.i224 = icmp eq ptr %168, null
-  br i1 %.not.i224, label %_bt_setuppostingitems.exit, label %169
+159:                                              ; preds = %BTreeTupleIsPosting.exit
+  %.val.i.i = load i16, ptr %126, align 2
+  %160 = getelementptr i8, ptr %126, i64 2
+  %.val2.i.i = load i16, ptr %160, align 2
+  %161 = zext i16 %.val.i.i to i64
+  %162 = shl nuw nsw i64 %161, 16
+  %163 = zext i16 %.val2.i.i to i64
+  %164 = getelementptr inbounds nuw i8, ptr %126, i64 %162
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %163
+  %166 = sext i32 %.0187281 to i64
+  %167 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %167, ptr noundef nonnull readonly align 2 dereferenceable(6) %165, i64 6, i1 false)
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 6
+  store i16 %.0184282, ptr %168, align 2
+  %169 = load ptr, ptr %113, align 8
+  %.not.i223 = icmp eq ptr %169, null
+  br i1 %.not.i223, label %_bt_setuppostingitems.exit, label %170
 
-169:                                              ; preds = %158
-  %.val.i225 = load i16, ptr %125, align 2
-  %.val22.i = load i16, ptr %159, align 2
-  %170 = zext i16 %.val.i225 to i64
-  %171 = shl nuw nsw i64 %170, 16
-  %172 = zext i16 %.val22.i to i64
-  %173 = or disjoint i64 %171, %172
-  %174 = add nuw nsw i64 %173, 7
-  %175 = and i64 %174, 8589934584
-  %176 = load i32, ptr %44, align 4
-  %177 = trunc i32 %176 to i16
-  %178 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  store i16 %177, ptr %178, align 2
-  %179 = load ptr, ptr %113, align 8
-  %180 = sext i32 %176 to i64
-  %181 = getelementptr inbounds i8, ptr %179, i64 %180
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %181, ptr nonnull readonly align 2 %125, i64 %175, i1 false)
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 6
-  %183 = load i16, ptr %182, align 2
-  %184 = and i16 %183, -8192
-  %185 = trunc i64 %175 to i16
-  %186 = or i16 %184, %185
-  store i16 %186, ptr %182, align 2
-  %187 = load i32, ptr %44, align 4
-  %188 = trunc i64 %175 to i32
-  %189 = add i32 %187, %188
-  store i32 %189, ptr %44, align 4
-  %190 = load i16, ptr %178, align 2
+170:                                              ; preds = %159
+  %.val.i224 = load i16, ptr %126, align 2
+  %.val22.i = load i16, ptr %160, align 2
+  %171 = zext i16 %.val.i224 to i64
+  %172 = shl nuw nsw i64 %171, 16
+  %173 = zext i16 %.val22.i to i64
+  %174 = or disjoint i64 %172, %173
+  %175 = add nuw nsw i64 %174, 7
+  %176 = and i64 %175, 8589934584
+  %177 = load i32, ptr %44, align 4
+  %178 = trunc i32 %177 to i16
+  %179 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  store i16 %178, ptr %179, align 2
+  %180 = load ptr, ptr %113, align 8
+  %181 = sext i32 %177 to i64
+  %182 = getelementptr inbounds i8, ptr %180, i64 %181
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %182, ptr nonnull readonly align 2 %126, i64 %176, i1 false)
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 6
+  %184 = load i16, ptr %183, align 2
+  %185 = and i16 %184, -8192
+  %186 = trunc i64 %176 to i16
+  %187 = or i16 %185, %186
+  store i16 %187, ptr %183, align 2
+  %188 = load i32, ptr %44, align 4
+  %189 = trunc i64 %176 to i32
+  %190 = add i32 %188, %189
+  store i32 %190, ptr %44, align 4
+  %191 = load i16, ptr %179, align 2
   br label %_bt_setuppostingitems.exit
 
-_bt_setuppostingitems.exit:                       ; preds = %158, %169
-  %.0.i226 = phi i16 [ %190, %169 ], [ 0, %158 ]
-  %.4261 = add i32 %.0187.ph, 1
-  %.val220262 = load i16, ptr %138, align 2
-  %191 = and i16 %.val220262, 4094
-  %.not268 = icmp eq i16 %191, 0
-  br i1 %.not268, label %.loopexit, label %.lr.ph265
+_bt_setuppostingitems.exit:                       ; preds = %159, %170
+  %.0.i225 = phi i16 [ %191, %170 ], [ 0, %159 ]
+  %.4274 = add i32 %.0187281, 1
+  %.val219275 = load i16, ptr %139, align 2
+  %192 = and i16 %.val219275, 4094
+  %.not289 = icmp eq i16 %192, 0
+  br i1 %.not289, label %.loopexit, label %.lr.ph278
 
-.lr.ph265:                                        ; preds = %_bt_setuppostingitems.exit, %_bt_savepostingitem.exit
-  %indvars.iv270 = phi i64 [ %indvars.iv.next271, %_bt_savepostingitem.exit ], [ 1, %_bt_setuppostingitems.exit ]
-  %.4264 = phi i32 [ %.4, %_bt_savepostingitem.exit ], [ %.4261, %_bt_setuppostingitems.exit ]
-  %.val.i.i227 = load i16, ptr %125, align 2
-  %.val2.i.i228 = load i16, ptr %159, align 2
-  %192 = zext i16 %.val.i.i227 to i64
-  %193 = shl nuw nsw i64 %192, 16
-  %194 = zext i16 %.val2.i.i228 to i64
-  %195 = getelementptr inbounds nuw i8, ptr %125, i64 %193
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 %194
-  %197 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %196, i64 %indvars.iv270
-  %198 = sext i32 %.4264 to i64
-  %199 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %198
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %199, ptr noundef nonnull readonly align 2 dereferenceable(6) %197, i64 6, i1 false)
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 6
-  store i16 %.0184316, ptr %200, align 2
-  %201 = load ptr, ptr %113, align 8
-  %.not.i229 = icmp eq ptr %201, null
-  br i1 %.not.i229, label %_bt_savepostingitem.exit, label %202
+.lr.ph278:                                        ; preds = %_bt_setuppostingitems.exit, %_bt_savepostingitem.exit
+  %indvars.iv291 = phi i64 [ %indvars.iv.next292, %_bt_savepostingitem.exit ], [ 1, %_bt_setuppostingitems.exit ]
+  %.4277 = phi i32 [ %.4, %_bt_savepostingitem.exit ], [ %.4274, %_bt_setuppostingitems.exit ]
+  %.val.i.i226 = load i16, ptr %126, align 2
+  %.val2.i.i227 = load i16, ptr %160, align 2
+  %193 = zext i16 %.val.i.i226 to i64
+  %194 = shl nuw nsw i64 %193, 16
+  %195 = zext i16 %.val2.i.i227 to i64
+  %196 = getelementptr inbounds nuw i8, ptr %126, i64 %194
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %195
+  %198 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %197, i64 %indvars.iv291
+  %199 = sext i32 %.4277 to i64
+  %200 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %199
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %200, ptr noundef nonnull readonly align 2 dereferenceable(6) %198, i64 6, i1 false)
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 6
+  store i16 %.0184282, ptr %201, align 2
+  %202 = load ptr, ptr %113, align 8
+  %.not.i228 = icmp eq ptr %202, null
+  br i1 %.not.i228, label %_bt_savepostingitem.exit, label %203
 
-202:                                              ; preds = %.lr.ph265
-  %203 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i16 %.0.i226, ptr %203, align 2
+203:                                              ; preds = %.lr.ph278
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  store i16 %.0.i225, ptr %204, align 2
   br label %_bt_savepostingitem.exit
 
-_bt_savepostingitem.exit:                         ; preds = %.lr.ph265, %202
-  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
-  %.4 = add i32 %.4264, 1
-  %.val220 = load i16, ptr %138, align 2
-  %204 = and i16 %.val220, 4095
-  %205 = zext nneg i16 %204 to i64
-  %206 = icmp samesign ult i64 %indvars.iv.next271, %205
-  br i1 %206, label %.lr.ph265, label %.loopexit, !llvm.loop !18
+_bt_savepostingitem.exit:                         ; preds = %.lr.ph278, %203
+  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
+  %.4 = add i32 %.4277, 1
+  %.val219 = load i16, ptr %139, align 2
+  %205 = and i16 %.val219, 4095
+  %206 = zext nneg i16 %205 to i64
+  %207 = icmp samesign ult i64 %indvars.iv.next292, %206
+  br i1 %207, label %.lr.ph278, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %_bt_savepostingitem.exit, %132, %_bt_saveitem.exit, %_bt_setuppostingitems.exit
-  %.3190 = phi i32 [ %157, %_bt_saveitem.exit ], [ %.0187.ph, %132 ], [ %.4261, %_bt_setuppostingitems.exit ], [ %.4, %_bt_savepostingitem.exit ]
-  %207 = load i8, ptr %70, align 4, !range !5, !noundef !6
-  %208 = trunc nuw i8 %207 to i1
-  %209 = zext nneg i8 %207 to i16
-  %spec.select210 = add i16 %.0184316, %209
-  br i1 %208, label %.outer, label %.loopexit278
+.loopexit:                                        ; preds = %_bt_savepostingitem.exit, %_bt_setuppostingitems.exit, %_bt_saveitem.exit, %133
+  %.3190 = phi i32 [ %158, %_bt_saveitem.exit ], [ %.0187281, %133 ], [ %.4274, %_bt_setuppostingitems.exit ], [ %.4, %_bt_savepostingitem.exit ]
+  %208 = load i8, ptr %70, align 4, !range !5, !noundef !6
+  %209 = trunc nuw i8 %208 to i1
+  %210 = add i16 %.0184282, 1
+  br i1 %209, label %select.unfold, label %.thread.loopexit
 
-.loopexit278:                                     ; preds = %.loopexit, %.outer, %.backedge
-  %.1188 = phi i32 [ %.0187.ph, %.backedge ], [ %.3190, %.loopexit ], [ %.0187.ph, %.outer ]
-  %210 = load i8, ptr %70, align 4, !range !5, !noundef !6
-  %211 = trunc nuw i8 %210 to i1
-  br i1 %211, label %212, label %.thread277
+select.unfold:                                    ; preds = %.loopexit, %132, %121
+  %.2189 = phi i32 [ %.0187281, %121 ], [ %.0187281, %132 ], [ %.3190, %.loopexit ]
+  %.1185 = phi i16 [ %122, %121 ], [ %129, %132 ], [ %210, %.loopexit ]
+  %.not203 = icmp ugt i16 %.1185, %.0.i
+  br i1 %.not203, label %.thread.loopexit, label %114
 
-212:                                              ; preds = %.loopexit278
-  %213 = load i32, ptr %33, align 4
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %.thread, label %215
-
-215:                                              ; preds = %212
-  %216 = getelementptr i8, ptr %.0.i.i, i64 24
-  %.val214 = load i32, ptr %216, align 4
-  %217 = and i32 %.val214, 32767
-  %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %218
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 6
-  %221 = load i16, ptr %220, align 2
-  %222 = and i16 %221, 8192
-  %223 = icmp eq i16 %222, 0
-  br i1 %223, label %BTreeTupleIsPivot.exit.thread, label %BTreeTupleIsPivot.exit
-
-BTreeTupleIsPivot.exit:                           ; preds = %215
-  %224 = getelementptr i8, ptr %219, i64 4
-  %.val.i230 = load i16, ptr %224, align 2
-  %225 = and i16 %.val.i230, 8192
-  %.not.i231 = icmp eq i16 %225, 0
-  br i1 %.not.i231, label %226, label %BTreeTupleIsPivot.exit.thread
-
-226:                                              ; preds = %BTreeTupleIsPivot.exit
-  %227 = and i16 %.val.i230, 4095
-  %228 = zext nneg i16 %227 to i32
-  br label %233
-
-BTreeTupleIsPivot.exit.thread:                    ; preds = %215, %BTreeTupleIsPivot.exit
-  %229 = load ptr, ptr %48, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  %231 = load i16, ptr %230, align 4
-  %232 = sext i16 %231 to i32
-  br label %233
-
-233:                                              ; preds = %226, %BTreeTupleIsPivot.exit.thread
-  %234 = phi i32 [ %228, %226 ], [ %232, %BTreeTupleIsPivot.exit.thread ]
-  store i8 0, ptr %71, align 1
-  %235 = call zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef nonnull %219, i32 noundef %234) #6
-  %.pre = load i8, ptr %70, align 4, !range !5
-  %236 = trunc nuw i8 %.pre to i1
-  br i1 %236, label %.thread, label %.thread277
-
-.thread277:                                       ; preds = %.loopexit278, %233
-  %237 = getelementptr inbounds nuw i8, ptr %9, i64 121
-  store i8 0, ptr %237, align 1
+.thread.loopexit:                                 ; preds = %.loopexit, %select.unfold
+  %.1188.ph = phi i32 [ %.2189, %select.unfold ], [ %.3190, %.loopexit ]
+  %211 = add i32 %.1188.ph, -1
   br label %.thread
 
-.thread:                                          ; preds = %212, %.thread277, %233
-  %238 = getelementptr inbounds nuw i8, ptr %9, i64 124
-  store i32 0, ptr %238, align 4
-  %239 = add i32 %.1188, -1
-  br label %362
+.thread:                                          ; preds = %.thread.loopexit, %108
+  %.1188 = phi i32 [ -1, %108 ], [ %211, %.thread.loopexit ]
+  %212 = load i8, ptr %70, align 4, !range !5, !noundef !6
+  %213 = trunc nuw i8 %212 to i1
+  br i1 %213, label %214, label %.thread302
+
+214:                                              ; preds = %.thread
+  %215 = load i32, ptr %33, align 4
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %.thread301, label %217
+
+217:                                              ; preds = %214
+  %218 = getelementptr i8, ptr %.0.i.i, i64 24
+  %.val213 = load i32, ptr %218, align 4
+  %219 = and i32 %.val213, 32767
+  %220 = zext nneg i32 %219 to i64
+  %221 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %220
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 6
+  %223 = load i16, ptr %222, align 2
+  %224 = and i16 %223, 8192
+  %225 = icmp eq i16 %224, 0
+  br i1 %225, label %BTreeTupleIsPivot.exit.thread, label %BTreeTupleIsPivot.exit
+
+BTreeTupleIsPivot.exit:                           ; preds = %217
+  %226 = getelementptr i8, ptr %221, i64 4
+  %.val.i229 = load i16, ptr %226, align 2
+  %227 = and i16 %.val.i229, 8192
+  %.not.i230 = icmp eq i16 %227, 0
+  br i1 %.not.i230, label %228, label %BTreeTupleIsPivot.exit.thread
+
+228:                                              ; preds = %BTreeTupleIsPivot.exit
+  %229 = and i16 %.val.i229, 4095
+  %230 = zext nneg i16 %229 to i32
+  br label %235
+
+BTreeTupleIsPivot.exit.thread:                    ; preds = %217, %BTreeTupleIsPivot.exit
+  %231 = load ptr, ptr %48, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %233 = load i16, ptr %232, align 4
+  %234 = sext i16 %233 to i32
+  br label %235
+
+235:                                              ; preds = %228, %BTreeTupleIsPivot.exit.thread
+  %236 = phi i32 [ %230, %228 ], [ %234, %BTreeTupleIsPivot.exit.thread ]
+  store i8 0, ptr %71, align 1
+  %237 = call zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef nonnull %221, i32 noundef %236) #6
+  %.pre294 = load i8, ptr %70, align 4, !range !5
+  %238 = trunc nuw i8 %.pre294 to i1
+  br i1 %238, label %.thread301, label %.thread302
+
+.thread302:                                       ; preds = %.thread, %235
+  %239 = getelementptr inbounds nuw i8, ptr %9, i64 121
+  store i8 0, ptr %239, align 1
+  br label %.thread301
 
 240:                                              ; preds = %90
   %.not201 = icmp ule i16 %58, %.0.i
@@ -3212,8 +3210,8 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %215, %BTreeTupleIsP
   %245 = zext nneg i16 %58 to i64
   %246 = getelementptr i8, ptr %.0.i.i, i64 20
   %247 = getelementptr %struct.ItemIdData, ptr %246, i64 %245
-  %.val213 = load i32, ptr %247, align 4
-  %248 = and i32 %.val213, 32767
+  %.val212 = load i32, ptr %247, align 4
+  %248 = and i32 %.val212, 32767
   %249 = zext nneg i32 %248 to i64
   %250 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %249
   store ptr %250, ptr %66, align 8
@@ -3221,237 +3219,233 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %215, %BTreeTupleIsP
 
 251:                                              ; preds = %244, %241, %240
   %252 = call i16 @llvm.umin.i16(i16 %2, i16 %.0.i)
+  %.not202267 = icmp ult i16 %252, %58
+  br i1 %.not202267, label %.thread301, label %.lr.ph271
+
+.lr.ph271:                                        ; preds = %251
   %253 = getelementptr i8, ptr %.0.i.i, i64 20
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %255 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %256 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  br label %.outer281
+  br label %257
 
-.outer281:                                        ; preds = %.loopexit280, %251
-  %.5.ph = phi i32 [ %.8, %.loopexit280 ], [ 1358, %251 ]
-  %.2.ph = phi i16 [ %spec.select212, %.loopexit280 ], [ %252, %251 ]
-  %.not202311 = icmp ult i16 %.2.ph, %58
-  br i1 %.not202311, label %.loopexit282, label %.lr.ph313
+257:                                              ; preds = %.lr.ph271, %select.unfold256
+  %.2269 = phi i16 [ %252, %.lr.ph271 ], [ %.3, %select.unfold256 ]
+  %.5268 = phi i32 [ 1358, %.lr.ph271 ], [ %.7, %select.unfold256 ]
+  %258 = zext i16 %.2269 to i64
+  %259 = getelementptr %struct.ItemIdData, ptr %253, i64 %258
+  %260 = load i8, ptr %254, align 1, !range !5, !noundef !6
+  %261 = trunc nuw i8 %260 to i1
+  %.val.pre = load i32, ptr %259, align 4
+  %262 = and i32 %.val.pre, 98304
+  %263 = icmp eq i32 %262, 98304
+  %or.cond311 = select i1 %261, i1 %263, i1 false
+  %264 = icmp ugt i16 %.2269, %58
+  %or.cond317 = select i1 %or.cond311, i1 %264, i1 false
+  br i1 %or.cond317, label %265, label %267
 
-.lr.ph313:                                        ; preds = %.outer281, %.backedge283
-  %.2312 = phi i16 [ %.2.be, %.backedge283 ], [ %.2.ph, %.outer281 ]
-  %257 = zext i16 %.2312 to i64
-  %258 = getelementptr %struct.ItemIdData, ptr %253, i64 %257
-  %259 = load i8, ptr %254, align 1, !range !5, !noundef !6
-  %260 = trunc nuw i8 %259 to i1
-  %.val.pre = load i32, ptr %258, align 4
-  %261 = and i32 %.val.pre, 98304
-  %262 = icmp eq i32 %261, 98304
-  %or.cond296 = select i1 %260, i1 %262, i1 false
-  %263 = icmp ugt i16 %.2312, %58
-  %or.cond320 = select i1 %or.cond296, i1 %263, i1 false
-  br i1 %or.cond320, label %264, label %266
+265:                                              ; preds = %257
+  %266 = add i16 %.2269, -1
+  br label %select.unfold256, !llvm.loop !20
 
-264:                                              ; preds = %.lr.ph313
-  %265 = add i16 %.2312, -1
-  br label %.backedge283
+267:                                              ; preds = %257
+  %.0186 = xor i1 %or.cond311, true
+  %268 = and i32 %.val.pre, 32767
+  %269 = zext nneg i32 %268 to i64
+  %270 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %269
+  store i16 %.2269, ptr %68, align 8
+  %271 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %270, i32 noundef %52) #6
+  br i1 %55, label %272, label %277
 
-.backedge283:                                     ; preds = %264, %275
-  %.2.be = phi i16 [ %265, %264 ], [ %272, %275 ]
-  %.not202 = icmp ult i16 %.2.be, %58
-  br i1 %.not202, label %.loopexit282, label %.lr.ph313
+272:                                              ; preds = %267
+  %273 = load i16, ptr %69, align 2
+  %274 = add i16 %273, -1
+  %275 = icmp ult i16 %274, 2048
+  br i1 %275, label %276, label %277
 
-266:                                              ; preds = %.lr.ph313
-  %267 = and i32 %.val.pre, 32767
-  %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %268
-  store i16 %.2312, ptr %68, align 8
-  %270 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %269, i32 noundef %52) #6
-  br i1 %55, label %271, label %276
-
-271:                                              ; preds = %266
-  %272 = load i16, ptr %69, align 2
-  %273 = add i16 %272, -1
-  %274 = icmp ult i16 %273, 2048
-  br i1 %274, label %275, label %276
-
-275:                                              ; preds = %271
+276:                                              ; preds = %272
   store i16 0, ptr %69, align 2
-  br label %.backedge283
+  br label %select.unfold256, !llvm.loop !20
 
-276:                                              ; preds = %271, %266
-  %.0186.le = xor i1 %or.cond296, true
-  %or.cond = and i1 %270, %.0186.le
-  br i1 %or.cond, label %277, label %.loopexit280
+277:                                              ; preds = %272, %267
+  %or.cond = and i1 %271, %.0186
+  br i1 %or.cond, label %278, label %_bt_saveitem.exit238
 
-277:                                              ; preds = %276
+278:                                              ; preds = %277
   store i8 1, ptr %72, align 2
-  %278 = getelementptr inbounds nuw i8, ptr %269, i64 6
-  %279 = load i16, ptr %278, align 2
-  %280 = and i16 %279, 8192
-  %281 = icmp eq i16 %280, 0
-  br i1 %281, label %BTreeTupleIsPosting.exit235.thread, label %BTreeTupleIsPosting.exit235
+  %279 = getelementptr inbounds nuw i8, ptr %270, i64 6
+  %280 = load i16, ptr %279, align 2
+  %281 = and i16 %280, 8192
+  %282 = icmp eq i16 %281, 0
+  br i1 %282, label %BTreeTupleIsPosting.exit234.thread, label %BTreeTupleIsPosting.exit234
 
-BTreeTupleIsPosting.exit235:                      ; preds = %277
-  %282 = getelementptr i8, ptr %269, i64 4
-  %.val.i233 = load i16, ptr %282, align 2
-  %283 = and i16 %.val.i233, 8192
-  %.not255 = icmp eq i16 %283, 0
-  br i1 %.not255, label %BTreeTupleIsPosting.exit235.thread, label %302
+BTreeTupleIsPosting.exit234:                      ; preds = %278
+  %283 = getelementptr i8, ptr %270, i64 4
+  %.val.i232 = load i16, ptr %283, align 2
+  %284 = and i16 %.val.i232, 8192
+  %.not262 = icmp eq i16 %284, 0
+  br i1 %.not262, label %BTreeTupleIsPosting.exit234.thread, label %303
 
-BTreeTupleIsPosting.exit235.thread:               ; preds = %277, %BTreeTupleIsPosting.exit235
-  %284 = add i32 %.5.ph, -1
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %285
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %286, ptr noundef nonnull readonly align 2 dereferenceable(6) %269, i64 6, i1 false)
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 6
-  store i16 %.2312, ptr %287, align 2
-  %288 = load ptr, ptr %256, align 8
-  %.not.i236 = icmp eq ptr %288, null
-  br i1 %.not.i236, label %.loopexit280, label %289
+BTreeTupleIsPosting.exit234.thread:               ; preds = %278, %BTreeTupleIsPosting.exit234
+  %285 = add i32 %.5268, -1
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %286
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %287, ptr noundef nonnull readonly align 2 dereferenceable(6) %270, i64 6, i1 false)
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 6
+  store i16 %.2269, ptr %288, align 2
+  %289 = load ptr, ptr %256, align 8
+  %.not.i235 = icmp eq ptr %289, null
+  br i1 %.not.i235, label %_bt_saveitem.exit238, label %290
 
-289:                                              ; preds = %BTreeTupleIsPosting.exit235.thread
-  %.val.i237 = load i16, ptr %278, align 2
-  %290 = and i16 %.val.i237, 8191
-  %291 = zext nneg i16 %290 to i64
-  %292 = load i32, ptr %44, align 4
-  %293 = trunc i32 %292 to i16
-  %294 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  store i16 %293, ptr %294, align 2
-  %295 = load ptr, ptr %256, align 8
-  %296 = sext i32 %292 to i64
-  %297 = getelementptr inbounds i8, ptr %295, i64 %296
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %297, ptr nonnull readonly align 2 %269, i64 %291, i1 false)
-  %298 = load i32, ptr %44, align 4
-  %narrow.i238 = add nuw nsw i16 %290, 7
-  %299 = and i16 %narrow.i238, 16376
-  %300 = zext nneg i16 %299 to i32
-  %301 = add i32 %298, %300
-  store i32 %301, ptr %44, align 4
-  br label %.loopexit280
+290:                                              ; preds = %BTreeTupleIsPosting.exit234.thread
+  %.val.i236 = load i16, ptr %279, align 2
+  %291 = and i16 %.val.i236, 8191
+  %292 = zext nneg i16 %291 to i64
+  %293 = load i32, ptr %44, align 4
+  %294 = trunc i32 %293 to i16
+  %295 = getelementptr inbounds nuw i8, ptr %287, i64 8
+  store i16 %294, ptr %295, align 2
+  %296 = load ptr, ptr %256, align 8
+  %297 = sext i32 %293 to i64
+  %298 = getelementptr inbounds i8, ptr %296, i64 %297
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %298, ptr nonnull readonly align 2 %270, i64 %292, i1 false)
+  %299 = load i32, ptr %44, align 4
+  %narrow.i237 = add nuw nsw i16 %291, 7
+  %300 = and i16 %narrow.i237, 16376
+  %301 = zext nneg i16 %300 to i32
+  %302 = add i32 %299, %301
+  store i32 %302, ptr %44, align 4
+  br label %_bt_saveitem.exit238
 
-302:                                              ; preds = %BTreeTupleIsPosting.exit235
-  %303 = add i32 %.5.ph, -1
-  %.val.i.i240 = load i16, ptr %269, align 2
-  %304 = getelementptr i8, ptr %269, i64 2
-  %.val2.i.i241 = load i16, ptr %304, align 2
-  %305 = zext i16 %.val.i.i240 to i64
-  %306 = shl nuw nsw i64 %305, 16
-  %307 = zext i16 %.val2.i.i241 to i64
-  %308 = getelementptr inbounds nuw i8, ptr %269, i64 %306
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 %307
-  %310 = sext i32 %303 to i64
-  %311 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %310
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %311, ptr noundef nonnull readonly align 2 dereferenceable(6) %309, i64 6, i1 false)
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 6
-  store i16 %.2312, ptr %312, align 2
-  %313 = load ptr, ptr %256, align 8
-  %.not.i242 = icmp eq ptr %313, null
-  br i1 %.not.i242, label %_bt_setuppostingitems.exit246, label %314
+303:                                              ; preds = %BTreeTupleIsPosting.exit234
+  %304 = add i32 %.5268, -1
+  %.val.i.i239 = load i16, ptr %270, align 2
+  %305 = getelementptr i8, ptr %270, i64 2
+  %.val2.i.i240 = load i16, ptr %305, align 2
+  %306 = zext i16 %.val.i.i239 to i64
+  %307 = shl nuw nsw i64 %306, 16
+  %308 = zext i16 %.val2.i.i240 to i64
+  %309 = getelementptr inbounds nuw i8, ptr %270, i64 %307
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 %308
+  %311 = sext i32 %304 to i64
+  %312 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %311
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %312, ptr noundef nonnull readonly align 2 dereferenceable(6) %310, i64 6, i1 false)
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 6
+  store i16 %.2269, ptr %313, align 2
+  %314 = load ptr, ptr %256, align 8
+  %.not.i241 = icmp eq ptr %314, null
+  br i1 %.not.i241, label %_bt_setuppostingitems.exit245, label %315
 
-314:                                              ; preds = %302
-  %.val.i243 = load i16, ptr %269, align 2
-  %.val22.i244 = load i16, ptr %304, align 2
-  %315 = zext i16 %.val.i243 to i64
-  %316 = shl nuw nsw i64 %315, 16
-  %317 = zext i16 %.val22.i244 to i64
-  %318 = or disjoint i64 %316, %317
-  %319 = add nuw nsw i64 %318, 7
-  %320 = and i64 %319, 8589934584
-  %321 = load i32, ptr %44, align 4
-  %322 = trunc i32 %321 to i16
-  %323 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  store i16 %322, ptr %323, align 2
-  %324 = load ptr, ptr %256, align 8
-  %325 = sext i32 %321 to i64
-  %326 = getelementptr inbounds i8, ptr %324, i64 %325
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %326, ptr nonnull readonly align 2 %269, i64 %320, i1 false)
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 6
-  %328 = load i16, ptr %327, align 2
-  %329 = and i16 %328, -8192
-  %330 = trunc i64 %320 to i16
-  %331 = or i16 %329, %330
-  store i16 %331, ptr %327, align 2
-  %332 = load i32, ptr %44, align 4
-  %333 = trunc i64 %320 to i32
-  %334 = add i32 %332, %333
-  store i32 %334, ptr %44, align 4
-  %335 = load i16, ptr %323, align 2
-  br label %_bt_setuppostingitems.exit246
+315:                                              ; preds = %303
+  %.val.i242 = load i16, ptr %270, align 2
+  %.val22.i243 = load i16, ptr %305, align 2
+  %316 = zext i16 %.val.i242 to i64
+  %317 = shl nuw nsw i64 %316, 16
+  %318 = zext i16 %.val22.i243 to i64
+  %319 = or disjoint i64 %317, %318
+  %320 = add nuw nsw i64 %319, 7
+  %321 = and i64 %320, 8589934584
+  %322 = load i32, ptr %44, align 4
+  %323 = trunc i32 %322 to i16
+  %324 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  store i16 %323, ptr %324, align 2
+  %325 = load ptr, ptr %256, align 8
+  %326 = sext i32 %322 to i64
+  %327 = getelementptr inbounds i8, ptr %325, i64 %326
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %327, ptr nonnull readonly align 2 %270, i64 %321, i1 false)
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 6
+  %329 = load i16, ptr %328, align 2
+  %330 = and i16 %329, -8192
+  %331 = trunc i64 %321 to i16
+  %332 = or i16 %330, %331
+  store i16 %332, ptr %328, align 2
+  %333 = load i32, ptr %44, align 4
+  %334 = trunc i64 %321 to i32
+  %335 = add i32 %333, %334
+  store i32 %335, ptr %44, align 4
+  %336 = load i16, ptr %324, align 2
+  br label %_bt_setuppostingitems.exit245
 
-_bt_setuppostingitems.exit246:                    ; preds = %302, %314
-  %.0.i245 = phi i16 [ %335, %314 ], [ 0, %302 ]
-  %.val219258 = load i16, ptr %282, align 2
-  %336 = and i16 %.val219258, 4094
-  %.not267 = icmp eq i16 %336, 0
-  br i1 %.not267, label %.loopexit280, label %.lr.ph
+_bt_setuppostingitems.exit245:                    ; preds = %303, %315
+  %.0.i244 = phi i16 [ %336, %315 ], [ 0, %303 ]
+  %.val218264 = load i16, ptr %283, align 2
+  %337 = and i16 %.val218264, 4094
+  %.not288 = icmp eq i16 %337, 0
+  br i1 %.not288, label %_bt_saveitem.exit238, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_bt_setuppostingitems.exit246, %_bt_savepostingitem.exit250
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_bt_savepostingitem.exit250 ], [ 1, %_bt_setuppostingitems.exit246 ]
-  %.9259 = phi i32 [ %337, %_bt_savepostingitem.exit250 ], [ %303, %_bt_setuppostingitems.exit246 ]
-  %337 = add i32 %.9259, -1
-  %.val.i.i247 = load i16, ptr %269, align 2
-  %.val2.i.i248 = load i16, ptr %304, align 2
-  %338 = zext i16 %.val.i.i247 to i64
-  %339 = shl nuw nsw i64 %338, 16
-  %340 = zext i16 %.val2.i.i248 to i64
-  %341 = getelementptr inbounds nuw i8, ptr %269, i64 %339
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 %340
-  %343 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %342, i64 %indvars.iv
-  %344 = sext i32 %337 to i64
-  %345 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %345, ptr noundef nonnull readonly align 2 dereferenceable(6) %343, i64 6, i1 false)
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 6
-  store i16 %.2312, ptr %346, align 2
-  %347 = load ptr, ptr %256, align 8
-  %.not.i249 = icmp eq ptr %347, null
-  br i1 %.not.i249, label %_bt_savepostingitem.exit250, label %348
+.lr.ph:                                           ; preds = %_bt_setuppostingitems.exit245, %_bt_savepostingitem.exit249
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_bt_savepostingitem.exit249 ], [ 1, %_bt_setuppostingitems.exit245 ]
+  %.9265 = phi i32 [ %338, %_bt_savepostingitem.exit249 ], [ %304, %_bt_setuppostingitems.exit245 ]
+  %338 = add i32 %.9265, -1
+  %.val.i.i246 = load i16, ptr %270, align 2
+  %.val2.i.i247 = load i16, ptr %305, align 2
+  %339 = zext i16 %.val.i.i246 to i64
+  %340 = shl nuw nsw i64 %339, 16
+  %341 = zext i16 %.val2.i.i247 to i64
+  %342 = getelementptr inbounds nuw i8, ptr %270, i64 %340
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 %341
+  %344 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %343, i64 %indvars.iv
+  %345 = sext i32 %338 to i64
+  %346 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %345
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %346, ptr noundef nonnull readonly align 2 dereferenceable(6) %344, i64 6, i1 false)
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 6
+  store i16 %.2269, ptr %347, align 2
+  %348 = load ptr, ptr %256, align 8
+  %.not.i248 = icmp eq ptr %348, null
+  br i1 %.not.i248, label %_bt_savepostingitem.exit249, label %349
 
-348:                                              ; preds = %.lr.ph
-  %349 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  store i16 %.0.i245, ptr %349, align 2
-  br label %_bt_savepostingitem.exit250
+349:                                              ; preds = %.lr.ph
+  %350 = getelementptr inbounds nuw i8, ptr %346, i64 8
+  store i16 %.0.i244, ptr %350, align 2
+  br label %_bt_savepostingitem.exit249
 
-_bt_savepostingitem.exit250:                      ; preds = %.lr.ph, %348
+_bt_savepostingitem.exit249:                      ; preds = %.lr.ph, %349
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val219 = load i16, ptr %282, align 2
-  %350 = and i16 %.val219, 4095
-  %351 = zext nneg i16 %350 to i64
-  %352 = icmp samesign ult i64 %indvars.iv.next, %351
-  br i1 %352, label %.lr.ph, label %.loopexit280, !llvm.loop !19
+  %.val218 = load i16, ptr %283, align 2
+  %351 = and i16 %.val218, 4095
+  %352 = zext nneg i16 %351 to i64
+  %353 = icmp samesign ult i64 %indvars.iv.next, %352
+  br i1 %353, label %.lr.ph, label %_bt_saveitem.exit238, !llvm.loop !21
 
-.loopexit280:                                     ; preds = %_bt_savepostingitem.exit250, %276, %BTreeTupleIsPosting.exit235.thread, %289, %_bt_setuppostingitems.exit246
-  %.8 = phi i32 [ %.5.ph, %276 ], [ %284, %BTreeTupleIsPosting.exit235.thread ], [ %284, %289 ], [ %303, %_bt_setuppostingitems.exit246 ], [ %337, %_bt_savepostingitem.exit250 ]
-  %353 = load i8, ptr %70, align 4, !range !5, !noundef !6
-  %354 = trunc nuw i8 %353 to i1
-  %355 = sext i1 %354 to i16
-  %spec.select212 = add i16 %.2312, %355
-  br i1 %354, label %.outer281, label %.loopexit282
+_bt_saveitem.exit238:                             ; preds = %_bt_savepostingitem.exit249, %_bt_setuppostingitems.exit245, %290, %BTreeTupleIsPosting.exit234.thread, %277
+  %.8 = phi i32 [ %.5268, %277 ], [ %285, %BTreeTupleIsPosting.exit234.thread ], [ %285, %290 ], [ %304, %_bt_setuppostingitems.exit245 ], [ %338, %_bt_savepostingitem.exit249 ]
+  %354 = load i8, ptr %70, align 4, !range !5, !noundef !6
+  %355 = trunc nuw i8 %354 to i1
+  %356 = add i16 %.2269, -1
+  br i1 %355, label %select.unfold256, label %.thread257.thread305
 
-.loopexit282:                                     ; preds = %.loopexit280, %.outer281, %.backedge283
-  %.6 = phi i32 [ %.5.ph, %.backedge283 ], [ %.8, %.loopexit280 ], [ %.5.ph, %.outer281 ]
-  %356 = load i8, ptr %70, align 4, !range !5, !noundef !6
-  %357 = trunc nuw i8 %356 to i1
-  br i1 %357, label %360, label %358
+select.unfold256:                                 ; preds = %_bt_saveitem.exit238, %276, %265
+  %.7 = phi i32 [ %.5268, %265 ], [ %.5268, %276 ], [ %.8, %_bt_saveitem.exit238 ]
+  %.3 = phi i16 [ %266, %265 ], [ %273, %276 ], [ %356, %_bt_saveitem.exit238 ]
+  %.not202 = icmp ult i16 %.3, %58
+  br i1 %.not202, label %.thread257, label %257
 
-358:                                              ; preds = %.loopexit282
-  %359 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store i8 0, ptr %359, align 8
-  br label %360
+.thread257:                                       ; preds = %select.unfold256
+  %.pre.pre = load i8, ptr %70, align 4, !range !5
+  %357 = trunc nuw i8 %.pre.pre to i1
+  br i1 %357, label %.thread301, label %.thread257.thread305
 
-360:                                              ; preds = %358, %.loopexit282
-  %361 = getelementptr inbounds nuw i8, ptr %9, i64 124
-  store i32 %.6, ptr %361, align 4
-  br label %362
+.thread257.thread305:                             ; preds = %_bt_saveitem.exit238, %.thread257
+  %.6307 = phi i32 [ %.7, %.thread257 ], [ %.8, %_bt_saveitem.exit238 ]
+  %358 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  store i8 0, ptr %358, align 8
+  br label %.thread301
 
-362:                                              ; preds = %360, %.thread
-  %.sink299 = phi i32 [ 1357, %360 ], [ %239, %.thread ]
-  %.sink297 = phi i32 [ 1357, %360 ], [ 0, %.thread ]
-  %363 = phi i32 [ %.6, %360 ], [ 0, %.thread ]
-  %364 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store i32 %.sink299, ptr %364, align 8
-  %365 = getelementptr inbounds nuw i8, ptr %9, i64 132
-  store i32 %.sink297, ptr %365, align 4
-  %366 = icmp sle i32 %363, %.sink299
-  br label %367
+.thread301:                                       ; preds = %.thread257, %.thread257.thread305, %251, %235, %.thread302, %214
+  %.6304.sink = phi i32 [ 0, %214 ], [ 0, %.thread302 ], [ 0, %235 ], [ %.6307, %.thread257.thread305 ], [ %.7, %.thread257 ], [ 1358, %251 ]
+  %.sink314 = phi i32 [ %.1188, %214 ], [ %.1188, %.thread302 ], [ %.1188, %235 ], [ 1357, %.thread257.thread305 ], [ 1357, %.thread257 ], [ 1357, %251 ]
+  %.sink312 = phi i32 [ 0, %214 ], [ 0, %.thread302 ], [ 0, %235 ], [ 1357, %.thread257.thread305 ], [ 1357, %.thread257 ], [ 1357, %251 ]
+  %359 = getelementptr inbounds nuw i8, ptr %9, i64 124
+  store i32 %.6304.sink, ptr %359, align 4
+  %360 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  store i32 %.sink314, ptr %360, align 8
+  %361 = getelementptr inbounds nuw i8, ptr %9, i64 132
+  store i32 %.sink312, ptr %361, align 4
+  %362 = icmp sle i32 %.6304.sink, %.sink314
+  br label %363
 
-367:                                              ; preds = %.critedge, %362
-  %.1 = phi i1 [ %366, %362 ], [ false, %.critedge ]
+363:                                              ; preds = %.critedge, %.thread301
+  %.1 = phi i1 [ %362, %.thread301 ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1
 }
@@ -3514,3 +3508,5 @@ attributes #7 = { cold nounwind }
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}

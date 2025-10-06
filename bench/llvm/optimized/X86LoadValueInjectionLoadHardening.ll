@@ -6937,26 +6937,26 @@ _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass26instrUsesRegToAccess
   %298 = load i24, ptr %297, align 8
   %299 = zext i24 %298 to i64
   %300 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %296, i64 %299
-  %.not2.not.i.i.i.i = icmp eq ptr %295, %300
-  br i1 %.not2.not.i.i.i.i, label %.critedge2.i.i.i, label %.lr.ph.i.i.i.i
+  %.not3.i.i.i.i = icmp eq ptr %295, %300
+  br i1 %.not3.i.i.i.i, label %.critedge2.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %290, %.critedge17.i.i.i.i
-  %.0153.i.i.i.i = phi ptr [ %308, %.critedge17.i.i.i.i ], [ %295, %290 ]
-  %301 = load i32, ptr %.0153.i.i.i.i, align 8
+  %.0154.i.i.i.i = phi ptr [ %308, %.critedge17.i.i.i.i ], [ %295, %290 ]
+  %301 = load i32, ptr %.0154.i.i.i.i, align 8
   %302 = and i32 %301, 255
   %303 = icmp eq i32 %302, 0
   br i1 %303, label %304, label %.critedge17.i.i.i.i
 
 304:                                              ; preds = %.lr.ph.i.i.i.i
-  %305 = getelementptr inbounds nuw i8, ptr %.0153.i.i.i.i, i64 4
+  %305 = getelementptr inbounds nuw i8, ptr %.0154.i.i.i.i, i64 4
   %306 = load i32, ptr %305, align 4, !tbaa !38
   %307 = icmp eq i32 %306, %288
   br i1 %307, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass20instrUsesRegToBranchERKN4llvm12MachineInstrEj.exit.i.i.i, label %.critedge17.i.i.i.i
 
 .critedge17.i.i.i.i:                              ; preds = %304, %.lr.ph.i.i.i.i
-  %308 = getelementptr inbounds nuw i8, ptr %.0153.i.i.i.i, i64 32
-  %.not.not.i.i.i.i = icmp eq ptr %308, %300
-  br i1 %.not.not.i.i.i.i, label %.critedge2.i.i.i, label %.lr.ph.i.i.i.i
+  %308 = getelementptr inbounds nuw i8, ptr %.0154.i.i.i.i, i64 32
+  %.not.i89.i.i.i = icmp eq ptr %308, %300
+  br i1 %.not.i89.i.i.i, label %.critedge2.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass20instrUsesRegToBranchERKN4llvm12MachineInstrEj.exit.i.i.i: ; preds = %304, %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass26instrUsesRegToAccessMemoryERKN4llvm12MachineInstrEj.exit.i.i.i, %277, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i.i, %263
   %309 = load ptr, ptr %.val, align 8, !tbaa !763
@@ -6968,8 +6968,8 @@ _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass20instrUsesRegToBranch
   %314 = load ptr, ptr %313, align 8, !tbaa !780
   %315 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %316 = load ptr, ptr %315, align 8, !tbaa !501
-  %.not.i.i89.i.i.i = icmp eq ptr %314, %316
-  br i1 %.not.i.i89.i.i.i, label %319, label %317
+  %.not.i.i90.i.i.i = icmp eq ptr %314, %316
+  br i1 %.not.i.i90.i.i.i, label %319, label %317
 
 317:                                              ; preds = %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass20instrUsesRegToBranchERKN4llvm12MachineInstrEj.exit.i.i.i
   store i32 %.fca.1.extract20.i.i.i, ptr %314, align 4, !tbaa !344
@@ -6996,8 +6996,8 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %319
   %328 = icmp ult i64 %327, %326
   %329 = call i64 @llvm.umin.i64(i64 %327, i64 2305843009213693951)
   %330 = select i1 %328, i64 2305843009213693951, i64 %329
-  %.not.i.i.i.i90.i.i.i = icmp ne i64 %330, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i90.i.i.i)
+  %.not.i.i.i.i91.i.i.i = icmp ne i64 %330, 0
+  call void @llvm.assume(i1 %.not.i.i.i.i91.i.i.i)
   %331 = shl nuw nsw i64 %330, 2
   %332 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %331) #25
   %333 = getelementptr inbounds i8, ptr %332, i64 %323
@@ -7038,8 +7038,8 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i.i:     ; preds = %_ZNSt6vectorIjSaIjE
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 48
   %346 = load i64, ptr %345, align 8, !tbaa !38
   %347 = and i64 %346, 8
-  %.not.not.i92.i.i.i = icmp eq i64 %347, 0
-  br i1 %.not.not.i92.i.i.i, label %348, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i.i.i
+  %.not.not.i.i.i.i = icmp eq i64 %347, 0
+  br i1 %.not.not.i.i.i.i, label %348, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i.i.i
 
 348:                                              ; preds = %342, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i.i
   %349 = load i32, ptr %228, align 4
@@ -7047,8 +7047,8 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.i.i:     ; preds = %_ZNSt6vectorIjSaIjE
   %351 = icmp eq i32 %350, 0
   %352 = and i32 %349, 4
   %353 = icmp ne i32 %352, 0
-  %or.cond.i.i91.i.i.i = or i1 %351, %353
-  br i1 %or.cond.i.i91.i.i.i, label %354, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i.i.i
+  %or.cond.i.i92.i.i.i = or i1 %351, %353
+  br i1 %or.cond.i.i92.i.i.i, label %354, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i.i.i
 
 354:                                              ; preds = %348
   %355 = getelementptr inbounds nuw i8, ptr %227, i64 16
@@ -7657,23 +7657,23 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.pre = load i32, ptr %2, align 4, !tbaa !344
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !344
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !344
   %38 = icmp eq i32 %37, %.pre
   br i1 %38, label %_ZNK4llvm8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %.lr.ph.i, !llvm.loop !794
 
 _ZNK4llvm8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw i32, ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit
@@ -9764,17 +9764,17 @@ _ZN4llvm21ImmutableGraphBuilderIN12_GLOBAL__N_118MachineGadgetGraphEE7addEdgeERK
   %149 = zext i32 %148 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %149, 3
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i.i.i.i.i
-  %.not36.i.i.i.i.i = icmp eq i32 %148, 0
-  br i1 %.not36.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  %.not34.i.i.i.i.i = icmp eq i32 %148, 0
+  br i1 %.not34.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %145, %.critedge.i.i.i.i.i
-  %.02937.i.i.i.i.i = phi ptr [ %152, %.critedge.i.i.i.i.i ], [ %146, %145 ]
-  %151 = load ptr, ptr %.02937.i.i.i.i.i, align 8, !tbaa !66, !noalias !850
+  %.02935.i.i.i.i.i = phi ptr [ %152, %.critedge.i.i.i.i.i ], [ %146, %145 ]
+  %151 = load ptr, ptr %.02935.i.i.i.i.i, align 8, !tbaa !66, !noalias !850
   %.not17.i.i.i.i.i = icmp eq ptr %151, %.val4
   br i1 %.not17.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass14getGadgetGraphERN4llvm15MachineFunctionERKNS2_15MachineLoopInfoERKNS2_20MachineDominatorTreeERKNS2_24MachineDominanceFrontierEE3$_1JPNS2_17MachineBasicBlockEijEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %.critedge.i.i.i.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i
-  %152 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i.i, i64 8
   %.not.i.i39.i.i.i = icmp eq ptr %152, %150
   br i1 %.not.i.i39.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !853
 

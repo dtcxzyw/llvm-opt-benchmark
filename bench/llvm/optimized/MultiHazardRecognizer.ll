@@ -101,17 +101,17 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer13getHazardTypeEPNS
   %8 = zext i32 %7 to i64
   %.idx = shl nuw nsw i64 %8, 3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %.not21 = icmp eq i32 %7, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i32 %7, 0
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.01622, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01624, i64 8
   %.not = icmp eq ptr %11, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %10
-  %.01622 = phi ptr [ %11, %10 ], [ %5, %3 ]
-  %12 = load ptr, ptr %.01622, align 8, !tbaa !3
+  %.01624 = phi ptr [ %11, %10 ], [ %5, %3 ]
+  %12 = load ptr, ptr %.01624, align 8, !tbaa !3
   %13 = load ptr, ptr %12, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -120,8 +120,8 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer13getHazardTypeEPNS
   br i1 %.not20, label %10, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 0, %10 ], [ %16, %.lr.ph ]
-  ret i32 %spec.select
+  %17 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %16, %.lr.ph ]
+  ret i32 %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

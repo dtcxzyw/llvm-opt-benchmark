@@ -3827,7 +3827,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   br label %26
 
 26:                                               ; preds = %5, %.loopexit
-  %.05178 = phi i64 [ 0, %5 ], [ %.3.lcssa, %.loopexit ]
+  %.05177 = phi i64 [ 0, %5 ], [ %.3.lcssa, %.loopexit ]
   %27 = load i64, ptr %15, align 8, !tbaa !296
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %.thread
@@ -3872,10 +3872,10 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   br label %51
 
 51:                                               ; preds = %48, %111
-  %.375 = phi i64 [ %.05178, %48 ], [ %.4, %111 ]
-  %.05274 = phi i64 [ 0, %48 ], [ %112, %111 ]
+  %.374 = phi i64 [ %.05177, %48 ], [ %.4, %111 ]
+  %.05273 = phi i64 [ 0, %48 ], [ %112, %111 ]
   %52 = load ptr, ptr %23, align 8, !tbaa !308
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.05274
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.05273
   %54 = load i8, ptr %53, align 1, !tbaa !191
   %55 = zext i8 %54 to i64
   %56 = load ptr, ptr %24, align 8, !tbaa !12
@@ -3885,7 +3885,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %51
-  %61 = getelementptr %"struct.duckdb::list_entry_t", ptr %11, i64 %.375
+  %61 = getelementptr %"struct.duckdb::list_entry_t", ptr %11, i64 %.374
   %62 = getelementptr i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8, !tbaa !310
   %64 = add i64 %63, 1
@@ -3893,12 +3893,12 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   br label %111
 
 65:                                               ; preds = %51
-  %.not = icmp ult i64 %.375, %1
+  %.not = icmp ult i64 %.374, %1
   br i1 %.not, label %66, label %113
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr %22, align 8, !tbaa !307
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.05274
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.05273
   %69 = load i8, ptr %68, align 1, !tbaa !191
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %56, i64 64
@@ -3907,8 +3907,8 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   br i1 %.not61, label %77, label %73
 
 73:                                               ; preds = %66
-  %74 = add i64 %.05274, %50
-  %75 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.375
+  %74 = add i64 %.05273, %50
+  %75 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.374
   store i64 %74, ptr %75, align 8, !tbaa !313
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 1, ptr %76, align 8, !tbaa !310
@@ -3920,8 +3920,8 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77
-  %81 = add i64 %.05274, %50
-  %82 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.375
+  %81 = add i64 %.05273, %50
+  %82 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.374
   store i64 %81, ptr %82, align 8, !tbaa !313
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 0, ptr %83, align 8, !tbaa !310
@@ -3940,15 +3940,15 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
 
 _ZN6duckdb19TemplatedListReader10HandleNullERNS_14ListReaderDataEm.exit: ; preds = %84, %86
   %88 = phi ptr [ %.pre.i.i, %86 ], [ %85, %84 ]
-  %89 = lshr i64 %.375, 6
-  %90 = and i64 %.375, 63
+  %89 = lshr i64 %.374, 6
+  %90 = and i64 %.374, 63
   %91 = shl nuw i64 1, %90
   %92 = xor i64 %91, -1
   %93 = getelementptr inbounds nuw i64, ptr %88, i64 %89
   %94 = load i64, ptr %93, align 8, !tbaa !216
   %95 = and i64 %94, %92
   store i64 %95, ptr %93, align 8, !tbaa !216
-  %96 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.375
+  %96 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.374
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   br label %97
 
@@ -3957,9 +3957,9 @@ _ZN6duckdb19TemplatedListReader10HandleNullERNS_14ListReaderDataEm.exit: ; preds
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %23, align 8, !tbaa !308
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.05274
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.05273
   %101 = load i8, ptr %100, align 1, !tbaa !191
-  %102 = getelementptr inbounds nuw i8, ptr %3, i64 %.375
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 %.374
   store i8 %101, ptr %102, align 1, !tbaa !191
   br label %103
 
@@ -3968,25 +3968,25 @@ _ZN6duckdb19TemplatedListReader10HandleNullERNS_14ListReaderDataEm.exit: ; preds
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %22, align 8, !tbaa !307
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.05274
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.05273
   %107 = load i8, ptr %106, align 1, !tbaa !191
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 %.375
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 %.374
   store i8 %107, ptr %108, align 1, !tbaa !191
   br label %109
 
 109:                                              ; preds = %104, %103
-  %110 = add nuw i64 %.375, 1
+  %110 = add nuw i64 %.374, 1
   br label %111
 
 111:                                              ; preds = %109, %60
-  %.4 = phi i64 [ %.375, %60 ], [ %110, %109 ]
-  %112 = add nuw i64 %.05274, 1
+  %.4 = phi i64 [ %.374, %60 ], [ %110, %109 ]
+  %112 = add nuw i64 %.05273, 1
   %exitcond.not = icmp eq i64 %112, %.05668
   br i1 %exitcond.not, label %113, label %51, !llvm.loop !316
 
 113:                                              ; preds = %65, %111
-  %.052.lcssa = phi i64 [ %.05274, %65 ], [ %.05668, %111 ]
-  %.3.lcssa = phi i64 [ %.375, %65 ], [ %.4, %111 ]
+  %.052.lcssa = phi i64 [ %.05273, %65 ], [ %.05668, %111 ]
+  %.3.lcssa = phi i64 [ %.374, %65 ], [ %.4, %111 ]
   %.lcssa = phi i1 [ true, %65 ], [ false, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %6, align 8
@@ -4004,23 +4004,23 @@ _ZN6duckdb19TemplatedListReader10HandleNullERNS_14ListReaderDataEm.exit: ; preds
   store i64 %117, ptr %15, align 8, !tbaa !296
   call void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %20, i64 noundef %117)
   %118 = load i64, ptr %15, align 8, !tbaa !296
-  %.not79 = icmp eq i64 %118, 0
-  br i1 %.not79, label %.loopexit, label %.lr.ph
+  %.not78 = icmp eq i64 %118, 0
+  br i1 %.not78, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %116, %.lr.ph
-  %.076 = phi i64 [ %128, %.lr.ph ], [ 0, %116 ]
+  %.075 = phi i64 [ %128, %.lr.ph ], [ 0, %116 ]
   %119 = load ptr, ptr %22, align 8, !tbaa !307
-  %120 = add i64 %.076, %.052.lcssa
+  %120 = add i64 %.075, %.052.lcssa
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 %120
   %122 = load i8, ptr %121, align 1, !tbaa !191
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.076
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.075
   store i8 %122, ptr %123, align 1, !tbaa !191
   %124 = load ptr, ptr %23, align 8, !tbaa !308
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 %120
   %126 = load i8, ptr %125, align 1, !tbaa !191
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 %.076
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 %.075
   store i8 %126, ptr %127, align 1, !tbaa !191
-  %128 = add nuw i64 %.076, 1
+  %128 = add nuw i64 %.075, 1
   %129 = load i64, ptr %15, align 8, !tbaa !296
   %130 = icmp ult i64 %128, %129
   br i1 %130, label %.lr.ph, label %.loopexit, !llvm.loop !317
@@ -4029,7 +4029,7 @@ _ZN6duckdb19TemplatedListReader10HandleNullERNS_14ListReaderDataEm.exit: ; preds
   br i1 %.lcssa, label %.thread69, label %26
 
 .thread69:                                        ; preds = %29, %.loopexit
-  %.051.lcssa = phi i64 [ %.05178, %29 ], [ %.3.lcssa, %.loopexit ]
+  %.051.lcssa = phi i64 [ %.05177, %29 ], [ %.3.lcssa, %.loopexit ]
   ret i64 %.051.lcssa
 }
 
@@ -4470,11 +4470,11 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_2
   br label %.thread66
 
 .thread66.backedge:                               ; preds = %85, %65, %51
-  %.05189.be = phi i64 [ %.4.us.us, %51 ], [ %.4.us, %65 ], [ %.4, %85 ]
+  %.05188.be = phi i64 [ %.4.us.us, %51 ], [ %.4.us, %65 ], [ %.4, %85 ]
   br label %.thread66
 
 .thread66:                                        ; preds = %.thread66.backedge, %5
-  %.05189 = phi i64 [ 0, %5 ], [ %.05189.be, %.thread66.backedge ]
+  %.05188 = phi i64 [ 0, %5 ], [ %.05188.be, %.thread66.backedge ]
   %17 = load i64, ptr %7, align 8, !tbaa !296
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %.thread
@@ -4523,33 +4523,33 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_2
   br label %43
 
 43:                                               ; preds = %51, %.split.us.split.us
-  %.379.us.us = phi i64 [ %.05189, %.split.us.split.us ], [ %.4.us.us, %51 ]
-  %.05278.us.us = phi i64 [ 0, %.split.us.split.us ], [ %52, %51 ]
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %.05278.us.us
+  %.378.us.us = phi i64 [ %.05188, %.split.us.split.us ], [ %.4.us.us, %51 ]
+  %.05277.us.us = phi i64 [ 0, %.split.us.split.us ], [ %52, %51 ]
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %.05277.us.us
   %45 = load i8, ptr %44, align 1, !tbaa !191
   %46 = zext i8 %45 to i64
   %47 = icmp eq i64 %42, %46
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %43
-  %.not.us.us = icmp ult i64 %.379.us.us, %1
-  br i1 %.not.us.us, label %49, label %.split81.us
+  %.not.us.us = icmp ult i64 %.378.us.us, %1
+  br i1 %.not.us.us, label %49, label %.split80.us
 
 49:                                               ; preds = %48
-  %50 = add nuw i64 %.379.us.us, 1
+  %50 = add nuw i64 %.378.us.us, 1
   br label %51
 
 51:                                               ; preds = %49, %43
-  %.4.us.us = phi i64 [ %50, %49 ], [ %.379.us.us, %43 ]
-  %52 = add nuw i64 %.05278.us.us, 1
-  %exitcond105.not = icmp eq i64 %52, %.05665
-  br i1 %exitcond105.not, label %.thread66.backedge, label %43, !llvm.loop !325
+  %.4.us.us = phi i64 [ %50, %49 ], [ %.378.us.us, %43 ]
+  %52 = add nuw i64 %.05277.us.us, 1
+  %exitcond104.not = icmp eq i64 %52, %.05665
+  br i1 %exitcond104.not, label %.thread66.backedge, label %43, !llvm.loop !325
 
 .split.us.split:                                  ; preds = %.split.us, %65
-  %.379.us = phi i64 [ %.4.us, %65 ], [ %.05189, %.split.us ]
-  %.05278.us = phi i64 [ %66, %65 ], [ 0, %.split.us ]
+  %.378.us = phi i64 [ %.4.us, %65 ], [ %.05188, %.split.us ]
+  %.05277.us = phi i64 [ %66, %65 ], [ 0, %.split.us ]
   %53 = load ptr, ptr %15, align 8, !tbaa !308
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.05278.us
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.05277.us
   %55 = load i8, ptr %54, align 1, !tbaa !191
   %56 = zext i8 %55 to i64
   %57 = load ptr, ptr %16, align 8, !tbaa !12
@@ -4559,26 +4559,26 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_2
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %.split.us.split
-  %.not.us = icmp ult i64 %.379.us, %1
-  br i1 %.not.us, label %62, label %.split81.us
+  %.not.us = icmp ult i64 %.378.us, %1
+  br i1 %.not.us, label %62, label %.split80.us
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.379.us
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.378.us
   store i8 %55, ptr %63, align 1, !tbaa !191
-  %64 = add nuw i64 %.379.us, 1
+  %64 = add nuw i64 %.378.us, 1
   br label %65
 
 65:                                               ; preds = %62, %.split.us.split
-  %.4.us = phi i64 [ %64, %62 ], [ %.379.us, %.split.us.split ]
-  %66 = add nuw i64 %.05278.us, 1
-  %exitcond103.not = icmp eq i64 %66, %.05665
-  br i1 %exitcond103.not, label %.thread66.backedge, label %.split.us.split, !llvm.loop !325
+  %.4.us = phi i64 [ %64, %62 ], [ %.378.us, %.split.us.split ]
+  %66 = add nuw i64 %.05277.us, 1
+  %exitcond102.not = icmp eq i64 %66, %.05665
+  br i1 %exitcond102.not, label %.thread66.backedge, label %.split.us.split, !llvm.loop !325
 
 .split:                                           ; preds = %38, %85
-  %.379 = phi i64 [ %.4, %85 ], [ %.05189, %38 ]
-  %.05278 = phi i64 [ %86, %85 ], [ 0, %38 ]
+  %.378 = phi i64 [ %.4, %85 ], [ %.05188, %38 ]
+  %.05277 = phi i64 [ %86, %85 ], [ 0, %38 ]
   %67 = load ptr, ptr %15, align 8, !tbaa !308
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.05278
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.05277
   %69 = load i8, ptr %68, align 1, !tbaa !191
   %70 = zext i8 %69 to i64
   %71 = load ptr, ptr %16, align 8, !tbaa !12
@@ -4588,67 +4588,67 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_2
   br i1 %74, label %85, label %75
 
 75:                                               ; preds = %.split
-  %.not = icmp ult i64 %.379, %1
-  br i1 %.not, label %76, label %.split81.us
+  %.not = icmp ult i64 %.378, %1
+  br i1 %.not, label %76, label %.split80.us
 
 76:                                               ; preds = %75
   br i1 %.not62, label %79, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 %.379
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 %.378
   store i8 %69, ptr %78, align 1, !tbaa !191
   br label %79
 
 79:                                               ; preds = %77, %76
   %80 = load ptr, ptr %14, align 8, !tbaa !307
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.05278
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.05277
   %82 = load i8, ptr %81, align 1, !tbaa !191
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 %.379
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 %.378
   store i8 %82, ptr %83, align 1, !tbaa !191
-  %84 = add nuw i64 %.379, 1
+  %84 = add nuw i64 %.378, 1
   br label %85
 
 85:                                               ; preds = %.split, %79
-  %.4 = phi i64 [ %84, %79 ], [ %.379, %.split ]
-  %86 = add nuw i64 %.05278, 1
+  %.4 = phi i64 [ %84, %79 ], [ %.378, %.split ]
+  %86 = add nuw i64 %.05277, 1
   %exitcond.not = icmp eq i64 %86, %.05665
   br i1 %exitcond.not, label %.thread66.backedge, label %.split, !llvm.loop !325
 
-.split81.us:                                      ; preds = %75, %61, %48
-  %.us-phi = phi i64 [ %.05278.us.us, %48 ], [ %.05278.us, %61 ], [ %.05278, %75 ]
-  %.us-phi82 = phi i64 [ %.379.us.us, %48 ], [ %.379.us, %61 ], [ %.379, %75 ]
-  %87 = icmp eq i64 %.us-phi82, %1
+.split80.us:                                      ; preds = %75, %61, %48
+  %.us-phi = phi i64 [ %.05277.us.us, %48 ], [ %.05277.us, %61 ], [ %.05277, %75 ]
+  %.us-phi81 = phi i64 [ %.378.us.us, %48 ], [ %.378.us, %61 ], [ %.378, %75 ]
+  %87 = icmp eq i64 %.us-phi81, %1
   br i1 %87, label %88, label %.thread69
 
-88:                                               ; preds = %.split81.us
+88:                                               ; preds = %.split80.us
   tail call void @_ZN6duckdb6Vector5SliceERKS0_mm(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 noundef %.us-phi, i64 noundef %.05665)
   %89 = sub i64 %.05665, %.us-phi
   store i64 %89, ptr %7, align 8, !tbaa !296
   tail call void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %12, i64 noundef %89)
   %90 = load i64, ptr %7, align 8, !tbaa !296
-  %.not90 = icmp eq i64 %90, 0
-  br i1 %.not90, label %.thread69, label %.lr.ph
+  %.not89 = icmp eq i64 %90, 0
+  br i1 %.not89, label %.thread69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88, %.lr.ph
-  %.087 = phi i64 [ %100, %.lr.ph ], [ 0, %88 ]
+  %.086 = phi i64 [ %100, %.lr.ph ], [ 0, %88 ]
   %91 = load ptr, ptr %14, align 8, !tbaa !307
-  %92 = add i64 %.087, %.us-phi
+  %92 = add i64 %.086, %.us-phi
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !191
-  %95 = getelementptr inbounds nuw i8, ptr %91, i64 %.087
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 %.086
   store i8 %94, ptr %95, align 1, !tbaa !191
   %96 = load ptr, ptr %15, align 8, !tbaa !308
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %92
   %98 = load i8, ptr %97, align 1, !tbaa !191
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %.087
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %.086
   store i8 %98, ptr %99, align 1, !tbaa !191
-  %100 = add nuw i64 %.087, 1
+  %100 = add nuw i64 %.086, 1
   %101 = load i64, ptr %7, align 8, !tbaa !296
   %102 = icmp ult i64 %100, %101
   br i1 %102, label %.lr.ph, label %.thread69, !llvm.loop !326
 
-.thread69:                                        ; preds = %19, %.lr.ph, %88, %.split81.us
-  %.051.lcssa = phi i64 [ %1, %88 ], [ %.us-phi82, %.split81.us ], [ %1, %.lr.ph ], [ %.05189, %19 ]
+.thread69:                                        ; preds = %19, %.lr.ph, %88, %.split80.us
+  %.051.lcssa = phi i64 [ %1, %88 ], [ %.us-phi81, %.split80.us ], [ %1, %.lr.ph ], [ %.05188, %19 ]
   ret i64 %.051.lcssa
 }
 
@@ -6519,8 +6519,8 @@ define noundef i64 @_ZN6duckdb18StructColumnReader18GroupRowsAvailableEv(ptr nou
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %12
-  %.0614 = phi i64 [ %13, %12 ], [ 0, %1 ]
-  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_12ColumnReaderESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.0614)
+  %.0612 = phi i64 [ %13, %12 ], [ 0, %1 ]
+  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_12ColumnReaderESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.0612)
   %7 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_12ColumnReaderESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
@@ -6529,7 +6529,7 @@ define noundef i64 @_ZN6duckdb18StructColumnReader18GroupRowsAvailableEv(ptr nou
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = add nuw i64 %.0614, 1
+  %13 = add nuw i64 %.0612, 1
   %14 = load ptr, ptr %3, align 8, !tbaa !395
   %15 = load ptr, ptr %2, align 8, !tbaa !392
   %16 = ptrtoint ptr %14 to i64
@@ -6540,8 +6540,8 @@ define noundef i64 @_ZN6duckdb18StructColumnReader18GroupRowsAvailableEv(ptr nou
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !414
 
 ._crit_edge:                                      ; preds = %12, %.lr.ph, %1
-  %.0614.lcssa.sink = phi i64 [ 0, %1 ], [ %.0614, %.lr.ph ], [ 0, %12 ]
-  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_12ColumnReaderESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.0614.lcssa.sink)
+  %.0612.lcssa.sink = phi i64 [ 0, %1 ], [ %.0612, %.lr.ph ], [ 0, %12 ]
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_12ColumnReaderESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.0612.lcssa.sink)
   %22 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_12ColumnReaderESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
@@ -6564,16 +6564,16 @@ define internal fastcc noundef zeroext i1 @_ZN6duckdbL20TypeHasExactRowCountERKN
   %5 = load ptr, ptr %4, align 8, !tbaa !415
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !415
-  %.not12.not = icmp eq ptr %5, %7
-  br i1 %.not12.not, label %.loopexit, label %.lr.ph
+  %.not13 = icmp eq ptr %5, %7
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.09.013 = phi ptr [ %10, %.lr.ph ], [ %5, %3 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 32
+  %.sroa.09.014 = phi ptr [ %10, %.lr.ph ], [ %5, %3 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 32
   %9 = tail call fastcc noundef zeroext i1 @_ZN6duckdbL20TypeHasExactRowCountERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %8)
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 56
-  %.not.not = icmp eq ptr %10, %7
-  %or.cond = select i1 %9, i1 true, i1 %.not.not
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 56
+  %.not = icmp eq ptr %10, %7
+  %or.cond = select i1 %9, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 11:                                               ; preds = %1

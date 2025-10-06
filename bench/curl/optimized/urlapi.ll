@@ -68,12 +68,12 @@ define hidden i64 @Curl_is_absolute_url(ptr noundef %0, ptr noundef %1, i64 %2, 
   %7 = load i8, ptr %0, align 1, !tbaa !3
   %8 = and i8 %7, -33
   %9 = add i8 %8, -65
-  %or.cond73 = icmp ult i8 %9, 26
-  br i1 %or.cond73, label %.preheader, label %.thread.thread
+  %or.cond72 = icmp ult i8 %9, 26
+  br i1 %or.cond72, label %.preheader, label %.thread.thread
 
 .preheader:                                       ; preds = %6, %17
-  %.175 = phi i64 [ %18, %17 ], [ 1, %6 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.175
+  %.174 = phi i64 [ %18, %17 ], [ 1, %6 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.174
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %.fr = freeze i8 %11
   %.not61 = icmp eq i8 %.fr, 0
@@ -85,8 +85,8 @@ define hidden i64 @Curl_is_absolute_url(ptr noundef %0, ptr noundef %1, i64 %2, 
   %14 = and i8 %.fr, -33
   %15 = add i8 %14, -65
   %16 = icmp ult i8 %15, 26
-  %or.cond74 = or i1 %or.cond, %16
-  br i1 %or.cond74, label %17, label %switch.early.test
+  %or.cond73 = or i1 %or.cond, %16
+  br i1 %or.cond73, label %17, label %switch.early.test
 
 switch.early.test:                                ; preds = %12
   switch i8 %.fr, label %.thread [
@@ -96,7 +96,7 @@ switch.early.test:                                ; preds = %12
   ]
 
 17:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %12
-  %18 = add nuw nsw i64 %.175, 1
+  %18 = add nuw nsw i64 %.174, 1
   %exitcond.not = icmp eq i64 %18, 40
   br i1 %exitcond.not, label %..thread_crit_edge, label %.preheader, !llvm.loop !6
 
@@ -107,7 +107,7 @@ switch.early.test:                                ; preds = %12
 
 .thread:                                          ; preds = %switch.early.test, %..thread_crit_edge
   %19 = phi i8 [ %.pre, %..thread_crit_edge ], [ %.fr, %switch.early.test ]
-  %.1.lcssa = phi i64 [ 40, %..thread_crit_edge ], [ %.175, %switch.early.test ]
+  %.1.lcssa = phi i64 [ 40, %..thread_crit_edge ], [ %.174, %switch.early.test ]
   %20 = icmp eq i8 %19, 58
   br i1 %20, label %21, label %.thread.thread
 
@@ -2488,12 +2488,12 @@ junkscan.exit.i:                                  ; preds = %17, %15
   %21 = load i8, ptr %0, align 1, !tbaa !3
   %22 = and i8 %21, -33
   %23 = add i8 %22, -65
-  %or.cond73.i.i = icmp ult i8 %23, 26
-  br i1 %or.cond73.i.i, label %.preheader.i.i, label %.critedge.i
+  %or.cond72.i.i = icmp ult i8 %23, 26
+  br i1 %or.cond72.i.i, label %.preheader.i.i, label %.critedge.i
 
 .preheader.i.i:                                   ; preds = %junkscan.exit.i, %31
-  %.175.i.i = phi i64 [ %32, %31 ], [ 1, %junkscan.exit.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.175.i.i
+  %.174.i.i = phi i64 [ %32, %31 ], [ 1, %junkscan.exit.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.174.i.i
   %25 = load i8, ptr %24, align 1, !tbaa !3
   %.fr.i.i = freeze i8 %25
   %.not61.i.i = icmp eq i8 %.fr.i.i, 0
@@ -2505,8 +2505,8 @@ junkscan.exit.i:                                  ; preds = %17, %15
   %28 = and i8 %.fr.i.i, -33
   %29 = add i8 %28, -65
   %30 = icmp ult i8 %29, 26
-  %or.cond74.i.i = or i1 %or.cond.i.i, %30
-  br i1 %or.cond74.i.i, label %31, label %switch.early.test.i.i
+  %or.cond73.i.i = or i1 %or.cond.i.i, %30
+  br i1 %or.cond73.i.i, label %31, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %26
   switch i8 %.fr.i.i, label %.thread.i.i [
@@ -2516,7 +2516,7 @@ switch.early.test.i.i:                            ; preds = %26
   ]
 
 31:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %26
-  %32 = add nuw nsw i64 %.175.i.i, 1
+  %32 = add nuw nsw i64 %.174.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %32, 40
   br i1 %exitcond.not.i.i, label %..thread_crit_edge.i.i, label %.preheader.i.i, !llvm.loop !6
 
@@ -2527,7 +2527,7 @@ switch.early.test.i.i:                            ; preds = %26
 
 .thread.i.i:                                      ; preds = %switch.early.test.i.i, %..thread_crit_edge.i.i
   %33 = phi i8 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %.fr.i.i, %switch.early.test.i.i ]
-  %.1.lcssa.i.i = phi i64 [ 40, %..thread_crit_edge.i.i ], [ %.175.i.i, %switch.early.test.i.i ]
+  %.1.lcssa.i.i = phi i64 [ 40, %..thread_crit_edge.i.i ], [ %.174.i.i, %switch.early.test.i.i ]
   %34 = icmp eq i8 %33, 58
   br i1 %34, label %35, label %.critedge.i
 
@@ -2537,9 +2537,9 @@ switch.early.test.i.i:                            ; preds = %26
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %39 = icmp ne i8 %38, 47
   %or.cond19.i.i = and i1 %20, %39
-  br i1 %or.cond19.i.i, label %.critedge.thread.i, label %Curl_is_absolute_url.exit.thread302.i
+  br i1 %or.cond19.i.i, label %.critedge.thread.i, label %Curl_is_absolute_url.exit.thread300.i
 
-Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
+Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   call void @Curl_strntolower(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %.1.lcssa.i.i) #10
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.lcssa.i.i
   store i8 0, ptr %40, align 1, !tbaa !3
@@ -2547,7 +2547,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %.not238.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not238.i, label %41, label %.preheader
 
-41:                                               ; preds = %Curl_is_absolute_url.exit.thread302.i
+41:                                               ; preds = %Curl_is_absolute_url.exit.thread300.i
   %42 = icmp ult i64 %11, 7
   br i1 %42, label %parseurl.exit, label %43
 
@@ -2580,8 +2580,8 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
 58:                                               ; preds = %55
   %59 = and i8 %57, -33
   %60 = add i8 %59, -65
-  %or.cond373.i = icmp ult i8 %60, 26
-  br i1 %or.cond373.i, label %61, label %67
+  %or.cond368.i = icmp ult i8 %60, 26
+  br i1 %or.cond368.i, label %61, label %67
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2635,13 +2635,13 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %81 = load i8, ptr %80, align 1, !tbaa !3
   %82 = and i8 %81, -33
   %83 = add i8 %82, -65
-  %or.cond374.i = icmp ult i8 %83, 26
-  br i1 %or.cond374.i, label %84, label %.thread312.i
+  %or.cond369.i = icmp ult i8 %83, 26
+  br i1 %or.cond369.i, label %84, label %.thread310.i
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   %86 = load i8, ptr %85, align 1, !tbaa !3
-  switch i8 %86, label %.thread312.i [
+  switch i8 %86, label %.thread310.i [
     i8 58, label %87
     i8 124, label %87
   ]
@@ -2649,7 +2649,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
 87:                                               ; preds = %84, %84
   %88 = getelementptr inbounds nuw i8, ptr %.1.i, i64 3
   %89 = load i8, ptr %88, align 1, !tbaa !3
-  switch i8 %89, label %.thread312.i [
+  switch i8 %89, label %.thread310.i [
     i8 47, label %parseurl.exit
     i8 92, label %parseurl.exit
     i8 0, label %parseurl.exit
@@ -2658,13 +2658,13 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
 90:                                               ; preds = %76
   %91 = and i8 %77, -33
   %92 = add i8 %91, -65
-  %or.cond375.i = icmp ult i8 %92, 26
-  br i1 %or.cond375.i, label %93, label %.thread312.i
+  %or.cond370.i = icmp ult i8 %92, 26
+  br i1 %or.cond370.i, label %93, label %.thread310.i
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %95 = load i8, ptr %94, align 1, !tbaa !3
-  switch i8 %95, label %.thread312.i [
+  switch i8 %95, label %.thread310.i [
     i8 58, label %96
     i8 124, label %96
   ]
@@ -2672,15 +2672,15 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
 96:                                               ; preds = %93, %93
   %97 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   %98 = load i8, ptr %97, align 1, !tbaa !3
-  switch i8 %98, label %.thread312.i [
+  switch i8 %98, label %.thread310.i [
     i8 47, label %parseurl.exit
     i8 92, label %parseurl.exit
     i8 0, label %parseurl.exit
   ]
 
-.preheader:                                       ; preds = %Curl_is_absolute_url.exit.thread302.i, %.preheader
-  %.0186.i = phi i32 [ %103, %.preheader ], [ 0, %Curl_is_absolute_url.exit.thread302.i ]
-  %.pn.i = phi ptr [ %.0185.i, %.preheader ], [ %36, %Curl_is_absolute_url.exit.thread302.i ]
+.preheader:                                       ; preds = %Curl_is_absolute_url.exit.thread300.i, %.preheader
+  %.0186.i = phi i32 [ %103, %.preheader ], [ 0, %Curl_is_absolute_url.exit.thread300.i ]
+  %.pn.i = phi ptr [ %.0185.i, %.preheader ], [ %36, %Curl_is_absolute_url.exit.thread300.i ]
   %.0185.i = getelementptr i8, ptr %.pn.i, i64 1
   %99 = load i8, ptr %.0185.i, align 1, !tbaa !3
   %100 = icmp eq i8 %99, 47
@@ -2722,10 +2722,10 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
 
 113:                                              ; preds = %110, %.critedge.thread.i
   %114 = phi i1 [ true, %110 ], [ false, %.critedge.thread.i ]
-  %.1188332.i = phi ptr [ %.1188.ph.i, %110 ], [ %0, %.critedge.thread.i ]
+  %.1188330.i = phi ptr [ %.1188.ph.i, %110 ], [ %0, %.critedge.thread.i ]
   %115 = phi i1 [ %.ph.i, %110 ], [ false, %.critedge.thread.i ]
-  %116 = call i64 @strcspn(ptr noundef %.1188332.i, ptr noundef nonnull @.str.25) #11
-  %117 = getelementptr inbounds nuw i8, ptr %.1188332.i, i64 %116
+  %116 = call i64 @strcspn(ptr noundef %.1188330.i, ptr noundef nonnull @.str.25) #11
+  %117 = getelementptr inbounds nuw i8, ptr %.1188330.i, i64 %116
   %118 = ptrtoint ptr %117 to i64
   %119 = ptrtoint ptr %0 to i64
   %.neg247.i = sub i64 %119, %118
@@ -2734,7 +2734,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   br i1 %.not248.i, label %146, label %121
 
 121:                                              ; preds = %113
-  %122 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef %.1188332.i, i64 noundef %116, i32 noundef %2, ptr noundef %5, i1 noundef zeroext %115)
+  %122 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef %.1188330.i, i64 noundef %116, i32 noundef %2, ptr noundef %5, i1 noundef zeroext %115)
   %.not251.i = icmp eq i32 %122, 0
   br i1 %.not251.i, label %123, label %parseurl.exit
 
@@ -2742,7 +2742,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %124 = and i32 %2, 512
   %125 = icmp eq i32 %124, 0
   %or.cond6.i = or i1 %125, %114
-  br i1 %or.cond6.i, label %.thread312.i, label %126
+  br i1 %or.cond6.i, label %.thread310.i, label %126
 
 126:                                              ; preds = %123
   %127 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %5) #10
@@ -2789,7 +2789,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %144 = load i8, ptr %143, align 2
   %145 = or i8 %144, 4
   store i8 %145, ptr %143, align 2
-  br label %.thread312.i
+  br label %.thread310.i
 
 146:                                              ; preds = %113
   %147 = and i32 %2, 1024
@@ -2799,16 +2799,16 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
 148:                                              ; preds = %146
   %149 = call i32 @Curl_dyn_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #10
   %.not250.i = icmp eq i32 %149, 0
-  br i1 %.not250.i, label %.thread312.i, label %parseurl.exit
+  br i1 %.not250.i, label %.thread310.i, label %parseurl.exit
 
-.thread312.i:                                     ; preds = %148, %142, %123, %96, %93, %90, %87, %84, %79
+.thread310.i:                                     ; preds = %148, %142, %123, %96, %93, %90, %87, %84, %79
   %.3180.i = phi i64 [ %.1178.i, %93 ], [ %.1178.i, %96 ], [ %.1178.i, %84 ], [ %.1178.i, %87 ], [ %120, %142 ], [ %120, %123 ], [ %120, %148 ], [ %.1178.i, %79 ], [ %.1178.i, %90 ]
   %.3.i = phi ptr [ %.1.i, %93 ], [ %.1.i, %96 ], [ %.1.i, %84 ], [ %.1.i, %87 ], [ %117, %142 ], [ %117, %123 ], [ %117, %148 ], [ %.1.i, %79 ], [ %.1.i, %90 ]
   %150 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.3.i, i32 noundef 35) #11
   %.not259.i = icmp eq ptr %150, null
   br i1 %.not259.i, label %174, label %151
 
-151:                                              ; preds = %.thread312.i
+151:                                              ; preds = %.thread310.i
   %152 = ptrtoint ptr %150 to i64
   %153 = ptrtoint ptr %.3.i to i64
   %154 = sub i64 %152, %153
@@ -2832,9 +2832,9 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %164 = add i64 %155, -1
   %165 = call fastcc i32 @urlencode_str(ptr noundef %6, ptr noundef nonnull %163, i64 noundef %164, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not262.i = icmp eq i32 %165, 0
-  br i1 %.not262.i, label %.thread350.i, label %168
+  br i1 %.not262.i, label %.thread348.i, label %168
 
-.thread350.i:                                     ; preds = %162
+.thread348.i:                                     ; preds = %162
   %166 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %6) #10
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %166, ptr %167, align 8, !tbaa !31
@@ -2854,8 +2854,8 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %.not261.i = icmp eq ptr %172, null
   br i1 %.not261.i, label %parseurl.exit, label %174
 
-174:                                              ; preds = %169, %.thread350.i, %151, %.thread312.i
-  %.5182.i = phi i64 [ %.3180.i, %.thread312.i ], [ %154, %169 ], [ %154, %151 ], [ %154, %.thread350.i ]
+174:                                              ; preds = %169, %.thread348.i, %151, %.thread310.i
+  %.5182.i = phi i64 [ %.3180.i, %.thread310.i ], [ %154, %169 ], [ %154, %151 ], [ %154, %.thread348.i ]
   %175 = call ptr @memchr(ptr noundef nonnull %.3.i, i32 noundef 63, i64 noundef %.5182.i) #11
   %.not263.i = icmp eq ptr %175, null
   br i1 %.not263.i, label %204, label %176
@@ -2887,9 +2887,9 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %190 = add i64 %180, -1
   %191 = call fastcc i32 @urlencode_str(ptr noundef %7, ptr noundef nonnull %189, i64 noundef %190, i1 noundef zeroext true, i1 noundef zeroext true)
   %.not268.i = icmp eq i32 %191, 0
-  br i1 %.not268.i, label %.thread353.i, label %194
+  br i1 %.not268.i, label %.thread350.i, label %194
 
-.thread353.i:                                     ; preds = %188
+.thread350.i:                                     ; preds = %188
   %192 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #10
   %193 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %192, ptr %193, align 8, !tbaa !30
@@ -2917,8 +2917,8 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %.not265.i = icmp eq ptr %202, null
   br i1 %.not265.i, label %parseurl.exit, label %204
 
-204:                                              ; preds = %200, %195, %.thread353.i, %174
-  %.6183.i = phi i64 [ %.5182.i, %174 ], [ %181, %195 ], [ %181, %200 ], [ %181, %.thread353.i ]
+204:                                              ; preds = %200, %195, %.thread350.i, %174
+  %.6183.i = phi i64 [ %.5182.i, %174 ], [ %181, %195 ], [ %181, %200 ], [ %181, %.thread350.i ]
   %.not269.i = icmp eq i64 %.6183.i, 0
   br i1 %.not269.i, label %262, label %205
 
@@ -2932,9 +2932,9 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   call void @Curl_dyn_init(ptr noundef nonnull %8, i64 noundef 8000000) #10
   %208 = call fastcc i32 @urlencode_str(ptr noundef %8, ptr noundef nonnull %.3.i, i64 noundef %.6183.i, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not271.i = icmp eq i32 %208, 0
-  br i1 %.not271.i, label %.thread359.i, label %212
+  br i1 %.not271.i, label %.thread356.i, label %212
 
-.thread359.i:                                     ; preds = %207
+.thread356.i:                                     ; preds = %207
   %209 = call i64 @Curl_dyn_len(ptr noundef nonnull %8) #10
   %210 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %8) #10
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -2946,9 +2946,9 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %parseurl.exit
 
-213:                                              ; preds = %.thread359.i, %205
-  %.7184.i = phi i64 [ %.6183.i, %205 ], [ %209, %.thread359.i ]
-  %.5.i = phi ptr [ %.3.i, %205 ], [ %210, %.thread359.i ]
+213:                                              ; preds = %.thread356.i, %205
+  %.7184.i = phi i64 [ %.6183.i, %205 ], [ %209, %.thread356.i ]
+  %.5.i = phi ptr [ %.3.i, %205 ], [ %210, %.thread356.i ]
   %214 = icmp ult i64 %.7184.i, 2
   br i1 %214, label %262, label %215
 
@@ -2988,15 +2988,15 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
 228:                                              ; preds = %226
   %229 = load ptr, ptr %9, align 8, !tbaa !16
   %.not277.i = icmp eq ptr %229, null
-  br i1 %.not277.i, label %.thread369.i, label %230
+  br i1 %.not277.i, label %.thread365.i, label %230
 
 230:                                              ; preds = %228
   %231 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
   call void %231(ptr noundef nonnull %224) #10
   store ptr %229, ptr %216, align 8, !tbaa !29
-  br label %.thread369.i
+  br label %.thread365.i
 
-.thread369.i:                                     ; preds = %230, %228
+.thread365.i:                                     ; preds = %230, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %262
 
@@ -3050,7 +3050,7 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %41, %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %294
 
-262:                                              ; preds = %204, %213, %223, %.thread369.i
+262:                                              ; preds = %204, %213, %223, %.thread365.i
   %263 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %5) #10
   %264 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %263, ptr %264, align 8, !tbaa !15
@@ -3482,175 +3482,175 @@ define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %0,
   %.062 = phi ptr [ %9, %10 ], [ %.163, %.thread ]
   %.061 = phi ptr [ %0, %10 ], [ %.1, %.thread ]
   %12 = load i8, ptr %.061, align 1, !tbaa !3
-  switch i8 %12, label %.preheader174 [
+  switch i8 %12, label %.preheader173 [
     i8 46, label %.tail
-    i8 47, label %sub_1128
+    i8 47, label %sub_1127
   ]
 
 .tail:                                            ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %14 = load i8, ptr %13, align 1
   %.not83 = icmp eq i8 %14, 47
-  br i1 %.not83, label %15, label %sub_1106
+  br i1 %.not83, label %15, label %sub_1105
 
 15:                                               ; preds = %.tail
   %16 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   br label %.thread
 
-sub_1106:                                         ; preds = %.tail
+sub_1105:                                         ; preds = %.tail
   %17 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 46, %19
-  %.not154 = icmp eq i8 %18, 46
-  br i1 %.not154, label %sub_2, label %.tail104
+  %.not153 = icmp eq i8 %18, 46
+  br i1 %.not153, label %sub_2, label %.tail103
 
-sub_2:                                            ; preds = %sub_1106
+sub_2:                                            ; preds = %sub_1105
   %21 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = sub nsw i32 47, %23
-  br label %.tail104
+  br label %.tail103
 
-.tail104:                                         ; preds = %sub_1106, %sub_2
-  %25 = phi i32 [ %20, %sub_1106 ], [ %24, %sub_2 ]
+.tail103:                                         ; preds = %sub_1105, %sub_2
+  %25 = phi i32 [ %20, %sub_1105 ], [ %24, %sub_2 ]
   %.not84 = icmp eq i32 %25, 0
-  br i1 %.not84, label %26, label %.tail108
+  br i1 %.not84, label %26, label %.tail107
 
-26:                                               ; preds = %.tail104
+26:                                               ; preds = %.tail103
   %27 = getelementptr inbounds nuw i8, ptr %.061, i64 3
   br label %.thread
 
-.tail108:                                         ; preds = %.tail104
+.tail107:                                         ; preds = %.tail103
   %28 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %29 = load i8, ptr %28, align 1
   %.not85 = icmp eq i8 %29, 0
-  br i1 %.not85, label %50, label %sub_1114
+  br i1 %.not85, label %50, label %sub_1113
 
-sub_1114:                                         ; preds = %.tail108
+sub_1113:                                         ; preds = %.tail107
   %30 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = sub nsw i32 46, %32
-  %.not157 = icmp eq i8 %31, 46
-  br i1 %.not157, label %sub_2115, label %.tail112
+  %.not156 = icmp eq i8 %31, 46
+  br i1 %.not156, label %sub_2114, label %.tail111
 
-sub_2115:                                         ; preds = %sub_1114
+sub_2114:                                         ; preds = %sub_1113
   %34 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = sub nsw i32 0, %36
-  br label %.tail112
+  br label %.tail111
 
-.tail112:                                         ; preds = %sub_1114, %sub_2115
-  %38 = phi i32 [ %33, %sub_1114 ], [ %37, %sub_2115 ]
+.tail111:                                         ; preds = %sub_1113, %sub_2114
+  %38 = phi i32 [ %33, %sub_1113 ], [ %37, %sub_2114 ]
   %.not86 = icmp eq i32 %38, 0
-  br i1 %.not86, label %50, label %.tail117
+  br i1 %.not86, label %50, label %.tail116
 
-.tail117:                                         ; preds = %.tail112
+.tail116:                                         ; preds = %.tail111
   %39 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %40 = load i8, ptr %39, align 1
   %.not87 = icmp eq i8 %40, 63
-  br i1 %.not87, label %50, label %sub_1123
+  br i1 %.not87, label %50, label %sub_1122
 
-sub_1123:                                         ; preds = %.tail117
+sub_1122:                                         ; preds = %.tail116
   %41 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = sub nsw i32 46, %43
-  %.not160 = icmp eq i8 %42, 46
-  br i1 %.not160, label %sub_2124, label %.tail121
+  %.not159 = icmp eq i8 %42, 46
+  br i1 %.not159, label %sub_2123, label %.tail120
 
-sub_2124:                                         ; preds = %sub_1123
+sub_2123:                                         ; preds = %sub_1122
   %45 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = sub nsw i32 63, %47
-  br label %.tail121
+  br label %.tail120
 
-.tail121:                                         ; preds = %sub_1123, %sub_2124
-  %49 = phi i32 [ %44, %sub_1123 ], [ %48, %sub_2124 ]
+.tail120:                                         ; preds = %sub_1122, %sub_2123
+  %49 = phi i32 [ %44, %sub_1122 ], [ %48, %sub_2123 ]
   %.not88 = icmp eq i32 %49, 0
-  br i1 %.not88, label %50, label %.preheader174
+  br i1 %.not88, label %50, label %.preheader173
 
-.preheader174:                                    ; preds = %11, %95, %.tail121
+.preheader173:                                    ; preds = %11, %95, %.tail120
   br label %105
 
-50:                                               ; preds = %.tail121, %.tail117, %.tail112, %.tail108
+50:                                               ; preds = %.tail120, %.tail116, %.tail111, %.tail107
   store i8 0, ptr %9, align 1, !tbaa !3
   br label %.thread97
 
-sub_1128:                                         ; preds = %11
+sub_1127:                                         ; preds = %11
   %51 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = sub nsw i32 46, %53
-  %.not147 = icmp eq i8 %52, 46
-  br i1 %.not147, label %sub_2129, label %.tail126
+  %.not146 = icmp eq i8 %52, 46
+  br i1 %.not146, label %sub_2128, label %.tail125
 
-sub_2129:                                         ; preds = %sub_1128
+sub_2128:                                         ; preds = %sub_1127
   %55 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = sub nsw i32 47, %57
-  br label %.tail126
+  br label %.tail125
 
-.tail126:                                         ; preds = %sub_1128, %sub_2129
-  %59 = phi i32 [ %54, %sub_1128 ], [ %58, %sub_2129 ]
+.tail125:                                         ; preds = %sub_1127, %sub_2128
+  %59 = phi i32 [ %54, %sub_1127 ], [ %58, %sub_2128 ]
   %.not77 = icmp eq i32 %59, 0
-  br i1 %.not77, label %60, label %sub_1133
+  br i1 %.not77, label %60, label %sub_1132
 
-60:                                               ; preds = %.tail126
+60:                                               ; preds = %.tail125
   %61 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   br label %.thread
 
-sub_1133:                                         ; preds = %.tail126
+sub_1132:                                         ; preds = %.tail125
   %62 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = sub nsw i32 46, %64
-  %.not149 = icmp eq i8 %63, 46
-  br i1 %.not149, label %sub_2134, label %.tail131
+  %.not148 = icmp eq i8 %63, 46
+  br i1 %.not148, label %sub_2133, label %.tail130
 
-sub_2134:                                         ; preds = %sub_1133
+sub_2133:                                         ; preds = %sub_1132
   %66 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = sub nsw i32 0, %68
-  br label %.tail131
+  br label %.tail130
 
-.tail131:                                         ; preds = %sub_1133, %sub_2134
-  %70 = phi i32 [ %65, %sub_1133 ], [ %69, %sub_2134 ]
+.tail130:                                         ; preds = %sub_1132, %sub_2133
+  %70 = phi i32 [ %65, %sub_1132 ], [ %69, %sub_2133 ]
   %.not78 = icmp eq i32 %70, 0
-  br i1 %.not78, label %80, label %sub_1138
+  br i1 %.not78, label %80, label %sub_1137
 
-sub_1138:                                         ; preds = %.tail131
+sub_1137:                                         ; preds = %.tail130
   %71 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = sub nsw i32 46, %73
-  %.not151 = icmp eq i8 %72, 46
-  br i1 %.not151, label %sub_2139, label %.tail136
+  %.not150 = icmp eq i8 %72, 46
+  br i1 %.not150, label %sub_2138, label %.tail135
 
-sub_2139:                                         ; preds = %sub_1138
+sub_2138:                                         ; preds = %sub_1137
   %75 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = sub nsw i32 63, %77
-  br label %.tail136
+  br label %.tail135
 
-.tail136:                                         ; preds = %sub_1138, %sub_2139
-  %79 = phi i32 [ %74, %sub_1138 ], [ %78, %sub_2139 ]
+.tail135:                                         ; preds = %sub_1137, %sub_2138
+  %79 = phi i32 [ %74, %sub_1137 ], [ %78, %sub_2138 ]
   %.not79 = icmp eq i32 %79, 0
   br i1 %.not79, label %80, label %82
 
-80:                                               ; preds = %.tail136, %.tail131
+80:                                               ; preds = %.tail135, %.tail130
   %81 = getelementptr inbounds nuw i8, ptr %.062, i64 1
   store i8 47, ptr %.062, align 1, !tbaa !3
   store i8 0, ptr %81, align 1, !tbaa !3
   br label %.thread97
 
-82:                                               ; preds = %.tail136
+82:                                               ; preds = %.tail135
   %83 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.48, ptr noundef nonnull dereferenceable(1) %.061, i64 noundef 4) #11
   %.not80 = icmp eq i32 %83, 0
   br i1 %.not80, label %84, label %93
@@ -3683,7 +3683,7 @@ sub_2139:                                         ; preds = %sub_1138
 95:                                               ; preds = %93
   %96 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.50, ptr noundef nonnull dereferenceable(1) %.061, i64 noundef 4) #11
   %.not82 = icmp eq i32 %96, 0
-  br i1 %.not82, label %.preheader, label %.preheader174
+  br i1 %.not82, label %.preheader, label %.preheader173
 
 .preheader:                                       ; preds = %95, %93
   br label %97
@@ -3706,10 +3706,10 @@ sub_2139:                                         ; preds = %sub_1138
   store i8 0, ptr %104, align 1, !tbaa !3
   br label %.thread97
 
-105:                                              ; preds = %.preheader174, %105
-  %106 = phi i8 [ %109, %105 ], [ %12, %.preheader174 ]
-  %.8 = phi ptr [ %108, %105 ], [ %.062, %.preheader174 ]
-  %.4 = phi ptr [ %107, %105 ], [ %.061, %.preheader174 ]
+105:                                              ; preds = %.preheader173, %105
+  %106 = phi i8 [ %109, %105 ], [ %12, %.preheader173 ]
+  %.8 = phi ptr [ %108, %105 ], [ %.062, %.preheader173 ]
+  %.4 = phi ptr [ %107, %105 ], [ %.061, %.preheader173 ]
   %107 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %108 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   store i8 %106, ptr %.8, align 1, !tbaa !3

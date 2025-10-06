@@ -143,7 +143,7 @@ _ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit: ; p
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %34 = load i16, ptr %33, align 2, !tbaa !21
   %35 = icmp eq i16 %34, 62
-  br i1 %35, label %36, label %101
+  br i1 %35, label %36, label %105
 
 36:                                               ; preds = %_ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -152,19 +152,19 @@ _ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit: ; p
     i16 0, label %39
     i16 37, label %39
     i16 2, label %50
-    i16 4, label %55
-    i16 17, label %59
-    i16 18, label %60
-    i16 29, label %61
+    i16 4, label %56
+    i16 17, label %60
+    i16 18, label %62
+    i16 29, label %64
     i16 19, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
-    i16 20, label %62
-    i16 14, label %65
-    i16 9, label %69
-    i16 15, label %74
-    i16 13, label %78
-    i16 7, label %82
-    i16 8, label %93
-    i16 38, label %97
+    i16 20, label %66
+    i16 14, label %69
+    i16 9, label %73
+    i16 15, label %78
+    i16 13, label %82
+    i16 7, label %86
+    i16 8, label %97
+    i16 38, label %101
   ]
 
 38:                                               ; preds = %36
@@ -201,338 +201,338 @@ _ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit: ; p
   %49 = select i1 %.033.shrunk, i32 15, i32 14
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-default.unreachable:                              ; preds = %112, %39
+default.unreachable:                              ; preds = %116, %39
   unreachable
 
 50:                                               ; preds = %36
-  %switch.i = icmp eq i32 %.0.i, 1
-  br i1 %switch.i, label %51, label %53
+  %51 = icmp eq i32 %.0.i, 1
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %50
-  %52 = select i1 %.033.shrunk, i32 29, i32 27
+52:                                               ; preds = %50
+  %53 = select i1 %.033.shrunk, i32 29, i32 27
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-53:                                               ; preds = %50
-  %54 = select i1 %.033.shrunk, i32 26, i32 3
+54:                                               ; preds = %50
+  %55 = select i1 %.033.shrunk, i32 26, i32 3
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-55:                                               ; preds = %36
+56:                                               ; preds = %36
   %.not.i = icmp eq i32 %.0.i, 1
-  br i1 %.not.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %56
+  br i1 %.not.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %57
 
-56:                                               ; preds = %55
+57:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %57 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %14, i64 33
-  store i8 1, ptr %58, align 1, !tbaa !26
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 33
+  store i8 1, ptr %59, align 1, !tbaa !26
   store ptr @.str, ptr %14, align 8, !tbaa !29
-  store i8 3, ptr %57, align 8, !tbaa !30
+  store i8 3, ptr %58, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %14) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-59:                                               ; preds = %36
-  %switch46.i = icmp eq i32 %.0.i, 1
-  %..i = select i1 %switch46.i, i32 18, i32 23
-  br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
-
 60:                                               ; preds = %36
-  %switch48.i = icmp eq i32 %.0.i, 1
-  %.49.i = select i1 %switch48.i, i32 17, i32 21
-  br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
-
-61:                                               ; preds = %36
-  %switch51.i = icmp eq i32 %.0.i, 1
-  %.52.i = select i1 %switch51.i, i32 33, i32 32
+  %61 = icmp eq i32 %.0.i, 1
+  %..i = select i1 %61, i32 18, i32 23
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
 62:                                               ; preds = %36
-  %63 = icmp eq i32 %17, 133
-  %64 = select i1 %63, i32 45, i32 34
+  %63 = icmp eq i32 %.0.i, 1
+  %.45.i = select i1 %63, i32 17, i32 21
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-65:                                               ; preds = %36
-  %.not.i.i = icmp eq i32 %.0.i, 2
-  br i1 %.not.i.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %66
+64:                                               ; preds = %36
+  %65 = icmp eq i32 %.0.i, 1
+  %.46.i = select i1 %65, i32 33, i32 32
+  br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-66:                                               ; preds = %65
+66:                                               ; preds = %36
+  %67 = icmp eq i32 %17, 133
+  %68 = select i1 %67, i32 45, i32 34
+  br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
+
+69:                                               ; preds = %36
+  %.not.i.i = icmp eq i32 %.0.i, 2
+  br i1 %.not.i.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %70
+
+70:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %68, align 1, !tbaa !26
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %72, align 1, !tbaa !26
   store ptr @.str.1, ptr %13, align 8, !tbaa !29
-  store i8 3, ptr %67, align 8, !tbaa !30
+  store i8 3, ptr %71, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %13) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-69:                                               ; preds = %36
-  %.not.i53.i = icmp eq i32 %.0.i, 2
-  br i1 %.not.i53.i, label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i, label %70
+73:                                               ; preds = %36
+  %.not.i47.i = icmp eq i32 %.0.i, 2
+  br i1 %.not.i47.i, label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit48.i, label %74
 
-70:                                               ; preds = %69
+74:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 1, ptr %72, align 1, !tbaa !26
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 1, ptr %76, align 1, !tbaa !26
   store ptr @.str.1, ptr %12, align 8, !tbaa !29
-  store i8 3, ptr %71, align 8, !tbaa !30
+  store i8 3, ptr %75, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %12) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i
+  br label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit48.i
 
-_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i: ; preds = %70, %69
+_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit48.i: ; preds = %74, %73
   %switch.tableidx = add i32 %17, -130
-  %73 = icmp ult i32 %switch.tableidx, 5
-  br i1 %73, label %switch.lookup, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
+  %77 = icmp ult i32 %switch.tableidx, 5
+  br i1 %77, label %switch.lookup, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-74:                                               ; preds = %36
-  %.not.i55.i = icmp eq i32 %.0.i, 2
-  br i1 %.not.i55.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %75
+78:                                               ; preds = %36
+  %.not.i49.i = icmp eq i32 %.0.i, 2
+  br i1 %.not.i49.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %79
 
-75:                                               ; preds = %74
+79:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %76 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %77 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %77, align 1, !tbaa !26
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %81, align 1, !tbaa !26
   store ptr @.str.1, ptr %11, align 8, !tbaa !29
-  store i8 3, ptr %76, align 8, !tbaa !30
+  store i8 3, ptr %80, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %11) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-78:                                               ; preds = %36
-  %.not.i57.i = icmp eq i32 %.0.i, 2
-  br i1 %.not.i57.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %79
+82:                                               ; preds = %36
+  %.not.i51.i = icmp eq i32 %.0.i, 2
+  br i1 %.not.i51.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %83
 
-79:                                               ; preds = %78
+83:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %80 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %81 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 1, ptr %81, align 1, !tbaa !26
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 1, ptr %85, align 1, !tbaa !26
   store ptr @.str.1, ptr %10, align 8, !tbaa !29
-  store i8 3, ptr %80, align 8, !tbaa !30
+  store i8 3, ptr %84, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-82:                                               ; preds = %36
-  %.not.i59.i = icmp eq i32 %.0.i, 2
-  br i1 %.not.i59.i, label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i, label %83
+86:                                               ; preds = %36
+  %.not.i53.i = icmp eq i32 %.0.i, 2
+  br i1 %.not.i53.i, label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i, label %87
 
-83:                                               ; preds = %82
+87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %85 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %85, align 1, !tbaa !26
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %89, align 1, !tbaa !26
   store ptr @.str.1, ptr %9, align 8, !tbaa !29
-  store i8 3, ptr %84, align 8, !tbaa !30
+  store i8 3, ptr %88, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %9) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i
+  br label %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i
 
-_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i: ; preds = %83, %82
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 2344
-  %87 = load ptr, ptr %86, align 8, !tbaa !31
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %89 = load i8, ptr %88, align 4, !tbaa !187, !range !201, !noundef !202
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
+_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i: ; preds = %87, %86
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 2344
+  %91 = load ptr, ptr %90, align 8, !tbaa !31
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = load i8, ptr %92, align 4, !tbaa !187, !range !201, !noundef !202
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %95, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-91:                                               ; preds = %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i
+95:                                               ; preds = %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i
   %switch.tableidx35 = add i32 %17, -129
-  %92 = icmp ult i32 %switch.tableidx35, 5
-  br i1 %92, label %switch.lookup36, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
+  %96 = icmp ult i32 %switch.tableidx35, 5
+  br i1 %96, label %switch.lookup36, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-93:                                               ; preds = %36
-  %.not.i61.i = icmp eq i32 %.0.i, 2
-  br i1 %.not.i61.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %94
+97:                                               ; preds = %36
+  %.not.i55.i = icmp eq i32 %.0.i, 2
+  br i1 %.not.i55.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %98
 
-94:                                               ; preds = %93
+98:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %96, align 1, !tbaa !26
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 1, ptr %100, align 1, !tbaa !26
   store ptr @.str.1, ptr %8, align 8, !tbaa !29
-  store i8 3, ptr %95, align 8, !tbaa !30
+  store i8 3, ptr %99, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-97:                                               ; preds = %36
-  %.not.i63.i = icmp eq i32 %.0.i, 1
-  br i1 %.not.i63.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %98
+101:                                              ; preds = %36
+  %.not.i57.i = icmp eq i32 %.0.i, 1
+  br i1 %.not.i57.i, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %102
 
-98:                                               ; preds = %97
+102:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %99 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %100 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %100, align 1, !tbaa !26
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %104, align 1, !tbaa !26
   store ptr @.str.2, ptr %7, align 8, !tbaa !29
-  store i8 3, ptr %99, align 8, !tbaa !30
+  store i8 3, ptr %103, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %7) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-101:                                              ; preds = %_ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit
-  switch i32 %.0.i, label %109 [
-    i32 5, label %108
-    i32 1, label %102
-    i32 2, label %106
-    i32 3, label %106
-    i32 4, label %107
+105:                                              ; preds = %_ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit
+  switch i32 %.0.i, label %113 [
+    i32 5, label %112
+    i32 1, label %106
+    i32 2, label %110
+    i32 3, label %110
+    i32 4, label %111
   ]
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i23 = load ptr, ptr %103, align 8, !tbaa !25
+106:                                              ; preds = %105
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i23 = load ptr, ptr %107, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %104 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %105 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 1, ptr %105, align 1, !tbaa !26
+  %108 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  store i8 1, ptr %109, align 1, !tbaa !26
   store ptr @.str, ptr %15, align 8, !tbaa !29
-  store i8 3, ptr %104, align 8, !tbaa !30
+  store i8 3, ptr %108, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i23, ptr noundef nonnull align 8 dereferenceable(34) %15) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-106:                                              ; preds = %101, %101
-  br label %109
+110:                                              ; preds = %105, %105
+  br label %113
 
-107:                                              ; preds = %101
-  br label %109
+111:                                              ; preds = %105
+  br label %113
 
-108:                                              ; preds = %101
-  br label %109
+112:                                              ; preds = %105
+  br label %113
 
-109:                                              ; preds = %108, %107, %106, %101
-  %.not.i25 = phi i1 [ false, %101 ], [ false, %108 ], [ true, %106 ], [ false, %107 ]
-  %.019 = phi i32 [ 0, %101 ], [ 3, %108 ], [ 1, %106 ], [ 2, %107 ]
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i24 = load ptr, ptr %110, align 8, !tbaa !25
-  switch i16 %.032, label %111 [
-    i16 0, label %112
-    i16 37, label %112
-    i16 2, label %121
-    i16 4, label %132
+113:                                              ; preds = %112, %111, %110, %105
+  %.not.i25 = phi i1 [ false, %105 ], [ false, %112 ], [ true, %110 ], [ false, %111 ]
+  %.019 = phi i32 [ 0, %105 ], [ 3, %112 ], [ 1, %110 ], [ 2, %111 ]
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i24 = load ptr, ptr %114, align 8, !tbaa !25
+  switch i16 %.032, label %115 [
+    i16 0, label %116
+    i16 37, label %116
+    i16 2, label %125
+    i16 4, label %136
     i16 19, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
-    i16 20, label %133
-    i16 17, label %134
-    i16 18, label %135
-    i16 14, label %136
-    i16 9, label %137
-    i16 13, label %138
-    i16 10, label %139
-    i16 11, label %140
-    i16 12, label %141
-    i16 16, label %142
+    i16 20, label %137
+    i16 17, label %138
+    i16 18, label %139
+    i16 14, label %140
+    i16 9, label %141
+    i16 13, label %142
+    i16 10, label %143
+    i16 11, label %144
+    i16 12, label %145
+    i16 16, label %146
   ]
 
-111:                                              ; preds = %109
+115:                                              ; preds = %113
   unreachable
 
-112:                                              ; preds = %109, %109
+116:                                              ; preds = %113, %113
   switch i32 %.019, label %default.unreachable [
-    i32 0, label %113
-    i32 1, label %115
-    i32 2, label %117
-    i32 3, label %119
+    i32 0, label %117
+    i32 1, label %119
+    i32 2, label %121
+    i32 3, label %123
   ]
 
-113:                                              ; preds = %112
-  %114 = icmp eq i16 %.032, 0
-  tail call void @llvm.assume(i1 %114)
+117:                                              ; preds = %116
+  %118 = icmp eq i16 %.032, 0
+  tail call void @llvm.assume(i1 %118)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-115:                                              ; preds = %112
-  %116 = select i1 %.033.shrunk, i32 2, i32 1
+119:                                              ; preds = %116
+  %120 = select i1 %.033.shrunk, i32 2, i32 1
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-117:                                              ; preds = %112
-  %118 = select i1 %.033.shrunk, i32 21, i32 20
+121:                                              ; preds = %116
+  %122 = select i1 %.033.shrunk, i32 21, i32 20
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-119:                                              ; preds = %112
-  %120 = select i1 %.033.shrunk, i32 23, i32 22
+123:                                              ; preds = %116
+  %124 = select i1 %.033.shrunk, i32 23, i32 22
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-121:                                              ; preds = %109
-  br i1 %.not.i25, label %122, label %143
+125:                                              ; preds = %113
+  br i1 %.not.i25, label %126, label %147
 
-122:                                              ; preds = %121
-  br i1 %.033.shrunk, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %123
+126:                                              ; preds = %125
+  br i1 %.033.shrunk, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %127
 
-123:                                              ; preds = %122
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 2344
-  %125 = load ptr, ptr %124, align 8, !tbaa !31
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  %127 = load i8, ptr %126, align 4, !tbaa !187, !range !201, !noundef !202
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %129, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 2344
+  %129 = load ptr, ptr %128, align 8, !tbaa !31
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
+  %131 = load i8, ptr %130, align 4, !tbaa !187, !range !201, !noundef !202
+  %132 = trunc nuw i8 %131 to i1
+  br i1 %132, label %133, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-129:                                              ; preds = %123
-  %130 = icmp eq i32 %17, 136
-  %131 = select i1 %130, i32 43, i32 3
+133:                                              ; preds = %127
+  %134 = icmp eq i32 %17, 136
+  %135 = select i1 %134, i32 43, i32 3
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-132:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+136:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-133:                                              ; preds = %109
+137:                                              ; preds = %113
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-134:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+138:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-135:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+139:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-136:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+140:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-137:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+141:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-138:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+142:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-139:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+143:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-140:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+144:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-141:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+145:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-142:                                              ; preds = %109
-  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %143
+146:                                              ; preds = %113
+  br i1 %.not.i25, label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit, label %147
 
-143:                                              ; preds = %142, %141, %140, %139, %138, %137, %136, %135, %134, %132, %121
+147:                                              ; preds = %146, %145, %144, %143, %142, %141, %140, %139, %138, %136, %125
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %144 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %145 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %145, align 1, !tbaa !26
+  %148 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  store i8 1, ptr %149, align 1, !tbaa !26
   store ptr @.str, ptr %6, align 8, !tbaa !29
-  store i8 3, ptr %144, align 8, !tbaa !30
+  store i8 3, ptr %148, align 8, !tbaa !30
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(34) %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-switch.lookup:                                    ; preds = %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i
-  %146 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb, i64 %146
+switch.lookup:                                    ; preds = %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit48.i
+  %150 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb, i64 %150
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-switch.lookup36:                                  ; preds = %91
-  %147 = zext nneg i32 %switch.tableidx35 to i64
-  %switch.gep37 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb.12, i64 %147
+switch.lookup36:                                  ; preds = %95
+  %151 = zext nneg i32 %switch.tableidx35 to i64
+  %switch.gep37 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb.12, i64 %151
   %switch.load38 = load i32, ptr %switch.gep37, align 4
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
-_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit: ; preds = %switch.lookup36, %91, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i, %switch.lookup, %102, %36, %39, %40, %42, %44, %46, %48, %51, %53, %55, %56, %59, %60, %61, %62, %65, %66, %74, %75, %78, %79, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i, %93, %94, %97, %98, %109, %113, %115, %117, %119, %122, %123, %129, %132, %133, %134, %135, %136, %137, %138, %139, %140, %141, %142, %143, %19
-  %.0 = phi i32 [ %20, %19 ], [ 0, %102 ], [ 0, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %52, %51 ], [ %54, %53 ], [ %64, %62 ], [ 11, %39 ], [ 25, %56 ], [ 25, %55 ], [ %..i, %59 ], [ %.49.i, %60 ], [ %.52.i, %61 ], [ 35, %36 ], [ 9, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i ], [ 9, %91 ], [ 19, %65 ], [ 19, %66 ], [ 20, %74 ], [ 20, %75 ], [ 4, %78 ], [ 4, %79 ], [ 9, %93 ], [ 9, %94 ], [ 31, %97 ], [ 31, %98 ], [ 0, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ 0, %143 ], [ %131, %129 ], [ 39, %133 ], [ 10, %122 ], [ 3, %123 ], [ 9, %132 ], [ 40, %109 ], [ 34, %134 ], [ 32, %135 ], [ 18, %136 ], [ 33, %137 ], [ 4, %138 ], [ 15, %139 ], [ 17, %140 ], [ 16, %141 ], [ 19, %142 ], [ %switch.load, %switch.lookup ], [ 22, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i ], [ %switch.load38, %switch.lookup36 ]
+_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit: ; preds = %switch.lookup36, %95, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit48.i, %switch.lookup, %106, %36, %39, %40, %42, %44, %46, %48, %52, %54, %56, %57, %60, %62, %64, %66, %69, %70, %78, %79, %82, %83, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i, %97, %98, %101, %102, %113, %117, %119, %121, %123, %126, %127, %133, %136, %137, %138, %139, %140, %141, %142, %143, %144, %145, %146, %147, %19
+  %.0 = phi i32 [ %20, %19 ], [ 0, %106 ], [ 0, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %53, %52 ], [ %55, %54 ], [ %68, %66 ], [ 11, %39 ], [ 25, %57 ], [ 25, %56 ], [ %..i, %60 ], [ %.45.i, %62 ], [ %.46.i, %64 ], [ 35, %36 ], [ 9, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i ], [ 9, %95 ], [ 19, %69 ], [ 19, %70 ], [ 20, %78 ], [ 20, %79 ], [ 4, %82 ], [ 4, %83 ], [ 9, %97 ], [ 9, %98 ], [ 31, %101 ], [ 31, %102 ], [ 0, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ 0, %147 ], [ %135, %133 ], [ 39, %137 ], [ 10, %126 ], [ 3, %127 ], [ 9, %136 ], [ 40, %113 ], [ 34, %138 ], [ 32, %139 ], [ 18, %140 ], [ 33, %141 ], [ 4, %142 ], [ 15, %143 ], [ 17, %144 ], [ 16, %145 ], [ 19, %146 ], [ %switch.load, %switch.lookup ], [ 22, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit48.i ], [ %switch.load38, %switch.lookup36 ]
   ret i32 %.0
 }
 

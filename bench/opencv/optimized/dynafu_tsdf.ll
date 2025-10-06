@@ -6345,9 +6345,9 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu14RaycastInvokerclERKNS_5RangeE(p
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !49
   %81 = icmp slt i32 %78, %80
-  br i1 %81, label %.lr.ph441, label %._crit_edge442
+  br i1 %81, label %.lr.ph440, label %._crit_edge441
 
-.lr.ph441:                                        ; preds = %2
+.lr.ph440:                                        ; preds = %2
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -6419,27 +6419,27 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu14RaycastInvokerclERKNS_5RangeE(p
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
   %147 = load i32, ptr %146, align 4, !tbaa !253
   %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %.lr.ph441.split.preheader, label %._crit_edge442
+  br i1 %148, label %.lr.ph440.split.preheader, label %._crit_edge441
 
-.lr.ph441.split.preheader:                        ; preds = %.lr.ph441
+.lr.ph440.split.preheader:                        ; preds = %.lr.ph440
   %149 = sext i32 %78 to i64
-  br label %.lr.ph441.split
+  br label %.lr.ph440.split
 
-._crit_edge442:                                   ; preds = %._crit_edge438, %.lr.ph441, %2
+._crit_edge441:                                   ; preds = %._crit_edge437, %.lr.ph440, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-.lr.ph441.split:                                  ; preds = %.lr.ph441.split.preheader, %._crit_edge438
-  %150 = phi i32 [ %80, %.lr.ph441.split.preheader ], [ %172, %._crit_edge438 ]
-  %151 = phi ptr [ %145, %.lr.ph441.split.preheader ], [ %173, %._crit_edge438 ]
-  %indvars.iv448 = phi i64 [ %149, %.lr.ph441.split.preheader ], [ %indvars.iv.next449, %._crit_edge438 ]
+.lr.ph440.split:                                  ; preds = %.lr.ph440.split.preheader, %._crit_edge437
+  %150 = phi i32 [ %80, %.lr.ph440.split.preheader ], [ %172, %._crit_edge437 ]
+  %151 = phi ptr [ %145, %.lr.ph440.split.preheader ], [ %173, %._crit_edge437 ]
+  %indvars.iv447 = phi i64 [ %149, %.lr.ph440.split.preheader ], [ %indvars.iv.next448, %._crit_edge437 ]
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !94
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 72
   %155 = load ptr, ptr %154, align 8, !tbaa !254
   %156 = load i64, ptr %155, align 8, !tbaa !255
-  %157 = mul i64 %156, %indvars.iv448
+  %157 = mul i64 %156, %indvars.iv447
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 %157
   %159 = load ptr, ptr %83, align 8, !tbaa !333
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
@@ -6447,32 +6447,32 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu14RaycastInvokerclERKNS_5RangeE(p
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 72
   %163 = load ptr, ptr %162, align 8, !tbaa !254
   %164 = load i64, ptr %163, align 8, !tbaa !255
-  %165 = mul i64 %164, %indvars.iv448
+  %165 = mul i64 %164, %indvars.iv447
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %151, i64 12
   %168 = load i32, ptr %167, align 4, !tbaa !253
   %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %.lr.ph437, label %._crit_edge438
+  br i1 %169, label %.lr.ph436, label %._crit_edge437
 
-.lr.ph437:                                        ; preds = %.lr.ph441.split
-  %170 = trunc nsw i64 %indvars.iv448 to i32
+.lr.ph436:                                        ; preds = %.lr.ph440.split
+  %170 = trunc nsw i64 %indvars.iv447 to i32
   %171 = sitofp i32 %170 to float
   br label %176
 
-._crit_edge438.loopexit:                          ; preds = %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
+._crit_edge437.loopexit:                          ; preds = %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
   %.pre = load i32, ptr %79, align 4, !tbaa !49
-  br label %._crit_edge438
+  br label %._crit_edge437
 
-._crit_edge438:                                   ; preds = %._crit_edge438.loopexit, %.lr.ph441.split
-  %172 = phi i32 [ %.pre, %._crit_edge438.loopexit ], [ %150, %.lr.ph441.split ]
-  %173 = phi ptr [ %616, %._crit_edge438.loopexit ], [ %151, %.lr.ph441.split ]
-  %indvars.iv.next449 = add nsw i64 %indvars.iv448, 1
+._crit_edge437:                                   ; preds = %._crit_edge437.loopexit, %.lr.ph440.split
+  %172 = phi i32 [ %.pre, %._crit_edge437.loopexit ], [ %150, %.lr.ph440.split ]
+  %173 = phi ptr [ %616, %._crit_edge437.loopexit ], [ %151, %.lr.ph440.split ]
+  %indvars.iv.next448 = add nsw i64 %indvars.iv447, 1
   %174 = sext i32 %172 to i64
-  %175 = icmp slt i64 %indvars.iv.next449, %174
-  br i1 %175, label %.lr.ph441.split, label %._crit_edge442, !llvm.loop !334
+  %175 = icmp slt i64 %indvars.iv.next448, %174
+  br i1 %175, label %.lr.ph440.split, label %._crit_edge441, !llvm.loop !334
 
-176:                                              ; preds = %.lr.ph437, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph437 ], [ %indvars.iv.next, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ]
+176:                                              ; preds = %.lr.ph436, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph436 ], [ %indvars.iv.next, %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread ]
   %177 = load float, ptr @_ZN2cv5kinfuL4nan3E, align 4, !tbaa !25
   %178 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 4), align 4, !tbaa !25
   %179 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), align 4, !tbaa !25
@@ -6785,17 +6785,17 @@ _ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit: ; preds = 
   br label %360
 
 360:                                              ; preds = %.lr.ph, %457
-  %.0145425 = phi float [ %348, %.lr.ph ], [ %.3.ph, %457 ]
-  %.0150424 = phi i32 [ 0, %.lr.ph ], [ %458, %457 ]
-  %.sroa.13.0423 = phi float [ %289, %.lr.ph ], [ %363, %457 ]
-  %.sroa.0286.0422 = phi <2 x float> [ %.sroa.0.4.vec.insert.i201, %.lr.ph ], [ %.sroa.0286.4.vec.insert, %457 ]
-  %.sroa.0286.0.vec.extract290 = extractelement <2 x float> %.sroa.0286.0422, i64 0
+  %.0145424 = phi float [ %348, %.lr.ph ], [ %.3.ph, %457 ]
+  %.0150423 = phi i32 [ 0, %.lr.ph ], [ %458, %457 ]
+  %.sroa.13.0422 = phi float [ %289, %.lr.ph ], [ %363, %457 ]
+  %.sroa.0286.0421 = phi <2 x float> [ %.sroa.0.4.vec.insert.i201, %.lr.ph ], [ %.sroa.0286.4.vec.insert, %457 ]
+  %.sroa.0286.0.vec.extract290 = extractelement <2 x float> %.sroa.0286.0421, i64 0
   %361 = fadd float %318, %.sroa.0286.0.vec.extract290
   %.sroa.0286.0.vec.insert = insertelement <2 x float> poison, float %361, i64 0
-  %.sroa.0286.4.vec.extract295 = extractelement <2 x float> %.sroa.0286.0422, i64 1
+  %.sroa.0286.4.vec.extract295 = extractelement <2 x float> %.sroa.0286.0421, i64 1
   %362 = fadd float %319, %.sroa.0286.4.vec.extract295
   %.sroa.0286.4.vec.insert = insertelement <2 x float> %.sroa.0286.0.vec.insert, float %362, i64 1
-  %363 = fadd float %320, %.sroa.13.0423
+  %363 = fadd float %320, %.sroa.13.0422
   %364 = insertelement <4 x float> poison, float %361, i64 0
   %365 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %364)
   %366 = insertelement <4 x float> poison, float %362, i64 0
@@ -6851,7 +6851,7 @@ _ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit: ; preds = 
 _ZNK2cv3Mat2atINS_6dynafu5VoxelEEERKT_i.exit:     ; preds = %379, %386, %392
   %.0.i = phi ptr [ %381, %379 ], [ %391, %386 ], [ %402, %392 ]
   %403 = load float, ptr %.0.i, align 4, !tbaa !369
-  %404 = fcmp une float %403, %.0145425
+  %404 = fcmp une float %403, %.0145424
   br i1 %404, label %405, label %457
 
 405:                                              ; preds = %_ZNK2cv3Mat2atINS_6dynafu5VoxelEEERKT_i.exit
@@ -6913,7 +6913,7 @@ _ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212: ; preds
   %451 = fsub float %450, %448
   %452 = tail call noundef float @llvm.fmuladd.f32(float %430, float %451, float %448)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %453 = bitcast float %.0145425 to i32
+  %453 = bitcast float %.0145424 to i32
   %454 = bitcast float %452 to i32
   %455 = xor i32 %454, %453
   %456 = icmp slt i32 %455, 0
@@ -6921,14 +6921,14 @@ _ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212: ; preds
 
 457:                                              ; preds = %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212, %_ZNK2cv3Mat2atINS_6dynafu5VoxelEEERKT_i.exit
   %.3149.ph = phi float [ %403, %_ZNK2cv3Mat2atINS_6dynafu5VoxelEEERKT_i.exit ], [ %452, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
-  %.3.ph = phi float [ %.0145425, %_ZNK2cv3Mat2atINS_6dynafu5VoxelEEERKT_i.exit ], [ %452, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
-  %458 = add nuw nsw i32 %.0150424, 1
+  %.3.ph = phi float [ %.0145424, %_ZNK2cv3Mat2atINS_6dynafu5VoxelEEERKT_i.exit ], [ %452, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
+  %458 = add nuw nsw i32 %.0150423, 1
   %exitcond.not = icmp eq i32 %458, %352
   br i1 %exitcond.not, label %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212._crit_edge.loopexit, label %360, !llvm.loop !372
 
 _ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212._crit_edge.loopexit: ; preds = %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212, %457
-  %.0150.lcssa.ph = phi i32 [ %352, %457 ], [ %.0150424, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
-  %.0145.lcssa.ph = phi float [ %.3.ph, %457 ], [ %.0145425, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
+  %.0150.lcssa.ph = phi i32 [ %352, %457 ], [ %.0150423, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
+  %.0145.lcssa.ph = phi float [ %.3.ph, %457 ], [ %.0145424, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
   %.1147.ph = phi float [ %.3149.ph, %457 ], [ %452, %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212 ]
   %459 = uitofp nneg i32 %.0150.lcssa.ph to float
   br label %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit212._crit_edge
@@ -7071,8 +7071,8 @@ _ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit228: ; preds
   %562 = fsub float %.0150.lcssa, %561
   %563 = tail call float @llvm.fmuladd.f32(float %270, float %562, float %271)
   %564 = tail call float @llvm.fabs.f32(float %563)
-  %or.cond419 = fcmp ueq float %564, 0x7FF0000000000000
-  br i1 %or.cond419, label %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread, label %565
+  %or.cond418 = fcmp ueq float %564, 0x7FF0000000000000
+  br i1 %or.cond418, label %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread, label %565
 
 565:                                              ; preds = %_ZNK2cv6dynafu13TSDFVolumeCPU16interpolateVoxelENS_7Point3_IfEE.exit228
   %566 = fmul float %281, %563
@@ -7204,7 +7204,7 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread:   ; preds = %565, %_ZNK2cv6dynaf
   %618 = load i32, ptr %617, align 4, !tbaa !253
   %619 = sext i32 %618 to i64
   %620 = icmp slt i64 %indvars.iv.next, %619
-  br i1 %620, label %176, label %._crit_edge438.loopexit, !llvm.loop !376
+  br i1 %620, label %176, label %._crit_edge437.loopexit, !llvm.loop !376
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

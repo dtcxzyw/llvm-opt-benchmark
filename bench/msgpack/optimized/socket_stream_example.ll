@@ -5599,9 +5599,9 @@ _ZN17json_like_visitor7end_mapEv.exit:            ; preds = %132, %134
 
 .sink.split:                                      ; preds = %_ZN17json_like_visitor7end_mapEv.exit, %_ZN17json_like_visitor9end_arrayEv.exit
   %.sink = phi ptr [ %47, %_ZN17json_like_visitor9end_arrayEv.exit ], [ %119, %_ZN17json_like_visitor7end_mapEv.exit ]
-  %.sink71 = phi i64 [ %52, %_ZN17json_like_visitor9end_arrayEv.exit ], [ %124, %_ZN17json_like_visitor7end_mapEv.exit ]
+  %.sink70 = phi i64 [ %52, %_ZN17json_like_visitor9end_arrayEv.exit ], [ %124, %_ZN17json_like_visitor7end_mapEv.exit ]
   %137 = load ptr, ptr %.sink, align 8, !tbaa !30
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink71
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink70
   store i8 0, ptr %138, align 1, !tbaa !58
   br label %139
 

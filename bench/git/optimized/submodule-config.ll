@@ -989,8 +989,8 @@ cache_lookup_name.exit:                           ; preds = %55, %64
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %10, ptr %72, align 8, !tbaa !4
   %73 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %9, ptr noundef null) #16
-  %.not.i38 = icmp eq ptr %73, null
-  br i1 %.not.i38, label %cache_lookup_path.exit, label %74
+  %.not.i37 = icmp eq ptr %73, null
+  br i1 %.not.i37, label %cache_lookup_path.exit, label %74
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -998,13 +998,13 @@ cache_lookup_name.exit:                           ; preds = %55, %64
   br label %cache_lookup_path.exit
 
 cache_lookup_path.exit:                           ; preds = %67, %74
-  %.0.i39 = phi ptr [ %76, %74 ], [ null, %67 ]
+  %.0.i38 = phi ptr [ %76, %74 ], [ null, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %77
 
 77:                                               ; preds = %cache_lookup_path.exit, %cache_lookup_name.exit
-  %.128 = phi ptr [ %.0.i, %cache_lookup_name.exit ], [ %.0.i39, %cache_lookup_path.exit ]
+  %.128 = phi ptr [ %.0.i, %cache_lookup_name.exit ], [ %.0.i38, %cache_lookup_path.exit ]
   %.not35 = icmp eq ptr %.128, null
   br i1 %.not35, label %78, label %123
 
@@ -1059,16 +1059,16 @@ cache_lookup_path.exit:                           ; preds = %67, %74
   store ptr %8, ptr %107, align 8, !tbaa !4
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %109 = call ptr @hashmap_get(ptr noundef nonnull %108, ptr noundef nonnull %7, ptr noundef null) #16
-  %.not.i40 = icmp eq ptr %109, null
-  br i1 %.not.i40, label %cache_lookup_name.exit42, label %110
+  %.not.i39 = icmp eq ptr %109, null
+  br i1 %.not.i39, label %cache_lookup_name.exit41, label %110
 
 110:                                              ; preds = %101
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !4
-  br label %cache_lookup_name.exit42
+  br label %cache_lookup_name.exit41
 
-cache_lookup_name.exit42:                         ; preds = %101, %110
-  %.0.i41 = phi ptr [ %112, %110 ], [ null, %101 ]
+cache_lookup_name.exit41:                         ; preds = %101, %110
+  %.0.i40 = phi ptr [ %112, %110 ], [ null, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %124
@@ -1088,16 +1088,16 @@ cache_lookup_name.exit42:                         ; preds = %101, %110
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %118, align 8, !tbaa !4
   %119 = call ptr @hashmap_get(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null) #16
-  %.not.i43 = icmp eq ptr %119, null
-  br i1 %.not.i43, label %cache_lookup_path.exit45, label %120
+  %.not.i42 = icmp eq ptr %119, null
+  br i1 %.not.i42, label %cache_lookup_path.exit44, label %120
 
 120:                                              ; preds = %113
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !4
-  br label %cache_lookup_path.exit45
+  br label %cache_lookup_path.exit44
 
-cache_lookup_path.exit45:                         ; preds = %113, %120
-  %.0.i44 = phi ptr [ %122, %120 ], [ null, %113 ]
+cache_lookup_path.exit44:                         ; preds = %113, %120
+  %.0.i43 = phi ptr [ %122, %120 ], [ null, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %124
@@ -1109,8 +1109,8 @@ cache_lookup_path.exit45:                         ; preds = %113, %120
   call void @free(ptr noundef %.029) #16
   br label %124
 
-124:                                              ; preds = %123, %cache_lookup_path.exit45, %cache_lookup_name.exit42, %27
-  %.1 = phi ptr [ %.027, %123 ], [ %.0.i41, %cache_lookup_name.exit42 ], [ %.0.i44, %cache_lookup_path.exit45 ], [ %.0, %27 ]
+124:                                              ; preds = %123, %cache_lookup_path.exit44, %cache_lookup_name.exit41, %27
+  %.1 = phi ptr [ %.027, %123 ], [ %.0.i40, %cache_lookup_name.exit41 ], [ %.0.i43, %cache_lookup_path.exit44 ], [ %.0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

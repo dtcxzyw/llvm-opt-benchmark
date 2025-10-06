@@ -93,8 +93,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
 
 25:                                               ; preds = %27, %19
   %26 = phi ptr [ %28, %27 ], [ %17, %19 ]
-  %.not.not.not.i8.not.not.not = icmp ne ptr %26, %21
-  br i1 %.not.not.not.i8.not.not.not, label %27, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit
+  %.not.not.not.i7.not.not.not = icmp ne ptr %26, %21
+  br i1 %.not.not.not.i7.not.not.not, label %27, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -103,7 +103,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit, label %25
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit: ; preds = %12, %25, %27, %15
-  %.0 = phi i1 [ false, %15 ], [ %.not.not.not.i8.not.not.not, %27 ], [ %.not.not.not.i8.not.not.not, %25 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %15 ], [ %.not.not.not.i7.not.not.not, %27 ], [ %.not.not.not.i7.not.not.not, %25 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -611,15 +611,15 @@ define internal void @"_ZN4core3ptr45drop_in_place$LT$notify..error..ErrorKind$G
   %17 = load ptr, ptr %16, align 8, !alias.scope !102, !nonnull !4, !noundef !4
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0ac390e44839d6a9E.llvm.3009195400206169856(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %17), !noalias !102
   %18 = load i8, ptr %2, align 8, !range !103, !alias.scope !104, !noalias !102, !noundef !4
-  %switch.not.i.i.i.i = icmp eq i8 %18, 3
-  br i1 %switch.not.i.i.i.i, label %19, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha95dc6279e994ea0E.exit"
+  %19 = icmp eq i8 %18, 3
+  br i1 %19, label %20, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha95dc6279e994ea0E.exit"
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h5363af6da8a86772E.llvm.3009195400206169856"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20), !noalias !102
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h5363af6da8a86772E.llvm.3009195400206169856"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21), !noalias !102
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha95dc6279e994ea0E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha95dc6279e994ea0E.exit": ; preds = %15, %19
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha95dc6279e994ea0E.exit": ; preds = %15, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !102
   br label %5
 }
@@ -765,10 +765,10 @@ _ZN3std6thread7Builder15spawn_unchecked17h0e194335b4df3178E.exit:
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.sink36 = phi ptr [ %12, %16 ], [ %9, %13 ]
+  %.sink31 = phi ptr [ %12, %16 ], [ %9, %13 ]
   %.sink = phi i64 [ 2, %16 ], [ 1, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink36, ptr %19, align 8
+  store ptr %.sink31, ptr %19, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }

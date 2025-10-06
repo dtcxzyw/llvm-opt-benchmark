@@ -426,11 +426,11 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
   %74 = add i64 %73, %71
   store i64 %74, ptr %72, align 8, !tbaa !13
   %75 = add i64 %71, %62
-  %.pre102 = load ptr, ptr %8, align 8, !tbaa !22
+  %.pre99 = load ptr, ptr %8, align 8, !tbaa !22
   br label %76
 
 76:                                               ; preds = %64, %52, %49
-  %77 = phi ptr [ %.pre102, %64 ], [ @aesni_ctr32_encrypt_blocks, %52 ], [ %9, %49 ]
+  %77 = phi ptr [ %.pre99, %64 ], [ @aesni_ctr32_encrypt_blocks, %52 ], [ %9, %49 ]
   %.074 = phi i64 [ %75, %64 ], [ 0, %52 ], [ 0, %49 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 %.074

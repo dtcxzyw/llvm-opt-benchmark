@@ -50,7 +50,7 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   store ptr %13, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge221.thread, label %14
+  br i1 %.not, label %._crit_edge220.thread, label %14
 
 14:                                               ; preds = %1
   %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 45) #10
@@ -84,17 +84,17 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
 29:                                               ; preds = %20, %27, %28
   %.0154.ph = phi i32 [ %.176, %28 ], [ %.175, %27 ], [ %., %20 ]
   %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 124) #10
-  %.not167215 = icmp eq ptr %30, null
-  br i1 %.not167215, label %._crit_edge, label %.lr.ph
+  %.not167214 = icmp eq ptr %30, null
+  br i1 %.not167214, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %31 = phi ptr [ %35, %.lr.ph ], [ %30, %29 ]
-  %.1143216 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %29 ]
+  %.1143215 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %.not174 = icmp ne i8 %33, 0
   %34 = zext i1 %.not174 to i32
-  %spec.select = add nuw nsw i32 %.1143216, %34
+  %spec.select = add nuw nsw i32 %.1143215, %34
   %35 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 124) #10
   %.not167 = icmp eq ptr %35, null
   br i1 %.not167, label %._crit_edge, label %.lr.ph, !llvm.loop !27
@@ -106,18 +106,18 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %37, ptr %38, align 8, !tbaa !29
   %.not168.not = icmp eq ptr %37, null
-  br i1 %.not168.not, label %.thread190, label %.lr.ph220
+  br i1 %.not168.not, label %.thread190, label %.lr.ph219
 
-.lr.ph220:                                        ; preds = %._crit_edge
+.lr.ph219:                                        ; preds = %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %wide.trip.count = zext nneg i32 %.1143.lcssa to i64
   %.pre = load ptr, ptr %39, align 8, !tbaa !29
   br label %40
 
-40:                                               ; preds = %.lr.ph220, %123
-  %41 = phi ptr [ %.pre, %.lr.ph220 ], [ %124, %123 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph220 ], [ %indvars.iv.next, %123 ]
-  %.0151217 = phi i64 [ 0, %.lr.ph220 ], [ %.2153.ph, %123 ]
+40:                                               ; preds = %.lr.ph219, %123
+  %41 = phi ptr [ %.pre, %.lr.ph219 ], [ %124, %123 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next, %123 ]
+  %.0151216 = phi i64 [ 0, %.lr.ph219 ], [ %.2153.ph, %123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -214,7 +214,7 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
 89:                                               ; preds = %81
   %90 = zext nneg i32 %86 to i64
   %91 = shl nuw i64 1, %90
-  %92 = or i64 %91, %.0151217
+  %92 = or i64 %91, %.0151216
   br label %123
 
 93:                                               ; preds = %40
@@ -261,7 +261,7 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
 118:                                              ; preds = %111
   %119 = zext nneg i32 %115 to i64
   %120 = shl nuw i64 1, %119
-  %121 = or i64 %120, %.0151217
+  %121 = or i64 %120, %.0151216
   br label %123
 
 122:                                              ; preds = %105, %108, %93, %96, %75, %78, %62, %65, %53, %43
@@ -274,16 +274,16 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
 
 123:                                              ; preds = %111, %81, %118, %89, %99, %68, %56, %46, %40
   %124 = phi ptr [ %113, %111 ], [ %83, %81 ], [ %113, %118 ], [ %101, %99 ], [ %83, %89 ], [ %70, %68 ], [ %58, %56 ], [ %48, %46 ], [ %41, %40 ]
-  %.2153.ph = phi i64 [ -1, %111 ], [ -1, %81 ], [ %121, %118 ], [ %.0151217, %99 ], [ %92, %89 ], [ %.0151217, %68 ], [ %.0151217, %56 ], [ %.0151217, %46 ], [ %.0151217, %40 ]
+  %.2153.ph = phi i64 [ -1, %111 ], [ -1, %81 ], [ %121, %118 ], [ %.0151216, %99 ], [ %92, %89 ], [ %.0151216, %68 ], [ %.0151216, %56 ], [ %.0151216, %46 ], [ %.0151216, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge221, label %40, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge220, label %40, !llvm.loop !36
 
-._crit_edge221:                                   ; preds = %123
+._crit_edge220:                                   ; preds = %123
   %125 = getelementptr inbounds nuw i8, ptr %11, i64 52
   store i32 %.0154.ph, ptr %125, align 4, !tbaa !37
   %126 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -294,7 +294,7 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %139, label %150
 
-._crit_edge221.thread:                            ; preds = %1
+._crit_edge220.thread:                            ; preds = %1
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 52
   store i32 0, ptr %131, align 4, !tbaa !37
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -308,9 +308,9 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %137, ptr %138, align 8, !tbaa !29
   %.not171.not = icmp eq ptr %137, null
-  br i1 %.not171.not, label %.thread190, label %.preheader201
+  br i1 %.not171.not, label %.thread190, label %.preheader200
 
-139:                                              ; preds = %._crit_edge221
+139:                                              ; preds = %._crit_edge220
   %140 = icmp sgt i64 %.2153.ph, 0
   br i1 %140, label %141, label %143
 
@@ -322,28 +322,28 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   call void @av_channel_layout_default(ptr noundef nonnull %127, i32 noundef %.1143.lcssa) #11
   br label %150
 
-.preheader201:                                    ; preds = %._crit_edge221.thread
+.preheader200:                                    ; preds = %._crit_edge220.thread
   %144 = load i32, ptr %132, align 8, !tbaa !38
   %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.lr.ph224.preheader, label %thread-pre-split
+  br i1 %145, label %.lr.ph223.preheader, label %thread-pre-split
 
-.lr.ph224.preheader:                              ; preds = %.preheader201
-  %wide.trip.count241 = zext nneg i32 %144 to i64
-  br label %.lr.ph224
+.lr.ph223.preheader:                              ; preds = %.preheader200
+  %wide.trip.count240 = zext nneg i32 %144 to i64
+  br label %.lr.ph223
 
-.lr.ph224:                                        ; preds = %.lr.ph224.preheader, %.lr.ph224
-  %indvars.iv238 = phi i64 [ 0, %.lr.ph224.preheader ], [ %indvars.iv.next239, %.lr.ph224 ]
-  %146 = getelementptr inbounds nuw %struct.ChannelMap, ptr %137, i64 %indvars.iv238
+.lr.ph223:                                        ; preds = %.lr.ph223.preheader, %.lr.ph223
+  %indvars.iv237 = phi i64 [ 0, %.lr.ph223.preheader ], [ %indvars.iv.next238, %.lr.ph223 ]
+  %146 = getelementptr inbounds nuw %struct.ChannelMap, ptr %137, i64 %indvars.iv237
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = trunc nuw nsw i64 %indvars.iv238 to i32
+  %148 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %148, ptr %147, align 4, !tbaa !31
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 12
   store i32 %148, ptr %149, align 4, !tbaa !33
-  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %thread-pre-split, label %.lr.ph224, !llvm.loop !40
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
+  %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
+  br i1 %exitcond241.not, label %thread-pre-split, label %.lr.ph223, !llvm.loop !40
 
-150:                                              ; preds = %._crit_edge221, %143, %141
+150:                                              ; preds = %._crit_edge220, %143, %141
   %151 = load i32, ptr %126, align 8, !tbaa !38
   %152 = load i32, ptr %128, align 4, !tbaa !39
   %.not170 = icmp eq i32 %151, %152
@@ -357,12 +357,12 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread190
 
-thread-pre-split:                                 ; preds = %.lr.ph224, %.preheader201
+thread-pre-split:                                 ; preds = %.lr.ph223, %.preheader200
   %.pr = load i32, ptr %134, align 4, !tbaa !39
   br label %156
 
 156:                                              ; preds = %thread-pre-split, %150
-  %.0154180262269284 = phi i32 [ 0, %thread-pre-split ], [ %.0154.ph, %150 ]
+  %.0154180261268283 = phi i32 [ 0, %thread-pre-split ], [ %.0154.ph, %150 ]
   %157 = phi ptr [ %132, %thread-pre-split ], [ %126, %150 ]
   %158 = phi ptr [ %133, %thread-pre-split ], [ %127, %150 ]
   %159 = phi i32 [ %144, %thread-pre-split ], [ %151, %150 ]
@@ -375,51 +375,51 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
   br label %.thread190
 
 162:                                              ; preds = %156
-  %163 = and i32 %.0154180262269284, -3
+  %163 = and i32 %.0154180261268283, -3
   %or.cond = icmp eq i32 %163, 4
   %164 = icmp sgt i32 %159, 0
-  %or.cond291 = and i1 %or.cond, %164
-  br i1 %or.cond291, label %.lr.ph226, label %.loopexit200
+  %or.cond290 = and i1 %or.cond, %164
+  br i1 %or.cond290, label %.lr.ph225, label %.loopexit199
 
-.lr.ph226:                                        ; preds = %162
+.lr.ph225:                                        ; preds = %162
   %165 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.pre249 = load ptr, ptr %165, align 8, !tbaa !29
+  %.pre248 = load ptr, ptr %165, align 8, !tbaa !29
   br label %166
 
-166:                                              ; preds = %.lr.ph226, %166
-  %167 = phi ptr [ %.pre249, %.lr.ph226 ], [ %172, %166 ]
-  %indvars.iv243 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next244, %166 ]
-  %168 = getelementptr inbounds nuw %struct.ChannelMap, ptr %167, i64 %indvars.iv243
+166:                                              ; preds = %.lr.ph225, %166
+  %167 = phi ptr [ %.pre248, %.lr.ph225 ], [ %172, %166 ]
+  %indvars.iv242 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next243, %166 ]
+  %168 = getelementptr inbounds nuw %struct.ChannelMap, ptr %167, i64 %indvars.iv242
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !35
   %171 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %158, i32 noundef %170) #11
   %172 = load ptr, ptr %165, align 8, !tbaa !29
-  %173 = getelementptr inbounds nuw %struct.ChannelMap, ptr %172, i64 %indvars.iv243
+  %173 = getelementptr inbounds nuw %struct.ChannelMap, ptr %172, i64 %indvars.iv242
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 12
   store i32 %171, ptr %174, align 4, !tbaa !33
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %175 = load i32, ptr %157, align 8, !tbaa !38
   %176 = sext i32 %175 to i64
-  %177 = icmp slt i64 %indvars.iv.next244, %176
-  br i1 %177, label %166, label %.loopexit200, !llvm.loop !41
+  %177 = icmp slt i64 %indvars.iv.next243, %176
+  br i1 %177, label %166, label %.loopexit199, !llvm.loop !41
 
-.loopexit200:                                     ; preds = %166, %162
+.loopexit199:                                     ; preds = %166, %162
   %178 = phi i32 [ %159, %162 ], [ %175, %166 ]
   %179 = sext i32 %178 to i64
   %180 = call noalias ptr @av_calloc(i64 noundef %179, i64 noundef 1) #11
   store ptr %180, ptr %3, align 8, !tbaa !20
   %181 = load i32, ptr %157, align 8, !tbaa !38
   %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %.lr.ph229, label %.thread193
+  br i1 %182, label %.lr.ph228, label %.thread193
 
-.lr.ph229:                                        ; preds = %.loopexit200
+.lr.ph228:                                        ; preds = %.loopexit199
   %183 = getelementptr inbounds nuw i8, ptr %11, i64 40
   br label %184
 
-184:                                              ; preds = %.lr.ph229, %206
-  %indvars.iv246 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next247, %206 ]
+184:                                              ; preds = %.lr.ph228, %206
+  %indvars.iv245 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next246, %206 ]
   %185 = load ptr, ptr %183, align 8, !tbaa !29
-  %186 = getelementptr inbounds nuw %struct.ChannelMap, ptr %185, i64 %indvars.iv246
+  %186 = getelementptr inbounds nuw %struct.ChannelMap, ptr %185, i64 %indvars.iv245
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %188 = load i32, ptr %187, align 4, !tbaa !33
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 4
@@ -437,12 +437,12 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
   br i1 %.not173, label %206, label %198
 
 198:                                              ; preds = %193
-  %199 = trunc nuw nsw i64 %indvars.iv246 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv245 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %200 = call i32 @av_channel_layout_describe(ptr noundef nonnull %158, ptr noundef nonnull %9, i64 noundef 256) #11
   %201 = add nuw nsw i32 %199, 1
   %202 = load ptr, ptr %183, align 8, !tbaa !29
-  %203 = getelementptr inbounds nuw %struct.ChannelMap, ptr %202, i64 %indvars.iv246
+  %203 = getelementptr inbounds nuw %struct.ChannelMap, ptr %202, i64 %indvars.iv245
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 12
   %205 = load i32, ptr %204, align 4, !tbaa !33
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %201, i32 noundef %205, ptr noundef nonnull %9) #11
@@ -451,13 +451,13 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
 
 206:                                              ; preds = %193
   store i8 1, ptr %196, align 1, !tbaa !26
-  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
+  %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %207 = load i32, ptr %157, align 8, !tbaa !38
   %208 = sext i32 %207 to i64
-  %209 = icmp slt i64 %indvars.iv.next247, %208
+  %209 = icmp slt i64 %indvars.iv.next246, %208
   br i1 %209, label %184, label %.thread193, !llvm.loop !42
 
-.thread193:                                       ; preds = %206, %.loopexit200
+.thread193:                                       ; preds = %206, %.loopexit199
   call void @av_freep(ptr noundef nonnull %3) #11
   br label %.thread190
 
@@ -466,8 +466,8 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
   call void @av_freep(ptr noundef nonnull %3) #11
   br label %.thread190
 
-.thread190:                                       ; preds = %.loopexit, %.thread193, %._crit_edge221.thread, %122, %._crit_edge, %161, %153
-  %.2 = phi i32 [ -22, %122 ], [ -22, %161 ], [ -22, %153 ], [ -12, %._crit_edge ], [ -12, %._crit_edge221.thread ], [ %.1149.ph, %.loopexit ], [ 0, %.thread193 ]
+.thread190:                                       ; preds = %.loopexit, %.thread193, %._crit_edge220.thread, %122, %._crit_edge, %161, %153
+  %.2 = phi i32 [ -22, %122 ], [ -22, %161 ], [ -22, %153 ], [ -12, %._crit_edge ], [ -12, %._crit_edge220.thread ], [ %.1149.ph, %.loopexit ], [ 0, %.thread193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2

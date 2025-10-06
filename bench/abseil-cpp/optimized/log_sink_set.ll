@@ -390,21 +390,21 @@ _ZN4absl15WriterMutexLockD2Ev.exit:               ; preds = %67
   resume { ptr, i32 } %68
 
 _ZNSt6vectorIPN4absl7LogSinkESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
-  %switch = phi i1 [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ false, %49 ], [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %72 = phi i1 [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ false, %49 ], [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
-          to label %_ZN4absl15WriterMutexLockD2Ev.exit5 unwind label %72
+          to label %_ZN4absl15WriterMutexLockD2Ev.exit5 unwind label %73
 
-72:                                               ; preds = %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE9push_backERKS2_.exit
-  %73 = landingpad { ptr, i32 }
+73:                                               ; preds = %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE9push_backERKS2_.exit
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #18
+  %75 = extractvalue { ptr, i32 } %74, 0
+  tail call void @__clang_call_terminate(ptr %75) #18
   unreachable
 
 _ZN4absl15WriterMutexLockD2Ev.exit5:              ; preds = %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE9push_backERKS2_.exit
-  br i1 %switch, label %75, label %76
+  br i1 %72, label %76, label %77
 
-75:                                               ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit5
+76:                                               ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str, ptr %2, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -414,7 +414,7 @@ _ZN4absl15WriterMutexLockD2Ev.exit5:              ; preds = %_ZNSt6vectorIPN4abs
   call void @_ZNK4absl13base_internal10AtomicHookIPFvNS_11LogSeverityEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIJS2_RKS4_iRA38_S3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl16raw_log_internal21internal_log_functionB5cxx11E, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(38) @.str.1)
   unreachable
 
-76:                                               ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit5
+77:                                               ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit5
   ret void
 }
 
@@ -573,21 +573,21 @@ _ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread.i
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread.i: ; preds = %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.i, %._crit_edge.i.i.i.i
-  %switch.i = phi i1 [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i ], [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.i ], [ true, %._crit_edge.i.i.i.i ]
+  %64 = phi i1 [ false, %_ZNSt6vectorIPN4absl7LogSinkESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i ], [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.i ], [ true, %._crit_edge.i.i.i.i ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
-          to label %_ZN4absl15WriterMutexLockD2Ev.exit5.i unwind label %64
+          to label %_ZN4absl15WriterMutexLockD2Ev.exit5.i unwind label %65
 
-64:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread.i
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread.i
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #18
+  %67 = extractvalue { ptr, i32 } %66, 0
+  tail call void @__clang_call_terminate(ptr %67) #18
   unreachable
 
 _ZN4absl15WriterMutexLockD2Ev.exit5.i:            ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN4absl7LogSinkESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread.i
-  br i1 %switch.i, label %67, label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13RemoveLogSinkEPNS_7LogSinkE.exit
+  br i1 %64, label %68, label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet13RemoveLogSinkEPNS_7LogSinkE.exit
 
-67:                                               ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit5.i
+68:                                               ; preds = %_ZN4absl15WriterMutexLockD2Ev.exit5.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str, ptr %2, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

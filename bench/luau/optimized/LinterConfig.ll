@@ -1346,7 +1346,7 @@ define dso_local noundef ptr @_ZN4Luau11LintWarning7getNameENS0_4CodeE(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4Luau11LintWarning9parseNameEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 30) i32 @_ZN4Luau11LintWarning9parseNameEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -1355,20 +1355,20 @@ define dso_local noundef i32 @_ZN4Luau11LintWarning9parseNameEPKc(ptr noundef re
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #9
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.split.loop.exit, label %7
+  br i1 %6, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !14
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 30
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !14
 
-.split.loop.exit:                                 ; preds = %2
+.split.loop.exit11:                               ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit10
+  br label %.split.loop.exit
 
-.split.loop.exit10:                               ; preds = %7, %.split.loop.exit
-  %spec.select = phi i32 [ %8, %.split.loop.exit ], [ 0, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit11
+  %9 = phi i32 [ %8, %.split.loop.exit11 ], [ 0, %7 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -1379,18 +1379,18 @@ define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10H
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !16
-  %.not3840 = icmp eq ptr %2, %4
-  br i1 %.not3840, label %._crit_edge, label %.lr.ph
+  %.not3739 = icmp eq ptr %2, %4
+  br i1 %.not3739, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %24
-  %.01842 = phi i64 [ %.220.ph, %24 ], [ 0, %1 ]
-  %.sroa.029.041 = phi ptr [ %25, %24 ], [ %2, %1 ]
-  %5 = load i8, ptr %.sroa.029.041, align 8, !tbaa !18, !range !25, !noundef !26
+  %.01841 = phi i64 [ %.220.ph, %24 ], [ 0, %1 ]
+  %.sroa.029.040 = phi ptr [ %25, %24 ], [ %2, %1 ]
+  %5 = load i8, ptr %.sroa.029.040, align 8, !tbaa !18, !range !25, !noundef !26
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.029.041, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.029.040, i64 24
   %9 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef 6, ptr noundef nonnull @.str)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %24
@@ -1417,24 +1417,24 @@ define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10H
 
 20:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 30
-  br i1 %exitcond.i, label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread, label %15, !llvm.loop !14
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 30
+  br i1 %exitcond.not.i, label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread, label %15, !llvm.loop !14
 
 _ZN4Luau11LintWarning9parseNameEPKc.exit:         ; preds = %15
   %.not28 = icmp eq i64 %indvars.iv.i, 0
   %21 = and i64 %indvars.iv.i, 4294967295
   %22 = shl nuw i64 1, %21
-  %23 = or i64 %22, %.01842
+  %23 = or i64 %22, %.01841
   br i1 %.not28, label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread, label %24
 
 _ZN4Luau11LintWarning9parseNameEPKc.exit.thread:  ; preds = %20, %_ZN4Luau11LintWarning9parseNameEPKc.exit
   br label %24
 
 24:                                               ; preds = %10, %.lr.ph, %7, %_ZN4Luau11LintWarning9parseNameEPKc.exit, %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread
-  %.220.ph = phi i64 [ %23, %_ZN4Luau11LintWarning9parseNameEPKc.exit ], [ %.01842, %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread ], [ %.01842, %7 ], [ %.01842, %.lr.ph ], [ %.01842, %10 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.041, i64 56
-  %.not38 = icmp eq ptr %25, %4
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  %.220.ph = phi i64 [ %23, %_ZN4Luau11LintWarning9parseNameEPKc.exit ], [ %.01841, %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread ], [ %.01841, %7 ], [ %.01841, %.lr.ph ], [ %.01841, %10 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.040, i64 56
+  %.not37 = icmp eq ptr %25, %4
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %24, %10, %1
   %spec.select = phi i64 [ 0, %1 ], [ %11, %10 ], [ %.220.ph, %24 ]

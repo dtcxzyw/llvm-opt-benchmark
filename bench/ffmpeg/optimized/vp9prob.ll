@@ -41,33 +41,33 @@ define void @ff_vp9_adapt_probs(ptr noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 311
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_inverse, i64 96), align 16
   %21 = zext i32 %20 to i64
-  br label %.preheader812
-
-.preheader812:                                    ; preds = %16, %137
-  %indvars.iv844 = phi i64 [ 0, %16 ], [ %indvars.iv.next845, %137 ]
-  %22 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [3 x i8]]]]], ptr %19, i64 %indvars.iv844
   br label %.preheader811
 
-.preheader811:                                    ; preds = %.preheader812, %136
-  %23 = phi i1 [ true, %.preheader812 ], [ false, %136 ]
-  %indvars.iv841 = phi i64 [ 0, %.preheader812 ], [ 1, %136 ]
-  %24 = getelementptr inbounds nuw [2 x [6 x [6 x [3 x i8]]]], ptr %22, i64 %indvars.iv841
+.preheader811:                                    ; preds = %16, %137
+  %indvars.iv843 = phi i64 [ 0, %16 ], [ %indvars.iv.next844, %137 ]
+  %22 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [3 x i8]]]]], ptr %19, i64 %indvars.iv843
   br label %.preheader810
 
-.preheader810:                                    ; preds = %.preheader811, %135
-  %25 = phi i1 [ true, %.preheader811 ], [ false, %135 ]
-  %indvars.iv838 = phi i64 [ 0, %.preheader811 ], [ 1, %135 ]
-  %26 = getelementptr inbounds nuw [6 x [6 x [3 x i8]]], ptr %24, i64 %indvars.iv838
+.preheader810:                                    ; preds = %.preheader811, %136
+  %23 = phi i1 [ true, %.preheader811 ], [ false, %136 ]
+  %indvars.iv840 = phi i64 [ 0, %.preheader811 ], [ 1, %136 ]
+  %24 = getelementptr inbounds nuw [2 x [6 x [6 x [3 x i8]]]], ptr %22, i64 %indvars.iv840
   br label %.preheader809
 
-.preheader809:                                    ; preds = %.preheader810, %adapt_prob.exit479
-  %indvars.iv834 = phi i64 [ 0, %.preheader810 ], [ %indvars.iv.next835, %adapt_prob.exit479 ]
-  %27 = icmp eq i64 %indvars.iv834, 0
-  %28 = getelementptr inbounds nuw [6 x [3 x i8]], ptr %26, i64 %indvars.iv834
+.preheader809:                                    ; preds = %.preheader810, %135
+  %25 = phi i1 [ true, %.preheader810 ], [ false, %135 ]
+  %indvars.iv837 = phi i64 [ 0, %.preheader810 ], [ 1, %135 ]
+  %26 = getelementptr inbounds nuw [6 x [6 x [3 x i8]]], ptr %24, i64 %indvars.iv837
+  br label %.preheader808
+
+.preheader808:                                    ; preds = %.preheader809, %adapt_prob.exit479
+  %indvars.iv833 = phi i64 [ 0, %.preheader809 ], [ %indvars.iv.next834, %adapt_prob.exit479 ]
+  %27 = icmp eq i64 %indvars.iv833, 0
+  %28 = getelementptr inbounds nuw [6 x [3 x i8]], ptr %26, i64 %indvars.iv833
   br label %29
 
-29:                                               ; preds = %.preheader809, %134
-  %indvars.iv = phi i64 [ 0, %.preheader809 ], [ %indvars.iv.next, %134 ]
+29:                                               ; preds = %.preheader808, %134
+  %indvars.iv = phi i64 [ 0, %.preheader808 ], [ %indvars.iv.next, %134 ]
   %30 = icmp samesign ugt i64 %indvars.iv, 2
   %or.cond = select i1 %27, i1 %30, i1 false
   br i1 %or.cond, label %adapt_prob.exit479, label %31
@@ -75,16 +75,16 @@ define void @ff_vp9_adapt_probs(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %29
   %32 = load ptr, ptr %18, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1788
-  %34 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [3 x i32]]]]], ptr %33, i64 %indvars.iv844
-  %35 = getelementptr inbounds nuw [2 x [6 x [6 x [3 x i32]]]], ptr %34, i64 %indvars.iv841
-  %36 = getelementptr inbounds nuw [6 x [6 x [3 x i32]]], ptr %35, i64 %indvars.iv838
-  %37 = getelementptr inbounds nuw [6 x [3 x i32]], ptr %36, i64 %indvars.iv834
+  %34 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [3 x i32]]]]], ptr %33, i64 %indvars.iv843
+  %35 = getelementptr inbounds nuw [2 x [6 x [6 x [3 x i32]]]], ptr %34, i64 %indvars.iv840
+  %36 = getelementptr inbounds nuw [6 x [6 x [3 x i32]]], ptr %35, i64 %indvars.iv837
+  %37 = getelementptr inbounds nuw [6 x [3 x i32]], ptr %36, i64 %indvars.iv833
   %38 = getelementptr inbounds nuw [3 x i32], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 8700
-  %40 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [2 x i32]]]]], ptr %39, i64 %indvars.iv844
-  %41 = getelementptr inbounds nuw [2 x [6 x [6 x [2 x i32]]]], ptr %40, i64 %indvars.iv841
-  %42 = getelementptr inbounds nuw [6 x [6 x [2 x i32]]], ptr %41, i64 %indvars.iv838
-  %43 = getelementptr inbounds nuw [6 x [2 x i32]], ptr %42, i64 %indvars.iv834
+  %40 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [2 x i32]]]]], ptr %39, i64 %indvars.iv843
+  %41 = getelementptr inbounds nuw [2 x [6 x [6 x [2 x i32]]]], ptr %40, i64 %indvars.iv840
+  %42 = getelementptr inbounds nuw [6 x [6 x [2 x i32]]], ptr %41, i64 %indvars.iv837
+  %43 = getelementptr inbounds nuw [6 x [2 x i32]], ptr %42, i64 %indvars.iv833
   %44 = getelementptr inbounds nuw [2 x i32], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw [3 x i8], ptr %28, i64 %indvars.iv
   %46 = load i32, ptr %44, align 4, !tbaa !32
@@ -161,11 +161,11 @@ adapt_prob.exit:                                  ; preds = %31, %50
   %105 = add i8 %88, %104
   store i8 %105, ptr %82, align 1, !tbaa !33
   %.pre = load i32, ptr %75, align 4, !tbaa !32
-  %.pre905 = load i32, ptr %77, align 4, !tbaa !32
+  %.pre904 = load i32, ptr %77, align 4, !tbaa !32
   br label %adapt_prob.exit476
 
 adapt_prob.exit476:                               ; preds = %adapt_prob.exit, %81
-  %106 = phi i32 [ %78, %adapt_prob.exit ], [ %.pre905, %81 ]
+  %106 = phi i32 [ %78, %adapt_prob.exit ], [ %.pre904, %81 ]
   %107 = phi i32 [ %76, %adapt_prob.exit ], [ %.pre, %81 ]
   %108 = add i32 %106, %107
   %.not.i477 = icmp eq i32 %108, 0
@@ -206,20 +206,20 @@ adapt_prob.exit476:                               ; preds = %adapt_prob.exit, %8
   br i1 %exitcond.not, label %adapt_prob.exit479, label %29, !llvm.loop !34
 
 adapt_prob.exit479:                               ; preds = %29, %134
-  %indvars.iv.next835 = add nuw nsw i64 %indvars.iv834, 1
-  %exitcond837.not = icmp eq i64 %indvars.iv.next835, 6
-  br i1 %exitcond837.not, label %135, label %.preheader809, !llvm.loop !36
+  %indvars.iv.next834 = add nuw nsw i64 %indvars.iv833, 1
+  %exitcond836.not = icmp eq i64 %indvars.iv.next834, 6
+  br i1 %exitcond836.not, label %135, label %.preheader808, !llvm.loop !36
 
 135:                                              ; preds = %adapt_prob.exit479
-  br i1 %25, label %.preheader810, label %136, !llvm.loop !37
+  br i1 %25, label %.preheader809, label %136, !llvm.loop !37
 
 136:                                              ; preds = %135
-  br i1 %23, label %.preheader811, label %137, !llvm.loop !38
+  br i1 %23, label %.preheader810, label %137, !llvm.loop !38
 
 137:                                              ; preds = %136
-  %indvars.iv.next845 = add nuw nsw i64 %indvars.iv844, 1
-  %exitcond847.not = icmp eq i64 %indvars.iv.next845, 4
-  br i1 %exitcond847.not, label %138, label %.preheader812, !llvm.loop !39
+  %indvars.iv.next844 = add nuw nsw i64 %indvars.iv843, 1
+  %exitcond846.not = icmp eq i64 %indvars.iv.next844, 4
+  br i1 %exitcond846.not, label %138, label %.preheader811, !llvm.loop !39
 
 138:                                              ; preds = %137
   br i1 %.not, label %139, label %147
@@ -228,9 +228,9 @@ adapt_prob.exit479:                               ; preds = %29, %134
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %141 = load i8, ptr %140, align 1, !tbaa !29
   %.not470 = icmp eq i8 %141, 0
-  br i1 %.not470, label %.preheader808, label %147
+  br i1 %.not470, label %.preheader807, label %147
 
-.preheader808:                                    ; preds = %139
+.preheader807:                                    ; preds = %139
   %142 = load ptr, ptr %18, align 8, !tbaa !31
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1084
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 191
@@ -255,14 +255,14 @@ adapt_prob.exit479:                               ; preds = %29, %134
   store i16 %157, ptr %155, align 1
   br label %.loopexit
 
-.preheader807:                                    ; preds = %adapt_prob.exit482
+.preheader806:                                    ; preds = %adapt_prob.exit482
   %158 = getelementptr inbounds nuw i8, ptr %142, i64 820
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 155
   br label %191
 
-160:                                              ; preds = %.preheader808, %adapt_prob.exit482
-  %indvars.iv848 = phi i64 [ 0, %.preheader808 ], [ %indvars.iv.next849, %adapt_prob.exit482 ]
-  %161 = getelementptr inbounds nuw [2 x i32], ptr %143, i64 %indvars.iv848
+160:                                              ; preds = %.preheader807, %adapt_prob.exit482
+  %indvars.iv847 = phi i64 [ 0, %.preheader807 ], [ %indvars.iv.next848, %adapt_prob.exit482 ]
+  %161 = getelementptr inbounds nuw [2 x i32], ptr %143, i64 %indvars.iv847
   %162 = load i32, ptr %161, align 4, !tbaa !32
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %164 = load i32, ptr %163, align 4, !tbaa !32
@@ -271,7 +271,7 @@ adapt_prob.exit479:                               ; preds = %29, %134
   br i1 %.not.i480, label %adapt_prob.exit482, label %166
 
 166:                                              ; preds = %160
-  %167 = getelementptr inbounds nuw i8, ptr %144, i64 %indvars.iv848
+  %167 = getelementptr inbounds nuw i8, ptr %144, i64 %indvars.iv847
   %168 = tail call i32 @llvm.umin.i32(i32 %165, i32 20)
   %narrow.i481 = shl nuw nsw i32 %168, 7
   %169 = zext nneg i32 %narrow.i481 to i64
@@ -300,13 +300,13 @@ adapt_prob.exit479:                               ; preds = %29, %134
   br label %adapt_prob.exit482
 
 adapt_prob.exit482:                               ; preds = %160, %166
-  %indvars.iv.next849 = add nuw nsw i64 %indvars.iv848, 1
-  %exitcond851.not = icmp eq i64 %indvars.iv.next849, 3
-  br i1 %exitcond851.not, label %.preheader807, label %160, !llvm.loop !40
+  %indvars.iv.next848 = add nuw nsw i64 %indvars.iv847, 1
+  %exitcond850.not = icmp eq i64 %indvars.iv.next848, 3
+  br i1 %exitcond850.not, label %.preheader806, label %160, !llvm.loop !40
 
-191:                                              ; preds = %.preheader807, %adapt_prob.exit485
-  %indvars.iv852 = phi i64 [ 0, %.preheader807 ], [ %indvars.iv.next853, %adapt_prob.exit485 ]
-  %192 = getelementptr inbounds nuw [2 x i32], ptr %158, i64 %indvars.iv852
+191:                                              ; preds = %.preheader806, %adapt_prob.exit485
+  %indvars.iv851 = phi i64 [ 0, %.preheader806 ], [ %indvars.iv.next852, %adapt_prob.exit485 ]
+  %192 = getelementptr inbounds nuw [2 x i32], ptr %158, i64 %indvars.iv851
   %193 = load i32, ptr %192, align 4, !tbaa !32
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %195 = load i32, ptr %194, align 4, !tbaa !32
@@ -315,7 +315,7 @@ adapt_prob.exit482:                               ; preds = %160, %166
   br i1 %.not.i483, label %adapt_prob.exit485, label %197
 
 197:                                              ; preds = %191
-  %198 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv852
+  %198 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv851
   %199 = tail call i32 @llvm.umin.i32(i32 %196, i32 20)
   %narrow.i484 = shl nuw nsw i32 %199, 7
   %200 = zext nneg i32 %narrow.i484 to i64
@@ -344,26 +344,26 @@ adapt_prob.exit482:                               ; preds = %160, %166
   br label %adapt_prob.exit485
 
 adapt_prob.exit485:                               ; preds = %191, %197
-  %indvars.iv.next853 = add nuw nsw i64 %indvars.iv852, 1
-  %exitcond855.not = icmp eq i64 %indvars.iv.next853, 4
-  br i1 %exitcond855.not, label %222, label %191, !llvm.loop !41
+  %indvars.iv.next852 = add nuw nsw i64 %indvars.iv851, 1
+  %exitcond854.not = icmp eq i64 %indvars.iv.next852, 4
+  br i1 %exitcond854.not, label %222, label %191, !llvm.loop !41
 
 222:                                              ; preds = %adapt_prob.exit485
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %224 = load i32, ptr %223, align 8, !tbaa !42
-  switch i32 %224, label %.preheader805 [
-    i32 2, label %.preheader806
-    i32 0, label %.preheader803
+  switch i32 %224, label %.preheader804 [
+    i32 2, label %.preheader805
+    i32 0, label %.preheader802
   ]
 
-.preheader806:                                    ; preds = %222
+.preheader805:                                    ; preds = %222
   %225 = getelementptr inbounds nuw i8, ptr %142, i64 852
   %226 = getelementptr inbounds nuw i8, ptr %6, i64 159
   br label %227
 
-227:                                              ; preds = %.preheader806, %adapt_prob.exit488
-  %indvars.iv856 = phi i64 [ 0, %.preheader806 ], [ %indvars.iv.next857, %adapt_prob.exit488 ]
-  %228 = getelementptr inbounds nuw [2 x i32], ptr %225, i64 %indvars.iv856
+227:                                              ; preds = %.preheader805, %adapt_prob.exit488
+  %indvars.iv855 = phi i64 [ 0, %.preheader805 ], [ %indvars.iv.next856, %adapt_prob.exit488 ]
+  %228 = getelementptr inbounds nuw [2 x i32], ptr %225, i64 %indvars.iv855
   %229 = load i32, ptr %228, align 4, !tbaa !32
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %231 = load i32, ptr %230, align 4, !tbaa !32
@@ -372,7 +372,7 @@ adapt_prob.exit485:                               ; preds = %191, %197
   br i1 %.not.i486, label %adapt_prob.exit488, label %233
 
 233:                                              ; preds = %227
-  %234 = getelementptr inbounds nuw i8, ptr %226, i64 %indvars.iv856
+  %234 = getelementptr inbounds nuw i8, ptr %226, i64 %indvars.iv855
   %235 = tail call i32 @llvm.umin.i32(i32 %232, i32 20)
   %narrow.i487 = shl nuw nsw i32 %235, 7
   %236 = zext nneg i32 %narrow.i487 to i64
@@ -401,18 +401,18 @@ adapt_prob.exit485:                               ; preds = %191, %197
   br label %adapt_prob.exit488
 
 adapt_prob.exit488:                               ; preds = %227, %233
-  %indvars.iv.next857 = add nuw nsw i64 %indvars.iv856, 1
-  %exitcond859.not = icmp eq i64 %indvars.iv.next857, 5
-  br i1 %exitcond859.not, label %.preheader805, label %227, !llvm.loop !43
+  %indvars.iv.next856 = add nuw nsw i64 %indvars.iv855, 1
+  %exitcond858.not = icmp eq i64 %indvars.iv.next856, 5
+  br i1 %exitcond858.not, label %.preheader804, label %227, !llvm.loop !43
 
-.preheader805:                                    ; preds = %adapt_prob.exit488, %222
+.preheader804:                                    ; preds = %adapt_prob.exit488, %222
   %258 = getelementptr inbounds nuw i8, ptr %142, i64 972
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 174
   br label %260
 
-260:                                              ; preds = %.preheader805, %adapt_prob.exit491
-  %indvars.iv860 = phi i64 [ 0, %.preheader805 ], [ %indvars.iv.next861, %adapt_prob.exit491 ]
-  %261 = getelementptr inbounds nuw [2 x i32], ptr %258, i64 %indvars.iv860
+260:                                              ; preds = %.preheader804, %adapt_prob.exit491
+  %indvars.iv859 = phi i64 [ 0, %.preheader804 ], [ %indvars.iv.next860, %adapt_prob.exit491 ]
+  %261 = getelementptr inbounds nuw [2 x i32], ptr %258, i64 %indvars.iv859
   %262 = load i32, ptr %261, align 4, !tbaa !32
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 4
   %264 = load i32, ptr %263, align 4, !tbaa !32
@@ -421,7 +421,7 @@ adapt_prob.exit488:                               ; preds = %227, %233
   br i1 %.not.i489, label %adapt_prob.exit491, label %266
 
 266:                                              ; preds = %260
-  %267 = getelementptr inbounds nuw i8, ptr %259, i64 %indvars.iv860
+  %267 = getelementptr inbounds nuw i8, ptr %259, i64 %indvars.iv859
   %268 = tail call i32 @llvm.umin.i32(i32 %265, i32 20)
   %narrow.i490 = shl nuw nsw i32 %268, 7
   %269 = zext nneg i32 %narrow.i490 to i64
@@ -450,23 +450,23 @@ adapt_prob.exit488:                               ; preds = %227, %233
   br label %adapt_prob.exit491
 
 adapt_prob.exit491:                               ; preds = %260, %266
-  %indvars.iv.next861 = add nuw nsw i64 %indvars.iv860, 1
-  %exitcond863.not = icmp eq i64 %indvars.iv.next861, 5
-  br i1 %exitcond863.not, label %291, label %260, !llvm.loop !44
+  %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 1
+  %exitcond862.not = icmp eq i64 %indvars.iv.next860, 5
+  br i1 %exitcond862.not, label %291, label %260, !llvm.loop !44
 
 291:                                              ; preds = %adapt_prob.exit491
   %.not472 = icmp eq i32 %224, 1
-  br i1 %.not472, label %.loopexit804, label %.preheader803
+  br i1 %.not472, label %.loopexit803, label %.preheader802
 
-.preheader803:                                    ; preds = %291, %222
+.preheader802:                                    ; preds = %291, %222
   %292 = getelementptr inbounds nuw i8, ptr %6, i64 164
   %293 = getelementptr inbounds nuw i8, ptr %142, i64 892
   br label %294
 
-294:                                              ; preds = %.preheader803, %adapt_prob.exit497
-  %indvars.iv864 = phi i64 [ 0, %.preheader803 ], [ %indvars.iv.next865, %adapt_prob.exit497 ]
-  %295 = getelementptr inbounds nuw [2 x i8], ptr %292, i64 %indvars.iv864
-  %296 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %293, i64 %indvars.iv864
+294:                                              ; preds = %.preheader802, %adapt_prob.exit497
+  %indvars.iv863 = phi i64 [ 0, %.preheader802 ], [ %indvars.iv.next864, %adapt_prob.exit497 ]
+  %295 = getelementptr inbounds nuw [2 x i8], ptr %292, i64 %indvars.iv863
+  %296 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %293, i64 %indvars.iv863
   %297 = load i32, ptr %296, align 4, !tbaa !32
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 4
   %299 = load i32, ptr %298, align 4, !tbaa !32
@@ -541,25 +541,25 @@ adapt_prob.exit494:                               ; preds = %294, %301
   br label %adapt_prob.exit497
 
 adapt_prob.exit497:                               ; preds = %adapt_prob.exit494, %330
-  %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864, 1
-  %exitcond867.not = icmp eq i64 %indvars.iv.next865, 5
-  br i1 %exitcond867.not, label %.loopexit804, label %294, !llvm.loop !45
+  %indvars.iv.next864 = add nuw nsw i64 %indvars.iv863, 1
+  %exitcond866.not = icmp eq i64 %indvars.iv.next864, 5
+  br i1 %exitcond866.not, label %.loopexit803, label %294, !llvm.loop !45
 
-.loopexit804:                                     ; preds = %adapt_prob.exit497, %291
+.loopexit803:                                     ; preds = %adapt_prob.exit497, %291
   %355 = getelementptr inbounds nuw i8, ptr %6, i64 263
   %356 = getelementptr inbounds nuw i8, ptr %142, i64 1532
-  br label %.preheader802
+  br label %.preheader801
 
-.preheader802:                                    ; preds = %.loopexit804, %454
-  %indvars.iv872 = phi i64 [ 0, %.loopexit804 ], [ %indvars.iv.next873, %454 ]
-  %357 = getelementptr inbounds nuw [4 x [3 x i8]], ptr %355, i64 %indvars.iv872
-  %358 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %356, i64 %indvars.iv872
+.preheader801:                                    ; preds = %.loopexit803, %454
+  %indvars.iv871 = phi i64 [ 0, %.loopexit803 ], [ %indvars.iv.next872, %454 ]
+  %357 = getelementptr inbounds nuw [4 x [3 x i8]], ptr %355, i64 %indvars.iv871
+  %358 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %356, i64 %indvars.iv871
   br label %359
 
-359:                                              ; preds = %.preheader802, %adapt_prob.exit506
-  %indvars.iv868 = phi i64 [ 0, %.preheader802 ], [ %indvars.iv.next869, %adapt_prob.exit506 ]
-  %360 = getelementptr inbounds nuw [3 x i8], ptr %357, i64 %indvars.iv868
-  %361 = getelementptr inbounds nuw [4 x i32], ptr %358, i64 %indvars.iv868
+359:                                              ; preds = %.preheader801, %adapt_prob.exit506
+  %indvars.iv867 = phi i64 [ 0, %.preheader801 ], [ %indvars.iv.next868, %adapt_prob.exit506 ]
+  %360 = getelementptr inbounds nuw [3 x i8], ptr %357, i64 %indvars.iv867
+  %361 = getelementptr inbounds nuw [4 x i32], ptr %358, i64 %indvars.iv867
   %362 = load i32, ptr %361, align 4, !tbaa !32
   %363 = getelementptr inbounds nuw i8, ptr %361, i64 4
   %364 = load i32, ptr %363, align 4, !tbaa !32
@@ -599,15 +599,15 @@ adapt_prob.exit497:                               ; preds = %adapt_prob.exit494,
   %394 = trunc i32 %393 to i8
   %395 = add i8 %378, %394
   store i8 %395, ptr %360, align 1, !tbaa !33
-  %.pre906 = load i32, ptr %363, align 4, !tbaa !32
-  %.pre907 = load i32, ptr %365, align 4, !tbaa !32
-  %.pre908 = load i32, ptr %367, align 4, !tbaa !32
+  %.pre905 = load i32, ptr %363, align 4, !tbaa !32
+  %.pre906 = load i32, ptr %365, align 4, !tbaa !32
+  %.pre907 = load i32, ptr %367, align 4, !tbaa !32
   br label %adapt_prob.exit500
 
 adapt_prob.exit500:                               ; preds = %359, %372
-  %396 = phi i32 [ %368, %359 ], [ %.pre908, %372 ]
-  %397 = phi i32 [ %366, %359 ], [ %.pre907, %372 ]
-  %398 = phi i32 [ %364, %359 ], [ %.pre906, %372 ]
+  %396 = phi i32 [ %368, %359 ], [ %.pre907, %372 ]
+  %397 = phi i32 [ %366, %359 ], [ %.pre906, %372 ]
+  %398 = phi i32 [ %364, %359 ], [ %.pre905, %372 ]
   %399 = add i32 %397, %398
   %400 = add i32 %399, %396
   %.not.i501 = icmp eq i32 %400, 0
@@ -640,13 +640,13 @@ adapt_prob.exit500:                               ; preds = %359, %372
   %424 = trunc i32 %423 to i8
   %425 = add i8 %408, %424
   store i8 %425, ptr %402, align 1, !tbaa !33
-  %.pre909 = load i32, ptr %365, align 4, !tbaa !32
-  %.pre910 = load i32, ptr %367, align 4, !tbaa !32
+  %.pre908 = load i32, ptr %365, align 4, !tbaa !32
+  %.pre909 = load i32, ptr %367, align 4, !tbaa !32
   br label %adapt_prob.exit503
 
 adapt_prob.exit503:                               ; preds = %adapt_prob.exit500, %401
-  %426 = phi i32 [ %396, %adapt_prob.exit500 ], [ %.pre910, %401 ]
-  %427 = phi i32 [ %397, %adapt_prob.exit500 ], [ %.pre909, %401 ]
+  %426 = phi i32 [ %396, %adapt_prob.exit500 ], [ %.pre909, %401 ]
+  %427 = phi i32 [ %397, %adapt_prob.exit500 ], [ %.pre908, %401 ]
   %428 = add i32 %426, %427
   %.not.i504 = icmp eq i32 %428, 0
   br i1 %.not.i504, label %adapt_prob.exit506, label %429
@@ -681,22 +681,22 @@ adapt_prob.exit503:                               ; preds = %adapt_prob.exit500,
   br label %adapt_prob.exit506
 
 adapt_prob.exit506:                               ; preds = %adapt_prob.exit503, %429
-  %indvars.iv.next869 = add nuw nsw i64 %indvars.iv868, 1
-  %exitcond871.not = icmp eq i64 %indvars.iv.next869, 4
-  br i1 %exitcond871.not, label %454, label %359, !llvm.loop !46
+  %indvars.iv.next868 = add nuw nsw i64 %indvars.iv867, 1
+  %exitcond870.not = icmp eq i64 %indvars.iv.next868, 4
+  br i1 %exitcond870.not, label %454, label %359, !llvm.loop !46
 
 454:                                              ; preds = %adapt_prob.exit506
-  %indvars.iv.next873 = add nuw nsw i64 %indvars.iv872, 1
-  %exitcond875.not = icmp eq i64 %indvars.iv.next873, 4
-  br i1 %exitcond875.not, label %455, label %.preheader802, !llvm.loop !47
+  %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 1
+  %exitcond874.not = icmp eq i64 %indvars.iv.next872, 4
+  br i1 %exitcond874.not, label %455, label %.preheader801, !llvm.loop !47
 
 455:                                              ; preds = %454
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %457 = load i32, ptr %456, align 4, !tbaa !48
   %458 = icmp eq i32 %457, 4
-  br i1 %458, label %.preheader800, label %.loopexit801
+  br i1 %458, label %.preheader799, label %.loopexit800
 
-.preheader800:                                    ; preds = %455
+.preheader799:                                    ; preds = %455
   %459 = getelementptr inbounds nuw i8, ptr %142, i64 1044
   %460 = getelementptr inbounds nuw i8, ptr %142, i64 1012
   %461 = getelementptr inbounds nuw i8, ptr %142, i64 1068
@@ -705,12 +705,12 @@ adapt_prob.exit506:                               ; preds = %adapt_prob.exit503,
   %464 = getelementptr inbounds nuw i8, ptr %6, i64 189
   br label %465
 
-465:                                              ; preds = %.preheader800, %adapt_prob.exit524
-  %466 = phi i1 [ true, %.preheader800 ], [ false, %adapt_prob.exit524 ]
-  %indvars.iv876 = phi i64 [ 0, %.preheader800 ], [ 1, %adapt_prob.exit524 ]
-  %467 = getelementptr inbounds nuw [3 x i32], ptr %459, i64 %indvars.iv876
-  %468 = getelementptr inbounds nuw [4 x i32], ptr %460, i64 %indvars.iv876
-  %469 = getelementptr inbounds nuw [2 x i32], ptr %461, i64 %indvars.iv876
+465:                                              ; preds = %.preheader799, %adapt_prob.exit524
+  %466 = phi i1 [ true, %.preheader799 ], [ false, %adapt_prob.exit524 ]
+  %indvars.iv875 = phi i64 [ 0, %.preheader799 ], [ 1, %adapt_prob.exit524 ]
+  %467 = getelementptr inbounds nuw [3 x i32], ptr %459, i64 %indvars.iv875
+  %468 = getelementptr inbounds nuw [4 x i32], ptr %460, i64 %indvars.iv875
+  %469 = getelementptr inbounds nuw [2 x i32], ptr %461, i64 %indvars.iv875
   %470 = load i32, ptr %469, align 4, !tbaa !32
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 4
   %472 = load i32, ptr %471, align 4, !tbaa !32
@@ -719,7 +719,7 @@ adapt_prob.exit506:                               ; preds = %adapt_prob.exit503,
   br i1 %.not.i507, label %adapt_prob.exit509, label %474
 
 474:                                              ; preds = %465
-  %475 = getelementptr inbounds nuw i8, ptr %464, i64 %indvars.iv876
+  %475 = getelementptr inbounds nuw i8, ptr %464, i64 %indvars.iv875
   %476 = tail call i32 @llvm.umin.i32(i32 %473, i32 20)
   %narrow.i508 = shl nuw nsw i32 %476, 7
   %477 = zext nneg i32 %narrow.i508 to i64
@@ -748,7 +748,7 @@ adapt_prob.exit506:                               ; preds = %adapt_prob.exit503,
   br label %adapt_prob.exit509
 
 adapt_prob.exit509:                               ; preds = %465, %474
-  %499 = getelementptr inbounds nuw [2 x i8], ptr %462, i64 %indvars.iv876
+  %499 = getelementptr inbounds nuw [2 x i8], ptr %462, i64 %indvars.iv875
   %500 = load i32, ptr %467, align 4, !tbaa !32
   %501 = getelementptr inbounds nuw i8, ptr %467, i64 4
   %502 = load i32, ptr %501, align 4, !tbaa !32
@@ -785,13 +785,13 @@ adapt_prob.exit509:                               ; preds = %465, %474
   %529 = trunc i32 %528 to i8
   %530 = add i8 %513, %529
   store i8 %530, ptr %499, align 1, !tbaa !33
-  %.pre911 = load i32, ptr %501, align 4, !tbaa !32
-  %.pre912 = load i32, ptr %503, align 4, !tbaa !32
+  %.pre910 = load i32, ptr %501, align 4, !tbaa !32
+  %.pre911 = load i32, ptr %503, align 4, !tbaa !32
   br label %adapt_prob.exit512
 
 adapt_prob.exit512:                               ; preds = %adapt_prob.exit509, %507
-  %531 = phi i32 [ %504, %adapt_prob.exit509 ], [ %.pre912, %507 ]
-  %532 = phi i32 [ %502, %adapt_prob.exit509 ], [ %.pre911, %507 ]
+  %531 = phi i32 [ %504, %adapt_prob.exit509 ], [ %.pre911, %507 ]
+  %532 = phi i32 [ %502, %adapt_prob.exit509 ], [ %.pre910, %507 ]
   %533 = add i32 %531, %532
   %.not.i513 = icmp eq i32 %533, 0
   br i1 %.not.i513, label %adapt_prob.exit515, label %534
@@ -826,7 +826,7 @@ adapt_prob.exit512:                               ; preds = %adapt_prob.exit509,
   br label %adapt_prob.exit515
 
 adapt_prob.exit515:                               ; preds = %adapt_prob.exit512, %534
-  %559 = getelementptr inbounds nuw [3 x i8], ptr %463, i64 %indvars.iv876
+  %559 = getelementptr inbounds nuw [3 x i8], ptr %463, i64 %indvars.iv875
   %560 = load i32, ptr %468, align 4, !tbaa !32
   %561 = getelementptr inbounds nuw i8, ptr %468, i64 4
   %562 = load i32, ptr %561, align 4, !tbaa !32
@@ -866,15 +866,15 @@ adapt_prob.exit515:                               ; preds = %adapt_prob.exit512,
   %592 = trunc i32 %591 to i8
   %593 = add i8 %576, %592
   store i8 %593, ptr %559, align 1, !tbaa !33
-  %.pre913 = load i32, ptr %561, align 4, !tbaa !32
-  %.pre914 = load i32, ptr %563, align 4, !tbaa !32
-  %.pre915 = load i32, ptr %565, align 4, !tbaa !32
+  %.pre912 = load i32, ptr %561, align 4, !tbaa !32
+  %.pre913 = load i32, ptr %563, align 4, !tbaa !32
+  %.pre914 = load i32, ptr %565, align 4, !tbaa !32
   br label %adapt_prob.exit518
 
 adapt_prob.exit518:                               ; preds = %adapt_prob.exit515, %570
-  %594 = phi i32 [ %566, %adapt_prob.exit515 ], [ %.pre915, %570 ]
-  %595 = phi i32 [ %564, %adapt_prob.exit515 ], [ %.pre914, %570 ]
-  %596 = phi i32 [ %562, %adapt_prob.exit515 ], [ %.pre913, %570 ]
+  %594 = phi i32 [ %566, %adapt_prob.exit515 ], [ %.pre914, %570 ]
+  %595 = phi i32 [ %564, %adapt_prob.exit515 ], [ %.pre913, %570 ]
+  %596 = phi i32 [ %562, %adapt_prob.exit515 ], [ %.pre912, %570 ]
   %597 = add i32 %595, %596
   %598 = add i32 %597, %594
   %.not.i519 = icmp eq i32 %598, 0
@@ -907,13 +907,13 @@ adapt_prob.exit518:                               ; preds = %adapt_prob.exit515,
   %622 = trunc i32 %621 to i8
   %623 = add i8 %606, %622
   store i8 %623, ptr %600, align 1, !tbaa !33
-  %.pre916 = load i32, ptr %563, align 4, !tbaa !32
-  %.pre917 = load i32, ptr %565, align 4, !tbaa !32
+  %.pre915 = load i32, ptr %563, align 4, !tbaa !32
+  %.pre916 = load i32, ptr %565, align 4, !tbaa !32
   br label %adapt_prob.exit521
 
 adapt_prob.exit521:                               ; preds = %adapt_prob.exit518, %599
-  %624 = phi i32 [ %594, %adapt_prob.exit518 ], [ %.pre917, %599 ]
-  %625 = phi i32 [ %595, %adapt_prob.exit518 ], [ %.pre916, %599 ]
+  %624 = phi i32 [ %594, %adapt_prob.exit518 ], [ %.pre916, %599 ]
+  %625 = phi i32 [ %595, %adapt_prob.exit518 ], [ %.pre915, %599 ]
   %626 = add i32 %624, %625
   %.not.i522 = icmp eq i32 %626, 0
   br i1 %.not.i522, label %adapt_prob.exit524, label %627
@@ -948,23 +948,23 @@ adapt_prob.exit521:                               ; preds = %adapt_prob.exit518,
   br label %adapt_prob.exit524
 
 adapt_prob.exit524:                               ; preds = %adapt_prob.exit521, %627
-  br i1 %466, label %465, label %.loopexit801, !llvm.loop !49
+  br i1 %466, label %465, label %.loopexit800, !llvm.loop !49
 
-.loopexit801:                                     ; preds = %adapt_prob.exit524, %455
+.loopexit800:                                     ; preds = %adapt_prob.exit524, %455
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %653 = load i32, ptr %652, align 4, !tbaa !50
   %654 = icmp eq i32 %653, 4
-  br i1 %654, label %.preheader798, label %.loopexit799
+  br i1 %654, label %.preheader797, label %.loopexit798
 
-.preheader798:                                    ; preds = %.loopexit801
+.preheader797:                                    ; preds = %.loopexit800
   %655 = getelementptr inbounds nuw i8, ptr %6, i64 126
   %656 = getelementptr inbounds nuw i8, ptr %142, i64 660
   br label %657
 
-657:                                              ; preds = %.preheader798, %adapt_prob.exit530
-  %indvars.iv879 = phi i64 [ 0, %.preheader798 ], [ %indvars.iv.next880, %adapt_prob.exit530 ]
-  %658 = getelementptr inbounds nuw [2 x i8], ptr %655, i64 %indvars.iv879
-  %659 = getelementptr inbounds nuw [3 x i32], ptr %656, i64 %indvars.iv879
+657:                                              ; preds = %.preheader797, %adapt_prob.exit530
+  %indvars.iv878 = phi i64 [ 0, %.preheader797 ], [ %indvars.iv.next879, %adapt_prob.exit530 ]
+  %658 = getelementptr inbounds nuw [2 x i8], ptr %655, i64 %indvars.iv878
+  %659 = getelementptr inbounds nuw [3 x i32], ptr %656, i64 %indvars.iv878
   %660 = load i32, ptr %659, align 4, !tbaa !32
   %661 = getelementptr inbounds nuw i8, ptr %659, i64 4
   %662 = load i32, ptr %661, align 4, !tbaa !32
@@ -1001,13 +1001,13 @@ adapt_prob.exit524:                               ; preds = %adapt_prob.exit521,
   %689 = trunc i32 %688 to i8
   %690 = add i8 %673, %689
   store i8 %690, ptr %658, align 1, !tbaa !33
-  %.pre918 = load i32, ptr %661, align 4, !tbaa !32
-  %.pre919 = load i32, ptr %663, align 4, !tbaa !32
+  %.pre917 = load i32, ptr %661, align 4, !tbaa !32
+  %.pre918 = load i32, ptr %663, align 4, !tbaa !32
   br label %adapt_prob.exit527
 
 adapt_prob.exit527:                               ; preds = %657, %667
-  %691 = phi i32 [ %664, %657 ], [ %.pre919, %667 ]
-  %692 = phi i32 [ %662, %657 ], [ %.pre918, %667 ]
+  %691 = phi i32 [ %664, %657 ], [ %.pre918, %667 ]
+  %692 = phi i32 [ %662, %657 ], [ %.pre917, %667 ]
   %693 = add i32 %691, %692
   %.not.i528 = icmp eq i32 %693, 0
   br i1 %.not.i528, label %adapt_prob.exit530, label %694
@@ -1042,19 +1042,19 @@ adapt_prob.exit527:                               ; preds = %657, %667
   br label %adapt_prob.exit530
 
 adapt_prob.exit530:                               ; preds = %adapt_prob.exit527, %694
-  %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
-  %exitcond882.not = icmp eq i64 %indvars.iv.next880, 4
-  br i1 %exitcond882.not, label %.loopexit799, label %657, !llvm.loop !51
+  %indvars.iv.next879 = add nuw nsw i64 %indvars.iv878, 1
+  %exitcond881.not = icmp eq i64 %indvars.iv.next879, 4
+  br i1 %exitcond881.not, label %.loopexit798, label %657, !llvm.loop !51
 
-.loopexit799:                                     ; preds = %adapt_prob.exit530, %.loopexit801
+.loopexit798:                                     ; preds = %adapt_prob.exit530, %.loopexit800
   %719 = getelementptr inbounds nuw i8, ptr %6, i64 134
   %720 = getelementptr inbounds nuw i8, ptr %142, i64 708
   br label %721
 
-721:                                              ; preds = %.loopexit799, %adapt_prob.exit539
-  %indvars.iv883 = phi i64 [ 0, %.loopexit799 ], [ %indvars.iv.next884, %adapt_prob.exit539 ]
-  %722 = getelementptr inbounds nuw [3 x i8], ptr %719, i64 %indvars.iv883
-  %723 = getelementptr inbounds nuw [4 x i32], ptr %720, i64 %indvars.iv883
+721:                                              ; preds = %.loopexit798, %adapt_prob.exit539
+  %indvars.iv882 = phi i64 [ 0, %.loopexit798 ], [ %indvars.iv.next883, %adapt_prob.exit539 ]
+  %722 = getelementptr inbounds nuw [3 x i8], ptr %719, i64 %indvars.iv882
+  %723 = getelementptr inbounds nuw [4 x i32], ptr %720, i64 %indvars.iv882
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 8
   %725 = load i32, ptr %724, align 4, !tbaa !32
   %726 = getelementptr inbounds nuw i8, ptr %723, i64 4
@@ -1094,15 +1094,15 @@ adapt_prob.exit530:                               ; preds = %adapt_prob.exit527,
   %756 = trunc i32 %755 to i8
   %757 = add i8 %740, %756
   store i8 %757, ptr %722, align 1, !tbaa !33
-  %.pre920 = load i32, ptr %723, align 4, !tbaa !32
-  %.pre921 = load i32, ptr %726, align 4, !tbaa !32
-  %.pre922 = load i32, ptr %729, align 4, !tbaa !32
+  %.pre919 = load i32, ptr %723, align 4, !tbaa !32
+  %.pre920 = load i32, ptr %726, align 4, !tbaa !32
+  %.pre921 = load i32, ptr %729, align 4, !tbaa !32
   br label %adapt_prob.exit533
 
 adapt_prob.exit533:                               ; preds = %721, %734
-  %758 = phi i32 [ %730, %721 ], [ %.pre922, %734 ]
-  %759 = phi i32 [ %727, %721 ], [ %.pre921, %734 ]
-  %760 = phi i32 [ %728, %721 ], [ %.pre920, %734 ]
+  %758 = phi i32 [ %730, %721 ], [ %.pre921, %734 ]
+  %759 = phi i32 [ %727, %721 ], [ %.pre920, %734 ]
+  %760 = phi i32 [ %728, %721 ], [ %.pre919, %734 ]
   %761 = add i32 %759, %760
   %762 = add i32 %761, %758
   %.not.i534 = icmp eq i32 %762, 0
@@ -1135,13 +1135,13 @@ adapt_prob.exit533:                               ; preds = %721, %734
   %786 = trunc i32 %785 to i8
   %787 = add i8 %770, %786
   store i8 %787, ptr %764, align 1, !tbaa !33
-  %.pre923 = load i32, ptr %726, align 4, !tbaa !32
-  %.pre924 = load i32, ptr %729, align 4, !tbaa !32
+  %.pre922 = load i32, ptr %726, align 4, !tbaa !32
+  %.pre923 = load i32, ptr %729, align 4, !tbaa !32
   br label %adapt_prob.exit536
 
 adapt_prob.exit536:                               ; preds = %adapt_prob.exit533, %763
-  %788 = phi i32 [ %758, %adapt_prob.exit533 ], [ %.pre924, %763 ]
-  %789 = phi i32 [ %759, %adapt_prob.exit533 ], [ %.pre923, %763 ]
+  %788 = phi i32 [ %758, %adapt_prob.exit533 ], [ %.pre923, %763 ]
+  %789 = phi i32 [ %759, %adapt_prob.exit533 ], [ %.pre922, %763 ]
   %790 = add i32 %788, %789
   %.not.i537 = icmp eq i32 %790, 0
   br i1 %.not.i537, label %adapt_prob.exit539, label %791
@@ -1176,9 +1176,9 @@ adapt_prob.exit536:                               ; preds = %adapt_prob.exit533,
   br label %adapt_prob.exit539
 
 adapt_prob.exit539:                               ; preds = %adapt_prob.exit536, %791
-  %indvars.iv.next884 = add nuw nsw i64 %indvars.iv883, 1
-  %exitcond886.not = icmp eq i64 %indvars.iv.next884, 7
-  br i1 %exitcond886.not, label %816, label %721, !llvm.loop !52
+  %indvars.iv.next883 = add nuw nsw i64 %indvars.iv882, 1
+  %exitcond885.not = icmp eq i64 %indvars.iv.next883, 7
+  br i1 %exitcond885.not, label %816, label %721, !llvm.loop !52
 
 816:                                              ; preds = %adapt_prob.exit539
   %817 = getelementptr inbounds nuw i8, ptr %142, i64 1108
@@ -1222,15 +1222,15 @@ adapt_prob.exit539:                               ; preds = %adapt_prob.exit536,
   %851 = trunc i32 %850 to i8
   %852 = add i8 %835, %851
   store i8 %852, ptr %829, align 1, !tbaa !33
-  %.pre925 = load i32, ptr %819, align 4, !tbaa !32
-  %.pre926 = load i32, ptr %821, align 4, !tbaa !32
-  %.pre927 = load i32, ptr %823, align 4, !tbaa !32
+  %.pre924 = load i32, ptr %819, align 4, !tbaa !32
+  %.pre925 = load i32, ptr %821, align 4, !tbaa !32
+  %.pre926 = load i32, ptr %823, align 4, !tbaa !32
   br label %adapt_prob.exit542
 
 adapt_prob.exit542:                               ; preds = %816, %828
-  %853 = phi i32 [ %824, %816 ], [ %.pre927, %828 ]
-  %854 = phi i32 [ %822, %816 ], [ %.pre926, %828 ]
-  %855 = phi i32 [ %820, %816 ], [ %.pre925, %828 ]
+  %853 = phi i32 [ %824, %816 ], [ %.pre926, %828 ]
+  %854 = phi i32 [ %822, %816 ], [ %.pre925, %828 ]
+  %855 = phi i32 [ %820, %816 ], [ %.pre924, %828 ]
   %856 = add i32 %854, %855
   %857 = add i32 %856, %853
   %.not.i543 = icmp eq i32 %857, 0
@@ -1263,13 +1263,13 @@ adapt_prob.exit542:                               ; preds = %816, %828
   %881 = trunc i32 %880 to i8
   %882 = add i8 %865, %881
   store i8 %882, ptr %859, align 1, !tbaa !33
-  %.pre928 = load i32, ptr %821, align 4, !tbaa !32
-  %.pre929 = load i32, ptr %823, align 4, !tbaa !32
+  %.pre927 = load i32, ptr %821, align 4, !tbaa !32
+  %.pre928 = load i32, ptr %823, align 4, !tbaa !32
   br label %adapt_prob.exit545
 
 adapt_prob.exit545:                               ; preds = %adapt_prob.exit542, %858
-  %883 = phi i32 [ %853, %adapt_prob.exit542 ], [ %.pre929, %858 ]
-  %884 = phi i32 [ %854, %adapt_prob.exit542 ], [ %.pre928, %858 ]
+  %883 = phi i32 [ %853, %adapt_prob.exit542 ], [ %.pre928, %858 ]
+  %884 = phi i32 [ %854, %adapt_prob.exit542 ], [ %.pre927, %858 ]
   %885 = add i32 %883, %884
   %.not.i546 = icmp eq i32 %885, 0
   br i1 %.not.i546, label %adapt_prob.exit548, label %886
@@ -1311,15 +1311,15 @@ adapt_prob.exit548:                               ; preds = %adapt_prob.exit545,
   %.not473 = icmp eq i8 %914, 0
   br label %916
 
-.preheader796:                                    ; preds = %adapt_prob.exit611
+.preheader795:                                    ; preds = %adapt_prob.exit611
   %915 = getelementptr inbounds nuw i8, ptr %142, i64 100
   br label %1574
 
 916:                                              ; preds = %adapt_prob.exit548, %adapt_prob.exit611
   %917 = phi i1 [ true, %adapt_prob.exit548 ], [ false, %adapt_prob.exit611 ]
-  %indvars.iv894 = phi i64 [ 0, %adapt_prob.exit548 ], [ 1, %adapt_prob.exit611 ]
-  %918 = getelementptr inbounds nuw %struct.anon.7, ptr %911, i64 %indvars.iv894
-  %919 = getelementptr inbounds nuw %struct.anon.10, ptr %912, i64 %indvars.iv894
+  %indvars.iv893 = phi i64 [ 0, %adapt_prob.exit548 ], [ 1, %adapt_prob.exit611 ]
+  %918 = getelementptr inbounds nuw %struct.anon.7, ptr %911, i64 %indvars.iv893
+  %919 = getelementptr inbounds nuw %struct.anon.10, ptr %912, i64 %indvars.iv893
   %920 = load i32, ptr %919, align 4, !tbaa !32
   %921 = getelementptr inbounds nuw i8, ptr %919, i64 4
   %922 = load i32, ptr %921, align 4, !tbaa !32
@@ -1356,7 +1356,7 @@ adapt_prob.exit548:                               ; preds = %adapt_prob.exit545,
   br label %adapt_prob.exit551
 
 adapt_prob.exit551:                               ; preds = %916, %924
-  %948 = getelementptr inbounds nuw %struct.anon.10, ptr %142, i64 %indvars.iv894
+  %948 = getelementptr inbounds nuw %struct.anon.10, ptr %142, i64 %indvars.iv893
   %949 = getelementptr inbounds nuw i8, ptr %948, i64 1132
   %950 = getelementptr inbounds nuw i8, ptr %948, i64 1136
   %951 = load i32, ptr %950, align 4, !tbaa !32
@@ -1419,11 +1419,11 @@ adapt_prob.exit551:                               ; preds = %916, %924
   %1004 = trunc i32 %1003 to i8
   %1005 = add i8 %988, %1004
   store i8 %1005, ptr %982, align 1, !tbaa !33
-  %.pre930 = load i32, ptr %950, align 4, !tbaa !32
+  %.pre929 = load i32, ptr %950, align 4, !tbaa !32
   br label %adapt_prob.exit554
 
 adapt_prob.exit554:                               ; preds = %adapt_prob.exit551, %981
-  %1006 = phi i32 [ %951, %adapt_prob.exit551 ], [ %.pre930, %981 ]
+  %1006 = phi i32 [ %951, %adapt_prob.exit551 ], [ %.pre929, %981 ]
   %1007 = sub i32 %978, %1006
   %.not.i555 = icmp eq i32 %978, 0
   br i1 %.not.i555, label %adapt_prob.exit557, label %1008
@@ -1492,14 +1492,14 @@ adapt_prob.exit557:                               ; preds = %adapt_prob.exit554,
   %1060 = trunc i32 %1059 to i8
   %1061 = add i8 %1044, %1060
   store i8 %1061, ptr %1038, align 1, !tbaa !33
-  %.pre931 = load i32, ptr %952, align 4, !tbaa !32
-  %.pre932 = load i32, ptr %955, align 4, !tbaa !32
-  %.pre949 = add i32 %.pre932, %.pre931
+  %.pre930 = load i32, ptr %952, align 4, !tbaa !32
+  %.pre931 = load i32, ptr %955, align 4, !tbaa !32
+  %.pre948 = add i32 %.pre931, %.pre930
   br label %adapt_prob.exit560
 
 adapt_prob.exit560:                               ; preds = %adapt_prob.exit557, %1037
-  %.pre-phi = phi i32 [ %1035, %adapt_prob.exit557 ], [ %.pre949, %1037 ]
-  %1062 = phi i32 [ %1033, %adapt_prob.exit557 ], [ %.pre931, %1037 ]
+  %.pre-phi = phi i32 [ %1035, %adapt_prob.exit557 ], [ %.pre948, %1037 ]
+  %1062 = phi i32 [ %1033, %adapt_prob.exit557 ], [ %.pre930, %1037 ]
   %.not.i561 = icmp eq i32 %.pre-phi, 0
   br i1 %.not.i561, label %adapt_prob.exit563, label %1063
 
@@ -1567,20 +1567,20 @@ adapt_prob.exit563:                               ; preds = %adapt_prob.exit560,
   %1115 = trunc i32 %1114 to i8
   %1116 = add i8 %1099, %1115
   store i8 %1116, ptr %1093, align 1, !tbaa !33
-  %.pre933 = load i32, ptr %958, align 4, !tbaa !32
-  %.pre934 = load i32, ptr %961, align 4, !tbaa !32
-  %.pre950 = add i32 %.pre934, %.pre933
+  %.pre932 = load i32, ptr %958, align 4, !tbaa !32
+  %.pre933 = load i32, ptr %961, align 4, !tbaa !32
+  %.pre949 = add i32 %.pre933, %.pre932
   br label %adapt_prob.exit566
 
 adapt_prob.exit566:                               ; preds = %adapt_prob.exit563, %1092
-  %.pre-phi951 = phi i32 [ %1090, %adapt_prob.exit563 ], [ %.pre950, %1092 ]
-  %1117 = phi i32 [ %1088, %adapt_prob.exit563 ], [ %.pre933, %1092 ]
-  %.not.i567 = icmp eq i32 %.pre-phi951, 0
+  %.pre-phi950 = phi i32 [ %1090, %adapt_prob.exit563 ], [ %.pre949, %1092 ]
+  %1117 = phi i32 [ %1088, %adapt_prob.exit563 ], [ %.pre932, %1092 ]
+  %.not.i567 = icmp eq i32 %.pre-phi950, 0
   br i1 %.not.i567, label %adapt_prob.exit569, label %1118
 
 1118:                                             ; preds = %adapt_prob.exit566
   %1119 = getelementptr inbounds nuw i8, ptr %918, i64 6
-  %1120 = tail call i32 @llvm.umin.i32(i32 %.pre-phi951, i32 20)
+  %1120 = tail call i32 @llvm.umin.i32(i32 %.pre-phi950, i32 20)
   %narrow.i568 = shl nuw nsw i32 %1120, 7
   %1121 = zext nneg i32 %narrow.i568 to i64
   %1122 = mul nuw nsw i64 %146, %1121
@@ -1590,10 +1590,10 @@ adapt_prob.exit566:                               ; preds = %adapt_prob.exit563,
   %1126 = zext i8 %1125 to i32
   %1127 = zext i32 %1117 to i64
   %1128 = shl nuw nsw i64 %1127, 8
-  %1129 = lshr i32 %.pre-phi951, 1
+  %1129 = lshr i32 %.pre-phi950, 1
   %1130 = zext nneg i32 %1129 to i64
   %1131 = add nuw nsw i64 %1128, %1130
-  %1132 = zext i32 %.pre-phi951 to i64
+  %1132 = zext i32 %.pre-phi950 to i64
   %1133 = udiv i64 %1131, %1132
   %1134 = trunc i64 %1133 to i32
   %1135 = tail call i32 @llvm.smax.i32(i32 %1134, i32 1)
@@ -1679,20 +1679,20 @@ adapt_prob.exit572:                               ; preds = %adapt_prob.exit569,
   %1199 = trunc i32 %1198 to i8
   %1200 = add i8 %1183, %1199
   store i8 %1200, ptr %1177, align 1, !tbaa !33
-  %.pre935 = load i32, ptr %967, align 4, !tbaa !32
-  %.pre936 = load i32, ptr %970, align 4, !tbaa !32
-  %.pre952 = add i32 %.pre936, %.pre935
+  %.pre934 = load i32, ptr %967, align 4, !tbaa !32
+  %.pre935 = load i32, ptr %970, align 4, !tbaa !32
+  %.pre951 = add i32 %.pre935, %.pre934
   br label %adapt_prob.exit575
 
 adapt_prob.exit575:                               ; preds = %adapt_prob.exit572, %1176
-  %.pre-phi953 = phi i32 [ %1171, %adapt_prob.exit572 ], [ %.pre952, %1176 ]
-  %1201 = phi i32 [ %1169, %adapt_prob.exit572 ], [ %.pre935, %1176 ]
-  %.not.i576 = icmp eq i32 %.pre-phi953, 0
+  %.pre-phi952 = phi i32 [ %1171, %adapt_prob.exit572 ], [ %.pre951, %1176 ]
+  %1201 = phi i32 [ %1169, %adapt_prob.exit572 ], [ %.pre934, %1176 ]
+  %.not.i576 = icmp eq i32 %.pre-phi952, 0
   br i1 %.not.i576, label %adapt_prob.exit578, label %1202
 
 1202:                                             ; preds = %adapt_prob.exit575
   %1203 = getelementptr inbounds nuw i8, ptr %918, i64 9
-  %1204 = tail call i32 @llvm.umin.i32(i32 %.pre-phi953, i32 20)
+  %1204 = tail call i32 @llvm.umin.i32(i32 %.pre-phi952, i32 20)
   %narrow.i577 = shl nuw nsw i32 %1204, 7
   %1205 = zext nneg i32 %narrow.i577 to i64
   %1206 = mul nuw nsw i64 %146, %1205
@@ -1702,10 +1702,10 @@ adapt_prob.exit575:                               ; preds = %adapt_prob.exit572,
   %1210 = zext i8 %1209 to i32
   %1211 = zext i32 %1201 to i64
   %1212 = shl nuw nsw i64 %1211, 8
-  %1213 = lshr i32 %.pre-phi953, 1
+  %1213 = lshr i32 %.pre-phi952, 1
   %1214 = zext nneg i32 %1213 to i64
   %1215 = add nuw nsw i64 %1212, %1214
-  %1216 = zext i32 %.pre-phi953 to i64
+  %1216 = zext i32 %.pre-phi952 to i64
   %1217 = udiv i64 %1215, %1216
   %1218 = trunc i64 %1217 to i32
   %1219 = tail call i32 @llvm.smax.i32(i32 %1218, i32 1)
@@ -1798,14 +1798,14 @@ adapt_prob.exit584:                               ; preds = %adapt_prob.exit581,
   %1286 = getelementptr inbounds nuw i8, ptr %948, i64 1184
   br label %1289
 
-.preheader797:                                    ; preds = %adapt_prob.exit587
+.preheader796:                                    ; preds = %adapt_prob.exit587
   %1287 = getelementptr inbounds nuw i8, ptr %918, i64 22
   %1288 = getelementptr inbounds nuw i8, ptr %948, i64 1264
   br label %1320
 
 1289:                                             ; preds = %adapt_prob.exit584, %adapt_prob.exit587
-  %indvars.iv887 = phi i64 [ 0, %adapt_prob.exit584 ], [ %indvars.iv.next888, %adapt_prob.exit587 ]
-  %1290 = getelementptr inbounds nuw [2 x i32], ptr %1286, i64 %indvars.iv887
+  %indvars.iv886 = phi i64 [ 0, %adapt_prob.exit584 ], [ %indvars.iv.next887, %adapt_prob.exit587 ]
+  %1290 = getelementptr inbounds nuw [2 x i32], ptr %1286, i64 %indvars.iv886
   %1291 = load i32, ptr %1290, align 4, !tbaa !32
   %1292 = getelementptr inbounds nuw i8, ptr %1290, i64 4
   %1293 = load i32, ptr %1292, align 4, !tbaa !32
@@ -1814,7 +1814,7 @@ adapt_prob.exit584:                               ; preds = %adapt_prob.exit581,
   br i1 %.not.i585, label %adapt_prob.exit587, label %1295
 
 1295:                                             ; preds = %1289
-  %1296 = getelementptr inbounds nuw i8, ptr %1285, i64 %indvars.iv887
+  %1296 = getelementptr inbounds nuw i8, ptr %1285, i64 %indvars.iv886
   %1297 = tail call i32 @llvm.umin.i32(i32 %1294, i32 20)
   %narrow.i586 = shl nuw nsw i32 %1297, 7
   %1298 = zext nneg i32 %narrow.i586 to i64
@@ -1843,15 +1843,15 @@ adapt_prob.exit584:                               ; preds = %adapt_prob.exit581,
   br label %adapt_prob.exit587
 
 adapt_prob.exit587:                               ; preds = %1289, %1295
-  %indvars.iv.next888 = add nuw nsw i64 %indvars.iv887, 1
-  %exitcond890.not = icmp eq i64 %indvars.iv.next888, 10
-  br i1 %exitcond890.not, label %.preheader797, label %1289, !llvm.loop !54
+  %indvars.iv.next887 = add nuw nsw i64 %indvars.iv886, 1
+  %exitcond889.not = icmp eq i64 %indvars.iv.next887, 10
+  br i1 %exitcond889.not, label %.preheader796, label %1289, !llvm.loop !54
 
-1320:                                             ; preds = %.preheader797, %adapt_prob.exit596
-  %1321 = phi i1 [ true, %.preheader797 ], [ false, %adapt_prob.exit596 ]
-  %indvars.iv891 = phi i64 [ 0, %.preheader797 ], [ 1, %adapt_prob.exit596 ]
-  %1322 = getelementptr inbounds nuw [3 x i8], ptr %1287, i64 %indvars.iv891
-  %1323 = getelementptr inbounds nuw [4 x i32], ptr %1288, i64 %indvars.iv891
+1320:                                             ; preds = %.preheader796, %adapt_prob.exit596
+  %1321 = phi i1 [ true, %.preheader796 ], [ false, %adapt_prob.exit596 ]
+  %indvars.iv890 = phi i64 [ 0, %.preheader796 ], [ 1, %adapt_prob.exit596 ]
+  %1322 = getelementptr inbounds nuw [3 x i8], ptr %1287, i64 %indvars.iv890
+  %1323 = getelementptr inbounds nuw [4 x i32], ptr %1288, i64 %indvars.iv890
   %1324 = load i32, ptr %1323, align 4, !tbaa !32
   %1325 = getelementptr inbounds nuw i8, ptr %1323, i64 4
   %1326 = load i32, ptr %1325, align 4, !tbaa !32
@@ -1891,15 +1891,15 @@ adapt_prob.exit587:                               ; preds = %1289, %1295
   %1356 = trunc i32 %1355 to i8
   %1357 = add i8 %1340, %1356
   store i8 %1357, ptr %1322, align 1, !tbaa !33
-  %.pre937 = load i32, ptr %1325, align 4, !tbaa !32
-  %.pre938 = load i32, ptr %1327, align 4, !tbaa !32
-  %.pre939 = load i32, ptr %1329, align 4, !tbaa !32
+  %.pre936 = load i32, ptr %1325, align 4, !tbaa !32
+  %.pre937 = load i32, ptr %1327, align 4, !tbaa !32
+  %.pre938 = load i32, ptr %1329, align 4, !tbaa !32
   br label %adapt_prob.exit590
 
 adapt_prob.exit590:                               ; preds = %1320, %1334
-  %1358 = phi i32 [ %1330, %1320 ], [ %.pre939, %1334 ]
-  %1359 = phi i32 [ %1328, %1320 ], [ %.pre938, %1334 ]
-  %1360 = phi i32 [ %1326, %1320 ], [ %.pre937, %1334 ]
+  %1358 = phi i32 [ %1330, %1320 ], [ %.pre938, %1334 ]
+  %1359 = phi i32 [ %1328, %1320 ], [ %.pre937, %1334 ]
+  %1360 = phi i32 [ %1326, %1320 ], [ %.pre936, %1334 ]
   %1361 = add i32 %1359, %1360
   %1362 = add i32 %1361, %1358
   %.not.i591 = icmp eq i32 %1362, 0
@@ -1932,13 +1932,13 @@ adapt_prob.exit590:                               ; preds = %1320, %1334
   %1386 = trunc i32 %1385 to i8
   %1387 = add i8 %1370, %1386
   store i8 %1387, ptr %1364, align 1, !tbaa !33
-  %.pre940 = load i32, ptr %1327, align 4, !tbaa !32
-  %.pre941 = load i32, ptr %1329, align 4, !tbaa !32
+  %.pre939 = load i32, ptr %1327, align 4, !tbaa !32
+  %.pre940 = load i32, ptr %1329, align 4, !tbaa !32
   br label %adapt_prob.exit593
 
 adapt_prob.exit593:                               ; preds = %adapt_prob.exit590, %1363
-  %1388 = phi i32 [ %1358, %adapt_prob.exit590 ], [ %.pre941, %1363 ]
-  %1389 = phi i32 [ %1359, %adapt_prob.exit590 ], [ %.pre940, %1363 ]
+  %1388 = phi i32 [ %1358, %adapt_prob.exit590 ], [ %.pre940, %1363 ]
+  %1389 = phi i32 [ %1359, %adapt_prob.exit590 ], [ %.pre939, %1363 ]
   %1390 = add i32 %1388, %1389
   %.not.i594 = icmp eq i32 %1390, 0
   br i1 %.not.i594, label %adapt_prob.exit596, label %1391
@@ -2017,15 +2017,15 @@ adapt_prob.exit596:                               ; preds = %adapt_prob.exit593,
   %1451 = trunc i32 %1450 to i8
   %1452 = add i8 %1435, %1451
   store i8 %1452, ptr %1429, align 1, !tbaa !33
-  %.pre942 = load i32, ptr %1419, align 4, !tbaa !32
-  %.pre943 = load i32, ptr %1421, align 4, !tbaa !32
-  %.pre944 = load i32, ptr %1423, align 4, !tbaa !32
+  %.pre941 = load i32, ptr %1419, align 4, !tbaa !32
+  %.pre942 = load i32, ptr %1421, align 4, !tbaa !32
+  %.pre943 = load i32, ptr %1423, align 4, !tbaa !32
   br label %adapt_prob.exit599
 
 adapt_prob.exit599:                               ; preds = %1416, %1428
-  %1453 = phi i32 [ %1424, %1416 ], [ %.pre944, %1428 ]
-  %1454 = phi i32 [ %1422, %1416 ], [ %.pre943, %1428 ]
-  %1455 = phi i32 [ %1420, %1416 ], [ %.pre942, %1428 ]
+  %1453 = phi i32 [ %1424, %1416 ], [ %.pre943, %1428 ]
+  %1454 = phi i32 [ %1422, %1416 ], [ %.pre942, %1428 ]
+  %1455 = phi i32 [ %1420, %1416 ], [ %.pre941, %1428 ]
   %1456 = add i32 %1454, %1455
   %1457 = add i32 %1456, %1453
   %.not.i600 = icmp eq i32 %1457, 0
@@ -2058,13 +2058,13 @@ adapt_prob.exit599:                               ; preds = %1416, %1428
   %1481 = trunc i32 %1480 to i8
   %1482 = add i8 %1465, %1481
   store i8 %1482, ptr %1459, align 1, !tbaa !33
-  %.pre945 = load i32, ptr %1421, align 4, !tbaa !32
-  %.pre946 = load i32, ptr %1423, align 4, !tbaa !32
+  %.pre944 = load i32, ptr %1421, align 4, !tbaa !32
+  %.pre945 = load i32, ptr %1423, align 4, !tbaa !32
   br label %adapt_prob.exit602
 
 adapt_prob.exit602:                               ; preds = %adapt_prob.exit599, %1458
-  %1483 = phi i32 [ %1453, %adapt_prob.exit599 ], [ %.pre946, %1458 ]
-  %1484 = phi i32 [ %1454, %adapt_prob.exit599 ], [ %.pre945, %1458 ]
+  %1483 = phi i32 [ %1453, %adapt_prob.exit599 ], [ %.pre945, %1458 ]
+  %1484 = phi i32 [ %1454, %adapt_prob.exit599 ], [ %.pre944, %1458 ]
   %1485 = add i32 %1483, %1484
   %.not.i603 = icmp eq i32 %1485, 0
   br i1 %.not.i603, label %adapt_prob.exit605, label %1486
@@ -2178,17 +2178,17 @@ adapt_prob.exit608:                               ; preds = %1511, %1517
   br label %adapt_prob.exit611
 
 adapt_prob.exit611:                               ; preds = %1547, %adapt_prob.exit608, %adapt_prob.exit605
-  br i1 %917, label %916, label %.preheader796, !llvm.loop !56
+  br i1 %917, label %916, label %.preheader795, !llvm.loop !56
 
 .preheader:                                       ; preds = %adapt_prob.exit638
   %1572 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %1573 = getelementptr inbounds nuw i8, ptr %142, i64 260
   br label %1849
 
-1574:                                             ; preds = %.preheader796, %adapt_prob.exit638
-  %indvars.iv897 = phi i64 [ 0, %.preheader796 ], [ %indvars.iv.next898, %adapt_prob.exit638 ]
-  %1575 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 %indvars.iv897
-  %1576 = getelementptr inbounds nuw [10 x i32], ptr %915, i64 %indvars.iv897
+1574:                                             ; preds = %.preheader795, %adapt_prob.exit638
+  %indvars.iv896 = phi i64 [ 0, %.preheader795 ], [ %indvars.iv.next897, %adapt_prob.exit638 ]
+  %1575 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 %indvars.iv896
+  %1576 = getelementptr inbounds nuw [10 x i32], ptr %915, i64 %indvars.iv896
   %1577 = load i32, ptr %1576, align 4, !tbaa !32
   %1578 = getelementptr inbounds nuw i8, ptr %1576, i64 4
   %1579 = load i32, ptr %1578, align 4, !tbaa !32
@@ -2246,11 +2246,11 @@ adapt_prob.exit611:                               ; preds = %1547, %adapt_prob.e
   %1627 = trunc i32 %1626 to i8
   %1628 = add i8 %1611, %1627
   store i8 %1628, ptr %1575, align 1, !tbaa !33
-  %.pre947 = load i32, ptr %1599, align 4, !tbaa !32
+  %.pre946 = load i32, ptr %1599, align 4, !tbaa !32
   br label %adapt_prob.exit614
 
 adapt_prob.exit614:                               ; preds = %1574, %1605
-  %1629 = phi i32 [ %1600, %1574 ], [ %.pre947, %1605 ]
+  %1629 = phi i32 [ %1600, %1574 ], [ %.pre946, %1605 ]
   %1630 = sub i32 %1601, %1629
   %.not.i615 = icmp eq i32 %1601, 0
   br i1 %.not.i615, label %adapt_prob.exit617, label %1631
@@ -2534,14 +2534,14 @@ adapt_prob.exit635:                               ; preds = %adapt_prob.exit632,
   br label %adapt_prob.exit638
 
 adapt_prob.exit638:                               ; preds = %adapt_prob.exit635, %1824
-  %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 1
-  %exitcond900.not = icmp eq i64 %indvars.iv.next898, 4
-  br i1 %exitcond900.not, label %.preheader, label %1574, !llvm.loop !57
+  %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1
+  %exitcond899.not = icmp eq i64 %indvars.iv.next897, 4
+  br i1 %exitcond899.not, label %.preheader, label %1574, !llvm.loop !57
 
 1849:                                             ; preds = %.preheader, %adapt_prob.exit665
-  %indvars.iv901 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next902, %adapt_prob.exit665 ]
-  %1850 = getelementptr inbounds nuw [9 x i8], ptr %1572, i64 %indvars.iv901
-  %1851 = getelementptr inbounds nuw [10 x i32], ptr %1573, i64 %indvars.iv901
+  %indvars.iv900 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next901, %adapt_prob.exit665 ]
+  %1850 = getelementptr inbounds nuw [9 x i8], ptr %1572, i64 %indvars.iv900
+  %1851 = getelementptr inbounds nuw [10 x i32], ptr %1573, i64 %indvars.iv900
   %1852 = load i32, ptr %1851, align 4, !tbaa !32
   %1853 = getelementptr inbounds nuw i8, ptr %1851, i64 4
   %1854 = load i32, ptr %1853, align 4, !tbaa !32
@@ -2599,11 +2599,11 @@ adapt_prob.exit638:                               ; preds = %adapt_prob.exit635,
   %1902 = trunc i32 %1901 to i8
   %1903 = add i8 %1886, %1902
   store i8 %1903, ptr %1850, align 1, !tbaa !33
-  %.pre948 = load i32, ptr %1874, align 4, !tbaa !32
+  %.pre947 = load i32, ptr %1874, align 4, !tbaa !32
   br label %adapt_prob.exit641
 
 adapt_prob.exit641:                               ; preds = %1849, %1880
-  %1904 = phi i32 [ %1875, %1849 ], [ %.pre948, %1880 ]
+  %1904 = phi i32 [ %1875, %1849 ], [ %.pre947, %1880 ]
   %1905 = sub i32 %1876, %1904
   %.not.i642 = icmp eq i32 %1876, 0
   br i1 %.not.i642, label %adapt_prob.exit644, label %1906
@@ -2887,9 +2887,9 @@ adapt_prob.exit662:                               ; preds = %adapt_prob.exit659,
   br label %adapt_prob.exit665
 
 adapt_prob.exit665:                               ; preds = %adapt_prob.exit662, %2099
-  %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 1
-  %exitcond904.not = icmp eq i64 %indvars.iv.next902, 10
-  br i1 %exitcond904.not, label %.loopexit, label %1849, !llvm.loop !58
+  %indvars.iv.next901 = add nuw nsw i64 %indvars.iv900, 1
+  %exitcond903.not = icmp eq i64 %indvars.iv.next901, 10
+  br i1 %exitcond903.not, label %.loopexit, label %1849, !llvm.loop !58
 
 .loopexit:                                        ; preds = %adapt_prob.exit665, %147
   ret void

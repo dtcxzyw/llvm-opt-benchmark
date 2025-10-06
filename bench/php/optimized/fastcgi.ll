@@ -1377,17 +1377,17 @@ define hidden i32 @fcgi_accept_request(ptr noundef %0) local_unnamed_addr #3 {
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %fcgi_close.exit61
+  br label %fcgi_close.exit59
 
-fcgi_close.exit61:                                ; preds = %fcgi_close.exit61.backedge, %1
+fcgi_close.exit59:                                ; preds = %fcgi_close.exit59.backedge, %1
   %41 = load i32, ptr %8, align 8, !tbaa !40
   %42 = icmp slt i32 %41, 0
   %43 = load i32, ptr @in_shutdown, align 4, !tbaa !4
-  %.not33146 = icmp eq i32 %43, 0
+  %.not33141 = icmp eq i32 %43, 0
   br i1 %42, label %.preheader, label %124
 
-.preheader:                                       ; preds = %fcgi_close.exit61
-  br i1 %.not33146, label %.lr.ph, label %.loopexit95
+.preheader:                                       ; preds = %fcgi_close.exit59
+  br i1 %.not33141, label %.lr.ph, label %.loopexit90
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %44 = load ptr, ptr %9, align 8, !tbaa !43
@@ -1409,7 +1409,7 @@ fcgi_close.exit61:                                ; preds = %fcgi_close.exit61.b
   %52 = load ptr, ptr @allowed_clients, align 8
   %.not.i = icmp eq ptr %52, null
   %or.cond26.i = select i1 %51, i1 true, i1 %.not.i
-  br i1 %or.cond26.i, label %.loopexit84, label %53
+  br i1 %or.cond26.i, label %.loopexit79, label %53
 
 53:                                               ; preds = %49
   switch i16 %50, label %87 [
@@ -1430,7 +1430,7 @@ fcgi_close.exit61:                                ; preds = %fcgi_close.exit61.b
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %bcmp23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds nuw (i8, ptr @client_sa, i64 4), ptr noundef nonnull dereferenceable(4) %57, i64 4)
   %.not24.i = icmp eq i32 %bcmp23.i, 0
-  br i1 %.not24.i, label %.loopexit84, label %58
+  br i1 %.not24.i, label %.loopexit79, label %58
 
 58:                                               ; preds = %56, %.preheader29.i
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
@@ -1463,13 +1463,13 @@ fcgi_close.exit61:                                ; preds = %fcgi_close.exit61.b
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %bcmp21.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds nuw (i8, ptr @client_sa, i64 20), ptr noundef nonnull dereferenceable(4) %67, i64 4)
   %.not22.us.i = icmp eq i32 %bcmp21.us.i, 0
-  br i1 %.not22.us.i, label %.loopexit84, label %.critedge.us.i
+  br i1 %.not22.us.i, label %.loopexit79, label %.critedge.us.i
 
 68:                                               ; preds = %.preheader.split.us.i
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %bcmp.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds nuw (i8, ptr @client_sa, i64 8), ptr noundef nonnull dereferenceable(12) %69, i64 12)
   %.not20.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not20.us.i, label %.loopexit84, label %.critedge.us.i
+  br i1 %.not20.us.i, label %.loopexit79, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %68, %66, %.preheader.split.us.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
@@ -1488,7 +1488,7 @@ fcgi_close.exit61:                                ; preds = %fcgi_close.exit61.b
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds nuw (i8, ptr @client_sa, i64 8), ptr noundef nonnull dereferenceable(12) %73, i64 12)
   %.not20.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not20.i, label %.loopexit84, label %.critedge.i
+  br i1 %.not20.i, label %.loopexit79, label %.critedge.i
 
 .critedge.i:                                      ; preds = %72, %.preheader.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1509,10 +1509,10 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   %78 = icmp eq i32 %77, 0
   %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @client_sa, i64 12), align 4
   %80 = icmp eq i32 %79, 0
-  %or.cond.i43 = select i1 %78, i1 %80, i1 false
+  %or.cond.i41 = select i1 %78, i1 %80, i1 false
   %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @client_sa, i64 16), align 4
   %82 = icmp eq i32 %81, -65536
-  %or.cond8.i = select i1 %or.cond.i43, i1 %82, i1 false
+  %or.cond8.i = select i1 %or.cond.i41, i1 %82, i1 false
   br i1 %or.cond8.i, label %83, label %85
 
 83:                                               ; preds = %76
@@ -1524,8 +1524,8 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   br label %87
 
 87:                                               ; preds = %53, %85, %83, %74, %fcgi_is_allowed.exit
-  %.0.i45 = phi ptr [ %75, %74 ], [ %84, %83 ], [ %86, %85 ], [ null, %fcgi_is_allowed.exit ], [ null, %53 ]
-  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.10, ptr noundef %.0.i45)
+  %.0.i43 = phi ptr [ %75, %74 ], [ %84, %83 ], [ %86, %85 ], [ null, %fcgi_is_allowed.exit ], [ null, %53 ]
+  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.10, ptr noundef %.0.i43)
   %88 = load i32, ptr %8, align 8, !tbaa !40
   %89 = call i32 @close(i32 noundef %88) #33
   store i32 -1, ptr %8, align 8, !tbaa !40
@@ -1536,9 +1536,9 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
 .backedge:                                        ; preds = %fcgi_close.exit.thread, %106, %87
   %90 = load i32, ptr @in_shutdown, align 4, !tbaa !4
   %.not33 = icmp eq i32 %90, 0
-  br i1 %.not33, label %.lr.ph, label %.loopexit95
+  br i1 %.not33, label %.lr.ph, label %.loopexit90
 
-.loopexit84:                                      ; preds = %72, %66, %68, %56, %49
+.loopexit79:                                      ; preds = %72, %66, %68, %56, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %96
@@ -1548,17 +1548,17 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %92 = load i32, ptr @in_shutdown, align 4, !tbaa !4
   %.not35 = icmp eq i32 %92, 0
-  br i1 %.not35, label %93, label %.loopexit95
+  br i1 %.not35, label %93, label %.loopexit90
 
 93:                                               ; preds = %91
   %94 = tail call ptr @__errno_location() #35
   %95 = load i32, ptr %94, align 4, !tbaa !4
-  switch i32 %95, label %.loopexit95 [
+  switch i32 %95, label %.loopexit90 [
     i32 4, label %96
     i32 103, label %96
   ]
 
-96:                                               ; preds = %.loopexit84, %93, %93
+96:                                               ; preds = %.loopexit79, %93, %93
   %97 = call i32 (i32, i32, ...) @fcntl(i32 noundef %47, i32 noundef 1) #33
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %100
@@ -1603,14 +1603,14 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   br i1 %116, label %111, label %.critedge.thread
 
 .critedge:                                        ; preds = %111
-  %.not83 = icmp eq i32 %112, 0
-  br i1 %.not83, label %.critedge.thread, label %117
+  %.not78 = icmp eq i32 %112, 0
+  br i1 %.not78, label %.critedge.thread, label %117
 
 117:                                              ; preds = %.critedge
   %118 = load i16, ptr %11, align 2, !tbaa !68
   %119 = and i16 %118, 1
   %.not38 = icmp eq i16 %119, 0
-  br i1 %.not38, label %.critedge.thread, label %.thread71
+  br i1 %.not38, label %.critedge.thread, label %.thread68
 
 .critedge.thread:                                 ; preds = %114, %117, %.critedge
   %120 = load i32, ptr %8, align 8, !tbaa !40
@@ -1629,14 +1629,14 @@ fcgi_close.exit.thread:                           ; preds = %.critedge.thread, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge
 
-.thread71:                                        ; preds = %117
+.thread68:                                        ; preds = %117
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %125
 
-124:                                              ; preds = %fcgi_close.exit61
-  br i1 %.not33146, label %125, label %.loopexit95
+124:                                              ; preds = %fcgi_close.exit59
+  br i1 %.not33141, label %125, label %.loopexit90
 
-125:                                              ; preds = %.thread71, %124
+125:                                              ; preds = %.thread68, %124
   %126 = load ptr, ptr %14, align 8, !tbaa !44
   call void %126() #33
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1647,8 +1647,8 @@ fcgi_close.exit.thread:                           ; preds = %.critedge.thread, %
   store ptr null, ptr %18, align 8, !tbaa !70
   store ptr %19, ptr %20, align 8, !tbaa !42
   %127 = load i32, ptr %21, align 8, !tbaa !61
-  %.not.i46 = icmp eq i32 %127, 0
-  br i1 %.not.i46, label %146, label %128
+  %.not.i44 = icmp eq i32 %127, 0
+  br i1 %.not.i44, label %146, label %128
 
 128:                                              ; preds = %125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %22, i8 0, i64 1032, i1 false)
@@ -1746,8 +1746,8 @@ safe_read.exit.i:                                 ; preds = %165, %163
   %.015.i.i = phi i1 [ %164, %163 ], [ false, %165 ]
   %166 = load i8, ptr %2, align 1
   %167 = icmp eq i8 %166, 0
-  %or.cond.i47 = select i1 %.015.i.i, i1 true, i1 %167
-  br i1 %or.cond.i47, label %.loopexit, label %168
+  %or.cond.i45 = select i1 %.015.i.i, i1 true, i1 %167
+  br i1 %or.cond.i45, label %.loopexit, label %168
 
 168:                                              ; preds = %safe_read.exit.i
   %169 = load i8, ptr %25, align 1, !tbaa !56
@@ -1943,21 +1943,21 @@ safe_read.exit162.thread.i:                       ; preds = %240, %safe_read.exi
 
 257:                                              ; preds = %251
   %258 = call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %22, i32 noundef 1793, ptr noundef nonnull @.str.13, i32 noundef 9, ptr noundef nonnull @.str.14, i32 noundef 9)
-  br label %.preheader343
+  br label %.preheader338
 
 259:                                              ; preds = %251
   %260 = call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %22, i32 noundef 1793, ptr noundef nonnull @.str.13, i32 noundef 9, ptr noundef nonnull @.str.15, i32 noundef 10)
-  br label %.preheader343
+  br label %.preheader338
 
 261:                                              ; preds = %251
   %262 = call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %22, i32 noundef 1793, ptr noundef nonnull @.str.13, i32 noundef 9, ptr noundef nonnull @.str.16, i32 noundef 6)
-  br label %.preheader343
+  br label %.preheader338
 
-.preheader343:                                    ; preds = %261, %259, %257
+.preheader338:                                    ; preds = %261, %259, %257
   br label %263
 
-263:                                              ; preds = %.preheader343, %279
-  %.0.i163.i = phi i64 [ %.1.i166.i, %279 ], [ 0, %.preheader343 ]
+263:                                              ; preds = %.preheader338, %279
+  %.0.i163.i = phi i64 [ %.1.i166.i, %279 ], [ 0, %.preheader338 ]
   store i32 0, ptr %148, align 4, !tbaa !4
   %264 = load i32, ptr %8, align 8, !tbaa !40
   %265 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i163.i
@@ -2013,7 +2013,7 @@ safe_read.exit170.i:                              ; preds = %279, %277
   %290 = icmp eq i8 %289, 4
   %291 = icmp ne i32 %288, 0
   %292 = select i1 %290, i1 %291, i1 false
-  br i1 %292, label %.lr.ph289.preheader.i, label %fcgi_close.exit61.thread
+  br i1 %292, label %.lr.ph289.preheader.i, label %fcgi_close.exit59.thread
 
 .lr.ph289.preheader.i:                            ; preds = %282
   %293 = load i8, ptr %27, align 1, !tbaa !59
@@ -2080,9 +2080,9 @@ safe_read.exit178.thread.i:                       ; preds = %314, %safe_read.exi
   %316 = getelementptr inbounds nuw i8, ptr %3, i64 %315
   %317 = call fastcc i32 @fcgi_get_params(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %316)
   %.not146.i = icmp eq i32 %317, 0
-  br i1 %.not146.i, label %safe_read.exit.thread.sink.split.i, label %.preheader.i49
+  br i1 %.not146.i, label %safe_read.exit.thread.sink.split.i, label %.preheader.i47
 
-.preheader.i49:                                   ; preds = %safe_read.exit178.thread.i, %333
+.preheader.i47:                                   ; preds = %safe_read.exit178.thread.i, %333
   %.0.i179.i = phi i64 [ %.1.i182.i, %333 ], [ 0, %safe_read.exit178.thread.i ]
   store i32 0, ptr %148, align 4, !tbaa !4
   %318 = load i32, ptr %8, align 8, !tbaa !40
@@ -2093,12 +2093,12 @@ safe_read.exit178.thread.i:                       ; preds = %314, %safe_read.exi
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %324, label %327
 
-324:                                              ; preds = %.preheader.i49
+324:                                              ; preds = %.preheader.i47
   %325 = and i64 %321, 2147483647
   %326 = add i64 %325, %.0.i179.i
   br label %333
 
-327:                                              ; preds = %.preheader.i49
+327:                                              ; preds = %.preheader.i47
   %328 = icmp eq i32 %322, 0
   %329 = load i32, ptr %148, align 4, !tbaa !4
   %330 = icmp eq i32 %329, 0
@@ -2119,7 +2119,7 @@ thread-pre-split.i181.i:                          ; preds = %327
 333:                                              ; preds = %thread-pre-split.i181.i, %thread-pre-split.i181.i, %324
   %.1.i182.i = phi i64 [ %326, %324 ], [ %.0.i179.i, %thread-pre-split.i181.i ], [ %.0.i179.i, %thread-pre-split.i181.i ]
   %.not20.i183.i = icmp eq i64 %.1.i182.i, 8
-  br i1 %.not20.i183.i, label %safe_read.exit186.i, label %.preheader.i49
+  br i1 %.not20.i183.i, label %safe_read.exit186.i, label %.preheader.i47
 
 safe_read.exit186.i:                              ; preds = %333, %331
   %.015.i184.i = phi i1 [ %332, %331 ], [ false, %333 ]
@@ -2140,7 +2140,7 @@ safe_read.exit186.i:                              ; preds = %333, %331
   %345 = icmp eq i8 %344, 4
   %346 = icmp ne i32 %342, 0
   %347 = select i1 %345, i1 %346, i1 false
-  br i1 %347, label %.lr.ph289.i, label %fcgi_close.exit61.thread
+  br i1 %347, label %.lr.ph289.i, label %fcgi_close.exit59.thread
 
 348:                                              ; preds = %212
   %349 = icmp eq i8 %.lcssa258.i, 9
@@ -2211,7 +2211,7 @@ safe_read.exit194.thread.i:                       ; preds = %368, %safe_read.exi
   br label %372
 
 372:                                              ; preds = %380, %.lr.ph.i
-  %.0278.i = phi ptr [ %.0276284.i, %.lr.ph.i ], [ %.0.i48, %380 ]
+  %.0278.i = phi ptr [ %.0276284.i, %.lr.ph.i ], [ %.0.i46, %380 ]
   %373 = getelementptr inbounds nuw i8, ptr %.0278.i, i64 8
   %374 = load ptr, ptr %373, align 8, !tbaa !80
   %375 = getelementptr inbounds nuw i8, ptr %.0278.i, i64 4
@@ -2223,8 +2223,8 @@ safe_read.exit194.thread.i:                       ; preds = %368, %safe_read.exi
 
 380:                                              ; preds = %372
   %381 = getelementptr inbounds nuw i8, ptr %.0278.i, i64 40
-  %.0.i48 = load ptr, ptr %381, align 8, !tbaa !79
-  %.not138.i = icmp eq ptr %.0.i48, null
+  %.0.i46 = load ptr, ptr %381, align 8, !tbaa !79
+  %.not138.i = icmp eq ptr %.0.i46, null
   br i1 %.not138.i, label %.loopexit.i, label %372
 
 382:                                              ; preds = %372
@@ -2360,11 +2360,11 @@ fcgi_make_header.exit.i:                          ; preds = %442, %.loopexit.i
   br label %448
 
 448:                                              ; preds = %460, %fcgi_make_header.exit.i
-  %.0.i62 = phi i64 [ 0, %fcgi_make_header.exit.i ], [ %.1.i, %460 ]
+  %.0.i60 = phi i64 [ 0, %fcgi_make_header.exit.i ], [ %.1.i, %460 ]
   store i32 0, ptr %148, align 4, !tbaa !4
   %449 = load i32, ptr %8, align 8, !tbaa !40
-  %450 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i62
-  %451 = sub i64 %447, %.0.i62
+  %450 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i60
+  %451 = sub i64 %447, %.0.i60
   %452 = call i64 @write(i32 noundef %449, ptr noundef nonnull readonly %450, i64 noundef %451) #33
   %453 = trunc i64 %452 to i32
   %454 = icmp sgt i32 %453, 0
@@ -2372,7 +2372,7 @@ fcgi_make_header.exit.i:                          ; preds = %442, %.loopexit.i
 
 455:                                              ; preds = %448
   %456 = and i64 %452, 2147483647
-  %457 = add i64 %456, %.0.i62
+  %457 = add i64 %456, %.0.i60
   br label %460
 
 458:                                              ; preds = %448
@@ -2383,7 +2383,7 @@ fcgi_make_header.exit.i:                          ; preds = %442, %.loopexit.i
   ]
 
 460:                                              ; preds = %458, %458, %455
-  %.1.i = phi i64 [ %457, %455 ], [ %.0.i62, %458 ], [ %.0.i62, %458 ]
+  %.1.i = phi i64 [ %457, %455 ], [ %.0.i60, %458 ], [ %.0.i60, %458 ]
   %.not18.i = icmp eq i64 %.1.i, %447
   br i1 %.not18.i, label %safe_write.exit.thread, label %448
 
@@ -2397,16 +2397,16 @@ safe_read.exit.thread.sink.split.i:               ; preds = %safe_read.exit186.i
   store i32 0, ptr %15, align 8, !tbaa !8
   br label %.loopexit
 
-fcgi_close.exit61.thread:                         ; preds = %282, %336
+fcgi_close.exit59.thread:                         ; preds = %282, %336
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %462 = load i32, ptr %8, align 8, !tbaa !40
-  br label %.loopexit95
+  br label %.loopexit90
 
 safe_write.exit.thread:                           ; preds = %460, %safe_write.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %fcgi_close.exit61.backedge
+  br label %fcgi_close.exit59.backedge
 
 .loopexit:                                        ; preds = %159, %safe_read.exit154.i, %189, %273, %.lr.ph289.i, %safe_read.exit.thread.sink.split.i, %safe_read.exit170.i, %251, %safe_read.exit162.i, %348, %._crit_edge.i, %safe_read.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2420,65 +2420,65 @@ safe_write.exit.thread:                           ; preds = %460, %safe_write.ex
   %465 = load ptr, ptr %23, align 8, !tbaa !46
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
   %467 = load ptr, ptr %466, align 8, !tbaa !49
-  %.not18.i.i50 = icmp eq ptr %467, null
-  br i1 %.not18.i.i50, label %._crit_edge.i.i53, label %.lr.ph.i.i51
+  %.not18.i.i48 = icmp eq ptr %467, null
+  br i1 %.not18.i.i48, label %._crit_edge.i.i51, label %.lr.ph.i.i49
 
-.lr.ph.i.i51:                                     ; preds = %464, %.lr.ph.i.i51
-  %468 = phi ptr [ %472, %.lr.ph.i.i51 ], [ %467, %464 ]
-  %469 = phi ptr [ %470, %.lr.ph.i.i51 ], [ %465, %464 ]
+.lr.ph.i.i49:                                     ; preds = %464, %.lr.ph.i.i49
+  %468 = phi ptr [ %472, %.lr.ph.i.i49 ], [ %467, %464 ]
+  %469 = phi ptr [ %470, %.lr.ph.i.i49 ], [ %465, %464 ]
   store ptr %468, ptr %23, align 8, !tbaa !46
   call void @free(ptr noundef nonnull %469) #33
   %470 = load ptr, ptr %23, align 8, !tbaa !46
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %472 = load ptr, ptr %471, align 8, !tbaa !49
-  %.not.i.i52 = icmp eq ptr %472, null
-  br i1 %.not.i.i52, label %._crit_edge.i.i53, label %.lr.ph.i.i51
+  %.not.i.i50 = icmp eq ptr %472, null
+  br i1 %.not.i.i50, label %._crit_edge.i.i51, label %.lr.ph.i.i49
 
-._crit_edge.i.i53:                                ; preds = %.lr.ph.i.i51, %464
-  %.lcssa17.i.i54 = phi ptr [ %465, %464 ], [ %470, %.lr.ph.i.i51 ]
-  store i32 0, ptr %.lcssa17.i.i54, align 8, !tbaa !47
+._crit_edge.i.i51:                                ; preds = %.lr.ph.i.i49, %464
+  %.lcssa17.i.i52 = phi ptr [ %465, %464 ], [ %470, %.lr.ph.i.i49 ]
+  store i32 0, ptr %.lcssa17.i.i52, align 8, !tbaa !47
   %473 = load ptr, ptr %24, align 8, !tbaa !50
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 16
   %475 = load ptr, ptr %474, align 8, !tbaa !54
-  %.not1619.i.i55 = icmp eq ptr %475, null
-  br i1 %.not1619.i.i55, label %fcgi_hash_clean.exit.i58, label %.lr.ph21.i.i56
+  %.not1619.i.i53 = icmp eq ptr %475, null
+  br i1 %.not1619.i.i53, label %fcgi_hash_clean.exit.i56, label %.lr.ph21.i.i54
 
-.lr.ph21.i.i56:                                   ; preds = %._crit_edge.i.i53, %.lr.ph21.i.i56
-  %476 = phi ptr [ %480, %.lr.ph21.i.i56 ], [ %475, %._crit_edge.i.i53 ]
-  %477 = phi ptr [ %478, %.lr.ph21.i.i56 ], [ %473, %._crit_edge.i.i53 ]
+.lr.ph21.i.i54:                                   ; preds = %._crit_edge.i.i51, %.lr.ph21.i.i54
+  %476 = phi ptr [ %480, %.lr.ph21.i.i54 ], [ %475, %._crit_edge.i.i51 ]
+  %477 = phi ptr [ %478, %.lr.ph21.i.i54 ], [ %473, %._crit_edge.i.i51 ]
   store ptr %476, ptr %24, align 8, !tbaa !50
   call void @free(ptr noundef nonnull %477) #33
   %478 = load ptr, ptr %24, align 8, !tbaa !50
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 16
   %480 = load ptr, ptr %479, align 8, !tbaa !54
-  %.not16.i.i57 = icmp eq ptr %480, null
-  br i1 %.not16.i.i57, label %fcgi_hash_clean.exit.i58, label %.lr.ph21.i.i56
+  %.not16.i.i55 = icmp eq ptr %480, null
+  br i1 %.not16.i.i55, label %fcgi_hash_clean.exit.i56, label %.lr.ph21.i.i54
 
-fcgi_hash_clean.exit.i58:                         ; preds = %.lr.ph21.i.i56, %._crit_edge.i.i53
-  %.lcssa.i.i59 = phi ptr [ %473, %._crit_edge.i.i53 ], [ %478, %.lr.ph21.i.i56 ]
-  %481 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i59, i64 24
-  store ptr %481, ptr %.lcssa.i.i59, align 8, !tbaa !51
+fcgi_hash_clean.exit.i56:                         ; preds = %.lr.ph21.i.i54, %._crit_edge.i.i51
+  %.lcssa.i.i57 = phi ptr [ %473, %._crit_edge.i.i51 ], [ %478, %.lr.ph21.i.i54 ]
+  %481 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i57, i64 24
+  store ptr %481, ptr %.lcssa.i.i57, align 8, !tbaa !51
   store i32 0, ptr %21, align 8, !tbaa !61
   br label %482
 
-482:                                              ; preds = %fcgi_hash_clean.exit.i58, %.loopexit
+482:                                              ; preds = %fcgi_hash_clean.exit.i56, %.loopexit
   %483 = load i32, ptr %8, align 8, !tbaa !40
   %484 = icmp sgt i32 %483, -1
-  br i1 %484, label %.thread16.i60, label %fcgi_close.exit61.backedge
+  br i1 %484, label %.thread16.i58, label %fcgi_close.exit59.backedge
 
-.thread16.i60:                                    ; preds = %482
+.thread16.i58:                                    ; preds = %482
   %485 = call i32 @close(i32 noundef %483) #33
   store i32 0, ptr %12, align 4, !tbaa !62
   store i32 -1, ptr %8, align 8, !tbaa !40
   %486 = load ptr, ptr %13, align 8, !tbaa !45
   call void %486() #33
-  br label %fcgi_close.exit61.backedge
+  br label %fcgi_close.exit59.backedge
 
-fcgi_close.exit61.backedge:                       ; preds = %.thread16.i60, %482, %safe_write.exit.thread
-  br label %fcgi_close.exit61
+fcgi_close.exit59.backedge:                       ; preds = %.thread16.i58, %482, %safe_write.exit.thread
+  br label %fcgi_close.exit59
 
-.loopexit95:                                      ; preds = %124, %.preheader, %.backedge, %93, %91, %fcgi_close.exit61.thread
-  %.1 = phi i32 [ %462, %fcgi_close.exit61.thread ], [ -1, %91 ], [ -1, %93 ], [ -1, %.backedge ], [ -1, %.preheader ], [ -1, %124 ]
+.loopexit90:                                      ; preds = %124, %.preheader, %.backedge, %93, %91, %fcgi_close.exit59.thread
+  %.1 = phi i32 [ %462, %fcgi_close.exit59.thread ], [ -1, %91 ], [ -1, %93 ], [ -1, %.backedge ], [ -1, %.preheader ], [ -1, %124 ]
   ret i32 %.1
 }
 

@@ -553,8 +553,8 @@ _Z8rawscoreiii.exit:                              ; preds = %60, %58, %56, %_Z8r
 94:                                               ; preds = %86
   %95 = icmp eq i32 %92, %88
   %96 = icmp slt i32 %90, %87
-  %or.cond699 = select i1 %95, i1 %96, i1 false
-  br i1 %or.cond699, label %97, label %128
+  %or.cond700 = select i1 %95, i1 %96, i1 false
+  br i1 %or.cond700, label %97, label %128
 
 97:                                               ; preds = %94, %86
   %98 = icmp eq i32 %90, -1
@@ -1332,8 +1332,8 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
 
 387:                                              ; preds = %386, %445
   %388 = phi i1 [ true, %386 ], [ false, %445 ]
-  %.0417686 = phi i32 [ 0, %386 ], [ 1, %445 ]
-  %389 = xor i32 %.0417686, 1
+  %.0417687 = phi i32 [ 0, %386 ], [ 1, %445 ]
+  %389 = xor i32 %.0417687, 1
   %390 = zext nneg i32 %389 to i64
   %391 = getelementptr inbounds nuw %struct.parResultsMaster, ptr %1, i64 %390
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 4
@@ -1345,7 +1345,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %396 = getelementptr inbounds nuw i32, ptr %11, i64 %390
   %397 = getelementptr inbounds nuw i32, ptr %10, i64 %390
-  %trunc = trunc nuw i32 %.0417686 to i1
+  %trunc = trunc nuw i32 %.0417687 to i1
   %.promoted = load i32, ptr %396, align 4
   %wide.trip.count763 = zext nneg i32 %393 to i64
   br i1 %trunc, label %.lr.ph682.split, label %.lr.ph682.split.us
@@ -1449,18 +1449,18 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
   %or.cond10 = select i1 %448, i1 %451, i1 false
   br i1 %or.cond10, label %.preheader604, label %.loopexit
 
-.preheader604:                                    ; preds = %446, %._crit_edge696
-  %452 = phi i1 [ false, %._crit_edge696 ], [ true, %446 ]
-  %indvars.iv773.sroa.phi = phi ptr [ %indvars.iv773.sroa.gep, %._crit_edge696 ], [ %9, %446 ]
-  %indvars.iv773.sroa.phi876 = phi ptr [ %indvars.iv773.sroa.gep877, %._crit_edge696 ], [ %9, %446 ]
-  %indvars.iv773 = phi i64 [ 1, %._crit_edge696 ], [ 0, %446 ]
+.preheader604:                                    ; preds = %446, %._crit_edge697
+  %452 = phi i1 [ false, %._crit_edge697 ], [ true, %446 ]
+  %indvars.iv773.sroa.phi = phi ptr [ %indvars.iv773.sroa.gep, %._crit_edge697 ], [ %9, %446 ]
+  %indvars.iv773.sroa.phi876 = phi ptr [ %indvars.iv773.sroa.gep877, %._crit_edge697 ], [ %9, %446 ]
+  %indvars.iv773 = phi i64 [ 1, %._crit_edge697 ], [ 0, %446 ]
   %453 = getelementptr inbounds nuw %struct.parResultsMaster, ptr %1, i64 %indvars.iv773
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 4
   %455 = load i32, ptr %454, align 4
   %456 = icmp sgt i32 %455, 0
-  br i1 %456, label %.lr.ph690, label %._crit_edge696
+  br i1 %456, label %.lr.ph691, label %._crit_edge697
 
-.lr.ph690:                                        ; preds = %.preheader604
+.lr.ph691:                                        ; preds = %.preheader604
   %457 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %458 = xor i64 %indvars.iv773, 1
   %459 = getelementptr inbounds nuw i32, ptr %11, i64 %458
@@ -1469,12 +1469,12 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
   %wide.trip.count768 = zext nneg i32 %455 to i64
   br label %463
 
-.lr.ph695:                                        ; preds = %481
+.lr.ph696:                                        ; preds = %481
   %462 = getelementptr inbounds nuw i8, ptr %453, i64 8
   br label %482
 
-463:                                              ; preds = %.lr.ph690, %481
-  %indvars.iv765 = phi i64 [ 0, %.lr.ph690 ], [ %indvars.iv.next766, %481 ]
+463:                                              ; preds = %.lr.ph691, %481
+  %indvars.iv765 = phi i64 [ 0, %.lr.ph691 ], [ %indvars.iv.next766, %481 ]
   %464 = getelementptr inbounds nuw %struct.contractType, ptr %457, i64 %indvars.iv765
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 12
   %466 = load i32, ptr %465, align 4
@@ -1504,12 +1504,12 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
 481:                                              ; preds = %473, %475, %478
   %indvars.iv.next766 = add nuw nsw i64 %indvars.iv765, 1
   %exitcond769.not = icmp eq i64 %indvars.iv.next766, %wide.trip.count768
-  br i1 %exitcond769.not, label %.lr.ph695, label %463, !llvm.loop !24
+  br i1 %exitcond769.not, label %.lr.ph696, label %463, !llvm.loop !24
 
-482:                                              ; preds = %.lr.ph695, %494
-  %483 = phi i32 [ %455, %.lr.ph695 ], [ %495, %494 ]
-  %indvars.iv770 = phi i64 [ 0, %.lr.ph695 ], [ %indvars.iv.next771, %494 ]
-  %.0694 = phi i32 [ 0, %.lr.ph695 ], [ %.1, %494 ]
+482:                                              ; preds = %.lr.ph696, %494
+  %483 = phi i32 [ %455, %.lr.ph696 ], [ %495, %494 ]
+  %indvars.iv770 = phi i64 [ 0, %.lr.ph696 ], [ %indvars.iv.next771, %494 ]
+  %.0695 = phi i32 [ 0, %.lr.ph696 ], [ %.1, %494 ]
   %484 = getelementptr inbounds nuw %struct.contractType, ptr %462, i64 %indvars.iv770
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 12
   %486 = load i32, ptr %485, align 4
@@ -1520,28 +1520,28 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
   br i1 %.not, label %494, label %490
 
 490:                                              ; preds = %482
-  %491 = sext i32 %.0694 to i64
+  %491 = sext i32 %.0695 to i64
   %492 = getelementptr inbounds %struct.contractType, ptr %462, i64 %491
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %492, ptr noundef nonnull align 4 dereferenceable(20) %484, i64 20, i1 false)
-  %493 = add nsw i32 %.0694, 1
+  %493 = add nsw i32 %.0695, 1
   %.pre777 = load i32, ptr %454, align 4
   br label %494
 
 494:                                              ; preds = %482, %490
   %495 = phi i32 [ %.pre777, %490 ], [ %483, %482 ]
-  %.1 = phi i32 [ %493, %490 ], [ %.0694, %482 ]
+  %.1 = phi i32 [ %493, %490 ], [ %.0695, %482 ]
   %indvars.iv.next771 = add nuw nsw i64 %indvars.iv770, 1
   %496 = sext i32 %495 to i64
   %497 = icmp slt i64 %indvars.iv.next771, %496
-  br i1 %497, label %482, label %._crit_edge696, !llvm.loop !25
+  br i1 %497, label %482, label %._crit_edge697, !llvm.loop !25
 
-._crit_edge696:                                   ; preds = %494, %.preheader604
+._crit_edge697:                                   ; preds = %494, %.preheader604
   %.0.lcssa = phi i32 [ 0, %.preheader604 ], [ %.1, %494 ]
   store i32 %.0.lcssa, ptr %454, align 4
   br i1 %452, label %.preheader604, label %.loopexit, !llvm.loop !26
 
-.loopexit:                                        ; preds = %_Z8rawscoreiii.exit521._crit_edge, %._crit_edge696, %446, %186
-  %.0416 = phi i32 [ 1, %186 ], [ 1, %446 ], [ 1, %._crit_edge696 ], [ -1, %_Z8rawscoreiii.exit521._crit_edge ]
+.loopexit:                                        ; preds = %_Z8rawscoreiii.exit521._crit_edge, %._crit_edge697, %446, %186
+  %.0416 = phi i32 [ 1, %186 ], [ 1, %446 ], [ 1, %._crit_edge697 ], [ -1, %_Z8rawscoreiii.exit521._crit_edge ]
   ret i32 %.0416
 }
 

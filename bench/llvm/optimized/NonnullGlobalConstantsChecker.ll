@@ -1178,8 +1178,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129NonnullGlobalCons
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i8, ptr %20, align 16
   %22 = icmp ne i8 %21, 33
-  %.not54 = icmp eq ptr %19, null
-  %.not = or i1 %.not54, %22
+  %.not53 = icmp eq ptr %19, null
+  %.not = or i1 %.not53, %22
   br i1 %.not, label %77, label %23
 
 23:                                               ; preds = %.critedge

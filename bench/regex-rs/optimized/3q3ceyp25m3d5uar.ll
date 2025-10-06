@@ -262,8 +262,8 @@ define void @"_ZN88_$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u20$as$u20$regex.
   %17 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !51
   %18 = tail call { i64, ptr } %17(i8 noundef 36, ptr noundef nonnull readonly align 1 %14, ptr noundef nonnull readonly %16), !noalias !58
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %18, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %19, label %_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E.exit
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %19, label %_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E.exit
 
 19:                                               ; preds = %"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h174928de5fd326a2E.exit.i"
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -342,8 +342,8 @@ define void @"_ZN92_$LT$$RF$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u20$as$u20$re
   %18 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !77
   %19 = tail call { i64, ptr } %18(i8 noundef 36, ptr noundef nonnull readonly align 1 %15, ptr noundef nonnull readonly %17), !noalias !84
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %19, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %20, label %_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE.exit
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %20, label %_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE.exit
 
 20:                                               ; preds = %"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hf79ccc372ef39e71E.llvm.2056173962031726711.exit.i"
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -384,8 +384,8 @@ define void @"_ZN80_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$regex..regex..s
   %6 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !103
   %7 = tail call { i64, ptr } %6(i8 noundef 36, ptr noundef nonnull readonly align 1 %.val, ptr noundef nonnull readonly %5), !noalias !110
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %7, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %8, label %_ZN5regex5regex6string12no_expansion17hc5ab9b366ca55bd7E.exit
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %8, label %_ZN5regex5regex6string12no_expansion17hc5ab9b366ca55bd7E.exit
 
 8:                                                ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -428,8 +428,8 @@ define void @"_ZN84_$LT$$RF$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$regex..rege
   %4 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !129
   %5 = tail call { i64, ptr } %4(i8 noundef 36, ptr noundef nonnull readonly align 1 %.pn3.i.i.i.i, ptr noundef nonnull readonly %3), !noalias !136
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %5, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %6, label %_ZN5regex5regex6string12no_expansion17h986d9b761c5b570bE.exit
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %6, label %_ZN5regex5regex6string12no_expansion17h986d9b761c5b570bE.exit
 
 6:                                                ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -453,8 +453,8 @@ define hidden void @_ZN5regex5regex6string12no_expansion17h5674428d6792449dE(ptr
   %7 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !140
   %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull readonly align 1 %3, ptr noundef nonnull readonly %6), !noalias !147
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %8, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %9, label %10
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %9, label %10
 
 9:                                                ; preds = %2
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -481,8 +481,8 @@ define hidden void @_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E(ptr
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !154
   %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly align 1 %5, ptr noundef nonnull readonly %8), !noalias !161
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %10, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %11, label %12
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %11, label %12
 
 11:                                               ; preds = %2
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -507,8 +507,8 @@ define hidden void @_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E(ptr
   %8 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !165
   %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly align 1 %4, ptr noundef nonnull readonly %7), !noalias !172
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %9, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %10, label %11
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %10, label %11
 
 10:                                               ; preds = %2
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -720,10 +720,10 @@ define { i64, i64 } @"_ZN117_$LT$regex..regexset..string..SetMatchesIntoIter$u20
   br i1 %11, label %"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h469977ee721db3c7E.exit.thread", label %4
 
 "_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h469977ee721db3c7E.exit.thread": ; preds = %4, %8
-  %.sroa.3.0.i7 = phi i64 [ %9, %8 ], [ undef, %4 ]
+  %.sroa.3.0.i6 = phi i64 [ %9, %8 ], [ undef, %4 ]
   %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %4 ]
   %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0.i7, 1
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0.i6, 1
   ret { i64, i64 } %13
 }
 
@@ -731,14 +731,14 @@ define { i64, i64 } @"_ZN117_$LT$regex..regexset..string..SetMatchesIntoIter$u20
 define { i64, i64 } @"_ZN98_$LT$regex..regexset..string..SetMatchesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h122844a7bb3d6daeE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = tail call { i32, i32 } @"_ZN103_$LT$regex_automata..util..search..PatternSetIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc05b73abc92a7d65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %.fca.0.extract = extractvalue { i32, i32 } %2, 0
-  %switch = icmp ne i32 %.fca.0.extract, 0
+  %3 = icmp ne i32 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i32, i32 } %2, 1
-  %3 = zext i32 %.fca.1.extract to i64
-  %.sroa.3.0 = select i1 %switch, i64 %3, i64 undef
-  %.sroa.0.0 = zext i1 %switch to i64
-  %4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %5
+  %4 = zext i32 %.fca.1.extract to i64
+  %.sroa.3.0 = select i1 %3, i64 %4, i64 undef
+  %.sroa.0.0 = zext i1 %3 to i64
+  %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -751,14 +751,14 @@ define void @"_ZN98_$LT$regex..regexset..string..SetMatchesIter$u20$as$u20$core.
 define { i64, i64 } @"_ZN113_$LT$regex..regexset..string..SetMatchesIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha8a39f0fbd2fd7c3E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = tail call { i32, i32 } @"_ZN118_$LT$regex_automata..util..search..PatternSetIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17heefaa2353978914bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %.fca.0.extract = extractvalue { i32, i32 } %2, 0
-  %switch = icmp ne i32 %.fca.0.extract, 0
+  %3 = icmp ne i32 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i32, i32 } %2, 1
-  %3 = zext i32 %.fca.1.extract to i64
-  %.sroa.3.0 = select i1 %switch, i64 %3, i64 undef
-  %.sroa.0.0 = zext i1 %switch to i64
-  %4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %5
+  %4 = zext i32 %.fca.1.extract to i64
+  %.sroa.3.0 = select i1 %3, i64 %4, i64 undef
+  %.sroa.0.0 = zext i1 %3 to i64
+  %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

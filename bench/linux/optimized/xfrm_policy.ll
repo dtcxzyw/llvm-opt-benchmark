@@ -3920,13 +3920,11 @@ define dso_local noundef range(i32 -3, 1) i32 @xfrm_dev_policy_flush(ptr noundef
 define dso_local i32 @xfrm_policy_walk(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %70 [
-    i8 -1, label %7
-    i8 1, label %7
-    i8 0, label %7
-  ]
+  %.off = add i8 %6, -2
+  %switch = icmp ult i8 %.off, -3
+  br i1 %switch, label %70, label %7
 
-7:                                                ; preds = %4, %4, %4
+7:                                                ; preds = %4
   %8 = load volatile ptr, ptr %1, align 8
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %10, label %14
@@ -4032,7 +4030,7 @@ define dso_local i32 @xfrm_policy_walk(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %15) #22
   br label %70
 
-70:                                               ; preds = %68, %10, %4
+70:                                               ; preds = %4, %68, %10
   %71 = phi i32 [ %69, %68 ], [ -22, %4 ], [ 0, %10 ]
   ret i32 %71
 }

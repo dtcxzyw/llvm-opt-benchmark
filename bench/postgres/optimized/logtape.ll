@@ -760,20 +760,20 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
   %68 = load ptr, ptr %49, align 8
   %69 = tail call ptr @repalloc(ptr noundef %68, i64 noundef %64) #9
   store ptr %69, ptr %49, align 8
-  %.pre36.i = load i64, ptr %47, align 8
+  %.pre35.i = load i64, ptr %47, align 8
   br label %70
 
 70:                                               ; preds = %66, %._crit_edge.i
-  %71 = phi i64 [ %61, %._crit_edge.i ], [ %.pre36.i, %66 ]
+  %71 = phi i64 [ %61, %._crit_edge.i ], [ %.pre35.i, %66 ]
   %72 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %69, %66 ]
   %73 = add i64 %71, 1
   store i64 %73, ptr %47, align 8
-  %.not2832.i = icmp eq i64 %71, 0
-  br i1 %.not2832.i, label %.thread.i, label %.lr.ph.i
+  %.not2831.i = icmp eq i64 %71, 0
+  br i1 %.not2831.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %70, %79
-  %.033.i = phi i64 [ %75, %79 ], [ %71, %70 ]
-  %74 = add i64 %.033.i, -1
+  %.032.i = phi i64 [ %75, %79 ], [ %71, %70 ]
+  %74 = add i64 %.032.i, -1
   %75 = lshr i64 %74, 1
   %76 = getelementptr inbounds nuw i64, ptr %72, i64 %75
   %77 = load i64, ptr %76, align 8
@@ -781,13 +781,13 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
   br i1 %78, label %.thread.i, label %79
 
 79:                                               ; preds = %.lr.ph.i
-  %80 = getelementptr inbounds nuw i64, ptr %72, i64 %.033.i
+  %80 = getelementptr inbounds nuw i64, ptr %72, i64 %.032.i
   store i64 %77, ptr %80, align 8
   %.not28.i = icmp ult i64 %74, 2
   br i1 %.not28.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %79, %.lr.ph.i, %70
-  %.0.lcssa.i = phi i64 [ 0, %70 ], [ %75, %79 ], [ %.033.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %70 ], [ %75, %79 ], [ %.032.i, %.lr.ph.i ]
   %81 = getelementptr inbounds nuw i64, ptr %72, i64 %.0.lcssa.i
   store i64 %57, ptr %81, align 8
   br label %ltsReleaseBlock.exit
@@ -957,20 +957,20 @@ ltsReadBlock.exit:                                ; preds = %17
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @repalloc(ptr noundef %46, i64 noundef %41) #9
   store ptr %47, ptr %45, align 8
-  %.pre36.i = load i64, ptr %36, align 8
+  %.pre35.i = load i64, ptr %36, align 8
   br label %48
 
 48:                                               ; preds = %43, %._crit_edge.i
-  %49 = phi i64 [ %37, %._crit_edge.i ], [ %.pre36.i, %43 ]
+  %49 = phi i64 [ %37, %._crit_edge.i ], [ %.pre35.i, %43 ]
   %50 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %47, %43 ]
   %51 = add i64 %49, 1
   store i64 %51, ptr %36, align 8
-  %.not2832.i = icmp eq i64 %49, 0
-  br i1 %.not2832.i, label %.thread.i, label %.lr.ph.i
+  %.not2831.i = icmp eq i64 %49, 0
+  br i1 %.not2831.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %57
-  %.033.i = phi i64 [ %53, %57 ], [ %49, %48 ]
-  %52 = add i64 %.033.i, -1
+  %.032.i = phi i64 [ %53, %57 ], [ %49, %48 ]
+  %52 = add i64 %.032.i, -1
   %53 = lshr i64 %52, 1
   %54 = getelementptr inbounds nuw i64, ptr %50, i64 %53
   %55 = load i64, ptr %54, align 8
@@ -978,13 +978,13 @@ ltsReadBlock.exit:                                ; preds = %17
   br i1 %56, label %.thread.i, label %57
 
 57:                                               ; preds = %.lr.ph.i
-  %58 = getelementptr inbounds nuw i64, ptr %50, i64 %.033.i
+  %58 = getelementptr inbounds nuw i64, ptr %50, i64 %.032.i
   store i64 %55, ptr %58, align 8
   %.not28.i = icmp ult i64 %52, 2
   br i1 %.not28.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %57, %.lr.ph.i, %48
-  %.0.lcssa.i = phi i64 [ 0, %48 ], [ %53, %57 ], [ %.033.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %48 ], [ %53, %57 ], [ %.032.i, %.lr.ph.i ]
   %59 = getelementptr inbounds nuw i64, ptr %50, i64 %.0.lcssa.i
   store i64 %19, ptr %59, align 8
   br label %ltsReleaseBlock.exit

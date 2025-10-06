@@ -54,8 +54,8 @@ define internal noundef i32 @assist_thread_main(ptr noundef readonly captures(no
   %7 = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %6) #3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !12
-  %.not19 = icmp eq i32 %9, 0
-  br i1 %.not19, label %.lr.ph, label %._crit_edge
+  %.not18 = icmp eq i32 %9, 0
+  br i1 %.not18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8

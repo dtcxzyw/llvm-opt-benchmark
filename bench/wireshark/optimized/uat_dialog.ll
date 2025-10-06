@@ -3410,8 +3410,8 @@ define void @_ZN9UatDialog17checkForErrorHintERK11QModelIndexS2_(ptr noundef rea
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
-  %or.cond22 = select i1 %or.cond, i1 %14, i1 false
-  br i1 %or.cond22, label %15, label %_ZNK11QModelIndex7isValidEv.exit.thread
+  %or.cond21 = select i1 %or.cond, i1 %14, i1 false
+  br i1 %or.cond21, label %15, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 15:                                               ; preds = %3
   %16 = tail call noundef zeroext i1 @_ZN9UatDialog24trySetErrorHintFromFieldERK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(120) %0, ptr noundef align 8 dereferenceable(24) %1)
@@ -3440,9 +3440,9 @@ define void @_ZN9UatDialog17checkForErrorHintERK11QModelIndexS2_(ptr noundef rea
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef i32 %30(ptr noundef align 8 dereferenceable_or_null(80) %27, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %.not29 = icmp sgt i32 %31, 0
+  %.not28 = icmp sgt i32 %31, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not29, label %.lr.ph, label %_ZNK11QModelIndex7isValidEv.exit.thread
+  br i1 %.not28, label %.lr.ph, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 .lr.ph:                                           ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -3450,7 +3450,7 @@ define void @_ZN9UatDialog17checkForErrorHintERK11QModelIndexS2_(ptr noundef rea
   br label %41
 
 34:                                               ; preds = %41
-  %35 = add nuw nsw i32 %.030, 1
+  %35 = add nuw nsw i32 %.029, 1
   %36 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 8
@@ -3465,7 +3465,7 @@ define void @_ZN9UatDialog17checkForErrorHintERK11QModelIndexS2_(ptr noundef rea
   br i1 %.not, label %41, label %_ZNK11QModelIndex7isValidEv.exit.thread, !llvm.loop !24
 
 41:                                               ; preds = %.lr.ph, %34
-  %.030 = phi i32 [ 0, %.lr.ph ], [ %35, %34 ]
+  %.029 = phi i32 [ 0, %.lr.ph ], [ %35, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3475,7 +3475,7 @@ define void @_ZN9UatDialog17checkForErrorHintERK11QModelIndexS2_(ptr noundef rea
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %5, ptr noundef align 8 dereferenceable_or_null(16) %42, i32 noundef %18, i32 noundef %.030, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call void %45(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %5, ptr noundef align 8 dereferenceable_or_null(16) %42, i32 noundef %18, i32 noundef %.029, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %46 = call noundef zeroext i1 @_ZN9UatDialog24trySetErrorHintFromFieldERK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(120) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3487,12 +3487,12 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %34, %23, %3
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = icmp sgt i32 %50, -1
-  %or.cond25 = select i1 %48, i1 %51, i1 false
+  %or.cond24 = select i1 %48, i1 %51, i1 false
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = icmp ne ptr %53, null
-  %or.cond28 = select i1 %or.cond25, i1 %54, i1 false
-  br i1 %or.cond28, label %55, label %_ZNK11QModelIndex7isValidEv.exit15.thread
+  %or.cond27 = select i1 %or.cond24, i1 %54, i1 false
+  br i1 %or.cond27, label %55, label %_ZNK11QModelIndex7isValidEv.exit15.thread
 
 55:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit.thread
   %56 = call noundef zeroext i1 @_ZN9UatDialog24trySetErrorHintFromFieldERK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(120) %0, ptr noundef align 8 dereferenceable(24) %2)

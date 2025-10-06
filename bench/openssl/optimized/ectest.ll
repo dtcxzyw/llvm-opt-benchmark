@@ -6908,55 +6908,55 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %4 = tail call ptr @BN_new() #7
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 47, ptr noundef nonnull @.str.259, ptr noundef %4) #7
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.thread212, label %6
+  br i1 %.not, label %.thread211, label %6
 
 6:                                                ; preds = %1
   %7 = tail call ptr @BN_new() #7
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @.str.260, ptr noundef %7) #7
   %.not164 = icmp eq i32 %8, 0
-  br i1 %.not164, label %.thread212, label %9
+  br i1 %.not164, label %.thread211, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @BN_new() #7
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.261, ptr noundef %10) #7
   %.not165 = icmp eq i32 %11, 0
-  br i1 %.not165, label %.thread212, label %12
+  br i1 %.not165, label %.thread211, label %12
 
 12:                                               ; preds = %9
   %13 = tail call ptr @BN_CTX_new() #7
   %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @.str.77, ptr noundef %13) #7
   %.not166 = icmp eq i32 %14, 0
-  br i1 %.not166, label %.thread212, label %15
+  br i1 %.not166, label %.thread211, label %15
 
 15:                                               ; preds = %12
   %16 = tail call ptr @EC_GROUP_get0_generator(ptr noundef %0) #7
   %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 51, ptr noundef nonnull @.str.262, ptr noundef %16) #7
   %.not167 = icmp eq i32 %17, 0
-  br i1 %.not167, label %.thread212, label %18
+  br i1 %.not167, label %.thread211, label %18
 
 18:                                               ; preds = %15
   %19 = tail call ptr @EC_POINT_new(ptr noundef %0) #7
   %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @.str.109, ptr noundef %19) #7
   %.not168 = icmp eq i32 %20, 0
-  br i1 %.not168, label %.thread212, label %21
+  br i1 %.not168, label %.thread211, label %21
 
 21:                                               ; preds = %18
   %22 = tail call ptr @EC_POINT_new(ptr noundef %0) #7
   %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 53, ptr noundef nonnull @.str.110, ptr noundef %22) #7
   %.not169 = icmp eq i32 %23, 0
-  br i1 %.not169, label %.thread212, label %24
+  br i1 %.not169, label %.thread211, label %24
 
 24:                                               ; preds = %21
   %25 = tail call ptr @EC_POINT_new(ptr noundef %0) #7
   %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 54, ptr noundef nonnull @.str.111, ptr noundef %25) #7
   %.not170 = icmp eq i32 %26, 0
-  br i1 %.not170, label %.thread212, label %27
+  br i1 %.not170, label %.thread211, label %27
 
 27:                                               ; preds = %24
   %28 = tail call ptr @EC_POINT_new(ptr noundef %0) #7
   %29 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @.str.263, ptr noundef %28) #7
   %.not171 = icmp eq i32 %29, 0
-  br i1 %.not171, label %.thread212, label %30
+  br i1 %.not171, label %.thread211, label %30
 
 30:                                               ; preds = %27
   %31 = tail call i32 @EC_GROUP_get_order(ptr noundef %0, ptr noundef %10, ptr noundef %13) #7
@@ -6964,7 +6964,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %33 = zext i1 %32 to i32
   %34 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @.str.264, i32 noundef %33) #7
   %.not172 = icmp eq i32 %34, 0
-  br i1 %.not172, label %.thread212, label %35
+  br i1 %.not172, label %.thread211, label %35
 
 35:                                               ; preds = %30
   %36 = tail call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %22, ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef %13) #7
@@ -6972,7 +6972,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %38 = zext i1 %37 to i32
   %39 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @.str.265, i32 noundef %38) #7
   %.not173 = icmp eq i32 %39, 0
-  br i1 %.not173, label %.thread212, label %40
+  br i1 %.not173, label %.thread211, label %40
 
 40:                                               ; preds = %35
   %41 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef %22) #7
@@ -6980,7 +6980,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %43 = zext i1 %42 to i32
   %44 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.239, i32 noundef %43) #7
   %.not174 = icmp eq i32 %44, 0
-  br i1 %.not174, label %.thread212, label %45
+  br i1 %.not174, label %.thread211, label %45
 
 45:                                               ; preds = %40
   %46 = tail call i32 @EC_GROUP_precompute_mult(ptr noundef %0, ptr noundef %13) #7
@@ -6988,7 +6988,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %48 = zext i1 %47 to i32
   %49 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 62, ptr noundef nonnull @.str.266, i32 noundef %48) #7
   %.not175 = icmp eq i32 %49, 0
-  br i1 %.not175, label %.thread212, label %50
+  br i1 %.not175, label %.thread211, label %50
 
 50:                                               ; preds = %45
   %51 = tail call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %22, ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef %13) #7
@@ -6996,7 +6996,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %53 = zext i1 %52 to i32
   %54 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.265, i32 noundef %53) #7
   %.not176 = icmp eq i32 %54, 0
-  br i1 %.not176, label %.thread212, label %55
+  br i1 %.not176, label %.thread211, label %55
 
 55:                                               ; preds = %50
   %56 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef %22) #7
@@ -7004,7 +7004,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %58 = zext i1 %57 to i32
   %59 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.239, i32 noundef %58) #7
   %.not177 = icmp eq i32 %59, 0
-  br i1 %.not177, label %.thread212, label %60
+  br i1 %.not177, label %.thread211, label %60
 
 60:                                               ; preds = %55
   %61 = tail call i32 @EC_POINT_copy(ptr noundef %19, ptr noundef %16) #7
@@ -7012,7 +7012,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %63 = zext i1 %62 to i32
   %64 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @.str.267, i32 noundef %63) #7
   %.not178 = icmp eq i32 %64, 0
-  br i1 %.not178, label %.thread212, label %65
+  br i1 %.not178, label %.thread211, label %65
 
 65:                                               ; preds = %60
   %66 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #7
@@ -7020,7 +7020,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %68 = zext i1 %67 to i32
   %69 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.268, i32 noundef %68) #7
   %.not179 = icmp eq i32 %69, 0
-  br i1 %.not179, label %.thread212, label %70
+  br i1 %.not179, label %.thread211, label %70
 
 70:                                               ; preds = %65
   %71 = tail call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %22, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef %13) #7
@@ -7028,13 +7028,13 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %73 = zext i1 %72 to i32
   %74 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @.str.269, i32 noundef %73) #7
   %.not180 = icmp eq i32 %74, 0
-  br i1 %.not180, label %.thread212, label %75
+  br i1 %.not180, label %.thread211, label %75
 
 75:                                               ; preds = %70
   %76 = tail call i32 @EC_POINT_cmp(ptr noundef %0, ptr noundef %22, ptr noundef %19, ptr noundef %13) #7
   %77 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.270, i32 noundef 0, i32 noundef %76) #7
   %.not181 = icmp eq i32 %77, 0
-  br i1 %.not181, label %.thread212, label %78
+  br i1 %.not181, label %.thread211, label %78
 
 78:                                               ; preds = %75
   %79 = tail call i32 @BN_sub(ptr noundef %4, ptr noundef %10, ptr noundef %4) #7
@@ -7042,7 +7042,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %81 = zext i1 %80 to i32
   %82 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @.str.271, i32 noundef %81) #7
   %.not182 = icmp eq i32 %82, 0
-  br i1 %.not182, label %.thread212, label %83
+  br i1 %.not182, label %.thread211, label %83
 
 83:                                               ; preds = %78
   %84 = tail call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %22, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef %13) #7
@@ -7050,7 +7050,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %86 = zext i1 %85 to i32
   %87 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.269, i32 noundef %86) #7
   %.not183 = icmp eq i32 %87, 0
-  br i1 %.not183, label %.thread212, label %88
+  br i1 %.not183, label %.thread211, label %88
 
 88:                                               ; preds = %83
   %89 = tail call i32 @EC_POINT_invert(ptr noundef %0, ptr noundef %22, ptr noundef %13) #7
@@ -7058,13 +7058,13 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %91 = zext i1 %90 to i32
   %92 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 72, ptr noundef nonnull @.str.241, i32 noundef %91) #7
   %.not184 = icmp eq i32 %92, 0
-  br i1 %.not184, label %.thread212, label %93
+  br i1 %.not184, label %.thread211, label %93
 
 93:                                               ; preds = %88
   %94 = tail call i32 @EC_POINT_cmp(ptr noundef %0, ptr noundef %22, ptr noundef %19, ptr noundef %13) #7
   %95 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.270, i32 noundef 0, i32 noundef %94) #7
   %.not185 = icmp eq i32 %95, 0
-  br i1 %.not185, label %.thread212, label %.preheader
+  br i1 %.not185, label %.thread211, label %.preheader
 
 .preheader:                                       ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7276,7 +7276,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
 211:                                              ; preds = %206
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %exitcond.not, label %.thread212, label %106, !llvm.loop !55
+  br i1 %exitcond.not, label %.thread211, label %106, !llvm.loop !55
 
 select.unfold:                                    ; preds = %206, %163, %158, %153, %150, %145, %139, %136, %131, %126, %121, %118, %112, %106, %181, %176, %171, %166, %198, %192, %186, %201
   %.lcssa = phi i1 [ %107, %206 ], [ %107, %163 ], [ %107, %158 ], [ %107, %153 ], [ %107, %150 ], [ %107, %145 ], [ %107, %139 ], [ %107, %136 ], [ %107, %131 ], [ %107, %126 ], [ %107, %121 ], [ true, %118 ], [ %107, %112 ], [ %107, %106 ], [ %107, %181 ], [ %107, %176 ], [ %107, %171 ], [ %107, %166 ], [ %107, %198 ], [ %107, %192 ], [ %107, %186 ], [ %107, %201 ]
@@ -7284,26 +7284,26 @@ select.unfold:                                    ; preds = %206, %163, %158, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %212 = select i1 %.lcssa, ptr @.str.285, ptr @.str.286
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull %212) #7
-  br label %.thread212
+  br label %.thread211
 
-.thread212:                                       ; preds = %211, %1, %6, %9, %12, %15, %18, %21, %24, %27, %30, %35, %40, %45, %50, %55, %60, %65, %70, %75, %78, %83, %88, %93, %select.unfold
-  %.0154230 = phi i32 [ 0, %select.unfold ], [ 0, %1 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ], [ 0, %45 ], [ 0, %50 ], [ 0, %55 ], [ 0, %60 ], [ 0, %65 ], [ 0, %70 ], [ 0, %75 ], [ 0, %78 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 1, %211 ]
-  %.0156229 = phi ptr [ %13, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ %13, %12 ], [ %13, %15 ], [ %13, %18 ], [ %13, %21 ], [ %13, %24 ], [ %13, %27 ], [ %13, %30 ], [ %13, %35 ], [ %13, %40 ], [ %13, %45 ], [ %13, %50 ], [ %13, %55 ], [ %13, %60 ], [ %13, %65 ], [ %13, %70 ], [ %13, %75 ], [ %13, %78 ], [ %13, %83 ], [ %13, %88 ], [ %13, %93 ], [ %13, %211 ]
-  %.0157228 = phi ptr [ %28, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ %28, %27 ], [ %28, %30 ], [ %28, %35 ], [ %28, %40 ], [ %28, %45 ], [ %28, %50 ], [ %28, %55 ], [ %28, %60 ], [ %28, %65 ], [ %28, %70 ], [ %28, %75 ], [ %28, %78 ], [ %28, %83 ], [ %28, %88 ], [ %28, %93 ], [ %28, %211 ]
-  %.0158227 = phi ptr [ %25, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ %25, %24 ], [ %25, %27 ], [ %25, %30 ], [ %25, %35 ], [ %25, %40 ], [ %25, %45 ], [ %25, %50 ], [ %25, %55 ], [ %25, %60 ], [ %25, %65 ], [ %25, %70 ], [ %25, %75 ], [ %25, %78 ], [ %25, %83 ], [ %25, %88 ], [ %25, %93 ], [ %25, %211 ]
-  %.0159226 = phi ptr [ %22, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ %22, %21 ], [ %22, %24 ], [ %22, %27 ], [ %22, %30 ], [ %22, %35 ], [ %22, %40 ], [ %22, %45 ], [ %22, %50 ], [ %22, %55 ], [ %22, %60 ], [ %22, %65 ], [ %22, %70 ], [ %22, %75 ], [ %22, %78 ], [ %22, %83 ], [ %22, %88 ], [ %22, %93 ], [ %22, %211 ]
-  %.0160225 = phi ptr [ %19, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %24 ], [ %19, %27 ], [ %19, %30 ], [ %19, %35 ], [ %19, %40 ], [ %19, %45 ], [ %19, %50 ], [ %19, %55 ], [ %19, %60 ], [ %19, %65 ], [ %19, %70 ], [ %19, %75 ], [ %19, %78 ], [ %19, %83 ], [ %19, %88 ], [ %19, %93 ], [ %19, %211 ]
-  %.0161224 = phi ptr [ %10, %select.unfold ], [ null, %1 ], [ null, %6 ], [ %10, %9 ], [ %10, %12 ], [ %10, %15 ], [ %10, %18 ], [ %10, %21 ], [ %10, %24 ], [ %10, %27 ], [ %10, %30 ], [ %10, %35 ], [ %10, %40 ], [ %10, %45 ], [ %10, %50 ], [ %10, %55 ], [ %10, %60 ], [ %10, %65 ], [ %10, %70 ], [ %10, %75 ], [ %10, %78 ], [ %10, %83 ], [ %10, %88 ], [ %10, %93 ], [ %10, %211 ]
-  %.0162223 = phi ptr [ %7, %select.unfold ], [ null, %1 ], [ %7, %6 ], [ %7, %9 ], [ %7, %12 ], [ %7, %15 ], [ %7, %18 ], [ %7, %21 ], [ %7, %24 ], [ %7, %27 ], [ %7, %30 ], [ %7, %35 ], [ %7, %40 ], [ %7, %45 ], [ %7, %50 ], [ %7, %55 ], [ %7, %60 ], [ %7, %65 ], [ %7, %70 ], [ %7, %75 ], [ %7, %78 ], [ %7, %83 ], [ %7, %88 ], [ %7, %93 ], [ %7, %211 ]
-  call void @EC_POINT_free(ptr noundef %.0160225) #7
-  call void @EC_POINT_free(ptr noundef %.0159226) #7
-  call void @EC_POINT_free(ptr noundef %.0158227) #7
-  call void @EC_POINT_free(ptr noundef %.0157228) #7
+.thread211:                                       ; preds = %211, %1, %6, %9, %12, %15, %18, %21, %24, %27, %30, %35, %40, %45, %50, %55, %60, %65, %70, %75, %78, %83, %88, %93, %select.unfold
+  %.0154229 = phi i32 [ 0, %select.unfold ], [ 0, %1 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ], [ 0, %45 ], [ 0, %50 ], [ 0, %55 ], [ 0, %60 ], [ 0, %65 ], [ 0, %70 ], [ 0, %75 ], [ 0, %78 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 1, %211 ]
+  %.0156228 = phi ptr [ %13, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ %13, %12 ], [ %13, %15 ], [ %13, %18 ], [ %13, %21 ], [ %13, %24 ], [ %13, %27 ], [ %13, %30 ], [ %13, %35 ], [ %13, %40 ], [ %13, %45 ], [ %13, %50 ], [ %13, %55 ], [ %13, %60 ], [ %13, %65 ], [ %13, %70 ], [ %13, %75 ], [ %13, %78 ], [ %13, %83 ], [ %13, %88 ], [ %13, %93 ], [ %13, %211 ]
+  %.0157227 = phi ptr [ %28, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ %28, %27 ], [ %28, %30 ], [ %28, %35 ], [ %28, %40 ], [ %28, %45 ], [ %28, %50 ], [ %28, %55 ], [ %28, %60 ], [ %28, %65 ], [ %28, %70 ], [ %28, %75 ], [ %28, %78 ], [ %28, %83 ], [ %28, %88 ], [ %28, %93 ], [ %28, %211 ]
+  %.0158226 = phi ptr [ %25, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ %25, %24 ], [ %25, %27 ], [ %25, %30 ], [ %25, %35 ], [ %25, %40 ], [ %25, %45 ], [ %25, %50 ], [ %25, %55 ], [ %25, %60 ], [ %25, %65 ], [ %25, %70 ], [ %25, %75 ], [ %25, %78 ], [ %25, %83 ], [ %25, %88 ], [ %25, %93 ], [ %25, %211 ]
+  %.0159225 = phi ptr [ %22, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ %22, %21 ], [ %22, %24 ], [ %22, %27 ], [ %22, %30 ], [ %22, %35 ], [ %22, %40 ], [ %22, %45 ], [ %22, %50 ], [ %22, %55 ], [ %22, %60 ], [ %22, %65 ], [ %22, %70 ], [ %22, %75 ], [ %22, %78 ], [ %22, %83 ], [ %22, %88 ], [ %22, %93 ], [ %22, %211 ]
+  %.0160224 = phi ptr [ %19, %select.unfold ], [ null, %1 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %24 ], [ %19, %27 ], [ %19, %30 ], [ %19, %35 ], [ %19, %40 ], [ %19, %45 ], [ %19, %50 ], [ %19, %55 ], [ %19, %60 ], [ %19, %65 ], [ %19, %70 ], [ %19, %75 ], [ %19, %78 ], [ %19, %83 ], [ %19, %88 ], [ %19, %93 ], [ %19, %211 ]
+  %.0161223 = phi ptr [ %10, %select.unfold ], [ null, %1 ], [ null, %6 ], [ %10, %9 ], [ %10, %12 ], [ %10, %15 ], [ %10, %18 ], [ %10, %21 ], [ %10, %24 ], [ %10, %27 ], [ %10, %30 ], [ %10, %35 ], [ %10, %40 ], [ %10, %45 ], [ %10, %50 ], [ %10, %55 ], [ %10, %60 ], [ %10, %65 ], [ %10, %70 ], [ %10, %75 ], [ %10, %78 ], [ %10, %83 ], [ %10, %88 ], [ %10, %93 ], [ %10, %211 ]
+  %.0162222 = phi ptr [ %7, %select.unfold ], [ null, %1 ], [ %7, %6 ], [ %7, %9 ], [ %7, %12 ], [ %7, %15 ], [ %7, %18 ], [ %7, %21 ], [ %7, %24 ], [ %7, %27 ], [ %7, %30 ], [ %7, %35 ], [ %7, %40 ], [ %7, %45 ], [ %7, %50 ], [ %7, %55 ], [ %7, %60 ], [ %7, %65 ], [ %7, %70 ], [ %7, %75 ], [ %7, %78 ], [ %7, %83 ], [ %7, %88 ], [ %7, %93 ], [ %7, %211 ]
+  call void @EC_POINT_free(ptr noundef %.0160224) #7
+  call void @EC_POINT_free(ptr noundef %.0159225) #7
+  call void @EC_POINT_free(ptr noundef %.0158226) #7
+  call void @EC_POINT_free(ptr noundef %.0157227) #7
   call void @BN_free(ptr noundef %4) #7
-  call void @BN_free(ptr noundef %.0162223) #7
-  call void @BN_free(ptr noundef %.0161224) #7
-  call void @BN_CTX_free(ptr noundef %.0156229) #7
-  ret i32 %.0154230
+  call void @BN_free(ptr noundef %.0162222) #7
+  call void @BN_free(ptr noundef %.0161223) #7
+  call void @BN_CTX_free(ptr noundef %.0156228) #7
+  ret i32 %.0154229
 }
 
 declare i32 @EC_POINT_dbl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

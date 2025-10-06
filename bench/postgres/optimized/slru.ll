@@ -1727,26 +1727,26 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %9 = load ptr, ptr %7, align 8
   %10 = load volatile i64, ptr %8, align 8
   %11 = tail call zeroext i1 %9(i64 noundef %10, i64 noundef %1) #14
-  br i1 %11, label %._crit_edge68, label %.lr.ph67
+  br i1 %11, label %._crit_edge66, label %.lr.ph65
 
-.lr.ph67:                                         ; preds = %2
+.lr.ph65:                                         ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %20
 
-._crit_edge68:                                    ; preds = %63, %2
+._crit_edge66:                                    ; preds = %63, %2
   %16 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %16, label %17, label %74
 
-17:                                               ; preds = %._crit_edge68
+17:                                               ; preds = %._crit_edge66
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1435, ptr noundef nonnull @__func__.SimpleLruTruncate) #14
   br label %74
 
-20:                                               ; preds = %.lr.ph67, %63
+20:                                               ; preds = %.lr.ph65, %63
   %21 = load ptr, ptr %12, align 8
   %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #14
   %23 = load i32, ptr %4, align 8
@@ -1755,15 +1755,15 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
 
 .lr.ph:                                           ; preds = %20, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %20 ]
-  %.061 = phi i32 [ %.2, %59 ], [ 0, %20 ]
+  %.059 = phi i32 [ %.2, %59 ], [ 0, %20 ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = lshr i32 %25, 4
-  %.not = icmp eq i32 %26, %.061
+  %.not = icmp eq i32 %26, %.059
   br i1 %.not, label %35, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = load ptr, ptr %12, align 8
-  %29 = zext nneg i32 %.061 to i64
+  %29 = zext nneg i32 %.059 to i64
   %30 = getelementptr inbounds nuw %union.LWLockPadded, ptr %28, i64 %29
   tail call void @LWLockRelease(ptr noundef %30) #14
   %31 = load ptr, ptr %12, align 8
@@ -1773,7 +1773,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   br label %35
 
 35:                                               ; preds = %27, %.lr.ph
-  %.2 = phi i32 [ %26, %27 ], [ %.061, %.lr.ph ]
+  %.2 = phi i32 [ %26, %27 ], [ %.059, %.lr.ph ]
   %36 = load ptr, ptr %13, align 8
   %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
@@ -1830,7 +1830,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %67 = load ptr, ptr %7, align 8
   %68 = load volatile i64, ptr %8, align 8
   %69 = tail call zeroext i1 %67(i64 noundef %68, i64 noundef %1) #14
-  br i1 %69, label %._crit_edge68, label %20
+  br i1 %69, label %._crit_edge66, label %20
 
 ._crit_edge.loopexit:                             ; preds = %59
   %70 = zext nneg i32 %.2 to i64
@@ -1844,7 +1844,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %73 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull %0, ptr noundef nonnull @SlruScanDirCbDeleteCutoff, ptr noundef nonnull %3)
   br label %74
 
-74:                                               ; preds = %._crit_edge68, %17, %._crit_edge
+74:                                               ; preds = %._crit_edge66, %17, %._crit_edge
   ret void
 }
 
@@ -1864,8 +1864,8 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call ptr @AllocateDir(ptr noundef nonnull %4) #14
   %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #14
-  %.not25.not = icmp eq ptr %6, null
-  br i1 %.not25.not, label %.thread, label %.lr.ph
+  %.not24.not = icmp eq ptr %6, null
+  br i1 %.not24.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 10

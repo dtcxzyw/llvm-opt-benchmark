@@ -6910,12 +6910,12 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 define linkonce_odr noundef i64 @_ZN6duckdb18ParquetDecodeUtils12VarintDecodeImLb1EEET_RNS_10ByteBufferE(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load i64, ptr %2, align 8, !tbaa !21
-  %.promoted16 = load ptr, ptr %0, align 8
+  %.promoted15 = load ptr, ptr %0, align 8
   br label %3
 
 3:                                                ; preds = %18, %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
-  %4 = phi ptr [ %12, %18 ], [ %.promoted16, %1 ]
+  %4 = phi ptr [ %12, %18 ], [ %.promoted15, %1 ]
   %5 = phi i64 [ %11, %18 ], [ %.promoted, %1 ]
   %.0 = phi i64 [ %16, %18 ], [ 0, %1 ]
   %.not.i.i = icmp eq i64 %5, 0
@@ -9164,11 +9164,11 @@ define linkonce_odr void @_ZN6duckdb12RleBpDecoder19NextCountsTemplatedILb0EEEvv
   %.not = icmp eq i8 %3, 0
   %.promoted.i.pre = load ptr, ptr %0, align 8, !tbaa !29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted16.i.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !21
+  %.promoted15.i.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !21
   br i1 %.not, label %._crit_edge28, label %4
 
 4:                                                ; preds = %1
-  %5 = add i64 %.promoted16.i.pre, -1
+  %5 = add i64 %.promoted15.i.pre, -1
   store i64 %5, ptr %.phi.trans.insert, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %.promoted.i.pre, i64 1
   store ptr %6, ptr %0, align 8, !tbaa !29
@@ -9176,14 +9176,14 @@ define linkonce_odr void @_ZN6duckdb12RleBpDecoder19NextCountsTemplatedILb0EEEvv
   br label %._crit_edge28
 
 ._crit_edge28:                                    ; preds = %1, %4
-  %.promoted16.i = phi i64 [ %5, %4 ], [ %.promoted16.i.pre, %1 ]
+  %.promoted15.i = phi i64 [ %5, %4 ], [ %.promoted15.i.pre, %1 ]
   %.promoted.i = phi ptr [ %6, %4 ], [ %.promoted.i.pre, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %18, %._crit_edge28
   %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %18 ], [ 0, %._crit_edge28 ]
-  %9 = phi i64 [ %11, %18 ], [ %.promoted16.i, %._crit_edge28 ]
+  %9 = phi i64 [ %11, %18 ], [ %.promoted15.i, %._crit_edge28 ]
   %10 = phi ptr [ %12, %18 ], [ %.promoted.i, %._crit_edge28 ]
   %.0.i = phi i32 [ %16, %18 ], [ 0, %._crit_edge28 ]
   %.0.copyload.i.i.i.i = load i8, ptr %10, align 1
@@ -9441,12 +9441,12 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit:         ; preds = %.lr.ph, %_ZNK6duckd
 define linkonce_odr noundef i32 @_ZN6duckdb18ParquetDecodeUtils12VarintDecodeIjLb1EEET_RNS_10ByteBufferE(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load i64, ptr %2, align 8, !tbaa !21
-  %.promoted16 = load ptr, ptr %0, align 8
+  %.promoted15 = load ptr, ptr %0, align 8
   br label %3
 
 3:                                                ; preds = %18, %1
   %indvars.iv = phi i32 [ %indvars.iv.next, %18 ], [ 0, %1 ]
-  %4 = phi ptr [ %12, %18 ], [ %.promoted16, %1 ]
+  %4 = phi ptr [ %12, %18 ], [ %.promoted15, %1 ]
   %5 = phi i64 [ %11, %18 ], [ %.promoted, %1 ]
   %.0 = phi i32 [ %16, %18 ], [ 0, %1 ]
   %.not.i.i = icmp eq i64 %5, 0

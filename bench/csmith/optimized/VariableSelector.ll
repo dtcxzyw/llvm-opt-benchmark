@@ -1011,8 +1011,8 @@ define dso_local noundef zeroext i1 @_ZN16VariableSelector25has_eligible_volatil
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !69
   %8 = load ptr, ptr %0, align 8, !tbaa !4
-  %.not2831.not = icmp eq ptr %7, %8
-  br i1 %.not2831.not, label %.loopexit, label %.lr.ph
+  %.not40 = icmp eq ptr %7, %8
+  br i1 %.not40, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %.not = icmp eq ptr %1, null
@@ -1024,8 +1024,8 @@ define dso_local noundef zeroext i1 @_ZN16VariableSelector25has_eligible_volatil
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %20
   %9 = phi ptr [ %23, %20 ], [ %8, %.lr.ph.split.us ]
-  %.02032.us.us = phi i64 [ %21, %20 ], [ 0, %.lr.ph.split.us ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02032.us.us
+  %.02031.us.us = phi i64 [ %21, %20 ], [ 0, %.lr.ph.split.us ]
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02031.us.us
   %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !72
@@ -1040,132 +1040,132 @@ define dso_local noundef zeroext i1 @_ZN16VariableSelector25has_eligible_volatil
   br i1 %19, label %.split.us, label %20
 
 20:                                               ; preds = %18, %.lr.ph.split.us.split.us
-  %21 = add nuw i64 %.02032.us.us, 1
+  %21 = add nuw i64 %.02031.us.us, 1
   %22 = load ptr, ptr %6, align 8, !tbaa !69
   %23 = load ptr, ptr %0, align 8, !tbaa !4
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %.not28.us.us = icmp ult i64 %21, %27
-  br i1 %.not28.us.us, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !138
+  %28 = icmp ult i64 %21, %27
+  br i1 %28, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !138
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %42
-  %28 = phi ptr [ %45, %42 ], [ %8, %.lr.ph.split.us ]
-  %.02032.us = phi i64 [ %43, %42 ], [ 0, %.lr.ph.split.us ]
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.02032.us
-  %30 = load ptr, ptr %29, align 8, !tbaa !70
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
-  %32 = tail call noundef zeroext i1 @_ZNK12CVQualifiers14match_indirectERKS_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %31)
-  br i1 %32, label %33, label %42
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %43
+  %29 = phi ptr [ %46, %43 ], [ %8, %.lr.ph.split.us ]
+  %.02031.us = phi i64 [ %44, %43 ], [ 0, %.lr.ph.split.us ]
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.02031.us
+  %31 = load ptr, ptr %30, align 8, !tbaa !70
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
+  %33 = tail call noundef zeroext i1 @_ZNK12CVQualifiers14match_indirectERKS_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %32)
+  br i1 %33, label %34, label %43
 
-33:                                               ; preds = %.lr.ph.split.us.split
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %35 = load ptr, ptr %34, align 8, !tbaa !72
-  %36 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %35)
-  %37 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) null)
-  %38 = sub nsw i32 %36, %37
-  %39 = tail call noundef zeroext i1 @_ZN16VariableSelector15is_eligible_varEPK8VariableiN6Effect6AccessERK9CGContext(ptr noundef nonnull %30, i32 noundef %38, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(216) %4)
-  br i1 %39, label %40, label %42
+34:                                               ; preds = %.lr.ph.split.us.split
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 64
+  %36 = load ptr, ptr %35, align 8, !tbaa !72
+  %37 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %36)
+  %38 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) null)
+  %39 = sub nsw i32 %37, %38
+  %40 = tail call noundef zeroext i1 @_ZN16VariableSelector15is_eligible_varEPK8VariableiN6Effect6AccessERK9CGContext(ptr noundef nonnull %31, i32 noundef %39, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(216) %4)
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %33
-  %41 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %30)
-  br i1 %41, label %.split.us, label %42
+41:                                               ; preds = %34
+  %42 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %31)
+  br i1 %42, label %.split.us, label %43
 
-42:                                               ; preds = %40, %33, %.lr.ph.split.us.split
-  %43 = add nuw i64 %.02032.us, 1
-  %44 = load ptr, ptr %6, align 8, !tbaa !69
-  %45 = load ptr, ptr %0, align 8, !tbaa !4
-  %46 = ptrtoint ptr %44 to i64
+43:                                               ; preds = %41, %34, %.lr.ph.split.us.split
+  %44 = add nuw i64 %.02031.us, 1
+  %45 = load ptr, ptr %6, align 8, !tbaa !69
+  %46 = load ptr, ptr %0, align 8, !tbaa !4
   %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  %49 = ashr exact i64 %48, 3
-  %.not28.us = icmp ult i64 %43, %49
-  br i1 %.not28.us, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !138
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  %50 = ashr exact i64 %49, 3
+  %51 = icmp ult i64 %44, %50
+  br i1 %51, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !138
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %64
-  %50 = phi ptr [ %67, %64 ], [ %8, %.lr.ph.split ]
-  %.02032.us36 = phi i64 [ %65, %64 ], [ 0, %.lr.ph.split ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.02032.us36
-  %52 = load ptr, ptr %51, align 8, !tbaa !70
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %54 = load ptr, ptr %53, align 8, !tbaa !72
-  %55 = tail call noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %54, i32 noundef 4)
-  br i1 %55, label %56, label %64
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %66
+  %52 = phi ptr [ %69, %66 ], [ %8, %.lr.ph.split ]
+  %.02031.us33 = phi i64 [ %67, %66 ], [ 0, %.lr.ph.split ]
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.02031.us33
+  %54 = load ptr, ptr %53, align 8, !tbaa !70
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
+  %56 = load ptr, ptr %55, align 8, !tbaa !72
+  %57 = tail call noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %56, i32 noundef 4)
+  br i1 %57, label %58, label %66
 
-56:                                               ; preds = %.lr.ph.split.split.us
-  %57 = load ptr, ptr %53, align 8, !tbaa !72
-  %58 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %57)
-  %59 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %1)
-  %60 = sub nsw i32 %58, %59
-  %61 = tail call noundef zeroext i1 @_ZN16VariableSelector15is_eligible_varEPK8VariableiN6Effect6AccessERK9CGContext(ptr noundef nonnull %52, i32 noundef %60, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(216) %4)
-  br i1 %61, label %62, label %64
+58:                                               ; preds = %.lr.ph.split.split.us
+  %59 = load ptr, ptr %55, align 8, !tbaa !72
+  %60 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %59)
+  %61 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %1)
+  %62 = sub nsw i32 %60, %61
+  %63 = tail call noundef zeroext i1 @_ZN16VariableSelector15is_eligible_varEPK8VariableiN6Effect6AccessERK9CGContext(ptr noundef nonnull %54, i32 noundef %62, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(216) %4)
+  br i1 %63, label %64, label %66
 
-62:                                               ; preds = %56
-  %63 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %52)
-  br i1 %63, label %.split.us, label %64
+64:                                               ; preds = %58
+  %65 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %54)
+  br i1 %65, label %.split.us, label %66
 
-64:                                               ; preds = %62, %56, %.lr.ph.split.split.us
-  %65 = add nuw i64 %.02032.us36, 1
-  %66 = load ptr, ptr %6, align 8, !tbaa !69
-  %67 = load ptr, ptr %0, align 8, !tbaa !4
-  %68 = ptrtoint ptr %66 to i64
-  %69 = ptrtoint ptr %67 to i64
-  %70 = sub i64 %68, %69
-  %71 = ashr exact i64 %70, 3
-  %.not28.us37 = icmp ult i64 %65, %71
-  br i1 %.not28.us37, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !138
+66:                                               ; preds = %64, %58, %.lr.ph.split.split.us
+  %67 = add nuw i64 %.02031.us33, 1
+  %68 = load ptr, ptr %6, align 8, !tbaa !69
+  %69 = load ptr, ptr %0, align 8, !tbaa !4
+  %70 = ptrtoint ptr %68 to i64
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = ashr exact i64 %72, 3
+  %74 = icmp ult i64 %67, %73
+  br i1 %74, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !138
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %91
-  %72 = phi ptr [ %94, %91 ], [ %8, %.lr.ph.split ]
-  %.02032 = phi i64 [ %92, %91 ], [ 0, %.lr.ph.split ]
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.02032
-  %74 = load ptr, ptr %73, align 8, !tbaa !70
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
-  %76 = load ptr, ptr %75, align 8, !tbaa !72
-  %77 = tail call noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %76, i32 noundef 4)
-  br i1 %77, label %78, label %91
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %92
+  %75 = phi ptr [ %95, %92 ], [ %8, %.lr.ph.split ]
+  %.02031 = phi i64 [ %93, %92 ], [ 0, %.lr.ph.split ]
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.02031
+  %77 = load ptr, ptr %76, align 8, !tbaa !70
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %79 = load ptr, ptr %78, align 8, !tbaa !72
+  %80 = tail call noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %79, i32 noundef 4)
+  br i1 %80, label %81, label %92
 
-78:                                               ; preds = %.lr.ph.split.split
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 104
-  %80 = tail call noundef zeroext i1 @_ZNK12CVQualifiers14match_indirectERKS_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %79)
-  br i1 %80, label %81, label %91
+81:                                               ; preds = %.lr.ph.split.split
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 104
+  %83 = tail call noundef zeroext i1 @_ZNK12CVQualifiers14match_indirectERKS_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %82)
+  br i1 %83, label %84, label %92
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %75, align 8, !tbaa !72
-  %83 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %82)
-  %84 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %1)
-  %85 = sub nsw i32 %83, %84
-  %86 = tail call noundef zeroext i1 @_ZN16VariableSelector15is_eligible_varEPK8VariableiN6Effect6AccessERK9CGContext(ptr noundef nonnull %74, i32 noundef %85, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(216) %4)
-  br i1 %86, label %87, label %91
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %78, align 8, !tbaa !72
+  %86 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %85)
+  %87 = tail call noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136) %1)
+  %88 = sub nsw i32 %86, %87
+  %89 = tail call noundef zeroext i1 @_ZN16VariableSelector15is_eligible_varEPK8VariableiN6Effect6AccessERK9CGContext(ptr noundef nonnull %77, i32 noundef %88, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(216) %4)
+  br i1 %89, label %90, label %92
 
-87:                                               ; preds = %81
-  %88 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %74)
-  br i1 %88, label %.split.us, label %91
+90:                                               ; preds = %84
+  %91 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %77)
+  br i1 %91, label %.split.us, label %92
 
-.split.us:                                        ; preds = %87, %62, %40, %18
-  %89 = load i32, ptr @_ZN10Bookkeeper14volatile_availE, align 4, !tbaa !68
-  %90 = add nsw i32 %89, 1
-  store i32 %90, ptr @_ZN10Bookkeeper14volatile_availE, align 4, !tbaa !68
+92:                                               ; preds = %.lr.ph.split.split, %81, %90, %84
+  %93 = add nuw i64 %.02031, 1
+  %94 = load ptr, ptr %6, align 8, !tbaa !69
+  %95 = load ptr, ptr %0, align 8, !tbaa !4
+  %96 = ptrtoint ptr %94 to i64
+  %97 = ptrtoint ptr %95 to i64
+  %98 = sub i64 %96, %97
+  %99 = ashr exact i64 %98, 3
+  %100 = icmp ult i64 %93, %99
+  br i1 %100, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !138
+
+.split.us:                                        ; preds = %90, %64, %41, %18
+  %101 = load i32, ptr @_ZN10Bookkeeper14volatile_availE, align 4, !tbaa !68
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr @_ZN10Bookkeeper14volatile_availE, align 4, !tbaa !68
   br label %.loopexit
 
-91:                                               ; preds = %.lr.ph.split.split, %78, %87, %81
-  %92 = add nuw i64 %.02032, 1
-  %93 = load ptr, ptr %6, align 8, !tbaa !69
-  %94 = load ptr, ptr %0, align 8, !tbaa !4
-  %95 = ptrtoint ptr %93 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = ashr exact i64 %97, 3
-  %.not28 = icmp ult i64 %92, %98
-  br i1 %.not28, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !138
-
-.loopexit:                                        ; preds = %91, %64, %42, %20, %5, %.split.us
-  %.not2830 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %20 ], [ false, %42 ], [ false, %64 ], [ false, %91 ]
-  ret i1 %.not2830
+.loopexit:                                        ; preds = %92, %66, %43, %20, %5, %.split.us
+  %103 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %20 ], [ false, %43 ], [ false, %66 ], [ false, %92 ]
+  ret i1 %103
 }
 
 declare noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -5485,20 +5485,20 @@ define dso_local noundef ptr @_ZN16VariableSelector21expand_block_for_gotoEP5Blo
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %.pre = load ptr, ptr %5, align 8, !tbaa !179
-  %.pre38 = load ptr, ptr %4, align 8, !tbaa !182
+  %.pre37 = load ptr, ptr %4, align 8, !tbaa !182
   br label %6
 
 6:                                                ; preds = %.critedge, %2
-  %7 = phi ptr [ %.pre38, %2 ], [ %38, %.critedge ]
+  %7 = phi ptr [ %.pre37, %2 ], [ %38, %.critedge ]
   %8 = phi ptr [ %.pre, %2 ], [ %39, %.critedge ]
   %.018 = phi ptr [ %0, %2 ], [ %.2, %.critedge ]
-  %.not33 = icmp eq ptr %8, %7
-  br i1 %.not33, label %.critedge, label %.lr.ph
+  %.not32 = icmp eq ptr %8, %7
+  br i1 %.not32, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %29
   %9 = phi ptr [ %32, %29 ], [ %7, %6 ]
-  %.01931 = phi i64 [ %30, %29 ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01931
+  %.01930 = phi i64 [ %30, %29 ], [ 0, %6 ]
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01930
   %11 = load ptr, ptr %10, align 8, !tbaa !183
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !185
@@ -5519,19 +5519,19 @@ define dso_local noundef ptr @_ZN16VariableSelector21expand_block_for_gotoEP5Blo
   br i1 %23, label %29, label %.preheader
 
 .preheader:                                       ; preds = %21, %26
-  %.332 = phi ptr [ %28, %26 ], [ %.018, %21 ]
+  %.331 = phi ptr [ %28, %26 ], [ %.018, %21 ]
   %24 = load ptr, ptr %12, align 8, !tbaa !185
-  %25 = tail call noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noundef nonnull align 8 dereferenceable(32) %.332, ptr noundef %24)
+  %25 = tail call noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noundef nonnull align 8 dereferenceable(32) %.331, ptr noundef %24)
   br i1 %25, label %.critedge.loopexit, label %26
 
 26:                                               ; preds = %.preheader
-  %27 = getelementptr inbounds nuw i8, ptr %.332, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.331, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !161
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %.critedge.loopexit, label %.preheader, !llvm.loop !190
 
 29:                                               ; preds = %21, %17, %.lr.ph
-  %30 = add nuw i64 %.01931, 1
+  %30 = add nuw i64 %.01930, 1
   %31 = load ptr, ptr %5, align 8, !tbaa !179
   %32 = load ptr, ptr %4, align 8, !tbaa !182
   %33 = ptrtoint ptr %31 to i64
@@ -5542,21 +5542,21 @@ define dso_local noundef ptr @_ZN16VariableSelector21expand_block_for_gotoEP5Blo
   br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !191
 
 .critedge.loopexit:                               ; preds = %.preheader, %26
-  %.2.ph = phi ptr [ null, %26 ], [ %.332, %.preheader ]
-  %.pre39 = load ptr, ptr %5, align 8, !tbaa !179
-  %.pre40 = load ptr, ptr %4, align 8, !tbaa !182
+  %.2.ph = phi ptr [ null, %26 ], [ %.331, %.preheader ]
+  %.pre38 = load ptr, ptr %5, align 8, !tbaa !179
+  %.pre39 = load ptr, ptr %4, align 8, !tbaa !182
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %.critedge.loopexit, %6
-  %38 = phi ptr [ %7, %6 ], [ %.pre40, %.critedge.loopexit ], [ %32, %29 ]
-  %39 = phi ptr [ %7, %6 ], [ %.pre39, %.critedge.loopexit ], [ %31, %29 ]
-  %.01929 = phi i64 [ 0, %6 ], [ %.01931, %.critedge.loopexit ], [ %30, %29 ]
+  %38 = phi ptr [ %7, %6 ], [ %.pre39, %.critedge.loopexit ], [ %32, %29 ]
+  %39 = phi ptr [ %7, %6 ], [ %.pre38, %.critedge.loopexit ], [ %31, %29 ]
+  %.01928 = phi i64 [ 0, %6 ], [ %.01930, %.critedge.loopexit ], [ %30, %29 ]
   %.2 = phi ptr [ %.018, %6 ], [ %.2.ph, %.critedge.loopexit ], [ %.018, %29 ]
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %38 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 3
-  %44 = icmp eq i64 %.01929, %43
+  %44 = icmp eq i64 %.01928, %43
   br i1 %44, label %45, label %6, !llvm.loop !192
 
 45:                                               ; preds = %.critedge
@@ -6104,12 +6104,12 @@ _ZL27VariableCreationProbabilityv.exit:           ; preds = %6
   br i1 %.not3.i, label %10, label %.critedge
 
 _ZL27VariableCreationProbabilityv.exit.thread:    ; preds = %6
-  %.not3.in.i33 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !68
-  %.not3.i34 = icmp eq i32 %.not3.in.i33, 0
-  br i1 %.not3.i34, label %.thread36, label %.critedge
+  %.not3.in.i32 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !68
+  %.not3.i33 = icmp eq i32 %.not3.in.i32, 0
+  br i1 %.not3.i33, label %.thread34, label %.critedge
 
 10:                                               ; preds = %_ZL27VariableCreationProbabilityv.exit
-  br i1 %9, label %11, label %.thread36
+  br i1 %9, label %11, label %.thread34
 
 11:                                               ; preds = %10
   %12 = tail call noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef 34, i32 noundef 0)
@@ -6140,12 +6140,12 @@ _ZL27VariableCreationProbabilityv.exit.thread:    ; preds = %6
   %24 = tail call noundef ptr @_ZN16VariableSelector17GenerateNewGlobalEN6Effect6AccessERK9CGContextPK4TypePK12CVQualifiers(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %21, ptr noundef %3)
   br label %60
 
-.thread36:                                        ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %10
+.thread34:                                        ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %10
   %25 = tail call noundef i32 @_ZN9DepthSpec20depth_guard_by_depthEi(i32 noundef 36)
   %.not23 = icmp eq i32 %25, 0
   br i1 %.not23, label %26, label %.critedge
 
-26:                                               ; preds = %.thread36
+26:                                               ; preds = %.thread34
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %29 = load ptr, ptr %28, align 8, !tbaa !193
@@ -6204,8 +6204,8 @@ _ZL27VariableCreationProbabilityv.exit.thread:    ; preds = %6
   store i8 1, ptr @_ZN16VariableSelector11var_createdE, align 1, !tbaa !168
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %_ZL27VariableCreationProbabilityv.exit, %50, %26, %51, %60, %.thread36, %20, %11, %.thread, %19, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZL27VariableCreationProbabilityv.exit ], [ %.020.ph, %.thread ], [ null, %19 ], [ null, %11 ], [ null, %20 ], [ null, %.thread36 ], [ null, %60 ], [ null, %51 ], [ null, %26 ], [ null, %50 ], [ null, %_ZL27VariableCreationProbabilityv.exit.thread ]
+.critedge:                                        ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %_ZL27VariableCreationProbabilityv.exit, %50, %26, %51, %60, %.thread34, %20, %11, %.thread, %19, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZL27VariableCreationProbabilityv.exit ], [ %.020.ph, %.thread ], [ null, %19 ], [ null, %11 ], [ null, %20 ], [ null, %.thread34 ], [ null, %60 ], [ null, %51 ], [ null, %26 ], [ null, %50 ], [ null, %_ZL27VariableCreationProbabilityv.exit.thread ]
   ret ptr %.0
 }
 

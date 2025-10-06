@@ -3845,10 +3845,10 @@ _ZN7V3Error13abortIfErrorsEv.exit55.i:            ; preds = %644, %639
   %651 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   %652 = trunc nuw i8 %651 to i1
   %653 = select i1 %650, i1 true, i1 %652
-  %.not167.i = xor i1 %653, true
+  %.not166.i = xor i1 %653, true
   %654 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1013), align 1, !range !89
   %655 = trunc nuw i8 %654 to i1
-  %or.cond.i = select i1 %.not167.i, i1 %655, i1 false
+  %or.cond.i = select i1 %.not166.i, i1 %655, i1 false
   br i1 %or.cond.i, label %656, label %662
 
 656:                                              ; preds = %648
@@ -3969,8 +3969,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i: ; preds = %6
   %or.cond5.i.i = select i1 %or.cond.i.i, i1 true, i1 %703
   %704 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 993), align 1, !range !89
   %705 = trunc nuw i8 %704 to i1
-  %or.cond170.i = select i1 %or.cond5.i.i, i1 true, i1 %705
-  br i1 %or.cond170.i, label %_ZNK9V3Options8coverageEv.exit.thread.i, label %715
+  %or.cond169.i = select i1 %or.cond5.i.i, i1 true, i1 %705
+  br i1 %or.cond169.i, label %_ZNK9V3Options8coverageEv.exit.thread.i, label %715
 
 _ZNK9V3Options8coverageEv.exit.thread.i:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i
   %706 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4032,11 +4032,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70.i: ; preds = %7
   %731 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   %732 = trunc nuw i8 %731 to i1
   %733 = select i1 %730, i1 true, i1 %732
-  %.not171.i = xor i1 %733, true
+  %.not170.i = xor i1 %733, true
   %734 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !89
   %735 = trunc nuw i8 %734 to i1
-  %or.cond173.i = select i1 %.not171.i, i1 true, i1 %735
-  br i1 %or.cond173.i, label %736, label %738
+  %or.cond172.i = select i1 %.not170.i, i1 true, i1 %735
+  br i1 %or.cond172.i, label %736, label %738
 
 736:                                              ; preds = %725
   %737 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4059,11 +4059,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70.i: ; preds = %7
   %746 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   %747 = trunc nuw i8 %746 to i1
   %748 = select i1 %745, i1 true, i1 %747
-  %.not174.i = xor i1 %748, true
+  %.not173.i = xor i1 %748, true
   %749 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !89
   %750 = trunc nuw i8 %749 to i1
-  %or.cond176.i = select i1 %.not174.i, i1 true, i1 %750
-  br i1 %or.cond176.i, label %751, label %762
+  %or.cond175.i = select i1 %.not173.i, i1 true, i1 %750
+  br i1 %or.cond175.i, label %751, label %762
 
 751:                                              ; preds = %743
   %752 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4089,11 +4089,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70.i: ; preds = %7
   %761 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN10V3Tristate11tristateAllEP10AstNetlist(ptr noundef %761)
   %.pre.i369 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre231.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre230.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   br label %762
 
 762:                                              ; preds = %759, %743
-  %763 = phi i8 [ %746, %743 ], [ %.pre231.i, %759 ]
+  %763 = phi i8 [ %746, %743 ], [ %.pre230.i, %759 ]
   %764 = phi i8 [ %744, %743 ], [ %.pre.i369, %759 ]
   %765 = trunc nuw i8 %764 to i1
   %766 = trunc nuw i8 %763 to i1
@@ -4111,14 +4111,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70.i: ; preds = %7
   %772 = trunc nuw i8 %771 to i1
   %773 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1867), align 1, !range !89
   %774 = trunc nuw i8 %773 to i1
-  %or.cond178.i = select i1 %772, i1 true, i1 %774
-  br i1 %or.cond178.i, label %775, label %.thread.i
+  %or.cond177.i = select i1 %772, i1 true, i1 %774
+  br i1 %or.cond177.i, label %775, label %.thread.i
 
 775:                                              ; preds = %770
   %776 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN14V3DfgOptimizer7extractEP10AstNetlist(ptr noundef %776)
-  %.pre232.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1866), align 2, !tbaa !169, !range !89
-  %777 = trunc nuw i8 %.pre232.i to i1
+  %.pre231.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1866), align 2, !tbaa !169, !range !89
+  %777 = trunc nuw i8 %.pre231.i to i1
   br i1 %777, label %._crit_edge.i.i71.i, label %.thread.i
 
 ._crit_edge.i.i71.i:                              ; preds = %775
@@ -4172,14 +4172,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80.i: ; preds = %7
   %795 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   %796 = trunc nuw i8 %795 to i1
   %797 = select i1 %794, i1 true, i1 %796
-  %.not179.i = xor i1 %797, true
+  %.not178.i = xor i1 %797, true
   %798 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !89
   %799 = trunc nuw i8 %798 to i1
-  %or.cond181.i = select i1 %.not179.i, i1 true, i1 %799
+  %or.cond180.i = select i1 %.not178.i, i1 true, i1 %799
   %800 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1874), align 2, !range !89
   %801 = trunc nuw i8 %800 to i1
-  %or.cond183.i = select i1 %or.cond181.i, i1 %801, i1 false
-  br i1 %or.cond183.i, label %802, label %805
+  %or.cond182.i = select i1 %or.cond180.i, i1 %801, i1 false
+  br i1 %or.cond182.i, label %802, label %805
 
 802:                                              ; preds = %.thread.i
   %803 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4269,11 +4269,11 @@ _ZN7V3Error13abortIfErrorsEv.exit92.i:            ; preds = %832, %828
   %835 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   %836 = trunc nuw i8 %835 to i1
   %837 = select i1 %834, i1 true, i1 %836
-  %.not184.i = xor i1 %837, true
+  %.not183.i = xor i1 %837, true
   %838 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !89
   %839 = trunc nuw i8 %838 to i1
-  %or.cond186.i = select i1 %.not184.i, i1 true, i1 %839
-  br i1 %or.cond186.i, label %840, label %.thread312.i
+  %or.cond185.i = select i1 %.not183.i, i1 true, i1 %839
+  br i1 %or.cond185.i, label %840, label %.thread311.i
 
 840:                                              ; preds = %_ZN7V3Error13abortIfErrorsEv.exit92.i
   %841 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4286,16 +4286,16 @@ _ZN7V3Error13abortIfErrorsEv.exit92.i:            ; preds = %832, %828
   call void @_ZN9V3LinkDot12linkDotScopeEP10AstNetlist(ptr noundef %844)
   %845 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN7V3Class8classAllEP10AstNetlist(ptr noundef %845)
-  %.pre233.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre234.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
-  %.pre235.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !89
+  %.pre232.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre233.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre234.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !89
+  %.pre261.i = trunc nuw i8 %.pre232.i to i1
   %.pre262.i = trunc nuw i8 %.pre233.i to i1
-  %.pre263.i = trunc nuw i8 %.pre234.i to i1
-  %.pre265.i = select i1 %.pre262.i, i1 true, i1 %.pre263.i
-  %.pre267.i = xor i1 %.pre265.i, true
-  %846 = trunc nuw i8 %.pre235.i to i1
-  %847 = select i1 %.pre267.i, i1 true, i1 %846
-  br i1 %847, label %848, label %.thread312.i
+  %.pre264.i = select i1 %.pre261.i, i1 true, i1 %.pre262.i
+  %.pre266.i = xor i1 %.pre264.i, true
+  %846 = trunc nuw i8 %.pre234.i to i1
+  %847 = select i1 %.pre266.i, i1 true, i1 %846
+  br i1 %847, label %848, label %.thread311.i
 
 848:                                              ; preds = %840
   %849 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4303,48 +4303,48 @@ _ZN7V3Error13abortIfErrorsEv.exit92.i:            ; preds = %832, %828
   %850 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN6V3Dead19deadifyDTypesScopedEP10AstNetlist(ptr noundef %850)
   call void @_ZNK8V3Global9checkTreeEv(ptr noundef nonnull align 8 dereferenceable(1896) @v3Global)
-  %.pre236.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre237.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
-  br label %.thread312.i
+  %.pre235.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre236.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  br label %.thread311.i
 
-.thread312.i:                                     ; preds = %848, %840, %_ZN7V3Error13abortIfErrorsEv.exit92.i
-  %851 = phi i8 [ %.pre234.i, %840 ], [ %.pre237.i, %848 ], [ %835, %_ZN7V3Error13abortIfErrorsEv.exit92.i ]
-  %852 = phi i8 [ %.pre233.i, %840 ], [ %.pre236.i, %848 ], [ %833, %_ZN7V3Error13abortIfErrorsEv.exit92.i ]
+.thread311.i:                                     ; preds = %848, %840, %_ZN7V3Error13abortIfErrorsEv.exit92.i
+  %851 = phi i8 [ %.pre233.i, %840 ], [ %.pre236.i, %848 ], [ %835, %_ZN7V3Error13abortIfErrorsEv.exit92.i ]
+  %852 = phi i8 [ %.pre232.i, %840 ], [ %.pre235.i, %848 ], [ %833, %_ZN7V3Error13abortIfErrorsEv.exit92.i ]
   %853 = trunc nuw i8 %852 to i1
   %854 = trunc nuw i8 %851 to i1
   %855 = select i1 %853, i1 true, i1 %854
   br i1 %855, label %859, label %856
 
-856:                                              ; preds = %.thread312.i
+856:                                              ; preds = %.thread311.i
   %857 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN6V3Case7caseAllEP10AstNetlist(ptr noundef %857)
-  %.pre238.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre239.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
-  %.pre268.i = trunc nuw i8 %.pre238.i to i1
-  %.pre270.i = trunc nuw i8 %.pre239.i to i1
-  %.pre272.i = select i1 %.pre268.i, i1 true, i1 %.pre270.i
-  %858 = xor i1 %.pre272.i, true
+  %.pre237.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre238.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre267.i = trunc nuw i8 %.pre237.i to i1
+  %.pre269.i = trunc nuw i8 %.pre238.i to i1
+  %.pre271.i = select i1 %.pre267.i, i1 true, i1 %.pre269.i
+  %858 = xor i1 %.pre271.i, true
   br label %859
 
-859:                                              ; preds = %856, %.thread312.i
-  %.pre-phi273.i = phi i1 [ %858, %856 ], [ false, %.thread312.i ]
-  %860 = phi i8 [ %.pre239.i, %856 ], [ %851, %.thread312.i ]
-  %861 = phi i8 [ %.pre238.i, %856 ], [ %852, %.thread312.i ]
+859:                                              ; preds = %856, %.thread311.i
+  %.pre-phi272.i = phi i1 [ %858, %856 ], [ false, %.thread311.i ]
+  %860 = phi i8 [ %.pre238.i, %856 ], [ %851, %.thread311.i ]
+  %861 = phi i8 [ %.pre237.i, %856 ], [ %852, %.thread311.i ]
   %862 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !89
   %863 = trunc nuw i8 %862 to i1
-  %or.cond192.i = select i1 %.pre-phi273.i, i1 true, i1 %863
-  br i1 %or.cond192.i, label %864, label %866
+  %or.cond191.i = select i1 %.pre-phi272.i, i1 true, i1 %863
+  br i1 %or.cond191.i, label %864, label %866
 
 864:                                              ; preds = %859
   %865 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN6V3Task7taskAllEP10AstNetlist(ptr noundef %865)
-  %.pre240.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre241.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre239.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre240.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   br label %866
 
 866:                                              ; preds = %864, %859
-  %867 = phi i8 [ %860, %859 ], [ %.pre241.i, %864 ]
-  %868 = phi i8 [ %861, %859 ], [ %.pre240.i, %864 ]
+  %867 = phi i8 [ %860, %859 ], [ %.pre240.i, %864 ]
+  %868 = phi i8 [ %861, %859 ], [ %.pre239.i, %864 ]
   %869 = trunc nuw i8 %868 to i1
   %870 = trunc nuw i8 %867 to i1
   %871 = select i1 %869, i1 true, i1 %870
@@ -4371,11 +4371,11 @@ _ZN7V3Error13abortIfErrorsEv.exit92.i:            ; preds = %832, %828
 881:                                              ; preds = %879, %872
   %882 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1016), align 8, !tbaa !161, !range !89, !noundef !90
   %883 = trunc nuw i8 %882 to i1
-  %.not193.i = xor i1 %883, true
+  %.not192.i = xor i1 %883, true
   %884 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1888), align 8, !range !89
   %885 = trunc nuw i8 %884 to i1
-  %or.cond195.i = select i1 %.not193.i, i1 %885, i1 false
-  br i1 %or.cond195.i, label %886, label %888
+  %or.cond194.i = select i1 %.not192.i, i1 %885, i1 false
+  br i1 %or.cond194.i, label %886, label %888
 
 886:                                              ; preds = %881
   %887 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4441,8 +4441,8 @@ _ZN7V3Error13abortIfErrorsEv.exit92.i:            ; preds = %832, %828
   %or.cond5.i94.i = select i1 %or.cond.i93.i, i1 true, i1 %918
   %919 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 993), align 1, !range !89
   %920 = trunc nuw i8 %919 to i1
-  %or.cond197.i = select i1 %or.cond5.i94.i, i1 true, i1 %920
-  br i1 %or.cond197.i, label %_ZNK9V3Options8coverageEv.exit95.thread.i, label %922
+  %or.cond196.i = select i1 %or.cond5.i94.i, i1 true, i1 %920
+  br i1 %or.cond196.i, label %_ZNK9V3Options8coverageEv.exit95.thread.i, label %922
 
 _ZNK9V3Options8coverageEv.exit95.thread.i:        ; preds = %912
   %921 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4640,8 +4640,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i: ; preds = %
   %1004 = trunc nuw i8 %1003 to i1
   %1005 = load i32, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1204), align 4
   %.not36.i = icmp eq i32 %1005, 0
-  %or.cond198.i = select i1 %1004, i1 true, i1 %.not36.i
-  br i1 %or.cond198.i, label %1008, label %1006
+  %or.cond197.i = select i1 %1004, i1 true, i1 %.not36.i
+  br i1 %or.cond197.i, label %1008, label %1006
 
 1006:                                             ; preds = %1002
   %1007 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4711,66 +4711,66 @@ _ZN7V3Error13abortIfErrorsEv.exit118.i:           ; preds = %1021, %1019
   call void @_ZN7V3Clean8cleanAllEP10AstNetlist(ptr noundef %1038)
   %1039 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN8V3Premit9premitAllEP10AstNetlist(ptr noundef %1039)
-  %.pre243.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre245.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre242.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre244.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   br label %1040
 
 1040:                                             ; preds = %1035, %_ZN7V3Error13abortIfErrorsEv.exit118.i
-  %.pre245.i = phi i8 [ %.pre245.pre.i, %1035 ], [ %1024, %_ZN7V3Error13abortIfErrorsEv.exit118.i ]
-  %.pre243.i = phi i8 [ %.pre243.pre.i, %1035 ], [ %1022, %_ZN7V3Error13abortIfErrorsEv.exit118.i ]
+  %.pre244.i = phi i8 [ %.pre244.pre.i, %1035 ], [ %1024, %_ZN7V3Error13abortIfErrorsEv.exit118.i ]
+  %.pre242.i = phi i8 [ %.pre242.pre.i, %1035 ], [ %1022, %_ZN7V3Error13abortIfErrorsEv.exit118.i ]
   %1041 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1016), align 8, !tbaa !161, !range !89, !noundef !90
   %1042 = trunc nuw i8 %1041 to i1
   br i1 %1042, label %1051, label %1043
 
 1043:                                             ; preds = %1040
-  %1044 = trunc nuw i8 %.pre243.i to i1
-  %1045 = trunc nuw i8 %.pre245.i to i1
+  %1044 = trunc nuw i8 %.pre242.i to i1
+  %1045 = trunc nuw i8 %.pre244.i to i1
   %1046 = select i1 %1044, i1 true, i1 %1045
-  %.not199.i = xor i1 %1046, true
+  %.not198.i = xor i1 %1046, true
   %1047 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1870), align 2, !range !89
   %1048 = trunc nuw i8 %1047 to i1
-  %or.cond201.i = select i1 %.not199.i, i1 %1048, i1 false
-  br i1 %or.cond201.i, label %1049, label %1051
+  %or.cond200.i = select i1 %.not198.i, i1 %1048, i1 false
+  br i1 %or.cond200.i, label %1049, label %1051
 
 1049:                                             ; preds = %1043
   %1050 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN8V3Expand9expandAllEP10AstNetlist(ptr noundef %1050)
-  %.pre242.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre244.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre241.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre243.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   br label %1051
 
 1051:                                             ; preds = %1049, %1043, %1040
-  %1052 = phi i8 [ %.pre244.i, %1049 ], [ %.pre245.i, %1043 ], [ %.pre245.i, %1040 ]
-  %1053 = phi i8 [ %.pre242.i, %1049 ], [ %.pre243.i, %1043 ], [ %.pre243.i, %1040 ]
+  %1052 = phi i8 [ %.pre243.i, %1049 ], [ %.pre244.i, %1043 ], [ %.pre244.i, %1040 ]
+  %1053 = phi i8 [ %.pre241.i, %1049 ], [ %.pre242.i, %1043 ], [ %.pre242.i, %1040 ]
   %1054 = trunc nuw i8 %1053 to i1
   %1055 = trunc nuw i8 %1052 to i1
   %1056 = select i1 %1054, i1 true, i1 %1055
-  %.not202.i = xor i1 %1056, true
+  %.not201.i = xor i1 %1056, true
   %1057 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1886), align 2, !range !89
   %1058 = trunc nuw i8 %1057 to i1
-  %or.cond204.i = select i1 %.not202.i, i1 %1058, i1 false
-  br i1 %or.cond204.i, label %1059, label %1062
+  %or.cond203.i = select i1 %.not201.i, i1 %1058, i1 false
+  br i1 %or.cond203.i, label %1059, label %1062
 
 1059:                                             ; preds = %1051
   %1060 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN7V3Const11constifyCppEP10AstNetlist(ptr noundef %1060)
   %1061 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN7V3Subst13substituteAllEP10AstNetlist(ptr noundef %1061)
-  %.pre246.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre247.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre245.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre246.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   br label %1062
 
 1062:                                             ; preds = %1059, %1051
-  %1063 = phi i8 [ %.pre247.i, %1059 ], [ %1052, %1051 ]
-  %1064 = phi i8 [ %.pre246.i, %1059 ], [ %1053, %1051 ]
+  %1063 = phi i8 [ %.pre246.i, %1059 ], [ %1052, %1051 ]
+  %1064 = phi i8 [ %.pre245.i, %1059 ], [ %1053, %1051 ]
   %1065 = trunc nuw i8 %1064 to i1
   %1066 = trunc nuw i8 %1063 to i1
   %1067 = select i1 %1065, i1 true, i1 %1066
-  %.not205.i = xor i1 %1067, true
+  %.not204.i = xor i1 %1067, true
   %1068 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1887), align 1, !range !89
   %1069 = trunc nuw i8 %1068 to i1
-  %or.cond207.i = select i1 %.not205.i, i1 %1069, i1 false
-  br i1 %or.cond207.i, label %1070, label %1073
+  %or.cond206.i = select i1 %.not204.i, i1 %1069, i1 false
+  br i1 %or.cond206.i, label %1070, label %1073
 
 1070:                                             ; preds = %1062
   %1071 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4833,30 +4833,30 @@ _ZN7V3Error13abortIfErrorsEv.exit118.i:           ; preds = %1021, %1019
 _ZN7V3Error13abortIfErrorsEv.exit120.i:           ; preds = %1098, %1096
   %1099 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1016), align 8, !tbaa !161, !range !89, !noundef !90
   %1100 = trunc nuw i8 %1099 to i1
-  %.pre249.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre251.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
-  %1101 = trunc nuw i8 %.pre249.i to i1
-  %1102 = trunc nuw i8 %.pre251.i to i1
+  %.pre248.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre250.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %1101 = trunc nuw i8 %.pre248.i to i1
+  %1102 = trunc nuw i8 %.pre250.i to i1
   %1103 = select i1 %1100, i1 true, i1 %1101
-  %or.cond324.i = select i1 %1103, i1 true, i1 %1102
-  br i1 %or.cond324.i, label %1105, label %1104
+  %or.cond323.i = select i1 %1103, i1 true, i1 %1102
+  br i1 %or.cond323.i, label %1105, label %1104
 
 1104:                                             ; preds = %_ZN7V3Error13abortIfErrorsEv.exit120.i
   call void @_ZN8V3CCtors9cctorsAllEv()
-  %.pre248.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre250.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre247.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre249.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   br label %1105
 
 1105:                                             ; preds = %1104, %_ZN7V3Error13abortIfErrorsEv.exit120.i
-  %1106 = phi i8 [ %.pre250.i, %1104 ], [ %.pre251.i, %_ZN7V3Error13abortIfErrorsEv.exit120.i ]
-  %1107 = phi i8 [ %.pre248.i, %1104 ], [ %.pre249.i, %_ZN7V3Error13abortIfErrorsEv.exit120.i ]
+  %1106 = phi i8 [ %.pre249.i, %1104 ], [ %.pre250.i, %_ZN7V3Error13abortIfErrorsEv.exit120.i ]
+  %1107 = phi i8 [ %.pre247.i, %1104 ], [ %.pre248.i, %_ZN7V3Error13abortIfErrorsEv.exit120.i ]
   %1108 = trunc nuw i8 %1107 to i1
   %1109 = trunc nuw i8 %1106 to i1
   %1110 = select i1 %1108, i1 true, i1 %1109
   %1111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1160), align 8
   %1112 = icmp slt i32 %1111, 2
-  %or.cond210.not.i = select i1 %1110, i1 true, i1 %1112
-  br i1 %or.cond210.not.i, label %1115, label %1113
+  %or.cond209.not.i = select i1 %1110, i1 true, i1 %1112
+  br i1 %or.cond209.not.i, label %1115, label %1113
 
 1113:                                             ; preds = %1105
   %1114 = load ptr, ptr @v3Global, align 8, !tbaa !38
@@ -4866,8 +4866,8 @@ _ZN7V3Error13abortIfErrorsEv.exit120.i:           ; preds = %1098, %1096
 1115:                                             ; preds = %1113, %1105
   %1116 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1016), align 8, !tbaa !161, !range !89, !noundef !90
   %1117 = trunc nuw i8 %1116 to i1
-  %.pre253.pre260.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1009), align 1, !tbaa !184, !range !89
-  br i1 %1117, label %._crit_edge274.i, label %1118
+  %.pre252.pre259.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1009), align 1, !tbaa !184, !range !89
+  br i1 %1117, label %._crit_edge273.i, label %1118
 
 1118:                                             ; preds = %1115
   %1119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89, !noundef !90
@@ -4875,42 +4875,42 @@ _ZN7V3Error13abortIfErrorsEv.exit120.i:           ; preds = %1098, %1096
   %1121 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   %1122 = trunc nuw i8 %1121 to i1
   %1123 = select i1 %1120, i1 true, i1 %1122
-  %1124 = trunc nuw i8 %.pre253.pre260.i to i1
-  %or.cond212.i = select i1 %1123, i1 true, i1 %1124
-  br i1 %or.cond212.i, label %.thread317.i, label %1125
+  %1124 = trunc nuw i8 %.pre252.pre259.i to i1
+  %or.cond211.i = select i1 %1123, i1 true, i1 %1124
+  br i1 %or.cond211.i, label %.thread316.i, label %1125
 
 1125:                                             ; preds = %1118
   call void @_ZN8V3Common9commonAllEv()
   %1126 = load ptr, ptr @v3Global, align 8, !tbaa !38
   call void @_ZN15V3VariableOrder8orderAllEP10AstNetlist(ptr noundef %1126)
   call void @_ZN6V3CUse7cUseAllEv()
-  %.pre252.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1016), align 8, !tbaa !161, !range !89
-  %.pre253.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1009), align 1, !tbaa !184, !range !89
-  %1127 = trunc nuw i8 %.pre252.i to i1
-  br i1 %1127, label %._crit_edge274.i, label %..thread317.i_crit_edge
+  %.pre251.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1016), align 8, !tbaa !161, !range !89
+  %.pre252.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1009), align 1, !tbaa !184, !range !89
+  %1127 = trunc nuw i8 %.pre251.i to i1
+  br i1 %1127, label %._crit_edge273.i, label %..thread316.i_crit_edge
 
-..thread317.i_crit_edge:                          ; preds = %1125
+..thread316.i_crit_edge:                          ; preds = %1125
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
   %.pre706 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
-  br label %.thread317.i
+  br label %.thread316.i
 
-._crit_edge274.i:                                 ; preds = %1125, %1115
-  %.pre253316.i = phi i8 [ %.pre253.pre.i, %1125 ], [ %.pre253.pre260.i, %1115 ]
-  %.pre275.i = trunc nuw i8 %.pre253316.i to i1
-  br i1 %.pre275.i, label %1136, label %.noexc.i122.i
+._crit_edge273.i:                                 ; preds = %1125, %1115
+  %.pre252315.i = phi i8 [ %.pre252.pre.i, %1125 ], [ %.pre252.pre259.i, %1115 ]
+  %.pre274.i = trunc nuw i8 %.pre252315.i to i1
+  br i1 %.pre274.i, label %1136, label %.noexc.i122.i
 
-.thread317.i:                                     ; preds = %..thread317.i_crit_edge, %1118
-  %1128 = phi i8 [ %.pre706, %..thread317.i_crit_edge ], [ %1121, %1118 ]
-  %1129 = phi i8 [ %.pre, %..thread317.i_crit_edge ], [ %1119, %1118 ]
-  %.pre253319.i = phi i8 [ %.pre253.pre.i, %..thread317.i_crit_edge ], [ %.pre253.pre260.i, %1118 ]
+.thread316.i:                                     ; preds = %..thread316.i_crit_edge, %1118
+  %1128 = phi i8 [ %.pre706, %..thread316.i_crit_edge ], [ %1121, %1118 ]
+  %1129 = phi i8 [ %.pre, %..thread316.i_crit_edge ], [ %1119, %1118 ]
+  %.pre252318.i = phi i8 [ %.pre252.pre.i, %..thread316.i_crit_edge ], [ %.pre252.pre259.i, %1118 ]
   %1130 = trunc nuw i8 %1129 to i1
   %1131 = trunc nuw i8 %1128 to i1
   %1132 = select i1 %1130, i1 true, i1 %1131
-  %1133 = trunc nuw i8 %.pre253319.i to i1
-  %or.cond214.i = select i1 %1132, i1 true, i1 %1133
-  br i1 %or.cond214.i, label %1135, label %1134
+  %1133 = trunc nuw i8 %.pre252318.i to i1
+  %or.cond213.i = select i1 %1132, i1 true, i1 %1133
+  br i1 %or.cond213.i, label %1135, label %1134
 
-1134:                                             ; preds = %.thread317.i
+1134:                                             ; preds = %.thread316.i
   call void @_ZN7V3EmitC12emitcInlinesEv()
   call void @_ZN7V3EmitC9emitcSymsEb(i1 noundef zeroext false)
   call void @_ZN7V3EmitC14emitcConstPoolEv()
@@ -4919,14 +4919,14 @@ _ZN7V3Error13abortIfErrorsEv.exit120.i:           ; preds = %1098, %1096
   call void @_ZN7V3EmitC12emitcHeadersEv()
   br label %.noexc.i122.i
 
-1135:                                             ; preds = %.thread317.i
+1135:                                             ; preds = %.thread316.i
   br i1 %1133, label %1136, label %.noexc.i122.i
 
-1136:                                             ; preds = %1135, %._crit_edge274.i
+1136:                                             ; preds = %1135, %._crit_edge273.i
   call void @_ZN7V3EmitC9emitcSymsEb(i1 noundef zeroext true)
   br label %.noexc.i122.i
 
-.noexc.i122.i:                                    ; preds = %1136, %1135, %1134, %._crit_edge274.i
+.noexc.i122.i:                                    ; preds = %1136, %1135, %1134, %._crit_edge273.i
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1137 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %1137, ptr %21, align 8, !tbaa !33
@@ -4982,13 +4982,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %1157 = select i1 %1154, i1 true, i1 %1156
   %1158 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1009), align 1, !range !89
   %1159 = trunc nuw i8 %1158 to i1
-  %or.cond216.i = select i1 %1157, i1 true, i1 %1159
-  br i1 %or.cond216.i, label %1169, label %1160
+  %or.cond215.i = select i1 %1157, i1 true, i1 %1159
+  br i1 %or.cond215.i, label %1169, label %1160
 
 1160:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i128.i
   call void @_ZN7V3EmitC8emitcImpEv()
-  %.pre254.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
-  %.pre255.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
+  %.pre253.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1062), align 2, !tbaa !160, !range !89
+  %.pre254.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !range !89
   br label %1169
 
 1161:                                             ; preds = %.noexc.i122.i
@@ -5015,8 +5015,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132.i: ; preds = %
   br label %common.resume
 
 1169:                                             ; preds = %1160, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i128.i
-  %1170 = phi i8 [ %.pre255.i, %1160 ], [ %1155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i128.i ]
-  %1171 = phi i8 [ %.pre254.i, %1160 ], [ %1153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i128.i ]
+  %1170 = phi i8 [ %.pre254.i, %1160 ], [ %1155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i128.i ]
+  %1171 = phi i8 [ %.pre253.i, %1160 ], [ %1153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i128.i ]
   %1172 = trunc nuw i8 %1171 to i1
   %1173 = trunc nuw i8 %1170 to i1
   %1174 = select i1 %1172, i1 true, i1 %1173
@@ -5027,8 +5027,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132.i: ; preds = %
 
 1176:                                             ; preds = %1175
   call void @_ZN9V3EmitXml7emitxmlEv()
-  %.pre256.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !tbaa !185, !range !89
-  %.pre710 = trunc nuw i8 %.pre256.i to i1
+  %.pre255.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1015), align 1, !tbaa !185, !range !89
+  %.pre710 = trunc nuw i8 %.pre255.i to i1
   br i1 %.pre710, label %_ZL13emitXmlOrJsonv.exit.sink.split.i, label %_ZL13emitXmlOrJsonv.exit.i
 
 1177:                                             ; preds = %1175
@@ -5037,14 +5037,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132.i: ; preds = %
 1178:                                             ; preds = %1169
   %1179 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 994), align 2, !tbaa !186, !range !89, !noundef !90
   %1180 = trunc nuw i8 %1179 to i1
-  %.not217.i = xor i1 %1180, true
+  %.not216.i = xor i1 %1180, true
   %1181 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1016), align 8, !range !89
   %1182 = trunc nuw i8 %1181 to i1
-  %or.cond219.i = select i1 %.not217.i, i1 true, i1 %1182
+  %or.cond218.i = select i1 %.not216.i, i1 true, i1 %1182
   %1183 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1009), align 1, !range !89
   %1184 = trunc nuw i8 %1183 to i1
-  %or.cond221.i = select i1 %or.cond219.i, i1 true, i1 %1184
-  br i1 %or.cond221.i, label %_ZL13emitXmlOrJsonv.exit.i, label %1185
+  %or.cond220.i = select i1 %or.cond218.i, i1 true, i1 %1184
+  br i1 %or.cond220.i, label %_ZL13emitXmlOrJsonv.exit.i, label %1185
 
 1185:                                             ; preds = %1178
   call void @_ZN9V3EmitXml7emitxmlEv()
@@ -5151,8 +5151,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
   %1224 = select i1 %1221, i1 true, i1 %1223
   %1225 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1009), align 1, !range !89
   %1226 = trunc nuw i8 %1225 to i1
-  %or.cond223.i = select i1 %1224, i1 true, i1 %1226
-  br i1 %or.cond223.i, label %1252, label %1227
+  %or.cond222.i = select i1 %1224, i1 true, i1 %1226
+  br i1 %or.cond222.i, label %1252, label %1227
 
 1227:                                             ; preds = %1219
   %1228 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1018), align 2, !tbaa !207, !range !89, !noundef !90
@@ -5166,34 +5166,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 1231:                                             ; preds = %1230, %1227
   %1232 = load ptr, ptr @v3Global, align 8, !tbaa !38
   %1233 = getelementptr inbounds nuw i8, ptr %1232, i64 32
-  %.09227.i = load ptr, ptr %1233, align 8, !tbaa !208
-  %.not42228.i = icmp eq ptr %.09227.i, null
-  br i1 %.not42228.i, label %._crit_edge.thread.i, label %_ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i
+  %.09226.i = load ptr, ptr %1233, align 8, !tbaa !208
+  %.not42227.i = icmp eq ptr %.09226.i, null
+  br i1 %.not42227.i, label %._crit_edge.thread.i, label %_ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i
 
 ._crit_edge.i:                                    ; preds = %1242
   %1234 = icmp ugt i64 %.111.i, 127
   br i1 %1234, label %1244, label %._crit_edge.thread.i
 
 _ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i: ; preds = %1231, %1242
-  %.09230.i = phi ptr [ %.09.i, %1242 ], [ %.09227.i, %1231 ]
-  %.010229.i = phi i64 [ %.111.i, %1242 ], [ 0, %1231 ]
-  %1235 = getelementptr inbounds nuw i8, ptr %.09230.i, i64 64
+  %.09229.i = phi ptr [ %.09.i, %1242 ], [ %.09226.i, %1231 ]
+  %.010228.i = phi i64 [ %.111.i, %1242 ], [ 0, %1231 ]
+  %1235 = getelementptr inbounds nuw i8, ptr %.09229.i, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %1235, align 8, !tbaa !209
-  %.not226.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 326
-  br i1 %.not226.i, label %1236, label %1242
+  %.not225.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 326
+  br i1 %.not225.i, label %1236, label %1242
 
 1236:                                             ; preds = %_ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i
-  %1237 = getelementptr inbounds nuw i8, ptr %.09230.i, i64 192
+  %1237 = getelementptr inbounds nuw i8, ptr %.09229.i, i64 192
   %1238 = load i8, ptr %1237, align 8
   %1239 = lshr i8 %1238, 1
   %.lobit.i = and i8 %1239, 1
   %1240 = zext nneg i8 %.lobit.i to i64
-  %1241 = add i64 %.010229.i, %1240
+  %1241 = add i64 %.010228.i, %1240
   br label %1242
 
 1242:                                             ; preds = %1236, %_ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i
-  %.111.i = phi i64 [ %1241, %1236 ], [ %.010229.i, %_ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i ]
-  %1243 = getelementptr inbounds nuw i8, ptr %.09230.i, i64 8
+  %.111.i = phi i64 [ %1241, %1236 ], [ %.010228.i, %_ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i ]
+  %1243 = getelementptr inbounds nuw i8, ptr %.09229.i, i64 8
   %.09.i = load ptr, ptr %1243, align 8, !tbaa !208
   %.not42.i = icmp eq ptr %.09.i, null
   br i1 %.not42.i, label %._crit_edge.i, label %_ZN7AstNode11privateCastI8AstCFilePS_EEPT_S2_.exit.i, !llvm.loop !210
@@ -5267,8 +5267,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146.i: ; preds = %
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i: ; preds = %1258, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.pre257.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1045), align 1, !tbaa !158, !range !89
-  %1269 = trunc nuw i8 %.pre257.i to i1
+  %.pre256.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1045), align 1, !tbaa !158, !range !89
+  %1269 = trunc nuw i8 %.pre256.i to i1
   br i1 %1269, label %_ZL20reportStatsIfEnabledv.exit147.sink.split.i, label %_ZL7processv.exit
 
 _ZL20reportStatsIfEnabledv.exit147.sink.split.i:  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i, %659
@@ -8911,7 +8911,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i: ; preds = %_ZN7V3Error
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt15recursive_mutexEEC2ERS2_.exit, label %.preheader.i.i, !prof !100
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i, %16
-  %.039.i.i = phi i32 [ %17, %16 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i ]
+  %.037.i.i = phi i32 [ %17, %16 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i ]
   %13 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !135, !range !89, !noundef !90
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt15recursive_mutexEEC2ERS2_.exit
@@ -8923,7 +8923,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i.i: ; preds = %.preheader
 
 16:                                               ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !349
-  %17 = add nuw nsw i32 %.039.i.i, 1
+  %17 = add nuw nsw i32 %.037.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %17, 50000
   br i1 %exitcond.not.i.i, label %18, label %.preheader.i.i, !llvm.loop !350
 
@@ -9022,7 +9022,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i: ; preds = %2
   br i1 %.not.i.i.i, label %_ZN10V3MutexImpISt15recursive_mutexE4lockEv.exit, label %.preheader.i, !prof !100
 
 .preheader.i:                                     ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i, %9
-  %.039.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i ]
+  %.037.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i ]
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !135, !range !89, !noundef !90
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i, label %_ZN10V3MutexImpISt15recursive_mutexE4lockEv.exit
@@ -9034,7 +9034,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i: ; preds = %.preheader.i
 
 9:                                                ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !349
-  %10 = add nuw nsw i32 %.039.i, 1
+  %10 = add nuw nsw i32 %.037.i, 1
   %exitcond.not.i = icmp eq i32 %10, 50000
   br i1 %exitcond.not.i, label %11, label %.preheader.i, !llvm.loop !350
 
@@ -9264,7 +9264,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit: ; preds = %1
   br i1 %.not.i.i, label %.thread, label %.preheader, !prof !100
 
 .preheader:                                       ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit, %8
-  %.039 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit ]
+  %.037 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit ]
   %5 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !135, !range !89, !noundef !90
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5, label %.thread
@@ -9276,7 +9276,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5: ; preds = %.preheader
 
 8:                                                ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !349
-  %9 = add nuw nsw i32 %.039, 1
+  %9 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %9, 50000
   br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !350
 

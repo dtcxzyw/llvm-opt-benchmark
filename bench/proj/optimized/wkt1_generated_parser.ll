@@ -456,9 +456,9 @@ define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr noundef nonnull c
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = icmp eq i8 %14, 34
-  br i1 %15, label %.preheader32.split.us.i, label %.thread.i
+  br i1 %15, label %.preheader31.split.us.i, label %.thread.i
 
-.preheader32.split.us.i:                          ; preds = %5, %21
+.preheader31.split.us.i:                          ; preds = %5, %21
   %.020.us.i = phi i64 [ %22, %21 ], [ 0, %5 ]
   %.019.us.i = phi ptr [ %.1.us.i, %21 ], [ %13, %5 ]
   %16 = getelementptr inbounds nuw i8, ptr %.019.us.i, i64 1
@@ -470,23 +470,23 @@ define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr noundef nonnull c
     i8 34, label %yytnamerr.exit
   ]
 
-18:                                               ; preds = %.preheader32.split.us.i
+18:                                               ; preds = %.preheader31.split.us.i
   %19 = getelementptr inbounds nuw i8, ptr %.019.us.i, i64 2
   %20 = load i8, ptr %19, align 1, !tbaa !11
   %.not25.us.i = icmp eq i8 %20, 92
   br i1 %.not25.us.i, label %21, label %.thread.i
 
-21:                                               ; preds = %18, %.preheader32.split.us.i
-  %.1.us.i = phi ptr [ %16, %.preheader32.split.us.i ], [ %19, %18 ]
+21:                                               ; preds = %18, %.preheader31.split.us.i
+  %.1.us.i = phi ptr [ %16, %.preheader31.split.us.i ], [ %19, %18 ]
   %22 = add nuw nsw i64 %.020.us.i, 1
-  br label %.preheader32.split.us.i
+  br label %.preheader31.split.us.i
 
-.thread.i:                                        ; preds = %18, %.preheader32.split.us.i, %.preheader32.split.us.i, %5
+.thread.i:                                        ; preds = %18, %.preheader31.split.us.i, %.preheader31.split.us.i, %5
   %strlen.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13)
   br label %yytnamerr.exit
 
-yytnamerr.exit:                                   ; preds = %.preheader32.split.us.i, %.thread.i
-  %.122.i = phi i64 [ %strlen.i.i, %.thread.i ], [ %.020.us.i, %.preheader32.split.us.i ]
+yytnamerr.exit:                                   ; preds = %.preheader31.split.us.i, %.thread.i
+  %.122.i = phi i64 [ %strlen.i.i, %.thread.i ], [ %.020.us.i, %.preheader31.split.us.i ]
   store ptr %13, ptr %4, align 16, !tbaa !12
   %23 = icmp eq i16 %9, -131
   br i1 %23, label %.thread7, label %24
@@ -532,9 +532,9 @@ yytnamerr.exit:                                   ; preds = %.preheader32.split.
   store ptr %42, ptr %45, align 8, !tbaa !12
   %46 = load i8, ptr %42, align 1, !tbaa !11
   %47 = icmp eq i8 %46, 34
-  br i1 %47, label %.preheader32.split.us.i114, label %.thread.i110
+  br i1 %47, label %.preheader31.split.us.i114, label %.thread.i110
 
-.preheader32.split.us.i114:                       ; preds = %40, %53
+.preheader31.split.us.i114:                       ; preds = %40, %53
   %.020.us.i115 = phi i64 [ %54, %53 ], [ 0, %40 ]
   %.019.us.i116 = phi ptr [ %.1.us.i119, %53 ], [ %42, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %.019.us.i116, i64 1
@@ -546,23 +546,23 @@ yytnamerr.exit:                                   ; preds = %.preheader32.split.
     i8 34, label %yytnamerr.exit120
   ]
 
-50:                                               ; preds = %.preheader32.split.us.i114
+50:                                               ; preds = %.preheader31.split.us.i114
   %51 = getelementptr inbounds nuw i8, ptr %.019.us.i116, i64 2
   %52 = load i8, ptr %51, align 1, !tbaa !11
   %.not25.us.i118 = icmp eq i8 %52, 92
   br i1 %.not25.us.i118, label %53, label %.thread.i110
 
-53:                                               ; preds = %50, %.preheader32.split.us.i114
-  %.1.us.i119 = phi ptr [ %48, %.preheader32.split.us.i114 ], [ %51, %50 ]
+53:                                               ; preds = %50, %.preheader31.split.us.i114
+  %.1.us.i119 = phi ptr [ %48, %.preheader31.split.us.i114 ], [ %51, %50 ]
   %54 = add nuw nsw i64 %.020.us.i115, 1
-  br label %.preheader32.split.us.i114
+  br label %.preheader31.split.us.i114
 
-.thread.i110:                                     ; preds = %50, %.preheader32.split.us.i114, %.preheader32.split.us.i114, %40
+.thread.i110:                                     ; preds = %50, %.preheader31.split.us.i114, %.preheader31.split.us.i114, %40
   %strlen.i.i111 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %42)
   br label %yytnamerr.exit120
 
-yytnamerr.exit120:                                ; preds = %.preheader32.split.us.i114, %.thread.i110
-  %.122.i112 = phi i64 [ %strlen.i.i111, %.thread.i110 ], [ %.020.us.i115, %.preheader32.split.us.i114 ]
+yytnamerr.exit120:                                ; preds = %.preheader31.split.us.i114, %.thread.i110
+  %.122.i112 = phi i64 [ %strlen.i.i111, %.thread.i110 ], [ %.020.us.i115, %.preheader31.split.us.i114 ]
   %.not104 = icmp sgt i64 %.122.i112, -1
   %55 = add nsw i64 %.122.i112, %.29219
   br i1 %.not104, label %56, label %.critedge
@@ -649,12 +649,12 @@ yytnamerr.exit120:                                ; preds = %.preheader32.split.
   %82 = load ptr, ptr %81, align 8, !tbaa !12
   %83 = load i8, ptr %82, align 1, !tbaa !11
   %84 = icmp eq i8 %83, 34
-  br i1 %84, label %.preheader32.split.i, label %.preheader.i.preheader
+  br i1 %84, label %.preheader31.split.i, label %.preheader.i.preheader
 
-.preheader.i.preheader:                           ; preds = %87, %.preheader32.split.i, %.preheader32.split.i, %78
+.preheader.i.preheader:                           ; preds = %87, %.preheader31.split.i, %.preheader31.split.i, %78
   br label %.preheader.i
 
-.preheader32.split.i:                             ; preds = %78, %90
+.preheader31.split.i:                             ; preds = %78, %90
   %.020.i = phi i64 [ %92, %90 ], [ 0, %78 ]
   %.019.i = phi ptr [ %.1.i, %90 ], [ %82, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
@@ -666,20 +666,20 @@ yytnamerr.exit120:                                ; preds = %.preheader32.split.
     i8 34, label %.split.us.thread.i
   ]
 
-87:                                               ; preds = %.preheader32.split.i
+87:                                               ; preds = %.preheader31.split.i
   %88 = getelementptr inbounds nuw i8, ptr %.019.i, i64 2
   %89 = load i8, ptr %88, align 1, !tbaa !11
   %.not25.i = icmp eq i8 %89, 92
   br i1 %.not25.i, label %90, label %.preheader.i.preheader
 
-90:                                               ; preds = %87, %.preheader32.split.i
-  %.1.i = phi ptr [ %85, %.preheader32.split.i ], [ %88, %87 ]
+90:                                               ; preds = %87, %.preheader31.split.i
+  %.1.i = phi ptr [ %85, %.preheader31.split.i ], [ %88, %87 ]
   %91 = getelementptr inbounds nuw i8, ptr %.071, i64 %.020.i
   store i8 %86, ptr %91, align 1, !tbaa !11
   %92 = add nuw nsw i64 %.020.i, 1
-  br label %.preheader32.split.i
+  br label %.preheader31.split.i
 
-.split.us.thread.i:                               ; preds = %.preheader32.split.i
+.split.us.thread.i:                               ; preds = %.preheader31.split.i
   %93 = getelementptr inbounds nuw i8, ptr %.071, i64 %.020.i
   store i8 0, ptr %93, align 1, !tbaa !11
   br label %yytnamerr.exit131

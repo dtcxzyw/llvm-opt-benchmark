@@ -2870,9 +2870,9 @@ _ZNK3nla7emonics18is_canonical_monicEj.exit.thread: ; preds = %70, %_ZNK10union_
   %96 = load i32, ptr %95, align 8, !tbaa !54
   %97 = load i64, ptr %36, align 8, !tbaa !111
   %.not.not.i = icmp eq i64 %97, 0
-  br i1 %.not.not.i, label %.preheader, label %.thread37.i
+  br i1 %.not.not.i, label %.preheader, label %.thread35.i
 
-.thread37.i:                                      ; preds = %91
+.thread35.i:                                      ; preds = %91
   %98 = zext i32 %96 to i64
   %99 = load i64, ptr %32, align 8, !tbaa !104
   %100 = urem i64 %98, %99
@@ -2900,7 +2900,7 @@ _ZNK3nla7emonics18is_canonical_monicEj.exit.thread: ; preds = %70, %_ZNK10union_
   %112 = urem i64 %110, %111
   br label %.critedge.i
 
-113:                                              ; preds = %.thread37.i
+113:                                              ; preds = %.thread35.i
   %114 = load ptr, ptr %103, align 8, !tbaa !109
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i32, ptr %115, align 4, !tbaa !41
@@ -2928,9 +2928,9 @@ _ZNK3nla7emonics18is_canonical_monicEj.exit.thread: ; preds = %70, %_ZNK10union_
 ..loopexit_crit_edge21.i.i.i:                     ; preds = %121
   br label %.critedge.i, !llvm.loop !114
 
-.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %109, %.thread37.i
-  %126 = phi i64 [ %112, %109 ], [ %100, %.thread37.i ], [ %100, %..loopexit_crit_edge21.i.i.i ], [ %100, %.lr.ph.i.i.i ]
-  %127 = phi i64 [ %110, %109 ], [ %98, %.thread37.i ], [ %98, %..loopexit_crit_edge21.i.i.i ], [ %98, %.lr.ph.i.i.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %109, %.thread35.i
+  %126 = phi i64 [ %112, %109 ], [ %100, %.thread35.i ], [ %100, %..loopexit_crit_edge21.i.i.i ], [ %100, %.lr.ph.i.i.i ]
+  %127 = phi i64 [ %110, %109 ], [ %98, %.thread35.i ], [ %98, %..loopexit_crit_edge21.i.i.i ], [ %98, %.lr.ph.i.i.i ]
   %128 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
           to label %.noexc77 unwind label %141
 
@@ -8722,9 +8722,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !111
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread37
+  br i1 %.not.not, label %15, label %.thread35
 
-.thread37:                                        ; preds = %4
+.thread35:                                        ; preds = %4
   %7 = load i32, ptr %1, align 4, !tbaa !41
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8760,7 +8760,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
   %28 = urem i64 %25, %27
   br label %.critedge
 
-29:                                               ; preds = %.thread37
+29:                                               ; preds = %.thread35
   %30 = load ptr, ptr %14, align 8, !tbaa !109
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !41
@@ -8788,10 +8788,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
 ..loopexit_crit_edge21.i.i:                       ; preds = %37
   br label %.critedge, !llvm.loop !114
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread37
-  %42 = phi i64 [ %28, %24 ], [ %11, %.thread37 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %43 = phi i64 [ %25, %24 ], [ %8, %.thread37 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %44 = phi i32 [ %17, %24 ], [ %7, %.thread37 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread35
+  %42 = phi i64 [ %28, %24 ], [ %11, %.thread35 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %43 = phi i64 [ %25, %24 ], [ %8, %.thread35 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %44 = phi i32 [ %17, %24 ], [ %7, %.thread35 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %45, align 8, !tbaa !109
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8

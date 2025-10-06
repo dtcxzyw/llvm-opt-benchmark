@@ -185,9 +185,9 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   store i8 0, ptr %29, align 8
   %30 = load i32, ptr %16, align 8
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph89, label %.loopexit82
+  br i1 %31, label %.lr.ph88, label %.loopexit81
 
-.lr.ph89:                                         ; preds = %1
+.lr.ph88:                                         ; preds = %1
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 3360
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 9536
   %34 = ptrtoint ptr %3 to i64
@@ -197,10 +197,10 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %38 = ptrtoint ptr %7 to i64
   br label %39
 
-39:                                               ; preds = %.lr.ph89, %99
-  %indvars.iv99 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next100, %99 ]
-  %.06787 = phi i1 [ false, %.lr.ph89 ], [ %.4, %99 ]
-  %40 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %10, i64 %indvars.iv99
+39:                                               ; preds = %.lr.ph88, %99
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next99, %99 ]
+  %.06786 = phi i1 [ false, %.lr.ph88 ], [ %.4, %99 ]
+  %40 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %10, i64 %indvars.iv98
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -242,7 +242,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
 60:                                               ; preds = %43, %59
   %61 = phi i32 [ %58, %43 ], [ 2, %59 ]
   %.not71 = icmp ne i32 %61, 0
-  %spec.select = select i1 %.not71, i1 true, i1 %.06787
+  %spec.select = select i1 %.not71, i1 true, i1 %.06786
   %62 = icmp eq i64 %56, 0
   %63 = load i32, ptr %3, align 4
   %64 = icmp slt i32 %63, 1
@@ -264,13 +264,13 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %.not72 = icmp ne ptr %71, null
   %72 = load i32, ptr %3, align 4
   %73 = icmp sgt i32 %72, 0
-  %or.cond95 = select i1 %.not72, i1 %73, i1 false
-  br i1 %or.cond95, label %.lr.ph, label %.loopexit
+  %or.cond94 = select i1 %.not72, i1 %73, i1 false
+  br i1 %or.cond94, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %67, %81
   %74 = phi i32 [ %82, %81 ], [ %72, %67 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %67 ]
-  %.585 = phi i1 [ %.6, %81 ], [ %spec.select, %67 ]
+  %.584 = phi i1 [ %.6, %81 ], [ %spec.select, %67 ]
   %75 = load ptr, ptr %6, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv
   %77 = load i8, ptr %76, align 1, !range !6, !noundef !7
@@ -285,7 +285,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
 
 81:                                               ; preds = %.lr.ph, %79
   %82 = phi i32 [ %.pre, %79 ], [ %74, %.lr.ph ]
-  %.6 = phi i1 [ true, %79 ], [ %.585, %.lr.ph ]
+  %.6 = phi i1 [ true, %79 ], [ %.584, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
@@ -320,7 +320,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit82
+  br label %.loopexit81
 
 99:                                               ; preds = %93, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -328,30 +328,30 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %100 = load i32, ptr %16, align 8
   %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %indvars.iv.next100, %101
-  br i1 %102, label %39, label %.loopexit82, !llvm.loop !9
+  %102 = icmp slt i64 %indvars.iv.next99, %101
+  br i1 %102, label %39, label %.loopexit81, !llvm.loop !9
 
-.loopexit82:                                      ; preds = %99, %1, %98
-  %.06784 = phi i1 [ %.06787, %98 ], [ false, %1 ], [ %.4, %99 ]
+.loopexit81:                                      ; preds = %99, %1, %98
+  %.06783 = phi i1 [ %.06786, %98 ], [ false, %1 ], [ %.4, %99 ]
   %103 = load i32, ptr %24, align 8
-  %.not96 = icmp eq i32 %103, 0
-  br i1 %.not96, label %._crit_edge.thread, label %.lr.ph92
+  %.not95 = icmp eq i32 %103, 0
+  br i1 %.not95, label %._crit_edge.thread, label %.lr.ph91
 
-.lr.ph92:                                         ; preds = %.loopexit82, %131
-  %104 = phi i32 [ %132, %131 ], [ %103, %.loopexit82 ]
-  %.191 = phi i32 [ %133, %131 ], [ 0, %.loopexit82 ]
+.lr.ph91:                                         ; preds = %.loopexit81, %131
+  %104 = phi i32 [ %132, %131 ], [ %103, %.loopexit81 ]
+  %.190 = phi i32 [ %133, %131 ], [ 0, %.loopexit81 ]
   %105 = load ptr, ptr %23, align 8
-  %106 = sext i32 %.191 to i64
+  %106 = sext i32 %.190 to i64
   %107 = getelementptr inbounds %struct.GinScanKeyData, ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 132
   %109 = load i32, ptr %108, align 4
   %.not75 = icmp eq i32 %109, 2
   br i1 %.not75, label %110, label %131
 
-110:                                              ; preds = %.lr.ph92
+110:                                              ; preds = %.lr.ph91
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 136
   %112 = load i16, ptr %111, align 8
   %113 = zext i16 %112 to i64
@@ -378,25 +378,25 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %129 = getelementptr i8, ptr %2, i64 %128
   %130 = getelementptr i8, ptr %129, i64 -1
   store i8 1, ptr %130, align 1
-  %.pre101 = load i32, ptr %24, align 8
+  %.pre100 = load i32, ptr %24, align 8
   br label %131
 
-131:                                              ; preds = %110, %118, %.lr.ph92
-  %132 = phi i32 [ %104, %110 ], [ %.pre101, %118 ], [ %104, %.lr.ph92 ]
-  %133 = add nuw i32 %.191, 1
+131:                                              ; preds = %110, %118, %.lr.ph91
+  %132 = phi i32 [ %104, %110 ], [ %.pre100, %118 ], [ %104, %.lr.ph91 ]
+  %133 = add nuw i32 %.190, 1
   %134 = icmp ult i32 %133, %132
-  br i1 %134, label %.lr.ph92, label %._crit_edge, !llvm.loop !10
+  br i1 %134, label %.lr.ph91, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %131
   %135 = icmp eq i32 %132, 0
   br i1 %135, label %._crit_edge.thread, label %162
 
-._crit_edge.thread:                               ; preds = %.loopexit82, %._crit_edge
+._crit_edge.thread:                               ; preds = %.loopexit81, %._crit_edge
   %136 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %137 = trunc nuw i8 %136 to i1
-  br i1 %137, label %162, label %.thread80
+  br i1 %137, label %162, label %.thread79
 
-.thread80:                                        ; preds = %._crit_edge.thread
+.thread79:                                        ; preds = %._crit_edge.thread
   %138 = load ptr, ptr %23, align 8
   store i32 1, ptr %24, align 8
   %139 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -441,9 +441,9 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   br label %163
 
 162:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  br i1 %.06784, label %163, label %182
+  br i1 %.06783, label %163, label %182
 
-163:                                              ; preds = %.thread80, %162
+163:                                              ; preds = %.thread79, %162
   %164 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %182, label %166
@@ -491,13 +491,13 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
 
 191:                                              ; preds = %187
   call void @pgstat_assoc_relation(ptr noundef nonnull %184) #6
-  %.pre102 = load ptr, ptr %183, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre102, i64 480
-  %.pre103 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre101 = load ptr, ptr %183, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre101, i64 480
+  %.pre102 = load ptr, ptr %.phi.trans.insert, align 8
   br label %192
 
 192:                                              ; preds = %182, %191
-  %193 = phi ptr [ %186, %182 ], [ %.pre103, %191 ]
+  %193 = phi ptr [ %186, %182 ], [ %.pre102, %191 ]
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, 1

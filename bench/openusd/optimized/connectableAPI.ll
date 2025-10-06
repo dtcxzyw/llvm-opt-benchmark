@@ -4994,14 +4994,14 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnec
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load ptr, ptr %22, align 8
-  %.not103 = icmp eq ptr %21, %23
-  br i1 %.not103, label %.loopexit94, label %.lr.ph
+  %.not102 = icmp eq ptr %21, %23
+  br i1 %.not102, label %.loopexit93, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %49
-  %.sroa.081.0104 = phi ptr [ %50, %49 ], [ %21, %20 ]
+  %.sroa.081.0103 = phi ptr [ %50, %49 ], [ %21, %20 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %24 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_CanCastToTypeERKNS_7SdfSpecERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.081.0104, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__16SdfAttributeSpecE)
+  %24 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_CanCastToTypeERKNS_7SdfSpecERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.081.0103, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__16SdfAttributeSpecE)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph
@@ -5009,7 +5009,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnec
 
 25:                                               ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %26 = load ptr, ptr %.sroa.081.0104, align 8, !noalias !53
+  %26 = load ptr, ptr %.sroa.081.0103, align 8, !noalias !53
   store ptr %26, ptr %10, align 8, !alias.scope !50, !noalias !47
   %.not.i.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_CastAccess8CastSpecINS_16SdfAttributeSpecENS_15SdfPropertySpecEEET_RKT0_.exit.thread.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_CastAccess8CastSpecINS_16SdfAttributeSpecENS_15SdfPropertySpecEEET_RKT0_.exit.i
@@ -5040,7 +5040,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEC2ERKS1_.
 31:                                               ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEC2ERKS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %32 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %33 unwind label %.loopexit98
+          to label %33 unwind label %.loopexit97
 
 33:                                               ; preds = %31
   br i1 %32, label %49, label %34
@@ -5049,7 +5049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEC2ERKS1_.
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %.noexc29 unwind label %.loopexit98
+          to label %.noexc29 unwind label %.loopexit97
 
 .noexc29:                                         ; preds = %34
   br i1 %35, label %36, label %42
@@ -5067,7 +5067,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEC2ERKS1_.
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 4, ptr %37, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__16SdfAttributeSpecE)
-          to label %.noexc30 unwind label %.loopexit.split-lp99
+          to label %.noexc30 unwind label %.loopexit.split-lp98
 
 .noexc30:                                         ; preds = %36
   %38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
@@ -5088,14 +5088,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEC2ERKS1_.
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfAttributeSpec18HasConnectionPathsEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %44 unwind label %.loopexit98
+          to label %44 unwind label %.loopexit97
 
 44:                                               ; preds = %42
   br i1 %43, label %45, label %49
 
 45:                                               ; preds = %44
   %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEaSERKS2_.exit unwind label %.loopexit.split-lp99
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEaSERKS2_.exit unwind label %.loopexit.split-lp98
 
 47:                                               ; preds = %1
   %48 = landingpad { ptr, i32 }
@@ -5108,51 +5108,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEC2ERKS1_.
   br label %.body50
 
 .loopexit.split-lp.loopexit:                      ; preds = %107, %115, %105
-  %lpad.loopexit87 = landingpad { ptr, i32 }
+  %lpad.loopexit86 = landingpad { ptr, i32 }
           cleanup
   br label %.body50
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph
-  %lpad.loopexit95 = landingpad { ptr, i32 }
+  %lpad.loopexit94 = landingpad { ptr, i32 }
           cleanup
   br label %.body50
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.loopexit94, %53, %109
-  %lpad.loopexit.split-lp96 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.loopexit93, %53, %109
+  %lpad.loopexit.split-lp95 = landingpad { ptr, i32 }
           cleanup
   br label %.body50
 
-.loopexit98:                                      ; preds = %42, %31, %34
-  %lpad.loopexit100 = landingpad { ptr, i32 }
+.loopexit97:                                      ; preds = %42, %31, %34
+  %lpad.loopexit99 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp99:                             ; preds = %36, %45
-  %lpad.loopexit.split-lp101 = landingpad { ptr, i32 }
+.loopexit.split-lp98:                             ; preds = %36, %45
+  %lpad.loopexit.split-lp100 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit98, %.loopexit.split-lp99, %40
-  %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit100, %.loopexit98 ], [ %lpad.loopexit.split-lp101, %.loopexit.split-lp99 ]
+.body:                                            ; preds = %.loopexit97, %.loopexit.split-lp98, %40
+  %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit99, %.loopexit97 ], [ %lpad.loopexit.split-lp100, %.loopexit.split-lp98 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
   br label %.body50
 
 _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEaSERKS2_.exit: ; preds = %45
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
-  br label %.loopexit94
+  br label %.loopexit93
 
 49:                                               ; preds = %44, %33
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.081.0104, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.081.0103, i64 8
   %.not = icmp eq ptr %50, %23
-  br i1 %.not, label %.loopexit94, label %.lr.ph
+  br i1 %.not, label %.loopexit93, label %.lr.ph
 
-.loopexit94:                                      ; preds = %49, %20, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEaSERKS2_.exit
+.loopexit93:                                      ; preds = %49, %20, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_16SdfAttributeSpecEEaSERKS2_.exit
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %52 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-52:                                               ; preds = %.loopexit94
-  br i1 %51, label %.loopexit86, label %53
+52:                                               ; preds = %.loopexit93
+  br i1 %51, label %.loopexit85, label %53
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5257,24 +5257,24 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   %.sroa.2.0.copyload.i40 = load i64, ptr %.sroa.2.0..sroa_idx.i39, align 8
   %98 = icmp ne ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i38
   %99 = icmp ne i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i40
-  %.not3.i105 = or i1 %98, %99
-  br i1 %.not3.i105, label %.lr.ph107, label %.loopexit86
+  %.not3.i104 = or i1 %98, %99
+  br i1 %.not3.i104, label %.lr.ph106, label %.loopexit85
 
-.lr.ph107:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
+.lr.ph106:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %101 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %105
 
 102:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit67
-  %103 = add i64 %.sroa.3.0106, 1
+  %103 = add i64 %.sroa.3.0105, 1
   %104 = icmp ne i64 %103, %.sroa.2.0.copyload.i40
   %.not3.i = or i1 %98, %104
-  br i1 %.not3.i, label %105, label %.loopexit86
+  br i1 %.not3.i, label %105, label %.loopexit85
 
-105:                                              ; preds = %.lr.ph107, %102
-  %.sroa.3.0106 = phi i64 [ %.sroa.2.0.copyload.i, %.lr.ph107 ], [ %103, %102 ]
+105:                                              ; preds = %.lr.ph106, %102
+  %.sroa.3.0105 = phi i64 [ %.sroa.2.0.copyload.i, %.lr.ph106 ], [ %103, %102 ]
   store ptr %.sroa.0.0.copyload.i, ptr %16, align 8
-  store i64 %.sroa.3.0106, ptr %100, align 8
+  store i64 %.sroa.3.0105, ptr %100, align 8
   %106 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetPathEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %107 unwind label %.loopexit.split-lp.loopexit
 
@@ -5335,7 +5335,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
 
 119:                                              ; preds = %117
   %120 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %121 unwind label %.loopexit90
+          to label %121 unwind label %.loopexit89
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5354,7 +5354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %127, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEEE) #23
-          to label %.noexc53 unwind label %.loopexit.split-lp91
+          to label %.noexc53 unwind label %.loopexit.split-lp90
 
 .noexc53:                                         ; preds = %123
   unreachable
@@ -5364,7 +5364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %129 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc59 unwind label %.loopexit90
+          to label %.noexc59 unwind label %.loopexit89
 
 .noexc59:                                         ; preds = %128
   br i1 %129, label %130, label %136
@@ -5382,7 +5382,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %131, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__16SdfAttributeSpecE)
-          to label %.noexc60 unwind label %.loopexit.split-lp91
+          to label %.noexc60 unwind label %.loopexit.split-lp90
 
 .noexc60:                                         ; preds = %130
   %132 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
@@ -5403,7 +5403,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec8GetLayerEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.4") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %137 unwind label %.loopexit90
+          to label %137 unwind label %.loopexit89
 
 137:                                              ; preds = %136
   %138 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13PcpLayerStack8HasLayerERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(617) %122, ptr noundef nonnull align 8 dereferenceable(16) %19)
@@ -5528,7 +5528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit67: ; preds = %_ZN32pxrInt
 _ZN32pxrInternal_v0_24__pxrReserved__L31_NodeRepresentsLiveBaseMaterialERKNS_10PcpNodeRefE.exit: ; preds = %.noexc70, %185
   %.0.lcssa.i = phi i1 [ false, %185 ], [ %spec.select.i, %.noexc70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.loopexit86
+  br label %.loopexit85
 
 195:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleptEv.exit.i, %62, %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetPrimIndexEv.exit
   %196 = landingpad { ptr, i32 }
@@ -5541,12 +5541,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__L31_NodeRepresentsLiveBaseMaterialERKNS_10P
           cleanup
   br label %209
 
-.loopexit90:                                      ; preds = %119, %136, %128
-  %lpad.loopexit92 = landingpad { ptr, i32 }
+.loopexit89:                                      ; preds = %119, %136, %128
+  %lpad.loopexit91 = landingpad { ptr, i32 }
           cleanup
   br label %.body61
 
-.loopexit.split-lp91:                             ; preds = %123, %130
+.loopexit.split-lp90:                             ; preds = %123, %130
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body61
@@ -5571,8 +5571,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void %208(ptr noundef nonnull align 8 dereferenceable(12) %201) #20
   br label %.body61
 
-.body61:                                          ; preds = %.loopexit90, %.loopexit.split-lp91, %205, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i72, %199, %134
-  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %200, %199 ], [ %200, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i72 ], [ %200, %205 ], [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp91 ]
+.body61:                                          ; preds = %.loopexit89, %.loopexit.split-lp90, %205, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i72, %199, %134
+  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %200, %199 ], [ %200, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i72 ], [ %200, %205 ], [ %lpad.loopexit91, %.loopexit89 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp90 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %17) #20
   br label %209
 
@@ -5581,15 +5581,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %18) #20
   br label %.body50
 
-.loopexit86:                                      ; preds = %102, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L31_NodeRepresentsLiveBaseMaterialERKNS_10PcpNodeRefE.exit, %52
+.loopexit85:                                      ; preds = %102, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L31_NodeRepresentsLiveBaseMaterialERKNS_10PcpNodeRefE.exit, %52
   %.015 = phi i1 [ %.0.lcssa.i, %_ZN32pxrInternal_v0_24__pxrReserved__L31_NodeRepresentsLiveBaseMaterialERKNS_10PcpNodeRefE.exit ], [ false, %52 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ], [ false, %102 ]
   %210 = load ptr, ptr %12, align 8
   %211 = load ptr, ptr %22, align 8
   %.not4.i.i.i.i = icmp eq ptr %210, %211
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.loopexit86, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %212, %.lr.ph.i.i.i.i ], [ %210, %.loopexit86 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.loopexit85, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %212, %.lr.ph.i.i.i.i ], [ %210, %.loopexit85 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i) #20
   %212 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i74 = icmp eq ptr %212, %211
@@ -5599,8 +5599,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySp
   %.pr.i75 = load ptr, ptr %12, align 8
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %.loopexit86
-  %213 = phi ptr [ %.pr.i75, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %210, %.loopexit86 ]
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %.loopexit85
+  %213 = phi ptr [ %.pr.i75, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %210, %.loopexit85 ]
   %.not.i.i.i = icmp eq ptr %213, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEESaIS3_EED2Ev.exit, label %214
 
@@ -5618,7 +5618,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpec
   ret i1 %.015
 
 .body50:                                          ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %113, %209, %195, %.body
-  %.pn25 = phi { ptr, i32 } [ %.pn.pn, %209 ], [ %196, %195 ], [ %eh.lpad-body, %.body ], [ %114, %113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn25 = phi { ptr, i32 } [ %.pn.pn, %209 ], [ %196, %195 ], [ %eh.lpad-body, %.body ], [ %114, %113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit94, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #20
   br label %220
 

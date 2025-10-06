@@ -389,7 +389,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVELFTargetObjectFile22SelectSection
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 67108864
-  %.not49 = icmp eq i32 %19, 0
+  %.not48 = icmp eq i32 %19, 0
   %.off.i = add i8 %.sroa.037.0.extract.trunc, -15
   %switch.i = icmp ult i8 %.off.i, 3
   br i1 %switch.i, label %20, label %50
@@ -400,7 +400,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVELFTargetObjectFile22SelectSection
   br i1 %switch.i41, label %.thread42, label %.thread43
 
 20:                                               ; preds = %16
-  br i1 %.not49, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i, label %.thread42
+  br i1 %.not48, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i, label %.thread42
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -484,7 +484,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN4llvm11SmallStri
   br i1 %52, label %.thread44, label %83
 
 53:                                               ; preds = %50
-  br i1 %.not49, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i16, label %.thread44
+  br i1 %.not48, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i16, label %.thread44
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i16: ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

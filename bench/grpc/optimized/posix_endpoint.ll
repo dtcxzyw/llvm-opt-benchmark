@@ -588,8 +588,8 @@ define noundef i64 @_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord1
 define void @_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.grpc_event_engine::experimental::Slice", align 8
   %5 = sub i64 %1, %2
-  %.not19 = icmp eq i64 %5, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not18 = icmp eq i64 %5, 0
+  br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -597,7 +597,7 @@ define void @_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24Update
   br label %8
 
 8:                                                ; preds = %.lr.ph, %18
-  %.01220 = phi i64 [ %5, %.lr.ph ], [ %19, %18 ]
+  %.01219 = phi i64 [ %5, %.lr.ph ], [ %19, %18 ]
   %9 = load i64, ptr %6, align 8, !tbaa !3
   %10 = add i64 %9, -1
   store i64 %10, ptr %6, align 8, !tbaa !3
@@ -610,17 +610,17 @@ define void @_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24Update
   %14 = select i1 %.not.i.i, i64 %13, i64 %12
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %15 = icmp ugt i64 %14, %.01220
+  %15 = icmp ugt i64 %14, %.01219
   br i1 %15, label %.thread, label %18
 
 .thread:                                          ; preds = %8
-  %16 = sub nuw i64 %14, %.01220
+  %16 = sub nuw i64 %14, %.01219
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %16, ptr %17, align 8, !tbaa !16
   br label %.loopexit
 
 18:                                               ; preds = %8
-  %19 = sub nuw i64 %.01220, %14
+  %19 = sub nuw i64 %.01219, %14
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %.loopexit, label %8
 
@@ -4673,11 +4673,11 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   %268 = add i32 %266, %267
   store i32 %268, ptr %41, align 16, !tbaa !283
   %269 = sub i64 %.162, %208
-  %.not19.i = icmp eq i64 %269, 0
-  br i1 %.not19.i, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %.lr.ph.i48
+  %.not18.i = icmp eq i64 %269, 0
+  br i1 %.not18.i, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %265, %278
-  %.01220.i = phi i64 [ %279, %278 ], [ %269, %265 ]
+  %.01219.i = phi i64 [ %279, %278 ], [ %269, %265 ]
   %270 = load i64, ptr %23, align 8, !tbaa !3
   %271 = add i64 %270, -1
   store i64 %271, ptr %23, align 8, !tbaa !3
@@ -4690,16 +4690,16 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   %275 = select i1 %.not.i.i.i49, i64 %274, i64 %273
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %276 = icmp ugt i64 %275, %.01220.i
+  %276 = icmp ugt i64 %275, %.01219.i
   br i1 %276, label %.thread.i, label %278
 
 .thread.i:                                        ; preds = %.lr.ph.i48
-  %277 = sub nuw i64 %275, %.01220.i
+  %277 = sub nuw i64 %275, %.01219.i
   store i64 %277, ptr %24, align 8, !tbaa !16
   br label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit
 
 278:                                              ; preds = %.lr.ph.i48
-  %279 = sub nuw i64 %.01220.i, %275
+  %279 = sub nuw i64 %.01219.i, %275
   %.not.i50 = icmp eq i64 %279, 0
   br i1 %.not.i50, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %.lr.ph.i48
 
@@ -4955,16 +4955,16 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %15, %2
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.pre = load ptr, ptr %23, align 8, !tbaa !300
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre199 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
+  %.pre198 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
   br label %37
 
-37:                                               ; preds = %.loopexit109, %_ZN4absl12lts_202407226StatusD2Ev.exit
-  %38 = phi i64 [ %.pre199, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %210, %.loopexit109 ]
-  %39 = phi ptr [ %.pre, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %208, %.loopexit109 ]
-  %.057 = phi i64 [ 0, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %.4, %.loopexit109 ]
+37:                                               ; preds = %.loopexit108, %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %38 = phi i64 [ %.pre198, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %210, %.loopexit108 ]
+  %39 = phi ptr [ %.pre, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %208, %.loopexit108 ]
+  %.057 = phi i64 [ 0, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %.4, %.loopexit108 ]
   %40 = load i64, ptr %22, align 16, !tbaa !301
-  %.not165 = icmp eq i64 %.057, %38
-  br i1 %.not165, label %66, label %.lr.ph
+  %.not164 = icmp eq i64 %.057, %38
+  br i1 %.not164, label %66, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -4972,11 +4972,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %15, %2
   br label %43
 
 43:                                               ; preds = %.lr.ph, %43
-  %.047152 = phi i64 [ 0, %.lr.ph ], [ %61, %43 ]
-  %.048151 = phi i64 [ 0, %.lr.ph ], [ %59, %43 ]
-  %.158150 = phi i64 [ %.057, %.lr.ph ], [ %60, %43 ]
+  %.047151 = phi i64 [ 0, %.lr.ph ], [ %61, %43 ]
+  %.048150 = phi i64 [ 0, %.lr.ph ], [ %59, %43 ]
+  %.158149 = phi i64 [ %.057, %.lr.ph ], [ %60, %43 ]
   %44 = phi i64 [ %40, %.lr.ph ], [ 0, %43 ]
-  %45 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.158150
+  %45 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.158149
   %46 = load ptr, ptr %45, align 8, !tbaa !19
   %.not.i.i68 = icmp eq ptr %46, null
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -4984,7 +4984,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %15, %2
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 9
   %50 = select i1 %.not.i.i68, ptr %49, ptr %48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %44
-  %52 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %.047152
+  %52 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %.047151
   store ptr %51, ptr %52, align 16, !tbaa !23
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %54 = load i64, ptr %53, align 8
@@ -4993,10 +4993,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %15, %2
   %57 = sub i64 %56, %44
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %57, ptr %58, align 8, !tbaa !25
-  %59 = add i64 %57, %.048151
-  %60 = add i64 %.158150, 1
+  %59 = add i64 %57, %.048150
+  %60 = add i64 %.158149, 1
   store i64 0, ptr %22, align 16, !tbaa !301
-  %61 = add nuw nsw i64 %.047152, 1
+  %61 = add nuw nsw i64 %.047151, 1
   %62 = icmp ne i64 %60, %38
   %63 = icmp ne i64 %61, 260
   %64 = and i1 %62, %63
@@ -5026,9 +5026,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %15, %2
 71:                                               ; preds = %._crit_edge
   %72 = load i8, ptr %29, align 1, !tbaa !287, !range !88, !noundef !130
   %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %.thread223
+  br i1 %73, label %74, label %.thread222
 
-.thread223:                                       ; preds = %71
+.thread222:                                       ; preds = %71
   store i8 0, ptr %29, align 1, !tbaa !287
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %77
@@ -5038,14 +5038,14 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %15, %2
   br i1 %75, label %thread-pre-split, label %76
 
 76:                                               ; preds = %74
-  %.pre201 = load ptr, ptr %28, align 16, !tbaa !285
+  %.pre200 = load ptr, ptr %28, align 16, !tbaa !285
   store i8 0, ptr %29, align 1, !tbaa !287
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not.i70 = icmp eq ptr %.pre201, null
+  %.not.i70 = icmp eq ptr %.pre200, null
   br i1 %.not.i70, label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit, label %77
 
-77:                                               ; preds = %.thread223, %76
-  %78 = phi ptr [ %65, %.thread223 ], [ %.pre201, %76 ]
+77:                                               ; preds = %.thread222, %76
+  %78 = phi ptr [ %65, %.thread222 ], [ %.pre200, %76 ]
   call void @_ZN4absl12lts_2024072213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %4, i64 26, ptr nonnull @.str.13)
   invoke void @_ZN17grpc_event_engine12experimental16TracedBufferList8ShutdownEPvN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull %78, ptr noundef nonnull %4)
           to label %79 unwind label %87
@@ -5084,11 +5084,11 @@ common.resume:                                    ; preds = %183, %181, %87
 
 _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit: ; preds = %76, %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.promoted155.pre = load i32, ptr %8, align 4
+  %.promoted154.pre = load i32, ptr %8, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit
-  %.promoted155 = phi i32 [ 0, %._crit_edge ], [ %.promoted155.pre, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit ]
+  %.promoted154 = phi i32 [ 0, %._crit_edge ], [ %.promoted154.pre, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit ]
   %89 = trunc i64 %59 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %90 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
@@ -5108,7 +5108,7 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   br label %104
 
 104:                                              ; preds = %127, %.critedge
-  %105 = phi i32 [ 4, %127 ], [ %.promoted155, %.critedge ]
+  %105 = phi i32 [ 4, %127 ], [ %.promoted154, %.critedge ]
   br i1 %.not.i.i.i87, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i.i
 
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %104
@@ -5192,17 +5192,17 @@ thread-pre-split:                                 ; preds = %74
 
 137:                                              ; preds = %135, %135
   store i64 %40, ptr %22, align 16, !tbaa !301
-  %.not166 = icmp eq i64 %.057, 0
-  br i1 %.not166, label %.loopexit, label %.lr.ph164
+  %.not165 = icmp eq i64 %.057, 0
+  br i1 %.not165, label %.loopexit, label %.lr.ph163
 
-.lr.ph164:                                        ; preds = %137, %.lr.ph164
-  %.053162 = phi i64 [ %139, %.lr.ph164 ], [ 0, %137 ]
+.lr.ph163:                                        ; preds = %137, %.lr.ph163
+  %.053161 = phi i64 [ %139, %.lr.ph163 ], [ 0, %137 ]
   %138 = load ptr, ptr %23, align 8, !tbaa !300
   call void @_ZN17grpc_event_engine12experimental11SliceBuffer9TakeFirstEv(ptr dead_on_unwind nonnull writable sret(%"class.grpc_event_engine::experimental::Slice") align 8 %10, ptr noundef nonnull align 8 dereferenceable(232) %138)
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #41
-  %139 = add nuw i64 %.053162, 1
+  %139 = add nuw i64 %.053161, 1
   %exitcond.not = icmp eq i64 %139, %.057
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph164, !llvm.loop !303
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph163, !llvm.loop !303
 
 140:                                              ; preds = %135
   call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112PosixOSErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %11, i32 noundef %136, i64 7, ptr nonnull @.str.17)
@@ -5348,8 +5348,8 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   %191 = add i32 %189, %190
   store i32 %191, ptr %35, align 16, !tbaa !283
   %192 = sub i64 %59, %133
-  %.not65156 = icmp eq i64 %192, 0
-  br i1 %.not65156, label %.loopexit109, label %.lr.ph160
+  %.not65155 = icmp eq i64 %192, 0
+  br i1 %.not65155, label %.loopexit108, label %.lr.ph159
 
 193:                                              ; preds = %185
   %194 = call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %186, i64 noundef 0, ptr noundef nonnull @.str.19)
@@ -5361,10 +5361,10 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #43
   unreachable
 
-.lr.ph160:                                        ; preds = %188, %206
-  %.049158 = phi i64 [ %207, %206 ], [ %192, %188 ]
-  %.3157 = phi i64 [ %198, %206 ], [ %60, %188 ]
-  %198 = add i64 %.3157, -1
+.lr.ph159:                                        ; preds = %188, %206
+  %.049157 = phi i64 [ %207, %206 ], [ %192, %188 ]
+  %.3156 = phi i64 [ %198, %206 ], [ %60, %188 ]
+  %198 = add i64 %.3156, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %199 = load ptr, ptr %23, align 8, !tbaa !300
   call void @_ZN17grpc_event_engine12experimental11SliceBuffer8RefSliceEm(ptr dead_on_unwind nonnull writable sret(%"class.grpc_event_engine::experimental::Slice") align 8 %13, ptr noundef nonnull align 8 dereferenceable(232) %199, i64 noundef %198)
@@ -5375,20 +5375,20 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   %203 = select i1 %.not.i.i86, i64 %202, i64 %201
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %204 = icmp ugt i64 %203, %.049158
+  %204 = icmp ugt i64 %203, %.049157
   br i1 %204, label %.thread, label %206
 
-.thread:                                          ; preds = %.lr.ph160
-  %205 = sub nuw i64 %203, %.049158
+.thread:                                          ; preds = %.lr.ph159
+  %205 = sub nuw i64 %203, %.049157
   store i64 %205, ptr %22, align 16, !tbaa !301
-  br label %.loopexit109
+  br label %.loopexit108
 
-206:                                              ; preds = %.lr.ph160
-  %207 = sub nuw i64 %.049158, %203
+206:                                              ; preds = %.lr.ph159
+  %207 = sub nuw i64 %.049157, %203
   %.not65 = icmp eq i64 %207, 0
-  br i1 %.not65, label %.loopexit109, label %.lr.ph160
+  br i1 %.not65, label %.loopexit108, label %.lr.ph159
 
-.loopexit109:                                     ; preds = %206, %188, %.thread
+.loopexit108:                                     ; preds = %206, %188, %.thread
   %.4 = phi i64 [ %198, %.thread ], [ %60, %188 ], [ %198, %206 ]
   %208 = load ptr, ptr %23, align 8, !tbaa !300
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
@@ -5396,12 +5396,12 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   %211 = icmp eq i64 %.4, %210
   br i1 %211, label %212, label %37, !llvm.loop !307
 
-212:                                              ; preds = %.loopexit109
+212:                                              ; preds = %.loopexit108
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull align 8 dereferenceable(232) %208)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph164, %137, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit83, %212
-  %.1.ph = phi i1 [ true, %212 ], [ true, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit83 ], [ false, %137 ], [ false, %.lr.ph164 ]
+.loopexit:                                        ; preds = %.lr.ph163, %137, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit83, %212
+  %.1.ph = phi i1 [ true, %212 ], [ true, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit83 ], [ false, %137 ], [ false, %.lr.ph163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -9876,8 +9876,8 @@ define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @"_ZZN17gr
 
 .preheader:                                       ; preds = %10
   %12 = tail call ptr @readdir(ptr noundef nonnull %11)
-  %.not2619 = icmp eq ptr %12, null
-  br i1 %.not2619, label %._crit_edge, label %.lr.ph
+  %.not2618 = icmp eq ptr %12, null
+  br i1 %.not2618, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8

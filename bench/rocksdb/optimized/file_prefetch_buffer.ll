@@ -3048,16 +3048,16 @@ define void @_ZN7rocksdb18FilePrefetchBuffer17ClearOutdatedDataEmm(ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load i8, ptr %17, align 8, !tbaa !92, !range !43, !noundef !44
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %.thread, label %.lr.ph63
+  br i1 %19, label %.thread, label %.lr.ph62
 
 20:                                               ; preds = %52
   %21 = load ptr, ptr %53, align 8, !tbaa !101
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %23 = load i8, ptr %22, align 8, !tbaa !92, !range !43, !noundef !44
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %.thread, label %.lr.ph63
+  br i1 %24, label %.thread, label %.lr.ph62
 
-.lr.ph63:                                         ; preds = %.lr.ph, %20
+.lr.ph62:                                         ; preds = %.lr.ph, %20
   %25 = phi ptr [ %21, %20 ], [ %16, %.lr.ph ]
   %26 = phi ptr [ %53, %20 ], [ %8, %.lr.ph ]
   %27 = phi ptr [ %54, %20 ], [ %7, %.lr.ph ]
@@ -3066,12 +3066,12 @@ define void @_ZN7rocksdb18FilePrefetchBuffer17ClearOutdatedDataEmm(ptr noundef n
   %.not.i = icmp eq i64 %29, 0
   br i1 %.not.i, label %.thread, label %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit
 
-_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit: ; preds = %.lr.ph63
+_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit: ; preds = %.lr.ph62
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %31 = load i64, ptr %30, align 8, !tbaa !21
   %32 = add i64 %31, %29
-  %.not29 = icmp ult i64 %1, %32
-  br i1 %.not29, label %.thread, label %33
+  %.not28 = icmp ult i64 %1, %32
+  br i1 %.not28, label %.thread, label %33
 
 33:                                               ; preds = %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3129,9 +3129,9 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE9pop_frontEv.exit.i: ; preds = %40, %
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %.thread.thread, label %20
 
-.thread:                                          ; preds = %20, %.lr.ph63, %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit, %.lr.ph, %3
-  %56 = phi ptr [ %8, %3 ], [ %8, %.lr.ph ], [ %26, %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit ], [ %26, %.lr.ph63 ], [ %53, %20 ]
-  %57 = phi ptr [ %7, %3 ], [ %7, %.lr.ph ], [ %27, %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit ], [ %27, %.lr.ph63 ], [ %54, %20 ]
+.thread:                                          ; preds = %20, %.lr.ph62, %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit, %.lr.ph, %3
+  %56 = phi ptr [ %8, %3 ], [ %8, %.lr.ph ], [ %26, %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit ], [ %26, %.lr.ph62 ], [ %53, %20 ]
+  %57 = phi ptr [ %7, %3 ], [ %7, %.lr.ph ], [ %27, %_ZN7rocksdb10BufferInfo16IsBufferOutdatedEm.exit ], [ %27, %.lr.ph62 ], [ %54, %20 ]
   %58 = icmp eq ptr %57, %56
   br i1 %58, label %.thread.thread, label %59
 
@@ -3175,8 +3175,8 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE9pop_frontEv.exit.i: ; preds = %40, %
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %93 = load i64, ptr %92, align 8, !tbaa !4
-  %.not30 = icmp eq i64 %93, 0
-  br i1 %.not30, label %.critedge, label %94
+  %.not29 = icmp eq i64 %93, 0
+  br i1 %.not29, label %.critedge, label %94
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 72
@@ -3268,9 +3268,9 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %110, %116
   %152 = ashr exact i64 %151, 3
   %153 = add nsw i64 %146, %152
   %154 = icmp ugt i64 %153, 1
-  br i1 %154, label %.lr.ph39, label %.thread.thread.sink.split
+  br i1 %154, label %.lr.ph38, label %.thread.thread.sink.split
 
-.lr.ph39:                                         ; preds = %130
+.lr.ph38:                                         ; preds = %130
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %156 = load ptr, ptr %155, align 8, !tbaa !107, !noalias !188
   %157 = ptrtoint ptr %156 to i64
@@ -3278,9 +3278,9 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %110, %116
   %159 = ashr exact i64 %158, 3
   br label %160
 
-160:                                              ; preds = %.lr.ph39, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25
-  %.037 = phi i64 [ 1, %.lr.ph39 ], [ %182, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25 ]
-  %161 = add nsw i64 %159, %.037
+160:                                              ; preds = %.lr.ph38, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25
+  %.036 = phi i64 [ 1, %.lr.ph38 ], [ %182, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25 ]
+  %161 = add nsw i64 %159, %.036
   %162 = icmp sgt i64 %161, -1
   br i1 %162, label %163, label %169
 
@@ -3289,7 +3289,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %110, %116
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %163
-  %166 = getelementptr inbounds ptr, ptr %148, i64 %.037
+  %166 = getelementptr inbounds ptr, ptr %148, i64 %.036
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25
 
 167:                                              ; preds = %163
@@ -3318,7 +3318,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit25: ; preds = %165, %171
   store i64 0, ptr %180, align 8, !tbaa !84
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 80
   store i64 0, ptr %181, align 8, !tbaa !87
-  %182 = add nuw i64 %.037, 1
+  %182 = add nuw i64 %.036, 1
   %exitcond.not = icmp eq i64 %182, %153
   br i1 %exitcond.not, label %.thread.thread.sink.split, label %160, !llvm.loop !191
 

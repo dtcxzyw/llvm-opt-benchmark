@@ -1288,17 +1288,17 @@ define noundef double @_ZN5folly14prettyToDoubleENS_5RangeIPKcEENS_10PrettyTypeE
   %7 = call noundef double @_ZN5folly14prettyToDoubleEPNS_5RangeIPKcEENS_10PrettyTypeE(ptr noundef nonnull %5, i32 noundef %2)
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !25
   %.sroa.2.0.copyload = load ptr, ptr %6, align 8, !tbaa !25
-  %.not13.i.i = icmp eq ptr %.sroa.0.0.copyload, %.sroa.2.0.copyload
-  br i1 %.not13.i.i, label %_ZN5folly6detail17enforceWhitespaceENS_5RangeIPKcEE.exit, label %.lr.ph.i.i
+  %.not14.i.i = icmp eq ptr %.sroa.0.0.copyload, %.sroa.2.0.copyload
+  br i1 %.not14.i.i, label %_ZN5folly6detail17enforceWhitespaceENS_5RangeIPKcEE.exit, label %.lr.ph.i.i
 
 8:                                                ; preds = %.lr.ph.i.i
-  %9 = getelementptr inbounds nuw i8, ptr %.01114.i.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01115.i.i, i64 1
   %.not.i.i = icmp eq ptr %9, %.sroa.2.0.copyload
   br i1 %.not.i.i, label %_ZN5folly6detail17enforceWhitespaceENS_5RangeIPKcEE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %8
-  %.01114.i.i = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload, %3 ]
-  %10 = load i8, ptr %.01114.i.i, align 1, !tbaa !7
+  %.01115.i.i = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload, %3 ]
+  %10 = load i8, ptr %.01115.i.i, align 1, !tbaa !7
   %11 = sext i8 %10 to i32
   %12 = call i32 @isspace(i32 noundef %11) #31
   %.not12.not.i.i = icmp eq i32 %12, 0

@@ -5155,8 +5155,8 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %7
   br i1 %23, label %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, label %_ZNK8rational6is_oneEv.exit.thread, !llvm.loop !230
 
 _ZNK8rational6is_oneEv.exit.thread:               ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %_ZNK8rational6is_oneEv.exit, %7, %2
-  %switch = phi i1 [ true, %2 ], [ %exitcond.not, %7 ], [ %exitcond.not, %_ZNK8rational6is_oneEv.exit ], [ %exitcond.not, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
-  ret i1 %switch
+  %24 = phi i1 [ true, %2 ], [ %exitcond.not, %7 ], [ %exitcond.not, %_ZNK8rational6is_oneEv.exit ], [ %exitcond.not, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -136,8 +136,8 @@ define hidden void @_ZN6Assimp7Blender23BlenderModifierShowcase14ApplyModifiersE
   store i64 0, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %12 = load ptr, ptr %11, align 8
-  %.not146 = icmp eq ptr %12, null
-  br i1 %.not146, label %._crit_edge.thread, label %.lr.ph
+  %.not145 = icmp eq ptr %12, null
+  br i1 %.not145, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 328
@@ -151,10 +151,10 @@ define hidden void @_ZN6Assimp7Blender23BlenderModifierShowcase14ApplyModifiersE
   br label %21
 
 21:                                               ; preds = %.lr.ph, %195
-  %.0147 = phi ptr [ %12, %.lr.ph ], [ %197, %195 ]
+  %.0146 = phi ptr [ %12, %.lr.ph ], [ %197, %195 ]
   %22 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %23 = getelementptr inbounds nuw i8, ptr %.0147, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0146, i64 8
   %24 = load ptr, ptr %23, align 8
   store ptr %14, ptr %9, align 8
   %25 = icmp eq ptr %24, null
@@ -493,8 +493,8 @@ _ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %137 = load i64, ptr %136, align 8
   %138 = getelementptr inbounds nuw %"class.Assimp::Blender::Structure", ptr %134, i64 %137
   %139 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull @.str.3) #19
-  %.not142 = icmp eq i32 %139, 0
-  br i1 %.not142, label %141, label %_ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit125.thread
+  %.not141 = icmp eq i32 %139, 0
+  br i1 %.not141, label %141, label %_ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit125.thread
 
 _ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit125.thread: ; preds = %105, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i111, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit.i115, %135, %_ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit125
   %140 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -502,17 +502,17 @@ _ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %195
 
 141:                                              ; preds = %135
-  %142 = getelementptr inbounds nuw i8, ptr %.0147, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %.0146, i64 16
   %143 = load ptr, ptr %0, align 8
   %144 = load ptr, ptr %18, align 8
   br label %145
 
 145:                                              ; preds = %141, %188
   %146 = phi ptr [ @_Z3godIN6Assimp7Blender22BlenderModifier_MirrorEEPNS1_15BlenderModifierEv, %141 ], [ %191, %188 ]
-  %.034145 = phi ptr [ @_ZL8creators, %141 ], [ %189, %188 ]
-  %.sroa.0129.0144 = phi ptr [ %143, %141 ], [ %190, %188 ]
-  %.sroa.0.0143 = phi ptr [ %144, %141 ], [ %.sroa.0.1, %188 ]
-  %147 = icmp eq ptr %.sroa.0129.0144, %.sroa.0.0143
+  %.034144 = phi ptr [ @_ZL8creators, %141 ], [ %189, %188 ]
+  %.sroa.0129.0143 = phi ptr [ %143, %141 ], [ %190, %188 ]
+  %.sroa.0.0142 = phi ptr [ %144, %141 ], [ %.sroa.0.1, %188 ]
+  %147 = icmp eq ptr %.sroa.0129.0143, %.sroa.0.0142
   br i1 %147, label %148, label %177
 
 148:                                              ; preds = %145
@@ -583,27 +583,27 @@ _ZNSt6vectorIPN6Assimp7Blender15BlenderModifierESaIS3_EE9push_backEOS3_.exit: ; 
   br label %177
 
 177:                                              ; preds = %_ZNSt6vectorIPN6Assimp7Blender15BlenderModifierESaIS3_EE9push_backEOS3_.exit, %145
-  %.sroa.0.1 = phi ptr [ %175, %_ZNSt6vectorIPN6Assimp7Blender15BlenderModifierESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0.0143, %145 ]
-  %.sroa.0129.1 = phi ptr [ %176, %_ZNSt6vectorIPN6Assimp7Blender15BlenderModifierESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0129.0144, %145 ]
+  %.sroa.0.1 = phi ptr [ %175, %_ZNSt6vectorIPN6Assimp7Blender15BlenderModifierESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0.0142, %145 ]
+  %.sroa.0129.1 = phi ptr [ %176, %_ZNSt6vectorIPN6Assimp7Blender15BlenderModifierESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0129.0143, %145 ]
   %178 = load ptr, ptr %.sroa.0129.1, align 8
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8
   %182 = call noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(88) %142)
-  br i1 %182, label %.thread139, label %188
+  br i1 %182, label %.thread138, label %188
 
-.thread139:                                       ; preds = %177
+.thread138:                                       ; preds = %177
   %183 = load ptr, ptr %178, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(1144) %1, ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(16) %.0147, ptr noundef nonnull align 8 dereferenceable(1176) %3, ptr noundef nonnull align 8 dereferenceable(1384) %4)
+  call void %185(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(1144) %1, ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(16) %.0146, ptr noundef nonnull align 8 dereferenceable(1176) %3, ptr noundef nonnull align 8 dereferenceable(1384) %4)
   %186 = load i64, ptr %7, align 8
   %187 = add i64 %186, 1
   store i64 %187, ptr %7, align 8
   br label %195
 
 188:                                              ; preds = %177
-  %189 = getelementptr inbounds nuw i8, ptr %.034145, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %.034144, i64 8
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.0129.1, i64 8
   %191 = load ptr, ptr %189, align 8
   %.not53 = icmp eq ptr %191, null
@@ -611,12 +611,12 @@ _ZNSt6vectorIPN6Assimp7Blender15BlenderModifierESaIS3_EE9push_backEOS3_.exit: ; 
 
 192:                                              ; preds = %188
   %193 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  %194 = getelementptr inbounds nuw i8, ptr %.0147, i64 72
+  %194 = getelementptr inbounds nuw i8, ptr %.0146, i64 72
   call void @_ZN6Assimp6Logger4warnIJRA39_KcRA32_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %193, ptr noundef nonnull align 1 dereferenceable(39) @.str.5, ptr noundef nonnull align 1 dereferenceable(32) %194)
   br label %195
 
-195:                                              ; preds = %192, %.thread139, %103, %_ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit125.thread, %72
-  %196 = getelementptr inbounds nuw i8, ptr %.0147, i64 32
+195:                                              ; preds = %192, %.thread138, %103, %_ZNK6Assimp7Blender3DNA3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit125.thread, %72
+  %196 = getelementptr inbounds nuw i8, ptr %.0146, i64 32
   %197 = load ptr, ptr %196, align 8
   %198 = load i64, ptr %8, align 8
   %199 = add i64 %198, 1

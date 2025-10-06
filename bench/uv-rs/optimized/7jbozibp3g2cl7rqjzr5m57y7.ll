@@ -427,21 +427,21 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN106_$LT$uv_dispatch..BuildDispatchError$u20$as$u20$uv_distribution_types..dist_error..IsBuildBackendError$GT$22is_build_backend_error17h31c4ff90df7f32f3E"(ptr noalias noundef readonly align 8 dereferenceable(152) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !60, !noundef !4
-  %switch = icmp eq i64 %2, -9223372036854775803
-  br i1 %switch, label %3, label %11
+  %3 = icmp eq i64 %2, -9223372036854775803
+  br i1 %3, label %4, label %12
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = tail call { ptr, ptr } @"_ZN75_$LT$uv_types..traits..AnyErrorBuild$u20$as$u20$core..ops..deref..Deref$GT$5deref17h26620fed9c3d67b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
-  %6 = extractvalue { ptr, ptr } %5, 0
-  %7 = extractvalue { ptr, ptr } %5, 1
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %9 = load ptr, ptr %8, align 8, !invariant.load !4, !nonnull !4
-  %10 = tail call noundef zeroext i1 %9(ptr noundef align 1 %6)
-  br label %11
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = tail call { ptr, ptr } @"_ZN75_$LT$uv_types..traits..AnyErrorBuild$u20$as$u20$core..ops..deref..Deref$GT$5deref17h26620fed9c3d67b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  %7 = extractvalue { ptr, ptr } %6, 0
+  %8 = extractvalue { ptr, ptr } %6, 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %10 = load ptr, ptr %9, align 8, !invariant.load !4, !nonnull !4
+  %11 = tail call noundef zeroext i1 %10(ptr noundef align 1 %7)
+  br label %12
 
-11:                                               ; preds = %1, %3
-  %.sroa.0.0 = phi i1 [ %10, %3 ], [ false, %1 ]
+12:                                               ; preds = %1, %4
+  %.sroa.0.0 = phi i1 [ %11, %4 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 

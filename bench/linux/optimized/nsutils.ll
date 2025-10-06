@@ -755,12 +755,11 @@ declare dso_local void @acpi_ut_repair_name(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local ptr @acpi_ns_validate_handle(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = ptrtoint ptr %0 to i64
-  switch i64 %2, label %5 [
-    i64 -1, label %3
-    i64 0, label %3
-  ]
+  %.off = add i64 %2, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %5, label %3
 
-3:                                                ; preds = %1, %1
+3:                                                ; preds = %1
   %4 = load ptr, ptr @acpi_gbl_root_node, align 8
   br label %10
 

@@ -542,8 +542,8 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %13, %5
-  %.not15 = icmp eq i64 %3, 0
-  br i1 %.not15, label %.thread8, label %.lr.ph
+  %.not6 = icmp eq i64 %3, 0
+  br i1 %.not6, label %select.unfold, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -556,11 +556,11 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   %25 = and i64 %10, 4294967295
   br label %26
 
-26:                                               ; preds = %.lr.ph, %.thread
-  %.04018 = phi i64 [ %3, %.lr.ph ], [ %.27, %.thread ]
-  %.04117 = phi i64 [ 0, %.lr.ph ], [ %.1426, %.thread ]
-  %.04316 = phi i64 [ 0, %.lr.ph ], [ %124, %.thread ]
-  %27 = mul i64 %.04316, %.sroa.5.0.extract.shift
+26:                                               ; preds = %.lr.ph, %123
+  %.0409 = phi i64 [ %3, %.lr.ph ], [ %.2.ph, %123 ]
+  %.0418 = phi i64 [ 0, %.lr.ph ], [ %.142.ph, %123 ]
+  %.0437 = phi i64 [ 0, %.lr.ph ], [ %125, %123 ]
+  %27 = mul i64 %.0437, %.sroa.5.0.extract.shift
   %28 = trunc i64 %27 to i32
   %29 = add i32 %28, %.sroa.5.0.extract.trunc
   %30 = load i32, ptr %19, align 4, !tbaa !40
@@ -700,76 +700,76 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
 
 FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
   %.sroa.049.sroa.0.0.insert.ext.i = zext i32 %.sroa.049.sroa.0.0.lcssa.i to i64
-  br i1 %.sroa.6.0.lcssa.i, label %120, label %91
+  br i1 %.sroa.6.0.lcssa.i, label %91, label %94
 
 91:                                               ; preds = %FASTCOVER_selectSegment.exit
-  %92 = add i32 %23, %.sroa.049.sroa.4.0.lcssa.i
-  %93 = sub i32 %92, %.sroa.049.sroa.0.0.lcssa.i
-  %94 = zext i32 %93 to i64
-  %..040 = tail call i64 @llvm.umin.i64(i64 %.04018, i64 %94)
-  %95 = icmp samesign ult i64 %..040, %24
-  br i1 %95, label %.thread8, label %96
+  %92 = add nuw nsw i64 %.0418, 1
+  %93 = icmp ugt i64 %.0418, 8
+  br i1 %93, label %select.unfold, label %123
 
-96:                                               ; preds = %91
-  %97 = sub i64 %.04018, %..040
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 %97
-  %99 = load ptr, ptr %0, align 8, !tbaa !35
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.sroa.049.sroa.0.0.insert.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 1 %100, i64 %..040, i1 false)
-  %101 = load i32, ptr @g_displayLevel, align 4, !tbaa !11
-  %102 = icmp sgt i32 %101, 1
-  br i1 %102, label %103, label %.thread
+94:                                               ; preds = %FASTCOVER_selectSegment.exit
+  %95 = add i32 %23, %.sroa.049.sroa.4.0.lcssa.i
+  %96 = sub i32 %95, %.sroa.049.sroa.0.0.lcssa.i
+  %97 = zext i32 %96 to i64
+  %..040 = tail call i64 @llvm.umin.i64(i64 %.0409, i64 %97)
+  %98 = icmp samesign ult i64 %..040, %24
+  br i1 %98, label %select.unfold, label %99
 
-103:                                              ; preds = %96
-  %104 = tail call i64 @clock() #14
-  %105 = load i64, ptr @g_time, align 8, !tbaa !41
-  %106 = sub nsw i64 %104, %105
-  %107 = icmp sgt i64 %106, 150000
-  %108 = load i32, ptr @g_displayLevel, align 4
-  %109 = icmp sgt i32 %108, 3
-  %or.cond = select i1 %107, i1 true, i1 %109
-  br i1 %or.cond, label %110, label %.thread
+99:                                               ; preds = %94
+  %100 = sub i64 %.0409, %..040
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 %100
+  %102 = load ptr, ptr %0, align 8, !tbaa !35
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %.sroa.049.sroa.0.0.insert.ext.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %103, i64 %..040, i1 false)
+  %104 = load i32, ptr @g_displayLevel, align 4, !tbaa !11
+  %105 = icmp sgt i32 %104, 1
+  br i1 %105, label %106, label %123
 
-110:                                              ; preds = %103
-  %111 = tail call i64 @clock() #14
-  store i64 %111, ptr @g_time, align 8, !tbaa !41
-  %112 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %113 = sub i64 %3, %97
-  %114 = mul i64 %113, 100
-  %115 = udiv i64 %114, %3
-  %116 = trunc i64 %115 to i32
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.13, i32 noundef %116) #13
-  %118 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %119 = tail call i32 @fflush(ptr noundef %118)
-  br label %.thread
+106:                                              ; preds = %99
+  %107 = tail call i64 @clock() #14
+  %108 = load i64, ptr @g_time, align 8, !tbaa !41
+  %109 = sub nsw i64 %107, %108
+  %110 = icmp sgt i64 %109, 150000
+  %111 = load i32, ptr @g_displayLevel, align 4
+  %112 = icmp sgt i32 %111, 3
+  %or.cond = select i1 %110, i1 true, i1 %112
+  br i1 %or.cond, label %113, label %123
 
-120:                                              ; preds = %FASTCOVER_selectSegment.exit
-  %121 = add nuw nsw i64 %.04117, 1
-  %122 = icmp ugt i64 %.04117, 8
-  br i1 %122, label %.thread8, label %.thread
+113:                                              ; preds = %106
+  %114 = tail call i64 @clock() #14
+  store i64 %114, ptr @g_time, align 8, !tbaa !41
+  %115 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %116 = sub i64 %3, %100
+  %117 = mul i64 %116, 100
+  %118 = udiv i64 %117, %3
+  %119 = trunc i64 %118 to i32
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.13, i32 noundef %119) #13
+  %121 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %122 = tail call i32 @fflush(ptr noundef %121)
+  br label %123
 
-.thread:                                          ; preds = %96, %103, %110, %120
-  %.27 = phi i64 [ %.04018, %120 ], [ %97, %110 ], [ %97, %103 ], [ %97, %96 ]
-  %.1426 = phi i64 [ %121, %120 ], [ 0, %110 ], [ 0, %103 ], [ 0, %96 ]
-  %123 = add nsw i64 %.04316, 1
-  %124 = urem i64 %123, %25
-  %.not = icmp eq i64 %.27, 0
-  br i1 %.not, label %.thread8, label %26, !llvm.loop !52
+123:                                              ; preds = %91, %113, %106, %99
+  %.142.ph = phi i64 [ 0, %99 ], [ 0, %106 ], [ 0, %113 ], [ %92, %91 ]
+  %.2.ph = phi i64 [ %100, %99 ], [ %100, %106 ], [ %100, %113 ], [ %.0409, %91 ]
+  %124 = add nsw i64 %.0437, 1
+  %125 = urem i64 %124, %25
+  %.not = icmp eq i64 %.2.ph, 0
+  br i1 %.not, label %select.unfold, label %26, !llvm.loop !52
 
-.thread8:                                         ; preds = %.thread, %120, %91, %18
-  %.040.lcssa = phi i64 [ 0, %18 ], [ %.04018, %91 ], [ %.04018, %120 ], [ 0, %.thread ]
-  %125 = load i32, ptr @g_displayLevel, align 4, !tbaa !11
-  %126 = icmp sgt i32 %125, 1
-  br i1 %126, label %127, label %132
+select.unfold:                                    ; preds = %123, %94, %91, %18
+  %.040.lcssa = phi i64 [ 0, %18 ], [ %.0409, %91 ], [ %.0409, %94 ], [ 0, %123 ]
+  %126 = load i32, ptr @g_displayLevel, align 4, !tbaa !11
+  %127 = icmp sgt i32 %126, 1
+  br i1 %127, label %128, label %133
 
-127:                                              ; preds = %.thread8
-  %128 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #13
-  %130 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %131 = tail call i32 @fflush(ptr noundef %130)
-  br label %132
+128:                                              ; preds = %select.unfold
+  %129 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #13
+  %131 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %132 = tail call i32 @fflush(ptr noundef %131)
+  br label %133
 
-132:                                              ; preds = %127, %.thread8
+133:                                              ; preds = %128, %select.unfold
   ret i64 %.040.lcssa
 }
 

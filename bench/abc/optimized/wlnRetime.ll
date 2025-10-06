@@ -4901,8 +4901,8 @@ Wln_RetCheckForward.exit:                         ; preds = %Wln_RetCheckForward
 138:                                              ; preds = %Wln_RetCheckForward.exit.thread, %Wln_RetCheckForward.exit
   %139 = phi i1 [ false, %Wln_RetCheckForward.exit.thread ], [ %.ph, %Wln_RetCheckForward.exit ]
   %140 = phi i32 [ %89, %Wln_RetCheckForward.exit.thread ], [ %91, %Wln_RetCheckForward.exit ]
-  %.val144327 = phi i32 [ %.val146, %Wln_RetCheckForward.exit.thread ], [ %.val144.pr, %Wln_RetCheckForward.exit ]
-  %141 = icmp sgt i32 %.val144327, 0
+  %.val144326 = phi i32 [ %.val146, %Wln_RetCheckForward.exit.thread ], [ %.val144.pr, %Wln_RetCheckForward.exit ]
+  %141 = icmp sgt i32 %.val144326, 0
   br i1 %141, label %.lr.ph.i167, label %Wln_RetCheckBackward.exit
 
 .lr.ph.i167:                                      ; preds = %138
@@ -4910,7 +4910,7 @@ Wln_RetCheckForward.exit:                         ; preds = %Wln_RetCheckForward
   %142 = load ptr, ptr %5, align 8, !tbaa !3
   %143 = getelementptr i8, ptr %142, i64 256
   %.val35.i.i = load ptr, ptr %143, align 8, !tbaa !12
-  %wide.trip.count.i169 = zext nneg i32 %.val144327 to i64
+  %wide.trip.count.i169 = zext nneg i32 %.val144326 to i64
   br label %144
 
 144:                                              ; preds = %Wln_RetCheckBackwardOne.exit.i, %.lr.ph.i167
@@ -4920,8 +4920,8 @@ Wln_RetCheckForward.exit:                         ; preds = %Wln_RetCheckForward
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i32, ptr %.val35.i.i, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !13
-  %.not336.not = icmp ne i32 %149, 0
-  br i1 %.not336.not, label %.preheader.i.i, label %Wln_RetCheckBackward.exit
+  %.not335.not = icmp ne i32 %149, 0
+  br i1 %.not335.not, label %.preheader.i.i, label %Wln_RetCheckBackward.exit
 
 .preheader.i.i:                                   ; preds = %144
   %150 = icmp sgt i32 %149, 0
@@ -5003,7 +5003,7 @@ Wln_RetCheckBackwardOne.exit.i:                   ; preds = %179, %.lr.ph.i.i173
 Wln_RetCheckBackward.exit:                        ; preds = %Wln_RetCheckBackwardOne.exit.i, %144, %178, %161, %138, %Wln_RetCheckForward.exit
   %180 = phi i1 [ %.ph, %Wln_RetCheckForward.exit ], [ %139, %138 ], [ %139, %161 ], [ %139, %178 ], [ %139, %144 ], [ %139, %Wln_RetCheckBackwardOne.exit.i ]
   %181 = phi i32 [ %91, %Wln_RetCheckForward.exit ], [ %140, %138 ], [ %140, %161 ], [ %140, %178 ], [ %140, %144 ], [ %140, %Wln_RetCheckBackwardOne.exit.i ]
-  %182 = phi i1 [ false, %Wln_RetCheckForward.exit ], [ true, %138 ], [ false, %161 ], [ false, %178 ], [ %.not336.not, %144 ], [ %.not336.not, %Wln_RetCheckBackwardOne.exit.i ]
+  %182 = phi i1 [ false, %Wln_RetCheckForward.exit ], [ true, %138 ], [ false, %161 ], [ false, %178 ], [ %.not335.not, %144 ], [ %.not335.not, %Wln_RetCheckBackwardOne.exit.i ]
   %.val150 = load ptr, ptr %79, align 8, !tbaa !12
   %183 = sext i32 %.val147 to i64
   tail call void @qsort(ptr noundef %.val150, i64 noundef %183, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #25
@@ -5090,8 +5090,8 @@ Vec_IntTwoCountCommon.exit.thread:                ; preds = %185, %Vec_IntTwoCou
 216:                                              ; preds = %214
   %or.cond9 = and i1 %180, %182
   %217 = icmp slt i32 %.val153, %.val155
-  %or.cond292 = select i1 %or.cond9, i1 %217, i1 false
-  br i1 %or.cond292, label %218, label %256
+  %or.cond291 = select i1 %or.cond9, i1 %217, i1 false
+  br i1 %or.cond291, label %218, label %256
 
 218:                                              ; preds = %216, %214, %Vec_IntTwoCountCommon.exit.thread
   br i1 %190, label %.lr.ph.i183, label %Wln_RetMarkChanges.exit207

@@ -2661,25 +2661,25 @@ define dso_local noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_a
 
 .thread:                                          ; preds = %20, %15
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %.038 = load ptr, ptr %23, align 8, !tbaa !77
-  %.not30.not39 = icmp eq ptr %.038, null
-  br i1 %.not30.not39, label %.loopexit, label %.lr.ph
+  %.036 = load ptr, ptr %23, align 8, !tbaa !77
+  %.not30.not37 = icmp eq ptr %.036, null
+  br i1 %.not30.not37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %30
-  %.040 = phi ptr [ %.0, %30 ], [ %.038, %.thread ]
-  %24 = load ptr, ptr %.040, align 8, !tbaa !66
+  %.038 = phi ptr [ %.0, %30 ], [ %.036, %.thread ]
+  %24 = load ptr, ptr %.038, align 8, !tbaa !66
   %.not31 = icmp ult ptr %0, %24
   br i1 %.not31, label %30, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !67
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
   %29 = icmp ult ptr %0, %28
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %25, %.lr.ph
-  %31 = getelementptr inbounds nuw i8, ptr %.040, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %.0 = load ptr, ptr %31, align 8, !tbaa !77
   %.not30.not = icmp eq ptr %.0, null
   br i1 %.not30.not, label %.loopexit, label %.lr.ph

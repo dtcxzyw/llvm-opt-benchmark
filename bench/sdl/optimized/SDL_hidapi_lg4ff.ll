@@ -266,7 +266,7 @@ define internal zeroext i1 @HIDAPI_DriverLg4ff_InitDevice(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @SDL_OutOfMemory_REAL() #8
-  br label %45
+  br label %46
 
 7:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(36) %3, i8 0, i64 36, i1 false)
@@ -281,8 +281,8 @@ define internal zeroext i1 @HIDAPI_DriverLg4ff_InitDevice(ptr noundef %0) #0 {
 
 13:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %HIDAPI_DriverLg4ff_GetDeviceName.exit, label %14, !llvm.loop !5
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %HIDAPI_DriverLg4ff_GetDeviceName.exit, label %14, !llvm.loop !5
 
 14:                                               ; preds = %13, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %13 ]
@@ -297,63 +297,63 @@ define internal zeroext i1 @HIDAPI_DriverLg4ff_InitDevice(ptr noundef %0) #0 {
   br label %HIDAPI_DriverLg4ff_GetDeviceName.exit
 
 HIDAPI_DriverLg4ff_GetDeviceName.exit:            ; preds = %13, %18
-  %spec.select.i = phi ptr [ %20, %18 ], [ @.str.8, %13 ]
-  tail call void @HIDAPI_SetDeviceName(ptr noundef %0, ptr noundef %spec.select.i) #8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @SDL_hid_set_nonblocking_REAL(ptr noundef %22, i32 noundef 1) #8
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %24, label %45
+  %21 = phi ptr [ %20, %18 ], [ @.str.8, %13 ]
+  tail call void @HIDAPI_SetDeviceName(ptr noundef %0, ptr noundef %21) #8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @SDL_hid_set_nonblocking_REAL(ptr noundef %23, i32 noundef 1) #8
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %25, label %46
 
-24:                                               ; preds = %HIDAPI_DriverLg4ff_GetDeviceName.exit
-  %25 = load ptr, ptr %8, align 8
+25:                                               ; preds = %HIDAPI_DriverLg4ff_GetDeviceName.exit
+  %26 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %26, i8 0, i64 6, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 33
-  %28 = load i8, ptr %27, align 1, !range !6, !noundef !7
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %27, i8 0, i64 6, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 33
+  %29 = load i8, ptr %28, align 1, !range !6, !noundef !7
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 3, ptr %31, align 1
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 3, ptr %32, align 1
   br label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
 
-HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %24, %30
-  %.sink = phi i8 [ -2, %30 ], [ -11, %24 ]
+HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %25, %31
+  %.sink = phi i8 [ -2, %31 ], [ -11, %25 ]
   store i8 %.sink, ptr %2, align 1
-  %32 = load ptr, ptr %21, align 8
-  %33 = call i32 @SDL_hid_write_REAL(ptr noundef %32, ptr noundef nonnull %2, i64 noundef 7) #8
-  %.030.i.not = icmp eq i32 %33, -1
+  %33 = load ptr, ptr %22, align 8
+  %34 = call i32 @SDL_hid_write_REAL(ptr noundef %33, ptr noundef nonnull %2, i64 noundef 7) #8
+  %.030.i.not = icmp eq i32 %34, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.030.i.not, label %45, label %34
+  br i1 %.030.i.not, label %46, label %35
 
-34:                                               ; preds = %HIDAPI_DriverLg4ff_SetAutoCenter.exit
-  %35 = load i16, ptr %10, align 2
-  %36 = icmp eq i16 %35, -15724
-  br i1 %36, label %37, label %40
+35:                                               ; preds = %HIDAPI_DriverLg4ff_SetAutoCenter.exit
+  %36 = load i16, ptr %10, align 2
+  %37 = icmp eq i16 %36, -15724
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %39 = load i16, ptr %38, align 4
-  %or.cond = icmp eq i16 %39, 8448
-  br i1 %or.cond, label %41, label %40
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %40 = load i16, ptr %39, align 4
+  %or.cond = icmp eq i16 %40, 8448
+  br i1 %or.cond, label %42, label %41
 
-40:                                               ; preds = %37, %34
-  br label %41
+41:                                               ; preds = %38, %35
+  br label %42
 
-41:                                               ; preds = %37, %40
-  %.sink23 = phi i8 [ 0, %40 ], [ 1, %37 ]
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 %.sink23, ptr %42, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 34
-  store i16 900, ptr %43, align 2
-  %44 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #8
-  br label %45
+42:                                               ; preds = %38, %41
+  %.sink23 = phi i8 [ 0, %41 ], [ 1, %38 ]
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 %.sink23, ptr %43, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 34
+  store i16 900, ptr %44, align 2
+  %45 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #8
+  br label %46
 
-45:                                               ; preds = %HIDAPI_DriverLg4ff_SetAutoCenter.exit, %HIDAPI_DriverLg4ff_GetDeviceName.exit, %41, %5
-  %.0 = phi i1 [ false, %5 ], [ %44, %41 ], [ false, %HIDAPI_DriverLg4ff_GetDeviceName.exit ], [ false, %HIDAPI_DriverLg4ff_SetAutoCenter.exit ]
+46:                                               ; preds = %HIDAPI_DriverLg4ff_SetAutoCenter.exit, %HIDAPI_DriverLg4ff_GetDeviceName.exit, %42, %5
+  %.0 = phi i1 [ false, %5 ], [ %45, %42 ], [ false, %HIDAPI_DriverLg4ff_GetDeviceName.exit ], [ false, %HIDAPI_DriverLg4ff_SetAutoCenter.exit ]
   ret i1 %.0
 }
 

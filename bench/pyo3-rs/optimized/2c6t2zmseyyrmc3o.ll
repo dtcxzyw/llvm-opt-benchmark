@@ -4491,8 +4491,8 @@ define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-common.resume:                                    ; preds = %50, %51, %39, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %39 ], [ %.pn, %51 ], [ %.pn, %50 ]
+common.resume:                                    ; preds = %51, %52, %40, %16
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %40 ], [ %.pn, %52 ], [ %.pn, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread15:                                        ; preds = %2
@@ -4500,7 +4500,7 @@ common.resume:                                    ; preds = %50, %51, %39, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i64 17, ptr %7, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %45
+  br label %46
 
 21:                                               ; preds = %11
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %3)
@@ -4508,83 +4508,83 @@ common.resume:                                    ; preds = %50, %51, %39, %16
   %.pr = load i64, ptr %7, align 8
   %22 = and i64 %.pr, -2
   %switch = icmp eq i64 %22, 16
-  br i1 %switch, label %23, label %24
+  br i1 %switch, label %23, label %25
 
 23:                                               ; preds = %21
   store i64 -9223372036854775808, ptr %0, align 8
-  %switch16 = icmp eq i64 %.pr, 17
-  br i1 %switch16, label %45, label %47
+  %24 = icmp eq i64 %.pr, 17
+  br i1 %24, label %46, label %48
 
-24:                                               ; preds = %21
+25:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %25 = load ptr, ptr %1, align 8
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = trunc i8 %34 to i1
-  invoke void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr sret([24 x i8]) align 8 %0, i8 %26, i8 %28, i8 %31, i1 zeroext %35, ptr nonnull align 8 %5)
-          to label %38 unwind label %36
+  %26 = load ptr, ptr %1, align 8
+  %27 = load i8, ptr %26, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i8, ptr %34, align 1
+  %36 = trunc i8 %35 to i1
+  invoke void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr sret([24 x i8]) align 8 %0, i8 %27, i8 %29, i8 %32, i1 zeroext %36, ptr nonnull align 8 %5)
+          to label %39 unwind label %37
 
-36:                                               ; preds = %24
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %25
+  %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$target_lexicon..triple..Triple$GT$17he06644e1f4785021E"(ptr nonnull align 8 %5) #11
-          to label %39 unwind label %48
+          to label %40 unwind label %49
 
-38:                                               ; preds = %24
+39:                                               ; preds = %25
   invoke void @"_ZN4core3ptr51drop_in_place$LT$target_lexicon..triple..Triple$GT$17he06644e1f4785021E"(ptr nonnull align 8 %5)
-          to label %43 unwind label %41
+          to label %44 unwind label %42
 
-39:                                               ; preds = %41, %36
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %37, %36 ]
-  %40 = load i64, ptr %7, align 8
-  switch i64 %40, label %common.resume [
-    i64 17, label %50
-    i64 16, label %51
+40:                                               ; preds = %42, %37
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %38, %37 ]
+  %41 = load i64, ptr %7, align 8
+  switch i64 %41, label %common.resume [
+    i64 17, label %51
+    i64 16, label %52
   ]
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %40
 
-43:                                               ; preds = %38
-  %44 = load i64, ptr %7, align 8
-  switch i64 %44, label %46 [
-    i64 17, label %45
-    i64 16, label %47
+44:                                               ; preds = %39
+  %45 = load i64, ptr %7, align 8
+  switch i64 %45, label %47 [
+    i64 17, label %46
+    i64 16, label %48
   ]
 
-45:                                               ; preds = %23, %.thread15, %43
+46:                                               ; preds = %23, %.thread15, %44
   call void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$C$std..env..VarError$GT$$GT$17hb3cbed54f8f02d12E"(ptr nonnull align 8 %7)
-  br label %46
+  br label %47
 
-46:                                               ; preds = %43, %47, %45
+47:                                               ; preds = %44, %48, %46
   ret void
 
-47:                                               ; preds = %23, %43
+48:                                               ; preds = %23, %44
   call void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$GT$17h0836622d41bb056bE"(ptr nonnull align 8 %7)
-  br label %46
+  br label %47
 
-48:                                               ; preds = %51, %50, %36
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %52, %51, %37
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-50:                                               ; preds = %39
+51:                                               ; preds = %40
   invoke void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$C$std..env..VarError$GT$$GT$17hb3cbed54f8f02d12E"(ptr nonnull align 8 %7) #11
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %49
 
-51:                                               ; preds = %39
+52:                                               ; preds = %40
   invoke void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$GT$17h0836622d41bb056bE"(ptr nonnull align 8 %7) #11
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %49
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4621,8 +4621,8 @@ define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-common.resume:                                    ; preds = %50, %51, %39, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %39 ], [ %.pn, %51 ], [ %.pn, %50 ]
+common.resume:                                    ; preds = %51, %52, %40, %16
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %40 ], [ %.pn, %52 ], [ %.pn, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread15:                                        ; preds = %2
@@ -4630,7 +4630,7 @@ common.resume:                                    ; preds = %50, %51, %39, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i64 17, ptr %7, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %45
+  br label %46
 
 21:                                               ; preds = %11
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %3)
@@ -4638,83 +4638,83 @@ common.resume:                                    ; preds = %50, %51, %39, %16
   %.pr = load i64, ptr %7, align 8
   %22 = and i64 %.pr, -2
   %switch = icmp eq i64 %22, 16
-  br i1 %switch, label %23, label %24
+  br i1 %switch, label %23, label %25
 
 23:                                               ; preds = %21
   store i64 -9223372036854775808, ptr %0, align 8
-  %switch16 = icmp eq i64 %.pr, 17
-  br i1 %switch16, label %45, label %47
+  %24 = icmp eq i64 %.pr, 17
+  br i1 %24, label %46, label %48
 
-24:                                               ; preds = %21
+25:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %25 = load ptr, ptr %1, align 8
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = trunc i8 %34 to i1
-  invoke void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr sret([24 x i8]) align 8 %0, i8 %26, i8 %28, i8 %31, i1 zeroext %35, ptr nonnull align 8 %5)
-          to label %38 unwind label %36
+  %26 = load ptr, ptr %1, align 8
+  %27 = load i8, ptr %26, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i8, ptr %34, align 1
+  %36 = trunc i8 %35 to i1
+  invoke void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr sret([24 x i8]) align 8 %0, i8 %27, i8 %29, i8 %32, i1 zeroext %36, ptr nonnull align 8 %5)
+          to label %39 unwind label %37
 
-36:                                               ; preds = %24
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %25
+  %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$target_lexicon..triple..Triple$GT$17he06644e1f4785021E"(ptr nonnull align 8 %5) #11
-          to label %39 unwind label %48
+          to label %40 unwind label %49
 
-38:                                               ; preds = %24
+39:                                               ; preds = %25
   invoke void @"_ZN4core3ptr51drop_in_place$LT$target_lexicon..triple..Triple$GT$17he06644e1f4785021E"(ptr nonnull align 8 %5)
-          to label %43 unwind label %41
+          to label %44 unwind label %42
 
-39:                                               ; preds = %41, %36
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %37, %36 ]
-  %40 = load i64, ptr %7, align 8
-  switch i64 %40, label %common.resume [
-    i64 17, label %50
-    i64 16, label %51
+40:                                               ; preds = %42, %37
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %38, %37 ]
+  %41 = load i64, ptr %7, align 8
+  switch i64 %41, label %common.resume [
+    i64 17, label %51
+    i64 16, label %52
   ]
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %40
 
-43:                                               ; preds = %38
-  %44 = load i64, ptr %7, align 8
-  switch i64 %44, label %46 [
-    i64 17, label %45
-    i64 16, label %47
+44:                                               ; preds = %39
+  %45 = load i64, ptr %7, align 8
+  switch i64 %45, label %47 [
+    i64 17, label %46
+    i64 16, label %48
   ]
 
-45:                                               ; preds = %23, %.thread15, %43
+46:                                               ; preds = %23, %.thread15, %44
   call void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$C$std..env..VarError$GT$$GT$17hb3cbed54f8f02d12E"(ptr nonnull align 8 %7)
-  br label %46
+  br label %47
 
-46:                                               ; preds = %43, %47, %45
+47:                                               ; preds = %44, %48, %46
   ret void
 
-47:                                               ; preds = %23, %43
+48:                                               ; preds = %23, %44
   call void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$GT$17h0836622d41bb056bE"(ptr nonnull align 8 %7)
-  br label %46
+  br label %47
 
-48:                                               ; preds = %51, %50, %36
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %52, %51, %37
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-50:                                               ; preds = %39
+51:                                               ; preds = %40
   invoke void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$C$std..env..VarError$GT$$GT$17hb3cbed54f8f02d12E"(ptr nonnull align 8 %7) #11
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %49
 
-51:                                               ; preds = %39
+52:                                               ; preds = %40
   invoke void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$GT$17h0836622d41bb056bE"(ptr nonnull align 8 %7) #11
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %49
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4751,8 +4751,8 @@ define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-common.resume:                                    ; preds = %50, %51, %39, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %39 ], [ %.pn, %51 ], [ %.pn, %50 ]
+common.resume:                                    ; preds = %51, %52, %40, %16
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %40 ], [ %.pn, %52 ], [ %.pn, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread15:                                        ; preds = %2
@@ -4760,7 +4760,7 @@ common.resume:                                    ; preds = %50, %51, %39, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i64 17, ptr %7, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %45
+  br label %46
 
 21:                                               ; preds = %11
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %3)
@@ -4768,83 +4768,83 @@ common.resume:                                    ; preds = %50, %51, %39, %16
   %.pr = load i64, ptr %7, align 8
   %22 = and i64 %.pr, -2
   %switch = icmp eq i64 %22, 16
-  br i1 %switch, label %23, label %24
+  br i1 %switch, label %23, label %25
 
 23:                                               ; preds = %21
   store i64 -9223372036854775808, ptr %0, align 8
-  %switch16 = icmp eq i64 %.pr, 17
-  br i1 %switch16, label %45, label %47
+  %24 = icmp eq i64 %.pr, 17
+  br i1 %24, label %46, label %48
 
-24:                                               ; preds = %21
+25:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %25 = load ptr, ptr %1, align 8
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = trunc i8 %34 to i1
-  invoke void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr sret([24 x i8]) align 8 %0, i8 %26, i8 %28, i8 %31, i1 zeroext %35, ptr nonnull align 8 %5)
-          to label %38 unwind label %36
+  %26 = load ptr, ptr %1, align 8
+  %27 = load i8, ptr %26, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i8, ptr %34, align 1
+  %36 = trunc i8 %35 to i1
+  invoke void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr sret([24 x i8]) align 8 %0, i8 %27, i8 %29, i8 %32, i1 zeroext %36, ptr nonnull align 8 %5)
+          to label %39 unwind label %37
 
-36:                                               ; preds = %24
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %25
+  %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$target_lexicon..triple..Triple$GT$17he06644e1f4785021E"(ptr nonnull align 8 %5) #11
-          to label %39 unwind label %48
+          to label %40 unwind label %49
 
-38:                                               ; preds = %24
+39:                                               ; preds = %25
   invoke void @"_ZN4core3ptr51drop_in_place$LT$target_lexicon..triple..Triple$GT$17he06644e1f4785021E"(ptr nonnull align 8 %5)
-          to label %43 unwind label %41
+          to label %44 unwind label %42
 
-39:                                               ; preds = %41, %36
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %37, %36 ]
-  %40 = load i64, ptr %7, align 8
-  switch i64 %40, label %common.resume [
-    i64 17, label %50
-    i64 16, label %51
+40:                                               ; preds = %42, %37
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %38, %37 ]
+  %41 = load i64, ptr %7, align 8
+  switch i64 %41, label %common.resume [
+    i64 17, label %51
+    i64 16, label %52
   ]
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %40
 
-43:                                               ; preds = %38
-  %44 = load i64, ptr %7, align 8
-  switch i64 %44, label %46 [
-    i64 17, label %45
-    i64 16, label %47
+44:                                               ; preds = %39
+  %45 = load i64, ptr %7, align 8
+  switch i64 %45, label %47 [
+    i64 17, label %46
+    i64 16, label %48
   ]
 
-45:                                               ; preds = %23, %.thread15, %43
+46:                                               ; preds = %23, %.thread15, %44
   call void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$C$std..env..VarError$GT$$GT$17hb3cbed54f8f02d12E"(ptr nonnull align 8 %7)
-  br label %46
+  br label %47
 
-46:                                               ; preds = %43, %47, %45
+47:                                               ; preds = %44, %48, %46
   ret void
 
-47:                                               ; preds = %23, %43
+48:                                               ; preds = %23, %44
   call void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$GT$17h0836622d41bb056bE"(ptr nonnull align 8 %7)
-  br label %46
+  br label %47
 
-48:                                               ; preds = %51, %50, %36
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %52, %51, %37
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-50:                                               ; preds = %39
+51:                                               ; preds = %40
   invoke void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$C$std..env..VarError$GT$$GT$17hb3cbed54f8f02d12E"(ptr nonnull align 8 %7) #11
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %49
 
-51:                                               ; preds = %39
+52:                                               ; preds = %40
   invoke void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$target_lexicon..triple..Triple$C$target_lexicon..parse_error..ParseError$GT$$GT$17h0836622d41bb056bE"(ptr nonnull align 8 %7) #11
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %49
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -14520,7 +14520,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31generateGetDirectiveAssocia
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread", %93
-  %.056.lcssa = phi i32 [ %95, %93 ], [ %.0.i60, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread" ]
+  %.056.lcssa = phi i32 [ %95, %93 ], [ %.0.i59, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread" ]
   %104 = load ptr, ptr %0, align 8, !tbaa !474
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEE11AssociationNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E11try_emplaceIJRSA_EEESt4pairINS_16DenseMapIteratorIS4_SA_SC_SF_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 1 dereferenceable(1) %104, ptr nonnull %1, i32 %.056.lcssa)
@@ -14544,15 +14544,15 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit:   ; preds = %._crit_edge, %106
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread"
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread" ]
-  %.05665 = phi i32 [ %95, %.lr.ph.preheader ], [ %.0.i60, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread" ]
+  %.05664 = phi i32 [ %95, %.lr.ph.preheader ], [ %.0.i59, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread" ]
   %112 = load ptr, ptr %13, align 8, !tbaa !22
   %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !15
   %115 = call fastcc noundef i32 @"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_1clIRS5_EEZL31generateGetDirectiveAssociationS2_S4_E11AssociationPKNS_6RecordEOT_"(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %114, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %.05665, i32 %115)
-  %spec.select7.i = call i32 @llvm.smax.i32(i32 %.05665, i32 %115)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %.05664, i32 %115)
+  %spec.select7.i = call i32 @llvm.smax.i32(i32 %.05664, i32 %115)
   %116 = icmp eq i32 %spec.select.i, 0
-  %117 = icmp eq i32 %.05665, %115
+  %117 = icmp eq i32 %.05664, %115
   %or.cond8.i = or i1 %117, %116
   br i1 %or.cond8.i, label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit", label %118
 
@@ -14566,13 +14566,13 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit:   ; preds = %._crit_edge, %106
   %122 = icmp eq i32 %spec.select.i, 4
   %123 = icmp eq i32 %spec.select7.i, 1
   %or.cond3.i = and i1 %122, %123
-  br i1 %or.cond3.i, label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread", label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread61"
+  br i1 %or.cond3.i, label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread", label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread60"
 
 "_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit": ; preds = %.lr.ph
   %124 = icmp eq i32 %spec.select7.i, 7
-  br i1 %124, label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread61", label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread"
+  br i1 %124, label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread60", label %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread"
 
-"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread61": ; preds = %121, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit"
+"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread60": ; preds = %121, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -14635,7 +14635,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit:   ; preds = %._crit_edge, %106
   unreachable
 
 "_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit.thread": ; preds = %121, %118, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit"
-  %.0.i60 = phi i32 [ %spec.select7.i, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit" ], [ 4, %118 ], [ 4, %121 ]
+  %.0.i59 = phi i32 [ %spec.select7.i, %"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clEZL31generateGetDirectiveAssociationS2_S4_E11AssociationS6_.exit" ], [ 4, %118 ], [ 4, %121 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !478

@@ -317,7 +317,7 @@ define void @_ZN4YAML6Parser15ParseDirectivesEv(ptr noundef nonnull align 8 capt
   br label %5
 
 5:                                                ; preds = %.lr.ph, %32
-  %.011 = phi i1 [ false, %.lr.ph ], [ true, %32 ]
+  %.010 = phi i1 [ false, %.lr.ph ], [ true, %32 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = tail call noundef nonnull align 8 dereferenceable(84) ptr @_ZN4YAML7Scanner4peekEv(ptr noundef nonnull align 8 dereferenceable(488) %6)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -326,7 +326,7 @@ define void @_ZN4YAML6Parser15ParseDirectivesEv(ptr noundef nonnull align 8 capt
   br i1 %.not, label %10, label %.thread
 
 10:                                               ; preds = %5
-  br i1 %.011, label %_ZNSt10unique_ptrIN4YAML10DirectivesESt14default_deleteIS1_EE5resetEPS1_.exit, label %11
+  br i1 %.010, label %_ZNSt10unique_ptrIN4YAML10DirectivesESt14default_deleteIS1_EE5resetEPS1_.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21

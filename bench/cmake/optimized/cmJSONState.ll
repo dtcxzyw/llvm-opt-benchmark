@@ -2237,8 +2237,8 @@ define dso_local void @_ZN11cmJSONState9key_afterERKNSt7__cxx1112basic_stringIcS
   %5 = load ptr, ptr %1, align 8, !tbaa !176
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !176
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %._crit_edge.i.i4, label %.lr.ph
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %._crit_edge.i.i4, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2248,8 +2248,8 @@ define dso_local void @_ZN11cmJSONState9key_afterERKNSt7__cxx1112basic_stringIcS
   br label %12
 
 12:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.08.021 = phi ptr [ %5, %.lr.ph ], [ %32, %.critedge ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.021, i64 8
+  %.sroa.08.019 = phi ptr [ %5, %.lr.ph ], [ %32, %.critedge ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.019, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !10
   %15 = icmp eq i64 %14, %9
   br i1 %15, label %16, label %.critedge
@@ -2258,21 +2258,21 @@ define dso_local void @_ZN11cmJSONState9key_afterERKNSt7__cxx1112basic_stringIcS
   br i1 %11, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %16
-  %17 = load ptr, ptr %.sroa.08.021, align 8, !tbaa !27
+  %17 = load ptr, ptr %.sroa.08.019, align 8, !tbaa !27
   %bcmp.i = tail call i32 @bcmp(ptr %17, ptr %10, i64 %9)
   %18 = icmp eq i32 %bcmp.i, 0
   br i1 %18, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %.critedge
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.021, i64 40
-  %.not18 = icmp eq ptr %19, %7
-  br i1 %.not18, label %.critedge, label %20
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.019, i64 40
+  %.not16 = icmp eq ptr %19, %7
+  br i1 %.not16, label %.critedge, label %20
 
 20:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %0, align 8, !tbaa !4
   %22 = load ptr, ptr %19, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.021, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.019, i64 48
   %24 = load i64, ptr %23, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %24, ptr %4, align 8, !tbaa !43
@@ -2303,7 +2303,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %33
 
 .critedge:                                        ; preds = %12, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
-  %.sroa.08.1 = phi ptr [ %19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.sroa.08.021, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.08.021, %12 ]
+  %.sroa.08.1 = phi ptr [ %19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.sroa.08.019, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.08.019, %12 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.08.1, i64 40
   %.not = icmp eq ptr %32, %7
   br i1 %.not, label %._crit_edge.i.i4, label %12, !llvm.loop !177
@@ -2335,8 +2335,8 @@ define dso_local noundef ptr @_ZN11cmJSONState11value_afterERKNSt7__cxx1112basic
   %3 = load ptr, ptr %0, align 8, !tbaa !176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !176
-  %.not14 = icmp eq ptr %3, %5
-  br i1 %.not14, label %.loopexit, label %.lr.ph
+  %.not16 = icmp eq ptr %3, %5
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2346,8 +2346,8 @@ define dso_local noundef ptr @_ZN11cmJSONState11value_afterERKNSt7__cxx1112basic
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.05.015 = phi ptr [ %3, %.lr.ph ], [ %21, %.critedge ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 8
+  %.sroa.05.017 = phi ptr [ %3, %.lr.ph ], [ %18, %.critedge ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.017, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !10
   %13 = icmp eq i64 %12, %7
   br i1 %13, label %14, label %.critedge
@@ -2356,30 +2356,30 @@ define dso_local noundef ptr @_ZN11cmJSONState11value_afterERKNSt7__cxx1112basic
   br i1 %9, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %14
-  %15 = load ptr, ptr %.sroa.05.015, align 8, !tbaa !27
+  %15 = load ptr, ptr %.sroa.05.017, align 8, !tbaa !27
   %bcmp.i = tail call i32 @bcmp(ptr %15, ptr %8, i64 %7)
   %16 = icmp eq i32 %bcmp.i, 0
   br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %.critedge
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %14, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 40
-  %.not12 = icmp eq ptr %17, %5
-  br i1 %.not12, label %.critedge, label %18
-
-18:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !178
-  br label %.loopexit
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.017, i64 40
+  %.not14 = icmp eq ptr %17, %5
+  br i1 %.not14, label %.critedge, label %19
 
 .critedge:                                        ; preds = %10, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
-  %.sroa.05.1 = phi ptr [ %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.sroa.05.015, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.05.015, %10 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.1, i64 40
-  %.not = icmp eq ptr %21, %5
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !181
+  %.sroa.05.1 = phi ptr [ %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.sroa.05.017, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.05.017, %10 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.1, i64 40
+  %.not = icmp eq ptr %18, %5
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !178
 
-.loopexit:                                        ; preds = %.critedge, %2, %18
-  %spec.select = phi ptr [ %20, %18 ], [ null, %2 ], [ null, %.critedge ]
-  ret ptr %spec.select
+19:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.017, i64 72
+  %21 = load ptr, ptr %20, align 8, !tbaa !179
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.critedge, %2, %19
+  %22 = phi ptr [ %21, %19 ], [ null, %2 ], [ null, %.critedge ]
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2437,7 +2437,7 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i8 0, ptr %25, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %2, ptr %26, align 8, !tbaa !178
+  store ptr %2, ptr %26, align 8, !tbaa !179
   %27 = load ptr, ptr %6, align 8, !tbaa !84
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %28, ptr %6, align 8, !tbaa !84
@@ -3555,7 +3555,7 @@ _ZNSt12_Vector_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %43 = load ptr, ptr %3, align 8, !tbaa !182
-  store ptr %43, ptr %42, align 8, !tbaa !178
+  store ptr %43, ptr %42, align 8, !tbaa !179
   %44 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEEPSC_ET0_T_SH_SG_(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %24)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEESD_SaISC_EET0_T_SG_SF_RT1_.exit unwind label %59
 
@@ -3735,8 +3735,8 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairIKNSt
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.01215, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !178
-  store ptr %23, ptr %21, align 8, !tbaa !178
+  %23 = load ptr, ptr %22, align 8, !tbaa !179
+  store ptr %23, ptr %21, align 8, !tbaa !179
   %24 = getelementptr inbounds nuw i8, ptr %.01215, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %.016, i64 40
   %.not = icmp eq ptr %24, %1
@@ -4007,11 +4007,11 @@ attributes #23 = { builtin allocsize(0) }
 !175 = !{!"_ZTSSi", !12, i64 8}
 !176 = !{!20, !20, i64 0}
 !177 = distinct !{!177, !81}
-!178 = !{!179, !180, i64 32}
-!179 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEE", !11, i64 0, !180, i64 32}
-!180 = !{!"p1 _ZTSN4Json5ValueE", !7, i64 0}
-!181 = distinct !{!181, !81}
-!182 = !{!180, !180, i64 0}
+!178 = distinct !{!178, !81}
+!179 = !{!180, !181, i64 32}
+!180 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEE", !11, i64 0, !181, i64 32}
+!181 = !{!"p1 _ZTSN4Json5ValueE", !7, i64 0}
+!182 = !{!181, !181, i64 0}
 !183 = !{!184, !6, i64 16}
 !184 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !38, i64 56}
 !185 = !{!184, !6, i64 24}

@@ -151,8 +151,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento13containsMacroEPKNS_4StmtE(p
   %13 = icmp ne ptr %12, %.sroa.413.24.copyload
   %14 = load i64, ptr %11, align 8
   %15 = icmp ne i64 %14, %.sroa.6.24.copyload
-  %.not3.i.not.not20 = select i1 %13, i1 true, i1 %15
-  br i1 %.not3.i.not.not20, label %.lr.ph, label %._crit_edge
+  %.not3.i17 = select i1 %13, i1 true, i1 %15
+  br i1 %.not3.i17, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %9, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %16 = phi i64 [ %36, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %14, %9 ]
@@ -173,7 +173,7 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 23:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %24 = call noundef zeroext i1 @_ZN5clang4ento13containsMacroEPKNS_4StmtE(ptr noundef nonnull %22)
-  br i1 %24, label %._crit_edge, label %.critedge
+  br i1 %24, label %.sink.split, label %.critedge
 
 .critedge:                                        ; preds = %23, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %25 = load i64, ptr %11, align 8, !tbaa !12
@@ -204,16 +204,16 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   %35 = icmp ne ptr %34, %.sroa.413.24.copyload
   %36 = load i64, ptr %11, align 8
   %37 = icmp ne i64 %36, %.sroa.6.24.copyload
-  %.not3.i.not.not = select i1 %35, i1 true, i1 %37
-  br i1 %.not3.i.not.not, label %.lr.ph, label %._crit_edge
+  %.not3.i = select i1 %35, i1 true, i1 %37
+  br i1 %.not3.i, label %.lr.ph, label %.sink.split
 
-._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %23, %9
-  %.not3.i.not.not.lcssa = phi i1 [ false, %9 ], [ true, %23 ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
+.sink.split:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %23, %9
+  %.0.ph = phi i1 [ false, %9 ], [ true, %23 ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
-38:                                               ; preds = %._crit_edge, %6, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %6 ], [ %.not3.i.not.not.lcssa, %._crit_edge ]
+38:                                               ; preds = %.sink.split, %6, %1
+  %.0 = phi i1 [ true, %1 ], [ true, %6 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 
@@ -518,8 +518,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento23containsBuiltinOffsetOfEPKN
   %11 = icmp ne ptr %10, %.sroa.410.24.copyload
   %12 = load i64, ptr %9, align 8
   %13 = icmp ne i64 %12, %.sroa.6.24.copyload
-  %.not3.i.not.not16 = select i1 %11, i1 true, i1 %13
-  br i1 %.not3.i.not.not16, label %.lr.ph, label %._crit_edge
+  %.not3.i13 = select i1 %11, i1 true, i1 %13
+  br i1 %.not3.i13, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %7, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %14 = phi i64 [ %34, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %12, %7 ]
@@ -540,7 +540,7 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 21:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %22 = call noundef zeroext i1 @_ZN5clang4ento23containsBuiltinOffsetOfEPKNS_4StmtE(ptr noundef nonnull %20)
-  br i1 %22, label %._crit_edge, label %.critedge
+  br i1 %22, label %.sink.split, label %.critedge
 
 .critedge:                                        ; preds = %21, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %23 = load i64, ptr %9, align 8, !tbaa !12
@@ -571,16 +571,16 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   %33 = icmp ne ptr %32, %.sroa.410.24.copyload
   %34 = load i64, ptr %9, align 8
   %35 = icmp ne i64 %34, %.sroa.6.24.copyload
-  %.not3.i.not.not = select i1 %33, i1 true, i1 %35
-  br i1 %.not3.i.not.not, label %.lr.ph, label %._crit_edge
+  %.not3.i = select i1 %33, i1 true, i1 %35
+  br i1 %.not3.i, label %.lr.ph, label %.sink.split
 
-._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %21, %7
-  %.not3.i.not.not.lcssa = phi i1 [ false, %7 ], [ true, %21 ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
+.sink.split:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %21, %7
+  %.0.ph = phi i1 [ false, %7 ], [ true, %21 ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
-36:                                               ; preds = %._crit_edge, %1
-  %.0 = phi i1 [ true, %1 ], [ %.not3.i.not.not.lcssa, %._crit_edge ]
+36:                                               ; preds = %.sink.split, %1
+  %.0 = phi i1 [ true, %1 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2568,8 +2568,8 @@ define linkonce_odr hidden void @_ZN5clang12Preprocessor18getMacroDefinitionEPKN
   %.not.i.i.i = icmp eq i64 %12, 0
   %13 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %14 = inttoptr i64 %13 to ptr
-  %.not.not8.i = icmp eq i64 %13, 0
-  %.not.not.i = or i1 %.not.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %13, 0
+  %.not.not.i = or i1 %.not.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %15
 
 15:                                               ; preds = %8

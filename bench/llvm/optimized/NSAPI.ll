@@ -522,19 +522,19 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang5NSAPI20getNSArrayMethod
   br label %3
 
 3:                                                ; preds = %2, %.critedge
-  %.010 = phi i32 [ 0, %2 ], [ %6, %.critedge ]
-  %4 = tail call i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKindE(ptr noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %.010)
+  %.08 = phi i32 [ 0, %2 ], [ %6, %.critedge ]
+  %4 = tail call i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKindE(ptr noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %.08)
   %5 = icmp eq i64 %1, %4
   br i1 %5, label %7, label %.critedge
 
 .critedge:                                        ; preds = %3
-  %6 = add nuw nsw i32 %.010, 1
+  %6 = add nuw nsw i32 %.08, 1
   %.not = icmp eq i32 %6, 12
   br i1 %.not, label %7, label %3, !llvm.loop !395
 
-7:                                                ; preds = %3, %.critedge
-  %.0.lcssa = phi i32 [ %.010, %3 ], [ 12, %.critedge ]
-  %.sroa.2.1 = phi i64 [ 4294967296, %3 ], [ 0, %.critedge ]
+7:                                                ; preds = %.critedge, %3
+  %.0.lcssa = phi i32 [ 12, %.critedge ], [ %.08, %3 ]
+  %.sroa.2.1 = phi i64 [ 0, %.critedge ], [ 4294967296, %3 ]
   %.sroa.06.0.insert.ext = zext nneg i32 %.0.lcssa to i64
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.06.0.insert.ext
   ret i64 %.sroa.06.0.insert.insert
@@ -788,19 +788,19 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang5NSAPI25getNSDictionaryM
   br label %3
 
 3:                                                ; preds = %2, %.critedge
-  %.010 = phi i32 [ 0, %2 ], [ %6, %.critedge ]
-  %4 = tail call i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictionaryMethodKindE(ptr noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %.010)
+  %.08 = phi i32 [ 0, %2 ], [ %6, %.critedge ]
+  %4 = tail call i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictionaryMethodKindE(ptr noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %.08)
   %5 = icmp eq i64 %1, %4
   br i1 %5, label %7, label %.critedge
 
 .critedge:                                        ; preds = %3
-  %6 = add nuw nsw i32 %.010, 1
+  %6 = add nuw nsw i32 %.08, 1
   %.not = icmp eq i32 %6, 13
   br i1 %.not, label %7, label %3, !llvm.loop !397
 
-7:                                                ; preds = %3, %.critedge
-  %.0.lcssa = phi i32 [ %.010, %3 ], [ 13, %.critedge ]
-  %.sroa.2.1 = phi i64 [ 4294967296, %3 ], [ 0, %.critedge ]
+7:                                                ; preds = %.critedge, %3
+  %.0.lcssa = phi i32 [ 13, %.critedge ], [ %.08, %3 ]
+  %.sroa.2.1 = phi i64 [ 0, %.critedge ], [ 4294967296, %3 ]
   %.sroa.06.0.insert.ext = zext nneg i32 %.0.lcssa to i64
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.06.0.insert.ext
   ret i64 %.sroa.06.0.insert.insert
@@ -932,19 +932,19 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang5NSAPI18getNSSetMethodKi
   br label %3
 
 3:                                                ; preds = %2, %.critedge
-  %.010 = phi i32 [ 0, %2 ], [ %6, %.critedge ]
-  %4 = tail call i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(ptr noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %.010)
+  %.08 = phi i32 [ 0, %2 ], [ %6, %.critedge ]
+  %4 = tail call i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(ptr noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %.08)
   %5 = icmp eq i64 %1, %4
   br i1 %5, label %7, label %.critedge
 
 .critedge:                                        ; preds = %3
-  %6 = add nuw nsw i32 %.010, 1
+  %6 = add nuw nsw i32 %.08, 1
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %7, label %3, !llvm.loop !398
 
-7:                                                ; preds = %3, %.critedge
-  %.0.lcssa = phi i32 [ %.010, %3 ], [ 5, %.critedge ]
-  %.sroa.2.1 = phi i64 [ 4294967296, %3 ], [ 0, %.critedge ]
+7:                                                ; preds = %.critedge, %3
+  %.0.lcssa = phi i32 [ 5, %.critedge ], [ %.08, %3 ]
+  %.sroa.2.1 = phi i64 [ 0, %.critedge ], [ 4294967296, %3 ]
   %.sroa.06.0.insert.ext = zext nneg i32 %.0.lcssa to i64
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.06.0.insert.ext
   ret i64 %.sroa.06.0.insert.insert
@@ -1047,9 +1047,9 @@ _ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8
   %.not = icmp eq i64 %indvars.iv.next, 15
   br i1 %.not, label %.thread, label %5, !llvm.loop !399
 
-.thread:                                          ; preds = %.critedge, %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i, %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit
-  %.0.lcssa = phi i64 [ 15, %.critedge ], [ %indvars.iv, %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i ], [ %indvars.iv, %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit ]
-  %.sroa.2.1 = phi i64 [ 0, %.critedge ], [ 4294967296, %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i ], [ 4294967296, %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit ]
+.thread:                                          ; preds = %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i, %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit, %.critedge
+  %.0.lcssa = phi i64 [ %indvars.iv, %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i ], [ %indvars.iv, %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit ], [ 15, %.critedge ]
+  %.sroa.2.1 = phi i64 [ 4294967296, %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i ], [ 4294967296, %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit ], [ 0, %.critedge ]
   %.sroa.0.0.insert.ext = and i64 %.0.lcssa, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
@@ -1611,8 +1611,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang5NSAPI16isObjCEnumeratorEPKNS_4Ex
   %19 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 511
-  %.not37 = icmp eq i16 %21, 73
-  br i1 %.not37, label %22, label %39
+  %.not36 = icmp eq i16 %21, 73
+  br i1 %.not36, label %22, label %39
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16

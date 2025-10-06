@@ -1159,16 +1159,16 @@ define hidden void @_ZN6Assimp11LWOImporter22CountVertsAndFacesLWOBERjS1_RPtPKtj
 define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17__normal_iteratorIPNS_3LWO4FaceESt6vectorIS4_SaIS4_EEEERPtPKtj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %2, align 8
   %7 = icmp ult ptr %6, %3
-  br i1 %7, label %.lr.ph52, label %.critedge
+  br i1 %7, label %.lr.ph51, label %.critedge
 
-.lr.ph52:                                         ; preds = %5
+.lr.ph51:                                         ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %9
 
-9:                                                ; preds = %.lr.ph52, %68
-  %.051 = phi i32 [ %4, %.lr.ph52 ], [ %10, %68 ]
-  %10 = add i32 %.051, -1
-  %.not = icmp eq i32 %.051, 0
+9:                                                ; preds = %.lr.ph51, %68
+  %.050 = phi i32 [ %4, %.lr.ph51 ], [ %10, %68 ]
+  %10 = add i32 %.050, -1
+  %.not = icmp eq i32 %.050, 0
   br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %9
@@ -1197,8 +1197,8 @@ define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17_
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %23, ptr %24, align 8
   %25 = load i32, ptr %12, align 8
-  %.not55 = icmp eq i32 %25, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph
+  %.not54 = icmp eq i32 %25, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %21 ]

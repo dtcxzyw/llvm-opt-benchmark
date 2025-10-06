@@ -1480,8 +1480,8 @@ define weak_odr dso_local { i64, ptr } @_ZNK4mold12InputSectionINS_6X86_64EE13ge
   br label %12
 
 12:                                               ; preds = %.lr.ph, %.critedge19
-  %.sroa.020.029 = phi ptr [ %6, %.lr.ph ], [ %54, %.critedge19 ]
-  %13 = load ptr, ptr %.sroa.020.029, align 8, !tbaa !34
+  %.sroa.020.027 = phi ptr [ %6, %.lr.ph ], [ %54, %.critedge19 ]
+  %13 = load ptr, ptr %.sroa.020.027, align 8, !tbaa !34
   %14 = load ptr, ptr %13, align 8, !tbaa !367
   %15 = icmp eq ptr %14, %4
   br i1 %15, label %16, label %.critedge19
@@ -1540,7 +1540,7 @@ define weak_odr dso_local { i64, ptr } @_ZNK4mold12InputSectionINS_6X86_64EE13ge
   br label %.critedge.thread
 
 .critedge19:                                      ; preds = %12, %16, %27, %32, %35
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.020.029, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.020.027, i64 8
   %55 = icmp eq ptr %54, %8
   br i1 %55, label %.critedge.thread, label %12
 
@@ -1969,8 +1969,8 @@ _ZN4moldlsINS_6X86_64EEERSoS2_RKNS_12InputSectionIT_EE.exit: ; preds = %_ZNK4mol
   br label %108
 
 108:                                              ; preds = %.critedge19.i, %.lr.ph.i
-  %.sroa.020.029.i = phi ptr [ %102, %.lr.ph.i ], [ %150, %.critedge19.i ]
-  %109 = load ptr, ptr %.sroa.020.029.i, align 8, !tbaa !34
+  %.sroa.020.027.i = phi ptr [ %102, %.lr.ph.i ], [ %150, %.critedge19.i ]
+  %109 = load ptr, ptr %.sroa.020.027.i, align 8, !tbaa !34
   %110 = load ptr, ptr %109, align 8, !tbaa !367
   %111 = icmp eq ptr %110, %100
   br i1 %111, label %112, label %.critedge19.i
@@ -2029,7 +2029,7 @@ _ZN4moldlsINS_6X86_64EEERSoS2_RKNS_12InputSectionIT_EE.exit: ; preds = %_ZNK4mol
   br label %_ZNK4mold12InputSectionINS_6X86_64EE13get_func_nameERNS_7ContextIS1_EEl.exit
 
 .critedge19.i:                                    ; preds = %131, %128, %123, %112, %108
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.020.029.i, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.020.027.i, i64 8
   %151 = icmp eq ptr %150, %104
   br i1 %151, label %_ZNK4mold12InputSectionINS_6X86_64EE13get_func_nameERNS_7ContextIS1_EEl.exit.thread, label %108
 
@@ -4320,8 +4320,8 @@ define linkonce_odr dso_local void @_ZN4mold7CounterD2Ev(ptr noundef nonnull ali
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load atomic i64, ptr %10 monotonic, align 8
-  %.not7.i.i = icmp eq i64 %11, 0
-  br i1 %.not7.i.i, label %_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE11table_clearEv.exit.i, label %.lr.ph.i.i
+  %.not6.i.i = icmp eq i64 %11, 0
+  br i1 %.not6.i.i, label %_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE11table_clearEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %12 = phi i64 [ %22, %.lr.ph.i.i ], [ %11, %9 ]
@@ -6824,8 +6824,8 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d126enumerable_thread_specifi
 8:                                                ; preds = %4, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.not7.i = icmp eq i64 %10, 0
-  br i1 %.not7.i, label %_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE11table_clearEv.exit, label %.lr.ph.i
+  %.not6.i = icmp eq i64 %10, 0
+  br i1 %.not6.i, label %_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE11table_clearEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %11 = phi i64 [ %21, %.lr.ph.i ], [ %10, %8 ]
@@ -6898,8 +6898,8 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d126enumerable_thread_specifi
 8:                                                ; preds = %4, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.not7.i.i = icmp eq i64 %10, 0
-  br i1 %.not7.i.i, label %_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE11table_clearEv.exit.i, label %.lr.ph.i.i
+  %.not6.i.i = icmp eq i64 %10, 0
+  br i1 %.not6.i.i, label %_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE11table_clearEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %11 = phi i64 [ %21, %.lr.ph.i.i ], [ %10, %8 ]
@@ -7696,23 +7696,23 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets
   %5 = call noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8, i64 noundef 3339675911) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
-  %.not123 = icmp eq i64 %7, 0
-  br i1 %.not123, label %._crit_edge127, label %.lr.ph126
+  %.not122 = icmp eq i64 %7, 0
+  br i1 %.not122, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph126:                                        ; preds = %2
+.lr.ph125:                                        ; preds = %2
   %.0.i.i = inttoptr i64 %7 to ptr
   %.sroa.029.0.copyload = load i64, ptr %3, align 8
   br label %8
 
-8:                                                ; preds = %.lr.ph126, %._crit_edge
-  %.065124 = phi ptr [ %.0.i.i, %.lr.ph126 ], [ %32, %._crit_edge ]
-  %9 = getelementptr inbounds nuw i8, ptr %.065124, i64 8
+8:                                                ; preds = %.lr.ph125, %._crit_edge
+  %.065123 = phi ptr [ %.0.i.i, %.lr.ph125 ], [ %32, %._crit_edge ]
+  %9 = getelementptr inbounds nuw i8, ptr %.065123, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !503
   %notmask.i = shl nsw i64 -1, %10
   %11 = xor i64 %notmask.i, -1
   %12 = sub i64 64, %10
   %13 = lshr i64 %5, %12
-  %14 = getelementptr inbounds nuw i8, ptr %.065124, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.065123, i64 16
   %15 = getelementptr inbounds nuw %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %14, i64 %13
   %16 = load atomic i64, ptr %15 monotonic, align 8
   %17 = icmp eq i64 %16, 0
@@ -7720,7 +7720,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets
 
 .lr.ph:                                           ; preds = %8, %26
   %18 = phi ptr [ %29, %26 ], [ %15, %8 ]
-  %.070122 = phi i64 [ %28, %26 ], [ %13, %8 ]
+  %.070121 = phi i64 [ %28, %26 ], [ %13, %8 ]
   %19 = load atomic i64, ptr %18 monotonic, align 8
   %20 = icmp eq i64 %19, %.sroa.029.0.copyload
   br i1 %20, label %21, label %26
@@ -7728,14 +7728,14 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets
 21:                                               ; preds = %.lr.ph
   %22 = load atomic i64, ptr %6 acquire, align 8
   %.0.i.i78 = inttoptr i64 %22 to ptr
-  %23 = icmp eq ptr %.065124, %.0.i.i78
+  %23 = icmp eq ptr %.065123, %.0.i.i78
   store i8 1, ptr %1, align 1, !tbaa !477
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !623
   br i1 %23, label %.thread103, label %.thread110
 
 26:                                               ; preds = %.lr.ph
-  %27 = add i64 %.070122, 1
+  %27 = add i64 %.070121, 1
   %28 = and i64 %27, %11
   %29 = getelementptr inbounds nuw %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %14, i64 %28
   %30 = load atomic i64, ptr %29 monotonic, align 8
@@ -7743,11 +7743,11 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets
   br i1 %31, label %._crit_edge, label %.lr.ph, !llvm.loop !627
 
 ._crit_edge:                                      ; preds = %26, %8
-  %32 = load ptr, ptr %.065124, align 8, !tbaa !501
+  %32 = load ptr, ptr %.065123, align 8, !tbaa !501
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %._crit_edge127, label %8, !llvm.loop !628
+  br i1 %.not, label %._crit_edge126, label %8, !llvm.loop !628
 
-._crit_edge127:                                   ; preds = %._crit_edge, %2
+._crit_edge126:                                   ; preds = %._crit_edge, %2
   store i8 0, ptr %1, align 1, !tbaa !477
   %33 = load ptr, ptr %0, align 8, !tbaa !90
   %34 = load ptr, ptr %33, align 8
@@ -7760,7 +7760,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets
   %.not76 = icmp eq i64 %39, 0
   br i1 %.not76, label %.critedge.preheader, label %40
 
-40:                                               ; preds = %._crit_edge127
+40:                                               ; preds = %._crit_edge126
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i79, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !503
   %43 = shl nuw i64 1, %42
@@ -7768,8 +7768,8 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets
   %45 = icmp ugt i64 %38, %44
   br i1 %45, label %.critedge.preheader, label %.thread110
 
-.critedge.preheader:                              ; preds = %40, %._crit_edge127
-  %.071.ph = phi i64 [ %42, %40 ], [ 2, %._crit_edge127 ]
+.critedge.preheader:                              ; preds = %40, %._crit_edge126
+  %.071.ph = phi i64 [ %42, %40 ], [ 2, %._crit_edge126 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge

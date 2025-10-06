@@ -32118,11 +32118,11 @@ _ZNK2dd11pdd_manager6is_valEj.exit18:             ; preds = %114
   %.phi.trans.insert.i20 = getelementptr inbounds i8, ptr %.pre.i19, i64 -4
   %.pre2.i21 = load i32, ptr %.phi.trans.insert.i20, align 4, !tbaa !83
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !91
-  %.pre34.pre = load ptr, ptr %4, align 8, !tbaa !53
+  %.pre32.pre = load ptr, ptr %4, align 8, !tbaa !53
   br label %_ZN6vectorIjLb0EjE9push_backEOj.exit
 
 _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %125, %130
-  %.pre34 = phi ptr [ %.pre34.pre, %130 ], [ %81, %125 ]
+  %.pre32 = phi ptr [ %.pre32.pre, %130 ], [ %81, %125 ]
   %.pre = phi ptr [ %.pre.pre, %130 ], [ %69, %125 ]
   %131 = phi ptr [ %.pre.i19, %130 ], [ %61, %125 ]
   %132 = phi i32 [ %.pre2.i21, %130 ], [ %126, %125 ]
@@ -32132,13 +32132,13 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %125, %130
   store i32 %95, ptr %135, align 4, !tbaa !83
   %136 = add i32 %132, 1
   store i32 %136, ptr %133, align 4, !tbaa !83
-  %.pre35 = load i32, ptr %32, align 8, !tbaa !78
+  %.pre33 = load i32, ptr %32, align 8, !tbaa !78
   br label %137
 
 137:                                              ; preds = %_ZN6vectorIjLb0EjE9push_backEOj.exit, %120
   %138 = phi ptr [ %131, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ %61, %120 ]
-  %139 = phi i32 [ %.pre35, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ %122, %120 ]
-  %140 = phi ptr [ %.pre34, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ %81, %120 ]
+  %139 = phi i32 [ %.pre33, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ %122, %120 ]
+  %140 = phi ptr [ %.pre32, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ %81, %120 ]
   %141 = phi ptr [ %.pre, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ %69, %120 ]
   %142 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %141, i64 %70
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
@@ -42073,7 +42073,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit14.thread31:    ; preds = %_ZNK2dd11pdd_manage
   br label %64
 
 64:                                               ; preds = %_ZN6vectorIjLb0EjE9push_backEOj.exit, %_ZNK2dd11pdd_manager6is_valEj.exit14.thread31
-  %65 = phi i32 [ %46, %_ZNK2dd11pdd_manager6is_valEj.exit14.thread31 ], [ %.pre46, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
+  %65 = phi i32 [ %46, %_ZNK2dd11pdd_manager6is_valEj.exit14.thread31 ], [ %.pre44, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
   %66 = phi ptr [ %24, %_ZNK2dd11pdd_manager6is_valEj.exit14.thread31 ], [ %153, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
   %.029 = phi i32 [ %42, %_ZNK2dd11pdd_manager6is_valEj.exit14.thread31 ], [ %162, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
   %67 = zext i32 %.029 to i64
@@ -42260,11 +42260,11 @@ _ZN6vectorIjLb0EjE13expand_vectorEv.exit:         ; preds = %109, %148
   %.pre.i17 = phi ptr [ %112, %109 ], [ %151, %148 ]
   %.phi.trans.insert.i18 = getelementptr inbounds i8, ptr %.pre.i17, i64 -4
   %.pre2.i19 = load i32, ptr %.phi.trans.insert.i18, align 4, !tbaa !83
-  %.pre48 = load ptr, ptr %5, align 8, !tbaa !91
+  %.pre46 = load ptr, ptr %5, align 8, !tbaa !91
   br label %_ZN6vectorIjLb0EjE9push_backEOj.exit
 
 _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %103, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit
-  %153 = phi ptr [ %.pre48, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %93, %103 ]
+  %153 = phi ptr [ %.pre46, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %93, %103 ]
   %154 = phi i32 [ %.pre2.i19, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %105, %103 ]
   %155 = phi ptr [ %.pre.i17, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %101, %103 ]
   %156 = getelementptr inbounds i8, ptr %155, i64 -4
@@ -42277,9 +42277,9 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %103, %_ZN6vectorIjL
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i32, ptr %161, align 4, !tbaa !92
   %.phi.trans.insert = zext i32 %162 to i64
-  %.phi.trans.insert44 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %153, i64 %.phi.trans.insert
-  %.phi.trans.insert45 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert44, i64 8
-  %.pre46 = load i32, ptr %.phi.trans.insert45, align 4, !tbaa !92
+  %.phi.trans.insert42 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %153, i64 %.phi.trans.insert
+  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert42, i64 8
+  %.pre44 = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !92
   br label %64, !llvm.loop !582
 
 _ZNK2dd11pdd_manager6is_valEj.exit16.thread:      ; preds = %70, %_ZNK2dd11pdd_manager6is_valEj.exit16

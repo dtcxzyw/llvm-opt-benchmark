@@ -147,15 +147,15 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Resul
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !21
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h90b99a41163f1cb1E.llvm.15042225336479844372(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull %.0.val), !noalias !21
   %5 = load i8, ptr %1, align 8, !range !28, !alias.scope !29, !noalias !21, !noundef !19
-  %switch.not.i.i.i.i = icmp eq i8 %5, 3
-  br i1 %switch.not.i.i.i.i, label %6, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9dffde04080eb690E.exit"
+  %6 = icmp eq i8 %5, 3
+  br i1 %6, label %7, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9dffde04080eb690E.exit"
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h2446cd80b1715e4fE.llvm.15042225336479844372"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7), !noalias !21
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h2446cd80b1715e4fE.llvm.15042225336479844372"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !21
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9dffde04080eb690E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9dffde04080eb690E.exit": ; preds = %4, %6
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9dffde04080eb690E.exit": ; preds = %4, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !21
   br label %3
 }

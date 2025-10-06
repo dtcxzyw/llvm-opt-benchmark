@@ -1397,8 +1397,8 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   %10 = load ptr, ptr %9, align 8, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %12 = load ptr, ptr %11, align 8, !tbaa !50
-  %.not57 = icmp eq ptr %10, %12
-  br i1 %.not57, label %.critedge, label %.lr.ph
+  %.not56 = icmp eq ptr %10, %12
+  br i1 %.not56, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1413,11 +1413,11 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   %22 = load ptr, ptr %13, align 8
   br i1 %16, label %.critedge, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit56
-  %.sroa.038.058 = phi ptr [ %39, %.loopexit56 ], [ %10, %.lr.ph ]
-  %23 = load ptr, ptr %.sroa.038.058, align 8, !tbaa !58
+.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit55
+  %.sroa.038.057 = phi ptr [ %39, %.loopexit55 ], [ %10, %.lr.ph ]
+  %23 = load ptr, ptr %.sroa.038.057, align 8, !tbaa !58
   %24 = icmp eq ptr %23, %18
-  br i1 %24, label %.loopexit56, label %25
+  br i1 %24, label %.loopexit55, label %25
 
 25:                                               ; preds = %.lr.ph.split
   %26 = ptrtoint ptr %23 to i64
@@ -1437,28 +1437,28 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
 
 34:                                               ; preds = %30
   %35 = icmp eq ptr %32, %18
-  br i1 %35, label %.loopexit56, label %36
+  br i1 %35, label %.loopexit55, label %36
 
 36:                                               ; preds = %34
   %37 = add i64 %.02028.i.i, 1
   %38 = add i64 %37, %.02129.i.i
   %.not.i.i27 = icmp ugt i64 %37, %21
-  br i1 %.not.i.i27, label %.loopexit56, label %30, !llvm.loop !59
+  br i1 %.not.i.i27, label %.loopexit55, label %30, !llvm.loop !59
 
-.loopexit56:                                      ; preds = %34, %36, %.lr.ph.split
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.058, i64 8
+.loopexit55:                                      ; preds = %34, %36, %.lr.ph.split
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.057, i64 8
   %.not = icmp eq ptr %39, %12
   br i1 %.not, label %.critedge, label %.lr.ph.split
 
-.critedge:                                        ; preds = %.loopexit56, %.lr.ph, %8
+.critedge:                                        ; preds = %.loopexit55, %.lr.ph, %8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %41 = load ptr, ptr %40, align 8, !tbaa !61
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %43 = load ptr, ptr %42, align 8, !tbaa !61
-  %.not5359 = icmp eq ptr %41, %43
-  br i1 %.not5359, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, label %.lr.ph61
+  %.not5258 = icmp eq ptr %41, %43
+  br i1 %.not5258, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, label %.lr.ph60
 
-.lr.ph61:                                         ; preds = %.critedge
+.lr.ph60:                                         ; preds = %.critedge
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %46 = load i64, ptr %45, align 8, !tbaa !62
@@ -1469,15 +1469,15 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, -1
   %53 = load ptr, ptr %44, align 8
-  br i1 %47, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, label %.lr.ph61.split
+  br i1 %47, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, label %.lr.ph60.split
 
-.lr.ph61.split:                                   ; preds = %.lr.ph61, %.loopexit
-  %.sroa.033.060 = phi ptr [ %70, %.loopexit ], [ %41, %.lr.ph61 ]
-  %54 = load ptr, ptr %.sroa.033.060, align 8, !tbaa !66
+.lr.ph60.split:                                   ; preds = %.lr.ph60, %.loopexit
+  %.sroa.033.059 = phi ptr [ %70, %.loopexit ], [ %41, %.lr.ph60 ]
+  %54 = load ptr, ptr %.sroa.033.059, align 8, !tbaa !66
   %55 = icmp eq ptr %54, %49
   br i1 %55, label %.loopexit, label %56
 
-56:                                               ; preds = %.lr.ph61.split
+56:                                               ; preds = %.lr.ph60.split
   %57 = ptrtoint ptr %54 to i64
   %58 = lshr i64 %57, 4
   %59 = lshr i64 %57, 9
@@ -1503,16 +1503,16 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   %.not.i.i31 = icmp ugt i64 %68, %52
   br i1 %.not.i.i31, label %.loopexit, label %61, !llvm.loop !67
 
-.loopexit:                                        ; preds = %65, %67, %.lr.ph61.split
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.033.060, i64 8
-  %.not53 = icmp eq ptr %70, %43
-  br i1 %.not53, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, label %.lr.ph61.split
+.loopexit:                                        ; preds = %65, %67, %.lr.ph60.split
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.033.059, i64 8
+  %.not52 = icmp eq ptr %70, %43
+  br i1 %.not52, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, label %.lr.ph60.split
 
 _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split: ; preds = %3
   br label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit
 
-_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %30, %.loopexit, %61, %3, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split, %.lr.ph61, %.critedge, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %2
-  %.0 = phi i1 [ true, %3 ], [ false, %2 ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.critedge ], [ false, %.lr.ph61 ], [ false, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split ], [ true, %61 ], [ false, %.loopexit ], [ true, %30 ]
+_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %30, %.loopexit, %61, %3, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split, %.lr.ph60, %.critedge, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %2
+  %.0 = phi i1 [ true, %3 ], [ false, %2 ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.critedge ], [ false, %.lr.ph60 ], [ false, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split ], [ true, %61 ], [ false, %.loopexit ], [ true, %30 ]
   ret i1 %.0
 }
 

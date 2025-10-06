@@ -581,22 +581,22 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantE
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !72
   %19 = load i32, ptr %4, align 8, !tbaa !36
-  %switch.i = icmp eq i32 %19, 1
-  br i1 %switch.i, label %20, label %23
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %16
-  %21 = shl i64 %18, 52
-  %22 = ashr exact i64 %21, 52
+21:                                               ; preds = %16
+  %22 = shl i64 %18, 52
+  %23 = ashr exact i64 %22, 52
   br label %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit
 
-23:                                               ; preds = %16
-  %24 = add nsw i64 %18, 2048
-  %25 = lshr i64 %24, 12
-  %26 = and i64 %25, 1048575
+24:                                               ; preds = %16
+  %25 = add nsw i64 %18, 2048
+  %26 = lshr i64 %25, 12
+  %27 = and i64 %26, 1048575
   br label %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit
 
-_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit:   ; preds = %20, %23
-  %.0.i = phi i64 [ %22, %20 ], [ %26, %23 ]
+_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit:   ; preds = %21, %24
+  %.0.i = phi i64 [ %23, %21 ], [ %27, %24 ]
   store i64 %.0.i, ptr %1, align 8, !tbaa !73
   br label %switch.lookup
 
@@ -610,22 +610,22 @@ switch.lookup:                                    ; preds = %2, %11, %7, %_ZNK4l
 define dso_local noundef range(i64 -2048, 1048576) i64 @_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !36
-  %switch = icmp eq i32 %4, 1
-  br i1 %switch, label %5, label %8
+  %5 = icmp eq i32 %4, 1
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = shl i64 %1, 52
-  %7 = ashr exact i64 %6, 52
-  br label %12
+6:                                                ; preds = %2
+  %7 = shl i64 %1, 52
+  %8 = ashr exact i64 %7, 52
+  br label %13
 
-8:                                                ; preds = %2
-  %9 = add nsw i64 %1, 2048
-  %10 = lshr i64 %9, 12
-  %11 = and i64 %10, 1048575
-  br label %12
+9:                                                ; preds = %2
+  %10 = add nsw i64 %1, 2048
+  %11 = lshr i64 %10, 12
+  %12 = and i64 %11, 1048575
+  br label %13
 
-12:                                               ; preds = %8, %5
-  %.0 = phi i64 [ %7, %5 ], [ %11, %8 ]
+13:                                               ; preds = %9, %6
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ]
   ret i64 %.0
 }
 

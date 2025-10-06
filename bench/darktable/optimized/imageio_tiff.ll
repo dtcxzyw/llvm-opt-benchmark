@@ -776,19 +776,19 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8(ptr noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !69
-  %.not3539.not = icmp eq i32 %4, 0
-  br i1 %.not3539.not, label %.critedge, label %.lr.ph42
+  %.not44 = icmp eq i32 %4, 0
+  br i1 %.not44, label %.critedge, label %.lr.ph41
 
-.lr.ph42:                                         ; preds = %1
+.lr.ph41:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %.pre = load i32, ptr %6, align 8, !tbaa !68
   br label %8
 
-8:                                                ; preds = %.lr.ph42, %._crit_edge
-  %9 = phi i32 [ %.pre, %.lr.ph42 ], [ %16, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %._crit_edge ]
+8:                                                ; preds = %.lr.ph41, %._crit_edge
+  %9 = phi i32 [ %.pre, %.lr.ph41 ], [ %16, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %._crit_edge ]
   %10 = load ptr, ptr %2, align 8, !tbaa !79
   %11 = load ptr, ptr %5, align 8, !tbaa !78
   %12 = load ptr, ptr %0, align 8, !tbaa !31
@@ -864,12 +864,12 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8(ptr noundef nonnull 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %3, align 4, !tbaa !69
   %51 = zext i32 %50 to i64
-  %.not35 = icmp samesign ult i64 %indvars.iv.next, %51
-  br i1 %.not35, label %8, label %.critedge
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
+  br i1 %52, label %8, label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge, %8, %1
-  %spec.select = phi i32 [ 1, %1 ], [ -1, %8 ], [ 1, %._crit_edge ]
-  ret i32 %spec.select
+.critedge:                                        ; preds = %8, %._crit_edge, %1
+  %53 = phi i32 [ 1, %1 ], [ 1, %._crit_edge ], [ -1, %8 ]
+  ret i32 %53
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
@@ -877,19 +877,19 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !69
-  %.not3539.not = icmp eq i32 %4, 0
-  br i1 %.not3539.not, label %.critedge, label %.lr.ph42
+  %.not44 = icmp eq i32 %4, 0
+  br i1 %.not44, label %.critedge, label %.lr.ph41
 
-.lr.ph42:                                         ; preds = %1
+.lr.ph41:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %.pre = load i32, ptr %6, align 8, !tbaa !68
   br label %8
 
-8:                                                ; preds = %.lr.ph42, %._crit_edge
-  %9 = phi i32 [ %.pre, %.lr.ph42 ], [ %16, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %._crit_edge ]
+8:                                                ; preds = %.lr.ph41, %._crit_edge
+  %9 = phi i32 [ %.pre, %.lr.ph41 ], [ %16, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %._crit_edge ]
   %10 = load ptr, ptr %2, align 8, !tbaa !79
   %11 = load ptr, ptr %5, align 8, !tbaa !78
   %12 = load ptr, ptr %0, align 8, !tbaa !31
@@ -965,12 +965,12 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %3, align 4, !tbaa !69
   %51 = zext i32 %50 to i64
-  %.not35 = icmp samesign ult i64 %indvars.iv.next, %51
-  br i1 %.not35, label %8, label %.critedge
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
+  br i1 %52, label %8, label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge, %8, %1
-  %spec.select = phi i32 [ 1, %1 ], [ -1, %8 ], [ 1, %._crit_edge ]
-  ret i32 %spec.select
+.critedge:                                        ; preds = %8, %._crit_edge, %1
+  %53 = phi i32 [ 1, %1 ], [ 1, %._crit_edge ], [ -1, %8 ]
+  ret i32 %53
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
@@ -978,19 +978,19 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_h(ptr noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !69
-  %.not4145.not = icmp eq i32 %4, 0
-  br i1 %.not4145.not, label %.critedge, label %.lr.ph48
+  %.not50 = icmp eq i32 %4, 0
+  br i1 %.not50, label %.critedge, label %.lr.ph47
 
-.lr.ph48:                                         ; preds = %1
+.lr.ph47:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %.pre = load i32, ptr %6, align 8, !tbaa !68
   br label %8
 
-8:                                                ; preds = %.lr.ph48, %._crit_edge
-  %9 = phi i32 [ %.pre, %.lr.ph48 ], [ %16, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %._crit_edge ]
+8:                                                ; preds = %.lr.ph47, %._crit_edge
+  %9 = phi i32 [ %.pre, %.lr.ph47 ], [ %16, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge ]
   %10 = load ptr, ptr %2, align 8, !tbaa !79
   %11 = load ptr, ptr %5, align 8, !tbaa !78
   %12 = load ptr, ptr %0, align 8, !tbaa !31
@@ -1170,12 +1170,12 @@ _half_to_float.exit40:                            ; preds = %92, %94, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %3, align 4, !tbaa !69
   %111 = zext i32 %110 to i64
-  %.not41 = icmp samesign ult i64 %indvars.iv.next, %111
-  br i1 %.not41, label %8, label %.critedge
+  %112 = icmp samesign ult i64 %indvars.iv.next, %111
+  br i1 %112, label %8, label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge, %8, %1
-  %spec.select = phi i32 [ 1, %1 ], [ -1, %8 ], [ 1, %._crit_edge ]
-  ret i32 %spec.select
+.critedge:                                        ; preds = %8, %._crit_edge, %1
+  %113 = phi i32 [ 1, %1 ], [ 1, %._crit_edge ], [ -1, %8 ]
+  ret i32 %113
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
@@ -1183,19 +1183,19 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_f(ptr noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !69
-  %.not3539.not = icmp eq i32 %4, 0
-  br i1 %.not3539.not, label %.critedge, label %.lr.ph42
+  %.not44 = icmp eq i32 %4, 0
+  br i1 %.not44, label %.critedge, label %.lr.ph41
 
-.lr.ph42:                                         ; preds = %1
+.lr.ph41:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %.pre = load i32, ptr %6, align 8, !tbaa !68
   br label %8
 
-8:                                                ; preds = %.lr.ph42, %._crit_edge
-  %9 = phi i32 [ %.pre, %.lr.ph42 ], [ %16, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %._crit_edge ]
+8:                                                ; preds = %.lr.ph41, %._crit_edge
+  %9 = phi i32 [ %.pre, %.lr.ph41 ], [ %16, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %._crit_edge ]
   %10 = load ptr, ptr %2, align 8, !tbaa !79
   %11 = load ptr, ptr %5, align 8, !tbaa !78
   %12 = load ptr, ptr %0, align 8, !tbaa !31
@@ -1263,12 +1263,12 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_f(ptr noundef nonnull 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %3, align 4, !tbaa !69
   %43 = zext i32 %42 to i64
-  %.not35 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %.not35, label %8, label %.critedge
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
+  br i1 %44, label %8, label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge, %8, %1
-  %spec.select = phi i32 [ 1, %1 ], [ -1, %8 ], [ 1, %._crit_edge ]
-  ret i32 %spec.select
+.critedge:                                        ; preds = %8, %._crit_edge, %1
+  %45 = phi i32 [ 1, %1 ], [ 1, %._crit_edge ], [ -1, %8 ]
+  ret i32 %45
 }
 
 declare void @_TIFFfree(ptr noundef) local_unnamed_addr #1

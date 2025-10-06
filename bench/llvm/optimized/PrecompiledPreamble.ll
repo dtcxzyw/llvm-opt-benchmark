@@ -3226,8 +3226,8 @@ define dso_local noundef i64 @_ZNK5clang19PrecompiledPreamble7getSizeEv(ptr noun
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !26
   %5 = load ptr, ptr %4, align 8, !tbaa !231
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN4llvm3sys2fs9file_sizeERKNS_5TwineERm.exit, label %6
+  %.not.i.not = icmp eq ptr %5, null
+  br i1 %.not.i.not, label %_ZN4llvm3sys2fs9file_sizeERKNS_5TwineERm.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32

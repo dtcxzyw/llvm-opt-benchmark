@@ -6331,71 +6331,71 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef 
   %13 = urem i64 %0, %10
   %14 = trunc nuw i64 %13 to i32
   %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %1, i32 noundef %12, i32 noundef %14) #22
-  %switch = icmp eq i32 %2, 1
-  br i1 %switch, label %16, label %22
+  %16 = icmp eq i32 %2, 1
+  br i1 %16, label %17, label %23
 
-16:                                               ; preds = %4
-  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.174, ptr noundef nonnull %5) #22
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
-  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %18) #22
-  %19 = load i32, ptr @wal_segment_size, align 4
-  %20 = sext i32 %19 to i64
+17:                                               ; preds = %4
+  %18 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.174, ptr noundef nonnull %5) #22
+  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
+  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %19) #22
+  %20 = load i32, ptr @wal_segment_size, align 4
+  %21 = sext i32 %20 to i64
   %.b17 = load i1, ptr @InRedo, align 1
-  %21 = call zeroext i1 @RestoreArchivedFile(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull @.str.175, i64 noundef %20, i1 noundef zeroext %.b17) #22
-  br i1 %21, label %31, label %49
+  %22 = call zeroext i1 @RestoreArchivedFile(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull @.str.175, i64 noundef %21, i1 noundef zeroext %.b17) #22
+  br i1 %22, label %32, label %50
 
-22:                                               ; preds = %4
-  %23 = load i32, ptr @wal_segment_size, align 4
-  %24 = sext i32 %23 to i64
-  %25 = udiv i64 4294967296, %24
-  %26 = udiv i64 %0, %25
-  %27 = trunc i64 %26 to i32
-  %28 = urem i64 %0, %25
-  %29 = trunc nuw i64 %28 to i32
-  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %1, i32 noundef %27, i32 noundef %29) #22
-  br label %33
+23:                                               ; preds = %4
+  %24 = load i32, ptr @wal_segment_size, align 4
+  %25 = sext i32 %24 to i64
+  %26 = udiv i64 4294967296, %25
+  %27 = udiv i64 %0, %26
+  %28 = trunc i64 %27 to i32
+  %29 = urem i64 %0, %26
+  %30 = trunc nuw i64 %29 to i32
+  %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %1, i32 noundef %28, i32 noundef %30) #22
+  br label %34
 
-31:                                               ; preds = %16
+32:                                               ; preds = %17
   call void @KeepFileRestoredFromArchive(ptr noundef nonnull %7, ptr noundef nonnull %5) #22
-  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.177, ptr noundef nonnull %5) #22
-  br label %33
+  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.177, ptr noundef nonnull %5) #22
+  br label %34
 
-33:                                               ; preds = %22, %31
-  %34 = call i32 @BasicOpenFile(ptr noundef nonnull %7, i32 noundef 0) #22
-  %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %36, label %41
+34:                                               ; preds = %23, %32
+  %35 = call i32 @BasicOpenFile(ptr noundef nonnull %7, i32 noundef 0) #22
+  %36 = icmp sgt i32 %35, -1
+  br i1 %36, label %37, label %42
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   store i32 %1, ptr @curFileTLI, align 4
-  %37 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.178, ptr noundef nonnull %5) #22
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
-  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %38) #22
+  %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.178, ptr noundef nonnull %5) #22
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
+  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %39) #22
   store i32 %2, ptr @readSource, align 4
   store i32 %2, ptr @XLogReceiptSource, align 4
   %.not = icmp eq i32 %2, 3
-  br i1 %.not, label %49, label %39
+  br i1 %.not, label %50, label %40
 
-39:                                               ; preds = %36
-  %40 = call i64 @GetCurrentTimestamp() #22
-  store i64 %40, ptr @XLogReceiptTime, align 8
-  br label %49
+40:                                               ; preds = %37
+  %41 = call i64 @GetCurrentTimestamp() #22
+  store i64 %41, ptr @XLogReceiptTime, align 8
+  br label %50
 
-41:                                               ; preds = %33
-  %42 = tail call ptr @__errno_location() #24
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, 2
-  %or.cond = and i1 %3, %44
-  br i1 %or.cond, label %49, label %45
+42:                                               ; preds = %34
+  %43 = tail call ptr @__errno_location() #24
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, 2
+  %or.cond = and i1 %3, %45
+  br i1 %or.cond, label %50, label %46
 
-45:                                               ; preds = %41
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
-  %47 = call i32 @errcode_for_file_access() #22
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %7) #22
+46:                                               ; preds = %42
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
+  %48 = call i32 @errcode_for_file_access() #22
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %7) #22
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4277, ptr noundef nonnull @__func__.XLogFileRead) #22
   unreachable
 
-49:                                               ; preds = %41, %36, %39, %16
-  %.0 = phi i32 [ -1, %16 ], [ %34, %39 ], [ %34, %36 ], [ -1, %41 ]
+50:                                               ; preds = %42, %37, %40, %17
+  %.0 = phi i32 [ -1, %17 ], [ %35, %40 ], [ %35, %37 ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

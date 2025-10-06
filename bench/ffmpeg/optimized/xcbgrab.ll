@@ -1605,10 +1605,9 @@ define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
   %8 = tail call ptr @shmat(i32 noundef %3, ptr noundef null, i32 noundef 0) #10
   %9 = tail call i32 @shmctl(i32 noundef %3, i32 noundef 0, ptr noundef null) #10
   %magicptr = ptrtoint ptr %8 to i64
-  switch i64 %magicptr, label %10 [
-    i64 -1, label %16
-    i64 0, label %16
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %10, label %16
 
 10:                                               ; preds = %5
   %11 = zext i32 %6 to i64
@@ -1621,8 +1620,8 @@ define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
   %15 = tail call i32 @shmdt(ptr noundef nonnull %8) #10
   br label %16
 
-16:                                               ; preds = %10, %14, %5, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %5 ], [ null, %14 ], [ %13, %10 ]
+16:                                               ; preds = %5, %10, %14, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %14 ], [ %13, %10 ]
   ret ptr %.0
 }
 

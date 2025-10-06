@@ -534,68 +534,68 @@ thread-pre-split:                                 ; preds = %84, %72
   br i1 %or.cond39, label %110, label %dissect_iwarp_atomic.exit
 
 110:                                              ; preds = %107
-  %switch = icmp eq i8 %108, 10
-  br i1 %switch, label %111, label %138
+  %111 = icmp eq i8 %108, 10
+  br i1 %111, label %112, label %139
 
-111:                                              ; preds = %110
-  %112 = load i32, ptr @hf_iwarp_rdma_atomic_reserved, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %112, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
-  %114 = load i32, ptr @hf_iwarp_rdma_atomic_opcode, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %114, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
-  %116 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 14, 71) %.2)
-  %117 = add nuw nsw i32 %.2, 4
-  %118 = load i32, ptr @hf_iwarp_rdma_atomic_request_identifier, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 4, i32 noundef 0)
-  %120 = add nuw nsw i32 %.2, 8
-  %121 = load i32, ptr @hf_iwarp_rdma_atomic_remote_stag, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef 4, i32 noundef 0)
-  %123 = add nuw nsw i32 %.2, 12
-  %124 = load i32, ptr @hf_iwarp_rdma_atomic_remote_tagged_offset, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %124, ptr noundef %0, i32 noundef %123, i32 noundef 8, i32 noundef 0)
-  %126 = add nuw nsw i32 %.2, 20
-  switch i32 %116, label %134 [
+112:                                              ; preds = %110
+  %113 = load i32, ptr @hf_iwarp_rdma_atomic_reserved, align 4
+  %114 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %113, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
+  %115 = load i32, ptr @hf_iwarp_rdma_atomic_opcode, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %115, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
+  %117 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 14, 71) %.2)
+  %118 = add nuw nsw i32 %.2, 4
+  %119 = load i32, ptr @hf_iwarp_rdma_atomic_request_identifier, align 4
+  %120 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %119, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef 0)
+  %121 = add nuw nsw i32 %.2, 8
+  %122 = load i32, ptr @hf_iwarp_rdma_atomic_remote_stag, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef 4, i32 noundef 0)
+  %124 = add nuw nsw i32 %.2, 12
+  %125 = load i32, ptr @hf_iwarp_rdma_atomic_remote_tagged_offset, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 8, i32 noundef 0)
+  %127 = add nuw nsw i32 %.2, 20
+  switch i32 %117, label %135 [
     i32 0, label %.sink.split.i
-    i32 2, label %127
+    i32 2, label %128
   ]
 
-127:                                              ; preds = %111
+128:                                              ; preds = %112
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %127, %111
-  %hf_iwarp_rdma_atomic_swap_data.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_data, %127 ], [ @hf_iwarp_rdma_atomic_add_data, %111 ]
-  %hf_iwarp_rdma_atomic_swap_mask.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_mask, %127 ], [ @hf_iwarp_rdma_atomic_add_mask, %111 ]
-  %128 = load i32, ptr %hf_iwarp_rdma_atomic_swap_data.sink.i, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %128, ptr noundef %0, i32 noundef %126, i32 noundef 8, i32 noundef 0)
-  %130 = add nuw nsw i32 %.2, 28
-  %131 = load i32, ptr %hf_iwarp_rdma_atomic_swap_mask.sink.i, align 4
-  %132 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 8, i32 noundef 0)
-  %133 = add nuw nsw i32 %.2, 36
-  br label %134
+.sink.split.i:                                    ; preds = %128, %112
+  %hf_iwarp_rdma_atomic_swap_data.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_data, %128 ], [ @hf_iwarp_rdma_atomic_add_data, %112 ]
+  %hf_iwarp_rdma_atomic_swap_mask.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_mask, %128 ], [ @hf_iwarp_rdma_atomic_add_mask, %112 ]
+  %129 = load i32, ptr %hf_iwarp_rdma_atomic_swap_data.sink.i, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %129, ptr noundef %0, i32 noundef %127, i32 noundef 8, i32 noundef 0)
+  %131 = add nuw nsw i32 %.2, 28
+  %132 = load i32, ptr %hf_iwarp_rdma_atomic_swap_mask.sink.i, align 4
+  %133 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 8, i32 noundef 0)
+  %134 = add nuw nsw i32 %.2, 36
+  br label %135
 
-134:                                              ; preds = %.sink.split.i, %111
-  %.1.i = phi i32 [ %126, %111 ], [ %133, %.sink.split.i ]
-  %135 = load i32, ptr @hf_iwarp_rdma_atomic_compare_data, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %135, ptr noundef %0, i32 noundef %.1.i, i32 noundef 8, i32 noundef 0)
-  %137 = add nuw nsw i32 %.1.i, 8
+135:                                              ; preds = %.sink.split.i, %112
+  %.1.i = phi i32 [ %127, %112 ], [ %134, %.sink.split.i ]
+  %136 = load i32, ptr @hf_iwarp_rdma_atomic_compare_data, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %136, ptr noundef %0, i32 noundef %.1.i, i32 noundef 8, i32 noundef 0)
+  %138 = add nuw nsw i32 %.1.i, 8
   br label %dissect_iwarp_atomic.exit.sink.split
 
-138:                                              ; preds = %110
-  %139 = load i32, ptr @hf_iwarp_rdma_atomic_original_request_identifier, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %139, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
-  %141 = add nuw nsw i32 %.2, 4
+139:                                              ; preds = %110
+  %140 = load i32, ptr @hf_iwarp_rdma_atomic_original_request_identifier, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %140, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
+  %142 = add nuw nsw i32 %.2, 4
   br label %dissect_iwarp_atomic.exit.sink.split
 
-dissect_iwarp_atomic.exit.sink.split:             ; preds = %134, %138
-  %hf_iwarp_rdma_atomic_original_remote_data_value.sink = phi ptr [ @hf_iwarp_rdma_atomic_original_remote_data_value, %138 ], [ @hf_iwarp_rdma_atomic_compare_mask, %134 ]
-  %.sink161 = phi i32 [ %141, %138 ], [ %137, %134 ]
-  %142 = load i32, ptr %hf_iwarp_rdma_atomic_original_remote_data_value.sink, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %142, ptr noundef %0, i32 noundef %.sink161, i32 noundef 8, i32 noundef 0)
+dissect_iwarp_atomic.exit.sink.split:             ; preds = %135, %139
+  %hf_iwarp_rdma_atomic_original_remote_data_value.sink = phi ptr [ @hf_iwarp_rdma_atomic_original_remote_data_value, %139 ], [ @hf_iwarp_rdma_atomic_compare_mask, %135 ]
+  %.sink161 = phi i32 [ %142, %139 ], [ %138, %135 ]
+  %143 = load i32, ptr %hf_iwarp_rdma_atomic_original_remote_data_value.sink, align 4
+  %144 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %143, ptr noundef %0, i32 noundef %.sink161, i32 noundef 8, i32 noundef 0)
   br label %dissect_iwarp_atomic.exit
 
 dissect_iwarp_atomic.exit:                        ; preds = %dissect_iwarp_atomic.exit.sink.split, %107
-  %144 = call i32 @tvb_captured_length(ptr noundef %0)
+  %145 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %144
+  ret i32 %145
 }
 
 ; Function Attrs: null_pointer_is_valid

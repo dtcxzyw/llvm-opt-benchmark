@@ -412,146 +412,146 @@ define void @_ZNK6icu_7717AnyTransliterator19handleTransliterateERNS_11Replaceab
   %.pre.pre = load i32, ptr %15, align 8, !tbaa !13
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %4, %65
-  %.pre.ph = phi i32 [ %.pre.pre, %4 ], [ %80, %65 ]
-  %.0.ph.ph = phi i32 [ %10, %4 ], [ %78, %65 ]
+.outer.outer:                                     ; preds = %66, %4
+  %.pre.ph = phi i32 [ %81, %66 ], [ %.pre.pre, %4 ]
+  %.0.ph.ph = phi i32 [ %79, %66 ], [ %10, %4 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  %20 = phi i32 [ %.pre.ph, %.outer.outer ], [ %.be, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.outer, %65
+  %.pre = phi i32 [ %64, %65 ], [ %.pre.ph, %.outer.outer ]
+  br label %20
+
+20:                                               ; preds = %.outer, %.loopexit
+  %21 = phi i32 [ %.pre, %.outer ], [ %59, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
   store i32 -1, ptr %14, align 8, !tbaa !16
-  store i32 %20, ptr %16, align 4, !tbaa !17
-  %21 = load i32, ptr %17, align 4, !tbaa !12
-  %22 = icmp eq i32 %20, %21
-  br i1 %22, label %_ZN6icu_7717ScriptRunIterator4nextEv.exit, label %.preheader.i
+  store i32 %21, ptr %16, align 4, !tbaa !17
+  %22 = load i32, ptr %17, align 4, !tbaa !12
+  %23 = icmp eq i32 %21, %22
+  br i1 %23, label %_ZN6icu_7717ScriptRunIterator4nextEv.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.outer
-  %23 = load i32, ptr %18, align 8, !tbaa !8
-  %24 = icmp sgt i32 %20, %23
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %20
+  %24 = load i32, ptr %18, align 8, !tbaa !8
+  %25 = icmp sgt i32 %21, %24
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %33
-  %25 = phi i32 [ %35, %33 ], [ %20, %.preheader.i ]
-  %26 = load ptr, ptr %6, align 8, !tbaa !18
-  %27 = add nsw i32 %25, -1
-  %28 = load ptr, ptr %26, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef %27)
-  %32 = call i32 @uscript_getScript_77(i32 noundef %31, ptr noundef nonnull %5)
-  %or.cond.i = icmp ult i32 %32, 2
-  br i1 %or.cond.i, label %33, label %._crit_edge.loopexit.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %34
+  %26 = phi i32 [ %36, %34 ], [ %21, %.preheader.i ]
+  %27 = load ptr, ptr %6, align 8, !tbaa !18
+  %28 = add nsw i32 %26, -1
+  %29 = load ptr, ptr %27, align 8, !tbaa !19
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %28)
+  %33 = call i32 @uscript_getScript_77(i32 noundef %32, ptr noundef nonnull %5)
+  %or.cond.i = icmp ult i32 %33, 2
+  br i1 %or.cond.i, label %34, label %._crit_edge.loopexit.i
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = load i32, ptr %16, align 4, !tbaa !17
-  %35 = add nsw i32 %34, -1
-  store i32 %35, ptr %16, align 4, !tbaa !17
-  %36 = load i32, ptr %18, align 8, !tbaa !8
-  %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !21
+34:                                               ; preds = %.lr.ph.i
+  %35 = load i32, ptr %16, align 4, !tbaa !17
+  %36 = add nsw i32 %35, -1
+  store i32 %36, ptr %16, align 4, !tbaa !17
+  %37 = load i32, ptr %18, align 8, !tbaa !8
+  %38 = icmp sgt i32 %36, %37
+  br i1 %38, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !21
 
-._crit_edge.loopexit.i:                           ; preds = %33, %.lr.ph.i
+._crit_edge.loopexit.i:                           ; preds = %34, %.lr.ph.i
   %.pre.i = load i32, ptr %15, align 8, !tbaa !13
   %.pre20.i = load i32, ptr %17, align 4, !tbaa !12
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %38 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %20, %.preheader.i ]
-  %39 = phi i32 [ %.pre20.i, %._crit_edge.loopexit.i ], [ %21, %.preheader.i ]
-  %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph18.i, label %.loopexit
+  %39 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %21, %.preheader.i ]
+  %40 = phi i32 [ %.pre20.i, %._crit_edge.loopexit.i ], [ %22, %.preheader.i ]
+  %41 = icmp slt i32 %39, %40
+  br i1 %41, label %.lr.ph18.i, label %.loopexit
 
-.lr.ph18.i:                                       ; preds = %._crit_edge.i, %53
-  %41 = phi i32 [ %55, %53 ], [ %38, %._crit_edge.i ]
-  %42 = load ptr, ptr %6, align 8, !tbaa !18
-  %43 = load ptr, ptr %42, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %45 = load ptr, ptr %44, align 8
-  %46 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef %41)
-  %47 = call i32 @uscript_getScript_77(i32 noundef %46, ptr noundef nonnull %5)
-  %or.cond3.i = icmp ugt i32 %47, 1
-  br i1 %or.cond3.i, label %48, label %53
+.lr.ph18.i:                                       ; preds = %._crit_edge.i, %54
+  %42 = phi i32 [ %56, %54 ], [ %39, %._crit_edge.i ]
+  %43 = load ptr, ptr %6, align 8, !tbaa !18
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
+  %46 = load ptr, ptr %45, align 8
+  %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(8) %43, i32 noundef %42)
+  %48 = call i32 @uscript_getScript_77(i32 noundef %47, ptr noundef nonnull %5)
+  %or.cond3.i = icmp ugt i32 %48, 1
+  br i1 %or.cond3.i, label %49, label %54
 
-48:                                               ; preds = %.lr.ph18.i
-  %49 = load i32, ptr %14, align 8, !tbaa !16
-  %50 = icmp eq i32 %49, -1
-  br i1 %50, label %51, label %52
+49:                                               ; preds = %.lr.ph18.i
+  %50 = load i32, ptr %14, align 8, !tbaa !16
+  %51 = icmp eq i32 %50, -1
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %48
-  store i32 %47, ptr %14, align 8, !tbaa !16
-  br label %53
+52:                                               ; preds = %49
+  store i32 %48, ptr %14, align 8, !tbaa !16
+  br label %54
 
-52:                                               ; preds = %48
-  %.not.i = icmp eq i32 %47, %49
-  br i1 %.not.i, label %53, label %..loopexit.loopexit_crit_edge
+53:                                               ; preds = %49
+  %.not.i = icmp eq i32 %48, %50
+  br i1 %.not.i, label %54, label %..loopexit.loopexit_crit_edge
 
-..loopexit.loopexit_crit_edge:                    ; preds = %52
-  %.pre46.pre = load i32, ptr %15, align 8, !tbaa !13
+..loopexit.loopexit_crit_edge:                    ; preds = %53
+  %.pre47.pre = load i32, ptr %15, align 8, !tbaa !13
   br label %.loopexit
 
-53:                                               ; preds = %52, %51, %.lr.ph18.i
-  %54 = load i32, ptr %15, align 8, !tbaa !13
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %15, align 8, !tbaa !13
-  %56 = load i32, ptr %17, align 4, !tbaa !12
-  %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph18.i, label %.loopexit, !llvm.loop !23
+54:                                               ; preds = %53, %52, %.lr.ph18.i
+  %55 = load i32, ptr %15, align 8, !tbaa !13
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %15, align 8, !tbaa !13
+  %57 = load i32, ptr %17, align 4, !tbaa !12
+  %58 = icmp slt i32 %56, %57
+  br i1 %58, label %.lr.ph18.i, label %.loopexit, !llvm.loop !23
 
-_ZN6icu_7717ScriptRunIterator4nextEv.exit:        ; preds = %.outer
+_ZN6icu_7717ScriptRunIterator4nextEv.exit:        ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit36
+  br label %.thread
 
-.loopexit:                                        ; preds = %53, %..loopexit.loopexit_crit_edge, %._crit_edge.i
-  %58 = phi i32 [ %38, %._crit_edge.i ], [ %.pre46.pre, %..loopexit.loopexit_crit_edge ], [ %55, %53 ]
+.loopexit:                                        ; preds = %54, %..loopexit.loopexit_crit_edge, %._crit_edge.i
+  %59 = phi i32 [ %39, %._crit_edge.i ], [ %.pre47.pre, %..loopexit.loopexit_crit_edge ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not32 = icmp sgt i32 %58, %8
-  br i1 %.not32, label %59, label %.outer.backedge
+  %.not32 = icmp sgt i32 %59, %8
+  br i1 %.not32, label %60, label %20, !llvm.loop !41
 
-.outer.backedge:                                  ; preds = %.loopexit, %64
-  %.be = phi i32 [ %58, %.loopexit ], [ %63, %64 ]
+60:                                               ; preds = %.loopexit
+  %61 = load i32, ptr %14, align 8, !tbaa !16
+  %62 = call noundef ptr @_ZNK6icu_7717AnyTransliterator17getTransliteratorE11UScriptCode(ptr noundef nonnull align 8 dereferenceable(164) %0, i32 noundef %61)
+  %63 = icmp eq ptr %62, null
+  %64 = load i32, ptr %15, align 8
+  br i1 %63, label %65, label %66
+
+65:                                               ; preds = %60
+  store i32 %64, ptr %7, align 4, !tbaa !36
   br label %.outer, !llvm.loop !41
 
-59:                                               ; preds = %.loopexit
-  %60 = load i32, ptr %14, align 8, !tbaa !16
-  %61 = call noundef ptr @_ZNK6icu_7717AnyTransliterator17getTransliteratorE11UScriptCode(ptr noundef nonnull align 8 dereferenceable(164) %0, i32 noundef %60)
-  %62 = icmp eq ptr %61, null
-  %63 = load i32, ptr %15, align 8
-  br i1 %62, label %64, label %65
+66:                                               ; preds = %60
+  %67 = icmp sge i32 %64, %.0.ph.ph
+  %68 = select i1 %19, i1 %67, i1 false
+  %69 = zext i1 %68 to i8
+  %70 = load i32, ptr %16, align 4, !tbaa !17
+  %71 = call i32 @uprv_max_77(i32 noundef %8, i32 noundef %70)
+  store i32 %71, ptr %7, align 4, !tbaa !36
+  %72 = load i32, ptr %15, align 8, !tbaa !13
+  %73 = call i32 @uprv_min_77(i32 noundef %.0.ph.ph, i32 noundef %72)
+  store i32 %73, ptr %9, align 4, !tbaa !38
+  %74 = load ptr, ptr %62, align 8, !tbaa !19
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(84) %62, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i8 noundef signext %69)
+  %77 = load i32, ptr %9, align 4, !tbaa !38
+  %78 = sub nsw i32 %77, %73
+  %79 = add nsw i32 %78, %.0.ph.ph
+  %80 = load i32, ptr %15, align 8, !tbaa !13
+  %81 = add nsw i32 %80, %78
+  store i32 %81, ptr %15, align 8, !tbaa !13
+  %82 = load i32, ptr %17, align 4, !tbaa !12
+  %83 = add nsw i32 %82, %78
+  store i32 %83, ptr %17, align 4, !tbaa !12
+  %.not33 = icmp slt i32 %80, %.0.ph.ph
+  br i1 %.not33, label %.outer.outer, label %.thread
 
-64:                                               ; preds = %59
-  store i32 %63, ptr %7, align 4, !tbaa !36
-  br label %.outer.backedge
-
-65:                                               ; preds = %59
-  %66 = icmp sge i32 %63, %.0.ph.ph
-  %67 = select i1 %19, i1 %66, i1 false
-  %68 = zext i1 %67 to i8
-  %69 = load i32, ptr %16, align 4, !tbaa !17
-  %70 = call i32 @uprv_max_77(i32 noundef %8, i32 noundef %69)
-  store i32 %70, ptr %7, align 4, !tbaa !36
-  %71 = load i32, ptr %15, align 8, !tbaa !13
-  %72 = call i32 @uprv_min_77(i32 noundef %.0.ph.ph, i32 noundef %71)
-  store i32 %72, ptr %9, align 4, !tbaa !38
-  %73 = load ptr, ptr %61, align 8, !tbaa !19
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 88
-  %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(84) %61, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i8 noundef signext %68)
-  %76 = load i32, ptr %9, align 4, !tbaa !38
-  %77 = sub nsw i32 %76, %72
-  %78 = add nsw i32 %77, %.0.ph.ph
-  %79 = load i32, ptr %15, align 8, !tbaa !13
-  %80 = add nsw i32 %79, %77
-  store i32 %80, ptr %15, align 8, !tbaa !13
-  %81 = load i32, ptr %17, align 4, !tbaa !12
-  %82 = add nsw i32 %81, %77
-  store i32 %82, ptr %17, align 4, !tbaa !12
-  %.not33.not = icmp slt i32 %79, %.0.ph.ph
-  br i1 %.not33.not, label %.outer.outer, label %.loopexit36
-
-.loopexit36:                                      ; preds = %65, %_ZN6icu_7717ScriptRunIterator4nextEv.exit
-  %.1 = phi i32 [ %.0.ph.ph, %_ZN6icu_7717ScriptRunIterator4nextEv.exit ], [ %78, %65 ]
+.thread:                                          ; preds = %66, %_ZN6icu_7717ScriptRunIterator4nextEv.exit
+  %.1 = phi i32 [ %.0.ph.ph, %_ZN6icu_7717ScriptRunIterator4nextEv.exit ], [ %79, %66 ]
   store i32 %.1, ptr %9, align 4, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

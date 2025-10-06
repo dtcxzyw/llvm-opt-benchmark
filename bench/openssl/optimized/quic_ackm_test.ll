@@ -191,8 +191,8 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %24 = load ptr, ptr %2, align 8, !tbaa !15
   call void @ossl_ackm_set_loss_detection_deadline_callback(ptr noundef %24, ptr noundef nonnull @on_loss_detection_deadline_callback, ptr noundef nonnull %4) #9
   %25 = load i64, ptr %19, align 8, !tbaa !9
-  %.not120.i = icmp eq i64 %25, 0
-  br i1 %.not120.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not119.i = icmp eq i64 %25, 0
+  br i1 %.not119.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -202,16 +202,16 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   br label %33
 
 29:                                               ; preds = %38
-  %30 = add nuw i64 %.066100.i, 1
+  %30 = add nuw i64 %.06699.i, 1
   %31 = load i64, ptr %19, align 8, !tbaa !9
   %32 = icmp ult i64 %30, %31
   br i1 %32, label %33, label %._crit_edge.i, !llvm.loop !23
 
 33:                                               ; preds = %29, %.lr.ph.i
-  %.066100.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %29 ]
+  %.06699.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %29 ]
   %34 = call noalias ptr @CRYPTO_zalloc(i64 noundef 104, ptr noundef nonnull @.str.3, i32 noundef 362) #9
   %35 = load ptr, ptr %26, align 8, !tbaa !25
-  %36 = getelementptr inbounds nuw %struct.pkt_info, ptr %35, i64 %.066100.i
+  %36 = getelementptr inbounds nuw %struct.pkt_info, ptr %35, i64 %.06699.i
   store ptr %34, ptr %36, align 8, !tbaa !26
   %37 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 363, ptr noundef nonnull @.str.7, ptr noundef %34) #9
   %.not89.i = icmp eq i32 %37, 0
@@ -219,7 +219,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %13, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.066100.i
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.06699.i
   %41 = load i64, ptr %40, align 8, !tbaa !30
   store i64 %41, ptr %34, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -238,7 +238,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store ptr @on_discarded, ptr %49, align 8, !tbaa !38
   %50 = load ptr, ptr %26, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw %struct.pkt_info, ptr %50, i64 %.066100.i
+  %51 = getelementptr inbounds nuw %struct.pkt_info, ptr %50, i64 %.06699.i
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !39
   %53 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -263,28 +263,28 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 .preheader.i:                                     ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %63 = load i64, ptr %19, align 8, !tbaa !9
-  %.not122.i = icmp eq i64 %63, 0
-  br i1 %.not122.i, label %.loopexit.i, label %.lr.ph112.i
+  %.not121.i = icmp eq i64 %63, 0
+  br i1 %.not121.i, label %.loopexit.i, label %.lr.ph111.i
 
 64:                                               ; preds = %79
-  %65 = add nuw i64 %.1111.i, 1
+  %65 = add nuw i64 %.1110.i, 1
   %66 = load i64, ptr %19, align 8, !tbaa !9
   %67 = icmp ult i64 %65, %66
-  br i1 %67, label %.lr.ph112.i, label %.loopexit.i, !llvm.loop !40
+  br i1 %67, label %.lr.ph111.i, label %.loopexit.i, !llvm.loop !40
 
-.lr.ph112.i:                                      ; preds = %.preheader.i, %64
-  %.1111.i = phi i64 [ %65, %64 ], [ 0, %.preheader.i ]
+.lr.ph111.i:                                      ; preds = %.preheader.i, %64
+  %.1110.i = phi i64 [ %65, %64 ], [ 0, %.preheader.i ]
   %68 = load ptr, ptr %62, align 8, !tbaa !25
-  %69 = getelementptr inbounds nuw %struct.pkt_info, ptr %68, i64 %.1111.i
+  %69 = getelementptr inbounds nuw %struct.pkt_info, ptr %68, i64 %.1110.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !41
   %72 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 390, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %71, i32 noundef 0) #9
   %.not86.i = icmp eq i32 %72, 0
   br i1 %.not86.i, label %.loopexit.i, label %73
 
-73:                                               ; preds = %.lr.ph112.i
+73:                                               ; preds = %.lr.ph111.i
   %74 = load ptr, ptr %62, align 8, !tbaa !25
-  %75 = getelementptr inbounds nuw %struct.pkt_info, ptr %74, i64 %.1111.i
+  %75 = getelementptr inbounds nuw %struct.pkt_info, ptr %74, i64 %.1110.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !42
   %78 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 392, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, i32 noundef %77, i32 noundef 0) #9
@@ -293,7 +293,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %62, align 8, !tbaa !25
-  %81 = getelementptr inbounds nuw %struct.pkt_info, ptr %80, i64 %.1111.i
+  %81 = getelementptr inbounds nuw %struct.pkt_info, ptr %80, i64 %.1110.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8, !tbaa !43
   %84 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 394, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef %83, i32 noundef 1) #9
@@ -319,32 +319,32 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %94 = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %92, ptr noundef nonnull %3, i32 noundef range(i32 -2, 3) %10, i64 %93) #9
   %95 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef %94, i32 noundef 1) #9
   %.not77.i = icmp eq i32 %95, 0
-  br i1 %.not77.i, label %.loopexit.i, label %.preheader95.i
+  br i1 %.not77.i, label %.loopexit.i, label %.preheader94.i
 
-.preheader95.i:                                   ; preds = %86
+.preheader94.i:                                   ; preds = %86
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %97 = load i64, ptr %19, align 8, !tbaa !9
-  %.not121.i = icmp eq i64 %97, 0
-  br i1 %.not121.i, label %.loopexit.i, label %.lr.ph104.i
+  %.not120.i = icmp eq i64 %97, 0
+  br i1 %.not120.i, label %.loopexit.i, label %.lr.ph103.i
 
-.lr.ph104.i:                                      ; preds = %.preheader95.i
+.lr.ph103.i:                                      ; preds = %.preheader94.i
   %98 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %103
 
 99:                                               ; preds = %125
-  %100 = add nuw i64 %.2103.i, 1
+  %100 = add nuw i64 %.2102.i, 1
   %101 = load i64, ptr %19, align 8, !tbaa !9
   %102 = icmp ult i64 %100, %101
   br i1 %102, label %103, label %.loopexit.i, !llvm.loop !49
 
-103:                                              ; preds = %99, %.lr.ph104.i
-  %.2103.i = phi i64 [ 0, %.lr.ph104.i ], [ %100, %99 ]
+103:                                              ; preds = %99, %.lr.ph103.i
+  %.2102.i = phi i64 [ 0, %.lr.ph103.i ], [ %100, %99 ]
   %104 = load ptr, ptr %96, align 8, !tbaa !25
-  %105 = getelementptr inbounds nuw %struct.pkt_info, ptr %104, i64 %.2103.i
+  %105 = getelementptr inbounds nuw %struct.pkt_info, ptr %104, i64 %.2102.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %107 = load i32, ptr %106, align 4, !tbaa !41
   %108 = load ptr, ptr %98, align 8, !tbaa !50
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %.2103.i
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %.2102.i
   %110 = load i8, ptr %109, align 1, !tbaa !51
   %111 = and i8 %110, 1
   %112 = zext nneg i8 %111 to i32
@@ -354,11 +354,11 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 114:                                              ; preds = %103
   %115 = load ptr, ptr %96, align 8, !tbaa !25
-  %116 = getelementptr inbounds nuw %struct.pkt_info, ptr %115, i64 %.2103.i
+  %116 = getelementptr inbounds nuw %struct.pkt_info, ptr %115, i64 %.2102.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 8, !tbaa !42
   %119 = load ptr, ptr %98, align 8, !tbaa !50
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.2103.i
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.2102.i
   %121 = load i8, ptr %120, align 1, !tbaa !51
   %122 = lshr i8 %121, 1
   %.lobit.i = and i8 %122, 1
@@ -369,11 +369,11 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 125:                                              ; preds = %114
   %126 = load ptr, ptr %96, align 8, !tbaa !25
-  %127 = getelementptr inbounds nuw %struct.pkt_info, ptr %126, i64 %.2103.i
+  %127 = getelementptr inbounds nuw %struct.pkt_info, ptr %126, i64 %.2102.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load i32, ptr %128, align 8, !tbaa !43
   %130 = load ptr, ptr %98, align 8, !tbaa !50
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.2103.i
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.2102.i
   %132 = load i8, ptr %131, align 1, !tbaa !51
   %133 = lshr i8 %132, 2
   %.lobit83.i = and i8 %133, 1
@@ -425,9 +425,9 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %156 = call i32 @ossl_ackm_on_timeout(ptr noundef %155) #9
   %157 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 443, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.6, i32 noundef %156, i32 noundef 1) #9
   %.not73.i = icmp eq i32 %157, 0
-  br i1 %.not73.i, label %.loopexit.sink.split.i, label %.preheader98.i
+  br i1 %.not73.i, label %.loopexit.sink.split.i, label %.preheader97.i
 
-.preheader98.i:                                   ; preds = %154
+.preheader97.i:                                   ; preds = %154
   %158 = icmp eq i32 %10, 0
   %159 = zext i1 %158 to i32
   %160 = icmp eq i32 %10, 1
@@ -435,19 +435,19 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %162 = zext i1 %15 to i32
   br label %163
 
-163:                                              ; preds = %173, %.preheader98.i
-  %.3101.i = phi i64 [ 0, %.preheader98.i ], [ %176, %173 ]
+163:                                              ; preds = %173, %.preheader97.i
+  %.3100.i = phi i64 [ 0, %.preheader97.i ], [ %176, %173 ]
   %164 = load ptr, ptr %2, align 8, !tbaa !15
   %165 = call ptr @ossl_ackm_get0_probe_request(ptr noundef %164) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %165, i64 20, i1 false), !tbaa.struct !52
-  %cond.i = icmp eq i64 %.3101.i, 0
+  %cond.i = icmp eq i64 %.3100.i, 0
   br i1 %cond.i, label %173, label %166
 
 166:                                              ; preds = %163
   %167 = load ptr, ptr %2, align 8, !tbaa !15
   %168 = call ptr @ossl_ackm_get0_probe_request(ptr noundef %167) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %168, i8 0, i64 20, i1 false)
-  %169 = icmp eq i64 %.3101.i, 2
+  %169 = icmp eq i64 %.3100.i, 2
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %166
@@ -461,7 +461,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %174 = call fastcc i32 @test_probe_counts(ptr noundef %5, i32 noundef %159, i32 noundef %161, i32 noundef %162)
   %175 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 459, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, i32 noundef %174, i32 noundef 1) #9
   %.not75.i = icmp eq i32 %175, 0
-  %176 = add nuw nsw i64 %.3101.i, 1
+  %176 = add nuw nsw i64 %.3100.i, 1
   br i1 %.not75.i, label %.loopexit.sink.split.i, label %163
 
 .loopexit.sink.split.i:                           ; preds = %173, %170, %154, %150, %144, %141, %136
@@ -469,8 +469,8 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %38, %33, %125, %114, %103, %99, %79, %73, %.lr.ph112.i, %64, %.loopexit.sink.split.i, %.preheader95.i, %86, %85, %.preheader.i, %58, %18
-  %.065.i = phi i32 [ 0, %58 ], [ 0, %86 ], [ 0, %18 ], [ 0, %85 ], [ 1, %.preheader.i ], [ 1, %.preheader95.i ], [ %.065.ph.i, %.loopexit.sink.split.i ], [ 1, %64 ], [ 0, %79 ], [ 0, %73 ], [ 0, %.lr.ph112.i ], [ 1, %99 ], [ 0, %125 ], [ 0, %114 ], [ 0, %103 ], [ 0, %33 ], [ 0, %38 ]
+.loopexit.i:                                      ; preds = %38, %33, %125, %114, %103, %99, %79, %73, %.lr.ph111.i, %64, %.loopexit.sink.split.i, %.preheader94.i, %86, %85, %.preheader.i, %58, %18
+  %.065.i = phi i32 [ 0, %58 ], [ 0, %86 ], [ 0, %18 ], [ 0, %85 ], [ 1, %.preheader.i ], [ 1, %.preheader94.i ], [ %.065.ph.i, %.loopexit.sink.split.i ], [ 1, %64 ], [ 0, %79 ], [ 0, %73 ], [ 0, %.lr.ph111.i ], [ 1, %99 ], [ 0, %125 ], [ 0, %114 ], [ 0, %103 ], [ 0, %33 ], [ 0, %38 ]
   call fastcc void @helper_destroy(ptr noundef %2)
   br label %test_tx_ack_case_actual.exit
 

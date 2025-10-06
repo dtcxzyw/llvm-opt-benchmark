@@ -180,17 +180,17 @@ _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread.i.i: ; preds = %35, 
   %47 = zext i32 %46 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %47, 3
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %46, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not34.i.i.i.i = icmp eq i32 %46, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %43, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %50, %.critedge.i.i.i.i ], [ %44, %43 ]
-  %49 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !3, !noalias !37
+  %.02935.i.i.i.i = phi ptr [ %50, %.critedge.i.i.i.i ], [ %44, %43 ]
+  %49 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !3, !noalias !37
   %.not17.i.i.i.i = icmp eq ptr %49, @_ZN4llvm11CFGAnalyses6SetKeyE
   br i1 %.not17.i.i.i.i, label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %50, %48
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 

@@ -694,8 +694,8 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %.lr.ph
 _ZNK17arith_recognizers6is_intEPK4sort.exit:      ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !45
-  %switch29 = icmp ult i32 %15, 2
-  br i1 %switch29, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, label %_ZNK17arith_recognizers7is_realEPK4sort.exit.thread
+  %switch = icmp ult i32 %15, 2
+  br i1 %switch, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, label %_ZNK17arith_recognizers7is_realEPK4sort.exit.thread
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZNK17arith_recognizers6is_intEPK4sort.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -703,8 +703,8 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZNK17arith_recogni
   br i1 %exitcond.not, label %_ZNK17arith_recognizers7is_realEPK4sort.exit.thread, label %.lr.ph, !llvm.loop !46
 
 _ZNK17arith_recognizers7is_realEPK4sort.exit.thread: ; preds = %_ZNK17arith_recognizers6is_intEPK4sort.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %.lr.ph, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %.split, %2
-  %switch = phi i1 [ true, %2 ], [ true, %.split ], [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %.lr.ph ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ false, %_ZNK17arith_recognizers6is_intEPK4sort.exit ]
-  ret i1 %switch
+  %16 = phi i1 [ true, %2 ], [ true, %.split ], [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %.lr.ph ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ false, %_ZNK17arith_recognizers6is_intEPK4sort.exit ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress uwtable

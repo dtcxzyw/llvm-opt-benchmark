@@ -1125,494 +1125,494 @@ define internal fastcc i32 @group_find(ptr noundef %0, ptr noundef %1, ptr nound
 
 17:                                               ; preds = %14, %13
   %.not21 = icmp eq ptr %2, null
-  br i1 %.not21, label %166, label %18
+  br i1 %.not21, label %168, label %18
 
 18:                                               ; preds = %17
   %19 = load i8, ptr %2, align 1, !tbaa !56
   %20 = icmp eq i8 %19, 42
-  br i1 %20, label %21, label %166
+  br i1 %20, label %21, label %168
 
 21:                                               ; preds = %18, %14
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %23 = load i32, ptr @pmix_mca_base_var_group_count, align 4, !tbaa !3
-  %.not53.i = icmp sgt i32 %23, 0
-  br i1 %.not53.i, label %.lr.ph.i, label %group_find_linear.exit
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph.i, label %group_find_linear.exit
 
 .thread:                                          ; preds = %10
-  %24 = load i32, ptr @pmix_mca_base_var_group_count, align 4, !tbaa !3
-  %.not53.i26 = icmp sgt i32 %24, 0
-  br i1 %.not53.i26, label %.lr.ph.i.thread, label %group_find_linear.exit
+  %25 = load i32, ptr @pmix_mca_base_var_group_count, align 4, !tbaa !3
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.lr.ph.i.thread, label %group_find_linear.exit
 
 .lr.ph.i.thread:                                  ; preds = %.thread
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 152), align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.not.i16.i27 = icmp eq ptr %1, null
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.not.i24.i28 = icmp eq ptr %2, null
-  %30 = sext i32 %26 to i64
-  %wide.trip.count125.i29 = zext nneg i32 %24 to i64
-  br i1 %.not.i16.i27, label %.lr.ph.split.split.us.i.preheader, label %.lr.ph.split.split.i
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 152), align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.not.i16.i26 = icmp eq ptr %1, null
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.not.i24.i27 = icmp eq ptr %2, null
+  %32 = sext i32 %28 to i64
+  %wide.trip.count126.i28 = zext nneg i32 %25 to i64
+  br i1 %.not.i16.i26, label %.lr.ph.split.split.us.i.preheader, label %.lr.ph.split.split.i
 
 .lr.ph.i:                                         ; preds = %21
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 152), align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 152), align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.not.i24.i = icmp eq ptr %2, null
-  %34 = sext i32 %31 to i64
-  %wide.trip.count125.i = zext nneg i32 %23 to i64
+  %36 = sext i32 %33 to i64
+  %wide.trip.count126.i = zext nneg i32 %23 to i64
   br i1 %.not, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %compare_strings.exit.thread40.us.i
-  %indvars.iv122.i = phi i64 [ %indvars.iv.next123.i, %compare_strings.exit.thread40.us.i ], [ 0, %.lr.ph.i ]
-  %.not.i.us.i = icmp slt i64 %indvars.iv122.i, %34
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %compare_strings.exit.thread40.us.i ], [ 0, %.lr.ph.i ]
+  %.not.i.us.i = icmp slt i64 %indvars.iv123.i, %36
   br i1 %.not.i.us.i, label %pmix_pointer_array_get_item.exit.i.us.i, label %compare_strings.exit.thread40.us.i, !prof !40
 
 pmix_pointer_array_get_item.exit.i.us.i:          ; preds = %.lr.ph.split.us.i
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv122.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !18
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %compare_strings.exit.thread40.us.i, label %38
+  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv123.i
+  %38 = load ptr, ptr %37, align 8, !tbaa !18
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %compare_strings.exit.thread40.us.i, label %40
 
-38:                                               ; preds = %pmix_pointer_array_get_item.exit.i.us.i
-  br i1 %3, label %compare_strings.exit.us.i, label %39
+40:                                               ; preds = %pmix_pointer_array_get_item.exit.i.us.i
+  br i1 %3, label %compare_strings.exit.us.i, label %41
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 148
-  %41 = load i8, ptr %40, align 4, !tbaa !46, !range !47, !noundef !48
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %compare_strings.exit.us.i, label %compare_strings.exit.thread40.us.i
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 148
+  %43 = load i8, ptr %42, align 4, !tbaa !46, !range !47, !noundef !48
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %compare_strings.exit.us.i, label %compare_strings.exit.thread40.us.i
 
-compare_strings.exit.us.i:                        ; preds = %39, %38
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 160
-  %44 = load ptr, ptr %43, align 8, !tbaa !32
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %compare_strings.exit.thread.us.i, label %compare_strings.exit.thread40.us.i
+compare_strings.exit.us.i:                        ; preds = %41, %40
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 160
+  %46 = load ptr, ptr %45, align 8, !tbaa !32
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %compare_strings.exit.thread.us.i, label %compare_strings.exit.thread40.us.i
 
 compare_strings.exit.thread.us.i:                 ; preds = %compare_strings.exit.us.i
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 168
-  %47 = load ptr, ptr %46, align 8, !tbaa !33
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 168
+  %49 = load ptr, ptr %48, align 8, !tbaa !33
   br i1 %.not20, label %compare_strings.exit23.us.i, label %sub_0.i17.us.i
 
 sub_0.i17.us.i:                                   ; preds = %compare_strings.exit.thread.us.i
-  %48 = load i8, ptr %1, align 1
-  %.not18.i18.us.i = icmp eq i8 %48, 42
+  %50 = load i8, ptr %1, align 1
+  %.not18.i18.us.i = icmp eq i8 %50, 42
   br i1 %.not18.i18.us.i, label %.tail.i22.us.i, label %.tail.thread.i19.us.i
 
 .tail.i22.us.i:                                   ; preds = %sub_0.i17.us.i
-  %49 = load i8, ptr %33, align 1
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %compare_strings.exit23.thread.us.i, label %.tail.thread.i19.us.i
+  %51 = load i8, ptr %35, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %compare_strings.exit23.thread.us.i, label %.tail.thread.i19.us.i
 
 .tail.thread.i19.us.i:                            ; preds = %.tail.i22.us.i, %sub_0.i17.us.i
-  %.not17.i20.us.i = icmp eq ptr %47, null
-  br i1 %.not17.i20.us.i, label %compare_strings.exit.thread40.us.i, label %51
+  %.not17.i20.us.i = icmp eq ptr %49, null
+  br i1 %.not17.i20.us.i, label %compare_strings.exit.thread40.us.i, label %53
 
-51:                                               ; preds = %.tail.thread.i19.us.i
-  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %47) #22
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %compare_strings.exit23.thread.us.i, label %compare_strings.exit.thread40.us.i
+53:                                               ; preds = %.tail.thread.i19.us.i
+  %54 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %49) #22
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %compare_strings.exit23.thread.us.i, label %compare_strings.exit.thread40.us.i
 
 compare_strings.exit23.us.i:                      ; preds = %compare_strings.exit.thread.us.i
-  %54 = icmp eq ptr %47, null
-  br i1 %54, label %compare_strings.exit23.thread.us.i, label %compare_strings.exit.thread40.us.i
+  %56 = icmp eq ptr %49, null
+  br i1 %56, label %compare_strings.exit23.thread.us.i, label %compare_strings.exit.thread40.us.i
 
-compare_strings.exit23.thread.us.i:               ; preds = %compare_strings.exit23.us.i, %51, %.tail.i22.us.i
-  %55 = getelementptr inbounds nuw i8, ptr %36, i64 176
-  %56 = load ptr, ptr %55, align 8, !tbaa !34
+compare_strings.exit23.thread.us.i:               ; preds = %compare_strings.exit23.us.i, %53, %.tail.i22.us.i
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 176
+  %58 = load ptr, ptr %57, align 8, !tbaa !34
   br i1 %.not.i24.i, label %compare_strings.exit31.us.i, label %sub_0.i25.us.i
 
 sub_0.i25.us.i:                                   ; preds = %compare_strings.exit23.thread.us.i
-  %57 = load i8, ptr %2, align 1
-  %.not18.i26.us.i = icmp eq i8 %57, 42
+  %59 = load i8, ptr %2, align 1
+  %.not18.i26.us.i = icmp eq i8 %59, 42
   br i1 %.not18.i26.us.i, label %.tail.i30.us.i, label %.tail.thread.i27.us.i
 
 .tail.i30.us.i:                                   ; preds = %sub_0.i25.us.i
-  %58 = load i8, ptr %22, align 1
-  %59 = icmp eq i8 %58, 0
-  br i1 %59, label %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit.i, label %.tail.thread.i27.us.i
+  %60 = load i8, ptr %22, align 1
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit.i, label %.tail.thread.i27.us.i
 
 .tail.thread.i27.us.i:                            ; preds = %.tail.i30.us.i, %sub_0.i25.us.i
-  %.not17.i28.us.i = icmp eq ptr %56, null
-  br i1 %.not17.i28.us.i, label %compare_strings.exit.thread40.us.i, label %60
+  %.not17.i28.us.i = icmp eq ptr %58, null
+  br i1 %.not17.i28.us.i, label %compare_strings.exit.thread40.us.i, label %62
 
-60:                                               ; preds = %.tail.thread.i27.us.i
-  %61 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %56) #22
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit167.i, label %compare_strings.exit.thread40.us.i
+62:                                               ; preds = %.tail.thread.i27.us.i
+  %63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %58) #22
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit168.i, label %compare_strings.exit.thread40.us.i
 
 compare_strings.exit31.us.i:                      ; preds = %compare_strings.exit23.thread.us.i
-  %63 = icmp eq ptr %56, null
-  br i1 %63, label %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit165.i, label %compare_strings.exit.thread40.us.i
+  %65 = icmp eq ptr %58, null
+  br i1 %65, label %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit166.i, label %compare_strings.exit.thread40.us.i
 
-compare_strings.exit.thread40.us.i:               ; preds = %compare_strings.exit31.us.i, %60, %.tail.thread.i27.us.i, %compare_strings.exit23.us.i, %51, %.tail.thread.i19.us.i, %compare_strings.exit.us.i, %39, %pmix_pointer_array_get_item.exit.i.us.i, %.lr.ph.split.us.i
-  %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
-  %exitcond126.not.i = icmp eq i64 %indvars.iv.next123.i, %wide.trip.count125.i
-  br i1 %exitcond126.not.i, label %group_find_linear.exit, label %.lr.ph.split.us.i, !llvm.loop !57
+compare_strings.exit.thread40.us.i:               ; preds = %compare_strings.exit31.us.i, %62, %.tail.thread.i27.us.i, %compare_strings.exit23.us.i, %53, %.tail.thread.i19.us.i, %compare_strings.exit.us.i, %41, %pmix_pointer_array_get_item.exit.i.us.i, %.lr.ph.split.us.i
+  %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
+  %exitcond127.not.i = icmp eq i64 %indvars.iv.next124.i, %wide.trip.count126.i
+  br i1 %exitcond127.not.i, label %group_find_linear.exit, label %.lr.ph.split.us.i, !llvm.loop !57
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br i1 %.not20, label %.lr.ph.split.split.us.i.preheader, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i.preheader:                ; preds = %.lr.ph.split.i, %.lr.ph.i.thread
-  %.ph = phi ptr [ %25, %.lr.ph.i.thread ], [ %22, %.lr.ph.split.i ]
-  %.ph45 = phi ptr [ %27, %.lr.ph.i.thread ], [ %32, %.lr.ph.split.i ]
-  %.ph46 = phi ptr [ %28, %.lr.ph.i.thread ], [ %64, %.lr.ph.split.i ]
-  %.not.i24.i3135.ph = phi i1 [ %.not.i24.i28, %.lr.ph.i.thread ], [ %.not.i24.i, %.lr.ph.split.i ]
-  %.ph47 = phi i64 [ %30, %.lr.ph.i.thread ], [ %34, %.lr.ph.split.i ]
-  %wide.trip.count125.i3234.ph = phi i64 [ %wide.trip.count125.i29, %.lr.ph.i.thread ], [ %wide.trip.count125.i, %.lr.ph.split.i ]
+  %.ph = phi ptr [ %27, %.lr.ph.i.thread ], [ %22, %.lr.ph.split.i ]
+  %.ph44 = phi ptr [ %29, %.lr.ph.i.thread ], [ %34, %.lr.ph.split.i ]
+  %.ph45 = phi ptr [ %30, %.lr.ph.i.thread ], [ %66, %.lr.ph.split.i ]
+  %.not.i24.i3034.ph = phi i1 [ %.not.i24.i27, %.lr.ph.i.thread ], [ %.not.i24.i, %.lr.ph.split.i ]
+  %.ph46 = phi i64 [ %32, %.lr.ph.i.thread ], [ %36, %.lr.ph.split.i ]
+  %wide.trip.count126.i3133.ph = phi i64 [ %wide.trip.count126.i28, %.lr.ph.i.thread ], [ %wide.trip.count126.i, %.lr.ph.split.i ]
   br label %.lr.ph.split.split.us.i
 
-.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.split.us.i.preheader, %compare_strings.exit.thread40.us74.i
-  %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %compare_strings.exit.thread40.us74.i ], [ 0, %.lr.ph.split.split.us.i.preheader ]
-  %.not.i.us63.i = icmp slt i64 %indvars.iv117.i, %.ph47
-  br i1 %.not.i.us63.i, label %pmix_pointer_array_get_item.exit.i.us64.i, label %compare_strings.exit.thread40.us74.i, !prof !40
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.split.us.i.preheader, %compare_strings.exit.thread40.us77.i
+  %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %compare_strings.exit.thread40.us77.i ], [ 0, %.lr.ph.split.split.us.i.preheader ]
+  %.not.i.us66.i = icmp slt i64 %indvars.iv118.i, %.ph46
+  br i1 %.not.i.us66.i, label %pmix_pointer_array_get_item.exit.i.us67.i, label %compare_strings.exit.thread40.us77.i, !prof !40
 
-pmix_pointer_array_get_item.exit.i.us64.i:        ; preds = %.lr.ph.split.split.us.i
-  %65 = getelementptr inbounds nuw ptr, ptr %.ph45, i64 %indvars.iv117.i
-  %66 = load ptr, ptr %65, align 8, !tbaa !18
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %compare_strings.exit.thread40.us74.i, label %68
+pmix_pointer_array_get_item.exit.i.us67.i:        ; preds = %.lr.ph.split.split.us.i
+  %67 = getelementptr inbounds nuw ptr, ptr %.ph44, i64 %indvars.iv118.i
+  %68 = load ptr, ptr %67, align 8, !tbaa !18
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %compare_strings.exit.thread40.us77.i, label %70
 
-68:                                               ; preds = %pmix_pointer_array_get_item.exit.i.us64.i
-  br i1 %3, label %sub_0.i.us.i, label %69
+70:                                               ; preds = %pmix_pointer_array_get_item.exit.i.us67.i
+  br i1 %3, label %sub_0.i.us.i, label %71
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 148
-  %71 = load i8, ptr %70, align 4, !tbaa !46, !range !47, !noundef !48
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %sub_0.i.us.i, label %compare_strings.exit.thread40.us74.i
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 148
+  %73 = load i8, ptr %72, align 4, !tbaa !46, !range !47, !noundef !48
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %sub_0.i.us.i, label %compare_strings.exit.thread40.us77.i
 
-sub_0.i.us.i:                                     ; preds = %69, %68
-  %73 = getelementptr inbounds nuw i8, ptr %66, i64 160
-  %74 = load ptr, ptr %73, align 8, !tbaa !32
-  %75 = load i8, ptr %0, align 1
-  %.not18.i.us.i = icmp eq i8 %75, 42
+sub_0.i.us.i:                                     ; preds = %71, %70
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 160
+  %76 = load ptr, ptr %75, align 8, !tbaa !32
+  %77 = load i8, ptr %0, align 1
+  %.not18.i.us.i = icmp eq i8 %77, 42
   br i1 %.not18.i.us.i, label %.tail.i.us.i, label %.tail.thread.i.us.i
 
 .tail.i.us.i:                                     ; preds = %sub_0.i.us.i
-  %76 = load i8, ptr %.ph46, align 1
-  %77 = icmp eq i8 %76, 0
-  br i1 %77, label %compare_strings.exit.thread.us65.i, label %.tail.thread.i.us.i
+  %78 = load i8, ptr %.ph45, align 1
+  %79 = icmp eq i8 %78, 0
+  br i1 %79, label %compare_strings.exit.thread.us68.i, label %.tail.thread.i.us.i
 
 .tail.thread.i.us.i:                              ; preds = %.tail.i.us.i, %sub_0.i.us.i
-  %.not17.i.us.i = icmp eq ptr %74, null
-  br i1 %.not17.i.us.i, label %compare_strings.exit.thread40.us74.i, label %78
+  %.not17.i.us.i = icmp eq ptr %76, null
+  br i1 %.not17.i.us.i, label %compare_strings.exit.thread40.us77.i, label %80
 
-78:                                               ; preds = %.tail.thread.i.us.i
-  %79 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %74) #22
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %compare_strings.exit.thread.us65.i, label %compare_strings.exit.thread40.us74.i
+80:                                               ; preds = %.tail.thread.i.us.i
+  %81 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %76) #22
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %compare_strings.exit.thread.us68.i, label %compare_strings.exit.thread40.us77.i
 
-compare_strings.exit.thread.us65.i:               ; preds = %78, %.tail.i.us.i
-  %81 = getelementptr inbounds nuw i8, ptr %66, i64 168
-  %82 = load ptr, ptr %81, align 8, !tbaa !33
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %compare_strings.exit23.thread.us67.i, label %compare_strings.exit.thread40.us74.i
+compare_strings.exit.thread.us68.i:               ; preds = %80, %.tail.i.us.i
+  %83 = getelementptr inbounds nuw i8, ptr %68, i64 168
+  %84 = load ptr, ptr %83, align 8, !tbaa !33
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %compare_strings.exit23.thread.us70.i, label %compare_strings.exit.thread40.us77.i
 
-compare_strings.exit23.thread.us67.i:             ; preds = %compare_strings.exit.thread.us65.i
-  %84 = getelementptr inbounds nuw i8, ptr %66, i64 176
-  %85 = load ptr, ptr %84, align 8, !tbaa !34
-  br i1 %.not.i24.i3135.ph, label %compare_strings.exit31.us73.i, label %sub_0.i25.us68.i
+compare_strings.exit23.thread.us70.i:             ; preds = %compare_strings.exit.thread.us68.i
+  %86 = getelementptr inbounds nuw i8, ptr %68, i64 176
+  %87 = load ptr, ptr %86, align 8, !tbaa !34
+  br i1 %.not.i24.i3034.ph, label %compare_strings.exit31.us76.i, label %sub_0.i25.us71.i
 
-sub_0.i25.us68.i:                                 ; preds = %compare_strings.exit23.thread.us67.i
-  %86 = load i8, ptr %2, align 1
-  %.not18.i26.us69.i = icmp eq i8 %86, 42
-  br i1 %.not18.i26.us69.i, label %.tail.i30.us70.i, label %.tail.thread.i27.us71.i
+sub_0.i25.us71.i:                                 ; preds = %compare_strings.exit23.thread.us70.i
+  %88 = load i8, ptr %2, align 1
+  %.not18.i26.us72.i = icmp eq i8 %88, 42
+  br i1 %.not18.i26.us72.i, label %.tail.i30.us73.i, label %.tail.thread.i27.us74.i
 
-.tail.i30.us70.i:                                 ; preds = %sub_0.i25.us68.i
-  %87 = load i8, ptr %.ph, align 1
-  %88 = icmp eq i8 %87, 0
-  br i1 %88, label %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit.i, label %.tail.thread.i27.us71.i
+.tail.i30.us73.i:                                 ; preds = %sub_0.i25.us71.i
+  %89 = load i8, ptr %.ph, align 1
+  %90 = icmp eq i8 %89, 0
+  br i1 %90, label %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit.i, label %.tail.thread.i27.us74.i
 
-.tail.thread.i27.us71.i:                          ; preds = %.tail.i30.us70.i, %sub_0.i25.us68.i
-  %.not17.i28.us72.i = icmp eq ptr %85, null
-  br i1 %.not17.i28.us72.i, label %compare_strings.exit.thread40.us74.i, label %89
+.tail.thread.i27.us74.i:                          ; preds = %.tail.i30.us73.i, %sub_0.i25.us71.i
+  %.not17.i28.us75.i = icmp eq ptr %87, null
+  br i1 %.not17.i28.us75.i, label %compare_strings.exit.thread40.us77.i, label %91
 
-89:                                               ; preds = %.tail.thread.i27.us71.i
-  %90 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %85) #22
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit159.i, label %compare_strings.exit.thread40.us74.i
+91:                                               ; preds = %.tail.thread.i27.us74.i
+  %92 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %87) #22
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit160.i, label %compare_strings.exit.thread40.us77.i
 
-compare_strings.exit31.us73.i:                    ; preds = %compare_strings.exit23.thread.us67.i
-  %92 = icmp eq ptr %85, null
-  br i1 %92, label %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit157.i, label %compare_strings.exit.thread40.us74.i
+compare_strings.exit31.us76.i:                    ; preds = %compare_strings.exit23.thread.us70.i
+  %94 = icmp eq ptr %87, null
+  br i1 %94, label %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit158.i, label %compare_strings.exit.thread40.us77.i
 
-compare_strings.exit.thread40.us74.i:             ; preds = %compare_strings.exit31.us73.i, %89, %.tail.thread.i27.us71.i, %compare_strings.exit.thread.us65.i, %78, %.tail.thread.i.us.i, %69, %pmix_pointer_array_get_item.exit.i.us64.i, %.lr.ph.split.split.us.i
-  %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
-  %exitcond121.not.i = icmp eq i64 %indvars.iv.next118.i, %wide.trip.count125.i3234.ph
-  br i1 %exitcond121.not.i, label %group_find_linear.exit, label %.lr.ph.split.split.us.i, !llvm.loop !57
+compare_strings.exit.thread40.us77.i:             ; preds = %compare_strings.exit31.us76.i, %91, %.tail.thread.i27.us74.i, %compare_strings.exit.thread.us68.i, %80, %.tail.thread.i.us.i, %71, %pmix_pointer_array_get_item.exit.i.us67.i, %.lr.ph.split.split.us.i
+  %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
+  %exitcond122.not.i = icmp eq i64 %indvars.iv.next119.i, %wide.trip.count126.i3133.ph
+  br i1 %exitcond122.not.i, label %group_find_linear.exit, label %.lr.ph.split.split.us.i, !llvm.loop !57
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i.thread, %.lr.ph.split.i
-  %93 = phi ptr [ %25, %.lr.ph.i.thread ], [ %22, %.lr.ph.split.i ]
-  %94 = phi ptr [ %27, %.lr.ph.i.thread ], [ %32, %.lr.ph.split.i ]
-  %95 = phi ptr [ %28, %.lr.ph.i.thread ], [ %64, %.lr.ph.split.i ]
-  %96 = phi ptr [ %29, %.lr.ph.i.thread ], [ %33, %.lr.ph.split.i ]
-  %.not.i24.i3136 = phi i1 [ %.not.i24.i28, %.lr.ph.i.thread ], [ %.not.i24.i, %.lr.ph.split.i ]
-  %97 = phi i64 [ %30, %.lr.ph.i.thread ], [ %34, %.lr.ph.split.i ]
-  %wide.trip.count125.i3233 = phi i64 [ %wide.trip.count125.i29, %.lr.ph.i.thread ], [ %wide.trip.count125.i, %.lr.ph.split.i ]
-  br i1 %.not.i24.i3136, label %.lr.ph.split.split.split.us.i, label %.lr.ph.split.split.split.i
+  %95 = phi ptr [ %27, %.lr.ph.i.thread ], [ %22, %.lr.ph.split.i ]
+  %96 = phi ptr [ %29, %.lr.ph.i.thread ], [ %34, %.lr.ph.split.i ]
+  %97 = phi ptr [ %30, %.lr.ph.i.thread ], [ %66, %.lr.ph.split.i ]
+  %98 = phi ptr [ %31, %.lr.ph.i.thread ], [ %35, %.lr.ph.split.i ]
+  %.not.i24.i3035 = phi i1 [ %.not.i24.i27, %.lr.ph.i.thread ], [ %.not.i24.i, %.lr.ph.split.i ]
+  %99 = phi i64 [ %32, %.lr.ph.i.thread ], [ %36, %.lr.ph.split.i ]
+  %wide.trip.count126.i3132 = phi i64 [ %wide.trip.count126.i28, %.lr.ph.i.thread ], [ %wide.trip.count126.i, %.lr.ph.split.i ]
+  br i1 %.not.i24.i3035, label %.lr.ph.split.split.split.us.i, label %.lr.ph.split.split.split.i
 
-.lr.ph.split.split.split.us.i:                    ; preds = %.lr.ph.split.split.i, %compare_strings.exit.thread40.us99.i
-  %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %compare_strings.exit.thread40.us99.i ], [ 0, %.lr.ph.split.split.i ]
-  %.not.i.us85.i = icmp slt i64 %indvars.iv112.i, %97
-  br i1 %.not.i.us85.i, label %pmix_pointer_array_get_item.exit.i.us86.i, label %compare_strings.exit.thread40.us99.i, !prof !40
+.lr.ph.split.split.split.us.i:                    ; preds = %.lr.ph.split.split.i, %compare_strings.exit.thread40.us101.i
+  %indvars.iv113.i = phi i64 [ %indvars.iv.next114.i, %compare_strings.exit.thread40.us101.i ], [ 0, %.lr.ph.split.split.i ]
+  %.not.i.us87.i = icmp slt i64 %indvars.iv113.i, %99
+  br i1 %.not.i.us87.i, label %pmix_pointer_array_get_item.exit.i.us88.i, label %compare_strings.exit.thread40.us101.i, !prof !40
 
-pmix_pointer_array_get_item.exit.i.us86.i:        ; preds = %.lr.ph.split.split.split.us.i
-  %98 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv112.i
-  %99 = load ptr, ptr %98, align 8, !tbaa !18
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %compare_strings.exit.thread40.us99.i, label %101
+pmix_pointer_array_get_item.exit.i.us88.i:        ; preds = %.lr.ph.split.split.split.us.i
+  %100 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv113.i
+  %101 = load ptr, ptr %100, align 8, !tbaa !18
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %compare_strings.exit.thread40.us101.i, label %103
 
-101:                                              ; preds = %pmix_pointer_array_get_item.exit.i.us86.i
-  br i1 %3, label %sub_0.i.us87.i, label %102
+103:                                              ; preds = %pmix_pointer_array_get_item.exit.i.us88.i
+  br i1 %3, label %sub_0.i.us89.i, label %104
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 148
-  %104 = load i8, ptr %103, align 4, !tbaa !46, !range !47, !noundef !48
-  %105 = trunc nuw i8 %104 to i1
-  br i1 %105, label %sub_0.i.us87.i, label %compare_strings.exit.thread40.us99.i
+104:                                              ; preds = %103
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 148
+  %106 = load i8, ptr %105, align 4, !tbaa !46, !range !47, !noundef !48
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %sub_0.i.us89.i, label %compare_strings.exit.thread40.us101.i
 
-sub_0.i.us87.i:                                   ; preds = %102, %101
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 160
-  %107 = load ptr, ptr %106, align 8, !tbaa !32
-  %108 = load i8, ptr %0, align 1
-  %.not18.i.us88.i = icmp eq i8 %108, 42
-  br i1 %.not18.i.us88.i, label %.tail.i.us89.i, label %.tail.thread.i.us90.i
+sub_0.i.us89.i:                                   ; preds = %104, %103
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 160
+  %109 = load ptr, ptr %108, align 8, !tbaa !32
+  %110 = load i8, ptr %0, align 1
+  %.not18.i.us90.i = icmp eq i8 %110, 42
+  br i1 %.not18.i.us90.i, label %.tail.i.us91.i, label %.tail.thread.i.us92.i
 
-.tail.i.us89.i:                                   ; preds = %sub_0.i.us87.i
-  %109 = load i8, ptr %95, align 1
-  %110 = icmp eq i8 %109, 0
-  br i1 %110, label %compare_strings.exit.thread.us92.i, label %.tail.thread.i.us90.i
+.tail.i.us91.i:                                   ; preds = %sub_0.i.us89.i
+  %111 = load i8, ptr %97, align 1
+  %112 = icmp eq i8 %111, 0
+  br i1 %112, label %compare_strings.exit.thread.us94.i, label %.tail.thread.i.us92.i
 
-.tail.thread.i.us90.i:                            ; preds = %.tail.i.us89.i, %sub_0.i.us87.i
-  %.not17.i.us91.i = icmp eq ptr %107, null
-  br i1 %.not17.i.us91.i, label %compare_strings.exit.thread40.us99.i, label %111
+.tail.thread.i.us92.i:                            ; preds = %.tail.i.us91.i, %sub_0.i.us89.i
+  %.not17.i.us93.i = icmp eq ptr %109, null
+  br i1 %.not17.i.us93.i, label %compare_strings.exit.thread40.us101.i, label %113
 
-111:                                              ; preds = %.tail.thread.i.us90.i
-  %112 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %107) #22
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %compare_strings.exit.thread.us92.i, label %compare_strings.exit.thread40.us99.i
+113:                                              ; preds = %.tail.thread.i.us92.i
+  %114 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %109) #22
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %compare_strings.exit.thread.us94.i, label %compare_strings.exit.thread40.us101.i
 
-compare_strings.exit.thread.us92.i:               ; preds = %111, %.tail.i.us89.i
-  %114 = getelementptr inbounds nuw i8, ptr %99, i64 168
-  %115 = load ptr, ptr %114, align 8, !tbaa !33
-  %116 = load i8, ptr %1, align 1
-  %.not18.i18.us93.i = icmp eq i8 %116, 42
-  br i1 %.not18.i18.us93.i, label %.tail.i22.us94.i, label %.tail.thread.i19.us95.i
+compare_strings.exit.thread.us94.i:               ; preds = %113, %.tail.i.us91.i
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 168
+  %117 = load ptr, ptr %116, align 8, !tbaa !33
+  %118 = load i8, ptr %1, align 1
+  %.not18.i18.us95.i = icmp eq i8 %118, 42
+  br i1 %.not18.i18.us95.i, label %.tail.i22.us96.i, label %.tail.thread.i19.us97.i
 
-.tail.i22.us94.i:                                 ; preds = %compare_strings.exit.thread.us92.i
-  %117 = load i8, ptr %96, align 1
-  %118 = icmp eq i8 %117, 0
-  br i1 %118, label %compare_strings.exit23.thread.us97.i, label %.tail.thread.i19.us95.i
+.tail.i22.us96.i:                                 ; preds = %compare_strings.exit.thread.us94.i
+  %119 = load i8, ptr %98, align 1
+  %120 = icmp eq i8 %119, 0
+  br i1 %120, label %compare_strings.exit23.thread.us99.i, label %.tail.thread.i19.us97.i
 
-.tail.thread.i19.us95.i:                          ; preds = %.tail.i22.us94.i, %compare_strings.exit.thread.us92.i
-  %.not17.i20.us96.i = icmp eq ptr %115, null
-  br i1 %.not17.i20.us96.i, label %compare_strings.exit.thread40.us99.i, label %119
+.tail.thread.i19.us97.i:                          ; preds = %.tail.i22.us96.i, %compare_strings.exit.thread.us94.i
+  %.not17.i20.us98.i = icmp eq ptr %117, null
+  br i1 %.not17.i20.us98.i, label %compare_strings.exit.thread40.us101.i, label %121
 
-119:                                              ; preds = %.tail.thread.i19.us95.i
-  %120 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %115) #22
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %compare_strings.exit23.thread.us97.i, label %compare_strings.exit.thread40.us99.i
+121:                                              ; preds = %.tail.thread.i19.us97.i
+  %122 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %117) #22
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %compare_strings.exit23.thread.us99.i, label %compare_strings.exit.thread40.us101.i
 
-compare_strings.exit23.thread.us97.i:             ; preds = %119, %.tail.i22.us94.i
-  %122 = getelementptr inbounds nuw i8, ptr %99, i64 176
-  %123 = load ptr, ptr %122, align 8, !tbaa !34
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %pmix_mca_base_var_group_get_internal.exit.loopexit146.split.loop.exit.i, label %compare_strings.exit.thread40.us99.i
+compare_strings.exit23.thread.us99.i:             ; preds = %121, %.tail.i22.us96.i
+  %124 = getelementptr inbounds nuw i8, ptr %101, i64 176
+  %125 = load ptr, ptr %124, align 8, !tbaa !34
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %pmix_mca_base_var_group_get_internal.exit.loopexit147.split.loop.exit.i, label %compare_strings.exit.thread40.us101.i
 
-compare_strings.exit.thread40.us99.i:             ; preds = %compare_strings.exit23.thread.us97.i, %119, %.tail.thread.i19.us95.i, %111, %.tail.thread.i.us90.i, %102, %pmix_pointer_array_get_item.exit.i.us86.i, %.lr.ph.split.split.split.us.i
-  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %wide.trip.count125.i3233
-  br i1 %exitcond116.not.i, label %group_find_linear.exit, label %.lr.ph.split.split.split.us.i, !llvm.loop !57
+compare_strings.exit.thread40.us101.i:            ; preds = %compare_strings.exit23.thread.us99.i, %121, %.tail.thread.i19.us97.i, %113, %.tail.thread.i.us92.i, %104, %pmix_pointer_array_get_item.exit.i.us88.i, %.lr.ph.split.split.split.us.i
+  %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
+  %exitcond117.not.i = icmp eq i64 %indvars.iv.next114.i, %wide.trip.count126.i3132
+  br i1 %exitcond117.not.i, label %group_find_linear.exit, label %.lr.ph.split.split.split.us.i, !llvm.loop !57
 
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.split.i, %compare_strings.exit.thread40.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %compare_strings.exit.thread40.i ], [ 0, %.lr.ph.split.split.i ]
-  %.not.i.i = icmp slt i64 %indvars.iv.i, %97
+  %.not.i.i = icmp slt i64 %indvars.iv.i, %99
   br i1 %.not.i.i, label %pmix_pointer_array_get_item.exit.i.i, label %compare_strings.exit.thread40.i, !prof !40
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %.lr.ph.split.split.split.i
-  %125 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i
-  %126 = load ptr, ptr %125, align 8, !tbaa !18
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %compare_strings.exit.thread40.i, label %128
+  %127 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv.i
+  %128 = load ptr, ptr %127, align 8, !tbaa !18
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %compare_strings.exit.thread40.i, label %130
 
-128:                                              ; preds = %pmix_pointer_array_get_item.exit.i.i
-  br i1 %3, label %sub_0.i.i, label %129
+130:                                              ; preds = %pmix_pointer_array_get_item.exit.i.i
+  br i1 %3, label %sub_0.i.i, label %131
 
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 148
-  %131 = load i8, ptr %130, align 4, !tbaa !46, !range !47, !noundef !48
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %sub_0.i.i, label %compare_strings.exit.thread40.i
+131:                                              ; preds = %130
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 148
+  %133 = load i8, ptr %132, align 4, !tbaa !46, !range !47, !noundef !48
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %sub_0.i.i, label %compare_strings.exit.thread40.i
 
-sub_0.i.i:                                        ; preds = %129, %128
-  %133 = getelementptr inbounds nuw i8, ptr %126, i64 160
-  %134 = load ptr, ptr %133, align 8, !tbaa !32
-  %135 = load i8, ptr %0, align 1
-  %.not18.i.i = icmp eq i8 %135, 42
+sub_0.i.i:                                        ; preds = %131, %130
+  %135 = getelementptr inbounds nuw i8, ptr %128, i64 160
+  %136 = load ptr, ptr %135, align 8, !tbaa !32
+  %137 = load i8, ptr %0, align 1
+  %.not18.i.i = icmp eq i8 %137, 42
   br i1 %.not18.i.i, label %.tail.i.i, label %.tail.thread.i.i
 
 .tail.i.i:                                        ; preds = %sub_0.i.i
-  %136 = load i8, ptr %95, align 1
-  %137 = icmp eq i8 %136, 0
-  br i1 %137, label %compare_strings.exit.thread.i, label %.tail.thread.i.i
+  %138 = load i8, ptr %97, align 1
+  %139 = icmp eq i8 %138, 0
+  br i1 %139, label %compare_strings.exit.thread.i, label %.tail.thread.i.i
 
 .tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_0.i.i
-  %.not17.i.i = icmp eq ptr %134, null
-  br i1 %.not17.i.i, label %compare_strings.exit.thread40.i, label %138
+  %.not17.i.i = icmp eq ptr %136, null
+  br i1 %.not17.i.i, label %compare_strings.exit.thread40.i, label %140
 
-138:                                              ; preds = %.tail.thread.i.i
-  %139 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %134) #22
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %compare_strings.exit.thread.i, label %compare_strings.exit.thread40.i
+140:                                              ; preds = %.tail.thread.i.i
+  %141 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %136) #22
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %compare_strings.exit.thread.i, label %compare_strings.exit.thread40.i
 
-compare_strings.exit.thread.i:                    ; preds = %138, %.tail.i.i
-  %141 = getelementptr inbounds nuw i8, ptr %126, i64 168
-  %142 = load ptr, ptr %141, align 8, !tbaa !33
-  %143 = load i8, ptr %1, align 1
-  %.not18.i18.i = icmp eq i8 %143, 42
+compare_strings.exit.thread.i:                    ; preds = %140, %.tail.i.i
+  %143 = getelementptr inbounds nuw i8, ptr %128, i64 168
+  %144 = load ptr, ptr %143, align 8, !tbaa !33
+  %145 = load i8, ptr %1, align 1
+  %.not18.i18.i = icmp eq i8 %145, 42
   br i1 %.not18.i18.i, label %.tail.i22.i, label %.tail.thread.i19.i
 
 .tail.i22.i:                                      ; preds = %compare_strings.exit.thread.i
-  %144 = load i8, ptr %96, align 1
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %compare_strings.exit23.thread.i, label %.tail.thread.i19.i
+  %146 = load i8, ptr %98, align 1
+  %147 = icmp eq i8 %146, 0
+  br i1 %147, label %compare_strings.exit23.thread.i, label %.tail.thread.i19.i
 
 .tail.thread.i19.i:                               ; preds = %.tail.i22.i, %compare_strings.exit.thread.i
-  %.not17.i20.i = icmp eq ptr %142, null
-  br i1 %.not17.i20.i, label %compare_strings.exit.thread40.i, label %146
+  %.not17.i20.i = icmp eq ptr %144, null
+  br i1 %.not17.i20.i, label %compare_strings.exit.thread40.i, label %148
 
-146:                                              ; preds = %.tail.thread.i19.i
-  %147 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %142) #22
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %compare_strings.exit23.thread.i, label %compare_strings.exit.thread40.i
+148:                                              ; preds = %.tail.thread.i19.i
+  %149 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %144) #22
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %compare_strings.exit23.thread.i, label %compare_strings.exit.thread40.i
 
-compare_strings.exit23.thread.i:                  ; preds = %146, %.tail.i22.i
-  %149 = getelementptr inbounds nuw i8, ptr %126, i64 176
-  %150 = load ptr, ptr %149, align 8, !tbaa !34
-  %151 = load i8, ptr %2, align 1
-  %.not18.i26.i = icmp eq i8 %151, 42
+compare_strings.exit23.thread.i:                  ; preds = %148, %.tail.i22.i
+  %151 = getelementptr inbounds nuw i8, ptr %128, i64 176
+  %152 = load ptr, ptr %151, align 8, !tbaa !34
+  %153 = load i8, ptr %2, align 1
+  %.not18.i26.i = icmp eq i8 %153, 42
   br i1 %.not18.i26.i, label %.tail.i30.i, label %.tail.thread.i27.i
 
 .tail.i30.i:                                      ; preds = %compare_strings.exit23.thread.i
-  %152 = load i8, ptr %93, align 1
-  %153 = icmp eq i8 %152, 0
-  br i1 %153, label %pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit.i, label %.tail.thread.i27.i
+  %154 = load i8, ptr %95, align 1
+  %155 = icmp eq i8 %154, 0
+  br i1 %155, label %pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit.i, label %.tail.thread.i27.i
 
 .tail.thread.i27.i:                               ; preds = %.tail.i30.i, %compare_strings.exit23.thread.i
-  %.not17.i28.i = icmp eq ptr %150, null
-  br i1 %.not17.i28.i, label %compare_strings.exit.thread40.i, label %154
+  %.not17.i28.i = icmp eq ptr %152, null
+  br i1 %.not17.i28.i, label %compare_strings.exit.thread40.i, label %156
 
-154:                                              ; preds = %.tail.thread.i27.i
-  %155 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %150) #22
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit150.i, label %compare_strings.exit.thread40.i
+156:                                              ; preds = %.tail.thread.i27.i
+  %157 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %152) #22
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit151.i, label %compare_strings.exit.thread40.i
 
-compare_strings.exit.thread40.i:                  ; preds = %154, %.tail.thread.i27.i, %146, %.tail.thread.i19.i, %138, %.tail.thread.i.i, %129, %pmix_pointer_array_get_item.exit.i.i, %.lr.ph.split.split.split.i
+compare_strings.exit.thread40.i:                  ; preds = %156, %.tail.thread.i27.i, %148, %.tail.thread.i19.i, %140, %.tail.thread.i.i, %131, %pmix_pointer_array_get_item.exit.i.i, %.lr.ph.split.split.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count125.i3233
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count126.i3132
   br i1 %exitcond.not.i, label %group_find_linear.exit, label %.lr.ph.split.split.split.i, !llvm.loop !57
 
 pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit.i: ; preds = %.tail.i30.us.i
-  %157 = trunc nuw nsw i64 %indvars.iv122.i to i32
+  %159 = trunc nuw nsw i64 %indvars.iv123.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit165.i: ; preds = %compare_strings.exit31.us.i
-  %158 = trunc nuw nsw i64 %indvars.iv122.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit166.i: ; preds = %compare_strings.exit31.us.i
+  %160 = trunc nuw nsw i64 %indvars.iv123.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit167.i: ; preds = %60
-  %159 = trunc nuw nsw i64 %indvars.iv122.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit168.i: ; preds = %62
+  %161 = trunc nuw nsw i64 %indvars.iv123.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit.i: ; preds = %.tail.i30.us70.i
-  %160 = trunc nuw nsw i64 %indvars.iv117.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit.i: ; preds = %.tail.i30.us73.i
+  %162 = trunc nuw nsw i64 %indvars.iv118.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit157.i: ; preds = %compare_strings.exit31.us73.i
-  %161 = trunc nuw nsw i64 %indvars.iv117.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit158.i: ; preds = %compare_strings.exit31.us76.i
+  %163 = trunc nuw nsw i64 %indvars.iv118.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit159.i: ; preds = %89
-  %162 = trunc nuw nsw i64 %indvars.iv117.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit160.i: ; preds = %91
+  %164 = trunc nuw nsw i64 %indvars.iv118.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit146.split.loop.exit.i: ; preds = %compare_strings.exit23.thread.us97.i
-  %163 = trunc nuw nsw i64 %indvars.iv112.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit147.split.loop.exit.i: ; preds = %compare_strings.exit23.thread.us99.i
+  %165 = trunc nuw nsw i64 %indvars.iv113.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit.i: ; preds = %.tail.i30.i
-  %164 = trunc nuw nsw i64 %indvars.iv.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit.i: ; preds = %.tail.i30.i
+  %166 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %group_find_linear.exit
 
-pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit150.i: ; preds = %154
-  %165 = trunc nuw nsw i64 %indvars.iv.i to i32
+pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit151.i: ; preds = %156
+  %167 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %group_find_linear.exit
 
-166:                                              ; preds = %18, %17
-  %167 = call i32 @pmix_mca_base_var_generate_full_name4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %6) #17
-  %.not22 = icmp eq i32 %167, 0
-  br i1 %.not22, label %168, label %group_find_linear.exit
+168:                                              ; preds = %18, %17
+  %169 = call i32 @pmix_mca_base_var_generate_full_name4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %6) #17
+  %.not22 = icmp eq i32 %169, 0
+  br i1 %.not22, label %170, label %group_find_linear.exit
 
-168:                                              ; preds = %166
-  %169 = load ptr, ptr %6, align 8, !tbaa !58
+170:                                              ; preds = %168
+  %171 = load ptr, ptr %6, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %170 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %169) #22
-  %171 = call i32 @pmix_hash_table_get_value_ptr(ptr noundef nonnull @pmix_mca_base_var_group_index_hash, ptr noundef nonnull %169, i64 noundef %170, ptr noundef nonnull %5) #17
-  %.fr = freeze i32 %171
+  %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #22
+  %173 = call i32 @pmix_hash_table_get_value_ptr(ptr noundef nonnull @pmix_mca_base_var_group_index_hash, ptr noundef nonnull %171, i64 noundef %172, ptr noundef nonnull %5) #17
+  %.fr = freeze i32 %173
   %.not.i = icmp eq i32 %.fr, 0
-  br i1 %.not.i, label %172, label %group_find_by_name.exit
+  br i1 %.not.i, label %174, label %group_find_by_name.exit
 
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %5, align 8, !tbaa !18
-  %174 = ptrtoint ptr %173 to i64
-  %175 = trunc i64 %174 to i32
-  %176 = icmp sgt i32 %175, -1
-  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
-  %.not.i.i23 = icmp sgt i32 %177, %175
-  %or.cond.i = select i1 %176, i1 %.not.i.i23, i1 false, !prof !50
+174:                                              ; preds = %170
+  %175 = load ptr, ptr %5, align 8, !tbaa !18
+  %176 = ptrtoint ptr %175 to i64
+  %177 = trunc i64 %176 to i32
+  %178 = icmp sgt i32 %177, -1
+  %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
+  %.not.i.i23 = icmp sgt i32 %179, %177
+  %or.cond.i = select i1 %178, i1 %.not.i.i23, i1 false, !prof !50
   br i1 %or.cond.i, label %pmix_pointer_array_get_item.exit.i.i24, label %group_find_by_name.exit.thread, !prof !50
 
-pmix_pointer_array_get_item.exit.i.i24:           ; preds = %172
-  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 152), align 8, !tbaa !41
-  %179 = and i64 %174, 2147483647
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
-  %181 = load ptr, ptr %180, align 8, !tbaa !18
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %group_find_by_name.exit.thread, label %183
+pmix_pointer_array_get_item.exit.i.i24:           ; preds = %174
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 152), align 8, !tbaa !41
+  %181 = and i64 %176, 2147483647
+  %182 = getelementptr inbounds nuw ptr, ptr %180, i64 %181
+  %183 = load ptr, ptr %182, align 8, !tbaa !18
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %group_find_by_name.exit.thread, label %185
 
-183:                                              ; preds = %pmix_pointer_array_get_item.exit.i.i24
-  br i1 %3, label %group_find_by_name.exit.thread41, label %184
+185:                                              ; preds = %pmix_pointer_array_get_item.exit.i.i24
+  br i1 %3, label %group_find_by_name.exit.thread40, label %186
 
-184:                                              ; preds = %183
-  %185 = getelementptr inbounds nuw i8, ptr %181, i64 148
-  %186 = load i8, ptr %185, align 4, !tbaa !46, !range !47, !noundef !48
-  %187 = trunc nuw i8 %186 to i1
-  br i1 %187, label %group_find_by_name.exit.thread41, label %group_find_by_name.exit.thread
+186:                                              ; preds = %185
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 148
+  %188 = load i8, ptr %187, align 4, !tbaa !46, !range !47, !noundef !48
+  %189 = trunc nuw i8 %188 to i1
+  br i1 %189, label %group_find_by_name.exit.thread40, label %group_find_by_name.exit.thread
 
-group_find_by_name.exit.thread41:                 ; preds = %183, %184
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %188 = load ptr, ptr %6, align 8, !tbaa !58
-  call void @free(ptr noundef %188) #17
-  br label %group_find_linear.exit
-
-group_find_by_name.exit.thread:                   ; preds = %172, %184, %pmix_pointer_array_get_item.exit.i.i24
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %189 = load ptr, ptr %6, align 8, !tbaa !58
-  call void @free(ptr noundef %189) #17
-  br label %group_find_linear.exit
-
-group_find_by_name.exit:                          ; preds = %168
+group_find_by_name.exit.thread40:                 ; preds = %185, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %190 = load ptr, ptr %6, align 8, !tbaa !58
   call void @free(ptr noundef %190) #17
+  br label %group_find_linear.exit
+
+group_find_by_name.exit.thread:                   ; preds = %174, %186, %pmix_pointer_array_get_item.exit.i.i24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %191 = load ptr, ptr %6, align 8, !tbaa !58
+  call void @free(ptr noundef %191) #17
+  br label %group_find_linear.exit
+
+group_find_by_name.exit:                          ; preds = %170
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %192 = load ptr, ptr %6, align 8, !tbaa !58
+  call void @free(ptr noundef %192) #17
   %spec.select = call i32 @llvm.smin.i32(i32 %.fr, i32 0)
   br label %group_find_linear.exit
 
-group_find_linear.exit:                           ; preds = %compare_strings.exit.thread40.i, %compare_strings.exit.thread40.us99.i, %compare_strings.exit.thread40.us74.i, %compare_strings.exit.thread40.us.i, %group_find_by_name.exit, %group_find_by_name.exit.thread41, %group_find_by_name.exit.thread, %pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit150.i, %pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit.i, %pmix_mca_base_var_group_get_internal.exit.loopexit146.split.loop.exit.i, %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit159.i, %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit157.i, %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit.i, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit167.i, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit165.i, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit.i, %21, %.thread, %166, %4
-  %.0 = phi i32 [ -46, %4 ], [ -1, %166 ], [ -46, %21 ], [ %157, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit.i ], [ %158, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit165.i ], [ %159, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit167.i ], [ %160, %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit.i ], [ %161, %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit157.i ], [ %162, %pmix_mca_base_var_group_get_internal.exit.loopexit144.split.loop.exit159.i ], [ %163, %pmix_mca_base_var_group_get_internal.exit.loopexit146.split.loop.exit.i ], [ %164, %pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit.i ], [ %165, %pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit150.i ], [ -46, %.thread ], [ %175, %group_find_by_name.exit.thread41 ], [ -46, %group_find_by_name.exit.thread ], [ %spec.select, %group_find_by_name.exit ], [ -46, %compare_strings.exit.thread40.us.i ], [ -46, %compare_strings.exit.thread40.us74.i ], [ -46, %compare_strings.exit.thread40.us99.i ], [ -46, %compare_strings.exit.thread40.i ]
+group_find_linear.exit:                           ; preds = %compare_strings.exit.thread40.i, %compare_strings.exit.thread40.us101.i, %compare_strings.exit.thread40.us77.i, %compare_strings.exit.thread40.us.i, %group_find_by_name.exit, %group_find_by_name.exit.thread40, %group_find_by_name.exit.thread, %pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit151.i, %pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit.i, %pmix_mca_base_var_group_get_internal.exit.loopexit147.split.loop.exit.i, %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit160.i, %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit158.i, %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit.i, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit168.i, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit166.i, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit.i, %21, %.thread, %168, %4
+  %.0 = phi i32 [ -46, %4 ], [ -1, %168 ], [ -46, %21 ], [ %159, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit.i ], [ %160, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit166.i ], [ %161, %pmix_mca_base_var_group_get_internal.exit.loopexit.split.loop.exit168.i ], [ %162, %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit.i ], [ %163, %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit158.i ], [ %164, %pmix_mca_base_var_group_get_internal.exit.loopexit145.split.loop.exit160.i ], [ %165, %pmix_mca_base_var_group_get_internal.exit.loopexit147.split.loop.exit.i ], [ %166, %pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit.i ], [ %167, %pmix_mca_base_var_group_get_internal.exit.loopexit149.split.loop.exit151.i ], [ -46, %.thread ], [ %177, %group_find_by_name.exit.thread40 ], [ -46, %group_find_by_name.exit.thread ], [ %spec.select, %group_find_by_name.exit ], [ -46, %compare_strings.exit.thread40.us.i ], [ -46, %compare_strings.exit.thread40.us77.i ], [ -46, %compare_strings.exit.thread40.us101.i ], [ -46, %compare_strings.exit.thread40.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

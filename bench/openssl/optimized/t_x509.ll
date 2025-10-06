@@ -294,23 +294,23 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   %101 = call i32 @X509_PUBKEY_get0_param(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %100) #4
   %102 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 33) #4
   %103 = icmp slt i32 %102, 1
-  br i1 %103, label %.thread133, label %104
+  br i1 %103, label %.thread128, label %104
 
 104:                                              ; preds = %99
   %105 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.4) #4
   %106 = icmp slt i32 %105, 1
-  br i1 %106, label %.thread133, label %107
+  br i1 %106, label %.thread128, label %107
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %5, align 8, !tbaa !3
   %109 = call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %108) #4
   %110 = icmp slt i32 %109, 1
-  br i1 %110, label %.thread133, label %111
+  br i1 %110, label %.thread128, label %111
 
 111:                                              ; preds = %107
   %112 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #4
   %113 = icmp slt i32 %112, 1
-  br i1 %113, label %.thread133, label %114
+  br i1 %113, label %.thread128, label %114
 
 114:                                              ; preds = %111
   %115 = call ptr @X509_get0_pubkey(ptr noundef %1) #4
@@ -326,7 +326,7 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   %120 = call i32 @EVP_PKEY_print_public(ptr noundef %0, ptr noundef nonnull %115, i32 noundef 16, ptr noundef null) #4
   br label %121
 
-.thread133:                                       ; preds = %99, %104, %107, %111
+.thread128:                                       ; preds = %99, %104, %107, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -350,13 +350,13 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
 126:                                              ; preds = %124
   %127 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4) #4
   %128 = icmp slt i32 %127, 1
-  br i1 %128, label %.thread137, label %129
+  br i1 %128, label %.thread131, label %129
 
 129:                                              ; preds = %126
   %130 = load ptr, ptr %6, align 8, !tbaa !8
   %131 = call i32 @X509_signature_dump(ptr noundef %0, ptr noundef %130, i32 noundef 12)
   %.not105 = icmp eq i32 %131, 0
-  br i1 %.not105, label %.thread137, label %132
+  br i1 %.not105, label %.thread131, label %132
 
 132:                                              ; preds = %129, %124
   %133 = load ptr, ptr %7, align 8, !tbaa !8
@@ -366,15 +366,15 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
 134:                                              ; preds = %132
   %135 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.4) #4
   %136 = icmp slt i32 %135, 1
-  br i1 %136, label %.thread137, label %137
+  br i1 %136, label %.thread131, label %137
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr %7, align 8, !tbaa !8
   %139 = call i32 @X509_signature_dump(ptr noundef %0, ptr noundef %138, i32 noundef 12)
   %.not107 = icmp eq i32 %139, 0
-  br i1 %.not107, label %.thread137, label %140
+  br i1 %.not107, label %.thread131, label %140
 
-.thread137:                                       ; preds = %126, %129, %134, %137
+.thread131:                                       ; preds = %126, %129, %134, %137
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
@@ -421,8 +421,8 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   %155 = call i32 @X509_aux_print(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   br label %.thread
 
-.thread:                                          ; preds = %48, %44, %39, %37, %33, %.thread137, %.thread133, %148, %14, %17, %24, %28, %53, %56, %60, %65, %68, %71, %75, %78, %82, %87, %90, %94, %143, %154, %152
-  %.0 = phi i32 [ 0, %148 ], [ 0, %143 ], [ 0, %87 ], [ 0, %90 ], [ 0, %94 ], [ 0, %65 ], [ 0, %68 ], [ 0, %71 ], [ 0, %75 ], [ 0, %78 ], [ 0, %82 ], [ 0, %53 ], [ 0, %56 ], [ 0, %60 ], [ 0, %24 ], [ 0, %28 ], [ 0, %14 ], [ 0, %17 ], [ 1, %154 ], [ 1, %152 ], [ 0, %.thread133 ], [ 0, %.thread137 ], [ 0, %33 ], [ 0, %37 ], [ 0, %39 ], [ 0, %44 ], [ 0, %48 ]
+.thread:                                          ; preds = %48, %44, %39, %37, %33, %.thread131, %.thread128, %148, %14, %17, %24, %28, %53, %56, %60, %65, %68, %71, %75, %78, %82, %87, %90, %94, %143, %154, %152
+  %.0 = phi i32 [ 0, %148 ], [ 0, %143 ], [ 0, %87 ], [ 0, %90 ], [ 0, %94 ], [ 0, %65 ], [ 0, %68 ], [ 0, %71 ], [ 0, %75 ], [ 0, %78 ], [ 0, %82 ], [ 0, %53 ], [ 0, %56 ], [ 0, %60 ], [ 0, %24 ], [ 0, %28 ], [ 0, %14 ], [ 0, %17 ], [ 1, %154 ], [ 1, %152 ], [ 0, %.thread128 ], [ 0, %.thread131 ], [ 0, %33 ], [ 0, %37 ], [ 0, %39 ], [ 0, %44 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -1136,21 +1136,21 @@ define noundef i32 @X509_STORE_CTX_print_verify_cb(i32 noundef returned %0, ptr 
 19:                                               ; preds = %10
   %20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.45) #4
   %21 = tail call ptr @X509_VERIFY_PARAM_get0_host(ptr noundef %18, i32 noundef 0) #4
-  %.not7073 = icmp eq ptr %21, null
-  br i1 %.not7073, label %.thread80, label %.lr.ph
+  %.not7072 = icmp eq ptr %21, null
+  br i1 %.not7072, label %.thread79, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %22 = phi ptr [ %27, %.lr.ph ], [ %21, %19 ]
-  %.074 = phi i32 [ %23, %.lr.ph ], [ 0, %19 ]
-  %23 = add nuw nsw i32 %.074, 1
-  %24 = icmp eq i32 %.074, 0
+  %.073 = phi i32 [ %23, %.lr.ph ], [ 0, %19 ]
+  %23 = add nuw nsw i32 %.073, 1
+  %24 = icmp eq i32 %.073, 0
   %25 = select i1 %24, ptr @.str.4, ptr @.str.29
   %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.46, ptr noundef nonnull %25, ptr noundef nonnull %22) #4
   %27 = tail call ptr @X509_VERIFY_PARAM_get0_host(ptr noundef %18, i32 noundef %23) #4
   %.not70 = icmp eq ptr %27, null
-  br i1 %.not70, label %.thread80, label %.lr.ph, !llvm.loop !57
+  br i1 %.not70, label %.thread79, label %.lr.ph, !llvm.loop !57
 
-.thread80:                                        ; preds = %.lr.ph, %19
+.thread79:                                        ; preds = %.lr.ph, %19
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.7) #4
   %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.49) #4
   %30 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %1) #4
@@ -1218,7 +1218,7 @@ define noundef i32 @X509_STORE_CTX_print_verify_cb(i32 noundef returned %0, ptr 
   %56 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.60) #4
   br label %57
 
-57:                                               ; preds = %.thread80, %44, %.thread, %53, %55
+57:                                               ; preds = %.thread79, %44, %.thread, %53, %55
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 499, ptr noundef nonnull @__func__.X509_STORE_CTX_print_verify_cb) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 139, ptr noundef null) #4

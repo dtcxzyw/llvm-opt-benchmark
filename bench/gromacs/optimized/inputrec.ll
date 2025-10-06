@@ -2268,8 +2268,8 @@ define noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr noundef n
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %9
-  %indvars.iv21 = phi i64 [ 0, %1 ], [ %indvars.iv.next22, %9 ]
-  %3 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv21
+  %indvars.iv23 = phi i64 [ 0, %1 ], [ %indvars.iv.next24, %9 ]
+  %3 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv23
   br label %5
 
 4:                                                ; preds = %5
@@ -2285,9 +2285,9 @@ define noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr noundef n
   br i1 %8, label %.loopexit, label %4
 
 9:                                                ; preds = %4
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %exitcond24.not = icmp eq i64 %indvars.iv.next22, 3
-  br i1 %exitcond24.not, label %.loopexit, label %.preheader, !llvm.loop !264
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond26.not = icmp eq i64 %indvars.iv.next24, 3
+  br i1 %exitcond26.not, label %.loopexit, label %.preheader, !llvm.loop !264
 
 .loopexit:                                        ; preds = %9, %5
   ret i1 %8
@@ -7302,28 +7302,28 @@ switch.edge:                                      ; preds = %4, %switch.lookup, 
 define noundef zeroext i1 @_Z20doSimulatedAnnealingRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %3 = load i32, ptr %2, align 8, !tbaa !191
-  %.not89 = icmp sgt i32 %3, 0
-  br i1 %.not89, label %.lr.ph, label %._crit_edge
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %5 = load ptr, ptr %4, align 8, !tbaa !192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %6 = load ptr, ptr %5, align 8, !tbaa !192
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %6
+  br label %7
 
-6:                                                ; preds = %6, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4, !tbaa !541
-  %.not.not = icmp ne i32 %8, 0
+7:                                                ; preds = %7, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %9 = load i32, ptr %8, align 4, !tbaa !541
+  %.not.not = icmp ne i32 %9, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %6, !llvm.loop !583
+  br i1 %or.cond, label %._crit_edge, label %7, !llvm.loop !583
 
-._crit_edge:                                      ; preds = %6, %1
-  %.not8.lcssa = phi i1 [ false, %1 ], [ %.not.not, %6 ]
-  ret i1 %.not8.lcssa
+._crit_edge:                                      ; preds = %7, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %.not.not, %7 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7521,30 +7521,30 @@ define noundef zeroext i1 @_Z18haveFreeEnergyTypeRK10t_inputreci(ptr noundef non
   %4 = load ptr, ptr %3, align 8, !tbaa !126
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !459
-  %.not9 = icmp sgt i32 %6, 0
-  br i1 %.not9, label %.lr.ph, label %._crit_edge
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"class.std::vector.59", ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !155
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %9 = sext i32 %1 to i64
+  %10 = getelementptr inbounds nuw %"class.std::vector.59", ptr %8, i64 %9
+  %11 = load ptr, ptr %10, align 8, !tbaa !155
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %11
+  br label %12
 
-11:                                               ; preds = %11, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
-  %13 = load double, ptr %12, align 8, !tbaa !461
-  %14 = fcmp ogt double %13, 0.000000e+00
+12:                                               ; preds = %12, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %14 = load double, ptr %13, align 8, !tbaa !461
+  %15 = fcmp ogt double %14, 0.000000e+00
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %14, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %11, !llvm.loop !585
+  %or.cond = select i1 %15, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %12, !llvm.loop !585
 
-._crit_edge:                                      ; preds = %11, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %14, %11 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %12, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %15, %12 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

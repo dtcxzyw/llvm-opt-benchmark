@@ -182,45 +182,45 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   %7 = load ptr, ptr @__libc_stack_end, align 8
   %8 = ptrtoint ptr %7 to i64
   %.0.i = select i1 %6, i64 %8, i64 0
-  %.not13.i = icmp eq i64 %.0.i, 0
-  %9 = add i64 %.0.i, -16
-  %.not49 = icmp eq i64 %1, 0
-  br i1 %.not49, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.lr.ph
+  %.not44 = icmp eq i64 %1, 0
+  br i1 %.not44, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %10 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  %11 = ptrtoint ptr %10 to i64
+  %9 = tail call ptr @llvm.frameaddress.p0(i32 0)
+  %10 = ptrtoint ptr %9 to i64
+  %.not13.i = icmp eq i64 %.0.i, 0
+  %11 = add i64 %.0.i, -16
   br label %12
 
-12:                                               ; preds = %.lr.ph, %.backedge
-  %.01744 = phi i64 [ 0, %.lr.ph ], [ %.2, %.backedge ]
-  %.01843 = phi i64 [ %2, %.lr.ph ], [ %.119, %.backedge ]
-  %.02042 = phi i64 [ %11, %.lr.ph ], [ %.020.be, %.backedge ]
-  %.not = icmp eq i64 %.01843, 0
+12:                                               ; preds = %.lr.ph, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit
+  %.01739 = phi i64 [ 0, %.lr.ph ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit ]
+  %.01838 = phi i64 [ %2, %.lr.ph ], [ %.119, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit ]
+  %.02037 = phi i64 [ %10, %.lr.ph ], [ %.121, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit ]
+  %.not = icmp eq i64 %.01838, 0
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = add i64 %.01843, -1
-  %.pre = inttoptr i64 %.02042 to ptr
+  %14 = add i64 %.01838, -1
+  %.pre = inttoptr i64 %.02037 to ptr
   br label %22
 
 15:                                               ; preds = %12
-  %16 = inttoptr i64 %.02042 to ptr
+  %16 = inttoptr i64 %.02037 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !8
   %19 = inttoptr i64 %18 to ptr
-  %20 = add nuw i64 %.01744, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01744
+  %20 = add nuw i64 %.01739, 1
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01739
   store ptr %19, ptr %21, align 8, !tbaa !33
   br label %22
 
 22:                                               ; preds = %15, %13
   %.pre-phi = phi ptr [ %16, %15 ], [ %.pre, %13 ]
   %.119 = phi i64 [ 0, %15 ], [ %14, %13 ]
-  %.2 = phi i64 [ %20, %15 ], [ %.01744, %13 ]
+  %.2 = phi i64 [ %20, %15 ], [ %.01739, %13 ]
   %23 = load i64, ptr %.pre-phi, align 8, !tbaa !8
-  %.not.i = icmp ugt i64 %23, %.02042
-  %24 = sub nuw i64 %23, %.02042
+  %.not.i = icmp ugt i64 %23, %.02037
+  %24 = sub nuw i64 %23, %.02037
   %25 = icmp ult i64 %24, 100001
   %or.cond.not17.i = select i1 %.not.i, i1 %25, i1 false
   %26 = and i64 %23, 7
@@ -229,10 +229,10 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   br i1 %or.cond15.i, label %27, label %35
 
 27:                                               ; preds = %22
-  br i1 %.not13.i, label %.backedge, label %28, !llvm.loop !34
+  br i1 %.not13.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit, label %28, !llvm.loop !34
 
 28:                                               ; preds = %27
-  %29 = icmp ugt i64 %23, %9
+  %29 = icmp ugt i64 %23, %11
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %28
@@ -240,18 +240,18 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !8
   %34 = icmp ult i64 %33, 32768
-  br i1 %34, label %.thread, label %.backedge, !llvm.loop !34
+  br i1 %34, label %.thread, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit, !llvm.loop !34
 
 35:                                               ; preds = %22
-  br i1 %.not13.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.thread
+  br i1 %.not13.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29, label %.thread
 
 .thread:                                          ; preds = %28, %30, %35
-  %36 = add i64 %.02042, 8200
+  %36 = add i64 %.02037, 8200
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %36)
   %37 = add i64 %.sroa.speculated.i, -8
-  %.01649.i = add i64 %.02042, 8
+  %.01649.i = add i64 %.02037, 8
   %.not1950.i = icmp ugt i64 %.01649.i, %37
-  br i1 %.not1950.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.lr.ph.i
+  br i1 %.not1950.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i
   %.01651.i = phi i64 [ %.016.i, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i ], [ %.01649.i, %.thread ]
@@ -264,7 +264,7 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   %42 = and i64 %39, 7
   %.not12.i.i = icmp ne i64 %42, 0
   %or.cond15.i.not43.i = or i1 %.not12.i.i, %or.cond.not17.i.not45.i
-  %43 = icmp ugt i64 %39, %9
+  %43 = icmp ugt i64 %39, %11
   %or.cond.i = or i1 %43, %or.cond15.i.not43.i
   br i1 %or.cond.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i, label %44
 
@@ -284,7 +284,7 @@ _ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.i: ; preds = %44
   %52 = and i64 %49, 7
   %.not12.i22.i = icmp ne i64 %52, 0
   %or.cond15.i23.not46.i = or i1 %.not12.i22.i, %or.cond.not17.i21.not48.i
-  %53 = icmp ugt i64 %49, %9
+  %53 = icmp ugt i64 %49, %11
   %or.cond42.i = or i1 %53, %or.cond15.i23.not46.i
   br i1 %or.cond42.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i, label %54
 
@@ -298,19 +298,19 @@ _ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.i: ; preds = %44
 _ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i: ; preds = %54, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.i, %44, %.lr.ph.i
   %.016.i = add i64 %.01651.i, 8
   %.not19.i = icmp ugt i64 %.016.i, %37
-  br i1 %.not19.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not19.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29, label %.lr.ph.i, !llvm.loop !36
 
 _ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit: ; preds = %54
-  %.not23.not = icmp eq i64 %.01651.i, 0
-  br i1 %.not23.not, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.backedge
+  %.not23 = icmp eq i64 %.01651.i, 0
+  br i1 %.not23, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit
 
-.backedge:                                        ; preds = %27, %30, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit
-  %.020.be = phi i64 [ %.01651.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %23, %30 ], [ %23, %27 ]
+_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit: ; preds = %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, %30, %27
+  %.121 = phi i64 [ %.01651.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %23, %27 ], [ %23, %30 ]
   %59 = icmp ult i64 %.2, %1
-  br i1 %59, label %12, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread
+  br i1 %59, label %12, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29
 
-_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread: ; preds = %.backedge, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, %35, %.thread, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i, %3
-  %.1 = phi i64 [ 0, %3 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i ], [ %.2, %.thread ], [ %.2, %35 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %.2, %.backedge ]
+_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29: ; preds = %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, %35, %.thread, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i, %3
+  %.1 = phi i64 [ 0, %3 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i ], [ %.2, %.thread ], [ %.2, %35 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit ]
   ret i64 %.1
 }
 

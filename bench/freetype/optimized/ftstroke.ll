@@ -250,14 +250,14 @@ define i32 @FT_Stroker_LineTo(ptr noundef captures(address_is_null) %0, ptr noun
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load i64, ptr %3, align 8, !tbaa !37
-  %.pre57 = load i64, ptr %17, align 8, !tbaa !39
+  %.pre56 = load i64, ptr %17, align 8, !tbaa !39
   br label %38
 
 38:                                               ; preds = %35, %47
-  %39 = phi i64 [ %.pre57, %35 ], [ %51, %47 ]
+  %39 = phi i64 [ %.pre56, %35 ], [ %51, %47 ]
   %40 = phi i64 [ %.pre, %35 ], [ %49, %47 ]
-  %.03955 = phi i32 [ 1, %35 ], [ %52, %47 ]
-  %.04154 = phi ptr [ %36, %35 ], [ %53, %47 ]
+  %.03954 = phi i32 [ 1, %35 ], [ %52, %47 ]
+  %.04153 = phi ptr [ %36, %35 ], [ %53, %47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = load i64, ptr %1, align 8, !tbaa !37
   %42 = add nsw i64 %40, %41
@@ -265,7 +265,7 @@ define i32 @FT_Stroker_LineTo(ptr noundef captures(address_is_null) %0, ptr noun
   %43 = load i64, ptr %12, align 8, !tbaa !39
   %44 = add nsw i64 %39, %43
   store i64 %44, ptr %37, align 8, !tbaa !39
-  %45 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.04154, ptr noundef %4, i8 noundef zeroext 1)
+  %45 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.04153, ptr noundef %4, i8 noundef zeroext 1)
   %.not50 = icmp eq i32 %45, 0
   br i1 %.not50, label %47, label %46
 
@@ -281,10 +281,10 @@ define i32 @FT_Stroker_LineTo(ptr noundef captures(address_is_null) %0, ptr noun
   %51 = sub nsw i64 0, %50
   store i64 %51, ptr %17, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %52 = add nsw i32 %.03955, -1
-  %53 = getelementptr inbounds nuw i8, ptr %.04154, i64 48
-  %.not62 = icmp eq i32 %.03955, 0
-  br i1 %.not62, label %54, label %38, !llvm.loop !43
+  %52 = add nsw i32 %.03954, -1
+  %53 = getelementptr inbounds nuw i8, ptr %.04153, i64 48
+  %.not61 = icmp eq i32 %.03954, 0
+  br i1 %.not61, label %54, label %38, !llvm.loop !43
 
 54:                                               ; preds = %47
   store i64 %24, ptr %0, align 8, !tbaa !45

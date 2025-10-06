@@ -667,8 +667,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit": ; preds = %2, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !4
-  %.not63 = icmp eq ptr %11, null
-  br i1 %.not63, label %18, label %12
+  %.not58 = icmp eq ptr %11, null
+  br i1 %.not58, label %18, label %12
 
 12:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -676,7 +676,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp ult i64 %14, %16
-  br i1 %17, label %.thread44, label %35, !prof !69
+  br i1 %17, label %.thread41, label %35, !prof !69
 
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -686,26 +686,26 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %22 = load ptr, ptr %21, align 8, !nonnull !4
   %23 = getelementptr i64, ptr %22, i64 %20
   %24 = getelementptr i8, ptr %23, i64 -8
-  %.not32.not64 = icmp eq ptr %24, null
-  %.not32.not = select i1 %.not, i1 true, i1 %.not32.not64
-  br i1 %.not32.not, label %.thread39, label %36
+  %.not32.not59 = icmp eq ptr %24, null
+  %.not32.not = select i1 %.not, i1 true, i1 %.not32.not59
+  br i1 %.not32.not, label %.thread37, label %36
 
-.thread44:                                        ; preds = %12
+.thread41:                                        ; preds = %12
   %25 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %11, i64 %14
   %26 = tail call noundef i64 @_ZN11tree_sitter4Node10start_byte17h7b19fd76ffed13b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %28 = load i64, ptr %27, align 8, !noundef !4
-  %.not46 = icmp eq i64 %28, 0
+  %.not43 = icmp eq i64 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %30 = load ptr, ptr %29, align 8, !nonnull !4
   %31 = getelementptr i64, ptr %30, i64 %28
   %32 = getelementptr i8, ptr %31, i64 -8
-  %.not3248.not65 = icmp eq ptr %32, null
-  %.not3248.not = select i1 %.not46, i1 true, i1 %.not3248.not65
+  %.not3245.not60 = icmp eq ptr %32, null
+  %.not3245.not = select i1 %.not43, i1 true, i1 %.not3245.not60
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not3248.not, label %.thread41, label %.thread57
+  br i1 %.not3245.not, label %.thread39, label %.thread53
 
-.thread57:                                        ; preds = %.thread44
+.thread53:                                        ; preds = %.thread41
   %33 = load i64, ptr %32, align 8, !noundef !4
   %34 = icmp ult i64 %26, %33
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -724,28 +724,28 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   store i64 %5, ptr %.sroa.522.0..sroa_idx, align 8
   br label %39
 
-.thread39:                                        ; preds = %18
+.thread37:                                        ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 2, ptr %38, align 8
   br label %39
 
-39:                                               ; preds = %40, %41, %.thread41, %.thread39, %36
+39:                                               ; preds = %40, %41, %.thread39, %.thread37, %36
   ret void
 
-.thread41:                                        ; preds = %.thread44
+.thread39:                                        ; preds = %.thread41
   store i64 %26, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.416.0..sroa_idx, align 8
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
   br label %39
 
-40:                                               ; preds = %.thread57
+40:                                               ; preds = %.thread53
   store i64 %33, ptr %0, align 8
   store i8 0, ptr %.sroa.49.0..sroa_idx, align 8
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
   br label %39
 
-41:                                               ; preds = %.thread57
+41:                                               ; preds = %.thread53
   store i64 %26, ptr %0, align 8
   store i8 1, ptr %.sroa.49.0..sroa_idx, align 8
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8

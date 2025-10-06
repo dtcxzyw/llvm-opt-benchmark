@@ -396,18 +396,18 @@ declare i32 @CVodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @PrintRootInfo(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #3 {
-  %switch = icmp eq i32 %2, 2
-  br i1 %switch, label %4, label %6
+  %4 = icmp eq i32 %2, 2
+  br i1 %4, label %5, label %7
 
-4:                                                ; preds = %3
-  %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %0, i32 noundef %1)
-  br label %8
+5:                                                ; preds = %3
+  %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %0, i32 noundef %1)
+  br label %9
 
-6:                                                ; preds = %3
-  %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %0)
-  br label %8
+7:                                                ; preds = %3
+  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %0)
+  br label %9
 
-8:                                                ; preds = %4, %6
+9:                                                ; preds = %5, %7
   ret void
 }
 

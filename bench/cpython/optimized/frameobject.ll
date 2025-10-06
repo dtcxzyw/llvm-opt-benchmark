@@ -4317,24 +4317,24 @@ first_line_not_before.exit.thread:                ; preds = %._crit_edge.i, %61
   %90 = load i64, ptr %89, align 8, !tbaa !173
   %91 = or i64 %90, %79
   %or.cond.not.i = icmp sgt i64 %91, -1
-  br i1 %or.cond.not.i, label %.preheader38.i, label %compatible_stack.exit.thread
+  br i1 %or.cond.not.i, label %.preheader37.i, label %compatible_stack.exit.thread
 
-.preheader38.i:                                   ; preds = %88, %.preheader38.i
-  %.017.i = phi i64 [ %93, %.preheader38.i ], [ %79, %88 ]
+.preheader37.i:                                   ; preds = %88, %.preheader37.i
+  %.017.i = phi i64 [ %93, %.preheader37.i ], [ %79, %88 ]
   %92 = icmp sgt i64 %.017.i, %90
   %93 = ashr i64 %.017.i, 3
-  br i1 %92, label %.preheader38.i, label %.preheader.i, !llvm.loop !186
+  br i1 %92, label %.preheader37.i, label %.preheader.i, !llvm.loop !186
 
-.preheader.i:                                     ; preds = %.preheader38.i
-  %.not40.i = icmp eq i64 %.017.i, 0
-  br i1 %.not40.i, label %compatible_stack.exit, label %.lr.ph.i139
+.preheader.i:                                     ; preds = %.preheader37.i
+  %.not39.i = icmp eq i64 %.017.i, 0
+  br i1 %.not39.i, label %compatible_stack.exit, label %.lr.ph.i139
 
 .lr.ph.i139:                                      ; preds = %.preheader.i, %compatible_kind.exit.thread29.i
-  %.11842.i = phi i64 [ %100, %compatible_kind.exit.thread29.i ], [ %.017.i, %.preheader.i ]
-  %.02041.i = phi i64 [ %101, %compatible_kind.exit.thread29.i ], [ %90, %.preheader.i ]
-  %94 = trunc i64 %.11842.i to i32
+  %.11841.i = phi i64 [ %100, %compatible_kind.exit.thread29.i ], [ %.017.i, %.preheader.i ]
+  %.02040.i = phi i64 [ %101, %compatible_kind.exit.thread29.i ], [ %90, %.preheader.i ]
+  %94 = trunc i64 %.11841.i to i32
   %95 = and i32 %94, 7
-  %96 = trunc i64 %.02041.i to i32
+  %96 = trunc i64 %.02040.i to i32
   %97 = and i32 %96, 7
   switch i32 %97, label %compatible_kind.exit.i [
     i32 0, label %compatible_stack.exit.thread
@@ -4343,17 +4343,17 @@ first_line_not_before.exit.thread:                ; preds = %._crit_edge.i, %61
   ]
 
 98:                                               ; preds = %.lr.ph.i139
-  %.not43.i = icmp eq i32 %95, 4
-  br i1 %.not43.i, label %compatible_stack.exit.thread, label %compatible_kind.exit.thread29.i
+  %.not42.i = icmp eq i32 %95, 4
+  br i1 %.not42.i, label %compatible_stack.exit.thread, label %compatible_kind.exit.thread29.i
 
 compatible_kind.exit.i:                           ; preds = %.lr.ph.i139
   %99 = icmp eq i32 %95, %97
   br i1 %99, label %compatible_kind.exit.thread29.i, label %compatible_stack.exit.thread
 
 compatible_kind.exit.thread29.i:                  ; preds = %compatible_kind.exit.i, %98, %.lr.ph.i139
-  %100 = ashr i64 %.11842.i, 3
-  %101 = ashr i64 %.02041.i, 3
-  %.not.i140 = icmp ult i64 %.11842.i, 8
+  %100 = ashr i64 %.11841.i, 3
+  %101 = ashr i64 %.02040.i, 3
+  %.not.i140 = icmp ult i64 %.11841.i, 8
   br i1 %.not.i140, label %compatible_stack.exit, label %.lr.ph.i139
 
 compatible_stack.exit:                            ; preds = %compatible_kind.exit.thread29.i, %.preheader.i

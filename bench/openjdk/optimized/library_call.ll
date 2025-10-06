@@ -22922,11 +22922,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_array_copyOfEb(ptr
   br label %63
 
 63:                                               ; preds = %44, %33
-  %.sink126 = phi i32 [ %62, %44 ], [ %43, %33 ]
-  %.sink124 = phi ptr [ %58, %44 ], [ %29, %33 ]
+  %.sink125 = phi i32 [ %62, %44 ], [ %43, %33 ]
+  %.sink123 = phi ptr [ %58, %44 ], [ %29, %33 ]
   %.sink.in = phi ptr [ %60, %44 ], [ %41, %33 ]
-  %64 = zext i32 %.sink126 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %.sink124, i64 %64
+  %64 = zext i32 %.sink125 to i64
+  %65 = getelementptr inbounds nuw ptr, ptr %.sink123, i64 %64
   %.sink = load ptr, ptr %.sink.in, align 8
   store ptr %.sink, ptr %5, align 8
   %66 = load ptr, ptr %65, align 8
@@ -23624,11 +23624,11 @@ _ZN8GraphKit11set_controlEP4Node.exit95:          ; preds = %_ZN4Node7del_outEPS
   %516 = call noundef ptr @_ZN8GraphKit17load_object_klassEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.058) #13
   %517 = call noundef ptr @_ZN13ArrayCopyNode4makeEP8GraphKitbP4NodeS3_S3_S3_S3_bbS3_S3_S3_S3_(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %.058, ptr noundef %513, ptr noundef %512, ptr noundef %515, ptr noundef %399, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %516, ptr noundef nonnull %.063, ptr noundef null, ptr noundef null) #13
   %spec.select = select i1 %1, i32 6, i32 5
-  %.sink103 = zext i1 %.059 to i8
+  %.sink102 = zext i1 %.059 to i8
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 128
   store i32 %spec.select, ptr %518, align 8
   %519 = getelementptr inbounds nuw i8, ptr %517, i64 134
-  store i8 %.sink103, ptr %519, align 2
+  store i8 %.sink102, ptr %519, align 2
   %520 = load ptr, ptr %71, align 8
   %521 = load ptr, ptr %520, align 8
   %522 = load ptr, ptr %521, align 8
@@ -24479,8 +24479,8 @@ _ZN15ciInstanceKlass19has_injected_fieldsEv.exit: ; preds = %89, %93
 96:                                               ; preds = %_ZN15ciInstanceKlass19has_injected_fieldsEv.exit
   %97 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %98 = load i32, ptr %97, align 8
-  %.not243 = icmp eq i32 %98, 21
-  br i1 %.not243, label %99, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
+  %.not242 = icmp eq i32 %98, 21
+  br i1 %.not242, label %99, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %56, align 8

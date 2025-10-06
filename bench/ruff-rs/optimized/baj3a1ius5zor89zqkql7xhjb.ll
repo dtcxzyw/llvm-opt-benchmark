@@ -4490,7 +4490,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %117, label %.critedge, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
 
-"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34": ; preds = %.critedge, %.critedge, %122, %127, %124, %124, %116
+"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34": ; preds = %.critedge, %.critedge, %122, %124, %127, %116
   ret void
 
 .critedge.sink.split:                             ; preds = %.critedge22, %98, %102, %59
@@ -4521,10 +4521,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
 124:                                              ; preds = %.critedge
   %125 = add nsw i64 %118, -2
   %126 = call i64 @llvm.umin.i64(i64 %125, i64 6)
-  switch i64 %126, label %127 [
-    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
-    i64 6, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
-  ]
+  %.off = add nsw i64 %126, -1
+  %switch = icmp ult i64 %.off, 5
+  br i1 %switch, label %127, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
 
 127:                                              ; preds = %124
   call fastcc void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h300a25bc52ce3141E"(ptr noalias noundef align 8 dereferenceable(176) %1)
@@ -4962,7 +4961,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %117, label %.critedge, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
 
-"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34": ; preds = %.critedge, %.critedge, %122, %127, %124, %124, %116
+"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34": ; preds = %.critedge, %.critedge, %122, %124, %127, %116
   ret void
 
 .critedge.sink.split:                             ; preds = %.critedge22, %98, %102, %59
@@ -4993,10 +4992,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
 124:                                              ; preds = %.critedge
   %125 = add nsw i64 %118, -2
   %126 = call i64 @llvm.umin.i64(i64 %125, i64 6)
-  switch i64 %126, label %127 [
-    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
-    i64 6, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
-  ]
+  %.off = add nsw i64 %126, -1
+  %switch = icmp ult i64 %.off, 5
+  br i1 %switch, label %127, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hc885ec3c822cdd62E.exit34"
 
 127:                                              ; preds = %124
   call fastcc void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h300a25bc52ce3141E"(ptr noalias noundef align 8 dereferenceable(176) %1)

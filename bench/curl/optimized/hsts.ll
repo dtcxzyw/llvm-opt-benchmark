@@ -536,8 +536,8 @@ define hidden i32 @Curl_hsts_save(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %25 = load ptr, ptr %7, align 8, !tbaa !38
   %26 = call i64 @fwrite(ptr nonnull @.str.2, i64 111, i64 1, ptr %25)
   %27 = call ptr @Curl_llist_head(ptr noundef nonnull %1) #9
-  %.not5880 = icmp eq ptr %27, null
-  br i1 %.not5880, label %.loopexit, label %.lr.ph
+  %.not5879 = icmp eq ptr %27, null
+  br i1 %.not5879, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -548,9 +548,9 @@ define hidden i32 @Curl_hsts_save(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %33
 
 33:                                               ; preds = %.lr.ph, %hsts_out.exit
-  %.04481 = phi ptr [ %27, %.lr.ph ], [ %35, %hsts_out.exit ]
-  %34 = call ptr @Curl_node_elem(ptr noundef nonnull %.04481) #9
-  %35 = call ptr @Curl_node_next(ptr noundef nonnull %.04481) #9
+  %.04480 = phi ptr [ %27, %.lr.ph ], [ %35, %hsts_out.exit ]
+  %34 = call ptr @Curl_node_elem(ptr noundef nonnull %.04480) #9
+  %35 = call ptr @Curl_node_next(ptr noundef nonnull %.04480) #9
   %36 = load ptr, ptr %7, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -650,10 +650,10 @@ hsts_out.exit:                                    ; preds = %41, %57
   store i64 %85, ptr %86, align 8, !tbaa !107
   store i64 0, ptr %9, align 8, !tbaa !109
   %87 = call ptr @Curl_llist_head(ptr noundef nonnull %1) #9
-  %.not6286 = icmp eq ptr %87, null
-  br i1 %.not6286, label %.thread, label %.lr.ph88
+  %.not6285 = icmp eq ptr %87, null
+  br i1 %.not6285, label %.thread, label %.lr.ph87
 
-.lr.ph88:                                         ; preds = %84
+.lr.ph87:                                         ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 17
@@ -665,10 +665,10 @@ hsts_out.exit:                                    ; preds = %41, %57
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 720
   br label %97
 
-97:                                               ; preds = %.lr.ph88, %123
-  %.14587 = phi ptr [ %87, %.lr.ph88 ], [ %99, %123 ]
-  %98 = call ptr @Curl_node_elem(ptr noundef nonnull %.14587) #9
-  %99 = call ptr @Curl_node_next(ptr noundef nonnull %.14587) #9
+97:                                               ; preds = %.lr.ph87, %123
+  %.14586 = phi ptr [ %87, %.lr.ph87 ], [ %99, %123 ]
+  %98 = call ptr @Curl_node_elem(ptr noundef nonnull %.14586) #9
+  %99 = call ptr @Curl_node_next(ptr noundef nonnull %.14586) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 32
@@ -714,10 +714,10 @@ hsts_push.exit:                                   ; preds = %109, %119
   %120 = load ptr, ptr %82, align 8, !tbaa !47
   %121 = load ptr, ptr %96, align 8, !tbaa !113
   %122 = call i32 %120(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef %121) #9
-  %.not78 = icmp eq i32 %122, 0
+  %.not77 = icmp eq i32 %122, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not78, label %123, label %.thread.loopexit.split.loop.exit82
+  br i1 %.not77, label %123, label %.thread.loopexit.split.loop.exit81
 
 123:                                              ; preds = %hsts_push.exit
   %124 = load i64, ptr %9, align 8, !tbaa !109
@@ -726,13 +726,13 @@ hsts_push.exit:                                   ; preds = %109, %119
   %.not62 = icmp eq ptr %99, null
   br i1 %.not62, label %.thread, label %97, !llvm.loop !114
 
-.thread.loopexit.split.loop.exit82:               ; preds = %hsts_push.exit
+.thread.loopexit.split.loop.exit81:               ; preds = %hsts_push.exit
   %126 = icmp eq i32 %122, 2
   %127 = select i1 %126, i32 43, i32 0
   br label %.thread
 
-.thread:                                          ; preds = %123, %.thread.loopexit.split.loop.exit82, %84, %hsts_push.exit.thread
-  %.7 = phi i32 [ %108, %hsts_push.exit.thread ], [ %127, %.thread.loopexit.split.loop.exit82 ], [ %.042, %84 ], [ 0, %123 ]
+.thread:                                          ; preds = %123, %.thread.loopexit.split.loop.exit81, %84, %hsts_push.exit.thread
+  %.7 = phi i32 [ %108, %hsts_push.exit.thread ], [ %127, %.thread.loopexit.split.loop.exit81 ], [ %.042, %84 ], [ 0, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %128
 

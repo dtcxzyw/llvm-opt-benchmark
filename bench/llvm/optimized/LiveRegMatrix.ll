@@ -875,13 +875,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegUnitInterf
   %.not.i = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !261
-  %.not92110.i = icmp eq ptr %17, null
+  %.not87105.i = icmp eq ptr %17, null
   br i1 %.not.i, label %77, label %18
 
 18:                                               ; preds = %7
-  br i1 %.not92110.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph107.split.preheader.i
+  br i1 %.not87105.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph102.split.preheader.i
 
-.lr.ph107.split.preheader.i:                      ; preds = %18
+.lr.ph102.split.preheader.i:                      ; preds = %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !262
@@ -899,29 +899,29 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegUnitInterf
   %33 = lshr i32 %25, 12
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i16, ptr %17, i64 %34
-  br label %.lr.ph107.split.i
+  br label %.lr.ph102.split.i
 
-.lr.ph107.split.i:                                ; preds = %.thread79.i, %.lr.ph107.split.preheader.i
-  %.sroa.1473.0106.i = phi ptr [ %72, %.thread79.i ], [ %32, %.lr.ph107.split.preheader.i ]
-  %.sroa.569.0105.i = phi ptr [ %73, %.thread79.i ], [ %35, %.lr.ph107.split.preheader.i ]
-  %.sroa.067.0103.i = phi i32 [ %76, %.thread79.i ], [ %26, %.lr.ph107.split.preheader.i ]
-  %36 = load i64, ptr %.sroa.1473.0106.i, align 8, !tbaa !11
-  %.sroa.062.099.i = load ptr, ptr %14, align 8, !tbaa !268
-  %.not94100.i = icmp eq ptr %.sroa.062.099.i, null
-  br i1 %.not94100.i, label %.thread79.i, label %.lr.ph.i
+.lr.ph102.split.i:                                ; preds = %.thread78.i, %.lr.ph102.split.preheader.i
+  %.sroa.1472.0101.i = phi ptr [ %72, %.thread78.i ], [ %32, %.lr.ph102.split.preheader.i ]
+  %.sroa.568.0100.i = phi ptr [ %73, %.thread78.i ], [ %35, %.lr.ph102.split.preheader.i ]
+  %.sroa.066.098.i = phi i32 [ %76, %.thread78.i ], [ %26, %.lr.ph102.split.preheader.i ]
+  %36 = load i64, ptr %.sroa.1472.0101.i, align 8, !tbaa !11
+  %.sroa.061.094.i = load ptr, ptr %14, align 8, !tbaa !268
+  %.not8995.i = icmp eq ptr %.sroa.061.094.i, null
+  br i1 %.not8995.i, label %.thread78.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph107.split.i, %65
-  %.sroa.062.0101.i = phi ptr [ %.sroa.062.0.i, %65 ], [ %.sroa.062.099.i, %.lr.ph107.split.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.062.0101.i, i64 112
+.lr.ph.i:                                         ; preds = %.lr.ph102.split.i, %65
+  %.sroa.061.096.i = phi ptr [ %.sroa.061.0.i, %65 ], [ %.sroa.061.094.i, %.lr.ph102.split.i ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.061.096.i, i64 112
   %38 = load i64, ptr %37, align 8, !tbaa !269
   %39 = and i64 %38, %36
-  %.not95.i = icmp eq i64 %39, 0
-  br i1 %.not95.i, label %65, label %40
+  %.not90.i = icmp eq i64 %39, 0
+  br i1 %.not90.i, label %65, label %40
 
 40:                                               ; preds = %.lr.ph.i
   %41 = load ptr, ptr %19, align 8, !tbaa !184
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 424
-  %43 = zext i32 %.sroa.067.0103.i to i64
+  %43 = zext i32 %.sroa.066.098.i to i64
   %44 = load ptr, ptr %42, align 8, !tbaa !211
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !292
@@ -964,37 +964,37 @@ _ZN4llvm9LiveRangeC2Eb.exit.i.i.i:                ; preds = %58, %47
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 96
   store ptr %storemerge.i.i.i.i, ptr %64, align 8, !tbaa !311
   store ptr %48, ptr %45, align 8, !tbaa !292
-  call void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr noundef nonnull align 8 dereferenceable(440) %41, ptr noundef nonnull align 8 dereferenceable(104) %48, i32 noundef %.sroa.067.0103.i) #17
+  call void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr noundef nonnull align 8 dereferenceable(440) %41, ptr noundef nonnull align 8 dereferenceable(104) %48, i32 noundef %.sroa.066.098.i) #17
   %.pre.i.i = load ptr, ptr %19, align 8, !tbaa !184
   br label %67
 
 65:                                               ; preds = %.lr.ph.i
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.062.0101.i, i64 104
-  %.sroa.062.0.i = load ptr, ptr %66, align 8, !tbaa !268
-  %.not94.i = icmp eq ptr %.sroa.062.0.i, null
-  br i1 %.not94.i, label %.thread79.i, label %.lr.ph.i
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.061.096.i, i64 104
+  %.sroa.061.0.i = load ptr, ptr %66, align 8, !tbaa !268
+  %.not89.i = icmp eq ptr %.sroa.061.0.i, null
+  br i1 %.not89.i, label %.thread78.i, label %.lr.ph.i
 
 67:                                               ; preds = %_ZN4llvm9LiveRangeC2Eb.exit.i.i.i, %40
   %68 = phi ptr [ %41, %40 ], [ %.pre.i.i, %_ZN4llvm9LiveRangeC2Eb.exit.i.i.i ]
   %.0.i.i.i = phi ptr [ %46, %40 ], [ %48, %_ZN4llvm9LiveRangeC2Eb.exit.i.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load ptr, ptr %69, align 8, !tbaa !312
-  %71 = call noundef zeroext i1 @_ZNK4llvm9LiveRange8overlapsERKS0_RKNS_13CoalescerPairERKNS_11SlotIndexesE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.062.0101.i, ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(432) %70) #17
-  br i1 %71, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.thread79.i
+  %71 = call noundef zeroext i1 @_ZNK4llvm9LiveRange8overlapsERKS0_RKNS_13CoalescerPairERKNS_11SlotIndexesE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.061.096.i, ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(432) %70) #17
+  br i1 %71, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.thread78.i
 
-.thread79.i:                                      ; preds = %65, %67, %.lr.ph107.split.i
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.1473.0106.i, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.569.0105.i, i64 2
-  %74 = load i16, ptr %.sroa.569.0105.i, align 2, !tbaa !271
+.thread78.i:                                      ; preds = %65, %67, %.lr.ph102.split.i
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.1472.0101.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.568.0100.i, i64 2
+  %74 = load i16, ptr %.sroa.568.0100.i, align 2, !tbaa !271
   %75 = sext i16 %74 to i32
-  %76 = add i32 %.sroa.067.0103.i, %75
+  %76 = add i32 %.sroa.066.098.i, %75
   %.not.i.i.i.i = icmp eq i16 %74, 0
-  br i1 %.not.i.i.i.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph107.split.i, !llvm.loop !351
+  br i1 %.not.i.i.i.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph102.split.i, !llvm.loop !351
 
 77:                                               ; preds = %7
-  br i1 %.not92110.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph113.i
+  br i1 %.not87105.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph108.i
 
-.lr.ph113.i:                                      ; preds = %77
+.lr.ph108.i:                                      ; preds = %77
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !262, !noalias !352
   %80 = zext i32 %2 to i64
@@ -1008,17 +1008,17 @@ _ZN4llvm9LiveRangeC2Eb.exit.i.i.i:                ; preds = %58, %47
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %89
 
-89:                                               ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %.lr.ph113.i
-  %.sroa.554.0112.i = phi ptr [ %86, %.lr.ph113.i ], [ %118, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
-  %.sroa.9.0111.i = phi i32 [ %87, %.lr.ph113.i ], [ %121, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
+89:                                               ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %.lr.ph108.i
+  %.sroa.553.0107.i = phi ptr [ %86, %.lr.ph108.i ], [ %118, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
+  %.sroa.9.0106.i = phi i32 [ %87, %.lr.ph108.i ], [ %121, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
   %90 = load ptr, ptr %88, align 8, !tbaa !184
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 424
-  %92 = zext i32 %.sroa.9.0111.i to i64
+  %92 = zext i32 %.sroa.9.0106.i to i64
   %93 = load ptr, ptr %91, align 8, !tbaa !211
   %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %92
   %95 = load ptr, ptr %94, align 8, !tbaa !292
-  %.not.i.i46.i = icmp eq ptr %95, null
-  br i1 %.not.i.i46.i, label %96, label %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit51.i"
+  %.not.i.i45.i = icmp eq ptr %95, null
+  br i1 %.not.i.i45.i, label %96, label %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i"
 
 96:                                               ; preds = %89
   %97 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
@@ -1037,7 +1037,7 @@ _ZN4llvm9LiveRangeC2Eb.exit.i.i.i:                ; preds = %58, %47
   store i32 0, ptr %105, align 8, !tbaa !212
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 76
   store i32 2, ptr %106, align 4, !tbaa !213
-  br i1 %99, label %107, label %_ZN4llvm9LiveRangeC2Eb.exit.i.i48.i
+  br i1 %99, label %107, label %_ZN4llvm9LiveRangeC2Eb.exit.i.i47.i
 
 107:                                              ; preds = %96
   %108 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19, !noalias !355
@@ -1049,35 +1049,35 @@ _ZN4llvm9LiveRangeC2Eb.exit.i.i.i:                ; preds = %58, %47
   store ptr %109, ptr %111, align 8, !tbaa !309, !noalias !355
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 40
   store i64 0, ptr %112, align 8, !tbaa !310, !noalias !355
-  br label %_ZN4llvm9LiveRangeC2Eb.exit.i.i48.i
+  br label %_ZN4llvm9LiveRangeC2Eb.exit.i.i47.i
 
-_ZN4llvm9LiveRangeC2Eb.exit.i.i48.i:              ; preds = %107, %96
-  %storemerge.i.i.i49.i = phi ptr [ %108, %107 ], [ null, %96 ]
+_ZN4llvm9LiveRangeC2Eb.exit.i.i47.i:              ; preds = %107, %96
+  %storemerge.i.i.i48.i = phi ptr [ %108, %107 ], [ null, %96 ]
   %113 = getelementptr inbounds nuw i8, ptr %97, i64 96
-  store ptr %storemerge.i.i.i49.i, ptr %113, align 8, !tbaa !311
+  store ptr %storemerge.i.i.i48.i, ptr %113, align 8, !tbaa !311
   store ptr %97, ptr %94, align 8, !tbaa !292
-  call void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr noundef nonnull align 8 dereferenceable(440) %90, ptr noundef nonnull align 8 dereferenceable(104) %97, i32 noundef %.sroa.9.0111.i) #17
-  %.pre.i50.i = load ptr, ptr %88, align 8, !tbaa !184
-  br label %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit51.i"
+  call void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr noundef nonnull align 8 dereferenceable(440) %90, ptr noundef nonnull align 8 dereferenceable(104) %97, i32 noundef %.sroa.9.0106.i) #17
+  %.pre.i49.i = load ptr, ptr %88, align 8, !tbaa !184
+  br label %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i"
 
-"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit51.i": ; preds = %_ZN4llvm9LiveRangeC2Eb.exit.i.i48.i, %89
-  %114 = phi ptr [ %90, %89 ], [ %.pre.i50.i, %_ZN4llvm9LiveRangeC2Eb.exit.i.i48.i ]
-  %.0.i.i47.i = phi ptr [ %95, %89 ], [ %97, %_ZN4llvm9LiveRangeC2Eb.exit.i.i48.i ]
+"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i": ; preds = %_ZN4llvm9LiveRangeC2Eb.exit.i.i47.i, %89
+  %114 = phi ptr [ %90, %89 ], [ %.pre.i49.i, %_ZN4llvm9LiveRangeC2Eb.exit.i.i47.i ]
+  %.0.i.i46.i = phi ptr [ %95, %89 ], [ %97, %_ZN4llvm9LiveRangeC2Eb.exit.i.i47.i ]
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !312
-  %117 = call noundef zeroext i1 @_ZNK4llvm9LiveRange8overlapsERKS0_RKNS_13CoalescerPairERKNS_11SlotIndexesE(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i47.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(432) %116) #17
+  %117 = call noundef zeroext i1 @_ZNK4llvm9LiveRange8overlapsERKS0_RKNS_13CoalescerPairERKNS_11SlotIndexesE(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i46.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(432) %116) #17
   br i1 %117, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i
 
-_ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit51.i"
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.554.0112.i, i64 2
-  %119 = load i16, ptr %.sroa.554.0112.i, align 2, !tbaa !271
+_ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i"
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.553.0107.i, i64 2
+  %119 = load i16, ptr %.sroa.553.0107.i, align 2, !tbaa !271
   %120 = sext i16 %119 to i32
-  %121 = add i32 %.sroa.9.0111.i, %120
-  %.not.i.i52.i = icmp eq i16 %119, 0
-  br i1 %.not.i.i52.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %89
+  %121 = add i32 %.sroa.9.0106.i, %120
+  %.not.i.i51.i = icmp eq i16 %119, 0
+  br i1 %.not.i.i51.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %89
 
-"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit": ; preds = %67, %.thread79.i, %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit51.i", %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %18, %77
-  %.5.i = phi i1 [ false, %77 ], [ false, %18 ], [ %117, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ], [ %117, %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit51.i" ], [ true, %67 ], [ false, %.thread79.i ]
+"_ZL11foreachUnitIZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit": ; preds = %67, %.thread78.i, %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i", %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %18, %77
+  %.5.i = phi i1 [ false, %77 ], [ false, %18 ], [ %117, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ], [ %117, %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i" ], [ false, %.thread78.i ], [ true, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %122
 
@@ -1209,13 +1209,13 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %.not.i12 = icmp eq ptr %42, null
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %44 = load ptr, ptr %43, align 8, !tbaa !261
-  %.not89109.i = icmp eq ptr %44, null
+  %.not84104.i = icmp eq ptr %44, null
   br i1 %.not.i12, label %99, label %45
 
 45:                                               ; preds = %39
-  br i1 %.not89109.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph106.split.preheader.i
+  br i1 %.not84104.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph101.split.preheader.i
 
-.lr.ph106.split.preheader.i:                      ; preds = %45
+.lr.ph101.split.preheader.i:                      ; preds = %45
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1235,27 +1235,27 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %62 = lshr i32 %54, 12
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw i16, ptr %44, i64 %63
-  br label %.lr.ph106.split.i
+  br label %.lr.ph101.split.i
 
-.lr.ph106.split.i:                                ; preds = %.thread76.i, %.lr.ph106.split.preheader.i
-  %.sroa.1471.0105.i = phi ptr [ %94, %.thread76.i ], [ %61, %.lr.ph106.split.preheader.i ]
-  %.sroa.567.0104.i = phi ptr [ %95, %.thread76.i ], [ %64, %.lr.ph106.split.preheader.i ]
-  %.sroa.065.0102.i = phi i32 [ %98, %.thread76.i ], [ %55, %.lr.ph106.split.preheader.i ]
-  %65 = load i64, ptr %.sroa.1471.0105.i, align 8, !tbaa !11
-  %.sroa.060.098.i = load ptr, ptr %41, align 8, !tbaa !268
-  %.not9299.i = icmp eq ptr %.sroa.060.098.i, null
-  br i1 %.not9299.i, label %.thread76.i, label %.lr.ph.i
+.lr.ph101.split.i:                                ; preds = %.thread75.i, %.lr.ph101.split.preheader.i
+  %.sroa.1470.0100.i = phi ptr [ %94, %.thread75.i ], [ %61, %.lr.ph101.split.preheader.i ]
+  %.sroa.566.099.i = phi ptr [ %95, %.thread75.i ], [ %64, %.lr.ph101.split.preheader.i ]
+  %.sroa.064.097.i = phi i32 [ %98, %.thread75.i ], [ %55, %.lr.ph101.split.preheader.i ]
+  %65 = load i64, ptr %.sroa.1470.0100.i, align 8, !tbaa !11
+  %.sroa.059.093.i = load ptr, ptr %41, align 8, !tbaa !268
+  %.not8794.i = icmp eq ptr %.sroa.059.093.i, null
+  br i1 %.not8794.i, label %.thread75.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph106.split.i, %90
-  %.sroa.060.0100.i = phi ptr [ %.sroa.060.0.i, %90 ], [ %.sroa.060.098.i, %.lr.ph106.split.i ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.060.0100.i, i64 112
+.lr.ph.i:                                         ; preds = %.lr.ph101.split.i, %90
+  %.sroa.059.095.i = phi ptr [ %.sroa.059.0.i, %90 ], [ %.sroa.059.093.i, %.lr.ph101.split.i ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.059.095.i, i64 112
   %67 = load i64, ptr %66, align 8, !tbaa !269
   %68 = and i64 %67, %65
-  %.not93.i = icmp eq i64 %68, 0
-  br i1 %.not93.i, label %90, label %69
+  %.not88.i = icmp eq i64 %68, 0
+  br i1 %.not88.i, label %90, label %69
 
 69:                                               ; preds = %.lr.ph.i
-  %70 = zext i32 %.sroa.065.0102.i to i64
+  %70 = zext i32 %.sroa.064.097.i to i64
   %71 = load ptr, ptr %46, align 8, !tbaa !226
   %72 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion::Query", ptr %71, i64 %70
   %73 = load i32, ptr %47, align 8, !tbaa !228
@@ -1266,7 +1266,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %78 = icmp eq i32 %77, %73
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, %.sroa.060.0100.i
+  %81 = icmp eq ptr %80, %.sroa.059.095.i
   %or.cond.i.i.i.i = select i1 %78, i1 %81, i1 false
   %82 = load ptr, ptr %72, align 8
   %83 = icmp eq ptr %82, %75
@@ -1280,7 +1280,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
 
 86:                                               ; preds = %69
   store ptr %75, ptr %72, align 8, !tbaa !358
-  store ptr %.sroa.060.0100.i, ptr %79, align 8, !tbaa !359
+  store ptr %.sroa.059.095.i, ptr %79, align 8, !tbaa !359
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 120
   store i32 0, ptr %87, align 8, !tbaa !212
   %88 = getelementptr inbounds nuw i8, ptr %72, i64 160
@@ -1292,29 +1292,29 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   br label %92
 
 90:                                               ; preds = %.lr.ph.i
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.060.0100.i, i64 104
-  %.sroa.060.0.i = load ptr, ptr %91, align 8, !tbaa !268
-  %.not92.i = icmp eq ptr %.sroa.060.0.i, null
-  br i1 %.not92.i, label %.thread76.i, label %.lr.ph.i
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.059.095.i, i64 104
+  %.sroa.059.0.i = load ptr, ptr %91, align 8, !tbaa !268
+  %.not87.i = icmp eq ptr %.sroa.059.0.i, null
+  br i1 %.not87.i, label %.thread75.i, label %.lr.ph.i
 
 92:                                               ; preds = %86, %69
   %93 = tail call noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterferingVRegsEj(ptr noundef nonnull align 8 dereferenceable(172) %72, i32 noundef 1) #17
-  %.not94.i = icmp eq i32 %93, 0
-  br i1 %.not94.i, label %.thread76.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit"
+  %.not89.i = icmp eq i32 %93, 0
+  br i1 %.not89.i, label %.thread75.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit"
 
-.thread76.i:                                      ; preds = %90, %92, %.lr.ph106.split.i
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.1471.0105.i, i64 8
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.567.0104.i, i64 2
-  %96 = load i16, ptr %.sroa.567.0104.i, align 2, !tbaa !271
+.thread75.i:                                      ; preds = %90, %92, %.lr.ph101.split.i
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.1470.0100.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.566.099.i, i64 2
+  %96 = load i16, ptr %.sroa.566.099.i, align 2, !tbaa !271
   %97 = sext i16 %96 to i32
-  %98 = add i32 %.sroa.065.0102.i, %97
-  %.not.i.i.i44.i = icmp eq i16 %96, 0
-  br i1 %.not.i.i.i44.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph106.split.i, !llvm.loop !360
+  %98 = add i32 %.sroa.064.097.i, %97
+  %.not.i.i.i43.i = icmp eq i16 %96, 0
+  br i1 %.not.i.i.i43.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph101.split.i, !llvm.loop !360
 
 99:                                               ; preds = %39
-  br i1 %.not89109.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph112.i
+  br i1 %.not84104.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %.lr.ph107.i
 
-.lr.ph112.i:                                      ; preds = %99
+.lr.ph107.i:                                      ; preds = %99
   %100 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !262, !noalias !361
   %102 = zext i32 %2 to i64
@@ -1330,10 +1330,10 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %113
 
-113:                                              ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %.lr.ph112.i
-  %.sroa.552.0111.i = phi ptr [ %108, %.lr.ph112.i ], [ %135, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
-  %.sroa.9.0110.i = phi i32 [ %109, %.lr.ph112.i ], [ %138, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
-  %114 = zext i32 %.sroa.9.0110.i to i64
+113:                                              ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %.lr.ph107.i
+  %.sroa.551.0106.i = phi ptr [ %108, %.lr.ph107.i ], [ %135, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
+  %.sroa.9.0105.i = phi i32 [ %109, %.lr.ph107.i ], [ %138, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
+  %114 = zext i32 %.sroa.9.0105.i to i64
   %115 = load ptr, ptr %110, align 8, !tbaa !226
   %116 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion::Query", ptr %115, i64 %114
   %117 = load i32, ptr %111, align 8, !tbaa !228
@@ -1345,16 +1345,16 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, %1
-  %or.cond.i.i.i45.i = select i1 %122, i1 %125, i1 false
+  %or.cond.i.i.i44.i = select i1 %122, i1 %125, i1 false
   %126 = load ptr, ptr %116, align 8
   %127 = icmp eq ptr %126, %119
-  %or.cond10.i.i.i46.i = select i1 %or.cond.i.i.i45.i, i1 %127, i1 false
-  %.pre.i.i.i47.i = load i32, ptr %119, align 8, !tbaa !233
+  %or.cond10.i.i.i45.i = select i1 %or.cond.i.i.i44.i, i1 %127, i1 false
+  %.pre.i.i.i46.i = load i32, ptr %119, align 8, !tbaa !233
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 164
   %129 = load i32, ptr %128, align 4
-  %.not.i.i.i48.i = icmp eq i32 %129, %.pre.i.i.i47.i
-  %or.cond12.i.i.i49.i = select i1 %or.cond10.i.i.i46.i, i1 %.not.i.i.i48.i, i1 false
-  br i1 %or.cond12.i.i.i49.i, label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i", label %130
+  %.not.i.i.i47.i = icmp eq i32 %129, %.pre.i.i.i46.i
+  %or.cond12.i.i.i48.i = select i1 %or.cond10.i.i.i45.i, i1 %.not.i.i.i47.i, i1 false
+  br i1 %or.cond12.i.i.i48.i, label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit49.i", label %130
 
 130:                                              ; preds = %113
   store ptr %119, ptr %116, align 8, !tbaa !358
@@ -1365,25 +1365,25 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   store i8 0, ptr %132, align 8, !tbaa !214
   %133 = getelementptr inbounds nuw i8, ptr %116, i64 161
   store i8 0, ptr %133, align 1, !tbaa !223
-  store i32 %.pre.i.i.i47.i, ptr %128, align 4, !tbaa !224
+  store i32 %.pre.i.i.i46.i, ptr %128, align 4, !tbaa !224
   store i32 %117, ptr %120, align 8, !tbaa !225
-  br label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i"
+  br label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit49.i"
 
-"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i": ; preds = %130, %113
+"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit49.i": ; preds = %130, %113
   %134 = tail call noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterferingVRegsEj(ptr noundef nonnull align 8 dereferenceable(172) %116, i32 noundef 1) #17
-  %.not90.not.i = icmp eq i32 %134, 0
-  br i1 %.not90.not.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit"
+  %.not85.not.i = icmp eq i32 %134, 0
+  br i1 %.not85.not.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit"
 
-_ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i"
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.552.0111.i, i64 2
-  %136 = load i16, ptr %.sroa.552.0111.i, align 2, !tbaa !271
+_ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit49.i"
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.551.0106.i, i64 2
+  %136 = load i16, ptr %.sroa.551.0106.i, align 2, !tbaa !271
   %137 = sext i16 %136 to i32
-  %138 = add i32 %.sroa.9.0110.i, %137
+  %138 = add i32 %.sroa.9.0105.i, %137
   %.not.i.i.i = icmp eq i16 %136, 0
   br i1 %.not.i.i.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %113
 
-"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit": ; preds = %.thread76.i, %92, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i", %45, %99, %28, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 3, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit ], [ 2, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13 ], [ 3, %28 ], [ 0, %99 ], [ 0, %45 ], [ 0, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ], [ 1, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i" ], [ 0, %.thread76.i ], [ 1, %92 ]
+"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit": ; preds = %.thread75.i, %92, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit49.i", %45, %99, %28, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ 3, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit ], [ 2, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13 ], [ 3, %28 ], [ 0, %99 ], [ 0, %45 ], [ 0, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ], [ 1, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit49.i" ], [ 0, %.thread75.i ], [ 1, %92 ]
   ret i32 %.0
 }
 

@@ -4781,8 +4781,8 @@ define dso_local { ptr, i8 } @_ZN4Luau28TypeFunctionReductionGuesser20tryAssignO
 29:                                               ; preds = %27
   %30 = add i64 %.02028.i.i, 1
   %31 = add i64 %30, %.02129.i.i
-  %.not.i.i7 = icmp ugt i64 %30, %17
-  br i1 %.not.i.i7, label %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread, label %23, !llvm.loop !87
+  %.not.i.i6 = icmp ugt i64 %30, %17
+  br i1 %.not.i.i6, label %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread, label %23, !llvm.loop !87
 
 _ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %27, %29, %4
   %32 = icmp eq i32 %5, 3
@@ -4813,10 +4813,10 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS
   br label %50
 
 50:                                               ; preds = %56, %41
-  %.pn.i.i9 = phi i64 [ %48, %41 ], [ %58, %56 ]
-  %.02028.i.i10 = phi i64 [ 0, %41 ], [ %57, %56 ]
-  %.02129.i.i11 = and i64 %.pn.i.i9, %44
-  %51 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %49, i64 %.02129.i.i11
+  %.pn.i.i8 = phi i64 [ %48, %41 ], [ %58, %56 ]
+  %.02028.i.i9 = phi i64 [ 0, %41 ], [ %57, %56 ]
+  %.02129.i.i10 = and i64 %.pn.i.i8, %44
+  %51 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %49, i64 %.02129.i.i10
   %52 = load ptr, ptr %51, align 8, !tbaa !30
   %53 = icmp eq ptr %52, %1
   br i1 %53, label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split, label %54
@@ -4826,14 +4826,14 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS
   br i1 %55, label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread, label %56
 
 56:                                               ; preds = %54
-  %57 = add i64 %.02028.i.i10, 1
-  %58 = add i64 %57, %.02129.i.i11
-  %.not.i.i12 = icmp ugt i64 %57, %44
-  br i1 %.not.i.i12, label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread, label %50, !llvm.loop !87
+  %57 = add i64 %.02028.i.i9, 1
+  %58 = add i64 %57, %.02129.i.i10
+  %.not.i.i11 = icmp ugt i64 %57, %44
+  br i1 %.not.i.i11, label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread, label %50, !llvm.loop !87
 
 _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split: ; preds = %23, %50
-  %.sink39 = phi ptr [ %33, %50 ], [ %0, %23 ]
-  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %.sink39, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.sink36 = phi ptr [ %33, %50 ], [ %0, %23 ]
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %.sink36, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %60 = load ptr, ptr %59, align 8, !tbaa !30
   br label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread
 

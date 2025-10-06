@@ -338,14 +338,14 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t22next_handshake_c
 46:                                               ; preds = %.thread
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str) #17
-  %.not20 = icmp eq i32 %48, 0
-  br i1 %.not20, label %65, label %49
+  %.not19 = icmp eq i32 %48, 0
+  br i1 %.not19, label %65, label %49
 
 49:                                               ; preds = %46
   store i8 1, ptr %7, align 1, !tbaa !19
   %50 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.1) #17
-  %.not21 = icmp eq i32 %50, 0
-  br i1 %.not21, label %63, label %51
+  %.not20 = icmp eq i32 %50, 0
+  br i1 %.not20, label %63, label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 10)

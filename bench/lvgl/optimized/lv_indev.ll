@@ -3488,8 +3488,8 @@ indev_reset_check.exit:                           ; preds = %26
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i = load i8, ptr %7, align 4
   %.pre2.i = and i8 %.pre.i, 2
-  %.not167 = icmp eq i8 %.pre2.i, 0
-  br i1 %.not167, label %indev_reset_check.exit.thread, label %.critedge118
+  %.not166 = icmp eq i8 %.pre2.i, 0
+  br i1 %.not166, label %indev_reset_check.exit.thread, label %.critedge118
 
 indev_reset_check.exit.thread:                    ; preds = %26, %indev_reset_check.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3521,8 +3521,8 @@ indev_reset_check.exit124:                        ; preds = %lv_indev_send_event
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i121 = load i8, ptr %7, align 4
   %.pre2.i122 = and i8 %.pre.i121, 2
-  %.not168 = icmp eq i8 %.pre2.i122, 0
-  br i1 %.not168, label %indev_reset_check.exit124.thread, label %.critedge118
+  %.not167 = icmp eq i8 %.pre2.i122, 0
+  br i1 %.not167, label %indev_reset_check.exit124.thread, label %.critedge118
 
 indev_reset_check.exit124.thread:                 ; preds = %lv_indev_send_event.exit, %indev_reset_check.exit124
   %39 = load ptr, ptr %22, align 8, !tbaa !134
@@ -3536,8 +3536,8 @@ indev_reset_check.exit129:                        ; preds = %indev_reset_check.e
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i126 = load i8, ptr %7, align 4
   %.pre2.i127 = and i8 %.pre.i126, 2
-  %.not169 = icmp eq i8 %.pre2.i127, 0
-  br i1 %.not169, label %indev_reset_check.exit129.thread, label %.critedge118
+  %.not168 = icmp eq i8 %.pre2.i127, 0
+  br i1 %.not168, label %indev_reset_check.exit129.thread, label %.critedge118
 
 indev_reset_check.exit129.thread:                 ; preds = %indev_reset_check.exit124.thread, %indev_reset_check.exit129
   %43 = load ptr, ptr %22, align 8, !tbaa !134
@@ -3569,8 +3569,8 @@ indev_reset_check.exit137:                        ; preds = %lv_indev_send_event
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i134 = load i8, ptr %7, align 4
   %.pre2.i135 = and i8 %.pre.i134, 2
-  %.not170 = icmp eq i8 %.pre2.i135, 0
-  br i1 %.not170, label %indev_reset_check.exit137.thread, label %.critedge118
+  %.not169 = icmp eq i8 %.pre2.i135, 0
+  br i1 %.not169, label %indev_reset_check.exit137.thread, label %.critedge118
 
 indev_reset_check.exit137.thread:                 ; preds = %lv_indev_send_event.exit132, %indev_reset_check.exit137
   %52 = phi i8 [ %50, %lv_indev_send_event.exit132 ], [ %.pre.i134, %indev_reset_check.exit137 ]
@@ -3582,12 +3582,12 @@ indev_reset_check.exit137.thread:                 ; preds = %lv_indev_send_event
   %55 = and i8 %54, 8
   %.not104 = icmp eq i8 %55, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %.pre185 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !104
-  br i1 %.not104, label %._crit_edge184, label %56
+  %.pre184 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !104
+  br i1 %.not104, label %._crit_edge183, label %56
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %58 = call i32 @lv_obj_send_event(ptr noundef %.pre185, i32 noundef 3, ptr noundef %57) #11
+  %58 = call i32 @lv_obj_send_event(ptr noundef %.pre184, i32 noundef 3, ptr noundef %57) #11
   %59 = load i8, ptr %7, align 4
   %60 = and i8 %59, 2
   %.not.i138 = icmp eq i8 %60, 0
@@ -3597,8 +3597,8 @@ indev_reset_check.exit142:                        ; preds = %56
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i139 = load i8, ptr %7, align 4
   %.pre2.i140 = and i8 %.pre.i139, 2
-  %.not171 = icmp eq i8 %.pre2.i140, 0
-  br i1 %.not171, label %indev_reset_check.exit142.thread, label %61
+  %.not170 = icmp eq i8 %.pre2.i140, 0
+  br i1 %.not170, label %indev_reset_check.exit142.thread, label %61
 
 61:                                               ; preds = %indev_reset_check.exit142
   %62 = and i8 %.pre.i139, -9
@@ -3614,10 +3614,10 @@ indev_reset_check.exit142.thread:                 ; preds = %56, %indev_reset_ch
   %66 = and i8 %63, -9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.phi.trans.insert, i8 0, i64 16, i1 false)
   store i8 %66, ptr %7, align 4
-  br label %._crit_edge184
+  br label %._crit_edge183
 
-._crit_edge184:                                   ; preds = %53, %indev_reset_check.exit142.thread
-  %67 = phi ptr [ null, %indev_reset_check.exit142.thread ], [ %.pre185, %53 ]
+._crit_edge183:                                   ; preds = %53, %indev_reset_check.exit142.thread
+  %67 = phi ptr [ null, %indev_reset_check.exit142.thread ], [ %.pre184, %53 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -3627,7 +3627,7 @@ indev_reset_check.exit142.thread:                 ; preds = %56, %indev_reset_ch
   %73 = icmp eq i32 %72, 2
   br i1 %73, label %74, label %81
 
-74:                                               ; preds = %._crit_edge184
+74:                                               ; preds = %._crit_edge183
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %76 = load ptr, ptr %75, align 8, !tbaa !3
   %.not105 = icmp eq ptr %76, null
@@ -3642,7 +3642,7 @@ indev_reset_check.exit142.thread:                 ; preds = %56, %indev_reset_ch
   call void @lv_timer_pause(ptr noundef %80) #11
   br label %81
 
-81:                                               ; preds = %79, %77, %74, %._crit_edge184
+81:                                               ; preds = %79, %77, %74, %._crit_edge183
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %83 = load i32, ptr %82, align 8, !tbaa !98
   %.not106 = icmp eq i32 %83, 0
@@ -3744,14 +3744,14 @@ send_event.exit.thread:                           ; preds = %99, %97, %send_even
   %128 = load i8, ptr %7, align 4
   %129 = and i8 %128, 2
   %.not.i147 = icmp eq i8 %129, 0
-  br i1 %.not.i147, label %.critedge116.thread191, label %indev_reset_check.exit151
+  br i1 %.not.i147, label %.critedge116.thread190, label %indev_reset_check.exit151
 
 indev_reset_check.exit151:                        ; preds = %125
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i148 = load i8, ptr %7, align 4
   %.pre2.i149 = and i8 %.pre.i148, 2
-  %.not172 = icmp eq i8 %.pre2.i149, 0
-  br i1 %.not172, label %.critedge116.thread191, label %.critedge118
+  %.not171 = icmp eq i8 %.pre2.i149, 0
+  br i1 %.not171, label %.critedge116.thread190, label %.critedge118
 
 .critedge116.thread:                              ; preds = %121, %110
   store ptr null, ptr %68, align 8, !tbaa !104
@@ -3761,7 +3761,7 @@ indev_reset_check.exit151:                        ; preds = %125
   store i32 0, ptr %131, align 4, !tbaa !58
   br label %.critedge118
 
-.critedge116.thread191:                           ; preds = %125, %indev_reset_check.exit151
+.critedge116.thread190:                           ; preds = %125, %indev_reset_check.exit151
   store ptr null, ptr %68, align 8, !tbaa !104
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %132, align 8, !tbaa !57
@@ -3778,29 +3778,29 @@ indev_reset_check.exit151:                        ; preds = %125
   %cond = icmp eq ptr %70, null
   br i1 %cond, label %.critedge118, label %136
 
-136:                                              ; preds = %.critedge116.thread191, %.critedge116
+136:                                              ; preds = %.critedge116.thread190, %.critedge116
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   br label %137
 
 137:                                              ; preds = %136, %137
-  %.092175 = phi i16 [ 0, %136 ], [ %141, %137 ]
-  %.093174 = phi ptr [ %70, %136 ], [ %149, %137 ]
-  %.095173 = phi i32 [ 256, %136 ], [ %148, %137 ]
-  %138 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.093174, i32 noundef 0, i8 noundef zeroext 110) #11
+  %.092174 = phi i16 [ 0, %136 ], [ %141, %137 ]
+  %.093173 = phi ptr [ %70, %136 ], [ %149, %137 ]
+  %.095172 = phi i32 [ 256, %136 ], [ %148, %137 ]
+  %138 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.093173, i32 noundef 0, i8 noundef zeroext 110) #11
   %139 = ptrtoint ptr %138 to i64
   %140 = trunc i64 %139 to i16
-  %141 = add i16 %.092175, %140
-  %142 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.093174, i32 noundef 0, i8 noundef zeroext 108) #11
+  %141 = add i16 %.092174, %140
+  %142 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.093173, i32 noundef 0, i8 noundef zeroext 108) #11
   %143 = ptrtoint ptr %142 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %143 to i32
   %144 = call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i, i32 1)
-  %145 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.093174, i32 noundef 0, i8 noundef zeroext 109) #11
-  %sext180 = shl i32 %.095173, 16
-  %146 = ashr exact i32 %sext180, 16
+  %145 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.093173, i32 noundef 0, i8 noundef zeroext 109) #11
+  %sext179 = shl i32 %.095172, 16
+  %146 = ashr exact i32 %sext179, 16
   %147 = mul nsw i32 %144, %146
   %148 = lshr i32 %147, 8
-  %149 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.093174) #11
+  %149 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.093173) #11
   %.not111 = icmp eq ptr %149, null
   br i1 %.not111, label %150, label %137, !llvm.loop !142
 

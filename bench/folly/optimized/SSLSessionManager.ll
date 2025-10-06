@@ -135,80 +135,80 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !tbaa !13
-  %switch.i.i = icmp eq i8 %3, 0
-  br i1 %switch.i.i, label %4, label %10
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %11
 
-4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !30
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i, label %6
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %0, align 8, !tbaa !30
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i, label %7
 
-6:                                                ; preds = %4
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %5)
-          to label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i unwind label %7
+7:                                                ; preds = %5
+  invoke void @SSL_SESSION_free(ptr noundef nonnull %6)
+          to label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i unwind label %8
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #17
   unreachable
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i: ; preds = %6, %4
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i: ; preds = %7, %5
   store ptr null, ptr %0, align 8, !tbaa !30
-  br label %34
+  br label %35
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !29
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %34, label %13
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %35, label %14
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load atomic i64, ptr %14 acquire, align 8
-  %16 = icmp eq i64 %15, 4294967297
-  %17 = trunc i64 %15 to i32
-  br i1 %16, label %18, label %26
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load atomic i64, ptr %15 acquire, align 8
+  %17 = icmp eq i64 %16, 4294967297
+  %18 = trunc i64 %16 to i32
+  br i1 %17, label %19, label %27
 
-18:                                               ; preds = %13
-  store i32 0, ptr %14, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 0, ptr %19, align 4, !tbaa !21
-  %20 = load ptr, ptr %12, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  %23 = load ptr, ptr %12, align 8, !tbaa !22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  br label %34
+19:                                               ; preds = %14
+  store i32 0, ptr %15, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i32 0, ptr %20, align 4, !tbaa !21
+  %21 = load ptr, ptr %13, align 8, !tbaa !22
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+  %24 = load ptr, ptr %13, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+  br label %35
 
-26:                                               ; preds = %13
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %30, label %28
+27:                                               ; preds = %14
+  %28 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = add nsw i32 %17, -1
-  store i32 %29, ptr %14, align 4, !tbaa !32
+29:                                               ; preds = %27
+  %30 = add nsw i32 %18, -1
+  store i32 %30, ptr %15, align 4, !tbaa !32
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
-30:                                               ; preds = %26
-  %31 = atomicrmw volatile add ptr %14, i32 -1 acq_rel, align 4
+31:                                               ; preds = %27
+  %32 = atomicrmw volatile add ptr %15, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %30, %28
-  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %17, %28 ], [ %31, %30 ]
-  %32 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %32, label %33, label %34, !prof !33
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %31, %29
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %18, %29 ], [ %32, %31 ]
+  %33 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %33, label %34, label %35, !prof !33
 
-33:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  br label %34
+34:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+  br label %35
 
-34:                                               ; preds = %33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %18, %10, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i
+35:                                               ; preds = %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %19, %11, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.i.i
   store i8 -1, ptr %2, align 8, !tbaa !13
   ret void
 }
@@ -798,103 +798,103 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm1EJRSA_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSH_E4typeEDpOSI_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !tbaa !13
-  %switch.i.i.i = icmp eq i8 %4, 0
-  br i1 %switch.i.i.i, label %5, label %11
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %6, label %12
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !30
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i, label %7
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %0, align 8, !tbaa !30
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i, label %8
 
-7:                                                ; preds = %5
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %6)
-          to label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i unwind label %8
+8:                                                ; preds = %6
+  invoke void @SSL_SESSION_free(ptr noundef nonnull %7)
+          to label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i unwind label %9
 
-8:                                                ; preds = %7
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i, label %14
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !29
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i, label %15
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load atomic i64, ptr %15 acquire, align 8
-  %17 = icmp eq i64 %16, 4294967297
-  %18 = trunc i64 %16 to i32
-  br i1 %17, label %19, label %27
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = load atomic i64, ptr %16 acquire, align 8
+  %18 = icmp eq i64 %17, 4294967297
+  %19 = trunc i64 %17 to i32
+  br i1 %18, label %20, label %28
 
-19:                                               ; preds = %14
-  store i32 0, ptr %15, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 0, ptr %20, align 4, !tbaa !21
-  %21 = load ptr, ptr %13, align 8, !tbaa !22
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
-  %24 = load ptr, ptr %13, align 8, !tbaa !22
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+20:                                               ; preds = %15
+  store i32 0, ptr %16, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i32 0, ptr %21, align 4, !tbaa !21
+  %22 = load ptr, ptr %14, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
+  %25 = load ptr, ptr %14, align 8, !tbaa !22
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   br label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i
 
-27:                                               ; preds = %14
-  %28 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %31, label %29
+28:                                               ; preds = %15
+  %29 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %29, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = add nsw i32 %18, -1
-  store i32 %30, ptr %15, align 4, !tbaa !32
+30:                                               ; preds = %28
+  %31 = add nsw i32 %19, -1
+  store i32 %31, ptr %16, align 4, !tbaa !32
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i
 
-31:                                               ; preds = %27
-  %32 = atomicrmw volatile add ptr %15, i32 -1 acq_rel, align 4
+32:                                               ; preds = %28
+  %33 = atomicrmw volatile add ptr %16, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %31, %29
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %18, %29 ], [ %32, %31 ]
-  %33 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %33, label %34, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i, !prof !33
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %32, %30
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %19, %30 ], [ %33, %32 ]
+  %34 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %34, label %35, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i, !prof !33
 
-34:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   br label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i
 
-_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i: ; preds = %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %19, %11, %7, %5
+_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i: ; preds = %35, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %20, %12, %8, %6
   store i8 -1, ptr %3, align 8, !tbaa !13
-  %35 = load ptr, ptr %1, align 8, !tbaa !24
-  store ptr %35, ptr %0, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !29
-  store ptr %38, ptr %36, align 8, !tbaa !29
-  %.not.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i.i, label %_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_.exit, label %39
+  %36 = load ptr, ptr %1, align 8, !tbaa !24
+  store ptr %36, ptr %0, align 8, !tbaa !24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !29
+  store ptr %39, ptr %37, align 8, !tbaa !29
+  %.not.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i, label %_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_.exit, label %40
 
-39:                                               ; preds = %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
-  %.not.i.i.i.i.i.i = icmp eq i8 %41, 0
-  br i1 %.not.i.i.i.i.i.i, label %45, label %42
+40:                                               ; preds = %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
+  %.not.i.i.i.i.i.i = icmp eq i8 %42, 0
+  br i1 %.not.i.i.i.i.i.i, label %46, label %43
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %40, align 4, !tbaa !32
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %40, align 4, !tbaa !32
+43:                                               ; preds = %40
+  %44 = load i32, ptr %41, align 4, !tbaa !32
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %41, align 4, !tbaa !32
   br label %_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_.exit
 
-45:                                               ; preds = %39
-  %46 = atomicrmw volatile add ptr %40, i32 1 acq_rel, align 4
+46:                                               ; preds = %40
+  %47 = atomicrmw volatile add ptr %41, i32 1 acq_rel, align 4
   br label %_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_.exit
 
-_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_.exit: ; preds = %45, %42, %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i
+_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_.exit: ; preds = %46, %43, %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv.exit.i
   store i8 1, ptr %3, align 8, !tbaa !13
   ret ptr %0
 }
@@ -1000,10 +1000,10 @@ define void @_ZNK5folly3ssl17SSLSessionManager13getRawSessionEv(ptr dead_on_unwi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %switch.i.i.i = icmp eq i8 %.val1, 0
-  br i1 %switch.i.i.i, label %4, label %6
+  %4 = icmp eq i8 %.val1, 0
+  br i1 %4, label %5, label %7
 
-4:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -1011,27 +1011,27 @@ define void @_ZNK5folly3ssl17SSLSessionManager13getRawSessionEv(ptr dead_on_unwi
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val, null
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_.exit.i.i.i", label %.split5.i.i.i.i.i.i.i
 
-.split5.i.i.i.i.i.i.i:                            ; preds = %4
-  %5 = tail call i32 @SSL_SESSION_up_ref(ptr noundef nonnull %.val), !noalias !66
+.split5.i.i.i.i.i.i.i:                            ; preds = %5
+  %6 = tail call i32 @SSL_SESSION_up_ref(ptr noundef nonnull %.val), !noalias !66
   br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_.exit.i.i.i"
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_.exit.i.i.i": ; preds = %.split5.i.i.i.i.i.i.i, %4
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_.exit.i.i.i": ; preds = %.split5.i.i.i.i.i.i.i, %5
   store ptr %.val, ptr %0, align 8, !tbaa !30, !alias.scope !66
   br label %"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager13getRawSessionEvE3$_1ZNKSF_13getRawSessionEvE3$_0EEEDcOT_DpOT0_.exit"
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   %.not.i.i.i.i7.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i7.i.i.i, label %7, label %8
+  br i1 %.not.i.i.i.i7.i.i.i, label %8, label %9
 
-7:                                                ; preds = %6
+8:                                                ; preds = %7
   store ptr null, ptr %0, align 8, !tbaa !7, !alias.scope !67
   br label %"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager13getRawSessionEvE3$_1ZNKSF_13getRawSessionEvE3$_0EEEDcOT_DpOT0_.exit"
 
-8:                                                ; preds = %6
+9:                                                ; preds = %7
   tail call void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %.val)
   br label %"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager13getRawSessionEvE3$_1ZNKSF_13getRawSessionEvE3$_0EEEDcOT_DpOT0_.exit"
 
-"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager13getRawSessionEvE3$_1ZNKSF_13getRawSessionEvE3$_0EEEDcOT_DpOT0_.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_.exit.i.i.i", %7, %8
+"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager13getRawSessionEvE3$_1ZNKSF_13getRawSessionEvE3$_0EEEDcOT_DpOT0_.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_.exit.i.i.i", %8, %9
   ret void
 }
 
@@ -1043,38 +1043,38 @@ declare void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_
 define void @_ZNK5folly3ssl17SSLSessionManager10getSessionEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.12") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8, !tbaa !13, !noalias !76
-  %switch.i.i.i = icmp eq i8 %4, 0
-  br i1 %switch.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %5
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %6
 
-5:                                                ; preds = %2
+6:                                                ; preds = %2
   %.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !24, !noalias !76
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val6.i.i.i = load ptr, ptr %6, align 8, !tbaa !29, !noalias !76
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val6.i.i.i = load ptr, ptr %7, align 8, !tbaa !29, !noalias !76
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val6.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %7
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %8
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %.val6.i.i.i, i64 8
-  %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31, !noalias !83
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %13, label %10
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %.val6.i.i.i, i64 8
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31, !noalias !83
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr %8, align 4, !tbaa !32, !noalias !83
-  %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %8, align 4, !tbaa !32, !noalias !83
+11:                                               ; preds = %8
+  %12 = load i32, ptr %9, align 4, !tbaa !32, !noalias !83
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %9, align 4, !tbaa !32, !noalias !83
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-13:                                               ; preds = %7
-  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4, !noalias !83
+14:                                               ; preds = %8
+  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4, !noalias !83
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %13, %10, %5, %2
-  %.sroa.6.0 = phi ptr [ null, %5 ], [ %.val6.i.i.i, %13 ], [ %.val6.i.i.i, %10 ], [ null, %2 ]
-  %.sroa.02.0 = phi ptr [ %.val.i.i.i, %5 ], [ %.val.i.i.i, %13 ], [ %.val.i.i.i, %10 ], [ null, %2 ]
+_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %14, %11, %6, %2
+  %.sroa.6.0 = phi ptr [ null, %6 ], [ %.val6.i.i.i, %14 ], [ %.val6.i.i.i, %11 ], [ null, %2 ]
+  %.sroa.02.0 = phi ptr [ %.val.i.i.i, %6 ], [ %.val.i.i.i, %14 ], [ %.val.i.i.i, %11 ], [ null, %2 ]
   store ptr %.sroa.02.0, ptr %0, align 8, !tbaa !38
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.0, ptr %15, align 8, !tbaa !29
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.6.0, ptr %16, align 8, !tbaa !29
   ret void
 }
 
@@ -1163,44 +1163,44 @@ define void @_ZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1 = load i8, ptr %4, align 8
-  %switch.i.i.i = icmp eq i8 %.val1, 0
-  br i1 %switch.i.i.i, label %"_ZN5folly13variant_matchIRSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNS8_17SSLSessionManager12onNewSessionES6_E3$_1ZNSE_12onNewSessionES6_E3$_0EEEDcOT_DpOT0_.exit", label %5
+  %5 = icmp eq i8 %.val1, 0
+  br i1 %5, label %"_ZN5folly13variant_matchIRSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNS8_17SSLSessionManager12onNewSessionES6_E3$_1ZNSE_12onNewSessionES6_E3$_0EEEDcOT_DpOT0_.exit", label %6
 
-5:                                                ; preds = %2
+6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i", label %6
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i", label %7
 
-6:                                                ; preds = %5
-  %7 = load i64, ptr %1, align 8, !tbaa !30
-  store i64 %7, ptr %3, align 8, !tbaa !30
+7:                                                ; preds = %6
+  %8 = load i64, ptr %1, align 8, !tbaa !30
+  store i64 %8, ptr %3, align 8, !tbaa !30
   store ptr null, ptr %1, align 8, !tbaa !30
   invoke void @_ZN5folly3ssl6detail14OpenSSLSession16setActiveSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %.val, ptr noundef nonnull %3)
-          to label %8 unwind label %14
+          to label %9 unwind label %15
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %3, align 8, !tbaa !30
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i", label %10
+9:                                                ; preds = %7
+  %10 = load ptr, ptr %3, align 8, !tbaa !30
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i", label %11
 
-10:                                               ; preds = %8
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %9)
-          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i" unwind label %11
+11:                                               ; preds = %9
+  invoke void @SSL_SESSION_free(ptr noundef nonnull %10)
+          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i" unwind label %12
 
-11:                                               ; preds = %10
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %11
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #17
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #17
   unreachable
 
-14:                                               ; preds = %6
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %7
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i": ; preds = %10, %8, %5
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_.exit.i.i.i": ; preds = %11, %9, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN5folly13variant_matchIRSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNS8_17SSLSessionManager12onNewSessionES6_E3$_1ZNSE_12onNewSessionES6_E3$_0EEEDcOT_DpOT0_.exit"
 

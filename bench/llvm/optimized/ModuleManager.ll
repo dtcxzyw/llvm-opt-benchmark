@@ -322,14 +322,14 @@ define dso_local noundef ptr @_ZNK5clang13serialization13ModuleManager18lookupBy
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 640
   %7 = tail call noundef ptr @_ZNK5clang9ModuleMap10findModuleEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1448) %6, ptr %1, i64 %2) #16
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread15, label %8
+  br i1 %.not, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread14, label %8
 
 8:                                                ; preds = %3
   %9 = tail call noundef ptr @_ZNK5clang6Module17getTopLevelModuleEv(ptr noundef nonnull align 8 dereferenceable(1776) %7) #16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %.sroa.0.0.copyload.i = load ptr, ptr %10, align 8
-  %.not19 = icmp eq ptr %.sroa.0.0.copyload.i, null
-  br i1 %.not19, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread15, label %.preheader
+  %.not17 = icmp eq ptr %.sroa.0.0.copyload.i, null
+  br i1 %.not17, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread14, label %.preheader
 
 .preheader:                                       ; preds = %8, %.preheader
   %.05.i.i.i = phi ptr [ %14, %.preheader ], [ %.sroa.0.0.copyload.i, %8 ]
@@ -349,7 +349,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load i32, ptr %17, align 8, !tbaa !50
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread15, label %20
+  br i1 %19, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread14, label %20
 
 20:                                               ; preds = %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit
   %21 = trunc i64 %13 to i32
@@ -369,7 +369,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader
   %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %32 ], [ %.01826.i.i.i.i, %20 ]
   %.01627.i.i.i.i = phi i32 [ %33, %32 ], [ 1, %20 ]
   %31 = icmp eq ptr %30, inttoptr (i64 -4096 to ptr)
-  br i1 %31, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread15, label %32, !prof !54
+  br i1 %31, label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread14, label %32, !prof !54
 
 32:                                               ; preds = %.lr.ph.i.i.i.i
   %33 = add i32 %.01627.i.i.i.i, 1
@@ -386,9 +386,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10M
   %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %16, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !58
-  br label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread15
+  br label %_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread14
 
-_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread15: ; preds = %.lr.ph.i.i.i.i, %3, %8, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit.i.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit
+_ZNK5clang13serialization13ModuleManager6lookupEPKNS_9FileEntryE.exit.thread14: ; preds = %.lr.ph.i.i.i.i, %3, %8, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit.i.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit
   %43 = phi ptr [ null, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit ], [ %42, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit.i.i ], [ null, %8 ], [ null, %3 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %43
 }
@@ -1932,17 +1932,17 @@ define dso_local void @_ZN5clang13serialization13ModuleManager13removeModulesEN4
   %23 = zext i32 %22 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %23, 3
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %22, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not34.i.i.i.i = icmp eq i32 %22, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %20, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %26, %.critedge.i.i.i.i ], [ %21, %20 ]
-  %25 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !39, !noalias !246
+  %.02935.i.i.i.i = phi ptr [ %26, %.critedge.i.i.i.i ], [ %21, %20 ]
+  %25 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !39, !noalias !246
   %.not17.i.i.i.i = icmp eq ptr %25, %18
   br i1 %.not17.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPN5clang13serialization10ModuleFileEE6insertES4_.exit.i.i, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %26, %24
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !249
 

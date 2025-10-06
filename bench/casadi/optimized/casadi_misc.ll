@@ -1695,33 +1695,33 @@ define noundef zeroext i1 @_ZN6casadi3anyERKSt6vectorIbSaIbEE(ptr noundef nonnul
   %6 = load i32, ptr %5, align 8, !tbaa !57
   %7 = icmp ne ptr %2, %4
   %8 = icmp ne i32 %6, 0
-  %.not3.i.not.not25 = select i1 %7, i1 true, i1 %8
-  br i1 %.not3.i.not.not25, label %.lr.ph, label %._crit_edge
+  %.not3.i21 = select i1 %7, i1 true, i1 %8
+  br i1 %.not3.i21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %_ZNSt19_Bit_const_iteratorppEv.exit
-  %.sroa.7.027 = phi i32 [ %spec.select20, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ 0, %1 ]
-  %.sroa.014.026 = phi ptr [ %spec.select19, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ %2, %1 ]
-  %9 = zext nneg i32 %.sroa.7.027 to i64
+  %.sroa.7.023 = phi i32 [ %spec.select20, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ 0, %1 ]
+  %.sroa.014.022 = phi ptr [ %spec.select, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ %2, %1 ]
+  %9 = zext nneg i32 %.sroa.7.023 to i64
   %10 = shl nuw i64 1, %9
-  %11 = load i64, ptr %.sroa.014.026, align 8, !tbaa !20
+  %11 = load i64, ptr %.sroa.014.022, align 8, !tbaa !20
   %12 = and i64 %11, %10
   %.not.not.not = icmp ne i64 %12, 0
   br i1 %.not.not.not, label %._crit_edge, label %_ZNSt19_Bit_const_iteratorppEv.exit
 
 _ZNSt19_Bit_const_iteratorppEv.exit:              ; preds = %.lr.ph
-  %13 = add i32 %.sroa.7.027, 1
-  %14 = icmp eq i32 %.sroa.7.027, 63
-  %spec.select19.idx = select i1 %14, i64 8, i64 0
-  %spec.select19 = getelementptr inbounds nuw i8, ptr %.sroa.014.026, i64 %spec.select19.idx
+  %13 = add i32 %.sroa.7.023, 1
+  %14 = icmp eq i32 %.sroa.7.023, 63
+  %spec.select.idx = select i1 %14, i64 8, i64 0
+  %spec.select = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 %spec.select.idx
   %spec.select20 = select i1 %14, i32 0, i32 %13
-  %15 = icmp ne ptr %spec.select19, %4
+  %15 = icmp ne ptr %spec.select, %4
   %16 = icmp ne i32 %spec.select20, %6
-  %.not3.i.not.not = select i1 %15, i1 true, i1 %16
-  br i1 %.not3.i.not.not, label %.lr.ph, label %._crit_edge
+  %.not3.i = select i1 %15, i1 true, i1 %16
+  br i1 %.not3.i, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt19_Bit_const_iteratorppEv.exit, %1
-  %.not3.i.not.not.lcssa = phi i1 [ false, %1 ], [ %.not.not.not, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ %.not.not.not, %.lr.ph ]
-  ret i1 %.not3.i.not.not.lcssa
+  %.not3.i.lcssa = phi i1 [ false, %1 ], [ %.not.not.not, %_ZNSt19_Bit_const_iteratorppEv.exit ], [ %.not.not.not, %.lr.ph ]
+  ret i1 %.not3.i.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2766,8 +2766,8 @@ define void @_ZN6casadi12lookupvectorERKSt6vectorIxSaIxEE(ptr dead_on_unwind noa
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = load ptr, ptr %1, align 8, !tbaa !34
-  %.not8.not.i = icmp eq ptr %14, %15
-  br i1 %.not8.not.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit, label %.lr.ph.preheader.i
+  %.not.i = icmp eq ptr %14, %15
+  br i1 %.not.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
   %16 = ptrtoint ptr %14 to i64

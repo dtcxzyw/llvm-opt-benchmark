@@ -194,7 +194,7 @@ define void @_ZN3gmx20stripSuffixIfPresentERKNSt7__cxx1112basic_stringIcSt11char
 6:                                                ; preds = %3
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %.not11 = icmp eq i64 %7, 0
-  %.pre17 = load ptr, ptr %1, align 8, !tbaa !10
+  %.pre16 = load ptr, ptr %1, align 8, !tbaa !10
   br i1 %.not11, label %.thread, label %8
 
 8:                                                ; preds = %6
@@ -203,13 +203,13 @@ define void @_ZN3gmx20stripSuffixIfPresentERKNSt7__cxx1112basic_stringIcSt11char
   br i1 %10, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre17) #24
+  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre16) #24
   %.not.i.i = icmp ult i64 %12, %7
   br i1 %.not.i.i, label %.thread, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
 
 _ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit: ; preds = %11
   %13 = sub nuw i64 %12, %7
-  %14 = getelementptr inbounds nuw i8, ptr %.pre17, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %.pre16, i64 %13
   %15 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %2) #24
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread, label %.thread
@@ -242,12 +242,12 @@ _ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
   ]
 
 25:                                               ; preds = %._crit_edge.i.i.i
-  %26 = load i8, ptr %.pre17, align 1, !tbaa !4
+  %26 = load i8, ptr %.pre16, align 1, !tbaa !4
   store i8 %26, ptr %24, align 1, !tbaa !4
   br label %28
 
 27:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %.pre17, i64 %spec.select.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %.pre16, i64 %spec.select.i.i.i, i1 false)
   br label %28
 
 28:                                               ; preds = %27, %25, %._crit_edge.i.i.i
@@ -261,7 +261,7 @@ _ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
   br label %48
 
 .thread:                                          ; preds = %..thread_crit_edge, %11, %6, %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
-  %33 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre17, %11 ], [ %.pre17, %6 ], [ %.pre17, %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit ]
+  %33 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre16, %11 ], [ %.pre16, %6 ], [ %.pre16, %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %0, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8

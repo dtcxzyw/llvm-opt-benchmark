@@ -2329,16 +2329,16 @@ define internal fastcc void @insert_recursive_pattern(ptr noundef %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @hashmap_add(ptr noundef nonnull %11, ptr noundef nonnull %3) #13
   %12 = load i64, ptr %6, align 8, !tbaa !149
-  %.not40 = icmp eq i64 %12, 0
-  br i1 %.not40, label %.thread, label %.lr.ph
+  %.not39 = icmp eq i64 %12, 0
+  br i1 %.not39, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %14
 
 14:                                               ; preds = %.lr.ph, %33
-  %.03141 = phi ptr [ %3, %.lr.ph ], [ %.1, %33 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.03141, i64 16
+  %.03140 = phi ptr [ %3, %.lr.ph ], [ %.1, %33 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.03140, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 47) #15
   %.not35 = icmp eq ptr %17, null

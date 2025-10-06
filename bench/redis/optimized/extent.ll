@@ -961,8 +961,8 @@ define hidden void @je_extent_record(ptr noundef %0, ptr noundef %1, ptr noundef
 malloc_mutex_lock.exit:                           ; preds = %11, %17
   %.val35 = load i64, ptr %4, align 8, !tbaa !43
   %21 = and i64 %.val35, 65536
-  %.not40 = icmp eq i64 %21, 0
-  br i1 %.not40, label %22, label %59
+  %.not39 = icmp eq i64 %21, 0
+  br i1 %.not39, label %22, label %59
 
 22:                                               ; preds = %malloc_mutex_lock.exit
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 19432
@@ -1007,8 +1007,8 @@ atomic_load_zu.exit:                              ; preds = %32
 
 extent_may_force_decay.exit:                      ; preds = %40
   %43 = tail call i64 @je_pac_decay_ms_get(ptr noundef nonnull %1, i32 noundef 2) #9
-  %.not41 = icmp eq i64 %43, -1
-  br i1 %.not41, label %.thread, label %44
+  %.not40 = icmp eq i64 %43, -1
+  br i1 %.not40, label %.thread, label %44
 
 .thread:                                          ; preds = %extent_may_force_decay.exit, %atomic_load_zu.exit, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1153,23 +1153,23 @@ select.unfold:                                    ; preds = %41
 
 .loopexit:                                        ; preds = %39, %36, %select.unfold
   %49 = load i32, ptr %27, align 8, !tbaa !35
-  %switch = icmp eq i32 %49, 3
+  %50 = icmp eq i32 %49, 3
   %.val = load ptr, ptr %26, align 8, !tbaa !18
-  br i1 %switch, label %51, label %50
+  br i1 %50, label %52, label %51
 
-50:                                               ; preds = %.loopexit
+51:                                               ; preds = %.loopexit
   tail call void @je_emap_update_edata_state(ptr noundef %0, ptr noundef %.val, ptr noundef nonnull %.033, i32 noundef 0) #9
   br label %.thread46
 
-51:                                               ; preds = %.loopexit
+52:                                               ; preds = %.loopexit
   tail call void @je_emap_deregister_boundary(ptr noundef %0, ptr noundef %.val, ptr noundef nonnull %.033) #9
   br label %.thread46
 
-.thread46:                                        ; preds = %32, %30, %51, %50
-  %.13443 = phi ptr [ %.033, %50 ], [ %.033, %51 ], [ null, %30 ], [ null, %32 ]
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store atomic i8 0, ptr %52 monotonic, align 1
-  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #9
+.thread46:                                        ; preds = %32, %30, %52, %51
+  %.13443 = phi ptr [ %.033, %51 ], [ %.033, %52 ], [ null, %30 ], [ null, %32 ]
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store atomic i8 0, ptr %53 monotonic, align 1
+  %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #9
   ret ptr %.13443
 }
 

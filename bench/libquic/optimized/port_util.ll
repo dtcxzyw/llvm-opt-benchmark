@@ -155,23 +155,23 @@ _ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i: ; p
   br label %.thread
 
 37:                                               ; preds = %.preheader
-  %.016.add = add nuw nsw i64 %.016.idx41, 4
+  %.016.add = add nuw nsw i64 %.016.idx38, 4
   %.not22 = icmp eq i64 %.016.add, 8
   br i1 %.not22, label %.thread.preheader, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %37
-  %.016.idx41 = phi i64 [ %.016.add, %37 ], [ 0, %.loopexit ]
-  %.016.ptr = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_116kAllowedFtpPortsE, i64 %.016.idx41
+  %.016.idx38 = phi i64 [ %.016.add, %37 ], [ 0, %.loopexit ]
+  %.016.ptr = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_116kAllowedFtpPortsE, i64 %.016.idx38
   %38 = load i32, ptr %.016.ptr, align 4, !tbaa !15
   %.not23 = icmp eq i32 %38, %0
   br i1 %.not23, label %_ZNKSt8multisetIiSt4lessIiESaIiEE5countERKi.exit, label %37
 
 .thread:                                          ; preds = %.thread.preheader, %.thread
-  %.017.idx42 = phi i64 [ %.017.add, %.thread ], [ 0, %.thread.preheader ]
-  %.017.ptr = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_116kRestrictedPortsE, i64 %.017.idx42
+  %.017.idx39 = phi i64 [ %.017.add, %.thread ], [ 0, %.thread.preheader ]
+  %.017.ptr = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_116kRestrictedPortsE, i64 %.017.idx39
   %39 = load i32, ptr %.017.ptr, align 4, !tbaa !15
   %.not25.not = icmp ne i32 %39, %0
-  %.017.add = add nuw nsw i64 %.017.idx42, 4
+  %.017.add = add nuw nsw i64 %.017.idx39, 4
   %.not24 = icmp ne i64 %.017.add, 260
   %or.cond.not = select i1 %.not25.not, i1 %.not24, i1 false
   br i1 %or.cond.not, label %.thread, label %_ZNKSt8multisetIiSt4lessIiESaIiEE5countERKi.exit

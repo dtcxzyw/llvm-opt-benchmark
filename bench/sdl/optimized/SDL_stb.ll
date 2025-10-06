@@ -1188,14 +1188,14 @@ stbi__process_scan_header.exit.i.i:               ; preds = %343, %338
   br i1 %531, label %689, label %534
 
 534:                                              ; preds = %525
-  br i1 %.not166.i.us.i.i.i, label %.preheader224.i.us.i.i.i, label %535
+  br i1 %.not166.i.us.i.i.i, label %.preheader223.i.us.i.i.i, label %535
 
 535:                                              ; preds = %534
   %536 = add nsw i32 %533, -1
   store i32 %536, ptr %44, align 4
   %537 = load i32, ptr %31, align 8
-  %.not162249.i.us.i.i.i = icmp sgt i32 %523, %537
-  br i1 %.not162249.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, label %.lr.ph.i.us.i.i.i
+  %.not162248.i.us.i.i.i = icmp sgt i32 %523, %537
+  br i1 %.not162248.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, label %.lr.ph.i.us.i.i.i
 
 .lr.ph.i.us.i.i.i:                                ; preds = %535
   %sext165.i.us.i.i.i = shl i32 65536, %532
@@ -1257,7 +1257,7 @@ stbi__jpeg_get_bit.exit.thread.i.us.i.i.i:        ; preds = %stbi__jpeg_get_bit.
   %.not162.not.i.us.i.i.i = icmp slt i64 %indvars.iv.i.us.i.i.i, %564
   br i1 %.not162.not.i.us.i.i.i, label %542, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, !llvm.loop !15
 
-.preheader224.i.us.i.i.i:                         ; preds = %534
+.preheader223.i.us.i.i.i:                         ; preds = %534
   %565 = getelementptr inbounds nuw i8, ptr %528, i64 1280
   %566 = getelementptr inbounds nuw i8, ptr %528, i64 1024
   %567 = getelementptr inbounds nuw i8, ptr %528, i64 1540
@@ -1268,8 +1268,8 @@ stbi__jpeg_get_bit.exit.thread.i.us.i.i.i:        ; preds = %stbi__jpeg_get_bit.
   %571 = trunc nsw i32 %569 to i16
   br label %572
 
-572:                                              ; preds = %.loopexit223.i.us.i.i.i, %.preheader224.i.us.i.i.i
-  %.6121.i.us.i.i.i = phi i32 [ %.7122.i.us.i.i.i, %.loopexit223.i.us.i.i.i ], [ %523, %.preheader224.i.us.i.i.i ]
+572:                                              ; preds = %.loopexit222.i.us.i.i.i, %.preheader223.i.us.i.i.i
+  %.6121.i.us.i.i.i = phi i32 [ %.7122.i.us.i.i.i, %.loopexit222.i.us.i.i.i ], [ %523, %.preheader223.i.us.i.i.i ]
   %573 = load i32, ptr %35, align 4
   %574 = icmp slt i32 %573, 16
   br i1 %574, label %575, label %576
@@ -1436,18 +1436,18 @@ stbi__jpeg_get_bits.exit182.i.us.i.i.i:           ; preds = %639, %636
   %.0126.i.us.i.i.i = phi i32 [ 15, %629 ], [ %620, %stbi__jpeg_get_bit.exit186.thread.i.us.i.i.i ], [ 64, %stbi__jpeg_get_bits.exit182.i.us.i.i.i ], [ 64, %631 ], [ %620, %stbi__jpeg_get_bit.exit186.i.us.i.i.i ]
   %.0125.i.us.i.i.i = phi i32 [ 0, %629 ], [ %570, %stbi__jpeg_get_bit.exit186.thread.i.us.i.i.i ], [ 0, %stbi__jpeg_get_bits.exit182.i.us.i.i.i ], [ 0, %631 ], [ %569, %stbi__jpeg_get_bit.exit186.i.us.i.i.i ]
   %652 = load i32, ptr %31, align 8
-  %.not157251.i.us.i.i.i = icmp sgt i32 %.6121.i.us.i.i.i, %652
-  br i1 %.not157251.i.us.i.i.i, label %.loopexit223.i.us.i.i.i, label %.lr.ph254.preheader.i.us.i.i.i
+  %.not157250.i.us.i.i.i = icmp sgt i32 %.6121.i.us.i.i.i, %652
+  br i1 %.not157250.i.us.i.i.i, label %.loopexit222.i.us.i.i.i, label %.lr.ph253.preheader.i.us.i.i.i
 
-.lr.ph254.preheader.i.us.i.i.i:                   ; preds = %651
+.lr.ph253.preheader.i.us.i.i.i:                   ; preds = %651
   %653 = sext i32 %.6121.i.us.i.i.i to i64
-  br label %.lr.ph254.i.us.i.i.i
+  br label %.lr.ph253.i.us.i.i.i
 
-.lr.ph254.i.us.i.i.i:                             ; preds = %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i, %.lr.ph254.preheader.i.us.i.i.i
-  %indvars.iv264.i.us.i.i.i = phi i64 [ %653, %.lr.ph254.preheader.i.us.i.i.i ], [ %indvars.iv.next265.i.us.i.i.i, %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i ]
-  %.1127252.i.us.i.i.i = phi i32 [ %.0126.i.us.i.i.i, %.lr.ph254.preheader.i.us.i.i.i ], [ %.3129.i.us.i.i.i, %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i ]
-  %indvars.iv.next265.i.us.i.i.i = add nsw i64 %indvars.iv264.i.us.i.i.i, 1
-  %654 = getelementptr inbounds i8, ptr @stbi__jpeg_dezigzag, i64 %indvars.iv264.i.us.i.i.i
+.lr.ph253.i.us.i.i.i:                             ; preds = %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i, %.lr.ph253.preheader.i.us.i.i.i
+  %indvars.iv263.i.us.i.i.i = phi i64 [ %653, %.lr.ph253.preheader.i.us.i.i.i ], [ %indvars.iv.next264.i.us.i.i.i, %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i ]
+  %.1127251.i.us.i.i.i = phi i32 [ %.0126.i.us.i.i.i, %.lr.ph253.preheader.i.us.i.i.i ], [ %.3129.i.us.i.i.i, %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i ]
+  %indvars.iv.next264.i.us.i.i.i = add nsw i64 %indvars.iv263.i.us.i.i.i, 1
+  %654 = getelementptr inbounds i8, ptr @stbi__jpeg_dezigzag, i64 %indvars.iv263.i.us.i.i.i
   %655 = load i8, ptr %654, align 1
   %656 = zext i8 %655 to i64
   %657 = getelementptr inbounds nuw i16, ptr %522, i64 %656
@@ -1455,7 +1455,7 @@ stbi__jpeg_get_bits.exit182.i.us.i.i.i:           ; preds = %639, %636
   %.not158.i.us.i.i.i = icmp eq i16 %658, 0
   br i1 %.not158.i.us.i.i.i, label %679, label %659
 
-659:                                              ; preds = %.lr.ph254.i.us.i.i.i
+659:                                              ; preds = %.lr.ph253.i.us.i.i.i
   %660 = load i32, ptr %35, align 4
   %661 = icmp slt i32 %660, 1
   br i1 %661, label %662, label %stbi__jpeg_get_bit.exit190.i.us.i.i.i
@@ -1497,35 +1497,35 @@ stbi__jpeg_get_bit.exit190.i.us.i.i.i:            ; preds = %662, %659
   store i16 %678, ptr %657, align 2
   br label %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i
 
-679:                                              ; preds = %.lr.ph254.i.us.i.i.i
-  %680 = icmp eq i32 %.1127252.i.us.i.i.i, 0
+679:                                              ; preds = %.lr.ph253.i.us.i.i.i
+  %680 = icmp eq i32 %.1127251.i.us.i.i.i, 0
   br i1 %680, label %.thread219.i.us.i.i.i, label %681
 
 681:                                              ; preds = %679
-  %682 = add nsw i32 %.1127252.i.us.i.i.i, -1
+  %682 = add nsw i32 %.1127251.i.us.i.i.i, -1
   br label %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i
 
 stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i:     ; preds = %681, %677, %675, %668, %stbi__jpeg_get_bit.exit190.i.us.i.i.i, %662
-  %.3129.i.us.i.i.i = phi i32 [ %.1127252.i.us.i.i.i, %677 ], [ %.1127252.i.us.i.i.i, %675 ], [ %.1127252.i.us.i.i.i, %668 ], [ %.1127252.i.us.i.i.i, %stbi__jpeg_get_bit.exit190.i.us.i.i.i ], [ %682, %681 ], [ %.1127252.i.us.i.i.i, %662 ]
+  %.3129.i.us.i.i.i = phi i32 [ %.1127251.i.us.i.i.i, %677 ], [ %.1127251.i.us.i.i.i, %675 ], [ %.1127251.i.us.i.i.i, %668 ], [ %.1127251.i.us.i.i.i, %stbi__jpeg_get_bit.exit190.i.us.i.i.i ], [ %682, %681 ], [ %.1127251.i.us.i.i.i, %662 ]
   %683 = load i32, ptr %31, align 8
   %684 = sext i32 %683 to i64
-  %.not157.not.i.us.i.i.i = icmp slt i64 %indvars.iv264.i.us.i.i.i, %684
-  br i1 %.not157.not.i.us.i.i.i, label %.lr.ph254.i.us.i.i.i, label %.loopexit223.loopexit.i.us.i.i.i
+  %.not157.not.i.us.i.i.i = icmp slt i64 %indvars.iv263.i.us.i.i.i, %684
+  br i1 %.not157.not.i.us.i.i.i, label %.lr.ph253.i.us.i.i.i, label %.loopexit222.loopexit.i.us.i.i.i
 
-.loopexit223.loopexit.i.us.i.i.i:                 ; preds = %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i
-  %685 = trunc nsw i64 %indvars.iv.next265.i.us.i.i.i to i32
-  br label %.loopexit223.i.us.i.i.i
+.loopexit222.loopexit.i.us.i.i.i:                 ; preds = %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i
+  %685 = trunc nsw i64 %indvars.iv.next264.i.us.i.i.i to i32
+  br label %.loopexit222.i.us.i.i.i
 
 .thread219.i.us.i.i.i:                            ; preds = %679
-  %686 = trunc nsw i64 %indvars.iv.next265.i.us.i.i.i to i32
+  %686 = trunc nsw i64 %indvars.iv.next264.i.us.i.i.i to i32
   %687 = trunc i32 %.0125.i.us.i.i.i to i16
   store i16 %687, ptr %657, align 2
-  %.pre267.i.us.i.i.i = load i32, ptr %31, align 8
-  br label %.loopexit223.i.us.i.i.i
+  %.pre266.i.us.i.i.i = load i32, ptr %31, align 8
+  br label %.loopexit222.i.us.i.i.i
 
-.loopexit223.i.us.i.i.i:                          ; preds = %.thread219.i.us.i.i.i, %.loopexit223.loopexit.i.us.i.i.i, %651
-  %688 = phi i32 [ %.pre267.i.us.i.i.i, %.thread219.i.us.i.i.i ], [ %652, %651 ], [ %683, %.loopexit223.loopexit.i.us.i.i.i ]
-  %.7122.i.us.i.i.i = phi i32 [ %686, %.thread219.i.us.i.i.i ], [ %.6121.i.us.i.i.i, %651 ], [ %685, %.loopexit223.loopexit.i.us.i.i.i ]
+.loopexit222.i.us.i.i.i:                          ; preds = %.thread219.i.us.i.i.i, %.loopexit222.loopexit.i.us.i.i.i, %651
+  %688 = phi i32 [ %.pre266.i.us.i.i.i, %.thread219.i.us.i.i.i ], [ %652, %651 ], [ %683, %.loopexit222.loopexit.i.us.i.i.i ]
+  %.7122.i.us.i.i.i = phi i32 [ %686, %.thread219.i.us.i.i.i ], [ %.6121.i.us.i.i.i, %651 ], [ %685, %.loopexit222.loopexit.i.us.i.i.i ]
   %.not161.i.us.i.i.i = icmp sgt i32 %.7122.i.us.i.i.i, %688
   br i1 %.not161.i.us.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i, label %572, !llvm.loop !16
 
@@ -1592,15 +1592,15 @@ stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i:     ; preds = %681, %677, %675, %6
 
 727:                                              ; preds = %724
   call fastcc void @stbi__grow_buffer_unsafe(ptr noundef nonnull %10)
-  %.pre268.i.us.i.i.i = load i32, ptr %36, align 8
-  %.pre269.i.us.i.i.i = lshr i32 %.pre268.i.us.i.i.i, 23
-  %.pre270.i.us.i.i.i = zext nneg i32 %.pre269.i.us.i.i.i to i64
+  %.pre267.i.us.i.i.i = load i32, ptr %36, align 8
+  %.pre268.i.us.i.i.i = lshr i32 %.pre267.i.us.i.i.i, 23
+  %.pre269.i.us.i.i.i = zext nneg i32 %.pre268.i.us.i.i.i to i64
   br label %728
 
 728:                                              ; preds = %727, %724
-  %.pre-phi271.i.us.i.i.i = phi i64 [ %.pre270.i.us.i.i.i, %727 ], [ %701, %724 ]
-  %729 = phi i32 [ %.pre268.i.us.i.i.i, %727 ], [ %699, %724 ]
-  %730 = getelementptr inbounds nuw i8, ptr %528, i64 %.pre-phi271.i.us.i.i.i
+  %.pre-phi270.i.us.i.i.i = phi i64 [ %.pre269.i.us.i.i.i, %727 ], [ %701, %724 ]
+  %729 = phi i32 [ %.pre267.i.us.i.i.i, %727 ], [ %699, %724 ]
+  %730 = getelementptr inbounds nuw i8, ptr %528, i64 %.pre-phi270.i.us.i.i.i
   %731 = load i8, ptr %730, align 1
   %.not.i.i.us.i.i.i = icmp eq i8 %731, -1
   br i1 %.not.i.i.us.i.i.i, label %742, label %732
@@ -1665,8 +1665,8 @@ stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i:     ; preds = %681, %677, %675, %6
 
 stbi__jpeg_huff_decode.exit.i.us.i.i.i:           ; preds = %763, %739
   %767 = phi i32 [ %764, %763 ], [ %741, %739 ]
-  %.pn305.i.us.i.i.i = phi i64 [ %766, %763 ], [ %733, %739 ]
-  %.1.i.in.in.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %691, i64 %.pn305.i.us.i.i.i
+  %.pn304.i.us.i.i.i = phi i64 [ %766, %763 ], [ %733, %739 ]
+  %.1.i.in.in.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %691, i64 %.pn304.i.us.i.i.i
   %.1.i.in.i.us.i.i.i = load i8, ptr %.1.i.in.in.i.us.i.i.i, align 1
   %.1.i.i.us.i.i.i = zext i8 %.1.i.in.i.us.i.i.i to i32
   %768 = and i32 %.1.i.i.us.i.i.i, 15
@@ -1789,7 +1789,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.sink.split.i.i.i: ; preds = %stbi
   store i32 %831, ptr %44, align 4
   br label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i
 
-stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_bit.exit.thread.i.us.i.i.i, %.loopexit223.i.us.i.i.i, %804, %stbi__jpeg_decode_block_prog_ac.exit.thread.us.sink.split.i.i.i, %826, %535
+stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i: ; preds = %stbi__jpeg_get_bit.exit.thread.i.us.i.i.i, %.loopexit222.i.us.i.i.i, %804, %stbi__jpeg_decode_block_prog_ac.exit.thread.us.sink.split.i.i.i, %826, %535
   %832 = load i32, ptr %43, align 4
   %833 = add nsw i32 %832, -1
   store i32 %833, ptr %43, align 4
@@ -2042,8 +2042,8 @@ stbi__at_eof.exit.i.i.i:                          ; preds = %932, %.loopexit.i55
   %937 = load ptr, ptr %936, align 8
   %938 = getelementptr inbounds nuw i8, ptr %923, i64 200
   %939 = load ptr, ptr %938, align 8
-  %.not38.i.i.i = icmp ult ptr %937, %939
-  br i1 %.not38.i.i.i, label %stbi__at_eof.exit.thread.i.i.i, label %stbi__skip_jpeg_junk_at_end.exit.i.i
+  %.not37.i.i.i = icmp ult ptr %937, %939
+  br i1 %.not37.i.i.i, label %stbi__at_eof.exit.thread.i.i.i, label %stbi__skip_jpeg_junk_at_end.exit.i.i
 
 stbi__at_eof.exit.thread.i.i.i:                   ; preds = %stbi__at_eof.exit.i.i.i, %926
   %940 = load ptr, ptr %10, align 8

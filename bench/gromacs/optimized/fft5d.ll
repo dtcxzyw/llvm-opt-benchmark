@@ -1611,21 +1611,21 @@ define void @_Z13fft5d_executeP12fft5d_plan_tiP13gmx_wallcycle(ptr noundef reado
   %54 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !8
   %.not304 = icmp eq ptr %55, null
-  br i1 %.not304, label %._crit_edge362, label %56
+  br i1 %.not304, label %._crit_edge361, label %56
 
-._crit_edge362:                                   ; preds = %53
-  %.pre363 = load i32, ptr %39, align 8, !tbaa !47
+._crit_edge361:                                   ; preds = %53
+  %.pre362 = load i32, ptr %39, align 8, !tbaa !47
   br label %60
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = icmp sgt i32 %58, 1
-  %.pre364 = load i32, ptr %39, align 8, !tbaa !47
+  %.pre363 = load i32, ptr %39, align 8, !tbaa !47
   br i1 %59, label %._crit_edge, label %60
 
-60:                                               ; preds = %._crit_edge362, %56
-  %61 = phi i32 [ %.pre363, %._crit_edge362 ], [ %.pre364, %56 ]
+60:                                               ; preds = %._crit_edge361, %56
+  %61 = phi i32 [ %.pre362, %._crit_edge361 ], [ %.pre363, %56 ]
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %._crit_edge, label %63
 
@@ -1635,7 +1635,7 @@ define void @_Z13fft5d_executeP12fft5d_plan_tiP13gmx_wallcycle(ptr noundef reado
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56, %63, %60
-  %65 = phi i32 [ 1, %60 ], [ %61, %63 ], [ %.pre364, %56 ]
+  %65 = phi i32 [ 1, %60 ], [ %61, %63 ], [ %.pre363, %56 ]
   %.not305350 = phi i1 [ true, %60 ], [ true, %63 ], [ false, %56 ]
   %.0294 = phi ptr [ %7, %60 ], [ %., %63 ], [ %7, %56 ]
   %66 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
@@ -1862,13 +1862,13 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %163, %164
   %196 = load i32, ptr %195, align 4, !tbaa !4
   %197 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %198 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %.sink396.in = select i1 %194, ptr %66, ptr %197
-  %.sink395.in = select i1 %194, ptr %198, ptr %69
+  %.sink395.in = select i1 %194, ptr %66, ptr %197
+  %.sink394.in = select i1 %194, ptr %198, ptr %69
+  %.sink394 = load i32, ptr %.sink394.in, align 4, !tbaa !4
   %.sink395 = load i32, ptr %.sink395.in, align 4, !tbaa !4
-  %.sink396 = load i32, ptr %.sink396.in, align 4, !tbaa !4
   %199 = shl i32 %196, 1
-  %200 = mul i32 %199, %.sink396
-  %201 = mul i32 %200, %.sink395
+  %200 = mul i32 %199, %.sink395
+  %201 = mul i32 %200, %.sink394
   %202 = load ptr, ptr %54, align 8, !tbaa !8
   %203 = tail call noundef i32 @_Z13tMPI_AlltoallPKviP14tmpi_datatype_PviS2_P10tmpi_comm_(ptr noundef %9, i32 noundef %201, ptr noundef %49, ptr noundef %11, i32 noundef %201, ptr noundef %49, ptr noundef %202)
   br i1 %42, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %204

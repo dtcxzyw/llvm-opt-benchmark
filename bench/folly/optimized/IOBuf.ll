@@ -2826,11 +2826,11 @@ define void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr 
   %5 = alloca %struct.Initializer, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !64
-  %.not33 = icmp eq ptr %7, %1
-  br i1 %.not33, label %8, label %..thread_crit_edge
+  %.not32 = icmp eq ptr %7, %1
+  br i1 %.not32, label %8, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %4
-  %.pre39 = load i64, ptr %1, align 8, !tbaa !71
+  %.pre38 = load i64, ptr %1, align 8, !tbaa !71
   br label %.thread
 
 8:                                                ; preds = %4
@@ -2842,14 +2842,14 @@ define void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr 
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %.not = icmp eq i64 %2, %15
-  %.pre40 = load i64, ptr %1, align 8, !tbaa !71
+  %.pre39 = load i64, ptr %1, align 8, !tbaa !71
   br i1 %.not, label %16, label %.thread
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !94
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %.pre40
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %.pre39
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
@@ -2866,17 +2866,17 @@ define void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr 
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = atomicrmw add ptr %29, i32 1 acq_rel, align 4, !noalias !148
   %.pre.i = load ptr, ptr %26, align 8, !tbaa !66, !noalias !148
-  %.pre42 = load ptr, ptr %11, align 8, !tbaa !68, !noalias !148
-  %.pre43 = load i64, ptr %17, align 8, !tbaa !94, !noalias !148
-  %.pre44 = load ptr, ptr %9, align 8, !tbaa !69, !noalias !148
-  %.pre45 = load i64, ptr %1, align 8, !tbaa !71, !noalias !148
+  %.pre41 = load ptr, ptr %11, align 8, !tbaa !68, !noalias !148
+  %.pre42 = load i64, ptr %17, align 8, !tbaa !94, !noalias !148
+  %.pre43 = load ptr, ptr %9, align 8, !tbaa !69, !noalias !148
+  %.pre44 = load i64, ptr %1, align 8, !tbaa !71, !noalias !148
   br label %_ZNK5folly5IOBuf15cloneOneAsValueEv.exit
 
 _ZNK5folly5IOBuf15cloneOneAsValueEv.exit:         ; preds = %25, %28
-  %31 = phi i64 [ %.pre45, %28 ], [ %.pre40, %25 ]
-  %32 = phi ptr [ %.pre44, %28 ], [ %10, %25 ]
-  %33 = phi i64 [ %.pre43, %28 ], [ %18, %25 ]
-  %34 = phi ptr [ %.pre42, %28 ], [ %12, %25 ]
+  %31 = phi i64 [ %.pre44, %28 ], [ %.pre39, %25 ]
+  %32 = phi ptr [ %.pre43, %28 ], [ %10, %25 ]
+  %33 = phi i64 [ %.pre42, %28 ], [ %18, %25 ]
+  %34 = phi ptr [ %.pre41, %28 ], [ %12, %25 ]
   %35 = phi ptr [ %.pre.i, %28 ], [ null, %25 ]
   tail call void @_ZN5folly5IOBufC1ENS0_19InternalConstructorEPNS0_10SharedInfoEPhmS4_m(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %35, ptr noundef %34, i64 noundef %33, ptr noundef %32, i64 noundef %31) #37
   br label %.loopexit
@@ -2887,7 +2887,7 @@ _ZNK5folly5IOBuf15cloneOneAsValueEv.exit:         ; preds = %25, %28
 
 38:                                               ; preds = %36
   %39 = add i64 %3, %2
-  %40 = add i64 %39, %.pre40
+  %40 = add i64 %39, %.pre39
   %41 = icmp slt i64 %40, 0
   br i1 %41, label %42, label %43
 
@@ -2960,15 +2960,15 @@ _ZN5folly5IOBuf17goodExtBufferSizeEm.exit..thread_crit_edge: ; preds = %_ZN5foll
   %76 = atomicrmw add ptr %75, i32 1 acq_rel, align 4, !noalias !151
   %.pre.i28 = load ptr, ptr %72, align 8, !tbaa !66, !noalias !151
   %.pre = load ptr, ptr %11, align 8, !tbaa !68, !noalias !151
-  %.pre36 = load i64, ptr %17, align 8, !tbaa !94, !noalias !151
-  %.pre37 = load ptr, ptr %9, align 8, !tbaa !69, !noalias !151
-  %.pre38 = load i64, ptr %1, align 8, !tbaa !71, !noalias !151
+  %.pre35 = load i64, ptr %17, align 8, !tbaa !94, !noalias !151
+  %.pre36 = load ptr, ptr %9, align 8, !tbaa !69, !noalias !151
+  %.pre37 = load i64, ptr %1, align 8, !tbaa !71, !noalias !151
   br label %77
 
 77:                                               ; preds = %74, %71
-  %78 = phi i64 [ %.pre38, %74 ], [ %63, %71 ]
-  %79 = phi ptr [ %.pre37, %74 ], [ %62, %71 ]
-  %80 = phi i64 [ %.pre36, %74 ], [ %60, %71 ]
+  %78 = phi i64 [ %.pre37, %74 ], [ %63, %71 ]
+  %79 = phi ptr [ %.pre36, %74 ], [ %62, %71 ]
+  %80 = phi i64 [ %.pre35, %74 ], [ %60, %71 ]
   %81 = phi ptr [ %.pre, %74 ], [ %59, %71 ]
   %82 = phi ptr [ %.pre.i28, %74 ], [ null, %71 ]
   call void @_ZN5folly5IOBufC1ENS0_19InternalConstructorEPNS0_10SharedInfoEPhmS4_m(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %82, ptr noundef %81, i64 noundef %80, ptr noundef %79, i64 noundef %78) #37
@@ -2976,7 +2976,7 @@ _ZN5folly5IOBuf17goodExtBufferSizeEm.exit..thread_crit_edge: ; preds = %_ZN5foll
 
 .thread:                                          ; preds = %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit..thread_crit_edge, %..thread_crit_edge, %36, %8
   %.07.i = phi ptr [ %7, %..thread_crit_edge ], [ %.07.i.pre, %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit..thread_crit_edge ], [ %7, %36 ], [ %7, %8 ]
-  %83 = phi i64 [ %.pre39, %..thread_crit_edge ], [ %63, %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit..thread_crit_edge ], [ %.pre40, %36 ], [ %.pre40, %8 ]
+  %83 = phi i64 [ %.pre38, %..thread_crit_edge ], [ %63, %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit..thread_crit_edge ], [ %.pre39, %36 ], [ %.pre39, %8 ]
   %.not8.i = icmp eq ptr %.07.i, %1
   br i1 %.not8.i, label %_ZNK5folly5IOBuf22computeChainDataLengthEv.exit, label %.lr.ph.i
 
@@ -5295,7 +5295,7 @@ define noundef i64 @_ZNK5folly9IOBufHashclERKNS_5IOBufE(ptr noundef nonnull read
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit: ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit.backedge, %7
   %18 = phi ptr [ %15, %7 ], [ %.be, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit.backedge ]
-  %19 = phi ptr [ %17, %7 ], [ %.be14, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit.backedge ]
+  %19 = phi ptr [ %17, %7 ], [ %.be13, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit.backedge ]
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %18 to i64
   %22 = sub i64 %20, %21
@@ -5312,37 +5312,37 @@ _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit: ; preds = %_ZN5fo
   br i1 %26, label %38, label %.thread
 
 .thread:                                          ; preds = %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit, %25
-  %.0.i13 = phi i64 [ %24, %25 ], [ %22, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit ]
+  %.0.i12 = phi i64 [ %24, %25 ], [ %22, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit ]
   %27 = phi ptr [ %.pre.i, %25 ], [ %18, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit ]
-  invoke void @_ZN5folly4hash12SpookyHashV26UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %3, ptr noundef %27, i64 noundef %.0.i13)
+  invoke void @_ZN5folly4hash12SpookyHashV26UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %3, ptr noundef %27, i64 noundef %.0.i12)
           to label %28 unwind label %.loopexit
 
 28:                                               ; preds = %.thread
   %29 = load ptr, ptr %12, align 8, !tbaa !210
   %30 = ptrtoint ptr %29 to i64
-  %31 = add i64 %.0.i13, %30
+  %31 = add i64 %.0.i12, %30
   %32 = load ptr, ptr %13, align 8, !tbaa !211
   %33 = ptrtoint ptr %32 to i64
   %34 = icmp ult i64 %31, %33
   br i1 %34, label %35, label %37, !prof !44
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 %.0.i13
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 %.0.i12
   store ptr %36, ptr %12, align 8, !tbaa !210
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit.backedge
 
 37:                                               ; preds = %28
-  invoke void @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE8skipSlowEm(ptr noundef nonnull align 8 dereferenceable(56) %4, i64 noundef %.0.i13)
+  invoke void @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE8skipSlowEm(ptr noundef nonnull align 8 dereferenceable(56) %4, i64 noundef %.0.i12)
           to label %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge unwind label %.loopexit
 
 ._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge: ; preds = %37
   %.pre.pre = load ptr, ptr %13, align 8, !tbaa !211
-  %.pre9.pre = load ptr, ptr %12, align 8, !tbaa !210
+  %.pre8.pre = load ptr, ptr %12, align 8, !tbaa !210
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit.backedge
 
 _ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit.backedge: ; preds = %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge, %35
-  %.be = phi ptr [ %.pre9.pre, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %36, %35 ]
-  %.be14 = phi ptr [ %.pre.pre, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %32, %35 ]
+  %.be = phi ptr [ %.pre8.pre, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %36, %35 ]
+  %.be13 = phi ptr [ %.pre.pre, %._ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit_crit_edge ], [ %32, %35 ]
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit
 
 38:                                               ; preds = %25

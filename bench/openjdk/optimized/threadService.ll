@@ -1201,8 +1201,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %31, %_ZN26GrowableA
   %59 = load i32, ptr %58, align 8
   %60 = call noundef ptr @_ZN27java_lang_StackTraceElement6createERK12methodHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %59, ptr noundef nonnull %1) #13
   %61 = load ptr, ptr %8, align 8
-  %.not21 = icmp eq ptr %61, null
-  br i1 %.not21, label %63, label %62
+  %.not20 = icmp eq ptr %61, null
+  br i1 %.not20, label %63, label %62
 
 62:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13

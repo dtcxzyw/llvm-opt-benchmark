@@ -10962,7 +10962,7 @@ define linkonce_odr hidden noundef i32 @_ZN7dparser9parse_argE6dtokenP4sortR10re
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %class.symbol, align 8
   %12 = alloca %class.rational, align 8
-  switch i32 %1, label %310 [
+  switch i32 %1, label %311 [
     i32 9, label %13
     i32 3, label %40
     i32 2, label %192
@@ -11017,7 +11017,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store ptr %19, ptr %38, align 8, !tbaa !458
   %39 = add i32 %34, 1
   store i32 %39, ptr %36, align 4, !tbaa !324
-  br label %310
+  br label %311
 
 40:                                               ; preds = %4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11329,7 +11329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %130
 
 148:                                              ; preds = %146
   invoke void @__cxa_throw(ptr nonnull %139, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #31
-          to label %316 unwind label %150
+          to label %317 unwind label %150
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread: ; preds = %138
   %149 = landingpad { ptr, i32 }
@@ -11434,7 +11434,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %.pn48.pn135, %168 ], [ %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ %151, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %315
+  br label %316
 
 185:                                              ; preds = %183, %177
   %186 = phi i32 [ %.pre2.i.i90, %183 ], [ %179, %177 ]
@@ -11447,7 +11447,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   store i32 %191, ptr %188, align 4, !tbaa !324
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %310
+  br label %311
 
 192:                                              ; preds = %4
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11539,7 +11539,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %234 = add i32 %229, 1
   store i32 %234, ptr %231, align 4, !tbaa !324
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %310
+  br label %311
 
 235:                                              ; preds = %4
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11624,7 +11624,7 @@ _ZNK8rational9is_uint64Ev.exit.thread:            ; preds = %_ZNK6dlexer14get_to
 273:                                              ; preds = %269, %_ZNK8rational9is_uint64Ev.exit.thread
   %274 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %310
 
 275:                                              ; preds = %_ZNK8rational9is_uint64Ev.exit
   %276 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !485
@@ -11684,56 +11684,56 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 300:                                              ; preds = %275
   %301 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %310
 
 302:                                              ; preds = %293, %_ZNK8rational10get_uint64Ev.exit
   %303 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %310
 
 304:                                              ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit130, %_ZNK8rational9is_uint64Ev.exit.thread
-  %switch = phi i1 [ true, %_ZNK8rational9is_uint64Ev.exit.thread ], [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit130 ]
+  %305 = phi i1 [ true, %_ZNK8rational9is_uint64Ev.exit.thread ], [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit130 ]
   %.0 = phi i32 [ %272, %_ZNK8rational9is_uint64Ev.exit.thread ], [ undef, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit130 ]
-  %305 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !485
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %305, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %.noexc.i131 unwind label %306
+  %306 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !485
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %306, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %.noexc.i131 unwind label %307
 
 .noexc.i131:                                      ; preds = %304
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %305, ptr noundef nonnull align 8 dereferenceable(16) %259)
-          to label %_ZN8rationalD2Ev.exit unwind label %306
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %306, ptr noundef nonnull align 8 dereferenceable(16) %259)
+          to label %_ZN8rationalD2Ev.exit unwind label %307
 
-306:                                              ; preds = %.noexc.i131, %304
-  %307 = landingpad { ptr, i32 }
+307:                                              ; preds = %.noexc.i131, %304
+  %308 = landingpad { ptr, i32 }
           catch ptr null
-  %308 = extractvalue { ptr, i32 } %307, 0
-  call void @__clang_call_terminate(ptr %308) #29
+  %309 = extractvalue { ptr, i32 } %308, 0
+  call void @__clang_call_terminate(ptr %309) #29
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i131
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %switch, label %314, label %310
+  br i1 %305, label %315, label %311
 
-309:                                              ; preds = %300, %302, %273
+310:                                              ; preds = %300, %302, %273
   %.pn.pn = phi { ptr, i32 } [ %274, %273 ], [ %303, %302 ], [ %301, %300 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %316
+
+311:                                              ; preds = %_ZN8rationalD2Ev.exit, %4, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit112, %185, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %313 = load ptr, ptr %312, align 8, !tbaa !312
+  %314 = call noundef i32 @_ZN6dlexer10next_tokenEv(ptr noundef nonnull align 8 dereferenceable(153) %313)
   br label %315
 
-310:                                              ; preds = %_ZN8rationalD2Ev.exit, %4, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit112, %185, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %312 = load ptr, ptr %311, align 8, !tbaa !312
-  %313 = call noundef i32 @_ZN6dlexer10next_tokenEv(ptr noundef nonnull align 8 dereferenceable(153) %312)
-  br label %314
-
-314:                                              ; preds = %_ZN8rationalD2Ev.exit, %310
-  %.1 = phi i32 [ %313, %310 ], [ %.0, %_ZN8rationalD2Ev.exit ]
+315:                                              ; preds = %_ZN8rationalD2Ev.exit, %311
+  %.1 = phi i32 [ %314, %311 ], [ %.0, %_ZN8rationalD2Ev.exit ]
   ret i32 %.1
 
-315:                                              ; preds = %309, %184
-  %.pn51.pn.pn = phi { ptr, i32 } [ %.pn51.pn, %184 ], [ %.pn.pn, %309 ]
+316:                                              ; preds = %310, %184
+  %.pn51.pn.pn = phi { ptr, i32 } [ %.pn51.pn, %184 ], [ %.pn.pn, %310 ]
   resume { ptr, i32 } %.pn51.pn.pn
 
-316:                                              ; preds = %148
+317:                                              ; preds = %148
   unreachable
 }
 

@@ -4139,15 +4139,15 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE4Node12destroy_nodeEP
   br label %105
 
 105:                                              ; preds = %.thread, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE4Node12destroy_nodeEPvPS4_.exit
-  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE4Node12destroy_nodeEPvPS4_.exit ]
-  %.1.i60.ph80 = phi i64 [ %.1.i61, %.thread ], [ %71, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE4Node12destroy_nodeEPvPS4_.exit ]
+  %.1.ph81 = phi i1 [ true, %.thread ], [ false, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE4Node12destroy_nodeEPvPS4_.exit ]
+  %.1.i60.ph79 = phi i64 [ %.1.i61, %.thread ], [ %71, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE4Node12destroy_nodeEPvPS4_.exit ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %111, label %106
 
 106:                                              ; preds = %105
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %108 = load i64, ptr %107, align 8
-  %109 = icmp ugt i64 %.1.i60.ph80, %108
+  %109 = icmp ugt i64 %.1.i60.ph79, %108
   %110 = zext i1 %109 to i8
   store i8 %110, ptr %5, align 1
   br label %111
@@ -4161,7 +4161,7 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE4Node12destroy_nodeEP
   br label %113
 
 113:                                              ; preds = %112, %111
-  ret i1 %.1.ph82
+  ret i1 %.1.ph81
 }
 
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #2

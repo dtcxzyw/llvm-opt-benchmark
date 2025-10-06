@@ -65,10 +65,9 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Jf_ManGenCnf(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   store i64 %0, ptr %7, align 8, !tbaa !3
-  switch i64 %0, label %.preheader [
-    i64 0, label %14
-    i64 -1, label %14
-  ]
+  %.off = add i64 %0, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %.preheader, label %14
 
 .preheader:                                       ; preds = %6
   %8 = getelementptr i8, ptr %2, i64 4
@@ -81,7 +80,7 @@ define void @Jf_ManGenCnf(i64 noundef %0, i32 noundef %1, ptr noundef readonly c
   %13 = getelementptr i8, ptr %2, i64 8
   br label %80
 
-14:                                               ; preds = %6, %6
+14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %15, align 4, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4

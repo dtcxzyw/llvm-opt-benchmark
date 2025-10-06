@@ -1669,48 +1669,47 @@ land.rhs:                                         ; preds = %invoke.cont
           to label %cleanup.action unwind label %lpad6
 
 cleanup.action:                                   ; preds = %land.rhs
+  %6 = and i64 %call.i45, 255
   %_M_cmpts.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 32
-  %6 = load ptr, ptr %_M_cmpts.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_cmpts.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %cleanup.done, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup.action
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i, ptr noundef nonnull %6) #25
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i, ptr noundef nonnull %7) #25
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %if.then.i.i.i, %cleanup.action
   store ptr null, ptr %_M_cmpts.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5) #25
-  %trunc = trunc i64 %call.i45 to i8
-  switch i8 %trunc, label %if.then [
-    i8 -1, label %if.end
-    i8 0, label %if.end
-  ]
+  %.off = add nsw i64 %6, -1
+  %switch = icmp ult i64 %.off, 254
+  br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done
   call void @llvm.trap()
   unreachable
 
 lpad:                                             ; preds = %_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem11extractPathESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #25
   br label %eh.resume
 
 lpad6:                                            ; preds = %land.rhs
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5) #25
   br label %eh.resume
 
-if.end:                                           ; preds = %cleanup.done, %cleanup.done, %invoke.cont
-  %9 = load ptr, ptr @_ZZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem6removeESt17basic_string_viewIcSt11char_traitsIcEEE8vlocal__, align 8
-  %10 = load i32, ptr %9, align 4
-  %cmp12 = icmp sgt i32 %10, 0
+if.end:                                           ; preds = %cleanup.done, %invoke.cont
+  %10 = load ptr, ptr @_ZZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem6removeESt17basic_string_viewIcSt11char_traitsIcEEE8vlocal__, align 8
+  %11 = load i32, ptr %10, align 4
+  %cmp12 = icmp sgt i32 %11, 0
   br i1 %cmp12, label %land.rhs13, label %cleanup.done31
 
 land.rhs13:                                       ; preds = %if.end
-  %cmp14.not = icmp eq ptr %9, @_ZN6google21kLogSiteUninitializedE
+  %cmp14.not = icmp eq ptr %10, @_ZN6google21kLogSiteUninitializedE
   br i1 %cmp14.not, label %land.end16, label %cond.false
 
 land.end16:                                       ; preds = %land.rhs13
@@ -1738,13 +1737,13 @@ cleanup.done31:                                   ; preds = %if.end, %land.end16
   ret void
 
 lpad20:                                           ; preds = %invoke.cont23, %invoke.cont21, %cond.false
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad20, %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %11, %lpad20 ], [ %8, %lpad6 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad20 ], [ %9, %lpad6 ], [ %8, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

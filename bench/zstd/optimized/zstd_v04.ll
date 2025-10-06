@@ -2529,9 +2529,9 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   %133 = getelementptr i8, ptr %59, i64 -1
   %134 = load i8, ptr %133, align 1, !tbaa !7
   %135 = icmp eq i8 %134, 0
-  br i1 %135, label %BIT_initDStream.exit.thread.i, label %.thread52.i.i
+  br i1 %135, label %BIT_initDStream.exit.thread.i, label %.thread50.i.i
 
-.thread52.i.i:                                    ; preds = %132
+.thread50.i.i:                                    ; preds = %132
   %136 = zext i8 %134 to i32
   %137 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %136, i1 true)
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2542,7 +2542,7 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   store i32 %141, ptr %138, align 8, !tbaa !69
   br label %142
 
-142:                                              ; preds = %.thread52.i.i, %.thread.i.i
+142:                                              ; preds = %.thread50.i.i, %.thread.i.i
   %143 = icmp eq i16 %.val148.i, 0
   br i1 %143, label %BIT_initDStream.exit.thread.i, label %144
 
@@ -2644,9 +2644,9 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   %203 = getelementptr i8, ptr %60, i64 -1
   %204 = load i8, ptr %203, align 1, !tbaa !7
   %205 = icmp eq i8 %204, 0
-  br i1 %205, label %BIT_initDStream.exit.thread.i, label %.thread52.i150.i
+  br i1 %205, label %BIT_initDStream.exit.thread.i, label %.thread50.i150.i
 
-.thread52.i150.i:                                 ; preds = %202
+.thread50.i150.i:                                 ; preds = %202
   %206 = zext i8 %204 to i32
   %207 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %206, i1 true)
   %208 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2657,7 +2657,7 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   store i32 %211, ptr %208, align 8, !tbaa !69
   br label %212
 
-212:                                              ; preds = %.thread52.i150.i, %.thread.i153.i
+212:                                              ; preds = %.thread50.i150.i, %.thread.i153.i
   %213 = icmp eq i16 %.val149.i, 0
   br i1 %213, label %BIT_initDStream.exit.thread.i, label %214
 
@@ -2759,9 +2759,9 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   %273 = getelementptr i8, ptr %61, i64 -1
   %274 = load i8, ptr %273, align 1, !tbaa !7
   %275 = icmp eq i8 %274, 0
-  br i1 %275, label %BIT_initDStream.exit.thread.i, label %.thread52.i155.i
+  br i1 %275, label %BIT_initDStream.exit.thread.i, label %.thread50.i155.i
 
-.thread52.i155.i:                                 ; preds = %272
+.thread50.i155.i:                                 ; preds = %272
   %276 = zext i8 %274 to i32
   %277 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %276, i1 true)
   %278 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2772,7 +2772,7 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   store i32 %281, ptr %278, align 8, !tbaa !69
   br label %282
 
-282:                                              ; preds = %.thread52.i155.i, %.thread.i158.i
+282:                                              ; preds = %.thread50.i155.i, %.thread.i158.i
   %283 = call fastcc i64 @BIT_initDStream(ptr noundef %8, ptr noundef nonnull %61, i64 noundef %70)
   %284 = icmp ult i64 %283, -119
   br i1 %284, label %285, label %BIT_initDStream.exit.thread.i
@@ -3805,9 +3805,9 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   %216 = getelementptr i8, ptr %142, i64 -1
   %217 = load i8, ptr %216, align 1, !tbaa !7
   %218 = icmp eq i8 %217, 0
-  br i1 %218, label %BIT_initDStream.exit.thread.i, label %.thread52.i.i
+  br i1 %218, label %BIT_initDStream.exit.thread.i, label %.thread50.i.i
 
-.thread52.i.i:                                    ; preds = %215
+.thread50.i.i:                                    ; preds = %215
   %219 = zext i8 %217 to i32
   %220 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %219, i1 true)
   %221 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3818,7 +3818,7 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   store i32 %224, ptr %221, align 8, !tbaa !69
   br label %225
 
-225:                                              ; preds = %.thread52.i.i, %.thread.i.i
+225:                                              ; preds = %.thread50.i.i, %.thread.i.i
   %226 = icmp eq i16 %.val164.i, 0
   br i1 %226, label %BIT_initDStream.exit.thread.i, label %227
 
@@ -3920,9 +3920,9 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   %286 = getelementptr i8, ptr %143, i64 -1
   %287 = load i8, ptr %286, align 1, !tbaa !7
   %288 = icmp eq i8 %287, 0
-  br i1 %288, label %BIT_initDStream.exit.thread.i, label %.thread52.i166.i
+  br i1 %288, label %BIT_initDStream.exit.thread.i, label %.thread50.i166.i
 
-.thread52.i166.i:                                 ; preds = %285
+.thread50.i166.i:                                 ; preds = %285
   %289 = zext i8 %287 to i32
   %290 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %289, i1 true)
   %291 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3933,7 +3933,7 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   store i32 %294, ptr %291, align 8, !tbaa !69
   br label %295
 
-295:                                              ; preds = %.thread52.i166.i, %.thread.i169.i
+295:                                              ; preds = %.thread50.i166.i, %.thread.i169.i
   %296 = icmp eq i16 %.val.i, 0
   br i1 %296, label %BIT_initDStream.exit.thread.i, label %297
 
@@ -4035,9 +4035,9 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   %356 = getelementptr i8, ptr %144, i64 -1
   %357 = load i8, ptr %356, align 1, !tbaa !7
   %358 = icmp eq i8 %357, 0
-  br i1 %358, label %BIT_initDStream.exit.thread.i, label %.thread52.i171.i
+  br i1 %358, label %BIT_initDStream.exit.thread.i, label %.thread50.i171.i
 
-.thread52.i171.i:                                 ; preds = %355
+.thread50.i171.i:                                 ; preds = %355
   %359 = zext i8 %357 to i32
   %360 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %359, i1 true)
   %361 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4048,7 +4048,7 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   store i32 %364, ptr %361, align 8, !tbaa !69
   br label %365
 
-365:                                              ; preds = %.thread52.i171.i, %.thread.i174.i
+365:                                              ; preds = %.thread50.i171.i, %.thread.i174.i
   %366 = call fastcc i64 @BIT_initDStream(ptr noundef %8, ptr noundef nonnull %144, i64 noundef %153)
   %367 = icmp ult i64 %366, -119
   br i1 %367, label %368, label %BIT_initDStream.exit.thread.i
@@ -6421,9 +6421,9 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
   %68 = getelementptr i8, ptr %67, i64 -1
   %69 = load i8, ptr %68, align 1, !tbaa !7
   %70 = icmp eq i8 %69, 0
-  br i1 %70, label %78, label %.thread52
+  br i1 %70, label %78, label %.thread50
 
-.thread52:                                        ; preds = %66
+.thread50:                                        ; preds = %66
   %71 = zext i8 %69 to i32
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6434,8 +6434,8 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
   store i32 %77, ptr %73, align 8, !tbaa !69
   br label %78
 
-78:                                               ; preds = %.thread, %.thread52, %66, %9, %5
-  %.0 = phi i64 [ -72, %5 ], [ -1, %9 ], [ -1, %66 ], [ %2, %.thread52 ], [ %2, %.thread ]
+78:                                               ; preds = %.thread, %.thread50, %66, %9, %5
+  %.0 = phi i64 [ -72, %5 ], [ -1, %9 ], [ -1, %66 ], [ %2, %.thread50 ], [ %2, %.thread ]
   ret i64 %.0
 }
 

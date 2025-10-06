@@ -283,32 +283,32 @@ define internal i32 @siren_decode(ptr noundef %0, ptr noundef %1, ptr noundef wr
 .preheader.i:                                     ; preds = %108, %.preheader.lr.ph.i
   %.promoted.i238 = phi i32 [ %72, %.preheader.lr.ph.i ], [ %spec.select.i.i, %108 ]
   %indvars.iv.i = phi i64 [ 1, %.preheader.lr.ph.i ], [ %indvars.iv.next.i, %108 ]
-  %indvars49.i = trunc i64 %indvars.iv.i to i32
-  %83 = sub i32 %81, %indvars49.i
+  %indvars47.i = trunc i64 %indvars.iv.i to i32
+  %83 = sub i32 %81, %indvars47.i
   %84 = add nsw i32 %83, %.pre
   %85 = add nsw i64 %indvars.iv.i, -1
   %86 = getelementptr inbounds [24 x [2 x i8]], ptr @differential_decoder_tree, i64 %85
   br label %87
 
 87:                                               ; preds = %89, %.preheader.i
-  %spec.select.i47.i = phi i32 [ %spec.select.i.i, %89 ], [ %.promoted.i238, %.preheader.i ]
+  %spec.select.i45.i = phi i32 [ %spec.select.i.i, %89 ], [ %.promoted.i238, %.preheader.i ]
   %.0.i178 = phi i32 [ %106, %89 ], [ 0, %.preheader.i ]
-  %88 = sub nsw i32 %.val169, %spec.select.i47.i
+  %88 = sub nsw i32 %.val169, %spec.select.i45.i
   %.not.i = icmp slt i32 %88, %84
   br i1 %.not.i, label %.critedge, label %89
 
 89:                                               ; preds = %87
   %90 = zext nneg i32 %.0.i178 to i64
   %91 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %90
-  %92 = lshr i32 %spec.select.i47.i, 3
+  %92 = lshr i32 %spec.select.i45.i, 3
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %52, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !38
-  %96 = icmp slt i32 %spec.select.i47.i, %53
+  %96 = icmp slt i32 %spec.select.i45.i, %53
   %97 = zext i1 %96 to i32
-  %spec.select.i.i = add i32 %spec.select.i47.i, %97
+  %spec.select.i.i = add i32 %spec.select.i45.i, %97
   %98 = zext i8 %95 to i32
-  %99 = and i32 %spec.select.i47.i, 7
+  %99 = and i32 %spec.select.i45.i, 7
   %100 = shl nuw nsw i32 %98, %99
   %101 = lshr i32 %100, 7
   store i32 %spec.select.i.i, ptr %56, align 8, !tbaa !71

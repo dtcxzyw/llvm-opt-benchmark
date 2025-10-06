@@ -12,29 +12,29 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_wcswidth(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %.thread, label %.lr.ph
+  %.not26 = icmp eq i64 %1, 0
+  br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %7
-  %.01530 = phi ptr [ %10, %7 ], [ %0, %3 ]
-  %.01629 = phi i64 [ %11, %7 ], [ %1, %3 ]
-  %.01828 = phi i32 [ %spec.select, %7 ], [ 0, %3 ]
-  %4 = tail call i32 @PQmblen(ptr noundef %.01530, i32 noundef %2) #6
+  %.01529 = phi ptr [ %10, %7 ], [ %0, %3 ]
+  %.01628 = phi i64 [ %11, %7 ], [ %1, %3 ]
+  %.01827 = phi i32 [ %spec.select, %7 ], [ 0, %3 ]
+  %4 = tail call i32 @PQmblen(ptr noundef %.01529, i32 noundef %2) #6
   %5 = sext i32 %4 to i64
-  %6 = icmp ult i64 %.01629, %5
+  %6 = icmp ult i64 %.01628, %5
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call i32 @PQdsplen(ptr noundef %.01530, i32 noundef %2) #6
+  %8 = tail call i32 @PQdsplen(ptr noundef %.01529, i32 noundef %2) #6
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
-  %spec.select = add i32 %9, %.01828
-  %10 = getelementptr inbounds i8, ptr %.01530, i64 %5
-  %11 = sub nuw i64 %.01629, %5
+  %spec.select = add i32 %9, %.01827
+  %10 = getelementptr inbounds i8, ptr %.01529, i64 %5
+  %11 = sub nuw i64 %.01628, %5
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %7, %.lr.ph, %3
-  %.018.lcssa = phi i32 [ 0, %3 ], [ %.01828, %.lr.ph ], [ %spec.select, %7 ]
+  %.018.lcssa = phi i32 [ 0, %3 ], [ %.01827, %.lr.ph ], [ %spec.select, %7 ]
   ret i32 %.018.lcssa
 }
 

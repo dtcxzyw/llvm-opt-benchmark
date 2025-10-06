@@ -10904,8 +10904,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   %32 = ptrtoint ptr %30 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
-  %.not2933 = icmp ult i64 %29, %34
-  br i1 %.not2933, label %.lr.ph, label %_ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  %.not2832 = icmp ult i64 %29, %34
+  br i1 %.not2832, label %.lr.ph, label %_ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 .lr.ph:                                           ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10938,8 +10938,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
-  %.not30 = icmp ult i64 %50, %55
-  br i1 %.not30, label %56, label %_ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  %.not29 = icmp ult i64 %50, %55
+  br i1 %.not29, label %56, label %_ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 56:                                               ; preds = %49
   switch i32 %43, label %107 [
@@ -11010,25 +11010,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %76,
   br label %84
 
 84:                                               ; preds = %82, %88
-  %.0.i32 = phi i32 [ 0, %82 ], [ %90, %88 ]
-  %.08.i31 = phi i32 [ %83, %82 ], [ %93, %88 ]
-  %85 = sub nuw nsw i32 7, %.0.i32
+  %.0.i31 = phi i32 [ 0, %82 ], [ %90, %88 ]
+  %.08.i30 = phi i32 [ %83, %82 ], [ %93, %88 ]
+  %85 = sub nuw nsw i32 7, %.0.i31
   %86 = shl nuw nsw i32 1, %85
-  %87 = and i32 %86, %.08.i31
+  %87 = and i32 %86, %.08.i30
   %.not.i = icmp eq i32 %87, 0
   br i1 %.not.i, label %94, label %88
 
 88:                                               ; preds = %84
   %89 = tail call noundef i32 @_ZN2cv17QRCodeDecoderImpl9Bitstream4nextEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 8)
-  %90 = add nuw nsw i32 %.0.i32, 1
+  %90 = add nuw nsw i32 %.0.i31, 1
   %91 = shl nuw nsw i32 %90, 3
   %92 = shl i32 %89, %91
-  %93 = or i32 %92, %.08.i31
+  %93 = or i32 %92, %.08.i30
   %exitcond.not = icmp eq i32 %90, 8
   br i1 %exitcond.not, label %94, label %84, !llvm.loop !318
 
 94:                                               ; preds = %84, %88
-  %.08.i.lcssa = phi i32 [ %.08.i31, %84 ], [ %93, %88 ]
+  %.08.i.lcssa = phi i32 [ %.08.i30, %84 ], [ %93, %88 ]
   %95 = load i32, ptr %39, align 4, !tbaa !232
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %_ZN2cv17QRCodeDecoderImpl9decodeECIERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -11090,8 +11090,8 @@ _ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_trait
   %117 = ptrtoint ptr %115 to i64
   %118 = ptrtoint ptr %116 to i64
   %119 = sub i64 %117, %118
-  %.not29 = icmp ult i64 %114, %119
-  br i1 %.not29, label %42, label %_ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  %.not28 = icmp ult i64 %114, %119
+  br i1 %.not28, label %42, label %_ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 _ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZN2cv17QRCodeDecoderImpl10decodeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %49, %47, %25
   ret void

@@ -1760,7 +1760,7 @@ malloc_mutex_lock.exit:                           ; preds = %14, %20
   br label %31
 
 31:                                               ; preds = %.lr.ph, %115
-  %.02044 = phi i64 [ 0, %.lr.ph ], [ %117, %115 ]
+  %.02043 = phi i64 [ 0, %.lr.ph ], [ %117, %115 ]
   %32 = call ptr @duckdb_je_edata_cache_fast_get(ptr noundef %0, ptr noundef nonnull %24) #8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -1928,12 +1928,12 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
 115:                                              ; preds = %101, %96
   %116 = phi ptr [ %.pre.i, %101 ], [ %32, %96 ]
   store ptr %116, ptr %5, align 8, !tbaa !52
-  %117 = add nuw i64 %.02044, 1
+  %117 = add nuw i64 %.02043, 1
   %exitcond.not = icmp eq i64 %117, %4
   br i1 %exitcond.not, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %115, %malloc_mutex_lock.exit, %65, %38, %34
-  %.02031 = phi i64 [ %.02044, %65 ], [ %.02044, %38 ], [ %.02044, %34 ], [ 0, %malloc_mutex_lock.exit ], [ %4, %115 ]
+  %.02030 = phi i64 [ %.02043, %65 ], [ %.02043, %38 ], [ %.02043, %34 ], [ 0, %malloc_mutex_lock.exit ], [ %4, %115 ]
   call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %119 = call ptr @duckdb_je_psset_pick_hugify(ptr noundef nonnull %118) #8
@@ -2021,7 +2021,7 @@ hpa_shard_has_deferred_work.exit:                 ; preds = %.loopexit, %hpa_ndi
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store atomic i8 0, ptr %161 monotonic, align 1
   %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #8
-  ret i64 %.02031
+  ret i64 %.02030
 }
 
 declare void @duckdb_je_psset_insert(ptr noundef, ptr noundef) local_unnamed_addr #2

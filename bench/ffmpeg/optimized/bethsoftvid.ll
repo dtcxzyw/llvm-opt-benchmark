@@ -347,7 +347,7 @@ tailrecurse:                                      ; preds = %18
   %138 = and i32 %118, 127
   %139 = add nuw nsw i32 %138, %.098.us.i
   %140 = icmp eq i32 %139, %103
-  br i1 %140, label %.split147.us.i, label %141
+  br i1 %140, label %.split146.us.i, label %141
 
 141:                                              ; preds = %137
   %142 = icmp sgt i32 %139, %103
@@ -395,17 +395,17 @@ tailrecurse:                                      ; preds = %18
   %161 = and i32 %148, 127
   %162 = add nuw nsw i32 %161, %.098.i
   %163 = icmp eq i32 %162, %103
-  br i1 %163, label %.split147.us.i, label %168
+  br i1 %163, label %.split146.us.i, label %168
 
-.split147.us.i:                                   ; preds = %137, %160
+.split146.us.i:                                   ; preds = %137, %160
   %164 = phi i1 [ false, %160 ], [ true, %137 ]
-  %.us-phi148.i = phi i32 [ %.395.i, %160 ], [ %.395.us.i, %137 ]
-  %.us-phi149.i = phi ptr [ %146, %160 ], [ %116, %137 ]
+  %.us-phi147.i = phi i32 [ %.395.i, %160 ], [ %.395.us.i, %137 ]
+  %.us-phi148.i = phi ptr [ %146, %160 ], [ %116, %137 ]
   %165 = call i32 @avio_r8(ptr noundef %10) #5
   %.not115.i = icmp eq i32 %165, 0
   br i1 %.not115.i, label %.thread128.i, label %166
 
-166:                                              ; preds = %.split147.us.i
+166:                                              ; preds = %.split146.us.i
   %167 = call i64 @avio_seek(ptr noundef %10, i64 noundef -1, i32 noundef 1) #5
   br label %.thread128.i
 
@@ -416,18 +416,18 @@ tailrecurse:                                      ; preds = %18
 170:                                              ; preds = %168
   br i1 %.not113.i, label %.thread128.i, label %.split.i, !llvm.loop !65
 
-.thread128.i:                                     ; preds = %143, %170, %166, %.split147.us.i
-  %171 = phi i1 [ %164, %.split147.us.i ], [ %164, %166 ], [ false, %170 ], [ true, %143 ]
-  %.395144.i = phi i32 [ %.us-phi148.i, %.split147.us.i ], [ %.us-phi148.i, %166 ], [ %.395.i, %170 ], [ %.395.us.i, %143 ]
-  %172 = phi ptr [ %.us-phi149.i, %.split147.us.i ], [ %.us-phi149.i, %166 ], [ %146, %170 ], [ %116, %143 ]
-  %173 = call i32 @av_new_packet(ptr noundef %1, i32 noundef %.395144.i) #5
+.thread128.i:                                     ; preds = %143, %170, %166, %.split146.us.i
+  %171 = phi i1 [ %164, %.split146.us.i ], [ %164, %166 ], [ false, %170 ], [ true, %143 ]
+  %.395143.i = phi i32 [ %.us-phi147.i, %.split146.us.i ], [ %.us-phi147.i, %166 ], [ %.395.i, %170 ], [ %.395.us.i, %143 ]
+  %172 = phi ptr [ %.us-phi148.i, %.split146.us.i ], [ %.us-phi148.i, %166 ], [ %146, %170 ], [ %116, %143 ]
+  %173 = call i32 @av_new_packet(ptr noundef %1, i32 noundef %.395143.i) #5
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %.thread.i, label %175
 
 175:                                              ; preds = %.thread128.i
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %177 = load ptr, ptr %176, align 8, !tbaa !67
-  %178 = sext i32 %.395144.i to i64
+  %178 = sext i32 %.395143.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr nonnull align 1 %172, i64 %178, i1 false)
   %179 = shl i64 %106, 32
   %sext.i = add i64 %179, -4294967296

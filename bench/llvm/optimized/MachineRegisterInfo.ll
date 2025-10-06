@@ -2580,22 +2580,22 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo8isLiveInENS_
   %4 = load ptr, ptr %3, align 8, !tbaa !318
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %6 = load ptr, ptr %5, align 8, !tbaa !319
-  %.not20.not = icmp eq ptr %4, %6
-  br i1 %.not20.not, label %.critedge, label %.lr.ph
+  %.not21.not = icmp eq ptr %4, %6
+  br i1 %.not21.not, label %.critedge, label %.lr.ph
 
 7:                                                ; preds = %.critedge15
-  %8 = getelementptr inbounds nuw i8, ptr %.01121, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.01122, i64 8
   %.not.not = icmp eq ptr %8, %6
   br i1 %.not.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
-  %.01121 = phi ptr [ %8, %7 ], [ %4, %2 ]
-  %.sroa.0.0.copyload = load i32, ptr %.01121, align 4, !tbaa !308
+  %.01122 = phi ptr [ %8, %7 ], [ %4, %2 ]
+  %.sroa.0.0.copyload = load i32, ptr %.01122, align 4, !tbaa !308
   %9 = icmp eq i32 %.sroa.0.0.copyload, %1
   br i1 %9, label %.critedge, label %.critedge15
 
 .critedge15:                                      ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.01121, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.01122, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !320
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %.critedge, label %7
@@ -2611,23 +2611,23 @@ define dso_local i32 @_ZNK4llvm19MachineRegisterInfo16getLiveInPhysRegENS_8Regis
   %4 = load ptr, ptr %3, align 8, !tbaa !318
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %6 = load ptr, ptr %5, align 8, !tbaa !319
-  %.not19 = icmp eq ptr %4, %6
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not17 = icmp eq ptr %4, %6
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.020 = phi ptr [ %10, %.critedge ], [ %4, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.020, i64 4
+  %.018 = phi ptr [ %10, %.critedge ], [ %4, %2 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.018, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !320
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %11, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %.not = icmp eq ptr %10, %6
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
-  %12 = load i32, ptr %.020, align 4, !tbaa !308
+  %12 = load i32, ptr %.018, align 4, !tbaa !308
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %2, %11
@@ -2641,22 +2641,22 @@ define dso_local i32 @_ZNK4llvm19MachineRegisterInfo16getLiveInVirtRegENS_10MCRe
   %4 = load ptr, ptr %3, align 8, !tbaa !318
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %6 = load ptr, ptr %5, align 8, !tbaa !319
-  %.not19 = icmp eq ptr %4, %6
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not17 = icmp eq ptr %4, %6
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.020 = phi ptr [ %9, %.critedge ], [ %4, %2 ]
-  %7 = load i32, ptr %.020, align 4, !tbaa !322
+  %.018 = phi ptr [ %9, %.critedge ], [ %4, %2 ]
+  %7 = load i32, ptr %.018, align 4, !tbaa !322
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %10, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %.not = icmp eq ptr %9, %6
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.020, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.018, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !308
   br label %.loopexit
 
@@ -3553,25 +3553,25 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %.lr.ph.split
   %67 = zext i24 %.val12.i to i64
   %.idx.i.i = shl nuw nsw i64 %67, 5
   %68 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i
-  %.not4.i.i = icmp eq i24 %.val12.i, 0
-  br i1 %.not4.i.i, label %.critedge, label %.lr.ph.i.i
+  %.not7.i.i = icmp eq i24 %.val12.i, 0
+  br i1 %.not7.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %64, %select.unfold.i.i
-  %.0145.i.i = phi ptr [ %76, %select.unfold.i.i ], [ %.val.i, %64 ]
-  %69 = load i32, ptr %.0145.i.i, align 8
+  %.0148.i.i = phi ptr [ %76, %select.unfold.i.i ], [ %.val.i, %64 ]
+  %69 = load i32, ptr %.0148.i.i, align 8
   %70 = and i32 %69, 255
   %71 = icmp eq i32 %70, 10
   br i1 %71, label %72, label %select.unfold.i.i
 
 72:                                               ; preds = %.lr.ph.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %.0145.i.i, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !244
   %75 = load i8, ptr %74, align 8, !tbaa !409
-  %.not9.i.i = icmp eq i8 %75, 0
-  br i1 %.not9.i.i, label %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i, label %select.unfold.i.i
+  %.not12.i.i = icmp eq i8 %75, 0
+  br i1 %.not12.i.i, label %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i, label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %72, %.lr.ph.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %.0145.i.i, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 32
   %.not.i.i23 = icmp eq ptr %76, %68
   br i1 %.not.i.i23, label %.critedge, label %.lr.ph.i.i
 

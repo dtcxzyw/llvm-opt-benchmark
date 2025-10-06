@@ -179,18 +179,18 @@ sub_0:                                            ; preds = %1
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %43, ptr %4, align 8, !tbaa !41
   %44 = load i8, ptr %43, align 1, !tbaa !42
-  %.not2851.i = icmp eq i8 %44, 0
-  br i1 %.not2851.i, label %parse_heatmaps.exit, label %.lr.ph54.i
+  %.not2850.i = icmp eq i8 %44, 0
+  br i1 %.not2850.i, label %parse_heatmaps.exit, label %.lr.ph53.i
 
-.lr.ph54.i:                                       ; preds = %42
+.lr.ph53.i:                                       ; preds = %42
   %45 = mul i32 %39, %37
   %46 = sext i32 %45 to i64
   %smax.i = tail call i32 @llvm.smax.i32(i32 %45, i32 0)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %47
 
-47:                                               ; preds = %._crit_edge.i, %.lr.ph54.i
-  %.01952.i = phi ptr [ %5, %.lr.ph54.i ], [ %58, %._crit_edge.i ]
+47:                                               ; preds = %._crit_edge.i, %.lr.ph53.i
+  %.01951.i = phi ptr [ %5, %.lr.ph53.i ], [ %58, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = call ptr @av_get_token(ptr noundef nonnull %4, ptr noundef nonnull @.str.54) #15
   store ptr %48, ptr %6, align 8, !tbaa !41
@@ -225,12 +225,12 @@ map_alloc.exit.thread.i:                          ; preds = %49, %55
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %39, ptr %57, align 4, !tbaa !44
   store i32 %37, ptr %51, align 8, !tbaa !45
-  store ptr %51, ptr %.01952.i, align 8, !tbaa !40
+  store ptr %51, ptr %.01951.i, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %59 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef nonnull %7) #15
-  %.not3049.i = icmp eq ptr %59, null
-  br i1 %.not3049.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not3048.i = icmp eq ptr %59, null
+  br i1 %.not3048.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %62
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %62 ], [ 0, %56 ]
@@ -264,9 +264,9 @@ map_alloc.exit.thread.i:                          ; preds = %49, %55
   %68 = load ptr, ptr %4, align 8, !tbaa !41
   %69 = load i8, ptr %68, align 1, !tbaa !42
   %.not28.i = icmp eq i8 %69, 0
-  br i1 %.not28.i, label %._crit_edge55.loopexit.i, label %47
+  br i1 %.not28.i, label %._crit_edge54.loopexit.i, label %47
 
-._crit_edge55.loopexit.i:                         ; preds = %._crit_edge.i
+._crit_edge54.loopexit.i:                         ; preds = %._crit_edge.i
   %.0..0..0..0..0..pre.i = load ptr, ptr %5, align 8, !tbaa !40
   br label %parse_heatmaps.exit
 
@@ -301,8 +301,8 @@ parse_heatmaps.exit.thread:                       ; preds = %map_list_free.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
-parse_heatmaps.exit:                              ; preds = %42, %._crit_edge55.loopexit.i
-  %.0..0..i = phi ptr [ %.0..0..0..0..0..pre.i, %._crit_edge55.loopexit.i ], [ null, %42 ]
+parse_heatmaps.exit:                              ; preds = %42, %._crit_edge54.loopexit.i
+  %.0..0..i = phi ptr [ %.0..0..0..0..0..pre.i, %._crit_edge54.loopexit.i ], [ null, %42 ]
   store ptr %.0..0..i, ptr %35, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3406,22 +3406,22 @@ get_cubemap_face_map.exit.thread.thread.i:        ; preds = %25
   %36 = fneg nsz float %13
   %37 = select nsz i1 %35, float %13, float %36
   %38 = fcmp nsz ogt float %37, 0x3FE276C8C0000000
-  br i1 %38, label %39, label %.thread61.i.i
+  br i1 %38, label %39, label %.thread59.i.i
 
 39:                                               ; preds = %.thread.i.i
   %40 = fneg nsz float %18
   %41 = fdiv nsz float %40, %13
   %42 = tail call nsz float @llvm.fabs.f32(float %41)
   %43 = fcmp nsz ugt float %42, 1.000000e+00
-  br i1 %43, label %.thread61.i.i, label %44
+  br i1 %43, label %.thread59.i.i, label %44
 
 44:                                               ; preds = %39
   %45 = fdiv nsz float %20, %37
   %46 = tail call nsz float @llvm.fabs.f32(float %45)
   %47 = fcmp nsz ugt float %46, 1.000000e+00
-  br i1 %47, label %.thread61.i.i, label %get_cubemap_face_map.exit.i
+  br i1 %47, label %.thread59.i.i, label %get_cubemap_face_map.exit.i
 
-.thread61.i.i:                                    ; preds = %44, %39, %.thread.i.i
+.thread59.i.i:                                    ; preds = %44, %39, %.thread.i.i
   %48 = fdiv nsz float %13, %18
   %49 = tail call nsz float @llvm.fabs.f32(float %18)
   %50 = fdiv nsz float %22, %49
@@ -3434,17 +3434,17 @@ get_cubemap_face_map.exit.i:                      ; preds = %44
   %54 = zext i1 %53 to i64
   br label %get_cubemap_face_map.exit.thread46.i
 
-get_cubemap_face_map.exit.thread46.i:             ; preds = %get_cubemap_face_map.exit.i, %.thread61.i.i
-  %.2.i52.i = phi i64 [ %54, %get_cubemap_face_map.exit.i ], [ 4, %.thread61.i.i ]
-  %.151.i = phi float [ %52, %get_cubemap_face_map.exit.i ], [ %50, %.thread61.i.i ]
-  %.13750.i = phi float [ %41, %get_cubemap_face_map.exit.i ], [ %48, %.thread61.i.i ]
+get_cubemap_face_map.exit.thread46.i:             ; preds = %get_cubemap_face_map.exit.i, %.thread59.i.i
+  %.2.i52.i = phi i64 [ %54, %get_cubemap_face_map.exit.i ], [ 4, %.thread59.i.i ]
+  %.151.i = phi float [ %52, %get_cubemap_face_map.exit.i ], [ %50, %.thread59.i.i ]
+  %.13750.i = phi float [ %41, %get_cubemap_face_map.exit.i ], [ %48, %.thread59.i.i ]
   %55 = fneg nsz float %.151.i
   br label %get_rotated_cubemap_map.exit
 
-get_rotated_cubemap_map.exit:                     ; preds = %get_cubemap_face_map.exit.thread.thread.i, %.thread61.i.i, %get_cubemap_face_map.exit.thread46.i
-  %.2.i45.i = phi i64 [ %.2.i4457.i, %get_cubemap_face_map.exit.thread.thread.i ], [ %.2.i52.i, %get_cubemap_face_map.exit.thread46.i ], [ 5, %.thread61.i.i ]
-  %.036.i = phi nsz float [ %33, %get_cubemap_face_map.exit.thread.thread.i ], [ %55, %get_cubemap_face_map.exit.thread46.i ], [ %48, %.thread61.i.i ]
-  %.0.i = phi nsz float [ %34, %get_cubemap_face_map.exit.thread.thread.i ], [ %.13750.i, %get_cubemap_face_map.exit.thread46.i ], [ %50, %.thread61.i.i ]
+get_rotated_cubemap_map.exit:                     ; preds = %get_cubemap_face_map.exit.thread.thread.i, %.thread59.i.i, %get_cubemap_face_map.exit.thread46.i
+  %.2.i45.i = phi i64 [ %.2.i4457.i, %get_cubemap_face_map.exit.thread.thread.i ], [ %.2.i52.i, %get_cubemap_face_map.exit.thread46.i ], [ 5, %.thread59.i.i ]
+  %.036.i = phi nsz float [ %33, %get_cubemap_face_map.exit.thread.thread.i ], [ %55, %get_cubemap_face_map.exit.thread46.i ], [ %48, %.thread59.i.i ]
+  %.0.i = phi nsz float [ %34, %get_cubemap_face_map.exit.thread.thread.i ], [ %.13750.i, %get_cubemap_face_map.exit.thread46.i ], [ %50, %.thread59.i.i ]
   %56 = getelementptr inbounds nuw i32, ptr @get_rotated_cubemap_map.face_projection_map, i64 %.2.i45.i
   %57 = load i32, ptr %56, align 4, !tbaa !35
   %58 = and i32 %57, 1
@@ -3496,20 +3496,20 @@ get_rotated_cubemap_map.exit:                     ; preds = %get_cubemap_face_ma
   %94 = fneg nsz float %75
   %95 = select nsz i1 %93, float %75, float %94
   %96 = fcmp nsz ogt float %95, 0x3FE276C8C0000000
-  br i1 %96, label %97, label %.thread61.i.i16
+  br i1 %96, label %97, label %.thread59.i.i16
 
 97:                                               ; preds = %.thread.i.i15
   %98 = fneg nsz float %78
   %99 = fdiv nsz float %98, %75
   %100 = tail call nsz float @llvm.fabs.f32(float %99)
   %101 = fcmp nsz ugt float %100, 1.000000e+00
-  br i1 %101, label %.thread61.i.i16, label %102
+  br i1 %101, label %.thread59.i.i16, label %102
 
 102:                                              ; preds = %97
   %103 = fdiv nsz float %76, %95
   %104 = tail call nsz float @llvm.fabs.f32(float %103)
   %105 = fcmp nsz ugt float %104, 1.000000e+00
-  br i1 %105, label %.thread61.i.i16, label %106
+  br i1 %105, label %.thread59.i.i16, label %106
 
 106:                                              ; preds = %102
   %107 = fneg nsz float %103
@@ -3517,7 +3517,7 @@ get_rotated_cubemap_map.exit:                     ; preds = %get_cubemap_face_ma
   %109 = zext i1 %108 to i64
   br label %get_cubemap32_map.exit
 
-.thread61.i.i16:                                  ; preds = %102, %97, %.thread.i.i15
+.thread59.i.i16:                                  ; preds = %102, %97, %.thread.i.i15
   %110 = fdiv nsz float %75, %78
   %111 = tail call nsz float @llvm.fabs.f32(float %78)
   %112 = fdiv nsz float %80, %111
@@ -3525,10 +3525,10 @@ get_rotated_cubemap_map.exit:                     ; preds = %get_cubemap_face_ma
   %114 = select i1 %113, i64 4, i64 5
   br label %get_cubemap32_map.exit
 
-get_cubemap32_map.exit:                           ; preds = %90, %106, %.thread61.i.i16
-  %.014.i = phi nsz float [ %110, %.thread61.i.i16 ], [ %99, %106 ], [ %84, %90 ]
-  %.0.i18 = phi nsz float [ %112, %.thread61.i.i16 ], [ %107, %106 ], [ %85, %90 ]
-  %.2.i.i = phi i64 [ %114, %.thread61.i.i16 ], [ %109, %106 ], [ %92, %90 ]
+get_cubemap32_map.exit:                           ; preds = %90, %106, %.thread59.i.i16
+  %.014.i = phi nsz float [ %110, %.thread59.i.i16 ], [ %99, %106 ], [ %84, %90 ]
+  %.0.i18 = phi nsz float [ %112, %.thread59.i.i16 ], [ %107, %106 ], [ %85, %90 ]
+  %.2.i.i = phi i64 [ %114, %.thread59.i.i16 ], [ %109, %106 ], [ %92, %90 ]
   %115 = getelementptr inbounds nuw i32, ptr @get_cubemap32_map.face_projection_map, i64 %.2.i.i
   %116 = load i32, ptr %115, align 4, !tbaa !35
   %117 = srem i32 %116, 3

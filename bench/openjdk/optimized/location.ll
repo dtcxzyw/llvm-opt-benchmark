@@ -32,108 +32,108 @@ define hidden void @_ZNK8Location8print_onEP12outputStream(ptr noundef nonnull r
   %4 = and i32 %3, 15
   %5 = icmp eq i32 %4, 0
   %6 = and i32 %3, 16
-  %switch.not.not = icmp eq i32 %6, 0
-  br i1 %5, label %7, label %10
+  %7 = icmp eq i32 %6, 0
+  br i1 %5, label %8, label %11
 
-7:                                                ; preds = %2
-  br i1 %switch.not.not, label %8, label %9
+8:                                                ; preds = %2
+  br i1 %7, label %9, label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #4
-  br label %40
+  br label %41
 
-9:                                                ; preds = %7
+10:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4) #4
-  br label %40
+  br label %41
 
-10:                                               ; preds = %2
-  br i1 %switch.not.not, label %11, label %14
+11:                                               ; preds = %2
+  br i1 %7, label %12, label %15
 
-11:                                               ; preds = %10
-  %12 = lshr i32 %3, 3
-  %13 = and i32 %12, 536870908
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i32 noundef %13) #4
-  br label %28
+12:                                               ; preds = %11
+  %13 = lshr i32 %3, 3
+  %14 = and i32 %13, 536870908
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i32 noundef %14) #4
+  br label %29
 
-14:                                               ; preds = %10
-  %15 = lshr i32 %3, 5
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %16
-  %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i32
-  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %21 = icmp ne i32 %20, -1
+15:                                               ; preds = %11
+  %16 = lshr i32 %3, 5
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %17
+  %19 = ptrtoint ptr %18 to i64
+  %20 = trunc i64 %19 to i32
+  %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %22 = icmp ne i32 %21, -1
   %.not.i.i = icmp ult i32 %3, 19712
-  %22 = and i1 %.not.i.i, %21
-  br i1 %22, label %23, label %27
+  %23 = and i1 %.not.i.i, %22
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %14
-  %24 = sext i32 %20 to i64
-  %25 = getelementptr inbounds ptr, ptr @_ZN9VMRegImpl7regNameE, i64 %24
-  %26 = load ptr, ptr %25, align 8
+24:                                               ; preds = %15
+  %25 = sext i32 %21 to i64
+  %26 = getelementptr inbounds ptr, ptr @_ZN9VMRegImpl7regNameE, i64 %25
+  %27 = load ptr, ptr %26, align 8
   br label %_ZN9VMRegImpl4nameEv.exit
 
-27:                                               ; preds = %14
-  %.str.18..str.17.i = select i1 %21, ptr @.str.18, ptr @.str.17
+28:                                               ; preds = %15
+  %.str.18..str.17.i = select i1 %22, ptr @.str.18, ptr @.str.17
   br label %_ZN9VMRegImpl4nameEv.exit
 
-_ZN9VMRegImpl4nameEv.exit:                        ; preds = %23, %27
-  %.0.i = phi ptr [ %26, %23 ], [ %.str.18..str.17.i, %27 ]
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, ptr noundef %.0.i, i32 noundef %15) #4
-  br label %28
+_ZN9VMRegImpl4nameEv.exit:                        ; preds = %24, %28
+  %.0.i = phi ptr [ %27, %24 ], [ %.str.18..str.17.i, %28 ]
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, ptr noundef %.0.i, i32 noundef %16) #4
+  br label %29
 
-28:                                               ; preds = %_ZN9VMRegImpl4nameEv.exit, %11
-  %29 = load i32, ptr %0, align 4
-  %30 = and i32 %29, 15
-  switch i32 %30, label %39 [
-    i32 1, label %40
-    i32 2, label %31
-    i32 9, label %32
-    i32 3, label %33
-    i32 4, label %34
-    i32 5, label %35
-    i32 6, label %36
-    i32 8, label %37
-    i32 7, label %38
+29:                                               ; preds = %_ZN9VMRegImpl4nameEv.exit, %12
+  %30 = load i32, ptr %0, align 4
+  %31 = and i32 %30, 15
+  switch i32 %31, label %40 [
+    i32 1, label %41
+    i32 2, label %32
+    i32 9, label %33
+    i32 3, label %34
+    i32 4, label %35
+    i32 5, label %36
+    i32 6, label %37
+    i32 8, label %38
+    i32 7, label %39
   ]
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8) #4
-  br label %40
+  br label %41
 
-32:                                               ; preds = %28
+33:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9) #4
-  br label %40
+  br label %41
 
-33:                                               ; preds = %28
+34:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10) #4
-  br label %40
+  br label %41
 
-34:                                               ; preds = %28
+35:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #4
-  br label %40
+  br label %41
 
-35:                                               ; preds = %28
+36:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12) #4
-  br label %40
+  br label %41
 
-36:                                               ; preds = %28
+37:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13) #4
-  br label %40
+  br label %41
 
-37:                                               ; preds = %28
+38:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14) #4
-  br label %40
+  br label %41
 
-38:                                               ; preds = %28
+39:                                               ; preds = %29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15) #4
-  br label %40
+  br label %41
 
-39:                                               ; preds = %28
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16, i32 noundef %30) #4
-  br label %40
+40:                                               ; preds = %29
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16, i32 noundef %31) #4
+  br label %41
 
-40:                                               ; preds = %28, %8, %9, %39, %38, %37, %36, %35, %34, %33, %32, %31
+41:                                               ; preds = %29, %9, %10, %40, %39, %38, %37, %36, %35, %34, %33, %32
   ret void
 }
 

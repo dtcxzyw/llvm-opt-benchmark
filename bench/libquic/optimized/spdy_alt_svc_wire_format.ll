@@ -1669,16 +1669,16 @@ define noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat13PercentDecodeEPKcS2_PN
   store i64 0, ptr %4, align 8, !tbaa !9
   %5 = load ptr, ptr %2, align 8, !tbaa !23
   store i8 0, ptr %5, align 1, !tbaa !12
-  %.not43 = icmp eq ptr %0, %1
-  br i1 %.not43, label %.thread, label %.lr.ph
+  %.not42 = icmp eq ptr %0, %1
+  br i1 %.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph, %59
-  %.02744 = phi ptr [ %0, %.lr.ph ], [ %62, %59 ]
-  %8 = load i8, ptr %.02744, align 1, !tbaa !12
+  %.02743 = phi ptr [ %0, %.lr.ph ], [ %62, %59 ]
+  %8 = load i8, ptr %.02743, align 1, !tbaa !12
   %.not32 = icmp eq i8 %8, 37
   br i1 %.not32, label %22, label %9
 
@@ -1712,7 +1712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   br label %59
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw i8, ptr %.02744, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02743, i64 1
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %.thread, label %25
 
@@ -1729,7 +1729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %isdigit = icmp ult i32 %isdigittmp, 10
   %31 = select i1 %isdigit, i32 0, i32 9
   %32 = add i32 %30, %31
-  %33 = getelementptr inbounds nuw i8, ptr %.02744, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.02743, i64 2
   %34 = icmp eq ptr %33, %1
   br i1 %34, label %.thread, label %35
 
@@ -1779,7 +1779,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i37: ; pr
 
 59:                                               ; preds = %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
   %.sink = phi i64 [ %47, %56 ], [ %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
-  %.128 = phi ptr [ %33, %56 ], [ %.02744, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
+  %.128 = phi ptr [ %33, %56 ], [ %.02743, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
   store i64 %.sink, ptr %4, align 8, !tbaa !9
   %60 = load ptr, ptr %2, align 8, !tbaa !23
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.sink

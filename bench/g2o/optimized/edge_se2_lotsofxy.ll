@@ -1152,8 +1152,8 @@ define noundef double @_ZN3g2o15EdgeSE2LotsOfXY23initialEstimatePossibleERKSt3se
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !119
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not8 = icmp eq ptr %5, %6
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq ptr %5, %6
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1164,8 +1164,8 @@ define noundef double @_ZN3g2o15EdgeSE2LotsOfXY23initialEstimatePossibleERKSt3se
   br label %12
 
 12:                                               ; preds = %.lr.ph, %18
-  %.sroa.05.09 = phi ptr [ %5, %.lr.ph ], [ %19, %18 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 32
+  %.sroa.05.010 = phi ptr [ %5, %.lr.ph ], [ %19, %18 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !60
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !124
@@ -1173,13 +1173,13 @@ define noundef double @_ZN3g2o15EdgeSE2LotsOfXY23initialEstimatePossibleERKSt3se
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %12
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.09) #38
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.010) #38
   %.not = icmp eq ptr %19, %6
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %18, %12, %3
-  %spec.select = phi double [ -1.000000e+00, %3 ], [ 1.000000e+00, %12 ], [ -1.000000e+00, %18 ]
-  ret double %spec.select
+._crit_edge:                                      ; preds = %12, %18, %3
+  %20 = phi double [ -1.000000e+00, %3 ], [ -1.000000e+00, %18 ], [ 1.000000e+00, %12 ]
+  ret double %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable

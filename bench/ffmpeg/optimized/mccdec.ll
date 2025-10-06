@@ -103,19 +103,19 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   store i32 94218, ptr %20, align 4, !tbaa !40
   call void @avpriv_set_pts_info(ptr noundef nonnull %14, i32 noundef 64, i32 noundef 1, i32 noundef 30) #8
   %21 = call i32 @ff_text_eof(ptr noundef nonnull %4) #8
-  %.not96144 = icmp eq i32 %21, 0
-  br i1 %.not96144, label %.lr.ph147, label %._crit_edge
+  %.not96143 = icmp eq i32 %21, 0
+  br i1 %.not96143, label %.lr.ph146, label %._crit_edge
 
-.lr.ph147:                                        ; preds = %17
+.lr.ph146:                                        ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 15
   br label %26
 
-26:                                               ; preds = %.lr.ph147, %132
-  %.sroa.053.0146 = phi i32 [ 0, %.lr.ph147 ], [ %.sroa.053.1, %132 ]
-  %.sroa.6.0145 = phi i32 [ 0, %.lr.ph147 ], [ %.sroa.6.1, %132 ]
+26:                                               ; preds = %.lr.ph146, %132
+  %.sroa.053.0145 = phi i32 [ 0, %.lr.ph146 ], [ %.sroa.053.1, %132 ]
+  %.sroa.6.0144 = phi i32 [ 0, %.lr.ph146 ], [ %.sroa.6.1, %132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -142,7 +142,7 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   store i32 -1, ptr %11, align 4, !tbaa !43
   %30 = load i8, ptr %25, align 1, !tbaa !44
   %.not102 = icmp eq i8 %30, 0
-  br i1 %.not102, label %.thread158, label %31
+  br i1 %.not102, label %.thread157, label %31
 
 31:                                               ; preds = %29
   %32 = call i64 @strtol(ptr noundef nonnull %25, ptr noundef nonnull %9, i32 noundef 10) #8
@@ -156,31 +156,31 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
 35:                                               ; preds = %31
   %36 = call i32 @av_strncasecmp(ptr noundef nonnull %34, ptr noundef nonnull @.str.5, i64 noundef 2) #8
   %.not104 = icmp eq i32 %36, 0
-  %.pre148 = load i32, ptr %10, align 4, !tbaa !43
+  %.pre147 = load i32, ptr %10, align 4, !tbaa !43
   br i1 %.not104, label %37, label %41
 
 37:                                               ; preds = %35
-  %38 = sext i32 %.pre148 to i64
+  %38 = sext i32 %.pre147 to i64
   %39 = mul nsw i64 %38, 1000
   %40 = call i32 @av_reduce(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %39, i64 noundef 1001, i64 noundef 2147483647) #8
   %.pre = load i32, ptr %10, align 4, !tbaa !43
   br label %41
 
 41:                                               ; preds = %31, %35, %37
-  %42 = phi i32 [ %33, %31 ], [ %.pre148, %35 ], [ %.pre, %37 ]
+  %42 = phi i32 [ %33, %31 ], [ %.pre147, %35 ], [ %.pre, %37 ]
   %43 = icmp sgt i32 %42, 0
   %44 = load i32, ptr %11, align 4
   %45 = icmp sgt i32 %44, 0
   %or.cond = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond, label %46, label %.thread158
+  br i1 %or.cond, label %46, label %.thread157
 
 46:                                               ; preds = %41
   call void @avpriv_set_pts_info(ptr noundef nonnull %14, i32 noundef 64, i32 noundef %44, i32 noundef %42) #8
-  br label %.thread158
+  br label %.thread157
 
-.thread158:                                       ; preds = %29, %46, %41
-  %.sroa.6.2 = phi i32 [ %44, %46 ], [ %.sroa.6.0145, %41 ], [ %.sroa.6.0145, %29 ]
-  %.sroa.053.2 = phi i32 [ %42, %46 ], [ %.sroa.053.0146, %41 ], [ %.sroa.053.0146, %29 ]
+.thread157:                                       ; preds = %29, %46, %41
+  %.sroa.6.2 = phi i32 [ %44, %46 ], [ %.sroa.6.0144, %41 ], [ %.sroa.6.0144, %29 ]
+  %.sroa.053.2 = phi i32 [ %42, %46 ], [ %.sroa.053.0145, %41 ], [ %.sroa.053.0145, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -189,7 +189,7 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
 47:                                               ; preds = %28
   %48 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %49 = icmp ne i32 %48, 4
-  %50 = icmp slt i32 %.sroa.6.0145, 1
+  %50 = icmp slt i32 %.sroa.6.0144, 1
   %or.cond5 = select i1 %49, i1 true, i1 %50
   br i1 %or.cond5, label %132, label %51, !llvm.loop !41
 
@@ -204,8 +204,8 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   %59 = load i32, ptr %7, align 4, !tbaa !43
   %60 = sext i32 %59 to i64
   %61 = add nsw i64 %58, %60
-  %62 = zext nneg i32 %.sroa.053.0146 to i64
-  %63 = zext nneg i32 %.sroa.6.0145 to i64
+  %62 = zext nneg i32 %.sroa.053.0145 to i64
+  %63 = zext nneg i32 %.sroa.6.0144 to i64
   %64 = call i64 @av_rescale(i64 noundef %61, i64 noundef %62, i64 noundef %63) #9
   %65 = load i32, ptr %8, align 4, !tbaa !43
   %66 = sext i32 %65 to i64
@@ -217,13 +217,13 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   %72 = select i1 %68, i64 %71, i64 %69
   %73 = call i64 @ff_text_pos(ptr noundef nonnull %4) #8
   %74 = load i8, ptr %22, align 4, !tbaa !44
-  %.not105135 = icmp eq i8 %74, 0
-  br i1 %.not105135, label %.thread126, label %.lr.ph
+  %.not105134 = icmp eq i8 %74, 0
+  br i1 %.not105134, label %.thread126, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51, %.thread
   %75 = phi i8 [ %115, %.thread ], [ %74, %51 ]
-  %.076137 = phi i32 [ %112, %.thread ], [ 0, %51 ]
-  %.080136 = phi i32 [ %.5, %.thread ], [ 0, %51 ]
+  %.076136 = phi i32 [ %112, %.thread ], [ 0, %51 ]
+  %.080135 = phi i32 [ %.5, %.thread ], [ 0, %51 ]
   %76 = icmp ugt i8 %75, 96
   %77 = icmp samesign ugt i8 %75, 64
   %..i = select i1 %77, i8 -55, i8 -48
@@ -242,7 +242,7 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   br i1 %.not106, label %.thread, label %85
 
 85:                                               ; preds = %80
-  %86 = sext i32 %.080136 to i64
+  %86 = sext i32 %.080135 to i64
   %87 = sext i32 %84 to i64
   %88 = sub nsw i64 4095, %87
   %.not107 = icmp ugt i64 %88, %86
@@ -253,20 +253,20 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   %91 = getelementptr i8, ptr %82, i64 -248
   %92 = load ptr, ptr %91, align 8, !tbaa !47
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr align 1 %92, i64 %87, i1 false)
-  %93 = add nsw i32 %84, %.080136
+  %93 = add nsw i32 %84, %.080135
   br label %.thread
 
 94:                                               ; preds = %.lr.ph
-  %95 = add i32 %.076137, -4082
+  %95 = add i32 %.076136, -4082
   %96 = icmp ult i32 %95, -4095
   br i1 %96, label %.thread126, label %97
 
 97:                                               ; preds = %94
-  %98 = icmp ugt i32 %.080136, 4094
+  %98 = icmp ugt i32 %.080135, 4094
   br i1 %98, label %.thread126, label %99
 
 99:                                               ; preds = %97
-  %100 = add nsw i32 %.076137, 1
+  %100 = add nsw i32 %.076136, 1
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %22, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !44
@@ -275,17 +275,17 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   %..i114 = select i1 %105, i8 -55, i8 -48
   %.sink.i115 = select i1 %104, i8 -87, i8 %..i114
   %106 = add i8 %.sink.i115, %103
-  %107 = zext nneg i32 %.080136 to i64
+  %107 = zext nneg i32 %.080135 to i64
   %108 = shl i8 %78, 4
   %109 = or i8 %106, %108
-  %110 = add nuw nsw i32 %.080136, 1
+  %110 = add nuw nsw i32 %.080135, 1
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 %107
   store i8 %109, ptr %111, align 1, !tbaa !44
   br label %.thread
 
 .thread:                                          ; preds = %80, %89, %99
-  %.5 = phi i32 [ %110, %99 ], [ %.080136, %80 ], [ %93, %89 ]
-  %.278 = phi i32 [ %100, %99 ], [ %.076137, %80 ], [ %.076137, %89 ]
+  %.5 = phi i32 [ %110, %99 ], [ %.080135, %80 ], [ %93, %89 ]
+  %.278 = phi i32 [ %100, %99 ], [ %.076136, %80 ], [ %.076136, %89 ]
   %112 = add nsw i32 %.278, 1
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds i8, ptr %22, i64 %113
@@ -294,7 +294,7 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   br i1 %.not105, label %.thread126, label %.lr.ph
 
 .thread126:                                       ; preds = %.thread, %85, %94, %97, %51
-  %.181 = phi i32 [ 0, %51 ], [ 0, %97 ], [ %.080136, %94 ], [ 0, %85 ], [ %.5, %.thread ]
+  %.181 = phi i32 [ 0, %51 ], [ 0, %97 ], [ %.080135, %94 ], [ 0, %85 ], [ %.5, %.thread ]
   %116 = sext i32 %.181 to i64
   %117 = getelementptr inbounds i8, ptr %2, i64 %116
   store i8 0, ptr %117, align 1, !tbaa !44
@@ -317,9 +317,9 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   %126 = zext nneg i8 %narrow to i64
   %127 = call ptr @ff_subtitles_queue_insert(ptr noundef %13, ptr noundef nonnull %125, i64 noundef %126, i32 noundef 0) #8
   %.not111 = icmp eq ptr %127, null
-  br i1 %.not111, label %.thread131, label %128
+  br i1 %.not111, label %.thread130, label %128
 
-.thread131:                                       ; preds = %123
+.thread130:                                       ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -335,9 +335,9 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   store i64 1, ptr %131, align 8, !tbaa !50
   br label %132
 
-132:                                              ; preds = %.thread126, %47, %26, %128, %.thread158
-  %.sroa.6.1 = phi i32 [ %.sroa.6.0145, %128 ], [ %.sroa.6.2, %.thread158 ], [ %.sroa.6.0145, %26 ], [ %.sroa.6.0145, %47 ], [ %.sroa.6.0145, %.thread126 ]
-  %.sroa.053.1 = phi i32 [ %.sroa.053.0146, %128 ], [ %.sroa.053.2, %.thread158 ], [ %.sroa.053.0146, %26 ], [ %.sroa.053.0146, %47 ], [ %.sroa.053.0146, %.thread126 ]
+132:                                              ; preds = %.thread126, %47, %26, %128, %.thread157
+  %.sroa.6.1 = phi i32 [ %.sroa.6.0144, %128 ], [ %.sroa.6.2, %.thread157 ], [ %.sroa.6.0144, %26 ], [ %.sroa.6.0144, %47 ], [ %.sroa.6.0144, %.thread126 ]
+  %.sroa.053.1 = phi i32 [ %.sroa.053.0145, %128 ], [ %.sroa.053.2, %.thread157 ], [ %.sroa.053.0145, %26 ], [ %.sroa.053.0145, %47 ], [ %.sroa.053.0145, %.thread126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -350,8 +350,8 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   call void @ff_subtitles_queue_finalize(ptr noundef %0, ptr noundef %13) #8
   br label %134
 
-134:                                              ; preds = %.thread131, %1, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %1 ], [ -12, %.thread131 ]
+134:                                              ; preds = %.thread130, %1, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %1 ], [ -12, %.thread130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

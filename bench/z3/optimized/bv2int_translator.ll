@@ -1789,21 +1789,21 @@ _ZNK11ast_manager5is_eqEPK4expr.exit:             ; preds = %9
   %24 = zext i32 %23 to i64
   %.idx.i = shl nuw nsw i64 %24, 3
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
-  %.not1.not.i = icmp eq i32 %23, 0
-  br i1 %.not1.not.i, label %.loopexit, label %.lr.ph.i
+  %.not2.not.i = icmp eq i32 %23, 0
+  br i1 %.not2.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
 27:                                               ; preds = %29
-  %28 = getelementptr inbounds nuw i8, ptr %.0132.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 8
   %.not.not.i = icmp eq ptr %28, %25
   br i1 %.not.not.i, label %.loopexit, label %29
 
 29:                                               ; preds = %27, %.lr.ph.i
-  %.0132.i = phi ptr [ %21, %.lr.ph.i ], [ %28, %27 ]
-  %30 = load ptr, ptr %.0132.i, align 8, !tbaa !44
+  %.0133.i = phi ptr [ %21, %.lr.ph.i ], [ %28, %27 ]
+  %30 = load ptr, ptr %.0133.i, align 8, !tbaa !44
   %31 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %30)
   %32 = tail call noundef zeroext i1 @_ZNK14bv_recognizers10is_bv_sortEPK4sort(ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef %31)
   br i1 %32, label %"_Z6any_ofI3appZN17bv2int_translator15translate_basicEPS0_E3$_0EbRKT_RKT0_.exit", label %27
@@ -12435,8 +12435,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %10
-  %.not4.not.i = icmp eq i32 %8, 0
-  br i1 %.not4.not.i, label %"_Z6any_ofI10ref_vectorI4expr11ast_managerEZN17bv2int_translator10is_boundedEPS1_RK8rationalE3$_0EbRKT_RKT0_.exit", label %.lr.ph.i
+  %.not5.not.i = icmp eq i32 %8, 0
+  br i1 %.not5.not.i, label %"_Z6any_ofI10ref_vectorI4expr11ast_managerEZN17bv2int_translator10is_boundedEPS1_RK8rationalE3$_0EbRKT_RKT0_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -12459,8 +12459,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.ithread-pre-split
   %21 = phi ptr [ %.pr, %.lr.ph.split.ithread-pre-split ], [ %16, %.lr.ph.split.i.preheader ]
-  %.0135.i = phi ptr [ %81, %.lr.ph.split.ithread-pre-split ], [ %.val, %.lr.ph.split.i.preheader ]
-  %22 = load ptr, ptr %.0135.i, align 8, !tbaa !44
+  %.0136.i = phi ptr [ %81, %.lr.ph.split.ithread-pre-split ], [ %.val, %.lr.ph.split.i.preheader ]
+  %22 = load ptr, ptr %.0136.i, align 8, !tbaa !44
   %23 = icmp eq ptr %21, null
   br i1 %23, label %"_ZZN17bv2int_translator10is_boundedEP4exprRK8rationalENK3$_0clES1_.exit.thread.i", label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i
 
@@ -12581,7 +12581,7 @@ _ZN17bv2int_translator7bv_sizeEP4expr.exit.i.i:   ; preds = %31
   br i1 %.0.i.i.i.i.i.i, label %"_ZZN17bv2int_translator10is_boundedEP4exprRK8rationalENK3$_0clES1_.exit.thread.i", label %"_Z6any_ofI10ref_vectorI4expr11ast_managerEZN17bv2int_translator10is_boundedEPS1_RK8rationalE3$_0EbRKT_RKT0_.exit"
 
 "_ZZN17bv2int_translator10is_boundedEP4exprRK8rationalENK3$_0clES1_.exit.thread.i": ; preds = %"_ZZN17bv2int_translator10is_boundedEP4exprRK8rationalENK3$_0clES1_.exit.i", %_ZNK17bv2int_translator13is_translatedEP4expr.exit.i.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i, %.lr.ph.split.i
-  %81 = getelementptr inbounds nuw i8, ptr %.0135.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0136.i, i64 8
   %.not.not.i = icmp eq ptr %81, %11
   br i1 %.not.not.i, label %"_Z6any_ofI10ref_vectorI4expr11ast_managerEZN17bv2int_translator10is_boundedEPS1_RK8rationalE3$_0EbRKT_RKT0_.exit", label %.lr.ph.split.ithread-pre-split, !llvm.loop !224
 

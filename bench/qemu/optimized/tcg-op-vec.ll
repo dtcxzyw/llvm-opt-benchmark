@@ -15,12 +15,12 @@ define dso_local noundef zeroext i1 @tcg_can_emit_vecop_list(ptr noundef readonl
 
 .preheader:                                       ; preds = %3
   %5 = load i32, ptr %0, align 4
-  %.not45 = icmp eq i32 %5, 0
-  br i1 %.not45, label %.loopexit, label %.lr.ph
+  %.not43 = icmp eq i32 %5, 0
+  br i1 %.not43, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %31
   %6 = phi i32 [ %33, %31 ], [ %5, %.preheader ]
-  %.03046 = phi ptr [ %32, %31 ], [ %0, %.preheader ]
+  %.03044 = phi ptr [ %32, %31 ], [ %0, %.preheader ]
   %7 = tail call i32 @tcg_can_emit_vec_op(i32 noundef %6, i32 noundef %1, i32 noundef %2) #5
   %.not33 = icmp eq i32 %7, 0
   br i1 %.not33, label %8, label %31
@@ -89,7 +89,7 @@ define dso_local noundef zeroext i1 @tcg_can_emit_vecop_list(ptr noundef readonl
   br i1 %.not34, label %.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph, %9, %19, %16, %13, %23, %21, %27, %25, %29
-  %32 = getelementptr inbounds nuw i8, ptr %.03046, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.03044, i64 4
   %33 = load i32, ptr %32, align 4
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4

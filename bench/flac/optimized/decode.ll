@@ -787,7 +787,7 @@ switch.lookup:                                    ; preds = %283
   %318 = load i32, ptr %317, align 4
   %.not103.i = icmp eq i32 %318, 0
   %or.cond47 = select i1 %.not102.i, i1 %.not103.i, i1 false
-  br i1 %or.cond47, label %319, label %.thread125.i
+  br i1 %or.cond47, label %319, label %.thread123.i
 
 319:                                              ; preds = %314
   %320 = load ptr, ptr @stderr, align 8, !tbaa !68
@@ -795,7 +795,7 @@ switch.lookup:                                    ; preds = %283
   call fastcc void @print_error_with_state(ptr noundef nonnull %8, ptr noundef nonnull @.str.70)
   %321 = load i32, ptr %54, align 8, !tbaa !44
   %.not104.i = icmp eq i32 %321, 0
-  br i1 %.not104.i, label %.loopexit, label %.thread125.i
+  br i1 %.not104.i, label %.loopexit, label %.thread123.i
 
 ._crit_edge:                                      ; preds = %332, %.preheader.i17
   %322 = load ptr, ptr @stderr, align 8, !tbaa !68
@@ -807,7 +807,7 @@ switch.lookup:                                    ; preds = %283
   %323 = load ptr, ptr %83, align 8, !tbaa !70
   %324 = call i32 @FLAC__stream_decoder_get_state(ptr noundef %323) #15
   %325 = icmp eq i32 %324, 4
-  br i1 %325, label %.thread125.i, label %326
+  br i1 %325, label %.thread123.i, label %326
 
 326:                                              ; preds = %.lr.ph
   %327 = load ptr, ptr %83, align 8, !tbaa !70
@@ -837,7 +837,7 @@ switch.lookup:                                    ; preds = %283
   %or.cond48 = select i1 %.not105.i, i1 %.not106.i, i1 false
   br i1 %or.cond48, label %._crit_edge, label %.lr.ph
 
-.thread125.i:                                     ; preds = %.lr.ph, %319, %314
+.thread123.i:                                     ; preds = %.lr.ph, %319, %314
   %338 = load i32, ptr %74, align 8, !tbaa !76
   %.not110.i = icmp ne i32 %338, 0
   %339 = getelementptr inbounds nuw i8, ptr %8, i64 1308
@@ -849,7 +849,7 @@ switch.lookup:                                    ; preds = %283
   %or.cond51 = select i1 %or.cond50, i1 %.not112.i, i1 false
   br i1 %or.cond51, label %347, label %342
 
-342:                                              ; preds = %.thread125.i
+342:                                              ; preds = %.thread123.i
   %343 = load ptr, ptr %83, align 8, !tbaa !70
   %344 = call i32 @FLAC__stream_decoder_get_state(ptr noundef %343) #15
   %345 = icmp ugt i32 %344, 4
@@ -858,7 +858,7 @@ switch.lookup:                                    ; preds = %283
   %or.cond53 = select i1 %345, i1 %.not113.i, i1 false
   br i1 %or.cond53, label %347, label %349
 
-347:                                              ; preds = %342, %.thread125.i
+347:                                              ; preds = %342, %.thread123.i
   %348 = load ptr, ptr @stderr, align 8, !tbaa !68
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %348, i32 noundef 2, ptr noundef nonnull @.str.66) #15
   call fastcc void @print_error_with_state(ptr noundef nonnull %8, ptr noundef nonnull @.str.71)
@@ -894,16 +894,16 @@ switch.lookup:                                    ; preds = %283
   %367 = sub i32 0, %365
   %368 = and i32 %367, 7
   %.0.i18 = select i1 %.not117.i, i32 %368, i32 %366
-  %.not118.not130.i = icmp eq i32 %.0.i18, 0
-  br i1 %.not118.not130.i, label %DecoderSession_process.exit, label %.lr.ph.i
+  %.not118.not127.i = icmp eq i32 %.0.i18, 0
+  br i1 %.not118.not127.i, label %DecoderSession_process.exit, label %.lr.ph.i
 
 369:                                              ; preds = %.lr.ph.i
-  %370 = add nsw i32 %.1131.i, -1
+  %370 = add nsw i32 %.1128.i, -1
   %.not118.not.i = icmp eq i32 %370, 0
   br i1 %.not118.not.i, label %DecoderSession_process.exit, label %.lr.ph.i, !llvm.loop !81
 
 .lr.ph.i:                                         ; preds = %354, %369
-  %.1131.i = phi i32 [ %370, %369 ], [ %.0.i18, %354 ]
+  %.1128.i = phi i32 [ %370, %369 ], [ %.0.i18, %354 ]
   %371 = load ptr, ptr %84, align 8, !tbaa !67
   %372 = call i64 @fwrite(ptr noundef nonnull @.str.72, i64 noundef 1, i64 noundef 1, ptr noundef %371)
   %.not119.i = icmp eq i64 %372, 1

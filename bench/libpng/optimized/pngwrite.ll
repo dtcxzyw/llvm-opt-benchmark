@@ -2725,8 +2725,8 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 -1, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %2, i8 0, i64 768, i1 false)
-  %.not15.i = icmp eq i32 %63, 0
-  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not16.i = icmp eq i32 %63, 0
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55
   %68 = lshr i32 %65, 3
@@ -2755,13 +2755,13 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %89 = zext nneg i32 %67 to i64
-  %wide.trip.count39.i = zext nneg i32 %spec.select.i to i64
+  %wide.trip.count40.i = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %120, %.lr.ph.split.us.i
-  %indvars.iv36.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %indvars.iv.next37.i, %120 ]
+  %indvars.iv37.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %indvars.iv.next38.i, %120 ]
   %.01223.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.6.us.i, %120 ]
-  %90 = mul nuw nsw i64 %indvars.iv36.i, %89
+  %90 = mul nuw nsw i64 %indvars.iv37.i, %89
   %91 = getelementptr inbounds nuw i8, ptr %.val161, i64 %90
   switch i32 %66, label %default.unreachable [
     i32 3, label %104
@@ -2773,10 +2773,10 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 92:                                               ; preds = %.lr.ph.split.us.split.i
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 %87
   %94 = load i8, ptr %93, align 1, !tbaa !45
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv36.i
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv37.i
   store i8 %94, ptr %95, align 1, !tbaa !45
   %.not125.us.i = icmp eq i8 %94, -1
-  %96 = trunc i64 %indvars.iv36.i to i32
+  %96 = trunc i64 %indvars.iv37.i to i32
   %97 = add i32 %96, 1
   %spec.select130.us.i = select i1 %.not125.us.i, i32 %.01223.us.i, i32 %97
   br label %98
@@ -2788,7 +2788,7 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   %.4.us.i = phi i32 [ %.01223.us.i, %.lr.ph.split.us.split.i ], [ %spec.select130.us.i, %92 ]
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 %77
   %100 = load i8, ptr %99, align 1, !tbaa !45
-  %101 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv36.i
+  %101 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv37.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
   store i8 %100, ptr %102, align 1, !tbaa !218
   store i8 %100, ptr %101, align 1, !tbaa !220
@@ -2799,10 +2799,10 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
 104:                                              ; preds = %.lr.ph.split.us.split.i
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 %88
   %106 = load i8, ptr %105, align 1, !tbaa !45
-  %107 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv36.i
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv37.i
   store i8 %106, ptr %107, align 1, !tbaa !45
   %.not126.us.i = icmp eq i8 %106, -1
-  %108 = trunc i64 %indvars.iv36.i to i32
+  %108 = trunc i64 %indvars.iv37.i to i32
   %109 = add i32 %108, 1
   %spec.select129.us.i = select i1 %.not126.us.i, i32 %.01223.us.i, i32 %109
   br label %110
@@ -2811,7 +2811,7 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   %.3.us.i = phi i32 [ %.01223.us.i, %.lr.ph.split.us.split.i ], [ %spec.select129.us.i, %104 ]
   %111 = getelementptr inbounds nuw i8, ptr %91, i64 %80
   %112 = load i8, ptr %111, align 1, !tbaa !45
-  %113 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv36.i
+  %113 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv37.i
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 2
   store i8 %112, ptr %114, align 1, !tbaa !221
   %115 = getelementptr inbounds nuw i8, ptr %91, i64 %81
@@ -2825,23 +2825,23 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
 
 120:                                              ; preds = %110, %98
   %.6.us.i = phi i32 [ %.3.us.i, %110 ], [ %.4.us.i, %98 ]
-  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !222
+  %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
+  %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
+  br i1 %exitcond41.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !222
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %121 = and i32 %65, 1
   %.not127.not.i = icmp eq i32 %121, 0
   %122 = zext nneg i32 %67 to i64
-  %wide.trip.count34.i = zext nneg i32 %spec.select.i to i64
+  %wide.trip.count35.i = zext nneg i32 %spec.select.i to i64
   br i1 %.not127.not.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i
   br i1 %76, label %.lr.ph.split.split.us.split.us.i, label %.lr.ph.split.split.us.split.i
 
 .lr.ph.split.split.us.split.us.i:                 ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.split.us.split.us.i
-  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.lr.ph.split.split.us.split.us.i ], [ 0, %.lr.ph.split.split.us.i ]
-  %123 = mul nuw nsw i64 %indvars.iv31.i, %122
+  %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.lr.ph.split.split.us.split.us.i ], [ 0, %.lr.ph.split.split.us.i ]
+  %123 = mul nuw nsw i64 %indvars.iv32.i, %122
   %124 = getelementptr inbounds nuw i16, ptr %.val161, i64 %123
   %125 = getelementptr inbounds nuw i16, ptr %124, i64 %84
   %126 = load i16, ptr %125, align 2, !tbaa !223
@@ -2861,7 +2861,7 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   %140 = add nuw nsw i32 %139, %133
   %141 = lshr i32 %140, 8
   %142 = trunc i32 %141 to i8
-  %143 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv31.i
+  %143 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv32.i
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 2
   store i8 %142, ptr %144, align 1, !tbaa !221
   %145 = getelementptr inbounds nuw i8, ptr %124, i64 2
@@ -2903,13 +2903,13 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   %180 = lshr i32 %179, 8
   %181 = trunc i32 %180 to i8
   store i8 %181, ptr %143, align 1, !tbaa !220
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
-  br i1 %exitcond35.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.split.us.i, !llvm.loop !222
+  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
+  %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
+  br i1 %exitcond36.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.split.us.i, !llvm.loop !222
 
 .lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.split.us.split.i
-  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.lr.ph.split.split.us.split.i ], [ 0, %.lr.ph.split.split.us.i ]
-  %182 = mul nuw nsw i64 %indvars.iv26.i, %122
+  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.lr.ph.split.split.us.split.i ], [ 0, %.lr.ph.split.split.us.i ]
+  %182 = mul nuw nsw i64 %indvars.iv27.i, %122
   %183 = getelementptr inbounds nuw i16, ptr %.val161, i64 %182
   %184 = load i16, ptr %183, align 2, !tbaa !223
   %185 = zext i16 %184 to i32
@@ -2928,23 +2928,23 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   %198 = add nuw nsw i32 %197, %191
   %199 = lshr i32 %198, 8
   %200 = trunc i32 %199 to i8
-  %201 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv26.i
+  %201 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv27.i
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 1
   store i8 %200, ptr %202, align 1, !tbaa !218
   store i8 %200, ptr %201, align 1, !tbaa !220
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 2
   store i8 %200, ptr %203, align 1, !tbaa !221
-  %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count34.i
-  br i1 %exitcond30.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.split.i, !llvm.loop !222
+  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
+  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count35.i
+  br i1 %exitcond31.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.split.i, !llvm.loop !222
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i
   br i1 %76, label %.lr.ph.split.split.split.us.i, label %.lr.ph.split.split.split.i
 
 .lr.ph.split.split.split.us.i:                    ; preds = %.lr.ph.split.split.i, %png_unpremultiply.exit140.us.i
-  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.i ]
+  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.i ]
   %.01223.us11.i = phi i32 [ %spec.select128.us.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.i ]
-  %204 = mul nuw nsw i64 %indvars.iv21.i, %122
+  %204 = mul nuw nsw i64 %indvars.iv22.i, %122
   %205 = getelementptr inbounds nuw i16, ptr %.val161, i64 %204
   %206 = getelementptr inbounds nuw i16, ptr %205, i64 %75
   %207 = load i16, ptr %206, align 2, !tbaa !223
@@ -2954,10 +2954,9 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   %211 = lshr i32 %210, 16
   %212 = trunc nuw i32 %211 to i8
   %.not1.us.i = icmp eq i32 %211, 255
-  switch i32 %211, label %213 [
-    i32 255, label %217
-    i32 0, label %217
-  ]
+  %.off.us.i = add nsw i32 %211, -1
+  %switch.us.i = icmp ult i32 %.off.us.i, 254
+  br i1 %switch.us.i, label %213, label %217
 
 213:                                              ; preds = %.lr.ph.split.split.split.us.i
   %214 = lshr i32 %208, 1
@@ -2965,12 +2964,12 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   %216 = udiv i32 %215, %208
   br label %217
 
-217:                                              ; preds = %213, %.lr.ph.split.split.split.us.i, %.lr.ph.split.split.split.us.i
-  %.0.us.i = phi i32 [ %216, %213 ], [ 0, %.lr.ph.split.split.split.us.i ], [ 0, %.lr.ph.split.split.split.us.i ]
-  %218 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv21.i
+217:                                              ; preds = %213, %.lr.ph.split.split.split.us.i
+  %.0.us.i = phi i32 [ %216, %213 ], [ 0, %.lr.ph.split.split.split.us.i ]
+  %218 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   store i8 %212, ptr %218, align 1, !tbaa !45
-  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %219 = trunc nuw nsw i64 %indvars.iv.next22.i to i32
+  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
+  %219 = trunc nuw nsw i64 %indvars.iv.next23.i to i32
   %spec.select128.us.i = select i1 %.not1.us.i, i32 %.01223.us11.i, i32 %219
   %220 = getelementptr inbounds nuw i16, ptr %205, i64 %80
   %221 = load i16, ptr %220, align 2, !tbaa !223
@@ -3009,7 +3008,7 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
 
 png_unpremultiply.exit.us.i:                      ; preds = %226, %225, %217
   %.0.i.us.i = phi i8 [ %245, %226 ], [ -1, %217 ], [ 0, %225 ]
-  %246 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv21.i
+  %246 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv22.i
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 2
   store i8 %.0.i.us.i, ptr %247, align 1, !tbaa !221
   %248 = getelementptr inbounds nuw i16, ptr %205, i64 %81
@@ -3087,8 +3086,8 @@ png_unpremultiply.exit135.us.i:                   ; preds = %253, %252, %png_unp
 png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unpremultiply.exit135.us.i
   %.0.i139.us.i = phi i8 [ %298, %279 ], [ -1, %png_unpremultiply.exit135.us.i ], [ 0, %278 ]
   store i8 %.0.i139.us.i, ptr %246, align 1, !tbaa !220
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count34.i
-  br i1 %exitcond25.not.i, label %._crit_edge.i, label %.lr.ph.split.split.split.us.i, !llvm.loop !222
+  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count35.i
+  br i1 %exitcond26.not.i, label %._crit_edge.i, label %.lr.ph.split.split.split.us.i, !llvm.loop !222
 
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.split.i, %png_unpremultiply.exit145.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %png_unpremultiply.exit145.i ], [ 0, %.lr.ph.split.split.i ]
@@ -3103,10 +3102,9 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
   %306 = lshr i32 %305, 16
   %307 = trunc nuw i32 %306 to i8
   %.not1.i = icmp eq i32 %306, 255
-  switch i32 %306, label %308 [
-    i32 255, label %312
-    i32 0, label %312
-  ]
+  %.off.i = add nsw i32 %306, -1
+  %switch.i = icmp ult i32 %.off.i, 254
+  br i1 %switch.i, label %308, label %312
 
 308:                                              ; preds = %.lr.ph.split.split.split.i
   %309 = lshr i32 %303, 1
@@ -3114,8 +3112,8 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
   %311 = udiv i32 %310, %303
   br label %312
 
-312:                                              ; preds = %308, %.lr.ph.split.split.split.i, %.lr.ph.split.split.split.i
-  %.0.i = phi i32 [ %311, %308 ], [ 0, %.lr.ph.split.split.split.i ], [ 0, %.lr.ph.split.split.split.i ]
+312:                                              ; preds = %308, %.lr.ph.split.split.split.i
+  %.0.i = phi i32 [ %311, %308 ], [ 0, %.lr.ph.split.split.split.i ]
   %313 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %307, ptr %313, align 1, !tbaa !45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3164,7 +3162,7 @@ png_unpremultiply.exit145.i:                      ; preds = %321, %320, %312
   store i8 %.0.i144.i, ptr %341, align 1, !tbaa !220
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 2
   store i8 %.0.i144.i, ptr %343, align 1, !tbaa !221
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count34.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count35.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.split.i, !llvm.loop !222
 
 ._crit_edge.i:                                    ; preds = %png_unpremultiply.exit145.i, %png_unpremultiply.exit140.us.i, %.lr.ph.split.split.us.split.i, %.lr.ph.split.split.us.split.us.i, %120, %55
@@ -3888,10 +3886,9 @@ define internal noundef i32 @png_write_image_8bit(ptr noundef readonly captures(
   %38 = trunc nuw i32 %37 to i8
   %39 = getelementptr inbounds i8, ptr %.07184.us, i64 %.070
   store i8 %38, ptr %39, align 1, !tbaa !45
-  switch i32 %37, label %40 [
-    i32 255, label %44
-    i32 0, label %44
-  ]
+  %.off.us = add nsw i32 %37, -1
+  %switch.us = icmp ult i32 %.off.us, 254
+  br i1 %switch.us, label %40, label %44
 
 40:                                               ; preds = %31
   %41 = lshr i32 %34, 1
@@ -3899,8 +3896,8 @@ define internal noundef i32 @png_write_image_8bit(ptr noundef readonly captures(
   %43 = udiv i32 %42, %34
   br label %44
 
-44:                                               ; preds = %40, %31, %31
-  %.067.us = phi i32 [ %43, %40 ], [ 0, %31 ], [ 0, %31 ]
+44:                                               ; preds = %40, %31
+  %.067.us = phi i32 [ %43, %40 ], [ 0, %31 ]
   %45 = icmp ult i16 %.fr, 128
   %46 = icmp ult i16 %.fr, -129
   br i1 %45, label %png_unpremultiply.exit.us.us.preheader, label %.split.us95

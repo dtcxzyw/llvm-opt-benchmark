@@ -3181,8 +3181,8 @@ _ZN9grpc_core12_GLOBAL__N_16LoadedEv.exit:        ; preds = %3, %11, %13
   unreachable
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.preheader, %.critedge
-  %.02651 = phi i64 [ %47, %.critedge ], [ 0, %.critedge.preheader.preheader ]
-  %18 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.02651
+  %.02649 = phi i64 [ %47, %.critedge ], [ 0, %.critedge.preheader.preheader ]
+  %18 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.02649
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #26
   %21 = icmp eq i64 %20, %0
@@ -3212,7 +3212,7 @@ _ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br label %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit
 
 _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit: ; preds = %_ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit, %26, %.preheader.preheader.i
-  %28 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.02651
+  %28 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.02649
   %29 = load i8, ptr %28, align 2, !tbaa !33, !range !31, !noundef !32
   %30 = trunc nuw i8 %29 to i1
   %31 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments acquire, align 8
@@ -3279,53 +3279,53 @@ _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit39: ; preds = %_ZN9grpc_cor
   br label %.critedge29.thread
 
 .critedge:                                        ; preds = %.critedge.preheader, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %47 = add nuw nsw i64 %.02651, 1
+  %47 = add nuw nsw i64 %.02649, 1
   %exitcond.not = icmp eq i64 %47, 29
-  br i1 %exitcond.not, label %48, label %.critedge.preheader, !llvm.loop !149
+  br i1 %exitcond.not, label %.critedge29, label %.critedge.preheader, !llvm.loop !149
 
-48:                                               ; preds = %.critedge
+.critedge29:                                      ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.5, i32 noundef 286) #30
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, ptr nonnull @.str.13)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit unwind label %54
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit unwind label %53
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; preds = %48
-  %49 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %0, ptr %1)
-          to label %50 unwind label %54
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; preds = %.critedge29
+  %48 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %0, ptr %1)
+          to label %49 unwind label %53
 
-50:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %49, i64 20, ptr nonnull @.str.14)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit unwind label %54
+49:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 20, ptr nonnull @.str.14)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit unwind label %53
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; preds = %50
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %51 = select i1 %2, ptr @.str.15, ptr @.str.16
-  store ptr %51, ptr %7, align 8, !tbaa !92
-  %52 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %53 unwind label %56
+  %50 = select i1 %2, ptr @.str.15, ptr @.str.16
+  store ptr %50, ptr %7, align 8, !tbaa !92
+  %51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %52 unwind label %55
 
-53:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit
+52:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge29.thread
 
-.critedge29.thread:                               ; preds = %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit33, %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit39, %53
+.critedge29.thread:                               ; preds = %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit33, %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit39, %52
   ret void
 
-54:                                               ; preds = %50, %48, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %49, %.critedge29, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit
+  %54 = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %57
 
-56:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %58
+  br label %57
 
-58:                                               ; preds = %56, %54
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
+57:                                               ; preds = %55, %53
+  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn

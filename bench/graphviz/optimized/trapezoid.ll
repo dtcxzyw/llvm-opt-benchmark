@@ -797,10 +797,10 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
 
 207:                                              ; preds = %.lr.ph, %630
   %208 = phi ptr [ %.pre, %.lr.ph ], [ %631, %630 ]
-  %.0559649 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %630 ]
-  %.0561648 = phi i32 [ %.0554, %.lr.ph ], [ %.2563, %630 ]
-  %.0564647 = phi i32 [ 0, %.lr.ph ], [ %.2566, %630 ]
-  %209 = zext nneg i32 %.0561648 to i64
+  %.0559648 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %630 ]
+  %.0561647 = phi i32 [ %.0554, %.lr.ph ], [ %.2563, %630 ]
+  %.0564646 = phi i32 [ 0, %.lr.ph ], [ %.2566, %630 ]
+  %209 = zext nneg i32 %.0561647 to i64
   %210 = getelementptr inbounds nuw %struct.trap_t, ptr %208, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = getelementptr inbounds %struct.trap_t, ptr %208, i64 %205
@@ -843,7 +843,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   %237 = getelementptr inbounds %struct.qnode_t, ptr %230, i64 %236
   store i32 3, ptr %237, align 8, !tbaa !14
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store i32 %.0561648, ptr %238, align 8, !tbaa !39
+  store i32 %.0561647, ptr %238, align 8, !tbaa !39
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 28
   store i32 %227, ptr %239, align 4, !tbaa !21
   %240 = sext i32 %229 to i64
@@ -861,8 +861,8 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   store i32 1, ptr %249, align 4, !tbaa !38
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 28
   store i32 %227, ptr %250, align 4, !tbaa !21
-  %251 = icmp eq i32 %.0561648, %.0554
-  %spec.select = select i1 %251, i32 %242, i32 %.0559649
+  %251 = icmp eq i32 %.0561647, %.0554
+  %spec.select = select i1 %251, i32 %242, i32 %.0559648
   %252 = getelementptr inbounds nuw %struct.trap_t, ptr %246, i64 %209
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 32
   %254 = load double, ptr %253, align 8, !tbaa !29
@@ -888,7 +888,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   br label %270
 
 270:                                              ; preds = %269, %261, %_greater_than_equal_to.exit.thread
-  %.2566 = phi i32 [ %242, %269 ], [ %.0564647, %261 ], [ %.0564647, %_greater_than_equal_to.exit.thread ]
+  %.2566 = phi i32 [ %242, %269 ], [ %.0564646, %261 ], [ %.0564646, %_greater_than_equal_to.exit.thread ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %248, ptr noundef nonnull align 8 dereferenceable(72) %252, i64 72, i1 false), !tbaa.struct !60
   %271 = load ptr, ptr %204, align 8, !tbaa !11
   %272 = getelementptr inbounds nuw %struct.trap_t, ptr %271, i64 %209
@@ -919,7 +919,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
 286:                                              ; preds = %285
   %.val = load double, ptr %8, align 8
   %.val581 = load double, ptr %9, align 8
-  tail call fastcc void @update_trapezoid(double %.val, double %.val581, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561648, i32 noundef %242)
+  tail call fastcc void @update_trapezoid(double %.val, double %.val581, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561647, i32 noundef %242)
   %287 = load ptr, ptr %204, align 8, !tbaa !11
   %288 = getelementptr inbounds nuw %struct.trap_t, ptr %287, i64 %209
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 32
@@ -1057,7 +1057,7 @@ is_left_of.exit.thread:                           ; preds = %364, %356, %338, %3
   %382 = sext i32 %381 to i64
   %383 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %382
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 40
-  store i32 %.0561648, ptr %384, align 8, !tbaa !33
+  store i32 %.0561647, ptr %384, align 8, !tbaa !33
   %385 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %247
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 48
   store i32 -1, ptr %386, align 8, !tbaa !34
@@ -1096,17 +1096,17 @@ is_left_of.exit.thread630:                        ; preds = %364, %356, %338, %3
   br i1 %407, label %.sink.split, label %411
 
 .sink.split:                                      ; preds = %404
-  %408 = icmp eq i32 %402, %.0561648
+  %408 = icmp eq i32 %402, %.0561647
   %409 = getelementptr inbounds nuw i8, ptr %400, i64 60
   %410 = getelementptr inbounds nuw i8, ptr %400, i64 64
   %. = select i1 %408, i32 %406, i32 %402
-  %.675 = select i1 %408, i32 1, i32 2
+  %.674 = select i1 %408, i32 1, i32 2
   store i32 %., ptr %409, align 4, !tbaa !61
-  store i32 %.675, ptr %410, align 8, !tbaa !62
+  store i32 %.674, ptr %410, align 8, !tbaa !62
   br label %411
 
 411:                                              ; preds = %.sink.split, %404, %396
-  store i32 %.0561648, ptr %401, align 8, !tbaa !33
+  store i32 %.0561647, ptr %401, align 8, !tbaa !33
   %412 = getelementptr inbounds nuw i8, ptr %400, i64 44
   store i32 %242, ptr %412, align 4, !tbaa !36
   br label %413
@@ -1118,7 +1118,7 @@ is_left_of.exit.thread630:                        ; preds = %364, %356, %338, %3
 415:                                              ; preds = %282
   %.val583 = load double, ptr %8, align 8
   %.val584 = load double, ptr %9, align 8
-  tail call fastcc void @update_trapezoid(double %.val583, double %.val584, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561648, i32 noundef %242)
+  tail call fastcc void @update_trapezoid(double %.val583, double %.val584, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561647, i32 noundef %242)
   %416 = load ptr, ptr %204, align 8, !tbaa !11
   %417 = getelementptr inbounds nuw %struct.trap_t, ptr %416, i64 %209
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 32
@@ -1256,7 +1256,7 @@ is_left_of.exit606.thread:                        ; preds = %493, %485, %467, %4
   %511 = sext i32 %510 to i64
   %512 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %511
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 40
-  store i32 %.0561648, ptr %513, align 8, !tbaa !33
+  store i32 %.0561647, ptr %513, align 8, !tbaa !33
   %514 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %247
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 48
   store i32 -1, ptr %515, align 8, !tbaa !34
@@ -1292,20 +1292,20 @@ is_left_of.exit606.thread639:                     ; preds = %493, %485, %467, %4
   %534 = getelementptr inbounds nuw i8, ptr %529, i64 44
   %535 = load i32, ptr %534, align 4, !tbaa !36
   %536 = icmp sgt i32 %535, 0
-  br i1 %536, label %.sink.split672, label %540
+  br i1 %536, label %.sink.split671, label %540
 
-.sink.split672:                                   ; preds = %533
-  %537 = icmp eq i32 %531, %.0561648
+.sink.split671:                                   ; preds = %533
+  %537 = icmp eq i32 %531, %.0561647
   %538 = getelementptr inbounds nuw i8, ptr %529, i64 60
   %539 = getelementptr inbounds nuw i8, ptr %529, i64 64
-  %.676 = select i1 %537, i32 %535, i32 %531
-  %.677 = select i1 %537, i32 1, i32 2
-  store i32 %.676, ptr %538, align 4, !tbaa !61
-  store i32 %.677, ptr %539, align 8, !tbaa !62
+  %.675 = select i1 %537, i32 %535, i32 %531
+  %.676 = select i1 %537, i32 1, i32 2
+  store i32 %.675, ptr %538, align 4, !tbaa !61
+  store i32 %.676, ptr %539, align 8, !tbaa !62
   br label %540
 
-540:                                              ; preds = %.sink.split672, %533, %525
-  store i32 %.0561648, ptr %530, align 8, !tbaa !33
+540:                                              ; preds = %.sink.split671, %533, %525
+  store i32 %.0561647, ptr %530, align 8, !tbaa !33
   %541 = getelementptr inbounds nuw i8, ptr %529, i64 44
   store i32 %242, ptr %541, align 4, !tbaa !36
   br label %542
@@ -1357,7 +1357,7 @@ is_left_of.exit606.thread639:                     ; preds = %493, %485, %467, %4
 _less_than.exit:                                  ; preds = %570, %567, %557, %552
   %.val587 = phi double [ %.val587.pre, %552 ], [ %558, %570 ], [ %558, %557 ], [ %558, %567 ]
   %.0 = phi i1 [ %556, %552 ], [ %572, %570 ], [ false, %557 ], [ true, %567 ]
-  tail call fastcc void @update_trapezoid(double %551, double %.val587, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561648, i32 noundef %242)
+  tail call fastcc void @update_trapezoid(double %551, double %.val587, ptr noundef nonnull %1, ptr nonnull %271, i32 noundef %.0561647, i32 noundef %242)
   %573 = load ptr, ptr %204, align 8, !tbaa !11
   %574 = getelementptr inbounds nuw %struct.trap_t, ptr %573, i64 %209
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 32
@@ -1387,7 +1387,7 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %594 = sext i32 %593 to i64
   %595 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %594
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 40
-  store i32 %.0561648, ptr %596, align 8, !tbaa !33
+  store i32 %.0561647, ptr %596, align 8, !tbaa !33
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 44
   store i32 -1, ptr %597, align 4, !tbaa !36
   %598 = getelementptr inbounds nuw i8, ptr %574, i64 52
@@ -1412,7 +1412,7 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %610 = sext i32 %609 to i64
   %611 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %610
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 40
-  store i32 %.0561648, ptr %612, align 8, !tbaa !33
+  store i32 %.0561647, ptr %612, align 8, !tbaa !33
   %613 = getelementptr inbounds nuw i8, ptr %611, i64 44
   %614 = getelementptr inbounds nuw i8, ptr %574, i64 52
   br i1 %.0, label %615, label %621
@@ -1435,7 +1435,7 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   %623 = sext i32 %622 to i64
   %624 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %623
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 40
-  store i32 %.0561648, ptr %625, align 8, !tbaa !33
+  store i32 %.0561647, ptr %625, align 8, !tbaa !33
   %626 = getelementptr inbounds nuw i8, ptr %624, i64 44
   store i32 %242, ptr %626, align 4, !tbaa !36
   %627 = getelementptr inbounds %struct.trap_t, ptr %573, i64 %247
@@ -1458,8 +1458,8 @@ _less_than.exit:                                  ; preds = %570, %567, %557, %5
   br i1 %635, label %207, label %.critedge
 
 .critedge:                                        ; preds = %_greater_than_equal_to.exit, %630, %220, %202, %.thread641
-  %.1565 = phi i32 [ %.2566, %.thread641 ], [ 0, %202 ], [ %.0564647, %_greater_than_equal_to.exit ], [ %.2566, %630 ], [ %.0564647, %220 ]
-  %.1560 = phi i32 [ %spec.select, %.thread641 ], [ 0, %202 ], [ %.0559649, %_greater_than_equal_to.exit ], [ %spec.select, %630 ], [ %.0559649, %220 ]
+  %.1565 = phi i32 [ %.2566, %.thread641 ], [ 0, %202 ], [ %.0564646, %_greater_than_equal_to.exit ], [ %.2566, %630 ], [ %.0564646, %220 ]
+  %.1560 = phi i32 [ %spec.select, %.thread641 ], [ 0, %202 ], [ %.0559648, %_greater_than_equal_to.exit ], [ %spec.select, %630 ], [ %.0559648, %220 ]
   tail call fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %.0554, i32 noundef %118, i32 noundef 1, ptr noundef %2, ptr noundef %3)
   tail call fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %.1560, i32 noundef %.1565, i32 noundef 2, ptr noundef %2, ptr noundef %3)
   %636 = getelementptr inbounds nuw i8, ptr %7, i64 32

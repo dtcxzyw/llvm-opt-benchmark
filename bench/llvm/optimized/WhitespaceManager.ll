@@ -2234,20 +2234,20 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread262.i: ; preds = 
   br i1 %109, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread.i", label %110
 
 110:                                              ; preds = %106, %103
-  %.0.in7.i.i = getelementptr inbounds nuw i8, ptr %68, i64 216
-  %.08.i.i = load ptr, ptr %.0.in7.i.i, align 8, !tbaa !223
-  %.not259.i.i = icmp eq ptr %.08.i.i, null
-  br i1 %.not259.i.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread265.i", label %.lr.ph.i.i
+  %.0.in5.i.i = getelementptr inbounds nuw i8, ptr %68, i64 216
+  %.06.i.i = load ptr, ptr %.0.in5.i.i, align 8, !tbaa !223
+  %.not257.i.i = icmp eq ptr %.06.i.i, null
+  br i1 %.not257.i.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread265.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %110, %126
-  %.010.i.i = phi ptr [ %.0.i.i, %126 ], [ %.08.i.i, %110 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 16
+  %.08.i.i = phi ptr [ %.0.i.i, %126 ], [ %.06.i.i, %110 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
   %112 = load i16, ptr %111, align 8, !tbaa !197
   %113 = icmp eq i16 %112, 4
   br i1 %113, label %126, label %114
 
 114:                                              ; preds = %.lr.ph.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 67
+  %115 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 67
   %116 = load i8, ptr %115, align 1, !tbaa !205
   %117 = icmp eq i8 %116, 99
   br i1 %117, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread.i", label %118
@@ -2271,7 +2271,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread262.i: ; preds = 
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i:   ; preds = %118
-  %119 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !222
   %.not26.i.i = icmp eq ptr %120, null
   br i1 %.not26.i.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread265.i", label %121
@@ -2287,7 +2287,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br i1 %125, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread.i", label %126
 
 126:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i.i, %.lr.ph.i.i
-  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 216
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 216
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !223
   %.not25.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not25.i.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread265.i", label %.lr.ph.i.i, !llvm.loop !257
@@ -3828,20 +3828,20 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i16, ptr %118, align 8, !tbaa !197
   %120 = icmp eq i16 %119, 63
-  br i1 %120, label %.preheader6.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
+  br i1 %120, label %.preheader5.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
 
-.preheader6.i:                                    ; preds = %113, %121
+.preheader5.i:                                    ; preds = %113, %121
   %.pn.i.i = phi ptr [ %.0.i.i, %121 ], [ %117, %113 ]
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 208
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !209
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %121
 
-121:                                              ; preds = %.preheader6.i
+121:                                              ; preds = %.preheader5.i
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %123 = load i16, ptr %122, align 8, !tbaa !197
   %124 = icmp eq i16 %123, 4
-  br i1 %124, label %.preheader6.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, !llvm.loop !326
+  br i1 %124, label %.preheader5.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, !llvm.loop !326
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %121, %113
   %125 = phi i16 [ %119, %113 ], [ %123, %121 ]
@@ -3853,39 +3853,39 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %121, 
   %128 = getelementptr inbounds nuw i8, ptr %.019.i, i64 200
   %129 = load ptr, ptr %128, align 8, !tbaa !192
   %.not26.i = icmp eq ptr %129, null
-  br i1 %.not26.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %.preheader4.i
+  br i1 %.not26.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %.preheader3.i
 
-.preheader4.i:                                    ; preds = %127, %130
+.preheader3.i:                                    ; preds = %127, %130
   %.pn.i30.i = phi ptr [ %.0.i32.i, %130 ], [ %129, %127 ]
   %.0.in.i31.i = getelementptr inbounds nuw i8, ptr %.pn.i30.i, i64 208
   %.0.i32.i = load ptr, ptr %.0.in.i31.i, align 8, !tbaa !209
   %.not.i33.i = icmp eq ptr %.0.i32.i, null
   br i1 %.not.i33.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %130
 
-130:                                              ; preds = %.preheader4.i
+130:                                              ; preds = %.preheader3.i
   %131 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 16
   %132 = load i16, ptr %131, align 8, !tbaa !197
   %133 = icmp eq i16 %132, 4
-  br i1 %133, label %.preheader4.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i, !llvm.loop !326
+  br i1 %133, label %.preheader3.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i, !llvm.loop !326
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i: ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 67
   %135 = load i8, ptr %134, align 1, !tbaa !205
   %136 = icmp eq i8 %135, 41
-  br i1 %136, label %.preheader3.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i
+  br i1 %136, label %.preheader2.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i
 
-.preheader3.i:                                    ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i, %137
+.preheader2.i:                                    ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i, %137
   %.pn.i35.i = phi ptr [ %.0.i37.i, %137 ], [ %.0.i32.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i ]
   %.0.in.i36.i = getelementptr inbounds nuw i8, ptr %.pn.i35.i, i64 208
   %.0.i37.i = load ptr, ptr %.0.in.i36.i, align 8, !tbaa !209
   %.not.i38.i = icmp eq ptr %.0.i37.i, null
   br i1 %.not.i38.i, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread166", label %137
 
-137:                                              ; preds = %.preheader3.i
+137:                                              ; preds = %.preheader2.i
   %138 = getelementptr inbounds nuw i8, ptr %.0.i37.i, i64 16
   %139 = load i16, ptr %138, align 8, !tbaa !197
   %140 = icmp eq i16 %139, 4
-  br i1 %140, label %.preheader3.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i, !llvm.loop !326
+  br i1 %140, label %.preheader2.i, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i, !llvm.loop !326
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds = %137, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i
   %141 = phi i16 [ %132, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit34.i ], [ %125, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ %139, %137 ]
@@ -3912,7 +3912,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds
   %.not182 = icmp eq i32 %149, 0
   br i1 %.not182, label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread", label %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread166"
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread166": ; preds = %.preheader3.i, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit"
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread166": ; preds = %.preheader2.i, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit"
   %150 = zext i32 %.0203 to i64
   %.not23.i = icmp eq i64 %indvars.iv221, %150
   br i1 %.not23.i, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %.lr.ph.i
@@ -3994,7 +3994,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds
   %.not.i100 = icmp eq i64 %indvars.iv221, %192
   br i1 %.not.i100, label %_ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit, label %152, !llvm.loop !335
 
-"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread": ; preds = %.preheader6.i, %.preheader4.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i, %127, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", %110, %.loopexit
+"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit.thread": ; preds = %.preheader5.i, %.preheader3.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i, %127, %"_ZZN5clang6format17WhitespaceManager21alignTrailingCommentsEvENK3$_0clINS0_11FormatTokenEEEDaPKT_.exit", %110, %.loopexit
   %193 = icmp sgt i32 %27, %.072
   %or.cond96 = select i1 %.069202, i1 true, i1 %193
   %194 = icmp sgt i32 %62, %.0162196
@@ -5385,8 +5385,8 @@ _ZNK5clang6format17WhitespaceManager16CellDescriptions13isRectangularEv.exit: ; 
   %.pn.i = phi ptr [ %.06.i, %32 ], [ %storemerge193, %24 ]
   %.06.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   %.06.i = load ptr, ptr %.06.in.i, align 8, !tbaa !372
-  %.not.not.not.i = icmp eq ptr %.06.i, null
-  br i1 %.not.not.not.i, label %_ZN5clang6format17WhitespaceManager11isSplitCellERKNS1_15CellDescriptionE.exit.loopexit199, label %32
+  %.not.not.i = icmp eq ptr %.06.i, null
+  br i1 %.not.not.i, label %_ZN5clang6format17WhitespaceManager11isSplitCellERKNS1_15CellDescriptionE.exit.loopexit199, label %32
 
 32:                                               ; preds = %.preheader.i
   %33 = getelementptr inbounds nuw i8, ptr %.06.i, i64 12
@@ -7098,8 +7098,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6format17WhitespaceManager11isSpli
   %.pn = phi ptr [ %.06, %5 ], [ %0, %1 ]
   %.06.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %.06 = load ptr, ptr %.06.in, align 8, !tbaa !372
-  %.not.not.not.not = icmp ne ptr %.06, null
-  br i1 %.not.not.not.not, label %5, label %.loopexit
+  %.not.not.not = icmp ne ptr %.06, null
+  br i1 %.not.not.not, label %5, label %.loopexit
 
 5:                                                ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %.06, i64 12
@@ -7107,8 +7107,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6format17WhitespaceManager11isSpli
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !373
 
-.loopexit:                                        ; preds = %.preheader, %5, %1
-  %.07 = phi i1 [ true, %1 ], [ %.not.not.not.not, %5 ], [ %.not.not.not.not, %.preheader ]
+.loopexit:                                        ; preds = %5, %.preheader, %1
+  %.07 = phi i1 [ true, %1 ], [ %.not.not.not, %.preheader ], [ %.not.not.not, %5 ]
   ret i1 %.07
 }
 
@@ -11963,8 +11963,8 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
   %227 = load ptr, ptr %226, align 8, !tbaa !11
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 67
   %229 = load i8, ptr %228, align 1, !tbaa !205
-  %.not29.i = icmp eq i8 %229, 76
-  br i1 %.not29.i, label %253, label %230
+  %.not27.i = icmp eq i8 %229, 76
+  br i1 %.not27.i, label %253, label %230
 
 230:                                              ; preds = %224
   %231 = load ptr, ptr %21, align 8, !tbaa !11
@@ -12067,12 +12067,12 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
 288:                                              ; preds = %287
   %289 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %290 = load i16, ptr %289, align 8, !tbaa !197
-  %.not31.i = icmp eq i16 %290, 25
-  br i1 %.not31.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %291
+  %.not29.i = icmp eq i16 %290, 25
+  br i1 %.not29.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %291
 
 291:                                              ; preds = %288
-  %.not3233.i = icmp eq i32 %192, 0
-  br i1 %.not3233.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %.not3031.i = icmp eq i32 %192, 0
+  br i1 %.not3031.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %291
   %.idx.i = shl nuw nsw i64 %193, 2
@@ -12080,8 +12080,8 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.sroa.020.034.i = phi ptr [ %293, %.critedge.i ], [ %292, %.lr.ph.preheader.i ]
-  %293 = getelementptr inbounds i8, ptr %.sroa.020.034.i, i64 -4
+  %.sroa.020.032.i = phi ptr [ %293, %.critedge.i ], [ %292, %.lr.ph.preheader.i ]
+  %293 = getelementptr inbounds i8, ptr %.sroa.020.032.i, i64 -4
   %294 = load i32, ptr %293, align 4, !tbaa !9
   %295 = icmp ugt i32 %294, %1
   br i1 %295, label %296, label %.critedge.i
@@ -12097,8 +12097,8 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
   br i1 %303, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread137", label %.critedge.i
 
 .critedge.i:                                      ; preds = %296, %.lr.ph.i
-  %.not32.i = icmp eq ptr %293, %191
-  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not30.i = icmp eq ptr %293, %191
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %291
   %304 = zext i32 %196 to i64
@@ -12932,8 +12932,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %190 = load ptr, ptr %189, align 8, !tbaa !11
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 67
   %192 = load i8, ptr %191, align 1, !tbaa !205
-  %.not29.i = icmp eq i8 %192, 76
-  br i1 %.not29.i, label %216, label %193
+  %.not27.i = icmp eq i8 %192, 76
+  br i1 %.not27.i, label %216, label %193
 
 193:                                              ; preds = %187
   %194 = load ptr, ptr %22, align 8, !tbaa !11
@@ -13036,8 +13036,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 251:                                              ; preds = %250
   %252 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %253 = load i16, ptr %252, align 8, !tbaa !197
-  %.not31.i = icmp eq i16 %253, 25
-  br i1 %.not31.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
+  %.not29.i = icmp eq i16 %253, 25
+  br i1 %.not29.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %251
   %.idx.i = shl nuw nsw i64 %100, 2
@@ -13045,8 +13045,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.sroa.020.034.i = phi ptr [ %255, %.critedge.i ], [ %254, %.lr.ph.preheader.i ]
-  %255 = getelementptr inbounds i8, ptr %.sroa.020.034.i, i64 -4
+  %.sroa.020.032.i = phi ptr [ %255, %.critedge.i ], [ %254, %.lr.ph.preheader.i ]
+  %255 = getelementptr inbounds i8, ptr %.sroa.020.032.i, i64 -4
   %256 = load i32, ptr %255, align 4, !tbaa !9
   %257 = icmp ugt i32 %256, %1
   br i1 %257, label %258, label %.critedge.i
@@ -13062,8 +13062,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %265, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread136", label %.critedge.i
 
 .critedge.i:                                      ; preds = %258, %.lr.ph.i
-  %.not32.i = icmp eq ptr %255, %156
-  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not30.i = icmp eq ptr %255, %156
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i
   %266 = zext i32 %159 to i64
@@ -13499,20 +13499,20 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread261: ; preds = %9
   br i1 %115, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %116
 
 116:                                              ; preds = %112, %109
-  %.0.in7.i = getelementptr inbounds nuw i8, ptr %73, i64 216
-  %.08.i = load ptr, ptr %.0.in7.i, align 8, !tbaa !223
-  %.not259.i = icmp eq ptr %.08.i, null
-  br i1 %.not259.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread264", label %.lr.ph.i
+  %.0.in5.i = getelementptr inbounds nuw i8, ptr %73, i64 216
+  %.06.i = load ptr, ptr %.0.in5.i, align 8, !tbaa !223
+  %.not257.i = icmp eq ptr %.06.i, null
+  br i1 %.not257.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread264", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %116, %132
-  %.010.i = phi ptr [ %.0.i, %132 ], [ %.08.i, %116 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
+  %.08.i = phi ptr [ %.0.i, %132 ], [ %.06.i, %116 ]
+  %117 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %118 = load i16, ptr %117, align 8, !tbaa !197
   %119 = icmp eq i16 %118, 4
   br i1 %119, label %132, label %120
 
 120:                                              ; preds = %.lr.ph.i
-  %121 = getelementptr inbounds nuw i8, ptr %.010.i, i64 67
+  %121 = getelementptr inbounds nuw i8, ptr %.08.i, i64 67
   %122 = load i8, ptr %121, align 1, !tbaa !205
   %123 = icmp eq i8 %122, 99
   br i1 %123, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %124
@@ -13536,7 +13536,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread261: ; preds = %9
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %124
-  %125 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !222
   %.not26.i = icmp eq ptr %126, null
   br i1 %.not26.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread264", label %127
@@ -13552,7 +13552,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br i1 %131, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %132
 
 132:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %.lr.ph.i
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %.010.i, i64 216
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.08.i, i64 216
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !223
   %.not25.i = icmp eq ptr %.0.i, null
   br i1 %.not25.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread264", label %.lr.ph.i, !llvm.loop !257
@@ -13975,20 +13975,20 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %142, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %143
 
 143:                                              ; preds = %139, %136
-  %.0.in7.i = getelementptr inbounds nuw i8, ptr %.val109, i64 216
-  %.08.i = load ptr, ptr %.0.in7.i, align 8, !tbaa !223
-  %.not259.i = icmp eq ptr %.08.i, null
-  br i1 %.not259.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread138", label %.lr.ph.i
+  %.0.in5.i = getelementptr inbounds nuw i8, ptr %.val109, i64 216
+  %.06.i = load ptr, ptr %.0.in5.i, align 8, !tbaa !223
+  %.not257.i = icmp eq ptr %.06.i, null
+  br i1 %.not257.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread138", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %143, %159
-  %.010.i = phi ptr [ %.0.i, %159 ], [ %.08.i, %143 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
+  %.08.i = phi ptr [ %.0.i, %159 ], [ %.06.i, %143 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %145 = load i16, ptr %144, align 8, !tbaa !197
   %146 = icmp eq i16 %145, 4
   br i1 %146, label %159, label %147
 
 147:                                              ; preds = %.lr.ph.i
-  %148 = getelementptr inbounds nuw i8, ptr %.010.i, i64 67
+  %148 = getelementptr inbounds nuw i8, ptr %.08.i, i64 67
   %149 = load i8, ptr %148, align 1, !tbaa !205
   %150 = icmp eq i8 %149, 99
   br i1 %150, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %151
@@ -14012,7 +14012,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %151
-  %152 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !222
   %.not26.i = icmp eq ptr %153, null
   br i1 %.not26.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread138", label %154
@@ -14028,7 +14028,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br i1 %158, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread", label %159
 
 159:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i, %.lr.ph.i
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %.010.i, i64 216
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.08.i, i64 216
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !223
   %.not25.i = icmp eq ptr %.0.i, null
   br i1 %.not25.i, label %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread138", label %.lr.ph.i, !llvm.loop !257
@@ -14132,8 +14132,8 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %215 = load ptr, ptr %214, align 8, !tbaa !11
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 67
   %217 = load i8, ptr %216, align 1, !tbaa !205
-  %.not29.i = icmp eq i8 %217, 76
-  br i1 %.not29.i, label %241, label %218
+  %.not27.i = icmp eq i8 %217, 76
+  br i1 %.not27.i, label %241, label %218
 
 218:                                              ; preds = %212
   %219 = load ptr, ptr %21, align 8, !tbaa !11
@@ -14236,8 +14236,8 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 276:                                              ; preds = %275
   %277 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %278 = load i16, ptr %277, align 8, !tbaa !197
-  %.not31.i = icmp eq i16 %278, 25
-  br i1 %.not31.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
+  %.not29.i = icmp eq i16 %278, 25
+  br i1 %.not29.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %276
   %.idx.i = shl nuw nsw i64 %99, 2
@@ -14245,8 +14245,8 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br label %.lr.ph.i113
 
 .lr.ph.i113:                                      ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.sroa.020.034.i = phi ptr [ %280, %.critedge.i ], [ %279, %.lr.ph.preheader.i ]
-  %280 = getelementptr inbounds i8, ptr %.sroa.020.034.i, i64 -4
+  %.sroa.020.032.i = phi ptr [ %280, %.critedge.i ], [ %279, %.lr.ph.preheader.i ]
+  %280 = getelementptr inbounds i8, ptr %.sroa.020.032.i, i64 -4
   %281 = load i32, ptr %280, align 4, !tbaa !9
   %282 = icmp ugt i32 %281, %1
   br i1 %282, label %283, label %.critedge.i
@@ -14262,8 +14262,8 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br i1 %290, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread142", label %.critedge.i
 
 .critedge.i:                                      ; preds = %283, %.lr.ph.i113
-  %.not32.i = icmp eq ptr %280, %181
-  br i1 %.not32.i, label %._crit_edge.i114, label %.lr.ph.i113
+  %.not30.i = icmp eq ptr %280, %181
+  br i1 %.not30.i, label %._crit_edge.i114, label %.lr.ph.i113
 
 ._crit_edge.i114:                                 ; preds = %.critedge.i
   %291 = zext i32 %184 to i64
@@ -15117,8 +15117,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %195 = load ptr, ptr %194, align 8, !tbaa !11
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 67
   %197 = load i8, ptr %196, align 1, !tbaa !205
-  %.not29.i = icmp eq i8 %197, 76
-  br i1 %.not29.i, label %221, label %198
+  %.not27.i = icmp eq i8 %197, 76
+  br i1 %.not27.i, label %221, label %198
 
 198:                                              ; preds = %192
   %199 = load ptr, ptr %20, align 8, !tbaa !11
@@ -15221,8 +15221,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 256:                                              ; preds = %255
   %257 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %258 = load i16, ptr %257, align 8, !tbaa !197
-  %.not31.i = icmp eq i16 %258, 25
-  br i1 %.not31.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
+  %.not29.i = icmp eq i16 %258, 25
+  br i1 %.not29.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %256
   %.idx.i = shl nuw nsw i64 %98, 2
@@ -15230,8 +15230,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.sroa.020.034.i = phi ptr [ %260, %.critedge.i ], [ %259, %.lr.ph.preheader.i ]
-  %260 = getelementptr inbounds i8, ptr %.sroa.020.034.i, i64 -4
+  %.sroa.020.032.i = phi ptr [ %260, %.critedge.i ], [ %259, %.lr.ph.preheader.i ]
+  %260 = getelementptr inbounds i8, ptr %.sroa.020.032.i, i64 -4
   %261 = load i32, ptr %260, align 4, !tbaa !9
   %262 = icmp ugt i32 %261, %1
   br i1 %262, label %263, label %.critedge.i
@@ -15247,8 +15247,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   br i1 %270, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread26", label %.critedge.i
 
 .critedge.i:                                      ; preds = %263, %.lr.ph.i
-  %.not32.i = icmp eq ptr %260, %161
-  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not30.i = icmp eq ptr %260, %161
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i
   %271 = zext i32 %164 to i64
@@ -16179,8 +16179,8 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
   %217 = load ptr, ptr %216, align 8, !tbaa !11
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 67
   %219 = load i8, ptr %218, align 1, !tbaa !205
-  %.not29.i = icmp eq i8 %219, 76
-  br i1 %.not29.i, label %243, label %220
+  %.not27.i = icmp eq i8 %219, 76
+  br i1 %.not27.i, label %243, label %220
 
 220:                                              ; preds = %214
   %221 = load ptr, ptr %21, align 8, !tbaa !11
@@ -16283,8 +16283,8 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 278:                                              ; preds = %277
   %279 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %280 = load i16, ptr %279, align 8, !tbaa !197
-  %.not31.i = icmp eq i16 %280, 25
-  br i1 %.not31.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
+  %.not29.i = icmp eq i16 %280, 25
+  br i1 %.not29.i, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %278
   %.idx.i = shl nuw nsw i64 %99, 2
@@ -16292,8 +16292,8 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.sroa.020.034.i = phi ptr [ %282, %.critedge.i ], [ %281, %.lr.ph.preheader.i ]
-  %282 = getelementptr inbounds i8, ptr %.sroa.020.034.i, i64 -4
+  %.sroa.020.032.i = phi ptr [ %282, %.critedge.i ], [ %281, %.lr.ph.preheader.i ]
+  %282 = getelementptr inbounds i8, ptr %.sroa.020.032.i, i64 -4
   %283 = load i32, ptr %282, align 4, !tbaa !9
   %284 = icmp ugt i32 %283, %1
   br i1 %284, label %285, label %.critedge.i
@@ -16309,8 +16309,8 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
   br i1 %292, label %"_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit.thread135", label %.critedge.i
 
 .critedge.i:                                      ; preds = %285, %.lr.ph.i
-  %.not32.i = icmp eq ptr %282, %183
-  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not30.i = icmp eq ptr %282, %183
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i
   %293 = zext i32 %186 to i64

@@ -365,12 +365,11 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   %37 = call ptr @dom_document_parser(ptr noundef null, i32 noundef %1, ptr noundef %36, i64 noundef %35, i64 noundef %34, ptr noundef %.0) #11
   %38 = icmp eq ptr %37, inttoptr (i64 -1 to ptr)
   %magicptr = ptrtoint ptr %37 to i64
-  switch i64 %magicptr, label %48 [
-    i64 -1, label %39
-    i64 0, label %39
-  ], !prof !45
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %48, label %39, !prof !45
 
-39:                                               ; preds = %33, %33
+39:                                               ; preds = %33
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !46
   %.not45 = icmp eq ptr %40, null
   br i1 %.not45, label %41, label %dom_document_convert_to_modern.exit
@@ -956,7 +955,7 @@ attributes #14 = { nounwind allocsize(0) }
 !42 = !{!"p1 _ZTS30php_libxml_private_data_header", !6, i64 0}
 !43 = !{!"p1 _ZTS28php_libxml_document_handlers", !6, i64 0}
 !44 = !{!39, !42, i64 24}
-!45 = !{!"branch_weights", i32 2000, i32 0, i32 0}
+!45 = !{!"branch_weights", i32 2000, i32 0}
 !46 = !{!47, !62, i64 960}
 !47 = !{!"_zend_executor_globals", !48, i64 0, !48, i64 16, !7, i64 32, !49, i64 288, !49, i64 296, !50, i64 304, !50, i64 360, !51, i64 416, !9, i64 424, !52, i64 428, !48, i64 432, !9, i64 448, !34, i64 456, !34, i64 464, !34, i64 472, !53, i64 480, !53, i64 488, !54, i64 496, !25, i64 504, !55, i64 512, !30, i64 520, !9, i64 528, !55, i64 536, !9, i64 544, !25, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !52, i64 572, !52, i64 573, !56, i64 574, !56, i64 575, !34, i64 576, !25, i64 584, !6, i64 592, !6, i64 600, !50, i64 608, !50, i64 664, !9, i64 720, !52, i64 724, !48, i64 728, !48, i64 744, !57, i64 760, !57, i64 784, !57, i64 808, !30, i64 832, !9, i64 840, !9, i64 844, !25, i64 848, !34, i64 856, !34, i64 864, !58, i64 872, !59, i64 880, !61, i64 904, !62, i64 960, !62, i64 968, !63, i64 976, !7, i64 984, !64, i64 1080, !52, i64 1088, !7, i64 1089, !25, i64 1096, !9, i64 1104, !9, i64 1108, !65, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !66, i64 1640, !50, i64 1672, !25, i64 1728, !67, i64 1736, !68, i64 1760, !68, i64 1768, !69, i64 1776, !25, i64 1784, !52, i64 1792, !9, i64 1796, !70, i64 1800, !71, i64 1808, !25, i64 1816, !72, i64 1824, !25, i64 1840, !25, i64 1848, !73, i64 1856, !7, i64 1936}
 !48 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}

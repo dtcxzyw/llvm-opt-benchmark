@@ -5161,9 +5161,9 @@ define noundef i64 @_ZN4dmlc2io14InputSplitBase4ReadEPvm(ptr noundef nonnull ali
   %33 = add i64 %32, %30
   store i64 %33, ptr %22, align 8, !tbaa !67
   %34 = icmp eq i64 %31, 0
-  br i1 %34, label %._crit_edge66, label %.lr.ph65
+  br i1 %34, label %._crit_edge65, label %.lr.ph64
 
-.lr.ph65:                                         ; preds = %.preheader
+.lr.ph64:                                         ; preds = %.preheader
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5172,16 +5172,16 @@ define noundef i64 @_ZN4dmlc2io14InputSplitBase4ReadEPvm(ptr noundef nonnull ali
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %41
 
-41:                                               ; preds = %.lr.ph65, %154
-  %42 = phi i64 [ %33, %.lr.ph65 ], [ %162, %154 ]
-  %43 = phi ptr [ %35, %.lr.ph65 ], [ %160, %154 ]
-  %44 = phi i64 [ %31, %.lr.ph65 ], [ %159, %154 ]
-  %45 = phi i64 [ %30, %.lr.ph65 ], [ %158, %154 ]
+41:                                               ; preds = %.lr.ph64, %154
+  %42 = phi i64 [ %33, %.lr.ph64 ], [ %162, %154 ]
+  %43 = phi ptr [ %35, %.lr.ph64 ], [ %160, %154 ]
+  %44 = phi i64 [ %31, %.lr.ph64 ], [ %159, %154 ]
+  %45 = phi i64 [ %30, %.lr.ph64 ], [ %158, %154 ]
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %._crit_edge73
+  br i1 %46, label %47, label %._crit_edge72
 
-._crit_edge73:                                    ; preds = %41
-  %.pre74 = load ptr, ptr %13, align 8, !tbaa !71
+._crit_edge72:                                    ; preds = %41
+  %.pre73 = load ptr, ptr %13, align 8, !tbaa !71
   br label %154
 
 47:                                               ; preds = %41
@@ -5290,8 +5290,8 @@ _ZN4dmlc10LogMessageD2Ev.exit:                    ; preds = %86, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = load i64, ptr %37, align 8, !tbaa !69
-  %.not69 = icmp eq i64 %93, 0
-  br i1 %.not69, label %._crit_edge, label %.lr.ph
+  %.not68 = icmp eq i64 %93, 0
+  br i1 %.not68, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4dmlc10LogMessageD2Ev.exit57, %_ZN4dmlc10LogMessageD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5308,7 +5308,7 @@ _ZN4dmlc10LogMessageD2Ev.exit:                    ; preds = %86, %88
   br label %164
 
 .lr.ph:                                           ; preds = %_ZN4dmlc10LogMessageD2Ev.exit, %_ZN4dmlc10LogMessageD2Ev.exit57
-  %.064 = phi i64 [ %120, %_ZN4dmlc10LogMessageD2Ev.exit57 ], [ 0, %_ZN4dmlc10LogMessageD2Ev.exit ]
+  %.063 = phi i64 [ %120, %_ZN4dmlc10LogMessageD2Ev.exit57 ], [ 0, %_ZN4dmlc10LogMessageD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4dmlc10LogMessageC2EPKci(ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull @.str, i32 noundef 208)
   %98 = load ptr, ptr %7, align 8, !tbaa !143
@@ -5316,7 +5316,7 @@ _ZN4dmlc10LogMessageD2Ev.exit:                    ; preds = %86, %88
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52 unwind label %123
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %.lr.ph
-  %100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %98, i64 noundef %.064)
+  %100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %98, i64 noundef %.063)
           to label %_ZNSolsEm.exit53 unwind label %123
 
 _ZNSolsEm.exit53:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52
@@ -5325,7 +5325,7 @@ _ZNSolsEm.exit53:                                 ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %_ZNSolsEm.exit53
   %102 = load ptr, ptr %36, align 8, !tbaa !39
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %.064
+  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %.063
   %104 = load i64, ptr %103, align 8, !tbaa !32
   %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %100, i64 noundef %104)
           to label %_ZNSolsEm.exit55 unwind label %123
@@ -5361,7 +5361,7 @@ _ZNSolsEm.exit55:                                 ; preds = %_ZStlsISt11char_tra
 _ZN4dmlc10LogMessageD2Ev.exit57:                  ; preds = %113, %115
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %120 = add nuw i64 %.064, 1
+  %120 = add nuw i64 %.063, 1
   %121 = load i64, ptr %37, align 8, !tbaa !69
   %122 = icmp ult i64 %120, %121
   br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !148
@@ -5380,7 +5380,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %._crit_edge
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pre70 = load i64, ptr %37, align 8, !tbaa !69
+  %.pre69 = load i64, ptr %37, align 8, !tbaa !69
   br label %129
 
 126:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %._crit_edge
@@ -5394,7 +5394,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZN4d
   br label %164
 
 129:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %51
-  %130 = phi i64 [ %.pre70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58 ], [ %53, %51 ]
+  %130 = phi i64 [ %.pre69, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58 ], [ %53, %51 ]
   %131 = add i64 %130, 1
   %132 = load ptr, ptr %39, align 8, !tbaa !36
   %133 = load ptr, ptr %38, align 8, !tbaa !37
@@ -5403,7 +5403,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZN4d
   %136 = sub i64 %134, %135
   %137 = sdiv exact i64 %136, 112
   %.not42 = icmp ult i64 %131, %137
-  br i1 %.not42, label %138, label %._crit_edge66
+  br i1 %.not42, label %138, label %._crit_edge65
 
 138:                                              ; preds = %129
   store i64 %131, ptr %37, align 8, !tbaa !69
@@ -5416,13 +5416,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZN4d
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(8) %139) #15
-  %.pre71 = load i64, ptr %37, align 8, !tbaa !69
-  %.pre72 = load ptr, ptr %38, align 8, !tbaa !37
+  %.pre70 = load i64, ptr %37, align 8, !tbaa !69
+  %.pre71 = load ptr, ptr %38, align 8, !tbaa !37
   br label %145
 
 145:                                              ; preds = %141, %138
-  %146 = phi ptr [ %.pre72, %141 ], [ %133, %138 ]
-  %147 = phi i64 [ %.pre71, %141 ], [ %131, %138 ]
+  %146 = phi ptr [ %.pre71, %141 ], [ %133, %138 ]
+  %147 = phi i64 [ %.pre70, %141 ], [ %131, %138 ]
   %148 = load ptr, ptr %40, align 8, !tbaa !3
   %149 = getelementptr inbounds nuw %"struct.dmlc::io::FileInfo", ptr %146, i64 %147
   %150 = load ptr, ptr %148, align 8, !tbaa !53
@@ -5432,10 +5432,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZN4d
   store ptr %153, ptr %13, align 8, !tbaa !71
   br label %154
 
-154:                                              ; preds = %._crit_edge73, %145
-  %155 = phi ptr [ %153, %145 ], [ %.pre74, %._crit_edge73 ]
-  %.132 = phi i64 [ %.334, %145 ], [ %44, %._crit_edge73 ]
-  %.1 = phi ptr [ %.3, %145 ], [ %43, %._crit_edge73 ]
+154:                                              ; preds = %._crit_edge72, %145
+  %155 = phi ptr [ %153, %145 ], [ %.pre73, %._crit_edge72 ]
+  %.132 = phi i64 [ %.334, %145 ], [ %44, %._crit_edge72 ]
+  %.1 = phi ptr [ %.3, %145 ], [ %43, %._crit_edge72 ]
   %156 = load ptr, ptr %155, align 8, !tbaa !53
   %157 = load ptr, ptr %156, align 8
   %158 = call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef %.1, i64 noundef %.132)
@@ -5445,19 +5445,19 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZN4d
   %162 = add i64 %161, %158
   store i64 %162, ptr %22, align 8, !tbaa !67
   %163 = icmp eq i64 %159, 0
-  br i1 %163, label %._crit_edge66, label %41
+  br i1 %163, label %._crit_edge65, label %41
 
 164:                                              ; preds = %128, %123, %96
   %.pn = phi { ptr, i32 } [ %124, %123 ], [ %127, %128 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn
 
-._crit_edge66:                                    ; preds = %129, %154, %.preheader
+._crit_edge65:                                    ; preds = %129, %154, %.preheader
   %.132.ph = phi i64 [ 0, %.preheader ], [ 0, %154 ], [ %.334, %129 ]
   %165 = sub i64 %spec.select, %.132.ph
   br label %166
 
-166:                                              ; preds = %21, %16, %3, %._crit_edge66
-  %.029 = phi i64 [ %165, %._crit_edge66 ], [ 0, %3 ], [ 0, %16 ], [ 0, %21 ]
+166:                                              ; preds = %21, %16, %3, %._crit_edge65
+  %.029 = phi i64 [ %165, %._crit_edge65 ], [ 0, %3 ], [ 0, %16 ], [ 0, %21 ]
   ret i64 %.029
 
 167:                                              ; preds = %126

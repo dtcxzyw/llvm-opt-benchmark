@@ -1663,15 +1663,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm4json12ObjectMapper3mapIi
   store double %20, ptr %5, align 8, !tbaa !124
   %21 = call double @modf(double noundef %20, ptr noundef nonnull %5) #22
   %22 = fcmp oeq double %21, 0.000000e+00
-  br i1 %22, label %23, label %.thread8.i.i, !prof !19
+  br i1 %22, label %23, label %.thread7.i.i, !prof !19
 
 23:                                               ; preds = %18
   %24 = load double, ptr %5, align 8, !tbaa !124
   %25 = tail call double @llvm.fabs.f64(double %24)
   %or.cond.i.i = fcmp ugt double %25, 0x43E0000000000000
-  br i1 %or.cond.i.i, label %.thread8.i.i, label %26, !prof !126
+  br i1 %or.cond.i.i, label %.thread7.i.i, label %26, !prof !126
 
-.thread8.i.i:                                     ; preds = %23, %18
+.thread7.i.i:                                     ; preds = %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK4llvm4json5Value12getAsIntegerEv.exit.thread11.i
 
@@ -1692,7 +1692,7 @@ _ZNK4llvm4json5Value12getAsIntegerEv.exit.thread.i: ; preds = %_ZNK4llvm4json5Va
   store i32 %30, ptr %3, align 4, !tbaa !50
   br label %31
 
-_ZNK4llvm4json5Value12getAsIntegerEv.exit.thread11.i: ; preds = %_ZNK4llvm4json5Value12getAsIntegerEv.exit.i, %.thread8.i.i, %10
+_ZNK4llvm4json5Value12getAsIntegerEv.exit.thread11.i: ; preds = %_ZNK4llvm4json5Value12getAsIntegerEv.exit.i, %.thread7.i.i, %10
   call void @_ZN4llvm4json4Path6reportENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.29, i64 16) #22
   br label %31
 
@@ -5554,14 +5554,14 @@ _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %9, %13
   %21 = sdiv exact i64 %20, 40
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21)
   %.pre = load ptr, ptr %14, align 8, !tbaa !608
-  %.pre30 = load ptr, ptr %8, align 8, !tbaa !611
+  %.pre29 = load ptr, ptr %8, align 8, !tbaa !611
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIlSaIlEE5clearEv.exit, %17
-  %22 = phi ptr [ %.pre30, %17 ], [ %16, %_ZNSt6vectorIlSaIlEE5clearEv.exit ]
+  %22 = phi ptr [ %.pre29, %17 ], [ %16, %_ZNSt6vectorIlSaIlEE5clearEv.exit ]
   %23 = phi ptr [ %.pre, %17 ], [ %15, %_ZNSt6vectorIlSaIlEE5clearEv.exit ]
-  %.not1928 = icmp eq ptr %23, %22
-  br i1 %.not1928, label %.loopexit, label %.lr.ph
+  %.not1927 = icmp eq ptr %23, %22
+  br i1 %.not1927, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIlSaIlEE6resizeEm.exit
   %24 = ptrtoint ptr %23 to i64
@@ -5574,10 +5574,10 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIlSaIlE
   br label %29
 
 29:                                               ; preds = %.lr.ph, %49
-  %.01529 = phi i64 [ 0, %.lr.ph ], [ %50, %49 ]
-  %30 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %22, i64 %.01529
-  %31 = getelementptr inbounds nuw i64, ptr %28, i64 %.01529
-  %32 = trunc i64 %.01529 to i32
+  %.01528 = phi i64 [ 0, %.lr.ph ], [ %50, %49 ]
+  %30 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %22, i64 %.01528
+  %31 = getelementptr inbounds nuw i64, ptr %28, i64 %.01528
+  %32 = trunc i64 %.01528 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   store i64 0, ptr %.sroa.223.0..sroa_idx, align 8
@@ -5601,15 +5601,15 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIlSaIlE
   store double %39, ptr %4, align 8, !tbaa !124
   %40 = call double @modf(double noundef %39, ptr noundef nonnull %4) #22
   %41 = fcmp oeq double %40, 0.000000e+00
-  br i1 %41, label %42, label %.thread8.i.i, !prof !19
+  br i1 %41, label %42, label %.thread7.i.i, !prof !19
 
 42:                                               ; preds = %37
   %43 = load double, ptr %4, align 8, !tbaa !124
   %44 = call double @llvm.fabs.f64(double %43)
   %or.cond.i.i = fcmp ugt double %44, 0x43E0000000000000
-  br i1 %or.cond.i.i, label %.thread8.i.i, label %45, !prof !126
+  br i1 %or.cond.i.i, label %.thread7.i.i, label %45, !prof !126
 
-.thread8.i.i:                                     ; preds = %42, %37
+.thread7.i.i:                                     ; preds = %42, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm4json8fromJSONERKNS0_5ValueERlNS0_4PathE.exit
 
@@ -5624,7 +5624,7 @@ _ZNK4llvm4json5Value12getAsIntegerEv.exit.i:      ; preds = %29
   %.not.i.i21 = icmp sgt i64 %48, -1
   br i1 %.not.i.i21, label %49, label %_ZN4llvm4json8fromJSONERKNS0_5ValueERlNS0_4PathE.exit
 
-_ZN4llvm4json8fromJSONERKNS0_5ValueERlNS0_4PathE.exit: ; preds = %29, %_ZNK4llvm4json5Value12getAsIntegerEv.exit.i, %.thread8.i.i
+_ZN4llvm4json8fromJSONERKNS0_5ValueERlNS0_4PathE.exit: ; preds = %29, %_ZNK4llvm4json5Value12getAsIntegerEv.exit.i, %.thread7.i.i
   call void @_ZN4llvm4json4Path6reportENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull @.str.29, i64 16) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
@@ -5633,7 +5633,7 @@ _ZN4llvm4json8fromJSONERKNS0_5ValueERlNS0_4PathE.exit: ; preds = %29, %_ZNK4llvm
   %.sroa.0.0.i9.i = phi i64 [ %48, %_ZNK4llvm4json5Value12getAsIntegerEv.exit.i ], [ %36, %34 ], [ %46, %45 ]
   store i64 %.sroa.0.0.i9.i, ptr %31, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %50 = add nuw i64 %.01529, 1
+  %50 = add nuw i64 %.01528, 1
   %exitcond.not = icmp eq i64 %50, %27
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !612
 

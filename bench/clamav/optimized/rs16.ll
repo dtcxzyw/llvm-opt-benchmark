@@ -152,7 +152,7 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 8, !tbaa !3
-  br i1 %8, label %11, label %._crit_edge61
+  br i1 %8, label %11, label %._crit_edge60
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -163,77 +163,77 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
 15:                                               ; preds = %11
   tail call void @_ZdaPv(ptr noundef nonnull %13) #8
   %.pre = load i32, ptr %5, align 4, !tbaa !21
-  %.pre60 = load i32, ptr %6, align 8, !tbaa !22
+  %.pre59 = load i32, ptr %6, align 8, !tbaa !22
   br label %16
 
 16:                                               ; preds = %15, %11
-  %17 = phi i32 [ %.pre60, %15 ], [ %2, %11 ]
+  %17 = phi i32 [ %.pre59, %15 ], [ %2, %11 ]
   %18 = phi i32 [ %.pre, %15 ], [ %1, %11 ]
   %19 = add i32 %17, %18
   %20 = zext i32 %19 to i64
   %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #7
   store ptr %21, ptr %12, align 8, !tbaa !20
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.preheader41, label %.lr.ph.preheader
+  br i1 %.not, label %.preheader40, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %3, i64 %20, i1 false), !tbaa !24
-  br label %.preheader41
+  br label %.preheader40
 
-.preheader41:                                     ; preds = %.lr.ph.preheader, %16
+.preheader40:                                     ; preds = %.lr.ph.preheader, %16
   %.promoted = load i32, ptr %7, align 4
-  %.not49 = icmp eq i32 %18, 0
-  br i1 %.not49, label %.preheader, label %.lr.ph44.preheader
+  %.not48 = icmp eq i32 %18, 0
+  br i1 %.not48, label %.preheader, label %.lr.ph43.preheader
 
-.lr.ph44.preheader:                               ; preds = %.preheader41
+.lr.ph43.preheader:                               ; preds = %.preheader40
   %wide.trip.count = zext i32 %18 to i64
-  br label %.lr.ph44
+  br label %.lr.ph43
 
-.preheader:                                       ; preds = %31, %.preheader41
-  %22 = phi i32 [ %.promoted, %.preheader41 ], [ %32, %31 ]
+.preheader:                                       ; preds = %31, %.preheader40
+  %22 = phi i32 [ %.promoted, %.preheader40 ], [ %32, %31 ]
   %23 = icmp ult i32 %18, %19
-  br i1 %23, label %.lr.ph47.preheader, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit
+  br i1 %23, label %.lr.ph46.preheader, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit
 
-.lr.ph47.preheader:                               ; preds = %.preheader
+.lr.ph46.preheader:                               ; preds = %.preheader
   %24 = zext i32 %18 to i64
-  br label %.lr.ph47
+  br label %.lr.ph46
 
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next, %31 ]
-  %25 = phi i32 [ %.promoted, %.lr.ph44.preheader ], [ %32, %31 ]
+.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %31
+  %indvars.iv = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next, %31 ]
+  %25 = phi i32 [ %.promoted, %.lr.ph43.preheader ], [ %32, %31 ]
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !24, !range !25, !noundef !26
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %31, label %29
 
-29:                                               ; preds = %.lr.ph44
+29:                                               ; preds = %.lr.ph43
   %30 = add i32 %25, 1
   store i32 %30, ptr %7, align 4, !tbaa !23
   br label %31
 
-31:                                               ; preds = %.lr.ph44, %29
-  %32 = phi i32 [ %25, %.lr.ph44 ], [ %30, %29 ]
+31:                                               ; preds = %.lr.ph43, %29
+  %32 = phi i32 [ %25, %.lr.ph43 ], [ %30, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph44, !llvm.loop !27
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph43, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.lr.ph47
+._crit_edge:                                      ; preds = %.lr.ph46
   %33 = add i32 %22, -1
   %or.cond = icmp ult i32 %33, %spec.select
-  br i1 %or.cond, label %._crit_edge61, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit
+  br i1 %or.cond, label %._crit_edge60, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit
 
-.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
-  %indvars.iv52 = phi i64 [ %24, %.lr.ph47.preheader ], [ %indvars.iv.next53, %.lr.ph47 ]
-  %.02145 = phi i32 [ 0, %.lr.ph47.preheader ], [ %spec.select, %.lr.ph47 ]
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv52
+.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
+  %indvars.iv51 = phi i64 [ %24, %.lr.ph46.preheader ], [ %indvars.iv.next52, %.lr.ph46 ]
+  %.02144 = phi i32 [ 0, %.lr.ph46.preheader ], [ %spec.select, %.lr.ph46 ]
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv51
   %35 = load i8, ptr %34, align 1, !tbaa !24, !range !25, !noundef !26
   %36 = zext nneg i8 %35 to i32
-  %spec.select = add i32 %.02145, %36
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %20
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !28
+  %spec.select = add i32 %.02144, %36
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %20
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !28
 
-._crit_edge61:                                    ; preds = %4, %._crit_edge
+._crit_edge60:                                    ; preds = %4, %._crit_edge
   %37 = phi i32 [ %17, %._crit_edge ], [ %2, %4 ]
   %38 = phi i32 [ %18, %._crit_edge ], [ %1, %4 ]
   %39 = add i32 %37, %38
@@ -244,7 +244,7 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
   %or.cond32 = or i1 %42, %or.cond31
   br i1 %or.cond32, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %43
 
-43:                                               ; preds = %._crit_edge61
+43:                                               ; preds = %._crit_edge60
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !19
   %46 = icmp eq ptr %45, null
@@ -331,8 +331,8 @@ _ZN9RSCoder165gfInvEj.exit.i:                     ; preds = %77, %.lr.ph.i
   %90 = getelementptr inbounds nuw i32, ptr %57, i64 %89
   store i32 %86, ptr %90, align 4, !tbaa !15
   %91 = add nuw i32 %.018.i, 1
-  %exitcond59.not = icmp eq i32 %91, %51
-  br i1 %exitcond59.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
+  %exitcond58.not = icmp eq i32 %91, %51
+  br i1 %exitcond58.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
 92:                                               ; preds = %._crit_edge.i, %63
   %93 = phi i32 [ %64, %63 ], [ %73, %._crit_edge.i ]
@@ -356,8 +356,8 @@ _ZN9RSCoder1617MakeDecoderMatrixEv.exit:          ; preds = %92, %52
   store ptr %101, ptr %44, align 8, !tbaa !19
   %.not.i34 = icmp eq i32 %97, 0
   %.not13.i = icmp eq i32 %51, 0
-  %or.cond77 = select i1 %.not.i34, i1 true, i1 %.not13.i
-  br i1 %or.cond77, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35.preheader
+  %or.cond76 = select i1 %.not.i34, i1 true, i1 %.not13.i
+  br i1 %or.cond76, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35.preheader
 
 .preheader.i35.preheader:                         ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -374,8 +374,8 @@ _ZN9RSCoder1617MakeDecoderMatrixEv.exit:          ; preds = %92, %52
 ._crit_edge.i38:                                  ; preds = %_ZN9RSCoder165gfInvEj.exit.i37, %.preheader.i35
   %106 = phi i32 [ 0, %.preheader.i35 ], [ %51, %_ZN9RSCoder165gfInvEj.exit.i37 ]
   %107 = add nuw i32 %.0811.i, 1
-  %exitcond58.not = icmp eq i32 %107, %97
-  br i1 %exitcond58.not, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35, !llvm.loop !32
+  %exitcond57.not = icmp eq i32 %107, %97
+  br i1 %exitcond57.not, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35, !llvm.loop !32
 
 .lr.ph.i36:                                       ; preds = %.preheader.i35, %_ZN9RSCoder165gfInvEj.exit.i37
   %108 = phi i32 [ %51, %_ZN9RSCoder165gfInvEj.exit.i37 ], [ %105, %.preheader.i35 ]
@@ -403,11 +403,11 @@ _ZN9RSCoder165gfInvEj.exit.i37:                   ; preds = %111, %.lr.ph.i36
   %124 = getelementptr inbounds nuw i32, ptr %101, i64 %123
   store i32 %120, ptr %124, align 4, !tbaa !15
   %125 = add nuw i32 %.010.i, 1
-  %exitcond57.not = icmp eq i32 %125, %51
-  br i1 %exitcond57.not, label %._crit_edge.i38, label %.lr.ph.i36, !llvm.loop !34
+  %exitcond56.not = icmp eq i32 %125, %51
+  br i1 %exitcond56.not, label %._crit_edge.i38, label %.lr.ph.i36, !llvm.loop !34
 
-_ZN9RSCoder1617MakeEncoderMatrixEv.exit:          ; preds = %._crit_edge.i38, %.preheader, %._crit_edge, %96, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit, %._crit_edge61
-  %.125 = phi i1 [ false, %._crit_edge61 ], [ true, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit ], [ true, %96 ], [ false, %._crit_edge ], [ false, %.preheader ], [ true, %._crit_edge.i38 ]
+_ZN9RSCoder1617MakeEncoderMatrixEv.exit:          ; preds = %._crit_edge.i38, %.preheader, %._crit_edge, %96, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit, %._crit_edge60
+  %.125 = phi i1 [ false, %._crit_edge60 ], [ true, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit ], [ true, %96 ], [ false, %._crit_edge ], [ false, %.preheader ], [ true, %._crit_edge.i38 ]
   ret i1 %.125
 }
 

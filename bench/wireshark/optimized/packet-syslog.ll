@@ -588,8 +588,8 @@ dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %1
   %201 = add i32 %.1115, 16
   %202 = load i32, ptr @hf_syslog_hostname, align 4
   %203 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %201, i32 noundef -1, i8 noundef zeroext 32)
-  %.not45.i = icmp eq i32 %203, -1
-  br i1 %.not45.i, label %dissect_rfc3164_syslog_message.exit, label %204
+  %.not44.i = icmp eq i32 %203, -1
+  br i1 %.not44.i, label %dissect_rfc3164_syslog_message.exit, label %204
 
 204:                                              ; preds = %198
   %205 = sub i32 %203, %201
@@ -604,8 +604,8 @@ dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %1
   br label %211
 
 211:                                              ; preds = %222, %.lr.ph.i
-  %.02447.i = phi i32 [ %207, %.lr.ph.i ], [ %223, %222 ]
-  %212 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02447.i)
+  %.02446.i = phi i32 [ %207, %.lr.ph.i ], [ %223, %222 ]
+  %212 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02446.i)
   %213 = zext i8 %212 to i64
   %214 = getelementptr i16, ptr %210, i64 %213
   %215 = load i16, ptr %214, align 2
@@ -615,13 +615,13 @@ dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %1
 
 217:                                              ; preds = %211
   %218 = load i32, ptr @hf_syslog_procid, align 4
-  %219 = sub i32 %.02447.i, %207
+  %219 = sub i32 %.02446.i, %207
   %220 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %218, ptr noundef %0, i32 noundef %207, i32 noundef %219, i32 noundef 0)
-  %221 = add nuw i32 %.02447.i, 1
+  %221 = add nuw i32 %.02446.i, 1
   br label %.loopexit.i
 
 222:                                              ; preds = %211
-  %223 = add i32 %.02447.i, 1
+  %223 = add i32 %.02446.i, 1
   %exitcond.not.i = icmp eq i32 %223, %208
   br i1 %exitcond.not.i, label %.loopexit.i, label %211, !llvm.loop !8
 
@@ -761,11 +761,11 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   %or.cond = and i1 %18, %19
   %20 = add nuw nsw i32 %.040, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %or.cond, label %.thread48, label %6
+  br i1 %or.cond, label %.thread47, label %6
 
 .thread:                                          ; preds = %11, %6
-  %.not51 = icmp eq i32 %.040, 0
-  br i1 %.not51, label %.thread48, label %21
+  %.not50 = icmp eq i32 %.040, 0
+  br i1 %.not50, label %.thread47, label %21
 
 21:                                               ; preds = %.thread
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -774,29 +774,29 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   br label %25
 
 25:                                               ; preds = %21, %25
-  %indvars.iv55 = phi i64 [ %indvars.iv, %21 ], [ %indvars.iv.next56, %25 ]
-  %.03753 = phi i32 [ 1, %21 ], [ %33, %25 ]
-  %.152 = phi i32 [ 0, %21 ], [ %32, %25 ]
-  %26 = getelementptr i8, ptr %24, i64 %indvars.iv55
+  %indvars.iv54 = phi i64 [ %indvars.iv, %21 ], [ %indvars.iv.next55, %25 ]
+  %.03752 = phi i32 [ 1, %21 ], [ %33, %25 ]
+  %.151 = phi i32 [ 0, %21 ], [ %32, %25 ]
+  %26 = getelementptr i8, ptr %24, i64 %indvars.iv54
   %27 = getelementptr i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = add nsw i32 %29, -48
-  %31 = mul i32 %30, %.03753
-  %32 = add i32 %31, %.152
-  %33 = mul i32 %.03753, 10
-  %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %34 = icmp eq i64 %indvars.iv.next56, 0
+  %31 = mul i32 %30, %.03752
+  %32 = add i32 %31, %.151
+  %33 = mul i32 %.03752, 10
+  %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
+  %34 = icmp eq i64 %indvars.iv.next55, 0
   br i1 %34, label %35, label %25, !llvm.loop !9
 
 35:                                               ; preds = %25
   %.not43 = icmp eq i32 %32, 0
-  br i1 %.not43, label %.thread48, label %36
+  br i1 %.not43, label %.thread47, label %36
 
 36:                                               ; preds = %35
   %37 = add nuw nsw i32 %.040, 1
   %38 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %37)
-  br i1 %38, label %39, label %.thread48
+  br i1 %38, label %39, label %.thread47
 
 39:                                               ; preds = %36
   %40 = add i32 %.040, %2
@@ -804,9 +804,9 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   %42 = icmp eq i8 %41, 32
   %43 = add i32 %37, %32
   %spec.select = select i1 %42, i32 %43, i32 0
-  br label %.thread48
+  br label %.thread47
 
-.thread48:                                        ; preds = %17, %39, %.thread, %35, %36
+.thread47:                                        ; preds = %17, %39, %.thread, %35, %36
   %.036 = phi i32 [ 0, %36 ], [ 0, %35 ], [ 0, %.thread ], [ %spec.select, %39 ], [ 0, %17 ]
   ret i32 %.036
 }
@@ -940,8 +940,8 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
 24:                                               ; preds = %21
   %25 = load i32, ptr %3, align 4
   %26 = tail call i32 @tvb_find_uint16(ptr noundef %1, i32 noundef %25, i32 noundef -1, i16 noundef zeroext 23840)
-  %.not153 = icmp eq i32 %26, -1
-  br i1 %.not153, label %110, label %27
+  %.not150 = icmp eq i32 %26, -1
+  br i1 %.not150, label %110, label %27
 
 27:                                               ; preds = %24
   %28 = load i32, ptr @hf_syslog_sd, align 4
@@ -953,15 +953,15 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33)
   %35 = load i32, ptr %3, align 4
   %36 = icmp ult i32 %35, %26
-  br i1 %36, label %.lr.ph168, label %._crit_edge.thread
+  br i1 %36, label %.lr.ph165, label %._crit_edge.thread
 
-.lr.ph168:                                        ; preds = %27
+.lr.ph165:                                        ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %38
 
-38:                                               ; preds = %.lr.ph168, %.loopexit
-  %39 = phi i32 [ %35, %.lr.ph168 ], [ %104, %.loopexit ]
-  %.0120167 = phi i32 [ 0, %.lr.ph168 ], [ %.1121162, %.loopexit ]
+38:                                               ; preds = %.lr.ph165, %.loopexit
+  %39 = phi i32 [ %35, %.lr.ph165 ], [ %104, %.loopexit ]
+  %.0120164 = phi i32 [ 0, %.lr.ph165 ], [ %.1121159, %.loopexit ]
   %40 = tail call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %39, i32 noundef -1, i8 noundef zeroext 93)
   %41 = load i32, ptr @hf_syslog_sd_element, align 4
   %42 = load i32, ptr %3, align 4
@@ -974,22 +974,22 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   %49 = add i32 %48, 1
   store i32 %49, ptr %3, align 4
   %50 = icmp ult i32 %49, %40
-  br i1 %50, label %.lr.ph165, label %.loopexit
+  br i1 %50, label %.lr.ph162, label %.loopexit
 
-.lr.ph165:                                        ; preds = %38, %.thread.thread
+.lr.ph162:                                        ; preds = %38, %.thread.thread
   %51 = phi i32 [ %102, %.thread.thread ], [ %49, %38 ]
-  %.1121164 = phi i32 [ %101, %.thread.thread ], [ %.0120167, %38 ]
+  %.1121161 = phi i32 [ %101, %.thread.thread ], [ %.0120164, %38 ]
   %52 = tail call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %51, i32 noundef -1, i8 noundef zeroext 32)
   %53 = icmp ne i32 %52, -1
   %.not136 = icmp slt i32 %52, %40
   %or.cond140 = and i1 %53, %.not136
-  br i1 %or.cond140, label %54, label %.thread149
+  br i1 %or.cond140, label %54, label %.thread147
 
-.thread149:                                       ; preds = %.lr.ph165
+.thread147:                                       ; preds = %.lr.ph162
   store i32 %43, ptr %3, align 4
   br label %.loopexit
 
-54:                                               ; preds = %.lr.ph165
+54:                                               ; preds = %.lr.ph162
   %55 = load i32, ptr @hf_syslog_sd_element_name, align 4
   %56 = load i32, ptr %3, align 4
   %57 = sub i32 %52, %56
@@ -1006,7 +1006,7 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %54, %89
   %65 = phi i32 [ %96, %89 ], [ %63, %54 ]
-  %.0118163 = phi i32 [ %97, %89 ], [ 0, %54 ]
+  %.0118160 = phi i32 [ %97, %89 ], [ 0, %54 ]
   %66 = tail call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %65, i32 noundef -1, i8 noundef zeroext 61)
   %67 = icmp ne i32 %66, -1
   %.not137 = icmp slt i32 %66, %40
@@ -1036,9 +1036,9 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   %86 = tail call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %85, i32 noundef -1, i8 noundef zeroext 34)
   %87 = icmp ne i32 %83, -1
   %88 = icmp ne i32 %86, -1
-  %or.cond.not156 = select i1 %87, i1 %88, i1 false
+  %or.cond.not153 = select i1 %87, i1 %88, i1 false
   %.not138 = icmp slt i32 %83, %40
-  %or.cond142 = and i1 %.not138, %or.cond.not156
+  %or.cond142 = and i1 %.not138, %or.cond.not153
   %.not139 = icmp slt i32 %86, %40
   %or.cond143 = select i1 %or.cond142, i1 %.not139, i1 false
   br i1 %or.cond143, label %89, label %.thread.sink.split
@@ -1053,7 +1053,7 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   tail call void @proto_item_set_end(ptr noundef %71, ptr noundef %1, i32 noundef %95)
   %96 = add i32 %86, 2
   store i32 %96, ptr %3, align 4
-  %97 = add i32 %.0118163, 1
+  %97 = add i32 %.0118160, 1
   %98 = icmp ult i32 %96, %40
   br i1 %98, label %.lr.ph, label %.thread
 
@@ -1062,41 +1062,41 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %89, %.thread.sink.split
-  %.0118160 = phi i32 [ %.0118163, %.thread.sink.split ], [ %97, %89 ]
-  %99 = icmp eq i32 %.0118160, 1
-  %spec.select200 = select i1 %99, ptr @.str.140, ptr @.str.141
+  %.0118157 = phi i32 [ %.0118160, %.thread.sink.split ], [ %97, %89 ]
+  %99 = icmp eq i32 %.0118157, 1
+  %spec.select197 = select i1 %99, ptr @.str.140, ptr @.str.141
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %54
-  %.0118160188 = phi i32 [ 0, %54 ], [ %.0118160, %.thread ]
-  %100 = phi ptr [ @.str.141, %54 ], [ %spec.select200, %.thread ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.139, i32 noundef %.0118160188, ptr noundef nonnull %100)
-  %101 = add i32 %.1121164, 1
+  %.0118157185 = phi i32 [ 0, %54 ], [ %.0118157, %.thread ]
+  %100 = phi ptr [ @.str.141, %54 ], [ %spec.select197, %.thread ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.139, i32 noundef %.0118157185, ptr noundef nonnull %100)
+  %101 = add i32 %.1121161, 1
   %102 = load i32, ptr %3, align 4
   %103 = icmp ult i32 %102, %40
-  br i1 %103, label %.lr.ph165, label %.loopexit
+  br i1 %103, label %.lr.ph162, label %.loopexit
 
-.loopexit:                                        ; preds = %.thread.thread, %38, %.thread149
-  %104 = phi i32 [ %43, %.thread149 ], [ %49, %38 ], [ %102, %.thread.thread ]
-  %.1121162 = phi i32 [ %.1121164, %.thread149 ], [ %.0120167, %38 ], [ %101, %.thread.thread ]
+.loopexit:                                        ; preds = %.thread.thread, %38, %.thread147
+  %104 = phi i32 [ %43, %.thread147 ], [ %49, %38 ], [ %102, %.thread.thread ]
+  %.1121159 = phi i32 [ %.1121161, %.thread147 ], [ %.0120164, %38 ], [ %101, %.thread.thread ]
   %105 = icmp ult i32 %104, %26
   br i1 %105, label %38, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %106 = icmp eq i32 %.1121162, 1
-  %spec.select196 = select i1 %106, ptr @.str.140, ptr @.str.141
+  %106 = icmp eq i32 %.1121159, 1
+  %spec.select193 = select i1 %106, ptr @.str.140, ptr @.str.141
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %27
-  %.0120.lcssa190 = phi i32 [ 0, %27 ], [ %.1121162, %._crit_edge ]
-  %107 = phi ptr [ @.str.141, %27 ], [ %spec.select196, %._crit_edge ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.142, i32 noundef %.0120.lcssa190, ptr noundef nonnull %107)
+  %.0120.lcssa187 = phi i32 [ 0, %27 ], [ %.1121159, %._crit_edge ]
+  %107 = phi ptr [ @.str.141, %27 ], [ %spec.select193, %._crit_edge ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.142, i32 noundef %.0120.lcssa187, ptr noundef nonnull %107)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %._crit_edge.thread
-  %.sink198 = phi i32 [ 1, %._crit_edge.thread ], [ 2, %17 ]
+  %.sink195 = phi i32 [ 1, %._crit_edge.thread ], [ 2, %17 ]
   %108 = load i32, ptr %3, align 4
-  %109 = add i32 %108, %.sink198
+  %109 = add i32 %108, %.sink195
   store i32 %109, ptr %3, align 4
   br label %110
 

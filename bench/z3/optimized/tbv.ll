@@ -1226,8 +1226,8 @@ select.unfold:                                    ; preds = %28, %.lr.ph
   br i1 %exitcond.not, label %.split20.us, label %.lr.ph, !llvm.loop !48
 
 .split20.us:                                      ; preds = %28, %select.unfold, %.split, %5
-  %switch = phi i1 [ true, %5 ], [ true, %.split ], [ false, %28 ], [ true, %select.unfold ]
-  ret i1 %switch
+  %45 = phi i1 [ true, %5 ], [ true, %.split ], [ false, %28 ], [ true, %select.unfold ]
+  ret i1 %45
 }
 
 ; Function Attrs: mustprogress uwtable

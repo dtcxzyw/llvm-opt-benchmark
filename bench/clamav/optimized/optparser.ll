@@ -2338,17 +2338,16 @@ optget_i.exit:                                    ; preds = %11, %6
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %.01018.i, i64 24
   %70 = load i64, ptr %69, align 8, !tbaa !44
-  switch i64 %70, label %71 [
-    i64 0, label %73
-    i64 -1, label %73
-  ]
+  %.off = add i64 %70, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %71, label %73
 
 71:                                               ; preds = %68, %64
   %72 = getelementptr inbounds nuw i8, ptr %.01018.i, i64 32
   store i32 1, ptr %72, align 8, !tbaa !43
   br label %75
 
-73:                                               ; preds = %68, %68
+73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %.01018.i, i64 32
   store i32 0, ptr %74, align 8, !tbaa !43
   br label %75

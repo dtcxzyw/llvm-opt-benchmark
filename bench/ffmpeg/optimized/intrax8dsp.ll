@@ -810,29 +810,29 @@ define internal fastcc void @x8_loop_filter(ptr noundef captures(none) %0, i64 n
   br label %16
 
 16:                                               ; preds = %4, %181
-  %.0269 = phi ptr [ %0, %4 ], [ %183, %181 ]
-  %.0225268 = phi i32 [ 0, %4 ], [ %182, %181 ]
-  %17 = getelementptr inbounds i8, ptr %.0269, i64 %7
+  %.0268 = phi ptr [ %0, %4 ], [ %183, %181 ]
+  %.0225267 = phi i32 [ 0, %4 ], [ %182, %181 ]
+  %17 = getelementptr inbounds i8, ptr %.0268, i64 %7
   %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %.0269, i64 %8
+  %20 = getelementptr inbounds i8, ptr %.0268, i64 %8
   %21 = load i8, ptr %20, align 1, !tbaa !14
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %.0269, i64 %9
+  %23 = getelementptr inbounds i8, ptr %.0268, i64 %9
   %24 = load i8, ptr %23, align 1, !tbaa !14
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %.0269, i64 %10
+  %26 = getelementptr inbounds i8, ptr %.0268, i64 %10
   %27 = load i8, ptr %26, align 1, !tbaa !14
   %28 = zext i8 %27 to i32
-  %29 = load i8, ptr %.0269, align 1, !tbaa !14
+  %29 = load i8, ptr %.0268, align 1, !tbaa !14
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %.0269, i64 %1
+  %31 = getelementptr inbounds i8, ptr %.0268, i64 %1
   %32 = load i8, ptr %31, align 1, !tbaa !14
   %33 = zext i8 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %.0269, i64 %11
+  %34 = getelementptr inbounds i8, ptr %.0268, i64 %11
   %35 = load i8, ptr %34, align 1, !tbaa !14
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %.0269, i64 %12
+  %37 = getelementptr inbounds i8, ptr %.0268, i64 %12
   %38 = load i8, ptr %37, align 1, !tbaa !14
   %39 = zext i8 %38 to i32
   %40 = sub nsw i32 %19, %22
@@ -858,10 +858,10 @@ define internal fastcc void @x8_loop_filter(ptr noundef captures(none) %0, i64 n
   br i1 %.not, label %.thread, label %59
 
 59:                                               ; preds = %16
-  %60 = getelementptr inbounds i8, ptr %.0269, i64 %13
+  %60 = getelementptr inbounds i8, ptr %.0268, i64 %13
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = zext i8 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %.0269, i64 %14
+  %63 = getelementptr inbounds i8, ptr %.0268, i64 %14
   %64 = load i8, ptr %63, align 1, !tbaa !14
   %65 = zext i8 %64 to i32
   %66 = sub nsw i32 %30, %33
@@ -942,7 +942,7 @@ define internal fastcc void @x8_loop_filter(ptr noundef captures(none) %0, i64 n
   %131 = add nuw nsw i32 %130, %reass.mul
   %132 = lshr i32 %131, 3
   %133 = trunc nuw i32 %132 to i8
-  store i8 %133, ptr %.0269, align 1, !tbaa !14
+  store i8 %133, ptr %.0268, align 1, !tbaa !14
   %134 = mul nuw nsw i32 %33, 3
   %135 = shl nuw nsw i32 %36, 2
   %136 = add nuw nsw i32 %22, 4
@@ -955,12 +955,12 @@ define internal fastcc void @x8_loop_filter(ptr noundef captures(none) %0, i64 n
 
 .thread:                                          ; preds = %92, %103, %59, %16
   %141 = shl nuw nsw i32 %25, 1
-  %reass.add259 = sub nsw i32 %30, %28
-  %reass.mul260 = mul nsw i32 %reass.add259, 5
+  %reass.add258 = sub nsw i32 %30, %28
+  %reass.mul259 = mul nsw i32 %reass.add258, 5
   %142 = add nuw nsw i32 %141, 4
   %143 = shl nuw nsw i32 %33, 1
   %144 = sub nsw i32 %142, %143
-  %145 = add nsw i32 %144, %reass.mul260
+  %145 = add nsw i32 %144, %reass.mul259
   %146 = ashr i32 %145, 3
   %147 = tail call i32 @llvm.abs.i32(i32 %146, i1 true)
   %148 = icmp slt i32 %147, %3
@@ -968,20 +968,20 @@ define internal fastcc void @x8_loop_filter(ptr noundef captures(none) %0, i64 n
 
 149:                                              ; preds = %.thread
   %150 = shl nuw nsw i32 %19, 1
-  %reass.add262 = sub nsw i32 %25, %22
-  %reass.mul263 = mul nsw i32 %reass.add262, 5
+  %reass.add261 = sub nsw i32 %25, %22
+  %reass.mul262 = mul nsw i32 %reass.add261, 5
   %151 = add nuw nsw i32 %150, 4
   %152 = shl nuw nsw i32 %28, 1
   %153 = sub nsw i32 %151, %152
-  %154 = add nsw i32 %153, %reass.mul263
+  %154 = add nsw i32 %153, %reass.mul262
   %155 = ashr i32 %154, 3
   %156 = shl nuw nsw i32 %30, 1
-  %reass.add266 = sub nsw i32 %36, %33
-  %reass.mul267 = mul nsw i32 %reass.add266, 5
+  %reass.add265 = sub nsw i32 %36, %33
+  %reass.mul266 = mul nsw i32 %reass.add265, 5
   %157 = add nuw nsw i32 %156, 4
   %158 = shl nuw nsw i32 %39, 1
   %159 = sub nsw i32 %157, %158
-  %160 = add nsw i32 %159, %reass.mul267
+  %160 = add nsw i32 %159, %reass.mul266
   %161 = ashr i32 %160, 3
   %162 = tail call i32 @llvm.abs.i32(i32 %155, i1 true)
   %163 = tail call i32 @llvm.abs.i32(i32 %161, i1 true)
@@ -1006,14 +1006,14 @@ define internal fastcc void @x8_loop_filter(ptr noundef captures(none) %0, i64 n
   %177 = trunc i32 %176 to i8
   %178 = sub i8 %27, %177
   store i8 %178, ptr %26, align 1, !tbaa !14
-  %179 = load i8, ptr %.0269, align 1, !tbaa !14
+  %179 = load i8, ptr %.0268, align 1, !tbaa !14
   %180 = add i8 %179, %177
-  store i8 %180, ptr %.0269, align 1, !tbaa !14
+  store i8 %180, ptr %.0268, align 1, !tbaa !14
   br label %181
 
 181:                                              ; preds = %114, %.thread, %168, %149
-  %182 = add nuw nsw i32 %.0225268, 1
-  %183 = getelementptr inbounds i8, ptr %.0269, i64 %2
+  %182 = add nuw nsw i32 %.0225267, 1
+  %183 = getelementptr inbounds i8, ptr %.0268, i64 %2
   %exitcond.not = icmp eq i32 %182, 8
   br i1 %exitcond.not, label %184, label %16, !llvm.loop !48
 

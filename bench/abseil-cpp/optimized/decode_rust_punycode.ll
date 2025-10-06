@@ -280,10 +280,9 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   %128 = phi i64 [ %.pre54.i, %._crit_edge.loopexit.i ], [ %104, %.preheader.i ]
   %129 = add nuw i32 %.041.lcssa.i, %spec.store.select.i
   %130 = add nuw i32 %129, %.040.lcssa.i
-  %131 = add i32 %90, -5
-  %or.cond.i57 = icmp ult i32 %131, -4
+  %131 = icmp ugt i32 %90, 4
   %132 = add nsw i32 %90, -1
-  %133 = select i1 %or.cond.i57, i32 0, i32 %132
+  %133 = select i1 %131, i32 0, i32 %132
   %134 = zext i32 %133 to i64
   %135 = shl i64 %134, %100
   %136 = or i64 %.pre-phi.i, %135

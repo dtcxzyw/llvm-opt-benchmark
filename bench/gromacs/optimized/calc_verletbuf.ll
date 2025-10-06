@@ -302,8 +302,8 @@ _ZN3gmxL15sc_jClusterSizeENS_15NbnxmKernelTypeE.exit: ; preds = %1, %_ZN3gmxL15s
 define noundef range(i64 17179869188, 34359738377) i64 @_Z25verletbufGetSafeListSetup13ListSetupType(i32 noundef %0) local_unnamed_addr #10 {
 _Z21verletbufGetListSetupN3gmx15NbnxmKernelTypeE.exit:
   %switch.selectcmp4 = icmp eq i32 %0, 2
-  %.sroa.0.0.insert.insert.i = select i1 %switch.selectcmp4, i64 34359738376, i64 17179869188
-  ret i64 %.sroa.0.0.insert.insert.i
+  %switch.select10 = select i1 %switch.selectcmp4, i64 34359738376, i64 17179869188
+  ret i64 %switch.select10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

@@ -234,19 +234,19 @@ _ZN3gmx14LogEntryWriterD2Ev.exit11:               ; preds = %24, %_ZNKSt7__cxx11
   %36 = ptrtoint ptr %32 to i64
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 24
-  %.not5164.not.i = icmp eq ptr %34, %32
-  br i1 %.not5164.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i
+  %.not.i = icmp eq ptr %34, %32
+  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %._crit_edge63.i
-  %.02365.i = phi i64 [ %.pre.i, %._crit_edge63.i ], [ 0, %30 ]
-  %39 = getelementptr inbounds %"class.std::vector.69", ptr %32, i64 %.02365.i
+  %.02364.i = phi i64 [ %.pre.i, %._crit_edge63.i ], [ 0, %30 ]
+  %39 = getelementptr inbounds %"class.std::vector.69", ptr %32, i64 %.02364.i
   %40 = load ptr, ptr %39, align 8, !tbaa !38
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !38
-  %.not4961.i = icmp ne ptr %40, %42
-  %.pre.i = add nuw i64 %.02365.i, 1
+  %.not5161.i = icmp ne ptr %40, %42
+  %.pre.i = add nuw i64 %.02364.i, 1
   %43 = icmp ult i64 %.pre.i, %38
-  %or.cond.i = select i1 %.not4961.i, i1 %43, i1 false
+  %or.cond.i = select i1 %.not5161.i, i1 %43, i1 false
   br i1 %or.cond.i, label %.preheader.us.i, label %._crit_edge63.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph.i, %._crit_edge.us.i
@@ -260,13 +260,13 @@ _ZN3gmx14LogEntryWriterD2Ev.exit11:               ; preds = %24, %_ZNKSt7__cxx11
   %47 = load ptr, ptr %46, align 8, !tbaa !38
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !38
-  %.not5056.us.i = icmp eq ptr %47, %49
-  br i1 %.not5056.us.i, label %.loopexit.us.i, label %.lr.ph.us.i
+  %.not5256.us.i = icmp eq ptr %47, %49
+  br i1 %.not5256.us.i, label %.loopexit.us.i, label %.lr.ph.us.i
 
 50:                                               ; preds = %52
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.031.057.us.i, i64 8
-  %.not50.us.i = icmp eq ptr %51, %49
-  br i1 %.not50.us.i, label %.loopexit.us.i, label %52
+  %.not52.us.i = icmp eq ptr %51, %49
+  br i1 %.not52.us.i, label %.loopexit.us.i, label %52
 
 52:                                               ; preds = %.lr.ph.us.i, %50
   %.sroa.031.057.us.i = phi ptr [ %47, %.lr.ph.us.i ], [ %51, %50 ]
@@ -286,12 +286,12 @@ _ZN3gmx14LogEntryWriterD2Ev.exit11:               ; preds = %24, %_ZNKSt7__cxx11
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 8
-  %.not49.us.i = icmp eq ptr %56, %42
-  br i1 %.not49.us.i, label %._crit_edge63.i, label %.preheader.us.i
+  %.not51.us.i = icmp eq ptr %56, %42
+  br i1 %.not51.us.i, label %._crit_edge63.i, label %.preheader.us.i
 
 ._crit_edge63.i:                                  ; preds = %._crit_edge.us.i, %.lr.ph.i
-  %exitcond69.not.i = icmp eq i64 %.pre.i, %38
-  br i1 %exitcond69.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i, !llvm.loop !44
+  %exitcond67.not.i = icmp eq i64 %.pre.i, %38
+  br i1 %exitcond67.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i, !llvm.loop !44
 
 _ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit: ; preds = %52
   %57 = load ptr, ptr %1, align 8, !tbaa !20

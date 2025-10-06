@@ -2207,16 +2207,16 @@ define void @_ZN14AtomProperties21elementFromAtomNumberB5cxx11Ei(ptr dead_on_unw
   %16 = load ptr, ptr %15, align 8, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 352
   %18 = load ptr, ptr %17, align 8, !tbaa !83
-  %.not19 = icmp eq ptr %16, %18
-  br i1 %.not19, label %._crit_edge.i.i9, label %.lr.ph
+  %.not17 = icmp eq ptr %16, %18
+  br i1 %.not17, label %._crit_edge.i.i9, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %19 = sitofp i32 %2 to float
   br label %20
 
 20:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.012.020 = phi ptr [ %16, %.lr.ph ], [ %37, %.critedge ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.012.020, i64 68
+  %.sroa.012.018 = phi ptr [ %16, %.lr.ph ], [ %37, %.critedge ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 68
   %22 = load float, ptr %21, align 4, !tbaa !57
   %23 = tail call noundef float @llvm.round.f32(float %22)
   %24 = fcmp une float %23, %19
@@ -2225,8 +2225,8 @@ define void @_ZN14AtomProperties21elementFromAtomNumberB5cxx11Ei(ptr dead_on_unw
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8, !tbaa !33
-  %27 = load ptr, ptr %.sroa.012.020, align 8, !tbaa !37
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.012.020, i64 8
+  %27 = load ptr, ptr %.sroa.012.018, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %29, ptr %4, align 8, !tbaa !36
@@ -2257,7 +2257,7 @@ define void @_ZN14AtomProperties21elementFromAtomNumberB5cxx11Ei(ptr dead_on_unw
   br label %38
 
 .critedge:                                        ; preds = %20
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.012.020, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 72
   %.not = icmp eq ptr %37, %18
   br i1 %.not, label %._crit_edge.i.i9, label %20
 
@@ -2312,31 +2312,31 @@ define noundef i32 @_ZN14AtomProperties21atomNumberFromElementEPKc(ptr noundef n
   %14 = load ptr, ptr %13, align 8, !tbaa !83
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 352
   %16 = load ptr, ptr %15, align 8, !tbaa !83
-  %.not1416 = icmp eq ptr %14, %16
-  br i1 %.not1416, label %.loopexit, label %.lr.ph
+  %.not1719 = icmp eq ptr %14, %16
+  br i1 %.not1719, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %23
-  %.sroa.010.017 = phi ptr [ %24, %23 ], [ %14, %11 ]
-  %17 = load ptr, ptr %.sroa.010.017, align 8, !tbaa !37
+.lr.ph:                                           ; preds = %11, %19
+  %.sroa.010.020 = phi ptr [ %20, %19 ], [ %14, %11 ]
+  %17 = load ptr, ptr %.sroa.010.020, align 8, !tbaa !37
   %18 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef %17, ptr noundef %1)
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.thread, label %23
+  br i1 %.not, label %21, label %19
 
-.thread:                                          ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 68
-  %20 = load float, ptr %19, align 4, !tbaa !57
-  %21 = tail call float @llvm.rint.f32(float %20)
-  %22 = fptosi float %21 to i32
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 72
+  %.not17 = icmp eq ptr %20, %16
+  br i1 %.not17, label %.loopexit, label %.lr.ph
+
+21:                                               ; preds = %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 68
+  %23 = load float, ptr %22, align 4, !tbaa !57
+  %24 = tail call float @llvm.rint.f32(float %23)
+  %25 = fptosi float %24 to i32
   br label %.loopexit
 
-23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 72
-  %.not14 = icmp eq ptr %24, %16
-  br i1 %.not14, label %.loopexit, label %.lr.ph
-
-.loopexit:                                        ; preds = %23, %11, %.thread
-  %spec.select = phi i32 [ %22, %.thread ], [ -1, %11 ], [ -1, %23 ]
-  ret i32 %spec.select
+.loopexit:                                        ; preds = %19, %11, %21
+  %26 = phi i32 [ %25, %21 ], [ -1, %11 ], [ -1, %19 ]
+  ret i32 %26
 }
 
 declare noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #4

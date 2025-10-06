@@ -1707,22 +1707,22 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
 
 22:                                               ; preds = %7
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.36) #13
-  br label %.thread518
+  br label %.thread516
 
 23:                                               ; preds = %7
   %24 = tail call ptr @cl_hash_init(ptr noundef nonnull @.str.37) #13
   %.not298 = icmp eq ptr %24, null
-  br i1 %.not298, label %.thread518, label %25
+  br i1 %.not298, label %.thread516, label %25
 
 25:                                               ; preds = %23
   %26 = tail call ptr @cl_hash_init(ptr noundef nonnull @.str.38) #13
   %.not299 = icmp eq ptr %26, null
-  br i1 %.not299, label %.thread385, label %27
+  br i1 %.not299, label %.thread383, label %27
 
 27:                                               ; preds = %25
   %28 = tail call ptr @cl_hash_init(ptr noundef nonnull @.str.39) #13
   %.not300 = icmp eq ptr %28, null
-  br i1 %.not300, label %.thread385, label %29
+  br i1 %.not300, label %.thread383, label %29
 
 29:                                               ; preds = %27
   br i1 %2, label %35, label %30
@@ -1737,11 +1737,11 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
 35:                                               ; preds = %30, %29
   %.0250 = phi ptr [ null, %29 ], [ %34, %30 ]
   %.not301 = icmp eq i32 %1, 0
-  br i1 %.not301, label %.loopexit524, label %.lr.ph.preheader
+  br i1 %.not301, label %.loopexit522, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %35, %.thread
-  %indvars.iv556 = phi i64 [ %indvars.iv.next557, %.thread ], [ 1, %35 ]
-  %36 = getelementptr inbounds nuw %struct.cli_mtarget, ptr @cli_mtargets, i64 %indvars.iv556
+  %indvars.iv554 = phi i64 [ %indvars.iv.next555, %.thread ], [ 1, %35 ]
+  %36 = getelementptr inbounds nuw %struct.cli_mtarget, ptr @cli_mtargets, i64 %indvars.iv554
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 54
   %38 = load i8, ptr %37, align 2, !tbaa !44
   %39 = tail call i8 @llvm.umax.i8(i8 %38, i8 1)
@@ -1764,28 +1764,28 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
   %45 = load ptr, ptr %20, align 8, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load ptr, ptr %46, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv556
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv554
   %49 = load ptr, ptr %48, align 8, !tbaa !43
   %.not302 = icmp eq ptr %49, null
-  br i1 %.not302, label %.thread, label %.loopexit524.loopexit.split.loop.exit
+  br i1 %.not302, label %.thread, label %.loopexit522.loopexit.split.loop.exit
 
 .thread:                                          ; preds = %40, %44
-  %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
-  %exitcond559.not = icmp eq i64 %indvars.iv.next557, 15
-  br i1 %exitcond559.not, label %.loopexit524, label %.lr.ph.preheader
+  %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
+  %exitcond557.not = icmp eq i64 %indvars.iv.next555, 15
+  br i1 %exitcond557.not, label %.loopexit522, label %.lr.ph.preheader
 
-.loopexit524.loopexit.split.loop.exit:            ; preds = %44
-  %50 = trunc nuw nsw i64 %indvars.iv556 to i32
-  br label %.loopexit524
+.loopexit522.loopexit.split.loop.exit:            ; preds = %44
+  %50 = trunc nuw nsw i64 %indvars.iv554 to i32
+  br label %.loopexit522
 
-.loopexit524:                                     ; preds = %.thread, %.loopexit524.loopexit.split.loop.exit, %35
-  %.0247 = phi ptr [ null, %35 ], [ %49, %.loopexit524.loopexit.split.loop.exit ], [ null, %.thread ]
-  %.0244 = phi i32 [ 0, %35 ], [ %50, %.loopexit524.loopexit.split.loop.exit ], [ 15, %.thread ]
+.loopexit522:                                     ; preds = %.thread, %.loopexit522.loopexit.split.loop.exit, %35
+  %.0247 = phi ptr [ null, %35 ], [ %49, %.loopexit522.loopexit.split.loop.exit ], [ null, %.thread ]
+  %.0244 = phi i32 [ 0, %35 ], [ %50, %.loopexit522.loopexit.split.loop.exit ], [ 15, %.thread ]
   %51 = icmp ne ptr %.0250, null
   %.not304 = icmp eq ptr %.0247, null
   br i1 %51, label %56, label %52
 
-52:                                               ; preds = %.loopexit524
+52:                                               ; preds = %.loopexit522
   br i1 %.not304, label %.loopexit, label %53
 
 53:                                               ; preds = %52
@@ -1793,7 +1793,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
   %55 = load i16, ptr %54, align 8, !tbaa !69
   br label %65
 
-56:                                               ; preds = %.loopexit524
+56:                                               ; preds = %.loopexit522
   br i1 %.not304, label %62, label %57
 
 57:                                               ; preds = %56
@@ -2021,11 +2021,11 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 164:                                              ; preds = %158
   %165 = call i32 @cli_hm_have_wild(ptr noundef %127, i32 noundef 1) #13
   %.not321 = icmp ne i32 %165, 0
-  %spec.select595 = zext i1 %.not321 to i8
+  %spec.select593 = zext i1 %.not321 to i8
   br label %166
 
 166:                                              ; preds = %164, %149, %156, %158
-  %.sink = phi i8 [ 1, %158 ], [ 1, %156 ], [ 1, %149 ], [ %spec.select595, %164 ]
+  %.sink = phi i8 [ 1, %158 ], [ 1, %156 ], [ 1, %149 ], [ %spec.select593, %164 ]
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %.sink, ptr %167, align 1, !tbaa !160
   %168 = load ptr, ptr %68, align 8, !tbaa !67
@@ -2053,14 +2053,14 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 181:                                              ; preds = %175
   %182 = call i32 @cli_hm_have_wild(ptr noundef %127, i32 noundef 2) #13
   %.not325 = icmp ne i32 %182, 0
-  %spec.select596 = zext i1 %.not325 to i8
+  %spec.select594 = zext i1 %.not325 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %181, %166, %173, %175
-  %.sink593 = phi i8 [ 1, %175 ], [ 1, %173 ], [ 1, %166 ], [ %spec.select596, %181 ]
+  %.sink591 = phi i8 [ 1, %175 ], [ 1, %173 ], [ 1, %166 ], [ %spec.select594, %181 ]
   %.ph = phi i1 [ true, %175 ], [ true, %173 ], [ true, %166 ], [ %.not325, %181 ]
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.sink593, ptr %183, align 1, !tbaa !160
+  store i8 %.sink591, ptr %183, align 1, !tbaa !160
   %184 = trunc nuw i8 %.sink to i1
   br label %185
 
@@ -2071,10 +2071,10 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   %189 = load ptr, ptr %68, align 8, !tbaa !67
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 88
   %191 = load i64, ptr %190, align 8, !tbaa !84
-  %.not549 = icmp eq i64 %191, 0
-  br i1 %.not549, label %._crit_edge, label %.lr.ph538
+  %.not547 = icmp eq i64 %191, 0
+  br i1 %.not547, label %._crit_edge, label %.lr.ph536
 
-.lr.ph538:                                        ; preds = %185
+.lr.ph536:                                        ; preds = %185
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %193 = trunc nuw i8 %.1256 to i1
   %. = select i1 %193, ptr %11, ptr null
@@ -2082,11 +2082,11 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   %195 = icmp ne i32 %194, 0
   br label %196
 
-196:                                              ; preds = %.lr.ph538, %249
-  %197 = phi i64 [ 0, %.lr.ph538 ], [ %251, %249 ]
-  %.4537 = phi i32 [ 0, %.lr.ph538 ], [ %.7, %249 ]
-  %.1239536 = phi i32 [ 0, %.lr.ph538 ], [ %.3241, %249 ]
-  %.0262535 = phi i32 [ 0, %.lr.ph538 ], [ %250, %249 ]
+196:                                              ; preds = %.lr.ph536, %249
+  %197 = phi i64 [ 0, %.lr.ph536 ], [ %251, %249 ]
+  %.4535 = phi i32 [ 0, %.lr.ph536 ], [ %.7, %249 ]
+  %.1239534 = phi i32 [ 0, %.lr.ph536 ], [ %.3241, %249 ]
+  %.0262533 = phi i32 [ 0, %.lr.ph536 ], [ %250, %249 ]
   %198 = call i32 @cli_checktimelimit(ptr noundef nonnull %0) #13
   %.not326 = icmp eq i32 %198, 0
   br i1 %.not326, label %203, label %199
@@ -2103,11 +2103,11 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 88
   %206 = load i64, ptr %205, align 8, !tbaa !84
   %207 = sub i64 %206, %197
-  %spec.select522 = call i64 @llvm.umin.i64(i64 %207, i64 131072)
-  %spec.select = trunc nuw nsw i64 %spec.select522 to i32
+  %spec.select520 = call i64 @llvm.umin.i64(i64 %207, i64 131072)
+  %spec.select = trunc nuw nsw i64 %spec.select520 to i32
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 104
   %209 = load ptr, ptr %208, align 8, !tbaa !86
-  %210 = call ptr %209(ptr noundef %204, i64 noundef range(i64 0, 4294967296) %197, i64 noundef %spec.select522, i32 noundef 0) #13
+  %210 = call ptr %209(ptr noundef %204, i64 noundef range(i64 0, 4294967296) %197, i64 noundef %spec.select520, i32 noundef 0) #13
   %.not327 = icmp eq ptr %210, null
   br i1 %.not327, label %._crit_edge, label %211
 
@@ -2117,7 +2117,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %.not328, label %217, label %213
 
 213:                                              ; preds = %211
-  %214 = lshr i64 %spec.select522, 12
+  %214 = lshr i64 %spec.select520, 12
   %215 = load i64, ptr %212, align 8, !tbaa !163
   %216 = add i64 %215, %214
   store i64 %216, ptr %212, align 8, !tbaa !163
@@ -2130,7 +2130,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !3
   %219 = load ptr, ptr %68, align 8, !tbaa !67
-  %220 = call fastcc i32 @matcher_run(ptr noundef nonnull %.0247, ptr noundef nonnull %210, i32 noundef %spec.select, ptr noundef %16, ptr noundef nonnull %10, i32 noundef %.0262535, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %219, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
+  %220 = call fastcc i32 @matcher_run(ptr noundef nonnull %.0247, ptr noundef nonnull %210, i32 noundef %spec.select, ptr noundef %16, ptr noundef nonnull %10, i32 noundef %.0262533, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %219, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   switch i32 %220, label %221 [
     i32 20, label %.loopexit
@@ -2138,14 +2138,14 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   ]
 
 221:                                              ; preds = %218, %217
-  %.6 = phi i32 [ %220, %218 ], [ %.4537, %217 ]
+  %.6 = phi i32 [ %220, %218 ], [ %.4535, %217 ]
   br i1 %2, label %247, label %222
 
 222:                                              ; preds = %221
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !3
   %223 = load ptr, ptr %68, align 8, !tbaa !67
-  %224 = call fastcc i32 @matcher_run(ptr noundef %.0250, ptr noundef nonnull %210, i32 noundef %spec.select, ptr noundef %17, ptr noundef nonnull %9, i32 noundef %.0262535, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %223, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
+  %224 = call fastcc i32 @matcher_run(ptr noundef %.0250, ptr noundef nonnull %210, i32 noundef %spec.select, ptr noundef %17, ptr noundef nonnull %9, i32 noundef %.0262533, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %223, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
   switch i32 %224, label %225 [
     i32 20, label %246
     i32 1, label %246
@@ -2154,15 +2154,15 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 225:                                              ; preds = %222
   %226 = icmp ugt i32 %224, 499
   %or.cond11 = and i1 %195, %226
-  %227 = call i32 @llvm.umax.i32(i32 %224, i32 %.1239536)
-  %.5243 = select i1 %or.cond11, i32 %227, i32 %.1239536
-  br i1 %128, label %.thread348, label %228
+  %227 = call i32 @llvm.umax.i32(i32 %224, i32 %.1239534)
+  %.5243 = select i1 %or.cond11, i32 %227, i32 %.1239534
+  br i1 %128, label %.thread347, label %228
 
 228:                                              ; preds = %225
-  %.not329 = icmp eq i32 %.0262535, 0
+  %.not329 = icmp eq i32 %.0262533, 0
   %229 = select i1 %.not329, i32 0, i32 %.0264
   %230 = icmp samesign ult i32 %229, %spec.select
-  br i1 %230, label %231, label %.thread348
+  br i1 %230, label %231, label %.thread347
 
 231:                                              ; preds = %228
   %232 = zext nneg i32 %229 to i64
@@ -2184,14 +2184,14 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %242
 
 242:                                              ; preds = %239, %238
-  br i1 %186, label %243, label %.thread348
+  br i1 %186, label %243, label %.thread347
 
 243:                                              ; preds = %242
   %244 = zext nneg i32 %234 to i64
   %245 = call i32 @cl_update_hash(ptr noundef nonnull %28, ptr noundef nonnull %233, i64 noundef %244) #13
-  br label %.thread348
+  br label %.thread347
 
-.thread348:                                       ; preds = %242, %243, %228, %225
+.thread347:                                       ; preds = %242, %243, %228, %225
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %247
 
@@ -2199,15 +2199,15 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
-247:                                              ; preds = %.thread348, %221
-  %.3241 = phi i32 [ %.1239536, %221 ], [ %.5243, %.thread348 ]
-  %.7 = phi i32 [ %.6, %221 ], [ %224, %.thread348 ]
+247:                                              ; preds = %.thread347, %221
+  %.3241 = phi i32 [ %.1239534, %221 ], [ %.5243, %.thread347 ]
+  %.7 = phi i32 [ %.6, %221 ], [ %224, %.thread347 ]
   %248 = icmp ult i64 %207, 131072
   br i1 %248, label %._crit_edge, label %249
 
 249:                                              ; preds = %247
-  %reass.sub550 = sub i32 %.0262535, %.0264
-  %250 = add i32 %reass.sub550, 131072
+  %reass.sub548 = sub i32 %.0262533, %.0264
+  %250 = add i32 %reass.sub548, 131072
   %251 = zext i32 %250 to i64
   %252 = load ptr, ptr %68, align 8, !tbaa !67
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 88
@@ -2216,9 +2216,9 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %255, label %196, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %249, %203, %247, %185
-  %.2240 = phi i32 [ 0, %185 ], [ %.3241, %247 ], [ %.1239536, %203 ], [ %.3241, %249 ]
-  %.5 = phi i32 [ 0, %185 ], [ %.7, %247 ], [ %.4537, %203 ], [ %.7, %249 ]
-  br i1 %or.cond5.not, label %.thread357, label %256
+  %.2240 = phi i32 [ 0, %185 ], [ %.3241, %247 ], [ %.1239534, %203 ], [ %.3241, %249 ]
+  %.5 = phi i32 [ 0, %185 ], [ %.7, %247 ], [ %.4535, %203 ], [ %.7, %249 ]
+  br i1 %or.cond5.not, label %.thread355, label %256
 
 256:                                              ; preds = %._crit_edge
   br i1 %188, label %257, label %261
@@ -2264,24 +2264,24 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %276
 
 276:                                              ; preds = %275, %select.unfold
-  %indvars.iv560 = phi i64 [ 0, %275 ], [ %indvars.iv.next561, %select.unfold ]
-  %.9546 = phi i32 [ %.5, %275 ], [ %.10.ph, %select.unfold ]
+  %indvars.iv558 = phi i64 [ 0, %275 ], [ %indvars.iv.next559, %select.unfold ]
+  %.9544 = phi i32 [ %.5, %275 ], [ %.10.ph, %select.unfold ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr null, ptr %19, align 8, !tbaa !3
-  %277 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv560
+  %277 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv558
   %278 = load i8, ptr %277, align 1, !tbaa !160, !range !80, !noundef !81
   %279 = trunc nuw i8 %278 to i1
   br i1 %279, label %280, label %select.unfold
 
 280:                                              ; preds = %276
-  %281 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv560
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv558
   %282 = load ptr, ptr %68, align 8, !tbaa !67
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 88
   %284 = load i64, ptr %283, align 8, !tbaa !84
   %285 = trunc i64 %284 to i32
-  %286 = trunc nuw nsw i64 %indvars.iv560 to i32
+  %286 = trunc nuw nsw i64 %indvars.iv558 to i32
   %287 = call i32 @cli_hm_scan(ptr noundef nonnull %281, i32 noundef %285, ptr noundef nonnull %18, ptr noundef %125, i32 noundef %286) #13
   %288 = icmp eq i32 %287, 1
   br i1 %288, label %289, label %292
@@ -2304,12 +2304,12 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %.not332, label %select.unfold, label %298
 
 select.unfold:                                    ; preds = %295, %276, %292
-  %.10.ph = phi i32 [ %293, %292 ], [ %.9546, %276 ], [ 0, %295 ]
+  %.10.ph = phi i32 [ %293, %292 ], [ %.9544, %276 ], [ 0, %295 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %indvars.iv.next561 = add nuw nsw i64 %indvars.iv560, 1
-  %exitcond563.not = icmp eq i64 %indvars.iv.next561, 3
-  br i1 %exitcond563.not, label %.thread357, label %276
+  %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
+  %exitcond561.not = icmp eq i64 %indvars.iv.next559, 3
+  br i1 %exitcond561.not, label %.thread355, label %276
 
 298:                                              ; preds = %289, %295
   %.10 = phi i32 [ %291, %289 ], [ %297, %295 ]
@@ -2317,7 +2317,7 @@ select.unfold:                                    ; preds = %295, %276, %292
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit
 
-.thread357:                                       ; preds = %select.unfold, %._crit_edge
+.thread355:                                       ; preds = %select.unfold, %._crit_edge
   %.1236 = phi ptr [ %24, %._crit_edge ], [ %.2237, %select.unfold ]
   %.1233 = phi ptr [ %26, %._crit_edge ], [ %.2234, %select.unfold ]
   %.1230 = phi ptr [ %28, %._crit_edge ], [ %.2231, %select.unfold ]
@@ -2326,12 +2326,12 @@ select.unfold:                                    ; preds = %295, %276, %292
   %or.cond16 = select i1 %99, i1 %299, i1 false
   br i1 %or.cond16, label %300, label %302
 
-300:                                              ; preds = %.thread357
+300:                                              ; preds = %.thread355
   %301 = call i32 @cli_exp_eval(ptr noundef %0, ptr noundef nonnull %.0247, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %6)
   br label %302
 
-302:                                              ; preds = %300, %.thread357
-  %.13 = phi i32 [ %301, %300 ], [ %.8, %.thread357 ]
+302:                                              ; preds = %300, %.thread355
+  %.13 = phi i32 [ %301, %300 ], [ %.8, %.thread355 ]
   %303 = icmp ne i32 %.13, 1
   %or.cond18 = select i1 %51, i1 %303, i1 false
   br i1 %or.cond18, label %304, label %.loopexit
@@ -2347,57 +2347,57 @@ select.unfold:                                    ; preds = %295, %276, %292
   %.0253 = phi i8 [ 0, %82 ], [ %.1254, %100 ], [ %.1254, %108 ], [ %.1254, %118 ], [ %.1254, %120 ], [ %.1254, %199 ], [ %.1254, %304 ], [ %.1254, %302 ], [ %.1254, %298 ], [ %.1254, %246 ], [ 0, %86 ], [ 0, %94 ], [ 0, %96 ], [ 0, %52 ], [ %.1254, %218 ], [ %.1254, %218 ]
   %.0251 = phi i8 [ 0, %82 ], [ 0, %100 ], [ 0, %108 ], [ 0, %118 ], [ 0, %120 ], [ %.1252, %199 ], [ %.1252, %304 ], [ %.1252, %302 ], [ %.1252, %298 ], [ %.1252, %246 ], [ 0, %86 ], [ 0, %94 ], [ 0, %96 ], [ 0, %52 ], [ %.1252, %218 ], [ %.1252, %218 ]
   %.0246 = phi i1 [ true, %82 ], [ true, %100 ], [ true, %108 ], [ true, %118 ], [ true, %120 ], [ true, %199 ], [ true, %304 ], [ true, %302 ], [ true, %298 ], [ true, %246 ], [ true, %86 ], [ true, %94 ], [ true, %96 ], [ false, %52 ], [ true, %218 ], [ true, %218 ]
-  %.0238 = phi i32 [ 0, %82 ], [ 0, %100 ], [ 0, %108 ], [ 0, %118 ], [ 0, %120 ], [ %.1239536, %199 ], [ %.2240, %304 ], [ %.2240, %302 ], [ %.2240, %298 ], [ %.1239536, %246 ], [ 0, %86 ], [ 0, %94 ], [ 0, %96 ], [ 0, %52 ], [ %.1239536, %218 ], [ %.1239536, %218 ]
+  %.0238 = phi i32 [ 0, %82 ], [ 0, %100 ], [ 0, %108 ], [ 0, %118 ], [ 0, %120 ], [ %.1239534, %199 ], [ %.2240, %304 ], [ %.2240, %302 ], [ %.2240, %298 ], [ %.1239534, %246 ], [ 0, %86 ], [ 0, %94 ], [ 0, %96 ], [ 0, %52 ], [ %.1239534, %218 ], [ %.1239534, %218 ]
   %.0235 = phi ptr [ %24, %82 ], [ %24, %100 ], [ %24, %108 ], [ %24, %118 ], [ %24, %120 ], [ %24, %199 ], [ %.1236, %304 ], [ %.1236, %302 ], [ %.2237, %298 ], [ %24, %246 ], [ %24, %86 ], [ %24, %94 ], [ %24, %96 ], [ %24, %52 ], [ %24, %218 ], [ %24, %218 ]
   %.0232 = phi ptr [ %26, %82 ], [ %26, %100 ], [ %26, %108 ], [ %26, %118 ], [ %26, %120 ], [ %26, %199 ], [ %.1233, %304 ], [ %.1233, %302 ], [ %.2234, %298 ], [ %26, %246 ], [ %26, %86 ], [ %26, %94 ], [ %26, %96 ], [ %26, %52 ], [ %26, %218 ], [ %26, %218 ]
   %.0229 = phi ptr [ %28, %82 ], [ %28, %100 ], [ %28, %108 ], [ %28, %118 ], [ %28, %120 ], [ %28, %199 ], [ %.1230, %304 ], [ %.1230, %302 ], [ %.2231, %298 ], [ %28, %246 ], [ %28, %86 ], [ %28, %94 ], [ %28, %96 ], [ %28, %52 ], [ %28, %218 ], [ %28, %218 ]
   %.0224 = phi i32 [ %83, %82 ], [ %107, %100 ], [ %109, %108 ], [ %119, %118 ], [ %121, %120 ], [ 21, %199 ], [ %305, %304 ], [ %.13, %302 ], [ %.10, %298 ], [ %224, %246 ], [ %93, %86 ], [ %95, %94 ], [ %97, %96 ], [ 0, %52 ], [ %220, %218 ], [ %220, %218 ]
   %.not333 = icmp eq ptr %.0235, null
-  br i1 %.not333, label %306, label %.thread385
+  br i1 %.not333, label %306, label %.thread383
 
-.thread385:                                       ; preds = %27, %25, %.loopexit
-  %.0224408 = phi i32 [ %.0224, %.loopexit ], [ 20, %25 ], [ 20, %27 ]
-  %.0229407 = phi ptr [ %.0229, %.loopexit ], [ null, %25 ], [ null, %27 ]
-  %.0232406 = phi ptr [ %.0232, %.loopexit ], [ null, %25 ], [ %26, %27 ]
-  %.0235405 = phi ptr [ %.0235, %.loopexit ], [ %24, %25 ], [ %24, %27 ]
-  %.0238404 = phi i32 [ %.0238, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
-  %.0246403 = phi i1 [ %.0246, %.loopexit ], [ false, %25 ], [ false, %27 ]
-  %.0251402 = phi i8 [ %.0251, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
-  %.0253401 = phi i8 [ %.0253, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
-  %.0255400 = phi i8 [ %.0255, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
-  %.0258399 = phi i8 [ %.0258, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
-  %.0260398 = phi i8 [ %.0260, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
-  call void @cl_hash_destroy(ptr noundef nonnull %.0235405) #13
+.thread383:                                       ; preds = %27, %25, %.loopexit
+  %.0224406 = phi i32 [ %.0224, %.loopexit ], [ 20, %25 ], [ 20, %27 ]
+  %.0229405 = phi ptr [ %.0229, %.loopexit ], [ null, %25 ], [ null, %27 ]
+  %.0232404 = phi ptr [ %.0232, %.loopexit ], [ null, %25 ], [ %26, %27 ]
+  %.0235403 = phi ptr [ %.0235, %.loopexit ], [ %24, %25 ], [ %24, %27 ]
+  %.0238402 = phi i32 [ %.0238, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
+  %.0246401 = phi i1 [ %.0246, %.loopexit ], [ false, %25 ], [ false, %27 ]
+  %.0251400 = phi i8 [ %.0251, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
+  %.0253399 = phi i8 [ %.0253, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
+  %.0255398 = phi i8 [ %.0255, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
+  %.0258397 = phi i8 [ %.0258, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
+  %.0260396 = phi i8 [ %.0260, %.loopexit ], [ 0, %25 ], [ 0, %27 ]
+  call void @cl_hash_destroy(ptr noundef nonnull %.0235403) #13
   br label %306
 
-306:                                              ; preds = %.thread385, %.loopexit
-  %.0224383 = phi i32 [ %.0224408, %.thread385 ], [ %.0224, %.loopexit ]
-  %.0229382 = phi ptr [ %.0229407, %.thread385 ], [ %.0229, %.loopexit ]
-  %.0232381 = phi ptr [ %.0232406, %.thread385 ], [ %.0232, %.loopexit ]
-  %.0238380 = phi i32 [ %.0238404, %.thread385 ], [ %.0238, %.loopexit ]
-  %.0246379 = phi i1 [ %.0246403, %.thread385 ], [ %.0246, %.loopexit ]
-  %.0251378 = phi i8 [ %.0251402, %.thread385 ], [ %.0251, %.loopexit ]
-  %.0253377 = phi i8 [ %.0253401, %.thread385 ], [ %.0253, %.loopexit ]
-  %.0255376 = phi i8 [ %.0255400, %.thread385 ], [ %.0255, %.loopexit ]
-  %.0258375 = phi i8 [ %.0258399, %.thread385 ], [ %.0258, %.loopexit ]
-  %.0260374 = phi i8 [ %.0260398, %.thread385 ], [ %.0260, %.loopexit ]
-  %.not334 = icmp eq ptr %.0232381, null
+306:                                              ; preds = %.thread383, %.loopexit
+  %.0224381 = phi i32 [ %.0224406, %.thread383 ], [ %.0224, %.loopexit ]
+  %.0229380 = phi ptr [ %.0229405, %.thread383 ], [ %.0229, %.loopexit ]
+  %.0232379 = phi ptr [ %.0232404, %.thread383 ], [ %.0232, %.loopexit ]
+  %.0238378 = phi i32 [ %.0238402, %.thread383 ], [ %.0238, %.loopexit ]
+  %.0246377 = phi i1 [ %.0246401, %.thread383 ], [ %.0246, %.loopexit ]
+  %.0251376 = phi i8 [ %.0251400, %.thread383 ], [ %.0251, %.loopexit ]
+  %.0253375 = phi i8 [ %.0253399, %.thread383 ], [ %.0253, %.loopexit ]
+  %.0255374 = phi i8 [ %.0255398, %.thread383 ], [ %.0255, %.loopexit ]
+  %.0258373 = phi i8 [ %.0258397, %.thread383 ], [ %.0258, %.loopexit ]
+  %.0260372 = phi i8 [ %.0260396, %.thread383 ], [ %.0260, %.loopexit ]
+  %.not334 = icmp eq ptr %.0232379, null
   br i1 %.not334, label %308, label %307
 
 307:                                              ; preds = %306
-  call void @cl_hash_destroy(ptr noundef nonnull %.0232381) #13
+  call void @cl_hash_destroy(ptr noundef nonnull %.0232379) #13
   br label %308
 
 308:                                              ; preds = %307, %306
-  %.not335 = icmp eq ptr %.0229382, null
+  %.not335 = icmp eq ptr %.0229380, null
   br i1 %.not335, label %310, label %309
 
 309:                                              ; preds = %308
-  call void @cl_hash_destroy(ptr noundef nonnull %.0229382) #13
+  call void @cl_hash_destroy(ptr noundef nonnull %.0229380) #13
   br label %310
 
 310:                                              ; preds = %309, %308
-  %311 = trunc nuw i8 %.0260374 to i1
+  %311 = trunc nuw i8 %.0260372 to i1
   br i1 %311, label %312, label %313
 
 312:                                              ; preds = %310
@@ -2405,7 +2405,7 @@ select.unfold:                                    ; preds = %295, %276, %292
   br label %313
 
 313:                                              ; preds = %312, %310
-  %314 = trunc nuw i8 %.0258375 to i1
+  %314 = trunc nuw i8 %.0258373 to i1
   br i1 %314, label %315, label %316
 
 315:                                              ; preds = %313
@@ -2413,7 +2413,7 @@ select.unfold:                                    ; preds = %295, %276, %292
   br label %316
 
 316:                                              ; preds = %315, %313
-  %317 = trunc nuw i8 %.0253377 to i1
+  %317 = trunc nuw i8 %.0253375 to i1
   br i1 %317, label %318, label %319
 
 318:                                              ; preds = %316
@@ -2421,15 +2421,15 @@ select.unfold:                                    ; preds = %295, %276, %292
   br label %319
 
 319:                                              ; preds = %318, %316
-  %320 = trunc nuw i8 %.0251378 to i1
+  %320 = trunc nuw i8 %.0251376 to i1
   br i1 %320, label %321, label %322
 
 321:                                              ; preds = %319
   call void @cli_pcre_freeoff(ptr noundef nonnull %13) #13
-  br i1 %.0246379, label %323, label %326
+  br i1 %.0246377, label %323, label %326
 
 322:                                              ; preds = %319
-  br i1 %.0246379, label %323, label %326
+  br i1 %.0246377, label %323, label %326
 
 323:                                              ; preds = %321, %322
   %324 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2439,7 +2439,7 @@ select.unfold:                                    ; preds = %295, %276, %292
   br label %326
 
 326:                                              ; preds = %321, %323, %322
-  %327 = trunc nuw i8 %.0255376 to i1
+  %327 = trunc nuw i8 %.0255374 to i1
   br i1 %327, label %328, label %329
 
 328:                                              ; preds = %326
@@ -2447,17 +2447,17 @@ select.unfold:                                    ; preds = %295, %276, %292
   br label %329
 
 329:                                              ; preds = %328, %326
-  %.not336 = icmp eq i32 %.0224383, 0
-  br i1 %.not336, label %330, label %.thread518
+  %.not336 = icmp eq i32 %.0224381, 0
+  br i1 %.not336, label %330, label %.thread516
 
 330:                                              ; preds = %329
   %331 = and i32 %4, 2
   %.not337 = icmp eq i32 %331, 0
-  %332 = select i1 %.not337, i32 0, i32 %.0238380
-  br label %.thread518
+  %332 = select i1 %.not337, i32 0, i32 %.0238378
+  br label %.thread516
 
-.thread518:                                       ; preds = %22, %23, %329, %330
-  %.0223 = phi i32 [ %332, %330 ], [ %.0224383, %329 ], [ 20, %23 ], [ 2, %22 ]
+.thread516:                                       ; preds = %22, %23, %329, %330
+  %.0223 = phi i32 [ %332, %330 ], [ %.0224381, %329 ], [ 20, %23 ], [ 2, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

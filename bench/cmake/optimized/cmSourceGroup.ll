@@ -1074,8 +1074,8 @@ define dso_local noundef ptr @_ZN13cmSourceGroup11LookupChildERKNSt7__cxx1112bas
   %5 = load ptr, ptr %4, align 8, !tbaa !72
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !72
-  %.not14 = icmp eq ptr %5, %7
-  br i1 %.not14, label %.thread, label %.lr.ph
+  %.not17 = icmp eq ptr %5, %7
+  br i1 %.not17, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1085,29 +1085,29 @@ define dso_local noundef ptr @_ZN13cmSourceGroup11LookupChildERKNSt7__cxx1112bas
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13
-  %.sroa.010.015 = phi ptr [ %5, %.lr.ph ], [ %19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 8
+  %.sroa.010.018 = phi ptr [ %5, %.lr.ph ], [ %19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !13
   %15 = icmp eq i64 %14, %9
   br i1 %15, label %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13
 
 16:                                               ; preds = %12
-  br i1 %11, label %.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  br i1 %11, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %16
-  %17 = load ptr, ptr %.sroa.010.015, align 8, !tbaa !10
+  %17 = load ptr, ptr %.sroa.010.018, align 8, !tbaa !10
   %bcmp.i = tail call i32 @bcmp(ptr %17, ptr %10, i64 %9)
   %18 = icmp eq i32 %bcmp.i, 0
-  br i1 %18, label %.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13
+  br i1 %18, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13: ; preds = %12, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 704
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 704
   %.not = icmp eq ptr %19, %7
-  br i1 %.not, label %.thread, label %12
+  br i1 %.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %12
 
-.thread:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13, %16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %2
-  %spec.select = phi ptr [ null, %2 ], [ %.sroa.010.015, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.010.015, %16 ], [ null, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13 ]
-  ret ptr %spec.select
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13, %16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %2
+  %20 = phi ptr [ null, %2 ], [ %.sroa.010.018, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.010.018, %16 ], [ null, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread13 ]
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1193,17 +1193,17 @@ _ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %30 = load ptr, ptr %29, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !72
-  %.not1920 = icmp eq ptr %30, %32
-  br i1 %.not1920, label %.loopexit, label %.lr.ph
+  %.not2122 = icmp eq ptr %30, %32
+  br i1 %.not2122, label %.loopexit, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.015.021, i64 704
-  %.not19 = icmp eq ptr %34, %32
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 704
+  %.not21 = icmp eq ptr %34, %32
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %33
-  %.sroa.015.021 = phi ptr [ %34, %33 ], [ %30, %_ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %35 = tail call noundef ptr @_ZN13cmSourceGroup18MatchChildrenFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(704) %.sroa.015.021, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.015.023 = phi ptr [ %34, %33 ], [ %30, %_ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %35 = tail call noundef ptr @_ZN13cmSourceGroup18MatchChildrenFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(704) %.sroa.015.023, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %33, label %.loopexit
 
@@ -1295,17 +1295,17 @@ _ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %30 = load ptr, ptr %29, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !72
-  %.not1920 = icmp eq ptr %30, %32
-  br i1 %.not1920, label %.loopexit, label %.lr.ph
+  %.not2122 = icmp eq ptr %30, %32
+  br i1 %.not2122, label %.loopexit, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.015.021, i64 704
-  %.not19 = icmp eq ptr %34, %32
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 704
+  %.not21 = icmp eq ptr %34, %32
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %33
-  %.sroa.015.021 = phi ptr [ %34, %33 ], [ %30, %_ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %35 = tail call noundef ptr @_ZNK13cmSourceGroup18MatchChildrenFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(704) %.sroa.015.021, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.015.023 = phi ptr [ %34, %33 ], [ %30, %_ZNK13cmSourceGroup12MatchesFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %35 = tail call noundef ptr @_ZNK13cmSourceGroup18MatchChildrenFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(704) %.sroa.015.023, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %33, label %.loopexit
 
@@ -1321,17 +1321,17 @@ define dso_local noundef ptr @_ZN13cmSourceGroup18MatchChildrenRegexERKNSt7__cxx
   %5 = load ptr, ptr %4, align 8, !tbaa !72
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !72
-  %.not2223 = icmp eq ptr %5, %7
-  br i1 %.not2223, label %._crit_edge, label %.lr.ph
+  %.not2021 = icmp eq ptr %5, %7
+  br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 704
-  %.not22 = icmp eq ptr %9, %7
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 704
+  %.not20 = icmp eq ptr %9, %7
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %8
-  %.sroa.015.024 = phi ptr [ %9, %8 ], [ %5, %2 ]
-  %10 = tail call noundef ptr @_ZN13cmSourceGroup18MatchChildrenRegexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(704) %.sroa.015.024, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.015.022 = phi ptr [ %9, %8 ], [ %5, %2 ]
+  %10 = tail call noundef ptr @_ZN13cmSourceGroup18MatchChildrenRegexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(704) %.sroa.015.022, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %8, label %.loopexit
 

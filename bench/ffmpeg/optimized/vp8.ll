@@ -1465,13 +1465,13 @@ update_lf_deltas.exit.loopexit.i:                 ; preds = %813
 update_lf_deltas.exit.i.preheader:                ; preds = %update_lf_deltas.exit.loopexit.i, %vpx_rac_renorm.exit188.i, %vpx_rac_renorm.exit185.i
   %.ph = phi i32 [ %562, %vpx_rac_renorm.exit185.i ], [ %596, %vpx_rac_renorm.exit188.i ], [ %.promoted9.i.i.pre.i, %update_lf_deltas.exit.loopexit.i ]
   %.018.i8.i.i246.i.ph = phi i32 [ %.018.i183.i, %vpx_rac_renorm.exit185.i ], [ %.018.i186.i, %vpx_rac_renorm.exit188.i ], [ %.promoted7.i.i.pre.i, %update_lf_deltas.exit.loopexit.i ]
-  %.ph247 = phi i32 [ %558, %vpx_rac_renorm.exit185.i ], [ %590, %vpx_rac_renorm.exit188.i ], [ %.promoted.i.i.pre.i, %update_lf_deltas.exit.loopexit.i ]
+  %.ph246 = phi i32 [ %558, %vpx_rac_renorm.exit185.i ], [ %590, %vpx_rac_renorm.exit188.i ], [ %.promoted.i.i.pre.i, %update_lf_deltas.exit.loopexit.i ]
   br label %update_lf_deltas.exit.i
 
 update_lf_deltas.exit.i:                          ; preds = %update_lf_deltas.exit.i.preheader, %vpx_rac_renorm.exit.i.i249.i
   %814 = phi i32 [ %847, %vpx_rac_renorm.exit.i.i249.i ], [ %.ph, %update_lf_deltas.exit.i.preheader ]
   %.018.i8.i.i246.i = phi i32 [ %.018.i.i.i250.i, %vpx_rac_renorm.exit.i.i249.i ], [ %.018.i8.i.i246.i.ph, %update_lf_deltas.exit.i.preheader ]
-  %815 = phi i32 [ %845, %vpx_rac_renorm.exit.i.i249.i ], [ %.ph247, %update_lf_deltas.exit.i.preheader ]
+  %815 = phi i32 [ %845, %vpx_rac_renorm.exit.i.i249.i ], [ %.ph246, %update_lf_deltas.exit.i.preheader ]
   %.06.i.i247.i = phi i32 [ %848, %vpx_rac_renorm.exit.i.i249.i ], [ 0, %update_lf_deltas.exit.i.preheader ]
   %.not.i.i248.i = phi i1 [ true, %vpx_rac_renorm.exit.i.i249.i ], [ false, %update_lf_deltas.exit.i.preheader ]
   %816 = shl i32 %.06.i.i247.i, 1
@@ -1643,17 +1643,17 @@ setup_partitions.exit.thread.i:                   ; preds = %874, %862, %setup_p
   br i1 %896, label %..thread_crit_edge, label %.thread448.i
 
 ..thread_crit_edge:                               ; preds = %913
-  %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %.pre337.i, i64 116
-  %.pre78 = load i32, ptr %.phi.trans.insert77, align 4, !tbaa !55
+  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %.pre337.i, i64 116
+  %.pre77 = load i32, ptr %.phi.trans.insert76, align 4, !tbaa !55
   br label %.thread
 
 .thread450.i:                                     ; preds = %898
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %.pre76 = load i16, ptr %.phi.trans.insert, align 8, !tbaa !92
-  %.pre79 = add nsw i32 %.0144.i, 15
-  %.pre80 = sdiv i32 %.pre79, 16
-  %.pre82 = zext i16 %.pre76 to i32
-  %914 = icmp eq i32 %.pre80, %.pre82
+  %.pre75 = load i16, ptr %.phi.trans.insert, align 8, !tbaa !92
+  %.pre78 = add nsw i32 %.0144.i, 15
+  %.pre79 = sdiv i32 %.pre78, 16
+  %.pre81 = zext i16 %.pre75 to i32
+  %914 = icmp eq i32 %.pre79, %.pre81
   br i1 %914, label %.thread450.i.thread, label %.thread448.i
 
 .thread450.i.thread:                              ; preds = %907, %.thread450.i
@@ -1666,7 +1666,7 @@ setup_partitions.exit.thread.i:                   ; preds = %874, %862, %setup_p
   br i1 %.not86.i.i.i, label %.thread, label %.thread448.i
 
 .thread:                                          ; preds = %..thread_crit_edge, %.thread450.i.thread
-  %920 = phi i32 [ %.pre78, %..thread_crit_edge ], [ %900, %.thread450.i.thread ]
+  %920 = phi i32 [ %.pre77, %..thread_crit_edge ], [ %900, %.thread450.i.thread ]
   %.not88.i.i.i = icmp eq i32 %.0.i7, %920
   br i1 %.not88.i.i.i, label %927, label %.thread448.i
 
@@ -2687,19 +2687,19 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   %.not221.i = icmp eq i32 %1493, -1
   %1494 = sext i32 %1493 to i64
   %1495 = getelementptr inbounds ptr, ptr %1385, i64 %1494
-  %.sink74.in = select i1 %.not221.i, ptr %1418, ptr %1495
-  %.sink74 = load ptr, ptr %.sink74.in, align 8, !tbaa !135
+  %.sink73.in = select i1 %.not221.i, ptr %1418, ptr %1495
+  %.sink73 = load ptr, ptr %.sink73.in, align 8, !tbaa !135
   %1496 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr %.sink74, ptr %1496, align 8, !tbaa !135
+  store ptr %.sink73, ptr %1496, align 8, !tbaa !135
   %1497 = getelementptr inbounds nuw i8, ptr %8, i64 4752
   %1498 = load i32, ptr %1497, align 8, !tbaa !62
   %.not222.i = icmp eq i32 %1498, -1
   %1499 = sext i32 %1498 to i64
   %1500 = getelementptr inbounds ptr, ptr %1385, i64 %1499
-  %.sink75.in = select i1 %.not222.i, ptr %1417, ptr %1500
-  %.sink75 = load ptr, ptr %.sink75.in, align 8, !tbaa !135
+  %.sink74.in = select i1 %.not222.i, ptr %1417, ptr %1500
+  %.sink74 = load ptr, ptr %.sink74.in, align 8, !tbaa !135
   %1501 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %.sink75, ptr %1501, align 8, !tbaa !135
+  store ptr %.sink74, ptr %1501, align 8, !tbaa !135
   %1502 = load i32, ptr %1287, align 4, !tbaa !122
   %.not223.i = icmp eq i32 %1502, 0
   br i1 %.not223.i, label %1503, label %1505
@@ -2775,7 +2775,7 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   %1547 = getelementptr inbounds nuw i8, ptr %8, i64 6488
   %1548 = load i32, ptr %1547, align 8, !tbaa !100
   %.not226.i = icmp eq i32 %1548, 0
-  br i1 %.not226.i, label %1549, label %.thread23
+  br i1 %.not226.i, label %1549, label %.thread22
 
 1549:                                             ; preds = %.critedge240.i
   %1550 = getelementptr inbounds nuw i8, ptr %8, i64 184
@@ -2792,14 +2792,14 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %1555, i8 0, i64 %1559, i1 false)
   %.pr = load i32, ptr %1547, align 8, !tbaa !100
   %.not227.i = icmp eq i32 %.pr, 0
-  br i1 %.not227.i, label %1560, label %.thread23
+  br i1 %.not227.i, label %1560, label %.thread22
 
 1560:                                             ; preds = %1549
   %1561 = load i8, ptr %26, align 8, !tbaa !57
   %.not228.i = icmp eq i8 %1561, 0
-  br i1 %.not228.i, label %.thread26, label %1563
+  br i1 %.not228.i, label %.thread25, label %1563
 
-.thread26:                                        ; preds = %1560
+.thread25:                                        ; preds = %1560
   %1562 = getelementptr inbounds nuw i8, ptr %8, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1562, i8 0, i64 12, i1 false)
   br label %1582
@@ -2811,17 +2811,17 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   %1567 = zext i16 %1566 to i64
   %1568 = shl nuw nsw i64 %1567, 2
   call void @llvm.memset.p0.i64(ptr align 1 %1565, i8 2, i64 %1568, i1 false)
-  %.pr25 = load i32, ptr %1547, align 8, !tbaa !100
-  br label %.thread23
+  %.pr24 = load i32, ptr %1547, align 8, !tbaa !100
+  br label %.thread22
 
-.thread23:                                        ; preds = %.critedge240.i, %1563, %1549
-  %1569 = phi i32 [ %.pr25, %1563 ], [ %.pr, %1549 ], [ %1548, %.critedge240.i ]
+.thread22:                                        ; preds = %.critedge240.i, %1563, %1549
+  %1569 = phi i32 [ %.pr24, %1563 ], [ %.pr, %1549 ], [ %1548, %.critedge240.i ]
   %1570 = getelementptr inbounds nuw i8, ptr %8, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1570, i8 0, i64 12, i1 false)
   %1571 = icmp eq i32 %1569, 1
   br i1 %1571, label %1572, label %1582
 
-1572:                                             ; preds = %.thread23
+1572:                                             ; preds = %.thread22
   %.not229.i = icmp eq ptr %1386, null
   br i1 %.not229.i, label %1579, label %1573
 
@@ -2846,7 +2846,7 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   %1581 = icmp slt i32 %1580, 0
   br i1 %1581, label %vp8_decode_frame_header.exit.thread, label %1582
 
-1582:                                             ; preds = %.thread26, %1579, %.thread23
+1582:                                             ; preds = %.thread25, %1579, %.thread22
   %1583 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %1584 = load i32, ptr %1583, align 8, !tbaa !99
   %1585 = icmp eq i32 %1584, 1
@@ -2877,16 +2877,16 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   br label %1599
 
 1599:                                             ; preds = %1590, %1599
-  %indvars.iv70 = phi i64 [ 0, %1590 ], [ %indvars.iv.next71, %1599 ]
+  %indvars.iv69 = phi i64 [ 0, %1590 ], [ %indvars.iv.next70, %1599 ]
   %1600 = load ptr, ptr %8, align 8, !tbaa !105
-  %1601 = getelementptr inbounds nuw %struct.VP8ThreadData, ptr %1600, i64 %indvars.iv70
+  %1601 = getelementptr inbounds nuw %struct.VP8ThreadData, ptr %1600, i64 %indvars.iv69
   %1602 = getelementptr inbounds nuw i8, ptr %1601, i64 928
   store i32 0, ptr %1602, align 4, !tbaa !56
   %1603 = getelementptr inbounds nuw i8, ptr %1601, i64 932
   store i32 2147483647, ptr %1603, align 4, !tbaa !56
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next71, 8
-  br i1 %exitcond73.not, label %1604, label %1599, !llvm.loop !166
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next70, 8
+  br i1 %exitcond72.not, label %1604, label %1599, !llvm.loop !166
 
 1604:                                             ; preds = %1599
   %1605 = getelementptr inbounds nuw i8, ptr %0, i64 680

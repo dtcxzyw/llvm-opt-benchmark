@@ -228,18 +228,18 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %53 = icmp ult i64 %52, 2
   br i1 %53, label %parse_psfile.exit.thread65, label %.lr.ph
 
-.preheader4.i:                                    ; preds = %67
+.preheader3.i:                                    ; preds = %67
   %54 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   br label %.preheader.i
 
 thread-pre-split.i:                               ; preds = %67
-  %.pr34.i = load i64, ptr %3, align 8, !tbaa !48
-  %55 = icmp ult i64 %.pr34.i, 2
+  %.pr32.i = load i64, ptr %3, align 8, !tbaa !48
+  %55 = icmp ult i64 %.pr32.i, 2
   br i1 %55, label %parse_psfile.exit.thread65.loopexit83, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %thread-pre-split.i
   %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i, %thread-pre-split.i ], [ 0, %46 ]
-  %56 = phi i64 [ %.pr34.i, %thread-pre-split.i ], [ %52, %46 ]
+  %56 = phi i64 [ %.pr32.i, %thread-pre-split.i ], [ %52, %46 ]
   %57 = load ptr, ptr %2, align 8, !tbaa !50
   %58 = load i16, ptr %57, align 1, !tbaa !51
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 2
@@ -261,19 +261,19 @@ thread-pre-split.i:                               ; preds = %67
 67:                                               ; preds = %61, %.lr.ph
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader4.i, label %thread-pre-split.i, !llvm.loop !52
+  br i1 %exitcond.not.i, label %.preheader3.i, label %thread-pre-split.i, !llvm.loop !52
 
-.preheader.i:                                     ; preds = %81, %.preheader4.i
-  %indvars.iv18.i = phi i64 [ 0, %.preheader4.i ], [ %indvars.iv.next19.i, %81 ]
+.preheader.i:                                     ; preds = %81, %.preheader3.i
+  %indvars.iv17.i = phi i64 [ 0, %.preheader3.i ], [ %indvars.iv.next18.i, %81 ]
   %.promoted.i = load i64, ptr %3, align 8, !tbaa !48
-  %.promoted8.i = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds nuw [4 x float], ptr %54, i64 %indvars.iv18.i
+  %.promoted7.i = load ptr, ptr %2, align 8
+  %68 = getelementptr inbounds nuw [4 x float], ptr %54, i64 %indvars.iv17.i
   br label %69
 
 69:                                               ; preds = %73, %.preheader.i
-  %indvars.iv14.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next15.i, %73 ]
+  %indvars.iv13.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next14.i, %73 ]
   %70 = phi i64 [ %.promoted.i, %.preheader.i ], [ %77, %73 ]
-  %71 = phi ptr [ %.promoted8.i, %.preheader.i ], [ %76, %73 ]
+  %71 = phi ptr [ %.promoted7.i, %.preheader.i ], [ %76, %73 ]
   %72 = icmp ult i64 %70, 2
   br i1 %72, label %parse_psfile.exit.thread65, label %73
 
@@ -286,19 +286,19 @@ thread-pre-split.i:                               ; preds = %67
   store i64 %77, ptr %3, align 8, !tbaa !48
   %78 = sitofp i16 %75 to float
   %79 = fdiv nsz float %78, 1.000000e+02
-  %80 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv14.i
+  %80 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv13.i
   store float %79, ptr %80, align 4, !tbaa !54
-  %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
-  %exitcond17.not.i = icmp eq i64 %indvars.iv.next15.i, 4
-  br i1 %exitcond17.not.i, label %81, label %69, !llvm.loop !56
+  %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
+  %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 4
+  br i1 %exitcond16.not.i, label %81, label %69, !llvm.loop !56
 
 81:                                               ; preds = %73
-  %82 = trunc nuw nsw i64 %indvars.iv18.i to i32
+  %82 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %83 = call fastcc i32 @register_range(ptr noundef nonnull %.val, i32 noundef %82)
   %84 = icmp slt i32 %83, 0
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %exitcond21.not.i = icmp eq i64 %indvars.iv.next19.i, 9
-  %or.cond.i = select i1 %84, i1 true, i1 %exitcond21.not.i
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 9
+  %or.cond.i = select i1 %84, i1 true, i1 %exitcond20.not.i
   br i1 %or.cond.i, label %parse_psfile.exit, label %.preheader.i, !llvm.loop !57
 
 parse_psfile.exit.thread65.loopexit83:            ; preds = %thread-pre-split.i
@@ -307,7 +307,7 @@ parse_psfile.exit.thread65.loopexit83:            ; preds = %thread-pre-split.i
 
 parse_psfile.exit.thread65:                       ; preds = %69, %parse_psfile.exit.thread65.loopexit83, %46, %33, %43
   %85 = phi ptr [ %.pre92, %43 ], [ %.pre91, %33 ], [ %51, %46 ], [ %.pre, %parse_psfile.exit.thread65.loopexit83 ], [ %71, %69 ]
-  %.ph = phi i64 [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %.pr34.i, %parse_psfile.exit.thread65.loopexit83 ], [ %70, %69 ]
+  %.ph = phi i64 [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %.pr32.i, %parse_psfile.exit.thread65.loopexit83 ], [ %70, %69 ]
   call void @av_file_unmap(ptr noundef %85, i64 noundef %.ph) #10
   br label %.loopexit.sink.split
 

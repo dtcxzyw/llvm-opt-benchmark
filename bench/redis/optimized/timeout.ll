@@ -238,8 +238,8 @@ define dso_local void @handleBlockedClientsTimeout() local_unnamed_addr #0 {
   %8 = call i32 @raxSeek(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0) #4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = call i32 @raxNext(ptr noundef nonnull %1) #4
-  %.not7 = icmp eq i32 %10, 0
-  br i1 %.not7, label %.thread, label %.lr.ph
+  %.not6 = icmp eq i32 %10, 0
+  br i1 %.not6, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32

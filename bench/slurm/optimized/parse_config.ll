@@ -4293,24 +4293,24 @@ define dso_local ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr noundef readon
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %0) #13
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %.loopexit86
+  br i1 %.not, label %15, label %.loopexit85
 
 15:                                               ; preds = %2
   %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1448, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2327, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
   %17 = load i32, ptr %5, align 4
-  %.not91 = icmp eq i32 %17, 0
-  br i1 %.not91, label %.loopexit, label %.lr.ph90
+  %.not90 = icmp eq i32 %17, 0
+  br i1 %.not90, label %.loopexit, label %.lr.ph89
 
-.lr.ph90:                                         ; preds = %15
+.lr.ph89:                                         ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 64
   br label %19
 
-19:                                               ; preds = %.lr.ph90, %.thread
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next95, %.thread ]
+19:                                               ; preds = %.lr.ph89, %.thread
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next94, %.thread ]
   %20 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2330, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
   %21 = call i32 @unpack16(ptr noundef nonnull %4, ptr noundef %0) #13
   %.not66 = icmp eq i32 %21, 0
-  br i1 %.not66, label %22, label %.loopexit86
+  br i1 %.not66, label %22, label %.loopexit85
 
 22:                                               ; preds = %19
   %23 = load i16, ptr %4, align 2
@@ -4321,12 +4321,12 @@ define dso_local ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr noundef readon
   %26 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %20, ptr noundef nonnull %12, ptr noundef %0) #13
   %.not67 = icmp eq i32 %26, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.not67, label %27, label %.loopexit86
+  br i1 %.not67, label %27, label %.loopexit85
 
 27:                                               ; preds = %22
   %28 = call i32 @unpack16(ptr noundef nonnull %4, ptr noundef %0) #13
   %.not68 = icmp eq i32 %28, 0
-  br i1 %.not68, label %29, label %.loopexit86
+  br i1 %.not68, label %29, label %.loopexit85
 
 29:                                               ; preds = %27
   %30 = load i16, ptr %4, align 2
@@ -4335,7 +4335,7 @@ define dso_local ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr noundef readon
   store i32 %31, ptr %32, align 4
   %33 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %0) #13
   %.not69 = icmp eq i32 %33, 0
-  br i1 %.not69, label %34, label %.loopexit86
+  br i1 %.not69, label %34, label %.loopexit85
 
 34:                                               ; preds = %29
   %35 = load i32, ptr %6, align 4
@@ -4399,7 +4399,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
   ]
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw %struct.conf_file_options, ptr %1, i64 %indvars.iv94
+  %59 = getelementptr inbounds nuw %struct.conf_file_options, ptr %1, i64 %indvars.iv93
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load ptr, ptr %60, align 8
   %.not80 = icmp eq ptr %61, null
@@ -4408,7 +4408,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 62:                                               ; preds = %58
   %63 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %0) #13
   %.not81 = icmp eq i32 %63, 0
-  br i1 %.not81, label %64, label %.loopexit86
+  br i1 %.not81, label %64, label %.loopexit85
 
 64:                                               ; preds = %62
   %65 = load i32, ptr %6, align 4
@@ -4438,7 +4438,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
   %78 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef %0) #13
   %.not79 = icmp eq i32 %78, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.not79, label %79, label %.loopexit86
+  br i1 %.not79, label %79, label %.loopexit85
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr %11, align 8
@@ -4449,7 +4449,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 82:                                               ; preds = %56
   %83 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %0) #13
   %.not78 = icmp eq i32 %83, 0
-  br i1 %.not78, label %84, label %.loopexit86
+  br i1 %.not78, label %84, label %.loopexit85
 
 84:                                               ; preds = %82
   %85 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2368, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4462,7 +4462,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 88:                                               ; preds = %56
   %89 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %0) #13
   %.not77 = icmp eq i32 %89, 0
-  br i1 %.not77, label %90, label %.loopexit86
+  br i1 %.not77, label %90, label %.loopexit85
 
 90:                                               ; preds = %88
   %91 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2373, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4476,7 +4476,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 95:                                               ; preds = %56
   %96 = call i32 @unpack16(ptr noundef nonnull %4, ptr noundef %0) #13
   %.not76 = icmp eq i32 %96, 0
-  br i1 %.not76, label %97, label %.loopexit86
+  br i1 %.not76, label %97, label %.loopexit85
 
 97:                                               ; preds = %95
   %98 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2378, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4489,7 +4489,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 101:                                              ; preds = %56
   %102 = call i32 @unpack64(ptr noundef nonnull %7, ptr noundef %0) #13
   %.not75 = icmp eq i32 %102, 0
-  br i1 %.not75, label %103, label %.loopexit86
+  br i1 %.not75, label %103, label %.loopexit85
 
 103:                                              ; preds = %101
   %104 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2383, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4502,7 +4502,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 107:                                              ; preds = %56
   %108 = call i32 @unpackbool(ptr noundef nonnull %3, ptr noundef %0) #13
   %.not74 = icmp eq i32 %108, 0
-  br i1 %.not74, label %109, label %.loopexit86
+  br i1 %.not74, label %109, label %.loopexit85
 
 109:                                              ; preds = %107
   %110 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2388, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4515,7 +4515,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 113:                                              ; preds = %56
   %114 = call i32 @unpackfloat(ptr noundef nonnull %8, ptr noundef %0) #13
   %.not73 = icmp eq i32 %114, 0
-  br i1 %.not73, label %115, label %.loopexit86
+  br i1 %.not73, label %115, label %.loopexit85
 
 115:                                              ; preds = %113
   %116 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2393, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4528,7 +4528,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 119:                                              ; preds = %56
   %120 = call i32 @unpackdouble(ptr noundef nonnull %9, ptr noundef %0) #13
   %.not72 = icmp eq i32 %120, 0
-  br i1 %.not72, label %121, label %.loopexit86
+  br i1 %.not72, label %121, label %.loopexit85
 
 121:                                              ; preds = %119
   %122 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2398, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4541,7 +4541,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
 125:                                              ; preds = %56
   %126 = call i32 @unpacklongdouble(ptr noundef nonnull %10, ptr noundef %0) #13
   %.not71 = icmp eq i32 %126, 0
-  br i1 %.not71, label %127, label %.loopexit86
+  br i1 %.not71, label %127, label %.loopexit85
 
 127:                                              ; preds = %125
   %128 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2403, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
@@ -4556,20 +4556,20 @@ _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.lo
   unreachable
 
 .thread:                                          ; preds = %.lr.ph, %64, %56, %79, %84, %90, %97, %103, %109, %115, %121, %127, %58, %_conf_hashtbl_insert.exit
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %132 = load i32, ptr %5, align 4
   %133 = zext i32 %132 to i64
-  %134 = icmp samesign ult i64 %indvars.iv.next95, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next94, %133
   br i1 %134, label %19, label %.loopexit, !llvm.loop !63
 
-.loopexit86:                                      ; preds = %62, %77, %22, %125, %119, %113, %107, %101, %95, %88, %82, %29, %27, %19, %2
+.loopexit85:                                      ; preds = %62, %77, %22, %125, %119, %113, %107, %101, %95, %88, %82, %29, %27, %19, %2
   %.065 = phi ptr [ null, %2 ], [ %16, %19 ], [ %16, %27 ], [ %16, %29 ], [ %16, %82 ], [ %16, %88 ], [ %16, %95 ], [ %16, %101 ], [ %16, %107 ], [ %16, %113 ], [ %16, %119 ], [ %16, %125 ], [ %16, %22 ], [ %16, %77 ], [ %16, %62 ]
   call void @s_p_hashtbl_destroy(ptr noundef %.065)
   %135 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %15, %.loopexit86
-  %.062 = phi ptr [ null, %.loopexit86 ], [ %16, %15 ], [ %16, %.thread ]
+.loopexit:                                        ; preds = %.thread, %15, %.loopexit85
+  %.062 = phi ptr [ null, %.loopexit85 ], [ %16, %15 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

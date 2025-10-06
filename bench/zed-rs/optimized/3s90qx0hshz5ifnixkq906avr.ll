@@ -230,8 +230,8 @@ define noundef range(i8 0, 3) i8 @"_ZN92_$LT$assistant_slash_command..AfterCompl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN23assistant_slash_command15AfterCompletion3run17he81b3511d540bfcfE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #9 {
   %2 = load i8, ptr %0, align 1, !range !34, !noundef !4
-  %switch = icmp eq i8 %2, 0
-  ret i1 %switch
+  %3 = icmp eq i8 %2, 0
+  ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable

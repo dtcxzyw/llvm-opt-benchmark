@@ -2682,8 +2682,8 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 read_u32.exit.i90:                                ; preds = %120
   %122 = load i32, ptr %121, align 1
   %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
-  %.not32.i91 = icmp eq i64 %123, 4
-  br i1 %.not32.i91, label %124, label %parse_htime_item.exit97
+  %.not29.i91 = icmp eq i64 %123, 4
+  br i1 %.not29.i91, label %124, label %parse_htime_item.exit97
 
 124:                                              ; preds = %read_u32.exit.i90
   %125 = add nsw i64 %112, -4
@@ -2702,8 +2702,8 @@ read_u32.exit.i90:                                ; preds = %120
 read_u64.exit.i94:                                ; preds = %127
   %.val.i.i95 = load i64, ptr %128, align 1
   %129 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #15
-  %.not33.i96 = icmp eq i64 %129, 8
-  br i1 %.not33.i96, label %130, label %parse_htime_item.exit97
+  %.not30.i96 = icmp eq i64 %129, 8
+  br i1 %.not30.i96, label %130, label %parse_htime_item.exit97
 
 130:                                              ; preds = %read_u64.exit.i94
   %131 = udiv i64 %.val.i.i95, 10000000
@@ -2739,8 +2739,8 @@ parse_htime_item.exit97:                          ; preds = %120, %read_u32.exit
 read_u32.exit.i80:                                ; preds = %138
   %140 = load i32, ptr %139, align 1
   %141 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
-  %.not32.i81 = icmp eq i64 %141, 4
-  br i1 %.not32.i81, label %142, label %parse_htime_item.exit87
+  %.not29.i81 = icmp eq i64 %141, 4
+  br i1 %.not29.i81, label %142, label %parse_htime_item.exit87
 
 142:                                              ; preds = %read_u32.exit.i80
   %143 = add nsw i64 %.3, -4
@@ -2759,8 +2759,8 @@ read_u32.exit.i80:                                ; preds = %138
 read_u64.exit.i84:                                ; preds = %145
   %.val.i.i85 = load i64, ptr %146, align 1
   %147 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #15
-  %.not33.i86 = icmp eq i64 %147, 8
-  br i1 %.not33.i86, label %148, label %parse_htime_item.exit87
+  %.not30.i86 = icmp eq i64 %147, 8
+  br i1 %.not30.i86, label %148, label %parse_htime_item.exit87
 
 148:                                              ; preds = %read_u64.exit.i84
   %149 = udiv i64 %.val.i.i85, 10000000
@@ -2796,8 +2796,8 @@ parse_htime_item.exit87:                          ; preds = %138, %read_u32.exit
 read_u32.exit.i76:                                ; preds = %156
   %158 = load i32, ptr %157, align 1
   %159 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
-  %.not32.i = icmp eq i64 %159, 4
-  br i1 %.not32.i, label %160, label %parse_htime_item.exit
+  %.not29.i77 = icmp eq i64 %159, 4
+  br i1 %.not29.i77, label %160, label %parse_htime_item.exit
 
 160:                                              ; preds = %read_u32.exit.i76
   %161 = add nsw i64 %.4, -4
@@ -2816,8 +2816,8 @@ read_u32.exit.i76:                                ; preds = %156
 read_u64.exit.i:                                  ; preds = %163
   %.val.i.i = load i64, ptr %164, align 1
   %165 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #15
-  %.not33.i77 = icmp eq i64 %165, 8
-  br i1 %.not33.i77, label %166, label %parse_htime_item.exit
+  %.not30.i = icmp eq i64 %165, 8
+  br i1 %.not30.i, label %166, label %parse_htime_item.exit
 
 166:                                              ; preds = %read_u64.exit.i
   %167 = udiv i64 %.val.i.i, 10000000

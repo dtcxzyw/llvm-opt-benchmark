@@ -11911,13 +11911,13 @@ _Z9is_app_ofPK4exprii.exit34:                     ; preds = %_Z9is_app_ofPK4expr
   br i1 %38, label %_Z9is_app_ofPK4exprii.exit36.thread, label %._Z9is_app_ofPK4exprii.exit34.thread_crit_edge
 
 ._Z9is_app_ofPK4exprii.exit34.thread_crit_edge:   ; preds = %34
-  %.pre57 = load i32, ptr %3, align 8, !tbaa !10
-  %.pre58 = load i32, ptr %8, align 4
+  %.pre55 = load i32, ptr %3, align 8, !tbaa !10
+  %.pre56 = load i32, ptr %8, align 4
   br label %_Z9is_app_ofPK4exprii.exit34.thread
 
 _Z9is_app_ofPK4exprii.exit34.thread:              ; preds = %11, %._Z9is_app_ofPK4exprii.exit34.thread_crit_edge, %5, %_Z9is_app_ofPK4exprii.exit34
-  %39 = phi i32 [ %.pre58, %._Z9is_app_ofPK4exprii.exit34.thread_crit_edge ], [ %6, %5 ], [ %6, %_Z9is_app_ofPK4exprii.exit34 ], [ %6, %11 ]
-  %40 = phi i32 [ %.pre57, %._Z9is_app_ofPK4exprii.exit34.thread_crit_edge ], [ %7, %5 ], [ %7, %_Z9is_app_ofPK4exprii.exit34 ], [ %7, %11 ]
+  %39 = phi i32 [ %.pre56, %._Z9is_app_ofPK4exprii.exit34.thread_crit_edge ], [ %6, %5 ], [ %6, %_Z9is_app_ofPK4exprii.exit34 ], [ %6, %11 ]
+  %40 = phi i32 [ %.pre55, %._Z9is_app_ofPK4exprii.exit34.thread_crit_edge ], [ %7, %5 ], [ %7, %_Z9is_app_ofPK4exprii.exit34 ], [ %7, %11 ]
   %41 = and i32 %39, 65535
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %_Z9is_app_ofPK4exprii.exit36.thread
@@ -11946,14 +11946,14 @@ _Z9is_app_ofPK4exprii.exit36:                     ; preds = %43
   %58 = zext i32 %57 to i64
   %.idx = shl nuw nsw i64 %58, 3
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
-  %.not53 = icmp eq i32 %57, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %.not51 = icmp eq i32 %57, 0
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %.thread40
-  %.02755 = phi ptr [ %71, %.thread40 ], [ %55, %54 ]
-  %.02854 = phi i1 [ false, %.thread40 ], [ true, %54 ]
-  %60 = load ptr, ptr %.02755, align 8, !tbaa !177
-  br i1 %.02854, label %.thread40, label %61
+  %.02753 = phi ptr [ %71, %.thread40 ], [ %55, %54 ]
+  %.02852 = phi i1 [ false, %.thread40 ], [ true, %54 ]
+  %60 = load ptr, ptr %.02753, align 8, !tbaa !177
+  br i1 %.02852, label %.thread40, label %61
 
 61:                                               ; preds = %.lr.ph
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -11970,7 +11970,7 @@ _Z9is_app_ofPK4exprii.exit36:                     ; preds = %43
   br i1 %70, label %.thread40, label %_Z9is_app_ofPK4exprii.exit36.thread
 
 .thread40:                                        ; preds = %61, %.lr.ph, %66
-  %71 = getelementptr inbounds nuw i8, ptr %.02755, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.02753, i64 8
   %.not = icmp eq ptr %71, %59
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

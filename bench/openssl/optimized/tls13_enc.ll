@@ -675,8 +675,8 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   %or.cond173.not = icmp eq i32 %22, 18
   %23 = and i32 %1, 33
   %brmerge.not = icmp eq i32 %23, 33
-  %or.cond179 = or i1 %or.cond173.not, %brmerge.not
-  br i1 %or.cond179, label %24, label %113
+  %or.cond178 = or i1 %or.cond173.not, %brmerge.not
+  br i1 %or.cond178, label %24, label %113
 
 24:                                               ; preds = %2
   %25 = and i32 %1, 64
@@ -700,7 +700,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 505, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 332, ptr noundef null) #4
-  br label %.thread196
+  br label %.thread195
 
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -737,7 +737,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
-  br label %.thread196
+  br label %.thread195
 
 55:                                               ; preds = %51
   %56 = call ptr @SSL_SESSION_get0_cipher(ptr noundef nonnull %50) #4
@@ -752,7 +752,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 526, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 219, ptr noundef null) #4
-  br label %.thread196
+  br label %.thread195
 
 60:                                               ; preds = %57
   %61 = call i32 @ssl_cipher_get_evp_cipher(ptr noundef %18, ptr noundef nonnull %.0122, ptr noundef nonnull %10) #4
@@ -761,7 +761,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
 
 62:                                               ; preds = %60
   call void @ossl_statem_send_fatal(ptr noundef nonnull %0, i32 noundef 80) #4
-  br label %.thread196
+  br label %.thread195
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %10, align 8, !tbaa !106
@@ -777,7 +777,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
 
 70:                                               ; preds = %68
   call void @ossl_statem_send_fatal(ptr noundef nonnull %0, i32 noundef 80) #4
-  br label %.thread196
+  br label %.thread195
 
 71:                                               ; preds = %68, %63
   %72 = call ptr @EVP_MD_CTX_new() #4
@@ -788,7 +788,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524294, ptr noundef null) #4
-  br label %.thread196
+  br label %.thread195
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %.0122, i64 64
@@ -818,7 +818,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 562, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
   call void @EVP_MD_CTX_free(ptr noundef nonnull %72) #4
-  br label %.thread196
+  br label %.thread195
 
 88:                                               ; preds = %85
   %89 = load i32, ptr %16, align 4, !tbaa !4
@@ -835,15 +835,15 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 575, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
-  br label %.thread196
+  br label %.thread195
 
 95:                                               ; preds = %88
   %96 = load i64, ptr %8, align 8, !tbaa !13
   %97 = call i32 @ssl_log_secret(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %92, i64 noundef %96) #4
   %.not156 = icmp eq i32 %97, 0
-  br i1 %.not156, label %.thread196, label %98
+  br i1 %.not156, label %.thread195, label %98
 
-.thread196:                                       ; preds = %95, %.critedge, %62, %70, %94, %87, %74, %59, %35
+.thread195:                                       ; preds = %95, %.critedge, %62, %70, %94, %87, %74, %59, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %223
@@ -868,7 +868,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 589, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
-  br label %.thread191
+  br label %.thread190
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1660
@@ -896,7 +896,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 625, ptr noundef nonnull @__func__.tls13_change_cipher_state) #4
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #4
-  %.pre181 = and i32 %1, 64
+  %.pre180 = and i32 %1, 64
   br label %222
 
 120:                                              ; preds = %115
@@ -938,12 +938,12 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   store i32 %139, ptr %11, align 4, !tbaa !4
   %140 = call i32 @ssl3_digest_cached_records(ptr noundef nonnull %0, i32 noundef 1) #4
   %.not157 = icmp eq i32 %140, 0
-  br i1 %.not157, label %.thread191, label %141
+  br i1 %.not157, label %.thread190, label %141
 
 141:                                              ; preds = %132
   %142 = call i32 @ssl_handshake_hash(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull %8) #4
   %.not158 = icmp eq i32 %142, 0
-  br i1 %.not158, label %.thread191, label %143
+  br i1 %.not158, label %.thread190, label %143
 
 143:                                              ; preds = %141, %125
   %.2 = phi ptr [ %133, %141 ], [ %.1, %125 ]
@@ -1032,16 +1032,16 @@ tls13_hkdf_expand.exit175._crit_edge:             ; preds = %tls13_hkdf_expand.e
   br label %185
 
 182:                                              ; preds = %167
-  %.pre180 = load i64, ptr %8, align 8, !tbaa !13
+  %.pre179 = load i64, ptr %8, align 8, !tbaa !13
   br i1 %128, label %183, label %185
 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 1916
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %184, ptr nonnull align 16 %6, i64 %.pre180, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %184, ptr nonnull align 16 %6, i64 %.pre179, i1 false)
   br label %185
 
 185:                                              ; preds = %tls13_hkdf_expand.exit175._crit_edge, %182, %183
-  %186 = phi i64 [ %.pre, %tls13_hkdf_expand.exit175._crit_edge ], [ %.pre180, %182 ], [ %.pre180, %183 ]
+  %186 = phi i64 [ %.pre, %tls13_hkdf_expand.exit175._crit_edge ], [ %.pre179, %182 ], [ %.pre179, %183 ]
   %187 = call i32 @ssl_log_secret(ptr noundef nonnull %0, ptr noundef nonnull %.0132, ptr noundef nonnull %6, i64 noundef %186) #4
   %.not164 = icmp eq i32 %187, 0
   br i1 %.not164, label %222, label %188
@@ -1106,13 +1106,13 @@ tls13_derive_finishedkey.exit:                    ; preds = %189, %188
   br label %222
 
 222:                                              ; preds = %tls13_derive_finishedkey.exit.thread, %tls13_hkdf_expand.exit175.thread, %tls13_hkdf_expand.exit.thread, %207, %185, %tls13_hkdf_expand.exit175, %163, %tls13_hkdf_expand.exit, %119
-  %.pre-phi = phi i32 [ %130, %tls13_derive_finishedkey.exit.thread ], [ %130, %tls13_hkdf_expand.exit175.thread ], [ %130, %tls13_hkdf_expand.exit.thread ], [ %130, %207 ], [ %130, %185 ], [ %130, %tls13_hkdf_expand.exit175 ], [ %130, %163 ], [ %130, %tls13_hkdf_expand.exit ], [ %.pre181, %119 ]
+  %.pre-phi = phi i32 [ %130, %tls13_derive_finishedkey.exit.thread ], [ %130, %tls13_hkdf_expand.exit175.thread ], [ %130, %tls13_hkdf_expand.exit.thread ], [ %130, %207 ], [ %130, %185 ], [ %130, %tls13_hkdf_expand.exit175 ], [ %130, %163 ], [ %130, %tls13_hkdf_expand.exit ], [ %.pre180, %119 ]
   %.0128 = phi i32 [ 0, %tls13_derive_finishedkey.exit.thread ], [ 0, %tls13_hkdf_expand.exit175.thread ], [ 0, %tls13_hkdf_expand.exit.thread ], [ %spec.select, %207 ], [ 0, %185 ], [ 0, %tls13_hkdf_expand.exit175 ], [ 0, %163 ], [ 0, %tls13_hkdf_expand.exit ], [ 0, %119 ]
   %.not171 = icmp eq i32 %.pre-phi, 0
-  br i1 %.not171, label %.thread191, label %223
+  br i1 %.not171, label %.thread190, label %223
 
-223:                                              ; preds = %.thread196, %222
-  %.0128200 = phi i32 [ 0, %.thread196 ], [ %.0128, %222 ]
+223:                                              ; preds = %.thread195, %222
+  %.0128199 = phi i32 [ 0, %.thread195 ], [ %.0128, %222 ]
   %224 = load ptr, ptr %10, align 8, !tbaa !106
   %225 = call i64 @EVP_CIPHER_get_flags(ptr noundef %224) #4
   %226 = and i64 %225, 2097152
@@ -1127,21 +1127,21 @@ tls13_derive_finishedkey.exit:                    ; preds = %189, %188
 230:                                              ; preds = %228, %223
   %231 = load ptr, ptr %10, align 8, !tbaa !106
   call void @ssl_evp_cipher_free(ptr noundef %231) #4
-  br label %.thread191
+  br label %.thread190
 
-.thread191:                                       ; preds = %105, %141, %132, %230, %222
-  %.0128195 = phi i32 [ %.0128200, %230 ], [ %.0128, %222 ], [ 0, %132 ], [ 0, %141 ], [ 0, %105 ]
+.thread190:                                       ; preds = %105, %141, %132, %230, %222
+  %.0128194 = phi i32 [ %.0128199, %230 ], [ %.0128, %222 ], [ 0, %132 ], [ 0, %141 ], [ 0, %105 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #4
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #4
   %232 = load ptr, ptr %4, align 8, !tbaa !9
   %.not172 = icmp eq ptr %232, %3
   br i1 %.not172, label %234, label %233
 
-233:                                              ; preds = %.thread191
+233:                                              ; preds = %.thread190
   call void @CRYPTO_free(ptr noundef %232, ptr noundef nonnull @.str.1, i32 noundef 752) #4
   br label %234
 
-234:                                              ; preds = %.thread191, %233
+234:                                              ; preds = %.thread190, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1154,7 +1154,7 @@ tls13_derive_finishedkey.exit:                    ; preds = %189, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.0128195
+  ret i32 %.0128194
 }
 
 declare ptr @SSL_SESSION_get0_cipher(ptr noundef) local_unnamed_addr #1

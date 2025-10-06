@@ -168,17 +168,17 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not40 = icmp eq ptr %5, %6
-  br i1 %.not40, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not38 = icmp eq ptr %5, %6
+  br i1 %.not38, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8, !tbaa !9
-  %.pre45 = ptrtoint ptr %.pre to i64
-  %.pre46 = ptrtoint ptr %.pre44 to i64
-  %.pre48 = sub i64 %.pre45, %.pre46
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre42 = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !9
+  %.pre43 = ptrtoint ptr %.pre to i64
+  %.pre44 = ptrtoint ptr %.pre42 to i64
+  %.pre46 = sub i64 %.pre43, %.pre44
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -193,17 +193,17 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
   br label %21
 
 19:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
-  %20 = add nuw i64 %.01539, 1
+  %20 = add nuw i64 %.01537, 1
   %exitcond.not = icmp eq i64 %20, %10
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !10
 
 21:                                               ; preds = %.lr.ph, %19
-  %.01539 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %22 = icmp eq i64 %18, %.01539
+  %.01537 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
+  %22 = icmp eq i64 %18, %.01537
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %6, i64 %.01539
+  %24 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %6, i64 %.01537
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit, label %27
@@ -217,7 +217,7 @@ define noundef i32 @_ZN9grpc_core19HierarchicalPathArg18ChannelArgsCompareEPKS0_
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit: ; preds = %23, %27
   %.sroa.0.0.i = phi i64 [ %30, %27 ], [ 0, %23 ]
   %.sroa.3.0.i = phi ptr [ %28, %27 ], [ null, %23 ]
-  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %14, i64 %.01539
+  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %14, i64 %.01537
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit23, label %34
@@ -245,8 +245,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit: ; preds = %_ZNK
   br i1 %.not, label %19, label %.thread.loopexit.split.loop.exit
 
 ._crit_edge:                                      ; preds = %19, %.._crit_edge_crit_edge
-  %.pre-phi49 = phi i64 [ %.pre48, %.._crit_edge_crit_edge ], [ %17, %19 ]
-  %41 = icmp ugt i64 %.pre-phi49, %9
+  %.pre-phi47 = phi i64 [ %.pre46, %.._crit_edge_crit_edge ], [ %17, %19 ]
+  %41 = icmp ugt i64 %.pre-phi47, %9
   %. = sext i1 %41 to i32
   br label %.thread
 
@@ -2659,17 +2659,17 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not40.i.i = icmp eq ptr %5, %6
-  br i1 %.not40.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
+  %.not38.i.i = icmp eq ptr %5, %6
+  br i1 %.not38.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %2
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !3
-  %.phi.trans.insert43.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre44.i.i = load ptr, ptr %.phi.trans.insert43.i.i, align 8, !tbaa !9
-  %.pre45.i.i = ptrtoint ptr %.pre.i.i to i64
-  %.pre46.i.i = ptrtoint ptr %.pre44.i.i to i64
-  %.pre48.i.i = sub i64 %.pre45.i.i, %.pre46.i.i
+  %.phi.trans.insert41.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre42.i.i = load ptr, ptr %.phi.trans.insert41.i.i, align 8, !tbaa !9
+  %.pre43.i.i = ptrtoint ptr %.pre.i.i to i64
+  %.pre44.i.i = ptrtoint ptr %.pre42.i.i to i64
+  %.pre46.i.i = sub i64 %.pre43.i.i, %.pre44.i.i
   br label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
@@ -2684,17 +2684,17 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
   br label %21
 
 19:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i
-  %20 = add nuw i64 %.01539.i.i, 1
+  %20 = add nuw i64 %.01537.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, %10
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %21, !llvm.loop !10
 
 21:                                               ; preds = %19, %.lr.ph.i.i
-  %.01539.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %20, %19 ]
-  %22 = icmp eq i64 %18, %.01539.i.i
+  %.01537.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %20, %19 ]
+  %22 = icmp eq i64 %18, %.01537.i.i
   br i1 %22, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %6, i64 %.01539.i.i
+  %24 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %6, i64 %.01537.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i, label %27
@@ -2708,7 +2708,7 @@ define linkonce_odr noundef i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_19Hiera
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i: ; preds = %27, %23
   %.sroa.0.0.i.i.i = phi i64 [ %30, %27 ], [ 0, %23 ]
   %.sroa.3.0.i.i.i = phi ptr [ %28, %27 ], [ null, %23 ]
-  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %14, i64 %.01539.i.i
+  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedStringValue", ptr %14, i64 %.01537.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit23.i.i, label %34
@@ -2736,8 +2736,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i: ; preds = %
   br i1 %.not.i.i, label %19, label %.thread.loopexit.split.loop.exit.i.i
 
 ._crit_edge.i.i:                                  ; preds = %19, %.._crit_edge_crit_edge.i.i
-  %.pre-phi49.i.i = phi i64 [ %.pre48.i.i, %.._crit_edge_crit_edge.i.i ], [ %17, %19 ]
-  %41 = icmp ugt i64 %.pre-phi49.i.i, %9
+  %.pre-phi47.i.i = phi i64 [ %.pre46.i.i, %.._crit_edge_crit_edge.i.i ], [ %17, %19 ]
+  %41 = icmp ugt i64 %.pre-phi47.i.i, %9
   %..i.i = sext i1 %41 to i32
   br label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit
 

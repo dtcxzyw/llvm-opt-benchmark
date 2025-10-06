@@ -469,8 +469,8 @@ _ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit: ; pred
 
 82:                                               ; preds = %81
   %83 = shl i32 %79, 3
-  %.not3238.i = icmp eq i32 %83, 0
-  br i1 %.not3238.i, label %.loopexit, label %.lr.ph.preheader.i
+  %.not3541.i = icmp eq i32 %83, 0
+  br i1 %.not3541.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %82
   %.idx.i = zext i32 %83 to i64
@@ -478,20 +478,20 @@ _ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit: ; pred
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.sroa.024.0.idx39.i = phi i64 [ %.sroa.024.0.add.i, %.critedge.i ], [ %.add.i, %.lr.ph.preheader.i ]
-  %.sroa.024.0.add.i = add nsw i64 %.sroa.024.0.idx39.i, -8
+  %.sroa.024.0.idx42.i = phi i64 [ %.sroa.024.0.add.i, %.critedge.i ], [ %.add.i, %.lr.ph.preheader.i ]
+  %.sroa.024.0.add.i = add nsw i64 %.sroa.024.0.idx42.i, -8
   %.ptr.i = getelementptr inbounds i8, ptr %77, i64 %.sroa.024.0.add.i
   %84 = load ptr, ptr %.ptr.i, align 8, !tbaa !12
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 512
-  %.not35.i = icmp eq i32 %87, 0
-  br i1 %.not35.i, label %.loopexit, label %88
+  %.not38.i = icmp eq i32 %87, 0
+  br i1 %.not38.i, label %.loopexit, label %88
 
 88:                                               ; preds = %.lr.ph.i
   %89 = and i32 %86, 127
-  %.not46.i = icmp eq i32 %89, 65
-  br i1 %.not46.i, label %90, label %.critedge.i
+  %.not49.i = icmp eq i32 %89, 65
+  br i1 %.not49.i, label %90, label %.critedge.i
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 60
@@ -505,12 +505,12 @@ _ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit: ; pred
   %96 = load ptr, ptr %95, align 8, !tbaa !48
   %97 = load i24, ptr %96, align 8
   %98 = and i24 %97, 16384
-  %.not37.i = icmp eq i24 %98, 0
-  br i1 %.not37.i, label %.critedge.i, label %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread.sink.split
+  %.not40.i = icmp eq i24 %98, 0
+  br i1 %.not40.i, label %.critedge.i, label %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread.sink.split
 
 .critedge.i:                                      ; preds = %94, %90, %88
-  %.not32.i = icmp eq i64 %.sroa.024.0.add.i, 24
-  br i1 %.not32.i, label %.loopexit, label %.lr.ph.i
+  %.not35.i = icmp eq i64 %.sroa.024.0.add.i, 24
+  br i1 %.not35.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.critedge.i, %81, %82
   %99 = getelementptr inbounds nuw i8, ptr %21, i64 72
@@ -717,8 +717,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang21TemplateParameterList31contains
 
 6:                                                ; preds = %5
   %7 = shl i32 %3, 3
-  %.not3238 = icmp eq i32 %7, 0
-  br i1 %.not3238, label %.loopexit, label %.lr.ph.preheader
+  %.not3541 = icmp eq i32 %7, 0
+  br i1 %.not3541, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
   %.idx = zext i32 %7 to i64
@@ -726,20 +726,20 @@ define dso_local noundef zeroext i1 @_ZNK5clang21TemplateParameterList31contains
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.sroa.024.0.idx39 = phi i64 [ %.sroa.024.0.add, %.critedge ], [ %.add, %.lr.ph.preheader ]
-  %.sroa.024.0.add = add nsw i64 %.sroa.024.0.idx39, -8
+  %.sroa.024.0.idx42 = phi i64 [ %.sroa.024.0.add, %.critedge ], [ %.add, %.lr.ph.preheader ]
+  %.sroa.024.0.add = add nsw i64 %.sroa.024.0.idx42, -8
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.024.0.add
   %8 = load ptr, ptr %.ptr, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 512
-  %.not35 = icmp eq i32 %11, 0
-  br i1 %.not35, label %.loopexit, label %12
+  %.not38 = icmp eq i32 %11, 0
+  br i1 %.not38, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = and i32 %10, 127
-  %.not46 = icmp eq i32 %13, 65
-  br i1 %.not46, label %14, label %.critedge
+  %.not49 = icmp eq i32 %13, 65
+  br i1 %.not49, label %14, label %.critedge
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 60
@@ -753,15 +753,15 @@ define dso_local noundef zeroext i1 @_ZNK5clang21TemplateParameterList31contains
   %20 = load ptr, ptr %19, align 8, !tbaa !48
   %21 = load i24, ptr %20, align 8
   %22 = and i24 %21, 16384
-  %.not37 = icmp eq i24 %22, 0
-  br i1 %.not37, label %.critedge, label %.loopexit
+  %.not40 = icmp eq i24 %22, 0
+  br i1 %.not40, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %14, %18, %12
-  %.not32 = icmp eq i64 %.sroa.024.0.add, 24
-  br i1 %.not32, label %.loopexit, label %.lr.ph
+  %.not35 = icmp eq i64 %.sroa.024.0.add, 24
+  br i1 %.not35, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %18, %.critedge, %6, %5, %1
-  %.0 = phi i1 [ true, %1 ], [ false, %5 ], [ false, %6 ], [ false, %.lr.ph ], [ true, %18 ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %.lr.ph, %.critedge, %18, %6, %5, %1
+  %.0 = phi i1 [ true, %1 ], [ false, %5 ], [ false, %6 ], [ false, %.lr.ph ], [ false, %.critedge ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -1282,8 +1282,8 @@ define dso_local noundef i32 @_ZNK5clang21TemplateParameterList23getMinRequiredA
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %15 = load i8, ptr %14, align 4
   %16 = and i8 %15, 8
-  %.not44.i = icmp eq i8 %16, 0
-  br i1 %.not44.i, label %.thread49, label %17
+  %.not39.i = icmp eq i8 %16, 0
+  br i1 %.not39.i, label %.thread49, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -1305,8 +1305,8 @@ define dso_local noundef i32 @_ZNK5clang21TemplateParameterList23getMinRequiredA
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %29 = load i8, ptr %28, align 8
   %30 = and i8 %29, 4
-  %.not47.i = icmp eq i8 %30, 0
-  br i1 %.not47.i, label %.thread49, label %31
+  %.not42.i = icmp eq i8 %30, 0
+  br i1 %.not42.i, label %.thread49, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 84
@@ -4834,8 +4834,8 @@ define dso_local void @_ZNK5clang31ClassTemplateSpecializationDecl20getNameForDi
   %.not.i.i.i.i = icmp eq i64 %10, 0
   %11 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %12 = inttoptr i64 %11 to ptr
-  %.not.not8.i = icmp eq i64 %11, 0
-  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %11, 0
+  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %13
 
 13:                                               ; preds = %8
@@ -4853,14 +4853,14 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; 
   %19 = load i32, ptr %18, align 8, !tbaa !569
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.sroa.0.0.copyload.i.i.i.i9.i = load i64, ptr %21, align 8
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i, 4
-  %.not.i.i.i.i10.i = icmp eq i64 %22, 0
-  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i, -8
+  %.sroa.0.0.copyload.i.i.i.i8.i = load i64, ptr %21, align 8
+  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i, 4
+  %.not.i.i.i.i9.i = icmp eq i64 %22, 0
+  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i, -8
   %24 = inttoptr i64 %23 to ptr
-  %.not.not811.i = icmp eq i64 %23, 0
-  %.not.not12.i = or i1 %.not.i.i.i.i10.i, %.not.not811.i
-  br i1 %.not.not12.i, label %_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit, label %tailrecurse.i
+  %.not.not710.i = icmp eq i64 %23, 0
+  %.not.not11.i = or i1 %.not.i.i.i.i9.i, %.not.not710.i
+  br i1 %.not.not11.i, label %_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %16, %tailrecurse.i
   %25 = phi ptr [ %30, %tailrecurse.i ], [ %24, %16 ]
@@ -4871,8 +4871,8 @@ tailrecurse.i:                                    ; preds = %16, %tailrecurse.i
   %.not.i.i.i.i.i = icmp eq i64 %28, 0
   %29 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
   %30 = inttoptr i64 %29 to ptr
-  %.not.not8.i16 = icmp eq i64 %29, 0
-  %.not.not.i17 = or i1 %.not.i.i.i.i.i, %.not.not8.i16
+  %.not.not7.i16 = icmp eq i64 %29, 0
+  %.not.not.i17 = or i1 %.not.i.i.i.i.i, %.not.not7.i16
   br i1 %.not.not.i17, label %_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit, label %tailrecurse.i
 
 _ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit: ; preds = %tailrecurse.i, %16
@@ -4889,14 +4889,14 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.thr
   %36 = load i32, ptr %34, align 8, !tbaa !520
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.sroa.0.0.copyload.i.i.i.i9.i20 = load i64, ptr %38, align 8
-  %39 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i20, 4
-  %.not.i.i.i.i10.i21 = icmp eq i64 %39, 0
-  %40 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i20, -8
+  %.sroa.0.0.copyload.i.i.i.i8.i20 = load i64, ptr %38, align 8
+  %39 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i20, 4
+  %.not.i.i.i.i9.i21 = icmp eq i64 %39, 0
+  %40 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i20, -8
   %41 = inttoptr i64 %40 to ptr
-  %.not.not811.i22 = icmp eq i64 %40, 0
-  %.not.not12.i23 = or i1 %.not.i.i.i.i10.i21, %.not.not811.i22
-  br i1 %.not.not12.i23, label %_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit30, label %tailrecurse.i24
+  %.not.not710.i22 = icmp eq i64 %40, 0
+  %.not.not11.i23 = or i1 %.not.i.i.i.i9.i21, %.not.not710.i22
+  br i1 %.not.not11.i23, label %_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit30, label %tailrecurse.i24
 
 tailrecurse.i24:                                  ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.thread, %tailrecurse.i24
   %42 = phi ptr [ %47, %tailrecurse.i24 ], [ %41, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.thread ]
@@ -4907,8 +4907,8 @@ tailrecurse.i24:                                  ; preds = %_ZNK5clang31ClassTe
   %.not.i.i.i.i.i26 = icmp eq i64 %45, 0
   %46 = and i64 %.sroa.0.0.copyload.i.i.i.i.i25, -8
   %47 = inttoptr i64 %46 to ptr
-  %.not.not8.i27 = icmp eq i64 %46, 0
-  %.not.not.i28 = or i1 %.not.i.i.i.i.i26, %.not.not8.i27
+  %.not.not7.i27 = icmp eq i64 %46, 0
+  %.not.not.i28 = or i1 %.not.i.i.i.i.i26, %.not.not7.i27
   br i1 %.not.not.i28, label %_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit30, label %tailrecurse.i24
 
 _ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv.exit30: ; preds = %tailrecurse.i24, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.thread
@@ -4929,14 +4929,14 @@ declare void @_ZN5clang25printTemplateArgumentListERN4llvm11raw_ostreamENS0_8Arr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(181) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.sroa.0.0.copyload.i.i.i.i9 = load i64, ptr %2, align 8
-  %3 = and i64 %.sroa.0.0.copyload.i.i.i.i9, 4
-  %.not.i.i.i.i10 = icmp eq i64 %3, 0
-  %4 = and i64 %.sroa.0.0.copyload.i.i.i.i9, -8
+  %.sroa.0.0.copyload.i.i.i.i8 = load i64, ptr %2, align 8
+  %3 = and i64 %.sroa.0.0.copyload.i.i.i.i8, 4
+  %.not.i.i.i.i9 = icmp eq i64 %3, 0
+  %4 = and i64 %.sroa.0.0.copyload.i.i.i.i8, -8
   %5 = inttoptr i64 %4 to ptr
-  %.not.not811 = icmp eq i64 %4, 0
-  %.not.not12 = or i1 %.not.i.i.i.i10, %.not.not811
-  br i1 %.not.not12, label %tailrecurse._crit_edge, label %tailrecurse
+  %.not.not710 = icmp eq i64 %4, 0
+  %.not.not11 = or i1 %.not.i.i.i.i9, %.not.not710
+  br i1 %.not.not11, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %1, %tailrecurse
   %6 = phi ptr [ %11, %tailrecurse ], [ %5, %1 ]
@@ -4947,8 +4947,8 @@ tailrecurse:                                      ; preds = %1, %tailrecurse
   %.not.i.i.i.i = icmp eq i64 %9, 0
   %10 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %11 = inttoptr i64 %10 to ptr
-  %.not.not8 = icmp eq i64 %10, 0
-  %.not.not = or i1 %.not.i.i.i.i, %.not.not8
+  %.not.not7 = icmp eq i64 %10, 0
+  %.not.not = or i1 %.not.i.i.i.i, %.not.not7
   br i1 %.not.not, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
@@ -4977,8 +4977,8 @@ define dso_local i64 @_ZNK5clang31ClassTemplateSpecializationDecl14getSourceRang
   %7 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
   %8 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %.not.not6.i = icmp eq i64 %8, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not6.i
+  %.not.not5.i = icmp eq i64 %8, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not5.i
   br i1 %.not.not.i, label %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, label %9
 
 9:                                                ; preds = %5
@@ -5011,8 +5011,8 @@ _ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.e
   %.not.i.i.i.i = icmp eq i64 %22, 0
   %23 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %24 = inttoptr i64 %23 to ptr
-  %.not.not8.i = icmp eq i64 %23, 0
-  %.not.not.i16 = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %23, 0
+  %.not.not.i16 = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i16, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %25
 
 25:                                               ; preds = %19
@@ -5044,8 +5044,8 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; 
   %37 = and i64 %.sroa.0.0.copyload.i.i.i.i18, 4
   %.not.i.i.i.i19 = icmp eq i64 %37, 0
   %38 = and i64 %.sroa.0.0.copyload.i.i.i.i18, -8
-  %.not.not6.i20 = icmp eq i64 %38, 0
-  %.not.not.i21 = or i1 %.not.i.i.i.i19, %.not.not6.i20
+  %.not.not5.i20 = icmp eq i64 %38, 0
+  %.not.not.i21 = or i1 %.not.i.i.i.i19, %.not.not5.i20
   %39 = inttoptr i64 %38 to ptr
   br i1 %.not.not.i21, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33, label %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit
 
@@ -5148,8 +5148,8 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %25, %28
   %.not.i.i.i.i6 = icmp eq i64 %30, 0
   %31 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %32 = inttoptr i64 %31 to ptr
-  %.not.not8.i = icmp eq i64 %31, 0
-  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %31, 0
+  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %33
 
 33:                                               ; preds = %_ZnwmRKN5clang10ASTContextEm.exit
@@ -5228,8 +5228,8 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %25, %28
   %.not.i.i.i.i6 = icmp eq i64 %30, 0
   %31 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %32 = inttoptr i64 %31 to ptr
-  %.not.not8.i = icmp eq i64 %31, 0
-  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %31, 0
+  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %33
 
 33:                                               ; preds = %_ZnwmRKN5clang10ASTContextEm.exit
@@ -5365,8 +5365,8 @@ define linkonce_odr hidden void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 32768
-  %.not13.i = icmp eq i32 %13, 0
-  br i1 %.not13.i, label %.thread.i, label %14
+  %.not12.i = icmp eq i32 %13, 0
+  br i1 %.not12.i, label %.thread.i, label %14
 
 14:                                               ; preds = %10
   %15 = tail call noundef zeroext i1 @_ZNK5clang4Decl27hasLocalOwningModuleStorageEv(ptr noundef nonnull align 8 dereferenceable(33) %7) #22
@@ -6858,8 +6858,8 @@ define dso_local void @_ZNK5clang29VarTemplateSpecializationDecl20getNameForDiag
   %.not.i.i.i.i = icmp eq i64 %10, 0
   %11 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %12 = inttoptr i64 %11 to ptr
-  %.not.not8.i = icmp eq i64 %11, 0
-  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %11, 0
+  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %13
 
 13:                                               ; preds = %8
@@ -6877,14 +6877,14 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; pr
   %19 = load i32, ptr %18, align 8, !tbaa !569
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.sroa.0.0.copyload.i.i.i.i9.i = load i64, ptr %21, align 8
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i, 4
-  %.not.i.i.i.i10.i = icmp eq i64 %22, 0
-  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i, -8
+  %.sroa.0.0.copyload.i.i.i.i8.i = load i64, ptr %21, align 8
+  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i, 4
+  %.not.i.i.i.i9.i = icmp eq i64 %22, 0
+  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i, -8
   %24 = inttoptr i64 %23 to ptr
-  %.not.not811.i = icmp eq i64 %23, 0
-  %.not.not12.i = or i1 %.not.i.i.i.i10.i, %.not.not811.i
-  br i1 %.not.not12.i, label %_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit, label %tailrecurse.i
+  %.not.not710.i = icmp eq i64 %23, 0
+  %.not.not11.i = or i1 %.not.i.i.i.i9.i, %.not.not710.i
+  br i1 %.not.not11.i, label %_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %16, %tailrecurse.i
   %25 = phi ptr [ %30, %tailrecurse.i ], [ %24, %16 ]
@@ -6895,8 +6895,8 @@ tailrecurse.i:                                    ; preds = %16, %tailrecurse.i
   %.not.i.i.i.i.i = icmp eq i64 %28, 0
   %29 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
   %30 = inttoptr i64 %29 to ptr
-  %.not.not8.i16 = icmp eq i64 %29, 0
-  %.not.not.i17 = or i1 %.not.i.i.i.i.i, %.not.not8.i16
+  %.not.not7.i16 = icmp eq i64 %29, 0
+  %.not.not.i17 = or i1 %.not.i.i.i.i.i, %.not.not7.i16
   br i1 %.not.not.i17, label %_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit, label %tailrecurse.i
 
 _ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit: ; preds = %tailrecurse.i, %16
@@ -6913,14 +6913,14 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.threa
   %36 = load i32, ptr %34, align 8, !tbaa !520
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.sroa.0.0.copyload.i.i.i.i9.i20 = load i64, ptr %38, align 8
-  %39 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i20, 4
-  %.not.i.i.i.i10.i21 = icmp eq i64 %39, 0
-  %40 = and i64 %.sroa.0.0.copyload.i.i.i.i9.i20, -8
+  %.sroa.0.0.copyload.i.i.i.i8.i20 = load i64, ptr %38, align 8
+  %39 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i20, 4
+  %.not.i.i.i.i9.i21 = icmp eq i64 %39, 0
+  %40 = and i64 %.sroa.0.0.copyload.i.i.i.i8.i20, -8
   %41 = inttoptr i64 %40 to ptr
-  %.not.not811.i22 = icmp eq i64 %40, 0
-  %.not.not12.i23 = or i1 %.not.i.i.i.i10.i21, %.not.not811.i22
-  br i1 %.not.not12.i23, label %_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit30, label %tailrecurse.i24
+  %.not.not710.i22 = icmp eq i64 %40, 0
+  %.not.not11.i23 = or i1 %.not.i.i.i.i9.i21, %.not.not710.i22
+  br i1 %.not.not11.i23, label %_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit30, label %tailrecurse.i24
 
 tailrecurse.i24:                                  ; preds = %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.thread, %tailrecurse.i24
   %42 = phi ptr [ %47, %tailrecurse.i24 ], [ %41, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.thread ]
@@ -6931,8 +6931,8 @@ tailrecurse.i24:                                  ; preds = %_ZNK5clang29VarTemp
   %.not.i.i.i.i.i26 = icmp eq i64 %45, 0
   %46 = and i64 %.sroa.0.0.copyload.i.i.i.i.i25, -8
   %47 = inttoptr i64 %46 to ptr
-  %.not.not8.i27 = icmp eq i64 %46, 0
-  %.not.not.i28 = or i1 %.not.i.i.i.i.i26, %.not.not8.i27
+  %.not.not7.i27 = icmp eq i64 %46, 0
+  %.not.not.i28 = or i1 %.not.i.i.i.i.i26, %.not.not7.i27
   br i1 %.not.not.i28, label %_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit30, label %tailrecurse.i24
 
 _ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit30: ; preds = %tailrecurse.i24, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit.thread
@@ -6949,14 +6949,14 @@ _ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv.exit30: ; pr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.sroa.0.0.copyload.i.i.i.i9 = load i64, ptr %2, align 8
-  %3 = and i64 %.sroa.0.0.copyload.i.i.i.i9, 4
-  %.not.i.i.i.i10 = icmp eq i64 %3, 0
-  %4 = and i64 %.sroa.0.0.copyload.i.i.i.i9, -8
+  %.sroa.0.0.copyload.i.i.i.i8 = load i64, ptr %2, align 8
+  %3 = and i64 %.sroa.0.0.copyload.i.i.i.i8, 4
+  %.not.i.i.i.i9 = icmp eq i64 %3, 0
+  %4 = and i64 %.sroa.0.0.copyload.i.i.i.i8, -8
   %5 = inttoptr i64 %4 to ptr
-  %.not.not811 = icmp eq i64 %4, 0
-  %.not.not12 = or i1 %.not.i.i.i.i10, %.not.not811
-  br i1 %.not.not12, label %tailrecurse._crit_edge, label %tailrecurse
+  %.not.not710 = icmp eq i64 %4, 0
+  %.not.not11 = or i1 %.not.i.i.i.i9, %.not.not710
+  br i1 %.not.not11, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %1, %tailrecurse
   %6 = phi ptr [ %11, %tailrecurse ], [ %5, %1 ]
@@ -6967,8 +6967,8 @@ tailrecurse:                                      ; preds = %1, %tailrecurse
   %.not.i.i.i.i = icmp eq i64 %9, 0
   %10 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %11 = inttoptr i64 %10 to ptr
-  %.not.not8 = icmp eq i64 %10, 0
-  %.not.not = or i1 %.not.i.i.i.i, %.not.not8
+  %.not.not7 = icmp eq i64 %10, 0
+  %.not.not = or i1 %.not.i.i.i.i, %.not.not7
   br i1 %.not.not, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
@@ -6995,8 +6995,8 @@ define dso_local i64 @_ZNK5clang29VarTemplateSpecializationDecl14getSourceRangeE
   %7 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %7, 0
   %8 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %.not.not6.i = icmp eq i64 %8, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not6.i
+  %.not.not5.i = icmp eq i64 %8, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not5.i
   br i1 %.not.not.i, label %_ZNK5clang29VarTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, label %9
 
 9:                                                ; preds = %5
@@ -7086,8 +7086,8 @@ _ZN5clang15VarTemplateDecl13getDefinitionEv.exit: ; preds = %.preheader
   %.not.i.i.i.i = icmp eq i64 %46, 0
   %47 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %48 = inttoptr i64 %47 to ptr
-  %.not.not8.i = icmp eq i64 %47, 0
-  %.not.not.i26 = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %47, 0
+  %.not.not.i26 = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i26, label %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %49
 
 49:                                               ; preds = %43
@@ -7116,8 +7116,8 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; pr
   %58 = and i64 %.sroa.0.0.copyload.i.i.i.i28, 4
   %.not.i.i.i.i29 = icmp eq i64 %58, 0
   %59 = and i64 %.sroa.0.0.copyload.i.i.i.i28, -8
-  %.not.not6.i30 = icmp eq i64 %59, 0
-  %.not.not.i31 = or i1 %.not.i.i.i.i29, %.not.not6.i30
+  %.not.not5.i30 = icmp eq i64 %59, 0
+  %.not.not.i31 = or i1 %.not.i.i.i.i29, %.not.not5.i30
   %60 = inttoptr i64 %59 to ptr
   br i1 %.not.not.i31, label %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit43, label %_ZNK5clang29VarTemplateSpecializationDecl19getExternKeywordLocEv.exit
 
@@ -7222,8 +7222,8 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %25, %28
   %.not.i.i.i.i6 = icmp eq i64 %30, 0
   %31 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %32 = inttoptr i64 %31 to ptr
-  %.not.not8.i = icmp eq i64 %31, 0
-  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %31, 0
+  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %33
 
 33:                                               ; preds = %_ZnwmRKN5clang10ASTContextEm.exit
@@ -7302,8 +7302,8 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %25, %28
   %.not.i.i.i.i6 = icmp eq i64 %30, 0
   %31 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %32 = inttoptr i64 %31 to ptr
-  %.not.not8.i = icmp eq i64 %31, 0
-  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %31, 0
+  %.not.not.i = or i1 %.not.i.i.i.i6, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %33
 
 33:                                               ; preds = %_ZnwmRKN5clang10ASTContextEm.exit
@@ -8443,8 +8443,8 @@ define dso_local noundef ptr @_ZN5clang32getReplacedTemplateParameterListEPNS_4D
   %12 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
   %13 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %.not.not6.i = icmp eq i64 %13, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not6.i
+  %.not.not5.i = icmp eq i64 %13, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not5.i
   br i1 %.not.not.i, label %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, label %14
 
 14:                                               ; preds = %10
@@ -8507,8 +8507,8 @@ _ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.e
   %44 = and i64 %.sroa.0.0.copyload.i.i.i.i.i28, 4
   %.not.i.i.i.i.i29 = icmp eq i64 %44, 0
   %45 = and i64 %.sroa.0.0.copyload.i.i.i.i.i28, -8
-  %.not.not6.i30 = icmp eq i64 %45, 0
-  %.not.not.i31 = or i1 %.not.i.i.i.i.i29, %.not.not6.i30
+  %.not.not5.i30 = icmp eq i64 %45, 0
+  %.not.not.i31 = or i1 %.not.i.i.i.i.i29, %.not.not5.i30
   br i1 %.not.not.i31, label %_ZNK5clang29VarTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, label %46
 
 46:                                               ; preds = %42
@@ -9227,8 +9227,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -9340,8 +9340,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -9517,8 +9517,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -9632,8 +9632,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -10403,8 +10403,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

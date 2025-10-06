@@ -53,13 +53,13 @@ define noundef zeroext i1 @_Z28grpc_status_code_from_stringPKcP16grpc_status_cod
   br label %5
 
 3:                                                ; preds = %5
-  %4 = add nuw nsw i64 %.0711, 1
+  %4 = add nuw nsw i64 %.0712, 1
   %exitcond.not = icmp eq i64 %4, 17
   br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !3
 
 5:                                                ; preds = %2, %3
-  %.0711 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.status_string_entry, ptr @_ZL23g_status_string_entries, i64 %.0711
+  %.0712 = phi i64 [ 0, %2 ], [ %4, %3 ]
+  %6 = getelementptr inbounds nuw %struct.status_string_entry, ptr @_ZL23g_status_string_entries, i64 %.0712
   %7 = load ptr, ptr %6, align 16, !tbaa !5
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %7) #17
   %9 = icmp eq i32 %8, 0

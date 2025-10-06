@@ -158,8 +158,8 @@ define void @_ZN6Assimp16ArmaturePopulate7ExecuteEP7aiScene(ptr nonnull readnone
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val8.i = load ptr, ptr %26, align 8
   %.val8.i.fr = freeze ptr %.val8.i
-  %.not5.not.i.i = icmp eq ptr %.val.i.fr, %.val8.i.fr
-  br i1 %.not5.not.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not6.not.i.i = icmp eq ptr %.val.i.fr, %.val8.i.fr
+  br i1 %.not6.not.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6vectorIP6aiBoneSaIS5_EE.exit.us
   %.sroa.028.033.us = phi ptr [ %40, %_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6vectorIP6aiBoneSaIS5_EE.exit.us ], [ %25, %.lr.ph ]
@@ -315,8 +315,8 @@ _ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIP6aiNo
   br label %77
 
 77:                                               ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i, %.lr.ph.i.i
-  %.sroa.01.06.i.i = phi ptr [ %.val.i.fr, %.lr.ph.i.i ], [ %83, %_ZNK8aiStringeqERKS_.exit.thread.i.i ]
-  %78 = load ptr, ptr %.sroa.01.06.i.i, align 8
+  %.sroa.01.07.i.i = phi ptr [ %.val.i.fr, %.lr.ph.i.i ], [ %83, %_ZNK8aiStringeqERKS_.exit.thread.i.i ]
+  %78 = load ptr, ptr %.sroa.01.07.i.i, align 8
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, %74
   br i1 %80, label %_ZNK8aiStringeqERKS_.exit.i.i, label %_ZNK8aiStringeqERKS_.exit.thread.i.i
@@ -328,7 +328,7 @@ _ZNK8aiStringeqERKS_.exit.i.i:                    ; preds = %77
   br i1 %82, label %_ZN6AssimpL10IsBoneNodeERK8aiStringRSt6vectorIP6aiBoneSaIS5_EE.exit.i, label %_ZNK8aiStringeqERKS_.exit.thread.i.i
 
 _ZNK8aiStringeqERKS_.exit.thread.i.i:             ; preds = %_ZNK8aiStringeqERKS_.exit.i.i, %77
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i.i, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 8
   %.not.not.i.i = icmp eq ptr %83, %.val8.i.fr
   br i1 %.not.not.i.i, label %.loopexit.i.loopexit, label %77
 
@@ -1129,8 +1129,8 @@ define noundef ptr @_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6ve
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val8 = load ptr, ptr %4, align 8
-  %.not5.not.i = icmp eq ptr %.val, %.val8
-  br i1 %.not5.not.i, label %.loopexit, label %.lr.ph.i
+  %.not6.not.i = icmp eq ptr %.val, %.val8
+  br i1 %.not6.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %_ZN6AssimpL10IsBoneNodeERK8aiStringRSt6vectorIP6aiBoneSaIS5_EE.exit
   %.0716 = phi ptr [ %18, %_ZN6AssimpL10IsBoneNodeERK8aiStringRSt6vectorIP6aiBoneSaIS5_EE.exit ], [ %0, %.lr.ph ]
@@ -1140,8 +1140,8 @@ define noundef ptr @_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6ve
   br label %8
 
 8:                                                ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i, %.lr.ph.i
-  %.sroa.01.06.i = phi ptr [ %.val, %.lr.ph.i ], [ %14, %_ZNK8aiStringeqERKS_.exit.thread.i ]
-  %9 = load ptr, ptr %.sroa.01.06.i, align 8
+  %.sroa.01.07.i = phi ptr [ %.val, %.lr.ph.i ], [ %14, %_ZNK8aiStringeqERKS_.exit.thread.i ]
+  %9 = load ptr, ptr %.sroa.01.07.i, align 8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %5
   br i1 %11, label %_ZNK8aiStringeqERKS_.exit.i, label %_ZNK8aiStringeqERKS_.exit.thread.i
@@ -1153,7 +1153,7 @@ _ZNK8aiStringeqERKS_.exit.i:                      ; preds = %8
   br i1 %13, label %_ZN6AssimpL10IsBoneNodeERK8aiStringRSt6vectorIP6aiBoneSaIS5_EE.exit, label %_ZNK8aiStringeqERKS_.exit.thread.i
 
 _ZNK8aiStringeqERKS_.exit.thread.i:               ; preds = %_ZNK8aiStringeqERKS_.exit.i, %8
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 8
   %.not.not.i = icmp eq ptr %14, %.val8
   br i1 %.not.not.i, label %.loopexit, label %8
 

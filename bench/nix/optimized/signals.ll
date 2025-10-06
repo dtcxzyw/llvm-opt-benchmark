@@ -991,16 +991,16 @@ _ZNSt3mapIlSt8functionIFvvEESt4lessIlESaISt4pairIKlS2_EEE11lower_boundERS6_.exit
 .loopexit:                                        ; preds = %57
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %67
 
 .loopexit.split-lp:                               ; preds = %9
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %67
 
 _ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit: ; preds = %27, %30
   %15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3nixL19_interruptCallbacksE) #3
-  br label %66
+  br label %67
 
 16:                                               ; preds = %_ZNSt3mapIlSt8functionIFvvEESt4lessIlESaISt4pairIKlS2_EEE11lower_boundERS6_.exit
   %17 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
@@ -1099,7 +1099,7 @@ _ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread: ; preds =
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = call ptr @__cxa_begin_catch(ptr %55) #3
   invoke void @_ZN3nix15ignoreExceptionENS_9VerbosityE(i32 noundef 0)
-          to label %57 unwind label %64
+          to label %57 unwind label %65
 
 57:                                               ; preds = %53
   invoke void @__cxa_end_catch()
@@ -1107,59 +1107,59 @@ _ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread: ; preds =
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %51, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread, %57
   %.12428 = phi i64 [ %47, %57 ], [ %.023, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread ], [ %47, %51 ]
-  %switch = phi i1 [ true, %57 ], [ false, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread ], [ true, %51 ]
-  %58 = load ptr, ptr %5, align 8
-  %.not.i.i13 = icmp eq ptr %58, null
-  br i1 %.not.i.i13, label %_ZNSt8functionIFvvEED2Ev.exit, label %59
+  %58 = phi i1 [ true, %57 ], [ false, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread ], [ true, %51 ]
+  %59 = load ptr, ptr %5, align 8
+  %.not.i.i13 = icmp eq ptr %59, null
+  br i1 %.not.i.i13, label %_ZNSt8functionIFvvEED2Ev.exit, label %60
 
-59:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %61
+60:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit
+  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
+          to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %62
 
-61:                                               ; preds = %59
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %60
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #27
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #27
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit, %59
-  br i1 %switch, label %7, label %73
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit, %60
+  br i1 %58, label %7, label %74
 
-64:                                               ; preds = %53
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %53
+  %66 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %66 unwind label %74
+          to label %67 unwind label %75
 
-66:                                               ; preds = %.loopexit, %.loopexit.split-lp, %64, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit
-  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %28, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %67 = load ptr, ptr %5, align 8
-  %.not.i.i14 = icmp eq ptr %67, null
-  br i1 %.not.i.i14, label %_ZNSt8functionIFvvEED2Ev.exit15, label %68
+67:                                               ; preds = %.loopexit, %.loopexit.split-lp, %65, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %28, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %68 = load ptr, ptr %5, align 8
+  %.not.i.i14 = icmp eq ptr %68, null
+  br i1 %.not.i.i14, label %_ZNSt8functionIFvvEED2Ev.exit15, label %69
 
-68:                                               ; preds = %66
-  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit15 unwind label %70
+69:                                               ; preds = %67
+  %70 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
+          to label %_ZNSt8functionIFvvEED2Ev.exit15 unwind label %71
 
-70:                                               ; preds = %68
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %69
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #27
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @__clang_call_terminate(ptr %73) #27
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit15:                  ; preds = %66, %68
+_ZNSt8functionIFvvEED2Ev.exit15:                  ; preds = %67, %69
   resume { ptr, i32 } %.pn
 
-73:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
+74:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   ret void
 
-74:                                               ; preds = %64
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %65
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #27
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #27
   unreachable
 }
 

@@ -328,24 +328,24 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   %49 = load i32, ptr %48, align 4, !tbaa !32
   %50 = trunc nsw i64 %indvars.iv.next to i32
   %51 = icmp ugt i32 %49, %50
-  br i1 %51, label %.preheader, label %.thread33, !llvm.loop !51
+  br i1 %51, label %.preheader, label %.thread32, !llvm.loop !51
 
 52:                                               ; preds = %.preheader
   %.not26 = icmp eq i32 %.021, 0
-  br i1 %.not26, label %53, label %.thread33
+  br i1 %.not26, label %53, label %.thread32
 
 53:                                               ; preds = %52
   call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #9
   unreachable
 
-.thread33:                                        ; preds = %29, %52
-  %.13136 = phi i32 [ %.021, %52 ], [ %34, %29 ]
+.thread32:                                        ; preds = %29, %52
+  %.13035 = phi i32 [ %.021, %52 ], [ %34, %29 ]
   call void @strvec_pushv(ptr noundef nonnull %6, ptr noundef nonnull %3) #8
   %54 = call i32 @run_command(ptr noundef nonnull %6) #8
   %.not27 = icmp eq i32 %54, 0
   br i1 %.not27, label %63, label %55
 
-55:                                               ; preds = %.thread33
+55:                                               ; preds = %.thread32
   %.b = load i1, ptr @one_shot, align 4
   br i1 %.b, label %56, label %59
 
@@ -368,12 +368,12 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   call void @exit(i32 noundef %62) #9
   unreachable
 
-63:                                               ; preds = %56, %.thread33
+63:                                               ; preds = %56, %.thread32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.13136
+  ret i32 %.13035
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -819,10 +819,9 @@ findEND.exit.thread:                              ; preds = %22, %177, %37, %39,
 
 findEND.exit:                                     ; preds = %split, %readFullyAt.exit68.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  switch i64 %59, label %179 [
-    i64 -1, label %557
-    i64 0, label %557
-  ]
+  %.off = add i64 %59, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %179, label %557
 
 179:                                              ; preds = %findEND.exit
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1555,8 +1554,8 @@ freeCEN.exit200:                                  ; preds = %._crit_edge.i.i194,
   tail call void @free(ptr noundef %.2) #21
   br label %557
 
-557:                                              ; preds = %findEND.exit, %findEND.exit.thread, %freeCEN.exit200, %556, %findEND.exit
-  %.0 = phi i64 [ %59, %findEND.exit ], [ %.0143, %556 ], [ %.0143, %freeCEN.exit200 ], [ -1, %findEND.exit.thread ], [ %59, %findEND.exit ]
+557:                                              ; preds = %findEND.exit, %findEND.exit.thread, %freeCEN.exit200, %556
+  %.0 = phi i64 [ %.0143, %556 ], [ %.0143, %freeCEN.exit200 ], [ -1, %findEND.exit.thread ], [ %59, %findEND.exit ]
   ret i64 %.0
 }
 

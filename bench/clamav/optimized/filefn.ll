@@ -526,7 +526,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 
 41:                                               ; preds = %.preheader.split.us.split.us
   %42 = icmp eq i32 %40, 0
-  br i1 %42, label %.split73.us, label %43
+  br i1 %42, label %.split72.us, label %43
 
 43:                                               ; preds = %41
   %44 = sext i32 %40 to i64
@@ -562,7 +562,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 
 58:                                               ; preds = %.preheader.split.us.split
   %59 = icmp eq i32 %57, 0
-  br i1 %59, label %.split73.us, label %60
+  br i1 %59, label %.split72.us, label %60
 
 60:                                               ; preds = %58
   %61 = sext i32 %57 to i64
@@ -617,7 +617,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 
 82:                                               ; preds = %.preheader.split
   %83 = icmp eq i32 %75, 0
-  br i1 %83, label %.split73.us, label %85
+  br i1 %83, label %.split72.us, label %85
 
 .split:                                           ; preds = %93, %91, %90, %.preheader.split
   %84 = landingpad { ptr, i32 }
@@ -651,14 +651,14 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
   %spec.select = select i1 %70, i64 9223372034707292159, i64 %95
   br label %.preheader.split
 
-.split73.us:                                      ; preds = %82, %58, %41
+.split72.us:                                      ; preds = %82, %58, %41
   %96 = load ptr, ptr %0, align 8, !tbaa !16
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load ptr, ptr %97, align 8
   invoke void %98(ptr noundef nonnull align 8 dereferenceable(8256) %0, i64 noundef %15, i32 noundef 0)
           to label %99 unwind label %106
 
-99:                                               ; preds = %.split73.us
+99:                                               ; preds = %.split72.us
   %100 = and i32 %5, 2
   %.not50 = icmp eq i32 %100, 0
   br i1 %.not50, label %108, label %101
@@ -687,7 +687,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit60:        ; preds = %_ZN10uiMsgStoreC2E1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %108
 
-106:                                              ; preds = %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, %109, %.split73.us
+106:                                              ; preds = %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, %109, %.split72.us
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %.split.us

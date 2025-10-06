@@ -2004,8 +2004,8 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; 
   store ptr %54, ptr %53, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %55 = load ptr, ptr %53, align 8, !tbaa !151
-  %.not10 = icmp eq ptr %55, null
-  br i1 %.not10, label %.loopexit, label %13
+  %.not9 = icmp eq ptr %55, null
+  br i1 %.not9, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %52, %1, %.thread
   %56 = phi i1 [ true, %.thread ], [ false, %1 ], [ false, %52 ]
@@ -4284,8 +4284,8 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; 
   store ptr %54, ptr %53, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %55 = load ptr, ptr %53, align 8, !tbaa !151
-  %.not10 = icmp eq ptr %55, null
-  br i1 %.not10, label %.loopexit, label %13
+  %.not9 = icmp eq ptr %55, null
+  br i1 %.not9, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %52, %1, %.thread
   %56 = phi i1 [ true, %.thread ], [ false, %1 ], [ false, %52 ]

@@ -572,9 +572,8 @@ default.unreachable248:                           ; preds = %121
   br label %.thread
 
 298:                                              ; preds = %234
-  %299 = or disjoint i32 %68, -256
-  %or.cond206 = icmp samesign ult i32 %299, -192
-  br i1 %or.cond206, label %300, label %304
+  %299 = icmp samesign ult i32 %68, 64
+  br i1 %299, label %300, label %304
 
 300:                                              ; preds = %298
   %301 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11

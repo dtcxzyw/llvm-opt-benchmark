@@ -327,13 +327,13 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %81 = sub nsw i32 %80, %2
   store i32 0, ptr %14, align 4, !tbaa !3
   %82 = icmp eq ptr %73, null
-  br i1 %82, label %GetBestPredictorsAndSubSampling.exit.thread, label %.preheader176.i
+  br i1 %82, label %GetBestPredictorsAndSubSampling.exit.thread, label %.preheader175.i
 
-.preheader176.i:                                  ; preds = %._crit_edge114
-  %.not189.i = icmp eq i32 %66, 0
-  br i1 %.not189.i, label %.preheader.i.preheader, label %.lr.ph.i
+.preheader175.i:                                  ; preds = %._crit_edge114
+  %.not188.i = icmp eq i32 %66, 0
+  br i1 %.not188.i, label %.preheader.i.preheader, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader176.i
+.lr.ph.i:                                         ; preds = %.preheader175.i
   %83 = sext i32 %0 to i64
   %84 = getelementptr inbounds i32, ptr %6, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
@@ -354,14 +354,14 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   br label %96
 
 96:                                               ; preds = %390, %.lr.ph.i
-  %.0145184.i = phi i32 [ 0, %.lr.ph.i ], [ %.1146.i, %390 ]
-  %.0147183.i = phi i32 [ 0, %.lr.ph.i ], [ %.1148.i, %390 ]
-  %.0150182.i = phi i32 [ 0, %.lr.ph.i ], [ %382, %390 ]
-  %.0151181.i = phi i32 [ 0, %.lr.ph.i ], [ %380, %390 ]
-  %.0152180.i = phi i32 [ 0, %.lr.ph.i ], [ %.2154.i, %390 ]
-  %.0155179.i = phi i32 [ 0, %.lr.ph.i ], [ %.2157.i, %390 ]
-  %97 = shl i32 %.0151181.i, %2
-  %98 = shl i32 %.0150182.i, %2
+  %.0145183.i = phi i32 [ 0, %.lr.ph.i ], [ %.1146.i, %390 ]
+  %.0147182.i = phi i32 [ 0, %.lr.ph.i ], [ %.1148.i, %390 ]
+  %.0150181.i = phi i32 [ 0, %.lr.ph.i ], [ %382, %390 ]
+  %.0151180.i = phi i32 [ 0, %.lr.ph.i ], [ %380, %390 ]
+  %.0152179.i = phi i32 [ 0, %.lr.ph.i ], [ %.2154.i, %390 ]
+  %.0155178.i = phi i32 [ 0, %.lr.ph.i ], [ %.2157.i, %390 ]
+  %97 = shl i32 %.0151180.i, %2
+  %98 = shl i32 %.0150181.i, %2
   %99 = sub nsw i32 %1, %98
   %100 = call noundef i32 @llvm.smin.i32(i32 %60, i32 %99)
   %101 = sub nsw i32 %0, %97
@@ -648,16 +648,16 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 ComputeResidualsForTile.exit.i:                   ; preds = %.split.split.us.i.i, %._crit_edge127.us.i.split.i.split.us, %._crit_edge127.us.i.split.i.split.us123, %._crit_edge127.us.i.split.us.us.i, %.split.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %231 = icmp eq i32 %.0151181.i, %91
-  %232 = sub i32 2147483646, %.0145184.i
-  %233 = icmp eq i32 %.0150182.i, %92
-  %234 = sub i32 2147483646, %.0147183.i
+  %231 = icmp eq i32 %.0151180.i, %91
+  %232 = sub i32 2147483646, %.0145183.i
+  %233 = icmp eq i32 %.0150181.i, %92
+  %234 = sub i32 2147483646, %.0147182.i
   br label %235
 
 235:                                              ; preds = %.backedge, %ComputeResidualsForTile.exit.i
   %.0143.i = phi i32 [ 0, %ComputeResidualsForTile.exit.i ], [ %345, %.backedge ]
-  %236 = lshr i32 %.0151181.i, %.0143.i
-  %237 = lshr i32 %.0150182.i, %.0143.i
+  %236 = lshr i32 %.0151180.i, %.0143.i
+  %237 = lshr i32 %.0150181.i, %.0143.i
   %238 = add i32 %.0143.i, %2
   %239 = shl nuw i32 1, %238
   %240 = add i32 %239, %61
@@ -841,10 +841,10 @@ GetBestPredictorForTile.exit.i:                   ; preds = %PredictionCostSpati
 
 split.thread.i:                                   ; preds = %GetBestPredictorForTile.exit.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %73, i8 0, i64 %95, i1 false)
-  %342 = add i32 %.0155179.i, 1
+  %342 = add i32 %.0155178.i, 1
   %.1156.i = select i1 %231, i32 0, i32 %342
   %343 = zext i1 %231 to i32
-  %.1153.i = add i32 %.0152180.i, %343
+  %.1153.i = add i32 %.0152179.i, %343
   br label %378
 
 344:                                              ; preds = %GetBestPredictorForTile.exit.i
@@ -888,8 +888,8 @@ split.i:                                          ; preds = %357, %353
   %361 = zext i32 %360 to i64
   %362 = shl nuw nsw i64 %361, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %73, i8 0, i64 %362, i1 false)
-  %363 = lshr i32 %.0145184.i, %.0143.i
-  %364 = lshr i32 %.0147183.i, %.0143.i
+  %363 = lshr i32 %.0145183.i, %.0143.i
+  %364 = lshr i32 %.0147182.i, %.0143.i
   %365 = and i32 %363, 1
   %366 = icmp eq i32 %365, 0
   %or.cond165.i = select i1 %231, i1 %366, i1 false
@@ -919,8 +919,8 @@ split.i:                                          ; preds = %357, %353
   br label %378
 
 378:                                              ; preds = %375, %split.thread.i
-  %.2157.i = phi i32 [ %.1156.i, %split.thread.i ], [ %.0155179.i, %375 ]
-  %.2154.i = phi i32 [ %.1153.i, %split.thread.i ], [ %.0152180.i, %375 ]
+  %.2157.i = phi i32 [ %.1156.i, %split.thread.i ], [ %.0155178.i, %375 ]
+  %.2154.i = phi i32 [ %.1153.i, %split.thread.i ], [ %.0152179.i, %375 ]
   %.1148.i = phi i32 [ 0, %split.thread.i ], [ %377, %375 ]
   %.1146.i = phi i32 [ 0, %split.thread.i ], [ %376, %375 ]
   %379 = shl i32 %.2157.i, %67
@@ -946,18 +946,18 @@ split.i:                                          ; preds = %357, %353
   %391 = icmp ult i32 %382, %66
   br i1 %391, label %96, label %.preheader.i.preheader, !llvm.loop !29
 
-.preheader.i.preheader:                           ; preds = %390, %.preheader176.i
+.preheader.i.preheader:                           ; preds = %390, %.preheader175.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %412
   %.0 = phi ptr [ %.191, %412 ], [ null, %.preheader.i.preheader ]
-  %.0139188.i = phi i64 [ %.1.i, %412 ], [ 9223372036854775807, %.preheader.i.preheader ]
-  %.2187.i = phi i32 [ %413, %412 ], [ 0, %.preheader.i.preheader ]
-  %392 = shl nsw i32 %.2187.i, 10
+  %.0139187.i = phi i64 [ %.1.i, %412 ], [ 9223372036854775807, %.preheader.i.preheader ]
+  %.2186.i = phi i32 [ %413, %412 ], [ 0, %.preheader.i.preheader ]
+  %392 = shl nsw i32 %.2186.i, 10
   %393 = sext i32 %392 to i64
   %394 = getelementptr inbounds i32, ptr %75, i64 %393
   %395 = load ptr, ptr @VP8LShannonEntropy, align 8, !tbaa !26
-  %396 = mul i32 %.2187.i, 14
+  %396 = mul i32 %.2186.i, 14
   %397 = zext i32 %396 to i64
   %398 = getelementptr inbounds nuw i32, ptr %77, i64 %397
   %399 = call i64 %395(ptr noundef nonnull %398, i32 noundef 14) #11
@@ -965,32 +965,32 @@ split.i:                                          ; preds = %357, %353
 
 400:                                              ; preds = %400, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %400 ]
-  %.0186.i = phi i64 [ %399, %.preheader.i ], [ %404, %400 ]
+  %.0185.i = phi i64 [ %399, %.preheader.i ], [ %404, %400 ]
   %401 = load ptr, ptr @VP8LShannonEntropy, align 8, !tbaa !26
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 10
   %402 = getelementptr inbounds nuw i8, ptr %394, i64 %.idx.i
   %403 = call i64 %401(ptr noundef nonnull %402, i32 noundef 256) #11
-  %404 = add i64 %403, %.0186.i
+  %404 = add i64 %403, %.0185.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %405, label %400, !llvm.loop !30
 
 405:                                              ; preds = %400
-  %406 = icmp slt i64 %404, %.0139188.i
+  %406 = icmp slt i64 %404, %.0139187.i
   br i1 %406, label %407, label %412
 
 407:                                              ; preds = %405
-  %408 = add i32 %.2187.i, %2
+  %408 = add i32 %.2186.i, %2
   store i32 %408, ptr %14, align 4, !tbaa !3
-  %409 = zext i32 %.2187.i to i64
+  %409 = zext i32 %.2186.i to i64
   %410 = getelementptr inbounds nuw ptr, ptr %53, i64 %409
   %411 = load ptr, ptr %410, align 8, !tbaa !16
   br label %412
 
 412:                                              ; preds = %407, %405
   %.191 = phi ptr [ %411, %407 ], [ %.0, %405 ]
-  %.1.i = phi i64 [ %404, %407 ], [ %.0139188.i, %405 ]
-  %413 = add i32 %.2187.i, 1
+  %.1.i = phi i64 [ %404, %407 ], [ %.0139187.i, %405 ]
+  %413 = add i32 %.2186.i, 1
   %.not.i = icmp ugt i32 %413, %67
   br i1 %.not.i, label %414, label %.preheader.i, !llvm.loop !31
 

@@ -8376,39 +8376,39 @@ define hidden void @_ZN6Assimp15BlenderImporter12ResolveImageEP10aiMaterialPKNS_
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %27, %14
-  %.154.i.ph = phi ptr [ %16, %14 ], [ %28, %27 ]
-  %.13351.i.ph = phi i32 [ 1, %14 ], [ 2, %27 ]
-  %.13850.i.ph = phi i32 [ %25, %14 ], [ %29, %27 ]
+  %.153.i.ph = phi ptr [ %16, %14 ], [ %28, %27 ]
+  %.13350.i.ph = phi i32 [ 1, %14 ], [ 2, %27 ]
+  %.13849.i.ph = phi i32 [ %25, %14 ], [ %29, %27 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %40
-  %.154.i = phi ptr [ %.3.i, %40 ], [ %.154.i.ph, %.lr.ph.i.preheader ]
-  %.02753.i = phi i1 [ %or.cond3.i, %40 ], [ false, %.lr.ph.i.preheader ]
-  %.03052.i = phi i32 [ %41, %40 ], [ 1000000000, %.lr.ph.i.preheader ]
-  %.13351.i = phi i32 [ %.335.i, %40 ], [ %.13351.i.ph, %.lr.ph.i.preheader ]
-  %.13850.i = phi i32 [ %.239.i, %40 ], [ %.13850.i.ph, %.lr.ph.i.preheader ]
-  %30 = sdiv i32 %.13850.i, %.03052.i
-  %.recomposed = srem i32 %.13850.i, %.03052.i
+  %.153.i = phi ptr [ %.3.i, %40 ], [ %.153.i.ph, %.lr.ph.i.preheader ]
+  %.02752.i = phi i1 [ %or.cond3.i, %40 ], [ false, %.lr.ph.i.preheader ]
+  %.03051.i = phi i32 [ %41, %40 ], [ 1000000000, %.lr.ph.i.preheader ]
+  %.13350.i = phi i32 [ %.335.i, %40 ], [ %.13350.i.ph, %.lr.ph.i.preheader ]
+  %.13849.i = phi i32 [ %.239.i, %40 ], [ %.13849.i.ph, %.lr.ph.i.preheader ]
+  %30 = sdiv i32 %.13849.i, %.03051.i
+  %.recomposed = srem i32 %.13849.i, %.03051.i
   %31 = icmp ne i32 %30, 0
-  %32 = icmp eq i32 %.03052.i, 1
+  %32 = icmp eq i32 %.03051.i, 1
   %33 = or i1 %32, %31
-  %or.cond3.i = select i1 %.02753.i, i1 true, i1 %33
+  %or.cond3.i = select i1 %.02752.i, i1 true, i1 %33
   br i1 %or.cond3.i, label %34, label %40
 
 34:                                               ; preds = %.lr.ph.i
   %35 = trunc i32 %30 to i8
   %36 = add i8 %35, 48
-  %37 = getelementptr inbounds nuw i8, ptr %.154.i, i64 1
-  store i8 %36, ptr %.154.i, align 1
-  %38 = add nuw nsw i32 %.13351.i, 1
-  %39 = mul i32 %30, %.03052.i
+  %37 = getelementptr inbounds nuw i8, ptr %.153.i, i64 1
+  store i8 %36, ptr %.153.i, align 1
+  %38 = add nuw nsw i32 %.13350.i, 1
+  %39 = mul i32 %30, %.03051.i
   br i1 %32, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit, label %40
 
 40:                                               ; preds = %34, %.lr.ph.i
-  %.239.i = phi i32 [ %.recomposed, %34 ], [ %.13850.i, %.lr.ph.i ]
-  %.335.i = phi i32 [ %38, %34 ], [ %.13351.i, %.lr.ph.i ]
-  %.3.i = phi ptr [ %37, %34 ], [ %.154.i, %.lr.ph.i ]
-  %41 = sdiv i32 %.03052.i, 10
+  %.239.i = phi i32 [ %.recomposed, %34 ], [ %.13849.i, %.lr.ph.i ]
+  %.335.i = phi i32 [ %38, %34 ], [ %.13350.i, %.lr.ph.i ]
+  %.3.i = phi ptr [ %37, %34 ], [ %.153.i, %.lr.ph.i ]
+  %41 = sdiv i32 %.03051.i, 10
   %42 = icmp ult i32 %.335.i, 1023
   br i1 %42, label %.lr.ph.i, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit
 
@@ -15457,9 +15457,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15495,7 +15495,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -15523,10 +15523,10 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !136
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

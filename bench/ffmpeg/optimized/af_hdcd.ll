@@ -1407,18 +1407,18 @@ define internal fastcc i32 @hdcd_scan(ptr noundef readonly captures(none) %0, pt
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %11
 
-.preheader78:                                     ; preds = %21
+.preheader77:                                     ; preds = %21
   %8 = icmp sgt i32 %.262, 0
   br i1 %8, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader78
+.lr.ph:                                           ; preds = %.preheader77
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %22
 
 11:                                               ; preds = %5, %21
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %21 ]
-  %.06082 = phi i32 [ %4, %5 ], [ %.262, %21 ]
+  %.06081 = phi i32 [ %4, %5 ], [ %.262, %21 ]
   %12 = getelementptr inbounds nuw %struct.hdcd_state, ptr %1, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !98
@@ -1428,7 +1428,7 @@ define internal fastcc i32 @hdcd_scan(ptr noundef readonly captures(none) %0, pt
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 1, ptr %16, align 4, !tbaa !41
-  %.not69 = icmp ugt i32 %14, %.06082
+  %.not69 = icmp ugt i32 %14, %.06081
   br i1 %.not69, label %19, label %17
 
 17:                                               ; preds = %15
@@ -1437,21 +1437,21 @@ define internal fastcc i32 @hdcd_scan(ptr noundef readonly captures(none) %0, pt
   br label %19
 
 19:                                               ; preds = %17, %15
-  %.161 = phi i32 [ %14, %17 ], [ %.06082, %15 ]
+  %.161 = phi i32 [ %14, %17 ], [ %.06081, %15 ]
   %20 = sub i32 %14, %.161
   store i32 %20, ptr %13, align 4, !tbaa !98
   br label %21
 
 21:                                               ; preds = %11, %19
-  %.262 = phi i32 [ %.161, %19 ], [ %.06082, %11 ]
+  %.262 = phi i32 [ %.161, %19 ], [ %.06081, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader78, label %11, !llvm.loop !117
+  br i1 %exitcond.not, label %.preheader77, label %11, !llvm.loop !117
 
 22:                                               ; preds = %.lr.ph, %159
-  %.05485 = phi ptr [ %3, %.lr.ph ], [ %162, %159 ]
-  %.05784 = phi i32 [ 0, %.lr.ph ], [ %145, %159 ]
-  %23 = sub nsw i32 %.262, %.05784
+  %.05484 = phi ptr [ %3, %.lr.ph ], [ %162, %159 ]
+  %.05783 = phi i32 [ 0, %.lr.ph ], [ %145, %159 ]
+  %23 = sub nsw i32 %.262, %.05783
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   br label %25
@@ -1474,7 +1474,7 @@ define internal fastcc i32 @hdcd_scan(ptr noundef readonly captures(none) %0, pt
 
 .preheader136.i:                                  ; preds = %.preheader137.i, %40
   %.0120144.in.i = phi i32 [ %.0120144.i, %40 ], [ %.0123..i, %.preheader137.i ]
-  %.0143.i = phi ptr [ %33, %40 ], [ %.05485, %.preheader137.i ]
+  %.0143.i = phi ptr [ %33, %40 ], [ %.05484, %.preheader137.i ]
   %.0120144.i = add nsw i32 %.0120144.in.i, -1
   br label %32
 
@@ -1687,20 +1687,20 @@ define internal fastcc i32 @hdcd_scan(ptr noundef readonly captures(none) %0, pt
 
 hdcd_integrate.exit:                              ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %145 = add nsw i32 %.0123..i, %.05784
+  %145 = add nsw i32 %.0123..i, %.05783
   %.not = icmp eq i32 %.173, 0
   br i1 %.not, label %159, label %.preheader
 
 .preheader:                                       ; preds = %hdcd_integrate.exit, %158
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %158 ], [ 0, %hdcd_integrate.exit ]
-  %146 = trunc nuw nsw i64 %indvars.iv93 to i32
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %158 ], [ 0, %hdcd_integrate.exit ]
+  %146 = trunc nuw nsw i64 %indvars.iv92 to i32
   %147 = shl nuw nsw i32 1, %146
   %148 = and i32 %147, %.173
   %.not67 = icmp eq i32 %148, 0
   br i1 %.not67, label %158, label %149
 
 149:                                              ; preds = %.preheader
-  %150 = getelementptr inbounds nuw %struct.hdcd_state, ptr %1, i64 %indvars.iv93
+  %150 = getelementptr inbounds nuw %struct.hdcd_state, ptr %1, i64 %indvars.iv92
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load i32, ptr %151, align 8, !tbaa !112
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 12
@@ -1715,30 +1715,30 @@ hdcd_integrate.exit:                              ; preds = %144
   br label %158
 
 158:                                              ; preds = %.preheader, %157, %149
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond97.not, label %.thread, label %.preheader, !llvm.loop !123
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
+  br i1 %exitcond96.not, label %.thread, label %.preheader, !llvm.loop !123
 
 159:                                              ; preds = %hdcd_integrate.exit
   %160 = mul nsw i32 %.0123..i, %2
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i32, ptr %.05485, i64 %161
+  %162 = getelementptr inbounds i32, ptr %.05484, i64 %161
   %163 = icmp slt i32 %145, %.262
   br i1 %163, label %22, label %.thread
 
-.thread:                                          ; preds = %159, %158, %.preheader78
-  %.158 = phi i32 [ 0, %.preheader78 ], [ %145, %158 ], [ %145, %159 ]
+.thread:                                          ; preds = %159, %158, %.preheader77
+  %.158 = phi i32 [ 0, %.preheader77 ], [ %145, %158 ], [ %145, %159 ]
   br label %164
 
 164:                                              ; preds = %.thread, %176
-  %indvars.iv98 = phi i64 [ 0, %.thread ], [ %indvars.iv.next99, %176 ]
-  %165 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv98
+  %indvars.iv97 = phi i64 [ 0, %.thread ], [ %indvars.iv.next98, %176 ]
+  %165 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv97
   %166 = load i32, ptr %165, align 4, !tbaa !41
   %.not66 = icmp eq i32 %166, 0
   br i1 %.not66, label %176, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds nuw %struct.hdcd_state, ptr %1, i64 %indvars.iv98
+  %168 = getelementptr inbounds nuw %struct.hdcd_state, ptr %1, i64 %indvars.iv97
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 12
   %170 = load i32, ptr %169, align 4, !tbaa !98
   %171 = icmp eq i32 %170, 0
@@ -1752,9 +1752,9 @@ hdcd_integrate.exit:                              ; preds = %144
   br label %176
 
 176:                                              ; preds = %164, %167, %172
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
-  br i1 %exitcond102.not, label %177, label %164, !llvm.loop !124
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
+  br i1 %exitcond101.not, label %177, label %164, !llvm.loop !124
 
 177:                                              ; preds = %176
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

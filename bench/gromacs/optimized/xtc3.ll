@@ -2968,7 +2968,7 @@ positive_int.exit91:                              ; preds = %111, %114, %116
   store i32 %.0.i88, ptr %131, align 4, !tbaa !3
   %132 = getelementptr i8, ptr %130, i64 8
   store i32 %.0.i90, ptr %132, align 4, !tbaa !3
-  br label %147
+  br label %148
 
 133:                                              ; preds = %._crit_edge, %positive_int.exit91
   %134 = phi i32 [ %.pre, %._crit_edge ], [ %.pre118, %positive_int.exit91 ]
@@ -2976,32 +2976,32 @@ positive_int.exit91:                              ; preds = %111, %114, %116
   %136 = sext i32 %134 to i64
   %137 = getelementptr inbounds i32, ptr %135, i64 %136
   store i32 %.076, ptr %137, align 4, !tbaa !3
-  %switch.not.not = icmp eq i32 %.076, 0
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %139 = load i32, ptr %9, align 8, !tbaa !7
-  %140 = mul nsw i32 %139, 3
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %138, i64 %141
-  %143 = getelementptr i8, ptr %142, i64 4
-  %144 = getelementptr i8, ptr %142, i64 8
-  br i1 %switch.not.not, label %145, label %146
-
-145:                                              ; preds = %133
-  store i32 %19, ptr %142, align 4, !tbaa !3
-  store i32 %24, ptr %143, align 4, !tbaa !3
-  store i32 %29, ptr %144, align 4, !tbaa !3
-  br label %147
+  %138 = icmp eq i32 %.076, 0
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %140 = load i32, ptr %9, align 8, !tbaa !7
+  %141 = mul nsw i32 %140, 3
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds i32, ptr %139, i64 %142
+  %144 = getelementptr i8, ptr %143, i64 4
+  %145 = getelementptr i8, ptr %143, i64 8
+  br i1 %138, label %146, label %147
 
 146:                                              ; preds = %133
-  store i32 %.sroa.099.0, ptr %142, align 4, !tbaa !3
-  store i32 %.sroa.6101.0, ptr %143, align 4, !tbaa !3
-  store i32 %.sroa.9103.0, ptr %144, align 4, !tbaa !3
-  br label %147
+  store i32 %19, ptr %143, align 4, !tbaa !3
+  store i32 %24, ptr %144, align 4, !tbaa !3
+  store i32 %29, ptr %145, align 4, !tbaa !3
+  br label %148
 
-147:                                              ; preds = %146, %.thread, %145
-  %148 = load i32, ptr %9, align 8, !tbaa !7
-  %149 = add nsw i32 %148, 1
-  store i32 %149, ptr %9, align 8, !tbaa !7
+147:                                              ; preds = %133
+  store i32 %.sroa.099.0, ptr %143, align 4, !tbaa !3
+  store i32 %.sroa.6101.0, ptr %144, align 4, !tbaa !3
+  store i32 %.sroa.9103.0, ptr %145, align 4, !tbaa !3
+  br label %148
+
+148:                                              ; preds = %147, %.thread, %146
+  %149 = load i32, ptr %9, align 8, !tbaa !7
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr %9, align 8, !tbaa !7
   ret void
 }
 

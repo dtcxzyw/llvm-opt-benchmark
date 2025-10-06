@@ -5076,9 +5076,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %6
   br i1 %.not.i.i, label %15, label %12
 
 12:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
-  %.pre8.i24 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
+  %.pre8.i23 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
   %13 = load ptr, ptr %1, align 8, !tbaa !34
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.pre8.i24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.pre8.i23
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 1 %5, i64 %7, i1 false)
   %.pre.i = load i64, ptr %3, align 8, !tbaa !36
   br label %15
@@ -10959,9 +10959,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %7
   br i1 %.not.i.i, label %17, label %14
 
 14:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
-  %.pre8.i16 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
+  %.pre8.i15 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
   %15 = load ptr, ptr %0, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre8.i16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre8.i15
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 1 %6, i64 %9, i1 false)
   %.pre.i = load i64, ptr %8, align 8, !tbaa !36
   br label %17
@@ -11034,9 +11034,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %7
   br i1 %.not.i.i, label %17, label %14
 
 14:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
-  %.pre8.i16 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
+  %.pre8.i15 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
   %15 = load ptr, ptr %0, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre8.i16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre8.i15
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 1 %6, i64 %9, i1 false)
   %.pre.i = load i64, ptr %8, align 8, !tbaa !36
   br label %17

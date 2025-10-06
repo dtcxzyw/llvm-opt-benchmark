@@ -1223,7 +1223,7 @@ define dso_local void @_ZN4llvm8codeview23DebugLinesSubsectionRef10initializeENS
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !76
-  br label %_ZN4llvm5ErrorD2Ev.exit9
+  br label %_ZN4llvm5ErrorD2Ev.exit8
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1266,9 +1266,9 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %15, %18, %21
   %31 = sub i64 %.0.i.i.i, %30
   %32 = trunc i64 %31 to i32
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_8codeview15LineColumnEntryENS2_19LineColumnExtractorEEENS_5ErrorERNS_14VarStreamArrayIT_T0_EEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(60) %10, i32 noundef %32, i32 noundef 0)
-  br label %_ZN4llvm5ErrorD2Ev.exit9
+  br label %_ZN4llvm5ErrorD2Ev.exit8
 
-_ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit, %6
+_ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit, %6
   ret void
 }
 

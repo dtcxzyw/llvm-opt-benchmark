@@ -7393,8 +7393,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit87: ; preds = %18
   br label %.thread.sink.split
 
 _ZN4Data12reloadPixelsEv.exit.sink.split:         ; preds = %173, %145, %117, %89
-  %.sink118 = phi ptr [ %90, %89 ], [ %118, %117 ], [ %146, %145 ], [ %174, %173 ]
-  store ptr %.sink118, ptr %8, align 8, !tbaa !117
+  %.sink117 = phi ptr [ %90, %89 ], [ %118, %117 ], [ %146, %145 ], [ %174, %173 ]
+  store ptr %.sink117, ptr %8, align 8, !tbaa !117
   br label %_ZN4Data12reloadPixelsEv.exit
 
 _ZN4Data12reloadPixelsEv.exit:                    ; preds = %_ZN4Data12reloadPixelsEv.exit.sink.split, %173, %145, %117, %89

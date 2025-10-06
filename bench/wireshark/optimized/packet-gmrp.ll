@@ -155,9 +155,8 @@ define internal i32 @dissect_gmrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %42 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.0149247, i32 noundef -1, i32 noundef %40, ptr noundef nonnull %5, ptr noundef nonnull @.str.31, i32 noundef %41)
   %43 = load i32, ptr @hf_gmrp_attribute_type, align 4
   %44 = call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef %.0149247, i32 noundef 1, i32 noundef %38)
-  %45 = add i8 %28, -3
-  %or.cond = icmp ult i8 %45, -2
-  br i1 %or.cond, label %47, label %.preheader
+  %45 = icmp ugt i8 %28, 2
+  br i1 %45, label %47, label %.preheader
 
 .preheader:                                       ; preds = %37
   %46 = add i32 %.0142248, -1

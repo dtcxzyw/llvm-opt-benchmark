@@ -1041,9 +1041,9 @@ _time_compare_at_zoom.exit.thread.i:              ; preds = %79, %_time_compare_
 
 87:                                               ; preds = %84
   %.not23.i114.i = icmp eq i32 %48, 0
-  br i1 %.not23.i114.i, label %_time_compare_at_zoom.exit122.thread.thread167.i, label %88
+  br i1 %.not23.i114.i, label %_time_compare_at_zoom.exit122.thread.thread166.i, label %88
 
-_time_compare_at_zoom.exit122.thread.thread167.i: ; preds = %87
+_time_compare_at_zoom.exit122.thread.thread166.i: ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %46, i64 28, i1 false)
@@ -1100,9 +1100,9 @@ _time_compare_at_zoom.exit122.thread.thread167.i: ; preds = %87
 109:                                              ; preds = %104
   %.not29.i120.i = icmp eq i32 %48, 5
   %110 = sub nsw i32 %.sroa.723.0.copyload.i, %.sroa.717.0.copyload.i
-  br i1 %.not29.i120.i, label %_time_compare_at_zoom.exit122.thread.thread168.i, label %_time_compare_at_zoom.exit122.i
+  br i1 %.not29.i120.i, label %_time_compare_at_zoom.exit122.thread.thread167.i, label %_time_compare_at_zoom.exit122.i
 
-_time_compare_at_zoom.exit122.thread.thread168.i: ; preds = %109
+_time_compare_at_zoom.exit122.thread.thread167.i: ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %46, i64 28, i1 false)
@@ -1140,7 +1140,7 @@ _time_compare_at_zoom.exit122.thread.i:           ; preds = %112, %_time_compare
     i32 8, label %122
   ]
 
-114:                                              ; preds = %_time_compare_at_zoom.exit122.thread.i, %_time_compare_at_zoom.exit122.thread.thread167.i
+114:                                              ; preds = %_time_compare_at_zoom.exit122.thread.i, %_time_compare_at_zoom.exit122.thread.thread166.i
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %115, align 4, !tbaa !72
   br label %116
@@ -1155,7 +1155,7 @@ _time_compare_at_zoom.exit122.thread.i:           ; preds = %112, %_time_compare
   store i32 0, ptr %119, align 4, !tbaa !74
   br label %120
 
-120:                                              ; preds = %118, %_time_compare_at_zoom.exit122.thread.i, %_time_compare_at_zoom.exit122.thread.i, %_time_compare_at_zoom.exit122.thread.thread168.i
+120:                                              ; preds = %118, %_time_compare_at_zoom.exit122.thread.i, %_time_compare_at_zoom.exit122.thread.i, %_time_compare_at_zoom.exit122.thread.thread167.i
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %121, align 4, !tbaa !75
   br label %122
@@ -1216,8 +1216,8 @@ _time_format_for_db.exit.i:                       ; preds = %122, %_time_compare
 151:                                              ; preds = %143
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %152, align 8, !tbaa !75
-  %.not100.i = icmp eq i32 %149, 6
-  br i1 %.not100.i, label %176, label %153
+  %.not99.i = icmp eq i32 %149, 6
+  br i1 %.not99.i, label %176, label %153
 
 153:                                              ; preds = %151
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -1231,8 +1231,8 @@ _time_format_for_db.exit.i:                       ; preds = %122, %_time_compare
 
 159:                                              ; preds = %153
   store i32 0, ptr %154, align 4, !tbaa !74
-  %.not101.i = icmp eq i32 %149, 4
-  br i1 %.not101.i, label %176, label %160
+  %.not100.i = icmp eq i32 %149, 4
+  br i1 %.not100.i, label %176, label %160
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1247,8 +1247,8 @@ _time_format_for_db.exit.i:                       ; preds = %122, %_time_compare
 
 167:                                              ; preds = %160
   store i32 1, ptr %161, align 8, !tbaa !73
-  %.not102.i = icmp eq i32 %149, 2
-  br i1 %.not102.i, label %176, label %168
+  %.not101.i = icmp eq i32 %149, 2
+  br i1 %.not101.i, label %176, label %168
 
 168:                                              ; preds = %167
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1309,7 +1309,7 @@ _block_get_bar_count.exit.thread52.i:             ; preds = %187
   %198 = getelementptr inbounds nuw i8, ptr %188, i64 56
   store i32 120, ptr %198, align 8, !tbaa !119
   store i32 1, ptr %177, align 4, !tbaa !72
-  br label %.lr.ph120.preheader.i
+  br label %.lr.ph119.preheader.i
 
 _time_days_in_month.exit.i.i:                     ; preds = %187
   %199 = add nsw i32 %.val110.i, -1
@@ -1416,22 +1416,22 @@ _block_get_bar_count.exit.i:                      ; preds = %234, %187, %187
   br i1 %cond.i, label %_block_get_bar_width.exit.thread77.i, label %_block_get_bar_width.exit.i
 
 _block_get_bar_width.exit.thread.i:               ; preds = %222, %216, %215, %215, %215, %215, %215, %215, %215, %_block_get_bar_count.exit.thread49.i
-  %.sink188.i = phi i32 [ %214, %_block_get_bar_count.exit.thread49.i ], [ %spec.select.i35.i.i, %216 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 30, %222 ]
+  %.sink187.i = phi i32 [ %214, %_block_get_bar_count.exit.thread49.i ], [ %spec.select.i35.i.i, %216 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 31, %215 ], [ 30, %222 ]
   %.0.i125.ph.i = phi i32 [ 1, %_block_get_bar_count.exit.thread49.i ], [ 4, %216 ], [ 4, %215 ], [ 4, %215 ], [ 4, %215 ], [ 4, %215 ], [ 4, %215 ], [ 4, %215 ], [ 4, %215 ], [ 4, %222 ]
   %241 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  store i32 %.sink188.i, ptr %241, align 8, !tbaa !116
-  %242 = zext nneg i32 %.sink188.i to i64
+  store i32 %.sink187.i, ptr %241, align 8, !tbaa !116
+  %242 = zext nneg i32 %.sink187.i to i64
   %243 = call noalias ptr @calloc(i64 noundef %242, i64 noundef 4) #20
   %244 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store ptr %243, ptr %244, align 8, !tbaa !117
   %245 = call noalias ptr @calloc(i64 noundef %242, i64 noundef 4) #20
   %246 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store ptr %245, ptr %246, align 8, !tbaa !118
-  %247 = mul nuw nsw i32 %.0.i125.ph.i, %.sink188.i
+  %247 = mul nuw nsw i32 %.0.i125.ph.i, %.sink187.i
   %248 = getelementptr inbounds nuw i8, ptr %188, i64 56
   store i32 %247, ptr %248, align 8, !tbaa !119
   store i32 1, ptr %178, align 8, !tbaa !73
-  br label %.lr.ph120.preheader.i
+  br label %.lr.ph119.preheader.i
 
 _block_get_bar_width.exit.thread77.i:             ; preds = %_block_get_bar_count.exit.i, %_block_get_bar_count.exit.thread57.i
   %.ph73.i = phi ptr [ %227, %_block_get_bar_count.exit.thread57.i ], [ %240, %_block_get_bar_count.exit.i ]
@@ -1446,7 +1446,7 @@ _block_get_bar_width.exit.thread77.i:             ; preds = %_block_get_bar_coun
 _block_get_bar_width.exit.i:                      ; preds = %_block_get_bar_count.exit.i
   %251 = getelementptr inbounds nuw i8, ptr %188, i64 56
   store i32 %.0.i124.i, ptr %251, align 8, !tbaa !119
-  switch i32 %192, label %.lr.ph120.preheader.i [
+  switch i32 %192, label %.lr.ph119.preheader.i [
     i32 6, label %257
     i32 5, label %257
     i32 3, label %252
@@ -1458,7 +1458,7 @@ _block_get_bar_width.exit.i:                      ; preds = %_block_get_bar_coun
   %255 = phi ptr [ %.ph74.i, %_block_get_bar_width.exit.thread77.i ], [ %238, %_block_get_bar_width.exit.i ]
   %256 = phi ptr [ %.ph73.i, %_block_get_bar_width.exit.thread77.i ], [ %240, %_block_get_bar_width.exit.i ]
   store i32 0, ptr %180, align 4, !tbaa !74
-  br label %.lr.ph120.preheader.i
+  br label %.lr.ph119.preheader.i
 
 257:                                              ; preds = %_block_get_bar_width.exit.i, %_block_get_bar_width.exit.i, %_block_get_bar_count.exit.thread54.i
   %258 = phi ptr [ %233, %_block_get_bar_count.exit.thread54.i ], [ %251, %_block_get_bar_width.exit.i ], [ %251, %_block_get_bar_width.exit.i ]
@@ -1466,14 +1466,14 @@ _block_get_bar_width.exit.i:                      ; preds = %_block_get_bar_coun
   %260 = phi ptr [ %230, %_block_get_bar_count.exit.thread54.i ], [ %238, %_block_get_bar_width.exit.i ], [ %238, %_block_get_bar_width.exit.i ]
   %261 = phi ptr [ %232, %_block_get_bar_count.exit.thread54.i ], [ %240, %_block_get_bar_width.exit.i ], [ %240, %_block_get_bar_width.exit.i ]
   store i32 0, ptr %179, align 8, !tbaa !75
-  br label %.lr.ph120.preheader.i
+  br label %.lr.ph119.preheader.i
 
-.lr.ph120.preheader.i:                            ; preds = %257, %252, %_block_get_bar_width.exit.i, %_block_get_bar_width.exit.thread.i, %_block_get_bar_count.exit.thread52.i
+.lr.ph119.preheader.i:                            ; preds = %257, %252, %_block_get_bar_width.exit.i, %_block_get_bar_width.exit.thread.i, %_block_get_bar_count.exit.thread52.i
   %262 = phi ptr [ %251, %_block_get_bar_width.exit.i ], [ %248, %_block_get_bar_width.exit.thread.i ], [ %258, %257 ], [ %253, %252 ], [ %198, %_block_get_bar_count.exit.thread52.i ]
   %263 = phi ptr [ %235, %_block_get_bar_width.exit.i ], [ %241, %_block_get_bar_width.exit.thread.i ], [ %259, %257 ], [ %254, %252 ], [ %193, %_block_get_bar_count.exit.thread52.i ]
   %264 = phi ptr [ %238, %_block_get_bar_width.exit.i ], [ %244, %_block_get_bar_width.exit.thread.i ], [ %260, %257 ], [ %255, %252 ], [ %195, %_block_get_bar_count.exit.thread52.i ]
   %265 = phi ptr [ %240, %_block_get_bar_width.exit.i ], [ %246, %_block_get_bar_width.exit.thread.i ], [ %261, %257 ], [ %256, %252 ], [ %197, %_block_get_bar_count.exit.thread52.i ]
-  br label %.lr.ph120.i
+  br label %.lr.ph119.i
 
 ._crit_edge.i:                                    ; preds = %_time_add.exit.i
   %266 = load ptr, ptr %41, align 8, !tbaa !65
@@ -1487,33 +1487,33 @@ _block_get_bar_width.exit.i:                      ; preds = %_block_get_bar_coun
   %or.cond.i = or i1 %272, %271
   br i1 %or.cond.i, label %482, label %187
 
-.lr.ph120.i:                                      ; preds = %_time_add.exit.i, %.lr.ph120.preheader.i
-  %273 = phi i32 [ %192, %.lr.ph120.preheader.i ], [ %372, %_time_add.exit.i ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph120.preheader.i ], [ %indvars.iv.next.i, %_time_add.exit.i ]
-  %.1118.i = phi i32 [ 100, %.lr.ph120.preheader.i ], [ %.2.lcssa.i, %_time_add.exit.i ]
-  %.199117.i = phi i32 [ %.098.i, %.lr.ph120.preheader.i ], [ %.2100.lcssa.i, %_time_add.exit.i ]
+.lr.ph119.i:                                      ; preds = %_time_add.exit.i, %.lr.ph119.preheader.i
+  %273 = phi i32 [ %192, %.lr.ph119.preheader.i ], [ %372, %_time_add.exit.i ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph119.preheader.i ], [ %indvars.iv.next.i, %_time_add.exit.i ]
+  %.1117.i = phi i32 [ 100, %.lr.ph119.preheader.i ], [ %.2.lcssa.i, %_time_add.exit.i ]
+  %.199116.i = phi i32 [ %.098.i, %.lr.ph119.preheader.i ], [ %.2100.lcssa.i, %_time_add.exit.i ]
   %.sroa.01.0.copyload.i = load i32, ptr %45, align 4, !tbaa !63
   %.sroa.53.0.copyload.i = load i32, ptr %.sroa.59.0..sroa_idx.i, align 4, !tbaa !63
   %.sroa.64.0.copyload.i = load i32, ptr %.sroa.610.0..sroa_idx.i, align 4, !tbaa !63
   %.sroa.75.0.copyload.i = load i32, ptr %.sroa.711.0..sroa_idx.i, align 4, !tbaa !63
   %274 = load i32, ptr %7, align 8, !tbaa !71
   %.not.i126.i = icmp eq i32 %.sroa.01.0.copyload.i, %274
-  br i1 %.not.i126.i, label %275, label %_time_compare_at_zoom.exit137.thread169.i
+  br i1 %.not.i126.i, label %275, label %_time_compare_at_zoom.exit137.thread168.i
 
-275:                                              ; preds = %.lr.ph120.i
+275:                                              ; preds = %.lr.ph119.i
   %.sroa.42.0.copyload.i = load i32, ptr %.sroa.48.0..sroa_idx.i, align 4, !tbaa !63
   %276 = load i32, ptr %177, align 4, !tbaa !72
   %.not22.i128.i = icmp eq i32 %.sroa.42.0.copyload.i, %276
-  br i1 %.not22.i128.i, label %277, label %_time_compare_at_zoom.exit137.thread169.i
+  br i1 %.not22.i128.i, label %277, label %_time_compare_at_zoom.exit137.thread168.i
 
 277:                                              ; preds = %275
-  %cond103.i = icmp eq i32 %273, 0
-  br i1 %cond103.i, label %_block_get_bar_width.exit139.i, label %278
+  %cond102.i = icmp eq i32 %273, 0
+  br i1 %cond102.i, label %_block_get_bar_width.exit139.i, label %278
 
 278:                                              ; preds = %277
   %279 = load i32, ptr %178, align 8, !tbaa !73
   %.not24.i130.i = icmp eq i32 %.sroa.53.0.copyload.i, %279
-  br i1 %.not24.i130.i, label %280, label %_time_compare_at_zoom.exit137.thread169.i
+  br i1 %.not24.i130.i, label %280, label %_time_compare_at_zoom.exit137.thread168.i
 
 280:                                              ; preds = %278
   %281 = icmp ugt i32 %273, 2
@@ -1524,15 +1524,15 @@ _block_get_bar_width.exit.i:                      ; preds = %_block_get_bar_coun
   %284 = load i32, ptr %180, align 4, !tbaa !74
   %285 = sdiv i32 %284, 2
   %.not25.i131.i = icmp eq i32 %283, %285
-  br i1 %.not25.i131.i, label %286, label %_time_compare_at_zoom.exit137.thread169.i
+  br i1 %.not25.i131.i, label %286, label %_time_compare_at_zoom.exit137.thread168.i
 
 286:                                              ; preds = %282
-  %cond104.i = icmp eq i32 %273, 3
-  br i1 %cond104.i, label %_block_get_bar_width.exit139.i, label %287
+  %cond103.i = icmp eq i32 %273, 3
+  br i1 %cond103.i, label %_block_get_bar_width.exit139.i, label %287
 
 287:                                              ; preds = %286
   %.not27.i133.i = icmp eq i32 %.sroa.64.0.copyload.i, %284
-  br i1 %.not27.i133.i, label %288, label %_time_compare_at_zoom.exit137.thread169.i
+  br i1 %.not27.i133.i, label %288, label %_time_compare_at_zoom.exit137.thread168.i
 
 288:                                              ; preds = %287
   %289 = icmp ugt i32 %273, 4
@@ -1543,44 +1543,44 @@ _block_get_bar_width.exit.i:                      ; preds = %_block_get_bar_coun
   %292 = load i32, ptr %179, align 8, !tbaa !75
   %293 = sdiv i32 %292, 3
   %.not28.i134.i = icmp eq i32 %291, %293
-  br i1 %.not28.i134.i, label %294, label %_time_compare_at_zoom.exit137.thread169.i
+  br i1 %.not28.i134.i, label %294, label %_time_compare_at_zoom.exit137.thread168.i
 
 294:                                              ; preds = %290
-  %cond105.i = icmp eq i32 %273, 5
-  br i1 %cond105.i, label %_block_get_bar_width.exit139.i, label %_time_compare_at_zoom.exit137.i
+  %cond104.i = icmp eq i32 %273, 5
+  br i1 %cond104.i, label %_block_get_bar_width.exit139.i, label %_time_compare_at_zoom.exit137.i
 
 _time_compare_at_zoom.exit137.i:                  ; preds = %294
   %295 = icmp eq i32 %.sroa.75.0.copyload.i, %292
-  br i1 %295, label %_time_compare_at_zoom.exit137.thread.i, label %_time_compare_at_zoom.exit137.thread169.i
+  br i1 %295, label %_time_compare_at_zoom.exit137.thread.i, label %_time_compare_at_zoom.exit137.thread168.i
 
 _time_compare_at_zoom.exit137.thread.i:           ; preds = %_time_compare_at_zoom.exit137.i, %280
   %switch.selectcmp.i = icmp eq i32 %273, 6
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 1
-  %switch.selectcmp190.i = icmp eq i32 %273, 2
-  %switch.select191.i = select i1 %switch.selectcmp190.i, i32 4, i32 %switch.select.i
+  %switch.selectcmp189.i = icmp eq i32 %273, 2
+  %switch.select190.i = select i1 %switch.selectcmp189.i, i32 4, i32 %switch.select.i
   br label %_block_get_bar_width.exit139.i
 
 _block_get_bar_width.exit139.i:                   ; preds = %_time_compare_at_zoom.exit137.thread.i, %294, %288, %286, %277
-  %.0.i138.i = phi i32 [ 10, %277 ], [ %switch.select191.i, %_time_compare_at_zoom.exit137.thread.i ], [ 5, %288 ], [ 1, %294 ], [ 1, %286 ]
+  %.0.i138.i = phi i32 [ 10, %277 ], [ %switch.select190.i, %_time_compare_at_zoom.exit137.thread.i ], [ 5, %288 ], [ 1, %294 ], [ 1, %286 ]
   %296 = trunc nuw nsw i64 %indvars.iv.i to i32
   %297 = mul nuw nsw i32 %.0.i138.i, %296
   %298 = add nsw i32 %297, %.0101.i
   store i32 %298, ptr %181, align 8, !tbaa !111
-  br label %_time_compare_at_zoom.exit137.thread169.i
+  br label %_time_compare_at_zoom.exit137.thread168.i
 
-_time_compare_at_zoom.exit137.thread169.i:        ; preds = %_block_get_bar_width.exit139.i, %_time_compare_at_zoom.exit137.i, %290, %287, %282, %278, %275, %.lr.ph120.i
+_time_compare_at_zoom.exit137.thread168.i:        ; preds = %_block_get_bar_width.exit139.i, %_time_compare_at_zoom.exit137.i, %290, %287, %282, %278, %275, %.lr.ph119.i
   %.sroa.031.0.copyload.i = load i32, ptr %81, align 8
   %.sroa.533.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 8
   %.sroa.634.0.copyload.i = load i32, ptr %.sroa.622.0..sroa_idx.i, align 4
   %.sroa.735.0.copyload.i = load i32, ptr %.sroa.723.0..sroa_idx.i, align 8
   %.not.i140.i = icmp eq i32 %.sroa.031.0.copyload.i, %274
-  br i1 %.not.i140.i, label %299, label %_time_compare_at_zoom.exit151.thread171.i
+  br i1 %.not.i140.i, label %299, label %_time_compare_at_zoom.exit151.thread170.i
 
-299:                                              ; preds = %_time_compare_at_zoom.exit137.thread169.i
+299:                                              ; preds = %_time_compare_at_zoom.exit137.thread168.i
   %.sroa.432.0.copyload.i = load i32, ptr %.sroa.420.0..sroa_idx.i, align 4
   %300 = load i32, ptr %177, align 4, !tbaa !72
   %.not22.i142.i = icmp eq i32 %.sroa.432.0.copyload.i, %300
-  br i1 %.not22.i142.i, label %301, label %_time_compare_at_zoom.exit151.thread171.i
+  br i1 %.not22.i142.i, label %301, label %_time_compare_at_zoom.exit151.thread170.i
 
 301:                                              ; preds = %299
   %.not23.i143.i = icmp eq i32 %273, 0
@@ -1589,7 +1589,7 @@ _time_compare_at_zoom.exit137.thread169.i:        ; preds = %_block_get_bar_widt
 302:                                              ; preds = %301
   %303 = load i32, ptr %178, align 8, !tbaa !73
   %.not24.i144.i = icmp eq i32 %.sroa.533.0.copyload.i, %303
-  br i1 %.not24.i144.i, label %304, label %_time_compare_at_zoom.exit151.thread171.i
+  br i1 %.not24.i144.i, label %304, label %_time_compare_at_zoom.exit151.thread170.i
 
 304:                                              ; preds = %302
   %305 = icmp ugt i32 %273, 2
@@ -1600,7 +1600,7 @@ _time_compare_at_zoom.exit137.thread169.i:        ; preds = %_block_get_bar_widt
   %308 = load i32, ptr %180, align 4, !tbaa !74
   %309 = sdiv i32 %308, 2
   %.not25.i145.i = icmp eq i32 %307, %309
-  br i1 %.not25.i145.i, label %310, label %_time_compare_at_zoom.exit151.thread171.i
+  br i1 %.not25.i145.i, label %310, label %_time_compare_at_zoom.exit151.thread170.i
 
 310:                                              ; preds = %306
   %.not26.i146.i = icmp eq i32 %273, 3
@@ -1608,7 +1608,7 @@ _time_compare_at_zoom.exit137.thread169.i:        ; preds = %_block_get_bar_widt
 
 311:                                              ; preds = %310
   %.not27.i147.i = icmp eq i32 %.sroa.634.0.copyload.i, %308
-  br i1 %.not27.i147.i, label %312, label %_time_compare_at_zoom.exit151.thread171.i
+  br i1 %.not27.i147.i, label %312, label %_time_compare_at_zoom.exit151.thread170.i
 
 312:                                              ; preds = %311
   %313 = icmp ugt i32 %273, 4
@@ -1619,7 +1619,7 @@ _time_compare_at_zoom.exit137.thread169.i:        ; preds = %_block_get_bar_widt
   %316 = load i32, ptr %179, align 8, !tbaa !75
   %317 = sdiv i32 %316, 3
   %.not28.i148.i = icmp eq i32 %315, %317
-  br i1 %.not28.i148.i, label %318, label %_time_compare_at_zoom.exit151.thread171.i
+  br i1 %.not28.i148.i, label %318, label %_time_compare_at_zoom.exit151.thread170.i
 
 318:                                              ; preds = %314
   %.not29.i149.i = icmp eq i32 %273, 5
@@ -1627,30 +1627,30 @@ _time_compare_at_zoom.exit137.thread169.i:        ; preds = %_block_get_bar_widt
 
 _time_compare_at_zoom.exit151.i:                  ; preds = %318
   %319 = icmp eq i32 %.sroa.735.0.copyload.i, %316
-  br i1 %319, label %_time_compare_at_zoom.exit151.thread.i, label %_time_compare_at_zoom.exit151.thread171.i
+  br i1 %319, label %_time_compare_at_zoom.exit151.thread.i, label %_time_compare_at_zoom.exit151.thread170.i
 
 _time_compare_at_zoom.exit151.thread.i:           ; preds = %_time_compare_at_zoom.exit151.i, %304
-  %switch.selectcmp192.i = icmp eq i32 %273, 6
-  %switch.select193.i = select i1 %switch.selectcmp192.i, i32 2, i32 1
-  %switch.selectcmp194.i = icmp eq i32 %273, 2
-  %switch.select195.i = select i1 %switch.selectcmp194.i, i32 4, i32 %switch.select193.i
+  %switch.selectcmp191.i = icmp eq i32 %273, 6
+  %switch.select192.i = select i1 %switch.selectcmp191.i, i32 2, i32 1
+  %switch.selectcmp193.i = icmp eq i32 %273, 2
+  %switch.select194.i = select i1 %switch.selectcmp193.i, i32 4, i32 %switch.select192.i
   br label %_block_get_bar_width.exit153.i
 
 _block_get_bar_width.exit153.i:                   ; preds = %_time_compare_at_zoom.exit151.thread.i, %318, %312, %310, %301
-  %.0.i152.i = phi i32 [ 10, %301 ], [ %switch.select195.i, %_time_compare_at_zoom.exit151.thread.i ], [ 5, %312 ], [ 1, %310 ], [ 1, %318 ]
+  %.0.i152.i = phi i32 [ 10, %301 ], [ %switch.select194.i, %_time_compare_at_zoom.exit151.thread.i ], [ 5, %312 ], [ 1, %310 ], [ 1, %318 ]
   %320 = trunc i64 %indvars.iv.i to i32
   %321 = add i32 %320, 1
   %322 = mul nuw nsw i32 %.0.i152.i, %321
   %323 = add nsw i32 %322, %.0101.i
   store i32 %323, ptr %182, align 4, !tbaa !112
-  br label %_time_compare_at_zoom.exit151.thread171.i
+  br label %_time_compare_at_zoom.exit151.thread170.i
 
-_time_compare_at_zoom.exit151.thread171.i:        ; preds = %_block_get_bar_width.exit153.i, %_time_compare_at_zoom.exit151.i, %314, %311, %306, %302, %299, %_time_compare_at_zoom.exit137.thread169.i
-  %324 = icmp eq i32 %.1118.i, 100
+_time_compare_at_zoom.exit151.thread170.i:        ; preds = %_block_get_bar_width.exit153.i, %_time_compare_at_zoom.exit151.i, %314, %311, %306, %302, %299, %_time_compare_at_zoom.exit137.thread168.i
+  %324 = icmp eq i32 %.1117.i, 100
   br i1 %324, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %_time_compare_at_zoom.exit151.thread171.i, %363
-  %.2100112.i = phi i32 [ %370, %363 ], [ %.199117.i, %_time_compare_at_zoom.exit151.thread171.i ]
+.lr.ph.i:                                         ; preds = %_time_compare_at_zoom.exit151.thread170.i, %363
+  %.2100111.i = phi i32 [ %370, %363 ], [ %.199116.i, %_time_compare_at_zoom.exit151.thread170.i ]
   %325 = load i32, ptr %47, align 8, !tbaa !64
   %326 = load i32, ptr %7, align 8, !tbaa !71
   %327 = load i32, ptr %6, align 8, !tbaa !71
@@ -1708,8 +1708,8 @@ _time_compare_at_zoom.exit151.thread171.i:        ; preds = %_block_get_bar_widt
 351:                                              ; preds = %346
   %.not29.i163.i = icmp eq i32 %325, 5
   %352 = icmp eq i32 %347, %349
-  %or.cond196.i = or i1 %.not29.i163.i, %352
-  br i1 %or.cond196.i, label %_time_compare_at_zoom.exit165.thread.i, label %.critedge.i
+  %or.cond195.i = or i1 %.not29.i163.i, %352
+  br i1 %or.cond195.i, label %_time_compare_at_zoom.exit165.thread.i, label %.critedge.i
 
 _time_compare_at_zoom.exit165.thread.i:           ; preds = %351, %344, %342, %335, %331
   %353 = load ptr, ptr %264, align 8, !tbaa !117
@@ -1717,7 +1717,7 @@ _time_compare_at_zoom.exit165.thread.i:           ; preds = %351, %344, %342, %3
   %355 = load i32, ptr %354, align 4, !tbaa !63
   %356 = add nsw i32 %355, 1
   store i32 %356, ptr %354, align 4, !tbaa !63
-  %357 = icmp sgt i32 %.2100112.i, 0
+  %357 = icmp sgt i32 %.2100111.i, 0
   br i1 %357, label %358, label %363
 
 358:                                              ; preds = %_time_compare_at_zoom.exit165.thread.i
@@ -1743,10 +1743,10 @@ _time_compare_at_zoom.exit165.thread.i:           ; preds = %351, %344, %342, %3
   %.pre.pre.i = load i32, ptr %47, align 8, !tbaa !64
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %351, %346, %343, %337, %332, %328, %.lr.ph.i, %..critedge.loopexit_crit_edge.i, %_time_compare_at_zoom.exit151.thread171.i
-  %372 = phi i32 [ %273, %_time_compare_at_zoom.exit151.thread171.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %325, %.lr.ph.i ], [ %325, %328 ], [ %325, %332 ], [ %325, %337 ], [ %325, %343 ], [ %325, %346 ], [ %325, %351 ]
-  %.2100.lcssa.i = phi i32 [ %.199117.i, %_time_compare_at_zoom.exit151.thread171.i ], [ %370, %..critedge.loopexit_crit_edge.i ], [ %.2100112.i, %.lr.ph.i ], [ %.2100112.i, %328 ], [ %.2100112.i, %332 ], [ %.2100112.i, %337 ], [ %.2100112.i, %343 ], [ %.2100112.i, %346 ], [ %.2100112.i, %351 ]
-  %.2.lcssa.i = phi i32 [ %.1118.i, %_time_compare_at_zoom.exit151.thread171.i ], [ %365, %..critedge.loopexit_crit_edge.i ], [ 100, %.lr.ph.i ], [ 100, %328 ], [ 100, %332 ], [ 100, %337 ], [ 100, %343 ], [ 100, %346 ], [ 100, %351 ]
+.critedge.i:                                      ; preds = %351, %346, %343, %337, %332, %328, %.lr.ph.i, %..critedge.loopexit_crit_edge.i, %_time_compare_at_zoom.exit151.thread170.i
+  %372 = phi i32 [ %273, %_time_compare_at_zoom.exit151.thread170.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %325, %.lr.ph.i ], [ %325, %328 ], [ %325, %332 ], [ %325, %337 ], [ %325, %343 ], [ %325, %346 ], [ %325, %351 ]
+  %.2100.lcssa.i = phi i32 [ %.199116.i, %_time_compare_at_zoom.exit151.thread170.i ], [ %370, %..critedge.loopexit_crit_edge.i ], [ %.2100111.i, %.lr.ph.i ], [ %.2100111.i, %328 ], [ %.2100111.i, %332 ], [ %.2100111.i, %337 ], [ %.2100111.i, %343 ], [ %.2100111.i, %346 ], [ %.2100111.i, %351 ]
+  %.2.lcssa.i = phi i32 [ %.1117.i, %_time_compare_at_zoom.exit151.thread170.i ], [ %365, %..critedge.loopexit_crit_edge.i ], [ 100, %.lr.ph.i ], [ 100, %328 ], [ 100, %332 ], [ 100, %337 ], [ 100, %343 ], [ 100, %346 ], [ 100, %351 ]
   switch i32 %372, label %_time_add.exit.i [
     i32 0, label %373
     i32 1, label %396
@@ -1786,10 +1786,10 @@ _time_compare_at_zoom.exit165.thread.i:           ; preds = %351, %344, %342, %3
 .lr.ph243.i.i:                                    ; preds = %.preheader129.i.i
   %smax296.i.i = call i32 @llvm.smax.i32(i32 %storemerge.lcssa235.i.i, i32 -11)
   %385 = icmp slt i32 %storemerge.lcssa235.i.i, -11
-  %umin297.i.neg125.i = sext i1 %385 to i32
+  %umin297.i.neg124.i = sext i1 %385 to i32
   %umin297.i.i = zext i1 %385 to i32
-  %.neg109.i = sub i32 %smax296.i.i, %storemerge.lcssa235.i.i
-  %386 = add i32 %.neg109.i, %umin297.i.neg125.i
+  %.neg108.i = sub i32 %smax296.i.i, %storemerge.lcssa235.i.i
+  %386 = add i32 %.neg108.i, %umin297.i.neg124.i
   %387 = udiv i32 %386, 12
   %388 = add nuw nsw i32 %387, %umin297.i.i
   %389 = xor i32 %388, -1
@@ -1913,10 +1913,10 @@ _time_days_in_month.exit111.i.i:                  ; preds = %414, %407, %407, %4
 .lr.ph156.preheader.i.i:                          ; preds = %.preheader136.i.i
   %smax.i.i = call i32 @llvm.smax.i32(i32 %storemerge.i112.lcssa151.i.i, i32 -11)
   %426 = icmp slt i32 %storemerge.i112.lcssa151.i.i, -11
-  %umin.i.neg124.i = sext i1 %426 to i32
+  %umin.i.neg123.i = sext i1 %426 to i32
   %umin.i.i = zext i1 %426 to i32
-  %.neg108.i = sub i32 %smax.i.i, %storemerge.i112.lcssa151.i.i
-  %427 = add i32 %.neg108.i, %umin.i.neg124.i
+  %.neg107.i = sub i32 %smax.i.i, %storemerge.i112.lcssa151.i.i
+  %427 = add i32 %.neg107.i, %umin.i.neg123.i
   %428 = udiv i32 %427, 12
   %429 = add nuw nsw i32 %428, %umin.i.i
   %430 = xor i32 %429, -1
@@ -1983,10 +1983,10 @@ thread-pre-split122.i.i:                          ; preds = %_time_days_in_month
 .lr.ph176.preheader.i.i:                          ; preds = %.preheader134.i.i
   %smax287.i.i = call i32 @llvm.smax.i32(i32 %storemerge.i114.lcssa168.i.i, i32 -11)
   %452 = icmp slt i32 %storemerge.i114.lcssa168.i.i, -11
-  %umin288.i.neg123.i = sext i1 %452 to i32
+  %umin288.i.neg122.i = sext i1 %452 to i32
   %umin288.i.i = zext i1 %452 to i32
-  %.neg107.i = sub i32 %smax287.i.i, %storemerge.i114.lcssa168.i.i
-  %453 = add i32 %.neg107.i, %umin288.i.neg123.i
+  %.neg106.i = sub i32 %smax287.i.i, %storemerge.i114.lcssa168.i.i
+  %453 = add i32 %.neg106.i, %umin288.i.neg122.i
   %454 = udiv i32 %453, 12
   %455 = add nuw nsw i32 %454, %umin288.i.i
   %456 = xor i32 %455, -1
@@ -2075,7 +2075,7 @@ _time_add.exit.i:                                 ; preds = %478, %477, %476, %4
   %479 = load i32, ptr %263, align 8, !tbaa !116
   %480 = sext i32 %479 to i64
   %481 = icmp slt i64 %indvars.iv.next.i, %480
-  br i1 %481, label %.lr.ph120.i, label %._crit_edge.i
+  br i1 %481, label %.lr.ph119.i, label %._crit_edge.i
 
 482:                                              ; preds = %._crit_edge.i
   %483 = load i32, ptr %47, align 8, !tbaa !64

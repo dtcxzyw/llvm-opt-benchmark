@@ -2056,10 +2056,9 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %210
 
 181:                                              ; preds = %175
-  switch i32 %168, label %182 [
-    i32 551550976, label %210
-    i32 0, label %210
-  ]
+  %.off = add nsw i32 %168, -1
+  %switch = icmp ult i32 %.off, 551550975
+  br i1 %switch, label %182, label %210
 
 182:                                              ; preds = %181
   %183 = load ptr, ptr @stderr, align 8, !tbaa !19
@@ -2116,7 +2115,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   %209 = tail call i64 @fwrite(ptr nonnull @.str.152, i64 2, i64 1, ptr %208) #10
   br label %210
 
-210:                                              ; preds = %181, %181, %172, %207, %178, %169
+210:                                              ; preds = %181, %172, %207, %178, %169
   %211 = load ptr, ptr @stderr, align 8, !tbaa !19
   %212 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 5, i64 1, ptr %211) #10
   %213 = and i32 %0, 14680064

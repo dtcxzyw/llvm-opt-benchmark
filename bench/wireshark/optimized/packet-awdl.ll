@@ -1374,22 +1374,22 @@ define internal i32 @awdl_tag_service_response(ptr noundef %0, ptr noundef %1, p
 
 thread-pre-split:                                 ; preds = %4
   %.pr = load i32, ptr %7, align 4
-  %.not60 = icmp eq i32 %.pr, 0
-  br i1 %.not60, label %.loopexit, label %.lr.ph
+  %.not59 = icmp eq i32 %.pr, 0
+  br i1 %.not59, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %thread-pre-split
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %41
 
 41:                                               ; preds = %.lr.ph, %53
-  %.05461 = phi i32 [ %38, %.lr.ph ], [ %46, %53 ]
+  %.05460 = phi i32 [ %38, %.lr.ph ], [ %46, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %42 = load i32, ptr @hf_awdl_dns_txt, align 4
   %43 = load ptr, ptr %40, align 8
-  %44 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %15, i32 noundef %42, ptr noundef %0, i32 noundef %.05461, i32 noundef 1, i32 noundef 0, ptr noundef %43, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %44 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %15, i32 noundef %42, ptr noundef %0, i32 noundef %.05460, i32 noundef 1, i32 noundef 0, ptr noundef %43, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %45 = load i32, ptr %13, align 4
-  %46 = add i32 %45, %.05461
+  %46 = add i32 %45, %.05460
   %47 = load ptr, ptr %5, align 8
   %48 = load ptr, ptr %12, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.568, ptr noundef %48)

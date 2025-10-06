@@ -519,7 +519,7 @@ define internal ptr @ec_gen(ptr noundef captures(address_is_null) %0, ptr readno
 15:                                               ; preds = %11
   %16 = tail call fastcc i32 @ec_gen_set_group_from_params(ptr noundef %0)
   %.not54 = icmp eq i32 %16, 0
-  br i1 %.not54, label %.thread81, label %31
+  br i1 %.not54, label %.thread78, label %31
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -530,7 +530,7 @@ define internal ptr @ec_gen(ptr noundef captures(address_is_null) %0, ptr readno
 20:                                               ; preds = %17
   %21 = tail call i32 @ossl_ec_encoding_name2id(ptr noundef nonnull %19) #5
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.thread81, label %.thread
+  br i1 %22, label %.thread78, label %.thread
 
 .thread:                                          ; preds = %20
   %23 = load ptr, ptr %12, align 8, !tbaa !16
@@ -546,14 +546,14 @@ define internal ptr @ec_gen(ptr noundef captures(address_is_null) %0, ptr readno
 27:                                               ; preds = %24
   %28 = tail call i32 @ossl_ec_pt_format_name2id(ptr noundef nonnull %26) #5
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.thread81, label %.thread71
+  br i1 %29, label %.thread78, label %.thread69
 
-.thread71:                                        ; preds = %27
+.thread69:                                        ; preds = %27
   %30 = load ptr, ptr %12, align 8, !tbaa !16
   tail call void @EC_GROUP_set_point_conversion_form(ptr noundef %30, i32 noundef %28) #5
   br label %31
 
-31:                                               ; preds = %.thread71, %24, %15
+31:                                               ; preds = %.thread69, %24, %15
   %32 = load ptr, ptr %12, align 8, !tbaa !16
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -619,7 +619,7 @@ ec_gen_assign_group.exit:                         ; preds = %34, %35
 
 61:                                               ; preds = %58
   %.not61 = icmp eq i32 %.041, 0
-  br i1 %.not61, label %.thread81, label %62
+  br i1 %.not61, label %.thread78, label %62
 
 62:                                               ; preds = %61
   %63 = tail call i32 @ossl_ec_set_ecdh_cofactor_mode(ptr noundef nonnull %9, i32 noundef %60) #5
@@ -636,7 +636,7 @@ ec_gen_assign_group.exit:                         ; preds = %34, %35
 
 69:                                               ; preds = %66
   %.not63 = icmp eq i32 %.142, 0
-  br i1 %.not63, label %.thread81, label %70
+  br i1 %.not63, label %.thread78, label %70
 
 70:                                               ; preds = %69
   %71 = tail call i32 @ossl_ec_set_check_group_type_from_name(ptr noundef nonnull %9, ptr noundef nonnull %68) #5
@@ -647,14 +647,14 @@ ec_gen_assign_group.exit:                         ; preds = %34, %35
 74:                                               ; preds = %70, %66
   %.2 = phi i32 [ %.142, %66 ], [ %73, %70 ]
   %.not64 = icmp eq i32 %.2, 0
-  br i1 %.not64, label %.thread81, label %75
+  br i1 %.not64, label %.thread78, label %75
 
-.thread81:                                        ; preds = %61, %69, %27, %20, %74, %15
+.thread78:                                        ; preds = %61, %69, %27, %20, %74, %15
   tail call void @EC_KEY_free(ptr noundef nonnull %9) #5
   br label %75
 
-75:                                               ; preds = %74, %3, %7, %.thread81
-  %.0 = phi ptr [ null, %.thread81 ], [ null, %7 ], [ null, %3 ], [ %9, %74 ]
+75:                                               ; preds = %74, %3, %7, %.thread78
+  %.0 = phi ptr [ null, %.thread78 ], [ null, %7 ], [ null, %3 ], [ %9, %74 ]
   ret ptr %.0
 }
 
@@ -1347,7 +1347,7 @@ define internal ptr @sm2_gen(ptr noundef captures(address_is_null) %0, ptr readn
 13:                                               ; preds = %9
   %14 = tail call fastcc i32 @ec_gen_set_group_from_params(ptr noundef %0)
   %.not34 = icmp eq i32 %14, 0
-  br i1 %.not34, label %.thread53, label %29
+  br i1 %.not34, label %.thread50, label %29
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1358,7 +1358,7 @@ define internal ptr @sm2_gen(ptr noundef captures(address_is_null) %0, ptr readn
 18:                                               ; preds = %15
   %19 = tail call i32 @ossl_ec_encoding_name2id(ptr noundef nonnull %17) #5
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %.thread53, label %.thread
+  br i1 %20, label %.thread50, label %.thread
 
 .thread:                                          ; preds = %18
   %21 = load ptr, ptr %10, align 8, !tbaa !16
@@ -1374,14 +1374,14 @@ define internal ptr @sm2_gen(ptr noundef captures(address_is_null) %0, ptr readn
 25:                                               ; preds = %22
   %26 = tail call i32 @ossl_ec_pt_format_name2id(ptr noundef nonnull %24) #5
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.thread53, label %.thread44
+  br i1 %27, label %.thread50, label %.thread42
 
-.thread44:                                        ; preds = %25
+.thread42:                                        ; preds = %25
   %28 = load ptr, ptr %10, align 8, !tbaa !16
   tail call void @EC_GROUP_set_point_conversion_form(ptr noundef %28, i32 noundef %26) #5
   br label %29
 
-29:                                               ; preds = %.thread44, %22, %13
+29:                                               ; preds = %.thread42, %22, %13
   %30 = load ptr, ptr %10, align 8, !tbaa !16
   %31 = icmp eq ptr %30, null
   br i1 %31, label %ec_gen_assign_group.exit.thread, label %ec_gen_assign_group.exit
@@ -1399,25 +1399,25 @@ ec_gen_assign_group.exit.thread:                  ; preds = %29
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1267, ptr noundef nonnull @__func__.ec_gen_assign_group) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 177, ptr noundef null) #5
-  br label %.thread53
+  br label %.thread50
 
 37:                                               ; preds = %ec_gen_assign_group.exit
-  br i1 %33, label %38, label %.thread53
+  br i1 %33, label %38, label %.thread50
 
 38:                                               ; preds = %37
   %39 = tail call i32 @EC_KEY_generate_key(ptr noundef nonnull %7) #5
-  %.not63 = icmp eq i32 %39, 0
-  br i1 %.not63, label %.thread53, label %41
+  %.not60 = icmp eq i32 %39, 0
+  br i1 %.not60, label %.thread50, label %41
 
 40:                                               ; preds = %ec_gen_assign_group.exit
-  br i1 %33, label %41, label %.thread53
+  br i1 %33, label %41, label %.thread50
 
-.thread53:                                        ; preds = %38, %ec_gen_assign_group.exit.thread, %37, %25, %18, %40, %13
+.thread50:                                        ; preds = %38, %ec_gen_assign_group.exit.thread, %37, %25, %18, %40, %13
   tail call void @EC_KEY_free(ptr noundef nonnull %7) #5
   br label %41
 
-41:                                               ; preds = %38, %40, %3, %5, %.thread53
-  %.0 = phi ptr [ null, %.thread53 ], [ null, %5 ], [ null, %3 ], [ %7, %40 ], [ %7, %38 ]
+41:                                               ; preds = %38, %40, %3, %5, %.thread50
+  %.0 = phi ptr [ null, %.thread50 ], [ null, %5 ], [ null, %3 ], [ %7, %40 ], [ %7, %38 ]
   ret ptr %.0
 }
 
@@ -2151,8 +2151,8 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
   %20 = tail call ptr @OSSL_PARAM_locate(ptr noundef %2, ptr noundef nonnull @.str.31) #5
   %21 = tail call ptr @OSSL_PARAM_locate(ptr noundef %2, ptr noundef nonnull @.str.32) #5
   %22 = tail call ptr @OSSL_PARAM_locate(ptr noundef %2, ptr noundef nonnull @.str.33) #5
-  %.not108 = icmp eq ptr %20, null
-  br i1 %.not108, label %29, label %.thread
+  %.not107 = icmp eq ptr %20, null
+  br i1 %.not107, label %29, label %.thread
 
 .thread:                                          ; preds = %17, %19
   %.06596 = phi ptr [ %22, %19 ], [ null, %17 ]

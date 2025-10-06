@@ -4835,17 +4835,17 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9LTOModule11hasCtorDtorEv(ptr noun
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8, !tbaa !166
-  %.not48 = icmp eq ptr %3, %5
-  br i1 %.not48, label %.critedge24, label %.lr.ph
+  %.not49 = icmp eq ptr %3, %5
+  br i1 %.not49, label %.critedge24, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.critedge
-  %.01749 = phi ptr [ %20, %.critedge ], [ %3, %1 ]
-  %6 = load i64, ptr %.01749, align 8
+  %.01750 = phi ptr [ %21, %.critedge ], [ %3, %1 ]
+  %6 = load i64, ptr %.01750, align 8
   %7 = and i64 %6, 4
   %8 = icmp ne i64 %7, 0
   %9 = and i64 %6, -8
-  %.not2247 = icmp eq i64 %9, 0
-  %.not22 = or i1 %8, %.not2247
+  %.not2248 = icmp eq i64 %9, 0
+  %.not22 = or i1 %8, %.not2248
   br i1 %.not22, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph
@@ -4863,27 +4863,27 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %10
 
 16:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %cond = icmp eq i64 %14, 17
-  br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %.critedge
+  %18 = icmp eq i64 %14, 17
+  br i1 %18, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %16
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %17, ptr noundef nonnull dereferenceable(5) @.str.14, i64 5)
-  %18 = icmp eq i32 %bcmp.i, 0
-  br i1 %18, label %.critedge24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread42
+  %19 = icmp eq i32 %bcmp.i, 0
+  br i1 %19, label %.critedge24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread42
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread42:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %bcmp.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %17, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
-  %19 = icmp eq i32 %bcmp.i27, 0
-  br i1 %19, label %.critedge24, label %.critedge
+  %20 = icmp eq i32 %bcmp.i27, 0
+  br i1 %20, label %.critedge24, label %.critedge
 
 .critedge:                                        ; preds = %16, %10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42, %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.01749, i64 8
-  %.not = icmp eq ptr %20, %5
+  %21 = getelementptr inbounds nuw i8, ptr %.01750, i64 8
+  %.not = icmp eq ptr %21, %5
   br i1 %.not, label %.critedge24, label %.lr.ph
 
 .critedge24:                                      ; preds = %.critedge, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42, %1
-  %not.switch = phi i1 [ false, %1 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %.critedge ]
-  ret i1 %not.switch
+  %22 = phi i1 [ false, %1 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %.critedge ]
+  ret i1 %22
 }
 
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2

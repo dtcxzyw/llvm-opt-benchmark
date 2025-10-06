@@ -2643,18 +2643,18 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit305: ; preds = %._ZN4c
   %.idx = and i64 %1170, 536870904
   %1171 = add nuw nsw i64 %.idx, 24
   %1172 = getelementptr inbounds nuw i8, ptr %.pre, i64 %1171
-  %.not29.not.i = icmp samesign eq i64 %spec.select.v.i.i.i, %1171
-  br i1 %.not29.not.i, label %_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_120childrenTypesChangedENS0_12NodeTemplateILb1EEERSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE.exit, label %.lr.ph.i.preheader
+  %.not30.not.i = icmp samesign eq i64 %spec.select.v.i.i.i, %1171
+  br i1 %.not30.not.i, label %_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_120childrenTypesChangedENS0_12NodeTemplateILb1EEERSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.noexc310
   %spec.select.i.i.i306 = getelementptr inbounds nuw i8, ptr %.pre, i64 %spec.select.v.i.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308, %.lr.ph.i.preheader
-  %.sroa.020.030.i = phi ptr [ %spec.select.i.i.i306, %.lr.ph.i.preheader ], [ %1236, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308 ]
+  %.sroa.020.031.i = phi ptr [ %spec.select.i.i.i306, %.lr.ph.i.preheader ], [ %1236, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !297)
-  %1173 = load ptr, ptr %.sroa.020.030.i, align 8, !tbaa !260, !noalias !297
+  %1173 = load ptr, ptr %.sroa.020.031.i, align 8, !tbaa !260, !noalias !297
   store ptr %1173, ptr %25, align 8, !tbaa !256, !alias.scope !297
   %1174 = load i64, ptr %1173, align 8, !noalias !297
   %1175 = lshr i64 %1174, 40
@@ -2711,7 +2711,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal
 1195:                                             ; preds = %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit.i
   %1196 = load ptr, ptr %27, align 8, !tbaa !295
   %1197 = load ptr, ptr %26, align 8, !tbaa !295
-  %.not23.not.i.not = icmp ne ptr %1196, %1197
+  %.not24.not.i.not = icmp ne ptr %1196, %1197
   %1198 = load i64, ptr %1196, align 8
   %1199 = and i64 %1198, 1152920405095219200
   %.not.i.i.i307 = icmp eq i64 %1199, 1152920405095219200
@@ -2795,9 +2795,9 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit18.i:          ; preds = %1219, %1213, %_ZN4c
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308: ; preds = %1232, %1226, %_ZN4cvc58internal8TypeNodeD2Ev.exit18.i
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %1236 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 8
+  %1236 = getelementptr inbounds nuw i8, ptr %.sroa.020.031.i, i64 8
   %.not.not.i = icmp eq ptr %1236, %1172
-  %or.cond1224 = select i1 %.not23.not.i.not, i1 true, i1 %.not.not.i
+  %or.cond1224 = select i1 %.not24.not.i.not, i1 true, i1 %.not.not.i
   br i1 %or.cond1224, label %_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_120childrenTypesChangedENS0_12NodeTemplateILb1EEERSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE.exit, label %.lr.ph.i
 
 1237:                                             ; preds = %1193, %1191
@@ -2808,7 +2808,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308: ; preds = %1232, %1226, %_Z
   br label %.body312
 
 _ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_120childrenTypesChangedENS0_12NodeTemplateILb1EEERSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308, %.noexc310
-  %.not.lcssa.i = phi i1 [ false, %.noexc310 ], [ %.not23.not.i.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308 ]
+  %.not.lcssa.i = phi i1 [ false, %.noexc310 ], [ %.not24.not.i.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i308 ]
   %1238 = load i64, ptr %.pre, align 8
   %1239 = and i64 %1238, 1152920405095219200
   %.not.i.i314 = icmp eq i64 %1239, 1152920405095219200

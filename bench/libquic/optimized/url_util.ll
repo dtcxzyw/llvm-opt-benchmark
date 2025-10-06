@@ -270,8 +270,8 @@ define noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef %
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp slt i32 %6, 1
-  %.not9.not.i.i = icmp eq ptr %.val.i, %.val3.i
-  %or.cond.i.i = select i1 %7, i1 true, i1 %.not9.not.i.i
+  %.not9.i.i = icmp eq ptr %.val.i, %.val3.i
+  %or.cond.i.i = select i1 %7, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
@@ -293,8 +293,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %17 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.i.i ]
   %18 = tail call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %10, i64 %12, ptr %13, i64 %17)
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
-  %.not.not.i.i = icmp eq ptr %19, %.val3.i
-  %or.cond = select i1 %18, i1 true, i1 %.not.not.i.i
+  %.not.i.i = icmp eq ptr %19, %.val3.i
+  %or.cond = select i1 %18, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit, label %.lr.ph.i.i
 
 _ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit: ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i, %2
@@ -312,12 +312,12 @@ define noundef zeroext i1 @_ZN3url21GetStandardSchemeTypeEPKcRKNS_9ComponentEPNS
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = icmp slt i32 %7, 1
-  %.not9.not.i.i = icmp eq ptr %.val.i, %.val3.i
-  %or.cond.i.i = select i1 %8, i1 true, i1 %.not9.not.i.i
+  %.not9.i.i = icmp eq ptr %.val.i, %.val3.i
+  %or.cond.i.i = select i1 %8, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.critedge.i.i
-  %.sroa.04.010.i.i = phi ptr [ %23, %.critedge.i.i ], [ %.val.i, %3 ]
+  %.sroa.04.010.i.i = phi ptr [ %20, %.critedge.i.i ], [ %.val.i, %3 ]
   %9 = load i32, ptr %1, align 4, !tbaa !20
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
@@ -334,21 +334,21 @@ define noundef zeroext i1 @_ZN3url21GetStandardSchemeTypeEPKcRKNS_9ComponentEPNS
 _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i: ; preds = %16, %.lr.ph.i.i
   %18 = phi i64 [ %17, %16 ], [ 0, %.lr.ph.i.i ]
   %19 = tail call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %11, i64 %13, ptr %14, i64 %18)
-  br i1 %19, label %20, label %.critedge.i.i
-
-20:                                               ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !23
-  store i32 %22, ptr %2, align 4, !tbaa !15
-  br label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit
+  br i1 %19, label %21, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
-  %.not.not.i.i = icmp eq ptr %23, %.val3.i
-  br i1 %.not.not.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit, label %.lr.ph.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
+  %.not.i.i = icmp eq ptr %20, %.val3.i
+  br i1 %.not.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit, label %.lr.ph.i.i
 
-_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit: ; preds = %.critedge.i.i, %3, %20
-  %.0.i.i = phi i1 [ false, %3 ], [ true, %20 ], [ false, %.critedge.i.i ]
+21:                                               ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 8
+  %23 = load i32, ptr %22, align 8, !tbaa !23
+  store i32 %23, ptr %2, align 4, !tbaa !15
+  br label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit
+
+_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit: ; preds = %.critedge.i.i, %3, %21
+  %.0.i.i = phi i1 [ false, %3 ], [ true, %21 ], [ false, %.critedge.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -362,8 +362,8 @@ define noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef %
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp slt i32 %6, 1
-  %.not9.not.i.i = icmp eq ptr %.val.i, %.val3.i
-  %or.cond.i.i = select i1 %7, i1 true, i1 %.not9.not.i.i
+  %.not9.i.i = icmp eq ptr %.val.i, %.val3.i
+  %or.cond.i.i = select i1 %7, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardItEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
@@ -385,8 +385,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %17 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.i.i ]
   %18 = tail call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEENS0_INS2_IcSt11char_traitsIcESaIcEEEEE(ptr %10, i64 %12, ptr %13, i64 %17)
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
-  %.not.not.i.i = icmp eq ptr %19, %.val3.i
-  %or.cond = select i1 %18, i1 true, i1 %.not.not.i.i
+  %.not.i.i = icmp eq ptr %19, %.val3.i
+  %or.cond = select i1 %18, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %_ZN3url12_GLOBAL__N_112DoIsStandardItEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit, label %.lr.ph.i.i
 
 _ZN3url12_GLOBAL__N_112DoIsStandardItEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit: ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i, %2
@@ -404,8 +404,8 @@ define noundef zeroext i1 @_ZN3url16IsReferrerSchemeEPKcRKNS_9ComponentE(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp slt i32 %6, 1
-  %.not9.not.i = icmp eq ptr %.val, %.val2
-  %or.cond.i = select i1 %7, i1 true, i1 %.not9.not.i
+  %.not9.i = icmp eq ptr %.val, %.val2
+  %or.cond.i = select i1 %7, i1 true, i1 %.not9.i
   br i1 %or.cond.i, label %_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i
@@ -427,8 +427,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %17 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.i ]
   %18 = tail call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %10, i64 %12, ptr %13, i64 %17)
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i, i64 16
-  %.not.not.i = icmp eq ptr %19, %.val2
-  %or.cond = select i1 %18, i1 true, i1 %.not.not.i
+  %.not.i = icmp eq ptr %19, %.val2
+  %or.cond = select i1 %18, i1 true, i1 %.not.i
   br i1 %or.cond, label %_ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.exit, label %.lr.ph.i
 
 _ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERKSt6vectorINS_14SchemeWithTypeESaISB_EE.exit: ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i, %2
@@ -889,8 +889,8 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
   %.val3.i = load ptr, ptr %60, align 8
   %61 = load i32, ptr %17, align 4, !tbaa !17
   %62 = icmp slt i32 %61, 1
-  %.not9.not.i.i = icmp eq ptr %.val.i, %.val3.i
-  %or.cond.i.i = select i1 %62, i1 true, i1 %.not9.not.i.i
+  %.not9.i.i = icmp eq ptr %.val.i, %.val3.i
+  %or.cond.i.i = select i1 %62, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %80, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc50, %.critedge.i.i
@@ -918,8 +918,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 .critedge.i.i:                                    ; preds = %.noexc51
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
-  %.not.not.i.i = icmp eq ptr %74, %.val3.i
-  br i1 %.not.not.i.i, label %thread-pre-split61, label %.lr.ph.i.i
+  %.not.i.i = icmp eq ptr %74, %.val3.i
+  br i1 %.not.i.i, label %thread-pre-split61, label %.lr.ph.i.i
 
 75:                                               ; preds = %.noexc51
   %76 = load i32, ptr %8, align 4, !tbaa !28
@@ -1168,8 +1168,8 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
   %.val3.i = load ptr, ptr %60, align 8
   %61 = load i32, ptr %17, align 4, !tbaa !17
   %62 = icmp slt i32 %61, 1
-  %.not9.not.i.i = icmp eq ptr %.val.i, %.val3.i
-  %or.cond.i.i = select i1 %62, i1 true, i1 %.not9.not.i.i
+  %.not9.i.i = icmp eq ptr %.val.i, %.val3.i
+  %or.cond.i.i = select i1 %62, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %80, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc50, %.critedge.i.i
@@ -1197,8 +1197,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 .critedge.i.i:                                    ; preds = %.noexc51
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
-  %.not.not.i.i = icmp eq ptr %74, %.val3.i
-  br i1 %.not.not.i.i, label %thread-pre-split61, label %.lr.ph.i.i
+  %.not.i.i = icmp eq ptr %74, %.val3.i
+  br i1 %.not.i.i, label %thread-pre-split61, label %.lr.ph.i.i
 
 75:                                               ; preds = %.noexc51
   %76 = load i32, ptr %8, align 4, !tbaa !28
@@ -1395,8 +1395,8 @@ define noundef zeroext i1 @_ZN3url15ResolveRelativeEPKciRKNS_6ParsedES1_iPNS_16C
   %.val3.i.i = load ptr, ptr %39, align 8
   %40 = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !17
   %41 = icmp slt i32 %40, 1
-  %.not9.not.i.i.i = icmp eq ptr %.val.i.i, %.val3.i.i
-  %or.cond.i.i.i = select i1 %41, i1 true, i1 %.not9.not.i.i.i
+  %.not9.i.i.i = icmp eq ptr %.val.i.i, %.val3.i.i
+  %or.cond.i.i.i = select i1 %41, i1 true, i1 %.not9.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc.i, %.noexc70.i
@@ -1421,8 +1421,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 .noexc70.i:                                       ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i.i, i64 16
-  %.not.not.i.i.i = icmp eq ptr %53, %.val3.i.i
-  %or.cond = select i1 %52, i1 true, i1 %.not.not.i.i.i
+  %.not.i.i.i = icmp eq ptr %53, %.val3.i.i
+  %or.cond = select i1 %52, i1 true, i1 %.not.i.i.i
   br i1 %or.cond, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i, label %.lr.ph.i.i.i
 
 _ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i: ; preds = %.noexc70.i, %21, %.noexc.i, %36
@@ -1724,8 +1724,8 @@ define noundef zeroext i1 @_ZN3url15ResolveRelativeEPKciRKNS_6ParsedEPKtiPNS_16C
   %.val3.i.i = load ptr, ptr %39, align 8
   %40 = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !17
   %41 = icmp slt i32 %40, 1
-  %.not9.not.i.i.i = icmp eq ptr %.val.i.i, %.val3.i.i
-  %or.cond.i.i.i = select i1 %41, i1 true, i1 %.not9.not.i.i.i
+  %.not9.i.i.i = icmp eq ptr %.val.i.i, %.val3.i.i
+  %or.cond.i.i.i = select i1 %41, i1 true, i1 %.not9.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc.i, %.noexc70.i
@@ -1750,8 +1750,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 .noexc70.i:                                       ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i.i, i64 16
-  %.not.not.i.i.i = icmp eq ptr %53, %.val3.i.i
-  %or.cond = select i1 %52, i1 true, i1 %.not.not.i.i.i
+  %.not.i.i.i = icmp eq ptr %53, %.val3.i.i
+  %or.cond = select i1 %52, i1 true, i1 %.not.i.i.i
   br i1 %or.cond, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i, label %.lr.ph.i.i.i
 
 _ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i: ; preds = %.noexc70.i, %21, %.noexc.i, %36
@@ -2268,8 +2268,8 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
   %.val3.i = load ptr, ptr %127, align 8
   %128 = load i32, ptr %101, align 4, !tbaa !17
   %129 = icmp slt i32 %128, 1
-  %.not9.not.i.i = icmp eq ptr %.val.i, %.val3.i
-  %or.cond.i.i = select i1 %129, i1 true, i1 %.not9.not.i.i
+  %.not9.i.i = icmp eq ptr %.val.i, %.val3.i
+  %or.cond.i.i = select i1 %129, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %144, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %125, %.critedge.i.i
@@ -2294,8 +2294,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 .critedge.i.i:                                    ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
-  %.not.not.i.i = icmp eq ptr %141, %.val3.i
-  br i1 %.not.not.i.i, label %thread-pre-split92, label %.lr.ph.i.i
+  %.not.i.i = icmp eq ptr %141, %.val3.i
+  br i1 %.not.i.i, label %thread-pre-split92, label %.lr.ph.i.i
 
 142:                                              ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
   %143 = tail call noundef zeroext i1 @_ZN3url18ReplaceStandardURLEPKcRKNS_6ParsedERKNS_12ReplacementsIcEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
@@ -2640,8 +2640,8 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
   %.val3.i = load ptr, ptr %127, align 8
   %128 = load i32, ptr %101, align 4, !tbaa !17
   %129 = icmp slt i32 %128, 1
-  %.not9.not.i.i = icmp eq ptr %.val.i, %.val3.i
-  %or.cond.i.i = select i1 %129, i1 true, i1 %.not9.not.i.i
+  %.not9.i.i = icmp eq ptr %.val.i, %.val3.i
+  %or.cond.i.i = select i1 %129, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %144, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %125, %.critedge.i.i
@@ -2666,8 +2666,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 .critedge.i.i:                                    ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i, i64 16
-  %.not.not.i.i = icmp eq ptr %141, %.val3.i
-  br i1 %.not.not.i.i, label %thread-pre-split92, label %.lr.ph.i.i
+  %.not.i.i = icmp eq ptr %141, %.val3.i
+  br i1 %.not.i.i, label %thread-pre-split92, label %.lr.ph.i.i
 
 142:                                              ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i
   %143 = tail call noundef zeroext i1 @_ZN3url18ReplaceStandardURLEPKcRKNS_6ParsedERKNS_12ReplacementsItEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)

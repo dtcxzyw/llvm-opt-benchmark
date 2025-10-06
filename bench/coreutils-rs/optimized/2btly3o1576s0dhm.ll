@@ -562,8 +562,8 @@ define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$co
   %14 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17heed41530cdaaa49fE.llvm.18437011518490787362(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr11memchr2_raw2FN17h3bc5962f83072267E, i8 noundef 0), !noalias !92
   %15 = tail call { i64, ptr } %14(i8 noundef 32, i8 noundef 9, ptr noundef nonnull readonly align 1 %12, ptr noundef nonnull readonly %13), !noalias !96
   %16 = extractvalue { i64, ptr } %15, 0
-  %switch8.i.not.i = icmp eq i64 %16, 0
-  br i1 %switch8.i.not.i, label %"_ZN79_$LT$uu_cut..matcher..WhitespaceMatcher$u20$as$u20$uu_cut..matcher..Matcher$GT$10next_match17h70b02bb3eb0d28cbE.exit", label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %"_ZN79_$LT$uu_cut..matcher..WhitespaceMatcher$u20$as$u20$uu_cut..matcher..Matcher$GT$10next_match17h70b02bb3eb0d28cbE.exit", label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i: ; preds = %8
   %17 = extractvalue { i64, ptr } %15, 1
@@ -572,13 +572,13 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
   %20 = sub i64 %18, %19
   %21 = icmp sgt i64 %20, -1
   tail call void @llvm.assume(i1 %21)
-  %.016.i = add nuw i64 %20, 1
-  %22 = icmp ult i64 %.016.i, %11
+  %.015.i = add nuw i64 %20, 1
+  %22 = icmp ult i64 %.015.i, %11
   br i1 %22, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i, %25
-  %.017.i = phi i64 [ %.0.i, %25 ], [ %.016.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i ]
-  %23 = getelementptr inbounds i8, ptr %12, i64 %.017.i
+  %.016.i = phi i64 [ %.0.i, %25 ], [ %.015.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i ]
+  %23 = getelementptr inbounds i8, ptr %12, i64 %.016.i
   %24 = load i8, ptr %23, align 1, !alias.scope !89, !noalias !97, !noundef !13
   switch i8 %24, label %.loopexit [
     i8 32, label %25
@@ -586,7 +586,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
   ]
 
 25:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %.0.i = add nuw i64 %.017.i, 1
+  %.0.i = add nuw i64 %.016.i, 1
   %26 = icmp ult i64 %.0.i, %11
   br i1 %26, label %.lr.ph.i, label %.loopexit
 
@@ -595,7 +595,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
   unreachable
 
 .loopexit:                                        ; preds = %25, %.lr.ph.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i
-  %.sroa.6.0.ph = phi i64 [ %.016.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i ], [ %11, %25 ], [ %.017.i, %.lr.ph.i ]
+  %.sroa.6.0.ph = phi i64 [ %.015.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i ], [ %11, %25 ], [ %.016.i, %.lr.ph.i ]
   %28 = add i64 %20, %6
   %29 = add i64 %.sroa.6.0.ph, %6
   store i64 %29, ptr %5, align 8

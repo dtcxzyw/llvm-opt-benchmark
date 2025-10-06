@@ -1098,12 +1098,12 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h856814930b5b7cfcE(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hb0da8c2fef8e079aE(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 8, !range !222, !alias.scope !239, !noundef !21
-  %switch.i = icmp samesign ult i8 %2, 2
+  %3 = icmp eq i8 %2, 2
   %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.i = select i1 %switch.i, ptr %.sroa.01.0.i, ptr null
-  %3 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %4 = insertvalue { ptr, ptr } %3, ptr @anon.360eaabec42e6bb2431517e5aa02476d.86, 1
-  ret { ptr, ptr } %4
+  %.sroa.0.0.i = select i1 %3, ptr null, ptr %.sroa.01.0.i
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %5 = insertvalue { ptr, ptr } %4, ptr @anon.360eaabec42e6bb2431517e5aa02476d.86, 1
+  ret { ptr, ptr } %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

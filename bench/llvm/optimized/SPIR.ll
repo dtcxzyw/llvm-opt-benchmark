@@ -270,8 +270,8 @@ define internal void @_ZNK12_GLOBAL__N_112SPIRVABIInfo11computeInfoERN5clang7Cod
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i8, ptr %33, align 16, !noalias !359
   %35 = icmp ne i8 %34, 47
-  %.not1221.i = icmp eq ptr %32, null
-  %.not12.i = or i1 %.not1221.i, %35
+  %.not1220.i = icmp eq ptr %32, null
+  %.not12.i = or i1 %.not1220.i, %35
   br i1 %.not12.i, label %41, label %36
 
 36:                                               ; preds = %25
@@ -279,8 +279,8 @@ define internal void @_ZNK12_GLOBAL__N_112SPIRVABIInfo11computeInfoERN5clang7Cod
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = load i64, ptr %38, align 8, !noalias !359
   %40 = and i64 %39, 8388608
-  %.not22.i = icmp eq i64 %40, 0
-  br i1 %.not22.i, label %41, label %.critedge.i
+  %.not21.i = icmp eq i64 %40, 0
+  br i1 %.not21.i, label %41, label %.critedge.i
 
 .critedge.i:                                      ; preds = %36
   call void @_ZNK5clang7CodeGen14DefaultABIInfo18classifyReturnTypeENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %3, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 %.sroa.0.0.copyload.i) #13
@@ -349,11 +349,11 @@ _ZNK12_GLOBAL__N_112SPIRVABIInfo18classifyReturnTypeEN5clang8QualTypeE.exit: ; p
   %75 = load i32, ptr %74, align 8, !noalias !381
   %76 = and i32 %75, 255
   %77 = icmp eq i32 %76, 14
-  %.not1720.i.us = icmp ne ptr %69, null
-  %.not17.not23.i.us = and i1 %.not1720.i.us, %77
+  %.not1719.i.us = icmp ne ptr %69, null
+  %.not17.not22.i.us = and i1 %.not1719.i.us, %77
   %78 = lshr i32 %75, 8
   %79 = icmp eq i32 %78, %71
-  %or.cond.i.us = and i1 %79, %.not17.not23.i.us
+  %or.cond.i.us = and i1 %79, %.not17.not22.i.us
   br i1 %or.cond.i.us, label %91, label %80
 
 80:                                               ; preds = %67
@@ -581,8 +581,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_112SPIRVABIInfo20classifyArgumentT
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 16
   %26 = icmp ne i8 %25, 47
-  %.not1730 = icmp eq ptr %23, null
-  %.not17 = or i1 %.not1730, %26
+  %.not1727 = icmp eq ptr %23, null
+  %.not17 = or i1 %.not1727, %26
   br i1 %.not17, label %32, label %27
 
 27:                                               ; preds = %16
@@ -590,8 +590,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_112SPIRVABIInfo20classifyArgumentT
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 8388608
-  %.not31 = icmp eq i64 %31, 0
-  br i1 %.not31, label %32, label %.critedge
+  %.not28 = icmp eq i64 %31, 0
+  br i1 %.not28, label %32, label %.critedge
 
 .critedge:                                        ; preds = %27
   tail call void @_ZNK5clang7CodeGen14DefaultABIInfo20classifyArgumentTypeENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i64 %2) #13

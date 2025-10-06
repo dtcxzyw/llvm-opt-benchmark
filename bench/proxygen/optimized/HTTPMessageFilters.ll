@@ -455,8 +455,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %switch.i.not.i.i = icmp eq i32 %.lobit.i, %0
-  br i1 %switch.i.not.i.i, label %invoke.cont.i.i, label %_ZN5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEEaSIS5_EENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS9_4not_INS_8is_constISC_EEEENS_6detail7variant29is_variant_constructible_fromISD_NS9_6l_itemIN4mpl_5long_ILl2EEES3_NSM_INSO_ILl1EEES5_NS9_5l_endEEEEEEENSN_5bool_ILb1EEESW_EERS6_E4typeESD_.exit
+  %.not.i.i = icmp eq i32 %.lobit.i, %0
+  br i1 %.not.i.i, label %invoke.cont.i.i, label %_ZN5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEEaSIS5_EENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS9_4not_INS_8is_constISC_EEEENS_6detail7variant29is_variant_constructible_fromISD_NS9_6l_itemIN4mpl_5long_ILl2EEES3_NSM_INSO_ILl1EEES5_NS9_5l_endEEEEEEENSN_5bool_ILb1EEESW_EERS6_E4typeESD_.exit
 
 invoke.cont.i.i:                                  ; preds = %if.then
   store i32 1, ptr %prev_, align 8
@@ -792,20 +792,20 @@ if.end:                                           ; preds = %if.then, %invoke.co
 invoke.cont8:                                     ; preds = %if.end
   %4 = load i32, ptr %prev_, align 8
   %.lobit.i.i.i.i = ashr i32 %4, 31
-  %switch.i.i.i = icmp eq i32 %.lobit.i.i.i.i, %4
-  br i1 %switch.i.i.i, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i, label %if.then.i.i
+  %5 = icmp eq i32 %.lobit.i.i.i.i, %4
+  br i1 %5, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i, label %if.then.i.i
 
 _ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i: ; preds = %invoke.cont8
   %storage_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %5 = load ptr, ptr %call9, align 8
-  store ptr %5, ptr %storage_.i.i.i.i, align 8
+  %6 = load ptr, ptr %call9, align 8
+  store ptr %6, ptr %storage_.i.i.i.i, align 8
   br label %invoke.cont11
 
 if.then.i.i:                                      ; preds = %invoke.cont8
-  %6 = load ptr, ptr %call9, align 8
+  %7 = load ptr, ptr %call9, align 8
   %cmp.i.i.i = icmp eq i32 %4, 0
   %storage_.i.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr %6, ptr %storage_.i.i3.i.i, align 8
+  store ptr %7, ptr %storage_.i.i3.i.i, align 8
   br i1 %cmp.i.i.i, label %invoke.cont11, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
@@ -816,10 +816,10 @@ invoke.cont11:                                    ; preds = %if.else.i.i.i, %if.
   ret void
 
 terminate.lpad:                                   ; preds = %if.end
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #22
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #22
   unreachable
 }
 
@@ -838,8 +838,8 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
-  %switch.i.i.i.i.i = icmp eq i32 %.lobit.i, %0
-  br i1 %switch.i.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
+  %1 = icmp eq i32 %.lobit.i, %0
+  br i1 %1, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5boost7bad_getE, i64 16), ptr %ref.tmp.i.i.i, align 8
@@ -850,7 +850,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i) #21
   br label %terminate.lpad.body
@@ -858,21 +858,21 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
 invoke.cont:                                      ; preds = %land.lhs.true
   %storage_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
-  %2 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
-  %cmp4 = icmp ne ptr %2, %prev
+  %3 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
+  %cmp4 = icmp ne ptr %3, %prev
   %tobool = icmp ne ptr %prev, null
   %or.cond = and i1 %tobool, %cmp4
   %nextElementIsPaused_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %3 = load i8, ptr %nextElementIsPaused_, align 8
-  %tobool7 = trunc i8 %3 to i1
+  %4 = load i8, ptr %nextElementIsPaused_, align 8
+  %tobool7 = trunc i8 %4 to i1
   %or.cond1 = select i1 %or.cond, i1 %tobool7, i1 false
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   %vtable = load ptr, ptr %prev, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
-  %4 = load ptr, ptr %vfn, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %prev)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %prev)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %invoke.cont, %entry
@@ -880,30 +880,30 @@ if.end:                                           ; preds = %if.then, %invoke.co
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %if.end
-  %5 = load i32, ptr %prev_, align 8
-  %.lobit.i.i.i.i = ashr i32 %5, 31
-  %switch.i.not.i.i = icmp eq i32 %.lobit.i.i.i.i, %5
-  %6 = load ptr, ptr %call10, align 8
-  br i1 %switch.i.not.i.i, label %invoke.cont.i.i, label %invoke.cont12
+  %6 = load i32, ptr %prev_, align 8
+  %.lobit.i.i.i.i = ashr i32 %6, 31
+  %.not.i.i = icmp eq i32 %.lobit.i.i.i.i, %6
+  %7 = load ptr, ptr %call10, align 8
+  br i1 %.not.i.i, label %invoke.cont.i.i, label %invoke.cont12
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont9
   store i32 1, ptr %prev_, align 8
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %invoke.cont.i.i, %invoke.cont9
-  %7 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  store ptr %7, ptr %8, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %if.end, %if.then
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %lpad.i.i.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %terminate.lpad ], [ %1, %lpad.i.i.i ]
-  %9 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %9) #22
+  %eh.lpad-body = phi { ptr, i32 } [ %9, %terminate.lpad ], [ %2, %lpad.i.i.i ]
+  %10 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %10) #22
   unreachable
 }
 

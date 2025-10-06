@@ -270,20 +270,20 @@ define internal fastcc void @_ZL20normalizePathSegmentRNSt7__cxx1112basic_string
   %9 = load i64, ptr %8, align 8, !tbaa !14
   %10 = tail call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr %7, i64 %9, i32 noundef 0) #17
   %11 = extractvalue { ptr, i64 } %10, 1
-  %.not.i.i55 = icmp eq i64 %11, 1
-  br i1 %.not.i.i55, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.not.i.i54 = icmp eq i64 %11, 1
+  br i1 %.not.i.i54, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %1, %_ZN4llvmneENS_9StringRefES0_.exit.thread44
   %.pn = phi { ptr, i64 } [ %16, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %10, %1 ]
-  %.sroa.10.057 = phi i64 [ %15, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %9, %1 ]
-  %.sroa.035.056 = phi ptr [ %14, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %7, %1 ]
+  %.sroa.10.056 = phi i64 [ %15, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %9, %1 ]
+  %.sroa.035.055 = phi ptr [ %14, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %7, %1 ]
   %12 = extractvalue { ptr, i64 } %.pn, 0
   %lhsc = load i8, ptr %12, align 1
-  %.not54 = icmp eq i8 %lhsc, 46
-  br i1 %.not54, label %_ZN4llvmneENS_9StringRefES0_.exit.thread44, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.not53 = icmp eq i8 %lhsc, 46
+  br i1 %.not53, label %_ZN4llvmneENS_9StringRefES0_.exit.thread44, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread44:       ; preds = %_ZN4llvmneENS_9StringRefES0_.exit
-  %13 = tail call { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr %.sroa.035.056, i64 %.sroa.10.057, i32 noundef 0) #17
+  %13 = tail call { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr %.sroa.035.055, i64 %.sroa.10.056, i32 noundef 0) #17
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = tail call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr %14, i64 %15, i32 noundef 0) #17
@@ -292,16 +292,16 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread44:       ; preds = %_ZN4llvmneENS_9Stri
   br i1 %.not.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmneENS_9StringRefES0_.exit.thread44, %1
-  %.sroa.035.0.lcssa = phi ptr [ %7, %1 ], [ %14, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %.sroa.035.056, %_ZN4llvmneENS_9StringRefES0_.exit ]
-  %.sroa.10.0.lcssa = phi i64 [ %9, %1 ], [ %15, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %.sroa.10.057, %_ZN4llvmneENS_9StringRefES0_.exit ]
+  %.sroa.035.0.lcssa = phi ptr [ %7, %1 ], [ %14, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %.sroa.035.055, %_ZN4llvmneENS_9StringRefES0_.exit ]
+  %.sroa.10.0.lcssa = phi i64 [ %9, %1 ], [ %15, %_ZN4llvmneENS_9StringRefES0_.exit.thread44 ], [ %.sroa.10.056, %_ZN4llvmneENS_9StringRefES0_.exit ]
   switch i64 %.sroa.10.0.lcssa, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread [
     i64 0, label %19
     i64 1, label %_ZN4llvmeqENS_9StringRefES0_.exit
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread
-  %lhsc87 = load i8, ptr %.sroa.035.0.lcssa, align 1
-  %18 = icmp eq i8 %lhsc87, 47
+  %lhsc86 = load i8, ptr %.sroa.035.0.lcssa, align 1
+  %18 = icmp eq i8 %lhsc86, 47
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit

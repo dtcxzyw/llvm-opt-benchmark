@@ -198,9 +198,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 6:                                                ; preds = %6, %.lr.ph.i.i
   %7 = phi i64 [ %.sroa.44.0.copyload, %.lr.ph.i.i ], [ %14, %6 ]
-  %.sroa.01.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %8, %6 ]
-  %8 = add nuw i64 %.sroa.01.019.i.i, 1
-  %9 = add i64 %.sroa.01.019.i.i, %.sroa.52.0.copyload
+  %.sroa.01.018.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %8, %6 ]
+  %8 = add nuw i64 %.sroa.01.018.i.i, 1
+  %9 = add i64 %.sroa.01.018.i.i, %.sroa.52.0.copyload
   %10 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %9
   %11 = getelementptr inbounds float, ptr %.sroa.41.0.copyload, i64 %9
   %.val15.i.i = load i32, ptr %10, align 4, !noalias !62, !noundef !7
@@ -277,9 +277,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %.val10.i = load i64, ptr %4, align 8, !alias.scope !86, !noalias !89, !noundef !7
   %5 = sub i64 %.val10.i, %.val.i
   %.not.i = icmp eq i64 %.val10.i, %.val.i
-  br i1 %.not.i, label %._crit_edge20.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge19.i, label %.lr.ph.i
 
-._crit_edge20.i:                                  ; preds = %2
+._crit_edge19.i:                                  ; preds = %2
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val12.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !91, !noalias !86
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he96fa85d061d92e3E.llvm.952538468121597485.exit"
@@ -300,9 +300,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 
 10:                                               ; preds = %10, %.lr.ph.i
   %11 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %18, %10 ]
-  %.sroa.01.019.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %10 ]
-  %12 = add nuw i64 %.sroa.01.019.i, 1
-  %13 = add i64 %.sroa.01.019.i, %.val.i
+  %.sroa.01.018.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %10 ]
+  %12 = add nuw i64 %.sroa.01.018.i, 1
+  %13 = add i64 %.sroa.01.018.i, %.val.i
   %14 = getelementptr inbounds i32, ptr %.val.i.i, i64 %13
   %15 = getelementptr inbounds float, ptr %.val2.i.i, i64 %13
   %.val15.i = load i32, ptr %14, align 4, !noalias !106, !noundef !7
@@ -318,8 +318,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %exitcond.not.i = icmp eq i64 %12, %5
   br i1 %exitcond.not.i, label %._crit_edge.i, label %10
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he96fa85d061d92e3E.llvm.952538468121597485.exit": ; preds = %._crit_edge20.i, %._crit_edge.i
-  %.val12.i = phi i64 [ %.val12.pre.i, %._crit_edge20.i ], [ %18, %._crit_edge.i ]
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he96fa85d061d92e3E.llvm.952538468121597485.exit": ; preds = %._crit_edge19.i, %._crit_edge.i
+  %.val12.i = phi i64 [ %.val12.pre.i, %._crit_edge19.i ], [ %18, %._crit_edge.i ]
   %.val11.i = load ptr, ptr %1, align 8, !alias.scope !91, !noalias !86, !nonnull !7, !align !111, !noundef !7
   store i64 %.val12.i, ptr %.val11.i, align 8, !noalias !112
   ret void
@@ -401,9 +401,9 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %.val10 = load i64, ptr %4, align 8, !noundef !7
   %5 = sub i64 %.val10, %.val
   %.not = icmp eq i64 %.val10, %.val
-  br i1 %.not, label %._crit_edge20, label %.lr.ph
+  br i1 %.not, label %._crit_edge19, label %.lr.ph
 
-._crit_edge20:                                    ; preds = %2
+._crit_edge19:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val12.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !130
   br label %10
@@ -422,17 +422,17 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   store i64 %19, ptr %9, align 8, !alias.scope !138
   br label %10
 
-10:                                               ; preds = %._crit_edge20, %._crit_edge
-  %.val12 = phi i64 [ %.val12.pre, %._crit_edge20 ], [ %19, %._crit_edge ]
+10:                                               ; preds = %._crit_edge19, %._crit_edge
+  %.val12 = phi i64 [ %.val12.pre, %._crit_edge19 ], [ %19, %._crit_edge ]
   %.val11 = load ptr, ptr %1, align 8, !alias.scope !130, !nonnull !7, !align !111, !noundef !7
   store i64 %.val12, ptr %.val11, align 8, !noalias !145
   ret void
 
 11:                                               ; preds = %.lr.ph, %11
   %12 = phi i64 [ %.promoted, %.lr.ph ], [ %19, %11 ]
-  %.sroa.01.019 = phi i64 [ 0, %.lr.ph ], [ %13, %11 ]
-  %13 = add nuw i64 %.sroa.01.019, 1
-  %14 = add i64 %.sroa.01.019, %.val
+  %.sroa.01.018 = phi i64 [ 0, %.lr.ph ], [ %13, %11 ]
+  %13 = add nuw i64 %.sroa.01.018, 1
+  %14 = add i64 %.sroa.01.018, %.val
   %15 = getelementptr inbounds i32, ptr %.val.i, i64 %14
   %16 = getelementptr inbounds float, ptr %.val2.i, i64 %14
   %.val15 = load i32, ptr %15, align 4, !noundef !7

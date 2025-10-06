@@ -1197,7 +1197,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %.thread.thread
 
 24:                                               ; preds = %18
-  %25 = icmp slt i64 %3, 1
+  %25 = icmp slt i64 %3, -1
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %24
@@ -1891,11 +1891,12 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_read(ptr noundef readonly c
   br label %35
 
 18:                                               ; preds = %13
-  %19 = or i64 %4, %3
-  %or.cond = icmp slt i64 %19, 0
+  %19 = icmp slt i64 %3, -1
+  %.not23 = icmp slt i64 %4, 0
+  %or.cond.not28 = or i1 %19, %.not23
   %20 = add nuw i64 %4, %3
   %21 = icmp slt i64 %20, %3
-  %or.cond26 = select i1 %or.cond, i1 true, i1 %21
+  %or.cond26 = select i1 %or.cond.not28, i1 true, i1 %21
   br i1 %or.cond26, label %22, label %26
 
 22:                                               ; preds = %18

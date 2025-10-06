@@ -414,19 +414,19 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118VZeroUpperInserter20runOn
   %.val = load ptr, ptr %29, align 8, !tbaa !329
   %30 = getelementptr i8, ptr %20, i64 488
   %.val57 = load ptr, ptr %30, align 8, !tbaa !332
-  %.not3.not.i = icmp eq ptr %.val, %.val57
-  br i1 %.not3.not.i, label %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit, label %.lr.ph.i
+  %.not4.not.i = icmp eq ptr %.val, %.val57
+  br i1 %.not4.not.i, label %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
-  %.0114.i = phi ptr [ %36, %.lr.ph.i ], [ %.val, %16 ]
-  %31 = load i64, ptr %.0114.i, align 4
+  %.0115.i = phi ptr [ %36, %.lr.ph.i ], [ %.val, %16 ]
+  %31 = load i64, ptr %.0115.i, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %31 to i32
   %32 = add i32 %.sroa.0.0.extract.trunc.i, -191
   %or.cond.i.i = icmp ult i32 %32, 16
   %33 = add i32 %.sroa.0.0.extract.trunc.i, -247
   %34 = icmp ult i32 %33, 16
   %35 = or i1 %or.cond.i.i, %34
-  %36 = getelementptr inbounds nuw i8, ptr %.0114.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0115.i, i64 8
   %.not.not.i = icmp eq ptr %36, %.val57
   %or.cond = select i1 %35, i1 true, i1 %.not.not.i
   br i1 %or.cond, label %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit, label %.lr.ph.i
@@ -679,15 +679,15 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i: ; preds = %133, %126
   %149 = zext i24 %148 to i64
   %.idx.i.i = shl nuw nsw i64 %149, 5
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i.i
-  %.not27.not.i.i = icmp eq i24 %148, 0
-  br i1 %.not27.not.i.i, label %.loopexit69.i, label %.lr.ph.i.i
+  %.not30.not.i.i = icmp eq i24 %148, 0
+  br i1 %.not30.not.i.i, label %.loopexit69.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %144
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.056.073.i, i64 16
   br label %152
 
 152:                                              ; preds = %198, %.lr.ph.i.i
-  %.01728.i.i = phi ptr [ %146, %.lr.ph.i.i ], [ %199, %198 ]
+  %.01731.i.i = phi ptr [ %146, %.lr.ph.i.i ], [ %199, %198 ]
   %153 = load i32, ptr %107, align 4
   %154 = and i32 %153, 12
   %155 = icmp eq i32 %154, 0
@@ -701,60 +701,60 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i: ; preds = %133, %126
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load i64, ptr %160, align 8, !tbaa !403
   %162 = and i64 %161, 128
-  %.not21.i.i = icmp eq i64 %162, 0
-  br i1 %.not21.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, label %164
+  %.not24.i.i = icmp eq i64 %162, 0
+  br i1 %.not24.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, label %164
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %152
   %163 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.056.073.i, i64 noundef 128, i32 noundef 1) #14
   br i1 %163, label %164, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i
 
 164:                                              ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %158
-  %165 = load i32, ptr %.01728.i.i, align 8
+  %165 = load i32, ptr %.01731.i.i, align 8
   %166 = and i32 %165, 255
   %167 = icmp eq i32 %166, 12
   br i1 %167, label %168, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
 
 168:                                              ; preds = %164
-  %169 = getelementptr i8, ptr %.01728.i.i, i64 16
+  %169 = getelementptr i8, ptr %.01731.i.i, i64 16
   %.017.val.i.i = load ptr, ptr %169, align 8
   br label %172
 
 170:                                              ; preds = %172
-  %171 = add nuw nsw i32 %.0116.i.i.i, 1
+  %171 = add nuw nsw i32 %.0114.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %171, 207
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i62, label %172, !llvm.loop !407
 
 172:                                              ; preds = %170, %168
-  %.0116.i.i.i = phi i32 [ 191, %168 ], [ %171, %170 ]
-  %173 = lshr i32 %.0116.i.i.i, 5
+  %.0114.i.i.i = phi i32 [ 191, %168 ], [ %171, %170 ]
+  %173 = lshr i32 %.0114.i.i.i, 5
   %174 = zext nneg i32 %173 to i64
   %175 = getelementptr inbounds nuw i32, ptr %.017.val.i.i, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !408
-  %177 = and i32 %.0116.i.i.i, 31
+  %177 = and i32 %.0114.i.i.i, 31
   %178 = shl nuw i32 1, %177
   %179 = and i32 %178, %176
   %.not.i.i.i.i.i = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i.i, label %170, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
 
 180:                                              ; preds = %.preheader.i.i.i62
-  %181 = add nuw nsw i32 %.07.i.i.i, 1
-  %exitcond9.i.i.i = icmp eq i32 %181, 263
-  br i1 %exitcond9.i.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, label %.preheader.i.i.i62, !llvm.loop !409
+  %181 = add nuw nsw i32 %.05.i.i.i, 1
+  %exitcond7.i.i.i = icmp eq i32 %181, 263
+  br i1 %exitcond7.i.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, label %.preheader.i.i.i62, !llvm.loop !409
 
 .preheader.i.i.i62:                               ; preds = %170, %180
-  %.07.i.i.i = phi i32 [ %181, %180 ], [ 247, %170 ]
-  %182 = lshr i32 %.07.i.i.i, 5
+  %.05.i.i.i = phi i32 [ %181, %180 ], [ 247, %170 ]
+  %182 = lshr i32 %.05.i.i.i, 5
   %183 = zext nneg i32 %182 to i64
   %184 = getelementptr inbounds nuw i32, ptr %.017.val.i.i, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !408
-  %186 = and i32 %.07.i.i.i, 31
+  %186 = and i32 %.05.i.i.i, 31
   %187 = shl nuw i32 1, %186
   %188 = and i32 %187, %185
-  %.not.i.i16.i.i.i = icmp eq i32 %188, 0
-  br i1 %.not.i.i16.i.i.i, label %180, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  %.not.i.i15.i.i.i = icmp eq i32 %188, 0
+  br i1 %.not.i.i15.i.i.i, label %180, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
 
 _ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i: ; preds = %180, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %158
-  %.pr.i.i = load i32, ptr %.01728.i.i, align 8
+  %.pr.i.i = load i32, ptr %.01731.i.i, align 8
   br label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
 
 _ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i: ; preds = %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, %164
@@ -764,7 +764,7 @@ _ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i: ; preds = %_ZL2
   br i1 %or.cond.not.i.i, label %191, label %198
 
 191:                                              ; preds = %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
-  %192 = getelementptr inbounds nuw i8, ptr %.01728.i.i, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %.01731.i.i, i64 4
   %193 = load i32, ptr %192, align 4, !tbaa !343
   %194 = add i32 %193, -191
   %or.cond.i.i49.i = icmp ult i32 %194, 16
@@ -774,7 +774,7 @@ _ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i: ; preds = %_ZL2
   br i1 %197, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %198
 
 198:                                              ; preds = %191, %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
-  %199 = getelementptr inbounds nuw i8, ptr %.01728.i.i, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %.01731.i.i, i64 32
   %.not.not.i.i = icmp eq ptr %199, %150
   br i1 %.not.not.i.i, label %.loopexit69.i, label %152
 
@@ -790,17 +790,17 @@ _ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i: ; preds = %_ZL2
   %202 = zext i24 %.val46.i to i64
   %.idx.i50.i = shl nuw nsw i64 %202, 5
   %203 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 %.idx.i50.i
-  %.not1.not.i.i = icmp eq i24 %.val46.i, 0
-  br i1 %.not1.not.i.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %.lr.ph.i51.i
+  %.not2.not.i.i = icmp eq i24 %.val46.i, 0
+  br i1 %.not2.not.i.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %.lr.ph.i51.i
 
 204:                                              ; preds = %.lr.ph.i51.i
-  %205 = getelementptr inbounds nuw i8, ptr %.0122.i.i, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %.0123.i.i, i64 32
   %.not.not.i52.i = icmp eq ptr %205, %203
   br i1 %.not.not.i52.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %.lr.ph.i51.i
 
 .lr.ph.i51.i:                                     ; preds = %201, %204
-  %.0122.i.i = phi ptr [ %205, %204 ], [ %.val45.i, %201 ]
-  %206 = load i32, ptr %.0122.i.i, align 8
+  %.0123.i.i = phi ptr [ %205, %204 ], [ %.val45.i, %201 ]
+  %206 = load i32, ptr %.0123.i.i, align 8
   %207 = and i32 %206, 255
   %208 = icmp eq i32 %207, 12
   br i1 %208, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i, label %204

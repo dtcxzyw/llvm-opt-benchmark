@@ -122,8 +122,8 @@ lv_fs_resolve_path.exit:                          ; preds = %5, %7
 
 16:                                               ; preds = %.lr.ph.i
   %17 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 832), ptr noundef nonnull %.07.i) #6
-  %.not.i46 = icmp eq ptr %17, null
-  br i1 %.not.i46, label %lv_fs_get_drv.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  %.not.i47 = icmp eq ptr %17, null
+  br i1 %.not.i47, label %lv_fs_get_drv.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
 lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -147,19 +147,18 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !19
   %30 = icmp eq i32 %29, -1
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread49, label %31
 
-.thread:                                          ; preds = %26
+.thread49:                                        ; preds = %26
   store ptr %0, ptr %0, align 8, !tbaa !20
   br label %34
 
 31:                                               ; preds = %26
   %32 = tail call ptr %24(ptr noundef nonnull %13, ptr noundef %.0.i, i32 noundef %2) #6
-  %magicptr49 = ptrtoint ptr %32 to i64
-  switch i64 %magicptr49, label %33 [
-    i64 -1, label %lv_fs_get_drv.exit.thread
-    i64 0, label %lv_fs_get_drv.exit.thread
-  ]
+  %magicptr = ptrtoint ptr %32 to i64
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %33, label %lv_fs_get_drv.exit.thread
 
 33:                                               ; preds = %31
   store ptr %32, ptr %0, align 8, !tbaa !20
@@ -167,7 +166,7 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
   %.not43 = icmp eq i32 %.pr, 0
   br i1 %.not43, label %lv_fs_get_drv.exit.thread, label %34
 
-34:                                               ; preds = %.thread, %33
+34:                                               ; preds = %.thread49, %33
   %35 = tail call ptr @lv_malloc_zeroed(i64 noundef 24) #6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %35, ptr %36, align 8, !tbaa !21
@@ -204,8 +203,8 @@ lv_fs_get_drv.exit.thread.sink.split:             ; preds = %47, %40
   store i32 %.sink, ptr %48, align 4, !tbaa !29
   br label %lv_fs_get_drv.exit.thread
 
-lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.exit.thread.sink.split, %31, %31, %lv_fs_resolve_path.exit, %20, %22, %33, %3
-  %.0 = phi i32 [ 11, %3 ], [ 1, %20 ], [ 9, %22 ], [ 0, %33 ], [ 3, %lv_fs_resolve_path.exit ], [ 12, %31 ], [ 12, %31 ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 3, %16 ]
+lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.exit.thread.sink.split, %lv_fs_resolve_path.exit, %31, %20, %22, %33, %3
+  %.0 = phi i32 [ 11, %3 ], [ 1, %20 ], [ 9, %22 ], [ 0, %33 ], [ 12, %31 ], [ 3, %lv_fs_resolve_path.exit ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 3, %16 ]
   ret i32 %.0
 }
 
@@ -865,10 +864,9 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
 25:                                               ; preds = %21
   %26 = tail call ptr %23(ptr noundef nonnull %12, ptr noundef %.0.i) #6
   %magicptr = ptrtoint ptr %26 to i64
-  switch i64 %magicptr, label %27 [
-    i64 -1, label %lv_fs_get_drv.exit.thread
-    i64 0, label %lv_fs_get_drv.exit.thread
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %27, label %lv_fs_get_drv.exit.thread
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -876,8 +874,8 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
   store ptr %26, ptr %0, align 8, !tbaa !39
   br label %lv_fs_get_drv.exit.thread
 
-lv_fs_get_drv.exit.thread:                        ; preds = %15, %lv_fs_resolve_path.exit, %19, %21, %25, %25, %27, %2
-  %.0 = phi i32 [ 11, %2 ], [ 1, %19 ], [ 9, %21 ], [ 0, %27 ], [ 12, %25 ], [ 12, %25 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %15 ]
+lv_fs_get_drv.exit.thread:                        ; preds = %15, %lv_fs_resolve_path.exit, %25, %19, %21, %27, %2
+  %.0 = phi i32 [ 11, %2 ], [ 1, %19 ], [ 9, %21 ], [ 0, %27 ], [ 12, %25 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %15 ]
   ret i32 %.0
 }
 

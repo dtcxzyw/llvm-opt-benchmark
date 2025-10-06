@@ -88,8 +88,8 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = call ptr @systable_getnext_ordered(ptr noundef %29, i32 noundef 1) #5
-  %.not3338.i = icmp eq ptr %30, null
-  br i1 %.not3338.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not3336.i = icmp eq ptr %30, null
+  br i1 %.not3336.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 64

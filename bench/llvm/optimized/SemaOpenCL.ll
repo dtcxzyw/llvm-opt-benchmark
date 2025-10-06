@@ -889,8 +889,8 @@ define dso_local void @_ZN5clang10SemaOpenCL16handleAccessAttrEPNS_4DeclERKNS_10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 128
-  %.not127 = icmp eq i32 %20, 0
-  br i1 %.not127, label %21, label %454
+  %.not126 = icmp eq i32 %20, 0
+  br i1 %.not126, label %21, label %454
 
 21:                                               ; preds = %3
   %22 = and i32 %19, 256
@@ -922,8 +922,8 @@ define dso_local void @_ZN5clang10SemaOpenCL16handleAccessAttrEPNS_4DeclERKNS_10
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
 
 _ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not128 = icmp eq ptr %.sroa.07.1.i.i.i.i, %29
-  br i1 %.not128, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123, label %36
+  %.not127 = icmp eq ptr %.sroa.07.1.i.i.i.i, %29
+  br i1 %.not127, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123, label %36
 
 36:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit
   %37 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #17
@@ -1140,8 +1140,8 @@ _ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123: ; preds = %34
   %143 = load i32, ptr %18, align 4
   %144 = and i32 %143, 127
   %145 = icmp ne i32 %144, 41
-  %.not129 = icmp eq ptr %1, null
-  %.not = or i1 %.not129, %145
+  %.not128 = icmp eq ptr %1, null
+  %.not = or i1 %.not128, %145
   br i1 %.not, label %432, label %146
 
 146:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123
@@ -1165,9 +1165,9 @@ _ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123: ; preds = %34
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %160, ptr %161, align 8
   %162 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr nonnull @.str.1, i64 10, i64 noundef 0) #17
-  %.not130 = icmp eq i64 %162, -1
+  %.not129 = icmp eq i64 %162, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.not130, label %432, label %163
+  br i1 %.not129, label %432, label %163
 
 163:                                              ; preds = %146
   %164 = call noundef nonnull align 8 dereferenceable(849) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
@@ -7052,13 +7052,13 @@ _ZN5clanglsINS_7CanQualINS_4TypeEEEEERKNS_8SemaBase21SemaDiagnosticBuilderES7_RK
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 16
   %563 = load i8, ptr %562, align 16
   %564 = icmp ne i8 %563, 13
-  %.not.not24.i = icmp eq ptr %561, null
-  %.not.not.i = or i1 %.not.not24.i, %564
+  %.not.not21.i = icmp eq ptr %561, null
+  %.not.not.i = or i1 %.not.not21.i, %564
   br i1 %.not.not.i, label %565, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 565:                                              ; preds = %553
   %566 = icmp ne i8 %563, 46
-  %.not13.not.i = or i1 %.not.not24.i, %566
+  %.not13.not.i = or i1 %.not.not21.i, %566
   br i1 %.not13.not.i, label %580, label %567
 
 567:                                              ; preds = %565
@@ -8180,8 +8180,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = icmp ne i8 %7, 13
-  %.not.not24 = icmp eq ptr %5, null
-  %.not.not = or i1 %.not.not24, %8
+  %.not.not21 = icmp eq ptr %5, null
+  %.not.not = or i1 %.not.not21, %8
   br i1 %.not.not, label %14, label %9
 
 9:                                                ; preds = %1
@@ -8194,7 +8194,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
 
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
-  %.not13.not = or i1 %.not.not24, %15
+  %.not13.not = or i1 %.not.not21, %15
   br i1 %.not13.not, label %29, label %16
 
 16:                                               ; preds = %14
@@ -8311,13 +8311,13 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %19
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i8, ptr %59, align 16
   %61 = icmp ne i8 %60, 13
-  %.not.not24.i.i.i = icmp eq ptr %58, null
-  %.not.not.i.i.i = or i1 %.not.not24.i.i.i, %61
+  %.not.not21.i.i.i = icmp eq ptr %58, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %61
   br i1 %.not.not.i.i.i, label %62, label %_ZNK5clang4Type13isIntegerTypeEv.exit.i.i
 
 62:                                               ; preds = %36
   %63 = icmp ne i8 %60, 46
-  %.not13.not.i.i.i = or i1 %.not.not24.i.i.i, %63
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %63
   br i1 %.not13.not.i.i.i, label %77, label %64
 
 64:                                               ; preds = %62
@@ -9228,13 +9228,13 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %367 = load i8, ptr %366, align 16
   %368 = icmp ne i8 %367, 13
-  %.not.not24.i = icmp eq ptr %365, null
-  %.not.not.i = or i1 %.not.not24.i, %368
+  %.not.not21.i = icmp eq ptr %365, null
+  %.not.not.i = or i1 %.not.not21.i, %368
   br i1 %.not.not.i, label %369, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 369:                                              ; preds = %355
   %370 = icmp ne i8 %367, 46
-  %.not13.not.i = or i1 %.not.not24.i, %370
+  %.not13.not.i = or i1 %.not.not21.i, %370
   br i1 %.not13.not.i, label %384, label %371
 
 371:                                              ; preds = %369
@@ -11349,13 +11349,13 @@ define dso_local noundef zeroext i1 @_ZN5clang10SemaOpenCL25checkBuiltinReserveR
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i8, ptr %34, align 16
   %36 = icmp ne i8 %35, 13
-  %.not.not24.i = icmp eq ptr %33, null
-  %.not.not.i = or i1 %.not.not24.i, %36
+  %.not.not21.i = icmp eq ptr %33, null
+  %.not.not.i = or i1 %.not.not21.i, %36
   br i1 %.not.not.i, label %37, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 37:                                               ; preds = %15
   %38 = icmp ne i8 %35, 46
-  %.not13.not.i = or i1 %.not.not24.i, %38
+  %.not13.not.i = or i1 %.not.not21.i, %38
   br i1 %.not13.not.i, label %52, label %39
 
 39:                                               ; preds = %37

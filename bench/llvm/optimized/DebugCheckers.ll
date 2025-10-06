@@ -17233,17 +17233,17 @@ _ZNSt14priority_queueISt4pairIPN4llvm15DomTreeNodeBaseIN5clang8CFGBlockEEES0_Ijj
   %171 = zext i32 %170 to i64
   %.idx.i.i = shl nuw nsw i64 %171, 3
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %170, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %170, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %168, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %174, %.critedge.i.i ], [ %169, %168 ]
-  %173 = load ptr, ptr %.02937.i.i, align 8, !tbaa !3, !noalias !451
+  %.02935.i.i = phi ptr [ %174, %.critedge.i.i ], [ %169, %168 ]
+  %173 = load ptr, ptr %.02935.i.i, align 8, !tbaa !3, !noalias !451
   %.not17.i.i = icmp eq ptr %173, %127
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_15DomTreeNodeBaseIN5clang8CFGBlockEEEE6insertES5_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %174 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i30 = icmp eq ptr %174, %172
   br i1 %.not.i.i30, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !454
 
@@ -17593,17 +17593,17 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj8EED2Ev.exit: ; preds = %._crit_edge, 
   %303 = zext i32 %302 to i64
   %.idx.i.i55 = shl nuw nsw i64 %303, 3
   %304 = getelementptr inbounds nuw i8, ptr %301, i64 %.idx.i.i55
-  %.not36.i.i56 = icmp eq i32 %302, 0
-  br i1 %.not36.i.i56, label %._crit_edge.i.i62, label %.lr.ph.i.i57
+  %.not34.i.i56 = icmp eq i32 %302, 0
+  br i1 %.not34.i.i56, label %._crit_edge.i.i62, label %.lr.ph.i.i57
 
 .lr.ph.i.i57:                                     ; preds = %300, %.critedge.i.i60
-  %.02937.i.i58 = phi ptr [ %306, %.critedge.i.i60 ], [ %301, %300 ]
-  %305 = load ptr, ptr %.02937.i.i58, align 8, !tbaa !3, !noalias !470
+  %.02935.i.i58 = phi ptr [ %306, %.critedge.i.i60 ], [ %301, %300 ]
+  %305 = load ptr, ptr %.02935.i.i58, align 8, !tbaa !3, !noalias !470
   %.not17.i.i59 = icmp eq ptr %305, %297
   br i1 %.not17.i.i59, label %.critedge189, label %.critedge.i.i60
 
 .critedge.i.i60:                                  ; preds = %.lr.ph.i.i57
-  %306 = getelementptr inbounds nuw i8, ptr %.02937.i.i58, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %.02935.i.i58, i64 8
   %.not.i.i61 = icmp eq ptr %306, %304
   br i1 %.not.i.i61, label %._crit_edge.i.i62, label %.lr.ph.i.i57, !llvm.loop !454
 
@@ -17924,17 +17924,17 @@ _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit: ; preds 
   %63 = zext i32 %62 to i64
   %.idx.i.i = shl nuw nsw i64 %63, 3
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %62, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %62, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %59, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %66, %.critedge.i.i ], [ %60, %59 ]
-  %65 = load ptr, ptr %.02937.i.i, align 8, !tbaa !3, !noalias !481
+  %.02935.i.i = phi ptr [ %66, %.critedge.i.i ], [ %60, %59 ]
+  %65 = load ptr, ptr %.02935.i.i, align 8, !tbaa !3, !noalias !481
   %.not17.i.i = icmp eq ptr %65, %46
   br i1 %.not17.i.i, label %.critedge52, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %66, %64
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !454
 

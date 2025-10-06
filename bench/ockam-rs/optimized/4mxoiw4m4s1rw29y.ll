@@ -1390,43 +1390,43 @@ define hidden void @"_ZN85_$LT$tokio..io..util..read..Read$LT$R$GT$$u20$as$u20$c
   %16 = call { i64, ptr } @"_ZN96_$LT$tokio..net..tcp..split_owned..OwnedReadHalf$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17h786566084616ee4cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
   %.fca.0.extract = extractvalue { i64, ptr } %16, 0
   %.fca.1.extract = extractvalue { i64, ptr } %16, 1
-  %switch = icmp eq i64 %.fca.0.extract, 0
-  br i1 %switch, label %17, label %19
+  %17 = icmp eq i64 %.fca.0.extract, 0
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %3
-  %18 = icmp eq ptr %.fca.1.extract, null
-  br i1 %18, label %20, label %28
+18:                                               ; preds = %3
+  %19 = icmp eq ptr %.fca.1.extract, null
+  br i1 %19, label %21, label %29
 
-19:                                               ; preds = %3
+20:                                               ; preds = %3
   store i64 2, ptr %0, align 8
-  br label %29
+  br label %30
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr %12, align 8, !noundef !9
-  %22 = load i64, ptr %13, align 8, !noundef !9
-  %23 = icmp ugt i64 %22, %21
-  br i1 %23, label %24, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit"
+21:                                               ; preds = %18
+  %22 = load i64, ptr %12, align 8, !noundef !9
+  %23 = load i64, ptr %13, align 8, !noundef !9
+  %24 = icmp ugt i64 %23, %22
+  br i1 %24, label %25, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit"
 
-24:                                               ; preds = %20
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %22, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.698314ab7b99b072abc4126cdebc9b8b.6) #31, !noalias !235
+25:                                               ; preds = %21
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %23, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.698314ab7b99b072abc4126cdebc9b8b.6) #31, !noalias !235
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit": ; preds = %20
-  %25 = load ptr, ptr %4, align 8, !nonnull !9, !align !203, !noundef !9
-  %26 = call { ptr, i64 } @_ZN5tokio2io8read_buf17slice_assume_init17h3fc82948137d887fE(ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %22)
-  %27 = extractvalue { ptr, i64 } %26, 1
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit": ; preds = %21
+  %26 = load ptr, ptr %4, align 8, !nonnull !9, !align !203, !noundef !9
+  %27 = call { ptr, i64 } @_ZN5tokio2io8read_buf17slice_assume_init17h3fc82948137d887fE(ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %23)
+  %28 = extractvalue { ptr, i64 } %27, 1
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %27, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %29
+  store i64 %28, ptr %.sroa.4.0..sroa_idx, align 8
+  br label %30
 
-28:                                               ; preds = %17
+29:                                               ; preds = %18
   store i64 1, ptr %0, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.fca.1.extract, ptr %.sroa.414.0..sroa_idx, align 8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %19, %28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit"
+30:                                               ; preds = %20, %29, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

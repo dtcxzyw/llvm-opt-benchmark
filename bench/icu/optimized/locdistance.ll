@@ -1256,27 +1256,27 @@ define noundef zeroext i1 @_ZNK6icu_7714LocaleDistance13isParadigmLSRERKNS_3LSRE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !38
-  %.not89 = icmp sgt i32 %5, 0
-  br i1 %.not89, label %.lr.ph, label %._crit_edge
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
-6:                                                ; preds = %.lr.ph
+7:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr %4, align 8, !tbaa !38
-  %8 = sext i32 %7 to i64
-  %.not8 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %.not8, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  %8 = load i32, ptr %4, align 8, !tbaa !38
+  %9 = sext i32 %8 to i64
+  %10 = icmp slt i64 %indvars.iv.next, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
-.lr.ph:                                           ; preds = %2, %6
-  %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %2 ]
-  %9 = load ptr, ptr %3, align 8, !tbaa !36
-  %10 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %9, i64 %indvars.iv
-  %11 = tail call noundef signext i8 @_ZNK6icu_773LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %10)
-  %.not.not.not = icmp ne i8 %11, 0
-  br i1 %.not.not.not, label %._crit_edge, label %6
+.lr.ph:                                           ; preds = %2, %7
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
+  %11 = load ptr, ptr %3, align 8, !tbaa !36
+  %12 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %11, i64 %indvars.iv
+  %13 = tail call noundef signext i8 @_ZNK6icu_773LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %.not.not.not = icmp ne i8 %13, 0
+  br i1 %.not.not.not, label %._crit_edge, label %7
 
-._crit_edge:                                      ; preds = %6, %.lr.ph, %2
-  %.not8.lcssa = phi i1 [ false, %2 ], [ %.not.not.not, %.lr.ph ], [ %.not.not.not, %6 ]
-  ret i1 %.not8.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %7, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %.not.not.not, %7 ], [ %.not.not.not, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 declare noundef signext i8 @_ZNK6icu_773LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1

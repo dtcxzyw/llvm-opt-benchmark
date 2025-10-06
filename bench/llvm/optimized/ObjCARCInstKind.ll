@@ -633,12 +633,12 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %45, %48
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %45 ], [ %50, %48 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  %.not4462 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not4462, label %.thread, label %.lr.ph
+  %.not4461 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not4461, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm4User8operandsEv.exit, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
-  %.03863 = phi ptr [ %72, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread ], [ %53, %_ZNK4llvm4User8operandsEv.exit ]
-  %55 = load ptr, ptr %.03863, align 8, !tbaa !24
+  %.03862 = phi ptr [ %72, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread ], [ %53, %_ZNK4llvm4User8operandsEv.exit ]
+  %55 = load ptr, ptr %.03862, align 8, !tbaa !24
   %56 = load i8, ptr %55, align 8, !tbaa !23
   %57 = icmp ult i8 %56, 22
   %58 = icmp eq i8 %56, 60
@@ -668,12 +668,12 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %59, 
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 255
   %71 = icmp eq i32 %70, 14
-  %.not816.i = icmp ne ptr %67, null
-  %.not8.i = and i1 %.not816.i, %71
+  %.not815.i = icmp ne ptr %67, null
+  %.not8.i = and i1 %.not815.i, %71
   br i1 %.not8.i, label %.thread, label %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
 
 _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %60, %62, %64, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
-  %72 = getelementptr inbounds nuw i8, ptr %.03863, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.03862, i64 32
   %.not44 = icmp eq ptr %72, %54
   br i1 %.not44, label %.thread, label %.lr.ph
 
@@ -730,12 +730,12 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm7objcarc16GetCallSiteClassERKNS_
   %6 = sub nsw i64 0, %5
   %7 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %6
   %8 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %.not25 = icmp eq ptr %7, %8
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq ptr %7, %8
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
-  %.01426 = phi ptr [ %26, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread ], [ %7, %1 ]
-  %9 = load ptr, ptr %.01426, align 8, !tbaa !24
+  %.01424 = phi ptr [ %26, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread ], [ %7, %1 ]
+  %9 = load ptr, ptr %.01424, align 8, !tbaa !24
   %10 = load i8, ptr %9, align 8, !tbaa !23
   %11 = icmp ult i8 %10, 22
   %12 = icmp eq i8 %10, 60
@@ -765,12 +765,12 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %13, 
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 255
   %25 = icmp eq i32 %24, 14
-  %.not816.i = icmp ne ptr %21, null
-  %.not8.i = and i1 %.not816.i, %25
+  %.not815.i = icmp ne ptr %21, null
+  %.not8.i = and i1 %.not815.i, %25
   br i1 %.not8.i, label %27, label %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
 
 _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %14, %16, %18, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
-  %26 = getelementptr inbounds nuw i8, ptr %.01426, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.01424, i64 32
   %.not = icmp eq ptr %26, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -820,8 +820,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm7objcarc27IsPotentialReta
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 255
   %18 = icmp eq i32 %17, 14
-  %.not816 = icmp ne ptr %14, null
-  %.not8 = and i1 %.not816, %18
+  %.not815 = icmp ne ptr %14, null
+  %.not8 = and i1 %.not815, %18
   br label %.thread
 
 .thread:                                          ; preds = %6, %8, %10, %1, %12
@@ -886,8 +886,8 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm7objcarc11IsNeverTailENS0_11ARCInstKindE(i32 noundef %0) local_unnamed_addr #2 {
-  %switch = icmp eq i32 %0, 5
-  ret i1 %switch
+  %2 = icmp eq i32 %0, 5
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

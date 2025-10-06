@@ -2544,10 +2544,9 @@ thread-pre-split37:                               ; preds = %thread-pre-split37.
 363:                                              ; preds = %359, %354, %350
   %364 = load ptr, ptr %351, align 8
   %365 = ptrtoint ptr %364 to i64
-  switch i64 %365, label %366 [
-    i64 0, label %370
-    i64 -1, label %370
-  ]
+  %.off = add i64 %365, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %366, label %370
 
 366:                                              ; preds = %363
   %367 = load ptr, ptr %5, align 8
@@ -2557,8 +2556,8 @@ thread-pre-split37:                               ; preds = %thread-pre-split37.
   %.pre59 = load ptr, ptr %351, align 8
   br label %370
 
-370:                                              ; preds = %366, %363, %363
-  %371 = phi ptr [ %.pre59, %366 ], [ %364, %363 ], [ %364, %363 ]
+370:                                              ; preds = %363, %366
+  %371 = phi ptr [ %364, %363 ], [ %.pre59, %366 ]
   %372 = icmp ne ptr %371, null
   br label %queue_oom_reaper.exit
 

@@ -233,53 +233,53 @@ define void @_ZN3gmx28TrajectoryAnalysisModuleData4ImplC2EPNS_24TrajectoryAnalys
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %.not27 = icmp eq ptr %15, %16
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq ptr %15, %16
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %61
-  %.sroa.021.028 = phi ptr [ %62, %61 ], [ %15, %4 ]
+.lr.ph:                                           ; preds = %4, %63
+  %.sroa.020.027 = phi ptr [ %64, %63 ], [ %15, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN3gmx18AnalysisDataHandleC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %17 unwind label %.loopexit.split-lp
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.021.028, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.020.027, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %17
-  %.not8.i = icmp sgt i32 %20, 0
-  br i1 %.not8.i, label %.lr.ph.i, label %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph.i, label %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread
 
-21:                                               ; preds = %.noexc10
-  %22 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+22:                                               ; preds = %.noexc10
+  %23 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %.noexc9 unwind label %.loopexit
 
-.noexc9:                                          ; preds = %21
-  %23 = add nuw nsw i32 %.069.i, 1
-  %.not.i = icmp slt i32 %23, %22
-  br i1 %.not.i, label %.lr.ph.i, label %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread, !llvm.loop !33
+.noexc9:                                          ; preds = %22
+  %24 = add nuw nsw i32 %.069.i, 1
+  %25 = icmp slt i32 %24, %23
+  br i1 %25, label %.lr.ph.i, label %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread, !llvm.loop !33
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc9
-  %.069.i = phi i32 [ %23, %.noexc9 ], [ 0, %.noexc ]
-  %24 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef %.069.i)
+  %.069.i = phi i32 [ %24, %.noexc9 ], [ 0, %.noexc ]
+  %26 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef %.069.i)
           to label %.noexc10 unwind label %.loopexit
 
 .noexc10:                                         ; preds = %.lr.ph.i
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit, label %21
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit, label %22
 
 _ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit: ; preds = %.noexc10
-  %26 = load ptr, ptr %18, align 8, !tbaa !27
-  %27 = invoke ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 1 %2)
-          to label %28 unwind label %29
+  %28 = load ptr, ptr %18, align 8, !tbaa !27
+  %29 = invoke ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 1 %2)
+          to label %30 unwind label %31
 
-28:                                               ; preds = %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit
-  store ptr %27, ptr %5, align 8, !tbaa !35
+30:                                               ; preds = %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit
+  store ptr %29, ptr %5, align 8, !tbaa !35
   br label %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread
 
-.loopexit:                                        ; preds = %21, %.lr.ph.i
+.loopexit:                                        ; preds = %22, %.lr.ph.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -289,111 +289,111 @@ _ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.e
           cleanup
   br label %.body
 
-29:                                               ; preds = %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread: ; preds = %.noexc9, %.noexc, %28
-  %31 = load ptr, ptr %18, align 8, !tbaa !37
-  %32 = load i64, ptr %5, align 8, !tbaa !35
-  %33 = load ptr, ptr %7, align 8, !tbaa !19
-  %.not10.i.i.i.i = icmp eq ptr %33, null
+_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread: ; preds = %.noexc9, %.noexc, %30
+  %33 = load ptr, ptr %18, align 8, !tbaa !37
+  %34 = load i64, ptr %5, align 8, !tbaa !35
+  %35 = load ptr, ptr %7, align 8, !tbaa !19
+  %.not10.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %33, %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread ]
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %35, %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread ]
-  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !37
-  %36 = icmp ult ptr %35, %31
-  %.19.i.i.i.i = select i1 %36, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %36, i64 24, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !37
+  %38 = icmp ult ptr %37, %33
+  %.19.i.i.i.i = select i1 %38, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %38, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !38
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !39
 
 _ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %37 = icmp eq ptr %.19.i.i.i.i, %6
-  br i1 %37, label %.critedge.i, label %38
+  %39 = icmp eq ptr %.19.i.i.i.i, %6
+  br i1 %39, label %.critedge.i, label %40
 
-38:                                               ; preds = %_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !40
-  %41 = icmp ult ptr %31, %40
-  br i1 %41, label %.critedge.i, label %61
+40:                                               ; preds = %_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i
+  %41 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !40
+  %43 = icmp ult ptr %33, %42
+  br i1 %43, label %.critedge.i, label %63
 
-.critedge.i:                                      ; preds = %38, %_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i, %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread
-  %.08.lcssa.i.i.i14.i = phi ptr [ %.19.i.i.i.i, %38 ], [ %.19.i.i.i.i, %_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i ], [ %6, %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread ]
-  %42 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-          to label %.noexc15 unwind label %65
+.critedge.i:                                      ; preds = %40, %_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i, %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread
+  %.08.lcssa.i.i.i14.i = phi ptr [ %.19.i.i.i.i, %40 ], [ %.19.i.i.i.i, %_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i ], [ %6, %_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE.exit.thread ]
+  %44 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
+          to label %.noexc14 unwind label %67
 
-.noexc15:                                         ; preds = %.critedge.i
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store ptr %31, ptr %43, align 8, !tbaa !40
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store i64 %32, ptr %44, align 8, !tbaa !35
-  %45 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14.i, ptr noundef nonnull align 8 dereferenceable(8) %43)
-          to label %46 unwind label %_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i
+.noexc14:                                         ; preds = %.critedge.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store ptr %33, ptr %45, align 8, !tbaa !40
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  store i64 %34, ptr %46, align 8, !tbaa !35
+  %47 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14.i, ptr noundef nonnull align 8 dereferenceable(8) %45)
+          to label %48 unwind label %_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i
 
-46:                                               ; preds = %.noexc15
-  %47 = extractvalue { ptr, ptr } %45, 1
-  %.not.i14 = icmp eq ptr %47, null
-  br i1 %.not.i14, label %60, label %48
+48:                                               ; preds = %.noexc14
+  %49 = extractvalue { ptr, ptr } %47, 1
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %62, label %50
 
-48:                                               ; preds = %46
-  %49 = extractvalue { ptr, ptr } %45, 0
-  %.not.i.i.i = icmp ne ptr %49, null
-  %50 = icmp eq ptr %47, %6
-  %or.cond.i.i.i = or i1 %.not.i.i.i, %50
-  br i1 %or.cond.i.i.i, label %.thread.i, label %51
+50:                                               ; preds = %48
+  %51 = extractvalue { ptr, ptr } %47, 0
+  %.not.i.i.i = icmp ne ptr %51, null
+  %52 = icmp eq ptr %49, %6
+  %or.cond.i.i.i = or i1 %.not.i.i.i, %52
+  br i1 %or.cond.i.i.i, label %.thread.i, label %53
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %43, align 8, !tbaa !37
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %54 = load ptr, ptr %53, align 8, !tbaa !37
-  %55 = icmp ult ptr %52, %54
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %45, align 8, !tbaa !37
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %56 = load ptr, ptr %55, align 8, !tbaa !37
+  %57 = icmp ult ptr %54, %56
   br label %.thread.i
 
-.thread.i:                                        ; preds = %51, %48
-  %56 = phi i1 [ true, %48 ], [ %55, %51 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %56, ptr noundef nonnull %42, ptr noundef nonnull %47, ptr noundef nonnull align 8 dereferenceable(32) %6) #29
-  %57 = load i64, ptr %10, align 8, !tbaa !22
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %10, align 8, !tbaa !22
-  br label %61
+.thread.i:                                        ; preds = %53, %50
+  %58 = phi i1 [ true, %50 ], [ %57, %53 ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %58, ptr noundef nonnull %44, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(32) %6) #29
+  %59 = load i64, ptr %10, align 8, !tbaa !22
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %10, align 8, !tbaa !22
+  br label %63
 
-_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.noexc15
-  %59 = landingpad { ptr, i32 }
+_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.noexc14
+  %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 48) #28
+  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 48) #28
   br label %.body
 
-60:                                               ; preds = %46
-  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 48) #28
-  br label %61
+62:                                               ; preds = %48
+  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 48) #28
+  br label %63
 
-61:                                               ; preds = %38, %60, %.thread.i
+63:                                               ; preds = %40, %62, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %62 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.028) #30
-  %63 = load ptr, ptr %12, align 8, !tbaa !25
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 80
-  %.not = icmp eq ptr %62, %64
+  %64 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.020.027) #30
+  %65 = load ptr, ptr %12, align 8, !tbaa !25
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
+  %.not = icmp eq ptr %64, %66
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
-65:                                               ; preds = %.critedge.i
-  %66 = landingpad { ptr, i32 }
+67:                                               ; preds = %.critedge.i
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %65, %_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %66, %65 ], [ %59, %_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %67, %_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i, %31
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %68, %67 ], [ %61, %_ZNSt8_Rb_treeIPKN3gmx12AnalysisDataESt4pairIKS3_NS0_18AnalysisDataHandleEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE10_Auto_nodeD2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt3mapIPKN3gmx12AnalysisDataENS0_18AnalysisDataHandleESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #29
   resume { ptr, i32 } %.pn
 
-._crit_edge:                                      ; preds = %61, %4
+._crit_edge:                                      ; preds = %63, %4
   ret void
 }
 
@@ -407,24 +407,24 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3gmx28TrajectoryAnalysisModuleData4Impl13isInitializedERKNS_12AnalysisDataE(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %.not8 = icmp sgt i32 %2, 0
-  br i1 %.not8, label %.lr.ph, label %._crit_edge
+  %3 = icmp sgt i32 %2, 0
+  br i1 %3, label %.lr.ph, label %._crit_edge
 
-3:                                                ; preds = %.lr.ph
-  %4 = add nuw nsw i32 %.069, 1
-  %5 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %.not = icmp slt i32 %4, %5
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+4:                                                ; preds = %.lr.ph
+  %5 = add nuw nsw i32 %.069, 1
+  %6 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %7 = icmp slt i32 %5, %6
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
-.lr.ph:                                           ; preds = %1, %3
-  %.069 = phi i32 [ %4, %3 ], [ 0, %1 ]
-  %6 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.069)
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %._crit_edge, label %3
+.lr.ph:                                           ; preds = %1, %4
+  %.069 = phi i32 [ %5, %4 ], [ 0, %1 ]
+  %8 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.069)
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %._crit_edge, label %4
 
-._crit_edge:                                      ; preds = %3, %.lr.ph, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ %7, %.lr.ph ], [ %7, %3 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %4, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %9, %4 ], [ %9, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 declare ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 1) local_unnamed_addr #4

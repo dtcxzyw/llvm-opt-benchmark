@@ -382,37 +382,37 @@ define void @lv_scale_set_line_needle_value(ptr noundef %0, ptr noundef %1, i32 
 52:                                               ; preds = %49
   %53 = tail call ptr @lv_line_get_points_mutable(ptr noundef %1) #9
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread, label %.thread93
+  br i1 %54, label %.thread, label %.thread92
 
 .thread:                                          ; preds = %34, %49, %52
   %55 = tail call i32 @lv_obj_get_event_count(ptr noundef %1) #9
-  %.not97 = icmp eq i32 %55, 0
-  br i1 %.not97, label %.thread91, label %.lr.ph.preheader
+  %.not96 = icmp eq i32 %55, 0
+  br i1 %.not96, label %.thread90, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread
   %56 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %1, i32 noundef 0) #9
   %57 = tail call ptr @lv_event_dsc_get_cb(ptr noundef %56) #9
   %58 = icmp eq ptr %57, @scale_free_line_needle_points_cb
-  br i1 %58, label %59, label %.thread91
+  br i1 %58, label %59, label %.thread90
 
 59:                                               ; preds = %.lr.ph.preheader
   %60 = tail call ptr @lv_event_dsc_get_user_data(ptr noundef %56) #9
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread91, label %.thread93
+  br i1 %61, label %.thread90, label %.thread92
 
-.thread91:                                        ; preds = %.lr.ph.preheader, %.thread, %59
+.thread90:                                        ; preds = %.lr.ph.preheader, %.thread, %59
   %62 = tail call ptr @lv_malloc(i64 noundef 16) #9
   %.not83 = icmp eq ptr %62, null
-  br i1 %.not83, label %.preheader95, label %63
+  br i1 %.not83, label %.preheader94, label %63
 
-.preheader95:                                     ; preds = %.thread91, %.preheader95
-  br label %.preheader95
+.preheader94:                                     ; preds = %.thread90, %.preheader94
+  br label %.preheader94
 
-63:                                               ; preds = %.thread91
+63:                                               ; preds = %.thread90
   %64 = tail call ptr @lv_obj_add_event_cb(ptr noundef %1, ptr noundef nonnull @scale_free_line_needle_points_cb, i32 noundef 41, ptr noundef nonnull %62) #9
-  br label %.thread93
+  br label %.thread92
 
-.thread93:                                        ; preds = %52, %63, %59
+.thread92:                                        ; preds = %52, %63, %59
   %.5 = phi ptr [ %62, %63 ], [ %60, %59 ], [ %53, %52 ]
   %65 = sitofp i32 %14 to float
   store float %65, ptr %.5, align 4, !tbaa !30
@@ -429,7 +429,7 @@ define void @lv_scale_set_line_needle_value(ptr noundef %0, ptr noundef %1, i32 
   tail call void @lv_line_set_points_mutable(ptr noundef %1, ptr noundef nonnull %.5, i32 noundef 2) #9
   br label %73
 
-73:                                               ; preds = %8, %5, %.thread93
+73:                                               ; preds = %8, %5, %.thread92
   ret void
 }
 

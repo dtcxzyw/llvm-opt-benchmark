@@ -1755,15 +1755,11 @@ define internal i32 @dissect_unistim(ptr noundef %0, ptr noundef %1, ptr noundef
 
 6:                                                ; preds = %4
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
-  switch i8 %7, label %51 [
-    i8 0, label %8
-    i8 1, label %8
-    i8 2, label %8
-    i8 3, label %8
-    i8 -1, label %8
-  ]
+  %.off = add i8 %7, -4
+  %switch = icmp ult i8 %.off, -5
+  br i1 %switch, label %51, label %8
 
-8:                                                ; preds = %6, %6, %6, %6, %6, %4, %4
+8:                                                ; preds = %6, %4, %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef nonnull @.str.648)

@@ -1123,13 +1123,13 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i: ; preds = %.noe
   %132 = phi ptr [ %131, %.noexc54 ], [ %129, %._ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit_crit_edge.i ]
   %133 = getelementptr i8, ptr %132, i64 8
   %.val17.i = load ptr, ptr %133, align 8, !tbaa !25
-  %.not47.i = icmp eq ptr %.val.i, %.val17.i
-  br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not44.i = icmp eq ptr %.val.i, %.val17.i
+  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i, %138
-  %.sroa.037.048.i = phi ptr [ %139, %138 ], [ %.val.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i ]
-  %134 = load ptr, ptr %.sroa.037.048.i, align 8, !tbaa !37
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.037.048.i, i64 8
+  %.sroa.037.045.i = phi ptr [ %139, %138 ], [ %.val.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i ]
+  %134 = load ptr, ptr %.sroa.037.045.i, align 8, !tbaa !37
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.037.045.i, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !38
   %137 = invoke noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %136, ptr %134, i64 %.sroa.01.0.copyload, ptr %.sroa.5.0.copyload)
           to label %.noexc55 unwind label %.loopexit
@@ -1138,7 +1138,7 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i: ; preds = %.noe
   br i1 %137, label %_ZN4absl12log_internal12_GLOBAL__N_119AppendVModuleLockedESt17basic_string_viewIcSt11char_traitsIcEEi.exit, label %138
 
 138:                                              ; preds = %.noexc55
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.037.048.i, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.037.045.i, i64 40
   %.not.i52 = icmp eq ptr %139, %.val17.i
   br i1 %.not.i52, label %._crit_edge.i, label %.lr.ph.i
 

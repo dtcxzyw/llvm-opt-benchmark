@@ -1395,11 +1395,11 @@ define dso_local void @_ZN30btKinematicCharacterController20stepForwardAndStrafe
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 108
   br label %80
 
-80:                                               ; preds = %3, %.critedge60
-  %.01462 = phi float [ 1.000000e+00, %3 ], [ %240, %.critedge60 ]
-  %.01761 = phi i32 [ 10, %3 ], [ %81, %.critedge60 ]
-  %81 = add nsw i32 %.01761, -1
-  %.not = icmp eq i32 %.01761, 0
+80:                                               ; preds = %3, %.critedge59
+  %.01461 = phi float [ 1.000000e+00, %3 ], [ %240, %.critedge59 ]
+  %.01760 = phi i32 [ 10, %3 ], [ %81, %.critedge59 ]
+  %81 = add nsw i32 %.01760, -1
+  %.not = icmp eq i32 %.01760, 0
   br i1 %.not, label %.critedge, label %82
 
 82:                                               ; preds = %80
@@ -1639,7 +1639,7 @@ _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %18
   %238 = load ptr, ptr %237, align 8
   call void %238(ptr noundef nonnull align 8 dereferenceable(32) %235, float noundef %169)
   %239 = load float, ptr %56, align 8, !tbaa !105
-  %240 = fsub float %.01462, %239
+  %240 = fsub float %.01461, %239
   %241 = fcmp olt float %239, 1.000000e+00
   br i1 %241, label %242, label %325
 
@@ -1725,27 +1725,27 @@ _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %18
   %310 = fadd float %309, %304
   store float %310, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !4
   %.pre = fsub float %306, %256
-  %.pre63 = fsub float %308, %259
-  %.pre65 = fsub float %310, %262
-  %.pre67 = fmul float %.pre63, %.pre63
-  %.pre69 = call float @llvm.fmuladd.f32(float %.pre, float %.pre, float %.pre67)
-  %.pre71 = call noundef float @llvm.fmuladd.f32(float %.pre65, float %.pre65, float %.pre69)
+  %.pre62 = fsub float %308, %259
+  %.pre64 = fsub float %310, %262
+  %.pre66 = fmul float %.pre62, %.pre62
+  %.pre68 = call float @llvm.fmuladd.f32(float %.pre, float %.pre, float %.pre66)
+  %.pre70 = call noundef float @llvm.fmuladd.f32(float %.pre64, float %.pre64, float %.pre68)
   br label %311
 
 311:                                              ; preds = %254, %268
-  %.pre-phi72 = phi float [ %266, %254 ], [ %.pre71, %268 ]
-  %.pre-phi66 = phi float [ %263, %254 ], [ %.pre65, %268 ]
-  %.pre-phi64 = phi float [ %260, %254 ], [ %.pre63, %268 ]
+  %.pre-phi71 = phi float [ %266, %254 ], [ %.pre70, %268 ]
+  %.pre-phi65 = phi float [ %263, %254 ], [ %.pre64, %268 ]
+  %.pre-phi63 = phi float [ %260, %254 ], [ %.pre62, %268 ]
   %.pre-phi = phi float [ %257, %254 ], [ %.pre, %268 ]
-  %312 = fcmp ogt float %.pre-phi72, 0x3E80000000000000
+  %312 = fcmp ogt float %.pre-phi71, 0x3E80000000000000
   br i1 %312, label %313, label %.critedge.sink.split
 
 313:                                              ; preds = %311
-  %sqrt.i.i35 = call noundef float @llvm.sqrt.f32(float %.pre-phi72)
+  %sqrt.i.i35 = call noundef float @llvm.sqrt.f32(float %.pre-phi71)
   %314 = fdiv float 1.000000e+00, %sqrt.i.i35
   %315 = fmul float %.pre-phi, %314
-  %316 = fmul float %.pre-phi64, %314
-  %317 = fmul float %.pre-phi66, %314
+  %316 = fmul float %.pre-phi63, %314
+  %317 = fmul float %.pre-phi65, %314
   %318 = load float, ptr %77, align 4, !tbaa !4
   %319 = load float, ptr %78, align 8, !tbaa !4
   %320 = fmul float %316, %319
@@ -1753,13 +1753,13 @@ _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %18
   %322 = load float, ptr %79, align 4, !tbaa !4
   %323 = call noundef float @llvm.fmuladd.f32(float %317, float %322, float %321)
   %324 = fcmp ugt float %323, 0.000000e+00
-  br i1 %324, label %.critedge60, label %.critedge.sink.split
+  br i1 %324, label %.critedge59, label %.critedge.sink.split
 
 325:                                              ; preds = %248, %242, %234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !78
-  br label %.critedge60
+  br label %.critedge59
 
-.critedge60:                                      ; preds = %313, %325
+.critedge59:                                      ; preds = %313, %325
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %326 = fcmp ogt float %240, 0x3F847AE140000000
   br i1 %326, label %80, label %.critedge
@@ -1768,7 +1768,7 @@ _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge60, %80, %.critedge.sink.split
+.critedge:                                        ; preds = %.critedge59, %80, %.critedge.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -2127,8 +2127,8 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   %241 = fcmp olt float %240, 1.000000e+00
   %242 = load float, ptr %70, align 8
   %243 = fcmp olt float %242, 1.000000e+00
-  %or.cond114 = select i1 %241, i1 true, i1 %243
-  br i1 %or.cond114, label %244, label %271
+  %or.cond112 = select i1 %241, i1 true, i1 %243
+  br i1 %or.cond112, label %244, label %271
 
 244:                                              ; preds = %239
   %245 = load ptr, ptr %52, align 8, !tbaa !20
@@ -2175,9 +2175,9 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   %.036 = select i1 %273, float %274, float 0.000000e+00
   %275 = fcmp ogt float %236, 0.000000e+00
   %276 = fcmp olt float %236, %.036
-  %or.cond49.not120.not124 = select i1 %275, i1 %276, i1 false
-  %brmerge.not121 = and i1 %.037.in, %or.cond49.not120.not124
-  %or.cond50 = and i1 %127, %brmerge.not121
+  %or.cond49.not118.not122 = select i1 %275, i1 %276, i1 false
+  %brmerge.not119 = and i1 %.037.in, %or.cond49.not118.not122
+  %or.cond50 = and i1 %127, %brmerge.not119
   br i1 %or.cond50, label %277, label %297
 
 277:                                              ; preds = %271
@@ -2221,8 +2221,8 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   %302 = icmp eq i32 %301, 0
   %303 = load float, ptr %56, align 8
   %304 = fcmp olt float %303, 1.000000e+00
-  %or.cond117 = select i1 %302, i1 %304, i1 false
-  br i1 %or.cond117, label %305, label %311
+  %or.cond115 = select i1 %302, i1 %304, i1 false
+  br i1 %or.cond115, label %305, label %311
 
 305:                                              ; preds = %297
   %306 = load ptr, ptr %60, align 8, !tbaa !107
@@ -2262,21 +2262,21 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br label %329
 
 329:                                              ; preds = %317, %325, %327
-  %.sink146 = phi float [ %326, %325 ], [ %328, %327 ], [ %321, %317 ]
-  %330 = fsub float 1.000000e+00, %.sink146
+  %.sink144 = phi float [ %326, %325 ], [ %328, %327 ], [ %321, %317 ]
+  %330 = fsub float 1.000000e+00, %.sink144
   %331 = load float, ptr %95, align 4, !tbaa !4
   %332 = load float, ptr %9, align 8, !tbaa !4
-  %333 = fmul float %.sink146, %332
+  %333 = fmul float %.sink144, %332
   %334 = call float @llvm.fmuladd.f32(float %330, float %331, float %333)
   store float %334, ptr %95, align 4, !tbaa !4
   %335 = load float, ptr %46, align 4, !tbaa !4
-  %336 = fmul float %.sink146, %335
+  %336 = fmul float %.sink144, %335
   %337 = call float @llvm.fmuladd.f32(float %330, float %314, float %336)
   store float %337, ptr %313, align 8, !tbaa !4
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %339 = load float, ptr %338, align 4, !tbaa !4
   %340 = load float, ptr %49, align 8, !tbaa !4
-  %341 = fmul float %.sink146, %340
+  %341 = fmul float %.sink144, %340
   %342 = call float @llvm.fmuladd.f32(float %330, float %339, float %341)
   store float %342, ptr %338, align 4, !tbaa !4
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 317

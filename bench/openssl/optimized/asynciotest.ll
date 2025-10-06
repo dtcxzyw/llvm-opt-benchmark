@@ -167,28 +167,28 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
   %42 = zext i1 %41 to i32
   %43 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 328, ptr noundef nonnull @.str.23, i32 noundef %42) #6
   %.not55 = icmp eq i32 %43, 0
-  br i1 %.not55, label %.thread, label %.preheader68
+  br i1 %.not55, label %.thread, label %.preheader66
 
-44:                                               ; preds = %.thread65
-  br i1 %45, label %.preheader68, label %91, !llvm.loop !13
+44:                                               ; preds = %.thread64
+  br i1 %45, label %.preheader66, label %91, !llvm.loop !13
 
-.preheader68:                                     ; preds = %37, %44
+.preheader66:                                     ; preds = %37, %44
   %45 = phi i1 [ false, %44 ], [ true, %37 ]
   br label %46
 
-46:                                               ; preds = %.preheader68, %63
-  %47 = phi i64 [ 0, %.preheader68 ], [ %64, %63 ]
-  %.03976 = phi i32 [ 0, %.preheader68 ], [ %.140, %63 ]
-  %48 = phi i1 [ true, %.preheader68 ], [ false, %63 ]
+46:                                               ; preds = %.preheader66, %63
+  %47 = phi i64 [ 0, %.preheader66 ], [ %64, %63 ]
+  %.03974 = phi i32 [ 0, %.preheader66 ], [ %.140, %63 ]
+  %48 = phi i1 [ true, %.preheader66 ], [ false, %63 ]
   %49 = load ptr, ptr %5, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 %47
-  %51 = sub nsw i32 10, %.03976
+  %51 = sub nsw i32 10, %.03974
   %52 = call i32 @SSL_write(ptr noundef %49, ptr noundef nonnull %50, i32 noundef %51) #6
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %46
-  %55 = add nuw nsw i32 %52, %.03976
+  %55 = add nuw nsw i32 %52, %.03974
   br label %63
 
 56:                                               ; preds = %46
@@ -202,7 +202,7 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
   br i1 %.not59.not, label %.thread, label %63
 
 63:                                               ; preds = %54, %56
-  %.140 = phi i32 [ %55, %54 ], [ %.03976, %56 ]
+  %.140 = phi i32 [ %55, %54 ], [ %.03974, %56 ]
   %64 = zext nneg i32 %.140 to i64
   %65 = icmp ne i32 %.140, 10
   %66 = and i1 %65, %48
@@ -215,17 +215,17 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
 
 .preheader:                                       ; preds = %67, %84
   %69 = phi i64 [ %86, %84 ], [ 0, %67 ]
-  %.24178 = phi i32 [ %.3, %84 ], [ 0, %67 ]
-  %.14477 = phi i64 [ %85, %84 ], [ 0, %67 ]
+  %.24176 = phi i32 [ %.3, %84 ], [ 0, %67 ]
+  %.14475 = phi i64 [ %85, %84 ], [ 0, %67 ]
   %70 = load ptr, ptr %4, align 8, !tbaa !11
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 %69
-  %72 = sub nsw i32 10, %.24178
+  %72 = sub nsw i32 10, %.24176
   %73 = call i32 @SSL_read(ptr noundef %70, ptr noundef nonnull %71, i32 noundef %72) #6
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %.preheader
-  %76 = add nuw nsw i32 %73, %.24178
+  %76 = add nuw nsw i32 %73, %.24176
   br label %84
 
 77:                                               ; preds = %.preheader
@@ -239,15 +239,15 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
   br i1 %.not58.not, label %.thread, label %84
 
 84:                                               ; preds = %75, %77
-  %.3 = phi i32 [ %76, %75 ], [ %.24178, %77 ]
-  %85 = add nuw nsw i64 %.14477, 1
+  %.3 = phi i32 [ %76, %75 ], [ %.24176, %77 ]
+  %85 = add nuw nsw i64 %.14475, 1
   %86 = zext nneg i32 %.3 to i64
   %87 = icmp ne i32 %.3, 10
-  %88 = icmp samesign ult i64 %.14477, 99
+  %88 = icmp samesign ult i64 %.14475, 99
   %89 = select i1 %87, i1 %88, i1 false
-  br i1 %89, label %.preheader, label %.thread65, !llvm.loop !16
+  br i1 %89, label %.preheader, label %.thread64, !llvm.loop !16
 
-.thread65:                                        ; preds = %84
+.thread64:                                        ; preds = %84
   %90 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 377, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %6, i64 noundef 10, ptr noundef nonnull %7, i64 noundef %86) #6
   %.not57 = icmp eq i32 %90, 0
   br i1 %.not57, label %.thread, label %44
@@ -261,8 +261,8 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
   store ptr null, ptr %5, align 8, !tbaa !11
   br label %.thread
 
-.thread:                                          ; preds = %.thread65, %67, %56, %77, %30, %37, %1, %91, %27
-  %.045 = phi i32 [ 1, %91 ], [ 0, %37 ], [ 0, %30 ], [ 0, %27 ], [ 0, %1 ], [ 0, %77 ], [ 0, %56 ], [ 0, %67 ], [ 0, %.thread65 ]
+.thread:                                          ; preds = %.thread64, %67, %56, %77, %30, %37, %1, %91, %27
+  %.045 = phi i32 [ 1, %91 ], [ 0, %37 ], [ 0, %30 ], [ 0, %27 ], [ 0, %1 ], [ 0, %77 ], [ 0, %56 ], [ 0, %67 ], [ 0, %.thread64 ]
   %94 = load ptr, ptr %5, align 8, !tbaa !11
   call void @SSL_free(ptr noundef %94) #6
   %95 = load ptr, ptr %4, align 8, !tbaa !11

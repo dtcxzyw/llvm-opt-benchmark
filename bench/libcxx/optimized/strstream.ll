@@ -686,22 +686,22 @@ define dso_local noundef range(i32 -1, 256) i32 @_ZNSt3__112strstreambuf8overflo
   br i1 %32, label %72, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30
-  %.pre42.pre = load ptr, ptr %18, align 8, !tbaa !23
+  %.pre41.pre = load ptr, ptr %18, align 8, !tbaa !23
   br label %33
 
 33:                                               ; preds = %._crit_edge, %.thread
-  %.pre42 = phi ptr [ %19, %.thread ], [ %.pre42.pre, %._crit_edge ]
+  %.pre41 = phi ptr [ %19, %.thread ], [ %.pre41.pre, %._crit_edge ]
   %.02339 = phi ptr [ %29, %.thread ], [ %31, %._crit_edge ]
   %.not32 = icmp eq ptr %17, %19
   br i1 %.not32, label %35, label %34
 
 34:                                               ; preds = %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.02339, ptr align 1 %.pre42, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.02339, ptr align 1 %.pre41, i64 %22, i1 false)
   %.pre = load ptr, ptr %18, align 8, !tbaa !23
   br label %35
 
 35:                                               ; preds = %34, %33
-  %36 = phi ptr [ %.pre, %34 ], [ %.pre42, %33 ]
+  %36 = phi ptr [ %.pre, %34 ], [ %.pre41, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = ptrtoint ptr %38 to i64

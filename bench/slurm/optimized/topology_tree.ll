@@ -159,36 +159,36 @@ declare void @slurm_bit_or(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @topology_p_get_bitmap(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @switch_record_cnt, align 4
-  %.not89 = icmp sgt i32 %2, 0
-  br i1 %.not89, label %.lr.ph, label %.loopexit
+  %3 = icmp sgt i32 %2, 0
+  br i1 %3, label %.lr.ph, label %.loopexit
 
-3:                                                ; preds = %.lr.ph
+4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = load i32, ptr @switch_record_cnt, align 4
-  %5 = sext i32 %4 to i64
-  %.not8 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %.not8, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  %5 = load i32, ptr @switch_record_cnt, align 4
+  %6 = sext i32 %5 to i64
+  %7 = icmp slt i64 %indvars.iv.next, %6
+  br i1 %7, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %6 = load ptr, ptr @switch_record_table, align 8
-  %7 = getelementptr inbounds nuw %struct.switch_record_t, ptr %6, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @slurm_xstrcmp(ptr noundef %9, ptr noundef %0) #13
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %3
+.lr.ph:                                           ; preds = %1, %4
+  %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
+  %8 = load ptr, ptr @switch_record_table, align 8
+  %9 = getelementptr inbounds nuw %struct.switch_record_t, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i32 @slurm_xstrcmp(ptr noundef %11, ptr noundef %0) #13
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %4
 
-11:                                               ; preds = %.lr.ph
-  %12 = load ptr, ptr @switch_record_table, align 8
-  %13 = getelementptr inbounds nuw %struct.switch_record_t, ptr %12, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
+13:                                               ; preds = %.lr.ph
+  %14 = load ptr, ptr @switch_record_table, align 8
+  %15 = getelementptr inbounds nuw %struct.switch_record_t, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %3, %1, %11
-  %spec.select = phi ptr [ %15, %11 ], [ null, %1 ], [ null, %3 ]
-  ret ptr %spec.select
+.loopexit:                                        ; preds = %4, %1, %13
+  %18 = phi ptr [ %17, %13 ], [ null, %1 ], [ null, %4 ]
+  ret ptr %18
 }
 
 declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1560,7 +1560,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %15, ptr %16, align 8
   %.not40 = icmp eq ptr %15, null
-  br i1 %.not40, label %.thread51, label %17
+  br i1 %.not40, label %.thread50, label %17
 
 17:                                               ; preds = %13
   %.pre = load i32, ptr %8, align 8
@@ -1584,7 +1584,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %26 = getelementptr inbounds nuw %struct.topo_info, ptr %25, i64 %indvars.iv
   %27 = call i32 @slurm_unpack16(ptr noundef %26, ptr noundef %1) #13
   %.not41 = icmp eq i32 %27, 0
-  br i1 %.not41, label %28, label %.thread51
+  br i1 %.not41, label %28, label %.thread50
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %19, align 8
@@ -1592,7 +1592,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = call i32 @slurm_unpack32(ptr noundef nonnull %31, ptr noundef %1) #13
   %.not42 = icmp eq i32 %32, 0
-  br i1 %.not42, label %33, label %.thread51
+  br i1 %.not42, label %33, label %.thread50
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1602,7 +1602,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %37 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %36, ptr noundef nonnull %5, ptr noundef %1) #13
   %.not43 = icmp eq i32 %37, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not43, label %38, label %.thread51
+  br i1 %.not43, label %38, label %.thread50
 
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1612,7 +1612,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %42 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %41, ptr noundef nonnull %6, ptr noundef %1) #13
   %.not44 = icmp eq i32 %42, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not44, label %43, label %.thread51
+  br i1 %.not44, label %43, label %.thread50
 
 43:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1622,9 +1622,9 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %47 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %46, ptr noundef nonnull %7, ptr noundef %1) #13
   %.not45 = icmp eq i32 %47, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not45, label %20, label %.thread51
+  br i1 %.not45, label %20, label %.thread50
 
-.thread51:                                        ; preds = %43, %38, %33, %28, %24, %13
+.thread50:                                        ; preds = %43, %38, %33, %28, %24, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %4, align 8
   br label %49
@@ -1635,7 +1635,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %topology_p_topology_free.exit, label %49
 
-49:                                               ; preds = %.thread51, %48
+49:                                               ; preds = %.thread50, %48
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not6.i = icmp eq ptr %51, null

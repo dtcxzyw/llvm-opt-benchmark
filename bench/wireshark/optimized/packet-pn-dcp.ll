@@ -563,11 +563,11 @@ switch.lookup:                                    ; preds = %12
   %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %52, ptr noundef nonnull @.str.233, i32 noundef %53)
   call void @pn_append_info(ptr noundef %1, ptr noundef %20, ptr noundef %54)
   %.pr.i = load i16, ptr %9, align 2
-  %.not91.i = icmp eq i16 %.pr.i, 0
-  br i1 %.not91.i, label %dissect_PNDCP_PDU.exit, label %.lr.ph.i
+  %.not90.i = icmp eq i16 %.pr.i, 0
+  br i1 %.not90.i, label %dissect_PNDCP_PDU.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %72
-  %.192.i = phi i32 [ %.2.i, %72 ], [ %37, %50 ]
+  %.191.i = phi i32 [ %.2.i, %72 ], [ %37, %50 ]
   %55 = load i8, ptr %5, align 1
   %56 = icmp eq i8 %55, 3
   %57 = load i8, ptr %6, align 1
@@ -577,28 +577,28 @@ switch.lookup:                                    ; preds = %12
 
 59:                                               ; preds = %.lr.ph.i
   %60 = load i32, ptr @hf_pn_dcp_option, align 4
-  %61 = call fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %.192.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i32 noundef %60, i1 noundef zeroext true)
+  %61 = call fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %.191.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i32 noundef %60, i1 noundef zeroext true)
   br label %64
 
 62:                                               ; preds = %.lr.ph.i
-  %63 = call fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %.192.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i8 noundef zeroext %55, i1 noundef zeroext %.084.i)
+  %63 = call fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %.191.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i8 noundef zeroext %55, i1 noundef zeroext %.084.i)
   br label %64
 
 64:                                               ; preds = %62, %59
   %.2.i = phi i32 [ %61, %59 ], [ %63, %62 ]
-  %.not87.i = icmp sgt i32 %.2.i, %.192.i
+  %.not87.i = icmp sgt i32 %.2.i, %.191.i
   br i1 %.not87.i, label %65, label %.thread.i
 
 65:                                               ; preds = %64
   %66 = load i16, ptr %9, align 2
   %67 = zext i16 %66 to i32
-  %68 = sub i32 %.2.i, %.192.i
+  %68 = sub i32 %.2.i, %.191.i
   %69 = icmp sgt i32 %68, %67
   br i1 %69, label %.thread.i, label %72
 
 .thread.i:                                        ; preds = %65, %64
-  %70 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.192.i)
-  %71 = call ptr @proto_tree_add_expert(ptr noundef %22, ptr noundef %1, ptr noundef nonnull @ei_pn_dcp_block_parse_error, ptr noundef %0, i32 noundef %.192.i, i32 noundef %70)
+  %70 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.191.i)
+  %71 = call ptr @proto_tree_add_expert(ptr noundef %22, ptr noundef %1, ptr noundef nonnull @ei_pn_dcp_block_parse_error, ptr noundef %0, i32 noundef %.191.i, i32 noundef %70)
   br label %dissect_PNDCP_PDU.exit
 
 72:                                               ; preds = %65

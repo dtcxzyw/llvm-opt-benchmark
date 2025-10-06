@@ -9093,9 +9093,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5kinfu17Ha
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !129
   %79 = icmp slt i32 %76, %78
-  br i1 %79, label %.lr.ph299.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit"
+  br i1 %79, label %.lr.ph298.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit"
 
-.lr.ph299.i.i.i:                                  ; preds = %2
+.lr.ph298.i.i.i:                                  ; preds = %2
   %80 = load ptr, ptr %75, align 8, !tbaa !445
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 104
   %82 = load float, ptr %81, align 8, !tbaa !22
@@ -9125,22 +9125,22 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5kinfu17Ha
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %100 = load i32, ptr %99, align 4, !tbaa !187
   %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph299.split.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit"
+  br i1 %101, label %.lr.ph298.split.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit"
 
-.lr.ph299.split.preheader.i.i.i:                  ; preds = %.lr.ph299.i.i.i
+.lr.ph298.split.preheader.i.i.i:                  ; preds = %.lr.ph298.i.i.i
   %102 = sext i32 %76 to i64
-  br label %.lr.ph299.split.i.i.i
+  br label %.lr.ph298.split.i.i.i
 
-.lr.ph299.split.i.i.i:                            ; preds = %._crit_edge.i.i.i, %.lr.ph299.split.preheader.i.i.i
-  %103 = phi i32 [ %78, %.lr.ph299.split.preheader.i.i.i ], [ %125, %._crit_edge.i.i.i ]
-  %104 = phi ptr [ %98, %.lr.ph299.split.preheader.i.i.i ], [ %126, %._crit_edge.i.i.i ]
-  %indvars.iv316.i.i.i = phi i64 [ %102, %.lr.ph299.split.preheader.i.i.i ], [ %indvars.iv.next317.i.i.i, %._crit_edge.i.i.i ]
+.lr.ph298.split.i.i.i:                            ; preds = %._crit_edge.i.i.i, %.lr.ph298.split.preheader.i.i.i
+  %103 = phi i32 [ %78, %.lr.ph298.split.preheader.i.i.i ], [ %125, %._crit_edge.i.i.i ]
+  %104 = phi ptr [ %98, %.lr.ph298.split.preheader.i.i.i ], [ %126, %._crit_edge.i.i.i ]
+  %indvars.iv315.i.i.i = phi i64 [ %102, %.lr.ph298.split.preheader.i.i.i ], [ %indvars.iv.next316.i.i.i, %._crit_edge.i.i.i ]
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !210
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %108 = load ptr, ptr %107, align 8, !tbaa !211
   %109 = load i64, ptr %108, align 8, !tbaa !71
-  %110 = mul i64 %109, %indvars.iv316.i.i.i
+  %110 = mul i64 %109, %indvars.iv315.i.i.i
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 %110
   %112 = load ptr, ptr %84, align 8, !tbaa !447
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
@@ -9148,15 +9148,15 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5kinfu17Ha
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 72
   %116 = load ptr, ptr %115, align 8, !tbaa !211
   %117 = load i64, ptr %116, align 8, !tbaa !71
-  %118 = mul i64 %117, %indvars.iv316.i.i.i
+  %118 = mul i64 %117, %indvars.iv315.i.i.i
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 12
   %121 = load i32, ptr %120, align 4, !tbaa !187
   %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %.lr.ph296.i.i.i, label %._crit_edge.i.i.i
+  br i1 %122, label %.lr.ph295.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph296.i.i.i:                                  ; preds = %.lr.ph299.split.i.i.i
-  %123 = trunc nsw i64 %indvars.iv316.i.i.i to i32
+.lr.ph295.i.i.i:                                  ; preds = %.lr.ph298.split.i.i.i
+  %123 = trunc nsw i64 %indvars.iv315.i.i.i to i32
   %124 = sitofp i32 %123 to float
   br label %129
 
@@ -9164,16 +9164,16 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5kinfu17Ha
   %.pre.i.i.i = load i32, ptr %77, align 4, !tbaa !129
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph299.split.i.i.i
-  %125 = phi i32 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %103, %.lr.ph299.split.i.i.i ]
-  %126 = phi ptr [ %352, %._crit_edge.loopexit.i.i.i ], [ %104, %.lr.ph299.split.i.i.i ]
-  %indvars.iv.next317.i.i.i = add nsw i64 %indvars.iv316.i.i.i, 1
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph298.split.i.i.i
+  %125 = phi i32 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %103, %.lr.ph298.split.i.i.i ]
+  %126 = phi ptr [ %352, %._crit_edge.loopexit.i.i.i ], [ %104, %.lr.ph298.split.i.i.i ]
+  %indvars.iv.next316.i.i.i = add nsw i64 %indvars.iv315.i.i.i, 1
   %127 = sext i32 %125 to i64
-  %128 = icmp slt i64 %indvars.iv.next317.i.i.i, %127
-  br i1 %128, label %.lr.ph299.split.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit", !llvm.loop !448
+  %128 = icmp slt i64 %indvars.iv.next316.i.i.i, %127
+  br i1 %128, label %.lr.ph298.split.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit", !llvm.loop !448
 
-129:                                              ; preds = %_ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i, %.lr.ph296.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph296.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i ]
+129:                                              ; preds = %_ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i, %.lr.ph295.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph295.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i ]
   %130 = load float, ptr @_ZN2cv5kinfuL4nan3E, align 4, !tbaa !33
   %131 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 4), align 4, !tbaa !33
   %132 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), align 4, !tbaa !33
@@ -9289,12 +9289,12 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit.i.i.i: ; preds = %163
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %347, %.lr.ph.preheader.i.i.i
-  %.096294.i.i.i = phi float [ %348, %347 ], [ 0.000000e+00, %.lr.ph.preheader.i.i.i ]
-  %.097293.i.i.i = phi float [ %.096294.i.i.i, %347 ], [ 0.000000e+00, %.lr.ph.preheader.i.i.i ]
-  %.099291.i.i.i = phi float [ %.0111264.i.i.i, %347 ], [ %178, %.lr.ph.preheader.i.i.i ]
-  %179 = fmul float %170, %.096294.i.i.i
-  %180 = fmul float %171, %.096294.i.i.i
-  %181 = fmul float %172, %.096294.i.i.i
+  %.096293.i.i.i = phi float [ %348, %347 ], [ 0.000000e+00, %.lr.ph.preheader.i.i.i ]
+  %.097292.i.i.i = phi float [ %.096293.i.i.i, %347 ], [ 0.000000e+00, %.lr.ph.preheader.i.i.i ]
+  %.099290.i.i.i = phi float [ %.0111264.i.i.i, %347 ], [ %178, %.lr.ph.preheader.i.i.i ]
+  %179 = fmul float %170, %.096293.i.i.i
+  %180 = fmul float %171, %.096293.i.i.i
+  %181 = fmul float %172, %.096293.i.i.i
   %182 = fadd float %18, %179
   %183 = fadd float %20, %180
   %184 = fadd float %22, %181
@@ -9472,7 +9472,7 @@ _ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENS
   %278 = load ptr, ptr %94, align 8, !tbaa !473
   %279 = load float, ptr %278, align 4, !tbaa !33
   %280 = icmp ugt i16 %275, 255
-  %281 = fcmp ogt float %.099291.i.i.i, 0.000000e+00
+  %281 = fcmp ogt float %.099290.i.i.i, 0.000000e+00
   %282 = fcmp ole float %277, 0.000000e+00
   %or.cond.i.i.i = and i1 %281, %282
   %or.cond3.i.i.i = and i1 %280, %or.cond.i.i.i
@@ -9480,13 +9480,13 @@ _ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENS
 
 283:                                              ; preds = %.loopexit.i.i.i
   %284 = fneg float %277
-  %285 = fmul float %.097293.i.i.i, %284
-  %286 = call float @llvm.fmuladd.f32(float %.096294.i.i.i, float %.099291.i.i.i, float %285)
-  %287 = fsub float %.099291.i.i.i, %277
+  %285 = fmul float %.097292.i.i.i, %284
+  %286 = call float @llvm.fmuladd.f32(float %.096293.i.i.i, float %.099290.i.i.i, float %285)
+  %287 = fsub float %.099290.i.i.i, %277
   %288 = fdiv float %286, %287
   %289 = call float @llvm.fabs.f32(float %288)
-  %or.cond277.i.i.i = fcmp ueq float %289, 0x7FF0000000000000
-  br i1 %or.cond277.i.i.i, label %.thread266.i.i.i, label %290
+  %or.cond276.i.i.i = fcmp ueq float %289, 0x7FF0000000000000
+  br i1 %or.cond276.i.i.i, label %.thread266.i.i.i, label %290
 
 290:                                              ; preds = %283
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -9614,9 +9614,9 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread.i.i.i: ; preds = %310, %_ZN2cv5ki
   br label %_ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i
 
 347:                                              ; preds = %.loopexit.i.i.i, %.thread257.i.i.i
-  %.0111264.i.i.i = phi float [ %.099291.i.i.i, %.thread257.i.i.i ], [ %277, %.loopexit.i.i.i ]
+  %.0111264.i.i.i = phi float [ %.099290.i.i.i, %.thread257.i.i.i ], [ %277, %.loopexit.i.i.i ]
   %.0113263.i.i.i = phi float [ %95, %.thread257.i.i.i ], [ %279, %.loopexit.i.i.i ]
-  %348 = fadd float %.096294.i.i.i, %.0113263.i.i.i
+  %348 = fadd float %.096293.i.i.i, %.0113263.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %349 = fcmp olt float %348, %175
@@ -9655,7 +9655,7 @@ _ZNSt12__shared_ptrIN2cv5kinfu13TSDFVolumeCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %356 = icmp slt i64 %indvars.iv.next.i.i.i, %355
   br i1 %356, label %129, label %._crit_edge.loopexit.i.i.i, !llvm.loop !477
 
-"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit": ; preds = %._crit_edge.i.i.i, %2, %.lr.ph299.i.i.i
+"_ZSt10__invoke_rIvRZNK2cv5kinfu17HashTSDFVolumeCPU7raycastERKNS0_4MatxIfLi4ELi4EEERKNS1_4IntrERKNS0_5Size_IiEERKNS0_12_OutputArrayESG_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESO_E4typeEOSR_DpOSS_.exit": ; preds = %._crit_edge.i.i.i, %2, %.lr.ph298.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

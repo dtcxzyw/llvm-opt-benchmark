@@ -309,8 +309,8 @@ check_retval.exit:                                ; preds = %2
   br i1 %131, label %._crit_edge.thread.i, label %132
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %switch.not.not.not = icmp eq i32 %127, 0
-  %spec.select = select i1 %switch.not.not.not, ptr @.str.29, ptr @.str.30
+  %.not = icmp eq i32 %127, 0
+  %spec.select = select i1 %.not, ptr @.str.29, ptr @.str.30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge.thread.i, %15

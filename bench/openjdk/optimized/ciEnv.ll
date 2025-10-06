@@ -1733,9 +1733,9 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %22
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.60, i32 noundef 183) #20
   unreachable
 
-common.ret102:                                    ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %.loopexit, %37, %170, %_ZN5ciEnv9get_klassEP5Klass.exit, %_ZN16SymbolHandleBaseILb1EED2Ev.exit
-  %common.ret102.op = phi ptr [ %33, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ %169, %_ZN5ciEnv9get_klassEP5Klass.exit ], [ %172, %170 ], [ %122, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %., %37 ], [ null, %.loopexit ]
-  ret ptr %common.ret102.op
+common.ret101:                                    ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %.loopexit, %37, %170, %_ZN5ciEnv9get_klassEP5Klass.exit, %_ZN16SymbolHandleBaseILb1EED2Ev.exit
+  %common.ret101.op = phi ptr [ %33, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ %169, %_ZN5ciEnv9get_klassEP5Klass.exit ], [ %172, %170 ], [ %122, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %., %37 ], [ null, %.loopexit ]
+  ret ptr %common.ret101.op
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %24, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1743,7 +1743,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %24, %28
   %32 = tail call noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(652) %31, ptr noundef nonnull %23) #19
   %33 = tail call noundef ptr @_ZN5ciEnv22get_klass_by_name_implEP7ciKlassRK18constantPoolHandleP8ciSymbolb(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %32, i1 noundef zeroext %4)
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %23) #19
-  br label %common.ret102
+  br label %common.ret101
 
 _ZN9Signature12has_envelopeEPK6Symbol.exit.thread: ; preds = %5, %_ZNK6Symbol9ends_withEc.exit.i, %_ZN9Signature12has_envelopeEPK6Symbol.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1754,7 +1754,7 @@ _ZN9Signature12has_envelopeEPK6Symbol.exit.thread: ; preds = %5, %_ZNK6Symbol9en
 
 37:                                               ; preds = %_ZN9Signature12has_envelopeEPK6Symbol.exit.thread
   %. = select i1 %4, ptr null, ptr %36
-  br label %common.ret102
+  br label %common.ret101
 
 38:                                               ; preds = %_ZN9Signature12has_envelopeEPK6Symbol.exit.thread
   %.not62 = icmp eq ptr %1, null
@@ -1932,7 +1932,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %115
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %115, %_ZNK10ciMetadata9is_loadedEv.exit
   %122 = call noundef ptr @_ZN15ciObjArrayKlass9make_implEP7ciKlass(ptr noundef nonnull %114) #19
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #19
-  br label %common.ret102
+  br label %common.ret101
 
 _ZN9Signature8is_arrayEPK6Symbol.exit.thread:     ; preds = %91, %82, %86, %.thread, %_ZN9Signature8is_arrayEPK6Symbol.exit
   %123 = icmp eq ptr %83, null
@@ -1947,8 +1947,8 @@ _ZN9Signature8is_arrayEPK6Symbol.exit.thread:     ; preds = %91, %82, %86, %.thr
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %129 = load i16, ptr %128, align 8
   %130 = and i16 %129, 1
-  %.not87 = icmp eq i16 %130, 0
-  br i1 %.not87, label %.loopexit, label %131
+  %.not86 = icmp eq i16 %130, 0
+  br i1 %.not86, label %.loopexit, label %131
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 60
@@ -2015,15 +2015,15 @@ _ZN5ciEnv9get_klassEP5Klass.exit:                 ; preds = %_ZNK12ConstantPool1
   %.056 = phi ptr [ %83, %_ZN9Signature8is_arrayEPK6Symbol.exit.thread ], [ %162, %_ZNK12ConstantPool17resolved_klass_atEi.exit ]
   %168 = load ptr, ptr %34, align 8
   %169 = call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %168, ptr noundef nonnull %.056) #19
-  br label %common.ret102
+  br label %common.ret101
 
 .loopexit:                                        ; preds = %166, %131, %124, %127
-  br i1 %4, label %common.ret102, label %170
+  br i1 %4, label %common.ret101, label %170
 
 170:                                              ; preds = %.loopexit
   %171 = load ptr, ptr %34, align 8
   %172 = call noundef ptr @_ZN15ciObjectFactory18get_unloaded_klassEP7ciKlassP8ciSymbolb(ptr noundef nonnull align 8 dereferenceable(652) %171, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true) #19
-  br label %common.ret102
+  br label %common.ret101
 }
 
 declare noundef ptr @_ZN9Signature14strip_envelopeEPK6Symbol(ptr noundef) local_unnamed_addr #1

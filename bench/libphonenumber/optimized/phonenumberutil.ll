@@ -9440,8 +9440,8 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil32ChooseFo
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !76
-  %.not40 = icmp eq i32 %6, 0
-  br i1 %.not40, label %.loopexit, label %.lr.ph
+  %.not43 = icmp eq i32 %6, 0
+  br i1 %.not43, label %.thread36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = load ptr, ptr %4, align 8, !tbaa !80
@@ -9452,8 +9452,8 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil32ChooseFo
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.thread32
-  %.sroa.024.041 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %63, %.thread32 ]
-  %11 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
+  %.sroa.024.044 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %63, %.thread32 ]
+  %11 = load ptr, ptr %.sroa.024.044, align 8, !tbaa !83
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !76
   %14 = icmp sgt i32 %13, 0
@@ -9470,7 +9470,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil32ChooseFo
   %23 = load ptr, ptr %9, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 200
   %25 = load ptr, ptr %24, align 8, !tbaa !198
-  %26 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
+  %26 = load ptr, ptr %.sroa.024.044, align 8, !tbaa !83
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !80
   %29 = zext nneg i32 %13 to i64
@@ -9501,7 +9501,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %_
   br i1 %37, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge, label %.thread32
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit._crit_edge: ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
-  %.pre = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
+  %.pre = load ptr, ptr %.sroa.024.044, align 8, !tbaa !83
   br label %50
 
 43:                                               ; preds = %33, %15
@@ -9535,11 +9535,11 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit20: ; preds = 
   br i1 %61, label %.thread, label %.thread32
 
 .thread:                                          ; preds = %50
-  %62 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
-  br label %.loopexit
+  %62 = load ptr, ptr %.sroa.024.044, align 8, !tbaa !83
+  br label %.thread36
 
 .thread32:                                        ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, %50
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.024.041, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.024.044, i64 8
   %64 = load ptr, ptr %4, align 8, !tbaa !80
   %.not.i.i18 = icmp eq ptr %64, null
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -9548,11 +9548,11 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit20: ; preds = 
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds ptr, ptr %spec.select.i.i19, i64 %67
   %.not = icmp eq ptr %63, %68
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !284
+  br i1 %.not, label %.thread36, label %10, !llvm.loop !284
 
-.loopexit:                                        ; preds = %.thread32, %3, %.thread
-  %spec.select = phi ptr [ %62, %.thread ], [ null, %3 ], [ null, %.thread32 ]
-  ret ptr %spec.select
+.thread36:                                        ; preds = %.thread32, %3, %.thread
+  %69 = phi ptr [ %62, %.thread ], [ null, %3 ], [ null, %.thread32 ]
+  ret ptr %69
 }
 
 declare void @_ZN4i18n12phonenumbers12NumberFormat9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0

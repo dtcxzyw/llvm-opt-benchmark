@@ -327,9 +327,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %30
 
 30:                                               ; preds = %42, %26
-  %.sroa.0.0711.i.idx = phi i64 [ 0, %26 ], [ %.sroa.0.0711.i.add, %42 ]
-  %.sroa.0.0711.i.ptr = getelementptr inbounds nuw i8, ptr @anon.141f0e2481168e4c429becd8d6627085.12, i64 %.sroa.0.0711.i.idx
-  %.sroa.0.0711.i.add = add nuw nsw i64 %.sroa.0.0711.i.idx, 1
+  %.sroa.0.0610.i.idx = phi i64 [ 0, %26 ], [ %.sroa.0.0610.i.add, %42 ]
+  %.sroa.0.0610.i.ptr = getelementptr inbounds nuw i8, ptr @anon.141f0e2481168e4c429becd8d6627085.12, i64 %.sroa.0.0610.i.idx
+  %.sroa.0.0610.i.add = add nuw nsw i64 %.sroa.0.0610.i.idx, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !71
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h1f1976d42e23edbcE.llvm.3177657743263483309"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %11), !noalias !68
   %31 = load i8, ptr %5, align 8, !range !9, !noalias !71, !noundef !4
@@ -355,13 +355,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 39:                                               ; preds = %32
   %40 = load i8, ptr %29, align 2, !noalias !71
-  %41 = load i8, ptr %.sroa.0.0711.i.ptr, align 1, !alias.scope !68, !noalias !73, !noundef !4
+  %41 = load i8, ptr %.sroa.0.0610.i.ptr, align 1, !alias.scope !68, !noalias !73, !noundef !4
   %.not.i = icmp eq i8 %40, %41
   br i1 %.not.i, label %42, label %44
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !71
-  %43 = icmp eq i64 %.sroa.0.0711.i.add, 3
+  %43 = icmp eq i64 %.sroa.0.0610.i.add, 3
   br i1 %43, label %46, label %30
 
 44:                                               ; preds = %39
@@ -459,9 +459,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %30
 
 30:                                               ; preds = %42, %26
-  %.sroa.0.0711.i.idx = phi i64 [ 0, %26 ], [ %.sroa.0.0711.i.add, %42 ]
-  %.sroa.0.0711.i.ptr = getelementptr inbounds nuw i8, ptr @anon.141f0e2481168e4c429becd8d6627085.12, i64 %.sroa.0.0711.i.idx
-  %.sroa.0.0711.i.add = add nuw nsw i64 %.sroa.0.0711.i.idx, 1
+  %.sroa.0.0610.i.idx = phi i64 [ 0, %26 ], [ %.sroa.0.0610.i.add, %42 ]
+  %.sroa.0.0610.i.ptr = getelementptr inbounds nuw i8, ptr @anon.141f0e2481168e4c429becd8d6627085.12, i64 %.sroa.0.0610.i.idx
+  %.sroa.0.0610.i.add = add nuw nsw i64 %.sroa.0.0610.i.idx, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !108
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h1f1976d42e23edbcE.llvm.3177657743263483309"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %11), !noalias !105
   %31 = load i8, ptr %5, align 8, !range !9, !noalias !108, !noundef !4
@@ -487,13 +487,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 39:                                               ; preds = %32
   %40 = load i8, ptr %29, align 2, !noalias !108
-  %41 = load i8, ptr %.sroa.0.0711.i.ptr, align 1, !alias.scope !105, !noalias !110, !noundef !4
+  %41 = load i8, ptr %.sroa.0.0610.i.ptr, align 1, !alias.scope !105, !noalias !110, !noundef !4
   %.not.i = icmp eq i8 %40, %41
   br i1 %.not.i, label %42, label %44
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !108
-  %43 = icmp eq i64 %.sroa.0.0711.i.add, 3
+  %43 = icmp eq i64 %.sroa.0.0610.i.add, 3
   br i1 %43, label %46, label %30
 
 44:                                               ; preds = %39

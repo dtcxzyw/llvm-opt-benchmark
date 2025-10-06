@@ -1660,8 +1660,8 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %29
   %82 = icmp eq i32 %55, 1
   %83 = icmp eq i32 %5, %75
   %84 = icmp eq i32 %53, %75
-  %or.cond.i47.i.i = and i1 %84, %83
-  %or.cond.i.i = or i1 %82, %or.cond.i47.i.i
+  %or.cond.i46.i.i = and i1 %84, %83
+  %or.cond.i.i = or i1 %82, %or.cond.i46.i.i
   br i1 %or.cond.i.i, label %.thread.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN8rawspeed10ByteStream7getDataEj.exit
@@ -1844,8 +1844,8 @@ _ZN8rawspeed10ByteStream7getDataEj.exit49:        ; preds = %124
   %177 = icmp eq i32 %150, 1
   %178 = icmp eq i32 %5, %170
   %179 = icmp eq i32 %148, %170
-  %or.cond.i47.i.i50 = and i1 %179, %178
-  %or.cond.i.i51 = or i1 %177, %or.cond.i47.i.i50
+  %or.cond.i46.i.i50 = and i1 %179, %178
+  %or.cond.i.i51 = or i1 %177, %or.cond.i46.i.i50
   br i1 %or.cond.i.i51, label %.thread.i.i57, label %.preheader.i.i52
 
 .preheader.i.i52:                                 ; preds = %_ZN8rawspeed10ByteStream7getDataEj.exit49

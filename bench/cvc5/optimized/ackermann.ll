@@ -1172,8 +1172,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %56, %60, %66
   %78 = load i64, ptr %8, align 8, !tbaa !51
   %79 = urem i64 %77, %78
   %80 = load i64, ptr %21, align 8, !tbaa !60
-  %.not38.i = icmp eq i64 %80, 0
-  br i1 %.not38.i, label %.thread..critedge_crit_edge.i, label %81
+  %.not36.i = icmp eq i64 %80, 0
+  br i1 %.not36.i, label %.thread..critedge_crit_edge.i, label %81
 
 .thread..critedge_crit_edge.i:                    ; preds = %.noexc
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !11
@@ -1184,7 +1184,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %56, %60, %66
   %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %79
   %84 = load ptr, ptr %83, align 8, !tbaa !26
   %.not.i.i.i17 = icmp eq ptr %84, null
-  %.pre47.i = load ptr, ptr %6, align 8, !tbaa !11
+  %.pre45.i = load ptr, ptr %6, align 8, !tbaa !11
   br i1 %.not.i.i.i17, label %.critedge.i, label %85
 
 85:                                               ; preds = %81
@@ -1194,7 +1194,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %56, %60, %66
   %89 = load i64, ptr %88, align 8, !tbaa !27
   %90 = icmp eq i64 %77, %89
   %91 = load ptr, ptr %87, align 8
-  %92 = icmp eq ptr %.pre47.i, %91
+  %92 = icmp eq ptr %.pre45.i, %91
   %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %.loopexit, label %.lr.ph.i.i.i18
 
@@ -1202,7 +1202,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %56, %60, %66
   %95 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %96 = icmp eq i64 %77, %103
   %97 = load ptr, ptr %95, align 8
-  %98 = icmp eq ptr %.pre47.i, %97
+  %98 = icmp eq ptr %.pre45.i, %97
   %99 = select i1 %96, i1 %98, i1 false
   br i1 %99, label %.loopexit, label %.lr.ph.i.i.i18, !llvm.loop !62
 
@@ -1223,7 +1223,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %56, %60, %66
   br label %.critedge.i, !llvm.loop !62
 
 .critedge.i:                                      ; preds = %.lr.ph.i.i.i18, %..loopexit_crit_edge21.i.i.i, %81, %.thread..critedge_crit_edge.i
-  %105 = phi ptr [ %.pre.i, %.thread..critedge_crit_edge.i ], [ %.pre47.i, %..loopexit_crit_edge21.i.i.i ], [ %.pre47.i, %81 ], [ %.pre47.i, %.lr.ph.i.i.i18 ]
+  %105 = phi ptr [ %.pre.i, %.thread..critedge_crit_edge.i ], [ %.pre45.i, %..loopexit_crit_edge21.i.i.i ], [ %.pre45.i, %81 ], [ %.pre45.i, %.lr.ph.i.i.i18 ]
   %106 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %.noexc19 unwind label %115
 
@@ -6826,8 +6826,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %17 = load i64, ptr %16, align 8, !tbaa !51
   %18 = urem i64 %15, %17
   %19 = load i64, ptr %5, align 8, !tbaa !60
-  %.not38 = icmp eq i64 %19, 0
-  br i1 %.not38, label %.thread..critedge_crit_edge, label %20
+  %.not36 = icmp eq i64 %19, 0
+  br i1 %.not36, label %.thread..critedge_crit_edge, label %20
 
 .thread..critedge_crit_edge:                      ; preds = %.thread
   %.pre = load ptr, ptr %1, align 8, !tbaa !11
@@ -6838,7 +6838,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %18
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %23, null
-  %.pre47 = load ptr, ptr %1, align 8, !tbaa !11
+  %.pre45 = load ptr, ptr %1, align 8, !tbaa !11
   br i1 %.not.i.i, label %.critedge, label %24
 
 24:                                               ; preds = %20
@@ -6848,7 +6848,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %28 = load i64, ptr %27, align 8, !tbaa !27
   %29 = icmp eq i64 %15, %28
   %30 = load ptr, ptr %26, align 8
-  %31 = icmp eq ptr %.pre47, %30
+  %31 = icmp eq ptr %.pre45, %30
   %32 = select i1 %29, i1 %31, i1 false
   br i1 %32, label %_ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
 
@@ -6856,7 +6856,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %34 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %35 = icmp eq i64 %15, %42
   %36 = load ptr, ptr %34, align 8
-  %37 = icmp eq ptr %.pre47, %36
+  %37 = icmp eq ptr %.pre45, %36
   %38 = select i1 %35, i1 %37, i1 false
   br i1 %38, label %_ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !62
 
@@ -6877,7 +6877,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   br label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %.lr.ph.i.i, %.thread..critedge_crit_edge, %..loopexit_crit_edge21.i.i, %20
-  %44 = phi ptr [ %.pre, %.thread..critedge_crit_edge ], [ %.pre47, %..loopexit_crit_edge21.i.i ], [ %.pre47, %20 ], [ %.pre47, %.lr.ph.i.i ]
+  %44 = phi ptr [ %.pre, %.thread..critedge_crit_edge ], [ %.pre45, %..loopexit_crit_edge21.i.i ], [ %.pre45, %20 ], [ %.pre45, %.lr.ph.i.i ]
   %45 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   store ptr null, ptr %45, align 8, !tbaa !7
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8

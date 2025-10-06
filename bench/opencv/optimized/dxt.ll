@@ -423,55 +423,55 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
 43:                                               ; preds = %38
   store i32 %42, ptr %27, align 4, !tbaa !46
   %44 = icmp eq i32 %42, %1
-  br i1 %44, label %.loopexit72.i, label %45
+  br i1 %44, label %.loopexit71.i, label %45
 
 45:                                               ; preds = %43
   %46 = udiv i32 %1, %42
   %47 = icmp samesign ugt i32 %46, 1
-  br i1 %47, label %.lr.ph.i.preheader, label %.loopexit72.i
+  br i1 %47, label %.lr.ph.i.preheader, label %.loopexit71.i
 
 .lr.ph.i.preheader:                               ; preds = %45, %38
-  %.177.i.ph = phi i32 [ %1, %38 ], [ %46, %45 ]
-  %.15975.i.ph = phi i32 [ 0, %38 ], [ 1, %45 ]
+  %.176.i.ph = phi i32 [ %1, %38 ], [ %46, %45 ]
+  %.15974.i.ph = phi i32 [ 0, %38 ], [ 1, %45 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %59
-  %.177.i = phi i32 [ %.4.i, %59 ], [ %.177.i.ph, %.lr.ph.i.preheader ]
-  %.05576.i = phi i32 [ %.257.i, %59 ], [ 3, %.lr.ph.i.preheader ]
-  %.15975.i = phi i32 [ %.462.i, %59 ], [ %.15975.i.ph, %.lr.ph.i.preheader ]
-  %48 = sdiv i32 %.177.i, %.05576.i
-  %49 = mul nsw i32 %48, %.05576.i
-  %50 = icmp eq i32 %49, %.177.i
+  %.176.i = phi i32 [ %.4.i, %59 ], [ %.176.i.ph, %.lr.ph.i.preheader ]
+  %.05575.i = phi i32 [ %.257.i, %59 ], [ 3, %.lr.ph.i.preheader ]
+  %.15974.i = phi i32 [ %.462.i, %59 ], [ %.15974.i.ph, %.lr.ph.i.preheader ]
+  %48 = sdiv i32 %.176.i, %.05575.i
+  %49 = mul nsw i32 %48, %.05575.i
+  %50 = icmp eq i32 %49, %.176.i
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = add nsw i32 %.15975.i, 1
-  %53 = sext i32 %.15975.i to i64
+  %52 = add nsw i32 %.15974.i, 1
+  %53 = sext i32 %.15974.i to i64
   %54 = getelementptr inbounds i32, ptr %27, i64 %53
-  store i32 %.05576.i, ptr %54, align 4, !tbaa !46
+  store i32 %.05575.i, ptr %54, align 4, !tbaa !46
   br label %59
 
 55:                                               ; preds = %.lr.ph.i
-  %56 = add nsw i32 %.05576.i, 2
+  %56 = add nsw i32 %.05575.i, 2
   %57 = mul nsw i32 %56, %56
-  %58 = icmp sgt i32 %57, %.177.i
+  %58 = icmp sgt i32 %57, %.176.i
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %55, %51
-  %.462.i = phi i32 [ %52, %51 ], [ %.15975.i, %55 ]
-  %.257.i = phi i32 [ %.05576.i, %51 ], [ %56, %55 ]
-  %.4.i = phi i32 [ %48, %51 ], [ %.177.i, %55 ]
+  %.462.i = phi i32 [ %52, %51 ], [ %.15974.i, %55 ]
+  %.257.i = phi i32 [ %.05575.i, %51 ], [ %56, %55 ]
+  %.4.i = phi i32 [ %48, %51 ], [ %.176.i, %55 ]
   %60 = icmp sgt i32 %.4.i, 1
-  br i1 %60, label %.lr.ph.i, label %.loopexit72.i
+  br i1 %60, label %.lr.ph.i, label %.loopexit71.i
 
 61:                                               ; preds = %55
-  %62 = add nsw i32 %.15975.i, 1
-  %63 = sext i32 %.15975.i to i64
+  %62 = add nsw i32 %.15974.i, 1
+  %63 = sext i32 %.15974.i to i64
   %64 = getelementptr inbounds i32, ptr %27, i64 %63
-  store i32 %.177.i, ptr %64, align 4, !tbaa !46
-  br label %.loopexit72.i
+  store i32 %.176.i, ptr %64, align 4, !tbaa !46
+  br label %.loopexit71.i
 
-.loopexit72.i:                                    ; preds = %59, %61, %45, %43
+.loopexit71.i:                                    ; preds = %59, %61, %45, %43
   %.5.i = phi i32 [ %62, %61 ], [ 1, %45 ], [ 1, %43 ], [ %.462.i, %59 ]
   %65 = load i32, ptr %27, align 4, !tbaa !46
   %66 = and i32 %65, 1
@@ -479,15 +479,15 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
   %68 = add i32 %67, %.5.i
   %69 = sdiv i32 %68, 2
   %70 = icmp slt i32 %67, %69
-  br i1 %70, label %.lr.ph79.i, label %.loopexit
+  br i1 %70, label %.lr.ph78.i, label %.loopexit
 
-.lr.ph79.i:                                       ; preds = %.loopexit72.i
+.lr.ph78.i:                                       ; preds = %.loopexit71.i
   %71 = zext nneg i32 %67 to i64
   %wide.trip.count.i = zext nneg i32 %69 to i64
   br label %72
 
-72:                                               ; preds = %72, %.lr.ph79.i
-  %indvars.iv.i = phi i64 [ %71, %.lr.ph79.i ], [ %indvars.iv.next.i, %72 ]
+72:                                               ; preds = %72, %.lr.ph78.i
+  %indvars.iv.i = phi i64 [ %71, %.lr.ph78.i ], [ %indvars.iv.next.i, %72 ]
   %73 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
   %74 = load i32, ptr %73, align 4, !tbaa !46
   %75 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -502,7 +502,7 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %72, !llvm.loop !48
 
-.loopexit:                                        ; preds = %72, %.loopexit72.i
+.loopexit:                                        ; preds = %72, %.loopexit71.i
   store i32 %.5.i, ptr %7, align 8, !tbaa !47
   %81 = load i32, ptr %27, align 4, !tbaa !46
   %82 = sext i32 %.5.i to i64
@@ -14108,55 +14108,55 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %76, %
 90:                                               ; preds = %85
   store i32 %89, ptr %82, align 4, !tbaa !46
   %91 = icmp eq i32 %89, %.155
-  br i1 %91, label %.loopexit72.i, label %92
+  br i1 %91, label %.loopexit71.i, label %92
 
 92:                                               ; preds = %90
   %93 = udiv i32 %.155, %89
   %94 = icmp samesign ugt i32 %93, 1
-  br i1 %94, label %.lr.ph.i.preheader, label %.loopexit72.i
+  br i1 %94, label %.lr.ph.i.preheader, label %.loopexit71.i
 
 .lr.ph.i.preheader:                               ; preds = %92, %85
-  %.177.i.ph = phi i32 [ %.155, %85 ], [ %93, %92 ]
-  %.15975.i.ph = phi i32 [ 0, %85 ], [ 1, %92 ]
+  %.176.i.ph = phi i32 [ %.155, %85 ], [ %93, %92 ]
+  %.15974.i.ph = phi i32 [ 0, %85 ], [ 1, %92 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %106
-  %.177.i = phi i32 [ %.4.i, %106 ], [ %.177.i.ph, %.lr.ph.i.preheader ]
-  %.05576.i = phi i32 [ %.257.i, %106 ], [ 3, %.lr.ph.i.preheader ]
-  %.15975.i = phi i32 [ %.462.i, %106 ], [ %.15975.i.ph, %.lr.ph.i.preheader ]
-  %95 = sdiv i32 %.177.i, %.05576.i
-  %96 = mul nsw i32 %95, %.05576.i
-  %97 = icmp eq i32 %96, %.177.i
+  %.176.i = phi i32 [ %.4.i, %106 ], [ %.176.i.ph, %.lr.ph.i.preheader ]
+  %.05575.i = phi i32 [ %.257.i, %106 ], [ 3, %.lr.ph.i.preheader ]
+  %.15974.i = phi i32 [ %.462.i, %106 ], [ %.15974.i.ph, %.lr.ph.i.preheader ]
+  %95 = sdiv i32 %.176.i, %.05575.i
+  %96 = mul nsw i32 %95, %.05575.i
+  %97 = icmp eq i32 %96, %.176.i
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %.lr.ph.i
-  %99 = add nsw i32 %.15975.i, 1
-  %100 = sext i32 %.15975.i to i64
+  %99 = add nsw i32 %.15974.i, 1
+  %100 = sext i32 %.15974.i to i64
   %101 = getelementptr inbounds i32, ptr %82, i64 %100
-  store i32 %.05576.i, ptr %101, align 4, !tbaa !46
+  store i32 %.05575.i, ptr %101, align 4, !tbaa !46
   br label %106
 
 102:                                              ; preds = %.lr.ph.i
-  %103 = add nsw i32 %.05576.i, 2
+  %103 = add nsw i32 %.05575.i, 2
   %104 = mul nsw i32 %103, %103
-  %105 = icmp sgt i32 %104, %.177.i
+  %105 = icmp sgt i32 %104, %.176.i
   br i1 %105, label %108, label %106
 
 106:                                              ; preds = %102, %98
-  %.462.i = phi i32 [ %99, %98 ], [ %.15975.i, %102 ]
-  %.257.i = phi i32 [ %.05576.i, %98 ], [ %103, %102 ]
-  %.4.i = phi i32 [ %95, %98 ], [ %.177.i, %102 ]
+  %.462.i = phi i32 [ %99, %98 ], [ %.15974.i, %102 ]
+  %.257.i = phi i32 [ %.05575.i, %98 ], [ %103, %102 ]
+  %.4.i = phi i32 [ %95, %98 ], [ %.176.i, %102 ]
   %107 = icmp sgt i32 %.4.i, 1
-  br i1 %107, label %.lr.ph.i, label %.loopexit72.i
+  br i1 %107, label %.lr.ph.i, label %.loopexit71.i
 
 108:                                              ; preds = %102
-  %109 = add nsw i32 %.15975.i, 1
-  %110 = sext i32 %.15975.i to i64
+  %109 = add nsw i32 %.15974.i, 1
+  %110 = sext i32 %.15974.i to i64
   %111 = getelementptr inbounds i32, ptr %82, i64 %110
-  store i32 %.177.i, ptr %111, align 4, !tbaa !46
-  br label %.loopexit72.i
+  store i32 %.176.i, ptr %111, align 4, !tbaa !46
+  br label %.loopexit71.i
 
-.loopexit72.i:                                    ; preds = %106, %108, %92, %90
+.loopexit71.i:                                    ; preds = %106, %108, %92, %90
   %.5.i = phi i32 [ %109, %108 ], [ 1, %92 ], [ 1, %90 ], [ %.462.i, %106 ]
   %112 = load i32, ptr %82, align 4, !tbaa !46
   %113 = and i32 %112, 1
@@ -14164,15 +14164,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %76, %
   %115 = add i32 %114, %.5.i
   %116 = sdiv i32 %115, 2
   %117 = icmp slt i32 %114, %116
-  br i1 %117, label %.lr.ph79.i, label %_ZN2cvL12DFTFactorizeEiPi.exit
+  br i1 %117, label %.lr.ph78.i, label %_ZN2cvL12DFTFactorizeEiPi.exit
 
-.lr.ph79.i:                                       ; preds = %.loopexit72.i
+.lr.ph78.i:                                       ; preds = %.loopexit71.i
   %118 = zext nneg i32 %114 to i64
   %wide.trip.count.i = zext nneg i32 %116 to i64
   br label %119
 
-119:                                              ; preds = %119, %.lr.ph79.i
-  %indvars.iv.i = phi i64 [ %118, %.lr.ph79.i ], [ %indvars.iv.next.i, %119 ]
+119:                                              ; preds = %119, %.lr.ph78.i
+  %indvars.iv.i = phi i64 [ %118, %.lr.ph78.i ], [ %indvars.iv.next.i, %119 ]
   %120 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i
   %121 = load i32, ptr %120, align 4, !tbaa !46
   %122 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -14187,8 +14187,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %76, %
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL12DFTFactorizeEiPi.exit, label %119, !llvm.loop !48
 
-_ZN2cvL12DFTFactorizeEiPi.exit:                   ; preds = %119, %84, %.loopexit72.i
-  %.0.i = phi i32 [ 1, %84 ], [ %.5.i, %.loopexit72.i ], [ %.5.i, %119 ]
+_ZN2cvL12DFTFactorizeEiPi.exit:                   ; preds = %119, %84, %.loopexit71.i
+  %.0.i = phi i32 [ 1, %84 ], [ %.5.i, %.loopexit71.i ], [ %.5.i, %119 ]
   store i32 %.0.i, ptr %32, align 8, !tbaa !168
   %128 = load i32, ptr %82, align 4, !tbaa !46
   %129 = sext i32 %.0.i to i64

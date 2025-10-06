@@ -946,8 +946,8 @@ define { ptr, ptr } @_ZN15ockam_multiaddr8registry8Registry11get_by_code17hb4d1f
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !94
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h150fae04a2b84f63E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull %9, i64 noundef %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !98
   %14 = load i64, ptr %5, align 8, !range !99, !noalias !94, !noundef !7
-  %trunc4.i.i = trunc nuw i64 %14 to i1
-  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %.loopexit
+  %trunc3.i.i = trunc nuw i64 %14 to i1
+  br i1 %trunc3.i.i, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1037,8 +1037,8 @@ define { ptr, ptr } @_ZN15ockam_multiaddr8registry8Registry13get_by_prefix17h9f4
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !117
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h8d51a13a97334004E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %9, i64 noundef %13, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !121
   %14 = load i64, ptr %6, align 8, !range !99, !noalias !117, !noundef !7
-  %trunc4.i.i = trunc nuw i64 %14 to i1
-  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %.loopexit
+  %trunc3.i.i = trunc nuw i64 %14 to i1
+  br i1 %trunc3.i.i, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1227,8 +1227,8 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder8has_co
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !152
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h150fae04a2b84f63E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull %7, i64 noundef %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !156
   %12 = load i64, ptr %5, align 8, !range !99, !noalias !152, !noundef !7
-  %trunc4.i.i = trunc nuw i64 %12 to i1
-  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split"
+  %trunc3.i.i = trunc nuw i64 %12 to i1
+  br i1 %trunc3.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split"
 
 .lr.ph.i.i:                                       ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1294,8 +1294,8 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder10has_p
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !166
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h8d51a13a97334004E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %8, i64 noundef %12, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !170
   %13 = load i64, ptr %6, align 8, !range !99, !noalias !166, !noundef !7
-  %trunc4.i.i = trunc nuw i64 %13 to i1
-  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split"
+  %trunc3.i.i = trunc nuw i64 %13 to i1
+  br i1 %trunc3.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split"
 
 .lr.ph.i.i:                                       ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8

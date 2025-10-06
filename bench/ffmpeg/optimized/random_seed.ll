@@ -129,13 +129,13 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
 55:                                               ; preds = %37
   %56 = icmp eq i64 %.fr63.i, %.054.i
   %57 = icmp slt i32 %.sroa.0.0.i, 1
-  %or.cond.not85.i = select i1 %56, i1 true, i1 %57
+  %or.cond.not84.i = select i1 %56, i1 true, i1 %57
   %58 = icmp slt i32 %.sroa.12.0.i, 1
-  %or.cond5.not82.i = select i1 %or.cond.not85.i, i1 true, i1 %58
+  %or.cond5.not81.i = select i1 %or.cond.not84.i, i1 true, i1 %58
   %59 = icmp slt i32 %.sroa.18.0.i, 1
-  %or.cond8.not80.i = select i1 %or.cond5.not82.i, i1 true, i1 %59
+  %or.cond8.not79.i = select i1 %or.cond5.not81.i, i1 true, i1 %59
   %.not.i = icmp eq i32 %.sroa.0.0.i, %.sroa.12.0.i
-  %or.cond68.i = select i1 %or.cond8.not80.i, i1 true, i1 %.not.i
+  %or.cond68.i = select i1 %or.cond8.not79.i, i1 true, i1 %.not.i
   %.not62.i = icmp eq i32 %.sroa.0.0.i, %.sroa.18.0.i
   %or.cond69.i = select i1 %or.cond68.i, i1 true, i1 %.not62.i
   br i1 %or.cond69.i, label %69, label %60

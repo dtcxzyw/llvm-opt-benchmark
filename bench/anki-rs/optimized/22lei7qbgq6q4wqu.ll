@@ -670,40 +670,40 @@ define noundef zeroext i1 @_ZN7anki_io5error11FileIoError12is_not_found17h637f7f
   %3 = ptrtoint ptr %.val to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable [
-    i64 2, label %6
+    i64 2, label %7
     i64 3, label %5
-    i64 0, label %7
-    i64 1, label %10
+    i64 0, label %8
+    i64 1, label %11
   ]
 
 default.unreachable:                              ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  %switch = icmp ult ptr %.val, inttoptr (i64 4294967296 to ptr)
-  %spec.select = select i1 %switch, i8 0, i8 13
+  %6 = icmp ult ptr %.val, inttoptr (i64 4294967296 to ptr)
+  %spec.select = select i1 %6, i8 0, i8 13
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   %.mask = and i64 %3, -4294967296
   %switch.selectcmp = icmp eq i64 %.mask, 8589934592
   %switch.select = select i1 %switch.selectcmp, i8 0, i8 13
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %9 = load i8, ptr %8, align 8, !range !183, !noundef !4
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %10 = load i8, ptr %9, align 8, !range !183, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-10:                                               ; preds = %1
-  %11 = getelementptr i8, ptr %.val, i64 15
-  %12 = load i8, ptr %11, align 8, !range !183, !noundef !4
+11:                                               ; preds = %1
+  %12 = getelementptr i8, ptr %.val, i64 15
+  %13 = load i8, ptr %12, align 8, !range !183, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %6, %7, %10
-  %.0.i = phi i8 [ %9, %7 ], [ %12, %10 ], [ %spec.select, %5 ], [ %switch.select, %6 ]
-  %13 = icmp eq i8 %.0.i, 0
-  ret i1 %13
+_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %7, %8, %11
+  %.0.i = phi i8 [ %10, %8 ], [ %13, %11 ], [ %spec.select, %5 ], [ %switch.select, %7 ]
+  %14 = icmp eq i8 %.0.i, 0
+  ret i1 %14
 }
 
 ; Function Attrs: nonlazybind uwtable

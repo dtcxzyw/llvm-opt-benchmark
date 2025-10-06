@@ -953,13 +953,13 @@ define dso_local void @_ZNK5clang4Sema30getFixItZeroInitializerForTypeB5cxx11ENS
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 16
   %15 = icmp ne i8 %14, 13
-  %.not.not27.i = icmp eq ptr %12, null
-  %.not.not.i = or i1 %.not.not27.i, %15
+  %.not.not24.i = icmp eq ptr %12, null
+  %.not.not.i = or i1 %.not.not24.i, %15
   br i1 %.not.not.i, label %16, label %_ZNK5clang4Type12isScalarTypeEv.exit
 
 16:                                               ; preds = %4
   %17 = icmp ne i8 %14, 46
-  %.not12.not.i = or i1 %.not.not27.i, %17
+  %.not12.not.i = or i1 %.not.not24.i, %17
   br i1 %.not12.not.i, label %26, label %18
 
 18:                                               ; preds = %16
@@ -1587,8 +1587,8 @@ define linkonce_odr hidden void @_ZN5clang12Preprocessor23getMacroDefinitionAtLo
   %.not.i.i.i = icmp eq i64 %13, 0
   %14 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %15 = inttoptr i64 %14 to ptr
-  %.not.not8.i = icmp eq i64 %14, 0
-  %.not.not.i = or i1 %.not.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %14, 0
+  %.not.not.i = or i1 %.not.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %16
 
 16:                                               ; preds = %9
@@ -2566,8 +2566,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

@@ -1609,35 +1609,35 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %125 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %124) #12
   store i64 %104, ptr %125, align 8
   %126 = load i64, ptr %121, align 8
-  %.not164.i = icmp eq i64 %126, 0
-  br i1 %.not164.i, label %._crit_edge159.i, label %.lr.ph158.i
+  %.not162.i = icmp eq i64 %126, 0
+  br i1 %.not162.i, label %._crit_edge157.i, label %.lr.ph156.i
 
-.lr.ph158.i:                                      ; preds = %120
+.lr.ph156.i:                                      ; preds = %120
   %127 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 16
   br label %128
 
-128:                                              ; preds = %128, %.lr.ph158.i
-  %indvars.iv178.i = phi i64 [ 1, %.lr.ph158.i ], [ %indvars.iv.next179.i, %128 ]
-  %indvars.iv176.i = phi i64 [ 0, %.lr.ph158.i ], [ %indvars.iv.next177.i, %128 ]
+128:                                              ; preds = %128, %.lr.ph156.i
+  %indvars.iv176.i = phi i64 [ 1, %.lr.ph156.i ], [ %indvars.iv.next177.i, %128 ]
+  %indvars.iv174.i = phi i64 [ 0, %.lr.ph156.i ], [ %indvars.iv.next175.i, %128 ]
   %129 = load ptr, ptr @X11_XInternAtom, align 8
   %130 = load ptr, ptr %127, align 8
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv176.i
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv174.i
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i64 %129(ptr noundef %100, ptr noundef %132, i32 noundef 0) #12
-  %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
-  %134 = getelementptr inbounds nuw i64, ptr %125, i64 %indvars.iv178.i
-  store i64 %133, ptr %134, align 8
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
+  %134 = getelementptr inbounds nuw i64, ptr %125, i64 %indvars.iv176.i
+  store i64 %133, ptr %134, align 8
+  %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %135 = load i64, ptr %121, align 8
-  %136 = icmp ugt i64 %135, %indvars.iv.next177.i
-  br i1 %136, label %128, label %._crit_edge159.loopexit.i, !llvm.loop !9
+  %136 = icmp ugt i64 %135, %indvars.iv.next175.i
+  br i1 %136, label %128, label %._crit_edge157.loopexit.i, !llvm.loop !9
 
-._crit_edge159.loopexit.i:                        ; preds = %128
-  %137 = trunc nuw i64 %indvars.iv.next179.i to i32
-  br label %._crit_edge159.i
+._crit_edge157.loopexit.i:                        ; preds = %128
+  %137 = trunc nuw i64 %indvars.iv.next177.i to i32
+  br label %._crit_edge157.i
 
-._crit_edge159.i:                                 ; preds = %._crit_edge159.loopexit.i, %120
-  %.0109.lcssa.i = phi i32 [ 1, %120 ], [ %137, %._crit_edge159.loopexit.i ]
+._crit_edge157.i:                                 ; preds = %._crit_edge157.loopexit.i, %120
+  %.0109.lcssa.i = phi i32 [ 1, %120 ], [ %137, %._crit_edge157.loopexit.i ]
   %138 = load ptr, ptr @X11_XChangeProperty, align 8
   %139 = load i64, ptr %111, align 8
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1657,23 +1657,23 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 .preheader.i:                                     ; preds = %144
   %146 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 24
   %147 = load i64, ptr %146, align 8
-  %.not163.i = icmp eq i64 %147, 0
-  br i1 %.not163.i, label %.thread.i, label %.lr.ph154.i
+  %.not161.i = icmp eq i64 %147, 0
+  br i1 %.not161.i, label %.thread.i, label %.lr.ph152.i
 
-.lr.ph154.i:                                      ; preds = %.preheader.i
+.lr.ph152.i:                                      ; preds = %.preheader.i
   %148 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 16
   br label %152
 
 149:                                              ; preds = %152
-  %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
+  %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %150 = load i64, ptr %146, align 8
-  %151 = icmp ugt i64 %150, %indvars.iv.next174.i
+  %151 = icmp ugt i64 %150, %indvars.iv.next172.i
   br i1 %151, label %152, label %.thread.i, !llvm.loop !10
 
-152:                                              ; preds = %149, %.lr.ph154.i
-  %indvars.iv173.i = phi i64 [ 0, %.lr.ph154.i ], [ %indvars.iv.next174.i, %149 ]
+152:                                              ; preds = %149, %.lr.ph152.i
+  %indvars.iv171.i = phi i64 [ 0, %.lr.ph152.i ], [ %indvars.iv.next172.i, %149 ]
   %153 = load ptr, ptr %148, align 8
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv173.i
+  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv171.i
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr @X11_XInternAtom, align 8
   %157 = tail call i64 %156(ptr noundef %100, ptr noundef %155, i32 noundef 0) #12
@@ -1704,7 +1704,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   store i64 %174, ptr %109, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %149, %164, %159, %.preheader.i, %144, %._crit_edge159.i
+.thread.i:                                        ; preds = %149, %164, %159, %.preheader.i, %144, %._crit_edge157.i
   %175 = load ptr, ptr @X11_XSendEvent, align 8
   %176 = load i64, ptr %111, align 8
   %177 = call i32 %175(ptr noundef %100, i64 noundef %176, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %3) #12
@@ -1749,8 +1749,8 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %.tr.i = trunc i64 %197 to i32
   %198 = shl i32 %.tr.i, 3
   %199 = add i32 %198, 8
-  %.not161.i = icmp eq i64 %197, 0
-  br i1 %.not161.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %.not159.i = icmp eq i64 %197, 0
+  br i1 %.not159.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %192
   %200 = load ptr, ptr %6, align 8
@@ -1758,19 +1758,19 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.0113145.i = phi ptr [ %200, %.lr.ph.preheader.i ], [ %210, %.lr.ph.i ]
-  %.0115144.i = phi i32 [ %199, %.lr.ph.preheader.i ], [ %207, %.lr.ph.i ]
+  %.0113143.i = phi ptr [ %200, %.lr.ph.preheader.i ], [ %210, %.lr.ph.i ]
+  %.0115142.i = phi i32 [ %199, %.lr.ph.preheader.i ], [ %207, %.lr.ph.i ]
   %201 = load ptr, ptr @X11_XGetAtomName, align 8
-  %202 = load i64, ptr %.0113145.i, align 8
+  %202 = load i64, ptr %.0113143.i, align 8
   %203 = call ptr %201(ptr noundef %100, i64 noundef %202) #12
   %204 = call i64 @SDL_strlen_REAL(ptr noundef %203) #12
   %205 = trunc i64 %204 to i32
-  %206 = add i32 %.0115144.i, 1
+  %206 = add i32 %.0115142.i, 1
   %207 = add i32 %206, %205
   %208 = load ptr, ptr @X11_XFree, align 8
   %209 = call i32 %208(ptr noundef %203) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %210 = getelementptr inbounds nuw i8, ptr %.0113145.i, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %.0113143.i, i64 8
   %211 = load i64, ptr %8, align 8
   %212 = icmp ugt i64 %211, %indvars.iv.next.i
   br i1 %212, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
@@ -1784,43 +1784,43 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 
 215:                                              ; preds = %._crit_edge.i
   %216 = load i64, ptr %8, align 8
-  %.not162.i = icmp eq i64 %216, 0
-  br i1 %.not162.i, label %._crit_edge151.i, label %.lr.ph150.preheader.i
+  %.not160.i = icmp eq i64 %216, 0
+  br i1 %.not160.i, label %._crit_edge149.i, label %.lr.ph148.preheader.i
 
-.lr.ph150.preheader.i:                            ; preds = %215
+.lr.ph148.preheader.i:                            ; preds = %215
   %217 = load ptr, ptr %6, align 8
   %218 = getelementptr inbounds nuw ptr, ptr %214, i64 %216
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  br label %.lr.ph150.i
+  br label %.lr.ph148.i
 
-.lr.ph150.i:                                      ; preds = %.lr.ph150.i, %.lr.ph150.preheader.i
-  %indvars.iv170.i = phi i64 [ 0, %.lr.ph150.preheader.i ], [ %indvars.iv.next171.i, %.lr.ph150.i ]
-  %.0111148.i = phi ptr [ %219, %.lr.ph150.preheader.i ], [ %225, %.lr.ph150.i ]
-  %.1114147.i = phi ptr [ %217, %.lr.ph150.preheader.i ], [ %228, %.lr.ph150.i ]
+.lr.ph148.i:                                      ; preds = %.lr.ph148.i, %.lr.ph148.preheader.i
+  %indvars.iv168.i = phi i64 [ 0, %.lr.ph148.preheader.i ], [ %indvars.iv.next169.i, %.lr.ph148.i ]
+  %.0111146.i = phi ptr [ %219, %.lr.ph148.preheader.i ], [ %225, %.lr.ph148.i ]
+  %.1114145.i = phi ptr [ %217, %.lr.ph148.preheader.i ], [ %228, %.lr.ph148.i ]
   %220 = load ptr, ptr @X11_XGetAtomName, align 8
-  %221 = load i64, ptr %.1114147.i, align 8
+  %221 = load i64, ptr %.1114145.i, align 8
   %222 = call ptr %220(ptr noundef %100, i64 noundef %221) #12
-  %223 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv170.i
-  store ptr %.0111148.i, ptr %223, align 8
-  %224 = call ptr @stpcpy(ptr noundef nonnull %.0111148.i, ptr noundef %222) #12
+  %223 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv168.i
+  store ptr %.0111146.i, ptr %223, align 8
+  %224 = call ptr @stpcpy(ptr noundef nonnull %.0111146.i, ptr noundef %222) #12
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 1
   %226 = load ptr, ptr @X11_XFree, align 8
   %227 = call i32 %226(ptr noundef %222) #12
-  %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
-  %228 = getelementptr inbounds nuw i8, ptr %.1114147.i, i64 8
+  %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
+  %228 = getelementptr inbounds nuw i8, ptr %.1114145.i, i64 8
   %229 = load i64, ptr %8, align 8
-  %230 = icmp ugt i64 %229, %indvars.iv.next171.i
-  br i1 %230, label %.lr.ph150.i, label %._crit_edge151.i, !llvm.loop !12
+  %230 = icmp ugt i64 %229, %indvars.iv.next169.i
+  br i1 %230, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !12
 
-._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %215
-  %.lcssa142.i = phi i64 [ 0, %215 ], [ %229, %.lr.ph150.i ]
-  %231 = getelementptr inbounds nuw ptr, ptr %214, i64 %.lcssa142.i
+._crit_edge149.i:                                 ; preds = %.lr.ph148.i, %215
+  %.lcssa140.i = phi i64 [ 0, %215 ], [ %229, %.lr.ph148.i ]
+  %231 = getelementptr inbounds nuw ptr, ptr %214, i64 %.lcssa140.i
   store ptr null, ptr %231, align 8
   %232 = load i64, ptr %8, align 8
   call void @SDL_SendClipboardUpdate(i1 noundef zeroext false, ptr noundef nonnull %214, i64 noundef %232) #12
   br label %233
 
-233:                                              ; preds = %._crit_edge151.i, %._crit_edge.i
+233:                                              ; preds = %._crit_edge149.i, %._crit_edge.i
   %234 = load ptr, ptr %6, align 8
   %.not135.i = icmp eq ptr %234, null
   br i1 %.not135.i, label %238, label %235

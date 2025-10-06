@@ -176,9 +176,9 @@ _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
 
 58:                                               ; preds = %_ZN20GraphStreamUnordered5nextpEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %.sroa.035.053 = load ptr, ptr %59, align 8, !tbaa !30
-  %.not5154 = icmp eq ptr %.sroa.035.053, null
-  br i1 %.not5154, label %._crit_edge, label %.lr.ph
+  %.sroa.035.052 = load ptr, ptr %59, align 8, !tbaa !30
+  %.not5053 = icmp eq ptr %.sroa.035.052, null
+  br i1 %.not5053, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit, %58
   %.0.lcssa = phi i32 [ 0, %58 ], [ %.1, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ]
@@ -187,15 +187,15 @@ _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
   br i1 %1, label %77, label %87
 
 .lr.ph:                                           ; preds = %58, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit
-  %.sroa.035.056 = phi ptr [ %.sroa.035.0, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ %.sroa.035.053, %58 ]
-  %.055 = phi i32 [ %.1, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ 0, %58 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.035.056, i64 24
+  %.sroa.035.055 = phi ptr [ %.sroa.035.0, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ %.sroa.035.052, %58 ]
+  %.054 = phi i32 [ %.1, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ 0, %58 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.035.055, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !33
   %.not.i = icmp eq ptr %63, null
-  %64 = select i1 %.not.i, ptr %.sroa.035.056, ptr %63
+  %64 = select i1 %.not.i, ptr %.sroa.035.055, ptr %63
   call void @llvm.prefetch.p0(ptr nonnull %64, i32 1, i32 3, i32 1)
   %65 = load ptr, ptr %12, align 8, !tbaa !35
-  %66 = invoke noundef zeroext i1 %65(ptr noundef nonnull %.sroa.035.056)
+  %66 = invoke noundef zeroext i1 %65(ptr noundef nonnull %.sroa.035.055)
           to label %67 unwind label %68
 
 67:                                               ; preds = %.lr.ph
@@ -207,20 +207,20 @@ _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
   br label %88
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.035.056, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.035.055, i64 40
   %72 = load ptr, ptr %71, align 8, !tbaa !36
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %74 = load ptr, ptr %73, align 8, !tbaa !32
   %75 = load i32, ptr %74, align 4, !tbaa !40
   %76 = add i32 %75, 1
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.055, i32 %76)
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.054, i32 %76)
   br label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit
 
 _ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit: ; preds = %67, %70
-  %.1 = phi i32 [ %.sroa.speculated, %70 ], [ %.055, %67 ]
+  %.1 = phi i32 [ %.sroa.speculated, %70 ], [ %.054, %67 ]
   %.sroa.035.0 = load ptr, ptr %62, align 8, !tbaa !30
-  %.not51 = icmp eq ptr %.sroa.035.0, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not50 = icmp eq ptr %.sroa.035.0, null
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 77:                                               ; preds = %._crit_edge
   %78 = load i32, ptr %61, align 4, !tbaa !40
@@ -468,9 +468,9 @@ _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
 
 58:                                               ; preds = %_ZN20GraphStreamUnordered5nextpEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %.sroa.035.053 = load ptr, ptr %59, align 8, !tbaa !30
-  %.not5154 = icmp eq ptr %.sroa.035.053, null
-  br i1 %.not5154, label %._crit_edge, label %.lr.ph
+  %.sroa.035.052 = load ptr, ptr %59, align 8, !tbaa !30
+  %.not5053 = icmp eq ptr %.sroa.035.052, null
+  br i1 %.not5053, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit, %58
   %.0.lcssa = phi i32 [ 0, %58 ], [ %.1, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ]
@@ -480,15 +480,15 @@ _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
   br i1 %1, label %79, label %89
 
 .lr.ph:                                           ; preds = %58, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit
-  %.sroa.035.056 = phi ptr [ %.sroa.035.0, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ %.sroa.035.053, %58 ]
-  %.055 = phi i32 [ %.1, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ 0, %58 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.035.056, i64 8
+  %.sroa.035.055 = phi ptr [ %.sroa.035.0, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ %.sroa.035.052, %58 ]
+  %.054 = phi i32 [ %.1, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit ], [ 0, %58 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.035.055, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !33
   %.not.i = icmp eq ptr %64, null
-  %65 = select i1 %.not.i, ptr %.sroa.035.056, ptr %64
+  %65 = select i1 %.not.i, ptr %.sroa.035.055, ptr %64
   call void @llvm.prefetch.p0(ptr nonnull %65, i32 1, i32 3, i32 1)
   %66 = load ptr, ptr %12, align 8, !tbaa !35
-  %67 = invoke noundef zeroext i1 %66(ptr noundef nonnull %.sroa.035.056)
+  %67 = invoke noundef zeroext i1 %66(ptr noundef nonnull %.sroa.035.055)
           to label %68 unwind label %69
 
 68:                                               ; preds = %.lr.ph
@@ -500,21 +500,21 @@ _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
   br label %90
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.035.056, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.035.055, i64 48
   %73 = load ptr, ptr %72, align 8, !tbaa !42
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %75 = load ptr, ptr %74, align 8, !tbaa !32
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !40
   %78 = add i32 %77, 1
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.055, i32 %78)
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.054, i32 %78)
   br label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit
 
 _ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIKS0_Lb0EEppEv.exit: ; preds = %68, %71
-  %.1 = phi i32 [ %.sroa.speculated, %71 ], [ %.055, %68 ]
+  %.1 = phi i32 [ %.sroa.speculated, %71 ], [ %.054, %68 ]
   %.sroa.035.0 = load ptr, ptr %63, align 8, !tbaa !30
-  %.not51 = icmp eq ptr %.sroa.035.0, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not50 = icmp eq ptr %.sroa.035.0, null
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 79:                                               ; preds = %._crit_edge
   %80 = load i32, ptr %62, align 4, !tbaa !40

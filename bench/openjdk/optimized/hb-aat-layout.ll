@@ -27877,8 +27877,8 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   %95 = add nuw i32 %.0128173, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %94, %198, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit
-  %.0128.be = phi i32 [ %273, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit ], [ %199, %198 ], [ %95, %94 ]
+.backedge:                                        ; preds = %94, %199, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit
+  %.0128.be = phi i32 [ %274, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit ], [ %200, %199 ], [ %95, %94 ]
   %96 = icmp ult i32 %.0128.be, %77
   br i1 %96, label %88, label %._crit_edge, !llvm.loop !171
 
@@ -27887,7 +27887,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %271, %.critedge146
+.loopexit.split-lp.loopexit:                      ; preds = %272, %.critedge146
   %lpad.loopexit169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -27935,7 +27935,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
 118:                                              ; preds = %.critedge, %112
   %119 = load i32, ptr %71, align 8
   %120 = icmp slt i32 %119, %117
-  br i1 %120, label %121, label %198
+  br i1 %120, label %121, label %199
 
 121:                                              ; preds = %118
   %122 = add nsw i32 %119, 1
@@ -28078,171 +28078,171 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
 
 .critedge:                                        ; preds = %145, %192, %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit, %121
   %.0126 = phi i32 [ 2, %121 ], [ 2, %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit ], [ %., %192 ], [ 2, %145 ]
-  %switch = icmp eq i32 %.0126, 2
-  br i1 %switch, label %118, label %198
+  %195 = icmp eq i32 %.0126, 2
+  br i1 %195, label %118, label %199
 
 .critedge.thread:                                 ; preds = %192
-  %195 = load ptr, ptr %82, align 8
-  %.not142 = icmp eq ptr %195, null
-  br i1 %.not142, label %.critedge146, label %196
+  %196 = load ptr, ptr %82, align 8
+  %.not142 = icmp eq ptr %196, null
+  br i1 %.not142, label %.critedge146, label %197
 
-196:                                              ; preds = %.critedge.thread
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 2
-  store ptr %197, ptr %82, align 8
+197:                                              ; preds = %.critedge.thread
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 2
+  store ptr %198, ptr %82, align 8
   br label %.critedge146
 
-198:                                              ; preds = %.critedge, %118
-  %199 = add nuw i32 %.0128173, 1
+199:                                              ; preds = %.critedge, %118
+  %200 = add nuw i32 %.0128173, 1
   br label %.backedge
 
-.critedge146:                                     ; preds = %196, %.critedge.thread
-  %200 = load i32, ptr %71, align 8
-  %201 = load ptr, ptr %0, align 8
-  %202 = load i32, ptr %90, align 4
-  %203 = zext i32 %200 to i64
-  %204 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %79, i64 %203
-  %205 = load i32, ptr %204, align 4
-  %206 = load ptr, ptr %201, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %208 = load ptr, ptr %207, align 8
-  %209 = invoke noundef i32 @_ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE11get_kerningEjjPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(34) %206, i32 noundef %202, i32 noundef %205, ptr noundef %208)
+.critedge146:                                     ; preds = %197, %.critedge.thread
+  %201 = load i32, ptr %71, align 8
+  %202 = load ptr, ptr %0, align 8
+  %203 = load i32, ptr %90, align 4
+  %204 = zext i32 %201 to i64
+  %205 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %79, i64 %204
+  %206 = load i32, ptr %205, align 4
+  %207 = load ptr, ptr %202, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = invoke noundef i32 @_ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE11get_kerningEjjPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(34) %207, i32 noundef %203, i32 noundef %206, ptr noundef %209)
           to label %_ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit: ; preds = %.critedge146
-  %.not143 = icmp eq i32 %209, 0
-  br i1 %.not143, label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit, label %210
+  %.not143 = icmp eq i32 %210, 0
+  br i1 %.not143, label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit, label %211
 
-210:                                              ; preds = %_ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
-  br i1 %75, label %211, label %240
-
-211:                                              ; preds = %210
-  br i1 %4, label %212, label %220
+211:                                              ; preds = %_ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
+  br i1 %75, label %212, label %241
 
 212:                                              ; preds = %211
-  %213 = zext i32 %209 to i64
-  %214 = load i64, ptr %87, align 8
-  %sext168 = shl i64 %213, 48
-  %215 = ashr exact i64 %sext168, 48
-  %216 = mul nsw i64 %214, %215
-  %217 = add nsw i64 %216, 32768
-  %218 = lshr i64 %217, 16
-  %219 = trunc i64 %218 to i32
-  br label %220
+  br i1 %4, label %213, label %221
 
-220:                                              ; preds = %212, %211
-  %.0125 = phi i32 [ %209, %211 ], [ %219, %212 ]
-  %221 = load i8, ptr %85, align 8
-  %222 = trunc i8 %221 to i1
-  br i1 %222, label %223, label %228
+213:                                              ; preds = %212
+  %214 = zext i32 %210 to i64
+  %215 = load i64, ptr %87, align 8
+  %sext168 = shl i64 %214, 48
+  %216 = ashr exact i64 %sext168, 48
+  %217 = mul nsw i64 %215, %216
+  %218 = add nsw i64 %217, 32768
+  %219 = lshr i64 %218, 16
+  %220 = trunc i64 %219 to i32
+  br label %221
 
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 12
-  store i32 %.0125, ptr %225, align 4
-  %226 = load i32, ptr %86, align 4
-  %227 = or i32 %226, 8
-  store i32 %227, ptr %86, align 4
-  br label %271
+221:                                              ; preds = %213, %212
+  %.0125 = phi i32 [ %210, %212 ], [ %220, %213 ]
+  %222 = load i8, ptr %85, align 8
+  %223 = trunc i8 %222 to i1
+  br i1 %223, label %224, label %229
 
-228:                                              ; preds = %220
-  %229 = ashr i32 %.0125, 1
-  %230 = sub nsw i32 %.0125, %229
-  %231 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
-  %232 = load i32, ptr %231, align 4
-  %233 = add nsw i32 %232, %229
-  store i32 %233, ptr %231, align 4
-  %234 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %235 = load i32, ptr %234, align 4
-  %236 = add nsw i32 %235, %230
-  store i32 %236, ptr %234, align 4
-  %237 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %238 = load i32, ptr %237, align 4
-  %239 = add nsw i32 %238, %230
-  store i32 %239, ptr %237, align 4
-  br label %271
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 12
+  store i32 %.0125, ptr %226, align 4
+  %227 = load i32, ptr %86, align 4
+  %228 = or i32 %227, 8
+  store i32 %228, ptr %86, align 4
+  br label %272
 
-240:                                              ; preds = %210
-  br i1 %4, label %241, label %249
+229:                                              ; preds = %221
+  %230 = ashr i32 %.0125, 1
+  %231 = sub nsw i32 %.0125, %230
+  %232 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
+  %233 = load i32, ptr %232, align 4
+  %234 = add nsw i32 %233, %230
+  store i32 %234, ptr %232, align 4
+  %235 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %236 = load i32, ptr %235, align 4
+  %237 = add nsw i32 %236, %231
+  store i32 %237, ptr %235, align 4
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %239 = load i32, ptr %238, align 4
+  %240 = add nsw i32 %239, %231
+  store i32 %240, ptr %238, align 4
+  br label %272
 
-241:                                              ; preds = %240
-  %242 = zext i32 %209 to i64
-  %243 = load i64, ptr %84, align 8
-  %sext = shl i64 %242, 48
-  %244 = ashr exact i64 %sext, 48
-  %245 = mul nsw i64 %243, %244
-  %246 = add nsw i64 %245, 32768
-  %247 = lshr i64 %246, 16
-  %248 = trunc i64 %247 to i32
-  br label %249
+241:                                              ; preds = %211
+  br i1 %4, label %242, label %250
 
-249:                                              ; preds = %241, %240
-  %.1 = phi i32 [ %248, %241 ], [ %209, %240 ]
-  %250 = load i8, ptr %85, align 8
-  %251 = trunc i8 %250 to i1
-  br i1 %251, label %252, label %257
+242:                                              ; preds = %241
+  %243 = zext i32 %210 to i64
+  %244 = load i64, ptr %84, align 8
+  %sext = shl i64 %243, 48
+  %245 = ashr exact i64 %sext, 48
+  %246 = mul nsw i64 %244, %245
+  %247 = add nsw i64 %246, 32768
+  %248 = lshr i64 %247, 16
+  %249 = trunc i64 %248 to i32
+  br label %250
 
-252:                                              ; preds = %249
-  %253 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store i32 %.1, ptr %254, align 4
-  %255 = load i32, ptr %86, align 4
-  %256 = or i32 %255, 8
-  store i32 %256, ptr %86, align 4
-  br label %271
+250:                                              ; preds = %242, %241
+  %.1 = phi i32 [ %249, %242 ], [ %210, %241 ]
+  %251 = load i8, ptr %85, align 8
+  %252 = trunc i8 %251 to i1
+  br i1 %252, label %253, label %258
 
-257:                                              ; preds = %249
-  %258 = ashr i32 %.1, 1
-  %259 = sub nsw i32 %.1, %258
-  %260 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  %262 = load i32, ptr %261, align 4
-  %263 = add nsw i32 %262, %258
-  store i32 %263, ptr %261, align 4
-  %264 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  %266 = load i32, ptr %265, align 4
-  %267 = add nsw i32 %266, %259
-  store i32 %267, ptr %265, align 4
-  %268 = getelementptr inbounds nuw i8, ptr %264, i64 12
-  %269 = load i32, ptr %268, align 4
-  %270 = add nsw i32 %269, %259
-  store i32 %270, ptr %268, align 4
-  br label %271
+253:                                              ; preds = %250
+  %254 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  store i32 %.1, ptr %255, align 4
+  %256 = load i32, ptr %86, align 4
+  %257 = or i32 %256, 8
+  store i32 %257, ptr %86, align 4
+  br label %272
 
-271:                                              ; preds = %252, %223, %257, %228
-  %272 = add i32 %200, 1
-  invoke void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.0128173, i32 noundef %272, i1 noundef zeroext true, i1 noundef zeroext false)
+258:                                              ; preds = %250
+  %259 = ashr i32 %.1, 1
+  %260 = sub nsw i32 %.1, %259
+  %261 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
+  %263 = load i32, ptr %262, align 4
+  %264 = add nsw i32 %263, %259
+  store i32 %264, ptr %262, align 4
+  %265 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
+  %267 = load i32, ptr %266, align 4
+  %268 = add nsw i32 %267, %260
+  store i32 %268, ptr %266, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 12
+  %270 = load i32, ptr %269, align 4
+  %271 = add nsw i32 %270, %260
+  store i32 %271, ptr %269, align 4
+  br label %272
+
+272:                                              ; preds = %253, %224, %258, %229
+  %273 = add i32 %201, 1
+  invoke void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.0128173, i32 noundef %273, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit unwind label %.loopexit.split-lp.loopexit
 
-_ZN11hb_buffer_t15unsafe_to_breakEjj.exit:        ; preds = %271, %_ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
-  %273 = load i32, ptr %71, align 8
+_ZN11hb_buffer_t15unsafe_to_breakEjj.exit:        ; preds = %272, %_ZNK3AAT19KerxSubTableFormat0INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
+  %274 = load i32, ptr %71, align 8
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.loopexit172
-  %274 = invoke noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.39)
-          to label %275 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %275 = invoke noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.39)
+          to label %276 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-275:                                              ; preds = %._crit_edge
-  %276 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %277 = load ptr, ptr %276, align 8
-  call void @free(ptr noundef %277) #20
-  %278 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %279 = load ptr, ptr %278, align 8
-  %.not.i.i = icmp eq ptr %279, null
-  br i1 %.not.i.i, label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit, label %280
+276:                                              ; preds = %._crit_edge
+  %277 = getelementptr inbounds nuw i8, ptr %6, i64 264
+  %278 = load ptr, ptr %277, align 8
+  call void @free(ptr noundef %278) #20
+  %279 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %280 = load ptr, ptr %279, align 8
+  %.not.i.i = icmp eq ptr %280, null
+  br i1 %.not.i.i, label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit, label %281
 
-280:                                              ; preds = %275
-  invoke void @hb_blob_destroy(ptr noundef nonnull %279)
-          to label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit unwind label %281
+281:                                              ; preds = %276
+  invoke void @hb_blob_destroy(ptr noundef nonnull %280)
+          to label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit unwind label %282
 
-281:                                              ; preds = %280
-  %282 = landingpad { ptr, i32 }
+282:                                              ; preds = %281
+  %283 = landingpad { ptr, i32 }
           catch ptr null
-  %283 = extractvalue { ptr, i32 } %282, 0
-  call void @__clang_call_terminate(ptr %283) #21
+  %284 = extractvalue { ptr, i32 } %283, 0
+  call void @__clang_call_terminate(ptr %284) #21
   unreachable
 
-_ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %280, %275, %5
+_ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %281, %276, %5
   ret void
 }
 
@@ -30363,8 +30363,8 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   %95 = add nuw i32 %.0128173, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %94, %198, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit
-  %.0128.be = phi i32 [ %273, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit ], [ %199, %198 ], [ %95, %94 ]
+.backedge:                                        ; preds = %94, %199, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit
+  %.0128.be = phi i32 [ %274, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit ], [ %200, %199 ], [ %95, %94 ]
   %96 = icmp ult i32 %.0128.be, %77
   br i1 %96, label %88, label %._crit_edge, !llvm.loop !185
 
@@ -30373,7 +30373,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %271, %.critedge146
+.loopexit.split-lp.loopexit:                      ; preds = %272, %.critedge146
   %lpad.loopexit169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -30421,7 +30421,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
 118:                                              ; preds = %.critedge, %112
   %119 = load i32, ptr %71, align 8
   %120 = icmp slt i32 %119, %117
-  br i1 %120, label %121, label %198
+  br i1 %120, label %121, label %199
 
 121:                                              ; preds = %118
   %122 = add nsw i32 %119, 1
@@ -30564,171 +30564,171 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
 
 .critedge:                                        ; preds = %145, %192, %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit, %121
   %.0126 = phi i32 [ 2, %121 ], [ 2, %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit ], [ %., %192 ], [ 2, %145 ]
-  %switch = icmp eq i32 %.0126, 2
-  br i1 %switch, label %118, label %198
+  %195 = icmp eq i32 %.0126, 2
+  br i1 %195, label %118, label %199
 
 .critedge.thread:                                 ; preds = %192
-  %195 = load ptr, ptr %82, align 8
-  %.not142 = icmp eq ptr %195, null
-  br i1 %.not142, label %.critedge146, label %196
+  %196 = load ptr, ptr %82, align 8
+  %.not142 = icmp eq ptr %196, null
+  br i1 %.not142, label %.critedge146, label %197
 
-196:                                              ; preds = %.critedge.thread
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 2
-  store ptr %197, ptr %82, align 8
+197:                                              ; preds = %.critedge.thread
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 2
+  store ptr %198, ptr %82, align 8
   br label %.critedge146
 
-198:                                              ; preds = %.critedge, %118
-  %199 = add nuw i32 %.0128173, 1
+199:                                              ; preds = %.critedge, %118
+  %200 = add nuw i32 %.0128173, 1
   br label %.backedge
 
-.critedge146:                                     ; preds = %196, %.critedge.thread
-  %200 = load i32, ptr %71, align 8
-  %201 = load ptr, ptr %0, align 8
-  %202 = load i32, ptr %90, align 4
-  %203 = zext i32 %200 to i64
-  %204 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %79, i64 %203
-  %205 = load i32, ptr %204, align 4
-  %206 = load ptr, ptr %201, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %208 = load ptr, ptr %207, align 8
-  %209 = invoke noundef i32 @_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE11get_kerningEjjPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(28) %206, i32 noundef %202, i32 noundef %205, ptr noundef %208)
+.critedge146:                                     ; preds = %197, %.critedge.thread
+  %201 = load i32, ptr %71, align 8
+  %202 = load ptr, ptr %0, align 8
+  %203 = load i32, ptr %90, align 4
+  %204 = zext i32 %201 to i64
+  %205 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %79, i64 %204
+  %206 = load i32, ptr %205, align 4
+  %207 = load ptr, ptr %202, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = invoke noundef i32 @_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE11get_kerningEjjPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(28) %207, i32 noundef %203, i32 noundef %206, ptr noundef %209)
           to label %_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit: ; preds = %.critedge146
-  %.not143 = icmp eq i32 %209, 0
-  br i1 %.not143, label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit, label %210
+  %.not143 = icmp eq i32 %210, 0
+  br i1 %.not143, label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit, label %211
 
-210:                                              ; preds = %_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
-  br i1 %75, label %211, label %240
-
-211:                                              ; preds = %210
-  br i1 %4, label %212, label %220
+211:                                              ; preds = %_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
+  br i1 %75, label %212, label %241
 
 212:                                              ; preds = %211
-  %213 = zext i32 %209 to i64
-  %214 = load i64, ptr %87, align 8
-  %sext168 = shl i64 %213, 48
-  %215 = ashr exact i64 %sext168, 48
-  %216 = mul nsw i64 %214, %215
-  %217 = add nsw i64 %216, 32768
-  %218 = lshr i64 %217, 16
-  %219 = trunc i64 %218 to i32
-  br label %220
+  br i1 %4, label %213, label %221
 
-220:                                              ; preds = %212, %211
-  %.0125 = phi i32 [ %209, %211 ], [ %219, %212 ]
-  %221 = load i8, ptr %85, align 8
-  %222 = trunc i8 %221 to i1
-  br i1 %222, label %223, label %228
+213:                                              ; preds = %212
+  %214 = zext i32 %210 to i64
+  %215 = load i64, ptr %87, align 8
+  %sext168 = shl i64 %214, 48
+  %216 = ashr exact i64 %sext168, 48
+  %217 = mul nsw i64 %215, %216
+  %218 = add nsw i64 %217, 32768
+  %219 = lshr i64 %218, 16
+  %220 = trunc i64 %219 to i32
+  br label %221
 
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 12
-  store i32 %.0125, ptr %225, align 4
-  %226 = load i32, ptr %86, align 4
-  %227 = or i32 %226, 8
-  store i32 %227, ptr %86, align 4
-  br label %271
+221:                                              ; preds = %213, %212
+  %.0125 = phi i32 [ %210, %212 ], [ %220, %213 ]
+  %222 = load i8, ptr %85, align 8
+  %223 = trunc i8 %222 to i1
+  br i1 %223, label %224, label %229
 
-228:                                              ; preds = %220
-  %229 = ashr i32 %.0125, 1
-  %230 = sub nsw i32 %.0125, %229
-  %231 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
-  %232 = load i32, ptr %231, align 4
-  %233 = add nsw i32 %232, %229
-  store i32 %233, ptr %231, align 4
-  %234 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %235 = load i32, ptr %234, align 4
-  %236 = add nsw i32 %235, %230
-  store i32 %236, ptr %234, align 4
-  %237 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %238 = load i32, ptr %237, align 4
-  %239 = add nsw i32 %238, %230
-  store i32 %239, ptr %237, align 4
-  br label %271
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 12
+  store i32 %.0125, ptr %226, align 4
+  %227 = load i32, ptr %86, align 4
+  %228 = or i32 %227, 8
+  store i32 %228, ptr %86, align 4
+  br label %272
 
-240:                                              ; preds = %210
-  br i1 %4, label %241, label %249
+229:                                              ; preds = %221
+  %230 = ashr i32 %.0125, 1
+  %231 = sub nsw i32 %.0125, %230
+  %232 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
+  %233 = load i32, ptr %232, align 4
+  %234 = add nsw i32 %233, %230
+  store i32 %234, ptr %232, align 4
+  %235 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %236 = load i32, ptr %235, align 4
+  %237 = add nsw i32 %236, %231
+  store i32 %237, ptr %235, align 4
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %239 = load i32, ptr %238, align 4
+  %240 = add nsw i32 %239, %231
+  store i32 %240, ptr %238, align 4
+  br label %272
 
-241:                                              ; preds = %240
-  %242 = zext i32 %209 to i64
-  %243 = load i64, ptr %84, align 8
-  %sext = shl i64 %242, 48
-  %244 = ashr exact i64 %sext, 48
-  %245 = mul nsw i64 %243, %244
-  %246 = add nsw i64 %245, 32768
-  %247 = lshr i64 %246, 16
-  %248 = trunc i64 %247 to i32
-  br label %249
+241:                                              ; preds = %211
+  br i1 %4, label %242, label %250
 
-249:                                              ; preds = %241, %240
-  %.1 = phi i32 [ %248, %241 ], [ %209, %240 ]
-  %250 = load i8, ptr %85, align 8
-  %251 = trunc i8 %250 to i1
-  br i1 %251, label %252, label %257
+242:                                              ; preds = %241
+  %243 = zext i32 %210 to i64
+  %244 = load i64, ptr %84, align 8
+  %sext = shl i64 %243, 48
+  %245 = ashr exact i64 %sext, 48
+  %246 = mul nsw i64 %244, %245
+  %247 = add nsw i64 %246, 32768
+  %248 = lshr i64 %247, 16
+  %249 = trunc i64 %248 to i32
+  br label %250
 
-252:                                              ; preds = %249
-  %253 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store i32 %.1, ptr %254, align 4
-  %255 = load i32, ptr %86, align 4
-  %256 = or i32 %255, 8
-  store i32 %256, ptr %86, align 4
-  br label %271
+250:                                              ; preds = %242, %241
+  %.1 = phi i32 [ %249, %242 ], [ %210, %241 ]
+  %251 = load i8, ptr %85, align 8
+  %252 = trunc i8 %251 to i1
+  br i1 %252, label %253, label %258
 
-257:                                              ; preds = %249
-  %258 = ashr i32 %.1, 1
-  %259 = sub nsw i32 %.1, %258
-  %260 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  %262 = load i32, ptr %261, align 4
-  %263 = add nsw i32 %262, %258
-  store i32 %263, ptr %261, align 4
-  %264 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  %266 = load i32, ptr %265, align 4
-  %267 = add nsw i32 %266, %259
-  store i32 %267, ptr %265, align 4
-  %268 = getelementptr inbounds nuw i8, ptr %264, i64 12
-  %269 = load i32, ptr %268, align 4
-  %270 = add nsw i32 %269, %259
-  store i32 %270, ptr %268, align 4
-  br label %271
+253:                                              ; preds = %250
+  %254 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  store i32 %.1, ptr %255, align 4
+  %256 = load i32, ptr %86, align 4
+  %257 = or i32 %256, 8
+  store i32 %257, ptr %86, align 4
+  br label %272
 
-271:                                              ; preds = %252, %223, %257, %228
-  %272 = add i32 %200, 1
-  invoke void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.0128173, i32 noundef %272, i1 noundef zeroext true, i1 noundef zeroext false)
+258:                                              ; preds = %250
+  %259 = ashr i32 %.1, 1
+  %260 = sub nsw i32 %.1, %259
+  %261 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
+  %263 = load i32, ptr %262, align 4
+  %264 = add nsw i32 %263, %259
+  store i32 %264, ptr %262, align 4
+  %265 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
+  %267 = load i32, ptr %266, align 4
+  %268 = add nsw i32 %267, %260
+  store i32 %268, ptr %266, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 12
+  %270 = load i32, ptr %269, align 4
+  %271 = add nsw i32 %270, %260
+  store i32 %271, ptr %269, align 4
+  br label %272
+
+272:                                              ; preds = %253, %224, %258, %229
+  %273 = add i32 %201, 1
+  invoke void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.0128173, i32 noundef %273, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit unwind label %.loopexit.split-lp.loopexit
 
-_ZN11hb_buffer_t15unsafe_to_breakEjj.exit:        ; preds = %271, %_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
-  %273 = load i32, ptr %71, align 8
+_ZN11hb_buffer_t15unsafe_to_breakEjj.exit:        ; preds = %272, %_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
+  %274 = load i32, ptr %71, align 8
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.loopexit172
-  %274 = invoke noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.39)
-          to label %275 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %275 = invoke noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.39)
+          to label %276 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-275:                                              ; preds = %._crit_edge
-  %276 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %277 = load ptr, ptr %276, align 8
-  call void @free(ptr noundef %277) #20
-  %278 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %279 = load ptr, ptr %278, align 8
-  %.not.i.i = icmp eq ptr %279, null
-  br i1 %.not.i.i, label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit, label %280
+276:                                              ; preds = %._crit_edge
+  %277 = getelementptr inbounds nuw i8, ptr %6, i64 264
+  %278 = load ptr, ptr %277, align 8
+  call void @free(ptr noundef %278) #20
+  %279 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %280 = load ptr, ptr %279, align 8
+  %.not.i.i = icmp eq ptr %280, null
+  br i1 %.not.i.i, label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit, label %281
 
-280:                                              ; preds = %275
-  invoke void @hb_blob_destroy(ptr noundef nonnull %279)
-          to label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit unwind label %281
+281:                                              ; preds = %276
+  invoke void @hb_blob_destroy(ptr noundef nonnull %280)
+          to label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit unwind label %282
 
-281:                                              ; preds = %280
-  %282 = landingpad { ptr, i32 }
+282:                                              ; preds = %281
+  %283 = landingpad { ptr, i32 }
           catch ptr null
-  %283 = extractvalue { ptr, i32 } %282, 0
-  call void @__clang_call_terminate(ptr %283) #21
+  %284 = extractvalue { ptr, i32 } %283, 0
+  call void @__clang_call_terminate(ptr %284) #21
   unreachable
 
-_ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %280, %275, %5
+_ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %281, %276, %5
   ret void
 }
 
@@ -33029,8 +33029,8 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
   %95 = add nuw i32 %.0128173, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %94, %198, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit
-  %.0128.be = phi i32 [ %273, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit ], [ %199, %198 ], [ %95, %94 ]
+.backedge:                                        ; preds = %94, %199, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit
+  %.0128.be = phi i32 [ %274, %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit ], [ %200, %199 ], [ %95, %94 ]
   %96 = icmp ult i32 %.0128.be, %77
   br i1 %96, label %88, label %._crit_edge, !llvm.loop !189
 
@@ -33039,7 +33039,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %271, %.critedge146
+.loopexit.split-lp.loopexit:                      ; preds = %272, %.critedge146
   %lpad.loopexit169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -33087,7 +33087,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
 118:                                              ; preds = %.critedge, %112
   %119 = load i32, ptr %71, align 8
   %120 = icmp slt i32 %119, %117
-  br i1 %120, label %121, label %198
+  br i1 %120, label %121, label %199
 
 121:                                              ; preds = %118
   %122 = add nsw i32 %119, 1
@@ -33230,171 +33230,171 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
 
 .critedge:                                        ; preds = %145, %192, %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit, %121
   %.0126 = phi i32 [ 2, %121 ], [ 2, %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit ], [ %., %192 ], [ 2, %145 ]
-  %switch = icmp eq i32 %.0126, 2
-  br i1 %switch, label %118, label %198
+  %195 = icmp eq i32 %.0126, 2
+  br i1 %195, label %118, label %199
 
 .critedge.thread:                                 ; preds = %192
-  %195 = load ptr, ptr %82, align 8
-  %.not142 = icmp eq ptr %195, null
-  br i1 %.not142, label %.critedge146, label %196
+  %196 = load ptr, ptr %82, align 8
+  %.not142 = icmp eq ptr %196, null
+  br i1 %.not142, label %.critedge146, label %197
 
-196:                                              ; preds = %.critedge.thread
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 2
-  store ptr %197, ptr %82, align 8
+197:                                              ; preds = %.critedge.thread
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 2
+  store ptr %198, ptr %82, align 8
   br label %.critedge146
 
-198:                                              ; preds = %.critedge, %118
-  %199 = add nuw i32 %.0128173, 1
+199:                                              ; preds = %.critedge, %118
+  %200 = add nuw i32 %.0128173, 1
   br label %.backedge
 
-.critedge146:                                     ; preds = %196, %.critedge.thread
-  %200 = load i32, ptr %71, align 8
-  %201 = load ptr, ptr %0, align 8
-  %202 = load i32, ptr %90, align 4
-  %203 = zext i32 %200 to i64
-  %204 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %79, i64 %203
-  %205 = load i32, ptr %204, align 4
-  %206 = load ptr, ptr %201, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %208 = load ptr, ptr %207, align 8
-  %209 = invoke noundef i32 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE11get_kerningEjjPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(36) %206, i32 noundef %202, i32 noundef %205, ptr noundef %208)
+.critedge146:                                     ; preds = %197, %.critedge.thread
+  %201 = load i32, ptr %71, align 8
+  %202 = load ptr, ptr %0, align 8
+  %203 = load i32, ptr %90, align 4
+  %204 = zext i32 %201 to i64
+  %205 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %79, i64 %204
+  %206 = load i32, ptr %205, align 4
+  %207 = load ptr, ptr %202, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = invoke noundef i32 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE11get_kerningEjjPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(36) %207, i32 noundef %203, i32 noundef %206, ptr noundef %209)
           to label %_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit: ; preds = %.critedge146
-  %.not143 = icmp eq i32 %209, 0
-  br i1 %.not143, label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit, label %210
+  %.not143 = icmp eq i32 %210, 0
+  br i1 %.not143, label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit, label %211
 
-210:                                              ; preds = %_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
-  br i1 %75, label %211, label %240
-
-211:                                              ; preds = %210
-  br i1 %4, label %212, label %220
+211:                                              ; preds = %_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
+  br i1 %75, label %212, label %241
 
 212:                                              ; preds = %211
-  %213 = zext i32 %209 to i64
-  %214 = load i64, ptr %87, align 8
-  %sext168 = shl i64 %213, 48
-  %215 = ashr exact i64 %sext168, 48
-  %216 = mul nsw i64 %214, %215
-  %217 = add nsw i64 %216, 32768
-  %218 = lshr i64 %217, 16
-  %219 = trunc i64 %218 to i32
-  br label %220
+  br i1 %4, label %213, label %221
 
-220:                                              ; preds = %212, %211
-  %.0125 = phi i32 [ %209, %211 ], [ %219, %212 ]
-  %221 = load i8, ptr %85, align 8
-  %222 = trunc i8 %221 to i1
-  br i1 %222, label %223, label %228
+213:                                              ; preds = %212
+  %214 = zext i32 %210 to i64
+  %215 = load i64, ptr %87, align 8
+  %sext168 = shl i64 %214, 48
+  %216 = ashr exact i64 %sext168, 48
+  %217 = mul nsw i64 %215, %216
+  %218 = add nsw i64 %217, 32768
+  %219 = lshr i64 %218, 16
+  %220 = trunc i64 %219 to i32
+  br label %221
 
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 12
-  store i32 %.0125, ptr %225, align 4
-  %226 = load i32, ptr %86, align 4
-  %227 = or i32 %226, 8
-  store i32 %227, ptr %86, align 4
-  br label %271
+221:                                              ; preds = %213, %212
+  %.0125 = phi i32 [ %210, %212 ], [ %220, %213 ]
+  %222 = load i8, ptr %85, align 8
+  %223 = trunc i8 %222 to i1
+  br i1 %223, label %224, label %229
 
-228:                                              ; preds = %220
-  %229 = ashr i32 %.0125, 1
-  %230 = sub nsw i32 %.0125, %229
-  %231 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
-  %232 = load i32, ptr %231, align 4
-  %233 = add nsw i32 %232, %229
-  store i32 %233, ptr %231, align 4
-  %234 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %235 = load i32, ptr %234, align 4
-  %236 = add nsw i32 %235, %230
-  store i32 %236, ptr %234, align 4
-  %237 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %238 = load i32, ptr %237, align 4
-  %239 = add nsw i32 %238, %230
-  store i32 %239, ptr %237, align 4
-  br label %271
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 12
+  store i32 %.0125, ptr %226, align 4
+  %227 = load i32, ptr %86, align 4
+  %228 = or i32 %227, 8
+  store i32 %228, ptr %86, align 4
+  br label %272
 
-240:                                              ; preds = %210
-  br i1 %4, label %241, label %249
+229:                                              ; preds = %221
+  %230 = ashr i32 %.0125, 1
+  %231 = sub nsw i32 %.0125, %230
+  %232 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
+  %233 = load i32, ptr %232, align 4
+  %234 = add nsw i32 %233, %230
+  store i32 %234, ptr %232, align 4
+  %235 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %236 = load i32, ptr %235, align 4
+  %237 = add nsw i32 %236, %231
+  store i32 %237, ptr %235, align 4
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %239 = load i32, ptr %238, align 4
+  %240 = add nsw i32 %239, %231
+  store i32 %240, ptr %238, align 4
+  br label %272
 
-241:                                              ; preds = %240
-  %242 = zext i32 %209 to i64
-  %243 = load i64, ptr %84, align 8
-  %sext = shl i64 %242, 48
-  %244 = ashr exact i64 %sext, 48
-  %245 = mul nsw i64 %243, %244
-  %246 = add nsw i64 %245, 32768
-  %247 = lshr i64 %246, 16
-  %248 = trunc i64 %247 to i32
-  br label %249
+241:                                              ; preds = %211
+  br i1 %4, label %242, label %250
 
-249:                                              ; preds = %241, %240
-  %.1 = phi i32 [ %248, %241 ], [ %209, %240 ]
-  %250 = load i8, ptr %85, align 8
-  %251 = trunc i8 %250 to i1
-  br i1 %251, label %252, label %257
+242:                                              ; preds = %241
+  %243 = zext i32 %210 to i64
+  %244 = load i64, ptr %84, align 8
+  %sext = shl i64 %243, 48
+  %245 = ashr exact i64 %sext, 48
+  %246 = mul nsw i64 %244, %245
+  %247 = add nsw i64 %246, 32768
+  %248 = lshr i64 %247, 16
+  %249 = trunc i64 %248 to i32
+  br label %250
 
-252:                                              ; preds = %249
-  %253 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store i32 %.1, ptr %254, align 4
-  %255 = load i32, ptr %86, align 4
-  %256 = or i32 %255, 8
-  store i32 %256, ptr %86, align 4
-  br label %271
+250:                                              ; preds = %242, %241
+  %.1 = phi i32 [ %249, %242 ], [ %210, %241 ]
+  %251 = load i8, ptr %85, align 8
+  %252 = trunc i8 %251 to i1
+  br i1 %252, label %253, label %258
 
-257:                                              ; preds = %249
-  %258 = ashr i32 %.1, 1
-  %259 = sub nsw i32 %.1, %258
-  %260 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  %262 = load i32, ptr %261, align 4
-  %263 = add nsw i32 %262, %258
-  store i32 %263, ptr %261, align 4
-  %264 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %203
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  %266 = load i32, ptr %265, align 4
-  %267 = add nsw i32 %266, %259
-  store i32 %267, ptr %265, align 4
-  %268 = getelementptr inbounds nuw i8, ptr %264, i64 12
-  %269 = load i32, ptr %268, align 4
-  %270 = add nsw i32 %269, %259
-  store i32 %270, ptr %268, align 4
-  br label %271
+253:                                              ; preds = %250
+  %254 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  store i32 %.1, ptr %255, align 4
+  %256 = load i32, ptr %86, align 4
+  %257 = or i32 %256, 8
+  store i32 %257, ptr %86, align 4
+  br label %272
 
-271:                                              ; preds = %252, %223, %257, %228
-  %272 = add i32 %200, 1
-  invoke void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.0128173, i32 noundef %272, i1 noundef zeroext true, i1 noundef zeroext false)
+258:                                              ; preds = %250
+  %259 = ashr i32 %.1, 1
+  %260 = sub nsw i32 %.1, %259
+  %261 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %89
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
+  %263 = load i32, ptr %262, align 4
+  %264 = add nsw i32 %263, %259
+  store i32 %264, ptr %262, align 4
+  %265 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %81, i64 %204
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
+  %267 = load i32, ptr %266, align 4
+  %268 = add nsw i32 %267, %260
+  store i32 %268, ptr %266, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 12
+  %270 = load i32, ptr %269, align 4
+  %271 = add nsw i32 %270, %260
+  store i32 %271, ptr %269, align 4
+  br label %272
+
+272:                                              ; preds = %253, %224, %258, %229
+  %273 = add i32 %201, 1
+  invoke void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.0128173, i32 noundef %273, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %_ZN11hb_buffer_t15unsafe_to_breakEjj.exit unwind label %.loopexit.split-lp.loopexit
 
-_ZN11hb_buffer_t15unsafe_to_breakEjj.exit:        ; preds = %271, %_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
-  %273 = load i32, ptr %71, align 8
+_ZN11hb_buffer_t15unsafe_to_breakEjj.exit:        ; preds = %272, %_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE13accelerator_t11get_kerningEjj.exit
+  %274 = load i32, ptr %71, align 8
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.loopexit172
-  %274 = invoke noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.39)
-          to label %275 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %275 = invoke noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.39)
+          to label %276 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-275:                                              ; preds = %._crit_edge
-  %276 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %277 = load ptr, ptr %276, align 8
-  call void @free(ptr noundef %277) #20
-  %278 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %279 = load ptr, ptr %278, align 8
-  %.not.i.i = icmp eq ptr %279, null
-  br i1 %.not.i.i, label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit, label %280
+276:                                              ; preds = %._crit_edge
+  %277 = getelementptr inbounds nuw i8, ptr %6, i64 264
+  %278 = load ptr, ptr %277, align 8
+  call void @free(ptr noundef %278) #20
+  %279 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %280 = load ptr, ptr %279, align 8
+  %.not.i.i = icmp eq ptr %280, null
+  br i1 %.not.i.i, label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit, label %281
 
-280:                                              ; preds = %275
-  invoke void @hb_blob_destroy(ptr noundef nonnull %279)
-          to label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit unwind label %281
+281:                                              ; preds = %276
+  invoke void @hb_blob_destroy(ptr noundef nonnull %280)
+          to label %_ZN2OT21hb_ot_apply_context_tD2Ev.exit unwind label %282
 
-281:                                              ; preds = %280
-  %282 = landingpad { ptr, i32 }
+282:                                              ; preds = %281
+  %283 = landingpad { ptr, i32 }
           catch ptr null
-  %283 = extractvalue { ptr, i32 } %282, 0
-  call void @__clang_call_terminate(ptr %283) #21
+  %284 = extractvalue { ptr, i32 } %283, 0
+  call void @__clang_call_terminate(ptr %284) #21
   unreachable
 
-_ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %280, %275, %5
+_ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %281, %276, %5
   ret void
 }
 

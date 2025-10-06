@@ -706,9 +706,9 @@ rb_scan_args_set.exit:                            ; preds = %20
   br i1 %.not30, label %.backedge, label %72
 
 .backedge:                                        ; preds = %57, %53, %68
-  %.sink94 = phi i32 [ 2, %68 ], [ 1, %53 ], [ 4, %57 ]
+  %.sink93 = phi i32 [ 2, %68 ], [ 1, %53 ], [ 4, %57 ]
   %.sink = phi i32 [ 24, %68 ], [ 24, %53 ], [ 12, %57 ]
-  %70 = or disjoint i32 %.021, %.sink94
+  %70 = or disjoint i32 %.021, %.sink93
   %71 = call i32 @rb_gc_for_fd(i32 noundef %.sink) #7
   br label %40
 

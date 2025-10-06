@@ -332,9 +332,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !40
   %50 = icmp ne i8 %49, 31
-  %.not.i13273 = icmp eq ptr %47, null
-  %.not.i13 = or i1 %.not.i13273, %50
-  br i1 %.not.i13, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %51
+  %.not.i12270 = icmp eq ptr %47, null
+  %.not.i12 = or i1 %.not.i12270, %50
+  br i1 %.not.i12, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %51
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -355,8 +355,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit": ; preds = %46
   %61 = icmp ne i8 %49, 30
-  %.not.i14 = or i1 %.not.i13273, %61
-  br i1 %.not.i14, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_22VPCanonicalIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %62
+  %.not.i13 = or i1 %.not.i12270, %61
+  br i1 %.not.i13, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_22VPCanonicalIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %62
 
 62:                                               ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -377,8 +377,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_22VPCanonicalIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %72 = icmp ne i8 %49, 33
-  %.not.i15 = or i1 %.not.i13273, %72
-  br i1 %.not.i15, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_31VPFirstOrderRecurrencePHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %73
+  %.not.i14 = or i1 %.not.i12270, %72
+  br i1 %.not.i14, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_31VPFirstOrderRecurrencePHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %73
 
 73:                                               ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_22VPCanonicalIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %74 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -399,8 +399,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_31VPFirstOrderRecurrencePHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_22VPCanonicalIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %83 = icmp ne i8 %49, 37
-  %.not.i16 = or i1 %.not.i13273, %83
-  br i1 %.not.i16, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_20VPReductionPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %84
+  %.not.i15 = or i1 %.not.i12270, %83
+  br i1 %.not.i15, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_20VPReductionPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %84
 
 84:                                               ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_31VPFirstOrderRecurrencePHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %85 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -421,8 +421,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_20VPReductionPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_31VPFirstOrderRecurrencePHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %94 = icmp ne i8 %49, 35
-  %.not.i17 = or i1 %.not.i13273, %94
-  br i1 %.not.i17, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_29VPWidenPointerInductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %95
+  %.not.i16 = or i1 %.not.i12270, %94
+  br i1 %.not.i16, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_29VPWidenPointerInductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %95
 
 95:                                               ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_20VPReductionPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %96 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -443,8 +443,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_29VPWidenPointerInductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_20VPReductionPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %105 = icmp ne i8 %49, 32
-  %.not.i18 = or i1 %.not.i13273, %105
-  br i1 %.not.i18, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPEVLBasedIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %106
+  %.not.i17 = or i1 %.not.i12270, %105
+  br i1 %.not.i17, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPEVLBasedIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %106
 
 106:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_29VPWidenPointerInductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %107 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -465,8 +465,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPEVLBasedIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_29VPWidenPointerInductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %116 = icmp ne i8 %49, 36
-  %.not.i19 = or i1 %.not.i13273, %116
-  br i1 %.not.i19, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPScalarPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %117
+  %.not.i18 = or i1 %.not.i12270, %116
+  br i1 %.not.i18, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPScalarPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit", label %117
 
 117:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPEVLBasedIVPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %118 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -504,8 +504,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 131:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPScalarPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %132 = getelementptr i8, ptr %47, i64 48
-  %.val.i23 = load ptr, ptr %132, align 8, !tbaa !3
-  %.val.val.i = load ptr, ptr %.val.i23, align 8, !tbaa !9
+  %.val.i22 = load ptr, ptr %132, align 8, !tbaa !3
+  %.val.val.i = load ptr, ptr %.val.i22, align 8, !tbaa !9
   %133 = getelementptr i8, ptr %.val.val.i, i64 40
   %.val.val.val.i = load ptr, ptr %133, align 8, !tbaa !24
   %134 = getelementptr i8, ptr %.val.val.val.i, i64 8
@@ -515,8 +515,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPDerivedIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_1EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPScalarPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit"
   %135 = and i8 %49, -2
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ne i8 %135, 6
-  %.not.i24 = or i1 %.not.i13273, %spec.select.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i24, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %136
+  %.not.i23 = or i1 %.not.i12270, %spec.select.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i23, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %136
 
 136:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPDerivedIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_1EERS6_OT0_.exit"
   %137 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -527,8 +527,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPDerivedIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_1EERS6_OT0_.exit"
   %141 = icmp ne i8 %49, 29
-  %.not.i25 = or i1 %.not.i13273, %141
-  br i1 %.not.i25, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPPredInstPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %142
+  %.not.i24 = or i1 %.not.i12270, %141
+  br i1 %.not.i24, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPPredInstPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %142
 
 142:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %143 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -539,8 +539,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPPredInstPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %147 = icmp ne i8 %49, 28
-  %.not.i26 = or i1 %.not.i13273, %147
-  br i1 %.not.i26, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %148
+  %.not.i25 = or i1 %.not.i12270, %147
+  br i1 %.not.i25, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %148
 
 148:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPPredInstPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %149 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -551,8 +551,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPPredInstPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %153 = icmp ne i8 %49, 11
-  %.not.i27 = or i1 %.not.i13273, %153
-  br i1 %.not.i27, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPScalarIVStepsRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %154
+  %.not.i26 = or i1 %.not.i12270, %153
+  br i1 %.not.i26, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPScalarIVStepsRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %154
 
 154:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %155 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -563,8 +563,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPScalarIVStepsRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %159 = icmp ne i8 %49, 17
-  %.not.i28 = or i1 %.not.i13273, %159
-  br i1 %.not.i28, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenGEPRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %160
+  %.not.i27 = or i1 %.not.i12270, %159
+  br i1 %.not.i27, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenGEPRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %160
 
 160:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPScalarIVStepsRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %161 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -575,8 +575,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenGEPRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPScalarIVStepsRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %165 = icmp ne i8 %49, 12
-  %.not.i29 = or i1 %.not.i13273, %165
-  br i1 %.not.i29, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %166
+  %.not.i28 = or i1 %.not.i12270, %165
+  br i1 %.not.i28, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %166
 
 166:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenGEPRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %167 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -587,8 +587,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenGEPRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %171 = icmp ne i8 %49, 13
-  %.not.i30 = or i1 %.not.i13273, %171
-  br i1 %.not.i30, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_28VPReverseVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %172
+  %.not.i29 = or i1 %.not.i12270, %171
+  br i1 %.not.i29, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_28VPReverseVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %172
 
 172:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %173 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -599,8 +599,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_28VPReverseVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_21VPVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %177 = icmp ne i8 %49, 15
-  %.not.i31 = or i1 %.not.i13273, %177
-  br i1 %.not.i31, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPWidenCanonicalIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %178
+  %.not.i30 = or i1 %.not.i12270, %177
+  br i1 %.not.i30, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPWidenCanonicalIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %178
 
 178:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_28VPReverseVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %179 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -611,8 +611,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPWidenCanonicalIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_28VPReverseVectorPointerRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %183 = icmp ne i8 %49, 8
-  %.not.i32 = or i1 %.not.i13273, %183
-  br i1 %.not.i32, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPPartialReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %184
+  %.not.i31 = or i1 %.not.i12270, %183
+  br i1 %.not.i31, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPPartialReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit", label %184
 
 184:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPWidenCanonicalIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %185 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -623,8 +623,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPPartialReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPWidenCanonicalIVRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %189 = icmp ne i8 %49, 26
-  %.not.i33 = or i1 %.not.i13273, %189
-  br i1 %.not.i33, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPBlendRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %190
+  %.not.i32 = or i1 %.not.i12270, %189
+  br i1 %.not.i32, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPBlendRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %190
 
 190:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPPartialReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %191 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -636,14 +636,14 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS
   %197 = and i32 %196, 1
   %198 = add i32 %197, %196
   %199 = lshr i32 %198, 1
-  %.not.i.i303 = icmp eq i32 %199, 1
-  br i1 %.not.i.i303, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit", label %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i
+  %.not.i.i300 = icmp eq i32 %199, 1
+  br i1 %.not.i.i300, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit", label %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i
 
 _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i
-  %.0.i.i304 = phi i32 [ %208, %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i ], [ 1, %190 ]
+  %.0.i.i301 = phi i32 [ %208, %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i ], [ 1, %190 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %200 = load ptr, ptr %191, align 8, !tbaa !3
-  %201 = shl i32 %.0.i.i304, 1
+  %201 = shl i32 %.0.i.i301, 1
   %202 = load i32, ptr %195, align 8, !tbaa !11
   %203 = and i32 %202, 1
   %204 = sub i32 %201, %203
@@ -654,14 +654,14 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llv
   %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
   store ptr %194, ptr %207, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %208 = add i32 %.0.i.i304, 1
+  %208 = add i32 %.0.i.i301, 1
   %.not.i.i = icmp eq i32 %208, %199
   br i1 %.not.i.i, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit", label %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i, !llvm.loop !14
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPBlendRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_24VPPartialReductionRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_2EERS6_OT0_.exit"
   %209 = icmp ne i8 %49, 4
-  %.not.i34 = or i1 %.not.i13273, %209
-  br i1 %.not.i34, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPInstructionERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %210
+  %.not.i33 = or i1 %.not.i12270, %209
+  br i1 %.not.i33, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPInstructionERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %210
 
 210:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPBlendRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %211 = tail call noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipeEPKNS_13VPInstructionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %47)
@@ -669,9 +669,9 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llv
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPInstructionERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPBlendRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %212 = add i8 %49, -25
-  %spec.select.i.i.i.i.i.i.i.i.i81 = icmp ult i8 %212, -2
-  %.not.i35 = or i1 %.not.i13273, %spec.select.i.i.i.i.i.i.i.i.i81
-  br i1 %.not.i35, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPWidenRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %213
+  %spec.select.i.i.i.i.i.i.i.i.i80 = icmp ult i8 %212, -2
+  %.not.i34 = or i1 %.not.i12270, %spec.select.i.i.i.i.i.i.i.i.i80
+  br i1 %.not.i34, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPWidenRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %213
 
 213:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPInstructionERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %214 = getelementptr inbounds nuw i8, ptr %47, i64 160
@@ -715,8 +715,8 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llv
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPWidenRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPInstructionERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %237 = icmp ne i8 %49, 24
-  %.not.i36 = or i1 %.not.i13273, %237
-  br i1 %.not.i36, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenEVLRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %238
+  %.not.i35 = or i1 %.not.i12270, %237
+  br i1 %.not.i35, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenEVLRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %238
 
 238:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPWidenRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %239 = getelementptr inbounds nuw i8, ptr %47, i64 160
@@ -741,9 +741,9 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llv
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 252:                                              ; preds = %238
-  %.off.i89 = add i32 %240, -53
-  %switch.i90 = icmp ult i32 %.off.i89, 2
-  br i1 %switch.i90, label %253, label %257
+  %.off.i88 = add i32 %240, -53
+  %switch.i89 = icmp ult i32 %.off.i88, 2
+  br i1 %switch.i89, label %253, label %257
 
 253:                                              ; preds = %252
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -760,21 +760,21 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llv
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenEVLRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_13VPWidenRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %262 = icmp ne i8 %49, 9
-  %.not.i37 = or i1 %.not.i13273, %262
-  br i1 %.not.i37, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReplicateRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %263
+  %.not.i36 = or i1 %.not.i12270, %262
+  br i1 %.not.i36, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReplicateRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %263
 
 263:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenEVLRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %264 = tail call noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipeEPKNS_17VPReplicateRecipeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %47)
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReplicateRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_16VPWidenEVLRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
-  %.not295 = icmp eq i8 %49, 14
-  br i1 %.not295, label %265, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPWidenCallRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
+  %.not292 = icmp eq i8 %49, 14
+  br i1 %.not292, label %265, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPWidenCallRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
 
 265:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReplicateRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %266 = getelementptr i8, ptr %47, i64 136
-  %.val5.i40 = load ptr, ptr %266, align 8, !tbaa !24
-  %267 = getelementptr i8, ptr %.val5.i40, i64 8
+  %.val5.i39 = load ptr, ptr %266, align 8, !tbaa !24
+  %267 = getelementptr i8, ptr %.val5.i39, i64 8
   %.val5.val.i = load ptr, ptr %267, align 8, !tbaa !33
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
@@ -785,15 +785,15 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llv
 
 269:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPWidenCallRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %270 = getelementptr i8, ptr %47, i64 96
-  %.val5.i43 = load ptr, ptr %270, align 8, !tbaa !79
-  %271 = getelementptr i8, ptr %.val5.i43, i64 8
-  %.val5.val.i44 = load ptr, ptr %271, align 8, !tbaa !33
+  %.val5.i42 = load ptr, ptr %270, align 8, !tbaa !79
+  %271 = getelementptr i8, ptr %.val5.i42, i64 8
+  %.val5.val.i43 = load ptr, ptr %271, align 8, !tbaa !33
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenMemoryRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPWidenCallRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %272 = icmp ne i8 %49, 25
-  %.not.i45 = or i1 %.not.i13273, %272
-  br i1 %.not.i45, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %273
+  %.not.i44 = or i1 %.not.i12270, %272
+  br i1 %.not.i44, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", label %273
 
 273:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenMemoryRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %274 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -822,34 +822,34 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %190, %_ZNK4llv
 
 283:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %284 = getelementptr i8, ptr %47, i64 168
-  %.val.i48 = load ptr, ptr %284, align 8, !tbaa !83
+  %.val.i47 = load ptr, ptr %284, align 8, !tbaa !83
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 285:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %286 = getelementptr i8, ptr %1, i64 40
-  %.val.val.i51 = load ptr, ptr %286, align 8, !tbaa !24
-  %287 = getelementptr i8, ptr %.val.val.i51, i64 8
-  %.val.val.val.i52 = load ptr, ptr %287, align 8, !tbaa !33
+  %.val.val.i50 = load ptr, ptr %286, align 8, !tbaa !24
+  %287 = getelementptr i8, ptr %.val.val.i50, i64 8
+  %.val.val.val.i51 = load ptr, ptr %287, align 8, !tbaa !33
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 288:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %289 = getelementptr i8, ptr %47, i64 168
-  %.val.i55 = load ptr, ptr %289, align 8, !tbaa !85
+  %.val.i54 = load ptr, ptr %289, align 8, !tbaa !85
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 290:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %291 = getelementptr i8, ptr %47, i64 160
-  %.val.i58 = load ptr, ptr %291, align 8, !tbaa !88
+  %.val.i57 = load ptr, ptr %291, align 8, !tbaa !88
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 292:                                              ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit"
   %293 = getelementptr i8, ptr %47, i64 152
-  %.val.i61 = load ptr, ptr %293, align 8, !tbaa !90
-  %294 = tail call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %.val.i61) #15
+  %.val.i60 = load ptr, ptr %293, align 8, !tbaa !90
+  %294 = tail call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %.val.i60) #15
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit": ; preds = %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", %190, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit.thread", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_22VPCanonicalIVPHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_31VPFirstOrderRecurrencePHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_20VPReductionPHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_29VPWidenPointerInductionRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_21VPEVLBasedIVPHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_17VPScalarPHIRecipeEEEDaPKT_.exit", %127, %131, %136, %142, %148, %154, %160, %166, %172, %178, %184, %210, %232, %228, %218, %257, %253, %243, %263, %265, %269, %273, %283, %285, %288, %290, %292
-  %.sroa.35.31 = phi ptr [ %294, %292 ], [ %.val.i58, %290 ], [ %.val.i55, %288 ], [ %.val.val.val.i52, %285 ], [ %.val.i48, %283 ], [ %278, %273 ], [ %.val5.val.i44, %269 ], [ %.val5.val.i, %265 ], [ %264, %263 ], [ %261, %257 ], [ %256, %253 ], [ %247, %243 ], [ %236, %232 ], [ %231, %228 ], [ %222, %218 ], [ %211, %210 ], [ %188, %184 ], [ %182, %178 ], [ %176, %172 ], [ %170, %166 ], [ %164, %160 ], [ %158, %154 ], [ %152, %148 ], [ %146, %142 ], [ %140, %136 ], [ %.val.val.val.val.i, %131 ], [ %130, %127 ], [ %126, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_17VPScalarPHIRecipeEEEDaPKT_.exit" ], [ %115, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_21VPEVLBasedIVPHIRecipeEEEDaPKT_.exit" ], [ %104, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_29VPWidenPointerInductionRecipeEEEDaPKT_.exit" ], [ %93, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_20VPReductionPHIRecipeEEEDaPKT_.exit" ], [ %82, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_31VPFirstOrderRecurrencePHIRecipeEEEDaPKT_.exit" ], [ %60, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit.thread" ], [ %71, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_22VPCanonicalIVPHIRecipeEEEDaPKT_.exit" ], [ %194, %190 ], [ undef, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit" ], [ %194, %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i ]
+  %.sroa.35.31 = phi ptr [ %294, %292 ], [ %.val.i57, %290 ], [ %.val.i54, %288 ], [ %.val.val.val.i51, %285 ], [ %.val.i47, %283 ], [ %278, %273 ], [ %.val5.val.i43, %269 ], [ %.val5.val.i, %265 ], [ %264, %263 ], [ %261, %257 ], [ %256, %253 ], [ %247, %243 ], [ %236, %232 ], [ %231, %228 ], [ %222, %218 ], [ %211, %210 ], [ %188, %184 ], [ %182, %178 ], [ %176, %172 ], [ %170, %166 ], [ %164, %160 ], [ %158, %154 ], [ %152, %148 ], [ %146, %142 ], [ %140, %136 ], [ %.val.val.val.val.i, %131 ], [ %130, %127 ], [ %126, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_17VPScalarPHIRecipeEEEDaPKT_.exit" ], [ %115, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_21VPEVLBasedIVPHIRecipeEEEDaPKT_.exit" ], [ %104, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_29VPWidenPointerInductionRecipeEEEDaPKT_.exit" ], [ %93, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_20VPReductionPHIRecipeEEEDaPKT_.exit" ], [ %82, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_31VPFirstOrderRecurrencePHIRecipeEEEDaPKT_.exit" ], [ %60, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit.thread" ], [ %71, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_22VPCanonicalIVPHIRecipeEEEDaPKT_.exit" ], [ %194, %190 ], [ undef, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit" ], [ %194, %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i ]
   %295 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %.sroa.35.31, ptr %295, align 8, !tbaa !12
   br label %296
@@ -1863,14 +1863,14 @@ _ZSteqIPN4llvm11VPBlockBaseESt8optionalINS0_23VPAllSuccessorsIteratorIS2_EEEEbRK
 
 207:                                              ; preds = %205, %.preheader
   %208 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %.not.not14.i.i.i = icmp eq ptr %200, null
+  %.not.not13.i.i.i = icmp eq ptr %200, null
   %209 = getelementptr inbounds i8, ptr %198, i64 -16
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %207
   %210 = load i8, ptr %208, align 8, !tbaa !164, !noalias !166
   %211 = icmp ne i8 %210, 0
-  %.not.not.i.i.i = or i1 %.not.not14.i.i.i, %211
+  %.not.not.i.i.i = or i1 %.not.not13.i.i.i, %211
   br i1 %.not.not.i.i.i, label %.lr.ph.i.i.i.i48, label %_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit.i
 
 .lr.ph.i.i.i.i48:                                 ; preds = %.critedge.i, %215
@@ -1905,8 +1905,8 @@ _ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9chi
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %226 = load i8, ptr %225, align 8, !tbaa !164
   %227 = icmp ne i8 %226, 0
-  %.not.not10.i.i.i = icmp eq ptr %219, null
-  %.not.not.i.i9.i = or i1 %.not.not10.i.i.i, %227
+  %.not.not9.i.i.i = icmp eq ptr %219, null
+  %.not.not.i.i9.i = or i1 %.not.not9.i.i.i, %227
   br i1 %.not.not.i.i9.i, label %.lr.ph.i.preheader.i.i.i, label %231
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %223
@@ -1920,8 +1920,8 @@ _ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9chi
   br label %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit.i
 
 .lr.ph.i.i.i11.i:                                 ; preds = %.lr.ph.i.preheader.i.i.i, %.lr.ph.i.i.i11.i
-  %.05.i11.i.i.i = phi ptr [ %234, %.lr.ph.i.i.i11.i ], [ %219, %.lr.ph.i.preheader.i.i.i ]
-  %233 = getelementptr inbounds nuw i8, ptr %.05.i11.i.i.i, i64 48
+  %.05.i10.i.i.i = phi ptr [ %234, %.lr.ph.i.i.i11.i ], [ %219, %.lr.ph.i.preheader.i.i.i ]
+  %233 = getelementptr inbounds nuw i8, ptr %.05.i10.i.i.i, i64 48
   %234 = load ptr, ptr %233, align 8, !tbaa !171, !nonnull !114, !noundef !114
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 88
   %236 = load i32, ptr %235, align 8, !tbaa !11
@@ -1949,26 +1949,26 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit.i: ; preds = %_ZN
   %247 = zext i32 %246 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %247, 3
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %246, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i12.i
+  %.not34.i.i.i.i = icmp eq i32 %246, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i12.i
 
 .lr.ph.i.i.i12.i:                                 ; preds = %244, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %250, %.critedge.i.i.i.i ], [ %245, %244 ]
-  %249 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !182, !noalias !176
+  %.02935.i.i.i.i = phi ptr [ %250, %.critedge.i.i.i.i ], [ %245, %244 ]
+  %249 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !182, !noalias !176
   %.not17.i.i.i.i = icmp eq ptr %249, %.1.i.i.i
   br i1 %.not17.i.i.i.i, label %.critedge.i.backedge, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i12.i
-  %250 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i13.i = icmp eq ptr %250, %248
   br i1 %.not.i.i.i13.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i12.i, !llvm.loop !183
 
 ._crit_edge.i.i.i.i:                              ; preds = %.critedge.i.i.i.i, %244
   %251 = load i32, ptr %61, align 8, !tbaa !184, !noalias !176
   %252 = icmp ult i32 %246, %251
-  br i1 %252, label %.critedge40.i, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
+  br i1 %252, label %.critedge39.i, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
-.critedge40.i:                                    ; preds = %._crit_edge.i.i.i.i
+.critedge39.i:                                    ; preds = %._crit_edge.i.i.i.i
   %253 = add nuw i32 %246, 1
   store i32 %253, ptr %60, align 4, !tbaa !181, !noalias !176
   store ptr %.1.i.i.i, ptr %248, align 8, !tbaa !182, !noalias !176
@@ -1983,7 +1983,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge
 .critedge.i.backedge:                             ; preds = %.lr.ph.i.i.i12.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
   br label %.critedge.i
 
-.loopexit158:                                     ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %.critedge40.i
+.loopexit158:                                     ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %.critedge39.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.1.i.i.i, ptr %3, align 8, !tbaa !152
   store i8 0, ptr %62, align 8, !tbaa !158
@@ -6292,14 +6292,14 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorINS_27VPBlockDeepTraversal
 
 18:                                               ; preds = %16, %8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.not.not14.i.i = icmp eq ptr %11, null
+  %.not.not13.i.i = icmp eq ptr %11, null
   %20 = getelementptr inbounds i8, ptr %9, i64 -16
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %18
   %21 = load i8, ptr %19, align 8, !tbaa !164, !noalias !392
   %22 = icmp ne i8 %21, 0
-  %.not.not.i.i = or i1 %.not.not14.i.i, %22
+  %.not.not.i.i = or i1 %.not.not13.i.i, %22
   br i1 %.not.not.i.i, label %.lr.ph.i.i.i, label %_ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9child_endES3_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge, %26
@@ -6334,8 +6334,8 @@ _ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9chi
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load i8, ptr %36, align 8, !tbaa !164
   %38 = icmp ne i8 %37, 0
-  %.not.not10.i.i = icmp eq ptr %30, null
-  %.not.not.i.i9 = or i1 %.not.not10.i.i, %38
+  %.not.not9.i.i = icmp eq ptr %30, null
+  %.not.not.i.i9 = or i1 %.not.not9.i.i, %38
   br i1 %.not.not.i.i9, label %.lr.ph.i.preheader.i.i, label %42
 
 .lr.ph.i.preheader.i.i:                           ; preds = %34
@@ -6349,8 +6349,8 @@ _ZN4llvm11GraphTraitsINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEE9chi
   br label %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit
 
 .lr.ph.i.i.i11:                                   ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i11
-  %.05.i11.i.i = phi ptr [ %45, %.lr.ph.i.i.i11 ], [ %30, %.lr.ph.i.preheader.i.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %.05.i11.i.i, i64 48
+  %.05.i10.i.i = phi ptr [ %45, %.lr.ph.i.i.i11 ], [ %30, %.lr.ph.i.preheader.i.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %.05.i10.i.i, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !171, !nonnull !114, !noundef !114
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
   %47 = load i32, ptr %46, align 8, !tbaa !11
@@ -6378,41 +6378,41 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit: ; preds = %42, %
   %58 = zext i32 %57 to i64
   %.idx.i.i.i = shl nuw nsw i64 %58, 3
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %57, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i12
+  %.not34.i.i.i = icmp eq i32 %57, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i12
 
 .lr.ph.i.i.i12:                                   ; preds = %55, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %61, %.critedge.i.i.i ], [ %56, %55 ]
-  %60 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !182, !noalias !400
+  %.02935.i.i.i = phi ptr [ %61, %.critedge.i.i.i ], [ %56, %55 ]
+  %60 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !182, !noalias !400
   %.not17.i.i.i = icmp eq ptr %60, %.1.i.i
   br i1 %.not17.i.i.i, label %.critedge.backedge, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i12
-  %61 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i13 = icmp eq ptr %61, %59
   br i1 %.not.i.i.i13, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i12, !llvm.loop !183
 
 ._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %55
   %62 = load i32, ptr %7, align 8, !tbaa !184, !noalias !400
   %63 = icmp ult i32 %57, %62
-  br i1 %63, label %.critedge40, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+  br i1 %63, label %.critedge39, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-.critedge40:                                      ; preds = %._crit_edge.i.i.i
+.critedge39:                                      ; preds = %._crit_edge.i.i.i
   %64 = add nuw i32 %57, 1
   store i32 %64, ptr %6, align 4, !tbaa !181, !noalias !400
   store ptr %.1.i.i, ptr %59, align 8, !tbaa !182, !noalias !400
-  br label %.loopexit41
+  br label %.loopexit40
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit
   %65 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.1.i.i) #15, !noalias !400
   %66 = extractvalue { ptr, i8 } %65, 1
   %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %.loopexit41, label %.critedge.backedge
+  br i1 %67, label %.loopexit40, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.lr.ph.i.i.i12, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   br label %.critedge
 
-.loopexit41:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge40
+.loopexit40:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge39
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.1.i.i, ptr %2, align 8, !tbaa !152
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -6423,7 +6423,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   %.not.i.i = icmp eq ptr %69, %71
   br i1 %.not.i.i, label %74, label %_ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i
 
-_ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i: ; preds = %.loopexit41
+_ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i: ; preds = %.loopexit40
   store ptr %.1.i.i, ptr %69, align 8, !tbaa !152
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i8 0, ptr %72, align 8, !tbaa !158
@@ -6431,7 +6431,7 @@ _ZNSt16allocator_traitsISaISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllS
   store ptr %73, ptr %4, align 8, !tbaa !151
   br label %79
 
-74:                                               ; preds = %.loopexit41
+74:                                               ; preds = %.loopexit40
   call void @_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %69, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %79
 
@@ -9487,8 +9487,8 @@ define linkonce_odr hidden void @_ZNK4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE11ge
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !164, !noalias !459
   %8 = icmp ne i8 %7, 0
-  %.not.not14.i.i.i = icmp eq ptr %2, null
-  %.not.not.i.i.i = or i1 %.not.not14.i.i.i, %8
+  %.not.not13.i.i.i = icmp eq ptr %2, null
+  %.not.not.i.i.i = or i1 %.not.not13.i.i.i, %8
   br i1 %.not.not.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN4llvm8childrenIPNS_11VPBlockBaseEEENS_14iterator_rangeINS_11GraphTraitsIT_E17ChildIteratorTypeEEERKNS6_7NodeRefE.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %12
@@ -9885,8 +9885,8 @@ define linkonce_odr hidden void @_ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17Domi
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !164, !noalias !477
   %7 = icmp ne i8 %6, 0
-  %.not.not14.i.i.i = icmp eq ptr %1, null
-  %.not.not.i.i.i = or i1 %.not.not14.i.i.i, %7
+  %.not.not13.i.i.i = icmp eq ptr %1, null
+  %.not.not.i.i.i = or i1 %.not.not13.i.i.i, %7
   br i1 %.not.not.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN4llvm8childrenIPNS_11VPBlockBaseEEENS_14iterator_rangeINS_11GraphTraitsIT_E17ChildIteratorTypeEEERKNS6_7NodeRefE.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %11
@@ -10107,8 +10107,8 @@ _ZN4llvm15SmallVectorImplIPNS_11VPBlockBaseEE7reserveEm.exit: ; preds = %3, %17
   %28 = getelementptr inbounds nuw i8, ptr %.fr18.i.i.i, i64 8
   %29 = load i8, ptr %28, align 8, !tbaa !164
   %30 = icmp ne i8 %29, 0
-  %.not.not10.i.i.i.i.i.i.i = icmp eq ptr %.fr18.i.i.i, null
-  %.not.not.i.i.i.i.i.i.i = or i1 %.not.not10.i.i.i.i.i.i.i, %30
+  %.not.not9.i.i.i.i.i.i.i = icmp eq ptr %.fr18.i.i.i, null
+  %.not.not.i.i.i.i.i.i.i = or i1 %.not.not9.i.i.i.i.i.i.i, %30
   br i1 %.not.not.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.split.us.i.i.i, label %.lr.ph.i.preheader.split.i.i.i
 
 .lr.ph.i.preheader.split.us.i.i.i:                ; preds = %.lr.ph.i.preheader.i.i.i
@@ -10126,8 +10126,8 @@ _ZN4llvm15SmallVectorImplIPNS_11VPBlockBaseEE7reserveEm.exit: ; preds = %3, %17
   br label %.lr.ph.i.i.i.i.i.us.us.us.i.i.i
 
 .lr.ph.i.i.i.i.i.us.us.us.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i.i.i, %.lr.ph.i.us.us.us.i.i.i
-  %.05.i11.i.i.i.i.us.us.us.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.us.us.us.i.i.i ], [ %.fr18.i.i.i, %.lr.ph.i.us.us.us.i.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.05.i11.i.i.i.i.us.us.us.i.i.i, i64 48
+  %.05.i10.i.i.i.i.us.us.us.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.us.us.us.i.i.i ], [ %.fr18.i.i.i, %.lr.ph.i.us.us.us.i.i.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %.05.i10.i.i.i.i.us.us.us.i.i.i, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !171, !nonnull !114, !noundef !114
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %38 = load i32, ptr %37, align 8, !tbaa !11
@@ -10152,8 +10152,8 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exi
   br label %.lr.ph.i.i.i.i.i.us.us.i.i.i
 
 .lr.ph.i.i.i.i.i.us.us.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.us.us.i.i.i, %.lr.ph.i.us.us.i.i.i
-  %.05.i11.i.i.i.i.us.us.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.us.us.i.i.i ], [ %.fr18.i.i.i, %.lr.ph.i.us.us.i.i.i ]
-  %48 = getelementptr inbounds nuw i8, ptr %.05.i11.i.i.i.i.us.us.i.i.i, i64 48
+  %.05.i10.i.i.i.i.us.us.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.us.us.i.i.i ], [ %.fr18.i.i.i, %.lr.ph.i.us.us.i.i.i ]
+  %48 = getelementptr inbounds nuw i8, ptr %.05.i10.i.i.i.i.us.us.i.i.i, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !171, !nonnull !114, !noundef !114
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %51 = load i32, ptr %50, align 8, !tbaa !11

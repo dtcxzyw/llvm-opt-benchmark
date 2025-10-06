@@ -314,8 +314,8 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
   %9 = and i32 %8, 255
   %10 = add nsw i32 %9, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %10, -2
-  %.not.not52 = icmp eq ptr %1, null
-  %.not.not = or i1 %.not.not52, %spec.select.i.i.i.i.i.i.i.i
+  %.not.not49 = icmp eq ptr %1, null
+  %.not.not = or i1 %.not.not49, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not.not, label %.thread, label %11
 
 11:                                               ; preds = %4
@@ -332,8 +332,8 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
   %17 = load i32, ptr %13, align 8, !tbaa !362
   %18 = zext i32 %17 to i64
   %19 = add nsw i64 %18, -1
-  %.not2654 = icmp eq i64 %19, 0
-  br i1 %.not2654, label %._crit_edge, label %.lr.ph
+  %.not2651 = icmp eq i64 %19, 0
+  br i1 %.not2651, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -341,17 +341,17 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
 
 ._crit_edge.loopexit:                             ; preds = %27
   %.pre = load i32, ptr %13, align 8, !tbaa !362
-  %.pre57 = zext i32 %.pre to i64
+  %.pre54 = zext i32 %.pre to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %.pre-phi = phi i64 [ %.pre57, %._crit_edge.loopexit ], [ 1, %11 ]
-  %.sroa.036.0.lcssa = phi i64 [ %39, %._crit_edge.loopexit ], [ %2, %11 ]
+  %.pre-phi = phi i64 [ %.pre54, %._crit_edge.loopexit ], [ 1, %11 ]
+  %.sroa.035.0.lcssa = phi i64 [ %39, %._crit_edge.loopexit ], [ %2, %11 ]
   %20 = load ptr, ptr %6, align 8, !tbaa !361
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.pre-phi
   %22 = getelementptr inbounds i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8, !tbaa !364
-  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %23, i64 %.sroa.036.0.lcssa, i64 %3)
+  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %23, i64 %.sroa.035.0.lcssa, i64 %3)
   %24 = load ptr, ptr %6, align 8, !tbaa !361
   %25 = icmp eq ptr %24, %12
   br i1 %25, label %41, label %26
@@ -361,10 +361,10 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
   br label %41
 
 27:                                               ; preds = %.lr.ph, %27
-  %.056 = phi i64 [ 0, %.lr.ph ], [ %40, %27 ]
-  %.sroa.036.055 = phi i64 [ %2, %.lr.ph ], [ %39, %27 ]
+  %.053 = phi i64 [ 0, %.lr.ph ], [ %40, %27 ]
+  %.sroa.035.052 = phi i64 [ %2, %.lr.ph ], [ %39, %27 ]
   %28 = load ptr, ptr %6, align 8, !tbaa !361
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.056
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.053
   %30 = load ptr, ptr %29, align 8, !tbaa !364
   %31 = load ptr, ptr %0, align 8, !tbaa !13
   %32 = getelementptr i8, ptr %31, i64 200
@@ -381,9 +381,9 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
   store i8 %36, ptr %.sroa.2.0..sroa_idx.i, align 8
   %38 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %39 = add nsw i64 %38, %.sroa.036.055
-  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %30, i64 %.sroa.036.055, i64 %39)
-  %40 = add nuw i64 %.056, 1
+  %39 = add nsw i64 %38, %.sroa.035.052
+  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %30, i64 %.sroa.035.052, i64 %39)
+  %40 = add nuw i64 %.053, 1
   %.not26 = icmp eq i64 %40, %19
   br i1 %.not26, label %._crit_edge.loopexit, label %27, !llvm.loop !366
 
@@ -393,12 +393,12 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
 
 .thread:                                          ; preds = %4
   %42 = icmp ne i32 %9, 12
-  %.not27 = or i1 %.not.not52, %42
+  %.not27 = or i1 %.not.not49, %42
   br i1 %.not27, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread, label %43
 
 43:                                               ; preds = %.thread
   %44 = lshr i32 %8, 8
-  switch i32 %44, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread47 [
+  switch i32 %44, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45 [
     i32 1, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
     i32 8, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
     i32 16, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
@@ -417,9 +417,9 @@ _ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11In
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(489) %49) #15
-  br i1 %53, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread47
+  br i1 %53, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread, label %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45
 
-_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread47: ; preds = %43, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit
+_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45: ; preds = %43, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit
   tail call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering8addEntryEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef null, i64 %2, i64 %3)
   br label %54
 
@@ -427,7 +427,7 @@ _ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11In
   tail call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull %1, i64 %2, i64 %3)
   br label %54
 
-54:                                               ; preds = %41, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread47, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
+54:                                               ; preds = %41, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread45, %_ZN5clang7CodeGen9swiftcall18isLegalIntegerTypeERNS0_13CodeGenModuleEPN4llvm11IntegerTypeE.exit.thread
   ret void
 }
 
@@ -1330,8 +1330,8 @@ _ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4Ty
   %27 = and i32 %26, 255
   %28 = add nsw i32 %27, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %28, -2
-  %.not.not42 = icmp eq ptr %1, null
-  %.not.not = or i1 %.not.not42, %spec.select.i.i.i.i.i.i.i.i
+  %.not.not41 = icmp eq ptr %1, null
+  %.not.not = or i1 %.not.not41, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not.not, label %.loopexit.sink.split, label %29
 
 29:                                               ; preds = %24
@@ -1371,11 +1371,11 @@ _ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharU
   br label %53
 
 53:                                               ; preds = %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit, %53
-  %.044 = phi i64 [ 0, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %55, %53 ]
-  %.sroa.030.043 = phi i64 [ %2, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %54, %53 ]
-  %54 = add nsw i64 %.sroa.030.043, %52
-  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %.sroa.010.0.i, i64 %.sroa.030.043, i64 %54)
-  %55 = add i64 %.044, 1
+  %.043 = phi i64 [ 0, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %55, %53 ]
+  %.sroa.030.042 = phi i64 [ %2, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %54, %53 ]
+  %54 = add nsw i64 %.sroa.030.042, %52
+  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %.sroa.010.0.i, i64 %.sroa.030.042, i64 %54)
+  %55 = add i64 %.043, 1
   %.not23 = icmp eq i64 %55, %51
   br i1 %.not23, label %.loopexit, label %53, !llvm.loop !795
 
@@ -1828,8 +1828,8 @@ define internal fastcc noundef ptr @_ZL13getCommonTypePN4llvm4TypeES1_(ptr nound
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
-  %trunc43 = trunc i32 %12 to i8
-  switch i8 %trunc43, label %.thread39 [
+  %trunc42 = trunc i32 %12 to i8
+  switch i8 %trunc42, label %.thread39 [
     i8 12, label %30
     i8 14, label %.fold.split
   ]
@@ -1846,8 +1846,8 @@ define internal fastcc noundef ptr @_ZL13getCommonTypePN4llvm4TypeES1_(ptr nound
   %19 = and i32 %18, 255
   %20 = add nsw i32 %19, -19
   %spec.select.i.i.i.i.i.i.i.i32 = icmp ult i32 %20, -2
-  %.not2945 = icmp eq ptr %1, null
-  %.not29 = or i1 %.not2945, %spec.select.i.i.i.i.i.i.i.i32
+  %.not2944 = icmp eq ptr %1, null
+  %.not29 = or i1 %.not2944, %spec.select.i.i.i.i.i.i.i.i32
   br i1 %.not29, label %.thread39, label %21
 
 21:                                               ; preds = %16
@@ -3153,8 +3153,8 @@ define internal fastcc void @_ZL12classifyTypeRN5clang7CodeGen13CodeGenModuleENS
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 16
   %12 = icmp ne i8 %11, 47
-  %.not.not40 = icmp eq ptr %9, null
-  %.not.not = or i1 %.not.not40, %12
+  %.not.not39 = icmp eq ptr %9, null
+  %.not.not = or i1 %.not.not39, %12
   br i1 %.not.not, label %65, label %13
 
 13:                                               ; preds = %4
@@ -3559,8 +3559,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

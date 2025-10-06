@@ -697,8 +697,8 @@ BufferGetPage.exit96:                             ; preds = %BufferGetPage.exit9
   %.not = icmp eq i16 %95, 0
   %96 = load i64, ptr %71, align 8
   %.not86 = icmp ult i64 %96, %73
-  %or.cond109 = select i1 %.not, i1 true, i1 %.not86
-  br i1 %or.cond109, label %307, label %97
+  %or.cond108 = select i1 %.not, i1 true, i1 %.not86
+  br i1 %or.cond108, label %307, label %97
 
 97:                                               ; preds = %92, %BufferGetPage.exit96
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -716,8 +716,8 @@ BufferGetPage.exit96:                             ; preds = %BufferGetPage.exit9
   call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #8
   call void @ginBeginBAScan(ptr noundef nonnull %9) #8
   %104 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #8
-  %.not87105 = icmp eq ptr %104, null
-  br i1 %.not87105, label %._crit_edge, label %.lr.ph
+  %.not87104 = icmp eq ptr %104, null
+  br i1 %.not87104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %97, %.lr.ph
   %105 = phi ptr [ %110, %.lr.ph ], [ %104, %97 ]
@@ -750,11 +750,11 @@ BufferGetPage.exit96:                             ; preds = %BufferGetPage.exit9
   call fastcc void @processPendingPage(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %.076, i16 noundef zeroext %narrow)
   call void @ginBeginBAScan(ptr noundef nonnull %9) #8
   %117 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #8
-  %.not89106 = icmp eq ptr %117, null
-  br i1 %.not89106, label %.loopexit, label %.lr.ph108
+  %.not89105 = icmp eq ptr %117, null
+  br i1 %.not89105, label %.loopexit, label %.lr.ph107
 
-.lr.ph108:                                        ; preds = %116, %.lr.ph108
-  %118 = phi ptr [ %123, %.lr.ph108 ], [ %117, %116 ]
+.lr.ph107:                                        ; preds = %116, %.lr.ph107
+  %118 = phi ptr [ %123, %.lr.ph107 ], [ %117, %116 ]
   %119 = load i16, ptr %14, align 2
   %120 = load i64, ptr %12, align 8
   %121 = load i8, ptr %13, align 1
@@ -762,9 +762,9 @@ BufferGetPage.exit96:                             ; preds = %BufferGetPage.exit9
   call void @ginEntryInsert(ptr noundef nonnull %0, i16 noundef zeroext %119, i64 noundef %120, i8 noundef signext %121, ptr noundef nonnull %118, i32 noundef %122, ptr noundef null) #8
   %123 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #8
   %.not89 = icmp eq ptr %123, null
-  br i1 %.not89, label %.loopexit, label %.lr.ph108, !llvm.loop !8
+  br i1 %.not89, label %.loopexit, label %.lr.ph107, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph108, %116, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph107, %116, %._crit_edge
   %124 = load i16, ptr %86, align 4
   %125 = zext i16 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %.076, i64 %125

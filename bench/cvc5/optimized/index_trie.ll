@@ -103,7 +103,7 @@ _ZSt5countISt19_Bit_const_iteratorbENSt15iterator_traitsIT_E15difference_typeES2
 define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::pair", align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %common.ret76, label %8
+  br i1 %.not, label %common.ret74, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq i64 %3, 0
@@ -111,7 +111,7 @@ define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRe
 
 10:                                               ; preds = %8
   tail call void @_ZN4cvc58internal6theory11quantifiers9IndexTrie7freeRecEPNS2_13IndexTrieNodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1)
-  br label %common.ret76
+  br label %common.ret74
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %4, align 8, !tbaa !3
@@ -125,8 +125,8 @@ define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRe
   %18 = shl nuw i64 1, %17
   %19 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !11
   %20 = and i64 %19, %18
-  %.not56 = icmp eq i64 %20, 0
-  br i1 %.not56, label %21, label %30
+  %.not54 = icmp eq i64 %20, 0
+  br i1 %.not54, label %21, label %30
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -139,23 +139,23 @@ define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRe
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   br label %26
 
-common.ret76:                                     ; preds = %6, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit, %10, %42, %26
-  %common.ret76.op = phi ptr [ %1, %26 ], [ %1, %42 ], [ null, %10 ], [ %1, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit ], [ null, %6 ]
-  ret ptr %common.ret76.op
+common.ret74:                                     ; preds = %6, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit, %10, %42, %26
+  %common.ret74.op = phi ptr [ %1, %26 ], [ %1, %42 ], [ null, %10 ], [ %1, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit ], [ null, %6 ]
+  ret ptr %common.ret74.op
 
 26:                                               ; preds = %21, %24
   %27 = phi ptr [ %25, %24 ], [ %23, %21 ]
   %28 = add i64 %2, 1
   %29 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %27, i64 noundef %28, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   store ptr %29, ptr %22, align 8, !tbaa !22
-  br label %common.ret76
+  br label %common.ret74
 
 30:                                               ; preds = %11
   %31 = load ptr, ptr %1, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !29
-  %.not5759 = icmp eq ptr %31, %33
-  br i1 %.not5759, label %._crit_edge, label %.lr.ph
+  %.not5557 = icmp eq ptr %31, %33
+  br i1 %.not5557, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
   %34 = load ptr, ptr %5, align 8, !tbaa !30
@@ -164,24 +164,24 @@ common.ret76:                                     ; preds = %6, %_ZNSt4pairIN4cv
   br label %37
 
 37:                                               ; preds = %.lr.ph, %40
-  %.sroa.047.060 = phi ptr [ %31, %.lr.ph ], [ %41, %40 ]
-  %38 = load ptr, ptr %.sroa.047.060, align 8, !tbaa !33
+  %.sroa.047.058 = phi ptr [ %31, %.lr.ph ], [ %41, %40 ]
+  %38 = load ptr, ptr %.sroa.047.058, align 8, !tbaa !33
   %39 = icmp eq ptr %38, %36
   br i1 %39, label %42, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.047.060, i64 16
-  %.not57 = icmp eq ptr %41, %33
-  br i1 %.not57, label %._crit_edge, label %37
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.047.058, i64 16
+  %.not55 = icmp eq ptr %41, %33
+  br i1 %.not55, label %._crit_edge, label %37
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.047.060, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.047.058, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !36
   %45 = add i64 %2, 1
   %46 = add i64 %3, -1
   %47 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %44, i64 noundef %45, i64 noundef %46, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   store ptr %47, ptr %43, align 8, !tbaa !36
-  br label %common.ret76
+  br label %common.ret74
 
 ._crit_edge:                                      ; preds = %40, %30
   %48 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
@@ -304,7 +304,7 @@ _ZNSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS2_6theory11quantifie
 
 _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS2_6theory11quantifiers13IndexTrieNodeEESaIS9_EE9push_backEOS9_.exit, %98, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %common.ret76
+  br label %common.ret74
 
 108:                                              ; preds = %94, %88
   %109 = landingpad { ptr, i32 }
@@ -586,31 +586,31 @@ _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %20, %26, %30
   %38 = load ptr, ptr %1, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !29
-  %.not3536.not = icmp eq ptr %38, %40
-  br i1 %.not3536.not, label %.loopexit, label %.lr.ph
+  %.not3637 = icmp eq ptr %38, %40
+  br i1 %.not3637, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.critedge
-  %.sroa.032.037 = phi ptr [ %50, %.critedge ], [ %38, %36 ]
+  %.sroa.032.038 = phi ptr [ %50, %.critedge ], [ %38, %36 ]
   %41 = load ptr, ptr %3, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %41, i64 %2
-  %43 = load ptr, ptr %.sroa.032.037, align 8, !tbaa !33
+  %43 = load ptr, ptr %.sroa.032.038, align 8, !tbaa !33
   %44 = load ptr, ptr %42, align 8, !tbaa !33
   %45 = icmp eq ptr %43, %44
   br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.037, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.038, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   %49 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers9IndexTrie7findRecEPKNS2_13IndexTrieNodeEmRKSt6vectorINS0_12NodeTemplateILb1EEESaIS9_EERm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %48, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %49, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %46, %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.037, i64 16
-  %.not35.not = icmp eq ptr %50, %40
-  br i1 %.not35.not, label %.loopexit, label %.lr.ph
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.038, i64 16
+  %.not36 = icmp eq ptr %50, %40
+  br i1 %.not36, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %46, %.critedge, %36, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit, %17, %5, %6
-  %.0 = phi i1 [ true, %6 ], [ true, %5 ], [ true, %17 ], [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %36 ], [ true, %46 ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %46, %36, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit, %17, %5, %6
+  %.0 = phi i1 [ true, %6 ], [ true, %5 ], [ true, %17 ], [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %36 ], [ false, %.critedge ], [ true, %46 ]
   ret i1 %.0
 }
 

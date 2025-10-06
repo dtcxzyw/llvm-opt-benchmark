@@ -408,57 +408,58 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i64, ptr %2, align 8, !noundef !25
   %3 = icmp samesign eq i64 %.val1, 0
-  br i1 %3, label %14, label %4
+  br i1 %3, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, label %4
 
 4:                                                ; preds = %1
   %5 = add nsw i64 %.val1, -1
   %6 = getelementptr inbounds i8, ptr %.val, i64 %5
   %7 = load i8, ptr %6, align 1, !noundef !25
-  switch i8 %7, label %14 [
+  switch i8 %7, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i [
     i8 10, label %8
-    i8 13, label %.thread.i
+    i8 13, label %10
   ]
 
 8:                                                ; preds = %4
   %9 = icmp eq i64 %5, 0
-  br i1 %9, label %.thread.i, label %10
+  br i1 %9, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, label %11
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %6, i64 -1
-  %12 = load i8, ptr %11, align 1, !noundef !25
-  %13 = icmp eq i8 %12, 13
-  br i1 %13, label %14, label %.thread.i
+10:                                               ; preds = %4
+  br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
-.thread.i:                                        ; preds = %10, %8, %4
-  br label %14
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %6, i64 -1
+  %13 = load i8, ptr %12, align 1, !noundef !25
+  %14 = icmp eq i8 %13, 13
+  %spec.select.i = select i1 %14, i64 -2, i64 -1
+  br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
-14:                                               ; preds = %.thread.i, %10, %4, %1
-  %15 = phi i1 [ false, %.thread.i ], [ false, %10 ], [ true, %4 ], [ true, %1 ]
-  %.neg.i = phi i64 [ -1, %.thread.i ], [ -2, %10 ], [ 0, %4 ], [ 0, %1 ]
-  %16 = add i64 %.neg.i, %.val1
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %18
+_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i: ; preds = %11, %10, %8, %4, %1
+  %.not.i4.neg.i = phi i64 [ -1, %8 ], [ 0, %1 ], [ 0, %4 ], [ -1, %10 ], [ %spec.select.i, %11 ]
+  %15 = add i64 %.not.i4.neg.i, %.val1
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %17
 
-18:                                               ; preds = %14
-  %.not.i3.i = icmp ult i64 %16, %.val1
-  br i1 %.not.i3.i, label %20, label %19
+17:                                               ; preds = %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
+  %.not.i3.i = icmp ult i64 %15, %.val1
+  br i1 %.not.i3.i, label %20, label %18
 
-19:                                               ; preds = %18
-  br i1 %15, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %24
+18:                                               ; preds = %17
+  %19 = icmp eq i64 %.not.i4.neg.i, 0
+  br i1 %19, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %24
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %15
   %22 = load i8, ptr %21, align 1, !alias.scope !83, !noundef !25
   %23 = icmp sgt i8 %22, -65
   br i1 %23, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %24
 
-24:                                               ; preds = %20, %19
-  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, i64 noundef 0, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.45) #10
+24:                                               ; preds = %20, %18
+  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, i64 noundef 0, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.45) #10
   unreachable
 
-_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %14, %19, %20
+_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, %18, %20
   %25 = insertvalue { ptr, i64 } poison, ptr %.val, 0
-  %26 = insertvalue { ptr, i64 } %25, i64 %16, 1
+  %26 = insertvalue { ptr, i64 } %25, i64 %15, 1
   ret { ptr, i64 } %26
 }
 
@@ -468,59 +469,60 @@ define noundef zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i64, ptr %3, align 8, !noundef !25
   %4 = icmp samesign eq i64 %.val1, 0
-  br i1 %4, label %15, label %5
+  br i1 %4, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, label %5
 
 5:                                                ; preds = %2
   %6 = add nsw i64 %.val1, -1
   %7 = getelementptr inbounds i8, ptr %.val, i64 %6
   %8 = load i8, ptr %7, align 1, !noundef !25
-  switch i8 %8, label %15 [
+  switch i8 %8, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i [
     i8 10, label %9
-    i8 13, label %.thread.i
+    i8 13, label %11
   ]
 
 9:                                                ; preds = %5
   %10 = icmp eq i64 %6, 0
-  br i1 %10, label %.thread.i, label %11
+  br i1 %10, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, label %12
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %7, i64 -1
-  %13 = load i8, ptr %12, align 1, !noundef !25
-  %14 = icmp eq i8 %13, 13
-  br i1 %14, label %15, label %.thread.i
+11:                                               ; preds = %5
+  br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
-.thread.i:                                        ; preds = %11, %9, %5
-  br label %15
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %7, i64 -1
+  %14 = load i8, ptr %13, align 1, !noundef !25
+  %15 = icmp eq i8 %14, 13
+  %spec.select.i = select i1 %15, i64 -2, i64 -1
+  br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
-15:                                               ; preds = %.thread.i, %11, %5, %2
-  %16 = phi i1 [ false, %.thread.i ], [ false, %11 ], [ true, %5 ], [ true, %2 ]
-  %.neg.i = phi i64 [ -1, %.thread.i ], [ -2, %11 ], [ 0, %5 ], [ 0, %2 ]
-  %17 = add i64 %.neg.i, %.val1
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %19
+_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i: ; preds = %12, %11, %9, %5, %2
+  %.not.i4.neg.i = phi i64 [ -1, %9 ], [ 0, %2 ], [ 0, %5 ], [ -1, %11 ], [ %spec.select.i, %12 ]
+  %16 = add i64 %.not.i4.neg.i, %.val1
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %18
 
-19:                                               ; preds = %15
-  %.not.i3.i = icmp ult i64 %17, %.val1
-  br i1 %.not.i3.i, label %21, label %20
+18:                                               ; preds = %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
+  %.not.i3.i = icmp ult i64 %16, %.val1
+  br i1 %.not.i3.i, label %21, label %19
 
-20:                                               ; preds = %19
-  br i1 %16, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
+19:                                               ; preds = %18
+  %20 = icmp eq i64 %.not.i4.neg.i, 0
+  br i1 %20, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
   %23 = load i8, ptr %22, align 1, !alias.scope !86, !noundef !25
   %24 = icmp sgt i8 %23, -65
   br i1 %24, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
 
-25:                                               ; preds = %21, %20
-  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, i64 noundef 0, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.45) #10
+25:                                               ; preds = %21, %19
+  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, i64 noundef 0, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.45) #10
   unreachable
 
-_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %15, %20, %21
+_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, %19, %21
   %26 = load ptr, ptr %1, align 8, !nonnull !25, !align !26, !noundef !25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8, !noundef !25
-  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h812b6902bc09604dE"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28)
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h812b6902bc09604dE"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %16, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28)
   ret i1 %29
 }
 
@@ -530,59 +532,60 @@ define noundef zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1 = load i64, ptr %3, align 8, !noundef !25
   %4 = icmp samesign eq i64 %.val1, 0
-  br i1 %4, label %15, label %5
+  br i1 %4, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, label %5
 
 5:                                                ; preds = %2
   %6 = add nsw i64 %.val1, -1
   %7 = getelementptr inbounds i8, ptr %.val, i64 %6
   %8 = load i8, ptr %7, align 1, !noundef !25
-  switch i8 %8, label %15 [
+  switch i8 %8, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i [
     i8 10, label %9
-    i8 13, label %.thread.i
+    i8 13, label %11
   ]
 
 9:                                                ; preds = %5
   %10 = icmp eq i64 %6, 0
-  br i1 %10, label %.thread.i, label %11
+  br i1 %10, label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, label %12
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %7, i64 -1
-  %13 = load i8, ptr %12, align 1, !noundef !25
-  %14 = icmp eq i8 %13, 13
-  br i1 %14, label %15, label %.thread.i
+11:                                               ; preds = %5
+  br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
-.thread.i:                                        ; preds = %11, %9, %5
-  br label %15
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %7, i64 -1
+  %14 = load i8, ptr %13, align 1, !noundef !25
+  %15 = icmp eq i8 %14, 13
+  %spec.select.i = select i1 %15, i64 -2, i64 -1
+  br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
-15:                                               ; preds = %.thread.i, %11, %5, %2
-  %16 = phi i1 [ false, %.thread.i ], [ false, %11 ], [ true, %5 ], [ true, %2 ]
-  %.neg.i = phi i64 [ -1, %.thread.i ], [ -2, %11 ], [ 0, %5 ], [ 0, %2 ]
-  %17 = add i64 %.neg.i, %.val1
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %19
+_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i: ; preds = %12, %11, %9, %5, %2
+  %.not.i4.neg.i = phi i64 [ -1, %9 ], [ 0, %2 ], [ 0, %5 ], [ -1, %11 ], [ %spec.select.i, %12 ]
+  %16 = add i64 %.not.i4.neg.i, %.val1
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %18
 
-19:                                               ; preds = %15
-  %.not.i3.i = icmp ult i64 %17, %.val1
-  br i1 %.not.i3.i, label %21, label %20
+18:                                               ; preds = %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
+  %.not.i3.i = icmp ult i64 %16, %.val1
+  br i1 %.not.i3.i, label %21, label %19
 
-20:                                               ; preds = %19
-  br i1 %16, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
+19:                                               ; preds = %18
+  %20 = icmp eq i64 %.not.i4.neg.i, 0
+  br i1 %20, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
   %23 = load i8, ptr %22, align 1, !alias.scope !89, !noundef !25
   %24 = icmp sgt i8 %23, -65
   br i1 %24, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
 
-25:                                               ; preds = %21, %20
-  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, i64 noundef 0, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.45) #10
+25:                                               ; preds = %21, %19
+  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, i64 noundef 0, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.45) #10
   unreachable
 
-_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %15, %20, %21
+_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit: ; preds = %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i, %19, %21
   %26 = load ptr, ptr %0, align 8, !nonnull !25, !align !26, !noundef !25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !noundef !25
-  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h812b6902bc09604dE"(ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %17)
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h812b6902bc09604dE"(ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %16)
   ret i1 %29
 }
 
@@ -609,18 +612,18 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i64 1, 3) i64 @_ZN16ruff_source_file8newlines10LineEnding3len17ha337f21575292d8cE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1, !range !92, !noundef !25
-  %switch = icmp samesign ult i8 %2, 2
-  %. = select i1 %switch, i64 1, i64 2
+  %3 = icmp eq i8 %2, 2
+  %. = select i1 %3, i64 2, i64 1
   ret i64 %.
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @_ZN16ruff_source_file8newlines10LineEnding8text_len17h9c3062457996da89E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !92, !noundef !25
-  %switch = icmp samesign ult i8 %2, 2
-  %. = select i1 %switch, i32 1, i32 2
-  %3 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %.)
-  ret i32 %3
+  %3 = icmp eq i8 %2, 2
+  %. = select i1 %3, i32 2, i32 1
+  %4 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %.)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

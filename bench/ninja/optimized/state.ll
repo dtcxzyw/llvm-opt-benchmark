@@ -176,8 +176,8 @@ define dso_local void @_ZN4Pool18RetrieveReadyEdgesEP17EdgePriorityQueue(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.not14 = icmp eq ptr %6, %7
-  br i1 %.not14, label %.loopexit, label %.lr.ph
+  %.not13 = icmp eq ptr %6, %7
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -187,14 +187,14 @@ define dso_local void @_ZN4Pool18RetrieveReadyEdgesEP17EdgePriorityQueue(ptr nou
 
 10:                                               ; preds = %.lr.ph, %20
   %11 = phi i32 [ %.pre, %.lr.ph ], [ %16, %20 ]
-  %.sroa.04.015 = phi ptr [ %6, %.lr.ph ], [ %21, %20 ]
+  %.sroa.04.014 = phi ptr [ %6, %.lr.ph ], [ %21, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.014, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   store ptr %13, ptr %3, align 8, !tbaa !24
   %14 = load i32, ptr %8, align 8, !tbaa !23
-  %.not10 = icmp slt i32 %14, %11
-  br i1 %.not10, label %15, label %.thread
+  %.not9 = icmp slt i32 %14, %11
+  br i1 %.not9, label %15, label %.thread
 
 .thread:                                          ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -213,15 +213,15 @@ define dso_local void @_ZN4Pool18RetrieveReadyEdgesEP17EdgePriorityQueue(ptr nou
   br label %20
 
 20:                                               ; preds = %17, %15
-  %21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.015) #28
+  %21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.014) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %21, %7
   br i1 %.not, label %.loopexit.thread, label %10
 
 .loopexit:                                        ; preds = %2, %.thread
-  %.sroa.04.013 = phi ptr [ %.sroa.04.015, %.thread ], [ %6, %2 ]
+  %.sroa.04.012 = phi ptr [ %.sroa.04.014, %.thread ], [ %6, %2 ]
   %22 = load ptr, ptr %5, align 8, !tbaa !26
-  %23 = icmp eq ptr %.sroa.04.013, %7
+  %23 = icmp eq ptr %.sroa.04.012, %7
   br i1 %23, label %.loopexit.thread, label %.critedge.i.i.i
 
 .loopexit.thread:                                 ; preds = %20, %.loopexit
@@ -247,7 +247,7 @@ _ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_EN4Pool15WeightedEdgeCmpESaIS1_EE5clearE
   br label %_ZNSt3setIP4EdgeN4Pool15WeightedEdgeCmpESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES7_.exit
 
 .critedge.i.i.i:                                  ; preds = %.loopexit
-  %.not8.i.i.i = icmp eq ptr %22, %.sroa.04.013
+  %.not8.i.i.i = icmp eq ptr %22, %.sroa.04.012
   br i1 %.not8.i.i.i, label %_ZNSt3setIP4EdgeN4Pool15WeightedEdgeCmpESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES7_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i.i.i
@@ -262,7 +262,7 @@ _ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_EN4Pool15WeightedEdgeCmpESaIS1_EE5clearE
   %35 = load i64, ptr %31, align 8, !tbaa !29
   %36 = add i64 %35, -1
   store i64 %36, ptr %31, align 8, !tbaa !29
-  %.not.i.i.i = icmp eq ptr %33, %.sroa.04.013
+  %.not.i.i.i = icmp eq ptr %33, %.sroa.04.012
   br i1 %.not.i.i.i, label %_ZNSt3setIP4EdgeN4Pool15WeightedEdgeCmpESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES7_.exit, label %32, !llvm.loop !30
 
 _ZNSt3setIP4EdgeN4Pool15WeightedEdgeCmpESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES7_.exit: ; preds = %32, %_ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_EN4Pool15WeightedEdgeCmpESaIS1_EE5clearEv.exit.i.i.i, %.critedge.i.i.i

@@ -88,8 +88,8 @@ define hidden void @_ZN3ue220removeAssertVerticesERNS_13ReportManagerERNS_8NGHol
 16:                                               ; preds = %17, %3
   %.sroa.012.0.in.i = phi ptr [ %15, %3 ], [ %.sroa.012.0.i, %17 ]
   %.sroa.012.0.i = load ptr, ptr %.sroa.012.0.in.i, align 8
-  %.not16.not.not.not.i.not = icmp eq ptr %.sroa.012.0.i, %15
-  br i1 %.not16.not.not.not.i.not, label %_ZN3ue2L17hasAssertVerticesERKNS_8NGHolderE.exit, label %17
+  %.not17.not.not.not.i.not = icmp eq ptr %.sroa.012.0.i, %15
+  br i1 %.not17.not.not.not.i.not, label %_ZN3ue2L17hasAssertVerticesERKNS_8NGHolderE.exit, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i, i64 88

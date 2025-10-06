@@ -3349,10 +3349,10 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %14
-  %.sroa.8.055.i = phi i64 [ 0, %14 ], [ %6, %.lr.ph.i.preheader ]
-  %.sroa.030.054.i = phi ptr [ %15, %14 ], [ %9, %.lr.ph.i.preheader ]
-  %10 = load i64, ptr %.sroa.030.054.i, align 8, !tbaa !7
-  %notmask24.i = shl nsw i64 -1, %.sroa.8.055.i
+  %.sroa.8.052.i = phi i64 [ 0, %14 ], [ %6, %.lr.ph.i.preheader ]
+  %.sroa.029.051.i = phi ptr [ %15, %14 ], [ %9, %.lr.ph.i.preheader ]
+  %10 = load i64, ptr %.sroa.029.051.i, align 8, !tbaa !7
+  %notmask24.i = shl nsw i64 -1, %.sroa.8.052.i
   %11 = and i64 %10, %notmask24.i
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %14, label %.thread.i
@@ -3362,12 +3362,12 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   br label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.030.054.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.029.051.i, i64 8
   %.not.i = icmp eq ptr %15, %5
   br i1 %.not.i, label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit, label %.lr.ph.i
 
 _ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit: ; preds = %14, %.thread.i
-  %.sroa.0.2.i = phi ptr [ %.sroa.030.054.i, %.thread.i ], [ %5, %14 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.029.051.i, %.thread.i ], [ %5, %14 ]
   %.sroa.4.2.i = phi i64 [ %13, %.thread.i ], [ 0, %14 ]
   %16 = icmp eq i64 %.sroa.4.2.i, 0
   %17 = icmp eq ptr %.sroa.0.2.i, %5
@@ -5712,10 +5712,10 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %14
-  %.sroa.8.055.i = phi i64 [ 0, %14 ], [ %6, %.lr.ph.i.preheader ]
-  %.sroa.030.054.i = phi ptr [ %15, %14 ], [ %9, %.lr.ph.i.preheader ]
-  %10 = load i64, ptr %.sroa.030.054.i, align 8, !tbaa !7
-  %notmask24.i = shl nsw i64 -1, %.sroa.8.055.i
+  %.sroa.8.052.i = phi i64 [ 0, %14 ], [ %6, %.lr.ph.i.preheader ]
+  %.sroa.029.051.i = phi ptr [ %15, %14 ], [ %9, %.lr.ph.i.preheader ]
+  %10 = load i64, ptr %.sroa.029.051.i, align 8, !tbaa !7
+  %notmask24.i = shl nsw i64 -1, %.sroa.8.052.i
   %11 = and i64 %10, %notmask24.i
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %14, label %.thread.i
@@ -5725,12 +5725,12 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
   br label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.030.054.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.029.051.i, i64 8
   %.not.i = icmp eq ptr %15, %5
   br i1 %.not.i, label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit, label %.lr.ph.i
 
 _ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit: ; preds = %14, %.thread.i
-  %.sroa.0.2.i = phi ptr [ %.sroa.030.054.i, %.thread.i ], [ %5, %14 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.029.051.i, %.thread.i ], [ %5, %14 ]
   %.sroa.4.2.i = phi i64 [ %13, %.thread.i ], [ 0, %14 ]
   %16 = icmp eq i64 %.sroa.4.2.i, 0
   %17 = icmp eq ptr %.sroa.0.2.i, %5

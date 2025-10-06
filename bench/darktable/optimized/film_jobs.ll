@@ -152,11 +152,11 @@ define ptr @dt_pathlist_import_create(i32 noundef %0, ptr noundef readonly captu
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = icmp sgt i32 %0, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  br i1 %10, label %.lr.ph52.preheader, label %._crit_edge
+  br i1 %10, label %.lr.ph50.preheader, label %._crit_edge
 
-.lr.ph52.preheader:                               ; preds = %7
+.lr.ph50.preheader:                               ; preds = %7
   %wide.trip.count = zext nneg i32 %0 to i64
-  br label %.lr.ph52
+  br label %.lr.ph50
 
 ._crit_edge.loopexit:                             ; preds = %37
   %.pre = load ptr, ptr %9, align 8, !tbaa !19
@@ -168,8 +168,8 @@ define ptr @dt_pathlist_import_create(i32 noundef %0, ptr noundef readonly captu
   store ptr %12, ptr %9, align 8, !tbaa !19
   br label %38
 
-.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %37
-  %indvars.iv = phi i64 [ 1, %.lr.ph52.preheader ], [ %indvars.iv.next, %37 ]
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %37
+  %indvars.iv = phi i64 [ 1, %.lr.ph50.preheader ], [ %indvars.iv.next, %37 ]
   %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = tail call ptr @dt_util_normalize_path(ptr noundef %14) #11
@@ -177,21 +177,21 @@ define ptr @dt_pathlist_import_create(i32 noundef %0, ptr noundef readonly captu
   %.not42 = icmp eq i32 %16, 0
   br i1 %.not42, label %17, label %20
 
-17:                                               ; preds = %.lr.ph52
+17:                                               ; preds = %.lr.ph50
   %18 = load ptr, ptr %9, align 8, !tbaa !19
   %19 = tail call ptr @g_list_prepend(ptr noundef %18, ptr noundef %15) #11
   store ptr %19, ptr %9, align 8, !tbaa !19
   br label %37
 
-20:                                               ; preds = %.lr.ph52
+20:                                               ; preds = %.lr.ph50
   %21 = tail call ptr @g_dir_open(ptr noundef %15, i32 noundef 0, ptr noundef null) #11
   %.not43 = icmp eq ptr %21, null
   br i1 %.not43, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %20
   %22 = tail call ptr @g_dir_read_name(ptr noundef nonnull %21) #11
-  %.not4450 = icmp eq ptr %22, null
-  br i1 %.not4450, label %.thread, label %.lr.ph
+  %.not4448 = icmp eq ptr %22, null
+  br i1 %.not4448, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %35
   %23 = phi ptr [ %36, %35 ], [ %22, %.preheader ]
@@ -233,7 +233,7 @@ define ptr @dt_pathlist_import_create(i32 noundef %0, ptr noundef readonly captu
 37:                                               ; preds = %.thread, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph52
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph50
 
 38:                                               ; preds = %6, %._crit_edge, %2
   %.0 = phi ptr [ null, %2 ], [ %3, %._crit_edge ], [ null, %6 ]
@@ -325,8 +325,8 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not7797 = icmp eq ptr %16, null
-  br i1 %.not7797, label %._crit_edge, label %.lr.ph
+  %.not7796 = icmp eq ptr %16, null
+  br i1 %.not7796, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
   %25 = sitofp i64 %24 to double
@@ -340,49 +340,49 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br label %35
 
 33:                                               ; preds = %73
-  %34 = getelementptr inbounds nuw i8, ptr %.063104, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.063103, i64 8
   %.063 = load ptr, ptr %34, align 8, !tbaa !23
   %.not77 = icmp eq ptr %.063, null
   br i1 %.not77, label %._crit_edge.loopexit, label %35
 
 35:                                               ; preds = %.lr.ph, %33
-  %.063104 = phi ptr [ %16, %.lr.ph ], [ %.063, %33 ]
-  %.060103 = phi double [ 0.000000e+00, %.lr.ph ], [ %54, %33 ]
-  %.061102 = phi ptr [ null, %.lr.ph ], [ %.162, %33 ]
-  %.064101 = phi double [ %29, %.lr.ph ], [ %.165, %33 ]
-  %.066100 = phi i32 [ 0, %.lr.ph ], [ %.167, %33 ]
-  %.06899 = phi ptr [ %1, %.lr.ph ], [ %.2, %33 ]
-  %.07098 = phi ptr [ null, %.lr.ph ], [ %57, %33 ]
-  %36 = load ptr, ptr %.063104, align 8, !tbaa !28
+  %.063103 = phi ptr [ %16, %.lr.ph ], [ %.063, %33 ]
+  %.060102 = phi double [ 0.000000e+00, %.lr.ph ], [ %54, %33 ]
+  %.061101 = phi ptr [ null, %.lr.ph ], [ %.162, %33 ]
+  %.064100 = phi double [ %29, %.lr.ph ], [ %.165, %33 ]
+  %.06699 = phi i32 [ 0, %.lr.ph ], [ %.167, %33 ]
+  %.06898 = phi ptr [ %1, %.lr.ph ], [ %.2, %33 ]
+  %.07097 = phi ptr [ null, %.lr.ph ], [ %57, %33 ]
+  %36 = load ptr, ptr %.063103, align 8, !tbaa !28
   %37 = call noalias ptr @g_path_get_dirname(ptr noundef %36) #11
-  %.not78 = icmp eq ptr %.06899, null
+  %.not78 = icmp eq ptr %.06898, null
   br i1 %.not78, label %.split.thread, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %.06899, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.06898, i64 4
   %40 = call i32 @g_strcmp0(ptr noundef nonnull %39, ptr noundef %37) #11
   %.not79 = icmp eq i32 %40, 0
   br i1 %.not79, label %49, label %.split
 
 .split:                                           ; preds = %38
-  call fastcc void @_apply_filmroll_gpx(ptr noundef nonnull %.06899)
-  %.not80 = icmp eq ptr %.06899, %1
+  call fastcc void @_apply_filmroll_gpx(ptr noundef nonnull %.06898)
+  %.not80 = icmp eq ptr %.06898, %1
   br i1 %.not80, label %.split.thread, label %41
 
 41:                                               ; preds = %.split
-  %42 = load i32, ptr %.06899, align 8, !tbaa !18
+  %42 = load i32, ptr %.06898, align 8, !tbaa !18
   %43 = call i32 @dt_film_is_empty(i32 noundef %42) #11
   %.not81 = icmp eq i32 %43, 0
   br i1 %.not81, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = load i32, ptr %.06899, align 8, !tbaa !18
+  %45 = load i32, ptr %.06898, align 8, !tbaa !18
   call void @dt_film_remove(i32 noundef %45) #11
   br label %46
 
 46:                                               ; preds = %44, %41
-  call void @dt_film_cleanup(ptr noundef nonnull %.06899) #11
-  call void @free(ptr noundef nonnull %.06899) #11
+  call void @dt_film_cleanup(ptr noundef nonnull %.06898) #11
+  call void @free(ptr noundef nonnull %.06898) #11
   br label %.split.thread
 
 .split.thread:                                    ; preds = %35, %46, %.split
@@ -392,18 +392,18 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br label %49
 
 49:                                               ; preds = %.split.thread, %38
-  %.2 = phi ptr [ %47, %.split.thread ], [ %.06899, %38 ]
+  %.2 = phi ptr [ %47, %.split.thread ], [ %.06898, %38 ]
   call void @g_free(ptr noundef %37) #11
   %50 = load i32, ptr %.2, align 8, !tbaa !18
-  %51 = load ptr, ptr %.063104, align 8, !tbaa !28
+  %51 = load ptr, ptr %.063103, align 8, !tbaa !28
   %52 = call i32 @dt_image_import(i32 noundef %50, ptr noundef %51, i32 noundef 0, i32 noundef 0) #11
-  %53 = add nsw i32 %.066100, 1
-  %54 = fadd reassoc nsz arcp contract afn double %.060103, %31
+  %53 = add nsw i32 %.06699, 1
+  %54 = fadd reassoc nsz arcp contract afn double %.060102, %31
   call void @dt_control_job_set_progress(ptr noundef %0, double noundef %54) #11
   %55 = sext i32 %52 to i64
   %56 = inttoptr i64 %55 to ptr
-  %57 = call ptr @g_list_prepend(ptr noundef %.07098, ptr noundef %56) #11
-  %58 = call ptr @g_list_append(ptr noundef %.061102, ptr noundef %56) #11
+  %57 = call ptr @g_list_prepend(ptr noundef %.07097, ptr noundef %56) #11
+  %58 = call ptr @g_list_append(ptr noundef %.061101, ptr noundef %56) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
   %60 = load i64, ptr %4, align 8, !tbaa !24
@@ -414,8 +414,8 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %65 = fmul reassoc nsz arcp contract afn double %64, 0x3EB0C6F7A0B5ED8D
   %66 = fadd reassoc nsz arcp contract afn double %65, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %67 = icmp sgt i32 %.066100, 2
-  %68 = fsub reassoc nsz arcp contract afn double %66, %.064101
+  %67 = icmp sgt i32 %.06699, 2
+  %68 = fsub reassoc nsz arcp contract afn double %66, %.064100
   %69 = fcmp reassoc nsz arcp contract afn ogt double %68, 5.000000e-01
   %or.cond91 = select i1 %67, i1 %69, i1 false
   br i1 %or.cond91, label %70, label %73
@@ -429,7 +429,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
 
 73:                                               ; preds = %70, %49
   %.167 = phi i32 [ 0, %70 ], [ %53, %49 ]
-  %.165 = phi nsz double [ %66, %70 ], [ %.064101, %49 ]
+  %.165 = phi nsz double [ %66, %70 ], [ %.064100, %49 ]
   %.162 = phi ptr [ null, %70 ], [ %58, %49 ]
   %74 = call i32 @dt_control_job_get_state(ptr noundef %0) #11
   %.not82 = icmp eq i32 %74, 4
@@ -547,8 +547,8 @@ define internal fastcc ptr @_film_recursive_get_files(ptr noundef %0, i32 nounde
 
 .preheader:                                       ; preds = %3
   %5 = tail call ptr @g_dir_read_name(ptr noundef nonnull %4) #11
-  %.not2735 = icmp eq ptr %5, null
-  br i1 %.not2735, label %._crit_edge, label %.lr.ph
+  %.not2733 = icmp eq ptr %5, null
+  br i1 %.not2733, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not28 = icmp eq i32 %1, 0

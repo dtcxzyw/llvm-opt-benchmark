@@ -2048,10 +2048,9 @@ Shr_ManComputeTruth6.exit:                        ; preds = %354, %.critedge2
   %368 = sdiv exact i64 %367, 12
   %369 = trunc i64 %368 to i32
   %370 = call i64 @Shr_ManComputeTruth6_rec(ptr noundef %346, i32 noundef %369, ptr noundef %347)
-  switch i64 %370, label %.preheader235 [
-    i64 0, label %376
-    i64 -1, label %376
-  ]
+  %.off = add i64 %370, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %.preheader235, label %376
 
 .preheader235:                                    ; preds = %Shr_ManComputeTruth6.exit
   %371 = load ptr, ptr %25, align 8, !tbaa !52
@@ -2072,7 +2071,7 @@ Shr_ManComputeTruth6.exit:                        ; preds = %354, %.critedge2
   %wide.trip.count = zext nneg i32 %.val155 to i64
   br label %.lr.ph240.split
 
-376:                                              ; preds = %Shr_ManComputeTruth6.exit, %Shr_ManComputeTruth6.exit
+376:                                              ; preds = %Shr_ManComputeTruth6.exit
   %377 = icmp eq i64 %370, -1
   %378 = zext i1 %377 to i32
   %379 = getelementptr inbounds nuw i8, ptr %39, i64 8

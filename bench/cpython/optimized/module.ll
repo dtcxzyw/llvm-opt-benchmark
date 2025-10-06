@@ -255,26 +255,26 @@ define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %5
-  %4 = add nuw nsw i32 %.0610, 1
+  %4 = add nuw nsw i32 %.0611, 1
   %.not = icmp eq i32 %4, 105
-  br i1 %.not, label %.split.loop.exit8, label %5, !llvm.loop !3
+  br i1 %.not, label %.split.loop.exit, label %5, !llvm.loop !3
 
 5:                                                ; preds = %1, %3
-  %.0610 = phi i32 [ 0, %1 ], [ %4, %3 ]
-  %6 = zext nneg i32 %.0610 to i64
+  %.0611 = phi i32 [ 0, %1 ], [ %4, %3 ]
+  %6 = zext nneg i32 %.0611 to i64
   %7 = getelementptr %struct.anon, ptr @error_codes, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !5
   %10 = icmp eq i64 %9, %2
-  br i1 %10, label %.split.loop.exit, label %3
+  br i1 %10, label %.split.loop.exit9, label %3
 
-.split.loop.exit:                                 ; preds = %5
+.split.loop.exit9:                                ; preds = %5
   %11 = load ptr, ptr %7, align 16, !tbaa !12
-  br label %.split.loop.exit8
+  br label %.split.loop.exit
 
-.split.loop.exit8:                                ; preds = %3, %.split.loop.exit
-  %spec.select = phi ptr [ %11, %.split.loop.exit ], [ null, %3 ]
-  ret ptr %spec.select
+.split.loop.exit:                                 ; preds = %3, %.split.loop.exit9
+  %12 = phi ptr [ %11, %.split.loop.exit9 ], [ null, %3 ]
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1829,24 +1829,26 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @add_error_constants(ptr noundef %0) unnamed_addr #1 {
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr %struct.anon, ptr @error_codes, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 16, !tbaa !12
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !5
-  %7 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef %4, i64 noundef %6) #5
-  %8 = icmp slt i32 %7, 0
+2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.not = icmp eq i64 %indvars.iv.next, 105
-  %or.cond = select i1 %8, i1 true, i1 %.not.not
-  br i1 %or.cond, label %9, label %2, !llvm.loop !61
+  %.not = icmp eq i64 %indvars.iv.next, 105
+  br i1 %.not, label %10, label %3, !llvm.loop !61
 
-9:                                                ; preds = %2
-  %.lobit = ashr i32 %7, 31
-  ret i32 %.lobit
+3:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %4 = getelementptr %struct.anon, ptr @error_codes, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 16, !tbaa !12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !5
+  %8 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef %5, i64 noundef %7) #5
+  %9 = icmp sgt i32 %8, -1
+  br i1 %9, label %2, label %10
+
+10:                                               ; preds = %2, %3
+  %11 = phi i32 [ -1, %3 ], [ 0, %2 ]
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable

@@ -152,10 +152,10 @@ define internal range(i32 -12, 1) i32 @ty_read_header(ptr noundef %0) #1 {
 
 parse_chunk_headers.exit.preheader.i:             ; preds = %57, %parse_chunk_headers.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
-  %.06511.i = phi i32 [ %.1.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
-  %.06610.i = phi i32 [ %.167.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
-  %.0689.i = phi i32 [ %.169.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
-  %.0708.i = phi i32 [ %.171.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.06510.i = phi i32 [ %.1.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.0669.i = phi i32 [ %.167.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.0688.i = phi i32 [ %.169.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.0707.i = phi i32 [ %.171.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
   %59 = getelementptr inbounds nuw %struct.TyRecHdr, ptr %24, i64 %indvars.iv.i
   %60 = getelementptr i8, ptr %59, i64 6
   %61 = load i16, ptr %60, align 2
@@ -167,26 +167,26 @@ parse_chunk_headers.exit.preheader.i:             ; preds = %57, %parse_chunk_he
   ]
 
 62:                                               ; preds = %parse_chunk_headers.exit.preheader.i
-  %63 = add nsw i32 %.0708.i, 1
+  %63 = add nsw i32 %.0707.i, 1
   br label %parse_chunk_headers.exit.i
 
 64:                                               ; preds = %parse_chunk_headers.exit.preheader.i
-  %65 = add nsw i32 %.0689.i, 1
+  %65 = add nsw i32 %.0688.i, 1
   br label %parse_chunk_headers.exit.i
 
 66:                                               ; preds = %parse_chunk_headers.exit.preheader.i
-  %67 = add nsw i32 %.06511.i, 1
+  %67 = add nsw i32 %.06510.i, 1
   br label %parse_chunk_headers.exit.i
 
 68:                                               ; preds = %parse_chunk_headers.exit.preheader.i
-  %69 = add nsw i32 %.06610.i, 1
+  %69 = add nsw i32 %.0669.i, 1
   br label %parse_chunk_headers.exit.i
 
 parse_chunk_headers.exit.i:                       ; preds = %68, %66, %64, %62, %parse_chunk_headers.exit.preheader.i
-  %.171.i = phi i32 [ %.0708.i, %parse_chunk_headers.exit.preheader.i ], [ %63, %62 ], [ %.0708.i, %64 ], [ %.0708.i, %66 ], [ %.0708.i, %68 ]
-  %.169.i = phi i32 [ %.0689.i, %parse_chunk_headers.exit.preheader.i ], [ %.0689.i, %62 ], [ %65, %64 ], [ %.0689.i, %66 ], [ %.0689.i, %68 ]
-  %.167.i = phi i32 [ %.06610.i, %parse_chunk_headers.exit.preheader.i ], [ %.06610.i, %62 ], [ %.06610.i, %64 ], [ %.06610.i, %66 ], [ %69, %68 ]
-  %.1.i = phi i32 [ %.06511.i, %parse_chunk_headers.exit.preheader.i ], [ %.06511.i, %62 ], [ %.06511.i, %64 ], [ %67, %66 ], [ %.06511.i, %68 ]
+  %.171.i = phi i32 [ %.0707.i, %parse_chunk_headers.exit.preheader.i ], [ %63, %62 ], [ %.0707.i, %64 ], [ %.0707.i, %66 ], [ %.0707.i, %68 ]
+  %.169.i = phi i32 [ %.0688.i, %parse_chunk_headers.exit.preheader.i ], [ %.0688.i, %62 ], [ %65, %64 ], [ %.0688.i, %66 ], [ %.0688.i, %68 ]
+  %.167.i = phi i32 [ %.0669.i, %parse_chunk_headers.exit.preheader.i ], [ %.0669.i, %62 ], [ %.0669.i, %64 ], [ %.0669.i, %66 ], [ %69, %68 ]
+  %.1.i = phi i32 [ %.06510.i, %parse_chunk_headers.exit.preheader.i ], [ %.06510.i, %62 ], [ %.06510.i, %64 ], [ %67, %66 ], [ %.06510.i, %68 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %23
   br i1 %exitcond.not.i, label %70, label %parse_chunk_headers.exit.preheader.i, !llvm.loop !42
@@ -200,10 +200,10 @@ parse_chunk_headers.exit.i:                       ; preds = %68, %66, %64, %62, 
   br i1 %73, label %.sink.split.i, label %76
 
 .sink.split.i:                                    ; preds = %72, %70
-  %.sink30.i = phi i32 [ 1, %70 ], [ 2, %72 ]
+  %.sink29.i = phi i32 [ 1, %70 ], [ 2, %72 ]
   %.sink.i = phi i32 [ 11, %70 ], [ 16, %72 ]
   %74 = getelementptr inbounds nuw i8, ptr %.val, i64 20
-  store i32 %.sink30.i, ptr %74, align 4, !tbaa !43
+  store i32 %.sink29.i, ptr %74, align 4, !tbaa !43
   %75 = getelementptr inbounds nuw i8, ptr %.val, i64 28
   store i32 %.sink.i, ptr %75, align 4, !tbaa !44
   br label %76
@@ -243,11 +243,11 @@ parse_chunk_headers.exit.i:                       ; preds = %68, %66, %64, %62, 
   br label %93
 
 93:                                               ; preds = %.thread.i, %91
-  %indvars.iv17.i = phi i64 [ 0, %91 ], [ %indvars.iv.next18.i, %.thread.i ]
-  %.06313.i = phi i32 [ %92, %91 ], [ %96, %.thread.i ]
-  %94 = getelementptr inbounds nuw %struct.TyRecHdr, ptr %24, i64 %indvars.iv17.i
+  %indvars.iv16.i = phi i64 [ 0, %91 ], [ %indvars.iv.next17.i, %.thread.i ]
+  %.06312.i = phi i32 [ %92, %91 ], [ %96, %.thread.i ]
+  %94 = getelementptr inbounds nuw %struct.TyRecHdr, ptr %24, i64 %indvars.iv16.i
   %95 = load i32, ptr %94, align 8, !tbaa !39
-  %96 = add i32 %95, %.06313.i
+  %96 = add i32 %95, %.06312.i
   %97 = icmp ugt i32 %96, 131072
   br i1 %97, label %.loopexit.i, label %98
 
@@ -260,7 +260,7 @@ parse_chunk_headers.exit.i:                       ; preds = %68, %66, %64, %62, 
   br i1 %or.cond.i, label %103, label %.thread.i
 
 103:                                              ; preds = %98
-  %104 = zext nneg i32 %.06313.i to i64
+  %104 = zext nneg i32 %.06312.i to i64
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 %104
   br label %106
 
@@ -278,7 +278,7 @@ parse_chunk_headers.exit.i:                       ; preds = %68, %66, %64, %62, 
 
 find_es_header.exit.i:                            ; preds = %106
   %109 = trunc nuw nsw i64 %indvars.iv.i78.i to i32
-  %110 = add nuw nsw i32 %.06313.i, 6
+  %110 = add nuw nsw i32 %.06312.i, 6
   %111 = add i32 %110, %109
   %112 = zext i32 %111 to i64
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 %112
@@ -286,15 +286,15 @@ find_es_header.exit.i:                            ; preds = %106
   %.not77.i = icmp sgt i8 %114, -1
   %115 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %..i = select i1 %.not77.i, i32 2, i32 1
-  %.34.i = select i1 %.not77.i, i32 6, i32 9
+  %.33.i = select i1 %.not77.i, i32 6, i32 9
   store i32 %..i, ptr %88, align 8, !tbaa !46
-  store i32 %.34.i, ptr %115, align 8, !tbaa !47
+  store i32 %.33.i, ptr %115, align 8, !tbaa !47
   br label %.loopexit.i
 
 .thread.i:                                        ; preds = %108, %98
-  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
-  %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %23
-  br i1 %exitcond21.not.i, label %.loopexit.i, label %93, !llvm.loop !49
+  %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
+  %exitcond20.not.i = icmp eq i64 %indvars.iv.next17.i, %23
+  br i1 %exitcond20.not.i, label %.loopexit.i, label %93, !llvm.loop !49
 
 .loopexit.i:                                      ; preds = %.thread.i, %93, %find_es_header.exit.i, %87
   tail call void @av_free(ptr noundef nonnull %24) #6

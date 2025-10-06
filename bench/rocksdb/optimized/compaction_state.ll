@@ -224,27 +224,27 @@ define { ptr, i64 } @_ZN7rocksdb15CompactionState15SmallestUserKeyEv(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   %.not16 = icmp eq ptr %3, %5
-  br i1 %.not16, label %.loopexit, label %.lr.ph
+  br i1 %.not16, label %.split.loop.exit, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.05.017, i64 1080
   %.not = icmp eq ptr %7, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.split.loop.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
   %.sroa.05.017 = phi ptr [ %7, %6 ], [ %3, %1 ]
   %8 = tail call { ptr, i64 } @_ZNK7rocksdb18SubcompactionState15SmallestUserKeyEv(ptr noundef nonnull align 8 dereferenceable(1080) %.sroa.05.017)
   %9 = extractvalue { ptr, i64 } %8, 1
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %6, label %11
+  br i1 %10, label %6, label %.split.loop.exit13
 
-11:                                               ; preds = %.lr.ph
-  %12 = extractvalue { ptr, i64 } %8, 0
-  br label %.loopexit
+.split.loop.exit13:                               ; preds = %.lr.ph
+  %11 = extractvalue { ptr, i64 } %8, 0
+  br label %.split.loop.exit
 
-.loopexit:                                        ; preds = %6, %1, %11
-  %.sroa.08.2 = phi ptr [ %12, %11 ], [ null, %1 ], [ null, %6 ]
-  %.sroa.3.2 = phi i64 [ %9, %11 ], [ 0, %1 ], [ 0, %6 ]
+.split.loop.exit:                                 ; preds = %6, %1, %.split.loop.exit13
+  %.sroa.08.2 = phi ptr [ %11, %.split.loop.exit13 ], [ null, %1 ], [ null, %6 ]
+  %.sroa.3.2 = phi i64 [ %9, %.split.loop.exit13 ], [ 0, %1 ], [ 0, %6 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.08.2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.2, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -263,22 +263,22 @@ define { ptr, i64 } @_ZN7rocksdb15CompactionState14LargestUserKeyEv(ptr noundef 
   %.sroa.01.0 = phi ptr [ %4, %1 ], [ %9, %8 ]
   %6 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !22
   %7 = icmp ult ptr %6, %.sroa.01.0
-  br i1 %7, label %8, label %.loopexit
+  br i1 %7, label %8, label %.split.loop.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %.sroa.01.0, i64 -1080
   %10 = tail call { ptr, i64 } @_ZNK7rocksdb18SubcompactionState14LargestUserKeyEv(ptr noundef nonnull align 8 dereferenceable(1080) %9)
   %11 = extractvalue { ptr, i64 } %10, 1
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %5, label %13, !llvm.loop !25
+  br i1 %12, label %5, label %.split.loop.exit7, !llvm.loop !25
 
-13:                                               ; preds = %8
-  %14 = extractvalue { ptr, i64 } %10, 0
-  br label %.loopexit
+.split.loop.exit7:                                ; preds = %8
+  %13 = extractvalue { ptr, i64 } %10, 0
+  br label %.split.loop.exit
 
-.loopexit:                                        ; preds = %5, %13
-  %.sroa.02.2 = phi ptr [ %14, %13 ], [ null, %5 ]
-  %.sroa.3.2 = phi i64 [ %11, %13 ], [ 0, %5 ]
+.split.loop.exit:                                 ; preds = %5, %.split.loop.exit7
+  %.sroa.02.2 = phi ptr [ %13, %.split.loop.exit7 ], [ null, %5 ]
+  %.sroa.3.2 = phi i64 [ %11, %.split.loop.exit7 ], [ 0, %5 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.02.2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.2, 1
   ret { ptr, i64 } %.fca.1.insert

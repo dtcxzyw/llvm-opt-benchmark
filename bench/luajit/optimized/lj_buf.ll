@@ -164,7 +164,7 @@ define hidden ptr @lj_buf_more2(ptr noundef captures(none) %0, i32 noundef %1) l
 31:                                               ; preds = %21
   tail call fastcc void @buf_grow(ptr noundef nonnull %0, i32 noundef %15)
   %.pre = load ptr, ptr %10, align 8, !tbaa !19
-  %.pre58 = load ptr, ptr %24, align 8, !tbaa !25
+  %.pre57 = load ptr, ptr %24, align 8, !tbaa !25
   br label %39
 
 32:                                               ; preds = %21
@@ -180,7 +180,7 @@ define hidden ptr @lj_buf_more2(ptr noundef captures(none) %0, i32 noundef %1) l
   br i1 %38, label %46, label %39
 
 39:                                               ; preds = %34, %31
-  %40 = phi ptr [ %25, %34 ], [ %.pre58, %31 ]
+  %40 = phi ptr [ %25, %34 ], [ %.pre57, %31 ]
   %41 = phi ptr [ %11, %34 ], [ %.pre, %31 ]
   %.not54 = icmp eq ptr %41, %40
   br i1 %.not54, label %.thread, label %42

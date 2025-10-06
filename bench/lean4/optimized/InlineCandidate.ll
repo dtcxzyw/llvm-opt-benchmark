@@ -1114,8 +1114,8 @@ define ptr @l_Lean_Compiler_LCNF_Simp_inlineCandidate_x3f___lambda__8(ptr nounde
 20:                                               ; preds = %16
   %21 = ptrtoint ptr %13 to i64
   %22 = and i64 %21, 1
-  %.not14.i = icmp eq i64 %22, 0
-  br i1 %.not14.i, label %23, label %lean_dec.exit.i
+  %.not13.i = icmp eq i64 %22, 0
+  br i1 %.not13.i, label %23, label %lean_dec.exit.i
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %13, align 4, !tbaa !10

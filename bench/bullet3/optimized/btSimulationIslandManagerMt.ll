@@ -138,7 +138,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchE
   %17 = load i32, ptr %16, align 4, !tbaa !46
   %18 = load i32, ptr @_ZN37btSequentialImpulseConstraintSolverMt36s_minimumContactManifoldsForBatchingE, align 4, !tbaa !47
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %.thread, label %.lr.ph30
+  br i1 %19, label %.thread, label %.lr.ph29
 
 20:                                               ; preds = %54
   %21 = load ptr, ptr %10, align 8, !tbaa !15
@@ -148,22 +148,22 @@ define dso_local void @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchE
   %25 = load i32, ptr %24, align 4, !tbaa !46
   %26 = load i32, ptr @_ZN37btSequentialImpulseConstraintSolverMt36s_minimumContactManifoldsForBatchingE, align 4, !tbaa !47
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.thread.loopexit.loopexit, label %.lr.ph30
+  br i1 %27, label %.thread.loopexit.loopexit, label %.lr.ph29
 
 28:                                               ; preds = %.thread
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-30:                                               ; preds = %.lr.ph30
+30:                                               ; preds = %.lr.ph29
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-.lr.ph30:                                         ; preds = %.lr.ph, %20
+.lr.ph29:                                         ; preds = %.lr.ph, %20
   %32 = phi i32 [ %25, %20 ], [ %17, %.lr.ph ]
   %33 = phi ptr [ %23, %20 ], [ %15, %.lr.ph ]
-  %indvars.iv29 = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph ]
+  %indvars.iv28 = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %7, align 8, !tbaa !39
   %.not.i = icmp eq i32 %32, 0
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 48
@@ -188,8 +188,8 @@ define dso_local void @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchE
   %53 = invoke noundef float %52(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %44, i32 noundef %46, ptr noundef %37, i32 noundef %32, ptr noundef %42, i32 noundef %39, ptr noundef nonnull align 4 dereferenceable(128) %47, ptr noundef %48, ptr noundef %49)
           to label %54 unwind label %30
 
-54:                                               ; preds = %.lr.ph30
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
+54:                                               ; preds = %.lr.ph29
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
   %55 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !16
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
@@ -927,28 +927,28 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit: ; preds = 
 define dso_local noundef zeroext i1 @_Z16btIsBodyInIslandRKN27btSimulationIslandManagerMt6IslandEPK17btCollisionObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(101) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !53
-  %.not9 = icmp sgt i32 %4, 0
-  br i1 %.not9, label %.lr.ph, label %._crit_edge
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %7
+  br label %8
 
-7:                                                ; preds = %7, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !68
-  %10 = icmp eq ptr %9, %1
+8:                                                ; preds = %8, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8, !tbaa !68
+  %11 = icmp eq ptr %10, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %10, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %7, !llvm.loop !81
+  %or.cond = select i1 %11, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %8, !llvm.loop !81
 
-._crit_edge:                                      ; preds = %7, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %10, %7 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %8, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %11, %8 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1837,21 +1837,21 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !82
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph99, label %._crit_edge
+  br i1 %9, label %.lr.ph98, label %._crit_edge
 
-.lr.ph99:                                         ; preds = %6
+.lr.ph98:                                         ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = zext nneg i32 %8 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph99, %.loopexit
-  %.06598 = phi i32 [ 0, %.lr.ph99 ], [ %.064.lcssa, %.loopexit ]
+13:                                               ; preds = %.lr.ph98, %.loopexit
+  %.06597 = phi i32 [ 0, %.lr.ph98 ], [ %.064.lcssa, %.loopexit ]
   %14 = load ptr, ptr %10, align 8, !tbaa !92
-  %15 = zext nneg i32 %.06598 to i64
+  %15 = zext nneg i32 %.06597 to i64
   %16 = getelementptr inbounds nuw %struct.btElement, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !93
-  %18 = add nuw nsw i32 %.06598, 1
+  %18 = add nuw nsw i32 %.06597, 1
   %smax = call i32 @llvm.smax.i32(i32 %8, i32 %18)
   %19 = add nsw i32 %smax, -1
   br label %20
@@ -1866,23 +1866,23 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   %23 = getelementptr inbounds nuw %struct.btElement, ptr %14, i64 %indvars.iv.next
   %24 = load i32, ptr %23, align 4, !tbaa !93
   %25 = icmp eq i32 %24, %17
-  br i1 %25, label %20, label %.critedge.split.loop.exit117, !llvm.loop !95
+  br i1 %25, label %20, label %.critedge.split.loop.exit116, !llvm.loop !95
 
 26:                                               ; preds = %3
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %80
 
-.critedge.split.loop.exit117:                     ; preds = %22
+.critedge.split.loop.exit116:                     ; preds = %22
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %20, %.critedge.split.loop.exit117
-  %.064.in.lcssa = phi i32 [ %28, %.critedge.split.loop.exit117 ], [ %19, %20 ]
-  %.064.lcssa = phi i32 [ %29, %.critedge.split.loop.exit117 ], [ %smax, %20 ]
-  %.not90 = icmp sgt i32 %.06598, %.064.in.lcssa
-  br i1 %.not90, label %.loopexit, label %.lr.ph
+.critedge:                                        ; preds = %20, %.critedge.split.loop.exit116
+  %.064.in.lcssa = phi i32 [ %28, %.critedge.split.loop.exit116 ], [ %19, %20 ]
+  %.064.lcssa = phi i32 [ %29, %.critedge.split.loop.exit116 ], [ %smax, %20 ]
+  %.not89 = icmp sgt i32 %.06597, %.064.in.lcssa
+  br i1 %.not89, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %30 = load ptr, ptr %11, align 8, !tbaa !52
@@ -1890,8 +1890,8 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   br label %32
 
 32:                                               ; preds = %.lr.ph, %44
-  %indvars.iv102 = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next103, %44 ]
-  %33 = getelementptr inbounds nuw %struct.btElement, ptr %14, i64 %indvars.iv102
+  %indvars.iv101 = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next102, %44 ]
+  %33 = getelementptr inbounds nuw %struct.btElement, ptr %14, i64 %indvars.iv101
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !96
   %36 = sext i32 %35 to i64
@@ -1906,27 +1906,27 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 240
   %43 = load i32, ptr %42, align 8, !tbaa !107
   switch i32 %43, label %44 [
-    i32 1, label %.lr.ph94.preheader
-    i32 4, label %.lr.ph94.preheader
+    i32 1, label %.lr.ph93.preheader
+    i32 4, label %.lr.ph93.preheader
   ]
 
-.lr.ph94.preheader:                               ; preds = %41, %41
-  br label %.lr.ph94
+.lr.ph93.preheader:                               ; preds = %41, %41
+  br label %.lr.ph93
 
 44:                                               ; preds = %41, %32
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next103 to i32
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next102 to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %.lr.ph97.preheader, label %32, !llvm.loop !108
+  br i1 %exitcond.not, label %.lr.ph96.preheader, label %32, !llvm.loop !108
 
-.lr.ph97.preheader:                               ; preds = %44
+.lr.ph96.preheader:                               ; preds = %44
   %45 = add nuw nsw i32 %.064.in.lcssa, 1
-  br label %.lr.ph97
+  br label %.lr.ph96
 
-.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.critedge88
-  %indvars.iv110 = phi i64 [ %15, %.lr.ph97.preheader ], [ %indvars.iv.next111, %.critedge88 ]
+.lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.critedge87
+  %indvars.iv109 = phi i64 [ %15, %.lr.ph96.preheader ], [ %indvars.iv.next110, %.critedge87 ]
   %46 = load ptr, ptr %10, align 8, !tbaa !92
-  %47 = getelementptr inbounds nuw %struct.btElement, ptr %46, i64 %indvars.iv110
+  %47 = getelementptr inbounds nuw %struct.btElement, ptr %46, i64 %indvars.iv109
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !96
   %50 = load ptr, ptr %11, align 8, !tbaa !52
@@ -1936,27 +1936,27 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 228
   %55 = load i32, ptr %54, align 4, !tbaa !97
   %.not78 = icmp eq i32 %55, %17
-  br i1 %.not78, label %58, label %.critedge88
+  br i1 %.not78, label %58, label %.critedge87
 
 56:                                               ; preds = %58
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %80
 
-58:                                               ; preds = %.lr.ph97
+58:                                               ; preds = %.lr.ph96
   invoke void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372) %53, i32 noundef 2)
-          to label %.critedge88 unwind label %56
+          to label %.critedge87 unwind label %56
 
-.critedge88:                                      ; preds = %58, %.lr.ph97
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %lftr.wideiv113 = trunc i64 %indvars.iv.next111 to i32
-  %exitcond114.not = icmp eq i32 %45, %lftr.wideiv113
-  br i1 %exitcond114.not, label %.loopexit, label %.lr.ph97, !llvm.loop !109
+.critedge87:                                      ; preds = %58, %.lr.ph96
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %lftr.wideiv112 = trunc i64 %indvars.iv.next110 to i32
+  %exitcond113.not = icmp eq i32 %45, %lftr.wideiv112
+  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph96, !llvm.loop !109
 
-.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %78
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %78 ], [ %15, %.lr.ph94.preheader ]
+.lr.ph93:                                         ; preds = %.lr.ph93.preheader, %78
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %78 ], [ %15, %.lr.ph93.preheader ]
   %59 = load ptr, ptr %10, align 8, !tbaa !92
-  %60 = getelementptr inbounds nuw %struct.btElement, ptr %59, i64 %indvars.iv105
+  %60 = getelementptr inbounds nuw %struct.btElement, ptr %59, i64 %indvars.iv104
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = load ptr, ptr %11, align 8, !tbaa !52
@@ -1973,7 +1973,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
           cleanup
   br label %80
 
-71:                                               ; preds = %.lr.ph94
+71:                                               ; preds = %.lr.ph93
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 240
   %73 = load i32, ptr %72, align 8, !tbaa !107
   %74 = icmp eq i32 %73, 2
@@ -1988,13 +1988,13 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   store float 0.000000e+00, ptr %77, align 4, !tbaa !110
   br label %78
 
-78:                                               ; preds = %71, %76, %.lr.ph94
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %lftr.wideiv108 = trunc i64 %indvars.iv.next106 to i32
-  %exitcond109.not = icmp eq i32 %31, %lftr.wideiv108
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph94, !llvm.loop !111
+78:                                               ; preds = %71, %76, %.lr.ph93
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %lftr.wideiv107 = trunc i64 %indvars.iv.next105 to i32
+  %exitcond108.not = icmp eq i32 %31, %lftr.wideiv107
+  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph93, !llvm.loop !111
 
-.loopexit:                                        ; preds = %78, %.critedge88, %.critedge
+.loopexit:                                        ; preds = %78, %.critedge87, %.critedge
   %79 = icmp slt i32 %.064.lcssa, %8
   br i1 %79, label %13, label %._crit_edge, !llvm.loop !112
 

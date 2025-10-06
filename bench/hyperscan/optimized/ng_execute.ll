@@ -2511,13 +2511,13 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   br label %.critedge.i.i.i218.i.i
 
 .critedge.i.i.i218.i.i:                           ; preds = %528, %526
-  %.sroa.046.0.in.i.i.i.i.i = phi ptr [ %527, %526 ], [ %.sroa.046.0.i.i.i.i.i, %528 ]
-  %.sroa.046.0.i.i.i.i.i = load ptr, ptr %.sroa.046.0.in.i.i.i.i.i, align 8, !noalias !100
-  %.not62.i.i.i.i.i = icmp eq ptr %.sroa.046.0.i.i.i.i.i, %527
-  br i1 %.not62.i.i.i.i.i, label %.critedge.i.i.i, label %528
+  %.sroa.045.0.in.i.i.i.i.i = phi ptr [ %527, %526 ], [ %.sroa.045.0.i.i.i.i.i, %528 ]
+  %.sroa.045.0.i.i.i.i.i = load ptr, ptr %.sroa.045.0.in.i.i.i.i.i, align 8, !noalias !100
+  %.not57.i.i.i.i.i = icmp eq ptr %.sroa.045.0.i.i.i.i.i, %527
+  br i1 %.not57.i.i.i.i.i, label %.critedge.i.i.i, label %528
 
 528:                                              ; preds = %.critedge.i.i.i218.i.i
-  %529 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i.i.i, i64 16
+  %529 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i.i.i, i64 16
   %530 = load ptr, ptr %529, align 8, !noalias !100
   %531 = icmp eq ptr %530, %519
   br i1 %531, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i.i.i.preheader, label %.critedge.i.i.i218.i.i
@@ -2527,13 +2527,13 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   br label %.critedge24.i.i.i.i.i
 
 .critedge24.i.i.i.i.i:                            ; preds = %534, %532
-  %.sroa.035.0.in.i.i.i.i.i = phi ptr [ %533, %532 ], [ %.sroa.035.0.i.i.i.i.i, %534 ]
-  %.sroa.035.0.i.i.i.i.i = load ptr, ptr %.sroa.035.0.in.i.i.i.i.i, align 8, !noalias !100
-  %.not.i.i92.i.i.i = icmp eq ptr %.sroa.035.0.i.i.i.i.i, %533
+  %.sroa.034.0.in.i.i.i.i.i = phi ptr [ %533, %532 ], [ %.sroa.034.0.i.i.i.i.i, %534 ]
+  %.sroa.034.0.i.i.i.i.i = load ptr, ptr %.sroa.034.0.in.i.i.i.i.i, align 8, !noalias !100
+  %.not.i.i92.i.i.i = icmp eq ptr %.sroa.034.0.i.i.i.i.i, %533
   br i1 %.not.i.i92.i.i.i, label %.critedge.i.i.i, label %534
 
 534:                                              ; preds = %.critedge24.i.i.i.i.i
-  %535 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i.i.i, i64 40
+  %535 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i.i.i, i64 40
   %536 = load ptr, ptr %535, align 8, !noalias !100
   %537 = icmp eq ptr %536, %519
   br i1 %537, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i.i.i.preheader, label %.critedge24.i.i.i.i.i
@@ -4487,13 +4487,13 @@ define hidden noundef zeroext i1 @_ZN3ue213can_die_earlyERKNS_8NGHolderEj(ptr no
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %19, %17
-  %.sroa.046.0.in.i.i.i = phi ptr [ %18, %17 ], [ %.sroa.046.0.i.i.i, %19 ]
-  %.sroa.046.0.i.i.i = load ptr, ptr %.sroa.046.0.in.i.i.i, align 8, !noalias !120
-  %.not62.i.i.i = icmp eq ptr %.sroa.046.0.i.i.i, %18
-  br i1 %.not62.i.i.i, label %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit, label %19
+  %.sroa.045.0.in.i.i.i = phi ptr [ %18, %17 ], [ %.sroa.045.0.i.i.i, %19 ]
+  %.sroa.045.0.i.i.i = load ptr, ptr %.sroa.045.0.in.i.i.i, align 8, !noalias !120
+  %.not57.i.i.i = icmp eq ptr %.sroa.045.0.i.i.i, %18
+  br i1 %.not57.i.i.i, label %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit, label %19
 
 19:                                               ; preds = %.critedge.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i, i64 16
   %21 = load ptr, ptr %20, align 8, !noalias !120
   %22 = icmp eq ptr %21, %.sroa.03.0.copyload.i
   br i1 %22, label %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit, label %.critedge.i.i.i
@@ -4503,13 +4503,13 @@ define hidden noundef zeroext i1 @_ZN3ue213can_die_earlyERKNS_8NGHolderEj(ptr no
   br label %.critedge24.i.i.i
 
 .critedge24.i.i.i:                                ; preds = %25, %23
-  %.sroa.035.0.in.i.i.i = phi ptr [ %24, %23 ], [ %.sroa.035.0.i.i.i, %25 ]
-  %.sroa.035.0.i.i.i = load ptr, ptr %.sroa.035.0.in.i.i.i, align 8, !noalias !120
-  %.not.i.i.i = icmp eq ptr %.sroa.035.0.i.i.i, %24
+  %.sroa.034.0.in.i.i.i = phi ptr [ %24, %23 ], [ %.sroa.034.0.i.i.i, %25 ]
+  %.sroa.034.0.i.i.i = load ptr, ptr %.sroa.034.0.in.i.i.i, align 8, !noalias !120
+  %.not.i.i.i = icmp eq ptr %.sroa.034.0.i.i.i, %24
   br i1 %.not.i.i.i, label %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit, label %25
 
 25:                                               ; preds = %.critedge24.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i, i64 40
   %27 = load ptr, ptr %26, align 8, !noalias !120
   %28 = icmp eq ptr %27, %.sroa.03.0.copyload.i
   br i1 %28, label %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit, label %.critedge24.i.i.i
@@ -4837,8 +4837,8 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L13can_die_earlyERKNS_8NGHolde
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
-  %.not78.not.i.i = icmp eq ptr %16, %17
-  br i1 %.not78.not.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit.thread, label %.lr.ph.preheader.i.i
+  %.not11.i.i = icmp eq ptr %16, %17
+  br i1 %.not11.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %13
   %18 = ptrtoint ptr %16 to i64
@@ -4848,13 +4848,13 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L13can_die_earlyERKNS_8NGHolde
   br label %.lr.ph.i.i
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = add nuw i64 %.059.i.i, 1
+  %23 = add nuw i64 %.058.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %23, %21
   br i1 %exitcond.not.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit.thread, label %.lr.ph.i.i, !llvm.loop !145
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.preheader.i.i
-  %.059.i.i = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader.i.i ]
-  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %.059.i.i
+  %.058.i.i = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader.i.i ]
+  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %.058.i.i
   %25 = load i64, ptr %24, align 8
   %.not.not.i.i = icmp eq i64 %25, 0
   br i1 %.not.not.i.i, label %22, label %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit

@@ -5184,7 +5184,7 @@ define void @_ZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_
 
 11:                                               ; preds = %9
   invoke void @_ZN10open_spiel12chess_common12ZobristTableImLm2EJLm2ELm2EEEC2Em(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_17CastlingDirectionEN4absl7debian28optionalINS_12chess_common6SquareEEEE14kZobristValues, i64 noundef 876387212)
-          to label %12 unwind label %54
+          to label %12 unwind label %55
 
 12:                                               ; preds = %11
   %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN10open_spiel12chess_common12ZobristTableImLm2EJLm2ELm2EEED2Ev, ptr nonnull @_ZZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_17CastlingDirectionEN4absl7debian28optionalINS_12chess_common6SquareEEEE14kZobristValues, ptr nonnull @__dso_handle) #34
@@ -5236,8 +5236,8 @@ define void @_ZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
   br label %32
 
-common.resume:                                    ; preds = %54, %32
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %32 ], [ %55, %54 ]
+common.resume:                                    ; preds = %55, %32
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %32 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %30, %28
@@ -5274,32 +5274,32 @@ _ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20: ; preds = %15, %20
   %52 = load i64, ptr %51, align 8
   %53 = xor i64 %52, %45
   store i64 %53, ptr %43, align 8
-  %switch = icmp eq i32 %2, 0
-  br i1 %switch, label %56, label %59
+  %54 = icmp eq i32 %2, 0
+  br i1 %54, label %57, label %60
 
-54:                                               ; preds = %11
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %11
+  %56 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_17CastlingDirectionEN4absl7debian28optionalINS_12chess_common6SquareEEEE14kZobristValues) #34
   br label %common.resume
 
-56:                                               ; preds = %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %58 = getelementptr inbounds nuw %struct.anon, ptr %57, i64 %.pre-phi
-  store i8 %.sroa.021.0.extract.trunc, ptr %58, align 2
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 1
+57:                                               ; preds = %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i64 %.pre-phi
+  store i8 %.sroa.021.0.extract.trunc, ptr %59, align 2
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 1
   store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 1
-  br label %62
+  br label %63
 
-59:                                               ; preds = %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
-  %60 = getelementptr %struct.anon, ptr %0, i64 %.pre-phi
-  %61 = getelementptr i8, ptr %60, i64 151
-  store i8 %.sroa.021.0.extract.trunc, ptr %61, align 1
-  %.sroa.4.0..sroa_idx23 = getelementptr i8, ptr %60, i64 152
+60:                                               ; preds = %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
+  %61 = getelementptr %struct.anon, ptr %0, i64 %.pre-phi
+  %62 = getelementptr i8, ptr %61, i64 151
+  store i8 %.sroa.021.0.extract.trunc, ptr %62, align 1
+  %.sroa.4.0..sroa_idx23 = getelementptr i8, ptr %61, i64 152
   store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.4.0..sroa_idx23, align 2
-  br label %62
+  br label %63
 
-62:                                               ; preds = %59, %56
+63:                                               ; preds = %60, %57
   ret void
 }
 

@@ -3400,9 +3400,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6ve
 1032:                                             ; preds = %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i, %.lr.ph.i109.i
   %.1.i = phi i32 [ %.0359524.i, %.lr.ph.i109.i ], [ %1592, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i ]
   %.sroa.5.0.i = phi ptr [ %899, %.lr.ph.i109.i ], [ %.sroa.5.1.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i ]
-  %.022104.i.i = phi i1 [ false, %.lr.ph.i109.i ], [ %1586, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i ]
-  %.024.in106.i.i = icmp sgt i32 %.1.i, -1
-  %.024107.i.i = zext i1 %.024.in106.i.i to i32
+  %.022103.i.i = phi i1 [ false, %.lr.ph.i109.i ], [ %1586, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i ]
+  %.024.in105.i.i = icmp sgt i32 %.1.i, -1
+  %.024106.i.i = zext i1 %.024.in105.i.i to i32
   %1033 = load ptr, ptr %897, align 8, !tbaa !453
   %1034 = getelementptr i8, ptr %1033, i64 80
   %.val28.i.i.i = load i64, ptr %1034, align 8, !tbaa !426
@@ -3425,7 +3425,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6ve
 1041:                                             ; preds = %.split.us.i.i.i
   %1042 = getelementptr i8, ptr %1038, i64 92
   %.val35.us.i.i.i = load i32, ptr %1042, align 4
-  %1043 = icmp eq i32 %.val35.us.i.i.i, %.024107.i.i
+  %1043 = icmp eq i32 %.val35.us.i.i.i, %.024106.i.i
   br i1 %1043, label %.split18.us.i.i.loopexit.i, label %1044
 
 1044:                                             ; preds = %1041
@@ -3435,7 +3435,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6ve
 
 .split.i.i.i:                                     ; preds = %1032
   %1046 = icmp eq i32 %.fr30.i.i.i, 1
-  %1047 = xor i1 %.024.in106.i.i, %1046
+  %1047 = xor i1 %.024.in105.i.i, %1046
   br i1 %1047, label %.split.split.us.i.i.i, label %.split.split.i.i.i
 
 .split.split.us.i.i.i:                            ; preds = %.split.i.i.i
@@ -3526,7 +3526,7 @@ _ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vect
   br label %1076
 
 1076:                                             ; preds = %1071, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vectorIPNS_5ChainESaIS4_EE.exit.thread59.i.i
-  %.0.i.i = phi i32 [ %.0.i37.i.i, %1071 ], [ %.024107.i.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vectorIPNS_5ChainESaIS4_EE.exit.thread59.i.i ]
+  %.0.i.i = phi i32 [ %.0.i37.i.i, %1071 ], [ %.024106.i.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vectorIPNS_5ChainESaIS4_EE.exit.thread59.i.i ]
   %1077 = getelementptr i8, ptr %.0.ph.i63.i.i, i64 16
   %.val29.i.i = load ptr, ptr %1077, align 8, !tbaa !455
   %1078 = getelementptr i8, ptr %.0.ph.i63.i.i, i64 88
@@ -4866,7 +4866,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i: ; p
 
 _ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i: ; preds = %._crit_edge188.i.i.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing16scavengeRegisterEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i.i
   %.047.i.i.i = phi i1 [ %.048.lcssa.i.i.i, %._crit_edge188.i.i.i ], [ false, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing16scavengeRegisterEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i.i ]
-  %1586 = or i1 %.022104.i.i, %.047.i.i.i
+  %1586 = or i1 %.022103.i.i, %.047.i.i.i
   %1587 = icmp eq i32 %.1.i.i, 0
   %1588 = getelementptr i8, ptr %.0.ph.i63.i.i, i64 80
   %.val.i118.i = load i64, ptr %1588, align 8, !tbaa !426
@@ -4879,7 +4879,7 @@ _ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN
 
 _ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS_5ChainESaIS3_EERN4llvm17MachineBasicBlockERi.exit.i: ; preds = %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vectorIPNS_5ChainESaIS4_EE.exit.i.i, %.lr.ph527.i
   %.2.i = phi i32 [ %.0359524.i, %.lr.ph527.i ], [ %1592, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i ], [ %.1.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vectorIPNS_5ChainESaIS4_EE.exit.i.i ]
-  %.022.lcssa.i.i = phi i1 [ false, %.lr.ph527.i ], [ %1586, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i ], [ %.022104.i.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vectorIPNS_5ChainESaIS4_EE.exit.i.i ]
+  %.022.lcssa.i.i = phi i1 [ false, %.lr.ph527.i ], [ %1586, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing10colorChainEPNS_5ChainENS_5ColorERN4llvm17MachineBasicBlockE.exit.i.i ], [ %.022103.i.i, %_ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vectorIPNS_5ChainESaIS4_EE.exit.i.i ]
   %1594 = or i1 %.0526.i, %.022.lcssa.i.i
   %.not.i.i.i127.i = icmp eq ptr %897, null
   br i1 %.not.i.i.i127.i, label %_ZNSt6vectorIPN12_GLOBAL__N_15ChainESaIS2_EED2Ev.exit128.i, label %1595

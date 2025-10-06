@@ -570,8 +570,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %34, %25, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %26, %25 ], [ %35, %34 ]
+common.resume:                                    ; preds = %36, %27, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %28, %27 ], [ %37, %36 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -583,116 +583,116 @@ common.resume:                                    ; preds = %34, %25, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i14 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i14, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %18 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16, !prof !3
+  %20 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, !prof !3
 
-20:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i15 = icmp eq i32 %21, 0
-  br i1 %.not.i15, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16, label %22
+22:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i14 = icmp eq i32 %23, 0
+  br i1 %.not.i14, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, label %24
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %23 unwind label %25
+          to label %25 unwind label %27
 
-23:                                               ; preds = %22
-  %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+25:                                               ; preds = %24
+  %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, %20, %23
-  %27 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, !prof !3
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, %22, %25
+  %29 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %31, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, !prof !3
 
-29:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16
-  %30 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i17 = icmp eq i32 %30, 0
-  br i1 %.not.i17, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, label %31
+31:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15
+  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i16 = icmp eq i32 %32, 0
+  br i1 %.not.i16, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, label %33
 
-31:                                               ; preds = %29
+33:                                               ; preds = %31
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %32 unwind label %34
+          to label %34 unwind label %36
 
-32:                                               ; preds = %31
-  %33 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+34:                                               ; preds = %33
+  %35 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17
 
-34:                                               ; preds = %31
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16, %29, %32
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 88), align 8, !tbaa !13
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, %31, %34
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 88), align 8, !tbaa !13
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %37 = icmp ult ptr %.val.i, %.val.i19
-  br i1 %37, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %.val.i18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %39 = icmp ult ptr %.val.i, %.val.i18
+  br i1 %39, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, %55
-  %.sroa.020.023 = phi ptr [ %56, %55 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18 ]
-  %38 = load ptr, ptr %.sroa.020.023, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load i8, ptr %39, align 8, !tbaa !47, !range !11, !noundef !12
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %55
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, %57
+  %.sroa.019.022 = phi ptr [ %58, %57 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17 ]
+  %40 = load ptr, ptr %.sroa.019.022, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  %42 = load i8, ptr %41, align 8, !tbaa !47, !range !11, !noundef !12
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %57
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr i8, ptr %38, i64 32
-  %.val12 = load ptr, ptr %43, align 8, !tbaa !30
-  %44 = load ptr, ptr %.val12, align 8, !tbaa !33
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(12) %.val12)
-  %.not = icmp slt i32 %36, %47
-  br i1 %.not, label %49, label %48
+44:                                               ; preds = %.lr.ph
+  %45 = getelementptr i8, ptr %40, i64 32
+  %.val12 = load ptr, ptr %45, align 8, !tbaa !30
+  %46 = load ptr, ptr %.val12, align 8, !tbaa !33
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 168
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(12) %.val12)
+  %.not = icmp slt i32 %38, %49
+  br i1 %.not, label %51, label %50
 
-48:                                               ; preds = %42
-  tail call fastcc void @_ZN5boost9unit_test12_GLOBAL__N_117log_entry_contextENS0_9log_levelERNS1_30unit_test_log_data_helper_implE(i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(49) %38)
-  br label %49
+50:                                               ; preds = %44
+  tail call fastcc void @_ZN5boost9unit_test12_GLOBAL__N_117log_entry_contextENS0_9log_levelERNS1_30unit_test_log_data_helper_implE(i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(49) %40)
+  br label %51
 
-49:                                               ; preds = %48, %42
-  %50 = load ptr, ptr %43, align 8, !tbaa !30
-  %51 = getelementptr i8, ptr %38, i64 8
-  %.val13 = load ptr, ptr %51, align 8, !tbaa !35
-  %52 = load ptr, ptr %50, align 8, !tbaa !33
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(8) %.val13)
-  br label %55
+51:                                               ; preds = %50, %44
+  %52 = load ptr, ptr %45, align 8, !tbaa !30
+  %53 = getelementptr i8, ptr %40, i64 8
+  %.val13 = load ptr, ptr %53, align 8, !tbaa !35
+  %54 = load ptr, ptr %52, align 8, !tbaa !33
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(8) %.val13)
+  br label %57
 
-55:                                               ; preds = %49, %.lr.ph
-  store i8 0, ptr %39, align 8, !tbaa !47
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.020.023, i64 8
-  %57 = icmp ult ptr %56, %.val.i19
-  br i1 %57, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !48
+57:                                               ; preds = %51, %.lr.ph
+  store i8 0, ptr %41, align 8, !tbaa !47
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.019.022, i64 8
+  %59 = icmp ult ptr %58, %.val.i18
+  br i1 %59, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !48
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %12, %55, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %13, %57, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
   tail call void @_ZN5boost9unit_test9framework13clear_contextEi(i32 noundef -1)
   ret ptr %0
 }
@@ -1151,8 +1151,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %102, %85, %73, %63, %46, %36, %26, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %27, %26 ], [ %37, %36 ], [ %47, %46 ], [ %64, %63 ], [ %74, %73 ], [ %86, %85 ], [ %103, %102 ]
+common.resume:                                    ; preds = %104, %87, %75, %65, %48, %38, %28, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %29, %28 ], [ %39, %38 ], [ %49, %48 ], [ %66, %65 ], [ %76, %75 ], [ %88, %87 ], [ %105, %104 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -1164,264 +1164,264 @@ common.resume:                                    ; preds = %102, %85, %73, %63,
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i11 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i11, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %19 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, !prof !3
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %21 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, !prof !3
 
-21:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i12 = icmp eq i32 %22, 0
-  br i1 %.not.i12, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, label %23
+23:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i11 = icmp eq i32 %24, 0
+  br i1 %.not.i11, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, label %25
 
-23:                                               ; preds = %21
+25:                                               ; preds = %23
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %24 unwind label %26
+          to label %26 unwind label %28
 
-24:                                               ; preds = %23
-  %25 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+26:                                               ; preds = %25
+  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %21, %24
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %23, %26
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %28 = icmp ult ptr %.val.i, %.val.i14
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %.val.i13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %30 = icmp ult ptr %.val.i, %.val.i13
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
-  %29 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16, !prof !3
+._crit_edge:                                      ; preds = %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
+  %31 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %33, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, !prof !3
 
-31:                                               ; preds = %._crit_edge
-  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i15 = icmp eq i32 %32, 0
-  br i1 %.not.i15, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16, label %33
+33:                                               ; preds = %._crit_edge
+  %34 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i14 = icmp eq i32 %34, 0
+  br i1 %.not.i14, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, label %35
 
-33:                                               ; preds = %31
+35:                                               ; preds = %33
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %34 unwind label %36
+          to label %36 unwind label %38
 
-34:                                               ; preds = %33
-  %35 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+36:                                               ; preds = %35
+  %37 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15
 
-36:                                               ; preds = %33
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %35
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16: ; preds = %._crit_edge, %31, %34
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15: ; preds = %._crit_edge, %33, %36
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 56), align 8, !tbaa !55
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
-  store i8 0, ptr %38, align 1, !tbaa !64
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
+  store i8 0, ptr %40, align 1, !tbaa !64
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 80), align 8, !tbaa !65
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 88), align 8, !tbaa !66
-  %39 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %40 = icmp eq i8 %39, 0
-  br i1 %40, label %41, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, !prof !3
+  %41 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %43, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, !prof !3
 
-41:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16
-  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i17 = icmp eq i32 %42, 0
-  br i1 %.not.i17, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, label %43
+43:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15
+  %44 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i16 = icmp eq i32 %44, 0
+  br i1 %.not.i16, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, label %45
 
-43:                                               ; preds = %41
+45:                                               ; preds = %43
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %44 unwind label %46
+          to label %46 unwind label %48
 
-44:                                               ; preds = %43
-  %45 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+46:                                               ; preds = %45
+  %47 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %45
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16, %41, %44
-  %48 = load ptr, ptr %1, align 8, !tbaa !41
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !42
-  %51 = ptrtoint ptr %50 to i64
-  %52 = ptrtoint ptr %48 to i64
-  %53 = sub i64 %51, %52
-  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 56), align 8, !tbaa !55
-  %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), i64 noundef 0, i64 noundef %54, ptr noundef %48, i64 noundef %53)
-  %56 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20, !prof !3
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, %43, %46
+  %50 = load ptr, ptr %1, align 8, !tbaa !41
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !42
+  %53 = ptrtoint ptr %52 to i64
+  %54 = ptrtoint ptr %50 to i64
+  %55 = sub i64 %53, %54
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 56), align 8, !tbaa !55
+  %57 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), i64 noundef 0, i64 noundef %56, ptr noundef %50, i64 noundef %55)
+  %58 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %60, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19, !prof !3
 
-58:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18
-  %59 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i19 = icmp eq i32 %59, 0
-  br i1 %.not.i19, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20, label %60
+60:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17
+  %61 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i18 = icmp eq i32 %61, 0
+  br i1 %.not.i18, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19, label %62
 
-60:                                               ; preds = %58
+62:                                               ; preds = %60
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %61 unwind label %63
+          to label %63 unwind label %65
 
-61:                                               ; preds = %60
-  %62 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+63:                                               ; preds = %62
+  %64 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19
 
-63:                                               ; preds = %60
-  %64 = landingpad { ptr, i32 }
+65:                                               ; preds = %62
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, %58, %61
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
-  %66 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %68, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22, !prof !3
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, %60, %63
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
+  %68 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %70, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit21, !prof !3
 
-68:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20
-  %69 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i21 = icmp eq i32 %69, 0
-  br i1 %.not.i21, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22, label %70
+70:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19
+  %71 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i20 = icmp eq i32 %71, 0
+  br i1 %.not.i20, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit21, label %72
 
-70:                                               ; preds = %68
+72:                                               ; preds = %70
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %71 unwind label %73
+          to label %73 unwind label %75
 
-71:                                               ; preds = %70
-  %72 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+73:                                               ; preds = %72
+  %74 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit21
 
-73:                                               ; preds = %70
-  %74 = landingpad { ptr, i32 }
+75:                                               ; preds = %72
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20, %68, %71
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
-  %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 56), align 8, !tbaa !55
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
-  %78 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %79 = icmp eq i8 %78, 0
-  br i1 %79, label %80, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24, !prof !3
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit21: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19, %70, %73
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
+  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 56), align 8, !tbaa !55
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
+  %80 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, !prof !3
 
-80:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22
-  %81 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i23 = icmp eq i32 %81, 0
-  br i1 %.not.i23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24, label %82
+82:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit21
+  %83 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i22 = icmp eq i32 %83, 0
+  br i1 %.not.i22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, label %84
 
-82:                                               ; preds = %80
+84:                                               ; preds = %82
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %83 unwind label %85
+          to label %85 unwind label %87
 
-83:                                               ; preds = %82
-  %84 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+85:                                               ; preds = %84
+  %86 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23
 
-85:                                               ; preds = %82
-  %86 = landingpad { ptr, i32 }
+87:                                               ; preds = %84
+  %88 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22, %80, %83
-  %.not6.i = icmp eq ptr %65, %77
-  br i1 %.not6.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit, label %.lr.ph.i25.preheader
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23: ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit21, %82, %85
+  %.not6.i = icmp eq ptr %67, %79
+  br i1 %.not6.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit, label %.lr.ph.i24.preheader
 
-.lr.ph.i25.preheader:                             ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
-  br label %.lr.ph.i25
+.lr.ph.i24.preheader:                             ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 48), align 8, !tbaa !54
+  br label %.lr.ph.i24
 
-.lr.ph.i25:                                       ; preds = %.lr.ph.i25.preheader, %.lr.ph.i25
-  %.sroa.0.08.i = phi ptr [ %92, %.lr.ph.i25 ], [ %87, %.lr.ph.i25.preheader ]
-  %.sroa.03.07.i = phi ptr [ %91, %.lr.ph.i25 ], [ %65, %.lr.ph.i25.preheader ]
-  %88 = load i8, ptr %.sroa.03.07.i, align 1, !tbaa !64
-  %89 = icmp eq i8 %88, 92
-  %90 = select i1 %89, i8 47, i8 %88
-  store i8 %90, ptr %.sroa.0.08.i, align 1, !tbaa !64
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 1
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 1
-  %.not.i26 = icmp eq ptr %91, %77
-  br i1 %.not.i26, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit, label %.lr.ph.i25, !llvm.loop !67
+.lr.ph.i24:                                       ; preds = %.lr.ph.i24.preheader, %.lr.ph.i24
+  %.sroa.0.08.i = phi ptr [ %94, %.lr.ph.i24 ], [ %89, %.lr.ph.i24.preheader ]
+  %.sroa.03.07.i = phi ptr [ %93, %.lr.ph.i24 ], [ %67, %.lr.ph.i24.preheader ]
+  %90 = load i8, ptr %.sroa.03.07.i, align 1, !tbaa !64
+  %91 = icmp eq i8 %90, 92
+  %92 = select i1 %91, i8 47, i8 %90
+  store i8 %92, ptr %.sroa.0.08.i, align 1, !tbaa !64
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 1
+  %.not.i25 = icmp eq ptr %93, %79
+  br i1 %.not.i25, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit, label %.lr.ph.i24, !llvm.loop !67
 
-_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit: ; preds = %.lr.ph.i25, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %94 = load i64, ptr %93, align 8, !tbaa !59
-  %95 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %96 = icmp eq i8 %95, 0
-  br i1 %96, label %97, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit28, !prof !3
+_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit: ; preds = %.lr.ph.i24, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %96 = load i64, ptr %95, align 8, !tbaa !59
+  %97 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %98 = icmp eq i8 %97, 0
+  br i1 %98, label %99, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit27, !prof !3
 
-97:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit
-  %98 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i27 = icmp eq i32 %98, 0
-  br i1 %.not.i27, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit28, label %99
+99:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit
+  %100 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i26 = icmp eq i32 %100, 0
+  br i1 %.not.i26, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit27, label %101
 
-99:                                               ; preds = %97
+101:                                              ; preds = %99
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %100 unwind label %102
+          to label %102 unwind label %104
 
-100:                                              ; preds = %99
-  %101 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+102:                                              ; preds = %101
+  %103 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit28
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit27
 
-102:                                              ; preds = %99
-  %103 = landingpad { ptr, i32 }
+104:                                              ; preds = %101
+  %105 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit28: ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit, %97, %100
-  store i64 %94, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 80), align 8, !tbaa !68
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit27: ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFccEET0_T_SD_SC_T1_.exit, %99, %102
+  store i64 %96, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 80), align 8, !tbaa !68
   ret ptr %0
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, %.lr.ph
-  %.sroa.030.032 = phi ptr [ %117, %.lr.ph ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13 ]
-  %104 = load ptr, ptr %.sroa.030.032, align 8, !tbaa !4
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !69
-  %107 = load ptr, ptr %106, align 8, !tbaa !70
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %109 = load i64, ptr %108, align 8, !tbaa !73
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store i64 %109, ptr %110, align 8, !tbaa !74
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %112 = load i64, ptr %111, align 8, !tbaa !80
-  %113 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i64 %112, ptr %113, align 8, !tbaa !81
-  %114 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %115 = load i32, ptr %114, align 8, !tbaa !82
-  %116 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store i32 %115, ptr %116, align 8, !tbaa !83
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.030.032, i64 8
-  %118 = icmp ult ptr %117, %.val.i14
-  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %.lr.ph
+  %.sroa.029.031 = phi ptr [ %119, %.lr.ph ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
+  %106 = load ptr, ptr %.sroa.029.031, align 8, !tbaa !4
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %108 = load ptr, ptr %107, align 8, !tbaa !69
+  %109 = load ptr, ptr %108, align 8, !tbaa !70
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %111 = load i64, ptr %110, align 8, !tbaa !73
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  store i64 %111, ptr %112, align 8, !tbaa !74
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %114 = load i64, ptr %113, align 8, !tbaa !80
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store i64 %114, ptr %115, align 8, !tbaa !81
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !82
+  %118 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  store i32 %117, ptr %118, align 8, !tbaa !83
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.029.031, i64 8
+  %120 = icmp ult ptr %119, %.val.i13
+  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1476,8 +1476,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t15test_unit_startERKNS0_9test_u
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %26, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %27, %26 ]
+common.resume:                                    ; preds = %28, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %29, %28 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -1489,85 +1489,85 @@ common.resume:                                    ; preds = %26, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i11 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i11, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %19 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, !prof !3
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %21 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, !prof !3
 
-21:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i12 = icmp eq i32 %22, 0
-  br i1 %.not.i12, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, label %23
+23:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i11 = icmp eq i32 %24, 0
+  br i1 %.not.i11, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, label %25
 
-23:                                               ; preds = %21
+25:                                               ; preds = %23
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %24 unwind label %26
+          to label %26 unwind label %28
 
-24:                                               ; preds = %23
-  %25 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+26:                                               ; preds = %25
+  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %21, %24
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %23, %26
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %28 = icmp ult ptr %.val.i, %.val.i14
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %.val.i13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %30 = icmp ult ptr %.val.i, %.val.i13
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %42, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+._crit_edge:                                      ; preds = %44, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
   ret void
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, %42
-  %.sroa.015.017 = phi ptr [ %43, %42 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13 ]
-  %29 = load ptr, ptr %.sroa.015.017, align 8, !tbaa !4
-  %30 = getelementptr i8, ptr %29, i64 32
-  %.val9 = load ptr, ptr %30, align 8, !tbaa !30
-  %31 = load ptr, ptr %.val9, align 8, !tbaa !33
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 168
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
-  %35 = icmp sgt i32 %34, 1
-  br i1 %35, label %42, label %36
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %44
+  %.sroa.014.016 = phi ptr [ %45, %44 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
+  %31 = load ptr, ptr %.sroa.014.016, align 8, !tbaa !4
+  %32 = getelementptr i8, ptr %31, i64 32
+  %.val9 = load ptr, ptr %32, align 8, !tbaa !30
+  %33 = load ptr, ptr %.val9, align 8, !tbaa !33
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 168
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
+  %37 = icmp sgt i32 %36, 1
+  br i1 %37, label %44, label %38
 
-36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr %30, align 8, !tbaa !30
-  %38 = getelementptr i8, ptr %29, i64 8
-  %.val10 = load ptr, ptr %38, align 8, !tbaa !35
-  %39 = load ptr, ptr %37, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1)
-  br label %42
+38:                                               ; preds = %.lr.ph
+  %39 = load ptr, ptr %32, align 8, !tbaa !30
+  %40 = getelementptr i8, ptr %31, i64 8
+  %.val10 = load ptr, ptr %40, align 8, !tbaa !35
+  %41 = load ptr, ptr %39, align 8, !tbaa !33
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  br label %44
 
-42:                                               ; preds = %.lr.ph, %36
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.015.017, i64 8
-  %44 = icmp ult ptr %43, %.val.i14
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !85
+44:                                               ; preds = %.lr.ph, %38
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.014.016, i64 8
+  %46 = icmp ult ptr %45, %.val.i13
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1591,8 +1591,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t16test_unit_finishERKNS0_9test_
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %45, %29, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %30, %29 ], [ %46, %45 ]
+common.resume:                                    ; preds = %47, %29, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %30, %29 ], [ %48, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %9
@@ -1655,86 +1655,86 @@ _ZN5boost9unit_test19log_checkpoint_data5clearEv.exit: ; preds = %_ZN5boost9unit
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12: ; preds = %_ZN5boost9unit_test19log_checkpoint_data5clearEv.exit, %24, %27
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %31 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %31, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i13 = icmp ult ptr %32, %.val.i8.i
-  br i1 %.not.i13, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+32:                                               ; preds = %.lr.ph.i
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %34 = icmp ult ptr %33, %.val.i8.i
+  br i1 %34, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %31
-  %.sroa.01.03.i = phi ptr [ %32, %31 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
-  %33 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load i8, ptr %34, align 8, !tbaa !47, !range !11, !noundef !12
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %31
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %32
+  %.sroa.01.03.i = phi ptr [ %33, %32 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
+  %35 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %37 = load i8, ptr %36, align 8, !tbaa !47, !range !11, !noundef !12
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %32
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %31, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %38 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, !prof !3
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %32, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %40 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %42, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14, !prof !3
 
-40:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
-  %41 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i14 = icmp eq i32 %41, 0
-  br i1 %.not.i14, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, label %42
+42:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %43 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i13 = icmp eq i32 %43, 0
+  br i1 %.not.i13, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14, label %44
 
-42:                                               ; preds = %40
+44:                                               ; preds = %42
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %43 unwind label %45
+          to label %45 unwind label %47
 
-43:                                               ; preds = %42
-  %44 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+45:                                               ; preds = %44
+  %46 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14
 
-45:                                               ; preds = %42
-  %46 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %40, %43
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %42, %45
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %47 = icmp ult ptr %.val.i, %.val.i16
-  br i1 %47, label %.lr.ph, label %._crit_edge
+  %.val.i15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %49 = icmp ult ptr %.val.i, %.val.i15
+  br i1 %49, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %61, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15
+._crit_edge:                                      ; preds = %63, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14
   ret void
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15, %61
-  %.sroa.017.019 = phi ptr [ %62, %61 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15 ]
-  %48 = load ptr, ptr %.sroa.017.019, align 8, !tbaa !4
-  %49 = getelementptr i8, ptr %48, i64 32
-  %.val9 = load ptr, ptr %49, align 8, !tbaa !30
-  %50 = load ptr, ptr %.val9, align 8, !tbaa !33
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 168
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
-  %54 = icmp sgt i32 %53, 1
-  br i1 %54, label %61, label %55
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14, %63
+  %.sroa.016.018 = phi ptr [ %64, %63 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14 ]
+  %50 = load ptr, ptr %.sroa.016.018, align 8, !tbaa !4
+  %51 = getelementptr i8, ptr %50, i64 32
+  %.val9 = load ptr, ptr %51, align 8, !tbaa !30
+  %52 = load ptr, ptr %.val9, align 8, !tbaa !33
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 168
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
+  %56 = icmp sgt i32 %55, 1
+  br i1 %56, label %63, label %57
 
-55:                                               ; preds = %.lr.ph
-  %56 = load ptr, ptr %49, align 8, !tbaa !30
-  %57 = getelementptr i8, ptr %48, i64 8
-  %.val10 = load ptr, ptr %57, align 8, !tbaa !35
-  %58 = load ptr, ptr %56, align 8, !tbaa !33
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 noundef %2)
-  br label %61
+57:                                               ; preds = %.lr.ph
+  %58 = load ptr, ptr %51, align 8, !tbaa !30
+  %59 = getelementptr i8, ptr %50, i64 8
+  %.val10 = load ptr, ptr %59, align 8, !tbaa !35
+  %60 = load ptr, ptr %58, align 8, !tbaa !33
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(12) %58, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 noundef %2)
+  br label %63
 
-61:                                               ; preds = %.lr.ph, %55
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.017.019, i64 8
-  %63 = icmp ult ptr %62, %.val.i16
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !88
+63:                                               ; preds = %.lr.ph, %57
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.016.018, i64 8
+  %65 = icmp ult ptr %64, %.val.i15
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !88
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1758,8 +1758,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t17test_unit_skippedERKNS0_9test
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %28, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %29, %28 ]
+common.resume:                                    ; preds = %30, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %31, %30 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -1771,94 +1771,94 @@ common.resume:                                    ; preds = %28, %12
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %3, %7, %10
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %14 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %14, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i11 = icmp ult ptr %15, %.val.i8.i
-  br i1 %.not.i11, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+15:                                               ; preds = %.lr.ph.i
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %17 = icmp ult ptr %16, %.val.i8.i
+  br i1 %17, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %14
-  %.sroa.01.03.i = phi ptr [ %15, %14 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %14
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %15
+  %.sroa.01.03.i = phi ptr [ %16, %15 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %18 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %20 = load i8, ptr %19, align 8, !tbaa !47, !range !11, !noundef !12
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %15
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %14, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %21 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, !prof !3
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %15, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %23 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, !prof !3
 
-23:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
-  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i12 = icmp eq i32 %24, 0
-  br i1 %.not.i12, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, label %25
+25:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i11 = icmp eq i32 %26, 0
+  br i1 %.not.i11, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, label %27
 
-25:                                               ; preds = %23
+27:                                               ; preds = %25
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %26 unwind label %28
+          to label %28 unwind label %30
 
-26:                                               ; preds = %25
-  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+28:                                               ; preds = %27
+  %29 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %23, %26
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %25, %28
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %30 = icmp ult ptr %.val.i, %.val.i14
-  br i1 %30, label %.lr.ph, label %._crit_edge
+  %.val.i13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %32 = icmp ult ptr %.val.i, %.val.i13
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %33
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %35
 
-._crit_edge:                                      ; preds = %49, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+._crit_edge:                                      ; preds = %51, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
   ret void
 
-33:                                               ; preds = %.lr.ph, %49
-  %.sroa.015.017 = phi ptr [ %.val.i, %.lr.ph ], [ %50, %49 ]
-  %34 = load ptr, ptr %.sroa.015.017, align 8, !tbaa !4
-  %35 = getelementptr i8, ptr %34, i64 32
-  %.val9 = load ptr, ptr %35, align 8, !tbaa !30
-  %36 = load ptr, ptr %.val9, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 168
-  %38 = load ptr, ptr %37, align 8
-  %39 = call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
-  %40 = icmp sgt i32 %39, 1
-  br i1 %40, label %49, label %41
+35:                                               ; preds = %.lr.ph, %51
+  %.sroa.014.016 = phi ptr [ %.val.i, %.lr.ph ], [ %52, %51 ]
+  %36 = load ptr, ptr %.sroa.014.016, align 8, !tbaa !4
+  %37 = getelementptr i8, ptr %36, i64 32
+  %.val9 = load ptr, ptr %37, align 8, !tbaa !30
+  %38 = load ptr, ptr %.val9, align 8, !tbaa !33
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 168
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
+  %42 = icmp sgt i32 %41, 1
+  br i1 %42, label %51, label %43
 
-41:                                               ; preds = %33
-  %42 = load ptr, ptr %35, align 8, !tbaa !30
-  %43 = getelementptr i8, ptr %34, i64 8
-  %.val10 = load ptr, ptr %43, align 8, !tbaa !35
-  %44 = load ptr, ptr %2, align 8, !tbaa !41
-  store ptr %44, ptr %4, align 8, !tbaa !41
-  %45 = load ptr, ptr %32, align 8, !tbaa !42
-  store ptr %45, ptr %31, align 8, !tbaa !42
-  %46 = load ptr, ptr %42, align 8, !tbaa !33
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull %4)
-  br label %49
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %37, align 8, !tbaa !30
+  %45 = getelementptr i8, ptr %36, i64 8
+  %.val10 = load ptr, ptr %45, align 8, !tbaa !35
+  %46 = load ptr, ptr %2, align 8, !tbaa !41
+  store ptr %46, ptr %4, align 8, !tbaa !41
+  %47 = load ptr, ptr %34, align 8, !tbaa !42
+  store ptr %47, ptr %33, align 8, !tbaa !42
+  %48 = load ptr, ptr %44, align 8, !tbaa !33
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
+  %50 = load ptr, ptr %49, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull %4)
+  br label %51
 
-49:                                               ; preds = %33, %41
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.015.017, i64 8
-  %51 = icmp ult ptr %50, %.val.i14
-  br i1 %51, label %33, label %._crit_edge, !llvm.loop !89
+51:                                               ; preds = %35, %43
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.014.016, i64 8
+  %53 = icmp ult ptr %52, %.val.i13
+  br i1 %53, label %35, label %._crit_edge, !llvm.loop !89
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1881,8 +1881,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t17test_unit_abortedERKNS0_9test
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %26, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %27, %26 ]
+common.resume:                                    ; preds = %28, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %29, %28 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -1894,85 +1894,85 @@ common.resume:                                    ; preds = %26, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i11 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i11, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %19 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, !prof !3
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %21 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, !prof !3
 
-21:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i12 = icmp eq i32 %22, 0
-  br i1 %.not.i12, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, label %23
+23:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i11 = icmp eq i32 %24, 0
+  br i1 %.not.i11, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, label %25
 
-23:                                               ; preds = %21
+25:                                               ; preds = %23
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %24 unwind label %26
+          to label %26 unwind label %28
 
-24:                                               ; preds = %23
-  %25 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+26:                                               ; preds = %25
+  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %21, %24
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %23, %26
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %28 = icmp ult ptr %.val.i, %.val.i14
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %.val.i13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %30 = icmp ult ptr %.val.i, %.val.i13
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %42, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+._crit_edge:                                      ; preds = %44, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
   ret void
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, %42
-  %.sroa.015.017 = phi ptr [ %43, %42 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13 ]
-  %29 = load ptr, ptr %.sroa.015.017, align 8, !tbaa !4
-  %30 = getelementptr i8, ptr %29, i64 32
-  %.val9 = load ptr, ptr %30, align 8, !tbaa !30
-  %31 = load ptr, ptr %.val9, align 8, !tbaa !33
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 168
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
-  %35 = icmp sgt i32 %34, 1
-  br i1 %35, label %42, label %36
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %44
+  %.sroa.014.016 = phi ptr [ %45, %44 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
+  %31 = load ptr, ptr %.sroa.014.016, align 8, !tbaa !4
+  %32 = getelementptr i8, ptr %31, i64 32
+  %.val9 = load ptr, ptr %32, align 8, !tbaa !30
+  %33 = load ptr, ptr %.val9, align 8, !tbaa !33
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 168
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
+  %37 = icmp sgt i32 %36, 1
+  br i1 %37, label %44, label %38
 
-36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr %30, align 8, !tbaa !30
-  %38 = getelementptr i8, ptr %29, i64 8
-  %.val10 = load ptr, ptr %38, align 8, !tbaa !35
-  %39 = load ptr, ptr %37, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1)
-  br label %42
+38:                                               ; preds = %.lr.ph
+  %39 = load ptr, ptr %32, align 8, !tbaa !30
+  %40 = getelementptr i8, ptr %31, i64 8
+  %.val10 = load ptr, ptr %40, align 8, !tbaa !35
+  %41 = load ptr, ptr %39, align 8, !tbaa !33
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  br label %44
 
-42:                                               ; preds = %.lr.ph, %36
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.015.017, i64 8
-  %44 = icmp ult ptr %43, %.val.i14
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !90
+44:                                               ; preds = %.lr.ph, %38
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.014.016, i64 8
+  %46 = icmp ult ptr %45, %.val.i13
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1995,8 +1995,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t19test_unit_timed_outERKNS0_9te
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %26, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %27, %26 ]
+common.resume:                                    ; preds = %28, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %29, %28 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -2008,85 +2008,85 @@ common.resume:                                    ; preds = %26, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i11 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i11, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %19 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, !prof !3
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %21 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, !prof !3
 
-21:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i12 = icmp eq i32 %22, 0
-  br i1 %.not.i12, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, label %23
+23:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i11 = icmp eq i32 %24, 0
+  br i1 %.not.i11, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, label %25
 
-23:                                               ; preds = %21
+25:                                               ; preds = %23
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %24 unwind label %26
+          to label %26 unwind label %28
 
-24:                                               ; preds = %23
-  %25 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+26:                                               ; preds = %25
+  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %21, %24
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %23, %26
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %28 = icmp ult ptr %.val.i, %.val.i14
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %.val.i13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %30 = icmp ult ptr %.val.i, %.val.i13
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %42, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
+._crit_edge:                                      ; preds = %44, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
   ret void
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, %42
-  %.sroa.015.017 = phi ptr [ %43, %42 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13 ]
-  %29 = load ptr, ptr %.sroa.015.017, align 8, !tbaa !4
-  %30 = getelementptr i8, ptr %29, i64 32
-  %.val9 = load ptr, ptr %30, align 8, !tbaa !30
-  %31 = load ptr, ptr %.val9, align 8, !tbaa !33
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 168
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
-  %35 = icmp sgt i32 %34, 1
-  br i1 %35, label %42, label %36
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %44
+  %.sroa.014.016 = phi ptr [ %45, %44 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
+  %31 = load ptr, ptr %.sroa.014.016, align 8, !tbaa !4
+  %32 = getelementptr i8, ptr %31, i64 32
+  %.val9 = load ptr, ptr %32, align 8, !tbaa !30
+  %33 = load ptr, ptr %.val9, align 8, !tbaa !33
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 168
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(12) %.val9)
+  %37 = icmp sgt i32 %36, 1
+  br i1 %37, label %44, label %38
 
-36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr %30, align 8, !tbaa !30
-  %38 = getelementptr i8, ptr %29, i64 8
-  %.val10 = load ptr, ptr %38, align 8, !tbaa !35
-  %39 = load ptr, ptr %37, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1)
-  br label %42
+38:                                               ; preds = %.lr.ph
+  %39 = load ptr, ptr %32, align 8, !tbaa !30
+  %40 = getelementptr i8, ptr %31, i64 8
+  %.val10 = load ptr, ptr %40, align 8, !tbaa !35
+  %41 = load ptr, ptr %39, align 8, !tbaa !33
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(8) %.val10, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  br label %44
 
-42:                                               ; preds = %.lr.ph, %36
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.015.017, i64 8
-  %44 = icmp ult ptr %43, %.val.i14
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !91
+44:                                               ; preds = %.lr.ph, %38
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.014.016, i64 8
+  %46 = icmp ult ptr %45, %.val.i13
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2114,8 +2114,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t16exception_caughtERKNS_19execu
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %50, %31, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %32, %31 ], [ %51, %50 ]
+common.resume:                                    ; preds = %52, %33, %15
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %34, %33 ], [ %53, %52 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -2127,117 +2127,117 @@ common.resume:                                    ; preds = %50, %31, %15
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %10, %13
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %17 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %17, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i18 = icmp ult ptr %18, %.val.i8.i
-  br i1 %.not.i18, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
+18:                                               ; preds = %.lr.ph.i
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %20 = icmp ult ptr %19, %.val.i8.i
+  br i1 %20, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %17
-  %.sroa.01.03.i = phi ptr [ %18, %17 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %19 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %21 = load i8, ptr %20, align 8, !tbaa !47, !range !11, !noundef !12
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %17
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %18
+  %.sroa.01.03.i = phi ptr [ %19, %18 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %21 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %23 = load i8, ptr %22, align 8, !tbaa !47, !range !11, !noundef !12
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %18
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
+  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull align 1 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %17, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %24 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20, !prof !3
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %18, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %26 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %28, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19, !prof !3
 
-26:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
-  %27 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i19 = icmp eq i32 %27, 0
-  br i1 %.not.i19, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20, label %28
+28:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %29 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i18 = icmp eq i32 %29, 0
+  br i1 %.not.i18, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19, label %30
 
-28:                                               ; preds = %26
+30:                                               ; preds = %28
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %29 unwind label %31
+          to label %31 unwind label %33
 
-29:                                               ; preds = %28
-  %30 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+31:                                               ; preds = %30
+  %32 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19
 
-31:                                               ; preds = %28
-  %32 = landingpad { ptr, i32 }
+33:                                               ; preds = %30
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %26, %29
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19: ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, %28, %31
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
-  %.val.i21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %33 = icmp ult ptr %.val.i, %.val.i21
-  br i1 %33, label %.lr.ph, label %._crit_edge
+  %.val.i20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %35 = icmp ult ptr %.val.i, %.val.i20
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %59, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20
+._crit_edge:                                      ; preds = %61, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19
   tail call void @_ZN5boost9unit_test9framework13clear_contextEi(i32 noundef -1)
   ret void
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20, %59
-  %.sroa.024.026 = phi ptr [ %60, %59 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit20 ]
-  %34 = load ptr, ptr %.sroa.024.026, align 8, !tbaa !4
-  %35 = getelementptr i8, ptr %34, i64 32
-  %.val15 = load ptr, ptr %35, align 8, !tbaa !30
-  %36 = load ptr, ptr %.val15, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 168
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(12) %.val15)
-  %.not = icmp slt i32 %7, %39
-  br i1 %.not, label %59, label %40
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19, %61
+  %.sroa.023.025 = phi ptr [ %62, %61 ], [ %.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit19 ]
+  %36 = load ptr, ptr %.sroa.023.025, align 8, !tbaa !4
+  %37 = getelementptr i8, ptr %36, i64 32
+  %.val15 = load ptr, ptr %37, align 8, !tbaa !30
+  %38 = load ptr, ptr %.val15, align 8, !tbaa !33
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 168
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(12) %.val15)
+  %.not = icmp slt i32 %7, %41
+  br i1 %.not, label %61, label %42
 
-40:                                               ; preds = %.lr.ph
-  %41 = load ptr, ptr %35, align 8, !tbaa !30
-  %42 = getelementptr i8, ptr %34, i64 8
-  %.val17 = load ptr, ptr %42, align 8, !tbaa !35
-  %43 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, !prof !3
+42:                                               ; preds = %.lr.ph
+  %43 = load ptr, ptr %37, align 8, !tbaa !30
+  %44 = getelementptr i8, ptr %36, i64 8
+  %.val17 = load ptr, ptr %44, align 8, !tbaa !35
+  %45 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %47, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22, !prof !3
 
-45:                                               ; preds = %40
-  %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i22 = icmp eq i32 %46, 0
-  br i1 %.not.i22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, label %47
+47:                                               ; preds = %42
+  %48 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i21 = icmp eq i32 %48, 0
+  br i1 %.not.i21, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22, label %49
 
-47:                                               ; preds = %45
+49:                                               ; preds = %47
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %48 unwind label %50
+          to label %50 unwind label %52
 
-48:                                               ; preds = %47
-  %49 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+50:                                               ; preds = %49
+  %51 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+52:                                               ; preds = %49
+  %53 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23: ; preds = %40, %45, %48
-  %52 = load ptr, ptr %41, align 8, !tbaa !33
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
-  %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(8) %.val17, ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 96), ptr noundef nonnull align 8 dereferenceable(64) %1)
-  tail call fastcc void @_ZN5boost9unit_test12_GLOBAL__N_117log_entry_contextENS0_9log_levelERNS1_30unit_test_log_data_helper_implE(i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(49) %34)
-  %55 = load ptr, ptr %35, align 8, !tbaa !30
-  %.val16 = load ptr, ptr %42, align 8, !tbaa !35
-  %56 = load ptr, ptr %55, align 8, !tbaa !33
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
-  %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(8) %.val16)
-  br label %59
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22: ; preds = %42, %47, %50
+  %54 = load ptr, ptr %43, align 8, !tbaa !33
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull align 8 dereferenceable(8) %.val17, ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 96), ptr noundef nonnull align 8 dereferenceable(64) %1)
+  tail call fastcc void @_ZN5boost9unit_test12_GLOBAL__N_117log_entry_contextENS0_9log_levelERNS1_30unit_test_log_data_helper_implE(i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(49) %36)
+  %57 = load ptr, ptr %37, align 8, !tbaa !30
+  %.val16 = load ptr, ptr %44, align 8, !tbaa !35
+  %58 = load ptr, ptr %57, align 8, !tbaa !33
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
+  %60 = load ptr, ptr %59, align 8
+  tail call void %60(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(8) %.val16)
+  br label %61
 
-59:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, %.lr.ph
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.024.026, i64 8
-  %61 = icmp ult ptr %60, %.val.i21
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !96
+61:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit22, %.lr.ph
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.023.025, i64 8
+  %63 = icmp ult ptr %62, %.val.i20
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !96
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2643,8 +2643,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t10set_streamERSo(ptr noundef no
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %25, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %26, %25 ]
+common.resume:                                    ; preds = %27, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %28, %27 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -2656,81 +2656,81 @@ common.resume:                                    ; preds = %25, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %.loopexit
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %.loopexit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i9 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i9, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
-.loopexit:                                        ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
-  %18 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, !prof !3
+.loopexit:                                        ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+  %20 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit10, !prof !3
 
-20:                                               ; preds = %.loopexit
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i10 = icmp eq i32 %21, 0
-  br i1 %.not.i10, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, label %22
+22:                                               ; preds = %.loopexit
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i9 = icmp eq i32 %23, 0
+  br i1 %.not.i9, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit10, label %24
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %23 unwind label %25
+          to label %25 unwind label %27
 
-23:                                               ; preds = %22
-  %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+25:                                               ; preds = %24
+  %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit10
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11: ; preds = %.loopexit, %20, %23
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit10: ; preds = %.loopexit, %22, %25
   %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
-  %27 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
-  br i1 %27, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %29 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
+  br i1 %29, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, %.lr.ph
-  %.sroa.012.015 = phi ptr [ %44, %.lr.ph ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.012.015, i64 8
-  store ptr %1, ptr %28, align 8, !tbaa !35
-  %29 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-  %30 = load ptr, ptr %1, align 8, !tbaa !33
-  %31 = getelementptr i8, ptr %30, i64 -24
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 %32
-  store ptr %33, ptr %29, align 8, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !83
-  store i32 %36, ptr %34, align 8, !tbaa !82
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !81
-  store i64 %39, ptr %37, align 8, !tbaa !80
-  %40 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !74
-  store i64 %42, ptr %40, align 8, !tbaa !73
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.012.015, i64 16
-  tail call void @_ZN5boost10shared_ptrINS_2io18ios_base_all_saverEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull %29)
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.012.015, i64 56
-  %45 = icmp ult ptr %44, %.val.i
-  br i1 %45, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !99
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit10, %.lr.ph
+  %.sroa.011.014 = phi ptr [ %46, %.lr.ph ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit10 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.011.014, i64 8
+  store ptr %1, ptr %30, align 8, !tbaa !35
+  %31 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
+  %32 = load ptr, ptr %1, align 8, !tbaa !33
+  %33 = getelementptr i8, ptr %32, i64 -24
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 %34
+  store ptr %35, ptr %31, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %38 = load i32, ptr %37, align 8, !tbaa !83
+  store i32 %38, ptr %36, align 8, !tbaa !82
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !81
+  store i64 %41, ptr %39, align 8, !tbaa !80
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !74
+  store i64 %44, ptr %42, align 8, !tbaa !73
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.011.014, i64 16
+  tail call void @_ZN5boost10shared_ptrINS_2io18ios_base_all_saverEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull %31)
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.011.014, i64 56
+  %47 = icmp ult ptr %46, %.val.i
+  br i1 %47, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !99
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit10
   ret void
 }
 
@@ -2855,8 +2855,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t10set_streamENS0_13output_forma
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %26, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %27, %26 ]
+common.resume:                                    ; preds = %28, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %29, %28 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -2868,90 +2868,90 @@ common.resume:                                    ; preds = %26, %11
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %3, %6, %9
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %.loopexit
+  %13 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %13, label %.lr.ph.i, label %.loopexit
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i12 = icmp ult ptr %14, %.val.i8.i
-  br i1 %.not.i12, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %16 = icmp ult ptr %15, %.val.i8.i
+  br i1 %16, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
-  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %15 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %17 = load i8, ptr %16, align 8, !tbaa !47, !range !11, !noundef !12
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %14
+  %.sroa.01.03.i = phi ptr [ %15, %14 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %17 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load i8, ptr %18, align 8, !tbaa !47, !range !11, !noundef !12
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %14
 
-.loopexit:                                        ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
-  %19 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14, !prof !3
+.loopexit:                                        ; preds = %14, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+  %21 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, !prof !3
 
-21:                                               ; preds = %.loopexit
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14, label %23
+23:                                               ; preds = %.loopexit
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i12 = icmp eq i32 %24, 0
+  br i1 %.not.i12, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, label %25
 
-23:                                               ; preds = %21
+25:                                               ; preds = %23
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %24 unwind label %26
+          to label %26 unwind label %28
 
-24:                                               ; preds = %23
-  %25 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+26:                                               ; preds = %25
+  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14: ; preds = %.loopexit, %21, %24
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %.loopexit, %23, %26
   %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
-  %28 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
-  br i1 %28, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %30 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
+  br i1 %30, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14, %.critedge
-  %.sroa.015.019 = phi ptr [ %48, %.critedge ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !106
-  %.not = icmp eq i32 %30, %1
-  br i1 %.not, label %31, label %.critedge
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, %.critedge
+  %.sroa.014.018 = phi ptr [ %50, %.critedge ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 4
+  %32 = load i32, ptr %31, align 4, !tbaa !106
+  %.not = icmp eq i32 %32, %1
+  br i1 %.not, label %33, label %.critedge
 
-31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 8
-  store ptr %2, ptr %32, align 8, !tbaa !35
-  %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-  %34 = load ptr, ptr %2, align 8, !tbaa !33
-  %35 = getelementptr i8, ptr %34, i64 -24
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 %36
-  store ptr %37, ptr %33, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !83
-  store i32 %40, ptr %38, align 8, !tbaa !82
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !81
-  store i64 %43, ptr %41, align 8, !tbaa !80
-  %44 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %46 = load i64, ptr %45, align 8, !tbaa !74
-  store i64 %46, ptr %44, align 8, !tbaa !73
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 16
-  tail call void @_ZN5boost10shared_ptrINS_2io18ios_base_all_saverEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %33)
+33:                                               ; preds = %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 8
+  store ptr %2, ptr %34, align 8, !tbaa !35
+  %35 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
+  %36 = load ptr, ptr %2, align 8, !tbaa !33
+  %37 = getelementptr i8, ptr %36, i64 -24
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 %38
+  store ptr %39, ptr %35, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %42 = load i32, ptr %41, align 8, !tbaa !83
+  store i32 %42, ptr %40, align 8, !tbaa !82
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !81
+  store i64 %45, ptr %43, align 8, !tbaa !80
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %48 = load i64, ptr %47, align 8, !tbaa !74
+  store i64 %48, ptr %46, align 8, !tbaa !73
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 16
+  tail call void @_ZN5boost10shared_ptrINS_2io18ios_base_all_saverEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %35)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
 .critedge:                                        ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 56
-  %49 = icmp ult ptr %48, %.val.i
-  br i1 %49, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !107
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 56
+  %51 = icmp ult ptr %50, %.val.i
+  br i1 %51, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !107
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.critedge, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14, %31
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.critedge, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13, %33
   ret void
 }
 
@@ -3029,8 +3029,8 @@ define noundef range(i32 -2147483648, 9) i32 @_ZN5boost9unit_test15unit_test_log
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %27, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %28, %27 ]
+common.resume:                                    ; preds = %29, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %30, %29 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -3042,77 +3042,77 @@ common.resume:                                    ; preds = %27, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i10 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i10, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %13
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
-  %18 = icmp eq i32 %1, -1
-  br i1 %18, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %19
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+  %20 = icmp eq i32 %1, -1
+  br i1 %20, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %21
 
-19:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %20 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, !prof !3
+21:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %22 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %24, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, !prof !3
 
-22:                                               ; preds = %19
-  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i11 = icmp eq i32 %23, 0
-  br i1 %.not.i11, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, label %24
+24:                                               ; preds = %21
+  %25 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i10 = icmp eq i32 %25, 0
+  br i1 %.not.i10, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, label %26
 
-24:                                               ; preds = %22
+26:                                               ; preds = %24
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %25 unwind label %27
+          to label %27 unwind label %29
 
-25:                                               ; preds = %24
-  %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+27:                                               ; preds = %26
+  %28 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11
 
-27:                                               ; preds = %24
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %26
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12: ; preds = %19, %22, %25
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11: ; preds = %21, %24, %27
   %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
-  %29 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
-  br i1 %29, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %31 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
+  br i1 %31, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %.lr.ph
-  %.01823 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
-  %.sroa.014.022 = phi ptr [ %40, %.lr.ph ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !30
-  %32 = load ptr, ptr %31, align 8, !tbaa !33
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 168
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(12) %31)
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %35, i32 %.01823)
-  %36 = load ptr, ptr %30, align 8, !tbaa !30
-  %37 = load ptr, ptr %36, align 8, !tbaa !33
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 160
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(12) %36, i32 noundef %1)
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 56
-  %41 = icmp ult ptr %40, %.val.i
-  br i1 %41, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !109
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, %.lr.ph
+  %.01722 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ]
+  %.sroa.013.021 = phi ptr [ %42, %.lr.ph ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
+  %34 = load ptr, ptr %33, align 8, !tbaa !33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(12) %33)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %37, i32 %.01722)
+  %38 = load ptr, ptr %32, align 8, !tbaa !30
+  %39 = load ptr, ptr %38, align 8, !tbaa !33
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 160
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %38, i32 noundef %1)
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 56
+  %43 = icmp ult ptr %42, %.val.i
+  br i1 %43, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !109
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit12 ], [ %.sroa.speculated, %.lr.ph ], [ -1, %.lr.ph.i ]
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ], [ %.sroa.speculated, %.lr.ph ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -3136,8 +3136,8 @@ define noundef i32 @_ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %28, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %29, %28 ]
+common.resume:                                    ; preds = %30, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %31, %30 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -3149,84 +3149,84 @@ common.resume:                                    ; preds = %28, %11
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %3, %6, %9
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %13 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %13, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i16 = icmp ult ptr %14, %.val.i8.i
-  br i1 %.not.i16, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !46
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %16 = icmp ult ptr %15, %.val.i8.i
+  br i1 %16, label %.lr.ph.i, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
-  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %15 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %17 = load i8, ptr %16, align 8, !tbaa !47, !range !11, !noundef !12
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %13
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %14
+  %.sroa.01.03.i = phi ptr [ %15, %14 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %17 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load i8, ptr %18, align 8, !tbaa !47, !range !11, !noundef !12
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %14
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
-  %19 = icmp eq i32 %2, -1
-  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %20
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %14, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+  %21 = icmp eq i32 %2, -1
+  br i1 %21, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, label %22
 
-20:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %21 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, !prof !3
+22:                                               ; preds = %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %23 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, !prof !3
 
-23:                                               ; preds = %20
-  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i17 = icmp eq i32 %24, 0
-  br i1 %.not.i17, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, label %25
+25:                                               ; preds = %22
+  %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i16 = icmp eq i32 %26, 0
+  br i1 %.not.i16, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, label %27
 
-25:                                               ; preds = %23
+27:                                               ; preds = %25
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %26 unwind label %28
+          to label %28 unwind label %30
 
-26:                                               ; preds = %25
-  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+28:                                               ; preds = %27
+  %29 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18: ; preds = %20, %23, %26
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17: ; preds = %22, %25, %28
   %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
-  %30 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
-  br i1 %30, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
+  %32 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
+  br i1 %32, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, %43
-  %.sroa.019.025 = phi ptr [ %44, %43 ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !106
-  %.not = icmp eq i32 %32, %1
-  br i1 %.not, label %.thread, label %43
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, %45
+  %.sroa.018.024 = phi ptr [ %46, %45 ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.018.024, i64 4
+  %34 = load i32, ptr %33, align 4, !tbaa !106
+  %.not = icmp eq i32 %34, %1
+  br i1 %.not, label %.thread, label %45
 
 .thread:                                          ; preds = %.lr.ph
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !30
-  %35 = load ptr, ptr %34, align 8, !tbaa !33
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(12) %34)
-  %39 = load ptr, ptr %33, align 8, !tbaa !30
-  %40 = load ptr, ptr %39, align 8, !tbaa !33
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 160
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(12) %39, i32 noundef %2)
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.018.024, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !30
+  %37 = load ptr, ptr %36, align 8, !tbaa !33
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 168
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(12) %36)
+  %41 = load ptr, ptr %35, align 8, !tbaa !30
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 160
+  %44 = load ptr, ptr %43, align 8
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(12) %41, i32 noundef %2)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread
 
-43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 56
-  %45 = icmp ult ptr %44, %.val.i
-  br i1 %45, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !110
+45:                                               ; preds = %.lr.ph
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.018.024, i64 56
+  %47 = icmp ult ptr %46, %.val.i
+  br i1 %47, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !110
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %43, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18, %.thread, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ %38, %.thread ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit18 ], [ 8, %43 ], [ -1, %.lr.ph.i ]
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %45, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, %.thread, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ %40, %.thread ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17 ], [ 8, %45 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -3250,8 +3250,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t10set_formatENS0_13output_forma
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %25, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %26, %25 ]
+common.resume:                                    ; preds = %27, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %28, %27 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -3263,64 +3263,64 @@ common.resume:                                    ; preds = %25, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %.loopexit
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %.loopexit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i6 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i6, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
-.loopexit:                                        ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
-  %18 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8, !prof !3
+.loopexit:                                        ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+  %20 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit7, !prof !3
 
-20:                                               ; preds = %.loopexit
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i7 = icmp eq i32 %21, 0
-  br i1 %.not.i7, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8, label %22
+22:                                               ; preds = %.loopexit
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit7, label %24
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %23 unwind label %25
+          to label %25 unwind label %27
 
-23:                                               ; preds = %22
-  %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+25:                                               ; preds = %24
+  %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit7
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8: ; preds = %.loopexit, %20, %23
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit7: ; preds = %.loopexit, %22, %25
   %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
-  %27 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
-  br i1 %27, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %29 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
+  br i1 %29, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8, %.lr.ph
-  %.sroa.09.012 = phi ptr [ %32, %.lr.ph ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.09.012, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !106
-  %30 = icmp eq i32 %29, %1
-  %31 = zext i1 %30 to i8
-  store i8 %31, ptr %.sroa.09.012, align 8, !tbaa !51
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.09.012, i64 56
-  %33 = icmp ult ptr %32, %.val.i
-  br i1 %33, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !111
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit7, %.lr.ph
+  %.sroa.08.011 = phi ptr [ %34, %.lr.ph ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit7 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.08.011, i64 4
+  %31 = load i32, ptr %30, align 4, !tbaa !106
+  %32 = icmp eq i32 %31, %1
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %.sroa.08.011, align 8, !tbaa !51
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.011, i64 56
+  %35 = icmp ult ptr %34, %.val.i
+  br i1 %35, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !111
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit7
   ret void
 }
 
@@ -3344,8 +3344,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t10add_formatENS0_13output_forma
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %25, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %26, %25 ]
+common.resume:                                    ; preds = %27, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %28, %27 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -3357,69 +3357,69 @@ common.resume:                                    ; preds = %25, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %.loopexit
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %.loopexit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i7 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i7, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
-.loopexit:                                        ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
-  %18 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit9, !prof !3
+.loopexit:                                        ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+  %20 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8, !prof !3
 
-20:                                               ; preds = %.loopexit
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i8 = icmp eq i32 %21, 0
-  br i1 %.not.i8, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit9, label %22
+22:                                               ; preds = %.loopexit
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i7 = icmp eq i32 %23, 0
+  br i1 %.not.i7, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8, label %24
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %23 unwind label %25
+          to label %25 unwind label %27
 
-23:                                               ; preds = %22
-  %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+25:                                               ; preds = %24
+  %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit9
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit9: ; preds = %.loopexit, %20, %23
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8: ; preds = %.loopexit, %22, %25
   %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
-  %27 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
-  br i1 %27, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
+  %29 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
+  br i1 %29, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit9, %.critedge
-  %.sroa.010.014 = phi ptr [ %31, %.critedge ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit9 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !106
-  %.not = icmp eq i32 %29, %1
-  br i1 %.not, label %30, label %.critedge
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8, %.critedge
+  %.sroa.09.013 = phi ptr [ %33, %.critedge ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 4
+  %31 = load i32, ptr %30, align 4, !tbaa !106
+  %.not = icmp eq i32 %31, %1
+  br i1 %.not, label %32, label %.critedge
 
-30:                                               ; preds = %.lr.ph
-  store i8 1, ptr %.sroa.010.014, align 8, !tbaa !51
+32:                                               ; preds = %.lr.ph
+  store i8 1, ptr %.sroa.09.013, align 8, !tbaa !51
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
 .critedge:                                        ; preds = %.lr.ph
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 56
-  %32 = icmp ult ptr %31, %.val.i
-  br i1 %32, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !112
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 56
+  %34 = icmp ult ptr %33, %.val.i
+  br i1 %34, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, !llvm.loop !112
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.critedge, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit9, %30
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %.critedge, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit8, %32
   ret void
 }
 
@@ -4219,8 +4219,8 @@ define void @_ZN5boost9unit_test15unit_test_log_t13set_formatterEPNS0_23unit_tes
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
 
-common.resume:                                    ; preds = %25, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %26, %25 ]
+common.resume:                                    ; preds = %27, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %28, %27 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -4232,112 +4232,112 @@ common.resume:                                    ; preds = %25, %10
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
   %.val.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
   %.val.i8.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
-  %.not2.i = icmp ult ptr %.val.i.i, %.val.i8.i
-  br i1 %.not2.i, label %.lr.ph.i, label %.loopexit
+  %12 = icmp ult ptr %.val.i.i, %.val.i8.i
+  br i1 %12, label %.lr.ph.i, label %.loopexit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
-  %.not.i22 = icmp ult ptr %13, %.val.i8.i
-  br i1 %.not.i22, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 8
+  %15 = icmp ult ptr %14, %.val.i8.i
+  br i1 %15, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
 
-.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %12
-  %.sroa.01.03.i = phi ptr [ %13, %12 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
-  %14 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i8, ptr %15, align 8, !tbaa !47, !range !11, !noundef !12
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %12
+.lr.ph.i:                                         ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %13
+  %.sroa.01.03.i = phi ptr [ %14, %13 ], [ %.val.i.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %16 = load ptr, ptr %.sroa.01.03.i, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i8, ptr %17, align 8, !tbaa !47, !range !11, !noundef !12
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit, label %13
 
-.loopexit:                                        ; preds = %12, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
-  %18 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24, !prof !3
+.loopexit:                                        ; preds = %13, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit
+  %20 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, !prof !3
 
-20:                                               ; preds = %.loopexit
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  %.not.i23 = icmp eq i32 %21, 0
-  br i1 %.not.i23, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24, label %22
+22:                                               ; preds = %.loopexit
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
+  %.not.i22 = icmp eq i32 %23, 0
+  br i1 %.not.i22, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, label %24
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
-          to label %23 unwind label %25
+          to label %25 unwind label %27
 
-23:                                               ; preds = %22
-  %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
+25:                                               ; preds = %24
+  %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27
-  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24
+  br label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24: ; preds = %.loopexit, %20, %23
+_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23: ; preds = %.loopexit, %22, %25
   %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
-  %27 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  %29 = icmp ult ptr %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %.val.i
+  br i1 %29, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %46, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24
-  %.010.lcssa = phi ptr [ null, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24 ], [ %.111, %46 ]
-  %.0.lcssa = phi i32 [ -1, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24 ], [ %.1, %46 ]
+._crit_edge:                                      ; preds = %48, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23
+  %.010.lcssa = phi ptr [ null, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23 ], [ %.111, %48 ]
+  %.0.lcssa = phi i32 [ -1, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23 ], [ %.1, %48 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %51, label %49
+  br i1 %.not, label %53, label %51
 
-.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24, %46
-  %.031 = phi i32 [ %.1, %46 ], [ -1, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24 ]
-  %.0830 = phi i32 [ %.19, %46 ], [ 0, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24 ]
-  %.01029 = phi ptr [ %.111, %46 ], [ null, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24 ]
-  %.sroa.025.027 = phi ptr [ %47, %46 ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit24 ]
-  %28 = load i8, ptr %.sroa.025.027, align 8, !tbaa !51, !range !11, !noundef !12
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %46
+.lr.ph:                                           ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23, %48
+  %.030 = phi i32 [ %.1, %48 ], [ -1, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23 ]
+  %.0829 = phi i32 [ %.19, %48 ], [ 0, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23 ]
+  %.01028 = phi ptr [ %.111, %48 ], [ null, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23 ]
+  %.sroa.024.026 = phi ptr [ %49, %48 ], [ %_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst.val.i, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23 ]
+  %30 = load i8, ptr %.sroa.024.026, align 8, !tbaa !51, !range !11, !noundef !12
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %48
 
-30:                                               ; preds = %.lr.ph
-  %31 = icmp eq i32 %.031, -1
-  br i1 %31, label %37, label %32
+32:                                               ; preds = %.lr.ph
+  %33 = icmp eq i32 %.030, -1
+  br i1 %33, label %39, label %34
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.025.027, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !106
-  %35 = icmp slt i32 %34, %.0830
-  %36 = icmp eq i32 %34, 4
-  %or.cond = or i1 %35, %36
-  br i1 %or.cond, label %37, label %46
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.024.026, i64 4
+  %36 = load i32, ptr %35, align 4, !tbaa !106
+  %37 = icmp slt i32 %36, %.0829
+  %38 = icmp eq i32 %36, 4
+  %or.cond = or i1 %37, %38
+  br i1 %or.cond, label %39, label %48
 
-37:                                               ; preds = %32, %30
-  %38 = getelementptr i8, ptr %.sroa.025.027, i64 32
-  %.val = load ptr, ptr %38, align 8, !tbaa !30
-  %39 = load ptr, ptr %.val, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 168
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(12) %.val)
-  %43 = getelementptr i8, ptr %.sroa.025.027, i64 8
-  %.val13 = load ptr, ptr %43, align 8, !tbaa !35
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.025.027, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !106
-  br label %46
+39:                                               ; preds = %34, %32
+  %40 = getelementptr i8, ptr %.sroa.024.026, i64 32
+  %.val = load ptr, ptr %40, align 8, !tbaa !30
+  %41 = load ptr, ptr %.val, align 8, !tbaa !33
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 168
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(12) %.val)
+  %45 = getelementptr i8, ptr %.sroa.024.026, i64 8
+  %.val13 = load ptr, ptr %45, align 8, !tbaa !35
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.024.026, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !106
+  br label %48
 
-46:                                               ; preds = %32, %.lr.ph, %37
-  %.111 = phi ptr [ %.val13, %37 ], [ %.01029, %.lr.ph ], [ %.01029, %32 ]
-  %.19 = phi i32 [ %45, %37 ], [ %.0830, %.lr.ph ], [ %.0830, %32 ]
-  %.1 = phi i32 [ %42, %37 ], [ %.031, %.lr.ph ], [ %.031, %32 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.025.027, i64 56
-  %48 = icmp ult ptr %47, %.val.i
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !126
+48:                                               ; preds = %34, %.lr.ph, %39
+  %.111 = phi ptr [ %.val13, %39 ], [ %.01028, %.lr.ph ], [ %.01028, %34 ]
+  %.19 = phi i32 [ %47, %39 ], [ %.0829, %.lr.ph ], [ %.0829, %34 ]
+  %.1 = phi i32 [ %44, %39 ], [ %.030, %.lr.ph ], [ %.030, %34 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.024.026, i64 56
+  %50 = icmp ult ptr %49, %.val.i
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !126
 
-49:                                               ; preds = %._crit_edge
+51:                                               ; preds = %._crit_edge
   tail call void @_ZN5boost9unit_test15unit_test_log_t13add_formatterEPNS0_23unit_test_log_formatterE(ptr nonnull align 8 poison, ptr noundef nonnull %1)
   tail call void @_ZN5boost9unit_test15unit_test_log_t10set_formatENS0_13output_formatE(ptr nonnull align 8 poison, i32 noundef 4)
-  %50 = tail call noundef i32 @_ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS0_13output_formatENS0_9log_levelE(ptr nonnull align 8 poison, i32 noundef 4, i32 noundef %.0.lcssa)
+  %52 = tail call noundef i32 @_ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS0_13output_formatENS0_9log_levelE(ptr nonnull align 8 poison, i32 noundef 4, i32 noundef %.0.lcssa)
   tail call void @_ZN5boost9unit_test15unit_test_log_t10set_streamENS0_13output_formatERSo(ptr nonnull align 8 poison, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %.010.lcssa)
-  br label %51
+  br label %53
 
-51:                                               ; preds = %49, %._crit_edge
+53:                                               ; preds = %51, %._crit_edge
   tail call void @_ZN5boost9unit_test15unit_test_log_t9configureEv(ptr nonnull align 8 poison)
   br label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
 
-_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %51
+_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit: ; preds = %.lr.ph.i, %53
   ret void
 }
 

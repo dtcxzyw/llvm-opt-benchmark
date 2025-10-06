@@ -679,15 +679,15 @@ define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, p
 
 .preheader:                                       ; preds = %12
   %16 = load ptr, ptr %0, align 8, !tbaa !7
-  %.not5273 = icmp eq ptr %16, %14
-  br i1 %.not5273, label %.loopexit, label %.lr.ph
+  %.not5272 = icmp eq ptr %16, %14
+  br i1 %.not5272, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %21
-  %.03875 = phi ptr [ %17, %21 ], [ %2, %.preheader ]
-  %.04174 = phi i32 [ %23, %21 ], [ 1, %.preheader ]
+  %.03874 = phi ptr [ %17, %21 ], [ %2, %.preheader ]
+  %.04173 = phi i32 [ %23, %21 ], [ 1, %.preheader ]
   %17 = call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 1, i64 noundef 200) #9
   %.not53 = icmp eq ptr %17, null
-  br i1 %.not53, label %.loopexit68, label %18
+  br i1 %.not53, label %.loopexit67, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = call fastcc i32 @pkcs7_get_signer_info(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %17, ptr noundef %3)
@@ -696,59 +696,59 @@ define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, p
 
 20:                                               ; preds = %18
   call void @free(ptr noundef nonnull %17) #10
-  br label %.loopexit68
+  br label %.loopexit67
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.03875, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %.03874, i64 192
   store ptr %17, ptr %22, align 8, !tbaa !43
-  %23 = add nuw nsw i32 %.04174, 1
+  %23 = add nuw nsw i32 %.04173, 1
   %24 = load ptr, ptr %0, align 8, !tbaa !7
   %.not52 = icmp eq ptr %24, %14
   br i1 %.not52, label %.loopexit, label %.lr.ph
 
-.loopexit68:                                      ; preds = %.lr.ph, %20
+.loopexit67:                                      ; preds = %.lr.ph, %20
   %.043.ph = phi i32 [ %19, %20 ], [ -22400, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %.not8.i = icmp eq ptr %26, null
   br i1 %.not8.i, label %pkcs7_free_signer_info.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.loopexit68, %.lr.ph.i
-  %.09.i = phi ptr [ %28, %.lr.ph.i ], [ %26, %.loopexit68 ]
+.lr.ph.i:                                         ; preds = %.loopexit67, %.lr.ph.i
+  %.09.i = phi ptr [ %28, %.lr.ph.i ], [ %26, %.loopexit67 ]
   %27 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !40
   call void @free(ptr noundef nonnull %.09.i) #10
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %pkcs7_free_signer_info.exit, label %.lr.ph.i, !llvm.loop !41
 
-pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %.loopexit68
+pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %.loopexit67
   store ptr null, ptr %25, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %30 = load ptr, ptr %29, align 8, !tbaa !43
-  %.not5576 = icmp eq ptr %30, null
-  br i1 %.not5576, label %._crit_edge, label %.lr.ph78
+  %.not5575 = icmp eq ptr %30, null
+  br i1 %.not5575, label %._crit_edge, label %.lr.ph77
 
-.lr.ph78:                                         ; preds = %pkcs7_free_signer_info.exit, %pkcs7_free_signer_info.exit61
-  %.077 = phi ptr [ %32, %pkcs7_free_signer_info.exit61 ], [ %30, %pkcs7_free_signer_info.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %.077, i64 192
+.lr.ph77:                                         ; preds = %pkcs7_free_signer_info.exit, %pkcs7_free_signer_info.exit61
+  %.076 = phi ptr [ %32, %pkcs7_free_signer_info.exit61 ], [ %30, %pkcs7_free_signer_info.exit ]
+  %31 = getelementptr inbounds nuw i8, ptr %.076, i64 192
   %32 = load ptr, ptr %31, align 8, !tbaa !43
-  %33 = getelementptr inbounds nuw i8, ptr %.077, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %.076, i64 80
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %.not8.i57 = icmp eq ptr %34, null
   br i1 %.not8.i57, label %pkcs7_free_signer_info.exit61, label %.lr.ph.i58
 
-.lr.ph.i58:                                       ; preds = %.lr.ph78, %.lr.ph.i58
-  %.09.i59 = phi ptr [ %36, %.lr.ph.i58 ], [ %34, %.lr.ph78 ]
+.lr.ph.i58:                                       ; preds = %.lr.ph77, %.lr.ph.i58
+  %.09.i59 = phi ptr [ %36, %.lr.ph.i58 ], [ %34, %.lr.ph77 ]
   %35 = getelementptr inbounds nuw i8, ptr %.09.i59, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !40
   call void @free(ptr noundef nonnull %.09.i59) #10
   %.not.i60 = icmp eq ptr %36, null
   br i1 %.not.i60, label %pkcs7_free_signer_info.exit61, label %.lr.ph.i58, !llvm.loop !41
 
-pkcs7_free_signer_info.exit61:                    ; preds = %.lr.ph.i58, %.lr.ph78
-  call void @free(ptr noundef nonnull %.077) #10
+pkcs7_free_signer_info.exit61:                    ; preds = %.lr.ph.i58, %.lr.ph77
+  call void @free(ptr noundef nonnull %.076) #10
   %.not55 = icmp eq ptr %32, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph78, !llvm.loop !53
+  br i1 %.not55, label %._crit_edge, label %.lr.ph77, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %pkcs7_free_signer_info.exit61, %pkcs7_free_signer_info.exit
   store ptr null, ptr %29, align 8, !tbaa !43

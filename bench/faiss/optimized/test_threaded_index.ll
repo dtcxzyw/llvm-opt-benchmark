@@ -437,7 +437,7 @@ define dso_local void @_ZN34ThreadedIndex_SingleException_Test8TestBodyEv(ptr no
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.not146199 = icmp eq ptr %75, %76
+  %.not145198 = icmp eq ptr %75, %76
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %75, i64 16
   br label %87
@@ -445,7 +445,7 @@ define dso_local void @_ZN34ThreadedIndex_SingleException_Test8TestBodyEv(ptr no
 41:                                               ; preds = %1, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit
   %42 = phi ptr [ null, %1 ], [ %.val1.i, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
   %43 = phi ptr [ null, %1 ], [ %76, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
-  %.0190 = phi i32 [ 0, %1 ], [ %77, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
+  %.0189 = phi i32 [ 0, %1 ], [ %77, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
   %44 = phi ptr [ null, %1 ], [ %75, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
   %45 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
           to label %46 unwind label %.loopexit
@@ -542,7 +542,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %43, %55 ]
   %75 = phi ptr [ %69, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %44, %55 ]
   %76 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
-  %77 = add nuw nsw i32 %.0190, 1
+  %77 = add nuw nsw i32 %.0189, 1
   %exitcond.not = icmp eq i32 %77, 3
   br i1 %exitcond.not, label %19, label %41, !llvm.loop !35
 
@@ -560,7 +560,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   br label %282
 
 78:                                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit133
-  br i1 %.not146199, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not145198, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %78, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %83, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i ], [ %75, %78 ]
@@ -591,19 +591,19 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
 
 87:                                               ; preds = %19, %_ZN7testing15AssertionResultD2Ev.exit133
   %.not = phi i1 [ false, %19 ], [ true, %_ZN7testing15AssertionResultD2Ev.exit133 ]
-  %.044.idx206.sroa.phi.sroa.speculated = phi i8 [ 1, %19 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit133 ]
-  br i1 %.not146199, label %._crit_edge, label %.lr.ph
+  %.044.idx205.sroa.phi.sroa.speculated = phi i8 [ 1, %19 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit133 ]
+  br i1 %.not145198, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %87, %.lr.ph
-  %.sroa.0136.0200 = phi ptr [ %90, %.lr.ph ], [ %75, %87 ]
-  %.val84 = load ptr, ptr %.sroa.0136.0200, align 8, !tbaa !26
+  %.sroa.0136.0199 = phi ptr [ %90, %.lr.ph ], [ %75, %87 ]
+  %.val84 = load ptr, ptr %.sroa.0136.0199, align 8, !tbaa !26
   %88 = getelementptr inbounds nuw i8, ptr %.val84, i64 36
   store i8 0, ptr %88, align 4, !tbaa !21
   %89 = getelementptr inbounds nuw i8, ptr %.val84, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %89, i8 0, i64 40, i1 false)
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0136.0200, i64 8
-  %.not146 = icmp eq ptr %.sroa.0136.0200, %.0.lcssa.i.i.i.i.i.pn
-  br i1 %.not146, label %._crit_edge, label %.lr.ph
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0136.0199, i64 8
+  %.not145 = icmp eq ptr %.sroa.0136.0199, %.0.lcssa.i.i.i.i.i.pn
+  br i1 %.not145, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %87
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -616,27 +616,27 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   store i8 0, ptr %26, align 4, !tbaa !21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %27, i8 0, i64 41, i1 false)
-  store i8 %.044.idx206.sroa.phi.sroa.speculated, ptr %29, align 8, !tbaa !37
+  store i8 %.044.idx205.sroa.phi.sroa.speculated, ptr %29, align 8, !tbaa !37
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTVN12_GLOBAL__N_117MockThreadedIndexINS_9MockIndexEEE, i64 16), ptr %3, align 8, !tbaa !19
-  br i1 %.not146199, label %._crit_edge205, label %.lr.ph204
+  br i1 %.not145198, label %._crit_edge204, label %.lr.ph203
 
-.lr.ph204:                                        ; preds = %._crit_edge, %91
-  %.sroa.0134.0202 = phi ptr [ %92, %91 ], [ %75, %._crit_edge ]
-  %.val83 = load ptr, ptr %.sroa.0134.0202, align 8, !tbaa !26
+.lr.ph203:                                        ; preds = %._crit_edge, %91
+  %.sroa.0134.0201 = phi ptr [ %92, %91 ], [ %75, %._crit_edge ]
+  %.val83 = load ptr, ptr %.sroa.0134.0201, align 8, !tbaa !26
   invoke void @_ZN5faiss13ThreadedIndexIN12_GLOBAL__N_19MockIndexEE8addIndexEPS2_(ptr noundef nonnull align 8 dereferenceable(113) %3, ptr noundef %.val83)
           to label %91 unwind label %93
 
-91:                                               ; preds = %.lr.ph204
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0202, i64 8
-  %.not147 = icmp eq ptr %.sroa.0134.0202, %.0.lcssa.i.i.i.i.i.pn
-  br i1 %.not147, label %._crit_edge205, label %.lr.ph204
+91:                                               ; preds = %.lr.ph203
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0201, i64 8
+  %.not146 = icmp eq ptr %.sroa.0134.0201, %.0.lcssa.i.i.i.i.i.pn
+  br i1 %.not146, label %._crit_edge204, label %.lr.ph203
 
-93:                                               ; preds = %.lr.ph204
+93:                                               ; preds = %.lr.ph203
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %281
 
-._crit_edge205:                                   ; preds = %91, %._crit_edge
+._crit_edge204:                                   ; preds = %91, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   store ptr %30, ptr %4, align 8, !tbaa !44
@@ -644,7 +644,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   %95 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
           to label %96 unwind label %105
 
-96:                                               ; preds = %._crit_edge205
+96:                                               ; preds = %._crit_edge204
   br i1 %95, label %97, label %.critedge
 
 97:                                               ; preds = %96
@@ -670,7 +670,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   call void @__clang_call_terminate(ptr %104) #34
   unreachable
 
-105:                                              ; preds = %._crit_edge205
+105:                                              ; preds = %._crit_edge204
   %106 = landingpad { ptr, i32 }
           catch ptr @_ZTIN12_GLOBAL__N_113TestExceptionE
           catch ptr @_ZTISt9exception
@@ -1174,13 +1174,13 @@ _ZN7testing7MessageD2Ev.exit128:                  ; preds = %_ZNKSt14default_del
 
 274:                                              ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.pr143 = load ptr, ptr %37, align 8, !tbaa !70
-  %.not.i.i129 = icmp eq ptr %.pr143, null
+  %.pr142 = load ptr, ptr %37, align 8, !tbaa !70
+  %.not.i.i129 = icmp eq ptr %.pr142, null
   br i1 %.not.i.i129, label %_ZN7testing15AssertionResultD2Ev.exit133, label %275
 
 275:                                              ; preds = %274
-  %276 = load ptr, ptr %.pr143, align 8, !tbaa !53
-  %277 = getelementptr inbounds nuw i8, ptr %.pr143, i64 16
+  %276 = load ptr, ptr %.pr142, align 8, !tbaa !53
+  %277 = getelementptr inbounds nuw i8, ptr %.pr142, i64 16
   %278 = icmp eq ptr %276, %277
   br i1 %278, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i130
 
@@ -1191,7 +1191,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131: ; preds = %275, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i130
-  call void @_ZdlPvm(ptr noundef nonnull %.pr143, i64 noundef 32) #31
+  call void @_ZdlPvm(ptr noundef nonnull %.pr142, i64 noundef 32) #31
   br label %_ZN7testing15AssertionResultD2Ev.exit133
 
 _ZN7testing15AssertionResultD2Ev.exit133:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %274, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131
@@ -1272,7 +1272,7 @@ define dso_local void @_ZN36ThreadedIndex_MultipleException_Test8TestBodyEv(ptr 
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.not117162 = icmp eq ptr %69, %70
+  %.not116161 = icmp eq ptr %69, %70
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %69, i64 16
   br label %81
@@ -1280,7 +1280,7 @@ define dso_local void @_ZN36ThreadedIndex_MultipleException_Test8TestBodyEv(ptr 
 35:                                               ; preds = %1, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit
   %36 = phi ptr [ null, %1 ], [ %.val1.i, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
   %37 = phi ptr [ null, %1 ], [ %70, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
-  %.0153 = phi i32 [ 0, %1 ], [ %71, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
+  %.0152 = phi i32 [ 0, %1 ], [ %71, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
   %38 = phi ptr [ null, %1 ], [ %69, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit ]
   %39 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
           to label %40 unwind label %.loopexit
@@ -1377,7 +1377,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %37, %49 ]
   %69 = phi ptr [ %63, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %38, %49 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
-  %71 = add nuw nsw i32 %.0153, 1
+  %71 = add nuw nsw i32 %.0152, 1
   %exitcond.not = icmp eq i32 %71, 3
   br i1 %exitcond.not, label %15, label %35, !llvm.loop !76
 
@@ -1395,7 +1395,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   br label %235
 
 72:                                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  br i1 %.not117162, label %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.thread, label %.lr.ph.i.i.i.i
+  br i1 %.not116161, label %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %72, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %77, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i ], [ %69, %72 ]
@@ -1433,19 +1433,19 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
 
 81:                                               ; preds = %15, %_ZN7testing15AssertionResultD2Ev.exit
   %.not = phi i1 [ false, %15 ], [ true, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.041.idx169.sroa.phi.sroa.speculated = phi i8 [ 1, %15 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit ]
-  br i1 %.not117162, label %._crit_edge, label %.lr.ph
+  %.041.idx168.sroa.phi.sroa.speculated = phi i8 [ 1, %15 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit ]
+  br i1 %.not116161, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81, %.lr.ph
-  %.sroa.0110.0163 = phi ptr [ %84, %.lr.ph ], [ %69, %81 ]
-  %.val77 = load ptr, ptr %.sroa.0110.0163, align 8, !tbaa !26
+  %.sroa.0110.0162 = phi ptr [ %84, %.lr.ph ], [ %69, %81 ]
+  %.val77 = load ptr, ptr %.sroa.0110.0162, align 8, !tbaa !26
   %82 = getelementptr inbounds nuw i8, ptr %.val77, i64 36
   store i8 0, ptr %82, align 4, !tbaa !21
   %83 = getelementptr inbounds nuw i8, ptr %.val77, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %83, i8 0, i64 40, i1 false)
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0163, i64 8
-  %.not117 = icmp eq ptr %.sroa.0110.0163, %.0.lcssa.i.i.i.i.i.pn
-  br i1 %.not117, label %._crit_edge, label %.lr.ph
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0162, i64 8
+  %.not116 = icmp eq ptr %.sroa.0110.0162, %.0.lcssa.i.i.i.i.i.pn
+  br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1458,27 +1458,27 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   store i8 0, ptr %22, align 4, !tbaa !21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %23, i8 0, i64 41, i1 false)
-  store i8 %.041.idx169.sroa.phi.sroa.speculated, ptr %25, align 8, !tbaa !37
+  store i8 %.041.idx168.sroa.phi.sroa.speculated, ptr %25, align 8, !tbaa !37
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTVN12_GLOBAL__N_117MockThreadedIndexINS_9MockIndexEEE, i64 16), ptr %3, align 8, !tbaa !19
-  br i1 %.not117162, label %._crit_edge168, label %.lr.ph167
+  br i1 %.not116161, label %._crit_edge167, label %.lr.ph166
 
-.lr.ph167:                                        ; preds = %._crit_edge, %85
-  %.sroa.0108.0165 = phi ptr [ %86, %85 ], [ %69, %._crit_edge ]
-  %.val76 = load ptr, ptr %.sroa.0108.0165, align 8, !tbaa !26
+.lr.ph166:                                        ; preds = %._crit_edge, %85
+  %.sroa.0108.0164 = phi ptr [ %86, %85 ], [ %69, %._crit_edge ]
+  %.val76 = load ptr, ptr %.sroa.0108.0164, align 8, !tbaa !26
   invoke void @_ZN5faiss13ThreadedIndexIN12_GLOBAL__N_19MockIndexEE8addIndexEPS2_(ptr noundef nonnull align 8 dereferenceable(113) %3, ptr noundef %.val76)
           to label %85 unwind label %87
 
-85:                                               ; preds = %.lr.ph167
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0165, i64 8
-  %.not118 = icmp eq ptr %.sroa.0108.0165, %.0.lcssa.i.i.i.i.i.pn
-  br i1 %.not118, label %._crit_edge168, label %.lr.ph167
+85:                                               ; preds = %.lr.ph166
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0164, i64 8
+  %.not117 = icmp eq ptr %.sroa.0108.0164, %.0.lcssa.i.i.i.i.i.pn
+  br i1 %.not117, label %._crit_edge167, label %.lr.ph166
 
-87:                                               ; preds = %.lr.ph167
+87:                                               ; preds = %.lr.ph166
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %234
 
-._crit_edge168:                                   ; preds = %85, %._crit_edge
+._crit_edge167:                                   ; preds = %85, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   store ptr %26, ptr %4, align 8, !tbaa !44
@@ -1486,7 +1486,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   %89 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
           to label %90 unwind label %99
 
-90:                                               ; preds = %._crit_edge168
+90:                                               ; preds = %._crit_edge167
   br i1 %89, label %91, label %.critedge
 
 91:                                               ; preds = %90
@@ -1512,7 +1512,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   call void @__clang_call_terminate(ptr %98) #34
   unreachable
 
-99:                                               ; preds = %._crit_edge168
+99:                                               ; preds = %._crit_edge167
   %100 = landingpad { ptr, i32 }
           catch ptr @_ZTIN5faiss14FaissExceptionE
           catch ptr @_ZTISt9exception

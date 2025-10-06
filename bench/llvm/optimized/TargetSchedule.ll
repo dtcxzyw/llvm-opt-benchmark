@@ -816,7 +816,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatency
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %19, null
   %21 = select i1 %17, i1 %20, i1 false
-  br i1 %21, label %22, label %180
+  br i1 %21, label %22, label %181
 
 22:                                               ; preds = %._crit_edge, %16
   %.pre-phi = phi i1 [ %.pre75, %._crit_edge ], [ true, %16 ]
@@ -870,11 +870,11 @@ _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit: ; preds = %48, %27
   %.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %56 = and i64 %storemerge, 4294967296
   %.not69 = icmp eq i64 %56, 0
-  br i1 %.not69, label %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread, label %180
+  br i1 %.not69, label %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread, label %181
 
 _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread: ; preds = %34, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
   %.in.sroa.speculate.load.58.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %6, i32 %9)
-  br label %180
+  br label %181
 
 57:                                               ; preds = %22
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -941,7 +941,7 @@ _ZL10findDefIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %84, %_ZNK4llvm16Tar
   %92 = load i16, ptr %91, align 2, !tbaa !146
   %93 = zext i16 %92 to i32
   %94 = icmp ult i32 %.0.lcssa.i, %93
-  br i1 %94, label %95, label %173
+  br i1 %94, label %95, label %174
 
 95:                                               ; preds = %_ZL10findDefIdxPKN4llvm12MachineInstrEj.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -962,7 +962,7 @@ _ZL10findDefIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %84, %_ZNK4llvm16Tar
   %narrow = select i1 %110, i16 %109, i16 1000
   %111 = sext i16 %narrow to i32
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %180, label %112
+  br i1 %.not, label %181, label %112
 
 112:                                              ; preds = %95
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1000,7 +1000,7 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48: ; pr
   %134 = getelementptr inbounds nuw i8, ptr %.011.i45, i64 12
   %135 = load i16, ptr %134, align 2, !tbaa !153
   %136 = icmp eq i16 %135, 0
-  br i1 %136, label %180, label %137
+  br i1 %136, label %181, label %137
 
 137:                                              ; preds = %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48
   %.not15.i = icmp eq i32 %4, 0
@@ -1045,47 +1045,47 @@ _ZL10findUseIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %_ZNK4llvm14MachineO
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx.i
   br label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %_ZL10findUseIdxPKN4llvm12MachineInstrEj.exit, %168
-  %.01724.i = phi ptr [ %169, %168 ], [ %154, %_ZL10findUseIdxPKN4llvm12MachineInstrEj.exit ]
-  %157 = load i32, ptr %.01724.i, align 4, !tbaa !157
+.lr.ph.i55:                                       ; preds = %_ZL10findUseIdxPKN4llvm12MachineInstrEj.exit, %165
+  %.01726.i = phi ptr [ %166, %165 ], [ %154, %_ZL10findUseIdxPKN4llvm12MachineInstrEj.exit ]
+  %157 = load i32, ptr %.01726.i, align 4, !tbaa !157
   %158 = icmp ult i32 %157, %.0.lcssa.i54
-  br i1 %158, label %168, label %159
+  br i1 %158, label %165, label %159
 
 159:                                              ; preds = %.lr.ph.i55
   %160 = icmp ugt i32 %157, %.0.lcssa.i54
   br i1 %160, label %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit, label %161
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %.01726.i, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !159
   %.not21.i = icmp eq i32 %163, 0
   %164 = icmp eq i32 %163, %108
   %or.cond.i56 = or i1 %.not21.i, %164
-  br i1 %or.cond.i56, label %165, label %168
+  br i1 %or.cond.i56, label %167, label %165
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 8
-  %167 = load i32, ptr %166, align 4, !tbaa !160
+165:                                              ; preds = %161, %.lr.ph.i55
+  %166 = getelementptr inbounds nuw i8, ptr %.01726.i, i64 12
+  %.not.i57 = icmp eq ptr %166, %156
+  br i1 %.not.i57, label %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit, label %.lr.ph.i55, !llvm.loop !160
+
+167:                                              ; preds = %161
+  %168 = getelementptr inbounds nuw i8, ptr %.01726.i, i64 8
+  %169 = load i32, ptr %168, align 4, !tbaa !161
   br label %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit
 
-168:                                              ; preds = %161, %.lr.ph.i55
-  %169 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 12
-  %.not.i57 = icmp eq ptr %169, %156
-  br i1 %.not.i57, label %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit, label %.lr.ph.i55, !llvm.loop !161
+_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit: ; preds = %159, %165, %167
+  %170 = phi i32 [ %169, %167 ], [ 0, %165 ], [ 0, %159 ]
+  %171 = icmp sgt i32 %170, 0
+  %172 = icmp ugt i32 %170, %111
+  %or.cond = and i1 %171, %172
+  %173 = sub i32 %111, %170
+  %.3 = select i1 %or.cond, i32 0, i32 %173
+  br label %181
 
-_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit: ; preds = %159, %168, %165
-  %switch.i = phi i32 [ %167, %165 ], [ 0, %168 ], [ 0, %159 ]
-  %170 = icmp sgt i32 %switch.i, 0
-  %171 = icmp ugt i32 %switch.i, %111
-  %or.cond = and i1 %170, %171
-  %172 = sub i32 %111, %switch.i
-  %.3 = select i1 %or.cond, i32 0, i32 %172
-  br label %180
-
-173:                                              ; preds = %_ZL10findDefIdxPKN4llvm12MachineInstrEj.exit
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %175 = load i16, ptr %174, align 4, !tbaa !139
-  switch i16 %175, label %_ZNK4llvm12MachineInstr11isTransientEv.exit [
+174:                                              ; preds = %_ZL10findDefIdxPKN4llvm12MachineInstrEj.exit
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %176 = load i16, ptr %175, align 4, !tbaa !139
+  switch i16 %176, label %_ZNK4llvm12MachineInstr11isTransientEv.exit [
     i16 0, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
     i16 68, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
     i16 20, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
@@ -1094,19 +1094,19 @@ _ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit
     i16 19, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
   ]
 
-_ZNK4llvm12MachineInstr11isTransientEv.exit:      ; preds = %173
-  %176 = load ptr, ptr %58, align 8, !tbaa !114
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = load i64, ptr %177, align 8, !tbaa !140
-  %.fr = freeze i64 %178
-  %179 = and i64 %.fr, 16
-  %.not68 = icmp eq i64 %179, 0
-  br i1 %.not68, label %180, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
+_ZNK4llvm12MachineInstr11isTransientEv.exit:      ; preds = %174
+  %177 = load ptr, ptr %58, align 8, !tbaa !114
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %179 = load i64, ptr %178, align 8, !tbaa !140
+  %.fr = freeze i64 %179
+  %180 = and i64 %.fr, 16
+  %.not68 = icmp eq i64 %180, 0
+  br i1 %.not68, label %181, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
 
-_ZNK4llvm12MachineInstr11isTransientEv.exit.thread: ; preds = %173, %173, %173, %173, %173, %173, %_ZNK4llvm12MachineInstr11isTransientEv.exit
-  br label %180
+_ZNK4llvm12MachineInstr11isTransientEv.exit.thread: ; preds = %174, %174, %174, %174, %174, %174, %_ZNK4llvm12MachineInstr11isTransientEv.exit
+  br label %181
 
-180:                                              ; preds = %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread, %_ZNK4llvm12MachineInstr11isTransientEv.exit, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit, %16, %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48, %95
+181:                                              ; preds = %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread, %_ZNK4llvm12MachineInstr11isTransientEv.exit, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit, %16, %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48, %95
   %.0 = phi i32 [ %111, %95 ], [ %.3, %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit ], [ %111, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48 ], [ %9, %16 ], [ %.in.sroa.speculate.load.58.sroa.speculated, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread ], [ %.sroa.0.0.extract.trunc, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ], [ 0, %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread ], [ %9, %_ZNK4llvm12MachineInstr11isTransientEv.exit ]
   ret i32 %.0
 }
@@ -1934,8 +1934,8 @@ attributes #13 = { nounwind }
 !157 = !{!158, !19, i64 0}
 !158 = !{!"_ZTSN4llvm18MCReadAdvanceEntryE", !19, i64 0, !19, i64 4, !19, i64 8}
 !159 = !{!158, !19, i64 4}
-!160 = !{!158, !19, i64 8}
-!161 = distinct !{!161, !111}
+!160 = distinct !{!160, !111}
+!161 = !{!158, !19, i64 8}
 !162 = !{!163, !124, i64 0}
 !163 = !{!"_ZTSN4llvm11MCInstrInfoE", !124, i64 0, !65, i64 8, !11, i64 16, !11, i64 24, !12, i64 32, !19, i64 40}
 !164 = !{!165, !19, i64 0}

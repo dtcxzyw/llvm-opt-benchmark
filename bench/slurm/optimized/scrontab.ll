@@ -485,8 +485,8 @@ _handle_first_form.exit:                          ; preds = %83, %75, %69
   %144 = call ptr @convert_file_to_line_array(ptr noundef %143, ptr noundef nonnull %7) #16
   store ptr %144, ptr %5, align 8
   %145 = load ptr, ptr %144, align 8
-  %.not127188.i = icmp eq ptr %145, null
-  br i1 %.not127188.i, label %.thread156.i, label %.lr.ph.i
+  %.not127186.i = icmp eq ptr %145, null
+  br i1 %.not127186.i, label %.thread156.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %139
   %.not.i152.i = icmp eq ptr %141, null
@@ -495,9 +495,9 @@ _handle_first_form.exit:                          ; preds = %83, %75, %69
 146:                                              ; preds = %.loopexit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %147 = phi ptr [ %145, %.lr.ph.i ], [ %230, %.loopexit.i ]
-  %.0100190.i = phi i32 [ -1, %.lr.ph.i ], [ %.1101.i, %.loopexit.i ]
-  %.0104189.i = phi i1 [ true, %.lr.ph.i ], [ %.2106.i, %.loopexit.i ]
-  br i1 %.0104189.i, label %148, label %.preheader
+  %.0100188.i = phi i32 [ -1, %.lr.ph.i ], [ %.1101.i, %.loopexit.i ]
+  %.0104187.i = phi i1 [ true, %.lr.ph.i ], [ %.2106.i, %.loopexit.i ]
+  br i1 %.0104187.i, label %148, label %.preheader
 
 148:                                              ; preds = %146
   call void @slurm_reset_all_options(ptr noundef nonnull @opt, i1 noundef zeroext true) #16
@@ -554,8 +554,8 @@ _reset_options.exit.i:                            ; preds = %148
   br label %.thread156.i
 
 166:                                              ; preds = %160
-  %167 = icmp eq i32 %.0100190.i, -1
-  %spec.select.i = select i1 %167, i32 %162, i32 %.0100190.i
+  %167 = icmp eq i32 %.0100188.i, -1
+  %spec.select.i = select i1 %167, i32 %162, i32 %.0100188.i
   br label %.loopexit.i, !llvm.loop !11
 
 168:                                              ; preds = %158
@@ -617,17 +617,17 @@ _expand_variables.exit.i:                         ; preds = %186, %184, %183
 189:                                              ; preds = %_expand_variables.exit.i
   %190 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @free_cron_entry(ptr noundef nonnull %179) #16
-  %191 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.23, i32 noundef %.0100190.i, i32 noundef %190) #16
+  %191 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.23, i32 noundef %.0100188.i, i32 noundef %190) #16
   store ptr %191, ptr %6, align 8
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread156.i
 
 192:                                              ; preds = %_expand_variables.exit.i
-  %.not132.i = icmp eq i32 %.0100190.i, -1
+  %.not132.i = icmp eq i32 %.0100188.i, -1
   %193 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %..0100190.i = select i1 %.not132.i, i32 %193, i32 %.0100190.i
+  %..0100188.i = select i1 %.not132.i, i32 %193, i32 %.0100188.i
   %194 = getelementptr inbounds nuw i8, ptr %179, i64 64
-  store i32 %..0100190.i, ptr %194, align 8
+  store i32 %..0100188.i, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %179, i64 68
   store i32 %193, ptr %195, align 4
   %196 = load ptr, ptr %8, align 8
@@ -700,7 +700,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
 
 .loopexit.i:                                      ; preds = %155, %155, %_entry_to_job.exit.i, %.thread.i, %168, %166
   %.2106.i = phi i1 [ true, %_entry_to_job.exit.i ], [ false, %166 ], [ false, %.thread.i ], [ false, %168 ], [ false, %155 ], [ false, %155 ]
-  %.1101.i = phi i32 [ -1, %_entry_to_job.exit.i ], [ %spec.select.i, %166 ], [ %.0100190.i, %.thread.i ], [ %.0100190.i, %168 ], [ %.0100190.i, %155 ], [ %.0100190.i, %155 ]
+  %.1101.i = phi i32 [ -1, %_entry_to_job.exit.i ], [ %spec.select.i, %166 ], [ %.0100188.i, %.thread.i ], [ %.0100188.i, %168 ], [ %.0100188.i, %155 ], [ %.0100188.i, %155 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %228 = load ptr, ptr %5, align 8
   %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv.next.i
@@ -890,10 +890,10 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
 301:                                              ; preds = %300, %297
   %302 = getelementptr inbounds nuw i8, ptr %262, i64 24
   %303 = load i32, ptr %302, align 8
-  %.not194.i = icmp eq i32 %303, 0
-  br i1 %.not194.i, label %._crit_edge.i, label %.lr.ph193.i
+  %.not192.i = icmp eq i32 %303, 0
+  br i1 %.not192.i, label %._crit_edge.i, label %.lr.ph191.i
 
-.lr.ph193.i:                                      ; preds = %301
+.lr.ph191.i:                                      ; preds = %301
   %304 = getelementptr inbounds nuw i8, ptr %262, i64 16
   br label %305
 
@@ -903,16 +903,16 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   %.not137.i = icmp eq ptr %140, null
   br i1 %.not137.i, label %_edit_and_update_crontab.exit, label %312
 
-305:                                              ; preds = %305, %.lr.ph193.i
-  %indvars.iv220.i = phi i64 [ 0, %.lr.ph193.i ], [ %indvars.iv.next221.i, %305 ]
+305:                                              ; preds = %305, %.lr.ph191.i
+  %indvars.iv218.i = phi i64 [ 0, %.lr.ph191.i ], [ %indvars.iv.next219.i, %305 ]
   %306 = load ptr, ptr %304, align 8
-  %307 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv220.i
+  %307 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv218.i
   %308 = load i32, ptr %307, align 4
   call void @cli_filter_g_post_submit(i32 noundef 0, i32 noundef %308, i32 noundef -2) #16
-  %indvars.iv.next221.i = add nuw nsw i64 %indvars.iv220.i, 1
+  %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 1
   %309 = load i32, ptr %302, align 8
   %310 = zext i32 %309 to i64
-  %311 = icmp samesign ult i64 %indvars.iv.next221.i, %310
+  %311 = icmp samesign ult i64 %indvars.iv.next219.i, %310
   br i1 %311, label %305, label %._crit_edge.i, !llvm.loop !15
 
 312:                                              ; preds = %._crit_edge.i

@@ -451,42 +451,42 @@ define weak_odr void @_ZNK4llvm6object15XCOFFObjectFile19getExceptionEntriesINS0
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %25, align 1
   %rev.i.i.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i)
   %26 = zext i16 %rev.i.i.i.i.i.i.i.i.i.i to i64
-  %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i.i, 0
+  %.not7.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %16, label %27, label %33
 
 27:                                               ; preds = %12
   %.idx.i.i = mul nuw nsw i64 %26, 72
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
-  br i1 %.not5.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
+  br i1 %.not7.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27, %31
-  %.0146.i.i = phi ptr [ %32, %31 ], [ %18, %27 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0146.i.i, i64 64
+  %.0148.i.i = phi ptr [ %32, %31 ], [ %18, %27 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 64
   %.0.copyload.i.i.i.i.i6.i = load i32, ptr %29, align 1
   %30 = and i32 %.0.copyload.i.i.i.i.i6.i, -65536
   %.not15.i.i = icmp eq i32 %30, 65536
   br i1 %.not15.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit, label %31
 
 31:                                               ; preds = %.lr.ph.i.i
-  %32 = getelementptr inbounds nuw i8, ptr %.0146.i.i, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 72
   %.not.i.i = icmp eq ptr %32, %28
   br i1 %.not.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
 
 33:                                               ; preds = %12
   %.idx.i11.i = mul nuw nsw i64 %26, 40
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i11.i
-  br i1 %.not5.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
+  br i1 %.not7.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
 
 .lr.ph.i13.i:                                     ; preds = %33, %37
-  %.0146.i14.i = phi ptr [ %38, %37 ], [ %18, %33 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.0146.i14.i, i64 36
+  %.0148.i14.i = phi ptr [ %38, %37 ], [ %18, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0148.i14.i, i64 36
   %.0.copyload.i.i.i.i.i15.i = load i32, ptr %35, align 1
   %36 = and i32 %.0.copyload.i.i.i.i.i15.i, -65536
   %.not15.i16.i = icmp eq i32 %36, 65536
   br i1 %.not15.i16.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit, label %37
 
 37:                                               ; preds = %.lr.ph.i13.i
-  %38 = getelementptr inbounds nuw i8, ptr %.0146.i14.i, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.0148.i14.i, i64 40
   %.not.i17.i = icmp eq ptr %38, %34
   br i1 %.not.i17.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
 
@@ -499,14 +499,14 @@ _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE
   br label %_ZN4llvm8ExpectedImED2Ev.exit
 
 _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit: ; preds = %.lr.ph.i13.i, %.lr.ph.i.i
-  %.sroa.023.0.i.in = phi ptr [ %.0146.i.i, %.lr.ph.i.i ], [ %.0146.i14.i, %.lr.ph.i13.i ]
-  %.sroa.023.0.i = ptrtoint ptr %.sroa.023.0.i.in to i64
+  %.sroa.022.0.i.in = phi ptr [ %.0148.i.i, %.lr.ph.i.i ], [ %.0148.i14.i, %.lr.ph.i13.i ]
+  %.sroa.022.0.i = ptrtoint ptr %.sroa.022.0.i.in to i64
   %42 = load i64, ptr %3, align 8, !tbaa !33
   %43 = inttoptr i64 %42 to ptr
   %44 = load ptr, ptr %1, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.023.0.i) #23
+  %47 = tail call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.022.0.i) #23
   %48 = udiv i64 %47, 6
   %49 = getelementptr inbounds nuw %"struct.llvm::object::ExceptionSectionEntry", ptr %43, i64 %48
   %50 = ptrtoint ptr %49 to i64
@@ -560,17 +560,17 @@ define dso_local void @_ZNK4llvm6object15XCOFFObjectFile29getSectionFileOffsetTo
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %32, align 1
   %rev.i.i.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i)
   %33 = zext i16 %rev.i.i.i.i.i.i.i.i.i.i to i64
-  %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i.i, 0
+  %.not7.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %23, label %34, label %41
 
 34:                                               ; preds = %3
   %.idx.i.i = mul nuw nsw i64 %33, 72
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
-  br i1 %.not5.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
+  br i1 %.not7.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %34, %39
-  %.0146.i.i = phi ptr [ %40, %39 ], [ %25, %34 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.0146.i.i, i64 64
+  %.0148.i.i = phi ptr [ %40, %39 ], [ %25, %34 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 64
   %.0.copyload.i.i.i.i.i6.i = load i32, ptr %36, align 1
   %37 = and i32 %.0.copyload.i.i.i.i.i6.i, -65536
   %38 = tail call i32 @llvm.bswap.i32(i32 %37)
@@ -578,18 +578,18 @@ define dso_local void @_ZNK4llvm6object15XCOFFObjectFile29getSectionFileOffsetTo
   br i1 %.not15.i.i, label %.loopexit, label %39
 
 39:                                               ; preds = %.lr.ph.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0146.i.i, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 72
   %.not.i.i = icmp eq ptr %40, %35
   br i1 %.not.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
 
 41:                                               ; preds = %3
   %.idx.i11.i = mul nuw nsw i64 %33, 40
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i11.i
-  br i1 %.not5.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
+  br i1 %.not7.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
 
 .lr.ph.i13.i:                                     ; preds = %41, %46
-  %.0146.i14.i = phi ptr [ %47, %46 ], [ %25, %41 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.0146.i14.i, i64 36
+  %.0148.i14.i = phi ptr [ %47, %46 ], [ %25, %41 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.0148.i14.i, i64 36
   %.0.copyload.i.i.i.i.i15.i = load i32, ptr %43, align 1
   %44 = and i32 %.0.copyload.i.i.i.i.i15.i, -65536
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
@@ -597,7 +597,7 @@ define dso_local void @_ZNK4llvm6object15XCOFFObjectFile29getSectionFileOffsetTo
   br i1 %.not15.i16.i, label %.loopexit, label %46
 
 46:                                               ; preds = %.lr.ph.i13.i
-  %47 = getelementptr inbounds nuw i8, ptr %.0146.i14.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0148.i14.i, i64 40
   %.not.i17.i = icmp eq ptr %47, %42
   br i1 %.not.i17.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
 
@@ -610,8 +610,8 @@ _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE
   br label %218
 
 .loopexit:                                        ; preds = %.lr.ph.i13.i, %.lr.ph.i.i
-  %.sroa.023.0.i.in = phi ptr [ %.0146.i.i, %.lr.ph.i.i ], [ %.0146.i14.i, %.lr.ph.i13.i ]
-  %.sroa.023.0.i = ptrtoint ptr %.sroa.023.0.i.in to i64
+  %.sroa.022.0.i.in = phi ptr [ %.0148.i.i, %.lr.ph.i.i ], [ %.0148.i14.i, %.lr.ph.i13.i ]
+  %.sroa.022.0.i = ptrtoint ptr %.sroa.022.0.i.in to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %1, align 8, !tbaa !20
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
@@ -620,13 +620,13 @@ _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %.loopexit
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.in, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.i.in, i64 32
   %.0.copyload.i.i.i.i = load i64, ptr %56, align 1
   %57 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i.i)
   br label %_ZNK4llvm6object15XCOFFObjectFile29getSectionFileOffsetToRawDataENS0_11DataRefImplE.exit
 
 58:                                               ; preds = %.loopexit
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.i.in, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.i.in, i64 20
   %.0.copyload.i.i.i4.i = load i32, ptr %59, align 1
   %60 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i4.i)
   %61 = zext i32 %60 to i64
@@ -639,7 +639,7 @@ _ZNK4llvm6object15XCOFFObjectFile29getSectionFileOffsetToRawDataENS0_11DataRefIm
   %62 = load ptr, ptr %1, align 8, !tbaa !20
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 168
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.023.0.i) #23
+  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.022.0.i) #23
   store i64 %65, ptr %5, align 8, !tbaa !33
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !36
@@ -1076,58 +1076,58 @@ define dso_local i64 @_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XC
   %.0.copyload.i.i.i.i.i = load i16, ptr %15, align 1
   %rev.i.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i)
   %16 = zext i16 %rev.i.i.i.i.i.i.i.i.i to i64
-  %.not5.i = icmp eq i16 %.0.copyload.i.i.i.i.i, 0
+  %.not7.i = icmp eq i16 %.0.copyload.i.i.i.i.i, 0
   br i1 %6, label %17, label %25
 
 17:                                               ; preds = %2
   %.idx.i = mul nuw nsw i64 %16, 72
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  br i1 %.not5.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i
+  br i1 %.not7.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %22
-  %.0146.i = phi ptr [ %23, %22 ], [ %8, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.0146.i, i64 64
+  %.0148.i = phi ptr [ %23, %22 ], [ %8, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.0148.i, i64 64
   %.0.copyload.i.i.i.i.i6 = load i32, ptr %19, align 1
   %20 = and i32 %.0.copyload.i.i.i.i.i6, -65536
   %21 = tail call i32 @llvm.bswap.i32(i32 %20)
   %.not15.i = icmp eq i32 %1, %21
-  br i1 %.not15.i, label %.split.loop.exit3.i, label %22
+  br i1 %.not15.i, label %.split.loop.exit5.i, label %22
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds nuw i8, ptr %.0146.i, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %.0148.i, i64 72
   %.not.i = icmp eq ptr %23, %18
   br i1 %.not.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i
 
-.split.loop.exit3.i:                              ; preds = %.lr.ph.i
-  %24 = ptrtoint ptr %.0146.i to i64
+.split.loop.exit5.i:                              ; preds = %.lr.ph.i
+  %24 = ptrtoint ptr %.0148.i to i64
   br label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit"
 
 25:                                               ; preds = %2
   %.idx.i11 = mul nuw nsw i64 %16, 40
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i11
-  br i1 %.not5.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i13
+  br i1 %.not7.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %25, %30
-  %.0146.i14 = phi ptr [ %31, %30 ], [ %8, %25 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.0146.i14, i64 36
+  %.0148.i14 = phi ptr [ %31, %30 ], [ %8, %25 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.0148.i14, i64 36
   %.0.copyload.i.i.i.i.i15 = load i32, ptr %27, align 1
   %28 = and i32 %.0.copyload.i.i.i.i.i15, -65536
   %29 = tail call i32 @llvm.bswap.i32(i32 %28)
   %.not15.i16 = icmp eq i32 %1, %29
-  br i1 %.not15.i16, label %.split.loop.exit3.i19, label %30
+  br i1 %.not15.i16, label %.split.loop.exit5.i18, label %30
 
 30:                                               ; preds = %.lr.ph.i13
-  %31 = getelementptr inbounds nuw i8, ptr %.0146.i14, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0148.i14, i64 40
   %.not.i17 = icmp eq ptr %31, %26
   br i1 %.not.i17, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i13
 
-.split.loop.exit3.i19:                            ; preds = %.lr.ph.i13
-  %32 = ptrtoint ptr %.0146.i14 to i64
+.split.loop.exit5.i18:                            ; preds = %.lr.ph.i13
+  %32 = ptrtoint ptr %.0148.i14 to i64
   br label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit"
 
-"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit": ; preds = %30, %22, %.split.loop.exit3.i19, %25, %.split.loop.exit3.i, %17
-  %.sroa.023.0 = phi i64 [ %24, %.split.loop.exit3.i ], [ 0, %17 ], [ %32, %.split.loop.exit3.i19 ], [ 0, %25 ], [ 0, %22 ], [ 0, %30 ]
-  ret i64 %.sroa.023.0
+"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit": ; preds = %30, %22, %.split.loop.exit5.i18, %25, %.split.loop.exit5.i, %17
+  %.sroa.022.0 = phi i64 [ %24, %.split.loop.exit5.i ], [ 0, %17 ], [ %32, %.split.loop.exit5.i18 ], [ 0, %25 ], [ 0, %22 ], [ 0, %30 ]
+  ret i64 %.sroa.022.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1174,42 +1174,42 @@ define weak_odr void @_ZNK4llvm6object15XCOFFObjectFile19getExceptionEntriesINS0
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %25, align 1
   %rev.i.i.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i)
   %26 = zext i16 %rev.i.i.i.i.i.i.i.i.i.i to i64
-  %.not5.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i.i, 0
+  %.not7.i.i = icmp eq i16 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %16, label %27, label %33
 
 27:                                               ; preds = %12
   %.idx.i.i = mul nuw nsw i64 %26, 72
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
-  br i1 %.not5.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
+  br i1 %.not7.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27, %31
-  %.0146.i.i = phi ptr [ %32, %31 ], [ %18, %27 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0146.i.i, i64 64
+  %.0148.i.i = phi ptr [ %32, %31 ], [ %18, %27 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 64
   %.0.copyload.i.i.i.i.i6.i = load i32, ptr %29, align 1
   %30 = and i32 %.0.copyload.i.i.i.i.i6.i, -65536
   %.not15.i.i = icmp eq i32 %30, 65536
   br i1 %.not15.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit, label %31
 
 31:                                               ; preds = %.lr.ph.i.i
-  %32 = getelementptr inbounds nuw i8, ptr %.0146.i.i, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %.0148.i.i, i64 72
   %.not.i.i = icmp eq ptr %32, %28
   br i1 %.not.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i.i
 
 33:                                               ; preds = %12
   %.idx.i11.i = mul nuw nsw i64 %26, 40
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i11.i
-  br i1 %.not5.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
+  br i1 %.not7.i.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
 
 .lr.ph.i13.i:                                     ; preds = %33, %37
-  %.0146.i14.i = phi ptr [ %38, %37 ], [ %18, %33 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.0146.i14.i, i64 36
+  %.0148.i14.i = phi ptr [ %38, %37 ], [ %18, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0148.i14.i, i64 36
   %.0.copyload.i.i.i.i.i15.i = load i32, ptr %35, align 1
   %36 = and i32 %.0.copyload.i.i.i.i.i15.i, -65536
   %.not15.i16.i = icmp eq i32 %36, 65536
   br i1 %.not15.i16.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit, label %37
 
 37:                                               ; preds = %.lr.ph.i13.i
-  %38 = getelementptr inbounds nuw i8, ptr %.0146.i14.i, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.0148.i14.i, i64 40
   %.not.i17.i = icmp eq ptr %38, %34
   br i1 %.not.i17.i, label %_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit.thread, label %.lr.ph.i13.i
 
@@ -1222,14 +1222,14 @@ _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE
   br label %_ZN4llvm8ExpectedImED2Ev.exit
 
 _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE.exit: ; preds = %.lr.ph.i13.i, %.lr.ph.i.i
-  %.sroa.023.0.i.in = phi ptr [ %.0146.i.i, %.lr.ph.i.i ], [ %.0146.i14.i, %.lr.ph.i13.i ]
-  %.sroa.023.0.i = ptrtoint ptr %.sroa.023.0.i.in to i64
+  %.sroa.022.0.i.in = phi ptr [ %.0148.i.i, %.lr.ph.i.i ], [ %.0148.i14.i, %.lr.ph.i13.i ]
+  %.sroa.022.0.i = ptrtoint ptr %.sroa.022.0.i.in to i64
   %42 = load i64, ptr %3, align 8, !tbaa !33
   %43 = inttoptr i64 %42 to ptr
   %44 = load ptr, ptr %1, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.023.0.i) #23
+  %47 = tail call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.022.0.i) #23
   %48 = udiv i64 %47, 10
   %49 = getelementptr inbounds nuw %"struct.llvm::object::ExceptionSectionEntry.0", ptr %43, i64 %48
   %50 = ptrtoint ptr %49 to i64
@@ -4879,68 +4879,68 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %.0.copyload.i.i.i.i = load i16, ptr %18, align 1
   %rev.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i)
-  %.not4266.not = icmp eq i16 %.0.copyload.i.i.i.i, 0
-  br i1 %.not4266.not, label %.thread, label %.lr.ph69
+  %.not4263.not = icmp eq i16 %.0.copyload.i.i.i.i, 0
+  br i1 %.not4263.not, label %.thread, label %.lr.ph66
 
-.lr.ph69:                                         ; preds = %14, %26
-  %.03368 = phi ptr [ %27, %26 ], [ %9, %14 ]
-  %.03567 = phi i16 [ %28, %26 ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.03368, i64 16
-  %.0.copyload.i.i.i45 = load i64, ptr %19, align 1
-  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i45)
+.lr.ph66:                                         ; preds = %14, %26
+  %.03365 = phi ptr [ %27, %26 ], [ %9, %14 ]
+  %.03564 = phi i16 [ %28, %26 ], [ 0, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.03365, i64 16
+  %.0.copyload.i.i.i44 = load i64, ptr %19, align 1
+  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i44)
   %.not41 = icmp ugt i64 %20, %15
   br i1 %.not41, label %26, label %21
 
-21:                                               ; preds = %.lr.ph69
-  %22 = getelementptr inbounds nuw i8, ptr %.03368, i64 24
-  %.0.copyload.i.i.i47 = load i64, ptr %22, align 1
-  %23 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i47)
+21:                                               ; preds = %.lr.ph66
+  %22 = getelementptr inbounds nuw i8, ptr %.03365, i64 24
+  %.0.copyload.i.i.i46 = load i64, ptr %22, align 1
+  %23 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i46)
   %24 = add i64 %23, %20
   %25 = icmp ult i64 %15, %24
   br i1 %25, label %29, label %26
 
-26:                                               ; preds = %21, %.lr.ph69
-  %27 = getelementptr inbounds nuw i8, ptr %.03368, i64 72
-  %28 = add nuw i16 %.03567, 1
-  %exitcond75.not = icmp eq i16 %28, %rev.i.i.i.i.i.i.i.i
-  br i1 %exitcond75.not, label %.thread, label %.lr.ph69, !llvm.loop !536
+26:                                               ; preds = %21, %.lr.ph66
+  %27 = getelementptr inbounds nuw i8, ptr %.03365, i64 72
+  %28 = add nuw i16 %.03564, 1
+  %exitcond72.not = icmp eq i16 %28, %rev.i.i.i.i.i.i.i.i
+  br i1 %exitcond72.not, label %.thread, label %.lr.ph66, !llvm.loop !536
 
 29:                                               ; preds = %21
   %30 = sub i64 %15, %20
   br label %.thread
 
 31:                                               ; preds = %2
-  %.0.copyload.i.i.i49 = load i32, ptr %7, align 1
-  %32 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i49)
+  %.0.copyload.i.i.i48 = load i32, ptr %7, align 1
+  %32 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i48)
   %33 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
   %34 = load ptr, ptr %13, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
-  %.0.copyload.i.i.i.i50 = load i16, ptr %35, align 1
-  %rev.i.i.i.i.i.i.i.i51 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i50)
-  %.not4063.not = icmp eq i16 %.0.copyload.i.i.i.i50, 0
-  br i1 %.not4063.not, label %.thread, label %.lr.ph
+  %.0.copyload.i.i.i.i49 = load i16, ptr %35, align 1
+  %rev.i.i.i.i.i.i.i.i50 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i49)
+  %.not4060.not = icmp eq i16 %.0.copyload.i.i.i.i49, 0
+  br i1 %.not4060.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %43
-  %.065 = phi i16 [ %45, %43 ], [ 0, %31 ]
-  %.03464 = phi ptr [ %44, %43 ], [ %9, %31 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.03464, i64 12
-  %.0.copyload.i.i.i52 = load i32, ptr %36, align 1
-  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i52)
+  %.062 = phi i16 [ %45, %43 ], [ 0, %31 ]
+  %.03461 = phi ptr [ %44, %43 ], [ %9, %31 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.03461, i64 12
+  %.0.copyload.i.i.i51 = load i32, ptr %36, align 1
+  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i51)
   %.not = icmp ugt i32 %37, %32
   br i1 %.not, label %43, label %38
 
 38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw i8, ptr %.03464, i64 16
-  %.0.copyload.i.i.i54 = load i32, ptr %39, align 1
-  %40 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i54)
+  %39 = getelementptr inbounds nuw i8, ptr %.03461, i64 16
+  %.0.copyload.i.i.i53 = load i32, ptr %39, align 1
+  %40 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i53)
   %41 = add i32 %40, %37
   %42 = icmp ult i32 %32, %41
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %38, %.lr.ph
-  %44 = getelementptr inbounds nuw i8, ptr %.03464, i64 40
-  %45 = add nuw i16 %.065, 1
-  %exitcond.not = icmp eq i16 %45, %rev.i.i.i.i.i.i.i.i51
+  %44 = getelementptr inbounds nuw i8, ptr %.03461, i64 40
+  %45 = add nuw i16 %.062, 1
+  %exitcond.not = icmp eq i16 %45, %rev.i.i.i.i.i.i.i.i50
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !537
 
 46:                                               ; preds = %38
@@ -6502,8 +6502,8 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit: ; preds = %3
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #23, !noalias !623
   call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %9, i32 4, ptr nonnull %27) #23
   %.pr = load ptr, ptr %9, align 8, !tbaa !40
-  %.not109 = icmp eq ptr %.pr, null
-  br i1 %.not109, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit._crit_edge, label %28
+  %.not108 = icmp eq ptr %.pr, null
+  br i1 %.not108, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit._crit_edge, label %28
 
 _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit._crit_edge: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit
   %.pre = load ptr, ptr %19, align 8, !tbaa !36
@@ -6582,8 +6582,8 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.thread: ; preds
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 %.sroa.298.0.copyload
   %58 = ptrtoint ptr %57 to i64
   %59 = icmp ugt i64 %55, %58
-  %or.cond116 = select i1 %56, i1 true, i1 %59
-  br i1 %or.cond116, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, label %112
+  %or.cond115 = select i1 %56, i1 true, i1 %59
+  br i1 %or.cond115, label %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i, label %112
 
 _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i: ; preds = %52
   %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #23, !noalias !629

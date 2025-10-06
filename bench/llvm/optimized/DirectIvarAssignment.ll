@@ -282,8 +282,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18:       ; preds = %_ZNK5clang22specifi
   br label %17
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread: ; preds = %25, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %30, %23
-  %switch = phi i1 [ true, %23 ], [ true, %30 ], [ true, %25 ], [ true, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  ret i1 %switch
+  %50 = phi i1 [ true, %23 ], [ true, %30 ], [ true, %25 ], [ true, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  ret i1 %50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1139,8 +1139,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCraw
   %8 = icmp ne ptr %7, %.sroa.45.24.copyload
   %9 = load i64, ptr %6, align 8
   %10 = icmp ne i64 %9, %.sroa.6.24.copyload
-  %.not3.i10 = select i1 %8, i1 true, i1 %10
-  br i1 %.not3.i10, label %.lr.ph, label %_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler13VisitChildrenEPKN5clang4StmtE.exit
+  %.not3.i9 = select i1 %8, i1 true, i1 %10
+  br i1 %.not3.i9, label %.lr.ph, label %_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler13VisitChildrenEPKN5clang4StmtE.exit
 
 .lr.ph:                                           ; preds = %2, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %11 = phi i64 [ %350, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %9, %2 ]
@@ -3256,8 +3256,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18:       ; preds = %_ZNK5clang22specifi
   br label %17
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread: ; preds = %25, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %30, %23
-  %not.switch = phi i1 [ false, %23 ], [ false, %30 ], [ false, %25 ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  ret i1 %not.switch
+  %50 = phi i1 [ false, %23 ], [ false, %30 ], [ false, %25 ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  ret i1 %50
 }
 
 declare void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, ptr noundef, ptr, i64, ptr noundef byval(%"class.llvm::StringRef") align 8, ptr noundef byval(%"class.llvm::StringRef") align 8, ptr noundef byval(%"class.clang::ento::PathDiagnosticLocation") align 8, ptr noundef byval(%"class.llvm::ArrayRef.902") align 8, ptr noundef byval(%"class.llvm::ArrayRef.903") align 8) local_unnamed_addr #1

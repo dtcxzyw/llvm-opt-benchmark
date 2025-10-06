@@ -1548,20 +1548,20 @@ define weak_odr dso_local { i64, ptr } @_ZN4mold16get_machine_typeINS_6X86_64EEE
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !31
   %47 = icmp eq ptr %44, %46
-  br i1 %47, label %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge, label %.lr.ph98
+  br i1 %47, label %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge, label %.lr.ph97
 
-.lr.ph98:                                         ; preds = %43, %85
-  %.sroa.8.196 = phi ptr [ %.sroa.8.3, %85 ], [ undef, %43 ]
-  %.sroa.077.195 = phi i64 [ %.sroa.077.3, %85 ], [ undef, %43 ]
-  %.sroa.074.094 = phi ptr [ %86, %85 ], [ %44, %43 ]
-  %48 = load ptr, ptr %.sroa.074.094, align 8, !tbaa !33
+.lr.ph97:                                         ; preds = %43, %85
+  %.sroa.8.195 = phi ptr [ %.sroa.8.3, %85 ], [ undef, %43 ]
+  %.sroa.076.194 = phi i64 [ %.sroa.076.3, %85 ], [ undef, %43 ]
+  %.sroa.073.093 = phi ptr [ %86, %85 ], [ %44, %43 ]
+  %48 = load ptr, ptr %.sroa.073.093, align 8, !tbaa !33
   %49 = call noundef i32 @_ZN4mold13get_file_typeINS_6X86_64EEENS_8FileTypeERNS_7ContextIT_EEPNS_10MappedFileE(ptr noundef nonnull align 8 dereferenceable(4520) %0, ptr noundef %48)
   switch i32 %49, label %85 [
     i32 7, label %50
     i32 2, label %50
   ]
 
-50:                                               ; preds = %.lr.ph98, %.lr.ph98
+50:                                               ; preds = %.lr.ph97, %.lr.ph97
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %52 = load ptr, ptr %51, align 8, !tbaa !11
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 5
@@ -1588,9 +1588,9 @@ define weak_odr dso_local { i64, ptr } @_ZN4mold16get_machine_typeINS_6X86_64EEE
   br label %70
 
 70:                                               ; preds = %62, %60
-  %.in.i40 = phi i16 [ %61, %60 ], [ %69, %62 ]
-  switch i16 %.in.i40, label %84 [
-    i16 3, label %_ZN4moldL12get_elf_typeEPh.exit53
+  %.in.i39 = phi i16 [ %61, %60 ], [ %69, %62 ]
+  switch i16 %.in.i39, label %84 [
+    i16 3, label %_ZN4moldL12get_elf_typeEPh.exit52
     i16 62, label %71
     i16 40, label %72
     i16 183, label %73
@@ -1605,86 +1605,86 @@ define weak_odr dso_local { i64, ptr } @_ZN4mold16get_machine_typeINS_6X86_64EEE
   ]
 
 71:                                               ; preds = %70
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 72:                                               ; preds = %70
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 73:                                               ; preds = %70
-  %.sroa.0.0.copyload15.i51 = select i1 %55, i64 5, i64 7
-  %.sroa.15.0.copyload27.i52 = select i1 %55, ptr @.str.12, ptr @.str.13
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  %.sroa.0.0.copyload15.i50 = select i1 %55, i64 5, i64 7
+  %.sroa.15.0.copyload27.i51 = select i1 %55, ptr @.str.12, ptr @.str.13
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 74:                                               ; preds = %70
   br i1 %55, label %75, label %76
 
 75:                                               ; preds = %74
-  %.sroa.15.0.copyload28.i50 = select i1 %58, ptr @.str.14, ptr @.str.15
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  %.sroa.15.0.copyload28.i49 = select i1 %58, ptr @.str.14, ptr @.str.15
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 76:                                               ; preds = %74
-  %.sroa.15.0.copyload29.i49 = select i1 %58, ptr @.str.16, ptr @.str.17
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  %.sroa.15.0.copyload29.i48 = select i1 %58, ptr @.str.16, ptr @.str.17
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 77:                                               ; preds = %70
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 78:                                               ; preds = %70
-  %.sroa.15.0.copyload31.i48 = select i1 %55, ptr @.str.19, ptr @.str.20
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  %.sroa.15.0.copyload31.i47 = select i1 %55, ptr @.str.19, ptr @.str.20
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 79:                                               ; preds = %70
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 80:                                               ; preds = %70
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 81:                                               ; preds = %70
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 82:                                               ; preds = %70
-  %.sroa.0.0.copyload23.i46 = select i1 %55, i64 3, i64 5
-  %.sroa.15.0.copyload35.i47 = select i1 %55, ptr @.str.24, ptr @.str.25
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  %.sroa.0.0.copyload23.i45 = select i1 %55, i64 3, i64 5
+  %.sroa.15.0.copyload35.i46 = select i1 %55, ptr @.str.24, ptr @.str.25
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 83:                                               ; preds = %70
-  %.sroa.15.0.copyload36.i41 = select i1 %58, ptr @.str.26, ptr @.str.27
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  %.sroa.15.0.copyload36.i40 = select i1 %58, ptr @.str.26, ptr @.str.27
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
 84:                                               ; preds = %70
-  br label %_ZN4moldL12get_elf_typeEPh.exit53
+  br label %_ZN4moldL12get_elf_typeEPh.exit52
 
-_ZN4moldL12get_elf_typeEPh.exit53:                ; preds = %70, %71, %72, %73, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84
-  %.sroa.15.0.i42 = phi ptr [ @.str.6, %84 ], [ @.str.10, %71 ], [ @.str.11, %72 ], [ %.sroa.15.0.copyload27.i52, %73 ], [ %.sroa.15.0.copyload28.i50, %75 ], [ %.sroa.15.0.copyload29.i49, %76 ], [ @.str.18, %77 ], [ %.sroa.15.0.copyload31.i48, %78 ], [ @.str.21, %79 ], [ @.str.22, %80 ], [ @.str.23, %81 ], [ %.sroa.15.0.copyload35.i47, %82 ], [ %.sroa.15.0.copyload36.i41, %83 ], [ @.str.9, %70 ]
-  %.sroa.0.0.i43 = phi i64 [ 0, %84 ], [ 6, %71 ], [ 5, %72 ], [ %.sroa.0.0.copyload15.i51, %73 ], [ 7, %75 ], [ 9, %76 ], [ 5, %77 ], [ 7, %78 ], [ 5, %79 ], [ 7, %80 ], [ 4, %81 ], [ %.sroa.0.0.copyload23.i46, %82 ], [ 11, %83 ], [ 4, %70 ]
+_ZN4moldL12get_elf_typeEPh.exit52:                ; preds = %70, %71, %72, %73, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84
+  %.sroa.15.0.i41 = phi ptr [ @.str.6, %84 ], [ @.str.10, %71 ], [ @.str.11, %72 ], [ %.sroa.15.0.copyload27.i51, %73 ], [ %.sroa.15.0.copyload28.i49, %75 ], [ %.sroa.15.0.copyload29.i48, %76 ], [ @.str.18, %77 ], [ %.sroa.15.0.copyload31.i47, %78 ], [ @.str.21, %79 ], [ @.str.22, %80 ], [ @.str.23, %81 ], [ %.sroa.15.0.copyload35.i46, %82 ], [ %.sroa.15.0.copyload36.i40, %83 ], [ @.str.9, %70 ]
+  %.sroa.0.0.i42 = phi i64 [ 0, %84 ], [ 6, %71 ], [ 5, %72 ], [ %.sroa.0.0.copyload15.i50, %73 ], [ 7, %75 ], [ 9, %76 ], [ 5, %77 ], [ 7, %78 ], [ 5, %79 ], [ 7, %80 ], [ 4, %81 ], [ %.sroa.0.0.copyload23.i45, %82 ], [ 11, %83 ], [ 4, %70 ]
   switch i32 %49, label %85 [
-    i32 7, label %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit
-    i32 2, label %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit
+    i32 7, label %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit
+    i32 2, label %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit
   ]
 
-85:                                               ; preds = %.lr.ph98, %_ZN4moldL12get_elf_typeEPh.exit53
-  %.sroa.077.3 = phi i64 [ %.sroa.077.195, %.lr.ph98 ], [ %.sroa.0.0.i43, %_ZN4moldL12get_elf_typeEPh.exit53 ]
-  %.sroa.8.3 = phi ptr [ %.sroa.8.196, %.lr.ph98 ], [ %.sroa.15.0.i42, %_ZN4moldL12get_elf_typeEPh.exit53 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.074.094, i64 8
+85:                                               ; preds = %.lr.ph97, %_ZN4moldL12get_elf_typeEPh.exit52
+  %.sroa.076.3 = phi i64 [ %.sroa.076.194, %.lr.ph97 ], [ %.sroa.0.0.i42, %_ZN4moldL12get_elf_typeEPh.exit52 ]
+  %.sroa.8.3 = phi ptr [ %.sroa.8.195, %.lr.ph97 ], [ %.sroa.15.0.i41, %_ZN4moldL12get_elf_typeEPh.exit52 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.073.093, i64 8
   %87 = icmp eq ptr %86, %46
-  br i1 %87, label %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit, label %.lr.ph98
+  br i1 %87, label %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit, label %.lr.ph97
 
-_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit: ; preds = %_ZN4moldL12get_elf_typeEPh.exit53, %_ZN4moldL12get_elf_typeEPh.exit53, %85
-  %.lcssa.ph = phi i1 [ true, %85 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit53 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit53 ]
-  %.sroa.077.2.ph = phi i64 [ %.sroa.077.3, %85 ], [ %.sroa.0.0.i43, %_ZN4moldL12get_elf_typeEPh.exit53 ], [ %.sroa.0.0.i43, %_ZN4moldL12get_elf_typeEPh.exit53 ]
-  %.sroa.8.2.ph = phi ptr [ %.sroa.8.3, %85 ], [ %.sroa.15.0.i42, %_ZN4moldL12get_elf_typeEPh.exit53 ], [ %.sroa.15.0.i42, %_ZN4moldL12get_elf_typeEPh.exit53 ]
-  %.pre110 = load ptr, ptr %4, align 8, !tbaa !34
-  br label %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge
+_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit: ; preds = %_ZN4moldL12get_elf_typeEPh.exit52, %_ZN4moldL12get_elf_typeEPh.exit52, %85
+  %.lcssa.ph = phi i1 [ true, %85 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit52 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit52 ]
+  %.sroa.076.2.ph = phi i64 [ %.sroa.076.3, %85 ], [ %.sroa.0.0.i42, %_ZN4moldL12get_elf_typeEPh.exit52 ], [ %.sroa.0.0.i42, %_ZN4moldL12get_elf_typeEPh.exit52 ]
+  %.sroa.8.2.ph = phi ptr [ %.sroa.8.3, %85 ], [ %.sroa.15.0.i41, %_ZN4moldL12get_elf_typeEPh.exit52 ], [ %.sroa.15.0.i41, %_ZN4moldL12get_elf_typeEPh.exit52 ]
+  %.pre109 = load ptr, ptr %4, align 8, !tbaa !34
+  br label %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge
 
-_ZN4moldL12get_elf_typeEPh.exit53._crit_edge:     ; preds = %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit, %43
-  %88 = phi ptr [ %44, %43 ], [ %.pre110, %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit ]
-  %.lcssa = phi i1 [ true, %43 ], [ %.lcssa.ph, %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit ]
-  %.sroa.077.2 = phi i64 [ undef, %43 ], [ %.sroa.077.2.ph, %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit ]
-  %.sroa.8.2 = phi ptr [ undef, %43 ], [ %.sroa.8.2.ph, %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge.loopexit ]
+_ZN4moldL12get_elf_typeEPh.exit52._crit_edge:     ; preds = %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit, %43
+  %88 = phi ptr [ %44, %43 ], [ %.pre109, %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit ]
+  %.lcssa = phi i1 [ true, %43 ], [ %.lcssa.ph, %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit ]
+  %.sroa.076.2 = phi i64 [ undef, %43 ], [ %.sroa.076.2.ph, %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit ]
+  %.sroa.8.2 = phi ptr [ undef, %43 ], [ %.sroa.8.2.ph, %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge.loopexit ]
   %.not.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit, label %89
 
-89:                                               ; preds = %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge
+89:                                               ; preds = %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !36
   %92 = ptrtoint ptr %91 to i64
@@ -1693,10 +1693,10 @@ _ZN4moldL12get_elf_typeEPh.exit53._crit_edge:     ; preds = %_ZN4moldL12get_elf_
   call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef %94) #23
   br label %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit: ; preds = %_ZN4moldL12get_elf_typeEPh.exit53._crit_edge, %89
+_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit: ; preds = %_ZN4moldL12get_elf_typeEPh.exit52._crit_edge, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %spec.select = select i1 %.lcssa, i64 0, i64 %.sroa.077.2
-  %spec.select78 = select i1 %.lcssa, ptr @.str.6, ptr %.sroa.8.2
+  %spec.select = select i1 %.lcssa, i64 0, i64 %.sroa.076.2
+  %spec.select77 = select i1 %.lcssa, ptr @.str.6, ptr %.sroa.8.2
   br label %_ZN4moldL12get_elf_typeEPh.exit
 
 95:                                               ; preds = %3
@@ -1706,13 +1706,13 @@ _ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit: ; preds = %_ZN4moldL12get_el
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !31
   %99 = icmp eq ptr %96, %98
-  br i1 %99, label %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge, label %.lr.ph
+  br i1 %99, label %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95, %137
-  %.sroa.8.484 = phi ptr [ %.sroa.8.6, %137 ], [ undef, %95 ]
-  %.sroa.070.083 = phi ptr [ %138, %137 ], [ %96, %95 ]
-  %.sroa.077.482 = phi i64 [ %.sroa.077.6, %137 ], [ undef, %95 ]
-  %100 = load ptr, ptr %.sroa.070.083, align 8, !tbaa !33
+  %.sroa.8.483 = phi ptr [ %.sroa.8.6, %137 ], [ undef, %95 ]
+  %.sroa.069.082 = phi ptr [ %138, %137 ], [ %96, %95 ]
+  %.sroa.076.481 = phi i64 [ %.sroa.076.6, %137 ], [ undef, %95 ]
+  %100 = load ptr, ptr %.sroa.069.082, align 8, !tbaa !33
   %101 = call noundef i32 @_ZN4mold13get_file_typeINS_6X86_64EEENS_8FileTypeERNS_7ContextIT_EEPNS_10MappedFileE(ptr noundef nonnull align 8 dereferenceable(4520) %0, ptr noundef %100)
   switch i32 %101, label %137 [
     i32 7, label %102
@@ -1746,9 +1746,9 @@ _ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit: ; preds = %_ZN4moldL12get_el
   br label %122
 
 122:                                              ; preds = %114, %112
-  %.in.i54 = phi i16 [ %113, %112 ], [ %121, %114 ]
-  switch i16 %.in.i54, label %136 [
-    i16 3, label %_ZN4moldL12get_elf_typeEPh.exit67
+  %.in.i53 = phi i16 [ %113, %112 ], [ %121, %114 ]
+  switch i16 %.in.i53, label %136 [
+    i16 3, label %_ZN4moldL12get_elf_typeEPh.exit66
     i16 62, label %123
     i16 40, label %124
     i16 183, label %125
@@ -1763,98 +1763,98 @@ _ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit: ; preds = %_ZN4moldL12get_el
   ]
 
 123:                                              ; preds = %122
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 124:                                              ; preds = %122
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 125:                                              ; preds = %122
-  %.sroa.0.0.copyload15.i65 = select i1 %107, i64 5, i64 7
-  %.sroa.15.0.copyload27.i66 = select i1 %107, ptr @.str.12, ptr @.str.13
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  %.sroa.0.0.copyload15.i64 = select i1 %107, i64 5, i64 7
+  %.sroa.15.0.copyload27.i65 = select i1 %107, ptr @.str.12, ptr @.str.13
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 126:                                              ; preds = %122
   br i1 %107, label %127, label %128
 
 127:                                              ; preds = %126
-  %.sroa.15.0.copyload28.i64 = select i1 %110, ptr @.str.14, ptr @.str.15
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  %.sroa.15.0.copyload28.i63 = select i1 %110, ptr @.str.14, ptr @.str.15
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 128:                                              ; preds = %126
-  %.sroa.15.0.copyload29.i63 = select i1 %110, ptr @.str.16, ptr @.str.17
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  %.sroa.15.0.copyload29.i62 = select i1 %110, ptr @.str.16, ptr @.str.17
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 129:                                              ; preds = %122
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 130:                                              ; preds = %122
-  %.sroa.15.0.copyload31.i62 = select i1 %107, ptr @.str.19, ptr @.str.20
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  %.sroa.15.0.copyload31.i61 = select i1 %107, ptr @.str.19, ptr @.str.20
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 131:                                              ; preds = %122
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 132:                                              ; preds = %122
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 133:                                              ; preds = %122
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 134:                                              ; preds = %122
-  %.sroa.0.0.copyload23.i60 = select i1 %107, i64 3, i64 5
-  %.sroa.15.0.copyload35.i61 = select i1 %107, ptr @.str.24, ptr @.str.25
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  %.sroa.0.0.copyload23.i59 = select i1 %107, i64 3, i64 5
+  %.sroa.15.0.copyload35.i60 = select i1 %107, ptr @.str.24, ptr @.str.25
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 135:                                              ; preds = %122
-  %.sroa.15.0.copyload36.i55 = select i1 %110, ptr @.str.26, ptr @.str.27
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  %.sroa.15.0.copyload36.i54 = select i1 %110, ptr @.str.26, ptr @.str.27
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
 136:                                              ; preds = %122
-  br label %_ZN4moldL12get_elf_typeEPh.exit67
+  br label %_ZN4moldL12get_elf_typeEPh.exit66
 
-_ZN4moldL12get_elf_typeEPh.exit67:                ; preds = %122, %123, %124, %125, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136
-  %.sroa.15.0.i56 = phi ptr [ @.str.6, %136 ], [ @.str.10, %123 ], [ @.str.11, %124 ], [ %.sroa.15.0.copyload27.i66, %125 ], [ %.sroa.15.0.copyload28.i64, %127 ], [ %.sroa.15.0.copyload29.i63, %128 ], [ @.str.18, %129 ], [ %.sroa.15.0.copyload31.i62, %130 ], [ @.str.21, %131 ], [ @.str.22, %132 ], [ @.str.23, %133 ], [ %.sroa.15.0.copyload35.i61, %134 ], [ %.sroa.15.0.copyload36.i55, %135 ], [ @.str.9, %122 ]
-  %.sroa.0.0.i57 = phi i64 [ 0, %136 ], [ 6, %123 ], [ 5, %124 ], [ %.sroa.0.0.copyload15.i65, %125 ], [ 7, %127 ], [ 9, %128 ], [ 5, %129 ], [ 7, %130 ], [ 5, %131 ], [ 7, %132 ], [ 4, %133 ], [ %.sroa.0.0.copyload23.i60, %134 ], [ 11, %135 ], [ 4, %122 ]
+_ZN4moldL12get_elf_typeEPh.exit66:                ; preds = %122, %123, %124, %125, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136
+  %.sroa.15.0.i55 = phi ptr [ @.str.6, %136 ], [ @.str.10, %123 ], [ @.str.11, %124 ], [ %.sroa.15.0.copyload27.i65, %125 ], [ %.sroa.15.0.copyload28.i63, %127 ], [ %.sroa.15.0.copyload29.i62, %128 ], [ @.str.18, %129 ], [ %.sroa.15.0.copyload31.i61, %130 ], [ @.str.21, %131 ], [ @.str.22, %132 ], [ @.str.23, %133 ], [ %.sroa.15.0.copyload35.i60, %134 ], [ %.sroa.15.0.copyload36.i54, %135 ], [ @.str.9, %122 ]
+  %.sroa.0.0.i56 = phi i64 [ 0, %136 ], [ 6, %123 ], [ 5, %124 ], [ %.sroa.0.0.copyload15.i64, %125 ], [ 7, %127 ], [ 9, %128 ], [ 5, %129 ], [ 7, %130 ], [ 5, %131 ], [ 7, %132 ], [ 4, %133 ], [ %.sroa.0.0.copyload23.i59, %134 ], [ 11, %135 ], [ 4, %122 ]
   switch i32 %101, label %137 [
-    i32 7, label %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit
-    i32 2, label %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit
+    i32 7, label %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit
+    i32 2, label %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit
   ]
 
-137:                                              ; preds = %.lr.ph, %_ZN4moldL12get_elf_typeEPh.exit67
-  %.sroa.077.6 = phi i64 [ %.sroa.077.482, %.lr.ph ], [ %.sroa.0.0.i57, %_ZN4moldL12get_elf_typeEPh.exit67 ]
-  %.sroa.8.6 = phi ptr [ %.sroa.8.484, %.lr.ph ], [ %.sroa.15.0.i56, %_ZN4moldL12get_elf_typeEPh.exit67 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.070.083, i64 8
+137:                                              ; preds = %.lr.ph, %_ZN4moldL12get_elf_typeEPh.exit66
+  %.sroa.076.6 = phi i64 [ %.sroa.076.481, %.lr.ph ], [ %.sroa.0.0.i56, %_ZN4moldL12get_elf_typeEPh.exit66 ]
+  %.sroa.8.6 = phi ptr [ %.sroa.8.483, %.lr.ph ], [ %.sroa.15.0.i55, %_ZN4moldL12get_elf_typeEPh.exit66 ]
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.069.082, i64 8
   %139 = icmp eq ptr %138, %98
-  br i1 %139, label %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit, label %.lr.ph
+  br i1 %139, label %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit, label %.lr.ph
 
-_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit: ; preds = %_ZN4moldL12get_elf_typeEPh.exit67, %_ZN4moldL12get_elf_typeEPh.exit67, %137
-  %.lcssa81.ph = phi i1 [ true, %137 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit67 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit67 ]
-  %.sroa.077.5.ph = phi i64 [ %.sroa.077.6, %137 ], [ %.sroa.0.0.i57, %_ZN4moldL12get_elf_typeEPh.exit67 ], [ %.sroa.0.0.i57, %_ZN4moldL12get_elf_typeEPh.exit67 ]
-  %.sroa.8.5.ph = phi ptr [ %.sroa.8.6, %137 ], [ %.sroa.15.0.i56, %_ZN4moldL12get_elf_typeEPh.exit67 ], [ %.sroa.15.0.i56, %_ZN4moldL12get_elf_typeEPh.exit67 ]
+_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit: ; preds = %_ZN4moldL12get_elf_typeEPh.exit66, %_ZN4moldL12get_elf_typeEPh.exit66, %137
+  %.lcssa80.ph = phi i1 [ true, %137 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit66 ], [ false, %_ZN4moldL12get_elf_typeEPh.exit66 ]
+  %.sroa.076.5.ph = phi i64 [ %.sroa.076.6, %137 ], [ %.sroa.0.0.i56, %_ZN4moldL12get_elf_typeEPh.exit66 ], [ %.sroa.0.0.i56, %_ZN4moldL12get_elf_typeEPh.exit66 ]
+  %.sroa.8.5.ph = phi ptr [ %.sroa.8.6, %137 ], [ %.sroa.15.0.i55, %_ZN4moldL12get_elf_typeEPh.exit66 ], [ %.sroa.15.0.i55, %_ZN4moldL12get_elf_typeEPh.exit66 ]
   %.pre = load ptr, ptr %5, align 8, !tbaa !34
-  br label %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge
+  br label %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge
 
-_ZN4moldL12get_elf_typeEPh.exit67._crit_edge:     ; preds = %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit, %95
-  %140 = phi ptr [ %96, %95 ], [ %.pre, %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit ]
-  %.lcssa81 = phi i1 [ true, %95 ], [ %.lcssa81.ph, %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit ]
-  %.sroa.077.5 = phi i64 [ undef, %95 ], [ %.sroa.077.5.ph, %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit ]
-  %.sroa.8.5 = phi ptr [ undef, %95 ], [ %.sroa.8.5.ph, %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge.loopexit ]
-  %.not.i.i.i68 = icmp eq ptr %140, null
-  br i1 %.not.i.i.i68, label %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69, label %141
+_ZN4moldL12get_elf_typeEPh.exit66._crit_edge:     ; preds = %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit, %95
+  %140 = phi ptr [ %96, %95 ], [ %.pre, %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit ]
+  %.lcssa80 = phi i1 [ true, %95 ], [ %.lcssa80.ph, %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit ]
+  %.sroa.076.5 = phi i64 [ undef, %95 ], [ %.sroa.076.5.ph, %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit ]
+  %.sroa.8.5 = phi ptr [ undef, %95 ], [ %.sroa.8.5.ph, %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge.loopexit ]
+  %.not.i.i.i67 = icmp eq ptr %140, null
+  br i1 %.not.i.i.i67, label %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit68, label %141
 
-141:                                              ; preds = %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge
+141:                                              ; preds = %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %143 = load ptr, ptr %142, align 8, !tbaa !36
   %144 = ptrtoint ptr %143 to i64
   %145 = ptrtoint ptr %140 to i64
   %146 = sub i64 %144, %145
   call void @_ZdlPvm(ptr noundef nonnull %140, i64 noundef %146) #23
-  br label %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69
+  br label %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit68
 
-_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69: ; preds = %_ZN4moldL12get_elf_typeEPh.exit67._crit_edge, %141
+_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit68: ; preds = %_ZN4moldL12get_elf_typeEPh.exit66._crit_edge, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %spec.select79 = select i1 %.lcssa81, i64 0, i64 %.sroa.077.5
-  %spec.select80 = select i1 %.lcssa81, ptr @.str.6, ptr %.sroa.8.5
+  %spec.select78 = select i1 %.lcssa80, i64 0, i64 %.sroa.076.5
+  %spec.select79 = select i1 %.lcssa80, ptr @.str.6, ptr %.sroa.8.5
   br label %_ZN4moldL12get_elf_typeEPh.exit
 
 147:                                              ; preds = %3
@@ -1888,10 +1888,10 @@ _ZN4mold6ScriptINS_6X86_64EED2Ev.exit:            ; preds = %147, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4moldL12get_elf_typeEPh.exit
 
-_ZN4moldL12get_elf_typeEPh.exit:                  ; preds = %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit, %3, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %31, %30, %29, %28, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit
-  %.sroa.077.0 = phi i64 [ %153, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ 0, %42 ], [ 6, %29 ], [ 5, %30 ], [ %.sroa.0.0.copyload15.i, %31 ], [ 7, %33 ], [ 9, %34 ], [ 5, %35 ], [ 7, %36 ], [ 5, %37 ], [ 7, %38 ], [ 4, %39 ], [ %.sroa.0.0.copyload23.i, %40 ], [ 11, %41 ], [ 4, %28 ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select79, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69 ], [ 0, %3 ]
-  %.sroa.8.0 = phi ptr [ %154, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ @.str.6, %42 ], [ @.str.10, %29 ], [ @.str.11, %30 ], [ %.sroa.15.0.copyload27.i, %31 ], [ %.sroa.15.0.copyload28.i, %33 ], [ %.sroa.15.0.copyload29.i, %34 ], [ @.str.18, %35 ], [ %.sroa.15.0.copyload31.i, %36 ], [ @.str.21, %37 ], [ @.str.22, %38 ], [ @.str.23, %39 ], [ %.sroa.15.0.copyload35.i, %40 ], [ %.sroa.15.0.copyload36.i, %41 ], [ @.str.9, %28 ], [ %spec.select78, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select80, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit69 ], [ @.str.6, %3 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.077.0, 0
+_ZN4moldL12get_elf_typeEPh.exit:                  ; preds = %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit68, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit, %3, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %31, %30, %29, %28, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit
+  %.sroa.076.0 = phi i64 [ %153, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ 0, %42 ], [ 6, %29 ], [ 5, %30 ], [ %.sroa.0.0.copyload15.i, %31 ], [ 7, %33 ], [ 9, %34 ], [ 5, %35 ], [ 7, %36 ], [ 5, %37 ], [ 7, %38 ], [ 4, %39 ], [ %.sroa.0.0.copyload23.i, %40 ], [ 11, %41 ], [ 4, %28 ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select78, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit68 ], [ 0, %3 ]
+  %.sroa.8.0 = phi ptr [ %154, %_ZN4mold6ScriptINS_6X86_64EED2Ev.exit ], [ @.str.6, %42 ], [ @.str.10, %29 ], [ @.str.11, %30 ], [ %.sroa.15.0.copyload27.i, %31 ], [ %.sroa.15.0.copyload28.i, %33 ], [ %.sroa.15.0.copyload29.i, %34 ], [ @.str.18, %35 ], [ %.sroa.15.0.copyload31.i, %36 ], [ @.str.21, %37 ], [ @.str.22, %38 ], [ @.str.23, %39 ], [ %.sroa.15.0.copyload35.i, %40 ], [ %.sroa.15.0.copyload36.i, %41 ], [ @.str.9, %28 ], [ %spec.select77, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit ], [ %spec.select79, %_ZNSt6vectorIPN4mold10MappedFileESaIS2_EED2Ev.exit68 ], [ @.str.6, %3 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.076.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.8.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
@@ -2772,12 +2772,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i:
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %9 = tail call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #13
   %10 = load ptr, ptr %4, align 8, !tbaa !52
-  %sext39 = shl i64 %9, 32
-  %11 = ashr exact i64 %sext39, 32
+  %sext38 = shl i64 %9, 32
+  %11 = ashr exact i64 %sext38, 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !55
   %13 = icmp eq ptr %10, null
-  %14 = icmp ne i64 %sext39, 0
+  %14 = icmp ne i64 %sext38, 0
   %or.cond.i = and i1 %13, %14
   br i1 %or.cond.i, label %15, label %16
 

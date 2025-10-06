@@ -3474,8 +3474,8 @@ define dso_local range(i64 9223372036854775807, 7) i64 @getObjectTypeByName(ptr 
   br label %2
 
 2:                                                ; preds = %1, %7
-  %.01119 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %.01119
+  %.01117 = phi i64 [ 0, %1 ], [ %8, %7 ]
+  %3 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %.01117
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -3486,7 +3486,7 @@ define dso_local range(i64 9223372036854775807, 7) i64 @getObjectTypeByName(ptr 
   br i1 %.not13, label %.loopexit, label %7
 
 7:                                                ; preds = %2, %5
-  %8 = add nuw nsw i64 %.01119, 1
+  %8 = add nuw nsw i64 %.01117, 1
   %exitcond.not = icmp eq i64 %8, 7
   br i1 %exitcond.not, label %9, label %2, !llvm.loop !137
 
@@ -3502,7 +3502,7 @@ define dso_local range(i64 9223372036854775807, 7) i64 @getObjectTypeByName(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %11, %9
-  %.1 = phi i64 [ %14, %11 ], [ 9223372036854775807, %9 ], [ %.01119, %5 ]
+  %.1 = phi i64 [ %14, %11 ], [ 9223372036854775807, %9 ], [ %.01117, %5 ]
   ret i64 %.1
 }
 
@@ -3707,8 +3707,8 @@ sdslen.exit:                                      ; preds = %60, %63, %67, %71, 
   br label %92
 
 92:                                               ; preds = %97, %87
-  %.01119.i = phi i64 [ 0, %87 ], [ %98, %97 ]
-  %93 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %.01119.i
+  %.01117.i = phi i64 [ 0, %87 ], [ %98, %97 ]
+  %93 = getelementptr inbounds nuw ptr, ptr @obj_type_name, i64 %.01117.i
   %94 = load ptr, ptr %93, align 8, !tbaa !136
   %.not.i = icmp eq ptr %94, null
   br i1 %.not.i, label %97, label %95
@@ -3719,7 +3719,7 @@ sdslen.exit:                                      ; preds = %60, %63, %67, %71, 
   br i1 %.not13.i, label %sdslen.exit.thread, label %97
 
 97:                                               ; preds = %95, %92
-  %98 = add nuw nsw i64 %.01119.i, 1
+  %98 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %98, 7
   br i1 %exitcond.not.i, label %99, label %92, !llvm.loop !137
 
@@ -3762,7 +3762,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
   %.1254 = phi i32 [ %.0253381, %43 ], [ %.0253381, %51 ], [ %.0253381, %80 ], [ %.0253381, %sdslen.exit ], [ %.0253381, %99 ], [ %.0253381, %101 ], [ 1, %108 ], [ %.0253381, %95 ]
   %.1250 = phi i32 [ %.0249382, %43 ], [ 1, %51 ], [ %83, %80 ], [ 1, %sdslen.exit ], [ %.0249382, %99 ], [ %.0249382, %101 ], [ %.0249382, %108 ], [ %.0249382, %95 ]
   %.1242 = phi i32 [ %.0241383, %43 ], [ 0, %51 ], [ 1, %80 ], [ %78, %sdslen.exit ], [ %.0241383, %99 ], [ %.0241383, %101 ], [ %.0241383, %108 ], [ %.0241383, %95 ]
-  %.1239 = phi i64 [ %.0238384, %43 ], [ %.0238384, %51 ], [ %.0238384, %80 ], [ %.0238384, %sdslen.exit ], [ 9223372036854775807, %99 ], [ %104, %101 ], [ %.0238384, %108 ], [ %.01119.i, %95 ]
+  %.1239 = phi i64 [ %.0238384, %43 ], [ %.0238384, %51 ], [ %.0238384, %80 ], [ %.0238384, %sdslen.exit ], [ 9223372036854775807, %99 ], [ %104, %101 ], [ %.0238384, %108 ], [ %.01117.i, %95 ]
   %.1235 = phi ptr [ %.0234385, %43 ], [ %.0234385, %51 ], [ %.0234385, %80 ], [ %.0234385, %sdslen.exit ], [ %91, %99 ], [ %91, %101 ], [ %.0234385, %108 ], [ %91, %95 ]
   %.1233 = phi ptr [ %.0232386, %43 ], [ %55, %51 ], [ %55, %80 ], [ %55, %sdslen.exit ], [ %.0232386, %99 ], [ %.0232386, %101 ], [ %.0232386, %108 ], [ %.0232386, %95 ]
   %114 = add nuw nsw i32 %.0230387, %.sink
@@ -6476,9 +6476,9 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load i32, ptr %9, align 8, !tbaa !179
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph171, label %._crit_edge172
+  br i1 %11, label %.lr.ph170, label %._crit_edge171
 
-.lr.ph171:                                        ; preds = %.preheader
+.lr.ph170:                                        ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = and i32 %3, 1
   %.not126 = icmp eq i32 %13, 0
@@ -6498,10 +6498,10 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   tail call void @abort() #21
   unreachable
 
-23:                                               ; preds = %.lr.ph171, %.thread
-  %.099170 = phi i64 [ 0, %.lr.ph171 ], [ %188, %.thread ]
+23:                                               ; preds = %.lr.ph170, %.thread
+  %.099169 = phi i64 [ 0, %.lr.ph170 ], [ %188, %.thread ]
   %24 = load ptr, ptr %12, align 8, !tbaa !180
-  %25 = getelementptr inbounds nuw %struct.keySpec, ptr %24, i64 %.099170
+  %25 = getelementptr inbounds nuw %struct.keySpec, ptr %24, i64 %.099169
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !183
   %.not = icmp eq i32 %27, 0
@@ -6542,8 +6542,8 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   %.inv = icmp slt i32 %41, 1
   %45 = select i1 %.inv, i32 1, i32 %14
   %46 = sext i32 %45 to i64
-  %.not127164 = icmp eq i32 %44, %45
-  br i1 %.not127164, label %.thread, label %.lr.ph
+  %.not127163 = icmp eq i32 %44, %45
+  br i1 %.not127163, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38
   %47 = sext i32 %44 to i64
@@ -6552,14 +6552,14 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   br label %48
 
 48:                                               ; preds = %.lr.ph, %58
-  %.0100165 = phi i64 [ %47, %.lr.ph ], [ %59, %58 ]
-  %49 = icmp sge i64 %.0100165, %15
-  %50 = icmp slt i64 %.0100165, 1
+  %.0100164 = phi i64 [ %47, %.lr.ph ], [ %59, %58 ]
+  %49 = icmp sge i64 %.0100164, %15
+  %50 = icmp slt i64 %.0100164, 1
   %or.cond = or i1 %49, %50
   br i1 %or.cond, label %.thread, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0100165
+  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0100164
   %53 = load ptr, ptr %52, align 8, !tbaa !105
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !18
@@ -6569,12 +6569,12 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   br i1 %.not128, label %60, label %58
 
 58:                                               ; preds = %51
-  %59 = add nsw i64 %.0100165, %.v
+  %59 = add nsw i64 %.0100164, %.v
   %.not127 = icmp eq i64 %59, %46
   br i1 %.not127, label %.thread, label %48, !llvm.loop !184
 
 60:                                               ; preds = %51
-  %61 = add nuw nsw i64 %.0100165, 1
+  %61 = add nuw nsw i64 %.0100164, 1
   br label %62
 
 62:                                               ; preds = %60, %34
@@ -6745,7 +6745,7 @@ sdslen.exit:                                      ; preds = %94, %105, %108, %11
   %148 = phi ptr [ %17, %146 ], [ %143, %137 ]
   %149 = load i32, ptr %18, align 4, !tbaa !178
   %150 = icmp sgt i32 %142, %149
-  br i1 %150, label %151, label %.lr.ph169.preheader
+  br i1 %150, label %151, label %.lr.ph168.preheader
 
 151:                                              ; preds = %147
   %.not23.i = icmp eq ptr %148, %17
@@ -6774,18 +6774,18 @@ sdslen.exit:                                      ; preds = %94, %105, %108, %11
 162:                                              ; preds = %159, %156, %154
   %163 = phi ptr [ %157, %156 ], [ %157, %159 ], [ %155, %154 ]
   store i32 %142, ptr %18, align 4, !tbaa !178
-  br label %.lr.ph169.preheader
+  br label %.lr.ph168.preheader
 
-.lr.ph169.preheader:                              ; preds = %162, %147
+.lr.ph168.preheader:                              ; preds = %162, %147
   %164 = phi ptr [ %163, %162 ], [ %148, %147 ]
-  br label %.lr.ph169
+  br label %.lr.ph168
 
-.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %182
-  %.1101168 = phi i64 [ %183, %182 ], [ %.2111, %.lr.ph169.preheader ]
-  %165 = icmp slt i64 %.1101168, %.2111
+.lr.ph168:                                        ; preds = %.lr.ph168.preheader, %182
+  %.1101167 = phi i64 [ %183, %182 ], [ %.2111, %.lr.ph168.preheader ]
+  %165 = icmp slt i64 %.1101167, %.2111
   br i1 %165, label %166, label %173
 
-166:                                              ; preds = %.lr.ph169
+166:                                              ; preds = %.lr.ph168
   %167 = load i64, ptr %19, align 8, !tbaa !186
   %168 = and i64 %167, 8
   %.not138 = icmp eq i64 %168, 0
@@ -6801,8 +6801,8 @@ sdslen.exit:                                      ; preds = %94, %105, %108, %11
   call void @abort() #21
   unreachable
 
-173:                                              ; preds = %.lr.ph169
-  %174 = trunc i64 %.1101168 to i32
+173:                                              ; preds = %.lr.ph168
+  %174 = trunc i64 %.1101167 to i32
   %175 = load i32, ptr %4, align 8, !tbaa !177
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds %struct.keyReference, ptr %164, i64 %176
@@ -6816,37 +6816,37 @@ sdslen.exit:                                      ; preds = %94, %105, %108, %11
   br label %182
 
 182:                                              ; preds = %166, %169, %173
-  %183 = add nsw i64 %.1101168, %.0114
+  %183 = add nsw i64 %.1101167, %.0114
   %.not135 = icmp sgt i64 %183, %.3
-  br i1 %.not135, label %._crit_edge, label %.lr.ph169, !llvm.loop !191
+  br i1 %.not135, label %._crit_edge, label %.lr.ph168, !llvm.loop !191
 
 ._crit_edge:                                      ; preds = %182
   %184 = load i64, ptr %30, align 8, !tbaa !181
   %185 = and i64 %184, 512
   %.not136 = icmp ne i64 %185, 0
-  %or.cond162 = and i1 %.not139, %.not136
-  br i1 %or.cond162, label %187, label %.thread
+  %or.cond161 = and i1 %.not139, %.not136
+  br i1 %or.cond161, label %187, label %.thread
 
 186:                                              ; preds = %.thread149, %62, %33, %134
   br i1 %.not139, label %187, label %.thread
 
 187:                                              ; preds = %._crit_edge, %186
   store i32 0, ptr %4, align 8, !tbaa !177
-  br label %._crit_edge172
+  br label %._crit_edge171
 
 .thread:                                          ; preds = %48, %58, %38, %29, %._crit_edge, %186
-  %188 = add nuw nsw i64 %.099170, 1
+  %188 = add nuw nsw i64 %.099169, 1
   %189 = load i32, ptr %9, align 8, !tbaa !179
   %190 = sext i32 %189 to i64
   %191 = icmp slt i64 %188, %190
-  br i1 %191, label %23, label %._crit_edge172.loopexit, !llvm.loop !192
+  br i1 %191, label %23, label %._crit_edge171.loopexit, !llvm.loop !192
 
-._crit_edge172.loopexit:                          ; preds = %.thread
+._crit_edge171.loopexit:                          ; preds = %.thread
   %.pre = load i32, ptr %4, align 8, !tbaa !177
-  br label %._crit_edge172
+  br label %._crit_edge171
 
-._crit_edge172:                                   ; preds = %.preheader, %._crit_edge172.loopexit, %187
-  %.2 = phi i32 [ -1, %187 ], [ %.pre, %._crit_edge172.loopexit ], [ 0, %.preheader ]
+._crit_edge171:                                   ; preds = %.preheader, %._crit_edge171.loopexit, %187
+  %.2 = phi i32 [ -1, %187 ], [ %.pre, %._crit_edge171.loopexit ], [ 0, %.preheader ]
   ret i32 %.2
 }
 
@@ -7004,37 +7004,37 @@ define dso_local range(i32 0, 2) i32 @doesCommandHaveChannelsWithFlags(ptr nound
 
 .preheader:                                       ; preds = %2
   %6 = load ptr, ptr @commands_with_channels, align 16, !tbaa !194
-  %.not1113 = icmp eq ptr %6, null
-  br i1 %.not1113, label %.loopexit, label %.lr.ph
+  %.not1115 = icmp eq ptr %6, null
+  br i1 %.not1115, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !59
   br label %9
 
-9:                                                ; preds = %.lr.ph, %19
-  %10 = phi ptr [ %6, %.lr.ph ], [ %21, %19 ]
-  %.0814 = phi ptr [ @commands_with_channels, %.lr.ph ], [ %20, %19 ]
+9:                                                ; preds = %.lr.ph, %12
+  %10 = phi ptr [ %6, %.lr.ph ], [ %14, %12 ]
+  %.0816 = phi ptr [ @commands_with_channels, %.lr.ph ], [ %13, %12 ]
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %12, label %19
+  br i1 %11, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.0814, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !196
-  %15 = sext i32 %1 to i64
-  %16 = and i64 %14, %15
-  %17 = icmp ne i64 %16, 0
-  %18 = zext i1 %17 to i32
+  %13 = getelementptr inbounds nuw i8, ptr %.0816, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !194
+  %.not11 = icmp eq ptr %14, null
+  br i1 %.not11, label %.loopexit, label %9, !llvm.loop !196
+
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %.0816, i64 8
+  %17 = load i64, ptr %16, align 8, !tbaa !197
+  %18 = sext i32 %1 to i64
+  %19 = and i64 %17, %18
+  %20 = icmp ne i64 %19, 0
+  %21 = zext i1 %20 to i32
   br label %.loopexit
 
-19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %.0814, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !194
-  %.not11 = icmp eq ptr %21, null
-  br i1 %.not11, label %.loopexit, label %9, !llvm.loop !197
-
-.loopexit:                                        ; preds = %19, %.preheader, %12, %2
-  %.09 = phi i32 [ 1, %2 ], [ %18, %12 ], [ 0, %.preheader ], [ 0, %19 ]
+.loopexit:                                        ; preds = %12, %.preheader, %15, %2
+  %.09 = phi i32 [ 1, %2 ], [ %21, %15 ], [ 0, %.preheader ], [ 0, %12 ]
   ret i32 %.09
 }
 
@@ -7136,7 +7136,7 @@ getKeysPrepareResult.exit:                        ; preds = %32, %49
 
 .lr.ph:                                           ; preds = %getKeysPrepareResult.exit
   %53 = getelementptr inbounds nuw i8, ptr %.037, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !196
+  %54 = load i64, ptr %53, align 8, !tbaa !197
   %55 = trunc i64 %54 to i32
   %wide.trip.count = zext i32 %24 to i64
   br label %56
@@ -8033,8 +8033,8 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4, %26
-  %.04362 = phi i32 [ %27, %26 ], [ 1, %4 ]
-  %6 = sext i32 %.04362 to i64
+  %.04361 = phi i32 [ %27, %26 ], [ 1, %4 ]
+  %6 = sext i32 %.04361 to i64
   %7 = getelementptr inbounds ptr, ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -8044,7 +8044,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %.lr.ph
-  %13 = add i32 %.04362, 1
+  %13 = add i32 %.04361, 1
   br label %26
 
 14:                                               ; preds = %.lr.ph
@@ -8053,7 +8053,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
   br i1 %.not47, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = add i32 %.04362, 1
+  %17 = add i32 %.04361, 1
   br label %26
 
 18:                                               ; preds = %14
@@ -8062,7 +8062,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
   br i1 %.not48, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = add i32 %.04362, 2
+  %21 = add i32 %.04361, 2
   br label %26
 
 22:                                               ; preds = %18
@@ -8073,21 +8073,21 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
 24:                                               ; preds = %22
   %25 = tail call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.70) #24
   %.not50 = icmp eq i32 %25, 0
-  br i1 %.not50, label %.loopexit60, label %.loopexit
+  br i1 %.not50, label %.loopexit59, label %.loopexit
 
 26:                                               ; preds = %16, %22, %20, %12
-  %.245.ph = phi i32 [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %.04362, %22 ]
+  %.245.ph = phi i32 [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %.04361, %22 ]
   %27 = add i32 %.245.ph, 1
   %28 = icmp slt i32 %27, %2
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !214
 
-.loopexit60:                                      ; preds = %24
-  %.not51 = icmp eq i32 %.04362, -1
-  %29 = xor i32 %.04362, -1
+.loopexit59:                                      ; preds = %24
+  %.not51 = icmp eq i32 %.04361, -1
+  %29 = xor i32 %.04361, -1
   %30 = add i32 %2, %29
   br i1 %.not51, label %.loopexit, label %31
 
-31:                                               ; preds = %.loopexit60
+31:                                               ; preds = %.loopexit59
   %32 = icmp ne i32 %30, 0
   %33 = and i32 %30, 1
   %.not52 = icmp eq i32 %33, 0
@@ -8156,19 +8156,19 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
 getKeysPrepareResult.exit:                        ; preds = %43, %60
   %62 = phi ptr [ %61, %60 ], [ %44, %43 ]
   %63 = sub nsw i32 %2, %35
-  %.363 = add nsw i32 %.04362, 1
-  %64 = icmp slt i32 %.363, %63
-  br i1 %64, label %.lr.ph66.preheader, label %.loopexit
+  %.362 = add nsw i32 %.04361, 1
+  %64 = icmp slt i32 %.362, %63
+  br i1 %64, label %.lr.ph65.preheader, label %.loopexit
 
-.lr.ph66.preheader:                               ; preds = %getKeysPrepareResult.exit
-  %65 = sext i32 %.363 to i64
+.lr.ph65.preheader:                               ; preds = %getKeysPrepareResult.exit
+  %65 = sext i32 %.362 to i64
   %66 = sext i32 %63 to i64
-  br label %.lr.ph66
+  br label %.lr.ph65
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
-  %indvars.iv = phi i64 [ %65, %.lr.ph66.preheader ], [ %indvars.iv.next, %.lr.ph66 ]
-  %.3.in64 = phi i32 [ %.04362, %.lr.ph66.preheader ], [ %70, %.lr.ph66 ]
-  %67 = sub i32 %.3.in64, %.04362
+.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
+  %indvars.iv = phi i64 [ %65, %.lr.ph65.preheader ], [ %indvars.iv.next, %.lr.ph65 ]
+  %.3.in63 = phi i32 [ %.04361, %.lr.ph65.preheader ], [ %70, %.lr.ph65 ]
+  %67 = sub i32 %.3.in63, %.04361
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds %struct.keyReference, ptr %62, i64 %68
   %70 = trunc nsw i64 %indvars.iv to i32
@@ -8177,10 +8177,10 @@ getKeysPrepareResult.exit:                        ; preds = %43, %60
   store i32 0, ptr %71, align 4, !tbaa !190
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %72 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %72, label %.lr.ph66, label %.loopexit, !llvm.loop !215
+  br i1 %72, label %.lr.ph65, label %.loopexit, !llvm.loop !215
 
-.loopexit:                                        ; preds = %26, %.lr.ph66, %.loopexit60, %4, %24, %getKeysPrepareResult.exit, %31
-  %storemerge = phi i32 [ 0, %31 ], [ %35, %getKeysPrepareResult.exit ], [ 0, %24 ], [ 0, %4 ], [ 0, %.loopexit60 ], [ %35, %.lr.ph66 ], [ 0, %26 ]
+.loopexit:                                        ; preds = %26, %.lr.ph65, %.loopexit59, %4, %24, %getKeysPrepareResult.exit, %31
+  %storemerge = phi i32 [ 0, %31 ], [ %35, %getKeysPrepareResult.exit ], [ 0, %24 ], [ 0, %4 ], [ 0, %.loopexit59 ], [ %35, %.lr.ph65 ], [ 0, %26 ]
   store i32 %storemerge, ptr %3, align 8, !tbaa !177
   ret i32 %storemerge
 }
@@ -8686,8 +8686,8 @@ attributes #25 = { nounwind allocsize(1) }
 !193 = !{!60, !9, i64 144}
 !194 = !{!195, !9, i64 0}
 !195 = !{!"ChannelSpecs", !9, i64 0, !15, i64 8, !13, i64 16, !13, i64 20}
-!196 = !{!195, !15, i64 8}
-!197 = distinct !{!197, !81}
+!196 = distinct !{!196, !81}
+!197 = !{!195, !15, i64 8}
 !198 = distinct !{!198, !81}
 !199 = !{!195, !13, i64 16}
 !200 = !{!195, !13, i64 20}

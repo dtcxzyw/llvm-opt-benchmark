@@ -155,9 +155,9 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   br label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %279
-  %.042330 = phi i32 [ %.1, %279 ], [ 0, %.preheader ]
-  %.043329 = phi i32 [ %280, %279 ], [ 0, %.preheader ]
-  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %4, i32 noundef %.043329) #4
+  %.042329 = phi i32 [ %.1, %279 ], [ 0, %.preheader ]
+  %.043328 = phi i32 [ %280, %279 ], [ 0, %.preheader ]
+  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %4, i32 noundef %.043328) #4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %.not = icmp eq ptr %15, null
@@ -215,7 +215,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   br i1 %42, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %.not74.i.i = icmp eq i32 %.042330, 0
+  %.not74.i.i = icmp eq i32 %.042329, 0
   %..i.i = select i1 %.not74.i.i, i32 26, i32 22
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br label %45
@@ -227,8 +227,8 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   br label %select.unfold
 
 45:                                               ; preds = %258, %.lr.ph.i
-  %.052198.i = phi i32 [ 0, %.lr.ph.i ], [ %259, %258 ]
-  %46 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %33, i32 noundef %.052198.i) #4
+  %.052195.i = phi i32 [ 0, %.lr.ph.i ], [ %259, %258 ]
+  %46 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %33, i32 noundef %.052195.i) #4
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !16
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(17) @.str.27) #5
@@ -422,8 +422,8 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   br label %129
 
 129:                                              ; preds = %234, %.lr.ph.i.i
-  %.05735.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %235, %234 ]
-  %130 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %106, i32 noundef %.05735.i.i) #4
+  %.05733.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %235, %234 ]
+  %130 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %106, i32 noundef %.05733.i.i) #4
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !13
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
@@ -624,13 +624,13 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   %215 = load ptr, ptr %214, align 8, !tbaa !33
   %216 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %206) #4
   %217 = icmp sgt i32 %216, 0
-  br i1 %217, label %.lr.ph.i.i.i, label %.loopexit10.i.i
+  br i1 %217, label %.lr.ph.i.i.i, label %.loopexit8.i.i
 
 218:                                              ; preds = %227
   %219 = add nuw nsw i32 %.012.i.i.i, 1
   %220 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %206) #4
   %221 = icmp slt i32 %219, %220
-  br i1 %221, label %.lr.ph.i.i.i, label %.loopexit10.i.i, !llvm.loop !34
+  br i1 %221, label %.lr.ph.i.i.i, label %.loopexit8.i.i, !llvm.loop !34
 
 .lr.ph.i.i.i:                                     ; preds = %213, %218
   %.012.i.i.i = phi i32 [ %219, %218 ], [ 0, %213 ]
@@ -643,8 +643,8 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
 
 227:                                              ; preds = %.lr.ph.i.i.i
   %228 = tail call i32 @OPENSSL_sk_push(ptr noundef %215, ptr noundef nonnull %225) #4
-  %.not.i82.i.i = icmp eq i32 %228, 0
-  br i1 %.not.i82.i.i, label %229, label %218
+  %.not.i81.i.i = icmp eq i32 %228, 0
+  br i1 %.not.i81.i.i, label %229, label %218
 
 229:                                              ; preds = %227
   tail call void @ASN1_INTEGER_free(ptr noundef nonnull %225) #4
@@ -659,7 +659,7 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %206, ptr noundef nonnull @X509V3_conf_free) #4
   br label %notice_section.exit.thread.i
 
-.loopexit10.i.i:                                  ; preds = %218, %213
+.loopexit8.i.i:                                   ; preds = %218, %213
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %206, ptr noundef nonnull @X509V3_conf_free) #4
   br label %234
 
@@ -673,8 +673,8 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %232, ptr noundef nonnull @.str.24, ptr noundef %233) #4
   br label %notice_section.exit.thread.i
 
-234:                                              ; preds = %.loopexit10.i.i, %186, %171
-  %235 = add nuw nsw i32 %.05735.i.i, 1
+234:                                              ; preds = %.loopexit8.i.i, %186, %171
+  %235 = add nuw nsw i32 %.05733.i.i, 1
   %236 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %106) #4
   %237 = icmp slt i32 %235, %236
   br i1 %237, label %129, label %._crit_edge.i.i, !llvm.loop !35
@@ -741,7 +741,7 @@ notice_section.exit.i:                            ; preds = %242, %._crit_edge.i
   br label %select.unfold
 
 258:                                              ; preds = %249, %85, %.thread.i
-  %259 = add nuw nsw i32 %.052198.i, 1
+  %259 = add nuw nsw i32 %.052195.i, 1
   %260 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %33) #4
   %261 = icmp slt i32 %259, %260
   br i1 %261, label %45, label %._crit_edge.i, !llvm.loop !36
@@ -809,8 +809,8 @@ select.unfold:                                    ; preds = %44, %56, %71, %75, 
   br label %.thread
 
 279:                                              ; preds = %25, %276
-  %.1 = phi i32 [ %.042330, %276 ], [ 1, %25 ]
-  %280 = add nuw nsw i32 %.043329, 1
+  %.1 = phi i32 [ %.042329, %276 ], [ 1, %25 ]
+  %280 = add nuw nsw i32 %.043328, 1
   %exitcond.not = icmp eq i32 %280, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 

@@ -590,12 +590,12 @@ _get_alias_addrs.exit:                            ; preds = %3, %._crit_edge.i
   %.022.i = phi ptr [ %72, %68 ], [ null, %63 ], [ null, %61 ]
   %.0.i = phi i1 [ true, %68 ], [ false, %63 ], [ false, %61 ]
   %74 = tail call ptr @hostlist_next(ptr noundef %57) #10
-  %.not3141.i = icmp eq ptr %74, null
-  br i1 %.not3141.i, label %.loopexit.i, label %.lr.ph.i50
+  %.not3139.i = icmp eq ptr %74, null
+  br i1 %.not3139.i, label %.loopexit.i, label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %73, %95
   %75 = phi ptr [ %96, %95 ], [ %74, %73 ]
-  %.142.i = phi i1 [ %.2.i, %95 ], [ %.0.i, %73 ]
+  %.140.i = phi i1 [ %.2.i, %95 ], [ %.0.i, %73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -608,7 +608,7 @@ _get_alias_addrs.exit:                            ; preds = %3, %._crit_edge.i
   br i1 %or.cond.i, label %80, label %95, !llvm.loop !13
 
 80:                                               ; preds = %.lr.ph.i50
-  br i1 %.142.i, label %81, label %87
+  br i1 %.140.i, label %81, label %87
 
 81:                                               ; preds = %80
   %82 = call i32 @hostlist_find(ptr noundef %.022.i, ptr noundef nonnull %75) #10
@@ -647,7 +647,7 @@ _get_alias_addrs.exit:                            ; preds = %3, %._crit_edge.i
   br label %.loopexit.i
 
 95:                                               ; preds = %84, %.lr.ph.i50
-  %.2.i = phi i1 [ true, %84 ], [ %.142.i, %.lr.ph.i50 ]
+  %.2.i = phi i1 [ true, %84 ], [ %.140.i, %.lr.ph.i50 ]
   call void @free(ptr noundef nonnull %75) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2091,10 +2091,10 @@ define internal noalias noundef ptr @_fwd_tree_thread(ptr noundef %0) #0 {
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @hostlist_shift(ptr noundef %25) #10
-  %.not110 = icmp eq ptr %26, null
-  br i1 %.not110, label %._crit_edge113, label %.lr.ph112
+  %.not109 = icmp eq ptr %26, null
+  br i1 %.not109, label %._crit_edge112, label %.lr.ph111
 
-.lr.ph112:                                        ; preds = %23
+.lr.ph111:                                        ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 276
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2107,8 +2107,8 @@ define internal noalias noundef ptr @_fwd_tree_thread(ptr noundef %0) #0 {
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %37
 
-37:                                               ; preds = %.lr.ph112, %.backedge
-  %38 = phi ptr [ %26, %.lr.ph112 ], [ %78, %.backedge ]
+37:                                               ; preds = %.lr.ph111, %.backedge
+  %38 = phi ptr [ %26, %.lr.ph111 ], [ %78, %.backedge ]
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 208
   %41 = load i16, ptr %40, align 8
@@ -2143,9 +2143,9 @@ define internal noalias noundef ptr @_fwd_tree_thread(ptr noundef %0) #0 {
 57:                                               ; preds = %43, %37
   %58 = call i32 @slurm_conf_get_addr(ptr noundef nonnull %38, ptr noundef nonnull %2, i16 noundef zeroext %41) #10
   %59 = icmp eq i32 %58, -1
-  br i1 %59, label %60, label %._crit_edge123
+  br i1 %59, label %60, label %._crit_edge122
 
-._crit_edge123:                                   ; preds = %57
+._crit_edge122:                                   ; preds = %57
   %.pre = load ptr, ptr %3, align 8
   br label %79
 
@@ -2195,10 +2195,10 @@ _fwd_tree_get_addr.exit:                          ; preds = %72, %46
   %77 = load ptr, ptr %24, align 8
   %78 = call ptr @hostlist_shift(ptr noundef %77) #10
   %.not = icmp eq ptr %78, null
-  br i1 %.not, label %._crit_edge113, label %37, !llvm.loop !23
+  br i1 %.not, label %._crit_edge112, label %37, !llvm.loop !23
 
-79:                                               ; preds = %._crit_edge123, %.thread.i
-  %80 = phi ptr [ %.pre, %._crit_edge123 ], [ %52, %.thread.i ]
+79:                                               ; preds = %._crit_edge122, %.thread.i
+  %80 = phi ptr [ %.pre, %._crit_edge122 ], [ %52, %.thread.i ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 276
   %82 = load i16, ptr %81, align 4
   store i16 %82, ptr %28, align 4
@@ -2290,8 +2290,8 @@ _fwd_tree_get_addr.exit:                          ; preds = %72, %46
 123:                                              ; preds = %119
   %124 = call ptr @list_iterator_create(ptr noundef nonnull %111) #10
   %125 = call ptr @list_next(ptr noundef %124) #10
-  %.not91109 = icmp eq ptr %125, null
-  br i1 %.not91109, label %._crit_edge, label %.lr.ph
+  %.not91108 = icmp eq ptr %125, null
+  br i1 %.not91108, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %123, %134
   %126 = phi ptr [ %135, %134 ], [ %125, %123 ]
@@ -2414,9 +2414,9 @@ _fwd_tree_get_addr.exit:                          ; preds = %72, %46
   %179 = tail call ptr @__errno_location() #11
   %180 = load i32, ptr %179, align 4
   %181 = icmp eq i32 %180, 1001
-  br i1 %181, label %.backedge, label %._crit_edge113
+  br i1 %181, label %.backedge, label %._crit_edge112
 
-._crit_edge113:                                   ; preds = %.backedge, %178, %23
+._crit_edge112:                                   ; preds = %.backedge, %178, %23
   call void @_destroy_tree_fwd(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr null

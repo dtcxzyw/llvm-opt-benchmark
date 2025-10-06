@@ -947,10 +947,9 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %135, %139
   store i64 0, ptr %3, align 8
   %166 = call noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %155, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2) #15
   %magicptr.i = ptrtoint ptr %166 to i64
-  switch i64 %magicptr.i, label %167 [
-    i64 -1, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
-    i64 0, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %167, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
 
 167:                                              ; preds = %165
   %168 = load i64, ptr %3, align 8
@@ -1056,7 +1055,7 @@ thread-pre-split.i:                               ; preds = %181, %.thread-pre-s
   %or.cond.i20.i = or i1 %225, %226
   br i1 %or.cond.i20.i, label %227, label %.preheader.i, !llvm.loop !6
 
-_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %165, %165, %195, %thread-pre-split.i
+_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %165, %195, %thread-pre-split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZL13is_allocationPK4Node.exit.thread
 
@@ -2277,10 +2276,9 @@ _ZL11block_indexPK5BlockPK4Node.exit:             ; preds = %_ZNK5Block8get_node
   store i64 0, ptr %6, align 8
   %102 = call noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   %magicptr.i = ptrtoint ptr %102 to i64
-  switch i64 %magicptr.i, label %103 [
-    i64 -1, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
-    i64 0, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %103, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
 
 103:                                              ; preds = %101
   %104 = load i64, ptr %6, align 8
@@ -2386,7 +2384,7 @@ thread-pre-split.i:                               ; preds = %117, %.thread-pre-s
   %or.cond.i20.i = or i1 %161, %162
   br i1 %or.cond.i20.i, label %163, label %.preheader.i, !llvm.loop !6
 
-_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %101, %101, %131, %thread-pre-split.i
+_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %101, %131, %thread-pre-split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL19block_has_safepointPK5Blockjj.exit
 
@@ -2785,10 +2783,9 @@ define internal fastcc noundef ptr @_ZL19get_base_and_offsetPK8MachNodeRl(ptr no
   store i64 0, ptr %1, align 8
   %4 = call noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   %magicptr = ptrtoint ptr %4 to i64
-  switch i64 %magicptr, label %5 [
-    i64 -1, label %_ZL17look_through_nodePK4Node.exit
-    i64 0, label %_ZL17look_through_nodePK4Node.exit
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %5, label %_ZL17look_through_nodePK4Node.exit
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %1, align 8
@@ -2894,8 +2891,8 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %or.cond.i20 = or i1 %63, %64
   br i1 %or.cond.i20, label %_ZL17look_through_nodePK4Node.exit, label %.preheader, !llvm.loop !6
 
-_ZL17look_through_nodePK4Node.exit:               ; preds = %62, %37, %.preheader, %thread-pre-split, %33, %2, %2
-  %.017 = phi ptr [ null, %2 ], [ null, %2 ], [ null, %33 ], [ null, %thread-pre-split ], [ %.0.i, %62 ], [ %.0.i, %37 ], [ null, %.preheader ]
+_ZL17look_through_nodePK4Node.exit:               ; preds = %62, %37, %.preheader, %2, %thread-pre-split, %33
+  %.017 = phi ptr [ null, %2 ], [ null, %33 ], [ null, %thread-pre-split ], [ %.0.i, %62 ], [ %.0.i, %37 ], [ null, %.preheader ]
   ret ptr %.017
 }
 

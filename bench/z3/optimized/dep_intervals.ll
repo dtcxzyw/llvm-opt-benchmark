@@ -8600,8 +8600,8 @@ define weak_odr hidden void @_ZNK16interval_managerIN13dep_intervals9im_configEE
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %4, align 8
   %10 = and i8 %9, 4
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %13, label %11
+  %.not.i.not = icmp eq i8 %10, 0
+  br i1 %.not.i.not, label %13, label %11
 
 11:                                               ; preds = %3
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.17, i64 noundef 3)
@@ -8649,8 +8649,8 @@ define weak_odr hidden void @_ZNK16interval_managerIN13dep_intervals9im_configEE
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %4, align 8
   %10 = and i8 %9, 4
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %13, label %11
+  %.not.i.not = icmp eq i8 %10, 0
+  br i1 %.not.i.not, label %13, label %11
 
 11:                                               ; preds = %3
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.19, i64 noundef 8)

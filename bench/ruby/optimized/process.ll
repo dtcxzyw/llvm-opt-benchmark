@@ -1530,8 +1530,8 @@ rbimpl_RB_TYPE_P_fastpath.exit65.i:               ; preds = %381
 rbimpl_RB_TYPE_P_fastpath.exit65.thread.i:        ; preds = %389, %rbimpl_RB_TYPE_P_fastpath.exit65.i, %381
   %.059.i = phi i64 [ %390, %389 ], [ %257, %rbimpl_RB_TYPE_P_fastpath.exit65.i ], [ %257, %381 ]
   %391 = and i64 %.059.i, 1
-  %.not90.i = icmp eq i64 %391, 0
-  br i1 %.not90.i, label %400, label %392
+  %.not89.i = icmp eq i64 %391, 0
+  br i1 %.not89.i, label %400, label %392
 
 392:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit65.thread.i
   %393 = call i64 @rb_fix2int(i64 noundef %.059.i) #27
@@ -1602,7 +1602,7 @@ RARRAY_AREF.exit.i:                               ; preds = %417, %rb_array_len.
   br i1 %.not63.i, label %427, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %424
-  %.pre91.i = load i64, ptr %402, align 8, !tbaa !69
+  %.pre90.i = load i64, ptr %402, align 8, !tbaa !69
   br label %split.i
 
 427:                                              ; preds = %424, %RARRAY_AREF.exit.i
@@ -1611,7 +1611,7 @@ RARRAY_AREF.exit.i:                               ; preds = %417, %rb_array_len.
   br label %408, !llvm.loop !94
 
 split.i:                                          ; preds = %rb_array_len.exit73.thread.i, %rb_array_len.exit73.i, %._crit_edge.i
-  %429 = phi i64 [ %.pre91.i, %._crit_edge.i ], [ %409, %rb_array_len.exit73.i ], [ %409, %rb_array_len.exit73.thread.i ]
+  %429 = phi i64 [ %.pre90.i, %._crit_edge.i ], [ %409, %rb_array_len.exit73.i ], [ %409, %rb_array_len.exit73.thread.i ]
   %430 = and i64 %429, 8192
   %.not.i74.i = icmp eq i64 %430, 0
   br i1 %.not.i74.i, label %434, label %431
@@ -10759,8 +10759,8 @@ define internal fastcc range(i64 1, 4294967296) i64 @check_exec_redirect_fd(i64 
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8, !tbaa !43
   %3 = and i64 %0, 1
-  %.not21 = icmp eq i64 %3, 0
-  br i1 %.not21, label %7, label %4
+  %.not20 = icmp eq i64 %3, 0
+  br i1 %.not20, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i64 @rb_fix2int(i64 noundef %0) #27
@@ -10790,17 +10790,17 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %7, %RB_SYMBOL_P.exi
   %19 = call i64 @rb_check_id(ptr noundef nonnull %2) #27
   %20 = load i64, ptr @id_in, align 8, !tbaa !43
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %.thread18, label %22
+  br i1 %21, label %.thread17, label %22
 
 22:                                               ; preds = %RB_SYMBOL_P.exit.thread
   %23 = load i64, ptr @id_out, align 8, !tbaa !43
   %24 = icmp eq i64 %19, %23
-  br i1 %24, label %.thread18, label %25
+  br i1 %24, label %.thread17, label %25
 
 25:                                               ; preds = %22
   %26 = load i64, ptr @id_err, align 8, !tbaa !43
   %27 = icmp eq i64 %19, %26
-  br i1 %27, label %.thread18, label %49
+  br i1 %27, label %.thread17, label %49
 
 RB_SYMBOL_P.exit.thread14:                        ; preds = %10, %RB_SYMBOL_P.exit
   %28 = tail call i64 @rb_io_check_io(i64 noundef %0) #27
@@ -10831,16 +10831,16 @@ RB_SYMBOL_P.exit.thread14:                        ; preds = %10, %RB_SYMBOL_P.ex
 42:                                               ; preds = %39, %4
   %.010 = phi i32 [ %6, %4 ], [ %41, %39 ]
   %43 = icmp slt i32 %.010, 0
-  br i1 %43, label %44, label %.thread18
+  br i1 %43, label %44, label %.thread17
 
 44:                                               ; preds = %42
   %45 = load i64, ptr @rb_eArgError, align 8, !tbaa !43
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.184) #29
   unreachable
 
-.thread18:                                        ; preds = %22, %RB_SYMBOL_P.exit.thread, %25, %42
-  %.01020 = phi i32 [ %.010, %42 ], [ 1, %22 ], [ 0, %RB_SYMBOL_P.exit.thread ], [ 2, %25 ]
-  %46 = shl nuw i32 %.01020, 1
+.thread17:                                        ; preds = %22, %RB_SYMBOL_P.exit.thread, %25, %42
+  %.01019 = phi i32 [ %.010, %42 ], [ 1, %22 ], [ 0, %RB_SYMBOL_P.exit.thread ], [ 2, %25 ]
+  %46 = shl nuw i32 %.01019, 1
   %47 = or disjoint i32 %46, 1
   %48 = zext i32 %47 to i64
   ret i64 %48

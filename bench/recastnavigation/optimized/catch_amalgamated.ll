@@ -32601,8 +32601,8 @@ define dso_local void @_ZNK5Catch5Clara6Parser8validateEv(ptr dead_on_unwind noa
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
-  %.not24 = icmp eq ptr %4, %6
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq ptr %4, %6
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32610,11 +32610,11 @@ define dso_local void @_ZNK5Catch5Clara6Parser8validateEv(ptr dead_on_unwind noa
   br label %9
 
 9:                                                ; preds = %.lr.ph, %15
-  %.sroa.018.025 = phi ptr [ %4, %.lr.ph ], [ %16, %15 ]
-  %10 = load ptr, ptr %.sroa.018.025, align 8
+  %.sroa.017.024 = phi ptr [ %4, %.lr.ph ], [ %16, %15 ]
+  %10 = load ptr, ptr %.sroa.017.024, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr dead_on_unwind writable sret(%"class.Catch::Clara::Detail::BasicResult.150") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.018.025)
+  tail call void %12(ptr dead_on_unwind writable sret(%"class.Catch::Clara::Detail::BasicResult.150") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.017.024)
   %13 = load i32, ptr %7, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.loopexit
@@ -32622,7 +32622,7 @@ define dso_local void @_ZNK5Catch5Clara6Parser8validateEv(ptr dead_on_unwind noa
 15:                                               ; preds = %9
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #56
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 120
   %.not = icmp eq ptr %16, %6
   br i1 %.not, label %._crit_edge, label %9
 
@@ -32631,20 +32631,20 @@ define dso_local void @_ZNK5Catch5Clara6Parser8validateEv(ptr dead_on_unwind noa
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load ptr, ptr %19, align 8
-  %.not2226 = icmp eq ptr %18, %20
-  br i1 %.not2226, label %._crit_edge30, label %.lr.ph29
+  %.not2125 = icmp eq ptr %18, %20
+  br i1 %.not2125, label %._crit_edge29, label %.lr.ph28
 
-.lr.ph29:                                         ; preds = %._crit_edge
+.lr.ph28:                                         ; preds = %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %23
 
-23:                                               ; preds = %.lr.ph29, %29
-  %.sroa.014.027 = phi ptr [ %18, %.lr.ph29 ], [ %30, %29 ]
-  %24 = load ptr, ptr %.sroa.014.027, align 8
+23:                                               ; preds = %.lr.ph28, %29
+  %.sroa.013.026 = phi ptr [ %18, %.lr.ph28 ], [ %30, %29 ]
+  %24 = load ptr, ptr %.sroa.013.026, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr dead_on_unwind writable sret(%"class.Catch::Clara::Detail::BasicResult.150") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.014.027)
+  tail call void %26(ptr dead_on_unwind writable sret(%"class.Catch::Clara::Detail::BasicResult.150") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.013.026)
   %27 = load i32, ptr %21, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.loopexit
@@ -32652,11 +32652,11 @@ define dso_local void @_ZNK5Catch5Clara6Parser8validateEv(ptr dead_on_unwind noa
 29:                                               ; preds = %23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #56
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.027, i64 96
-  %.not22 = icmp eq ptr %30, %20
-  br i1 %.not22, label %._crit_edge30, label %23
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 96
+  %.not21 = icmp eq ptr %30, %20
+  br i1 %.not21, label %._crit_edge29, label %23
 
-._crit_edge30:                                    ; preds = %29, %._crit_edge
+._crit_edge29:                                    ; preds = %29, %._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %31, align 8, !alias.scope !412
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i64 16), ptr %0, align 8, !alias.scope !412
@@ -32664,7 +32664,7 @@ define dso_local void @_ZNK5Catch5Clara6Parser8validateEv(ptr dead_on_unwind noa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #56
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %23, %._crit_edge30
+.loopexit:                                        ; preds = %9, %23, %._crit_edge29
   ret void
 }
 

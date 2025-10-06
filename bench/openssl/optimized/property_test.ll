@@ -950,11 +950,11 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
 4:                                                ; preds = %0
   %5 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.210, ptr noundef null)
   %.not27 = icmp eq i32 %5, 0
-  br i1 %.not27, label %43, label %.preheader35
+  br i1 %.not27, label %43, label %.preheader34
 
-.preheader35:                                     ; preds = %4, %17
-  %.02538 = phi i64 [ %15, %17 ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw %struct.anon.3, ptr @test_register_deregister.impls, i64 %.02538
+.preheader34:                                     ; preds = %4, %17
+  %.02537 = phi i64 [ %15, %17 ], [ 0, %4 ]
+  %6 = getelementptr inbounds nuw %struct.anon.3, ptr @test_register_deregister.impls, i64 %.02537
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -964,20 +964,20 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
   %13 = zext i1 %12 to i32
   %14 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 395, ptr noundef nonnull @.str.211, i32 noundef %13) #6
   %.not31 = icmp eq i32 %14, 0
-  %15 = add nuw nsw i64 %.02538, 1
+  %15 = add nuw nsw i64 %.02537, 1
   br i1 %.not31, label %16, label %17
 
-16:                                               ; preds = %.preheader35
+16:                                               ; preds = %.preheader34
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %15) #6
   br label %43
 
-17:                                               ; preds = %.preheader35
+17:                                               ; preds = %.preheader34
   %exitcond.not = icmp eq i64 %15, 4
-  br i1 %exitcond.not, label %.preheader, label %.preheader35, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader, label %.preheader34, !llvm.loop !24
 
 .preheader:                                       ; preds = %17, %36
-  %.139 = phi i64 [ %37, %36 ], [ 0, %17 ]
-  %18 = mul nuw nsw i64 %.139, 3
+  %.138 = phi i64 [ %37, %36 ], [ 0, %17 ]
+  %18 = mul nuw nsw i64 %.138, 3
   %19 = add nuw nsw i64 %18, 1
   %20 = and i64 %19, 3
   %21 = getelementptr inbounds nuw %struct.anon.3, ptr @test_register_deregister.impls, i64 %20
@@ -999,15 +999,15 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
   br i1 %.not30, label %33, label %36
 
 33:                                               ; preds = %.preheader, %28
-  %34 = add nuw nsw i64 %.139, 1
+  %34 = add nuw nsw i64 %.138, 1
   %35 = add nuw nsw i64 %20, 1
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.214, i64 noundef %34, i64 noundef %35) #6
   br label %43
 
 36:                                               ; preds = %28
-  %37 = add nuw nsw i64 %.139, 1
-  %exitcond43.not = icmp eq i64 %37, 4
-  br i1 %exitcond43.not, label %38, label %.preheader, !llvm.loop !26
+  %37 = add nuw nsw i64 %.138, 1
+  %exitcond42.not = icmp eq i64 %37, 4
+  br i1 %exitcond42.not, label %38, label %.preheader, !llvm.loop !26
 
 38:                                               ; preds = %36
   %39 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef nonnull @.str.127) #6
@@ -1033,16 +1033,16 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   %3 = tail call ptr @ossl_method_store_new(ptr noundef null) #6
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 462, ptr noundef nonnull @.str.70, ptr noundef %3) #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.thread84, label %5
+  br i1 %.not, label %.thread81, label %5
 
 5:                                                ; preds = %0
   %6 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.225, ptr noundef null)
   %.not57 = icmp eq i32 %6, 0
-  br i1 %.not57, label %.thread84, label %.preheader93
+  br i1 %.not57, label %.thread81, label %.preheader88
 
-.preheader93:                                     ; preds = %5, %22
-  %.052100 = phi i64 [ %20, %22 ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw %struct.anon.4, ptr @test_property.impls, i64 %.052100
+.preheader88:                                     ; preds = %5, %22
+  %.05295 = phi i64 [ %20, %22 ], [ 0, %5 ]
+  %7 = getelementptr inbounds nuw %struct.anon.4, ptr @test_property.impls, i64 %.05295
   %8 = load ptr, ptr %7, align 16, !tbaa !27
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1056,22 +1056,22 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   %18 = zext i1 %17 to i32
   %19 = tail call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 470, ptr noundef nonnull @.str.229, i32 noundef %18) #6
   %.not74 = icmp eq i32 %19, 0
-  %20 = add nuw nsw i64 %.052100, 1
+  %20 = add nuw nsw i64 %.05295, 1
   br i1 %.not74, label %21, label %22
 
-21:                                               ; preds = %.preheader93
+21:                                               ; preds = %.preheader88
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %20) #6
-  br label %.thread84
+  br label %.thread81
 
-22:                                               ; preds = %.preheader93
+22:                                               ; preds = %.preheader88
   %exitcond.not = icmp eq i64 %20, 6
-  br i1 %exitcond.not, label %.preheader92, label %.preheader93, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader87, label %.preheader88, !llvm.loop !35
 
-.preheader92:                                     ; preds = %22, %39
-  %.1101 = phi i64 [ %40, %39 ], [ 0, %22 ]
+.preheader87:                                     ; preds = %22, %39
+  %.196 = phi i64 [ %40, %39 ], [ 0, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.1101
+  %23 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.196
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1083,7 +1083,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   %.not72 = icmp eq i32 %31, 0
   br i1 %.not72, label %37, label %32
 
-32:                                               ; preds = %.preheader92
+32:                                               ; preds = %.preheader87
   %33 = load ptr, ptr %1, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !34
@@ -1091,25 +1091,25 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   %.not73 = icmp eq i32 %36, 0
   br i1 %.not73, label %37, label %39
 
-37:                                               ; preds = %.preheader92, %32
-  %38 = add nuw nsw i64 %.1101, 1
+37:                                               ; preds = %.preheader87, %32
+  %38 = add nuw nsw i64 %.196, 1
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %38) #6
   call void @ossl_property_free(ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread84
+  br label %.thread81
 
 39:                                               ; preds = %32
   call void @ossl_property_free(ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %40 = add nuw nsw i64 %.1101, 1
-  %exitcond110.not = icmp eq i64 %40, 11
-  br i1 %exitcond110.not, label %.preheader91, label %.preheader92, !llvm.loop !37
+  %40 = add nuw nsw i64 %.196, 1
+  %exitcond105.not = icmp eq i64 %40, 11
+  br i1 %exitcond105.not, label %.preheader86, label %.preheader87, !llvm.loop !37
 
-.preheader91:                                     ; preds = %39, %73
-  %.2102 = phi i64 [ %74, %73 ], [ 0, %39 ]
+.preheader86:                                     ; preds = %39, %73
+  %.297 = phi i64 [ %74, %73 ], [ 0, %39 ]
   store ptr null, ptr %1, align 8, !tbaa !36
-  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.2102
-  %42 = shl nuw nsw i64 1, %.2102
+  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.297
+  %42 = shl nuw nsw i64 1, %.297
   %43 = and i64 %42, 543
   %.not65 = icmp eq i64 %43, 0
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -1121,7 +1121,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   %50 = zext i1 %49 to i32
   br i1 %.not65, label %63, label %51
 
-51:                                               ; preds = %.preheader91
+51:                                               ; preds = %.preheader86
   %52 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 503, ptr noundef nonnull @.str.233, i32 noundef %50) #6
   %.not69 = icmp eq i32 %52, 0
   br i1 %.not69, label %61, label %53
@@ -1141,12 +1141,12 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   br i1 %.not71, label %61, label %73
 
 61:                                               ; preds = %56, %53, %51
-  %62 = add nuw nsw i64 %.2102, 1
+  %62 = add nuw nsw i64 %.297, 1
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %62) #6
   call void @ossl_property_free(ptr noundef null) #6
-  br label %.thread84
+  br label %.thread81
 
-63:                                               ; preds = %.preheader91
+63:                                               ; preds = %.preheader86
   %64 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 514, ptr noundef nonnull @.str.233, i32 noundef %50) #6
   %.not66 = icmp eq i32 %64, 0
   br i1 %.not66, label %71, label %65
@@ -1164,22 +1164,22 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   br i1 %.not68, label %71, label %73
 
 71:                                               ; preds = %68, %65, %63
-  %72 = add nuw nsw i64 %.2102, 1
+  %72 = add nuw nsw i64 %.297, 1
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %72) #6
   call void @ossl_property_free(ptr noundef null) #6
-  br label %.thread84
+  br label %.thread81
 
 73:                                               ; preds = %68, %56
   call void @ossl_property_free(ptr noundef null) #6
-  %74 = add nuw nsw i64 %.2102, 1
-  %exitcond111.not = icmp eq i64 %74, 11
-  br i1 %exitcond111.not, label %.preheader, label %.preheader91, !llvm.loop !38
+  %74 = add nuw nsw i64 %.297, 1
+  %exitcond106.not = icmp eq i64 %74, 11
+  br i1 %exitcond106.not, label %.preheader, label %.preheader86, !llvm.loop !38
 
 .preheader:                                       ; preds = %73, %107
-  %.3103 = phi i64 [ %108, %107 ], [ 0, %73 ]
+  %.398 = phi i64 [ %108, %107 ], [ 0, %73 ]
   store ptr null, ptr %1, align 8, !tbaa !36
-  %75 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.3103
-  %76 = shl nuw nsw i64 1, %.3103
+  %75 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.398
+  %76 = shl nuw nsw i64 1, %.398
   %77 = and i64 %76, 1504
   %.not58 = icmp eq i64 %77, 0
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -1211,10 +1211,10 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   br i1 %.not64, label %95, label %107
 
 95:                                               ; preds = %90, %87, %85
-  %96 = add nuw nsw i64 %.3103, 1
+  %96 = add nuw nsw i64 %.398, 1
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %96) #6
   call void @ossl_property_free(ptr noundef null) #6
-  br label %.thread84
+  br label %.thread81
 
 97:                                               ; preds = %.preheader
   %98 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 546, ptr noundef nonnull @.str.237, i32 noundef %84) #6
@@ -1234,18 +1234,18 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   br i1 %.not61, label %105, label %107
 
 105:                                              ; preds = %102, %99, %97
-  %106 = add nuw nsw i64 %.3103, 1
+  %106 = add nuw nsw i64 %.398, 1
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %106) #6
   call void @ossl_property_free(ptr noundef null) #6
-  br label %.thread84
+  br label %.thread81
 
 107:                                              ; preds = %102, %90
   call void @ossl_property_free(ptr noundef null) #6
-  %108 = add nuw nsw i64 %.3103, 1
-  %exitcond112.not = icmp eq i64 %108, 11
-  br i1 %exitcond112.not, label %.thread84, label %.preheader, !llvm.loop !39
+  %108 = add nuw nsw i64 %.398, 1
+  %exitcond107.not = icmp eq i64 %108, 11
+  br i1 %exitcond107.not, label %.thread81, label %.preheader, !llvm.loop !39
 
-.thread84:                                        ; preds = %107, %105, %95, %71, %61, %37, %0, %5, %21
+.thread81:                                        ; preds = %107, %105, %95, %71, %61, %37, %0, %5, %21
   %.056 = phi i32 [ 0, %21 ], [ 0, %37 ], [ 0, %5 ], [ 0, %0 ], [ 0, %61 ], [ 0, %71 ], [ 0, %95 ], [ 0, %105 ], [ 1, %107 ]
   call void @ossl_method_store_free(ptr noundef %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

@@ -1784,8 +1784,8 @@ proto_item_set_generated.exit112:                 ; preds = %112, %109, %105, %p
   br label %141
 
 141:                                              ; preds = %.lr.ph, %148
-  %.086119 = phi i32 [ 0, %.lr.ph ], [ %149, %148 ]
-  %142 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.086119)
+  %.086118 = phi i32 [ 0, %.lr.ph ], [ %149, %148 ]
+  %142 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.086118)
   switch i8 %142, label %143 [
     i8 13, label %148
     i8 10, label %148
@@ -1797,14 +1797,14 @@ proto_item_set_generated.exit112:                 ; preds = %112, %109, %105, %p
   %146 = load i16, ptr %145, align 2
   %147 = and i16 %146, 64
   %.not100 = icmp eq i16 %147, 0
-  br i1 %.not100, label %.thread117, label %148
+  br i1 %.not100, label %.thread116, label %148
 
-.thread117:                                       ; preds = %143
+.thread116:                                       ; preds = %143
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.202, i32 noundef %5)
   br label %152
 
 148:                                              ; preds = %143, %141, %141
-  %149 = add nuw nsw i32 %.086119, 1
+  %149 = add nuw nsw i32 %.086118, 1
   %exitcond.not = icmp eq i32 %149, %138
   br i1 %exitcond.not, label %._crit_edge, label %141, !llvm.loop !14
 
@@ -1814,7 +1814,7 @@ proto_item_set_generated.exit112:                 ; preds = %112, %109, %105, %p
   %151 = tail call i32 @call_dissector(ptr noundef %150, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %152
 
-152:                                              ; preds = %.thread117, %._crit_edge
+152:                                              ; preds = %.thread116, %._crit_edge
   ret i32 %5
 }
 

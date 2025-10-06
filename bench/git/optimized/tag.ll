@@ -1864,7 +1864,7 @@ strbuf_setlen.exit78.i:                           ; preds = %748, %744
 
 779:                                              ; preds = %773
   %.not22.i.i.i = icmp eq ptr %776, null
-  br i1 %.not22.i.i.i, label %.thread29.i.i.i, label %780
+  br i1 %.not22.i.i.i, label %.thread28.i.i.i, label %780
 
 780:                                              ; preds = %779
   %781 = load ptr, ptr @the_repository, align 8, !tbaa !22
@@ -1893,13 +1893,13 @@ strbuf_setlen.exit78.i:                           ; preds = %748, %744
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre.i.i82.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !81
   %796 = icmp eq i64 %.pre.i.i82.i, 0
-  br i1 %796, label %.thread29.i.i.i, label %797
+  br i1 %796, label %.thread28.i.i.i, label %797
 
 797:                                              ; preds = %790
   %798 = call i32 @add_header_signature(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %776) #15
-  br label %.thread29.i.i.i
+  br label %.thread28.i.i.i
 
-.thread29.i.i.i:                                  ; preds = %797, %790, %779
+.thread28.i.i.i:                                  ; preds = %797, %790, %779
   %.1.i.i = phi ptr [ null, %779 ], [ %8, %790 ], [ %8, %797 ]
   call void @strbuf_addbuf(ptr noundef nonnull %19, ptr noundef nonnull %5) #15
   call void @strbuf_release(ptr noundef nonnull %5) #15
@@ -1923,8 +1923,8 @@ strbuf_setlen.exit78.i:                           ; preds = %748, %744
   %.not4.i.i.i = icmp eq i32 %799, 0
   br i1 %.not4.i.i.i, label %809, label %.sink.split.sink.split.i.i
 
-800:                                              ; preds = %.thread29.i.i.i, %767
-  %.08.i.i = phi ptr [ null, %767 ], [ %.1.i.i, %.thread29.i.i.i ]
+800:                                              ; preds = %.thread28.i.i.i, %767
+  %.08.i.i = phi ptr [ null, %767 ], [ %.1.i.i, %.thread28.i.i.i ]
   %801 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %802 = load ptr, ptr %801, align 8, !tbaa !57
   %803 = load i64, ptr %763, align 8, !tbaa !81

@@ -1754,16 +1754,16 @@ define void @_ZN7rocksdb11clock_cache20FixedHyperClockTable5EraseERKSt5arrayImLm
   %22 = lshr i64 %21, 30
   %23 = sub i64 %21, %22
   %24 = and i64 %23, 1073741822
-  %.not21.i.i = icmp eq i64 %24, 0
-  br i1 %.not21.i.i, label %.lr.ph.preheader.i.i, label %_ZN7rocksdb11clock_cache20FixedHyperClockTable8RollbackERKSt5arrayImLm2EEPKNS1_10HandleImplE.exit.thread.sink.split.i.i
+  %.not20.i.i = icmp eq i64 %24, 0
+  br i1 %.not20.i.i, label %.lr.ph.preheader.i.i, label %_ZN7rocksdb11clock_cache20FixedHyperClockTable8RollbackERKSt5arrayImLm2EEPKNS1_10HandleImplE.exit.thread.sink.split.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %20
   %25 = and i64 %21, -2305843009213693953
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7rocksdb11clock_cache20FixedHyperClockTable8RollbackERKSt5arrayImLm2EEPKNS1_10HandleImplE.exit.i.i, %.lr.ph.preheader.i.i
-  %.01522.i.i = phi i64 [ %54, %_ZN7rocksdb11clock_cache20FixedHyperClockTable8RollbackERKSt5arrayImLm2EEPKNS1_10HandleImplE.exit.i.i ], [ %25, %.lr.ph.preheader.i.i ]
-  %26 = cmpxchg weak ptr %15, i64 %.01522.i.i, i64 -9223372036854775808 acq_rel acquire, align 8
+  %.01521.i.i = phi i64 [ %54, %_ZN7rocksdb11clock_cache20FixedHyperClockTable8RollbackERKSt5arrayImLm2EEPKNS1_10HandleImplE.exit.i.i ], [ %25, %.lr.ph.preheader.i.i ]
+  %26 = cmpxchg weak ptr %15, i64 %.01521.i.i, i64 -9223372036854775808 acq_rel acquire, align 8
   %27 = extractvalue { i64, i1 } %26, 1
   br i1 %27, label %28, label %_ZN7rocksdb11clock_cache20FixedHyperClockTable8RollbackERKSt5arrayImLm2EEPKNS1_10HandleImplE.exit.i.i
 
@@ -3504,8 +3504,8 @@ define weak_odr void @_ZN7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperC
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable5EraseERKSt5arrayImLm2EE(ptr noundef nonnull align 64 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable6LookupERKSt5arrayImLm2EE(ptr noundef nonnull align 64 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %.not10 = icmp eq ptr %3, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq ptr %3, null
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -5506,11 +5506,11 @@ define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERN
   %21 = load atomic i64, ptr %20 acquire, align 8
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
-  %.not2024 = icmp samesign ult i32 %23, %13
+  %.not2023 = icmp samesign ult i32 %23, %13
   %24 = and i64 %21, 192
-  %.not2125 = icmp eq i64 %24, 128
-  %or.cond26 = or i1 %.not2125, %.not2024
-  br i1 %or.cond26, label %.lr.ph, label %._crit_edge
+  %.not2124 = icmp eq i64 %24, 128
+  %or.cond25 = or i1 %.not2124, %.not2023
+  br i1 %or.cond25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5541,27 +5541,27 @@ define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERN
   %41 = add nuw i64 %40, %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not.i27 = icmp ugt i64 %41, %4
-  br i1 %.not.i27, label %.thread.i, label %.lr.ph31
+  %.not.i26 = icmp ugt i64 %41, %4
+  br i1 %.not.i26, label %.thread.i, label %.lr.ph30
 
-.lr.ph31:                                         ; preds = %._crit_edge, %72
-  %.0.i29 = phi i64 [ %76, %72 ], [ %41, %._crit_edge ]
-  %.032.i28 = phi i64 [ %.234.i, %72 ], [ %37, %._crit_edge ]
-  %44 = add nuw nsw i64 %.0.i29, 1
+.lr.ph30:                                         ; preds = %._crit_edge, %72
+  %.0.i28 = phi i64 [ %76, %72 ], [ %41, %._crit_edge ]
+  %.032.i27 = phi i64 [ %.234.i, %72 ], [ %37, %._crit_edge ]
+  %44 = add nuw nsw i64 %.0.i28, 1
   %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %44, i1 true)
   %46 = xor i64 %45, 63
   %47 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %44, i64 range(i64 -2147483648, 2147483648) %46)
   %48 = shl i64 %47, 8
   %49 = or disjoint i64 %48, %46
-  %50 = icmp ult i64 %.0.i29, %4
+  %50 = icmp ult i64 %.0.i28, %4
   br i1 %50, label %51, label %63
 
-51:                                               ; preds = %.lr.ph31
-  %52 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i29, i1 true)
+51:                                               ; preds = %.lr.ph30
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i28, i1 true)
   %53 = trunc nuw nsw i64 %52 to i32
   %54 = xor i32 %53, 63
   %55 = zext nneg i32 %54 to i64
-  %56 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %.0.i29, i64 range(i64 -2147483648, 2147483648) %55)
+  %56 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %.0.i28, i64 range(i64 -2147483648, 2147483648) %55)
   %57 = load ptr, ptr %5, align 32, !tbaa !137
   %58 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %57, i64 %56
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
@@ -5571,8 +5571,8 @@ define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERN
   %.not23.i = icmp samesign ugt i32 %62, %54
   br i1 %.not23.i, label %63, label %.thread.i
 
-63:                                               ; preds = %51, %.lr.ph31
-  %64 = cmpxchg ptr %36, i64 %.032.i28, i64 %49 acq_rel acquire, align 8
+63:                                               ; preds = %51, %.lr.ph30
+  %64 = cmpxchg ptr %36, i64 %.032.i27, i64 %49 acq_rel acquire, align 8
   %65 = extractvalue { i64, i1 } %64, 1
   br i1 %65, label %67, label %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i
 
@@ -5596,10 +5596,10 @@ _ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i: ; preds = %63
   %75 = shl nuw i64 1, %74
   %76 = add nuw i64 %75, %73
   %.not.i = icmp ugt i64 %76, %4
-  br i1 %.not.i, label %.thread.i, label %.lr.ph31
+  br i1 %.not.i, label %.thread.i, label %.lr.ph30
 
 .thread.i:                                        ; preds = %72, %51, %._crit_edge
-  %.0.i.lcssa = phi i64 [ %41, %._crit_edge ], [ %.0.i29, %51 ], [ %76, %72 ]
+  %.0.i.lcssa = phi i64 [ %41, %._crit_edge ], [ %.0.i28, %51 ], [ %76, %72 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %78 = load atomic i64, ptr %77 monotonic, align 8
   %79 = uitofp i64 %.0.i.lcssa to double
@@ -5636,8 +5636,8 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable12SplitForGrowEmmi(ptr
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = atomicrmw or ptr %10, i64 128 acq_rel, align 8
   %12 = and i64 %11, 192
-  %.not6.i.i = icmp eq i64 %12, 128
-  br i1 %.not6.i.i, label %.lr.ph.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit
+  %.not5.i.i = icmp eq i64 %12, 128
+  br i1 %.not5.i.i, label %.lr.ph.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %13 = atomicrmw add ptr %9, i64 1 monotonic, align 8
@@ -5759,8 +5759,8 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleI
 64:                                               ; preds = %60
   %65 = atomicrmw or ptr %10, i64 128 acq_rel, align 8
   %66 = and i64 %65, 192
-  %.not6.i.i133 = icmp eq i64 %66, 128
-  br i1 %.not6.i.i133, label %.lr.ph.i.i135, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i
+  %.not5.i.i133 = icmp eq i64 %66, 128
+  br i1 %.not5.i.i133, label %.lr.ph.i.i135, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i
 
 .lr.ph.i.i135:                                    ; preds = %64, %.lr.ph.i.i135
   %67 = atomicrmw add ptr %9, i64 1 monotonic, align 8
@@ -6074,27 +6074,27 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable23CatchUpLengthInfoNoW
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not48 = icmp ugt i64 %8, %1
-  br i1 %.not48, label %.thread, label %.lr.ph
+  %.not47 = icmp ugt i64 %8, %1
+  br i1 %.not47, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %40
-  %.050 = phi i64 [ %44, %40 ], [ %8, %2 ]
-  %.03249 = phi i64 [ %.234, %40 ], [ %4, %2 ]
-  %12 = add nuw i64 %.050, 1
+  %.049 = phi i64 [ %44, %40 ], [ %8, %2 ]
+  %.03248 = phi i64 [ %.234, %40 ], [ %4, %2 ]
+  %12 = add nuw i64 %.049, 1
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %14 = xor i64 %13, 63
   %15 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %12, i64 range(i64 -2147483648, 2147483648) %14)
   %16 = shl i64 %15, 8
   %17 = or disjoint i64 %16, %14
-  %18 = icmp ult i64 %.050, %1
+  %18 = icmp ult i64 %.049, %1
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %.lr.ph
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.050, i1 true)
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.049, i1 true)
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = xor i32 %21, 63
   %23 = zext nneg i32 %22 to i64
-  %24 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %.050, i64 range(i64 -2147483648, 2147483648) %23)
+  %24 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %.049, i64 range(i64 -2147483648, 2147483648) %23)
   %25 = load ptr, ptr %9, align 32, !tbaa !137
   %26 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %25, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
@@ -6105,7 +6105,7 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable23CatchUpLengthInfoNoW
   br i1 %.not23, label %31, label %.thread
 
 31:                                               ; preds = %19, %.lr.ph
-  %32 = cmpxchg ptr %3, i64 %.03249, i64 %17 acq_rel acquire, align 8
+  %32 = cmpxchg ptr %3, i64 %.03248, i64 %17 acq_rel acquire, align 8
   %33 = extractvalue { i64, i1 } %32, 1
   br i1 %33, label %35, label %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit
 
@@ -6132,7 +6132,7 @@ _ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit:  ; preds = %31
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %40, %19, %2
-  %.0.lcssa = phi i64 [ %8, %2 ], [ %44, %40 ], [ %.050, %19 ]
+  %.0.lcssa = phi i64 [ %8, %2 ], [ %44, %40 ], [ %.049, %19 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %46 = load atomic i64, ptr %45 monotonic, align 8
   %47 = uitofp i64 %.0.lcssa to double
@@ -6636,8 +6636,8 @@ define linkonce_odr void @_ZN7rocksdb11clock_cache19AutoHyperClockTable9PurgeImp
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %24 = atomicrmw or ptr %23, i64 128 acq_rel, align 8
   %25 = and i64 %24, 192
-  %.not6.i.i = icmp eq i64 %25, 128
-  br i1 %.not6.i.i, label %.lr.ph.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit
+  %.not5.i.i = icmp eq i64 %25, 128
+  br i1 %.not5.i.i, label %.lr.ph.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %26 = atomicrmw add ptr %22, i64 1 monotonic, align 8
@@ -6656,26 +6656,26 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleI
 
 .lr.ph:                                           ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ %17, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ]
-  %.sroa.0.056 = phi ptr [ %39, %.loopexit ], [ %23, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ]
-  %.sroa.13.0.in55 = phi i64 [ %.lcssa.i.i.i, %.loopexit ], [ %.lcssa.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ]
+  %.sroa.0.054 = phi ptr [ %39, %.loopexit ], [ %23, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ]
+  %.sroa.13.0.in53 = phi i64 [ %.lcssa.i.i.i, %.loopexit ], [ %.lcssa.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i64, ptr %7, align 8, !tbaa !17
   %34 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %33, i64 range(i64 -2147483648, 2147483648) %indvars.iv.next)
   %35 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %20, i64 %34
-  %36 = and i64 %.sroa.13.0.in55, 64
+  %36 = and i64 %.sroa.13.0.in53, 64
   %.not.i.i14 = icmp eq i64 %36, 0
   br i1 %.not.i.i14, label %37, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i
 
 37:                                               ; preds = %.lr.ph
-  %38 = atomicrmw and ptr %.sroa.0.056, i64 -129 acq_rel, align 8
+  %38 = atomicrmw and ptr %.sroa.0.054, i64 -129 acq_rel, align 8
   br label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i
 
 _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i: ; preds = %37, %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %40 = atomicrmw or ptr %39, i64 128 acq_rel, align 8
   %41 = and i64 %40, 192
-  %.not6.i.i.i = icmp eq i64 %41, 128
-  br i1 %.not6.i.i.i, label %.lr.ph.i.i.i, label %.loopexit
+  %.not5.i.i.i = icmp eq i64 %41, 128
+  br i1 %.not5.i.i.i, label %.lr.ph.i.i.i, label %.loopexit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i, %.lr.ph.i.i.i
   %42 = atomicrmw add ptr %22, i64 1 monotonic, align 8
@@ -6692,16 +6692,16 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i: ; pr
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit
-  %.sroa.13.0.in.lcssa53 = phi i64 [ %.lcssa.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ], [ %.lcssa.i.i.i, %.loopexit ]
+  %.sroa.13.0.in.lcssa51 = phi i64 [ %.lcssa.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ], [ %.lcssa.i.i.i, %.loopexit ]
   %.sroa.0.0.lcssa = phi ptr [ %23, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ], [ %39, %.loopexit ]
-  %.sroa.13.0.le = or i64 %.sroa.13.0.in.lcssa53, 128
-  %48 = and i64 %.sroa.13.0.in.lcssa53, 64
+  %.sroa.13.0.le = or i64 %.sroa.13.0.in.lcssa51, 128
+  %48 = and i64 %.sroa.13.0.in.lcssa51, 64
   %.not = icmp eq i64 %48, 0
   br i1 %.not, label %49, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable15PurgeImplLockedIvEEvPT_RNS1_16ChainRewriteLockEmPNS0_14BaseClockTable12EvictionDataE.exit
 
 49:                                               ; preds = %._crit_edge
   %50 = load ptr, ptr %19, align 32, !tbaa !137
-  %51 = lshr i64 %.sroa.13.0.in.lcssa53, 8
+  %51 = lshr i64 %.sroa.13.0.in.lcssa51, 8
   %52 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %50, i64 %51
   br label %54
 
@@ -6756,8 +6756,8 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit.i: ; pr
 71:                                               ; preds = %67
   %72 = atomicrmw or ptr %.sroa.0.0.lcssa, i64 128 acq_rel, align 8
   %73 = and i64 %72, 192
-  %.not6.i.i.i16 = icmp eq i64 %73, 128
-  br i1 %.not6.i.i.i16, label %.lr.ph.i.i.i18, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i.i
+  %.not5.i.i.i16 = icmp eq i64 %73, 128
+  br i1 %.not5.i.i.i16, label %.lr.ph.i.i.i18, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i.i
 
 .lr.ph.i.i.i18:                                   ; preds = %71, %.lr.ph.i.i.i18
   %74 = atomicrmw add ptr %22, i64 1 monotonic, align 8
@@ -7007,8 +7007,8 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable5EvictEmRNS1_11InsertS
   store ptr %54, ptr %10, align 8, !tbaa !235
   %55 = atomicrmw or ptr %54, i64 128 acq_rel, align 8
   %56 = and i64 %55, 192
-  %.not6.i.i.i = icmp eq i64 %56, 128
-  br i1 %.not6.i.i.i, label %.lr.ph.i.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i
+  %.not5.i.i.i = icmp eq i64 %56, 128
+  br i1 %.not5.i.i.i, label %.lr.ph.i.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %51, %.lr.ph.i.i.i
   %57 = atomicrmw add ptr %23, i64 1 monotonic, align 8
@@ -16294,8 +16294,8 @@ _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE
   %101 = load ptr, ptr %2, align 8, !tbaa !235
   %102 = atomicrmw or ptr %101, i64 128 acq_rel, align 8
   %103 = and i64 %102, 192
-  %.not6.i.i = icmp eq i64 %103, 128
-  br i1 %.not6.i.i, label %.lr.ph.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i
+  %.not5.i.i = icmp eq i64 %103, 128
+  br i1 %.not5.i.i, label %.lr.ph.i.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %100, %.lr.ph.i.i
   %104 = atomicrmw add ptr %18, i64 1 monotonic, align 8

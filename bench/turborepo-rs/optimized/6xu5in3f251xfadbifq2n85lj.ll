@@ -131,8 +131,8 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   br i1 %50, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %46, %61
-  %.sroa.03.026.i.i = phi i16 [ %63, %61 ], [ %49, %46 ]
-  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.03.026.i.i, i1 true)
+  %.sroa.03.027.i.i = phi i16 [ %63, %61 ], [ %49, %46 ]
+  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.03.027.i.i, i1 true)
   %52 = zext nneg i16 %51 to i64
   %53 = add i64 %.sroa.0.024.i.i, %52
   %54 = and i64 %53, %.val6.i
@@ -147,12 +147,12 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   br i1 %60, label %89, label %61
 
 ._crit_edge.i.i:                                  ; preds = %61, %46
-  %switch.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
-  br i1 %switch.not.i.i, label %65, label %72
+  %.not26.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
+  br i1 %.not26.i.i, label %65, label %72
 
 61:                                               ; preds = %.lr.ph.i.i
-  %62 = add i16 %.sroa.03.026.i.i, -1
-  %63 = and i16 %62, %.sroa.03.026.i.i
+  %62 = add i16 %.sroa.03.027.i.i, -1
+  %63 = and i16 %62, %.sroa.03.027.i.i
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %._crit_edge.i.i, label %.lr.ph.i.i
 

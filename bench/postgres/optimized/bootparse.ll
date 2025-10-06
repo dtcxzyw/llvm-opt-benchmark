@@ -1141,12 +1141,12 @@ do_end.exit:                                      ; preds = %377, %375, %360, %3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %543
-  %.5337515 = phi ptr [ %544, %543 ], [ %.2334, %.lr.ph.preheader ]
-  %542 = icmp eq ptr %.5337515, %.1327
+  %.5337514 = phi ptr [ %544, %543 ], [ %.2334, %.lr.ph.preheader ]
+  %542 = icmp eq ptr %.5337514, %.1327
   br i1 %542, label %.thread452, label %543
 
 543:                                              ; preds = %.lr.ph
-  %544 = getelementptr inbounds i8, ptr %.5337515, i64 -1
+  %544 = getelementptr inbounds i8, ptr %.5337514, i64 -1
   br label %.lr.ph
 
 545:                                              ; preds = %13, %19

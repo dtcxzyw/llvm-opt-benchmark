@@ -216,17 +216,17 @@ _ZN4llvm13SCEVTraversalIN12_GLOBAL__N_118SCEVCollectStridesEE4pushEPKNS_4SCEVE.e
   %83 = zext i32 %82 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %83, 3
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx.i.i.i.i.i
-  %.not36.i.i.i.i.i = icmp eq i32 %82, 0
-  br i1 %.not36.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  %.not34.i.i.i.i.i = icmp eq i32 %82, 0
+  br i1 %.not34.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %80, %.critedge.i.i.i.i.i
-  %.02937.i.i.i.i.i = phi ptr [ %86, %.critedge.i.i.i.i.i ], [ %81, %80 ]
-  %85 = load ptr, ptr %.02937.i.i.i.i.i, align 8, !tbaa !27, !noalias !43
+  %.02935.i.i.i.i.i = phi ptr [ %86, %.critedge.i.i.i.i.i ], [ %81, %80 ]
+  %85 = load ptr, ptr %.02935.i.i.i.i.i, align 8, !tbaa !27, !noalias !43
   %.not17.i.i.i.i.i = icmp eq ptr %85, %77
   br i1 %.not17.i.i.i.i.i, label %_ZN4llvm13SCEVTraversalIN12_GLOBAL__N_118SCEVCollectStridesEE4pushEPKNS_4SCEVE.exit.i.i, label %.critedge.i.i.i.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i
-  %86 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %86, %84
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
 
@@ -720,13 +720,13 @@ define dso_local void @_ZN4llvm19findArrayDimensionsERNS_15ScalarEvolutionERNS_1
   br label %29
 
 27:                                               ; preds = %_ZN4llvm16SCEVExprContainsIZL18containsParametersRNS_15SmallVectorImplIPKNS_4SCEVEEEEUlS4_E_EEbS4_T_.exit.i
-  %28 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 8
   %.not.not.i = icmp eq ptr %28, %16
   br i1 %.not.not.i, label %_ZL18containsParametersRN4llvm15SmallVectorImplIPKNS_4SCEVEEE.exit.thread, label %29
 
 29:                                               ; preds = %27, %.lr.ph.i
-  %.0122.i = phi ptr [ %.val, %.lr.ph.i ], [ %28, %27 ]
-  %30 = load ptr, ptr %.0122.i, align 8, !tbaa !38
+  %.0123.i = phi ptr [ %.val, %.lr.ph.i ], [ %28, %27 ]
+  %30 = load ptr, ptr %.0123.i, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -806,17 +806,17 @@ _ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZL18containsParametersRNS_15Small
   %59 = zext i32 %58 to i64
   %.idx.i.i.i23.i.i.i.i = shl nuw nsw i64 %59, 3
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i.i23.i.i.i.i
-  %.not36.i.i.i24.i.i.i.i = icmp eq i32 %58, 0
-  br i1 %.not36.i.i.i24.i.i.i.i, label %._crit_edge.i.i.i30.i.i.i.i, label %.lr.ph.i.i.i25.i.i.i.i
+  %.not34.i.i.i24.i.i.i.i = icmp eq i32 %58, 0
+  br i1 %.not34.i.i.i24.i.i.i.i, label %._crit_edge.i.i.i30.i.i.i.i, label %.lr.ph.i.i.i25.i.i.i.i
 
 .lr.ph.i.i.i25.i.i.i.i:                           ; preds = %56, %.critedge.i.i.i28.i.i.i.i
-  %.02937.i.i.i26.i.i.i.i = phi ptr [ %62, %.critedge.i.i.i28.i.i.i.i ], [ %57, %56 ]
-  %61 = load ptr, ptr %.02937.i.i.i26.i.i.i.i, align 8, !tbaa !27, !noalias !81
+  %.02935.i.i.i26.i.i.i.i = phi ptr [ %62, %.critedge.i.i.i28.i.i.i.i ], [ %57, %56 ]
+  %61 = load ptr, ptr %.02935.i.i.i26.i.i.i.i, align 8, !tbaa !27, !noalias !81
   %.not17.i.i.i27.i.i.i.i = icmp eq ptr %61, %53
   br i1 %.not17.i.i.i27.i.i.i.i, label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZL18containsParametersRNS_15SmallVectorImplIPKNS_4SCEVEEEEUlS5_E_EEbS5_T_E11FindClosureE4pushES5_.exit31.i.i.i.i, label %.critedge.i.i.i28.i.i.i.i
 
 .critedge.i.i.i28.i.i.i.i:                        ; preds = %.lr.ph.i.i.i25.i.i.i.i
-  %62 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i26.i.i.i.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i26.i.i.i.i, i64 8
   %.not.i.i.i29.i.i.i.i = icmp eq ptr %62, %60
   br i1 %.not.i.i.i29.i.i.i.i, label %._crit_edge.i.i.i30.i.i.i.i, label %.lr.ph.i.i.i25.i.i.i.i, !llvm.loop !47
 
@@ -1925,8 +1925,8 @@ define dso_local void @_ZN4llvm22computeAccessFunctionsERNS_15ScalarEvolutionEPK
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8, !tbaa !28
   %12 = icmp ne i16 %11, 8
-  %.not38 = icmp eq ptr %1, null
-  %.not = or i1 %.not38, %12
+  %.not37 = icmp eq ptr %1, null
+  %.not = or i1 %.not37, %12
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %9
@@ -1949,13 +1949,13 @@ define dso_local void @_ZN4llvm22computeAccessFunctionsERNS_15ScalarEvolutionEPK
 
 24:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.02540 = phi ptr [ %1, %.lr.ph ], [ %28, %46 ]
+  %.02539 = phi ptr [ %1, %.lr.ph ], [ %28, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = load ptr, ptr %3, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !38
-  call void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.02540, ptr noundef %27, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  call void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.02539, ptr noundef %27, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %28 = load ptr, ptr %5, align 8, !tbaa !38
   %29 = icmp eq i64 %indvars.iv, %23
   %30 = load ptr, ptr %6, align 8, !tbaa !38
@@ -2806,13 +2806,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i:             ; preds = %228, %226
 
 246:                                              ; preds = %268, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %245, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %268 ]
-  %.02540.i.i = phi ptr [ %139, %.lr.ph.i.i ], [ %250, %268 ]
+  %.02539.i.i = phi ptr [ %139, %.lr.ph.i.i ], [ %250, %268 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %247 = load ptr, ptr %9, align 8, !tbaa !3
   %248 = getelementptr inbounds nuw ptr, ptr %247, i64 %indvars.iv.i.i
   %249 = load ptr, ptr %248, align 8, !tbaa !38
-  call void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1344) %14, ptr noundef %.02540.i.i, ptr noundef %249, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  call void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1344) %14, ptr noundef %.02539.i.i, ptr noundef %249, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %250 = load ptr, ptr %5, align 8, !tbaa !38
   %251 = icmp eq i64 %indvars.iv.i.i, %245
   %252 = load ptr, ptr %6, align 8, !tbaa !38
@@ -3468,17 +3468,17 @@ define internal fastcc void @_ZN4llvm13SCEVTraversalIN12_GLOBAL__N_116SCEVCollec
   %13 = zext i32 %12 to i64
   %.idx.i.i = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %12, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %12, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %16, %.critedge.i.i ], [ %10, %9 ]
-  %15 = load ptr, ptr %.02937.i.i, align 8, !tbaa !27, !noalias !192
+  %.02935.i.i = phi ptr [ %16, %.critedge.i.i ], [ %10, %9 ]
+  %15 = load ptr, ptr %.02935.i.i, align 8, !tbaa !27, !noalias !192
   %.not17.i.i = icmp eq ptr %15, %1
   br i1 %.not17.i.i, label %.critedge, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %16, %14
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !47
 
@@ -3606,17 +3606,17 @@ _ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZL14containsUndefsPKNS_4SCEVEEUlS
   %71 = zext i32 %70 to i64
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %71, 3
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i.i.i.i.i
-  %.not36.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
-  br i1 %.not36.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  %.not34.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
+  br i1 %.not34.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %68, %.critedge.i.i.i.i.i.i.i.i
-  %.02937.i.i.i.i.i.i.i.i = phi ptr [ %74, %.critedge.i.i.i.i.i.i.i.i ], [ %69, %68 ]
-  %73 = load ptr, ptr %.02937.i.i.i.i.i.i.i.i, align 8, !tbaa !27, !noalias !208
+  %.02935.i.i.i.i.i.i.i.i = phi ptr [ %74, %.critedge.i.i.i.i.i.i.i.i ], [ %69, %68 ]
+  %73 = load ptr, ptr %.02935.i.i.i.i.i.i.i.i, align 8, !tbaa !27, !noalias !208
   %.not17.i.i.i.i.i.i.i.i = icmp eq ptr %73, %65
   br i1 %.not17.i.i.i.i.i.i.i.i, label %_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZL14containsUndefsPKNS_4SCEVEEUlS4_E_EEbS4_T_E11FindClosureE4pushES4_.exit.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i.i.i.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %74, %72
   br i1 %.not.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !47
 
@@ -3809,17 +3809,17 @@ define internal fastcc void @_ZN4llvm13SCEVTraversalIN12_GLOBAL__N_127SCEVCollec
   %15 = zext i32 %14 to i64
   %.idx.i.i = shl nuw nsw i64 %15, 3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %14, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %14, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %18, %.critedge.i.i ], [ %12, %11 ]
-  %17 = load ptr, ptr %.02937.i.i, align 8, !tbaa !27, !noalias !213
+  %.02935.i.i = phi ptr [ %18, %.critedge.i.i ], [ %12, %11 ]
+  %17 = load ptr, ptr %.02935.i.i, align 8, !tbaa !27, !noalias !213
   %.not17.i.i = icmp eq ptr %17, %1
   br i1 %.not17.i.i, label %.critedge, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %18, %16
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !47
 
@@ -3997,17 +3997,17 @@ _ZN4llvm13SCEVTraversalIN12_GLOBAL__N_113SCEVHasAddRecEE8visitAllEPKNS_4SCEVE.ex
   %97 = zext i32 %96 to i64
   %.idx.i.i.i22.i.i.i = shl nuw nsw i64 %97, 3
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i.i.i22.i.i.i
-  %.not36.i.i.i23.i.i.i = icmp eq i32 %96, 0
-  br i1 %.not36.i.i.i23.i.i.i, label %._crit_edge.i.i.i29.i.i.i, label %.lr.ph.i.i.i24.i.i.i
+  %.not34.i.i.i23.i.i.i = icmp eq i32 %96, 0
+  br i1 %.not34.i.i.i23.i.i.i, label %._crit_edge.i.i.i29.i.i.i, label %.lr.ph.i.i.i24.i.i.i
 
 .lr.ph.i.i.i24.i.i.i:                             ; preds = %94, %.critedge.i.i.i27.i.i.i
-  %.02937.i.i.i25.i.i.i = phi ptr [ %100, %.critedge.i.i.i27.i.i.i ], [ %95, %94 ]
-  %99 = load ptr, ptr %.02937.i.i.i25.i.i.i, align 8, !tbaa !27, !noalias !227
+  %.02935.i.i.i25.i.i.i = phi ptr [ %100, %.critedge.i.i.i27.i.i.i ], [ %95, %94 ]
+  %99 = load ptr, ptr %.02935.i.i.i25.i.i.i, align 8, !tbaa !27, !noalias !227
   %.not17.i.i.i26.i.i.i = icmp eq ptr %99, %91
   br i1 %.not17.i.i.i26.i.i.i, label %_ZN4llvm13SCEVTraversalIN12_GLOBAL__N_113SCEVHasAddRecEE4pushEPKNS_4SCEVE.exit30.i.i.i, label %.critedge.i.i.i27.i.i.i
 
 .critedge.i.i.i27.i.i.i:                          ; preds = %.lr.ph.i.i.i24.i.i.i
-  %100 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i25.i.i.i, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i25.i.i.i, i64 8
   %.not.i.i.i28.i.i.i = icmp eq ptr %100, %98
   br i1 %.not.i.i.i28.i.i.i, label %._crit_edge.i.i.i29.i.i.i, label %.lr.ph.i.i.i24.i.i.i, !llvm.loop !47
 

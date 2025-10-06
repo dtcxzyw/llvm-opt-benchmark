@@ -385,7 +385,7 @@ define internal range(i64 -1, 2) i64 @big5_encode(ptr readnone captures(none) %0
 
 .lr.ph:                                           ; preds = %9, %60
   %12 = phi i64 [ %62, %60 ], [ %10, %9 ]
-  %.03148 = phi i64 [ %65, %60 ], [ %7, %9 ]
+  %.03146 = phi i64 [ %65, %60 ], [ %7, %9 ]
   switch i32 %2, label %21 [
     i32 1, label %13
     i32 2, label %17
@@ -414,7 +414,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %PyUnicode_READ.exit
-  %26 = icmp slt i64 %.03148, 1
+  %26 = icmp slt i64 %.03146, 1
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %25
@@ -428,7 +428,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp slt i64 %.03148, 2
+  %33 = icmp slt i64 %.03146, 2
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %32
@@ -474,15 +474,15 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br label %60
 
 60:                                               ; preds = %53, %27
-  %.sink71 = phi i64 [ 2, %53 ], [ 1, %27 ]
+  %.sink69 = phi i64 [ 2, %53 ], [ 1, %27 ]
   %.sink = phi i64 [ -2, %53 ], [ -1, %27 ]
   %61 = load i64, ptr %4, align 8, !tbaa !48
   %62 = add i64 %61, 1
   store i64 %62, ptr %4, align 8, !tbaa !48
   %63 = load ptr, ptr %6, align 8, !tbaa !37
-  %64 = getelementptr i8, ptr %63, i64 %.sink71
+  %64 = getelementptr i8, ptr %63, i64 %.sink69
   store ptr %64, ptr %6, align 8, !tbaa !37
-  %65 = add nsw i64 %.03148, %.sink
+  %65 = add nsw i64 %.03146, %.sink
   %66 = icmp slt i64 %62, %5
   br i1 %66, label %.lr.ph, label %.thread
 
@@ -502,7 +502,7 @@ define internal range(i64 -4, 2) i64 @big5_decode(ptr readnone captures(none) %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %7 = phi ptr [ %40, %38 ], [ %.pre, %.lr.ph.preheader ]
-  %.02237 = phi i64 [ %41, %38 ], [ %3, %.lr.ph.preheader ]
+  %.02235 = phi i64 [ %41, %38 ], [ %3, %.lr.ph.preheader ]
   %8 = load i8, ptr %7, align 1, !tbaa !34
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %10, label %14
@@ -514,7 +514,7 @@ define internal range(i64 -4, 2) i64 @big5_decode(ptr readnone captures(none) %0
   br i1 %13, label %.thread, label %38, !llvm.loop !57
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp eq i64 %.02237, 1
+  %15 = icmp eq i64 %.02235, 1
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
@@ -554,12 +554,12 @@ define internal range(i64 -4, 2) i64 @big5_decode(ptr readnone captures(none) %0
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %34, %10
-  %.sink58 = phi i64 [ 1, %10 ], [ 2, %34 ]
+  %.sink56 = phi i64 [ 1, %10 ], [ 2, %34 ]
   %.sink = phi i64 [ -1, %10 ], [ -2, %34 ]
   %39 = load ptr, ptr %2, align 8, !tbaa !37
-  %40 = getelementptr i8, ptr %39, i64 %.sink58
+  %40 = getelementptr i8, ptr %39, i64 %.sink56
   store ptr %40, ptr %2, align 8, !tbaa !37
-  %41 = add nsw i64 %.02237, %.sink
+  %41 = add nsw i64 %.02235, %.sink
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph, label %.thread
 
@@ -576,7 +576,7 @@ define internal range(i64 -1, 2) i64 @cp950_encode(ptr readnone captures(none) %
 
 .lr.ph:                                           ; preds = %9, %77
   %12 = phi i64 [ %79, %77 ], [ %10, %9 ]
-  %.04063 = phi i64 [ %82, %77 ], [ %7, %9 ]
+  %.04061 = phi i64 [ %82, %77 ], [ %7, %9 ]
   switch i32 %2, label %21 [
     i32 1, label %13
     i32 2, label %17
@@ -605,7 +605,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %PyUnicode_READ.exit
-  %26 = icmp slt i64 %.04063, 1
+  %26 = icmp slt i64 %.04061, 1
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %25
@@ -619,7 +619,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp slt i64 %.04063, 2
+  %33 = icmp slt i64 %.04061, 2
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %32
@@ -695,15 +695,15 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br label %77
 
 77:                                               ; preds = %70, %27
-  %.sink90 = phi i64 [ 2, %70 ], [ 1, %27 ]
+  %.sink88 = phi i64 [ 2, %70 ], [ 1, %27 ]
   %.sink = phi i64 [ -2, %70 ], [ -1, %27 ]
   %78 = load i64, ptr %4, align 8, !tbaa !48
   %79 = add i64 %78, 1
   store i64 %79, ptr %4, align 8, !tbaa !48
   %80 = load ptr, ptr %6, align 8, !tbaa !37
-  %81 = getelementptr i8, ptr %80, i64 %.sink90
+  %81 = getelementptr i8, ptr %80, i64 %.sink88
   store ptr %81, ptr %6, align 8, !tbaa !37
-  %82 = add nsw i64 %.04063, %.sink
+  %82 = add nsw i64 %.04061, %.sink
   %83 = icmp slt i64 %79, %5
   br i1 %83, label %.lr.ph, label %.thread
 
@@ -723,7 +723,7 @@ define internal range(i64 -4, 2) i64 @cp950_decode(ptr readnone captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %7 = phi ptr [ %61, %59 ], [ %.pre, %.lr.ph.preheader ]
-  %.03255 = phi i64 [ %62, %59 ], [ %3, %.lr.ph.preheader ]
+  %.03253 = phi i64 [ %62, %59 ], [ %3, %.lr.ph.preheader ]
   %8 = load i8, ptr %7, align 1, !tbaa !34
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %10, label %14
@@ -735,7 +735,7 @@ define internal range(i64 -4, 2) i64 @cp950_decode(ptr readnone captures(none) %
   br i1 %13, label %.thread, label %59, !llvm.loop !63
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp eq i64 %.03255, 1
+  %15 = icmp eq i64 %.03253, 1
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
@@ -810,12 +810,12 @@ define internal range(i64 -4, 2) i64 @cp950_decode(ptr readnone captures(none) %
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %55, %34, %10
-  %.sink81 = phi i64 [ 1, %10 ], [ 2, %34 ], [ 2, %55 ]
+  %.sink79 = phi i64 [ 1, %10 ], [ 2, %34 ], [ 2, %55 ]
   %.sink = phi i64 [ -1, %10 ], [ -2, %34 ], [ -2, %55 ]
   %60 = load ptr, ptr %2, align 8, !tbaa !37
-  %61 = getelementptr i8, ptr %60, i64 %.sink81
+  %61 = getelementptr i8, ptr %60, i64 %.sink79
   store ptr %61, ptr %2, align 8, !tbaa !37
-  %62 = add nsw i64 %.03255, %.sink
+  %62 = add nsw i64 %.03253, %.sink
   %63 = icmp sgt i64 %62, 0
   br i1 %63, label %.lr.ph, label %.thread
 

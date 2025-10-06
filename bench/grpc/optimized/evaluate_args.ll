@@ -1407,8 +1407,8 @@ define { i64, ptr } @_ZNK9grpc_core12EvaluateArgs9GetMethodEv(ptr noundef nonnul
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i16, ptr %5, align 2, !tbaa !40
   %7 = and i16 %6, 2
-  %.not5 = icmp eq i16 %7, 0
-  br i1 %.not5, label %.thread, label %8
+  %.not4 = icmp eq i16 %7, 0
+  br i1 %.not4, label %.thread, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 10

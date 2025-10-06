@@ -268,8 +268,8 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #19
   %13 = getelementptr inbounds ptr, ptr @tails, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !28
-  %.not293 = icmp eq ptr %14, null
-  br i1 %.not293, label %._crit_edge, label %.lr.ph
+  %.not289 = icmp eq ptr %14, null
+  br i1 %.not289, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %15 = getelementptr inbounds %struct.itemstats_t, ptr @itemstats, i64 %10
@@ -285,26 +285,26 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.thread
-  %.0112292 = phi i64 [ 0, %.lr.ph ], [ %.1113, %.thread ]
-  %.0127291 = phi ptr [ %14, %.lr.ph ], [ %26, %.thread ]
-  %.0128290 = phi i32 [ 5, %.lr.ph ], [ %474, %.thread ]
-  %.0131289 = phi i32 [ 0, %.lr.ph ], [ %.2133, %.thread ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0127291, i64 8
+  %.0112288 = phi i64 [ 0, %.lr.ph ], [ %.1113, %.thread ]
+  %.0127287 = phi ptr [ %14, %.lr.ph ], [ %26, %.thread ]
+  %.0128286 = phi i32 [ 5, %.lr.ph ], [ %474, %.thread ]
+  %.0131285 = phi i32 [ 0, %.lr.ph ], [ %.2133, %.thread ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0127287, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !28
-  %27 = getelementptr inbounds nuw i8, ptr %.0127291, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.0127287, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !22
   %29 = icmp eq i32 %28, 0
-  %30 = getelementptr inbounds nuw i8, ptr %.0127291, i64 41
+  %30 = getelementptr inbounds nuw i8, ptr %.0127287, i64 41
   %31 = load i8, ptr %30, align 1, !tbaa !30
   %32 = icmp eq i8 %31, 0
-  %or.cond424 = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond424, label %33, label %._crit_edge348
+  %or.cond420 = select i1 %29, i1 %32, i1 false
+  br i1 %or.cond420, label %33, label %._crit_edge344
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw i8, ptr %.0127291, i64 38
+  %34 = getelementptr inbounds nuw i8, ptr %.0127287, i64 38
   %35 = load i16, ptr %34, align 2, !tbaa !31
   %36 = icmp eq i16 %35, 1
-  br i1 %36, label %37, label %._crit_edge348
+  br i1 %36, label %37, label %._crit_edge344
 
 37:                                               ; preds = %33
   br i1 %.not152, label %40, label %38
@@ -314,28 +314,28 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
   br label %497
 
 40:                                               ; preds = %37
-  %41 = add nuw nsw i32 %.0128290, 1
+  %41 = add nuw nsw i32 %.0128286, 1
   br label %.thread
 
-._crit_edge348:                                   ; preds = %24, %33
+._crit_edge344:                                   ; preds = %24, %33
   %42 = phi i8 [ 0, %33 ], [ %31, %24 ]
   %43 = load ptr, ptr @hash, align 8, !tbaa !33
-  %44 = getelementptr inbounds nuw i8, ptr %.0127291, i64 48
-  %45 = getelementptr inbounds nuw i8, ptr %.0127291, i64 38
+  %44 = getelementptr inbounds nuw i8, ptr %.0127287, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %.0127287, i64 38
   %46 = load i16, ptr %45, align 2, !tbaa !31
   %47 = shl i16 %46, 2
   %48 = and i16 %47, 8
   %49 = zext nneg i16 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %.0127291, i64 41
+  %51 = getelementptr inbounds nuw i8, ptr %.0127287, i64 41
   %52 = zext i8 %42 to i64
   %53 = tail call i32 %43(ptr noundef nonnull %50, i64 noundef %52) #19
   %54 = tail call ptr @item_trylock(i32 noundef %53) #19
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread, label %56
 
-56:                                               ; preds = %._crit_edge348
-  %57 = getelementptr inbounds nuw i8, ptr %.0127291, i64 36
+56:                                               ; preds = %._crit_edge344
+  %57 = getelementptr inbounds nuw i8, ptr %.0127287, i64 36
   %58 = load i16, ptr %57, align 4, !tbaa !31
   %59 = add i16 %58, 1
   store i16 %59, ptr %57, align 4, !tbaa !31
@@ -351,7 +351,7 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
   br i1 %.not140, label %74, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %.0127291, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.0127287, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !22
   %67 = add i32 %66, %63
   %68 = load volatile i32, ptr @current_time, align 4, !tbaa !22
@@ -364,13 +364,13 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
   store i64 %72, ptr %17, align 8, !tbaa !36
   store i16 1, ptr %57, align 4, !tbaa !31
   %73 = load ptr, ptr @ext_storage, align 8, !tbaa !33
-  tail call void @storage_delete(ptr noundef %73, ptr noundef nonnull %.0127291) #19
-  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.0127291, i32 noundef %53)
+  tail call void @storage_delete(ptr noundef %73, ptr noundef nonnull %.0127287) #19
+  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.0127287, i32 noundef %53)
   tail call void @item_trylock_unlock(ptr noundef nonnull %54) #19
   br label %.thread
 
 74:                                               ; preds = %60, %64, %56
-  %75 = getelementptr inbounds nuw i8, ptr %.0127291, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %.0127287, i64 28
   %76 = load i32, ptr %75, align 4, !tbaa !22
   %.not141 = icmp eq i32 %76, 0
   br i1 %.not141, label %80, label %77
@@ -382,7 +382,7 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 80:                                               ; preds = %77, %74
   %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 36), align 4, !tbaa !15
-  %82 = getelementptr inbounds nuw i8, ptr %.0127291, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.0127287, i64 24
   %83 = load i32, ptr %82, align 8, !tbaa !22
   %.not.i = icmp ugt i32 %83, %81
   br i1 %.not.i, label %105, label %84
@@ -408,9 +408,9 @@ item_is_flushed.exit:                             ; preds = %84, %77
   br label %94
 
 94:                                               ; preds = %91, %item_is_flushed.exit
-  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.0127291, i32 noundef %53)
+  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.0127287, i32 noundef %53)
   %95 = load ptr, ptr @ext_storage, align 8, !tbaa !33
-  tail call void @storage_delete(ptr noundef %95, ptr noundef nonnull %.0127291) #19
+  tail call void @storage_delete(ptr noundef %95, ptr noundef nonnull %.0127287) #19
   %96 = load i16, ptr %57, align 4, !tbaa !31
   %97 = add i16 %96, -1
   store i16 %97, ptr %57, align 4, !tbaa !31
@@ -418,16 +418,16 @@ item_is_flushed.exit:                             ; preds = %84, %77
   br i1 %98, label %99, label %do_item_remove.exit
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %101 = load i8, ptr %100, align 8, !tbaa !30
   %102 = and i8 %101, 63
   %103 = zext nneg i8 %102 to i32
-  tail call void @slabs_free(ptr noundef nonnull %.0127291, i32 noundef %103) #19
+  tail call void @slabs_free(ptr noundef nonnull %.0127287, i32 noundef %103) #19
   br label %do_item_remove.exit
 
 do_item_remove.exit:                              ; preds = %94, %99
   tail call void @item_trylock_unlock(ptr noundef nonnull %54) #19
-  %104 = add nsw i32 %.0131289, 1
+  %104 = add nsw i32 %.0131285, 1
   br label %.thread
 
 105:                                              ; preds = %80, %84
@@ -435,7 +435,7 @@ do_item_remove.exit:                              ; preds = %94, %99
     i32 0, label %106
     i32 1, label %111
     i32 2, label %355
-    i32 3, label %.thread203.thread
+    i32 3, label %.thread191.thread
   ]
 
 106:                                              ; preds = %105
@@ -446,7 +446,7 @@ do_item_remove.exit:                              ; preds = %94, %99
   br label %111
 
 111:                                              ; preds = %106, %105
-  %.4 = phi i64 [ %110, %106 ], [ %.0112292, %105 ]
+  %.4 = phi i64 [ %110, %106 ], [ %.0112288, %105 ]
   %112 = icmp eq i64 %.4, 0
   br i1 %112, label %113, label %118
 
@@ -467,30 +467,30 @@ do_item_remove.exit:                              ; preds = %94, %99
 121:                                              ; preds = %118
   %122 = and i16 %119, -17
   store i16 %122, ptr %45, align 2, !tbaa !31
-  %123 = add nsw i32 %.0131289, 1
+  %123 = add nsw i32 %.0131285, 1
   br i1 %21, label %124, label %230
 
 124:                                              ; preds = %121
   %125 = load i64, ptr %22, align 8, !tbaa !40
   %126 = add i64 %125, 1
   store i64 %126, ptr %22, align 8, !tbaa !40
-  %127 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %128 = load i8, ptr %127, align 8, !tbaa !30
   %129 = zext i8 %128 to i64
   %130 = getelementptr inbounds nuw ptr, ptr @heads, i64 %129
   %131 = getelementptr inbounds nuw ptr, ptr @tails, i64 %129
   %132 = load ptr, ptr %130, align 8, !tbaa !28
-  %133 = icmp eq ptr %132, %.0127291
+  %133 = icmp eq ptr %132, %.0127287
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %124
-  %135 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %135 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %135, ptr %130, align 8, !tbaa !28
   br label %136
 
 136:                                              ; preds = %134, %124
   %137 = load ptr, ptr %131, align 8, !tbaa !28
-  %138 = icmp eq ptr %137, %.0127291
+  %138 = icmp eq ptr %137, %.0127287
   %.pre.i.pre = load ptr, ptr %25, align 8, !tbaa !28
   br i1 %138, label %139, label %140
 
@@ -499,7 +499,7 @@ do_item_remove.exit:                              ; preds = %94, %99
   br label %140
 
 140:                                              ; preds = %139, %136
-  %141 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %141 = load ptr, ptr %.0127287, align 8, !tbaa !28
   %.not.i153 = icmp eq ptr %141, null
   br i1 %.not.i153, label %._crit_edge.i, label %142
 
@@ -513,7 +513,7 @@ do_item_remove.exit:                              ; preds = %94, %99
   br i1 %.not31.i, label %146, label %144
 
 144:                                              ; preds = %._crit_edge.i
-  %145 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %145 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %145, ptr %.pre.i.pre, align 8, !tbaa !28
   br label %146
 
@@ -541,8 +541,8 @@ do_item_remove.exit:                              ; preds = %94, %99
   %163 = or disjoint i32 %158, %160
   %164 = zext nneg i32 %163 to i64
   %165 = add nuw nsw i64 %164, %155
-  %reass.sub297 = sub i64 %162, %165
-  %166 = add i64 %reass.sub297, -61
+  %reass.sub293 = sub i64 %162, %165
+  %166 = add i64 %reass.sub293, -61
   store i64 %166, ptr %161, align 8, !tbaa !14
   br label %do_item_unlink_q.exit
 
@@ -559,8 +559,8 @@ do_item_remove.exit:                              ; preds = %94, %99
   %177 = zext nneg i32 %176 to i64
   %178 = add nuw nsw i64 %177, %155
   %179 = add nsw i64 %178, %169
-  %reass.sub298 = sub i64 %175, %179
-  %180 = add i64 %reass.sub298, -49
+  %reass.sub294 = sub i64 %175, %179
+  %180 = add i64 %reass.sub294, -49
   store i64 %180, ptr %174, align 8, !tbaa !14
   br label %do_item_unlink_q.exit
 
@@ -571,23 +571,23 @@ do_item_unlink_q.exit:                            ; preds = %156, %167
   %184 = getelementptr inbounds nuw ptr, ptr @tails, i64 %182
   store ptr null, ptr %25, align 8, !tbaa !28
   %185 = load ptr, ptr %183, align 8, !tbaa !28
-  store ptr %185, ptr %.0127291, align 8, !tbaa !28
+  store ptr %185, ptr %.0127287, align 8, !tbaa !28
   %.not.i154 = icmp eq ptr %185, null
   br i1 %.not.i154, label %188, label %186
 
 186:                                              ; preds = %do_item_unlink_q.exit
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store ptr %.0127291, ptr %187, align 8, !tbaa !28
+  store ptr %.0127287, ptr %187, align 8, !tbaa !28
   br label %188
 
 188:                                              ; preds = %186, %do_item_unlink_q.exit
-  store ptr %.0127291, ptr %183, align 8, !tbaa !28
+  store ptr %.0127287, ptr %183, align 8, !tbaa !28
   %189 = load ptr, ptr %184, align 8, !tbaa !28
   %190 = icmp eq ptr %189, null
   br i1 %190, label %191, label %192
 
 191:                                              ; preds = %188
-  store ptr %.0127291, ptr %184, align 8, !tbaa !28
+  store ptr %.0127287, ptr %184, align 8, !tbaa !28
   br label %192
 
 192:                                              ; preds = %191, %188
@@ -643,7 +643,7 @@ do_item_link_q.exit:                              ; preds = %200, %210
   %227 = load i8, ptr %127, align 8, !tbaa !30
   %228 = and i8 %227, 63
   %229 = zext nneg i8 %228 to i32
-  tail call void @slabs_free(ptr noundef nonnull %.0127291, i32 noundef %229) #19
+  tail call void @slabs_free(ptr noundef nonnull %.0127287, i32 noundef %229) #19
   br label %do_item_remove.exit155
 
 do_item_remove.exit155:                           ; preds = %do_item_link_q.exit, %226
@@ -655,23 +655,23 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %232 = load i64, ptr %231, align 8, !tbaa !41
   %233 = add i64 %232, 1
   store i64 %233, ptr %231, align 8, !tbaa !41
-  %234 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
+  %234 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %235 = load i8, ptr %234, align 8, !tbaa !30
   %236 = zext i8 %235 to i64
   %237 = getelementptr inbounds nuw ptr, ptr @heads, i64 %236
   %238 = getelementptr inbounds nuw ptr, ptr @tails, i64 %236
   %239 = load ptr, ptr %237, align 8, !tbaa !28
-  %240 = icmp eq ptr %239, %.0127291
+  %240 = icmp eq ptr %239, %.0127287
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %230
-  %242 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %242 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %242, ptr %237, align 8, !tbaa !28
   br label %243
 
 243:                                              ; preds = %241, %230
   %244 = load ptr, ptr %238, align 8, !tbaa !28
-  %245 = icmp eq ptr %244, %.0127291
+  %245 = icmp eq ptr %244, %.0127287
   %.pre.i158.pre = load ptr, ptr %25, align 8, !tbaa !28
   br i1 %245, label %246, label %247
 
@@ -680,7 +680,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   br label %247
 
 247:                                              ; preds = %246, %243
-  %248 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %248 = load ptr, ptr %.0127287, align 8, !tbaa !28
   %.not.i156 = icmp eq ptr %248, null
   br i1 %.not.i156, label %._crit_edge.i159, label %249
 
@@ -694,7 +694,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   br i1 %.not31.i160, label %253, label %251
 
 251:                                              ; preds = %._crit_edge.i159
-  %252 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %252 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %252, ptr %.pre.i158.pre, align 8, !tbaa !28
   br label %253
 
@@ -722,8 +722,8 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %270 = or disjoint i32 %265, %267
   %271 = zext nneg i32 %270 to i64
   %272 = add nuw nsw i64 %271, %262
-  %reass.sub295 = sub i64 %269, %272
-  %273 = add i64 %reass.sub295, -61
+  %reass.sub291 = sub i64 %269, %272
+  %273 = add i64 %reass.sub291, -61
   store i64 %273, ptr %268, align 8, !tbaa !14
   br label %479
 
@@ -740,8 +740,8 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %284 = zext nneg i32 %283 to i64
   %285 = add nuw nsw i64 %284, %262
   %286 = add nsw i64 %285, %276
-  %reass.sub296 = sub i64 %282, %286
-  %287 = add i64 %reass.sub296, -49
+  %reass.sub292 = sub i64 %282, %286
+  %287 = add i64 %reass.sub292, -49
   store i64 %287, ptr %281, align 8, !tbaa !14
   br label %479
 
@@ -755,30 +755,30 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %293 = load volatile i32, ptr @current_time, align 4, !tbaa !22
   %294 = sub i32 %293, %83
   %295 = icmp ugt i32 %294, %4
-  br i1 %295, label %296, label %.thread203.thread
+  br i1 %295, label %296, label %.thread191.thread
 
 296:                                              ; preds = %292, %288
   %297 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %298 = load i64, ptr %297, align 8, !tbaa !42
   %299 = add i64 %298, 1
   store i64 %299, ptr %297, align 8, !tbaa !42
-  %300 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
+  %300 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %301 = load i8, ptr %300, align 8, !tbaa !30
   %302 = zext i8 %301 to i64
   %303 = getelementptr inbounds nuw ptr, ptr @heads, i64 %302
   %304 = getelementptr inbounds nuw ptr, ptr @tails, i64 %302
   %305 = load ptr, ptr %303, align 8, !tbaa !28
-  %306 = icmp eq ptr %305, %.0127291
+  %306 = icmp eq ptr %305, %.0127287
   br i1 %306, label %307, label %309
 
 307:                                              ; preds = %296
-  %308 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %308 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %308, ptr %303, align 8, !tbaa !28
   br label %309
 
 309:                                              ; preds = %307, %296
   %310 = load ptr, ptr %304, align 8, !tbaa !28
-  %311 = icmp eq ptr %310, %.0127291
+  %311 = icmp eq ptr %310, %.0127287
   %.pre.i167.pre = load ptr, ptr %25, align 8, !tbaa !28
   br i1 %311, label %312, label %313
 
@@ -787,7 +787,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   br label %313
 
 313:                                              ; preds = %312, %309
-  %314 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %314 = load ptr, ptr %.0127287, align 8, !tbaa !28
   %.not.i165 = icmp eq ptr %314, null
   br i1 %.not.i165, label %._crit_edge.i168, label %315
 
@@ -801,7 +801,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   br i1 %.not31.i169, label %319, label %317
 
 317:                                              ; preds = %._crit_edge.i168
-  %318 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %318 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %318, ptr %.pre.i167.pre, align 8, !tbaa !28
   br label %319
 
@@ -829,8 +829,8 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %336 = or disjoint i32 %331, %333
   %337 = zext nneg i32 %336 to i64
   %338 = add nuw nsw i64 %337, %328
-  %reass.sub299 = sub i64 %335, %338
-  %339 = add i64 %reass.sub299, -61
+  %reass.sub295 = sub i64 %335, %338
+  %339 = add i64 %reass.sub295, -61
   store i64 %339, ptr %334, align 8, !tbaa !14
   br label %do_item_unlink_q.exit173
 
@@ -847,17 +847,17 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %350 = zext nneg i32 %349 to i64
   %351 = add nuw nsw i64 %350, %328
   %352 = add nsw i64 %351, %342
-  %reass.sub300 = sub i64 %348, %352
-  %353 = add i64 %reass.sub300, -49
+  %reass.sub296 = sub i64 %348, %352
+  %353 = add i64 %reass.sub296, -49
   store i64 %353, ptr %347, align 8, !tbaa !14
   br label %do_item_unlink_q.exit173
 
 do_item_unlink_q.exit173:                         ; preds = %329, %340
-  %354 = add nsw i32 %.0131289, 1
+  %354 = add nsw i32 %.0131285, 1
   br label %479
 
 355:                                              ; preds = %105
-  %356 = getelementptr inbounds nuw i8, ptr %.0127291, i64 28
+  %356 = getelementptr inbounds nuw i8, ptr %.0127287, i64 28
   %357 = zext i8 %3 to i32
   %358 = and i32 %357, 1
   %.not143 = icmp eq i32 %358, 0
@@ -866,7 +866,7 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
 359:                                              ; preds = %355
   %360 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 40), align 8, !tbaa !43
   %361 = icmp eq i32 %360, 0
-  br i1 %361, label %.thread203.thread, label %362
+  br i1 %361, label %.thread191.thread, label %362
 
 362:                                              ; preds = %359
   %363 = load i64, ptr %15, align 8, !tbaa !44
@@ -922,22 +922,22 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   br i1 %.not147, label %395, label %393
 
 393:                                              ; preds = %387
-  %394 = tail call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %389, i32 noundef 1, ptr noundef nonnull %.0127291) #19
+  %394 = tail call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %389, i32 noundef 1, ptr noundef nonnull %.0127287) #19
   br label %395
 
 395:                                              ; preds = %393, %387
   %396 = load ptr, ptr @ext_storage, align 8, !tbaa !33
-  tail call void @storage_delete(ptr noundef %396, ptr noundef nonnull %.0127291) #19
-  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.0127291, i32 noundef %53)
-  %397 = add nsw i32 %.0131289, 1
+  tail call void @storage_delete(ptr noundef %396, ptr noundef nonnull %.0127287) #19
+  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.0127287, i32 noundef %53)
+  %397 = add nsw i32 %.0131285, 1
   %398 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 140), align 4, !tbaa !53
   %399 = icmp eq i32 %398, 2
-  br i1 %399, label %400, label %.thread203.thread
+  br i1 %399, label %400, label %.thread191.thread
 
 400:                                              ; preds = %395
   %401 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 264), align 8, !tbaa !54
   %402 = tail call i32 @slabs_reassign(ptr noundef %401, i32 noundef -1, i32 noundef %0, i32 noundef 1) #19
-  br label %.thread203.thread
+  br label %.thread191.thread
 
 403:                                              ; preds = %355
   %404 = and i32 %357, 4
@@ -945,10 +945,10 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   br i1 %.not144, label %407, label %405
 
 405:                                              ; preds = %403
-  store ptr %.0127291, ptr %5, align 8, !tbaa !55
+  store ptr %.0127287, ptr %5, align 8, !tbaa !55
   %406 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %53, ptr %406, align 8, !tbaa !57
-  br label %.thread203.thread
+  br label %.thread191.thread
 
 407:                                              ; preds = %403
   %408 = load i16, ptr %45, align 2, !tbaa !31
@@ -957,7 +957,7 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   %411 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 136), align 8, !range !24
   %412 = trunc nuw i8 %411 to i1
   %or.cond = select i1 %410, i1 %412, i1 false
-  br i1 %or.cond, label %413, label %.thread203.thread
+  br i1 %or.cond, label %413, label %.thread191.thread
 
 413:                                              ; preds = %407
   %414 = getelementptr inbounds nuw i8, ptr %15, i64 96
@@ -966,23 +966,23 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   store i64 %416, ptr %414, align 8, !tbaa !41
   %417 = and i16 %408, -17
   store i16 %417, ptr %45, align 2, !tbaa !31
-  %418 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
+  %418 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %419 = load i8, ptr %418, align 8, !tbaa !30
   %420 = zext i8 %419 to i64
   %421 = getelementptr inbounds nuw ptr, ptr @heads, i64 %420
   %422 = getelementptr inbounds nuw ptr, ptr @tails, i64 %420
   %423 = load ptr, ptr %421, align 8, !tbaa !28
-  %424 = icmp eq ptr %423, %.0127291
+  %424 = icmp eq ptr %423, %.0127287
   br i1 %424, label %425, label %427
 
 425:                                              ; preds = %413
-  %426 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %426 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %426, ptr %421, align 8, !tbaa !28
   br label %427
 
 427:                                              ; preds = %425, %413
   %428 = load ptr, ptr %422, align 8, !tbaa !28
-  %429 = icmp eq ptr %428, %.0127291
+  %429 = icmp eq ptr %428, %.0127287
   %.pre.i176.pre = load ptr, ptr %25, align 8, !tbaa !28
   br i1 %429, label %430, label %431
 
@@ -991,7 +991,7 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   br label %431
 
 431:                                              ; preds = %430, %427
-  %432 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %432 = load ptr, ptr %.0127287, align 8, !tbaa !28
   %.not.i174 = icmp eq ptr %432, null
   br i1 %.not.i174, label %._crit_edge.i177, label %433
 
@@ -1005,7 +1005,7 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   br i1 %.not31.i178, label %437, label %435
 
 435:                                              ; preds = %._crit_edge.i177
-  %436 = load ptr, ptr %.0127291, align 8, !tbaa !28
+  %436 = load ptr, ptr %.0127287, align 8, !tbaa !28
   store ptr %436, ptr %.pre.i176.pre, align 8, !tbaa !28
   br label %437
 
@@ -1051,24 +1051,24 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   %468 = zext nneg i32 %467 to i64
   %469 = add nuw nsw i64 %468, %446
   %470 = add nsw i64 %469, %460
-  %reass.sub294 = sub i64 %466, %470
-  %471 = add i64 %reass.sub294, -49
+  %reass.sub290 = sub i64 %466, %470
+  %471 = add i64 %reass.sub290, -49
   store i64 %471, ptr %465, align 8, !tbaa !14
   br label %do_item_unlink_q.exit182
 
 do_item_unlink_q.exit182:                         ; preds = %447, %458
-  %472 = add nsw i32 %.0131289, 1
+  %472 = add nsw i32 %.0131285, 1
   br label %479
 
-.thread203.thread:                                ; preds = %105, %292, %407, %405, %395, %400, %359
-  %.4135.ph.ph = phi i32 [ %.0131289, %359 ], [ %397, %400 ], [ %397, %395 ], [ %.0131289, %405 ], [ %.0131289, %407 ], [ %.0131289, %292 ], [ %.0131289, %105 ]
+.thread191.thread:                                ; preds = %105, %292, %407, %405, %395, %400, %359
+  %.4135206.ph = phi i32 [ %.0131285, %359 ], [ %397, %400 ], [ %397, %395 ], [ %.0131285, %405 ], [ %.0131285, %407 ], [ %.0131285, %292 ], [ %.0131285, %105 ]
   %473 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   br label %485
 
-.thread:                                          ; preds = %do_item_remove.exit155, %105, %._crit_edge348, %do_item_remove.exit, %70, %40
-  %.2133 = phi i32 [ %.0131289, %40 ], [ %.0131289, %._crit_edge348 ], [ %104, %do_item_remove.exit ], [ %.0131289, %70 ], [ %.0131289, %105 ], [ %123, %do_item_remove.exit155 ]
-  %.1129 = phi i32 [ %41, %40 ], [ %.0128290, %._crit_edge348 ], [ %.0128290, %do_item_remove.exit ], [ %.0128290, %70 ], [ %.0128290, %105 ], [ %.0128290, %do_item_remove.exit155 ]
-  %.1113 = phi i64 [ %.0112292, %40 ], [ %.0112292, %._crit_edge348 ], [ %.0112292, %do_item_remove.exit ], [ %.0112292, %70 ], [ %.0112292, %105 ], [ %.5, %do_item_remove.exit155 ]
+.thread:                                          ; preds = %105, %do_item_remove.exit155, %._crit_edge344, %do_item_remove.exit, %70, %40
+  %.2133 = phi i32 [ %.0131285, %40 ], [ %.0131285, %._crit_edge344 ], [ %104, %do_item_remove.exit ], [ %.0131285, %70 ], [ %.0131285, %105 ], [ %123, %do_item_remove.exit155 ]
+  %.1129 = phi i32 [ %41, %40 ], [ %.0128286, %._crit_edge344 ], [ %.0128286, %do_item_remove.exit ], [ %.0128286, %70 ], [ %.0128286, %105 ], [ %.0128286, %do_item_remove.exit155 ]
+  %.1113 = phi i64 [ %.0112288, %40 ], [ %.0112288, %._crit_edge344 ], [ %.0112288, %do_item_remove.exit ], [ %.0112288, %70 ], [ %.0112288, %105 ], [ %.5, %do_item_remove.exit155 ]
   %474 = add nsw i32 %.1129, -1
   %475 = icmp sgt i32 %.1129, 1
   %476 = icmp ne ptr %26, null
@@ -1081,19 +1081,19 @@ do_item_unlink_q.exit182:                         ; preds = %447, %458
   br label %497
 
 479:                                              ; preds = %do_item_unlink_q.exit173, %do_item_unlink_q.exit182, %263, %274
-  %.4135.ph = phi i32 [ %123, %274 ], [ %123, %263 ], [ %472, %do_item_unlink_q.exit182 ], [ %354, %do_item_unlink_q.exit173 ]
-  %.4118.ph = phi i8 [ 64, %274 ], [ 64, %263 ], [ 64, %do_item_unlink_q.exit182 ], [ -128, %do_item_unlink_q.exit173 ]
+  %.4118208 = phi i8 [ 64, %274 ], [ 64, %263 ], [ 64, %do_item_unlink_q.exit182 ], [ -128, %do_item_unlink_q.exit173 ]
+  %.4135206 = phi i32 [ %123, %274 ], [ %123, %263 ], [ %472, %do_item_unlink_q.exit182 ], [ %354, %do_item_unlink_q.exit173 ]
   %480 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
-  %481 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
+  %481 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %482 = load i8, ptr %481, align 8, !tbaa !30
   %483 = and i8 %482, 63
-  %484 = or disjoint i8 %483, %.4118.ph
+  %484 = or disjoint i8 %483, %.4118208
   store i8 %484, ptr %481, align 8, !tbaa !30
-  tail call fastcc void @item_link_q(ptr noundef nonnull %.0127291)
+  tail call fastcc void @item_link_q(ptr noundef nonnull %.0127287)
   br label %485
 
-485:                                              ; preds = %.thread203.thread, %479
-  %.4135.ph365 = phi i32 [ %.4135.ph.ph, %.thread203.thread ], [ %.4135.ph, %479 ]
+485:                                              ; preds = %.thread191.thread, %479
+  %.4135206361 = phi i32 [ %.4135206.ph, %.thread191.thread ], [ %.4135206, %479 ]
   %486 = and i8 %3, 4
   %487 = icmp eq i8 %486, 0
   br i1 %487, label %488, label %497
@@ -1106,11 +1106,11 @@ do_item_unlink_q.exit182:                         ; preds = %447, %458
   br i1 %491, label %492, label %do_item_remove.exit183
 
 492:                                              ; preds = %488
-  %493 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
+  %493 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %494 = load i8, ptr %493, align 8, !tbaa !30
   %495 = and i8 %494, 63
   %496 = zext nneg i8 %495 to i32
-  tail call void @slabs_free(ptr noundef nonnull %.0127291, i32 noundef %496) #19
+  tail call void @slabs_free(ptr noundef nonnull %.0127287, i32 noundef %496) #19
   br label %do_item_remove.exit183
 
 do_item_remove.exit183:                           ; preds = %488, %492
@@ -1118,7 +1118,7 @@ do_item_remove.exit183:                           ; preds = %488, %492
   br label %497
 
 497:                                              ; preds = %._crit_edge, %38, %485, %do_item_remove.exit183, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %38 ], [ %.4135.ph365, %485 ], [ %.4135.ph365, %do_item_remove.exit183 ], [ %.0131.lcssa, %._crit_edge ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %38 ], [ %.4135206361, %485 ], [ %.4135206361, %do_item_remove.exit183 ], [ %.0131.lcssa, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -2384,7 +2384,7 @@ define dso_local noundef i32 @do_item_replace(ptr noundef %0, ptr noundef initia
 define dso_local void @item_flush_expired() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 36), align 4, !tbaa !15
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %.loopexit33, label %.preheader
+  br i1 %2, label %.loopexit31, label %.preheader
 
 .preheader:                                       ; preds = %0, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %0 ]
@@ -2392,23 +2392,23 @@ define dso_local void @item_flush_expired() local_unnamed_addr #0 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %5 = getelementptr inbounds nuw ptr, ptr @heads, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !28
-  %.not34 = icmp eq ptr %6, null
-  br i1 %.not34, label %.loopexit, label %.lr.ph
+  %.not32 = icmp eq ptr %6, null
+  br i1 %.not32, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %51
-  %.02535 = phi ptr [ %7, %51 ], [ %6, %.preheader ]
-  %7 = load ptr, ptr %.02535, align 8, !tbaa !28
-  %8 = getelementptr inbounds nuw i8, ptr %.02535, i64 24
+  %.02533 = phi ptr [ %7, %51 ], [ %6, %.preheader ]
+  %7 = load ptr, ptr %.02533, align 8, !tbaa !28
+  %8 = getelementptr inbounds nuw i8, ptr %.02533, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !22
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds nuw i8, ptr %.02535, i64 41
+  %11 = getelementptr inbounds nuw i8, ptr %.02533, i64 41
   %12 = load i8, ptr %11, align 1, !tbaa !30
   %13 = icmp eq i8 %12, 0
   %or.cond = select i1 %10, i1 %13, i1 false
   br i1 %or.cond, label %14, label %.lr.ph._crit_edge
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.02535, i64 38
+  %15 = getelementptr inbounds nuw i8, ptr %.02533, i64 38
   %16 = load i16, ptr %15, align 2, !tbaa !31
   %17 = icmp eq i16 %16, 1
   br i1 %17, label %51, label %.lr.ph._crit_edge
@@ -2416,14 +2416,14 @@ define dso_local void @item_flush_expired() local_unnamed_addr #0 {
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %14
   %18 = phi i8 [ 0, %14 ], [ %12, %.lr.ph ]
   %19 = load ptr, ptr @hash, align 8, !tbaa !33
-  %20 = getelementptr inbounds nuw i8, ptr %.02535, i64 48
-  %21 = getelementptr inbounds nuw i8, ptr %.02535, i64 38
+  %20 = getelementptr inbounds nuw i8, ptr %.02533, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.02533, i64 38
   %22 = load i16, ptr %21, align 2, !tbaa !31
   %23 = shl i16 %22, 2
   %24 = and i16 %23, 8
   %25 = zext nneg i16 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %.02535, i64 41
+  %27 = getelementptr inbounds nuw i8, ptr %.02533, i64 41
   %28 = zext i8 %18 to i64
   %29 = tail call i32 %19(ptr noundef nonnull %26, i64 noundef %28) #19
   %30 = tail call ptr @item_trylock(i32 noundef %29) #19
@@ -2444,7 +2444,7 @@ define dso_local void @item_flush_expired() local_unnamed_addr #0 {
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr @ext_storage, align 8, !tbaa !33
-  tail call void @storage_delete(ptr noundef %40, ptr noundef nonnull %.02535) #19
+  tail call void @storage_delete(ptr noundef %40, ptr noundef nonnull %.02533) #19
   %41 = load ptr, ptr @hash, align 8, !tbaa !33
   %42 = load i16, ptr %21, align 2, !tbaa !31
   %43 = shl i16 %42, 2
@@ -2454,7 +2454,7 @@ define dso_local void @item_flush_expired() local_unnamed_addr #0 {
   %47 = load i8, ptr %27, align 1, !tbaa !30
   %48 = zext i8 %47 to i64
   %49 = tail call i32 %41(ptr noundef nonnull %46, i64 noundef %48) #19
-  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.02535, i32 noundef %49)
+  tail call void @do_item_unlink_nolock(ptr noundef nonnull %.02533, i32 noundef %49)
   br label %50
 
 50:                                               ; preds = %39, %35
@@ -2467,15 +2467,15 @@ define dso_local void @item_flush_expired() local_unnamed_addr #0 {
 
 51:                                               ; preds = %50, %.lr.ph._crit_edge, %14
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %51, %.preheader, %.thread
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit33, label %.preheader, !llvm.loop !75
+  br i1 %exitcond.not, label %.loopexit31, label %.preheader, !llvm.loop !76
 
-.loopexit33:                                      ; preds = %.loopexit, %0
+.loopexit31:                                      ; preds = %.loopexit, %0
   ret void
 }
 
@@ -2534,7 +2534,7 @@ define dso_local noalias noundef ptr @item_cachedump(i32 noundef %0, i32 noundef
 28:                                               ; preds = %23, %19
   %.040 = load ptr, ptr %.04055, align 8, !tbaa !28
   %.not = icmp eq ptr %.040, null
-  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !76
+  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !77
 
 .split:                                           ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %.04055, i64 32
@@ -2576,7 +2576,7 @@ define dso_local noalias noundef ptr @item_cachedump(i32 noundef %0, i32 noundef
   %.04052 = load ptr, ptr %.04055, align 8, !tbaa !28
   %.not53 = icmp eq ptr %.04052, null
   %or.cond54 = select i1 %.not53, i1 true, i1 %.not44
-  br i1 %or.cond54, label %.critedge, label %.lr.ph.split.preheader, !llvm.loop !76
+  br i1 %or.cond54, label %.critedge, label %.lr.ph.split.preheader, !llvm.loop !77
 
 .lr.ph.split.preheader:                           ; preds = %.preheader, %.outer
   %.0405269 = phi ptr [ %.04052, %.outer ], [ %.0405264, %.preheader ]
@@ -2622,14 +2622,14 @@ define dso_local void @fill_item_stats_automove(ptr noundef writeonly captures(n
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !63
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %8, ptr %9, align 8, !tbaa !77
+  store i64 %8, ptr %9, align 8, !tbaa !78
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %11 = or disjoint i64 %indvars.iv, 128
   %12 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %11
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #19
   %14 = getelementptr inbounds nuw %struct.itemstats_t, ptr @itemstats, i64 %11
   %15 = load i64, ptr %14, align 8, !tbaa !44
-  store i64 %15, ptr %3, align 8, !tbaa !79
+  store i64 %15, ptr %3, align 8, !tbaa !80
   %16 = getelementptr inbounds nuw ptr, ptr @tails, i64 %11
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %.not = icmp eq ptr %17, null
@@ -2670,11 +2670,11 @@ define dso_local void @fill_item_stats_automove(ptr noundef writeonly captures(n
 37:                                               ; preds = %.sink.split, %30, %2
   %.sink = phi i32 [ 0, %2 ], [ 0, %30 ], [ %36, %.sink.split ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %.sink, ptr %38, align 8, !tbaa !80
+  store i32 %.sink, ptr %38, align 8, !tbaa !81
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %40, label %2, !llvm.loop !81
+  br i1 %exitcond.not, label %40, label %2, !llvm.loop !82
 
 40:                                               ; preds = %37
   ret void
@@ -2759,17 +2759,17 @@ define dso_local void @item_stats_totals(ptr noundef %0, ptr noundef %1) local_u
   %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %47, label %3, !llvm.loop !82
+  br i1 %exitcond.not, label %47, label %3, !llvm.loop !83
 
 47:                                               ; preds = %3
   %48 = add nuw nsw i32 %.07196, 1
   %exitcond111.not = icmp eq i32 %48, 64
-  br i1 %exitcond111.not, label %49, label %.preheader, !llvm.loop !83
+  br i1 %exitcond111.not, label %49, label %.preheader, !llvm.loop !84
 
 49:                                               ; preds = %47
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %18) #19
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %21) #19
-  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !84, !range !24, !noundef !25
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !85, !range !24, !noundef !25
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %53
 
@@ -2783,7 +2783,7 @@ define dso_local void @item_stats_totals(ptr noundef %0, ptr noundef %1) local_u
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %27) #19
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.9, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %30) #19
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.10, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %33) #19
-  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !84, !range !24, !noundef !25
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !85, !range !24, !noundef !25
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %66
 
@@ -2793,7 +2793,7 @@ define dso_local void @item_stats_totals(ptr noundef %0, ptr noundef %1) local_u
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.13, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %42) #19
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.14, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %45) #19
   %57 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @bump_buf_lock) #19
-  %.07.i = load ptr, ptr @bump_buf_head, align 8, !tbaa !85
+  %.07.i = load ptr, ptr @bump_buf_head, align 8, !tbaa !86
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %lru_total_bumps_dropped.exit, label %.lr.ph.i
 
@@ -2803,13 +2803,13 @@ define dso_local void @item_stats_totals(ptr noundef %0, ptr noundef %1) local_u
   %58 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %59 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %58) #19
   %60 = getelementptr inbounds nuw i8, ptr %.010.i, i64 64
-  %61 = load i64, ptr %60, align 8, !tbaa !87
+  %61 = load i64, ptr %60, align 8, !tbaa !88
   %62 = add i64 %61, %.069.i
   %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %58) #19
   %64 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
-  %.0.i = load ptr, ptr %64, align 8, !tbaa !85
+  %.0.i = load ptr, ptr %64, align 8, !tbaa !86
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %lru_total_bumps_dropped.exit, label %.lr.ph.i, !llvm.loop !89
+  br i1 %.not.i, label %lru_total_bumps_dropped.exit, label %.lr.ph.i, !llvm.loop !90
 
 lru_total_bumps_dropped.exit:                     ; preds = %.lr.ph.i, %56
   %.06.lcssa.i = phi i64 [ 0, %56 ], [ %62, %.lr.ph.i ]
@@ -3023,7 +3023,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %112 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %113, label %12, !llvm.loop !90
+  br i1 %exitcond.not, label %113, label %12, !llvm.loop !91
 
 113:                                              ; preds = %111
   %114 = icmp eq i32 %69, 0
@@ -3034,7 +3034,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %69) #19
   %118 = trunc i32 %116 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %118, ptr noundef nonnull %6, i32 noundef %117, ptr noundef %1) #19
-  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !84, !range !24, !noundef !25
+  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !85, !range !24, !noundef !25
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %148
 
@@ -3118,7 +3118,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %177 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %39) #19
   %178 = trunc i32 %176 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %178, ptr noundef nonnull %6, i32 noundef %177, ptr noundef %1) #19
-  %179 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !84, !range !24, !noundef !25
+  %179 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !85, !range !24, !noundef !25
   %180 = trunc nuw i8 %179 to i1
   br i1 %180, label %181, label %185
 
@@ -3142,7 +3142,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %51) #19
   %194 = trunc i32 %192 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %194, ptr noundef nonnull %6, i32 noundef %193, ptr noundef %1) #19
-  %195 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !84, !range !24, !noundef !25
+  %195 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !85, !range !24, !noundef !25
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %197, label %222
 
@@ -3187,7 +3187,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %223 = add nuw nsw i32 %.0262305, 1
   %exitcond323.not = icmp eq i32 %223, 64
-  br i1 %exitcond323.not, label %224, label %11, !llvm.loop !91
+  br i1 %exitcond323.not, label %224, label %11, !llvm.loop !92
 
 224:                                              ; preds = %222
   call void %0(ptr noundef null, i16 noundef zeroext 0, ptr noundef null, i32 noundef 0, ptr noundef %1) #19
@@ -3211,7 +3211,7 @@ define dso_local void @item_stats_sizes_init() local_unnamed_addr #12 {
   br i1 %.not, label %2, label %8
 
 2:                                                ; preds = %0
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 116), align 4, !tbaa !92
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 116), align 4, !tbaa !93
   %4 = sdiv i32 %3, 32
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr @stats_sizes_buckets, align 4, !tbaa !22
@@ -3268,7 +3268,7 @@ define dso_local void @item_stats_sizes(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !93
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !94
 
 22:                                               ; preds = %2
   tail call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull @.str.37, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39) #19
@@ -3286,7 +3286,7 @@ define dso_local ptr @do_item_get(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !94
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %9 = icmp sgt i32 %8, 2
   br i1 %9, label %15, label %.thread67
 
@@ -3295,12 +3295,12 @@ define dso_local ptr @do_item_get(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %11 = load i16, ptr %10, align 4, !tbaa !31
   %12 = add i16 %11, 1
   store i16 %12, ptr %10, align 4, !tbaa !31
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !94
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %14 = icmp sgt i32 %13, 2
   br i1 %14, label %.thread62, label %.thread63
 
 15:                                               ; preds = %7
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !96
   %17 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 12, i64 1, ptr %16) #22
   br label %.thread62
 
@@ -3310,14 +3310,14 @@ define dso_local ptr @do_item_get(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 .lr.ph:                                           ; preds = %.thread62, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread62 ]
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !96
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !30
   %21 = sext i8 %20 to i32
   %fputc60 = tail call i32 @fputc(i32 %21, ptr %18)
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread62
   br i1 %.not, label %79, label %.thread63
@@ -3337,7 +3337,7 @@ define dso_local ptr @do_item_get(ptr noundef %0, i64 noundef %1, i32 noundef %2
 item_is_flushed.exit:                             ; preds = %25
   tail call void @do_item_unlink(ptr noundef nonnull %6, i32 noundef %2)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 6960
-  %28 = load ptr, ptr %27, align 8, !tbaa !98
+  %28 = load ptr, ptr %27, align 8, !tbaa !99
   tail call void @storage_delete(ptr noundef %28, ptr noundef nonnull %6) #19
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %30 = load i16, ptr %29, align 4, !tbaa !31
@@ -3358,16 +3358,16 @@ do_item_remove.exit:                              ; preds = %item_is_flushed.exi
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %38) #19
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 424
-  %41 = load i64, ptr %40, align 8, !tbaa !113
+  %41 = load i64, ptr %40, align 8, !tbaa !114
   %42 = add i64 %41, 1
-  store i64 %42, ptr %40, align 8, !tbaa !113
+  store i64 %42, ptr %40, align 8, !tbaa !114
   %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %38) #19
-  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !94
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %45 = icmp sgt i32 %44, 2
   br i1 %45, label %46, label %.thread67
 
 46:                                               ; preds = %do_item_remove.exit
-  %47 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !96
   %48 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 16, i64 1, ptr %47) #22
   br label %79
 
@@ -3385,7 +3385,7 @@ do_item_remove.exit:                              ; preds = %item_is_flushed.exi
 54:                                               ; preds = %52
   tail call void @do_item_unlink(ptr noundef nonnull %6, i32 noundef %2)
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 6960
-  %56 = load ptr, ptr %55, align 8, !tbaa !98
+  %56 = load ptr, ptr %55, align 8, !tbaa !99
   tail call void @storage_delete(ptr noundef %56, ptr noundef nonnull %6) #19
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %58 = load i16, ptr %57, align 4, !tbaa !31
@@ -3406,16 +3406,16 @@ do_item_remove.exit61:                            ; preds = %54, %61
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %66) #19
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 416
-  %69 = load i64, ptr %68, align 8, !tbaa !114
+  %69 = load i64, ptr %68, align 8, !tbaa !115
   %70 = add i64 %69, 1
-  store i64 %70, ptr %68, align 8, !tbaa !114
+  store i64 %70, ptr %68, align 8, !tbaa !115
   %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #19
-  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !94
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %73 = icmp sgt i32 %72, 2
   br i1 %73, label %74, label %.thread67
 
 74:                                               ; preds = %do_item_remove.exit61
-  %75 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !96
   %76 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 17, i64 1, ptr %75) #22
   br label %79
 
@@ -3429,12 +3429,12 @@ do_item_remove.exit61:                            ; preds = %54, %61
 79:                                               ; preds = %74, %46, %77, %78, %.loopexit
   %.050.ph.ph = phi ptr [ %6, %78 ], [ %6, %77 ], [ null, %.loopexit ], [ null, %46 ], [ null, %74 ]
   %.049.ph.ph = phi i32 [ 1, %78 ], [ 1, %77 ], [ 0, %.loopexit ], [ 2, %46 ], [ 3, %74 ]
-  %.pr.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !94
+  %.pr.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %80 = icmp sgt i32 %.pr.pr, 2
   br i1 %80, label %81, label %.thread67
 
 81:                                               ; preds = %79
-  %82 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %82 = load ptr, ptr @stderr, align 8, !tbaa !96
   %fputc = tail call i32 @fputc(i32 10, ptr %82)
   br label %.thread67
 
@@ -3442,7 +3442,7 @@ do_item_remove.exit61:                            ; preds = %54, %61
   %.04971 = phi i32 [ %.049.ph.ph, %79 ], [ %.049.ph.ph, %81 ], [ 3, %do_item_remove.exit61 ], [ 2, %do_item_remove.exit ], [ 0, %7 ]
   %.05070 = phi ptr [ %.050.ph.ph, %79 ], [ %.050.ph.ph, %81 ], [ null, %do_item_remove.exit61 ], [ null, %do_item_remove.exit ], [ null, %7 ]
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 6968
-  %84 = load ptr, ptr %83, align 8, !tbaa !115
+  %84 = load ptr, ptr %83, align 8, !tbaa !116
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %89
 
@@ -3476,7 +3476,7 @@ do_item_remove.exit61:                            ; preds = %54, %61
   %101 = phi i32 [ %96, %94 ], [ 0, %93 ]
   %102 = phi i32 [ %100, %94 ], [ 0, %93 ]
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 344
-  %104 = load i32, ptr %103, align 8, !tbaa !116
+  %104 = load i32, ptr %103, align 8, !tbaa !117
   %105 = tail call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %.0, i32 noundef 2, ptr noundef null, i32 noundef %.04971, ptr noundef %0, i64 noundef %1, i32 noundef %101, i32 noundef %102, i32 noundef %104) #19
   br label %106
 
@@ -3529,7 +3529,7 @@ define dso_local void @do_item_bump(ptr noundef readonly captures(none) %0, ptr 
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 6976
-  %26 = load ptr, ptr %25, align 8, !tbaa !117
+  %26 = load ptr, ptr %25, align 8, !tbaa !118
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %28 = load i16, ptr %27, align 4, !tbaa !31
   %29 = add i16 %28, 1
@@ -3537,16 +3537,16 @@ define dso_local void @do_item_bump(ptr noundef readonly captures(none) %0, ptr 
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %30) #19
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %33 = load ptr, ptr %32, align 8, !tbaa !118
+  %33 = load ptr, ptr %32, align 8, !tbaa !119
   %34 = tail call ptr @bipbuf_request(ptr noundef %33, i32 noundef 16) #19
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %41, label %35
 
 35:                                               ; preds = %24
-  store ptr %1, ptr %34, align 8, !tbaa !119
+  store ptr %1, ptr %34, align 8, !tbaa !120
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %2, ptr %36, align 8, !tbaa !121
-  %37 = load ptr, ptr %32, align 8, !tbaa !118
+  store i32 %2, ptr %36, align 8, !tbaa !122
+  %37 = load ptr, ptr %32, align 8, !tbaa !119
   %38 = tail call i32 @bipbuf_push(ptr noundef %37, i32 noundef 16) #19
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %41, label %lru_bump_async.exit.thread
@@ -3557,9 +3557,9 @@ lru_bump_async.exit.thread:                       ; preds = %35
 
 41:                                               ; preds = %35, %24
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %43 = load i64, ptr %42, align 8, !tbaa !87
+  %43 = load i64, ptr %42, align 8, !tbaa !88
   %44 = add i64 %43, 1
-  store i64 %44, ptr %42, align 8, !tbaa !87
+  store i64 %44, ptr %42, align 8, !tbaa !88
   %45 = load i16, ptr %27, align 4, !tbaa !31
   %46 = add i16 %45, -1
   store i16 %46, ptr %27, align 4, !tbaa !31
@@ -3610,7 +3610,7 @@ define dso_local noundef ptr @item_lru_bump_buf_create() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = tail call ptr @bipbuf_new(i32 noundef 131072) #19
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr %4, ptr %5, align 8, !tbaa !118
+  store ptr %4, ptr %5, align 8, !tbaa !119
   %6 = icmp eq ptr %4, null
   br i1 %6, label %7, label %8
 
@@ -3622,25 +3622,25 @@ define dso_local noundef ptr @item_lru_bump_buf_create() local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %9, ptr noundef null) #19
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @bump_buf_lock) #19
-  store ptr null, ptr %1, align 8, !tbaa !122
-  %12 = load ptr, ptr @bump_buf_head, align 8, !tbaa !85
+  store ptr null, ptr %1, align 8, !tbaa !123
+  %12 = load ptr, ptr @bump_buf_head, align 8, !tbaa !86
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %12, ptr %13, align 8, !tbaa !123
+  store ptr %12, ptr %13, align 8, !tbaa !124
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %8
-  store ptr %1, ptr %12, align 8, !tbaa !122
+  store ptr %1, ptr %12, align 8, !tbaa !123
   br label %15
 
 15:                                               ; preds = %14, %8
-  store ptr %1, ptr @bump_buf_head, align 8, !tbaa !85
-  %16 = load ptr, ptr @bump_buf_tail, align 8, !tbaa !85
+  store ptr %1, ptr @bump_buf_head, align 8, !tbaa !86
+  %16 = load ptr, ptr @bump_buf_tail, align 8, !tbaa !86
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %lru_bump_buf_link_q.exit
 
 18:                                               ; preds = %15
-  store ptr %1, ptr @bump_buf_tail, align 8, !tbaa !85
+  store ptr %1, ptr @bump_buf_tail, align 8, !tbaa !86
   br label %lru_bump_buf_link_q.exit
 
 lru_bump_buf_link_q.exit:                         ; preds = %15, %18
@@ -3671,13 +3671,13 @@ define dso_local range(i32 -1, 1) i32 @stop_lru_maintainer_thread() local_unname
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !96
   %7 = tail call ptr @strerror(i32 noundef %4) #19
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.46, ptr noundef %7) #23
   br label %10
 
 9:                                                ; preds = %0
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !84
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !85
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -3694,13 +3694,13 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 define dso_local range(i32 -1, 1) i32 @start_lru_maintainer_thread(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #19
   store volatile i32 1, ptr @do_run_lru_maintainer_thread, align 4, !tbaa !22
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !84
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 135), align 1, !tbaa !85
   %3 = tail call i32 @pthread_create(ptr noundef nonnull @lru_maintainer_tid, ptr noundef null, ptr noundef nonnull @lru_maintainer_thread, ptr noundef %0) #19
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !96
   %6 = tail call ptr @strerror(i32 noundef %3) #19
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.47, ptr noundef %6) #23
   br label %10
@@ -3735,7 +3735,7 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !96
   %11 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 58, i64 1, ptr %10) #22
   tail call void @abort() #24
   unreachable
@@ -3743,25 +3743,25 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 12:                                               ; preds = %1
   %13 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #19
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 137264
-  store i8 1, ptr %14, align 8, !tbaa !124
+  store i8 1, ptr %14, align 8, !tbaa !125
   %15 = tail call ptr @logger_create() #19
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !96
   %19 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 52, i64 1, ptr %18) #22
   tail call void @abort() #24
   unreachable
 
 20:                                               ; preds = %12
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #19
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !94
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %23 = icmp sgt i32 %22, 2
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !96
   %26 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 42, i64 1, ptr %25) #22
   br label %27
 
@@ -3790,9 +3790,9 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
   %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #19
   %37 = call i32 @llvm.umax.i32(i32 %.04185, i32 1000)
   call void @STATS_LOCK() #19
-  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 104), align 8, !tbaa !126
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 104), align 8, !tbaa !127
   %39 = add i64 %38, 1
-  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 104), align 8, !tbaa !126
+  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 104), align 8, !tbaa !127
   call void @STATS_UNLOCK() #19
   br label %40
 
@@ -3824,7 +3824,7 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 50:                                               ; preds = %.preheader.i
   %51 = add nuw nsw i32 %.14349.i, 1
   %exitcond.not.i = icmp eq i32 %51, 500
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !127
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !128
 
 .loopexit.i:                                      ; preds = %50, %.preheader.i, %43
   %.042.i = phi i32 [ 0, %43 ], [ 500, %50 ], [ %.14349.i, %.preheader.i ]
@@ -3854,10 +3854,10 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
   %67 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %55
   %68 = load i64, ptr %67, align 8, !tbaa !14
   %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %56) #19
-  %70 = load double, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 216), align 8, !tbaa !128
+  %70 = load double, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 216), align 8, !tbaa !129
   %71 = fmul double %.040.i, %70
   %72 = fptoui double %71 to i32
-  %73 = load double, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 224), align 8, !tbaa !129
+  %73 = load double, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 224), align 8, !tbaa !130
   %74 = fmul double %.040.i, %73
   %75 = fptoui double %74 to i32
   %76 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
@@ -3915,7 +3915,7 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 104:                                              ; preds = %102
   %105 = add nuw nsw i32 %.251.i, 1
   %exitcond52.not.i = icmp eq i32 %.251.i, %90
-  br i1 %exitcond52.not.i, label %lru_maintainer_juggle.exit.thread, label %91, !llvm.loop !130
+  br i1 %exitcond52.not.i, label %lru_maintainer_juggle.exit.thread, label %91, !llvm.loop !131
 
 lru_maintainer_juggle.exit.thread:                ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3960,7 +3960,7 @@ lru_maintainer_juggle.exit:                       ; preds = %102
   %spec.select57 = call i32 @llvm.umin.i32(i32 %spec.select.sink, i32 %.179)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %122, label %40, !llvm.loop !131
+  br i1 %exitcond.not, label %122, label %40, !llvm.loop !132
 
 122:                                              ; preds = %121
   %123 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 136), align 8, !tbaa !23, !range !24, !noundef !25
@@ -3970,7 +3970,7 @@ lru_maintainer_juggle.exit:                       ; preds = %102
 125:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %126 = call i32 @pthread_mutex_lock(ptr noundef nonnull @bump_buf_lock) #19
-  %.01824.i = load ptr, ptr @bump_buf_head, align 8, !tbaa !85
+  %.01824.i = load ptr, ptr @bump_buf_head, align 8, !tbaa !86
   %.not25.i = icmp eq ptr %.01824.i, null
   br i1 %.not25.i, label %lru_maintainer_bumps.exit.thread, label %.lr.ph29.i
 
@@ -3985,7 +3985,7 @@ lru_maintainer_bumps.exit.thread:                 ; preds = %125
   %128 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 16
   %129 = call i32 @pthread_mutex_lock(ptr noundef nonnull %128) #19
   %130 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 56
-  %131 = load ptr, ptr %130, align 8, !tbaa !118
+  %131 = load ptr, ptr %130, align 8, !tbaa !119
   %132 = call ptr @bipbuf_peek_all(ptr noundef %131, ptr noundef nonnull %3) #19
   %133 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %128) #19
   %134 = icmp eq ptr %132, null
@@ -4000,11 +4000,11 @@ lru_maintainer_bumps.exit.thread:                 ; preds = %125
   %.01623.i = phi i32 [ %152, %do_item_remove.exit.i ], [ %136, %135 ]
   %.01722.i = phi ptr [ %151, %do_item_remove.exit.i ], [ %132, %135 ]
   %137 = getelementptr inbounds nuw i8, ptr %.01722.i, i64 8
-  %138 = load i32, ptr %137, align 8, !tbaa !121
+  %138 = load i32, ptr %137, align 8, !tbaa !122
   call void @item_lock(i32 noundef %138) #19
-  %139 = load ptr, ptr %.01722.i, align 8, !tbaa !119
+  %139 = load ptr, ptr %.01722.i, align 8, !tbaa !120
   call void @do_item_update(ptr noundef %139)
-  %140 = load ptr, ptr %.01722.i, align 8, !tbaa !119
+  %140 = load ptr, ptr %.01722.i, align 8, !tbaa !120
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 36
   %142 = load i16, ptr %141, align 4, !tbaa !31
   %143 = add i16 %142, -1
@@ -4021,16 +4021,16 @@ lru_maintainer_bumps.exit.thread:                 ; preds = %125
   br label %do_item_remove.exit.i
 
 do_item_remove.exit.i:                            ; preds = %145, %.lr.ph.i
-  %150 = load i32, ptr %137, align 8, !tbaa !121
+  %150 = load i32, ptr %137, align 8, !tbaa !122
   call void @item_unlock(i32 noundef %150) #19
   %151 = getelementptr inbounds nuw i8, ptr %.01722.i, i64 16
   %152 = add i32 %.01623.i, -16
   %.not20.i = icmp eq i32 %152, 0
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !132
+  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !133
 
 ._crit_edge.i:                                    ; preds = %do_item_remove.exit.i, %135
   %153 = call i32 @pthread_mutex_lock(ptr noundef nonnull %128) #19
-  %154 = load ptr, ptr %130, align 8, !tbaa !118
+  %154 = load ptr, ptr %130, align 8, !tbaa !119
   %155 = load i32, ptr %3, align 4, !tbaa !22
   %156 = call ptr @bipbuf_poll(ptr noundef %154, i32 noundef %155) #19
   %157 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %128) #19
@@ -4039,9 +4039,9 @@ do_item_remove.exit.i:                            ; preds = %145, %.lr.ph.i
 158:                                              ; preds = %._crit_edge.i, %.lr.ph29.i
   %.1.i61 = phi i1 [ %.026.i, %.lr.ph29.i ], [ true, %._crit_edge.i ]
   %159 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 8
-  %.018.i = load ptr, ptr %159, align 8, !tbaa !85
+  %.018.i = load ptr, ptr %159, align 8, !tbaa !86
   %.not.i62 = icmp eq ptr %.018.i, null
-  br i1 %.not.i62, label %lru_maintainer_bumps.exit, label %.lr.ph29.i, !llvm.loop !133
+  br i1 %.not.i62, label %lru_maintainer_bumps.exit, label %.lr.ph29.i, !llvm.loop !134
 
 lru_maintainer_bumps.exit:                        ; preds = %158
   %160 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bump_buf_lock) #19
@@ -4052,7 +4052,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 
 162:                                              ; preds = %lru_maintainer_bumps.exit, %lru_maintainer_bumps.exit.thread, %122
   %.4 = phi i32 [ %spec.select57, %122 ], [ %spec.select57, %lru_maintainer_bumps.exit.thread ], [ %spec.select67, %lru_maintainer_bumps.exit ]
-  %163 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 134), align 2, !tbaa !134, !range !24, !noundef !25
+  %163 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 134), align 2, !tbaa !135, !range !24, !noundef !25
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %256
 
@@ -4076,22 +4076,22 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %241 ], [ %indvars.iv87.ph.i, %.outer.i ]
   %169 = getelementptr inbounds nuw %struct.crawlerstats_t, ptr %29, i64 %indvars.iv87.i
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 528
-  %171 = load i8, ptr %170, align 8, !tbaa !135, !range !24, !noundef !25
+  %171 = load i8, ptr %170, align 8, !tbaa !136, !range !24, !noundef !25
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %173, label %236
 
 173:                                              ; preds = %168
   %174 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #19
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 512
-  %176 = load i64, ptr %175, align 8, !tbaa !137
+  %176 = load i64, ptr %175, align 8, !tbaa !138
   %177 = getelementptr inbounds nuw i8, ptr %169, i64 496
-  %178 = load i64, ptr %177, align 8, !tbaa !138
+  %178 = load i64, ptr %177, align 8, !tbaa !139
   %179 = sub i64 %176, %178
   %180 = udiv i64 %179, 100
   %181 = add nuw nsw i64 %180, 1
   %182 = load volatile i32, ptr @current_time, align 4, !tbaa !22
   %183 = getelementptr inbounds nuw i8, ptr %169, i64 524
-  %184 = load i32, ptr %183, align 4, !tbaa !139
+  %184 = load i32, ptr %183, align 4, !tbaa !140
   %185 = sub i32 %182, %184
   br label %186
 
@@ -4129,7 +4129,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 203:                                              ; preds = %186
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i, 60
-  br i1 %exitcond.not.i63, label %204, label %186, !llvm.loop !140
+  br i1 %exitcond.not.i63, label %204, label %186, !llvm.loop !141
 
 204:                                              ; preds = %203
   %205 = icmp eq i64 %189, 0
@@ -4174,15 +4174,15 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   %226 = load volatile i32, ptr @current_time, align 4, !tbaa !22
   %227 = sub i32 %217, %226
   %228 = getelementptr inbounds nuw i8, ptr %169, i64 520
-  %229 = load i32, ptr %228, align 8, !tbaa !141
+  %229 = load i32, ptr %228, align 8, !tbaa !142
   %230 = sub i32 %184, %229
   %231 = getelementptr inbounds nuw i8, ptr %169, i64 504
-  %232 = load i64, ptr %231, align 8, !tbaa !142
+  %232 = load i64, ptr %231, align 8, !tbaa !143
   %233 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %15, i32 noundef 4, ptr noundef null, i32 noundef %225, ptr noundef nonnull %switch.load, i64 noundef %181, i64 noundef %189, i32 noundef %185, i32 noundef %227, i32 noundef %230, i64 noundef %176, i64 noundef %232) #19
   br label %234
 
 234:                                              ; preds = %221, %.thread.thread.i
-  store i8 0, ptr %170, align 8, !tbaa !135
+  store i8 0, ptr %170, align 8, !tbaa !136
   %235 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
   br label %236
 
@@ -4196,7 +4196,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 241:                                              ; preds = %236
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next88.i, 256
-  br i1 %exitcond89.not.i, label %251, label %168, !llvm.loop !143
+  br i1 %exitcond89.not.i, label %251, label %168, !llvm.loop !144
 
 .thread96.i:                                      ; preds = %236
   %242 = getelementptr inbounds nuw i32, ptr @lru_maintainer_crawler_check.next_crawls, i64 %indvars.iv87.i
@@ -4213,14 +4213,14 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   store i32 %250, ptr %242, align 4, !tbaa !22
   %indvars.iv.next8899.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond89.not100.i = icmp eq i64 %indvars.iv.next8899.i, 256
-  br i1 %exitcond89.not100.i, label %.thread103.i, label %.outer.i, !llvm.loop !143
+  br i1 %exitcond89.not100.i, label %.thread103.i, label %.outer.i, !llvm.loop !144
 
 251:                                              ; preds = %241
   br i1 %.05781.ph.i, label %.thread103.i, label %lru_maintainer_crawler_check.exit
 
 .thread103.i:                                     ; preds = %.thread96.i, %251
   %.161101106.i = phi i32 [ %.06080.ph.i, %251 ], [ %spec.select.i, %.thread96.i ]
-  %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 204), align 4, !tbaa !144
+  %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 204), align 4, !tbaa !145
   %.not.not.i = icmp eq i32 %252, 0
   %253 = call i32 @llvm.umin.i32(i32 %252, i32 %.161101106.i)
   %.3.i = select i1 %.not.not.i, i32 %.161101106.i, i32 %253
@@ -4236,17 +4236,17 @@ lru_maintainer_crawler_check.exit:                ; preds = %251, %.thread103.i
   %.143 = phi i32 [ %255, %lru_maintainer_crawler_check.exit ], [ %.04284, %165 ], [ %.04284, %162 ]
   %257 = load volatile i32, ptr @do_run_lru_maintainer_thread, align 4, !tbaa !22
   %.not = icmp eq i32 %257, 0
-  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !145
+  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %256, %27
   %258 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_maintainer_lock) #19
   call void @free(ptr noundef %7) #19
-  %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !94
+  %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %260 = icmp sgt i32 %259, 2
   br i1 %260, label %261, label %264
 
 261:                                              ; preds = %._crit_edge
-  %262 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %262 = load ptr, ptr @stderr, align 8, !tbaa !96
   %263 = call i64 @fwrite(ptr nonnull @.str.52, i64 31, i64 1, ptr %262) #22
   br label %264
 
@@ -4592,72 +4592,73 @@ attributes #24 = { noreturn nounwind }
 !74 = !{!"p1 int", !18, i64 0}
 !75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
-!77 = !{!78, !8, i64 8}
-!78 = !{!"", !8, i64 0, !8, i64 8, !11, i64 16}
-!79 = !{!78, !8, i64 0}
-!80 = !{!78, !11, i64 16}
-!81 = distinct !{!81, !5}
+!77 = distinct !{!77, !5}
+!78 = !{!79, !8, i64 8}
+!79 = !{!"", !8, i64 0, !8, i64 8, !11, i64 16}
+!80 = !{!79, !8, i64 0}
+!81 = !{!79, !11, i64 16}
 !82 = distinct !{!82, !5}
 !83 = distinct !{!83, !5}
-!84 = !{!16, !20, i64 135}
-!85 = !{!86, !86, i64 0}
-!86 = !{!"p1 _ZTS13_lru_bump_buf", !18, i64 0}
-!87 = !{!88, !8, i64 64}
-!88 = !{!"_lru_bump_buf", !86, i64 0, !86, i64 8, !9, i64 16, !18, i64 56, !8, i64 64}
-!89 = distinct !{!89, !5}
+!84 = distinct !{!84, !5}
+!85 = !{!16, !20, i64 135}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTS13_lru_bump_buf", !18, i64 0}
+!88 = !{!89, !8, i64 64}
+!89 = !{!"_lru_bump_buf", !87, i64 0, !87, i64 8, !9, i64 16, !18, i64 56, !8, i64 64}
 !90 = distinct !{!90, !5}
 !91 = distinct !{!91, !5}
-!92 = !{!16, !11, i64 116}
-!93 = distinct !{!93, !5}
-!94 = !{!16, !11, i64 32}
-!95 = !{!96, !96, i64 0}
-!96 = !{!"p1 _ZTS8_IO_FILE", !18, i64 0}
-!97 = distinct !{!97, !5}
-!98 = !{!99, !18, i64 6960}
-!99 = !{!"", !8, i64 0, !100, i64 8, !101, i64 16, !101, i64 152, !9, i64 288, !107, i64 328, !11, i64 344, !11, i64 348, !11, i64 352, !110, i64 360, !9, i64 6808, !111, i64 6928, !18, i64 6936, !112, i64 6944, !18, i64 6952, !18, i64 6960, !51, i64 6968, !18, i64 6976, !11, i64 6984}
-!100 = !{!"p1 _ZTS10event_base", !18, i64 0}
-!101 = !{!"thread_notify", !102, i64 0, !11, i64 128}
-!102 = !{!"event", !103, i64 0, !9, i64 40, !11, i64 56, !100, i64 64, !9, i64 72, !32, i64 104, !32, i64 106, !72, i64 112}
-!103 = !{!"event_callback", !104, i64 0, !32, i64 16, !9, i64 18, !9, i64 19, !9, i64 24, !18, i64 32}
-!104 = !{!"", !105, i64 0, !106, i64 8}
-!105 = !{!"p1 _ZTS14event_callback", !18, i64 0}
-!106 = !{!"p2 _ZTS14event_callback", !18, i64 0}
-!107 = !{!"iop_head_s", !108, i64 0, !109, i64 8}
-!108 = !{!"p1 _ZTS13_io_pending_t", !18, i64 0}
-!109 = !{!"p2 _ZTS13_io_pending_t", !18, i64 0}
-!110 = !{!"thread_stats", !9, i64 0, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !8, i64 256, !8, i64 264, !8, i64 272, !9, i64 280, !9, i64 4376, !8, i64 6424, !8, i64 6432, !8, i64 6440}
-!111 = !{!"p1 _ZTS10conn_queue", !18, i64 0}
-!112 = !{!"p1 _ZTS15_mc_resp_bundle", !18, i64 0}
-!113 = !{!99, !8, i64 424}
-!114 = !{!99, !8, i64 416}
-!115 = !{!99, !51, i64 6968}
-!116 = !{!99, !11, i64 344}
-!117 = !{!99, !18, i64 6976}
-!118 = !{!88, !18, i64 56}
-!119 = !{!120, !29, i64 0}
-!120 = !{!"", !29, i64 0, !11, i64 8}
-!121 = !{!120, !11, i64 8}
-!122 = !{!88, !86, i64 0}
-!123 = !{!88, !86, i64 8}
-!124 = !{!125, !20, i64 137264}
-!125 = !{!"crawler_expired_data", !9, i64 0, !9, i64 40, !11, i64 137256, !11, i64 137260, !20, i64 137264, !20, i64 137265}
-!126 = !{!71, !8, i64 104}
-!127 = distinct !{!127, !5}
-!128 = !{!16, !19, i64 216}
-!129 = !{!16, !19, i64 224}
-!130 = distinct !{!130, !5}
+!92 = distinct !{!92, !5}
+!93 = !{!16, !11, i64 116}
+!94 = distinct !{!94, !5}
+!95 = !{!16, !11, i64 32}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 _ZTS8_IO_FILE", !18, i64 0}
+!98 = distinct !{!98, !5}
+!99 = !{!100, !18, i64 6960}
+!100 = !{!"", !8, i64 0, !101, i64 8, !102, i64 16, !102, i64 152, !9, i64 288, !108, i64 328, !11, i64 344, !11, i64 348, !11, i64 352, !111, i64 360, !9, i64 6808, !112, i64 6928, !18, i64 6936, !113, i64 6944, !18, i64 6952, !18, i64 6960, !51, i64 6968, !18, i64 6976, !11, i64 6984}
+!101 = !{!"p1 _ZTS10event_base", !18, i64 0}
+!102 = !{!"thread_notify", !103, i64 0, !11, i64 128}
+!103 = !{!"event", !104, i64 0, !9, i64 40, !11, i64 56, !101, i64 64, !9, i64 72, !32, i64 104, !32, i64 106, !72, i64 112}
+!104 = !{!"event_callback", !105, i64 0, !32, i64 16, !9, i64 18, !9, i64 19, !9, i64 24, !18, i64 32}
+!105 = !{!"", !106, i64 0, !107, i64 8}
+!106 = !{!"p1 _ZTS14event_callback", !18, i64 0}
+!107 = !{!"p2 _ZTS14event_callback", !18, i64 0}
+!108 = !{!"iop_head_s", !109, i64 0, !110, i64 8}
+!109 = !{!"p1 _ZTS13_io_pending_t", !18, i64 0}
+!110 = !{!"p2 _ZTS13_io_pending_t", !18, i64 0}
+!111 = !{!"thread_stats", !9, i64 0, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !8, i64 256, !8, i64 264, !8, i64 272, !9, i64 280, !9, i64 4376, !8, i64 6424, !8, i64 6432, !8, i64 6440}
+!112 = !{!"p1 _ZTS10conn_queue", !18, i64 0}
+!113 = !{!"p1 _ZTS15_mc_resp_bundle", !18, i64 0}
+!114 = !{!100, !8, i64 424}
+!115 = !{!100, !8, i64 416}
+!116 = !{!100, !51, i64 6968}
+!117 = !{!100, !11, i64 344}
+!118 = !{!100, !18, i64 6976}
+!119 = !{!89, !18, i64 56}
+!120 = !{!121, !29, i64 0}
+!121 = !{!"", !29, i64 0, !11, i64 8}
+!122 = !{!121, !11, i64 8}
+!123 = !{!89, !87, i64 0}
+!124 = !{!89, !87, i64 8}
+!125 = !{!126, !20, i64 137264}
+!126 = !{!"crawler_expired_data", !9, i64 0, !9, i64 40, !11, i64 137256, !11, i64 137260, !20, i64 137264, !20, i64 137265}
+!127 = !{!71, !8, i64 104}
+!128 = distinct !{!128, !5}
+!129 = !{!16, !19, i64 216}
+!130 = !{!16, !19, i64 224}
 !131 = distinct !{!131, !5}
 !132 = distinct !{!132, !5}
 !133 = distinct !{!133, !5}
-!134 = !{!16, !20, i64 134}
-!135 = !{!136, !20, i64 528}
-!136 = !{!"", !9, i64 0, !8, i64 488, !8, i64 496, !8, i64 504, !8, i64 512, !11, i64 520, !11, i64 524, !20, i64 528}
-!137 = !{!136, !8, i64 512}
-!138 = !{!136, !8, i64 496}
-!139 = !{!136, !11, i64 524}
-!140 = distinct !{!140, !5}
-!141 = !{!136, !11, i64 520}
-!142 = !{!136, !8, i64 504}
-!143 = distinct !{!143, !5}
-!144 = !{!16, !11, i64 204}
-!145 = distinct !{!145, !5}
+!134 = distinct !{!134, !5}
+!135 = !{!16, !20, i64 134}
+!136 = !{!137, !20, i64 528}
+!137 = !{!"", !9, i64 0, !8, i64 488, !8, i64 496, !8, i64 504, !8, i64 512, !11, i64 520, !11, i64 524, !20, i64 528}
+!138 = !{!137, !8, i64 512}
+!139 = !{!137, !8, i64 496}
+!140 = !{!137, !11, i64 524}
+!141 = distinct !{!141, !5}
+!142 = !{!137, !11, i64 520}
+!143 = !{!137, !8, i64 504}
+!144 = distinct !{!144, !5}
+!145 = !{!16, !11, i64 204}
+!146 = distinct !{!146, !5}

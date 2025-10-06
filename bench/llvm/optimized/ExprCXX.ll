@@ -572,16 +572,16 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %8 = load ptr, ptr %7, align 8, !tbaa !84
   %9 = load i24, ptr %8, align 8
   %10 = and i24 %9, 1536
-  %.not75 = icmp eq i24 %10, 0
-  br i1 %.not75, label %.thread, label %tailrecurse.backedge
+  %.not66 = icmp eq i24 %10, 0
+  br i1 %.not66, label %.thread, label %tailrecurse.backedge
 
 11:                                               ; preds = %tailrecurse
   %12 = icmp eq i16 %4, 28
   br i1 %12, label %tailrecurse.backedge.sink.split, label %15
 
 tailrecurse.backedge.sink.split:                  ; preds = %11, %17, %24
-  %.sink85 = phi i64 [ %.1.in.v.i45, %24 ], [ 24, %17 ], [ 16, %11 ]
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink85
+  %.sink76 = phi i64 [ %.1.in.v.i41, %24 ], [ 24, %17 ], [ 16, %11 ]
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink76
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   br label %tailrecurse.backedge
 
@@ -611,7 +611,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %.1.in.v.i45 = select i1 %22, i64 40, i64 48
+  %.1.in.v.i41 = select i1 %22, i64 40, i64 48
   br label %tailrecurse.backedge.sink.split
 
 25:                                               ; preds = %17, %15
@@ -1143,15 +1143,15 @@ declare noundef zeroext i1 @_ZNK5clang12FunctionDecl33isReservedGlobalPlacementO
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i64 @_ZNK5clang13CXXDeleteExpr16getDestroyedTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.0822 = load ptr, ptr %2, align 8, !tbaa !25
-  %3 = load i16, ptr %.0822, align 8
+  %.0821 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load i16, ptr %.0821, align 8
   %4 = and i16 %3, 511
-  %.not23 = icmp eq i16 %4, 81
-  br i1 %.not23, label %.lr.ph, label %._crit_edge
+  %.not22 = icmp eq i16 %4, 81
+  br i1 %.not22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %8
-  %.0824 = phi ptr [ %.08, %8 ], [ %.0822, %1 ]
-  %5 = load i32, ptr %.0824, align 8
+  %.0823 = phi ptr [ %.08, %8 ], [ %.0821, %1 ]
+  %5 = load i32, ptr %.0823, align 8
   %6 = lshr i32 %5, 19
   %7 = and i32 %6, 127
   switch i32 %7, label %._crit_edge [
@@ -1161,7 +1161,7 @@ define dso_local i64 @_ZNK5clang13CXXDeleteExpr16getDestroyedTypeEv(ptr noundef 
   ]
 
 8:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.0824, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0823, i64 16
   %.08 = load ptr, ptr %9, align 8, !tbaa !25
   %10 = load i16, ptr %.08, align 8
   %11 = and i16 %10, 511
@@ -1169,7 +1169,7 @@ define dso_local i64 @_ZNK5clang13CXXDeleteExpr16getDestroyedTypeEv(ptr noundef 
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %1
-  %.08.lcssa = phi ptr [ %.0822, %1 ], [ %.0824, %.lr.ph ], [ %.08, %8 ]
+  %.08.lcssa = phi ptr [ %.0821, %1 ], [ %.0823, %.lr.ph ], [ %.08, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.08.lcssa, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !31
   %13 = and i64 %.sroa.0.0.copyload.i, -16
@@ -1178,8 +1178,8 @@ define dso_local i64 @_ZNK5clang13CXXDeleteExpr16getDestroyedTypeEv(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 17
   %17 = load i16, ptr %16, align 1
   %18 = and i16 %17, 4
-  %.not21 = icmp eq i16 %18, 0
-  br i1 %.not21, label %27, label %19
+  %.not20 = icmp eq i16 %18, 0
+  br i1 %.not20, label %27, label %19
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1296,8 +1296,8 @@ define dso_local i64 @_ZNK5clang23CXXPseudoDestructorExpr16getDestroyedTypeEv(pt
   %3 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %4 = icmp ne i64 %3, 0
   %5 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %.not.not6 = icmp eq i64 %5, 0
-  %.not.not = or i1 %4, %.not.not6
+  %.not.not5 = icmp eq i64 %5, 0
+  %.not.not = or i1 %4, %.not.not5
   br i1 %.not.not, label %8, label %6
 
 6:                                                ; preds = %1
@@ -1981,8 +1981,8 @@ _ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv.exit: ; preds = %1
   %.sroa.0.0.copyload.i14 = load i32, ptr %25, align 4, !tbaa !89
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i32, ptr %26, align 8, !tbaa !191
-  %.not1322 = icmp eq i32 %27, 0
-  br i1 %.not1322, label %_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv.exit.thread, label %.lr.ph
+  %.not1321 = icmp eq i32 %27, 0
+  br i1 %.not1321, label %_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3867,13 +3867,13 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK5clang18UserDefinedLiteral22ge
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i8, ptr %33, align 16
   %35 = icmp ne i8 %34, 13
-  %.not.not24.i = icmp eq ptr %32, null
-  %.not.not.i = or i1 %.not.not24.i, %35
+  %.not.not21.i = icmp eq ptr %32, null
+  %.not.not.i = or i1 %.not.not21.i, %35
   br i1 %.not.not.i, label %36, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 36:                                               ; preds = %27
   %37 = icmp ne i8 %34, 46
-  %.not13.not.i = or i1 %.not.not24.i, %37
+  %.not13.not.i = or i1 %.not.not21.i, %37
   br i1 %.not13.not.i, label %51, label %38
 
 38:                                               ; preds = %36
@@ -9151,8 +9151,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -9353,8 +9353,8 @@ define linkonce_odr hidden void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 32768
-  %.not13.i = icmp eq i32 %13, 0
-  br i1 %.not13.i, label %.thread.i, label %14
+  %.not12.i = icmp eq i32 %13, 0
+  br i1 %.not12.i, label %.thread.i, label %14
 
 14:                                               ; preds = %10
   %15 = tail call noundef zeroext i1 @_ZNK5clang4Decl27hasLocalOwningModuleStorageEv(ptr noundef nonnull align 8 dereferenceable(33) %7) #17

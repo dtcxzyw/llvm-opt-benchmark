@@ -13827,11 +13827,11 @@ default.unreachable1:                             ; preds = %1
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN74_$LT$lsp_types..notebook..NotebookCellKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h02ff85ea04f4bc9aE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = load i8, ptr %0, align 1, !range !1743, !noundef !4
-  %switch = icmp eq i8 %3, 1
-  %. = select i1 %switch, i64 6, i64 4
-  %anon.3678abc68e7179019c7bb1f9025b4133.166.anon.3678abc68e7179019c7bb1f9025b4133.167 = select i1 %switch, ptr @anon.3678abc68e7179019c7bb1f9025b4133.166, ptr @anon.3678abc68e7179019c7bb1f9025b4133.167
-  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %anon.3678abc68e7179019c7bb1f9025b4133.166.anon.3678abc68e7179019c7bb1f9025b4133.167, i64 noundef %.)
-  ret i1 %4
+  %4 = icmp eq i8 %3, 1
+  %. = select i1 %4, i64 6, i64 4
+  %anon.3678abc68e7179019c7bb1f9025b4133.166.anon.3678abc68e7179019c7bb1f9025b4133.167 = select i1 %4, ptr @anon.3678abc68e7179019c7bb1f9025b4133.166, ptr @anon.3678abc68e7179019c7bb1f9025b4133.167
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %anon.3678abc68e7179019c7bb1f9025b4133.166.anon.3678abc68e7179019c7bb1f9025b4133.167, i64 noundef %.)
+  ret i1 %5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

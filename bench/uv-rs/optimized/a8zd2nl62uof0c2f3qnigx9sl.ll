@@ -41,40 +41,40 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h581d48b81f4811bfE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %13, align 8, !noalias !3
   invoke void @_ZN3std2io5stdio7_eprint17h04fe094d4150d88fE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-          to label %19 unwind label %14, !noalias !3
+          to label %20 unwind label %14, !noalias !3
 
-14:                                               ; preds = %19, %7
+14:                                               ; preds = %20, %7
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !8
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h844ed35d8a398d0dE.llvm.92232979542404249(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %9)
-          to label %.noexc.i.i unwind label %21, !noalias !3
+          to label %.noexc.i.i unwind label %22, !noalias !3
 
 .noexc.i.i:                                       ; preds = %14
   %16 = load i8, ptr %2, align 8, !range !15, !alias.scope !16, !noalias !8, !noundef !7
-  %switch.not.i.i.i.i.i.i = icmp eq i8 %16, 3
-  br i1 %switch.not.i.i.i.i.i.i, label %17, label %23
+  %17 = icmp eq i8 %16, 3
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %.noexc.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17haf136fc8d9c504c5E.llvm.92232979542404249"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
-          to label %23 unwind label %21, !noalias !3
+18:                                               ; preds = %.noexc.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17haf136fc8d9c504c5E.llvm.92232979542404249"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19)
+          to label %24 unwind label %22, !noalias !3
 
-19:                                               ; preds = %7
+20:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3
   invoke void @_ZN3std7process4exit17h5ea0904910414308E(i32 noundef 1) #12
-          to label %20 unwind label %14, !noalias !3
+          to label %21 unwind label %14, !noalias !3
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   unreachable
 
-21:                                               ; preds = %17, %14
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %18, %14
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #13, !noalias !3
   unreachable
 
-23:                                               ; preds = %17, %.noexc.i.i
+24:                                               ; preds = %18, %.noexc.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !8
   resume { ptr, i32 } %15
 

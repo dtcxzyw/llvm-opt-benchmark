@@ -830,29 +830,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
   br i1 %285, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %281, %._crit_edge.i
-  %.sroa.07.019.i = phi ptr [ %291, %._crit_edge.i ], [ %282, %281 ]
-  %286 = load i8, ptr %.sroa.07.019.i, align 1, !tbaa !12
+  %.sroa.07.017.i = phi ptr [ %291, %._crit_edge.i ], [ %282, %281 ]
+  %286 = load i8, ptr %.sroa.07.017.i, align 1, !tbaa !12
   br label %288
 
 287:                                              ; preds = %288
-  %.0618.i.add = add nuw nsw i64 %.0618.i.idx, 1
-  %.not.i99 = icmp eq i64 %.0618.i.add, 4
+  %.0616.i.add = add nuw nsw i64 %.0616.i.idx, 1
+  %.not.i99 = icmp eq i64 %.0616.i.add, 4
   br i1 %.not.i99, label %._crit_edge.i, label %288, !llvm.loop !52
 
 288:                                              ; preds = %287, %.preheader.i
-  %.0618.i.idx = phi i64 [ 0, %.preheader.i ], [ %.0618.i.add, %287 ]
-  %.0618.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.0618.i.idx
-  %289 = load i8, ptr %.0618.i.ptr, align 1, !tbaa !12
+  %.0616.i.idx = phi i64 [ 0, %.preheader.i ], [ %.0616.i.add, %287 ]
+  %.0616.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.0616.i.idx
+  %289 = load i8, ptr %.0616.i.ptr, align 1, !tbaa !12
   %290 = icmp eq i8 %286, %289
   br i1 %290, label %293, label %287
 
 ._crit_edge.i:                                    ; preds = %287
-  %291 = getelementptr inbounds nuw i8, ptr %.sroa.07.019.i, i64 1
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.07.017.i, i64 1
   %292 = icmp eq ptr %291, %284
   br i1 %292, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, label %.preheader.i, !llvm.loop !53
 
 293:                                              ; preds = %288
-  %.not162 = icmp eq ptr %.sroa.07.019.i, %284
+  %.not162 = icmp eq ptr %.sroa.07.017.i, %284
   br i1 %.not162, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, label %294
 
 294:                                              ; preds = %293

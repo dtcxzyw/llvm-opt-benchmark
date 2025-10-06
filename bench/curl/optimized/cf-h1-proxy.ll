@@ -290,7 +290,7 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
 
 109:                                              ; preds = %tunnel_is_failed.exit.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.12) #5
-  br label %.thread227.i
+  br label %.thread226.i
 
 110:                                              ; preds = %tunnel_is_failed.exit.i
   %111 = load i32, ptr %87, align 8, !tbaa !104
@@ -403,7 +403,7 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
 start_CONNECT.exit.i:                             ; preds = %157, %155
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not150.i = icmp eq i32 %.034.i.i, 0
-  br i1 %.not150.i, label %158, label %.thread227.i
+  br i1 %.not150.i, label %158, label %.thread226.i
 
 158:                                              ; preds = %start_CONNECT.exit.i
   %159 = load i32, ptr %87, align 8, !tbaa !104
@@ -523,7 +523,7 @@ h1_tunnel_go_state.exit.thread.i:                 ; preds = %h1_tunnel_go_state.
 send_CONNECT.exit.thread.i:                       ; preds = %.thread.i178.i
   store i8 0, ptr %10, align 1, !tbaa !84
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread227.i
+  br label %.thread226.i
 
 send_CONNECT.exit.i:                              ; preds = %.thread.i178.i, %210, %204, %191
   %212 = load i64, ptr %92, align 8, !tbaa !118
@@ -1168,7 +1168,7 @@ recv_CONNECT_resp.exit.i:                         ; preds = %494, %.sink.split.i
   %.0105.i.i = phi i32 [ 0, %248 ], [ %253, %.loopexit.i.i ], [ %495, %494 ], [ 0, %.sink.split.i.i ], [ %.2.ph.i.i, %.thread.i182.i ], [ 56, %.loopexit.i.thread217.i ]
   %497 = call i32 @Curl_pgrsUpdate(ptr noundef %1) #5
   %.not157.i = icmp eq i32 %497, 0
-  br i1 %.not157.i, label %498, label %.thread227.i
+  br i1 %.not157.i, label %498, label %.thread226.i
 
 498:                                              ; preds = %recv_CONNECT_resp.exit.i
   %499 = icmp eq i32 %.0105.i.i, 0
@@ -1291,22 +1291,22 @@ h1_tunnel_go_state.exit186.i:                     ; preds = %519, %500, %110
 558:                                              ; preds = %553
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #5
   %.pre.i = load i64, ptr %88, align 2
-  %.pre251.i = and i64 %.pre.i, 2147483648
-  %559 = icmp eq i64 %.pre251.i, 0
+  %.pre250.i = and i64 %.pre.i, 2147483648
+  %559 = icmp eq i64 %.pre250.i, 0
   br i1 %559, label %.critedge.i, label %..thread.i_crit_edge
 
 ..thread.i_crit_edge:                             ; preds = %558
-  %.pr300.i.pre = load ptr, ptr %89, align 8, !tbaa !3
+  %.pr299.i.pre = load ptr, ptr %89, align 8, !tbaa !3
   br label %.thread.i
 
 .thread.i:                                        ; preds = %..thread.i_crit_edge, %553
-  %.pr300.i = phi ptr [ %.pr300.i.pre, %..thread.i_crit_edge ], [ %548, %553 ]
-  %.not167.i = icmp eq ptr %.pr300.i, null
+  %.pr299.i = phi ptr [ %.pr299.i.pre, %..thread.i_crit_edge ], [ %548, %553 ]
+  %.not167.i = icmp eq ptr %.pr299.i, null
   br i1 %.not167.i, label %.thread.thread.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %549, %.thread.i
-  %.pr300.i132 = phi ptr [ %.pr300.i, %.thread.i ], [ %548, %549 ]
-  %560 = getelementptr inbounds nuw i8, ptr %.pr300.i132, i64 8
+  %.pr299.i132 = phi ptr [ %.pr299.i, %.thread.i ], [ %548, %549 ]
+  %560 = getelementptr inbounds nuw i8, ptr %.pr299.i132, i64 8
   %561 = load i32, ptr %560, align 8, !tbaa !75
   %562 = icmp sgt i32 %561, 0
   br i1 %562, label %.thread.thread.i, label %.critedge.i
@@ -1457,15 +1457,15 @@ h1_tunnel_go_state.exit190.i:                     ; preds = %606, %587
 .loopexit.i:                                      ; preds = %498, %.critedge.i
   %.1.ph.i = phi i32 [ %564, %.critedge.i ], [ %.0105.i.i, %498 ]
   %.not173.i = icmp eq i32 %.1.ph.i, 0
-  br i1 %.not173.i, label %.loopexit, label %.thread227.i
+  br i1 %.not173.i, label %.loopexit, label %.thread226.i
 
-.thread227.i:                                     ; preds = %recv_CONNECT_resp.exit.i, %start_CONNECT.exit.i, %.loopexit.i, %send_CONNECT.exit.thread.i, %109
-  %.1.ph230.i = phi i32 [ %.1.ph.i, %.loopexit.i ], [ 28, %109 ], [ %.pr28.pre.i.i, %send_CONNECT.exit.thread.i ], [ %.034.i.i, %start_CONNECT.exit.i ], [ 42, %recv_CONNECT_resp.exit.i ]
+.thread226.i:                                     ; preds = %recv_CONNECT_resp.exit.i, %start_CONNECT.exit.i, %.loopexit.i, %send_CONNECT.exit.thread.i, %109
+  %.1.ph229.i = phi i32 [ %.1.ph.i, %.loopexit.i ], [ 28, %109 ], [ %.pr28.pre.i.i, %send_CONNECT.exit.thread.i ], [ %.034.i.i, %start_CONNECT.exit.i ], [ 42, %recv_CONNECT_resp.exit.i ]
   %622 = load i32, ptr %87, align 8, !tbaa !104
   %623 = icmp eq i32 %622, 5
   br i1 %623, label %.critedge, label %624
 
-624:                                              ; preds = %.thread227.i
+624:                                              ; preds = %.thread226.i
   br i1 %.not47, label %640, label %625
 
 625:                                              ; preds = %624
@@ -1543,8 +1543,8 @@ tunnel_is_established.exit:                       ; preds = %.loopexit
   call fastcc void @tunnel_free(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %tunnel_init.exit.thread
 
-.critedge:                                        ; preds = %tunnel_is_established.exit.i, %640, %.thread227.i, %h1_tunnel_go_state.exit190.i
-  %.0.i54 = phi i32 [ 56, %h1_tunnel_go_state.exit190.i ], [ %.1.ph230.i, %.thread227.i ], [ %.1.ph230.i, %640 ], [ 56, %tunnel_is_established.exit.i ]
+.critedge:                                        ; preds = %tunnel_is_established.exit.i, %640, %.thread226.i, %h1_tunnel_go_state.exit190.i
+  %.0.i54 = phi i32 [ 56, %h1_tunnel_go_state.exit190.i ], [ %.1.ph229.i, %.thread226.i ], [ %.1.ph229.i, %640 ], [ 56, %tunnel_is_established.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i8 0, ptr %3, align 1, !tbaa !84
   br label %tunnel_init.exit.thread

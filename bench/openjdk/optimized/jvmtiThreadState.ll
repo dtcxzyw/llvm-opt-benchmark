@@ -1274,9 +1274,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %26
   %33 = load i64, ptr %32, align 8
   %34 = load volatile i32, ptr @_ZN27JvmtiVTMSTransitionDisabler38_VTMS_transition_disable_for_all_countE, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92, label %_ZNK6HandleclEv.exit16
+  br i1 %35, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread88, label %_ZNK6HandleclEv.exit16
 
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread88: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   store volatile i8 0, ptr %7, align 1
   br label %72
 
@@ -1365,15 +1365,15 @@ _ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %68, %57, %51, %45
   store volatile i8 0, ptr %7, align 1
   br i1 %13, label %_ZNK6HandleclEv.exit17, label %72
 
-72:                                               ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
-  %storemerge.i404394 = phi ptr [ %.0.i.i.i.i, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
-  %73 = phi i64 [ %33, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
-  %74 = load ptr, ptr %storemerge.i404394, align 8
+72:                                               ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread88, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
+  %storemerge.i404390 = phi ptr [ %.0.i.i.i.i, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread88 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
+  %73 = phi i64 [ %33, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread88 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
+  %74 = load ptr, ptr %storemerge.i404390, align 8
   br label %_ZNK6HandleclEv.exit17
 
 _ZNK6HandleclEv.exit17:                           ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, %72
   %75 = phi i1 [ false, %72 ], [ true, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ true, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
-  %storemerge.i404348 = phi ptr [ %storemerge.i404394, %72 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
+  %storemerge.i404348 = phi ptr [ %storemerge.i404390, %72 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
   %76 = phi i64 [ %73, %72 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ %39, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
   %77 = phi ptr [ %74, %72 ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
   call void @_ZN16java_lang_Thread25set_is_in_VTMS_transitionEP7oopDescb(ptr noundef %77, i1 noundef zeroext false) #14
@@ -1478,9 +1478,9 @@ _ZNK6HandleclEv.exit18:                           ; preds = %84, %85
 118:                                              ; preds = %116, %.loopexit
   %119 = phi ptr [ %117, %116 ], [ null, %.loopexit ]
   call void @_ZN16java_lang_Thread25set_is_in_VTMS_transitionEP7oopDescb(ptr noundef %119, i1 noundef zeroext true) #14
-  br i1 %.not.i.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, label %_ZN13MonitorLockerD2Ev.exit.thread60
+  br i1 %.not.i.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, label %_ZN13MonitorLockerD2Ev.exit.thread58
 
-_ZN13MonitorLockerD2Ev.exit.thread60:             ; preds = %118
+_ZN13MonitorLockerD2Ev.exit.thread58:             ; preds = %118
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %80) #14
   br label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread
 
@@ -1489,7 +1489,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %112, %101, %_ZN13Mo
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %80) #14
   br label %79
 
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread: ; preds = %67, %58, %118, %49, %61, %_ZN13MonitorLockerD2Ev.exit.thread60
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread: ; preds = %67, %58, %118, %49, %61, %_ZN13MonitorLockerD2Ev.exit.thread58
   call void @_ZN10JavaThread25set_is_in_VTMS_transitionEb(ptr noundef nonnull align 8 dereferenceable(1800) %5, i1 noundef zeroext true) #14
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
   br label %121
@@ -1626,9 +1626,9 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit16.thread: ; pred
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #14
   %27 = load volatile i8, ptr %21, align 2
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %_ZN13MonitorLockerD2Ev.exit18, label %_ZN13MonitorLockerD2Ev.exit18.thread36
+  br i1 %28, label %_ZN13MonitorLockerD2Ev.exit18, label %_ZN13MonitorLockerD2Ev.exit18.thread34
 
-_ZN13MonitorLockerD2Ev.exit18.thread36:           ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit16.thread
+_ZN13MonitorLockerD2Ev.exit18.thread34:           ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit16.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #14
   br label %_ZN13MonitorLockerD2Ev.exit18.thread
 
@@ -1637,7 +1637,7 @@ _ZN13MonitorLockerD2Ev.exit18:                    ; preds = %_ZN13MonitorLockerC
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #14
   br label %.preheader
 
-_ZN13MonitorLockerD2Ev.exit18.thread:             ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit16, %_ZN13MonitorLockerD2Ev.exit18.thread36, %_ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit, %20, %19
+_ZN13MonitorLockerD2Ev.exit18.thread:             ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit16, %_ZN13MonitorLockerD2Ev.exit18.thread34, %_ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit, %20, %19
   ret void
 }
 

@@ -461,8 +461,8 @@ _ZN6vectorIP4exprLb0EjE7destroyEv.exit:           ; preds = %1, %3
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN12contains_appclEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
-  %.not9.not = icmp eq i32 %1, 0
-  br i1 %.not9.not, label %_ZN12contains_appclEP4expr.exit._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -527,11 +527,11 @@ _ZN12contains_appclEP4expr.exit:                  ; preds = %8, %_ZN15ref_vector
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %32, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %_ZN12contains_appclEP4expr.exit._crit_edge, label %8, !llvm.loop !51
+  br i1 %or.cond, label %._crit_edge, label %8, !llvm.loop !51
 
-_ZN12contains_appclEP4expr.exit._crit_edge:       ; preds = %_ZN12contains_appclEP4expr.exit, %3
-  %.not.lcssa = phi i1 [ false, %3 ], [ %32, %_ZN12contains_appclEP4expr.exit ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %_ZN12contains_appclEP4expr.exit, %3
+  %.lcssa = phi i1 [ false, %3 ], [ %32, %_ZN12contains_appclEP4expr.exit ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

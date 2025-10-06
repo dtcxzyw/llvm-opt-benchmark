@@ -68,8 +68,8 @@ define internal fastcc range(i32 -38, 1) i32 @fill_map(ptr noundef %0, ptr nound
   br i1 %.not68, label %.preheader, label %19
 
 .preheader:                                       ; preds = %16
-  %.not7292.not = icmp eq i8 %8, 0
-  br i1 %.not7292.not, label %.thread88, label %.lr.ph
+  %.not7291.not = icmp eq i8 %8, 0
+  br i1 %.not7291.not, label %.thread88, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109,8 +109,8 @@ define internal fastcc range(i32 -38, 1) i32 @fill_map(ptr noundef %0, ptr nound
 
 40:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %.05495 = phi i32 [ 0, %.lr.ph ], [ %53, %50 ]
-  %.06193 = phi i32 [ 0, %.lr.ph ], [ %45, %50 ]
+  %.05494 = phi i32 [ 0, %.lr.ph ], [ %53, %50 ]
+  %.06192 = phi i32 [ 0, %.lr.ph ], [ %45, %50 ]
   %41 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %18, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 4, !tbaa !16
@@ -120,17 +120,17 @@ define internal fastcc range(i32 -38, 1) i32 @fill_map(ptr noundef %0, ptr nound
   %47 = load i32, ptr %46, align 4, !tbaa !17
   %48 = udiv i32 %47, %45
   %49 = urem i32 %47, %45
-  %.not69 = icmp eq i32 %.06193, 0
-  %.not70 = icmp eq i32 %.06193, %45
+  %.not69 = icmp eq i32 %.06192, 0
+  %.not70 = icmp eq i32 %.06192, %45
   %or.cond = or i1 %.not69, %.not70
   %.not71 = icmp eq i32 %49, 0
-  %or.cond108 = select i1 %or.cond, i1 %.not71, i1 false
-  br i1 %or.cond108, label %50, label %.loopexit
+  %or.cond107 = select i1 %or.cond, i1 %.not71, i1 false
+  br i1 %or.cond107, label %50, label %.loopexit
 
 50:                                               ; preds = %40
   %51 = icmp ugt i32 %45, %47
   %52 = zext i1 %51 to i32
-  %53 = or i32 %.05495, %52
+  %53 = or i32 %.05494, %52
   %54 = trunc i32 %48 to i8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %54, ptr %55, align 1, !tbaa !15
@@ -287,16 +287,14 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
 23:                                               ; preds = %22
   %24 = icmp eq i32 %.093, 0
   %25 = select i1 %24, i32 2, i32 1
-  br label %26
+  br label %.preheader
 
-26:                                               ; preds = %23, %20
-  %.095 = phi i32 [ %3, %20 ], [ %25, %23 ]
-  %27 = add i32 %.095, -3
-  %or.cond10 = icmp ult i32 %27, -2
-  br i1 %or.cond10, label %.thread124, label %.preheader
+26:                                               ; preds = %20
+  %27 = icmp ugt i32 %3, 2
+  br i1 %27, label %.thread124, label %.preheader
 
-.preheader:                                       ; preds = %22, %22, %22, %22, %22, %26
-  %.095140 = phi i32 [ %.095, %26 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ]
+.preheader:                                       ; preds = %23, %22, %22, %22, %22, %22, %26
+  %.095139 = phi i32 [ %3, %26 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ %25, %23 ], [ 2, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i8, ptr %28, align 8, !tbaa !11
   %.not117126.not = icmp eq i8 %29, 0
@@ -392,7 +390,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.090.lcssa, ptr %65, align 4, !tbaa !29
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.095140, ptr %66, align 4, !tbaa !30
+  store i32 %.095139, ptr %66, align 4, !tbaa !30
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.093, ptr %67, align 4, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48

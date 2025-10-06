@@ -7835,8 +7835,8 @@ define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !33
   %12 = and i8 %11, -2
-  %switch71 = icmp eq i8 %12, 4
-  br i1 %switch71, label %.thread68, label %zend_parse_arg_number.exit, !prof !175
+  %switch = icmp eq i8 %12, 4
+  br i1 %switch, label %.thread68, label %zend_parse_arg_number.exit, !prof !175
 
 .thread68:                                        ; preds = %8
   store ptr %9, ptr %3, align 8, !tbaa !176
@@ -7853,7 +7853,7 @@ zend_parse_arg_number.exit:                       ; preds = %8
   %.04065 = phi ptr [ null, %.thread58 ], [ %9, %zend_parse_arg_number.exit ]
   %.04164 = phi i32 [ 0, %.thread58 ], [ 22, %zend_parse_arg_number.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.03966, i32 noundef %.067, ptr noundef null, i32 noundef %.04164, ptr noundef %.04065) #25
-  br label %38
+  br label %39
 
 .critedge:                                        ; preds = %zend_parse_arg_number.exit, %.thread68
   %15 = load ptr, ptr %5, align 8, !tbaa !33
@@ -7866,40 +7866,40 @@ zend_parse_arg_number.exit:                       ; preds = %8
   %21 = load ptr, ptr %3, align 8, !tbaa !176
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !33
-  %switch = icmp eq i8 %23, 4
-  br i1 %switch, label %24, label %31
+  %24 = icmp eq i8 %23, 4
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %.critedge
-  %25 = load i64, ptr %21, align 8, !tbaa !33
-  %26 = call ptr @timelib_time_ctor() #25
-  store ptr %26, ptr %20, align 8, !tbaa !92
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 232
-  store i32 1, ptr %27, align 8, !tbaa !102
-  call void @timelib_unixtime2gmt(ptr noundef %26, i64 noundef %25) #25
-  %28 = load ptr, ptr %20, align 8, !tbaa !92
-  call void @timelib_update_ts(ptr noundef %28, ptr noundef null) #25
+25:                                               ; preds = %.critedge
+  %26 = load i64, ptr %21, align 8, !tbaa !33
+  %27 = call ptr @timelib_time_ctor() #25
+  store ptr %27, ptr %20, align 8, !tbaa !92
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 232
+  store i32 1, ptr %28, align 8, !tbaa !102
+  call void @timelib_unixtime2gmt(ptr noundef %27, i64 noundef %26) #25
   %29 = load ptr, ptr %20, align 8, !tbaa !92
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store i64 0, ptr %30, align 8, !tbaa !121
-  br label %35
+  call void @timelib_update_ts(ptr noundef %29, ptr noundef null) #25
+  %30 = load ptr, ptr %20, align 8, !tbaa !92
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store i64 0, ptr %31, align 8, !tbaa !121
+  br label %36
 
-31:                                               ; preds = %.critedge
-  %32 = load double, ptr %21, align 8, !tbaa !33
-  %33 = call zeroext i1 @php_date_initialize_from_ts_double(ptr noundef nonnull %20, double noundef %32)
-  br i1 %33, label %35, label %34
+32:                                               ; preds = %.critedge
+  %33 = load double, ptr %21, align 8, !tbaa !33
+  %34 = call zeroext i1 @php_date_initialize_from_ts_double(ptr noundef nonnull %20, double noundef %33)
+  br i1 %34, label %36, label %35
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #25
-  br label %38
+  br label %39
 
-35:                                               ; preds = %31, %24
-  %36 = load ptr, ptr %4, align 8, !tbaa !33
-  store ptr %36, ptr %1, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 776, ptr %37, align 8, !tbaa !33
-  br label %38
+36:                                               ; preds = %32, %25
+  %37 = load ptr, ptr %4, align 8, !tbaa !33
+  store ptr %37, ptr %1, align 8, !tbaa !33
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 776, ptr %38, align 8, !tbaa !33
+  br label %39
 
-38:                                               ; preds = %14, %35, %34
+39:                                               ; preds = %14, %36, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -8112,8 +8112,8 @@ define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !33
   %12 = and i8 %11, -2
-  %switch71 = icmp eq i8 %12, 4
-  br i1 %switch71, label %.thread68, label %zend_parse_arg_number.exit, !prof !175
+  %switch = icmp eq i8 %12, 4
+  br i1 %switch, label %.thread68, label %zend_parse_arg_number.exit, !prof !175
 
 .thread68:                                        ; preds = %8
   store ptr %9, ptr %3, align 8, !tbaa !176
@@ -8130,7 +8130,7 @@ zend_parse_arg_number.exit:                       ; preds = %8
   %.04065 = phi ptr [ null, %.thread58 ], [ %9, %zend_parse_arg_number.exit ]
   %.04164 = phi i32 [ 0, %.thread58 ], [ 22, %zend_parse_arg_number.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.03966, i32 noundef %.067, ptr noundef null, i32 noundef %.04164, ptr noundef %.04065) #25
-  br label %38
+  br label %39
 
 .critedge:                                        ; preds = %zend_parse_arg_number.exit, %.thread68
   %15 = load ptr, ptr %5, align 8, !tbaa !33
@@ -8143,40 +8143,40 @@ zend_parse_arg_number.exit:                       ; preds = %8
   %21 = load ptr, ptr %3, align 8, !tbaa !176
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !33
-  %switch = icmp eq i8 %23, 4
-  br i1 %switch, label %24, label %31
+  %24 = icmp eq i8 %23, 4
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %.critedge
-  %25 = load i64, ptr %21, align 8, !tbaa !33
-  %26 = call ptr @timelib_time_ctor() #25
-  store ptr %26, ptr %20, align 8, !tbaa !92
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 232
-  store i32 1, ptr %27, align 8, !tbaa !102
-  call void @timelib_unixtime2gmt(ptr noundef %26, i64 noundef %25) #25
-  %28 = load ptr, ptr %20, align 8, !tbaa !92
-  call void @timelib_update_ts(ptr noundef %28, ptr noundef null) #25
+25:                                               ; preds = %.critedge
+  %26 = load i64, ptr %21, align 8, !tbaa !33
+  %27 = call ptr @timelib_time_ctor() #25
+  store ptr %27, ptr %20, align 8, !tbaa !92
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 232
+  store i32 1, ptr %28, align 8, !tbaa !102
+  call void @timelib_unixtime2gmt(ptr noundef %27, i64 noundef %26) #25
   %29 = load ptr, ptr %20, align 8, !tbaa !92
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store i64 0, ptr %30, align 8, !tbaa !121
-  br label %35
+  call void @timelib_update_ts(ptr noundef %29, ptr noundef null) #25
+  %30 = load ptr, ptr %20, align 8, !tbaa !92
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store i64 0, ptr %31, align 8, !tbaa !121
+  br label %36
 
-31:                                               ; preds = %.critedge
-  %32 = load double, ptr %21, align 8, !tbaa !33
-  %33 = call zeroext i1 @php_date_initialize_from_ts_double(ptr noundef nonnull %20, double noundef %32)
-  br i1 %33, label %35, label %34
+32:                                               ; preds = %.critedge
+  %33 = load double, ptr %21, align 8, !tbaa !33
+  %34 = call zeroext i1 @php_date_initialize_from_ts_double(ptr noundef nonnull %20, double noundef %33)
+  br i1 %34, label %36, label %35
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #25
-  br label %38
+  br label %39
 
-35:                                               ; preds = %31, %24
-  %36 = load ptr, ptr %4, align 8, !tbaa !33
-  store ptr %36, ptr %1, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 776, ptr %37, align 8, !tbaa !33
-  br label %38
+36:                                               ; preds = %32, %25
+  %37 = load ptr, ptr %4, align 8, !tbaa !33
+  store ptr %37, ptr %1, align 8, !tbaa !33
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 776, ptr %38, align 8, !tbaa !33
+  br label %39
 
-38:                                               ; preds = %14, %35, %34
+39:                                               ; preds = %14, %36, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -20028,18 +20028,17 @@ define internal i32 @date_period_has_property(ptr noundef %0, ptr noundef %1, i3
   %10 = getelementptr inbounds i8, ptr %0, i64 -4
   %11 = load i8, ptr %10, align 4, !tbaa !253, !range !160, !noundef !72
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %9
-  %switch = icmp ugt i32 %2, 1
-  %. = zext i1 %switch to i32
-  br label %29
+  %13 = icmp eq i32 %2, 2
+  br i1 %12, label %15, label %14
 
 14:                                               ; preds = %9
-  %15 = icmp eq i32 %2, 2
-  br i1 %15, label %29, label %16
+  %. = zext i1 %13 to i32
+  br label %29
 
-16:                                               ; preds = %14
+15:                                               ; preds = %9
+  br i1 %13, label %29, label %16
+
+16:                                               ; preds = %15
   %17 = call ptr @date_period_read_property(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %5)
   %18 = icmp ne ptr %17, @executor_globals
   call void @llvm.assume(i1 %18)
@@ -20064,8 +20063,8 @@ define internal i32 @date_period_has_property(ptr noundef %0, ptr noundef %1, i3
   %28 = zext i1 %.0.in to i32
   br label %29
 
-29:                                               ; preds = %27, %13, %14, %7
-  %.019 = phi i32 [ %8, %7 ], [ %28, %27 ], [ %., %13 ], [ 1, %14 ]
+29:                                               ; preds = %27, %14, %15, %7
+  %.019 = phi i32 [ %8, %7 ], [ %28, %27 ], [ %., %14 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019
 }

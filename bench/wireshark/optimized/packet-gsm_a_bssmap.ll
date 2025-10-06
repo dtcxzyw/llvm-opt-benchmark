@@ -3495,49 +3495,49 @@ define internal zeroext i16 @be_aoip_trans_lay_add(ptr noundef %0, ptr noundef %
 
 18:                                               ; preds = %7
   %19 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_bogus_length, ptr noundef %0, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @.str.737, i32 noundef %4)
-  br label %42
+  br label %43
 
 20:                                               ; preds = %15, %11
   %.sink46 = phi i32 [ 16, %15 ], [ 4, %11 ]
-  %switch = phi i1 [ false, %15 ], [ true, %11 ]
-  %21 = add i32 %3, %.sink46
-  %22 = load i32, ptr @hf_gsm_a_bssmap_aoip_trans_port, align 4
-  %23 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0)
-  %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21)
-  %.sink44 = select i1 %switch, i32 2, i32 3
-  %.sink43 = select i1 %switch, i32 4, i32 16
-  %.sink = select i1 %switch, ptr %8, ptr %10
+  %21 = phi i1 [ false, %15 ], [ true, %11 ]
+  %22 = add i32 %3, %.sink46
+  %23 = load i32, ptr @hf_gsm_a_bssmap_aoip_trans_port, align 4
+  %24 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef 0)
+  %25 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %22)
+  %.sink44 = select i1 %21, i32 2, i32 3
+  %.sink43 = select i1 %21, i32 4, i32 16
+  %.sink = select i1 %21, ptr %8, ptr %10
   store i32 %.sink44, ptr %9, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.sink43, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.sink, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 57
-  %30 = load i16, ptr %29, align 1
-  %31 = and i16 %30, 8
-  %32 = icmp eq i16 %31, 0
-  %33 = icmp ne i16 %24, 0
-  %or.cond = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond, label %34, label %40
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %.sink43, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %.sink, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 57
+  %31 = load i16, ptr %30, align 1
+  %32 = and i16 %31, 8
+  %33 = icmp eq i16 %32, 0
+  %34 = icmp ne i16 %25, 0
+  %or.cond = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond, label %35, label %41
 
-34:                                               ; preds = %20
-  %35 = zext i16 %24 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %37 = load i32, ptr %36, align 4
-  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %9, i32 noundef %35, i32 noundef 0, ptr noundef nonnull @.str.738, i32 noundef %37, i32 noundef 0, ptr noundef null)
-  %38 = add nuw nsw i32 %35, 1
-  %39 = load i32, ptr %36, align 4
-  call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %9, i32 noundef %38, i32 noundef 0, ptr noundef nonnull @.str.738, i32 noundef %39)
-  br label %40
+35:                                               ; preds = %20
+  %36 = zext i16 %25 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %38 = load i32, ptr %37, align 4
+  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %9, i32 noundef %36, i32 noundef 0, ptr noundef nonnull @.str.738, i32 noundef %38, i32 noundef 0, ptr noundef null)
+  %39 = add nuw nsw i32 %36, 1
+  %40 = load i32, ptr %37, align 4
+  call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %9, i32 noundef %39, i32 noundef 0, ptr noundef nonnull @.str.738, i32 noundef %40)
+  br label %41
 
-40:                                               ; preds = %34, %20
-  %41 = or disjoint i32 %.sink46, 2
-  br label %42
+41:                                               ; preds = %35, %20
+  %42 = or disjoint i32 %.sink46, 2
+  br label %43
 
-42:                                               ; preds = %40, %18
-  %.0.in = phi i32 [ %4, %18 ], [ %41, %40 ]
+43:                                               ; preds = %41, %18
+  %.0.in = phi i32 [ %4, %18 ], [ %42, %41 ]
   %.0 = trunc i32 %.0.in to i16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

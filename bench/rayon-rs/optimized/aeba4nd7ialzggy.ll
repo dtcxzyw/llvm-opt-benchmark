@@ -1185,26 +1185,26 @@ define void @_ZN10rayon_core5sleep5Sleep16wake_any_threads17hdf2987505f1636b6E(p
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %.not15 = icmp eq i64 %5, 0
-  br i1 %.not15, label %.thread, label %.lr.ph
+  %.not14 = icmp eq i64 %5, 0
+  br i1 %.not14, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %8
-  %.013 = phi i32 [ %.1, %8 ], [ %1, %3 ]
-  %.sroa.03.012 = phi i64 [ %6, %8 ], [ 0, %3 ]
-  %6 = add nuw i64 %.sroa.03.012, 1
-  %7 = tail call noundef zeroext i1 @_ZN10rayon_core5sleep5Sleep20wake_specific_thread17hf48531fa87462249E.llvm.4364434838112105284(ptr noundef nonnull align 8 %0, i64 noundef %.sroa.03.012)
+  %.012 = phi i32 [ %.1, %8 ], [ %1, %3 ]
+  %.sroa.03.011 = phi i64 [ %6, %8 ], [ 0, %3 ]
+  %6 = add nuw i64 %.sroa.03.011, 1
+  %7 = tail call noundef zeroext i1 @_ZN10rayon_core5sleep5Sleep20wake_specific_thread17hf48531fa87462249E.llvm.4364434838112105284(ptr noundef nonnull align 8 %0, i64 noundef %.sroa.03.011)
   br i1 %7, label %9, label %8
 
 .thread:                                          ; preds = %9, %8, %3, %2
   ret void
 
 8:                                                ; preds = %9, %.lr.ph
-  %.1 = phi i32 [ %10, %9 ], [ %.013, %.lr.ph ]
+  %.1 = phi i32 [ %10, %9 ], [ %.012, %.lr.ph ]
   %exitcond.not = icmp eq i64 %6, %5
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
-  %10 = add i32 %.013, -1
+  %10 = add i32 %.012, -1
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.thread, label %8
 }

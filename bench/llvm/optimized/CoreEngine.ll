@@ -1848,8 +1848,8 @@ define dso_local void @_ZN5clang4ento10CoreEngine15HandleBlockExitEPKNS_8CFGBloc
   %35 = load ptr, ptr %34, align 8, !tbaa !172
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %37 = load ptr, ptr %36, align 8, !tbaa !394
-  %.not76112 = icmp eq ptr %35, %37
-  br i1 %.not76112, label %_ZN5clang4ento10CoreEngine23HandleVirtualBaseBranchEPKNS_8CFGBlockEPNS0_12ExplodedNodeE.exit, label %.lr.ph
+  %.not76111 = icmp eq ptr %35, %37
+  br i1 %.not76111, label %_ZN5clang4ento10CoreEngine23HandleVirtualBaseBranchEPKNS_8CFGBlockEPNS0_12ExplodedNodeE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1865,8 +1865,8 @@ define dso_local void @_ZN5clang4ento10CoreEngine15HandleBlockExitEPKNS_8CFGBloc
   br label %47
 
 47:                                               ; preds = %.lr.ph, %67
-  %.073113 = phi ptr [ %35, %.lr.ph ], [ %68, %67 ]
-  %48 = load ptr, ptr %.073113, align 8, !tbaa !173
+  %.073112 = phi ptr [ %35, %.lr.ph ], [ %68, %67 ]
+  %48 = load ptr, ptr %.073112, align 8, !tbaa !173
   %.not77 = icmp eq ptr %48, null
   br i1 %.not77, label %67, label %49
 
@@ -1944,7 +1944,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   br label %67
 
 67:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %47
-  %68 = getelementptr inbounds nuw i8, ptr %.073113, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.073112, i64 16
   %.not76 = icmp eq ptr %68, %37
   br i1 %.not76, label %_ZN5clang4ento10CoreEngine23HandleVirtualBaseBranchEPKNS_8CFGBlockEPNS0_12ExplodedNodeE.exit, label %47, !llvm.loop !396
 

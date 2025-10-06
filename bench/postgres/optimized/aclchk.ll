@@ -4100,8 +4100,8 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 116
   %24 = load i16, ptr %23, align 4
   tail call void @ReleaseSysCache(ptr noundef nonnull %8) #8
-  %.not4155 = icmp slt i16 %24, 1
-  br i1 %.not4155, label %.loopexit, label %.lr.ph
+  %.not4153 = icmp slt i16 %24, 1
+  br i1 %.not4153, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   switch i32 %3, label %.lr.ph.split.split [
@@ -4110,9 +4110,9 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   ]
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %46
-  %.03456.us = phi i16 [ %47, %46 ], [ 1, %.lr.ph ]
+  %.03454.us = phi i16 [ %47, %46 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %25 = sext i16 %.03456.us to i64
+  %25 = sext i16 %.03454.us to i64
   %26 = call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %7, i64 noundef %25) #8
   %.not42.us = icmp eq ptr %26, null
   br i1 %.not42.us, label %46, label %27
@@ -4157,26 +4157,26 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
 
 46:                                               ; preds = %.sink.split, %45, %.lr.ph.split.us.split
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %47 = add i16 %.03456.us, 1
+  %47 = add i16 %.03454.us, 1
   %.not41.us = icmp sgt i16 %47, %24
   br i1 %.not41.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !14
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %70
-  %.03357.us59 = phi i32 [ %.2.ph.us66, %70 ], [ 1, %.lr.ph ]
-  %.03456.us60 = phi i16 [ %71, %70 ], [ 1, %.lr.ph ]
+  %.03355.us57 = phi i32 [ %.2.ph.us64, %70 ], [ 1, %.lr.ph ]
+  %.03454.us58 = phi i16 [ %71, %70 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %48 = sext i16 %.03456.us60 to i64
+  %48 = sext i16 %.03454.us58 to i64
   %49 = call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %7, i64 noundef %48) #8
-  %.not42.us61 = icmp eq ptr %49, null
-  br i1 %.not42.us61, label %70, label %50
+  %.not42.us59 = icmp eq ptr %49, null
+  br i1 %.not42.us59, label %70, label %50
 
 50:                                               ; preds = %.lr.ph.split.split.us
   %51 = getelementptr i8, ptr %49, i64 16
-  %.val.us62 = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.val.us62, i64 22
+  %.val.us60 = load ptr, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.val.us60, i64 22
   %53 = load i8, ptr %52, align 2
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %.val.us62, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %.val.us60, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 91
   %57 = load i8, ptr %56, align 1, !range !4, !noundef !5
   %58 = trunc nuw i8 %57 to i1
@@ -4186,14 +4186,14 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   %60 = call i64 @SysCacheGetAttr(i32 noundef 7, ptr noundef nonnull %49, i16 noundef signext 22, ptr noundef nonnull %6) #8
   %61 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %.thread.us65, label %63
+  br i1 %62, label %.thread.us63, label %63
 
 63:                                               ; preds = %59
   %64 = inttoptr i64 %60 to ptr
   %65 = call ptr @pg_detoast_datum(ptr noundef %64) #8
   %66 = call i64 @aclmask(ptr noundef %65, i32 noundef %1, i32 noundef %22, i64 noundef %2, i32 noundef 1) #8
-  %.not43.us63 = icmp eq ptr %65, %64
-  br i1 %.not43.us63, label %68, label %67
+  %.not43.us61 = icmp eq ptr %65, %64
+  br i1 %.not43.us61, label %68, label %67
 
 67:                                               ; preds = %63
   call void @pfree(ptr noundef %65) #8
@@ -4201,10 +4201,10 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
 
 68:                                               ; preds = %67, %63
   call void @ReleaseSysCache(ptr noundef nonnull %49) #8
-  %.not44.us64 = icmp eq i64 %66, 0
-  br i1 %.not44.us64, label %.split.us, label %70
+  %.not44.us62 = icmp eq i64 %66, 0
+  br i1 %.not44.us62, label %.split.us, label %70
 
-.thread.us65:                                     ; preds = %59
+.thread.us63:                                     ; preds = %59
   call void @ReleaseSysCache(ptr noundef nonnull %49) #8
   br label %.split.us
 
@@ -4213,17 +4213,17 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   br label %70
 
 70:                                               ; preds = %68, %69, %.lr.ph.split.split.us
-  %.2.ph.us66 = phi i32 [ %.03357.us59, %.lr.ph.split.split.us ], [ %.03357.us59, %69 ], [ 0, %68 ]
+  %.2.ph.us64 = phi i32 [ %.03355.us57, %.lr.ph.split.split.us ], [ %.03355.us57, %69 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %71 = add i16 %.03456.us60, 1
-  %.not41.us67 = icmp sgt i16 %71, %24
-  br i1 %.not41.us67, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !14
+  %71 = add i16 %.03454.us58, 1
+  %.not41.us65 = icmp sgt i16 %71, %24
+  br i1 %.not41.us65, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !14
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %95
-  %.03357 = phi i32 [ %.2.ph, %95 ], [ 1, %.lr.ph ]
-  %.03456 = phi i16 [ %96, %95 ], [ 1, %.lr.ph ]
+  %.03355 = phi i32 [ %.2.ph, %95 ], [ 1, %.lr.ph ]
+  %.03454 = phi i16 [ %96, %95 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %72 = sext i16 %.03456 to i64
+  %72 = sext i16 %.03454 to i64
   %73 = call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %7, i64 noundef %72) #8
   %.not42 = icmp eq ptr %73, null
   br i1 %.not42, label %95, label %74
@@ -4273,20 +4273,20 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
 94:                                               ; preds = %.thread, %93
   br label %95
 
-.split.us:                                        ; preds = %68, %45, %.thread.us65
-  %.us-phi = phi i32 [ 1, %.thread.us65 ], [ 0, %45 ], [ 1, %68 ]
+.split.us:                                        ; preds = %68, %45, %.thread.us63
+  %.us-phi = phi i32 [ 1, %.thread.us63 ], [ 0, %45 ], [ 1, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 95:                                               ; preds = %93, %94, %83, %.lr.ph.split.split
-  %.2.ph = phi i32 [ %.03357, %.lr.ph.split.split ], [ %.03357, %83 ], [ 1, %94 ], [ 0, %93 ]
+  %.2.ph = phi i32 [ %.03355, %.lr.ph.split.split ], [ %.03355, %83 ], [ 1, %94 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %96 = add i16 %.03456, 1
+  %96 = add i16 %.03454, 1
   %.not41 = icmp sgt i16 %96, %24
   br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %70, %46, %95, %15, %.split.us, %10
-  %.032 = phi i32 [ 1, %10 ], [ %.us-phi, %.split.us ], [ 1, %15 ], [ %.2.ph, %95 ], [ 1, %46 ], [ %.2.ph.us66, %70 ]
+  %.032 = phi i32 [ 1, %10 ], [ %.us-phi, %.split.us ], [ 1, %15 ], [ %.2.ph, %95 ], [ 1, %46 ], [ %.2.ph.us64, %70 ]
   ret i32 %.032
 }
 
@@ -5226,13 +5226,13 @@ define dso_local void @removeExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 116
   %20 = load i16, ptr %19, align 4
-  %.not3236 = icmp slt i16 %20, 1
-  br i1 %.not3236, label %.split25, label %.lr.ph
+  %.not3235 = icmp slt i16 %20, 1
+  br i1 %.not3235, label %.split25, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %25
   %21 = phi i32 [ %27, %25 ], [ 1, %18 ]
-  %.02437 = phi i16 [ %26, %25 ], [ 1, %18 ]
-  %22 = sext i16 %.02437 to i64
+  %.02436 = phi i16 [ %26, %25 ], [ 1, %18 ]
+  %22 = sext i16 %.02436 to i64
   %23 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %5, i64 noundef %22) #8
   %.not33 = icmp eq ptr %23, null
   br i1 %.not33, label %25, label %24
@@ -5243,7 +5243,7 @@ define dso_local void @removeExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
   br label %25
 
 25:                                               ; preds = %.lr.ph, %24
-  %26 = add i16 %.02437, 1
+  %26 = add i16 %.02436, 1
   %27 = sext i16 %26 to i32
   %.not32 = icmp sgt i16 %26, %20
   br i1 %.not32, label %.split25, label %.lr.ph, !llvm.loop !16

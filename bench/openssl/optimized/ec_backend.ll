@@ -375,25 +375,25 @@ ec_param_encoding_id2name.exit.thread:            ; preds = %24, %ec_param_encod
   %92 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.28) #4
   %93 = icmp ne ptr %92, null
   %or.cond13.i = select i1 %48, i1 true, i1 %93
-  br i1 %or.cond13.i, label %94, label %.thread144.i
+  br i1 %or.cond13.i, label %94, label %.thread137.i
 
 94:                                               ; preds = %91
   %95 = tail call ptr @EC_GROUP_get0_cofactor(ptr noundef nonnull %0) #4
   %.not117.i = icmp eq ptr %95, null
-  br i1 %.not117.i, label %.thread144.i, label %96
+  br i1 %.not117.i, label %.thread137.i, label %96
 
 96:                                               ; preds = %94
   %97 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef nonnull %95) #4
   %.not118.i = icmp eq i32 %97, 0
-  br i1 %.not118.i, label %ec_group_explicit_todata.exit, label %.thread144.i
+  br i1 %.not118.i, label %ec_group_explicit_todata.exit, label %.thread137.i
 
-.thread144.i:                                     ; preds = %96, %94, %91
+.thread137.i:                                     ; preds = %96, %94, %91
   %98 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.29) #4
   %99 = icmp ne ptr %98, null
   %or.cond15.i = select i1 %48, i1 true, i1 %99
   br i1 %or.cond15.i, label %100, label %107
 
-100:                                              ; preds = %.thread144.i
+100:                                              ; preds = %.thread137.i
   %101 = tail call ptr @EC_GROUP_get0_seed(ptr noundef nonnull %0) #4
   %102 = tail call i64 @EC_GROUP_get_seed_len(ptr noundef nonnull %0) #4
   %103 = icmp ne ptr %101, null
@@ -407,13 +407,13 @@ ec_param_encoding_id2name.exit.thread:            ; preds = %24, %ec_param_encod
   br i1 %.not119.i, label %ec_group_explicit_todata.exit, label %107
 
 ec_group_explicit_todata.exit:                    ; preds = %41, %52, %57, %59, %61, %63, %68, %71, %76, %81, %85, %88, %96, %105
-  %.sink158.i = phi i32 [ 180, %41 ], [ 193, %52 ], [ 198, %57 ], [ 204, %63 ], [ 204, %61 ], [ 204, %59 ], [ 214, %68 ], [ 219, %71 ], [ 229, %76 ], [ 241, %81 ], [ 246, %85 ], [ 252, %88 ], [ 264, %96 ], [ 279, %105 ]
+  %.sink149.i = phi i32 [ 180, %41 ], [ 193, %52 ], [ 198, %57 ], [ 204, %63 ], [ 204, %61 ], [ 204, %59 ], [ 214, %68 ], [ 219, %71 ], [ 229, %76 ], [ 241, %81 ], [ 246, %85 ], [ 252, %88 ], [ 264, %96 ], [ 279, %105 ]
   %.sink.i = phi i32 [ 103, %41 ], [ 524291, %52 ], [ 141, %57 ], [ 524303, %63 ], [ 524303, %61 ], [ 524303, %59 ], [ 122, %68 ], [ 524303, %71 ], [ 524303, %76 ], [ 173, %81 ], [ 173, %85 ], [ 524303, %88 ], [ 524303, %96 ], [ 524303, %105 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink158.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink149.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
   br label %.thread53.sink.split
 
-107:                                              ; preds = %.thread144.i, %105, %100
+107:                                              ; preds = %.thread137.i, %105, %100
   br i1 %40, label %.thread53, label %.thread
 
 .thread:                                          ; preds = %37, %107
@@ -553,7 +553,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
   %.1 = phi ptr [ %22, %24 ], [ null, %18 ]
   %29 = icmp ne ptr %.030, null
   %or.cond = and i1 %11, %29
-  br i1 %or.cond, label %30, label %.thread60
+  br i1 %or.cond, label %30, label %.thread59
 
 30:                                               ; preds = %28
   %31 = call ptr @EC_GROUP_get0_order(ptr noundef nonnull %7) #4
@@ -587,23 +587,23 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
 45:                                               ; preds = %43
   %.pre = load ptr, ptr %4, align 8, !tbaa !27
   %.not46 = icmp eq ptr %.pre, null
-  br i1 %.not46, label %.thread60, label %46
+  br i1 %.not46, label %.thread59, label %46
 
 46:                                               ; preds = %45
   %47 = call i32 @EC_KEY_set_private_key(ptr noundef %0, ptr noundef nonnull %.pre) #4
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %.thread, label %.thread60
+  br i1 %.not47, label %.thread, label %.thread59
 
-.thread60:                                        ; preds = %28, %46, %45
+.thread59:                                        ; preds = %28, %46, %45
   %.not48 = icmp eq ptr %.1, null
   br i1 %.not48, label %50, label %48
 
-48:                                               ; preds = %.thread60
+48:                                               ; preds = %.thread59
   %49 = call i32 @EC_KEY_set_public_key(ptr noundef %0, ptr noundef nonnull %.1) #4
   %.not49 = icmp eq i32 %49, 0
   br i1 %.not49, label %.thread, label %50
 
-50:                                               ; preds = %48, %.thread60
+50:                                               ; preds = %48, %.thread59
   br label %.thread
 
 .thread:                                          ; preds = %43, %39, %35, %30, %33, %48, %46, %19, %21, %24, %14, %50
@@ -1344,7 +1344,7 @@ define ptr @ossl_ec_key_param_from_x509_algor(ptr noundef %0, ptr noundef %1, pt
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 770, ptr noundef nonnull @__func__.ossl_ec_key_param_from_x509_algor) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #4
-  br label %.thread26
+  br label %.thread24
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %4, align 4, !tbaa !29
@@ -1375,21 +1375,21 @@ define ptr @ossl_ec_key_param_from_x509_algor(ptr noundef %0, ptr noundef %1, pt
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 781, ptr noundef nonnull @__func__.ossl_ec_key_param_from_x509_algor) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 142, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre29 = load ptr, ptr %6, align 8, !tbaa !60
-  br label %.thread26
+  %.pre26 = load ptr, ptr %6, align 8, !tbaa !60
+  br label %.thread24
 
 22:                                               ; preds = %11
   %23 = load ptr, ptr %5, align 8, !tbaa !56
   %24 = call i32 @OBJ_obj2nid(ptr noundef %23) #4
   %25 = call ptr @EC_GROUP_new_by_curve_name_ex(ptr noundef %1, ptr noundef %2, i32 noundef %24) #4
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread26, label %27
+  br i1 %26, label %.thread24, label %27
 
 27:                                               ; preds = %22
   call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %25, i32 noundef 1) #4
   %28 = call i32 @EC_KEY_set_group(ptr noundef nonnull %8, ptr noundef nonnull %25) #4
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.thread26, label %30
+  br i1 %29, label %.thread24, label %30
 
 30:                                               ; preds = %27
   call void @EC_GROUP_free(ptr noundef nonnull %25) #4
@@ -1399,17 +1399,17 @@ define ptr @ossl_ec_key_param_from_x509_algor(ptr noundef %0, ptr noundef %1, pt
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 799, ptr noundef nonnull @__func__.ossl_ec_key_param_from_x509_algor) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 142, ptr noundef null) #4
-  br label %.thread26
+  br label %.thread24
 
-.thread26:                                        ; preds = %27, %22, %21, %31, %10
-  %32 = phi ptr [ null, %10 ], [ %.pre29, %21 ], [ %8, %31 ], [ %8, %22 ], [ %8, %27 ]
+.thread24:                                        ; preds = %27, %22, %21, %31, %10
+  %32 = phi ptr [ null, %10 ], [ %.pre26, %21 ], [ %8, %31 ], [ %8, %22 ], [ %8, %27 ]
   %.017 = phi ptr [ null, %10 ], [ null, %21 ], [ null, %31 ], [ null, %22 ], [ %25, %27 ]
   call void @EC_KEY_free(ptr noundef %32) #4
   call void @EC_GROUP_free(ptr noundef %.017) #4
   br label %33
 
-33:                                               ; preds = %.thread, %30, %.thread26
-  %.0 = phi ptr [ null, %.thread26 ], [ %8, %30 ], [ %.pre, %.thread ]
+33:                                               ; preds = %.thread, %30, %.thread24
+  %.0 = phi ptr [ null, %.thread24 ], [ %8, %30 ], [ %.pre, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

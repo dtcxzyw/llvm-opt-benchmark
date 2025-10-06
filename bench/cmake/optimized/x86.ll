@@ -49,7 +49,7 @@ declare i32 @lzma_simple_coder_init(ptr noundef, ptr noundef, ptr noundef, ptr n
 define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3, i64 noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = icmp ult i64 %4, 5
-  br i1 %7, label %79, label %8
+  br i1 %7, label %80, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 4, !tbaa !11
@@ -61,55 +61,55 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
   %14 = add i64 %4, -5
   br label %15
 
-15:                                               ; preds = %8, %77
-  %.092121 = phi i32 [ %9, %8 ], [ %.193, %77 ]
-  %.094120 = phi i64 [ 0, %8 ], [ %.195, %77 ]
-  %.198119 = phi i32 [ %spec.select, %8 ], [ %.299, %77 ]
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.094120
+15:                                               ; preds = %8, %78
+  %.092113 = phi i32 [ %9, %8 ], [ %.193, %78 ]
+  %.094112 = phi i64 [ 0, %8 ], [ %.195, %78 ]
+  %.198111 = phi i32 [ %spec.select, %8 ], [ %.299, %78 ]
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.094112
   %17 = load i8, ptr %16, align 1, !tbaa !15
   %18 = add i8 %17, 22
   %or.cond = icmp ult i8 %18, -2
   br i1 %or.cond, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = add nuw i64 %.094120, 1
-  br label %77, !llvm.loop !16
+  %20 = add nuw i64 %.094112, 1
+  br label %78, !llvm.loop !16
 
 21:                                               ; preds = %15
-  %22 = trunc i64 %.094120 to i32
+  %22 = trunc i64 %.094112 to i32
   %23 = add i32 %1, %22
-  %24 = sub i32 %23, %.198119
+  %24 = sub i32 %23, %.198111
   %25 = icmp ugt i32 %24, 5
   br i1 %25, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %21
-  %.not122 = icmp eq i32 %23, %.198119
-  br i1 %.not122, label %.loopexit, label %.lr.ph
+  %.not114 = icmp eq i32 %23, %.198111
+  br i1 %.not114, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.091111 = phi i32 [ %28, %.lr.ph ], [ 0, %.preheader ]
-  %.3110 = phi i32 [ %27, %.lr.ph ], [ %.092121, %.preheader ]
-  %26 = shl i32 %.3110, 1
+  %.091108 = phi i32 [ %28, %.lr.ph ], [ 0, %.preheader ]
+  %.3107 = phi i32 [ %27, %.lr.ph ], [ %.092113, %.preheader ]
+  %26 = shl i32 %.3107, 1
   %27 = and i32 %26, 238
-  %28 = add nuw nsw i32 %.091111, 1
+  %28 = add nuw nsw i32 %.091108, 1
   %exitcond.not = icmp eq i32 %28, %24
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %21
-  %.2 = phi i32 [ 0, %21 ], [ %.092121, %.preheader ], [ %27, %.lr.ph ]
+  %.2 = phi i32 [ 0, %21 ], [ %.092113, %.preheader ], [ %27, %.lr.ph ]
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %30 = load i8, ptr %29, align 1, !tbaa !15
   %31 = zext i8 %30 to i32
   %32 = add i8 %30, 1
   %or.cond5 = icmp ult i8 %32, 2
-  br i1 %or.cond5, label %33, label %75
+  br i1 %or.cond5, label %33, label %76
 
 33:                                               ; preds = %.loopexit
   %34 = lshr i32 %.2, 1
   %35 = icmp ugt i32 %.2, 9
   %.not104 = icmp eq i32 %34, 3
   %or.cond105 = or i1 %35, %.not104
-  br i1 %or.cond105, label %75, label %36
+  br i1 %or.cond105, label %76, label %36
 
 36:                                               ; preds = %33
   %37 = shl nuw i32 %31, 24
@@ -131,10 +131,13 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
   %53 = sub i32 -5, %23
   %.089.p = select i1 %2, i32 %52, i32 %53
   %54 = icmp eq i32 %.2, 0
-  %.089112 = add i32 %51, %.089.p
-  br i1 %54, label %.thread, label %.lr.ph114
+  br i1 %54, label %.split.us, label %.split
 
-.lr.ph114:                                        ; preds = %36
+.split.us:                                        ; preds = %36
+  %.089.us = add i32 %51, %.089.p
+  br label %.split110
+
+.split:                                           ; preds = %36
   %55 = zext nneg i32 %34 to i64
   %56 = getelementptr inbounds nuw i32, ptr @x86_code.MASK_TO_BIT_NUMBER, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !19
@@ -147,57 +150,53 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
   %invariant.op = xor i32 %62, -1
   br label %63
 
-63:                                               ; preds = %65, %.lr.ph114
-  %.089113 = phi i32 [ %.089112, %.lr.ph114 ], [ %.089, %65 ]
-  %64 = lshr i32 %.089113, %59
-  %trunc = trunc i32 %64 to i8
-  switch i8 %trunc, label %.thread [
-    i8 -1, label %65
-    i8 0, label %65
-  ]
+63:                                               ; preds = %63, %.split
+  %.090 = phi i32 [ %51, %.split ], [ %.reass.reass.reass, %63 ]
+  %.089 = add i32 %.090, %.089.p
+  %64 = lshr i32 %.089, %59
+  %65 = and i32 %64, 255
+  %66 = add nsw i32 %65, -255
+  %switch = icmp ult i32 %66, -254
+  %.reass.reass.reass = xor i32 %.089, %invariant.op
+  br i1 %switch, label %63, label %.split110
 
-65:                                               ; preds = %63, %63
-  %.reass.reass.reass = xor i32 %.089113, %invariant.op
-  %.089 = add i32 %.089.p, %.reass.reass.reass
-  br label %63
+.split110:                                        ; preds = %63, %.split.us
+  %.us-phi = phi i32 [ %.089.us, %.split.us ], [ %.089, %63 ]
+  %67 = shl i32 %.us-phi, 7
+  %68 = ashr i32 %67, 31
+  %69 = trunc nsw i32 %68 to i8
+  store i8 %69, ptr %29, align 1, !tbaa !15
+  %70 = lshr i32 %.us-phi, 16
+  %71 = trunc i32 %70 to i8
+  store i8 %71, ptr %38, align 1, !tbaa !15
+  %72 = lshr i32 %.us-phi, 8
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %43, align 1, !tbaa !15
+  %74 = trunc i32 %.us-phi to i8
+  store i8 %74, ptr %48, align 1, !tbaa !15
+  %75 = add nuw i64 %.094112, 5
+  br label %78
 
-.thread:                                          ; preds = %63, %36
-  %.089.lcssa = phi i32 [ %.089112, %36 ], [ %.089113, %63 ]
-  %66 = shl i32 %.089.lcssa, 7
-  %67 = ashr i32 %66, 31
-  %68 = trunc nsw i32 %67 to i8
-  store i8 %68, ptr %29, align 1, !tbaa !15
-  %69 = lshr i32 %.089.lcssa, 16
-  %70 = trunc i32 %69 to i8
-  store i8 %70, ptr %38, align 1, !tbaa !15
-  %71 = lshr i32 %.089.lcssa, 8
-  %72 = trunc i32 %71 to i8
-  store i8 %72, ptr %43, align 1, !tbaa !15
-  %73 = trunc i32 %.089.lcssa to i8
-  store i8 %73, ptr %48, align 1, !tbaa !15
-  %74 = add nuw i64 %.094120, 5
-  br label %77
-
-75:                                               ; preds = %.loopexit, %33
+76:                                               ; preds = %.loopexit, %33
   %spec.select106.v = phi i32 [ 1, %.loopexit ], [ 17, %33 ]
-  %76 = add nuw i64 %.094120, 1
+  %77 = add nuw i64 %.094112, 1
   %spec.select106 = or i32 %spec.select106.v, %.2
-  br label %77
+  br label %78
 
-77:                                               ; preds = %75, %.thread, %19
-  %.299 = phi i32 [ %.198119, %19 ], [ %23, %75 ], [ %23, %.thread ]
-  %.195 = phi i64 [ %20, %19 ], [ %76, %75 ], [ %74, %.thread ]
-  %.193 = phi i32 [ %.092121, %19 ], [ %spec.select106, %75 ], [ 0, %.thread ]
+78:                                               ; preds = %76, %.split110, %19
+  %.299 = phi i32 [ %.198111, %19 ], [ %23, %76 ], [ %23, %.split110 ]
+  %.195 = phi i64 [ %20, %19 ], [ %77, %76 ], [ %75, %.split110 ]
+  %.193 = phi i32 [ %.092113, %19 ], [ %spec.select106, %76 ], [ 0, %.split110 ]
   %.not = icmp ugt i64 %.195, %14
-  br i1 %.not, label %78, label %15
+  br i1 %.not, label %79, label %15
 
-78:                                               ; preds = %77
+79:                                               ; preds = %78
   store i32 %.193, ptr %0, align 4, !tbaa !11
   store i32 %.299, ptr %6, align 4, !tbaa !14
-  br label %79
+  br label %80
 
-79:                                               ; preds = %5, %78
-  %.0 = phi i64 [ %.195, %78 ], [ 0, %5 ]
+80:                                               ; preds = %5, %79
+  %.0 = phi i64 [ %.195, %79 ], [ 0, %5 ]
   ret i64 %.0
 }
 

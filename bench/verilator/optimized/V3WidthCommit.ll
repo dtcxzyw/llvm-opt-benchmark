@@ -7071,20 +7071,27 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8AstClass12existsMemberIZN
 
 8:                                                ; preds = %2, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %1, align 8
-  br label %11
+  %.020 = load ptr, ptr %9, align 8, !tbaa !106
+  %.not1521 = icmp eq ptr %.020, null
+  br i1 %.not1521, label %.loopexit, label %.lr.ph
 
-11:                                               ; preds = %11, %8
-  %.0.in = phi ptr [ %9, %8 ], [ %13, %11 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !106
-  %.not15 = icmp ne ptr %.0, null
-  %12 = icmp ne ptr %.0, %10
-  %or.cond.not = select i1 %.not15, i1 %12, i1 false
-  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  br i1 %or.cond.not, label %11, label %.loopexit, !llvm.loop !287
+.lr.ph:                                           ; preds = %8
+  %10 = load ptr, ptr %1, align 8, !tbaa !273
+  br label %13
 
-.loopexit:                                        ; preds = %11, %5
-  %.113 = phi i1 [ true, %5 ], [ %.not15, %11 ]
+11:                                               ; preds = %13
+  %12 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.0 = load ptr, ptr %12, align 8, !tbaa !106
+  %.not15 = icmp eq ptr %.0, null
+  br i1 %.not15, label %.loopexit, label %13, !llvm.loop !287
+
+13:                                               ; preds = %.lr.ph, %11
+  %.022 = phi ptr [ %.020, %.lr.ph ], [ %.0, %11 ]
+  %14 = icmp eq ptr %.022, %10
+  br i1 %14, label %.loopexit, label %11
+
+.loopexit:                                        ; preds = %11, %13, %8, %5
+  %.113 = phi i1 [ true, %5 ], [ false, %8 ], [ %14, %13 ], [ %14, %11 ]
   ret i1 %.113
 }
 

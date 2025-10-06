@@ -43,11 +43,11 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %.0.ph = phi i64 [ %72, %71 ], [ 0, %3 ]
   br label %23
 
-23:                                               ; preds = %.outer, %79
-  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %79 ]
-  %25 = phi i64 [ %.pre, %.outer ], [ %51, %79 ]
-  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3155, %79 ]
-  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %79 ]
+23:                                               ; preds = %.outer, %81
+  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %81 ]
+  %25 = phi i64 [ %.pre, %.outer ], [ %51, %81 ]
+  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3155, %81 ]
+  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -143,19 +143,19 @@ default.unreachable:                              ; preds = %49
 55:                                               ; preds = %49
   %.mask.i = and i64 %53, -4294967296
   %56 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %56, label %.noexc, label %75
+  br i1 %56, label %.noexc, label %76
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %59 = load i8, ptr %58, align 8, !range !33, !noundef !10
   %60 = icmp eq i8 %59, 35
-  br i1 %60, label %.noexc, label %75
+  br i1 %60, label %.noexc, label %76
 
 61:                                               ; preds = %49
   %62 = getelementptr i8, ptr %.val, i64 15
   %63 = load i8, ptr %62, align 8, !range !33, !noundef !10
   %64 = icmp eq i8 %63, 35
-  br i1 %64, label %.noexc, label %75
+  br i1 %64, label %.noexc, label %76
 
 .loopexit:                                        ; preds = %47, %.thread
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -169,7 +169,7 @@ default.unreachable:                              ; preds = %49
   %69 = icmp eq ptr %68, null
   br i1 %69, label %71, label %73
 
-70:                                               ; preds = %75, %73, %.loopexit
+70:                                               ; preds = %76, %73, %.loopexit
   ret void
 
 71:                                               ; preds = %66
@@ -185,12 +185,12 @@ default.unreachable:                              ; preds = %49
 
 _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %49
   %.mask20.i = and i64 %53, -4294967296
-  %switch.i = icmp eq i64 %.mask20.i, 150323855360
-  br i1 %switch.i, label %.noexc, label %75
+  %75 = icmp eq i64 %.mask20.i, 150323855360
+  br i1 %75, label %.noexc, label %76
 
-75:                                               ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.val, ptr %76, align 8
+76:                                               ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.val, ptr %77, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %70
@@ -198,15 +198,15 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %49
 .noexc:                                           ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !34
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h693af1a2af2a7919E.llvm.1206798258238166277(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val)
-  %77 = load i8, ptr %4, align 8, !range !41, !alias.scope !42, !noalias !34, !noundef !10
-  %switch.not.i.i.i.i = icmp eq i8 %77, 3
-  br i1 %switch.not.i.i.i.i, label %78, label %79
+  %78 = load i8, ptr %4, align 8, !range !41, !alias.scope !42, !noalias !34, !noundef !10
+  %79 = icmp eq i8 %78, 3
+  br i1 %79, label %80, label %81
 
-78:                                               ; preds = %.noexc
+80:                                               ; preds = %.noexc
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h1fb3f3b0ff3c7692E.llvm.1206798258238166277"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
-  br label %79
+  br label %81
 
-79:                                               ; preds = %78, %.noexc
+81:                                               ; preds = %80, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %23
@@ -248,11 +248,11 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %.0.ph = phi i64 [ %72, %71 ], [ 0, %3 ]
   br label %23
 
-23:                                               ; preds = %.outer, %79
-  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %79 ]
-  %25 = phi i64 [ %.pre, %.outer ], [ %51, %79 ]
-  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3155, %79 ]
-  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %79 ]
+23:                                               ; preds = %.outer, %81
+  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %81 ]
+  %25 = phi i64 [ %.pre, %.outer ], [ %51, %81 ]
+  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3155, %81 ]
+  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -348,19 +348,19 @@ default.unreachable:                              ; preds = %49
 55:                                               ; preds = %49
   %.mask.i = and i64 %53, -4294967296
   %56 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %56, label %.noexc, label %75
+  br i1 %56, label %.noexc, label %76
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %59 = load i8, ptr %58, align 8, !range !33, !noundef !10
   %60 = icmp eq i8 %59, 35
-  br i1 %60, label %.noexc, label %75
+  br i1 %60, label %.noexc, label %76
 
 61:                                               ; preds = %49
   %62 = getelementptr i8, ptr %.val, i64 15
   %63 = load i8, ptr %62, align 8, !range !33, !noundef !10
   %64 = icmp eq i8 %63, 35
-  br i1 %64, label %.noexc, label %75
+  br i1 %64, label %.noexc, label %76
 
 .loopexit:                                        ; preds = %47, %.thread
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -374,7 +374,7 @@ default.unreachable:                              ; preds = %49
   %69 = icmp eq ptr %68, null
   br i1 %69, label %71, label %73
 
-70:                                               ; preds = %75, %73, %.loopexit
+70:                                               ; preds = %76, %73, %.loopexit
   ret void
 
 71:                                               ; preds = %66
@@ -390,12 +390,12 @@ default.unreachable:                              ; preds = %49
 
 _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %49
   %.mask20.i = and i64 %53, -4294967296
-  %switch.i = icmp eq i64 %.mask20.i, 150323855360
-  br i1 %switch.i, label %.noexc, label %75
+  %75 = icmp eq i64 %.mask20.i, 150323855360
+  br i1 %75, label %.noexc, label %76
 
-75:                                               ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.val, ptr %76, align 8
+76:                                               ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.val, ptr %77, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %70
@@ -403,15 +403,15 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %49
 .noexc:                                           ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !70
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h693af1a2af2a7919E.llvm.1206798258238166277(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val)
-  %77 = load i8, ptr %4, align 8, !range !41, !alias.scope !77, !noalias !70, !noundef !10
-  %switch.not.i.i.i.i = icmp eq i8 %77, 3
-  br i1 %switch.not.i.i.i.i, label %78, label %79
+  %78 = load i8, ptr %4, align 8, !range !41, !alias.scope !77, !noalias !70, !noundef !10
+  %79 = icmp eq i8 %78, 3
+  br i1 %79, label %80, label %81
 
-78:                                               ; preds = %.noexc
+80:                                               ; preds = %.noexc
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h1fb3f3b0ff3c7692E.llvm.1206798258238166277"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
-  br label %79
+  br label %81
 
-79:                                               ; preds = %78, %.noexc
+81:                                               ; preds = %80, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !70
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %23
@@ -453,11 +453,11 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %.0.ph = phi i64 [ %72, %71 ], [ 0, %3 ]
   br label %23
 
-23:                                               ; preds = %.outer, %79
-  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %79 ]
-  %25 = phi i64 [ %.pre, %.outer ], [ %51, %79 ]
-  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3155, %79 ]
-  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %79 ]
+23:                                               ; preds = %.outer, %81
+  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %81 ]
+  %25 = phi i64 [ %.pre, %.outer ], [ %51, %81 ]
+  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3155, %81 ]
+  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -553,19 +553,19 @@ default.unreachable:                              ; preds = %49
 55:                                               ; preds = %49
   %.mask.i = and i64 %53, -4294967296
   %56 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %56, label %.noexc, label %75
+  br i1 %56, label %.noexc, label %76
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %59 = load i8, ptr %58, align 8, !range !33, !noundef !10
   %60 = icmp eq i8 %59, 35
-  br i1 %60, label %.noexc, label %75
+  br i1 %60, label %.noexc, label %76
 
 61:                                               ; preds = %49
   %62 = getelementptr i8, ptr %.val, i64 15
   %63 = load i8, ptr %62, align 8, !range !33, !noundef !10
   %64 = icmp eq i8 %63, 35
-  br i1 %64, label %.noexc, label %75
+  br i1 %64, label %.noexc, label %76
 
 .loopexit:                                        ; preds = %47, %.thread
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -579,7 +579,7 @@ default.unreachable:                              ; preds = %49
   %69 = icmp eq ptr %68, null
   br i1 %69, label %71, label %73
 
-70:                                               ; preds = %75, %73, %.loopexit
+70:                                               ; preds = %76, %73, %.loopexit
   ret void
 
 71:                                               ; preds = %66
@@ -595,12 +595,12 @@ default.unreachable:                              ; preds = %49
 
 _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %49
   %.mask20.i = and i64 %53, -4294967296
-  %switch.i = icmp eq i64 %.mask20.i, 150323855360
-  br i1 %switch.i, label %.noexc, label %75
+  %75 = icmp eq i64 %.mask20.i, 150323855360
+  br i1 %75, label %.noexc, label %76
 
-75:                                               ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.val, ptr %76, align 8
+76:                                               ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.val, ptr %77, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %70
@@ -608,15 +608,15 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %49
 .noexc:                                           ; preds = %61, %57, %55, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !105
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h693af1a2af2a7919E.llvm.1206798258238166277(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val)
-  %77 = load i8, ptr %4, align 8, !range !41, !alias.scope !112, !noalias !105, !noundef !10
-  %switch.not.i.i.i.i = icmp eq i8 %77, 3
-  br i1 %switch.not.i.i.i.i, label %78, label %79
+  %78 = load i8, ptr %4, align 8, !range !41, !alias.scope !112, !noalias !105, !noundef !10
+  %79 = icmp eq i8 %78, 3
+  br i1 %79, label %80, label %81
 
-78:                                               ; preds = %.noexc
+80:                                               ; preds = %.noexc
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h1fb3f3b0ff3c7692E.llvm.1206798258238166277"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
-  br label %79
+  br label %81
 
-79:                                               ; preds = %78, %.noexc
+81:                                               ; preds = %80, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !105
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %23
@@ -894,8 +894,8 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %.val = load ptr, ptr %37, align 8, !nonnull !10, !align !11, !noundef !10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val10 = load ptr, ptr %38, align 8, !nonnull !10, !align !12, !noundef !10
-  %39 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
+  %.val9 = load ptr, ptr %38, align 8, !nonnull !10, !align !12, !noundef !10
+  %39 = getelementptr inbounds nuw i8, ptr %.val9, i64 24
   %40 = load ptr, ptr %39, align 8, !invariant.load !10, !noalias !148, !nonnull !10
   tail call void %40(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   br label %48

@@ -10245,12 +10245,12 @@ define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noun
   br i1 %.not27, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %6, %9
-  %.051 = phi ptr [ %11, %9 ], [ null, %6 ]
+  %.050 = phi ptr [ %11, %9 ], [ null, %6 ]
   %12 = phi ptr [ %11, %9 ], [ %0, %6 ]
   %13 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %12, ptr noundef nonnull @.str.45) #13
   store ptr %13, ptr %5, align 8
-  %.not2838 = icmp eq ptr %13, null
-  br i1 %.not2838, label %._crit_edge, label %.lr.ph
+  %.not2837 = icmp eq ptr %13, null
+  br i1 %.not2837, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %34
   %14 = phi ptr [ %41, %34 ], [ %13, %.preheader ]
@@ -10303,11 +10303,11 @@ define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noun
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %34, %.lr.ph, %28, %.preheader
-  %.not31 = icmp eq ptr %.051, null
+  %.not31 = icmp eq ptr %.050, null
   br i1 %.not31, label %.thread, label %42
 
 42:                                               ; preds = %._crit_edge
-  call void @SDL_free_REAL(ptr noundef nonnull %.051) #13
+  call void @SDL_free_REAL(ptr noundef nonnull %.050) #13
   br label %.thread
 
 .thread:                                          ; preds = %4, %._crit_edge, %42, %9

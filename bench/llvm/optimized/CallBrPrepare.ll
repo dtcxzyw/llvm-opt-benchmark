@@ -587,17 +587,17 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit: ; preds = %60, %._crit_e
   %108 = zext i32 %107 to i64
   %.idx.i.i = shl nuw nsw i64 %108, 3
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %107, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %107, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %105, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %111, %.critedge.i.i ], [ %106, %105 ]
-  %110 = load ptr, ptr %.02937.i.i, align 8, !tbaa !41, !noalias !120
+  %.02935.i.i = phi ptr [ %111, %.critedge.i.i ], [ %106, %105 ]
+  %110 = load ptr, ptr %.02935.i.i, align 8, !tbaa !41, !noalias !120
   %.not17.i.i = icmp eq ptr %110, %102
   br i1 %.not17.i.i, label %.critedge155, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %111 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %111, %109
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !123
 
@@ -795,22 +795,22 @@ _ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread: ; 
   br label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
 
 191:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i
-  %.not1117.i = icmp eq i32 %132, 0
-  br i1 %.not1117.i, label %._crit_edge.i49, label %.lr.ph.i47
+  %.not1115.i = icmp eq i32 %132, 0
+  br i1 %.not1115.i, label %._crit_edge.i49, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %191, %.critedge.i48
-  %.018.i = phi ptr [ %193, %.critedge.i48 ], [ %131, %191 ]
-  %192 = load i32, ptr %.018.i, align 8, !tbaa !127
+  %.016.i = phi ptr [ %193, %.critedge.i48 ], [ %131, %191 ]
+  %192 = load i32, ptr %.016.i, align 8, !tbaa !127
   %.not12.i = icmp eq i32 %192, 0
   br i1 %.not12.i, label %194, label %.critedge.i48
 
 .critedge.i48:                                    ; preds = %.lr.ph.i47
-  %193 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %.not11.i = icmp eq ptr %193, %134
   br i1 %.not11.i, label %._crit_edge.i49, label %.lr.ph.i47
 
 194:                                              ; preds = %.lr.ph.i47
-  %195 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   store ptr %.pre.i39, ptr %195, align 8, !tbaa !131
   br label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit
 
@@ -973,17 +973,17 @@ _ZN4llvm11SmallVectorIPNS_3UseELj4EED2Ev.exit.i:  ; preds = %236, %._crit_edge.i
   %248 = zext i32 %247 to i64
   %.idx.i.i.i = shl nuw nsw i64 %248, 3
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %247, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %247, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %245, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %251, %.critedge.i.i.i ], [ %246, %245 ]
-  %250 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !41, !noalias !138
+  %.02935.i.i.i = phi ptr [ %251, %.critedge.i.i.i ], [ %246, %245 ]
+  %250 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !41, !noalias !138
   %.not17.i.i.i = icmp eq ptr %250, %242
   br i1 %.not17.i.i.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %251 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !123
 
@@ -1852,28 +1852,28 @@ define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses8preserveEPNS_11Anal
   %11 = zext i32 %10 to i64
   %.idx.i.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
-  %.not1316.not.i.i = icmp eq i32 %10, 0
-  br i1 %.not1316.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit, label %.lr.ph.i.i
+  %.not1316.i.i = icmp eq i32 %10, 0
+  br i1 %.not1316.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %7, %20
-  %.01217.i.i = phi ptr [ %21, %20 ], [ %8, %7 ]
+.lr.ph.i.i:                                       ; preds = %7, %15
+  %.01217.i.i = phi ptr [ %16, %15 ], [ %8, %7 ]
   %13 = load ptr, ptr %.01217.i.i, align 8, !tbaa !41
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %15, label %20
+  br i1 %14, label %17, label %15
 
 15:                                               ; preds = %.lr.ph.i.i
-  %16 = add i32 %10, -1
-  store i32 %16, ptr %9, align 4, !tbaa !37
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !41
-  store ptr %19, ptr %.01217.i.i, align 8, !tbaa !41
-  br label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit
+  %16 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
+  %.not13.i.i = icmp eq ptr %16, %12
+  br i1 %.not13.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !212
 
-20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
-  %.not13.not.i.i = icmp eq ptr %21, %12
-  br i1 %.not13.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !212
+17:                                               ; preds = %.lr.ph.i.i
+  %18 = add i32 %10, -1
+  store i32 %18, ptr %9, align 4, !tbaa !37
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  store ptr %21, ptr %.01217.i.i, align 8, !tbaa !41
+  br label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit
 
 22:                                               ; preds = %2
   %23 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef %1) #13
@@ -1888,7 +1888,7 @@ define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses8preserveEPNS_11Anal
   store i32 %27, ptr %25, align 8, !tbaa !35
   br label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit
 
-_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit: ; preds = %20, %7, %15, %22, %24
+_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit: ; preds = %15, %7, %17, %22, %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4, !tbaa !37
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1941,17 +1941,17 @@ _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread: ; preds = %43, %37,
   %55 = zext i32 %54 to i64
   %.idx.i.i3 = shl nuw nsw i64 %55, 3
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i3
-  %.not36.i.i = icmp eq i32 %54, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i4
+  %.not34.i.i = icmp eq i32 %54, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i4
 
 .lr.ph.i.i4:                                      ; preds = %51, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %58, %.critedge.i.i ], [ %52, %51 ]
-  %57 = load ptr, ptr %.02937.i.i, align 8, !tbaa !41, !noalias !214
+  %.02935.i.i = phi ptr [ %58, %.critedge.i.i ], [ %52, %51 ]
+  %57 = load ptr, ptr %.02935.i.i, align 8, !tbaa !41, !noalias !214
   %.not17.i.i = icmp eq ptr %57, %1
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE6insertES1_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i4
-  %58 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %58, %56
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i4, !llvm.loop !123
 

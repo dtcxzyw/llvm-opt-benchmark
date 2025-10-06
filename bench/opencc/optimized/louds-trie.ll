@@ -10476,58 +10476,58 @@ define linkonce_odr noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = icmp sgt i64 %6, 240
-  br i1 %7, label %.lr.ph212, label %._crit_edge213
+  br i1 %7, label %.lr.ph209, label %._crit_edge210
 
-.lr.ph212:                                        ; preds = %3, %239
+.lr.ph209:                                        ; preds = %3, %239
   %8 = phi i64 [ %242, %239 ], [ %6, %3 ]
   %9 = phi i64 [ %241, %239 ], [ %5, %3 ]
   %10 = phi i64 [ %240, %239 ], [ %4, %3 ]
-  %.0210 = phi ptr [ %.1, %239 ], [ %0, %3 ]
-  %.0131209 = phi ptr [ %.1132, %239 ], [ %1, %3 ]
-  %.0133208 = phi i64 [ %.1134, %239 ], [ %2, %3 ]
-  %.0152207 = phi i64 [ %.4156, %239 ], [ 0, %3 ]
+  %.0207 = phi ptr [ %.1, %239 ], [ %0, %3 ]
+  %.0131206 = phi ptr [ %.1132, %239 ], [ %1, %3 ]
+  %.0133205 = phi i64 [ %.1134, %239 ], [ %2, %3 ]
+  %.0152204 = phi i64 [ %.4156, %239 ], [ 0, %3 ]
   %11 = udiv i64 %8, 48
-  %12 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::Key", ptr %.0210, i64 %11
-  %13 = getelementptr inbounds i8, ptr %.0131209, i64 -24
-  %14 = getelementptr inbounds nuw i8, ptr %.0210, i64 8
+  %12 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::Key", ptr %.0207, i64 %11
+  %13 = getelementptr inbounds i8, ptr %.0131206, i64 -24
+  %14 = getelementptr inbounds nuw i8, ptr %.0207, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !57
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %.0133208, %16
+  %17 = icmp ult i64 %.0133205, %16
   br i1 %17, label %18, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit.i
 
-18:                                               ; preds = %.lr.ph212
-  %19 = load ptr, ptr %.0210, align 8, !tbaa !55
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.0133208
+18:                                               ; preds = %.lr.ph209
+  %19 = load ptr, ptr %.0207, align 8, !tbaa !55
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.0133205
   %21 = load i8, ptr %20, align 1, !tbaa !58
   %22 = zext i8 %21 to i32
   br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit.i
 
-_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit.i: ; preds = %18, %.lr.ph212
-  %23 = phi i32 [ %22, %18 ], [ -1, %.lr.ph212 ]
+_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit.i: ; preds = %18, %.lr.ph209
+  %23 = phi i32 [ %22, %18 ], [ -1, %.lr.ph209 ]
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !57
   %26 = zext i32 %25 to i64
-  %27 = icmp ult i64 %.0133208, %26
+  %27 = icmp ult i64 %.0133205, %26
   br i1 %27, label %28, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit28.i
 
 28:                                               ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit.i
   %29 = load ptr, ptr %12, align 8, !tbaa !55
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.0133208
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.0133205
   %31 = load i8, ptr %30, align 1, !tbaa !58
   %32 = zext i8 %31 to i32
   br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit28.i
 
 _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit28.i: ; preds = %28, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit.i
   %33 = phi i32 [ %32, %28 ], [ -1, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit.i ]
-  %34 = getelementptr inbounds i8, ptr %.0131209, i64 -16
+  %34 = getelementptr inbounds i8, ptr %.0131206, i64 -16
   %35 = load i32, ptr %34, align 8, !tbaa !57
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %.0133208, %36
+  %37 = icmp ult i64 %.0133205, %36
   br i1 %37, label %38, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit29.i
 
 38:                                               ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit28.i
   %39 = load ptr, ptr %13, align 8, !tbaa !55
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.0133208
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.0133205
   %41 = load i8, ptr %40, align 1, !tbaa !58
   %42 = zext i8 %41 to i32
   br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit29.i
@@ -10558,25 +10558,25 @@ _ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit: 
   br label %51
 
 51:                                               ; preds = %115, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit
-  %.0147 = phi ptr [ %.0210, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %130, %115 ]
-  %.0143 = phi ptr [ %.0131209, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %.2145, %115 ]
-  %.0137 = phi ptr [ %.0210, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %.1138.lcssa, %115 ]
-  %.0135 = phi ptr [ %.0131209, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %.1136.lcssa, %115 ]
+  %.0147 = phi ptr [ %.0207, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %130, %115 ]
+  %.0143 = phi ptr [ %.0131206, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %.2145, %115 ]
+  %.0137 = phi ptr [ %.0207, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %.1138.lcssa, %115 ]
+  %.0135 = phi ptr [ %.0131206, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie3KeyEEEiRKT_S8_S8_m.exit ], [ %.1136.lcssa, %115 ]
   %52 = icmp ult ptr %.0147, %.0143
   br i1 %52, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %51, %80
-  %.1138188 = phi ptr [ %.4141, %80 ], [ %.0137, %51 ]
-  %.1148187 = phi ptr [ %81, %80 ], [ %.0147, %51 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.1148187, i64 8
+  %.1138185 = phi ptr [ %.4141, %80 ], [ %.0137, %51 ]
+  %.1148184 = phi ptr [ %81, %80 ], [ %.0147, %51 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.1148184, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !57
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %.0133208, %55
+  %56 = icmp ult i64 %.0133205, %55
   br i1 %56, label %57, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit
 
 57:                                               ; preds = %.lr.ph
-  %58 = load ptr, ptr %.1148187, align 8, !tbaa !55
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.0133208
+  %58 = load ptr, ptr %.1148184, align 8, !tbaa !55
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.0133205
   %60 = load i8, ptr %59, align 1, !tbaa !58
   %61 = zext i8 %60 to i32
   br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit
@@ -10591,83 +10591,83 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit: ; p
   br i1 %65, label %66, label %80
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %.1148187, align 8, !tbaa !55
-  %68 = getelementptr inbounds nuw i8, ptr %.1148187, i64 12
+  %67 = load ptr, ptr %.1148184, align 8, !tbaa !55
+  %68 = getelementptr inbounds nuw i8, ptr %.1148184, i64 12
   %69 = load i32, ptr %68, align 4, !tbaa !58
-  %70 = getelementptr inbounds nuw i8, ptr %.1148187, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.1148184, i64 16
   %71 = load i32, ptr %70, align 8, !tbaa !204
-  %72 = load ptr, ptr %.1138188, align 8, !tbaa !55
-  store ptr %72, ptr %.1148187, align 8, !tbaa !55
-  %73 = getelementptr inbounds nuw i8, ptr %.1138188, i64 8
+  %72 = load ptr, ptr %.1138185, align 8, !tbaa !55
+  store ptr %72, ptr %.1148184, align 8, !tbaa !55
+  %73 = getelementptr inbounds nuw i8, ptr %.1138185, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !57
   store i32 %74, ptr %53, align 8, !tbaa !57
-  %75 = getelementptr inbounds nuw i8, ptr %.1138188, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %.1138185, i64 12
   %76 = load i32, ptr %75, align 4, !tbaa !58
   store i32 %76, ptr %68, align 4, !tbaa !58
-  %77 = getelementptr inbounds nuw i8, ptr %.1138188, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.1138185, i64 16
   %78 = load i32, ptr %77, align 8, !tbaa !204
   store i32 %78, ptr %70, align 8, !tbaa !204
-  store ptr %67, ptr %.1138188, align 8, !tbaa !55
+  store ptr %67, ptr %.1138185, align 8, !tbaa !55
   store i32 %54, ptr %73, align 8, !tbaa !57
   store i32 %69, ptr %75, align 4, !tbaa !58
   store i32 %71, ptr %77, align 8, !tbaa !204
-  %79 = getelementptr inbounds nuw i8, ptr %.1138188, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.1138185, i64 24
   br label %80
 
 80:                                               ; preds = %66, %64
-  %.4141 = phi ptr [ %79, %66 ], [ %.1138188, %64 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.1148187, i64 24
+  %.4141 = phi ptr [ %79, %66 ], [ %.1138185, %64 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.1148184, i64 24
   %82 = icmp ult ptr %81, %.0143
   br i1 %82, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %80, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit, %51
-  %.1148.lcssa = phi ptr [ %.0147, %51 ], [ %.1148187, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit ], [ %81, %80 ]
-  %.1138.lcssa = phi ptr [ %.0137, %51 ], [ %.1138188, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit ], [ %.4141, %80 ]
+  %.1148.lcssa = phi ptr [ %.0147, %51 ], [ %.1148184, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit ], [ %81, %80 ]
+  %.1138.lcssa = phi ptr [ %.0137, %51 ], [ %.1138185, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit ], [ %.4141, %80 ]
   %83 = icmp ult ptr %.1148.lcssa, %.0143
-  br i1 %83, label %.lr.ph194, label %.thread177
+  br i1 %83, label %.lr.ph191, label %.thread175
 
-.lr.ph194:                                        ; preds = %.thread, %112
-  %.1136193 = phi ptr [ %.3, %112 ], [ %.0135, %.thread ]
-  %.1144192 = phi ptr [ %84, %112 ], [ %.0143, %.thread ]
-  %84 = getelementptr inbounds i8, ptr %.1144192, i64 -24
-  %85 = getelementptr inbounds i8, ptr %.1144192, i64 -16
+.lr.ph191:                                        ; preds = %.thread, %112
+  %.1136190 = phi ptr [ %.3, %112 ], [ %.0135, %.thread ]
+  %.1144189 = phi ptr [ %84, %112 ], [ %.0143, %.thread ]
+  %84 = getelementptr inbounds i8, ptr %.1144189, i64 -24
+  %85 = getelementptr inbounds i8, ptr %.1144189, i64 -16
   %86 = load i32, ptr %85, align 8, !tbaa !57
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %.0133208, %87
-  br i1 %88, label %89, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172
+  %88 = icmp ult i64 %.0133205, %87
+  br i1 %88, label %89, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit171
 
-89:                                               ; preds = %.lr.ph194
+89:                                               ; preds = %.lr.ph191
   %90 = load ptr, ptr %84, align 8, !tbaa !55
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.0133208
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.0133205
   %92 = load i8, ptr %91, align 1, !tbaa !58
   %93 = zext i8 %92 to i32
-  br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172
+  br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit171
 
-_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: ; preds = %.lr.ph194, %89
-  %94 = phi i32 [ %93, %89 ], [ -1, %.lr.ph194 ]
+_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit171: ; preds = %.lr.ph191, %89
+  %94 = phi i32 [ %93, %89 ], [ -1, %.lr.ph191 ]
   %95 = icmp slt i32 %94, %.0.i
-  br i1 %95, label %.thread177, label %96
+  br i1 %95, label %.thread175, label %96
 
-96:                                               ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172
+96:                                               ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit171
   %97 = icmp eq i32 %94, %.0.i
   br i1 %97, label %98, label %112
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %.1136193, i64 -24
+  %99 = getelementptr inbounds i8, ptr %.1136190, i64 -24
   %100 = load ptr, ptr %84, align 8, !tbaa !55
-  %101 = getelementptr inbounds i8, ptr %.1144192, i64 -12
+  %101 = getelementptr inbounds i8, ptr %.1144189, i64 -12
   %102 = load i32, ptr %101, align 4, !tbaa !58
-  %103 = getelementptr inbounds i8, ptr %.1144192, i64 -8
+  %103 = getelementptr inbounds i8, ptr %.1144189, i64 -8
   %104 = load i32, ptr %103, align 8, !tbaa !204
   %105 = load ptr, ptr %99, align 8, !tbaa !55
   store ptr %105, ptr %84, align 8, !tbaa !55
-  %106 = getelementptr inbounds i8, ptr %.1136193, i64 -16
+  %106 = getelementptr inbounds i8, ptr %.1136190, i64 -16
   %107 = load i32, ptr %106, align 8, !tbaa !57
   store i32 %107, ptr %85, align 8, !tbaa !57
-  %108 = getelementptr inbounds i8, ptr %.1136193, i64 -12
+  %108 = getelementptr inbounds i8, ptr %.1136190, i64 -12
   %109 = load i32, ptr %108, align 4, !tbaa !58
   store i32 %109, ptr %101, align 4, !tbaa !58
-  %110 = getelementptr inbounds i8, ptr %.1136193, i64 -8
+  %110 = getelementptr inbounds i8, ptr %.1136190, i64 -8
   %111 = load i32, ptr %110, align 8, !tbaa !204
   store i32 %111, ptr %103, align 8, !tbaa !204
   store ptr %100, ptr %99, align 8, !tbaa !55
@@ -10677,21 +10677,21 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br label %112
 
 112:                                              ; preds = %98, %96
-  %.3 = phi ptr [ %99, %98 ], [ %.1136193, %96 ]
+  %.3 = phi ptr [ %99, %98 ], [ %.1136190, %96 ]
   %113 = icmp ult ptr %.1148.lcssa, %84
-  br i1 %113, label %.lr.ph194, label %.thread177
+  br i1 %113, label %.lr.ph191, label %.thread175
 
-.thread177:                                       ; preds = %112, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172, %.thread
-  %.1136.lcssa = phi ptr [ %.0135, %.thread ], [ %.1136193, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172 ], [ %.3, %112 ]
-  %.2145 = phi ptr [ %.0143, %.thread ], [ %84, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172 ], [ %84, %112 ]
+.thread175:                                       ; preds = %112, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit171, %.thread
+  %.1136.lcssa = phi ptr [ %.0135, %.thread ], [ %.1136190, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit171 ], [ %.3, %112 ]
+  %.2145 = phi ptr [ %.0143, %.thread ], [ %84, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit171 ], [ %84, %112 ]
   %.not = icmp ult ptr %.1148.lcssa, %.2145
-  br i1 %.not, label %115, label %.preheader181
+  br i1 %.not, label %115, label %.preheader178
 
-.preheader181:                                    ; preds = %.thread177
-  %114 = icmp ugt ptr %.1138.lcssa, %.0210
-  br i1 %114, label %.lr.ph201, label %.preheader
+.preheader178:                                    ; preds = %.thread175
+  %114 = icmp ugt ptr %.1138.lcssa, %.0207
+  br i1 %114, label %.lr.ph198, label %.preheader
 
-115:                                              ; preds = %.thread177
+115:                                              ; preds = %.thread175
   %116 = load ptr, ptr %.1148.lcssa, align 8, !tbaa !55
   %117 = getelementptr inbounds nuw i8, ptr %.1148.lcssa, i64 8
   %118 = load i32, ptr %117, align 8, !tbaa !57
@@ -10717,73 +10717,73 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   %130 = getelementptr inbounds nuw i8, ptr %.1148.lcssa, i64 24
   br label %51, !llvm.loop !249
 
-.preheader:                                       ; preds = %.lr.ph201, %.preheader181
-  %.4151.lcssa = phi ptr [ %.1148.lcssa, %.preheader181 ], [ %133, %.lr.ph201 ]
-  %131 = icmp ult ptr %.1136.lcssa, %.0131209
-  br i1 %131, label %.lr.ph205, label %._crit_edge
+.preheader:                                       ; preds = %.lr.ph198, %.preheader178
+  %.4151.lcssa = phi ptr [ %.1148.lcssa, %.preheader178 ], [ %133, %.lr.ph198 ]
+  %131 = icmp ult ptr %.1136.lcssa, %.0131206
+  br i1 %131, label %.lr.ph202, label %._crit_edge
 
-.lr.ph201:                                        ; preds = %.preheader181, %.lr.ph201
-  %.5142200 = phi ptr [ %132, %.lr.ph201 ], [ %.1138.lcssa, %.preheader181 ]
-  %.4151199 = phi ptr [ %133, %.lr.ph201 ], [ %.1148.lcssa, %.preheader181 ]
-  %132 = getelementptr inbounds i8, ptr %.5142200, i64 -24
-  %133 = getelementptr inbounds i8, ptr %.4151199, i64 -24
+.lr.ph198:                                        ; preds = %.preheader178, %.lr.ph198
+  %.5142197 = phi ptr [ %132, %.lr.ph198 ], [ %.1138.lcssa, %.preheader178 ]
+  %.4151196 = phi ptr [ %133, %.lr.ph198 ], [ %.1148.lcssa, %.preheader178 ]
+  %132 = getelementptr inbounds i8, ptr %.5142197, i64 -24
+  %133 = getelementptr inbounds i8, ptr %.4151196, i64 -24
   %134 = load ptr, ptr %132, align 8, !tbaa !55
-  %135 = getelementptr inbounds i8, ptr %.5142200, i64 -16
+  %135 = getelementptr inbounds i8, ptr %.5142197, i64 -16
   %136 = load i32, ptr %135, align 8, !tbaa !57
-  %137 = getelementptr inbounds i8, ptr %.5142200, i64 -12
+  %137 = getelementptr inbounds i8, ptr %.5142197, i64 -12
   %138 = load i32, ptr %137, align 4, !tbaa !58
-  %139 = getelementptr inbounds i8, ptr %.5142200, i64 -8
+  %139 = getelementptr inbounds i8, ptr %.5142197, i64 -8
   %140 = load i32, ptr %139, align 8, !tbaa !204
   %141 = load ptr, ptr %133, align 8, !tbaa !55
   store ptr %141, ptr %132, align 8, !tbaa !55
-  %142 = getelementptr inbounds i8, ptr %.4151199, i64 -16
+  %142 = getelementptr inbounds i8, ptr %.4151196, i64 -16
   %143 = load i32, ptr %142, align 8, !tbaa !57
   store i32 %143, ptr %135, align 8, !tbaa !57
-  %144 = getelementptr inbounds i8, ptr %.4151199, i64 -12
+  %144 = getelementptr inbounds i8, ptr %.4151196, i64 -12
   %145 = load i32, ptr %144, align 4, !tbaa !58
   store i32 %145, ptr %137, align 4, !tbaa !58
-  %146 = getelementptr inbounds i8, ptr %.4151199, i64 -8
+  %146 = getelementptr inbounds i8, ptr %.4151196, i64 -8
   %147 = load i32, ptr %146, align 8, !tbaa !204
   store i32 %147, ptr %139, align 8, !tbaa !204
   store ptr %134, ptr %133, align 8, !tbaa !55
   store i32 %136, ptr %142, align 8, !tbaa !57
   store i32 %138, ptr %144, align 4, !tbaa !58
   store i32 %140, ptr %146, align 8, !tbaa !204
-  %148 = icmp ugt ptr %132, %.0210
-  br i1 %148, label %.lr.ph201, label %.preheader, !llvm.loop !250
+  %148 = icmp ugt ptr %132, %.0207
+  br i1 %148, label %.lr.ph198, label %.preheader, !llvm.loop !250
 
-.lr.ph205:                                        ; preds = %.preheader, %.lr.ph205
-  %.5204 = phi ptr [ %163, %.lr.ph205 ], [ %.1136.lcssa, %.preheader ]
-  %.3146203 = phi ptr [ %164, %.lr.ph205 ], [ %.2145, %.preheader ]
-  %149 = load ptr, ptr %.5204, align 8, !tbaa !55
-  %150 = getelementptr inbounds nuw i8, ptr %.5204, i64 8
+.lr.ph202:                                        ; preds = %.preheader, %.lr.ph202
+  %.5201 = phi ptr [ %163, %.lr.ph202 ], [ %.1136.lcssa, %.preheader ]
+  %.3146200 = phi ptr [ %164, %.lr.ph202 ], [ %.2145, %.preheader ]
+  %149 = load ptr, ptr %.5201, align 8, !tbaa !55
+  %150 = getelementptr inbounds nuw i8, ptr %.5201, i64 8
   %151 = load i32, ptr %150, align 8, !tbaa !57
-  %152 = getelementptr inbounds nuw i8, ptr %.5204, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %.5201, i64 12
   %153 = load i32, ptr %152, align 4, !tbaa !58
-  %154 = getelementptr inbounds nuw i8, ptr %.5204, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.5201, i64 16
   %155 = load i32, ptr %154, align 8, !tbaa !204
-  %156 = load ptr, ptr %.3146203, align 8, !tbaa !55
-  store ptr %156, ptr %.5204, align 8, !tbaa !55
-  %157 = getelementptr inbounds nuw i8, ptr %.3146203, i64 8
+  %156 = load ptr, ptr %.3146200, align 8, !tbaa !55
+  store ptr %156, ptr %.5201, align 8, !tbaa !55
+  %157 = getelementptr inbounds nuw i8, ptr %.3146200, i64 8
   %158 = load i32, ptr %157, align 8, !tbaa !57
   store i32 %158, ptr %150, align 8, !tbaa !57
-  %159 = getelementptr inbounds nuw i8, ptr %.3146203, i64 12
+  %159 = getelementptr inbounds nuw i8, ptr %.3146200, i64 12
   %160 = load i32, ptr %159, align 4, !tbaa !58
   store i32 %160, ptr %152, align 4, !tbaa !58
-  %161 = getelementptr inbounds nuw i8, ptr %.3146203, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %.3146200, i64 16
   %162 = load i32, ptr %161, align 8, !tbaa !204
   store i32 %162, ptr %154, align 8, !tbaa !204
-  store ptr %149, ptr %.3146203, align 8, !tbaa !55
+  store ptr %149, ptr %.3146200, align 8, !tbaa !55
   store i32 %151, ptr %157, align 8, !tbaa !57
   store i32 %153, ptr %159, align 4, !tbaa !58
   store i32 %155, ptr %161, align 8, !tbaa !204
-  %163 = getelementptr inbounds nuw i8, ptr %.5204, i64 24
-  %164 = getelementptr inbounds nuw i8, ptr %.3146203, i64 24
-  %165 = icmp ult ptr %163, %.0131209
-  br i1 %165, label %.lr.ph205, label %._crit_edge, !llvm.loop !251
+  %163 = getelementptr inbounds nuw i8, ptr %.5201, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %.3146200, i64 24
+  %165 = icmp ult ptr %163, %.0131206
+  br i1 %165, label %.lr.ph202, label %._crit_edge, !llvm.loop !251
 
-._crit_edge:                                      ; preds = %.lr.ph205, %.preheader
-  %.3146.lcssa = phi ptr [ %.2145, %.preheader ], [ %164, %.lr.ph205 ]
+._crit_edge:                                      ; preds = %.lr.ph202, %.preheader
+  %.3146.lcssa = phi ptr [ %.2145, %.preheader ], [ %164, %.lr.ph202 ]
   %166 = ptrtoint ptr %.4151.lcssa to i64
   %167 = sub i64 %166, %9
   %168 = ptrtoint ptr %.3146.lcssa to i64
@@ -10801,7 +10801,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %174
-  %177 = add i64 %.0152207, 1
+  %177 = add i64 %.0152204, 1
   br label %188
 
 178:                                              ; preds = %174
@@ -10813,17 +10813,17 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %180
-  %183 = add i64 %.0152207, 1
+  %183 = add i64 %.0152204, 1
   br label %188
 
 184:                                              ; preds = %180
-  %185 = add i64 %.0133208, 1
+  %185 = add i64 %.0133205, 1
   %186 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef %.4151.lcssa, ptr noundef %.3146.lcssa, i64 noundef %185)
-  %187 = add i64 %186, %.0152207
+  %187 = add i64 %186, %.0152204
   br label %188
 
 188:                                              ; preds = %178, %184, %182, %176
-  %.1153 = phi i64 [ %177, %176 ], [ %183, %182 ], [ %187, %184 ], [ %.0152207, %178 ]
+  %.1153 = phi i64 [ %177, %176 ], [ %183, %182 ], [ %187, %184 ], [ %.0152204, %178 ]
   %189 = sub i64 %10, %168
   %190 = icmp slt i64 %167, %189
   br i1 %190, label %191, label %200
@@ -10841,7 +10841,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br i1 %196, label %197, label %239
 
 197:                                              ; preds = %195
-  %198 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef nonnull %.0210, ptr noundef %.4151.lcssa, i64 noundef %.0133208)
+  %198 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef nonnull %.0207, ptr noundef %.4151.lcssa, i64 noundef %.0133205)
   %199 = add i64 %198, %.1153
   br label %239
 
@@ -10858,7 +10858,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br i1 %205, label %206, label %239
 
 206:                                              ; preds = %204
-  %207 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131209, i64 noundef %.0133208)
+  %207 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131206, i64 noundef %.0133205)
   %208 = add i64 %207, %.1153
   br label %239
 
@@ -10867,7 +10867,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br i1 %210, label %211, label %213
 
 211:                                              ; preds = %209
-  %212 = add i64 %.0152207, 1
+  %212 = add i64 %.0152204, 1
   br label %218
 
 213:                                              ; preds = %209
@@ -10875,12 +10875,12 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br i1 %214, label %215, label %218
 
 215:                                              ; preds = %213
-  %216 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef nonnull %.0210, ptr noundef %.4151.lcssa, i64 noundef %.0133208)
-  %217 = add i64 %216, %.0152207
+  %216 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef nonnull %.0207, ptr noundef %.4151.lcssa, i64 noundef %.0133205)
+  %217 = add i64 %216, %.0152204
   br label %218
 
 218:                                              ; preds = %213, %215, %211
-  %.5157 = phi i64 [ %212, %211 ], [ %217, %215 ], [ %.0152207, %213 ]
+  %.5157 = phi i64 [ %212, %211 ], [ %217, %215 ], [ %.0152204, %213 ]
   %219 = icmp eq i64 %172, 24
   br i1 %219, label %220, label %222
 
@@ -10893,7 +10893,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br i1 %223, label %224, label %227
 
 224:                                              ; preds = %222
-  %225 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131209, i64 noundef %.0133208)
+  %225 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131206, i64 noundef %.0133205)
   %226 = add i64 %225, %.5157
   br label %227
 
@@ -10919,30 +10919,30 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br label %239
 
 237:                                              ; preds = %233
-  %238 = add i64 %.0133208, 1
+  %238 = add i64 %.0133205, 1
   br label %239
 
 239:                                              ; preds = %202, %206, %204, %193, %197, %195, %229, %235, %237, %231
   %.4156 = phi i64 [ %230, %229 ], [ %236, %235 ], [ %.6, %237 ], [ %.6, %231 ], [ %194, %193 ], [ %199, %197 ], [ %.1153, %195 ], [ %203, %202 ], [ %208, %206 ], [ %.1153, %204 ]
-  %.1134 = phi i64 [ %.0133208, %229 ], [ %.0133208, %235 ], [ %238, %237 ], [ %.0133208, %231 ], [ %.0133208, %193 ], [ %.0133208, %197 ], [ %.0133208, %195 ], [ %.0133208, %202 ], [ %.0133208, %206 ], [ %.0133208, %204 ]
-  %.1132 = phi ptr [ %.3146.lcssa, %229 ], [ %.3146.lcssa, %235 ], [ %.3146.lcssa, %237 ], [ %.3146.lcssa, %231 ], [ %.0131209, %193 ], [ %.0131209, %197 ], [ %.0131209, %195 ], [ %.4151.lcssa, %202 ], [ %.4151.lcssa, %206 ], [ %.4151.lcssa, %204 ]
-  %.1 = phi ptr [ %.4151.lcssa, %229 ], [ %.3146.lcssa, %235 ], [ %.4151.lcssa, %237 ], [ %.4151.lcssa, %231 ], [ %.3146.lcssa, %193 ], [ %.3146.lcssa, %197 ], [ %.3146.lcssa, %195 ], [ %.0210, %202 ], [ %.0210, %206 ], [ %.0210, %204 ]
+  %.1134 = phi i64 [ %.0133205, %229 ], [ %.0133205, %235 ], [ %238, %237 ], [ %.0133205, %231 ], [ %.0133205, %193 ], [ %.0133205, %197 ], [ %.0133205, %195 ], [ %.0133205, %202 ], [ %.0133205, %206 ], [ %.0133205, %204 ]
+  %.1132 = phi ptr [ %.3146.lcssa, %229 ], [ %.3146.lcssa, %235 ], [ %.3146.lcssa, %237 ], [ %.3146.lcssa, %231 ], [ %.0131206, %193 ], [ %.0131206, %197 ], [ %.0131206, %195 ], [ %.4151.lcssa, %202 ], [ %.4151.lcssa, %206 ], [ %.4151.lcssa, %204 ]
+  %.1 = phi ptr [ %.4151.lcssa, %229 ], [ %.3146.lcssa, %235 ], [ %.4151.lcssa, %237 ], [ %.4151.lcssa, %231 ], [ %.3146.lcssa, %193 ], [ %.3146.lcssa, %197 ], [ %.3146.lcssa, %195 ], [ %.0207, %202 ], [ %.0207, %206 ], [ %.0207, %204 ]
   %240 = ptrtoint ptr %.1132 to i64
   %241 = ptrtoint ptr %.1 to i64
   %242 = sub i64 %240, %241
   %243 = icmp sgt i64 %242, 240
-  br i1 %243, label %.lr.ph212, label %._crit_edge213, !llvm.loop !252
+  br i1 %243, label %.lr.ph209, label %._crit_edge210, !llvm.loop !252
 
-._crit_edge213:                                   ; preds = %239, %3
+._crit_edge210:                                   ; preds = %239, %3
   %.0152.lcssa = phi i64 [ 0, %3 ], [ %.4156, %239 ]
   %.0133.lcssa = phi i64 [ %2, %3 ], [ %.1134, %239 ]
   %.0131.lcssa = phi ptr [ %1, %3 ], [ %.1132, %239 ]
   %.0.lcssa = phi ptr [ %0, %3 ], [ %.1, %239 ]
-  %.lcssa186 = phi i64 [ %6, %3 ], [ %242, %239 ]
-  %244 = icmp sgt i64 %.lcssa186, 24
+  %.lcssa183 = phi i64 [ %6, %3 ], [ %242, %239 ]
+  %244 = icmp sgt i64 %.lcssa183, 24
   br i1 %244, label %245, label %285
 
-245:                                              ; preds = %._crit_edge213
+245:                                              ; preds = %._crit_edge210
   %.01739.i = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
   %246 = icmp ult ptr %.01739.i, %.0131.lcssa
   br i1 %246, label %.preheader.i, label %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie3KeyEEEmT_S7_m.exit
@@ -10971,19 +10971,19 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie3KeyEEEiRKT_m.exit172: 
   br label %259
 
 257:                                              ; preds = %261
-  %258 = add i64 %.01929.i.i, 1
+  %258 = add i64 %.01927.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %258, %250
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %259, !llvm.loop !253
 
 259:                                              ; preds = %257, %.lr.ph.i.i
-  %.01929.i.i = phi i64 [ %.0133.lcssa, %.lr.ph.i.i ], [ %258, %257 ]
-  %260 = icmp eq i64 %.01929.i.i, %254
+  %.01927.i.i = phi i64 [ %.0133.lcssa, %.lr.ph.i.i ], [ %258, %257 ]
+  %260 = icmp eq i64 %.01927.i.i, %254
   br i1 %260, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie3KeyEEEiRKT_S8_m.exit.thread24.i, label %261
 
 261:                                              ; preds = %259
-  %262 = getelementptr inbounds nuw i8, ptr %255, i64 %.01929.i.i
+  %262 = getelementptr inbounds nuw i8, ptr %255, i64 %.01927.i.i
   %263 = load i8, ptr %262, align 1, !tbaa !58
-  %264 = getelementptr inbounds nuw i8, ptr %256, i64 %.01929.i.i
+  %264 = getelementptr inbounds nuw i8, ptr %256, i64 %.01927.i.i
   %265 = load i8, ptr %264, align 1, !tbaa !58
   %.not.i.i = icmp eq i8 %263, %265
   br i1 %.not.i.i, label %257, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie3KeyEEEiRKT_S8_m.exit.i
@@ -11046,8 +11046,8 @@ _ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie3KeyEEEmT_S7_m.e
   %284 = add i64 %.018.lcssa.i, %.0152.lcssa
   br label %285
 
-285:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie3KeyEEEmT_S7_m.exit, %._crit_edge213
-  %.7 = phi i64 [ %284, %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie3KeyEEEmT_S7_m.exit ], [ %.0152.lcssa, %._crit_edge213 ]
+285:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie3KeyEEEmT_S7_m.exit, %._crit_edge210
+  %.7 = phi i64 [ %284, %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie3KeyEEEmT_S7_m.exit ], [ %.0152.lcssa, %._crit_edge210 ]
   ret i64 %.7
 }
 
@@ -15172,45 +15172,45 @@ define linkonce_odr noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = icmp sgt i64 %6, 240
-  br i1 %7, label %.lr.ph212, label %._crit_edge213
+  br i1 %7, label %.lr.ph209, label %._crit_edge210
 
-.lr.ph212:                                        ; preds = %3, %248
+.lr.ph209:                                        ; preds = %3, %248
   %8 = phi i64 [ %251, %248 ], [ %6, %3 ]
   %9 = phi i64 [ %250, %248 ], [ %5, %3 ]
   %10 = phi i64 [ %249, %248 ], [ %4, %3 ]
-  %.0210 = phi ptr [ %.1, %248 ], [ %0, %3 ]
-  %.0131209 = phi ptr [ %.1132, %248 ], [ %1, %3 ]
-  %.0133208 = phi i64 [ %.1134, %248 ], [ %2, %3 ]
-  %.0152207 = phi i64 [ %.4156, %248 ], [ 0, %3 ]
+  %.0207 = phi ptr [ %.1, %248 ], [ %0, %3 ]
+  %.0131206 = phi ptr [ %.1132, %248 ], [ %1, %3 ]
+  %.0133205 = phi i64 [ %.1134, %248 ], [ %2, %3 ]
+  %.0152204 = phi i64 [ %.4156, %248 ], [ 0, %3 ]
   %11 = udiv i64 %8, 48
-  %12 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::ReverseKey", ptr %.0210, i64 %11
-  %13 = getelementptr inbounds i8, ptr %.0131209, i64 -24
-  %14 = getelementptr inbounds nuw i8, ptr %.0210, i64 8
+  %12 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::ReverseKey", ptr %.0207, i64 %11
+  %13 = getelementptr inbounds i8, ptr %.0131206, i64 -24
+  %14 = getelementptr inbounds nuw i8, ptr %.0207, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !180
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %.0133208, %16
+  %17 = icmp ult i64 %.0133205, %16
   br i1 %17, label %18, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit.i
 
-18:                                               ; preds = %.lr.ph212
-  %19 = load ptr, ptr %.0210, align 8, !tbaa !178
-  %20 = sub nsw i64 0, %.0133208
+18:                                               ; preds = %.lr.ph209
+  %19 = load ptr, ptr %.0207, align 8, !tbaa !178
+  %20 = sub nsw i64 0, %.0133205
   %21 = getelementptr inbounds i8, ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
   %23 = load i8, ptr %22, align 1, !tbaa !58
   %24 = zext i8 %23 to i32
   br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit.i
 
-_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit.i: ; preds = %18, %.lr.ph212
-  %25 = phi i32 [ %24, %18 ], [ -1, %.lr.ph212 ]
+_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit.i: ; preds = %18, %.lr.ph209
+  %25 = phi i32 [ %24, %18 ], [ -1, %.lr.ph209 ]
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !180
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %.0133208, %28
+  %29 = icmp ult i64 %.0133205, %28
   br i1 %29, label %30, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit28.i
 
 30:                                               ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit.i
   %31 = load ptr, ptr %12, align 8, !tbaa !178
-  %32 = sub nsw i64 0, %.0133208
+  %32 = sub nsw i64 0, %.0133205
   %33 = getelementptr inbounds i8, ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -1
   %35 = load i8, ptr %34, align 1, !tbaa !58
@@ -15219,15 +15219,15 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
 
 _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit28.i: ; preds = %30, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit.i
   %37 = phi i32 [ %36, %30 ], [ -1, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit.i ]
-  %38 = getelementptr inbounds i8, ptr %.0131209, i64 -16
+  %38 = getelementptr inbounds i8, ptr %.0131206, i64 -16
   %39 = load i32, ptr %38, align 8, !tbaa !180
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %.0133208, %40
+  %41 = icmp ult i64 %.0133205, %40
   br i1 %41, label %42, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit29.i
 
 42:                                               ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit28.i
   %43 = load ptr, ptr %13, align 8, !tbaa !178
-  %44 = sub nsw i64 0, %.0133208
+  %44 = sub nsw i64 0, %.0133205
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 -1
   %47 = load i8, ptr %46, align 1, !tbaa !58
@@ -15257,28 +15257,28 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
 
 _ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit: ; preds = %51, %53, %54, %56
   %.0.i = phi i32 [ %37, %51 ], [ %..i, %53 ], [ %25, %54 ], [ %.27.i, %56 ]
-  %57 = sub nsw i64 0, %.0133208
+  %57 = sub nsw i64 0, %.0133205
   br label %58
 
 58:                                               ; preds = %124, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit
-  %.0147 = phi ptr [ %.0210, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %139, %124 ]
-  %.0143 = phi ptr [ %.0131209, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %.2145, %124 ]
-  %.0137 = phi ptr [ %.0210, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %.1138.lcssa, %124 ]
-  %.0135 = phi ptr [ %.0131209, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %.1136.lcssa, %124 ]
+  %.0147 = phi ptr [ %.0207, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %139, %124 ]
+  %.0143 = phi ptr [ %.0131206, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %.2145, %124 ]
+  %.0137 = phi ptr [ %.0207, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %.1138.lcssa, %124 ]
+  %.0135 = phi ptr [ %.0131206, %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie10ReverseKeyEEEiRKT_S8_S8_m.exit ], [ %.1136.lcssa, %124 ]
   %59 = icmp ult ptr %.0147, %.0143
   br i1 %59, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %58, %88
-  %.1138188 = phi ptr [ %.4141, %88 ], [ %.0137, %58 ]
-  %.1148187 = phi ptr [ %89, %88 ], [ %.0147, %58 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.1148187, i64 8
+  %.1138185 = phi ptr [ %.4141, %88 ], [ %.0137, %58 ]
+  %.1148184 = phi ptr [ %89, %88 ], [ %.0147, %58 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.1148184, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !180
   %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %.0133208, %62
+  %63 = icmp ult i64 %.0133205, %62
   br i1 %63, label %64, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit
 
 64:                                               ; preds = %.lr.ph
-  %65 = load ptr, ptr %.1148187, align 8, !tbaa !178
+  %65 = load ptr, ptr %.1148184, align 8, !tbaa !178
   %66 = getelementptr inbounds i8, ptr %65, i64 %57
   %67 = getelementptr inbounds i8, ptr %66, i64 -1
   %68 = load i8, ptr %67, align 1, !tbaa !58
@@ -15295,84 +15295,84 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %73, label %74, label %88
 
 74:                                               ; preds = %72
-  %75 = load ptr, ptr %.1148187, align 8, !tbaa !178
-  %76 = getelementptr inbounds nuw i8, ptr %.1148187, i64 12
+  %75 = load ptr, ptr %.1148184, align 8, !tbaa !178
+  %76 = getelementptr inbounds nuw i8, ptr %.1148184, i64 12
   %77 = load i32, ptr %76, align 4, !tbaa !58
-  %78 = getelementptr inbounds nuw i8, ptr %.1148187, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.1148184, i64 16
   %79 = load i32, ptr %78, align 8, !tbaa !285
-  %80 = load ptr, ptr %.1138188, align 8, !tbaa !178
-  store ptr %80, ptr %.1148187, align 8, !tbaa !178
-  %81 = getelementptr inbounds nuw i8, ptr %.1138188, i64 8
+  %80 = load ptr, ptr %.1138185, align 8, !tbaa !178
+  store ptr %80, ptr %.1148184, align 8, !tbaa !178
+  %81 = getelementptr inbounds nuw i8, ptr %.1138185, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !180
   store i32 %82, ptr %60, align 8, !tbaa !180
-  %83 = getelementptr inbounds nuw i8, ptr %.1138188, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %.1138185, i64 12
   %84 = load i32, ptr %83, align 4, !tbaa !58
   store i32 %84, ptr %76, align 4, !tbaa !58
-  %85 = getelementptr inbounds nuw i8, ptr %.1138188, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.1138185, i64 16
   %86 = load i32, ptr %85, align 8, !tbaa !285
   store i32 %86, ptr %78, align 8, !tbaa !285
-  store ptr %75, ptr %.1138188, align 8, !tbaa !178
+  store ptr %75, ptr %.1138185, align 8, !tbaa !178
   store i32 %61, ptr %81, align 8, !tbaa !180
   store i32 %77, ptr %83, align 4, !tbaa !58
   store i32 %79, ptr %85, align 8, !tbaa !285
-  %87 = getelementptr inbounds nuw i8, ptr %.1138188, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.1138185, i64 24
   br label %88
 
 88:                                               ; preds = %74, %72
-  %.4141 = phi ptr [ %87, %74 ], [ %.1138188, %72 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.1148187, i64 24
+  %.4141 = phi ptr [ %87, %74 ], [ %.1138185, %72 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.1148184, i64 24
   %90 = icmp ult ptr %89, %.0143
   br i1 %90, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %88, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit, %58
-  %.1148.lcssa = phi ptr [ %.0147, %58 ], [ %.1148187, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit ], [ %89, %88 ]
-  %.1138.lcssa = phi ptr [ %.0137, %58 ], [ %.1138188, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit ], [ %.4141, %88 ]
+  %.1148.lcssa = phi ptr [ %.0147, %58 ], [ %.1148184, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit ], [ %89, %88 ]
+  %.1138.lcssa = phi ptr [ %.0137, %58 ], [ %.1138185, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit ], [ %.4141, %88 ]
   %91 = icmp ult ptr %.1148.lcssa, %.0143
-  br i1 %91, label %.lr.ph194, label %.thread177
+  br i1 %91, label %.lr.ph191, label %.thread175
 
-.lr.ph194:                                        ; preds = %.thread, %121
-  %.1136193 = phi ptr [ %.3, %121 ], [ %.0135, %.thread ]
-  %.1144192 = phi ptr [ %92, %121 ], [ %.0143, %.thread ]
-  %92 = getelementptr inbounds i8, ptr %.1144192, i64 -24
-  %93 = getelementptr inbounds i8, ptr %.1144192, i64 -16
+.lr.ph191:                                        ; preds = %.thread, %121
+  %.1136190 = phi ptr [ %.3, %121 ], [ %.0135, %.thread ]
+  %.1144189 = phi ptr [ %92, %121 ], [ %.0143, %.thread ]
+  %92 = getelementptr inbounds i8, ptr %.1144189, i64 -24
+  %93 = getelementptr inbounds i8, ptr %.1144189, i64 -16
   %94 = load i32, ptr %93, align 8, !tbaa !180
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %.0133208, %95
-  br i1 %96, label %97, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit172
+  %96 = icmp ult i64 %.0133205, %95
+  br i1 %96, label %97, label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit171
 
-97:                                               ; preds = %.lr.ph194
+97:                                               ; preds = %.lr.ph191
   %98 = load ptr, ptr %92, align 8, !tbaa !178
   %99 = getelementptr inbounds i8, ptr %98, i64 %57
   %100 = getelementptr inbounds i8, ptr %99, i64 -1
   %101 = load i8, ptr %100, align 1, !tbaa !58
   %102 = zext i8 %101 to i32
-  br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit172
+  br label %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit171
 
-_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit172: ; preds = %.lr.ph194, %97
-  %103 = phi i32 [ %102, %97 ], [ -1, %.lr.ph194 ]
+_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit171: ; preds = %.lr.ph191, %97
+  %103 = phi i32 [ %102, %97 ], [ -1, %.lr.ph191 ]
   %104 = icmp slt i32 %103, %.0.i
-  br i1 %104, label %.thread177, label %105
+  br i1 %104, label %.thread175, label %105
 
-105:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit172
+105:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit171
   %106 = icmp eq i32 %103, %.0.i
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %.1136193, i64 -24
+  %108 = getelementptr inbounds i8, ptr %.1136190, i64 -24
   %109 = load ptr, ptr %92, align 8, !tbaa !178
-  %110 = getelementptr inbounds i8, ptr %.1144192, i64 -12
+  %110 = getelementptr inbounds i8, ptr %.1144189, i64 -12
   %111 = load i32, ptr %110, align 4, !tbaa !58
-  %112 = getelementptr inbounds i8, ptr %.1144192, i64 -8
+  %112 = getelementptr inbounds i8, ptr %.1144189, i64 -8
   %113 = load i32, ptr %112, align 8, !tbaa !285
   %114 = load ptr, ptr %108, align 8, !tbaa !178
   store ptr %114, ptr %92, align 8, !tbaa !178
-  %115 = getelementptr inbounds i8, ptr %.1136193, i64 -16
+  %115 = getelementptr inbounds i8, ptr %.1136190, i64 -16
   %116 = load i32, ptr %115, align 8, !tbaa !180
   store i32 %116, ptr %93, align 8, !tbaa !180
-  %117 = getelementptr inbounds i8, ptr %.1136193, i64 -12
+  %117 = getelementptr inbounds i8, ptr %.1136190, i64 -12
   %118 = load i32, ptr %117, align 4, !tbaa !58
   store i32 %118, ptr %110, align 4, !tbaa !58
-  %119 = getelementptr inbounds i8, ptr %.1136193, i64 -8
+  %119 = getelementptr inbounds i8, ptr %.1136190, i64 -8
   %120 = load i32, ptr %119, align 8, !tbaa !285
   store i32 %120, ptr %112, align 8, !tbaa !285
   store ptr %109, ptr %108, align 8, !tbaa !178
@@ -15382,21 +15382,21 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br label %121
 
 121:                                              ; preds = %107, %105
-  %.3 = phi ptr [ %108, %107 ], [ %.1136193, %105 ]
+  %.3 = phi ptr [ %108, %107 ], [ %.1136190, %105 ]
   %122 = icmp ult ptr %.1148.lcssa, %92
-  br i1 %122, label %.lr.ph194, label %.thread177
+  br i1 %122, label %.lr.ph191, label %.thread175
 
-.thread177:                                       ; preds = %121, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit172, %.thread
-  %.1136.lcssa = phi ptr [ %.0135, %.thread ], [ %.1136193, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit172 ], [ %.3, %121 ]
-  %.2145 = phi ptr [ %.0143, %.thread ], [ %92, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit172 ], [ %92, %121 ]
+.thread175:                                       ; preds = %121, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit171, %.thread
+  %.1136.lcssa = phi ptr [ %.0135, %.thread ], [ %.1136190, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit171 ], [ %.3, %121 ]
+  %.2145 = phi ptr [ %.0143, %.thread ], [ %92, %_ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.exit171 ], [ %92, %121 ]
   %.not = icmp ult ptr %.1148.lcssa, %.2145
-  br i1 %.not, label %124, label %.preheader181
+  br i1 %.not, label %124, label %.preheader178
 
-.preheader181:                                    ; preds = %.thread177
-  %123 = icmp ugt ptr %.1138.lcssa, %.0210
-  br i1 %123, label %.lr.ph201, label %.preheader
+.preheader178:                                    ; preds = %.thread175
+  %123 = icmp ugt ptr %.1138.lcssa, %.0207
+  br i1 %123, label %.lr.ph198, label %.preheader
 
-124:                                              ; preds = %.thread177
+124:                                              ; preds = %.thread175
   %125 = load ptr, ptr %.1148.lcssa, align 8, !tbaa !178
   %126 = getelementptr inbounds nuw i8, ptr %.1148.lcssa, i64 8
   %127 = load i32, ptr %126, align 8, !tbaa !180
@@ -15422,73 +15422,73 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   %139 = getelementptr inbounds nuw i8, ptr %.1148.lcssa, i64 24
   br label %58, !llvm.loop !295
 
-.preheader:                                       ; preds = %.lr.ph201, %.preheader181
-  %.4151.lcssa = phi ptr [ %.1148.lcssa, %.preheader181 ], [ %142, %.lr.ph201 ]
-  %140 = icmp ult ptr %.1136.lcssa, %.0131209
-  br i1 %140, label %.lr.ph205, label %._crit_edge
+.preheader:                                       ; preds = %.lr.ph198, %.preheader178
+  %.4151.lcssa = phi ptr [ %.1148.lcssa, %.preheader178 ], [ %142, %.lr.ph198 ]
+  %140 = icmp ult ptr %.1136.lcssa, %.0131206
+  br i1 %140, label %.lr.ph202, label %._crit_edge
 
-.lr.ph201:                                        ; preds = %.preheader181, %.lr.ph201
-  %.5142200 = phi ptr [ %141, %.lr.ph201 ], [ %.1138.lcssa, %.preheader181 ]
-  %.4151199 = phi ptr [ %142, %.lr.ph201 ], [ %.1148.lcssa, %.preheader181 ]
-  %141 = getelementptr inbounds i8, ptr %.5142200, i64 -24
-  %142 = getelementptr inbounds i8, ptr %.4151199, i64 -24
+.lr.ph198:                                        ; preds = %.preheader178, %.lr.ph198
+  %.5142197 = phi ptr [ %141, %.lr.ph198 ], [ %.1138.lcssa, %.preheader178 ]
+  %.4151196 = phi ptr [ %142, %.lr.ph198 ], [ %.1148.lcssa, %.preheader178 ]
+  %141 = getelementptr inbounds i8, ptr %.5142197, i64 -24
+  %142 = getelementptr inbounds i8, ptr %.4151196, i64 -24
   %143 = load ptr, ptr %141, align 8, !tbaa !178
-  %144 = getelementptr inbounds i8, ptr %.5142200, i64 -16
+  %144 = getelementptr inbounds i8, ptr %.5142197, i64 -16
   %145 = load i32, ptr %144, align 8, !tbaa !180
-  %146 = getelementptr inbounds i8, ptr %.5142200, i64 -12
+  %146 = getelementptr inbounds i8, ptr %.5142197, i64 -12
   %147 = load i32, ptr %146, align 4, !tbaa !58
-  %148 = getelementptr inbounds i8, ptr %.5142200, i64 -8
+  %148 = getelementptr inbounds i8, ptr %.5142197, i64 -8
   %149 = load i32, ptr %148, align 8, !tbaa !285
   %150 = load ptr, ptr %142, align 8, !tbaa !178
   store ptr %150, ptr %141, align 8, !tbaa !178
-  %151 = getelementptr inbounds i8, ptr %.4151199, i64 -16
+  %151 = getelementptr inbounds i8, ptr %.4151196, i64 -16
   %152 = load i32, ptr %151, align 8, !tbaa !180
   store i32 %152, ptr %144, align 8, !tbaa !180
-  %153 = getelementptr inbounds i8, ptr %.4151199, i64 -12
+  %153 = getelementptr inbounds i8, ptr %.4151196, i64 -12
   %154 = load i32, ptr %153, align 4, !tbaa !58
   store i32 %154, ptr %146, align 4, !tbaa !58
-  %155 = getelementptr inbounds i8, ptr %.4151199, i64 -8
+  %155 = getelementptr inbounds i8, ptr %.4151196, i64 -8
   %156 = load i32, ptr %155, align 8, !tbaa !285
   store i32 %156, ptr %148, align 8, !tbaa !285
   store ptr %143, ptr %142, align 8, !tbaa !178
   store i32 %145, ptr %151, align 8, !tbaa !180
   store i32 %147, ptr %153, align 4, !tbaa !58
   store i32 %149, ptr %155, align 8, !tbaa !285
-  %157 = icmp ugt ptr %141, %.0210
-  br i1 %157, label %.lr.ph201, label %.preheader, !llvm.loop !296
+  %157 = icmp ugt ptr %141, %.0207
+  br i1 %157, label %.lr.ph198, label %.preheader, !llvm.loop !296
 
-.lr.ph205:                                        ; preds = %.preheader, %.lr.ph205
-  %.5204 = phi ptr [ %172, %.lr.ph205 ], [ %.1136.lcssa, %.preheader ]
-  %.3146203 = phi ptr [ %173, %.lr.ph205 ], [ %.2145, %.preheader ]
-  %158 = load ptr, ptr %.5204, align 8, !tbaa !178
-  %159 = getelementptr inbounds nuw i8, ptr %.5204, i64 8
+.lr.ph202:                                        ; preds = %.preheader, %.lr.ph202
+  %.5201 = phi ptr [ %172, %.lr.ph202 ], [ %.1136.lcssa, %.preheader ]
+  %.3146200 = phi ptr [ %173, %.lr.ph202 ], [ %.2145, %.preheader ]
+  %158 = load ptr, ptr %.5201, align 8, !tbaa !178
+  %159 = getelementptr inbounds nuw i8, ptr %.5201, i64 8
   %160 = load i32, ptr %159, align 8, !tbaa !180
-  %161 = getelementptr inbounds nuw i8, ptr %.5204, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %.5201, i64 12
   %162 = load i32, ptr %161, align 4, !tbaa !58
-  %163 = getelementptr inbounds nuw i8, ptr %.5204, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.5201, i64 16
   %164 = load i32, ptr %163, align 8, !tbaa !285
-  %165 = load ptr, ptr %.3146203, align 8, !tbaa !178
-  store ptr %165, ptr %.5204, align 8, !tbaa !178
-  %166 = getelementptr inbounds nuw i8, ptr %.3146203, i64 8
+  %165 = load ptr, ptr %.3146200, align 8, !tbaa !178
+  store ptr %165, ptr %.5201, align 8, !tbaa !178
+  %166 = getelementptr inbounds nuw i8, ptr %.3146200, i64 8
   %167 = load i32, ptr %166, align 8, !tbaa !180
   store i32 %167, ptr %159, align 8, !tbaa !180
-  %168 = getelementptr inbounds nuw i8, ptr %.3146203, i64 12
+  %168 = getelementptr inbounds nuw i8, ptr %.3146200, i64 12
   %169 = load i32, ptr %168, align 4, !tbaa !58
   store i32 %169, ptr %161, align 4, !tbaa !58
-  %170 = getelementptr inbounds nuw i8, ptr %.3146203, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.3146200, i64 16
   %171 = load i32, ptr %170, align 8, !tbaa !285
   store i32 %171, ptr %163, align 8, !tbaa !285
-  store ptr %158, ptr %.3146203, align 8, !tbaa !178
+  store ptr %158, ptr %.3146200, align 8, !tbaa !178
   store i32 %160, ptr %166, align 8, !tbaa !180
   store i32 %162, ptr %168, align 4, !tbaa !58
   store i32 %164, ptr %170, align 8, !tbaa !285
-  %172 = getelementptr inbounds nuw i8, ptr %.5204, i64 24
-  %173 = getelementptr inbounds nuw i8, ptr %.3146203, i64 24
-  %174 = icmp ult ptr %172, %.0131209
-  br i1 %174, label %.lr.ph205, label %._crit_edge, !llvm.loop !297
+  %172 = getelementptr inbounds nuw i8, ptr %.5201, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %.3146200, i64 24
+  %174 = icmp ult ptr %172, %.0131206
+  br i1 %174, label %.lr.ph202, label %._crit_edge, !llvm.loop !297
 
-._crit_edge:                                      ; preds = %.lr.ph205, %.preheader
-  %.3146.lcssa = phi ptr [ %.2145, %.preheader ], [ %173, %.lr.ph205 ]
+._crit_edge:                                      ; preds = %.lr.ph202, %.preheader
+  %.3146.lcssa = phi ptr [ %.2145, %.preheader ], [ %173, %.lr.ph202 ]
   %175 = ptrtoint ptr %.4151.lcssa to i64
   %176 = sub i64 %175, %9
   %177 = ptrtoint ptr %.3146.lcssa to i64
@@ -15506,7 +15506,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %184, label %185, label %187
 
 185:                                              ; preds = %183
-  %186 = add i64 %.0152207, 1
+  %186 = add i64 %.0152204, 1
   br label %197
 
 187:                                              ; preds = %183
@@ -15518,17 +15518,17 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %189
-  %192 = add i64 %.0152207, 1
+  %192 = add i64 %.0152204, 1
   br label %197
 
 193:                                              ; preds = %189
-  %194 = add i64 %.0133208, 1
+  %194 = add i64 %.0133205, 1
   %195 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef %.4151.lcssa, ptr noundef %.3146.lcssa, i64 noundef %194)
-  %196 = add i64 %195, %.0152207
+  %196 = add i64 %195, %.0152204
   br label %197
 
 197:                                              ; preds = %187, %193, %191, %185
-  %.1153 = phi i64 [ %186, %185 ], [ %192, %191 ], [ %196, %193 ], [ %.0152207, %187 ]
+  %.1153 = phi i64 [ %186, %185 ], [ %192, %191 ], [ %196, %193 ], [ %.0152204, %187 ]
   %198 = sub i64 %10, %177
   %199 = icmp slt i64 %176, %198
   br i1 %199, label %200, label %209
@@ -15546,7 +15546,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %205, label %206, label %248
 
 206:                                              ; preds = %204
-  %207 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef nonnull %.0210, ptr noundef %.4151.lcssa, i64 noundef %.0133208)
+  %207 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef nonnull %.0207, ptr noundef %.4151.lcssa, i64 noundef %.0133205)
   %208 = add i64 %207, %.1153
   br label %248
 
@@ -15563,7 +15563,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %214, label %215, label %248
 
 215:                                              ; preds = %213
-  %216 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131209, i64 noundef %.0133208)
+  %216 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131206, i64 noundef %.0133205)
   %217 = add i64 %216, %.1153
   br label %248
 
@@ -15572,7 +15572,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %218
-  %221 = add i64 %.0152207, 1
+  %221 = add i64 %.0152204, 1
   br label %227
 
 222:                                              ; preds = %218
@@ -15580,12 +15580,12 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %223, label %224, label %227
 
 224:                                              ; preds = %222
-  %225 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef nonnull %.0210, ptr noundef %.4151.lcssa, i64 noundef %.0133208)
-  %226 = add i64 %225, %.0152207
+  %225 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef nonnull %.0207, ptr noundef %.4151.lcssa, i64 noundef %.0133205)
+  %226 = add i64 %225, %.0152204
   br label %227
 
 227:                                              ; preds = %222, %224, %220
-  %.5157 = phi i64 [ %221, %220 ], [ %226, %224 ], [ %.0152207, %222 ]
+  %.5157 = phi i64 [ %221, %220 ], [ %226, %224 ], [ %.0152204, %222 ]
   %228 = icmp eq i64 %181, 24
   br i1 %228, label %229, label %231
 
@@ -15598,7 +15598,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %231
-  %234 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131209, i64 noundef %.0133208)
+  %234 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie10ReverseKeyEEEmT_S7_m(ptr noundef %.3146.lcssa, ptr noundef %.0131206, i64 noundef %.0133205)
   %235 = add i64 %234, %.5157
   br label %236
 
@@ -15624,30 +15624,30 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br label %248
 
 246:                                              ; preds = %242
-  %247 = add i64 %.0133208, 1
+  %247 = add i64 %.0133205, 1
   br label %248
 
 248:                                              ; preds = %211, %215, %213, %202, %206, %204, %238, %244, %246, %240
   %.4156 = phi i64 [ %239, %238 ], [ %245, %244 ], [ %.6, %246 ], [ %.6, %240 ], [ %203, %202 ], [ %208, %206 ], [ %.1153, %204 ], [ %212, %211 ], [ %217, %215 ], [ %.1153, %213 ]
-  %.1134 = phi i64 [ %.0133208, %238 ], [ %.0133208, %244 ], [ %247, %246 ], [ %.0133208, %240 ], [ %.0133208, %202 ], [ %.0133208, %206 ], [ %.0133208, %204 ], [ %.0133208, %211 ], [ %.0133208, %215 ], [ %.0133208, %213 ]
-  %.1132 = phi ptr [ %.3146.lcssa, %238 ], [ %.3146.lcssa, %244 ], [ %.3146.lcssa, %246 ], [ %.3146.lcssa, %240 ], [ %.0131209, %202 ], [ %.0131209, %206 ], [ %.0131209, %204 ], [ %.4151.lcssa, %211 ], [ %.4151.lcssa, %215 ], [ %.4151.lcssa, %213 ]
-  %.1 = phi ptr [ %.4151.lcssa, %238 ], [ %.3146.lcssa, %244 ], [ %.4151.lcssa, %246 ], [ %.4151.lcssa, %240 ], [ %.3146.lcssa, %202 ], [ %.3146.lcssa, %206 ], [ %.3146.lcssa, %204 ], [ %.0210, %211 ], [ %.0210, %215 ], [ %.0210, %213 ]
+  %.1134 = phi i64 [ %.0133205, %238 ], [ %.0133205, %244 ], [ %247, %246 ], [ %.0133205, %240 ], [ %.0133205, %202 ], [ %.0133205, %206 ], [ %.0133205, %204 ], [ %.0133205, %211 ], [ %.0133205, %215 ], [ %.0133205, %213 ]
+  %.1132 = phi ptr [ %.3146.lcssa, %238 ], [ %.3146.lcssa, %244 ], [ %.3146.lcssa, %246 ], [ %.3146.lcssa, %240 ], [ %.0131206, %202 ], [ %.0131206, %206 ], [ %.0131206, %204 ], [ %.4151.lcssa, %211 ], [ %.4151.lcssa, %215 ], [ %.4151.lcssa, %213 ]
+  %.1 = phi ptr [ %.4151.lcssa, %238 ], [ %.3146.lcssa, %244 ], [ %.4151.lcssa, %246 ], [ %.4151.lcssa, %240 ], [ %.3146.lcssa, %202 ], [ %.3146.lcssa, %206 ], [ %.3146.lcssa, %204 ], [ %.0207, %211 ], [ %.0207, %215 ], [ %.0207, %213 ]
   %249 = ptrtoint ptr %.1132 to i64
   %250 = ptrtoint ptr %.1 to i64
   %251 = sub i64 %249, %250
   %252 = icmp sgt i64 %251, 240
-  br i1 %252, label %.lr.ph212, label %._crit_edge213, !llvm.loop !298
+  br i1 %252, label %.lr.ph209, label %._crit_edge210, !llvm.loop !298
 
-._crit_edge213:                                   ; preds = %248, %3
+._crit_edge210:                                   ; preds = %248, %3
   %.0152.lcssa = phi i64 [ 0, %3 ], [ %.4156, %248 ]
   %.0133.lcssa = phi i64 [ %2, %3 ], [ %.1134, %248 ]
   %.0131.lcssa = phi ptr [ %1, %3 ], [ %.1132, %248 ]
   %.0.lcssa = phi ptr [ %0, %3 ], [ %.1, %248 ]
-  %.lcssa186 = phi i64 [ %6, %3 ], [ %251, %248 ]
-  %253 = icmp sgt i64 %.lcssa186, 24
+  %.lcssa183 = phi i64 [ %6, %3 ], [ %251, %248 ]
+  %253 = icmp sgt i64 %.lcssa183, 24
   br i1 %253, label %254, label %297
 
-254:                                              ; preds = %._crit_edge213
+254:                                              ; preds = %._crit_edge210
   %.01739.i = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
   %255 = icmp ult ptr %.01739.i, %.0131.lcssa
   br i1 %255, label %.preheader.i, label %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie10ReverseKeyEEEmT_S7_m.exit
@@ -15676,17 +15676,17 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie10ReverseKeyEEEiRKT_m.e
   br label %268
 
 266:                                              ; preds = %270
-  %267 = add i64 %.01929.i.i, 1
+  %267 = add i64 %.01927.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %267, %259
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %268, !llvm.loop !299
 
 268:                                              ; preds = %266, %.lr.ph.i.i
-  %.01929.i.i = phi i64 [ %.0133.lcssa, %.lr.ph.i.i ], [ %267, %266 ]
-  %269 = icmp eq i64 %.01929.i.i, %263
+  %.01927.i.i = phi i64 [ %.0133.lcssa, %.lr.ph.i.i ], [ %267, %266 ]
+  %269 = icmp eq i64 %.01927.i.i, %263
   br i1 %269, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie10ReverseKeyEEEiRKT_S8_m.exit.thread24.i, label %270
 
 270:                                              ; preds = %268
-  %271 = sub nsw i64 0, %.01929.i.i
+  %271 = sub nsw i64 0, %.01927.i.i
   %272 = getelementptr inbounds i8, ptr %264, i64 %271
   %273 = getelementptr inbounds i8, ptr %272, i64 -1
   %274 = load i8, ptr %273, align 1, !tbaa !58
@@ -15754,8 +15754,8 @@ _ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie10ReverseKeyEEEm
   %296 = add i64 %.018.lcssa.i, %.0152.lcssa
   br label %297
 
-297:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie10ReverseKeyEEEmT_S7_m.exit, %._crit_edge213
-  %.7 = phi i64 [ %296, %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie10ReverseKeyEEEmT_S7_m.exit ], [ %.0152.lcssa, %._crit_edge213 ]
+297:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie10ReverseKeyEEEmT_S7_m.exit, %._crit_edge210
+  %.7 = phi i64 [ %296, %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie10ReverseKeyEEEmT_S7_m.exit ], [ %.0152.lcssa, %._crit_edge210 ]
   ret i64 %.7
 }
 

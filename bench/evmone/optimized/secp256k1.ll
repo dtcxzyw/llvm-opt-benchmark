@@ -1312,8 +1312,8 @@ _ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit:     ; preds = %_ZN4intx23count_sig
   %43 = shl i64 %.06.i.i, 6
   %reass.sub = sub i64 %42, %43
   %44 = and i64 %reass.sub, 4294967295
-  %.not17 = icmp eq i64 %44, 0
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not16 = icmp eq i64 %44, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit
   %45 = add i64 %reass.sub, 256
@@ -1328,14 +1328,14 @@ _ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit:     ; preds = %_ZN4intx23count_sig
   ret void
 
 51:                                               ; preds = %.lr.ph, %84
-  %.018 = phi i64 [ %47, %.lr.ph ], [ %52, %84 ]
+  %.017 = phi i64 [ %47, %.lr.ph ], [ %52, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #9
   call void @_ZN6evmmax3ecc3dblINS_9secp256k15CurveEEENS0_9ProjPointIT_EERKS6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ProjPoint") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %0) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false), !tbaa.struct !91
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %8) #9
-  %52 = add i64 %.018, -1
+  %52 = add i64 %.017, -1
   %53 = icmp ugt i64 %52, 255
   br i1 %53, label %54, label %55, !prof !92
 
@@ -1344,13 +1344,13 @@ _ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit:     ; preds = %_ZN4intx23count_sig
   br label %_ZN4intxlsERKNS_4uintILj256EEEm.exit
 
 55:                                               ; preds = %51
-  %56 = icmp samesign ult i64 %.018, 129
+  %56 = icmp samesign ult i64 %.017, 129
   br i1 %56, label %_ZN4intxlsENS_4uintILj128EEEm.exit30.i, label %_ZN4intxlsENS_4uintILj128EEEm.exit37.i
 
 _ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %55
-  %57 = icmp samesign ult i64 %.018, 65
+  %57 = icmp samesign ult i64 %.017, 65
   %58 = shl nuw i64 1, %52
-  %59 = add nsw i64 %.018, -65
+  %59 = add nsw i64 %.017, -65
   %60 = shl nuw i64 1, %59
   %.sroa.08.0.i5262.i = select i1 %57, i64 %58, i64 0
   %.sroa.49.0.i5460.i = select i1 %57, i64 0, i64 %60
@@ -1360,10 +1360,10 @@ _ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %55
   br label %_ZN4intxlsERKNS_4uintILj256EEEm.exit
 
 _ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %55
-  %61 = add nsw i64 %.018, -129
+  %61 = add nsw i64 %.017, -129
   %62 = icmp samesign ult i64 %61, 64
   %63 = shl nuw i64 1, %61
-  %64 = add nsw i64 %.018, -193
+  %64 = add nsw i64 %.017, -193
   %65 = shl nuw i64 1, %64
   %.sroa.08.0.i33.i = select i1 %62, i64 %63, i64 0
   %.sroa.49.0.i34.i = select i1 %62, i64 0, i64 %65

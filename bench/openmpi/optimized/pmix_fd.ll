@@ -250,8 +250,8 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
 
 .preheader:                                       ; preds = %4
   %7 = tail call ptr @readdir(ptr noundef nonnull %2) #10
-  %.not37 = icmp eq ptr %7, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp eq ptr %7, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = tail call ptr @__ctype_b_loc() #11
@@ -334,24 +334,24 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
 44:                                               ; preds = %38, %43
   %45 = phi i32 [ %39, %38 ], [ %41, %43 ]
   %46 = icmp sgt i32 %45, 3
-  br i1 %46, label %.lr.ph40, label %.loopexit
+  br i1 %46, label %.lr.ph39, label %.loopexit
 
-.lr.ph40:                                         ; preds = %44, %50
+.lr.ph39:                                         ; preds = %44, %50
   %47 = phi i32 [ %51, %50 ], [ %45, %44 ]
-  %.038 = phi i32 [ %52, %50 ], [ 3, %44 ]
-  %.not30 = icmp eq i32 %.038, %0
+  %.037 = phi i32 [ %52, %50 ], [ 3, %44 ]
+  %.not30 = icmp eq i32 %.037, %0
   br i1 %.not30, label %50, label %48
 
-48:                                               ; preds = %.lr.ph40
-  %49 = tail call i32 @close(i32 noundef %.038) #10
+48:                                               ; preds = %.lr.ph39
+  %49 = tail call i32 @close(i32 noundef %.037) #10
   %.pre = load i32, ptr @fdmax, align 4, !tbaa !3
   br label %50
 
-50:                                               ; preds = %.lr.ph40, %48
-  %51 = phi i32 [ %47, %.lr.ph40 ], [ %.pre, %48 ]
-  %52 = add nuw nsw i32 %.038, 1
+50:                                               ; preds = %.lr.ph39, %48
+  %51 = phi i32 [ %47, %.lr.ph39 ], [ %.pre, %48 ]
+  %52 = add nuw nsw i32 %.037, 1
   %53 = icmp slt i32 %52, %51
-  br i1 %53, label %.lr.ph40, label %.loopexit, !llvm.loop !19
+  br i1 %53, label %.lr.ph39, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %50, %44, %._crit_edge
   ret void

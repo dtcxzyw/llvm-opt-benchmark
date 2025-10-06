@@ -294,22 +294,22 @@ define dso_local void @_ZNK4llvm13IRBuilderBase23getCurrentDebugLocationEv(ptr d
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not16 = icmp eq i32 %5, 0
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq i32 %5, 0
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.017 = phi ptr [ %9, %.critedge ], [ %3, %2 ]
-  %8 = load i32, ptr %.017, align 8, !tbaa !66
+  %.015 = phi ptr [ %9, %.critedge ], [ %3, %2 ]
+  %8 = load i32, ptr %.015, align 8, !tbaa !66
   %.not11 = icmp eq i32 %8, 0
   br i1 %.not11, label %10, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !68
   tail call void @_ZN4llvm8DebugLocC1EPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %12) #19
   br label %13
@@ -4824,8 +4824,8 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase16CreateFCmpHelperENS_7CmpI
   %31 = and i32 %30, 255
   %32 = add nsw i32 %31, -19
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %32, -2
-  %.not.not10.i.i = icmp eq ptr %28, null
-  %.not.not.i.i = or i1 %.not.not10.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
+  %.not.not9.i.i = icmp eq ptr %28, null
+  %.not.not.i.i = or i1 %.not.not9.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   %33 = load ptr, ptr %28, align 8, !tbaa !207
   %34 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %33) #19
   br i1 %.not.not.i.i, label %_ZN4llvm8FCmpInstC2ENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineEPNS_11InstructionE.exit, label %35
@@ -5561,8 +5561,8 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase18CreateVectorSpliceEPNS_5V
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp ne i32 %16, 18
-  %.not.not39 = icmp eq ptr %13, null
-  %.not.not = or i1 %.not.not39, %17
+  %.not.not38 = icmp eq ptr %13, null
+  %.not.not = or i1 %.not.not38, %17
   br i1 %.not.not, label %58, label %18
 
 18:                                               ; preds = %5
@@ -5689,8 +5689,8 @@ _ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %._crit_edge, %75
 
 .lr.ph:                                           ; preds = %58, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %76 = phi i32 [ %87, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
-  %.040 = phi i32 [ %88, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
-  %77 = add i32 %.040, %64
+  %.039 = phi i32 [ %88, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
+  %77 = add i32 %.039, %64
   %78 = load i32, ptr %67, align 4, !tbaa !86
   %.not.i.i.not.i = icmp ult i32 %76, %78
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %79, !prof !87
@@ -5711,7 +5711,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %7
   %86 = load i32, ptr %66, align 8, !tbaa !65
   %87 = add i32 %86, 1
   store i32 %87, ptr %66, align 8, !tbaa !65
-  %88 = add nuw i32 %.040, 1
+  %88 = add nuw i32 %.039, 1
   %exitcond.not = icmp eq i32 %88, %60
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !212
 
@@ -7706,8 +7706,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
-  %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %.critedge, label %22
+  %.not26.i.i = icmp eq i32 %21, 0
+  br i1 %.not26.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
@@ -7719,7 +7719,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %27 = load ptr, ptr %26, align 8, !tbaa !63
   %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.pre.i3.i = load i32, ptr %.phi.trans.insert.i2.i, align 8
-  %.pre30.i.i = and i32 %.pre.i3.i, 255
+  %.pre29.i.i = and i32 %.pre.i3.i, 255
   br label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
@@ -7730,12 +7730,12 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 255
   %33 = icmp ne i32 %32, 16
-  %.not1829.i.i = icmp eq ptr %29, null
-  %.not18.i.i = or i1 %.not1829.i.i, %33
+  %.not1828.i.i = icmp eq ptr %29, null
+  %.not18.i.i = or i1 %.not1828.i.i, %33
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !249
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %24, %19
-  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
+  %.pre-phi.i.i = phi i32 [ %.pre29.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
   %34 = phi i32 [ %.pre.i3.i, %24 ], [ %9, %19 ], [ %31, %.preheader.i.i ]
   %.013.ph.i.i = phi ptr [ %27, %24 ], [ %7, %19 ], [ %29, %.preheader.i.i ]
   %35 = add nsw i32 %.pre-phi.i.i, -17

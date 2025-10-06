@@ -1327,8 +1327,8 @@ _max_dbd_msg_action.exit:                         ; preds = %125, %128, %136
   br i1 %.not118, label %.thread, label %178
 
 178:                                              ; preds = %176
-  %.not174 = icmp eq i32 %105, 1
-  br i1 %.not174, label %184, label %179
+  %.not173 = icmp eq i32 %105, 1
+  br i1 %.not173, label %184, label %179
 
 179:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1700,7 +1700,7 @@ _process_id_rc_list.exit:                         ; preds = %_get_return_code.ex
   br label %.thread167
 
 .thread167:                                       ; preds = %322, %339, %_process_id_rc_list.exit
-  %.0.i154393395 = phi i32 [ 11, %339 ], [ %326, %_process_id_rc_list.exit ], [ -1, %322 ]
+  %.0.i154392394 = phi i32 [ 11, %339 ], [ %326, %_process_id_rc_list.exit ], [ -1, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %343
 
@@ -1711,7 +1711,7 @@ _process_id_rc_list.exit:                         ; preds = %_get_return_code.ex
   br label %.loopexit
 
 343:                                              ; preds = %.thread167, %237, %_handle_mult_rc_ret.exit
-  %.0 = phi i32 [ %225, %237 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ %.0.i154393395, %.thread167 ]
+  %.0 = phi i32 [ %225, %237 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ %.0.i154392394, %.thread167 ]
   %344 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @slurmdbd_lock) #13
   %.not125 = icmp eq i32 %344, 0
   br i1 %.not125, label %347, label %345
@@ -1790,13 +1790,13 @@ _process_id_rc_list.exit:                         ; preds = %_get_return_code.ex
 
 377:                                              ; preds = %376
   %.not134 = icmp eq ptr %375, %372
-  br i1 %.not134, label %.thread170, label %378
+  br i1 %.not134, label %.thread169, label %378
 
 378:                                              ; preds = %377
   call void @slurm_list_destroy(ptr noundef nonnull %375) #13
-  br label %.thread170
+  br label %.thread169
 
-.thread170:                                       ; preds = %377, %378
+.thread169:                                       ; preds = %377, %378
   store ptr null, ptr %11, align 8
   br label %381
 
@@ -1805,9 +1805,9 @@ _process_id_rc_list.exit:                         ; preds = %_get_return_code.ex
   %.not135 = icmp eq ptr %380, null
   br i1 %.not135, label %382, label %381
 
-381:                                              ; preds = %.thread170, %379
-  %.1173 = phi ptr [ %.072, %.thread170 ], [ %380, %379 ]
-  call void @slurm_free_buf(ptr noundef nonnull %.1173) #13
+381:                                              ; preds = %.thread169, %379
+  %.1172 = phi ptr [ %.072, %.thread169 ], [ %380, %379 ]
+  call void @slurm_free_buf(ptr noundef nonnull %.1172) #13
   br label %382
 
 382:                                              ; preds = %381, %379

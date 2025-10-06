@@ -66,12 +66,12 @@ define internal fastcc void @reallymarkobject(ptr noundef captures(none) %0, ptr
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %25, %2
-  %.tr33 = phi ptr [ %1, %2 ], [ %26, %25 ]
-  %4 = tail call fastcc i64 @objsize(ptr noundef %.tr33)
+  %.tr32 = phi ptr [ %1, %2 ], [ %26, %25 ]
+  %4 = tail call fastcc i64 @objsize(ptr noundef %.tr32)
   %5 = load i64, ptr %3, align 8, !tbaa !31
   %6 = add nsw i64 %5, %4
   store i64 %6, ptr %3, align 8, !tbaa !31
-  %7 = getelementptr inbounds nuw i8, ptr %.tr33, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.tr32, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !32
   switch i8 %8, label %.loopexit [
     i8 4, label %9
@@ -86,7 +86,7 @@ tailrecurse:                                      ; preds = %25, %2
   ]
 
 9:                                                ; preds = %tailrecurse, %tailrecurse
-  %10 = getelementptr inbounds nuw i8, ptr %.tr33, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %.tr32, i64 9
   %11 = load i8, ptr %10, align 1, !tbaa !27
   %12 = and i8 %11, -57
   %13 = or disjoint i8 %12, 32
@@ -94,11 +94,11 @@ tailrecurse:                                      ; preds = %25, %2
   br label %.loopexit
 
 14:                                               ; preds = %tailrecurse
-  %15 = getelementptr inbounds nuw i8, ptr %.tr33, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.tr32, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !33
-  %17 = getelementptr inbounds nuw i8, ptr %.tr33, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.tr32, i64 24
   %.not28 = icmp eq ptr %16, %17
-  %18 = getelementptr inbounds nuw i8, ptr %.tr33, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %.tr32, i64 9
   %19 = load i8, ptr %18, align 1, !tbaa !34
   %20 = and i8 %19, -57
   %21 = or disjoint i8 %20, 32
@@ -119,13 +119,13 @@ tailrecurse:                                      ; preds = %25, %2
   br i1 %.not30, label %.loopexit, label %tailrecurse
 
 30:                                               ; preds = %tailrecurse
-  %31 = getelementptr inbounds nuw i8, ptr %.tr33, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %.tr32, i64 10
   %32 = load i16, ptr %31, align 2, !tbaa !37
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %34, label %getgclist.exit
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %.tr33, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.tr32, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !40
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %42, label %37
@@ -142,7 +142,7 @@ tailrecurse:                                      ; preds = %25, %2
   br label %42
 
 42:                                               ; preds = %34, %41, %37
-  %43 = getelementptr inbounds nuw i8, ptr %.tr33, i64 9
+  %43 = getelementptr inbounds nuw i8, ptr %.tr32, i64 9
   %44 = load i8, ptr %43, align 1, !tbaa !45
   %45 = and i8 %44, -57
   %46 = or disjoint i8 %45, 32
@@ -159,13 +159,13 @@ getgclist.exit.loopexit:                          ; preds = %tailrecurse
   br label %getgclist.exit
 
 getgclist.exit:                                   ; preds = %tailrecurse, %tailrecurse, %getgclist.exit.loopexit, %30, %47, %48
-  %.sink69 = phi i64 [ 72, %47 ], [ 120, %48 ], [ 32, %30 ], [ 40, %getgclist.exit.loopexit ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
-  %49 = getelementptr inbounds nuw i8, ptr %.tr33, i64 %.sink69
+  %.sink68 = phi i64 [ 72, %47 ], [ 120, %48 ], [ 32, %30 ], [ 40, %getgclist.exit.loopexit ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
+  %49 = getelementptr inbounds nuw i8, ptr %.tr32, i64 %.sink68
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   store ptr %51, ptr %49, align 8, !tbaa !46
-  store ptr %.tr33, ptr %50, align 8, !tbaa !46
-  %52 = getelementptr inbounds nuw i8, ptr %.tr33, i64 9
+  store ptr %.tr32, ptr %50, align 8, !tbaa !46
+  %52 = getelementptr inbounds nuw i8, ptr %.tr32, i64 9
   %53 = load i8, ptr %52, align 1, !tbaa !27
   %54 = and i8 %53, -57
   store i8 %54, ptr %52, align 1, !tbaa !27

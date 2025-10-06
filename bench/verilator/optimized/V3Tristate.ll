@@ -13519,23 +13519,23 @@ define linkonce_odr dso_local noundef ptr @_ZN15TristateVisitor6getEnpEP7AstNode
   %6 = icmp ne i32 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8
-  %.not19 = icmp eq i64 %8, 0
-  %.not = select i1 %6, i1 true, i1 %.not19
+  %.not18 = icmp eq i64 %8, 0
+  %.not = select i1 %6, i1 true, i1 %.not18
   br i1 %.not, label %.thread, label %_ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit
 
 _ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %9, align 8, !tbaa !145
-  %.not26 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 320
-  br i1 %.not26, label %10, label %.thread.thread
+  %.not25 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 320
+  br i1 %.not25, label %10, label %.thread.thread
 
 10:                                               ; preds = %_ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load ptr, ptr %11, align 8, !tbaa !165
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 249
   %14 = load i8, ptr %13, align 1, !tbaa !262
-  %.not21 = icmp eq i8 %14, 0
-  br i1 %.not21, label %.thread.thread, label %15
+  %.not20 = icmp eq i8 %14, 0
+  br i1 %.not20, label %.thread.thread, label %15
 
 15:                                               ; preds = %10
   %16 = tail call noundef ptr @_ZN15TristateVisitor17newAllZerosOrOnesEP7AstNodeb(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %1, i1 noundef zeroext true)
@@ -13551,8 +13551,8 @@ _ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit: ; preds = %2
   store i64 %19, ptr %7, align 8, !tbaa !14
   %20 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
   store i32 %20, ptr %3, align 8, !tbaa !144
-  %.not.i1422 = icmp eq ptr %18, null
-  br i1 %.not.i1422, label %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit, label %21
+  %.not.i1421 = icmp eq ptr %18, null
+  br i1 %.not.i1421, label %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit, label %21
 
 21:                                               ; preds = %.thread.thread, %.thread
   %22 = phi ptr [ %17, %.thread.thread ], [ %18, %.thread ]
@@ -17434,16 +17434,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number4hasZEv(ptr nound
   %6 = load i32, ptr %5, align 8, !tbaa !174
   %7 = add nsw i32 %6, 31
   %8 = sdiv i32 %7, 32
-  %.not910 = icmp sgt i32 %6, 0
-  br i1 %.not910, label %.lr.ph, label %.loopexit
+  %9 = icmp sgt i32 %6, 0
+  br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = add i8 %3, -1
-  %spec.select.i.i = icmp ult i8 %9, 2
-  %10 = icmp samesign ult i32 %6, 129
-  %11 = load ptr, ptr %0, align 8
-  %spec.select.i = select i1 %10, ptr %0, ptr %11
-  br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %15, !prof !199
+  %10 = add i8 %3, -1
+  %spec.select.i.i = icmp ult i8 %10, 2
+  %11 = icmp samesign ult i32 %6, 129
+  %12 = load ptr, ptr %0, align 8
+  %spec.select.i = select i1 %11, ptr %0, ptr %12
+  br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %16, !prof !199
 
 _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -17452,24 +17452,24 @@ _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
-  %12 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i32, ptr %12, align 4, !tbaa !16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %.sroa.0.0.copyload = load i32, ptr %13, align 4, !tbaa !16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !16
-  %13 = xor i32 %.sroa.0.0.copyload, -1
-  %14 = and i32 %.sroa.4.0.copyload, %13
-  %.not.not = icmp ne i32 %14, 0
+  %14 = xor i32 %.sroa.0.0.copyload, -1
+  %15 = and i32 %.sroa.4.0.copyload, %14
+  %.not.not = icmp ne i32 %15, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.loopexit, label %_ZNK12V3NumberData3numEv.exit, !llvm.loop !352
 
-15:                                               ; preds = %.lr.ph
-  %16 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.42, i32 noundef 198)
-  %17 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.43)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %19) #30
+16:                                               ; preds = %.lr.ph
+  %17 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.42, i32 noundef 198)
+  %18 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.43)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %20) #30
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK12V3NumberData3numEv.exit, %.preheader, %1
@@ -32066,9 +32066,8 @@ define linkonce_odr dso_local void @_ZN18TristatePinVisitor5visitEP9AstVarRef(pt
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %12
-  %17 = add i8 %.sroa.0.0.copyload.i, -1
-  %spec.select.i = icmp ult i8 %17, 2
-  br i1 %spec.select.i, label %.critedge2, label %18
+  %17 = icmp eq i8 %.sroa.0.0.copyload.i, 1
+  br i1 %17, label %.critedge2, label %18
 
 18:                                               ; preds = %16
   %19 = tail call noundef i32 @_ZL5debugv()

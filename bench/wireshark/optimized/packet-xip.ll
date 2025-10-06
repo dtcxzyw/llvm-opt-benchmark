@@ -509,23 +509,23 @@ xia_test_addr.exit.thread26.i:                    ; preds = %34, %.split55.us.i.
   br label %75
 
 75:                                               ; preds = %.loopexit.us.i, %xia_test_addr.exit.thread26.i
-  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.loopexit.us.i ], [ 0, %xia_test_addr.exit.thread26.i ]
-  %76 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv64.i
+  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.loopexit.us.i ], [ 0, %xia_test_addr.exit.thread26.i ]
+  %76 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv63.i
   %77 = load i32, ptr %76, align 4
   %.not.us.i = icmp eq i32 %77, 0
   br i1 %.not.us.i, label %xia_ntop.exit, label %78
 
 78:                                               ; preds = %75
-  %.not18.us.i = icmp eq i64 %indvars.iv64.i, 0
+  %.not18.us.i = icmp eq i64 %indvars.iv63.i, 0
   br i1 %.not18.us.i, label %80, label %79
 
 79:                                               ; preds = %78
   call void @wmem_strbuf_append(ptr noundef %15, ptr noundef nonnull @.str.44)
-  %.pre68.i = load i32, ptr %76, align 4
+  %.pre67.i = load i32, ptr %76, align 4
   br label %80
 
 80:                                               ; preds = %79, %78
-  %81 = phi i32 [ %.pre68.i, %79 ], [ %77, %78 ]
+  %81 = phi i32 [ %.pre67.i, %79 ], [ %77, %78 ]
   %82 = call i64 @wmem_strbuf_get_len(ptr noundef %15)
   %83 = add i64 %82, -717
   %84 = icmp ult i64 %83, 32
@@ -597,19 +597,19 @@ edge_to_char.exit.us.i.us.i:                      ; preds = %108, %107
   br i1 %exitcond20.not.i.us.i, label %.loopexit.us.i, label %.split.us.i.us.i, !llvm.loop !13
 
 .loopexit.us.i:                                   ; preds = %edge_to_char.exit.us.i.us.i
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 9
-  br i1 %exitcond67.not.i, label %xia_ntop.exit, label %75, !llvm.loop !14
+  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 9
+  br i1 %exitcond66.not.i, label %xia_ntop.exit, label %75, !llvm.loop !14
 
-xia_test_addr.exit.split.i:                       ; preds = %73, %.loopexit29.i
-  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.loopexit29.i ], [ 0, %73 ]
-  %112 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv61.i
+xia_test_addr.exit.split.i:                       ; preds = %73, %.loopexit28.i
+  %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.loopexit28.i ], [ 0, %73 ]
+  %112 = getelementptr %struct.xia_row, ptr %9, i64 %indvars.iv60.i
   %113 = load i32, ptr %112, align 4
   %.not.i = icmp eq i32 %113, 0
   br i1 %.not.i, label %xia_ntop.exit, label %114
 
 114:                                              ; preds = %xia_test_addr.exit.split.i
-  %.not18.i = icmp eq i64 %indvars.iv61.i, 0
+  %.not18.i = icmp eq i64 %indvars.iv60.i, 0
   br i1 %.not18.i, label %116, label %115
 
 115:                                              ; preds = %114
@@ -658,7 +658,7 @@ add_type_to_buf.exit.i:                           ; preds = %124, %123, %116
   %136 = getelementptr i8, ptr %135, i64 %indvars.iv.i21.i
   %137 = load i8, ptr %136, align 1
   %138 = icmp eq i8 %137, 127
-  br i1 %138, label %.loopexit29.i, label %139
+  br i1 %138, label %.loopexit28.i, label %139
 
 139:                                              ; preds = %.split.i.i
   %.not11.i.i = icmp sgt i8 %137, -1
@@ -691,14 +691,14 @@ edge_to_char.exit.i.i:                            ; preds = %149, %145
   call void @wmem_strbuf_append_c(ptr noundef %15, i8 noundef signext %.0.i.i.i)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, 4
-  br i1 %exitcond.not.i24.i, label %.loopexit29.i, label %.split.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i24.i, label %.loopexit28.i, label %.split.i.i, !llvm.loop !13
 
-.loopexit29.i:                                    ; preds = %edge_to_char.exit.i.i, %.split.i.i
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next62.i, 9
+.loopexit28.i:                                    ; preds = %edge_to_char.exit.i.i, %.split.i.i
+  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, 9
   br i1 %exitcond.not.i, label %xia_ntop.exit, label %xia_test_addr.exit.split.i, !llvm.loop !14
 
-xia_ntop.exit:                                    ; preds = %xia_test_addr.exit.split.i, %.loopexit29.i, %75, %.loopexit.us.i
+xia_ntop.exit:                                    ; preds = %xia_test_addr.exit.split.i, %.loopexit28.i, %75, %.loopexit.us.i
   %150 = call ptr @wmem_strbuf_get_str(ptr noundef %15)
   %151 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %16, i32 noundef %5, ptr noundef %0, i32 noundef %7, i32 noundef %11, ptr noundef %150, ptr noundef nonnull @.str.43, ptr noundef %150)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -347,14 +347,14 @@ cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
 68:                                               ; preds = %cbs_sei_get_unit.exit
   %69 = load i32, ptr %.033, align 8, !tbaa !38
   %.off.i = add i32 %69, -39
-  %switch30.i = icmp ult i32 %.off.i, 2
-  br i1 %switch30.i, label %72, label %cbs_sei_get_unit.exit.thread
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %72, label %cbs_sei_get_unit.exit.thread
 
 70:                                               ; preds = %cbs_sei_get_unit.exit
   %71 = load i32, ptr %.033, align 8, !tbaa !38
-  %.off31.i = add i32 %71, -23
-  %switch32.i = icmp ult i32 %.off31.i, 2
-  br i1 %switch32.i, label %72, label %cbs_sei_get_unit.exit.thread
+  %.off28.i = add i32 %71, -23
+  %switch29.i = icmp ult i32 %.off28.i, 2
+  br i1 %switch29.i, label %72, label %cbs_sei_get_unit.exit.thread
 
 72:                                               ; preds = %70, %68, %66
   %73 = getelementptr inbounds nuw i8, ptr %.033, i64 40
@@ -466,14 +466,14 @@ define range(i32 -2, 1) i32 @ff_cbs_sei_find_message(ptr noundef readonly captur
 15:                                               ; preds = %11
   %16 = load i32, ptr %12, align 8, !tbaa !38
   %.off.i = add i32 %16, -39
-  %switch30.i = icmp ult i32 %.off.i, 2
-  br i1 %switch30.i, label %cbs_sei_get_message_list.exit, label %cbs_sei_get_message_list.exit.thread
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %cbs_sei_get_message_list.exit, label %cbs_sei_get_message_list.exit.thread
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %12, align 8, !tbaa !38
-  %.off31.i = add i32 %18, -23
-  %switch32.i = icmp ult i32 %.off31.i, 2
-  br i1 %switch32.i, label %cbs_sei_get_message_list.exit, label %cbs_sei_get_message_list.exit.thread
+  %.off28.i = add i32 %18, -23
+  %switch29.i = icmp ult i32 %.off28.i, 2
+  br i1 %switch29.i, label %cbs_sei_get_message_list.exit, label %cbs_sei_get_message_list.exit.thread
 
 cbs_sei_get_message_list.exit:                    ; preds = %13, %15, %17
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -563,14 +563,14 @@ define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) 
 15:                                               ; preds = %9
   %16 = load i32, ptr %12, align 8, !tbaa !38
   %.off.i = add i32 %16, -39
-  %switch30.i = icmp ult i32 %.off.i, 2
-  br i1 %switch30.i, label %19, label %cbs_sei_get_message_list.exit.thread
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %19, label %cbs_sei_get_message_list.exit.thread
 
 17:                                               ; preds = %9
   %18 = load i32, ptr %12, align 8, !tbaa !38
-  %.off31.i = add i32 %18, -23
-  %switch32.i = icmp ult i32 %.off31.i, 2
-  br i1 %switch32.i, label %19, label %cbs_sei_get_message_list.exit.thread
+  %.off28.i = add i32 %18, -23
+  %switch29.i = icmp ult i32 %.off28.i, 2
+  br i1 %switch29.i, label %19, label %cbs_sei_get_message_list.exit.thread
 
 19:                                               ; preds = %17, %15, %13
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 40

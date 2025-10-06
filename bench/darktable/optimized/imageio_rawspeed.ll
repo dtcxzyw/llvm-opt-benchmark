@@ -2941,75 +2941,75 @@ declare ptr @dt_mipmap_cache_alloc(ptr noundef, ptr noundef) local_unnamed_addr 
 define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv(ptr dead_on_unwind noalias writable sret(%"class.rawspeed::Array2DRef.90") align 8 %0, ptr noundef nonnull align 8 dereferenceable(616) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 545
   %4 = load i8, ptr %3, align 1, !tbaa !206
-  %switch = icmp eq i8 %4, 0
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %6 = load ptr, ptr %5, align 8, !tbaa !195, !noalias !178, !nonnull !178, !noundef !178
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 584
-  %8 = load i32, ptr %7, align 8, !tbaa !221, !noalias !178
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 600
-  %10 = load i32, ptr %9, align 8, !tbaa !228, !noalias !178
-  %11 = mul nsw i32 %10, %8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 604
-  %13 = load i32, ptr %12, align 4, !tbaa !229, !noalias !178
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %15 = load i32, ptr %14, align 8, !tbaa !230, !noalias !178
-  %16 = icmp sgt i32 %11, -1
-  tail call void @llvm.assume(i1 %16)
-  %17 = icmp sgt i32 %13, -1
+  %5 = icmp eq i8 %4, 0
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 560
+  %7 = load ptr, ptr %6, align 8, !tbaa !195, !noalias !178, !nonnull !178, !noundef !178
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 584
+  %9 = load i32, ptr %8, align 8, !tbaa !221, !noalias !178
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 600
+  %11 = load i32, ptr %10, align 8, !tbaa !228, !noalias !178
+  %12 = mul nsw i32 %11, %9
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 604
+  %14 = load i32, ptr %13, align 4, !tbaa !229, !noalias !178
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %16 = load i32, ptr %15, align 8, !tbaa !230, !noalias !178
+  %17 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %17)
-  br i1 %switch, label %18, label %28
+  %18 = icmp sgt i32 %14, -1
+  tail call void @llvm.assume(i1 %18)
+  br i1 %5, label %19, label %29
 
-18:                                               ; preds = %2
-  %19 = ashr i32 %15, 1
-  %20 = icmp ugt i32 %15, 1
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp sgt i32 %19, -1
+19:                                               ; preds = %2
+  %20 = ashr i32 %16, 1
+  %21 = icmp ugt i32 %16, 1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp samesign uge i32 %19, %11
+  %22 = icmp sgt i32 %20, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = shl nuw i32 %13, 1
-  %24 = mul i32 %23, %19
-  %25 = icmp sgt i32 %24, -1
-  tail call void @llvm.assume(i1 %25)
-  %26 = shl nuw nsw i32 %11, 1
-  %27 = and i32 %15, -2
-  store ptr %6, ptr %0, align 8, !tbaa !266
-  br label %39
+  %23 = icmp samesign uge i32 %20, %12
+  tail call void @llvm.assume(i1 %23)
+  %24 = shl nuw i32 %14, 1
+  %25 = mul i32 %24, %20
+  %26 = icmp sgt i32 %25, -1
+  tail call void @llvm.assume(i1 %26)
+  %27 = shl nuw nsw i32 %12, 1
+  %28 = and i32 %16, -2
+  store ptr %7, ptr %0, align 8, !tbaa !266
+  br label %40
 
-28:                                               ; preds = %2
-  %29 = ashr i32 %15, 2
-  %30 = icmp ugt i32 %15, 3
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp sgt i32 %29, -1
+29:                                               ; preds = %2
+  %30 = ashr i32 %16, 2
+  %31 = icmp ugt i32 %16, 3
   tail call void @llvm.assume(i1 %31)
-  %32 = icmp samesign uge i32 %29, %11
+  %32 = icmp sgt i32 %30, -1
   tail call void @llvm.assume(i1 %32)
-  %33 = shl i32 %13, 2
-  %34 = mul i32 %33, %29
-  %35 = icmp sgt i32 %34, -1
-  tail call void @llvm.assume(i1 %35)
-  %36 = shl nuw nsw i32 %11, 2
-  %37 = and i32 %15, -4
-  store ptr %6, ptr %0, align 8, !tbaa !266
-  %38 = icmp samesign uge i32 %37, %36
-  tail call void @llvm.assume(i1 %38)
-  br label %39
+  %33 = icmp samesign uge i32 %30, %12
+  tail call void @llvm.assume(i1 %33)
+  %34 = shl i32 %14, 2
+  %35 = mul i32 %34, %30
+  %36 = icmp sgt i32 %35, -1
+  tail call void @llvm.assume(i1 %36)
+  %37 = shl nuw nsw i32 %12, 2
+  %38 = and i32 %16, -4
+  store ptr %7, ptr %0, align 8, !tbaa !266
+  %39 = icmp samesign uge i32 %38, %37
+  tail call void @llvm.assume(i1 %39)
+  br label %40
 
-39:                                               ; preds = %28, %18
-  %.sink30 = phi i32 [ %37, %28 ], [ %27, %18 ]
-  %.sink28 = phi i32 [ %34, %28 ], [ %24, %18 ]
-  %.sink24 = phi i32 [ %36, %28 ], [ %26, %18 ]
-  %40 = mul nuw nsw i32 %.sink30, %13
-  %41 = icmp eq i32 %.sink28, %40
-  tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink28, ptr %42, align 8, !tbaa !82
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink30, ptr %43, align 8, !tbaa !267
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink24, ptr %44, align 4, !tbaa !269
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %13, ptr %45, align 8, !tbaa !270
+40:                                               ; preds = %29, %19
+  %.sink30 = phi i32 [ %38, %29 ], [ %28, %19 ]
+  %.sink28 = phi i32 [ %35, %29 ], [ %25, %19 ]
+  %.sink24 = phi i32 [ %37, %29 ], [ %27, %19 ]
+  %41 = mul nuw nsw i32 %.sink30, %14
+  %42 = icmp eq i32 %.sink28, %41
+  tail call void @llvm.assume(i1 %42)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink28, ptr %43, align 8, !tbaa !82
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink30, ptr %44, align 8, !tbaa !267
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink24, ptr %45, align 4, !tbaa !269
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %14, ptr %46, align 8, !tbaa !270
   ret void
 }
 

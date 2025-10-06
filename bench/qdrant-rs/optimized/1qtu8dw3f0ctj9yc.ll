@@ -236,31 +236,31 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 2)
   store i64 %1, ptr %17, align 8
-  %.0.in34 = shl i64 %1, 1
-  %.035 = or disjoint i64 %.0.in34, 1
-  %.not.not36 = icmp ult i64 %.0.in34, %18
-  br i1 %.not.not36, label %.lr.ph, label %._crit_edge
+  %.0.in35 = shl i64 %1, 1
+  %.036 = or disjoint i64 %.0.in35, 1
+  %.not.not37 = icmp ult i64 %.0.in35, %18
+  br i1 %.not.not37, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %55
-  %.pre44.pre = load ptr, ptr %4, align 8, !alias.scope !45
+  %.pre45.pre = load ptr, ptr %4, align 8, !alias.scope !45
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.pre44 = phi ptr [ %6, %3 ], [ %.pre44.pre, %._crit_edge.loopexit ]
+  %.pre45 = phi ptr [ %6, %3 ], [ %.pre45.pre, %._crit_edge.loopexit ]
   %19 = phi i64 [ %1, %3 ], [ %48, %._crit_edge.loopexit ]
-  %.0.in.lcssa = phi i64 [ %.0.in34, %3 ], [ %.0.in, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ %.035, %3 ], [ %.0, %._crit_edge.loopexit ]
+  %.0.in.lcssa = phi i64 [ %.0.in35, %3 ], [ %.0.in, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ %.036, %3 ], [ %.0, %._crit_edge.loopexit ]
   %20 = add i64 %2, -2
   %21 = icmp eq i64 %.0.in.lcssa, %20
   br i1 %21, label %29, label %34
 
 .lr.ph:                                           ; preds = %3, %55
-  %.038 = phi i64 [ %.0, %55 ], [ %.035, %3 ]
-  %.0.in37 = phi i64 [ %.0.in, %55 ], [ %.0.in34, %3 ]
+  %.039 = phi i64 [ %.0, %55 ], [ %.036, %3 ]
+  %.0.in38 = phi i64 [ %.0.in, %55 ], [ %.0.in35, %3 ]
   %22 = load ptr, ptr %4, align 8, !nonnull !5, !align !50, !noundef !5
   %23 = load i64, ptr %14, align 8, !noundef !5
-  %24 = getelementptr inbounds { { i32, float } }, ptr %22, i64 %.038
-  %25 = add nuw i64 %.0.in37, 2
+  %24 = getelementptr inbounds { { i32, float } }, ptr %22, i64 %.039
+  %25 = add nuw i64 %.0.in38, 2
   %26 = icmp ult i64 %25, %23
   call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds { { i32, float } }, ptr %22, i64 %25
@@ -271,12 +271,12 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %30 = load i64, ptr %14, align 8, !noundef !5
   %31 = icmp ult i64 %.0.lcssa, %30
   call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds { { i32, float } }, ptr %.pre44, i64 %.0.lcssa
+  %32 = getelementptr inbounds { { i32, float } }, ptr %.pre45, i64 %.0.lcssa
   %33 = invoke noundef i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc02ee03a84527b57E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %15)
           to label %39 unwind label %.loopexit.split-lp
 
 34:                                               ; preds = %39, %._crit_edge, %41
-  %35 = phi ptr [ %.pre43, %39 ], [ %.pre44, %._crit_edge ], [ %.pre42, %41 ]
+  %35 = phi ptr [ %.pre44, %39 ], [ %.pre45, %._crit_edge ], [ %.pre43, %41 ]
   %36 = phi i64 [ %.pre, %39 ], [ %19, %._crit_edge ], [ %.0.lcssa, %41 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -288,15 +288,15 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
 39:                                               ; preds = %29
   %40 = icmp eq i8 %33, -1
   %.pre = load i64, ptr %17, align 8, !alias.scope !45
-  %.pre43 = load ptr, ptr %4, align 8, !alias.scope !45
+  %.pre44 = load ptr, ptr %4, align 8, !alias.scope !45
   br i1 %40, label %41, label %34
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds { { i32, float } }, ptr %.pre43, i64 %.0.lcssa
-  %43 = getelementptr inbounds { { i32, float } }, ptr %.pre43, i64 %.pre
+  %42 = getelementptr inbounds { { i32, float } }, ptr %.pre44, i64 %.0.lcssa
+  %43 = getelementptr inbounds { { i32, float } }, ptr %.pre44, i64 %.pre
   %44 = load i64, ptr %42, align 4
   store i64 %44, ptr %43, align 4
-  %.pre42 = load ptr, ptr %4, align 8, !alias.scope !45
+  %.pre43 = load ptr, ptr %4, align 8, !alias.scope !45
   br label %34
 
 45:                                               ; preds = %61, %34
@@ -304,9 +304,9 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   ret void
 
 46:                                               ; preds = %.lr.ph
-  %switch.selectcmp.i.i = icmp slt i8 %28, 1
-  %47 = zext i1 %switch.selectcmp.i.i to i64
-  %48 = add nuw i64 %.038, %47
+  %switch.i.i = icmp slt i8 %28, 1
+  %47 = zext i1 %switch.i.i to i64
+  %48 = add nuw i64 %.039, %47
   %49 = load ptr, ptr %4, align 8, !nonnull !5, !align !50, !noundef !5
   %50 = load i64, ptr %14, align 8, !noundef !5
   %51 = icmp ult i64 %48, %50
@@ -316,8 +316,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
           to label %54 unwind label %.loopexit
 
 54:                                               ; preds = %46
-  %switch.i.i = icmp ult i8 %53, 2
-  br i1 %switch.i.i, label %61, label %55
+  %switch.i.i30 = icmp ult i8 %53, 2
+  br i1 %switch.i.i30, label %61, label %55
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %4, align 8, !nonnull !5, !align !50, !noundef !5
@@ -428,9 +428,9 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hd943ffa8937d9f55E.llvm.4070685214373696957.exit"
 
 34:                                               ; preds = %.lr.ph.i
-  %switch.selectcmp.i.i.i = icmp slt i8 %33, 1
+  %switch.i.i.i = icmp slt i8 %33, 1
   %.pre.pre.i = load i64, ptr %26, align 8, !noalias !70
-  br i1 %switch.selectcmp.i.i.i, label %._crit_edge.loopexit.i, label %35
+  br i1 %switch.i.i.i, label %._crit_edge.loopexit.i, label %35
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %4, align 8, !noalias !70, !nonnull !5, !align !50, !noundef !5
@@ -521,9 +521,9 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   ret i64 %27
 
 30:                                               ; preds = %.lr.ph
-  %switch.selectcmp.i.i = icmp slt i8 %25, 1
+  %switch.i.i = icmp slt i8 %25, 1
   %.pre.pre = load i64, ptr %17, align 8
-  br i1 %switch.selectcmp.i.i, label %._crit_edge.loopexit, label %31
+  br i1 %switch.i.i, label %._crit_edge.loopexit, label %31
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr %4, align 8, !nonnull !5, !align !50, !noundef !5

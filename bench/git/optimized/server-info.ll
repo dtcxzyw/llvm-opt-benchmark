@@ -356,8 +356,8 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
 
 23:                                               ; preds = %21
   %.val = load ptr, ptr %10, align 8, !tbaa !40
-  %.not46 = icmp eq ptr %.val, null
-  br i1 %.not46, label %.sink.split, label %24
+  %.not45 = icmp eq ptr %.val, null
+  br i1 %.not45, label %.sink.split, label %24
 
 24:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -376,9 +376,9 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   %.not29 = icmp eq i64 %33, %26
   %or.cond = select i1 %.not28, i1 %.not29, i1 false
   %.val36.pre.pre = load ptr, ptr %10, align 8, !tbaa !40
-  br i1 %or.cond, label %36, label %.thread55
+  br i1 %or.cond, label %36, label %.thread54
 
-.thread55:                                        ; preds = %30
+.thread54:                                        ; preds = %30
   %34 = call i32 @fclose(ptr noundef %.val36.pre.pre)
   store ptr null, ptr %10, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -394,7 +394,7 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   store ptr null, ptr %9, align 8, !tbaa !39
   br i1 %37, label %38, label %45
 
-.sink.split:                                      ; preds = %23, %.thread55
+.sink.split:                                      ; preds = %23, %.thread54
   store ptr null, ptr %9, align 8, !tbaa !39
   br label %38
 
@@ -425,7 +425,7 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   br label %52
 
 52:                                               ; preds = %43, %38, %45, %47, %50
-  %.01845 = phi i32 [ %.018.ph, %47 ], [ %.018.ph, %50 ], [ 0, %38 ], [ 0, %43 ], [ 0, %45 ]
+  %.01844 = phi i32 [ %.018.ph, %47 ], [ %.018.ph, %50 ], [ 0, %38 ], [ 0, %43 ], [ 0, %45 ]
   call void @free(ptr noundef %8) #14
   %53 = load ptr, ptr %10, align 8, !tbaa !40
   %.not33 = icmp eq ptr %53, null
@@ -441,7 +441,7 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   call void @strbuf_release(ptr noundef nonnull %57) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.01845
+  ret i32 %.01844
 }
 
 ; Function Attrs: nounwind uwtable

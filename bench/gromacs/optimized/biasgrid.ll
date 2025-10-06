@@ -1209,26 +1209,26 @@ define range(i64 0, 8589934592) i64 @_ZNK3gmx8BiasGrid15lambdaAxisIndexEv(ptr no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %storemerge10 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %storemerge10
+  %storemerge8 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
+  %10 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %storemerge8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i8, ptr %11, align 8, !tbaa !20, !range !21, !noundef !22
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = add nuw i64 %storemerge10, 1
+  %15 = add nuw i64 %storemerge8, 1
   %exitcond.not = icmp eq i64 %15, %9
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 16:                                               ; preds = %.lr.ph
-  %17 = and i64 %storemerge10, 4294967295
+  %17 = and i64 %storemerge8, 4294967295
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %1, %16
-  %.sroa.0.07 = phi i64 [ %17, %16 ], [ 0, %1 ], [ 0, %14 ]
+  %.sroa.0.05 = phi i64 [ %17, %16 ], [ 0, %1 ], [ 0, %14 ]
   %.sroa.2.1 = phi i64 [ 4294967296, %16 ], [ 0, %1 ], [ 0, %14 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.0.07
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.0.05
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -1252,8 +1252,8 @@ define noundef i32 @_ZNK3gmx8BiasGrid18numFepLambdaStatesEv(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %.not8.not = icmp eq ptr %4, %5
-  br i1 %.not8.not, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq ptr %4, %5
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %6 = ptrtoint ptr %4 to i64
@@ -1263,13 +1263,13 @@ define noundef i32 @_ZNK3gmx8BiasGrid18numFepLambdaStatesEv(ptr noundef nonnull 
   br label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
-  %11 = add nuw i64 %.069, 1
+  %11 = add nuw i64 %.0610, 1
   %exitcond.not = icmp eq i64 %11, %9
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %.069 = phi i64 [ %11, %10 ], [ 0, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %.069
+  %.0610 = phi i64 [ %11, %10 ], [ 0, %.lr.ph.preheader ]
+  %12 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %.0610
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i8, ptr %13, align 8, !tbaa !20, !range !21, !noundef !22
   %15 = trunc nuw i8 %14 to i1
@@ -1281,8 +1281,8 @@ define noundef i32 @_ZNK3gmx8BiasGrid18numFepLambdaStatesEv(ptr noundef nonnull 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %1, %16
-  %spec.select = phi i32 [ %18, %16 ], [ 0, %1 ], [ 0, %10 ]
-  ret i32 %spec.select
+  %19 = phi i32 [ %18, %16 ], [ 0, %1 ], [ 0, %10 ]
+  ret i32 %19
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1485,28 +1485,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = load ptr, ptr %26, align 8, !tbaa !111
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %29 = load ptr, ptr %28, align 8, !tbaa !111
-  %.not16.not.i = icmp eq ptr %27, %29
-  br i1 %.not16.not.i, label %_ZN16cmGraphVizWriter19ItemNameFilteredOutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %27, %29
+  br i1 %.not17.i, label %_ZN16cmGraphVizWriter19ItemNameFilteredOutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %.critedge.i
-  %.sroa.012.017.i = phi ptr [ %35, %.critedge.i ], [ %27, %25 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 544
+  %.sroa.012.018.i = phi ptr [ %35, %.critedge.i ], [ %27, %25 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.012.018.i, i64 544
   %31 = load ptr, ptr %30, align 8, !tbaa !76
-  %.not15.i = icmp eq ptr %31, null
-  br i1 %.not15.i, label %.critedge.i, label %32
+  %.not16.i = icmp eq ptr %31, null
+  br i1 %.not16.i, label %.critedge.i, label %32
 
 32:                                               ; preds = %.lr.ph.i
   %33 = load ptr, ptr %4, align 8, !tbaa !22
-  %34 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.017.i, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.017.i, i64 noundef 0, i32 noundef 0)
+  %34 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.018.i, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.018.i, i64 noundef 0, i32 noundef 0)
           to label %.noexc16 unwind label %.loopexit
 
 .noexc16:                                         ; preds = %32
   br i1 %34, label %_ZN16cmGraphVizWriter19ItemNameFilteredOutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.noexc16, %.lr.ph.i
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 560
-  %.not.not.i = icmp eq ptr %35, %29
-  br i1 %.not.not.i, label %_ZN16cmGraphVizWriter19ItemNameFilteredOutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.012.018.i, i64 560
+  %.not.i = icmp eq ptr %35, %29
+  br i1 %.not.i, label %_ZN16cmGraphVizWriter19ItemNameFilteredOutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %32
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7433,28 +7433,28 @@ define dso_local noundef zeroext i1 @_ZN16cmGraphVizWriter19ItemNameFilteredOutE
   %9 = load ptr, ptr %8, align 8, !tbaa !111
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %11 = load ptr, ptr %10, align 8, !tbaa !111
-  %.not16.not = icmp eq ptr %9, %11
-  br i1 %.not16.not, label %.loopexit, label %.lr.ph
+  %.not17 = icmp eq ptr %9, %11
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.critedge
-  %.sroa.012.017 = phi ptr [ %17, %.critedge ], [ %9, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 544
+  %.sroa.012.018 = phi ptr [ %17, %.critedge ], [ %9, %7 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 544
   %13 = load ptr, ptr %12, align 8, !tbaa !76
-  %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %.critedge, label %14
+  %.not16 = icmp eq ptr %13, null
+  br i1 %.not16, label %.critedge, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr %1, align 8, !tbaa !22
-  %16 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.017, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.017, i64 noundef 0, i32 noundef 0)
+  %16 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.018, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.012.018, i64 noundef 0, i32 noundef 0)
   br i1 %16, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %14, %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 560
-  %.not.not = icmp eq ptr %17, %11
-  br i1 %.not.not, label %.loopexit, label %.lr.ph
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 560
+  %.not = icmp eq ptr %17, %11
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %14, %.critedge, %7, %5, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %7 ], [ true, %14 ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %14, %7, %5, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %7 ], [ false, %.critedge ], [ true, %14 ]
   ret i1 %.0
 }
 

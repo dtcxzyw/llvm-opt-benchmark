@@ -48,17 +48,17 @@ define range(i32 -1, 1) i32 @ff_mxf_decode_pixel_layout(ptr noundef readonly cap
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define i32 @ff_mxf_get_content_package_rate(i64 %0) local_unnamed_addr #1 {
-  %.fr24 = freeze i64 %0
-  %.sroa.011.0.extract.trunc.i = trunc i64 %.fr24 to i32
-  %sext.i = shl i64 %.fr24, 32
+  %.fr26 = freeze i64 %0
+  %.sroa.011.0.extract.trunc.i = trunc i64 %.fr26 to i32
+  %sext.i = shl i64 %.fr26, 32
   %2 = ashr exact i64 %sext.i, 32
-  %3 = ashr i64 %.fr24, 32
-  %4 = icmp ugt i64 %.fr24, 4294967295
+  %3 = ashr i64 %.fr26, 32
+  %4 = icmp ugt i64 %.fr26, 4294967295
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %av_cmp_q.exit.thread.us
-  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %av_cmp_q.exit.thread.us ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv33
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %av_cmp_q.exit.thread.us ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv35
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i64, ptr %6, align 4
   %8 = ashr i64 %7, 32
@@ -70,13 +70,13 @@ define i32 @ff_mxf_get_content_package_rate(i64 %0) local_unnamed_addr #1 {
   br i1 %.not.i.us, label %av_cmp_q.exit.thread11, label %av_cmp_q.exit.thread.us
 
 av_cmp_q.exit.thread.us:                          ; preds = %.split.us
-  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %.not.us = icmp eq i64 %indvars.iv.next34, 20
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %.not.us = icmp eq i64 %indvars.iv.next36, 20
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %1
-  %.not25 = icmp eq i32 %.sroa.011.0.extract.trunc.i, 0
-  br i1 %.not25, label %.loopexit, label %.split.split
+  %.not27 = icmp eq i32 %.sroa.011.0.extract.trunc.i, 0
+  br i1 %.not27, label %.loopexit, label %.split.split
 
 .split.split:                                     ; preds = %.split, %av_cmp_q.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_cmp_q.exit.thread ], [ 0, %.split ]
@@ -99,19 +99,19 @@ av_cmp_q.exit.thread.us:                          ; preds = %.split.us
   %or.cond = and i1 %20, %.not8
   br i1 %or.cond, label %av_cmp_q.exit.thread11, label %av_cmp_q.exit.thread
 
-av_cmp_q.exit.thread11:                           ; preds = %19, %.split.us
-  %.us-phi = phi ptr [ %5, %.split.us ], [ %12, %19 ]
-  %21 = load i32, ptr %.us-phi, align 4, !tbaa !13
-  br label %.loopexit
-
 av_cmp_q.exit.thread:                             ; preds = %.split.split, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %.not, label %.loopexit, label %.split.split, !llvm.loop !12
 
+av_cmp_q.exit.thread11:                           ; preds = %19, %.split.us
+  %.us-phi = phi ptr [ %5, %.split.us ], [ %12, %19 ]
+  %21 = load i32, ptr %.us-phi, align 4, !tbaa !13
+  br label %.loopexit
+
 .loopexit:                                        ; preds = %av_cmp_q.exit.thread, %av_cmp_q.exit.thread.us, %.split, %av_cmp_q.exit.thread11
-  %spec.select = phi i32 [ %21, %av_cmp_q.exit.thread11 ], [ 0, %.split ], [ 0, %av_cmp_q.exit.thread.us ], [ 0, %av_cmp_q.exit.thread ]
-  ret i32 %spec.select
+  %22 = phi i32 [ %21, %av_cmp_q.exit.thread11 ], [ 0, %.split ], [ 0, %av_cmp_q.exit.thread.us ], [ 0, %av_cmp_q.exit.thread ]
+  ret i32 %22
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)

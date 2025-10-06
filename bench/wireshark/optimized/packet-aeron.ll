@@ -2031,19 +2031,11 @@ define internal noundef zeroext i1 @test_aeron_packet(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %7
   %10 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
-  switch i16 %10, label %26 [
-    i16 0, label %11
-    i16 1, label %11
-    i16 2, label %11
-    i16 3, label %11
-    i16 6, label %11
-    i16 4, label %11
-    i16 5, label %11
-    i16 7, label %11
-    i16 -1, label %11
-  ]
+  %.off = add i16 %10, -8
+  %switch = icmp ult i16 %.off, -9
+  br i1 %switch, label %26, label %11
 
-11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9
+11:                                               ; preds = %9
   %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %13 = and i32 %12, 2147483647
   %14 = icmp ne i16 %10, 1
@@ -2873,8 +2865,8 @@ aeron_stream_term_add.exit:                       ; preds = %61, %57, %51
   %95 = getelementptr i8, ptr %.039, i64 16
   %.val.i52 = load ptr, ptr %95, align 8
   %96 = call ptr @wmem_list_head(ptr noundef %.val.i52)
-  %.not9.i.i = icmp eq ptr %96, null
-  br i1 %.not9.i.i, label %.loopexit.i, label %.lr.ph.i.i
+  %.not8.i.i = icmp eq ptr %96, null
+  br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -2882,8 +2874,8 @@ aeron_stream_term_add.exit:                       ; preds = %61, %57, %51
   br label %99
 
 99:                                               ; preds = %cmp_address.exit.thread.i.i, %.lr.ph.i.i
-  %.01110.i.i = phi ptr [ %96, %.lr.ph.i.i ], [ %118, %cmp_address.exit.thread.i.i ]
-  %100 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.01110.i.i)
+  %.0119.i.i = phi ptr [ %96, %.lr.ph.i.i ], [ %118, %cmp_address.exit.thread.i.i ]
+  %100 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0119.i.i)
   %.not15.i.i = icmp eq ptr %100, null
   br i1 %.not15.i.i, label %cmp_address.exit.thread.i.i, label %101
 
@@ -2897,8 +2889,8 @@ aeron_stream_term_add.exit:                       ; preds = %61, %57, %51
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = load i32, ptr %97, align 4
-  %or.cond8.not.i.i = icmp eq i32 %106, %107
-  br i1 %or.cond8.not.i.i, label %108, label %cmp_address.exit.thread.i.i
+  %or.cond7.not.i.i = icmp eq i32 %106, %107
+  br i1 %or.cond7.not.i.i, label %108, label %cmp_address.exit.thread.i.i
 
 108:                                              ; preds = %104
   %109 = icmp eq i32 %106, 0
@@ -2920,7 +2912,7 @@ cmp_address.exit.thread2.i.i:                     ; preds = %cmp_address.exit.i.
   br i1 %117, label %aeron_stream_rcv_find.exit.i, label %cmp_address.exit.thread.i.i
 
 cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.thread2.i.i, %cmp_address.exit.i.i, %104, %101, %99
-  %118 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i.i)
+  %118 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0119.i.i)
   %.not.i.i = icmp eq ptr %118, null
   br i1 %.not.i.i, label %.loopexit.i, label %99
 
@@ -2929,8 +2921,8 @@ cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.th
   %120 = trunc i32 %119 to i16
   %.val.i.i = load ptr, ptr %95, align 8
   %121 = call ptr @wmem_list_head(ptr noundef %.val.i.i)
-  %.not9.i.i.i = icmp eq ptr %121, null
-  br i1 %.not9.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not8.i.i.i = icmp eq ptr %121, null
+  br i1 %.not8.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit.i
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -2938,8 +2930,8 @@ cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.th
   br label %124
 
 124:                                              ; preds = %cmp_address.exit.thread.i.i.i, %.lr.ph.i.i.i
-  %.01110.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i ], [ %143, %cmp_address.exit.thread.i.i.i ]
-  %125 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.01110.i.i.i)
+  %.0119.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i ], [ %143, %cmp_address.exit.thread.i.i.i ]
+  %125 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0119.i.i.i)
   %.not15.i.i.i = icmp eq ptr %125, null
   br i1 %.not15.i.i.i, label %cmp_address.exit.thread.i.i.i, label %126
 
@@ -2953,8 +2945,8 @@ cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.th
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = load i32, ptr %122, align 4
-  %or.cond8.not.i.i.i = icmp eq i32 %131, %132
-  br i1 %or.cond8.not.i.i.i, label %133, label %cmp_address.exit.thread.i.i.i
+  %or.cond7.not.i.i.i = icmp eq i32 %131, %132
+  br i1 %or.cond7.not.i.i.i, label %133, label %cmp_address.exit.thread.i.i.i
 
 133:                                              ; preds = %129
   %134 = icmp eq i32 %131, 0
@@ -2976,7 +2968,7 @@ cmp_address.exit.thread2.i.i.i:                   ; preds = %cmp_address.exit.i.
   br i1 %142, label %aeron_stream_rcv_add.exitthread-pre-split.i, label %cmp_address.exit.thread.i.i.i
 
 cmp_address.exit.thread.i.i.i:                    ; preds = %cmp_address.exit.thread2.i.i.i, %cmp_address.exit.i.i.i, %129, %126, %124
-  %143 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i.i.i)
+  %143 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0119.i.i.i)
   %.not.i.i.i = icmp eq ptr %143, null
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %124
 

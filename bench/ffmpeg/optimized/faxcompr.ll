@@ -73,7 +73,7 @@ define range(i32 -2147483648, 1) i32 @ff_ccitt_unpack(ptr noundef %0, ptr nounde
   %19 = icmp ne ptr %17, null
   %20 = icmp ne ptr %18, null
   %or.cond = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %.loopexit106
+  br i1 %or.cond, label %21, label %.loopexit105
 
 21:                                               ; preds = %8
   %22 = load i32, ptr %13, align 8, !tbaa !9
@@ -103,19 +103,19 @@ define range(i32 -2147483648, 1) i32 @ff_ccitt_unpack(ptr noundef %0, ptr nounde
   store ptr %33, ptr %34, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %35, align 8, !tbaa !35
-  br i1 %or.cond3.i.i, label %36, label %.loopexit106
+  br i1 %or.cond3.i.i, label %36, label %.loopexit105
 
 36:                                               ; preds = %21
   %37 = icmp sgt i32 %4, 0
-  br i1 %37, label %.lr.ph129, label %.loopexit106
+  br i1 %37, label %.lr.ph128, label %.loopexit105
 
-.lr.ph129:                                        ; preds = %36
+.lr.ph128:                                        ; preds = %36
   %38 = load i32, ptr %1, align 1, !tbaa !36
   %39 = tail call i32 @llvm.bswap.i32(i32 %38)
   %.mask = and i32 %39, -1048576
   %40 = icmp eq i32 %.mask, 1048576
-  %.mask104 = and i32 %39, -65536
-  %41 = icmp eq i32 %.mask104, 65536
+  %.mask103 = and i32 %39, -65536
+  %41 = icmp eq i32 %.mask103, 65536
   %42 = or i1 %40, %41
   %43 = icmp eq i32 %6, 4
   %44 = icmp eq i32 %6, 3
@@ -128,40 +128,40 @@ define range(i32 -2147483648, 1) i32 @ff_ccitt_unpack(ptr noundef %0, ptr nounde
   %or.cond5 = or i1 %48, %46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %50 = sext i32 %5 to i64
-  br i1 %43, label %.lr.ph129.split.us, label %.lr.ph129.split
+  br i1 %43, label %.lr.ph128.split.us, label %.lr.ph128.split
 
-.lr.ph129.split.us:                               ; preds = %.lr.ph129, %.thread99.us
-  %.0128.us = phi ptr [ %56, %.thread99.us ], [ %3, %.lr.ph129 ]
-  %.067127.us = phi i32 [ %57, %.thread99.us ], [ 0, %.lr.ph129 ]
-  %.1126.us = phi ptr [ %.170125.us, %.thread99.us ], [ %17, %.lr.ph129 ]
-  %.170125.us = phi ptr [ %.1126.us, %.thread99.us ], [ %18, %.lr.ph129 ]
-  %51 = getelementptr inbounds i32, ptr %.1126.us, i64 %16
+.lr.ph128.split.us:                               ; preds = %.lr.ph128, %.thread98.us
+  %.0127.us = phi ptr [ %56, %.thread98.us ], [ %3, %.lr.ph128 ]
+  %.067126.us = phi i32 [ %57, %.thread98.us ], [ 0, %.lr.ph128 ]
+  %.1125.us = phi ptr [ %.170124.us, %.thread98.us ], [ %17, %.lr.ph128 ]
+  %.170124.us = phi ptr [ %.1125.us, %.thread98.us ], [ %18, %.lr.ph128 ]
+  %51 = getelementptr inbounds i32, ptr %.1125.us, i64 %16
   %52 = load i32, ptr %13, align 8, !tbaa !9
-  %53 = call fastcc i32 @decode_group3_2d_line(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %52, ptr noundef %.1126.us, ptr noundef %51, ptr noundef %.170125.us)
+  %53 = call fastcc i32 @decode_group3_2d_line(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %52, ptr noundef %.1125.us, ptr noundef %51, ptr noundef %.170124.us)
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.loopexit106, label %.thread99.us
+  br i1 %54, label %.loopexit105, label %.thread98.us
 
-.thread99.us:                                     ; preds = %.lr.ph129.split.us
+.thread98.us:                                     ; preds = %.lr.ph128.split.us
   %55 = load i32, ptr %13, align 8, !tbaa !9
-  tail call fastcc void @put_line(ptr noundef %.0128.us, i32 noundef %5, i32 noundef %55, ptr noundef %.1126.us)
-  %56 = getelementptr inbounds i8, ptr %.0128.us, i64 %50
-  %57 = add nuw nsw i32 %.067127.us, 1
-  %exitcond165.not = icmp eq i32 %57, %4
-  br i1 %exitcond165.not, label %.loopexit106, label %.lr.ph129.split.us, !llvm.loop !37
+  tail call fastcc void @put_line(ptr noundef %.0127.us, i32 noundef %5, i32 noundef %55, ptr noundef %.1125.us)
+  %56 = getelementptr inbounds i8, ptr %.0127.us, i64 %50
+  %57 = add nuw nsw i32 %.067126.us, 1
+  %exitcond164.not = icmp eq i32 %57, %4
+  br i1 %exitcond164.not, label %.loopexit105, label %.lr.ph128.split.us, !llvm.loop !37
 
-.lr.ph129.split:                                  ; preds = %.lr.ph129, %191
-  %.0128 = phi ptr [ %193, %191 ], [ %3, %.lr.ph129 ]
-  %.067127 = phi i32 [ %194, %191 ], [ 0, %.lr.ph129 ]
-  %.1126 = phi ptr [ %.1126..170125, %191 ], [ %17, %.lr.ph129 ]
-  %.170125 = phi ptr [ %.170125..1126, %191 ], [ %18, %.lr.ph129 ]
-  %58 = getelementptr inbounds i32, ptr %.1126, i64 %16
+.lr.ph128.split:                                  ; preds = %.lr.ph128, %191
+  %.0127 = phi ptr [ %193, %191 ], [ %3, %.lr.ph128 ]
+  %.067126 = phi i32 [ %194, %191 ], [ 0, %.lr.ph128 ]
+  %.1125 = phi ptr [ %.1125..170124, %191 ], [ %17, %.lr.ph128 ]
+  %.170124 = phi ptr [ %.170124..1125, %191 ], [ %18, %.lr.ph128 ]
+  %58 = getelementptr inbounds i32, ptr %.1125, i64 %16
   %.val3848.i.pre.pre = load i32, ptr %35, align 8, !tbaa !35
   br i1 %or.cond3, label %59, label %find_group3_syncmarker.exit
 
-59:                                               ; preds = %.lr.ph129.split
+59:                                               ; preds = %.lr.ph128.split
   %60 = sub nsw i32 %25, %.val3848.i.pre.pre
   %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph, label %.loopexit106
+  br i1 %61, label %.lr.ph, label %.loopexit105
 
 .lr.ph:                                           ; preds = %59
   %62 = load ptr, ptr %12, align 8, !tbaa !30
@@ -169,13 +169,13 @@ define range(i32 -2147483648, 1) i32 @ff_ccitt_unpack(ptr noundef %0, ptr nounde
   br label %67
 
 64:                                               ; preds = %67
-  %65 = add nsw i32 %.07.i117, -1
-  %66 = icmp sgt i32 %.07.i117, 1
-  br i1 %66, label %67, label %.loopexit106, !llvm.loop !39
+  %65 = add nsw i32 %.07.i116, -1
+  %66 = icmp sgt i32 %.07.i116, 1
+  br i1 %66, label %67, label %.loopexit105, !llvm.loop !39
 
 67:                                               ; preds = %.lr.ph, %64
-  %.0.i118 = phi i32 [ -1, %.lr.ph ], [ %80, %64 ]
-  %.07.i117 = phi i32 [ %60, %.lr.ph ], [ %65, %64 ]
+  %.0.i117 = phi i32 [ -1, %.lr.ph ], [ %80, %64 ]
+  %.07.i116 = phi i32 [ %60, %.lr.ph ], [ %65, %64 ]
   %68 = phi i32 [ %.val3848.i.pre.pre, %.lr.ph ], [ %spec.select.i.i, %64 ]
   %69 = lshr i32 %68, 3
   %70 = zext nneg i32 %69 to i64
@@ -189,7 +189,7 @@ define range(i32 -2147483648, 1) i32 @ff_ccitt_unpack(ptr noundef %0, ptr nounde
   %77 = shl nuw nsw i32 %75, %76
   %78 = lshr i32 %77, 7
   %79 = and i32 %78, 1
-  %reass.add.i = shl i32 %.0.i118, 1
+  %reass.add.i = shl i32 %.0.i117, 1
   %80 = or disjoint i32 %79, %reass.add.i
   %81 = and i32 %80, 4095
   %82 = icmp eq i32 %81, 1
@@ -199,8 +199,8 @@ find_group3_syncmarker.exit.loopexit:             ; preds = %67
   store i32 %spec.select.i.i, ptr %35, align 8
   br label %find_group3_syncmarker.exit
 
-find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmarker.exit.loopexit, %.lr.ph129.split
-  %.val3848.i.pre = phi i32 [ %spec.select.i.i, %find_group3_syncmarker.exit.loopexit ], [ %.val3848.i.pre.pre, %.lr.ph129.split ]
+find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmarker.exit.loopexit, %.lr.ph128.split
+  %.val3848.i.pre = phi i32 [ %spec.select.i.i, %find_group3_syncmarker.exit.loopexit ], [ %.val3848.i.pre.pre, %.lr.ph128.split ]
   br i1 %or.cond5, label %96, label %83
 
 83:                                               ; preds = %find_group3_syncmarker.exit
@@ -227,7 +227,7 @@ find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmar
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %97, ptr %9, align 4, !tbaa !29
-  store ptr %.1126, ptr %10, align 8, !tbaa !40
+  store ptr %.1125, ptr %10, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !29
   %.val3949.i = load i32, ptr %29, align 4, !tbaa !32
@@ -235,7 +235,7 @@ find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmar
   br i1 %.not4250.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %96, %176
-  %.val39.i168 = phi i32 [ %.val39.i, %176 ], [ %.val3949.i, %96 ]
+  %.val39.i167 = phi i32 [ %.val39.i, %176 ], [ %.val3949.i, %96 ]
   %.val3853.i = phi i32 [ %.val38.i, %176 ], [ %.val3848.i, %96 ]
   %.052.i = phi i32 [ %.2.i, %176 ], [ undef, %96 ]
   %.02551.i = phi i32 [ %.126.i, %176 ], [ 0, %96 ]
@@ -334,7 +334,7 @@ get_vlc2.exit.i:                                  ; preds = %120, %.lr.ph.i
   br i1 %157, label %158, label %176
 
 158:                                              ; preds = %156
-  %159 = sub nsw i32 %.val39.i168, %141
+  %159 = sub nsw i32 %.val39.i167, %141
   %160 = icmp sgt i32 %159, 12
   br i1 %160, label %161, label %175
 
@@ -375,7 +375,7 @@ get_vlc2.exit.i:                                  ; preds = %120, %.lr.ph.i
   br label %.loopexit
 
 176:                                              ; preds = %._crit_edge, %156, %153
-  %.val39.i = phi i32 [ %.val39.i168, %153 ], [ %.val39.i.pre, %._crit_edge ], [ %.val39.i168, %156 ]
+  %.val39.i = phi i32 [ %.val39.i167, %153 ], [ %.val39.i.pre, %._crit_edge ], [ %.val39.i167, %156 ]
   %.val38.i = phi i32 [ %141, %153 ], [ %.val38.i.pre, %._crit_edge ], [ %141, %156 ]
   %.126.i = phi i32 [ 0, %153 ], [ %142, %._crit_edge ], [ %142, %156 ]
   %.2.i = phi i32 [ %.052.i, %153 ], [ %.3.i, %._crit_edge ], [ %.052.i, %156 ]
@@ -393,7 +393,7 @@ get_vlc2.exit.i:                                  ; preds = %120, %.lr.ph.i
 
 .thread:                                          ; preds = %83
   %178 = load i32, ptr %13, align 8, !tbaa !9
-  %179 = call fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef %12, i32 noundef %178, ptr noundef %.1126, ptr noundef %58, ptr noundef %.170125)
+  %179 = call fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef %12, i32 noundef %178, ptr noundef %.1125, ptr noundef %58, ptr noundef %.170124)
   br label %align_get_bits.exit
 
 .loopexit:                                        ; preds = %176, %170, %.loopexit43.i, %175, %152, %147, %96
@@ -424,22 +424,22 @@ align_get_bits.exit:                              ; preds = %183, %180, %.loopex
   %189 = icmp ne i32 %188, 0
   %190 = icmp slt i32 %.3.ph, 0
   %or.cond7 = select i1 %189, i1 %190, i1 false
-  br i1 %or.cond7, label %.loopexit106, label %191
+  br i1 %or.cond7, label %.loopexit105, label %191
 
 191:                                              ; preds = %align_get_bits.exit
   %192 = load i32, ptr %13, align 8, !tbaa !9
-  %.170125..1126 = select i1 %190, ptr %.170125, ptr %.1126
-  %.1126..170125 = select i1 %190, ptr %.1126, ptr %.170125
-  tail call fastcc void @put_line(ptr noundef %.0128, i32 noundef %5, i32 noundef %192, ptr noundef %.170125..1126)
-  %193 = getelementptr inbounds i8, ptr %.0128, i64 %50
-  %194 = add nuw nsw i32 %.067127, 1
+  %.170124..1125 = select i1 %190, ptr %.170124, ptr %.1125
+  %.1125..170124 = select i1 %190, ptr %.1125, ptr %.170124
+  tail call fastcc void @put_line(ptr noundef %.0127, i32 noundef %5, i32 noundef %192, ptr noundef %.170124..1125)
+  %193 = getelementptr inbounds i8, ptr %.0127, i64 %50
+  %194 = add nuw nsw i32 %.067126, 1
   %exitcond.not = icmp eq i32 %194, %4
-  br i1 %exitcond.not, label %.loopexit106, label %.lr.ph129.split, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit105, label %.lr.ph128.split, !llvm.loop !37
 
-.loopexit106:                                     ; preds = %align_get_bits.exit, %191, %59, %64, %.lr.ph129.split.us, %.thread99.us, %36, %8, %21
-  %.072 = phi i32 [ -1094995529, %21 ], [ -12, %8 ], [ 0, %36 ], [ %53, %.lr.ph129.split.us ], [ 0, %.thread99.us ], [ 0, %64 ], [ 0, %59 ], [ %.3.ph, %align_get_bits.exit ], [ 0, %191 ]
-  %.069 = phi ptr [ %18, %21 ], [ %18, %8 ], [ %18, %36 ], [ %.170125.us, %.lr.ph129.split.us ], [ %.1126.us, %.thread99.us ], [ %.170125, %64 ], [ %.170125, %59 ], [ %.170125, %align_get_bits.exit ], [ %.170125..1126, %191 ]
-  %.068 = phi ptr [ %17, %21 ], [ %17, %8 ], [ %17, %36 ], [ %.1126.us, %.lr.ph129.split.us ], [ %.170125.us, %.thread99.us ], [ %.1126, %64 ], [ %.1126, %59 ], [ %.1126, %align_get_bits.exit ], [ %.1126..170125, %191 ]
+.loopexit105:                                     ; preds = %align_get_bits.exit, %191, %59, %64, %.lr.ph128.split.us, %.thread98.us, %36, %8, %21
+  %.072 = phi i32 [ -1094995529, %21 ], [ -12, %8 ], [ 0, %36 ], [ %53, %.lr.ph128.split.us ], [ 0, %.thread98.us ], [ 0, %64 ], [ 0, %59 ], [ %.3.ph, %align_get_bits.exit ], [ 0, %191 ]
+  %.069 = phi ptr [ %18, %21 ], [ %18, %8 ], [ %18, %36 ], [ %.170124.us, %.lr.ph128.split.us ], [ %.1125.us, %.thread98.us ], [ %.170124, %64 ], [ %.170124, %59 ], [ %.170124, %align_get_bits.exit ], [ %.170124..1125, %191 ]
+  %.068 = phi ptr [ %17, %21 ], [ %17, %8 ], [ %17, %36 ], [ %.1125.us, %.lr.ph128.split.us ], [ %.170124.us, %.thread98.us ], [ %.1125, %64 ], [ %.1125, %59 ], [ %.1125, %align_get_bits.exit ], [ %.1125..170124, %191 ]
   tail call void @av_free(ptr noundef %.068) #7
   tail call void @av_free(ptr noundef %.069) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

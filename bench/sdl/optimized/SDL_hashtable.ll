@@ -463,21 +463,21 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %60
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %122 = load i32, ptr %121, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.057.i.i.i = and i32 %122, %108
-  %123 = zext i32 %.057.i.i.i to i64
+  %.056.i.i.i = and i32 %122, %108
+  %123 = zext i32 %.056.i.i.i to i64
   %124 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %110, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 20
   %126 = load i32, ptr %125, align 4
-  %.not58.i.i.i = icmp sgt i32 %126, -1
-  br i1 %.not58.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not57.i.i.i = icmp sgt i32 %126, -1
+  br i1 %.not57.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %155, %120
   %127 = phi i32 [ %116, %120 ], [ %156, %155 ]
-  %.0.lcssa.i.i.i = phi i32 [ %.057.i.i.i, %120 ], [ %.0.i.i.i, %155 ]
-  %.lcssa56.i.i.i = phi ptr [ %124, %120 ], [ %159, %155 ]
+  %.0.lcssa.i.i.i = phi i32 [ %.056.i.i.i, %120 ], [ %.0.i.i.i, %155 ]
+  %.lcssa55.i.i.i = phi ptr [ %124, %120 ], [ %159, %155 ]
   %.lcssa.i.i.i = phi ptr [ %125, %120 ], [ %160, %155 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa56.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
-  %128 = getelementptr inbounds nuw i8, ptr %.lcssa56.i.i.i, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa55.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
+  %128 = getelementptr inbounds nuw i8, ptr %.lcssa55.i.i.i, i64 16
   %129 = load i32, ptr %128, align 8
   %130 = and i32 %129, %108
   %131 = icmp ult i32 %.0.lcssa.i.i.i, %130
@@ -501,13 +501,13 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %60
   %139 = phi i32 [ %161, %155 ], [ %126, %120 ]
   %140 = phi ptr [ %160, %155 ], [ %125, %120 ]
   %141 = phi ptr [ %159, %155 ], [ %124, %120 ]
-  %.060.i.i.i = phi i32 [ %.0.i.i.i, %155 ], [ %.057.i.i.i, %120 ]
+  %.059.i.i.i = phi i32 [ %.0.i.i.i, %155 ], [ %.056.i.i.i, %120 ]
   %142 = and i32 %139, 2147483647
   %143 = load i32, ptr %121, align 8
   %144 = and i32 %143, %108
-  %145 = icmp ult i32 %.060.i.i.i, %144
+  %145 = icmp ult i32 %.059.i.i.i, %144
   %.0.p.v.i48.i.i.i = select i1 %145, i32 %107, i32 0
-  %.0.p.i49.i.i.i = sub i32 %.060.i.i.i, %144
+  %.0.p.i49.i.i.i = sub i32 %.059.i.i.i, %144
   %.0.i50.i.i.i = add i32 %.0.p.v.i48.i.i.i, %.0.p.i49.i.i.i
   %146 = icmp ult i32 %142, %.0.i50.i.i.i
   br i1 %146, label %147, label %155
@@ -531,7 +531,7 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %60
 
 155:                                              ; preds = %154, %147, %.lr.ph.i.i.i
   %156 = phi i32 [ %.0.i50.i.i.i, %154 ], [ %152, %147 ], [ %138, %.lr.ph.i.i.i ]
-  %157 = add i32 %.060.i.i.i, 1
+  %157 = add i32 %.059.i.i.i, 1
   %.0.i.i.i = and i32 %157, %108
   %158 = zext i32 %.0.i.i.i to i64
   %159 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %110, i64 %158
@@ -560,34 +560,34 @@ maybe_resize.exit:                                ; preds = %.maybe_resize.exit_
   %.pre-phi = phi i32 [ %98, %100 ], [ %.pre69, %._crit_edge.i.i ]
   %167 = phi i32 [ %97, %100 ], [ %.pre, %._crit_edge.i.i ]
   %168 = load ptr, ptr %19, align 8
-  %.057.i = and i32 %167, %13
-  %169 = zext i32 %.057.i to i64
+  %.056.i = and i32 %167, %13
+  %169 = zext i32 %.056.i to i64
   %170 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %168, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 20
   %172 = load i32, ptr %171, align 4
-  %.not58.i = icmp sgt i32 %172, -1
-  br i1 %.not58.i, label %._crit_edge.i, label %.lr.ph.i32
+  %.not57.i = icmp sgt i32 %172, -1
+  br i1 %.not57.i, label %._crit_edge.i, label %.lr.ph.i32
 
 ._crit_edge.i.loopexit:                           ; preds = %195
   %.pre70 = and i32 %.sroa.7.1, %167
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %166
-  %.pre-phi71 = phi i32 [ %.pre70, %._crit_edge.i.loopexit ], [ %.057.i, %166 ]
+  %.pre-phi71 = phi i32 [ %.pre70, %._crit_edge.i.loopexit ], [ %.056.i, %166 ]
   %.sroa.10.2 = phi i32 [ %.sroa.10.1, %._crit_edge.i.loopexit ], [ -2147483648, %166 ]
   %.sroa.7.2 = phi i32 [ %.sroa.7.1, %._crit_edge.i.loopexit ], [ %13, %166 ]
   %.sroa.6.2 = phi ptr [ %.sroa.6.1, %._crit_edge.i.loopexit ], [ %2, %166 ]
   %.sroa.0.2 = phi ptr [ %.sroa.0.1, %._crit_edge.i.loopexit ], [ %1, %166 ]
-  %.0.lcssa.i = phi i32 [ %.0.i33, %._crit_edge.i.loopexit ], [ %.057.i, %166 ]
-  %.lcssa56.i = phi ptr [ %198, %._crit_edge.i.loopexit ], [ %170, %166 ]
+  %.0.lcssa.i = phi i32 [ %.0.i33, %._crit_edge.i.loopexit ], [ %.056.i, %166 ]
+  %.lcssa55.i = phi ptr [ %198, %._crit_edge.i.loopexit ], [ %170, %166 ]
   %.lcssa.i = phi ptr [ %199, %._crit_edge.i.loopexit ], [ %171, %166 ]
-  store ptr %.sroa.0.2, ptr %.lcssa56.i, align 8
-  %.sroa.6.0..lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa56.i, i64 8
-  store ptr %.sroa.6.2, ptr %.sroa.6.0..lcssa56.i.sroa_idx, align 8
-  %.sroa.7.0..lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa56.i, i64 16
-  store i32 %.sroa.7.2, ptr %.sroa.7.0..lcssa56.i.sroa_idx, align 8
-  %.sroa.10.0..lcssa56.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa56.i, i64 20
-  store i32 %.sroa.10.2, ptr %.sroa.10.0..lcssa56.i.sroa_idx, align 4
+  store ptr %.sroa.0.2, ptr %.lcssa55.i, align 8
+  %.sroa.6.0..lcssa55.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa55.i, i64 8
+  store ptr %.sroa.6.2, ptr %.sroa.6.0..lcssa55.i.sroa_idx, align 8
+  %.sroa.7.0..lcssa55.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa55.i, i64 16
+  store i32 %.sroa.7.2, ptr %.sroa.7.0..lcssa55.i.sroa_idx, align 8
+  %.sroa.10.0..lcssa55.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa55.i, i64 20
+  store i32 %.sroa.10.2, ptr %.sroa.10.0..lcssa55.i.sroa_idx, align 4
   %173 = icmp ult i32 %.0.lcssa.i, %.pre-phi71
   %.0.p.v.i.i = select i1 %173, i32 %.pre-phi, i32 0
   %.0.p.i.i = sub i32 %.0.lcssa.i, %.pre-phi71
@@ -613,12 +613,12 @@ maybe_resize.exit:                                ; preds = %.maybe_resize.exit_
   %.sroa.648.0.copyload = phi i32 [ %200, %195 ], [ %172, %166 ]
   %181 = phi ptr [ %199, %195 ], [ %171, %166 ]
   %182 = phi ptr [ %198, %195 ], [ %170, %166 ]
-  %.060.i = phi i32 [ %.0.i33, %195 ], [ %.057.i, %166 ]
+  %.059.i = phi i32 [ %.0.i33, %195 ], [ %.056.i, %166 ]
   %183 = and i32 %.sroa.648.0.copyload, 2147483647
   %184 = and i32 %.sroa.7.0, %167
-  %185 = icmp ult i32 %.060.i, %184
+  %185 = icmp ult i32 %.059.i, %184
   %.0.p.v.i48.i = select i1 %185, i32 %.pre-phi, i32 0
-  %.0.p.i49.i = sub i32 %.060.i, %184
+  %.0.p.i49.i = sub i32 %.059.i, %184
   %.0.i50.i = add i32 %.0.p.v.i48.i, %.0.p.i49.i
   %186 = icmp ult i32 %183, %.0.i50.i
   br i1 %186, label %187, label %195
@@ -652,7 +652,7 @@ maybe_resize.exit:                                ; preds = %.maybe_resize.exit_
   %.sroa.7.1 = phi i32 [ %.sroa.5.0.copyload, %194 ], [ %.sroa.5.0.copyload, %187 ], [ %.sroa.7.0, %.lr.ph.i32 ]
   %.sroa.6.1 = phi ptr [ %.sroa.4.0.copyload, %194 ], [ %.sroa.4.0.copyload, %187 ], [ %.sroa.6.0, %.lr.ph.i32 ]
   %.sroa.0.1 = phi ptr [ %.sroa.047.0.copyload, %194 ], [ %.sroa.047.0.copyload, %187 ], [ %.sroa.0.0, %.lr.ph.i32 ]
-  %196 = add i32 %.060.i, 1
+  %196 = add i32 %.059.i, 1
   %.0.i33 = and i32 %196, %167
   %197 = zext i32 %.0.i33 to i64
   %198 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %168, i64 %197

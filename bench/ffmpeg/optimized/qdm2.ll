@@ -455,7 +455,7 @@ define internal i32 @qdm2_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 51368
-  %indvars.iv.i.sroa.gep122.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %indvars.iv.i.sroa.gep121.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 51440
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 51364
@@ -2917,21 +2917,21 @@ qdm2_decode_fft_packets.exit.i:                   ; preds = %1272, %1270, %._cri
 ._crit_edge.i71.i:                                ; preds = %1341, %1334
   %1343 = load i32, ptr %65, align 4, !tbaa !75
   %1344 = icmp sgt i32 %1343, -1
-  br i1 %1344, label %.preheader129.i.i, label %.loopexit.i72.i
+  br i1 %1344, label %.preheader126.i.i, label %.loopexit.i72.i
 
-.preheader129.i.i:                                ; preds = %._crit_edge.i71.i
+.preheader126.i.i:                                ; preds = %._crit_edge.i71.i
   %1345 = load i32, ptr %67, align 8, !tbaa !75
   %1346 = icmp slt i32 %1343, %1345
-  br i1 %1346, label %.lr.ph133.i.i, label %.loopexit.i72.i
+  br i1 %1346, label %.lr.ph130.i.i, label %.loopexit.i72.i
 
-.lr.ph133.i.i:                                    ; preds = %.preheader129.i.i
+.lr.ph130.i.i:                                    ; preds = %.preheader126.i.i
   %1347 = icmp eq i32 %1336, 1
   %1348 = zext nneg i32 %1343 to i64
   br label %1349
 
-1349:                                             ; preds = %1372, %.lr.ph133.i.i
-  %indvars.iv149.i.i = phi i64 [ %1348, %.lr.ph133.i.i ], [ %indvars.iv.next150.i.i, %1372 ]
-  %1350 = getelementptr inbounds nuw %struct.FFTCoefficient, ptr %66, i64 %indvars.iv149.i.i
+1349:                                             ; preds = %1372, %.lr.ph130.i.i
+  %indvars.iv146.i.i = phi i64 [ %1348, %.lr.ph130.i.i ], [ %indvars.iv.next147.i.i, %1372 ]
+  %1350 = getelementptr inbounds nuw %struct.FFTCoefficient, ptr %66, i64 %indvars.iv146.i.i
   %1351 = load i16, ptr %1350, align 2, !tbaa !127
   %1352 = sext i16 %1351 to i32
   %.not.i80.i = icmp eq i32 %1335, %1352
@@ -2997,18 +2997,18 @@ qdm2_decode_fft_packets.exit.i:                   ; preds = %1272, %1270, %._cri
   %1398 = load float, ptr %1397, align 4, !tbaa !136
   %1399 = fsub nsz float %1398, %1383
   store float %1399, ptr %1397, align 4, !tbaa !136
-  %indvars.iv.next150.i.i = add nuw nsw i64 %indvars.iv149.i.i, 1
-  %1400 = trunc nuw i64 %indvars.iv.next150.i.i to i32
+  %indvars.iv.next147.i.i = add nuw nsw i64 %indvars.iv146.i.i, 1
+  %1400 = trunc nuw i64 %indvars.iv.next147.i.i to i32
   %1401 = icmp sgt i32 %1345, %1400
   br i1 %1401, label %1349, label %.loopexit.i72.i, !llvm.loop !137
 
-.loopexit.i72.i:                                  ; preds = %1372, %1349, %.preheader129.i.i, %._crit_edge.i71.i
+.loopexit.i72.i:                                  ; preds = %1372, %1349, %.preheader126.i.i, %._crit_edge.i71.i
   %1402 = load i32, ptr %68, align 4, !tbaa !138
   %1403 = load i32, ptr %69, align 8, !tbaa !139
-  %.not115135.i.i = icmp eq i32 %1402, %1403
-  br i1 %.not115135.i.i, label %.preheader128.i.i.preheader, label %.lr.ph137.i.i
+  %.not115132.i.i = icmp eq i32 %1402, %1403
+  br i1 %.not115132.i.i, label %.preheader125.i.i.preheader, label %.lr.ph134.i.i
 
-.lr.ph137.i.i:                                    ; preds = %.loopexit.i72.i, %qdm2_fft_generate_tone.exit.i
+.lr.ph134.i.i:                                    ; preds = %.loopexit.i72.i, %qdm2_fft_generate_tone.exit.i
   %1404 = phi i32 [ %1513, %qdm2_fft_generate_tone.exit.i ], [ %1402, %.loopexit.i72.i ]
   %1405 = phi i32 [ %1515, %qdm2_fft_generate_tone.exit.i ], [ %1403, %.loopexit.i72.i ]
   %1406 = sext i32 %1405 to i64
@@ -3043,13 +3043,13 @@ qdm2_decode_fft_packets.exit.i:                   ; preds = %1272, %1270, %._cri
   %1433 = icmp sgt i32 %1414, 2
   br i1 %1433, label %1438, label %1434
 
-1434:                                             ; preds = %.lr.ph137.i.i
+1434:                                             ; preds = %.lr.ph134.i.i
   %1435 = getelementptr inbounds nuw i8, ptr %1407, i64 38
   %1436 = load i16, ptr %1435, align 2, !tbaa !148
   %1437 = icmp sgt i16 %1436, 2
   br i1 %1437, label %1438, label %1452
 
-1438:                                             ; preds = %1434, %.lr.ph137.i.i
+1438:                                             ; preds = %1434, %.lr.ph134.i.i
   %1439 = getelementptr inbounds nuw i8, ptr %1407, i64 8
   %1440 = load ptr, ptr %1439, align 8, !tbaa !149
   %1441 = getelementptr inbounds nuw i8, ptr %1440, i64 4
@@ -3170,45 +3170,45 @@ qdm2_fft_generate_tone.exit.i:                    ; preds = %1506, %.loopexit.i1
   %1515 = srem i32 %1514, 1000
   store i32 %1515, ptr %69, align 8, !tbaa !139
   %.not115.i.i = icmp eq i32 %1402, %1515
-  br i1 %.not115.i.i, label %.preheader128.i.i.preheader, label %.lr.ph137.i.i, !llvm.loop !153
+  br i1 %.not115.i.i, label %.preheader125.i.i.preheader, label %.lr.ph134.i.i, !llvm.loop !153
 
-.preheader128.i.i.preheader:                      ; preds = %qdm2_fft_generate_tone.exit.i, %.loopexit.i72.i
+.preheader125.i.i.preheader:                      ; preds = %qdm2_fft_generate_tone.exit.i, %.loopexit.i72.i
   %.ph = phi i32 [ %1402, %.loopexit.i72.i ], [ %1513, %qdm2_fft_generate_tone.exit.i ]
-  br label %.preheader128.i.i
+  br label %.preheader125.i.i
 
-.preheader128.i.i:                                ; preds = %.preheader128.i.i.preheader, %1665
-  %1516 = phi i32 [ %1666, %1665 ], [ %.ph, %.preheader128.i.i.preheader ]
-  %indvars.iv155.i.i = phi i64 [ %indvars.iv.next156.i.i, %1665 ], [ 0, %.preheader128.i.i.preheader ]
-  %1517 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv155.i.i
+.preheader125.i.i:                                ; preds = %.preheader125.i.i.preheader, %1665
+  %1516 = phi i32 [ %1666, %1665 ], [ %.ph, %.preheader125.i.i.preheader ]
+  %indvars.iv152.i.i = phi i64 [ %indvars.iv.next153.i.i, %1665 ], [ 0, %.preheader125.i.i.preheader ]
+  %1517 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv152.i.i
   %1518 = load i32, ptr %1517, align 4, !tbaa !75
   %1519 = icmp sgt i32 %1518, -1
   br i1 %1519, label %.preheader.i73.i, label %1665
 
-.preheader.i73.i:                                 ; preds = %.preheader128.i.i
-  %1520 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv155.i.i
+.preheader.i73.i:                                 ; preds = %.preheader125.i.i
+  %1520 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv152.i.i
   %1521 = load i32, ptr %1520, align 4, !tbaa !75
   %1522 = icmp slt i32 %1518, %1521
-  br i1 %1522, label %.lr.ph139.i.i, label %._crit_edge140.i.i
+  br i1 %1522, label %.lr.ph136.i.i, label %._crit_edge137.i.i
 
-.lr.ph139.i.i:                                    ; preds = %.preheader.i73.i
-  %1523 = getelementptr inbounds nuw [16 x [5 x float]], ptr @fft_tone_sample_table, i64 %indvars.iv155.i.i
-  %1524 = getelementptr inbounds nuw [31 x float], ptr @fft_tone_envelope_table, i64 %indvars.iv155.i.i
-  %1525 = icmp eq i64 %indvars.iv155.i.i, 3
+.lr.ph136.i.i:                                    ; preds = %.preheader.i73.i
+  %1523 = getelementptr inbounds nuw [16 x [5 x float]], ptr @fft_tone_sample_table, i64 %indvars.iv152.i.i
+  %1524 = getelementptr inbounds nuw [31 x float], ptr @fft_tone_envelope_table, i64 %indvars.iv152.i.i
+  %1525 = icmp eq i64 %indvars.iv152.i.i, 3
   %1526 = zext nneg i32 %1518 to i64
-  %1527 = trunc i64 %indvars.iv155.i.i to i32
+  %1527 = trunc i64 %indvars.iv152.i.i to i32
   %1528 = sub i32 4, %1527
   %1529 = add i32 %1527, 3
   br label %1530
 
-1530:                                             ; preds = %1659, %.lr.ph139.i.i
-  %1531 = phi i32 [ %1516, %.lr.ph139.i.i ], [ %1660, %1659 ]
-  %1532 = phi i32 [ %1521, %.lr.ph139.i.i ], [ %1661, %1659 ]
-  %indvars.iv152.i.i = phi i64 [ %1526, %.lr.ph139.i.i ], [ %indvars.iv.next153.i.i, %1659 ]
-  %1533 = getelementptr inbounds nuw %struct.FFTCoefficient, ptr %66, i64 %indvars.iv152.i.i
+1530:                                             ; preds = %1659, %.lr.ph136.i.i
+  %1531 = phi i32 [ %1516, %.lr.ph136.i.i ], [ %1660, %1659 ]
+  %1532 = phi i32 [ %1521, %.lr.ph136.i.i ], [ %1661, %1659 ]
+  %indvars.iv149.i.i = phi i64 [ %1526, %.lr.ph136.i.i ], [ %indvars.iv.next150.i.i, %1659 ]
+  %1533 = getelementptr inbounds nuw %struct.FFTCoefficient, ptr %66, i64 %indvars.iv149.i.i
   %1534 = load i16, ptr %1533, align 2, !tbaa !127
   %1535 = sext i16 %1534 to i32
   %.not116.i.i = icmp eq i32 %1335, %1535
-  br i1 %.not116.i.i, label %1536, label %._crit_edge140.loopexit.split.loop.exit.i.i
+  br i1 %.not116.i.i, label %1536, label %._crit_edge137.loopexit.split.loop.exit.i.i
 
 1536:                                             ; preds = %1530
   %1537 = getelementptr inbounds nuw i8, ptr %1533, i64 4
@@ -3311,7 +3311,7 @@ qdm2_fft_generate_tone.exit.i:                    ; preds = %1506, %.loopexit.i1
   %1611 = getelementptr inbounds nuw i8, ptr %1575, i64 16
   %1612 = load float, ptr %1611, align 4, !tbaa !27
   %1613 = fneg nsz float %1612
-  store float %1613, ptr %indvars.iv.i.sroa.gep122.i.i, align 4, !tbaa !27
+  store float %1613, ptr %indvars.iv.i.sroa.gep121.i.i, align 4, !tbaa !27
   %1614 = getelementptr inbounds nuw i8, ptr %1575, i64 12
   %1615 = load float, ptr %1614, align 4, !tbaa !27
   %1616 = load float, ptr %1575, align 4, !tbaa !27
@@ -3339,7 +3339,7 @@ qdm2_fft_generate_tone.exit.i:                    ; preds = %1506, %.loopexit.i1
 
 1632:                                             ; preds = %1632, %1610
   %1633 = phi i1 [ true, %1610 ], [ false, %1632 ]
-  %indvars.iv.i.sroa.phi.i.i = phi ptr [ %7, %1610 ], [ %indvars.iv.i.sroa.gep122.i.i, %1632 ]
+  %indvars.iv.i.sroa.phi.i.i = phi ptr [ %7, %1610 ], [ %indvars.iv.i.sroa.gep121.i.i, %1632 ]
   %indvars.iv.i.i76.i = phi i64 [ 0, %1610 ], [ 1, %1632 ]
   %1634 = load float, ptr %indvars.iv.i.sroa.phi.i.i, align 4, !tbaa !27
   %1635 = getelementptr inbounds nuw i32, ptr %1631, i64 %indvars.iv.i.i76.i
@@ -3379,8 +3379,8 @@ qdm2_fft_generate_tone.exit.i.i:                  ; preds = %.preheader.i.i78.i,
   %1655 = sext i32 %1531 to i64
   %1656 = getelementptr inbounds %struct.FFTTone, ptr %70, i64 %1655
   store float %1568, ptr %1656, align 8
-  %.sroa.5120.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1656, i64 8
-  store ptr %1571, ptr %.sroa.5120.0..sroa_idx.i.i, align 8
+  %.sroa.5119.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1656, i64 8
+  store ptr %1571, ptr %.sroa.5119.0..sroa_idx.i.i, align 8
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1656, i64 16
   store ptr %1575, ptr %.sroa.8.0..sroa_idx.i.i, align 8
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1656, i64 24
@@ -3403,26 +3403,26 @@ qdm2_fft_generate_tone.exit.i.i:                  ; preds = %.preheader.i.i78.i,
 1659:                                             ; preds = %qdm2_fft_generate_tone.exit.i.i, %1547
   %1660 = phi i32 [ %1658, %qdm2_fft_generate_tone.exit.i.i ], [ %1531, %1547 ]
   %1661 = phi i32 [ %.pre.pre.i.i, %qdm2_fft_generate_tone.exit.i.i ], [ %1532, %1547 ]
-  %indvars.iv.next153.i.i = add nuw nsw i64 %indvars.iv152.i.i, 1
-  %indvars.i.i = trunc i64 %indvars.iv.next153.i.i to i32
+  %indvars.iv.next150.i.i = add nuw nsw i64 %indvars.iv149.i.i, 1
+  %indvars.i.i = trunc i64 %indvars.iv.next150.i.i to i32
   %1662 = icmp sgt i32 %1661, %indvars.i.i
-  br i1 %1662, label %1530, label %._crit_edge140.i.i, !llvm.loop !154
+  br i1 %1662, label %1530, label %._crit_edge137.i.i, !llvm.loop !154
 
-._crit_edge140.loopexit.split.loop.exit.i.i:      ; preds = %1530
-  %1663 = trunc nuw i64 %indvars.iv152.i.i to i32
-  br label %._crit_edge140.i.i
+._crit_edge137.loopexit.split.loop.exit.i.i:      ; preds = %1530
+  %1663 = trunc nuw i64 %indvars.iv149.i.i to i32
+  br label %._crit_edge137.i.i
 
-._crit_edge140.i.i:                               ; preds = %1659, %._crit_edge140.loopexit.split.loop.exit.i.i, %.preheader.i73.i
-  %1664 = phi i32 [ %1516, %.preheader.i73.i ], [ %1531, %._crit_edge140.loopexit.split.loop.exit.i.i ], [ %1660, %1659 ]
-  %.0104.lcssa.i.i = phi i32 [ %1518, %.preheader.i73.i ], [ %1663, %._crit_edge140.loopexit.split.loop.exit.i.i ], [ %indvars.i.i, %1659 ]
+._crit_edge137.i.i:                               ; preds = %1659, %._crit_edge137.loopexit.split.loop.exit.i.i, %.preheader.i73.i
+  %1664 = phi i32 [ %1516, %.preheader.i73.i ], [ %1531, %._crit_edge137.loopexit.split.loop.exit.i.i ], [ %1660, %1659 ]
+  %.0104.lcssa.i.i = phi i32 [ %1518, %.preheader.i73.i ], [ %1663, %._crit_edge137.loopexit.split.loop.exit.i.i ], [ %indvars.i.i, %1659 ]
   store i32 %.0104.lcssa.i.i, ptr %1517, align 4, !tbaa !75
   br label %1665
 
-1665:                                             ; preds = %._crit_edge140.i.i, %.preheader128.i.i
-  %1666 = phi i32 [ %1664, %._crit_edge140.i.i ], [ %1516, %.preheader128.i.i ]
-  %indvars.iv.next156.i.i = add nuw nsw i64 %indvars.iv155.i.i, 1
-  %exitcond159.not.i.i = icmp eq i64 %indvars.iv.next156.i.i, 4
-  br i1 %exitcond159.not.i.i, label %qdm2_fft_tone_synthesizer.exit.i, label %.preheader128.i.i, !llvm.loop !155
+1665:                                             ; preds = %._crit_edge137.i.i, %.preheader125.i.i
+  %1666 = phi i32 [ %1664, %._crit_edge137.i.i ], [ %1516, %.preheader125.i.i ]
+  %indvars.iv.next153.i.i = add nuw nsw i64 %indvars.iv152.i.i, 1
+  %exitcond156.not.i.i = icmp eq i64 %indvars.iv.next153.i.i, 4
+  br i1 %exitcond156.not.i.i, label %qdm2_fft_tone_synthesizer.exit.i, label %.preheader125.i.i, !llvm.loop !155
 
 qdm2_fft_tone_synthesizer.exit.i:                 ; preds = %1665, %qdm2_decode_super_block.exit.i
   %1667 = load i32, ptr %29, align 4, !tbaa !33

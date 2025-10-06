@@ -792,11 +792,11 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %2, i64 16
-  %.val151 = load i64, ptr %12, align 8, !tbaa !48
+  %.val150 = load i64, ptr %12, align 8, !tbaa !48
   br label %13
 
 13:                                               ; preds = %3, %11
-  %14 = phi i64 [ %.val151, %11 ], [ 0, %3 ]
+  %14 = phi i64 [ %.val150, %11 ], [ 0, %3 ]
   %15 = add i64 %14, %.val
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
@@ -816,7 +816,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 18:                                               ; preds = %13
   %19 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %17, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @py_blake2b_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #8
   %.not114 = icmp eq ptr %19, null
-  br i1 %.not114, label %127, label %.thread
+  br i1 %.not114, label %128, label %.thread
 
 .thread:                                          ; preds = %13, %18
   %20 = phi ptr [ %19, %18 ], [ %17, %13 ]
@@ -832,7 +832,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.086 = phi i64 [ %15, %.thread ], [ %23, %22 ]
   %.085 = phi ptr [ null, %.thread ], [ %24, %22 ]
   %.not115 = icmp eq i64 %.086, 0
-  br i1 %.not115, label %123, label %26
+  br i1 %.not115, label %124, label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr i8, ptr %20, i64 8
@@ -848,12 +848,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 32:                                               ; preds = %29
   %33 = call ptr @PyErr_Occurred() #8
   %.not117 = icmp eq ptr %33, null
-  br i1 %.not117, label %34, label %127
+  br i1 %.not117, label %34, label %128
 
 34:                                               ; preds = %32, %29
   %35 = add i64 %.086, -1
   %.not118 = icmp eq i64 %35, 0
-  br i1 %.not118, label %123, label %36
+  br i1 %.not118, label %124, label %36
 
 36:                                               ; preds = %34, %26
   %.187 = phi i64 [ %35, %34 ], [ %.086, %26 ]
@@ -866,12 +866,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 39:                                               ; preds = %36
   %40 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %38, ptr noundef nonnull %5, i32 noundef 0) #8
   %.not120 = icmp eq i32 %40, 0
-  br i1 %.not120, label %41, label %127
+  br i1 %.not120, label %41, label %128
 
 41:                                               ; preds = %39
   %42 = add i64 %.187, -1
   %.not121 = icmp eq i64 %42, 0
-  br i1 %.not121, label %123, label %43
+  br i1 %.not121, label %124, label %43
 
 43:                                               ; preds = %41, %36
   %.2 = phi i64 [ %42, %41 ], [ %.187, %36 ]
@@ -883,12 +883,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 46:                                               ; preds = %43
   %47 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef 0) #8
   %.not123 = icmp eq i32 %47, 0
-  br i1 %.not123, label %48, label %127
+  br i1 %.not123, label %48, label %128
 
 48:                                               ; preds = %46
   %49 = add i64 %.2, -1
   %.not124 = icmp eq i64 %49, 0
-  br i1 %.not124, label %123, label %50
+  br i1 %.not124, label %124, label %50
 
 50:                                               ; preds = %48, %43
   %.3 = phi i64 [ %49, %48 ], [ %.2, %43 ]
@@ -900,12 +900,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 53:                                               ; preds = %50
   %54 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %52, ptr noundef nonnull %7, i32 noundef 0) #8
   %.not126 = icmp eq i32 %54, 0
-  br i1 %.not126, label %55, label %127
+  br i1 %.not126, label %55, label %128
 
 55:                                               ; preds = %53
   %56 = add i64 %.3, -1
   %.not127 = icmp eq i64 %56, 0
-  br i1 %.not127, label %123, label %57
+  br i1 %.not127, label %124, label %57
 
 57:                                               ; preds = %55, %50
   %.4 = phi i64 [ %56, %55 ], [ %.3, %50 ]
@@ -922,12 +922,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 63:                                               ; preds = %60
   %64 = call ptr @PyErr_Occurred() #8
   %.not129 = icmp eq ptr %64, null
-  br i1 %.not129, label %65, label %127
+  br i1 %.not129, label %65, label %128
 
 65:                                               ; preds = %63, %60
   %66 = add i64 %.4, -1
   %.not130 = icmp eq i64 %66, 0
-  br i1 %.not130, label %123, label %67
+  br i1 %.not130, label %124, label %67
 
 67:                                               ; preds = %65, %57
   %.5 = phi i64 [ %66, %65 ], [ %.4, %57 ]
@@ -945,12 +945,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 73:                                               ; preds = %70
   %74 = call ptr @PyErr_Occurred() #8
   %.not132 = icmp eq ptr %74, null
-  br i1 %.not132, label %75, label %127
+  br i1 %.not132, label %75, label %128
 
 75:                                               ; preds = %73, %70
   %76 = add i64 %.5, -1
   %.not133 = icmp eq i64 %76, 0
-  br i1 %.not133, label %123, label %77
+  br i1 %.not133, label %124, label %77
 
 77:                                               ; preds = %75, %67
   %.6 = phi i64 [ %76, %75 ], [ %.5, %67 ]
@@ -963,12 +963,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 80:                                               ; preds = %77
   %81 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %79, ptr noundef nonnull %8) #8
   %.not135 = icmp eq i32 %81, 0
-  br i1 %.not135, label %127, label %82
+  br i1 %.not135, label %128, label %82
 
 82:                                               ; preds = %80
   %83 = add i64 %.6, -1
   %.not136 = icmp eq i64 %83, 0
-  br i1 %.not136, label %123, label %84
+  br i1 %.not136, label %124, label %84
 
 84:                                               ; preds = %82, %77
   %.7 = phi i64 [ %83, %82 ], [ %.6, %77 ]
@@ -980,12 +980,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 87:                                               ; preds = %84
   %88 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %86, ptr noundef nonnull %9) #8
   %.not138 = icmp eq i32 %88, 0
-  br i1 %.not138, label %127, label %89
+  br i1 %.not138, label %128, label %89
 
 89:                                               ; preds = %87
   %90 = add i64 %.7, -1
   %.not139 = icmp eq i64 %90, 0
-  br i1 %.not139, label %123, label %91
+  br i1 %.not139, label %124, label %91
 
 91:                                               ; preds = %89, %84
   %.8 = phi i64 [ %90, %89 ], [ %.7, %84 ]
@@ -1002,12 +1002,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 97:                                               ; preds = %94
   %98 = call ptr @PyErr_Occurred() #8
   %.not141 = icmp eq ptr %98, null
-  br i1 %.not141, label %99, label %127
+  br i1 %.not141, label %99, label %128
 
 99:                                               ; preds = %97, %94
   %100 = add i64 %.8, -1
   %.not142 = icmp eq i64 %100, 0
-  br i1 %.not142, label %123, label %101
+  br i1 %.not142, label %124, label %101
 
 101:                                              ; preds = %99, %91
   %.9 = phi i64 [ %100, %99 ], [ %.8, %91 ]
@@ -1025,12 +1025,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 107:                                              ; preds = %104
   %108 = call ptr @PyErr_Occurred() #8
   %.not144 = icmp eq ptr %108, null
-  br i1 %.not144, label %109, label %127
+  br i1 %.not144, label %109, label %128
 
 109:                                              ; preds = %107, %104
   %110 = add i64 %.9, -1
   %.not145 = icmp eq i64 %110, 0
-  br i1 %.not145, label %123, label %111
+  br i1 %.not145, label %124, label %111
 
 111:                                              ; preds = %109, %101
   %.10 = phi i64 [ %110, %109 ], [ %.9, %101 ]
@@ -1038,69 +1038,69 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %112 = getelementptr i8, ptr %20, i64 88
   %113 = load ptr, ptr %112, align 8, !tbaa !55
   %.not146 = icmp eq ptr %113, null
-  br i1 %.not146, label %118, label %114
+  br i1 %.not146, label %119, label %114
 
 114:                                              ; preds = %111
   %115 = call i32 @PyObject_IsTrue(ptr noundef nonnull %113) #8
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %127, label %117
+  br i1 %116, label %128, label %117
 
 117:                                              ; preds = %114
-  %.not147 = icmp eq i64 %.10, 1
-  br i1 %.not147, label %123, label %118
+  %118 = icmp ugt i64 %.10, 1
+  br i1 %118, label %119, label %124
 
-118:                                              ; preds = %117, %111
+119:                                              ; preds = %117, %111
   %.1 = phi i32 [ %115, %117 ], [ 0, %111 ]
-  %119 = getelementptr i8, ptr %20, i64 96
-  %120 = load ptr, ptr %119, align 8, !tbaa !55
-  %121 = call i32 @PyObject_IsTrue(ptr noundef %120) #8
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %127, label %123
+  %120 = getelementptr i8, ptr %20, i64 96
+  %121 = load ptr, ptr %120, align 8, !tbaa !55
+  %122 = call i32 @PyObject_IsTrue(ptr noundef %121) #8
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %128, label %124
 
-123:                                              ; preds = %118, %117, %109, %99, %89, %82, %75, %65, %55, %48, %41, %34, %25
-  %.083 = phi i32 [ %.184, %118 ], [ %.184, %117 ], [ %.184, %109 ], [ %.184, %99 ], [ %.184, %89 ], [ %.184, %82 ], [ %.184, %75 ], [ %.184, %65 ], [ %.184, %55 ], [ %.184, %48 ], [ %.184, %41 ], [ %30, %34 ], [ 64, %25 ]
-  %.081 = phi i32 [ %.182, %118 ], [ %.182, %117 ], [ %.182, %109 ], [ %.182, %99 ], [ %.182, %89 ], [ %.182, %82 ], [ %.182, %75 ], [ %61, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
-  %.079 = phi i32 [ %.180, %118 ], [ %.180, %117 ], [ %.180, %109 ], [ %.180, %99 ], [ %.180, %89 ], [ %.180, %82 ], [ %71, %75 ], [ 1, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
-  %.077 = phi i32 [ %.178, %118 ], [ %.178, %117 ], [ %.178, %109 ], [ %95, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
-  %.075 = phi i32 [ %.176, %118 ], [ %.176, %117 ], [ %105, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
-  %.074 = phi i32 [ %.1, %118 ], [ %115, %117 ], [ 0, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
-  %124 = load i64, ptr %8, align 8, !tbaa !52
-  %125 = load i64, ptr %9, align 8, !tbaa !53
-  %126 = call fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %.085, i32 noundef %.083, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7, i32 noundef %.081, i32 noundef %.079, i64 noundef %124, i64 noundef %125, i32 noundef %.077, i32 noundef %.075, i32 noundef range(i32 0, -2147483648) %.074)
-  br label %127
+124:                                              ; preds = %119, %117, %109, %99, %89, %82, %75, %65, %55, %48, %41, %34, %25
+  %.083 = phi i32 [ %.184, %119 ], [ %.184, %117 ], [ %.184, %109 ], [ %.184, %99 ], [ %.184, %89 ], [ %.184, %82 ], [ %.184, %75 ], [ %.184, %65 ], [ %.184, %55 ], [ %.184, %48 ], [ %.184, %41 ], [ %30, %34 ], [ 64, %25 ]
+  %.081 = phi i32 [ %.182, %119 ], [ %.182, %117 ], [ %.182, %109 ], [ %.182, %99 ], [ %.182, %89 ], [ %.182, %82 ], [ %.182, %75 ], [ %61, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
+  %.079 = phi i32 [ %.180, %119 ], [ %.180, %117 ], [ %.180, %109 ], [ %.180, %99 ], [ %.180, %89 ], [ %.180, %82 ], [ %71, %75 ], [ 1, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
+  %.077 = phi i32 [ %.178, %119 ], [ %.178, %117 ], [ %.178, %109 ], [ %95, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
+  %.075 = phi i32 [ %.176, %119 ], [ %.176, %117 ], [ %105, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
+  %.074 = phi i32 [ %.1, %119 ], [ %115, %117 ], [ 0, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
+  %125 = load i64, ptr %8, align 8, !tbaa !52
+  %126 = load i64, ptr %9, align 8, !tbaa !53
+  %127 = call fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %.085, i32 noundef %.083, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7, i32 noundef %.081, i32 noundef %.079, i64 noundef %125, i64 noundef %126, i32 noundef %.077, i32 noundef %.075, i32 noundef range(i32 0, -2147483648) %.074)
+  br label %128
 
-127:                                              ; preds = %118, %114, %107, %97, %87, %80, %73, %63, %53, %46, %39, %32, %18, %123
-  %.088 = phi ptr [ null, %32 ], [ null, %39 ], [ null, %46 ], [ null, %53 ], [ null, %63 ], [ null, %73 ], [ null, %97 ], [ null, %107 ], [ null, %114 ], [ null, %118 ], [ %126, %123 ], [ null, %87 ], [ null, %80 ], [ null, %18 ]
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !56
-  %.not148 = icmp eq ptr %129, null
-  br i1 %.not148, label %131, label %130
+128:                                              ; preds = %119, %114, %107, %97, %87, %80, %73, %63, %53, %46, %39, %32, %18, %124
+  %.088 = phi ptr [ null, %32 ], [ null, %39 ], [ null, %46 ], [ null, %53 ], [ null, %63 ], [ null, %73 ], [ null, %97 ], [ null, %107 ], [ null, %114 ], [ null, %119 ], [ %127, %124 ], [ null, %87 ], [ null, %80 ], [ null, %18 ]
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !56
+  %.not147 = icmp eq ptr %130, null
+  br i1 %.not147, label %132, label %131
 
-130:                                              ; preds = %127
+131:                                              ; preds = %128
   call void @PyBuffer_Release(ptr noundef nonnull %5) #8
-  br label %131
+  br label %132
 
-131:                                              ; preds = %130, %127
-  %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %133 = load ptr, ptr %132, align 8, !tbaa !56
-  %.not149 = icmp eq ptr %133, null
-  br i1 %.not149, label %135, label %134
+132:                                              ; preds = %131, %128
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !56
+  %.not148 = icmp eq ptr %134, null
+  br i1 %.not148, label %136, label %135
 
-134:                                              ; preds = %131
+135:                                              ; preds = %132
   call void @PyBuffer_Release(ptr noundef nonnull %6) #8
-  br label %135
+  br label %136
 
-135:                                              ; preds = %134, %131
-  %136 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !56
-  %.not150 = icmp eq ptr %137, null
-  br i1 %.not150, label %139, label %138
+136:                                              ; preds = %135, %132
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %138 = load ptr, ptr %137, align 8, !tbaa !56
+  %.not149 = icmp eq ptr %138, null
+  br i1 %.not149, label %140, label %139
 
-138:                                              ; preds = %135
+139:                                              ; preds = %136
   call void @PyBuffer_Release(ptr noundef nonnull %7) #8
-  br label %139
+  br label %140
 
-139:                                              ; preds = %138, %135
+140:                                              ; preds = %139, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2145,11 +2145,11 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %2, i64 16
-  %.val151 = load i64, ptr %12, align 8, !tbaa !48
+  %.val150 = load i64, ptr %12, align 8, !tbaa !48
   br label %13
 
 13:                                               ; preds = %3, %11
-  %14 = phi i64 [ %.val151, %11 ], [ 0, %3 ]
+  %14 = phi i64 [ %.val150, %11 ], [ 0, %3 ]
   %15 = add i64 %14, %.val
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
@@ -2169,7 +2169,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 18:                                               ; preds = %13
   %19 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %17, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @py_blake2s_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #8
   %.not114 = icmp eq ptr %19, null
-  br i1 %.not114, label %127, label %.thread
+  br i1 %.not114, label %128, label %.thread
 
 .thread:                                          ; preds = %13, %18
   %20 = phi ptr [ %19, %18 ], [ %17, %13 ]
@@ -2185,7 +2185,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.086 = phi i64 [ %15, %.thread ], [ %23, %22 ]
   %.085 = phi ptr [ null, %.thread ], [ %24, %22 ]
   %.not115 = icmp eq i64 %.086, 0
-  br i1 %.not115, label %123, label %26
+  br i1 %.not115, label %124, label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr i8, ptr %20, i64 8
@@ -2201,12 +2201,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 32:                                               ; preds = %29
   %33 = call ptr @PyErr_Occurred() #8
   %.not117 = icmp eq ptr %33, null
-  br i1 %.not117, label %34, label %127
+  br i1 %.not117, label %34, label %128
 
 34:                                               ; preds = %32, %29
   %35 = add i64 %.086, -1
   %.not118 = icmp eq i64 %35, 0
-  br i1 %.not118, label %123, label %36
+  br i1 %.not118, label %124, label %36
 
 36:                                               ; preds = %34, %26
   %.187 = phi i64 [ %35, %34 ], [ %.086, %26 ]
@@ -2219,12 +2219,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 39:                                               ; preds = %36
   %40 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %38, ptr noundef nonnull %5, i32 noundef 0) #8
   %.not120 = icmp eq i32 %40, 0
-  br i1 %.not120, label %41, label %127
+  br i1 %.not120, label %41, label %128
 
 41:                                               ; preds = %39
   %42 = add i64 %.187, -1
   %.not121 = icmp eq i64 %42, 0
-  br i1 %.not121, label %123, label %43
+  br i1 %.not121, label %124, label %43
 
 43:                                               ; preds = %41, %36
   %.2 = phi i64 [ %42, %41 ], [ %.187, %36 ]
@@ -2236,12 +2236,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 46:                                               ; preds = %43
   %47 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef 0) #8
   %.not123 = icmp eq i32 %47, 0
-  br i1 %.not123, label %48, label %127
+  br i1 %.not123, label %48, label %128
 
 48:                                               ; preds = %46
   %49 = add i64 %.2, -1
   %.not124 = icmp eq i64 %49, 0
-  br i1 %.not124, label %123, label %50
+  br i1 %.not124, label %124, label %50
 
 50:                                               ; preds = %48, %43
   %.3 = phi i64 [ %49, %48 ], [ %.2, %43 ]
@@ -2253,12 +2253,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 53:                                               ; preds = %50
   %54 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %52, ptr noundef nonnull %7, i32 noundef 0) #8
   %.not126 = icmp eq i32 %54, 0
-  br i1 %.not126, label %55, label %127
+  br i1 %.not126, label %55, label %128
 
 55:                                               ; preds = %53
   %56 = add i64 %.3, -1
   %.not127 = icmp eq i64 %56, 0
-  br i1 %.not127, label %123, label %57
+  br i1 %.not127, label %124, label %57
 
 57:                                               ; preds = %55, %50
   %.4 = phi i64 [ %56, %55 ], [ %.3, %50 ]
@@ -2275,12 +2275,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 63:                                               ; preds = %60
   %64 = call ptr @PyErr_Occurred() #8
   %.not129 = icmp eq ptr %64, null
-  br i1 %.not129, label %65, label %127
+  br i1 %.not129, label %65, label %128
 
 65:                                               ; preds = %63, %60
   %66 = add i64 %.4, -1
   %.not130 = icmp eq i64 %66, 0
-  br i1 %.not130, label %123, label %67
+  br i1 %.not130, label %124, label %67
 
 67:                                               ; preds = %65, %57
   %.5 = phi i64 [ %66, %65 ], [ %.4, %57 ]
@@ -2298,12 +2298,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 73:                                               ; preds = %70
   %74 = call ptr @PyErr_Occurred() #8
   %.not132 = icmp eq ptr %74, null
-  br i1 %.not132, label %75, label %127
+  br i1 %.not132, label %75, label %128
 
 75:                                               ; preds = %73, %70
   %76 = add i64 %.5, -1
   %.not133 = icmp eq i64 %76, 0
-  br i1 %.not133, label %123, label %77
+  br i1 %.not133, label %124, label %77
 
 77:                                               ; preds = %75, %67
   %.6 = phi i64 [ %76, %75 ], [ %.5, %67 ]
@@ -2316,12 +2316,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 80:                                               ; preds = %77
   %81 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %79, ptr noundef nonnull %8) #8
   %.not135 = icmp eq i32 %81, 0
-  br i1 %.not135, label %127, label %82
+  br i1 %.not135, label %128, label %82
 
 82:                                               ; preds = %80
   %83 = add i64 %.6, -1
   %.not136 = icmp eq i64 %83, 0
-  br i1 %.not136, label %123, label %84
+  br i1 %.not136, label %124, label %84
 
 84:                                               ; preds = %82, %77
   %.7 = phi i64 [ %83, %82 ], [ %.6, %77 ]
@@ -2333,12 +2333,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 87:                                               ; preds = %84
   %88 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %86, ptr noundef nonnull %9) #8
   %.not138 = icmp eq i32 %88, 0
-  br i1 %.not138, label %127, label %89
+  br i1 %.not138, label %128, label %89
 
 89:                                               ; preds = %87
   %90 = add i64 %.7, -1
   %.not139 = icmp eq i64 %90, 0
-  br i1 %.not139, label %123, label %91
+  br i1 %.not139, label %124, label %91
 
 91:                                               ; preds = %89, %84
   %.8 = phi i64 [ %90, %89 ], [ %.7, %84 ]
@@ -2355,12 +2355,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 97:                                               ; preds = %94
   %98 = call ptr @PyErr_Occurred() #8
   %.not141 = icmp eq ptr %98, null
-  br i1 %.not141, label %99, label %127
+  br i1 %.not141, label %99, label %128
 
 99:                                               ; preds = %97, %94
   %100 = add i64 %.8, -1
   %.not142 = icmp eq i64 %100, 0
-  br i1 %.not142, label %123, label %101
+  br i1 %.not142, label %124, label %101
 
 101:                                              ; preds = %99, %91
   %.9 = phi i64 [ %100, %99 ], [ %.8, %91 ]
@@ -2378,12 +2378,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 107:                                              ; preds = %104
   %108 = call ptr @PyErr_Occurred() #8
   %.not144 = icmp eq ptr %108, null
-  br i1 %.not144, label %109, label %127
+  br i1 %.not144, label %109, label %128
 
 109:                                              ; preds = %107, %104
   %110 = add i64 %.9, -1
   %.not145 = icmp eq i64 %110, 0
-  br i1 %.not145, label %123, label %111
+  br i1 %.not145, label %124, label %111
 
 111:                                              ; preds = %109, %101
   %.10 = phi i64 [ %110, %109 ], [ %.9, %101 ]
@@ -2391,69 +2391,69 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %112 = getelementptr i8, ptr %20, i64 88
   %113 = load ptr, ptr %112, align 8, !tbaa !55
   %.not146 = icmp eq ptr %113, null
-  br i1 %.not146, label %118, label %114
+  br i1 %.not146, label %119, label %114
 
 114:                                              ; preds = %111
   %115 = call i32 @PyObject_IsTrue(ptr noundef nonnull %113) #8
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %127, label %117
+  br i1 %116, label %128, label %117
 
 117:                                              ; preds = %114
-  %.not147 = icmp eq i64 %.10, 1
-  br i1 %.not147, label %123, label %118
+  %118 = icmp ugt i64 %.10, 1
+  br i1 %118, label %119, label %124
 
-118:                                              ; preds = %117, %111
+119:                                              ; preds = %117, %111
   %.1 = phi i32 [ %115, %117 ], [ 0, %111 ]
-  %119 = getelementptr i8, ptr %20, i64 96
-  %120 = load ptr, ptr %119, align 8, !tbaa !55
-  %121 = call i32 @PyObject_IsTrue(ptr noundef %120) #8
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %127, label %123
+  %120 = getelementptr i8, ptr %20, i64 96
+  %121 = load ptr, ptr %120, align 8, !tbaa !55
+  %122 = call i32 @PyObject_IsTrue(ptr noundef %121) #8
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %128, label %124
 
-123:                                              ; preds = %118, %117, %109, %99, %89, %82, %75, %65, %55, %48, %41, %34, %25
-  %.083 = phi i32 [ %.184, %118 ], [ %.184, %117 ], [ %.184, %109 ], [ %.184, %99 ], [ %.184, %89 ], [ %.184, %82 ], [ %.184, %75 ], [ %.184, %65 ], [ %.184, %55 ], [ %.184, %48 ], [ %.184, %41 ], [ %30, %34 ], [ 32, %25 ]
-  %.081 = phi i32 [ %.182, %118 ], [ %.182, %117 ], [ %.182, %109 ], [ %.182, %99 ], [ %.182, %89 ], [ %.182, %82 ], [ %.182, %75 ], [ %61, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
-  %.079 = phi i32 [ %.180, %118 ], [ %.180, %117 ], [ %.180, %109 ], [ %.180, %99 ], [ %.180, %89 ], [ %.180, %82 ], [ %71, %75 ], [ 1, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
-  %.077 = phi i32 [ %.178, %118 ], [ %.178, %117 ], [ %.178, %109 ], [ %95, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
-  %.075 = phi i32 [ %.176, %118 ], [ %.176, %117 ], [ %105, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
-  %.074 = phi i32 [ %.1, %118 ], [ %115, %117 ], [ 0, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
-  %124 = load i64, ptr %8, align 8, !tbaa !52
-  %125 = load i64, ptr %9, align 8, !tbaa !53
-  %126 = call fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %.085, i32 noundef %.083, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7, i32 noundef %.081, i32 noundef %.079, i64 noundef %124, i64 noundef %125, i32 noundef %.077, i32 noundef %.075, i32 noundef range(i32 0, -2147483648) %.074)
-  br label %127
+124:                                              ; preds = %119, %117, %109, %99, %89, %82, %75, %65, %55, %48, %41, %34, %25
+  %.083 = phi i32 [ %.184, %119 ], [ %.184, %117 ], [ %.184, %109 ], [ %.184, %99 ], [ %.184, %89 ], [ %.184, %82 ], [ %.184, %75 ], [ %.184, %65 ], [ %.184, %55 ], [ %.184, %48 ], [ %.184, %41 ], [ %30, %34 ], [ 32, %25 ]
+  %.081 = phi i32 [ %.182, %119 ], [ %.182, %117 ], [ %.182, %109 ], [ %.182, %99 ], [ %.182, %89 ], [ %.182, %82 ], [ %.182, %75 ], [ %61, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
+  %.079 = phi i32 [ %.180, %119 ], [ %.180, %117 ], [ %.180, %109 ], [ %.180, %99 ], [ %.180, %89 ], [ %.180, %82 ], [ %71, %75 ], [ 1, %65 ], [ 1, %55 ], [ 1, %48 ], [ 1, %41 ], [ 1, %34 ], [ 1, %25 ]
+  %.077 = phi i32 [ %.178, %119 ], [ %.178, %117 ], [ %.178, %109 ], [ %95, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
+  %.075 = phi i32 [ %.176, %119 ], [ %.176, %117 ], [ %105, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
+  %.074 = phi i32 [ %.1, %119 ], [ %115, %117 ], [ 0, %109 ], [ 0, %99 ], [ 0, %89 ], [ 0, %82 ], [ 0, %75 ], [ 0, %65 ], [ 0, %55 ], [ 0, %48 ], [ 0, %41 ], [ 0, %34 ], [ 0, %25 ]
+  %125 = load i64, ptr %8, align 8, !tbaa !52
+  %126 = load i64, ptr %9, align 8, !tbaa !53
+  %127 = call fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %.085, i32 noundef %.083, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7, i32 noundef %.081, i32 noundef %.079, i64 noundef %125, i64 noundef %126, i32 noundef %.077, i32 noundef %.075, i32 noundef range(i32 0, -2147483648) %.074)
+  br label %128
 
-127:                                              ; preds = %118, %114, %107, %97, %87, %80, %73, %63, %53, %46, %39, %32, %18, %123
-  %.088 = phi ptr [ null, %32 ], [ null, %39 ], [ null, %46 ], [ null, %53 ], [ null, %63 ], [ null, %73 ], [ null, %97 ], [ null, %107 ], [ null, %114 ], [ null, %118 ], [ %126, %123 ], [ null, %87 ], [ null, %80 ], [ null, %18 ]
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !56
-  %.not148 = icmp eq ptr %129, null
-  br i1 %.not148, label %131, label %130
+128:                                              ; preds = %119, %114, %107, %97, %87, %80, %73, %63, %53, %46, %39, %32, %18, %124
+  %.088 = phi ptr [ null, %32 ], [ null, %39 ], [ null, %46 ], [ null, %53 ], [ null, %63 ], [ null, %73 ], [ null, %97 ], [ null, %107 ], [ null, %114 ], [ null, %119 ], [ %127, %124 ], [ null, %87 ], [ null, %80 ], [ null, %18 ]
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !56
+  %.not147 = icmp eq ptr %130, null
+  br i1 %.not147, label %132, label %131
 
-130:                                              ; preds = %127
+131:                                              ; preds = %128
   call void @PyBuffer_Release(ptr noundef nonnull %5) #8
-  br label %131
+  br label %132
 
-131:                                              ; preds = %130, %127
-  %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %133 = load ptr, ptr %132, align 8, !tbaa !56
-  %.not149 = icmp eq ptr %133, null
-  br i1 %.not149, label %135, label %134
+132:                                              ; preds = %131, %128
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !56
+  %.not148 = icmp eq ptr %134, null
+  br i1 %.not148, label %136, label %135
 
-134:                                              ; preds = %131
+135:                                              ; preds = %132
   call void @PyBuffer_Release(ptr noundef nonnull %6) #8
-  br label %135
+  br label %136
 
-135:                                              ; preds = %134, %131
-  %136 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !56
-  %.not150 = icmp eq ptr %137, null
-  br i1 %.not150, label %139, label %138
+136:                                              ; preds = %135, %132
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %138 = load ptr, ptr %137, align 8, !tbaa !56
+  %.not149 = icmp eq ptr %138, null
+  br i1 %.not149, label %140, label %139
 
-138:                                              ; preds = %135
+139:                                              ; preds = %136
   call void @PyBuffer_Release(ptr noundef nonnull %7) #8
-  br label %139
+  br label %140
 
-139:                                              ; preds = %138, %135
+140:                                              ; preds = %139, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

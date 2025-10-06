@@ -461,7 +461,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 54:                                               ; preds = %50
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 55:                                               ; preds = %50
   %.not90.i = icmp eq i32 %51, 0
@@ -469,7 +469,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 56:                                               ; preds = %55
   store i32 16, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 57:                                               ; preds = %55
   %58 = call noundef i32 @_ZNK6icu_776Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -479,7 +479,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 61:                                               ; preds = %57
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 62:                                               ; preds = %57
   %.not92.i = icmp eq i32 %58, 0
@@ -487,7 +487,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 63:                                               ; preds = %62
   store i32 16, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 64:                                               ; preds = %62
   %65 = icmp eq i32 %59, -124
@@ -501,8 +501,8 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
   br label %67
 
 67:                                               ; preds = %.preheader, %90
-  %indvars.iv143.i = phi i64 [ %indvars.iv.next144.i, %90 ], [ 0, %.preheader ]
-  %68 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZN6icu_7712_GLOBAL__N_114collAttributesE, i64 %indvars.iv143.i
+  %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %90 ], [ 0, %.preheader ]
+  %68 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZN6icu_7712_GLOBAL__N_114collAttributesE, i64 %indvars.iv141.i
   %69 = load ptr, ptr %68, align 16, !tbaa !18
   %70 = call noundef i32 @_ZNK6icu_776Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef %69, ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %71 = load i32, ptr %1, align 4, !tbaa !6
@@ -513,22 +513,22 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 74:                                               ; preds = %67
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 75:                                               ; preds = %67
   %76 = icmp eq i32 %70, 0
-  br i1 %76, label %90, label %.preheader129.i
+  br i1 %76, label %90, label %.preheader127.i
 
-77:                                               ; preds = %.preheader129.i
+77:                                               ; preds = %.preheader127.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not94.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %.not94.i, label %.thread.i, label %.preheader129.i, !llvm.loop !21
+  br i1 %.not94.i, label %.thread.i, label %.preheader127.i, !llvm.loop !21
 
 .thread.i:                                        ; preds = %77
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
-.preheader129.i:                                  ; preds = %75, %77
+.preheader127.i:                                  ; preds = %75, %77
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ 0, %75 ]
   %78 = getelementptr inbounds nuw %struct.anon.2, ptr @_ZN6icu_7712_GLOBAL__N_119collAttributeValuesE, i64 %indvars.iv.i
   %79 = load ptr, ptr %78, align 16, !tbaa !23
@@ -536,7 +536,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %77
 
-82:                                               ; preds = %.preheader129.i
+82:                                               ; preds = %.preheader127.i
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !26
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -548,8 +548,8 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
   br label %90
 
 90:                                               ; preds = %82, %75
-  %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next144.i, 7
+  %indvars.iv.next142.i = add nuw nsw i64 %indvars.iv141.i, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next142.i, 7
   br i1 %exitcond.i, label %.critedge.i, label %67, !llvm.loop !28
 
 .critedge.i:                                      ; preds = %90
@@ -562,7 +562,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 95:                                               ; preds = %.critedge.i
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 96:                                               ; preds = %.critedge.i
   %.not96.i = icmp eq i32 %91, 0
@@ -573,12 +573,12 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
   br label %98
 
 98:                                               ; preds = %119, %97
-  %indvars.iv146.i = phi i64 [ %indvars.iv.next147.i, %119 ], [ 0, %97 ]
+  %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %119 ], [ 0, %97 ]
   %.082.i = phi ptr [ %122, %119 ], [ %3, %97 ]
-  %99 = icmp eq i64 %indvars.iv146.i, 213
-  br i1 %99, label %.thread121.i, label %.preheader127.i
+  %99 = icmp eq i64 %indvars.iv144.i, 213
+  br i1 %99, label %.thread120.i, label %.preheader125.i
 
-.preheader127.i:                                  ; preds = %98, %101
+.preheader125.i:                                  ; preds = %98, %101
   %.081.i = phi ptr [ %102, %101 ], [ %.082.i, %98 ]
   %100 = load i8, ptr %.081.i, align 1, !tbaa !29
   switch i8 %100, label %101 [
@@ -586,60 +586,60 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
     i8 0, label %103
   ]
 
-101:                                              ; preds = %.preheader127.i
+101:                                              ; preds = %.preheader125.i
   %102 = getelementptr inbounds nuw i8, ptr %.081.i, i64 1
-  br label %.preheader127.i, !llvm.loop !30
+  br label %.preheader125.i, !llvm.loop !30
 
-103:                                              ; preds = %.preheader127.i, %.preheader127.i
+103:                                              ; preds = %.preheader125.i, %.preheader125.i
   store i8 0, ptr %.081.i, align 1, !tbaa !29
   %104 = ptrtoint ptr %.081.i to i64
   %105 = ptrtoint ptr %.082.i to i64
   %106 = sub i64 %104, %105
   %107 = icmp eq i64 %106, 4
-  br i1 %107, label %108, label %.preheader126.i
+  br i1 %107, label %108, label %.preheader124.i
 
 108:                                              ; preds = %103
   %109 = call i32 @u_getPropertyValueEnum_77(i32 noundef 4106, ptr noundef nonnull %.082.i)
   br label %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i
 
-.preheader126.i:                                  ; preds = %103, %117
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %117 ], [ 0, %103 ]
+.preheader124.i:                                  ; preds = %103, %114
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %114 ], [ 0, %103 ]
   %110 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_7712_GLOBAL__N_116collReorderCodesE, i64 %indvars.iv.i.i
   %111 = load ptr, ptr %110, align 8, !tbaa !31
   %112 = call i32 @uprv_stricmp_77(ptr noundef nonnull %.082.i, ptr noundef %111)
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %117
+  br i1 %113, label %115, label %114
 
-114:                                              ; preds = %.preheader126.i
-  %115 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %116 = or disjoint i32 %115, 4096
+114:                                              ; preds = %.preheader124.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
+  br i1 %exitcond.not.i.i, label %.thread120.i, label %.preheader124.i, !llvm.loop !32
+
+115:                                              ; preds = %.preheader124.i
+  %116 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %117 = or disjoint i32 %116, 4096
   br label %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i
 
-117:                                              ; preds = %.preheader126.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.i.i, label %.thread121.i, label %.preheader126.i, !llvm.loop !32
-
-_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
-  %.0.i = phi i32 [ %109, %108 ], [ %116, %114 ]
+_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %115, %108
+  %.0.i = phi i32 [ %109, %108 ], [ %117, %115 ]
   %118 = icmp slt i32 %.0.i, 0
-  br i1 %118, label %.thread121.i, label %119
+  br i1 %118, label %.thread120.i, label %119
 
 119:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i
-  %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
-  %120 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv146.i
+  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
+  %120 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv144.i
   store i32 %.0.i, ptr %120, align 4, !tbaa !33
   %121 = icmp eq i8 %100, 0
   %122 = getelementptr inbounds nuw i8, ptr %.081.i, i64 1
   br i1 %121, label %123, label %98
 
-.thread121.i:                                     ; preds = %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i, %98, %117
+.thread120.i:                                     ; preds = %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i, %98, %114
   store i32 1, ptr %1, align 4, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread151.i
+  br label %.thread149.i
 
 123:                                              ; preds = %119
-  %124 = trunc nuw nsw i64 %indvars.iv.next147.i to i32
+  %124 = trunc nuw nsw i64 %indvars.iv.next145.i to i32
   %125 = load ptr, ptr %.016, align 8, !tbaa !3
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 168
   %127 = load ptr, ptr %126, align 8
@@ -657,11 +657,11 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
 
 133:                                              ; preds = %128
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 134:                                              ; preds = %128
   %.not98.i = icmp eq i32 %129, 0
-  br i1 %.not98.i, label %.thread151.i, label %.preheader.i
+  br i1 %.not98.i, label %.thread149.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %134, %139
   %indvars.iv.i106.i = phi i64 [ %indvars.iv.next.i107.i, %139 ], [ 0, %134 ]
@@ -673,12 +673,12 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
 
 139:                                              ; preds = %.preheader.i
   %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i106.i, 1
-  %exitcond.i108.i = icmp eq i64 %indvars.iv.next.i107.i, 5
-  br i1 %exitcond.i108.i, label %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i, label %.preheader.i, !llvm.loop !32
+  %exitcond.not.i108.i = icmp eq i64 %indvars.iv.next.i107.i, 5
+  br i1 %exitcond.not.i108.i, label %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit109.thread.i, label %.preheader.i, !llvm.loop !32
 
-_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i: ; preds = %139
+_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit109.thread.i: ; preds = %139
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
 140:                                              ; preds = %.preheader.i
   %141 = trunc nuw nsw i64 %indvars.iv.i106.i to i32
@@ -689,19 +689,19 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i: ; preds = %139
   %146 = call noundef nonnull align 8 dereferenceable(8) ptr %145(ptr noundef nonnull align 8 dereferenceable(8) %.016, i32 noundef %142, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %.pre.i = load i32, ptr %1, align 4, !tbaa !6
   %147 = icmp slt i32 %.pre.i, 1
-  br i1 %147, label %.thread151.i, label %148
+  br i1 %147, label %.thread149.i, label %148
 
 148:                                              ; preds = %140
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread151.i
+  br label %.thread149.i
 
-.thread151.i:                                     ; preds = %148, %140, %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i, %134, %133, %.thread121.i, %95, %.thread.i, %74, %63, %61, %56, %54
-  %149 = phi i32 [ 1, %148 ], [ %.pre.i, %140 ], [ 1, %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i ], [ %130, %134 ], [ 1, %133 ], [ 1, %.thread121.i ], [ 1, %95 ], [ 1, %.thread.i ], [ 1, %74 ], [ 16, %63 ], [ 1, %61 ], [ 16, %56 ], [ 1, %54 ]
+.thread149.i:                                     ; preds = %148, %140, %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit109.thread.i, %134, %133, %.thread120.i, %95, %.thread.i, %74, %63, %61, %56, %54
+  %149 = phi i32 [ 1, %148 ], [ %.pre.i, %140 ], [ 1, %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit109.thread.i ], [ %130, %134 ], [ 1, %133 ], [ 1, %.thread120.i ], [ 1, %95 ], [ 1, %.thread.i ], [ 1, %74 ], [ 16, %63 ], [ 1, %61 ], [ 16, %56 ], [ 1, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit: ; preds = %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge, %.thread151.i
-  %150 = phi i32 [ %.pre, %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge ], [ %149, %.thread151.i ]
+_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit: ; preds = %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge, %.thread149.i
+  %150 = phi i32 [ %.pre, %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge ], [ %149, %.thread149.i ]
   %151 = icmp slt i32 %150, 1
   br i1 %151, label %156, label %152
 

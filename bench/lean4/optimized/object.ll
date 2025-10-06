@@ -4701,7 +4701,7 @@ define linkonce_odr hidden noundef ptr @_ZN4lean12task_manager8wait_anyEP11lean_
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 1
   %.not1213.i = icmp eq i64 %5, 0
-  br i1 %.not1213.i, label %.lr.ph.i, label %.loopexit35
+  br i1 %.not1213.i, label %.lr.ph.i, label %.loopexit34
 
 .lr.ph.i:                                         ; preds = %2, %10
   %.0814.i = phi ptr [ %12, %10 ], [ %1, %2 ]
@@ -4718,9 +4718,9 @@ define linkonce_odr hidden noundef ptr @_ZN4lean12task_manager8wait_anyEP11lean_
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
   %.not12.i = icmp eq i64 %14, 0
-  br i1 %.not12.i, label %.lr.ph.i, label %.loopexit35, !llvm.loop !123
+  br i1 %.not12.i, label %.lr.ph.i, label %.loopexit34, !llvm.loop !123
 
-.loopexit35:                                      ; preds = %10, %2
+.loopexit34:                                      ; preds = %10, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !90
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4728,11 +4728,11 @@ define linkonce_odr hidden noundef ptr @_ZN4lean12task_manager8wait_anyEP11lean_
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %17
 
-17:                                               ; preds = %.loopexit35
+17:                                               ; preds = %.loopexit34
   tail call void @_ZSt20__throw_system_errori(i32 noundef %16) #43
   unreachable
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.loopexit35
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.loopexit34
   store i8 1, ptr %15, align 8, !tbaa !93
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 856
   br i1 %.not1213.i, label %.lr.ph.i20.us, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.split
@@ -4760,24 +4760,24 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.loopexit35
 
 .loopexit.us:                                     ; preds = %23
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(9) %3)
-          to label %.lr.ph.i20.us.backedge unwind label %.split40.us
+          to label %.lr.ph.i20.us.backedge unwind label %.split39.us
 
-.split40.us:                                      ; preds = %.loopexit.us
+.split39.us:                                      ; preds = %.loopexit.us
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.split:   ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.split
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(9) %3)
-          to label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.split unwind label %.split40, !llvm.loop !124
+          to label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.split unwind label %.split39, !llvm.loop !124
 
-.split40:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.split
+.split39:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.split
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-30:                                               ; preds = %.split40.us, %.split40
-  %.us-phi41 = phi { ptr, i32 } [ %29, %.split40 ], [ %28, %.split40.us ]
+30:                                               ; preds = %.split39.us, %.split39
+  %.us-phi40 = phi { ptr, i32 } [ %29, %.split39 ], [ %28, %.split39.us ]
   %31 = load i8, ptr %15, align 8, !tbaa !93, !range !7, !noundef !8
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %39, label %_ZNSt11unique_lockISt5mutexED2Ev.exit26
@@ -4811,7 +4811,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.split.us, %35, %37
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit26:          ; preds = %30, %39, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %.us-phi41
+  resume { ptr, i32 } %.us-phi40
 
 _ZN4lean12task_manager14wait_any_checkEP11lean_object.exit: ; preds = %.lr.ph.i, %_ZNSt11unique_lockISt5mutexED2Ev.exit
   %.1 = phi ptr [ %20, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %7, %.lr.ph.i ]
@@ -12780,7 +12780,7 @@ define range(i32 0, 1114112) i32 @lean_string_utf8_get_fast_cold(ptr noundef rea
   %17 = zext nneg i8 %16 to i32
   %18 = or disjoint i32 %15, %17
   %19 = icmp samesign ult i32 %15, 128
-  br i1 %19, label %20, label %.thread59
+  br i1 %19, label %20, label %.thread56
 
 20:                                               ; preds = %11, %8, %4
   %21 = and i32 %5, 240
@@ -12814,17 +12814,17 @@ define range(i32 0, 1114112) i32 @lean_string_utf8_get_fast_cold(ptr noundef rea
   %43 = icmp samesign ult i32 %35, 55296
   %44 = icmp samesign ugt i32 %31, 57343
   %or.cond = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond, label %.thread59, label %.thread
+  br i1 %or.cond, label %.thread56, label %.thread
 
 .thread:                                          ; preds = %37, %26, %23, %20
   %45 = and i32 %5, 248
   %46 = icmp eq i32 %45, 240
-  br i1 %46, label %47, label %.thread59
+  br i1 %46, label %47, label %.thread56
 
 47:                                               ; preds = %.thread
   %48 = add i64 %1, 3
   %49 = icmp ult i64 %48, %2
-  br i1 %49, label %50, label %.thread59
+  br i1 %49, label %50, label %.thread56
 
 50:                                               ; preds = %47
   %51 = getelementptr i8, ptr %0, i64 %1
@@ -12838,7 +12838,7 @@ define range(i32 0, 1114112) i32 @lean_string_utf8_get_fast_cold(ptr noundef rea
   %59 = or disjoint i32 %58, %55
   %60 = add nsw i32 %59, -65536
   %or.cond3 = icmp ult i32 %60, 1048576
-  br i1 %or.cond3, label %61, label %.thread59
+  br i1 %or.cond3, label %61, label %.thread56
 
 61:                                               ; preds = %50
   %62 = getelementptr i8, ptr %51, i64 2
@@ -12852,9 +12852,9 @@ define range(i32 0, 1114112) i32 @lean_string_utf8_get_fast_cold(ptr noundef rea
   %70 = zext nneg i8 %69 to i32
   %71 = or disjoint i32 %66, %70
   %72 = or disjoint i32 %71, %59
-  br label %.thread59
+  br label %.thread56
 
-.thread59:                                        ; preds = %50, %.thread, %47, %61, %37, %11
+.thread56:                                        ; preds = %50, %.thread, %47, %61, %37, %11
   %.2 = phi i32 [ %72, %61 ], [ %18, %11 ], [ %42, %37 ], [ 65, %47 ], [ 65, %.thread ], [ 65, %50 ]
   ret i32 %.2
 }

@@ -2979,8 +2979,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean5levelES1_SaIS1_
   %17 = load i64, ptr %16, align 8, !tbaa !19
   %18 = urem i64 %15, %17
   %19 = load i64, ptr %6, align 8, !tbaa !46
-  %.not32 = icmp eq i64 %19, 0
-  br i1 %.not32, label %.critedge, label %20
+  %.not30 = icmp eq i64 %19, 0
+  br i1 %.not30, label %.critedge, label %20
 
 20:                                               ; preds = %.thread
   %21 = load ptr, ptr %0, align 8, !tbaa !17
@@ -3400,7 +3400,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean4exprES1_SaIS1_E
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %4
-  %.not32 = phi i1 [ %14, %.thread.loopexit ], [ false, %4 ]
+  %.not30 = phi i1 [ %14, %.thread.loopexit ], [ false, %4 ]
   %15 = load ptr, ptr %1, align 8, !tbaa !24
   %16 = getelementptr i8, ptr %15, i64 4
   %.val.i.i.i.i = load i32, ptr %16, align 4
@@ -3414,7 +3414,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean4exprES1_SaIS1_E
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !15
   %26 = urem i64 %23, %25
-  br i1 %.not32, label %.critedge, label %27
+  br i1 %.not30, label %.critedge, label %27
 
 27:                                               ; preds = %.thread
   %28 = load ptr, ptr %0, align 8, !tbaa !3

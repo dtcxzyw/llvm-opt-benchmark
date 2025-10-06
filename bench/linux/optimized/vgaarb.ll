@@ -1458,12 +1458,11 @@ define internal i64 @vga_arb_read(ptr noundef readonly captures(none) %0, ptr no
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
-  switch i64 %14, label %.preheader [
-    i64 -1, label %15
-    i64 0, label %15
-  ]
+  %.off = add i64 %14, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %.preheader, label %15
 
-15:                                               ; preds = %10, %10
+15:                                               ; preds = %10
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %11) #14
   store i64 28263411883601513, ptr %8, align 8
   br label %65

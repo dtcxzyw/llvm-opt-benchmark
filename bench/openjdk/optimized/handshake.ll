@@ -2084,8 +2084,8 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15process_by_selfEbb(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load volatile ptr, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %.not3746 = icmp eq ptr %12, null
-  br i1 %.not3746, label %.loopexit, label %.lr.ph
+  %.not3645 = icmp eq ptr %12, null
+  br i1 %.not3645, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2199,8 +2199,8 @@ _ZN14HandshakeState15get_op_for_selfEbb.exit:     ; preds = %.preheader.i.i.i, %
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %64) #11
   %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not38 = icmp eq ptr %69, null
-  br i1 %.not38, label %75, label %70
+  %.not37 = icmp eq ptr %69, null
+  br i1 %.not37, label %75, label %70
 
 70:                                               ; preds = %62
   %71 = select i1 %68, ptr @.str.16, ptr @.str.17
@@ -2399,8 +2399,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %111, %108, %107
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #11
   %173 = load volatile ptr, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %.not37 = icmp eq ptr %173, null
-  br i1 %.not37, label %.loopexit, label %16
+  %.not36 = icmp eq ptr %173, null
+  br i1 %.not36, label %.loopexit, label %16
 
 .loopexit:                                        ; preds = %_ZN11MutexLockerD2Ev.exit, %3, %_ZN11MutexLockerD2Ev.exit.thread
   %.2 = phi i1 [ %.1.ph, %_ZN11MutexLockerD2Ev.exit.thread ], [ false, %3 ], [ false, %_ZN11MutexLockerD2Ev.exit ]

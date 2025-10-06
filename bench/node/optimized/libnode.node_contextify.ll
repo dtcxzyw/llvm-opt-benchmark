@@ -4979,8 +4979,8 @@ if.then252:                                       ; preds = %land.lhs.true
   br label %for.body
 
 for.body:                                         ; preds = %if.then252, %for.inc
-  %__begin3.0.idx107 = phi i64 [ 0, %if.then252 ], [ %__begin3.0.add, %for.inc ]
-  %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN4node10contextifyL25esm_syntax_error_messagesE, i64 %__begin3.0.idx107
+  %__begin3.0.idx106 = phi i64 [ 0, %if.then252 ], [ %__begin3.0.add, %for.inc ]
+  %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN4node10contextifyL25esm_syntax_error_messagesE, i64 %__begin3.0.idx106
   %agg.tmp276.sroa.0.0.copyload = load i64, ptr %__begin3.0.ptr, align 8
   %agg.tmp276.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__begin3.0.ptr, i64 8
   %agg.tmp276.sroa.2.0.copyload = load ptr, ptr %agg.tmp276.sroa.2.0..sroa_idx, align 8
@@ -5024,7 +5024,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt1
   br i1 %cmp278.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.end19.i.i, %if.end.i.i65, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
-  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx107, 16
+  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx106, 16
   %cmp275.not.not = icmp eq i64 %__begin3.0.add, 48
   br i1 %cmp275.not.not, label %for.end.thread, label %for.body
 
@@ -5036,10 +5036,10 @@ for.end:                                          ; preds = %for.body, %_ZNKSt17
   br i1 %80, label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78.sink.split, label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78
 
 for.end.thread:                                   ; preds = %for.inc
-  %cmp.i.i.i.i70116 = icmp ne ptr %77, null
-  %buf_st_.i.i.i71117 = getelementptr inbounds nuw i8, ptr %message_value, i64 24
-  %cmp.i.i.i72118 = icmp ne ptr %77, %buf_st_.i.i.i71117
-  %81 = select i1 %cmp.i.i.i.i70116, i1 %cmp.i.i.i72118, i1 false
+  %cmp.i.i.i.i70115 = icmp ne ptr %77, null
+  %buf_st_.i.i.i71116 = getelementptr inbounds nuw i8, ptr %message_value, i64 24
+  %cmp.i.i.i72117 = icmp ne ptr %77, %buf_st_.i.i.i71116
+  %81 = select i1 %cmp.i.i.i.i70115, i1 %cmp.i.i.i72117, i1 false
   br i1 %81, label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78.sink.split, label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78
 
 _ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78.sink.split: ; preds = %for.end, %for.end.thread
@@ -5050,14 +5050,14 @@ _ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78.sink.split: ; preds = 
 _ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78: ; preds = %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78.sink.split, %for.end, %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit, %land.lhs.true, %for.end.thread
   %add.i.i823 = phi i64 [ 640, %for.end.thread ], [ 640, %land.lhs.true ], [ 640, %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit ], [ 632, %for.end ], [ %add.i.i823.ph, %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit78.sink.split ]
   %82 = load ptr, ptr %args, align 8
-  %arrayidx.i104125 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %arrayidx.i103124 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %arrayidx.i827 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %83 = load ptr, ptr %arrayidx.i827, align 8
   %84 = ptrtoint ptr %83 to i64
   %add1.i.i = add i64 %add.i.i823, %84
   %85 = inttoptr i64 %add1.i.i to ptr
   %86 = load i64, ptr %85, align 8
-  store i64 %86, ptr %arrayidx.i104125, align 8
+  store i64 %86, ptr %arrayidx.i103124, align 8
   %87 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
   %dec.i.i.i = add nsw i32 %87, -1
   store i32 %dec.i.i.i, ptr %should_not_abort_scope_counter_.i.i, align 8

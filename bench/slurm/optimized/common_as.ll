@@ -1811,8 +1811,8 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %66 = load i32, ptr %65, align 4
-  %.not4765 = icmp eq i32 %66, 0
-  br i1 %.not4765, label %.outer._crit_edge, label %.lr.ph.preheader
+  %.not4764 = icmp eq i32 %66, 0
+  br i1 %.not4764, label %.outer._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1821,45 +1821,45 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.backedge, %.lr.ph.preheader
-  %.038.ph68 = phi ptr [ %68, %.lr.ph.preheader ], [ %83, %.lr.ph.split.backedge ]
-  %.039.ph66 = phi i64 [ %69, %.lr.ph.preheader ], [ %84, %.lr.ph.split.backedge ]
-  %70 = call i64 @write(i32 noundef %60, ptr noundef %.038.ph68, i64 noundef %.039.ph66) #12
+  %.038.ph67 = phi ptr [ %68, %.lr.ph.preheader ], [ %83, %.lr.ph.split.backedge ]
+  %.039.ph65 = phi i64 [ %69, %.lr.ph.preheader ], [ %84, %.lr.ph.split.backedge ]
+  %70 = call i64 @write(i32 noundef %60, ptr noundef %.038.ph67, i64 noundef %.039.ph65) #12
   %71 = and i64 %70, 2147483648
-  %.not4863 = icmp eq i64 %71, 0
-  br i1 %.not4863, label %.split.us, label %.lr.ph64
+  %.not4862 = icmp eq i64 %71, 0
+  br i1 %.not4862, label %.split.us, label %.lr.ph63
 
-.lr.ph64:                                         ; preds = %.lr.ph.split
+.lr.ph63:                                         ; preds = %.lr.ph.split
   %72 = tail call ptr @__errno_location() #13
   br label %73
 
-73:                                               ; preds = %.lr.ph64, %75
+73:                                               ; preds = %.lr.ph63, %75
   %74 = load i32, ptr %72, align 4
-  switch i32 %74, label %.split58.us [
+  switch i32 %74, label %.split57.us [
     i32 11, label %75
     i32 4, label %75
   ]
 
 75:                                               ; preds = %73, %73
-  %76 = call i64 @write(i32 noundef %60, ptr noundef %.038.ph68, i64 noundef %.039.ph66) #12
+  %76 = call i64 @write(i32 noundef %60, ptr noundef %.038.ph67, i64 noundef %.039.ph65) #12
   %77 = and i64 %76, 2147483648
   %.not48 = icmp eq i64 %77, 0
   br i1 %.not48, label %.split.us, label %73
 
-.split58.us:                                      ; preds = %73
+.split57.us:                                      ; preds = %73
   %78 = call i32 @slurm_get_log_level() #12
   %79 = icmp sgt i32 %78, 4
   br i1 %79, label %80, label %96
 
-80:                                               ; preds = %.split58.us
+80:                                               ; preds = %.split57.us
   %81 = load i32, ptr %65, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.archive_write_file, ptr noundef nonnull @.str.2, i32 noundef 928, ptr noundef nonnull @__func__.archive_write_file, i64 noundef %.039.ph66, i32 noundef %81) #12
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.archive_write_file, ptr noundef nonnull @.str.2, i32 noundef 928, ptr noundef nonnull @__func__.archive_write_file, i64 noundef %.039.ph65, i32 noundef %81) #12
   br label %96
 
 .split.us:                                        ; preds = %75, %.lr.ph.split
   %.us-phi = phi i64 [ %70, %.lr.ph.split ], [ %76, %75 ]
   %82 = and i64 %.us-phi, 2147483647
-  %83 = getelementptr inbounds nuw i8, ptr %.038.ph68, i64 %82
-  %84 = sub i64 %.039.ph66, %82
+  %83 = getelementptr inbounds nuw i8, ptr %.038.ph67, i64 %82
+  %84 = sub i64 %.039.ph65, %82
   %.not49 = icmp eq i64 %84, 0
   br i1 %.not49, label %.outer._crit_edge, label %85
 
@@ -1894,7 +1894,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.63, ptr noundef nonnull @__func__.archive_write_file) #14
   unreachable
 
-96:                                               ; preds = %80, %.split58.us
+96:                                               ; preds = %80, %.split57.us
   %97 = load ptr, ptr %13, align 8
   %98 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.64, ptr noundef %97) #12
   %99 = call i32 @close(i32 noundef %60) #12

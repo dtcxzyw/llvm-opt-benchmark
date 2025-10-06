@@ -289,11 +289,11 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
 49:                                               ; preds = %_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i
   %50 = load i64, ptr %46, align 8, !tbaa !45
   %51 = icmp eq i64 %50, 0
-  %.pre20.i = load ptr, ptr %0, align 8, !tbaa !49
+  %.pre19.i = load ptr, ptr %0, align 8, !tbaa !49
   br i1 %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.thread.i, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr i8, ptr %.pre20.i, i64 %50
+  %53 = getelementptr i8, ptr %.pre19.i, i64 %50
   %54 = getelementptr i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1, !tbaa !10
   switch i8 %55, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.thread.i [
@@ -328,11 +328,11 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit16.i: ; preds = %61
   %66 = xor i1 %1, true
   %.pre.i = load i64, ptr %46, align 8, !tbaa !45
-  %.pre19.i = load ptr, ptr %0, align 8, !tbaa !49
+  %.pre18.i = load ptr, ptr %0, align 8, !tbaa !49
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.thread.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit16.i, %52, %49
-  %67 = phi ptr [ %.pre20.i, %49 ], [ %.pre19.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit16.i ], [ %.pre20.i, %52 ]
+  %67 = phi ptr [ %.pre19.i, %49 ], [ %.pre18.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit16.i ], [ %.pre19.i, %52 ]
   %68 = phi i64 [ 0, %49 ], [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit16.i ], [ %50, %52 ]
   %.013.i = phi i1 [ %1, %49 ], [ %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit16.i ], [ %1, %52 ]
   %69 = add i64 %68, 1

@@ -377,17 +377,17 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %4, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %3, %49
-  %.087112 = phi i32 [ %.087..185, %49 ], [ %2, %3 ]
-  %.090111 = phi i32 [ %..090, %49 ], [ %1, %3 ]
-  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.090111) #3
-  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.087112) #3
+  %.087111 = phi i32 [ %.087..185, %49 ], [ %2, %3 ]
+  %.090110 = phi i32 [ %..090, %49 ], [ %1, %3 ]
+  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.090110) #3
+  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.087111) #3
   %5 = tail call fastcc i32 @sort_comp(ptr noundef %0, i32 noundef -1, i32 noundef -2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %.lr.ph
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.090111) #3
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.087112) #3
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.090110) #3
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.087111) #3
   br label %8
 
 7:                                                ; preds = %.lr.ph
@@ -395,34 +395,34 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %8
 
 8:                                                ; preds = %7, %6
-  %9 = sub nsw i32 %.087112, %.090111
+  %9 = sub nsw i32 %.087111, %.090110
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = add nsw i32 %.087112, %.090111
+  %12 = add nsw i32 %.087111, %.090110
   %13 = sdiv i32 %12, 2
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %13) #3
-  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.090111) #3
+  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.090110) #3
   %14 = tail call fastcc i32 @sort_comp(ptr noundef %0, i32 noundef -2, i32 noundef -1)
   %.not97 = icmp eq i32 %14, 0
   br i1 %.not97, label %16, label %15
 
 15:                                               ; preds = %11
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %13) #3
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.090111) #3
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.090110) #3
   br label %20
 
 16:                                               ; preds = %11
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
-  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.087112) #3
+  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %.087111) #3
   %17 = tail call fastcc i32 @sort_comp(ptr noundef %0, i32 noundef -1, i32 noundef -2)
   %.not98 = icmp eq i32 %17, 0
   br i1 %.not98, label %19, label %18
 
 18:                                               ; preds = %16
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %13) #3
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.087112) #3
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.087111) #3
   br label %20
 
 19:                                               ; preds = %16
@@ -436,16 +436,16 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
 22:                                               ; preds = %20
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %13) #3
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #3
-  %23 = add nsw i32 %.087112, -1
+  %23 = add nsw i32 %.087111, -1
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %23) #3
   br label %24
 
 24:                                               ; preds = %48, %22
   %.lcssa.sink = phi i32 [ %13, %22 ], [ %26, %48 ]
-  %.lcssa120.sink = phi i32 [ %23, %22 ], [ %37, %48 ]
-  %.084 = phi i32 [ %.090111, %22 ], [ %26, %48 ]
+  %.lcssa119.sink = phi i32 [ %23, %22 ], [ %37, %48 ]
+  %.084 = phi i32 [ %.090110, %22 ], [ %26, %48 ]
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa.sink) #3
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa120.sink) #3
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa119.sink) #3
   br label %25
 
 25:                                               ; preds = %36, %24
@@ -475,7 +475,7 @@ sort_comp.exit:                                   ; preds = %29, %31
   br i1 %.not99, label %.preheader, label %33
 
 33:                                               ; preds = %sort_comp.exit
-  %.not103 = icmp slt i32 %.185, %.087112
+  %.not103 = icmp slt i32 %.185, %.087111
   br i1 %.not103, label %36, label %34
 
 34:                                               ; preds = %33
@@ -487,7 +487,7 @@ sort_comp.exit:                                   ; preds = %29, %31
   br label %25, !llvm.loop !15
 
 .preheader:                                       ; preds = %sort_comp.exit, %47
-  %.1 = phi i32 [ %37, %47 ], [ %.lcssa120.sink, %sort_comp.exit ]
+  %.1 = phi i32 [ %37, %47 ], [ %.lcssa119.sink, %sort_comp.exit ]
   %37 = add nsw i32 %.1, -1
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %37) #3
   %38 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #3
@@ -513,7 +513,7 @@ sort_comp.exit105:                                ; preds = %40, %42
   br i1 %.not100, label %48, label %44
 
 44:                                               ; preds = %sort_comp.exit105
-  %.not102 = icmp sgt i32 %.1, %.090111
+  %.not102 = icmp sgt i32 %.1, %.090110
   br i1 %.not102, label %47, label %45
 
 45:                                               ; preds = %44
@@ -534,14 +534,14 @@ sort_comp.exit105:                                ; preds = %40, %42
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %26) #3
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %23) #3
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %26) #3
-  %50 = sub nsw i32 %26, %.090111
-  %51 = sub nsw i32 %.087112, %26
+  %50 = sub nsw i32 %26, %.090110
+  %51 = sub nsw i32 %.087111, %26
   %52 = icmp slt i32 %50, %51
   %53 = add nsw i32 %.185, 2
-  %..090 = select i1 %52, i32 %53, i32 %.090111
-  %.087..185 = select i1 %52, i32 %.087112, i32 %.185
-  %.185..087 = select i1 %52, i32 %.185, i32 %.087112
-  %.090. = select i1 %52, i32 %.090111, i32 %53
+  %..090 = select i1 %52, i32 %53, i32 %.090110
+  %.087..185 = select i1 %52, i32 %.087111, i32 %.185
+  %.185..087 = select i1 %52, i32 %.185, i32 %.087111
+  %.090. = select i1 %52, i32 %.090110, i32 %53
   tail call fastcc void @auxsort(ptr noundef %0, i32 noundef %.090., i32 noundef %.185..087)
   %54 = icmp slt i32 %..090, %.087..185
   br i1 %54, label %.lr.ph, label %.thread

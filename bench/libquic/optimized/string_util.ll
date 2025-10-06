@@ -1829,13 +1829,13 @@ thread-pre-split:                                 ; preds = %33, %_ZN4base16IsVa
   %35 = icmp ne i32 %34, 65534
   %36 = add i32 %.019, -65008
   %37 = icmp ult i32 %36, 1049104
-  %or.cond34 = and i1 %37, %35
-  br i1 %or.cond34, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit, label %thread-pre-split
+  %or.cond33 = and i1 %37, %35
+  br i1 %or.cond33, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit, label %thread-pre-split
 
 _ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %30
   %.old = icmp ult i32 %32, 1056768
-  %.old33 = or i1 %31, %.old
-  br i1 %.old33, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit, label %thread-pre-split
+  %.old32 = or i1 %31, %.old
+  br i1 %.old32, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit, label %thread-pre-split
 
 _ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit: ; preds = %33, %.lr.ph, %_ZN4base16IsValidCharacterEj.exit.thread, %thread-pre-split
   %.pre = load i32, ptr %5, align 4, !tbaa !72
@@ -5112,20 +5112,20 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringItN4base20string16_char_traitsESaIt
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN4base7strlcpyEPcPKcm(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
-  %.not27.i = icmp eq i64 %2, 0
-  br i1 %.not27.i, label %.loopexit.loopexit.i, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %2, 0
+  br i1 %.not25.i, label %.loopexit.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %8
-  %.01626.i = phi i64 [ %9, %8 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.01626.i
+  %.01624.i = phi i64 [ %9, %8 ], [ 0, %3 ]
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.01624.i
   %5 = load i8, ptr %4, align 1, !tbaa !20
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.01626.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.01624.i
   store i8 %5, ptr %6, align 1, !tbaa !20
   %7 = icmp eq i8 %5, 0
   br i1 %7, label %_ZN4base12_GLOBAL__N_15lcpyTIcEEmPT_PKS2_m.exit, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = add nuw i64 %.01626.i, 1
+  %9 = add nuw i64 %.01624.i, 1
   %exitcond.not.i = icmp eq i64 %9, %2
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !144
 
@@ -5142,26 +5142,26 @@ define noundef i64 @_ZN4base7strlcpyEPcPKcm(ptr noundef writeonly captures(none)
   br label %_ZN4base12_GLOBAL__N_15lcpyTIcEEmPT_PKS2_m.exit
 
 _ZN4base12_GLOBAL__N_15lcpyTIcEEmPT_PKS2_m.exit:  ; preds = %.lr.ph.i, %.loopexit.loopexit.i
-  %.1.i = phi i64 [ %12, %.loopexit.loopexit.i ], [ %.01626.i, %.lr.ph.i ]
+  %.1.i = phi i64 [ %12, %.loopexit.loopexit.i ], [ %.01624.i, %.lr.ph.i ]
   ret i64 %.1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN4base7wcslcpyEPwPKwm(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
-  %.not27.i = icmp eq i64 %2, 0
-  br i1 %.not27.i, label %.loopexit.loopexit.i, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %2, 0
+  br i1 %.not25.i, label %.loopexit.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %8
-  %.01626.i = phi i64 [ %9, %8 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %1, i64 %.01626.i
+  %.01624.i = phi i64 [ %9, %8 ], [ 0, %3 ]
+  %4 = getelementptr inbounds nuw i32, ptr %1, i64 %.01624.i
   %5 = load i32, ptr %4, align 4, !tbaa !3
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.01626.i
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.01624.i
   store i32 %5, ptr %6, align 4, !tbaa !3
   %7 = icmp eq i32 %5, 0
   br i1 %7, label %_ZN4base12_GLOBAL__N_15lcpyTIwEEmPT_PKS2_m.exit, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = add nuw i64 %.01626.i, 1
+  %9 = add nuw i64 %.01624.i, 1
   %exitcond.not.i = icmp eq i64 %9, %2
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !145
 
@@ -5179,7 +5179,7 @@ define noundef i64 @_ZN4base7wcslcpyEPwPKwm(ptr noundef writeonly captures(none)
   br label %_ZN4base12_GLOBAL__N_15lcpyTIwEEmPT_PKS2_m.exit
 
 _ZN4base12_GLOBAL__N_15lcpyTIwEEmPT_PKS2_m.exit:  ; preds = %.lr.ph.i, %.loopexit.loopexit.i
-  %.1.i = phi i64 [ %13, %.loopexit.loopexit.i ], [ %.01626.i, %.lr.ph.i ]
+  %.1.i = phi i64 [ %13, %.loopexit.loopexit.i ], [ %.01624.i, %.lr.ph.i ]
   ret i64 %.1.i
 }
 

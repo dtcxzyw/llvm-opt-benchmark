@@ -7061,8 +7061,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not15.not = icmp eq i32 %7, 0
-  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
+  %.not16.not = icmp eq i32 %7, 0
+  br i1 %.not16.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -7070,10 +7070,10 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph
-  %.01316 = phi ptr [ %4, %.lr.ph ], [ %15, %13 ]
-  %14 = load ptr, ptr %.01316, align 8, !tbaa !639
+  %.01317 = phi ptr [ %4, %.lr.ph ], [ %15, %13 ]
+  %14 = load ptr, ptr %.01317, align 8, !tbaa !639
   %.not14 = icmp eq ptr %14, %12
-  %15 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01317, i64 8
   %.not.not = icmp eq ptr %15, %10
   %or.cond = select i1 %.not14, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %13

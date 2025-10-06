@@ -2805,7 +2805,7 @@ define internal i32 @ec_GFp_nistp224_points_mul(ptr noundef %0, ptr noundef %1, 
 47:                                               ; preds = %41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %42, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1632) %43, i8 0, i64 1632, i1 false)
-  %.not286 = icmp eq ptr %4, null
+  %.not285 = icmp eq ptr %4, null
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %19, i64 7
@@ -2831,7 +2831,7 @@ define internal i32 @ec_GFp_nistp224_points_mul(ptr noundef %0, ptr noundef %1, 
   %61 = getelementptr inbounds nuw i8, ptr %43, i64 168
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 176
   %63 = getelementptr inbounds nuw i8, ptr %43, i64 184
-  br i1 %.not286, label %.thread282, label %.split
+  br i1 %.not285, label %.thread282, label %.split
 
 .split:                                           ; preds = %47
   %64 = tail call i32 @BN_num_bits(ptr noundef nonnull %4) #10
@@ -3054,10 +3054,10 @@ flip_endian.exit.loopexit.i189:                   ; preds = %131
   br label %146
 
 146:                                              ; preds = %141, %160
-  %.0130287 = phi i64 [ 2, %141 ], [ %161, %160 ]
-  %147 = and i64 %.0130287, 1
+  %.0130286 = phi i64 [ 2, %141 ], [ %161, %160 ]
+  %147 = and i64 %.0130286, 1
   %.not164 = icmp eq i64 %147, 0
-  %148 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %43, i64 %.0130287
+  %148 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %43, i64 %.0130286
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 64
   br i1 %.not164, label %155, label %151
@@ -3070,7 +3070,7 @@ flip_endian.exit.loopexit.i189:                   ; preds = %131
   br label %160
 
 155:                                              ; preds = %146
-  %156 = lshr exact i64 %.0130287, 1
+  %156 = lshr exact i64 %.0130286, 1
   %157 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %43, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 64
@@ -3078,7 +3078,7 @@ flip_endian.exit.loopexit.i189:                   ; preds = %131
   br label %160
 
 160:                                              ; preds = %151, %155
-  %161 = add nuw nsw i64 %.0130287, 1
+  %161 = add nuw nsw i64 %.0130286, 1
   %exitcond.not = icmp eq i64 %161, 17
   br i1 %exitcond.not, label %.thread282, label %146, !llvm.loop !21
 
@@ -3106,8 +3106,8 @@ flip_endian.exit.loopexit.i189:                   ; preds = %131
   br i1 %.not160, label %flip_endian.exit203, label %170
 
 170:                                              ; preds = %165, %167
-  %.sink308 = phi ptr [ %38, %167 ], [ %2, %165 ]
-  %171 = call i64 @BN_bn2bin(ptr noundef nonnull %.sink308, ptr noundef nonnull %22) #10
+  %.sink307 = phi ptr [ %38, %167 ], [ %2, %165 ]
+  %171 = call i64 @BN_bn2bin(ptr noundef nonnull %.sink307, ptr noundef nonnull %22) #10
   %.not.i199 = icmp eq i64 %171, 0
   br i1 %.not.i199, label %flip_endian.exit203.thread, label %.lr.ph.i200
 

@@ -2240,9 +2240,9 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   %6 = alloca ptr, align 8
   %7 = tail call ptr @cmsIT8LoadFromFile(ptr noundef null, ptr noundef %0) #13
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread85, label %10
+  br i1 %.not, label %.thread84, label %10
 
-.thread85:                                        ; preds = %2
+.thread84:                                        ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !24
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.15, ptr noundef %0) #15
   br label %100
@@ -2255,7 +2255,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
 12:                                               ; preds = %10
   %13 = load ptr, ptr @stderr, align 8, !tbaa !24
   %14 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 76, i64 1, ptr %13) #18
-  br label %.thread81
+  br label %.thread80
 
 15:                                               ; preds = %10
   store ptr null, ptr %3, align 8, !tbaa !42
@@ -2274,7 +2274,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
 19:                                               ; preds = %15
   %20 = load ptr, ptr @stderr, align 8, !tbaa !24
   %21 = call i64 @fwrite(ptr nonnull @.str.17, i64 48, i64 1, ptr %20) #18
-  br label %.thread81
+  br label %.thread80
 
 ._crit_edge:                                      ; preds = %63
   %22 = icmp eq i32 %.164, -1
@@ -2287,13 +2287,13 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
-  %.05293 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %63 ]
-  %.05392 = phi i32 [ -1, %.lr.ph.preheader ], [ %.154, %63 ]
-  %.05591 = phi i32 [ -1, %.lr.ph.preheader ], [ %.156, %63 ]
-  %.05790 = phi i32 [ -1, %.lr.ph.preheader ], [ %.158, %63 ]
-  %.05989 = phi i32 [ -1, %.lr.ph.preheader ], [ %.160, %63 ]
-  %.06188 = phi i32 [ -1, %.lr.ph.preheader ], [ %.162, %63 ]
-  %.06387 = phi i32 [ -1, %.lr.ph.preheader ], [ %.164, %63 ]
+  %.05292 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %63 ]
+  %.05391 = phi i32 [ -1, %.lr.ph.preheader ], [ %.154, %63 ]
+  %.05590 = phi i32 [ -1, %.lr.ph.preheader ], [ %.156, %63 ]
+  %.05789 = phi i32 [ -1, %.lr.ph.preheader ], [ %.158, %63 ]
+  %.05988 = phi i32 [ -1, %.lr.ph.preheader ], [ %.160, %63 ]
+  %.06187 = phi i32 [ -1, %.lr.ph.preheader ], [ %.162, %63 ]
+  %.06386 = phi i32 [ -1, %.lr.ph.preheader ], [ %.164, %63 ]
   %28 = load ptr, ptr %3, align 8, !tbaa !42
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !26
@@ -2348,17 +2348,17 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %62 = call i32 @g_strcmp0(ptr noundef %61, ptr noundef nonnull @.str.24) #13
   %.not77 = icmp eq i32 %62, 0
-  %spec.select = select i1 %.not77, i32 %32, i32 %.05293
+  %spec.select = select i1 %.not77, i32 %32, i32 %.05292
   br label %63
 
 63:                                               ; preds = %58, %53, %48, %43, %38, %33, %.lr.ph
-  %.164 = phi i32 [ %32, %.lr.ph ], [ %.06387, %33 ], [ %.06387, %38 ], [ %.06387, %43 ], [ %.06387, %48 ], [ %.06387, %53 ], [ %.06387, %58 ]
-  %.162 = phi i32 [ %.06188, %.lr.ph ], [ %32, %33 ], [ %.06188, %38 ], [ %.06188, %43 ], [ %.06188, %48 ], [ %.06188, %53 ], [ %.06188, %58 ]
-  %.160 = phi i32 [ %.05989, %.lr.ph ], [ %.05989, %33 ], [ %32, %38 ], [ %.05989, %43 ], [ %.05989, %48 ], [ %.05989, %53 ], [ %.05989, %58 ]
-  %.158 = phi i32 [ %.05790, %.lr.ph ], [ %.05790, %33 ], [ %.05790, %38 ], [ %32, %43 ], [ %.05790, %48 ], [ %.05790, %53 ], [ %.05790, %58 ]
-  %.156 = phi i32 [ %.05591, %.lr.ph ], [ %.05591, %33 ], [ %.05591, %38 ], [ %.05591, %43 ], [ %32, %48 ], [ %.05591, %53 ], [ %.05591, %58 ]
-  %.154 = phi i32 [ %.05392, %.lr.ph ], [ %.05392, %33 ], [ %.05392, %38 ], [ %.05392, %43 ], [ %.05392, %48 ], [ %32, %53 ], [ %.05392, %58 ]
-  %.1 = phi i32 [ %.05293, %.lr.ph ], [ %.05293, %33 ], [ %.05293, %38 ], [ %.05293, %43 ], [ %.05293, %48 ], [ %.05293, %53 ], [ %spec.select, %58 ]
+  %.164 = phi i32 [ %32, %.lr.ph ], [ %.06386, %33 ], [ %.06386, %38 ], [ %.06386, %43 ], [ %.06386, %48 ], [ %.06386, %53 ], [ %.06386, %58 ]
+  %.162 = phi i32 [ %.06187, %.lr.ph ], [ %32, %33 ], [ %.06187, %38 ], [ %.06187, %43 ], [ %.06187, %48 ], [ %.06187, %53 ], [ %.06187, %58 ]
+  %.160 = phi i32 [ %.05988, %.lr.ph ], [ %.05988, %33 ], [ %32, %38 ], [ %.05988, %43 ], [ %.05988, %48 ], [ %.05988, %53 ], [ %.05988, %58 ]
+  %.158 = phi i32 [ %.05789, %.lr.ph ], [ %.05789, %33 ], [ %.05789, %38 ], [ %32, %43 ], [ %.05789, %48 ], [ %.05789, %53 ], [ %.05789, %58 ]
+  %.156 = phi i32 [ %.05590, %.lr.ph ], [ %.05590, %33 ], [ %.05590, %38 ], [ %.05590, %43 ], [ %32, %48 ], [ %.05590, %53 ], [ %.05590, %58 ]
+  %.154 = phi i32 [ %.05391, %.lr.ph ], [ %.05391, %33 ], [ %.05391, %38 ], [ %.05391, %43 ], [ %.05391, %48 ], [ %32, %53 ], [ %.05391, %58 ]
+  %.1 = phi i32 [ %.05292, %.lr.ph ], [ %.05292, %33 ], [ %.05292, %38 ], [ %.05292, %43 ], [ %.05292, %48 ], [ %.05292, %53 ], [ %spec.select, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -2366,7 +2366,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %64 = load ptr, ptr @stderr, align 8, !tbaa !24
   %65 = call i64 @fwrite(ptr nonnull @.str.25, i64 57, i64 1, ptr %64) #18
-  br label %.thread81
+  br label %.thread80
 
 66:                                               ; preds = %._crit_edge
   %67 = icmp ne i32 %.162, -1
@@ -2382,7 +2382,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
 73:                                               ; preds = %72
   %74 = load ptr, ptr @stderr, align 8, !tbaa !24
   %75 = call i64 @fwrite(ptr nonnull @.str.26, i64 55, i64 1, ptr %74) #18
-  br label %.thread81
+  br label %.thread80
 
 76:                                               ; preds = %72, %66
   %.065 = phi i32 [ 5, %66 ], [ 6, %72 ]
@@ -2393,23 +2393,23 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   %78 = load ptr, ptr %77, align 8, !tbaa !16
   call void @g_hash_table_iter_init(ptr noundef nonnull %4, ptr noundef %78) #13
   %79 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
-  %.not70101 = icmp eq i32 %79, 0
-  br i1 %.not70101, label %._crit_edge104, label %.lr.ph103
+  %.not70100 = icmp eq i32 %79, 0
+  br i1 %.not70100, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph103:                                        ; preds = %76, %87
+.lr.ph102:                                        ; preds = %76, %87
   %80 = load ptr, ptr %6, align 8, !tbaa !39
   %81 = load ptr, ptr %5, align 8, !tbaa !39
   %82 = call ptr @cmsIT8GetData(ptr noundef nonnull %7, ptr noundef %81, ptr noundef nonnull @.str.18) #13
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.thread, label %87
 
-.thread:                                          ; preds = %.lr.ph103
+.thread:                                          ; preds = %.lr.ph102
   %84 = load ptr, ptr @stderr, align 8, !tbaa !24
   %85 = load ptr, ptr %5, align 8, !tbaa !39
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.27, ptr noundef %85) #15
-  br label %.thread81
+  br label %.thread80
 
-87:                                               ; preds = %.lr.ph103
+87:                                               ; preds = %.lr.ph102
   %88 = load ptr, ptr %5, align 8, !tbaa !39
   %89 = call reassoc nsz arcp contract afn double @cmsIT8GetDataDbl(ptr noundef nonnull %7, ptr noundef %88, ptr noundef nonnull %.sroa.0.0) #13
   %90 = fptrunc reassoc nsz arcp contract afn double %89 to float
@@ -2422,21 +2422,21 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   call void @checker_set_color(ptr noundef %80, i32 noundef %.065, float noundef %90, float noundef %93, float noundef %96)
   %97 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %.not70 = icmp eq i32 %97, 0
-  br i1 %.not70, label %._crit_edge104, label %.lr.ph103
+  br i1 %.not70, label %._crit_edge103, label %.lr.ph102
 
-._crit_edge104:                                   ; preds = %87, %76
+._crit_edge103:                                   ; preds = %87, %76
   %98 = load ptr, ptr @stderr, align 8, !tbaa !24
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.28, ptr noundef %0) #15
-  br label %.thread81
+  br label %.thread80
 
-.thread81:                                        ; preds = %._crit_edge104, %73, %._crit_edge.thread, %19, %12, %.thread
-  %.05183 = phi i32 [ 0, %.thread ], [ 0, %12 ], [ 0, %19 ], [ 1, %._crit_edge104 ], [ 0, %73 ], [ 0, %._crit_edge.thread ]
+.thread80:                                        ; preds = %._crit_edge103, %73, %._crit_edge.thread, %19, %12, %.thread
+  %.05182 = phi i32 [ 0, %.thread ], [ 0, %12 ], [ 0, %19 ], [ 1, %._crit_edge103 ], [ 0, %73 ], [ 0, %._crit_edge.thread ]
   call void @cmsIT8Free(ptr noundef nonnull %7) #13
   br label %100
 
-100:                                              ; preds = %.thread85, %.thread81
-  %.05184 = phi i32 [ %.05183, %.thread81 ], [ 0, %.thread85 ]
-  ret i32 %.05184
+100:                                              ; preds = %.thread84, %.thread80
+  %.05183 = phi i32 [ %.05182, %.thread80 ], [ 0, %.thread84 ]
+  ret i32 %.05183
 }
 
 declare ptr @cmsIT8LoadFromFile(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -170,7 +170,7 @@ define void @BN_CTX_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %17, label %18, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %9
-  %.pre24.i = load ptr, ptr %10, align 8, !tbaa !15
+  %.pre23.i = load ptr, ptr %10, align 8, !tbaa !15
   br label %BN_STACK_push.exit
 
 18:                                               ; preds = %9
@@ -200,12 +200,12 @@ define void @BN_CTX_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   tail call void @CRYPTO_free(ptr noundef %.pre.i, ptr noundef nonnull @.str, i32 noundef 273) #6
   store ptr %24, ptr %10, align 8, !tbaa !15
   store i32 %21, ptr %15, align 4, !tbaa !29
-  %.pre25.i = load i32, ptr %13, align 8, !tbaa !28
+  %.pre24.i = load i32, ptr %13, align 8, !tbaa !28
   br label %BN_STACK_push.exit
 
 BN_STACK_push.exit:                               ; preds = %._crit_edge.i, %.thread.i
-  %31 = phi i32 [ %14, %._crit_edge.i ], [ %.pre25.i, %.thread.i ]
-  %32 = phi ptr [ %.pre24.i, %._crit_edge.i ], [ %24, %.thread.i ]
+  %31 = phi i32 [ %14, %._crit_edge.i ], [ %.pre24.i, %.thread.i ]
+  %32 = phi ptr [ %.pre23.i, %._crit_edge.i ], [ %24, %.thread.i ]
   %33 = add i32 %31, 1
   store i32 %33, ptr %13, align 8, !tbaa !28
   %34 = zext i32 %31 to i64

@@ -558,7 +558,7 @@ declare void @ff_ass_free_dialog(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_text_ass_style_set(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %92, label %3
+  br i1 %.not, label %93, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -677,54 +677,54 @@ mov_text_font_size_set.exit:                      ; preds = %mov_text_alpha_set.
 .preheader.i.i:                                   ; preds = %mov_text_font_size_set.exit
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %75 = load i32, ptr %74, align 8, !tbaa !62
-  %.not1315.i.i = icmp sgt i32 %75, 0
-  br i1 %.not1315.i.i, label %.lr.ph.i.i, label %find_font_id.exit.i
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph.i.i, label %find_font_id.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %77 = load ptr, ptr %76, align 8, !tbaa !63
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %78 = load ptr, ptr %77, align 8, !tbaa !63
   %wide.trip.count.i.i = zext nneg i32 %75 to i64
-  br label %78
+  br label %79
 
-78:                                               ; preds = %85, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %85 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv.i.i
-  %80 = load ptr, ptr %79, align 8, !tbaa !66
-  %81 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %80) #9
-  %.not12.i.i = icmp eq i32 %81, 0
-  br i1 %.not12.i.i, label %82, label %85
+79:                                               ; preds = %83, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %83 ]
+  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i.i
+  %81 = load ptr, ptr %80, align 8, !tbaa !66
+  %82 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %81) #9
+  %.not12.i.i = icmp eq i32 %82, 0
+  br i1 %.not12.i.i, label %84, label %83
 
-82:                                               ; preds = %78
-  %83 = trunc i64 %indvars.iv.i.i to i16
-  %84 = add i16 %83, 1
-  br label %find_font_id.exit.i
-
-85:                                               ; preds = %78
+83:                                               ; preds = %79
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %find_font_id.exit.i, label %78, !llvm.loop !99
+  br i1 %exitcond.not.i.i, label %find_font_id.exit.i, label %79, !llvm.loop !99
 
-find_font_id.exit.i:                              ; preds = %85, %82, %.preheader.i.i, %mov_text_font_size_set.exit
-  %.010.i.i = phi i16 [ 1, %mov_text_font_size_set.exit ], [ %84, %82 ], [ 1, %.preheader.i.i ], [ 1, %85 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  %87 = load i16, ptr %86, align 2, !tbaa !100
-  %88 = icmp eq i16 %87, %.010.i.i
-  br i1 %88, label %mov_text_font_name_set.exit, label %89
+84:                                               ; preds = %79
+  %85 = trunc i64 %indvars.iv.i.i to i16
+  %86 = add i16 %85, 1
+  br label %find_font_id.exit.i
 
-89:                                               ; preds = %find_font_id.exit.i
-  %90 = tail call fastcc i32 @mov_text_style_start(ptr noundef nonnull %0)
-  %.not.i23 = icmp eq i32 %90, 0
-  br i1 %.not.i23, label %mov_text_font_name_set.exit, label %91
+find_font_id.exit.i:                              ; preds = %83, %84, %.preheader.i.i, %mov_text_font_size_set.exit
+  %.010.i.i = phi i16 [ 1, %mov_text_font_size_set.exit ], [ %86, %84 ], [ 1, %.preheader.i.i ], [ 1, %83 ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  %88 = load i16, ptr %87, align 2, !tbaa !100
+  %89 = icmp eq i16 %88, %.010.i.i
+  br i1 %89, label %mov_text_font_name_set.exit, label %90
 
-91:                                               ; preds = %89
-  store i16 %.010.i.i, ptr %86, align 2, !tbaa !100
+90:                                               ; preds = %find_font_id.exit.i
+  %91 = tail call fastcc i32 @mov_text_style_start(ptr noundef nonnull %0)
+  %.not.i23 = icmp eq i32 %91, 0
+  br i1 %.not.i23, label %mov_text_font_name_set.exit, label %92
+
+92:                                               ; preds = %90
+  store i16 %.010.i.i, ptr %87, align 2, !tbaa !100
   br label %mov_text_font_name_set.exit
 
-92:                                               ; preds = %2
-  %93 = tail call fastcc i32 @mov_text_style_start(ptr noundef %0)
+93:                                               ; preds = %2
+  %94 = tail call fastcc i32 @mov_text_style_start(ptr noundef %0)
   br label %mov_text_font_name_set.exit
 
-mov_text_font_name_set.exit:                      ; preds = %91, %89, %find_font_id.exit.i, %92
+mov_text_font_name_set.exit:                      ; preds = %92, %90, %find_font_id.exit.i, %93
   ret void
 }
 
@@ -1139,50 +1139,50 @@ define internal void @mov_text_font_name_cb(ptr noundef %0, ptr noundef readonly
 .preheader.i.i:                                   ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %4 = load i32, ptr %3, align 8, !tbaa !62
-  %.not1315.i.i = icmp sgt i32 %4, 0
-  br i1 %.not1315.i.i, label %.lr.ph.i.i, label %find_font_id.exit.i
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph.i.i, label %find_font_id.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
   %wide.trip.count.i.i = zext nneg i32 %4 to i64
-  br label %7
+  br label %8
 
-7:                                                ; preds = %14, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %14 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
-  %9 = load ptr, ptr %8, align 8, !tbaa !66
-  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #9
-  %.not12.i.i = icmp eq i32 %10, 0
-  br i1 %.not12.i.i, label %11, label %14
+8:                                                ; preds = %12, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %12 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #9
+  %.not12.i.i = icmp eq i32 %11, 0
+  br i1 %.not12.i.i, label %13, label %12
 
-11:                                               ; preds = %7
-  %12 = trunc i64 %indvars.iv.i.i to i16
-  %13 = add i16 %12, 1
-  br label %find_font_id.exit.i
-
-14:                                               ; preds = %7
+12:                                               ; preds = %8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %find_font_id.exit.i, label %7, !llvm.loop !99
+  br i1 %exitcond.not.i.i, label %find_font_id.exit.i, label %8, !llvm.loop !99
 
-find_font_id.exit.i:                              ; preds = %14, %11, %.preheader.i.i, %2
-  %.010.i.i = phi i16 [ 1, %2 ], [ %13, %11 ], [ 1, %.preheader.i.i ], [ 1, %14 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  %16 = load i16, ptr %15, align 2, !tbaa !100
-  %17 = icmp eq i16 %16, %.010.i.i
-  br i1 %17, label %mov_text_font_name_set.exit, label %18
+13:                                               ; preds = %8
+  %14 = trunc i64 %indvars.iv.i.i to i16
+  %15 = add i16 %14, 1
+  br label %find_font_id.exit.i
 
-18:                                               ; preds = %find_font_id.exit.i
-  %19 = tail call fastcc i32 @mov_text_style_start(ptr noundef nonnull %0)
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %mov_text_font_name_set.exit, label %20
+find_font_id.exit.i:                              ; preds = %12, %13, %.preheader.i.i, %2
+  %.010.i.i = phi i16 [ 1, %2 ], [ %15, %13 ], [ 1, %.preheader.i.i ], [ 1, %12 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  %17 = load i16, ptr %16, align 2, !tbaa !100
+  %18 = icmp eq i16 %17, %.010.i.i
+  br i1 %18, label %mov_text_font_name_set.exit, label %19
 
-20:                                               ; preds = %18
-  store i16 %.010.i.i, ptr %15, align 2, !tbaa !100
+19:                                               ; preds = %find_font_id.exit.i
+  %20 = tail call fastcc i32 @mov_text_style_start(ptr noundef nonnull %0)
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %mov_text_font_name_set.exit, label %21
+
+21:                                               ; preds = %19
+  store i16 %.010.i.i, ptr %16, align 2, !tbaa !100
   br label %mov_text_font_name_set.exit
 
-mov_text_font_name_set.exit:                      ; preds = %find_font_id.exit.i, %18, %20
+mov_text_font_name_set.exit:                      ; preds = %find_font_id.exit.i, %19, %21
   ret void
 }
 

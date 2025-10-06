@@ -631,16 +631,16 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.preheader478, label %26
+  br i1 %23, label %.preheader378, label %26
 
-.preheader478:                                    ; preds = %20, %.preheader478
+.preheader378:                                    ; preds = %20, %.preheader378
   %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.30, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 931) #6
   switch i32 %24, label %.thread [
-    i32 0, label %.preheader478
+    i32 0, label %.preheader378
     i32 1, label %25
   ]
 
-25:                                               ; preds = %.preheader478
+25:                                               ; preds = %.preheader378
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -649,21 +649,21 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %29 = load i32, ptr %28, align 8
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %._crit_edge, label %30
+  br i1 %.not, label %.critedge, label %30
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %27, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.preheader536, label %.lr.ph
+  br i1 %32, label %.preheader436, label %.lr.ph
 
-.preheader536:                                    ; preds = %30, %.preheader536
+.preheader436:                                    ; preds = %30, %.preheader436
   %33 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.33, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 935) #6
   switch i32 %33, label %.thread [
-    i32 0, label %.preheader536
+    i32 0, label %.preheader436
     i32 1, label %34
   ]
 
-34:                                               ; preds = %.preheader536
+34:                                               ; preds = %.preheader436
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -680,32 +680,32 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, -105
   %or.cond = icmp ult i32 %41, -104
-  br i1 %or.cond, label %.preheader480, label %44
+  br i1 %or.cond, label %.preheader380, label %44
 
-.preheader480:                                    ; preds = %37, %.preheader480
+.preheader380:                                    ; preds = %37, %.preheader380
   %42 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.35, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 939) #6
   switch i32 %42, label %.thread [
-    i32 0, label %.preheader480
+    i32 0, label %.preheader380
     i32 1, label %43
   ]
 
-43:                                               ; preds = %.preheader480
+43:                                               ; preds = %.preheader380
   tail call void @llvm.debugtrap()
   br label %.thread
 
 44:                                               ; preds = %37
   %.off.i = add nsw i32 %40, -58
   %switch.i = icmp ult i32 %.off.i, 5
-  br i1 %switch.i, label %.preheader482, label %47
+  br i1 %switch.i, label %.preheader382, label %47
 
-.preheader482:                                    ; preds = %44, %.preheader482
+.preheader382:                                    ; preds = %44, %.preheader382
   %45 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.37, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 941) #6
   switch i32 %45, label %.thread [
-    i32 0, label %.preheader482
+    i32 0, label %.preheader382
     i32 1, label %46
   ]
 
-46:                                               ; preds = %.preheader482
+46:                                               ; preds = %.preheader382
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -713,16 +713,16 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %48 = load ptr, ptr %35, align 8
   %49 = load ptr, ptr %36, align 8
   %50 = tail call zeroext i1 %48(ptr noundef %49, i32 noundef %40, i32 noundef 0, i32 noundef 2) #6
-  br i1 %50, label %53, label %.preheader496
+  br i1 %50, label %53, label %.preheader396
 
-.preheader496:                                    ; preds = %47, %.preheader496
+.preheader396:                                    ; preds = %47, %.preheader396
   %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.40, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 945) #6
   switch i32 %51, label %.thread [
-    i32 0, label %.preheader496
+    i32 0, label %.preheader396
     i32 1, label %52
   ]
 
-52:                                               ; preds = %.preheader496
+52:                                               ; preds = %.preheader396
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -738,17 +738,17 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, -14
-  %or.cond269 = icmp ult i32 %62, -13
-  br i1 %or.cond269, label %.preheader484, label %65
+  %or.cond264 = icmp ult i32 %62, -13
+  br i1 %or.cond264, label %.preheader384, label %65
 
-.preheader484:                                    ; preds = %59, %.preheader484
+.preheader384:                                    ; preds = %59, %.preheader384
   %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.43, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 950) #6
   switch i32 %63, label %.thread [
-    i32 0, label %.preheader484
+    i32 0, label %.preheader384
     i32 1, label %64
   ]
 
-64:                                               ; preds = %.preheader484
+64:                                               ; preds = %.preheader384
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -756,17 +756,17 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, -14
-  %or.cond272 = icmp ult i32 %68, -13
-  br i1 %or.cond272, label %.preheader486, label %71
+  %or.cond266 = icmp ult i32 %68, -13
+  br i1 %or.cond266, label %.preheader386, label %71
 
-.preheader486:                                    ; preds = %65, %.preheader486
+.preheader386:                                    ; preds = %65, %.preheader386
   %69 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.45, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 951) #6
   switch i32 %69, label %.thread [
-    i32 0, label %.preheader486
+    i32 0, label %.preheader386
     i32 1, label %70
   ]
 
-70:                                               ; preds = %.preheader486
+70:                                               ; preds = %.preheader386
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -774,17 +774,17 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, -6
-  %or.cond275 = icmp ult i32 %74, -5
-  br i1 %or.cond275, label %.preheader488, label %77
+  %or.cond268 = icmp ult i32 %74, -5
+  br i1 %or.cond268, label %.preheader388, label %77
 
-.preheader488:                                    ; preds = %71, %.preheader488
+.preheader388:                                    ; preds = %71, %.preheader388
   %75 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.47, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 952) #6
   switch i32 %75, label %.thread [
-    i32 0, label %.preheader488
+    i32 0, label %.preheader388
     i32 1, label %76
   ]
 
-76:                                               ; preds = %.preheader488
+76:                                               ; preds = %.preheader388
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -792,17 +792,17 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %78 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, -14
-  %or.cond278 = icmp ult i32 %80, -13
-  br i1 %or.cond278, label %.preheader490, label %83
+  %or.cond270 = icmp ult i32 %80, -13
+  br i1 %or.cond270, label %.preheader390, label %83
 
-.preheader490:                                    ; preds = %77, %.preheader490
+.preheader390:                                    ; preds = %77, %.preheader390
   %81 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.49, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 953) #6
   switch i32 %81, label %.thread [
-    i32 0, label %.preheader490
+    i32 0, label %.preheader390
     i32 1, label %82
   ]
 
-82:                                               ; preds = %.preheader490
+82:                                               ; preds = %.preheader390
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -810,17 +810,17 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %84 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, -14
-  %or.cond281 = icmp ult i32 %86, -13
-  br i1 %or.cond281, label %.preheader492, label %89
+  %or.cond272 = icmp ult i32 %86, -13
+  br i1 %or.cond272, label %.preheader392, label %89
 
-.preheader492:                                    ; preds = %83, %.preheader492
+.preheader392:                                    ; preds = %83, %.preheader392
   %87 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.50, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 954) #6
   switch i32 %87, label %.thread [
-    i32 0, label %.preheader492
+    i32 0, label %.preheader392
     i32 1, label %88
   ]
 
-88:                                               ; preds = %.preheader492
+88:                                               ; preds = %.preheader392
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -828,17 +828,17 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %90 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, -6
-  %or.cond284 = icmp ult i32 %92, -5
-  br i1 %or.cond284, label %.preheader494, label %95
+  %or.cond274 = icmp ult i32 %92, -5
+  br i1 %or.cond274, label %.preheader394, label %95
 
-.preheader494:                                    ; preds = %89, %.preheader494
+.preheader394:                                    ; preds = %89, %.preheader394
   %93 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.51, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 955) #6
   switch i32 %93, label %.thread [
-    i32 0, label %.preheader494
+    i32 0, label %.preheader394
     i32 1, label %94
   ]
 
-94:                                               ; preds = %.preheader494
+94:                                               ; preds = %.preheader394
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -847,64 +847,64 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %96 = load i32, ptr %28, align 8
   %97 = zext i32 %96 to i64
   %98 = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %98, label %37, label %._crit_edge, !llvm.loop !7
+  br i1 %98, label %37, label %.critedge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %95, %26
+.critedge:                                        ; preds = %95, %26
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %100 = load i8, ptr %99, align 8, !range !5, !noundef !6
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %115
 
-102:                                              ; preds = %._crit_edge
+102:                                              ; preds = %.critedge
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, -105
-  %or.cond288 = icmp ult i32 %105, -104
-  br i1 %or.cond288, label %.preheader498, label %108
+  %or.cond276 = icmp ult i32 %105, -104
+  br i1 %or.cond276, label %.preheader398, label %108
 
-.preheader498:                                    ; preds = %102, %.preheader498
+.preheader398:                                    ; preds = %102, %.preheader398
   %106 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.52, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 961) #6
   switch i32 %106, label %.thread [
-    i32 0, label %.preheader498
+    i32 0, label %.preheader398
     i32 1, label %107
   ]
 
-107:                                              ; preds = %.preheader498
+107:                                              ; preds = %.preheader398
   tail call void @llvm.debugtrap()
   br label %.thread
 
 108:                                              ; preds = %102
-  %.off.i338 = add nsw i32 %104, -58
-  %switch.i339 = icmp ult i32 %.off.i338, 5
-  br i1 %switch.i339, label %111, label %.preheader534
+  %.off.i305 = add nsw i32 %104, -58
+  %switch.i306 = icmp ult i32 %.off.i305, 5
+  br i1 %switch.i306, label %111, label %.preheader434
 
-.preheader534:                                    ; preds = %108, %.preheader534
+.preheader434:                                    ; preds = %108, %.preheader434
   %109 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.54, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 963) #6
   switch i32 %109, label %.thread [
-    i32 0, label %.preheader534
+    i32 0, label %.preheader434
     i32 1, label %110
   ]
 
-110:                                              ; preds = %.preheader534
+110:                                              ; preds = %.preheader434
   tail call void @llvm.debugtrap()
   br label %.thread
 
 111:                                              ; preds = %108
   %112 = tail call zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef nonnull %0, i32 noundef %104, i32 noundef 0, i32 noundef 4)
-  br i1 %112, label %115, label %.preheader532
+  br i1 %112, label %115, label %.preheader432
 
-.preheader532:                                    ; preds = %111, %.preheader532
+.preheader432:                                    ; preds = %111, %.preheader432
   %113 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.57, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 967) #6
   switch i32 %113, label %.thread [
-    i32 0, label %.preheader532
+    i32 0, label %.preheader432
     i32 1, label %114
   ]
 
-114:                                              ; preds = %.preheader532
+114:                                              ; preds = %.preheader432
   tail call void @llvm.debugtrap()
   br label %.thread
 
-115:                                              ; preds = %111, %._crit_edge
+115:                                              ; preds = %111, %.critedge
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 89
   %117 = load i8, ptr %116, align 1, !range !5, !noundef !6
   %118 = trunc nuw i8 %117 to i1
@@ -913,16 +913,16 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 119:                                              ; preds = %115
   %120 = load i32, ptr %28, align 8
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.preheader500, label %124
+  br i1 %121, label %.preheader400, label %124
 
-.preheader500:                                    ; preds = %119, %.preheader500
+.preheader400:                                    ; preds = %119, %.preheader400
   %122 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.60, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 973) #6
   switch i32 %122, label %.thread [
-    i32 0, label %.preheader500
+    i32 0, label %.preheader400
     i32 1, label %123
   ]
 
-123:                                              ; preds = %.preheader500
+123:                                              ; preds = %.preheader400
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -930,16 +930,16 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %125 = load ptr, ptr %27, align 8
   %126 = load i32, ptr %125, align 4
   %127 = tail call fastcc zeroext i1 @FormatHasAlpha(i32 noundef %126)
-  br i1 %127, label %130, label %.preheader530
+  br i1 %127, label %130, label %.preheader430
 
-.preheader530:                                    ; preds = %124, %.preheader530
+.preheader430:                                    ; preds = %124, %.preheader430
   %128 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.63, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 977) #6
   switch i32 %128, label %.thread [
-    i32 0, label %.preheader530
+    i32 0, label %.preheader430
     i32 1, label %129
   ]
 
-129:                                              ; preds = %.preheader530
+129:                                              ; preds = %.preheader430
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -948,190 +948,190 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %133 = load i32, ptr %132, align 8
   %.not254 = icmp eq i32 %133, 0
-  br i1 %.not254, label %.thread414, label %134
+  br i1 %.not254, label %.thread343, label %134
 
 134:                                              ; preds = %130
   %135 = load ptr, ptr %131, align 8
   %136 = icmp eq ptr %135, null
-  br i1 %136, label %.preheader526, label %139
+  br i1 %136, label %.preheader426, label %139
 
-.preheader526:                                    ; preds = %134, %.preheader526
+.preheader426:                                    ; preds = %134, %.preheader426
   %137 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.66, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 984) #6
   switch i32 %137, label %.thread [
-    i32 0, label %.preheader526
+    i32 0, label %.preheader426
     i32 1, label %138
   ]
 
-138:                                              ; preds = %.preheader526
+138:                                              ; preds = %.preheader426
   tail call void @llvm.debugtrap()
   br label %.thread
 
 139:                                              ; preds = %134
   %140 = icmp ugt i32 %133, 16
-  br i1 %140, label %.preheader528, label %.thread414
+  br i1 %140, label %.preheader428, label %.thread343
 
-.preheader528:                                    ; preds = %139, %.preheader528
+.preheader428:                                    ; preds = %139, %.preheader428
   %141 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.69, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 988) #6
   switch i32 %141, label %.thread [
-    i32 0, label %.preheader528
+    i32 0, label %.preheader428
     i32 1, label %142
   ]
 
-142:                                              ; preds = %.preheader528
+142:                                              ; preds = %.preheader428
   tail call void @llvm.debugtrap()
   br label %.thread
 
-.thread414:                                       ; preds = %130, %139
+.thread343:                                       ; preds = %130, %139
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %144 = load i32, ptr %143, align 8
   %.not255 = icmp eq i32 %144, 0
-  br i1 %.not255, label %.preheader523, label %145
+  br i1 %.not255, label %.preheader423, label %145
 
-145:                                              ; preds = %.thread414
+145:                                              ; preds = %.thread343
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.preheader524, label %151
+  br i1 %148, label %.preheader424, label %151
 
-.preheader524:                                    ; preds = %145, %.preheader524
+.preheader424:                                    ; preds = %145, %.preheader424
   %149 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.72, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 992) #6
   switch i32 %149, label %.thread [
-    i32 0, label %.preheader524
+    i32 0, label %.preheader424
     i32 1, label %150
   ]
 
-150:                                              ; preds = %.preheader524
+150:                                              ; preds = %.preheader424
   tail call void @llvm.debugtrap()
   br label %.thread
 
 151:                                              ; preds = %145
   %152 = icmp ugt i32 %144, 16
-  br i1 %152, label %.preheader502, label %.preheader523
+  br i1 %152, label %.preheader402, label %.preheader423
 
-.preheader523:                                    ; preds = %.thread414, %151
-  br i1 %.not254, label %._crit_edge541, label %.lr.ph540
+.preheader423:                                    ; preds = %.thread343, %151
+  br i1 %.not254, label %._crit_edge, label %.lr.ph440
 
-.lr.ph540:                                        ; preds = %.preheader523
+.lr.ph440:                                        ; preds = %.preheader423
   %153 = load ptr, ptr %131, align 8
   %wide.trip.count = zext nneg i32 %133 to i64
   br label %157
 
-.preheader502:                                    ; preds = %151, %.preheader502
+.preheader402:                                    ; preds = %151, %.preheader402
   %154 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.75, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 996) #6
   switch i32 %154, label %.thread [
-    i32 0, label %.preheader502
+    i32 0, label %.preheader402
     i32 1, label %155
   ]
 
-155:                                              ; preds = %.preheader502
+155:                                              ; preds = %.preheader402
   tail call void @llvm.debugtrap()
   br label %.thread
 
 156:                                              ; preds = %157
-  %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge541, label %157, !llvm.loop !8
+  %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next483, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %157, !llvm.loop !8
 
-157:                                              ; preds = %.lr.ph540, %156
-  %indvars.iv583 = phi i64 [ 0, %.lr.ph540 ], [ %indvars.iv.next584, %156 ]
-  %158 = getelementptr inbounds nuw %struct.SDL_GPUVertexBufferDescription, ptr %153, i64 %indvars.iv583
+157:                                              ; preds = %.lr.ph440, %156
+  %indvars.iv482 = phi i64 [ 0, %.lr.ph440 ], [ %indvars.iv.next483, %156 ]
+  %158 = getelementptr inbounds nuw %struct.SDL_GPUVertexBufferDescription, ptr %153, i64 %indvars.iv482
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %160 = load i32, ptr %159, align 4
   %.not256 = icmp eq i32 %160, 0
-  br i1 %.not256, label %156, label %.preheader504
+  br i1 %.not256, label %156, label %.preheader404
 
-.preheader504:                                    ; preds = %157, %.preheader504
+.preheader404:                                    ; preds = %157, %.preheader404
   %161 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.78, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1001) #6
   switch i32 %161, label %.thread [
-    i32 0, label %.preheader504
+    i32 0, label %.preheader404
     i32 1, label %162
   ]
 
-162:                                              ; preds = %.preheader504
+162:                                              ; preds = %.preheader404
   tail call void @llvm.debugtrap()
   br label %.thread
 
-._crit_edge541:                                   ; preds = %156, %.preheader523
+._crit_edge:                                      ; preds = %156, %.preheader423
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not255, label %._crit_edge549, label %.lr.ph548
+  br i1 %.not255, label %._crit_edge448, label %.lr.ph447
 
-.lr.ph548:                                        ; preds = %._crit_edge541
+.lr.ph447:                                        ; preds = %._crit_edge
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %164 = load ptr, ptr %163, align 8
   br label %165
 
-165:                                              ; preds = %.lr.ph548, %.thread443
-  %.0205546 = phi i32 [ 0, %.lr.ph548 ], [ %180, %.thread443 ]
-  %166 = zext i32 %.0205546 to i64
+165:                                              ; preds = %.lr.ph447, %.thread358
+  %.0205445 = phi i32 [ 0, %.lr.ph447 ], [ %180, %.thread358 ]
+  %166 = zext i32 %.0205445 to i64
   %167 = getelementptr inbounds nuw %struct.SDL_GPUVertexAttribute, ptr %164, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load i32, ptr %168, align 4
   %170 = add i32 %169, -31
-  %or.cond311 = icmp ult i32 %170, -30
-  br i1 %or.cond311, label %.preheader506, label %172
+  %or.cond288 = icmp ult i32 %170, -30
+  br i1 %or.cond288, label %.preheader406, label %172
 
-.preheader506:                                    ; preds = %165, %.preheader506
+.preheader406:                                    ; preds = %165, %.preheader406
   %171 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.81, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1007) #6
-  switch i32 %171, label %.critedge336.thread [
-    i32 0, label %.preheader506
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %171, label %.critedge304.thread [
+    i32 0, label %.preheader406
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
 172:                                              ; preds = %165
   %173 = load i32, ptr %167, align 4
   %174 = getelementptr inbounds nuw i32, ptr %3, i64 %166
   store i32 %173, ptr %174, align 4
-  %.not257542.not = icmp eq i32 %.0205546, 0
-  br i1 %.not257542.not, label %.thread443, label %.lr.ph545
+  %.not257441.not = icmp eq i32 %.0205445, 0
+  br i1 %.not257441.not, label %.thread358, label %.lr.ph444
 
-175:                                              ; preds = %.lr.ph545
-  %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
-  %exitcond590.not = icmp eq i64 %indvars.iv.next587, %166
-  br i1 %exitcond590.not, label %.thread443, label %.lr.ph545, !llvm.loop !9
+175:                                              ; preds = %.lr.ph444
+  %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
+  %exitcond489.not = icmp eq i64 %indvars.iv.next486, %166
+  br i1 %exitcond489.not, label %.thread358, label %.lr.ph444, !llvm.loop !9
 
-.lr.ph545:                                        ; preds = %172, %175
-  %indvars.iv586 = phi i64 [ %indvars.iv.next587, %175 ], [ 0, %172 ]
-  %176 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv586
+.lr.ph444:                                        ; preds = %172, %175
+  %indvars.iv485 = phi i64 [ %indvars.iv.next486, %175 ], [ 0, %172 ]
+  %176 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv485
   %177 = load i32, ptr %176, align 4
   %178 = icmp eq i32 %177, %173
-  br i1 %178, label %.preheader507, label %175
+  br i1 %178, label %.preheader407, label %175
 
-.preheader507:                                    ; preds = %.lr.ph545, %.preheader507
+.preheader407:                                    ; preds = %.lr.ph444, %.preheader407
   %179 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.84, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1012) #6
-  switch i32 %179, label %.critedge336.thread [
-    i32 0, label %.preheader507
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %179, label %.critedge304.thread [
+    i32 0, label %.preheader407
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
-.thread443:                                       ; preds = %175, %172
-  %180 = add nuw i32 %.0205546, 1
-  %exitcond591.not = icmp eq i32 %180, %144
-  br i1 %exitcond591.not, label %._crit_edge549, label %165, !llvm.loop !10
+.thread358:                                       ; preds = %175, %172
+  %180 = add nuw i32 %.0205445, 1
+  %exitcond490.not = icmp eq i32 %180, %144
+  br i1 %exitcond490.not, label %._crit_edge448, label %165, !llvm.loop !10
 
-._crit_edge549:                                   ; preds = %.thread443, %._crit_edge541
+._crit_edge448:                                   ; preds = %.thread358, %._crit_edge
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %182 = load i8, ptr %181, align 8, !range !5, !noundef !6
   %183 = trunc nuw i8 %182 to i1
-  br i1 %183, label %.preheader509, label %185
+  br i1 %183, label %.preheader409, label %185
 
-.preheader509:                                    ; preds = %._crit_edge549, %.preheader509
+.preheader409:                                    ; preds = %._crit_edge448, %.preheader409
   %184 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.87, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1018) #6
-  switch i32 %184, label %.critedge336.thread [
-    i32 0, label %.preheader509
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %184, label %.critedge304.thread [
+    i32 0, label %.preheader409
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
-185:                                              ; preds = %._crit_edge549
+185:                                              ; preds = %._crit_edge448
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %187 = load i32, ptr %186, align 4
   %.not258 = icmp eq i32 %187, 0
-  br i1 %.not258, label %189, label %.preheader521
+  br i1 %.not258, label %189, label %.preheader421
 
-.preheader521:                                    ; preds = %185, %.preheader521
+.preheader421:                                    ; preds = %185, %.preheader421
   %188 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.90, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1022) #6
-  switch i32 %188, label %.critedge336.thread [
-    i32 0, label %.preheader521
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %188, label %.critedge304.thread [
+    i32 0, label %.preheader421
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
 189:                                              ; preds = %185
@@ -1144,91 +1144,91 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %195 = load i32, ptr %194, align 4
   %196 = add i32 %195, -9
-  %or.cond320 = icmp ult i32 %196, -8
-  br i1 %or.cond320, label %.preheader511, label %198
+  %or.cond293 = icmp ult i32 %196, -8
+  br i1 %or.cond293, label %.preheader411, label %198
 
-.preheader511:                                    ; preds = %193, %.preheader511
+.preheader411:                                    ; preds = %193, %.preheader411
   %197 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.93, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1026) #6
-  switch i32 %197, label %.critedge336.thread [
-    i32 0, label %.preheader511
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %197, label %.critedge304.thread [
+    i32 0, label %.preheader411
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
 198:                                              ; preds = %193, %189
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %200 = load i8, ptr %199, align 4, !range !5, !noundef !6
   %201 = trunc nuw i8 %200 to i1
-  br i1 %201, label %202, label %.critedge336
+  br i1 %201, label %202, label %.critedge304
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %204 = load i32, ptr %203, align 4
   %205 = add i32 %204, -9
-  %or.cond323 = icmp ult i32 %205, -8
-  br i1 %or.cond323, label %.preheader513, label %207
+  %or.cond295 = icmp ult i32 %205, -8
+  br i1 %or.cond295, label %.preheader413, label %207
 
-.preheader513:                                    ; preds = %202, %.preheader513
+.preheader413:                                    ; preds = %202, %.preheader413
   %206 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.95, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1030) #6
-  switch i32 %206, label %.critedge336.thread [
-    i32 0, label %.preheader513
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %206, label %.critedge304.thread [
+    i32 0, label %.preheader413
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
 207:                                              ; preds = %202
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %209 = load i32, ptr %208, align 4
   %210 = add i32 %209, -9
-  %or.cond326 = icmp ult i32 %210, -8
-  br i1 %or.cond326, label %.preheader515, label %212
+  %or.cond297 = icmp ult i32 %210, -8
+  br i1 %or.cond297, label %.preheader415, label %212
 
-.preheader515:                                    ; preds = %207, %.preheader515
+.preheader415:                                    ; preds = %207, %.preheader415
   %211 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.97, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1031) #6
-  switch i32 %211, label %.critedge336.thread [
-    i32 0, label %.preheader515
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %211, label %.critedge304.thread [
+    i32 0, label %.preheader415
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
 212:                                              ; preds = %207
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %214 = load i32, ptr %213, align 4
   %215 = add i32 %214, -9
-  %or.cond329 = icmp ult i32 %215, -8
-  br i1 %or.cond329, label %.preheader517, label %217
+  %or.cond299 = icmp ult i32 %215, -8
+  br i1 %or.cond299, label %.preheader417, label %217
 
-.preheader517:                                    ; preds = %212, %.preheader517
+.preheader417:                                    ; preds = %212, %.preheader417
   %216 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.99, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1032) #6
-  switch i32 %216, label %.critedge336.thread [
-    i32 0, label %.preheader517
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %216, label %.critedge304.thread [
+    i32 0, label %.preheader417
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
 217:                                              ; preds = %212
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %219 = load i32, ptr %218, align 4
   %220 = add i32 %219, -9
-  %or.cond332 = icmp ult i32 %220, -8
-  br i1 %or.cond332, label %.preheader519, label %.critedge336
+  %or.cond301 = icmp ult i32 %220, -8
+  br i1 %or.cond301, label %.preheader419, label %.critedge304
 
-.preheader519:                                    ; preds = %217, %.preheader519
+.preheader419:                                    ; preds = %217, %.preheader419
   %221 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.100, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1033) #6
-  switch i32 %221, label %.critedge336.thread [
-    i32 0, label %.preheader519
-    i32 1, label %.critedge336.thread.sink.split
+  switch i32 %221, label %.critedge304.thread [
+    i32 0, label %.preheader419
+    i32 1, label %.critedge304.thread.sink.split
   ]
 
-.critedge336.thread.sink.split:                   ; preds = %.preheader507, %.preheader506, %.preheader521, %.preheader519, %.preheader517, %.preheader515, %.preheader513, %.preheader511, %.preheader509
+.critedge304.thread.sink.split:                   ; preds = %.preheader407, %.preheader406, %.preheader421, %.preheader419, %.preheader417, %.preheader415, %.preheader413, %.preheader411, %.preheader409
   tail call void @llvm.debugtrap()
-  br label %.critedge336.thread
+  br label %.critedge304.thread
 
-.critedge336.thread:                              ; preds = %.preheader507, %.preheader506, %.preheader521, %.preheader519, %.preheader517, %.preheader515, %.preheader513, %.preheader511, %.preheader509, %.critedge336.thread.sink.split
+.critedge304.thread:                              ; preds = %.preheader407, %.preheader406, %.preheader421, %.preheader419, %.preheader417, %.preheader415, %.preheader413, %.preheader411, %.preheader409, %.critedge304.thread.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
-.critedge336:                                     ; preds = %198, %217
+.critedge304:                                     ; preds = %198, %217
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %222
 
-222:                                              ; preds = %.critedge336, %11
+222:                                              ; preds = %.critedge304, %11
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -1236,8 +1236,8 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %227 = tail call ptr %224(ptr noundef %226, ptr noundef nonnull %1) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader496, %.preheader494, %.preheader492, %.preheader490, %.preheader488, %.preheader486, %.preheader484, %.preheader482, %.preheader480, %.preheader536, %.preheader534, %.preheader532, %.preheader530, %.preheader528, %.preheader526, %.preheader502, %.preheader524, %.preheader504, %.preheader500, %.preheader498, %.preheader478, %.preheader, %162, %155, %150, %142, %138, %129, %123, %114, %110, %107, %94, %88, %82, %76, %70, %64, %52, %46, %43, %34, %25, %19, %.critedge336.thread, %222, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ %227, %222 ], [ null, %.critedge336.thread ], [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %43 ], [ null, %46 ], [ null, %52 ], [ null, %64 ], [ null, %70 ], [ null, %76 ], [ null, %82 ], [ null, %88 ], [ null, %94 ], [ null, %107 ], [ null, %110 ], [ null, %114 ], [ null, %123 ], [ null, %129 ], [ null, %138 ], [ null, %142 ], [ null, %150 ], [ null, %155 ], [ null, %162 ], [ null, %.preheader ], [ null, %.preheader478 ], [ null, %.preheader498 ], [ null, %.preheader500 ], [ null, %.preheader504 ], [ null, %.preheader524 ], [ null, %.preheader502 ], [ null, %.preheader526 ], [ null, %.preheader528 ], [ null, %.preheader530 ], [ null, %.preheader532 ], [ null, %.preheader534 ], [ null, %.preheader536 ], [ null, %.preheader480 ], [ null, %.preheader482 ], [ null, %.preheader484 ], [ null, %.preheader486 ], [ null, %.preheader488 ], [ null, %.preheader490 ], [ null, %.preheader492 ], [ null, %.preheader494 ], [ null, %.preheader496 ]
+.thread:                                          ; preds = %.preheader396, %.preheader394, %.preheader392, %.preheader390, %.preheader388, %.preheader386, %.preheader384, %.preheader382, %.preheader380, %.preheader436, %.preheader434, %.preheader432, %.preheader430, %.preheader428, %.preheader426, %.preheader402, %.preheader424, %.preheader404, %.preheader400, %.preheader398, %.preheader378, %.preheader, %155, %150, %142, %138, %129, %123, %114, %110, %107, %94, %88, %82, %76, %70, %64, %52, %46, %43, %34, %25, %19, %.critedge304.thread, %162, %222, %9, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ %227, %222 ], [ null, %162 ], [ null, %.critedge304.thread ], [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %43 ], [ null, %46 ], [ null, %52 ], [ null, %64 ], [ null, %70 ], [ null, %76 ], [ null, %82 ], [ null, %88 ], [ null, %94 ], [ null, %107 ], [ null, %110 ], [ null, %114 ], [ null, %123 ], [ null, %129 ], [ null, %138 ], [ null, %142 ], [ null, %150 ], [ null, %155 ], [ null, %.preheader ], [ null, %.preheader378 ], [ null, %.preheader398 ], [ null, %.preheader400 ], [ null, %.preheader404 ], [ null, %.preheader424 ], [ null, %.preheader402 ], [ null, %.preheader426 ], [ null, %.preheader428 ], [ null, %.preheader430 ], [ null, %.preheader432 ], [ null, %.preheader434 ], [ null, %.preheader436 ], [ null, %.preheader380 ], [ null, %.preheader382 ], [ null, %.preheader384 ], [ null, %.preheader386 ], [ null, %.preheader388 ], [ null, %.preheader390 ], [ null, %.preheader392 ], [ null, %.preheader394 ], [ null, %.preheader396 ]
   ret ptr %.0
 }
 
@@ -1502,16 +1502,16 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   %170 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %171 = load i8, ptr %170, align 8, !range !5, !noundef !6
   %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %175, label %.preheader27.i
+  br i1 %172, label %175, label %.preheader22.i
 
-.preheader27.i:                                   ; preds = %169, %.preheader27.i
+.preheader22.i:                                   ; preds = %169, %.preheader22.i
   %173 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2056) #6
   switch i32 %173, label %.loopexit [
-    i32 0, label %.preheader27.i
+    i32 0, label %.preheader22.i
     i32 1, label %174
   ]
 
-174:                                              ; preds = %.preheader27.i
+174:                                              ; preds = %.preheader22.i
   call void @llvm.debugtrap()
   br label %.loopexit
 
@@ -1543,7 +1543,7 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   %186 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %SDL_EndGPURenderPass_REAL.exit
 
-.loopexit:                                        ; preds = %.preheader27.i, %.preheader.i57, %174, %180, %181
+.loopexit:                                        ; preds = %.preheader22.i, %.preheader.i57, %174, %180, %181
   %187 = load ptr, ptr %42, align 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 684
@@ -1601,7 +1601,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 6:                                                ; preds = %4
   %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
-  br label %.critedge188
+  br label %.critedge175
 
 8:                                                ; preds = %4
   %9 = icmp eq ptr %1, null
@@ -1611,7 +1611,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 11:                                               ; preds = %8
   %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.184) #6
-  br label %.critedge188
+  br label %.critedge175
 
 13:                                               ; preds = %8
   %14 = icmp ugt i32 %2, 4
@@ -1619,7 +1619,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 15:                                               ; preds = %13
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.185) #6
-  br label %.critedge188
+  br label %.critedge175
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
@@ -1636,59 +1636,59 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 .preheader:                                       ; preds = %22, %.preheader
   %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1603) #6
-  switch i32 %26, label %.critedge188 [
+  switch i32 %26, label %.critedge175 [
     i32 0, label %.preheader
     i32 1, label %27
   ]
 
 27:                                               ; preds = %.preheader
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i8, ptr %29, align 8, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %.preheader325, label %32
+  br i1 %31, label %.preheader283, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load i8, ptr %33, align 8, !range !5, !noundef !6
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %.preheader325, label %36
+  br i1 %35, label %.preheader283, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %.preheader325, label %.preheader271
+  br i1 %39, label %.preheader283, label %.preheader229
 
-.preheader325:                                    ; preds = %28, %32, %36
+.preheader283:                                    ; preds = %28, %32, %36
   br label %40
 
-.preheader271:                                    ; preds = %36
-  %.not153272.not = icmp eq i32 %2, 0
-  br i1 %.not153272.not, label %.critedge178, label %.lr.ph.preheader
+.preheader229:                                    ; preds = %36
+  %.not153230.not = icmp eq i32 %2, 0
+  br i1 %.not153230.not, label %.critedge168, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader271
+.lr.ph.preheader:                                 ; preds = %.preheader229
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-40:                                               ; preds = %.preheader325, %40
+40:                                               ; preds = %.preheader283, %40
   %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.187, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1604) #6
-  switch i32 %41, label %.critedge188 [
+  switch i32 %41, label %.critedge175 [
     i32 0, label %40
     i32 1, label %42
   ]
 
 42:                                               ; preds = %40
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 43:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge178, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge168, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
@@ -1703,76 +1703,76 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.preheader249, label %55
+  br i1 %52, label %.preheader207, label %55
 
-.preheader249:                                    ; preds = %49, %.preheader249
+.preheader207:                                    ; preds = %49, %.preheader207
   %53 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.190, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1610) #6
-  switch i32 %53, label %.critedge188 [
-    i32 0, label %.preheader249
+  switch i32 %53, label %.critedge175 [
+    i32 0, label %.preheader207
     i32 1, label %54
   ]
 
-54:                                               ; preds = %.preheader249
+54:                                               ; preds = %.preheader207
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 55:                                               ; preds = %49, %.lr.ph
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, -2
-  %switch189 = icmp eq i32 %58, 2
-  br i1 %switch189, label %59, label %94
+  %switch = icmp eq i32 %58, 2
+  br i1 %switch, label %59, label %94
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.preheader251, label %65
+  br i1 %62, label %.preheader209, label %65
 
-.preheader251:                                    ; preds = %59, %.preheader251
+.preheader209:                                    ; preds = %59, %.preheader209
   %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.193, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1616) #6
-  switch i32 %63, label %.critedge188 [
-    i32 0, label %.preheader251
+  switch i32 %63, label %.critedge175 [
+    i32 0, label %.preheader209
     i32 1, label %64
   ]
 
-64:                                               ; preds = %.preheader251
+64:                                               ; preds = %.preheader209
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.preheader253, label %71
+  br i1 %68, label %.preheader211, label %71
 
-.preheader253:                                    ; preds = %65, %.preheader253
+.preheader211:                                    ; preds = %65, %.preheader211
   %69 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.196, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1621) #6
-  switch i32 %69, label %.critedge188 [
-    i32 0, label %.preheader253
+  switch i32 %69, label %.critedge175 [
+    i32 0, label %.preheader211
     i32 1, label %70
   ]
 
-70:                                               ; preds = %.preheader253
+70:                                               ; preds = %.preheader211
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %73 = load i32, ptr %72, align 4
   %.not = icmp eq i32 %73, 0
-  br i1 %.not, label %76, label %.preheader265
+  br i1 %.not, label %76, label %.preheader223
 
-.preheader265:                                    ; preds = %71, %.preheader265
+.preheader223:                                    ; preds = %71, %.preheader223
   %74 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.199, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1625) #6
-  switch i32 %74, label %.critedge188 [
-    i32 0, label %.preheader265
+  switch i32 %74, label %.critedge175 [
+    i32 0, label %.preheader223
     i32 1, label %75
   ]
 
-75:                                               ; preds = %.preheader265
+75:                                               ; preds = %.preheader223
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -1780,52 +1780,52 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %79 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %80 = load i32, ptr %79, align 4
   %.not149 = icmp eq i32 %78, %80
-  br i1 %.not149, label %83, label %.preheader263
+  br i1 %.not149, label %83, label %.preheader221
 
-.preheader263:                                    ; preds = %76, %.preheader263
+.preheader221:                                    ; preds = %76, %.preheader221
   %81 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.202, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1629) #6
-  switch i32 %81, label %.critedge188 [
-    i32 0, label %.preheader263
+  switch i32 %81, label %.critedge175 [
+    i32 0, label %.preheader221
     i32 1, label %82
   ]
 
-82:                                               ; preds = %.preheader263
+82:                                               ; preds = %.preheader221
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 83:                                               ; preds = %76
   %84 = load i32, ptr %61, align 4
   %85 = icmp eq i32 %84, 2
-  br i1 %85, label %.preheader255, label %88
+  br i1 %85, label %.preheader213, label %88
 
-.preheader255:                                    ; preds = %83, %.preheader255
+.preheader213:                                    ; preds = %83, %.preheader213
   %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.205, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1633) #6
-  switch i32 %86, label %.critedge188 [
-    i32 0, label %.preheader255
+  switch i32 %86, label %.critedge175 [
+    i32 0, label %.preheader213
     i32 1, label %87
   ]
 
-87:                                               ; preds = %.preheader255
+87:                                               ; preds = %.preheader213
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %90, 2
   %.not150 = icmp eq i32 %91, 0
-  br i1 %.not150, label %.preheader257, label %94
+  br i1 %.not150, label %.preheader215, label %94
 
-.preheader257:                                    ; preds = %88, %.preheader257
+.preheader215:                                    ; preds = %88, %.preheader215
   %92 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.208, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1637) #6
-  switch i32 %92, label %.critedge188 [
-    i32 0, label %.preheader257
+  switch i32 %92, label %.critedge175 [
+    i32 0, label %.preheader215
     i32 1, label %93
   ]
 
-93:                                               ; preds = %.preheader257
+93:                                               ; preds = %.preheader215
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 94:                                               ; preds = %55, %88
   %95 = getelementptr inbounds nuw i8, ptr %44, i64 12
@@ -1833,18 +1833,18 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %97 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %98 = load i32, ptr %97, align 4
   %.not151 = icmp ult i32 %96, %98
-  br i1 %.not151, label %.critedge, label %.preheader261
+  br i1 %.not151, label %.critedge, label %.preheader219
 
-.preheader261:                                    ; preds = %94, %.preheader261
+.preheader219:                                    ; preds = %94, %.preheader219
   %99 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.211, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1644) #6
-  switch i32 %99, label %.critedge188 [
-    i32 0, label %.preheader261
+  switch i32 %99, label %.critedge175 [
+    i32 0, label %.preheader219
     i32 1, label %100
   ]
 
-100:                                              ; preds = %.preheader261
+100:                                              ; preds = %.preheader219
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 .critedge:                                        ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -1852,41 +1852,41 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %103 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %104 = load i32, ptr %103, align 4
   %.not152 = icmp ult i32 %102, %104
-  br i1 %.not152, label %43, label %.preheader259
+  br i1 %.not152, label %43, label %.preheader217
 
-.preheader259:                                    ; preds = %.critedge, %.preheader259
+.preheader217:                                    ; preds = %.critedge, %.preheader217
   %105 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.214, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1649) #6
-  switch i32 %105, label %.critedge188 [
-    i32 0, label %.preheader259
+  switch i32 %105, label %.critedge175 [
+    i32 0, label %.preheader217
     i32 1, label %106
   ]
 
-106:                                              ; preds = %.preheader259
+106:                                              ; preds = %.preheader217
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
-.critedge178:                                     ; preds = %43, %.preheader271
+.critedge168:                                     ; preds = %43, %.preheader229
   %.not154 = icmp eq ptr %3, null
   br i1 %.not154, label %141, label %107
 
-107:                                              ; preds = %.critedge178
+107:                                              ; preds = %.critedge168
   %108 = load ptr, ptr %3, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 4
   %.not155 = icmp eq i32 %111, 0
-  br i1 %.not155, label %.preheader267, label %114
+  br i1 %.not155, label %.preheader225, label %114
 
-.preheader267:                                    ; preds = %107, %.preheader267
+.preheader225:                                    ; preds = %107, %.preheader225
   %112 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.217, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1658) #6
-  switch i32 %112, label %.critedge188 [
-    i32 0, label %.preheader267
+  switch i32 %112, label %.critedge175 [
+    i32 0, label %.preheader225
     i32 1, label %113
   ]
 
-113:                                              ; preds = %.preheader267
+113:                                              ; preds = %.preheader225
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1898,97 +1898,97 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.preheader328, label %122
+  br i1 %121, label %.preheader286, label %122
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %.preheader328, label %129
+  br i1 %125, label %.preheader286, label %129
 
-.preheader328:                                    ; preds = %118, %122
+.preheader286:                                    ; preds = %118, %122
   br label %126
 
-126:                                              ; preds = %.preheader328, %126
+126:                                              ; preds = %.preheader286, %126
   %127 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.220, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1663) #6
-  switch i32 %127, label %.critedge188 [
+  switch i32 %127, label %.critedge175 [
     i32 0, label %126
     i32 1, label %128
   ]
 
 128:                                              ; preds = %126
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
 129:                                              ; preds = %122, %114
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %131 = load i32, ptr %130, align 8
   %.fr = freeze i32 %131
   %132 = icmp eq i32 %.fr, 2
-  br i1 %132, label %.preheader330, label %133
+  br i1 %132, label %.preheader288, label %133
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %135 = load i32, ptr %134, align 8
   %136 = icmp eq i32 %.fr, 3
   %137 = and i32 %135, -2
-  %switch191 = icmp eq i32 %137, 2
-  %or.cond192 = select i1 %136, i1 true, i1 %switch191
-  br i1 %or.cond192, label %.preheader330, label %141
+  %switch177 = icmp eq i32 %137, 2
+  %or.cond178 = select i1 %136, i1 true, i1 %switch177
+  br i1 %or.cond178, label %.preheader288, label %141
 
-.preheader330:                                    ; preds = %133, %129
+.preheader288:                                    ; preds = %133, %129
   br label %138
 
-138:                                              ; preds = %.preheader330, %138
+138:                                              ; preds = %.preheader288, %138
   %139 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.223, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1671) #6
-  switch i32 %139, label %.critedge188 [
+  switch i32 %139, label %.critedge175 [
     i32 0, label %138
     i32 1, label %140
   ]
 
 140:                                              ; preds = %138
   tail call void @llvm.debugtrap()
-  br label %.critedge188
+  br label %.critedge175
 
-141:                                              ; preds = %133, %.critedge178, %17
+141:                                              ; preds = %133, %.critedge168, %17
   %142 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %143 = load ptr, ptr %142, align 8
   tail call void %143(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #6
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %145, align 8
-  %.not276 = icmp eq i32 %2, 0
-  br i1 %.not276, label %._crit_edge, label %.lr.ph275
+  %.not234 = icmp eq i32 %2, 0
+  br i1 %.not234, label %._crit_edge, label %.lr.ph233
 
-.lr.ph275:                                        ; preds = %141
+.lr.ph233:                                        ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count294 = zext nneg i32 %2 to i64
+  %wide.trip.count252 = zext nneg i32 %2 to i64
   br label %148
 
 ._crit_edge:                                      ; preds = %148, %141
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %2, ptr %147, align 8
   %.not156 = icmp eq ptr %3, null
-  br i1 %.not156, label %.critedge188, label %152
+  br i1 %.not156, label %.critedge175, label %152
 
-148:                                              ; preds = %.lr.ph275, %148
-  %indvars.iv291 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next292, %148 ]
-  %149 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv291
+148:                                              ; preds = %.lr.ph233, %148
+  %indvars.iv249 = phi i64 [ 0, %.lr.ph233 ], [ %indvars.iv.next250, %148 ]
+  %149 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv249
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv291
+  %151 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv249
   store ptr %150, ptr %151, align 8
-  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count294
-  br i1 %exitcond295.not, label %._crit_edge, label %148, !llvm.loop !12
+  %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
+  %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count252
+  br i1 %exitcond253.not, label %._crit_edge, label %148, !llvm.loop !12
 
 152:                                              ; preds = %._crit_edge
   %153 = load ptr, ptr %3, align 8
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %153, ptr %154, align 8
-  br label %.critedge188
+  br label %.critedge175
 
-.critedge188:                                     ; preds = %.preheader265, %.preheader263, %.preheader261, %.preheader259, %.preheader257, %.preheader255, %.preheader253, %.preheader251, %.preheader249, %138, %126, %.preheader267, %40, %.preheader, %140, %128, %113, %106, %100, %93, %87, %82, %75, %70, %64, %54, %42, %27, %._crit_edge, %152, %15, %11, %6
-  %.0118 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %15 ], [ %144, %152 ], [ %144, %._crit_edge ], [ null, %27 ], [ null, %42 ], [ null, %54 ], [ null, %64 ], [ null, %70 ], [ null, %75 ], [ null, %82 ], [ null, %87 ], [ null, %93 ], [ null, %100 ], [ null, %106 ], [ null, %113 ], [ null, %128 ], [ null, %140 ], [ null, %.preheader ], [ null, %40 ], [ null, %.preheader267 ], [ null, %126 ], [ null, %138 ], [ null, %.preheader249 ], [ null, %.preheader251 ], [ null, %.preheader253 ], [ null, %.preheader255 ], [ null, %.preheader257 ], [ null, %.preheader259 ], [ null, %.preheader261 ], [ null, %.preheader263 ], [ null, %.preheader265 ]
+.critedge175:                                     ; preds = %.preheader223, %.preheader221, %.preheader219, %.preheader217, %.preheader215, %.preheader213, %.preheader211, %.preheader209, %.preheader207, %138, %126, %.preheader225, %40, %.preheader, %140, %128, %113, %106, %100, %93, %87, %82, %75, %70, %64, %54, %42, %27, %._crit_edge, %152, %15, %11, %6
+  %.0118 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %15 ], [ %144, %152 ], [ %144, %._crit_edge ], [ null, %27 ], [ null, %42 ], [ null, %54 ], [ null, %64 ], [ null, %70 ], [ null, %75 ], [ null, %82 ], [ null, %87 ], [ null, %93 ], [ null, %100 ], [ null, %106 ], [ null, %113 ], [ null, %128 ], [ null, %140 ], [ null, %.preheader ], [ null, %40 ], [ null, %.preheader225 ], [ null, %126 ], [ null, %138 ], [ null, %.preheader207 ], [ null, %.preheader209 ], [ null, %.preheader211 ], [ null, %.preheader213 ], [ null, %.preheader215 ], [ null, %.preheader217 ], [ null, %.preheader219 ], [ null, %.preheader221 ], [ null, %.preheader223 ]
   ret ptr %.0118
 }
 
@@ -2107,16 +2107,16 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %25, label %.preheader65
+  br i1 %22, label %25, label %.preheader57
 
-.preheader65:                                     ; preds = %19, %.preheader65
+.preheader57:                                     ; preds = %19, %.preheader57
   %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1948) #6
   switch i32 %23, label %.thread [
-    i32 0, label %.preheader65
+    i32 0, label %.preheader57
     i32 1, label %24
   ]
 
-24:                                               ; preds = %.preheader65
+24:                                               ; preds = %.preheader57
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -2124,106 +2124,106 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 122
   %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %.loopexit, label %.preheader64
+  br i1 %28, label %.loopexit, label %.preheader56
 
-.preheader64:                                     ; preds = %25
+.preheader56:                                     ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
-  %.not69 = icmp eq i32 %30, 0
-  br i1 %.not69, label %.preheader61, label %.preheader63.lr.ph
+  %.not61 = icmp eq i32 %30, 0
+  br i1 %.not61, label %.preheader53, label %.preheader55.lr.ph
 
-.preheader63.lr.ph:                               ; preds = %.preheader64
-  %.not70 = icmp eq i32 %3, 0
+.preheader55.lr.ph:                               ; preds = %.preheader56
+  %.not62 = icmp eq i32 %3, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not70, label %.loopexit, label %.preheader63.us.preheader
+  br i1 %.not62, label %.loopexit, label %.preheader55.us.preheader
 
-.preheader63.us.preheader:                        ; preds = %.preheader63.lr.ph
+.preheader55.us.preheader:                        ; preds = %.preheader55.lr.ph
   %wide.trip.count = zext i32 %3 to i64
-  br label %.preheader63.us
+  br label %.preheader55.us
 
-.preheader63.us:                                  ; preds = %.preheader63.us.preheader, %._crit_edge.us
-  %indvars.iv75 = phi i64 [ 0, %.preheader63.us.preheader ], [ %indvars.iv.next76, %._crit_edge.us ]
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv75
+.preheader55.us:                                  ; preds = %.preheader55.us.preheader, %._crit_edge.us
+  %indvars.iv67 = phi i64 [ 0, %.preheader55.us.preheader ], [ %indvars.iv.next68, %._crit_edge.us ]
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv67
   br label %33
 
-33:                                               ; preds = %.preheader63.us, %.thread53.us
-  %indvars.iv = phi i64 [ 0, %.preheader63.us ], [ %indvars.iv.next, %.thread53.us ]
+33:                                               ; preds = %.preheader55.us, %.thread49.us
+  %indvars.iv = phi i64 [ 0, %.preheader55.us ], [ %indvars.iv.next, %.thread49.us ]
   %34 = load ptr, ptr %32, align 8
   %35 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %34, %36
-  br i1 %37, label %.preheader62.us, label %.thread53.us
+  br i1 %37, label %.preheader54.us, label %.thread49.us
 
-.preheader62.us:                                  ; preds = %33, %.preheader62.us
+.preheader54.us:                                  ; preds = %33, %.preheader54.us
   %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data.248, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1952) #6
-  switch i32 %38, label %.thread53.us [
-    i32 0, label %.preheader62.us
+  switch i32 %38, label %.thread49.us [
+    i32 0, label %.preheader54.us
     i32 1, label %39
   ]
 
-39:                                               ; preds = %.preheader62.us
+39:                                               ; preds = %.preheader54.us
   tail call void @llvm.debugtrap()
-  br label %.thread53.us
+  br label %.thread49.us
 
-.thread53.us:                                     ; preds = %.preheader62.us, %39, %33
+.thread49.us:                                     ; preds = %.preheader54.us, %39, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !13
 
-._crit_edge.us:                                   ; preds = %.thread53.us
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+._crit_edge.us:                                   ; preds = %.thread49.us
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %40 = load i32, ptr %29, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp samesign ult i64 %indvars.iv.next76, %41
-  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !14
+  %42 = icmp samesign ult i64 %indvars.iv.next68, %41
+  br i1 %42, label %.preheader55.us, label %.preheader53, !llvm.loop !14
 
-.preheader61:                                     ; preds = %._crit_edge.us, %.preheader64
-  %.not71 = icmp eq i32 %3, 0
-  br i1 %.not71, label %.loopexit, label %.lr.ph
+.preheader53:                                     ; preds = %._crit_edge.us, %.preheader56
+  %.not63 = icmp eq i32 %3, 0
+  br i1 %.not63, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader61
+.lr.ph:                                           ; preds = %.preheader53
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count81 = zext i32 %3 to i64
+  %wide.trip.count73 = zext i32 %3 to i64
   br label %.lr.ph.split
 
-.lr.ph.splitthread-pre-split:                     ; preds = %.thread57
+.lr.ph.splitthread-pre-split:                     ; preds = %.thread51
   %.pr = load ptr, ptr %43, align 8
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.splitthread-pre-split, %.lr.ph.split.preheader
   %46 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %44, %.lr.ph.split.preheader ]
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %.thread57, label %47
+  br i1 %.not, label %.thread51, label %47
 
 47:                                               ; preds = %.lr.ph.split
-  %48 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv78
+  %48 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv70
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %46, %49
-  br i1 %50, label %.preheader, label %.thread57
+  br i1 %50, label %.preheader, label %.thread51
 
 .preheader:                                       ; preds = %47, %.preheader
   %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data.249, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1952) #6
-  switch i32 %51, label %.thread57 [
+  switch i32 %51, label %.thread51 [
     i32 0, label %.preheader
     i32 1, label %52
   ]
 
 52:                                               ; preds = %.preheader
   tail call void @llvm.debugtrap()
-  br label %.thread57
+  br label %.thread51
 
-.thread57:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !15
+.thread51:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
+  br i1 %exitcond74.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.thread57, %.preheader63.lr.ph, %.lr.ph, %.preheader61, %25, %13
+.loopexit:                                        ; preds = %.thread51, %.preheader55.lr.ph, %.lr.ph, %.preheader53, %25, %13
   %53 = load ptr, ptr %0, align 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 256
@@ -2231,7 +2231,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   tail call void %56(ptr noundef nonnull %53, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader65, %24, %.loopexit, %11, %6
+.thread:                                          ; preds = %.preheader57, %24, %.loopexit, %11, %6
   ret void
 }
 
@@ -2307,16 +2307,16 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i8, ptr %16, align 8, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %21, label %.preheader27
+  br i1 %18, label %21, label %.preheader22
 
-.preheader27:                                     ; preds = %15, %.preheader27
+.preheader22:                                     ; preds = %15, %.preheader22
   %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2056) #6
   switch i32 %19, label %.thread [
-    i32 0, label %.preheader27
+    i32 0, label %.preheader22
     i32 1, label %20
   ]
 
-20:                                               ; preds = %.preheader27
+20:                                               ; preds = %.preheader22
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -2343,7 +2343,7 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
   tail call void %29(ptr noundef nonnull %10, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader27, %.preheader, %26, %20, %27, %7
+.thread:                                          ; preds = %.preheader22, %.preheader, %26, %20, %27, %7
   ret void
 }
 
@@ -2868,16 +2868,16 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, %16
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.preheader65, label %26
+  br i1 %.not, label %.preheader51, label %26
 
-.preheader65:                                     ; preds = %20, %.preheader65
+.preheader51:                                     ; preds = %20, %.preheader51
   %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.15, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 891) #6
   switch i32 %24, label %.thread [
-    i32 0, label %.preheader65
+    i32 0, label %.preheader51
     i32 1, label %25
   ]
 
-25:                                               ; preds = %.preheader65
+25:                                               ; preds = %.preheader51
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -2885,16 +2885,16 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp ugt i32 %28, 8
-  br i1 %29, label %.preheader67, label %32
+  br i1 %29, label %.preheader53, label %32
 
-.preheader67:                                     ; preds = %26, %.preheader67
+.preheader53:                                     ; preds = %26, %.preheader53
   %30 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.18, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 895) #6
   switch i32 %30, label %.thread [
-    i32 0, label %.preheader67
+    i32 0, label %.preheader53
     i32 1, label %31
   ]
 
-31:                                               ; preds = %.preheader67
+31:                                               ; preds = %.preheader53
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -2902,16 +2902,16 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %34 = load i32, ptr %33, align 4
   %35 = icmp ugt i32 %34, 8
-  br i1 %35, label %.preheader69, label %38
+  br i1 %35, label %.preheader55, label %38
 
-.preheader69:                                     ; preds = %32, %.preheader69
+.preheader55:                                     ; preds = %32, %.preheader55
   %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.21, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 899) #6
   switch i32 %36, label %.thread [
-    i32 0, label %.preheader69
+    i32 0, label %.preheader55
     i32 1, label %37
   ]
 
-37:                                               ; preds = %.preheader69
+37:                                               ; preds = %.preheader55
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -2919,24 +2919,24 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.preheader90, label %42
+  br i1 %41, label %.preheader76, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.preheader90, label %46
+  br i1 %45, label %.preheader76, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.preheader90, label %53
+  br i1 %49, label %.preheader76, label %53
 
-.preheader90:                                     ; preds = %38, %42, %46
+.preheader76:                                     ; preds = %38, %42, %46
   br label %50
 
-50:                                               ; preds = %.preheader90, %50
+50:                                               ; preds = %.preheader76, %50
   %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.24, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 905) #6
   switch i32 %51, label %.thread [
     i32 0, label %50
@@ -2955,8 +2955,8 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   %58 = tail call ptr %55(ptr noundef %57, ptr noundef nonnull %1) #6
   br label %.thread
 
-.thread:                                          ; preds = %50, %.preheader69, %.preheader67, %.preheader65, %.preheader, %52, %37, %31, %25, %19, %53, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %58, %53 ], [ null, %19 ], [ null, %25 ], [ null, %31 ], [ null, %37 ], [ null, %52 ], [ null, %.preheader ], [ null, %.preheader65 ], [ null, %.preheader67 ], [ null, %.preheader69 ], [ null, %50 ]
+.thread:                                          ; preds = %50, %.preheader55, %.preheader53, %.preheader51, %.preheader, %52, %37, %31, %25, %19, %53, %8, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %58, %53 ], [ null, %19 ], [ null, %25 ], [ null, %31 ], [ null, %37 ], [ null, %52 ], [ null, %.preheader ], [ null, %.preheader51 ], [ null, %.preheader53 ], [ null, %.preheader55 ], [ null, %50 ]
   ret ptr %.0
 }
 
@@ -3117,16 +3117,16 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, %16
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.preheader30, label %26
+  br i1 %.not, label %.preheader25, label %26
 
-.preheader30:                                     ; preds = %20, %.preheader30
+.preheader25:                                     ; preds = %20, %.preheader25
   %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUShader_REAL.sdl_assert_data.101, ptr noundef nonnull @__func__.SDL_CreateGPUShader_REAL, ptr noundef nonnull @.str.8, i32 noundef 1073) #6
   switch i32 %24, label %.thread [
-    i32 0, label %.preheader30
+    i32 0, label %.preheader25
     i32 1, label %25
   ]
 
-25:                                               ; preds = %.preheader30
+25:                                               ; preds = %.preheader25
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -3138,8 +3138,8 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   %31 = tail call ptr %28(ptr noundef %30, ptr noundef nonnull %1) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader30, %.preheader, %25, %19, %26, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %31, %26 ], [ null, %19 ], [ null, %25 ], [ null, %.preheader ], [ null, %.preheader30 ]
+.thread:                                          ; preds = %.preheader25, %.preheader, %25, %19, %26, %8, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %31, %26 ], [ null, %19 ], [ null, %25 ], [ null, %.preheader ], [ null, %.preheader25 ]
   ret ptr %.0
 }
 
@@ -3150,7 +3150,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
 
 4:                                                ; preds = %2
   %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
-  br label %.thread360
+  br label %.thread285
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %1, null
@@ -3158,7 +3158,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
 
 8:                                                ; preds = %6
   %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #6
-  br label %.thread360
+  br label %.thread285
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 684
@@ -3175,140 +3175,140 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
 
 .preheader:                                       ; preds = %14, %.preheader
   %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1100) #6
-  switch i32 %18, label %.thread360 [
+  switch i32 %18, label %.thread285 [
     i32 0, label %.preheader
     i32 1, label %19
   ]
 
 19:                                               ; preds = %.preheader
   tail call void @llvm.debugtrap()
-  br label %.thread360
+  br label %.thread285
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.preheader413, label %24
+  br i1 %23, label %.preheader336, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.preheader413, label %28
+  br i1 %27, label %.preheader336, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.preheader413, label %.thread256
+  br i1 %31, label %.preheader336, label %.thread229
 
-.preheader413:                                    ; preds = %20, %24, %28
+.preheader336:                                    ; preds = %20, %24, %28
   br label %32
 
-32:                                               ; preds = %.preheader413, %32
+32:                                               ; preds = %.preheader336, %32
   %33 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.103, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1103) #6
-  switch i32 %33, label %.thread256 [
+  switch i32 %33, label %.thread229 [
     i32 0, label %32
     i32 1, label %34
   ]
 
 34:                                               ; preds = %32
   tail call void @llvm.debugtrap()
-  br label %.thread256
+  br label %.thread229
 
-.thread256:                                       ; preds = %32, %34, %28
+.thread229:                                       ; preds = %32, %34, %28
   %.0134 = phi i1 [ false, %28 ], [ true, %34 ], [ true, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.preheader389, label %.thread260
+  br i1 %37, label %.preheader312, label %.thread231
 
-.preheader389:                                    ; preds = %.thread256, %.preheader389
+.preheader312:                                    ; preds = %.thread229, %.preheader312
   %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.106, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1107) #6
-  switch i32 %38, label %.thread260 [
-    i32 0, label %.preheader389
+  switch i32 %38, label %.thread231 [
+    i32 0, label %.preheader312
     i32 1, label %39
   ]
 
-39:                                               ; preds = %.preheader389
+39:                                               ; preds = %.preheader312
   tail call void @llvm.debugtrap()
-  br label %.thread260
+  br label %.thread231
 
-.thread260:                                       ; preds = %.preheader389, %39, %.thread256
-  %.1135 = phi i1 [ %.0134, %.thread256 ], [ true, %39 ], [ true, %.preheader389 ]
+.thread231:                                       ; preds = %.preheader312, %39, %.thread229
+  %.1135 = phi i1 [ %.0134, %.thread229 ], [ true, %39 ], [ true, %.preheader312 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 9
-  %or.cond206.not = icmp eq i32 %42, 9
-  br i1 %or.cond206.not, label %.preheader388, label %.thread264
+  %or.cond204.not = icmp eq i32 %42, 9
+  br i1 %or.cond204.not, label %.preheader311, label %.thread233
 
-.preheader388:                                    ; preds = %.thread260, %.preheader388
+.preheader311:                                    ; preds = %.thread231, %.preheader311
   %43 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.109, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1111) #6
-  switch i32 %43, label %.thread264 [
-    i32 0, label %.preheader388
+  switch i32 %43, label %.thread233 [
+    i32 0, label %.preheader311
     i32 1, label %44
   ]
 
-44:                                               ; preds = %.preheader388
+44:                                               ; preds = %.preheader311
   tail call void @llvm.debugtrap()
-  br label %.thread264
+  br label %.thread233
 
-.thread264:                                       ; preds = %.preheader388, %44, %.thread260
-  %.2 = phi i1 [ %.1135, %.thread260 ], [ true, %44 ], [ true, %.preheader388 ]
+.thread233:                                       ; preds = %.preheader311, %44, %.thread231
+  %.2 = phi i1 [ %.1135, %.thread231 ], [ true, %44 ], [ true, %.preheader311 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %46 = load i32, ptr %45, align 4
   %.not187 = icmp eq i32 %46, 0
-  br i1 %.not187, label %.thread268, label %47
+  br i1 %.not187, label %.thread235, label %47
 
-47:                                               ; preds = %.thread264
+47:                                               ; preds = %.thread233
   %48 = load i32, ptr %40, align 4
   %49 = and i32 %48, 57
   %.not188 = icmp eq i32 %49, 0
-  br i1 %.not188, label %.thread268, label %.preheader387
+  br i1 %.not188, label %.thread235, label %.preheader310
 
-.preheader387:                                    ; preds = %47, %.preheader387
+.preheader310:                                    ; preds = %47, %.preheader310
   %50 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.112, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1119) #6
-  switch i32 %50, label %.thread268 [
-    i32 0, label %.preheader387
+  switch i32 %50, label %.thread235 [
+    i32 0, label %.preheader310
     i32 1, label %51
   ]
 
-51:                                               ; preds = %.preheader387
+51:                                               ; preds = %.preheader310
   tail call void @llvm.debugtrap()
-  br label %.thread268
+  br label %.thread235
 
-.thread268:                                       ; preds = %.preheader387, %51, %47, %.thread264
-  %.3 = phi i1 [ %.2, %47 ], [ %.2, %.thread264 ], [ true, %51 ], [ true, %.preheader387 ]
+.thread235:                                       ; preds = %.preheader310, %51, %47, %.thread233
+  %.3 = phi i1 [ %.2, %47 ], [ %.2, %.thread233 ], [ true, %51 ], [ true, %.preheader310 ]
   %52 = load i32, ptr %15, align 4
   %.off.i = add i32 %52, -58
   %switch.i = icmp ult i32 %.off.i, 5
   br i1 %switch.i, label %53, label %58
 
-53:                                               ; preds = %.thread268
+53:                                               ; preds = %.thread235
   %54 = load i32, ptr %40, align 4
   %55 = and i32 %54, -6
   %.not189 = icmp eq i32 %55, 0
-  br i1 %.not189, label %thread-pre-split, label %.preheader386
+  br i1 %.not189, label %thread-pre-split, label %.preheader309
 
-.preheader386:                                    ; preds = %53, %.preheader386
+.preheader309:                                    ; preds = %53, %.preheader309
   %56 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.115, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1123) #6
   switch i32 %56, label %thread-pre-split [
-    i32 0, label %.preheader386
+    i32 0, label %.preheader309
     i32 1, label %57
   ]
 
-57:                                               ; preds = %.preheader386
+57:                                               ; preds = %.preheader309
   tail call void @llvm.debugtrap()
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.preheader386, %57, %53
-  %.4.ph = phi i1 [ %.3, %53 ], [ true, %57 ], [ true, %.preheader386 ]
+thread-pre-split:                                 ; preds = %.preheader309, %57, %53
+  %.4.ph = phi i1 [ %.3, %53 ], [ true, %57 ], [ true, %.preheader309 ]
   %.pr = load i32, ptr %15, align 4
   br label %58
 
-58:                                               ; preds = %thread-pre-split, %.thread268
-  %59 = phi i32 [ %.pr, %thread-pre-split ], [ %52, %.thread268 ]
-  %.4 = phi i1 [ %.4.ph, %thread-pre-split ], [ %.3, %.thread268 ]
+58:                                               ; preds = %thread-pre-split, %.thread235
+  %59 = phi i32 [ %.pr, %thread-pre-split ], [ %52, %.thread235 ]
+  %.4 = phi i1 [ %.4.ph, %thread-pre-split ], [ %.3, %.thread235 ]
   switch i32 %59, label %IsIntegerFormat.exit [
     i32 34, label %60
     i32 35, label %60
@@ -3328,23 +3328,23 @@ thread-pre-split:                                 ; preds = %.preheader386, %57,
   %61 = load i32, ptr %40, align 4
   %62 = and i32 %61, 1
   %.not190 = icmp eq i32 %62, 0
-  br i1 %.not190, label %IsIntegerFormat.exit, label %.preheader385
+  br i1 %.not190, label %IsIntegerFormat.exit, label %.preheader308
 
-.preheader385:                                    ; preds = %60, %.preheader385
+.preheader308:                                    ; preds = %60, %.preheader308
   %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.118, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1127) #6
   switch i32 %63, label %IsIntegerFormat.exit [
-    i32 0, label %.preheader385
+    i32 0, label %.preheader308
     i32 1, label %64
   ]
 
-64:                                               ; preds = %.preheader385
+64:                                               ; preds = %.preheader308
   tail call void @llvm.debugtrap()
   br label %IsIntegerFormat.exit
 
-IsIntegerFormat.exit:                             ; preds = %.preheader385, %64, %58, %60
-  %.5 = phi i1 [ %.4, %60 ], [ %.4, %58 ], [ true, %64 ], [ true, %.preheader385 ]
+IsIntegerFormat.exit:                             ; preds = %.preheader308, %64, %58, %60
+  %.5 = phi i1 [ %.4, %60 ], [ %.4, %58 ], [ true, %64 ], [ true, %.preheader308 ]
   %65 = load i32, ptr %1, align 4
-  switch i32 %65, label %.thread343 [
+  switch i32 %65, label %.thread274 [
     i32 3, label %66
     i32 4, label %93
     i32 2, label %121
@@ -3356,344 +3356,344 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load i32, ptr %68, align 4
   %.not199 = icmp eq i32 %67, %69
-  br i1 %.not199, label %72, label %.preheader373
+  br i1 %.not199, label %72, label %.preheader296
 
-.preheader373:                                    ; preds = %66, %.preheader373
+.preheader296:                                    ; preds = %66, %.preheader296
   %70 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.121, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1134) #6
-  switch i32 %70, label %.thread281 [
-    i32 0, label %.preheader373
+  switch i32 %70, label %.thread242 [
+    i32 0, label %.preheader296
     i32 1, label %71
   ]
 
-71:                                               ; preds = %.preheader373
+71:                                               ; preds = %.preheader296
   tail call void @llvm.debugtrap()
-  br label %.thread281
+  br label %.thread242
 
-.thread281:                                       ; preds = %.preheader373, %71
-  %.pr285 = load i32, ptr %21, align 4
+.thread242:                                       ; preds = %.preheader296, %71
+  %.pr244 = load i32, ptr %21, align 4
   br label %72
 
-72:                                               ; preds = %.thread281, %66
-  %73 = phi i32 [ %.pr285, %.thread281 ], [ %67, %66 ]
-  %.6 = phi i1 [ true, %.thread281 ], [ %.5, %66 ]
+72:                                               ; preds = %.thread242, %66
+  %73 = phi i32 [ %.pr244, %.thread242 ], [ %67, %66 ]
+  %.6 = phi i1 [ true, %.thread242 ], [ %.5, %66 ]
   %74 = icmp ugt i32 %73, 16384
-  br i1 %74, label %.preheader408, label %75
+  br i1 %74, label %.preheader331, label %75
 
 75:                                               ; preds = %72
   %76 = load i32, ptr %68, align 4
   %77 = icmp ugt i32 %76, 16384
-  br i1 %77, label %.preheader408, label %.thread286
+  br i1 %77, label %.preheader331, label %.thread245
 
-.preheader408:                                    ; preds = %72, %75
+.preheader331:                                    ; preds = %72, %75
   br label %78
 
-78:                                               ; preds = %.preheader408, %78
+78:                                               ; preds = %.preheader331, %78
   %79 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.124, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1138) #6
-  switch i32 %79, label %.thread286 [
+  switch i32 %79, label %.thread245 [
     i32 0, label %78
     i32 1, label %80
   ]
 
 80:                                               ; preds = %78
   tail call void @llvm.debugtrap()
-  br label %.thread286
+  br label %.thread245
 
-.thread286:                                       ; preds = %78, %80, %75
+.thread245:                                       ; preds = %78, %80, %75
   %.7 = phi i1 [ %.6, %75 ], [ true, %80 ], [ true, %78 ]
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %82 = load i32, ptr %81, align 4
   %.not200 = icmp eq i32 %82, 6
-  br i1 %.not200, label %.thread290, label %.preheader372
+  br i1 %.not200, label %.thread247, label %.preheader295
 
-.preheader372:                                    ; preds = %.thread286, %.preheader372
+.preheader295:                                    ; preds = %.thread245, %.preheader295
   %83 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.127, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1142) #6
-  switch i32 %83, label %.thread290 [
-    i32 0, label %.preheader372
+  switch i32 %83, label %.thread247 [
+    i32 0, label %.preheader295
     i32 1, label %84
   ]
 
-84:                                               ; preds = %.preheader372
+84:                                               ; preds = %.preheader295
   tail call void @llvm.debugtrap()
-  br label %.thread290
+  br label %.thread247
 
-.thread290:                                       ; preds = %.preheader372, %84, %.thread286
-  %.8 = phi i1 [ %.7, %.thread286 ], [ true, %84 ], [ true, %.preheader372 ]
+.thread247:                                       ; preds = %.preheader295, %84, %.thread245
+  %.8 = phi i1 [ %.7, %.thread245 ], [ true, %84 ], [ true, %.preheader295 ]
   %85 = load i32, ptr %45, align 4
   %.not201 = icmp eq i32 %85, 0
-  br i1 %.not201, label %.thread294, label %.preheader371
+  br i1 %.not201, label %.thread249, label %.preheader294
 
-.preheader371:                                    ; preds = %.thread290, %.preheader371
+.preheader294:                                    ; preds = %.thread247, %.preheader294
   %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.130, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1146) #6
-  switch i32 %86, label %.thread294 [
-    i32 0, label %.preheader371
+  switch i32 %86, label %.thread249 [
+    i32 0, label %.preheader294
     i32 1, label %87
   ]
 
-87:                                               ; preds = %.preheader371
+87:                                               ; preds = %.preheader294
   tail call void @llvm.debugtrap()
-  br label %.thread294
+  br label %.thread249
 
-.thread294:                                       ; preds = %.preheader371, %87, %.thread290
-  %.9 = phi i1 [ %.8, %.thread290 ], [ true, %87 ], [ true, %.preheader371 ]
+.thread249:                                       ; preds = %.preheader294, %87, %.thread247
+  %.9 = phi i1 [ %.8, %.thread247 ], [ true, %87 ], [ true, %.preheader294 ]
   %88 = load i32, ptr %15, align 4
   %89 = load i32, ptr %40, align 4
   %90 = tail call zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef nonnull %0, i32 noundef %88, i32 noundef 3, i32 noundef %89)
-  br i1 %90, label %182, label %.preheader369
+  br i1 %90, label %182, label %.preheader292
 
-.preheader369:                                    ; preds = %.thread294, %.preheader369
+.preheader292:                                    ; preds = %.thread249, %.preheader292
   %91 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.133, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1150) #6
-  switch i32 %91, label %.thread360 [
-    i32 0, label %.preheader369
+  switch i32 %91, label %.thread285 [
+    i32 0, label %.preheader292
     i32 1, label %92
   ]
 
-92:                                               ; preds = %.preheader369
+92:                                               ; preds = %.preheader292
   tail call void @llvm.debugtrap()
-  br label %.thread360
+  br label %.thread285
 
 93:                                               ; preds = %IsIntegerFormat.exit
   %94 = load i32, ptr %21, align 4
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %96 = load i32, ptr %95, align 4
   %.not196 = icmp eq i32 %94, %96
-  br i1 %.not196, label %99, label %.preheader378
+  br i1 %.not196, label %99, label %.preheader301
 
-.preheader378:                                    ; preds = %93, %.preheader378
+.preheader301:                                    ; preds = %93, %.preheader301
   %97 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.136, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1156) #6
-  switch i32 %97, label %.thread302 [
-    i32 0, label %.preheader378
+  switch i32 %97, label %.thread253 [
+    i32 0, label %.preheader301
     i32 1, label %98
   ]
 
-98:                                               ; preds = %.preheader378
+98:                                               ; preds = %.preheader301
   tail call void @llvm.debugtrap()
-  br label %.thread302
+  br label %.thread253
 
-.thread302:                                       ; preds = %.preheader378, %98
-  %.pr306 = load i32, ptr %21, align 4
+.thread253:                                       ; preds = %.preheader301, %98
+  %.pr255 = load i32, ptr %21, align 4
   br label %99
 
-99:                                               ; preds = %.thread302, %93
-  %100 = phi i32 [ %.pr306, %.thread302 ], [ %94, %93 ]
-  %.11 = phi i1 [ true, %.thread302 ], [ %.5, %93 ]
+99:                                               ; preds = %.thread253, %93
+  %100 = phi i32 [ %.pr255, %.thread253 ], [ %94, %93 ]
+  %.11 = phi i1 [ true, %.thread253 ], [ %.5, %93 ]
   %101 = icmp ugt i32 %100, 16384
-  br i1 %101, label %.preheader410, label %102
+  br i1 %101, label %.preheader333, label %102
 
 102:                                              ; preds = %99
   %103 = load i32, ptr %95, align 4
   %104 = icmp ugt i32 %103, 16384
-  br i1 %104, label %.preheader410, label %.thread307
+  br i1 %104, label %.preheader333, label %.thread256
 
-.preheader410:                                    ; preds = %99, %102
+.preheader333:                                    ; preds = %99, %102
   br label %105
 
-105:                                              ; preds = %.preheader410, %105
+105:                                              ; preds = %.preheader333, %105
   %106 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.139, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1160) #6
-  switch i32 %106, label %.thread307 [
+  switch i32 %106, label %.thread256 [
     i32 0, label %105
     i32 1, label %107
   ]
 
 107:                                              ; preds = %105
   tail call void @llvm.debugtrap()
-  br label %.thread307
+  br label %.thread256
 
-.thread307:                                       ; preds = %105, %107, %102
+.thread256:                                       ; preds = %105, %107, %102
   %.12 = phi i1 [ %.11, %102 ], [ true, %107 ], [ true, %105 ]
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %109 = load i32, ptr %108, align 4
   %110 = urem i32 %109, 6
   %.not197 = icmp eq i32 %110, 0
-  br i1 %.not197, label %.thread311, label %.preheader377
+  br i1 %.not197, label %.thread258, label %.preheader300
 
-.preheader377:                                    ; preds = %.thread307, %.preheader377
+.preheader300:                                    ; preds = %.thread256, %.preheader300
   %111 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.142, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1164) #6
-  switch i32 %111, label %.thread311 [
-    i32 0, label %.preheader377
+  switch i32 %111, label %.thread258 [
+    i32 0, label %.preheader300
     i32 1, label %112
   ]
 
-112:                                              ; preds = %.preheader377
+112:                                              ; preds = %.preheader300
   tail call void @llvm.debugtrap()
-  br label %.thread311
+  br label %.thread258
 
-.thread311:                                       ; preds = %.preheader377, %112, %.thread307
-  %.13 = phi i1 [ %.12, %.thread307 ], [ true, %112 ], [ true, %.preheader377 ]
+.thread258:                                       ; preds = %.preheader300, %112, %.thread256
+  %.13 = phi i1 [ %.12, %.thread256 ], [ true, %112 ], [ true, %.preheader300 ]
   %113 = load i32, ptr %45, align 4
   %.not198 = icmp eq i32 %113, 0
-  br i1 %.not198, label %.thread315, label %.preheader376
+  br i1 %.not198, label %.thread260, label %.preheader299
 
-.preheader376:                                    ; preds = %.thread311, %.preheader376
+.preheader299:                                    ; preds = %.thread258, %.preheader299
   %114 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.145, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1168) #6
-  switch i32 %114, label %.thread315 [
-    i32 0, label %.preheader376
+  switch i32 %114, label %.thread260 [
+    i32 0, label %.preheader299
     i32 1, label %115
   ]
 
-115:                                              ; preds = %.preheader376
+115:                                              ; preds = %.preheader299
   tail call void @llvm.debugtrap()
-  br label %.thread315
+  br label %.thread260
 
-.thread315:                                       ; preds = %.preheader376, %115, %.thread311
-  %.14 = phi i1 [ %.13, %.thread311 ], [ true, %115 ], [ true, %.preheader376 ]
+.thread260:                                       ; preds = %.preheader299, %115, %.thread258
+  %.14 = phi i1 [ %.13, %.thread258 ], [ true, %115 ], [ true, %.preheader299 ]
   %116 = load i32, ptr %15, align 4
   %117 = load i32, ptr %40, align 4
   %118 = tail call zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef nonnull %0, i32 noundef %116, i32 noundef 4, i32 noundef %117)
-  br i1 %118, label %182, label %.preheader374
+  br i1 %118, label %182, label %.preheader297
 
-.preheader374:                                    ; preds = %.thread315, %.preheader374
+.preheader297:                                    ; preds = %.thread260, %.preheader297
   %119 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.148, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1172) #6
-  switch i32 %119, label %.thread360 [
-    i32 0, label %.preheader374
+  switch i32 %119, label %.thread285 [
+    i32 0, label %.preheader297
     i32 1, label %120
   ]
 
-120:                                              ; preds = %.preheader374
+120:                                              ; preds = %.preheader297
   tail call void @llvm.debugtrap()
-  br label %.thread360
+  br label %.thread285
 
 121:                                              ; preds = %IsIntegerFormat.exit
   %122 = load i32, ptr %21, align 4
   %123 = icmp ugt i32 %122, 2048
-  br i1 %123, label %.preheader412, label %124
+  br i1 %123, label %.preheader335, label %124
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %126 = load i32, ptr %125, align 4
   %127 = icmp ugt i32 %126, 2048
-  br i1 %127, label %.preheader412, label %128
+  br i1 %127, label %.preheader335, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %130 = load i32, ptr %129, align 4
   %131 = icmp ugt i32 %130, 2048
-  br i1 %131, label %.preheader412, label %.thread323
+  br i1 %131, label %.preheader335, label %.thread264
 
-.preheader412:                                    ; preds = %121, %124, %128
+.preheader335:                                    ; preds = %121, %124, %128
   br label %132
 
-132:                                              ; preds = %.preheader412, %132
+132:                                              ; preds = %.preheader335, %132
   %133 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.151, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1178) #6
-  switch i32 %133, label %.thread323 [
+  switch i32 %133, label %.thread264 [
     i32 0, label %132
     i32 1, label %134
   ]
 
 134:                                              ; preds = %132
   tail call void @llvm.debugtrap()
-  br label %.thread323
+  br label %.thread264
 
-.thread323:                                       ; preds = %132, %134, %128
+.thread264:                                       ; preds = %132, %134, %128
   %.15 = phi i1 [ %.5, %128 ], [ true, %134 ], [ true, %132 ]
   %135 = load i32, ptr %40, align 4
   %136 = and i32 %135, 4
   %.not194 = icmp eq i32 %136, 0
-  br i1 %.not194, label %.thread327, label %.preheader382
+  br i1 %.not194, label %.thread266, label %.preheader305
 
-.preheader382:                                    ; preds = %.thread323, %.preheader382
+.preheader305:                                    ; preds = %.thread264, %.preheader305
   %137 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.154, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1182) #6
-  switch i32 %137, label %.thread327 [
-    i32 0, label %.preheader382
+  switch i32 %137, label %.thread266 [
+    i32 0, label %.preheader305
     i32 1, label %138
   ]
 
-138:                                              ; preds = %.preheader382
+138:                                              ; preds = %.preheader305
   tail call void @llvm.debugtrap()
-  br label %.thread327
+  br label %.thread266
 
-.thread327:                                       ; preds = %.preheader382, %138, %.thread323
-  %.16 = phi i1 [ %.15, %.thread323 ], [ true, %138 ], [ true, %.preheader382 ]
+.thread266:                                       ; preds = %.preheader305, %138, %.thread264
+  %.16 = phi i1 [ %.15, %.thread264 ], [ true, %138 ], [ true, %.preheader305 ]
   %139 = load i32, ptr %45, align 4
   %.not195 = icmp eq i32 %139, 0
-  br i1 %.not195, label %.thread331, label %.preheader381
+  br i1 %.not195, label %.thread268, label %.preheader304
 
-.preheader381:                                    ; preds = %.thread327, %.preheader381
+.preheader304:                                    ; preds = %.thread266, %.preheader304
   %140 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.157, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1186) #6
-  switch i32 %140, label %.thread331 [
-    i32 0, label %.preheader381
+  switch i32 %140, label %.thread268 [
+    i32 0, label %.preheader304
     i32 1, label %141
   ]
 
-141:                                              ; preds = %.preheader381
+141:                                              ; preds = %.preheader304
   tail call void @llvm.debugtrap()
-  br label %.thread331
+  br label %.thread268
 
-.thread331:                                       ; preds = %.preheader381, %141, %.thread327
-  %.17 = phi i1 [ %.16, %.thread327 ], [ true, %141 ], [ true, %.preheader381 ]
+.thread268:                                       ; preds = %.preheader304, %141, %.thread266
+  %.17 = phi i1 [ %.16, %.thread266 ], [ true, %141 ], [ true, %.preheader304 ]
   %142 = load i32, ptr %15, align 4
   %143 = load i32, ptr %40, align 4
   %144 = tail call zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef nonnull %0, i32 noundef %142, i32 noundef 2, i32 noundef %143)
-  br i1 %144, label %182, label %.preheader379
+  br i1 %144, label %182, label %.preheader302
 
-.preheader379:                                    ; preds = %.thread331, %.preheader379
+.preheader302:                                    ; preds = %.thread268, %.preheader302
   %145 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.160, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1190) #6
-  switch i32 %145, label %.thread360 [
-    i32 0, label %.preheader379
+  switch i32 %145, label %.thread285 [
+    i32 0, label %.preheader302
     i32 1, label %146
   ]
 
-146:                                              ; preds = %.preheader379
+146:                                              ; preds = %.preheader302
   tail call void @llvm.debugtrap()
-  br label %.thread360
+  br label %.thread285
 
 147:                                              ; preds = %IsIntegerFormat.exit
   %148 = load i32, ptr %40, align 4
   %149 = and i32 %148, 4
   %.not191 = icmp eq i32 %149, 0
-  br i1 %.not191, label %.thread339, label %.preheader384
+  br i1 %.not191, label %.thread272, label %.preheader307
 
-.preheader384:                                    ; preds = %147, %.preheader384
+.preheader307:                                    ; preds = %147, %.preheader307
   %150 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.163, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1197) #6
-  switch i32 %150, label %.thread339 [
-    i32 0, label %.preheader384
+  switch i32 %150, label %.thread272 [
+    i32 0, label %.preheader307
     i32 1, label %151
   ]
 
-151:                                              ; preds = %.preheader384
+151:                                              ; preds = %.preheader307
   tail call void @llvm.debugtrap()
-  br label %.thread339
+  br label %.thread272
 
-.thread339:                                       ; preds = %.preheader384, %151, %147
-  %.19 = phi i1 [ %.5, %147 ], [ true, %151 ], [ true, %.preheader384 ]
+.thread272:                                       ; preds = %.preheader307, %151, %147
+  %.19 = phi i1 [ %.5, %147 ], [ true, %151 ], [ true, %.preheader307 ]
   %152 = load i32, ptr %45, align 4
   %.not192 = icmp eq i32 %152, 0
-  br i1 %.not192, label %.thread349, label %.preheader383
+  br i1 %.not192, label %.thread278, label %.preheader306
 
-.preheader383:                                    ; preds = %.thread339, %.preheader383
+.preheader306:                                    ; preds = %.thread272, %.preheader306
   %153 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.166, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1201) #6
-  switch i32 %153, label %.thread343 [
-    i32 0, label %.preheader383
+  switch i32 %153, label %.thread274 [
+    i32 0, label %.preheader306
     i32 1, label %154
   ]
 
-154:                                              ; preds = %.preheader383
+154:                                              ; preds = %.preheader306
   tail call void @llvm.debugtrap()
-  br label %.thread343
+  br label %.thread274
 
-.thread343:                                       ; preds = %.preheader383, %154, %IsIntegerFormat.exit
-  %.18.ph = phi i1 [ %.5, %IsIntegerFormat.exit ], [ true, %154 ], [ true, %.preheader383 ]
-  %.pr348 = load i32, ptr %45, align 4
-  %.not193 = icmp eq i32 %.pr348, 0
-  br i1 %.not193, label %.thread349, label %155
+.thread274:                                       ; preds = %.preheader306, %154, %IsIntegerFormat.exit
+  %.18.ph = phi i1 [ %.5, %IsIntegerFormat.exit ], [ true, %154 ], [ true, %.preheader306 ]
+  %.pr277 = load i32, ptr %45, align 4
+  %.not193 = icmp eq i32 %.pr277, 0
+  br i1 %.not193, label %.thread278, label %155
 
-155:                                              ; preds = %.thread343
+155:                                              ; preds = %.thread274
   %156 = load i32, ptr %35, align 4
   %157 = icmp ugt i32 %156, 1
-  br i1 %157, label %.preheader368, label %.thread349
+  br i1 %157, label %.preheader291, label %.thread278
 
-.preheader368:                                    ; preds = %155, %.preheader368
+.preheader291:                                    ; preds = %155, %.preheader291
   %158 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.169, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1206) #6
-  switch i32 %158, label %.thread349 [
-    i32 0, label %.preheader368
+  switch i32 %158, label %.thread278 [
+    i32 0, label %.preheader291
     i32 1, label %159
   ]
 
-159:                                              ; preds = %.preheader368
+159:                                              ; preds = %.preheader291
   tail call void @llvm.debugtrap()
-  br label %.thread349
+  br label %.thread278
 
-.thread349:                                       ; preds = %.preheader368, %159, %.thread339, %.thread343, %155
-  %.20 = phi i1 [ %.18.ph, %155 ], [ %.18.ph, %.thread343 ], [ %.19, %.thread339 ], [ true, %159 ], [ true, %.preheader368 ]
+.thread278:                                       ; preds = %.preheader291, %159, %.thread272, %.thread274, %155
+  %.20 = phi i1 [ %.18.ph, %155 ], [ %.18.ph, %.thread274 ], [ %.19, %.thread272 ], [ true, %159 ], [ true, %.preheader291 ]
   %160 = load i32, ptr %15, align 4
   %161 = load i32, ptr %40, align 4
   %162 = load i8, ptr %11, align 4, !range !5, !noundef !6
@@ -3703,18 +3703,18 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %or.cond20.i = and i1 %or.cond.i, %163
   br i1 %or.cond20.i, label %.preheader.i, label %167
 
-.preheader.i:                                     ; preds = %.thread349, %.preheader.i
+.preheader.i:                                     ; preds = %.thread278, %.preheader.i
   %165 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsFormat_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsFormat_REAL, ptr noundef nonnull @.str.8, i32 noundef 839) #6
-  switch i32 %165, label %.preheader366.preheader [
+  switch i32 %165, label %.preheader289.preheader [
     i32 0, label %.preheader.i
     i32 1, label %166
   ]
 
 166:                                              ; preds = %.preheader.i
   tail call void @llvm.debugtrap()
-  br label %.preheader366.preheader
+  br label %.preheader289.preheader
 
-167:                                              ; preds = %.thread349
+167:                                              ; preds = %.thread278
   %168 = and i32 %161, 96
   %or.cond21.i = icmp eq i32 %168, 0
   br i1 %or.cond21.i, label %174, label %169
@@ -3724,7 +3724,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %171 = getelementptr inbounds nuw i8, ptr @TextureFormatIsComputeWritable, i64 %170
   %172 = load i8, ptr %171, align 1, !range !5, !noundef !6
   %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %.preheader366.preheader
+  br i1 %173, label %174, label %.preheader289.preheader
 
 174:                                              ; preds = %169, %167
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -3732,25 +3732,25 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %178 = load ptr, ptr %177, align 8
   %179 = tail call zeroext i1 %176(ptr noundef %178, i32 noundef %160, i32 noundef 0, i32 noundef %161) #6
-  br i1 %179, label %182, label %.preheader366.preheader
+  br i1 %179, label %182, label %.preheader289.preheader
 
-.preheader366.preheader:                          ; preds = %.preheader.i, %169, %166, %174
-  br label %.preheader366
+.preheader289.preheader:                          ; preds = %.preheader.i, %169, %166, %174
+  br label %.preheader289
 
-.preheader366:                                    ; preds = %.preheader366.preheader, %.preheader366
+.preheader289:                                    ; preds = %.preheader289.preheader, %.preheader289
   %180 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.172, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1210) #6
-  switch i32 %180, label %.thread360 [
-    i32 0, label %.preheader366
+  switch i32 %180, label %.thread285 [
+    i32 0, label %.preheader289
     i32 1, label %181
   ]
 
-181:                                              ; preds = %.preheader366
+181:                                              ; preds = %.preheader289
   tail call void @llvm.debugtrap()
-  br label %.thread360
+  br label %.thread285
 
-182:                                              ; preds = %.thread294, %.thread331, %.thread315, %174
-  %.10 = phi i1 [ %.9, %.thread294 ], [ %.14, %.thread315 ], [ %.17, %.thread331 ], [ %.20, %174 ]
-  br i1 %.10, label %.thread360, label %183
+182:                                              ; preds = %.thread249, %.thread268, %.thread260, %174
+  %.10 = phi i1 [ %.9, %.thread249 ], [ %.14, %.thread260 ], [ %.17, %.thread268 ], [ %.20, %174 ]
+  br i1 %.10, label %.thread285, label %183
 
 183:                                              ; preds = %182, %10
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3758,10 +3758,10 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %187 = load ptr, ptr %186, align 8
   %188 = tail call ptr %185(ptr noundef %187, ptr noundef nonnull %1) #6
-  br label %.thread360
+  br label %.thread285
 
-.thread360:                                       ; preds = %.preheader379, %.preheader374, %.preheader369, %.preheader366, %.preheader, %181, %146, %120, %92, %19, %182, %183, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %188, %183 ], [ null, %182 ], [ null, %19 ], [ null, %92 ], [ null, %120 ], [ null, %146 ], [ null, %181 ], [ null, %.preheader ], [ null, %.preheader366 ], [ null, %.preheader369 ], [ null, %.preheader374 ], [ null, %.preheader379 ]
+.thread285:                                       ; preds = %.preheader302, %.preheader297, %.preheader292, %.preheader289, %.preheader, %181, %146, %120, %92, %19, %182, %183, %8, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %188, %183 ], [ null, %182 ], [ null, %19 ], [ null, %92 ], [ null, %120 ], [ null, %146 ], [ null, %181 ], [ null, %.preheader ], [ null, %.preheader289 ], [ null, %.preheader292 ], [ null, %.preheader297 ], [ null, %.preheader302 ]
   ret ptr %.0
 }
 
@@ -4659,16 +4659,16 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %25, label %.preheader65
+  br i1 %22, label %25, label %.preheader57
 
-.preheader65:                                     ; preds = %19, %.preheader65
+.preheader57:                                     ; preds = %19, %.preheader57
   %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1864) #6
   switch i32 %23, label %.thread [
-    i32 0, label %.preheader65
+    i32 0, label %.preheader57
     i32 1, label %24
   ]
 
-24:                                               ; preds = %.preheader65
+24:                                               ; preds = %.preheader57
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -4676,106 +4676,106 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 122
   %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %.loopexit, label %.preheader64
+  br i1 %28, label %.loopexit, label %.preheader56
 
-.preheader64:                                     ; preds = %25
+.preheader56:                                     ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
-  %.not69 = icmp eq i32 %30, 0
-  br i1 %.not69, label %.preheader61, label %.preheader63.lr.ph
+  %.not61 = icmp eq i32 %30, 0
+  br i1 %.not61, label %.preheader53, label %.preheader55.lr.ph
 
-.preheader63.lr.ph:                               ; preds = %.preheader64
-  %.not70 = icmp eq i32 %3, 0
+.preheader55.lr.ph:                               ; preds = %.preheader56
+  %.not62 = icmp eq i32 %3, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not70, label %.loopexit, label %.preheader63.us.preheader
+  br i1 %.not62, label %.loopexit, label %.preheader55.us.preheader
 
-.preheader63.us.preheader:                        ; preds = %.preheader63.lr.ph
+.preheader55.us.preheader:                        ; preds = %.preheader55.lr.ph
   %wide.trip.count = zext i32 %3 to i64
-  br label %.preheader63.us
+  br label %.preheader55.us
 
-.preheader63.us:                                  ; preds = %.preheader63.us.preheader, %._crit_edge.us
-  %indvars.iv75 = phi i64 [ 0, %.preheader63.us.preheader ], [ %indvars.iv.next76, %._crit_edge.us ]
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv75
+.preheader55.us:                                  ; preds = %.preheader55.us.preheader, %._crit_edge.us
+  %indvars.iv67 = phi i64 [ 0, %.preheader55.us.preheader ], [ %indvars.iv.next68, %._crit_edge.us ]
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv67
   br label %33
 
-33:                                               ; preds = %.preheader63.us, %.thread53.us
-  %indvars.iv = phi i64 [ 0, %.preheader63.us ], [ %indvars.iv.next, %.thread53.us ]
+33:                                               ; preds = %.preheader55.us, %.thread49.us
+  %indvars.iv = phi i64 [ 0, %.preheader55.us ], [ %indvars.iv.next, %.thread49.us ]
   %34 = load ptr, ptr %32, align 8
   %35 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %34, %36
-  br i1 %37, label %.preheader62.us, label %.thread53.us
+  br i1 %37, label %.preheader54.us, label %.thread49.us
 
-.preheader62.us:                                  ; preds = %33, %.preheader62.us
+.preheader54.us:                                  ; preds = %33, %.preheader54.us
   %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data.235, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1868) #6
-  switch i32 %38, label %.thread53.us [
-    i32 0, label %.preheader62.us
+  switch i32 %38, label %.thread49.us [
+    i32 0, label %.preheader54.us
     i32 1, label %39
   ]
 
-39:                                               ; preds = %.preheader62.us
+39:                                               ; preds = %.preheader54.us
   tail call void @llvm.debugtrap()
-  br label %.thread53.us
+  br label %.thread49.us
 
-.thread53.us:                                     ; preds = %.preheader62.us, %39, %33
+.thread49.us:                                     ; preds = %.preheader54.us, %39, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !17
 
-._crit_edge.us:                                   ; preds = %.thread53.us
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+._crit_edge.us:                                   ; preds = %.thread49.us
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %40 = load i32, ptr %29, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp samesign ult i64 %indvars.iv.next76, %41
-  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !18
+  %42 = icmp samesign ult i64 %indvars.iv.next68, %41
+  br i1 %42, label %.preheader55.us, label %.preheader53, !llvm.loop !18
 
-.preheader61:                                     ; preds = %._crit_edge.us, %.preheader64
-  %.not71 = icmp eq i32 %3, 0
-  br i1 %.not71, label %.loopexit, label %.lr.ph
+.preheader53:                                     ; preds = %._crit_edge.us, %.preheader56
+  %.not63 = icmp eq i32 %3, 0
+  br i1 %.not63, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader61
+.lr.ph:                                           ; preds = %.preheader53
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count81 = zext i32 %3 to i64
+  %wide.trip.count73 = zext i32 %3 to i64
   br label %.lr.ph.split
 
-.lr.ph.splitthread-pre-split:                     ; preds = %.thread57
+.lr.ph.splitthread-pre-split:                     ; preds = %.thread51
   %.pr = load ptr, ptr %43, align 8
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.splitthread-pre-split, %.lr.ph.split.preheader
   %46 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %44, %.lr.ph.split.preheader ]
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %.thread57, label %47
+  br i1 %.not, label %.thread51, label %47
 
 47:                                               ; preds = %.lr.ph.split
-  %48 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv78
+  %48 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv70
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %46, %49
-  br i1 %50, label %.preheader, label %.thread57
+  br i1 %50, label %.preheader, label %.thread51
 
 .preheader:                                       ; preds = %47, %.preheader
   %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data.238, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1868) #6
-  switch i32 %51, label %.thread57 [
+  switch i32 %51, label %.thread51 [
     i32 0, label %.preheader
     i32 1, label %52
   ]
 
 52:                                               ; preds = %.preheader
   tail call void @llvm.debugtrap()
-  br label %.thread57
+  br label %.thread51
 
-.thread57:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !19
+.thread51:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
+  br i1 %exitcond74.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.thread57, %.preheader63.lr.ph, %.lr.ph, %.preheader61, %25, %13
+.loopexit:                                        ; preds = %.thread51, %.preheader55.lr.ph, %.lr.ph, %.preheader53, %25, %13
   %53 = load ptr, ptr %0, align 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 232
@@ -4783,7 +4783,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   tail call void %56(ptr noundef nonnull %53, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader65, %24, %.loopexit, %11, %6
+.thread:                                          ; preds = %.preheader57, %24, %.loopexit, %11, %6
   ret void
 }
 
@@ -4818,117 +4818,117 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %.preheader63, label %.preheader64
+  br i1 %22, label %.preheader55, label %.preheader56
 
-.preheader63:                                     ; preds = %19
+.preheader55:                                     ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8
-  %.not68 = icmp eq i32 %24, 0
-  br i1 %.not68, label %.preheader60, label %.preheader62.lr.ph
+  %.not60 = icmp eq i32 %24, 0
+  br i1 %.not60, label %.preheader52, label %.preheader54.lr.ph
 
-.preheader62.lr.ph:                               ; preds = %.preheader63
-  %.not69 = icmp eq i32 %3, 0
+.preheader54.lr.ph:                               ; preds = %.preheader55
+  %.not61 = icmp eq i32 %3, 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not69, label %.loopexit, label %.preheader62.us.preheader
+  br i1 %.not61, label %.loopexit, label %.preheader54.us.preheader
 
-.preheader62.us.preheader:                        ; preds = %.preheader62.lr.ph
+.preheader54.us.preheader:                        ; preds = %.preheader54.lr.ph
   %wide.trip.count = zext i32 %3 to i64
-  br label %.preheader62.us
+  br label %.preheader54.us
 
-.preheader62.us:                                  ; preds = %.preheader62.us.preheader, %._crit_edge.us
-  %indvars.iv74 = phi i64 [ 0, %.preheader62.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv74
+.preheader54.us:                                  ; preds = %.preheader54.us.preheader, %._crit_edge.us
+  %indvars.iv66 = phi i64 [ 0, %.preheader54.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv66
   br label %27
 
-27:                                               ; preds = %.preheader62.us, %.thread52.us
-  %indvars.iv = phi i64 [ 0, %.preheader62.us ], [ %indvars.iv.next, %.thread52.us ]
+27:                                               ; preds = %.preheader54.us, %.thread48.us
+  %indvars.iv = phi i64 [ 0, %.preheader54.us ], [ %indvars.iv.next, %.thread48.us ]
   %28 = load ptr, ptr %26, align 8
   %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
-  br i1 %31, label %.preheader61.us, label %.thread52.us
+  br i1 %31, label %.preheader53.us, label %.thread48.us
 
-.preheader61.us:                                  ; preds = %27, %.preheader61.us
+.preheader53.us:                                  ; preds = %27, %.preheader53.us
   %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data.242, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1896) #6
-  switch i32 %32, label %.thread52.us [
-    i32 0, label %.preheader61.us
+  switch i32 %32, label %.thread48.us [
+    i32 0, label %.preheader53.us
     i32 1, label %33
   ]
 
-33:                                               ; preds = %.preheader61.us
+33:                                               ; preds = %.preheader53.us
   tail call void @llvm.debugtrap()
-  br label %.thread52.us
+  br label %.thread48.us
 
-.thread52.us:                                     ; preds = %.preheader61.us, %33, %27
+.thread48.us:                                     ; preds = %.preheader53.us, %33, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !20
 
-._crit_edge.us:                                   ; preds = %.thread52.us
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+._crit_edge.us:                                   ; preds = %.thread48.us
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %34 = load i32, ptr %23, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp samesign ult i64 %indvars.iv.next75, %35
-  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !21
+  %36 = icmp samesign ult i64 %indvars.iv.next67, %35
+  br i1 %36, label %.preheader54.us, label %.preheader52, !llvm.loop !21
 
-.preheader64:                                     ; preds = %19, %.preheader64
+.preheader56:                                     ; preds = %19, %.preheader56
   %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1895) #6
   switch i32 %37, label %.thread [
-    i32 0, label %.preheader64
+    i32 0, label %.preheader56
     i32 1, label %38
   ]
 
-38:                                               ; preds = %.preheader64
+38:                                               ; preds = %.preheader56
   tail call void @llvm.debugtrap()
   br label %.thread
 
-.preheader60:                                     ; preds = %._crit_edge.us, %.preheader63
-  %.not70 = icmp eq i32 %3, 0
-  br i1 %.not70, label %.loopexit, label %.lr.ph
+.preheader52:                                     ; preds = %._crit_edge.us, %.preheader55
+  %.not62 = icmp eq i32 %3, 0
+  br i1 %.not62, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader60
+.lr.ph:                                           ; preds = %.preheader52
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count80 = zext i32 %3 to i64
+  %wide.trip.count72 = zext i32 %3 to i64
   br label %.lr.ph.split
 
-.lr.ph.splitthread-pre-split:                     ; preds = %.thread56
+.lr.ph.splitthread-pre-split:                     ; preds = %.thread50
   %.pr = load ptr, ptr %39, align 8
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.splitthread-pre-split, %.lr.ph.split.preheader
   %42 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %40, %.lr.ph.split.preheader ]
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.thread56, label %43
+  br i1 %.not, label %.thread50, label %43
 
 43:                                               ; preds = %.lr.ph.split
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv77
+  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv69
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %42, %45
-  br i1 %46, label %.preheader, label %.thread56
+  br i1 %46, label %.preheader, label %.thread50
 
 .preheader:                                       ; preds = %43, %.preheader
   %47 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data.245, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1896) #6
-  switch i32 %47, label %.thread56 [
+  switch i32 %47, label %.thread50 [
     i32 0, label %.preheader
     i32 1, label %48
   ]
 
 48:                                               ; preds = %.preheader
   tail call void @llvm.debugtrap()
-  br label %.thread56
+  br label %.thread50
 
-.thread56:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !22
+.thread50:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
+  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.thread56, %.preheader62.lr.ph, %.lr.ph, %.preheader60, %13
+.loopexit:                                        ; preds = %.thread50, %.preheader54.lr.ph, %.lr.ph, %.preheader52, %13
   %49 = load ptr, ptr %0, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 240
@@ -4936,7 +4936,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   tail call void %52(ptr noundef nonnull %49, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader64, %38, %.loopexit, %11, %6
+.thread:                                          ; preds = %.preheader56, %38, %.loopexit, %11, %6
   ret void
 }
 
@@ -5025,117 +5025,117 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %.preheader63, label %.preheader64
+  br i1 %22, label %.preheader55, label %.preheader56
 
-.preheader63:                                     ; preds = %19
+.preheader55:                                     ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8
-  %.not68 = icmp eq i32 %24, 0
-  br i1 %.not68, label %.preheader60, label %.preheader62.lr.ph
+  %.not60 = icmp eq i32 %24, 0
+  br i1 %.not60, label %.preheader52, label %.preheader54.lr.ph
 
-.preheader62.lr.ph:                               ; preds = %.preheader63
-  %.not69 = icmp eq i32 %3, 0
+.preheader54.lr.ph:                               ; preds = %.preheader55
+  %.not61 = icmp eq i32 %3, 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not69, label %.loopexit, label %.preheader62.us.preheader
+  br i1 %.not61, label %.loopexit, label %.preheader54.us.preheader
 
-.preheader62.us.preheader:                        ; preds = %.preheader62.lr.ph
+.preheader54.us.preheader:                        ; preds = %.preheader54.lr.ph
   %wide.trip.count = zext i32 %3 to i64
-  br label %.preheader62.us
+  br label %.preheader54.us
 
-.preheader62.us:                                  ; preds = %.preheader62.us.preheader, %._crit_edge.us
-  %indvars.iv74 = phi i64 [ 0, %.preheader62.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv74
+.preheader54.us:                                  ; preds = %.preheader54.us.preheader, %._crit_edge.us
+  %indvars.iv66 = phi i64 [ 0, %.preheader54.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv66
   br label %27
 
-27:                                               ; preds = %.preheader62.us, %.thread52.us
-  %indvars.iv = phi i64 [ 0, %.preheader62.us ], [ %indvars.iv.next, %.thread52.us ]
+27:                                               ; preds = %.preheader54.us, %.thread48.us
+  %indvars.iv = phi i64 [ 0, %.preheader54.us ], [ %indvars.iv.next, %.thread48.us ]
   %28 = load ptr, ptr %26, align 8
   %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
-  br i1 %31, label %.preheader61.us, label %.thread52.us
+  br i1 %31, label %.preheader53.us, label %.thread48.us
 
-.preheader61.us:                                  ; preds = %27, %.preheader61.us
+.preheader53.us:                                  ; preds = %27, %.preheader53.us
   %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data.250, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1980) #6
-  switch i32 %32, label %.thread52.us [
-    i32 0, label %.preheader61.us
+  switch i32 %32, label %.thread48.us [
+    i32 0, label %.preheader53.us
     i32 1, label %33
   ]
 
-33:                                               ; preds = %.preheader61.us
+33:                                               ; preds = %.preheader53.us
   tail call void @llvm.debugtrap()
-  br label %.thread52.us
+  br label %.thread48.us
 
-.thread52.us:                                     ; preds = %.preheader61.us, %33, %27
+.thread48.us:                                     ; preds = %.preheader53.us, %33, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !23
 
-._crit_edge.us:                                   ; preds = %.thread52.us
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+._crit_edge.us:                                   ; preds = %.thread48.us
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %34 = load i32, ptr %23, align 8
   %35 = zext i32 %34 to i64
-  %36 = icmp samesign ult i64 %indvars.iv.next75, %35
-  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !24
+  %36 = icmp samesign ult i64 %indvars.iv.next67, %35
+  br i1 %36, label %.preheader54.us, label %.preheader52, !llvm.loop !24
 
-.preheader64:                                     ; preds = %19, %.preheader64
+.preheader56:                                     ; preds = %19, %.preheader56
   %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1979) #6
   switch i32 %37, label %.thread [
-    i32 0, label %.preheader64
+    i32 0, label %.preheader56
     i32 1, label %38
   ]
 
-38:                                               ; preds = %.preheader64
+38:                                               ; preds = %.preheader56
   tail call void @llvm.debugtrap()
   br label %.thread
 
-.preheader60:                                     ; preds = %._crit_edge.us, %.preheader63
-  %.not70 = icmp eq i32 %3, 0
-  br i1 %.not70, label %.loopexit, label %.lr.ph
+.preheader52:                                     ; preds = %._crit_edge.us, %.preheader55
+  %.not62 = icmp eq i32 %3, 0
+  br i1 %.not62, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader60
+.lr.ph:                                           ; preds = %.preheader52
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count80 = zext i32 %3 to i64
+  %wide.trip.count72 = zext i32 %3 to i64
   br label %.lr.ph.split
 
-.lr.ph.splitthread-pre-split:                     ; preds = %.thread56
+.lr.ph.splitthread-pre-split:                     ; preds = %.thread50
   %.pr = load ptr, ptr %39, align 8
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.splitthread-pre-split, %.lr.ph.split.preheader
   %42 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %40, %.lr.ph.split.preheader ]
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.thread56, label %43
+  br i1 %.not, label %.thread50, label %43
 
 43:                                               ; preds = %.lr.ph.split
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv77
+  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv69
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %42, %45
-  br i1 %46, label %.preheader, label %.thread56
+  br i1 %46, label %.preheader, label %.thread50
 
 .preheader:                                       ; preds = %43, %.preheader
   %47 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data.251, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1980) #6
-  switch i32 %47, label %.thread56 [
+  switch i32 %47, label %.thread50 [
     i32 0, label %.preheader
     i32 1, label %48
   ]
 
 48:                                               ; preds = %.preheader
   tail call void @llvm.debugtrap()
-  br label %.thread56
+  br label %.thread50
 
-.thread56:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !25
+.thread50:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
+  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.thread56, %.preheader62.lr.ph, %.lr.ph, %.preheader60, %13
+.loopexit:                                        ; preds = %.thread50, %.preheader54.lr.ph, %.lr.ph, %.preheader52, %13
   %49 = load ptr, ptr %0, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 264
@@ -5143,7 +5143,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   tail call void %52(ptr noundef nonnull %49, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader64, %38, %.loopexit, %11, %6
+.thread:                                          ; preds = %.preheader56, %38, %.loopexit, %11, %6
   ret void
 }
 
@@ -5222,16 +5222,16 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %22, label %.preheader28
+  br i1 %19, label %22, label %.preheader23
 
-.preheader28:                                     ; preds = %16, %.preheader28
+.preheader23:                                     ; preds = %16, %.preheader23
   %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2030) #6
   switch i32 %20, label %.thread [
-    i32 0, label %.preheader28
+    i32 0, label %.preheader23
     i32 1, label %21
   ]
 
-21:                                               ; preds = %.preheader28
+21:                                               ; preds = %.preheader23
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -5258,7 +5258,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
   tail call void %30(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader28, %.preheader, %27, %21, %28, %8
+.thread:                                          ; preds = %.preheader23, %.preheader, %27, %21, %28, %8
   ret void
 }
 
@@ -5291,16 +5291,16 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i8, ptr %19, align 8, !range !5, !noundef !6
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %24, label %.preheader28
+  br i1 %21, label %24, label %.preheader23
 
-.preheader28:                                     ; preds = %18, %.preheader28
+.preheader23:                                     ; preds = %18, %.preheader23
   %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitivesIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2084) #6
   switch i32 %22, label %.thread [
-    i32 0, label %.preheader28
+    i32 0, label %.preheader23
     i32 1, label %23
   ]
 
-23:                                               ; preds = %.preheader28
+23:                                               ; preds = %.preheader23
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -5327,7 +5327,7 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
   tail call void %32(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader28, %.preheader, %29, %23, %30, %10, %6
+.thread:                                          ; preds = %.preheader23, %.preheader, %29, %23, %30, %10, %6
   ret void
 }
 
@@ -5360,16 +5360,16 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i8, ptr %19, align 8, !range !5, !noundef !6
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %24, label %.preheader28
+  br i1 %21, label %24, label %.preheader23
 
-.preheader28:                                     ; preds = %18, %.preheader28
+.preheader23:                                     ; preds = %18, %.preheader23
   %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitivesIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2111) #6
   switch i32 %22, label %.thread [
-    i32 0, label %.preheader28
+    i32 0, label %.preheader23
     i32 1, label %23
   ]
 
-23:                                               ; preds = %.preheader28
+23:                                               ; preds = %.preheader23
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -5396,7 +5396,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
   tail call void %32(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader28, %.preheader, %29, %23, %30, %10, %6
+.thread:                                          ; preds = %.preheader23, %.preheader, %29, %23, %30, %10, %6
   ret void
 }
 
@@ -5450,7 +5450,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 684
   %30 = load i8, ptr %29, align 4, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %.critedge81
+  br i1 %31, label %32, label %.critedge77
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 121
@@ -5473,32 +5473,32 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i8, ptr %39, align 8, !range !5, !noundef !6
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %.preheader127, label %42
+  br i1 %41, label %.preheader113, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load i8, ptr %43, align 8, !range !5, !noundef !6
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %.preheader127, label %46
+  br i1 %45, label %.preheader113, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %48 = load i8, ptr %47, align 8, !range !5, !noundef !6
   %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %.preheader127, label %.preheader108
+  br i1 %49, label %.preheader113, label %.preheader94
 
-.preheader127:                                    ; preds = %38, %42, %46
+.preheader113:                                    ; preds = %38, %42, %46
   br label %50
 
-.preheader108:                                    ; preds = %46
-  %.not71109.not = icmp eq i32 %2, 0
-  br i1 %.not71109.not, label %.critedge81, label %.lr.ph.preheader
+.preheader94:                                     ; preds = %46
+  %.not7195.not = icmp eq i32 %2, 0
+  br i1 %.not7195.not, label %.critedge77, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader108
+.lr.ph.preheader:                                 ; preds = %.preheader94
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-50:                                               ; preds = %.preheader127, %50
+50:                                               ; preds = %.preheader113, %50
   %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.263, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2183) #6
   switch i32 %51, label %.critedge [
     i32 0, label %50
@@ -5512,7 +5512,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
 53:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge81, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.critedge77, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
@@ -5521,17 +5521,17 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 96
-  %or.cond74 = icmp eq i32 %58, 0
-  br i1 %or.cond74, label %.preheader102, label %61
+  %or.cond73 = icmp eq i32 %58, 0
+  br i1 %or.cond73, label %.preheader88, label %61
 
-.preheader102:                                    ; preds = %.lr.ph, %.preheader102
+.preheader88:                                     ; preds = %.lr.ph, %.preheader88
   %59 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.266, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2188) #6
   switch i32 %59, label %.critedge [
-    i32 0, label %.preheader102
+    i32 0, label %.preheader88
     i32 1, label %60
   ]
 
-60:                                               ; preds = %.preheader102
+60:                                               ; preds = %.preheader88
   tail call void @llvm.debugtrap()
   br label %.critedge
 
@@ -5541,16 +5541,16 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %65 = load i32, ptr %64, align 4
   %.not69 = icmp ult i32 %63, %65
-  br i1 %.not69, label %68, label %.preheader106
+  br i1 %.not69, label %68, label %.preheader92
 
-.preheader106:                                    ; preds = %61, %.preheader106
+.preheader92:                                     ; preds = %61, %.preheader92
   %66 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.269, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2193) #6
   switch i32 %66, label %.critedge [
-    i32 0, label %.preheader106
+    i32 0, label %.preheader92
     i32 1, label %67
   ]
 
-67:                                               ; preds = %.preheader106
+67:                                               ; preds = %.preheader92
   tail call void @llvm.debugtrap()
   br label %.critedge
 
@@ -5560,20 +5560,20 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %72 = load i32, ptr %71, align 4
   %.not70 = icmp ult i32 %70, %72
-  br i1 %.not70, label %53, label %.preheader104
+  br i1 %.not70, label %53, label %.preheader90
 
-.preheader104:                                    ; preds = %68, %.preheader104
+.preheader90:                                     ; preds = %68, %.preheader90
   %73 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.272, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2198) #6
   switch i32 %73, label %.critedge [
-    i32 0, label %.preheader104
+    i32 0, label %.preheader90
     i32 1, label %74
   ]
 
-74:                                               ; preds = %.preheader104
+74:                                               ; preds = %.preheader90
   tail call void @llvm.debugtrap()
   br label %.critedge
 
-.critedge81:                                      ; preds = %53, %.preheader108, %27
+.critedge77:                                      ; preds = %53, %.preheader94, %27
   %75 = getelementptr inbounds nuw i8, ptr %28, i64 336
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #6
@@ -5582,8 +5582,8 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   store i8 1, ptr %78, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader106, %.preheader104, %.preheader102, %50, %.preheader, %74, %67, %60, %52, %37, %.critedge81, %25, %21, %17, %12, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %12 ], [ null, %17 ], [ null, %21 ], [ null, %25 ], [ %77, %.critedge81 ], [ null, %37 ], [ null, %52 ], [ null, %60 ], [ null, %67 ], [ null, %74 ], [ null, %.preheader ], [ null, %50 ], [ null, %.preheader102 ], [ null, %.preheader104 ], [ null, %.preheader106 ]
+.critedge:                                        ; preds = %.preheader92, %.preheader90, %.preheader88, %50, %.preheader, %74, %67, %60, %52, %37, %.critedge77, %25, %21, %17, %12, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %12 ], [ null, %17 ], [ null, %21 ], [ null, %25 ], [ %77, %.critedge77 ], [ null, %37 ], [ null, %52 ], [ null, %60 ], [ null, %67 ], [ null, %74 ], [ null, %.preheader ], [ null, %50 ], [ null, %.preheader88 ], [ null, %.preheader90 ], [ null, %.preheader92 ]
   ret ptr %.0
 }
 
@@ -5825,16 +5825,16 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i8, ptr %15, align 8, !range !5, !noundef !6
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %20, label %.preheader26
+  br i1 %17, label %20, label %.preheader21
 
-.preheader26:                                     ; preds = %14, %.preheader26
+.preheader21:                                     ; preds = %14, %.preheader21
   %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUCompute_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DispatchGPUCompute_REAL, ptr noundef nonnull @.str.8, i32 noundef 2335) #6
   switch i32 %18, label %.thread [
-    i32 0, label %.preheader26
+    i32 0, label %.preheader21
     i32 1, label %19
   ]
 
-19:                                               ; preds = %.preheader26
+19:                                               ; preds = %.preheader21
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -5861,7 +5861,7 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
   tail call void %28(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader26, %.preheader, %25, %19, %26, %6
+.thread:                                          ; preds = %.preheader21, %.preheader, %25, %19, %26, %6
   ret void
 }
 
@@ -5886,16 +5886,16 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %19, label %.preheader25
+  br i1 %16, label %19, label %.preheader20
 
-.preheader25:                                     ; preds = %13, %.preheader25
+.preheader20:                                     ; preds = %13, %.preheader20
   %17 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUComputeIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DispatchGPUComputeIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2357) #6
   switch i32 %17, label %.thread [
-    i32 0, label %.preheader25
+    i32 0, label %.preheader20
     i32 1, label %18
   ]
 
-18:                                               ; preds = %.preheader25
+18:                                               ; preds = %.preheader20
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -5922,7 +5922,7 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
   tail call void %27(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader25, %.preheader, %24, %18, %25, %5
+.thread:                                          ; preds = %.preheader20, %.preheader, %24, %18, %25, %5
   ret void
 }
 
@@ -6071,24 +6071,24 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %.preheader35, label %20
+  br i1 %19, label %.preheader30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %.preheader35, label %24
+  br i1 %23, label %.preheader30, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %.preheader35, label %31
+  br i1 %27, label %.preheader30, label %31
 
-.preheader35:                                     ; preds = %16, %20, %24
+.preheader30:                                     ; preds = %16, %20, %24
   br label %28
 
-28:                                               ; preds = %.preheader35, %28
+28:                                               ; preds = %.preheader30, %28
   %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUCopyPass_REAL.sdl_assert_data.284, ptr noundef nonnull @__func__.SDL_BeginGPUCopyPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2437) #6
   switch i32 %29, label %.thread [
     i32 0, label %28
@@ -6150,16 +6150,16 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i8, ptr %23, align 8, !range !5, !noundef !6
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %28, label %.preheader43
+  br i1 %25, label %28, label %.preheader35
 
-.preheader43:                                     ; preds = %22, %.preheader43
+.preheader35:                                     ; preds = %22, %.preheader35
   %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2468) #6
   switch i32 %26, label %.thread [
-    i32 0, label %.preheader43
+    i32 0, label %.preheader35
     i32 1, label %27
   ]
 
-27:                                               ; preds = %.preheader43
+27:                                               ; preds = %.preheader35
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6182,16 +6182,16 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
 33:                                               ; preds = %28
   %34 = load ptr, ptr %2, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.preheader41, label %38
+  br i1 %35, label %.preheader33, label %38
 
-.preheader41:                                     ; preds = %33, %.preheader41
+.preheader33:                                     ; preds = %33, %.preheader33
   %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data.295, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2474) #6
   switch i32 %36, label %.thread [
-    i32 0, label %.preheader41
+    i32 0, label %.preheader33
     i32 1, label %37
   ]
 
-37:                                               ; preds = %.preheader41
+37:                                               ; preds = %.preheader33
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6201,7 +6201,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   tail call void %40(ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader43, %.preheader41, %.preheader, %37, %32, %27, %38, %14, %10, %6
+.thread:                                          ; preds = %.preheader35, %.preheader33, %.preheader, %37, %32, %27, %38, %14, %10, %6
   ret void
 }
 
@@ -6242,16 +6242,16 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i8, ptr %23, align 8, !range !5, !noundef !6
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %28, label %.preheader43
+  br i1 %25, label %28, label %.preheader35
 
-.preheader43:                                     ; preds = %22, %.preheader43
+.preheader35:                                     ; preds = %22, %.preheader35
   %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2506) #6
   switch i32 %26, label %.thread [
-    i32 0, label %.preheader43
+    i32 0, label %.preheader35
     i32 1, label %27
   ]
 
-27:                                               ; preds = %.preheader43
+27:                                               ; preds = %.preheader35
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6274,16 +6274,16 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
 33:                                               ; preds = %28
   %34 = load ptr, ptr %2, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.preheader41, label %38
+  br i1 %35, label %.preheader33, label %38
 
-.preheader41:                                     ; preds = %33, %.preheader41
+.preheader33:                                     ; preds = %33, %.preheader33
   %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data.299, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2512) #6
   switch i32 %36, label %.thread [
-    i32 0, label %.preheader41
+    i32 0, label %.preheader33
     i32 1, label %37
   ]
 
-37:                                               ; preds = %.preheader41
+37:                                               ; preds = %.preheader33
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6293,7 +6293,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   tail call void %40(ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader43, %.preheader41, %.preheader, %37, %32, %27, %38, %14, %10, %6
+.thread:                                          ; preds = %.preheader35, %.preheader33, %.preheader, %37, %32, %27, %38, %14, %10, %6
   ret void
 }
 
@@ -6328,22 +6328,22 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 684
   %23 = load i8, ptr %22, align 4, !range !5, !noundef !6
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %.thread63
+  br i1 %24, label %25, label %.thread51
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i8, ptr %26, align 8, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %31, label %.preheader69
+  br i1 %28, label %31, label %.preheader56
 
-.preheader69:                                     ; preds = %25, %.preheader69
+.preheader56:                                     ; preds = %25, %.preheader56
   %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2547) #6
   switch i32 %29, label %.thread [
-    i32 0, label %.preheader69
+    i32 0, label %.preheader56
     i32 1, label %30
   ]
 
-30:                                               ; preds = %.preheader69
+30:                                               ; preds = %.preheader56
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6366,16 +6366,16 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
 36:                                               ; preds = %31
   %37 = load ptr, ptr %2, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.preheader65, label %41
+  br i1 %38, label %.preheader52, label %41
 
-.preheader65:                                     ; preds = %36, %.preheader65
+.preheader52:                                     ; preds = %36, %.preheader52
   %39 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.304, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2553) #6
   switch i32 %39, label %.thread [
-    i32 0, label %.preheader65
+    i32 0, label %.preheader52
     i32 1, label %40
   ]
 
-40:                                               ; preds = %.preheader65
+40:                                               ; preds = %.preheader52
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6385,26 +6385,26 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %45 = load i32, ptr %44, align 4
   %.not.not = icmp eq i32 %43, %45
-  br i1 %.not.not, label %.thread63, label %.preheader67
+  br i1 %.not.not, label %.thread51, label %.preheader54
 
-.preheader67:                                     ; preds = %41, %.preheader67
+.preheader54:                                     ; preds = %41, %.preheader54
   %46 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.306, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2560) #6
   switch i32 %46, label %.thread [
-    i32 0, label %.preheader67
+    i32 0, label %.preheader54
     i32 1, label %47
   ]
 
-47:                                               ; preds = %.preheader67
+47:                                               ; preds = %.preheader54
   tail call void @llvm.debugtrap()
   br label %.thread
 
-.thread63:                                        ; preds = %41, %19
+.thread51:                                        ; preds = %41, %19
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 448
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %20, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader69, %.preheader67, %.preheader65, %.preheader, %47, %40, %35, %30, %.thread63, %17, %13, %9
+.thread:                                          ; preds = %.preheader56, %.preheader54, %.preheader52, %.preheader, %47, %40, %35, %30, %.thread51, %17, %13, %9
   ret void
 }
 
@@ -6445,16 +6445,16 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i8, ptr %24, align 8, !range !5, !noundef !6
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %29, label %.preheader44
+  br i1 %26, label %29, label %.preheader36
 
-.preheader44:                                     ; preds = %23, %.preheader44
+.preheader36:                                     ; preds = %23, %.preheader36
   %27 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2596) #6
   switch i32 %27, label %.thread [
-    i32 0, label %.preheader44
+    i32 0, label %.preheader36
     i32 1, label %28
   ]
 
-28:                                               ; preds = %.preheader44
+28:                                               ; preds = %.preheader36
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6477,16 +6477,16 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
 34:                                               ; preds = %29
   %35 = load ptr, ptr %2, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.preheader42, label %39
+  br i1 %36, label %.preheader34, label %39
 
-.preheader42:                                     ; preds = %34, %.preheader42
+.preheader34:                                     ; preds = %34, %.preheader34
   %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data.311, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2602) #6
   switch i32 %37, label %.thread [
-    i32 0, label %.preheader42
+    i32 0, label %.preheader34
     i32 1, label %38
   ]
 
-38:                                               ; preds = %.preheader42
+38:                                               ; preds = %.preheader34
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6496,7 +6496,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   tail call void %41(ptr noundef nonnull %18, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i1 noundef zeroext %4) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader44, %.preheader42, %.preheader, %38, %33, %28, %39, %15, %11, %7
+.thread:                                          ; preds = %.preheader36, %.preheader34, %.preheader, %38, %33, %28, %39, %15, %11, %7
   ret void
 }
 
@@ -6537,16 +6537,16 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %27, label %.preheader42
+  br i1 %24, label %27, label %.preheader34
 
-.preheader42:                                     ; preds = %21, %.preheader42
+.preheader34:                                     ; preds = %21, %.preheader34
   %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2634) #6
   switch i32 %25, label %.thread [
-    i32 0, label %.preheader42
+    i32 0, label %.preheader34
     i32 1, label %26
   ]
 
-26:                                               ; preds = %.preheader42
+26:                                               ; preds = %.preheader34
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6569,16 +6569,16 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
 32:                                               ; preds = %27
   %33 = load ptr, ptr %2, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.preheader40, label %37
+  br i1 %34, label %.preheader32, label %37
 
-.preheader40:                                     ; preds = %32, %.preheader40
+.preheader32:                                     ; preds = %32, %.preheader32
   %35 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data.314, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2640) #6
   switch i32 %35, label %.thread [
-    i32 0, label %.preheader40
+    i32 0, label %.preheader32
     i32 1, label %36
   ]
 
-36:                                               ; preds = %.preheader40
+36:                                               ; preds = %.preheader32
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6588,7 +6588,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   tail call void %39(ptr noundef nonnull %16, ptr noundef nonnull %1, ptr noundef nonnull %2) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader42, %.preheader40, %.preheader, %36, %31, %26, %37, %13, %9, %5
+.thread:                                          ; preds = %.preheader34, %.preheader32, %.preheader, %36, %31, %26, %37, %13, %9, %5
   ret void
 }
 
@@ -6629,16 +6629,16 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %27, label %.preheader42
+  br i1 %24, label %27, label %.preheader34
 
-.preheader42:                                     ; preds = %21, %.preheader42
+.preheader34:                                     ; preds = %21, %.preheader34
   %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2670) #6
   switch i32 %25, label %.thread [
-    i32 0, label %.preheader42
+    i32 0, label %.preheader34
     i32 1, label %26
   ]
 
-26:                                               ; preds = %.preheader42
+26:                                               ; preds = %.preheader34
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6661,16 +6661,16 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
 32:                                               ; preds = %27
   %33 = load ptr, ptr %2, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.preheader40, label %37
+  br i1 %34, label %.preheader32, label %37
 
-.preheader40:                                     ; preds = %32, %.preheader40
+.preheader32:                                     ; preds = %32, %.preheader32
   %35 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data.317, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2676) #6
   switch i32 %35, label %.thread [
-    i32 0, label %.preheader40
+    i32 0, label %.preheader32
     i32 1, label %36
   ]
 
-36:                                               ; preds = %.preheader40
+36:                                               ; preds = %.preheader32
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6680,7 +6680,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   tail call void %39(ptr noundef nonnull %16, ptr noundef nonnull %1, ptr noundef nonnull %2) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader42, %.preheader40, %.preheader, %36, %31, %26, %37, %13, %9, %5
+.thread:                                          ; preds = %.preheader34, %.preheader32, %.preheader, %36, %31, %26, %37, %13, %9, %5
   ret void
 }
 
@@ -6776,24 +6776,24 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %.preheader79, label %25
+  br i1 %24, label %.preheader66, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load i8, ptr %26, align 8, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %.preheader79, label %29
+  br i1 %28, label %.preheader66, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %.preheader79, label %36
+  br i1 %32, label %.preheader66, label %36
 
-.preheader79:                                     ; preds = %21, %25, %29
+.preheader66:                                     ; preds = %21, %25, %29
   br label %33
 
-33:                                               ; preds = %.preheader79, %33
+33:                                               ; preds = %.preheader66, %33
   %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.319, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2720) #6
   switch i32 %34, label %.thread [
     i32 0, label %33
@@ -6808,16 +6808,16 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i32, ptr %37, align 4
   %39 = icmp ult i32 %38, 2
-  br i1 %39, label %.preheader65, label %42
+  br i1 %39, label %.preheader52, label %42
 
-.preheader65:                                     ; preds = %36, %.preheader65
+.preheader52:                                     ; preds = %36, %.preheader52
   %40 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.322, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2724) #6
   switch i32 %40, label %.thread [
-    i32 0, label %.preheader65
+    i32 0, label %.preheader52
     i32 1, label %41
   ]
 
-41:                                               ; preds = %.preheader65
+41:                                               ; preds = %.preheader52
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6826,16 +6826,16 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 3
   %or.cond.not = icmp eq i32 %45, 3
-  br i1 %or.cond.not, label %48, label %.preheader67
+  br i1 %or.cond.not, label %48, label %.preheader54
 
-.preheader67:                                     ; preds = %42, %.preheader67
+.preheader54:                                     ; preds = %42, %.preheader54
   %46 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.325, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2729) #6
   switch i32 %46, label %.thread [
-    i32 0, label %.preheader67
+    i32 0, label %.preheader54
     i32 1, label %47
   ]
 
-47:                                               ; preds = %.preheader67
+47:                                               ; preds = %.preheader54
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6859,7 +6859,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   store i8 0, ptr %58, align 2
   br label %.thread
 
-.thread:                                          ; preds = %.preheader67, %.preheader65, %33, %.preheader, %47, %41, %35, %20, %57, %50, %8, %4
+.thread:                                          ; preds = %.preheader54, %.preheader52, %33, %.preheader, %47, %41, %35, %20, %57, %50, %8, %4
   ret void
 }
 
@@ -6908,24 +6908,24 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i8, ptr %22, align 8, !range !5, !noundef !6
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %.preheader149, label %25
+  br i1 %24, label %.preheader121, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load i8, ptr %26, align 8, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %.preheader149, label %29
+  br i1 %28, label %.preheader121, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %.preheader149, label %36
+  br i1 %32, label %.preheader121, label %36
 
-.preheader149:                                    ; preds = %21, %25, %29
+.preheader121:                                    ; preds = %21, %25, %29
   br label %33
 
-33:                                               ; preds = %.preheader149, %33
+33:                                               ; preds = %.preheader121, %33
   %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.329, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2762) #6
   switch i32 %34, label %.thread [
     i32 0, label %33
@@ -6941,31 +6941,31 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %37, null
-  br i1 %40, label %.preheader125, label %43
+  br i1 %40, label %.preheader97, label %43
 
-.preheader125:                                    ; preds = %36, %.preheader125
+.preheader97:                                     ; preds = %36, %.preheader97
   %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.332, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2770) #6
   switch i32 %41, label %.thread [
-    i32 0, label %.preheader125
+    i32 0, label %.preheader97
     i32 1, label %42
   ]
 
-42:                                               ; preds = %.preheader125
+42:                                               ; preds = %.preheader97
   tail call void @llvm.debugtrap()
   br label %.thread
 
 43:                                               ; preds = %36
   %44 = icmp eq ptr %39, null
-  br i1 %44, label %.preheader127, label %47
+  br i1 %44, label %.preheader99, label %47
 
-.preheader127:                                    ; preds = %43, %.preheader127
+.preheader99:                                     ; preds = %43, %.preheader99
   %45 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.335, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2774) #6
   switch i32 %45, label %.thread [
-    i32 0, label %.preheader127
+    i32 0, label %.preheader99
     i32 1, label %46
   ]
 
-46:                                               ; preds = %.preheader127
+46:                                               ; preds = %.preheader99
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -6973,104 +6973,104 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %49 = load i32, ptr %48, align 4
   %.not = icmp ne i32 %49, 0
-  br i1 %.not, label %.preheader133, label %.thread101
+  br i1 %.not, label %.preheader105, label %.thread84
 
-.preheader133:                                    ; preds = %47, %.preheader133
+.preheader105:                                    ; preds = %47, %.preheader105
   %50 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.338, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2778) #6
-  switch i32 %50, label %.thread101 [
-    i32 0, label %.preheader133
+  switch i32 %50, label %.thread84 [
+    i32 0, label %.preheader105
     i32 1, label %51
   ]
 
-51:                                               ; preds = %.preheader133
+51:                                               ; preds = %.preheader105
   tail call void @llvm.debugtrap()
-  br label %.thread101
+  br label %.thread84
 
-.thread101:                                       ; preds = %.preheader133, %51, %47
+.thread84:                                        ; preds = %.preheader105, %51, %47
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 1
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.preheader132, label %.thread105
+  br i1 %55, label %.preheader104, label %.thread86
 
-.preheader132:                                    ; preds = %.thread101, %.preheader132
+.preheader104:                                    ; preds = %.thread84, %.preheader104
   %56 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.341, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2782) #6
-  switch i32 %56, label %.thread105 [
-    i32 0, label %.preheader132
+  switch i32 %56, label %.thread86 [
+    i32 0, label %.preheader104
     i32 1, label %57
   ]
 
-57:                                               ; preds = %.preheader132
+57:                                               ; preds = %.preheader104
   tail call void @llvm.debugtrap()
-  br label %.thread105
+  br label %.thread86
 
-.thread105:                                       ; preds = %.preheader132, %57, %.thread101
-  %.151 = phi i1 [ %.not, %.thread101 ], [ true, %57 ], [ true, %.preheader132 ]
+.thread86:                                        ; preds = %.preheader104, %57, %.thread84
+  %.151 = phi i1 [ %.not, %.thread84 ], [ true, %57 ], [ true, %.preheader104 ]
   %58 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 2
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.preheader131, label %.thread109
+  br i1 %61, label %.preheader103, label %.thread88
 
-.preheader131:                                    ; preds = %.thread105, %.preheader131
+.preheader103:                                    ; preds = %.thread86, %.preheader103
   %62 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.344, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2786) #6
-  switch i32 %62, label %.thread109 [
-    i32 0, label %.preheader131
+  switch i32 %62, label %.thread88 [
+    i32 0, label %.preheader103
     i32 1, label %63
   ]
 
-63:                                               ; preds = %.preheader131
+63:                                               ; preds = %.preheader103
   tail call void @llvm.debugtrap()
-  br label %.thread109
+  br label %.thread88
 
-.thread109:                                       ; preds = %.preheader131, %63, %.thread105
-  %.252 = phi i1 [ %.151, %.thread105 ], [ true, %63 ], [ true, %.preheader131 ]
+.thread88:                                        ; preds = %.preheader103, %63, %.thread86
+  %.252 = phi i1 [ %.151, %.thread86 ], [ true, %63 ], [ true, %.preheader103 ]
   %64 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %65 = load i32, ptr %64, align 4
   %.off.i = add i32 %65, -58
   %switch.i = icmp ult i32 %.off.i, 5
-  br i1 %switch.i, label %.preheader130, label %.thread113
+  br i1 %switch.i, label %.preheader102, label %.thread90
 
-.preheader130:                                    ; preds = %.thread109, %.preheader130
+.preheader102:                                    ; preds = %.thread88, %.preheader102
   %66 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.347, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2790) #6
-  switch i32 %66, label %.thread113 [
-    i32 0, label %.preheader130
+  switch i32 %66, label %.thread90 [
+    i32 0, label %.preheader102
     i32 1, label %67
   ]
 
-67:                                               ; preds = %.preheader130
+67:                                               ; preds = %.preheader102
   tail call void @llvm.debugtrap()
-  br label %.thread113
+  br label %.thread90
 
-.thread113:                                       ; preds = %.preheader130, %67, %.thread109
-  %.353 = phi i1 [ %.252, %.thread109 ], [ true, %67 ], [ true, %.preheader130 ]
+.thread90:                                        ; preds = %.preheader102, %67, %.thread88
+  %.353 = phi i1 [ %.252, %.thread88 ], [ true, %67 ], [ true, %.preheader102 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.preheader153, label %71
+  br i1 %70, label %.preheader125, label %71
 
-71:                                               ; preds = %.thread113
+71:                                               ; preds = %.thread90
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.preheader153, label %75
+  br i1 %74, label %.preheader125, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.preheader153, label %79
+  br i1 %78, label %.preheader125, label %79
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %.preheader153, label %86
+  br i1 %82, label %.preheader125, label %86
 
-.preheader153:                                    ; preds = %.thread113, %71, %75, %79
+.preheader125:                                    ; preds = %.thread90, %71, %75, %79
   br label %83
 
-83:                                               ; preds = %.preheader153, %83
+83:                                               ; preds = %.preheader125, %83
   %84 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.350, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2794) #6
   switch i32 %84, label %.thread [
     i32 0, label %83
@@ -7095,7 +7095,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %1) #6
   br label %.thread
 
-.thread:                                          ; preds = %83, %.preheader127, %.preheader125, %33, %.preheader, %85, %46, %42, %35, %20, %86, %87, %8, %4
+.thread:                                          ; preds = %83, %.preheader99, %.preheader97, %33, %.preheader, %85, %46, %42, %35, %20, %86, %87, %8, %4
   ret void
 }
 
@@ -7307,16 +7307,16 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
 
 20:                                               ; preds = %16
   %21 = icmp ugt i32 %3, 2
-  br i1 %21, label %.preheader35, label %24
+  br i1 %21, label %.preheader30, label %24
 
-.preheader35:                                     ; preds = %20, %.preheader35
+.preheader30:                                     ; preds = %20, %.preheader30
   %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUSwapchainParameters_REAL.sdl_assert_data.358, ptr noundef nonnull @__func__.SDL_SetGPUSwapchainParameters_REAL, ptr noundef nonnull @.str.8, i32 noundef 2899) #6
   switch i32 %22, label %.thread [
-    i32 0, label %.preheader35
+    i32 0, label %.preheader30
     i32 1, label %23
   ]
 
-23:                                               ; preds = %.preheader35
+23:                                               ; preds = %.preheader30
   tail call void @llvm.debugtrap()
   br label %.thread
 
@@ -7328,8 +7328,8 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
   %29 = tail call zeroext i1 %26(ptr noundef %28, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
-.thread:                                          ; preds = %.preheader35, %.preheader, %23, %19, %24, %10, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ %29, %24 ], [ false, %19 ], [ false, %23 ], [ false, %.preheader ], [ false, %.preheader35 ]
+.thread:                                          ; preds = %.preheader30, %.preheader, %23, %19, %24, %10, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ %29, %24 ], [ false, %19 ], [ false, %23 ], [ false, %.preheader ], [ false, %.preheader30 ]
   ret i1 %.0
 }
 
@@ -7461,24 +7461,24 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i8, ptr %29, align 8, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %.preheader46, label %32
+  br i1 %31, label %.preheader41, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load i8, ptr %33, align 8, !range !5, !noundef !6
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %.preheader46, label %36
+  br i1 %35, label %.preheader41, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %.preheader46, label %43
+  br i1 %39, label %.preheader41, label %43
 
-.preheader46:                                     ; preds = %28, %32, %36
+.preheader41:                                     ; preds = %28, %32, %36
   br label %40
 
-40:                                               ; preds = %.preheader46, %40
+40:                                               ; preds = %.preheader41, %40
   %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_AcquireGPUSwapchainTexture_REAL.sdl_assert_data.363, ptr noundef nonnull @__func__.SDL_AcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2964) #6
   switch i32 %41, label %.thread [
     i32 0, label %40
@@ -7590,24 +7590,24 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i8, ptr %29, align 8, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %.preheader46, label %32
+  br i1 %31, label %.preheader41, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load i8, ptr %33, align 8, !range !5, !noundef !6
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %.preheader46, label %36
+  br i1 %35, label %.preheader41, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %.preheader46, label %43
+  br i1 %39, label %.preheader41, label %43
 
-.preheader46:                                     ; preds = %28, %32, %36
+.preheader41:                                     ; preds = %28, %32, %36
   br label %40
 
-40:                                               ; preds = %.preheader46, %40
+40:                                               ; preds = %.preheader41, %40
   %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WaitAndAcquireGPUSwapchainTexture_REAL.sdl_assert_data.365, ptr noundef nonnull @__func__.SDL_WaitAndAcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 3017) #6
   switch i32 %41, label %.thread [
     i32 0, label %40
@@ -7673,24 +7673,24 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %.preheader34, label %20
+  br i1 %19, label %.preheader29, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %.preheader34, label %24
+  br i1 %23, label %.preheader29, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %.preheader34, label %31
+  br i1 %27, label %.preheader29, label %31
 
-.preheader34:                                     ; preds = %16, %20, %24
+.preheader29:                                     ; preds = %16, %20, %24
   br label %28
 
-28:                                               ; preds = %.preheader34, %28
+28:                                               ; preds = %.preheader29, %28
   %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBuffer_REAL.sdl_assert_data.367, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 3050) #6
   switch i32 %29, label %.thread [
     i32 0, label %28
@@ -7751,24 +7751,24 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %.preheader34, label %20
+  br i1 %19, label %.preheader29, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %.preheader34, label %24
+  br i1 %23, label %.preheader29, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %.preheader34, label %31
+  br i1 %27, label %.preheader29, label %31
 
-.preheader34:                                     ; preds = %16, %20, %24
+.preheader29:                                     ; preds = %16, %20, %24
   br label %28
 
-28:                                               ; preds = %.preheader34, %28
+28:                                               ; preds = %.preheader29, %28
   %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL.sdl_assert_data.369, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBufferAndAcquireFence_REAL, ptr noundef nonnull @.str.8, i32 noundef 3077) #6
   switch i32 %29, label %.thread [
     i32 0, label %28

@@ -1232,11 +1232,11 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5
   br i1 %19, label %20, label %thread-pre-split.i.i, !prof !89
 
 20:                                               ; preds = %15
-  %.not44.i.i = icmp eq i32 %.028.i.i, 63
+  %.not43.i.i = icmp eq i32 %.028.i.i, 63
   %.not.i13.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
-  %or.cond43.i.i = select i1 %.not44.i.i, i1 %.not.i13.i, i1 %21
-  br i1 %or.cond43.i.i, label %28, label %thread-pre-split.i.i
+  %or.cond42.i.i = select i1 %.not43.i.i, i1 %.not.i13.i, i1 %21
+  br i1 %or.cond42.i.i, label %28, label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %20, %15
   %22 = zext nneg i32 %.028.i.i to i64

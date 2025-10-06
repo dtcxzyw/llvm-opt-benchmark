@@ -565,8 +565,8 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage1
   %12 = icmp ne ptr %11, %0
   %13 = load i32, ptr %7, align 8
   %14 = icmp ne i32 %13, %10
-  %.not3.i.not.not24 = select i1 %12, i1 true, i1 %14
-  br i1 %.not3.i.not.not24, label %.lr.ph, label %.critedge
+  %.not3.i21 = select i1 %12, i1 true, i1 %14
+  br i1 %.not3.i21, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -596,11 +596,11 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage1
 
 31:                                               ; preds = %25
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.critedge, label %32
+  br i1 %.not, label %.critedge.thread, label %32
 
 32:                                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !61
-  br label %.critedge
+  br label %.critedge.thread
 
 33:                                               ; preds = %25, %21, %17
   call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEj(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 1)
@@ -608,13 +608,13 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage1
   %35 = icmp ne ptr %34, %0
   %36 = load i32, ptr %7, align 8
   %37 = icmp ne i32 %36, %10
-  %.not3.i.not.not = select i1 %35, i1 true, i1 %37
-  br i1 %.not3.i.not.not, label %17, label %.critedge
+  %.not3.i = select i1 %35, i1 true, i1 %37
+  br i1 %.not3.i, label %17, label %.critedge.thread
 
-.critedge:                                        ; preds = %33, %5, %32, %31
-  %.not3.i.not.not23 = phi i1 [ true, %32 ], [ true, %31 ], [ false, %5 ], [ false, %33 ]
+.critedge.thread:                                 ; preds = %33, %5, %32, %31
+  %.not3.i20 = phi i1 [ true, %31 ], [ true, %32 ], [ false, %5 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %.not3.i.not.not23
+  ret i1 %.not3.i20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -686,8 +686,8 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage2
   %10 = icmp ne ptr %9, %0
   %11 = load i32, ptr %5, align 8
   %12 = icmp ne i32 %11, %8
-  %.not3.i.not.not32 = select i1 %10, i1 true, i1 %12
-  br i1 %.not3.i.not.not32, label %.lr.ph, label %.critedge
+  %.not3.i31 = select i1 %10, i1 true, i1 %12
+  br i1 %.not3.i31, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -706,7 +706,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage2
   %19 = load i64, ptr %18, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 %19
   %21 = icmp ult ptr %1, %20
-  br i1 %21, label %.critedge, label %22
+  br i1 %21, label %.critedge.thread, label %22
 
 22:                                               ; preds = %16, %.lr.ph.split.us
   call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEj(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 1)
@@ -714,8 +714,8 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage2
   %24 = icmp ne ptr %23, %0
   %25 = load i32, ptr %5, align 8
   %26 = icmp ne i32 %25, %8
-  %.not3.i.not.not.us = select i1 %24, i1 true, i1 %26
-  br i1 %.not3.i.not.not.us, label %.lr.ph.split.us, label %.critedge
+  %.not3.i.us = select i1 %24, i1 true, i1 %26
+  br i1 %.not3.i.us, label %.lr.ph.split.us, label %.critedge.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %37
   %27 = load ptr, ptr %13, align 8, !tbaa !70
@@ -736,7 +736,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage2
   %.mask = and i8 %.val, -16
   %36 = icmp eq i8 %.mask, 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  br i1 %36, label %.critedge, label %37
+  br i1 %36, label %.critedge.thread, label %37
 
 37:                                               ; preds = %34, %29, %.lr.ph.split
   call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEj(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 1)
@@ -744,13 +744,13 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage2
   %39 = icmp ne ptr %38, %0
   %40 = load i32, ptr %5, align 8
   %41 = icmp ne i32 %40, %8
-  %.not3.i.not.not = select i1 %39, i1 true, i1 %41
-  br i1 %.not3.i.not.not, label %.lr.ph.split, label %.critedge
+  %.not3.i = select i1 %39, i1 true, i1 %41
+  br i1 %.not3.i, label %.lr.ph.split, label %.critedge.thread
 
-.critedge:                                        ; preds = %37, %34, %22, %16, %3
-  %.not3.i.not.not31 = phi i1 [ false, %3 ], [ false, %22 ], [ true, %16 ], [ true, %34 ], [ false, %37 ]
+.critedge.thread:                                 ; preds = %37, %34, %22, %16, %3
+  %.not3.i29 = phi i1 [ false, %3 ], [ true, %16 ], [ false, %22 ], [ true, %34 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.not3.i.not.not31
+  ret i1 %.not3.i29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -941,9 +941,8 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit: ; preds = %71
   store ptr %36, ptr %0, align 8, !tbaa !73
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.028, ptr %77, align 8, !tbaa !74
-  %78 = add i16 %38, 256
-  %or.cond.i = icmp ult i16 %78, 257
-  br i1 %or.cond.i, label %79, label %83
+  %78 = icmp ugt i16 %38, -257
+  br i1 %78, label %79, label %83
 
 79:                                               ; preds = %.thread.thread, %.thread
   %80 = getelementptr inbounds nuw i8, ptr %21, i64 8

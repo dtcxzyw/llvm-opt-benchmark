@@ -768,10 +768,9 @@ define weak_odr void @_ZNK7mitsuba13SmoothDiffuseIfN5drjit6MatrixINS_8SpectrumIf
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i32, ptr %17, align 4
-  switch i32 %18, label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread [
-    i32 -1, label %33
-    i32 0, label %33
-  ]
+  %.off = add i32 %18, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread, label %33
 
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread: ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit, %6
   store <4 x float> zeroinitializer, ptr %10, align 16
@@ -814,7 +813,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %exitcond95.not = icmp eq i64 %32, 4
   br i1 %exitcond95.not, label %.loopexit, label %29, !llvm.loop !10
 
-33:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
+33:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %35 = load float, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -939,12 +938,11 @@ define weak_odr noundef float @_ZNK7mitsuba13SmoothDiffuseIfN5drjit6MatrixINS_8S
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 4
-  switch i32 %10, label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread [
-    i32 -1, label %11
-    i32 0, label %11
-  ]
+  %.off = add i32 %10, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread, label %11
 
-11:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
+11:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %13 = load float, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -981,10 +979,9 @@ define weak_odr void @_ZNK7mitsuba13SmoothDiffuseIfN5drjit6MatrixINS_8SpectrumIf
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 4
-  switch i32 %19, label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread [
-    i32 -1, label %35
-    i32 0, label %35
-  ]
+  %.off = add i32 %19, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread, label %35
 
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.thread: ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1034,7 +1031,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %89
 
-35:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
+35:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %37 = load float, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8

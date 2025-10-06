@@ -6957,18 +6957,18 @@ define hidden noundef ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualit
   %13 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !172
-  %.sroa.0.028 = load i32, ptr %13, align 8, !tbaa !28
-  %16 = icmp eq i32 %.sroa.0.028, -1
-  br i1 %16, label %.thread, label %.lr.ph
+  %.sroa.0.031 = load i32, ptr %13, align 8, !tbaa !28
+  %16 = icmp eq i32 %.sroa.0.031, -1
+  br i1 %16, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.pre41 = load ptr, ptr %15, align 8, !tbaa !113
+  %.pre44 = load ptr, ptr %15, align 8, !tbaa !113
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us
-  %17 = phi ptr [ %34, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us ], [ %.pre41, %.lr.ph ]
-  %.sroa.0.029.us = phi i32 [ %.sroa.0.0.us, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us ], [ %.sroa.0.028, %.lr.ph ]
-  %18 = zext i32 %.sroa.0.029.us to i64
+  %17 = phi ptr [ %34, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us ], [ %.pre44, %.lr.ph ]
+  %.sroa.0.032.us = phi i32 [ %.sroa.0.0.us, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us ], [ %.sroa.0.031, %.lr.ph ]
+  %18 = zext i32 %.sroa.0.032.us to i64
   %19 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !173
@@ -6988,12 +6988,12 @@ define hidden noundef ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualit
 28:                                               ; preds = %27
   %29 = load ptr, ptr %0, align 8, !tbaa !35
   %30 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyAboveLowerBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %29, i32 noundef %21)
-  br i1 %30, label %.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us
+  br i1 %30, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us
 
 31:                                               ; preds = %23
   %32 = load ptr, ptr %0, align 8, !tbaa !35
   %33 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyBelowUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %32, i32 noundef %21)
-  br i1 %33, label %.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us
+  br i1 %33, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us
 
 _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us: ; preds = %31, %28, %27, %.lr.ph.split.us
   %34 = load ptr, ptr %15, align 8, !tbaa !113
@@ -7001,12 +7001,12 @@ _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackI
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.0.0.us = load i32, ptr %36, align 8, !tbaa !28
   %37 = icmp eq i32 %.sroa.0.0.us, -1
-  br i1 %37, label %.thread, label %.lr.ph.split.us, !llvm.loop !222
+  br i1 %37, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread, label %.lr.ph.split.us, !llvm.loop !222
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit
-  %38 = phi ptr [ %54, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit ], [ %.pre41, %.lr.ph ]
-  %.sroa.0.029 = phi i32 [ %.sroa.0.0, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit ], [ %.sroa.0.028, %.lr.ph ]
-  %39 = zext i32 %.sroa.0.029 to i64
+  %38 = phi ptr [ %54, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit ], [ %.pre44, %.lr.ph ]
+  %.sroa.0.032 = phi i32 [ %.sroa.0.0, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit ], [ %.sroa.0.031, %.lr.ph ]
+  %39 = zext i32 %.sroa.0.032 to i64
   %40 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !173
@@ -7026,12 +7026,12 @@ _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackI
 49:                                               ; preds = %47
   %50 = load ptr, ptr %0, align 8, !tbaa !35
   %51 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyAboveLowerBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %50, i32 noundef %42)
-  br i1 %51, label %.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit
+  br i1 %51, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit
 
 _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb0EEEbij.exit: ; preds = %.critedge
   %52 = load ptr, ptr %0, align 8, !tbaa !35
   %53 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyBelowUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %52, i32 noundef %42)
-  br i1 %53, label %.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit
+  br i1 %53, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit
 
 _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit: ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb0EEEbij.exit, %49, %47, %.lr.ph.split
   %54 = load ptr, ptr %15, align 8, !tbaa !113
@@ -7039,11 +7039,11 @@ _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackI
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.0.0 = load i32, ptr %56, align 8, !tbaa !28
   %57 = icmp eq i32 %.sroa.0.0, -1
-  br i1 %57, label %.thread, label %.lr.ph.split, !llvm.loop !222
+  br i1 %57, label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread, label %.lr.ph.split, !llvm.loop !222
 
-.thread:                                          ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb0EEEbij.exit, %49, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us, %28, %31, %3
-  %spec.select = phi ptr [ null, %3 ], [ %19, %31 ], [ %19, %28 ], [ null, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us ], [ %40, %49 ], [ %40, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb0EEEbij.exit ], [ null, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit ]
-  ret ptr %spec.select
+_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.thread: ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb0EEEbij.exit, %49, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us, %28, %31, %3
+  %58 = phi ptr [ null, %3 ], [ %19, %31 ], [ %19, %28 ], [ null, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit.us ], [ null, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb1EEEbij.exit ], [ %40, %49 ], [ %40, %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule17isAcceptableSlackILb0EEEbij.exit ]
+  ret ptr %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -10059,8 +10059,8 @@ _ZN4cvc58internal6theory5arith6linear10BorderHeap8pop_heapEv.exit: ; preds = %16
   store ptr %29, ptr %19, align 8, !tbaa !239
   %30 = getelementptr inbounds i8, ptr %28, i64 -88
   %31 = getelementptr inbounds i8, ptr %28, i64 -56
-  %.not23 = icmp eq ptr %27, %29
-  br i1 %.not23, label %.thread, label %.lr.ph
+  %.not22 = icmp eq ptr %27, %29
+  br i1 %.not22, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4cvc58internal6theory5arith6linear10BorderHeap8pop_heapEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -10077,8 +10077,8 @@ _ZN4cvc58internal6theory5arith6linear10BorderHeap8pop_heapEv.exit: ; preds = %16
 _ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %38) #31
-  %.not22 = icmp eq i32 %39, 0
-  br i1 %.not22, label %.thread, label %40
+  %.not21 = icmp eq i32 %39, 0
+  br i1 %.not21, label %.thread, label %40
 
 40:                                               ; preds = %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 72
@@ -10093,10 +10093,10 @@ _ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %33
   br label %47
 
 47:                                               ; preds = %40, %44
-  %.sink34 = phi ptr [ %4, %44 ], [ %2, %40 ]
-  %48 = load i32, ptr %.sink34, align 4, !tbaa !28
+  %.sink33 = phi ptr [ %4, %44 ], [ %2, %40 ]
+  %48 = load i32, ptr %.sink33, align 4, !tbaa !28
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %.sink34, align 4, !tbaa !28
+  store i32 %49, ptr %.sink33, align 4, !tbaa !28
   %50 = ptrtoint ptr %35 to i64
   %51 = ptrtoint ptr %34 to i64
   %52 = sub i64 %50, %51
@@ -10111,11 +10111,11 @@ _ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %33
   call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterINS6_10BorderHeap13BorderHeapCmpEEEEvT_SI_SI_RT0_(ptr nonnull %34, ptr nonnull %55, ptr nonnull %55, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre.i18 = load ptr, ptr %19, align 8, !tbaa !239
-  %.pre25 = load ptr, ptr %8, align 8, !tbaa !234
+  %.pre24 = load ptr, ptr %8, align 8, !tbaa !234
   br label %56
 
 56:                                               ; preds = %54, %47
-  %57 = phi ptr [ %34, %47 ], [ %.pre25, %54 ]
+  %57 = phi ptr [ %34, %47 ], [ %.pre24, %54 ]
   %58 = phi ptr [ %35, %47 ], [ %.pre.i18, %54 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -96
   store ptr %59, ptr %19, align 8, !tbaa !239

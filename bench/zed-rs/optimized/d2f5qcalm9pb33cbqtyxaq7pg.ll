@@ -4073,7 +4073,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h34063ca6e362c8
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h729bfdda5d22cc86E.llvm.16659958247667724540"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit" unwind label %15, !noalias !2461
+          to label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit" unwind label %16, !noalias !2461
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4083,45 +4083,45 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h34063ca6e362c8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2479
   %11 = load ptr, ptr %10, align 8, !alias.scope !2480, !noalias !2461, !nonnull !5, !noundef !5
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h903b54cb721ff79dE.llvm.16659958247667724540(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %11)
-          to label %.noexc1.i.i unwind label %15, !noalias !2461
+          to label %.noexc1.i.i unwind label %16, !noalias !2461
 
 .noexc1.i.i:                                      ; preds = %9
   %12 = load i8, ptr %2, align 8, !range !1852, !alias.scope !2481, !noalias !2479, !noundef !5
-  %switch.not.i.i.i.i.i.i.i.i = icmp eq i8 %12, 3
-  br i1 %switch.not.i.i.i.i.i.i.i.i, label %13, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h89ce4d7127bffa63E.exit.i.i.i.i"
+  %13 = icmp eq i8 %12, 3
+  br i1 %13, label %14, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h89ce4d7127bffa63E.exit.i.i.i.i"
 
-13:                                               ; preds = %.noexc1.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h7e7a7e7c56fd711fE.llvm.16659958247667724540"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
-          to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h89ce4d7127bffa63E.exit.i.i.i.i" unwind label %15, !noalias !2461
+14:                                               ; preds = %.noexc1.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h7e7a7e7c56fd711fE.llvm.16659958247667724540"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
+          to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h89ce4d7127bffa63E.exit.i.i.i.i" unwind label %16, !noalias !2461
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h89ce4d7127bffa63E.exit.i.i.i.i": ; preds = %13, %.noexc1.i.i
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h89ce4d7127bffa63E.exit.i.i.i.i": ; preds = %14, %.noexc1.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !2479
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit"
 
-15:                                               ; preds = %13, %9, %7
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %14, %9, %7
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 40, i64 noundef 8) #24, !noalias !2484
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit": ; preds = %1, %7, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h89ce4d7127bffa63E.exit.i.i.i.i"
   call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 40, i64 noundef 8) #24, !noalias !2487
-  %17 = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
-  br i1 %17, label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Weak$LT$serde_json..error..Error$C$$RF$alloc..alloc..Global$GT$$GT$17he2703df1843bd3b2E.exit", label %18
+  %18 = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
+  br i1 %18, label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Weak$LT$serde_json..error..Error$C$$RF$alloc..alloc..Global$GT$$GT$17he2703df1843bd3b2E.exit", label %19
 
-18:                                               ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit"
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !2490
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %22, label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Weak$LT$serde_json..error..Error$C$$RF$alloc..alloc..Global$GT$$GT$17he2703df1843bd3b2E.exit"
+19:                                               ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit"
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = atomicrmw sub ptr %20, i64 1 release, align 8, !noalias !2490
+  %22 = icmp eq i64 %21, 1
+  br i1 %22, label %23, label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Weak$LT$serde_json..error..Error$C$$RF$alloc..alloc..Global$GT$$GT$17he2703df1843bd3b2E.exit"
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8) #24, !noalias !2490
   br label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Weak$LT$serde_json..error..Error$C$$RF$alloc..alloc..Global$GT$$GT$17he2703df1843bd3b2E.exit"
 
-"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Weak$LT$serde_json..error..Error$C$$RF$alloc..alloc..Global$GT$$GT$17he2703df1843bd3b2E.exit": ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit", %18, %22
+"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Weak$LT$serde_json..error..Error$C$$RF$alloc..alloc..Global$GT$$GT$17he2703df1843bd3b2E.exit": ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17had025e3c7326fe51E.exit", %19, %23
   ret void
 }
 

@@ -3750,16 +3750,16 @@ define dso_local noundef zeroext i1 @_ZN4Luau6finiteEPKNS_11TypePackVarEPNS_6Txn
 
 .split.us:                                        ; preds = %2
   %3 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %0)
-  %.not.i.i.us28 = icmp eq ptr %3, null
-  br i1 %.not.i.i.us28, label %.thread, label %.lr.ph29
+  %.not.i.i.us27 = icmp eq ptr %3, null
+  br i1 %.not.i.i.us27, label %.thread, label %.lr.ph28
 
-.lr.ph29:                                         ; preds = %.split.us, %tailrecurse.us
+.lr.ph28:                                         ; preds = %.split.us, %tailrecurse.us
   %4 = phi ptr [ %12, %tailrecurse.us ], [ %3, %.split.us ]
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %6 = icmp eq i32 %5, 4
-  br i1 %6, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us, label %.split26.us
+  br i1 %6, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us, label %.split25.us
 
-_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us: ; preds = %.lr.ph29
+_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us: ; preds = %.lr.ph28
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i8, ptr %7, align 8, !tbaa !72, !range !74, !noundef !75
   %9 = trunc nuw i8 %8 to i1
@@ -3770,18 +3770,18 @@ tailrecurse.us:                                   ; preds = %_ZN4Luau3getINS_8Ty
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %11)
   %.not.i.i.us = icmp eq ptr %12, null
-  br i1 %.not.i.i.us, label %.thread, label %.lr.ph29
+  br i1 %.not.i.i.us, label %.thread, label %.lr.ph28
 
 .split:                                           ; preds = %2
   %13 = tail call noundef ptr @_ZNK4Luau6TxnLog6followEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %0)
-  %.not.i.i27 = icmp eq ptr %13, null
-  br i1 %.not.i.i27, label %.thread, label %.lr.ph
+  %.not.i.i26 = icmp eq ptr %13, null
+  br i1 %.not.i.i26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split, %tailrecurse
   %14 = phi ptr [ %22, %tailrecurse ], [ %13, %.split ]
   %15 = load i32, ptr %14, align 8, !tbaa !49
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit, label %.split26.us
+  br i1 %16, label %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit, label %.split25.us
 
 _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -3796,13 +3796,13 @@ tailrecurse:                                      ; preds = %_ZN4Luau3getINS_8Ty
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %.thread, label %.lr.ph
 
-.split26.us:                                      ; preds = %.lr.ph, %.lr.ph29
-  %23 = phi i32 [ %5, %.lr.ph29 ], [ %15, %.lr.ph ]
+.split25.us:                                      ; preds = %.lr.ph, %.lr.ph28
+  %23 = phi i32 [ %5, %.lr.ph28 ], [ %15, %.lr.ph ]
   %24 = icmp ne i32 %23, 5
   br label %.thread
 
-.thread:                                          ; preds = %tailrecurse, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit, %tailrecurse.us, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us, %.split.us, %.split, %.split26.us
-  %.1 = phi i1 [ %24, %.split26.us ], [ true, %.split ], [ true, %.split.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us ], [ true, %tailrecurse.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit ], [ true, %tailrecurse ]
+.thread:                                          ; preds = %tailrecurse, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit, %tailrecurse.us, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us, %.split.us, %.split, %.split25.us
+  %.1 = phi i1 [ %24, %.split25.us ], [ true, %.split ], [ true, %.split.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us ], [ true, %tailrecurse.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit ], [ true, %tailrecurse ]
   ret i1 %.1
 }
 
@@ -3901,8 +3901,8 @@ define dso_local noundef ptr @_ZN4Luau9asMutableEPKNS_8TypePackE(ptr noundef rea
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %0)
-  %.not.i.i14 = icmp eq ptr %2, null
-  br i1 %.not.i.i14, label %.thread, label %.lr.ph
+  %.not.i.i13 = icmp eq ptr %2, null
+  br i1 %.not.i.i13, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %3 = phi ptr [ %17, %tailrecurse ], [ %2, %1 ]

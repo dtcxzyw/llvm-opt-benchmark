@@ -187,16 +187,15 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL24repack_q4_0_to_q4_0_4_
   unreachable
 
 10:                                               ; preds = %4
-  switch i32 %1, label %11 [
-    i32 8, label %12
-    i32 4, label %12
-  ]
+  %.off = add nsw i32 %1, -5
+  %switch = icmp ult i32 %.off, 3
+  br i1 %switch, label %11, label %12
 
 11:                                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 3665, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #22
   unreachable
 
-12:                                               ; preds = %10, %10
+12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

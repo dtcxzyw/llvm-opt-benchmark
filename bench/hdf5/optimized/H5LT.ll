@@ -2389,45 +2389,45 @@ define noundef ptr @H5LT_dtype_to_text(i64 noundef %0, ptr noundef %1, i32 nound
   %41 = phi i64 [ %34, %33 ], [ %39, %38 ]
   %42 = tail call ptr @realloc(ptr noundef nonnull %1, i64 noundef %41) #23
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %realloc_and_append.exit.thread713
+  br i1 %43, label %44, label %realloc_and_append.exit.thread707
 
 44:                                               ; preds = %40
   tail call void @free(ptr noundef nonnull %1) #20
   br label %realloc_and_append.exit.thread
 
 realloc_and_append.exit:                          ; preds = %5
-  br i1 %.not.i, label %realloc_and_append.exit.thread, label %realloc_and_append.exit.thread713
+  br i1 %.not.i, label %realloc_and_append.exit.thread, label %realloc_and_append.exit.thread707
 
-realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_append.exit
-  %.036.i716 = phi ptr [ %1, %realloc_and_append.exit ], [ %42, %40 ]
+realloc_and_append.exit.thread707:                ; preds = %40, %realloc_and_append.exit
+  %.036.i710 = phi ptr [ %1, %realloc_and_append.exit ], [ %42, %40 ]
   %.not571 = icmp eq i32 %2, 0
   br i1 %.not571, label %48, label %45
 
-45:                                               ; preds = %realloc_and_append.exit.thread713
+45:                                               ; preds = %realloc_and_append.exit.thread707
   %46 = load i64, ptr %3, align 8, !tbaa !15
-  %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %46, ptr noundef nonnull @.str.2) #20
+  %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %46, ptr noundef nonnull @.str.2) #20
   br label %realloc_and_append.exit.thread
 
-48:                                               ; preds = %realloc_and_append.exit.thread713
+48:                                               ; preds = %realloc_and_append.exit.thread707
   %49 = tail call i32 @H5Tget_class(i64 noundef %0) #20
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %realloc_and_append.exit.thread, label %51
 
 51:                                               ; preds = %48
-  switch i32 %49, label %1030 [
+  switch i32 %49, label %1035 [
     i32 0, label %52
     i32 4, label %52
     i32 1, label %418
     i32 3, label %560
     i32 5, label %729
     i32 8, label %770
-    i32 9, label %812
-    i32 10, label %851
-    i32 6, label %903
-    i32 11, label %971
-    i32 2, label %1010
-    i32 12, label %1033
-    i32 7, label %1013
+    i32 9, label %813
+    i32 10, label %853
+    i32 6, label %906
+    i32 11, label %975
+    i32 2, label %1015
+    i32 12, label %realloc_and_append.exit.thread
+    i32 7, label %1018
   ]
 
 52:                                               ; preds = %51, %51
@@ -2450,8 +2450,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 63:                                               ; preds = %60
   %64 = load i64, ptr %3, align 8, !tbaa !15
-  %65 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %64, ptr noundef nonnull @.str.3) #20
-  br label %1033
+  %65 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %64, ptr noundef nonnull @.str.3) #20
+  br label %realloc_and_append.exit.thread
 
 66:                                               ; preds = %60
   %67 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2473,8 +2473,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %3, align 8, !tbaa !15
-  %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %78, ptr noundef nonnull @.str.4) #20
-  br label %1033
+  %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %78, ptr noundef nonnull @.str.4) #20
+  br label %realloc_and_append.exit.thread
 
 80:                                               ; preds = %74
   %81 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2496,8 +2496,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 91:                                               ; preds = %88
   %92 = load i64, ptr %3, align 8, !tbaa !15
-  %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %92, ptr noundef nonnull @.str.5) #20
-  br label %1033
+  %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %92, ptr noundef nonnull @.str.5) #20
+  br label %realloc_and_append.exit.thread
 
 94:                                               ; preds = %88
   %95 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2519,8 +2519,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 105:                                              ; preds = %102
   %106 = load i64, ptr %3, align 8, !tbaa !15
-  %107 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %106, ptr noundef nonnull @.str.6) #20
-  br label %1033
+  %107 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %106, ptr noundef nonnull @.str.6) #20
+  br label %realloc_and_append.exit.thread
 
 108:                                              ; preds = %102
   %109 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2542,8 +2542,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 119:                                              ; preds = %116
   %120 = load i64, ptr %3, align 8, !tbaa !15
-  %121 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %120, ptr noundef nonnull @.str.7) #20
-  br label %1033
+  %121 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %120, ptr noundef nonnull @.str.7) #20
+  br label %realloc_and_append.exit.thread
 
 122:                                              ; preds = %116
   %123 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2565,8 +2565,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 133:                                              ; preds = %130
   %134 = load i64, ptr %3, align 8, !tbaa !15
-  %135 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %134, ptr noundef nonnull @.str.8) #20
-  br label %1033
+  %135 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %134, ptr noundef nonnull @.str.8) #20
+  br label %realloc_and_append.exit.thread
 
 136:                                              ; preds = %130
   %137 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2588,8 +2588,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 147:                                              ; preds = %144
   %148 = load i64, ptr %3, align 8, !tbaa !15
-  %149 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %148, ptr noundef nonnull @.str.9) #20
-  br label %1033
+  %149 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %148, ptr noundef nonnull @.str.9) #20
+  br label %realloc_and_append.exit.thread
 
 150:                                              ; preds = %144
   %151 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2611,8 +2611,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 161:                                              ; preds = %158
   %162 = load i64, ptr %3, align 8, !tbaa !15
-  %163 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %162, ptr noundef nonnull @.str.10) #20
-  br label %1033
+  %163 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %162, ptr noundef nonnull @.str.10) #20
+  br label %realloc_and_append.exit.thread
 
 164:                                              ; preds = %158
   %165 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2634,8 +2634,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 175:                                              ; preds = %172
   %176 = load i64, ptr %3, align 8, !tbaa !15
-  %177 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %176, ptr noundef nonnull @.str.11) #20
-  br label %1033
+  %177 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %176, ptr noundef nonnull @.str.11) #20
+  br label %realloc_and_append.exit.thread
 
 178:                                              ; preds = %172
   %179 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2657,8 +2657,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 189:                                              ; preds = %186
   %190 = load i64, ptr %3, align 8, !tbaa !15
-  %191 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %190, ptr noundef nonnull @.str.12) #20
-  br label %1033
+  %191 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %190, ptr noundef nonnull @.str.12) #20
+  br label %realloc_and_append.exit.thread
 
 192:                                              ; preds = %186
   %193 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2680,8 +2680,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 203:                                              ; preds = %200
   %204 = load i64, ptr %3, align 8, !tbaa !15
-  %205 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %204, ptr noundef nonnull @.str.13) #20
-  br label %1033
+  %205 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %204, ptr noundef nonnull @.str.13) #20
+  br label %realloc_and_append.exit.thread
 
 206:                                              ; preds = %200
   %207 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2703,8 +2703,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 217:                                              ; preds = %214
   %218 = load i64, ptr %3, align 8, !tbaa !15
-  %219 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %218, ptr noundef nonnull @.str.14) #20
-  br label %1033
+  %219 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %218, ptr noundef nonnull @.str.14) #20
+  br label %realloc_and_append.exit.thread
 
 220:                                              ; preds = %214
   %221 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2726,8 +2726,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 231:                                              ; preds = %228
   %232 = load i64, ptr %3, align 8, !tbaa !15
-  %233 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %232, ptr noundef nonnull @.str.15) #20
-  br label %1033
+  %233 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %232, ptr noundef nonnull @.str.15) #20
+  br label %realloc_and_append.exit.thread
 
 234:                                              ; preds = %228
   %235 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2749,8 +2749,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 245:                                              ; preds = %242
   %246 = load i64, ptr %3, align 8, !tbaa !15
-  %247 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %246, ptr noundef nonnull @.str.16) #20
-  br label %1033
+  %247 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %246, ptr noundef nonnull @.str.16) #20
+  br label %realloc_and_append.exit.thread
 
 248:                                              ; preds = %242
   %249 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2772,8 +2772,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 259:                                              ; preds = %256
   %260 = load i64, ptr %3, align 8, !tbaa !15
-  %261 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %260, ptr noundef nonnull @.str.17) #20
-  br label %1033
+  %261 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %260, ptr noundef nonnull @.str.17) #20
+  br label %realloc_and_append.exit.thread
 
 262:                                              ; preds = %256
   %263 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2795,8 +2795,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 273:                                              ; preds = %270
   %274 = load i64, ptr %3, align 8, !tbaa !15
-  %275 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %274, ptr noundef nonnull @.str.18) #20
-  br label %1033
+  %275 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %274, ptr noundef nonnull @.str.18) #20
+  br label %realloc_and_append.exit.thread
 
 276:                                              ; preds = %270
   %277 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2818,8 +2818,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 287:                                              ; preds = %284
   %288 = load i64, ptr %3, align 8, !tbaa !15
-  %289 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %288, ptr noundef nonnull @.str.19) #20
-  br label %1033
+  %289 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %288, ptr noundef nonnull @.str.19) #20
+  br label %realloc_and_append.exit.thread
 
 290:                                              ; preds = %284
   %291 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2841,8 +2841,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 301:                                              ; preds = %298
   %302 = load i64, ptr %3, align 8, !tbaa !15
-  %303 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %302, ptr noundef nonnull @.str.20) #20
-  br label %1033
+  %303 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %302, ptr noundef nonnull @.str.20) #20
+  br label %realloc_and_append.exit.thread
 
 304:                                              ; preds = %298
   %305 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2864,8 +2864,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 315:                                              ; preds = %312
   %316 = load i64, ptr %3, align 8, !tbaa !15
-  %317 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %316, ptr noundef nonnull @.str.21) #20
-  br label %1033
+  %317 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %316, ptr noundef nonnull @.str.21) #20
+  br label %realloc_and_append.exit.thread
 
 318:                                              ; preds = %312
   %319 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2887,8 +2887,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 329:                                              ; preds = %326
   %330 = load i64, ptr %3, align 8, !tbaa !15
-  %331 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %330, ptr noundef nonnull @.str.22) #20
-  br label %1033
+  %331 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %330, ptr noundef nonnull @.str.22) #20
+  br label %realloc_and_append.exit.thread
 
 332:                                              ; preds = %326
   %333 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2910,8 +2910,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 343:                                              ; preds = %340
   %344 = load i64, ptr %3, align 8, !tbaa !15
-  %345 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %344, ptr noundef nonnull @.str.23) #20
-  br label %1033
+  %345 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %344, ptr noundef nonnull @.str.23) #20
+  br label %realloc_and_append.exit.thread
 
 346:                                              ; preds = %340
   %347 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2933,8 +2933,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 357:                                              ; preds = %354
   %358 = load i64, ptr %3, align 8, !tbaa !15
-  %359 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %358, ptr noundef nonnull @.str.24) #20
-  br label %1033
+  %359 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %358, ptr noundef nonnull @.str.24) #20
+  br label %realloc_and_append.exit.thread
 
 360:                                              ; preds = %354
   %361 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2956,8 +2956,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 371:                                              ; preds = %368
   %372 = load i64, ptr %3, align 8, !tbaa !15
-  %373 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %372, ptr noundef nonnull @.str.25) #20
-  br label %1033
+  %373 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %372, ptr noundef nonnull @.str.25) #20
+  br label %realloc_and_append.exit.thread
 
 374:                                              ; preds = %368
   %375 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -2979,8 +2979,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 385:                                              ; preds = %382
   %386 = load i64, ptr %3, align 8, !tbaa !15
-  %387 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %386, ptr noundef nonnull @.str.26) #20
-  br label %1033
+  %387 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %386, ptr noundef nonnull @.str.26) #20
+  br label %realloc_and_append.exit.thread
 
 388:                                              ; preds = %382
   %389 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3002,8 +3002,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 399:                                              ; preds = %396
   %400 = load i64, ptr %3, align 8, !tbaa !15
-  %401 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %400, ptr noundef nonnull @.str.27) #20
-  br label %1033
+  %401 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %400, ptr noundef nonnull @.str.27) #20
+  br label %realloc_and_append.exit.thread
 
 402:                                              ; preds = %396
   %403 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3025,12 +3025,12 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
   br i1 %.not667, label %416, label %414
 
 414:                                              ; preds = %410
-  %415 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %413, ptr noundef nonnull @.str.28) #20
-  br label %1033
+  %415 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %413, ptr noundef nonnull @.str.28) #20
+  br label %realloc_and_append.exit.thread
 
 416:                                              ; preds = %410
-  %417 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %413, ptr noundef nonnull @.str.29) #20
-  br label %1033
+  %417 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %413, ptr noundef nonnull @.str.29) #20
+  br label %realloc_and_append.exit.thread
 
 418:                                              ; preds = %51
   %419 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3052,8 +3052,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 429:                                              ; preds = %426
   %430 = load i64, ptr %3, align 8, !tbaa !15
-  %431 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %430, ptr noundef nonnull @.str.30) #20
-  br label %1033
+  %431 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %430, ptr noundef nonnull @.str.30) #20
+  br label %realloc_and_append.exit.thread
 
 432:                                              ; preds = %426
   %433 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3075,8 +3075,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 443:                                              ; preds = %440
   %444 = load i64, ptr %3, align 8, !tbaa !15
-  %445 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %444, ptr noundef nonnull @.str.31) #20
-  br label %1033
+  %445 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %444, ptr noundef nonnull @.str.31) #20
+  br label %realloc_and_append.exit.thread
 
 446:                                              ; preds = %440
   %447 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3098,8 +3098,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 457:                                              ; preds = %454
   %458 = load i64, ptr %3, align 8, !tbaa !15
-  %459 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %458, ptr noundef nonnull @.str.32) #20
-  br label %1033
+  %459 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %458, ptr noundef nonnull @.str.32) #20
+  br label %realloc_and_append.exit.thread
 
 460:                                              ; preds = %454
   %461 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3121,8 +3121,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 471:                                              ; preds = %468
   %472 = load i64, ptr %3, align 8, !tbaa !15
-  %473 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %472, ptr noundef nonnull @.str.33) #20
-  br label %1033
+  %473 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %472, ptr noundef nonnull @.str.33) #20
+  br label %realloc_and_append.exit.thread
 
 474:                                              ; preds = %468
   %475 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3144,8 +3144,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 485:                                              ; preds = %482
   %486 = load i64, ptr %3, align 8, !tbaa !15
-  %487 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %486, ptr noundef nonnull @.str.34) #20
-  br label %1033
+  %487 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %486, ptr noundef nonnull @.str.34) #20
+  br label %realloc_and_append.exit.thread
 
 488:                                              ; preds = %482
   %489 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3167,8 +3167,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 499:                                              ; preds = %496
   %500 = load i64, ptr %3, align 8, !tbaa !15
-  %501 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %500, ptr noundef nonnull @.str.35) #20
-  br label %1033
+  %501 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %500, ptr noundef nonnull @.str.35) #20
+  br label %realloc_and_append.exit.thread
 
 502:                                              ; preds = %496
   %503 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3190,8 +3190,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 513:                                              ; preds = %510
   %514 = load i64, ptr %3, align 8, !tbaa !15
-  %515 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %514, ptr noundef nonnull @.str.36) #20
-  br label %1033
+  %515 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %514, ptr noundef nonnull @.str.36) #20
+  br label %realloc_and_append.exit.thread
 
 516:                                              ; preds = %510
   %517 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3213,8 +3213,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 527:                                              ; preds = %524
   %528 = load i64, ptr %3, align 8, !tbaa !15
-  %529 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %528, ptr noundef nonnull @.str.37) #20
-  br label %1033
+  %529 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %528, ptr noundef nonnull @.str.37) #20
+  br label %realloc_and_append.exit.thread
 
 530:                                              ; preds = %524
   %531 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3236,8 +3236,8 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 541:                                              ; preds = %538
   %542 = load i64, ptr %3, align 8, !tbaa !15
-  %543 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %542, ptr noundef nonnull @.str.38) #20
-  br label %1033
+  %543 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %542, ptr noundef nonnull @.str.38) #20
+  br label %realloc_and_append.exit.thread
 
 544:                                              ; preds = %538
   %545 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3259,41 +3259,41 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
   br i1 %.not641, label %558, label %556
 
 556:                                              ; preds = %552
-  %557 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %555, ptr noundef nonnull @.str.39) #20
-  br label %1033
+  %557 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %555, ptr noundef nonnull @.str.39) #20
+  br label %realloc_and_append.exit.thread
 
 558:                                              ; preds = %552
-  %559 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %555, ptr noundef nonnull @.str.40) #20
-  br label %1033
+  %559 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %555, ptr noundef nonnull @.str.40) #20
+  br label %realloc_and_append.exit.thread
 
 560:                                              ; preds = %51
   %561 = tail call i64 @H5Tcopy(i64 noundef %0) #20
   %562 = icmp slt i64 %561, 0
-  br i1 %562, label %realloc_and_append.exit.thread, label %563
+  br i1 %562, label %.thread, label %563
 
 563:                                              ; preds = %560
   %564 = tail call i64 @H5Tget_size(i64 noundef %561) #20
   %565 = icmp eq i64 %564, 0
-  br i1 %565, label %realloc_and_append.exit.thread, label %566
+  br i1 %565, label %.thread, label %566
 
 566:                                              ; preds = %563
   %567 = tail call i32 @H5Tget_strpad(i64 noundef %561) #20
   %568 = icmp slt i32 %567, 0
-  br i1 %568, label %realloc_and_append.exit.thread, label %569
+  br i1 %568, label %.thread, label %569
 
 569:                                              ; preds = %566
   %570 = tail call i32 @H5Tget_cset(i64 noundef %561) #20
   %571 = icmp slt i32 %570, 0
-  br i1 %571, label %realloc_and_append.exit.thread, label %572
+  br i1 %571, label %.thread, label %572
 
 572:                                              ; preds = %569
   %573 = tail call i32 @H5Tis_variable_str(i64 noundef %561) #20
   %574 = icmp slt i32 %573, 0
-  br i1 %574, label %realloc_and_append.exit.thread, label %575
+  br i1 %574, label %.thread, label %575
 
 575:                                              ; preds = %572
   %576 = load i64, ptr %3, align 8, !tbaa !15
-  %577 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %576, ptr noundef nonnull @.str.41) #20
+  %577 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %576, ptr noundef nonnull @.str.41) #20
   %578 = load i64, ptr @indent, align 8, !tbaa !15
   %579 = add i64 %578, 3
   store i64 %579, ptr @indent, align 8, !tbaa !15
@@ -3313,10 +3313,10 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
   br label %indentation.exit
 
 indentation.exit:                                 ; preds = %582, %584
-  %585 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i716, ptr noundef nonnull %24)
+  %585 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i710, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.not613 = icmp eq ptr %585, null
-  br i1 %.not613, label %realloc_and_append.exit.thread, label %586
+  br i1 %.not613, label %.thread, label %586
 
 586:                                              ; preds = %indentation.exit
   %.not614 = icmp eq i32 %573, 0
@@ -3334,7 +3334,7 @@ indentation.exit:                                 ; preds = %582, %584
 591:                                              ; preds = %588, %587
   %592 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %585, ptr noundef nonnull %25)
   %.not615 = icmp eq ptr %592, null
-  br i1 %.not615, label %realloc_and_append.exit.thread, label %593
+  br i1 %.not615, label %.thread, label %593
 
 593:                                              ; preds = %591
   %594 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3347,19 +3347,19 @@ indentation.exit:                                 ; preds = %582, %584
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %23, i8 32, i64 %595, i1 false)
   %598 = getelementptr inbounds nuw i8, ptr %23, i64 %595
   store i8 0, ptr %598, align 1, !tbaa !7
-  br label %indentation.exit693
+  br label %indentation.exit687
 
 599:                                              ; preds = %593
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %23, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit693
+  br label %indentation.exit687
 
-indentation.exit693:                              ; preds = %597, %599
+indentation.exit687:                              ; preds = %597, %599
   %600 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %592, ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not616 = icmp eq ptr %600, null
-  br i1 %.not616, label %realloc_and_append.exit.thread, label %601
+  br i1 %.not616, label %.thread, label %601
 
-601:                                              ; preds = %indentation.exit693
+601:                                              ; preds = %indentation.exit687
   switch i32 %567, label %605 [
     i32 0, label %602
     i32 1, label %603
@@ -3385,7 +3385,7 @@ indentation.exit693:                              ; preds = %597, %599
 606:                                              ; preds = %603, %605, %604, %602
   %607 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %600, ptr noundef nonnull %25)
   %.not617 = icmp eq ptr %607, null
-  br i1 %.not617, label %realloc_and_append.exit.thread, label %608
+  br i1 %.not617, label %.thread, label %608
 
 608:                                              ; preds = %606
   %609 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3398,19 +3398,19 @@ indentation.exit693:                              ; preds = %597, %599
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %22, i8 32, i64 %610, i1 false)
   %613 = getelementptr inbounds nuw i8, ptr %22, i64 %610
   store i8 0, ptr %613, align 1, !tbaa !7
-  br label %indentation.exit694
+  br label %indentation.exit688
 
 614:                                              ; preds = %608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %22, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit694
+  br label %indentation.exit688
 
-indentation.exit694:                              ; preds = %612, %614
+indentation.exit688:                              ; preds = %612, %614
   %615 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %607, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.not618 = icmp eq ptr %615, null
-  br i1 %.not618, label %realloc_and_append.exit.thread, label %616
+  br i1 %.not618, label %.thread, label %616
 
-616:                                              ; preds = %indentation.exit694
+616:                                              ; preds = %indentation.exit688
   switch i32 %570, label %619 [
     i32 0, label %617
     i32 1, label %618
@@ -3431,7 +3431,7 @@ indentation.exit694:                              ; preds = %612, %614
 620:                                              ; preds = %618, %619, %617
   %621 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %615, ptr noundef nonnull %25)
   %.not619 = icmp eq ptr %621, null
-  br i1 %.not619, label %realloc_and_append.exit.thread, label %622
+  br i1 %.not619, label %.thread, label %622
 
 622:                                              ; preds = %620
   %623 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3449,7 +3449,7 @@ indentation.exit694:                              ; preds = %612, %614
   %631 = load i64, ptr @H5T_C_S1_g, align 8, !tbaa !15
   %632 = call i64 @H5Tcopy(i64 noundef %631) #20
   %633 = icmp slt i64 %632, 0
-  br i1 %633, label %realloc_and_append.exit.thread, label %634
+  br i1 %633, label %.thread, label %634
 
 634:                                              ; preds = %630
   br i1 %.not614, label %638, label %635
@@ -3457,22 +3457,22 @@ indentation.exit694:                              ; preds = %612, %614
 635:                                              ; preds = %634
   %636 = call i32 @H5Tset_size(i64 noundef %632, i64 noundef -1) #20
   %637 = icmp slt i32 %636, 0
-  br i1 %637, label %realloc_and_append.exit.thread, label %641
+  br i1 %637, label %.thread, label %641
 
 638:                                              ; preds = %634
   %639 = call i32 @H5Tset_size(i64 noundef %632, i64 noundef %564) #20
   %640 = icmp slt i32 %639, 0
-  br i1 %640, label %realloc_and_append.exit.thread, label %641
+  br i1 %640, label %.thread, label %641
 
 641:                                              ; preds = %638, %635
   %642 = call i32 @H5Tset_cset(i64 noundef %632, i32 noundef %570) #20
   %643 = icmp slt i32 %642, 0
-  br i1 %643, label %realloc_and_append.exit.thread, label %644
+  br i1 %643, label %.thread, label %644
 
 644:                                              ; preds = %641
   %645 = call i32 @H5Tset_strpad(i64 noundef %632, i32 noundef %567) #20
   %646 = icmp slt i32 %645, 0
-  br i1 %646, label %realloc_and_append.exit.thread, label %647
+  br i1 %646, label %.thread, label %647
 
 647:                                              ; preds = %644
   %648 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3485,19 +3485,19 @@ indentation.exit694:                              ; preds = %612, %614
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %21, i8 32, i64 %649, i1 false)
   %652 = getelementptr inbounds nuw i8, ptr %21, i64 %649
   store i8 0, ptr %652, align 1, !tbaa !7
-  br label %indentation.exit695
+  br label %indentation.exit689
 
 653:                                              ; preds = %647
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %21, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit695
+  br label %indentation.exit689
 
-indentation.exit695:                              ; preds = %651, %653
+indentation.exit689:                              ; preds = %651, %653
   %654 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %621, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.not620 = icmp eq ptr %654, null
-  br i1 %.not620, label %realloc_and_append.exit.thread, label %655
+  br i1 %.not620, label %.thread, label %655
 
-655:                                              ; preds = %indentation.exit695
+655:                                              ; preds = %indentation.exit689
   %656 = call i32 @H5Tequal(i64 noundef %561, i64 noundef %632) #20
   %.not621 = icmp eq i32 %656, 0
   br i1 %.not621, label %659, label %657
@@ -3506,12 +3506,12 @@ indentation.exit695:                              ; preds = %651, %653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %25, ptr noundef nonnull align 1 dereferenceable(17) @.str.51, i64 17, i1 false)
   %658 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %654, ptr noundef nonnull %25)
   %.not629 = icmp eq ptr %658, null
-  br i1 %.not629, label %realloc_and_append.exit.thread, label %717
+  br i1 %.not629, label %.thread, label %717
 
 659:                                              ; preds = %655
   %660 = call i32 @H5Tget_order(i64 noundef %561) #20
   %661 = icmp slt i32 %660, 0
-  br i1 %661, label %realloc_and_append.exit.thread, label %662
+  br i1 %661, label %.thread, label %662
 
 662:                                              ; preds = %659
   switch i32 %660, label %669 [
@@ -3522,12 +3522,12 @@ indentation.exit695:                              ; preds = %651, %653
 663:                                              ; preds = %662
   %664 = call i32 @H5Tset_order(i64 noundef %632, i32 noundef 0) #20
   %665 = icmp slt i32 %664, 0
-  br i1 %665, label %realloc_and_append.exit.thread, label %669
+  br i1 %665, label %.thread, label %669
 
 666:                                              ; preds = %662
   %667 = call i32 @H5Tset_order(i64 noundef %632, i32 noundef 1) #20
   %668 = icmp slt i32 %667, 0
-  br i1 %668, label %realloc_and_append.exit.thread, label %669
+  br i1 %668, label %.thread, label %669
 
 669:                                              ; preds = %662, %666, %663
   %670 = call i32 @H5Tequal(i64 noundef %561, i64 noundef %632) #20
@@ -3538,12 +3538,12 @@ indentation.exit695:                              ; preds = %651, %653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %25, ptr noundef nonnull align 1 dereferenceable(17) @.str.51, i64 17, i1 false)
   %672 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %654, ptr noundef nonnull %25)
   %.not628 = icmp eq ptr %672, null
-  br i1 %.not628, label %realloc_and_append.exit.thread, label %717
+  br i1 %.not628, label %.thread, label %717
 
 673:                                              ; preds = %669
   %674 = call i32 @H5Tclose(i64 noundef %632) #20
   %675 = icmp slt i32 %674, 0
-  br i1 %675, label %realloc_and_append.exit.thread, label %676
+  br i1 %675, label %.thread, label %676
 
 676:                                              ; preds = %673
   %677 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -3561,22 +3561,22 @@ indentation.exit695:                              ; preds = %651, %653
   %685 = load i64, ptr @H5T_FORTRAN_S1_g, align 8, !tbaa !15
   %686 = call i64 @H5Tcopy(i64 noundef %685) #20
   %687 = icmp slt i64 %686, 0
-  br i1 %687, label %realloc_and_append.exit.thread, label %688
+  br i1 %687, label %.thread, label %688
 
 688:                                              ; preds = %684
   %689 = call i32 @H5Tset_cset(i64 noundef %686, i32 noundef %570) #20
   %690 = icmp slt i32 %689, 0
-  br i1 %690, label %realloc_and_append.exit.thread, label %691
+  br i1 %690, label %.thread, label %691
 
 691:                                              ; preds = %688
   %692 = call i32 @H5Tset_size(i64 noundef %686, i64 noundef %564) #20
   %693 = icmp slt i32 %692, 0
-  br i1 %693, label %realloc_and_append.exit.thread, label %694
+  br i1 %693, label %.thread, label %694
 
 694:                                              ; preds = %691
   %695 = call i32 @H5Tset_strpad(i64 noundef %686, i32 noundef %567) #20
   %696 = icmp slt i32 %695, 0
-  br i1 %696, label %realloc_and_append.exit.thread, label %697
+  br i1 %696, label %.thread, label %697
 
 697:                                              ; preds = %694
   %698 = call i32 @H5Tequal(i64 noundef %561, i64 noundef %686) #20
@@ -3587,12 +3587,12 @@ indentation.exit695:                              ; preds = %651, %653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %25, ptr noundef nonnull align 1 dereferenceable(23) @.str.52, i64 23, i1 false)
   %700 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %654, ptr noundef nonnull %25)
   %.not627 = icmp eq ptr %700, null
-  br i1 %.not627, label %realloc_and_append.exit.thread, label %717
+  br i1 %.not627, label %.thread, label %717
 
 701:                                              ; preds = %697
   %702 = call i32 @H5Tget_order(i64 noundef %561) #20
   %703 = icmp slt i32 %702, 0
-  br i1 %703, label %realloc_and_append.exit.thread, label %704
+  br i1 %703, label %.thread, label %704
 
 704:                                              ; preds = %701
   switch i32 %702, label %711 [
@@ -3603,12 +3603,12 @@ indentation.exit695:                              ; preds = %651, %653
 705:                                              ; preds = %704
   %706 = call i32 @H5Tset_order(i64 noundef %686, i32 noundef 0) #20
   %707 = icmp slt i32 %706, 0
-  br i1 %707, label %realloc_and_append.exit.thread, label %711
+  br i1 %707, label %.thread, label %711
 
 708:                                              ; preds = %704
   %709 = call i32 @H5Tset_order(i64 noundef %686, i32 noundef 1) #20
   %710 = icmp slt i32 %709, 0
-  br i1 %710, label %realloc_and_append.exit.thread, label %711
+  br i1 %710, label %.thread, label %711
 
 711:                                              ; preds = %704, %708, %705
   %712 = call i32 @H5Tequal(i64 noundef %561, i64 noundef %686) #20
@@ -3619,13 +3619,13 @@ indentation.exit695:                              ; preds = %651, %653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %25, ptr noundef nonnull align 1 dereferenceable(23) @.str.52, i64 23, i1 false)
   %714 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %654, ptr noundef nonnull %25)
   %.not626 = icmp eq ptr %714, null
-  br i1 %.not626, label %realloc_and_append.exit.thread, label %717
+  br i1 %.not626, label %.thread, label %717
 
 715:                                              ; preds = %711
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %25, ptr noundef nonnull align 1 dereferenceable(35) @.str.53, i64 35, i1 false)
   %716 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %654, ptr noundef nonnull %25)
   %.not625 = icmp eq ptr %716, null
-  br i1 %.not625, label %realloc_and_append.exit.thread, label %717
+  br i1 %.not625, label %.thread, label %717
 
 717:                                              ; preds = %715, %713, %699, %671, %657
   %.0438 = phi i64 [ %632, %657 ], [ %632, %671 ], [ %686, %699 ], [ %686, %713 ], [ %686, %715 ]
@@ -3643,27 +3643,30 @@ indentation.exit695:                              ; preds = %651, %653
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %20, i8 32, i64 %720, i1 false)
   %724 = getelementptr inbounds nuw i8, ptr %20, i64 %720
   store i8 0, ptr %724, align 1, !tbaa !7
-  br label %indentation.exit696
+  br label %indentation.exit690
 
 725:                                              ; preds = %717
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %20, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit696
+  br label %indentation.exit690
 
-indentation.exit696:                              ; preds = %723, %725
+indentation.exit690:                              ; preds = %723, %725
   %726 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.2, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.not630 = icmp eq ptr %726, null
-  br i1 %.not630, label %realloc_and_append.exit.thread, label %727
+  br i1 %.not630, label %.thread, label %727
 
-727:                                              ; preds = %indentation.exit696
+727:                                              ; preds = %indentation.exit690
   store i16 125, ptr %25, align 16
   %728 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %726, ptr noundef nonnull %25)
-  %.not631.not = icmp eq ptr %728, null
-  br i1 %.not631.not, label %realloc_and_append.exit.thread, label %1033
+  %.not631 = icmp eq ptr %728, null
+  br i1 %.not631, label %.thread, label %realloc_and_append.exit.thread
+
+.thread:                                          ; preds = %560, %563, %566, %569, %572, %indentation.exit, %591, %indentation.exit687, %606, %indentation.exit688, %620, %630, %635, %638, %641, %644, %indentation.exit689, %657, %659, %663, %666, %671, %673, %684, %688, %691, %694, %699, %701, %705, %708, %713, %715, %indentation.exit690, %727
+  br label %realloc_and_append.exit.thread
 
 729:                                              ; preds = %51
   %730 = load i64, ptr %3, align 8, !tbaa !15
-  %731 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %730, ptr noundef nonnull @.str.55) #20
+  %731 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %730, ptr noundef nonnull @.str.55) #20
   %732 = load i64, ptr @indent, align 8, !tbaa !15
   %733 = add i64 %732, 3
   store i64 %733, ptr @indent, align 8, !tbaa !15
@@ -3676,24 +3679,24 @@ indentation.exit696:                              ; preds = %723, %725
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %19, i8 32, i64 %734, i1 false)
   %737 = getelementptr inbounds nuw i8, ptr %19, i64 %734
   store i8 0, ptr %737, align 1, !tbaa !7
-  br label %indentation.exit697
+  br label %indentation.exit691
 
 738:                                              ; preds = %729
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %19, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit697
+  br label %indentation.exit691
 
-indentation.exit697:                              ; preds = %736, %738
-  %739 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i716, ptr noundef nonnull %19)
+indentation.exit691:                              ; preds = %736, %738
+  %739 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i710, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not606 = icmp eq ptr %739, null
-  br i1 %.not606, label %realloc_and_append.exit.thread, label %740
+  br i1 %.not606, label %.thread715, label %740
 
-740:                                              ; preds = %indentation.exit697
+740:                                              ; preds = %indentation.exit691
   %741 = call i64 @H5Tget_size(i64 noundef %0) #20
   %742 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.56, i64 noundef %741) #20
   %743 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %739, ptr noundef nonnull %25)
   %.not607 = icmp eq ptr %743, null
-  br i1 %.not607, label %realloc_and_append.exit.thread, label %744
+  br i1 %.not607, label %.thread715, label %744
 
 744:                                              ; preds = %740
   %745 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3706,19 +3709,19 @@ indentation.exit697:                              ; preds = %736, %738
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %18, i8 32, i64 %746, i1 false)
   %749 = getelementptr inbounds nuw i8, ptr %18, i64 %746
   store i8 0, ptr %749, align 1, !tbaa !7
-  br label %indentation.exit698
+  br label %indentation.exit692
 
 750:                                              ; preds = %744
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %18, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit698
+  br label %indentation.exit692
 
-indentation.exit698:                              ; preds = %748, %750
+indentation.exit692:                              ; preds = %748, %750
   %751 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %743, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not608 = icmp eq ptr %751, null
-  br i1 %.not608, label %realloc_and_append.exit.thread, label %752
+  br i1 %.not608, label %.thread715, label %752
 
-752:                                              ; preds = %indentation.exit698
+752:                                              ; preds = %indentation.exit692
   %753 = call ptr @H5Tget_tag(i64 noundef %0) #20
   %.not609 = icmp eq ptr %753, null
   br i1 %.not609, label %757, label %754
@@ -3735,7 +3738,7 @@ indentation.exit698:                              ; preds = %748, %750
 758:                                              ; preds = %757, %754
   %759 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %751, ptr noundef nonnull %25)
   %.not610 = icmp eq ptr %759, null
-  br i1 %.not610, label %realloc_and_append.exit.thread, label %760
+  br i1 %.not610, label %.thread715, label %760
 
 760:                                              ; preds = %758
   %761 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3749,28 +3752,31 @@ indentation.exit698:                              ; preds = %748, %750
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %17, i8 32, i64 %761, i1 false)
   %765 = getelementptr inbounds nuw i8, ptr %17, i64 %761
   store i8 0, ptr %765, align 1, !tbaa !7
-  br label %indentation.exit699
+  br label %indentation.exit693
 
 766:                                              ; preds = %760
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %17, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit699
+  br label %indentation.exit693
 
-indentation.exit699:                              ; preds = %764, %766
+indentation.exit693:                              ; preds = %764, %766
   %767 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %759, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not611 = icmp eq ptr %767, null
-  br i1 %.not611, label %realloc_and_append.exit.thread, label %768
+  br i1 %.not611, label %.thread715, label %768
 
-768:                                              ; preds = %indentation.exit699
+768:                                              ; preds = %indentation.exit693
   store i16 125, ptr %25, align 16
   %769 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %767, ptr noundef nonnull %25)
-  %.not612.not = icmp eq ptr %769, null
-  br i1 %.not612.not, label %realloc_and_append.exit.thread, label %1033
+  %.not612 = icmp eq ptr %769, null
+  br i1 %.not612, label %.thread715, label %realloc_and_append.exit.thread
+
+.thread715:                                       ; preds = %indentation.exit691, %740, %indentation.exit692, %758, %indentation.exit693, %768
+  br label %realloc_and_append.exit.thread
 
 770:                                              ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %771 = load i64, ptr %3, align 8, !tbaa !15
-  %772 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %771, ptr noundef nonnull @.str.59) #20
+  %772 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %771, ptr noundef nonnull @.str.59) #20
   %773 = load i64, ptr @indent, align 8, !tbaa !15
   %774 = add i64 %773, 3
   store i64 %774, ptr @indent, align 8, !tbaa !15
@@ -3783,39 +3789,39 @@ indentation.exit699:                              ; preds = %764, %766
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %16, i8 32, i64 %775, i1 false)
   %778 = getelementptr inbounds nuw i8, ptr %16, i64 %775
   store i8 0, ptr %778, align 1, !tbaa !7
-  br label %indentation.exit700
+  br label %indentation.exit694
 
 779:                                              ; preds = %770
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %16, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit700
+  br label %indentation.exit694
 
-indentation.exit700:                              ; preds = %777, %779
-  %780 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i716, ptr noundef nonnull %16)
+indentation.exit694:                              ; preds = %777, %779
+  %780 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i710, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not599 = icmp eq ptr %780, null
-  br i1 %.not599, label %.thread728, label %781
+  br i1 %.not599, label %.thread720, label %781
 
-781:                                              ; preds = %indentation.exit700
+781:                                              ; preds = %indentation.exit694
   %782 = call i64 @H5Tget_super(i64 noundef %0) #20
   %783 = icmp slt i64 %782, 0
-  br i1 %783, label %.thread728, label %784
+  br i1 %783, label %.thread720, label %784
 
 784:                                              ; preds = %781
   %785 = call i32 @H5LTdtype_to_text(i64 noundef %782, ptr noundef null, i32 noundef 0, ptr noundef nonnull %26)
   %786 = icmp slt i32 %785, 0
-  br i1 %786, label %.thread728, label %787
+  br i1 %786, label %.thread720, label %787
 
 787:                                              ; preds = %784
   %788 = load i64, ptr %26, align 8, !tbaa !15
   %789 = call noalias ptr @calloc(i64 noundef %788, i64 noundef 1) #25
   %790 = call i32 @H5LTdtype_to_text(i64 noundef %782, ptr noundef %789, i32 noundef 0, ptr noundef nonnull %26)
   %791 = icmp slt i32 %790, 0
-  br i1 %791, label %.thread728.sink.split, label %792
+  br i1 %791, label %.thread720.sink.split, label %792
 
 792:                                              ; preds = %787
   %793 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %780, ptr noundef %789)
   %.not600 = icmp eq ptr %793, null
-  br i1 %.not600, label %.thread728.sink.split, label %794
+  br i1 %.not600, label %.thread720.sink.split, label %794
 
 794:                                              ; preds = %792
   %.not601 = icmp eq ptr %789, null
@@ -3829,14 +3835,14 @@ indentation.exit700:                              ; preds = %777, %779
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %25, ptr noundef nonnull align 1 dereferenceable(3) @.str.60, i64 3, i1 false)
   %797 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %793, ptr noundef nonnull %25)
   %.not602 = icmp eq ptr %797, null
-  br i1 %.not602, label %.thread728, label %798
+  br i1 %.not602, label %.thread720, label %798
 
 798:                                              ; preds = %796
   %799 = call i32 @H5Tclose(i64 noundef %782) #20
   %800 = load i64, ptr @indent, align 8, !tbaa !15
   %801 = call fastcc ptr @print_enum(i64 noundef %0, ptr noundef %797, ptr noundef nonnull %3, i1 noundef zeroext %4, i64 noundef %800)
   %.not603 = icmp eq ptr %801, null
-  br i1 %.not603, label %.thread728, label %802
+  br i1 %.not603, label %.thread720, label %802
 
 802:                                              ; preds = %798
   %803 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3850,610 +3856,622 @@ indentation.exit700:                              ; preds = %777, %779
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %15, i8 32, i64 %803, i1 false)
   %807 = getelementptr inbounds nuw i8, ptr %15, i64 %803
   store i8 0, ptr %807, align 1, !tbaa !7
-  br label %indentation.exit701
+  br label %indentation.exit695
 
 808:                                              ; preds = %802
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %15, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit701
+  br label %indentation.exit695
 
-indentation.exit701:                              ; preds = %806, %808
+indentation.exit695:                              ; preds = %806, %808
   %809 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %801, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not604 = icmp eq ptr %809, null
-  br i1 %.not604, label %.thread728, label %810
+  br i1 %.not604, label %.thread720, label %810
 
-.thread728.sink.split:                            ; preds = %792, %787
-  call void @free(ptr noundef %789) #20
-  br label %.thread728
-
-.thread728:                                       ; preds = %.thread728.sink.split, %indentation.exit700, %781, %784, %796, %798, %indentation.exit701
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %realloc_and_append.exit.thread
-
-810:                                              ; preds = %indentation.exit701
+810:                                              ; preds = %indentation.exit695
   store i16 125, ptr %25, align 16
   %811 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %809, ptr noundef nonnull %25)
-  %.not605.not = icmp eq ptr %811, null
+  %.not605 = icmp eq ptr %811, null
+  br i1 %.not605, label %.thread720, label %812
+
+.thread720.sink.split:                            ; preds = %792, %787
+  call void @free(ptr noundef %789) #20
+  br label %.thread720
+
+.thread720:                                       ; preds = %.thread720.sink.split, %indentation.exit694, %781, %784, %796, %798, %indentation.exit695, %810
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %.not605.not, label %realloc_and_append.exit.thread, label %1033
+  br label %realloc_and_append.exit.thread
 
-812:                                              ; preds = %51
+812:                                              ; preds = %810
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  br label %realloc_and_append.exit.thread
+
+813:                                              ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %813 = load i64, ptr %3, align 8, !tbaa !15
-  %814 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %813, ptr noundef nonnull @.str.61) #20
-  %815 = load i64, ptr @indent, align 8, !tbaa !15
-  %816 = add i64 %815, 3
-  store i64 %816, ptr @indent, align 8, !tbaa !15
-  %817 = add i64 %815, 6
+  %814 = load i64, ptr %3, align 8, !tbaa !15
+  %815 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %814, ptr noundef nonnull @.str.61) #20
+  %816 = load i64, ptr @indent, align 8, !tbaa !15
+  %817 = add i64 %816, 3
+  store i64 %817, ptr @indent, align 8, !tbaa !15
+  %818 = add i64 %816, 6
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %818 = icmp ult i64 %817, 80
-  br i1 %818, label %819, label %821
+  %819 = icmp ult i64 %818, 80
+  br i1 %819, label %820, label %822
 
-819:                                              ; preds = %812
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %14, i8 32, i64 %817, i1 false)
-  %820 = getelementptr inbounds nuw i8, ptr %14, i64 %817
-  store i8 0, ptr %820, align 1, !tbaa !7
-  br label %indentation.exit702
+820:                                              ; preds = %813
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %14, i8 32, i64 %818, i1 false)
+  %821 = getelementptr inbounds nuw i8, ptr %14, i64 %818
+  store i8 0, ptr %821, align 1, !tbaa !7
+  br label %indentation.exit696
 
-821:                                              ; preds = %812
+822:                                              ; preds = %813
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %14, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit702
+  br label %indentation.exit696
 
-indentation.exit702:                              ; preds = %819, %821
-  %822 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i716, ptr noundef nonnull %14)
+indentation.exit696:                              ; preds = %820, %822
+  %823 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i710, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.not593 = icmp eq ptr %822, null
-  br i1 %.not593, label %.thread734, label %823
+  %.not593 = icmp eq ptr %823, null
+  br i1 %.not593, label %.thread725, label %824
 
-823:                                              ; preds = %indentation.exit702
-  %824 = call i64 @H5Tget_super(i64 noundef %0) #20
-  %825 = icmp slt i64 %824, 0
-  br i1 %825, label %.thread734, label %826
+824:                                              ; preds = %indentation.exit696
+  %825 = call i64 @H5Tget_super(i64 noundef %0) #20
+  %826 = icmp slt i64 %825, 0
+  br i1 %826, label %.thread725, label %827
 
-826:                                              ; preds = %823
-  %827 = call i32 @H5LTdtype_to_text(i64 noundef %824, ptr noundef null, i32 noundef 0, ptr noundef nonnull %27)
-  %828 = icmp slt i32 %827, 0
-  br i1 %828, label %.thread734, label %829
+827:                                              ; preds = %824
+  %828 = call i32 @H5LTdtype_to_text(i64 noundef %825, ptr noundef null, i32 noundef 0, ptr noundef nonnull %27)
+  %829 = icmp slt i32 %828, 0
+  br i1 %829, label %.thread725, label %830
 
-829:                                              ; preds = %826
-  %830 = load i64, ptr %27, align 8, !tbaa !15
-  %831 = call noalias ptr @calloc(i64 noundef %830, i64 noundef 1) #25
-  %832 = call i32 @H5LTdtype_to_text(i64 noundef %824, ptr noundef %831, i32 noundef 0, ptr noundef nonnull %27)
-  %833 = icmp slt i32 %832, 0
-  br i1 %833, label %.thread734.sink.split, label %834
+830:                                              ; preds = %827
+  %831 = load i64, ptr %27, align 8, !tbaa !15
+  %832 = call noalias ptr @calloc(i64 noundef %831, i64 noundef 1) #25
+  %833 = call i32 @H5LTdtype_to_text(i64 noundef %825, ptr noundef %832, i32 noundef 0, ptr noundef nonnull %27)
+  %834 = icmp slt i32 %833, 0
+  br i1 %834, label %.thread725.sink.split, label %835
 
-834:                                              ; preds = %829
-  %835 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %822, ptr noundef %831)
-  %.not594 = icmp eq ptr %835, null
-  br i1 %.not594, label %.thread734.sink.split, label %836
+835:                                              ; preds = %830
+  %836 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %823, ptr noundef %832)
+  %.not594 = icmp eq ptr %836, null
+  br i1 %.not594, label %.thread725.sink.split, label %837
 
-836:                                              ; preds = %834
-  %.not595 = icmp eq ptr %831, null
-  br i1 %.not595, label %838, label %837
+837:                                              ; preds = %835
+  %.not595 = icmp eq ptr %832, null
+  br i1 %.not595, label %839, label %838
 
-837:                                              ; preds = %836
-  call void @free(ptr noundef nonnull %831) #20
-  br label %838
+838:                                              ; preds = %837
+  call void @free(ptr noundef nonnull %832) #20
+  br label %839
 
-838:                                              ; preds = %837, %836
+839:                                              ; preds = %838, %837
   store i16 10, ptr %25, align 16
-  %839 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %835, ptr noundef nonnull %25)
-  %.not596 = icmp eq ptr %839, null
-  br i1 %.not596, label %.thread734, label %840
+  %840 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %836, ptr noundef nonnull %25)
+  %.not596 = icmp eq ptr %840, null
+  br i1 %.not596, label %.thread725, label %841
 
-840:                                              ; preds = %838
-  %841 = call i32 @H5Tclose(i64 noundef %824) #20
-  %842 = load i64, ptr @indent, align 8, !tbaa !15
-  %843 = add i64 %842, -3
-  store i64 %843, ptr @indent, align 8, !tbaa !15
+841:                                              ; preds = %839
+  %842 = call i32 @H5Tclose(i64 noundef %825) #20
+  %843 = load i64, ptr @indent, align 8, !tbaa !15
+  %844 = add i64 %843, -3
+  store i64 %844, ptr @indent, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %844 = icmp ult i64 %842, 80
-  br i1 %844, label %845, label %847
+  %845 = icmp ult i64 %843, 80
+  br i1 %845, label %846, label %848
 
-845:                                              ; preds = %840
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %13, i8 32, i64 %842, i1 false)
-  %846 = getelementptr inbounds nuw i8, ptr %13, i64 %842
-  store i8 0, ptr %846, align 1, !tbaa !7
-  br label %indentation.exit703
+846:                                              ; preds = %841
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %13, i8 32, i64 %843, i1 false)
+  %847 = getelementptr inbounds nuw i8, ptr %13, i64 %843
+  store i8 0, ptr %847, align 1, !tbaa !7
+  br label %indentation.exit697
 
-847:                                              ; preds = %840
+848:                                              ; preds = %841
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %13, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit703
+  br label %indentation.exit697
 
-indentation.exit703:                              ; preds = %845, %847
-  %848 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %839, ptr noundef nonnull %13)
+indentation.exit697:                              ; preds = %846, %848
+  %849 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %840, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not597 = icmp eq ptr %848, null
-  br i1 %.not597, label %.thread734, label %849
+  %.not597 = icmp eq ptr %849, null
+  br i1 %.not597, label %.thread725, label %850
 
-.thread734.sink.split:                            ; preds = %834, %829
-  call void @free(ptr noundef %831) #20
-  br label %.thread734
+850:                                              ; preds = %indentation.exit697
+  store i16 125, ptr %25, align 16
+  %851 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %849, ptr noundef nonnull %25)
+  %.not598 = icmp eq ptr %851, null
+  br i1 %.not598, label %.thread725, label %852
 
-.thread734:                                       ; preds = %.thread734.sink.split, %indentation.exit702, %823, %826, %838, %indentation.exit703
+.thread725.sink.split:                            ; preds = %835, %830
+  call void @free(ptr noundef %832) #20
+  br label %.thread725
+
+.thread725:                                       ; preds = %.thread725.sink.split, %indentation.exit696, %824, %827, %839, %indentation.exit697, %850
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %realloc_and_append.exit.thread
 
-849:                                              ; preds = %indentation.exit703
-  store i16 125, ptr %25, align 16
-  %850 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %848, ptr noundef nonnull %25)
-  %.not598.not = icmp eq ptr %850, null
+852:                                              ; preds = %850
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br i1 %.not598.not, label %realloc_and_append.exit.thread, label %1033
+  br label %realloc_and_append.exit.thread
 
-851:                                              ; preds = %51
+853:                                              ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %852 = load i64, ptr %3, align 8, !tbaa !15
-  %853 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %852, ptr noundef nonnull @.str.63) #20
-  %854 = load i64, ptr @indent, align 8, !tbaa !15
-  %855 = add i64 %854, 3
-  store i64 %855, ptr @indent, align 8, !tbaa !15
-  %856 = add i64 %854, 6
+  %854 = load i64, ptr %3, align 8, !tbaa !15
+  %855 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %854, ptr noundef nonnull @.str.63) #20
+  %856 = load i64, ptr @indent, align 8, !tbaa !15
+  %857 = add i64 %856, 3
+  store i64 %857, ptr @indent, align 8, !tbaa !15
+  %858 = add i64 %856, 6
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %857 = icmp ult i64 %856, 80
-  br i1 %857, label %858, label %860
+  %859 = icmp ult i64 %858, 80
+  br i1 %859, label %860, label %862
 
-858:                                              ; preds = %851
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %12, i8 32, i64 %856, i1 false)
-  %859 = getelementptr inbounds nuw i8, ptr %12, i64 %856
-  store i8 0, ptr %859, align 1, !tbaa !7
-  br label %indentation.exit704
+860:                                              ; preds = %853
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %12, i8 32, i64 %858, i1 false)
+  %861 = getelementptr inbounds nuw i8, ptr %12, i64 %858
+  store i8 0, ptr %861, align 1, !tbaa !7
+  br label %indentation.exit698
 
-860:                                              ; preds = %851
+862:                                              ; preds = %853
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %12, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit704
+  br label %indentation.exit698
 
-indentation.exit704:                              ; preds = %858, %860
-  %861 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i716, ptr noundef nonnull %12)
+indentation.exit698:                              ; preds = %860, %862
+  %863 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i710, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not585 = icmp eq ptr %861, null
-  br i1 %.not585, label %.thread740, label %862
+  %.not585 = icmp eq ptr %863, null
+  br i1 %.not585, label %.thread730, label %864
 
-862:                                              ; preds = %indentation.exit704
-  %863 = call i32 @H5Tget_array_ndims(i64 noundef %0) #20
-  %864 = icmp slt i32 %863, 0
-  br i1 %864, label %.thread740, label %865
+864:                                              ; preds = %indentation.exit698
+  %865 = call i32 @H5Tget_array_ndims(i64 noundef %0) #20
+  %866 = icmp slt i32 %865, 0
+  br i1 %866, label %.thread730, label %867
 
-865:                                              ; preds = %862
-  %866 = call i32 @H5Tget_array_dims2(i64 noundef %0, ptr noundef nonnull %29) #20
-  %867 = icmp slt i32 %866, 0
-  br i1 %867, label %.thread740, label %.preheader
+867:                                              ; preds = %864
+  %868 = call i32 @H5Tget_array_dims2(i64 noundef %0, ptr noundef nonnull %29) #20
+  %869 = icmp slt i32 %868, 0
+  br i1 %869, label %.thread730, label %.preheader
 
-.preheader:                                       ; preds = %865
-  %.not779 = icmp eq i32 %863, 0
-  br i1 %.not779, label %._crit_edge776, label %.lr.ph775.preheader
+.preheader:                                       ; preds = %867
+  %.not758 = icmp eq i32 %865, 0
+  br i1 %.not758, label %._crit_edge755, label %.lr.ph754.preheader
 
-.lr.ph775.preheader:                              ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %863 to i64
-  br label %.lr.ph775
+.lr.ph754.preheader:                              ; preds = %.preheader
+  %wide.trip.count = zext nneg i32 %865 to i64
+  br label %.lr.ph754
 
-868:                                              ; preds = %.lr.ph775
+870:                                              ; preds = %.lr.ph754
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond785.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond785.not, label %._crit_edge776, label %.lr.ph775, !llvm.loop !34
+  %exitcond764.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond764.not, label %._crit_edge755, label %.lr.ph754, !llvm.loop !34
 
-.lr.ph775:                                        ; preds = %.lr.ph775.preheader, %868
-  %indvars.iv = phi i64 [ 0, %.lr.ph775.preheader ], [ %indvars.iv.next, %868 ]
-  %.7774 = phi ptr [ %861, %.lr.ph775.preheader ], [ %873, %868 ]
-  %869 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
-  %870 = load i64, ptr %869, align 8, !tbaa !15
-  %871 = trunc i64 %870 to i32
-  %872 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.64, i32 noundef %871) #20
-  %873 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.7774, ptr noundef nonnull %25)
-  %.not592 = icmp eq ptr %873, null
-  br i1 %.not592, label %.thread740, label %868
+.lr.ph754:                                        ; preds = %.lr.ph754.preheader, %870
+  %indvars.iv = phi i64 [ 0, %.lr.ph754.preheader ], [ %indvars.iv.next, %870 ]
+  %.7753 = phi ptr [ %863, %.lr.ph754.preheader ], [ %875, %870 ]
+  %871 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %872 = load i64, ptr %871, align 8, !tbaa !15
+  %873 = trunc i64 %872 to i32
+  %874 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.64, i32 noundef %873) #20
+  %875 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.7753, ptr noundef nonnull %25)
+  %.not592 = icmp eq ptr %875, null
+  br i1 %.not592, label %.thread730, label %870
 
-._crit_edge776:                                   ; preds = %868, %.preheader
-  %.7.lcssa = phi ptr [ %861, %.preheader ], [ %873, %868 ]
+._crit_edge755:                                   ; preds = %870, %.preheader
+  %.7.lcssa = phi ptr [ %863, %.preheader ], [ %875, %870 ]
   store i16 32, ptr %25, align 16
-  %874 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.7.lcssa, ptr noundef nonnull %25)
-  %.not586 = icmp eq ptr %874, null
-  br i1 %.not586, label %.thread740, label %875
+  %876 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.7.lcssa, ptr noundef nonnull %25)
+  %.not586 = icmp eq ptr %876, null
+  br i1 %.not586, label %.thread730, label %877
 
-875:                                              ; preds = %._crit_edge776
-  %876 = call i64 @H5Tget_super(i64 noundef %0) #20
-  %877 = icmp slt i64 %876, 0
-  br i1 %877, label %.thread740, label %878
+877:                                              ; preds = %._crit_edge755
+  %878 = call i64 @H5Tget_super(i64 noundef %0) #20
+  %879 = icmp slt i64 %878, 0
+  br i1 %879, label %.thread730, label %880
 
-878:                                              ; preds = %875
-  %879 = call i32 @H5LTdtype_to_text(i64 noundef %876, ptr noundef null, i32 noundef 0, ptr noundef nonnull %28)
-  %880 = icmp slt i32 %879, 0
-  br i1 %880, label %.thread740, label %881
+880:                                              ; preds = %877
+  %881 = call i32 @H5LTdtype_to_text(i64 noundef %878, ptr noundef null, i32 noundef 0, ptr noundef nonnull %28)
+  %882 = icmp slt i32 %881, 0
+  br i1 %882, label %.thread730, label %883
 
-881:                                              ; preds = %878
-  %882 = load i64, ptr %28, align 8, !tbaa !15
-  %883 = call noalias ptr @calloc(i64 noundef %882, i64 noundef 1) #25
-  %884 = call i32 @H5LTdtype_to_text(i64 noundef %876, ptr noundef %883, i32 noundef 0, ptr noundef nonnull %28)
-  %885 = icmp slt i32 %884, 0
-  br i1 %885, label %.thread740.sink.split, label %886
+883:                                              ; preds = %880
+  %884 = load i64, ptr %28, align 8, !tbaa !15
+  %885 = call noalias ptr @calloc(i64 noundef %884, i64 noundef 1) #25
+  %886 = call i32 @H5LTdtype_to_text(i64 noundef %878, ptr noundef %885, i32 noundef 0, ptr noundef nonnull %28)
+  %887 = icmp slt i32 %886, 0
+  br i1 %887, label %.thread730.sink.split, label %888
 
-886:                                              ; preds = %881
-  %887 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %874, ptr noundef %883)
-  %.not587 = icmp eq ptr %887, null
-  br i1 %.not587, label %.thread740.sink.split, label %888
+888:                                              ; preds = %883
+  %889 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %876, ptr noundef %885)
+  %.not587 = icmp eq ptr %889, null
+  br i1 %.not587, label %.thread730.sink.split, label %890
 
-888:                                              ; preds = %886
-  %.not588 = icmp eq ptr %883, null
-  br i1 %.not588, label %890, label %889
+890:                                              ; preds = %888
+  %.not588 = icmp eq ptr %885, null
+  br i1 %.not588, label %892, label %891
 
-889:                                              ; preds = %888
-  call void @free(ptr noundef nonnull %883) #20
-  br label %890
+891:                                              ; preds = %890
+  call void @free(ptr noundef nonnull %885) #20
+  br label %892
 
-890:                                              ; preds = %889, %888
+892:                                              ; preds = %891, %890
   store i16 10, ptr %25, align 16
-  %891 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %887, ptr noundef nonnull %25)
-  %.not589 = icmp eq ptr %891, null
-  br i1 %.not589, label %.thread740, label %892
+  %893 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %889, ptr noundef nonnull %25)
+  %.not589 = icmp eq ptr %893, null
+  br i1 %.not589, label %.thread730, label %894
 
-892:                                              ; preds = %890
-  %893 = call i32 @H5Tclose(i64 noundef %876) #20
-  %894 = load i64, ptr @indent, align 8, !tbaa !15
-  %895 = add i64 %894, -3
-  store i64 %895, ptr @indent, align 8, !tbaa !15
+894:                                              ; preds = %892
+  %895 = call i32 @H5Tclose(i64 noundef %878) #20
+  %896 = load i64, ptr @indent, align 8, !tbaa !15
+  %897 = add i64 %896, -3
+  store i64 %897, ptr @indent, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %896 = icmp ult i64 %894, 80
-  br i1 %896, label %897, label %899
+  %898 = icmp ult i64 %896, 80
+  br i1 %898, label %899, label %901
 
-897:                                              ; preds = %892
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %11, i8 32, i64 %894, i1 false)
-  %898 = getelementptr inbounds nuw i8, ptr %11, i64 %894
-  store i8 0, ptr %898, align 1, !tbaa !7
-  br label %indentation.exit705
+899:                                              ; preds = %894
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %11, i8 32, i64 %896, i1 false)
+  %900 = getelementptr inbounds nuw i8, ptr %11, i64 %896
+  store i8 0, ptr %900, align 1, !tbaa !7
+  br label %indentation.exit699
 
-899:                                              ; preds = %892
+901:                                              ; preds = %894
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %11, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit705
+  br label %indentation.exit699
 
-indentation.exit705:                              ; preds = %897, %899
-  %900 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %891, ptr noundef nonnull %11)
+indentation.exit699:                              ; preds = %899, %901
+  %902 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %893, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not590 = icmp eq ptr %900, null
-  br i1 %.not590, label %.thread740, label %901
+  %.not590 = icmp eq ptr %902, null
+  br i1 %.not590, label %.thread730, label %903
 
-.thread740.sink.split:                            ; preds = %886, %881
-  call void @free(ptr noundef %883) #20
-  br label %.thread740
+903:                                              ; preds = %indentation.exit699
+  store i16 125, ptr %25, align 16
+  %904 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %902, ptr noundef nonnull %25)
+  %.not591 = icmp eq ptr %904, null
+  br i1 %.not591, label %.thread730, label %905
 
-.thread740:                                       ; preds = %.lr.ph775, %.thread740.sink.split, %indentation.exit704, %862, %865, %._crit_edge776, %875, %878, %890, %indentation.exit705
+.thread730.sink.split:                            ; preds = %888, %883
+  call void @free(ptr noundef %885) #20
+  br label %.thread730
+
+.thread730:                                       ; preds = %.lr.ph754, %.thread730.sink.split, %indentation.exit698, %864, %867, %._crit_edge755, %877, %880, %892, %indentation.exit699, %903
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %realloc_and_append.exit.thread
 
-901:                                              ; preds = %indentation.exit705
-  store i16 125, ptr %25, align 16
-  %902 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %900, ptr noundef nonnull %25)
-  %.not591.not = icmp eq ptr %902, null
+905:                                              ; preds = %903
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %.not591.not, label %realloc_and_append.exit.thread, label %1033
+  br label %realloc_and_append.exit.thread
 
-903:                                              ; preds = %51
+906:                                              ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %904 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #20
-  %905 = icmp slt i32 %904, 0
-  br i1 %905, label %.thread747, label %906
+  %907 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #20
+  %908 = icmp slt i32 %907, 0
+  br i1 %908, label %.thread736, label %909
 
-906:                                              ; preds = %903
-  %907 = load i64, ptr %3, align 8, !tbaa !15
-  %908 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %907, ptr noundef nonnull @.str.66) #20
-  %909 = load i64, ptr @indent, align 8, !tbaa !15
-  %910 = add i64 %909, 3
-  store i64 %910, ptr @indent, align 8, !tbaa !15
-  %.not778 = icmp eq i32 %904, 0
-  br i1 %.not778, label %._crit_edge, label %.lr.ph
+909:                                              ; preds = %906
+  %910 = load i64, ptr %3, align 8, !tbaa !15
+  %911 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %910, ptr noundef nonnull @.str.66) #20
+  %912 = load i64, ptr @indent, align 8, !tbaa !15
+  %913 = add i64 %912, 3
+  store i64 %913, ptr @indent, align 8, !tbaa !15
+  %.not757 = icmp eq i32 %907, 0
+  br i1 %.not757, label %._crit_edge, label %.lr.ph
 
-911:                                              ; preds = %958
-  %912 = add nuw nsw i32 %.1437771, 1
-  %exitcond.not = icmp eq i32 %912, %904
+914:                                              ; preds = %961
+  %915 = add nuw nsw i32 %.1437750, 1
+  %exitcond.not = icmp eq i32 %915, %907
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
 
-.lr.ph:                                           ; preds = %906, %911
-  %.9772 = phi ptr [ %961, %911 ], [ %.036.i716, %906 ]
-  %.1437771 = phi i32 [ %912, %911 ], [ 0, %906 ]
-  %913 = call ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %.1437771) #20
-  %914 = icmp eq ptr %913, null
-  br i1 %914, label %.thread747, label %915
+.lr.ph:                                           ; preds = %909, %914
+  %.9751 = phi ptr [ %964, %914 ], [ %.036.i710, %909 ]
+  %.1437750 = phi i32 [ %915, %914 ], [ 0, %909 ]
+  %916 = call ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %.1437750) #20
+  %917 = icmp eq ptr %916, null
+  br i1 %917, label %.thread736, label %918
 
-915:                                              ; preds = %.lr.ph
-  %916 = call i64 @H5Tget_member_type(i64 noundef %0, i32 noundef %.1437771) #20
-  %917 = icmp slt i64 %916, 0
-  br i1 %917, label %.thread747, label %918
+918:                                              ; preds = %.lr.ph
+  %919 = call i64 @H5Tget_member_type(i64 noundef %0, i32 noundef %.1437750) #20
+  %920 = icmp slt i64 %919, 0
+  br i1 %920, label %.thread736, label %921
 
-918:                                              ; preds = %915
-  %919 = call i64 @H5Tget_member_offset(i64 noundef %0, i32 noundef %.1437771) #20
-  %920 = load i64, ptr @indent, align 8, !tbaa !15
-  %921 = add i64 %920, 3
+921:                                              ; preds = %918
+  %922 = call i64 @H5Tget_member_offset(i64 noundef %0, i32 noundef %.1437750) #20
+  %923 = load i64, ptr @indent, align 8, !tbaa !15
+  %924 = add i64 %923, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %922 = icmp ult i64 %921, 80
-  br i1 %922, label %923, label %925
+  %925 = icmp ult i64 %924, 80
+  br i1 %925, label %926, label %928
 
-923:                                              ; preds = %918
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 32, i64 %921, i1 false)
-  %924 = getelementptr inbounds nuw i8, ptr %10, i64 %921
-  store i8 0, ptr %924, align 1, !tbaa !7
-  br label %indentation.exit706
+926:                                              ; preds = %921
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 32, i64 %924, i1 false)
+  %927 = getelementptr inbounds nuw i8, ptr %10, i64 %924
+  store i8 0, ptr %927, align 1, !tbaa !7
+  br label %indentation.exit700
 
-925:                                              ; preds = %918
+928:                                              ; preds = %921
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %10, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit706
+  br label %indentation.exit700
 
-indentation.exit706:                              ; preds = %923, %925
-  %926 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.9772, ptr noundef nonnull %10)
+indentation.exit700:                              ; preds = %926, %928
+  %929 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.9751, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.not580 = icmp eq ptr %926, null
-  br i1 %.not580, label %.thread747, label %927
+  %.not580 = icmp eq ptr %929, null
+  br i1 %.not580, label %.thread736, label %930
 
-927:                                              ; preds = %indentation.exit706
-  %928 = call i32 @H5Tget_class(i64 noundef %916) #20
-  %929 = icmp slt i32 %928, 0
-  br i1 %929, label %.thread747, label %930
+930:                                              ; preds = %indentation.exit700
+  %931 = call i32 @H5Tget_class(i64 noundef %919) #20
+  %932 = icmp slt i32 %931, 0
+  br i1 %932, label %.thread736, label %933
 
-930:                                              ; preds = %927
-  %931 = icmp eq i32 %928, 6
-  br i1 %931, label %932, label %935
+933:                                              ; preds = %930
+  %934 = icmp eq i32 %931, 6
+  br i1 %934, label %935, label %938
 
-932:                                              ; preds = %930
-  %933 = load i64, ptr @indent, align 8, !tbaa !15
-  %934 = add i64 %933, 3
-  store i64 %934, ptr @indent, align 8, !tbaa !15
-  br label %935
+935:                                              ; preds = %933
+  %936 = load i64, ptr @indent, align 8, !tbaa !15
+  %937 = add i64 %936, 3
+  store i64 %937, ptr @indent, align 8, !tbaa !15
+  br label %938
 
-935:                                              ; preds = %932, %930
+938:                                              ; preds = %935, %933
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 1024, ptr %9, align 8, !tbaa !15
-  %936 = call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 1024, i64 noundef 1) #25
-  store i8 0, ptr %936, align 1, !tbaa !7
-  %937 = call ptr @H5LT_dtype_to_text(i64 noundef %916, ptr noundef nonnull %936, i32 noundef 0, ptr noundef nonnull %9, i1 noundef zeroext true)
-  %.not.i707 = icmp eq ptr %937, null
-  br i1 %.not.i707, label %H5LTdtype_to_text.exit.thread, label %938
+  %939 = call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 1024, i64 noundef 1) #25
+  store i8 0, ptr %939, align 1, !tbaa !7
+  %940 = call ptr @H5LT_dtype_to_text(i64 noundef %919, ptr noundef nonnull %939, i32 noundef 0, ptr noundef nonnull %9, i1 noundef zeroext true)
+  %.not.i701 = icmp eq ptr %940, null
+  br i1 %.not.i701, label %H5LTdtype_to_text.exit.thread, label %941
 
-H5LTdtype_to_text.exit.thread:                    ; preds = %935
+H5LTdtype_to_text.exit.thread:                    ; preds = %938
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread747
+  br label %.thread736
 
-938:                                              ; preds = %935
-  %939 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %937) #21
-  %940 = add i64 %939, 1
-  store i64 %940, ptr %30, align 8, !tbaa !15
-  call void @free(ptr noundef nonnull %937) #20
+941:                                              ; preds = %938
+  %942 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %940) #21
+  %943 = add i64 %942, 1
+  store i64 %943, ptr %30, align 8, !tbaa !15
+  call void @free(ptr noundef nonnull %940) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %941 = load i64, ptr %30, align 8, !tbaa !15
-  %942 = call noalias ptr @calloc(i64 noundef %941, i64 noundef 1) #25
-  %943 = call i32 @H5LTdtype_to_text(i64 noundef %916, ptr noundef %942, i32 noundef 0, ptr noundef nonnull %30)
-  %944 = icmp slt i32 %943, 0
-  br i1 %944, label %945, label %946
+  %944 = load i64, ptr %30, align 8, !tbaa !15
+  %945 = call noalias ptr @calloc(i64 noundef %944, i64 noundef 1) #25
+  %946 = call i32 @H5LTdtype_to_text(i64 noundef %919, ptr noundef %945, i32 noundef 0, ptr noundef nonnull %30)
+  %947 = icmp slt i32 %946, 0
+  br i1 %947, label %948, label %949
 
-945:                                              ; preds = %938
-  call void @free(ptr noundef %942) #20
-  br label %.thread747
+948:                                              ; preds = %941
+  call void @free(ptr noundef %945) #20
+  br label %.thread736
 
-946:                                              ; preds = %938
-  %947 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %926, ptr noundef %942)
-  %.not581 = icmp eq ptr %947, null
-  br i1 %.not581, label %948, label %949
+949:                                              ; preds = %941
+  %950 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %929, ptr noundef %945)
+  %.not581 = icmp eq ptr %950, null
+  br i1 %.not581, label %951, label %952
 
-948:                                              ; preds = %946
-  call void @free(ptr noundef %942) #20
-  br label %.thread747
+951:                                              ; preds = %949
+  call void @free(ptr noundef %945) #20
+  br label %.thread736
 
-949:                                              ; preds = %946
-  %.not582 = icmp eq ptr %942, null
-  br i1 %.not582, label %951, label %950
+952:                                              ; preds = %949
+  %.not582 = icmp eq ptr %945, null
+  br i1 %.not582, label %954, label %953
 
-950:                                              ; preds = %949
-  call void @free(ptr noundef nonnull %942) #20
-  br label %951
+953:                                              ; preds = %952
+  call void @free(ptr noundef nonnull %945) #20
+  br label %954
 
-951:                                              ; preds = %950, %949
-  br i1 %931, label %952, label %955
+954:                                              ; preds = %953, %952
+  br i1 %934, label %955, label %958
 
-952:                                              ; preds = %951
-  %953 = load i64, ptr @indent, align 8, !tbaa !15
-  %954 = add i64 %953, -3
-  store i64 %954, ptr @indent, align 8, !tbaa !15
-  br label %955
+955:                                              ; preds = %954
+  %956 = load i64, ptr @indent, align 8, !tbaa !15
+  %957 = add i64 %956, -3
+  store i64 %957, ptr @indent, align 8, !tbaa !15
+  br label %958
 
-955:                                              ; preds = %952, %951
-  %956 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.67, ptr noundef nonnull %913) #20
-  %957 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %947, ptr noundef nonnull %25)
-  %.not583 = icmp eq ptr %957, null
-  br i1 %.not583, label %.thread747, label %958
+958:                                              ; preds = %955, %954
+  %959 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.67, ptr noundef nonnull %916) #20
+  %960 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %950, ptr noundef nonnull %25)
+  %.not583 = icmp eq ptr %960, null
+  br i1 %.not583, label %.thread736, label %961
 
-958:                                              ; preds = %955
-  %959 = call i32 @H5free_memory(ptr noundef nonnull %913) #20
-  %960 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.68, i64 noundef %919) #20
-  %961 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %957, ptr noundef nonnull %25)
-  %.not584 = icmp eq ptr %961, null
-  br i1 %.not584, label %.thread747, label %911
+961:                                              ; preds = %958
+  %962 = call i32 @H5free_memory(ptr noundef nonnull %916) #20
+  %963 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.68, i64 noundef %922) #20
+  %964 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %960, ptr noundef nonnull %25)
+  %.not584 = icmp eq ptr %964, null
+  br i1 %.not584, label %.thread736, label %914
 
-._crit_edge.loopexit:                             ; preds = %911
+._crit_edge.loopexit:                             ; preds = %914
   %.pre = load i64, ptr @indent, align 8, !tbaa !15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %906
-  %962 = phi i64 [ %910, %906 ], [ %.pre, %._crit_edge.loopexit ]
-  %.9.lcssa = phi ptr [ %.036.i716, %906 ], [ %961, %._crit_edge.loopexit ]
-  %963 = add i64 %962, -3
-  store i64 %963, ptr @indent, align 8, !tbaa !15
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %909
+  %965 = phi i64 [ %913, %909 ], [ %.pre, %._crit_edge.loopexit ]
+  %.9.lcssa = phi ptr [ %.036.i710, %909 ], [ %964, %._crit_edge.loopexit ]
+  %966 = add i64 %965, -3
+  store i64 %966, ptr @indent, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %964 = icmp ult i64 %962, 80
-  br i1 %964, label %965, label %967
+  %967 = icmp ult i64 %965, 80
+  br i1 %967, label %968, label %970
 
-965:                                              ; preds = %._crit_edge
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 32, i64 %962, i1 false)
-  %966 = getelementptr inbounds nuw i8, ptr %8, i64 %962
-  store i8 0, ptr %966, align 1, !tbaa !7
-  br label %indentation.exit708
+968:                                              ; preds = %._crit_edge
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 32, i64 %965, i1 false)
+  %969 = getelementptr inbounds nuw i8, ptr %8, i64 %965
+  store i8 0, ptr %969, align 1, !tbaa !7
+  br label %indentation.exit702
 
-967:                                              ; preds = %._crit_edge
+970:                                              ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %8, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit708
+  br label %indentation.exit702
 
-indentation.exit708:                              ; preds = %965, %967
-  %968 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.9.lcssa, ptr noundef nonnull %8)
+indentation.exit702:                              ; preds = %968, %970
+  %971 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.9.lcssa, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not578 = icmp eq ptr %968, null
-  br i1 %.not578, label %.thread747, label %969
+  %.not578 = icmp eq ptr %971, null
+  br i1 %.not578, label %.thread736, label %972
 
-.thread747:                                       ; preds = %.lr.ph, %915, %indentation.exit706, %927, %955, %958, %945, %948, %903, %indentation.exit708, %H5LTdtype_to_text.exit.thread
+972:                                              ; preds = %indentation.exit702
+  store i16 125, ptr %25, align 16
+  %973 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %971, ptr noundef nonnull %25)
+  %.not579 = icmp eq ptr %973, null
+  br i1 %.not579, label %.thread736, label %974
+
+.thread736:                                       ; preds = %.lr.ph, %918, %indentation.exit700, %930, %958, %961, %948, %951, %906, %indentation.exit702, %H5LTdtype_to_text.exit.thread, %972
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %realloc_and_append.exit.thread
 
-969:                                              ; preds = %indentation.exit708
-  store i16 125, ptr %25, align 16
-  %970 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %968, ptr noundef nonnull %25)
-  %.not579.not = icmp eq ptr %970, null
+974:                                              ; preds = %972
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br i1 %.not579.not, label %realloc_and_append.exit.thread, label %1033
+  br label %realloc_and_append.exit.thread
 
-971:                                              ; preds = %51
+975:                                              ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %972 = load i64, ptr %3, align 8, !tbaa !15
-  %973 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %972, ptr noundef nonnull @.str.69) #20
-  %974 = load i64, ptr @indent, align 8, !tbaa !15
-  %975 = add i64 %974, 3
-  store i64 %975, ptr @indent, align 8, !tbaa !15
-  %976 = add i64 %974, 6
+  %976 = load i64, ptr %3, align 8, !tbaa !15
+  %977 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %976, ptr noundef nonnull @.str.69) #20
+  %978 = load i64, ptr @indent, align 8, !tbaa !15
+  %979 = add i64 %978, 3
+  store i64 %979, ptr @indent, align 8, !tbaa !15
+  %980 = add i64 %978, 6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %977 = icmp ult i64 %976, 80
-  br i1 %977, label %978, label %980
+  %981 = icmp ult i64 %980, 80
+  br i1 %981, label %982, label %984
 
-978:                                              ; preds = %971
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %976, i1 false)
-  %979 = getelementptr inbounds nuw i8, ptr %7, i64 %976
-  store i8 0, ptr %979, align 1, !tbaa !7
-  br label %indentation.exit709
+982:                                              ; preds = %975
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %980, i1 false)
+  %983 = getelementptr inbounds nuw i8, ptr %7, i64 %980
+  store i8 0, ptr %983, align 1, !tbaa !7
+  br label %indentation.exit703
 
-980:                                              ; preds = %971
+984:                                              ; preds = %975
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %7, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit709
+  br label %indentation.exit703
 
-indentation.exit709:                              ; preds = %978, %980
-  %981 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i716, ptr noundef nonnull %7)
+indentation.exit703:                              ; preds = %982, %984
+  %985 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i710, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not572 = icmp eq ptr %981, null
-  br i1 %.not572, label %.thread753, label %982
+  %.not572 = icmp eq ptr %985, null
+  br i1 %.not572, label %.thread741, label %986
 
-982:                                              ; preds = %indentation.exit709
-  %983 = call i64 @H5Tget_super(i64 noundef %0) #20
-  %984 = icmp slt i64 %983, 0
-  br i1 %984, label %.thread753, label %985
+986:                                              ; preds = %indentation.exit703
+  %987 = call i64 @H5Tget_super(i64 noundef %0) #20
+  %988 = icmp slt i64 %987, 0
+  br i1 %988, label %.thread741, label %989
 
-985:                                              ; preds = %982
-  %986 = call i32 @H5LTdtype_to_text(i64 noundef %983, ptr noundef null, i32 noundef 0, ptr noundef nonnull %31)
-  %987 = icmp slt i32 %986, 0
-  br i1 %987, label %.thread753, label %988
+989:                                              ; preds = %986
+  %990 = call i32 @H5LTdtype_to_text(i64 noundef %987, ptr noundef null, i32 noundef 0, ptr noundef nonnull %31)
+  %991 = icmp slt i32 %990, 0
+  br i1 %991, label %.thread741, label %992
 
-988:                                              ; preds = %985
-  %989 = load i64, ptr %31, align 8, !tbaa !15
-  %990 = call noalias ptr @calloc(i64 noundef %989, i64 noundef 1) #25
-  %991 = call i32 @H5LTdtype_to_text(i64 noundef %983, ptr noundef %990, i32 noundef 0, ptr noundef nonnull %31)
-  %992 = icmp slt i32 %991, 0
-  br i1 %992, label %.thread753.sink.split, label %993
+992:                                              ; preds = %989
+  %993 = load i64, ptr %31, align 8, !tbaa !15
+  %994 = call noalias ptr @calloc(i64 noundef %993, i64 noundef 1) #25
+  %995 = call i32 @H5LTdtype_to_text(i64 noundef %987, ptr noundef %994, i32 noundef 0, ptr noundef nonnull %31)
+  %996 = icmp slt i32 %995, 0
+  br i1 %996, label %.thread741.sink.split, label %997
 
-993:                                              ; preds = %988
-  %994 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %981, ptr noundef %990)
-  %.not573 = icmp eq ptr %994, null
-  br i1 %.not573, label %.thread753.sink.split, label %995
-
-995:                                              ; preds = %993
-  %.not574 = icmp eq ptr %990, null
-  br i1 %.not574, label %997, label %996
-
-996:                                              ; preds = %995
-  call void @free(ptr noundef nonnull %990) #20
-  br label %997
-
-997:                                              ; preds = %996, %995
-  store i16 10, ptr %25, align 16
-  %998 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %994, ptr noundef nonnull %25)
-  %.not575 = icmp eq ptr %998, null
-  br i1 %.not575, label %.thread753, label %999
+997:                                              ; preds = %992
+  %998 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %985, ptr noundef %994)
+  %.not573 = icmp eq ptr %998, null
+  br i1 %.not573, label %.thread741.sink.split, label %999
 
 999:                                              ; preds = %997
-  %1000 = call i32 @H5Tclose(i64 noundef %983) #20
-  %1001 = load i64, ptr @indent, align 8, !tbaa !15
-  %1002 = add i64 %1001, -3
-  store i64 %1002, ptr @indent, align 8, !tbaa !15
+  %.not574 = icmp eq ptr %994, null
+  br i1 %.not574, label %1001, label %1000
+
+1000:                                             ; preds = %999
+  call void @free(ptr noundef nonnull %994) #20
+  br label %1001
+
+1001:                                             ; preds = %1000, %999
+  store i16 10, ptr %25, align 16
+  %1002 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %998, ptr noundef nonnull %25)
+  %.not575 = icmp eq ptr %1002, null
+  br i1 %.not575, label %.thread741, label %1003
+
+1003:                                             ; preds = %1001
+  %1004 = call i32 @H5Tclose(i64 noundef %987) #20
+  %1005 = load i64, ptr @indent, align 8, !tbaa !15
+  %1006 = add i64 %1005, -3
+  store i64 %1006, ptr @indent, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1003 = icmp ult i64 %1001, 80
-  br i1 %1003, label %1004, label %1006
+  %1007 = icmp ult i64 %1005, 80
+  br i1 %1007, label %1008, label %1010
 
-1004:                                             ; preds = %999
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %6, i8 32, i64 %1001, i1 false)
-  %1005 = getelementptr inbounds nuw i8, ptr %6, i64 %1001
-  store i8 0, ptr %1005, align 1, !tbaa !7
-  br label %indentation.exit710
+1008:                                             ; preds = %1003
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %6, i8 32, i64 %1005, i1 false)
+  %1009 = getelementptr inbounds nuw i8, ptr %6, i64 %1005
+  store i8 0, ptr %1009, align 1, !tbaa !7
+  br label %indentation.exit704
 
-1006:                                             ; preds = %999
+1010:                                             ; preds = %1003
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %6, ptr noundef nonnull align 1 dereferenceable(51) @.str.78, i64 51, i1 false)
-  br label %indentation.exit710
+  br label %indentation.exit704
 
-indentation.exit710:                              ; preds = %1004, %1006
-  %1007 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %998, ptr noundef nonnull %6)
+indentation.exit704:                              ; preds = %1008, %1010
+  %1011 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %1002, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not576 = icmp eq ptr %1007, null
-  br i1 %.not576, label %.thread753, label %1008
+  %.not576 = icmp eq ptr %1011, null
+  br i1 %.not576, label %.thread741, label %1012
 
-.thread753.sink.split:                            ; preds = %993, %988
-  call void @free(ptr noundef %990) #20
-  br label %.thread753
+1012:                                             ; preds = %indentation.exit704
+  store i16 125, ptr %25, align 16
+  %1013 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %1011, ptr noundef nonnull %25)
+  %.not577 = icmp eq ptr %1013, null
+  br i1 %.not577, label %.thread741, label %1014
 
-.thread753:                                       ; preds = %.thread753.sink.split, %indentation.exit709, %982, %985, %997, %indentation.exit710
+.thread741.sink.split:                            ; preds = %997, %992
+  call void @free(ptr noundef %994) #20
+  br label %.thread741
+
+.thread741:                                       ; preds = %.thread741.sink.split, %indentation.exit703, %986, %989, %1001, %indentation.exit704, %1012
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %realloc_and_append.exit.thread
 
-1008:                                             ; preds = %indentation.exit710
-  store i16 125, ptr %25, align 16
-  %1009 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %1007, ptr noundef nonnull %25)
-  %.not577.not = icmp eq ptr %1009, null
+1014:                                             ; preds = %1012
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br i1 %.not577.not, label %realloc_and_append.exit.thread, label %1033
+  br label %realloc_and_append.exit.thread
 
-1010:                                             ; preds = %51
-  %1011 = load i64, ptr %3, align 8, !tbaa !15
-  %1012 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %1011, ptr noundef nonnull @.str.70) #20
-  br label %1033
+1015:                                             ; preds = %51
+  %1016 = load i64, ptr %3, align 8, !tbaa !15
+  %1017 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %1016, ptr noundef nonnull @.str.70) #20
+  br label %realloc_and_append.exit.thread
 
-1013:                                             ; preds = %51
-  %1014 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
-  %1015 = trunc nuw i8 %1014 to i1
-  %1016 = load i8, ptr @H5_libterm_g, align 1, !range !12
-  %1017 = trunc nuw i8 %1016 to i1
-  %1018 = select i1 %1015, i1 true, i1 %1017
-  br i1 %1018, label %1021, label %1019, !prof !14
+1018:                                             ; preds = %51
+  %1019 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %1020 = trunc nuw i8 %1019 to i1
+  %1021 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %1022 = trunc nuw i8 %1021 to i1
+  %1023 = select i1 %1020, i1 true, i1 %1022
+  br i1 %1023, label %1026, label %1024, !prof !14
 
-1019:                                             ; preds = %1013
-  %1020 = tail call i32 @H5open() #20
-  br label %1021
+1024:                                             ; preds = %1018
+  %1025 = tail call i32 @H5open() #20
+  br label %1026
 
-1021:                                             ; preds = %1013, %1019
-  %1022 = load i64, ptr @H5T_STD_REF_DSETREG_g, align 8, !tbaa !15
-  %1023 = tail call i32 @H5Tequal(i64 noundef %0, i64 noundef %1022) #20
-  %1024 = icmp eq i32 %1023, 1
-  %1025 = load i64, ptr %3, align 8, !tbaa !15
-  br i1 %1024, label %1026, label %1028
+1026:                                             ; preds = %1018, %1024
+  %1027 = load i64, ptr @H5T_STD_REF_DSETREG_g, align 8, !tbaa !15
+  %1028 = tail call i32 @H5Tequal(i64 noundef %0, i64 noundef %1027) #20
+  %1029 = icmp eq i32 %1028, 1
+  %1030 = load i64, ptr %3, align 8, !tbaa !15
+  br i1 %1029, label %1031, label %1033
 
-1026:                                             ; preds = %1021
-  %1027 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %1025, ptr noundef nonnull @.str.72) #20
-  br label %1033
+1031:                                             ; preds = %1026
+  %1032 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %1030, ptr noundef nonnull @.str.72) #20
+  br label %realloc_and_append.exit.thread
 
-1028:                                             ; preds = %1021
-  %1029 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %1025, ptr noundef nonnull @.str.73) #20
-  br label %1033
+1033:                                             ; preds = %1026
+  %1034 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %1030, ptr noundef nonnull @.str.73) #20
+  br label %realloc_and_append.exit.thread
 
-1030:                                             ; preds = %51
-  %1031 = load i64, ptr %3, align 8, !tbaa !15
-  %1032 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i716, i64 noundef %1031, ptr noundef nonnull @.str.74) #20
-  br label %1033
+1035:                                             ; preds = %51
+  %1036 = load i64, ptr %3, align 8, !tbaa !15
+  %1037 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %1036, ptr noundef nonnull @.str.74) #20
+  br label %realloc_and_append.exit.thread
 
-realloc_and_append.exit.thread:                   ; preds = %indentation.exit699, %758, %indentation.exit698, %740, %indentation.exit697, %indentation.exit696, %715, %713, %708, %705, %701, %699, %694, %691, %688, %684, %673, %671, %666, %663, %659, %657, %indentation.exit695, %644, %641, %638, %635, %630, %620, %indentation.exit694, %606, %indentation.exit693, %591, %indentation.exit, %572, %569, %566, %563, %560, %32, %44, %.thread753, %.thread747, %.thread740, %.thread734, %.thread728, %1008, %969, %901, %849, %810, %768, %727, %48, %realloc_and_append.exit, %45
-  br label %1033
-
-1033:                                             ; preds = %1010, %1030, %77, %105, %133, %161, %189, %217, %245, %273, %301, %329, %357, %385, %414, %416, %399, %371, %343, %315, %287, %259, %231, %203, %175, %147, %119, %91, %63, %443, %471, %499, %527, %556, %558, %541, %513, %485, %457, %429, %1028, %1026, %51, %727, %768, %810, %849, %901, %969, %1008, %realloc_and_append.exit.thread
-  %.0 = phi ptr [ null, %realloc_and_append.exit.thread ], [ %.036.i716, %1030 ], [ %.036.i716, %63 ], [ %.036.i716, %77 ], [ %.036.i716, %91 ], [ %.036.i716, %105 ], [ %.036.i716, %119 ], [ %.036.i716, %133 ], [ %.036.i716, %147 ], [ %.036.i716, %161 ], [ %.036.i716, %175 ], [ %.036.i716, %189 ], [ %.036.i716, %203 ], [ %.036.i716, %217 ], [ %.036.i716, %231 ], [ %.036.i716, %245 ], [ %.036.i716, %259 ], [ %.036.i716, %273 ], [ %.036.i716, %287 ], [ %.036.i716, %301 ], [ %.036.i716, %315 ], [ %.036.i716, %329 ], [ %.036.i716, %343 ], [ %.036.i716, %357 ], [ %.036.i716, %371 ], [ %.036.i716, %385 ], [ %.036.i716, %399 ], [ %.036.i716, %414 ], [ %.036.i716, %416 ], [ %.036.i716, %429 ], [ %.036.i716, %443 ], [ %.036.i716, %457 ], [ %.036.i716, %471 ], [ %.036.i716, %485 ], [ %.036.i716, %499 ], [ %.036.i716, %513 ], [ %.036.i716, %527 ], [ %.036.i716, %541 ], [ %.036.i716, %556 ], [ %.036.i716, %558 ], [ %728, %727 ], [ %769, %768 ], [ %811, %810 ], [ %850, %849 ], [ %902, %901 ], [ %970, %969 ], [ %1009, %1008 ], [ %.036.i716, %1010 ], [ %.036.i716, %1026 ], [ %.036.i716, %1028 ], [ %.036.i716, %51 ]
+realloc_and_append.exit.thread:                   ; preds = %32, %44, %45, %realloc_and_append.exit, %48, %.thread, %.thread715, %.thread720, %.thread725, %.thread730, %.thread736, %.thread741, %1014, %974, %905, %852, %812, %768, %727, %1015, %1035, %77, %105, %133, %161, %189, %217, %245, %273, %301, %329, %357, %385, %414, %416, %399, %371, %343, %315, %287, %259, %231, %203, %175, %147, %119, %91, %63, %443, %471, %499, %527, %556, %558, %541, %513, %485, %457, %429, %1033, %1031, %51
+  %.0 = phi ptr [ %.036.i710, %1035 ], [ %.036.i710, %63 ], [ %.036.i710, %77 ], [ %.036.i710, %91 ], [ %.036.i710, %105 ], [ %.036.i710, %119 ], [ %.036.i710, %133 ], [ %.036.i710, %147 ], [ %.036.i710, %161 ], [ %.036.i710, %175 ], [ %.036.i710, %189 ], [ %.036.i710, %203 ], [ %.036.i710, %217 ], [ %.036.i710, %231 ], [ %.036.i710, %245 ], [ %.036.i710, %259 ], [ %.036.i710, %273 ], [ %.036.i710, %287 ], [ %.036.i710, %301 ], [ %.036.i710, %315 ], [ %.036.i710, %329 ], [ %.036.i710, %343 ], [ %.036.i710, %357 ], [ %.036.i710, %371 ], [ %.036.i710, %385 ], [ %.036.i710, %399 ], [ %.036.i710, %414 ], [ %.036.i710, %416 ], [ %.036.i710, %429 ], [ %.036.i710, %443 ], [ %.036.i710, %457 ], [ %.036.i710, %471 ], [ %.036.i710, %485 ], [ %.036.i710, %499 ], [ %.036.i710, %513 ], [ %.036.i710, %527 ], [ %.036.i710, %541 ], [ %.036.i710, %556 ], [ %.036.i710, %558 ], [ %811, %812 ], [ %851, %852 ], [ %904, %905 ], [ %973, %974 ], [ %1013, %1014 ], [ %.036.i710, %1015 ], [ %.036.i710, %1031 ], [ %.036.i710, %1033 ], [ %.036.i710, %51 ], [ %728, %727 ], [ %769, %768 ], [ null, %.thread741 ], [ null, %.thread736 ], [ null, %.thread730 ], [ null, %.thread725 ], [ null, %.thread720 ], [ null, %.thread715 ], [ null, %.thread ], [ null, %48 ], [ null, %realloc_and_append.exit ], [ null, %45 ], [ null, %44 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret ptr %.0
 }

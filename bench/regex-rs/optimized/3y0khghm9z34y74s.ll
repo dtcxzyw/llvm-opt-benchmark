@@ -65,8 +65,8 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new1
 19:                                               ; preds = %.lr.ph, %30
   %20 = phi ptr [ %12, %.lr.ph ], [ %31, %30 ]
   %21 = phi i64 [ 0, %.lr.ph ], [ %34, %30 ]
-  %.sroa.01.027 = phi i64 [ 0, %.lr.ph ], [ %22, %30 ]
-  %22 = add nuw i64 %.sroa.01.027, 1
+  %.sroa.01.026 = phi i64 [ 0, %.lr.ph ], [ %22, %30 ]
+  %22 = add nuw i64 %.sroa.01.026, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 64
   store i8 0, ptr %.sroa.413.0..sroa_idx, align 4
@@ -786,8 +786,8 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE(ptr 
   %7 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !139
   %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull readonly align 1 %3, ptr noundef nonnull readonly %6), !noalias !146
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %8, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %9, label %10
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %9, label %10
 
 9:                                                ; preds = %2
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -831,8 +831,8 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE(ptr 
   %18 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !155
   %19 = tail call { i64, ptr } %18(i8 noundef 36, ptr noundef nonnull readonly align 1 %15, ptr noundef nonnull readonly %17), !noalias !162
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %19, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %20, label %21
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %20, label %21
 
 20:                                               ; preds = %"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hf79ccc372ef39e71E.llvm.2056173962031726711.exit"
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -857,8 +857,8 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E(ptr 
   %8 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !166
   %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly align 1 %4, ptr noundef nonnull readonly %7), !noalias !173
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %9, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %10, label %11
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %10, label %11
 
 10:                                               ; preds = %2
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -900,8 +900,8 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E(ptr 
   %17 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !179
   %18 = tail call { i64, ptr } %17(i8 noundef 36, ptr noundef nonnull readonly align 1 %14, ptr noundef nonnull readonly %16), !noalias !186
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %18, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %19, label %20
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %19, label %20
 
 19:                                               ; preds = %"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h174928de5fd326a2E.exit"
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -928,8 +928,8 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17hea174207b5007cb1E(ptr 
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !193
   %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly align 1 %5, ptr noundef nonnull readonly %8), !noalias !200
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %10, 0
-  %switch8.i.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
-  br i1 %switch8.i.not.i.i, label %11, label %12
+  %.not.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  br i1 %.not.i.i, label %11, label %12
 
 11:                                               ; preds = %2
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -974,8 +974,8 @@ define void @"_ZN76_$LT$$RF$alloc..string..String$u20$as$u20$regex..regex..strin
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !221
   %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly align 1 %5, ptr noundef nonnull readonly %8), !noalias !228
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %10, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %11, label %_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E.exit
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %11, label %_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E.exit
 
 11:                                               ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1017,8 +1017,8 @@ define void @"_ZN72_$LT$alloc..string..String$u20$as$u20$regex..regex..string..R
   %8 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !244
   %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly align 1 %4, ptr noundef nonnull readonly %7), !noalias !251
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %9, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %10, label %_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E.exit
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %10, label %_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E.exit
 
 10:                                               ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8

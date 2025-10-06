@@ -765,7 +765,7 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
 .thread:                                          ; preds = %9, %15
   %17 = phi ptr [ %16, %15 ], [ %1, %9 ]
   %.not70 = icmp eq i64 %11, 0
-  br i1 %.not70, label %70, label %18
+  br i1 %.not70, label %71, label %18
 
 18:                                               ; preds = %.thread
   %19 = load ptr, ptr %17, align 8, !tbaa !15
@@ -785,7 +785,7 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
 25:                                               ; preds = %23, %20
   %26 = add i64 %11, -1
   %.not73 = icmp eq i64 %26, 0
-  br i1 %.not73, label %70, label %27
+  br i1 %.not73, label %71, label %27
 
 27:                                               ; preds = %25, %18
   %.053 = phi i64 [ %26, %25 ], [ %11, %18 ]
@@ -808,7 +808,7 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
 35:                                               ; preds = %33, %30
   %36 = add i64 %.053, -1
   %.not76 = icmp eq i64 %36, 0
-  br i1 %.not76, label %70, label %37
+  br i1 %.not76, label %71, label %37
 
 37:                                               ; preds = %35, %27
   %.154 = phi i64 [ %36, %35 ], [ %.053, %27 ]
@@ -831,7 +831,7 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
 45:                                               ; preds = %43, %40
   %46 = add i64 %.154, -1
   %.not79 = icmp eq i64 %46, 0
-  br i1 %.not79, label %70, label %47
+  br i1 %.not79, label %71, label %47
 
 47:                                               ; preds = %45, %37
   %.2 = phi i64 [ %46, %45 ], [ %.154, %37 ]
@@ -854,7 +854,7 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
 55:                                               ; preds = %53, %50
   %56 = add i64 %.2, -1
   %.not82 = icmp eq i64 %56, 0
-  br i1 %.not82, label %70, label %57
+  br i1 %.not82, label %71, label %57
 
 57:                                               ; preds = %55, %47
   %.3 = phi i64 [ %56, %55 ], [ %.2, %47 ]
@@ -862,7 +862,7 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
   %58 = getelementptr i8, ptr %17, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !15
   %.not83 = icmp eq ptr %59, null
-  br i1 %.not83, label %66, label %60
+  br i1 %.not83, label %67, label %60
 
 60:                                               ; preds = %57
   %61 = call i32 @PyLong_AsInt(ptr noundef nonnull %59) #7
@@ -875,154 +875,154 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not84, label %65, label %zlib_compressobj_impl.exit
 
 65:                                               ; preds = %63, %60
-  %.not85 = icmp eq i64 %.3, 1
-  br i1 %.not85, label %70, label %66
+  %66 = icmp ugt i64 %.3, 1
+  br i1 %66, label %67, label %71
 
-66:                                               ; preds = %65, %57
+67:                                               ; preds = %65, %57
   %.1 = phi i32 [ %61, %65 ], [ 0, %57 ]
-  %67 = getelementptr i8, ptr %17, i64 40
-  %68 = load ptr, ptr %67, align 8, !tbaa !15
-  %69 = call i32 @PyObject_GetBuffer(ptr noundef %68, ptr noundef nonnull %6, i32 noundef 0) #7
-  %.not86 = icmp eq i32 %69, 0
-  br i1 %.not86, label %70, label %zlib_compressobj_impl.exit
+  %68 = getelementptr i8, ptr %17, i64 40
+  %69 = load ptr, ptr %68, align 8, !tbaa !15
+  %70 = call i32 @PyObject_GetBuffer(ptr noundef %69, ptr noundef nonnull %6, i32 noundef 0) #7
+  %.not85 = icmp eq i32 %70, 0
+  br i1 %.not85, label %71, label %zlib_compressobj_impl.exit
 
-70:                                               ; preds = %66, %65, %55, %45, %35, %25, %.thread
-  %.051 = phi i32 [ %.152, %66 ], [ %.152, %65 ], [ %.152, %55 ], [ %.152, %45 ], [ %.152, %35 ], [ %21, %25 ], [ -1, %.thread ]
-  %.049 = phi i32 [ %.150, %66 ], [ %.150, %65 ], [ %.150, %55 ], [ %.150, %45 ], [ %31, %35 ], [ 8, %25 ], [ 8, %.thread ]
-  %.047 = phi i32 [ %.148, %66 ], [ %.148, %65 ], [ %.148, %55 ], [ %41, %45 ], [ 15, %35 ], [ 15, %25 ], [ 15, %.thread ]
-  %.045 = phi i32 [ %.146, %66 ], [ %.146, %65 ], [ %51, %55 ], [ 8, %45 ], [ 8, %35 ], [ 8, %25 ], [ 8, %.thread ]
-  %.0 = phi i32 [ %.1, %66 ], [ %61, %65 ], [ 0, %55 ], [ 0, %45 ], [ 0, %35 ], [ 0, %25 ], [ 0, %.thread ]
-  %71 = call ptr @PyModule_GetState(ptr noundef %0) #7
-  %72 = load ptr, ptr %6, align 8, !tbaa !28
-  %.not.i = icmp ne ptr %72, null
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %74 = load i64, ptr %73, align 8
-  %75 = icmp ugt i64 %74, 4294967295
-  %or.cond = select i1 %.not.i, i1 %75, i1 false
-  br i1 %or.cond, label %76, label %78
+71:                                               ; preds = %67, %65, %55, %45, %35, %25, %.thread
+  %.051 = phi i32 [ %.152, %67 ], [ %.152, %65 ], [ %.152, %55 ], [ %.152, %45 ], [ %.152, %35 ], [ %21, %25 ], [ -1, %.thread ]
+  %.049 = phi i32 [ %.150, %67 ], [ %.150, %65 ], [ %.150, %55 ], [ %.150, %45 ], [ %31, %35 ], [ 8, %25 ], [ 8, %.thread ]
+  %.047 = phi i32 [ %.148, %67 ], [ %.148, %65 ], [ %.148, %55 ], [ %41, %45 ], [ 15, %35 ], [ 15, %25 ], [ 15, %.thread ]
+  %.045 = phi i32 [ %.146, %67 ], [ %.146, %65 ], [ %51, %55 ], [ 8, %45 ], [ 8, %35 ], [ 8, %25 ], [ 8, %.thread ]
+  %.0 = phi i32 [ %.1, %67 ], [ %61, %65 ], [ 0, %55 ], [ 0, %45 ], [ 0, %35 ], [ 0, %25 ], [ 0, %.thread ]
+  %72 = call ptr @PyModule_GetState(ptr noundef %0) #7
+  %73 = load ptr, ptr %6, align 8, !tbaa !28
+  %.not.i = icmp ne ptr %73, null
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %75 = load i64, ptr %74, align 8
+  %76 = icmp ugt i64 %75, 4294967295
+  %or.cond = select i1 %.not.i, i1 %76, i1 false
+  br i1 %or.cond, label %77, label %79
 
-76:                                               ; preds = %70
-  %77 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !15
-  call void @PyErr_SetString(ptr noundef %77, ptr noundef nonnull @.str.27) #7
+77:                                               ; preds = %71
+  %78 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull @.str.27) #7
   br label %zlib_compressobj_impl.exit
 
-78:                                               ; preds = %70
-  %79 = load ptr, ptr %71, align 8, !tbaa !3
-  %80 = call fastcc ptr @newcompobject(ptr noundef %79)
-  %cond.i = icmp eq ptr %80, null
-  br i1 %cond.i, label %zlib_compressobj_impl.exit, label %81
+79:                                               ; preds = %71
+  %80 = load ptr, ptr %72, align 8, !tbaa !3
+  %81 = call fastcc ptr @newcompobject(ptr noundef %80)
+  %cond.i = icmp eq ptr %81, null
+  br i1 %cond.i, label %zlib_compressobj_impl.exit, label %82
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 96
-  store ptr null, ptr %83, align 8, !tbaa !48
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 80
-  store ptr @PyZlib_Malloc, ptr %84, align 8, !tbaa !51
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 88
-  store ptr @PyZlib_Free, ptr %85, align 8, !tbaa !52
-  store ptr null, ptr %82, align 8, !tbaa !53
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i32 0, ptr %86, align 8, !tbaa !54
-  %87 = call i32 @deflateInit2_(ptr noundef nonnull %82, i32 noundef %.051, i32 noundef %.049, i32 noundef %.047, i32 noundef %.045, i32 noundef %.0, ptr noundef nonnull @.str.11, i32 noundef 112) #7
-  switch i32 %87, label %104 [
-    i32 0, label %88
-    i32 -4, label %100
-    i32 -2, label %102
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 96
+  store ptr null, ptr %84, align 8, !tbaa !48
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 80
+  store ptr @PyZlib_Malloc, ptr %85, align 8, !tbaa !51
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 88
+  store ptr @PyZlib_Free, ptr %86, align 8, !tbaa !52
+  store ptr null, ptr %83, align 8, !tbaa !53
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i32 0, ptr %87, align 8, !tbaa !54
+  %88 = call i32 @deflateInit2_(ptr noundef nonnull %83, i32 noundef %.051, i32 noundef %.049, i32 noundef %.047, i32 noundef %.045, i32 noundef %.0, ptr noundef nonnull @.str.11, i32 noundef 112) #7
+  switch i32 %88, label %105 [
+    i32 0, label %89
+    i32 -4, label %101
+    i32 -2, label %103
   ]
 
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds nuw i8, ptr %80, i64 145
-  store i8 1, ptr %89, align 1, !tbaa !55
-  %90 = load ptr, ptr %6, align 8, !tbaa !28
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %zlib_compressobj_impl.exit, label %92
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 145
+  store i8 1, ptr %90, align 1, !tbaa !55
+  %91 = load ptr, ptr %6, align 8, !tbaa !28
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %zlib_compressobj_impl.exit, label %93
 
-92:                                               ; preds = %88
-  %93 = load i64, ptr %73, align 8, !tbaa !16
-  %94 = trunc i64 %93 to i32
-  %95 = call i32 @deflateSetDictionary(ptr noundef nonnull %82, ptr noundef nonnull %90, i32 noundef %94) #7
-  switch i32 %95, label %98 [
+93:                                               ; preds = %89
+  %94 = load i64, ptr %74, align 8, !tbaa !16
+  %95 = trunc i64 %94 to i32
+  %96 = call i32 @deflateSetDictionary(ptr noundef nonnull %83, ptr noundef nonnull %91, i32 noundef %95) #7
+  switch i32 %96, label %99 [
     i32 0, label %zlib_compressobj_impl.exit
-    i32 -2, label %96
+    i32 -2, label %97
   ]
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
-  call void @PyErr_SetString(ptr noundef %97, ptr noundef nonnull @.str.28) #7
+97:                                               ; preds = %93
+  %98 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %98, ptr noundef nonnull @.str.28) #7
   br label %zlib_error.exit.i
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
-  call void @PyErr_SetString(ptr noundef %99, ptr noundef nonnull @.str.29) #7
+99:                                               ; preds = %93
+  %100 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %100, ptr noundef nonnull @.str.29) #7
   br label %zlib_error.exit.i
 
-100:                                              ; preds = %81
-  %101 = load ptr, ptr @PyExc_MemoryError, align 8, !tbaa !15
-  call void @PyErr_SetString(ptr noundef %101, ptr noundef nonnull @.str.30) #7
+101:                                              ; preds = %82
+  %102 = load ptr, ptr @PyExc_MemoryError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %102, ptr noundef nonnull @.str.30) #7
   br label %zlib_error.exit.i
 
-102:                                              ; preds = %81
-  %103 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
-  call void @PyErr_SetString(ptr noundef %103, ptr noundef nonnull @.str.31) #7
+103:                                              ; preds = %82
+  %104 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %104, ptr noundef nonnull @.str.31) #7
   br label %zlib_error.exit.i
 
-104:                                              ; preds = %81
-  %105 = getelementptr i8, ptr %80, i64 64
-  %.val.i = load ptr, ptr %105, align 8
-  %.not.i36.i = icmp eq i32 %87, -6
+105:                                              ; preds = %82
+  %106 = getelementptr i8, ptr %81, i64 64
+  %.val.i = load ptr, ptr %106, align 8
+  %.not.i36.i = icmp eq i32 %88, -6
   %.0.i.i = select i1 %.not.i36.i, ptr @.str.16, ptr %.val.i
-  %106 = icmp eq ptr %.0.i.i, null
-  br i1 %106, label %107, label %113
+  %107 = icmp eq ptr %.0.i.i, null
+  br i1 %107, label %108, label %114
 
-107:                                              ; preds = %104
-  switch i32 %87, label %109 [
-    i32 -5, label %113
-    i32 -3, label %108
+108:                                              ; preds = %105
+  switch i32 %88, label %110 [
+    i32 -5, label %114
+    i32 -3, label %109
   ]
 
-108:                                              ; preds = %107
-  br label %113
+109:                                              ; preds = %108
+  br label %114
 
-109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %111 = load ptr, ptr %110, align 8, !tbaa !12
-  %112 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %111, ptr noundef nonnull @.str.20, i32 noundef %87, ptr noundef nonnull @.str.32) #7
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %112 = load ptr, ptr %111, align 8, !tbaa !12
+  %113 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %112, ptr noundef nonnull @.str.20, i32 noundef %88, ptr noundef nonnull @.str.32) #7
   br label %zlib_error.exit.i
 
-113:                                              ; preds = %108, %107, %104
-  %.1.ph.i.i = phi ptr [ %.0.i.i, %104 ], [ @.str.19, %108 ], [ @.str.17, %107 ]
-  %114 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %115 = load ptr, ptr %114, align 8, !tbaa !12
-  %116 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %115, ptr noundef nonnull @.str.21, i32 noundef %87, ptr noundef nonnull @.str.32, ptr noundef nonnull %.1.ph.i.i) #7
+114:                                              ; preds = %109, %108, %105
+  %.1.ph.i.i = phi ptr [ %.0.i.i, %105 ], [ @.str.19, %109 ], [ @.str.17, %108 ]
+  %115 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %116 = load ptr, ptr %115, align 8, !tbaa !12
+  %117 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %116, ptr noundef nonnull @.str.21, i32 noundef %88, ptr noundef nonnull @.str.32, ptr noundef nonnull %.1.ph.i.i) #7
   br label %zlib_error.exit.i
 
-zlib_error.exit.i:                                ; preds = %113, %109, %102, %100, %98, %96
-  %117 = load i32, ptr %80, align 8, !tbaa !14
-  %.not.i.i = icmp sgt i32 %117, -1
-  br i1 %.not.i.i, label %118, label %zlib_compressobj_impl.exit
+zlib_error.exit.i:                                ; preds = %114, %110, %103, %101, %99, %97
+  %118 = load i32, ptr %81, align 8, !tbaa !14
+  %.not.i.i = icmp sgt i32 %118, -1
+  br i1 %.not.i.i, label %119, label %zlib_compressobj_impl.exit
 
-118:                                              ; preds = %zlib_error.exit.i
-  %119 = add nsw i32 %117, -1
-  store i32 %119, ptr %80, align 8, !tbaa !14
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %zlib_compressobj_impl.exit
+119:                                              ; preds = %zlib_error.exit.i
+  %120 = add nsw i32 %118, -1
+  store i32 %120, ptr %81, align 8, !tbaa !14
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %122, label %zlib_compressobj_impl.exit
 
-121:                                              ; preds = %118
-  call void @_Py_Dealloc(ptr noundef nonnull %80) #7
+122:                                              ; preds = %119
+  call void @_Py_Dealloc(ptr noundef nonnull %81) #7
   br label %zlib_compressobj_impl.exit
 
-zlib_compressobj_impl.exit:                       ; preds = %121, %118, %zlib_error.exit.i, %92, %88, %78, %76, %66, %63, %53, %43, %33, %23, %15
-  %.055 = phi ptr [ null, %23 ], [ null, %33 ], [ null, %43 ], [ null, %53 ], [ null, %63 ], [ null, %66 ], [ null, %15 ], [ null, %76 ], [ %80, %88 ], [ %80, %92 ], [ null, %78 ], [ null, %zlib_error.exit.i ], [ null, %118 ], [ null, %121 ]
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !24
-  %.not87 = icmp eq ptr %123, null
-  br i1 %.not87, label %125, label %124
+zlib_compressobj_impl.exit:                       ; preds = %122, %119, %zlib_error.exit.i, %93, %89, %79, %77, %67, %63, %53, %43, %33, %23, %15
+  %.055 = phi ptr [ null, %23 ], [ null, %33 ], [ null, %43 ], [ null, %53 ], [ null, %63 ], [ null, %67 ], [ null, %15 ], [ null, %77 ], [ %81, %89 ], [ %81, %93 ], [ null, %79 ], [ null, %zlib_error.exit.i ], [ null, %119 ], [ null, %122 ]
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !24
+  %.not86 = icmp eq ptr %124, null
+  br i1 %.not86, label %126, label %125
 
-124:                                              ; preds = %zlib_compressobj_impl.exit
+125:                                              ; preds = %zlib_compressobj_impl.exit
   call void @PyBuffer_Release(ptr noundef nonnull %6) #7
-  br label %125
+  br label %126
 
-125:                                              ; preds = %124, %zlib_compressobj_impl.exit
+126:                                              ; preds = %125, %zlib_compressobj_impl.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.055
@@ -4141,8 +4141,8 @@ define internal fastcc range(i32 -1, 1) i32 @save_unconsumed_input(ptr noundef c
   %35 = load ptr, ptr %10, align 8, !tbaa !15
   store ptr %27, ptr %10, align 8, !tbaa !15
   %36 = load i32, ptr %35, align 8, !tbaa !14
-  %.not.i48 = icmp sgt i32 %36, -1
-  br i1 %.not.i48, label %37, label %41
+  %.not.i47 = icmp sgt i32 %36, -1
+  br i1 %.not.i47, label %37, label %41
 
 37:                                               ; preds = %29
   %38 = add nsw i32 %36, -1
@@ -4174,8 +4174,8 @@ define internal fastcc range(i32 -1, 1) i32 @save_unconsumed_input(ptr noundef c
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load ptr, ptr %48, align 8, !tbaa !65
   %50 = getelementptr i8, ptr %49, i64 16
-  %.val51 = load i64, ptr %50, align 8, !tbaa !25
-  %.not45 = icmp eq i64 %.val51, 0
+  %.val50 = load i64, ptr %50, align 8, !tbaa !25
+  %.not45 = icmp eq i64 %.val50, 0
   br i1 %.not45, label %Py_DECREF.exit, label %51
 
 51:                                               ; preds = %46, %43
@@ -5286,7 +5286,7 @@ decompress_buf.exit.i.i:                          ; preds = %171, %168, %153
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %202 = load ptr, ptr %201, align 8, !tbaa !81
   %.not.i.i = icmp eq ptr %202, null
-  br i1 %.not.i.i, label %.thread104.i.i, label %203
+  br i1 %.not.i.i, label %.thread103.i.i, label %203
 
 203:                                              ; preds = %200
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -5298,21 +5298,21 @@ decompress_buf.exit.i.i:                          ; preds = %171, %168, %153
   call void @PyMem_Free(ptr noundef nonnull %202) #7
   store ptr null, ptr %201, align 8, !tbaa !81
   %.pre.i.i = load i64, ptr %93, align 8, !tbaa !92
-  br label %.thread104.i.i
+  br label %.thread103.i.i
 
-.thread104.i.i:                                   ; preds = %207, %200
+.thread103.i.i:                                   ; preds = %207, %200
   %208 = phi i64 [ %194, %200 ], [ %.pre.i.i, %207 ]
   %209 = call ptr @PyMem_Malloc(i64 noundef %208) #7
   store ptr %209, ptr %201, align 8, !tbaa !81
   %210 = icmp eq ptr %209, null
   br i1 %210, label %211, label %213
 
-211:                                              ; preds = %.thread104.i.i
+211:                                              ; preds = %.thread103.i.i
   %212 = load ptr, ptr @PyExc_MemoryError, align 8, !tbaa !15
   call void @PyErr_SetNone(ptr noundef %212) #7
   br label %Py_XDECREF.exit.i.i
 
-213:                                              ; preds = %.thread104.i.i
+213:                                              ; preds = %.thread103.i.i
   %214 = load i64, ptr %93, align 8, !tbaa !92
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %214, ptr %215, align 8, !tbaa !91

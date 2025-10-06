@@ -15731,9 +15731,9 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit.thread: ; preds = %28
 _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %28
   call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.pre = load i8, ptr %35, align 4
-  %.pre79 = load i8, ptr %31, align 4
+  %.pre78 = load i8, ptr %31, align 4
   %41 = and i8 %.pre, -2
-  %42 = and i8 %.pre79, 1
+  %42 = and i8 %.pre78, 1
   %43 = icmp eq i8 %42, 0
   store i32 1, ptr %7, align 8, !tbaa !23
   store i8 %41, ptr %35, align 4
@@ -15839,10 +15839,10 @@ _ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread27.i.i.
 
 91:                                               ; preds = %85
   %92 = load i32, ptr %4, align 8, !tbaa !23
-  %.fr76 = freeze i32 %92
-  %93 = sext i32 %.fr76 to i64
+  %.fr75 = freeze i32 %92
+  %93 = sext i32 %.fr75 to i64
   %94 = add nsw i64 %93, 1
-  %.not = icmp eq i32 %.fr76, 2147483647
+  %.not = icmp eq i32 %.fr75, 2147483647
   br i1 %.not, label %99, label %95
 
 95:                                               ; preds = %91
@@ -16001,8 +16001,8 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39:  ; preds = %139, %.thread27.i.i
 
 167:                                              ; preds = %_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit39
   %168 = load i32, ptr %6, align 8, !tbaa !23
-  %.fr77 = freeze i32 %168
-  %169 = sext i32 %.fr77 to i64
+  %.fr76 = freeze i32 %168
+  %169 = sext i32 %.fr76 to i64
   %170 = mul nsw i64 %169, %169
   %or.cond.i.i40 = icmp samesign ult i64 %170, 2147483648
   br i1 %or.cond.i.i40, label %171, label %175
@@ -32495,9 +32495,9 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.thread: ; preds = %28
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %28
   call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.pre = load i8, ptr %35, align 4
-  %.pre79 = load i8, ptr %31, align 4
+  %.pre78 = load i8, ptr %31, align 4
   %41 = and i8 %.pre, -2
-  %42 = and i8 %.pre79, 1
+  %42 = and i8 %.pre78, 1
   %43 = icmp eq i8 %42, 0
   store i32 1, ptr %7, align 8, !tbaa !23
   store i8 %41, ptr %35, align 4
@@ -32603,10 +32603,10 @@ _ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_.exit:    ; preds = %48, %.thread27.i.i.
 
 91:                                               ; preds = %85
   %92 = load i32, ptr %4, align 8, !tbaa !23
-  %.fr76 = freeze i32 %92
-  %93 = sext i32 %.fr76 to i64
+  %.fr75 = freeze i32 %92
+  %93 = sext i32 %.fr75 to i64
   %94 = add nsw i64 %93, 1
-  %.not = icmp eq i32 %.fr76, 2147483647
+  %.not = icmp eq i32 %.fr75, 2147483647
   br i1 %.not, label %99, label %95
 
 95:                                               ; preds = %91
@@ -32765,8 +32765,8 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39:  ; preds = %139, %.thread27.i.i
 
 167:                                              ; preds = %_ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit39
   %168 = load i32, ptr %6, align 8, !tbaa !23
-  %.fr77 = freeze i32 %168
-  %169 = sext i32 %.fr77 to i64
+  %.fr76 = freeze i32 %168
+  %169 = sext i32 %.fr76 to i64
   %170 = mul nsw i64 %169, %169
   %or.cond.i.i40 = icmp samesign ult i64 %170, 2147483648
   br i1 %or.cond.i.i40, label %171, label %175

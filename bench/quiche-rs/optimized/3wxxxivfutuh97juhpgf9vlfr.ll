@@ -5584,14 +5584,14 @@ define hidden void @_ZN6quiche6crypto9boringssl9PacketKey21seal_with_u64_counter
 define hidden void @_ZN6quiche6crypto9boringssl19HeaderProtectionKey3new17h3c3bac76414f258cE(ptr dead_on_unwind noalias noundef writable writeonly sret([248 x i8]) align 8 captures(none) dereferenceable(248) %0, i8 noundef range(i8 0, 3) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.42 = alloca [28 x i8], align 4
   %4 = alloca [244 x i8], align 4
-  %switch = icmp samesign ult i8 %1, 2
-  br i1 %switch, label %5, label %7
+  %5 = icmp eq i8 %1, 2
+  br i1 %5, label %8, label %6
 
-5:                                                ; preds = %3
-  %6 = invoke noundef i64 @_ZN6quiche6crypto9Algorithm7key_len17h23ff726c35af9065E(i8 noundef %1)
-          to label %10 unwind label %8
+6:                                                ; preds = %3
+  %7 = invoke noundef i64 @_ZN6quiche6crypto9Algorithm7key_len17h23ff726c35af9065E(i8 noundef %1)
+          to label %11 unwind label %9
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.42)
   %.sroa.42.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.42, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.42.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -5599,51 +5599,51 @@ define hidden void @_ZN6quiche6crypto9boringssl19HeaderProtectionKey3new17h3c3ba
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.42, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.42)
-  br label %20
+  br label %21
 
-8:                                                ; preds = %5
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %6
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #20
-          to label %23 unwind label %21
+          to label %24 unwind label %22
 
-10:                                               ; preds = %5
-  %11 = trunc i64 %6 to i32
-  %12 = shl i32 %11, 3
+11:                                               ; preds = %6
+  %12 = trunc i64 %7 to i32
+  %13 = shl i32 %12, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  %15 = call noundef i32 @AES_set_encrypt_key(ptr noundef nonnull %14, i32 noundef %12, ptr noundef nonnull %4) #22
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  %16 = call noundef i32 @AES_set_encrypt_key(ptr noundef nonnull %15, i32 noundef %13, ptr noundef nonnull %4) #22
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %10
+18:                                               ; preds = %11
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(244) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(244) %4, i64 244, i1 false)
   store i32 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br label %20
+  br label %21
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 8, ptr %19, align 8
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 8, ptr %20, align 8
   store i32 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %17, %18, %7
+21:                                               ; preds = %18, %19, %8
   ret void
 
-21:                                               ; preds = %8
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %9
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-23:                                               ; preds = %8
-  resume { ptr, i32 } %9
+24:                                               ; preds = %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable

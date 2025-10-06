@@ -38,30 +38,30 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager20com
   %19 = zext i32 %18 to i64
   %.idx.i.i = mul nuw nsw i64 %19, 12
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
-  %.not22.not.i.i = icmp eq i32 %18, 0
-  br i1 %.not22.not.i.i, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit, label %.lr.ph.i.i
+  %.not23.not.i.i = icmp eq i32 %18, 0
+  br i1 %.not23.not.i.i, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.critedge.i.i
-  %.01623.i.i = phi ptr [ %27, %.critedge.i.i ], [ %17, %10 ]
+  %.01624.i.i = phi ptr [ %27, %.critedge.i.i ], [ %17, %10 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !51
-  %.sroa.0.0.copyload.i.i19.i.i = load i32, ptr %.01623.i.i, align 4, !tbaa !22
+  %.sroa.0.0.copyload.i.i19.i.i = load i32, ptr %.01624.i.i, align 4, !tbaa !22
   %22 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %21, i32 %16, i32 %.sroa.0.0.copyload.i.i19.i.i) #3
   br i1 %22, label %.critedge.i.i, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
   %24 = load ptr, ptr %0, align 8, !tbaa !51
-  %25 = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.01624.i.i, i64 4
   %.sroa.0.0.copyload.i.i20.i.i = load i32, ptr %25, align 4, !tbaa !22
   %26 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %24, i32 %.sroa.0.0.copyload.i.i20.i.i, i32 %.sroa.0.0.copyload.i.i) #3
   br i1 %26, label %.critedge.i.i, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit
 
 .critedge.i.i:                                    ; preds = %23, %.lr.ph.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %.01624.i.i, i64 12
   %.not.not.i.i = icmp eq ptr %27, %20
   br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit, label %.lr.ph.i.i
 
 _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit: ; preds = %23, %.critedge.i.i, %10
-  %.not.lcssa.i.i = phi i8 [ 0, %10 ], [ 1, %23 ], [ 0, %.critedge.i.i ]
+  %.not.lcssa.i.i = phi i8 [ 0, %10 ], [ 0, %.critedge.i.i ], [ 1, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 73
   store i8 %.not.lcssa.i.i, ptr %28, align 1, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -132,25 +132,25 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %55 = zext i32 %54 to i64
   %.idx.i.i36 = mul nuw nsw i64 %55, 12
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i36
-  %.not22.not.i.i37 = icmp eq i32 %54, 0
-  br i1 %.not22.not.i.i37, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i38
+  %.not23.not.i.i37 = icmp eq i32 %54, 0
+  br i1 %.not23.not.i.i37, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i38
 
 .lr.ph.i.i38:                                     ; preds = %.critedge, %.critedge.i.i43
-  %.01623.i.i39 = phi ptr [ %63, %.critedge.i.i43 ], [ %53, %.critedge ]
+  %.01624.i.i39 = phi ptr [ %63, %.critedge.i.i43 ], [ %53, %.critedge ]
   %57 = load ptr, ptr %0, align 8, !tbaa !51
-  %.sroa.0.0.copyload.i.i19.i.i40 = load i32, ptr %.01623.i.i39, align 4, !tbaa !22
+  %.sroa.0.0.copyload.i.i19.i.i40 = load i32, ptr %.01624.i.i39, align 4, !tbaa !22
   %58 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %57, i32 %52, i32 %.sroa.0.0.copyload.i.i19.i.i40) #3
   br i1 %58, label %.critedge.i.i43, label %59
 
 59:                                               ; preds = %.lr.ph.i.i38
   %60 = load ptr, ptr %0, align 8, !tbaa !51
-  %61 = getelementptr inbounds nuw i8, ptr %.01623.i.i39, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.01624.i.i39, i64 4
   %.sroa.0.0.copyload.i.i20.i.i41 = load i32, ptr %61, align 4, !tbaa !22
   %62 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %60, i32 %.sroa.0.0.copyload.i.i20.i.i41, i32 %.sroa.010.0.i) #3
   br i1 %62, label %.critedge.i.i43, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit
 
 .critedge.i.i43:                                  ; preds = %59, %.lr.ph.i.i38
-  %63 = getelementptr inbounds nuw i8, ptr %.01623.i.i39, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %.01624.i.i39, i64 12
   %.not.not.i.i44 = icmp eq ptr %63, %56
   br i1 %.not.not.i.i44, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i38
 
@@ -190,30 +190,30 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager24aff
   %11 = zext i32 %10 to i64
   %.idx.i = mul nuw nsw i64 %11, 12
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %.not22.not.i = icmp eq i32 %10, 0
-  br i1 %.not22.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
+  %.not23.not.i = icmp eq i32 %10, 0
+  br i1 %.not23.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.critedge.i
-  %.01623.i = phi ptr [ %19, %.critedge.i ], [ %8, %2 ]
+  %.01624.i = phi ptr [ %19, %.critedge.i ], [ %8, %2 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !51
-  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %.01623.i, align 4, !tbaa !22
+  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %.01624.i, align 4, !tbaa !22
   %14 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %13, i32 %6, i32 %.sroa.0.0.copyload.i.i19.i) #3
   br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %.lr.ph.i
   %16 = load ptr, ptr %0, align 8, !tbaa !51
-  %17 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 4
   %.sroa.0.0.copyload.i.i20.i = load i32, ptr %17, align 4, !tbaa !22
   %18 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 %.sroa.0.0.copyload.i.i20.i, i32 %.sroa.0.0.copyload.i) #3
   br i1 %18, label %.critedge.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit
 
 .critedge.i:                                      ; preds = %15, %.lr.ph.i
-  %19 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 12
   %.not.not.i = icmp eq ptr %19, %12
   br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
 
 _ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit: ; preds = %15, %.critedge.i, %2
-  %.not.lcssa.i = phi i1 [ false, %2 ], [ false, %.critedge.i ], [ true, %15 ]
+  %.not.lcssa.i = phi i1 [ false, %2 ], [ true, %15 ], [ false, %.critedge.i ]
   ret i1 %.not.lcssa.i
 }
 
@@ -238,30 +238,30 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17aff
   %18 = zext i32 %17 to i64
   %.idx.i = mul nuw nsw i64 %18, 12
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
-  %.not22.not.i = icmp eq i32 %17, 0
-  br i1 %.not22.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
+  %.not23.not.i = icmp eq i32 %17, 0
+  br i1 %.not23.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.critedge.i
-  %.01623.i = phi ptr [ %26, %.critedge.i ], [ %15, %4 ]
+  %.01624.i = phi ptr [ %26, %.critedge.i ], [ %15, %4 ]
   %20 = load ptr, ptr %0, align 8, !tbaa !51
-  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %.01623.i, align 4, !tbaa !22
+  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %.01624.i, align 4, !tbaa !22
   %21 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %20, i32 %13, i32 %.sroa.0.0.copyload.i.i19.i) #3
   br i1 %21, label %.critedge.i, label %22
 
 22:                                               ; preds = %.lr.ph.i
   %23 = load ptr, ptr %0, align 8, !tbaa !51
-  %24 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 4
   %.sroa.0.0.copyload.i.i20.i = load i32, ptr %24, align 4, !tbaa !22
   %25 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %23, i32 %.sroa.0.0.copyload.i.i20.i, i32 %.sroa.010.0) #3
   br i1 %25, label %.critedge.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit
 
 .critedge.i:                                      ; preds = %22, %.lr.ph.i
-  %26 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 12
   %.not.not.i = icmp eq ptr %26, %19
   br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
 
 _ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit: ; preds = %22, %.critedge.i, %4
-  %.not.lcssa.i = phi i1 [ false, %4 ], [ false, %.critedge.i ], [ true, %22 ]
+  %.not.lcssa.i = phi i1 [ false, %4 ], [ true, %22 ], [ false, %.critedge.i ]
   ret i1 %.not.lcssa.i
 }
 
@@ -368,25 +368,25 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %37 = zext i32 %36 to i64
   %.idx.i.i = mul nuw nsw i64 %37, 12
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i
-  %.not22.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not22.not.i.i, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, label %.lr.ph.i.i
+  %.not23.not.i.i = icmp eq i32 %36, 0
+  br i1 %.not23.not.i.i, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split, %.critedge.i.i
-  %.01623.i.i = phi ptr [ %45, %.critedge.i.i ], [ %35, %.lr.ph.split ]
+  %.01624.i.i = phi ptr [ %45, %.critedge.i.i ], [ %35, %.lr.ph.split ]
   %39 = load ptr, ptr %0, align 8, !tbaa !51
-  %.sroa.0.0.copyload.i.i19.i.i = load i32, ptr %.01623.i.i, align 4, !tbaa !22
+  %.sroa.0.0.copyload.i.i19.i.i = load i32, ptr %.01624.i.i, align 4, !tbaa !22
   %40 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %39, i32 %34, i32 %.sroa.0.0.copyload.i.i19.i.i) #3
   br i1 %40, label %.critedge.i.i, label %41
 
 41:                                               ; preds = %.lr.ph.i.i
   %42 = load ptr, ptr %0, align 8, !tbaa !51
-  %43 = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.01624.i.i, i64 4
   %.sroa.0.0.copyload.i.i20.i.i = load i32, ptr %43, align 4, !tbaa !22
   %44 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %42, i32 %.sroa.0.0.copyload.i.i20.i.i, i32 %.sroa.010.0.i) #3
   br i1 %44, label %.critedge.i.i, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit
 
 .critedge.i.i:                                    ; preds = %41, %.lr.ph.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.01624.i.i, i64 12
   %.not.not.i.i = icmp eq ptr %45, %38
   br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, label %.lr.ph.i.i
 
@@ -506,36 +506,36 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager22aff
   %7 = zext i32 %6 to i64
   %.idx = mul nuw nsw i64 %7, 12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not22.not = icmp eq i32 %6, 0
-  br i1 %.not22.not, label %._crit_edge, label %.lr.ph
+  %.not23.not = icmp eq i32 %6, 0
+  br i1 %.not23.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.critedge
-  %.01623 = phi ptr [ %4, %.lr.ph ], [ %17, %.critedge ]
+  %.01624 = phi ptr [ %4, %.lr.ph ], [ %17, %.critedge ]
   %11 = load ptr, ptr %0, align 8, !tbaa !51
   %.sroa.0.0.copyload.i.i = load i32, ptr %9, align 4, !tbaa !22
-  %.sroa.0.0.copyload.i.i19 = load i32, ptr %.01623, align 4, !tbaa !22
+  %.sroa.0.0.copyload.i.i19 = load i32, ptr %.01624, align 4, !tbaa !22
   %12 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %11, i32 %.sroa.0.0.copyload.i.i, i32 %.sroa.0.0.copyload.i.i19) #3
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %0, align 8, !tbaa !51
-  %15 = getelementptr inbounds nuw i8, ptr %.01623, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01624, i64 4
   %.sroa.0.0.copyload.i.i20 = load i32, ptr %15, align 4, !tbaa !22
   %.sroa.0.0.copyload.i.i21 = load i32, ptr %1, align 4, !tbaa !22
   %16 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %14, i32 %.sroa.0.0.copyload.i.i20, i32 %.sroa.0.0.copyload.i.i21) #3
   br i1 %16, label %.critedge, label %._crit_edge
 
 .critedge:                                        ; preds = %13, %10
-  %17 = getelementptr inbounds nuw i8, ptr %.01623, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %.01624, i64 12
   %.not.not = icmp eq ptr %17, %8
   br i1 %.not.not, label %._crit_edge, label %10
 
-._crit_edge:                                      ; preds = %.critedge, %13, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ true, %13 ], [ false, %.critedge ]
+._crit_edge:                                      ; preds = %13, %.critedge, %2
+  %.not.lcssa = phi i1 [ false, %2 ], [ false, %.critedge ], [ true, %13 ]
   ret i1 %.not.lcssa
 }
 

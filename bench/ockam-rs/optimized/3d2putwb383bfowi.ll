@@ -825,8 +825,8 @@ define hidden void @"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$
   br i1 %22, label %23, label %"_ZN6subtle112_$LT$impl$u20$core..convert..From$LT$subtle..CtOption$LT$T$GT$$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$4from17h9045de3d9dafe5f9E.exit.thread"
 
 "_ZN6subtle112_$LT$impl$u20$core..convert..From$LT$subtle..CtOption$LT$T$GT$$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$4from17h9045de3d9dafe5f9E.exit.thread": ; preds = %23, %"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$GT$10from_bytes17hdc1c13513391c243E.llvm.18228136452100008479.exit", %3
-  %storemerge7 = phi i64 [ 1, %3 ], [ 0, %23 ], [ 1, %"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$GT$10from_bytes17hdc1c13513391c243E.llvm.18228136452100008479.exit" ]
-  store i64 %storemerge7, ptr %0, align 8
+  %storemerge6 = phi i64 [ 1, %3 ], [ 0, %23 ], [ 1, %"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$GT$10from_bytes17hdc1c13513391c243E.llvm.18228136452100008479.exit" ]
+  store i64 %storemerge6, ptr %0, align 8
   ret void
 
 23:                                               ; preds = %"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$GT$10from_bytes17hdc1c13513391c243E.llvm.18228136452100008479.exit"
@@ -2706,7 +2706,7 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %12 = load i8, ptr %11, align 1, !range !377, !noundef !21
-  switch i8 %12, label %default.unreachable147 [
+  switch i8 %12, label %default.unreachable146 [
     i8 0, label %15
     i8 1, label %43
     i8 2, label %44
@@ -2714,21 +2714,21 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
     i8 4, label %14
   ]
 
-default.unreachable147:                           ; preds = %3
+default.unreachable146:                           ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val49.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !675
-  %.phi.trans.insert134 = getelementptr i8, ptr %1, i64 32
-  %.val50.pre = load ptr, ptr %.phi.trans.insert134, align 8, !alias.scope !675
+  %.phi.trans.insert133 = getelementptr i8, ptr %1, i64 32
+  %.val50.pre = load ptr, ptr %.phi.trans.insert133, align 8, !alias.scope !675
   br label %45
 
 14:                                               ; preds = %3
-  %.phi.trans.insert136 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val51.pre = load ptr, ptr %.phi.trans.insert136, align 8, !alias.scope !678
-  %.phi.trans.insert138 = getelementptr i8, ptr %1, i64 32
-  %.val52.pre = load ptr, ptr %.phi.trans.insert138, align 8, !alias.scope !678
+  %.phi.trans.insert135 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val51.pre = load ptr, ptr %.phi.trans.insert135, align 8, !alias.scope !678
+  %.phi.trans.insert137 = getelementptr i8, ptr %1, i64 32
+  %.val52.pre = load ptr, ptr %.phi.trans.insert137, align 8, !alias.scope !678
   br label %88
 
 common.ret:                                       ; preds = %105, %62, %"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E.exit"
@@ -3902,7 +3902,7 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %16 = alloca { i8, [15 x i8] }, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %18 = load i8, ptr %17, align 8, !range !74, !noundef !21
-  switch i8 %18, label %default.unreachable107 [
+  switch i8 %18, label %default.unreachable106 [
     i8 0, label %23
     i8 1, label %50
     i8 2, label %51
@@ -3912,11 +3912,11 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val43.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !869
-  %.phi.trans.insert92 = getelementptr i8, ptr %1, i64 88
-  %.val44.pre = load ptr, ptr %.phi.trans.insert92, align 8, !alias.scope !869
+  %.phi.trans.insert91 = getelementptr i8, ptr %1, i64 88
+  %.val44.pre = load ptr, ptr %.phi.trans.insert91, align 8, !alias.scope !869
   br label %52
 
-default.unreachable107:                           ; preds = %3
+default.unreachable106:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i63", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i65"

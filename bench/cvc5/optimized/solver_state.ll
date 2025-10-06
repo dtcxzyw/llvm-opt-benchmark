@@ -2731,8 +2731,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72: ; preds = %_ZN4cvc58internal12
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %238, %232, %213, %240, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72
   %316 = phi ptr [ %226, %238 ], [ %226, %232 ], [ %214, %213 ], [ %226, %240 ], [ %298, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72 ]
   %317 = load ptr, ptr %4, align 8, !tbaa !13
-  %.not181 = icmp eq ptr %317, %316
-  br i1 %.not181, label %373, label %318
+  %.not180 = icmp eq ptr %317, %316
+  br i1 %.not180, label %373, label %318
 
 318:                                              ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %20)

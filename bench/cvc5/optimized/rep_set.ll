@@ -1099,7 +1099,7 @@ define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_
   br i1 %.not, label %_ZSt4findINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb1EEELb1ELb1EEES5_ET_S7_S7_RKT0_.exit, label %.lr.ph
 
 32:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %33 = add nuw i32 %.01321, 1
+  %33 = add nuw i32 %.01319, 1
   %34 = zext i32 %33 to i64
   %35 = load ptr, ptr %0, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -1120,7 +1120,7 @@ define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_
   br i1 %50, label %.lr.ph, label %_ZSt4findINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb1EEELb1ELb1EEES5_ET_S7_S7_RKT0_.exit, !llvm.loop !53
 
 .lr.ph:                                           ; preds = %.preheader, %32
-  %.01321 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
+  %.01319 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %51 = load ptr, ptr %0, align 8, !tbaa !23, !noalias !54
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -1132,7 +1132,7 @@ define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_
   %58 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %57), !noalias !54
   %59 = icmp eq i32 %58, 2
   %60 = zext i1 %59 to i32
-  %spec.select.i.i = add nsw i32 %.01321, %60
+  %spec.select.i.i = add nsw i32 %.01319, %60
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %62 = sext i32 %spec.select.i.i to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
@@ -1204,8 +1204,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %81, %85, %91
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   resume { ptr, i32 } %96
 
-_ZSt4findINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb1EEELb1ELb1EEES5_ET_S7_S7_RKT0_.exit: ; preds = %8, %32, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %.preheader, %.loopexit
-  %.0 = phi i1 [ true, %.loopexit ], [ false, %.preheader ], [ %80, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %80, %32 ], [ false, %8 ]
+_ZSt4findINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb1EEELb1ELb1EEES5_ET_S7_S7_RKT0_.exit: ; preds = %8, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %32, %.preheader, %.loopexit
+  %.0 = phi i1 [ true, %.loopexit ], [ false, %.preheader ], [ %80, %32 ], [ %80, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -3267,8 +3267,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !119
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !31

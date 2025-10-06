@@ -110,12 +110,11 @@ define noundef zeroext i1 @_ZN12ByteStreamBE14skip_to_markerEv(ptr noundef nonnu
   %17 = zext i32 %15 to i64
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !15
-  switch i8 %19, label %22 [
-    i8 -1, label %.critedge
-    i8 0, label %.critedge
-  ]
+  %.off = add i8 %19, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %22, label %.critedge
 
-.critedge:                                        ; preds = %9, %16, %16
+.critedge:                                        ; preds = %9, %16
   store i32 %15, ptr %2, align 4, !tbaa !6
   %20 = add i32 %10, 3
   %21 = icmp ugt i32 %20, %6
@@ -254,12 +253,11 @@ _ZN24LibRaw_LjpegDecompressor11next_markerEb.exit: ; preds = %21
   %41 = zext i32 %39 to i64
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !15
-  switch i8 %43, label %46 [
-    i8 -1, label %.critedge.i.i
-    i8 0, label %.critedge.i.i
-  ]
+  %.off.i.i = add i8 %43, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  br i1 %switch.i.i, label %46, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %40, %40, %33
+.critedge.i.i:                                    ; preds = %40, %33
   store i32 %39, ptr %10, align 4, !tbaa !6
   %44 = add i32 %34, 3
   %45 = icmp ugt i32 %44, %30
@@ -608,12 +606,11 @@ _ZN12ByteStreamBE6get_u8Ev.exit4:                 ; preds = %15
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !15
-  switch i8 %36, label %39 [
-    i8 -1, label %.critedge.i
-    i8 0, label %.critedge.i
-  ]
+  %.off.i = add i8 %36, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  br i1 %switch.i, label %39, label %.critedge.i
 
-.critedge.i:                                      ; preds = %33, %33, %26
+.critedge.i:                                      ; preds = %33, %26
   store i32 %32, ptr %3, align 4, !tbaa !6
   %37 = add i32 %27, 3
   %38 = icmp ugt i32 %37, %23

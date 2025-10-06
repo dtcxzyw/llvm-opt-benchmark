@@ -375,7 +375,7 @@ define void @dt_thumbtable_zoom_changed(ptr noundef captures(none) %0, i32 nound
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %17 = load i32, ptr %16, align 4, !tbaa !36
   %.not34.i = icmp eq i32 %17, 0
-  br i1 %.not34.i, label %.loopexit61.i, label %18
+  br i1 %.not34.i, label %.loopexit59.i, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -392,13 +392,13 @@ define void @dt_thumbtable_zoom_changed(ptr noundef captures(none) %0, i32 nound
   %29 = load i32, ptr %8, align 4, !tbaa !35
   %30 = sub nsw i32 %28, %29
   store i32 %30, ptr %8, align 4, !tbaa !35
-  %.02030.i.i = load ptr, ptr %11, align 8, !tbaa !21
-  %.not31.i.i = icmp eq ptr %.02030.i.i, null
-  br i1 %.not31.i.i, label %.loopexit61.i, label %.lr.ph.i.i
+  %.02033.i.i = load ptr, ptr %11, align 8, !tbaa !21
+  %.not34.i.i = icmp eq ptr %.02033.i.i, null
+  br i1 %.not34.i.i, label %.loopexit59.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %47
-  %.02032.i.i = phi ptr [ %.020.i.i, %47 ], [ %.02030.i.i, %18 ]
-  %31 = load ptr, ptr %.02032.i.i, align 8, !tbaa !23
+  %.02035.i.i = phi ptr [ %.020.i.i, %47 ], [ %.02033.i.i, %18 ]
+  %31 = load ptr, ptr %.02035.i.i, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !39
   %.not25.i.i = icmp sgt i32 %33, %26
@@ -425,33 +425,33 @@ define void @dt_thumbtable_zoom_changed(ptr noundef captures(none) %0, i32 nound
   br i1 %46, label %_thumb_get_at_pos.exit.i, label %47
 
 47:                                               ; preds = %42, %39, %34, %.lr.ph.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.02032.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02035.i.i, i64 8
   %.020.i.i = load ptr, ptr %48, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %.020.i.i, null
-  br i1 %.not.i.i, label %.loopexit61.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit59.i, label %.lr.ph.i.i
 
-.loopexit61.i:                                    ; preds = %47, %18, %15
+.loopexit59.i:                                    ; preds = %47, %18, %15
   %49 = call i32 (...) @dt_act_on_get_main_image() #14
   %50 = icmp slt i32 %49, 1
-  %.02030.i40.pre.i = load ptr, ptr %11, align 8, !tbaa !21
-  %.not17.i.i = icmp eq ptr %.02030.i40.pre.i, null
-  %or.cond.i = select i1 %50, i1 true, i1 %.not17.i.i
-  br i1 %or.cond.i, label %.loopexit59.i, label %.lr.ph.i38.i
+  %.02033.i40.pre.i = load ptr, ptr %11, align 8, !tbaa !21
+  %.not19.i.i = icmp eq ptr %.02033.i40.pre.i, null
+  %or.cond.i = select i1 %50, i1 true, i1 %.not19.i.i
+  br i1 %or.cond.i, label %.loopexit57.i, label %.lr.ph.i38.i
 
 51:                                               ; preds = %.lr.ph.i38.i
-  %52 = getelementptr inbounds nuw i8, ptr %.01318.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 8
   %.013.i.i = load ptr, ptr %52, align 8, !tbaa !21
   %.not.i39.i = icmp eq ptr %.013.i.i, null
-  br i1 %.not.i39.i, label %.loopexit59.i, label %.lr.ph.i38.i
+  br i1 %.not.i39.i, label %.loopexit57.i, label %.lr.ph.i38.i
 
-.lr.ph.i38.i:                                     ; preds = %.loopexit61.i, %51
-  %.01318.i.i = phi ptr [ %.013.i.i, %51 ], [ %.02030.i40.pre.i, %.loopexit61.i ]
-  %53 = load ptr, ptr %.01318.i.i, align 8, !tbaa !23
+.lr.ph.i38.i:                                     ; preds = %.loopexit59.i, %51
+  %.01320.i.i = phi ptr [ %.013.i.i, %51 ], [ %.02033.i40.pre.i, %.loopexit59.i ]
+  %53 = load ptr, ptr %.01320.i.i, align 8, !tbaa !23
   %54 = load i32, ptr %53, align 8, !tbaa !41
   %.not15.i.i = icmp eq i32 %54, %49
   br i1 %.not15.i.i, label %_thumb_get_at_pos.exit.sink.split.i, label %51
 
-.loopexit59.i:                                    ; preds = %51, %.loopexit61.i
+.loopexit57.i:                                    ; preds = %51, %.loopexit59.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i32, ptr %55, align 8, !tbaa !42
   %57 = sdiv i32 %56, 2
@@ -460,11 +460,11 @@ define void @dt_thumbtable_zoom_changed(ptr noundef captures(none) %0, i32 nound
   %59 = load i32, ptr %58, align 4, !tbaa !43
   %60 = sdiv i32 %59, 2
   store i32 %60, ptr %8, align 4, !tbaa !35
-  br i1 %.not17.i.i, label %.loopexit.i, label %.lr.ph.i42.i
+  br i1 %.not19.i.i, label %.loopexit.i, label %.lr.ph.i42.i
 
-.lr.ph.i42.i:                                     ; preds = %.loopexit59.i, %77
-  %.02032.i43.i = phi ptr [ %.020.i45.i, %77 ], [ %.02030.i40.pre.i, %.loopexit59.i ]
-  %61 = load ptr, ptr %.02032.i43.i, align 8, !tbaa !23
+.lr.ph.i42.i:                                     ; preds = %.loopexit57.i, %77
+  %.02035.i43.i = phi ptr [ %.020.i45.i, %77 ], [ %.02033.i40.pre.i, %.loopexit57.i ]
+  %61 = load ptr, ptr %.02035.i43.i, align 8, !tbaa !23
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !39
   %.not25.i44.i = icmp sgt i32 %63, %57
@@ -480,8 +480,8 @@ define void @dt_thumbtable_zoom_changed(ptr noundef captures(none) %0, i32 nound
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %71 = load i32, ptr %70, align 4, !tbaa !40
-  %.not26.i48.i = icmp sgt i32 %71, %60
-  br i1 %.not26.i48.i, label %77, label %72
+  %.not26.i47.i = icmp sgt i32 %71, %60
+  br i1 %.not26.i47.i, label %77, label %72
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 12
@@ -491,27 +491,27 @@ define void @dt_thumbtable_zoom_changed(ptr noundef captures(none) %0, i32 nound
   br i1 %76, label %_thumb_get_at_pos.exit.i, label %77
 
 77:                                               ; preds = %72, %69, %64, %.lr.ph.i42.i
-  %78 = getelementptr inbounds nuw i8, ptr %.02032.i43.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.02035.i43.i, i64 8
   %.020.i45.i = load ptr, ptr %78, align 8, !tbaa !21
   %.not.i46.i = icmp eq ptr %.020.i45.i, null
   br i1 %.not.i46.i, label %.loopexit.i, label %.lr.ph.i42.i
 
-.loopexit.i:                                      ; preds = %77, %.loopexit59.i
-  %79 = load ptr, ptr %.02030.i40.pre.i, align 8, !tbaa !23
+.loopexit.i:                                      ; preds = %77, %.loopexit57.i
+  %79 = load ptr, ptr %.02033.i40.pre.i, align 8, !tbaa !23
   br label %_thumb_get_at_pos.exit.sink.split.i
 
 _thumb_get_at_pos.exit.sink.split.i:              ; preds = %.lr.ph.i38.i, %.loopexit.i
-  %.lcssa84.sink97.i = phi ptr [ %79, %.loopexit.i ], [ %53, %.lr.ph.i38.i ]
-  %80 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 16
+  %.lcssa82.sink95.i = phi ptr [ %79, %.loopexit.i ], [ %53, %.lr.ph.i38.i ]
+  %80 = getelementptr inbounds nuw i8, ptr %.lcssa82.sink95.i, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !39
-  %82 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.lcssa82.sink95.i, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !31
   %84 = sdiv i32 %83, 2
   %85 = add nsw i32 %84, %81
   store i32 %85, ptr %7, align 4, !tbaa !35
-  %86 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %.lcssa82.sink95.i, i64 20
   %87 = load i32, ptr %86, align 4, !tbaa !40
-  %88 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %.lcssa82.sink95.i, i64 12
   %89 = load i32, ptr %88, align 4, !tbaa !32
   %90 = sdiv i32 %89, 2
   %91 = add nsw i32 %90, %87
@@ -521,7 +521,7 @@ _thumb_get_at_pos.exit.sink.split.i:              ; preds = %.lr.ph.i38.i, %.loo
 _thumb_get_at_pos.exit.i:                         ; preds = %42, %72, %_thumb_get_at_pos.exit.sink.split.i
   %92 = phi i32 [ %85, %_thumb_get_at_pos.exit.sink.split.i ], [ %57, %72 ], [ %26, %42 ]
   %93 = phi i32 [ %91, %_thumb_get_at_pos.exit.sink.split.i ], [ %60, %72 ], [ %30, %42 ]
-  %.1.i = phi ptr [ %.lcssa84.sink97.i, %_thumb_get_at_pos.exit.sink.split.i ], [ %61, %72 ], [ %31, %42 ]
+  %.1.i = phi ptr [ %.lcssa82.sink95.i, %_thumb_get_at_pos.exit.sink.split.i ], [ %61, %72 ], [ %31, %42 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %95 = load i32, ptr %94, align 8, !tbaa !42
   %96 = sdiv i32 %95, %2
@@ -1455,33 +1455,33 @@ define internal void @_event_dnd_get(ptr readnone captures(none) %0, ptr readnon
 
 28:                                               ; preds = %27, %21
   %.059 = phi i32 [ 1, %27 ], [ 0, %21 ]
-  %.not7585 = icmp eq ptr %22, null
-  br i1 %.not7585, label %.thread, label %.lr.ph89
+  %.not7584 = icmp eq ptr %22, null
+  br i1 %.not7584, label %.thread, label %.lr.ph88
 
-.lr.ph89:                                         ; preds = %28, %37
-  %.05687 = phi ptr [ %39, %37 ], [ %22, %28 ]
-  %.16086 = phi i32 [ %.2, %37 ], [ %.059, %28 ]
-  %29 = load ptr, ptr %.05687, align 8, !tbaa !23
+.lr.ph88:                                         ; preds = %28, %37
+  %.05686 = phi ptr [ %39, %37 ], [ %22, %28 ]
+  %.16085 = phi i32 [ %.2, %37 ], [ %.059, %28 ]
+  %29 = load ptr, ptr %.05686, align 8, !tbaa !23
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i32
   %32 = load i32, ptr %19, align 4, !tbaa !35
   %.not76 = icmp eq i32 %32, %31
   br i1 %.not76, label %37, label %33
 
-33:                                               ; preds = %.lr.ph89
-  %34 = sext i32 %.16086 to i64
+33:                                               ; preds = %.lr.ph88
+  %34 = sext i32 %.16085 to i64
   %35 = getelementptr inbounds i32, ptr %19, i64 %34
   store i32 %31, ptr %35, align 4, !tbaa !35
-  %36 = add nsw i32 %.16086, 1
+  %36 = add nsw i32 %.16085, 1
   %.not77 = icmp slt i32 %36, %16
   br i1 %.not77, label %37, label %.thread
 
-37:                                               ; preds = %.lr.ph89, %33
-  %.2 = phi i32 [ %36, %33 ], [ %.16086, %.lr.ph89 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.05687, i64 8
+37:                                               ; preds = %.lr.ph88, %33
+  %.2 = phi i32 [ %36, %33 ], [ %.16085, %.lr.ph88 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.05686, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !85
   %.not75 = icmp eq ptr %39, null
-  br i1 %.not75, label %.thread, label %.lr.ph89
+  br i1 %.not75, label %.thread, label %.lr.ph88
 
 .thread:                                          ; preds = %37, %33, %28
   %40 = tail call ptr @gtk_selection_data_get_target(ptr noundef nonnull %2) #14
@@ -1519,9 +1519,9 @@ define internal void @_event_dnd_get(ptr readnone captures(none) %0, ptr readnon
   br label %66
 
 .lr.ph:                                           ; preds = %43, %.lr.ph
-  %.05884 = phi ptr [ %58, %.lr.ph ], [ null, %43 ]
-  %.06183 = phi ptr [ %60, %.lr.ph ], [ %14, %43 ]
-  %54 = load ptr, ptr %.06183, align 8, !tbaa !23
+  %.05883 = phi ptr [ %58, %.lr.ph ], [ null, %43 ]
+  %.06182 = phi ptr [ %60, %.lr.ph ], [ %14, %43 ]
+  %54 = load ptr, ptr %.06182, align 8, !tbaa !23
   %55 = ptrtoint ptr %54 to i64
   %56 = trunc i64 %55 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1530,10 +1530,10 @@ define internal void @_event_dnd_get(ptr readnone captures(none) %0, ptr readnon
   store i32 1, ptr %10, align 4, !tbaa !35
   call void @dt_image_full_path(i32 noundef %56, ptr noundef nonnull %9, i64 noundef 4096, ptr noundef nonnull %10) #14
   %57 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.64, ptr noundef nonnull %9) #14
-  %58 = call ptr @g_list_prepend(ptr noundef %.05884, ptr noundef %57) #14
+  %58 = call ptr @g_list_prepend(ptr noundef %.05883, ptr noundef %57) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %59 = getelementptr inbounds nuw i8, ptr %.06183, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.06182, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !85
   %.not72 = icmp eq ptr %60, null
   br i1 %.not72, label %._crit_edge, label %.lr.ph
@@ -1647,10 +1647,10 @@ define internal noundef i32 @_event_scroll(ptr readnone captures(none) %0, ptr n
   %52 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
   %53 = or i32 %52, %50
   %54 = and i32 %53, %51
-  %.not52 = icmp eq i32 %54, 4
+  %.not51 = icmp eq i32 %54, 4
   %.pr = load i32, ptr %2, align 8, !tbaa !6
   %55 = icmp eq i32 %.pr, 2
-  br i1 %.not52, label %56, label %113
+  br i1 %.not51, label %56, label %113
 
 56:                                               ; preds = %48
   br i1 %55, label %57, label %.thread
@@ -1740,8 +1740,8 @@ define internal noundef i32 @_event_scroll(ptr readnone captures(none) %0, ptr n
   %120 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !35
   %121 = or i32 %120, %118
   %122 = and i32 %121, %119
-  %.not53 = icmp eq i32 %122, 1
-  br i1 %.not53, label %123, label %129
+  %.not52 = icmp eq i32 %122, 1
+  br i1 %.not52, label %123, label %129
 
 123:                                              ; preds = %114
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -1784,13 +1784,13 @@ define internal noundef i32 @_event_scroll(ptr readnone captures(none) %0, ptr n
   %150 = load i32, ptr %5, align 4, !tbaa !35
   %151 = sub nsw i32 %149, %150
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.02030.i.i = load ptr, ptr %152, align 8, !tbaa !21
-  %.not31.i.i = icmp eq ptr %.02030.i.i, null
-  br i1 %.not31.i.i, label %_thumb_get_under_mouse.exit.thread49, label %.lr.ph.i.i
+  %.02033.i.i = load ptr, ptr %152, align 8, !tbaa !21
+  %.not34.i.i = icmp eq ptr %.02033.i.i, null
+  br i1 %.not34.i.i, label %_thumb_get_under_mouse.exit.thread49, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %139, %169
-  %.02032.i.i = phi ptr [ %.020.i.i, %169 ], [ %.02030.i.i, %139 ]
-  %153 = load ptr, ptr %.02032.i.i, align 8, !tbaa !23
+  %.02035.i.i = phi ptr [ %.020.i.i, %169 ], [ %.02033.i.i, %139 ]
+  %153 = load ptr, ptr %.02035.i.i, align 8, !tbaa !23
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load i32, ptr %154, align 8, !tbaa !39
   %.not25.i.i = icmp sgt i32 %155, %147
@@ -1817,7 +1817,7 @@ define internal noundef i32 @_event_scroll(ptr readnone captures(none) %0, ptr n
   br i1 %168, label %171, label %169
 
 169:                                              ; preds = %164, %161, %156, %.lr.ph.i.i
-  %170 = getelementptr inbounds nuw i8, ptr %.02032.i.i, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %.02035.i.i, i64 8
   %.020.i.i = load ptr, ptr %170, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %.020.i.i, null
   br i1 %.not.i.i, label %_thumb_get_under_mouse.exit.thread49, label %.lr.ph.i.i
@@ -2366,19 +2366,19 @@ thread-pre-split:                                 ; preds = %18, %15
 
 119:                                              ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.01316.i = load ptr, ptr %120, align 8, !tbaa !21
-  %.not17.i = icmp eq ptr %.01316.i, null
-  br i1 %.not17.i, label %_thumbtable_get_thumb.exit.thread, label %.lr.ph.i
+  %.01318.i = load ptr, ptr %120, align 8, !tbaa !21
+  %.not19.i = icmp eq ptr %.01318.i, null
+  br i1 %.not19.i, label %_thumbtable_get_thumb.exit.thread, label %.lr.ph.i
 
 121:                                              ; preds = %.lr.ph.i
-  %122 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.01320.i, i64 8
   %.013.i = load ptr, ptr %122, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.013.i, null
   br i1 %.not.i, label %_thumbtable_get_thumb.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %119, %121
-  %.01318.i = phi ptr [ %.013.i, %121 ], [ %.01316.i, %119 ]
-  %123 = load ptr, ptr %.01318.i, align 8, !tbaa !23
+  %.01320.i = phi ptr [ %.013.i, %121 ], [ %.01318.i, %119 ]
+  %123 = load ptr, ptr %.01320.i, align 8, !tbaa !23
   %124 = load i32, ptr %123, align 8, !tbaa !41
   %.not15.i = icmp eq i32 %124, %4
   br i1 %.not15.i, label %126, label %121
@@ -4885,19 +4885,19 @@ dt_thumbtable_ensure_imgid_visibility.exit:       ; preds = %339, %345, %347, %3
   br i1 %366, label %367, label %_thumbtable_get_thumb.exit.thread
 
 367:                                              ; preds = %.lr.ph239
-  %.01316.i = load ptr, ptr %179, align 8, !tbaa !21
-  %.not17.i = icmp eq ptr %.01316.i, null
-  br i1 %.not17.i, label %_thumbtable_get_thumb.exit.thread, label %.lr.ph.i
+  %.01318.i = load ptr, ptr %179, align 8, !tbaa !21
+  %.not19.i = icmp eq ptr %.01318.i, null
+  br i1 %.not19.i, label %_thumbtable_get_thumb.exit.thread, label %.lr.ph.i
 
 368:                                              ; preds = %.lr.ph.i
-  %369 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %.01320.i, i64 8
   %.013.i = load ptr, ptr %369, align 8, !tbaa !21
   %.not.i204 = icmp eq ptr %.013.i, null
   br i1 %.not.i204, label %_thumbtable_get_thumb.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %367, %368
-  %.01318.i = phi ptr [ %.013.i, %368 ], [ %.01316.i, %367 ]
-  %370 = load ptr, ptr %.01318.i, align 8, !tbaa !23
+  %.01320.i = phi ptr [ %.013.i, %368 ], [ %.01318.i, %367 ]
+  %370 = load ptr, ptr %.01320.i, align 8, !tbaa !23
   %371 = load i32, ptr %370, align 8, !tbaa !41
   %.not15.i = icmp eq i32 %371, %365
   br i1 %.not15.i, label %_thumbtable_get_thumb.exit, label %368
@@ -6273,13 +6273,13 @@ define range(i32 0, 2) i32 @dt_thumbtable_key_move(ptr noundef captures(none) %0
   %177 = load i32, ptr %5, align 4, !tbaa !35
   %178 = sub nsw i32 %176, %177
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.02030.i.i.i = load ptr, ptr %179, align 8, !tbaa !21
-  %.not31.i.i.i = icmp eq ptr %.02030.i.i.i, null
-  br i1 %.not31.i.i.i, label %_thumb_get_under_mouse.exit.thread69.i, label %.lr.ph.i.i.i
+  %.02033.i.i.i = load ptr, ptr %179, align 8, !tbaa !21
+  %.not34.i.i.i = icmp eq ptr %.02033.i.i.i, null
+  br i1 %.not34.i.i.i, label %_thumb_get_under_mouse.exit.thread69.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %166, %196
-  %.02032.i.i.i = phi ptr [ %.020.i.i.i, %196 ], [ %.02030.i.i.i, %166 ]
-  %180 = load ptr, ptr %.02032.i.i.i, align 8, !tbaa !23
+  %.02035.i.i.i = phi ptr [ %.020.i.i.i, %196 ], [ %.02033.i.i.i, %166 ]
+  %180 = load ptr, ptr %.02035.i.i.i, align 8, !tbaa !23
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load i32, ptr %181, align 8, !tbaa !39
   %.not25.i.i.i = icmp sgt i32 %182, %174
@@ -6306,7 +6306,7 @@ define range(i32 0, 2) i32 @dt_thumbtable_key_move(ptr noundef captures(none) %0
   br i1 %195, label %198, label %196
 
 196:                                              ; preds = %191, %188, %183, %.lr.ph.i.i.i
-  %197 = getelementptr inbounds nuw i8, ptr %.02032.i.i.i, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %.02035.i.i.i, i64 8
   %.020.i.i.i = load ptr, ptr %197, align 8, !tbaa !21
   %.not.i.i.i = icmp eq ptr %.020.i.i.i, null
   br i1 %.not.i.i.i, label %_thumb_get_under_mouse.exit.thread69.i, label %.lr.ph.i.i.i
@@ -7169,13 +7169,13 @@ define internal noundef i32 @_event_scroll_compressed(ptr noundef captures(addre
   %44 = load i32, ptr %3, align 4, !tbaa !35
   %45 = sub nsw i32 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.02030.i.i = load ptr, ptr %46, align 8, !tbaa !21
-  %.not31.i.i = icmp eq ptr %.02030.i.i, null
-  br i1 %.not31.i.i, label %_thumb_get_under_mouse.exit.thread32, label %.lr.ph.i.i
+  %.02033.i.i = load ptr, ptr %46, align 8, !tbaa !21
+  %.not34.i.i = icmp eq ptr %.02033.i.i, null
+  br i1 %.not34.i.i, label %_thumb_get_under_mouse.exit.thread32, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %33, %63
-  %.02032.i.i = phi ptr [ %.020.i.i, %63 ], [ %.02030.i.i, %33 ]
-  %47 = load ptr, ptr %.02032.i.i, align 8, !tbaa !23
+  %.02035.i.i = phi ptr [ %.020.i.i, %63 ], [ %.02033.i.i, %33 ]
+  %47 = load ptr, ptr %.02035.i.i, align 8, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !39
   %.not25.i.i = icmp sgt i32 %49, %41
@@ -7202,7 +7202,7 @@ define internal noundef i32 @_event_scroll_compressed(ptr noundef captures(addre
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %58, %55, %50, %.lr.ph.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %.02032.i.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.02035.i.i, i64 8
   %.020.i.i = load ptr, ptr %64, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %.020.i.i, null
   br i1 %.not.i.i, label %_thumb_get_under_mouse.exit.thread32, label %.lr.ph.i.i

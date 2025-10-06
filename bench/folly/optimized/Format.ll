@@ -2565,17 +2565,17 @@ _ZNK5folly9FormatArg7enforceIbJRA26_KcEEEvRKT_DpOT0_.exit._crit_edge: ; preds = 
   store i8 1, ptr %128, align 8, !alias.scope !109
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !96
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not13.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
-  br i1 %.not13.i.i.i.i.i, label %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit, label %.lr.ph.i.i.i.i.i
+  %.not14.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
+  br i1 %.not14.i.i.i.i.i, label %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit, label %.lr.ph.i.i.i.i.i
 
 129:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %130 = getelementptr inbounds nuw i8, ptr %.01114.i.i.i.i.i, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %.01115.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %130, %.sroa.2.0.copyload.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %127, %129
-  %.01114.i.i.i.i.i = phi ptr [ %130, %129 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i, %127 ]
-  %131 = load i8, ptr %.01114.i.i.i.i.i, align 1, !tbaa !47
+  %.01115.i.i.i.i.i = phi ptr [ %130, %129 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i, %127 ]
+  %131 = load i8, ptr %.01115.i.i.i.i.i, align 1, !tbaa !47
   %132 = sext i8 %131 to i32
   %133 = call i32 @isspace(i32 noundef %132) #30
   %.not12.not.i.i.i.i.i = icmp eq i32 %133, 0
@@ -2712,17 +2712,17 @@ define internal fastcc noundef i32 @"_ZZN5folly9FormatArg8initSlowEvENK3$_0clEv"
   store i8 1, ptr %20, align 8, !alias.scope !128
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !115
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not13.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
-  br i1 %.not13.i.i.i.i.i, label %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit, label %.lr.ph.i.i.i.i.i
+  %.not14.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
+  br i1 %.not14.i.i.i.i.i, label %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit, label %.lr.ph.i.i.i.i.i
 
 21:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.01114.i.i.i.i.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01115.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %22, %.sroa.2.0.copyload.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %21
-  %.01114.i.i.i.i.i = phi ptr [ %22, %21 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i, %19 ]
-  %23 = load i8, ptr %.01114.i.i.i.i.i, align 1, !tbaa !47
+  %.01115.i.i.i.i.i = phi ptr [ %22, %21 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i, %19 ]
+  %23 = load i8, ptr %.01115.i.i.i.i.i, align 1, !tbaa !47
   %24 = sext i8 %23 to i32
   %25 = call i32 @isspace(i32 noundef %24) #30
   %.not12.not.i.i.i.i.i = icmp eq i32 %25, 0

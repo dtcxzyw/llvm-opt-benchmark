@@ -564,8 +564,8 @@ define hidden void @_ZN12tracing_core5field8FieldSet9value_set17h658e1a651f96ceb
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN137_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17ha3343557342c9754E"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %3 = icmp samesign ugt i64 %2, 2
-  br i1 %3, label %10, label %switch.lookup
+  %3 = icmp samesign ult i64 %2, 3
+  br i1 %3, label %switch.lookup, label %10
 
 switch.lookup:                                    ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208

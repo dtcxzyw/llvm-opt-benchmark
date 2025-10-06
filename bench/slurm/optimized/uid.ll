@@ -171,8 +171,8 @@ define dso_local range(i32 -1, 1) i32 @uid_from_string(ptr noundef %0, ptr nound
   %17 = icmp eq i32 %16, 0
   %18 = load ptr, ptr %8, align 8
   %19 = icmp ne ptr %18, null
-  %or.cond59 = select i1 %17, i1 %19, i1 false
-  br i1 %or.cond59, label %.loopexit, label %.lr.ph
+  %or.cond57 = select i1 %17, i1 %19, i1 false
+  br i1 %or.cond57, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %34
   %20 = phi i32 [ %37, %34 ], [ %16, %14 ]
@@ -226,10 +226,10 @@ define dso_local range(i32 -1, 1) i32 @uid_from_string(ptr noundef %0, ptr nound
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %34, %14
-  %.lcssa56 = phi i64 [ 65536, %14 ], [ %35, %34 ]
+  %.lcssa54 = phi i64 [ 65536, %14 ], [ %35, %34 ]
   %.lcssa = phi ptr [ %9, %14 ], [ %36, %34 ]
   store ptr %.lcssa, ptr %12, align 8
-  store i64 %.lcssa56, ptr %11, align 8
+  store i64 %.lcssa54, ptr %11, align 8
   br label %41
 
 41:                                               ; preds = %.loopexit, %33
@@ -743,13 +743,13 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
   %15 = icmp eq i32 %14, 0
   %16 = load ptr, ptr %8, align 8
   %17 = icmp ne ptr %16, null
-  %or.cond117 = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond117, label %.loopexit101, label %.lr.ph
+  %or.cond112 = select i1 %15, i1 %17, i1 false
+  br i1 %or.cond112, label %.loopexit96, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %30
   %18 = phi i32 [ %31, %30 ], [ %14, %12 ]
-  %.069119 = phi ptr [ %.1, %30 ], [ %9, %12 ]
-  %.072118 = phi i64 [ %.173, %30 ], [ 65536, %12 ]
+  %.069114 = phi ptr [ %.1, %30 ], [ %9, %12 ]
+  %.072113 = phi i64 [ %.173, %30 ], [ 65536, %12 ]
   switch i32 %18, label %26 [
     i32 4, label %30
     i32 34, label %19
@@ -761,7 +761,7 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
   ]
 
 19:                                               ; preds = %.lr.ph
-  %20 = shl i64 %.072118, 1
+  %20 = shl i64 %.072113, 1
   %21 = call ptr @slurm_xrecalloc(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.gid_from_string) #10
   br label %30, !llvm.loop !14
 
@@ -781,35 +781,35 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
 
 29:                                               ; preds = %22, %25, %26
   store ptr null, ptr %8, align 8
-  br label %.loopexit101
+  br label %.loopexit96
 
 30:                                               ; preds = %.lr.ph, %19
-  %.173 = phi i64 [ %20, %19 ], [ %.072118, %.lr.ph ]
-  %.1 = phi ptr [ %21, %19 ], [ %.069119, %.lr.ph ]
+  %.173 = phi i64 [ %20, %19 ], [ %.072113, %.lr.ph ]
+  %.1 = phi ptr [ %21, %19 ], [ %.069114, %.lr.ph ]
   %31 = call i32 @getgrnam_r(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %.1, i64 noundef %.173, ptr noundef nonnull %8) #10
   %32 = icmp eq i32 %31, 0
   %33 = load ptr, ptr %8, align 8
   %34 = icmp ne ptr %33, null
   %or.cond = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond, label %.loopexit101, label %.lr.ph
+  br i1 %or.cond, label %.loopexit96, label %.lr.ph
 
-.loopexit101:                                     ; preds = %30, %12, %29
-  %.072115 = phi i64 [ %.072118, %29 ], [ 65536, %12 ], [ %.173, %30 ]
-  %.069111 = phi ptr [ %.069119, %29 ], [ %9, %12 ], [ %.1, %30 ]
+.loopexit96:                                      ; preds = %30, %12, %29
+  %.072110 = phi i64 [ %.072113, %29 ], [ 65536, %12 ], [ %.173, %30 ]
+  %.069106 = phi ptr [ %.069114, %29 ], [ %9, %12 ], [ %.1, %30 ]
   %35 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #10
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @.str.13, i64 noundef 0, ptr noundef nonnull %6) #10
   %36 = load ptr, ptr %8, align 8
   %.not82 = icmp eq ptr %36, null
   br i1 %.not82, label %40, label %37
 
-37:                                               ; preds = %.loopexit101
+37:                                               ; preds = %.loopexit96
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load i32, ptr %38, align 8
   store i32 %39, ptr %1, align 4
   call void @slurm_xfree(ptr noundef nonnull %10) #10
   br label %81
 
-40:                                               ; preds = %.loopexit101
+40:                                               ; preds = %.loopexit96
   %41 = tail call ptr @__errno_location() #11
   store i32 0, ptr %41, align 4
   %42 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 10) #10
@@ -839,17 +839,17 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
 54:                                               ; preds = %49
   %55 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #10
   %56 = trunc nuw nsw i64 %42 to i32
-  %57 = call i32 @getgrgid_r(i32 noundef %56, ptr noundef nonnull %7, ptr noundef %.069111, i64 noundef %.072115, ptr noundef nonnull %8) #10
+  %57 = call i32 @getgrgid_r(i32 noundef %56, ptr noundef nonnull %7, ptr noundef %.069106, i64 noundef %.072110, ptr noundef nonnull %8) #10
   %58 = icmp eq i32 %57, 0
   %59 = load ptr, ptr %8, align 8
   %60 = icmp ne ptr %59, null
-  %or.cond17121 = select i1 %58, i1 %60, i1 false
-  br i1 %or.cond17121, label %.loopexit, label %.lr.ph124
+  %or.cond17116 = select i1 %58, i1 %60, i1 false
+  br i1 %or.cond17116, label %.loopexit, label %.lr.ph119
 
-.lr.ph124:                                        ; preds = %54, %73
+.lr.ph119:                                        ; preds = %54, %73
   %61 = phi i32 [ %74, %73 ], [ %57, %54 ]
-  %.2123 = phi ptr [ %.3, %73 ], [ %.069111, %54 ]
-  %.274122 = phi i64 [ %.375, %73 ], [ %.072115, %54 ]
+  %.2118 = phi ptr [ %.3, %73 ], [ %.069106, %54 ]
+  %.274117 = phi i64 [ %.375, %73 ], [ %.072110, %54 ]
   switch i32 %61, label %69 [
     i32 4, label %73
     i32 34, label %62
@@ -860,12 +860,12 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
     i32 0, label %65
   ]
 
-62:                                               ; preds = %.lr.ph124
-  %63 = shl i64 %.274122, 1
+62:                                               ; preds = %.lr.ph119
+  %63 = shl i64 %.274117, 1
   %64 = call ptr @slurm_xrecalloc(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %63, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 372, ptr noundef nonnull @__func__.gid_from_string) #10
   br label %73, !llvm.loop !15
 
-65:                                               ; preds = %.lr.ph124, %.lr.ph124, %.lr.ph124, %.lr.ph124, %.lr.ph124
+65:                                               ; preds = %.lr.ph119, %.lr.ph119, %.lr.ph119, %.lr.ph119, %.lr.ph119
   %66 = call i32 @get_log_level() #10
   %67 = icmp sgt i32 %66, 5
   br i1 %67, label %68, label %72
@@ -874,7 +874,7 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.gid_from_string, i64 noundef %42) #10
   br label %72
 
-69:                                               ; preds = %.lr.ph124
+69:                                               ; preds = %.lr.ph119
   %70 = call ptr @slurm_strerror(i32 noundef %61) #10
   %71 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.gid_from_string, i64 noundef %42, ptr noundef %70) #10
   br label %72
@@ -883,15 +883,15 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
   store ptr null, ptr %8, align 8
   br label %.loopexit
 
-73:                                               ; preds = %.lr.ph124, %62
-  %.375 = phi i64 [ %63, %62 ], [ %.274122, %.lr.ph124 ]
-  %.3 = phi ptr [ %64, %62 ], [ %.2123, %.lr.ph124 ]
+73:                                               ; preds = %.lr.ph119, %62
+  %.375 = phi i64 [ %63, %62 ], [ %.274117, %.lr.ph119 ]
+  %.3 = phi ptr [ %64, %62 ], [ %.2118, %.lr.ph119 ]
   %74 = call i32 @getgrgid_r(i32 noundef %56, ptr noundef nonnull %7, ptr noundef %.3, i64 noundef %.375, ptr noundef nonnull %8) #10
   %75 = icmp eq i32 %74, 0
   %76 = load ptr, ptr %8, align 8
   %77 = icmp ne ptr %76, null
   %or.cond17 = select i1 %75, i1 %77, i1 false
-  br i1 %or.cond17, label %.loopexit, label %.lr.ph124
+  br i1 %or.cond17, label %.loopexit, label %.lr.ph119
 
 .loopexit:                                        ; preds = %73, %54, %72
   %78 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #10
@@ -964,13 +964,13 @@ define dso_local ptr @gid_to_string_or_null(i32 noundef %0) local_unnamed_addr #
   %12 = icmp eq i32 %11, 0
   %13 = load ptr, ptr %7, align 8
   %14 = icmp ne ptr %13, null
-  %or.cond39 = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond39, label %.loopexit, label %.lr.ph
+  %or.cond37 = select i1 %12, i1 %14, i1 false
+  br i1 %or.cond37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %27
   %15 = phi i32 [ %28, %27 ], [ %11, %1 ]
-  %.02641 = phi i64 [ %.1, %27 ], [ 65536, %1 ]
-  %.02840 = phi ptr [ %.129, %27 ], [ %8, %1 ]
+  %.02639 = phi i64 [ %.1, %27 ], [ 65536, %1 ]
+  %.02838 = phi ptr [ %.129, %27 ], [ %8, %1 ]
   switch i32 %15, label %23 [
     i32 4, label %27
     i32 34, label %16
@@ -982,7 +982,7 @@ define dso_local ptr @gid_to_string_or_null(i32 noundef %0) local_unnamed_addr #
   ]
 
 16:                                               ; preds = %.lr.ph
-  %17 = shl i64 %.02641, 1
+  %17 = shl i64 %.02639, 1
   %18 = call ptr @slurm_xrecalloc(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %17, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 432, ptr noundef nonnull @__func__.gid_to_string_or_null) #10
   br label %27, !llvm.loop !16
 
@@ -1005,8 +1005,8 @@ define dso_local ptr @gid_to_string_or_null(i32 noundef %0) local_unnamed_addr #
   br label %.loopexit
 
 27:                                               ; preds = %.lr.ph, %16
-  %.129 = phi ptr [ %18, %16 ], [ %.02840, %.lr.ph ]
-  %.1 = phi i64 [ %17, %16 ], [ %.02641, %.lr.ph ]
+  %.129 = phi ptr [ %18, %16 ], [ %.02838, %.lr.ph ]
+  %.1 = phi i64 [ %17, %16 ], [ %.02639, %.lr.ph ]
   %28 = call i32 @getgrgid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef %.129, i64 noundef %.1, ptr noundef nonnull %7) #10
   %29 = icmp eq i32 %28, 0
   %30 = load ptr, ptr %7, align 8

@@ -3918,7 +3918,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %7 = tail call ptr (ptr, ptr, ptr, ...) @worktree_git_path(ptr noundef %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.159) #18
   %8 = tail call i32 @is_directory(ptr noundef %7) #18
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %.critedge27
+  br i1 %.not, label %9, label %.critedge
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @the_repository, align 8, !tbaa !17
@@ -3926,13 +3926,13 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %12 = tail call ptr @get_worktree_git_dir(ptr noundef nonnull %0) #18
   %13 = call i32 @read_index_from(ptr noundef nonnull %2, ptr noundef %11, ptr noundef %12) #18
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.preheader, label %.loopexit.loopexit
+  br i1 %14, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !107
-  %.not24 = icmp eq i32 %16, 0
-  br i1 %.not24, label %.loopexit.loopexit, label %.lr.ph
+  %.not18 = icmp eq i32 %16, 0
+  br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3940,9 +3940,9 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
-20:                                               ; preds = %.lr.ph, %37
-  %21 = phi i32 [ %16, %.lr.ph ], [ %38, %37 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+20:                                               ; preds = %.lr.ph, %select.unfold
+  %21 = phi i32 [ %16, %.lr.ph ], [ %37, %select.unfold ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %22 = load ptr, ptr %2, align 8, !tbaa !108
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !109
@@ -3951,56 +3951,56 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %26 = load i32, ptr %25, align 4, !tbaa !38
   %27 = and i32 %26, 61440
   %28 = icmp eq i32 %27, 57344
-  br i1 %28, label %29, label %.thread
-
-.thread:                                          ; preds = %20
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %37
+  br i1 %28, label %29, label %select.unfold
 
 29:                                               ; preds = %20
   store i64 0, ptr %17, align 8, !tbaa !60
   %30 = load ptr, ptr %18, align 8, !tbaa !50
   %.not9.i = icmp eq ptr %30, @strbuf_slopbuf
-  br i1 %.not9.i, label %32, label %31
+  br i1 %.not9.i, label %strbuf_setlen.exit, label %31
 
 31:                                               ; preds = %29
   store i8 0, ptr %30, align 1, !tbaa !53
-  br label %32
+  br label %strbuf_setlen.exit
 
-32:                                               ; preds = %31, %29
-  %33 = load ptr, ptr %19, align 8, !tbaa !83
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 108
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.161, ptr noundef %33, ptr noundef nonnull %34) #18
-  %35 = load ptr, ptr %18, align 8, !tbaa !50
-  %36 = call i32 @is_submodule_populated_gently(ptr noundef %35, ptr noundef nonnull %4) #18
-  %.not12 = icmp eq i32 %36, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not12, label %._crit_edge, label %.critedge27
+strbuf_setlen.exit:                               ; preds = %29, %31
+  %32 = load ptr, ptr %19, align 8, !tbaa !83
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 108
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.161, ptr noundef %32, ptr noundef nonnull %33) #18
+  %34 = load ptr, ptr %18, align 8, !tbaa !50
+  %35 = call i32 @is_submodule_populated_gently(ptr noundef %34, ptr noundef nonnull %4) #18
+  %.not12 = icmp eq i32 %35, 0
+  br i1 %.not12, label %strbuf_setlen.exit.select.unfold_crit_edge, label %36
 
-._crit_edge:                                      ; preds = %32
+strbuf_setlen.exit.select.unfold_crit_edge:       ; preds = %strbuf_setlen.exit
   %.pre = load i32, ptr %15, align 4, !tbaa !107
-  br label %37
+  br label %select.unfold
 
-37:                                               ; preds = %._crit_edge, %.thread
-  %38 = phi i32 [ %21, %.thread ], [ %.pre, %._crit_edge ]
+36:                                               ; preds = %strbuf_setlen.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %.critedge
+
+select.unfold:                                    ; preds = %strbuf_setlen.exit.select.unfold_crit_edge, %20
+  %37 = phi i32 [ %.pre, %strbuf_setlen.exit.select.unfold_crit_edge ], [ %21, %20 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = zext i32 %38 to i64
-  %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %20, label %.loopexit.loopexit, !llvm.loop !111
+  %38 = zext i32 %37 to i64
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
+  br i1 %39, label %20, label %.loopexit, !llvm.loop !111
 
-.critedge27:                                      ; preds = %32, %1
-  call void @discard_index(ptr noundef nonnull %2) #18
-  call void @strbuf_release(ptr noundef nonnull %3) #18
-  %41 = call fastcc ptr @_(ptr noundef nonnull @.str.162)
-  call void (ptr, ...) @die(ptr noundef %41) #19
-  unreachable
-
-.loopexit.loopexit:                               ; preds = %37, %9, %.preheader
+.loopexit:                                        ; preds = %select.unfold, %.preheader, %9
   call void @discard_index(ptr noundef nonnull %2) #18
   call void @strbuf_release(ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
+
+.critedge:                                        ; preds = %1, %36
+  call void @discard_index(ptr noundef nonnull %2) #18
+  call void @strbuf_release(ptr noundef nonnull %3) #18
+  %40 = call fastcc ptr @_(ptr noundef nonnull @.str.162)
+  call void (ptr, ...) @die(ptr noundef %40) #19
+  unreachable
 }
 
 declare i32 @validate_worktree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

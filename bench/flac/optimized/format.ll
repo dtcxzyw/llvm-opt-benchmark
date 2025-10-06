@@ -351,10 +351,10 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr 
 
 5:                                                ; preds = %.preheader
   %6 = tail call fastcc i32 @utf8len_(ptr noundef nonnull %.019)
-  %.not35 = icmp eq i32 %6, 0
+  %.not33 = icmp eq i32 %6, 0
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %.019, i64 %7
-  br i1 %.not35, label %.loopexit, label %.preheader
+  br i1 %.not33, label %.loopexit, label %.preheader
 
 9:                                                ; preds = %2
   %10 = zext i32 %1 to i64

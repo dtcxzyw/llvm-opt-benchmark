@@ -99,10 +99,9 @@ os_pages_unmap.exit:                              ; preds = %15, %25
   %39 = load i32, ptr @mmap_flags, align 4, !tbaa !3
   %40 = call ptr @mmap(ptr noundef null, i64 noundef %28, i32 noundef %38, i32 noundef %39, i32 noundef -1, i64 noundef 0) #10
   %magicptr.i = ptrtoint ptr %40 to i64
-  switch i64 %magicptr.i, label %41 [
-    i64 -1, label %pages_map_slow.exit
-    i64 0, label %pages_map_slow.exit
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %41, label %pages_map_slow.exit
 
 41:                                               ; preds = %37
   %42 = add i64 %13, %magicptr.i
@@ -173,8 +172,8 @@ os_pages_trim.exit.loopexit.split.loop.exit.i:    ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %40, i64 %44
   br label %pages_map_slow.exit
 
-pages_map_slow.exit:                              ; preds = %37, %37, %os_pages_trim.exit.loopexit.split.loop.exit.i, %70, %57, %os_pages_unmap.exit, %11, %4
-  %.0 = phi ptr [ %8, %4 ], [ %8, %11 ], [ null, %os_pages_unmap.exit ], [ %58, %57 ], [ %58, %70 ], [ %73, %os_pages_trim.exit.loopexit.split.loop.exit.i ], [ null, %37 ], [ null, %37 ]
+pages_map_slow.exit:                              ; preds = %37, %os_pages_trim.exit.loopexit.split.loop.exit.i, %70, %57, %os_pages_unmap.exit, %11, %4
+  %.0 = phi ptr [ %8, %4 ], [ %8, %11 ], [ null, %os_pages_unmap.exit ], [ %58, %57 ], [ %58, %70 ], [ %73, %os_pages_trim.exit.loopexit.split.loop.exit.i ], [ null, %37 ]
   ret ptr %.0
 }
 
@@ -619,10 +618,9 @@ init_thp_state.exit:                              ; preds = %55
   %66 = load i32, ptr @mmap_flags, align 4, !tbaa !3
   %67 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %65, i32 noundef %66, i32 noundef -1, i64 noundef 0) #10
   %magicptr = ptrtoint ptr %67 to i64
-  switch i64 %magicptr, label %68 [
-    i64 -1, label %os_pages_unmap.exit
-    i64 0, label %os_pages_unmap.exit
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %68, label %os_pages_unmap.exit
 
 68:                                               ; preds = %._crit_edge.i
   %.b.i = load i1, ptr @pages_can_purge_lazy_runtime, align 1
@@ -630,8 +628,8 @@ init_thp_state.exit:                              ; preds = %55
 
 duckdb_je_pages_purge_lazy.exit:                  ; preds = %68
   %69 = call i32 @madvise(ptr noundef nonnull %67, i64 noundef 4096, i32 noundef 8) #10
-  %.not19 = icmp eq i32 %69, 0
-  br i1 %.not19, label %70, label %duckdb_je_pages_purge_lazy.exit.thread
+  %.not18 = icmp eq i32 %69, 0
+  br i1 %.not18, label %70, label %duckdb_je_pages_purge_lazy.exit.thread
 
 duckdb_je_pages_purge_lazy.exit.thread:           ; preds = %68, %duckdb_je_pages_purge_lazy.exit
   store i1 true, ptr @pages_can_purge_lazy_runtime, align 1
@@ -660,8 +658,8 @@ duckdb_je_pages_purge_lazy.exit.thread:           ; preds = %68, %duckdb_je_page
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %os_pages_unmap.exit
 
-os_pages_unmap.exit:                              ; preds = %._crit_edge.i, %._crit_edge.i, %70, %80, %6
-  %.04 = phi i1 [ true, %6 ], [ false, %70 ], [ false, %80 ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i ]
+os_pages_unmap.exit:                              ; preds = %._crit_edge.i, %70, %80, %6
+  %.04 = phi i1 [ true, %6 ], [ false, %70 ], [ false, %80 ], [ true, %._crit_edge.i ]
   ret i1 %.04
 }
 

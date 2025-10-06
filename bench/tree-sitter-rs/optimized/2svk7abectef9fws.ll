@@ -481,7 +481,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haa7413036653
 25:                                               ; preds = %27
   %26 = landingpad { ptr, i32 }
           cleanup
-  store i64 %storemerge28, ptr %5, align 8
+  store i64 %storemerge27, ptr %5, align 8
   br label %52
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0425b951af2859efE.exit"
@@ -489,9 +489,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haa7413036653
   br i1 %.not, label %31, label %._crit_edge.thread
 
 27:                                               ; preds = %.lr.ph, %39
-  %.030 = phi ptr [ %16, %.lr.ph ], [ %47, %39 ]
-  %.sroa.03.029 = phi i64 [ 1, %.lr.ph ], [ %41, %39 ]
-  %storemerge28 = phi i64 [ %13, %.lr.ph ], [ %48, %39 ]
+  %.029 = phi ptr [ %16, %.lr.ph ], [ %47, %39 ]
+  %.sroa.03.028 = phi i64 [ 1, %.lr.ph ], [ %41, %39 ]
+  %storemerge27 = phi i64 [ %13, %.lr.ph ], [ %48, %39 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %.val.i = load ptr, ptr %18, align 8, !alias.scope !108, !noalias !111, !noundef !4
   %.val4.i = load i64, ptr %19, align 8, !alias.scope !108, !noalias !111
@@ -501,10 +501,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haa7413036653
           to label %39 unwind label %25
 
 ._crit_edge.thread:                               ; preds = %39, %._crit_edge
-  %.0.lcssa40 = phi ptr [ %16, %._crit_edge ], [ %47, %39 ]
-  %storemerge.lcssa39 = phi i64 [ %13, %._crit_edge ], [ %24, %39 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.lcssa40, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %29 = add i64 %storemerge.lcssa39, 1
+  %.0.lcssa39 = phi ptr [ %16, %._crit_edge ], [ %47, %39 ]
+  %storemerge.lcssa38 = phi i64 [ %13, %._crit_edge ], [ %24, %39 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.lcssa39, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  %29 = add i64 %storemerge.lcssa38, 1
   store i64 %29, ptr %5, align 8
   br label %30
 
@@ -535,7 +535,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haa7413036653
 39:                                               ; preds = %27
   %40 = icmp eq ptr %.val.i, null
   %spec.select.i.i = select i1 %40, i64 undef, i64 %.val4.i
-  %41 = add nuw i64 %.sroa.03.029, 1
+  %41 = add nuw i64 %.sroa.03.028, 1
   %42 = extractvalue { i64, ptr } %28, 0
   %43 = extractvalue { i64, ptr } %28, 1
   %44 = icmp ne ptr %43, null
@@ -543,19 +543,19 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haa7413036653
   %45 = shl i64 %.val6.i, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 8 %.val5.i, i64 %45, i1 false), !noalias !122
   %46 = load i8, ptr %22, align 8, !range !127, !alias.scope !128, !noalias !111, !noundef !4
-  store i64 %42, ptr %.030, align 8
-  %.sroa.2.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.030, i64 8
+  store i64 %42, ptr %.029, align 8
+  %.sroa.2.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.029, i64 8
   store ptr %43, ptr %.sroa.2.0..0.sroa_idx, align 8
-  %.sroa.3.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.030, i64 16
+  %.sroa.3.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.029, i64 16
   store i64 %.val6.i, ptr %.sroa.3.0..0.sroa_idx, align 8
-  %.sroa.4.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.030, i64 24
+  %.sroa.4.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.029, i64 24
   store ptr %.val.i, ptr %.sroa.4.0..0.sroa_idx, align 8
-  %.sroa.520.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.030, i64 32
+  %.sroa.520.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.029, i64 32
   store i64 %spec.select.i.i, ptr %.sroa.520.0..0.sroa_idx, align 8
-  %.sroa.6.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.030, i64 40
+  %.sroa.6.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.029, i64 40
   store i8 %46, ptr %.sroa.6.0..0.sroa_idx, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %.030, i64 48
-  %48 = add i64 %storemerge28, 1
+  %47 = getelementptr inbounds nuw i8, ptr %.029, i64 48
+  %48 = add i64 %storemerge27, 1
   %exitcond.not = icmp eq i64 %41, %1
   br i1 %exitcond.not, label %._crit_edge.thread, label %27
 
@@ -617,22 +617,22 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf6d3d0724ae2
   ret void
 
 19:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa32 = phi ptr [ %25, %._crit_edge.thread ], [ %14, %._crit_edge ]
-  %storemerge.lcssa31 = phi i64 [ %17, %._crit_edge.thread ], [ %11, %._crit_edge ]
-  store i64 %2, ptr %.0.lcssa32, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa32, i64 8
+  %.0.lcssa31 = phi ptr [ %25, %._crit_edge.thread ], [ %14, %._crit_edge ]
+  %storemerge.lcssa30 = phi i64 [ %17, %._crit_edge.thread ], [ %11, %._crit_edge ]
+  store i64 %2, ptr %.0.lcssa31, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa31, i64 8
   store i64 %3, ptr %20, align 8
-  %21 = add i64 %storemerge.lcssa31, 1
+  %21 = add i64 %storemerge.lcssa30, 1
   br label %18
 
 22:                                               ; preds = %.lr.ph, %22
-  %.025 = phi ptr [ %14, %.lr.ph ], [ %25, %22 ]
-  %.sroa.03.024 = phi i64 [ 1, %.lr.ph ], [ %23, %22 ]
-  %23 = add nuw i64 %.sroa.03.024, 1
-  store i64 %spec.select1.i, ptr %.025, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  %.024 = phi ptr [ %14, %.lr.ph ], [ %25, %22 ]
+  %.sroa.03.023 = phi i64 [ 1, %.lr.ph ], [ %23, %22 ]
+  %23 = add nuw i64 %.sroa.03.023, 1
+  store i64 %spec.select1.i, ptr %.024, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   store i64 %spec.select.i, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.025, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %exitcond.not = icmp eq i64 %23, %1
   br i1 %exitcond.not, label %._crit_edge.thread, label %22
 }

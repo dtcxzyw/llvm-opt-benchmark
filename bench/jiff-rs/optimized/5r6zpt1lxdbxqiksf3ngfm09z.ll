@@ -5573,9 +5573,8 @@ thread-pre-split.thread:                          ; preds = %"_ZN4core6result19R
 218:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10rem_euclid17h574252342cfab4faE.exit65"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8119)
   call void @llvm.experimental.noalias.scope.decl(metadata !454)
-  %219 = add i128 %.sroa.0.0.i61, -9223372036854775808
-  %or.cond.i.i.i66 = icmp ult i128 %219, -18446744073709551616
-  br i1 %or.cond.i.i.i66, label %220, label %222, !prof !430
+  %219 = icmp slt i128 %.sroa.0.0.i61, -9223372036854775808
+  br i1 %219, label %220, label %222, !prof !430
 
 220:                                              ; preds = %218
   %221 = call noundef ptr @_ZN4jiff5error5Error5range17hd43c302f6552f9faE(ptr noalias noundef nonnull readonly align 1 @anon.ad1ddd4facb527ff507d18404f193eb7.190, i64 noundef 7, i128 noundef %.sroa.0.0.i61, i128 noundef -10518456960, i128 noundef 10518456960), !noalias !457
@@ -5769,9 +5768,8 @@ thread-pre-split157:                              ; preds = %74, %72, %65
 310:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10rem_euclid17h574252342cfab4faE.exit76"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8124)
   call void @llvm.experimental.noalias.scope.decl(metadata !476)
-  %311 = add i128 %.sroa.0.0.i72, -9223372036854775808
-  %or.cond.i.i.i77 = icmp ult i128 %311, -18446744073709551616
-  br i1 %or.cond.i.i.i77, label %312, label %314, !prof !430
+  %311 = icmp slt i128 %.sroa.0.0.i72, -9223372036854775808
+  br i1 %311, label %312, label %314, !prof !430
 
 312:                                              ; preds = %310
   %313 = call noundef ptr @_ZN4jiff5error5Error5range17hd43c302f6552f9faE(ptr noalias noundef nonnull readonly align 1 @anon.ad1ddd4facb527ff507d18404f193eb7.191, i64 noundef 7, i128 noundef %.sroa.0.0.i72, i128 noundef -631107417600, i128 noundef 631107417600), !noalias !479
@@ -5959,9 +5957,8 @@ thread-pre-split157.thread:                       ; preds = %"_ZN4core6result19R
 400:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10rem_euclid17h574252342cfab4faE.exit88"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8129)
   call void @llvm.experimental.noalias.scope.decl(metadata !497)
-  %401 = add i128 %.sroa.0.0.i84, -9223372036854775808
-  %or.cond.i.i.i89 = icmp ult i128 %401, -18446744073709551616
-  br i1 %or.cond.i.i.i89, label %402, label %404, !prof !430
+  %401 = icmp slt i128 %.sroa.0.0.i84, -9223372036854775808
+  br i1 %401, label %402, label %404, !prof !430
 
 402:                                              ; preds = %400
   %403 = call noundef ptr @_ZN4jiff5error5Error5range17hd43c302f6552f9faE(ptr noalias noundef nonnull readonly align 1 @anon.ad1ddd4facb527ff507d18404f193eb7.192, i64 noundef 12, i128 noundef %.sroa.0.0.i84, i128 noundef -631107417600000, i128 noundef 631107417600000), !noalias !500
@@ -6155,9 +6152,8 @@ thread-pre-split157.thread:                       ; preds = %"_ZN4core6result19R
 496:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10rem_euclid17h574252342cfab4faE.exit100"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8134)
   call void @llvm.experimental.noalias.scope.decl(metadata !518)
-  %497 = add i128 %.sroa.0.0.i96, -9223372036854775808
-  %or.cond.i.i.i101 = icmp ult i128 %497, -18446744073709551616
-  br i1 %or.cond.i.i.i101, label %498, label %500, !prof !430
+  %497 = icmp slt i128 %.sroa.0.0.i96, -9223372036854775808
+  br i1 %497, label %498, label %500, !prof !430
 
 498:                                              ; preds = %496
   %499 = call noundef ptr @_ZN4jiff5error5Error5range17hd43c302f6552f9faE(ptr noalias noundef nonnull readonly align 1 @anon.ad1ddd4facb527ff507d18404f193eb7.193, i64 noundef 12, i128 noundef %.sroa.0.0.i96, i128 noundef -631107417600000000, i128 noundef 631107417600000000), !noalias !521
@@ -6278,9 +6274,8 @@ thread-pre-split157.thread:                       ; preds = %"_ZN4core6result19R
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.experimental.noalias.scope.decl(metadata !539)
-  %555 = add i128 %459, 9223372036854775808
-  %or.cond.i.i.i108 = icmp ult i128 %555, 18446744073709551616
-  br i1 %or.cond.i.i.i108, label %558, label %556, !prof !406
+  %555 = icmp slt i128 %459, 9223372036854775808
+  br i1 %555, label %558, label %556, !prof !406
 
 556:                                              ; preds = %554
   %557 = call noundef ptr @_ZN4jiff5error5Error5range17hd43c302f6552f9faE(ptr noalias noundef nonnull readonly align 1 @anon.ad1ddd4facb527ff507d18404f193eb7.131, i64 noundef 11, i128 noundef %459, i128 noundef -9223372036854775807, i128 noundef 9223372036854775807), !noalias !542
@@ -6380,7 +6375,7 @@ _ZN4jiff4span4Span22try_nanoseconds_ranged17h625014239d05cfcbE.exit: ; preds = %
 604:                                              ; preds = %_ZN4jiff4span4Span22try_nanoseconds_ranged17h625014239d05cfcbE.exit
   %605 = landingpad { ptr, i32 }
           cleanup
-  br i1 %or.cond.i.i.i108, label %common.resume, label %606
+  br i1 %555, label %common.resume, label %606
 
 606:                                              ; preds = %604
   invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.4137.0..sroa_idx)

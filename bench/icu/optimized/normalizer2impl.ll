@@ -2712,13 +2712,13 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
 27:                                               ; preds = %.outer, %99
   %.070 = phi i16 [ %.272, %99 ], [ %.070.ph, %.outer ]
   %.161 = phi ptr [ %100, %99 ], [ %.161.ph, %.outer ]
-  %.not92138 = icmp eq ptr %.161, %.083
-  br i1 %.not92138, label %.loopexit, label %.lr.ph
+  %.not92137 = icmp eq ptr %.161, %.083
+  br i1 %.not92137, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.thread
-  %.2140 = phi ptr [ %.4, %.thread ], [ %.161, %27 ]
-  %.171139 = phi i16 [ %.474, %.thread ], [ %.070, %27 ]
-  %28 = load i16, ptr %.2140, align 2, !tbaa !32
+  %.2139 = phi ptr [ %.4, %.thread ], [ %.161, %27 ]
+  %.171138 = phi i16 [ %.474, %.thread ], [ %.070, %27 ]
+  %28 = load i16, ptr %.2139, align 2, !tbaa !32
   %29 = zext i16 %28 to i32
   %30 = icmp ult i16 %28, %7
   br i1 %30, label %50, label %31
@@ -2746,8 +2746,8 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
   br i1 %narrow.i.not, label %52, label %50
 
 50:                                               ; preds = %31, %.lr.ph
-  %.373 = phi i16 [ %.171139, %.lr.ph ], [ %45, %31 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.2140, i64 2
+  %.373 = phi i16 [ %.171138, %.lr.ph ], [ %45, %31 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.2139, i64 2
   br label %.thread
 
 52:                                               ; preds = %31
@@ -2756,7 +2756,7 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
   br i1 %54, label %55, label %._crit_edge
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %.2140, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.2139, i64 2
   %.not94 = icmp eq ptr %56, %.083
   br i1 %.not94, label %.thread, label %57
 
@@ -2797,7 +2797,7 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
   %81 = and i16 %79, -513
   %82 = icmp ne i16 %81, -1024
   %narrow.i105.not = and i1 %82, %80
-  %83 = getelementptr inbounds nuw i8, ptr %.2140, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.2139, i64 4
   br i1 %narrow.i105.not, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %74, %57, %55, %50
@@ -2808,54 +2808,54 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
   br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.thread, %52, %74
-  %.2.lcssa = phi ptr [ %.4, %.thread ], [ %.2140, %52 ], [ %.2140, %74 ]
+  %.2.lcssa = phi ptr [ %.4, %.thread ], [ %.2139, %52 ], [ %.2139, %74 ]
   %.279 = phi i32 [ %.380, %.thread ], [ %29, %52 ], [ %65, %74 ]
   %.272 = phi i16 [ %.474, %.thread ], [ %45, %52 ], [ %79, %74 ]
   %.not97 = icmp eq ptr %.2.lcssa, %.161
   br i1 %.not97, label %95, label %84
 
 84:                                               ; preds = %._crit_edge
-  br i1 %.not98, label %.thread112, label %85
+  br i1 %.not98, label %.thread111, label %85
 
 85:                                               ; preds = %84
   %86 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %.161, ptr noundef nonnull %.2.lcssa, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.not99 = icmp eq i8 %86, 0
   %87 = icmp eq ptr %.2.lcssa, %.083
-  %or.cond123 = or i1 %87, %.not99
-  br i1 %or.cond123, label %.loopexit, label %.thread186
+  %or.cond122 = or i1 %87, %.not99
+  br i1 %or.cond122, label %.loopexit, label %.thread185
 
-.thread186:                                       ; preds = %85
+.thread185:                                       ; preds = %85
   %88 = icmp samesign ult i32 %.279, 65536
   %89 = select i1 %88, i64 1, i64 2
   %90 = getelementptr inbounds nuw i16, ptr %.2.lcssa, i64 %89
   br label %99
 
-.thread112:                                       ; preds = %84
+.thread111:                                       ; preds = %84
   %91 = icmp eq ptr %.2.lcssa, %.083
-  br i1 %91, label %.loopexit, label %.thread117
+  br i1 %91, label %.loopexit, label %.thread116
 
-.thread117:                                       ; preds = %.thread112
+.thread116:                                       ; preds = %.thread111
   %92 = icmp samesign ult i32 %.279, 65536
   %93 = select i1 %92, i64 1, i64 2
   %94 = getelementptr inbounds nuw i16, ptr %.2.lcssa, i64 %93
-  br label %.loopexit127
+  br label %.loopexit126
 
 95:                                               ; preds = %._crit_edge
   %96 = icmp samesign ult i32 %.279, 65536
   %97 = select i1 %96, i64 1, i64 2
   %98 = getelementptr inbounds nuw i16, ptr %.2.lcssa, i64 %97
-  br i1 %.not98, label %.loopexit127, label %99
+  br i1 %.not98, label %.loopexit126, label %99
 
-99:                                               ; preds = %.thread186, %95
-  %100 = phi ptr [ %90, %.thread186 ], [ %98, %95 ]
+99:                                               ; preds = %.thread185, %95
+  %100 = phi ptr [ %90, %.thread185 ], [ %98, %95 ]
   %101 = tail call noundef signext i8 @_ZNK6icu_7715Normalizer2Impl9decomposeEitRNS_16ReorderingBufferER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.279, i16 noundef zeroext %.272, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.not102 = icmp eq i8 %101, 0
   br i1 %.not102, label %.loopexit, label %27, !llvm.loop !91
 
-.loopexit127:                                     ; preds = %95, %.thread117
-  %102 = phi ptr [ %94, %.thread117 ], [ %98, %95 ]
-  %.166115122 = phi ptr [ %.2.lcssa, %.thread117 ], [ %.065.ph, %95 ]
-  %.163116121 = phi i8 [ 0, %.thread117 ], [ %.062.ph, %95 ]
+.loopexit126:                                     ; preds = %95, %.thread116
+  %102 = phi ptr [ %94, %.thread116 ], [ %98, %95 ]
+  %.166114121 = phi ptr [ %.2.lcssa, %.thread116 ], [ %.065.ph, %95 ]
+  %.163115120 = phi i8 [ 0, %.thread116 ], [ %.062.ph, %95 ]
   %103 = load i16, ptr %25, align 2, !tbaa !63
   %104 = icmp uge i16 %.272, %103
   %105 = load i16, ptr %26, align 2
@@ -2863,20 +2863,20 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
   %narrow.i106.not = select i1 %104, i1 %106, i1 false
   br i1 %narrow.i106.not, label %.loopexit, label %107
 
-107:                                              ; preds = %.loopexit127
+107:                                              ; preds = %.loopexit126
   %108 = icmp ugt i16 %.272, -1025
   %109 = lshr i16 %.272, 1
   %110 = trunc i16 %109 to i8
   %111 = select i1 %108, i8 %110, i8 0
-  %112 = icmp ule i8 %.163116121, %111
+  %112 = icmp ule i8 %.163115120, %111
   %113 = icmp eq i8 %111, 0
   %or.cond = or i1 %113, %112
   %114 = icmp ult i8 %111, 2
-  %spec.select = select i1 %114, ptr %102, ptr %.166115122
+  %spec.select = select i1 %114, ptr %102, ptr %.166114121
   br i1 %or.cond, label %.outer, label %.loopexit
 
-.loopexit:                                        ; preds = %.thread112, %107, %.loopexit127, %27, %99, %85, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
-  %.0 = phi ptr [ %.0.i, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %.161, %27 ], [ %100, %99 ], [ %.2.lcssa, %85 ], [ %.166115122, %107 ], [ %.166115122, %.loopexit127 ], [ %.2.lcssa, %.thread112 ]
+.loopexit:                                        ; preds = %.thread111, %107, %.loopexit126, %27, %99, %85, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
+  %.0 = phi ptr [ %.0.i, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %.161, %27 ], [ %100, %99 ], [ %.2.lcssa, %85 ], [ %.166114121, %107 ], [ %.166114121, %.loopexit126 ], [ %.2.lcssa, %.thread111 ]
   ret ptr %.0
 }
 
@@ -3133,22 +3133,22 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKDsS2_aaRNS_16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %.not3.i = icmp eq i8 %4, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre89 = load i16, ptr %1, align 2, !tbaa !32
+  %.pre88 = load i16, ptr %1, align 2, !tbaa !32
   %17 = load i16, ptr %12, align 2
-  %18 = icmp ult i16 %.pre89, %17
-  %or.cond8890 = select i1 %.not46, i1 %18, i1 false
-  br i1 %or.cond8890, label %.thread61, label %.lr.ph93
+  %18 = icmp ult i16 %.pre88, %17
+  %or.cond8789 = select i1 %.not46, i1 %18, i1 false
+  br i1 %or.cond8789, label %.thread61, label %.lr.ph92
 
-.lr.ph93:                                         ; preds = %.lr.ph, %.backedge
-  %.pre92 = phi i16 [ %.pre, %.backedge ], [ %.pre89, %.lr.ph ]
-  %.0386691 = phi ptr [ %.139, %.backedge ], [ %1, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i8, ptr %.0386691, i64 2
-  %20 = zext i16 %.pre92 to i32
+.lr.ph92:                                         ; preds = %.lr.ph, %.backedge
+  %.pre91 = phi i16 [ %.pre, %.backedge ], [ %.pre88, %.lr.ph ]
+  %.0386590 = phi ptr [ %.139, %.backedge ], [ %1, %.lr.ph ]
+  %19 = getelementptr inbounds nuw i8, ptr %.0386590, i64 2
+  %20 = zext i16 %.pre91 to i32
   %21 = and i32 %20, 63488
   %22 = icmp eq i32 %21, 55296
   br i1 %22, label %33, label %23
 
-23:                                               ; preds = %.lr.ph93
+23:                                               ; preds = %.lr.ph92
   %24 = load ptr, ptr %13, align 8, !tbaa !45
   %25 = load ptr, ptr %24, align 8, !tbaa !46
   %26 = lshr i32 %20, 6
@@ -3160,7 +3160,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKDsS2_aaRNS_16
   %32 = add nuw nsw i32 %31, %30
   br label %60
 
-33:                                               ; preds = %.lr.ph93
+33:                                               ; preds = %.lr.ph92
   %34 = and i32 %20, 1024
   %35 = icmp ne i32 %34, 0
   %.not47 = icmp eq ptr %19, %2
@@ -3175,7 +3175,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKDsS2_aaRNS_16
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %.0386691, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.0386590, i64 4
   %43 = shl nuw nsw i32 %20, 10
   %44 = add nsw i32 %43, -56613888
   %45 = add nuw nsw i32 %44, %38
@@ -3193,7 +3193,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKDsS2_aaRNS_16
 
 53:                                               ; preds = %41
   %54 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %46, i32 noundef %45)
-  %.pre80 = load ptr, ptr %13, align 8, !tbaa !45
+  %.pre79 = load ptr, ptr %13, align 8, !tbaa !45
   br label %60
 
 55:                                               ; preds = %36, %33
@@ -3204,7 +3204,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKDsS2_aaRNS_16
   br label %60
 
 60:                                               ; preds = %55, %53, %49, %23
-  %61 = phi ptr [ %24, %23 ], [ %56, %55 ], [ %.pre80, %53 ], [ %46, %49 ]
+  %61 = phi ptr [ %24, %23 ], [ %56, %55 ], [ %.pre79, %53 ], [ %46, %49 ]
   %.041 = phi i32 [ %20, %23 ], [ %20, %55 ], [ %45, %53 ], [ %45, %49 ]
   %.139 = phi ptr [ %19, %23 ], [ %19, %55 ], [ %42, %53 ], [ %42, %49 ]
   %.036 = phi i32 [ %32, %23 ], [ %59, %55 ], [ %54, %53 ], [ %52, %49 ]
@@ -3245,8 +3245,8 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit: ; preds = %67
 
 78:                                               ; preds = %76
   %.not.i.i52 = icmp eq i16 %66, 1
-  %or.cond65 = select i1 %.not3.i, i1 true, i1 %.not.i.i52
-  br i1 %or.cond65, label %.thread61, label %79
+  %or.cond64 = select i1 %.not3.i, i1 true, i1 %.not.i.i52
+  br i1 %or.cond64, label %.thread61, label %79
 
 79:                                               ; preds = %78
   %80 = load i16, ptr %14, align 2, !tbaa !68
@@ -3273,8 +3273,8 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit: ; preds = %67
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %83, %86
   %93 = phi i1 [ %85, %83 ], [ %92, %86 ]
   %94 = icmp uge ptr %.139, %2
-  %or.cond78.not = select i1 %93, i1 true, i1 %94
-  br i1 %or.cond78.not, label %.thread61, label %.backedge
+  %or.cond77.not = select i1 %93, i1 true, i1 %94
+  br i1 %or.cond77.not, label %.thread61, label %.backedge
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds = %76, %73
   %.old = icmp ult ptr %.139, %2
@@ -3284,11 +3284,11 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds
   %.pre = load i16, ptr %.139, align 2, !tbaa !32
   %95 = load i16, ptr %12, align 2
   %96 = icmp ult i16 %.pre, %95
-  %or.cond88 = select i1 %.not46, i1 %96, i1 false
-  br i1 %or.cond88, label %.thread61, label %.lr.ph93
+  %or.cond87 = select i1 %.not46, i1 %96, i1 false
+  br i1 %or.cond87, label %.thread61, label %.lr.ph92
 
 .thread61:                                        ; preds = %.backedge, %78, %67, %.thread, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %73, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %.lr.ph, %.preheader, %7
-  %.035 = phi ptr [ null, %7 ], [ %1, %.preheader ], [ %1, %.lr.ph ], [ %.139, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ], [ %.0386691, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ null, %73 ], [ %.139, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ null, %.thread ], [ %.0386691, %67 ], [ %.139, %78 ], [ %.139, %.backedge ]
+  %.035 = phi ptr [ null, %7 ], [ %1, %.preheader ], [ %1, %.lr.ph ], [ %.139, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ], [ %.0386590, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ null, %73 ], [ %.139, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ null, %.thread ], [ %.0386590, %67 ], [ %.139, %78 ], [ %.139, %.backedge ]
   ret ptr %.035
 }
 
@@ -3847,7 +3847,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKhS2_NS0_6Stop
   %9 = load i32, ptr %6, align 4, !tbaa !13
   %10 = icmp slt i32 %9, 1
   %.0.i180.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 6
-  %.0.i180.sroa.gep234 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.0.i180.sroa.gep232 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br i1 %10, label %.preheader, label %.thread195
 
 .preheader:                                       ; preds = %7
@@ -3873,9 +3873,9 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKhS2_NS0_6Stop
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.0111207 = phi ptr [ %1, %.lr.ph ], [ %.1112, %.backedge.backedge ]
-  %24 = getelementptr inbounds nuw i8, ptr %.0111207, i64 1
-  %25 = load i8, ptr %.0111207, align 1, !tbaa !25
+  %.0111205 = phi ptr [ %1, %.lr.ph ], [ %.1112, %.backedge.backedge ]
+  %24 = getelementptr inbounds nuw i8, ptr %.0111205, i64 1
+  %25 = load i8, ptr %.0111205, align 1, !tbaa !25
   %26 = zext i8 %25 to i32
   %27 = icmp sgt i8 %25, -1
   br i1 %27, label %124, label %28
@@ -3907,7 +3907,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKhS2_NS0_6Stop
   br i1 %.not149, label %119, label %44
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %.not150 = icmp eq ptr %45, %2
   br i1 %.not150, label %119, label %46
 
@@ -3953,7 +3953,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKhS2_NS0_6Stop
   %76 = shl nuw nsw i32 %63, 6
   %77 = and i32 %67, 63
   %78 = or disjoint i32 %77, %76
-  %79 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %.not146 = icmp eq ptr %79, %2
   br i1 %.not146, label %119, label %80
 
@@ -3964,7 +3964,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKhS2_NS0_6Stop
   br i1 %83, label %84, label %119
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %.0111207, i64 3
+  %85 = getelementptr inbounds nuw i8, ptr %.0111205, i64 3
   %.not147 = icmp eq ptr %85, %2
   br i1 %.not147, label %119, label %86
 
@@ -4056,9 +4056,9 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKhS2_NS0_6Stop
   br i1 %or.cond, label %.thread195, label %140
 
 140:                                              ; preds = %134
-  %141 = load i8, ptr %.0111207, align 1, !tbaa !25
+  %141 = load i8, ptr %.0111205, align 1, !tbaa !25
   %142 = ptrtoint ptr %.1112 to i64
-  %143 = ptrtoint ptr %.0111207 to i64
+  %143 = ptrtoint ptr %.0111205 to i64
   %144 = sub i64 %142, %143
   switch i64 %144, label %167 [
     i64 1, label %145
@@ -4088,7 +4088,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKhS2_NS0_6Stop
   %159 = and i8 %158, 63
   %160 = zext nneg i8 %159 to i32
   %161 = shl nuw nsw i32 %160, 6
-  %162 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %163 = load i8, ptr %162, align 1, !tbaa !25
   %164 = and i8 %163, 63
   %165 = zext nneg i8 %164 to i32
@@ -4110,12 +4110,12 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit: ; preds = %140
   %173 = zext nneg i8 %172 to i32
   %174 = shl nuw nsw i32 %173, 12
   %175 = or disjoint i32 %174, %170
-  %176 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %176 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %177 = load i8, ptr %176, align 1, !tbaa !25
   %178 = and i8 %177, 63
   %179 = zext nneg i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 6
-  %181 = getelementptr inbounds nuw i8, ptr %.0111207, i64 3
+  %181 = getelementptr inbounds nuw i8, ptr %.0111205, i64 3
   %182 = load i8, ptr %181, align 1, !tbaa !25
   %183 = and i8 %182, 63
   %184 = zext nneg i8 %183 to i32
@@ -4142,8 +4142,8 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %_ZN6icu_771
 193:                                              ; preds = %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit
   %194 = load i8, ptr %16, align 4
   %195 = icmp ult i8 %194, 2
-  %or.cond202 = select i1 %15, i1 %195, i1 false
-  br i1 %or.cond202, label %..thread195.loopexit_crit_edge227, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, !llvm.loop !95
+  %or.cond200 = select i1 %15, i1 %195, i1 false
+  br i1 %or.cond200, label %..thread195.loopexit_crit_edge225, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, !llvm.loop !95
 
 196:                                              ; preds = %132
   %197 = load i16, ptr %17, align 2, !tbaa !69
@@ -4154,9 +4154,9 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %_ZN6icu_771
   br i1 %.not154, label %200, label %.thread195
 
 200:                                              ; preds = %199
-  %201 = load i8, ptr %.0111207, align 1, !tbaa !25
+  %201 = load i8, ptr %.0111205, align 1, !tbaa !25
   %202 = ptrtoint ptr %.1112 to i64
-  %203 = ptrtoint ptr %.0111207 to i64
+  %203 = ptrtoint ptr %.0111205 to i64
   %204 = sub i64 %202, %203
   switch i64 %204, label %247 [
     i64 1, label %205
@@ -4186,7 +4186,7 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %_ZN6icu_771
   %219 = and i8 %218, 63
   %220 = zext nneg i8 %219 to i32
   %221 = shl nuw nsw i32 %220, 6
-  %222 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %222 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %223 = load i8, ptr %222, align 1, !tbaa !25
   %224 = and i8 %223, 63
   %225 = zext nneg i8 %224 to i32
@@ -4204,13 +4204,13 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %_ZN6icu_771
   %233 = zext nneg i8 %232 to i32
   %234 = shl nuw nsw i32 %233, 12
   %235 = or disjoint i32 %234, %230
-  %236 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %236 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %237 = load i8, ptr %236, align 1, !tbaa !25
   %238 = and i8 %237, 63
   %239 = zext nneg i8 %238 to i32
   %240 = shl nuw nsw i32 %239, 6
   %241 = or disjoint i32 %235, %240
-  %242 = getelementptr inbounds nuw i8, ptr %.0111207, i64 3
+  %242 = getelementptr inbounds nuw i8, ptr %.0111205, i64 3
   %243 = load i8, ptr %242, align 1, !tbaa !25
   %244 = and i8 %243, 63
   %245 = zext nneg i8 %244 to i32
@@ -4294,9 +4294,9 @@ _ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit: ; preds = %255, %269, %273, %
   br i1 %290, label %291, label %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174
 
 291:                                              ; preds = %289
-  %292 = load i8, ptr %.0111207, align 1, !tbaa !25
+  %292 = load i8, ptr %.0111205, align 1, !tbaa !25
   %293 = ptrtoint ptr %.1112 to i64
-  %294 = ptrtoint ptr %.0111207 to i64
+  %294 = ptrtoint ptr %.0111205 to i64
   %295 = sub i64 %293, %294
   switch i64 %295, label %338 [
     i64 1, label %296
@@ -4326,7 +4326,7 @@ _ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit: ; preds = %255, %269, %273, %
   %310 = and i8 %309, 63
   %311 = zext nneg i8 %310 to i32
   %312 = shl nuw nsw i32 %311, 6
-  %313 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %313 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %314 = load i8, ptr %313, align 1, !tbaa !25
   %315 = and i8 %314, 63
   %316 = zext nneg i8 %315 to i32
@@ -4344,13 +4344,13 @@ _ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit: ; preds = %255, %269, %273, %
   %324 = zext nneg i8 %323 to i32
   %325 = shl nuw nsw i32 %324, 12
   %326 = or disjoint i32 %325, %321
-  %327 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %327 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %328 = load i8, ptr %327, align 1, !tbaa !25
   %329 = and i8 %328, 63
   %330 = zext nneg i8 %329 to i32
   %331 = shl nuw nsw i32 %330, 6
   %332 = or disjoint i32 %326, %331
-  %333 = getelementptr inbounds nuw i8, ptr %.0111207, i64 3
+  %333 = getelementptr inbounds nuw i8, ptr %.0111205, i64 3
   %334 = load i8, ptr %333, align 1, !tbaa !25
   %335 = and i8 %334, 63
   %336 = zext nneg i8 %335 to i32
@@ -4382,23 +4382,23 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175: ; preds = %_ZN6icu_
   br i1 %.not160, label %.thread195, label %437
 
 345:                                              ; preds = %286
-  %.not204 = icmp eq i16 %.0116, %287
-  br i1 %.not204, label %349, label %346
+  %.not202 = icmp eq i16 %.0116, %287
+  br i1 %.not202, label %349, label %346
 
 346:                                              ; preds = %345
   %347 = load i16, ptr %21, align 8, !tbaa !64
   %348 = or i16 %347, 1
-  %.not205 = icmp eq i16 %.0116, %348
-  br i1 %.not205, label %349, label %413
+  %.not203 = icmp eq i16 %.0116, %348
+  br i1 %.not203, label %349, label %413
 
 349:                                              ; preds = %346, %345
   %350 = icmp slt i32 %.0124, 0
   br i1 %350, label %351, label %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit179
 
 351:                                              ; preds = %349
-  %352 = load i8, ptr %.0111207, align 1, !tbaa !25
+  %352 = load i8, ptr %.0111205, align 1, !tbaa !25
   %353 = ptrtoint ptr %.1112 to i64
-  %354 = ptrtoint ptr %.0111207 to i64
+  %354 = ptrtoint ptr %.0111205 to i64
   %355 = sub i64 %353, %354
   switch i64 %355, label %398 [
     i64 1, label %356
@@ -4428,7 +4428,7 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175: ; preds = %_ZN6icu_
   %370 = and i8 %369, 63
   %371 = zext nneg i8 %370 to i32
   %372 = shl nuw nsw i32 %371, 6
-  %373 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %373 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %374 = load i8, ptr %373, align 1, !tbaa !25
   %375 = and i8 %374, 63
   %376 = zext nneg i8 %375 to i32
@@ -4446,13 +4446,13 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175: ; preds = %_ZN6icu_
   %384 = zext nneg i8 %383 to i32
   %385 = shl nuw nsw i32 %384, 12
   %386 = or disjoint i32 %385, %381
-  %387 = getelementptr inbounds nuw i8, ptr %.0111207, i64 2
+  %387 = getelementptr inbounds nuw i8, ptr %.0111205, i64 2
   %388 = load i8, ptr %387, align 1, !tbaa !25
   %389 = and i8 %388, 63
   %390 = zext nneg i8 %389 to i32
   %391 = shl nuw nsw i32 %390, 6
   %392 = or disjoint i32 %386, %391
-  %393 = getelementptr inbounds nuw i8, ptr %.0111207, i64 3
+  %393 = getelementptr inbounds nuw i8, ptr %.0111205, i64 3
   %394 = load i8, ptr %393, align 1, !tbaa !25
   %395 = and i8 %394, 63
   %396 = zext nneg i8 %395 to i32
@@ -4483,11 +4483,11 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit179: ; preds = %378,
 409:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit179
   %410 = trunc nsw i32 %400 to i16
   %411 = add nsw i16 %410, 4519
-  store i16 %411, ptr %.0.i180.sroa.gep234, align 2, !tbaa !32
+  store i16 %411, ptr %.0.i180.sroa.gep232, align 2, !tbaa !32
   br label %_ZN6icu_776Hangul9decomposeEiPDs.exit
 
 _ZN6icu_776Hangul9decomposeEiPDs.exit:            ; preds = %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit179, %409
-  %.0.i180.sroa.phi = phi ptr [ %.0.i180.sroa.gep, %409 ], [ %.0.i180.sroa.gep234, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit179 ]
+  %.0.i180.sroa.phi = phi ptr [ %.0.i180.sroa.gep, %409 ], [ %.0.i180.sroa.gep232, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit179 ]
   %412 = call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %8, ptr noundef nonnull %.0.i180.sroa.phi, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not159.not = icmp eq i8 %412, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4545,8 +4545,8 @@ _ZN6icu_776Hangul9decomposeEiPDs.exit:            ; preds = %_ZN6icu_7712_GLOBAL
 
 440:                                              ; preds = %438
   %.not.i.i = icmp eq i16 %.0116, 1
-  %or.cond203 = or i1 %.not3.i, %.not.i.i
-  br i1 %or.cond203, label %.thread195, label %441
+  %or.cond201 = or i1 %.not3.i, %.not.i.i
+  br i1 %or.cond201, label %.thread195, label %441
 
 441:                                              ; preds = %440
   %442 = load i16, ptr %13, align 2, !tbaa !68
@@ -4560,8 +4560,8 @@ _ZN6icu_776Hangul9decomposeEiPDs.exit:            ; preds = %_ZN6icu_7712_GLOBAL
   %446 = and i16 %.0116, 6
   %447 = icmp samesign ugt i16 %446, 2
   %448 = icmp ult ptr %.1112, %2
-  %or.cond262 = select i1 %447, i1 %448, i1 false
-  br i1 %or.cond262, label %.backedge.backedge, label %.thread195
+  %or.cond260 = select i1 %447, i1 %448, i1 false
+  br i1 %or.cond260, label %.backedge.backedge, label %.thread195
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %441
   %449 = load ptr, ptr %22, align 8, !tbaa !56
@@ -4571,15 +4571,15 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %441
   %453 = load i16, ptr %452, align 2, !tbaa !48
   %454 = icmp ugt i16 %453, 511
   %.old.old = icmp ult ptr %.1112, %2
-  %or.cond264 = select i1 %454, i1 %.old.old, i1 false
-  br i1 %or.cond264, label %.backedge.backedge, label %.thread195
+  %or.cond262 = select i1 %454, i1 %.old.old, i1 false
+  br i1 %or.cond262, label %.backedge.backedge, label %.thread195
 
 455:                                              ; preds = %437
   %456 = load i8, ptr %16, align 4, !tbaa !27
   %457 = icmp ugt i8 %456, 1
   %.old = icmp ult ptr %.1112, %2
-  %or.cond263 = select i1 %457, i1 %.old, i1 false
-  br i1 %or.cond263, label %.backedge.backedge, label %.thread195
+  %or.cond261 = select i1 %457, i1 %.old, i1 false
+  br i1 %or.cond261, label %.backedge.backedge, label %.thread195
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds = %437, %438, %193
   %.old.old.old = icmp ult ptr %.1112, %2
@@ -4588,11 +4588,11 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds
 .backedge.backedge:                               ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %445, %455, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
   br label %.backedge
 
-..thread195.loopexit_crit_edge227:                ; preds = %193
+..thread195.loopexit_crit_edge225:                ; preds = %193
   br label %.thread195, !llvm.loop !95
 
-.thread195:                                       ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %_ZN6icu_776Hangul9decomposeEiPDs.exit, %434, %134, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %199, %283, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175, %455, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %432, %440, %445, %.preheader, %..thread195.loopexit_crit_edge227, %7
-  %.0110 = phi ptr [ null, %7 ], [ %.1112, %..thread195.loopexit_crit_edge227 ], [ %1, %.preheader ], [ %.1112, %445 ], [ %.1112, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ], [ null, %_ZN6icu_776Hangul9decomposeEiPDs.exit ], [ null, %434 ], [ %.0111207, %134 ], [ null, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ], [ %.0111207, %199 ], [ %.0111207, %283 ], [ null, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175 ], [ %.1112, %455 ], [ %.1112, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %.0111207, %432 ], [ %.1112, %440 ]
+.thread195:                                       ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %_ZN6icu_776Hangul9decomposeEiPDs.exit, %434, %134, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %199, %283, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175, %455, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %432, %440, %445, %.preheader, %..thread195.loopexit_crit_edge225, %7
+  %.0110 = phi ptr [ null, %7 ], [ %.1112, %..thread195.loopexit_crit_edge225 ], [ %1, %.preheader ], [ %.1112, %445 ], [ %.1112, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ], [ null, %_ZN6icu_776Hangul9decomposeEiPDs.exit ], [ null, %434 ], [ %.0111205, %134 ], [ null, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ], [ %.0111205, %199 ], [ %.0111205, %283 ], [ null, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175 ], [ %.1112, %455 ], [ %.1112, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %.0111205, %432 ], [ %.1112, %440 ]
   ret ptr %.0110
 }
 
@@ -5084,8 +5084,8 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
 
 .preheader:                                       ; preds = %_ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.not6274 = icmp eq ptr %1, %2
-  br i1 %.not6274, label %.thread, label %.lr.ph
+  %.not6273 = icmp eq ptr %1, %2
+  br i1 %.not6273, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5098,12 +5098,12 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   br label %114
 
 34:                                               ; preds = %.lr.ph, %101
-  %.04678 = phi i1 [ true, %.lr.ph ], [ false, %101 ]
-  %.04877 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %101 ]
-  %.05176 = phi ptr [ %1, %.lr.ph ], [ %.253, %101 ]
-  %.05575 = phi i8 [ 0, %.lr.ph ], [ %.0.i, %101 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.05176, i64 2
-  %36 = load i16, ptr %.05176, align 2, !tbaa !32
+  %.04677 = phi i1 [ true, %.lr.ph ], [ false, %101 ]
+  %.04876 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %101 ]
+  %.05175 = phi ptr [ %1, %.lr.ph ], [ %.253, %101 ]
+  %.05574 = phi i8 [ 0, %.lr.ph ], [ %.0.i, %101 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.05175, i64 2
+  %36 = load i16, ptr %.05175, align 2, !tbaa !32
   %37 = zext i16 %36 to i32
   %38 = and i32 %37, 63488
   %39 = icmp eq i32 %38, 55296
@@ -5137,39 +5137,39 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   %55 = zext i16 %54 to i32
   %56 = and i32 %55, 64512
   %57 = icmp eq i32 %56, 56320
-  %.pre92 = load ptr, ptr %29, align 8, !tbaa !45
+  %.pre91 = load ptr, ptr %29, align 8, !tbaa !45
   br i1 %57, label %58, label %71
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %.05176, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.05175, i64 4
   %60 = shl nuw nsw i32 %37, 10
   %61 = add nsw i32 %60, -56613888
   %62 = add nuw nsw i32 %61, %55
-  %63 = getelementptr inbounds nuw i8, ptr %.pre92, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.pre91, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !49
   %.not64 = icmp slt i32 %62, %64
   br i1 %.not64, label %69, label %65
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %.pre92, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.pre91, i64 20
   %67 = load i32, ptr %66, align 4, !tbaa !50
   %68 = add nsw i32 %67, -2
   br label %76
 
 69:                                               ; preds = %58
-  %70 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre92, i32 noundef %62)
-  %.pre93 = load ptr, ptr %29, align 8, !tbaa !45
+  %70 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre91, i32 noundef %62)
+  %.pre92 = load ptr, ptr %29, align 8, !tbaa !45
   br label %76
 
 71:                                               ; preds = %._crit_edge, %53
-  %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre92, %53 ]
+  %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre91, %53 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 20
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = add nsw i32 %74, -1
   br label %76
 
 76:                                               ; preds = %71, %69, %65, %40
-  %77 = phi ptr [ %41, %40 ], [ %72, %71 ], [ %.pre93, %69 ], [ %.pre92, %65 ]
+  %77 = phi ptr [ %41, %40 ], [ %72, %71 ], [ %.pre92, %69 ], [ %.pre91, %65 ]
   %.253 = phi ptr [ %35, %40 ], [ %35, %71 ], [ %59, %69 ], [ %59, %65 ]
   %.045 = phi i32 [ %49, %40 ], [ %75, %71 ], [ %70, %69 ], [ %68, %65 ]
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -5214,14 +5214,14 @@ _ZNK6icu_7715Normalizer2Impl5getCCEt.exit:        ; preds = %84, %97
   br i1 %100, label %.thread, label %101
 
 101:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit
-  %spec.select = select i1 %.04678, i8 %.0.i, i8 %.04877
+  %spec.select = select i1 %.04677, i8 %.0.i, i8 %.04876
   %.not62 = icmp eq ptr %.253, %2
   br i1 %.not62, label %.thread, label %34
 
 .thread:                                          ; preds = %101, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit, %86, %90, %.preheader
-  %.055.lcssa = phi i8 [ 0, %.preheader ], [ %.05575, %90 ], [ %.05575, %86 ], [ %.05575, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.0.i, %101 ]
-  %.051.lcssa = phi ptr [ %1, %.preheader ], [ %.05176, %90 ], [ %.05176, %86 ], [ %.05176, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.253, %101 ]
-  %.048.lcssa = phi i8 [ 0, %.preheader ], [ %.04877, %90 ], [ %.04877, %86 ], [ %.04877, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %spec.select, %101 ]
+  %.055.lcssa = phi i8 [ 0, %.preheader ], [ %.05574, %90 ], [ %.05574, %86 ], [ %.05574, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.0.i, %101 ]
+  %.051.lcssa = phi ptr [ %1, %.preheader ], [ %.05175, %90 ], [ %.05175, %86 ], [ %.05175, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.253, %101 ]
+  %.048.lcssa = phi i8 [ 0, %.preheader ], [ %.04876, %90 ], [ %.04876, %86 ], [ %.04876, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %spec.select, %101 ]
   %102 = icmp eq ptr %2, null
   br i1 %102, label %103, label %105
 
@@ -5877,9 +5877,9 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %287, label %.preheader183
+  br i1 %11, label %287, label %.preheader181
 
-.preheader183:                                    ; preds = %4
+.preheader181:                                    ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -5887,39 +5887,39 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   %.not158 = icmp eq i8 %3, 0
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %.outer.outer.backedge, %.preheader183
-  %.0141.ph.ph = phi ptr [ null, %.preheader183 ], [ %271, %.outer.outer.backedge ]
-  %.0129.ph.ph = phi i8 [ 0, %.preheader183 ], [ %72, %.outer.outer.backedge ]
-  %.0126.ph.ph = phi i8 [ 0, %.preheader183 ], [ %.0126.ph.ph.be, %.outer.outer.backedge ]
-  %.0121.ph.ph = phi ptr [ null, %.preheader183 ], [ %.0121.ph.ph.be, %.outer.outer.backedge ]
-  %.0114.ph.ph = phi ptr [ %10, %.preheader183 ], [ %.0114, %.outer.outer.backedge ]
-  %.0.ph.ph = phi ptr [ %8, %.preheader183 ], [ %.1, %.outer.outer.backedge ]
-  %.0121.ph323 = ptrtoint ptr %.0121.ph.ph to i64
+.outer.outer:                                     ; preds = %.outer.outer.backedge, %.preheader181
+  %.0141.ph.ph = phi ptr [ null, %.preheader181 ], [ %271, %.outer.outer.backedge ]
+  %.0129.ph.ph = phi i8 [ 0, %.preheader181 ], [ %72, %.outer.outer.backedge ]
+  %.0126.ph.ph = phi i8 [ 0, %.preheader181 ], [ %.0126.ph.ph.be, %.outer.outer.backedge ]
+  %.0121.ph.ph = phi ptr [ null, %.preheader181 ], [ %.0121.ph.ph.be, %.outer.outer.backedge ]
+  %.0114.ph.ph = phi ptr [ %10, %.preheader181 ], [ %.0114, %.outer.outer.backedge ]
+  %.0.ph.ph = phi ptr [ %8, %.preheader181 ], [ %.1, %.outer.outer.backedge ]
+  %.0121.ph321 = ptrtoint ptr %.0121.ph.ph to i64
   %16 = getelementptr i8, ptr %.0121.ph.ph, i64 4
   %17 = getelementptr i8, ptr %.0121.ph.ph, i64 2
-  %18 = add i64 %.0121.ph323, 6
+  %18 = add i64 %.0121.ph321, 6
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
   %.0141.ph = phi ptr [ %.0141.ph.ph, %.outer.outer ], [ %.0141.ph.be, %.outer.backedge ]
   %.0129.ph = phi i8 [ %.0129.ph.ph, %.outer.outer ], [ %72, %.outer.backedge ]
-  %.0126.ph = phi i8 [ %.0126.ph.ph, %.outer.outer ], [ %.0126.ph187, %.outer.backedge ]
+  %.0126.ph = phi i8 [ %.0126.ph.ph, %.outer.outer ], [ %.0126.ph185, %.outer.backedge ]
   %.0114.ph = phi ptr [ %.0114.ph.ph, %.outer.outer ], [ %.0114, %.outer.backedge ]
   %.0.ph = phi ptr [ %.0.ph.ph, %.outer.outer ], [ %.1, %.outer.backedge ]
   %19 = icmp eq i8 %.0129.ph, 0
-  br label %.outer185
+  br label %.outer183
 
-.outer185:                                        ; preds = %.outer185.backedge, %.outer
-  %.0141.ph186 = phi ptr [ %.0141.ph, %.outer ], [ %.0141.ph186.be, %.outer185.backedge ]
-  %.0126.ph187 = phi i8 [ %.0126.ph, %.outer ], [ %.1127, %.outer185.backedge ]
-  %.0114.ph189 = phi ptr [ %.0114.ph, %.outer ], [ %.4118369, %.outer185.backedge ]
-  %.0.ph190 = phi ptr [ %.0.ph, %.outer ], [ %.6370, %.outer185.backedge ]
+.outer183:                                        ; preds = %.outer183.backedge, %.outer
+  %.0141.ph184 = phi ptr [ %.0141.ph, %.outer ], [ %.0141.ph184.be, %.outer183.backedge ]
+  %.0126.ph185 = phi i8 [ %.0126.ph, %.outer ], [ %.1127, %.outer183.backedge ]
+  %.0114.ph187 = phi ptr [ %.0114.ph, %.outer ], [ %.4118367, %.outer183.backedge ]
+  %.0.ph188 = phi ptr [ %.0.ph, %.outer ], [ %.6368, %.outer183.backedge ]
   br label %20
 
-20:                                               ; preds = %.outer185, %.loopexit
-  %.0141 = phi ptr [ null, %.loopexit ], [ %.0141.ph186, %.outer185 ]
-  %.0114 = phi ptr [ %.1115, %.loopexit ], [ %.0114.ph189, %.outer185 ]
-  %.0 = phi ptr [ %.3, %.loopexit ], [ %.0.ph190, %.outer185 ]
+20:                                               ; preds = %.outer183, %.loopexit
+  %.0141 = phi ptr [ null, %.loopexit ], [ %.0141.ph184, %.outer183 ]
+  %.0114 = phi ptr [ %.1115, %.loopexit ], [ %.0114.ph187, %.outer183 ]
+  %.0 = phi ptr [ %.3, %.loopexit ], [ %.0.ph188, %.outer183 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %22 = load i16, ptr %.0, align 2, !tbaa !32
   %23 = zext i16 %22 to i32
@@ -5944,9 +5944,9 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   %38 = icmp ne i32 %37, 0
   %.not = icmp eq ptr %21, %.0114
   %or.cond163 = select i1 %38, i1 true, i1 %.not
-  br i1 %or.cond163, label %._crit_edge331, label %39
+  br i1 %or.cond163, label %._crit_edge329, label %39
 
-._crit_edge331:                                   ; preds = %36
+._crit_edge329:                                   ; preds = %36
   %.pre = load ptr, ptr %12, align 8, !tbaa !45
   br label %57
 
@@ -5955,7 +5955,7 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   %41 = zext i16 %40 to i32
   %42 = and i32 %41, 64512
   %43 = icmp eq i32 %42, 56320
-  %.pre332 = load ptr, ptr %12, align 8, !tbaa !45
+  %.pre330 = load ptr, ptr %12, align 8, !tbaa !45
   br i1 %43, label %44, label %57
 
 44:                                               ; preds = %39
@@ -5963,31 +5963,31 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   %46 = shl nuw nsw i32 %23, 10
   %47 = add nsw i32 %46, -56613888
   %48 = add nuw nsw i32 %47, %41
-  %49 = getelementptr inbounds nuw i8, ptr %.pre332, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.pre330, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !49
   %.not156 = icmp slt i32 %48, %50
   br i1 %.not156, label %55, label %51
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw i8, ptr %.pre332, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %.pre330, i64 20
   %53 = load i32, ptr %52, align 4, !tbaa !50
   %54 = add nsw i32 %53, -2
   br label %62
 
 55:                                               ; preds = %44
-  %56 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre332, i32 noundef %48)
-  %.pre333 = load ptr, ptr %12, align 8, !tbaa !45
+  %56 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre330, i32 noundef %48)
+  %.pre331 = load ptr, ptr %12, align 8, !tbaa !45
   br label %62
 
-57:                                               ; preds = %._crit_edge331, %39
-  %58 = phi ptr [ %.pre, %._crit_edge331 ], [ %.pre332, %39 ]
+57:                                               ; preds = %._crit_edge329, %39
+  %58 = phi ptr [ %.pre, %._crit_edge329 ], [ %.pre330, %39 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %60 = load i32, ptr %59, align 4, !tbaa !50
   %61 = add nsw i32 %60, -1
   br label %62
 
 62:                                               ; preds = %57, %55, %51, %26
-  %63 = phi ptr [ %27, %26 ], [ %58, %57 ], [ %.pre333, %55 ], [ %.pre332, %51 ]
+  %63 = phi ptr [ %27, %26 ], [ %58, %57 ], [ %.pre331, %55 ], [ %.pre330, %51 ]
   %.0139 = phi i32 [ %23, %26 ], [ %23, %57 ], [ %48, %55 ], [ %48, %51 ]
   %.0124 = phi i32 [ %35, %26 ], [ %61, %57 ], [ %56, %55 ], [ %54, %51 ]
   %.1 = phi ptr [ %21, %26 ], [ %21, %57 ], [ %45, %55 ], [ %45, %51 ]
@@ -6008,12 +6008,12 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   %or.cond = select i1 %76, i1 %77, i1 false
   %78 = icmp ult i8 %.0129.ph, %72
   %or.cond4 = or i1 %19, %78
-  %or.cond268 = and i1 %or.cond, %or.cond4
-  br i1 %or.cond268, label %79, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread
+  %or.cond266 = and i1 %or.cond, %or.cond4
+  br i1 %or.cond266, label %79, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread
 
 79:                                               ; preds = %62
-  %.not179 = icmp eq i16 %68, -512
-  br i1 %.not179, label %80, label %107
+  %.not177 = icmp eq i16 %68, -512
+  br i1 %.not177, label %80, label %107
 
 80:                                               ; preds = %79
   %81 = icmp samesign ult i32 %.0139, 4519
@@ -6055,12 +6055,12 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   br i1 %101, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %100, %.lr.ph
-  %.0131254 = phi ptr [ %104, %.lr.ph ], [ %87, %100 ]
-  %.0135253 = phi ptr [ %102, %.lr.ph ], [ %.5, %100 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.0135253, i64 2
-  %103 = load i16, ptr %.0135253, align 2, !tbaa !32
-  %104 = getelementptr inbounds nuw i8, ptr %.0131254, i64 2
-  store i16 %103, ptr %.0131254, align 2, !tbaa !32
+  %.0131252 = phi ptr [ %104, %.lr.ph ], [ %87, %100 ]
+  %.0135251 = phi ptr [ %102, %.lr.ph ], [ %.5, %100 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.0135251, i64 2
+  %103 = load i16, ptr %.0135251, align 2, !tbaa !32
+  %104 = getelementptr inbounds nuw i8, ptr %.0131252, i64 2
+  store i16 %103, ptr %.0131252, align 2, !tbaa !32
   %105 = icmp ult ptr %102, %.0114
   br i1 %105, label %.lr.ph, label %.loopexit, !llvm.loop !100
 
@@ -6072,7 +6072,7 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
 
 107:                                              ; preds = %79
   %108 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %.1.lcssa325327 = ptrtoint ptr %.1 to i64
+  %.1.lcssa323325 = ptrtoint ptr %.1 to i64
   %109 = icmp samesign ult i32 %.0139, 13312
   br i1 %109, label %110, label %130
 
@@ -6159,9 +6159,9 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
 156:                                              ; preds = %148
   %157 = and i32 %151, 65472
   %158 = icmp eq i32 %135, %157
-  br i1 %158, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread360, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread
+  br i1 %158, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread358, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread
 
-_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread360: ; preds = %156
+_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread358: ; preds = %156
   %159 = shl nuw i32 %151, 16
   %160 = and i32 %159, 4128768
   %161 = getelementptr inbounds nuw i8, ptr %.130.i, i64 4
@@ -6179,13 +6179,13 @@ _ZN6icu_7715Normalizer2Impl7combineEPKti.exit:    ; preds = %125
   %170 = icmp sgt i32 %165, -1
   br i1 %170, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170, label %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread
 
-_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170: ; preds = %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread360, %125, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit
-  %.0.i172 = phi i32 [ %169, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit ], [ %129, %125 ], [ %164, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread360 ]
+_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170: ; preds = %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread358, %125, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit
+  %.0.i172 = phi i32 [ %169, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit ], [ %129, %125 ], [ %164, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread358 ]
   %171 = lshr i32 %.0.i172, 1
   %172 = icmp ult i32 %.0139, 65536
   %.neg = select i1 %172, i64 -1, i64 -2
   %173 = getelementptr inbounds i16, ptr %.1, i64 %.neg
-  %.not160 = icmp eq i8 %.0126.ph187, 0
+  %.not160 = icmp eq i8 %.0126.ph185, 0
   %174 = add nsw i32 %171, -65536
   %175 = icmp ult i32 %174, 1048576
   br i1 %.not160, label %193, label %176
@@ -6208,20 +6208,20 @@ _ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170: ; preds = %_ZN6icu_7715
   %185 = trunc i32 %171 to i16
   store i16 %185, ptr %.0121.ph.ph, align 2, !tbaa !32
   %186 = icmp ult ptr %16, %173
-  br i1 %186, label %.lr.ph258.preheader, label %._crit_edge
+  br i1 %186, label %.lr.ph256.preheader, label %._crit_edge
 
-.lr.ph258.preheader:                              ; preds = %184
+.lr.ph256.preheader:                              ; preds = %184
   %187 = shl nsw i64 %.neg, 1
-  %188 = add i64 %187, %.1.lcssa325327
+  %188 = add i64 %187, %.1.lcssa323325
   %umax = tail call i64 @llvm.umax.i64(i64 %188, i64 %18)
-  %reass.sub = sub i64 %umax, %.0121.ph323
+  %reass.sub = sub i64 %umax, %.0121.ph321
   %189 = add i64 %reass.sub, -5
   %190 = and i64 %189, -2
   %191 = add i64 %190, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %17, ptr align 2 %16, i64 %191, i1 false), !tbaa !32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph258.preheader, %184
+._crit_edge:                                      ; preds = %.lr.ph256.preheader, %184
   %192 = getelementptr inbounds i8, ptr %173, i64 -2
   br label %209
 
@@ -6231,19 +6231,19 @@ _ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170: ; preds = %_ZN6icu_7715
 194:                                              ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %173, i64 2
   %196 = icmp ult ptr %17, %173
-  br i1 %196, label %.lr.ph262, label %._crit_edge263
+  br i1 %196, label %.lr.ph260, label %._crit_edge261
 
-.lr.ph262:                                        ; preds = %194, %.lr.ph262
-  %.2133260 = phi ptr [ %197, %.lr.ph262 ], [ %173, %194 ]
-  %.2137259 = phi ptr [ %199, %.lr.ph262 ], [ %195, %194 ]
-  %197 = getelementptr inbounds i8, ptr %.2133260, i64 -2
+.lr.ph260:                                        ; preds = %194, %.lr.ph260
+  %.2133258 = phi ptr [ %197, %.lr.ph260 ], [ %173, %194 ]
+  %.2137257 = phi ptr [ %199, %.lr.ph260 ], [ %195, %194 ]
+  %197 = getelementptr inbounds i8, ptr %.2133258, i64 -2
   %198 = load i16, ptr %197, align 2, !tbaa !32
-  %199 = getelementptr inbounds i8, ptr %.2137259, i64 -2
+  %199 = getelementptr inbounds i8, ptr %.2137257, i64 -2
   store i16 %198, ptr %199, align 2, !tbaa !32
   %200 = icmp ult ptr %17, %197
-  br i1 %200, label %.lr.ph262, label %._crit_edge263, !llvm.loop !102
+  br i1 %200, label %.lr.ph260, label %._crit_edge261, !llvm.loop !102
 
-._crit_edge263:                                   ; preds = %.lr.ph262, %194
+._crit_edge261:                                   ; preds = %.lr.ph260, %194
   %201 = trunc i32 %171 to i16
   %202 = and i16 %201, 1023
   %203 = or disjoint i16 %202, -9216
@@ -6259,38 +6259,38 @@ _ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170: ; preds = %_ZN6icu_7715
   store i16 %208, ptr %.0121.ph.ph, align 2, !tbaa !32
   br label %209
 
-209:                                              ; preds = %._crit_edge263, %207, %177, %._crit_edge
-  %.0130 = phi ptr [ %173, %177 ], [ %192, %._crit_edge ], [ %195, %._crit_edge263 ], [ %173, %207 ]
-  %.1127 = phi i8 [ 1, %177 ], [ 0, %._crit_edge ], [ 1, %._crit_edge263 ], [ 0, %207 ]
+209:                                              ; preds = %._crit_edge261, %207, %177, %._crit_edge
+  %.0130 = phi ptr [ %173, %177 ], [ %192, %._crit_edge ], [ %195, %._crit_edge261 ], [ %173, %207 ]
+  %.1127 = phi i8 [ 1, %177 ], [ 0, %._crit_edge ], [ 1, %._crit_edge261 ], [ 0, %207 ]
   %210 = icmp ult ptr %.0130, %.1
-  br i1 %210, label %.preheader, label %.loopexit182
+  br i1 %210, label %.preheader, label %.loopexit180
 
 .preheader:                                       ; preds = %209
   %211 = icmp ult ptr %.1, %.0114
-  br i1 %211, label %.lr.ph266, label %.thread
+  br i1 %211, label %.lr.ph264, label %.thread
 
-.lr.ph266:                                        ; preds = %.preheader, %.lr.ph266
-  %.3134265 = phi ptr [ %214, %.lr.ph266 ], [ %.0130, %.preheader ]
-  %.3138264 = phi ptr [ %212, %.lr.ph266 ], [ %.1, %.preheader ]
-  %212 = getelementptr inbounds nuw i8, ptr %.3138264, i64 2
-  %213 = load i16, ptr %.3138264, align 2, !tbaa !32
-  %214 = getelementptr inbounds nuw i8, ptr %.3134265, i64 2
-  store i16 %213, ptr %.3134265, align 2, !tbaa !32
+.lr.ph264:                                        ; preds = %.preheader, %.lr.ph264
+  %.3134263 = phi ptr [ %214, %.lr.ph264 ], [ %.0130, %.preheader ]
+  %.3138262 = phi ptr [ %212, %.lr.ph264 ], [ %.1, %.preheader ]
+  %212 = getelementptr inbounds nuw i8, ptr %.3138262, i64 2
+  %213 = load i16, ptr %.3138262, align 2, !tbaa !32
+  %214 = getelementptr inbounds nuw i8, ptr %.3134263, i64 2
+  store i16 %213, ptr %.3134263, align 2, !tbaa !32
   %215 = icmp ult ptr %212, %.0114
-  br i1 %215, label %.lr.ph266, label %.loopexit182.thread366, !llvm.loop !103
+  br i1 %215, label %.lr.ph264, label %.loopexit180.thread364, !llvm.loop !103
 
-.loopexit182:                                     ; preds = %209
+.loopexit180:                                     ; preds = %209
   %216 = icmp eq ptr %.1, %.0114
-  br i1 %216, label %.thread, label %.loopexit182.thread366
+  br i1 %216, label %.thread, label %.loopexit180.thread364
 
-.loopexit182.thread366:                           ; preds = %.lr.ph266, %.loopexit182
-  %.6370 = phi ptr [ %.1, %.loopexit182 ], [ %.0130, %.lr.ph266 ]
-  %.4118369 = phi ptr [ %.0114, %.loopexit182 ], [ %214, %.lr.ph266 ]
+.loopexit180.thread364:                           ; preds = %.lr.ph264, %.loopexit180
+  %.6368 = phi ptr [ %.1, %.loopexit180 ], [ %.0130, %.lr.ph264 ]
+  %.4118367 = phi ptr [ %.0114, %.loopexit180 ], [ %214, %.lr.ph264 ]
   %217 = and i32 %.0.i172, 1
   %.not161 = icmp eq i32 %217, 0
-  br i1 %.not161, label %.outer185.backedge, label %218
+  br i1 %.not161, label %.outer183.backedge, label %218
 
-218:                                              ; preds = %.loopexit182.thread366
+218:                                              ; preds = %.loopexit180.thread364
   %219 = load ptr, ptr %108, align 8, !tbaa !25
   %220 = icmp ult i32 %.0.i172, 131072
   br i1 %220, label %221, label %230
@@ -6324,7 +6324,7 @@ _ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170: ; preds = %_ZN6icu_7715
 
 239:                                              ; preds = %232
   %240 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %63, i32 noundef %171)
-  %.pre334 = load i16, ptr %13, align 2, !tbaa !69
+  %.pre332 = load i16, ptr %13, align 2, !tbaa !69
   br label %_ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit
 
 241:                                              ; preds = %230
@@ -6334,7 +6334,7 @@ _ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread170: ; preds = %_ZN6icu_7715
   br label %_ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit
 
 _ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit: ; preds = %221, %235, %239, %241
-  %245 = phi i16 [ %73, %221 ], [ %73, %241 ], [ %73, %235 ], [ %.pre334, %239 ]
+  %245 = phi i16 [ %73, %221 ], [ %73, %241 ], [ %73, %235 ], [ %.pre332, %239 ]
   %246 = phi i32 [ %229, %221 ], [ %244, %241 ], [ %238, %235 ], [ %240, %239 ]
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds i16, ptr %219, i64 %247
@@ -6353,11 +6353,11 @@ _ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit: ; preds = %221, %235, %239, %
   %258 = and i16 %257, 31
   %259 = zext nneg i16 %258 to i64
   %260 = getelementptr inbounds nuw i16, ptr %256, i64 %259
-  br label %.outer185.backedge
+  br label %.outer183.backedge
 
-.outer185.backedge:                               ; preds = %_ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit, %.loopexit182.thread366
-  %.0141.ph186.be = phi ptr [ %260, %_ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit ], [ null, %.loopexit182.thread366 ]
-  br label %.outer185, !llvm.loop !101
+.outer183.backedge:                               ; preds = %_ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit, %.loopexit180.thread364
+  %.0141.ph184.be = phi ptr [ %260, %_ZNK6icu_7715Normalizer2Impl12getRawNorm16Ei.exit ], [ null, %.loopexit180.thread364 ]
+  br label %.outer183, !llvm.loop !101
 
 _ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread: ; preds = %156, %._crit_edge.i, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit, %62, %153, %145
   %261 = icmp eq ptr %.1, %.0114
@@ -6401,8 +6401,8 @@ _ZNK6icu_7715Normalizer2Impl31getCompositionsListForDecompYesEt.exit: ; preds = 
   %spec.select = select i1 %.not158, ptr %.0141, ptr null
   br label %.outer.backedge
 
-.thread:                                          ; preds = %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread, %.preheader, %.loopexit182, %100, %.loopexit
-  %.3117 = phi ptr [ %87, %100 ], [ %.1115, %.loopexit ], [ %.0130, %.preheader ], [ %.0114, %.loopexit182 ], [ %.0114, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread ]
+.thread:                                          ; preds = %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread, %.preheader, %.loopexit180, %100, %.loopexit
+  %.3117 = phi ptr [ %87, %100 ], [ %.1115, %.loopexit ], [ %.0130, %.preheader ], [ %.0114, %.loopexit180 ], [ %.0114, %_ZN6icu_7715Normalizer2Impl7combineEPKti.exit.thread ]
   %276 = load ptr, ptr %9, align 8, !tbaa !23
   %277 = ptrtoint ptr %276 to i64
   %278 = ptrtoint ptr %.3117 to i64
@@ -6725,7 +6725,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7715Normalizer2Impl7composeEP
 _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit: ; preds = %16, %18
   %20 = load i32, ptr %6, align 4, !tbaa !13
   %21 = icmp slt i32 %20, 1
-  br i1 %21, label %22, label %.thread575
+  br i1 %21, label %22, label %.thread574
 
 22:                                               ; preds = %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
   %23 = tail call ptr @u_strchr_77(ptr noundef nonnull %.0.i, i16 noundef zeroext 0)
@@ -6763,8 +6763,8 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
 47:                                               ; preds = %30
   %.not3.i.i = icmp eq i8 %3, 0
   %.not.i.i.i = icmp eq i16 %45, 1
-  %or.cond599 = or i1 %.not3.i.i, %.not.i.i.i
-  br i1 %or.cond599, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %48
+  %or.cond598 = or i1 %.not3.i.i, %.not.i.i.i
+  br i1 %or.cond598, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %48
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -6862,25 +6862,25 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %54
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 44
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.thread493
-  %.1244645 = phi ptr [ %.0263, %.lr.ph.lr.ph ], [ %.3246, %.thread493 ]
-  %.1264643 = phi ptr [ %.0263, %.lr.ph.lr.ph ], [ %.2265, %.thread493 ]
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.thread492
+  %.1244644 = phi ptr [ %.0263, %.lr.ph.lr.ph ], [ %.3246, %.thread492 ]
+  %.1264642 = phi ptr [ %.0263, %.lr.ph.lr.ph ], [ %.2265, %.thread492 ]
   br label %112
 
-._crit_edge:                                      ; preds = %.thread493, %.thread, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread
-  %.1264.lcssa = phi ptr [ %.0263, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread ], [ %.1264643, %.thread ], [ %.2265, %.thread493 ]
+._crit_edge:                                      ; preds = %.thread492, %.thread, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread
+  %.1264.lcssa = phi ptr [ %.0263, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread ], [ %.1264642, %.thread ], [ %.2265, %.thread492 ]
   %108 = icmp ne ptr %.1264.lcssa, %.0260
   %109 = icmp ne i8 %4, 0
   %or.cond = and i1 %109, %108
-  br i1 %or.cond, label %110, label %.thread575
+  br i1 %or.cond, label %110, label %.thread574
 
 110:                                              ; preds = %._crit_edge
   %111 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264.lcssa, ptr noundef %.0260, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br label %.thread575
+  br label %.thread574
 
 112:                                              ; preds = %.lr.ph, %.thread
-  %.2245640 = phi ptr [ %.1244645, %.lr.ph ], [ %.4247, %.thread ]
-  %113 = load i16, ptr %.2245640, align 2, !tbaa !32
+  %.2245639 = phi ptr [ %.1244644, %.lr.ph ], [ %.4247, %.thread ]
+  %113 = load i16, ptr %.2245639, align 2, !tbaa !32
   %114 = zext i16 %113 to i32
   %115 = icmp ult i16 %113, %9
   br i1 %115, label %132, label %116
@@ -6901,15 +6901,15 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %54
   %129 = getelementptr inbounds nuw i16, ptr %119, i64 %128
   %130 = load i16, ptr %129, align 2, !tbaa !48
   %131 = load i16, ptr %92, align 2, !tbaa !55
-  %.not610 = icmp ult i16 %130, %131
-  br i1 %.not610, label %132, label %134
+  %.not609 = icmp ult i16 %130, %131
+  br i1 %.not609, label %132, label %134
 
 132:                                              ; preds = %116, %112
-  %133 = getelementptr inbounds nuw i8, ptr %.2245640, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %.2245639, i64 2
   br label %.thread
 
 134:                                              ; preds = %116
-  %135 = getelementptr inbounds nuw i8, ptr %.2245640, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %.2245639, i64 2
   %136 = and i32 %114, 64512
   %137 = icmp eq i32 %136, 55296
   br i1 %137, label %138, label %164
@@ -6926,7 +6926,7 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %54
   br i1 %143, label %144, label %.thread
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds nuw i8, ptr %.2245640, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.2245639, i64 4
   %146 = shl nuw nsw i32 %114, 10
   %147 = add nsw i32 %146, -56613888
   %148 = add nuw nsw i32 %147, %141
@@ -6952,8 +6952,8 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %54
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i16, ptr %119, i64 %160
   %162 = load i16, ptr %161, align 2, !tbaa !48
-  %.not611 = icmp ult i16 %162, %158
-  br i1 %.not611, label %.thread, label %164
+  %.not610 = icmp ult i16 %162, %158
+  br i1 %.not610, label %.thread, label %164
 
 .thread:                                          ; preds = %157, %138, %139, %132
   %.4247 = phi ptr [ %133, %132 ], [ %145, %157 ], [ %135, %138 ], [ %135, %139 ]
@@ -6969,7 +6969,7 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %54
   br i1 %166, label %167, label %394
 
 167:                                              ; preds = %164
-  br i1 %.not343, label %.thread575, label %168
+  br i1 %.not343, label %.thread574, label %168
 
 168:                                              ; preds = %167
   %169 = load i16, ptr %95, align 2, !tbaa !68
@@ -6983,26 +6983,26 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %54
 
 172:                                              ; preds = %170
   %.not.i.i397 = icmp eq i16 %.0304, 1
-  %or.cond600 = or i1 %.not334, %.not.i.i397
-  br i1 %or.cond600, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
+  %or.cond599 = or i1 %.not334, %.not.i.i397
+  br i1 %or.cond599, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %172
   %173 = and i16 %.0304, 6
   %174 = icmp samesign ult i16 %173, 3
   %175 = icmp eq ptr %.5248, %.0260
-  %or.cond601 = select i1 %174, i1 true, i1 %175
-  br i1 %or.cond601, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465, label %176
+  %or.cond600 = select i1 %174, i1 true, i1 %175
+  br i1 %or.cond600, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464, label %176
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds = %170
   %.old = icmp eq ptr %.5248, %.0260
-  br i1 %.old, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465, label %176
+  br i1 %.old, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464, label %176
 
 176:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread
   %177 = load i16, ptr %.5248, align 2, !tbaa !32
   %178 = zext i16 %177 to i32
   %179 = load i16, ptr %8, align 2, !tbaa !35
   %180 = icmp ult i16 %177, %179
-  br i1 %180, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465, label %181
+  br i1 %180, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464, label %181
 
 181:                                              ; preds = %176
   %182 = getelementptr inbounds nuw i8, ptr %.5248, i64 2
@@ -7027,10 +7027,10 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds
   %197 = icmp ne i32 %196, 0
   %.not.i401 = icmp eq ptr %182, %.0260
   %or.cond.i402 = select i1 %197, i1 true, i1 %.not.i401
-  br i1 %or.cond.i402, label %._crit_edge667, label %198
+  br i1 %or.cond.i402, label %._crit_edge666, label %198
 
-._crit_edge667:                                   ; preds = %195
-  %.pre668 = load ptr, ptr %91, align 8, !tbaa !45
+._crit_edge666:                                   ; preds = %195
+  %.pre667 = load ptr, ptr %91, align 8, !tbaa !45
   br label %215
 
 198:                                              ; preds = %195
@@ -7038,38 +7038,38 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds
   %200 = zext i16 %199 to i32
   %201 = and i32 %200, 64512
   %202 = icmp eq i32 %201, 56320
-  %.pre669 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre668 = load ptr, ptr %91, align 8, !tbaa !45
   br i1 %202, label %203, label %215
 
 203:                                              ; preds = %198
   %204 = shl nuw nsw i32 %178, 10
   %205 = add nsw i32 %204, -56613888
   %206 = add nuw nsw i32 %205, %200
-  %207 = getelementptr inbounds nuw i8, ptr %.pre669, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %.pre668, i64 24
   %208 = load i32, ptr %207, align 8, !tbaa !49
   %.not25.i = icmp slt i32 %206, %208
   br i1 %.not25.i, label %213, label %209
 
 209:                                              ; preds = %203
-  %210 = getelementptr inbounds nuw i8, ptr %.pre669, i64 20
+  %210 = getelementptr inbounds nuw i8, ptr %.pre668, i64 20
   %211 = load i32, ptr %210, align 4, !tbaa !50
   %212 = add nsw i32 %211, -2
   br label %220
 
 213:                                              ; preds = %203
-  %214 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre669, i32 noundef %206)
+  %214 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre668, i32 noundef %206)
   %.pre.i = load ptr, ptr %91, align 8, !tbaa !45
   br label %220
 
-215:                                              ; preds = %._crit_edge667, %198
-  %216 = phi ptr [ %.pre668, %._crit_edge667 ], [ %.pre669, %198 ]
+215:                                              ; preds = %._crit_edge666, %198
+  %216 = phi ptr [ %.pre667, %._crit_edge666 ], [ %.pre668, %198 ]
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 20
   %218 = load i32, ptr %217, align 4, !tbaa !50
   %219 = add nsw i32 %218, -1
   br label %220
 
 220:                                              ; preds = %215, %213, %209, %185
-  %221 = phi ptr [ %186, %185 ], [ %216, %215 ], [ %.pre669, %209 ], [ %.pre.i, %213 ]
+  %221 = phi ptr [ %186, %185 ], [ %216, %215 ], [ %.pre668, %209 ], [ %.pre.i, %213 ]
   %.019.i = phi i32 [ %194, %185 ], [ %219, %215 ], [ %212, %209 ], [ %214, %213 ]
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load ptr, ptr %222, align 8, !tbaa !25
@@ -7078,7 +7078,7 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds
   %226 = load i16, ptr %225, align 2, !tbaa !48
   %227 = load i16, ptr %94, align 2, !tbaa !66
   %228 = icmp ult i16 %226, %227
-  br i1 %228, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit
+  br i1 %228, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit
 
 _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit: ; preds = %220
   %229 = load i16, ptr %95, align 2, !tbaa !68
@@ -7086,18 +7086,18 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit: ; preds = %220
   %230 = load i16, ptr %93, align 2
   %231 = icmp uge i16 %226, %230
   %narrow.i.i.i.not = select i1 %.not.i.i.i399, i1 true, i1 %231
-  br i1 %narrow.i.i.i.not, label %.thread508, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465
+  br i1 %narrow.i.i.i.not, label %.thread507, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464
 
-_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465: ; preds = %220, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %176, %172, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
-  %.not378 = icmp eq ptr %.1264643, %.2245640
+_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464: ; preds = %220, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %176, %172, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
+  %.not378 = icmp eq ptr %.1264642, %.2245639
   br i1 %.not378, label %234, label %232
 
-232:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465
-  %233 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264643, ptr noundef nonnull %.2245640, ptr noundef nonnull align 4 dereferenceable(4) %6)
+232:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464
+  %233 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264642, ptr noundef nonnull %.2245639, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not379 = icmp eq i8 %233, 0
-  br i1 %.not379, label %.thread575, label %234
+  br i1 %.not379, label %.thread574, label %234
 
-234:                                              ; preds = %232, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465
+234:                                              ; preds = %232, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread464
   %235 = lshr i16 %.0304, 3
   %236 = zext nneg i16 %235 to i32
   %237 = add nuw nsw i32 %.0300, %236
@@ -7119,7 +7119,7 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread465: ; pr
 _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %242, %245
   %247 = phi i8 [ %244, %242 ], [ %246, %245 ]
   %.not380 = icmp eq i8 %247, 0
-  br i1 %.not380, label %.thread575, label %.thread493
+  br i1 %.not380, label %.thread574, label %.thread492
 
 248:                                              ; preds = %168
   %249 = load i16, ptr %99, align 4, !tbaa !65
@@ -7133,8 +7133,8 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %242, %245
 
 253:                                              ; preds = %251
   %.not.i.i405 = icmp eq i16 %.0304, 1
-  %or.cond602 = or i1 %.not334, %.not.i.i405
-  br i1 %or.cond602, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409
+  %or.cond601 = or i1 %.not334, %.not.i.i405
+  br i1 %or.cond601, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409: ; preds = %253
   %254 = load ptr, ptr %101, align 8, !tbaa !56
@@ -7144,19 +7144,19 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409: ; preds = %
   %258 = load i16, ptr %257, align 2, !tbaa !48
   %259 = icmp ult i16 %258, 512
   %260 = icmp eq ptr %.5248, %.0260
-  %or.cond604 = select i1 %259, i1 true, i1 %260
-  br i1 %or.cond604, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472, label %261
+  %or.cond603 = select i1 %259, i1 true, i1 %260
+  br i1 %or.cond603, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471, label %261
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread: ; preds = %251
-  %.old603 = icmp eq ptr %.5248, %.0260
-  br i1 %.old603, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472, label %261
+  %.old602 = icmp eq ptr %.5248, %.0260
+  br i1 %.old602, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471, label %261
 
 261:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread
   %262 = load i16, ptr %.5248, align 2, !tbaa !32
   %263 = zext i16 %262 to i32
   %264 = load i16, ptr %8, align 2, !tbaa !35
   %265 = icmp ult i16 %262, %264
-  br i1 %265, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472, label %266
+  br i1 %265, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471, label %266
 
 266:                                              ; preds = %261
   %267 = getelementptr inbounds nuw i8, ptr %.5248, i64 2
@@ -7181,10 +7181,10 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread: ; pr
   %282 = icmp ne i32 %281, 0
   %.not.i414 = icmp eq ptr %267, %.0260
   %or.cond.i415 = select i1 %282, i1 true, i1 %.not.i414
-  br i1 %or.cond.i415, label %._crit_edge673, label %283
+  br i1 %or.cond.i415, label %._crit_edge672, label %283
 
-._crit_edge673:                                   ; preds = %280
-  %.pre674 = load ptr, ptr %91, align 8, !tbaa !45
+._crit_edge672:                                   ; preds = %280
+  %.pre673 = load ptr, ptr %91, align 8, !tbaa !45
   br label %300
 
 283:                                              ; preds = %280
@@ -7192,38 +7192,38 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread: ; pr
   %285 = zext i16 %284 to i32
   %286 = and i32 %285, 64512
   %287 = icmp eq i32 %286, 56320
-  %.pre675 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre674 = load ptr, ptr %91, align 8, !tbaa !45
   br i1 %287, label %288, label %300
 
 288:                                              ; preds = %283
   %289 = shl nuw nsw i32 %263, 10
   %290 = add nsw i32 %289, -56613888
   %291 = add nuw nsw i32 %290, %285
-  %292 = getelementptr inbounds nuw i8, ptr %.pre675, i64 24
+  %292 = getelementptr inbounds nuw i8, ptr %.pre674, i64 24
   %293 = load i32, ptr %292, align 8, !tbaa !49
   %.not25.i416 = icmp slt i32 %291, %293
   br i1 %.not25.i416, label %298, label %294
 
 294:                                              ; preds = %288
-  %295 = getelementptr inbounds nuw i8, ptr %.pre675, i64 20
+  %295 = getelementptr inbounds nuw i8, ptr %.pre674, i64 20
   %296 = load i32, ptr %295, align 4, !tbaa !50
   %297 = add nsw i32 %296, -2
   br label %305
 
 298:                                              ; preds = %288
-  %299 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre675, i32 noundef %291)
+  %299 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre674, i32 noundef %291)
   %.pre.i417 = load ptr, ptr %91, align 8, !tbaa !45
   br label %305
 
-300:                                              ; preds = %._crit_edge673, %283
-  %301 = phi ptr [ %.pre674, %._crit_edge673 ], [ %.pre675, %283 ]
+300:                                              ; preds = %._crit_edge672, %283
+  %301 = phi ptr [ %.pre673, %._crit_edge672 ], [ %.pre674, %283 ]
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 20
   %303 = load i32, ptr %302, align 4, !tbaa !50
   %304 = add nsw i32 %303, -1
   br label %305
 
 305:                                              ; preds = %300, %298, %294, %270
-  %306 = phi ptr [ %271, %270 ], [ %301, %300 ], [ %.pre675, %294 ], [ %.pre.i417, %298 ]
+  %306 = phi ptr [ %271, %270 ], [ %301, %300 ], [ %.pre674, %294 ], [ %.pre.i417, %298 ]
   %.019.i410 = phi i32 [ %279, %270 ], [ %304, %300 ], [ %297, %294 ], [ %299, %298 ]
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %308 = load ptr, ptr %307, align 8, !tbaa !25
@@ -7232,7 +7232,7 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread: ; pr
   %311 = load i16, ptr %310, align 2, !tbaa !48
   %312 = load i16, ptr %94, align 2, !tbaa !66
   %313 = icmp ult i16 %311, %312
-  br i1 %313, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418
+  br i1 %313, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418
 
 _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418: ; preds = %305
   %314 = load i16, ptr %95, align 2, !tbaa !68
@@ -7240,18 +7240,18 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418: ; preds = %
   %315 = load i16, ptr %93, align 2
   %316 = icmp uge i16 %311, %315
   %narrow.i.i.i412.not = select i1 %.not.i.i.i411, i1 true, i1 %316
-  br i1 %narrow.i.i.i412.not, label %.thread508, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472
+  br i1 %narrow.i.i.i412.not, label %.thread507, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471
 
-_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472: ; preds = %305, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread, %261, %253, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409
-  %.not362 = icmp eq ptr %.1264643, %.2245640
+_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471: ; preds = %305, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread, %261, %253, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409
+  %.not362 = icmp eq ptr %.1264642, %.2245639
   br i1 %.not362, label %319, label %317
 
-317:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472
-  %318 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264643, ptr noundef nonnull %.2245640, ptr noundef nonnull align 4 dereferenceable(4) %6)
+317:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471
+  %318 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264642, ptr noundef nonnull %.2245639, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not363 = icmp eq i8 %318, 0
-  br i1 %.not363, label %.thread575, label %319
+  br i1 %.not363, label %.thread574, label %319
 
-319:                                              ; preds = %317, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472
+319:                                              ; preds = %317, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread471
   %320 = load ptr, ptr %101, align 8, !tbaa !56
   %321 = lshr i16 %.0304, 1
   %322 = zext nneg i16 %321 to i64
@@ -7263,12 +7263,12 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472: ;
   %328 = getelementptr inbounds nuw i16, ptr %324, i64 %327
   %329 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %324, ptr noundef nonnull %328, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not364 = icmp eq i8 %329, 0
-  br i1 %.not364, label %.thread575, label %.thread493
+  br i1 %.not364, label %.thread574, label %.thread492
 
 330:                                              ; preds = %248
   %331 = load i16, ptr %100, align 8, !tbaa !67
   %.not355 = icmp ult i16 %.0304, %331
-  br i1 %.not355, label %.thread508, label %332
+  br i1 %.not355, label %.thread507, label %332
 
 332:                                              ; preds = %330
   %333 = icmp eq ptr %.5248, %.0260
@@ -7304,10 +7304,10 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472: ;
   %355 = icmp ne i32 %354, 0
   %.not.i423 = icmp eq ptr %340, %.0260
   %or.cond.i424 = select i1 %355, i1 true, i1 %.not.i423
-  br i1 %or.cond.i424, label %._crit_edge670, label %356
+  br i1 %or.cond.i424, label %._crit_edge669, label %356
 
-._crit_edge670:                                   ; preds = %353
-  %.pre671 = load ptr, ptr %91, align 8, !tbaa !45
+._crit_edge669:                                   ; preds = %353
+  %.pre670 = load ptr, ptr %91, align 8, !tbaa !45
   br label %373
 
 356:                                              ; preds = %353
@@ -7315,38 +7315,38 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit409.thread472: ;
   %358 = zext i16 %357 to i32
   %359 = and i32 %358, 64512
   %360 = icmp eq i32 %359, 56320
-  %.pre672 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre671 = load ptr, ptr %91, align 8, !tbaa !45
   br i1 %360, label %361, label %373
 
 361:                                              ; preds = %356
   %362 = shl nuw nsw i32 %336, 10
   %363 = add nsw i32 %362, -56613888
   %364 = add nuw nsw i32 %363, %358
-  %365 = getelementptr inbounds nuw i8, ptr %.pre672, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %.pre671, i64 24
   %366 = load i32, ptr %365, align 8, !tbaa !49
   %.not25.i425 = icmp slt i32 %364, %366
   br i1 %.not25.i425, label %371, label %367
 
 367:                                              ; preds = %361
-  %368 = getelementptr inbounds nuw i8, ptr %.pre672, i64 20
+  %368 = getelementptr inbounds nuw i8, ptr %.pre671, i64 20
   %369 = load i32, ptr %368, align 4, !tbaa !50
   %370 = add nsw i32 %369, -2
   br label %378
 
 371:                                              ; preds = %361
-  %372 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre672, i32 noundef %364)
+  %372 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre671, i32 noundef %364)
   %.pre.i426 = load ptr, ptr %91, align 8, !tbaa !45
   br label %378
 
-373:                                              ; preds = %._crit_edge670, %356
-  %374 = phi ptr [ %.pre671, %._crit_edge670 ], [ %.pre672, %356 ]
+373:                                              ; preds = %._crit_edge669, %356
+  %374 = phi ptr [ %.pre670, %._crit_edge669 ], [ %.pre671, %356 ]
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 20
   %376 = load i32, ptr %375, align 4, !tbaa !50
   %377 = add nsw i32 %376, -1
   br label %378
 
 378:                                              ; preds = %373, %371, %367, %343
-  %379 = phi ptr [ %344, %343 ], [ %374, %373 ], [ %.pre672, %367 ], [ %.pre.i426, %371 ]
+  %379 = phi ptr [ %344, %343 ], [ %374, %373 ], [ %.pre671, %367 ], [ %.pre.i426, %371 ]
   %.019.i419 = phi i32 [ %352, %343 ], [ %377, %373 ], [ %370, %367 ], [ %372, %371 ]
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %381 = load ptr, ptr %380, align 8, !tbaa !25
@@ -7366,27 +7366,27 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427: ; preds = %
   br i1 %narrow.i.i.i421.not, label %390, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread
 
 390:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427
-  %391 = tail call noundef signext i8 @_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEPKDsS2_a(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %.1264643, ptr noundef nonnull %.2245640, i8 noundef signext %3)
+  %391 = tail call noundef signext i8 @_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEPKDsS2_a(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %.1264642, ptr noundef nonnull %.2245639, i8 noundef signext %3)
   %.not357 = icmp eq i8 %391, 0
-  br i1 %.not357, label %.thread508, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread
+  br i1 %.not357, label %.thread507, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread
 
 _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread: ; preds = %378, %332, %334, %390, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427
-  %.not358 = icmp eq ptr %.1264643, %.2245640
-  br i1 %.not358, label %.thread493, label %392, !llvm.loop !105
+  %.not358 = icmp eq ptr %.1264642, %.2245639
+  br i1 %.not358, label %.thread492, label %392, !llvm.loop !105
 
 392:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread
-  %393 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264643, ptr noundef nonnull %.2245640, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %393 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264642, ptr noundef nonnull %.2245639, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not359 = icmp eq i8 %393, 0
-  br i1 %.not359, label %.thread575, label %.thread493, !llvm.loop !105
+  br i1 %.not359, label %.thread574, label %.thread492, !llvm.loop !105
 
 394:                                              ; preds = %164
   %395 = icmp ne i16 %.0304, -512
-  %.not333 = icmp eq ptr %.1264643, %.2245640
+  %.not333 = icmp eq ptr %.1264642, %.2245639
   %or.cond383 = select i1 %395, i1 true, i1 %.not333
   br i1 %or.cond383, label %490, label %396
 
 396:                                              ; preds = %394
-  %397 = getelementptr inbounds i8, ptr %.2245640, i64 -2
+  %397 = getelementptr inbounds i8, ptr %.2245639, i64 -2
   %398 = load i16, ptr %397, align 2, !tbaa !32
   %399 = icmp samesign ult i32 %.0300, 4519
   br i1 %399, label %400, label %477
@@ -7394,10 +7394,10 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread: ; pr
 400:                                              ; preds = %396
   %401 = add i16 %398, -4352
   %402 = icmp ult i16 %401, 19
-  br i1 %402, label %403, label %.thread508
+  br i1 %402, label %403, label %.thread507
 
 403:                                              ; preds = %400
-  br i1 %.not343, label %.thread575, label %404
+  br i1 %.not343, label %.thread574, label %404
 
 404:                                              ; preds = %403
   %.not348 = icmp eq ptr %.5248, %.0260
@@ -7443,10 +7443,10 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread: ; pr
   %431 = icmp ne i32 %430, 0
   %.not.i432 = icmp eq ptr %416, %.0260
   %or.cond.i433 = select i1 %431, i1 true, i1 %.not.i432
-  br i1 %or.cond.i433, label %._crit_edge660, label %432
+  br i1 %or.cond.i433, label %._crit_edge659, label %432
 
-._crit_edge660:                                   ; preds = %429
-  %.pre661 = load ptr, ptr %91, align 8, !tbaa !45
+._crit_edge659:                                   ; preds = %429
+  %.pre660 = load ptr, ptr %91, align 8, !tbaa !45
   br label %449
 
 432:                                              ; preds = %429
@@ -7454,58 +7454,58 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread: ; pr
   %434 = zext i16 %433 to i32
   %435 = and i32 %434, 64512
   %436 = icmp eq i32 %435, 56320
-  %.pre662 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre661 = load ptr, ptr %91, align 8, !tbaa !45
   br i1 %436, label %437, label %449
 
 437:                                              ; preds = %432
   %438 = shl nuw nsw i32 %408, 10
   %439 = add nsw i32 %438, -56613888
   %440 = add nuw nsw i32 %439, %434
-  %441 = getelementptr inbounds nuw i8, ptr %.pre662, i64 24
+  %441 = getelementptr inbounds nuw i8, ptr %.pre661, i64 24
   %442 = load i32, ptr %441, align 8, !tbaa !49
   %.not25.i434 = icmp slt i32 %440, %442
   br i1 %.not25.i434, label %447, label %443
 
 443:                                              ; preds = %437
-  %444 = getelementptr inbounds nuw i8, ptr %.pre662, i64 20
+  %444 = getelementptr inbounds nuw i8, ptr %.pre661, i64 20
   %445 = load i32, ptr %444, align 4, !tbaa !50
   %446 = add nsw i32 %445, -2
   br label %454
 
 447:                                              ; preds = %437
-  %448 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre662, i32 noundef %440)
+  %448 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre661, i32 noundef %440)
   %.pre.i435 = load ptr, ptr %91, align 8, !tbaa !45
   br label %454
 
-449:                                              ; preds = %._crit_edge660, %432
-  %450 = phi ptr [ %.pre661, %._crit_edge660 ], [ %.pre662, %432 ]
+449:                                              ; preds = %._crit_edge659, %432
+  %450 = phi ptr [ %.pre660, %._crit_edge659 ], [ %.pre661, %432 ]
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 20
   %452 = load i32, ptr %451, align 4, !tbaa !50
   %453 = add nsw i32 %452, -1
   br label %454
 
 454:                                              ; preds = %449, %447, %443, %419
-  %455 = phi ptr [ %420, %419 ], [ %450, %449 ], [ %.pre662, %443 ], [ %.pre.i435, %447 ]
+  %455 = phi ptr [ %420, %419 ], [ %450, %449 ], [ %.pre661, %443 ], [ %.pre.i435, %447 ]
   %.019.i428 = phi i32 [ %428, %419 ], [ %453, %449 ], [ %446, %443 ], [ %448, %447 ]
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 8
   %457 = load ptr, ptr %456, align 8, !tbaa !25
   %458 = sext i32 %.019.i428 to i64
   %459 = getelementptr inbounds i16, ptr %457, i64 %458
   %460 = load i16, ptr %459, align 2, !tbaa !48
-  %.fr614 = freeze i16 %460
+  %.fr613 = freeze i16 %460
   %461 = load i16, ptr %94, align 2, !tbaa !66
-  %462 = icmp ult i16 %.fr614, %461
+  %462 = icmp ult i16 %.fr613, %461
   br i1 %462, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436
 
 _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436: ; preds = %454
   %463 = load i16, ptr %95, align 2, !tbaa !68
   %.fr = freeze i16 %463
-  %.not.i.i.i429 = icmp ugt i16 %.fr, %.fr614
+  %.not.i.i.i429 = icmp ugt i16 %.fr, %.fr613
   %464 = load i16, ptr %93, align 2
-  %.fr616 = freeze i16 %464
-  %465 = icmp uge i16 %.fr614, %.fr616
+  %.fr615 = freeze i16 %464
+  %465 = icmp uge i16 %.fr613, %.fr615
   %narrow.i.i.i430.not = or i1 %.not.i.i.i429, %465
-  br i1 %narrow.i.i.i430.not, label %.thread508, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread
+  br i1 %narrow.i.i.i430.not, label %.thread507, label %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread
 
 _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread: ; preds = %404, %454, %412, %409, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436
   %.0303.ph = phi i32 [ 0, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436 ], [ %410, %409 ], [ 0, %412 ], [ 0, %454 ], [ 0, %404 ]
@@ -7517,19 +7517,19 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread: ; pr
   %469 = mul nuw nsw i32 %468, 28
   %470 = add nuw nsw i32 %469, 44032
   %471 = add nuw nsw i32 %470, %.0303.ph
-  %.not350 = icmp eq ptr %.1264643, %397
+  %.not350 = icmp eq ptr %.1264642, %397
   br i1 %.not350, label %474, label %472
 
 472:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread
-  %473 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264643, ptr noundef nonnull %397, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %473 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264642, ptr noundef nonnull %397, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not351 = icmp eq i8 %473, 0
-  br i1 %.not351, label %.thread575, label %474
+  br i1 %.not351, label %.thread574, label %474
 
 474:                                              ; preds = %472, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread
   %475 = trunc i32 %471 to i16
   %476 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer9appendBMPEDshR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i16 noundef zeroext %475, i8 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not352 = icmp eq i8 %476, 0
-  br i1 %.not352, label %.thread575, label %.thread493
+  br i1 %.not352, label %.thread574, label %.thread492
 
 477:                                              ; preds = %396
   %478 = zext i16 %398 to i32
@@ -7537,21 +7537,21 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread: ; pr
   %or.cond.i437 = icmp ult i32 %479, 11172
   %.lhs.trunc.i = trunc nuw nsw i32 %479 to i16
   %480 = urem i16 %.lhs.trunc.i, 28
-  %.not612 = icmp eq i16 %480, 0
-  %or.cond626 = select i1 %or.cond.i437, i1 %.not612, i1 false
-  br i1 %or.cond626, label %481, label %.thread508
+  %.not611 = icmp eq i16 %480, 0
+  %or.cond625 = select i1 %or.cond.i437, i1 %.not611, i1 false
+  br i1 %or.cond625, label %481, label %.thread507
 
 481:                                              ; preds = %477
-  br i1 %.not343, label %.thread575, label %482
+  br i1 %.not343, label %.thread574, label %482
 
 482:                                              ; preds = %481
-  %.not344 = icmp eq ptr %.1264643, %397
+  %.not344 = icmp eq ptr %.1264642, %397
   br i1 %.not344, label %485, label %483
 
 483:                                              ; preds = %482
-  %484 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264643, ptr noundef nonnull %397, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %484 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264642, ptr noundef nonnull %397, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not345 = icmp eq i8 %484, 0
-  br i1 %.not345, label %.thread575, label %485
+  br i1 %.not345, label %.thread574, label %485
 
 485:                                              ; preds = %483, %482
   %486 = trunc i32 %.0300 to i16
@@ -7559,11 +7559,11 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread: ; pr
   %488 = add i16 %487, %398
   %489 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer9appendBMPEDshR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i16 noundef zeroext %488, i8 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not346 = icmp eq i8 %489, 0
-  br i1 %.not346, label %.thread575, label %.thread493
+  br i1 %.not346, label %.thread574, label %.thread492
 
 490:                                              ; preds = %394
   %491 = icmp ugt i16 %.0304, -512
-  br i1 %491, label %492, label %.thread508
+  br i1 %491, label %492, label %.thread507
 
 492:                                              ; preds = %490
   %493 = lshr i16 %.0304, 1
@@ -7572,14 +7572,14 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread: ; pr
   br i1 %brmerge, label %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread.preheader, label %495
 
 495:                                              ; preds = %492
-  %496 = ptrtoint ptr %.2245640 to i64
-  %497 = ptrtoint ptr %.1264643 to i64
+  %496 = ptrtoint ptr %.2245639 to i64
+  %497 = ptrtoint ptr %.1264642 to i64
   %498 = sub i64 %496, %497
   %499 = lshr exact i64 %498, 1
   %500 = shl i64 %498, 31
   %sext.i = add i64 %500, -4294967296
   %501 = ashr i64 %sext.i, 32
-  %502 = getelementptr inbounds i16, ptr %.1264643, i64 %501
+  %502 = getelementptr inbounds i16, ptr %.1264642, i64 %501
   %503 = load i16, ptr %502, align 2, !tbaa !32
   %504 = zext i16 %503 to i32
   %505 = and i32 %504, 64512
@@ -7592,7 +7592,7 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread: ; pr
 509:                                              ; preds = %495
   %510 = add nuw i64 %499, 4294967294
   %511 = and i64 %510, 4294967295
-  %512 = getelementptr inbounds nuw i16, ptr %.1264643, i64 %511
+  %512 = getelementptr inbounds nuw i16, ptr %.1264642, i64 %511
   %513 = load i16, ptr %512, align 2, !tbaa !32
   %514 = zext i16 %513 to i32
   %515 = and i32 %514, 64512
@@ -7642,7 +7642,7 @@ _ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread.preheader: 
   br label %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread
 
 542:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit
-  br i1 %.not343, label %.thread575, label %.thread508
+  br i1 %.not343, label %.thread574, label %.thread507
 
 _ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread: ; preds = %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread.preheader, %597
   %.0290 = phi i8 [ %599, %597 ], [ %494, %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread.preheader ]
@@ -7651,11 +7651,11 @@ _ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread: ; preds = 
   br i1 %543, label %544, label %547
 
 544:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread
-  br i1 %.not343, label %.thread575, label %545
+  br i1 %.not343, label %.thread574, label %545
 
 545:                                              ; preds = %544
-  %546 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264643, ptr noundef %.0260, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br label %.thread575
+  %546 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264642, ptr noundef %.0260, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  br label %.thread574
 
 547:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread
   %548 = getelementptr inbounds nuw i8, ptr %.16, i64 2
@@ -7682,10 +7682,10 @@ _ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread: ; preds = 
   %565 = icmp ne i32 %564, 0
   %.not335 = icmp eq ptr %548, %.0260
   %or.cond388 = select i1 %565, i1 true, i1 %.not335
-  br i1 %or.cond388, label %._crit_edge663, label %566
+  br i1 %or.cond388, label %._crit_edge662, label %566
 
-._crit_edge663:                                   ; preds = %563
-  %.pre664 = load ptr, ptr %91, align 8, !tbaa !45
+._crit_edge662:                                   ; preds = %563
+  %.pre663 = load ptr, ptr %91, align 8, !tbaa !45
   br label %584
 
 566:                                              ; preds = %563
@@ -7693,7 +7693,7 @@ _ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread: ; preds = 
   %568 = zext i16 %567 to i32
   %569 = and i32 %568, 64512
   %570 = icmp eq i32 %569, 56320
-  %.pre665 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre664 = load ptr, ptr %91, align 8, !tbaa !45
   br i1 %570, label %571, label %584
 
 571:                                              ; preds = %566
@@ -7701,31 +7701,31 @@ _ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread: ; preds = 
   %573 = shl nuw nsw i32 %550, 10
   %574 = add nsw i32 %573, -56613888
   %575 = add nuw nsw i32 %574, %568
-  %576 = getelementptr inbounds nuw i8, ptr %.pre665, i64 24
+  %576 = getelementptr inbounds nuw i8, ptr %.pre664, i64 24
   %577 = load i32, ptr %576, align 8, !tbaa !49
   %.not336 = icmp slt i32 %575, %577
   br i1 %.not336, label %582, label %578
 
 578:                                              ; preds = %571
-  %579 = getelementptr inbounds nuw i8, ptr %.pre665, i64 20
+  %579 = getelementptr inbounds nuw i8, ptr %.pre664, i64 20
   %580 = load i32, ptr %579, align 4, !tbaa !50
   %581 = add nsw i32 %580, -2
   br label %589
 
 582:                                              ; preds = %571
-  %583 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre665, i32 noundef %575)
-  %.pre666 = load ptr, ptr %91, align 8, !tbaa !45
+  %583 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre664, i32 noundef %575)
+  %.pre665 = load ptr, ptr %91, align 8, !tbaa !45
   br label %589
 
-584:                                              ; preds = %._crit_edge663, %566
-  %585 = phi ptr [ %.pre664, %._crit_edge663 ], [ %.pre665, %566 ]
+584:                                              ; preds = %._crit_edge662, %566
+  %585 = phi ptr [ %.pre663, %._crit_edge662 ], [ %.pre664, %566 ]
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 20
   %587 = load i32, ptr %586, align 4, !tbaa !50
   %588 = add nsw i32 %587, -1
   br label %589
 
 589:                                              ; preds = %584, %582, %578, %553
-  %590 = phi ptr [ %554, %553 ], [ %585, %584 ], [ %.pre666, %582 ], [ %.pre665, %578 ]
+  %590 = phi ptr [ %554, %553 ], [ %585, %584 ], [ %.pre665, %582 ], [ %.pre664, %578 ]
   %.0288 = phi ptr [ %548, %553 ], [ %548, %584 ], [ %572, %582 ], [ %572, %578 ]
   %.0261 = phi i32 [ %562, %553 ], [ %588, %584 ], [ %583, %582 ], [ %581, %578 ]
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 8
@@ -7743,7 +7743,7 @@ _ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread: ; preds = 
   br i1 %600, label %601, label %_ZNK6icu_7715Normalizer2Impl18getPreviousTrailCCEPKDsS2_.exit.thread
 
 601:                                              ; preds = %597
-  br i1 %.not343, label %.thread575, label %.loopexit
+  br i1 %.not343, label %.thread574, label %.loopexit
 
 .loopexit:                                        ; preds = %589, %601
   %602 = load i16, ptr %94, align 2, !tbaa !66
@@ -7756,23 +7756,23 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit: ; preds = %.lo
   %605 = load i16, ptr %93, align 2
   %606 = icmp uge i16 %595, %605
   %narrow.i.i.not = select i1 %.not.i.i441, i1 true, i1 %606
-  br i1 %narrow.i.i.not, label %.thread508, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread
+  br i1 %narrow.i.i.not, label %.thread507, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread
 
 _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread: ; preds = %.loopexit, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit
   %607 = load i16, ptr %92, align 2, !tbaa !55
-  %.not618 = icmp ult i16 %595, %607
-  %spec.select = select i1 %.not618, ptr %.0288, ptr %.16
-  br label %.thread493, !llvm.loop !105
+  %.not617 = icmp ult i16 %595, %607
+  %spec.select = select i1 %.not617, ptr %.0288, ptr %.16
+  br label %.thread492, !llvm.loop !105
 
-.thread508:                                       ; preds = %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436, %542, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit, %477, %400, %490, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit, %330, %390, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418
+.thread507:                                       ; preds = %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436, %542, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit, %477, %400, %490, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit, %330, %390, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418
   %.8251 = phi ptr [ %.5248, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit ], [ %.5248, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit418 ], [ %.5248, %390 ], [ %.5248, %330 ], [ %.5248, %490 ], [ %.5248, %400 ], [ %.5248, %477 ], [ %.16, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ %.5248, %542 ], [ %.5248, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436 ]
-  %.not367 = icmp eq ptr %.1264643, %.2245640
+  %.not367 = icmp eq ptr %.1264642, %.2245639
   %608 = load i16, ptr %94, align 2
   %609 = icmp ult i16 %.0304, %608
-  %or.cond608 = select i1 %.not367, i1 true, i1 %609
-  br i1 %or.cond608, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444
+  %or.cond607 = select i1 %.not367, i1 true, i1 %609
+  br i1 %or.cond607, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444
 
-_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444: ; preds = %.thread508
+_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444: ; preds = %.thread507
   %610 = load i16, ptr %95, align 2, !tbaa !68
   %.not.i.i442 = icmp ugt i16 %610, %.0304
   %611 = load i16, ptr %93, align 2
@@ -7781,7 +7781,7 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444: ; preds = %
   br i1 %narrow.i.i443.not, label %613, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread
 
 613:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444
-  %614 = getelementptr inbounds i8, ptr %.2245640, i64 -2
+  %614 = getelementptr inbounds i8, ptr %.2245639, i64 -2
   %615 = load i16, ptr %614, align 2, !tbaa !32
   %616 = zext i16 %615 to i32
   %617 = and i32 %616, 63488
@@ -7803,52 +7803,52 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444: ; preds = %
 629:                                              ; preds = %613
   %630 = and i32 %616, 1024
   %.not369 = icmp eq i32 %630, 0
-  %.not370 = icmp eq ptr %614, %.1264643
+  %.not370 = icmp eq ptr %614, %.1264642
   %or.cond390 = or i1 %.not370, %.not369
-  br i1 %or.cond390, label %._crit_edge676, label %631
+  br i1 %or.cond390, label %._crit_edge675, label %631
 
-._crit_edge676:                                   ; preds = %629
-  %.pre677 = load ptr, ptr %91, align 8, !tbaa !45
+._crit_edge675:                                   ; preds = %629
+  %.pre676 = load ptr, ptr %91, align 8, !tbaa !45
   br label %649
 
 631:                                              ; preds = %629
-  %632 = getelementptr inbounds i8, ptr %.2245640, i64 -4
+  %632 = getelementptr inbounds i8, ptr %.2245639, i64 -4
   %633 = load i16, ptr %632, align 2, !tbaa !32
   %634 = zext i16 %633 to i32
   %635 = and i32 %634, 64512
   %636 = icmp eq i32 %635, 55296
-  %.pre678 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre677 = load ptr, ptr %91, align 8, !tbaa !45
   br i1 %636, label %637, label %649
 
 637:                                              ; preds = %631
   %638 = shl nuw nsw i32 %634, 10
   %639 = add nuw nsw i32 %616, -56613888
   %640 = add nsw i32 %639, %638
-  %641 = getelementptr inbounds nuw i8, ptr %.pre678, i64 24
+  %641 = getelementptr inbounds nuw i8, ptr %.pre677, i64 24
   %642 = load i32, ptr %641, align 8, !tbaa !49
   %.not371 = icmp slt i32 %640, %642
   br i1 %.not371, label %647, label %643
 
 643:                                              ; preds = %637
-  %644 = getelementptr inbounds nuw i8, ptr %.pre678, i64 20
+  %644 = getelementptr inbounds nuw i8, ptr %.pre677, i64 20
   %645 = load i32, ptr %644, align 4, !tbaa !50
   %646 = add nsw i32 %645, -2
   br label %654
 
 647:                                              ; preds = %637
-  %648 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre678, i32 noundef %640)
-  %.pre679 = load ptr, ptr %91, align 8, !tbaa !45
+  %648 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre677, i32 noundef %640)
+  %.pre678 = load ptr, ptr %91, align 8, !tbaa !45
   br label %654
 
-649:                                              ; preds = %._crit_edge676, %631
-  %650 = phi ptr [ %.pre677, %._crit_edge676 ], [ %.pre678, %631 ]
+649:                                              ; preds = %._crit_edge675, %631
+  %650 = phi ptr [ %.pre676, %._crit_edge675 ], [ %.pre677, %631 ]
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 20
   %652 = load i32, ptr %651, align 4, !tbaa !50
   %653 = add nsw i32 %652, -1
   br label %654
 
 654:                                              ; preds = %649, %647, %643, %619
-  %655 = phi ptr [ %620, %619 ], [ %650, %649 ], [ %.pre679, %647 ], [ %.pre678, %643 ]
+  %655 = phi ptr [ %620, %619 ], [ %650, %649 ], [ %.pre678, %647 ], [ %.pre677, %643 ]
   %.0258 = phi ptr [ %614, %619 ], [ %614, %649 ], [ %632, %647 ], [ %632, %643 ]
   %.0256 = phi i32 [ %628, %619 ], [ %653, %649 ], [ %648, %647 ], [ %646, %643 ]
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
@@ -7856,52 +7856,52 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444: ; preds = %
   %658 = sext i32 %.0256 to i64
   %659 = getelementptr inbounds i16, ptr %657, i64 %658
   %660 = load i16, ptr %659, align 2, !tbaa !48
-  %.fr727 = freeze i16 %660
-  %661 = and i16 %.fr727, 1
+  %.fr726 = freeze i16 %660
+  %661 = and i16 %.fr726, 1
   %.not.i445 = icmp eq i16 %661, 0
   br i1 %.not.i445, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread, label %662
 
 662:                                              ; preds = %654
-  %.not.i.i447 = icmp eq i16 %.fr727, 1
-  %or.cond609 = or i1 %.not334, %.not.i.i447
-  br i1 %or.cond609, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread, label %663
+  %.not.i.i447 = icmp eq i16 %.fr726, 1
+  %or.cond608 = or i1 %.not334, %.not.i.i447
+  br i1 %or.cond608, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread, label %663
 
 663:                                              ; preds = %662
   %664 = load i16, ptr %95, align 2, !tbaa !68
-  %.not.i.i.i448 = icmp ugt i16 %664, %.fr727
+  %.not.i.i.i448 = icmp ugt i16 %664, %.fr726
   %665 = load i16, ptr %93, align 2
-  %666 = icmp uge i16 %.fr727, %665
+  %666 = icmp uge i16 %.fr726, %665
   %narrow.i.not.i.i449 = select i1 %.not.i.i.i448, i1 true, i1 %666
   br i1 %narrow.i.not.i.i449, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451, label %667
 
 667:                                              ; preds = %663
-  %668 = and i16 %.fr727, 6
+  %668 = and i16 %.fr726, 6
   %669 = icmp samesign ult i16 %668, 3
   br i1 %669, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451: ; preds = %663
   %670 = load ptr, ptr %101, align 8, !tbaa !56
-  %671 = lshr i16 %.fr727, 1
+  %671 = lshr i16 %.fr726, 1
   %672 = zext nneg i16 %671 to i64
   %673 = getelementptr inbounds nuw i16, ptr %670, i64 %672
   %674 = load i16, ptr %673, align 2, !tbaa !48
-  %.fr728 = freeze i16 %674
-  %675 = icmp ult i16 %.fr728, 512
+  %.fr727 = freeze i16 %674
+  %675 = icmp ult i16 %.fr727, 512
   br i1 %675, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread: ; preds = %667, %654, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451
   br label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread
 
-_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread: ; preds = %667, %662, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444, %.thread508
-  %.6298 = phi ptr [ %.2245640, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444 ], [ %.2245640, %.thread508 ], [ %.0258, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread ], [ %.2245640, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451 ], [ %.2245640, %662 ], [ %.2245640, %667 ]
-  %.not374 = icmp eq ptr %.1264643, %.6298
+_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread: ; preds = %667, %662, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444, %.thread507
+  %.6298 = phi ptr [ %.2245639, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444 ], [ %.2245639, %.thread507 ], [ %.0258, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451.thread ], [ %.2245639, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit451 ], [ %.2245639, %662 ], [ %.2245639, %667 ]
+  %.not374 = icmp eq ptr %.1264642, %.6298
   %or.cond392 = or i1 %.not343, %.not374
   br i1 %or.cond392, label %678, label %676
 
 676:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread
-  %677 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264643, ptr noundef %.6298, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %677 = tail call noundef signext i8 @_ZN6icu_7716ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %.1264642, ptr noundef %.6298, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not375 = icmp eq i8 %677, 0
-  br i1 %.not375, label %.thread575, label %678
+  br i1 %.not375, label %.thread574, label %678
 
 678:                                              ; preds = %676, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread
   %679 = load ptr, ptr %102, align 8, !tbaa !23
@@ -7915,7 +7915,7 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread: ; pr
   %687 = tail call noundef ptr @_ZNK6icu_7715Normalizer2Impl14decomposeShortEPKDsS2_aaRNS_16ReorderingBufferER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %.8251, ptr noundef %.0260, i8 noundef signext 1, i8 noundef signext %3, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %688 = load i32, ptr %6, align 4, !tbaa !13
   %689 = icmp slt i32 %688, 1
-  br i1 %689, label %690, label %.thread575
+  br i1 %689, label %690, label %.thread574
 
 690:                                              ; preds = %678
   %691 = ptrtoint ptr %687 to i64
@@ -7926,11 +7926,11 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread: ; pr
 
 695:                                              ; preds = %690
   store i32 8, ptr %6, align 4, !tbaa !13
-  br label %.thread575
+  br label %.thread574
 
 696:                                              ; preds = %690
   tail call void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %685, i8 noundef signext %3)
-  br i1 %.not343, label %697, label %.thread493
+  br i1 %.not343, label %697, label %.thread492
 
 697:                                              ; preds = %696
   %698 = load ptr, ptr %102, align 8, !tbaa !23
@@ -7943,12 +7943,12 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit444.thread: ; pr
   %705 = lshr exact i64 %693, 1
   %706 = trunc i64 %705 to i32
   %707 = icmp eq i32 %704, %706
-  br i1 %707, label %_ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit, label %.thread575
+  br i1 %707, label %_ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit, label %.thread574
 
 _ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit: ; preds = %697
   %708 = tail call i32 @u_memcmp_77(ptr noundef %699, ptr noundef %.6298, i32 noundef %704)
-  %.not624 = icmp eq i32 %708, 0
-  br i1 %.not624, label %709, label %.thread575
+  %.not623 = icmp eq i32 %708, 0
+  br i1 %.not623, label %709, label %.thread574
 
 709:                                              ; preds = %_ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit
   %710 = load ptr, ptr %103, align 8, !tbaa !19
@@ -7964,15 +7964,15 @@ _ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit: ; preds = %697
   %717 = select i1 %.not.i.i452, i32 %716, i32 27
   store i32 %717, ptr %106, align 8, !tbaa !26
   store i8 0, ptr %107, align 4, !tbaa !27
-  br label %.thread493
+  br label %.thread492
 
-.thread493:                                       ; preds = %474, %485, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread, %392, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %319, %709, %696
-  %.2265 = phi ptr [ %.5248, %319 ], [ %.5248, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ], [ %687, %709 ], [ %687, %696 ], [ %.5248, %392 ], [ %.5248, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread ], [ %.5248, %485 ], [ %.11254.ph, %474 ], [ %.1264643, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread ]
+.thread492:                                       ; preds = %474, %485, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread, %392, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %319, %709, %696
+  %.2265 = phi ptr [ %.5248, %319 ], [ %.5248, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ], [ %687, %709 ], [ %687, %696 ], [ %.5248, %392 ], [ %.5248, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread ], [ %.5248, %485 ], [ %.11254.ph, %474 ], [ %.1264642, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread ]
   %.3246 = phi ptr [ %.5248, %319 ], [ %.5248, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ], [ %687, %709 ], [ %687, %696 ], [ %.5248, %392 ], [ %.5248, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit427.thread ], [ %.5248, %485 ], [ %.11254.ph, %474 ], [ %spec.select, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread ]
   %718 = icmp eq ptr %.3246, %.0260
   br i1 %718, label %._crit_edge, label %.lr.ph
 
-.thread575:                                       ; preds = %474, %485, %472, %483, %601, %481, %232, %317, %392, %676, %678, %319, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %697, %403, %542, %_ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit, %167, %545, %544, %695, %._crit_edge, %110, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
+.thread574:                                       ; preds = %474, %485, %472, %483, %601, %481, %232, %317, %392, %676, %678, %319, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %697, %403, %542, %_ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit, %167, %545, %544, %695, %._crit_edge, %110, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
   %.0 = phi i8 [ 0, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ 1, %695 ], [ 1, %._crit_edge ], [ 1, %110 ], [ 1, %545 ], [ 1, %544 ], [ 1, %474 ], [ 1, %485 ], [ 1, %472 ], [ 1, %483 ], [ 0, %481 ], [ 0, %601 ], [ 1, %232 ], [ 1, %317 ], [ 1, %392 ], [ 1, %676 ], [ 1, %678 ], [ 1, %319 ], [ 1, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ], [ 0, %697 ], [ 0, %403 ], [ 0, %167 ], [ 0, %_ZNK6icu_7716ReorderingBuffer6equalsEPKDsS2_.exit ], [ 0, %542 ]
   ret i8 %.0
 }
@@ -8488,49 +8488,49 @@ _ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16Reorderi
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i16, ptr %25, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !48
-  %.fr325 = freeze i16 %36
-  %37 = and i16 %.fr325, 1
+  %.fr322 = freeze i16 %36
+  %37 = and i16 %.fr322, 1
   %.not.i2.i = icmp eq i16 %37, 0
-  br i1 %.not.i2.i, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread203, label %38
+  br i1 %.not.i2.i, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread202, label %38
 
 38:                                               ; preds = %21
   %.not3.i.i = icmp eq i8 %3, 0
-  %.not.i.i.i = icmp eq i16 %.fr325, 1
-  %or.cond268 = or i1 %.not3.i.i, %.not.i.i.i
-  br i1 %or.cond268, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %39
+  %.not.i.i.i = icmp eq i16 %.fr322, 1
+  %or.cond265 = or i1 %.not3.i.i, %.not.i.i.i
+  br i1 %or.cond265, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %41 = load i16, ptr %40, align 2, !tbaa !68
-  %.not.i.i.i.i = icmp ugt i16 %41, %.fr325
+  %.not.i.i.i.i = icmp ugt i16 %41, %.fr322
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %43 = load i16, ptr %42, align 2
-  %44 = icmp uge i16 %.fr325, %43
+  %44 = icmp uge i16 %.fr322, %43
   %narrow.i.not.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %44
   br i1 %narrow.i.not.i.i.i, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit, label %45
 
 45:                                               ; preds = %39
-  %46 = and i16 %.fr325, 6
+  %46 = and i16 %.fr322, 6
   %47 = icmp samesign ult i16 %46, 3
-  br i1 %47, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread203
+  br i1 %47, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread202
 
 _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit: ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !56
-  %50 = lshr i16 %.fr325, 1
+  %50 = lshr i16 %.fr322, 1
   %51 = zext nneg i16 %50 to i64
   %52 = getelementptr inbounds nuw i16, ptr %49, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !48
-  %.fr326 = freeze i16 %53
-  %54 = icmp ult i16 %.fr326, 512
-  br i1 %54, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread203
+  %.fr323 = freeze i16 %53
+  %54 = icmp ult i16 %.fr323, 512
+  br i1 %54, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread, label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread202
 
-_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread203: ; preds = %45, %21, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit
+_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread202: ; preds = %45, %21, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit
   br label %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread
 
-_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %45, %15, %38, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread203, %5
-  %.0125 = phi ptr [ %1, %5 ], [ %1, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %16, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread203 ], [ %.0.i, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %.0.i, %38 ], [ %.0.i, %15 ], [ %.0.i, %45 ]
-  %.0122 = phi ptr [ %2, %5 ], [ %14, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %14, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread203 ], [ %14, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %14, %38 ], [ %14, %15 ], [ %14, %45 ]
+_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %45, %15, %38, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread202, %5
+  %.0125 = phi ptr [ %1, %5 ], [ %1, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %16, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread202 ], [ %.0.i, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %.0.i, %38 ], [ %.0.i, %15 ], [ %.0.i, %45 ]
+  %.0122 = phi ptr [ %2, %5 ], [ %14, %_ZNK6icu_7715Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %14, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread202 ], [ %14, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %14, %38 ], [ %14, %15 ], [ %14, %45 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -8548,11 +8548,11 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %45
   %.2127 = phi ptr [ %.0125, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread ], [ %.11, %286 ]
   %.2114 = phi ptr [ %.0125, %_ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread ], [ %.0118, %286 ]
   %65 = icmp eq ptr %.2114, %.0122
-  br i1 %65, label %.thread251, label %.lr.ph
+  br i1 %65, label %.thread248, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64, %.thread
-  %.3115283 = phi ptr [ %.5117, %.thread ], [ %.2114, %64 ]
-  %66 = load i16, ptr %.3115283, align 2, !tbaa !32
+  %.3115280 = phi ptr [ %.5117, %.thread ], [ %.2114, %64 ]
+  %66 = load i16, ptr %.3115280, align 2, !tbaa !32
   %67 = zext i16 %66 to i32
   %68 = icmp ult i16 %66, %7
   br i1 %68, label %85, label %69
@@ -8573,15 +8573,15 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %45
   %82 = getelementptr inbounds nuw i16, ptr %72, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !48
   %84 = load i16, ptr %56, align 2, !tbaa !55
-  %.not270 = icmp ult i16 %83, %84
-  br i1 %.not270, label %85, label %87
+  %.not267 = icmp ult i16 %83, %84
+  br i1 %.not267, label %85, label %87
 
 85:                                               ; preds = %69, %.lr.ph
-  %86 = getelementptr inbounds nuw i8, ptr %.3115283, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.3115280, i64 2
   br label %.thread
 
 87:                                               ; preds = %69
-  %88 = getelementptr inbounds nuw i8, ptr %.3115283, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.3115280, i64 2
   %89 = and i32 %67, 64512
   %90 = icmp eq i32 %89, 55296
   br i1 %90, label %91, label %117
@@ -8598,7 +8598,7 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %45
   br i1 %96, label %97, label %.thread
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds nuw i8, ptr %.3115283, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %.3115280, i64 4
   %99 = shl nuw nsw i32 %67, 10
   %100 = add nsw i32 %99, -56613888
   %101 = add nuw nsw i32 %100, %94
@@ -8624,18 +8624,18 @@ _ZNK6icu_7715Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread: ; preds = %45
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds i16, ptr %72, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !48
-  %.not271 = icmp ult i16 %115, %111
-  br i1 %.not271, label %.thread, label %117
+  %.not268 = icmp ult i16 %115, %111
+  br i1 %.not268, label %.thread, label %117
 
 .thread:                                          ; preds = %110, %91, %92, %85
   %.5117 = phi ptr [ %86, %85 ], [ %98, %110 ], [ %88, %91 ], [ %88, %92 ]
   %116 = icmp eq ptr %.5117, %.0122
-  br i1 %116, label %.thread251, label %.lr.ph, !llvm.loop !106
+  br i1 %116, label %.thread248, label %.lr.ph, !llvm.loop !106
 
 117:                                              ; preds = %110, %87
   %.0146 = phi i16 [ %83, %87 ], [ %115, %110 ]
   %.6 = phi ptr [ %88, %87 ], [ %98, %110 ]
-  %.not170 = icmp eq ptr %.2127, %.3115283
+  %.not170 = icmp eq ptr %.2127, %.3115280
   br i1 %.not170, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread, label %118
 
 118:                                              ; preds = %117
@@ -8652,7 +8652,7 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit: ; preds = %118
   br i1 %narrow.i.i.not, label %124, label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread
 
 124:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit
-  %125 = getelementptr inbounds i8, ptr %.3115283, i64 -2
+  %125 = getelementptr inbounds i8, ptr %.3115280, i64 -2
   %126 = load i16, ptr %125, align 2, !tbaa !32
   %127 = zext i16 %126 to i32
   %128 = and i32 %127, 63488
@@ -8679,47 +8679,47 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit: ; preds = %118
   br i1 %or.cond183, label %._crit_edge, label %142
 
 ._crit_edge:                                      ; preds = %140
-  %.pre293 = load ptr, ptr %55, align 8, !tbaa !45
+  %.pre290 = load ptr, ptr %55, align 8, !tbaa !45
   br label %160
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds i8, ptr %.3115283, i64 -4
+  %143 = getelementptr inbounds i8, ptr %.3115280, i64 -4
   %144 = load i16, ptr %143, align 2, !tbaa !32
   %145 = zext i16 %144 to i32
   %146 = and i32 %145, 64512
   %147 = icmp eq i32 %146, 55296
-  %.pre294 = load ptr, ptr %55, align 8, !tbaa !45
+  %.pre291 = load ptr, ptr %55, align 8, !tbaa !45
   br i1 %147, label %148, label %160
 
 148:                                              ; preds = %142
   %149 = shl nuw nsw i32 %145, 10
   %150 = add nuw nsw i32 %127, -56613888
   %151 = add nsw i32 %150, %149
-  %152 = getelementptr inbounds nuw i8, ptr %.pre294, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %.pre291, i64 24
   %153 = load i32, ptr %152, align 8, !tbaa !49
   %.not174 = icmp slt i32 %151, %153
   br i1 %.not174, label %158, label %154
 
 154:                                              ; preds = %148
-  %155 = getelementptr inbounds nuw i8, ptr %.pre294, i64 20
+  %155 = getelementptr inbounds nuw i8, ptr %.pre291, i64 20
   %156 = load i32, ptr %155, align 4, !tbaa !50
   %157 = add nsw i32 %156, -2
   br label %165
 
 158:                                              ; preds = %148
-  %159 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre294, i32 noundef %151)
-  %.pre295 = load ptr, ptr %55, align 8, !tbaa !45
+  %159 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre291, i32 noundef %151)
+  %.pre292 = load ptr, ptr %55, align 8, !tbaa !45
   br label %165
 
 160:                                              ; preds = %._crit_edge, %142
-  %161 = phi ptr [ %.pre293, %._crit_edge ], [ %.pre294, %142 ]
+  %161 = phi ptr [ %.pre290, %._crit_edge ], [ %.pre291, %142 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 20
   %163 = load i32, ptr %162, align 4, !tbaa !50
   %164 = add nsw i32 %163, -1
   br label %165
 
 165:                                              ; preds = %160, %158, %154, %130
-  %166 = phi ptr [ %131, %130 ], [ %161, %160 ], [ %.pre295, %158 ], [ %.pre294, %154 ]
+  %166 = phi ptr [ %131, %130 ], [ %161, %160 ], [ %.pre292, %158 ], [ %.pre291, %154 ]
   %.0136 = phi ptr [ %125, %130 ], [ %125, %160 ], [ %143, %158 ], [ %143, %154 ]
   %.0123 = phi i32 [ %139, %130 ], [ %164, %160 ], [ %159, %158 ], [ %157, %154 ]
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -8733,15 +8733,15 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit: ; preds = %118
   br i1 %brmerge, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, label %173
 
 173:                                              ; preds = %165
-  %.not.i.i192 = icmp eq i16 %171, 1
-  br i1 %.not.i.i192, label %_ZNK6icu_7715Normalizer2Impl31isTrailCC01ForCompBoundaryAfterEt.exit.i, label %174
+  %.not.i.i191 = icmp eq i16 %171, 1
+  br i1 %.not.i.i191, label %_ZNK6icu_7715Normalizer2Impl31isTrailCC01ForCompBoundaryAfterEt.exit.i, label %174
 
 174:                                              ; preds = %173
   %175 = load i16, ptr %58, align 2, !tbaa !68
-  %.not.i.i.i193 = icmp ugt i16 %175, %171
+  %.not.i.i.i192 = icmp ugt i16 %175, %171
   %176 = load i16, ptr %59, align 2
   %177 = icmp uge i16 %171, %176
-  %narrow.i.not.i.i = select i1 %.not.i.i.i193, i1 true, i1 %177
+  %narrow.i.not.i.i = select i1 %.not.i.i.i192, i1 true, i1 %177
   br i1 %narrow.i.not.i.i, label %181, label %178
 
 178:                                              ; preds = %174
@@ -8766,15 +8766,15 @@ _ZNK6icu_7715Normalizer2Impl31isTrailCC01ForCompBoundaryAfterEt.exit.i: ; preds 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %165, %_ZNK6icu_7715Normalizer2Impl31isTrailCC01ForCompBoundaryAfterEt.exit.i
   %.not175 = phi i1 [ %.not.i, %165 ], [ %189, %_ZNK6icu_7715Normalizer2Impl31isTrailCC01ForCompBoundaryAfterEt.exit.i ]
   %.184 = select i1 %.not175, i16 %171, i16 1
-  %.0136..3115 = select i1 %.not175, ptr %.0136, ptr %.3115283
+  %.0136..3115 = select i1 %.not175, ptr %.0136, ptr %.3115280
   br label %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread
 
 _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread: ; preds = %118, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %117
   %.0138 = phi i16 [ %.184, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ 1, %117 ], [ 1, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ 1, %118 ]
-  %.4129 = phi ptr [ %.0136..3115, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %.2127, %117 ], [ %.3115283, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ %.3115283, %118 ]
+  %.4129 = phi ptr [ %.0136..3115, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %.2127, %117 ], [ %.3115280, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ %.3115280, %118 ]
   %190 = load i16, ptr %59, align 2, !tbaa !69
   %.not176 = icmp ult i16 %.0146, %190
-  br i1 %.not176, label %.thread239, label %191
+  br i1 %.not176, label %.thread236, label %191
 
 191:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread
   %192 = icmp ugt i16 %.0146, -1025
@@ -8782,8 +8782,8 @@ _ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread: ; preds
 
 193:                                              ; preds = %191
   %194 = load i16, ptr %61, align 2, !tbaa !71
-  %.not.i194 = icmp ult i16 %.0146, %194
-  br i1 %.not.i194, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
+  %.not.i193 = icmp ult i16 %.0146, %194
+  br i1 %.not.i193, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
 
 _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit: ; preds = %191
   %195 = lshr i16 %.0146, 1
@@ -8793,9 +8793,9 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit: ; preds = %19
   %199 = icmp ne i16 %197, 0
   %or.cond = and i1 %62, %199
   %200 = load i16, ptr %63, align 2
-  %.not.i196 = icmp ugt i16 %.0138, %200
-  %or.cond277 = select i1 %or.cond, i1 %.not.i196, i1 false
-  br i1 %or.cond277, label %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
+  %.not.i195 = icmp ugt i16 %.0138, %200
+  %or.cond274 = select i1 %or.cond, i1 %.not.i195, i1 false
+  br i1 %or.cond274, label %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
 
 _ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit: ; preds = %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit
   %201 = load ptr, ptr %60, align 8, !tbaa !56
@@ -8805,15 +8805,15 @@ _ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit: ; preds = %
   %205 = load i16, ptr %204, align 2, !tbaa !48
   %206 = lshr i16 %205, 8
   %207 = icmp samesign ult i16 %196, %206
-  br i1 %207, label %.thread239, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
+  br i1 %207, label %.thread236, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
 
 _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split: ; preds = %277, %193
-  %.fr273.sink = phi i16 [ %.0146, %193 ], [ %.fr273, %277 ]
-  %.sink344 = phi i16 [ %190, %193 ], [ %274, %277 ]
+  %.fr270.sink = phi i16 [ %.0146, %193 ], [ %.fr270, %277 ]
+  %.sink341 = phi i16 [ %190, %193 ], [ %274, %277 ]
   %.11.ph = phi ptr [ %.6, %193 ], [ %.0118, %277 ]
   %208 = load ptr, ptr %60, align 8, !tbaa !56
-  %209 = zext i16 %.fr273.sink to i32
-  %210 = zext i16 %.sink344 to i32
+  %209 = zext i16 %.fr270.sink to i32
+  %210 = zext i16 %.sink341 to i32
   %211 = sub nsw i32 %209, %210
   %212 = load i16, ptr %58, align 2, !tbaa !68
   %213 = zext i16 %212 to i32
@@ -8826,20 +8826,20 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.sp
   br label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
 
 _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader: ; preds = %193, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split
-  %.3149.ph = phi i16 [ %.fr273.sink, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split ], [ %.0146, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit ], [ %.0146, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit ], [ %.0146, %193 ]
+  %.3149.ph = phi i16 [ %.fr270.sink, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split ], [ %.0146, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit ], [ %.0146, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit ], [ %.0146, %193 ]
   %.0120.ph = phi i16 [ %219, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split ], [ %198, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit ], [ %198, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit ], [ 0, %193 ]
-  %.11.ph345 = phi ptr [ %.11.ph, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split ], [ %.6, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit ], [ %.6, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit ], [ %.6, %193 ]
+  %.11.ph342 = phi ptr [ %.11.ph, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split ], [ %.6, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit ], [ %.6, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit ], [ %.6, %193 ]
   br label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread
 
 _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread: ; preds = %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader
-  %.3149 = phi i16 [ %.3149.ph, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader ], [ %.fr273, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge ]
+  %.3149 = phi i16 [ %.3149.ph, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader ], [ %.fr270, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge ]
   %.0120 = phi i16 [ %.0120.ph, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader ], [ %.0120.be, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge ]
-  %.11 = phi ptr [ %.11.ph345, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader ], [ %.0118, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge ]
+  %.11 = phi ptr [ %.11.ph342, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.preheader ], [ %.0118, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge ]
   %220 = icmp ult i16 %.3149, -510
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread
-  br i1 %.not177, label %.thread251, label %222
+  br i1 %.not177, label %.thread248, label %222
 
 222:                                              ; preds = %221
   store i32 2, ptr %4, align 4, !tbaa !107
@@ -8847,7 +8847,7 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread: ; pred
 
 223:                                              ; preds = %222, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread
   %224 = icmp eq ptr %.11, %.0122
-  br i1 %224, label %.thread251, label %225
+  br i1 %224, label %.thread248, label %225
 
 225:                                              ; preds = %223
   %226 = getelementptr inbounds nuw i8, ptr %.11, i64 2
@@ -8874,10 +8874,10 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread: ; pred
   %243 = icmp ne i32 %242, 0
   %.not178 = icmp eq ptr %226, %.0122
   %or.cond185 = select i1 %243, i1 true, i1 %.not178
-  br i1 %or.cond185, label %._crit_edge296, label %244
+  br i1 %or.cond185, label %._crit_edge293, label %244
 
-._crit_edge296:                                   ; preds = %241
-  %.pre297 = load ptr, ptr %55, align 8, !tbaa !45
+._crit_edge293:                                   ; preds = %241
+  %.pre294 = load ptr, ptr %55, align 8, !tbaa !45
   br label %262
 
 244:                                              ; preds = %241
@@ -8885,7 +8885,7 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread: ; pred
   %246 = zext i16 %245 to i32
   %247 = and i32 %246, 64512
   %248 = icmp eq i32 %247, 56320
-  %.pre298 = load ptr, ptr %55, align 8, !tbaa !45
+  %.pre295 = load ptr, ptr %55, align 8, !tbaa !45
   br i1 %248, label %249, label %262
 
 249:                                              ; preds = %244
@@ -8893,31 +8893,31 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread: ; pred
   %251 = shl nuw nsw i32 %228, 10
   %252 = add nsw i32 %251, -56613888
   %253 = add nuw nsw i32 %252, %246
-  %254 = getelementptr inbounds nuw i8, ptr %.pre298, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %.pre295, i64 24
   %255 = load i32, ptr %254, align 8, !tbaa !49
   %.not179 = icmp slt i32 %253, %255
   br i1 %.not179, label %260, label %256
 
 256:                                              ; preds = %249
-  %257 = getelementptr inbounds nuw i8, ptr %.pre298, i64 20
+  %257 = getelementptr inbounds nuw i8, ptr %.pre295, i64 20
   %258 = load i32, ptr %257, align 4, !tbaa !50
   %259 = add nsw i32 %258, -2
   br label %267
 
 260:                                              ; preds = %249
-  %261 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre298, i32 noundef %253)
-  %.pre299 = load ptr, ptr %55, align 8, !tbaa !45
+  %261 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre295, i32 noundef %253)
+  %.pre296 = load ptr, ptr %55, align 8, !tbaa !45
   br label %267
 
-262:                                              ; preds = %._crit_edge296, %244
-  %263 = phi ptr [ %.pre297, %._crit_edge296 ], [ %.pre298, %244 ]
+262:                                              ; preds = %._crit_edge293, %244
+  %263 = phi ptr [ %.pre294, %._crit_edge293 ], [ %.pre295, %244 ]
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 20
   %265 = load i32, ptr %264, align 4, !tbaa !50
   %266 = add nsw i32 %265, -1
   br label %267
 
 267:                                              ; preds = %262, %260, %256, %231
-  %268 = phi ptr [ %232, %231 ], [ %263, %262 ], [ %.pre299, %260 ], [ %.pre298, %256 ]
+  %268 = phi ptr [ %232, %231 ], [ %263, %262 ], [ %.pre296, %260 ], [ %.pre295, %256 ]
   %.0118 = phi ptr [ %226, %231 ], [ %226, %262 ], [ %250, %260 ], [ %250, %256 ]
   %.0110 = phi i32 [ %240, %231 ], [ %266, %262 ], [ %261, %260 ], [ %259, %256 ]
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
@@ -8925,26 +8925,26 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread: ; pred
   %271 = sext i32 %.0110 to i64
   %272 = getelementptr inbounds i16, ptr %270, i64 %271
   %273 = load i16, ptr %272, align 2, !tbaa !48
-  %.fr273 = freeze i16 %273
+  %.fr270 = freeze i16 %273
   %274 = load i16, ptr %59, align 2, !tbaa !69
-  %.not180 = icmp ult i16 %.fr273, %274
+  %.not180 = icmp ult i16 %.fr270, %274
   br i1 %.not180, label %286, label %275
 
 275:                                              ; preds = %267
-  %276 = icmp ugt i16 %.fr273, -1025
-  br i1 %276, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit200, label %277
+  %276 = icmp ugt i16 %.fr270, -1025
+  br i1 %276, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit199, label %277
 
 277:                                              ; preds = %275
   %278 = load i16, ptr %61, align 2, !tbaa !71
-  %.not.i198 = icmp ult i16 %.fr273, %278
-  br i1 %.not.i198, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge
+  %.not.i197 = icmp ult i16 %.fr270, %278
+  br i1 %.not.i197, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.sink.split, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge
 
-_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge: ; preds = %277, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit200
-  %.0120.be = phi i16 [ 0, %277 ], [ %282, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit200 ]
+_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge: ; preds = %277, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit199
+  %.0120.be = phi i16 [ 0, %277 ], [ %282, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit199 ]
   br label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread
 
-_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit200: ; preds = %275
-  %279 = lshr i16 %.fr273, 1
+_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit199: ; preds = %275
+  %279 = lshr i16 %.fr270, 1
   %280 = and i16 %279, 255
   %281 = shl i16 %279, 8
   %282 = or disjoint i16 %281, %280
@@ -8954,22 +8954,22 @@ _ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit200: ; preds = 
   %or.cond7 = or i1 %284, %285
   br i1 %or.cond7, label %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit.thread.backedge, label %286
 
-286:                                              ; preds = %267, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit200
+286:                                              ; preds = %267, %_ZNK6icu_7715Normalizer2Impl28getFCD16FromMaybeOrNonZeroCCEt.exit199
   %287 = load i16, ptr %56, align 2, !tbaa !55
-  %.fr274 = freeze i16 %287
-  %.not275 = icmp ult i16 %.fr273, %.fr274
-  br i1 %.not275, label %64, label %.thread239
+  %.fr271 = freeze i16 %287
+  %.not272 = icmp ult i16 %.fr270, %.fr271
+  br i1 %.not272, label %64, label %.thread236
 
-.thread239:                                       ; preds = %286, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread
-  br i1 %.not177, label %.thread251, label %288
+.thread236:                                       ; preds = %286, %_ZNK6icu_7715Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit, %_ZNK6icu_7715Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit.thread
+  br i1 %.not177, label %.thread248, label %288
 
-288:                                              ; preds = %.thread239
+288:                                              ; preds = %.thread236
   store i32 0, ptr %4, align 4, !tbaa !107
-  br label %.thread251
+  br label %.thread248
 
-.thread251:                                       ; preds = %64, %.thread, %221, %223, %.thread239, %288
-  %.1256 = phi ptr [ %.4129, %.thread239 ], [ %.4129, %288 ], [ %.4129, %221 ], [ %.11, %223 ], [ %.5117, %.thread ], [ %.2114, %64 ]
-  ret ptr %.1256
+.thread248:                                       ; preds = %64, %.thread, %221, %223, %.thread236, %288
+  %.1253 = phi ptr [ %.4129, %.thread236 ], [ %.4129, %288 ], [ %.4129, %221 ], [ %.11, %223 ], [ %.5117, %.thread ], [ %.2114, %64 ]
+  ret ptr %.1253
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -9187,8 +9187,8 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %55
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7715Normalizer2Impl20findNextCompBoundaryEPKDsS2_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address) %2, i8 noundef signext %3) local_unnamed_addr #1 align 2 {
-  %.not57 = icmp eq ptr %1, %2
-  br i1 %.not57, label %.thread, label %.lr.ph
+  %.not56 = icmp eq ptr %1, %2
+  br i1 %.not56, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9201,9 +9201,9 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl20findNextCompBoundaryEPKDsS2_a(
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.02958 = phi ptr [ %1, %.lr.ph ], [ %.130, %.backedge.backedge ]
-  %11 = getelementptr inbounds nuw i8, ptr %.02958, i64 2
-  %12 = load i16, ptr %.02958, align 2, !tbaa !32
+  %.02957 = phi ptr [ %1, %.lr.ph ], [ %.130, %.backedge.backedge ]
+  %11 = getelementptr inbounds nuw i8, ptr %.02957, i64 2
+  %12 = load i16, ptr %.02957, align 2, !tbaa !32
   %13 = zext i16 %12 to i32
   %14 = and i32 %13, 63488
   %15 = icmp eq i32 %14, 55296
@@ -9237,39 +9237,39 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl20findNextCompBoundaryEPKDsS2_a(
   %31 = zext i16 %30 to i32
   %32 = and i32 %31, 64512
   %33 = icmp eq i32 %32, 56320
-  %.pre66 = load ptr, ptr %5, align 8, !tbaa !45
+  %.pre65 = load ptr, ptr %5, align 8, !tbaa !45
   br i1 %33, label %34, label %47
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %.02958, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.02957, i64 4
   %36 = shl nuw nsw i32 %13, 10
   %37 = add nsw i32 %36, -56613888
   %38 = add nuw nsw i32 %37, %31
-  %39 = getelementptr inbounds nuw i8, ptr %.pre66, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.pre65, i64 24
   %40 = load i32, ptr %39, align 8, !tbaa !49
   %.not38 = icmp slt i32 %38, %40
   br i1 %.not38, label %45, label %41
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %.pre66, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %.pre65, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !50
   %44 = add nsw i32 %43, -2
   br label %52
 
 45:                                               ; preds = %34
-  %46 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre66, i32 noundef %38)
-  %.pre67 = load ptr, ptr %5, align 8, !tbaa !45
+  %46 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre65, i32 noundef %38)
+  %.pre66 = load ptr, ptr %5, align 8, !tbaa !45
   br label %52
 
 47:                                               ; preds = %._crit_edge, %29
-  %48 = phi ptr [ %.pre, %._crit_edge ], [ %.pre66, %29 ]
+  %48 = phi ptr [ %.pre, %._crit_edge ], [ %.pre65, %29 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %50 = load i32, ptr %49, align 4, !tbaa !50
   %51 = add nsw i32 %50, -1
   br label %52
 
 52:                                               ; preds = %47, %45, %41, %16
-  %53 = phi ptr [ %17, %16 ], [ %48, %47 ], [ %.pre67, %45 ], [ %.pre66, %41 ]
+  %53 = phi ptr [ %17, %16 ], [ %48, %47 ], [ %.pre66, %45 ], [ %.pre65, %41 ]
   %.032 = phi i32 [ %13, %16 ], [ %13, %47 ], [ %38, %45 ], [ %38, %41 ]
   %.130 = phi ptr [ %11, %16 ], [ %11, %47 ], [ %35, %45 ], [ %35, %41 ]
   %.027 = phi i32 [ %25, %16 ], [ %51, %47 ], [ %46, %45 ], [ %44, %41 ]
@@ -9301,8 +9301,8 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEit.exit: ; preds = %52
 
 69:                                               ; preds = %67
   %.not.i.i = icmp eq i16 %58, 1
-  %or.cond55 = select i1 %.not3.i, i1 true, i1 %.not.i.i
-  br i1 %or.cond55, label %.thread, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
+  %or.cond54 = select i1 %.not3.i, i1 true, i1 %.not.i.i
+  br i1 %or.cond54, label %.thread, label %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %69
   %70 = load ptr, ptr %10, align 8, !tbaa !56
@@ -9312,8 +9312,8 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %69
   %74 = load i16, ptr %73, align 2, !tbaa !48
   %75 = icmp ult i16 %74, 512
   %.not = icmp eq ptr %.130, %2
-  %or.cond65 = select i1 %75, i1 true, i1 %.not
-  br i1 %or.cond65, label %.thread, label %.backedge.backedge
+  %or.cond64 = select i1 %75, i1 true, i1 %.not
+  br i1 %or.cond64, label %.thread, label %.backedge.backedge
 
 _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds = %67
   %.not.old = icmp eq ptr %.130, %2
@@ -9323,7 +9323,7 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds
   br label %.backedge
 
 .thread:                                          ; preds = %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEit.exit, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %52, %69, %4
-  %.2 = phi ptr [ %1, %4 ], [ %.130, %69 ], [ %.02958, %52 ], [ %.130, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %.02958, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEit.exit ], [ %.130, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ]
+  %.2 = phi ptr [ %1, %4 ], [ %.130, %69 ], [ %.02957, %52 ], [ %.130, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %.02957, %_ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEit.exit ], [ %.130, %_ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ]
   ret ptr %.2
 }
 
@@ -9380,38 +9380,38 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl24findPreviousCompBoundaryEPKDsS
   %33 = zext i16 %32 to i32
   %34 = and i32 %33, 64512
   %35 = icmp eq i32 %34, 55296
-  %.pre55 = load ptr, ptr %5, align 8, !tbaa !45
+  %.pre54 = load ptr, ptr %5, align 8, !tbaa !45
   br i1 %35, label %36, label %48
 
 36:                                               ; preds = %30
   %37 = shl nuw nsw i32 %33, 10
   %38 = add nuw nsw i32 %15, -56613888
   %39 = add nsw i32 %38, %37
-  %40 = getelementptr inbounds nuw i8, ptr %.pre55, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.pre54, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !49
   %.not39 = icmp slt i32 %39, %41
   br i1 %.not39, label %46, label %42
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %.pre55, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %.pre54, i64 20
   %44 = load i32, ptr %43, align 4, !tbaa !50
   %45 = add nsw i32 %44, -2
   br label %53
 
 46:                                               ; preds = %36
-  %47 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre55, i32 noundef %39)
-  %.pre56 = load ptr, ptr %5, align 8, !tbaa !45
+  %47 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre54, i32 noundef %39)
+  %.pre55 = load ptr, ptr %5, align 8, !tbaa !45
   br label %53
 
 48:                                               ; preds = %._crit_edge, %30
-  %49 = phi ptr [ %.pre, %._crit_edge ], [ %.pre55, %30 ]
+  %49 = phi ptr [ %.pre, %._crit_edge ], [ %.pre54, %30 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %51 = load i32, ptr %50, align 4, !tbaa !50
   %52 = add nsw i32 %51, -1
   br label %53
 
 53:                                               ; preds = %48, %46, %42, %18
-  %54 = phi ptr [ %19, %18 ], [ %49, %48 ], [ %.pre56, %46 ], [ %.pre55, %42 ]
+  %54 = phi ptr [ %19, %18 ], [ %49, %48 ], [ %.pre55, %46 ], [ %.pre54, %42 ]
   %.032 = phi i32 [ %15, %18 ], [ %15, %48 ], [ %39, %46 ], [ %39, %42 ]
   %.130 = phi ptr [ %13, %18 ], [ %13, %48 ], [ %31, %46 ], [ %31, %42 ]
   %.027 = phi i32 [ %27, %18 ], [ %52, %48 ], [ %47, %46 ], [ %45, %42 ]
@@ -9426,8 +9426,8 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl24findPreviousCompBoundaryEPKDsS
 
 61:                                               ; preds = %53
   %.not.i.i = icmp eq i16 %59, 1
-  %or.cond53 = or i1 %.not3.i, %.not.i.i
-  br i1 %or.cond53, label %.thread, label %62
+  %or.cond52 = or i1 %.not3.i, %.not.i.i
+  br i1 %or.cond52, label %.thread, label %62
 
 62:                                               ; preds = %61
   %63 = load i16, ptr %6, align 2, !tbaa !68
@@ -12009,9 +12009,9 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl19findNextFCDBoundaryEPKDsS2_(pt
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.02861 = phi ptr [ %1, %.lr.ph ], [ %.129, %.backedge.backedge ]
-  %14 = getelementptr inbounds nuw i8, ptr %.02861, i64 2
-  %15 = load i16, ptr %.02861, align 2, !tbaa !32
+  %.02860 = phi ptr [ %1, %.lr.ph ], [ %.129, %.backedge.backedge ]
+  %14 = getelementptr inbounds nuw i8, ptr %.02860, i64 2
+  %15 = load i16, ptr %.02860, align 2, !tbaa !32
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 63488
   %18 = icmp eq i32 %17, 55296
@@ -12045,39 +12045,39 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl19findNextFCDBoundaryEPKDsS2_(pt
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 64512
   %36 = icmp eq i32 %35, 56320
-  %.pre76 = load ptr, ptr %8, align 8, !tbaa !45
+  %.pre75 = load ptr, ptr %8, align 8, !tbaa !45
   br i1 %36, label %37, label %50
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %.02861, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.02860, i64 4
   %39 = shl nuw nsw i32 %16, 10
   %40 = add nsw i32 %39, -56613888
   %41 = add nuw nsw i32 %40, %34
-  %42 = getelementptr inbounds nuw i8, ptr %.pre76, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.pre75, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !49
   %.not36 = icmp slt i32 %41, %43
   br i1 %.not36, label %48, label %44
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %.pre76, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %.pre75, i64 20
   %46 = load i32, ptr %45, align 4, !tbaa !50
   %47 = add nsw i32 %46, -2
   br label %55
 
 48:                                               ; preds = %37
-  %49 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre76, i32 noundef %41)
-  %.pre77 = load ptr, ptr %8, align 8, !tbaa !45
+  %49 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre75, i32 noundef %41)
+  %.pre76 = load ptr, ptr %8, align 8, !tbaa !45
   br label %55
 
 50:                                               ; preds = %._crit_edge, %32
-  %51 = phi ptr [ %.pre, %._crit_edge ], [ %.pre76, %32 ]
+  %51 = phi ptr [ %.pre, %._crit_edge ], [ %.pre75, %32 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %53 = load i32, ptr %52, align 4, !tbaa !50
   %54 = add nsw i32 %53, -1
   br label %55
 
 55:                                               ; preds = %50, %48, %44, %19
-  %56 = phi ptr [ %20, %19 ], [ %51, %50 ], [ %.pre77, %48 ], [ %.pre76, %44 ]
+  %56 = phi ptr [ %20, %19 ], [ %51, %50 ], [ %.pre76, %48 ], [ %.pre75, %44 ]
   %.031 = phi i32 [ %16, %19 ], [ %16, %50 ], [ %41, %48 ], [ %41, %44 ]
   %.129 = phi ptr [ %14, %19 ], [ %14, %50 ], [ %38, %48 ], [ %38, %44 ]
   %.026 = phi i32 [ %28, %19 ], [ %54, %50 ], [ %49, %48 ], [ %47, %44 ]
@@ -12091,8 +12091,8 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl19findNextFCDBoundaryEPKDsS2_(pt
   %64 = icmp samesign ult i32 %.031, %63
   %65 = load i16, ptr %10, align 2
   %66 = icmp ult i16 %61, %65
-  %or.cond60 = select i1 %64, i1 true, i1 %66
-  br i1 %or.cond60, label %.thread, label %67
+  %or.cond59 = select i1 %64, i1 true, i1 %66
+  br i1 %or.cond59, label %.thread, label %67
 
 67:                                               ; preds = %55
   %68 = load i16, ptr %11, align 2, !tbaa !68
@@ -12172,7 +12172,7 @@ _ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit: ; preds = %7
   %108 = getelementptr inbounds nuw i16, ptr %105, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !48
   %110 = icmp ugt i16 %109, 511
-  br i1 %110, label %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread52, label %111
+  br i1 %110, label %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread51, label %111
 
 111:                                              ; preds = %102
   %112 = icmp samesign ult i16 %109, 256
@@ -12190,18 +12190,18 @@ _ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit: ; preds = %7
 _ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit: ; preds = %92, %99, %115
   %.0.shrunk.i40 = phi i1 [ %95, %92 ], [ %101, %99 ], [ %118, %115 ]
   %119 = icmp uge ptr %.129, %2
-  %or.cond74.not = select i1 %.0.shrunk.i40, i1 true, i1 %119
-  br i1 %or.cond74.not, label %.thread, label %.backedge.backedge
+  %or.cond73.not = select i1 %.0.shrunk.i40, i1 true, i1 %119
+  br i1 %or.cond73.not, label %.thread, label %.backedge.backedge
 
-_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread52: ; preds = %102
+_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread51: ; preds = %102
   %.old = icmp ult ptr %.129, %2
   br i1 %.old, label %.backedge.backedge, label %.thread
 
-.backedge.backedge:                               ; preds = %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread52, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit
+.backedge.backedge:                               ; preds = %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread51, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit
   br label %.backedge
 
-.thread:                                          ; preds = %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread52, %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit, %55, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit, %73, %86, %84, %111, %69, %3
-  %.2 = phi ptr [ %1, %3 ], [ %.02861, %69 ], [ %.129, %111 ], [ %.129, %84 ], [ %.129, %86 ], [ %.02861, %73 ], [ %.129, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit ], [ %.02861, %55 ], [ %.02861, %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit ], [ %.129, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread52 ]
+.thread:                                          ; preds = %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread51, %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit, %55, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit, %73, %86, %84, %111, %69, %3
+  %.2 = phi ptr [ %1, %3 ], [ %.02860, %69 ], [ %.129, %111 ], [ %.129, %84 ], [ %.129, %86 ], [ %.02860, %73 ], [ %.129, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit ], [ %.02860, %55 ], [ %.02860, %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit ], [ %.129, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread51 ]
   ret ptr %.2
 }
 
@@ -12391,8 +12391,8 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl23findPreviousFCDBoundaryEPKDsS2
   br i1 %13, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %3, %.lr.ph.backedge
-  %.02865 = phi ptr [ %.129, %.lr.ph.backedge ], [ %2, %3 ]
-  %14 = getelementptr inbounds i8, ptr %.02865, i64 -2
+  %.02864 = phi ptr [ %.129, %.lr.ph.backedge ], [ %2, %3 ]
+  %14 = getelementptr inbounds i8, ptr %.02864, i64 -2
   %15 = load i16, ptr %14, align 2, !tbaa !32
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 63488
@@ -12423,43 +12423,43 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl23findPreviousFCDBoundaryEPKDsS2
   br label %49
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.02865, i64 -4
+  %32 = getelementptr inbounds i8, ptr %.02864, i64 -4
   %33 = load i16, ptr %32, align 2, !tbaa !32
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 64512
   %36 = icmp eq i32 %35, 55296
-  %.pre59 = load ptr, ptr %6, align 8, !tbaa !45
+  %.pre58 = load ptr, ptr %6, align 8, !tbaa !45
   br i1 %36, label %37, label %49
 
 37:                                               ; preds = %31
   %38 = shl nuw nsw i32 %34, 10
   %39 = add nuw nsw i32 %16, -56613888
   %40 = add nsw i32 %39, %38
-  %41 = getelementptr inbounds nuw i8, ptr %.pre59, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.pre58, i64 24
   %42 = load i32, ptr %41, align 8, !tbaa !49
   %.not37 = icmp slt i32 %40, %42
   br i1 %.not37, label %47, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw i8, ptr %.pre59, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %.pre58, i64 20
   %45 = load i32, ptr %44, align 4, !tbaa !50
   %46 = add nsw i32 %45, -2
   br label %54
 
 47:                                               ; preds = %37
-  %48 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre59, i32 noundef %40)
-  %.pre60 = load ptr, ptr %6, align 8, !tbaa !45
+  %48 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre58, i32 noundef %40)
+  %.pre59 = load ptr, ptr %6, align 8, !tbaa !45
   br label %54
 
 49:                                               ; preds = %._crit_edge, %31
-  %50 = phi ptr [ %.pre, %._crit_edge ], [ %.pre59, %31 ]
+  %50 = phi ptr [ %.pre, %._crit_edge ], [ %.pre58, %31 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !50
   %53 = add nsw i32 %52, -1
   br label %54
 
 54:                                               ; preds = %49, %47, %43, %19
-  %55 = phi ptr [ %20, %19 ], [ %50, %49 ], [ %.pre60, %47 ], [ %.pre59, %43 ]
+  %55 = phi ptr [ %20, %19 ], [ %50, %49 ], [ %.pre59, %47 ], [ %.pre58, %43 ]
   %.031 = phi i32 [ %16, %19 ], [ %16, %49 ], [ %40, %47 ], [ %40, %43 ]
   %.129 = phi ptr [ %14, %19 ], [ %14, %49 ], [ %32, %47 ], [ %32, %43 ]
   %.026 = phi i32 [ %28, %19 ], [ %53, %49 ], [ %48, %47 ], [ %46, %43 ]
@@ -12473,8 +12473,8 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl23findPreviousFCDBoundaryEPKDsS2
   %63 = icmp samesign uge i32 %.031, %62
   %64 = load i16, ptr %8, align 2
   %.not.i = icmp ugt i16 %60, %64
-  %or.cond58 = select i1 %63, i1 %.not.i, i1 false
-  br i1 %or.cond58, label %65, label %.thread
+  %or.cond57 = select i1 %63, i1 %.not.i, i1 false
+  br i1 %or.cond57, label %65, label %.thread
 
 65:                                               ; preds = %54
   %66 = load i16, ptr %4, align 8, !tbaa !64
@@ -12550,10 +12550,10 @@ _ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread46: ; pr
 101:                                              ; preds = %100
   %102 = icmp ugt i16 %60, -1024
   %103 = icmp ne i16 %60, -512
-  %.not89 = and i1 %102, %103
+  %.not88 = and i1 %102, %103
   %.old = icmp ult ptr %1, %.129
-  %or.cond86 = and i1 %.not89, %.old
-  br i1 %or.cond86, label %.lr.ph.backedge, label %.thread
+  %or.cond85 = and i1 %.not88, %.old
+  br i1 %or.cond85, label %.lr.ph.backedge, label %.thread
 
 104:                                              ; preds = %100
   %105 = load ptr, ptr %5, align 8, !tbaa !56
@@ -12570,14 +12570,14 @@ _ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit: ; preds = %1
   %113 = load i16, ptr %112, align 2, !tbaa !48
   %114 = icmp ugt i16 %113, 255
   %115 = icmp ult ptr %1, %.129
-  %or.cond84 = and i1 %114, %115
-  br i1 %or.cond84, label %.lr.ph.backedge, label %.thread
+  %or.cond83 = and i1 %114, %115
+  br i1 %or.cond83, label %.lr.ph.backedge, label %.thread
 
 .lr.ph.backedge:                                  ; preds = %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit, %101
   br label %.lr.ph
 
 .thread:                                          ; preds = %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit, %54, %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit, %65, %91, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread46, %104, %72, %79, %101, %3
-  %.2 = phi ptr [ %2, %3 ], [ %.02865, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit ], [ %.02865, %54 ], [ %.129, %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit ], [ %.02865, %65 ], [ %.02865, %91 ], [ %.129, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread46 ], [ %.129, %104 ], [ %.02865, %72 ], [ %.02865, %79 ], [ %.129, %101 ]
+  %.2 = phi ptr [ %2, %3 ], [ %.02864, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit ], [ %.02864, %54 ], [ %.129, %_ZNK6icu_7715Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit ], [ %.02864, %65 ], [ %.02864, %91 ], [ %.129, %_ZNK6icu_7715Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit.thread46 ], [ %.129, %104 ], [ %.02864, %72 ], [ %.02864, %79 ], [ %.129, %101 ]
   ret ptr %.2
 }
 

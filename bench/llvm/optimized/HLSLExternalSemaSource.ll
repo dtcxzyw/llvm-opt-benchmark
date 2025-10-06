@@ -3401,8 +3401,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -4223,8 +4223,8 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_24RedeclarableTemplateDeclE
   %60 = and i64 %.sroa.0.0.copyload.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %60, 0
   %61 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not.not7.i.i = icmp eq i64 %61, 0
-  %.not.not.i.i = or i1 %.not.i.i.i.i.i.i, %.not.not7.i.i
+  %.not.not6.i.i = icmp eq i64 %61, 0
+  %.not.not.i.i = or i1 %.not.i.i.i.i.i.i, %.not.not6.i.i
   br i1 %.not.not.i.i, label %65, label %62
 
 62:                                               ; preds = %59
@@ -4336,8 +4336,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -4633,8 +4633,8 @@ define internal fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4Se
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 127
   %27 = icmp ne i32 %26, 65
-  %.not.not3.i.i.i = icmp eq ptr %.val.val.val.i.i, null
-  %.not.not.i.i.i = or i1 %.not.not3.i.i.i, %27
+  %.not.not2.i.i.i = icmp eq ptr %.val.val.val.i.i, null
+  %.not.not.i.i.i = or i1 %.not.not2.i.i.i, %27
   br i1 %.not.not.i.i.i, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder20getHandleElementTypeEv.exit.i, label %28
 
 28:                                               ; preds = %21
@@ -5097,8 +5097,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder23addHandl
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 127
   %16 = icmp ne i32 %15, 65
-  %.not.not3.i.i = icmp eq ptr %.val.val.val.i, null
-  %.not.not.i.i = or i1 %.not.not3.i.i, %16
+  %.not.not2.i.i = icmp eq ptr %.val.val.val.i, null
+  %.not.not.i.i = or i1 %.not.not2.i.i, %16
   br i1 %.not.not.i.i, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder20getHandleElementTypeEv.exit, label %17
 
 17:                                               ; preds = %10
@@ -6996,8 +6996,8 @@ define internal void @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 127
   %19 = icmp ne i32 %18, 65
-  %.not.not3.i.i.i.i.i.i = icmp eq ptr %.val.val.val.i.i.i.i.i, null
-  %.not.not.i.i.i.i.i.i = or i1 %.not.not3.i.i.i.i.i.i, %19
+  %.not.not2.i.i.i.i.i.i = icmp eq ptr %.val.val.val.i.i.i.i.i, null
+  %.not.not.i.i.i.i.i.i = or i1 %.not.not2.i.i.i.i.i.i, %19
   br i1 %.not.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder20getHandleElementTypeEv.exit.i.i.i.i, label %20
 
 20:                                               ; preds = %13
@@ -7367,8 +7367,8 @@ define internal void @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 127
   %18 = icmp ne i32 %17, 65
-  %.not.not3.i.i.i.i.i.i = icmp eq ptr %.val.val.val.i.i.i.i.i, null
-  %.not.not.i.i.i.i.i.i = or i1 %.not.not3.i.i.i.i.i.i, %18
+  %.not.not2.i.i.i.i.i.i = icmp eq ptr %.val.val.val.i.i.i.i.i, null
+  %.not.not.i.i.i.i.i.i = or i1 %.not.not2.i.i.i.i.i.i, %18
   br i1 %.not.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder20getHandleElementTypeEv.exit.i.i.i.i, label %19
 
 19:                                               ; preds = %12

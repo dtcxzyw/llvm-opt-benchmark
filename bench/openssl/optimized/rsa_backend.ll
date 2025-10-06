@@ -724,7 +724,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   %or.cond3 = select i1 %or.cond, i1 true, i1 %28
   %29 = icmp ne ptr %15, null
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %29
-  br i1 %or.cond5, label %30, label %.thread107
+  br i1 %or.cond5, label %30, label %.thread104
 
 30:                                               ; preds = %25
   %31 = tail call i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef nonnull %0) #4
@@ -793,28 +793,28 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
 56:                                               ; preds = %49
   %57 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef %13, ptr noundef nonnull %7) #4
   %.not77 = icmp eq i32 %57, 0
-  br i1 %.not77, label %.thread93, label %._crit_edge113
+  br i1 %.not77, label %.thread92, label %._crit_edge110
 
-._crit_edge113:                                   ; preds = %56
-  %.pre114 = load ptr, ptr %7, align 8, !tbaa !24
+._crit_edge110:                                   ; preds = %56
+  %.pre111 = load ptr, ptr %7, align 8, !tbaa !24
   br label %58
 
-58:                                               ; preds = %._crit_edge113, %53
-  %59 = phi ptr [ %.pre114, %._crit_edge113 ], [ %55, %53 ]
+58:                                               ; preds = %._crit_edge110, %53
+  %59 = phi ptr [ %.pre111, %._crit_edge110 ], [ %55, %53 ]
   %60 = call ptr @EVP_MD_fetch(ptr noundef %3, ptr noundef %59, ptr noundef %.062) #4
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread93, label %62
+  br i1 %61, label %.thread92, label %62
 
 62:                                               ; preds = %58
   %63 = call i32 @ossl_rsa_oaeppss_md2nid(ptr noundef nonnull %60) #4
   %64 = call i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef nonnull %0, i32 noundef %63) #4
   %.not78 = icmp eq i32 %64, 0
-  br i1 %.not78, label %.thread93, label %65
+  br i1 %.not78, label %.thread92, label %65
 
-.thread93:                                        ; preds = %56, %58, %62
+.thread92:                                        ; preds = %56, %58, %62
   %.160.ph = phi ptr [ null, %58 ], [ null, %56 ], [ %60, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread107
+  br label %.thread104
 
 65:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -842,28 +842,28 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
 74:                                               ; preds = %67
   %75 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef %13, ptr noundef nonnull %8) #4
   %.not80 = icmp eq i32 %75, 0
-  br i1 %.not80, label %.thread103, label %._crit_edge115
+  br i1 %.not80, label %.thread101, label %._crit_edge112
 
-._crit_edge115:                                   ; preds = %74
-  %.pre116 = load ptr, ptr %8, align 8, !tbaa !24
+._crit_edge112:                                   ; preds = %74
+  %.pre113 = load ptr, ptr %8, align 8, !tbaa !24
   br label %76
 
-76:                                               ; preds = %._crit_edge115, %71
-  %77 = phi ptr [ %.pre116, %._crit_edge115 ], [ %73, %71 ]
+76:                                               ; preds = %._crit_edge112, %71
+  %77 = phi ptr [ %.pre113, %._crit_edge112 ], [ %73, %71 ]
   %78 = call ptr @EVP_MD_fetch(ptr noundef %3, ptr noundef %77, ptr noundef %.062) #4
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread103, label %80
+  br i1 %79, label %.thread101, label %80
 
 80:                                               ; preds = %76
   %81 = call i32 @ossl_rsa_oaeppss_md2nid(ptr noundef nonnull %78) #4
   %82 = call i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr noundef nonnull %0, i32 noundef %81) #4
   %.not81 = icmp eq i32 %82, 0
-  br i1 %.not81, label %.thread103, label %83
+  br i1 %.not81, label %.thread101, label %83
 
-.thread103:                                       ; preds = %74, %76, %80
+.thread101:                                       ; preds = %74, %76, %80
   %.258.ph = phi ptr [ null, %76 ], [ null, %74 ], [ %78, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread107
+  br label %.thread104
 
 83:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -872,24 +872,24 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
 84:                                               ; preds = %83, %66
   %.157 = phi ptr [ %78, %83 ], [ null, %66 ]
   %.not82 = icmp eq ptr %15, null
-  br i1 %.not82, label %.thread107, label %85
+  br i1 %.not82, label %.thread104, label %85
 
 85:                                               ; preds = %84
   %86 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %15, ptr noundef nonnull %5) #4
   %.not83 = icmp eq i32 %86, 0
-  br i1 %.not83, label %.thread107, label %87
+  br i1 %.not83, label %.thread104, label %87
 
 87:                                               ; preds = %85
   %88 = load i32, ptr %5, align 4, !tbaa !8
   %89 = call i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef nonnull %0, i32 noundef %88) #4
   %.not84 = icmp ne i32 %89, 0
   %spec.select = zext i1 %.not84 to i32
-  br label %.thread107
+  br label %.thread104
 
-.thread107:                                       ; preds = %87, %25, %84, %.thread103, %.thread93, %85
-  %.261 = phi ptr [ %.059, %85 ], [ %.160.ph, %.thread93 ], [ %.059, %.thread103 ], [ %.059, %84 ], [ null, %25 ], [ %.059, %87 ]
-  %.056 = phi ptr [ %.157, %85 ], [ null, %.thread93 ], [ %.258.ph, %.thread103 ], [ %.157, %84 ], [ null, %25 ], [ %.157, %87 ]
-  %.055 = phi i32 [ 0, %85 ], [ 0, %.thread93 ], [ 0, %.thread103 ], [ 1, %84 ], [ 1, %25 ], [ %spec.select, %87 ]
+.thread104:                                       ; preds = %87, %25, %84, %.thread101, %.thread92, %85
+  %.261 = phi ptr [ %.059, %85 ], [ %.160.ph, %.thread92 ], [ %.059, %.thread101 ], [ %.059, %84 ], [ null, %25 ], [ %.059, %87 ]
+  %.056 = phi ptr [ %.157, %85 ], [ null, %.thread92 ], [ %.258.ph, %.thread101 ], [ %.157, %84 ], [ null, %25 ], [ %.157, %87 ]
+  %.055 = phi i32 [ 0, %85 ], [ 0, %.thread92 ], [ 0, %.thread101 ], [ 1, %84 ], [ 1, %25 ], [ %spec.select, %87 ]
   call void @EVP_MD_free(ptr noundef %.261) #4
   call void @EVP_MD_free(ptr noundef %.056) #4
   br label %90
@@ -898,8 +898,8 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
-90:                                               ; preds = %.critedge, %30, %4, %44, %.thread107
-  %.0 = phi i32 [ %.055, %.thread107 ], [ 0, %44 ], [ 0, %4 ], [ 0, %30 ], [ 0, %.critedge ]
+90:                                               ; preds = %.critedge, %30, %4, %44, %.thread104
+  %.0 = phi i32 [ %.055, %.thread104 ], [ 0, %44 ], [ 0, %4 ], [ 0, %30 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1121,7 +1121,7 @@ rsa_bn_dup_check.exit105:                         ; preds = %rsa_bn_dup_check.ex
   br i1 %89, label %rsa_bn_dup_check.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86, %rsa_bn_dup_check.exit114
-  %.058143 = phi i32 [ %113, %rsa_bn_dup_check.exit114 ], [ 0, %86 ]
+  %.058142 = phi i32 [ %113, %rsa_bn_dup_check.exit114 ], [ 0, %86 ]
   %90 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.2, i32 noundef 528) #4
   %91 = icmp eq ptr %90, null
   br i1 %91, label %rsa_bn_dup_check.exit.thread, label %92
@@ -1130,7 +1130,7 @@ rsa_bn_dup_check.exit105:                         ; preds = %rsa_bn_dup_check.ex
   %93 = load ptr, ptr %88, align 8, !tbaa !44
   %94 = tail call i32 @OPENSSL_sk_push(ptr noundef %93, ptr noundef nonnull %90) #4
   %95 = load ptr, ptr %82, align 8, !tbaa !44
-  %96 = tail call ptr @OPENSSL_sk_value(ptr noundef %95, i32 noundef range(i32 -2147483648, 2147483647) %.058143) #4
+  %96 = tail call ptr @OPENSSL_sk_value(ptr noundef %95, i32 noundef range(i32 -2147483648, 2147483647) %.058142) #4
   %97 = load ptr, ptr %96, align 8, !tbaa !45
   %.not.i106 = icmp eq ptr %97, null
   br i1 %.not.i106, label %rsa_bn_dup_check.exit108, label %98
@@ -1168,7 +1168,7 @@ rsa_bn_dup_check.exit111:                         ; preds = %103, %rsa_bn_dup_ch
   br i1 %112, label %rsa_bn_dup_check.exit.thread, label %rsa_bn_dup_check.exit114
 
 rsa_bn_dup_check.exit114:                         ; preds = %109, %rsa_bn_dup_check.exit111
-  %113 = add nuw nsw i32 %.058143, 1
+  %113 = add nuw nsw i32 %.058142, 1
   %exitcond.not = icmp eq i32 %113, %84
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 

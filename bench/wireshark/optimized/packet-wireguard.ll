@@ -2690,10 +2690,10 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #8
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @wg_keylog_read() unnamed_addr #0 {
   %1 = alloca [512 x i8], align 16
-  %.b21 = load i1, ptr @wg_decryption_supported, align 1
+  %.b20 = load i1, ptr @wg_decryption_supported, align 1
   %2 = load ptr, ptr @pref_keylog_file, align 8
   %3 = icmp ne ptr %2, null
-  %or.cond = select i1 %.b21, i1 %3, i1 false
+  %or.cond = select i1 %.b20, i1 %3, i1 false
   br i1 %or.cond, label %4, label %33
 
 4:                                                ; preds = %0
@@ -2737,8 +2737,8 @@ wg_keylog_reset.exit.thread:                      ; preds = %6, %13, %14, %wg_ke
   %19 = phi ptr [ %17, %wg_keylog_reset.exit.thread ], [ %12, %wg_keylog_reset.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %20 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 512, ptr noundef nonnull %19)
-  %.not716 = icmp eq ptr %20, null
-  br i1 %.not716, label %._crit_edge, label %wg_keylog_reset.exit11
+  %.not715 = icmp eq ptr %20, null
+  br i1 %.not715, label %._crit_edge, label %wg_keylog_reset.exit11
 
 ._crit_edge:                                      ; preds = %wg_keylog_reset.exit11, %18
   %21 = load ptr, ptr @wg_keylog_file, align 8
@@ -2755,8 +2755,8 @@ wg_keylog_reset.exit.thread:                      ; preds = %6, %13, %14, %wg_ke
   %26 = call i32 @ferror(ptr noundef %23) #18
   %.not9 = icmp eq i32 %26, 0
   %.not.i10 = icmp eq ptr %23, null
-  %or.cond15 = or i1 %.not.i10, %.not9
-  br i1 %or.cond15, label %wg_keylog_reset.exit11.thread, label %27
+  %or.cond14 = or i1 %.not.i10, %.not9
+  br i1 %or.cond14, label %wg_keylog_reset.exit11.thread, label %27
 
 27:                                               ; preds = %25
   %28 = call i32 @fclose(ptr noundef nonnull %23)

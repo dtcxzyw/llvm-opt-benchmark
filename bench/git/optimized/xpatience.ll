@@ -318,10 +318,9 @@ insert_record.exit.i.thread:                      ; preds = %.lr.ph.i.i
   %.04161.i = phi i32 [ %.142.i, %157 ], [ 0, %122 ]
   %123 = getelementptr inbounds nuw i8, ptr %.03963.i, i64 16
   %124 = load i64, ptr %123, align 8, !tbaa !34
-  switch i64 %124, label %125 [
-    i64 0, label %157
-    i64 -1, label %157
-  ]
+  %.off.i = add i64 %124, -1
+  %switch.i = icmp ult i64 %.off.i, -2
+  br i1 %switch.i, label %125, label %157
 
 125:                                              ; preds = %.lr.ph.i
   %126 = icmp sgt i32 %.04161.i, 0
@@ -384,9 +383,9 @@ binary_search.exit.thread.i:                      ; preds = %125, %139, %binary_
   %spec.select.i = add nsw i32 %.04161.i, %156
   br label %157
 
-157:                                              ; preds = %154, %152, %binary_search.exit.thread.i, %.lr.ph.i, %.lr.ph.i
-  %.142.i = phi i32 [ %.04161.i, %binary_search.exit.thread.i ], [ %153, %152 ], [ %.04161.i, %.lr.ph.i ], [ %.04161.i, %.lr.ph.i ], [ %spec.select.i, %154 ]
-  %.1.i = phi i32 [ %.062.i, %binary_search.exit.thread.i ], [ %145, %152 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %154 ]
+157:                                              ; preds = %154, %152, %binary_search.exit.thread.i, %.lr.ph.i
+  %.142.i = phi i32 [ %.04161.i, %binary_search.exit.thread.i ], [ %153, %152 ], [ %.04161.i, %.lr.ph.i ], [ %spec.select.i, %154 ]
+  %.1.i = phi i32 [ %.062.i, %binary_search.exit.thread.i ], [ %145, %152 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %154 ]
   %158 = getelementptr inbounds nuw i8, ptr %.03963.i, i64 24
   %.039.i = load ptr, ptr %158, align 8, !tbaa !49
   %.not50.i = icmp eq ptr %.039.i, null

@@ -2651,21 +2651,21 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   call void @deconstruct_array_builtin(ptr noundef %8, i32 noundef 25, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6) #12
   %9 = load i32, ptr %6, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph85, label %._crit_edge
+  br i1 %10, label %.lr.ph84, label %._crit_edge
 
-.lr.ph85:                                         ; preds = %4
+.lr.ph84:                                         ; preds = %4
   %11 = icmp sgt i32 %3, 0
   %.not7.i = xor i1 %1, true
-  br i1 %11, label %.lr.ph.us.preheader, label %.lr.ph85.split
+  br i1 %11, label %.lr.ph.us.preheader, label %.lr.ph84.split
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph85
+.lr.ph.us.preheader:                              ; preds = %.lr.ph84
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %20
-  %indvars.iv162 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next163, %20 ]
+  %indvars.iv161 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next162, %20 ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv162
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv161
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2675,10 +2675,10 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br label %24
 
 20:                                               ; preds = %parse_one_reloption.exit.us
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %21 = load i32, ptr %6, align 4
   %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %indvars.iv.next163, %22
+  %23 = icmp slt i64 %indvars.iv.next162, %22
   br i1 %23, label %.lr.ph.us, label %._crit_edge, !llvm.loop !30
 
 24:                                               ; preds = %.lr.ph.us, %39
@@ -2734,7 +2734,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %58 = load ptr, ptr %25, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  switch i32 %60, label %.split87.us [
+  switch i32 %60, label %.split86.us [
     i32 0, label %110
     i32 1, label %97
     i32 2, label %84
@@ -2790,7 +2790,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br label %.thread113.i.us
 
 ._crit_edge.i.us:                                 ; preds = %74, %67
-  br i1 %1, label %.split90.us, label %.thread109.i.us
+  br i1 %1, label %.split89.us, label %.thread109.i.us
 
 .thread109.i.us:                                  ; preds = %._crit_edge.i.us
   %81 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -2803,7 +2803,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %85 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %86 = call zeroext i1 @parse_real(ptr noundef nonnull %49, ptr noundef nonnull %85, i32 noundef 0, ptr noundef null) #12
   %or.cond9.i.us = select i1 %.not7.i, i1 true, i1 %86
-  br i1 %or.cond9.i.us, label %87, label %.split95.us
+  br i1 %or.cond9.i.us, label %87, label %.split94.us
 
 87:                                               ; preds = %84
   br i1 %1, label %88, label %113
@@ -2813,19 +2813,19 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %90 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %91 = load double, ptr %90, align 8
   %92 = fcmp olt double %89, %91
-  br i1 %92, label %.split99.us, label %93
+  br i1 %92, label %.split98.us, label %93
 
 93:                                               ; preds = %88
   %94 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %95 = load double, ptr %94, align 8
   %96 = fcmp ogt double %89, %95
-  br i1 %96, label %.split99.us, label %113
+  br i1 %96, label %.split98.us, label %113
 
 97:                                               ; preds = %45
   %98 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %99 = call zeroext i1 @parse_int(ptr noundef nonnull %49, ptr noundef nonnull %98, i32 noundef 0, ptr noundef null) #12
   %or.cond6.i.us = select i1 %.not7.i, i1 true, i1 %99
-  br i1 %or.cond6.i.us, label %100, label %.split105.us
+  br i1 %or.cond6.i.us, label %100, label %.split104.us
 
 100:                                              ; preds = %97
   br i1 %1, label %101, label %113
@@ -2835,19 +2835,19 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %103 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %104 = load i32, ptr %103, align 4
   %105 = icmp slt i32 %102, %104
-  br i1 %105, label %.split109.us, label %106
+  br i1 %105, label %.split108.us, label %106
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %108 = load i32, ptr %107, align 8
   %109 = icmp sgt i32 %102, %108
-  br i1 %109, label %.split109.us, label %113
+  br i1 %109, label %.split108.us, label %113
 
 110:                                              ; preds = %45
   %111 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %112 = call zeroext i1 @parse_bool(ptr noundef nonnull %49, ptr noundef nonnull %111) #12
   %or.cond3.i.us = select i1 %.not7.i, i1 true, i1 %112
-  br i1 %or.cond3.i.us, label %113, label %.split115.us
+  br i1 %or.cond3.i.us, label %113, label %.split114.us
 
 113:                                              ; preds = %110, %106, %100, %93, %87
   %.0.i.us = phi i1 [ %112, %110 ], [ %99, %106 ], [ %99, %100 ], [ %86, %93 ], [ %86, %87 ]
@@ -2862,13 +2862,13 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br label %parse_one_reloption.exit.us
 
 parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.us, %.thread118.i.us
-  %.03646.us = phi i32 [ %41, %.thread118.i.us ], [ %41, %.thread113.i.us ], [ %3, %39 ]
-  %114 = icmp sge i32 %.03646.us, %3
+  %.03645.us = phi i32 [ %41, %.thread118.i.us ], [ %41, %.thread113.i.us ], [ %3, %39 ]
+  %114 = icmp sge i32 %.03645.us, %3
   %or.cond.us = and i1 %1, %114
-  br i1 %or.cond.us, label %.split119.us, label %20
+  br i1 %or.cond.us, label %.split118.us, label %20
 
-.lr.ph85.split:                                   ; preds = %.lr.ph85
-  br i1 %1, label %.split119.us, label %._crit_edge
+.lr.ph84.split:                                   ; preds = %.lr.ph84
+  br i1 %1, label %.split118.us, label %._crit_edge
 
 .split.us:                                        ; preds = %40
   %115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2879,7 +2879,7 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1600, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split115.us:                                     ; preds = %110
+.split114.us:                                     ; preds = %110
   %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %121 = call i32 @errcode(i32 noundef 50856066) #12
   %122 = load ptr, ptr %25, align 8
@@ -2888,7 +2888,7 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1616, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split105.us:                                     ; preds = %97
+.split104.us:                                     ; preds = %97
   %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %126 = call i32 @errcode(i32 noundef 50856066) #12
   %127 = load ptr, ptr %25, align 8
@@ -2897,7 +2897,7 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1628, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split109.us:                                     ; preds = %101, %106
+.split108.us:                                     ; preds = %101, %106
   %130 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %132 = call i32 @errcode(i32 noundef 50856066) #12
@@ -2911,7 +2911,7 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1636, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split95.us:                                      ; preds = %84
+.split94.us:                                      ; preds = %84
   %140 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %141 = call i32 @errcode(i32 noundef 50856066) #12
   %142 = load ptr, ptr %25, align 8
@@ -2920,7 +2920,7 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1648, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split99.us:                                      ; preds = %88, %93
+.split98.us:                                      ; preds = %88, %93
   %145 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %147 = call i32 @errcode(i32 noundef 50856066) #12
@@ -2934,7 +2934,7 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1656, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split90.us:                                      ; preds = %._crit_edge.i.us
+.split89.us:                                      ; preds = %._crit_edge.i.us
   %155 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %156 = call i32 @errcode(i32 noundef 50856066) #12
   %157 = load ptr, ptr %25, align 8
@@ -2945,15 +2945,15 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   %.not100.i = icmp eq ptr %161, null
   br i1 %.not100.i, label %164, label %162
 
-162:                                              ; preds = %.split90.us
+162:                                              ; preds = %.split89.us
   %163 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.56, ptr noundef nonnull %161) #12
   br label %164
 
-164:                                              ; preds = %162, %.split90.us
+164:                                              ; preds = %162, %.split89.us
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1680, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split87.us:                                      ; preds = %45
+.split86.us:                                      ; preds = %45
   %165 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %166 = load ptr, ptr %25, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 28
@@ -2962,10 +2962,10 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1702, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-.split119.us:                                     ; preds = %parse_one_reloption.exit.us, %.lr.ph85.split
-  %.us-phi120 = phi i64 [ 0, %.lr.ph85.split ], [ %indvars.iv162, %parse_one_reloption.exit.us ]
+.split118.us:                                     ; preds = %parse_one_reloption.exit.us, %.lr.ph84.split
+  %.us-phi119 = phi i64 [ 0, %.lr.ph84.split ], [ %indvars.iv161, %parse_one_reloption.exit.us ]
   %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds nuw i64, ptr %170, i64 %.us-phi120
+  %171 = getelementptr inbounds nuw i64, ptr %170, i64 %.us-phi119
   %172 = load i64, ptr %171, align 8
   %173 = inttoptr i64 %172 to ptr
   %174 = call ptr @text_to_cstring(ptr noundef %173) #12
@@ -2973,18 +2973,18 @@ parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.u
   %.not42 = icmp eq ptr %175, null
   br i1 %.not42, label %177, label %176
 
-176:                                              ; preds = %.split119.us
+176:                                              ; preds = %.split118.us
   store i8 0, ptr %175, align 1
   br label %177
 
-177:                                              ; preds = %176, %.split119.us
+177:                                              ; preds = %176, %.split118.us
   %178 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %179 = call i32 @errcode(i32 noundef 50856066) #12
   %180 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %174) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1487, ptr noundef nonnull @__func__.parseRelOptionsInternal) #12
   unreachable
 
-._crit_edge:                                      ; preds = %20, %.lr.ph85.split, %4
+._crit_edge:                                      ; preds = %20, %.lr.ph84.split, %4
   %181 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %181) #12
   %.not = icmp eq ptr %8, %7

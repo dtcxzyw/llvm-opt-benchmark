@@ -759,13 +759,13 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_18ArraySubscriptExprEE10_c
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp ne i8 %19, 13
-  %.not.not24.i.i.i.i = icmp eq ptr %17, null
-  %.not.not.i.i.i.i = or i1 %.not.not24.i.i.i.i, %20
+  %.not.not21.i.i.i.i = icmp eq ptr %17, null
+  %.not.not.i.i.i.i = or i1 %.not.not21.i.i.i.i, %20
   br i1 %.not.not.i.i.i.i, label %21, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i.i
 
 21:                                               ; preds = %3
   %22 = icmp ne i8 %19, 46
-  %.not13.not.i.i.i.i = or i1 %.not.not24.i.i.i.i, %22
+  %.not13.not.i.i.i.i = or i1 %.not.not21.i.i.i.i, %22
   br i1 %.not13.not.i.i.i.i, label %36, label %23
 
 23:                                               ; preds = %21
@@ -913,13 +913,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i8, ptr %99, align 16
   %101 = icmp ne i8 %100, 13
-  %.not.not24.i.i.i19.i = icmp eq ptr %98, null
-  %.not.not.i.i.i20.i = or i1 %.not.not24.i.i.i19.i, %101
+  %.not.not21.i.i.i19.i = icmp eq ptr %98, null
+  %.not.not.i.i.i20.i = or i1 %.not.not21.i.i.i19.i, %101
   br i1 %.not.not.i.i.i20.i, label %102, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i21.i
 
 102:                                              ; preds = %81
   %103 = icmp ne i8 %100, 46
-  %.not13.not.i.i.i25.i = or i1 %.not.not24.i.i.i19.i, %103
+  %.not13.not.i.i.i25.i = or i1 %.not.not21.i.i.i19.i, %103
   br i1 %.not13.not.i.i.i25.i, label %117, label %104
 
 104:                                              ; preds = %102
@@ -1000,13 +1000,13 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i: ; preds = %131, %_ZN
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load i8, ptr %150, align 16
   %152 = icmp ne i8 %151, 13
-  %.not.not24.i.i.i31.i = icmp eq ptr %149, null
-  %.not.not.i.i.i32.i = or i1 %.not.not24.i.i.i31.i, %152
+  %.not.not21.i.i.i31.i = icmp eq ptr %149, null
+  %.not.not.i.i.i32.i = or i1 %.not.not21.i.i.i31.i, %152
   br i1 %.not.not.i.i.i32.i, label %153, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i33.i
 
 153:                                              ; preds = %_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i
   %154 = icmp ne i8 %151, 46
-  %.not13.not.i.i.i37.i = or i1 %.not.not24.i.i.i31.i, %154
+  %.not13.not.i.i.i37.i = or i1 %.not.not21.i.i.i31.i, %154
   br i1 %.not13.not.i.i.i37.i, label %168, label %155
 
 155:                                              ; preds = %153

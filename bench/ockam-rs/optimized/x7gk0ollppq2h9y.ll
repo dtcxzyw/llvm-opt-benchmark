@@ -101,9 +101,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h04580737168f3341E.exit.i"
 
 "_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h04580737168f3341E.exit.i": ; preds = %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i"
-  %.pn48.i = phi ptr [ %33, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i" ], [ %36, %34 ]
-  %.pn46.i = phi i64 [ %30, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i" ], [ %38, %34 ]
-  %39 = getelementptr inbounds i32, ptr %.pn48.i, i64 %.pn46.i
+  %.pn44.i = phi ptr [ %33, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i" ], [ %36, %34 ]
+  %.pn42.i = phi i64 [ %30, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i" ], [ %38, %34 ]
+  %39 = getelementptr inbounds i32, ptr %.pn44.i, i64 %.pn42.i
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -114,7 +114,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 46:                                               ; preds = %65, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h04580737168f3341E.exit.i"
   %.sroa.8.0.i = phi i64 [ 0, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h04580737168f3341E.exit.i" ], [ %52, %65 ]
-  %.sroa.0.0.i = phi ptr [ %.pn48.i, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h04580737168f3341E.exit.i" ], [ %51, %65 ]
+  %.sroa.0.0.i = phi ptr [ %.pn44.i, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h04580737168f3341E.exit.i" ], [ %51, %65 ]
   %47 = icmp eq ptr %.sroa.0.0.i, %39
   br i1 %47, label %48, label %50
 
@@ -171,9 +171,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !9
   %68 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9alternate17ha2f6c36f5ecbd9a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
   %spec.select.i = select i1 %68, ptr @anon.9778260fc09332ba06167c6343bedf99.8, ptr @anon.9778260fc09332ba06167c6343bedf99.16
-  %spec.select50.i = select i1 %68, i64 5, i64 1
+  %spec.select46.i = select i1 %68, i64 5, i64 1
   store ptr %spec.select.i, ptr %6, align 8, !noalias !9
-  store i64 %spec.select50.i, ptr %40, align 8, !noalias !9
+  store i64 %spec.select46.i, ptr %40, align 8, !noalias !9
   store ptr %6, ptr %7, align 8, !noalias !9
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h743c6ddf7f5b9dfaE", ptr %41, align 8, !noalias !9
   store ptr @anon.9778260fc09332ba06167c6343bedf99.15, ptr %8, align 8, !alias.scope !23, !noalias !26
@@ -304,16 +304,16 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   br label %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit"
 
 "_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.exit", %32
-  %.pn48 = phi ptr [ %31, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.exit" ], [ %34, %32 ]
-  %.pn46 = phi i64 [ %28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.exit" ], [ %36, %32 ]
-  %37 = getelementptr inbounds i8, ptr %.pn48, i64 %.pn46
+  %.pn44 = phi ptr [ %31, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.exit" ], [ %34, %32 ]
+  %.pn42 = phi i64 [ %28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.exit" ], [ %36, %32 ]
+  %37 = getelementptr inbounds i8, ptr %.pn44, i64 %.pn42
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %44 = icmp eq i64 %.pn46, 0
+  %44 = icmp eq i64 %.pn42, 0
   br i1 %44, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit"
@@ -321,11 +321,11 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   br i1 %45, label %48, label %54
 
 .lr.ph:                                           ; preds = %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit", %.backedge
-  %.sroa.0.052 = phi ptr [ %46, %.backedge ], [ %.pn48, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
-  %.sroa.8.051 = phi i64 [ %47, %.backedge ], [ 0, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.052, i64 1
-  %47 = add i64 %.sroa.8.051, 1
-  %.not = icmp eq i64 %.sroa.8.051, 0
+  %.sroa.0.048 = phi ptr [ %46, %.backedge ], [ %.pn44, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
+  %.sroa.8.047 = phi i64 [ %47, %.backedge ], [ 0, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 1
+  %47 = add i64 %.sroa.8.047, 1
+  %.not = icmp eq i64 %.sroa.8.047, 0
   br i1 %.not, label %60, label %70
 
 48:                                               ; preds = %._crit_edge
@@ -371,15 +371,15 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   br i1 %63, label %66, label %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit"
 
 64:                                               ; preds = %60
-  %65 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u8$GT$3fmt17h0165a118c0043447E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.052, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %65 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u8$GT$3fmt17h0165a118c0043447E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %65, label %.loopexit, label %.backedge
 
 66:                                               ; preds = %62
-  %67 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h596afddd40ccdb90E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.052, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %67 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h596afddd40ccdb90E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %67, label %.loopexit, label %.backedge
 
 "_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit": ; preds = %62
-  %68 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h43ec4bf23aea5d3aE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.052, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %68 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h43ec4bf23aea5d3aE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %68, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit", %64, %66
@@ -392,9 +392,9 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9alternate17ha2f6c36f5ecbd9a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
   %spec.select = select i1 %71, ptr @anon.9778260fc09332ba06167c6343bedf99.8, ptr @anon.9778260fc09332ba06167c6343bedf99.16
-  %spec.select50 = select i1 %71, i64 5, i64 1
+  %spec.select46 = select i1 %71, i64 5, i64 1
   store ptr %spec.select, ptr %5, align 8
-  store i64 %spec.select50, ptr %38, align 8
+  store i64 %spec.select46, ptr %38, align 8
   store ptr %5, ptr %6, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h743c6ddf7f5b9dfaE", ptr %39, align 8
   store ptr @anon.9778260fc09332ba06167c6343bedf99.15, ptr %7, align 8, !alias.scope !47, !noalias !50
@@ -489,26 +489,26 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27, %31
-  %.sroa.2.022.i = phi i64 [ %33, %31 ], [ 28, %27 ]
-  %.021.i = phi i64 [ %36, %31 ], [ 0, %27 ]
+  %.sroa.2.021.i = phi i64 [ %33, %31 ], [ 28, %27 ]
+  %.020.i = phi i64 [ %36, %31 ], [ 0, %27 ]
   %30 = phi ptr [ %32, %31 ], [ %.sroa.0.0.copyload, %27 ]
   %.not.i = icmp eq ptr %30, %29
   br i1 %.not.i, label %38, label %31
 
 31:                                               ; preds = %.lr.ph.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %33 = add nsw i64 %.sroa.2.022.i, -1
+  %33 = add nsw i64 %.sroa.2.021.i, -1
   %34 = load i8, ptr %30, align 1, !noalias !59, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.021.i
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.020.i
   store i8 %34, ptr %35, align 1
-  %36 = add nuw nsw i64 %.021.i, 1
+  %36 = add nuw nsw i64 %.020.i, 1
   %37 = icmp eq i64 %33, 0
   br i1 %37, label %38, label %.lr.ph.i
 
 38:                                               ; preds = %31, %.lr.ph.i
   %storemerge.i = phi ptr [ %32, %31 ], [ %29, %.lr.ph.i ]
-  %.018.i = phi i64 [ %36, %31 ], [ %.021.i, %.lr.ph.i ]
-  %39 = trunc i64 %.018.i to i16
+  %.017.i = phi i64 [ %36, %31 ], [ %.020.i, %.lr.ph.i ]
+  %39 = trunc i64 %.017.i to i16
   store i16 %39, ptr %7, align 2
   store ptr %.sroa.0.0.copyload, ptr %6, align 8, !noalias !66
   %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %6, i64 8

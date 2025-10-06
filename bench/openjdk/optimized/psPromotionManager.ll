@@ -1561,12 +1561,11 @@ _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit: ; pre
   %293 = load volatile i32, ptr %15, align 8
   %294 = sub i32 %286, %293
   %295 = and i32 %294, 131071
-  switch i32 %295, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread [
-    i32 131071, label %296
-    i32 0, label %296
-  ]
+  %.off.i = add nsw i32 %295, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread, label %296
 
-296:                                              ; preds = %.lr.ph123, %.lr.ph123
+296:                                              ; preds = %.lr.ph123
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   %297 = load volatile i64, ptr %15, align 8
   %.sroa.016.0.extract.trunc.i.i = trunc i64 %297 to i32

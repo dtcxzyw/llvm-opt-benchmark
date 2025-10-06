@@ -462,18 +462,18 @@ define internal i32 @file_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 36:                                               ; preds = %32, %28, %25
   %37 = load ptr, ptr @ossl_any_to_obj_algorithm, align 8, !tbaa !26
-  %.not3449.i.i = icmp eq ptr %37, null
-  br i1 %.not3449.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not3448.i.i = icmp eq ptr %37, null
+  br i1 %.not3448.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 38:                                               ; preds = %46
-  %39 = getelementptr inbounds nuw i8, ptr %.02850.i.i, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.02849.i.i, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %.not34.i.i = icmp eq ptr %40, null
   br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 .lr.ph.i.i:                                       ; preds = %36, %38
-  %.02850.i.i = phi ptr [ %39, %38 ], [ @ossl_any_to_obj_algorithm, %36 ]
-  %41 = tail call ptr @ossl_decoder_from_algorithm(i32 noundef 0, ptr noundef nonnull %.02850.i.i, ptr noundef null) #8
+  %.02849.i.i = phi ptr [ %39, %38 ], [ @ossl_any_to_obj_algorithm, %36 ]
+  %41 = tail call ptr @ossl_decoder_from_algorithm(i32 noundef 0, ptr noundef nonnull %.02849.i.i, ptr noundef null) #8
   %.not38.i.i = icmp eq ptr %41, null
   br i1 %.not38.i.i, label %.thread.i.i, label %42
 

@@ -1748,7 +1748,7 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
   %8 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !17
   %.not = icmp eq ptr %.val, @_PyHamt_BitmapNode_Type
-  br i1 %.not, label %9, label %215
+  br i1 %.not, label %9, label %216
 
 9:                                                ; preds = %5
   %10 = lshr i32 %2, %1
@@ -1772,7 +1772,7 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
   %26 = load ptr, ptr %25, align 8, !tbaa !110
   %27 = zext nneg i32 %22 to i64
   %28 = icmp eq ptr %26, null
-  br i1 %28, label %29, label %137
+  br i1 %28, label %29, label %138
 
 29:                                               ; preds = %17
   %30 = getelementptr ptr, ptr %23, i64 %27
@@ -1781,930 +1781,930 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
   store ptr null, ptr %7, align 8, !tbaa !18
   %32 = add i32 %1, 5
   %33 = call fastcc i32 @hamt_node_without(ptr noundef %31, i32 noundef %32, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %7)
-  %switch.i = icmp samesign ult i32 %33, 2
-  br i1 %switch.i, label %Py_DECREF.exit71.i.thread, label %34
+  %34 = icmp eq i32 %33, 3
+  br i1 %34, label %35, label %Py_DECREF.exit71.i.thread
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %7, align 8, !tbaa !18
-  %36 = getelementptr i8, ptr %35, i64 8
-  %.val.i = load ptr, ptr %36, align 8, !tbaa !17
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %7, align 8, !tbaa !18
+  %37 = getelementptr i8, ptr %36, i64 8
+  %.val.i = load ptr, ptr %37, align 8, !tbaa !17
   %.not51 = icmp eq ptr %.val.i, @_PyHamt_BitmapNode_Type
-  br i1 %.not51, label %37, label %Py_DECREF.exit71.i
+  br i1 %.not51, label %38, label %Py_DECREF.exit71.i
 
-37:                                               ; preds = %34
-  %38 = getelementptr i8, ptr %35, i64 16
-  %.val75.i = load i64, ptr %38, align 8, !tbaa !109
-  %39 = and i64 %.val75.i, -2
-  %40 = icmp eq i64 %39, 2
-  br i1 %40, label %41, label %Py_DECREF.exit71.i
+38:                                               ; preds = %35
+  %39 = getelementptr i8, ptr %36, i64 16
+  %.val75.i = load i64, ptr %39, align 8, !tbaa !109
+  %40 = and i64 %.val75.i, -2
+  %41 = icmp eq i64 %40, 2
+  br i1 %41, label %42, label %Py_DECREF.exit71.i
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !110
-  %.not65.i = icmp eq ptr %43, null
-  br i1 %.not65.i, label %Py_DECREF.exit71.i, label %44
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %44 = load ptr, ptr %43, align 8, !tbaa !110
+  %.not65.i = icmp eq ptr %44, null
+  br i1 %.not65.i, label %Py_DECREF.exit71.i, label %45
 
-44:                                               ; preds = %41
-  %45 = tail call fastcc ptr @hamt_node_bitmap_clone(ptr noundef nonnull %0)
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %53
+45:                                               ; preds = %42
+  %46 = tail call fastcc ptr @hamt_node_bitmap_clone(ptr noundef nonnull %0)
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %54
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %35, align 8, !tbaa !15
-  %.not.i70.i = icmp sgt i32 %48, -1
-  br i1 %.not.i70.i, label %49, label %Py_DECREF.exit71.i.thread
+48:                                               ; preds = %45
+  %49 = load i32, ptr %36, align 8, !tbaa !15
+  %.not.i70.i = icmp sgt i32 %49, -1
+  br i1 %.not.i70.i, label %50, label %Py_DECREF.exit71.i.thread
 
-49:                                               ; preds = %47
-  %50 = add nsw i32 %48, -1
-  store i32 %50, ptr %35, align 8, !tbaa !15
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %Py_DECREF.exit71.i.thread
+50:                                               ; preds = %48
+  %51 = add nsw i32 %49, -1
+  store i32 %51, ptr %36, align 8, !tbaa !15
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %Py_DECREF.exit71.i.thread
 
-52:                                               ; preds = %49
-  tail call void @_Py_Dealloc(ptr noundef nonnull %35) #12
+53:                                               ; preds = %50
+  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #12
   br label %Py_DECREF.exit71.i.thread
 
-53:                                               ; preds = %44
-  %54 = load ptr, ptr %42, align 8, !tbaa !110
-  %55 = getelementptr i8, ptr %35, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !110
-  %57 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %58 = getelementptr ptr, ptr %57, i64 %24
-  %59 = load ptr, ptr %58, align 8, !tbaa !110
-  %60 = load i32, ptr %54, align 8, !tbaa !15
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %_Py_NewRef.exit40, label %62
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %43, align 8, !tbaa !110
+  %56 = getelementptr i8, ptr %36, i64 40
+  %57 = load ptr, ptr %56, align 8, !tbaa !110
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %59 = getelementptr ptr, ptr %58, i64 %24
+  %60 = load ptr, ptr %59, align 8, !tbaa !110
+  %61 = load i32, ptr %55, align 8, !tbaa !15
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %_Py_NewRef.exit40, label %63
 
-62:                                               ; preds = %53
-  %63 = add nuw i32 %60, 1
-  store i32 %63, ptr %54, align 8, !tbaa !15
+63:                                               ; preds = %54
+  %64 = add nuw i32 %61, 1
+  store i32 %64, ptr %55, align 8, !tbaa !15
   br label %_Py_NewRef.exit40
 
-_Py_NewRef.exit40:                                ; preds = %53, %62
-  store ptr %54, ptr %58, align 8, !tbaa !110
-  tail call fastcc void @Py_XDECREF(ptr noundef %59)
-  %64 = getelementptr ptr, ptr %57, i64 %27
-  %65 = load ptr, ptr %64, align 8, !tbaa !110
-  %66 = load i32, ptr %56, align 8, !tbaa !15
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %_Py_NewRef.exit, label %68
+_Py_NewRef.exit40:                                ; preds = %54, %63
+  store ptr %55, ptr %59, align 8, !tbaa !110
+  tail call fastcc void @Py_XDECREF(ptr noundef %60)
+  %65 = getelementptr ptr, ptr %58, i64 %27
+  %66 = load ptr, ptr %65, align 8, !tbaa !110
+  %67 = load i32, ptr %57, align 8, !tbaa !15
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %_Py_NewRef.exit, label %69
 
-68:                                               ; preds = %_Py_NewRef.exit40
-  %69 = add nuw i32 %66, 1
-  store i32 %69, ptr %56, align 8, !tbaa !15
+69:                                               ; preds = %_Py_NewRef.exit40
+  %70 = add nuw i32 %67, 1
+  store i32 %70, ptr %57, align 8, !tbaa !15
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit40, %68
-  store ptr %56, ptr %64, align 8, !tbaa !110
-  %70 = load i32, ptr %65, align 8, !tbaa !15
-  %.not.i68.i = icmp sgt i32 %70, -1
-  br i1 %.not.i68.i, label %71, label %Py_DECREF.exit69.i
+_Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit40, %69
+  store ptr %57, ptr %65, align 8, !tbaa !110
+  %71 = load i32, ptr %66, align 8, !tbaa !15
+  %.not.i68.i = icmp sgt i32 %71, -1
+  br i1 %.not.i68.i, label %72, label %Py_DECREF.exit69.i
 
-71:                                               ; preds = %_Py_NewRef.exit
-  %72 = add nsw i32 %70, -1
-  store i32 %72, ptr %65, align 8, !tbaa !15
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %Py_DECREF.exit69.i
+72:                                               ; preds = %_Py_NewRef.exit
+  %73 = add nsw i32 %71, -1
+  store i32 %73, ptr %66, align 8, !tbaa !15
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %Py_DECREF.exit69.i
 
-74:                                               ; preds = %71
-  tail call void @_Py_Dealloc(ptr noundef nonnull %65) #12
+75:                                               ; preds = %72
+  tail call void @_Py_Dealloc(ptr noundef nonnull %66) #12
   br label %Py_DECREF.exit69.i
 
-Py_DECREF.exit69.i:                               ; preds = %74, %71, %_Py_NewRef.exit
-  %75 = load i32, ptr %35, align 8, !tbaa !15
-  %.not.i66.i = icmp sgt i32 %75, -1
-  br i1 %.not.i66.i, label %76, label %Py_DECREF.exit67.i
+Py_DECREF.exit69.i:                               ; preds = %75, %72, %_Py_NewRef.exit
+  %76 = load i32, ptr %36, align 8, !tbaa !15
+  %.not.i66.i = icmp sgt i32 %76, -1
+  br i1 %.not.i66.i, label %77, label %Py_DECREF.exit67.i
 
-76:                                               ; preds = %Py_DECREF.exit69.i
-  %77 = add nsw i32 %75, -1
-  store i32 %77, ptr %35, align 8, !tbaa !15
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %Py_DECREF.exit67.i
+77:                                               ; preds = %Py_DECREF.exit69.i
+  %78 = add nsw i32 %76, -1
+  store i32 %78, ptr %36, align 8, !tbaa !15
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %Py_DECREF.exit67.i
 
-79:                                               ; preds = %76
-  tail call void @_Py_Dealloc(ptr noundef nonnull %35) #12
+80:                                               ; preds = %77
+  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #12
   br label %Py_DECREF.exit67.i
 
-Py_DECREF.exit67.i:                               ; preds = %79, %76, %Py_DECREF.exit69.i
-  store ptr %45, ptr %4, align 8, !tbaa !18
+Py_DECREF.exit67.i:                               ; preds = %80, %77, %Py_DECREF.exit69.i
+  store ptr %46, ptr %4, align 8, !tbaa !18
   br label %Py_DECREF.exit71.i.thread
 
-Py_DECREF.exit71.i:                               ; preds = %37, %41, %34
-  %80 = getelementptr i8, ptr %0, i64 16
-  %.val.i34 = load i64, ptr %80, align 8, !tbaa !109
-  %81 = icmp eq i64 %.val.i34, 0
-  br i1 %81, label %.loopexit, label %82
+Py_DECREF.exit71.i:                               ; preds = %38, %42, %35
+  %81 = getelementptr i8, ptr %0, i64 16
+  %.val.i34 = load i64, ptr %81, align 8, !tbaa !109
+  %82 = icmp eq i64 %.val.i34, 0
+  br i1 %82, label %.loopexit, label %83
 
-82:                                               ; preds = %Py_DECREF.exit71.i
-  %83 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i34) #12
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %Py_DECREF.exit71.i.thread, label %85
+83:                                               ; preds = %Py_DECREF.exit71.i
+  %84 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i34) #12
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %Py_DECREF.exit71.i.thread, label %86
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i64 %.val.i34, ptr %86, align 8, !tbaa !109
-  %87 = icmp sgt i64 %.val.i34, 0
-  br i1 %87, label %.lr.ph.i.i39, label %hamt_node_bitmap_new.exit.i
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store i64 %.val.i34, ptr %87, align 8, !tbaa !109
+  %88 = icmp sgt i64 %.val.i34, 0
+  br i1 %88, label %.lr.ph.i.i39, label %hamt_node_bitmap_new.exit.i
 
-.lr.ph.i.i39:                                     ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %89 = shl nuw i64 %.val.i34, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %88, i8 0, i64 %89, i1 false), !tbaa !110
+.lr.ph.i.i39:                                     ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %90 = shl nuw i64 %.val.i34, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %89, i8 0, i64 %90, i1 false), !tbaa !110
   br label %hamt_node_bitmap_new.exit.i
 
-hamt_node_bitmap_new.exit.i:                      ; preds = %.lr.ph.i.i39, %85
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store i32 0, ptr %90, align 8, !tbaa !106
-  %91 = getelementptr i8, ptr %83, i64 -16
-  %92 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %93 = load ptr, ptr %92, align 8, !tbaa !21
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !23
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 7424
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 7432
-  %98 = load i64, ptr %97, align 8, !tbaa !32
-  %99 = inttoptr i64 %98 to ptr
-  %100 = ptrtoint ptr %91 to i64
-  %101 = load i64, ptr %99, align 8, !tbaa !34
-  %102 = and i64 %101, 3
-  %103 = or i64 %102, %100
-  store i64 %103, ptr %99, align 8, !tbaa !34
-  %104 = getelementptr i8, ptr %83, i64 -8
-  %105 = load i64, ptr %104, align 8, !tbaa !32
-  %106 = and i64 %105, 3
-  %107 = or i64 %106, %98
-  store i64 %107, ptr %104, align 8, !tbaa !32
-  %108 = getelementptr inbounds nuw i8, ptr %95, i64 7632
-  %109 = load i32, ptr %108, align 8, !tbaa !35
-  %110 = xor i32 %109, 1
-  %111 = sext i32 %110 to i64
-  %112 = ptrtoint ptr %96 to i64
-  %113 = or i64 %111, %112
-  store i64 %113, ptr %91, align 8, !tbaa !34
-  store i64 %100, ptr %97, align 8, !tbaa !32
-  %.val1416.pre.i = load i64, ptr %80, align 8, !tbaa !109
-  %114 = icmp sgt i64 %.val1416.pre.i, 0
-  br i1 %114, label %.lr.ph.i36, label %.loopexit
+hamt_node_bitmap_new.exit.i:                      ; preds = %.lr.ph.i.i39, %86
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  store i32 0, ptr %91, align 8, !tbaa !106
+  %92 = getelementptr i8, ptr %84, i64 -16
+  %93 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %94 = load ptr, ptr %93, align 8, !tbaa !21
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %96 = load ptr, ptr %95, align 8, !tbaa !23
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 7424
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 7432
+  %99 = load i64, ptr %98, align 8, !tbaa !32
+  %100 = inttoptr i64 %99 to ptr
+  %101 = ptrtoint ptr %92 to i64
+  %102 = load i64, ptr %100, align 8, !tbaa !34
+  %103 = and i64 %102, 3
+  %104 = or i64 %103, %101
+  store i64 %104, ptr %100, align 8, !tbaa !34
+  %105 = getelementptr i8, ptr %84, i64 -8
+  %106 = load i64, ptr %105, align 8, !tbaa !32
+  %107 = and i64 %106, 3
+  %108 = or i64 %107, %99
+  store i64 %108, ptr %105, align 8, !tbaa !32
+  %109 = getelementptr inbounds nuw i8, ptr %96, i64 7632
+  %110 = load i32, ptr %109, align 8, !tbaa !35
+  %111 = xor i32 %110, 1
+  %112 = sext i32 %111 to i64
+  %113 = ptrtoint ptr %97 to i64
+  %114 = or i64 %112, %113
+  store i64 %114, ptr %92, align 8, !tbaa !34
+  store i64 %101, ptr %98, align 8, !tbaa !32
+  %.val1416.pre.i = load i64, ptr %81, align 8, !tbaa !109
+  %115 = icmp sgt i64 %.val1416.pre.i, 0
+  br i1 %115, label %.lr.ph.i36, label %.loopexit
 
 .lr.ph.i36:                                       ; preds = %hamt_node_bitmap_new.exit.i
-  %115 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  br label %116
+  %116 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  br label %117
 
-116:                                              ; preds = %_Py_XNewRef.exit.i38, %.lr.ph.i36
+117:                                              ; preds = %_Py_XNewRef.exit.i38, %.lr.ph.i36
   %.val1419.i = phi i64 [ %.val1416.pre.i, %.lr.ph.i36 ], [ %.val14.i, %_Py_XNewRef.exit.i38 ]
-  %.017.i = phi i64 [ 0, %.lr.ph.i36 ], [ %125, %_Py_XNewRef.exit.i38 ]
-  %117 = getelementptr ptr, ptr %23, i64 %.017.i
-  %118 = load ptr, ptr %117, align 8, !tbaa !110
-  %.not.i.i.i37 = icmp eq ptr %118, null
-  br i1 %.not.i.i.i37, label %_Py_XNewRef.exit.i38, label %119
+  %.017.i = phi i64 [ 0, %.lr.ph.i36 ], [ %126, %_Py_XNewRef.exit.i38 ]
+  %118 = getelementptr ptr, ptr %23, i64 %.017.i
+  %119 = load ptr, ptr %118, align 8, !tbaa !110
+  %.not.i.i.i37 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i37, label %_Py_XNewRef.exit.i38, label %120
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %118, align 8, !tbaa !15
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %_Py_XNewRef.exit.i38, label %122
+120:                                              ; preds = %117
+  %121 = load i32, ptr %119, align 8, !tbaa !15
+  %122 = icmp slt i32 %121, 0
+  br i1 %122, label %_Py_XNewRef.exit.i38, label %123
 
-122:                                              ; preds = %119
-  %123 = add nuw i32 %120, 1
-  store i32 %123, ptr %118, align 8, !tbaa !15
-  %.val14.pre.i = load i64, ptr %80, align 8, !tbaa !109
+123:                                              ; preds = %120
+  %124 = add nuw i32 %121, 1
+  store i32 %124, ptr %119, align 8, !tbaa !15
+  %.val14.pre.i = load i64, ptr %81, align 8, !tbaa !109
   br label %_Py_XNewRef.exit.i38
 
-_Py_XNewRef.exit.i38:                             ; preds = %122, %119, %116
-  %.val14.i = phi i64 [ %.val1419.i, %116 ], [ %.val1419.i, %119 ], [ %.val14.pre.i, %122 ]
-  %124 = getelementptr ptr, ptr %115, i64 %.017.i
-  store ptr %118, ptr %124, align 8, !tbaa !110
-  %125 = add nuw nsw i64 %.017.i, 1
-  %126 = icmp slt i64 %125, %.val14.i
-  br i1 %126, label %116, label %.loopexit, !llvm.loop !114
+_Py_XNewRef.exit.i38:                             ; preds = %123, %120, %117
+  %.val14.i = phi i64 [ %.val1419.i, %117 ], [ %.val1419.i, %120 ], [ %.val14.pre.i, %123 ]
+  %125 = getelementptr ptr, ptr %116, i64 %.017.i
+  store ptr %119, ptr %125, align 8, !tbaa !110
+  %126 = add nuw nsw i64 %.017.i, 1
+  %127 = icmp slt i64 %126, %.val14.i
+  br i1 %127, label %117, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %_Py_XNewRef.exit.i38, %hamt_node_bitmap_new.exit.i, %Py_DECREF.exit71.i
-  %.013.i27.i = phi ptr [ %83, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %Py_DECREF.exit71.i ], [ %83, %_Py_XNewRef.exit.i38 ]
-  %127 = load i32, ptr %13, align 8, !tbaa !106
-  %128 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 24
-  store i32 %127, ptr %128, align 8, !tbaa !106
-  %129 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 32
-  %130 = getelementptr ptr, ptr %129, i64 %27
-  %131 = load ptr, ptr %130, align 8, !tbaa !110
-  store ptr %35, ptr %130, align 8, !tbaa !110
-  %132 = load i32, ptr %131, align 8, !tbaa !15
-  %.not.i.i = icmp sgt i32 %132, -1
-  br i1 %.not.i.i, label %133, label %Py_DECREF.exit.i
+  %.013.i27.i = phi ptr [ %84, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %Py_DECREF.exit71.i ], [ %84, %_Py_XNewRef.exit.i38 ]
+  %128 = load i32, ptr %13, align 8, !tbaa !106
+  %129 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 24
+  store i32 %128, ptr %129, align 8, !tbaa !106
+  %130 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 32
+  %131 = getelementptr ptr, ptr %130, i64 %27
+  %132 = load ptr, ptr %131, align 8, !tbaa !110
+  store ptr %36, ptr %131, align 8, !tbaa !110
+  %133 = load i32, ptr %132, align 8, !tbaa !15
+  %.not.i.i = icmp sgt i32 %133, -1
+  br i1 %.not.i.i, label %134, label %Py_DECREF.exit.i
 
-133:                                              ; preds = %.loopexit
-  %134 = add nsw i32 %132, -1
-  store i32 %134, ptr %131, align 8, !tbaa !15
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %Py_DECREF.exit.i
+134:                                              ; preds = %.loopexit
+  %135 = add nsw i32 %133, -1
+  store i32 %135, ptr %132, align 8, !tbaa !15
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %Py_DECREF.exit.i
 
-136:                                              ; preds = %133
-  tail call void @_Py_Dealloc(ptr noundef nonnull %131) #12
+137:                                              ; preds = %134
+  tail call void @_Py_Dealloc(ptr noundef nonnull %132) #12
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %136, %133, %.loopexit
+Py_DECREF.exit.i:                                 ; preds = %137, %134, %.loopexit
   store ptr %.013.i27.i, ptr %4, align 8, !tbaa !18
   br label %Py_DECREF.exit71.i.thread
 
-Py_DECREF.exit71.i.thread:                        ; preds = %82, %47, %49, %52, %Py_DECREF.exit67.i, %Py_DECREF.exit.i, %29
-  %.3.i = phi i32 [ 3, %Py_DECREF.exit.i ], [ %33, %29 ], [ 0, %47 ], [ 0, %49 ], [ 0, %52 ], [ 3, %Py_DECREF.exit67.i ], [ 0, %82 ]
+Py_DECREF.exit71.i.thread:                        ; preds = %83, %48, %50, %53, %Py_DECREF.exit67.i, %Py_DECREF.exit.i, %29
+  %.3.i = phi i32 [ 3, %Py_DECREF.exit.i ], [ %33, %29 ], [ 0, %48 ], [ 0, %50 ], [ 0, %53 ], [ 3, %Py_DECREF.exit67.i ], [ 0, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %hamt_node_bitmap_without.exit
 
-137:                                              ; preds = %17
-  %138 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %26, ptr noundef %3, i32 noundef 2) #12
-  %139 = icmp slt i32 %138, 0
-  br i1 %139, label %hamt_node_bitmap_without.exit, label %140
+138:                                              ; preds = %17
+  %139 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %26, ptr noundef %3, i32 noundef 2) #12
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %hamt_node_bitmap_without.exit, label %141
 
-140:                                              ; preds = %137
-  %141 = icmp eq i32 %138, 0
-  br i1 %141, label %hamt_node_bitmap_without.exit, label %142
+141:                                              ; preds = %138
+  %142 = icmp eq i32 %139, 0
+  br i1 %142, label %hamt_node_bitmap_without.exit, label %143
 
-142:                                              ; preds = %140
-  %143 = getelementptr i8, ptr %0, i64 16
-  %.val76.i = load i64, ptr %143, align 8, !tbaa !109
-  %144 = and i64 %.val76.i, -2
-  %145 = icmp eq i64 %144, 2
-  br i1 %145, label %hamt_node_bitmap_without.exit, label %146
+143:                                              ; preds = %141
+  %144 = getelementptr i8, ptr %0, i64 16
+  %.val76.i = load i64, ptr %144, align 8, !tbaa !109
+  %145 = and i64 %.val76.i, -2
+  %146 = icmp eq i64 %145, 2
+  br i1 %146, label %hamt_node_bitmap_without.exit, label %147
 
-146:                                              ; preds = %142
-  %147 = add i64 %.val76.i, -2
-  %148 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %147) #12
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %hamt_node_bitmap_clone_without.exit, label %150
+147:                                              ; preds = %143
+  %148 = add i64 %.val76.i, -2
+  %149 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %148) #12
+  %150 = icmp eq ptr %149, null
+  br i1 %150, label %hamt_node_bitmap_clone_without.exit, label %151
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  store i64 %147, ptr %151, align 8, !tbaa !109
-  %152 = icmp sgt i64 %147, 0
-  br i1 %152, label %.lr.ph.i.i33, label %155
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  store i64 %148, ptr %152, align 8, !tbaa !109
+  %153 = icmp sgt i64 %148, 0
+  br i1 %153, label %.lr.ph.i.i33, label %156
 
-.lr.ph.i.i33:                                     ; preds = %150
-  %153 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %154 = shl nuw i64 %147, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %153, i8 0, i64 %154, i1 false), !tbaa !110
-  br label %155
+.lr.ph.i.i33:                                     ; preds = %151
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %155 = shl nuw i64 %148, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %154, i8 0, i64 %155, i1 false), !tbaa !110
+  br label %156
 
-155:                                              ; preds = %150, %.lr.ph.i.i33
-  %156 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  store i32 0, ptr %156, align 8, !tbaa !106
-  %157 = getelementptr i8, ptr %148, i64 -16
-  %158 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %159 = load ptr, ptr %158, align 8, !tbaa !21
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %161 = load ptr, ptr %160, align 8, !tbaa !23
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 7424
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 7432
-  %164 = load i64, ptr %163, align 8, !tbaa !32
-  %165 = inttoptr i64 %164 to ptr
-  %166 = ptrtoint ptr %157 to i64
-  %167 = load i64, ptr %165, align 8, !tbaa !34
-  %168 = and i64 %167, 3
-  %169 = or i64 %168, %166
-  store i64 %169, ptr %165, align 8, !tbaa !34
-  %170 = getelementptr i8, ptr %148, i64 -8
-  %171 = load i64, ptr %170, align 8, !tbaa !32
-  %172 = and i64 %171, 3
-  %173 = or i64 %172, %164
-  store i64 %173, ptr %170, align 8, !tbaa !32
-  %174 = getelementptr inbounds nuw i8, ptr %161, i64 7632
-  %175 = load i32, ptr %174, align 8, !tbaa !35
-  %176 = xor i32 %175, 1
-  %177 = sext i32 %176 to i64
-  %178 = ptrtoint ptr %162 to i64
-  %179 = or i64 %177, %178
-  store i64 %179, ptr %157, align 8, !tbaa !34
-  store i64 %166, ptr %163, align 8, !tbaa !32
-  %180 = load i32, ptr %13, align 8, !tbaa !106
-  %181 = and i32 %180, %18
-  %182 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %181)
-  %183 = shl nuw nsw i32 %182, 1
-  %.not.i27 = icmp eq i32 %181, 0
+156:                                              ; preds = %151, %.lr.ph.i.i33
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  store i32 0, ptr %157, align 8, !tbaa !106
+  %158 = getelementptr i8, ptr %149, i64 -16
+  %159 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %160 = load ptr, ptr %159, align 8, !tbaa !21
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %162 = load ptr, ptr %161, align 8, !tbaa !23
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 7424
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 7432
+  %165 = load i64, ptr %164, align 8, !tbaa !32
+  %166 = inttoptr i64 %165 to ptr
+  %167 = ptrtoint ptr %158 to i64
+  %168 = load i64, ptr %166, align 8, !tbaa !34
+  %169 = and i64 %168, 3
+  %170 = or i64 %169, %167
+  store i64 %170, ptr %166, align 8, !tbaa !34
+  %171 = getelementptr i8, ptr %149, i64 -8
+  %172 = load i64, ptr %171, align 8, !tbaa !32
+  %173 = and i64 %172, 3
+  %174 = or i64 %173, %165
+  store i64 %174, ptr %171, align 8, !tbaa !32
+  %175 = getelementptr inbounds nuw i8, ptr %162, i64 7632
+  %176 = load i32, ptr %175, align 8, !tbaa !35
+  %177 = xor i32 %176, 1
+  %178 = sext i32 %177 to i64
+  %179 = ptrtoint ptr %163 to i64
+  %180 = or i64 %178, %179
+  store i64 %180, ptr %158, align 8, !tbaa !34
+  store i64 %167, ptr %164, align 8, !tbaa !32
+  %181 = load i32, ptr %13, align 8, !tbaa !106
+  %182 = and i32 %181, %18
+  %183 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %182)
+  %184 = shl nuw nsw i32 %183, 1
+  %.not.i27 = icmp eq i32 %182, 0
   br i1 %.not.i27, label %._crit_edge.i30, label %.lr.ph.i28
 
-.lr.ph.i28:                                       ; preds = %155
-  %184 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %wide.trip.count.i = zext nneg i32 %183 to i64
-  br label %185
+.lr.ph.i28:                                       ; preds = %156
+  %185 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %wide.trip.count.i = zext nneg i32 %184 to i64
+  br label %186
 
-185:                                              ; preds = %_Py_XNewRef.exit.i, %.lr.ph.i28
+186:                                              ; preds = %_Py_XNewRef.exit.i, %.lr.ph.i28
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next.i, %_Py_XNewRef.exit.i ]
-  %186 = getelementptr ptr, ptr %23, i64 %indvars.iv.i
-  %187 = load ptr, ptr %186, align 8, !tbaa !110
-  %.not.i.i.i = icmp eq ptr %187, null
-  br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %188
+  %187 = getelementptr ptr, ptr %23, i64 %indvars.iv.i
+  %188 = load ptr, ptr %187, align 8, !tbaa !110
+  %.not.i.i.i = icmp eq ptr %188, null
+  br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %189
 
-188:                                              ; preds = %185
-  %189 = load i32, ptr %187, align 8, !tbaa !15
-  %190 = icmp slt i32 %189, 0
-  br i1 %190, label %_Py_XNewRef.exit.i, label %191
+189:                                              ; preds = %186
+  %190 = load i32, ptr %188, align 8, !tbaa !15
+  %191 = icmp slt i32 %190, 0
+  br i1 %191, label %_Py_XNewRef.exit.i, label %192
 
-191:                                              ; preds = %188
-  %192 = add nuw i32 %189, 1
-  store i32 %192, ptr %187, align 8, !tbaa !15
+192:                                              ; preds = %189
+  %193 = add nuw i32 %190, 1
+  store i32 %193, ptr %188, align 8, !tbaa !15
   br label %_Py_XNewRef.exit.i
 
-_Py_XNewRef.exit.i:                               ; preds = %191, %188, %185
-  %193 = getelementptr ptr, ptr %184, i64 %indvars.iv.i
-  store ptr %187, ptr %193, align 8, !tbaa !110
+_Py_XNewRef.exit.i:                               ; preds = %192, %189, %186
+  %194 = getelementptr ptr, ptr %185, i64 %indvars.iv.i
+  store ptr %188, ptr %194, align 8, !tbaa !110
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i29, label %._crit_edge.i30, label %185, !llvm.loop !115
+  br i1 %exitcond.not.i29, label %._crit_edge.i30, label %186, !llvm.loop !115
 
-._crit_edge.i30:                                  ; preds = %_Py_XNewRef.exit.i, %155
-  %194 = add nuw nsw i32 %183, 2
-  %.val33.i = load i64, ptr %143, align 8, !tbaa !109
-  %195 = trunc i64 %.val33.i to i32
-  %196 = icmp ult i32 %194, %195
-  br i1 %196, label %.lr.ph36.i, label %._crit_edge37.i
+._crit_edge.i30:                                  ; preds = %_Py_XNewRef.exit.i, %156
+  %195 = add nuw nsw i32 %184, 2
+  %.val33.i = load i64, ptr %144, align 8, !tbaa !109
+  %196 = trunc i64 %.val33.i to i32
+  %197 = icmp ult i32 %195, %196
+  br i1 %197, label %.lr.ph36.i, label %._crit_edge37.i
 
 .lr.ph36.i:                                       ; preds = %._crit_edge.i30
-  %197 = zext nneg i32 %194 to i64
-  %198 = getelementptr i8, ptr %148, i64 16
-  br label %199
+  %198 = zext nneg i32 %195 to i64
+  %199 = getelementptr i8, ptr %149, i64 16
+  br label %200
 
-199:                                              ; preds = %_Py_XNewRef.exit29.i, %.lr.ph36.i
+200:                                              ; preds = %_Py_XNewRef.exit29.i, %.lr.ph36.i
   %.val42.i = phi i64 [ %.val33.i, %.lr.ph36.i ], [ %.val.i32, %_Py_XNewRef.exit29.i ]
-  %indvars.iv39.i = phi i64 [ %197, %.lr.ph36.i ], [ %indvars.iv.next40.i, %_Py_XNewRef.exit29.i ]
-  %200 = getelementptr ptr, ptr %23, i64 %indvars.iv39.i
-  %201 = load ptr, ptr %200, align 8, !tbaa !110
-  %.not.i.i28.i = icmp eq ptr %201, null
-  br i1 %.not.i.i28.i, label %_Py_XNewRef.exit29.i, label %202
+  %indvars.iv39.i = phi i64 [ %198, %.lr.ph36.i ], [ %indvars.iv.next40.i, %_Py_XNewRef.exit29.i ]
+  %201 = getelementptr ptr, ptr %23, i64 %indvars.iv39.i
+  %202 = load ptr, ptr %201, align 8, !tbaa !110
+  %.not.i.i28.i = icmp eq ptr %202, null
+  br i1 %.not.i.i28.i, label %_Py_XNewRef.exit29.i, label %203
 
-202:                                              ; preds = %199
-  %203 = load i32, ptr %201, align 8, !tbaa !15
-  %204 = icmp slt i32 %203, 0
-  br i1 %204, label %_Py_XNewRef.exit29.i, label %205
+203:                                              ; preds = %200
+  %204 = load i32, ptr %202, align 8, !tbaa !15
+  %205 = icmp slt i32 %204, 0
+  br i1 %205, label %_Py_XNewRef.exit29.i, label %206
 
-205:                                              ; preds = %202
-  %206 = add nuw i32 %203, 1
-  store i32 %206, ptr %201, align 8, !tbaa !15
-  %.val.pre.i31 = load i64, ptr %143, align 8, !tbaa !109
+206:                                              ; preds = %203
+  %207 = add nuw i32 %204, 1
+  store i32 %207, ptr %202, align 8, !tbaa !15
+  %.val.pre.i31 = load i64, ptr %144, align 8, !tbaa !109
   br label %_Py_XNewRef.exit29.i
 
-_Py_XNewRef.exit29.i:                             ; preds = %205, %202, %199
-  %.val.i32 = phi i64 [ %.val42.i, %199 ], [ %.val42.i, %202 ], [ %.val.pre.i31, %205 ]
-  %207 = getelementptr ptr, ptr %198, i64 %indvars.iv39.i
-  store ptr %201, ptr %207, align 8, !tbaa !110
+_Py_XNewRef.exit29.i:                             ; preds = %206, %203, %200
+  %.val.i32 = phi i64 [ %.val42.i, %200 ], [ %.val42.i, %203 ], [ %.val.pre.i31, %206 ]
+  %208 = getelementptr ptr, ptr %199, i64 %indvars.iv39.i
+  store ptr %202, ptr %208, align 8, !tbaa !110
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %208 = and i64 %.val.i32, 4294967295
-  %209 = icmp samesign ult i64 %indvars.iv.next40.i, %208
-  br i1 %209, label %199, label %._crit_edge37.i, !llvm.loop !116
+  %209 = and i64 %.val.i32, 4294967295
+  %210 = icmp samesign ult i64 %indvars.iv.next40.i, %209
+  br i1 %210, label %200, label %._crit_edge37.i, !llvm.loop !116
 
 ._crit_edge37.i:                                  ; preds = %_Py_XNewRef.exit29.i, %._crit_edge.i30
-  %210 = load i32, ptr %13, align 8, !tbaa !106
-  %211 = xor i32 %12, -1
-  %212 = and i32 %210, %211
-  %213 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  store i32 %212, ptr %213, align 8, !tbaa !106
+  %211 = load i32, ptr %13, align 8, !tbaa !106
+  %212 = xor i32 %12, -1
+  %213 = and i32 %211, %212
+  %214 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  store i32 %213, ptr %214, align 8, !tbaa !106
   br label %hamt_node_bitmap_clone_without.exit
 
-hamt_node_bitmap_clone_without.exit:              ; preds = %146, %._crit_edge37.i
-  store ptr %148, ptr %4, align 8, !tbaa !18
-  %214 = icmp eq ptr %148, null
-  %..i = select i1 %214, i32 0, i32 3
+hamt_node_bitmap_clone_without.exit:              ; preds = %147, %._crit_edge37.i
+  store ptr %149, ptr %4, align 8, !tbaa !18
+  %215 = icmp eq ptr %149, null
+  %..i = select i1 %215, i32 0, i32 3
   br label %hamt_node_bitmap_without.exit
 
-215:                                              ; preds = %5
+216:                                              ; preds = %5
   %.not52 = icmp eq ptr %.val, @_PyHamt_ArrayNode_Type
-  br i1 %.not52, label %216, label %350
+  br i1 %.not52, label %217, label %351
 
-216:                                              ; preds = %215
-  %217 = lshr i32 %2, %1
-  %218 = and i32 %217, 31
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %220 = zext nneg i32 %218 to i64
-  %221 = getelementptr ptr, ptr %219, i64 %220
-  %222 = load ptr, ptr %221, align 8, !tbaa !18
-  %223 = icmp eq ptr %222, null
-  br i1 %223, label %hamt_node_bitmap_without.exit, label %224
+217:                                              ; preds = %216
+  %218 = lshr i32 %2, %1
+  %219 = and i32 %218, 31
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %221 = zext nneg i32 %219 to i64
+  %222 = getelementptr ptr, ptr %220, i64 %221
+  %223 = load ptr, ptr %222, align 8, !tbaa !18
+  %224 = icmp eq ptr %223, null
+  br i1 %224, label %hamt_node_bitmap_without.exit, label %225
 
-224:                                              ; preds = %216
+225:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !18
-  %225 = add i32 %1, 5
-  %226 = call fastcc i32 @hamt_node_without(ptr noundef nonnull %222, i32 noundef %225, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %6)
-  switch i32 %226, label %default.unreachable [
+  %226 = add i32 %1, 5
+  %227 = call fastcc i32 @hamt_node_without(ptr noundef nonnull %223, i32 noundef %226, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %6)
+  switch i32 %227, label %default.unreachable [
     i32 1, label %Py_DECREF.exit94.i
     i32 0, label %Py_DECREF.exit94.i
-    i32 3, label %227
-    i32 2, label %282
+    i32 3, label %228
+    i32 2, label %283
   ]
 
-227:                                              ; preds = %224
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %229 = load i64, ptr %228, align 8, !tbaa !19
-  %230 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #12
-  %231 = icmp eq ptr %230, null
-  br i1 %231, label %267, label %hamt_node_array_new.exit.i
+228:                                              ; preds = %225
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %230 = load i64, ptr %229, align 8, !tbaa !19
+  %231 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #12
+  %232 = icmp eq ptr %231, null
+  br i1 %232, label %268, label %hamt_node_array_new.exit.i
 
-hamt_node_array_new.exit.i:                       ; preds = %227
-  %232 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %232, i8 0, i64 256, i1 false), !tbaa !18
-  %233 = getelementptr inbounds nuw i8, ptr %230, i64 272
-  store i64 %229, ptr %233, align 8, !tbaa !19
-  %234 = getelementptr i8, ptr %230, i64 -16
-  %235 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %236 = load ptr, ptr %235, align 8, !tbaa !21
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
-  %238 = load ptr, ptr %237, align 8, !tbaa !23
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 7424
-  %240 = getelementptr inbounds nuw i8, ptr %238, i64 7432
-  %241 = load i64, ptr %240, align 8, !tbaa !32
-  %242 = inttoptr i64 %241 to ptr
-  %243 = ptrtoint ptr %234 to i64
-  %244 = load i64, ptr %242, align 8, !tbaa !34
-  %245 = and i64 %244, 3
-  %246 = or i64 %245, %243
-  store i64 %246, ptr %242, align 8, !tbaa !34
-  %247 = getelementptr i8, ptr %230, i64 -8
-  %248 = load i64, ptr %247, align 8, !tbaa !32
-  %249 = and i64 %248, 3
-  %250 = or i64 %249, %241
-  store i64 %250, ptr %247, align 8, !tbaa !32
-  %251 = getelementptr inbounds nuw i8, ptr %238, i64 7632
-  %252 = load i32, ptr %251, align 8, !tbaa !35
-  %253 = xor i32 %252, 1
-  %254 = sext i32 %253 to i64
-  %255 = ptrtoint ptr %239 to i64
-  %256 = or i64 %254, %255
-  store i64 %256, ptr %234, align 8, !tbaa !34
-  store i64 %243, ptr %240, align 8, !tbaa !32
-  br label %257
+hamt_node_array_new.exit.i:                       ; preds = %228
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %233, i8 0, i64 256, i1 false), !tbaa !18
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 272
+  store i64 %230, ptr %234, align 8, !tbaa !19
+  %235 = getelementptr i8, ptr %231, i64 -16
+  %236 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %237 = load ptr, ptr %236, align 8, !tbaa !21
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
+  %239 = load ptr, ptr %238, align 8, !tbaa !23
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 7424
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 7432
+  %242 = load i64, ptr %241, align 8, !tbaa !32
+  %243 = inttoptr i64 %242 to ptr
+  %244 = ptrtoint ptr %235 to i64
+  %245 = load i64, ptr %243, align 8, !tbaa !34
+  %246 = and i64 %245, 3
+  %247 = or i64 %246, %244
+  store i64 %247, ptr %243, align 8, !tbaa !34
+  %248 = getelementptr i8, ptr %231, i64 -8
+  %249 = load i64, ptr %248, align 8, !tbaa !32
+  %250 = and i64 %249, 3
+  %251 = or i64 %250, %242
+  store i64 %251, ptr %248, align 8, !tbaa !32
+  %252 = getelementptr inbounds nuw i8, ptr %239, i64 7632
+  %253 = load i32, ptr %252, align 8, !tbaa !35
+  %254 = xor i32 %253, 1
+  %255 = sext i32 %254 to i64
+  %256 = ptrtoint ptr %240 to i64
+  %257 = or i64 %255, %256
+  store i64 %257, ptr %235, align 8, !tbaa !34
+  store i64 %244, ptr %241, align 8, !tbaa !32
+  br label %258
 
-257:                                              ; preds = %_Py_XNewRef.exit.i46, %hamt_node_array_new.exit.i
-  %.011.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %266, %_Py_XNewRef.exit.i46 ]
-  %258 = getelementptr ptr, ptr %219, i64 %.011.i
-  %259 = load ptr, ptr %258, align 8, !tbaa !18
-  %.not.i.i.i45 = icmp eq ptr %259, null
-  br i1 %.not.i.i.i45, label %_Py_XNewRef.exit.i46, label %260
+258:                                              ; preds = %_Py_XNewRef.exit.i46, %hamt_node_array_new.exit.i
+  %.011.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %267, %_Py_XNewRef.exit.i46 ]
+  %259 = getelementptr ptr, ptr %220, i64 %.011.i
+  %260 = load ptr, ptr %259, align 8, !tbaa !18
+  %.not.i.i.i45 = icmp eq ptr %260, null
+  br i1 %.not.i.i.i45, label %_Py_XNewRef.exit.i46, label %261
 
-260:                                              ; preds = %257
-  %261 = load i32, ptr %259, align 8, !tbaa !15
-  %262 = icmp slt i32 %261, 0
-  br i1 %262, label %_Py_XNewRef.exit.i46, label %263
+261:                                              ; preds = %258
+  %262 = load i32, ptr %260, align 8, !tbaa !15
+  %263 = icmp slt i32 %262, 0
+  br i1 %263, label %_Py_XNewRef.exit.i46, label %264
 
-263:                                              ; preds = %260
-  %264 = add nuw i32 %261, 1
-  store i32 %264, ptr %259, align 8, !tbaa !15
+264:                                              ; preds = %261
+  %265 = add nuw i32 %262, 1
+  store i32 %265, ptr %260, align 8, !tbaa !15
   br label %_Py_XNewRef.exit.i46
 
-_Py_XNewRef.exit.i46:                             ; preds = %263, %260, %257
-  %265 = getelementptr ptr, ptr %232, i64 %.011.i
-  store ptr %259, ptr %265, align 8, !tbaa !18
-  %266 = add nuw nsw i64 %.011.i, 1
-  %exitcond.not.i47 = icmp eq i64 %266, 32
-  br i1 %exitcond.not.i47, label %hamt_node_array_clone.exit, label %257, !llvm.loop !105
+_Py_XNewRef.exit.i46:                             ; preds = %264, %261, %258
+  %266 = getelementptr ptr, ptr %233, i64 %.011.i
+  store ptr %260, ptr %266, align 8, !tbaa !18
+  %267 = add nuw nsw i64 %.011.i, 1
+  %exitcond.not.i47 = icmp eq i64 %267, 32
+  br i1 %exitcond.not.i47, label %hamt_node_array_clone.exit, label %258, !llvm.loop !105
 
-267:                                              ; preds = %227
-  %268 = load ptr, ptr %6, align 8, !tbaa !18
-  %269 = load i32, ptr %268, align 8, !tbaa !15
-  %.not.i93.i = icmp sgt i32 %269, -1
-  br i1 %.not.i93.i, label %270, label %Py_DECREF.exit94.i
+268:                                              ; preds = %228
+  %269 = load ptr, ptr %6, align 8, !tbaa !18
+  %270 = load i32, ptr %269, align 8, !tbaa !15
+  %.not.i93.i = icmp sgt i32 %270, -1
+  br i1 %.not.i93.i, label %271, label %Py_DECREF.exit94.i
 
-270:                                              ; preds = %267
-  %271 = add nsw i32 %269, -1
-  store i32 %271, ptr %268, align 8, !tbaa !15
-  %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %Py_DECREF.exit94.i
+271:                                              ; preds = %268
+  %272 = add nsw i32 %270, -1
+  store i32 %272, ptr %269, align 8, !tbaa !15
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %Py_DECREF.exit94.i
 
-273:                                              ; preds = %270
-  tail call void @_Py_Dealloc(ptr noundef nonnull %268) #12
+274:                                              ; preds = %271
+  tail call void @_Py_Dealloc(ptr noundef nonnull %269) #12
   br label %Py_DECREF.exit94.i
 
 hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i46
-  %274 = getelementptr ptr, ptr %232, i64 %220
-  %275 = load ptr, ptr %274, align 8, !tbaa !18
-  %276 = load ptr, ptr %6, align 8, !tbaa !18
-  store ptr %276, ptr %274, align 8, !tbaa !18
-  %277 = load i32, ptr %275, align 8, !tbaa !15
-  %.not.i91.i = icmp sgt i32 %277, -1
-  br i1 %.not.i91.i, label %278, label %Py_DECREF.exit92.i
+  %275 = getelementptr ptr, ptr %233, i64 %221
+  %276 = load ptr, ptr %275, align 8, !tbaa !18
+  %277 = load ptr, ptr %6, align 8, !tbaa !18
+  store ptr %277, ptr %275, align 8, !tbaa !18
+  %278 = load i32, ptr %276, align 8, !tbaa !15
+  %.not.i91.i = icmp sgt i32 %278, -1
+  br i1 %.not.i91.i, label %279, label %Py_DECREF.exit92.i
 
-278:                                              ; preds = %hamt_node_array_clone.exit
-  %279 = add nsw i32 %277, -1
-  store i32 %279, ptr %275, align 8, !tbaa !15
-  %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %Py_DECREF.exit92.i
+279:                                              ; preds = %hamt_node_array_clone.exit
+  %280 = add nsw i32 %278, -1
+  store i32 %280, ptr %276, align 8, !tbaa !15
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %282, label %Py_DECREF.exit92.i
 
-281:                                              ; preds = %278
-  tail call void @_Py_Dealloc(ptr noundef nonnull %275) #12
+282:                                              ; preds = %279
+  tail call void @_Py_Dealloc(ptr noundef nonnull %276) #12
   br label %Py_DECREF.exit92.i
 
-Py_DECREF.exit92.i:                               ; preds = %281, %278, %hamt_node_array_clone.exit
-  store ptr %230, ptr %4, align 8, !tbaa !18
+Py_DECREF.exit92.i:                               ; preds = %282, %279, %hamt_node_array_clone.exit
+  store ptr %231, ptr %4, align 8, !tbaa !18
   br label %Py_DECREF.exit94.i
 
-282:                                              ; preds = %224
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %284 = load i64, ptr %283, align 8, !tbaa !19
-  %285 = add i64 %284, -1
-  %286 = icmp eq i64 %285, 0
-  br i1 %286, label %Py_DECREF.exit94.i, label %287
+283:                                              ; preds = %225
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %285 = load i64, ptr %284, align 8, !tbaa !19
+  %286 = add i64 %285, -1
+  %287 = icmp eq i64 %286, 0
+  br i1 %287, label %Py_DECREF.exit94.i, label %288
 
-287:                                              ; preds = %282
-  %288 = icmp sgt i64 %285, 15
-  br i1 %288, label %289, label %303
+288:                                              ; preds = %283
+  %289 = icmp sgt i64 %286, 15
+  br i1 %289, label %290, label %304
 
-289:                                              ; preds = %287
-  %290 = tail call fastcc ptr @hamt_node_array_clone(ptr noundef nonnull %0)
-  %291 = icmp eq ptr %290, null
-  br i1 %291, label %Py_DECREF.exit94.i, label %292
+290:                                              ; preds = %288
+  %291 = tail call fastcc ptr @hamt_node_array_clone(ptr noundef nonnull %0)
+  %292 = icmp eq ptr %291, null
+  br i1 %292, label %Py_DECREF.exit94.i, label %293
 
-292:                                              ; preds = %289
-  %293 = getelementptr inbounds nuw i8, ptr %290, i64 272
-  store i64 %285, ptr %293, align 8, !tbaa !19
-  %294 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  %295 = getelementptr ptr, ptr %294, i64 %220
-  %296 = load ptr, ptr %295, align 8, !tbaa !18
-  %.not90.i = icmp eq ptr %296, null
-  br i1 %.not90.i, label %Py_DECREF.exit.i23, label %297
+293:                                              ; preds = %290
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 272
+  store i64 %286, ptr %294, align 8, !tbaa !19
+  %295 = getelementptr inbounds nuw i8, ptr %291, i64 16
+  %296 = getelementptr ptr, ptr %295, i64 %221
+  %297 = load ptr, ptr %296, align 8, !tbaa !18
+  %.not90.i = icmp eq ptr %297, null
+  br i1 %.not90.i, label %Py_DECREF.exit.i23, label %298
 
-297:                                              ; preds = %292
-  store ptr null, ptr %295, align 8, !tbaa !18
-  %298 = load i32, ptr %296, align 8, !tbaa !15
-  %.not.i.i22 = icmp sgt i32 %298, -1
-  br i1 %.not.i.i22, label %299, label %Py_DECREF.exit.i23
+298:                                              ; preds = %293
+  store ptr null, ptr %296, align 8, !tbaa !18
+  %299 = load i32, ptr %297, align 8, !tbaa !15
+  %.not.i.i22 = icmp sgt i32 %299, -1
+  br i1 %.not.i.i22, label %300, label %Py_DECREF.exit.i23
 
-299:                                              ; preds = %297
-  %300 = add nsw i32 %298, -1
-  store i32 %300, ptr %296, align 8, !tbaa !15
-  %301 = icmp eq i32 %300, 0
-  br i1 %301, label %302, label %Py_DECREF.exit.i23
+300:                                              ; preds = %298
+  %301 = add nsw i32 %299, -1
+  store i32 %301, ptr %297, align 8, !tbaa !15
+  %302 = icmp eq i32 %301, 0
+  br i1 %302, label %303, label %Py_DECREF.exit.i23
 
-302:                                              ; preds = %299
-  tail call void @_Py_Dealloc(ptr noundef nonnull %296) #12
+303:                                              ; preds = %300
+  tail call void @_Py_Dealloc(ptr noundef nonnull %297) #12
   br label %Py_DECREF.exit.i23
 
-Py_DECREF.exit.i23:                               ; preds = %297, %299, %302, %292
-  store ptr %290, ptr %4, align 8, !tbaa !18
+Py_DECREF.exit.i23:                               ; preds = %298, %300, %303, %293
+  store ptr %291, ptr %4, align 8, !tbaa !18
   br label %Py_DECREF.exit94.i
 
-303:                                              ; preds = %287
-  %304 = shl i64 %285, 1
-  %305 = tail call fastcc ptr @hamt_node_bitmap_new(i64 noundef %304)
-  %306 = icmp eq ptr %305, null
-  br i1 %306, label %Py_DECREF.exit94.i, label %.preheader
+304:                                              ; preds = %288
+  %305 = shl i64 %286, 1
+  %306 = tail call fastcc ptr @hamt_node_bitmap_new(i64 noundef %305)
+  %307 = icmp eq ptr %306, null
+  br i1 %307, label %Py_DECREF.exit94.i, label %.preheader
 
-.preheader:                                       ; preds = %303
-  %307 = getelementptr inbounds nuw i8, ptr %305, i64 32
-  br label %310
+.preheader:                                       ; preds = %304
+  %308 = getelementptr inbounds nuw i8, ptr %306, i64 32
+  br label %311
 
-308:                                              ; preds = %349
-  %309 = getelementptr inbounds nuw i8, ptr %305, i64 24
-  store i32 %.175.i, ptr %309, align 8, !tbaa !106
-  store ptr %305, ptr %4, align 8, !tbaa !18
+309:                                              ; preds = %350
+  %310 = getelementptr inbounds nuw i8, ptr %306, i64 24
+  store i32 %.175.i, ptr %310, align 8, !tbaa !106
+  store ptr %306, ptr %4, align 8, !tbaa !18
   br label %Py_DECREF.exit94.i
 
-310:                                              ; preds = %.preheader, %349
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %349 ]
-  %.074.i58 = phi i32 [ 0, %.preheader ], [ %.175.i, %349 ]
-  %.077.i56 = phi i64 [ 0, %.preheader ], [ %.178.i, %349 ]
-  %311 = icmp eq i64 %indvars.iv, %220
-  br i1 %311, label %349, label %312
+311:                                              ; preds = %.preheader, %350
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %350 ]
+  %.074.i58 = phi i32 [ 0, %.preheader ], [ %.175.i, %350 ]
+  %.077.i56 = phi i64 [ 0, %.preheader ], [ %.178.i, %350 ]
+  %312 = icmp eq i64 %indvars.iv, %221
+  br i1 %312, label %350, label %313
 
-312:                                              ; preds = %310
-  %313 = getelementptr ptr, ptr %219, i64 %indvars.iv
-  %314 = load ptr, ptr %313, align 8, !tbaa !18
-  %315 = icmp eq ptr %314, null
-  br i1 %315, label %349, label %316
+313:                                              ; preds = %311
+  %314 = getelementptr ptr, ptr %220, i64 %indvars.iv
+  %315 = load ptr, ptr %314, align 8, !tbaa !18
+  %316 = icmp eq ptr %315, null
+  br i1 %316, label %350, label %317
 
-316:                                              ; preds = %312
-  %317 = trunc nuw nsw i64 %indvars.iv to i32
-  %318 = shl nuw i32 1, %317
-  %319 = or i32 %.074.i58, %318
-  %320 = getelementptr i8, ptr %314, i64 8
-  %.val.i20 = load ptr, ptr %320, align 8, !tbaa !17
+317:                                              ; preds = %313
+  %318 = trunc nuw nsw i64 %indvars.iv to i32
+  %319 = shl nuw i32 1, %318
+  %320 = or i32 %.074.i58, %319
+  %321 = getelementptr i8, ptr %315, i64 8
+  %.val.i20 = load ptr, ptr %321, align 8, !tbaa !17
   %.not53 = icmp eq ptr %.val.i20, @_PyHamt_BitmapNode_Type
-  br i1 %.not53, label %321, label %342
+  br i1 %.not53, label %322, label %343
 
-321:                                              ; preds = %316
-  %322 = getelementptr i8, ptr %314, i64 16
-  %.val97.i = load i64, ptr %322, align 8, !tbaa !109
-  %323 = and i64 %.val97.i, -2
-  %324 = icmp eq i64 %323, 2
-  br i1 %324, label %325, label %338
+322:                                              ; preds = %317
+  %323 = getelementptr i8, ptr %315, i64 16
+  %.val97.i = load i64, ptr %323, align 8, !tbaa !109
+  %324 = and i64 %.val97.i, -2
+  %325 = icmp eq i64 %324, 2
+  br i1 %325, label %326, label %339
 
-325:                                              ; preds = %321
-  %326 = getelementptr inbounds nuw i8, ptr %314, i64 32
-  %327 = load ptr, ptr %326, align 8, !tbaa !110
-  %.not89.i = icmp eq ptr %327, null
-  br i1 %.not89.i, label %338, label %328
+326:                                              ; preds = %322
+  %327 = getelementptr inbounds nuw i8, ptr %315, i64 32
+  %328 = load ptr, ptr %327, align 8, !tbaa !110
+  %.not89.i = icmp eq ptr %328, null
+  br i1 %.not89.i, label %339, label %329
 
-328:                                              ; preds = %325
-  %329 = getelementptr i8, ptr %314, i64 40
-  %330 = load ptr, ptr %329, align 8, !tbaa !110
-  %331 = load i32, ptr %327, align 8, !tbaa !15
-  %332 = icmp slt i32 %331, 0
-  br i1 %332, label %_Py_NewRef.exit44, label %333
+329:                                              ; preds = %326
+  %330 = getelementptr i8, ptr %315, i64 40
+  %331 = load ptr, ptr %330, align 8, !tbaa !110
+  %332 = load i32, ptr %328, align 8, !tbaa !15
+  %333 = icmp slt i32 %332, 0
+  br i1 %333, label %_Py_NewRef.exit44, label %334
 
-333:                                              ; preds = %328
-  %334 = add nuw i32 %331, 1
-  store i32 %334, ptr %327, align 8, !tbaa !15
+334:                                              ; preds = %329
+  %335 = add nuw i32 %332, 1
+  store i32 %335, ptr %328, align 8, !tbaa !15
   br label %_Py_NewRef.exit44
 
-_Py_NewRef.exit44:                                ; preds = %328, %333
-  %335 = getelementptr ptr, ptr %307, i64 %.077.i56
-  store ptr %327, ptr %335, align 8, !tbaa !110
-  %336 = load i32, ptr %330, align 8, !tbaa !15
-  %337 = icmp slt i32 %336, 0
-  br i1 %337, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
+_Py_NewRef.exit44:                                ; preds = %329, %334
+  %336 = getelementptr ptr, ptr %308, i64 %.077.i56
+  store ptr %328, ptr %336, align 8, !tbaa !110
+  %337 = load i32, ptr %331, align 8, !tbaa !15
+  %338 = icmp slt i32 %337, 0
+  br i1 %338, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
 
-338:                                              ; preds = %325, %321
-  %339 = getelementptr ptr, ptr %307, i64 %.077.i56
-  store ptr null, ptr %339, align 8, !tbaa !110
-  %340 = load i32, ptr %314, align 8, !tbaa !15
-  %341 = icmp slt i32 %340, 0
-  br i1 %341, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
+339:                                              ; preds = %326, %322
+  %340 = getelementptr ptr, ptr %308, i64 %.077.i56
+  store ptr null, ptr %340, align 8, !tbaa !110
+  %341 = load i32, ptr %315, align 8, !tbaa !15
+  %342 = icmp slt i32 %341, 0
+  br i1 %342, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
 
-342:                                              ; preds = %316
-  %343 = getelementptr ptr, ptr %307, i64 %.077.i56
-  store ptr null, ptr %343, align 8, !tbaa !110
-  %344 = load i32, ptr %314, align 8, !tbaa !15
-  %345 = icmp slt i32 %344, 0
-  br i1 %345, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
+343:                                              ; preds = %317
+  %344 = getelementptr ptr, ptr %308, i64 %.077.i56
+  store ptr null, ptr %344, align 8, !tbaa !110
+  %345 = load i32, ptr %315, align 8, !tbaa !15
+  %346 = icmp slt i32 %345, 0
+  br i1 %346, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
 
-_Py_NewRef.exit43.sink.split:                     ; preds = %342, %338, %_Py_NewRef.exit44
-  %.sink120 = phi i32 [ %336, %_Py_NewRef.exit44 ], [ %340, %338 ], [ %344, %342 ]
-  %.sink119 = phi ptr [ %330, %_Py_NewRef.exit44 ], [ %314, %338 ], [ %314, %342 ]
-  %.sink117.ph = phi ptr [ %335, %_Py_NewRef.exit44 ], [ %339, %338 ], [ %343, %342 ]
-  %346 = add nuw i32 %.sink120, 1
-  store i32 %346, ptr %.sink119, align 8, !tbaa !15
+_Py_NewRef.exit43.sink.split:                     ; preds = %343, %339, %_Py_NewRef.exit44
+  %.sink120 = phi i32 [ %337, %_Py_NewRef.exit44 ], [ %341, %339 ], [ %345, %343 ]
+  %.sink119 = phi ptr [ %331, %_Py_NewRef.exit44 ], [ %315, %339 ], [ %315, %343 ]
+  %.sink117.ph = phi ptr [ %336, %_Py_NewRef.exit44 ], [ %340, %339 ], [ %344, %343 ]
+  %347 = add nuw i32 %.sink120, 1
+  store i32 %347, ptr %.sink119, align 8, !tbaa !15
   br label %_Py_NewRef.exit43
 
-_Py_NewRef.exit43:                                ; preds = %_Py_NewRef.exit43.sink.split, %342, %338, %_Py_NewRef.exit44
-  %.sink117 = phi ptr [ %335, %_Py_NewRef.exit44 ], [ %339, %338 ], [ %343, %342 ], [ %.sink117.ph, %_Py_NewRef.exit43.sink.split ]
-  %.sink = phi ptr [ %330, %_Py_NewRef.exit44 ], [ %314, %338 ], [ %314, %342 ], [ %.sink119, %_Py_NewRef.exit43.sink.split ]
-  %347 = getelementptr i8, ptr %.sink117, i64 8
-  store ptr %.sink, ptr %347, align 8, !tbaa !110
-  %348 = add i64 %.077.i56, 2
-  br label %349
+_Py_NewRef.exit43:                                ; preds = %_Py_NewRef.exit43.sink.split, %343, %339, %_Py_NewRef.exit44
+  %.sink117 = phi ptr [ %336, %_Py_NewRef.exit44 ], [ %340, %339 ], [ %344, %343 ], [ %.sink117.ph, %_Py_NewRef.exit43.sink.split ]
+  %.sink = phi ptr [ %331, %_Py_NewRef.exit44 ], [ %315, %339 ], [ %315, %343 ], [ %.sink119, %_Py_NewRef.exit43.sink.split ]
+  %348 = getelementptr i8, ptr %.sink117, i64 8
+  store ptr %.sink, ptr %348, align 8, !tbaa !110
+  %349 = add i64 %.077.i56, 2
+  br label %350
 
-349:                                              ; preds = %_Py_NewRef.exit43, %312, %310
-  %.178.i = phi i64 [ %.077.i56, %310 ], [ %348, %_Py_NewRef.exit43 ], [ %.077.i56, %312 ]
-  %.175.i = phi i32 [ %.074.i58, %310 ], [ %319, %_Py_NewRef.exit43 ], [ %.074.i58, %312 ]
+350:                                              ; preds = %_Py_NewRef.exit43, %313, %311
+  %.178.i = phi i64 [ %.077.i56, %311 ], [ %349, %_Py_NewRef.exit43 ], [ %.077.i56, %313 ]
+  %.175.i = phi i32 [ %.074.i58, %311 ], [ %320, %_Py_NewRef.exit43 ], [ %.074.i58, %313 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %308, label %310, !llvm.loop !117
+  br i1 %exitcond.not, label %309, label %311, !llvm.loop !117
 
-default.unreachable:                              ; preds = %224
+default.unreachable:                              ; preds = %225
   unreachable
 
-Py_DECREF.exit94.i:                               ; preds = %267, %270, %273, %308, %303, %Py_DECREF.exit.i23, %289, %282, %Py_DECREF.exit92.i, %224, %224
-  %.1.i = phi i32 [ %226, %224 ], [ %226, %224 ], [ 3, %Py_DECREF.exit92.i ], [ 2, %282 ], [ 3, %Py_DECREF.exit.i23 ], [ 0, %289 ], [ 3, %308 ], [ 0, %303 ], [ 0, %273 ], [ 0, %270 ], [ 0, %267 ]
+Py_DECREF.exit94.i:                               ; preds = %268, %271, %274, %309, %304, %Py_DECREF.exit.i23, %290, %283, %Py_DECREF.exit92.i, %225, %225
+  %.1.i = phi i32 [ %227, %225 ], [ %227, %225 ], [ 3, %Py_DECREF.exit92.i ], [ 2, %283 ], [ 3, %Py_DECREF.exit.i23 ], [ 0, %290 ], [ 3, %309 ], [ 0, %304 ], [ 0, %274 ], [ 0, %271 ], [ 0, %268 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %hamt_node_bitmap_without.exit
 
-350:                                              ; preds = %215
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %352 = load i32, ptr %351, align 8, !tbaa !106
-  %.not.i25 = icmp eq i32 %2, %352
-  br i1 %.not.i25, label %353, label %hamt_node_bitmap_without.exit
+351:                                              ; preds = %216
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %353 = load i32, ptr %352, align 8, !tbaa !106
+  %.not.i25 = icmp eq i32 %2, %353
+  br i1 %.not.i25, label %354, label %hamt_node_bitmap_without.exit
 
-353:                                              ; preds = %350
-  %354 = getelementptr i8, ptr %0, i64 16
-  %.val18.i.i = load i64, ptr %354, align 8, !tbaa !109
-  %355 = icmp sgt i64 %.val18.i.i, 0
-  br i1 %355, label %.lr.ph.i.i, label %hamt_node_bitmap_without.exit
+354:                                              ; preds = %351
+  %355 = getelementptr i8, ptr %0, i64 16
+  %.val18.i.i = load i64, ptr %355, align 8, !tbaa !109
+  %356 = icmp sgt i64 %.val18.i.i, 0
+  br i1 %356, label %.lr.ph.i.i, label %hamt_node_bitmap_without.exit
 
-.lr.ph.i.i:                                       ; preds = %353
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %357
+.lr.ph.i.i:                                       ; preds = %354
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %358
 
-357:                                              ; preds = %364, %.lr.ph.i.i
-  %.01319.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %365, %364 ]
-  %358 = getelementptr ptr, ptr %356, i64 %.01319.i.i
-  %359 = load ptr, ptr %358, align 8, !tbaa !110
-  %360 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %359, i32 noundef 2) #12
-  %361 = icmp slt i32 %360, 0
-  br i1 %361, label %hamt_node_bitmap_without.exit, label %362
+358:                                              ; preds = %365, %.lr.ph.i.i
+  %.01319.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %366, %365 ]
+  %359 = getelementptr ptr, ptr %357, i64 %.01319.i.i
+  %360 = load ptr, ptr %359, align 8, !tbaa !110
+  %361 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %360, i32 noundef 2) #12
+  %362 = icmp slt i32 %361, 0
+  br i1 %362, label %hamt_node_bitmap_without.exit, label %363
 
-362:                                              ; preds = %357
-  %363 = icmp eq i32 %360, 1
-  br i1 %363, label %hamt_node_collision_find_index.exit.i, label %364
+363:                                              ; preds = %358
+  %364 = icmp eq i32 %361, 1
+  br i1 %364, label %hamt_node_collision_find_index.exit.i, label %365
 
-364:                                              ; preds = %362
-  %365 = add i64 %.01319.i.i, 2
-  %.val.i.i = load i64, ptr %354, align 8, !tbaa !109
-  %366 = icmp slt i64 %365, %.val.i.i
-  br i1 %366, label %357, label %hamt_node_bitmap_without.exit, !llvm.loop !111
+365:                                              ; preds = %363
+  %366 = add i64 %.01319.i.i, 2
+  %.val.i.i = load i64, ptr %355, align 8, !tbaa !109
+  %367 = icmp slt i64 %366, %.val.i.i
+  br i1 %367, label %358, label %hamt_node_bitmap_without.exit, !llvm.loop !111
 
-hamt_node_collision_find_index.exit.i:            ; preds = %362
-  %.val48.i = load i64, ptr %354, align 8, !tbaa !109
-  %367 = sdiv i64 %.val48.i, 2
-  switch i64 %367, label %425 [
+hamt_node_collision_find_index.exit.i:            ; preds = %363
+  %.val48.i = load i64, ptr %355, align 8, !tbaa !109
+  %368 = sdiv i64 %.val48.i, 2
+  switch i64 %368, label %426 [
     i64 1, label %hamt_node_bitmap_without.exit
-    i64 2, label %368
+    i64 2, label %369
   ]
 
-368:                                              ; preds = %hamt_node_collision_find_index.exit.i
-  %369 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef 2) #12
-  %370 = icmp eq ptr %369, null
-  br i1 %370, label %hamt_node_bitmap_without.exit, label %371
+369:                                              ; preds = %hamt_node_collision_find_index.exit.i
+  %370 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef 2) #12
+  %371 = icmp eq ptr %370, null
+  br i1 %371, label %hamt_node_bitmap_without.exit, label %372
 
-371:                                              ; preds = %368
-  %372 = getelementptr inbounds nuw i8, ptr %369, i64 16
-  store i64 2, ptr %372, align 8, !tbaa !109
-  %373 = getelementptr inbounds nuw i8, ptr %369, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %373, i8 0, i64 16, i1 false), !tbaa !110
-  %374 = getelementptr inbounds nuw i8, ptr %369, i64 24
-  store i32 0, ptr %374, align 8, !tbaa !106
-  %375 = getelementptr i8, ptr %369, i64 -16
-  %376 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %377 = load ptr, ptr %376, align 8, !tbaa !21
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 16
-  %379 = load ptr, ptr %378, align 8, !tbaa !23
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 7424
-  %381 = getelementptr inbounds nuw i8, ptr %379, i64 7432
-  %382 = load i64, ptr %381, align 8, !tbaa !32
-  %383 = inttoptr i64 %382 to ptr
-  %384 = ptrtoint ptr %375 to i64
-  %385 = load i64, ptr %383, align 8, !tbaa !34
-  %386 = and i64 %385, 3
-  %387 = or i64 %386, %384
-  store i64 %387, ptr %383, align 8, !tbaa !34
-  %388 = getelementptr i8, ptr %369, i64 -8
-  %389 = load i64, ptr %388, align 8, !tbaa !32
-  %390 = and i64 %389, 3
-  %391 = or i64 %390, %382
-  store i64 %391, ptr %388, align 8, !tbaa !32
-  %392 = getelementptr inbounds nuw i8, ptr %379, i64 7632
-  %393 = load i32, ptr %392, align 8, !tbaa !35
-  %394 = xor i32 %393, 1
-  %395 = sext i32 %394 to i64
-  %396 = ptrtoint ptr %380 to i64
-  %397 = or i64 %395, %396
-  store i64 %397, ptr %375, align 8, !tbaa !34
-  store i64 %384, ptr %381, align 8, !tbaa !32
-  %398 = icmp eq i64 %.01319.i.i, 0
-  br i1 %398, label %399, label %410
+372:                                              ; preds = %369
+  %373 = getelementptr inbounds nuw i8, ptr %370, i64 16
+  store i64 2, ptr %373, align 8, !tbaa !109
+  %374 = getelementptr inbounds nuw i8, ptr %370, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %374, i8 0, i64 16, i1 false), !tbaa !110
+  %375 = getelementptr inbounds nuw i8, ptr %370, i64 24
+  store i32 0, ptr %375, align 8, !tbaa !106
+  %376 = getelementptr i8, ptr %370, i64 -16
+  %377 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %378 = load ptr, ptr %377, align 8, !tbaa !21
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 16
+  %380 = load ptr, ptr %379, align 8, !tbaa !23
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 7424
+  %382 = getelementptr inbounds nuw i8, ptr %380, i64 7432
+  %383 = load i64, ptr %382, align 8, !tbaa !32
+  %384 = inttoptr i64 %383 to ptr
+  %385 = ptrtoint ptr %376 to i64
+  %386 = load i64, ptr %384, align 8, !tbaa !34
+  %387 = and i64 %386, 3
+  %388 = or i64 %387, %385
+  store i64 %388, ptr %384, align 8, !tbaa !34
+  %389 = getelementptr i8, ptr %370, i64 -8
+  %390 = load i64, ptr %389, align 8, !tbaa !32
+  %391 = and i64 %390, 3
+  %392 = or i64 %391, %383
+  store i64 %392, ptr %389, align 8, !tbaa !32
+  %393 = getelementptr inbounds nuw i8, ptr %380, i64 7632
+  %394 = load i32, ptr %393, align 8, !tbaa !35
+  %395 = xor i32 %394, 1
+  %396 = sext i32 %395 to i64
+  %397 = ptrtoint ptr %381 to i64
+  %398 = or i64 %396, %397
+  store i64 %398, ptr %376, align 8, !tbaa !34
+  store i64 %385, ptr %382, align 8, !tbaa !32
+  %399 = icmp eq i64 %.01319.i.i, 0
+  br i1 %399, label %400, label %411
 
-399:                                              ; preds = %371
-  %400 = getelementptr i8, ptr %0, i64 48
-  %401 = load ptr, ptr %400, align 8, !tbaa !110
-  %402 = load i32, ptr %401, align 8, !tbaa !15
-  %403 = icmp slt i32 %402, 0
-  br i1 %403, label %_Py_NewRef.exit.i, label %404
+400:                                              ; preds = %372
+  %401 = getelementptr i8, ptr %0, i64 48
+  %402 = load ptr, ptr %401, align 8, !tbaa !110
+  %403 = load i32, ptr %402, align 8, !tbaa !15
+  %404 = icmp slt i32 %403, 0
+  br i1 %404, label %_Py_NewRef.exit.i, label %405
 
-404:                                              ; preds = %399
-  %405 = add nuw i32 %402, 1
-  store i32 %405, ptr %401, align 8, !tbaa !15
+405:                                              ; preds = %400
+  %406 = add nuw i32 %403, 1
+  store i32 %406, ptr %402, align 8, !tbaa !15
   br label %_Py_NewRef.exit.i
 
-_Py_NewRef.exit.i:                                ; preds = %404, %399
-  store ptr %401, ptr %373, align 8, !tbaa !110
-  %406 = getelementptr i8, ptr %0, i64 56
-  %407 = load ptr, ptr %406, align 8, !tbaa !110
-  %408 = load i32, ptr %407, align 8, !tbaa !15
-  %409 = icmp slt i32 %408, 0
-  br i1 %409, label %_Py_NewRef.exit50.i, label %_Py_NewRef.exit50.sink.split.i
+_Py_NewRef.exit.i:                                ; preds = %405, %400
+  store ptr %402, ptr %374, align 8, !tbaa !110
+  %407 = getelementptr i8, ptr %0, i64 56
+  %408 = load ptr, ptr %407, align 8, !tbaa !110
+  %409 = load i32, ptr %408, align 8, !tbaa !15
+  %410 = icmp slt i32 %409, 0
+  br i1 %410, label %_Py_NewRef.exit50.i, label %_Py_NewRef.exit50.sink.split.i
 
-410:                                              ; preds = %371
-  %411 = load ptr, ptr %356, align 8, !tbaa !110
-  %412 = load i32, ptr %411, align 8, !tbaa !15
-  %413 = icmp slt i32 %412, 0
-  br i1 %413, label %_Py_NewRef.exit51.i, label %414
+411:                                              ; preds = %372
+  %412 = load ptr, ptr %357, align 8, !tbaa !110
+  %413 = load i32, ptr %412, align 8, !tbaa !15
+  %414 = icmp slt i32 %413, 0
+  br i1 %414, label %_Py_NewRef.exit51.i, label %415
 
-414:                                              ; preds = %410
-  %415 = add nuw i32 %412, 1
-  store i32 %415, ptr %411, align 8, !tbaa !15
+415:                                              ; preds = %411
+  %416 = add nuw i32 %413, 1
+  store i32 %416, ptr %412, align 8, !tbaa !15
   br label %_Py_NewRef.exit51.i
 
-_Py_NewRef.exit51.i:                              ; preds = %414, %410
-  store ptr %411, ptr %373, align 8, !tbaa !110
-  %416 = getelementptr i8, ptr %0, i64 40
-  %417 = load ptr, ptr %416, align 8, !tbaa !110
-  %418 = load i32, ptr %417, align 8, !tbaa !15
-  %419 = icmp slt i32 %418, 0
-  br i1 %419, label %_Py_NewRef.exit50.i, label %_Py_NewRef.exit50.sink.split.i
+_Py_NewRef.exit51.i:                              ; preds = %415, %411
+  store ptr %412, ptr %374, align 8, !tbaa !110
+  %417 = getelementptr i8, ptr %0, i64 40
+  %418 = load ptr, ptr %417, align 8, !tbaa !110
+  %419 = load i32, ptr %418, align 8, !tbaa !15
+  %420 = icmp slt i32 %419, 0
+  br i1 %420, label %_Py_NewRef.exit50.i, label %_Py_NewRef.exit50.sink.split.i
 
 _Py_NewRef.exit50.sink.split.i:                   ; preds = %_Py_NewRef.exit51.i, %_Py_NewRef.exit.i
-  %.sink94.i = phi i32 [ %408, %_Py_NewRef.exit.i ], [ %418, %_Py_NewRef.exit51.i ]
-  %.sink93.i = phi ptr [ %407, %_Py_NewRef.exit.i ], [ %417, %_Py_NewRef.exit51.i ]
-  %420 = add nuw i32 %.sink94.i, 1
-  store i32 %420, ptr %.sink93.i, align 8, !tbaa !15
+  %.sink94.i = phi i32 [ %409, %_Py_NewRef.exit.i ], [ %419, %_Py_NewRef.exit51.i ]
+  %.sink93.i = phi ptr [ %408, %_Py_NewRef.exit.i ], [ %418, %_Py_NewRef.exit51.i ]
+  %421 = add nuw i32 %.sink94.i, 1
+  store i32 %421, ptr %.sink93.i, align 8, !tbaa !15
   br label %_Py_NewRef.exit50.i
 
 _Py_NewRef.exit50.i:                              ; preds = %_Py_NewRef.exit50.sink.split.i, %_Py_NewRef.exit51.i, %_Py_NewRef.exit.i
-  %.sink.i = phi ptr [ %407, %_Py_NewRef.exit.i ], [ %417, %_Py_NewRef.exit51.i ], [ %.sink93.i, %_Py_NewRef.exit50.sink.split.i ]
-  %421 = getelementptr i8, ptr %369, i64 40
-  store ptr %.sink.i, ptr %421, align 8, !tbaa !110
-  %422 = lshr i32 %2, %1
-  %423 = and i32 %422, 31
-  %424 = shl nuw i32 1, %423
-  store i32 %424, ptr %374, align 8, !tbaa !106
+  %.sink.i = phi ptr [ %408, %_Py_NewRef.exit.i ], [ %418, %_Py_NewRef.exit51.i ], [ %.sink93.i, %_Py_NewRef.exit50.sink.split.i ]
+  %422 = getelementptr i8, ptr %370, i64 40
+  store ptr %.sink.i, ptr %422, align 8, !tbaa !110
+  %423 = lshr i32 %2, %1
+  %424 = and i32 %423, 31
+  %425 = shl nuw i32 1, %424
+  store i32 %425, ptr %375, align 8, !tbaa !106
   br label %hamt_node_collision_find_index.exit.thread60.sink.split.i
 
-425:                                              ; preds = %hamt_node_collision_find_index.exit.i
-  %426 = load i32, ptr %351, align 8, !tbaa !106
-  %427 = add i64 %.val48.i, -2
-  %428 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %427) #12
-  %429 = icmp eq ptr %428, null
-  br i1 %429, label %hamt_node_bitmap_without.exit, label %.preheader.i.i
+426:                                              ; preds = %hamt_node_collision_find_index.exit.i
+  %427 = load i32, ptr %352, align 8, !tbaa !106
+  %428 = add i64 %.val48.i, -2
+  %429 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %428) #12
+  %430 = icmp eq ptr %429, null
+  br i1 %430, label %hamt_node_bitmap_without.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %425
-  %430 = icmp sgt i64 %427, 0
-  br i1 %430, label %.lr.ph.i53.i, label %hamt_node_collision_new.exit.i
+.preheader.i.i:                                   ; preds = %426
+  %431 = icmp sgt i64 %428, 0
+  br i1 %431, label %.lr.ph.i53.i, label %hamt_node_collision_new.exit.i
 
 .lr.ph.i53.i:                                     ; preds = %.preheader.i.i
-  %431 = getelementptr inbounds nuw i8, ptr %428, i64 32
-  %432 = shl nuw i64 %427, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %431, i8 0, i64 %432, i1 false), !tbaa !110
+  %432 = getelementptr inbounds nuw i8, ptr %429, i64 32
+  %433 = shl nuw i64 %428, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %432, i8 0, i64 %433, i1 false), !tbaa !110
   br label %hamt_node_collision_new.exit.i
 
 hamt_node_collision_new.exit.i:                   ; preds = %.lr.ph.i53.i, %.preheader.i.i
-  %433 = getelementptr i8, ptr %428, i64 16
-  store i64 %427, ptr %433, align 8, !tbaa !109
-  %434 = getelementptr inbounds nuw i8, ptr %428, i64 24
-  store i32 %426, ptr %434, align 8, !tbaa !106
-  %435 = getelementptr i8, ptr %428, i64 -16
-  %436 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %437 = load ptr, ptr %436, align 8, !tbaa !21
-  %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
-  %439 = load ptr, ptr %438, align 8, !tbaa !23
-  %440 = getelementptr inbounds nuw i8, ptr %439, i64 7424
-  %441 = getelementptr inbounds nuw i8, ptr %439, i64 7432
-  %442 = load i64, ptr %441, align 8, !tbaa !32
-  %443 = inttoptr i64 %442 to ptr
-  %444 = ptrtoint ptr %435 to i64
-  %445 = load i64, ptr %443, align 8, !tbaa !34
-  %446 = and i64 %445, 3
-  %447 = or i64 %446, %444
-  store i64 %447, ptr %443, align 8, !tbaa !34
-  %448 = getelementptr i8, ptr %428, i64 -8
-  %449 = load i64, ptr %448, align 8, !tbaa !32
-  %450 = and i64 %449, 3
-  %451 = or i64 %450, %442
-  store i64 %451, ptr %448, align 8, !tbaa !32
-  %452 = getelementptr inbounds nuw i8, ptr %439, i64 7632
-  %453 = load i32, ptr %452, align 8, !tbaa !35
-  %454 = xor i32 %453, 1
-  %455 = sext i32 %454 to i64
-  %456 = ptrtoint ptr %440 to i64
-  %457 = or i64 %455, %456
-  store i64 %457, ptr %435, align 8, !tbaa !34
-  store i64 %444, ptr %441, align 8, !tbaa !32
-  %458 = icmp sgt i64 %.01319.i.i, 0
-  br i1 %458, label %.lr.ph.i, label %._crit_edge.i
+  %434 = getelementptr i8, ptr %429, i64 16
+  store i64 %428, ptr %434, align 8, !tbaa !109
+  %435 = getelementptr inbounds nuw i8, ptr %429, i64 24
+  store i32 %427, ptr %435, align 8, !tbaa !106
+  %436 = getelementptr i8, ptr %429, i64 -16
+  %437 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %438 = load ptr, ptr %437, align 8, !tbaa !21
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
+  %440 = load ptr, ptr %439, align 8, !tbaa !23
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 7424
+  %442 = getelementptr inbounds nuw i8, ptr %440, i64 7432
+  %443 = load i64, ptr %442, align 8, !tbaa !32
+  %444 = inttoptr i64 %443 to ptr
+  %445 = ptrtoint ptr %436 to i64
+  %446 = load i64, ptr %444, align 8, !tbaa !34
+  %447 = and i64 %446, 3
+  %448 = or i64 %447, %445
+  store i64 %448, ptr %444, align 8, !tbaa !34
+  %449 = getelementptr i8, ptr %429, i64 -8
+  %450 = load i64, ptr %449, align 8, !tbaa !32
+  %451 = and i64 %450, 3
+  %452 = or i64 %451, %443
+  store i64 %452, ptr %449, align 8, !tbaa !32
+  %453 = getelementptr inbounds nuw i8, ptr %440, i64 7632
+  %454 = load i32, ptr %453, align 8, !tbaa !35
+  %455 = xor i32 %454, 1
+  %456 = sext i32 %455 to i64
+  %457 = ptrtoint ptr %441 to i64
+  %458 = or i64 %456, %457
+  store i64 %458, ptr %436, align 8, !tbaa !34
+  store i64 %445, ptr %442, align 8, !tbaa !32
+  %459 = icmp sgt i64 %.01319.i.i, 0
+  br i1 %459, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %hamt_node_collision_new.exit.i
-  %459 = getelementptr inbounds nuw i8, ptr %428, i64 32
-  br label %460
+  %460 = getelementptr inbounds nuw i8, ptr %429, i64 32
+  br label %461
 
-460:                                              ; preds = %_Py_NewRef.exit54.i, %.lr.ph.i
-  %.065.i = phi i64 [ 0, %.lr.ph.i ], [ %468, %_Py_NewRef.exit54.i ]
-  %461 = getelementptr ptr, ptr %356, i64 %.065.i
-  %462 = load ptr, ptr %461, align 8, !tbaa !110
-  %463 = load i32, ptr %462, align 8, !tbaa !15
-  %464 = icmp slt i32 %463, 0
-  br i1 %464, label %_Py_NewRef.exit54.i, label %465
+461:                                              ; preds = %_Py_NewRef.exit54.i, %.lr.ph.i
+  %.065.i = phi i64 [ 0, %.lr.ph.i ], [ %469, %_Py_NewRef.exit54.i ]
+  %462 = getelementptr ptr, ptr %357, i64 %.065.i
+  %463 = load ptr, ptr %462, align 8, !tbaa !110
+  %464 = load i32, ptr %463, align 8, !tbaa !15
+  %465 = icmp slt i32 %464, 0
+  br i1 %465, label %_Py_NewRef.exit54.i, label %466
 
-465:                                              ; preds = %460
-  %466 = add nuw i32 %463, 1
-  store i32 %466, ptr %462, align 8, !tbaa !15
+466:                                              ; preds = %461
+  %467 = add nuw i32 %464, 1
+  store i32 %467, ptr %463, align 8, !tbaa !15
   br label %_Py_NewRef.exit54.i
 
-_Py_NewRef.exit54.i:                              ; preds = %465, %460
-  %467 = getelementptr ptr, ptr %459, i64 %.065.i
-  store ptr %462, ptr %467, align 8, !tbaa !110
-  %468 = add nuw nsw i64 %.065.i, 1
-  %exitcond.not.i = icmp eq i64 %468, %.01319.i.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %460, !llvm.loop !118
+_Py_NewRef.exit54.i:                              ; preds = %466, %461
+  %468 = getelementptr ptr, ptr %460, i64 %.065.i
+  store ptr %463, ptr %468, align 8, !tbaa !110
+  %469 = add nuw nsw i64 %.065.i, 1
+  %exitcond.not.i = icmp eq i64 %469, %.01319.i.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %461, !llvm.loop !118
 
 ._crit_edge.i:                                    ; preds = %_Py_NewRef.exit54.i, %hamt_node_collision_new.exit.i
-  %469 = add i64 %.01319.i.i, 2
-  %.val66.i = load i64, ptr %354, align 8, !tbaa !109
-  %470 = icmp slt i64 %469, %.val66.i
-  br i1 %470, label %.lr.ph69.i, label %hamt_node_collision_find_index.exit.thread60.sink.split.i
+  %470 = add i64 %.01319.i.i, 2
+  %.val66.i = load i64, ptr %355, align 8, !tbaa !109
+  %471 = icmp slt i64 %470, %.val66.i
+  br i1 %471, label %.lr.ph69.i, label %hamt_node_collision_find_index.exit.thread60.sink.split.i
 
 .lr.ph69.i:                                       ; preds = %._crit_edge.i, %_Py_NewRef.exit55.i
   %.val73.i = phi i64 [ %.val.i26, %_Py_NewRef.exit55.i ], [ %.val66.i, %._crit_edge.i ]
-  %.167.i = phi i64 [ %478, %_Py_NewRef.exit55.i ], [ %469, %._crit_edge.i ]
-  %471 = getelementptr ptr, ptr %356, i64 %.167.i
-  %472 = load ptr, ptr %471, align 8, !tbaa !110
-  %473 = load i32, ptr %472, align 8, !tbaa !15
-  %474 = icmp slt i32 %473, 0
-  br i1 %474, label %_Py_NewRef.exit55.i, label %475
+  %.167.i = phi i64 [ %479, %_Py_NewRef.exit55.i ], [ %470, %._crit_edge.i ]
+  %472 = getelementptr ptr, ptr %357, i64 %.167.i
+  %473 = load ptr, ptr %472, align 8, !tbaa !110
+  %474 = load i32, ptr %473, align 8, !tbaa !15
+  %475 = icmp slt i32 %474, 0
+  br i1 %475, label %_Py_NewRef.exit55.i, label %476
 
-475:                                              ; preds = %.lr.ph69.i
-  %476 = add nuw i32 %473, 1
-  store i32 %476, ptr %472, align 8, !tbaa !15
-  %.val.pre.i = load i64, ptr %354, align 8, !tbaa !109
+476:                                              ; preds = %.lr.ph69.i
+  %477 = add nuw i32 %474, 1
+  store i32 %477, ptr %473, align 8, !tbaa !15
+  %.val.pre.i = load i64, ptr %355, align 8, !tbaa !109
   br label %_Py_NewRef.exit55.i
 
-_Py_NewRef.exit55.i:                              ; preds = %475, %.lr.ph69.i
-  %.val.i26 = phi i64 [ %.val73.i, %.lr.ph69.i ], [ %.val.pre.i, %475 ]
-  %477 = getelementptr ptr, ptr %433, i64 %.167.i
-  store ptr %472, ptr %477, align 8, !tbaa !110
-  %478 = add nsw i64 %.167.i, 1
-  %479 = icmp slt i64 %478, %.val.i26
-  br i1 %479, label %.lr.ph69.i, label %hamt_node_collision_find_index.exit.thread60.sink.split.i, !llvm.loop !119
+_Py_NewRef.exit55.i:                              ; preds = %476, %.lr.ph69.i
+  %.val.i26 = phi i64 [ %.val73.i, %.lr.ph69.i ], [ %.val.pre.i, %476 ]
+  %478 = getelementptr ptr, ptr %434, i64 %.167.i
+  store ptr %473, ptr %478, align 8, !tbaa !110
+  %479 = add nsw i64 %.167.i, 1
+  %480 = icmp slt i64 %479, %.val.i26
+  br i1 %480, label %.lr.ph69.i, label %hamt_node_collision_find_index.exit.thread60.sink.split.i, !llvm.loop !119
 
 hamt_node_collision_find_index.exit.thread60.sink.split.i: ; preds = %_Py_NewRef.exit55.i, %._crit_edge.i, %_Py_NewRef.exit50.i
-  %.sink91.i = phi ptr [ %369, %_Py_NewRef.exit50.i ], [ %428, %._crit_edge.i ], [ %428, %_Py_NewRef.exit55.i ]
+  %.sink91.i = phi ptr [ %370, %_Py_NewRef.exit50.i ], [ %429, %._crit_edge.i ], [ %429, %_Py_NewRef.exit55.i ]
   store ptr %.sink91.i, ptr %4, align 8, !tbaa !18
   br label %hamt_node_bitmap_without.exit
 
-hamt_node_bitmap_without.exit:                    ; preds = %364, %357, %hamt_node_collision_find_index.exit.thread60.sink.split.i, %425, %368, %hamt_node_collision_find_index.exit.i, %353, %350, %Py_DECREF.exit94.i, %216, %hamt_node_bitmap_clone_without.exit, %142, %140, %137, %Py_DECREF.exit71.i.thread, %9
-  %.0 = phi i32 [ 1, %9 ], [ %.3.i, %Py_DECREF.exit71.i.thread ], [ 0, %137 ], [ 1, %140 ], [ 2, %142 ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ %.1.i, %Py_DECREF.exit94.i ], [ 1, %216 ], [ 1, %350 ], [ 2, %hamt_node_collision_find_index.exit.i ], [ 1, %353 ], [ 0, %368 ], [ 0, %425 ], [ 3, %hamt_node_collision_find_index.exit.thread60.sink.split.i ], [ 1, %364 ], [ 0, %357 ]
+hamt_node_bitmap_without.exit:                    ; preds = %365, %358, %hamt_node_collision_find_index.exit.thread60.sink.split.i, %426, %369, %hamt_node_collision_find_index.exit.i, %354, %351, %Py_DECREF.exit94.i, %217, %hamt_node_bitmap_clone_without.exit, %143, %141, %138, %Py_DECREF.exit71.i.thread, %9
+  %.0 = phi i32 [ 1, %9 ], [ %.3.i, %Py_DECREF.exit71.i.thread ], [ 0, %138 ], [ 1, %141 ], [ 2, %143 ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ %.1.i, %Py_DECREF.exit94.i ], [ 1, %217 ], [ 1, %351 ], [ 2, %hamt_node_collision_find_index.exit.i ], [ 1, %354 ], [ 0, %369 ], [ 0, %426 ], [ 3, %hamt_node_collision_find_index.exit.thread60.sink.split.i ], [ 1, %365 ], [ 0, %358 ]
   ret i32 %.0
 }
 
@@ -3178,8 +3178,8 @@ define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %0) #0
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3)
-  %switch.not = icmp eq i32 %5, 0
-  br i1 %switch.not, label %8, label %6
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @PyExc_StopIteration, align 8, !tbaa !110

@@ -928,15 +928,15 @@ define dso_local range(i32 -1, 1) i32 @slurm_unpack_list(ptr noundef captures(no
   %12 = call ptr @list_create(ptr noundef %2) #7
   store ptr %12, ptr %0, align 8
   %13 = load i32, ptr %6, align 4
-  %.not25 = icmp eq i32 %13, 0
-  br i1 %.not25, label %.thread, label %.lr.ph
+  %.not24 = icmp eq i32 %13, 0
+  br i1 %.not24, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %20, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
 .lr.ph:                                           ; preds = %11, %20
-  %.024 = phi i32 [ %21, %20 ], [ 0, %11 ]
+  %.023 = phi i32 [ %21, %20 ], [ 0, %11 ]
   %14 = call i32 %1(ptr noundef nonnull %7, i16 noundef zeroext %4, ptr noundef %3) #7
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %24, label %16
@@ -952,7 +952,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_unpack_list(ptr noundef captures(no
   br label %20
 
 20:                                               ; preds = %16, %18
-  %21 = add nuw nsw i32 %.024, 1
+  %21 = add nuw nsw i32 %.023, 1
   %22 = load i32, ptr %6, align 4
   %23 = icmp ult i32 %21, %22
   br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !12
@@ -1132,17 +1132,17 @@ define dso_local range(i32 -1, 1) i32 @unpack_dep_list(ptr noundef captures(none
   %11 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #7
   store ptr %11, ptr %0, align 8
   %12 = load i32, ptr %4, align 4
-  %.not42 = icmp eq i32 %12, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph
+  %.not40 = icmp eq i32 %12, 0
+  br i1 %.not40, label %.loopexit, label %.lr.ph
 
 13:                                               ; preds = %35
-  %14 = add nuw nsw i32 %.041, 1
+  %14 = add nuw nsw i32 %.039, 1
   %15 = load i32, ptr %4, align 4
   %16 = icmp ult i32 %14, %15
   br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %10, %13
-  %.041 = phi i32 [ %14, %13 ], [ 0, %10 ]
+  %.039 = phi i32 [ %14, %13 ], [ 0, %10 ]
   %17 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 5629, ptr noundef nonnull @__func__.unpack_dep_list) #7
   %18 = load ptr, ptr %0, align 8
   call void @list_push(ptr noundef %18, ptr noundef %17) #7
@@ -26304,13 +26304,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %217)
   %1606 = tail call i32 @unpack_time(ptr noundef nonnull %334, ptr noundef %1) #7
   %.not = icmp eq i32 %1606, 0
-  br i1 %.not, label %1607, label %.thread2711
+  br i1 %.not, label %1607, label %.thread2710
 
 1607:                                             ; preds = %1605
   %1608 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %1609 = tail call i32 @unpack16(ptr noundef nonnull %1608, ptr noundef %1) #7
   %.not1747 = icmp eq i32 %1609, 0
-  br i1 %.not1747, label %1610, label %.thread2711
+  br i1 %.not1747, label %1610, label %.thread2710
 
 1610:                                             ; preds = %1607
   call void @llvm.lifetime.start.p0(ptr nonnull %218)
@@ -26348,7 +26348,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1623 = getelementptr inbounds nuw i8, ptr %334, i64 64
   %1624 = call i32 @unpack16(ptr noundef nonnull %1623, ptr noundef %1) #7
   %.not1752 = icmp eq i32 %1624, 0
-  br i1 %.not1752, label %1625, label %.thread2711
+  br i1 %.not1752, label %1625, label %.thread2710
 
 1625:                                             ; preds = %1622
   call void @llvm.lifetime.start.p0(ptr nonnull %222)
@@ -26378,7 +26378,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1635 = getelementptr inbounds nuw i8, ptr %334, i64 88
   %1636 = call i32 @unpack_key_pair_list(ptr noundef nonnull %1635, i16 noundef zeroext %2, ptr noundef %1) #7
   %.not1756 = icmp eq i32 %1636, 0
-  br i1 %.not1756, label %1637, label %.thread2711
+  br i1 %.not1756, label %1637, label %.thread2710
 
 1637:                                             ; preds = %1634
   call void @llvm.lifetime.start.p0(ptr nonnull %225)
@@ -26408,7 +26408,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1647 = getelementptr inbounds nuw i8, ptr %334, i64 128
   %1648 = call i32 @unpack16(ptr noundef nonnull %1647, ptr noundef %1) #7
   %.not1760 = icmp eq i32 %1648, 0
-  br i1 %.not1760, label %1649, label %.thread2711
+  br i1 %.not1760, label %1649, label %.thread2710
 
 1649:                                             ; preds = %1646
   call void @llvm.lifetime.start.p0(ptr nonnull %228)
@@ -26454,13 +26454,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1665 = getelementptr inbounds nuw i8, ptr %334, i64 168
   %1666 = call i32 @unpack16(ptr noundef nonnull %1665, ptr noundef %1) #7
   %.not1766 = icmp eq i32 %1666, 0
-  br i1 %.not1766, label %1667, label %.thread2711
+  br i1 %.not1766, label %1667, label %.thread2710
 
 1667:                                             ; preds = %1664
   %1668 = getelementptr inbounds nuw i8, ptr %334, i64 200
   %1669 = call i32 @unpack_time(ptr noundef nonnull %1668, ptr noundef %1) #7
   %.not1767 = icmp eq i32 %1669, 0
-  br i1 %.not1767, label %1670, label %.thread2711
+  br i1 %.not1767, label %1670, label %.thread2710
 
 1670:                                             ; preds = %1667
   call void @llvm.lifetime.start.p0(ptr nonnull %233)
@@ -26490,7 +26490,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1680 = getelementptr inbounds nuw i8, ptr %334, i64 224
   %1681 = call i32 @unpack_key_pair_list(ptr noundef nonnull %1680, i16 noundef zeroext %2, ptr noundef %1) #7
   %.not1771 = icmp eq i32 %1681, 0
-  br i1 %.not1771, label %1682, label %.thread2711
+  br i1 %.not1771, label %1682, label %.thread2710
 
 1682:                                             ; preds = %1679
   call void @llvm.lifetime.start.p0(ptr nonnull %236)
@@ -26520,32 +26520,32 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1692 = getelementptr inbounds nuw i8, ptr %334, i64 264
   %1693 = call i32 @unpack16(ptr noundef nonnull %1692, ptr noundef %1) #7
   %.not1775 = icmp eq i32 %1693, 0
-  br i1 %.not1775, label %1694, label %.thread2711
+  br i1 %.not1775, label %1694, label %.thread2710
 
 1694:                                             ; preds = %1691
   %1695 = getelementptr inbounds nuw i8, ptr %334, i64 268
   %1696 = call i32 @unpack32(ptr noundef nonnull %1695, ptr noundef %1) #7
   %.not1776 = icmp eq i32 %1696, 0
-  br i1 %.not1776, label %1697, label %.thread2711
+  br i1 %.not1776, label %1697, label %.thread2710
 
 1697:                                             ; preds = %1694
   %1698 = getelementptr inbounds nuw i8, ptr %334, i64 272
   %1699 = getelementptr inbounds nuw i8, ptr %334, i64 280
   %1700 = call i32 @unpackstr_array(ptr noundef nonnull %1698, ptr noundef nonnull %1699, ptr noundef %1) #7
   %.not1777 = icmp eq i32 %1700, 0
-  br i1 %.not1777, label %1701, label %.thread2711
+  br i1 %.not1777, label %1701, label %.thread2710
 
 1701:                                             ; preds = %1697
   %1702 = getelementptr inbounds nuw i8, ptr %334, i64 288
   %1703 = call i32 @unpackstr_array(ptr noundef nonnull %1702, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1778 = icmp eq i32 %1703, 0
-  br i1 %.not1778, label %1704, label %.thread2711
+  br i1 %.not1778, label %1704, label %.thread2710
 
 1704:                                             ; preds = %1701
   %1705 = load i32, ptr %1699, align 8
   %1706 = load i32, ptr %4, align 4
   %.not1779 = icmp eq i32 %1705, %1706
-  br i1 %.not1779, label %1707, label %.thread2711
+  br i1 %.not1779, label %1707, label %.thread2710
 
 1707:                                             ; preds = %1704
   call void @llvm.lifetime.start.p0(ptr nonnull %239)
@@ -26558,7 +26558,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
 1709:                                             ; preds = %1707
   call void @llvm.lifetime.end.p0(ptr nonnull %240)
   call void @llvm.lifetime.end.p0(ptr nonnull %239)
-  br label %.thread2711
+  br label %.thread2710
 
 1710:                                             ; preds = %1707
   call void @slurm_xfree(ptr noundef nonnull %239) #7
@@ -26567,13 +26567,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1711 = getelementptr inbounds nuw i8, ptr %334, i64 296
   %1712 = call i32 @unpack32(ptr noundef nonnull %1711, ptr noundef %1) #7
   %.not1781 = icmp eq i32 %1712, 0
-  br i1 %.not1781, label %1713, label %.thread2711
+  br i1 %.not1781, label %1713, label %.thread2710
 
 1713:                                             ; preds = %1710
   %1714 = getelementptr inbounds nuw i8, ptr %334, i64 300
   %1715 = call i32 @unpack32(ptr noundef nonnull %1714, ptr noundef %1) #7
   %.not1782 = icmp eq i32 %1715, 0
-  br i1 %.not1782, label %1716, label %.thread2711
+  br i1 %.not1782, label %1716, label %.thread2710
 
 1716:                                             ; preds = %1713
   call void @llvm.lifetime.start.p0(ptr nonnull %241)
@@ -26587,13 +26587,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1720 = getelementptr inbounds nuw i8, ptr %334, i64 328
   %1721 = call i32 @unpack64(ptr noundef nonnull %1720, ptr noundef %1) #7
   %.not1784 = icmp eq i32 %1721, 0
-  br i1 %.not1784, label %1722, label %.thread2711
+  br i1 %.not1784, label %1722, label %.thread2710
 
 1722:                                             ; preds = %1719
   %1723 = getelementptr inbounds nuw i8, ptr %334, i64 320
   %1724 = call i32 @unpack64(ptr noundef nonnull %1723, ptr noundef %1) #7
   %.not1785 = icmp eq i32 %1724, 0
-  br i1 %.not1785, label %1725, label %.thread2711
+  br i1 %.not1785, label %1725, label %.thread2710
 
 1725:                                             ; preds = %1722
   call void @llvm.lifetime.start.p0(ptr nonnull %242)
@@ -26607,13 +26607,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1729 = getelementptr inbounds nuw i8, ptr %334, i64 344
   %1730 = call i32 @unpack16(ptr noundef nonnull %1729, ptr noundef %1) #7
   %.not1787 = icmp eq i32 %1730, 0
-  br i1 %.not1787, label %1731, label %.thread2711
+  br i1 %.not1787, label %1731, label %.thread2710
 
 1731:                                             ; preds = %1728
   %1732 = getelementptr inbounds nuw i8, ptr %334, i64 346
   %1733 = call i32 @unpack16(ptr noundef nonnull %1732, ptr noundef %1) #7
   %.not1788 = icmp eq i32 %1733, 0
-  br i1 %.not1788, label %1734, label %.thread2711
+  br i1 %.not1788, label %1734, label %.thread2710
 
 1734:                                             ; preds = %1731
   %1735 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 5174, ptr noundef nonnull @__func__._unpack_slurm_ctl_conf_msg) #7
@@ -26642,7 +26642,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1744 = getelementptr inbounds nuw i8, ptr %334, i64 364
   %1745 = call i32 @unpack32(ptr noundef nonnull %1744, ptr noundef %1) #7
   %.not1791 = icmp eq i32 %1745, 0
-  br i1 %.not1791, label %1746, label %.thread2711
+  br i1 %.not1791, label %1746, label %.thread2710
 
 1746:                                             ; preds = %1743
   %1747 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 5184, ptr noundef nonnull @__func__._unpack_slurm_ctl_conf_msg) #7
@@ -26670,7 +26670,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
 1755:                                             ; preds = %1754, %1751
   %1756 = call i32 @unpack_key_pair_list(ptr noundef nonnull %216, i16 noundef zeroext %2, ptr noundef %1) #7
   %.not1794 = icmp eq i32 %1756, 0
-  br i1 %.not1794, label %1757, label %.thread2711
+  br i1 %.not1794, label %1757, label %.thread2710
 
 1757:                                             ; preds = %1755
   %1758 = load ptr, ptr %216, align 8
@@ -26693,7 +26693,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
 1762:                                             ; preds = %1760
   call void @llvm.lifetime.end.p0(ptr nonnull %246)
   call void @llvm.lifetime.end.p0(ptr nonnull %245)
-  br label %.thread2711
+  br label %.thread2710
 
 1763:                                             ; preds = %1760
   call void @slurm_xfree(ptr noundef nonnull %245) #7
@@ -26701,7 +26701,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %245)
   %1764 = call i32 @unpack16(ptr noundef nonnull %217, ptr noundef %1) #7
   %.not1797 = icmp eq i32 %1764, 0
-  br i1 %.not1797, label %1765, label %.thread2711
+  br i1 %.not1797, label %1765, label %.thread2710
 
 1765:                                             ; preds = %1763
   call void @llvm.lifetime.start.p0(ptr nonnull %247)
@@ -26715,19 +26715,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1769 = getelementptr inbounds nuw i8, ptr %334, i64 392
   %1770 = call i32 @unpack32(ptr noundef nonnull %1769, ptr noundef %1) #7
   %.not1799 = icmp eq i32 %1770, 0
-  br i1 %.not1799, label %1771, label %.thread2711
+  br i1 %.not1799, label %1771, label %.thread2710
 
 1771:                                             ; preds = %1768
   %1772 = getelementptr inbounds nuw i8, ptr %334, i64 396
   %1773 = call i32 @unpack16(ptr noundef nonnull %1772, ptr noundef %1) #7
   %.not1800 = icmp eq i32 %1773, 0
-  br i1 %.not1800, label %1774, label %.thread2711
+  br i1 %.not1800, label %1774, label %.thread2710
 
 1774:                                             ; preds = %1771
   %1775 = getelementptr inbounds nuw i8, ptr %334, i64 400
   %1776 = call i32 @unpack16(ptr noundef nonnull %1775, ptr noundef %1) #7
   %.not1801 = icmp eq i32 %1776, 0
-  br i1 %.not1801, label %1777, label %.thread2711
+  br i1 %.not1801, label %1777, label %.thread2710
 
 1777:                                             ; preds = %1774
   call void @llvm.lifetime.start.p0(ptr nonnull %248)
@@ -26741,13 +26741,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1781 = getelementptr inbounds nuw i8, ptr %334, i64 416
   %1782 = call i32 @unpack16(ptr noundef nonnull %1781, ptr noundef %1) #7
   %.not1803 = icmp eq i32 %1782, 0
-  br i1 %.not1803, label %1783, label %.thread2711
+  br i1 %.not1803, label %1783, label %.thread2710
 
 1783:                                             ; preds = %1780
   %1784 = getelementptr inbounds nuw i8, ptr %334, i64 418
   %1785 = call i32 @unpack16(ptr noundef nonnull %1784, ptr noundef %1) #7
   %.not1804 = icmp eq i32 %1785, 0
-  br i1 %.not1804, label %1786, label %.thread2711
+  br i1 %.not1804, label %1786, label %.thread2710
 
 1786:                                             ; preds = %1783
   call void @llvm.lifetime.start.p0(ptr nonnull %249)
@@ -26760,19 +26760,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
 1789:                                             ; preds = %1786
   %1790 = call i32 @unpack32(ptr noundef nonnull %335, ptr noundef %1) #7
   %.not1806 = icmp eq i32 %1790, 0
-  br i1 %.not1806, label %1791, label %.thread2711
+  br i1 %.not1806, label %1791, label %.thread2710
 
 1791:                                             ; preds = %1789
   %1792 = getelementptr inbounds nuw i8, ptr %334, i64 444
   %1793 = call i32 @unpack16(ptr noundef nonnull %1792, ptr noundef %1) #7
   %.not1807 = icmp eq i32 %1793, 0
-  br i1 %.not1807, label %1794, label %.thread2711
+  br i1 %.not1807, label %1794, label %.thread2710
 
 1794:                                             ; preds = %1791
   %1795 = getelementptr inbounds nuw i8, ptr %334, i64 446
   %1796 = call i32 @unpack16(ptr noundef nonnull %1795, ptr noundef %1) #7
   %.not1808 = icmp eq i32 %1796, 0
-  br i1 %.not1808, label %1797, label %.thread2711
+  br i1 %.not1808, label %1797, label %.thread2710
 
 1797:                                             ; preds = %1794
   call void @llvm.lifetime.start.p0(ptr nonnull %250)
@@ -26786,7 +26786,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1801 = getelementptr inbounds nuw i8, ptr %334, i64 460
   %1802 = call i32 @unpack16(ptr noundef nonnull %1801, ptr noundef %1) #7
   %.not1810 = icmp eq i32 %1802, 0
-  br i1 %.not1810, label %1803, label %.thread2711
+  br i1 %.not1810, label %1803, label %.thread2710
 
 1803:                                             ; preds = %1800
   call void @llvm.lifetime.start.p0(ptr nonnull %251)
@@ -26848,7 +26848,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1825 = getelementptr inbounds nuw i8, ptr %334, i64 536
   %1826 = call i32 @unpack32(ptr noundef nonnull %1825, ptr noundef %1) #7
   %.not1818 = icmp eq i32 %1826, 0
-  br i1 %.not1818, label %1827, label %.thread2711
+  br i1 %.not1818, label %1827, label %.thread2710
 
 1827:                                             ; preds = %1824
   call void @llvm.lifetime.start.p0(ptr nonnull %258)
@@ -26878,19 +26878,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1837 = getelementptr inbounds nuw i8, ptr %334, i64 568
   %1838 = call i32 @slurm_unpack_list(ptr noundef nonnull %1837, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2)
   %.not1822 = icmp eq i32 %1838, 0
-  br i1 %.not1822, label %1839, label %.thread2711
+  br i1 %.not1822, label %1839, label %.thread2710
 
 1839:                                             ; preds = %1836
   %1840 = getelementptr inbounds nuw i8, ptr %334, i64 576
   %1841 = call i32 @unpack16(ptr noundef nonnull %1840, ptr noundef %1) #7
   %.not1823 = icmp eq i32 %1841, 0
-  br i1 %.not1823, label %1842, label %.thread2711
+  br i1 %.not1823, label %1842, label %.thread2710
 
 1842:                                             ; preds = %1839
   %1843 = getelementptr inbounds nuw i8, ptr %334, i64 578
   %1844 = call i32 @unpack16(ptr noundef nonnull %1843, ptr noundef %1) #7
   %.not1824 = icmp eq i32 %1844, 0
-  br i1 %.not1824, label %1845, label %.thread2711
+  br i1 %.not1824, label %1845, label %.thread2710
 
 1845:                                             ; preds = %1842
   call void @llvm.lifetime.start.p0(ptr nonnull %261)
@@ -26904,13 +26904,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1849 = getelementptr inbounds nuw i8, ptr %334, i64 604
   %1850 = call i32 @unpack16(ptr noundef nonnull %1849, ptr noundef %1) #7
   %.not1826 = icmp eq i32 %1850, 0
-  br i1 %.not1826, label %1851, label %.thread2711
+  br i1 %.not1826, label %1851, label %.thread2710
 
 1851:                                             ; preds = %1848
   %1852 = getelementptr inbounds nuw i8, ptr %334, i64 606
   %1853 = call i32 @unpack16(ptr noundef nonnull %1852, ptr noundef %1) #7
   %.not1827 = icmp eq i32 %1853, 0
-  br i1 %.not1827, label %1854, label %.thread2711
+  br i1 %.not1827, label %1854, label %.thread2710
 
 1854:                                             ; preds = %1851
   call void @llvm.lifetime.start.p0(ptr nonnull %262)
@@ -26932,25 +26932,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1861 = getelementptr inbounds nuw i8, ptr %334, i64 624
   %1862 = call i32 @unpack16(ptr noundef nonnull %1861, ptr noundef %1) #7
   %.not1830 = icmp eq i32 %1862, 0
-  br i1 %.not1830, label %1863, label %.thread2711
+  br i1 %.not1830, label %1863, label %.thread2710
 
 1863:                                             ; preds = %1860
   %1864 = getelementptr inbounds nuw i8, ptr %334, i64 648
   %1865 = call i32 @unpack32(ptr noundef nonnull %1864, ptr noundef %1) #7
   %.not1831 = icmp eq i32 %1865, 0
-  br i1 %.not1831, label %1866, label %.thread2711
+  br i1 %.not1831, label %1866, label %.thread2710
 
 1866:                                             ; preds = %1863
   %1867 = getelementptr inbounds nuw i8, ptr %334, i64 652
   %1868 = call i32 @unpack32(ptr noundef nonnull %1867, ptr noundef %1) #7
   %.not1832 = icmp eq i32 %1868, 0
-  br i1 %.not1832, label %1869, label %.thread2711
+  br i1 %.not1832, label %1869, label %.thread2710
 
 1869:                                             ; preds = %1866
   %1870 = getelementptr inbounds nuw i8, ptr %334, i64 656
   %1871 = call i32 @unpack32(ptr noundef nonnull %1870, ptr noundef %1) #7
   %.not1833 = icmp eq i32 %1871, 0
-  br i1 %.not1833, label %1872, label %.thread2711
+  br i1 %.not1833, label %1872, label %.thread2710
 
 1872:                                             ; preds = %1869
   call void @llvm.lifetime.start.p0(ptr nonnull %264)
@@ -26972,37 +26972,37 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1879 = getelementptr inbounds nuw i8, ptr %334, i64 660
   %1880 = call i32 @unpack32(ptr noundef nonnull %1879, ptr noundef %1) #7
   %.not1836 = icmp eq i32 %1880, 0
-  br i1 %.not1836, label %1881, label %.thread2711
+  br i1 %.not1836, label %1881, label %.thread2710
 
 1881:                                             ; preds = %1878
   %1882 = getelementptr inbounds nuw i8, ptr %334, i64 664
   %1883 = call i32 @unpack32(ptr noundef nonnull %1882, ptr noundef %1) #7
   %.not1837 = icmp eq i32 %1883, 0
-  br i1 %.not1837, label %1884, label %.thread2711
+  br i1 %.not1837, label %1884, label %.thread2710
 
 1884:                                             ; preds = %1881
   %1885 = getelementptr inbounds nuw i8, ptr %334, i64 672
   %1886 = call i32 @unpack64(ptr noundef nonnull %1885, ptr noundef %1) #7
   %.not1838 = icmp eq i32 %1886, 0
-  br i1 %.not1838, label %1887, label %.thread2711
+  br i1 %.not1838, label %1887, label %.thread2710
 
 1887:                                             ; preds = %1884
   %1888 = getelementptr inbounds nuw i8, ptr %334, i64 680
   %1889 = call i32 @unpack32(ptr noundef nonnull %1888, ptr noundef %1) #7
   %.not1839 = icmp eq i32 %1889, 0
-  br i1 %.not1839, label %1890, label %.thread2711
+  br i1 %.not1839, label %1890, label %.thread2710
 
 1890:                                             ; preds = %1887
   %1891 = getelementptr inbounds nuw i8, ptr %334, i64 684
   %1892 = call i32 @unpack32(ptr noundef nonnull %1891, ptr noundef %1) #7
   %.not1840 = icmp eq i32 %1892, 0
-  br i1 %.not1840, label %1893, label %.thread2711
+  br i1 %.not1840, label %1893, label %.thread2710
 
 1893:                                             ; preds = %1890
   %1894 = getelementptr inbounds nuw i8, ptr %334, i64 688
   %1895 = call i32 @unpack16(ptr noundef nonnull %1894, ptr noundef %1) #7
   %.not1841 = icmp eq i32 %1895, 0
-  br i1 %.not1841, label %1896, label %.thread2711
+  br i1 %.not1841, label %1896, label %.thread2710
 
 1896:                                             ; preds = %1893
   call void @llvm.lifetime.start.p0(ptr nonnull %266)
@@ -27024,13 +27024,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1903 = getelementptr inbounds nuw i8, ptr %334, i64 712
   %1904 = call i32 @unpack32(ptr noundef nonnull %1903, ptr noundef %1) #7
   %.not1844 = icmp eq i32 %1904, 0
-  br i1 %.not1844, label %1905, label %.thread2711
+  br i1 %.not1844, label %1905, label %.thread2710
 
 1905:                                             ; preds = %1902
   %1906 = getelementptr inbounds nuw i8, ptr %334, i64 720
   %1907 = call i32 @unpack_key_pair_list(ptr noundef nonnull %1906, i16 noundef zeroext %2, ptr noundef %1) #7
   %.not1845 = icmp eq i32 %1907, 0
-  br i1 %.not1845, label %1908, label %.thread2711
+  br i1 %.not1845, label %1908, label %.thread2710
 
 1908:                                             ; preds = %1905
   call void @llvm.lifetime.start.p0(ptr nonnull %268)
@@ -27052,19 +27052,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1915 = getelementptr inbounds nuw i8, ptr %334, i64 744
   %1916 = call i32 @unpack16(ptr noundef nonnull %1915, ptr noundef %1) #7
   %.not1848 = icmp eq i32 %1916, 0
-  br i1 %.not1848, label %1917, label %.thread2711
+  br i1 %.not1848, label %1917, label %.thread2710
 
 1917:                                             ; preds = %1914
   %1918 = getelementptr inbounds nuw i8, ptr %334, i64 748
   %1919 = call i32 @unpack32(ptr noundef nonnull %1918, ptr noundef %1) #7
   %.not1849 = icmp eq i32 %1919, 0
-  br i1 %.not1849, label %1920, label %.thread2711
+  br i1 %.not1849, label %1920, label %.thread2710
 
 1920:                                             ; preds = %1917
   %1921 = getelementptr inbounds nuw i8, ptr %334, i64 752
   %1922 = call i32 @unpack_config_plugin_params_list(ptr noundef nonnull %1921, i16 noundef zeroext %2, ptr noundef %1) #7
   %.not1850 = icmp eq i32 %1922, 0
-  br i1 %.not1850, label %1923, label %.thread2711
+  br i1 %.not1850, label %1923, label %.thread2710
 
 1923:                                             ; preds = %1920
   call void @llvm.lifetime.start.p0(ptr nonnull %270)
@@ -27085,7 +27085,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
 1928:                                             ; preds = %1926
   call void @llvm.lifetime.end.p0(ptr nonnull %272)
   call void @llvm.lifetime.end.p0(ptr nonnull %271)
-  br label %.thread2711
+  br label %.thread2710
 
 1929:                                             ; preds = %1926
   call void @slurm_xfree(ptr noundef nonnull %271) #7
@@ -27094,7 +27094,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1930 = getelementptr inbounds nuw i8, ptr %334, i64 768
   %1931 = call i32 @unpack16(ptr noundef nonnull %1930, ptr noundef %1) #7
   %.not1853 = icmp eq i32 %1931, 0
-  br i1 %.not1853, label %1932, label %.thread2711
+  br i1 %.not1853, label %1932, label %.thread2710
 
 1932:                                             ; preds = %1929
   call void @llvm.lifetime.start.p0(ptr nonnull %273)
@@ -27123,7 +27123,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
 1940:                                             ; preds = %1938
   call void @llvm.lifetime.end.p0(ptr nonnull %276)
   call void @llvm.lifetime.end.p0(ptr nonnull %275)
-  br label %.thread2711
+  br label %.thread2710
 
 1941:                                             ; preds = %1938
   call void @slurm_xfree(ptr noundef nonnull %275) #7
@@ -27139,7 +27139,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
 1943:                                             ; preds = %1941
   call void @llvm.lifetime.end.p0(ptr nonnull %278)
   call void @llvm.lifetime.end.p0(ptr nonnull %277)
-  br label %.thread2711
+  br label %.thread2710
 
 1944:                                             ; preds = %1941
   call void @slurm_xfree(ptr noundef nonnull %277) #7
@@ -27148,7 +27148,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1945 = getelementptr inbounds nuw i8, ptr %334, i64 796
   %1946 = call i32 @unpack16(ptr noundef nonnull %1945, ptr noundef %1) #7
   %.not1858 = icmp eq i32 %1946, 0
-  br i1 %.not1858, label %1947, label %.thread2711
+  br i1 %.not1858, label %1947, label %.thread2710
 
 1947:                                             ; preds = %1944
   call void @llvm.lifetime.start.p0(ptr nonnull %279)
@@ -27170,7 +27170,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1954 = getelementptr inbounds nuw i8, ptr %334, i64 792
   %1955 = call i32 @unpack32(ptr noundef nonnull %1954, ptr noundef %1) #7
   %.not1861 = icmp eq i32 %1955, 0
-  br i1 %.not1861, label %1956, label %.thread2711
+  br i1 %.not1861, label %1956, label %.thread2710
 
 1956:                                             ; preds = %1953
   call void @llvm.lifetime.start.p0(ptr nonnull %281)
@@ -27192,31 +27192,31 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1963 = getelementptr inbounds nuw i8, ptr %334, i64 832
   %1964 = call i32 @unpack32(ptr noundef nonnull %1963, ptr noundef %1) #7
   %.not1864 = icmp eq i32 %1964, 0
-  br i1 %.not1864, label %1965, label %.thread2711
+  br i1 %.not1864, label %1965, label %.thread2710
 
 1965:                                             ; preds = %1962
   %1966 = getelementptr inbounds nuw i8, ptr %334, i64 836
   %1967 = call i32 @unpack32(ptr noundef nonnull %1966, ptr noundef %1) #7
   %.not1865 = icmp eq i32 %1967, 0
-  br i1 %.not1865, label %1968, label %.thread2711
+  br i1 %.not1865, label %1968, label %.thread2710
 
 1968:                                             ; preds = %1965
   %1969 = getelementptr inbounds nuw i8, ptr %334, i64 840
   %1970 = call i32 @unpack16(ptr noundef nonnull %1969, ptr noundef %1) #7
   %.not1866 = icmp eq i32 %1970, 0
-  br i1 %.not1866, label %1971, label %.thread2711
+  br i1 %.not1866, label %1971, label %.thread2710
 
 1971:                                             ; preds = %1968
   %1972 = getelementptr inbounds nuw i8, ptr %334, i64 842
   %1973 = call i32 @unpack16(ptr noundef nonnull %1972, ptr noundef %1) #7
   %.not1867 = icmp eq i32 %1973, 0
-  br i1 %.not1867, label %1974, label %.thread2711
+  br i1 %.not1867, label %1974, label %.thread2710
 
 1974:                                             ; preds = %1971
   %1975 = getelementptr inbounds nuw i8, ptr %334, i64 844
   %1976 = call i32 @unpack32(ptr noundef nonnull %1975, ptr noundef %1) #7
   %.not1868 = icmp eq i32 %1976, 0
-  br i1 %.not1868, label %1977, label %.thread2711
+  br i1 %.not1868, label %1977, label %.thread2710
 
 1977:                                             ; preds = %1974
   call void @llvm.lifetime.start.p0(ptr nonnull %283)
@@ -27230,7 +27230,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1981 = getelementptr inbounds nuw i8, ptr %334, i64 856
   %1982 = call i32 @unpack16(ptr noundef nonnull %1981, ptr noundef %1) #7
   %.not1870 = icmp eq i32 %1982, 0
-  br i1 %.not1870, label %1983, label %.thread2711
+  br i1 %.not1870, label %1983, label %.thread2710
 
 1983:                                             ; preds = %1980
   call void @llvm.lifetime.start.p0(ptr nonnull %284)
@@ -27244,37 +27244,37 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %1987 = getelementptr inbounds nuw i8, ptr %334, i64 872
   %1988 = call i32 @unpack32(ptr noundef nonnull %1987, ptr noundef %1) #7
   %.not1872 = icmp eq i32 %1988, 0
-  br i1 %.not1872, label %1989, label %.thread2711
+  br i1 %.not1872, label %1989, label %.thread2710
 
 1989:                                             ; preds = %1986
   %1990 = getelementptr inbounds nuw i8, ptr %334, i64 876
   %1991 = call i32 @unpack32(ptr noundef nonnull %1990, ptr noundef %1) #7
   %.not1873 = icmp eq i32 %1991, 0
-  br i1 %.not1873, label %1992, label %.thread2711
+  br i1 %.not1873, label %1992, label %.thread2710
 
 1992:                                             ; preds = %1989
   %1993 = getelementptr inbounds nuw i8, ptr %334, i64 880
   %1994 = call i32 @unpack32(ptr noundef nonnull %1993, ptr noundef %1) #7
   %.not1874 = icmp eq i32 %1994, 0
-  br i1 %.not1874, label %1995, label %.thread2711
+  br i1 %.not1874, label %1995, label %.thread2710
 
 1995:                                             ; preds = %1992
   %1996 = getelementptr inbounds nuw i8, ptr %334, i64 884
   %1997 = call i32 @unpack32(ptr noundef nonnull %1996, ptr noundef %1) #7
   %.not1875 = icmp eq i32 %1997, 0
-  br i1 %.not1875, label %1998, label %.thread2711
+  br i1 %.not1875, label %1998, label %.thread2710
 
 1998:                                             ; preds = %1995
   %1999 = getelementptr inbounds nuw i8, ptr %334, i64 888
   %2000 = call i32 @unpack32(ptr noundef nonnull %1999, ptr noundef %1) #7
   %.not1876 = icmp eq i32 %2000, 0
-  br i1 %.not1876, label %2001, label %.thread2711
+  br i1 %.not1876, label %2001, label %.thread2710
 
 2001:                                             ; preds = %1998
   %2002 = getelementptr inbounds nuw i8, ptr %334, i64 892
   %2003 = call i32 @unpack32(ptr noundef nonnull %2002, ptr noundef %1) #7
   %.not1877 = icmp eq i32 %2003, 0
-  br i1 %.not1877, label %2004, label %.thread2711
+  br i1 %.not1877, label %2004, label %.thread2710
 
 2004:                                             ; preds = %2001
   call void @llvm.lifetime.start.p0(ptr nonnull %285)
@@ -27288,7 +27288,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2008 = getelementptr inbounds nuw i8, ptr %334, i64 904
   %2009 = call i32 @unpack16(ptr noundef nonnull %2008, ptr noundef %1) #7
   %.not1879 = icmp eq i32 %2009, 0
-  br i1 %.not1879, label %2010, label %.thread2711
+  br i1 %.not1879, label %2010, label %.thread2710
 
 2010:                                             ; preds = %2007
   call void @llvm.lifetime.start.p0(ptr nonnull %286)
@@ -27325,7 +27325,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2023 = getelementptr inbounds nuw i8, ptr %334, i64 932
   %2024 = call i32 @unpack16(ptr noundef nonnull %2023, ptr noundef %1) #7
   %.not1883 = icmp eq i32 %2024, 0
-  br i1 %.not1883, label %2025, label %.thread2711
+  br i1 %.not1883, label %2025, label %.thread2710
 
 2025:                                             ; preds = %2022
   %2026 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 5322, ptr noundef nonnull @__func__._unpack_slurm_ctl_conf_msg) #7
@@ -27354,13 +27354,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2035 = getelementptr inbounds nuw i8, ptr %334, i64 950
   %2036 = call i32 @unpack16(ptr noundef nonnull %2035, ptr noundef %1) #7
   %.not1886 = icmp eq i32 %2036, 0
-  br i1 %.not1886, label %2037, label %.thread2711
+  br i1 %.not1886, label %2037, label %.thread2710
 
 2037:                                             ; preds = %2034
   %2038 = getelementptr inbounds nuw i8, ptr %334, i64 948
   %2039 = call i32 @unpack16(ptr noundef nonnull %2038, ptr noundef %1) #7
   %.not1887 = icmp eq i32 %2039, 0
-  br i1 %.not1887, label %2040, label %.thread2711
+  br i1 %.not1887, label %2040, label %.thread2710
 
 2040:                                             ; preds = %2037
   call void @llvm.lifetime.start.p0(ptr nonnull %289)
@@ -27390,7 +27390,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2050 = getelementptr inbounds nuw i8, ptr %334, i64 976
   %2051 = call i32 @unpack16(ptr noundef nonnull %2050, ptr noundef %1) #7
   %.not1891 = icmp eq i32 %2051, 0
-  br i1 %.not1891, label %2052, label %.thread2711
+  br i1 %.not1891, label %2052, label %.thread2710
 
 2052:                                             ; preds = %2049
   call void @llvm.lifetime.start.p0(ptr nonnull %292)
@@ -27428,13 +27428,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2065 = getelementptr inbounds nuw i8, ptr %334, i64 1016
   %2066 = call i32 @unpack16(ptr noundef nonnull %2065, ptr noundef %1) #7
   %.not1896 = icmp eq i32 %2066, 0
-  br i1 %.not1896, label %2067, label %.thread2711
+  br i1 %.not1896, label %2067, label %.thread2710
 
 2067:                                             ; preds = %2064
   %2068 = getelementptr inbounds nuw i8, ptr %334, i64 1018
   %2069 = call i32 @unpack16(ptr noundef nonnull %2068, ptr noundef %1) #7
   %.not1897 = icmp eq i32 %2069, 0
-  br i1 %.not1897, label %2070, label %.thread2711
+  br i1 %.not1897, label %2070, label %.thread2710
 
 2070:                                             ; preds = %2067
   call void @llvm.lifetime.start.p0(ptr nonnull %296)
@@ -27448,7 +27448,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2074 = getelementptr inbounds nuw i8, ptr %334, i64 1032
   %2075 = call i32 @unpack16(ptr noundef nonnull %2074, ptr noundef %1) #7
   %.not1899 = icmp eq i32 %2075, 0
-  br i1 %.not1899, label %2076, label %.thread2711
+  br i1 %.not1899, label %2076, label %.thread2710
 
 2076:                                             ; preds = %2073
   call void @llvm.lifetime.start.p0(ptr nonnull %297)
@@ -27462,7 +27462,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2080 = getelementptr inbounds nuw i8, ptr %334, i64 1048
   %2081 = call i32 @unpack16(ptr noundef nonnull %2080, ptr noundef %1) #7
   %.not1901 = icmp eq i32 %2081, 0
-  br i1 %.not1901, label %2082, label %.thread2711
+  br i1 %.not1901, label %2082, label %.thread2710
 
 2082:                                             ; preds = %2079
   call void @llvm.lifetime.start.p0(ptr nonnull %298)
@@ -27484,13 +27484,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2089 = getelementptr inbounds nuw i8, ptr %334, i64 1064
   %2090 = call i32 @unpack16(ptr noundef nonnull %2089, ptr noundef %1) #7
   %.not1904 = icmp eq i32 %2090, 0
-  br i1 %.not1904, label %2091, label %.thread2711
+  br i1 %.not1904, label %2091, label %.thread2710
 
 2091:                                             ; preds = %2088
   %2092 = getelementptr inbounds nuw i8, ptr %334, i64 1080
   %2093 = call i32 @unpack16(ptr noundef nonnull %2092, ptr noundef %1) #7
   %.not1905 = icmp eq i32 %2093, 0
-  br i1 %.not1905, label %2094, label %.thread2711
+  br i1 %.not1905, label %2094, label %.thread2710
 
 2094:                                             ; preds = %2091
   call void @llvm.lifetime.start.p0(ptr nonnull %300)
@@ -27520,13 +27520,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2104 = getelementptr inbounds nuw i8, ptr %334, i64 1112
   %2105 = call i32 @unpack_key_pair_list(ptr noundef nonnull %2104, i16 noundef zeroext %2, ptr noundef %1) #7
   %.not1909 = icmp eq i32 %2105, 0
-  br i1 %.not1909, label %2106, label %.thread2711
+  br i1 %.not1909, label %2106, label %.thread2710
 
 2106:                                             ; preds = %2103
   %2107 = getelementptr inbounds nuw i8, ptr %334, i64 1120
   %2108 = call i32 @unpack16(ptr noundef nonnull %2107, ptr noundef %1) #7
   %.not1910 = icmp eq i32 %2108, 0
-  br i1 %.not1910, label %2109, label %.thread2711
+  br i1 %.not1910, label %2109, label %.thread2710
 
 2109:                                             ; preds = %2106
   call void @llvm.lifetime.start.p0(ptr nonnull %303)
@@ -27540,7 +27540,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2113 = getelementptr inbounds nuw i8, ptr %334, i64 1152
   %2114 = call i32 @unpack32(ptr noundef nonnull %2113, ptr noundef %1) #7
   %.not1912 = icmp eq i32 %2114, 0
-  br i1 %.not1912, label %2115, label %.thread2711
+  br i1 %.not1912, label %2115, label %.thread2710
 
 2115:                                             ; preds = %2112
   call void @llvm.lifetime.start.p0(ptr nonnull %304)
@@ -27554,7 +27554,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2119 = getelementptr inbounds nuw i8, ptr %334, i64 1168
   %2120 = call i32 @unpack32(ptr noundef nonnull %2119, ptr noundef %1) #7
   %.not1914 = icmp eq i32 %2120, 0
-  br i1 %.not1914, label %2121, label %.thread2711
+  br i1 %.not1914, label %2121, label %.thread2710
 
 2121:                                             ; preds = %2118
   call void @llvm.lifetime.start.p0(ptr nonnull %305)
@@ -27576,7 +27576,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2128 = getelementptr inbounds nuw i8, ptr %334, i64 1192
   %2129 = call i32 @unpack16(ptr noundef nonnull %2128, ptr noundef %1) #7
   %.not1917 = icmp eq i32 %2129, 0
-  br i1 %.not1917, label %2130, label %.thread2711
+  br i1 %.not1917, label %2130, label %.thread2710
 
 2130:                                             ; preds = %2127
   call void @llvm.lifetime.start.p0(ptr nonnull %307)
@@ -27606,13 +27606,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2140 = getelementptr inbounds nuw i8, ptr %334, i64 1216
   %2141 = call i32 @unpack32(ptr noundef nonnull %2140, ptr noundef %1) #7
   %.not1921 = icmp eq i32 %2141, 0
-  br i1 %.not1921, label %2142, label %.thread2711
+  br i1 %.not1921, label %2142, label %.thread2710
 
 2142:                                             ; preds = %2139
   %2143 = getelementptr inbounds nuw i8, ptr %334, i64 1220
   %2144 = call i32 @unpack16(ptr noundef nonnull %2143, ptr noundef %1) #7
   %.not1922 = icmp eq i32 %2144, 0
-  br i1 %.not1922, label %2145, label %.thread2711
+  br i1 %.not1922, label %2145, label %.thread2710
 
 2145:                                             ; preds = %2142
   call void @llvm.lifetime.start.p0(ptr nonnull %310)
@@ -27634,19 +27634,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2152 = getelementptr inbounds nuw i8, ptr %334, i64 1240
   %2153 = call i32 @unpack16(ptr noundef nonnull %2152, ptr noundef %1) #7
   %.not1925 = icmp eq i32 %2153, 0
-  br i1 %.not1925, label %2154, label %.thread2711
+  br i1 %.not1925, label %2154, label %.thread2710
 
 2154:                                             ; preds = %2151
   %2155 = getelementptr inbounds nuw i8, ptr %334, i64 1242
   %2156 = call i32 @unpack16(ptr noundef nonnull %2155, ptr noundef %1) #7
   %.not1926 = icmp eq i32 %2156, 0
-  br i1 %.not1926, label %2157, label %.thread2711
+  br i1 %.not1926, label %2157, label %.thread2710
 
 2157:                                             ; preds = %2154
   %2158 = getelementptr inbounds nuw i8, ptr %334, i64 1256
   %2159 = call i32 @unpack16(ptr noundef nonnull %2158, ptr noundef %1) #7
   %.not1927 = icmp eq i32 %2159, 0
-  br i1 %.not1927, label %2160, label %.thread2711
+  br i1 %.not1927, label %2160, label %.thread2710
 
 2160:                                             ; preds = %2157
   call void @llvm.lifetime.start.p0(ptr nonnull %312)
@@ -27676,7 +27676,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2170 = getelementptr inbounds nuw i8, ptr %334, i64 1288
   %2171 = call i32 @unpack32(ptr noundef nonnull %2170, ptr noundef %1) #7
   %.not1931 = icmp eq i32 %2171, 0
-  br i1 %.not1931, label %2172, label %.thread2711
+  br i1 %.not1931, label %2172, label %.thread2710
 
 2172:                                             ; preds = %2169
   call void @llvm.lifetime.start.p0(ptr nonnull %315)
@@ -27690,13 +27690,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2176 = getelementptr inbounds nuw i8, ptr %334, i64 1304
   %2177 = call i32 @unpack16(ptr noundef nonnull %2176, ptr noundef %1) #7
   %.not1933 = icmp eq i32 %2177, 0
-  br i1 %.not1933, label %2178, label %.thread2711
+  br i1 %.not1933, label %2178, label %.thread2710
 
 2178:                                             ; preds = %2175
   %2179 = getelementptr inbounds nuw i8, ptr %334, i64 1306
   %2180 = call i32 @unpack16(ptr noundef nonnull %2179, ptr noundef %1) #7
   %.not1934 = icmp eq i32 %2180, 0
-  br i1 %.not1934, label %2181, label %.thread2711
+  br i1 %.not1934, label %2181, label %.thread2710
 
 2181:                                             ; preds = %2178
   call void @llvm.lifetime.start.p0(ptr nonnull %316)
@@ -27712,14 +27712,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   store ptr %2185, ptr %2186, align 8
   %2187 = call i32 @unpack16(ptr noundef %2185, ptr noundef %1) #7
   %.not1936 = icmp eq i32 %2187, 0
-  br i1 %.not1936, label %2188, label %.thread2711
+  br i1 %.not1936, label %2188, label %.thread2710
 
 2188:                                             ; preds = %2184
   %2189 = load ptr, ptr %2186, align 8
   %2190 = getelementptr inbounds nuw i8, ptr %2189, i64 2
   %2191 = call i32 @unpack16(ptr noundef nonnull %2190, ptr noundef %1) #7
   %.not1937 = icmp eq i32 %2191, 0
-  br i1 %.not1937, label %2192, label %.thread2711
+  br i1 %.not1937, label %2192, label %.thread2710
 
 2192:                                             ; preds = %2188
   call void @llvm.lifetime.start.p0(ptr nonnull %317)
@@ -27773,19 +27773,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2211 = getelementptr inbounds nuw i8, ptr %334, i64 1376
   %2212 = call i32 @unpack16(ptr noundef nonnull %2211, ptr noundef %1) #7
   %.not1944 = icmp eq i32 %2212, 0
-  br i1 %.not1944, label %2213, label %.thread2711
+  br i1 %.not1944, label %2213, label %.thread2710
 
 2213:                                             ; preds = %2210
   %2214 = getelementptr inbounds nuw i8, ptr %334, i64 1380
   %2215 = call i32 @unpack32(ptr noundef nonnull %2214, ptr noundef %1) #7
   %.not1945 = icmp eq i32 %2215, 0
-  br i1 %.not1945, label %2216, label %.thread2711
+  br i1 %.not1945, label %2216, label %.thread2710
 
 2216:                                             ; preds = %2213
   %2217 = getelementptr inbounds nuw i8, ptr %334, i64 1384
   %2218 = call i32 @unpack16(ptr noundef nonnull %2217, ptr noundef %1) #7
   %.not1946 = icmp eq i32 %2218, 0
-  br i1 %.not1946, label %2219, label %.thread2711
+  br i1 %.not1946, label %2219, label %.thread2710
 
 2219:                                             ; preds = %2216
   call void @llvm.lifetime.start.p0(ptr nonnull %323)
@@ -27831,13 +27831,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2235 = getelementptr inbounds nuw i8, ptr %334, i64 1424
   %2236 = call i32 @unpack32(ptr noundef nonnull %2235, ptr noundef %1) #7
   %.not1952 = icmp eq i32 %2236, 0
-  br i1 %.not1952, label %2237, label %.thread2711
+  br i1 %.not1952, label %2237, label %.thread2710
 
 2237:                                             ; preds = %2234
   %2238 = getelementptr inbounds nuw i8, ptr %334, i64 1456
   %2239 = call i32 @unpack16(ptr noundef nonnull %2238, ptr noundef %1) #7
   %.not1953 = icmp eq i32 %2239, 0
-  br i1 %.not1953, label %2240, label %.thread2711
+  br i1 %.not1953, label %2240, label %.thread2710
 
 2240:                                             ; preds = %2237
   call void @llvm.lifetime.start.p0(ptr nonnull %328)
@@ -27867,7 +27867,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2250 = getelementptr inbounds nuw i8, ptr %334, i64 1488
   %2251 = call i32 @unpack16(ptr noundef nonnull %2250, ptr noundef %1) #7
   %.not1957 = icmp eq i32 %2251, 0
-  br i1 %.not1957, label %2252, label %.thread2711
+  br i1 %.not1957, label %2252, label %.thread2710
 
 2252:                                             ; preds = %2249
   call void @llvm.lifetime.start.p0(ptr nonnull %331)
@@ -27881,7 +27881,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2256 = getelementptr inbounds nuw i8, ptr %334, i64 1504
   %2257 = call i32 @unpack16(ptr noundef nonnull %2256, ptr noundef %1) #7
   %.not1959 = icmp eq i32 %2257, 0
-  br i1 %.not1959, label %2258, label %.thread2711
+  br i1 %.not1959, label %2258, label %.thread2710
 
 2258:                                             ; preds = %2255
   call void @llvm.lifetime.start.p0(ptr nonnull %332)
@@ -27895,13 +27895,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2262 = getelementptr inbounds nuw i8, ptr %334, i64 1520
   %2263 = call i32 @unpack16(ptr noundef nonnull %2262, ptr noundef %1) #7
   %.not1961 = icmp eq i32 %2263, 0
-  br i1 %.not1961, label %2264, label %.thread2711
+  br i1 %.not1961, label %2264, label %.thread2710
 
 2264:                                             ; preds = %2261
   %2265 = getelementptr inbounds nuw i8, ptr %334, i64 1522
   %2266 = call i32 @unpack16(ptr noundef nonnull %2265, ptr noundef %1) #7
   %.not1962 = icmp eq i32 %2266, 0
-  br i1 %.not1962, label %2267, label %.thread2711
+  br i1 %.not1962, label %2267, label %.thread2710
 
 2267:                                             ; preds = %2264
   call void @llvm.lifetime.start.p0(ptr nonnull %333)
@@ -27909,14 +27909,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   %2269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %2268, ptr noundef nonnull %333, ptr noundef %1) #7
   %.not1963 = icmp eq i32 %2269, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %333)
-  br i1 %.not1963, label %.thread2714, label %.thread2711
+  br i1 %.not1963, label %.thread2713, label %.thread2710
 
-.thread2714:                                      ; preds = %2267
+.thread2713:                                      ; preds = %2267
   call void @llvm.lifetime.end.p0(ptr nonnull %217)
   call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %2272
 
-.thread2711:                                      ; preds = %1943, %1940, %1928, %1762, %1709, %1605, %1607, %1622, %1634, %1646, %1664, %1667, %1679, %1691, %1694, %1697, %1701, %1704, %1710, %1713, %1719, %1722, %1728, %1731, %1743, %1755, %1763, %1768, %1771, %1774, %1780, %1783, %1789, %1791, %1794, %1800, %1824, %1836, %1839, %1842, %1848, %1851, %1860, %1863, %1866, %1869, %1878, %1881, %1884, %1887, %1890, %1893, %1902, %1905, %1914, %1917, %1920, %1929, %1944, %1953, %1962, %1965, %1968, %1971, %1974, %1980, %1986, %1989, %1992, %1995, %1998, %2001, %2007, %2022, %2034, %2037, %2049, %2064, %2067, %2073, %2079, %2088, %2091, %2103, %2106, %2112, %2118, %2127, %2139, %2142, %2151, %2154, %2157, %2169, %2175, %2178, %2184, %2188, %2210, %2213, %2216, %2234, %2237, %2249, %2255, %2261, %2264, %2267
+.thread2710:                                      ; preds = %1943, %1940, %1928, %1762, %1709, %1605, %1607, %1622, %1634, %1646, %1664, %1667, %1679, %1691, %1694, %1697, %1701, %1704, %1710, %1713, %1719, %1722, %1728, %1731, %1743, %1755, %1763, %1768, %1771, %1774, %1780, %1783, %1789, %1791, %1794, %1800, %1824, %1836, %1839, %1842, %1848, %1851, %1860, %1863, %1866, %1869, %1878, %1881, %1884, %1887, %1890, %1893, %1902, %1905, %1914, %1917, %1920, %1929, %1944, %1953, %1962, %1965, %1968, %1971, %1974, %1980, %1986, %1989, %1992, %1995, %1998, %2001, %2007, %2022, %2034, %2037, %2049, %2064, %2067, %2073, %2079, %2088, %2091, %2103, %2106, %2112, %2118, %2127, %2139, %2142, %2151, %2154, %2157, %2169, %2175, %2178, %2184, %2188, %2210, %2213, %2216, %2234, %2237, %2249, %2255, %2261, %2264, %2267
   call void @llvm.lifetime.end.p0(ptr nonnull %217)
   call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %2271
@@ -27926,13 +27926,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %2271
 
-2271:                                             ; preds = %2270, %.thread2711, %1274, %1600, %1591, %1585, %1579, %1576, %1573, %1570, %1561, %1558, %1555, %1552, %1549, %1537, %1534, %1531, %1528, %1525, %1522, %1511, %1502, %1496, %1493, %1490, %1478, %1475, %1466, %1463, %1460, %1454, %1451, %1445, %1439, %1430, %1427, %1424, %1415, %1412, %1406, %1400, %1391, %1388, %1385, %1382, %1376, %1373, %1370, %1350, %1344, %1323, %1317, %1299, %1296, %1290, %1287, %1281, %1278, %1269, %1257, %1254, %1245, %1242, %1221, %1218, %1203, %1200, %1191, %1179, %1176, %1173, %1167, %1164, %1161, %1158, %1155, %1152, %1149, %1143, %1132, %1129, %1120, %1108, %1088, %1079, %1054, %1051, %1048, %1042, %1039, %1036, %1027, %1024, %1021, %1018, %1015, %1009, %1006, %1003, %997, %994, %991, %985, %982, %979, %976, %966, %957, %951, %945, %942, %939, %936, %927, %924, %921, %918, %915, %903, %900, %897, %894, %891, %888, %877, %868, %862, %859, %856, %844, %841, %832, %829, %826, %820, %817, %811, %805, %796, %793, %790, %781, %778, %772, %766, %757, %754, %751, %748, %742, %739, %736, %716, %710, %689, %683, %665, %662, %656, %653, %647, %644, %638, %626, %623, %614, %611, %590, %587, %572, %569, %560, %548, %545, %542, %536, %533, %530, %527, %524, %521, %518, %512, %501, %498, %489, %477, %457, %448, %445, %420, %417, %414, %408, %405, %402, %393, %390, %387, %384, %381, %375, %372, %369, %363, %360, %357, %351, %348, %345, %342, %1597, %1594, %1588, %1582, %1567, %1564, %1546, %1543, %1540, %1518, %1514, %1508, %1505, %1499, %1487, %1484, %1481, %1472, %1469, %1457, %1448, %1442, %1436, %1433, %1421, %1418, %1409, %1403, %1397, %1394, %1379, %1367, %1364, %1360, %1357, %1353, %1347, %1341, %1338, %1335, %1332, %1329, %1326, %1320, %1314, %1311, %1308, %1305, %1302, %1293, %1284, %1275, %1266, %1263, %1260, %1251, %1248, %1239, %1236, %1233, %1230, %1227, %1224, %1215, %1212, %1209, %1206, %1197, %1194, %1188, %1185, %1182, %1170, %1146, %1140, %1137, %1135, %1126, %1123, %1117, %1114, %1111, %1104, %1101, %1097, %1094, %1091, %1085, %1082, %1076, %1073, %1070, %1067, %1063, %1060, %1057, %1045, %1033, %1030, %1012, %1000, %988, %973, %971, %963, %960, %954, %948, %933, %930, %912, %909, %906, %884, %880, %874, %871, %865, %853, %850, %847, %838, %835, %823, %814, %808, %802, %799, %787, %784, %775, %769, %763, %760, %745, %733, %730, %726, %723, %719, %713, %707, %704, %701, %698, %695, %692, %686, %680, %677, %674, %671, %668, %659, %650, %641, %635, %632, %629, %620, %617, %608, %605, %602, %599, %596, %593, %584, %581, %578, %575, %566, %563, %557, %554, %551, %539, %515, %509, %506, %504, %495, %492, %486, %483, %480, %473, %470, %466, %463, %460, %454, %451, %442, %439, %436, %433, %429, %426, %423, %411, %399, %396, %378, %366, %354, %339, %337
+2271:                                             ; preds = %2270, %.thread2710, %1274, %1600, %1591, %1585, %1579, %1576, %1573, %1570, %1561, %1558, %1555, %1552, %1549, %1537, %1534, %1531, %1528, %1525, %1522, %1511, %1502, %1496, %1493, %1490, %1478, %1475, %1466, %1463, %1460, %1454, %1451, %1445, %1439, %1430, %1427, %1424, %1415, %1412, %1406, %1400, %1391, %1388, %1385, %1382, %1376, %1373, %1370, %1350, %1344, %1323, %1317, %1299, %1296, %1290, %1287, %1281, %1278, %1269, %1257, %1254, %1245, %1242, %1221, %1218, %1203, %1200, %1191, %1179, %1176, %1173, %1167, %1164, %1161, %1158, %1155, %1152, %1149, %1143, %1132, %1129, %1120, %1108, %1088, %1079, %1054, %1051, %1048, %1042, %1039, %1036, %1027, %1024, %1021, %1018, %1015, %1009, %1006, %1003, %997, %994, %991, %985, %982, %979, %976, %966, %957, %951, %945, %942, %939, %936, %927, %924, %921, %918, %915, %903, %900, %897, %894, %891, %888, %877, %868, %862, %859, %856, %844, %841, %832, %829, %826, %820, %817, %811, %805, %796, %793, %790, %781, %778, %772, %766, %757, %754, %751, %748, %742, %739, %736, %716, %710, %689, %683, %665, %662, %656, %653, %647, %644, %638, %626, %623, %614, %611, %590, %587, %572, %569, %560, %548, %545, %542, %536, %533, %530, %527, %524, %521, %518, %512, %501, %498, %489, %477, %457, %448, %445, %420, %417, %414, %408, %405, %402, %393, %390, %387, %384, %381, %375, %372, %369, %363, %360, %357, %351, %348, %345, %342, %1597, %1594, %1588, %1582, %1567, %1564, %1546, %1543, %1540, %1518, %1514, %1508, %1505, %1499, %1487, %1484, %1481, %1472, %1469, %1457, %1448, %1442, %1436, %1433, %1421, %1418, %1409, %1403, %1397, %1394, %1379, %1367, %1364, %1360, %1357, %1353, %1347, %1341, %1338, %1335, %1332, %1329, %1326, %1320, %1314, %1311, %1308, %1305, %1302, %1293, %1284, %1275, %1266, %1263, %1260, %1251, %1248, %1239, %1236, %1233, %1230, %1227, %1224, %1215, %1212, %1209, %1206, %1197, %1194, %1188, %1185, %1182, %1170, %1146, %1140, %1137, %1135, %1126, %1123, %1117, %1114, %1111, %1104, %1101, %1097, %1094, %1091, %1085, %1082, %1076, %1073, %1070, %1067, %1063, %1060, %1057, %1045, %1033, %1030, %1012, %1000, %988, %973, %971, %963, %960, %954, %948, %933, %930, %912, %909, %906, %884, %880, %874, %871, %865, %853, %850, %847, %838, %835, %823, %814, %808, %802, %799, %787, %784, %775, %769, %763, %760, %745, %733, %730, %726, %723, %719, %713, %707, %704, %701, %698, %695, %692, %686, %680, %677, %674, %671, %668, %659, %650, %641, %635, %632, %629, %620, %617, %608, %605, %602, %599, %596, %593, %584, %581, %578, %575, %566, %563, %557, %554, %551, %539, %515, %509, %506, %504, %495, %492, %486, %483, %480, %473, %470, %466, %463, %460, %454, %451, %442, %439, %436, %433, %429, %426, %423, %411, %399, %396, %378, %366, %354, %339, %337
   call void @slurm_free_ctl_conf(ptr noundef nonnull %334) #7
   store ptr null, ptr %0, align 8
   br label %2272
 
-2272:                                             ; preds = %.thread2714, %1600, %966, %1603, %2271
-  %.01744 = phi i32 [ -1, %2271 ], [ 0, %1600 ], [ 0, %1603 ], [ 0, %966 ], [ 0, %.thread2714 ]
+2272:                                             ; preds = %.thread2713, %1600, %966, %1603, %2271
+  %.01744 = phi i32 [ -1, %2271 ], [ 0, %1600 ], [ 0, %1603 ], [ 0, %966 ], [ 0, %.thread2713 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.01744
 }
@@ -28203,16 +28203,16 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load i32, ptr %62, align 8
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph
+  %.not45 = icmp eq i32 %63, 0
+  br i1 %.not45, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
   %64 = icmp ugt i16 %2, 10495
   br i1 %64, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %201
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %201 ], [ 0, %.lr.ph ]
-  %65 = getelementptr inbounds nuw %struct.partition_info, ptr %61, i64 %indvars.iv57
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %201 ], [ 0, %.lr.ph ]
+  %65 = getelementptr inbounds nuw %struct.partition_info, ptr %61, i64 %indvars.iv56
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 152
   %67 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %66, ptr noundef nonnull %4, ptr noundef %1) #7
@@ -28455,7 +28455,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %172 = call i32 @unpack32(ptr noundef nonnull %17, ptr noundef %1) #7
   %.not294.i.us = icmp eq i32 %172, 0
-  br i1 %.not294.i.us, label %173, label %.thread337.i
+  br i1 %.not294.i.us, label %173, label %.thread336.i
 
 173:                                              ; preds = %171
   %174 = load i32, ptr %17, align 4
@@ -28467,7 +28467,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %176 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef %1) #7
   %.not296.i.us = icmp eq i32 %176, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %.not296.i.us, label %177, label %.thread337.i
+  br i1 %.not296.i.us, label %177, label %.thread336.i
 
 177:                                              ; preds = %175
   %178 = load i32, ptr %17, align 4
@@ -28489,7 +28489,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
 
 185:                                              ; preds = %184, %179
   call void @slurm_xfree(ptr noundef nonnull %16) #7
-  %.pre361.i.us = load ptr, ptr %15, align 8
+  %.pre357.i.us = load ptr, ptr %15, align 8
   br label %.thread.i.us
 
 186:                                              ; preds = %173
@@ -28497,7 +28497,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   br label %.thread.i.us
 
 .thread.i.us:                                     ; preds = %186, %185
-  %187 = phi ptr [ null, %186 ], [ %.pre361.i.us, %185 ]
+  %187 = phi ptr [ null, %186 ], [ %.pre357.i.us, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %188 = call ptr @bitstr2inx(ptr noundef %187) #7
@@ -28535,16 +28535,16 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   br i1 %.not303.i.us, label %201, label %_unpack_partition_info_members.exit
 
 201:                                              ; preds = %198
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %202 = load ptr, ptr %0, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load i32, ptr %203, align 8
   %205 = zext i32 %204 to i64
-  %206 = icmp samesign ult i64 %indvars.iv.next58, %205
+  %206 = icmp samesign ult i64 %indvars.iv.next57, %205
   br i1 %206, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !62
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.thread358.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread358.i ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.thread355.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread355.i ], [ 0, %.lr.ph ]
   %207 = getelementptr inbounds nuw %struct.partition_info, ptr %61, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -28566,9 +28566,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
 212:                                              ; preds = %211, %.split.us
   store ptr null, ptr %15, align 8
   call void @slurm_xfree(ptr noundef nonnull %16) #7
-  br label %.thread337.i
+  br label %.thread336.i
 
-.thread337.i:                                     ; preds = %175, %171, %212
+.thread336.i:                                     ; preds = %175, %171, %212
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -28588,78 +28588,78 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %219 = getelementptr inbounds nuw i8, ptr %207, i64 60
   %220 = call i32 @unpack32(ptr noundef nonnull %219, ptr noundef %1) #7
   %.not217.i = icmp eq i32 %220, 0
-  br i1 %.not217.i, label %221, label %.thread355.i
+  br i1 %.not217.i, label %221, label %.thread353.i
 
 221:                                              ; preds = %218
   %222 = getelementptr inbounds nuw i8, ptr %207, i64 100
   %223 = call i32 @unpack32(ptr noundef nonnull %222, ptr noundef %1) #7
   %.not218.i = icmp eq i32 %223, 0
-  br i1 %.not218.i, label %224, label %.thread355.i
+  br i1 %.not218.i, label %224, label %.thread353.i
 
 224:                                              ; preds = %221
   %225 = getelementptr inbounds nuw i8, ptr %207, i64 144
   %226 = call i32 @unpack32(ptr noundef nonnull %225, ptr noundef %1) #7
   %.not219.i = icmp eq i32 %226, 0
-  br i1 %.not219.i, label %227, label %.thread355.i
+  br i1 %.not219.i, label %227, label %.thread353.i
 
 227:                                              ; preds = %224
   %228 = getelementptr inbounds nuw i8, ptr %207, i64 72
   %229 = call i32 @unpack32(ptr noundef nonnull %228, ptr noundef %1) #7
   %.not220.i = icmp eq i32 %229, 0
-  br i1 %.not220.i, label %230, label %.thread355.i
+  br i1 %.not220.i, label %230, label %.thread353.i
 
 230:                                              ; preds = %227
   %231 = getelementptr inbounds nuw i8, ptr %207, i64 136
   %232 = call i32 @unpack32(ptr noundef nonnull %231, ptr noundef %1) #7
   %.not221.i = icmp eq i32 %232, 0
-  br i1 %.not221.i, label %233, label %.thread355.i
+  br i1 %.not221.i, label %233, label %.thread353.i
 
 233:                                              ; preds = %230
   %234 = getelementptr inbounds nuw i8, ptr %207, i64 148
   %235 = call i32 @unpack32(ptr noundef nonnull %234, ptr noundef %1) #7
   %.not222.i = icmp eq i32 %235, 0
-  br i1 %.not222.i, label %236, label %.thread355.i
+  br i1 %.not222.i, label %236, label %.thread353.i
 
 236:                                              ; preds = %233
   %237 = getelementptr inbounds nuw i8, ptr %207, i64 216
   %238 = call i32 @unpack32(ptr noundef nonnull %237, ptr noundef %1) #7
   %.not223.i = icmp eq i32 %238, 0
-  br i1 %.not223.i, label %239, label %.thread355.i
+  br i1 %.not223.i, label %239, label %.thread353.i
 
 239:                                              ; preds = %236
   %240 = getelementptr inbounds nuw i8, ptr %207, i64 212
   %241 = call i32 @unpack32(ptr noundef nonnull %240, ptr noundef %1) #7
   %.not224.i = icmp eq i32 %241, 0
-  br i1 %.not224.i, label %242, label %.thread355.i
+  br i1 %.not224.i, label %242, label %.thread353.i
 
 242:                                              ; preds = %239
   %243 = getelementptr inbounds nuw i8, ptr %207, i64 64
   %244 = call i32 @unpack64(ptr noundef nonnull %243, ptr noundef %1) #7
   %.not225.i = icmp eq i32 %244, 0
-  br i1 %.not225.i, label %245, label %.thread355.i
+  br i1 %.not225.i, label %245, label %.thread353.i
 
 245:                                              ; preds = %242
   %246 = getelementptr inbounds nuw i8, ptr %207, i64 120
   %247 = call i32 @unpack32(ptr noundef nonnull %246, ptr noundef %1) #7
   %.not226.i = icmp eq i32 %247, 0
-  br i1 %.not226.i, label %248, label %.thread355.i
+  br i1 %.not226.i, label %248, label %.thread353.i
 
 248:                                              ; preds = %245
   %249 = getelementptr inbounds nuw i8, ptr %207, i64 124
   %250 = call i32 @unpack32(ptr noundef nonnull %249, ptr noundef %1) #7
   %.not227.i = icmp eq i32 %250, 0
-  br i1 %.not227.i, label %251, label %.thread355.i
+  br i1 %.not227.i, label %251, label %.thread353.i
 
 251:                                              ; preds = %248
   %252 = getelementptr inbounds nuw i8, ptr %207, i64 128
   %253 = call i32 @unpack64(ptr noundef nonnull %252, ptr noundef %1) #7
   %.not228.i = icmp eq i32 %253, 0
-  br i1 %.not228.i, label %254, label %.thread355.i
+  br i1 %.not228.i, label %254, label %.thread353.i
 
 254:                                              ; preds = %251
   %255 = call i32 @unpack16(ptr noundef nonnull %21, ptr noundef %1) #7
   %.not229.i = icmp eq i32 %255, 0
-  br i1 %.not229.i, label %256, label %.thread355.i
+  br i1 %.not229.i, label %256, label %.thread353.i
 
 256:                                              ; preds = %254
   %257 = load i16, ptr %21, align 2
@@ -28669,61 +28669,61 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %260 = getelementptr inbounds nuw i8, ptr %207, i64 140
   %261 = call i32 @unpack16(ptr noundef nonnull %260, ptr noundef %1) #7
   %.not230.i = icmp eq i32 %261, 0
-  br i1 %.not230.i, label %262, label %.thread355.i
+  br i1 %.not230.i, label %262, label %.thread353.i
 
 262:                                              ; preds = %256
   %263 = getelementptr inbounds nuw i8, ptr %207, i64 184
   %264 = call i32 @unpack16(ptr noundef nonnull %263, ptr noundef %1) #7
   %.not231.i = icmp eq i32 %264, 0
-  br i1 %.not231.i, label %265, label %.thread355.i
+  br i1 %.not231.i, label %265, label %.thread353.i
 
 265:                                              ; preds = %262
   %266 = getelementptr inbounds nuw i8, ptr %207, i64 186
   %267 = call i32 @unpack16(ptr noundef nonnull %266, ptr noundef %1) #7
   %.not232.i = icmp eq i32 %267, 0
-  br i1 %.not232.i, label %268, label %.thread355.i
+  br i1 %.not232.i, label %268, label %.thread353.i
 
 268:                                              ; preds = %265
   %269 = getelementptr inbounds nuw i8, ptr %207, i64 188
   %270 = call i32 @unpack16(ptr noundef nonnull %269, ptr noundef %1) #7
   %.not233.i = icmp eq i32 %270, 0
-  br i1 %.not233.i, label %271, label %.thread355.i
+  br i1 %.not233.i, label %271, label %.thread353.i
 
 271:                                              ; preds = %268
   %272 = getelementptr inbounds nuw i8, ptr %207, i64 190
   %273 = call i32 @unpack16(ptr noundef nonnull %272, ptr noundef %1) #7
   %.not234.i = icmp eq i32 %273, 0
-  br i1 %.not234.i, label %274, label %.thread355.i
+  br i1 %.not234.i, label %274, label %.thread353.i
 
 274:                                              ; preds = %271
   %275 = getelementptr inbounds nuw i8, ptr %207, i64 202
   %276 = call i32 @unpack16(ptr noundef nonnull %275, ptr noundef %1) #7
   %.not235.i = icmp eq i32 %276, 0
-  br i1 %.not235.i, label %277, label %.thread355.i
+  br i1 %.not235.i, label %277, label %.thread353.i
 
 277:                                              ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %207, i64 56
   %279 = call i32 @unpack16(ptr noundef nonnull %278, ptr noundef %1) #7
   %.not236.i = icmp eq i32 %279, 0
-  br i1 %.not236.i, label %280, label %.thread355.i
+  br i1 %.not236.i, label %280, label %.thread353.i
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds nuw i8, ptr %207, i64 200
   %282 = call i32 @unpack16(ptr noundef nonnull %281, ptr noundef %1) #7
   %.not237.i = icmp eq i32 %282, 0
-  br i1 %.not237.i, label %283, label %.thread355.i
+  br i1 %.not237.i, label %283, label %.thread353.i
 
 283:                                              ; preds = %280
   %284 = getelementptr inbounds nuw i8, ptr %207, i64 208
   %285 = call i32 @unpack16(ptr noundef nonnull %284, ptr noundef %1) #7
   %.not238.i = icmp eq i32 %285, 0
-  br i1 %.not238.i, label %286, label %.thread355.i
+  br i1 %.not238.i, label %286, label %.thread353.i
 
 286:                                              ; preds = %283
   %287 = getelementptr inbounds nuw i8, ptr %207, i64 204
   %288 = call i32 @unpack32(ptr noundef nonnull %287, ptr noundef %1) #7
   %.not239.i = icmp eq i32 %288, 0
-  br i1 %.not239.i, label %289, label %.thread355.i
+  br i1 %.not239.i, label %289, label %.thread353.i
 
 289:                                              ; preds = %286
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -28812,7 +28812,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %319 = call i32 @unpack32(ptr noundef nonnull %35, ptr noundef %1) #7
   %.not250.i = icmp eq i32 %319, 0
-  br i1 %.not250.i, label %320, label %.thread348.i
+  br i1 %.not250.i, label %320, label %.thread346.i
 
 320:                                              ; preds = %318
   %321 = load i32, ptr %35, align 4
@@ -28824,7 +28824,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %323 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %34, ptr noundef nonnull %36, ptr noundef %1) #7
   %.not252.i = icmp eq i32 %323, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br i1 %.not252.i, label %324, label %.thread348.i
+  br i1 %.not252.i, label %324, label %.thread346.i
 
 324:                                              ; preds = %322
   %325 = load i32, ptr %35, align 4
@@ -28852,7 +28852,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
 334:                                              ; preds = %333, %331
   store ptr null, ptr %33, align 8
   call void @slurm_xfree(ptr noundef nonnull %34) #7
-  br label %.thread348.i
+  br label %.thread346.i
 
 335:                                              ; preds = %324
   store ptr null, ptr %33, align 8
@@ -28861,13 +28861,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
 336:                                              ; preds = %335, %326
   call void @slurm_xfree(ptr noundef nonnull %34) #7
   %.pre.i = load ptr, ptr %33, align 8
-  br label %.thread344.i
+  br label %.thread342.i
 
 337:                                              ; preds = %320
   store ptr null, ptr %33, align 8
-  br label %.thread344.i
+  br label %.thread342.i
 
-.thread344.i:                                     ; preds = %337, %336
+.thread342.i:                                     ; preds = %337, %336
   %338 = phi ptr [ null, %337 ], [ %.pre.i, %336 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
@@ -28878,17 +28878,17 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %.not256.i = icmp eq ptr %341, null
   br i1 %.not256.i, label %343, label %342
 
-342:                                              ; preds = %.thread344.i
+342:                                              ; preds = %.thread342.i
   call void @slurm_bit_free(ptr noundef nonnull %33) #7
   br label %343
 
-.thread348.i:                                     ; preds = %322, %318, %334
+.thread346.i:                                     ; preds = %322, %318, %334
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br label %.thread355.i
+  br label %.thread353.i
 
-343:                                              ; preds = %342, %.thread344.i
+343:                                              ; preds = %342, %.thread342.i
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %344 = getelementptr inbounds nuw i8, ptr %207, i64 40
@@ -28909,9 +28909,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %350 = getelementptr inbounds nuw i8, ptr %207, i64 104
   %351 = call i32 @slurm_unpack_list(ptr noundef nonnull %350, ptr noundef nonnull @job_defaults_unpack, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2)
   %.not259.i = icmp eq i32 %351, 0
-  br i1 %.not259.i, label %.thread358.i, label %.thread355.i
+  br i1 %.not259.i, label %.thread355.i, label %.thread353.i
 
-.thread358.i:                                     ; preds = %349
+.thread355.i:                                     ; preds = %349
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %352 = load ptr, ptr %0, align 8
@@ -28921,7 +28921,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   %356 = icmp samesign ult i64 %indvars.iv.next, %355
   br i1 %356, label %.lr.ph.split, label %.loopexit, !llvm.loop !62
 
-.thread355.i:                                     ; preds = %349, %286, %283, %280, %277, %274, %271, %268, %265, %262, %256, %254, %251, %248, %245, %242, %239, %236, %233, %230, %227, %224, %221, %218, %.thread348.i
+.thread353.i:                                     ; preds = %349, %286, %283, %280, %277, %274, %271, %268, %265, %262, %256, %254, %251, %248, %245, %242, %239, %236, %233, %230, %227, %224, %221, %218, %.thread346.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_unpack_partition_info_members.exit
 
@@ -28929,8 +28929,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_unpack_partition_info_members.exit
 
-_unpack_partition_info_members.exit:              ; preds = %198, %195, %192, %168, %165, %162, %159, %156, %153, %150, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %.lr.ph.split.us, %.thread337.i, %.thread355.i, %357
-  %358 = phi ptr [ %65, %.thread337.i ], [ %207, %.thread355.i ], [ %207, %357 ], [ %65, %.lr.ph.split.us ], [ %65, %73 ], [ %65, %76 ], [ %65, %79 ], [ %65, %82 ], [ %65, %85 ], [ %65, %88 ], [ %65, %91 ], [ %65, %94 ], [ %65, %97 ], [ %65, %100 ], [ %65, %103 ], [ %65, %106 ], [ %65, %109 ], [ %65, %112 ], [ %65, %115 ], [ %65, %118 ], [ %65, %121 ], [ %65, %124 ], [ %65, %127 ], [ %65, %130 ], [ %65, %133 ], [ %65, %136 ], [ %65, %139 ], [ %65, %142 ], [ %65, %145 ], [ %65, %148 ], [ %65, %150 ], [ %65, %153 ], [ %65, %156 ], [ %65, %159 ], [ %65, %162 ], [ %65, %165 ], [ %65, %168 ], [ %65, %192 ], [ %65, %195 ], [ %65, %198 ]
+_unpack_partition_info_members.exit:              ; preds = %198, %195, %192, %168, %165, %162, %159, %156, %153, %150, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %.lr.ph.split.us, %.thread336.i, %.thread353.i, %357
+  %358 = phi ptr [ %65, %.thread336.i ], [ %207, %.thread353.i ], [ %207, %357 ], [ %65, %.lr.ph.split.us ], [ %65, %73 ], [ %65, %76 ], [ %65, %79 ], [ %65, %82 ], [ %65, %85 ], [ %65, %88 ], [ %65, %91 ], [ %65, %94 ], [ %65, %97 ], [ %65, %100 ], [ %65, %103 ], [ %65, %106 ], [ %65, %109 ], [ %65, %112 ], [ %65, %115 ], [ %65, %118 ], [ %65, %121 ], [ %65, %124 ], [ %65, %127 ], [ %65, %130 ], [ %65, %133 ], [ %65, %136 ], [ %65, %139 ], [ %65, %142 ], [ %65, %145 ], [ %65, %148 ], [ %65, %150 ], [ %65, %153 ], [ %65, %156 ], [ %65, %159 ], [ %65, %162 ], [ %65, %165 ], [ %65, %168 ], [ %65, %192 ], [ %65, %195 ], [ %65, %198 ]
   call void @slurm_free_partition_info_members(ptr noundef nonnull %358) #7
   br label %359
 
@@ -28940,8 +28940,8 @@ _unpack_partition_info_members.exit:              ; preds = %198, %195, %192, %1
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread358.i, %201, %58, %3, %359
-  %.025 = phi i32 [ -1, %359 ], [ 0, %3 ], [ 0, %58 ], [ 0, %201 ], [ 0, %.thread358.i ]
+.loopexit:                                        ; preds = %.thread355.i, %201, %58, %3, %359
+  %.025 = phi i32 [ -1, %359 ], [ 0, %3 ], [ 0, %58 ], [ 0, %201 ], [ 0, %.thread355.i ]
   ret i32 %.025
 }
 
@@ -28962,12 +28962,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = tail call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #7
   %.not64 = icmp eq i32 %12, 0
-  br i1 %.not64, label %13, label %.thread92
+  br i1 %.not64, label %13, label %.thread88
 
 13:                                               ; preds = %10
   %14 = tail call i32 @unpack_time(ptr noundef nonnull %8, ptr noundef %1) #7
   %.not65 = icmp eq i32 %14, 0
-  br i1 %.not65, label %15, label %.thread92
+  br i1 %.not65, label %15, label %.thread88
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -28975,7 +28975,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #7
   %.not66 = icmp eq i32 %16, 0
-  br i1 %.not66, label %17, label %.thread92.sink.split
+  br i1 %.not66, label %17, label %.thread88.sink.split
 
 17:                                               ; preds = %15
   %18 = load i32, ptr %6, align 4
@@ -28987,7 +28987,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   %20 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef %1) #7
   %.not68 = icmp eq i32 %20, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not68, label %21, label %.thread92.sink.split
+  br i1 %.not68, label %21, label %.thread88.sink.split
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %6, align 4
@@ -29015,7 +29015,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
 31:                                               ; preds = %30, %28
   store ptr null, ptr %4, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #7
-  br label %.thread92.sink.split
+  br label %.thread88.sink.split
 
 32:                                               ; preds = %21
   store ptr null, ptr %4, align 8
@@ -29034,9 +29034,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = load i32, ptr %11, align 8
   %.not72 = icmp eq i32 %35, 0
-  br i1 %.not72, label %.thread117, label %37
+  br i1 %.not72, label %.thread111, label %37
 
-.thread117:                                       ; preds = %.thread
+.thread111:                                       ; preds = %.thread
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %36, align 8
   br label %._crit_edge
@@ -29047,43 +29047,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %39, ptr %40, align 8
   %.not73 = icmp eq ptr %39, null
-  br i1 %.not73, label %.thread92, label %41
+  br i1 %.not73, label %.thread88, label %41
 
 41:                                               ; preds = %37
-  %.pre111 = load i32, ptr %11, align 8
-  %42 = icmp eq i32 %.pre111, 0
-  br i1 %42, label %._crit_edge, label %.lr.ph101
+  %.pre105 = load i32, ptr %11, align 8
+  %42 = icmp eq i32 %.pre105, 0
+  br i1 %42, label %._crit_edge, label %.lr.ph95
 
-.lr.ph101:                                        ; preds = %41
+.lr.ph95:                                         ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %44
 
-44:                                               ; preds = %.lr.ph101, %52
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next107, %52 ]
+44:                                               ; preds = %.lr.ph95, %52
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next101, %52 ]
   %45 = load ptr, ptr %4, align 8
   %.not75 = icmp eq ptr %45, null
   br i1 %.not75, label %48, label %46
 
 46:                                               ; preds = %44
-  %47 = call i32 @slurm_bit_test(ptr noundef nonnull %45, i64 noundef %indvars.iv106) #7
+  %47 = call i32 @slurm_bit_test(ptr noundef nonnull %45, i64 noundef %indvars.iv100) #7
   %.not76 = icmp eq i32 %47, 0
   br i1 %.not76, label %48, label %52
 
 48:                                               ; preds = %46, %44
   %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr inbounds nuw %struct.node_info, ptr %49, i64 %indvars.iv106
+  %50 = getelementptr inbounds nuw %struct.node_info, ptr %49, i64 %indvars.iv100
   %51 = call fastcc i32 @_unpack_node_info_members(ptr noundef %50, ptr noundef %1, i16 noundef zeroext %2)
   %.not77 = icmp eq i32 %51, 0
-  br i1 %.not77, label %52, label %.thread92
+  br i1 %.not77, label %52, label %.thread88
 
 52:                                               ; preds = %46, %48
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %53 = load i32, ptr %11, align 8
   %54 = zext i32 %53 to i64
-  %55 = icmp samesign ult i64 %indvars.iv.next107, %54
+  %55 = icmp samesign ult i64 %indvars.iv.next101, %54
   br i1 %55, label %44, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %52, %.thread117, %41
+._crit_edge:                                      ; preds = %52, %.thread111, %41
   %56 = load ptr, ptr %4, align 8
   %.not74 = icmp eq ptr %56, null
   br i1 %.not74, label %.loopexit, label %57
@@ -29100,19 +29100,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %62 = tail call i32 @unpack32(ptr noundef nonnull %61, ptr noundef %1) #7
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %63, label %.thread92
+  br i1 %.not, label %63, label %.thread88
 
 63:                                               ; preds = %60
   %64 = tail call i32 @unpack_time(ptr noundef nonnull %8, ptr noundef %1) #7
   %.not60 = icmp eq i32 %64, 0
-  br i1 %.not60, label %65, label %.thread92
+  br i1 %.not60, label %65, label %.thread88
 
 65:                                               ; preds = %63
   %66 = load i32, ptr %61, align 8
   %.not61 = icmp eq i32 %66, 0
-  br i1 %.not61, label %.thread119, label %68
+  br i1 %.not61, label %.thread113, label %68
 
-.thread119:                                       ; preds = %65
+.thread113:                                       ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %67, align 8
   br label %.loopexit
@@ -29123,7 +29123,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %70, ptr %71, align 8
   %.not62 = icmp eq ptr %70, null
-  br i1 %.not62, label %.thread92, label %72
+  br i1 %.not62, label %.thread88, label %72
 
 72:                                               ; preds = %68
   %.pre = load i32, ptr %61, align 8
@@ -29147,30 +29147,30 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   %81 = getelementptr inbounds nuw %struct.node_info, ptr %80, i64 %indvars.iv
   %82 = tail call fastcc i32 @_unpack_node_info_members(ptr noundef %81, ptr noundef %1, i16 noundef zeroext %2)
   %.not63 = icmp eq i32 %82, 0
-  br i1 %.not63, label %75, label %.thread92
+  br i1 %.not63, label %75, label %.thread88
 
-.thread92.sink.split:                             ; preds = %19, %15, %31
+.thread88.sink.split:                             ; preds = %19, %15, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread92
+  br label %.thread88
 
-.thread92:                                        ; preds = %79, %48, %.thread92.sink.split, %68, %37, %10, %13, %60, %63
+.thread88:                                        ; preds = %79, %48, %.thread88.sink.split, %68, %37, %10, %13, %60, %63
   %83 = load ptr, ptr %4, align 8
   %.not78 = icmp eq ptr %83, null
   br i1 %.not78, label %85, label %84
 
-84:                                               ; preds = %.thread92
+84:                                               ; preds = %.thread88
   call void @slurm_bit_free(ptr noundef nonnull %4) #7
   br label %85
 
-85:                                               ; preds = %84, %.thread92
+85:                                               ; preds = %84, %.thread88
   store ptr null, ptr %4, align 8
   call void @slurm_free_node_info_msg(ptr noundef nonnull %8) #7
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %75, %._crit_edge, %57, %.thread119, %72, %58, %85
-  %.0 = phi i32 [ -1, %85 ], [ 0, %58 ], [ 0, %72 ], [ 0, %.thread119 ], [ 0, %57 ], [ 0, %._crit_edge ], [ 0, %75 ]
+.loopexit:                                        ; preds = %75, %._crit_edge, %57, %.thread113, %72, %58, %85
+  %.0 = phi i32 [ -1, %85 ], [ 0, %58 ], [ 0, %72 ], [ 0, %.thread113 ], [ 0, %57 ], [ 0, %._crit_edge ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -29375,10 +29375,10 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_ms
   %97 = load i32, ptr %94, align 8
   switch i32 %97, label %99 [
     i32 -1, label %.thread
-    i32 0, label %.thread164
+    i32 0, label %.thread163
   ]
 
-.thread164:                                       ; preds = %96
+.thread163:                                       ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %20, i64 192
   store ptr null, ptr %98, align 8
   br label %._crit_edge
@@ -29415,7 +29415,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_ms
   %.not142 = icmp eq i32 %113, 0
   br i1 %.not142, label %106, label %.thread
 
-._crit_edge:                                      ; preds = %106, %.thread164, %103
+._crit_edge:                                      ; preds = %106, %.thread163, %103
   %114 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %115 = call i32 @unpack16(ptr noundef nonnull %114, ptr noundef %1) #7
   %.not132 = icmp eq i32 %115, 0
@@ -31475,9 +31475,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %936 = getelementptr inbounds nuw i8, ptr %549, i64 820
   %937 = call i32 @unpack16(ptr noundef nonnull %936, ptr noundef nonnull %1) #7
   %.not1299 = icmp eq i32 %937, 0
-  br i1 %.not1299, label %.thread1578, label %.thread
+  br i1 %.not1299, label %.thread1576, label %.thread
 
-.thread1578:                                      ; preds = %935
+.thread1576:                                      ; preds = %935
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1327
 
@@ -31500,7 +31500,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %943 = getelementptr inbounds nuw i8, ptr %942, i64 628
   %944 = tail call i32 @unpack32(ptr noundef nonnull %943, ptr noundef %1) #7
   %.not = icmp eq i32 %944, 0
-  br i1 %.not, label %945, label %.thread1583
+  br i1 %.not, label %945, label %.thread1580
 
 945:                                              ; preds = %941
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
@@ -31530,7 +31530,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %955 = getelementptr inbounds nuw i8, ptr %942, i64 128
   %956 = call i32 @unpack16(ptr noundef nonnull %955, ptr noundef %1) #7
   %.not1058 = icmp eq i32 %956, 0
-  br i1 %.not1058, label %957, label %.thread1583
+  br i1 %.not1058, label %957, label %.thread1580
 
 957:                                              ; preds = %954
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
@@ -31552,19 +31552,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %964 = getelementptr inbounds nuw i8, ptr %942, i64 152
   %965 = call i32 @unpack16(ptr noundef nonnull %964, ptr noundef %1) #7
   %.not1061 = icmp eq i32 %965, 0
-  br i1 %.not1061, label %966, label %.thread1583
+  br i1 %.not1061, label %966, label %.thread1580
 
 966:                                              ; preds = %963
   %967 = getelementptr inbounds nuw i8, ptr %942, i64 656
   %968 = call i32 @unpack32(ptr noundef nonnull %967, ptr noundef %1) #7
   %.not1062 = icmp eq i32 %968, 0
-  br i1 %.not1062, label %969, label %.thread1583
+  br i1 %.not1062, label %969, label %.thread1580
 
 969:                                              ; preds = %966
   %970 = getelementptr inbounds nuw i8, ptr %942, i64 360
   %971 = call i32 @unpack16(ptr noundef nonnull %970, ptr noundef %1) #7
   %.not1063 = icmp eq i32 %971, 0
-  br i1 %.not1063, label %972, label %.thread1583
+  br i1 %.not1063, label %972, label %.thread1580
 
 972:                                              ; preds = %969
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
@@ -31578,19 +31578,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %976 = getelementptr inbounds nuw i8, ptr %942, i64 304
   %977 = call i32 @unpack64(ptr noundef nonnull %976, ptr noundef %1) #7
   %.not1065 = icmp eq i32 %977, 0
-  br i1 %.not1065, label %978, label %.thread1583
+  br i1 %.not1065, label %978, label %.thread1580
 
 978:                                              ; preds = %975
   %979 = getelementptr inbounds nuw i8, ptr %942, i64 312
   %980 = call i32 @unpack64(ptr noundef nonnull %979, ptr noundef %1) #7
   %.not1066 = icmp eq i32 %980, 0
-  br i1 %.not1066, label %981, label %.thread1583
+  br i1 %.not1066, label %981, label %.thread1580
 
 981:                                              ; preds = %978
   %982 = getelementptr inbounds nuw i8, ptr %942, i64 340
   %983 = call i32 @unpack32(ptr noundef nonnull %982, ptr noundef %1) #7
   %.not1067 = icmp eq i32 %983, 0
-  br i1 %.not1067, label %984, label %.thread1583
+  br i1 %.not1067, label %984, label %.thread1580
 
 984:                                              ; preds = %981
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
@@ -31620,7 +31620,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %994 = getelementptr inbounds nuw i8, ptr %942, i64 36
   %995 = call i32 @unpack32(ptr noundef nonnull %994, ptr noundef %1) #7
   %.not1071 = icmp eq i32 %995, 0
-  br i1 %.not1071, label %996, label %.thread1583
+  br i1 %.not1071, label %996, label %.thread1580
 
 996:                                              ; preds = %993
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -31642,24 +31642,24 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1003 = getelementptr inbounds nuw i8, ptr %942, i64 784
   %1004 = call i32 @unpack16(ptr noundef nonnull %1003, ptr noundef %1) #7
   %.not1074 = icmp eq i32 %1004, 0
-  br i1 %.not1074, label %1005, label %.thread1583
+  br i1 %.not1074, label %1005, label %.thread1580
 
 1005:                                             ; preds = %1002
   %1006 = getelementptr inbounds nuw i8, ptr %942, i64 792
   %1007 = call i32 @unpack64(ptr noundef nonnull %1006, ptr noundef %1) #7
   %.not1075 = icmp eq i32 %1007, 0
-  br i1 %.not1075, label %1008, label %.thread1583
+  br i1 %.not1075, label %1008, label %.thread1580
 
 1008:                                             ; preds = %1005
   %1009 = getelementptr inbounds nuw i8, ptr %942, i64 800
   %1010 = call i32 @unpack32(ptr noundef nonnull %1009, ptr noundef %1) #7
   %.not1076 = icmp eq i32 %1010, 0
-  br i1 %.not1076, label %1011, label %.thread1583
+  br i1 %.not1076, label %1011, label %.thread1580
 
 1011:                                             ; preds = %1008
   %1012 = call i32 @unpack8(ptr noundef nonnull %104, ptr noundef %1) #7
   %.not1077 = icmp eq i32 %1012, 0
-  br i1 %.not1077, label %1013, label %.thread1583
+  br i1 %.not1077, label %1013, label %.thread1580
 
 1013:                                             ; preds = %1011
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
@@ -31673,19 +31673,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1017 = getelementptr inbounds nuw i8, ptr %942, i64 172
   %1018 = call i32 @unpack32(ptr noundef nonnull %1017, ptr noundef %1) #7
   %.not1079 = icmp eq i32 %1018, 0
-  br i1 %.not1079, label %1019, label %.thread1583
+  br i1 %.not1079, label %1019, label %.thread1580
 
 1019:                                             ; preds = %1016
   %1020 = getelementptr inbounds nuw i8, ptr %942, i64 176
   %1021 = call i32 @unpack32(ptr noundef nonnull %1020, ptr noundef %1) #7
   %.not1080 = icmp eq i32 %1021, 0
-  br i1 %.not1080, label %1022, label %.thread1583
+  br i1 %.not1080, label %1022, label %.thread1580
 
 1022:                                             ; preds = %1019
   %1023 = getelementptr inbounds nuw i8, ptr %942, i64 180
   %1024 = call i32 @unpack32(ptr noundef nonnull %1023, ptr noundef %1) #7
   %.not1081 = icmp eq i32 %1024, 0
-  br i1 %.not1081, label %1025, label %.thread1583
+  br i1 %.not1081, label %1025, label %.thread1580
 
 1025:                                             ; preds = %1022
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
@@ -31699,7 +31699,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1029 = getelementptr inbounds nuw i8, ptr %942, i64 504
   %1030 = call i32 @unpack32(ptr noundef nonnull %1029, ptr noundef %1) #7
   %.not1083 = icmp eq i32 %1030, 0
-  br i1 %.not1083, label %1031, label %.thread1583
+  br i1 %.not1083, label %1031, label %.thread1580
 
 1031:                                             ; preds = %1028
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
@@ -31736,13 +31736,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1043 = getelementptr inbounds nuw i8, ptr %942, i64 448
   %1044 = call i32 @unpack32(ptr noundef nonnull %1043, ptr noundef %1) #7
   %.not1088 = icmp eq i32 %1044, 0
-  br i1 %.not1088, label %1045, label %.thread1583
+  br i1 %.not1088, label %1045, label %.thread1580
 
 1045:                                             ; preds = %1042
   %1046 = getelementptr inbounds nuw i8, ptr %942, i64 508
   %1047 = call i32 @unpack32(ptr noundef nonnull %1046, ptr noundef %1) #7
   %.not1089 = icmp eq i32 %1047, 0
-  br i1 %.not1089, label %1048, label %.thread1583
+  br i1 %.not1089, label %1048, label %.thread1580
 
 1048:                                             ; preds = %1045
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
@@ -31772,13 +31772,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1058 = getelementptr inbounds nuw i8, ptr %942, i64 458
   %1059 = call i32 @unpack8(ptr noundef nonnull %1058, ptr noundef %1) #7
   %.not1093 = icmp eq i32 %1059, 0
-  br i1 %.not1093, label %1060, label %.thread1583
+  br i1 %.not1093, label %1060, label %.thread1580
 
 1060:                                             ; preds = %1057
   %1061 = getelementptr inbounds nuw i8, ptr %942, i64 474
   %1062 = call i32 @unpack8(ptr noundef nonnull %1061, ptr noundef %1) #7
   %.not1094 = icmp eq i32 %1062, 0
-  br i1 %.not1094, label %1063, label %.thread1583
+  br i1 %.not1094, label %1063, label %.thread1580
 
 1063:                                             ; preds = %1060
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
@@ -31792,7 +31792,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1067 = getelementptr inbounds nuw i8, ptr %942, i64 452
   %1068 = call i32 @unpack32(ptr noundef nonnull %1067, ptr noundef %1) #7
   %.not1096 = icmp eq i32 %1068, 0
-  br i1 %.not1096, label %1069, label %.thread1583
+  br i1 %.not1096, label %1069, label %.thread1580
 
 1069:                                             ; preds = %1066
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
@@ -31825,7 +31825,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1082 = getelementptr inbounds nuw i8, ptr %942, i64 276
   %1083 = call i32 @unpackstr_array(ptr noundef nonnull %1081, ptr noundef nonnull %1082, ptr noundef %1) #7
   %.not1100 = icmp eq i32 %1083, 0
-  br i1 %.not1100, label %1084, label %.thread1583
+  br i1 %.not1100, label %1084, label %.thread1580
 
 1084:                                             ; preds = %1078
   %1085 = load i32, ptr %1082, align 4
@@ -31849,27 +31849,27 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1097 = call i32 @envcount(ptr noundef %1096) #7
   %1098 = load i32, ptr %1082, align 4
   %.not1102 = icmp eq i32 %1097, %1098
-  br i1 %.not1102, label %1099, label %.thread1583
+  br i1 %.not1102, label %1099, label %.thread1580
 
 1099:                                             ; preds = %1095
   %1100 = getelementptr inbounds nuw i8, ptr %942, i64 632
   %1101 = getelementptr inbounds nuw i8, ptr %942, i64 640
   %1102 = call i32 @unpackstr_array(ptr noundef nonnull %1100, ptr noundef nonnull %1101, ptr noundef nonnull %1) #7
   %.not1103 = icmp eq i32 %1102, 0
-  br i1 %.not1103, label %1103, label %.thread1583
+  br i1 %.not1103, label %1103, label %.thread1580
 
 1103:                                             ; preds = %1099
   %1104 = load ptr, ptr %1100, align 8
   %1105 = call i32 @envcount(ptr noundef %1104) #7
   %1106 = load i32, ptr %1101, align 8
   %.not1104 = icmp eq i32 %1105, %1106
-  br i1 %.not1104, label %1107, label %.thread1583
+  br i1 %.not1104, label %1107, label %.thread1580
 
 1107:                                             ; preds = %1103
   %1108 = getelementptr inbounds nuw i8, ptr %942, i64 576
   %1109 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1108, ptr noundef nonnull %4, ptr noundef nonnull %1) #7
   %.not1105 = icmp eq i32 %1109, 0
-  br i1 %.not1105, label %1110, label %.thread1583
+  br i1 %.not1105, label %1110, label %.thread1580
 
 1110:                                             ; preds = %1107
   %1111 = getelementptr inbounds nuw i8, ptr %942, i64 592
@@ -31881,7 +31881,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1116 = getelementptr inbounds nuw i8, ptr %942, i64 40
   %1117 = call i32 @unpackstr_array(ptr noundef nonnull %1115, ptr noundef nonnull %1116, ptr noundef nonnull %1) #7
   %.not1106 = icmp eq i32 %1117, 0
-  br i1 %.not1106, label %1118, label %.thread1583
+  br i1 %.not1106, label %1118, label %.thread1580
 
 1118:                                             ; preds = %1110
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
@@ -31927,79 +31927,79 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1134 = getelementptr inbounds nuw i8, ptr %942, i64 336
   %1135 = call i32 @unpack16(ptr noundef nonnull %1134, ptr noundef nonnull %1) #7
   %.not1112 = icmp eq i32 %1135, 0
-  br i1 %.not1112, label %1136, label %.thread1583
+  br i1 %.not1112, label %1136, label %.thread1580
 
 1136:                                             ; preds = %1133
   %1137 = getelementptr inbounds nuw i8, ptr %942, i64 520
   %1138 = call i32 @unpack16(ptr noundef nonnull %1137, ptr noundef nonnull %1) #7
   %.not1113 = icmp eq i32 %1138, 0
-  br i1 %.not1113, label %1139, label %.thread1583
+  br i1 %.not1113, label %1139, label %.thread1580
 
 1139:                                             ; preds = %1136
   %1140 = getelementptr inbounds nuw i8, ptr %942, i64 552
   %1141 = call i32 @unpack16(ptr noundef nonnull %1140, ptr noundef nonnull %1) #7
   %.not1114 = icmp eq i32 %1141, 0
-  br i1 %.not1114, label %1142, label %.thread1583
+  br i1 %.not1114, label %1142, label %.thread1580
 
 1142:                                             ; preds = %1139
   %1143 = getelementptr inbounds nuw i8, ptr %942, i64 626
   %1144 = call i32 @unpack16(ptr noundef nonnull %1143, ptr noundef nonnull %1) #7
   %.not1115 = icmp eq i32 %1144, 0
-  br i1 %.not1115, label %1145, label %.thread1583
+  br i1 %.not1115, label %1145, label %.thread1580
 
 1145:                                             ; preds = %1142
   %1146 = getelementptr inbounds nuw i8, ptr %942, i64 744
   %1147 = call i32 @unpack16(ptr noundef nonnull %1146, ptr noundef nonnull %1) #7
   %.not1116 = icmp eq i32 %1147, 0
-  br i1 %.not1116, label %1148, label %.thread1583
+  br i1 %.not1116, label %1148, label %.thread1580
 
 1148:                                             ; preds = %1145
   %1149 = getelementptr inbounds nuw i8, ptr %942, i64 774
   %1150 = call i32 @unpack16(ptr noundef nonnull %1149, ptr noundef nonnull %1) #7
   %.not1117 = icmp eq i32 %1150, 0
-  br i1 %.not1117, label %1151, label %.thread1583
+  br i1 %.not1117, label %1151, label %.thread1580
 
 1151:                                             ; preds = %1148
   %1152 = getelementptr inbounds nuw i8, ptr %942, i64 780
   %1153 = call i32 @unpack16(ptr noundef nonnull %1152, ptr noundef nonnull %1) #7
   %.not1118 = icmp eq i32 %1153, 0
-  br i1 %.not1118, label %1154, label %.thread1583
+  br i1 %.not1118, label %1154, label %.thread1580
 
 1154:                                             ; preds = %1151
   %1155 = getelementptr inbounds nuw i8, ptr %942, i64 776
   %1156 = call i32 @unpack16(ptr noundef nonnull %1155, ptr noundef nonnull %1) #7
   %.not1119 = icmp eq i32 %1156, 0
-  br i1 %.not1119, label %1157, label %.thread1583
+  br i1 %.not1119, label %1157, label %.thread1580
 
 1157:                                             ; preds = %1154
   %1158 = getelementptr inbounds nuw i8, ptr %942, i64 778
   %1159 = call i32 @unpack16(ptr noundef nonnull %1158, ptr noundef nonnull %1) #7
   %.not1120 = icmp eq i32 %1159, 0
-  br i1 %.not1120, label %1160, label %.thread1583
+  br i1 %.not1120, label %1160, label %.thread1580
 
 1160:                                             ; preds = %1157
   %1161 = getelementptr inbounds nuw i8, ptr %942, i64 782
   %1162 = call i32 @unpack16(ptr noundef nonnull %1161, ptr noundef nonnull %1) #7
   %.not1121 = icmp eq i32 %1162, 0
-  br i1 %.not1121, label %1163, label %.thread1583
+  br i1 %.not1121, label %1163, label %.thread1580
 
 1163:                                             ; preds = %1160
   %1164 = getelementptr inbounds nuw i8, ptr %942, i64 488
   %1165 = call i32 @unpack16(ptr noundef nonnull %1164, ptr noundef nonnull %1) #7
   %.not1122 = icmp eq i32 %1165, 0
-  br i1 %.not1122, label %1166, label %.thread1583
+  br i1 %.not1122, label %1166, label %.thread1580
 
 1166:                                             ; preds = %1163
   %1167 = getelementptr inbounds nuw i8, ptr %942, i64 168
   %1168 = call i32 @unpack16(ptr noundef nonnull %1167, ptr noundef nonnull %1) #7
   %.not1123 = icmp eq i32 %1168, 0
-  br i1 %.not1123, label %1169, label %.thread1583
+  br i1 %.not1123, label %1169, label %.thread1580
 
 1169:                                             ; preds = %1166
   %1170 = getelementptr inbounds nuw i8, ptr %942, i64 416
   %1171 = call i32 @unpack16(ptr noundef nonnull %1170, ptr noundef nonnull %1) #7
   %.not1124 = icmp eq i32 %1171, 0
-  br i1 %.not1124, label %1172, label %.thread1583
+  br i1 %.not1124, label %1172, label %.thread1580
 
 1172:                                             ; preds = %1169
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
@@ -32021,37 +32021,37 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1179 = getelementptr inbounds nuw i8, ptr %942, i64 660
   %1180 = call i32 @unpack32(ptr noundef nonnull %1179, ptr noundef nonnull %1) #7
   %.not1127 = icmp eq i32 %1180, 0
-  br i1 %.not1127, label %1181, label %.thread1583
+  br i1 %.not1127, label %1181, label %.thread1580
 
 1181:                                             ; preds = %1178
   %1182 = getelementptr inbounds nuw i8, ptr %942, i64 664
   %1183 = call i32 @unpack32(ptr noundef nonnull %1182, ptr noundef nonnull %1) #7
   %.not1128 = icmp eq i32 %1183, 0
-  br i1 %.not1128, label %1184, label %.thread1583
+  br i1 %.not1128, label %1184, label %.thread1580
 
 1184:                                             ; preds = %1181
   %1185 = getelementptr inbounds nuw i8, ptr %942, i64 748
   %1186 = call i32 @unpack32(ptr noundef nonnull %1185, ptr noundef nonnull %1) #7
   %.not1129 = icmp eq i32 %1186, 0
-  br i1 %.not1129, label %1187, label %.thread1583
+  br i1 %.not1129, label %1187, label %.thread1580
 
 1187:                                             ; preds = %1184
   %1188 = getelementptr inbounds nuw i8, ptr %942, i64 752
   %1189 = call i32 @unpack32(ptr noundef nonnull %1188, ptr noundef nonnull %1) #7
   %.not1130 = icmp eq i32 %1189, 0
-  br i1 %.not1130, label %1190, label %.thread1583
+  br i1 %.not1130, label %1190, label %.thread1580
 
 1190:                                             ; preds = %1187
   %1191 = getelementptr inbounds nuw i8, ptr %942, i64 756
   %1192 = call i32 @unpack32(ptr noundef nonnull %1191, ptr noundef nonnull %1) #7
   %.not1131 = icmp eq i32 %1192, 0
-  br i1 %.not1131, label %1193, label %.thread1583
+  br i1 %.not1131, label %1193, label %.thread1580
 
 1193:                                             ; preds = %1190
   %1194 = getelementptr inbounds nuw i8, ptr %942, i64 760
   %1195 = call i32 @unpack32(ptr noundef nonnull %1194, ptr noundef nonnull %1) #7
   %.not1132 = icmp eq i32 %1195, 0
-  br i1 %.not1132, label %1196, label %.thread1583
+  br i1 %.not1132, label %1196, label %.thread1580
 
 1196:                                             ; preds = %1193
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
@@ -32065,49 +32065,49 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1200 = getelementptr inbounds nuw i8, ptr %942, i64 764
   %1201 = call i32 @unpack16(ptr noundef nonnull %1200, ptr noundef nonnull %1) #7
   %.not1134 = icmp eq i32 %1201, 0
-  br i1 %.not1134, label %1202, label %.thread1583
+  br i1 %.not1134, label %1202, label %.thread1580
 
 1202:                                             ; preds = %1199
   %1203 = getelementptr inbounds nuw i8, ptr %942, i64 766
   %1204 = call i32 @unpack16(ptr noundef nonnull %1203, ptr noundef nonnull %1) #7
   %.not1135 = icmp eq i32 %1204, 0
-  br i1 %.not1135, label %1205, label %.thread1583
+  br i1 %.not1135, label %1205, label %.thread1580
 
 1205:                                             ; preds = %1202
   %1206 = getelementptr inbounds nuw i8, ptr %942, i64 768
   %1207 = call i32 @unpack16(ptr noundef nonnull %1206, ptr noundef nonnull %1) #7
   %.not1136 = icmp eq i32 %1207, 0
-  br i1 %.not1136, label %1208, label %.thread1583
+  br i1 %.not1136, label %1208, label %.thread1580
 
 1208:                                             ; preds = %1205
   %1209 = getelementptr inbounds nuw i8, ptr %942, i64 770
   %1210 = call i32 @unpack16(ptr noundef nonnull %1209, ptr noundef nonnull %1) #7
   %.not1137 = icmp eq i32 %1210, 0
-  br i1 %.not1137, label %1211, label %.thread1583
+  br i1 %.not1137, label %1211, label %.thread1580
 
 1211:                                             ; preds = %1208
   %1212 = getelementptr inbounds nuw i8, ptr %942, i64 772
   %1213 = call i32 @unpack16(ptr noundef nonnull %1212, ptr noundef nonnull %1) #7
   %.not1138 = icmp eq i32 %1213, 0
-  br i1 %.not1138, label %1214, label %.thread1583
+  br i1 %.not1138, label %1214, label %.thread1580
 
 1214:                                             ; preds = %1211
   %1215 = getelementptr inbounds nuw i8, ptr %942, i64 720
   %1216 = call i32 @unpack32(ptr noundef nonnull %1215, ptr noundef nonnull %1) #7
   %.not1139 = icmp eq i32 %1216, 0
-  br i1 %.not1139, label %1217, label %.thread1583
+  br i1 %.not1139, label %1217, label %.thread1580
 
 1217:                                             ; preds = %1214
   %1218 = getelementptr inbounds nuw i8, ptr %942, i64 320
   %1219 = call i32 @unpack32(ptr noundef nonnull %1218, ptr noundef nonnull %1) #7
   %.not1140 = icmp eq i32 %1219, 0
-  br i1 %.not1140, label %1220, label %.thread1583
+  br i1 %.not1140, label %1220, label %.thread1580
 
 1220:                                             ; preds = %1217
   %1221 = getelementptr inbounds nuw i8, ptr %942, i64 32
   %1222 = call i32 @unpack16(ptr noundef nonnull %1221, ptr noundef nonnull %1) #7
   %.not1141 = icmp eq i32 %1222, 0
-  br i1 %.not1141, label %1223, label %.thread1583
+  br i1 %.not1141, label %1223, label %.thread1580
 
 1223:                                             ; preds = %1220
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
@@ -32121,7 +32121,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1227 = getelementptr inbounds nuw i8, ptr %942, i64 472
   %1228 = call i32 @unpack16(ptr noundef nonnull %1227, ptr noundef nonnull %1) #7
   %.not1143 = icmp eq i32 %1228, 0
-  br i1 %.not1143, label %1229, label %.thread1583
+  br i1 %.not1143, label %1229, label %.thread1580
 
 1229:                                             ; preds = %1226
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
@@ -32135,19 +32135,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1233 = getelementptr inbounds nuw i8, ptr %942, i64 80
   %1234 = call i32 @unpack_time(ptr noundef nonnull %1233, ptr noundef nonnull %1) #7
   %.not1145 = icmp eq i32 %1234, 0
-  br i1 %.not1145, label %1235, label %.thread1583
+  br i1 %.not1145, label %1235, label %.thread1580
 
 1235:                                             ; preds = %1232
   %1236 = getelementptr inbounds nuw i8, ptr %942, i64 224
   %1237 = call i32 @unpack_time(ptr noundef nonnull %1236, ptr noundef nonnull %1) #7
   %.not1146 = icmp eq i32 %1237, 0
-  br i1 %.not1146, label %1238, label %.thread1583
+  br i1 %.not1146, label %1238, label %.thread1580
 
 1238:                                             ; preds = %1235
   %1239 = getelementptr inbounds nuw i8, ptr %942, i64 200
   %1240 = call i32 @unpack_time(ptr noundef nonnull %1239, ptr noundef nonnull %1) #7
   %.not1147 = icmp eq i32 %1240, 0
-  br i1 %.not1147, label %1241, label %.thread1583
+  br i1 %.not1147, label %1241, label %.thread1580
 
 1241:                                             ; preds = %1238
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
@@ -32161,7 +32161,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1245 = getelementptr inbounds nuw i8, ptr %942, i64 384
   %1246 = call i32 @unpack16(ptr noundef nonnull %1245, ptr noundef nonnull %1) #7
   %.not1149 = icmp eq i32 %1246, 0
-  br i1 %.not1149, label %1247, label %.thread1583
+  br i1 %.not1149, label %1247, label %.thread1580
 
 1247:                                             ; preds = %1244
   call void @llvm.lifetime.start.p0(ptr nonnull %140)
@@ -32183,25 +32183,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1254 = getelementptr inbounds nuw i8, ptr %942, i64 536
   %1255 = call i32 @unpack16(ptr noundef nonnull %1254, ptr noundef nonnull %1) #7
   %.not1152 = icmp eq i32 %1255, 0
-  br i1 %.not1152, label %1256, label %.thread1583
+  br i1 %.not1152, label %1256, label %.thread1580
 
 1256:                                             ; preds = %1253
   %1257 = getelementptr inbounds nuw i8, ptr %942, i64 726
   %1258 = call i32 @unpack16(ptr noundef nonnull %1257, ptr noundef nonnull %1) #7
   %.not1153 = icmp eq i32 %1258, 0
-  br i1 %.not1153, label %1259, label %.thread1583
+  br i1 %.not1153, label %1259, label %.thread1580
 
 1259:                                             ; preds = %1256
   %1260 = getelementptr inbounds nuw i8, ptr %942, i64 728
   %1261 = call i32 @unpack16(ptr noundef nonnull %1260, ptr noundef nonnull %1) #7
   %.not1154 = icmp eq i32 %1261, 0
-  br i1 %.not1154, label %1262, label %.thread1583
+  br i1 %.not1154, label %1262, label %.thread1580
 
 1262:                                             ; preds = %1259
   %1263 = getelementptr inbounds nuw i8, ptr %942, i64 730
   %1264 = call i32 @unpack16(ptr noundef nonnull %1263, ptr noundef nonnull %1) #7
   %.not1155 = icmp eq i32 %1264, 0
-  br i1 %.not1155, label %1265, label %.thread1583
+  br i1 %.not1155, label %1265, label %.thread1580
 
 1265:                                             ; preds = %1262
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -32215,31 +32215,31 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1269 = getelementptr inbounds nuw i8, ptr %942, i64 816
   %1270 = call i32 @unpack32(ptr noundef nonnull %1269, ptr noundef nonnull %1) #7
   %.not1157 = icmp eq i32 %1270, 0
-  br i1 %.not1157, label %1271, label %.thread1583
+  br i1 %.not1157, label %1271, label %.thread1580
 
 1271:                                             ; preds = %1268
   %1272 = getelementptr inbounds nuw i8, ptr %942, i64 864
   %1273 = call i32 @unpack32(ptr noundef nonnull %1272, ptr noundef nonnull %1) #7
   %.not1158 = icmp eq i32 %1273, 0
-  br i1 %.not1158, label %1274, label %.thread1583
+  br i1 %.not1158, label %1274, label %.thread1580
 
 1274:                                             ; preds = %1271
   %1275 = getelementptr inbounds nuw i8, ptr %942, i64 724
   %1276 = call i32 @unpack16(ptr noundef nonnull %1275, ptr noundef nonnull %1) #7
   %.not1159 = icmp eq i32 %1276, 0
-  br i1 %.not1159, label %1277, label %.thread1583
+  br i1 %.not1159, label %1277, label %.thread1580
 
 1277:                                             ; preds = %1274
   %1278 = getelementptr inbounds nuw i8, ptr %942, i64 88
   %1279 = call i32 @unpack64(ptr noundef nonnull %1278, ptr noundef nonnull %1) #7
   %.not1160 = icmp eq i32 %1279, 0
-  br i1 %.not1160, label %1280, label %.thread1583
+  br i1 %.not1160, label %1280, label %.thread1580
 
 1280:                                             ; preds = %1277
   %1281 = getelementptr inbounds nuw i8, ptr %942, i64 208
   %1282 = call i32 @unpack32(ptr noundef nonnull %1281, ptr noundef nonnull %1) #7
   %.not1161 = icmp eq i32 %1282, 0
-  br i1 %.not1161, label %1283, label %.thread1583
+  br i1 %.not1161, label %1283, label %.thread1580
 
 1283:                                             ; preds = %1280
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
@@ -32253,7 +32253,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1287 = getelementptr inbounds nuw i8, ptr %942, i64 880
   %1288 = call i32 @unpack16(ptr noundef nonnull %1287, ptr noundef nonnull %1) #7
   %.not1163 = icmp eq i32 %1288, 0
-  br i1 %.not1163, label %1289, label %.thread1583
+  br i1 %.not1163, label %1289, label %.thread1580
 
 1289:                                             ; preds = %1286
   call void @llvm.lifetime.start.p0(ptr nonnull %144)
@@ -32275,7 +32275,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1296 = getelementptr inbounds nuw i8, ptr %942, i64 904
   %1297 = call i32 @unpack16(ptr noundef nonnull %1296, ptr noundef nonnull %1) #7
   %.not1166 = icmp eq i32 %1297, 0
-  br i1 %.not1166, label %1298, label %.thread1583
+  br i1 %.not1166, label %1298, label %.thread1580
 
 1298:                                             ; preds = %1295
   call void @llvm.lifetime.start.p0(ptr nonnull %146)
@@ -32351,13 +32351,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   %1323 = getelementptr inbounds nuw i8, ptr %942, i64 192
   %1324 = call i32 @unpack_cron_entry(ptr noundef nonnull %1323, i16 noundef zeroext %2, ptr noundef nonnull %1) #7
   %.not1175 = icmp eq i32 %1324, 0
-  br i1 %.not1175, label %.thread1586, label %.thread1583
+  br i1 %.not1175, label %.thread1582, label %.thread1580
 
-.thread1586:                                      ; preds = %1322
+.thread1582:                                      ; preds = %1322
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %1327
 
-.thread1583:                                      ; preds = %941, %954, %963, %966, %969, %975, %978, %981, %993, %1002, %1005, %1008, %1011, %1016, %1019, %1022, %1028, %1042, %1045, %1057, %1060, %1066, %1078, %1095, %1099, %1103, %1107, %1110, %1133, %1136, %1139, %1142, %1145, %1148, %1151, %1154, %1157, %1160, %1163, %1166, %1169, %1178, %1181, %1184, %1187, %1190, %1193, %1199, %1202, %1205, %1208, %1211, %1214, %1217, %1220, %1226, %1232, %1235, %1238, %1244, %1253, %1256, %1259, %1262, %1268, %1271, %1274, %1277, %1280, %1286, %1295, %1322
+.thread1580:                                      ; preds = %941, %954, %963, %966, %969, %975, %978, %981, %993, %1002, %1005, %1008, %1011, %1016, %1019, %1022, %1028, %1042, %1045, %1057, %1060, %1066, %1078, %1095, %1099, %1103, %1107, %1110, %1133, %1136, %1139, %1142, %1145, %1148, %1151, %1154, %1157, %1160, %1163, %1166, %1169, %1178, %1181, %1184, %1187, %1190, %1193, %1199, %1202, %1205, %1208, %1211, %1214, %1217, %1220, %1226, %1232, %1235, %1238, %1244, %1253, %1256, %1259, %1262, %1268, %1271, %1274, %1277, %1280, %1286, %1295, %1322
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %1326
 
@@ -32365,14 +32365,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %1326
 
-1326:                                             ; preds = %938, %1325, %.thread1583, %.thread, %537, %534, %531, %528, %525, %522, %519, %516, %510, %507, %501, %483, %468, %465, %459, %447, %438, %411, %390, %387, %345, %342, %339, %336, %333, %290, %287, %284, %278, %269, %266, %263, %254, %251, %249, %246, %240, %228, %213, %210, %204, %201, %198, %186, %174, %171, %165, %162, %159, %543, %540, %513, %504, %498, %495, %492, %489, %486, %480, %477, %474, %471, %462, %456, %453, %450, %444, %441, %435, %432, %429, %426, %423, %420, %417, %414, %408, %405, %402, %399, %396, %393, %384, %381, %378, %375, %372, %369, %366, %363, %360, %357, %354, %351, %348, %325, %322, %318, %314, %310, %293, %281, %275, %272, %260, %257, %243, %237, %234, %231, %225, %222, %219, %216, %207, %195, %192, %189, %183, %180, %177, %168, %155
-  %.01052 = phi ptr [ %156, %155 ], [ %156, %168 ], [ %156, %177 ], [ %156, %180 ], [ %156, %183 ], [ %156, %189 ], [ %156, %192 ], [ %156, %195 ], [ %156, %207 ], [ %156, %216 ], [ %156, %219 ], [ %156, %222 ], [ %156, %225 ], [ %156, %231 ], [ %156, %234 ], [ %156, %237 ], [ %156, %243 ], [ %156, %257 ], [ %156, %260 ], [ %156, %272 ], [ %156, %275 ], [ %156, %281 ], [ %156, %293 ], [ %156, %310 ], [ %156, %314 ], [ %156, %318 ], [ %156, %322 ], [ %156, %325 ], [ %156, %348 ], [ %156, %351 ], [ %156, %354 ], [ %156, %357 ], [ %156, %360 ], [ %156, %363 ], [ %156, %366 ], [ %156, %369 ], [ %156, %372 ], [ %156, %375 ], [ %156, %378 ], [ %156, %381 ], [ %156, %384 ], [ %156, %393 ], [ %156, %396 ], [ %156, %399 ], [ %156, %402 ], [ %156, %405 ], [ %156, %408 ], [ %156, %414 ], [ %156, %417 ], [ %156, %420 ], [ %156, %423 ], [ %156, %426 ], [ %156, %429 ], [ %156, %432 ], [ %156, %435 ], [ %156, %441 ], [ %156, %444 ], [ %156, %450 ], [ %156, %453 ], [ %156, %456 ], [ %156, %462 ], [ %156, %471 ], [ %156, %474 ], [ %156, %477 ], [ %156, %480 ], [ %156, %486 ], [ %156, %489 ], [ %156, %492 ], [ %156, %495 ], [ %156, %498 ], [ %156, %504 ], [ %156, %513 ], [ %156, %540 ], [ %156, %543 ], [ %156, %537 ], [ %156, %534 ], [ %156, %531 ], [ %156, %528 ], [ %156, %525 ], [ %156, %522 ], [ %156, %519 ], [ %156, %516 ], [ %156, %510 ], [ %156, %507 ], [ %156, %501 ], [ %156, %483 ], [ %156, %468 ], [ %156, %465 ], [ %156, %459 ], [ %156, %447 ], [ %156, %438 ], [ %156, %411 ], [ %156, %390 ], [ %156, %387 ], [ %156, %345 ], [ %156, %342 ], [ %156, %339 ], [ %156, %336 ], [ %156, %333 ], [ %156, %290 ], [ %156, %287 ], [ %156, %284 ], [ %156, %278 ], [ %156, %269 ], [ %156, %266 ], [ %156, %263 ], [ %156, %254 ], [ %156, %251 ], [ %156, %249 ], [ %156, %246 ], [ %156, %240 ], [ %156, %228 ], [ %156, %213 ], [ %156, %210 ], [ %156, %204 ], [ %156, %201 ], [ %156, %198 ], [ %156, %186 ], [ %156, %174 ], [ %156, %171 ], [ %156, %165 ], [ %156, %162 ], [ %156, %159 ], [ %549, %938 ], [ %942, %1325 ], [ %549, %.thread ], [ %942, %.thread1583 ]
+1326:                                             ; preds = %938, %1325, %.thread1580, %.thread, %537, %534, %531, %528, %525, %522, %519, %516, %510, %507, %501, %483, %468, %465, %459, %447, %438, %411, %390, %387, %345, %342, %339, %336, %333, %290, %287, %284, %278, %269, %266, %263, %254, %251, %249, %246, %240, %228, %213, %210, %204, %201, %198, %186, %174, %171, %165, %162, %159, %543, %540, %513, %504, %498, %495, %492, %489, %486, %480, %477, %474, %471, %462, %456, %453, %450, %444, %441, %435, %432, %429, %426, %423, %420, %417, %414, %408, %405, %402, %399, %396, %393, %384, %381, %378, %375, %372, %369, %366, %363, %360, %357, %354, %351, %348, %325, %322, %318, %314, %310, %293, %281, %275, %272, %260, %257, %243, %237, %234, %231, %225, %222, %219, %216, %207, %195, %192, %189, %183, %180, %177, %168, %155
+  %.01052 = phi ptr [ %156, %155 ], [ %156, %168 ], [ %156, %177 ], [ %156, %180 ], [ %156, %183 ], [ %156, %189 ], [ %156, %192 ], [ %156, %195 ], [ %156, %207 ], [ %156, %216 ], [ %156, %219 ], [ %156, %222 ], [ %156, %225 ], [ %156, %231 ], [ %156, %234 ], [ %156, %237 ], [ %156, %243 ], [ %156, %257 ], [ %156, %260 ], [ %156, %272 ], [ %156, %275 ], [ %156, %281 ], [ %156, %293 ], [ %156, %310 ], [ %156, %314 ], [ %156, %318 ], [ %156, %322 ], [ %156, %325 ], [ %156, %348 ], [ %156, %351 ], [ %156, %354 ], [ %156, %357 ], [ %156, %360 ], [ %156, %363 ], [ %156, %366 ], [ %156, %369 ], [ %156, %372 ], [ %156, %375 ], [ %156, %378 ], [ %156, %381 ], [ %156, %384 ], [ %156, %393 ], [ %156, %396 ], [ %156, %399 ], [ %156, %402 ], [ %156, %405 ], [ %156, %408 ], [ %156, %414 ], [ %156, %417 ], [ %156, %420 ], [ %156, %423 ], [ %156, %426 ], [ %156, %429 ], [ %156, %432 ], [ %156, %435 ], [ %156, %441 ], [ %156, %444 ], [ %156, %450 ], [ %156, %453 ], [ %156, %456 ], [ %156, %462 ], [ %156, %471 ], [ %156, %474 ], [ %156, %477 ], [ %156, %480 ], [ %156, %486 ], [ %156, %489 ], [ %156, %492 ], [ %156, %495 ], [ %156, %498 ], [ %156, %504 ], [ %156, %513 ], [ %156, %540 ], [ %156, %543 ], [ %156, %537 ], [ %156, %534 ], [ %156, %531 ], [ %156, %528 ], [ %156, %525 ], [ %156, %522 ], [ %156, %519 ], [ %156, %516 ], [ %156, %510 ], [ %156, %507 ], [ %156, %501 ], [ %156, %483 ], [ %156, %468 ], [ %156, %465 ], [ %156, %459 ], [ %156, %447 ], [ %156, %438 ], [ %156, %411 ], [ %156, %390 ], [ %156, %387 ], [ %156, %345 ], [ %156, %342 ], [ %156, %339 ], [ %156, %336 ], [ %156, %333 ], [ %156, %290 ], [ %156, %287 ], [ %156, %284 ], [ %156, %278 ], [ %156, %269 ], [ %156, %266 ], [ %156, %263 ], [ %156, %254 ], [ %156, %251 ], [ %156, %249 ], [ %156, %246 ], [ %156, %240 ], [ %156, %228 ], [ %156, %213 ], [ %156, %210 ], [ %156, %204 ], [ %156, %201 ], [ %156, %198 ], [ %156, %186 ], [ %156, %174 ], [ %156, %171 ], [ %156, %165 ], [ %156, %162 ], [ %156, %159 ], [ %549, %938 ], [ %942, %1325 ], [ %549, %.thread ], [ %942, %.thread1580 ]
   call void @slurm_free_job_desc_msg(ptr noundef nonnull %.01052) #7
   store ptr null, ptr %0, align 8
   br label %1327
 
-1327:                                             ; preds = %.thread1586, %.thread1578, %543, %939, %1326
-  %.01053 = phi i32 [ -1, %1326 ], [ 0, %939 ], [ 0, %543 ], [ 0, %.thread1578 ], [ 0, %.thread1586 ]
+1327:                                             ; preds = %.thread1582, %.thread1576, %543, %939, %1326
+  %.01053 = phi i32 [ -1, %1326 ], [ 0, %939 ], [ 0, %543 ], [ 0, %.thread1576 ], [ 0, %.thread1582 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.01053
 }
@@ -32871,15 +32871,15 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_reg_resp(ptr noundef w
   %15 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_tres_rec) #7
   store ptr %15, ptr %10, align 8
   %16 = load i32, ptr %4, align 4
-  %.not25.i = icmp eq i32 %16, 0
-  br i1 %.not25.i, label %.thread.i, label %.lr.ph.i
+  %.not24.i = icmp eq i32 %16, 0
+  br i1 %.not24.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %23, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 .lr.ph.i:                                         ; preds = %14, %23
-  %.024.i = phi i32 [ %24, %23 ], [ 0, %14 ]
+  %.023.i = phi i32 [ %24, %23 ], [ 0, %14 ]
   %17 = call i32 @slurmdb_unpack_tres_rec(ptr noundef nonnull %5, i16 noundef zeroext %2, ptr noundef %1) #7
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %27, label %19
@@ -32895,7 +32895,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_reg_resp(ptr noundef w
   br label %23
 
 23:                                               ; preds = %21, %19
-  %24 = add nuw nsw i32 %.024.i, 1
+  %24 = add nuw nsw i32 %.023.i, 1
   %25 = load i32, ptr %4, align 4
   %26 = icmp ult i32 %24, %25
   br i1 %26, label %.lr.ph.i, label %.thread.i, !llvm.loop !12
@@ -34429,9 +34429,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_partition_msg(ptr no
   %205 = getelementptr inbounds nuw i8, ptr %29, i64 202
   %206 = call i32 @unpack16(ptr noundef nonnull %205, ptr noundef %1) #7
   %.not187 = icmp eq i32 %206, 0
-  br i1 %.not187, label %.thread244, label %.sink.split
+  br i1 %.not187, label %.thread243, label %.sink.split
 
-.thread244:                                       ; preds = %204
+.thread243:                                       ; preds = %204
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %208
 
@@ -34444,8 +34444,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_partition_msg(ptr no
   store ptr null, ptr %0, align 8
   br label %208
 
-208:                                              ; preds = %.thread244, %114, %117, %207
-  %.0158 = phi i32 [ -1, %207 ], [ 0, %117 ], [ 0, %114 ], [ 0, %.thread244 ]
+208:                                              ; preds = %.thread243, %114, %117, %207
+  %.0158 = phi i32 [ -1, %207 ], [ 0, %117 ], [ 0, %114 ], [ 0, %.thread243 ]
   ret i32 %.0158
 }
 
@@ -34704,7 +34704,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reserve_info_msg(ptr nounde
   %22 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 2650, ptr noundef nonnull @__func__._unpack_reserve_info_msg) #7
   store ptr %22, ptr %0, align 8
   %23 = icmp ugt i16 %2, 10239
-  br i1 %23, label %24, label %.loopexit37
+  br i1 %23, label %24, label %.loopexit36
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -34745,8 +34745,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reserve_info_msg(ptr nounde
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = load i32, ptr %45, align 8
-  %.not43 = icmp eq i32 %46, 0
-  br i1 %.not43, label %.loopexit37, label %.lr.ph
+  %.not42 = icmp eq i32 %46, 0
+  br i1 %.not42, label %.loopexit36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %41 ]
@@ -34990,8 +34990,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reserve_info_msg(ptr nounde
   br i1 %.not129.not.i, label %_unpack_reserve_info_members.exit, label %136
 
 136:                                              ; preds = %132
-  %.pre169.i = load i32, ptr %128, align 4
-  %137 = icmp eq i32 %.pre169.i, 0
+  %.pre167.i = load i32, ptr %128, align 4
+  %137 = icmp eq i32 %.pre167.i, 0
   br i1 %137, label %.loopexit, label %.lr.ph.i
 
 138:                                              ; preds = %145
@@ -35034,15 +35034,15 @@ _unpack_reserve_info_members.exit:                ; preds = %.lr.ph, %49, %52, %
   %152 = load i32, ptr %151, align 8
   %153 = zext i32 %152 to i64
   %154 = icmp samesign ult i64 %indvars.iv.next, %153
-  br i1 %154, label %.lr.ph, label %.loopexit37, !llvm.loop !71
+  br i1 %154, label %.lr.ph, label %.loopexit36, !llvm.loop !71
 
 155:                                              ; preds = %_unpack_reserve_info_members.exit, %36, %27, %24
   %156 = load ptr, ptr %0, align 8
   call void @slurm_free_reservation_info_msg(ptr noundef %156) #7
   store ptr null, ptr %0, align 8
-  br label %.loopexit37
+  br label %.loopexit36
 
-.loopexit37:                                      ; preds = %.loopexit, %41, %3, %155
+.loopexit36:                                      ; preds = %.loopexit, %41, %3, %155
   %.025 = phi i32 [ -1, %155 ], [ 0, %3 ], [ 0, %41 ], [ 0, %.loopexit ]
   ret i32 %.025
 }
@@ -35147,40 +35147,40 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 104
   %90 = tail call i32 @unpack_step_id_members(ptr noundef nonnull %89, ptr noundef %1, i16 noundef zeroext %2)
   %.not1477 = icmp eq i32 %90, 0
-  br i1 %.not1477, label %91, label %.thread1716
+  br i1 %.not1477, label %91, label %.thread1696
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 84
   %94 = tail call i32 @unpack32_array(ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef %1) #7
   %.not1478 = icmp eq i32 %94, 0
-  br i1 %.not1478, label %95, label %.thread1716
+  br i1 %.not1478, label %95, label %.thread1696
 
 95:                                               ; preds = %91
   %96 = tail call i32 @unpack32(ptr noundef nonnull %86, ptr noundef %1) #7
   %.not1479 = icmp eq i32 %96, 0
-  br i1 %.not1479, label %97, label %.thread1716
+  br i1 %.not1479, label %97, label %.thread1696
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %99 = tail call i32 @unpack32(ptr noundef nonnull %98, ptr noundef %1) #7
   %.not1480 = icmp eq i32 %99, 0
-  br i1 %.not1480, label %100, label %.thread1716
+  br i1 %.not1480, label %100, label %.thread1696
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %102 = tail call i32 @unpack32(ptr noundef nonnull %101, ptr noundef %1) #7
   %.not1481 = icmp eq i32 %102, 0
-  br i1 %.not1481, label %103, label %.thread1716
+  br i1 %.not1481, label %103, label %.thread1696
 
 103:                                              ; preds = %100
   %104 = load i32, ptr %101, align 8
   switch i32 %104, label %106 [
-    i32 -2, label %.loopexit1807
-    i32 0, label %.thread1714
+    i32 -2, label %.loopexit1768
+    i32 0, label %.thread1694
   ]
 
-.thread1714:                                      ; preds = %103
+.thread1694:                                      ; preds = %103
   %105 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr null, ptr %105, align 8
   br label %.thread
@@ -35191,17 +35191,17 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %109 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %108, ptr %109, align 8
   %.not1484 = icmp eq ptr %108, null
-  br i1 %.not1484, label %.thread1716, label %110
+  br i1 %.not1484, label %.thread1696, label %110
 
 110:                                              ; preds = %106
   %.pr = load i32, ptr %101, align 8
   %.not1485 = icmp eq i32 %.pr, 0
   br i1 %.not1485, label %.thread, label %112
 
-.thread:                                          ; preds = %110, %.thread1714
+.thread:                                          ; preds = %110, %.thread1694
   %111 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr null, ptr %111, align 8
-  br label %.loopexit1807
+  br label %.loopexit1768
 
 112:                                              ; preds = %110
   %113 = zext i32 %.pr to i64
@@ -35209,55 +35209,55 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %115 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %114, ptr %115, align 8
   %.not1486 = icmp eq ptr %114, null
-  br i1 %.not1486, label %.thread1716, label %116
+  br i1 %.not1486, label %.thread1696, label %116
 
 116:                                              ; preds = %112
-  %.pre2011 = load i32, ptr %101, align 8
-  %117 = icmp eq i32 %.pre2011, 0
-  br i1 %117, label %.loopexit1807, label %.lr.ph1881
+  %.pre1972 = load i32, ptr %101, align 8
+  %117 = icmp eq i32 %.pre1972, 0
+  br i1 %117, label %.loopexit1768, label %.lr.ph1842
 
-.lr.ph1881:                                       ; preds = %116
+.lr.ph1842:                                       ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %119 = getelementptr inbounds nuw i8, ptr %86, i64 16
   br label %120
 
-120:                                              ; preds = %.lr.ph1881, %124
-  %indvars.iv1975 = phi i64 [ 0, %.lr.ph1881 ], [ %indvars.iv.next1976, %124 ]
+120:                                              ; preds = %.lr.ph1842, %124
+  %indvars.iv1936 = phi i64 [ 0, %.lr.ph1842 ], [ %indvars.iv.next1937, %124 ]
   %121 = load ptr, ptr %118, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv1975
+  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv1936
   %123 = call i32 @unpack32_array(ptr noundef %122, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1568 = icmp eq i32 %123, 0
-  br i1 %.not1568, label %124, label %.thread1716
+  br i1 %.not1568, label %124, label %.thread1696
 
 124:                                              ; preds = %120
   %125 = load i32, ptr %4, align 4
   %126 = trunc i32 %125 to i16
   %127 = load ptr, ptr %119, align 8
-  %128 = getelementptr inbounds nuw i16, ptr %127, i64 %indvars.iv1975
+  %128 = getelementptr inbounds nuw i16, ptr %127, i64 %indvars.iv1936
   store i16 %126, ptr %128, align 2
-  %indvars.iv.next1976 = add nuw nsw i64 %indvars.iv1975, 1
+  %indvars.iv.next1937 = add nuw nsw i64 %indvars.iv1936, 1
   %129 = load i32, ptr %101, align 8
   %130 = zext i32 %129 to i64
-  %131 = icmp samesign ult i64 %indvars.iv.next1976, %130
-  br i1 %131, label %120, label %.loopexit1807, !llvm.loop !72
+  %131 = icmp samesign ult i64 %indvars.iv.next1937, %130
+  br i1 %131, label %120, label %.loopexit1768, !llvm.loop !72
 
-.loopexit1807:                                    ; preds = %124, %.thread, %116, %103
+.loopexit1768:                                    ; preds = %124, %.thread, %116, %103
   %132 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %133 = call i32 @unpack32(ptr noundef nonnull %132, ptr noundef %1) #7
   %.not1487 = icmp eq i32 %133, 0
-  br i1 %.not1487, label %134, label %.thread1716
+  br i1 %.not1487, label %134, label %.thread1696
 
-134:                                              ; preds = %.loopexit1807
+134:                                              ; preds = %.loopexit1768
   %135 = load i32, ptr %132, align 4
   switch i32 %135, label %137 [
-    i32 -2, label %.loopexit1805
-    i32 0, label %.thread2031
+    i32 -2, label %.loopexit1766
+    i32 0, label %.thread1992
   ]
 
-.thread2031:                                      ; preds = %134
+.thread1992:                                      ; preds = %134
   %136 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %136, align 8
-  br label %.loopexit1805
+  br label %.loopexit1766
 
 137:                                              ; preds = %134
   %138 = zext i32 %135 to i64
@@ -35265,49 +35265,49 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %140 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr %139, ptr %140, align 8
   %.not1490 = icmp eq ptr %139, null
-  br i1 %.not1490, label %.thread1716, label %141
+  br i1 %.not1490, label %.thread1696, label %141
 
 141:                                              ; preds = %137
-  %.pre2013 = load i32, ptr %132, align 4
-  %142 = icmp eq i32 %.pre2013, 0
-  br i1 %142, label %.loopexit1805, label %.lr.ph1884
+  %.pre1974 = load i32, ptr %132, align 4
+  %142 = icmp eq i32 %.pre1974, 0
+  br i1 %142, label %.loopexit1766, label %.lr.ph1845
 
-.lr.ph1884:                                       ; preds = %141
+.lr.ph1845:                                       ; preds = %141
   %143 = getelementptr inbounds nuw i8, ptr %86, i64 32
   br label %148
 
 144:                                              ; preds = %148
-  %indvars.iv.next1979 = add nuw nsw i64 %indvars.iv1978, 1
+  %indvars.iv.next1940 = add nuw nsw i64 %indvars.iv1939, 1
   %145 = load i32, ptr %132, align 4
   %146 = zext i32 %145 to i64
-  %147 = icmp samesign ult i64 %indvars.iv.next1979, %146
-  br i1 %147, label %148, label %.loopexit1805, !llvm.loop !73
+  %147 = icmp samesign ult i64 %indvars.iv.next1940, %146
+  br i1 %147, label %148, label %.loopexit1766, !llvm.loop !73
 
-148:                                              ; preds = %.lr.ph1884, %144
-  %indvars.iv1978 = phi i64 [ 0, %.lr.ph1884 ], [ %indvars.iv.next1979, %144 ]
+148:                                              ; preds = %.lr.ph1845, %144
+  %indvars.iv1939 = phi i64 [ 0, %.lr.ph1845 ], [ %indvars.iv.next1940, %144 ]
   %149 = load ptr, ptr %143, align 8
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv1978
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv1939
   %151 = call i32 @unpack32(ptr noundef %150, ptr noundef %1) #7
   %.not1567 = icmp eq i32 %151, 0
-  br i1 %.not1567, label %144, label %.thread1716
+  br i1 %.not1567, label %144, label %.thread1696
 
-.loopexit1805:                                    ; preds = %144, %.thread2031, %141, %134
+.loopexit1766:                                    ; preds = %144, %.thread1992, %141, %134
   %152 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %153 = call i32 @unpack32(ptr noundef nonnull %152, ptr noundef %1) #7
   %.not1491 = icmp eq i32 %153, 0
-  br i1 %.not1491, label %154, label %.thread1716
+  br i1 %.not1491, label %154, label %.thread1696
 
-154:                                              ; preds = %.loopexit1805
+154:                                              ; preds = %.loopexit1766
   %155 = getelementptr inbounds nuw i8, ptr %86, i64 44
   %156 = call i32 @unpack32(ptr noundef nonnull %155, ptr noundef %1) #7
   %.not1492 = icmp eq i32 %156, 0
-  br i1 %.not1492, label %157, label %.thread1716
+  br i1 %.not1492, label %157, label %.thread1696
 
 157:                                              ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %159 = call i32 @unpack32(ptr noundef nonnull %158, ptr noundef %1) #7
   %.not1493 = icmp eq i32 %159, 0
-  br i1 %.not1493, label %160, label %.thread1716
+  br i1 %.not1493, label %160, label %.thread1696
 
 160:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -35315,85 +35315,85 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %162 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %161, ptr noundef nonnull %8, ptr noundef %1) #7
   %.not1494 = icmp eq i32 %162, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not1494, label %163, label %.thread1716
+  br i1 %.not1494, label %163, label %.thread1696
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %86, i64 64
   %165 = call i32 @unpack32(ptr noundef nonnull %164, ptr noundef %1) #7
   %.not1495 = icmp eq i32 %165, 0
-  br i1 %.not1495, label %166, label %.thread1716
+  br i1 %.not1495, label %166, label %.thread1696
 
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %168 = call i32 @unpack32(ptr noundef nonnull %167, ptr noundef %1) #7
   %.not1496 = icmp eq i32 %168, 0
-  br i1 %.not1496, label %169, label %.thread1716
+  br i1 %.not1496, label %169, label %.thread1696
 
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %86, i64 76
   %171 = call i32 @unpack16(ptr noundef nonnull %170, ptr noundef %1) #7
   %.not1497 = icmp eq i32 %171, 0
-  br i1 %.not1497, label %172, label %.thread1716
+  br i1 %.not1497, label %172, label %.thread1696
 
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %86, i64 78
   %174 = call i32 @unpack16(ptr noundef nonnull %173, ptr noundef %1) #7
   %.not1498 = icmp eq i32 %174, 0
-  br i1 %.not1498, label %175, label %.thread1716
+  br i1 %.not1498, label %175, label %.thread1696
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %177 = call i32 @unpack16(ptr noundef nonnull %176, ptr noundef %1) #7
   %.not1499 = icmp eq i32 %177, 0
-  br i1 %.not1499, label %178, label %.thread1716
+  br i1 %.not1499, label %178, label %.thread1696
 
 178:                                              ; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %86, i64 82
   %180 = call i32 @unpack16(ptr noundef nonnull %179, ptr noundef %1) #7
   %.not1500 = icmp eq i32 %180, 0
-  br i1 %.not1500, label %181, label %.thread1716
+  br i1 %.not1500, label %181, label %.thread1696
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %183 = call i32 @unpack64(ptr noundef nonnull %182, ptr noundef %1) #7
   %.not1501 = icmp eq i32 %183, 0
-  br i1 %.not1501, label %184, label %.thread1716
+  br i1 %.not1501, label %184, label %.thread1696
 
 184:                                              ; preds = %181
   %185 = getelementptr inbounds nuw i8, ptr %86, i64 128
   %186 = call i32 @unpack64(ptr noundef nonnull %185, ptr noundef %1) #7
   %.not1502 = icmp eq i32 %186, 0
-  br i1 %.not1502, label %187, label %.thread1716
+  br i1 %.not1502, label %187, label %.thread1696
 
 187:                                              ; preds = %184
   %188 = getelementptr inbounds nuw i8, ptr %86, i64 68
   %189 = call i32 @unpack32(ptr noundef nonnull %188, ptr noundef %1) #7
   %.not1503 = icmp eq i32 %189, 0
-  br i1 %.not1503, label %190, label %.thread1716
+  br i1 %.not1503, label %190, label %.thread1696
 
 190:                                              ; preds = %187
   %191 = load i32, ptr %188, align 4
   %192 = icmp ugt i32 %191, -3
-  br i1 %192, label %.thread1716, label %193
+  br i1 %192, label %.thread1696, label %193
 
 193:                                              ; preds = %190
   %194 = getelementptr inbounds nuw i8, ptr %86, i64 154
   %195 = call i32 @unpack16(ptr noundef nonnull %194, ptr noundef %1) #7
   %.not1504 = icmp eq i32 %195, 0
-  br i1 %.not1504, label %196, label %.thread1716
+  br i1 %.not1504, label %196, label %.thread1696
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %86, i64 160
   %198 = getelementptr inbounds nuw i8, ptr %86, i64 168
   %199 = call i32 @unpack16_array(ptr noundef nonnull %197, ptr noundef nonnull %198, ptr noundef %1) #7
   %.not1505 = icmp eq i32 %199, 0
-  br i1 %.not1505, label %200, label %.thread1716
+  br i1 %.not1505, label %200, label %.thread1696
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %86, i64 176
   %202 = call i32 @unpack32_array(ptr noundef nonnull %201, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1506 = icmp eq i32 %202, 0
-  br i1 %.not1506, label %203, label %.thread1716
+  br i1 %.not1506, label %203, label %.thread1696
 
 203:                                              ; preds = %200
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -35401,43 +35401,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %205 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %204, ptr noundef nonnull %9, ptr noundef %1) #7
   %.not1507 = icmp eq i32 %205, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not1507, label %206, label %.thread1716
+  br i1 %.not1507, label %206, label %.thread1696
 
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %86, i64 184
   %208 = call i32 @unpack16(ptr noundef nonnull %207, ptr noundef %1) #7
   %.not1508 = icmp eq i32 %208, 0
-  br i1 %.not1508, label %209, label %.thread1716
+  br i1 %.not1508, label %209, label %.thread1696
 
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %86, i64 304
   %211 = call i32 @unpack32(ptr noundef nonnull %210, ptr noundef %1) #7
   %.not1509 = icmp eq i32 %211, 0
-  br i1 %.not1509, label %212, label %.thread1716
+  br i1 %.not1509, label %212, label %.thread1696
 
 212:                                              ; preds = %209
   %213 = getelementptr inbounds nuw i8, ptr %86, i64 152
   %214 = call i32 @unpack16(ptr noundef nonnull %213, ptr noundef %1) #7
   %.not1510 = icmp eq i32 %214, 0
-  br i1 %.not1510, label %215, label %.thread1716
+  br i1 %.not1510, label %215, label %.thread1696
 
 215:                                              ; preds = %212
   %216 = getelementptr inbounds nuw i8, ptr %86, i64 476
   %217 = call i32 @unpack16(ptr noundef nonnull %216, ptr noundef %1) #7
   %.not1511 = icmp eq i32 %217, 0
-  br i1 %.not1511, label %218, label %.thread1716
+  br i1 %.not1511, label %218, label %.thread1696
 
 218:                                              ; preds = %215
   %219 = getelementptr inbounds nuw i8, ptr %86, i64 264
   %220 = call i32 @unpack16(ptr noundef nonnull %219, ptr noundef %1) #7
   %.not1512 = icmp eq i32 %220, 0
-  br i1 %.not1512, label %221, label %.thread1716
+  br i1 %.not1512, label %221, label %.thread1696
 
 221:                                              ; preds = %218
   %222 = getelementptr inbounds nuw i8, ptr %86, i64 546
   %223 = call i32 @unpack16(ptr noundef nonnull %222, ptr noundef %1) #7
   %.not1513 = icmp eq i32 %223, 0
-  br i1 %.not1513, label %224, label %.thread1716
+  br i1 %.not1513, label %224, label %.thread1696
 
 224:                                              ; preds = %221
   %225 = load i16, ptr %222, align 2
@@ -35445,17 +35445,17 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %227 = getelementptr inbounds nuw i8, ptr %86, i64 552
   store ptr %226, ptr %227, align 8
   %.not1514 = icmp eq ptr %226, null
-  br i1 %.not1514, label %.thread1716, label %228
+  br i1 %.not1514, label %.thread1696, label %228
 
 228:                                              ; preds = %224
   %229 = load i32, ptr %188, align 4
   %.not1515 = icmp eq i32 %229, 0
-  br i1 %.not1515, label %.thread1727, label %231
+  br i1 %.not1515, label %.thread1704, label %231
 
-.thread1727:                                      ; preds = %228
+.thread1704:                                      ; preds = %228
   %230 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr null, ptr %230, align 8
-  br label %.thread2033
+  br label %.thread1994
 
 231:                                              ; preds = %228
   %232 = zext i32 %229 to i64
@@ -35463,82 +35463,82 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %234 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr %233, ptr %234, align 8
   %.not1516 = icmp eq ptr %233, null
-  br i1 %.not1516, label %.thread1716, label %235
+  br i1 %.not1516, label %.thread1696, label %235
 
 235:                                              ; preds = %231
-  %.pr1726 = load i32, ptr %188, align 4
-  %.not1517 = icmp eq i32 %.pr1726, 0
-  br i1 %.not1517, label %.thread2033, label %237
+  %.pr1703 = load i32, ptr %188, align 4
+  %.not1517 = icmp eq i32 %.pr1703, 0
+  br i1 %.not1517, label %.thread1994, label %237
 
-.thread2033:                                      ; preds = %235, %.thread1727
+.thread1994:                                      ; preds = %235, %.thread1704
   %236 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr null, ptr %236, align 8
-  br label %._crit_edge1888
+  br label %._crit_edge1849
 
 237:                                              ; preds = %235
-  %238 = zext i32 %.pr1726 to i64
+  %238 = zext i32 %.pr1703 to i64
   %239 = call ptr @slurm_xcalloc(i64 noundef %238, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 7860, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #7
   %240 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr %239, ptr %240, align 8
   %.not1518 = icmp eq ptr %239, null
-  br i1 %.not1518, label %.thread1716, label %241
+  br i1 %.not1518, label %.thread1696, label %241
 
 241:                                              ; preds = %237
-  %.pre2015 = load i32, ptr %188, align 4
-  %242 = icmp eq i32 %.pre2015, 0
-  br i1 %242, label %._crit_edge1888, label %.lr.ph1887
+  %.pre1976 = load i32, ptr %188, align 4
+  %242 = icmp eq i32 %.pre1976, 0
+  br i1 %242, label %._crit_edge1849, label %.lr.ph1848
 
-.lr.ph1887:                                       ; preds = %241
+.lr.ph1848:                                       ; preds = %241
   %243 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %244 = getelementptr inbounds nuw i8, ptr %86, i64 312
-  %.pre2016 = load ptr, ptr %243, align 8
+  %.pre1977 = load ptr, ptr %243, align 8
   br label %249
 
 245:                                              ; preds = %257
-  %indvars.iv.next1982 = add nuw nsw i64 %indvars.iv1981, 1
+  %indvars.iv.next1943 = add nuw nsw i64 %indvars.iv1942, 1
   %246 = load i32, ptr %188, align 4
   %247 = zext i32 %246 to i64
-  %248 = icmp samesign ult i64 %indvars.iv.next1982, %247
-  br i1 %248, label %249, label %._crit_edge1888, !llvm.loop !74
+  %248 = icmp samesign ult i64 %indvars.iv.next1943, %247
+  br i1 %248, label %249, label %._crit_edge1849, !llvm.loop !74
 
-249:                                              ; preds = %.lr.ph1887, %245
-  %250 = phi ptr [ %.pre2016, %.lr.ph1887 ], [ %258, %245 ]
-  %indvars.iv1981 = phi i64 [ 0, %.lr.ph1887 ], [ %indvars.iv.next1982, %245 ]
-  %251 = getelementptr inbounds nuw i16, ptr %250, i64 %indvars.iv1981
+249:                                              ; preds = %.lr.ph1848, %245
+  %250 = phi ptr [ %.pre1977, %.lr.ph1848 ], [ %258, %245 ]
+  %indvars.iv1942 = phi i64 [ 0, %.lr.ph1848 ], [ %indvars.iv.next1943, %245 ]
+  %251 = getelementptr inbounds nuw i16, ptr %250, i64 %indvars.iv1942
   %252 = call i32 @unpack16(ptr noundef %251, ptr noundef %1) #7
   %.not1564 = icmp eq i32 %252, 0
-  br i1 %.not1564, label %253, label %.thread1716
+  br i1 %.not1564, label %253, label %.thread1696
 
 253:                                              ; preds = %249
   %254 = load ptr, ptr %244, align 8
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv1981
+  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv1942
   %256 = call i32 @unpack32_array(ptr noundef %255, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1565 = icmp eq i32 %256, 0
-  br i1 %.not1565, label %257, label %.thread1716
+  br i1 %.not1565, label %257, label %.thread1696
 
 257:                                              ; preds = %253
   %258 = load ptr, ptr %243, align 8
-  %259 = getelementptr inbounds nuw i16, ptr %258, i64 %indvars.iv1981
+  %259 = getelementptr inbounds nuw i16, ptr %258, i64 %indvars.iv1942
   %260 = load i16, ptr %259, align 2
   %261 = load i32, ptr %4, align 4
   %262 = trunc i32 %261 to i16
   %.not1566 = icmp eq i16 %260, %262
-  br i1 %.not1566, label %245, label %.thread1716
+  br i1 %.not1566, label %245, label %.thread1696
 
-._crit_edge1888:                                  ; preds = %245, %.thread2033, %241
+._crit_edge1849:                                  ; preds = %245, %.thread1994, %241
   %263 = getelementptr inbounds nuw i8, ptr %86, i64 288
   %264 = call i32 @unpack16(ptr noundef nonnull %263, ptr noundef %1) #7
   %.not1519 = icmp eq i32 %264, 0
-  br i1 %.not1519, label %265, label %.thread1716
+  br i1 %.not1519, label %265, label %.thread1696
 
-265:                                              ; preds = %._crit_edge1888
+265:                                              ; preds = %._crit_edge1849
   %266 = load i16, ptr %263, align 8
   %267 = icmp ugt i16 %266, -3
-  br i1 %267, label %.thread1716, label %268
+  br i1 %267, label %.thread1696, label %268
 
 268:                                              ; preds = %265
   %.not1520 = icmp eq i16 %266, 0
-  br i1 %.not1520, label %.loopexit1802, label %269
+  br i1 %.not1520, label %.loopexit1763, label %269
 
 269:                                              ; preds = %268
   %270 = zext i16 %266 to i64
@@ -35546,43 +35546,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %272 = getelementptr inbounds nuw i8, ptr %86, i64 296
   store ptr %271, ptr %272, align 8
   %.not1521 = icmp eq ptr %271, null
-  br i1 %.not1521, label %.thread1716, label %.preheader1801
+  br i1 %.not1521, label %.thread1696, label %.preheader1762
 
-.preheader1801:                                   ; preds = %269
+.preheader1762:                                   ; preds = %269
   %273 = load i16, ptr %263, align 8
-  %.not1911 = icmp eq i16 %273, 0
-  br i1 %.not1911, label %.loopexit1802, label %.lr.ph1890
+  %.not1872 = icmp eq i16 %273, 0
+  br i1 %.not1872, label %.loopexit1763, label %.lr.ph1851
 
-274:                                              ; preds = %.lr.ph1890
-  %indvars.iv.next1985 = add nuw nsw i64 %indvars.iv1984, 1
+274:                                              ; preds = %.lr.ph1851
+  %indvars.iv.next1946 = add nuw nsw i64 %indvars.iv1945, 1
   %275 = load i16, ptr %263, align 8
   %276 = zext i16 %275 to i64
-  %277 = icmp samesign ult i64 %indvars.iv.next1985, %276
-  br i1 %277, label %.lr.ph1890, label %.loopexit1802, !llvm.loop !75
+  %277 = icmp samesign ult i64 %indvars.iv.next1946, %276
+  br i1 %277, label %.lr.ph1851, label %.loopexit1763, !llvm.loop !75
 
-.lr.ph1890:                                       ; preds = %.preheader1801, %274
-  %indvars.iv1984 = phi i64 [ %indvars.iv.next1985, %274 ], [ 0, %.preheader1801 ]
+.lr.ph1851:                                       ; preds = %.preheader1762, %274
+  %indvars.iv1945 = phi i64 [ %indvars.iv.next1946, %274 ], [ 0, %.preheader1762 ]
   %278 = load ptr, ptr %272, align 8
-  %279 = getelementptr inbounds nuw i16, ptr %278, i64 %indvars.iv1984
+  %279 = getelementptr inbounds nuw i16, ptr %278, i64 %indvars.iv1945
   %280 = call i32 @unpack16(ptr noundef %279, ptr noundef %1) #7
   %.not1563 = icmp eq i32 %280, 0
-  br i1 %.not1563, label %274, label %.thread1716
+  br i1 %.not1563, label %274, label %.thread1696
 
-.loopexit1802:                                    ; preds = %274, %.preheader1801, %268
+.loopexit1763:                                    ; preds = %274, %.preheader1762, %268
   %281 = getelementptr inbounds nuw i8, ptr %86, i64 320
   %282 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %281, ptr noundef %1) #7
   %283 = getelementptr inbounds nuw i8, ptr %86, i64 200
   %284 = getelementptr inbounds nuw i8, ptr %86, i64 144
   %285 = call i32 @unpackstr_array(ptr noundef nonnull %283, ptr noundef nonnull %284, ptr noundef %1) #7
   %.not1522 = icmp eq i32 %285, 0
-  br i1 %.not1522, label %286, label %.thread1716
+  br i1 %.not1522, label %286, label %.thread1696
 
-286:                                              ; preds = %.loopexit1802
+286:                                              ; preds = %.loopexit1763
   %287 = getelementptr inbounds nuw i8, ptr %86, i64 584
   %288 = getelementptr inbounds nuw i8, ptr %86, i64 592
   %289 = call i32 @unpackstr_array(ptr noundef nonnull %287, ptr noundef nonnull %288, ptr noundef %1) #7
   %.not1523 = icmp eq i32 %289, 0
-  br i1 %.not1523, label %290, label %.thread1716
+  br i1 %.not1523, label %290, label %.thread1696
 
 290:                                              ; preds = %286
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -35590,7 +35590,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %292 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %291, ptr noundef nonnull %10, ptr noundef %1) #7
   %.not1524 = icmp eq i32 %292, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not1524, label %293, label %.thread1716
+  br i1 %.not1524, label %293, label %.thread1696
 
 293:                                              ; preds = %290
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -35598,13 +35598,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %295 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %294, ptr noundef nonnull %11, ptr noundef %1) #7
   %.not1525 = icmp eq i32 %295, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.not1525, label %296, label %.thread1716
+  br i1 %.not1525, label %296, label %.thread1696
 
 296:                                              ; preds = %293
   %297 = getelementptr inbounds nuw i8, ptr %86, i64 232
   %298 = call i32 @unpack16(ptr noundef nonnull %297, ptr noundef %1) #7
   %.not1526 = icmp eq i32 %298, 0
-  br i1 %.not1526, label %299, label %.thread1716
+  br i1 %.not1526, label %299, label %.thread1696
 
 299:                                              ; preds = %296
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -35612,13 +35612,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %301 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %300, ptr noundef nonnull %12, ptr noundef %1) #7
   %.not1527 = icmp eq i32 %301, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.not1527, label %302, label %.thread1716
+  br i1 %.not1527, label %302, label %.thread1696
 
 302:                                              ; preds = %299
   %303 = getelementptr inbounds nuw i8, ptr %86, i64 248
   %304 = call i32 @unpack16(ptr noundef nonnull %303, ptr noundef %1) #7
   %.not1528 = icmp eq i32 %304, 0
-  br i1 %.not1528, label %305, label %.thread1716
+  br i1 %.not1528, label %305, label %.thread1696
 
 305:                                              ; preds = %302
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -35626,20 +35626,20 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %307 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %306, ptr noundef nonnull %13, ptr noundef %1) #7
   %.not1529 = icmp eq i32 %307, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.not1529, label %308, label %.thread1716
+  br i1 %.not1529, label %308, label %.thread1696
 
 308:                                              ; preds = %305
   %309 = getelementptr inbounds nuw i8, ptr %86, i64 208
   %310 = getelementptr inbounds nuw i8, ptr %86, i64 148
   %311 = call i32 @unpackstr_array(ptr noundef nonnull %309, ptr noundef nonnull %310, ptr noundef %1) #7
   %.not1530 = icmp eq i32 %311, 0
-  br i1 %.not1530, label %312, label %.thread1716
+  br i1 %.not1530, label %312, label %.thread1696
 
 312:                                              ; preds = %308
   %313 = getelementptr inbounds nuw i8, ptr %86, i64 308
   %314 = call i32 @unpack32(ptr noundef nonnull %313, ptr noundef %1) #7
   %.not1531 = icmp eq i32 %314, 0
-  br i1 %.not1531, label %315, label %.thread1716
+  br i1 %.not1531, label %315, label %.thread1696
 
 315:                                              ; preds = %312
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -35647,7 +35647,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %317 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %316, ptr noundef nonnull %14, ptr noundef %1) #7
   %.not1532 = icmp eq i32 %317, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %.not1532, label %318, label %.thread1716
+  br i1 %.not1532, label %318, label %.thread1696
 
 318:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -35655,7 +35655,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %320 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %319, ptr noundef nonnull %15, ptr noundef %1) #7
   %.not1533 = icmp eq i32 %320, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br i1 %.not1533, label %321, label %.thread1716
+  br i1 %.not1533, label %321, label %.thread1696
 
 321:                                              ; preds = %318
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -35663,18 +35663,18 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %323 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %322, ptr noundef nonnull %16, ptr noundef %1) #7
   %.not1534 = icmp eq i32 %323, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.not1534, label %324, label %.thread1716
+  br i1 %.not1534, label %324, label %.thread1696
 
 324:                                              ; preds = %321
   %325 = getelementptr inbounds nuw i8, ptr %86, i64 504
   %326 = call i32 @unpack16(ptr noundef nonnull %325, ptr noundef %1) #7
   %.not1535 = icmp eq i32 %326, 0
-  br i1 %.not1535, label %327, label %.thread1716
+  br i1 %.not1535, label %327, label %.thread1696
 
 327:                                              ; preds = %324
   %328 = load i16, ptr %325, align 8
   %329 = icmp ugt i16 %328, -3
-  br i1 %329, label %.thread1716, label %330
+  br i1 %329, label %.thread1696, label %330
 
 330:                                              ; preds = %327
   %.not1536 = icmp eq i16 %328, 0
@@ -35686,33 +35686,33 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %334 = getelementptr inbounds nuw i8, ptr %86, i64 512
   store ptr %333, ptr %334, align 8
   %.not1537 = icmp eq ptr %333, null
-  br i1 %.not1537, label %.thread1716, label %.preheader
+  br i1 %.not1537, label %.thread1696, label %.preheader
 
 .preheader:                                       ; preds = %331
   %335 = load i16, ptr %325, align 8
-  %.not1912 = icmp eq i16 %335, 0
-  br i1 %.not1912, label %.loopexit, label %.lr.ph1892
+  %.not1873 = icmp eq i16 %335, 0
+  br i1 %.not1873, label %.loopexit, label %.lr.ph1853
 
-336:                                              ; preds = %.lr.ph1892
-  %indvars.iv.next1988 = add nuw nsw i64 %indvars.iv1987, 1
+336:                                              ; preds = %.lr.ph1853
+  %indvars.iv.next1949 = add nuw nsw i64 %indvars.iv1948, 1
   %337 = load i16, ptr %325, align 8
   %338 = zext i16 %337 to i64
-  %339 = icmp samesign ult i64 %indvars.iv.next1988, %338
-  br i1 %339, label %.lr.ph1892, label %.loopexit, !llvm.loop !76
+  %339 = icmp samesign ult i64 %indvars.iv.next1949, %338
+  br i1 %339, label %.lr.ph1853, label %.loopexit, !llvm.loop !76
 
-.lr.ph1892:                                       ; preds = %.preheader, %336
-  %indvars.iv1987 = phi i64 [ %indvars.iv.next1988, %336 ], [ 0, %.preheader ]
+.lr.ph1853:                                       ; preds = %.preheader, %336
+  %indvars.iv1948 = phi i64 [ %indvars.iv.next1949, %336 ], [ 0, %.preheader ]
   %340 = load ptr, ptr %334, align 8
-  %341 = getelementptr inbounds nuw i16, ptr %340, i64 %indvars.iv1987
+  %341 = getelementptr inbounds nuw i16, ptr %340, i64 %indvars.iv1948
   %342 = call i32 @unpack16(ptr noundef %341, ptr noundef %1) #7
   %.not1562 = icmp eq i32 %342, 0
-  br i1 %.not1562, label %336, label %.thread1716
+  br i1 %.not1562, label %336, label %.thread1696
 
 .loopexit:                                        ; preds = %336, %.preheader, %330
   %343 = getelementptr inbounds nuw i8, ptr %86, i64 520
   %344 = call i32 @unpack32(ptr noundef nonnull %343, ptr noundef %1) #7
   %.not1538 = icmp eq i32 %344, 0
-  br i1 %.not1538, label %345, label %.thread1716
+  br i1 %.not1538, label %345, label %.thread1696
 
 345:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -35720,7 +35720,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %347 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %346, ptr noundef nonnull %17, ptr noundef %1) #7
   %.not1539 = icmp eq i32 %347, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br i1 %.not1539, label %348, label %.thread1716
+  br i1 %.not1539, label %348, label %.thread1696
 
 348:                                              ; preds = %345
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -35728,13 +35728,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %350 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %349, ptr noundef nonnull %18, ptr noundef %1) #7
   %.not1540 = icmp eq i32 %350, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %.not1540, label %351, label %.thread1716
+  br i1 %.not1540, label %351, label %.thread1696
 
 351:                                              ; preds = %348
   %352 = getelementptr inbounds nuw i8, ptr %86, i64 544
   %353 = call i32 @unpack16(ptr noundef nonnull %352, ptr noundef %1) #7
   %.not1541 = icmp eq i32 %353, 0
-  br i1 %.not1541, label %354, label %.thread1716
+  br i1 %.not1541, label %354, label %.thread1696
 
 354:                                              ; preds = %351
   %355 = call ptr @job_options_create() #7
@@ -35746,7 +35746,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 
 359:                                              ; preds = %354
   %360 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #7
-  br label %.thread1716
+  br label %.thread1696
 
 361:                                              ; preds = %354
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -35754,13 +35754,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %363 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %362, ptr noundef nonnull %19, ptr noundef %1) #7
   %.not1542 = icmp eq i32 %363, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %.not1542, label %364, label %.thread1716
+  br i1 %.not1542, label %364, label %.thread1696
 
 364:                                              ; preds = %361
   %365 = getelementptr inbounds nuw i8, ptr %86, i64 448
   %366 = call i32 @unpack8(ptr noundef nonnull %365, ptr noundef %1) #7
   %.not1543 = icmp eq i32 %366, 0
-  br i1 %.not1543, label %367, label %.thread1716
+  br i1 %.not1543, label %367, label %.thread1696
 
 367:                                              ; preds = %364
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -35768,25 +35768,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %369 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %368, ptr noundef nonnull %20, ptr noundef %1) #7
   %.not1544 = icmp eq i32 %369, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %.not1544, label %370, label %.thread1716
+  br i1 %.not1544, label %370, label %.thread1696
 
 370:                                              ; preds = %367
   %371 = getelementptr inbounds nuw i8, ptr %86, i64 464
   %372 = call i32 @unpack32(ptr noundef nonnull %371, ptr noundef %1) #7
   %.not1545 = icmp eq i32 %372, 0
-  br i1 %.not1545, label %373, label %.thread1716
+  br i1 %.not1545, label %373, label %.thread1696
 
 373:                                              ; preds = %370
   %374 = getelementptr inbounds nuw i8, ptr %86, i64 468
   %375 = call i32 @unpack32(ptr noundef nonnull %374, ptr noundef %1) #7
   %.not1546 = icmp eq i32 %375, 0
-  br i1 %.not1546, label %376, label %.thread1716
+  br i1 %.not1546, label %376, label %.thread1696
 
 376:                                              ; preds = %373
   %377 = getelementptr inbounds nuw i8, ptr %86, i64 472
   %378 = call i32 @unpack32(ptr noundef nonnull %377, ptr noundef %1) #7
   %.not1547 = icmp eq i32 %378, 0
-  br i1 %.not1547, label %379, label %.thread1716
+  br i1 %.not1547, label %379, label %.thread1696
 
 379:                                              ; preds = %376
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -35794,7 +35794,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %381 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %380, ptr noundef nonnull %21, ptr noundef %1) #7
   %.not1548 = icmp eq i32 %381, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %.not1548, label %382, label %.thread1716
+  br i1 %.not1548, label %382, label %.thread1696
 
 382:                                              ; preds = %379
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -35802,13 +35802,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %384 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %383, ptr noundef nonnull %22, ptr noundef %1) #7
   %.not1549 = icmp eq i32 %384, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br i1 %.not1549, label %385, label %.thread1716
+  br i1 %.not1549, label %385, label %.thread1696
 
 385:                                              ; preds = %382
   %386 = getelementptr inbounds nuw i8, ptr %86, i64 608
   %387 = call i32 @unpack16(ptr noundef nonnull %386, ptr noundef %1) #7
   %.not1550 = icmp eq i32 %387, 0
-  br i1 %.not1550, label %388, label %.thread1716
+  br i1 %.not1550, label %388, label %.thread1696
 
 388:                                              ; preds = %385
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -35816,13 +35816,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %390 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %389, ptr noundef nonnull %23, ptr noundef %1) #7
   %.not1551 = icmp eq i32 %390, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br i1 %.not1551, label %391, label %.thread1716
+  br i1 %.not1551, label %391, label %.thread1696
 
 391:                                              ; preds = %388
   %392 = getelementptr inbounds nuw i8, ptr %86, i64 624
   %393 = call i32 @unpack16(ptr noundef nonnull %392, ptr noundef %1) #7
   %.not1552 = icmp eq i32 %393, 0
-  br i1 %.not1552, label %394, label %.thread1716
+  br i1 %.not1552, label %394, label %.thread1696
 
 394:                                              ; preds = %391
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -35830,7 +35830,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %396 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %395, ptr noundef nonnull %24, ptr noundef %1) #7
   %.not1553 = icmp eq i32 %396, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br i1 %.not1553, label %397, label %.thread1716
+  br i1 %.not1553, label %397, label %.thread1696
 
 397:                                              ; preds = %394
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -35838,13 +35838,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %399 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %398, ptr noundef nonnull %25, ptr noundef %1) #7
   %.not1554 = icmp eq i32 %399, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br i1 %.not1554, label %400, label %.thread1716
+  br i1 %.not1554, label %400, label %.thread1696
 
 400:                                              ; preds = %397
   %401 = getelementptr inbounds nuw i8, ptr %86, i64 648
   %402 = call i32 @unpack16(ptr noundef nonnull %401, ptr noundef %1) #7
   %.not1555 = icmp eq i32 %402, 0
-  br i1 %.not1555, label %403, label %.thread1716
+  br i1 %.not1555, label %403, label %.thread1696
 
 403:                                              ; preds = %400
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -35852,18 +35852,18 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %405 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %404, ptr noundef nonnull %26, ptr noundef %1) #7
   %.not1556 = icmp eq i32 %405, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %.not1556, label %406, label %.thread1716
+  br i1 %.not1556, label %406, label %.thread1696
 
 406:                                              ; preds = %403
   %407 = getelementptr inbounds nuw i8, ptr %86, i64 688
   %408 = call i32 @unpackbool(ptr noundef nonnull %407, ptr noundef %1) #7
   %.not1557 = icmp eq i32 %408, 0
-  br i1 %.not1557, label %409, label %.thread1716
+  br i1 %.not1557, label %409, label %.thread1696
 
 409:                                              ; preds = %406
   %410 = call i32 @unpackbool(ptr noundef nonnull %5, ptr noundef %1) #7
   %.not1558 = icmp eq i32 %410, 0
-  br i1 %.not1558, label %411, label %.thread1716
+  br i1 %.not1558, label %411, label %.thread1696
 
 411:                                              ; preds = %409
   %412 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -35874,19 +35874,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %415 = getelementptr inbounds nuw i8, ptr %86, i64 656
   %416 = call i32 @job_record_unpack(ptr noundef nonnull %415, i32 noundef 0, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not1559 = icmp eq i32 %416, 0
-  br i1 %.not1559, label %417, label %.thread1716
+  br i1 %.not1559, label %417, label %.thread1696
 
 417:                                              ; preds = %414
   %418 = getelementptr inbounds nuw i8, ptr %86, i64 664
   %419 = call i32 @slurm_unpack_list(ptr noundef nonnull %418, ptr noundef nonnull @node_record_unpack, ptr noundef nonnull @purge_node_rec, ptr noundef %1, i16 noundef zeroext %2)
   %.not1560 = icmp eq i32 %419, 0
-  br i1 %.not1560, label %420, label %.thread1716
+  br i1 %.not1560, label %420, label %.thread1696
 
 420:                                              ; preds = %417
   %421 = getelementptr inbounds nuw i8, ptr %86, i64 672
   %422 = call i32 @part_record_unpack(ptr noundef nonnull %421, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not1561 = icmp eq i32 %422, 0
-  br i1 %.not1561, label %1431, label %.thread1716
+  br i1 %.not1561, label %1431, label %.thread1696
 
 423:                                              ; preds = %3
   %424 = icmp samesign ugt i16 %2, 10751
@@ -35896,43 +35896,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %426 = getelementptr inbounds nuw i8, ptr %86, i64 104
   %427 = tail call i32 @unpack_step_id_members(ptr noundef nonnull %426, ptr noundef %1, i16 noundef zeroext %2)
   %.not1384 = icmp eq i32 %427, 0
-  br i1 %.not1384, label %428, label %.thread1716
+  br i1 %.not1384, label %428, label %.thread1696
 
 428:                                              ; preds = %425
   %429 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %430 = getelementptr inbounds nuw i8, ptr %86, i64 84
   %431 = tail call i32 @unpack32_array(ptr noundef nonnull %429, ptr noundef nonnull %430, ptr noundef %1) #7
   %.not1385 = icmp eq i32 %431, 0
-  br i1 %.not1385, label %432, label %.thread1716
+  br i1 %.not1385, label %432, label %.thread1696
 
 432:                                              ; preds = %428
   %433 = tail call i32 @unpack32(ptr noundef nonnull %86, ptr noundef %1) #7
   %.not1386 = icmp eq i32 %433, 0
-  br i1 %.not1386, label %434, label %.thread1716
+  br i1 %.not1386, label %434, label %.thread1696
 
 434:                                              ; preds = %432
   %435 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %436 = tail call i32 @unpack32(ptr noundef nonnull %435, ptr noundef %1) #7
   %.not1387 = icmp eq i32 %436, 0
-  br i1 %.not1387, label %437, label %.thread1716
+  br i1 %.not1387, label %437, label %.thread1696
 
 437:                                              ; preds = %434
   %438 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %439 = tail call i32 @unpack32(ptr noundef nonnull %438, ptr noundef %1) #7
   %.not1388 = icmp eq i32 %439, 0
-  br i1 %.not1388, label %440, label %.thread1716
+  br i1 %.not1388, label %440, label %.thread1696
 
 440:                                              ; preds = %437
   %441 = load i32, ptr %438, align 8
   switch i32 %441, label %443 [
-    i32 -2, label %.loopexit1818
-    i32 0, label %.thread1737
+    i32 -2, label %.loopexit1779
+    i32 0, label %.thread1712
   ]
 
-.thread1737:                                      ; preds = %440
+.thread1712:                                      ; preds = %440
   %442 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr null, ptr %442, align 8
-  br label %.thread2035
+  br label %.thread1996
 
 443:                                              ; preds = %440
   %444 = zext i32 %441 to i64
@@ -35940,73 +35940,73 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %446 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %445, ptr %446, align 8
   %.not1391 = icmp eq ptr %445, null
-  br i1 %.not1391, label %.thread1716, label %447
+  br i1 %.not1391, label %.thread1696, label %447
 
 447:                                              ; preds = %443
-  %.pr1736 = load i32, ptr %438, align 8
-  %.not1392 = icmp eq i32 %.pr1736, 0
-  br i1 %.not1392, label %.thread2035, label %449
+  %.pr1711 = load i32, ptr %438, align 8
+  %.not1392 = icmp eq i32 %.pr1711, 0
+  br i1 %.not1392, label %.thread1996, label %449
 
-.thread2035:                                      ; preds = %447, %.thread1737
+.thread1996:                                      ; preds = %447, %.thread1712
   %448 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr null, ptr %448, align 8
-  br label %.loopexit1818
+  br label %.loopexit1779
 
 449:                                              ; preds = %447
-  %450 = zext i32 %.pr1736 to i64
+  %450 = zext i32 %.pr1711 to i64
   %451 = tail call ptr @slurm_xcalloc(i64 noundef %450, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 7961, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #7
   %452 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %451, ptr %452, align 8
   %.not1393 = icmp eq ptr %451, null
-  br i1 %.not1393, label %.thread1716, label %453
+  br i1 %.not1393, label %.thread1696, label %453
 
 453:                                              ; preds = %449
-  %.pre2004 = load i32, ptr %438, align 8
-  %454 = icmp eq i32 %.pre2004, 0
-  br i1 %454, label %.loopexit1818, label %.lr.ph1867
+  %.pre1965 = load i32, ptr %438, align 8
+  %454 = icmp eq i32 %.pre1965, 0
+  br i1 %454, label %.loopexit1779, label %.lr.ph1828
 
-.lr.ph1867:                                       ; preds = %453
+.lr.ph1828:                                       ; preds = %453
   %455 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %456 = getelementptr inbounds nuw i8, ptr %86, i64 16
   br label %457
 
-457:                                              ; preds = %.lr.ph1867, %461
-  %indvars.iv1960 = phi i64 [ 0, %.lr.ph1867 ], [ %indvars.iv.next1961, %461 ]
+457:                                              ; preds = %.lr.ph1828, %461
+  %indvars.iv1921 = phi i64 [ 0, %.lr.ph1828 ], [ %indvars.iv.next1922, %461 ]
   %458 = load ptr, ptr %455, align 8
-  %459 = getelementptr inbounds nuw ptr, ptr %458, i64 %indvars.iv1960
+  %459 = getelementptr inbounds nuw ptr, ptr %458, i64 %indvars.iv1921
   %460 = call i32 @unpack32_array(ptr noundef %459, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1476 = icmp eq i32 %460, 0
-  br i1 %.not1476, label %461, label %.thread1716
+  br i1 %.not1476, label %461, label %.thread1696
 
 461:                                              ; preds = %457
   %462 = load i32, ptr %4, align 4
   %463 = trunc i32 %462 to i16
   %464 = load ptr, ptr %456, align 8
-  %465 = getelementptr inbounds nuw i16, ptr %464, i64 %indvars.iv1960
+  %465 = getelementptr inbounds nuw i16, ptr %464, i64 %indvars.iv1921
   store i16 %463, ptr %465, align 2
-  %indvars.iv.next1961 = add nuw nsw i64 %indvars.iv1960, 1
+  %indvars.iv.next1922 = add nuw nsw i64 %indvars.iv1921, 1
   %466 = load i32, ptr %438, align 8
   %467 = zext i32 %466 to i64
-  %468 = icmp samesign ult i64 %indvars.iv.next1961, %467
-  br i1 %468, label %457, label %.loopexit1818, !llvm.loop !77
+  %468 = icmp samesign ult i64 %indvars.iv.next1922, %467
+  br i1 %468, label %457, label %.loopexit1779, !llvm.loop !77
 
-.loopexit1818:                                    ; preds = %461, %.thread2035, %453, %440
+.loopexit1779:                                    ; preds = %461, %.thread1996, %453, %440
   %469 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %470 = call i32 @unpack32(ptr noundef nonnull %469, ptr noundef %1) #7
   %.not1394 = icmp eq i32 %470, 0
-  br i1 %.not1394, label %471, label %.thread1716
+  br i1 %.not1394, label %471, label %.thread1696
 
-471:                                              ; preds = %.loopexit1818
+471:                                              ; preds = %.loopexit1779
   %472 = load i32, ptr %469, align 4
   switch i32 %472, label %474 [
-    i32 -2, label %.loopexit1816
-    i32 0, label %.thread2037
+    i32 -2, label %.loopexit1777
+    i32 0, label %.thread1998
   ]
 
-.thread2037:                                      ; preds = %471
+.thread1998:                                      ; preds = %471
   %473 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %473, align 8
-  br label %.loopexit1816
+  br label %.loopexit1777
 
 474:                                              ; preds = %471
   %475 = zext i32 %472 to i64
@@ -36014,49 +36014,49 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %477 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr %476, ptr %477, align 8
   %.not1397 = icmp eq ptr %476, null
-  br i1 %.not1397, label %.thread1716, label %478
+  br i1 %.not1397, label %.thread1696, label %478
 
 478:                                              ; preds = %474
-  %.pre2006 = load i32, ptr %469, align 4
-  %479 = icmp eq i32 %.pre2006, 0
-  br i1 %479, label %.loopexit1816, label %.lr.ph1870
+  %.pre1967 = load i32, ptr %469, align 4
+  %479 = icmp eq i32 %.pre1967, 0
+  br i1 %479, label %.loopexit1777, label %.lr.ph1831
 
-.lr.ph1870:                                       ; preds = %478
+.lr.ph1831:                                       ; preds = %478
   %480 = getelementptr inbounds nuw i8, ptr %86, i64 32
   br label %485
 
 481:                                              ; preds = %485
-  %indvars.iv.next1964 = add nuw nsw i64 %indvars.iv1963, 1
+  %indvars.iv.next1925 = add nuw nsw i64 %indvars.iv1924, 1
   %482 = load i32, ptr %469, align 4
   %483 = zext i32 %482 to i64
-  %484 = icmp samesign ult i64 %indvars.iv.next1964, %483
-  br i1 %484, label %485, label %.loopexit1816, !llvm.loop !78
+  %484 = icmp samesign ult i64 %indvars.iv.next1925, %483
+  br i1 %484, label %485, label %.loopexit1777, !llvm.loop !78
 
-485:                                              ; preds = %.lr.ph1870, %481
-  %indvars.iv1963 = phi i64 [ 0, %.lr.ph1870 ], [ %indvars.iv.next1964, %481 ]
+485:                                              ; preds = %.lr.ph1831, %481
+  %indvars.iv1924 = phi i64 [ 0, %.lr.ph1831 ], [ %indvars.iv.next1925, %481 ]
   %486 = load ptr, ptr %480, align 8
-  %487 = getelementptr inbounds nuw i32, ptr %486, i64 %indvars.iv1963
+  %487 = getelementptr inbounds nuw i32, ptr %486, i64 %indvars.iv1924
   %488 = call i32 @unpack32(ptr noundef %487, ptr noundef %1) #7
   %.not1475 = icmp eq i32 %488, 0
-  br i1 %.not1475, label %481, label %.thread1716
+  br i1 %.not1475, label %481, label %.thread1696
 
-.loopexit1816:                                    ; preds = %481, %.thread2037, %478, %471
+.loopexit1777:                                    ; preds = %481, %.thread1998, %478, %471
   %489 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %490 = call i32 @unpack32(ptr noundef nonnull %489, ptr noundef %1) #7
   %.not1398 = icmp eq i32 %490, 0
-  br i1 %.not1398, label %491, label %.thread1716
+  br i1 %.not1398, label %491, label %.thread1696
 
-491:                                              ; preds = %.loopexit1816
+491:                                              ; preds = %.loopexit1777
   %492 = getelementptr inbounds nuw i8, ptr %86, i64 44
   %493 = call i32 @unpack32(ptr noundef nonnull %492, ptr noundef %1) #7
   %.not1399 = icmp eq i32 %493, 0
-  br i1 %.not1399, label %494, label %.thread1716
+  br i1 %.not1399, label %494, label %.thread1696
 
 494:                                              ; preds = %491
   %495 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %496 = call i32 @unpack32(ptr noundef nonnull %495, ptr noundef %1) #7
   %.not1400 = icmp eq i32 %496, 0
-  br i1 %.not1400, label %497, label %.thread1716
+  br i1 %.not1400, label %497, label %.thread1696
 
 497:                                              ; preds = %494
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -36064,85 +36064,85 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %499 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %498, ptr noundef nonnull %27, ptr noundef %1) #7
   %.not1401 = icmp eq i32 %499, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br i1 %.not1401, label %500, label %.thread1716
+  br i1 %.not1401, label %500, label %.thread1696
 
 500:                                              ; preds = %497
   %501 = getelementptr inbounds nuw i8, ptr %86, i64 64
   %502 = call i32 @unpack32(ptr noundef nonnull %501, ptr noundef %1) #7
   %.not1402 = icmp eq i32 %502, 0
-  br i1 %.not1402, label %503, label %.thread1716
+  br i1 %.not1402, label %503, label %.thread1696
 
 503:                                              ; preds = %500
   %504 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %505 = call i32 @unpack32(ptr noundef nonnull %504, ptr noundef %1) #7
   %.not1403 = icmp eq i32 %505, 0
-  br i1 %.not1403, label %506, label %.thread1716
+  br i1 %.not1403, label %506, label %.thread1696
 
 506:                                              ; preds = %503
   %507 = getelementptr inbounds nuw i8, ptr %86, i64 76
   %508 = call i32 @unpack16(ptr noundef nonnull %507, ptr noundef %1) #7
   %.not1404 = icmp eq i32 %508, 0
-  br i1 %.not1404, label %509, label %.thread1716
+  br i1 %.not1404, label %509, label %.thread1696
 
 509:                                              ; preds = %506
   %510 = getelementptr inbounds nuw i8, ptr %86, i64 78
   %511 = call i32 @unpack16(ptr noundef nonnull %510, ptr noundef %1) #7
   %.not1405 = icmp eq i32 %511, 0
-  br i1 %.not1405, label %512, label %.thread1716
+  br i1 %.not1405, label %512, label %.thread1696
 
 512:                                              ; preds = %509
   %513 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %514 = call i32 @unpack16(ptr noundef nonnull %513, ptr noundef %1) #7
   %.not1406 = icmp eq i32 %514, 0
-  br i1 %.not1406, label %515, label %.thread1716
+  br i1 %.not1406, label %515, label %.thread1696
 
 515:                                              ; preds = %512
   %516 = getelementptr inbounds nuw i8, ptr %86, i64 82
   %517 = call i32 @unpack16(ptr noundef nonnull %516, ptr noundef %1) #7
   %.not1407 = icmp eq i32 %517, 0
-  br i1 %.not1407, label %518, label %.thread1716
+  br i1 %.not1407, label %518, label %.thread1696
 
 518:                                              ; preds = %515
   %519 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %520 = call i32 @unpack64(ptr noundef nonnull %519, ptr noundef %1) #7
   %.not1408 = icmp eq i32 %520, 0
-  br i1 %.not1408, label %521, label %.thread1716
+  br i1 %.not1408, label %521, label %.thread1696
 
 521:                                              ; preds = %518
   %522 = getelementptr inbounds nuw i8, ptr %86, i64 128
   %523 = call i32 @unpack64(ptr noundef nonnull %522, ptr noundef %1) #7
   %.not1409 = icmp eq i32 %523, 0
-  br i1 %.not1409, label %524, label %.thread1716
+  br i1 %.not1409, label %524, label %.thread1696
 
 524:                                              ; preds = %521
   %525 = getelementptr inbounds nuw i8, ptr %86, i64 68
   %526 = call i32 @unpack32(ptr noundef nonnull %525, ptr noundef %1) #7
   %.not1410 = icmp eq i32 %526, 0
-  br i1 %.not1410, label %527, label %.thread1716
+  br i1 %.not1410, label %527, label %.thread1696
 
 527:                                              ; preds = %524
   %528 = load i32, ptr %525, align 4
   %529 = icmp ugt i32 %528, -3
-  br i1 %529, label %.thread1716, label %530
+  br i1 %529, label %.thread1696, label %530
 
 530:                                              ; preds = %527
   %531 = getelementptr inbounds nuw i8, ptr %86, i64 154
   %532 = call i32 @unpack16(ptr noundef nonnull %531, ptr noundef %1) #7
   %.not1411 = icmp eq i32 %532, 0
-  br i1 %.not1411, label %533, label %.thread1716
+  br i1 %.not1411, label %533, label %.thread1696
 
 533:                                              ; preds = %530
   %534 = getelementptr inbounds nuw i8, ptr %86, i64 160
   %535 = getelementptr inbounds nuw i8, ptr %86, i64 168
   %536 = call i32 @unpack16_array(ptr noundef nonnull %534, ptr noundef nonnull %535, ptr noundef %1) #7
   %.not1412 = icmp eq i32 %536, 0
-  br i1 %.not1412, label %537, label %.thread1716
+  br i1 %.not1412, label %537, label %.thread1696
 
 537:                                              ; preds = %533
   %538 = getelementptr inbounds nuw i8, ptr %86, i64 176
   %539 = call i32 @unpack32_array(ptr noundef nonnull %538, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1413 = icmp eq i32 %539, 0
-  br i1 %.not1413, label %540, label %.thread1716
+  br i1 %.not1413, label %540, label %.thread1696
 
 540:                                              ; preds = %537
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -36150,43 +36150,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %542 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %541, ptr noundef nonnull %28, ptr noundef %1) #7
   %.not1414 = icmp eq i32 %542, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %.not1414, label %543, label %.thread1716
+  br i1 %.not1414, label %543, label %.thread1696
 
 543:                                              ; preds = %540
   %544 = getelementptr inbounds nuw i8, ptr %86, i64 184
   %545 = call i32 @unpack16(ptr noundef nonnull %544, ptr noundef %1) #7
   %.not1415 = icmp eq i32 %545, 0
-  br i1 %.not1415, label %546, label %.thread1716
+  br i1 %.not1415, label %546, label %.thread1696
 
 546:                                              ; preds = %543
   %547 = getelementptr inbounds nuw i8, ptr %86, i64 304
   %548 = call i32 @unpack32(ptr noundef nonnull %547, ptr noundef %1) #7
   %.not1416 = icmp eq i32 %548, 0
-  br i1 %.not1416, label %549, label %.thread1716
+  br i1 %.not1416, label %549, label %.thread1696
 
 549:                                              ; preds = %546
   %550 = getelementptr inbounds nuw i8, ptr %86, i64 152
   %551 = call i32 @unpack16(ptr noundef nonnull %550, ptr noundef %1) #7
   %.not1417 = icmp eq i32 %551, 0
-  br i1 %.not1417, label %552, label %.thread1716
+  br i1 %.not1417, label %552, label %.thread1696
 
 552:                                              ; preds = %549
   %553 = getelementptr inbounds nuw i8, ptr %86, i64 476
   %554 = call i32 @unpack16(ptr noundef nonnull %553, ptr noundef %1) #7
   %.not1418 = icmp eq i32 %554, 0
-  br i1 %.not1418, label %555, label %.thread1716
+  br i1 %.not1418, label %555, label %.thread1696
 
 555:                                              ; preds = %552
   %556 = getelementptr inbounds nuw i8, ptr %86, i64 264
   %557 = call i32 @unpack16(ptr noundef nonnull %556, ptr noundef %1) #7
   %.not1419 = icmp eq i32 %557, 0
-  br i1 %.not1419, label %558, label %.thread1716
+  br i1 %.not1419, label %558, label %.thread1696
 
 558:                                              ; preds = %555
   %559 = getelementptr inbounds nuw i8, ptr %86, i64 546
   %560 = call i32 @unpack16(ptr noundef nonnull %559, ptr noundef %1) #7
   %.not1420 = icmp eq i32 %560, 0
-  br i1 %.not1420, label %561, label %.thread1716
+  br i1 %.not1420, label %561, label %.thread1696
 
 561:                                              ; preds = %558
   %562 = load i16, ptr %559, align 2
@@ -36194,17 +36194,17 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %564 = getelementptr inbounds nuw i8, ptr %86, i64 552
   store ptr %563, ptr %564, align 8
   %.not1421 = icmp eq ptr %563, null
-  br i1 %.not1421, label %.thread1716, label %565
+  br i1 %.not1421, label %.thread1696, label %565
 
 565:                                              ; preds = %561
   %566 = load i32, ptr %525, align 4
   %.not1422 = icmp eq i32 %566, 0
-  br i1 %.not1422, label %.thread1750, label %568
+  br i1 %.not1422, label %.thread1722, label %568
 
-.thread1750:                                      ; preds = %565
+.thread1722:                                      ; preds = %565
   %567 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr null, ptr %567, align 8
-  br label %.thread2039
+  br label %.thread2000
 
 568:                                              ; preds = %565
   %569 = zext i32 %566 to i64
@@ -36212,82 +36212,82 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %571 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr %570, ptr %571, align 8
   %.not1423 = icmp eq ptr %570, null
-  br i1 %.not1423, label %.thread1716, label %572
+  br i1 %.not1423, label %.thread1696, label %572
 
 572:                                              ; preds = %568
-  %.pr1749 = load i32, ptr %525, align 4
-  %.not1424 = icmp eq i32 %.pr1749, 0
-  br i1 %.not1424, label %.thread2039, label %574
+  %.pr1721 = load i32, ptr %525, align 4
+  %.not1424 = icmp eq i32 %.pr1721, 0
+  br i1 %.not1424, label %.thread2000, label %574
 
-.thread2039:                                      ; preds = %572, %.thread1750
+.thread2000:                                      ; preds = %572, %.thread1722
   %573 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr null, ptr %573, align 8
-  br label %._crit_edge1874
+  br label %._crit_edge1835
 
 574:                                              ; preds = %572
-  %575 = zext i32 %.pr1749 to i64
+  %575 = zext i32 %.pr1721 to i64
   %576 = call ptr @slurm_xcalloc(i64 noundef %575, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 8013, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #7
   %577 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr %576, ptr %577, align 8
   %.not1425 = icmp eq ptr %576, null
-  br i1 %.not1425, label %.thread1716, label %578
+  br i1 %.not1425, label %.thread1696, label %578
 
 578:                                              ; preds = %574
-  %.pre2008 = load i32, ptr %525, align 4
-  %579 = icmp eq i32 %.pre2008, 0
-  br i1 %579, label %._crit_edge1874, label %.lr.ph1873
+  %.pre1969 = load i32, ptr %525, align 4
+  %579 = icmp eq i32 %.pre1969, 0
+  br i1 %579, label %._crit_edge1835, label %.lr.ph1834
 
-.lr.ph1873:                                       ; preds = %578
+.lr.ph1834:                                       ; preds = %578
   %580 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %581 = getelementptr inbounds nuw i8, ptr %86, i64 312
-  %.pre2009 = load ptr, ptr %580, align 8
+  %.pre1970 = load ptr, ptr %580, align 8
   br label %586
 
 582:                                              ; preds = %594
-  %indvars.iv.next1967 = add nuw nsw i64 %indvars.iv1966, 1
+  %indvars.iv.next1928 = add nuw nsw i64 %indvars.iv1927, 1
   %583 = load i32, ptr %525, align 4
   %584 = zext i32 %583 to i64
-  %585 = icmp samesign ult i64 %indvars.iv.next1967, %584
-  br i1 %585, label %586, label %._crit_edge1874, !llvm.loop !79
+  %585 = icmp samesign ult i64 %indvars.iv.next1928, %584
+  br i1 %585, label %586, label %._crit_edge1835, !llvm.loop !79
 
-586:                                              ; preds = %.lr.ph1873, %582
-  %587 = phi ptr [ %.pre2009, %.lr.ph1873 ], [ %595, %582 ]
-  %indvars.iv1966 = phi i64 [ 0, %.lr.ph1873 ], [ %indvars.iv.next1967, %582 ]
-  %588 = getelementptr inbounds nuw i16, ptr %587, i64 %indvars.iv1966
+586:                                              ; preds = %.lr.ph1834, %582
+  %587 = phi ptr [ %.pre1970, %.lr.ph1834 ], [ %595, %582 ]
+  %indvars.iv1927 = phi i64 [ 0, %.lr.ph1834 ], [ %indvars.iv.next1928, %582 ]
+  %588 = getelementptr inbounds nuw i16, ptr %587, i64 %indvars.iv1927
   %589 = call i32 @unpack16(ptr noundef %588, ptr noundef %1) #7
   %.not1472 = icmp eq i32 %589, 0
-  br i1 %.not1472, label %590, label %.thread1716
+  br i1 %.not1472, label %590, label %.thread1696
 
 590:                                              ; preds = %586
   %591 = load ptr, ptr %581, align 8
-  %592 = getelementptr inbounds nuw ptr, ptr %591, i64 %indvars.iv1966
+  %592 = getelementptr inbounds nuw ptr, ptr %591, i64 %indvars.iv1927
   %593 = call i32 @unpack32_array(ptr noundef %592, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1473 = icmp eq i32 %593, 0
-  br i1 %.not1473, label %594, label %.thread1716
+  br i1 %.not1473, label %594, label %.thread1696
 
 594:                                              ; preds = %590
   %595 = load ptr, ptr %580, align 8
-  %596 = getelementptr inbounds nuw i16, ptr %595, i64 %indvars.iv1966
+  %596 = getelementptr inbounds nuw i16, ptr %595, i64 %indvars.iv1927
   %597 = load i16, ptr %596, align 2
   %598 = load i32, ptr %4, align 4
   %599 = trunc i32 %598 to i16
   %.not1474 = icmp eq i16 %597, %599
-  br i1 %.not1474, label %582, label %.thread1716
+  br i1 %.not1474, label %582, label %.thread1696
 
-._crit_edge1874:                                  ; preds = %582, %.thread2039, %578
+._crit_edge1835:                                  ; preds = %582, %.thread2000, %578
   %600 = getelementptr inbounds nuw i8, ptr %86, i64 288
   %601 = call i32 @unpack16(ptr noundef nonnull %600, ptr noundef %1) #7
   %.not1426 = icmp eq i32 %601, 0
-  br i1 %.not1426, label %602, label %.thread1716
+  br i1 %.not1426, label %602, label %.thread1696
 
-602:                                              ; preds = %._crit_edge1874
+602:                                              ; preds = %._crit_edge1835
   %603 = load i16, ptr %600, align 8
   %604 = icmp ugt i16 %603, -3
-  br i1 %604, label %.thread1716, label %605
+  br i1 %604, label %.thread1696, label %605
 
 605:                                              ; preds = %602
   %.not1427 = icmp eq i16 %603, 0
-  br i1 %.not1427, label %.loopexit1813, label %606
+  br i1 %.not1427, label %.loopexit1774, label %606
 
 606:                                              ; preds = %605
   %607 = zext i16 %603 to i64
@@ -36295,43 +36295,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %609 = getelementptr inbounds nuw i8, ptr %86, i64 296
   store ptr %608, ptr %609, align 8
   %.not1428 = icmp eq ptr %608, null
-  br i1 %.not1428, label %.thread1716, label %.preheader1812
+  br i1 %.not1428, label %.thread1696, label %.preheader1773
 
-.preheader1812:                                   ; preds = %606
+.preheader1773:                                   ; preds = %606
   %610 = load i16, ptr %600, align 8
-  %.not1906 = icmp eq i16 %610, 0
-  br i1 %.not1906, label %.loopexit1813, label %.lr.ph1876
+  %.not1867 = icmp eq i16 %610, 0
+  br i1 %.not1867, label %.loopexit1774, label %.lr.ph1837
 
-611:                                              ; preds = %.lr.ph1876
-  %indvars.iv.next1970 = add nuw nsw i64 %indvars.iv1969, 1
+611:                                              ; preds = %.lr.ph1837
+  %indvars.iv.next1931 = add nuw nsw i64 %indvars.iv1930, 1
   %612 = load i16, ptr %600, align 8
   %613 = zext i16 %612 to i64
-  %614 = icmp samesign ult i64 %indvars.iv.next1970, %613
-  br i1 %614, label %.lr.ph1876, label %.loopexit1813, !llvm.loop !80
+  %614 = icmp samesign ult i64 %indvars.iv.next1931, %613
+  br i1 %614, label %.lr.ph1837, label %.loopexit1774, !llvm.loop !80
 
-.lr.ph1876:                                       ; preds = %.preheader1812, %611
-  %indvars.iv1969 = phi i64 [ %indvars.iv.next1970, %611 ], [ 0, %.preheader1812 ]
+.lr.ph1837:                                       ; preds = %.preheader1773, %611
+  %indvars.iv1930 = phi i64 [ %indvars.iv.next1931, %611 ], [ 0, %.preheader1773 ]
   %615 = load ptr, ptr %609, align 8
-  %616 = getelementptr inbounds nuw i16, ptr %615, i64 %indvars.iv1969
+  %616 = getelementptr inbounds nuw i16, ptr %615, i64 %indvars.iv1930
   %617 = call i32 @unpack16(ptr noundef %616, ptr noundef %1) #7
   %.not1471 = icmp eq i32 %617, 0
-  br i1 %.not1471, label %611, label %.thread1716
+  br i1 %.not1471, label %611, label %.thread1696
 
-.loopexit1813:                                    ; preds = %611, %.preheader1812, %605
+.loopexit1774:                                    ; preds = %611, %.preheader1773, %605
   %618 = getelementptr inbounds nuw i8, ptr %86, i64 320
   %619 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %618, ptr noundef %1) #7
   %620 = getelementptr inbounds nuw i8, ptr %86, i64 200
   %621 = getelementptr inbounds nuw i8, ptr %86, i64 144
   %622 = call i32 @unpackstr_array(ptr noundef nonnull %620, ptr noundef nonnull %621, ptr noundef %1) #7
   %.not1429 = icmp eq i32 %622, 0
-  br i1 %.not1429, label %623, label %.thread1716
+  br i1 %.not1429, label %623, label %.thread1696
 
-623:                                              ; preds = %.loopexit1813
+623:                                              ; preds = %.loopexit1774
   %624 = getelementptr inbounds nuw i8, ptr %86, i64 584
   %625 = getelementptr inbounds nuw i8, ptr %86, i64 592
   %626 = call i32 @unpackstr_array(ptr noundef nonnull %624, ptr noundef nonnull %625, ptr noundef %1) #7
   %.not1430 = icmp eq i32 %626, 0
-  br i1 %.not1430, label %627, label %.thread1716
+  br i1 %.not1430, label %627, label %.thread1696
 
 627:                                              ; preds = %623
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -36339,7 +36339,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %629 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %628, ptr noundef nonnull %29, ptr noundef %1) #7
   %.not1431 = icmp eq i32 %629, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br i1 %.not1431, label %630, label %.thread1716
+  br i1 %.not1431, label %630, label %.thread1696
 
 630:                                              ; preds = %627
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -36347,13 +36347,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %632 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %631, ptr noundef nonnull %30, ptr noundef %1) #7
   %.not1432 = icmp eq i32 %632, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br i1 %.not1432, label %633, label %.thread1716
+  br i1 %.not1432, label %633, label %.thread1696
 
 633:                                              ; preds = %630
   %634 = getelementptr inbounds nuw i8, ptr %86, i64 232
   %635 = call i32 @unpack16(ptr noundef nonnull %634, ptr noundef %1) #7
   %.not1433 = icmp eq i32 %635, 0
-  br i1 %.not1433, label %636, label %.thread1716
+  br i1 %.not1433, label %636, label %.thread1696
 
 636:                                              ; preds = %633
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -36361,13 +36361,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %638 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %637, ptr noundef nonnull %31, ptr noundef %1) #7
   %.not1434 = icmp eq i32 %638, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br i1 %.not1434, label %639, label %.thread1716
+  br i1 %.not1434, label %639, label %.thread1696
 
 639:                                              ; preds = %636
   %640 = getelementptr inbounds nuw i8, ptr %86, i64 248
   %641 = call i32 @unpack16(ptr noundef nonnull %640, ptr noundef %1) #7
   %.not1435 = icmp eq i32 %641, 0
-  br i1 %.not1435, label %642, label %.thread1716
+  br i1 %.not1435, label %642, label %.thread1696
 
 642:                                              ; preds = %639
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -36375,20 +36375,20 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %644 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %643, ptr noundef nonnull %32, ptr noundef %1) #7
   %.not1436 = icmp eq i32 %644, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br i1 %.not1436, label %645, label %.thread1716
+  br i1 %.not1436, label %645, label %.thread1696
 
 645:                                              ; preds = %642
   %646 = getelementptr inbounds nuw i8, ptr %86, i64 208
   %647 = getelementptr inbounds nuw i8, ptr %86, i64 148
   %648 = call i32 @unpackstr_array(ptr noundef nonnull %646, ptr noundef nonnull %647, ptr noundef %1) #7
   %.not1437 = icmp eq i32 %648, 0
-  br i1 %.not1437, label %649, label %.thread1716
+  br i1 %.not1437, label %649, label %.thread1696
 
 649:                                              ; preds = %645
   %650 = getelementptr inbounds nuw i8, ptr %86, i64 308
   %651 = call i32 @unpack32(ptr noundef nonnull %650, ptr noundef %1) #7
   %.not1438 = icmp eq i32 %651, 0
-  br i1 %.not1438, label %652, label %.thread1716
+  br i1 %.not1438, label %652, label %.thread1696
 
 652:                                              ; preds = %649
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -36396,7 +36396,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %654 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %653, ptr noundef nonnull %33, ptr noundef %1) #7
   %.not1439 = icmp eq i32 %654, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br i1 %.not1439, label %655, label %.thread1716
+  br i1 %.not1439, label %655, label %.thread1696
 
 655:                                              ; preds = %652
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -36404,7 +36404,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %657 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %656, ptr noundef nonnull %34, ptr noundef %1) #7
   %.not1440 = icmp eq i32 %657, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br i1 %.not1440, label %658, label %.thread1716
+  br i1 %.not1440, label %658, label %.thread1696
 
 658:                                              ; preds = %655
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -36412,22 +36412,22 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %660 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %659, ptr noundef nonnull %35, ptr noundef %1) #7
   %.not1441 = icmp eq i32 %660, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br i1 %.not1441, label %661, label %.thread1716
+  br i1 %.not1441, label %661, label %.thread1696
 
 661:                                              ; preds = %658
   %662 = getelementptr inbounds nuw i8, ptr %86, i64 504
   %663 = call i32 @unpack16(ptr noundef nonnull %662, ptr noundef %1) #7
   %.not1442 = icmp eq i32 %663, 0
-  br i1 %.not1442, label %664, label %.thread1716
+  br i1 %.not1442, label %664, label %.thread1696
 
 664:                                              ; preds = %661
   %665 = load i16, ptr %662, align 8
   %666 = icmp ugt i16 %665, -3
-  br i1 %666, label %.thread1716, label %667
+  br i1 %666, label %.thread1696, label %667
 
 667:                                              ; preds = %664
   %.not1443 = icmp eq i16 %665, 0
-  br i1 %.not1443, label %.loopexit1810, label %668
+  br i1 %.not1443, label %.loopexit1771, label %668
 
 668:                                              ; preds = %667
   %669 = zext i16 %665 to i64
@@ -36435,41 +36435,41 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %671 = getelementptr inbounds nuw i8, ptr %86, i64 512
   store ptr %670, ptr %671, align 8
   %.not1444 = icmp eq ptr %670, null
-  br i1 %.not1444, label %.thread1716, label %.preheader1809
+  br i1 %.not1444, label %.thread1696, label %.preheader1770
 
-.preheader1809:                                   ; preds = %668
+.preheader1770:                                   ; preds = %668
   %672 = load i16, ptr %662, align 8
-  %.not1907 = icmp eq i16 %672, 0
-  br i1 %.not1907, label %.loopexit1810, label %.lr.ph1878
+  %.not1868 = icmp eq i16 %672, 0
+  br i1 %.not1868, label %.loopexit1771, label %.lr.ph1839
 
-673:                                              ; preds = %.lr.ph1878
-  %indvars.iv.next1973 = add nuw nsw i64 %indvars.iv1972, 1
+673:                                              ; preds = %.lr.ph1839
+  %indvars.iv.next1934 = add nuw nsw i64 %indvars.iv1933, 1
   %674 = load i16, ptr %662, align 8
   %675 = zext i16 %674 to i64
-  %676 = icmp samesign ult i64 %indvars.iv.next1973, %675
-  br i1 %676, label %.lr.ph1878, label %.loopexit1810, !llvm.loop !81
+  %676 = icmp samesign ult i64 %indvars.iv.next1934, %675
+  br i1 %676, label %.lr.ph1839, label %.loopexit1771, !llvm.loop !81
 
-.lr.ph1878:                                       ; preds = %.preheader1809, %673
-  %indvars.iv1972 = phi i64 [ %indvars.iv.next1973, %673 ], [ 0, %.preheader1809 ]
+.lr.ph1839:                                       ; preds = %.preheader1770, %673
+  %indvars.iv1933 = phi i64 [ %indvars.iv.next1934, %673 ], [ 0, %.preheader1770 ]
   %677 = load ptr, ptr %671, align 8
-  %678 = getelementptr inbounds nuw i16, ptr %677, i64 %indvars.iv1972
+  %678 = getelementptr inbounds nuw i16, ptr %677, i64 %indvars.iv1933
   %679 = call i32 @unpack16(ptr noundef %678, ptr noundef %1) #7
   %.not1470 = icmp eq i32 %679, 0
-  br i1 %.not1470, label %673, label %.thread1716
+  br i1 %.not1470, label %673, label %.thread1696
 
-.loopexit1810:                                    ; preds = %673, %.preheader1809, %667
+.loopexit1771:                                    ; preds = %673, %.preheader1770, %667
   %680 = getelementptr inbounds nuw i8, ptr %86, i64 520
   %681 = call i32 @unpack32(ptr noundef nonnull %680, ptr noundef %1) #7
   %.not1445 = icmp eq i32 %681, 0
-  br i1 %.not1445, label %682, label %.thread1716
+  br i1 %.not1445, label %682, label %.thread1696
 
-682:                                              ; preds = %.loopexit1810
+682:                                              ; preds = %.loopexit1771
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %683 = getelementptr inbounds nuw i8, ptr %86, i64 528
   %684 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %683, ptr noundef nonnull %36, ptr noundef %1) #7
   %.not1446 = icmp eq i32 %684, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br i1 %.not1446, label %685, label %.thread1716
+  br i1 %.not1446, label %685, label %.thread1696
 
 685:                                              ; preds = %682
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -36477,13 +36477,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %687 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %686, ptr noundef nonnull %37, ptr noundef %1) #7
   %.not1447 = icmp eq i32 %687, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br i1 %.not1447, label %688, label %.thread1716
+  br i1 %.not1447, label %688, label %.thread1696
 
 688:                                              ; preds = %685
   %689 = getelementptr inbounds nuw i8, ptr %86, i64 544
   %690 = call i32 @unpack16(ptr noundef nonnull %689, ptr noundef %1) #7
   %.not1448 = icmp eq i32 %690, 0
-  br i1 %.not1448, label %691, label %.thread1716
+  br i1 %.not1448, label %691, label %.thread1696
 
 691:                                              ; preds = %688
   %692 = call ptr @job_options_create() #7
@@ -36495,14 +36495,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 
 696:                                              ; preds = %691
   %697 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #7
-  br label %.thread1716
+  br label %.thread1696
 
 698:                                              ; preds = %691
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %699 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %38, ptr noundef %1) #7
   %.not1449 = icmp eq i32 %699, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br i1 %.not1449, label %700, label %.thread1716
+  br i1 %.not1449, label %700, label %.thread1696
 
 700:                                              ; preds = %698
   call void @slurm_xfree(ptr noundef nonnull %6) #7
@@ -36511,13 +36511,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %702 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %701, ptr noundef nonnull %39, ptr noundef %1) #7
   %.not1450 = icmp eq i32 %702, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br i1 %.not1450, label %703, label %.thread1716
+  br i1 %.not1450, label %703, label %.thread1696
 
 703:                                              ; preds = %700
   %704 = getelementptr inbounds nuw i8, ptr %86, i64 448
   %705 = call i32 @unpack8(ptr noundef nonnull %704, ptr noundef %1) #7
   %.not1451 = icmp eq i32 %705, 0
-  br i1 %.not1451, label %706, label %.thread1716
+  br i1 %.not1451, label %706, label %.thread1696
 
 706:                                              ; preds = %703
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -36525,25 +36525,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %708 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %707, ptr noundef nonnull %40, ptr noundef %1) #7
   %.not1452 = icmp eq i32 %708, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br i1 %.not1452, label %709, label %.thread1716
+  br i1 %.not1452, label %709, label %.thread1696
 
 709:                                              ; preds = %706
   %710 = getelementptr inbounds nuw i8, ptr %86, i64 464
   %711 = call i32 @unpack32(ptr noundef nonnull %710, ptr noundef %1) #7
   %.not1453 = icmp eq i32 %711, 0
-  br i1 %.not1453, label %712, label %.thread1716
+  br i1 %.not1453, label %712, label %.thread1696
 
 712:                                              ; preds = %709
   %713 = getelementptr inbounds nuw i8, ptr %86, i64 468
   %714 = call i32 @unpack32(ptr noundef nonnull %713, ptr noundef %1) #7
   %.not1454 = icmp eq i32 %714, 0
-  br i1 %.not1454, label %715, label %.thread1716
+  br i1 %.not1454, label %715, label %.thread1696
 
 715:                                              ; preds = %712
   %716 = getelementptr inbounds nuw i8, ptr %86, i64 472
   %717 = call i32 @unpack32(ptr noundef nonnull %716, ptr noundef %1) #7
   %.not1455 = icmp eq i32 %717, 0
-  br i1 %.not1455, label %718, label %.thread1716
+  br i1 %.not1455, label %718, label %.thread1696
 
 718:                                              ; preds = %715
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -36551,7 +36551,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %720 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %719, ptr noundef nonnull %41, ptr noundef %1) #7
   %.not1456 = icmp eq i32 %720, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br i1 %.not1456, label %721, label %.thread1716
+  br i1 %.not1456, label %721, label %.thread1696
 
 721:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -36559,13 +36559,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %723 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %722, ptr noundef nonnull %42, ptr noundef %1) #7
   %.not1457 = icmp eq i32 %723, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br i1 %.not1457, label %724, label %.thread1716
+  br i1 %.not1457, label %724, label %.thread1696
 
 724:                                              ; preds = %721
   %725 = getelementptr inbounds nuw i8, ptr %86, i64 608
   %726 = call i32 @unpack16(ptr noundef nonnull %725, ptr noundef %1) #7
   %.not1458 = icmp eq i32 %726, 0
-  br i1 %.not1458, label %727, label %.thread1716
+  br i1 %.not1458, label %727, label %.thread1696
 
 727:                                              ; preds = %724
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -36573,13 +36573,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %729 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %728, ptr noundef nonnull %43, ptr noundef %1) #7
   %.not1459 = icmp eq i32 %729, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  br i1 %.not1459, label %730, label %.thread1716
+  br i1 %.not1459, label %730, label %.thread1696
 
 730:                                              ; preds = %727
   %731 = getelementptr inbounds nuw i8, ptr %86, i64 624
   %732 = call i32 @unpack16(ptr noundef nonnull %731, ptr noundef %1) #7
   %.not1460 = icmp eq i32 %732, 0
-  br i1 %.not1460, label %733, label %.thread1716
+  br i1 %.not1460, label %733, label %.thread1696
 
 733:                                              ; preds = %730
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -36587,7 +36587,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %735 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %734, ptr noundef nonnull %44, ptr noundef %1) #7
   %.not1461 = icmp eq i32 %735, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br i1 %.not1461, label %736, label %.thread1716
+  br i1 %.not1461, label %736, label %.thread1696
 
 736:                                              ; preds = %733
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -36595,13 +36595,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %738 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %737, ptr noundef nonnull %45, ptr noundef %1) #7
   %.not1462 = icmp eq i32 %738, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br i1 %.not1462, label %739, label %.thread1716
+  br i1 %.not1462, label %739, label %.thread1696
 
 739:                                              ; preds = %736
   %740 = getelementptr inbounds nuw i8, ptr %86, i64 648
   %741 = call i32 @unpack16(ptr noundef nonnull %740, ptr noundef %1) #7
   %.not1463 = icmp eq i32 %741, 0
-  br i1 %.not1463, label %742, label %.thread1716
+  br i1 %.not1463, label %742, label %.thread1696
 
 742:                                              ; preds = %739
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
@@ -36609,18 +36609,18 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %744 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %743, ptr noundef nonnull %46, ptr noundef %1) #7
   %.not1464 = icmp eq i32 %744, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br i1 %.not1464, label %745, label %.thread1716
+  br i1 %.not1464, label %745, label %.thread1696
 
 745:                                              ; preds = %742
   %746 = getelementptr inbounds nuw i8, ptr %86, i64 688
   %747 = call i32 @unpackbool(ptr noundef nonnull %746, ptr noundef %1) #7
   %.not1465 = icmp eq i32 %747, 0
-  br i1 %.not1465, label %748, label %.thread1716
+  br i1 %.not1465, label %748, label %.thread1696
 
 748:                                              ; preds = %745
   %749 = call i32 @unpackbool(ptr noundef nonnull %5, ptr noundef %1) #7
   %.not1466 = icmp eq i32 %749, 0
-  br i1 %.not1466, label %750, label %.thread1716
+  br i1 %.not1466, label %750, label %.thread1696
 
 750:                                              ; preds = %748
   %751 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -36631,19 +36631,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %754 = getelementptr inbounds nuw i8, ptr %86, i64 656
   %755 = call i32 @job_record_unpack(ptr noundef nonnull %754, i32 noundef 0, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not1467 = icmp eq i32 %755, 0
-  br i1 %.not1467, label %756, label %.thread1716
+  br i1 %.not1467, label %756, label %.thread1696
 
 756:                                              ; preds = %753
   %757 = getelementptr inbounds nuw i8, ptr %86, i64 664
   %758 = call i32 @slurm_unpack_list(ptr noundef nonnull %757, ptr noundef nonnull @node_record_unpack, ptr noundef nonnull @purge_node_rec, ptr noundef %1, i16 noundef zeroext %2)
   %.not1468 = icmp eq i32 %758, 0
-  br i1 %.not1468, label %759, label %.thread1716
+  br i1 %.not1468, label %759, label %.thread1696
 
 759:                                              ; preds = %756
   %760 = getelementptr inbounds nuw i8, ptr %86, i64 672
   %761 = call i32 @part_record_unpack(ptr noundef nonnull %760, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not1469 = icmp eq i32 %761, 0
-  br i1 %.not1469, label %1431, label %.thread1716
+  br i1 %.not1469, label %1431, label %.thread1696
 
 762:                                              ; preds = %423
   %763 = icmp samesign ugt i16 %2, 10495
@@ -36653,43 +36653,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %765 = getelementptr inbounds nuw i8, ptr %86, i64 104
   %766 = tail call i32 @unpack_step_id_members(ptr noundef nonnull %765, ptr noundef %1, i16 noundef zeroext %2)
   %.not1292 = icmp eq i32 %766, 0
-  br i1 %.not1292, label %767, label %.thread1716
+  br i1 %.not1292, label %767, label %.thread1696
 
 767:                                              ; preds = %764
   %768 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %769 = getelementptr inbounds nuw i8, ptr %86, i64 84
   %770 = tail call i32 @unpack32_array(ptr noundef nonnull %768, ptr noundef nonnull %769, ptr noundef %1) #7
   %.not1293 = icmp eq i32 %770, 0
-  br i1 %.not1293, label %771, label %.thread1716
+  br i1 %.not1293, label %771, label %.thread1696
 
 771:                                              ; preds = %767
   %772 = tail call i32 @unpack32(ptr noundef nonnull %86, ptr noundef %1) #7
   %.not1294 = icmp eq i32 %772, 0
-  br i1 %.not1294, label %773, label %.thread1716
+  br i1 %.not1294, label %773, label %.thread1696
 
 773:                                              ; preds = %771
   %774 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %775 = tail call i32 @unpack32(ptr noundef nonnull %774, ptr noundef %1) #7
   %.not1295 = icmp eq i32 %775, 0
-  br i1 %.not1295, label %776, label %.thread1716
+  br i1 %.not1295, label %776, label %.thread1696
 
 776:                                              ; preds = %773
   %777 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %778 = tail call i32 @unpack32(ptr noundef nonnull %777, ptr noundef %1) #7
   %.not1296 = icmp eq i32 %778, 0
-  br i1 %.not1296, label %779, label %.thread1716
+  br i1 %.not1296, label %779, label %.thread1696
 
 779:                                              ; preds = %776
   %780 = load i32, ptr %777, align 8
   switch i32 %780, label %782 [
-    i32 -2, label %.loopexit1829
-    i32 0, label %.thread1760
+    i32 -2, label %.loopexit1790
+    i32 0, label %.thread1730
   ]
 
-.thread1760:                                      ; preds = %779
+.thread1730:                                      ; preds = %779
   %781 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr null, ptr %781, align 8
-  br label %.thread2041
+  br label %.thread2002
 
 782:                                              ; preds = %779
   %783 = zext i32 %780 to i64
@@ -36697,73 +36697,73 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %785 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %784, ptr %785, align 8
   %.not1299 = icmp eq ptr %784, null
-  br i1 %.not1299, label %.thread1716, label %786
+  br i1 %.not1299, label %.thread1696, label %786
 
 786:                                              ; preds = %782
-  %.pr1759 = load i32, ptr %777, align 8
-  %.not1300 = icmp eq i32 %.pr1759, 0
-  br i1 %.not1300, label %.thread2041, label %788
+  %.pr1729 = load i32, ptr %777, align 8
+  %.not1300 = icmp eq i32 %.pr1729, 0
+  br i1 %.not1300, label %.thread2002, label %788
 
-.thread2041:                                      ; preds = %786, %.thread1760
+.thread2002:                                      ; preds = %786, %.thread1730
   %787 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr null, ptr %787, align 8
-  br label %.loopexit1829
+  br label %.loopexit1790
 
 788:                                              ; preds = %786
-  %789 = zext i32 %.pr1759 to i64
+  %789 = zext i32 %.pr1729 to i64
   %790 = tail call ptr @slurm_xcalloc(i64 noundef %789, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 8116, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #7
   %791 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %790, ptr %791, align 8
   %.not1301 = icmp eq ptr %790, null
-  br i1 %.not1301, label %.thread1716, label %792
+  br i1 %.not1301, label %.thread1696, label %792
 
 792:                                              ; preds = %788
-  %.pre1997 = load i32, ptr %777, align 8
-  %793 = icmp eq i32 %.pre1997, 0
-  br i1 %793, label %.loopexit1829, label %.lr.ph1853
+  %.pre1958 = load i32, ptr %777, align 8
+  %793 = icmp eq i32 %.pre1958, 0
+  br i1 %793, label %.loopexit1790, label %.lr.ph1814
 
-.lr.ph1853:                                       ; preds = %792
+.lr.ph1814:                                       ; preds = %792
   %794 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %795 = getelementptr inbounds nuw i8, ptr %86, i64 16
   br label %796
 
-796:                                              ; preds = %.lr.ph1853, %800
-  %indvars.iv1945 = phi i64 [ 0, %.lr.ph1853 ], [ %indvars.iv.next1946, %800 ]
+796:                                              ; preds = %.lr.ph1814, %800
+  %indvars.iv1906 = phi i64 [ 0, %.lr.ph1814 ], [ %indvars.iv.next1907, %800 ]
   %797 = load ptr, ptr %794, align 8
-  %798 = getelementptr inbounds nuw ptr, ptr %797, i64 %indvars.iv1945
+  %798 = getelementptr inbounds nuw ptr, ptr %797, i64 %indvars.iv1906
   %799 = call i32 @unpack32_array(ptr noundef %798, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1383 = icmp eq i32 %799, 0
-  br i1 %.not1383, label %800, label %.thread1716
+  br i1 %.not1383, label %800, label %.thread1696
 
 800:                                              ; preds = %796
   %801 = load i32, ptr %4, align 4
   %802 = trunc i32 %801 to i16
   %803 = load ptr, ptr %795, align 8
-  %804 = getelementptr inbounds nuw i16, ptr %803, i64 %indvars.iv1945
+  %804 = getelementptr inbounds nuw i16, ptr %803, i64 %indvars.iv1906
   store i16 %802, ptr %804, align 2
-  %indvars.iv.next1946 = add nuw nsw i64 %indvars.iv1945, 1
+  %indvars.iv.next1907 = add nuw nsw i64 %indvars.iv1906, 1
   %805 = load i32, ptr %777, align 8
   %806 = zext i32 %805 to i64
-  %807 = icmp samesign ult i64 %indvars.iv.next1946, %806
-  br i1 %807, label %796, label %.loopexit1829, !llvm.loop !82
+  %807 = icmp samesign ult i64 %indvars.iv.next1907, %806
+  br i1 %807, label %796, label %.loopexit1790, !llvm.loop !82
 
-.loopexit1829:                                    ; preds = %800, %.thread2041, %792, %779
+.loopexit1790:                                    ; preds = %800, %.thread2002, %792, %779
   %808 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %809 = call i32 @unpack32(ptr noundef nonnull %808, ptr noundef %1) #7
   %.not1302 = icmp eq i32 %809, 0
-  br i1 %.not1302, label %810, label %.thread1716
+  br i1 %.not1302, label %810, label %.thread1696
 
-810:                                              ; preds = %.loopexit1829
+810:                                              ; preds = %.loopexit1790
   %811 = load i32, ptr %808, align 4
   switch i32 %811, label %813 [
-    i32 -2, label %.loopexit1827
-    i32 0, label %.thread2043
+    i32 -2, label %.loopexit1788
+    i32 0, label %.thread2004
   ]
 
-.thread2043:                                      ; preds = %810
+.thread2004:                                      ; preds = %810
   %812 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %812, align 8
-  br label %.loopexit1827
+  br label %.loopexit1788
 
 813:                                              ; preds = %810
   %814 = zext i32 %811 to i64
@@ -36771,49 +36771,49 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %816 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr %815, ptr %816, align 8
   %.not1305 = icmp eq ptr %815, null
-  br i1 %.not1305, label %.thread1716, label %817
+  br i1 %.not1305, label %.thread1696, label %817
 
 817:                                              ; preds = %813
-  %.pre1999 = load i32, ptr %808, align 4
-  %818 = icmp eq i32 %.pre1999, 0
-  br i1 %818, label %.loopexit1827, label %.lr.ph1856
+  %.pre1960 = load i32, ptr %808, align 4
+  %818 = icmp eq i32 %.pre1960, 0
+  br i1 %818, label %.loopexit1788, label %.lr.ph1817
 
-.lr.ph1856:                                       ; preds = %817
+.lr.ph1817:                                       ; preds = %817
   %819 = getelementptr inbounds nuw i8, ptr %86, i64 32
   br label %824
 
 820:                                              ; preds = %824
-  %indvars.iv.next1949 = add nuw nsw i64 %indvars.iv1948, 1
+  %indvars.iv.next1910 = add nuw nsw i64 %indvars.iv1909, 1
   %821 = load i32, ptr %808, align 4
   %822 = zext i32 %821 to i64
-  %823 = icmp samesign ult i64 %indvars.iv.next1949, %822
-  br i1 %823, label %824, label %.loopexit1827, !llvm.loop !83
+  %823 = icmp samesign ult i64 %indvars.iv.next1910, %822
+  br i1 %823, label %824, label %.loopexit1788, !llvm.loop !83
 
-824:                                              ; preds = %.lr.ph1856, %820
-  %indvars.iv1948 = phi i64 [ 0, %.lr.ph1856 ], [ %indvars.iv.next1949, %820 ]
+824:                                              ; preds = %.lr.ph1817, %820
+  %indvars.iv1909 = phi i64 [ 0, %.lr.ph1817 ], [ %indvars.iv.next1910, %820 ]
   %825 = load ptr, ptr %819, align 8
-  %826 = getelementptr inbounds nuw i32, ptr %825, i64 %indvars.iv1948
+  %826 = getelementptr inbounds nuw i32, ptr %825, i64 %indvars.iv1909
   %827 = call i32 @unpack32(ptr noundef %826, ptr noundef %1) #7
   %.not1382 = icmp eq i32 %827, 0
-  br i1 %.not1382, label %820, label %.thread1716
+  br i1 %.not1382, label %820, label %.thread1696
 
-.loopexit1827:                                    ; preds = %820, %.thread2043, %817, %810
+.loopexit1788:                                    ; preds = %820, %.thread2004, %817, %810
   %828 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %829 = call i32 @unpack32(ptr noundef nonnull %828, ptr noundef %1) #7
   %.not1306 = icmp eq i32 %829, 0
-  br i1 %.not1306, label %830, label %.thread1716
+  br i1 %.not1306, label %830, label %.thread1696
 
-830:                                              ; preds = %.loopexit1827
+830:                                              ; preds = %.loopexit1788
   %831 = getelementptr inbounds nuw i8, ptr %86, i64 44
   %832 = call i32 @unpack32(ptr noundef nonnull %831, ptr noundef %1) #7
   %.not1307 = icmp eq i32 %832, 0
-  br i1 %.not1307, label %833, label %.thread1716
+  br i1 %.not1307, label %833, label %.thread1696
 
 833:                                              ; preds = %830
   %834 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %835 = call i32 @unpack32(ptr noundef nonnull %834, ptr noundef %1) #7
   %.not1308 = icmp eq i32 %835, 0
-  br i1 %.not1308, label %836, label %.thread1716
+  br i1 %.not1308, label %836, label %.thread1696
 
 836:                                              ; preds = %833
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -36821,85 +36821,85 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %838 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %837, ptr noundef nonnull %47, ptr noundef %1) #7
   %.not1309 = icmp eq i32 %838, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br i1 %.not1309, label %839, label %.thread1716
+  br i1 %.not1309, label %839, label %.thread1696
 
 839:                                              ; preds = %836
   %840 = getelementptr inbounds nuw i8, ptr %86, i64 64
   %841 = call i32 @unpack32(ptr noundef nonnull %840, ptr noundef %1) #7
   %.not1310 = icmp eq i32 %841, 0
-  br i1 %.not1310, label %842, label %.thread1716
+  br i1 %.not1310, label %842, label %.thread1696
 
 842:                                              ; preds = %839
   %843 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %844 = call i32 @unpack32(ptr noundef nonnull %843, ptr noundef %1) #7
   %.not1311 = icmp eq i32 %844, 0
-  br i1 %.not1311, label %845, label %.thread1716
+  br i1 %.not1311, label %845, label %.thread1696
 
 845:                                              ; preds = %842
   %846 = getelementptr inbounds nuw i8, ptr %86, i64 76
   %847 = call i32 @unpack16(ptr noundef nonnull %846, ptr noundef %1) #7
   %.not1312 = icmp eq i32 %847, 0
-  br i1 %.not1312, label %848, label %.thread1716
+  br i1 %.not1312, label %848, label %.thread1696
 
 848:                                              ; preds = %845
   %849 = getelementptr inbounds nuw i8, ptr %86, i64 78
   %850 = call i32 @unpack16(ptr noundef nonnull %849, ptr noundef %1) #7
   %.not1313 = icmp eq i32 %850, 0
-  br i1 %.not1313, label %851, label %.thread1716
+  br i1 %.not1313, label %851, label %.thread1696
 
 851:                                              ; preds = %848
   %852 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %853 = call i32 @unpack16(ptr noundef nonnull %852, ptr noundef %1) #7
   %.not1314 = icmp eq i32 %853, 0
-  br i1 %.not1314, label %854, label %.thread1716
+  br i1 %.not1314, label %854, label %.thread1696
 
 854:                                              ; preds = %851
   %855 = getelementptr inbounds nuw i8, ptr %86, i64 82
   %856 = call i32 @unpack16(ptr noundef nonnull %855, ptr noundef %1) #7
   %.not1315 = icmp eq i32 %856, 0
-  br i1 %.not1315, label %857, label %.thread1716
+  br i1 %.not1315, label %857, label %.thread1696
 
 857:                                              ; preds = %854
   %858 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %859 = call i32 @unpack64(ptr noundef nonnull %858, ptr noundef %1) #7
   %.not1316 = icmp eq i32 %859, 0
-  br i1 %.not1316, label %860, label %.thread1716
+  br i1 %.not1316, label %860, label %.thread1696
 
 860:                                              ; preds = %857
   %861 = getelementptr inbounds nuw i8, ptr %86, i64 128
   %862 = call i32 @unpack64(ptr noundef nonnull %861, ptr noundef %1) #7
   %.not1317 = icmp eq i32 %862, 0
-  br i1 %.not1317, label %863, label %.thread1716
+  br i1 %.not1317, label %863, label %.thread1696
 
 863:                                              ; preds = %860
   %864 = getelementptr inbounds nuw i8, ptr %86, i64 68
   %865 = call i32 @unpack32(ptr noundef nonnull %864, ptr noundef %1) #7
   %.not1318 = icmp eq i32 %865, 0
-  br i1 %.not1318, label %866, label %.thread1716
+  br i1 %.not1318, label %866, label %.thread1696
 
 866:                                              ; preds = %863
   %867 = load i32, ptr %864, align 4
   %868 = icmp ugt i32 %867, -3
-  br i1 %868, label %.thread1716, label %869
+  br i1 %868, label %.thread1696, label %869
 
 869:                                              ; preds = %866
   %870 = getelementptr inbounds nuw i8, ptr %86, i64 154
   %871 = call i32 @unpack16(ptr noundef nonnull %870, ptr noundef %1) #7
   %.not1319 = icmp eq i32 %871, 0
-  br i1 %.not1319, label %872, label %.thread1716
+  br i1 %.not1319, label %872, label %.thread1696
 
 872:                                              ; preds = %869
   %873 = getelementptr inbounds nuw i8, ptr %86, i64 160
   %874 = getelementptr inbounds nuw i8, ptr %86, i64 168
   %875 = call i32 @unpack16_array(ptr noundef nonnull %873, ptr noundef nonnull %874, ptr noundef %1) #7
   %.not1320 = icmp eq i32 %875, 0
-  br i1 %.not1320, label %876, label %.thread1716
+  br i1 %.not1320, label %876, label %.thread1696
 
 876:                                              ; preds = %872
   %877 = getelementptr inbounds nuw i8, ptr %86, i64 176
   %878 = call i32 @unpack32_array(ptr noundef nonnull %877, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1321 = icmp eq i32 %878, 0
-  br i1 %.not1321, label %879, label %.thread1716
+  br i1 %.not1321, label %879, label %.thread1696
 
 879:                                              ; preds = %876
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
@@ -36907,43 +36907,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %881 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %880, ptr noundef nonnull %48, ptr noundef %1) #7
   %.not1322 = icmp eq i32 %881, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  br i1 %.not1322, label %882, label %.thread1716
+  br i1 %.not1322, label %882, label %.thread1696
 
 882:                                              ; preds = %879
   %883 = getelementptr inbounds nuw i8, ptr %86, i64 184
   %884 = call i32 @unpack16(ptr noundef nonnull %883, ptr noundef %1) #7
   %.not1323 = icmp eq i32 %884, 0
-  br i1 %.not1323, label %885, label %.thread1716
+  br i1 %.not1323, label %885, label %.thread1696
 
 885:                                              ; preds = %882
   %886 = getelementptr inbounds nuw i8, ptr %86, i64 304
   %887 = call i32 @unpack32(ptr noundef nonnull %886, ptr noundef %1) #7
   %.not1324 = icmp eq i32 %887, 0
-  br i1 %.not1324, label %888, label %.thread1716
+  br i1 %.not1324, label %888, label %.thread1696
 
 888:                                              ; preds = %885
   %889 = getelementptr inbounds nuw i8, ptr %86, i64 152
   %890 = call i32 @unpack16(ptr noundef nonnull %889, ptr noundef %1) #7
   %.not1325 = icmp eq i32 %890, 0
-  br i1 %.not1325, label %891, label %.thread1716
+  br i1 %.not1325, label %891, label %.thread1696
 
 891:                                              ; preds = %888
   %892 = getelementptr inbounds nuw i8, ptr %86, i64 476
   %893 = call i32 @unpack16(ptr noundef nonnull %892, ptr noundef %1) #7
   %.not1326 = icmp eq i32 %893, 0
-  br i1 %.not1326, label %894, label %.thread1716
+  br i1 %.not1326, label %894, label %.thread1696
 
 894:                                              ; preds = %891
   %895 = getelementptr inbounds nuw i8, ptr %86, i64 264
   %896 = call i32 @unpack16(ptr noundef nonnull %895, ptr noundef %1) #7
   %.not1327 = icmp eq i32 %896, 0
-  br i1 %.not1327, label %897, label %.thread1716
+  br i1 %.not1327, label %897, label %.thread1696
 
 897:                                              ; preds = %894
   %898 = getelementptr inbounds nuw i8, ptr %86, i64 546
   %899 = call i32 @unpack16(ptr noundef nonnull %898, ptr noundef %1) #7
   %.not1328 = icmp eq i32 %899, 0
-  br i1 %.not1328, label %900, label %.thread1716
+  br i1 %.not1328, label %900, label %.thread1696
 
 900:                                              ; preds = %897
   %901 = load i16, ptr %898, align 2
@@ -36951,17 +36951,17 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %903 = getelementptr inbounds nuw i8, ptr %86, i64 552
   store ptr %902, ptr %903, align 8
   %.not1329 = icmp eq ptr %902, null
-  br i1 %.not1329, label %.thread1716, label %904
+  br i1 %.not1329, label %.thread1696, label %904
 
 904:                                              ; preds = %900
   %905 = load i32, ptr %864, align 4
   %.not1330 = icmp eq i32 %905, 0
-  br i1 %.not1330, label %.thread1773, label %907
+  br i1 %.not1330, label %.thread1740, label %907
 
-.thread1773:                                      ; preds = %904
+.thread1740:                                      ; preds = %904
   %906 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr null, ptr %906, align 8
-  br label %.thread2045
+  br label %.thread2006
 
 907:                                              ; preds = %904
   %908 = zext i32 %905 to i64
@@ -36969,82 +36969,82 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %910 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr %909, ptr %910, align 8
   %.not1331 = icmp eq ptr %909, null
-  br i1 %.not1331, label %.thread1716, label %911
+  br i1 %.not1331, label %.thread1696, label %911
 
 911:                                              ; preds = %907
-  %.pr1772 = load i32, ptr %864, align 4
-  %.not1332 = icmp eq i32 %.pr1772, 0
-  br i1 %.not1332, label %.thread2045, label %913
+  %.pr1739 = load i32, ptr %864, align 4
+  %.not1332 = icmp eq i32 %.pr1739, 0
+  br i1 %.not1332, label %.thread2006, label %913
 
-.thread2045:                                      ; preds = %911, %.thread1773
+.thread2006:                                      ; preds = %911, %.thread1740
   %912 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr null, ptr %912, align 8
-  br label %._crit_edge1860
+  br label %._crit_edge1821
 
 913:                                              ; preds = %911
-  %914 = zext i32 %.pr1772 to i64
+  %914 = zext i32 %.pr1739 to i64
   %915 = call ptr @slurm_xcalloc(i64 noundef %914, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 8168, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #7
   %916 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr %915, ptr %916, align 8
   %.not1333 = icmp eq ptr %915, null
-  br i1 %.not1333, label %.thread1716, label %917
+  br i1 %.not1333, label %.thread1696, label %917
 
 917:                                              ; preds = %913
-  %.pre2001 = load i32, ptr %864, align 4
-  %918 = icmp eq i32 %.pre2001, 0
-  br i1 %918, label %._crit_edge1860, label %.lr.ph1859
+  %.pre1962 = load i32, ptr %864, align 4
+  %918 = icmp eq i32 %.pre1962, 0
+  br i1 %918, label %._crit_edge1821, label %.lr.ph1820
 
-.lr.ph1859:                                       ; preds = %917
+.lr.ph1820:                                       ; preds = %917
   %919 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %920 = getelementptr inbounds nuw i8, ptr %86, i64 312
-  %.pre2002 = load ptr, ptr %919, align 8
+  %.pre1963 = load ptr, ptr %919, align 8
   br label %925
 
 921:                                              ; preds = %933
-  %indvars.iv.next1952 = add nuw nsw i64 %indvars.iv1951, 1
+  %indvars.iv.next1913 = add nuw nsw i64 %indvars.iv1912, 1
   %922 = load i32, ptr %864, align 4
   %923 = zext i32 %922 to i64
-  %924 = icmp samesign ult i64 %indvars.iv.next1952, %923
-  br i1 %924, label %925, label %._crit_edge1860, !llvm.loop !84
+  %924 = icmp samesign ult i64 %indvars.iv.next1913, %923
+  br i1 %924, label %925, label %._crit_edge1821, !llvm.loop !84
 
-925:                                              ; preds = %.lr.ph1859, %921
-  %926 = phi ptr [ %.pre2002, %.lr.ph1859 ], [ %934, %921 ]
-  %indvars.iv1951 = phi i64 [ 0, %.lr.ph1859 ], [ %indvars.iv.next1952, %921 ]
-  %927 = getelementptr inbounds nuw i16, ptr %926, i64 %indvars.iv1951
+925:                                              ; preds = %.lr.ph1820, %921
+  %926 = phi ptr [ %.pre1963, %.lr.ph1820 ], [ %934, %921 ]
+  %indvars.iv1912 = phi i64 [ 0, %.lr.ph1820 ], [ %indvars.iv.next1913, %921 ]
+  %927 = getelementptr inbounds nuw i16, ptr %926, i64 %indvars.iv1912
   %928 = call i32 @unpack16(ptr noundef %927, ptr noundef %1) #7
   %.not1379 = icmp eq i32 %928, 0
-  br i1 %.not1379, label %929, label %.thread1716
+  br i1 %.not1379, label %929, label %.thread1696
 
 929:                                              ; preds = %925
   %930 = load ptr, ptr %920, align 8
-  %931 = getelementptr inbounds nuw ptr, ptr %930, i64 %indvars.iv1951
+  %931 = getelementptr inbounds nuw ptr, ptr %930, i64 %indvars.iv1912
   %932 = call i32 @unpack32_array(ptr noundef %931, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1380 = icmp eq i32 %932, 0
-  br i1 %.not1380, label %933, label %.thread1716
+  br i1 %.not1380, label %933, label %.thread1696
 
 933:                                              ; preds = %929
   %934 = load ptr, ptr %919, align 8
-  %935 = getelementptr inbounds nuw i16, ptr %934, i64 %indvars.iv1951
+  %935 = getelementptr inbounds nuw i16, ptr %934, i64 %indvars.iv1912
   %936 = load i16, ptr %935, align 2
   %937 = load i32, ptr %4, align 4
   %938 = trunc i32 %937 to i16
   %.not1381 = icmp eq i16 %936, %938
-  br i1 %.not1381, label %921, label %.thread1716
+  br i1 %.not1381, label %921, label %.thread1696
 
-._crit_edge1860:                                  ; preds = %921, %.thread2045, %917
+._crit_edge1821:                                  ; preds = %921, %.thread2006, %917
   %939 = getelementptr inbounds nuw i8, ptr %86, i64 288
   %940 = call i32 @unpack16(ptr noundef nonnull %939, ptr noundef %1) #7
   %.not1334 = icmp eq i32 %940, 0
-  br i1 %.not1334, label %941, label %.thread1716
+  br i1 %.not1334, label %941, label %.thread1696
 
-941:                                              ; preds = %._crit_edge1860
+941:                                              ; preds = %._crit_edge1821
   %942 = load i16, ptr %939, align 8
   %943 = icmp ugt i16 %942, -3
-  br i1 %943, label %.thread1716, label %944
+  br i1 %943, label %.thread1696, label %944
 
 944:                                              ; preds = %941
   %.not1335 = icmp eq i16 %942, 0
-  br i1 %.not1335, label %.loopexit1824, label %945
+  br i1 %.not1335, label %.loopexit1785, label %945
 
 945:                                              ; preds = %944
   %946 = zext i16 %942 to i64
@@ -37052,43 +37052,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %948 = getelementptr inbounds nuw i8, ptr %86, i64 296
   store ptr %947, ptr %948, align 8
   %.not1336 = icmp eq ptr %947, null
-  br i1 %.not1336, label %.thread1716, label %.preheader1823
+  br i1 %.not1336, label %.thread1696, label %.preheader1784
 
-.preheader1823:                                   ; preds = %945
+.preheader1784:                                   ; preds = %945
   %949 = load i16, ptr %939, align 8
-  %.not1901 = icmp eq i16 %949, 0
-  br i1 %.not1901, label %.loopexit1824, label %.lr.ph1862
+  %.not1862 = icmp eq i16 %949, 0
+  br i1 %.not1862, label %.loopexit1785, label %.lr.ph1823
 
-950:                                              ; preds = %.lr.ph1862
-  %indvars.iv.next1955 = add nuw nsw i64 %indvars.iv1954, 1
+950:                                              ; preds = %.lr.ph1823
+  %indvars.iv.next1916 = add nuw nsw i64 %indvars.iv1915, 1
   %951 = load i16, ptr %939, align 8
   %952 = zext i16 %951 to i64
-  %953 = icmp samesign ult i64 %indvars.iv.next1955, %952
-  br i1 %953, label %.lr.ph1862, label %.loopexit1824, !llvm.loop !85
+  %953 = icmp samesign ult i64 %indvars.iv.next1916, %952
+  br i1 %953, label %.lr.ph1823, label %.loopexit1785, !llvm.loop !85
 
-.lr.ph1862:                                       ; preds = %.preheader1823, %950
-  %indvars.iv1954 = phi i64 [ %indvars.iv.next1955, %950 ], [ 0, %.preheader1823 ]
+.lr.ph1823:                                       ; preds = %.preheader1784, %950
+  %indvars.iv1915 = phi i64 [ %indvars.iv.next1916, %950 ], [ 0, %.preheader1784 ]
   %954 = load ptr, ptr %948, align 8
-  %955 = getelementptr inbounds nuw i16, ptr %954, i64 %indvars.iv1954
+  %955 = getelementptr inbounds nuw i16, ptr %954, i64 %indvars.iv1915
   %956 = call i32 @unpack16(ptr noundef %955, ptr noundef %1) #7
   %.not1378 = icmp eq i32 %956, 0
-  br i1 %.not1378, label %950, label %.thread1716
+  br i1 %.not1378, label %950, label %.thread1696
 
-.loopexit1824:                                    ; preds = %950, %.preheader1823, %944
+.loopexit1785:                                    ; preds = %950, %.preheader1784, %944
   %957 = getelementptr inbounds nuw i8, ptr %86, i64 320
   %958 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %957, ptr noundef %1) #7
   %959 = getelementptr inbounds nuw i8, ptr %86, i64 200
   %960 = getelementptr inbounds nuw i8, ptr %86, i64 144
   %961 = call i32 @unpackstr_array(ptr noundef nonnull %959, ptr noundef nonnull %960, ptr noundef %1) #7
   %.not1337 = icmp eq i32 %961, 0
-  br i1 %.not1337, label %962, label %.thread1716
+  br i1 %.not1337, label %962, label %.thread1696
 
-962:                                              ; preds = %.loopexit1824
+962:                                              ; preds = %.loopexit1785
   %963 = getelementptr inbounds nuw i8, ptr %86, i64 584
   %964 = getelementptr inbounds nuw i8, ptr %86, i64 592
   %965 = call i32 @unpackstr_array(ptr noundef nonnull %963, ptr noundef nonnull %964, ptr noundef %1) #7
   %.not1338 = icmp eq i32 %965, 0
-  br i1 %.not1338, label %966, label %.thread1716
+  br i1 %.not1338, label %966, label %.thread1696
 
 966:                                              ; preds = %962
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -37096,7 +37096,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %968 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %967, ptr noundef nonnull %49, ptr noundef %1) #7
   %.not1339 = icmp eq i32 %968, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  br i1 %.not1339, label %969, label %.thread1716
+  br i1 %.not1339, label %969, label %.thread1696
 
 969:                                              ; preds = %966
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -37104,13 +37104,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %971 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %970, ptr noundef nonnull %50, ptr noundef %1) #7
   %.not1340 = icmp eq i32 %971, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  br i1 %.not1340, label %972, label %.thread1716
+  br i1 %.not1340, label %972, label %.thread1696
 
 972:                                              ; preds = %969
   %973 = getelementptr inbounds nuw i8, ptr %86, i64 232
   %974 = call i32 @unpack16(ptr noundef nonnull %973, ptr noundef %1) #7
   %.not1341 = icmp eq i32 %974, 0
-  br i1 %.not1341, label %975, label %.thread1716
+  br i1 %.not1341, label %975, label %.thread1696
 
 975:                                              ; preds = %972
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -37118,13 +37118,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %977 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %976, ptr noundef nonnull %51, ptr noundef %1) #7
   %.not1342 = icmp eq i32 %977, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  br i1 %.not1342, label %978, label %.thread1716
+  br i1 %.not1342, label %978, label %.thread1696
 
 978:                                              ; preds = %975
   %979 = getelementptr inbounds nuw i8, ptr %86, i64 248
   %980 = call i32 @unpack16(ptr noundef nonnull %979, ptr noundef %1) #7
   %.not1343 = icmp eq i32 %980, 0
-  br i1 %.not1343, label %981, label %.thread1716
+  br i1 %.not1343, label %981, label %.thread1696
 
 981:                                              ; preds = %978
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
@@ -37132,20 +37132,20 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %983 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %982, ptr noundef nonnull %52, ptr noundef %1) #7
   %.not1344 = icmp eq i32 %983, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  br i1 %.not1344, label %984, label %.thread1716
+  br i1 %.not1344, label %984, label %.thread1696
 
 984:                                              ; preds = %981
   %985 = getelementptr inbounds nuw i8, ptr %86, i64 208
   %986 = getelementptr inbounds nuw i8, ptr %86, i64 148
   %987 = call i32 @unpackstr_array(ptr noundef nonnull %985, ptr noundef nonnull %986, ptr noundef %1) #7
   %.not1345 = icmp eq i32 %987, 0
-  br i1 %.not1345, label %988, label %.thread1716
+  br i1 %.not1345, label %988, label %.thread1696
 
 988:                                              ; preds = %984
   %989 = getelementptr inbounds nuw i8, ptr %86, i64 308
   %990 = call i32 @unpack32(ptr noundef nonnull %989, ptr noundef %1) #7
   %.not1346 = icmp eq i32 %990, 0
-  br i1 %.not1346, label %991, label %.thread1716
+  br i1 %.not1346, label %991, label %.thread1696
 
 991:                                              ; preds = %988
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -37153,7 +37153,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %993 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %992, ptr noundef nonnull %53, ptr noundef %1) #7
   %.not1347 = icmp eq i32 %993, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  br i1 %.not1347, label %994, label %.thread1716
+  br i1 %.not1347, label %994, label %.thread1696
 
 994:                                              ; preds = %991
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -37161,7 +37161,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %996 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %995, ptr noundef nonnull %54, ptr noundef %1) #7
   %.not1348 = icmp eq i32 %996, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br i1 %.not1348, label %997, label %.thread1716
+  br i1 %.not1348, label %997, label %.thread1696
 
 997:                                              ; preds = %994
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -37169,22 +37169,22 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %999 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %998, ptr noundef nonnull %55, ptr noundef %1) #7
   %.not1349 = icmp eq i32 %999, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br i1 %.not1349, label %1000, label %.thread1716
+  br i1 %.not1349, label %1000, label %.thread1696
 
 1000:                                             ; preds = %997
   %1001 = getelementptr inbounds nuw i8, ptr %86, i64 504
   %1002 = call i32 @unpack16(ptr noundef nonnull %1001, ptr noundef %1) #7
   %.not1350 = icmp eq i32 %1002, 0
-  br i1 %.not1350, label %1003, label %.thread1716
+  br i1 %.not1350, label %1003, label %.thread1696
 
 1003:                                             ; preds = %1000
   %1004 = load i16, ptr %1001, align 8
   %1005 = icmp ugt i16 %1004, -3
-  br i1 %1005, label %.thread1716, label %1006
+  br i1 %1005, label %.thread1696, label %1006
 
 1006:                                             ; preds = %1003
   %.not1351 = icmp eq i16 %1004, 0
-  br i1 %.not1351, label %.loopexit1821, label %1007
+  br i1 %.not1351, label %.loopexit1782, label %1007
 
 1007:                                             ; preds = %1006
   %1008 = zext i16 %1004 to i64
@@ -37192,41 +37192,41 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1010 = getelementptr inbounds nuw i8, ptr %86, i64 512
   store ptr %1009, ptr %1010, align 8
   %.not1352 = icmp eq ptr %1009, null
-  br i1 %.not1352, label %.thread1716, label %.preheader1820
+  br i1 %.not1352, label %.thread1696, label %.preheader1781
 
-.preheader1820:                                   ; preds = %1007
+.preheader1781:                                   ; preds = %1007
   %1011 = load i16, ptr %1001, align 8
-  %.not1902 = icmp eq i16 %1011, 0
-  br i1 %.not1902, label %.loopexit1821, label %.lr.ph1864
+  %.not1863 = icmp eq i16 %1011, 0
+  br i1 %.not1863, label %.loopexit1782, label %.lr.ph1825
 
-1012:                                             ; preds = %.lr.ph1864
-  %indvars.iv.next1958 = add nuw nsw i64 %indvars.iv1957, 1
+1012:                                             ; preds = %.lr.ph1825
+  %indvars.iv.next1919 = add nuw nsw i64 %indvars.iv1918, 1
   %1013 = load i16, ptr %1001, align 8
   %1014 = zext i16 %1013 to i64
-  %1015 = icmp samesign ult i64 %indvars.iv.next1958, %1014
-  br i1 %1015, label %.lr.ph1864, label %.loopexit1821, !llvm.loop !86
+  %1015 = icmp samesign ult i64 %indvars.iv.next1919, %1014
+  br i1 %1015, label %.lr.ph1825, label %.loopexit1782, !llvm.loop !86
 
-.lr.ph1864:                                       ; preds = %.preheader1820, %1012
-  %indvars.iv1957 = phi i64 [ %indvars.iv.next1958, %1012 ], [ 0, %.preheader1820 ]
+.lr.ph1825:                                       ; preds = %.preheader1781, %1012
+  %indvars.iv1918 = phi i64 [ %indvars.iv.next1919, %1012 ], [ 0, %.preheader1781 ]
   %1016 = load ptr, ptr %1010, align 8
-  %1017 = getelementptr inbounds nuw i16, ptr %1016, i64 %indvars.iv1957
+  %1017 = getelementptr inbounds nuw i16, ptr %1016, i64 %indvars.iv1918
   %1018 = call i32 @unpack16(ptr noundef %1017, ptr noundef %1) #7
   %.not1377 = icmp eq i32 %1018, 0
-  br i1 %.not1377, label %1012, label %.thread1716
+  br i1 %.not1377, label %1012, label %.thread1696
 
-.loopexit1821:                                    ; preds = %1012, %.preheader1820, %1006
+.loopexit1782:                                    ; preds = %1012, %.preheader1781, %1006
   %1019 = getelementptr inbounds nuw i8, ptr %86, i64 520
   %1020 = call i32 @unpack32(ptr noundef nonnull %1019, ptr noundef %1) #7
   %.not1353 = icmp eq i32 %1020, 0
-  br i1 %.not1353, label %1021, label %.thread1716
+  br i1 %.not1353, label %1021, label %.thread1696
 
-1021:                                             ; preds = %.loopexit1821
+1021:                                             ; preds = %.loopexit1782
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %1022 = getelementptr inbounds nuw i8, ptr %86, i64 528
   %1023 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1022, ptr noundef nonnull %56, ptr noundef %1) #7
   %.not1354 = icmp eq i32 %1023, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br i1 %.not1354, label %1024, label %.thread1716
+  br i1 %.not1354, label %1024, label %.thread1696
 
 1024:                                             ; preds = %1021
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
@@ -37234,13 +37234,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1026 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1025, ptr noundef nonnull %57, ptr noundef %1) #7
   %.not1355 = icmp eq i32 %1026, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  br i1 %.not1355, label %1027, label %.thread1716
+  br i1 %.not1355, label %1027, label %.thread1696
 
 1027:                                             ; preds = %1024
   %1028 = getelementptr inbounds nuw i8, ptr %86, i64 544
   %1029 = call i32 @unpack16(ptr noundef nonnull %1028, ptr noundef %1) #7
   %.not1356 = icmp eq i32 %1029, 0
-  br i1 %.not1356, label %1030, label %.thread1716
+  br i1 %.not1356, label %1030, label %.thread1696
 
 1030:                                             ; preds = %1027
   %1031 = call i32 @switch_g_unpack_stepinfo(ptr noundef nonnull %7, ptr noundef %1, i16 noundef zeroext %2) #7
@@ -37251,7 +37251,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1034 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #7
   %1035 = load ptr, ptr %7, align 8
   call void @switch_g_free_stepinfo(ptr noundef %1035) #7
-  br label %.thread1716
+  br label %.thread1696
 
 1036:                                             ; preds = %1030
   %1037 = load ptr, ptr %7, align 8
@@ -37265,14 +37265,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 
 1042:                                             ; preds = %1036
   %1043 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #7
-  br label %.thread1716
+  br label %.thread1696
 
 1044:                                             ; preds = %1036
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %1045 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %58, ptr noundef %1) #7
   %.not1357 = icmp eq i32 %1045, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br i1 %.not1357, label %1046, label %.thread1716
+  br i1 %.not1357, label %1046, label %.thread1696
 
 1046:                                             ; preds = %1044
   call void @slurm_xfree(ptr noundef nonnull %6) #7
@@ -37281,13 +37281,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1048 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1047, ptr noundef nonnull %59, ptr noundef %1) #7
   %.not1358 = icmp eq i32 %1048, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  br i1 %.not1358, label %1049, label %.thread1716
+  br i1 %.not1358, label %1049, label %.thread1696
 
 1049:                                             ; preds = %1046
   %1050 = getelementptr inbounds nuw i8, ptr %86, i64 448
   %1051 = call i32 @unpack8(ptr noundef nonnull %1050, ptr noundef %1) #7
   %.not1359 = icmp eq i32 %1051, 0
-  br i1 %.not1359, label %1052, label %.thread1716
+  br i1 %.not1359, label %1052, label %.thread1696
 
 1052:                                             ; preds = %1049
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -37295,25 +37295,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1054 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1053, ptr noundef nonnull %60, ptr noundef %1) #7
   %.not1360 = icmp eq i32 %1054, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  br i1 %.not1360, label %1055, label %.thread1716
+  br i1 %.not1360, label %1055, label %.thread1696
 
 1055:                                             ; preds = %1052
   %1056 = getelementptr inbounds nuw i8, ptr %86, i64 464
   %1057 = call i32 @unpack32(ptr noundef nonnull %1056, ptr noundef %1) #7
   %.not1361 = icmp eq i32 %1057, 0
-  br i1 %.not1361, label %1058, label %.thread1716
+  br i1 %.not1361, label %1058, label %.thread1696
 
 1058:                                             ; preds = %1055
   %1059 = getelementptr inbounds nuw i8, ptr %86, i64 468
   %1060 = call i32 @unpack32(ptr noundef nonnull %1059, ptr noundef %1) #7
   %.not1362 = icmp eq i32 %1060, 0
-  br i1 %.not1362, label %1061, label %.thread1716
+  br i1 %.not1362, label %1061, label %.thread1696
 
 1061:                                             ; preds = %1058
   %1062 = getelementptr inbounds nuw i8, ptr %86, i64 472
   %1063 = call i32 @unpack32(ptr noundef nonnull %1062, ptr noundef %1) #7
   %.not1363 = icmp eq i32 %1063, 0
-  br i1 %.not1363, label %1064, label %.thread1716
+  br i1 %.not1363, label %1064, label %.thread1696
 
 1064:                                             ; preds = %1061
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
@@ -37321,7 +37321,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1066 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1065, ptr noundef nonnull %61, ptr noundef %1) #7
   %.not1364 = icmp eq i32 %1066, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  br i1 %.not1364, label %1067, label %.thread1716
+  br i1 %.not1364, label %1067, label %.thread1696
 
 1067:                                             ; preds = %1064
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
@@ -37329,13 +37329,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1069 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1068, ptr noundef nonnull %62, ptr noundef %1) #7
   %.not1365 = icmp eq i32 %1069, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  br i1 %.not1365, label %1070, label %.thread1716
+  br i1 %.not1365, label %1070, label %.thread1696
 
 1070:                                             ; preds = %1067
   %1071 = getelementptr inbounds nuw i8, ptr %86, i64 608
   %1072 = call i32 @unpack16(ptr noundef nonnull %1071, ptr noundef %1) #7
   %.not1366 = icmp eq i32 %1072, 0
-  br i1 %.not1366, label %1073, label %.thread1716
+  br i1 %.not1366, label %1073, label %.thread1696
 
 1073:                                             ; preds = %1070
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -37343,13 +37343,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1075 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1074, ptr noundef nonnull %63, ptr noundef %1) #7
   %.not1367 = icmp eq i32 %1075, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  br i1 %.not1367, label %1076, label %.thread1716
+  br i1 %.not1367, label %1076, label %.thread1696
 
 1076:                                             ; preds = %1073
   %1077 = getelementptr inbounds nuw i8, ptr %86, i64 624
   %1078 = call i32 @unpack16(ptr noundef nonnull %1077, ptr noundef %1) #7
   %.not1368 = icmp eq i32 %1078, 0
-  br i1 %.not1368, label %1079, label %.thread1716
+  br i1 %.not1368, label %1079, label %.thread1696
 
 1079:                                             ; preds = %1076
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
@@ -37357,7 +37357,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1081 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1080, ptr noundef nonnull %64, ptr noundef %1) #7
   %.not1369 = icmp eq i32 %1081, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  br i1 %.not1369, label %1082, label %.thread1716
+  br i1 %.not1369, label %1082, label %.thread1696
 
 1082:                                             ; preds = %1079
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
@@ -37365,13 +37365,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1084 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1083, ptr noundef nonnull %65, ptr noundef %1) #7
   %.not1370 = icmp eq i32 %1084, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  br i1 %.not1370, label %1085, label %.thread1716
+  br i1 %.not1370, label %1085, label %.thread1696
 
 1085:                                             ; preds = %1082
   %1086 = getelementptr inbounds nuw i8, ptr %86, i64 648
   %1087 = call i32 @unpack16(ptr noundef nonnull %1086, ptr noundef %1) #7
   %.not1371 = icmp eq i32 %1087, 0
-  br i1 %.not1371, label %1088, label %.thread1716
+  br i1 %.not1371, label %1088, label %.thread1696
 
 1088:                                             ; preds = %1085
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
@@ -37379,12 +37379,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1090 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1089, ptr noundef nonnull %66, ptr noundef %1) #7
   %.not1372 = icmp eq i32 %1090, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  br i1 %.not1372, label %1091, label %.thread1716
+  br i1 %.not1372, label %1091, label %.thread1696
 
 1091:                                             ; preds = %1088
   %1092 = call i32 @unpackbool(ptr noundef nonnull %5, ptr noundef %1) #7
   %.not1373 = icmp eq i32 %1092, 0
-  br i1 %.not1373, label %1093, label %.thread1716
+  br i1 %.not1373, label %1093, label %.thread1696
 
 1093:                                             ; preds = %1091
   %1094 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -37395,19 +37395,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1097 = getelementptr inbounds nuw i8, ptr %86, i64 656
   %1098 = call i32 @job_record_unpack(ptr noundef nonnull %1097, i32 noundef 0, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not1374 = icmp eq i32 %1098, 0
-  br i1 %.not1374, label %1099, label %.thread1716
+  br i1 %.not1374, label %1099, label %.thread1696
 
 1099:                                             ; preds = %1096
   %1100 = getelementptr inbounds nuw i8, ptr %86, i64 664
   %1101 = call i32 @slurm_unpack_list(ptr noundef nonnull %1100, ptr noundef nonnull @node_record_unpack, ptr noundef nonnull @purge_node_rec, ptr noundef %1, i16 noundef zeroext %2)
   %.not1375 = icmp eq i32 %1101, 0
-  br i1 %.not1375, label %1102, label %.thread1716
+  br i1 %.not1375, label %1102, label %.thread1696
 
 1102:                                             ; preds = %1099
   %1103 = getelementptr inbounds nuw i8, ptr %86, i64 672
   %1104 = call i32 @part_record_unpack(ptr noundef nonnull %1103, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not1376 = icmp eq i32 %1104, 0
-  br i1 %.not1376, label %1431, label %.thread1716
+  br i1 %.not1376, label %1431, label %.thread1696
 
 1105:                                             ; preds = %762
   %1106 = icmp samesign ugt i16 %2, 10239
@@ -37417,43 +37417,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1108 = getelementptr inbounds nuw i8, ptr %86, i64 104
   %1109 = tail call i32 @unpack_step_id_members(ptr noundef nonnull %1108, ptr noundef %1, i16 noundef zeroext %2)
   %.not = icmp eq i32 %1109, 0
-  br i1 %.not, label %1110, label %.thread1716
+  br i1 %.not, label %1110, label %.thread1696
 
 1110:                                             ; preds = %1107
   %1111 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %1112 = getelementptr inbounds nuw i8, ptr %86, i64 84
   %1113 = tail call i32 @unpack32_array(ptr noundef nonnull %1111, ptr noundef nonnull %1112, ptr noundef %1) #7
   %.not1206 = icmp eq i32 %1113, 0
-  br i1 %.not1206, label %1114, label %.thread1716
+  br i1 %.not1206, label %1114, label %.thread1696
 
 1114:                                             ; preds = %1110
   %1115 = tail call i32 @unpack32(ptr noundef nonnull %86, ptr noundef %1) #7
   %.not1207 = icmp eq i32 %1115, 0
-  br i1 %.not1207, label %1116, label %.thread1716
+  br i1 %.not1207, label %1116, label %.thread1696
 
 1116:                                             ; preds = %1114
   %1117 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %1118 = tail call i32 @unpack32(ptr noundef nonnull %1117, ptr noundef %1) #7
   %.not1208 = icmp eq i32 %1118, 0
-  br i1 %.not1208, label %1119, label %.thread1716
+  br i1 %.not1208, label %1119, label %.thread1696
 
 1119:                                             ; preds = %1116
   %1120 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %1121 = tail call i32 @unpack32(ptr noundef nonnull %1120, ptr noundef %1) #7
   %.not1209 = icmp eq i32 %1121, 0
-  br i1 %.not1209, label %1122, label %.thread1716
+  br i1 %.not1209, label %1122, label %.thread1696
 
 1122:                                             ; preds = %1119
   %1123 = load i32, ptr %1120, align 8
   switch i32 %1123, label %1125 [
-    i32 -2, label %.loopexit1840
-    i32 0, label %.thread1783
+    i32 -2, label %.loopexit1801
+    i32 0, label %.thread1748
   ]
 
-.thread1783:                                      ; preds = %1122
+.thread1748:                                      ; preds = %1122
   %1124 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr null, ptr %1124, align 8
-  br label %.thread2047
+  br label %.thread2008
 
 1125:                                             ; preds = %1122
   %1126 = zext i32 %1123 to i64
@@ -37461,30 +37461,30 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1128 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %1127, ptr %1128, align 8
   %.not1212 = icmp eq ptr %1127, null
-  br i1 %.not1212, label %.thread1716, label %1129
+  br i1 %.not1212, label %.thread1696, label %1129
 
 1129:                                             ; preds = %1125
-  %.pr1782 = load i32, ptr %1120, align 8
-  %.not1213 = icmp eq i32 %.pr1782, 0
-  br i1 %.not1213, label %.thread2047, label %1131
+  %.pr1747 = load i32, ptr %1120, align 8
+  %.not1213 = icmp eq i32 %.pr1747, 0
+  br i1 %.not1213, label %.thread2008, label %1131
 
-.thread2047:                                      ; preds = %1129, %.thread1783
+.thread2008:                                      ; preds = %1129, %.thread1748
   %1130 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr null, ptr %1130, align 8
-  br label %.loopexit1840
+  br label %.loopexit1801
 
 1131:                                             ; preds = %1129
-  %1132 = zext i32 %.pr1782 to i64
+  %1132 = zext i32 %.pr1747 to i64
   %1133 = tail call ptr @slurm_xcalloc(i64 noundef %1132, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 8277, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #7
   %1134 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %1133, ptr %1134, align 8
   %.not1214 = icmp eq ptr %1133, null
-  br i1 %.not1214, label %.thread1716, label %1135
+  br i1 %.not1214, label %.thread1696, label %1135
 
 1135:                                             ; preds = %1131
   %.pre = load i32, ptr %1120, align 8
   %1136 = icmp eq i32 %.pre, 0
-  br i1 %1136, label %.loopexit1840, label %.lr.ph
+  br i1 %1136, label %.loopexit1801, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1135
   %1137 = getelementptr inbounds nuw i8, ptr %86, i64 24
@@ -37497,7 +37497,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1141 = getelementptr inbounds nuw ptr, ptr %1140, i64 %indvars.iv
   %1142 = call i32 @unpack32_array(ptr noundef %1141, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1291 = icmp eq i32 %1142, 0
-  br i1 %.not1291, label %1143, label %.thread1716
+  br i1 %.not1291, label %1143, label %.thread1696
 
 1143:                                             ; preds = %1139
   %1144 = load i32, ptr %4, align 4
@@ -37509,25 +37509,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1148 = load i32, ptr %1120, align 8
   %1149 = zext i32 %1148 to i64
   %1150 = icmp samesign ult i64 %indvars.iv.next, %1149
-  br i1 %1150, label %1139, label %.loopexit1840, !llvm.loop !87
+  br i1 %1150, label %1139, label %.loopexit1801, !llvm.loop !87
 
-.loopexit1840:                                    ; preds = %1143, %.thread2047, %1135, %1122
+.loopexit1801:                                    ; preds = %1143, %.thread2008, %1135, %1122
   %1151 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %1152 = call i32 @unpack32(ptr noundef nonnull %1151, ptr noundef %1) #7
   %.not1215 = icmp eq i32 %1152, 0
-  br i1 %.not1215, label %1153, label %.thread1716
+  br i1 %.not1215, label %1153, label %.thread1696
 
-1153:                                             ; preds = %.loopexit1840
+1153:                                             ; preds = %.loopexit1801
   %1154 = load i32, ptr %1151, align 4
   switch i32 %1154, label %1156 [
-    i32 -2, label %.loopexit1838
-    i32 0, label %.thread2049
+    i32 -2, label %.loopexit1799
+    i32 0, label %.thread2010
   ]
 
-.thread2049:                                      ; preds = %1153
+.thread2010:                                      ; preds = %1153
   %1155 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %1155, align 8
-  br label %.loopexit1838
+  br label %.loopexit1799
 
 1156:                                             ; preds = %1153
   %1157 = zext i32 %1154 to i64
@@ -37535,49 +37535,49 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1159 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr %1158, ptr %1159, align 8
   %.not1218 = icmp eq ptr %1158, null
-  br i1 %.not1218, label %.thread1716, label %1160
+  br i1 %.not1218, label %.thread1696, label %1160
 
 1160:                                             ; preds = %1156
-  %.pre1992 = load i32, ptr %1151, align 4
-  %1161 = icmp eq i32 %.pre1992, 0
-  br i1 %1161, label %.loopexit1838, label %.lr.ph1844
+  %.pre1953 = load i32, ptr %1151, align 4
+  %1161 = icmp eq i32 %.pre1953, 0
+  br i1 %1161, label %.loopexit1799, label %.lr.ph1805
 
-.lr.ph1844:                                       ; preds = %1160
+.lr.ph1805:                                       ; preds = %1160
   %1162 = getelementptr inbounds nuw i8, ptr %86, i64 32
   br label %1167
 
 1163:                                             ; preds = %1167
-  %indvars.iv.next1934 = add nuw nsw i64 %indvars.iv1933, 1
+  %indvars.iv.next1895 = add nuw nsw i64 %indvars.iv1894, 1
   %1164 = load i32, ptr %1151, align 4
   %1165 = zext i32 %1164 to i64
-  %1166 = icmp samesign ult i64 %indvars.iv.next1934, %1165
-  br i1 %1166, label %1167, label %.loopexit1838, !llvm.loop !88
+  %1166 = icmp samesign ult i64 %indvars.iv.next1895, %1165
+  br i1 %1166, label %1167, label %.loopexit1799, !llvm.loop !88
 
-1167:                                             ; preds = %.lr.ph1844, %1163
-  %indvars.iv1933 = phi i64 [ 0, %.lr.ph1844 ], [ %indvars.iv.next1934, %1163 ]
+1167:                                             ; preds = %.lr.ph1805, %1163
+  %indvars.iv1894 = phi i64 [ 0, %.lr.ph1805 ], [ %indvars.iv.next1895, %1163 ]
   %1168 = load ptr, ptr %1162, align 8
-  %1169 = getelementptr inbounds nuw i32, ptr %1168, i64 %indvars.iv1933
+  %1169 = getelementptr inbounds nuw i32, ptr %1168, i64 %indvars.iv1894
   %1170 = call i32 @unpack32(ptr noundef %1169, ptr noundef %1) #7
   %.not1290 = icmp eq i32 %1170, 0
-  br i1 %.not1290, label %1163, label %.thread1716
+  br i1 %.not1290, label %1163, label %.thread1696
 
-.loopexit1838:                                    ; preds = %1163, %.thread2049, %1160, %1153
+.loopexit1799:                                    ; preds = %1163, %.thread2010, %1160, %1153
   %1171 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %1172 = call i32 @unpack32(ptr noundef nonnull %1171, ptr noundef %1) #7
   %.not1219 = icmp eq i32 %1172, 0
-  br i1 %.not1219, label %1173, label %.thread1716
+  br i1 %.not1219, label %1173, label %.thread1696
 
-1173:                                             ; preds = %.loopexit1838
+1173:                                             ; preds = %.loopexit1799
   %1174 = getelementptr inbounds nuw i8, ptr %86, i64 44
   %1175 = call i32 @unpack32(ptr noundef nonnull %1174, ptr noundef %1) #7
   %.not1220 = icmp eq i32 %1175, 0
-  br i1 %.not1220, label %1176, label %.thread1716
+  br i1 %.not1220, label %1176, label %.thread1696
 
 1176:                                             ; preds = %1173
   %1177 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %1178 = call i32 @unpack32(ptr noundef nonnull %1177, ptr noundef %1) #7
   %.not1221 = icmp eq i32 %1178, 0
-  br i1 %.not1221, label %1179, label %.thread1716
+  br i1 %.not1221, label %1179, label %.thread1696
 
 1179:                                             ; preds = %1176
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
@@ -37585,85 +37585,85 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1181 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1180, ptr noundef nonnull %67, ptr noundef %1) #7
   %.not1222 = icmp eq i32 %1181, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  br i1 %.not1222, label %1182, label %.thread1716
+  br i1 %.not1222, label %1182, label %.thread1696
 
 1182:                                             ; preds = %1179
   %1183 = getelementptr inbounds nuw i8, ptr %86, i64 64
   %1184 = call i32 @unpack32(ptr noundef nonnull %1183, ptr noundef %1) #7
   %.not1223 = icmp eq i32 %1184, 0
-  br i1 %.not1223, label %1185, label %.thread1716
+  br i1 %.not1223, label %1185, label %.thread1696
 
 1185:                                             ; preds = %1182
   %1186 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %1187 = call i32 @unpack32(ptr noundef nonnull %1186, ptr noundef %1) #7
   %.not1224 = icmp eq i32 %1187, 0
-  br i1 %.not1224, label %1188, label %.thread1716
+  br i1 %.not1224, label %1188, label %.thread1696
 
 1188:                                             ; preds = %1185
   %1189 = getelementptr inbounds nuw i8, ptr %86, i64 76
   %1190 = call i32 @unpack16(ptr noundef nonnull %1189, ptr noundef %1) #7
   %.not1225 = icmp eq i32 %1190, 0
-  br i1 %.not1225, label %1191, label %.thread1716
+  br i1 %.not1225, label %1191, label %.thread1696
 
 1191:                                             ; preds = %1188
   %1192 = getelementptr inbounds nuw i8, ptr %86, i64 78
   %1193 = call i32 @unpack16(ptr noundef nonnull %1192, ptr noundef %1) #7
   %.not1226 = icmp eq i32 %1193, 0
-  br i1 %.not1226, label %1194, label %.thread1716
+  br i1 %.not1226, label %1194, label %.thread1696
 
 1194:                                             ; preds = %1191
   %1195 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %1196 = call i32 @unpack16(ptr noundef nonnull %1195, ptr noundef %1) #7
   %.not1227 = icmp eq i32 %1196, 0
-  br i1 %.not1227, label %1197, label %.thread1716
+  br i1 %.not1227, label %1197, label %.thread1696
 
 1197:                                             ; preds = %1194
   %1198 = getelementptr inbounds nuw i8, ptr %86, i64 82
   %1199 = call i32 @unpack16(ptr noundef nonnull %1198, ptr noundef %1) #7
   %.not1228 = icmp eq i32 %1199, 0
-  br i1 %.not1228, label %1200, label %.thread1716
+  br i1 %.not1228, label %1200, label %.thread1696
 
 1200:                                             ; preds = %1197
   %1201 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %1202 = call i32 @unpack64(ptr noundef nonnull %1201, ptr noundef %1) #7
   %.not1229 = icmp eq i32 %1202, 0
-  br i1 %.not1229, label %1203, label %.thread1716
+  br i1 %.not1229, label %1203, label %.thread1696
 
 1203:                                             ; preds = %1200
   %1204 = getelementptr inbounds nuw i8, ptr %86, i64 128
   %1205 = call i32 @unpack64(ptr noundef nonnull %1204, ptr noundef %1) #7
   %.not1230 = icmp eq i32 %1205, 0
-  br i1 %.not1230, label %1206, label %.thread1716
+  br i1 %.not1230, label %1206, label %.thread1696
 
 1206:                                             ; preds = %1203
   %1207 = getelementptr inbounds nuw i8, ptr %86, i64 68
   %1208 = call i32 @unpack32(ptr noundef nonnull %1207, ptr noundef %1) #7
   %.not1231 = icmp eq i32 %1208, 0
-  br i1 %.not1231, label %1209, label %.thread1716
+  br i1 %.not1231, label %1209, label %.thread1696
 
 1209:                                             ; preds = %1206
   %1210 = load i32, ptr %1207, align 4
   %1211 = icmp ugt i32 %1210, -3
-  br i1 %1211, label %.thread1716, label %1212
+  br i1 %1211, label %.thread1696, label %1212
 
 1212:                                             ; preds = %1209
   %1213 = getelementptr inbounds nuw i8, ptr %86, i64 154
   %1214 = call i32 @unpack16(ptr noundef nonnull %1213, ptr noundef %1) #7
   %.not1232 = icmp eq i32 %1214, 0
-  br i1 %.not1232, label %1215, label %.thread1716
+  br i1 %.not1232, label %1215, label %.thread1696
 
 1215:                                             ; preds = %1212
   %1216 = getelementptr inbounds nuw i8, ptr %86, i64 160
   %1217 = getelementptr inbounds nuw i8, ptr %86, i64 168
   %1218 = call i32 @unpack16_array(ptr noundef nonnull %1216, ptr noundef nonnull %1217, ptr noundef %1) #7
   %.not1233 = icmp eq i32 %1218, 0
-  br i1 %.not1233, label %1219, label %.thread1716
+  br i1 %.not1233, label %1219, label %.thread1696
 
 1219:                                             ; preds = %1215
   %1220 = getelementptr inbounds nuw i8, ptr %86, i64 176
   %1221 = call i32 @unpack32_array(ptr noundef nonnull %1220, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1234 = icmp eq i32 %1221, 0
-  br i1 %.not1234, label %1222, label %.thread1716
+  br i1 %.not1234, label %1222, label %.thread1696
 
 1222:                                             ; preds = %1219
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
@@ -37671,43 +37671,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1224 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1223, ptr noundef nonnull %68, ptr noundef %1) #7
   %.not1235 = icmp eq i32 %1224, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  br i1 %.not1235, label %1225, label %.thread1716
+  br i1 %.not1235, label %1225, label %.thread1696
 
 1225:                                             ; preds = %1222
   %1226 = getelementptr inbounds nuw i8, ptr %86, i64 184
   %1227 = call i32 @unpack16(ptr noundef nonnull %1226, ptr noundef %1) #7
   %.not1236 = icmp eq i32 %1227, 0
-  br i1 %.not1236, label %1228, label %.thread1716
+  br i1 %.not1236, label %1228, label %.thread1696
 
 1228:                                             ; preds = %1225
   %1229 = getelementptr inbounds nuw i8, ptr %86, i64 304
   %1230 = call i32 @unpack32(ptr noundef nonnull %1229, ptr noundef %1) #7
   %.not1237 = icmp eq i32 %1230, 0
-  br i1 %.not1237, label %1231, label %.thread1716
+  br i1 %.not1237, label %1231, label %.thread1696
 
 1231:                                             ; preds = %1228
   %1232 = getelementptr inbounds nuw i8, ptr %86, i64 152
   %1233 = call i32 @unpack16(ptr noundef nonnull %1232, ptr noundef %1) #7
   %.not1238 = icmp eq i32 %1233, 0
-  br i1 %.not1238, label %1234, label %.thread1716
+  br i1 %.not1238, label %1234, label %.thread1696
 
 1234:                                             ; preds = %1231
   %1235 = getelementptr inbounds nuw i8, ptr %86, i64 476
   %1236 = call i32 @unpack16(ptr noundef nonnull %1235, ptr noundef %1) #7
   %.not1239 = icmp eq i32 %1236, 0
-  br i1 %.not1239, label %1237, label %.thread1716
+  br i1 %.not1239, label %1237, label %.thread1696
 
 1237:                                             ; preds = %1234
   %1238 = getelementptr inbounds nuw i8, ptr %86, i64 264
   %1239 = call i32 @unpack16(ptr noundef nonnull %1238, ptr noundef %1) #7
   %.not1240 = icmp eq i32 %1239, 0
-  br i1 %.not1240, label %1240, label %.thread1716
+  br i1 %.not1240, label %1240, label %.thread1696
 
 1240:                                             ; preds = %1237
   %1241 = getelementptr inbounds nuw i8, ptr %86, i64 546
   %1242 = call i32 @unpack16(ptr noundef nonnull %1241, ptr noundef %1) #7
   %.not1241 = icmp eq i32 %1242, 0
-  br i1 %.not1241, label %1243, label %.thread1716
+  br i1 %.not1241, label %1243, label %.thread1696
 
 1243:                                             ; preds = %1240
   %1244 = load i16, ptr %1241, align 2
@@ -37715,17 +37715,17 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1246 = getelementptr inbounds nuw i8, ptr %86, i64 552
   store ptr %1245, ptr %1246, align 8
   %.not1242 = icmp eq ptr %1245, null
-  br i1 %.not1242, label %.thread1716, label %1247
+  br i1 %.not1242, label %.thread1696, label %1247
 
 1247:                                             ; preds = %1243
   %1248 = load i32, ptr %1207, align 4
   %.not1243 = icmp eq i32 %1248, 0
-  br i1 %.not1243, label %.thread1796, label %1250
+  br i1 %.not1243, label %.thread1758, label %1250
 
-.thread1796:                                      ; preds = %1247
+.thread1758:                                      ; preds = %1247
   %1249 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr null, ptr %1249, align 8
-  br label %.thread2051
+  br label %.thread2012
 
 1250:                                             ; preds = %1247
   %1251 = zext i32 %1248 to i64
@@ -37733,82 +37733,82 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1253 = getelementptr inbounds nuw i8, ptr %86, i64 136
   store ptr %1252, ptr %1253, align 8
   %.not1244 = icmp eq ptr %1252, null
-  br i1 %.not1244, label %.thread1716, label %1254
+  br i1 %.not1244, label %.thread1696, label %1254
 
 1254:                                             ; preds = %1250
-  %.pr1795 = load i32, ptr %1207, align 4
-  %.not1245 = icmp eq i32 %.pr1795, 0
-  br i1 %.not1245, label %.thread2051, label %1256
+  %.pr1757 = load i32, ptr %1207, align 4
+  %.not1245 = icmp eq i32 %.pr1757, 0
+  br i1 %.not1245, label %.thread2012, label %1256
 
-.thread2051:                                      ; preds = %1254, %.thread1796
+.thread2012:                                      ; preds = %1254, %.thread1758
   %1255 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr null, ptr %1255, align 8
   br label %._crit_edge
 
 1256:                                             ; preds = %1254
-  %1257 = zext i32 %.pr1795 to i64
+  %1257 = zext i32 %.pr1757 to i64
   %1258 = call ptr @slurm_xcalloc(i64 noundef %1257, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 8329, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #7
   %1259 = getelementptr inbounds nuw i8, ptr %86, i64 312
   store ptr %1258, ptr %1259, align 8
   %.not1246 = icmp eq ptr %1258, null
-  br i1 %.not1246, label %.thread1716, label %1260
+  br i1 %.not1246, label %.thread1696, label %1260
 
 1260:                                             ; preds = %1256
-  %.pre1994 = load i32, ptr %1207, align 4
-  %1261 = icmp eq i32 %.pre1994, 0
-  br i1 %1261, label %._crit_edge, label %.lr.ph1846
+  %.pre1955 = load i32, ptr %1207, align 4
+  %1261 = icmp eq i32 %.pre1955, 0
+  br i1 %1261, label %._crit_edge, label %.lr.ph1807
 
-.lr.ph1846:                                       ; preds = %1260
+.lr.ph1807:                                       ; preds = %1260
   %1262 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %1263 = getelementptr inbounds nuw i8, ptr %86, i64 312
-  %.pre1995 = load ptr, ptr %1262, align 8
+  %.pre1956 = load ptr, ptr %1262, align 8
   br label %1268
 
 1264:                                             ; preds = %1276
-  %indvars.iv.next1937 = add nuw nsw i64 %indvars.iv1936, 1
+  %indvars.iv.next1898 = add nuw nsw i64 %indvars.iv1897, 1
   %1265 = load i32, ptr %1207, align 4
   %1266 = zext i32 %1265 to i64
-  %1267 = icmp samesign ult i64 %indvars.iv.next1937, %1266
+  %1267 = icmp samesign ult i64 %indvars.iv.next1898, %1266
   br i1 %1267, label %1268, label %._crit_edge, !llvm.loop !89
 
-1268:                                             ; preds = %.lr.ph1846, %1264
-  %1269 = phi ptr [ %.pre1995, %.lr.ph1846 ], [ %1277, %1264 ]
-  %indvars.iv1936 = phi i64 [ 0, %.lr.ph1846 ], [ %indvars.iv.next1937, %1264 ]
-  %1270 = getelementptr inbounds nuw i16, ptr %1269, i64 %indvars.iv1936
+1268:                                             ; preds = %.lr.ph1807, %1264
+  %1269 = phi ptr [ %.pre1956, %.lr.ph1807 ], [ %1277, %1264 ]
+  %indvars.iv1897 = phi i64 [ 0, %.lr.ph1807 ], [ %indvars.iv.next1898, %1264 ]
+  %1270 = getelementptr inbounds nuw i16, ptr %1269, i64 %indvars.iv1897
   %1271 = call i32 @unpack16(ptr noundef %1270, ptr noundef %1) #7
   %.not1287 = icmp eq i32 %1271, 0
-  br i1 %.not1287, label %1272, label %.thread1716
+  br i1 %.not1287, label %1272, label %.thread1696
 
 1272:                                             ; preds = %1268
   %1273 = load ptr, ptr %1263, align 8
-  %1274 = getelementptr inbounds nuw ptr, ptr %1273, i64 %indvars.iv1936
+  %1274 = getelementptr inbounds nuw ptr, ptr %1273, i64 %indvars.iv1897
   %1275 = call i32 @unpack32_array(ptr noundef %1274, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1288 = icmp eq i32 %1275, 0
-  br i1 %.not1288, label %1276, label %.thread1716
+  br i1 %.not1288, label %1276, label %.thread1696
 
 1276:                                             ; preds = %1272
   %1277 = load ptr, ptr %1262, align 8
-  %1278 = getelementptr inbounds nuw i16, ptr %1277, i64 %indvars.iv1936
+  %1278 = getelementptr inbounds nuw i16, ptr %1277, i64 %indvars.iv1897
   %1279 = load i16, ptr %1278, align 2
   %1280 = load i32, ptr %4, align 4
   %1281 = trunc i32 %1280 to i16
   %.not1289 = icmp eq i16 %1279, %1281
-  br i1 %.not1289, label %1264, label %.thread1716
+  br i1 %.not1289, label %1264, label %.thread1696
 
-._crit_edge:                                      ; preds = %1264, %.thread2051, %1260
+._crit_edge:                                      ; preds = %1264, %.thread2012, %1260
   %1282 = getelementptr inbounds nuw i8, ptr %86, i64 288
   %1283 = call i32 @unpack16(ptr noundef nonnull %1282, ptr noundef %1) #7
   %.not1247 = icmp eq i32 %1283, 0
-  br i1 %.not1247, label %1284, label %.thread1716
+  br i1 %.not1247, label %1284, label %.thread1696
 
 1284:                                             ; preds = %._crit_edge
   %1285 = load i16, ptr %1282, align 8
   %1286 = icmp ugt i16 %1285, -3
-  br i1 %1286, label %.thread1716, label %1287
+  br i1 %1286, label %.thread1696, label %1287
 
 1287:                                             ; preds = %1284
   %.not1248 = icmp eq i16 %1285, 0
-  br i1 %.not1248, label %.loopexit1835, label %1288
+  br i1 %.not1248, label %.loopexit1796, label %1288
 
 1288:                                             ; preds = %1287
   %1289 = zext i16 %1285 to i64
@@ -37816,43 +37816,43 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1291 = getelementptr inbounds nuw i8, ptr %86, i64 296
   store ptr %1290, ptr %1291, align 8
   %.not1249 = icmp eq ptr %1290, null
-  br i1 %.not1249, label %.thread1716, label %.preheader1834
+  br i1 %.not1249, label %.thread1696, label %.preheader1795
 
-.preheader1834:                                   ; preds = %1288
+.preheader1795:                                   ; preds = %1288
   %1292 = load i16, ptr %1282, align 8
-  %.not1896 = icmp eq i16 %1292, 0
-  br i1 %.not1896, label %.loopexit1835, label %.lr.ph1848
+  %.not1857 = icmp eq i16 %1292, 0
+  br i1 %.not1857, label %.loopexit1796, label %.lr.ph1809
 
-1293:                                             ; preds = %.lr.ph1848
-  %indvars.iv.next1940 = add nuw nsw i64 %indvars.iv1939, 1
+1293:                                             ; preds = %.lr.ph1809
+  %indvars.iv.next1901 = add nuw nsw i64 %indvars.iv1900, 1
   %1294 = load i16, ptr %1282, align 8
   %1295 = zext i16 %1294 to i64
-  %1296 = icmp samesign ult i64 %indvars.iv.next1940, %1295
-  br i1 %1296, label %.lr.ph1848, label %.loopexit1835, !llvm.loop !90
+  %1296 = icmp samesign ult i64 %indvars.iv.next1901, %1295
+  br i1 %1296, label %.lr.ph1809, label %.loopexit1796, !llvm.loop !90
 
-.lr.ph1848:                                       ; preds = %.preheader1834, %1293
-  %indvars.iv1939 = phi i64 [ %indvars.iv.next1940, %1293 ], [ 0, %.preheader1834 ]
+.lr.ph1809:                                       ; preds = %.preheader1795, %1293
+  %indvars.iv1900 = phi i64 [ %indvars.iv.next1901, %1293 ], [ 0, %.preheader1795 ]
   %1297 = load ptr, ptr %1291, align 8
-  %1298 = getelementptr inbounds nuw i16, ptr %1297, i64 %indvars.iv1939
+  %1298 = getelementptr inbounds nuw i16, ptr %1297, i64 %indvars.iv1900
   %1299 = call i32 @unpack16(ptr noundef %1298, ptr noundef %1) #7
   %.not1286 = icmp eq i32 %1299, 0
-  br i1 %.not1286, label %1293, label %.thread1716
+  br i1 %.not1286, label %1293, label %.thread1696
 
-.loopexit1835:                                    ; preds = %1293, %.preheader1834, %1287
+.loopexit1796:                                    ; preds = %1293, %.preheader1795, %1287
   %1300 = getelementptr inbounds nuw i8, ptr %86, i64 320
   %1301 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %1300, ptr noundef %1) #7
   %1302 = getelementptr inbounds nuw i8, ptr %86, i64 200
   %1303 = getelementptr inbounds nuw i8, ptr %86, i64 144
   %1304 = call i32 @unpackstr_array(ptr noundef nonnull %1302, ptr noundef nonnull %1303, ptr noundef %1) #7
   %.not1250 = icmp eq i32 %1304, 0
-  br i1 %.not1250, label %1305, label %.thread1716
+  br i1 %.not1250, label %1305, label %.thread1696
 
-1305:                                             ; preds = %.loopexit1835
+1305:                                             ; preds = %.loopexit1796
   %1306 = getelementptr inbounds nuw i8, ptr %86, i64 584
   %1307 = getelementptr inbounds nuw i8, ptr %86, i64 592
   %1308 = call i32 @unpackstr_array(ptr noundef nonnull %1306, ptr noundef nonnull %1307, ptr noundef %1) #7
   %.not1251 = icmp eq i32 %1308, 0
-  br i1 %.not1251, label %1309, label %.thread1716
+  br i1 %.not1251, label %1309, label %.thread1696
 
 1309:                                             ; preds = %1305
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
@@ -37860,7 +37860,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1311 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1310, ptr noundef nonnull %69, ptr noundef %1) #7
   %.not1252 = icmp eq i32 %1311, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  br i1 %.not1252, label %1312, label %.thread1716
+  br i1 %.not1252, label %1312, label %.thread1696
 
 1312:                                             ; preds = %1309
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
@@ -37868,13 +37868,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1314 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1313, ptr noundef nonnull %70, ptr noundef %1) #7
   %.not1253 = icmp eq i32 %1314, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  br i1 %.not1253, label %1315, label %.thread1716
+  br i1 %.not1253, label %1315, label %.thread1696
 
 1315:                                             ; preds = %1312
   %1316 = getelementptr inbounds nuw i8, ptr %86, i64 232
   %1317 = call i32 @unpack16(ptr noundef nonnull %1316, ptr noundef %1) #7
   %.not1254 = icmp eq i32 %1317, 0
-  br i1 %.not1254, label %1318, label %.thread1716
+  br i1 %.not1254, label %1318, label %.thread1696
 
 1318:                                             ; preds = %1315
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
@@ -37882,13 +37882,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1320 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1319, ptr noundef nonnull %71, ptr noundef %1) #7
   %.not1255 = icmp eq i32 %1320, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
-  br i1 %.not1255, label %1321, label %.thread1716
+  br i1 %.not1255, label %1321, label %.thread1696
 
 1321:                                             ; preds = %1318
   %1322 = getelementptr inbounds nuw i8, ptr %86, i64 248
   %1323 = call i32 @unpack16(ptr noundef nonnull %1322, ptr noundef %1) #7
   %.not1256 = icmp eq i32 %1323, 0
-  br i1 %.not1256, label %1324, label %.thread1716
+  br i1 %.not1256, label %1324, label %.thread1696
 
 1324:                                             ; preds = %1321
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -37896,20 +37896,20 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1326 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1325, ptr noundef nonnull %72, ptr noundef %1) #7
   %.not1257 = icmp eq i32 %1326, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  br i1 %.not1257, label %1327, label %.thread1716
+  br i1 %.not1257, label %1327, label %.thread1696
 
 1327:                                             ; preds = %1324
   %1328 = getelementptr inbounds nuw i8, ptr %86, i64 208
   %1329 = getelementptr inbounds nuw i8, ptr %86, i64 148
   %1330 = call i32 @unpackstr_array(ptr noundef nonnull %1328, ptr noundef nonnull %1329, ptr noundef %1) #7
   %.not1258 = icmp eq i32 %1330, 0
-  br i1 %.not1258, label %1331, label %.thread1716
+  br i1 %.not1258, label %1331, label %.thread1696
 
 1331:                                             ; preds = %1327
   %1332 = getelementptr inbounds nuw i8, ptr %86, i64 308
   %1333 = call i32 @unpack32(ptr noundef nonnull %1332, ptr noundef %1) #7
   %.not1259 = icmp eq i32 %1333, 0
-  br i1 %.not1259, label %1334, label %.thread1716
+  br i1 %.not1259, label %1334, label %.thread1696
 
 1334:                                             ; preds = %1331
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
@@ -37917,7 +37917,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1336 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1335, ptr noundef nonnull %73, ptr noundef %1) #7
   %.not1260 = icmp eq i32 %1336, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  br i1 %.not1260, label %1337, label %.thread1716
+  br i1 %.not1260, label %1337, label %.thread1696
 
 1337:                                             ; preds = %1334
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
@@ -37925,7 +37925,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1339 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1338, ptr noundef nonnull %74, ptr noundef %1) #7
   %.not1261 = icmp eq i32 %1339, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
-  br i1 %.not1261, label %1340, label %.thread1716
+  br i1 %.not1261, label %1340, label %.thread1696
 
 1340:                                             ; preds = %1337
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
@@ -37933,22 +37933,22 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1342 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1341, ptr noundef nonnull %75, ptr noundef %1) #7
   %.not1262 = icmp eq i32 %1342, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  br i1 %.not1262, label %1343, label %.thread1716
+  br i1 %.not1262, label %1343, label %.thread1696
 
 1343:                                             ; preds = %1340
   %1344 = getelementptr inbounds nuw i8, ptr %86, i64 504
   %1345 = call i32 @unpack16(ptr noundef nonnull %1344, ptr noundef %1) #7
   %.not1263 = icmp eq i32 %1345, 0
-  br i1 %.not1263, label %1346, label %.thread1716
+  br i1 %.not1263, label %1346, label %.thread1696
 
 1346:                                             ; preds = %1343
   %1347 = load i16, ptr %1344, align 8
   %1348 = icmp ugt i16 %1347, -3
-  br i1 %1348, label %.thread1716, label %1349
+  br i1 %1348, label %.thread1696, label %1349
 
 1349:                                             ; preds = %1346
   %.not1264 = icmp eq i16 %1347, 0
-  br i1 %.not1264, label %.loopexit1832, label %1350
+  br i1 %.not1264, label %.loopexit1793, label %1350
 
 1350:                                             ; preds = %1349
   %1351 = zext i16 %1347 to i64
@@ -37956,41 +37956,41 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1353 = getelementptr inbounds nuw i8, ptr %86, i64 512
   store ptr %1352, ptr %1353, align 8
   %.not1265 = icmp eq ptr %1352, null
-  br i1 %.not1265, label %.thread1716, label %.preheader1831
+  br i1 %.not1265, label %.thread1696, label %.preheader1792
 
-.preheader1831:                                   ; preds = %1350
+.preheader1792:                                   ; preds = %1350
   %1354 = load i16, ptr %1344, align 8
-  %.not1897 = icmp eq i16 %1354, 0
-  br i1 %.not1897, label %.loopexit1832, label %.lr.ph1850
+  %.not1858 = icmp eq i16 %1354, 0
+  br i1 %.not1858, label %.loopexit1793, label %.lr.ph1811
 
-1355:                                             ; preds = %.lr.ph1850
-  %indvars.iv.next1943 = add nuw nsw i64 %indvars.iv1942, 1
+1355:                                             ; preds = %.lr.ph1811
+  %indvars.iv.next1904 = add nuw nsw i64 %indvars.iv1903, 1
   %1356 = load i16, ptr %1344, align 8
   %1357 = zext i16 %1356 to i64
-  %1358 = icmp samesign ult i64 %indvars.iv.next1943, %1357
-  br i1 %1358, label %.lr.ph1850, label %.loopexit1832, !llvm.loop !91
+  %1358 = icmp samesign ult i64 %indvars.iv.next1904, %1357
+  br i1 %1358, label %.lr.ph1811, label %.loopexit1793, !llvm.loop !91
 
-.lr.ph1850:                                       ; preds = %.preheader1831, %1355
-  %indvars.iv1942 = phi i64 [ %indvars.iv.next1943, %1355 ], [ 0, %.preheader1831 ]
+.lr.ph1811:                                       ; preds = %.preheader1792, %1355
+  %indvars.iv1903 = phi i64 [ %indvars.iv.next1904, %1355 ], [ 0, %.preheader1792 ]
   %1359 = load ptr, ptr %1353, align 8
-  %1360 = getelementptr inbounds nuw i16, ptr %1359, i64 %indvars.iv1942
+  %1360 = getelementptr inbounds nuw i16, ptr %1359, i64 %indvars.iv1903
   %1361 = call i32 @unpack16(ptr noundef %1360, ptr noundef %1) #7
   %.not1285 = icmp eq i32 %1361, 0
-  br i1 %.not1285, label %1355, label %.thread1716
+  br i1 %.not1285, label %1355, label %.thread1696
 
-.loopexit1832:                                    ; preds = %1355, %.preheader1831, %1349
+.loopexit1793:                                    ; preds = %1355, %.preheader1792, %1349
   %1362 = getelementptr inbounds nuw i8, ptr %86, i64 520
   %1363 = call i32 @unpack32(ptr noundef nonnull %1362, ptr noundef %1) #7
   %.not1266 = icmp eq i32 %1363, 0
-  br i1 %.not1266, label %1364, label %.thread1716
+  br i1 %.not1266, label %1364, label %.thread1696
 
-1364:                                             ; preds = %.loopexit1832
+1364:                                             ; preds = %.loopexit1793
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %1365 = getelementptr inbounds nuw i8, ptr %86, i64 528
   %1366 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1365, ptr noundef nonnull %76, ptr noundef %1) #7
   %.not1267 = icmp eq i32 %1366, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
-  br i1 %.not1267, label %1367, label %.thread1716
+  br i1 %.not1267, label %1367, label %.thread1696
 
 1367:                                             ; preds = %1364
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
@@ -37998,13 +37998,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1369 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1368, ptr noundef nonnull %77, ptr noundef %1) #7
   %.not1268 = icmp eq i32 %1369, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
-  br i1 %.not1268, label %1370, label %.thread1716
+  br i1 %.not1268, label %1370, label %.thread1696
 
 1370:                                             ; preds = %1367
   %1371 = getelementptr inbounds nuw i8, ptr %86, i64 544
   %1372 = call i32 @unpack16(ptr noundef nonnull %1371, ptr noundef %1) #7
   %.not1269 = icmp eq i32 %1372, 0
-  br i1 %.not1269, label %1373, label %.thread1716
+  br i1 %.not1269, label %1373, label %.thread1696
 
 1373:                                             ; preds = %1370
   %1374 = call i32 @switch_g_unpack_stepinfo(ptr noundef nonnull %7, ptr noundef %1, i16 noundef zeroext %2) #7
@@ -38015,7 +38015,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1377 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #7
   %1378 = load ptr, ptr %7, align 8
   call void @switch_g_free_stepinfo(ptr noundef %1378) #7
-  br label %.thread1716
+  br label %.thread1696
 
 1379:                                             ; preds = %1373
   %1380 = load ptr, ptr %7, align 8
@@ -38029,14 +38029,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 
 1385:                                             ; preds = %1379
   %1386 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #7
-  br label %.thread1716
+  br label %.thread1696
 
 1387:                                             ; preds = %1379
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %1388 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %78, ptr noundef %1) #7
   %.not1270 = icmp eq i32 %1388, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
-  br i1 %.not1270, label %1389, label %.thread1716
+  br i1 %.not1270, label %1389, label %.thread1696
 
 1389:                                             ; preds = %1387
   call void @slurm_xfree(ptr noundef nonnull %6) #7
@@ -38045,13 +38045,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1391 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1390, ptr noundef nonnull %79, ptr noundef %1) #7
   %.not1271 = icmp eq i32 %1391, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
-  br i1 %.not1271, label %1392, label %.thread1716
+  br i1 %.not1271, label %1392, label %.thread1696
 
 1392:                                             ; preds = %1389
   %1393 = getelementptr inbounds nuw i8, ptr %86, i64 448
   %1394 = call i32 @unpack8(ptr noundef nonnull %1393, ptr noundef %1) #7
   %.not1272 = icmp eq i32 %1394, 0
-  br i1 %.not1272, label %1395, label %.thread1716
+  br i1 %.not1272, label %1395, label %.thread1696
 
 1395:                                             ; preds = %1392
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
@@ -38059,25 +38059,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1397 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1396, ptr noundef nonnull %80, ptr noundef %1) #7
   %.not1273 = icmp eq i32 %1397, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  br i1 %.not1273, label %1398, label %.thread1716
+  br i1 %.not1273, label %1398, label %.thread1696
 
 1398:                                             ; preds = %1395
   %1399 = getelementptr inbounds nuw i8, ptr %86, i64 464
   %1400 = call i32 @unpack32(ptr noundef nonnull %1399, ptr noundef %1) #7
   %.not1274 = icmp eq i32 %1400, 0
-  br i1 %.not1274, label %1401, label %.thread1716
+  br i1 %.not1274, label %1401, label %.thread1696
 
 1401:                                             ; preds = %1398
   %1402 = getelementptr inbounds nuw i8, ptr %86, i64 468
   %1403 = call i32 @unpack32(ptr noundef nonnull %1402, ptr noundef %1) #7
   %.not1275 = icmp eq i32 %1403, 0
-  br i1 %.not1275, label %1404, label %.thread1716
+  br i1 %.not1275, label %1404, label %.thread1696
 
 1404:                                             ; preds = %1401
   %1405 = getelementptr inbounds nuw i8, ptr %86, i64 472
   %1406 = call i32 @unpack32(ptr noundef nonnull %1405, ptr noundef %1) #7
   %.not1276 = icmp eq i32 %1406, 0
-  br i1 %.not1276, label %1407, label %.thread1716
+  br i1 %.not1276, label %1407, label %.thread1696
 
 1407:                                             ; preds = %1404
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
@@ -38085,7 +38085,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1409 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1408, ptr noundef nonnull %81, ptr noundef %1) #7
   %.not1277 = icmp eq i32 %1409, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  br i1 %.not1277, label %1410, label %.thread1716
+  br i1 %.not1277, label %1410, label %.thread1696
 
 1410:                                             ; preds = %1407
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -38093,13 +38093,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1412 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1411, ptr noundef nonnull %82, ptr noundef %1) #7
   %.not1278 = icmp eq i32 %1412, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  br i1 %.not1278, label %1413, label %.thread1716
+  br i1 %.not1278, label %1413, label %.thread1696
 
 1413:                                             ; preds = %1410
   %1414 = getelementptr inbounds nuw i8, ptr %86, i64 608
   %1415 = call i32 @unpack16(ptr noundef nonnull %1414, ptr noundef %1) #7
   %.not1279 = icmp eq i32 %1415, 0
-  br i1 %.not1279, label %1416, label %.thread1716
+  br i1 %.not1279, label %1416, label %.thread1696
 
 1416:                                             ; preds = %1413
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -38107,13 +38107,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1418 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1417, ptr noundef nonnull %83, ptr noundef %1) #7
   %.not1280 = icmp eq i32 %1418, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
-  br i1 %.not1280, label %1419, label %.thread1716
+  br i1 %.not1280, label %1419, label %.thread1696
 
 1419:                                             ; preds = %1416
   %1420 = getelementptr inbounds nuw i8, ptr %86, i64 624
   %1421 = call i32 @unpack16(ptr noundef nonnull %1420, ptr noundef %1) #7
   %.not1281 = icmp eq i32 %1421, 0
-  br i1 %.not1281, label %1422, label %.thread1716
+  br i1 %.not1281, label %1422, label %.thread1696
 
 1422:                                             ; preds = %1419
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
@@ -38121,7 +38121,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1424 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1423, ptr noundef nonnull %84, ptr noundef %1) #7
   %.not1282 = icmp eq i32 %1424, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  br i1 %.not1282, label %1425, label %.thread1716
+  br i1 %.not1282, label %1425, label %.thread1696
 
 1425:                                             ; preds = %1422
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
@@ -38129,21 +38129,21 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1427 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %1426, ptr noundef nonnull %85, ptr noundef %1) #7
   %.not1283 = icmp eq i32 %1427, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
-  br i1 %.not1283, label %1428, label %.thread1716
+  br i1 %.not1283, label %1428, label %.thread1696
 
 1428:                                             ; preds = %1425
   %1429 = getelementptr inbounds nuw i8, ptr %86, i64 648
   %1430 = call i32 @unpack16(ptr noundef nonnull %1429, ptr noundef %1) #7
   %.not1284 = icmp eq i32 %1430, 0
-  br i1 %.not1284, label %1431, label %.thread1716
+  br i1 %.not1284, label %1431, label %.thread1696
 
-.thread1716:                                      ; preds = %1139, %1167, %1276, %1272, %1268, %.lr.ph1848, %.lr.ph1850, %796, %824, %933, %929, %925, %.lr.ph1862, %.lr.ph1864, %457, %485, %594, %590, %586, %.lr.ph1876, %.lr.ph1878, %120, %148, %257, %253, %249, %.lr.ph1890, %.lr.ph1892, %1256, %1156, %1131, %913, %813, %788, %574, %474, %449, %237, %137, %112, %1250, %1125, %907, %782, %568, %443, %231, %106, %1425, %1422, %1416, %1410, %1407, %1395, %1389, %1387, %1367, %1364, %1350, %1340, %1337, %1334, %1324, %1318, %1312, %1309, %1288, %1222, %1179, %1088, %1082, %1079, %1073, %1067, %1064, %1052, %1046, %1044, %1024, %1021, %1007, %997, %994, %991, %981, %975, %969, %966, %945, %879, %836, %742, %736, %733, %727, %721, %718, %706, %700, %698, %685, %682, %668, %658, %655, %652, %642, %636, %630, %627, %606, %540, %497, %403, %397, %394, %388, %382, %379, %367, %361, %348, %345, %331, %321, %318, %315, %305, %299, %293, %290, %269, %203, %160, %1428, %1419, %1413, %1404, %1401, %1398, %1392, %1370, %.loopexit1832, %1346, %1343, %1331, %1327, %1321, %1315, %1305, %.loopexit1835, %1284, %._crit_edge, %1243, %1240, %1237, %1234, %1231, %1228, %1225, %1219, %1215, %1212, %1209, %1206, %1203, %1200, %1197, %1194, %1191, %1188, %1185, %1182, %1176, %1173, %.loopexit1838, %.loopexit1840, %1119, %1116, %1114, %1110, %1107, %1102, %1099, %1096, %1091, %1085, %1076, %1070, %1061, %1058, %1055, %1049, %1027, %.loopexit1821, %1003, %1000, %988, %984, %978, %972, %962, %.loopexit1824, %941, %._crit_edge1860, %900, %897, %894, %891, %888, %885, %882, %876, %872, %869, %866, %863, %860, %857, %854, %851, %848, %845, %842, %839, %833, %830, %.loopexit1827, %.loopexit1829, %776, %773, %771, %767, %764, %759, %756, %753, %748, %745, %739, %730, %724, %715, %712, %709, %703, %688, %.loopexit1810, %664, %661, %649, %645, %639, %633, %623, %.loopexit1813, %602, %._crit_edge1874, %561, %558, %555, %552, %549, %546, %543, %537, %533, %530, %527, %524, %521, %518, %515, %512, %509, %506, %503, %500, %494, %491, %.loopexit1816, %.loopexit1818, %437, %434, %432, %428, %425, %420, %417, %414, %409, %406, %400, %391, %385, %376, %373, %370, %364, %351, %.loopexit, %327, %324, %312, %308, %302, %296, %286, %.loopexit1802, %265, %._crit_edge1888, %224, %221, %218, %215, %212, %209, %206, %200, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %157, %154, %.loopexit1805, %.loopexit1807, %100, %97, %95, %91, %88, %1385, %1376, %1042, %1033, %696, %359
+.thread1696:                                      ; preds = %1139, %1167, %1276, %1272, %1268, %.lr.ph1809, %.lr.ph1811, %796, %824, %933, %929, %925, %.lr.ph1823, %.lr.ph1825, %457, %485, %594, %590, %586, %.lr.ph1837, %.lr.ph1839, %120, %148, %257, %253, %249, %.lr.ph1851, %.lr.ph1853, %1256, %1156, %1131, %913, %813, %788, %574, %474, %449, %237, %137, %112, %1250, %1125, %907, %782, %568, %443, %231, %106, %1425, %1422, %1416, %1410, %1407, %1395, %1389, %1387, %1367, %1364, %1350, %1340, %1337, %1334, %1324, %1318, %1312, %1309, %1288, %1222, %1179, %1088, %1082, %1079, %1073, %1067, %1064, %1052, %1046, %1044, %1024, %1021, %1007, %997, %994, %991, %981, %975, %969, %966, %945, %879, %836, %742, %736, %733, %727, %721, %718, %706, %700, %698, %685, %682, %668, %658, %655, %652, %642, %636, %630, %627, %606, %540, %497, %403, %397, %394, %388, %382, %379, %367, %361, %348, %345, %331, %321, %318, %315, %305, %299, %293, %290, %269, %203, %160, %1428, %1419, %1413, %1404, %1401, %1398, %1392, %1370, %.loopexit1793, %1346, %1343, %1331, %1327, %1321, %1315, %1305, %.loopexit1796, %1284, %._crit_edge, %1243, %1240, %1237, %1234, %1231, %1228, %1225, %1219, %1215, %1212, %1209, %1206, %1203, %1200, %1197, %1194, %1191, %1188, %1185, %1182, %1176, %1173, %.loopexit1799, %.loopexit1801, %1119, %1116, %1114, %1110, %1107, %1102, %1099, %1096, %1091, %1085, %1076, %1070, %1061, %1058, %1055, %1049, %1027, %.loopexit1782, %1003, %1000, %988, %984, %978, %972, %962, %.loopexit1785, %941, %._crit_edge1821, %900, %897, %894, %891, %888, %885, %882, %876, %872, %869, %866, %863, %860, %857, %854, %851, %848, %845, %842, %839, %833, %830, %.loopexit1788, %.loopexit1790, %776, %773, %771, %767, %764, %759, %756, %753, %748, %745, %739, %730, %724, %715, %712, %709, %703, %688, %.loopexit1771, %664, %661, %649, %645, %639, %633, %623, %.loopexit1774, %602, %._crit_edge1835, %561, %558, %555, %552, %549, %546, %543, %537, %533, %530, %527, %524, %521, %518, %515, %512, %509, %506, %503, %500, %494, %491, %.loopexit1777, %.loopexit1779, %437, %434, %432, %428, %425, %420, %417, %414, %409, %406, %400, %391, %385, %376, %373, %370, %364, %351, %.loopexit, %327, %324, %312, %308, %302, %296, %286, %.loopexit1763, %265, %._crit_edge1849, %224, %221, %218, %215, %212, %209, %206, %200, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %157, %154, %.loopexit1766, %.loopexit1768, %100, %97, %95, %91, %88, %1385, %1376, %1042, %1033, %696, %359
   call void @slurm_free_launch_tasks_request_msg(ptr noundef nonnull %86) #7
   store ptr null, ptr %0, align 8
   br label %1431
 
-1431:                                             ; preds = %420, %411, %1102, %1093, %1428, %1105, %750, %759, %.thread1716
-  %.0 = phi i32 [ -1, %.thread1716 ], [ 0, %759 ], [ 0, %750 ], [ 0, %1105 ], [ 0, %1428 ], [ 0, %1093 ], [ 0, %1102 ], [ 0, %411 ], [ 0, %420 ]
+1431:                                             ; preds = %420, %411, %1102, %1093, %1428, %1105, %750, %759, %.thread1696
+  %.0 = phi i32 [ -1, %.thread1696 ], [ 0, %759 ], [ 0, %750 ], [ 0, %1105 ], [ 0, %1428 ], [ 0, %1093 ], [ 0, %1102 ], [ 0, %411 ], [ 0, %420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -38384,9 +38384,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg
 
 23:                                               ; preds = %20
   %.not41 = icmp eq i32 %21, 0
-  br i1 %.not41, label %.thread52, label %25
+  br i1 %.not41, label %.thread51, label %25
 
-.thread52:                                        ; preds = %23
+.thread51:                                        ; preds = %23
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %24, align 8
   br label %.loopexit
@@ -38430,8 +38430,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %.thread52, %29, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %29 ], [ 0, %.thread52 ], [ 0, %32 ]
+.loopexit:                                        ; preds = %32, %.thread51, %29, %.thread
+  %.0 = phi i32 [ -1, %.thread ], [ 0, %29 ], [ 0, %.thread51 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -39585,21 +39585,21 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i32, ptr %27, align 8
-  %.not83 = icmp eq i32 %28, 0
-  br i1 %.not83, label %._crit_edge, label %.lr.ph81
+  %.not80 = icmp eq i32 %28, 0
+  br i1 %.not80, label %._crit_edge, label %.lr.ph78
 
-29:                                               ; preds = %.lr.ph81
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+29:                                               ; preds = %.lr.ph78
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp samesign ult i64 %indvars.iv.next88, %33
-  br i1 %34, label %.lr.ph81, label %._crit_edge, !llvm.loop !98
+  %34 = icmp samesign ult i64 %indvars.iv.next85, %33
+  br i1 %34, label %.lr.ph78, label %._crit_edge, !llvm.loop !98
 
-.lr.ph81:                                         ; preds = %23, %29
-  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %29 ], [ 0, %23 ]
-  %35 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %26, i64 %indvars.iv87
+.lr.ph78:                                         ; preds = %23, %29
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %29 ], [ 0, %23 ]
+  %35 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %26, i64 %indvars.iv84
   %36 = tail call fastcc i32 @_unpack_job_step_info_members(ptr noundef %35, ptr noundef %1, i16 noundef zeroext %2)
   %.not66 = icmp eq i32 %36, 0
   br i1 %.not66, label %29, label %.loopexit
@@ -39609,11 +39609,11 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(
   %37 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %38 = tail call i32 @slurm_unpack_list(ptr noundef nonnull %37, ptr noundef nonnull @slurm_unpack_stepmgr_job_info, ptr noundef nonnull @xfree_ptr, ptr noundef %1, i16 noundef zeroext %2)
   %.not65 = icmp eq i32 %38, 0
-  br i1 %.not65, label %.loopexit76, label %.loopexit
+  br i1 %.not65, label %.loopexit73, label %.loopexit
 
 39:                                               ; preds = %3
   %40 = icmp samesign ugt i16 %2, 10239
-  br i1 %40, label %41, label %.loopexit76
+  br i1 %40, label %41, label %.loopexit73
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -39654,8 +39654,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load i32, ptr %62, align 8
-  %.not82 = icmp eq i32 %63, 0
-  br i1 %.not82, label %.loopexit76, label %.lr.ph
+  %.not79 = icmp eq i32 %63, 0
+  br i1 %.not79, label %.loopexit73, label %.lr.ph
 
 64:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -39664,7 +39664,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %.loopexit76, !llvm.loop !99
+  br i1 %69, label %.lr.ph, label %.loopexit73, !llvm.loop !99
 
 .lr.ph:                                           ; preds = %58, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %58 ]
@@ -39673,13 +39673,13 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(
   %.not60 = icmp eq i32 %71, 0
   br i1 %.not60, label %64, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph81, %53, %18, %44, %41, %._crit_edge, %9, %6
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph78, %53, %18, %44, %41, %._crit_edge, %9, %6
   %72 = load ptr, ptr %0, align 8
   tail call void @slurm_free_job_step_info_response_msg(ptr noundef %72) #7
   store ptr null, ptr %0, align 8
-  br label %.loopexit76
+  br label %.loopexit73
 
-.loopexit76:                                      ; preds = %64, %58, %._crit_edge, %39, %.loopexit
+.loopexit73:                                      ; preds = %64, %58, %._crit_edge, %39, %.loopexit
   %.0 = phi i32 [ -1, %.loopexit ], [ 0, %39 ], [ 0, %._crit_edge ], [ 0, %58 ], [ 0, %64 ]
   ret i32 %.0
 }
@@ -42643,15 +42643,15 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_shares_request_msg(ptr noun
   %15 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #7
   store ptr %15, ptr %9, align 8
   %16 = load i32, ptr %7, align 4
-  %.not25.i = icmp eq i32 %16, 0
-  br i1 %.not25.i, label %.thread.i, label %.lr.ph.i
+  %.not24.i = icmp eq i32 %16, 0
+  br i1 %.not24.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %22, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %31
 
 .lr.ph.i:                                         ; preds = %14, %22
-  %.024.i = phi i32 [ %23, %22 ], [ 0, %14 ]
+  %.023.i = phi i32 [ %23, %22 ], [ 0, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not.i20.not = icmp eq i32 %17, 0
@@ -42669,7 +42669,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_shares_request_msg(ptr noun
   br label %22
 
 22:                                               ; preds = %20, %18
-  %23 = add nuw nsw i32 %.024.i, 1
+  %23 = add nuw nsw i32 %.023.i, 1
   %24 = load i32, ptr %7, align 4
   %25 = icmp ult i32 %23, %24
   br i1 %25, label %.lr.ph.i, label %.thread.i, !llvm.loop !12
@@ -42716,15 +42716,15 @@ slurm_unpack_list.exit.thread:                    ; preds = %30, %12
   %37 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #7
   store ptr %37, ptr %32, align 8
   %38 = load i32, ptr %5, align 4
-  %.not25.i14 = icmp eq i32 %38, 0
-  br i1 %.not25.i14, label %.thread.i18, label %.lr.ph.i15
+  %.not24.i14 = icmp eq i32 %38, 0
+  br i1 %.not24.i14, label %.thread.i18, label %.lr.ph.i15
 
 .thread.i18:                                      ; preds = %44, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %slurm_unpack_list.exit19
 
 .lr.ph.i15:                                       ; preds = %36, %44
-  %.024.i16 = phi i32 [ %45, %44 ], [ 0, %36 ]
+  %.023.i16 = phi i32 [ %45, %44 ], [ 0, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef %1) #7
   %.not.i21.not = icmp eq i32 %39, 0
@@ -42742,7 +42742,7 @@ slurm_unpack_list.exit.thread:                    ; preds = %30, %12
   br label %44
 
 44:                                               ; preds = %42, %40
-  %45 = add nuw nsw i32 %.024.i16, 1
+  %45 = add nuw nsw i32 %.023.i16, 1
   %46 = load i32, ptr %5, align 4
   %47 = icmp ult i32 %45, %46
   br i1 %47, label %.lr.ph.i15, label %.thread.i18, !llvm.loop !12
@@ -43136,12 +43136,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = tail call i32 @unpack32(ptr noundef nonnull %41, ptr noundef %1) #7
   %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %43, label %.thread527
+  br i1 %.not, label %43, label %.thread520
 
 43:                                               ; preds = %3
   %44 = load i32, ptr %41, align 8
   %45 = icmp ugt i32 %44, -3
-  br i1 %45, label %.thread527, label %46
+  br i1 %45, label %.thread520, label %46
 
 46:                                               ; preds = %43
   %.not370 = icmp eq i32 %44, 0
@@ -43156,7 +43156,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %50 = tail call ptr @slurm_xcalloc(i64 noundef %49, i64 noundef 200, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 9290, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #7
   store ptr %50, ptr %40, align 8
   %.not371 = icmp eq ptr %50, null
-  br i1 %.not371, label %.thread527, label %51
+  br i1 %.not371, label %.thread520, label %51
 
 51:                                               ; preds = %47, %48
   %52 = phi ptr [ null, %47 ], [ %50, %48 ]
@@ -43165,434 +43165,434 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 54:                                               ; preds = %51
   %55 = load i32, ptr %41, align 8
-  %.not590 = icmp eq i32 %55, 0
-  br i1 %.not590, label %.loopexit, label %.lr.ph585
+  %.not577 = icmp eq i32 %55, 0
+  br i1 %.not577, label %.loopexit, label %.lr.ph572
 
-.lr.ph585:                                        ; preds = %54, %._crit_edge581
-  %.0340583 = phi i32 [ %237, %._crit_edge581 ], [ 0, %54 ]
-  %.0343582 = phi ptr [ %238, %._crit_edge581 ], [ %52, %54 ]
+.lr.ph572:                                        ; preds = %54, %._crit_edge568
+  %.0340570 = phi i32 [ %237, %._crit_edge568 ], [ 0, %54 ]
+  %.0343569 = phi ptr [ %238, %._crit_edge568 ], [ %52, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %56 = getelementptr inbounds nuw i8, ptr %.0343582, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %.0343569, i64 88
   %57 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not421 = icmp eq i32 %57, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not421, label %58, label %.thread527
+  br i1 %.not421, label %58, label %.thread520
 
-58:                                               ; preds = %.lr.ph585
+58:                                               ; preds = %.lr.ph572
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %59 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.0343582, ptr noundef nonnull %5, ptr noundef %1) #7
+  %59 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.0343569, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not422 = icmp eq i32 %59, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not422, label %60, label %.thread527
+  br i1 %.not422, label %60, label %.thread520
 
 60:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %61 = getelementptr inbounds nuw i8, ptr %.0343582, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.0343569, i64 16
   %62 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %61, ptr noundef nonnull %6, ptr noundef %1) #7
   %.not423 = icmp eq i32 %62, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not423, label %63, label %.thread527
+  br i1 %.not423, label %63, label %.thread520
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %64 = getelementptr inbounds nuw i8, ptr %.0343582, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0343569, i64 8
   %65 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %64, ptr noundef nonnull %7, ptr noundef %1) #7
   %.not424 = icmp eq i32 %65, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not424, label %66, label %.thread527
+  br i1 %.not424, label %66, label %.thread520
 
 66:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %67 = getelementptr inbounds nuw i8, ptr %.0343582, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.0343569, i64 24
   %68 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %67, ptr noundef nonnull %8, ptr noundef %1) #7
   %.not425 = icmp eq i32 %68, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not425, label %69, label %.thread527
+  br i1 %.not425, label %69, label %.thread520
 
 69:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %70 = getelementptr inbounds nuw i8, ptr %.0343582, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.0343569, i64 32
   %71 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %70, ptr noundef nonnull %9, ptr noundef %1) #7
   %.not426 = icmp eq i32 %71, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not426, label %72, label %.thread527
+  br i1 %.not426, label %72, label %.thread520
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %.0343582, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %.0343569, i64 40
   %74 = call i32 @unpack32(ptr noundef nonnull %73, ptr noundef %1) #7
   %.not427 = icmp eq i32 %74, 0
-  br i1 %.not427, label %75, label %.thread527
+  br i1 %.not427, label %75, label %.thread520
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %76 = getelementptr inbounds nuw i8, ptr %.0343582, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %.0343569, i64 48
   %77 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %76, ptr noundef nonnull %10, ptr noundef %1) #7
   %.not428 = icmp eq i32 %77, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not428, label %78, label %.thread527
+  br i1 %.not428, label %78, label %.thread520
 
 78:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %79 = getelementptr inbounds nuw i8, ptr %.0343582, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %.0343569, i64 56
   %80 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %79, ptr noundef nonnull %11, ptr noundef %1) #7
   %.not429 = icmp eq i32 %80, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.not429, label %81, label %.thread527
+  br i1 %.not429, label %81, label %.thread520
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %.0343582, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %.0343569, i64 64
   %83 = call i32 @unpack64(ptr noundef nonnull %82, ptr noundef %1) #7
   %.not430 = icmp eq i32 %83, 0
-  br i1 %.not430, label %84, label %.thread527
+  br i1 %.not430, label %84, label %.thread520
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %.0343582, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %.0343569, i64 72
   %86 = call i32 @unpack32(ptr noundef nonnull %85, ptr noundef %1) #7
   %.not431 = icmp eq i32 %86, 0
-  br i1 %.not431, label %87, label %.thread527
+  br i1 %.not431, label %87, label %.thread520
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %85, align 8
   %89 = icmp ugt i32 %88, -3
-  br i1 %89, label %.thread527, label %90
+  br i1 %89, label %.thread520, label %90
 
 90:                                               ; preds = %87
   %.not432 = icmp eq i32 %88, 0
   br i1 %.not432, label %.thread, label %92
 
 .thread:                                          ; preds = %90
-  %91 = getelementptr inbounds nuw i8, ptr %.0343582, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %.0343569, i64 80
   store ptr null, ptr %91, align 8
-  br label %._crit_edge571
+  br label %._crit_edge558
 
 92:                                               ; preds = %90
   %93 = zext i32 %88 to i64
   %94 = call ptr @slurm_xcalloc(i64 noundef %93, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 9309, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #7
-  %95 = getelementptr inbounds nuw i8, ptr %.0343582, i64 80
+  %95 = getelementptr inbounds nuw i8, ptr %.0343569, i64 80
   store ptr %94, ptr %95, align 8
   %.not433 = icmp eq ptr %94, null
-  br i1 %.not433, label %.thread527, label %96
+  br i1 %.not433, label %.thread520, label %96
 
 96:                                               ; preds = %92
-  %.pre612 = load i32, ptr %85, align 8
-  %97 = icmp eq i32 %.pre612, 0
-  br i1 %97, label %._crit_edge571, label %.lr.ph570
+  %.pre599 = load i32, ptr %85, align 8
+  %97 = icmp eq i32 %.pre599, 0
+  br i1 %97, label %._crit_edge558, label %.lr.ph557
 
-.lr.ph570:                                        ; preds = %96
-  %98 = getelementptr inbounds nuw i8, ptr %.0343582, i64 80
+.lr.ph557:                                        ; preds = %96
+  %98 = getelementptr inbounds nuw i8, ptr %.0343569, i64 80
   br label %103
 
 99:                                               ; preds = %122
-  %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
+  %indvars.iv.next591 = add nuw nsw i64 %indvars.iv590, 1
   %100 = load i32, ptr %85, align 8
   %101 = zext i32 %100 to i64
-  %102 = icmp samesign ult i64 %indvars.iv.next604, %101
-  br i1 %102, label %103, label %._crit_edge571, !llvm.loop !103
+  %102 = icmp samesign ult i64 %indvars.iv.next591, %101
+  br i1 %102, label %103, label %._crit_edge558, !llvm.loop !103
 
-103:                                              ; preds = %.lr.ph570, %99
-  %indvars.iv603 = phi i64 [ 0, %.lr.ph570 ], [ %indvars.iv.next604, %99 ]
+103:                                              ; preds = %.lr.ph557, %99
+  %indvars.iv590 = phi i64 [ 0, %.lr.ph557 ], [ %indvars.iv.next591, %99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %104 = load ptr, ptr %98, align 8
-  %105 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %104, i64 %indvars.iv603
+  %105 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %104, i64 %indvars.iv590
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %106, ptr noundef nonnull %12, ptr noundef %1) #7
   %.not466 = icmp eq i32 %107, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.not466, label %108, label %.thread527
+  br i1 %.not466, label %108, label %.thread520
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %98, align 8
-  %110 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %109, i64 %indvars.iv603
+  %110 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %109, i64 %indvars.iv590
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = call i32 @unpack64(ptr noundef nonnull %111, ptr noundef %1) #7
   %.not467 = icmp eq i32 %112, 0
-  br i1 %.not467, label %113, label %.thread527
+  br i1 %.not467, label %113, label %.thread520
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr %98, align 8
-  %115 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %114, i64 %indvars.iv603
+  %115 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %114, i64 %indvars.iv590
   %116 = call i32 @unpack64(ptr noundef %115, ptr noundef %1) #7
   %.not468 = icmp eq i32 %116, 0
-  br i1 %.not468, label %117, label %.thread527
+  br i1 %.not468, label %117, label %.thread520
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr %98, align 8
-  %119 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %118, i64 %indvars.iv603
+  %119 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %118, i64 %indvars.iv590
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = call i32 @unpack64(ptr noundef nonnull %120, ptr noundef %1) #7
   %.not469 = icmp eq i32 %121, 0
-  br i1 %.not469, label %122, label %.thread527
+  br i1 %.not469, label %122, label %.thread520
 
 122:                                              ; preds = %117
   %123 = load ptr, ptr %98, align 8
-  %124 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %123, i64 %indvars.iv603
+  %124 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %123, i64 %indvars.iv590
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = call i32 @unpack64(ptr noundef nonnull %125, ptr noundef %1) #7
   %.not470 = icmp eq i32 %126, 0
-  br i1 %.not470, label %99, label %.thread527
+  br i1 %.not470, label %99, label %.thread520
 
-._crit_edge571:                                   ; preds = %99, %.thread, %96
-  %127 = getelementptr inbounds nuw i8, ptr %.0343582, i64 96
+._crit_edge558:                                   ; preds = %99, %.thread, %96
+  %127 = getelementptr inbounds nuw i8, ptr %.0343569, i64 96
   %128 = call i32 @unpack32(ptr noundef nonnull %127, ptr noundef %1) #7
   %.not434 = icmp eq i32 %128, 0
-  br i1 %.not434, label %129, label %.thread527
+  br i1 %.not434, label %129, label %.thread520
 
-129:                                              ; preds = %._crit_edge571
-  %130 = getelementptr inbounds nuw i8, ptr %.0343582, i64 100
+129:                                              ; preds = %._crit_edge558
+  %130 = getelementptr inbounds nuw i8, ptr %.0343569, i64 100
   %131 = call i32 @unpack32(ptr noundef nonnull %130, ptr noundef %1) #7
   %.not435 = icmp eq i32 %131, 0
-  br i1 %.not435, label %132, label %.thread527
+  br i1 %.not435, label %132, label %.thread520
 
 132:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %133 = getelementptr inbounds nuw i8, ptr %.0343582, i64 112
+  %133 = getelementptr inbounds nuw i8, ptr %.0343569, i64 112
   %134 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %133, ptr noundef nonnull %13, ptr noundef %1) #7
   %.not436 = icmp eq i32 %134, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.not436, label %135, label %.thread527
+  br i1 %.not436, label %135, label %.thread520
 
 135:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %136 = getelementptr inbounds nuw i8, ptr %.0343582, i64 120
+  %136 = getelementptr inbounds nuw i8, ptr %.0343569, i64 120
   %137 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %136, ptr noundef nonnull %14, ptr noundef %1) #7
   %.not437 = icmp eq i32 %137, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %.not437, label %138, label %.thread527
+  br i1 %.not437, label %138, label %.thread520
 
 138:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %139 = getelementptr inbounds nuw i8, ptr %.0343582, i64 128
+  %139 = getelementptr inbounds nuw i8, ptr %.0343569, i64 128
   %140 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %139, ptr noundef nonnull %15, ptr noundef %1) #7
   %.not438 = icmp eq i32 %140, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br i1 %.not438, label %141, label %.thread527
+  br i1 %.not438, label %141, label %.thread520
 
 141:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %142 = getelementptr inbounds nuw i8, ptr %.0343582, i64 136
+  %142 = getelementptr inbounds nuw i8, ptr %.0343569, i64 136
   %143 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %142, ptr noundef nonnull %16, ptr noundef %1) #7
   %.not439 = icmp eq i32 %143, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.not439, label %144, label %.thread527
+  br i1 %.not439, label %144, label %.thread520
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %.0343582, i64 104
+  %145 = getelementptr inbounds nuw i8, ptr %.0343569, i64 104
   %146 = call i32 @unpack32(ptr noundef nonnull %145, ptr noundef %1) #7
   %.not440 = icmp eq i32 %146, 0
-  br i1 %.not440, label %147, label %.thread527
+  br i1 %.not440, label %147, label %.thread520
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw i8, ptr %.0343582, i64 108
+  %148 = getelementptr inbounds nuw i8, ptr %.0343569, i64 108
   %149 = call i32 @unpack32(ptr noundef nonnull %148, ptr noundef %1) #7
   %.not441 = icmp eq i32 %149, 0
-  br i1 %.not441, label %150, label %.thread527
+  br i1 %.not441, label %150, label %.thread520
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw i8, ptr %.0343582, i64 144
+  %151 = getelementptr inbounds nuw i8, ptr %.0343569, i64 144
   %152 = call i32 @unpack64(ptr noundef nonnull %151, ptr noundef %1) #7
   %.not442 = icmp eq i32 %152, 0
-  br i1 %.not442, label %153, label %.thread527
+  br i1 %.not442, label %153, label %.thread520
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds nuw i8, ptr %.0343582, i64 152
+  %154 = getelementptr inbounds nuw i8, ptr %.0343569, i64 152
   %155 = call i32 @unpack64(ptr noundef nonnull %154, ptr noundef %1) #7
   %.not443 = icmp eq i32 %155, 0
-  br i1 %.not443, label %156, label %.thread527
+  br i1 %.not443, label %156, label %.thread520
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds nuw i8, ptr %.0343582, i64 160
+  %157 = getelementptr inbounds nuw i8, ptr %.0343569, i64 160
   %158 = call i32 @unpack64(ptr noundef nonnull %157, ptr noundef %1) #7
   %.not444 = icmp eq i32 %158, 0
-  br i1 %.not444, label %159, label %.thread527
+  br i1 %.not444, label %159, label %.thread520
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds nuw i8, ptr %.0343582, i64 168
+  %160 = getelementptr inbounds nuw i8, ptr %.0343569, i64 168
   %161 = call i32 @unpack32(ptr noundef nonnull %160, ptr noundef %1) #7
   %.not445 = icmp eq i32 %161, 0
-  br i1 %.not445, label %162, label %.thread527
+  br i1 %.not445, label %162, label %.thread520
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds nuw i8, ptr %.0343582, i64 172
+  %163 = getelementptr inbounds nuw i8, ptr %.0343569, i64 172
   %164 = call i32 @unpack32(ptr noundef nonnull %163, ptr noundef %1) #7
   %.not446 = icmp eq i32 %164, 0
-  br i1 %.not446, label %165, label %.thread527
+  br i1 %.not446, label %165, label %.thread520
 
 165:                                              ; preds = %162
   %166 = load i32, ptr %163, align 4
   %167 = icmp ugt i32 %166, -3
-  br i1 %167, label %.thread527, label %168
+  br i1 %167, label %.thread520, label %168
 
 168:                                              ; preds = %165
   %.not447 = icmp eq i32 %166, 0
-  br i1 %.not447, label %.thread637, label %170
+  br i1 %.not447, label %.thread624, label %170
 
-.thread637:                                       ; preds = %168
-  %169 = getelementptr inbounds nuw i8, ptr %.0343582, i64 176
+.thread624:                                       ; preds = %168
+  %169 = getelementptr inbounds nuw i8, ptr %.0343569, i64 176
   store ptr null, ptr %169, align 8
-  br label %._crit_edge576
+  br label %._crit_edge563
 
 170:                                              ; preds = %168
   %171 = zext i32 %166 to i64
   %172 = call ptr @slurm_xcalloc(i64 noundef %171, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 9345, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #7
-  %173 = getelementptr inbounds nuw i8, ptr %.0343582, i64 176
+  %173 = getelementptr inbounds nuw i8, ptr %.0343569, i64 176
   store ptr %172, ptr %173, align 8
   %.not448 = icmp eq ptr %172, null
-  br i1 %.not448, label %.thread527, label %174
+  br i1 %.not448, label %.thread520, label %174
 
 174:                                              ; preds = %170
-  %.pre614 = load i32, ptr %163, align 4
-  %175 = icmp eq i32 %.pre614, 0
-  br i1 %175, label %._crit_edge576, label %.lr.ph575
+  %.pre601 = load i32, ptr %163, align 4
+  %175 = icmp eq i32 %.pre601, 0
+  br i1 %175, label %._crit_edge563, label %.lr.ph562
 
-.lr.ph575:                                        ; preds = %174, %210
-  %.1342573 = phi i32 [ %211, %210 ], [ 0, %174 ]
-  %.0345572 = phi ptr [ %212, %210 ], [ %172, %174 ]
+.lr.ph562:                                        ; preds = %174, %210
+  %.1342560 = phi i32 [ %211, %210 ], [ 0, %174 ]
+  %.0345559 = phi ptr [ %212, %210 ], [ %172, %174 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %176 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.0345572, ptr noundef nonnull %17, ptr noundef %1) #7
+  %176 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.0345559, ptr noundef nonnull %17, ptr noundef %1) #7
   %.not454 = icmp eq i32 %176, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br i1 %.not454, label %177, label %.thread527
+  br i1 %.not454, label %177, label %.thread520
 
-177:                                              ; preds = %.lr.ph575
-  %178 = getelementptr inbounds nuw i8, ptr %.0345572, i64 8
+177:                                              ; preds = %.lr.ph562
+  %178 = getelementptr inbounds nuw i8, ptr %.0345559, i64 8
   %179 = call i32 @unpack32(ptr noundef nonnull %178, ptr noundef %1) #7
   %.not455 = icmp eq i32 %179, 0
-  br i1 %.not455, label %180, label %.thread527
+  br i1 %.not455, label %180, label %.thread520
 
 180:                                              ; preds = %177
-  %181 = getelementptr inbounds nuw i8, ptr %.0345572, i64 12
+  %181 = getelementptr inbounds nuw i8, ptr %.0345559, i64 12
   %182 = call i32 @unpack32(ptr noundef nonnull %181, ptr noundef %1) #7
   %.not456 = icmp eq i32 %182, 0
-  br i1 %.not456, label %183, label %.thread527
+  br i1 %.not456, label %183, label %.thread520
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds nuw i8, ptr %.0345572, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %.0345559, i64 16
   %185 = call i32 @unpack_time(ptr noundef nonnull %184, ptr noundef %1) #7
   %.not457 = icmp eq i32 %185, 0
-  br i1 %.not457, label %186, label %.thread527
+  br i1 %.not457, label %186, label %.thread520
 
 186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %.0345572, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %.0345559, i64 24
   %188 = call i32 @unpack32(ptr noundef nonnull %187, ptr noundef %1) #7
   %.not458 = icmp eq i32 %188, 0
-  br i1 %.not458, label %189, label %.thread527
+  br i1 %.not458, label %189, label %.thread520
 
 189:                                              ; preds = %186
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %190 = getelementptr inbounds nuw i8, ptr %.0345572, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %.0345559, i64 32
   %191 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %190, ptr noundef nonnull %18, ptr noundef %1) #7
   %.not459 = icmp eq i32 %191, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %.not459, label %192, label %.thread527
+  br i1 %.not459, label %192, label %.thread520
 
 192:                                              ; preds = %189
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %193 = getelementptr inbounds nuw i8, ptr %.0345572, i64 40
+  %193 = getelementptr inbounds nuw i8, ptr %.0345559, i64 40
   %194 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %193, ptr noundef nonnull %19, ptr noundef %1) #7
   %.not460 = icmp eq i32 %194, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %.not460, label %195, label %.thread527
+  br i1 %.not460, label %195, label %.thread520
 
 195:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %196 = getelementptr inbounds nuw i8, ptr %.0345572, i64 48
+  %196 = getelementptr inbounds nuw i8, ptr %.0345559, i64 48
   %197 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %196, ptr noundef nonnull %20, ptr noundef %1) #7
   %.not461 = icmp eq i32 %197, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %.not461, label %198, label %.thread527
+  br i1 %.not461, label %198, label %.thread520
 
 198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %199 = getelementptr inbounds nuw i8, ptr %.0345572, i64 56
+  %199 = getelementptr inbounds nuw i8, ptr %.0345559, i64 56
   %200 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %199, ptr noundef nonnull %21, ptr noundef %1) #7
   %.not462 = icmp eq i32 %200, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %.not462, label %201, label %.thread527
+  br i1 %.not462, label %201, label %.thread520
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds nuw i8, ptr %.0345572, i64 64
+  %202 = getelementptr inbounds nuw i8, ptr %.0345559, i64 64
   %203 = call i32 @unpack64(ptr noundef nonnull %202, ptr noundef %1) #7
   %.not463 = icmp eq i32 %203, 0
-  br i1 %.not463, label %204, label %.thread527
+  br i1 %.not463, label %204, label %.thread520
 
 204:                                              ; preds = %201
-  %205 = getelementptr inbounds nuw i8, ptr %.0345572, i64 72
+  %205 = getelementptr inbounds nuw i8, ptr %.0345559, i64 72
   %206 = call i32 @unpack16(ptr noundef nonnull %205, ptr noundef %1) #7
   %.not464 = icmp eq i32 %206, 0
-  br i1 %.not464, label %207, label %.thread527
+  br i1 %.not464, label %207, label %.thread520
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw i8, ptr %.0345572, i64 76
+  %208 = getelementptr inbounds nuw i8, ptr %.0345559, i64 76
   %209 = call i32 @unpack32(ptr noundef nonnull %208, ptr noundef %1) #7
   %.not465 = icmp eq i32 %209, 0
-  br i1 %.not465, label %210, label %.thread527
+  br i1 %.not465, label %210, label %.thread520
 
 210:                                              ; preds = %207
-  %211 = add nuw nsw i32 %.1342573, 1
-  %212 = getelementptr inbounds nuw i8, ptr %.0345572, i64 80
+  %211 = add nuw nsw i32 %.1342560, 1
+  %212 = getelementptr inbounds nuw i8, ptr %.0345559, i64 80
   %213 = load i32, ptr %163, align 4
   %214 = icmp ult i32 %211, %213
-  br i1 %214, label %.lr.ph575, label %._crit_edge576, !llvm.loop !104
+  br i1 %214, label %.lr.ph562, label %._crit_edge563, !llvm.loop !104
 
-._crit_edge576:                                   ; preds = %210, %.thread637, %174
-  %215 = getelementptr inbounds nuw i8, ptr %.0343582, i64 184
+._crit_edge563:                                   ; preds = %210, %.thread624, %174
+  %215 = getelementptr inbounds nuw i8, ptr %.0343569, i64 184
   %216 = call i32 @unpack32(ptr noundef nonnull %215, ptr noundef %1) #7
   %.not449 = icmp eq i32 %216, 0
-  br i1 %.not449, label %217, label %.thread527
+  br i1 %.not449, label %217, label %.thread520
 
-217:                                              ; preds = %._crit_edge576
+217:                                              ; preds = %._crit_edge563
   %218 = load i32, ptr %215, align 8
   %219 = icmp ugt i32 %218, -3
-  br i1 %219, label %.thread527, label %220
+  br i1 %219, label %.thread520, label %220
 
 220:                                              ; preds = %217
   %.not450 = icmp eq i32 %218, 0
-  br i1 %.not450, label %.thread639, label %222
+  br i1 %.not450, label %.thread626, label %222
 
-.thread639:                                       ; preds = %220
-  %221 = getelementptr inbounds nuw i8, ptr %.0343582, i64 192
+.thread626:                                       ; preds = %220
+  %221 = getelementptr inbounds nuw i8, ptr %.0343569, i64 192
   store ptr null, ptr %221, align 8
-  br label %._crit_edge581
+  br label %._crit_edge568
 
 222:                                              ; preds = %220
   %223 = zext i32 %218 to i64
   %224 = call ptr @slurm_xcalloc(i64 noundef %223, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 9371, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #7
-  %225 = getelementptr inbounds nuw i8, ptr %.0343582, i64 192
+  %225 = getelementptr inbounds nuw i8, ptr %.0343569, i64 192
   store ptr %224, ptr %225, align 8
   %.not451 = icmp eq ptr %224, null
-  br i1 %.not451, label %.thread527, label %226
+  br i1 %.not451, label %.thread520, label %226
 
 226:                                              ; preds = %222
-  %.pre616 = load i32, ptr %215, align 8
-  %227 = icmp eq i32 %.pre616, 0
-  br i1 %227, label %._crit_edge581, label %.lr.ph580
+  %.pre603 = load i32, ptr %215, align 8
+  %227 = icmp eq i32 %.pre603, 0
+  br i1 %227, label %._crit_edge568, label %.lr.ph567
 
-.lr.ph580:                                        ; preds = %226, %232
-  %.2578 = phi i32 [ %233, %232 ], [ 0, %226 ]
-  %.0347577 = phi ptr [ %234, %232 ], [ %224, %226 ]
-  %228 = getelementptr inbounds nuw i8, ptr %.0347577, i64 8
+.lr.ph567:                                        ; preds = %226, %232
+  %.2565 = phi i32 [ %233, %232 ], [ 0, %226 ]
+  %.0347564 = phi ptr [ %234, %232 ], [ %224, %226 ]
+  %228 = getelementptr inbounds nuw i8, ptr %.0347564, i64 8
   %229 = call i32 @unpack64(ptr noundef nonnull %228, ptr noundef %1) #7
   %.not452 = icmp eq i32 %229, 0
-  br i1 %.not452, label %230, label %.thread527
+  br i1 %.not452, label %230, label %.thread520
 
-230:                                              ; preds = %.lr.ph580
-  %231 = call i32 @unpack32(ptr noundef nonnull %.0347577, ptr noundef %1) #7
+230:                                              ; preds = %.lr.ph567
+  %231 = call i32 @unpack32(ptr noundef nonnull %.0347564, ptr noundef %1) #7
   %.not453 = icmp eq i32 %231, 0
-  br i1 %.not453, label %232, label %.thread527
+  br i1 %.not453, label %232, label %.thread520
 
 232:                                              ; preds = %230
-  %233 = add nuw nsw i32 %.2578, 1
-  %234 = getelementptr inbounds nuw i8, ptr %.0347577, i64 16
+  %233 = add nuw nsw i32 %.2565, 1
+  %234 = getelementptr inbounds nuw i8, ptr %.0347564, i64 16
   %235 = load i32, ptr %215, align 8
   %236 = icmp ult i32 %233, %235
-  br i1 %236, label %.lr.ph580, label %._crit_edge581, !llvm.loop !105
+  br i1 %236, label %.lr.ph567, label %._crit_edge568, !llvm.loop !105
 
-._crit_edge581:                                   ; preds = %232, %.thread639, %226
-  %237 = add nuw nsw i32 %.0340583, 1
-  %238 = getelementptr inbounds nuw i8, ptr %.0343582, i64 200
+._crit_edge568:                                   ; preds = %232, %.thread626, %226
+  %237 = add nuw nsw i32 %.0340570, 1
+  %238 = getelementptr inbounds nuw i8, ptr %.0343569, i64 200
   %239 = load i32, ptr %41, align 8
   %240 = icmp ult i32 %237, %239
-  br i1 %240, label %.lr.ph585, label %.loopexit, !llvm.loop !106
+  br i1 %240, label %.lr.ph572, label %.loopexit, !llvm.loop !106
 
 241:                                              ; preds = %51
   %242 = icmp samesign ugt i16 %2, 10239
@@ -43600,113 +43600,113 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 243:                                              ; preds = %241
   %244 = load i32, ptr %41, align 8
-  %.not586 = icmp eq i32 %244, 0
-  br i1 %.not586, label %.loopexit, label %.lr.ph567
+  %.not573 = icmp eq i32 %244, 0
+  br i1 %.not573, label %.loopexit, label %.lr.ph554
 
-.lr.ph567:                                        ; preds = %243, %._crit_edge563
-  %.1565 = phi i32 [ %423, %._crit_edge563 ], [ 0, %243 ]
-  %.1344564 = phi ptr [ %424, %._crit_edge563 ], [ %52, %243 ]
+.lr.ph554:                                        ; preds = %243, %._crit_edge550
+  %.1552 = phi i32 [ %423, %._crit_edge550 ], [ 0, %243 ]
+  %.1344551 = phi ptr [ %424, %._crit_edge550 ], [ %52, %243 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %245 = getelementptr inbounds nuw i8, ptr %.1344564, i64 88
+  %245 = getelementptr inbounds nuw i8, ptr %.1344551, i64 88
   %246 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %245, ptr noundef nonnull %22, ptr noundef %1) #7
   %.not372 = icmp eq i32 %246, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br i1 %.not372, label %247, label %.thread527
+  br i1 %.not372, label %247, label %.thread520
 
-247:                                              ; preds = %.lr.ph567
+247:                                              ; preds = %.lr.ph554
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %248 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.1344564, ptr noundef nonnull %23, ptr noundef %1) #7
+  %248 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.1344551, ptr noundef nonnull %23, ptr noundef %1) #7
   %.not373 = icmp eq i32 %248, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br i1 %.not373, label %249, label %.thread527
+  br i1 %.not373, label %249, label %.thread520
 
 249:                                              ; preds = %247
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %250 = getelementptr inbounds nuw i8, ptr %.1344564, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %.1344551, i64 16
   %251 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %250, ptr noundef nonnull %24, ptr noundef %1) #7
   %.not374 = icmp eq i32 %251, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br i1 %.not374, label %252, label %.thread527
+  br i1 %.not374, label %252, label %.thread520
 
 252:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %253 = getelementptr inbounds nuw i8, ptr %.1344564, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %.1344551, i64 8
   %254 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %253, ptr noundef nonnull %25, ptr noundef %1) #7
   %.not375 = icmp eq i32 %254, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br i1 %.not375, label %255, label %.thread527
+  br i1 %.not375, label %255, label %.thread520
 
 255:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %256 = getelementptr inbounds nuw i8, ptr %.1344564, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %.1344551, i64 24
   %257 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %256, ptr noundef nonnull %26, ptr noundef %1) #7
   %.not376 = icmp eq i32 %257, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %.not376, label %258, label %.thread527
+  br i1 %.not376, label %258, label %.thread520
 
 258:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %259 = getelementptr inbounds nuw i8, ptr %.1344564, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %.1344551, i64 32
   %260 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %259, ptr noundef nonnull %27, ptr noundef %1) #7
   %.not377 = icmp eq i32 %260, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br i1 %.not377, label %261, label %.thread527
+  br i1 %.not377, label %261, label %.thread520
 
 261:                                              ; preds = %258
-  %262 = getelementptr inbounds nuw i8, ptr %.1344564, i64 40
+  %262 = getelementptr inbounds nuw i8, ptr %.1344551, i64 40
   %263 = call i32 @unpack32(ptr noundef nonnull %262, ptr noundef %1) #7
   %.not378 = icmp eq i32 %263, 0
-  br i1 %.not378, label %264, label %.thread527
+  br i1 %.not378, label %264, label %.thread520
 
 264:                                              ; preds = %261
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %265 = getelementptr inbounds nuw i8, ptr %.1344564, i64 48
+  %265 = getelementptr inbounds nuw i8, ptr %.1344551, i64 48
   %266 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %265, ptr noundef nonnull %28, ptr noundef %1) #7
   %.not379 = icmp eq i32 %266, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %.not379, label %267, label %.thread527
+  br i1 %.not379, label %267, label %.thread520
 
 267:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %268 = getelementptr inbounds nuw i8, ptr %.1344564, i64 56
+  %268 = getelementptr inbounds nuw i8, ptr %.1344551, i64 56
   %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %268, ptr noundef nonnull %29, ptr noundef %1) #7
   %.not380 = icmp eq i32 %269, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br i1 %.not380, label %270, label %.thread527
+  br i1 %.not380, label %270, label %.thread520
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds nuw i8, ptr %.1344564, i64 64
+  %271 = getelementptr inbounds nuw i8, ptr %.1344551, i64 64
   %272 = call i32 @unpack64(ptr noundef nonnull %271, ptr noundef %1) #7
   %.not381 = icmp eq i32 %272, 0
-  br i1 %.not381, label %273, label %.thread527
+  br i1 %.not381, label %273, label %.thread520
 
 273:                                              ; preds = %270
-  %274 = getelementptr inbounds nuw i8, ptr %.1344564, i64 72
+  %274 = getelementptr inbounds nuw i8, ptr %.1344551, i64 72
   %275 = call i32 @unpack32(ptr noundef nonnull %274, ptr noundef %1) #7
   %.not382 = icmp eq i32 %275, 0
-  br i1 %.not382, label %276, label %.thread527
+  br i1 %.not382, label %276, label %.thread520
 
 276:                                              ; preds = %273
   %277 = load i32, ptr %274, align 8
   %278 = icmp ugt i32 %277, -3
-  br i1 %278, label %.thread527, label %279
+  br i1 %278, label %.thread520, label %279
 
 279:                                              ; preds = %276
   %.not383 = icmp eq i32 %277, 0
-  br i1 %.not383, label %.thread641, label %281
+  br i1 %.not383, label %.thread628, label %281
 
-.thread641:                                       ; preds = %279
-  %280 = getelementptr inbounds nuw i8, ptr %.1344564, i64 80
+.thread628:                                       ; preds = %279
+  %280 = getelementptr inbounds nuw i8, ptr %.1344551, i64 80
   store ptr null, ptr %280, align 8
   br label %._crit_edge
 
 281:                                              ; preds = %279
   %282 = zext i32 %277 to i64
   %283 = call ptr @slurm_xcalloc(i64 noundef %282, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 9397, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #7
-  %284 = getelementptr inbounds nuw i8, ptr %.1344564, i64 80
+  %284 = getelementptr inbounds nuw i8, ptr %.1344551, i64 80
   store ptr %283, ptr %284, align 8
   %.not384 = icmp eq ptr %283, null
-  br i1 %.not384, label %.thread527, label %285
+  br i1 %.not384, label %.thread520, label %285
 
 285:                                              ; preds = %281
   %.pre = load i32, ptr %274, align 8
@@ -43714,7 +43714,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   br i1 %286, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %285
-  %287 = getelementptr inbounds nuw i8, ptr %.1344564, i64 80
+  %287 = getelementptr inbounds nuw i8, ptr %.1344551, i64 80
   br label %292
 
 288:                                              ; preds = %311
@@ -43733,7 +43733,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %296 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %295, ptr noundef nonnull %30, ptr noundef %1) #7
   %.not416 = icmp eq i32 %296, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br i1 %.not416, label %297, label %.thread527
+  br i1 %.not416, label %297, label %.thread520
 
 297:                                              ; preds = %292
   %298 = load ptr, ptr %287, align 8
@@ -43741,14 +43741,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %301 = call i32 @unpack64(ptr noundef nonnull %300, ptr noundef %1) #7
   %.not417 = icmp eq i32 %301, 0
-  br i1 %.not417, label %302, label %.thread527
+  br i1 %.not417, label %302, label %.thread520
 
 302:                                              ; preds = %297
   %303 = load ptr, ptr %287, align 8
   %304 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %303, i64 %indvars.iv
   %305 = call i32 @unpack64(ptr noundef %304, ptr noundef %1) #7
   %.not418 = icmp eq i32 %305, 0
-  br i1 %.not418, label %306, label %.thread527
+  br i1 %.not418, label %306, label %.thread520
 
 306:                                              ; preds = %302
   %307 = load ptr, ptr %287, align 8
@@ -43756,7 +43756,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 32
   %310 = call i32 @unpack64(ptr noundef nonnull %309, ptr noundef %1) #7
   %.not419 = icmp eq i32 %310, 0
-  br i1 %.not419, label %311, label %.thread527
+  br i1 %.not419, label %311, label %.thread520
 
 311:                                              ; preds = %306
   %312 = load ptr, ptr %287, align 8
@@ -43764,272 +43764,272 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %315 = call i32 @unpack64(ptr noundef nonnull %314, ptr noundef %1) #7
   %.not420 = icmp eq i32 %315, 0
-  br i1 %.not420, label %288, label %.thread527
+  br i1 %.not420, label %288, label %.thread520
 
-._crit_edge:                                      ; preds = %288, %.thread641, %285
-  %316 = getelementptr inbounds nuw i8, ptr %.1344564, i64 100
+._crit_edge:                                      ; preds = %288, %.thread628, %285
+  %316 = getelementptr inbounds nuw i8, ptr %.1344551, i64 100
   %317 = call i32 @unpack32(ptr noundef nonnull %316, ptr noundef %1) #7
   %.not385 = icmp eq i32 %317, 0
-  br i1 %.not385, label %318, label %.thread527
+  br i1 %.not385, label %318, label %.thread520
 
 318:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %319 = getelementptr inbounds nuw i8, ptr %.1344564, i64 112
+  %319 = getelementptr inbounds nuw i8, ptr %.1344551, i64 112
   %320 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %319, ptr noundef nonnull %31, ptr noundef %1) #7
   %.not386 = icmp eq i32 %320, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br i1 %.not386, label %321, label %.thread527
+  br i1 %.not386, label %321, label %.thread520
 
 321:                                              ; preds = %318
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %322 = getelementptr inbounds nuw i8, ptr %.1344564, i64 120
+  %322 = getelementptr inbounds nuw i8, ptr %.1344551, i64 120
   %323 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %322, ptr noundef nonnull %32, ptr noundef %1) #7
   %.not387 = icmp eq i32 %323, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br i1 %.not387, label %324, label %.thread527
+  br i1 %.not387, label %324, label %.thread520
 
 324:                                              ; preds = %321
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %325 = getelementptr inbounds nuw i8, ptr %.1344564, i64 128
+  %325 = getelementptr inbounds nuw i8, ptr %.1344551, i64 128
   %326 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %325, ptr noundef nonnull %33, ptr noundef %1) #7
   %.not388 = icmp eq i32 %326, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br i1 %.not388, label %327, label %.thread527
+  br i1 %.not388, label %327, label %.thread520
 
 327:                                              ; preds = %324
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %328 = getelementptr inbounds nuw i8, ptr %.1344564, i64 136
+  %328 = getelementptr inbounds nuw i8, ptr %.1344551, i64 136
   %329 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %328, ptr noundef nonnull %34, ptr noundef %1) #7
   %.not389 = icmp eq i32 %329, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br i1 %.not389, label %330, label %.thread527
+  br i1 %.not389, label %330, label %.thread520
 
 330:                                              ; preds = %327
-  %331 = getelementptr inbounds nuw i8, ptr %.1344564, i64 104
+  %331 = getelementptr inbounds nuw i8, ptr %.1344551, i64 104
   %332 = call i32 @unpack32(ptr noundef nonnull %331, ptr noundef %1) #7
   %.not390 = icmp eq i32 %332, 0
-  br i1 %.not390, label %333, label %.thread527
+  br i1 %.not390, label %333, label %.thread520
 
 333:                                              ; preds = %330
-  %334 = getelementptr inbounds nuw i8, ptr %.1344564, i64 108
+  %334 = getelementptr inbounds nuw i8, ptr %.1344551, i64 108
   %335 = call i32 @unpack32(ptr noundef nonnull %334, ptr noundef %1) #7
   %.not391 = icmp eq i32 %335, 0
-  br i1 %.not391, label %336, label %.thread527
+  br i1 %.not391, label %336, label %.thread520
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds nuw i8, ptr %.1344564, i64 144
+  %337 = getelementptr inbounds nuw i8, ptr %.1344551, i64 144
   %338 = call i32 @unpack64(ptr noundef nonnull %337, ptr noundef %1) #7
   %.not392 = icmp eq i32 %338, 0
-  br i1 %.not392, label %339, label %.thread527
+  br i1 %.not392, label %339, label %.thread520
 
 339:                                              ; preds = %336
-  %340 = getelementptr inbounds nuw i8, ptr %.1344564, i64 152
+  %340 = getelementptr inbounds nuw i8, ptr %.1344551, i64 152
   %341 = call i32 @unpack64(ptr noundef nonnull %340, ptr noundef %1) #7
   %.not393 = icmp eq i32 %341, 0
-  br i1 %.not393, label %342, label %.thread527
+  br i1 %.not393, label %342, label %.thread520
 
 342:                                              ; preds = %339
-  %343 = getelementptr inbounds nuw i8, ptr %.1344564, i64 160
+  %343 = getelementptr inbounds nuw i8, ptr %.1344551, i64 160
   %344 = call i32 @unpack64(ptr noundef nonnull %343, ptr noundef %1) #7
   %.not394 = icmp eq i32 %344, 0
-  br i1 %.not394, label %345, label %.thread527
+  br i1 %.not394, label %345, label %.thread520
 
 345:                                              ; preds = %342
-  %346 = getelementptr inbounds nuw i8, ptr %.1344564, i64 168
+  %346 = getelementptr inbounds nuw i8, ptr %.1344551, i64 168
   %347 = call i32 @unpack32(ptr noundef nonnull %346, ptr noundef %1) #7
   %.not395 = icmp eq i32 %347, 0
-  br i1 %.not395, label %348, label %.thread527
+  br i1 %.not395, label %348, label %.thread520
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds nuw i8, ptr %.1344564, i64 172
+  %349 = getelementptr inbounds nuw i8, ptr %.1344551, i64 172
   %350 = call i32 @unpack32(ptr noundef nonnull %349, ptr noundef %1) #7
   %.not396 = icmp eq i32 %350, 0
-  br i1 %.not396, label %351, label %.thread527
+  br i1 %.not396, label %351, label %.thread520
 
 351:                                              ; preds = %348
   %352 = load i32, ptr %349, align 4
   %353 = icmp ugt i32 %352, -3
-  br i1 %353, label %.thread527, label %354
+  br i1 %353, label %.thread520, label %354
 
 354:                                              ; preds = %351
   %.not397 = icmp eq i32 %352, 0
-  br i1 %.not397, label %.thread643, label %356
+  br i1 %.not397, label %.thread630, label %356
 
-.thread643:                                       ; preds = %354
-  %355 = getelementptr inbounds nuw i8, ptr %.1344564, i64 176
+.thread630:                                       ; preds = %354
+  %355 = getelementptr inbounds nuw i8, ptr %.1344551, i64 176
   store ptr null, ptr %355, align 8
-  br label %._crit_edge558
+  br label %._crit_edge545
 
 356:                                              ; preds = %354
   %357 = zext i32 %352 to i64
   %358 = call ptr @slurm_xcalloc(i64 noundef %357, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 9432, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #7
-  %359 = getelementptr inbounds nuw i8, ptr %.1344564, i64 176
+  %359 = getelementptr inbounds nuw i8, ptr %.1344551, i64 176
   store ptr %358, ptr %359, align 8
   %.not398 = icmp eq ptr %358, null
-  br i1 %.not398, label %.thread527, label %360
+  br i1 %.not398, label %.thread520, label %360
 
 360:                                              ; preds = %356
-  %.pre608 = load i32, ptr %349, align 4
-  %361 = icmp eq i32 %.pre608, 0
-  br i1 %361, label %._crit_edge558, label %.lr.ph557
+  %.pre595 = load i32, ptr %349, align 4
+  %361 = icmp eq i32 %.pre595, 0
+  br i1 %361, label %._crit_edge545, label %.lr.ph544
 
-.lr.ph557:                                        ; preds = %360, %396
-  %.4555 = phi i32 [ %397, %396 ], [ 0, %360 ]
-  %.1346554 = phi ptr [ %398, %396 ], [ %358, %360 ]
+.lr.ph544:                                        ; preds = %360, %396
+  %.4542 = phi i32 [ %397, %396 ], [ 0, %360 ]
+  %.1346541 = phi ptr [ %398, %396 ], [ %358, %360 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %362 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.1346554, ptr noundef nonnull %35, ptr noundef %1) #7
+  %362 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.1346541, ptr noundef nonnull %35, ptr noundef %1) #7
   %.not404 = icmp eq i32 %362, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br i1 %.not404, label %363, label %.thread527
+  br i1 %.not404, label %363, label %.thread520
 
-363:                                              ; preds = %.lr.ph557
-  %364 = getelementptr inbounds nuw i8, ptr %.1346554, i64 8
+363:                                              ; preds = %.lr.ph544
+  %364 = getelementptr inbounds nuw i8, ptr %.1346541, i64 8
   %365 = call i32 @unpack32(ptr noundef nonnull %364, ptr noundef %1) #7
   %.not405 = icmp eq i32 %365, 0
-  br i1 %.not405, label %366, label %.thread527
+  br i1 %.not405, label %366, label %.thread520
 
 366:                                              ; preds = %363
-  %367 = getelementptr inbounds nuw i8, ptr %.1346554, i64 12
+  %367 = getelementptr inbounds nuw i8, ptr %.1346541, i64 12
   %368 = call i32 @unpack32(ptr noundef nonnull %367, ptr noundef %1) #7
   %.not406 = icmp eq i32 %368, 0
-  br i1 %.not406, label %369, label %.thread527
+  br i1 %.not406, label %369, label %.thread520
 
 369:                                              ; preds = %366
-  %370 = getelementptr inbounds nuw i8, ptr %.1346554, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %.1346541, i64 16
   %371 = call i32 @unpack_time(ptr noundef nonnull %370, ptr noundef %1) #7
   %.not407 = icmp eq i32 %371, 0
-  br i1 %.not407, label %372, label %.thread527
+  br i1 %.not407, label %372, label %.thread520
 
 372:                                              ; preds = %369
-  %373 = getelementptr inbounds nuw i8, ptr %.1346554, i64 24
+  %373 = getelementptr inbounds nuw i8, ptr %.1346541, i64 24
   %374 = call i32 @unpack32(ptr noundef nonnull %373, ptr noundef %1) #7
   %.not408 = icmp eq i32 %374, 0
-  br i1 %.not408, label %375, label %.thread527
+  br i1 %.not408, label %375, label %.thread520
 
 375:                                              ; preds = %372
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %376 = getelementptr inbounds nuw i8, ptr %.1346554, i64 32
+  %376 = getelementptr inbounds nuw i8, ptr %.1346541, i64 32
   %377 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %376, ptr noundef nonnull %36, ptr noundef %1) #7
   %.not409 = icmp eq i32 %377, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br i1 %.not409, label %378, label %.thread527
+  br i1 %.not409, label %378, label %.thread520
 
 378:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %379 = getelementptr inbounds nuw i8, ptr %.1346554, i64 40
+  %379 = getelementptr inbounds nuw i8, ptr %.1346541, i64 40
   %380 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %379, ptr noundef nonnull %37, ptr noundef %1) #7
   %.not410 = icmp eq i32 %380, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br i1 %.not410, label %381, label %.thread527
+  br i1 %.not410, label %381, label %.thread520
 
 381:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %382 = getelementptr inbounds nuw i8, ptr %.1346554, i64 48
+  %382 = getelementptr inbounds nuw i8, ptr %.1346541, i64 48
   %383 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %382, ptr noundef nonnull %38, ptr noundef %1) #7
   %.not411 = icmp eq i32 %383, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br i1 %.not411, label %384, label %.thread527
+  br i1 %.not411, label %384, label %.thread520
 
 384:                                              ; preds = %381
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %385 = getelementptr inbounds nuw i8, ptr %.1346554, i64 56
+  %385 = getelementptr inbounds nuw i8, ptr %.1346541, i64 56
   %386 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %385, ptr noundef nonnull %39, ptr noundef %1) #7
   %.not412 = icmp eq i32 %386, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br i1 %.not412, label %387, label %.thread527
+  br i1 %.not412, label %387, label %.thread520
 
 387:                                              ; preds = %384
-  %388 = getelementptr inbounds nuw i8, ptr %.1346554, i64 64
+  %388 = getelementptr inbounds nuw i8, ptr %.1346541, i64 64
   %389 = call i32 @unpack64(ptr noundef nonnull %388, ptr noundef %1) #7
   %.not413 = icmp eq i32 %389, 0
-  br i1 %.not413, label %390, label %.thread527
+  br i1 %.not413, label %390, label %.thread520
 
 390:                                              ; preds = %387
-  %391 = getelementptr inbounds nuw i8, ptr %.1346554, i64 72
+  %391 = getelementptr inbounds nuw i8, ptr %.1346541, i64 72
   %392 = call i32 @unpack16(ptr noundef nonnull %391, ptr noundef %1) #7
   %.not414 = icmp eq i32 %392, 0
-  br i1 %.not414, label %393, label %.thread527
+  br i1 %.not414, label %393, label %.thread520
 
 393:                                              ; preds = %390
-  %394 = getelementptr inbounds nuw i8, ptr %.1346554, i64 76
+  %394 = getelementptr inbounds nuw i8, ptr %.1346541, i64 76
   %395 = call i32 @unpack32(ptr noundef nonnull %394, ptr noundef %1) #7
   %.not415 = icmp eq i32 %395, 0
-  br i1 %.not415, label %396, label %.thread527
+  br i1 %.not415, label %396, label %.thread520
 
 396:                                              ; preds = %393
-  %397 = add nuw nsw i32 %.4555, 1
-  %398 = getelementptr inbounds nuw i8, ptr %.1346554, i64 80
+  %397 = add nuw nsw i32 %.4542, 1
+  %398 = getelementptr inbounds nuw i8, ptr %.1346541, i64 80
   %399 = load i32, ptr %349, align 4
   %400 = icmp ult i32 %397, %399
-  br i1 %400, label %.lr.ph557, label %._crit_edge558, !llvm.loop !108
+  br i1 %400, label %.lr.ph544, label %._crit_edge545, !llvm.loop !108
 
-._crit_edge558:                                   ; preds = %396, %.thread643, %360
-  %401 = getelementptr inbounds nuw i8, ptr %.1344564, i64 184
+._crit_edge545:                                   ; preds = %396, %.thread630, %360
+  %401 = getelementptr inbounds nuw i8, ptr %.1344551, i64 184
   %402 = call i32 @unpack32(ptr noundef nonnull %401, ptr noundef %1) #7
   %.not399 = icmp eq i32 %402, 0
-  br i1 %.not399, label %403, label %.thread527
+  br i1 %.not399, label %403, label %.thread520
 
-403:                                              ; preds = %._crit_edge558
+403:                                              ; preds = %._crit_edge545
   %404 = load i32, ptr %401, align 8
   %405 = icmp ugt i32 %404, -3
-  br i1 %405, label %.thread527, label %406
+  br i1 %405, label %.thread520, label %406
 
 406:                                              ; preds = %403
   %.not400 = icmp eq i32 %404, 0
-  br i1 %.not400, label %.thread645, label %408
+  br i1 %.not400, label %.thread632, label %408
 
-.thread645:                                       ; preds = %406
-  %407 = getelementptr inbounds nuw i8, ptr %.1344564, i64 192
+.thread632:                                       ; preds = %406
+  %407 = getelementptr inbounds nuw i8, ptr %.1344551, i64 192
   store ptr null, ptr %407, align 8
-  br label %._crit_edge563
+  br label %._crit_edge550
 
 408:                                              ; preds = %406
   %409 = zext i32 %404 to i64
   %410 = call ptr @slurm_xcalloc(i64 noundef %409, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.2, i32 noundef 9458, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #7
-  %411 = getelementptr inbounds nuw i8, ptr %.1344564, i64 192
+  %411 = getelementptr inbounds nuw i8, ptr %.1344551, i64 192
   store ptr %410, ptr %411, align 8
   %.not401 = icmp eq ptr %410, null
-  br i1 %.not401, label %.thread527, label %412
+  br i1 %.not401, label %.thread520, label %412
 
 412:                                              ; preds = %408
-  %.pre610 = load i32, ptr %401, align 8
-  %413 = icmp eq i32 %.pre610, 0
-  br i1 %413, label %._crit_edge563, label %.lr.ph562
+  %.pre597 = load i32, ptr %401, align 8
+  %413 = icmp eq i32 %.pre597, 0
+  br i1 %413, label %._crit_edge550, label %.lr.ph549
 
-.lr.ph562:                                        ; preds = %412, %418
-  %.5560 = phi i32 [ %419, %418 ], [ 0, %412 ]
-  %.1348559 = phi ptr [ %420, %418 ], [ %410, %412 ]
-  %414 = getelementptr inbounds nuw i8, ptr %.1348559, i64 8
+.lr.ph549:                                        ; preds = %412, %418
+  %.5547 = phi i32 [ %419, %418 ], [ 0, %412 ]
+  %.1348546 = phi ptr [ %420, %418 ], [ %410, %412 ]
+  %414 = getelementptr inbounds nuw i8, ptr %.1348546, i64 8
   %415 = call i32 @unpack64(ptr noundef nonnull %414, ptr noundef %1) #7
   %.not402 = icmp eq i32 %415, 0
-  br i1 %.not402, label %416, label %.thread527
+  br i1 %.not402, label %416, label %.thread520
 
-416:                                              ; preds = %.lr.ph562
-  %417 = call i32 @unpack32(ptr noundef nonnull %.1348559, ptr noundef %1) #7
+416:                                              ; preds = %.lr.ph549
+  %417 = call i32 @unpack32(ptr noundef nonnull %.1348546, ptr noundef %1) #7
   %.not403 = icmp eq i32 %417, 0
-  br i1 %.not403, label %418, label %.thread527
+  br i1 %.not403, label %418, label %.thread520
 
 418:                                              ; preds = %416
-  %419 = add nuw nsw i32 %.5560, 1
-  %420 = getelementptr inbounds nuw i8, ptr %.1348559, i64 16
+  %419 = add nuw nsw i32 %.5547, 1
+  %420 = getelementptr inbounds nuw i8, ptr %.1348546, i64 16
   %421 = load i32, ptr %401, align 8
   %422 = icmp ult i32 %419, %421
-  br i1 %422, label %.lr.ph562, label %._crit_edge563, !llvm.loop !109
+  br i1 %422, label %.lr.ph549, label %._crit_edge550, !llvm.loop !109
 
-._crit_edge563:                                   ; preds = %418, %.thread645, %412
-  %423 = add nuw nsw i32 %.1565, 1
-  %424 = getelementptr inbounds nuw i8, ptr %.1344564, i64 200
+._crit_edge550:                                   ; preds = %418, %.thread632, %412
+  %423 = add nuw nsw i32 %.1552, 1
+  %424 = getelementptr inbounds nuw i8, ptr %.1344551, i64 200
   %425 = load i32, ptr %41, align 8
   %426 = icmp ult i32 %423, %425
-  br i1 %426, label %.lr.ph567, label %.loopexit, !llvm.loop !110
+  br i1 %426, label %.lr.ph554, label %.loopexit, !llvm.loop !110
 
-.thread527:                                       ; preds = %281, %408, %356, %327, %324, %321, %318, %267, %264, %258, %255, %252, %249, %247, %.lr.ph567, %403, %._crit_edge558, %351, %348, %345, %342, %339, %336, %333, %330, %._crit_edge, %276, %273, %270, %261, %292, %311, %306, %302, %297, %384, %381, %378, %375, %.lr.ph557, %393, %390, %387, %372, %369, %366, %363, %416, %.lr.ph562, %92, %222, %170, %141, %138, %135, %132, %78, %75, %69, %66, %63, %60, %58, %.lr.ph585, %217, %._crit_edge576, %165, %162, %159, %156, %153, %150, %147, %144, %129, %._crit_edge571, %87, %84, %81, %72, %103, %122, %117, %113, %108, %198, %195, %192, %189, %.lr.ph575, %207, %204, %201, %186, %183, %180, %177, %230, %.lr.ph580, %48, %43, %3
+.thread520:                                       ; preds = %281, %408, %356, %327, %324, %321, %318, %267, %264, %258, %255, %252, %249, %247, %.lr.ph554, %403, %._crit_edge545, %351, %348, %345, %342, %339, %336, %333, %330, %._crit_edge, %276, %273, %270, %261, %292, %311, %306, %302, %297, %384, %381, %378, %375, %.lr.ph544, %393, %390, %387, %372, %369, %366, %363, %416, %.lr.ph549, %92, %222, %170, %141, %138, %135, %132, %78, %75, %69, %66, %63, %60, %58, %.lr.ph572, %217, %._crit_edge563, %165, %162, %159, %156, %153, %150, %147, %144, %129, %._crit_edge558, %87, %84, %81, %72, %103, %122, %117, %113, %108, %198, %195, %192, %189, %.lr.ph562, %207, %204, %201, %186, %183, %180, %177, %230, %.lr.ph567, %48, %43, %3
   call void @slurm_free_burst_buffer_info_msg(ptr noundef %40) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge563, %._crit_edge581, %243, %54, %241, %.thread527
-  %storemerge = phi ptr [ null, %.thread527 ], [ %40, %241 ], [ %40, %54 ], [ %40, %243 ], [ %40, %._crit_edge581 ], [ %40, %._crit_edge563 ]
-  %.0 = phi i32 [ -1, %.thread527 ], [ 0, %241 ], [ 0, %54 ], [ 0, %243 ], [ 0, %._crit_edge581 ], [ 0, %._crit_edge563 ]
+.loopexit:                                        ; preds = %._crit_edge550, %._crit_edge568, %243, %54, %241, %.thread520
+  %storemerge = phi ptr [ null, %.thread520 ], [ %40, %241 ], [ %40, %54 ], [ %40, %243 ], [ %40, %._crit_edge568 ], [ %40, %._crit_edge550 ]
+  %.0 = phi i32 [ -1, %.thread520 ], [ 0, %241 ], [ 0, %54 ], [ 0, %243 ], [ 0, %._crit_edge568 ], [ 0, %._crit_edge550 ]
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.0
 }
@@ -44364,10 +44364,10 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
   %37 = load i16, ptr %34, align 8
   switch i16 %37, label %39 [
     i16 -1, label %_unpack_kvs_host_rec.exit
-    i16 0, label %.thread91
+    i16 0, label %.thread88
   ]
 
-.thread91:                                        ; preds = %36
+.thread88:                                        ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %38, align 8
   br label %.loopexit
@@ -44381,28 +44381,28 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
   br i1 %.not52, label %_unpack_kvs_host_rec.exit, label %43
 
 43:                                               ; preds = %39
-  %.pre89 = load i16, ptr %34, align 8
-  %44 = icmp eq i16 %.pre89, 0
-  br i1 %44, label %.loopexit, label %.lr.ph74
+  %.pre86 = load i16, ptr %34, align 8
+  %44 = icmp eq i16 %.pre86, 0
+  br i1 %44, label %.loopexit, label %.lr.ph71
 
-.lr.ph74:                                         ; preds = %43
+.lr.ph71:                                         ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %46 = icmp ugt i16 %2, 10239
-  br i1 %46, label %.lr.ph74.split.us, label %_unpack_kvs_rec.exit
+  br i1 %46, label %.lr.ph71.split.us, label %_unpack_kvs_rec.exit
 
-.lr.ph74.split.us:                                ; preds = %.lr.ph74, %_unpack_kvs_rec.exit.us
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %_unpack_kvs_rec.exit.us ], [ 0, %.lr.ph74 ]
+.lr.ph71.split.us:                                ; preds = %.lr.ph71, %_unpack_kvs_rec.exit.us
+  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_unpack_kvs_rec.exit.us ], [ 0, %.lr.ph71 ]
   %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv84
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv81
   %49 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 11206, ptr noundef nonnull @__func__._unpack_kvs_rec) #7
   store ptr %49, ptr %48, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %49, ptr noundef nonnull %4, ptr noundef %1) #7
-  %.not.i59.us = icmp eq i32 %50, 0
+  %.not.i58.us = icmp eq i32 %50, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not.i59.us, label %51, label %_unpack_kvs_host_rec.exit
+  br i1 %.not.i58.us, label %51, label %_unpack_kvs_host_rec.exit
 
-51:                                               ; preds = %.lr.ph74.split.us
+51:                                               ; preds = %.lr.ph71.split.us
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = call i32 @unpack32(ptr noundef nonnull %52, ptr noundef %1) #7
   %.not44.i.us = icmp eq i32 %53, 0
@@ -44412,10 +44412,10 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
   %55 = load i32, ptr %52, align 8
   switch i32 %55, label %57 [
     i32 -1, label %_unpack_kvs_host_rec.exit
-    i32 0, label %.thread61.i.us
+    i32 0, label %.thread59.i.us
   ]
 
-.thread61.i.us:                                   ; preds = %54
+.thread59.i.us:                                   ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr null, ptr %56, align 8
   br label %.thread.i.us
@@ -44472,37 +44472,37 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
   %78 = icmp samesign ult i64 %indvars.iv.next.i.us, %77
   br i1 %78, label %.lr.ph.i.us, label %_unpack_kvs_rec.exit.us, !llvm.loop !112
 
-.thread.i.us:                                     ; preds = %61, %.thread61.i.us
+.thread.i.us:                                     ; preds = %61, %.thread59.i.us
   %79 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr null, ptr %79, align 8
   br label %_unpack_kvs_rec.exit.us
 
 _unpack_kvs_rec.exit.us:                          ; preds = %75, %.thread.i.us, %66
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %80 = load i16, ptr %34, align 8
   %81 = zext i16 %80 to i64
-  %82 = icmp samesign ult i64 %indvars.iv.next85, %81
-  br i1 %82, label %.lr.ph74.split.us, label %.loopexit, !llvm.loop !113
+  %82 = icmp samesign ult i64 %indvars.iv.next82, %81
+  br i1 %82, label %.lr.ph71.split.us, label %.loopexit, !llvm.loop !113
 
-_unpack_kvs_rec.exit:                             ; preds = %.lr.ph74, %_unpack_kvs_rec.exit
-  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_unpack_kvs_rec.exit ], [ 0, %.lr.ph74 ]
+_unpack_kvs_rec.exit:                             ; preds = %.lr.ph71, %_unpack_kvs_rec.exit
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_unpack_kvs_rec.exit ], [ 0, %.lr.ph71 ]
   %83 = load ptr, ptr %45, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv81
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv78
   %85 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 11206, ptr noundef nonnull @__func__._unpack_kvs_rec) #7
   store ptr %85, ptr %84, align 8
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %86 = load i16, ptr %34, align 8
   %87 = zext i16 %86 to i64
-  %88 = icmp samesign ult i64 %indvars.iv.next82, %87
+  %88 = icmp samesign ult i64 %indvars.iv.next79, %87
   br i1 %88, label %_unpack_kvs_rec.exit, label %.loopexit, !llvm.loop !113
 
-_unpack_kvs_host_rec.exit:                        ; preds = %31, %28, %24, %62, %57, %54, %51, %.lr.ph74.split.us, %71, %.lr.ph.i.us, %39, %13, %36, %10, %._crit_edge, %3
+_unpack_kvs_host_rec.exit:                        ; preds = %31, %28, %24, %62, %57, %54, %51, %.lr.ph71.split.us, %71, %.lr.ph.i.us, %39, %13, %36, %10, %._crit_edge, %3
   call void @slurm_free_kvs_comm_set(ptr noundef %8) #7
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_unpack_kvs_rec.exit, %_unpack_kvs_rec.exit.us, %.thread91, %43, %_unpack_kvs_host_rec.exit
-  %.0 = phi i32 [ -1, %_unpack_kvs_host_rec.exit ], [ 0, %43 ], [ 0, %.thread91 ], [ 0, %_unpack_kvs_rec.exit.us ], [ 0, %_unpack_kvs_rec.exit ]
+.loopexit:                                        ; preds = %_unpack_kvs_rec.exit, %_unpack_kvs_rec.exit.us, %.thread88, %43, %_unpack_kvs_host_rec.exit
+  %.0 = phi i32 [ -1, %_unpack_kvs_host_rec.exit ], [ 0, %43 ], [ 0, %.thread88 ], [ 0, %_unpack_kvs_rec.exit.us ], [ 0, %_unpack_kvs_rec.exit ]
   ret i32 %.0
 }
 
@@ -44561,9 +44561,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 10:                                               ; preds = %8
   %11 = load i32, ptr %6, align 8
   %.not51 = icmp eq i32 %11, 0
-  br i1 %.not51, label %.thread69, label %13
+  br i1 %.not51, label %.thread68, label %13
 
-.thread69:                                        ; preds = %10
+.thread68:                                        ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %12, align 8
   br label %.loopexit
@@ -44672,9 +44672,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
   call void @slurm_free_trigger_msg(ptr noundef %6) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %.thread69, %17, %3, %.thread
-  %storemerge = phi ptr [ null, %.thread ], [ %6, %3 ], [ %6, %17 ], [ %6, %.thread69 ], [ %6, %20 ]
-  %.048 = phi i32 [ -1, %.thread ], [ 0, %3 ], [ 0, %17 ], [ 0, %.thread69 ], [ 0, %20 ]
+.loopexit:                                        ; preds = %20, %.thread68, %17, %3, %.thread
+  %storemerge = phi ptr [ null, %.thread ], [ %6, %3 ], [ %6, %17 ], [ %6, %.thread68 ], [ %6, %20 ]
+  %.048 = phi i32 [ -1, %.thread ], [ 0, %3 ], [ 0, %17 ], [ 0, %.thread68 ], [ 0, %20 ]
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.048
 }
@@ -45137,8 +45137,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_msg(ptr noun
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
-  %.not43 = icmp eq i32 %31, 0
-  br i1 %.not43, label %.loopexit, label %.lr.ph
+  %.not42 = icmp eq i32 %31, 0
+  br i1 %.not42, label %.loopexit, label %.lr.ph
 
 32:                                               ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -46096,7 +46096,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 11985, ptr noundef nonnull @__func__._unpack_license_info_msg) #7
   store ptr %5, ptr %0, align 8
   %6 = icmp ugt i16 %2, 10239
-  br i1 %6, label %7, label %.thread84
+  br i1 %6, label %7, label %.thread83
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -46112,12 +46112,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 12:                                               ; preds = %10
   %13 = load i32, ptr %8, align 8
   %.not68 = icmp eq i32 %13, 0
-  br i1 %.not68, label %.thread92, label %15
+  br i1 %.not68, label %.thread91, label %15
 
-.thread92:                                        ; preds = %12
+.thread91:                                        ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %14, align 8
-  br label %.thread84
+  br label %.thread83
 
 15:                                               ; preds = %12
   %16 = zext i32 %13 to i64
@@ -46130,7 +46130,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 19:                                               ; preds = %15
   %.pre = load i32, ptr %8, align 8
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread84, label %.lr.ph
+  br i1 %20, label %.thread83, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -46219,15 +46219,15 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
   %72 = load i32, ptr %8, align 8
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next, %73
-  br i1 %74, label %22, label %.thread84, !llvm.loop !117
+  br i1 %74, label %22, label %.thread83, !llvm.loop !117
 
 .thread:                                          ; preds = %22, %56, %51, %46, %41, %36, %31, %26, %15, %10, %7
   call void @slurm_free_license_info_msg(ptr noundef nonnull %5) #7
   store ptr null, ptr %0, align 8
-  br label %.thread84
+  br label %.thread83
 
-.thread84:                                        ; preds = %61, %.thread92, %19, %3, %.thread
-  %.064 = phi i32 [ -1, %.thread ], [ 0, %3 ], [ 0, %19 ], [ 0, %.thread92 ], [ 0, %61 ]
+.thread83:                                        ; preds = %61, %.thread91, %19, %3, %.thread
+  %.064 = phi i32 [ -1, %.thread ], [ 0, %3 ], [ 0, %19 ], [ 0, %.thread91 ], [ 0, %61 ]
   ret i32 %.064
 }
 
@@ -46268,16 +46268,16 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
   %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 12058, ptr noundef nonnull @__func__._unpack_job_array_resp_msg) #7
   %9 = tail call i32 @unpack32(ptr noundef %8, ptr noundef %1) #7
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %.thread82
+  br i1 %.not, label %10, label %.thread78
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %8, align 8
   switch i32 %11, label %13 [
-    i32 -1, label %.thread82
-    i32 0, label %.thread77
+    i32 -1, label %.thread78
+    i32 0, label %.thread74
   ]
 
-.thread77:                                        ; preds = %10
+.thread74:                                        ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %12, align 8
   br label %.thread
@@ -46288,17 +46288,17 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %15, ptr %16, align 8
   %.not59 = icmp eq ptr %15, null
-  br i1 %.not59, label %.thread82, label %17
+  br i1 %.not59, label %.thread78, label %17
 
 17:                                               ; preds = %13
   %.pr = load i32, ptr %8, align 8
   %.not60 = icmp eq i32 %.pr, 0
   br i1 %.not60, label %.thread, label %19
 
-.thread:                                          ; preds = %17, %.thread77
+.thread:                                          ; preds = %17, %.thread74
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %18, align 8
-  br label %.thread92
+  br label %.thread87
 
 19:                                               ; preds = %17
   %20 = zext i32 %.pr to i64
@@ -46306,14 +46306,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %21, ptr %22, align 8
   %.not61 = icmp eq ptr %21, null
-  br i1 %.not61, label %.thread82, label %23
+  br i1 %.not61, label %.thread78, label %23
 
 23:                                               ; preds = %19
   %.pre = load i32, ptr %8, align 8
   %.not62 = icmp eq i32 %.pre, 0
-  br i1 %.not62, label %.thread92, label %25
+  br i1 %.not62, label %.thread87, label %25
 
-.thread92:                                        ; preds = %23, %.thread
+.thread87:                                        ; preds = %23, %.thread
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %24, align 8
   br label %.loopexit
@@ -46324,11 +46324,11 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %27, ptr %28, align 8
   %.not63 = icmp eq ptr %27, null
-  br i1 %.not63, label %.thread82, label %29
+  br i1 %.not63, label %.thread78, label %29
 
 29:                                               ; preds = %25
-  %.pre89 = load i32, ptr %8, align 8
-  %30 = icmp eq i32 %.pre89, 0
+  %.pre84 = load i32, ptr %8, align 8
+  %30 = icmp eq i32 %.pre84, 0
   br i1 %30, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
@@ -46350,7 +46350,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
   %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %41 = call i32 @unpack32(ptr noundef %40, ptr noundef %1) #7
   %.not64 = icmp eq i32 %41, 0
-  br i1 %.not64, label %42, label %.thread82
+  br i1 %.not64, label %42, label %.thread78
 
 42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -46359,7 +46359,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
   %45 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %44, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not65 = icmp eq i32 %45, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not65, label %46, label %.thread82
+  br i1 %.not65, label %46, label %.thread78
 
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -46368,15 +46368,15 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
   %49 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %48, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not66 = icmp eq i32 %49, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not66, label %34, label %.thread82
+  br i1 %.not66, label %34, label %.thread78
 
-.thread82:                                        ; preds = %46, %42, %38, %25, %19, %13, %10, %7
+.thread78:                                        ; preds = %46, %42, %38, %25, %19, %13, %10, %7
   call void @slurm_free_job_array_resp(ptr noundef %8) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %.thread92, %29, %3, %.thread82
-  %storemerge = phi ptr [ null, %.thread82 ], [ null, %3 ], [ %8, %29 ], [ %8, %.thread92 ], [ %8, %34 ]
-  %.0 = phi i32 [ -1, %.thread82 ], [ 0, %3 ], [ 0, %29 ], [ 0, %.thread92 ], [ 0, %34 ]
+.loopexit:                                        ; preds = %34, %.thread87, %29, %3, %.thread78
+  %storemerge = phi ptr [ null, %.thread78 ], [ null, %3 ], [ %8, %29 ], [ %8, %.thread87 ], [ %8, %34 ]
+  %.0 = phi i32 [ -1, %.thread78 ], [ 0, %3 ], [ 0, %29 ], [ 0, %.thread87 ], [ 0, %34 ]
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.0
 }
@@ -47277,9 +47277,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_alias_addrs_resp_msg(p
   %12 = load i16, ptr %5, align 2
   %13 = call ptr @extract_net_cred(ptr noundef %11, i16 noundef zeroext %12) #7
   %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %.thread20, label %.thread
+  br i1 %.not15, label %.thread19, label %.thread
 
-.thread20:                                        ; preds = %10
+.thread19:                                        ; preds = %10
   call void @slurm_xfree(ptr noundef nonnull %3) #7
   br label %17
 
@@ -47292,7 +47292,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_alias_addrs_resp_msg(p
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
-17:                                               ; preds = %8, %.thread20
+17:                                               ; preds = %8, %.thread19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @slurm_free_node_alias_addrs(ptr noundef null) #7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -54086,9 +54086,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_members(ptr nound
   %348 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %347, ptr noundef nonnull %49, ptr noundef %1) #7
   %.not321 = icmp eq i32 %348, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  br i1 %.not321, label %.thread415, label %.sink.split
+  br i1 %.not321, label %.thread414, label %.sink.split
 
-.thread415:                                       ; preds = %346
+.thread414:                                       ; preds = %346
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -54104,8 +54104,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_members(ptr nound
   call void @slurm_free_node_info_members(ptr noundef nonnull %0) #7
   br label %350
 
-350:                                              ; preds = %.thread415, %194, %197, %349
-  %.0269 = phi i32 [ -1, %349 ], [ 0, %197 ], [ 0, %194 ], [ 0, %.thread415 ]
+350:                                              ; preds = %.thread414, %194, %197, %349
+  %.0269 = phi i32 [ -1, %349 ], [ 0, %197 ], [ 0, %194 ], [ 0, %.thread414 ]
   ret i32 %.0269
 }
 

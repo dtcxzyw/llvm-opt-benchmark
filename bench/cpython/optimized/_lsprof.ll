@@ -118,8 +118,8 @@ define hidden ptr @get_cfunc_from_callable(ptr noundef %0, ptr noundef %1, ptr n
 
 PyObject_TypeCheck.exit:                          ; preds = %3
   %5 = tail call i32 @PyType_IsSubtype(ptr noundef %.val21, ptr noundef nonnull @PyCFunction_Type) #5
-  %.not31 = icmp eq i32 %5, 0
-  br i1 %.not31, label %10, label %PyObject_TypeCheck.exit.thread
+  %.not30 = icmp eq i32 %5, 0
+  br i1 %.not30, label %10, label %PyObject_TypeCheck.exit.thread
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCheck.exit
   %6 = load i32, ptr %0, align 8, !tbaa !9
@@ -472,36 +472,36 @@ define internal range(i32 -1, 1) i32 @profiler_init(ptr noundef captures(none) %
   %4 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %1, i64 16
-  %.val71 = load i64, ptr %5, align 8, !tbaa !43
+  %.val70 = load i64, ptr %5, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %.thread
 
 .thread:                                          ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 16
-  %.val72 = load i64, ptr %6, align 8, !tbaa !44
-  %7 = add i64 %.val72, %.val71
+  %.val71 = load i64, ptr %6, align 8, !tbaa !44
+  %7 = add i64 %.val71, %.val70
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %12
 
 9:                                                ; preds = %3
-  %10 = icmp ult i64 %.val71, 5
+  %10 = icmp ult i64 %.val70, 5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br i1 %10, label %.thread75, label %12
+  br i1 %10, label %.thread74, label %12
 
 12:                                               ; preds = %9, %.thread
   %13 = phi ptr [ %8, %.thread ], [ %11, %9 ]
-  %14 = phi i64 [ %7, %.thread ], [ %.val71, %9 ]
-  %15 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %13, i64 noundef %.val71, ptr noundef %2, ptr noundef null, ptr noundef nonnull @profiler_init._parser, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #5
+  %14 = phi i64 [ %7, %.thread ], [ %.val70, %9 ]
+  %15 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %13, i64 noundef %.val70, ptr noundef %2, ptr noundef null, ptr noundef nonnull @profiler_init._parser, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #5
   %.not61 = icmp eq ptr %15, null
-  br i1 %.not61, label %profiler_init_impl.exit, label %.thread75
+  br i1 %.not61, label %profiler_init_impl.exit, label %.thread74
 
-.thread75:                                        ; preds = %9, %12
+.thread74:                                        ; preds = %9, %12
   %16 = phi ptr [ %15, %12 ], [ %11, %9 ]
-  %17 = phi i64 [ %14, %12 ], [ %.val71, %9 ]
+  %17 = phi i64 [ %14, %12 ], [ %.val70, %9 ]
   %.not62 = icmp eq i64 %17, 0
-  br i1 %.not62, label %.thread87, label %18
+  br i1 %.not62, label %.thread86, label %18
 
-18:                                               ; preds = %.thread75
+18:                                               ; preds = %.thread74
   %19 = load ptr, ptr %16, align 8, !tbaa !48
   %.not63 = icmp eq ptr %19, null
   br i1 %.not63, label %22, label %20
@@ -509,7 +509,7 @@ define internal range(i32 -1, 1) i32 @profiler_init(ptr noundef captures(none) %
 20:                                               ; preds = %18
   %21 = add i64 %17, -1
   %.not64 = icmp eq i64 %21, 0
-  br i1 %.not64, label %.thread87, label %22
+  br i1 %.not64, label %.thread86, label %22
 
 22:                                               ; preds = %20, %18
   %.046 = phi i64 [ %21, %20 ], [ %17, %18 ]
@@ -521,12 +521,12 @@ define internal range(i32 -1, 1) i32 @profiler_init(ptr noundef captures(none) %
 25:                                               ; preds = %22
   %26 = getelementptr i8, ptr %24, i64 8
   %.val = load ptr, ptr %26, align 8, !tbaa !3
-  %.not95 = icmp eq ptr %.val, @PyFloat_Type
-  br i1 %.not95, label %27, label %29
+  %.not94 = icmp eq ptr %.val, @PyFloat_Type
+  br i1 %.not94, label %27, label %29
 
 27:                                               ; preds = %25
   %28 = getelementptr i8, ptr %24, i64 16
-  %.val73 = load double, ptr %28, align 8, !tbaa !49
+  %.val72 = load double, ptr %28, align 8, !tbaa !49
   br label %34
 
 29:                                               ; preds = %25
@@ -540,10 +540,10 @@ define internal range(i32 -1, 1) i32 @profiler_init(ptr noundef captures(none) %
   br i1 %.not67, label %34, label %profiler_init_impl.exit
 
 34:                                               ; preds = %29, %32, %27
-  %.2 = phi double [ %.val73, %27 ], [ -1.000000e+00, %32 ], [ %30, %29 ]
+  %.2 = phi double [ %.val72, %27 ], [ -1.000000e+00, %32 ], [ %30, %29 ]
   %35 = add i64 %.046, -1
   %.not68 = icmp eq i64 %35, 0
-  br i1 %.not68, label %.thread87, label %36
+  br i1 %.not68, label %.thread86, label %36
 
 36:                                               ; preds = %34, %22
   %.147 = phi i64 [ %35, %34 ], [ %.046, %22 ]
@@ -551,7 +551,7 @@ define internal range(i32 -1, 1) i32 @profiler_init(ptr noundef captures(none) %
   %37 = getelementptr i8, ptr %16, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !48
   %.not69 = icmp eq ptr %38, null
-  br i1 %.not69, label %43, label %39
+  br i1 %.not69, label %44, label %39
 
 39:                                               ; preds = %36
   %40 = call i32 @PyObject_IsTrue(ptr noundef nonnull %38) #5
@@ -559,107 +559,107 @@ define internal range(i32 -1, 1) i32 @profiler_init(ptr noundef captures(none) %
   br i1 %41, label %profiler_init_impl.exit, label %42
 
 42:                                               ; preds = %39
-  %.not70 = icmp eq i64 %.147, 1
-  br i1 %.not70, label %48, label %43
+  %43 = icmp ugt i64 %.147, 1
+  br i1 %43, label %44, label %49
 
-43:                                               ; preds = %42, %36
+44:                                               ; preds = %42, %36
   %.1 = phi i32 [ %40, %42 ], [ 1, %36 ]
-  %44 = getelementptr i8, ptr %16, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !48
-  %46 = call i32 @PyObject_IsTrue(ptr noundef %45) #5
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %profiler_init_impl.exit, label %48
+  %45 = getelementptr i8, ptr %16, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !48
+  %47 = call i32 @PyObject_IsTrue(ptr noundef %46) #5
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %profiler_init_impl.exit, label %49
 
-48:                                               ; preds = %43, %42
-  %.041 = phi i32 [ %.1, %43 ], [ %40, %42 ]
-  %.0 = phi i32 [ %46, %43 ], [ 1, %42 ]
+49:                                               ; preds = %44, %42
+  %.041 = phi i32 [ %.1, %44 ], [ %40, %42 ]
+  %.0 = phi i32 [ %47, %44 ], [ 1, %42 ]
   %.041.fr = freeze i32 %.041
-  %49 = icmp eq i32 %.041.fr, 0
-  %spec.select = select i1 %49, i32 0, i32 2
+  %50 = icmp eq i32 %.041.fr, 0
+  %spec.select = select i1 %50, i32 0, i32 2
   %.0.fr = freeze i32 %.0
-  %50 = icmp eq i32 %.0.fr, 0
-  %spec.select94 = select i1 %50, i32 0, i32 4
-  %51 = or disjoint i32 %spec.select94, %spec.select
-  br label %.thread87
+  %51 = icmp eq i32 %.0.fr, 0
+  %spec.select93 = select i1 %51, i32 0, i32 4
+  %52 = or disjoint i32 %spec.select93, %spec.select
+  br label %.thread86
 
-.thread87:                                        ; preds = %34, %20, %.thread75, %48
-  %.0448393 = phi ptr [ %19, %48 ], [ null, %.thread75 ], [ %19, %20 ], [ %19, %34 ]
-  %.0428492 = phi double [ %.143, %48 ], [ 0.000000e+00, %.thread75 ], [ 0.000000e+00, %20 ], [ %.2, %34 ]
-  %.sink.i.i = phi i32 [ %51, %48 ], [ 6, %.thread75 ], [ 6, %20 ], [ 6, %34 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.in = load i32, ptr %52, align 8, !tbaa !26
-  %53 = and i32 %.in, -7
-  %.sink.i21.i = or disjoint i32 %53, %.sink.i.i
-  store i32 %.sink.i21.i, ptr %52, align 8, !tbaa !26
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %.0428492, ptr %54, align 8, !tbaa !51
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !48
-  %.not.i.i.i = icmp eq ptr %.0448393, null
-  br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %57
+.thread86:                                        ; preds = %34, %20, %.thread74, %49
+  %.0448292 = phi ptr [ %19, %49 ], [ null, %.thread74 ], [ %19, %20 ], [ %19, %34 ]
+  %.0428391 = phi double [ %.143, %49 ], [ 0.000000e+00, %.thread74 ], [ 0.000000e+00, %20 ], [ %.2, %34 ]
+  %.sink.i.i = phi i32 [ %52, %49 ], [ 6, %.thread74 ], [ 6, %20 ], [ 6, %34 ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.in = load i32, ptr %53, align 8, !tbaa !26
+  %54 = and i32 %.in, -7
+  %.sink.i21.i = or disjoint i32 %54, %.sink.i.i
+  store i32 %.sink.i21.i, ptr %53, align 8, !tbaa !26
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store double %.0428391, ptr %55, align 8, !tbaa !51
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %57 = load ptr, ptr %56, align 8, !tbaa !48
+  %.not.i.i.i = icmp eq ptr %.0448292, null
+  br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %58
 
-57:                                               ; preds = %.thread87
-  %58 = load i32, ptr %.0448393, align 8, !tbaa !9
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %_Py_XNewRef.exit.i, label %60
+58:                                               ; preds = %.thread86
+  %59 = load i32, ptr %.0448292, align 8, !tbaa !9
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %_Py_XNewRef.exit.i, label %61
 
-60:                                               ; preds = %57
-  %61 = add nuw i32 %58, 1
-  store i32 %61, ptr %.0448393, align 8, !tbaa !9
+61:                                               ; preds = %58
+  %62 = add nuw i32 %59, 1
+  store i32 %62, ptr %.0448292, align 8, !tbaa !9
   br label %_Py_XNewRef.exit.i
 
-_Py_XNewRef.exit.i:                               ; preds = %60, %57, %.thread87
-  store ptr %.0448393, ptr %55, align 8, !tbaa !48
-  %.not.i22.i = icmp eq ptr %56, null
-  br i1 %.not.i22.i, label %Py_XDECREF.exit.i, label %62
+_Py_XNewRef.exit.i:                               ; preds = %61, %58, %.thread86
+  store ptr %.0448292, ptr %56, align 8, !tbaa !48
+  %.not.i22.i = icmp eq ptr %57, null
+  br i1 %.not.i22.i, label %Py_XDECREF.exit.i, label %63
 
-62:                                               ; preds = %_Py_XNewRef.exit.i
-  %63 = load i32, ptr %56, align 8, !tbaa !9
-  %.not.i.i23.i = icmp sgt i32 %63, -1
-  br i1 %.not.i.i23.i, label %64, label %Py_XDECREF.exit.i
+63:                                               ; preds = %_Py_XNewRef.exit.i
+  %64 = load i32, ptr %57, align 8, !tbaa !9
+  %.not.i.i23.i = icmp sgt i32 %64, -1
+  br i1 %.not.i.i23.i, label %65, label %Py_XDECREF.exit.i
 
-64:                                               ; preds = %62
-  %65 = add nsw i32 %63, -1
-  store i32 %65, ptr %56, align 8, !tbaa !9
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %Py_XDECREF.exit.i
+65:                                               ; preds = %63
+  %66 = add nsw i32 %64, -1
+  store i32 %66, ptr %57, align 8, !tbaa !9
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %Py_XDECREF.exit.i
 
-67:                                               ; preds = %64
-  call void @_Py_Dealloc(ptr noundef nonnull %56) #5
+68:                                               ; preds = %65
+  call void @_Py_Dealloc(ptr noundef nonnull %57) #5
   br label %Py_XDECREF.exit.i
 
-Py_XDECREF.exit.i:                                ; preds = %67, %64, %62, %_Py_XNewRef.exit.i
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 2, ptr %68, align 8, !tbaa !52
-  %69 = call ptr @PyImport_ImportModuleAttrString(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #5
-  %.not.i = icmp eq ptr %69, null
-  br i1 %.not.i, label %profiler_init_impl.exit, label %70
+Py_XDECREF.exit.i:                                ; preds = %68, %65, %63, %_Py_XNewRef.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 2, ptr %69, align 8, !tbaa !52
+  %70 = call ptr @PyImport_ImportModuleAttrString(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #5
+  %.not.i = icmp eq ptr %70, null
+  br i1 %.not.i, label %profiler_init_impl.exit, label %71
 
-70:                                               ; preds = %Py_XDECREF.exit.i
-  %71 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %69, ptr noundef nonnull @.str.45) #5
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %71, ptr %72, align 8, !tbaa !53
-  %.not19.i = icmp eq ptr %71, null
-  %73 = load i32, ptr %69, align 8, !tbaa !9
-  %.not.i.i = icmp sgt i32 %73, -1
-  br i1 %.not.i.i, label %74, label %Py_DECREF.exit.i
+71:                                               ; preds = %Py_XDECREF.exit.i
+  %72 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %70, ptr noundef nonnull @.str.45) #5
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %72, ptr %73, align 8, !tbaa !53
+  %.not19.i = icmp eq ptr %72, null
+  %74 = load i32, ptr %70, align 8, !tbaa !9
+  %.not.i.i = icmp sgt i32 %74, -1
+  br i1 %.not.i.i, label %75, label %Py_DECREF.exit.i
 
-74:                                               ; preds = %70
-  %75 = add nsw i32 %73, -1
-  store i32 %75, ptr %69, align 8, !tbaa !9
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %Py_DECREF.exit.i
+75:                                               ; preds = %71
+  %76 = add nsw i32 %74, -1
+  store i32 %76, ptr %70, align 8, !tbaa !9
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %Py_DECREF.exit.i
 
-77:                                               ; preds = %74
-  call void @_Py_Dealloc(ptr noundef nonnull %69) #5
+78:                                               ; preds = %75
+  call void @_Py_Dealloc(ptr noundef nonnull %70) #5
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %77, %74, %70
+Py_DECREF.exit.i:                                 ; preds = %78, %75, %71
   %..i = sext i1 %.not19.i to i32
   br label %profiler_init_impl.exit
 
-profiler_init_impl.exit:                          ; preds = %Py_DECREF.exit.i, %Py_XDECREF.exit.i, %43, %39, %32, %12
-  %.048 = phi i32 [ -1, %39 ], [ -1, %43 ], [ -1, %32 ], [ -1, %12 ], [ -1, %Py_XDECREF.exit.i ], [ %..i, %Py_DECREF.exit.i ]
+profiler_init_impl.exit:                          ; preds = %Py_DECREF.exit.i, %Py_XDECREF.exit.i, %44, %39, %32, %12
+  %.048 = phi i32 [ -1, %39 ], [ -1, %44 ], [ -1, %32 ], [ -1, %12 ], [ -1, %Py_XDECREF.exit.i ], [ %..i, %Py_DECREF.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.048
 }
@@ -667,12 +667,12 @@ profiler_init_impl.exit:                          ; preds = %Py_DECREF.exit.i, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @profiler_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val22 = load ptr, ptr %4, align 8, !tbaa !3
-  %.not = icmp eq ptr %.val22, null
+  %.val21 = load ptr, ptr %4, align 8, !tbaa !3
+  %.not = icmp eq ptr %.val21, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val22, ptr noundef %2) #5
+  %6 = tail call i32 %1(ptr noundef nonnull %.val21, ptr noundef %2) #5
   %.not17.not = icmp eq i32 %6, 0
   br i1 %.not17.not, label %7, label %13
 
@@ -1383,8 +1383,8 @@ define internal noundef ptr @_lsprof_Profiler__ccall_callback(ptr noundef %0, pt
 
 PyObject_TypeCheck.exit.i.i:                      ; preds = %14
   %18 = tail call i32 @PyType_IsSubtype(ptr noundef %.val21.i.i, ptr noundef nonnull @PyCFunction_Type) #5
-  %.not31.i.i = icmp eq i32 %18, 0
-  br i1 %.not31.i.i, label %23, label %PyObject_TypeCheck.exit.thread.i.i
+  %.not30.i.i = icmp eq i32 %18, 0
+  br i1 %.not30.i.i, label %23, label %PyObject_TypeCheck.exit.thread.i.i
 
 PyObject_TypeCheck.exit.thread.i.i:               ; preds = %PyObject_TypeCheck.exit.i.i, %14
   %19 = load i32, ptr %8, align 8, !tbaa !9
@@ -1478,8 +1478,8 @@ define internal noundef ptr @_lsprof_Profiler__creturn_callback(ptr noundef %0, 
 
 PyObject_TypeCheck.exit.i.i:                      ; preds = %14
   %18 = tail call i32 @PyType_IsSubtype(ptr noundef %.val21.i.i, ptr noundef nonnull @PyCFunction_Type) #5
-  %.not31.i.i = icmp eq i32 %18, 0
-  br i1 %.not31.i.i, label %23, label %PyObject_TypeCheck.exit.thread.i.i
+  %.not30.i.i = icmp eq i32 %18, 0
+  br i1 %.not30.i.i, label %23, label %PyObject_TypeCheck.exit.thread.i.i
 
 PyObject_TypeCheck.exit.thread.i.i:               ; preds = %PyObject_TypeCheck.exit.i.i, %14
   %19 = load i32, ptr %8, align 8, !tbaa !9

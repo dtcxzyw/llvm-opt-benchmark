@@ -4452,8 +4452,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %29, %26, %17
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %36 = phi i32 [ %40, %.lr.ph.i ], [ %34, %.lr.ph.i.preheader ]
-  %.03140.i24 = phi i32 [ %37, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %37 = add i32 %36, %.03140.i24
+  %.03139.i24 = phi i32 [ %37, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %37 = add i32 %36, %.03139.i24
   %38 = icmp slt i32 %37, %23
   br i1 %38, label %.lr.ph.i, label %dissect_epath.exit
 
@@ -4485,8 +4485,8 @@ define hidden i32 @dissect_padded_epath_len_uint(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define hidden noundef ptr @cip_get_service_one_table(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #5 {
-  %.not19.not = icmp eq i64 %1, 0
-  br i1 %.not19.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = and i8 %3, 127
@@ -4494,7 +4494,7 @@ define hidden noundef ptr @cip_get_service_one_table(ptr noundef readonly captur
 
 6:                                                ; preds = %.lr.ph, %15
   %7 = phi i64 [ 0, %.lr.ph ], [ %17, %15 ]
-  %.01420 = phi i32 [ 0, %.lr.ph ], [ %16, %15 ]
+  %.01422 = phi i32 [ 0, %.lr.ph ], [ %16, %15 ]
   %8 = getelementptr %struct.cip_service_info, ptr %0, i64 %7
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %2
@@ -4507,14 +4507,14 @@ define hidden noundef ptr @cip_get_service_one_table(ptr noundef readonly captur
   br i1 %14, label %._crit_edge, label %15
 
 15:                                               ; preds = %6, %11
-  %16 = add i32 %.01420, 1
+  %16 = add i32 %.01422, 1
   %17 = zext i32 %16 to i64
-  %.not = icmp ugt i64 %1, %17
-  br i1 %.not, label %6, label %._crit_edge, !llvm.loop !14
+  %18 = icmp ugt i64 %1, %17
+  br i1 %18, label %6, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %15, %11, %4
-  %spec.select = phi ptr [ null, %4 ], [ %8, %11 ], [ null, %15 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %11, %15, %4
+  %19 = phi ptr [ null, %4 ], [ null, %15 ], [ %8, %11 ]
+  ret ptr %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -7098,23 +7098,23 @@ proto_item_set_hidden.exit:                       ; preds = %25, %22, %19, %18
 .lr.ph.preheader:                                 ; preds = %proto_item_set_hidden.exit
   %30 = tail call i32 @dissect_cip_segment_single(ptr noundef %1, ptr noundef %0, i32 noundef %4, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11, i1 noundef zeroext %12)
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread, label %.lr.ph50
+  br i1 %31, label %.thread, label %.lr.ph49
 
-.lr.ph50:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph49:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %32 = phi i32 [ %36, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0314049 = phi i32 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %33 = add i32 %32, %.0314049
+  %.0313948 = phi i32 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %33 = add i32 %32, %.0313948
   %34 = icmp slt i32 %33, %5
   br i1 %34, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.lr.ph50
+.lr.ph:                                           ; preds = %.lr.ph49
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.168)
   %35 = add i32 %33, %4
   %36 = tail call i32 @dissect_cip_segment_single(ptr noundef %1, ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11, i1 noundef zeroext %12)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread, label %.lr.ph50
+  br i1 %37, label %.thread, label %.lr.ph49
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph50, %.lr.ph.preheader, %proto_item_set_hidden.exit
+.thread:                                          ; preds = %.lr.ph, %.lr.ph49, %.lr.ph.preheader, %proto_item_set_hidden.exit
   ret void
 }
 
@@ -8458,8 +8458,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %148, %145, %142
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %154 = phi i32 [ %158, %.lr.ph.i ], [ %152, %.lr.ph.i.preheader ]
-  %.03140.i237 = phi i32 [ %155, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %155 = add nuw nsw i32 %154, %.03140.i237
+  %.03139.i237 = phi i32 [ %155, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %155 = add nuw nsw i32 %154, %.03139.i237
   %156 = icmp samesign ult i32 %155, %132
   br i1 %156, label %.lr.ph.i, label %dissect_epath.exit
 
@@ -8517,8 +8517,8 @@ dissect_epath.exit198.thread:                     ; preds = %proto_item_set_hidd
 
 .lr.ph239:                                        ; preds = %.lr.ph.i196.preheader, %.lr.ph.i196
   %177 = phi i32 [ %181, %.lr.ph.i196 ], [ %173, %.lr.ph.i196.preheader ]
-  %.03140.i197238 = phi i32 [ %178, %.lr.ph.i196 ], [ 0, %.lr.ph.i196.preheader ]
-  %178 = add nuw nsw i32 %177, %.03140.i197238
+  %.03139.i197238 = phi i32 [ %178, %.lr.ph.i196 ], [ 0, %.lr.ph.i196.preheader ]
+  %178 = add nuw nsw i32 %177, %.03139.i197238
   %179 = icmp samesign ult i32 %178, %132
   br i1 %179, label %.lr.ph.i196, label %dissect_epath.exit198
 
@@ -10082,8 +10082,8 @@ proto_item_set_generated.exit27:                  ; preds = %proto_item_set_gene
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %61 = phi i32 [ %64, %.lr.ph.i ], [ %59, %.lr.ph.i.preheader ]
-  %.03140.i30 = phi i32 [ %62, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %62 = add i32 %61, %.03140.i30
+  %.03139.i30 = phi i32 [ %62, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %62 = add i32 %61, %.03139.i30
   %63 = icmp slt i32 %62, %55
   br i1 %63, label %.lr.ph.i, label %dissect_epath.exit
 
@@ -11578,8 +11578,8 @@ proto_item_set_hidden.exit.i.i.i:                 ; preds = %608, %605, %558
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
   %614 = phi i32 [ %618, %.lr.ph.i.i.i ], [ %612, %.lr.ph.i.preheader.i.i ]
-  %.03140.i33.i.i = phi i32 [ %615, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %615 = add nuw nsw i32 %.03140.i33.i.i, %614
+  %.03139.i33.i.i = phi i32 [ %615, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %615 = add nuw nsw i32 %.03139.i33.i.i, %614
   %616 = icmp samesign ult i32 %615, %592
   br i1 %616, label %.lr.ph.i.i.i, label %dissect_epath.exit.i.i
 
@@ -11945,8 +11945,8 @@ proto_item_set_hidden.exit.i.i348.i:              ; preds = %813, %810, %792
 
 .lr.ph.i350.i:                                    ; preds = %.lr.ph.i.preheader.i349.i, %.lr.ph.i.i355.i
   %819 = phi i32 [ %823, %.lr.ph.i.i355.i ], [ %817, %.lr.ph.i.preheader.i349.i ]
-  %.03140.i63.i.i = phi i32 [ %820, %.lr.ph.i.i355.i ], [ 0, %.lr.ph.i.preheader.i349.i ]
-  %820 = add nuw nsw i32 %.03140.i63.i.i, %819
+  %.03139.i63.i.i = phi i32 [ %820, %.lr.ph.i.i355.i ], [ 0, %.lr.ph.i.preheader.i349.i ]
+  %820 = add nuw nsw i32 %.03139.i63.i.i, %819
   %821 = icmp samesign ult i32 %820, %796
   br i1 %821, label %.lr.ph.i.i355.i, label %dissect_epath.exit.i351.i
 
@@ -12031,8 +12031,8 @@ proto_item_set_hidden.exit.i358.i:                ; preds = %859, %856, %841
 
 .lr.ph365.i:                                      ; preds = %.lr.ph.i359.preheader.i, %.lr.ph.i359.i
   %865 = phi i32 [ %869, %.lr.ph.i359.i ], [ %863, %.lr.ph.i359.preheader.i ]
-  %.03140.i364.i = phi i32 [ %866, %.lr.ph.i359.i ], [ 0, %.lr.ph.i359.preheader.i ]
-  %866 = add nuw nsw i32 %.03140.i364.i, %865
+  %.03139.i364.i = phi i32 [ %866, %.lr.ph.i359.i ], [ 0, %.lr.ph.i359.preheader.i ]
+  %866 = add nuw nsw i32 %.03139.i364.i, %865
   %867 = icmp samesign ult i32 %866, %847
   br i1 %867, label %.lr.ph.i359.i, label %dissect_epath.exit.i
 
@@ -14159,8 +14159,8 @@ proto_item_set_generated.exit33:                  ; preds = %proto_item_set_gene
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %44 = phi i32 [ %47, %.lr.ph.i ], [ %42, %.lr.ph.i.preheader ]
-  %.03140.i35 = phi i32 [ %45, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %45 = add i32 %44, %.03140.i35
+  %.03139.i35 = phi i32 [ %45, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %45 = add i32 %44, %.03139.i35
   %46 = icmp slt i32 %45, %39
   br i1 %46, label %.lr.ph.i, label %dissect_epath.exit
 
@@ -14504,8 +14504,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %165, %162, %get_con
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %171 = phi i32 [ %175, %.lr.ph.i ], [ %169, %.lr.ph.i.preheader ]
-  %.03140.i136 = phi i32 [ %172, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %172 = add nuw nsw i32 %171, %.03140.i136
+  %.03139.i136 = phi i32 [ %172, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %172 = add nuw nsw i32 %171, %.03139.i136
   %173 = icmp samesign ult i32 %172, %152
   br i1 %173, label %.lr.ph.i, label %dissect_epath.exit
 
@@ -15058,8 +15058,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %107, %104, %6
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %113 = phi i32 [ %117, %.lr.ph.i ], [ %111, %.lr.ph.i.preheader ]
-  %.03140.i195 = phi i32 [ %114, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %114 = add nuw nsw i32 %113, %.03140.i195
+  %.03139.i195 = phi i32 [ %114, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %114 = add nuw nsw i32 %113, %.03139.i195
   %115 = icmp samesign ult i32 %114, %92
   br i1 %115, label %.lr.ph.i, label %dissect_epath.exit
 

@@ -254,8 +254,8 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %9
 14:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !78
-  %.not8085 = icmp eq ptr %16, null
-  br i1 %.not8085, label %.loopexit, label %.lr.ph
+  %.not7984 = icmp eq ptr %16, null
+  br i1 %.not7984, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %17 = and i64 %3, -16
@@ -264,19 +264,19 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %9
   %20 = and i64 %3, 7
   br label %21
 
-21:                                               ; preds = %.lr.ph, %.thread71
-  %.sroa.056.087 = phi ptr [ %16, %.lr.ph ], [ %78, %.thread71 ]
-  %.06386 = phi i32 [ 0, %.lr.ph ], [ %.265.ph, %.thread71 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.056.087, i64 28
+21:                                               ; preds = %.lr.ph, %.thread70
+  %.sroa.056.086 = phi ptr [ %16, %.lr.ph ], [ %78, %.thread70 ]
+  %.06385 = phi i32 [ 0, %.lr.ph ], [ %.265.ph, %.thread70 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.056.086, i64 28
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 127
   %25 = add nsw i32 %24, -50
   %26 = icmp ult i32 %25, -3
-  br i1 %26, label %.thread71, label %27
+  br i1 %26, label %.thread70, label %27
 
 27:                                               ; preds = %21
-  %28 = tail call noundef zeroext i1 @_ZNK5clang9FieldDecl24isAnonymousStructOrUnionEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.056.087) #19
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.056.087, i64 48
+  %28 = tail call noundef zeroext i1 @_ZNK5clang9FieldDecl24isAnonymousStructOrUnionEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.056.086) #19
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.056.086, i64 48
   br i1 %28, label %30, label %.preheader
 
 30:                                               ; preds = %27
@@ -293,8 +293,8 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %9
   br i1 %39, label %.loopexit.loopexit, label %40
 
 40:                                               ; preds = %30
-  %41 = add i32 %.06386, 1
-  br label %.thread71
+  %41 = add i32 %.06385, 1
+  br label %.thread70
 
 .preheader:                                       ; preds = %27, %.preheader
   %.sroa.0.0.in = phi ptr [ %48, %.preheader ], [ %29, %27 ]
@@ -305,15 +305,15 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %9
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 16
   %47 = icmp ne i8 %46, 24
-  %.not4382 = icmp eq ptr %44, null
-  %.not43 = or i1 %.not4382, %47
+  %.not4381 = icmp eq ptr %44, null
+  %.not43 = or i1 %.not4381, %47
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
   br i1 %.not43, label %49, label %.preheader
 
 49:                                               ; preds = %.preheader
   %50 = icmp ne i8 %46, 47
-  %.not44 = or i1 %.not4382, %50
-  br i1 %.not44, label %.thread71, label %51
+  %.not44 = or i1 %.not4381, %50
+  br i1 %.not44, label %.thread70, label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %44) #19
@@ -332,16 +332,16 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %9
 _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %51, %58
   %.0.i.i = phi ptr [ %59, %58 ], [ %57, %51 ]
   %60 = icmp eq ptr %.0.i.i, %.0.i
-  br i1 %60, label %61, label %.thread71
+  br i1 %60, label %61, label %.thread70
 
 61:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %63 = load i64, ptr %62, align 8, !tbaa !89
   %64 = and i64 %63, 7
   %65 = icmp ne i64 %64, 0
-  %.not4584 = icmp ult i64 %63, 8
-  %.not45 = or i1 %.not4584, %65
-  br i1 %.not45, label %66, label %.thread71
+  %.not4583 = icmp ult i64 %63, 8
+  %.not45 = or i1 %.not4583, %65
+  br i1 %.not45, label %66, label %.thread70
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -354,20 +354,20 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %51, %58
   br i1 %73, label %.loopexit.loopexit, label %74
 
 74:                                               ; preds = %66
-  %75 = add i32 %.06386, 1
-  br label %.thread71
+  %75 = add i32 %.06385, 1
+  br label %.thread70
 
-.thread71:                                        ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %61, %40, %21, %74, %49
-  %.265.ph = phi i32 [ %.06386, %49 ], [ %75, %74 ], [ %41, %40 ], [ %.06386, %21 ], [ %.06386, %61 ], [ %.06386, %_ZNK5clang4Decl14getDeclContextEv.exit ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.056.087, i64 8
+.thread70:                                        ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %61, %40, %21, %74, %49
+  %.265.ph = phi i32 [ %.06385, %49 ], [ %75, %74 ], [ %41, %40 ], [ %.06385, %21 ], [ %.06385, %61 ], [ %.06385, %_ZNK5clang4Decl14getDeclContextEv.exit ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.056.086, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %76, align 8
   %77 = and i64 %.0.copyload.i.i.i.i.i, -8
   %78 = inttoptr i64 %77 to ptr
-  %.not80 = icmp eq i64 %77, 0
-  br i1 %.not80, label %.loopexit.loopexit, label %21
+  %.not79 = icmp eq i64 %77, 0
+  br i1 %.not79, label %.loopexit.loopexit, label %21
 
-.loopexit.loopexit:                               ; preds = %.thread71, %66, %30
-  %.sroa.061.0.ph = phi i32 [ %.265.ph, %.thread71 ], [ %.06386, %66 ], [ %.06386, %30 ]
+.loopexit.loopexit:                               ; preds = %.thread70, %66, %30
+  %.sroa.061.0.ph = phi i32 [ %.265.ph, %.thread70 ], [ %.06385, %66 ], [ %.06385, %30 ]
   %79 = zext i32 %.sroa.061.0.ph to i64
   br label %.loopexit
 
@@ -1847,35 +1847,35 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %8 = alloca %"class.llvm::detail::zip_longest_iterator", align 8
   %9 = icmp ne ptr %1, null
   %10 = icmp ne ptr %2, null
-  %or.cond159 = and i1 %9, %10
-  br i1 %or.cond159, label %.lr.ph, label %tailrecurse._crit_edge
+  %or.cond156 = and i1 %9, %10
+  br i1 %or.cond156, label %.lr.ph, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %3
-  %.tr153.lcssa = phi ptr [ %1, %3 ], [ %.tr153.be, %tailrecurse.backedge ]
-  %.tr154.lcssa = phi ptr [ %2, %3 ], [ %.tr154.be, %tailrecurse.backedge ]
-  %11 = icmp eq ptr %.tr153.lcssa, %.tr154.lcssa
+  %.tr150.lcssa = phi ptr [ %1, %3 ], [ %.tr150.be, %tailrecurse.backedge ]
+  %.tr151.lcssa = phi ptr [ %2, %3 ], [ %.tr151.be, %tailrecurse.backedge ]
+  %11 = icmp eq ptr %.tr150.lcssa, %.tr151.lcssa
   br label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
 .lr.ph:                                           ; preds = %3, %tailrecurse.backedge
-  %.tr154161 = phi ptr [ %.tr154.be, %tailrecurse.backedge ], [ %2, %3 ]
-  %.tr153160 = phi ptr [ %.tr153.be, %tailrecurse.backedge ], [ %1, %3 ]
-  %12 = load i16, ptr %.tr154161, align 8
+  %.tr151158 = phi ptr [ %.tr151.be, %tailrecurse.backedge ], [ %2, %3 ]
+  %.tr150157 = phi ptr [ %.tr150.be, %tailrecurse.backedge ], [ %1, %3 ]
+  %12 = load i16, ptr %.tr151158, align 8
   %13 = and i16 %12, 511
   %.not = icmp eq i16 %13, 93
-  %.pre = load i16, ptr %.tr153160, align 8
+  %.pre = load i16, ptr %.tr150157, align 8
   %14 = and i16 %.pre, 511
   br i1 %.not, label %15, label %select.unfold
 
 15:                                               ; preds = %.lr.ph
-  %.not163 = icmp eq i16 %14, 4
-  br i1 %.not163, label %16, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
+  %.not160 = icmp eq i16 %14, 4
+  br i1 %.not160, label %16, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 16:                                               ; preds = %15
-  %17 = load i32, ptr %.tr153160, align 8
+  %17 = load i32, ptr %.tr150157, align 8
   %18 = lshr i32 %17, 19
   %19 = and i32 %18, 31
   %20 = tail call noundef i32 @_ZN5clang13UnaryOperator21getOverloadedOperatorENS_17UnaryOperatorKindE(i32 noundef %19) #19
-  %21 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 4
   %22 = load i8, ptr %21, align 4
   %23 = and i8 %22, 63
   %24 = zext nneg i8 %23 to i32
@@ -1883,11 +1883,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   br i1 %25, label %26, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 16
-  %28 = load i32, ptr %.tr154161, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 16
+  %28 = load i32, ptr %.tr151158, align 8
   %29 = lshr i32 %28, 24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = lshr i32 %28, 19
   %34 = and i32 %33, 1
@@ -1896,26 +1896,26 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %26, %64, %86, %121
-  %.tr153.be.in = phi ptr [ %27, %26 ], [ %65, %64 ], [ %95, %86 ], [ %130, %121 ]
-  %.tr154.be.in = phi ptr [ %36, %26 ], [ %74, %64 ], [ %96, %86 ], [ %131, %121 ]
-  %.tr154.be = load ptr, ptr %.tr154.be.in, align 8, !tbaa !209
-  %.tr153.be = load ptr, ptr %.tr153.be.in, align 8, !tbaa !209
-  %37 = icmp ne ptr %.tr153.be, null
-  %38 = icmp ne ptr %.tr154.be, null
+  %.tr150.be.in = phi ptr [ %27, %26 ], [ %65, %64 ], [ %95, %86 ], [ %130, %121 ]
+  %.tr151.be.in = phi ptr [ %36, %26 ], [ %74, %64 ], [ %96, %86 ], [ %131, %121 ]
+  %.tr151.be = load ptr, ptr %.tr151.be.in, align 8, !tbaa !209
+  %.tr150.be = load ptr, ptr %.tr150.be.in, align 8, !tbaa !209
+  %37 = icmp ne ptr %.tr150.be, null
+  %38 = icmp ne ptr %.tr151.be, null
   %or.cond = and i1 %38, %37
   br i1 %or.cond, label %.lr.ph, label %tailrecurse._crit_edge
 
 _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit: ; preds = %15
   %39 = and i16 %.pre, 510
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %39, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %40, label %select.unfold124
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %40, label %select.unfold122
 
 40:                                               ; preds = %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
-  %41 = load i32, ptr %.tr153160, align 8
+  %41 = load i32, ptr %.tr150157, align 8
   %42 = lshr i32 %41, 19
   %43 = and i32 %42, 63
   %44 = tail call noundef i32 @_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE(i32 noundef %43) #19
-  %45 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 4
   %46 = load i8, ptr %45, align 4
   %47 = and i8 %46, 63
   %48 = zext nneg i8 %47 to i32
@@ -1923,12 +1923,12 @@ _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13Unary
   br i1 %49, label %50, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !210
-  %53 = load i32, ptr %.tr154161, align 8
+  %53 = load i32, ptr %.tr151158, align 8
   %54 = lshr i32 %53, 24
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = lshr i32 %53, 19
   %59 = and i32 %58, 1
@@ -1939,11 +1939,11 @@ _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13Unary
   br i1 %63, label %64, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
 64:                                               ; preds = %50
-  %65 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 24
-  %66 = load i32, ptr %.tr154161, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 24
+  %66 = load i32, ptr %.tr151158, align 8
   %67 = lshr i32 %66, 24
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 %68
   %70 = lshr i32 %66, 19
   %71 = and i32 %70, 1
   %72 = zext nneg i32 %71 to i64
@@ -1952,19 +1952,19 @@ _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13Unary
   br label %tailrecurse.backedge
 
 select.unfold:                                    ; preds = %.lr.ph
-  %.not164 = icmp eq i16 %14, 93
-  br i1 %.not164, label %75, label %select.unfold124
+  %.not161 = icmp eq i16 %14, 93
+  br i1 %.not161, label %75, label %select.unfold122
 
 75:                                               ; preds = %select.unfold
-  %.not165 = icmp eq i16 %13, 4
-  br i1 %.not165, label %76, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_19CXXOperatorCallExprEPKNS_13UnaryOperatorE.exit
+  %.not162 = icmp eq i16 %13, 4
+  br i1 %.not162, label %76, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_19CXXOperatorCallExprEPKNS_13UnaryOperatorE.exit
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 4
   %78 = load i8, ptr %77, align 4
   %79 = and i8 %78, 63
   %80 = zext nneg i8 %79 to i32
-  %81 = load i32, ptr %.tr154161, align 8
+  %81 = load i32, ptr %.tr151158, align 8
   %82 = lshr i32 %81, 19
   %83 = and i32 %82, 31
   %84 = tail call noundef i32 @_ZN5clang13UnaryOperator21getOverloadedOperatorENS_17UnaryOperatorKindE(i32 noundef %83) #19
@@ -1972,29 +1972,29 @@ select.unfold:                                    ; preds = %.lr.ph
   br i1 %85, label %86, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
 86:                                               ; preds = %76
-  %87 = load i32, ptr %.tr153160, align 8
+  %87 = load i32, ptr %.tr150157, align 8
   %88 = lshr i32 %87, 24
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = lshr i32 %87, 19
   %93 = and i32 %92, 1
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 16
   br label %tailrecurse.backedge
 
 _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_19CXXOperatorCallExprEPKNS_13UnaryOperatorE.exit: ; preds = %75
   %.old = and i16 %12, 510
-  %spec.select.i.i.i.i.i.i.i.i81.not.old = icmp eq i16 %.old, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i81.not.old, label %97, label %select.unfold124
+  %spec.select.i.i.i.i.i.i.i.i80.not.old = icmp eq i16 %.old, 120
+  br i1 %spec.select.i.i.i.i.i.i.i.i80.not.old, label %97, label %select.unfold122
 
 97:                                               ; preds = %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_19CXXOperatorCallExprEPKNS_13UnaryOperatorE.exit
-  %98 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 4
   %99 = load i8, ptr %98, align 4
   %100 = and i8 %99, 63
   %101 = zext nneg i8 %100 to i32
-  %102 = load i32, ptr %.tr154161, align 8
+  %102 = load i32, ptr %.tr151158, align 8
   %103 = lshr i32 %102, 19
   %104 = and i32 %103, 63
   %105 = tail call noundef i32 @_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE(i32 noundef %104) #19
@@ -2002,45 +2002,45 @@ _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_19CXXOp
   br i1 %106, label %107, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
 107:                                              ; preds = %97
-  %108 = load i32, ptr %.tr153160, align 8
+  %108 = load i32, ptr %.tr150157, align 8
   %109 = lshr i32 %108, 24
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = lshr i32 %108, 19
   %114 = and i32 %113, 1
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds nuw ptr, ptr %112, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !211
-  %118 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !210
   %120 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %117, ptr noundef %119)
   br i1 %120, label %121, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
 121:                                              ; preds = %107
-  %122 = load i32, ptr %.tr153160, align 8
+  %122 = load i32, ptr %.tr150157, align 8
   %123 = lshr i32 %122, 24
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 %124
   %126 = lshr i32 %122, 19
   %127 = and i32 %126, 1
   %128 = zext nneg i32 %127 to i64
   %129 = getelementptr inbounds nuw ptr, ptr %125, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 24
   br label %tailrecurse.backedge
 
-select.unfold124:                                 ; preds = %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_19CXXOperatorCallExprEPKNS_13UnaryOperatorE.exit, %select.unfold
+select.unfold122:                                 ; preds = %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_19CXXOperatorCallExprEPKNS_13UnaryOperatorE.exit, %select.unfold
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !212
-  %132 = load i16, ptr %.tr153160, align 8
+  %132 = load i16, ptr %.tr150157, align 8
   %133 = and i16 %132, 511
-  %134 = load i16, ptr %.tr154161, align 8
+  %134 = load i16, ptr %.tr151158, align 8
   %135 = and i16 %134, 511
   %.not.i = icmp eq i16 %133, %135
-  br i1 %.not.i, label %136, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %.not.i, label %136, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
-136:                                              ; preds = %select.unfold124
+136:                                              ; preds = %select.unfold122
   switch i16 %133, label %444 [
     i16 256, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread
     i16 1, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread
@@ -2301,683 +2301,683 @@ select.unfold124:                                 ; preds = %_ZL24IsStructurally
   ]
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i85 = load i64, ptr %138, align 8, !tbaa !82
-  %139 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i86 = load i64, ptr %139, align 8, !tbaa !82
-  %140 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i85, i64 %.sroa.0.0.copyload.i4.i86)
-  br i1 %140, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %138 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i84 = load i64, ptr %138, align 8, !tbaa !82
+  %139 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i85 = load i64, ptr %139, align 8, !tbaa !82
+  %140 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i84, i64 %.sroa.0.0.copyload.i4.i85)
+  br i1 %140, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 141:                                              ; preds = %136
-  %142 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %142, align 8, !tbaa !82
-  %143 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
   %.sroa.0.0.copyload.i4.i.i = load i64, ptr %143, align 8, !tbaa !82
   %144 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i, i64 %.sroa.0.0.copyload.i4.i.i)
-  br i1 %144, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %144, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit: ; preds = %141
-  %.val.i185 = load i32, ptr %.tr153160, align 8
-  %.val6.i = load i32, ptr %.tr154161, align 8
-  %145 = xor i32 %.val6.i, %.val.i185
+  %.val.i182 = load i32, ptr %.tr150157, align 8
+  %.val6.i = load i32, ptr %.tr151158, align 8
+  %145 = xor i32 %.val6.i, %.val.i182
   %146 = and i32 %145, 16252928
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %147, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 148:                                              ; preds = %136
-  %149 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24UnaryExprOrTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %149, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %149 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24UnaryExprOrTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %149, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 150:                                              ; preds = %136
-  %151 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8TypoExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %151, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %151 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8TypoExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %151, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 152:                                              ; preds = %136
-  %153 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13TypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %153, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %153 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13TypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %153, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 154:                                              ; preds = %136
-  %155 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang32SubstNonTypeTemplateParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %155, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %155 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang32SubstNonTypeTemplateParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %155, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 156:                                              ; preds = %136
-  %157 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang28SubstNonTypeTemplateParmExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %157, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %157 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang28SubstNonTypeTemplateParmExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %157, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 158:                                              ; preds = %136
-  %159 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13StringLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %159, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %159 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13StringLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %159, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 160:                                              ; preds = %136
-  %161 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i.i186 = load i64, ptr %161, align 8, !tbaa !82
-  %162 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i.i187 = load i64, ptr %162, align 8, !tbaa !82
-  %163 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i186, i64 %.sroa.0.0.copyload.i4.i.i187)
-  br i1 %163, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %161 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i.i183 = load i64, ptr %161, align 8, !tbaa !82
+  %162 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i.i184 = load i64, ptr %162, align 8, !tbaa !82
+  %163 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i183, i64 %.sroa.0.0.copyload.i4.i.i184)
+  br i1 %163, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit: ; preds = %160
-  %164 = getelementptr i8, ptr %.tr153160, i64 4
-  %.val.i189 = load i32, ptr %164, align 4, !tbaa !82
-  %165 = getelementptr i8, ptr %.tr154161, i64 4
-  %.val6.i190 = load i32, ptr %165, align 4, !tbaa !82
-  %166 = icmp eq i32 %.val.i189, %.val6.i190
-  br i1 %166, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %164 = getelementptr i8, ptr %.tr150157, i64 4
+  %.val.i186 = load i32, ptr %164, align 4, !tbaa !82
+  %165 = getelementptr i8, ptr %.tr151158, i64 4
+  %.val6.i187 = load i32, ptr %165, align 4, !tbaa !82
+  %166 = icmp eq i32 %.val.i186, %.val6.i187
+  br i1 %166, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 167:                                              ; preds = %136
-  %168 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i.i191 = load i64, ptr %168, align 8, !tbaa !82
-  %169 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i.i192 = load i64, ptr %169, align 8, !tbaa !82
-  %170 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i191, i64 %.sroa.0.0.copyload.i4.i.i192)
-  br i1 %170, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %168 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i.i188 = load i64, ptr %168, align 8, !tbaa !82
+  %169 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i.i189 = load i64, ptr %169, align 8, !tbaa !82
+  %170 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i188, i64 %.sroa.0.0.copyload.i4.i.i189)
+  br i1 %170, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit: ; preds = %167
-  %.val.i194 = load i24, ptr %.tr153160, align 8
-  %.val6.i195 = load i24, ptr %.tr154161, align 8
-  %171 = xor i24 %.val6.i195, %.val.i194
+  %.val.i191 = load i24, ptr %.tr150157, align 8
+  %.val6.i192 = load i24, ptr %.tr151158, align 8
+  %171 = xor i24 %.val6.i192, %.val.i191
   %172 = and i24 %171, 3670016
   %173 = icmp eq i24 %172, 0
-  br i1 %173, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %173, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 174:                                              ; preds = %136
-  %175 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14SizeOfPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %175, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %175 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14SizeOfPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %175, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 176:                                              ; preds = %136
-  %177 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ShuffleVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %177, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %177 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ShuffleVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %177, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 178:                                              ; preds = %136
-  %179 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24SYCLUniqueStableNameExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %179, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %179 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24SYCLUniqueStableNameExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %179, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 180:                                              ; preds = %136
-  %181 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26ResolvedUnexpandedPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %181, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %181 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26ResolvedUnexpandedPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %181, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 182:                                              ; preds = %136
-  %183 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RequiresExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %183, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %183 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RequiresExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %183, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 184:                                              ; preds = %136
-  %185 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RecoveryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %185, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %185 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RecoveryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %185, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 186:                                              ; preds = %136
-  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PseudoObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %187, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PseudoObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %187, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 188:                                              ; preds = %136
-  %189 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14PredefinedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %189, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %189 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14PredefinedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %189, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 190:                                              ; preds = %136
-  %191 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ParenListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %191, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %191 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ParenListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %191, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 192:                                              ; preds = %136
-  %193 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9ParenExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %193, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %193 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9ParenExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %193, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 194:                                              ; preds = %136
-  %195 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PackIndexingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %195, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %195 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PackIndexingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %195, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 196:                                              ; preds = %136
-  %197 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17PackExpansionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %197, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %197 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17PackExpansionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %197, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 198:                                              ; preds = %136
-  %199 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %199, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %199 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %199, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 200:                                              ; preds = %136
-  %201 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedLookupExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %201, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %201 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedLookupExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %201, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 202:                                              ; preds = %136
-  %203 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23OpenACCAsteriskSizeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %203, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %203 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23OpenACCAsteriskSizeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %203, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 204:                                              ; preds = %136
-  %205 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OpaqueValueExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %205, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %205 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OpaqueValueExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %205, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 206:                                              ; preds = %136
-  %207 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OffsetOfExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %207, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %207 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OffsetOfExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %207, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 208:                                              ; preds = %136
-  %209 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ObjCSubscriptRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %209, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %209 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ObjCSubscriptRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %209, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 210:                                              ; preds = %136
-  %211 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i83 = load i64, ptr %211, align 8, !tbaa !82
-  %212 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i84 = load i64, ptr %212, align 8, !tbaa !82
-  %213 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i83, i64 %.sroa.0.0.copyload.i4.i84)
-  br i1 %213, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %211 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i82 = load i64, ptr %211, align 8, !tbaa !82
+  %212 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i83 = load i64, ptr %212, align 8, !tbaa !82
+  %213 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i82, i64 %.sroa.0.0.copyload.i4.i83)
+  br i1 %213, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 214:                                              ; preds = %136
-  %215 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCSelectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %215, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %215 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCSelectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %215, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 216:                                              ; preds = %136
-  %217 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCProtocolExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %217, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %217 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCProtocolExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %217, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 218:                                              ; preds = %136
-  %219 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %219, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %219 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %219, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 220:                                              ; preds = %136
-  %221 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCMessageExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %221, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %221 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCMessageExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %221, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 222:                                              ; preds = %136
-  %223 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCIvarRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %223, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %223 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCIvarRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %223, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 224:                                              ; preds = %136
-  %225 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11ObjCIsaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %225, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %225 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11ObjCIsaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %225, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 226:                                              ; preds = %136
-  %227 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27ObjCIndirectCopyRestoreExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %227, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %227 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27ObjCIndirectCopyRestoreExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %227, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 228:                                              ; preds = %136
-  %229 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14ObjCEncodeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %229, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %229 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14ObjCEncodeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %229, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 230:                                              ; preds = %136
-  %231 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ObjCDictionaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %231, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %231 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ObjCDictionaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %231, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 232:                                              ; preds = %136
-  %233 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ObjCBoxedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %233, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %233 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ObjCBoxedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %233, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 234:                                              ; preds = %136
-  %235 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBoolLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %235, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %235 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBoolLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %235, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 236:                                              ; preds = %136
-  %237 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ObjCAvailabilityCheckExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %237, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %237 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ObjCAvailabilityCheckExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %237, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 238:                                              ; preds = %136
-  %239 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCArrayLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %239, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %239 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCArrayLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %239, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 240:                                              ; preds = %136
-  %241 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OMPIteratorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %241, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %241 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OMPIteratorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %241, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 242:                                              ; preds = %136
-  %243 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19OMPArrayShapingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %243, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %243 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19OMPArrayShapingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %243, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 244:                                              ; preds = %136
-  %245 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10NoInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %245, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %245 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10NoInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %245, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 246:                                              ; preds = %136
-  %247 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10MemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %247, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %247 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10MemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %247, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 248:                                              ; preds = %136
-  %249 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19MatrixSubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %249, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %249 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19MatrixSubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %249, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 250:                                              ; preds = %136
-  %251 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24MaterializeTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %251, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %251 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24MaterializeTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %251, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 252:                                              ; preds = %136
-  %253 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23MSPropertySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %253, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %253 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23MSPropertySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %253, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 254:                                              ; preds = %136
-  %255 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17MSPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %255, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %255 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17MSPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %255, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 256:                                              ; preds = %136
-  %257 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10LambdaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %257, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %257 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10LambdaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %257, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 258:                                              ; preds = %136
-  %259 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14IntegerLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %259, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %259 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14IntegerLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %259, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 260:                                              ; preds = %136
-  %261 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12InitListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %261, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %261 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12InitListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %261, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 262:                                              ; preds = %136
-  %263 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ImplicitValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %263, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %263 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ImplicitValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %263, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 264:                                              ; preds = %136
-  %265 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImaginaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %265, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %265 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImaginaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %265, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 266:                                              ; preds = %136
-  %267 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14HLSLOutArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %267, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %267 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14HLSLOutArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %267, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 268:                                              ; preds = %136
-  %269 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20GenericSelectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %269, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %269 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20GenericSelectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %269, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 270:                                              ; preds = %136
-  %271 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11GNUNullExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %271, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %271 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11GNUNullExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %271, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 272:                                              ; preds = %136
-  %273 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20FunctionParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %273, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %273 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20FunctionParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %273, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 274:                                              ; preds = %136
-  %275 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExprWithCleanupsES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %275, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %275 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExprWithCleanupsES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %275, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 276:                                              ; preds = %136
-  %277 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12ConstantExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %277, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %277 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12ConstantExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %277, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 278:                                              ; preds = %136
-  %279 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15FloatingLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %279, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %279 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15FloatingLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %279, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 280:                                              ; preds = %136
-  %281 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17FixedPointLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %281, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %281 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17FixedPointLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %281, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 282:                                              ; preds = %136
-  %283 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ExtVectorElementExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %283, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %283 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ExtVectorElementExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %283, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 284:                                              ; preds = %136
-  %285 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i.i196 = load i64, ptr %285, align 8, !tbaa !82
-  %286 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i.i197 = load i64, ptr %286, align 8, !tbaa !82
-  %287 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i196, i64 %.sroa.0.0.copyload.i4.i.i197)
-  br i1 %287, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %285 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i.i193 = load i64, ptr %285, align 8, !tbaa !82
+  %286 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i.i194 = load i64, ptr %286, align 8, !tbaa !82
+  %287 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i193, i64 %.sroa.0.0.copyload.i4.i.i194)
+  br i1 %287, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit: ; preds = %284
-  %288 = getelementptr i8, ptr %.tr153160, i64 16
-  %.val.i199 = load i32, ptr %288, align 8
-  %289 = getelementptr i8, ptr %.tr154161, i64 16
-  %.val6.i200 = load i32, ptr %289, align 8
-  %290 = icmp eq i32 %.val6.i200, %.val.i199
-  br i1 %290, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %288 = getelementptr i8, ptr %.tr150157, i64 16
+  %.val.i196 = load i32, ptr %288, align 8
+  %289 = getelementptr i8, ptr %.tr151158, i64 16
+  %.val6.i197 = load i32, ptr %289, align 8
+  %290 = icmp eq i32 %.val6.i197, %.val.i196
+  br i1 %290, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 291:                                              ; preds = %136
-  %292 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9EmbedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %292, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %292 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9EmbedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %292, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 293:                                              ; preds = %136
-  %294 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24DesignatedInitUpdateExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %294, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %294 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24DesignatedInitUpdateExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %294, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 295:                                              ; preds = %136
-  %296 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18DesignatedInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %296, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %296 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18DesignatedInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %296, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 297:                                              ; preds = %136
-  %298 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25DependentScopeDeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %298, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %298 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25DependentScopeDeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %298, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 299:                                              ; preds = %136
-  %300 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20DependentCoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %300, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %300 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20DependentCoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %300, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 301:                                              ; preds = %136
-  %302 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11DeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %302, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %302 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11DeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %302, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 303:                                              ; preds = %136
-  %304 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoyieldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %304, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %304 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoyieldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %304, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 305:                                              ; preds = %136
-  %306 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %306, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %306 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %306, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 307:                                              ; preds = %136
-  %308 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ConvertVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %308, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %308 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ConvertVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %308, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 309:                                              ; preds = %136
-  %310 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ConceptSpecializationExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %310, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %310 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ConceptSpecializationExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %310, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 311:                                              ; preds = %136
-  %312 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CompoundLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %312, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %312 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CompoundLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %312, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 313:                                              ; preds = %136
-  %314 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CharacterLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %314, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %314 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CharacterLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %314, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 315:                                              ; preds = %136
-  %316 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImplicitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %316, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %316 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImplicitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %316, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 317:                                              ; preds = %136
-  %318 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBridgedCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %318, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %318 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBridgedCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %318, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 319:                                              ; preds = %136
-  %320 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXStaticCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %320, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %320 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXStaticCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %320, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 321:                                              ; preds = %136
-  %322 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXReinterpretCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %322, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %322 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXReinterpretCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %322, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 323:                                              ; preds = %136
-  %324 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDynamicCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %324, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %324 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDynamicCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %324, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 325:                                              ; preds = %136
-  %326 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %326, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %326 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %326, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 327:                                              ; preds = %136
-  %328 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXAddrspaceCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %328, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %328 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXAddrspaceCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %328, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 329:                                              ; preds = %136
-  %330 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXFunctionalCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %330, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %330 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXFunctionalCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %330, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 331:                                              ; preds = %136
-  %332 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14CStyleCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %332, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %332 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14CStyleCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %332, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 333:                                              ; preds = %136
-  %334 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18BuiltinBitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %334, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %334 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18BuiltinBitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %334, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 335:                                              ; preds = %136
-  %336 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8CallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %336, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %336 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8CallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %336, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 337:                                              ; preds = %136
-  %338 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18UserDefinedLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %338, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %338 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18UserDefinedLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %338, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 339:                                              ; preds = %136
-  %340 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CXXOperatorCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %340, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %340 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CXXOperatorCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %340, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 341:                                              ; preds = %136
-  %342 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXMemberCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %342, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %342 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXMemberCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %342, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 343:                                              ; preds = %136
-  %344 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CUDAKernelCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %344, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %344 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CUDAKernelCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %344, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 345:                                              ; preds = %136
-  %346 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXUuidofExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %346, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %346 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXUuidofExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %346, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 347:                                              ; preds = %136
-  %348 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXUnresolvedConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %348, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %348 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXUnresolvedConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %348, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 349:                                              ; preds = %136
-  %350 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXTypeidExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %350, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %350 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXTypeidExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %350, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 351:                                              ; preds = %136
-  %352 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12CXXThrowExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %352, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %352 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12CXXThrowExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %352, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 353:                                              ; preds = %136
-  %354 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXThisExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %354, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %354 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXThisExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %354, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 355:                                              ; preds = %136
-  %356 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25CXXStdInitializerListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %356, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %356 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25CXXStdInitializerListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %356, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 357:                                              ; preds = %136
-  %358 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXScalarValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %358, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %358 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXScalarValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %358, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 359:                                              ; preds = %136
-  %360 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXRewrittenBinaryOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %360, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %360 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXRewrittenBinaryOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %360, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 361:                                              ; preds = %136
-  %362 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23CXXPseudoDestructorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %362, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %362 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23CXXPseudoDestructorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %362, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 363:                                              ; preds = %136
-  %364 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXParenListInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %364, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %364 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXParenListInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %364, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 365:                                              ; preds = %136
-  %366 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXNullPtrLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %366, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %366 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXNullPtrLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %366, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 367:                                              ; preds = %136
-  %368 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15CXXNoexceptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %368, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %368 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15CXXNoexceptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %368, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 369:                                              ; preds = %136
-  %370 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10CXXNewExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %370, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %370 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10CXXNewExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %370, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 371:                                              ; preds = %136
-  %372 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24CXXInheritedCtorInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %372, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %372 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24CXXInheritedCtorInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %372, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 373:                                              ; preds = %136
-  %374 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXFoldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %374, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %374 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXFoldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %374, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 375:                                              ; preds = %136
-  %376 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27CXXDependentScopeMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %376, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %376 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27CXXDependentScopeMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %376, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 377:                                              ; preds = %136
-  %378 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXDeleteExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %378, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %378 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXDeleteExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %378, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 379:                                              ; preds = %136
-  %380 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDefaultInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %380, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %380 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDefaultInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %380, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 381:                                              ; preds = %136
-  %382 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXDefaultArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %382, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %382 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXDefaultArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %382, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 383:                                              ; preds = %136
-  %384 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %384, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %384 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %384, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 385:                                              ; preds = %136
-  %386 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXTemporaryObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %386, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %386 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXTemporaryObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %386, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 387:                                              ; preds = %136
-  %388 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i.i201 = load i64, ptr %388, align 8, !tbaa !82
-  %389 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i.i202 = load i64, ptr %389, align 8, !tbaa !82
-  %390 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i201, i64 %.sroa.0.0.copyload.i4.i.i202)
-  br i1 %390, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %388 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i.i198 = load i64, ptr %388, align 8, !tbaa !82
+  %389 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i.i199 = load i64, ptr %389, align 8, !tbaa !82
+  %390 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i198, i64 %.sroa.0.0.copyload.i4.i.i199)
+  br i1 %390, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit: ; preds = %387
-  %.val.i204 = load i32, ptr %.tr153160, align 8
-  %.val6.i205 = load i32, ptr %.tr154161, align 8
-  %391 = xor i32 %.val6.i205, %.val.i204
+  %.val.i201 = load i32, ptr %.tr150157, align 8
+  %.val6.i202 = load i32, ptr %.tr151158, align 8
+  %391 = xor i32 %.val6.i202, %.val.i201
   %392 = and i32 %391, 524288
   %.not.i.i = icmp eq i32 %392, 0
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 393:                                              ; preds = %136
-  %394 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXBindTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %394, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %394 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXBindTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %394, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 395:                                              ; preds = %136
-  %396 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9BlockExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %396, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %396 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9BlockExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %396, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 397:                                              ; preds = %136
-  %398 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i.i206 = load i64, ptr %398, align 8, !tbaa !82
-  %399 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i.i207 = load i64, ptr %399, align 8, !tbaa !82
-  %400 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i206, i64 %.sroa.0.0.copyload.i4.i.i207)
-  br i1 %400, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %398 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i.i203 = load i64, ptr %398, align 8, !tbaa !82
+  %399 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i.i204 = load i64, ptr %399, align 8, !tbaa !82
+  %400 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i203, i64 %.sroa.0.0.copyload.i4.i.i204)
+  br i1 %400, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit: ; preds = %397
-  %.val.i209 = load i32, ptr %.tr153160, align 8
-  %.val6.i210 = load i32, ptr %.tr154161, align 8
-  %401 = xor i32 %.val6.i210, %.val.i209
+  %.val.i206 = load i32, ptr %.tr150157, align 8
+  %.val6.i207 = load i32, ptr %.tr151158, align 8
+  %401 = xor i32 %.val6.i207, %.val.i206
   %402 = and i32 %401, 33030144
   %403 = icmp eq i32 %402, 0
-  br i1 %403, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %403, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 404:                                              ; preds = %136
-  %405 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
+  %405 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
   %.sroa.0.0.copyload.i7.i = load i64, ptr %405, align 8, !tbaa !82
-  %406 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i.i211 = load i64, ptr %406, align 8, !tbaa !82
-  %407 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i7.i, i64 %.sroa.0.0.copyload.i.i211)
-  br i1 %407, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %406 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i.i208 = load i64, ptr %406, align 8, !tbaa !82
+  %407 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i7.i, i64 %.sroa.0.0.copyload.i.i208)
+  br i1 %407, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit: ; preds = %404
-  %.val.i.i = load i32, ptr %.tr153160, align 8
-  %.val6.i.i = load i32, ptr %.tr154161, align 8
+  %.val.i.i = load i32, ptr %.tr150157, align 8
+  %.val6.i.i = load i32, ptr %.tr151158, align 8
   %408 = xor i32 %.val6.i.i, %.val.i.i
   %409 = and i32 %408, 33030144
   %410 = icmp eq i32 %409, 0
-  br i1 %410, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %410, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 411:                                              ; preds = %136
-  %412 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
-  %.sroa.0.0.copyload.i.i.i213 = load i64, ptr %412, align 8, !tbaa !82
-  %413 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
-  %.sroa.0.0.copyload.i4.i.i214 = load i64, ptr %413, align 8, !tbaa !82
-  %414 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i213, i64 %.sroa.0.0.copyload.i4.i.i214)
-  br i1 %414, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %412 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
+  %.sroa.0.0.copyload.i.i.i210 = load i64, ptr %412, align 8, !tbaa !82
+  %413 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
+  %.sroa.0.0.copyload.i4.i.i211 = load i64, ptr %413, align 8, !tbaa !82
+  %414 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i.i210, i64 %.sroa.0.0.copyload.i4.i.i211)
+  br i1 %414, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit: ; preds = %411
-  %415 = getelementptr i8, ptr %.tr153160, i64 84
-  %.val.i216 = load i32, ptr %415, align 4, !tbaa !214
-  %416 = getelementptr i8, ptr %.tr154161, i64 84
-  %.val6.i217 = load i32, ptr %416, align 4, !tbaa !214
-  %417 = icmp eq i32 %.val.i216, %.val6.i217
-  br i1 %417, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %415 = getelementptr i8, ptr %.tr150157, i64 84
+  %.val.i213 = load i32, ptr %415, align 4, !tbaa !214
+  %416 = getelementptr i8, ptr %.tr151158, i64 84
+  %.val6.i214 = load i32, ptr %416, align 4, !tbaa !214
+  %417 = icmp eq i32 %.val.i213, %.val6.i214
+  br i1 %417, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 418:                                              ; preds = %136
-  %419 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AsTypeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %419, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %419 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AsTypeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %419, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 420:                                              ; preds = %136
-  %421 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %421, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %421 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %421, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 422:                                              ; preds = %136
-  %423 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArraySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %423, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %423 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArraySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %423, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 424:                                              ; preds = %136
-  %425 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ArraySectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %425, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %425 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ArraySectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %425, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 426:                                              ; preds = %136
-  %427 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ArrayInitLoopExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %427, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %427 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ArrayInitLoopExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %427, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 428:                                              ; preds = %136
-  %429 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayInitIndexExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %429, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %429 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayInitIndexExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %429, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 430:                                              ; preds = %136
-  %431 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13AddrLabelExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %431, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %431 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13AddrLabelExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %431, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 432:                                              ; preds = %136
-  %433 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %433, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %433 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %433, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 434:                                              ; preds = %136
-  %435 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25BinaryConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr153160, ptr noundef nonnull %.tr154161)
-  br i1 %435, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  %435 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25BinaryConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr150157, ptr noundef nonnull %.tr151158)
+  br i1 %435, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 436:                                              ; preds = %136
-  %437 = getelementptr i8, ptr %.tr153160, i64 8
+  %437 = getelementptr i8, ptr %.tr150157, i64 8
   %.val.i = load ptr, ptr %437, align 8, !tbaa !220
-  %438 = getelementptr i8, ptr %.tr154161, i64 8
+  %438 = getelementptr i8, ptr %.tr151158, i64 8
   %.val517.i = load ptr, ptr %438, align 8, !tbaa !220
   %439 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8GotoStmtES4_(ptr %.val.i, ptr %.val517.i)
-  br i1 %439, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %439, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 440:                                              ; preds = %136
-  %441 = getelementptr i8, ptr %.tr153160, i64 4
+  %441 = getelementptr i8, ptr %.tr150157, i64 4
   %.val518.i = load i32, ptr %441, align 4, !tbaa !82
-  %442 = getelementptr i8, ptr %.tr154161, i64 4
+  %442 = getelementptr i8, ptr %.tr151158, i64 4
   %.val519.i = load i32, ptr %442, align 4, !tbaa !82
   %443 = icmp eq i32 %.val518.i, %.val519.i
-  br i1 %443, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %443, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 444:                                              ; preds = %136
   unreachable
 
 _ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit: ; preds = %136
-  %445 = getelementptr inbounds nuw i8, ptr %.tr153160, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %.tr150157, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %445, align 8, !tbaa !82
-  %446 = getelementptr inbounds nuw i8, ptr %.tr154161, i64 8
+  %446 = getelementptr inbounds nuw i8, ptr %.tr151158, i64 8
   %.sroa.0.0.copyload.i4.i = load i64, ptr %446, align 8, !tbaa !82
   %447 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.0.0.copyload.i4.i)
-  br i1 %447, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br i1 %447, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
 _ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread: ; preds = %210, %137, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %440, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit, %395, %393, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit, %158, %156, %154, %152, %150, %148, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !223
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1099") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %.tr153160) #19, !noalias !223
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1099") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %.tr150157) #19, !noalias !223
   %448 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %448, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %449 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.4111.24.copyload = load ptr, ptr %449, align 8
-  %.sroa.6112.24..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.6112.24.copyload = load i64, ptr %.sroa.6112.24..sroa_idx, align 8
-  %.sroa.7113.24..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sroa.7113.24.copyload = load ptr, ptr %.sroa.7113.24..sroa_idx, align 8
+  %.sroa.4110.24.copyload = load ptr, ptr %449, align 8
+  %.sroa.6111.24..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.6111.24.copyload = load i64, ptr %.sroa.6111.24..sroa_idx, align 8
+  %.sroa.7112.24..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.7112.24.copyload = load ptr, ptr %.sroa.7112.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !223
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !226
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1099") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %.tr154161) #19, !noalias !226
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1099") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %.tr151158) #19, !noalias !226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %450 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.4115.24.copyload = load ptr, ptr %450, align 8
-  %.sroa.6116.24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.6116.24.copyload = load i64, ptr %.sroa.6116.24..sroa_idx, align 8
-  %.sroa.7117.24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.sroa.7117.24.copyload = load ptr, ptr %.sroa.7117.24..sroa_idx, align 8
+  %.sroa.4114.24.copyload = load ptr, ptr %450, align 8
+  %.sroa.6115.24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.6115.24.copyload = load i64, ptr %.sroa.6115.24..sroa_idx, align 8
+  %.sroa.7116.24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sroa.7116.24.copyload = load ptr, ptr %.sroa.7116.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !226
   %451 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %.sroa.4115.24.copyload, ptr %451, align 8
-  %.sroa.7101.24..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 %.sroa.6116.24.copyload, ptr %.sroa.7101.24..sroa_idx, align 8
-  %.sroa.8103.24..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr %.sroa.7117.24.copyload, ptr %.sroa.8103.24..sroa_idx, align 8
+  store ptr %.sroa.4114.24.copyload, ptr %451, align 8
+  %.sroa.7100.24..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i64 %.sroa.6115.24.copyload, ptr %.sroa.7100.24..sroa_idx, align 8
+  %.sroa.8102.24..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store ptr %.sroa.7116.24.copyload, ptr %.sroa.8102.24..sroa_idx, align 8
   %452 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %.sroa.4111.24.copyload, ptr %452, align 8
+  store ptr %.sroa.4110.24.copyload, ptr %452, align 8
   %.sroa.14.72..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i64 %.sroa.6112.24.copyload, ptr %.sroa.14.72..sroa_idx, align 8
+  store i64 %.sroa.6111.24.copyload, ptr %.sroa.14.72..sroa_idx, align 8
   %.sroa.15.72..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store ptr %.sroa.7113.24.copyload, ptr %.sroa.15.72..sroa_idx, align 8
+  store ptr %.sroa.7112.24.copyload, ptr %.sroa.15.72..sroa_idx, align 8
   %453 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %454 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %455 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2985,27 +2985,27 @@ _ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread: ; 
 
 456:                                              ; preds = %489, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread
   %457 = load ptr, ptr %448, align 8, !tbaa !82
-  %458 = icmp ne ptr %457, %.sroa.4111.24.copyload
+  %458 = icmp ne ptr %457, %.sroa.4110.24.copyload
   %459 = load i64, ptr %453, align 8
-  %460 = icmp ne i64 %459, %.sroa.6112.24.copyload
+  %460 = icmp ne i64 %459, %.sroa.6111.24.copyload
   %.not3.i.i.i.i = select i1 %458, i1 true, i1 %460
   br i1 %.not3.i.i.i.i, label %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit.thread, label %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit
 
 _ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit: ; preds = %456
   %461 = load ptr, ptr %8, align 8, !tbaa !82
-  %462 = icmp ne ptr %461, %.sroa.4115.24.copyload
+  %462 = icmp ne ptr %461, %.sroa.4114.24.copyload
   %463 = load i64, ptr %454, align 8
-  %464 = icmp ne i64 %463, %.sroa.6116.24.copyload
+  %464 = icmp ne i64 %463, %.sroa.6115.24.copyload
   %.not3.i3.i.not.i.not.i = select i1 %462, i1 true, i1 %464
-  br i1 %.not3.i3.i.not.i.not.i, label %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit.thread, label %.thread135
+  br i1 %.not3.i3.i.not.i.not.i, label %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit.thread, label %.thread132
 
 _ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit.thread: ; preds = %456, %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit
   %465 = load ptr, ptr %452, align 8, !tbaa !82, !noalias !229
   %466 = icmp ne ptr %457, %465
   %467 = load i64, ptr %.sroa.14.72..sroa_idx, align 8, !noalias !229
   %468 = icmp ne i64 %459, %467
-  %.not149 = select i1 %466, i1 true, i1 %468
-  br i1 %.not149, label %469, label %_ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SF_.exit.i.i
+  %.not146 = select i1 %466, i1 true, i1 %468
+  br i1 %.not146, label %469, label %_ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SF_.exit.i.i
 
 469:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit.thread
   %470 = and i64 %459, 3
@@ -3027,10 +3027,10 @@ _ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12rem
   %476 = load ptr, ptr %451, align 8, !tbaa !82, !noalias !229
   %477 = icmp ne ptr %475, %476
   %478 = load i64, ptr %454, align 8, !noalias !229
-  %479 = load i64, ptr %.sroa.7101.24..sroa_idx, align 8, !noalias !229
+  %479 = load i64, ptr %.sroa.7100.24..sroa_idx, align 8, !noalias !229
   %480 = icmp ne i64 %478, %479
-  %.not152 = select i1 %477, i1 true, i1 %480
-  br i1 %.not152, label %481, label %.thread135
+  %.not149 = select i1 %477, i1 true, i1 %480
+  br i1 %.not149, label %481, label %.thread132
 
 481:                                              ; preds = %_ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SF_.exit.i.i
   %482 = and i64 %478, 3
@@ -3043,12 +3043,12 @@ _ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12rem
 
 _ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EEdeEv.exit: ; preds = %481, %484
   %.in.i.i2.i.i = phi ptr [ %485, %484 ], [ %475, %481 ]
-  br i1 %.not149, label %486, label %.thread135
+  br i1 %.not146, label %486, label %.thread132
 
 486:                                              ; preds = %_ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EEdeEv.exit
   %487 = load ptr, ptr %.in.i.i2.i.i, align 8, !tbaa !210, !noalias !229
   %488 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %.sroa.0.0.i.i.i, ptr noundef %487)
-  br i1 %488, label %489, label %.thread135
+  br i1 %488, label %489, label %.thread132
 
 489:                                              ; preds = %486
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3058,18 +3058,18 @@ _ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EEdeEv.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %456
 
-.thread135:                                       ; preds = %_ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SF_.exit.i.i, %_ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EEdeEv.exit, %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit, %486
+.thread132:                                       ; preds = %_ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SF_.exit.i.i, %_ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EEdeEv.exit, %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit, %486
   %not. = phi i1 [ false, %486 ], [ true, %_ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES4_EEESt20forward_iterator_tagSt5tupleIJSt8optionalIPKNS3_4StmtEESC_EElPSD_SD_EneERKS5_.exit ], [ false, %_ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EEdeEv.exit ], [ false, %_ZN4llvm6detail13deref_or_noneIN5clang17ConstStmtIteratorEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SF_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132
+  br label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129
 
-_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132: ; preds = %411, %404, %397, %387, %284, %167, %160, %141, %210, %137, %select.unfold124, %440, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit, %395, %393, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit, %158, %156, %154, %152, %150, %148, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit, %.thread135, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit
-  %.9 = phi i1 [ false, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit ], [ %not., %.thread135 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit ], [ false, %148 ], [ false, %150 ], [ false, %152 ], [ false, %154 ], [ false, %156 ], [ false, %158 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit ], [ false, %174 ], [ false, %176 ], [ false, %178 ], [ false, %180 ], [ false, %182 ], [ false, %184 ], [ false, %186 ], [ false, %188 ], [ false, %190 ], [ false, %192 ], [ false, %194 ], [ false, %196 ], [ false, %198 ], [ false, %200 ], [ false, %202 ], [ false, %204 ], [ false, %206 ], [ false, %208 ], [ false, %214 ], [ false, %216 ], [ false, %218 ], [ false, %220 ], [ false, %222 ], [ false, %224 ], [ false, %226 ], [ false, %228 ], [ false, %230 ], [ false, %232 ], [ false, %234 ], [ false, %236 ], [ false, %238 ], [ false, %240 ], [ false, %242 ], [ false, %244 ], [ false, %246 ], [ false, %248 ], [ false, %250 ], [ false, %252 ], [ false, %254 ], [ false, %256 ], [ false, %258 ], [ false, %260 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit ], [ false, %291 ], [ false, %293 ], [ false, %295 ], [ false, %297 ], [ false, %299 ], [ false, %301 ], [ false, %303 ], [ false, %305 ], [ false, %307 ], [ false, %309 ], [ false, %311 ], [ false, %313 ], [ false, %315 ], [ false, %317 ], [ false, %319 ], [ false, %321 ], [ false, %323 ], [ false, %325 ], [ false, %327 ], [ false, %329 ], [ false, %331 ], [ false, %333 ], [ false, %335 ], [ false, %337 ], [ false, %339 ], [ false, %341 ], [ false, %343 ], [ false, %345 ], [ false, %347 ], [ false, %349 ], [ false, %351 ], [ false, %353 ], [ false, %355 ], [ false, %357 ], [ false, %359 ], [ false, %361 ], [ false, %363 ], [ false, %365 ], [ false, %367 ], [ false, %369 ], [ false, %371 ], [ false, %373 ], [ false, %375 ], [ false, %377 ], [ false, %379 ], [ false, %381 ], [ false, %383 ], [ false, %385 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit ], [ false, %393 ], [ false, %395 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit ], [ false, %418 ], [ false, %420 ], [ false, %422 ], [ false, %424 ], [ false, %426 ], [ false, %428 ], [ false, %430 ], [ false, %432 ], [ false, %434 ], [ false, %436 ], [ false, %440 ], [ false, %select.unfold124 ], [ false, %137 ], [ false, %210 ], [ false, %141 ], [ false, %160 ], [ false, %167 ], [ false, %284 ], [ false, %387 ], [ false, %397 ], [ false, %404 ], [ false, %411 ]
+_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129: ; preds = %411, %404, %397, %387, %284, %167, %160, %141, %210, %137, %select.unfold122, %440, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit, %395, %393, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit, %158, %156, %154, %152, %150, %148, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit, %.thread132, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit
+  %.9 = phi i1 [ false, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit ], [ %not., %.thread132 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit ], [ false, %148 ], [ false, %150 ], [ false, %152 ], [ false, %154 ], [ false, %156 ], [ false, %158 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit ], [ false, %174 ], [ false, %176 ], [ false, %178 ], [ false, %180 ], [ false, %182 ], [ false, %184 ], [ false, %186 ], [ false, %188 ], [ false, %190 ], [ false, %192 ], [ false, %194 ], [ false, %196 ], [ false, %198 ], [ false, %200 ], [ false, %202 ], [ false, %204 ], [ false, %206 ], [ false, %208 ], [ false, %214 ], [ false, %216 ], [ false, %218 ], [ false, %220 ], [ false, %222 ], [ false, %224 ], [ false, %226 ], [ false, %228 ], [ false, %230 ], [ false, %232 ], [ false, %234 ], [ false, %236 ], [ false, %238 ], [ false, %240 ], [ false, %242 ], [ false, %244 ], [ false, %246 ], [ false, %248 ], [ false, %250 ], [ false, %252 ], [ false, %254 ], [ false, %256 ], [ false, %258 ], [ false, %260 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit ], [ false, %291 ], [ false, %293 ], [ false, %295 ], [ false, %297 ], [ false, %299 ], [ false, %301 ], [ false, %303 ], [ false, %305 ], [ false, %307 ], [ false, %309 ], [ false, %311 ], [ false, %313 ], [ false, %315 ], [ false, %317 ], [ false, %319 ], [ false, %321 ], [ false, %323 ], [ false, %325 ], [ false, %327 ], [ false, %329 ], [ false, %331 ], [ false, %333 ], [ false, %335 ], [ false, %337 ], [ false, %339 ], [ false, %341 ], [ false, %343 ], [ false, %345 ], [ false, %347 ], [ false, %349 ], [ false, %351 ], [ false, %353 ], [ false, %355 ], [ false, %357 ], [ false, %359 ], [ false, %361 ], [ false, %363 ], [ false, %365 ], [ false, %367 ], [ false, %369 ], [ false, %371 ], [ false, %373 ], [ false, %375 ], [ false, %377 ], [ false, %379 ], [ false, %381 ], [ false, %383 ], [ false, %385 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_.exit ], [ false, %393 ], [ false, %395 ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit ], [ false, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit ], [ false, %418 ], [ false, %420 ], [ false, %422 ], [ false, %424 ], [ false, %426 ], [ false, %428 ], [ false, %430 ], [ false, %432 ], [ false, %434 ], [ false, %436 ], [ false, %440 ], [ false, %select.unfold122 ], [ false, %137 ], [ false, %210 ], [ false, %141 ], [ false, %160 ], [ false, %167 ], [ false, %284 ], [ false, %387 ], [ false, %397 ], [ false, %404 ], [ false, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread
 
-_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread: ; preds = %97, %107, %40, %50, %76, %16, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132, %tailrecurse._crit_edge
-  %.0 = phi i1 [ %.9, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread132 ], [ %11, %tailrecurse._crit_edge ], [ false, %16 ], [ false, %76 ], [ false, %50 ], [ false, %40 ], [ false, %107 ], [ false, %97 ]
+_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit.thread: ; preds = %97, %107, %40, %50, %76, %16, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129, %tailrecurse._crit_edge
+  %.0 = phi i1 [ %.9, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread129 ], [ %11, %tailrecurse._crit_edge ], [ false, %16 ], [ false, %76 ], [ false, %50 ], [ false, %40 ], [ false, %107 ], [ false, %97 ]
   ret i1 %.0
 }
 
@@ -5677,11 +5677,11 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %54 = icmp eq i64 %53, 0
   %55 = and i64 %52, -8
   %56 = inttoptr i64 %55 to ptr
-  %.0.i.i12.i.i = select i1 %54, ptr %56, ptr null
+  %.0.i.i11.i.i = select i1 %54, ptr %56, ptr null
   br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
 
 "_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i": ; preds = %49, %45, %3
-  %.1.i.i = phi ptr [ %44, %3 ], [ %.0.i.i12.i.i, %49 ], [ null, %45 ]
+  %.1.i.i = phi ptr [ %44, %3 ], [ %.0.i.i11.i.i, %49 ], [ null, %45 ]
   %57 = and i64 %.val284, 7
   %58 = icmp ne i64 %57, 0
   %59 = and i64 %.val284, -8
@@ -5706,11 +5706,11 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %69 = icmp eq i64 %68, 0
   %70 = and i64 %67, -8
   %71 = inttoptr i64 %70 to ptr
-  %.0.i.i12.i11.i = select i1 %69, ptr %71, ptr null
+  %.0.i.i11.i11.i = select i1 %69, ptr %71, ptr null
   br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
 
 "_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i": ; preds = %64, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
-  %.1.i7.i = phi ptr [ %60, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i" ], [ %.0.i.i12.i11.i, %64 ]
+  %.1.i7.i = phi ptr [ %60, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i" ], [ %.0.i.i11.i11.i, %64 ]
   %72 = icmp ne ptr %.1.i.i, null
   %73 = icmp ne ptr %.1.i7.i, null
   %or.cond.i.i = and i1 %72, %73
@@ -6172,22 +6172,22 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit299:         ; preds = %_ZNSt7__cxx1112basi
 298:                                              ; preds = %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread
   %299 = icmp ne i64 %.val, 0
   %300 = icmp ne i64 %.val284, 0
-  %or.cond543 = select i1 %299, i1 true, i1 %300
-  br i1 %or.cond543, label %.critedge, label %301
+  %or.cond542 = select i1 %299, i1 true, i1 %300
+  br i1 %or.cond542, label %.critedge, label %301
 
 301:                                              ; preds = %298
   %302 = tail call i64 @_ZN5clang28StructuralEquivalenceContext30findUntaggedStructOrUnionIndexEPNS_10RecordDeclE(ptr noundef nonnull %1)
-  %.not555 = icmp samesign ult i64 %302, 4294967296
-  br i1 %.not555, label %.critedge, label %303
+  %.not554 = icmp samesign ult i64 %302, 4294967296
+  br i1 %.not554, label %.critedge, label %303
 
 303:                                              ; preds = %301
   %.sroa.0529.0.extract.trunc = trunc i64 %302 to i32
   %304 = tail call i64 @_ZN5clang28StructuralEquivalenceContext30findUntaggedStructOrUnionIndexEPNS_10RecordDeclE(ptr noundef nonnull %2)
   %.sroa.0528.0.extract.trunc = trunc i64 %304 to i32
-  %.not556 = icmp samesign ult i64 %304, 4294967296
+  %.not555 = icmp samesign ult i64 %304, 4294967296
   %.not = icmp eq i32 %.sroa.0529.0.extract.trunc, %.sroa.0528.0.extract.trunc
-  %or.cond545 = or i1 %.not556, %.not
-  br i1 %or.cond545, label %.critedge, label %.critedge279
+  %or.cond544 = or i1 %.not555, %.not
+  br i1 %or.cond544, label %.critedge, label %.critedge279
 
 .critedge:                                        ; preds = %303, %301, %298
   %305 = getelementptr i8, ptr %1, i64 16
@@ -6221,12 +6221,12 @@ _ZN5clang4Decl14getDeclContextEv.exit49.i.sink.split: ; preds = %_ZN5clang4Decl1
 
 _ZN5clang4Decl14getDeclContextEv.exit49.i.preheader: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.i, %_ZN5clang4Decl14getDeclContextEv.exit49.i.sink.split
   %.0.i.i60.sink.i.ph = phi ptr [ %318, %_ZN5clang4Decl14getDeclContextEv.exit49.i.sink.split ], [ %317, %_ZN5clang4Decl14getDeclContextEv.exit.i ]
-  %.032.i.ph708 = phi ptr [ %.032.i.ph, %_ZN5clang4Decl14getDeclContextEv.exit49.i.sink.split ], [ %312, %_ZN5clang4Decl14getDeclContextEv.exit.i ]
+  %.032.i.ph707 = phi ptr [ %.032.i.ph, %_ZN5clang4Decl14getDeclContextEv.exit49.i.sink.split ], [ %312, %_ZN5clang4Decl14getDeclContextEv.exit.i ]
   br label %_ZN5clang4Decl14getDeclContextEv.exit49.i
 
 _ZN5clang4Decl14getDeclContextEv.exit49.i:        ; preds = %_ZN5clang4Decl14getDeclContextEv.exit49.i.preheader, %_ZN5clang11DeclContext9getParentEv.exit.i
   %.0.i.i60.sink.i = phi ptr [ %402, %_ZN5clang11DeclContext9getParentEv.exit.i ], [ %.0.i.i60.sink.i.ph, %_ZN5clang4Decl14getDeclContextEv.exit49.i.preheader ]
-  %.032.i = phi ptr [ %396, %_ZN5clang11DeclContext9getParentEv.exit.i ], [ %.032.i.ph708, %_ZN5clang4Decl14getDeclContextEv.exit49.i.preheader ]
+  %.032.i = phi ptr [ %396, %_ZN5clang11DeclContext9getParentEv.exit.i ], [ %.032.i.ph707, %_ZN5clang4Decl14getDeclContextEv.exit49.i.preheader ]
   %319 = tail call noundef ptr @_ZN5clang11DeclContext24getNonTransparentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i60.sink.i) #19
   %320 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
   %321 = load i16, ptr %320, align 8
@@ -6433,8 +6433,8 @@ _ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContext
   br i1 %.not259, label %.preheader, label %.critedge279
 
 .preheader:                                       ; preds = %418
-  %.not260587 = icmp eq i32 %421, 0
-  br i1 %.not260587, label %.critedge271, label %.lr.ph.preheader
+  %.not260586 = icmp eq i32 %421, 0
+  br i1 %.not260586, label %.critedge271, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %425 = zext i32 %421 to i64
@@ -6478,29 +6478,29 @@ _ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContext
   %444 = getelementptr inbounds nuw i8, ptr %435, i64 72
   %445 = load i16, ptr %444, align 8
   %446 = and i16 %445, 128
-  %.not557 = icmp eq i16 %446, 0
-  br i1 %.not557, label %447, label %.critedge279
+  %.not556 = icmp eq i16 %446, 0
+  br i1 %.not556, label %447, label %.critedge279
 
 447:                                              ; preds = %443
   %448 = getelementptr inbounds nuw i8, ptr %436, i64 72
   %449 = load i16, ptr %448, align 8
   %450 = and i16 %449, 128
-  %.not558 = icmp eq i16 %450, 0
-  br i1 %.not558, label %451, label %.critedge279
+  %.not557 = icmp eq i16 %450, 0
+  br i1 %.not557, label %451, label %.critedge279
 
 451:                                              ; preds = %447, %439
   %452 = getelementptr inbounds nuw i8, ptr %435, i64 74
   %453 = load i8, ptr %452, align 2
   %454 = and i8 %453, 2
-  %.not559 = icmp eq i8 %454, 0
-  br i1 %.not559, label %455, label %.critedge279
+  %.not558 = icmp eq i8 %454, 0
+  br i1 %.not558, label %455, label %.critedge279
 
 455:                                              ; preds = %451
   %456 = getelementptr inbounds nuw i8, ptr %436, i64 74
   %457 = load i8, ptr %456, align 2
   %458 = and i8 %457, 2
-  %.not560 = icmp eq i8 %458, 0
-  br i1 %.not560, label %459, label %.critedge279
+  %.not559 = icmp eq i8 %458, 0
+  br i1 %.not559, label %459, label %.critedge279
 
 459:                                              ; preds = %455
   %460 = getelementptr inbounds nuw i8, ptr %435, i64 28
@@ -6522,11 +6522,11 @@ _ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContext
   %472 = getelementptr inbounds nuw i8, ptr %435, i64 72
   %473 = load i16, ptr %472, align 8
   %474 = and i16 %473, 128
-  %.not563 = icmp ne i16 %474, 0
+  %.not562 = icmp ne i16 %474, 0
   %475 = and i8 %453, 1
-  %.not564 = icmp eq i8 %475, 0
-  %or.cond684 = and i1 %.not563, %.not564
-  br i1 %or.cond684, label %476, label %483
+  %.not563 = icmp eq i8 %475, 0
+  %or.cond683 = and i1 %.not562, %.not563
+  br i1 %or.cond683, label %476, label %483
 
 476:                                              ; preds = %471
   %477 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %435) #20
@@ -6557,15 +6557,15 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit:        ; preds = %483
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %483
   %492 = getelementptr inbounds nuw i8, ptr %436, i64 128
   %493 = load ptr, ptr %492, align 8, !tbaa !417
-  %.not.i312542 = icmp eq ptr %493, null
-  br i1 %.not.i312542, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315.thread, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit313_crit_edge
+  %.not.i312541 = icmp eq ptr %493, null
+  br i1 %.not.i312541, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315.thread, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit313_crit_edge
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit313_crit_edge: ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
   %495 = load i32, ptr %494, align 8
   %496 = and i32 %495, 2097152
-  %.not566 = icmp eq i32 %496, 0
-  br i1 %.not566, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315.thread, label %.critedge279
+  %.not565 = icmp eq i32 %496, 0
+  br i1 %.not565, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315.thread, label %.critedge279
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit._ZNK5clang13CXXRecordDecl8isLambdaEv.exit313_crit_edge: ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit
   br i1 %489, label %.critedge279, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315.thread
@@ -6579,8 +6579,8 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit313:     ; preds = %_ZNK5clang13CXXReco
   br i1 %501, label %.critedge279, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit315:     ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit313
-  %.not565 = icmp eq i32 %488, 0
-  br i1 %.not565, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315.thread, label %502
+  %.not564 = icmp eq i32 %488, 0
+  br i1 %.not564, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315.thread, label %502
 
 502:                                              ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit315
   %503 = tail call fastcc noundef zeroext i1 @_ZL31IsStructurallyEquivalentLambdasRN5clang28StructuralEquivalenceContextEPNS_13CXXRecordDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %435, ptr noundef %436)
@@ -6618,8 +6618,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit318: ; pr
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %525 = load i8, ptr %524, align 1, !tbaa !91, !range !26, !noundef !27
   %526 = trunc nuw i8 %525 to i1
-  %spec.select546 = select i1 %526, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %11, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i316, i32 noundef %spec.select546)
+  %spec.select545 = select i1 %526, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %11, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i316, i32 noundef %spec.select545)
   %527 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %528 = load ptr, ptr %527, align 8, !tbaa !366
   %.not.i319 = icmp eq ptr %528, null
@@ -6674,18 +6674,18 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit321: ; preds = %5
   %552 = tail call noundef ptr @_ZN5clang13CXXRecordDecl11bases_beginEv(ptr noundef nonnull align 8 dereferenceable(144) %435)
   %553 = tail call noundef ptr @_ZN5clang13CXXRecordDecl9bases_endEv(ptr noundef nonnull align 8 dereferenceable(144) %435)
   %554 = tail call noundef ptr @_ZN5clang13CXXRecordDecl11bases_beginEv(ptr noundef nonnull align 8 dereferenceable(144) %436)
-  %.not266589 = icmp eq ptr %552, %553
-  br i1 %.not266589, label %.critedge273, label %.lr.ph592
+  %.not266588 = icmp eq ptr %552, %553
+  br i1 %.not266588, label %.critedge273, label %.lr.ph591
 
-.lr.ph592:                                        ; preds = %551, %609
-  %.0251591 = phi ptr [ %610, %609 ], [ %552, %551 ]
-  %.0252590 = phi ptr [ %611, %609 ], [ %554, %551 ]
-  %555 = tail call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0251591)
-  %556 = tail call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0252590)
+.lr.ph591:                                        ; preds = %551, %609
+  %.0251590 = phi ptr [ %610, %609 ], [ %552, %551 ]
+  %.0252589 = phi ptr [ %611, %609 ], [ %554, %551 ]
+  %555 = tail call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0251590)
+  %556 = tail call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0252589)
   %557 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %555, i64 %556)
   br i1 %557, label %577, label %558
 
-558:                                              ; preds = %.lr.ph592
+558:                                              ; preds = %.lr.ph591
   %559 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %560 = load i8, ptr %559, align 2, !tbaa !317, !range !26, !noundef !27
   %561 = trunc nuw i8 %560 to i1
@@ -6698,8 +6698,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit327: ; pr
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %564 = load i8, ptr %563, align 1, !tbaa !91, !range !26, !noundef !27
   %565 = trunc nuw i8 %564 to i1
-  %spec.select547 = select i1 %565, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %14, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i325, i32 noundef %spec.select547)
+  %spec.select546 = select i1 %565, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %14, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i325, i32 noundef %spec.select546)
   %566 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %567 = load ptr, ptr %566, align 8, !tbaa !366
   %.not.i328 = icmp eq ptr %567, null
@@ -6722,11 +6722,11 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit330: ; preds = %5
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %14) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %.sroa.0.0.copyload.i.i = load i32, ptr %.0252590, align 4, !tbaa !318
+  %.sroa.0.0.copyload.i.i = load i32, ptr %.0252589, align 4, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %15, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i.i, i32 noundef 2325)
-  %575 = call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0252590)
+  %575 = call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0252589)
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %15, i64 noundef %575, i32 noundef 8)
-  %.sroa.0.0.copyload.i333 = load i64, ptr %.0252590, align 8
+  %.sroa.0.0.copyload.i333 = load i64, ptr %.0252589, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.0.0.copyload.i333, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6736,11 +6736,11 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit330: ; preds = %5
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %15) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %.sroa.0.0.copyload.i.i335 = load i32, ptr %.0251591, align 4, !tbaa !318
+  %.sroa.0.0.copyload.i.i335 = load i32, ptr %.0251590, align 4, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag1ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %16, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i.i335, i32 noundef 2325)
-  %576 = call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0251591)
+  %576 = call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0251590)
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %16, i64 noundef %576, i32 noundef 8)
-  %.sroa.0.0.copyload.i337 = load i64, ptr %.0251591, align 8
+  %.sroa.0.0.copyload.i337 = load i64, ptr %.0251590, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i337, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i339 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6751,19 +6751,19 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit330: ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge279
 
-577:                                              ; preds = %.lr.ph592
-  %578 = getelementptr inbounds nuw i8, ptr %.0251591, i64 12
+577:                                              ; preds = %.lr.ph591
+  %578 = getelementptr inbounds nuw i8, ptr %.0251590, i64 12
   %579 = load i8, ptr %578, align 4
-  %580 = getelementptr inbounds nuw i8, ptr %.0252590, i64 12
+  %580 = getelementptr inbounds nuw i8, ptr %.0252589, i64 12
   %581 = load i8, ptr %580, align 4
   %582 = xor i8 %581, %579
   %583 = and i8 %582, 1
-  %.not567 = icmp eq i8 %583, 0
-  br i1 %.not567, label %609, label %584
+  %.not566 = icmp eq i8 %583, 0
+  br i1 %.not566, label %609, label %584
 
 584:                                              ; preds = %577
-  %585 = getelementptr inbounds nuw i8, ptr %.0251591, i64 12
-  %586 = getelementptr inbounds nuw i8, ptr %.0252590, i64 12
+  %585 = getelementptr inbounds nuw i8, ptr %.0251590, i64 12
+  %586 = getelementptr inbounds nuw i8, ptr %.0252589, i64 12
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %588 = load i8, ptr %587, align 2, !tbaa !317, !range !26, !noundef !27
   %589 = trunc nuw i8 %588 to i1
@@ -6776,8 +6776,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit342: ; pr
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %592 = load i8, ptr %591, align 1, !tbaa !91, !range !26, !noundef !27
   %593 = trunc nuw i8 %592 to i1
-  %spec.select548 = select i1 %593, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %17, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i340, i32 noundef %spec.select548)
+  %spec.select547 = select i1 %593, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %17, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i340, i32 noundef %spec.select547)
   %594 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %595 = load ptr, ptr %594, align 8, !tbaa !366
   %.not.i343 = icmp eq ptr %595, null
@@ -6800,13 +6800,13 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit345: ; preds = %5
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %17) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %.sroa.0.0.copyload.i.i347 = load i32, ptr %.0252590, align 4, !tbaa !318
+  %.sroa.0.0.copyload.i.i347 = load i32, ptr %.0252589, align 4, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %18, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i.i347, i32 noundef 2345)
   %603 = load i8, ptr %586, align 4
   %604 = and i8 %603, 1
   %605 = zext nneg i8 %604 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %18, i64 noundef %605, i32 noundef 2)
-  %.sroa.0.0.copyload.i348 = load i64, ptr %.0252590, align 8
+  %.sroa.0.0.copyload.i348 = load i64, ptr %.0252589, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.0.0.copyload.i348, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i350 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6816,13 +6816,13 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit345: ; preds = %5
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %18) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %.sroa.0.0.copyload.i.i351 = load i32, ptr %.0251591, align 4, !tbaa !318
+  %.sroa.0.0.copyload.i.i351 = load i32, ptr %.0251590, align 4, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag1ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %19, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i.i351, i32 noundef 2325)
   %606 = load i8, ptr %585, align 4
   %607 = and i8 %606, 1
   %608 = zext nneg i8 %607 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %19, i64 noundef %608, i32 noundef 2)
-  %.sroa.0.0.copyload.i352 = load i64, ptr %.0251591, align 8
+  %.sroa.0.0.copyload.i352 = load i64, ptr %.0251590, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i352, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i354 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6834,24 +6834,24 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit345: ; preds = %5
   br label %.critedge279
 
 609:                                              ; preds = %577
-  %610 = getelementptr inbounds nuw i8, ptr %.0251591, i64 24
-  %611 = getelementptr inbounds nuw i8, ptr %.0252590, i64 24
+  %610 = getelementptr inbounds nuw i8, ptr %.0251590, i64 24
+  %611 = getelementptr inbounds nuw i8, ptr %.0252589, i64 24
   %.not266 = icmp eq ptr %610, %553
-  br i1 %.not266, label %.critedge273, label %.lr.ph592, !llvm.loop !431
+  br i1 %.not266, label %.critedge273, label %.lr.ph591, !llvm.loop !431
 
 .critedge273:                                     ; preds = %609, %551
   %612 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl14getFirstFriendEv(ptr noundef nonnull align 8 dereferenceable(144) %436) #19
   %613 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl14getFirstFriendEv(ptr noundef nonnull align 8 dereferenceable(144) %435) #19
-  %.not568593 = icmp eq ptr %613, null
-  br i1 %.not568593, label %.critedge275, label %.lr.ph596
+  %.not567592 = icmp eq ptr %613, null
+  br i1 %.not567592, label %.critedge275, label %.lr.ph595
 
-.lr.ph596:                                        ; preds = %.critedge273, %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378
-  %.sroa.0510.0595 = phi ptr [ %.0.i.i375, %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378 ], [ %612, %.critedge273 ]
-  %.sroa.0503.0594 = phi ptr [ %.0.i.i373, %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378 ], [ %613, %.critedge273 ]
-  %614 = icmp eq ptr %.sroa.0510.0595, null
+.lr.ph595:                                        ; preds = %.critedge273, %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378
+  %.sroa.0510.0594 = phi ptr [ %.0.i.i375, %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378 ], [ %612, %.critedge273 ]
+  %.sroa.0503.0593 = phi ptr [ %.0.i.i373, %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378 ], [ %613, %.critedge273 ]
+  %614 = icmp eq ptr %.sroa.0510.0594, null
   br i1 %614, label %615, label %633
 
-615:                                              ; preds = %.lr.ph596
+615:                                              ; preds = %.lr.ph595
   %616 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %617 = load i8, ptr %616, align 2, !tbaa !317, !range !26, !noundef !27
   %618 = trunc nuw i8 %617 to i1
@@ -6864,8 +6864,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit357: ; pr
   %620 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %621 = load i8, ptr %620, align 1, !tbaa !91, !range !26, !noundef !27
   %622 = trunc nuw i8 %621 to i1
-  %spec.select549 = select i1 %622, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %20, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i355, i32 noundef %spec.select549)
+  %spec.select548 = select i1 %622, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %20, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i355, i32 noundef %spec.select548)
   %623 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %624 = load ptr, ptr %623, align 8, !tbaa !366
   %.not.i358 = icmp eq ptr %624, null
@@ -6887,7 +6887,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit360: ; preds = %6
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %20, i64 noundef %.sroa.0.0.i359, i32 noundef 8)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %20) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %632 = getelementptr inbounds nuw i8, ptr %.sroa.0503.0594, i64 56
+  %632 = getelementptr inbounds nuw i8, ptr %.sroa.0503.0593, i64 56
   %.sroa.0.0.copyload.i362 = load i32, ptr %632, align 8, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag1ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %21, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i362, i32 noundef 2329)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %21) #19
@@ -6896,8 +6896,8 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit360: ; preds = %6
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %22) #19
   br label %.critedge279
 
-633:                                              ; preds = %.lr.ph596
-  %634 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.sroa.0503.0594, ptr noundef nonnull %.sroa.0510.0595)
+633:                                              ; preds = %.lr.ph595
+  %634 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.sroa.0503.0593, ptr noundef nonnull %.sroa.0510.0594)
   br i1 %634, label %654, label %635
 
 635:                                              ; preds = %633
@@ -6913,8 +6913,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit366: ; pr
   %640 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %641 = load i8, ptr %640, align 1, !tbaa !91, !range !26, !noundef !27
   %642 = trunc nuw i8 %641 to i1
-  %spec.select550 = select i1 %642, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %23, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i364, i32 noundef %spec.select550)
+  %spec.select549 = select i1 %642, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %23, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i364, i32 noundef %spec.select549)
   %643 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %644 = load ptr, ptr %643, align 8, !tbaa !366
   %.not.i367 = icmp eq ptr %644, null
@@ -6936,18 +6936,18 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit369: ; preds = %6
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %23, i64 noundef %.sroa.0.0.i368, i32 noundef 8)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %23) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %652 = getelementptr inbounds nuw i8, ptr %.sroa.0503.0594, i64 56
+  %652 = getelementptr inbounds nuw i8, ptr %.sroa.0503.0593, i64 56
   %.sroa.0.0.copyload.i371 = load i32, ptr %652, align 8, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag1ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %24, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i371, i32 noundef 2329)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %24) #19
-  %653 = getelementptr inbounds nuw i8, ptr %.sroa.0510.0595, i64 56
+  %653 = getelementptr inbounds nuw i8, ptr %.sroa.0510.0594, i64 56
   %.sroa.0.0.copyload.i372 = load i32, ptr %653, align 8, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %25, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i372, i32 noundef 2329)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %25) #19
   br label %.critedge279
 
 654:                                              ; preds = %633
-  %655 = getelementptr inbounds nuw i8, ptr %.sroa.0503.0594, i64 48
+  %655 = getelementptr inbounds nuw i8, ptr %.sroa.0503.0593, i64 48
   %656 = load i8, ptr %655, align 8, !tbaa !82
   %657 = and i8 %656, 1
   %.not.i.i = icmp eq i8 %657, 0
@@ -6958,12 +6958,12 @@ _ZNK5clang13LazyOffsetPtrINS_4DeclENS_12GlobalDeclIDEXadL_ZNS_17ExternalASTSourc
   br label %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit
 
 658:                                              ; preds = %654
-  %659 = tail call noundef ptr @_ZN5clang10FriendDecl21getNextFriendSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0503.0594) #19
+  %659 = tail call noundef ptr @_ZN5clang10FriendDecl21getNextFriendSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0503.0593) #19
   br label %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit
 
 _ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit: ; preds = %_ZNK5clang13LazyOffsetPtrINS_4DeclENS_12GlobalDeclIDEXadL_ZNS_17ExternalASTSource15GetExternalDeclES2_EEE3getEPS3_.exit.i.i, %658
   %.0.i.i373 = phi ptr [ %659, %658 ], [ %.pre.i.i.i, %_ZNK5clang13LazyOffsetPtrINS_4DeclENS_12GlobalDeclIDEXadL_ZNS_17ExternalASTSource15GetExternalDeclES2_EEE3getEPS3_.exit.i.i ]
-  %660 = getelementptr inbounds nuw i8, ptr %.sroa.0510.0595, i64 48
+  %660 = getelementptr inbounds nuw i8, ptr %.sroa.0510.0594, i64 48
   %661 = load i8, ptr %660, align 8, !tbaa !82
   %662 = and i8 %661, 1
   %.not.i.i374 = icmp eq i8 %662, 0
@@ -6974,18 +6974,18 @@ _ZNK5clang13LazyOffsetPtrINS_4DeclENS_12GlobalDeclIDEXadL_ZNS_17ExternalASTSourc
   br label %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378
 
 663:                                              ; preds = %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit
-  %664 = tail call noundef ptr @_ZN5clang10FriendDecl21getNextFriendSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0510.0595) #19
+  %664 = tail call noundef ptr @_ZN5clang10FriendDecl21getNextFriendSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0510.0594) #19
   br label %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378
 
 _ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378: ; preds = %_ZNK5clang13LazyOffsetPtrINS_4DeclENS_12GlobalDeclIDEXadL_ZNS_17ExternalASTSource15GetExternalDeclES2_EEE3getEPS3_.exit.i.i376, %663
   %.0.i.i375 = phi ptr [ %664, %663 ], [ %.pre.i.i.i377, %_ZNK5clang13LazyOffsetPtrINS_4DeclENS_12GlobalDeclIDEXadL_ZNS_17ExternalASTSource15GetExternalDeclES2_EEE3getEPS3_.exit.i.i376 ]
-  %.not568 = icmp eq ptr %.0.i.i373, null
-  br i1 %.not568, label %.critedge275, label %.lr.ph596, !llvm.loop !432
+  %.not567 = icmp eq ptr %.0.i.i373, null
+  br i1 %.not567, label %.critedge275, label %.lr.ph595, !llvm.loop !432
 
 .critedge275:                                     ; preds = %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378, %.critedge273
   %.sroa.0510.0.lcssa = phi ptr [ %612, %.critedge273 ], [ %.0.i.i375, %_ZN5clang13CXXRecordDecl15friend_iteratorppEv.exit378 ]
-  %.not569 = icmp eq ptr %.sroa.0510.0.lcssa, null
-  br i1 %.not569, label %.critedge280, label %665
+  %.not568 = icmp eq ptr %.sroa.0510.0.lcssa, null
+  br i1 %.not568, label %.critedge280, label %665
 
 665:                                              ; preds = %.critedge275
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 134
@@ -7000,8 +7000,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit381: ; pr
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %671 = load i8, ptr %670, align 1, !tbaa !91, !range !26, !noundef !27
   %672 = trunc nuw i8 %671 to i1
-  %spec.select551 = select i1 %672, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %26, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i379, i32 noundef %spec.select551)
+  %spec.select550 = select i1 %672, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %26, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i379, i32 noundef %spec.select550)
   %673 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %674 = load ptr, ptr %673, align 8, !tbaa !366
   %.not.i382 = icmp eq ptr %674, null
@@ -7058,8 +7058,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit390: ; pr
   %698 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %699 = load i8, ptr %698, align 1, !tbaa !91, !range !26, !noundef !27
   %700 = trunc nuw i8 %699 to i1
-  %spec.select552 = select i1 %700, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %29, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i388, i32 noundef %spec.select552)
+  %spec.select551 = select i1 %700, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %29, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i388, i32 noundef %spec.select551)
   %701 = getelementptr inbounds nuw i8, ptr %436, i64 48
   %702 = load ptr, ptr %701, align 8, !tbaa !366
   %.not.i391 = icmp eq ptr %702, null
@@ -7122,16 +7122,16 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403: ; preds = %7
   %.sroa.0.0.i402 = phi i64 [ %720, %718 ], [ %717, %715 ]
   %721 = tail call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %436) #19
   %722 = tail call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %435) #19
-  %.not570597 = icmp eq ptr %722, null
-  br i1 %.not570597, label %.critedge282, label %.lr.ph600
+  %.not569596 = icmp eq ptr %722, null
+  br i1 %.not569596, label %.critedge282, label %.lr.ph599
 
-.lr.ph600:                                        ; preds = %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426
-  %.sroa.0491.0599 = phi ptr [ %.sroa.0491.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426 ], [ %721, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403 ]
-  %.sroa.0485.0598 = phi ptr [ %.sroa.0485.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426 ], [ %722, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403 ]
-  %723 = icmp eq ptr %.sroa.0491.0599, null
+.lr.ph599:                                        ; preds = %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426
+  %.sroa.0491.0598 = phi ptr [ %.sroa.0491.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426 ], [ %721, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403 ]
+  %.sroa.0485.0597 = phi ptr [ %.sroa.0485.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426 ], [ %722, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403 ]
+  %723 = icmp eq ptr %.sroa.0491.0598, null
   br i1 %723, label %724, label %742
 
-724:                                              ; preds = %.lr.ph600
+724:                                              ; preds = %.lr.ph599
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %726 = load i8, ptr %725, align 2, !tbaa !317, !range !26, !noundef !27
   %727 = trunc nuw i8 %726 to i1
@@ -7144,8 +7144,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit409: ; pr
   %729 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %730 = load i8, ptr %729, align 1, !tbaa !91, !range !26, !noundef !27
   %731 = trunc nuw i8 %730 to i1
-  %spec.select553 = select i1 %731, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %32, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i407, i32 noundef %spec.select553)
+  %spec.select552 = select i1 %731, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %32, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i407, i32 noundef %spec.select552)
   %732 = load ptr, ptr %713, align 8, !tbaa !366
   %.not.i410 = icmp eq ptr %732, null
   br i1 %.not.i410, label %736, label %733
@@ -7166,13 +7166,13 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit412: ; preds = %7
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %739 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0598, i64 24
+  %739 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0597, i64 24
   %.sroa.0.0.copyload.i414 = load i32, ptr %739, align 8, !tbaa !318
   call void @_ZN5clang28StructuralEquivalenceContext5Diag1ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %33, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i414, i32 noundef 2327)
-  %740 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0598, i64 40
+  %740 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0597, i64 40
   %.sroa.0.0.copyload.i415 = load i64, ptr %740, align 8, !tbaa !138
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %33, i64 noundef %.sroa.0.0.copyload.i415, i32 noundef 9)
-  %741 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0598, i64 48
+  %741 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0597, i64 48
   %.sroa.0.0.copyload.i417 = load i64, ptr %741, align 8, !tbaa !82
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %33, i64 noundef %.sroa.0.0.copyload.i417, i32 noundef 8)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %33) #19
@@ -7182,12 +7182,12 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit412: ; preds = %7
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %34) #19
   br label %.critedge279
 
-742:                                              ; preds = %.lr.ph600
-  %743 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_9FieldDeclES3_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.sroa.0485.0598, ptr noundef nonnull %.sroa.0491.0599, i64 %.sroa.0.0.i402)
+742:                                              ; preds = %.lr.ph599
+  %743 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_9FieldDeclES3_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.sroa.0485.0597, ptr noundef nonnull %.sroa.0491.0598, i64 %.sroa.0.0.i402)
   br i1 %743, label %744, label %.critedge279
 
 744:                                              ; preds = %742
-  %745 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0598, i64 8
+  %745 = getelementptr inbounds nuw i8, ptr %.sroa.0485.0597, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %745, align 8
   %746 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %747 = inttoptr i64 %746 to ptr
@@ -7213,7 +7213,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit412: ; preds = %7
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %753, %744
   %.sroa.0485.2 = phi ptr [ %747, %744 ], [ %756, %753 ], [ %.sroa.0485.1, %.lr.ph.i.i ]
-  %757 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0599, i64 8
+  %757 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0598, i64 8
   %.0.copyload.i.i.i.i.i.i421 = load i64, ptr %757, align 8
   %758 = and i64 %.0.copyload.i.i.i.i.i.i421, -8
   %759 = inttoptr i64 %758 to ptr
@@ -7239,13 +7239,13 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426: ; preds = %.lr.ph.i.i423, %765, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit
   %.sroa.0491.2 = phi ptr [ %759, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ %768, %765 ], [ %.sroa.0491.1, %.lr.ph.i.i423 ]
-  %.not570 = icmp eq ptr %.sroa.0485.2, null
-  br i1 %.not570, label %.critedge282, label %.lr.ph600, !llvm.loop !434
+  %.not569 = icmp eq ptr %.sroa.0485.2, null
+  br i1 %.not569, label %.critedge282, label %.lr.ph599, !llvm.loop !434
 
 .critedge282:                                     ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403
   %.sroa.0491.0.lcssa = phi ptr [ %721, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit403 ], [ %.sroa.0491.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit426 ]
-  %.not571 = icmp eq ptr %.sroa.0491.0.lcssa, null
-  br i1 %.not571, label %.critedge279, label %769
+  %.not570 = icmp eq ptr %.sroa.0491.0.lcssa, null
+  br i1 %.not570, label %.critedge279, label %769
 
 769:                                              ; preds = %.critedge282
   %770 = getelementptr inbounds nuw i8, ptr %0, i64 134
@@ -7260,8 +7260,8 @@ _ZN5clang28StructuralEquivalenceContext23getApplicableDiagnosticEj.exit431: ; pr
   %774 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %775 = load i8, ptr %774, align 1, !tbaa !91, !range !26, !noundef !27
   %776 = trunc nuw i8 %775 to i1
-  %spec.select554 = select i1 %776, i32 2159, i32 2371
-  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %35, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i429, i32 noundef %spec.select554)
+  %spec.select553 = select i1 %776, i32 2159, i32 2371
+  call void @_ZN5clang28StructuralEquivalenceContext5Diag2ENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %35, ptr noundef nonnull align 8 dereferenceable(137) %0, i32 %.sroa.0.0.copyload.i429, i32 noundef %spec.select553)
   %777 = load ptr, ptr %713, align 8, !tbaa !366
   %.not.i432 = icmp eq ptr %777, null
   br i1 %.not.i432, label %781, label %778
@@ -7371,11 +7371,11 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %53 = icmp eq i64 %52, 0
   %54 = and i64 %51, -8
   %55 = inttoptr i64 %54 to ptr
-  %.0.i.i12.i.i = select i1 %53, ptr %55, ptr null
+  %.0.i.i11.i.i = select i1 %53, ptr %55, ptr null
   br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
 
 "_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i": ; preds = %48, %44, %3
-  %.1.i.i = phi ptr [ %43, %3 ], [ %.0.i.i12.i.i, %48 ], [ null, %44 ]
+  %.1.i.i = phi ptr [ %43, %3 ], [ %.0.i.i11.i.i, %48 ], [ null, %44 ]
   %56 = and i64 %.val55, 7
   %57 = icmp ne i64 %56, 0
   %58 = and i64 %.val55, -8
@@ -7400,11 +7400,11 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %68 = icmp eq i64 %67, 0
   %69 = and i64 %66, -8
   %70 = inttoptr i64 %69 to ptr
-  %.0.i.i12.i11.i = select i1 %68, ptr %70, ptr null
+  %.0.i.i11.i11.i = select i1 %68, ptr %70, ptr null
   br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
 
 "_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i": ; preds = %63, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
-  %.1.i7.i = phi ptr [ %59, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i" ], [ %.0.i.i12.i11.i, %63 ]
+  %.1.i7.i = phi ptr [ %59, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i" ], [ %.0.i.i11.i11.i, %63 ]
   %71 = icmp ne ptr %.1.i.i, null
   %72 = icmp ne ptr %.1.i7.i, null
   %or.cond.i.i = and i1 %71, %72
@@ -12288,7 +12288,7 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   br i1 %.not, label %16, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit
 
 16:                                               ; preds = %3
-  switch i32 %13, label %119 [
+  switch i32 %13, label %118 [
     i32 0, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit
     i32 1, label %17
     i32 4, label %23
@@ -12487,33 +12487,36 @@ _ZN4llvm5APIntD2Ev.exit44:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %107 = load ptr, ptr %106, align 8, !tbaa !82
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !82
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !82
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %114 = load i32, ptr %113, align 4, !tbaa !82
-  %.not.i53 = icmp eq i32 %109, %114
-  br i1 %.not.i53, label %115, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !82
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %113 = load i32, ptr %112, align 4, !tbaa !82
+  %.not.i47 = icmp eq i32 %109, %113
+  br i1 %.not.i47, label %.preheader, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit
 
-115:                                              ; preds = %105
-  %.not913.i = icmp eq i32 %109, 0
-  br i1 %.not913.i, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit, label %.lr.ph.i
+.preheader:                                       ; preds = %105
+  %.not9.i51 = icmp eq i32 %109, 0
+  br i1 %.not9.i51, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit, label %.lr.ph.preheader
 
-.lr.ph.i:                                         ; preds = %115, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %115 ]
-  %116 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %107, i64 %indvars.iv.i
-  %117 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %112, i64 %indvars.iv.i
-  %118 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %117)
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not9.i = icmp ne i64 %indvars.iv.next.i, %110
-  %or.cond.not = select i1 %118, i1 %.not9.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit, !llvm.loop !598
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %114 = zext i32 %109 to i64
+  br label %.lr.ph
 
-119:                                              ; preds = %16
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %115 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %107, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %111, i64 %indvars.iv
+  %117 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %116)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not9.i = icmp ne i64 %indvars.iv.next, %114
+  %or.cond.not = select i1 %117, i1 %.not9.i, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit, !llvm.loop !598
+
+118:                                              ; preds = %16
   unreachable
 
-_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit: ; preds = %.lr.ph.i, %115, %105, %23, %16, %16, %3, %103, %95, %89, %83, %77, %_ZN4llvm5APIntD2Ev.exit44, %17
-  %.0 = phi i1 [ %22, %17 ], [ %.not.i, %_ZN4llvm5APIntD2Ev.exit44 ], [ %82, %77 ], [ %88, %83 ], [ %94, %89 ], [ %102, %95 ], [ %104, %103 ], [ false, %3 ], [ true, %16 ], [ true, %16 ], [ false, %23 ], [ false, %105 ], [ true, %115 ], [ %118, %.lr.ph.i ]
+_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_.exit: ; preds = %.lr.ph, %.preheader, %105, %23, %16, %16, %3, %103, %95, %89, %83, %77, %_ZN4llvm5APIntD2Ev.exit44, %17
+  %.0 = phi i1 [ %22, %17 ], [ %.not.i, %_ZN4llvm5APIntD2Ev.exit44 ], [ %82, %77 ], [ %88, %83 ], [ %94, %89 ], [ %102, %95 ], [ %104, %103 ], [ false, %3 ], [ true, %16 ], [ true, %16 ], [ false, %23 ], [ false, %105 ], [ true, %.preheader ], [ %117, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -19141,8 +19144,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

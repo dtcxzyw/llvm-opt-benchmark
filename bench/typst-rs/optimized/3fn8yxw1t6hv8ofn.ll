@@ -129,7 +129,7 @@ define hidden noundef double @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$
 
 13:                                               ; preds = %13, %8
   %.017.i = phi double [ %2, %8 ], [ %.0.i.i.i.i, %13 ]
-  %.016.i = phi i64 [ 0, %8 ], [ %17, %13 ]
+  %.016.i = phi i64 [ 0, %8 ], [ %18, %13 ]
   %14 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %0, i64 %.016.i
   %15 = call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !60
@@ -137,13 +137,13 @@ define hidden noundef double @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$
   store double %.017.i, ptr %5, align 8, !noalias !60
   store double %15, ptr %4, align 8, !noalias !60
   %16 = call noundef i8 @"_ZN62_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..Ord$GT$3cmp17h0ae961c8dbcd3ce9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !range !63
-  %switch.i.i.i.i = icmp eq i8 %16, 1
-  %.0.i.i.i.i = select i1 %switch.i.i.i.i, double %.017.i, double %15
+  %17 = icmp eq i8 %16, 1
+  %.0.i.i.i.i = select i1 %17, double %.017.i, double %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !60
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !60
-  %17 = add nuw i64 %.016.i, 1
-  %18 = icmp eq i64 %17, %12
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbe1c8060da779017E.llvm.17261859237677664959.exit", label %13
+  %18 = add nuw i64 %.016.i, 1
+  %19 = icmp eq i64 %18, %12
+  br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbe1c8060da779017E.llvm.17261859237677664959.exit", label %13
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbe1c8060da779017E.llvm.17261859237677664959.exit": ; preds = %13, %3
   %.0.i = phi double [ %2, %3 ], [ %.0.i.i.i.i, %13 ]
@@ -1059,7 +1059,7 @@ define hidden noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as
 
 13:                                               ; preds = %13, %8
   %.017 = phi double [ %2, %8 ], [ %.0.i.i.i, %13 ]
-  %.016 = phi i64 [ 0, %8 ], [ %17, %13 ]
+  %.016 = phi i64 [ 0, %8 ], [ %18, %13 ]
   %14 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %0, i64 %.016
   %15 = call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !310
@@ -1067,13 +1067,13 @@ define hidden noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as
   store double %.017, ptr %5, align 8, !noalias !310
   store double %15, ptr %4, align 8, !noalias !310
   %16 = call noundef i8 @"_ZN62_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..Ord$GT$3cmp17h0ae961c8dbcd3ce9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !range !63
-  %switch.i.i.i = icmp eq i8 %16, 1
-  %.0.i.i.i = select i1 %switch.i.i.i, double %.017, double %15
+  %17 = icmp eq i8 %16, 1
+  %.0.i.i.i = select i1 %17, double %.017, double %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !310
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !310
-  %17 = add nuw i64 %.016, 1
-  %18 = icmp eq i64 %17, %12
-  br i1 %18, label %.loopexit, label %13
+  %18 = add nuw i64 %.016, 1
+  %19 = icmp eq i64 %18, %12
+  br i1 %19, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %13, %3
   %.0 = phi double [ %2, %3 ], [ %.0.i.i.i, %13 ]

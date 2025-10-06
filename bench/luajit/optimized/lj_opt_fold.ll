@@ -1727,15 +1727,15 @@ lj_ir_nextins.exit.i:                             ; preds = %51, %.loopexit.i
 .thread:                                          ; preds = %74, %83, %5, %1
   %91 = and i32 %3, 131072
   %.not52 = icmp eq i32 %91, 0
-  br i1 %.not52, label %.thread63, label %92, !prof !33
+  br i1 %.not52, label %.thread61, label %92, !prof !33
 
 92:                                               ; preds = %.thread
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %.044.in77 = load i16, ptr %93, align 2, !tbaa !28
-  %.not53.not78 = icmp eq i16 %.044.in77, 0
-  br i1 %.not53.not78, label %.thread63, label %.lr.ph81
+  %.044.in74 = load i16, ptr %93, align 2, !tbaa !28
+  %.not53.not75 = icmp eq i16 %.044.in74, 0
+  br i1 %.not53.not75, label %.thread61, label %.lr.ph78
 
-.lr.ph81:                                         ; preds = %92
+.lr.ph78:                                         ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !30
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1743,25 +1743,25 @@ lj_ir_nextins.exit.i:                             ; preds = %51, %.loopexit.i
   %98 = load i8, ptr %97, align 1, !tbaa !28
   br label %99
 
-99:                                               ; preds = %.lr.ph81, %._crit_edge
-  %.044.in79 = phi i16 [ %.044.in77, %.lr.ph81 ], [ %.044.in, %._crit_edge ]
-  %100 = zext i16 %.044.in79 to i64
+99:                                               ; preds = %.lr.ph78, %._crit_edge
+  %.044.in76 = phi i16 [ %.044.in74, %.lr.ph78 ], [ %.044.in, %._crit_edge ]
+  %100 = zext i16 %.044.in76 to i64
   %101 = getelementptr inbounds nuw %union.IRIns, ptr %95, i64 %100
-  %.pn.in70 = load i16, ptr %101, align 8, !tbaa !28
-  %.pn71 = zext i16 %.pn.in70 to i64
-  %.072 = getelementptr inbounds nuw %union.IRIns, ptr %95, i64 %.pn71
-  %102 = getelementptr inbounds nuw i8, ptr %.072, i64 5
+  %.pn.in67 = load i16, ptr %101, align 8, !tbaa !28
+  %.pn68 = zext i16 %.pn.in67 to i64
+  %.069 = getelementptr inbounds nuw %union.IRIns, ptr %95, i64 %.pn68
+  %102 = getelementptr inbounds nuw i8, ptr %.069, i64 5
   %103 = load i8, ptr %102, align 1, !tbaa !28
   %104 = icmp eq i8 %98, %103
   br i1 %104, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %99, %117
   %105 = phi i8 [ %122, %117 ], [ %98, %99 ]
-  %.074 = phi ptr [ %.0, %117 ], [ %.072, %99 ]
-  %.04273 = phi ptr [ %120, %117 ], [ %96, %99 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.04273, i64 2
+  %.071 = phi ptr [ %.0, %117 ], [ %.069, %99 ]
+  %.04270 = phi ptr [ %120, %117 ], [ %96, %99 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.04270, i64 2
   %107 = load i16, ptr %106, align 2, !tbaa !28
-  %108 = getelementptr inbounds nuw i8, ptr %.074, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.071, i64 2
   %109 = load i16, ptr %108, align 2, !tbaa !28
   %110 = icmp eq i16 %107, %109
   br i1 %110, label %111, label %._crit_edge
@@ -1775,14 +1775,14 @@ lj_ir_nextins.exit.i:                             ; preds = %51, %.loopexit.i
 114:                                              ; preds = %111
   %115 = icmp eq i8 %105, 97
   %116 = icmp eq i16 %107, 23
-  %or.cond66 = and i1 %115, %116
-  br i1 %or.cond66, label %._crit_edge, label %117
+  %or.cond63 = and i1 %115, %116
+  br i1 %or.cond63, label %._crit_edge, label %117
 
 117:                                              ; preds = %114
-  %118 = load i16, ptr %.04273, align 8, !tbaa !28
+  %118 = load i16, ptr %.04270, align 8, !tbaa !28
   %119 = zext i16 %118 to i64
   %120 = getelementptr inbounds nuw %union.IRIns, ptr %95, i64 %119
-  %.pn.in = load i16, ptr %.074, align 8, !tbaa !28
+  %.pn.in = load i16, ptr %.071, align 8, !tbaa !28
   %.pn = zext i16 %.pn.in to i64
   %.0 = getelementptr inbounds nuw %union.IRIns, ptr %95, i64 %.pn
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 5
@@ -1796,18 +1796,18 @@ lj_ir_nextins.exit.i:                             ; preds = %51, %.loopexit.i
   %126 = getelementptr inbounds nuw i8, ptr %101, i64 6
   %.044.in = load i16, ptr %126, align 2, !tbaa !28
   %.not53.not = icmp eq i16 %.044.in, 0
-  br i1 %.not53.not, label %.thread63, label %99, !llvm.loop !48
+  br i1 %.not53.not, label %.thread61, label %99, !llvm.loop !48
 
-.thread63:                                        ; preds = %._crit_edge, %92, %.thread
+.thread61:                                        ; preds = %._crit_edge, %92, %.thread
   %127 = tail call i32 @lj_ir_emit(ptr noundef %0) #12
   br label %lj_opt_cse.exit
 
 lj_opt_cse.exit.loopexit:                         ; preds = %111
-  %.044.le = zext i16 %.044.in79 to i32
+  %.044.le = zext i16 %.044.in76 to i32
   br label %lj_opt_cse.exit
 
-lj_opt_cse.exit:                                  ; preds = %lj_opt_cse.exit.loopexit, %87, %lj_ir_nextins.exit.i, %.thread.i, %.thread63, %14
-  %.1 = phi i32 [ %16, %14 ], [ %127, %.thread63 ], [ %90, %87 ], [ %73, %lj_ir_nextins.exit.i ], [ %44, %.thread.i ], [ %.044.le, %lj_opt_cse.exit.loopexit ]
+lj_opt_cse.exit:                                  ; preds = %lj_opt_cse.exit.loopexit, %87, %lj_ir_nextins.exit.i, %.thread.i, %.thread61, %14
+  %.1 = phi i32 [ %16, %14 ], [ %127, %.thread61 ], [ %90, %87 ], [ %73, %lj_ir_nextins.exit.i ], [ %44, %.thread.i ], [ %.044.le, %lj_opt_cse.exit.loopexit ]
   ret i32 %.1
 }
 
@@ -3043,8 +3043,8 @@ define internal i32 @fold_cse_conv(ptr noundef %0) #0 {
   %11 = load i8, ptr %10, align 4, !tbaa !28
   %12 = and i8 %11, -128
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %.022.in33 = load i16, ptr %13, align 8, !tbaa !28
-  %14 = icmp ugt i16 %.022.in33, %7
+  %.022.in32 = load i16, ptr %13, align 8, !tbaa !28
+  %14 = icmp ugt i16 %.022.in32, %7
   br i1 %14, label %.lr.ph, label %.thread29
 
 .lr.ph:                                           ; preds = %5
@@ -3053,8 +3053,8 @@ define internal i32 @fold_cse_conv(ptr noundef %0) #0 {
   br label %17
 
 17:                                               ; preds = %.lr.ph, %32
-  %.022.in34 = phi i16 [ %.022.in33, %.lr.ph ], [ %.022.in, %32 ]
-  %18 = zext i16 %.022.in34 to i64
+  %.022.in33 = phi i16 [ %.022.in32, %.lr.ph ], [ %.022.in, %32 ]
+  %18 = zext i16 %.022.in33 to i64
   %19 = getelementptr inbounds nuw %union.IRIns, ptr %16, i64 %18
   %20 = load i16, ptr %19, align 8, !tbaa !28
   %21 = icmp eq i16 %20, %7
@@ -3086,7 +3086,7 @@ define internal i32 @fold_cse_conv(ptr noundef %0) #0 {
   br label %36
 
 .loopexit:                                        ; preds = %28
-  %.022.le = zext i16 %.022.in34 to i32
+  %.022.le = zext i16 %.022.in33 to i32
   br label %36
 
 36:                                               ; preds = %.loopexit, %.thread29
@@ -5113,13 +5113,13 @@ define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr noundef readonly captures(
   %35 = load i16, ptr %16, align 8, !tbaa !28
   %36 = load i16, ptr %6, align 8, !tbaa !28
   %spec.select = tail call i16 @llvm.umax.i16(i16 %36, i16 %35)
-  %.032.in40 = load i16, ptr %34, align 2, !tbaa !28
-  %.not3641 = icmp ugt i16 %.032.in40, %spec.select
-  br i1 %.not3641, label %.lr.ph, label %.critedge
+  %.032.in39 = load i16, ptr %34, align 2, !tbaa !28
+  %.not3640 = icmp ugt i16 %.032.in39, %spec.select
+  br i1 %.not3640, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %33, %45
-  %.032.in42 = phi i16 [ %.032.in, %45 ], [ %.032.in40, %33 ]
-  %37 = zext i16 %.032.in42 to i64
+  %.032.in41 = phi i16 [ %.032.in, %45 ], [ %.032.in39, %33 ]
+  %37 = zext i16 %.032.in41 to i64
   %38 = getelementptr inbounds nuw %union.IRIns, ptr %13, i64 %37
   %39 = load i16, ptr %38, align 8, !tbaa !28
   %40 = icmp eq i16 %39, %36
@@ -5653,9 +5653,9 @@ define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
   %18 = zext nneg i16 %17 to i64
   %19 = getelementptr inbounds nuw %struct.GCRef, ptr %14, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !28
-  %.027.in40 = load i16, ptr %10, align 2, !tbaa !28
-  %.not29.not41 = icmp eq i16 %.027.in40, 0
-  br i1 %.not29.not41, label %.thread35, label %.lr.ph
+  %.027.in39 = load i16, ptr %10, align 2, !tbaa !28
+  %.not29.not40 = icmp eq i16 %.027.in39, 0
+  br i1 %.not29.not40, label %.thread35, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5663,8 +5663,8 @@ define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %.lr.ph, %90
-  %.027.in42 = phi i16 [ %.027.in40, %.lr.ph ], [ %.027.in, %90 ]
-  %24 = zext i16 %.027.in42 to i64
+  %.027.in41 = phi i16 [ %.027.in39, %.lr.ph ], [ %.027.in, %90 ]
+  %24 = zext i16 %.027.in41 to i64
   %25 = getelementptr inbounds nuw %union.IRIns, ptr %22, i64 %24
   %26 = load i16, ptr %25, align 8, !tbaa !28
   %27 = icmp sgt i16 %26, -1
@@ -5687,7 +5687,7 @@ define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
   br i1 %.not30, label %41, label %90
 
 41:                                               ; preds = %28
-  %.027.le = zext i16 %.027.in42 to i32
+  %.027.le = zext i16 %.027.in41 to i32
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 5
   %43 = load i8, ptr %42, align 1, !tbaa !28
   %44 = icmp eq i8 %43, 60
@@ -5702,7 +5702,7 @@ define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %50 = load i16, ptr %49, align 2, !tbaa !38
-  %51 = icmp ult i16 %.027.in42, %50
+  %51 = icmp ult i16 %.027.in41, %50
   br i1 %51, label %52, label %81
 
 52:                                               ; preds = %48
@@ -5806,8 +5806,8 @@ define internal i32 @fold_cse_urefo(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i16
-  %.020.in29 = load i16, ptr %6, align 2, !tbaa !28
-  %10 = icmp ugt i16 %.020.in29, %9
+  %.020.in28 = load i16, ptr %6, align 2, !tbaa !28
+  %10 = icmp ugt i16 %.020.in28, %9
   br i1 %10, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %5
@@ -5816,15 +5816,15 @@ define internal i32 @fold_cse_urefo(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %.lr.ph, %merge_uref.exit
-  %.020.in30 = phi i16 [ %.020.in29, %.lr.ph ], [ %.020.in, %merge_uref.exit ]
-  %14 = zext i16 %.020.in30 to i64
+  %.020.in29 = phi i16 [ %.020.in28, %.lr.ph ], [ %.020.in, %merge_uref.exit ]
+  %14 = zext i16 %.020.in29 to i64
   %15 = getelementptr inbounds nuw %union.IRIns, ptr %12, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !28
   %.not22 = icmp eq i32 %16, %8
   br i1 %.not22, label %17, label %merge_uref.exit
 
 17:                                               ; preds = %13
-  %.020.le = zext i16 %.020.in30 to i32
+  %.020.le = zext i16 %.020.in29 to i32
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 5
   %19 = load i8, ptr %18, align 1, !tbaa !28
   %20 = icmp eq i8 %19, 60
@@ -5839,7 +5839,7 @@ define internal i32 @fold_cse_urefo(ptr noundef %0) #0 {
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %26 = load i16, ptr %25, align 2, !tbaa !38
-  %27 = icmp ult i16 %.020.in30, %26
+  %27 = icmp ult i16 %.020.in29, %26
   br i1 %27, label %28, label %57
 
 28:                                               ; preds = %24

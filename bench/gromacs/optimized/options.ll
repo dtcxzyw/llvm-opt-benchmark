@@ -395,24 +395,24 @@ define noundef ptr @_ZN3gmx8internal17OptionSectionImpl14addSectionImplERKNS_21A
   %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = load ptr, ptr %9, align 8, !tbaa !57
-  %.not15.i = icmp eq ptr %8, %10
-  br i1 %.not15.i, label %_ZNK3gmx8internal17OptionSectionImpl11findSectionEPKc.exit.thread, label %.lr.ph.i
+  %.not18.i = icmp eq ptr %8, %10
+  br i1 %.not18.i, label %_ZNK3gmx8internal17OptionSectionImpl11findSectionEPKc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %15
-  %.sroa.010.016.i = phi ptr [ %16, %15 ], [ %8, %2 ]
-  %11 = load ptr, ptr %.sroa.010.016.i, align 8, !tbaa !19
+  %.sroa.010.019.i = phi ptr [ %16, %15 ], [ %8, %2 ]
+  %11 = load ptr, ptr %.sroa.010.019.i, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %6) #26
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %_ZNK3gmx8internal17OptionSectionImpl11findSectionEPKc.exit, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 8
   %.not.i = icmp eq ptr %16, %10
   br i1 %.not.i, label %_ZNK3gmx8internal17OptionSectionImpl11findSectionEPKc.exit.thread, label %.lr.ph.i
 
 _ZNK3gmx8internal17OptionSectionImpl11findSectionEPKc.exit: ; preds = %.lr.ph.i
-  %17 = load ptr, ptr %.sroa.010.016.i, align 8, !tbaa !19
+  %17 = load ptr, ptr %.sroa.010.019.i, align 8, !tbaa !19
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK3gmx8internal17OptionSectionImpl11findSectionEPKc.exit.thread, label %19
 
@@ -606,29 +606,29 @@ define noundef ptr @_ZNK3gmx8internal17OptionSectionImpl11findSectionEPKc(ptr no
   %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8, !tbaa !57
-  %.not15 = icmp eq ptr %4, %6
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+  %.not18 = icmp eq ptr %4, %6
+  br i1 %.not18, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %12
-  %.sroa.010.016 = phi ptr [ %13, %12 ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.010.016, align 8, !tbaa !19
+.lr.ph:                                           ; preds = %2, %11
+  %.sroa.010.019 = phi ptr [ %12, %11 ], [ %4, %2 ]
+  %7 = load ptr, ptr %.sroa.010.019, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %1) #26
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread, label %12
+  br i1 %10, label %13, label %11
 
-.thread:                                          ; preds = %.lr.ph
-  %11 = load ptr, ptr %.sroa.010.016, align 8, !tbaa !19
-  br label %.loopexit
-
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 8
-  %.not = icmp eq ptr %13, %6
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 8
+  %.not = icmp eq ptr %12, %6
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %12, %2, %.thread
-  %spec.select = phi ptr [ %11, %.thread ], [ null, %2 ], [ null, %12 ]
-  ret ptr %spec.select
+13:                                               ; preds = %.lr.ph
+  %14 = load ptr, ptr %.sroa.010.019, align 8, !tbaa !19
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %11, %2, %13
+  %15 = phi ptr [ %14, %13 ], [ null, %2 ], [ null, %11 ]
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -152,36 +152,36 @@ _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thr
   br i1 %30, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %.lr.ph.i
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = add nuw i64 %.01421.i, 1
+  %32 = add nuw i64 %.01419.i, 1
   %exitcond.not.i = icmp eq i64 %32, %2
-  br i1 %exitcond.not.i, label %.lr.ph23.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.lr.ph21.i, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %29, %31
-  %.01421.i = phi i64 [ %32, %31 ], [ 0, %29 ]
-  %33 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.01421.i
+  %.01419.i = phi i64 [ %32, %31 ], [ 0, %29 ]
+  %33 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.01419.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !17
   %.not.i23 = icmp eq ptr %35, null
   br i1 %.not.i23, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %31
 
-.lr.ph23.i:                                       ; preds = %31, %.lr.ph23.i
-  %.022.i = phi i64 [ %41, %.lr.ph23.i ], [ 0, %31 ]
-  %36 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.022.i
+.lr.ph21.i:                                       ; preds = %31, %.lr.ph21.i
+  %.020.i = phi i64 [ %41, %.lr.ph21.i ], [ 0, %31 ]
+  %36 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.020.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   store ptr %38, ptr %40, align 8, !tbaa !11
-  %41 = add nuw i64 %.022.i, 1
-  %exitcond27.not.i = icmp eq i64 %41, %2
-  br i1 %exitcond27.not.i, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %.lr.ph23.i, !llvm.loop !18
+  %41 = add nuw i64 %.020.i, 1
+  %exitcond25.not.i = icmp eq i64 %41, %2
+  br i1 %exitcond25.not.i, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %.lr.ph21.i, !llvm.loop !18
 
 42:                                               ; preds = %.thread
   store ptr %9, ptr %3, align 8, !tbaa !11
   br label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit
 
-_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit: ; preds = %.lr.ph.i, %.lr.ph23.i, %27, %42, %.thread, %29
-  %.017 = phi i1 [ true, %29 ], [ true, %.thread ], [ true, %42 ], [ false, %27 ], [ true, %.lr.ph23.i ], [ false, %.lr.ph.i ]
+_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit: ; preds = %.lr.ph.i, %.lr.ph21.i, %27, %42, %.thread, %29
+  %.017 = phi i1 [ true, %29 ], [ true, %.thread ], [ true, %42 ], [ false, %27 ], [ true, %.lr.ph21.i ], [ false, %.lr.ph.i ]
   ret i1 %.017
 }
 

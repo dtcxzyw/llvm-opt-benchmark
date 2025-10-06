@@ -3468,19 +3468,19 @@ declare void @gtk_widget_set_tooltip_markup(ptr noundef, ptr noundef) local_unna
 define internal void @_display_profile_callback(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
-  %.01936 = load ptr, ptr %4, align 8, !tbaa !136
-  %.not37 = icmp eq ptr %.01936, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.01935 = load ptr, ptr %4, align 8, !tbaa !136
+  %.not36 = icmp eq ptr %.01935, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.01938, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.01937, i64 8
   %.019 = load ptr, ptr %6, align 8, !tbaa !136
   %.not = icmp eq ptr %.019, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %5
-  %.01938 = phi ptr [ %.019, %5 ], [ %.01936, %2 ]
-  %7 = load ptr, ptr %.01938, align 8, !tbaa !137
+  %.01937 = phi ptr [ %.019, %5 ], [ %.01935, %2 ]
+  %7 = load ptr, ptr %.01937, align 8, !tbaa !137
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %9 = load i32, ptr %8, align 8, !tbaa !267
   %.not23 = icmp eq i32 %9, %3
@@ -3491,7 +3491,7 @@ define internal void @_display_profile_callback(ptr noundef %0, ptr noundef %1) 
   %12 = load i32, ptr %11, align 4, !tbaa !270
   %13 = load i32, ptr %7, align 8, !tbaa !269
   %.not21 = icmp eq i32 %12, %13
-  br i1 %.not21, label %14, label %.critedge35
+  br i1 %.not21, label %14, label %.thread31
 
 14:                                               ; preds = %10
   %15 = icmp eq i32 %12, 0
@@ -3502,9 +3502,9 @@ define internal void @_display_profile_callback(ptr noundef %0, ptr noundef %1) 
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %18) #22
   %.not22 = icmp eq i32 %19, 0
-  br i1 %.not22, label %.critedge, label %.critedge35
+  br i1 %.not22, label %.critedge, label %.thread31
 
-.critedge35:                                      ; preds = %16, %10
+.thread31:                                        ; preds = %10, %16
   store i32 %13, ptr %11, align 4, !tbaa !270
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 124
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3517,13 +3517,13 @@ define internal void @_display_profile_callback(ptr noundef %0, ptr noundef %1) 
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 108
   %26 = load i32, ptr %25, align 4, !tbaa !270
-  %.not33 = icmp eq i32 %26, 8
+  %.not34 = icmp eq i32 %26, 8
   store i32 8, ptr %25, align 4, !tbaa !270
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 124
   store i8 0, ptr %27, align 4, !tbaa !118
-  br i1 %.not33, label %.critedge, label %28
+  br i1 %.not34, label %.critedge, label %28
 
-28:                                               ; preds = %.critedge35, %._crit_edge
+28:                                               ; preds = %.thread31, %._crit_edge
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %30) #19
@@ -3563,19 +3563,19 @@ define internal void @_display_profile_callback(ptr noundef %0, ptr noundef %1) 
 define internal void @_display2_profile_callback(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
-  %.01936 = load ptr, ptr %4, align 8, !tbaa !136
-  %.not37 = icmp eq ptr %.01936, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.01935 = load ptr, ptr %4, align 8, !tbaa !136
+  %.not36 = icmp eq ptr %.01935, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.01938, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.01937, i64 8
   %.019 = load ptr, ptr %6, align 8, !tbaa !136
   %.not = icmp eq ptr %.019, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %5
-  %.01938 = phi ptr [ %.019, %5 ], [ %.01936, %2 ]
-  %7 = load ptr, ptr %.01938, align 8, !tbaa !137
+  %.01937 = phi ptr [ %.019, %5 ], [ %.01935, %2 ]
+  %7 = load ptr, ptr %.01937, align 8, !tbaa !137
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1052
   %9 = load i32, ptr %8, align 4, !tbaa !271
   %.not23 = icmp eq i32 %9, %3
@@ -3586,7 +3586,7 @@ define internal void @_display2_profile_callback(ptr noundef %0, ptr noundef %1)
   %12 = load i32, ptr %11, align 8, !tbaa !272
   %13 = load i32, ptr %7, align 8, !tbaa !269
   %.not21 = icmp eq i32 %12, %13
-  br i1 %.not21, label %14, label %.critedge35
+  br i1 %.not21, label %14, label %.thread31
 
 14:                                               ; preds = %10
   %15 = icmp eq i32 %12, 0
@@ -3597,9 +3597,9 @@ define internal void @_display2_profile_callback(ptr noundef %0, ptr noundef %1)
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %18) #22
   %.not22 = icmp eq i32 %19, 0
-  br i1 %.not22, label %.critedge, label %.critedge35
+  br i1 %.not22, label %.critedge, label %.thread31
 
-.critedge35:                                      ; preds = %16, %10
+.thread31:                                        ; preds = %10, %16
   store i32 %13, ptr %11, align 8, !tbaa !272
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 636
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3613,14 +3613,14 @@ define internal void @_display2_profile_callback(ptr noundef %0, ptr noundef %1)
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %26 = load i32, ptr %25, align 8, !tbaa !272
-  %.not33 = icmp eq i32 %26, 19
+  %.not34 = icmp eq i32 %26, 19
   store i32 19, ptr %25, align 8, !tbaa !272
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 636
   store i8 0, ptr %27, align 4, !tbaa !118
-  br i1 %.not33, label %.critedge, label %28
+  br i1 %.not34, label %.critedge, label %28
 
-28:                                               ; preds = %.critedge35, %._crit_edge
-  %29 = phi ptr [ %.pre, %.critedge35 ], [ %24, %._crit_edge ]
+28:                                               ; preds = %.thread31, %._crit_edge
+  %29 = phi ptr [ %.pre, %.thread31 ], [ %24, %._crit_edge ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %30) #19
   tail call void (...) @dt_colorspaces_update_display2_transforms() #19
@@ -3670,19 +3670,19 @@ define internal void @_display2_iso12646_callback(ptr noundef %0, ptr noundef in
 define internal void @_softproof_profile_callback(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
-  %.01936 = load ptr, ptr %4, align 8, !tbaa !136
-  %.not37 = icmp eq ptr %.01936, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.01935 = load ptr, ptr %4, align 8, !tbaa !136
+  %.not36 = icmp eq ptr %.01935, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.01938, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.01937, i64 8
   %.019 = load ptr, ptr %6, align 8, !tbaa !136
   %.not = icmp eq ptr %.019, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %5
-  %.01938 = phi ptr [ %.019, %5 ], [ %.01936, %2 ]
-  %7 = load ptr, ptr %.01938, align 8, !tbaa !137
+  %.01937 = phi ptr [ %.019, %5 ], [ %.01935, %2 ]
+  %7 = load ptr, ptr %.01937, align 8, !tbaa !137
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1044
   %9 = load i32, ptr %8, align 4, !tbaa !273
   %.not23 = icmp eq i32 %9, %3
@@ -3693,7 +3693,7 @@ define internal void @_softproof_profile_callback(ptr noundef %0, ptr noundef %1
   %12 = load i32, ptr %11, align 4, !tbaa !274
   %13 = load i32, ptr %7, align 8, !tbaa !269
   %.not21 = icmp eq i32 %12, %13
-  br i1 %.not21, label %14, label %.critedge35
+  br i1 %.not21, label %14, label %.thread31
 
 14:                                               ; preds = %10
   %15 = icmp eq i32 %12, 0
@@ -3704,9 +3704,9 @@ define internal void @_softproof_profile_callback(ptr noundef %0, ptr noundef %1
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %18) #22
   %.not22 = icmp eq i32 %19, 0
-  br i1 %.not22, label %.critedge, label %.critedge35
+  br i1 %.not22, label %.critedge, label %.thread31
 
-.critedge35:                                      ; preds = %16, %10
+.thread31:                                        ; preds = %10, %16
   store i32 %13, ptr %11, align 4, !tbaa !274
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1148
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3719,13 +3719,13 @@ define internal void @_softproof_profile_callback(ptr noundef %0, ptr noundef %1
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 116
   %26 = load i32, ptr %25, align 4, !tbaa !274
-  %.not33 = icmp eq i32 %26, 1
+  %.not34 = icmp eq i32 %26, 1
   store i32 1, ptr %25, align 4, !tbaa !274
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 1148
   store i8 0, ptr %27, align 4, !tbaa !118
-  br i1 %.not33, label %.critedge, label %28
+  br i1 %.not34, label %.critedge, label %28
 
-28:                                               ; preds = %.critedge35, %._crit_edge
+28:                                               ; preds = %.thread31, %._crit_edge
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !266
   %30 = and i32 %29, 1
   %31 = icmp ne i32 %30, 0
@@ -3758,19 +3758,19 @@ define internal void @_softproof_profile_callback(ptr noundef %0, ptr noundef %1
 define internal void @_histogram_profile_callback(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
-  %.01936 = load ptr, ptr %4, align 8, !tbaa !136
-  %.not37 = icmp eq ptr %.01936, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.01935 = load ptr, ptr %4, align 8, !tbaa !136
+  %.not36 = icmp eq ptr %.01935, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.01938, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.01937, i64 8
   %.019 = load ptr, ptr %6, align 8, !tbaa !136
   %.not = icmp eq ptr %.019, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %5
-  %.01938 = phi ptr [ %.019, %5 ], [ %.01936, %2 ]
-  %7 = load ptr, ptr %.01938, align 8, !tbaa !137
+  %.01937 = phi ptr [ %.019, %5 ], [ %.01935, %2 ]
+  %7 = load ptr, ptr %.01937, align 8, !tbaa !137
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1056
   %9 = load i32, ptr %8, align 8, !tbaa !275
   %.not23 = icmp eq i32 %9, %3
@@ -3781,7 +3781,7 @@ define internal void @_histogram_profile_callback(ptr noundef %0, ptr noundef %1
   %12 = load i32, ptr %11, align 8, !tbaa !276
   %13 = load i32, ptr %7, align 8, !tbaa !269
   %.not21 = icmp eq i32 %12, %13
-  br i1 %.not21, label %14, label %.critedge35
+  br i1 %.not21, label %14, label %.thread31
 
 14:                                               ; preds = %10
   %15 = icmp eq i32 %12, 0
@@ -3792,9 +3792,9 @@ define internal void @_histogram_profile_callback(ptr noundef %0, ptr noundef %1
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %18) #22
   %.not22 = icmp eq i32 %19, 0
-  br i1 %.not22, label %.critedge, label %.critedge35
+  br i1 %.not22, label %.critedge, label %.thread31
 
-.critedge35:                                      ; preds = %16, %10
+.thread31:                                        ; preds = %10, %16
   store i32 %13, ptr %11, align 8, !tbaa !276
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1660
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3807,13 +3807,13 @@ define internal void @_histogram_profile_callback(ptr noundef %0, ptr noundef %1
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load i32, ptr %25, align 8, !tbaa !276
-  %.not33 = icmp eq i32 %26, 18
+  %.not34 = icmp eq i32 %26, 18
   store i32 18, ptr %25, align 8, !tbaa !276
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 1660
   store i8 0, ptr %27, align 4, !tbaa !118
-  br i1 %.not33, label %.critedge, label %28
+  br i1 %.not34, label %.critedge, label %28
 
-28:                                               ; preds = %.critedge35, %._crit_edge
+28:                                               ; preds = %.thread31, %._crit_edge
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !266
   %30 = and i32 %29, 1
   %31 = icmp ne i32 %30, 0

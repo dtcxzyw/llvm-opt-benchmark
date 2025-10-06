@@ -1685,29 +1685,29 @@ av_packet_get_side_data.exit.thread:              ; preds = %8, %2, %av_packet_g
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define ptr @av_packet_side_data_get(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 {
-  %.not11 = icmp sgt i32 %1, 0
-  br i1 %.not11, label %.lr.ph.preheader, label %._crit_edge
+  %4 = icmp sgt i32 %1, 0
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-4:                                                ; preds = %.lr.ph
+5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %4
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %0, i64 %indvars.iv
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !35
-  %8 = icmp eq i32 %7, %2
-  br i1 %8, label %._crit_edge, label %4
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %5
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !35
+  %9 = icmp eq i32 %8, %2
+  br i1 %9, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %4, %.lr.ph, %3
-  %spec.select = phi ptr [ null, %3 ], [ %5, %.lr.ph ], [ null, %4 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %.lr.ph, %5, %3
+  %10 = phi ptr [ null, %3 ], [ null, %5 ], [ %6, %.lr.ph ]
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable

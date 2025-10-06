@@ -1269,11 +1269,11 @@ _ZN3smt19conflict_resolution11eq2literalsEPNS_5enodeES2_.exit: ; preds = %_ZN3sm
   br i1 %72, label %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit.thread.loopexit, label %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit, !llvm.loop !193
 
 _ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit.thread.loopexit: ; preds = %_ZN3smt19conflict_resolution11eq2literalsEPNS_5enodeES2_.exit, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit
-  %.pre8 = load i32, ptr %3, align 8, !tbaa !28
+  %.pre7 = load i32, ptr %3, align 8, !tbaa !28
   br label %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit.thread
 
 _ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit.thread: ; preds = %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit.thread.loopexit, %.preheader
-  %73 = phi i32 [ %.pre8, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit.thread.loopexit ], [ %14, %.preheader ]
+  %73 = phi i32 [ %.pre7, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5emptyEv.exit.thread.loopexit ], [ %14, %.preheader ]
   %74 = load ptr, ptr %2, align 8, !tbaa !25
   %75 = icmp eq ptr %74, null
   br i1 %75, label %_ZNK6vectorIPN3smt13justificationELb0EjE4sizeEv.exit5, label %76

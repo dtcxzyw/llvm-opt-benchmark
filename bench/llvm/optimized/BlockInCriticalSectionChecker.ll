@@ -3591,18 +3591,18 @@ define internal fastcc noundef ptr @_ZL9getRegionRKN5clang4ento9CallEventERKSt7v
   store i8 %.fca.1.extract.i.i.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %13 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not14.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not14.i.i.i.i.i.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i.i.i
+  %.not13.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not13.i.i.i.i.i.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %8, %21
-  %.0615.i.i.i.i.i.i.i = phi ptr [ %23, %21 ], [ %13, %8 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i.i.i, i64 16
+  %.0614.i.i.i.i.i.i.i = phi ptr [ %23, %21 ], [ %13, %8 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i.i.i, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !627
-  %.not13.i.i.i.i.i.i.i = icmp eq i32 %15, 15
-  br i1 %.not13.i.i.i.i.i.i.i, label %16, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
+  %.not12.i.i.i.i.i.i.i = icmp eq i32 %15, 15
+  br i1 %.not12.i.i.i.i.i.i.i, label %16, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 16:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i.i.i, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i.i.i, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %17, align 8
   %18 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %19 = inttoptr i64 %18 to ptr
@@ -3610,7 +3610,7 @@ define internal fastcc noundef ptr @_ZL9getRegionRKN5clang4ento9CallEventERKSt7v
   br i1 %20, label %21, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i.i.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i.i.i, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !634
   %.not.i.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i.i.i
@@ -3628,18 +3628,18 @@ define internal fastcc noundef ptr @_ZL9getRegionRKN5clang4ento9CallEventERKSt7v
   store i8 %.fca.1.extract.i.i.i.i.i16.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i17.i.i, align 8
   %29 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not14.i.i.i.i.i18.i.i = icmp eq ptr %29, null
-  br i1 %.not14.i.i.i.i.i18.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i19.i.i
+  %.not13.i.i.i.i.i18.i.i = icmp eq ptr %29, null
+  br i1 %.not13.i.i.i.i.i18.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i19.i.i
 
 .lr.ph.i.i.i.i.i19.i.i:                           ; preds = %24, %37
-  %.0615.i.i.i.i.i20.i.i = phi ptr [ %39, %37 ], [ %29, %24 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i20.i.i, i64 16
+  %.0614.i.i.i.i.i20.i.i = phi ptr [ %39, %37 ], [ %29, %24 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i20.i.i, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !627
-  %.not13.i.i.i.i.i21.i.i = icmp eq i32 %31, 15
-  br i1 %.not13.i.i.i.i.i21.i.i, label %32, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
+  %.not12.i.i.i.i.i21.i.i = icmp eq i32 %31, 15
+  br i1 %.not12.i.i.i.i.i21.i.i, label %32, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 32:                                               ; preds = %.lr.ph.i.i.i.i.i19.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i20.i.i, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i20.i.i, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i.i23.i.i = load i64, ptr %33, align 8
   %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i23.i.i, -8
   %35 = inttoptr i64 %34 to ptr
@@ -3647,7 +3647,7 @@ define internal fastcc noundef ptr @_ZL9getRegionRKN5clang4ento9CallEventERKSt7v
   br i1 %36, label %37, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i20.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i20.i.i, i64 48
   %39 = load ptr, ptr %38, align 8, !tbaa !634
   %.not.i.i.i.i.i24.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i24.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i19.i.i
@@ -3689,18 +3689,18 @@ define internal fastcc noundef ptr @_ZL9getRegionRKN5clang4ento9CallEventERKSt7v
 
 _ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exit.i.i.i.i.i.i: ; preds = %48, %47
   %.1.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %47 ], [ %53, %48 ]
-  %.not14.i.i.i.i.i28.i.i = icmp eq ptr %.1.i.i.i.i.i.i.i, null
-  br i1 %.not14.i.i.i.i.i28.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i29.i.i
+  %.not13.i.i.i.i.i28.i.i = icmp eq ptr %.1.i.i.i.i.i.i.i, null
+  br i1 %.not13.i.i.i.i.i28.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i29.i.i
 
 .lr.ph.i.i.i.i.i29.i.i:                           ; preds = %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exit.i.i.i.i.i.i, %61
-  %.0615.i.i.i.i.i30.i.i = phi ptr [ %63, %61 ], [ %.1.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exit.i.i.i.i.i.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i30.i.i, i64 16
+  %.0614.i.i.i.i.i30.i.i = phi ptr [ %63, %61 ], [ %.1.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exit.i.i.i.i.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i30.i.i, i64 16
   %55 = load i32, ptr %54, align 8, !tbaa !627
-  %.not13.i.i.i.i.i31.i.i = icmp eq i32 %55, 15
-  br i1 %.not13.i.i.i.i.i31.i.i, label %56, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
+  %.not12.i.i.i.i.i31.i.i = icmp eq i32 %55, 15
+  br i1 %.not12.i.i.i.i.i31.i.i, label %56, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 56:                                               ; preds = %.lr.ph.i.i.i.i.i29.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i30.i.i, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i30.i.i, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i.i33.i.i = load i64, ptr %57, align 8
   %58 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i33.i.i, -8
   %59 = inttoptr i64 %58 to ptr
@@ -3708,7 +3708,7 @@ _ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exi
   br i1 %60, label %61, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds nuw i8, ptr %.0615.i.i.i.i.i30.i.i, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i.i.i30.i.i, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !634
   %.not.i.i.i.i.i34.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i.i34.i.i, label %"_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit", label %.lr.ph.i.i.i.i.i29.i.i
@@ -3717,7 +3717,7 @@ _ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exi
   unreachable
 
 "_ZSt5visitIZL9getRegionRKN5clang4ento9CallEventERKSt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS6_21MemberMutexDescriptorENS6_19RAIIMutexDescriptorEEEbE3$_0JSC_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit": ; preds = %.lr.ph.i.i.i.i.i29.i.i, %56, %61, %.lr.ph.i.i.i.i.i19.i.i, %32, %37, %.lr.ph.i.i.i.i.i.i.i, %16, %21, %8, %24, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exit.i.i.i.i.i.i
-  %.0.i.i = phi ptr [ null, %8 ], [ null, %24 ], [ null, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exit.i.i.i.i.i.i ], [ null, %21 ], [ %.0615.i.i.i.i.i.i.i, %16 ], [ %.0615.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ null, %37 ], [ %.0615.i.i.i.i.i20.i.i, %32 ], [ %.0615.i.i.i.i.i20.i.i, %.lr.ph.i.i.i.i.i19.i.i ], [ null, %61 ], [ %.0615.i.i.i.i.i30.i.i, %56 ], [ %.0615.i.i.i.i.i30.i.i, %.lr.ph.i.i.i.i.i29.i.i ]
+  %.0.i.i = phi ptr [ null, %8 ], [ null, %24 ], [ null, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor9getRegionERKN5clang4ento9CallEventEb.exit.i.i.i.i.i.i ], [ null, %21 ], [ %.0614.i.i.i.i.i.i.i, %16 ], [ %.0614.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ null, %37 ], [ %.0614.i.i.i.i.i20.i.i, %32 ], [ %.0614.i.i.i.i.i20.i.i, %.lr.ph.i.i.i.i.i19.i.i ], [ null, %61 ], [ %.0614.i.i.i.i.i30.i.i, %56 ], [ %.0614.i.i.i.i.i30.i.i, %.lr.ph.i.i.i.i.i29.i.i ]
   ret ptr %.0.i.i
 }
 

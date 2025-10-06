@@ -238,8 +238,8 @@ wscbor_head_read.exit:                            ; preds = %32, %35, %.sink.spl
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %43, ptr %66, align 8
   %67 = and i32 %60, 254
-  %switch123 = icmp eq i32 %67, 2
-  br i1 %switch123, label %68, label %163
+  %switch = icmp eq i32 %67, 2
+  br i1 %switch, label %68, label %163
 
 68:                                               ; preds = %59
   %.not117 = icmp eq i8 %62, 31
@@ -309,21 +309,21 @@ wscbor_get_length.exit:                           ; preds = %71, %74
   tail call fastcc void @wscbor_read_unsigned(ptr noundef %86, ptr noundef nonnull %1)
   %97 = load i8, ptr %95, align 1
   %98 = icmp ugt i8 %97, 27
-  br i1 %98, label %.sink.split.i125, label %wscbor_head_read.exit127
+  br i1 %98, label %.sink.split.i124, label %wscbor_head_read.exit126
 
 99:                                               ; preds = %84, %84, %84, %84, %84
   tail call fastcc void @wscbor_read_unsigned(ptr noundef %86, ptr noundef nonnull %1)
   %100 = load i8, ptr %95, align 1
   %101 = add i8 %100, -28
-  %or.cond.i124 = icmp ult i8 %101, 3
-  br i1 %or.cond.i124, label %.sink.split.i125, label %wscbor_head_read.exit127
+  %or.cond.i123 = icmp ult i8 %101, 3
+  br i1 %or.cond.i123, label %.sink.split.i124, label %wscbor_head_read.exit126
 
-.sink.split.i125:                                 ; preds = %99, %96
+.sink.split.i124:                                 ; preds = %99, %96
   %102 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr @ei_cbor_invalid, ptr %102, align 8
-  br label %wscbor_head_read.exit127
+  br label %wscbor_head_read.exit126
 
-wscbor_head_read.exit127:                         ; preds = %96, %99, %.sink.split.i125
+wscbor_head_read.exit126:                         ; preds = %96, %99, %.sink.split.i124
   %103 = load i32, ptr %89, align 4
   %104 = load i32, ptr %2, align 4
   %105 = add i32 %104, %103
@@ -335,42 +335,42 @@ wscbor_head_read.exit127:                         ; preds = %96, %99, %.sink.spl
   %.not118 = icmp eq ptr %108, null
   br i1 %.not118, label %111, label %109
 
-109:                                              ; preds = %wscbor_head_read.exit127
+109:                                              ; preds = %wscbor_head_read.exit126
   %110 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef nonnull %0, i64 noundef 16) #8
   store ptr %108, ptr %110, align 8
   tail call void @wmem_list_append(ptr noundef %14, ptr noundef %110)
   br label %111
 
-111:                                              ; preds = %109, %wscbor_head_read.exit127
+111:                                              ; preds = %109, %wscbor_head_read.exit126
   %112 = load i8, ptr %93, align 8
   %113 = icmp eq i8 %112, 7
-  br i1 %113, label %114, label %.thread133
+  br i1 %113, label %114, label %.thread130
 
 114:                                              ; preds = %111
   %115 = load i8, ptr %95, align 1
   %116 = icmp eq i8 %115, 31
-  br i1 %116, label %152, label %.thread133
+  br i1 %116, label %152, label %.thread130
 
-.thread133:                                       ; preds = %111, %114
+.thread130:                                       ; preds = %111, %114
   %117 = zext i8 %112 to i32
   %118 = load i32, ptr %61, align 8
   %.not119 = icmp eq i32 %118, %117
   br i1 %.not119, label %123, label %119
 
-119:                                              ; preds = %.thread133
+119:                                              ; preds = %.thread130
   %120 = load ptr, ptr %10, align 8
   %121 = load ptr, ptr %120, align 8
   %122 = tail call ptr (ptr, ptr, ptr, ...) @wscbor_error_new(ptr noundef %121, ptr noundef nonnull @ei_cbor_wrong_type, ptr noundef nonnull @.str.6, i32 noundef %117, i32 noundef %118)
   tail call void @wmem_list_append(ptr noundef %14, ptr noundef %122)
   br label %150
 
-123:                                              ; preds = %.thread133
+123:                                              ; preds = %.thread130
   %124 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %125 = load i64, ptr %124, align 8
   %126 = icmp ugt i64 %125, 2147483647
-  br i1 %126, label %wscbor_get_length.exit129.thread, label %wscbor_get_length.exit129
+  br i1 %126, label %wscbor_get_length.exit128.thread, label %wscbor_get_length.exit128
 
-wscbor_get_length.exit129.thread:                 ; preds = %123
+wscbor_get_length.exit128.thread:                 ; preds = %123
   %127 = load ptr, ptr %10, align 8
   %128 = load ptr, ptr %127, align 8
   %129 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %128, i64 noundef 16) #8
@@ -383,7 +383,7 @@ wscbor_get_length.exit129.thread:                 ; preds = %123
   store i32 %132, ptr %66, align 8
   br label %137
 
-wscbor_get_length.exit129:                        ; preds = %123
+wscbor_get_length.exit128:                        ; preds = %123
   %133 = trunc nuw nsw i64 %125 to i32
   %134 = load i32, ptr %2, align 4
   %135 = add i32 %134, %133
@@ -391,16 +391,16 @@ wscbor_get_length.exit129:                        ; preds = %123
   %136 = add i32 %106, %133
   store i32 %136, ptr %66, align 8
   %.not120 = icmp eq i64 %125, 0
-  br i1 %.not120, label %150, label %wscbor_get_length.exit129._crit_edge
+  br i1 %.not120, label %150, label %wscbor_get_length.exit128._crit_edge
 
-wscbor_get_length.exit129._crit_edge:             ; preds = %wscbor_get_length.exit129
+wscbor_get_length.exit128._crit_edge:             ; preds = %wscbor_get_length.exit128
   %.pre = load ptr, ptr %10, align 8
   br label %137
 
-137:                                              ; preds = %wscbor_get_length.exit129._crit_edge, %wscbor_get_length.exit129.thread
-  %138 = phi ptr [ %127, %wscbor_get_length.exit129.thread ], [ %.pre, %wscbor_get_length.exit129._crit_edge ]
-  %139 = phi i32 [ %132, %wscbor_get_length.exit129.thread ], [ %136, %wscbor_get_length.exit129._crit_edge ]
-  %.0.i128136 = phi i32 [ 2147483647, %wscbor_get_length.exit129.thread ], [ %133, %wscbor_get_length.exit129._crit_edge ]
+137:                                              ; preds = %wscbor_get_length.exit128._crit_edge, %wscbor_get_length.exit128.thread
+  %138 = phi ptr [ %127, %wscbor_get_length.exit128.thread ], [ %.pre, %wscbor_get_length.exit128._crit_edge ]
+  %139 = phi i32 [ %132, %wscbor_get_length.exit128.thread ], [ %136, %wscbor_get_length.exit128._crit_edge ]
+  %.0.i127133 = phi i32 [ 2147483647, %wscbor_get_length.exit128.thread ], [ %133, %wscbor_get_length.exit128._crit_edge ]
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %141 = load ptr, ptr %140, align 8
   %.not121 = icmp eq ptr %141, null
@@ -416,12 +416,12 @@ wscbor_get_length.exit129._crit_edge:             ; preds = %wscbor_get_length.e
   %146 = load i32, ptr %86, align 8
   %147 = load i32, ptr %89, align 4
   %148 = add i32 %147, %146
-  %149 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef %148, i32 noundef %.0.i128136)
+  %149 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef %148, i32 noundef %.0.i127133)
   tail call void @tvb_composite_append(ptr noundef %145, ptr noundef %149)
   br label %150
 
-150:                                              ; preds = %wscbor_get_length.exit129, %144, %119
-  %151 = phi i32 [ %136, %wscbor_get_length.exit129 ], [ %139, %144 ], [ %106, %119 ]
+150:                                              ; preds = %wscbor_get_length.exit128, %144, %119
+  %151 = phi i32 [ %136, %wscbor_get_length.exit128 ], [ %139, %144 ], [ %106, %119 ]
   tail call void @wmem_free(ptr noundef nonnull %0, ptr noundef %86)
   br label %84
 

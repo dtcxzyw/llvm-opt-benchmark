@@ -268,22 +268,22 @@ _ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i: ; pred
 
 .lr.ph69:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %48 = phi i32 [ %47, %.lr.ph ], [ %42, %.lr.ph.preheader ]
-  %.067108.i3168 = phi i32 [ %.2.i, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.273106.i3367 = phi i64 [ %49, %.lr.ph ], [ %.071.i26, %.lr.ph.preheader ]
-  %.076105.i3466 = phi i32 [ %.278.i, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %49 = add i64 %.273106.i3367, 1
-  %50 = icmp eq i32 %.067108.i3168, %36
+  %.067106.i3168 = phi i32 [ %.2.i, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.273104.i3367 = phi i64 [ %49, %.lr.ph ], [ %.071.i26, %.lr.ph.preheader ]
+  %.076103.i3466 = phi i32 [ %.278.i, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %49 = add i64 %.273104.i3367, 1
+  %50 = icmp eq i32 %.067106.i3168, %36
   br i1 %50, label %58, label %51, !llvm.loop !24
 
 51:                                               ; preds = %.lr.ph69
-  %52 = icmp ugt i32 %.067108.i3168, 214748364
-  %53 = mul i32 %.067108.i3168, 10
+  %52 = icmp ugt i32 %.067106.i3168, 214748364
+  %53 = mul i32 %.067106.i3168, 10
   %.3.i = select i1 %52, i32 %36, i32 %53
   %54 = sub nuw i32 %36, %48
   %55 = icmp ugt i32 %.3.i, %54
   %56 = add i32 %48, %.3.i
   %57 = or i1 %52, %55
-  %.480.i = select i1 %57, i32 34, i32 %.076105.i3466
+  %.480.i = select i1 %57, i32 34, i32 %.076103.i3466
   %.4.i = select i1 %55, i32 %36, i32 %56
   br label %58
 
@@ -301,17 +301,17 @@ _ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i: ; pred
   br i1 %59, label %_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.lr.ph.i.preheader, %.critedge.i, %.thread
-  %.067.lcssa132.i = phi i32 [ %.067.lcssa.i, %.critedge.i ], [ 0, %.thread ], [ 0, %.lr.ph.i.preheader ]
-  %.068.lcssa131.i = phi i64 [ %.068.lcssa.i, %.critedge.i ], [ 0, %.thread ], [ 0, %.lr.ph.i.preheader ]
-  %.076.lcssa130.i = phi i32 [ %.076.lcssa.i, %.critedge.i ], [ 0, %.thread ], [ 0, %.lr.ph.i.preheader ]
-  %60 = sub i32 0, %.067.lcssa132.i
-  %61 = select i1 %.082.i24, i32 %.067.lcssa132.i, i32 %60
-  %62 = zext nneg i32 %.076.lcssa130.i to i64
+  %.067.lcssa130.i = phi i32 [ %.067.lcssa.i, %.critedge.i ], [ 0, %.thread ], [ 0, %.lr.ph.i.preheader ]
+  %.068.lcssa129.i = phi i64 [ %.068.lcssa.i, %.critedge.i ], [ 0, %.thread ], [ 0, %.lr.ph.i.preheader ]
+  %.076.lcssa128.i = phi i32 [ %.076.lcssa.i, %.critedge.i ], [ 0, %.thread ], [ 0, %.lr.ph.i.preheader ]
+  %60 = sub i32 0, %.067.lcssa130.i
+  %61 = select i1 %.082.i24, i32 %.067.lcssa130.i, i32 %60
+  %62 = zext nneg i32 %.076.lcssa128.i to i64
   %63 = shl nuw nsw i64 %62, 32
   br label %_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim.exit
 
 _ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim.exit: ; preds = %.critedge.i, %.critedge.thread.i
-  %.sroa.11.0.i = phi i64 [ %.068.lcssa131.i, %.critedge.thread.i ], [ %.068.lcssa.i, %.critedge.i ]
+  %.sroa.11.0.i = phi i64 [ %.068.lcssa129.i, %.critedge.thread.i ], [ %.068.lcssa.i, %.critedge.i ]
   %.sroa.6.0.i = phi i64 [ %63, %.critedge.thread.i ], [ 146028888064, %.critedge.i ]
   %.sroa.0.0.i = phi i32 [ %61, %.critedge.thread.i ], [ %36, %.critedge.i ]
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.i to i64
@@ -2604,8 +2604,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %.not = icmp eq i32 %spec.store.select, 0
   %27 = select i1 %.not, i64 3, i64 4
   %28 = add nuw nsw i64 %.074, %27
-  %.not92 = icmp slt i64 %26, %28
-  br i1 %.not92, label %.critedge, label %29
+  %.not91 = icmp slt i64 %26, %28
+  br i1 %.not91, label %.critedge, label %29
 
 29:                                               ; preds = %23
   %30 = icmp samesign ult i32 %spec.store.select, 6
@@ -2656,7 +2656,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %60 = phi i32 [ %76, %67 ], [ %58, %49 ]
   %61 = phi ptr [ %75, %67 ], [ %57, %49 ]
   %62 = phi i32 [ %70, %67 ], [ 20, %49 ]
-  %.27096 = phi i32 [ %69, %67 ], [ %51, %49 ]
+  %.27095 = phi i32 [ %69, %67 ], [ %51, %49 ]
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %67
 
@@ -2669,7 +2669,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
 67:                                               ; preds = %.lr.ph
   %notmask = shl nsw i32 -1, %62
   %68 = xor i32 %notmask, -1
-  %69 = and i32 %.27096, %68
+  %69 = and i32 %.27095, %68
   %70 = add nsw i32 %62, -4
   %71 = lshr i32 %69, %70
   %72 = zext nneg i32 %71 to i64
@@ -3010,8 +3010,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %.not = icmp eq i32 %spec.store.select, 0
   %31 = select i1 %.not, i64 3, i64 4
   %32 = add nuw nsw i64 %.075, %31
-  %.not95 = icmp slt i64 %30, %32
-  br i1 %.not95, label %.critedge, label %33
+  %.not94 = icmp slt i64 %30, %32
+  br i1 %.not94, label %.critedge, label %33
 
 33:                                               ; preds = %29
   %34 = icmp samesign ult i32 %spec.store.select, 13
@@ -3062,7 +3062,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 48, %54 ]
   %64 = phi i32 [ %79, %70 ], [ %62, %54 ]
   %65 = phi ptr [ %78, %70 ], [ %61, %54 ]
-  %.27199 = phi i64 [ %72, %70 ], [ %56, %54 ]
+  %.27198 = phi i64 [ %72, %70 ], [ %56, %54 ]
   %66 = icmp eq i64 %indvars.iv, 0
   br i1 %66, label %67, label %70
 
@@ -3075,7 +3075,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
 70:                                               ; preds = %.lr.ph
   %notmask = shl nsw i64 -1, %indvars.iv
   %71 = xor i64 %notmask, -1
-  %72 = and i64 %.27199, %71
+  %72 = and i64 %.27198, %71
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %73 = and i64 %indvars.iv.next, 4294967292
   %74 = lshr i64 %72, %73
@@ -4687,10 +4687,10 @@ _ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i: ; pred
   br i1 %71, label %.lr.ph.i, label %.critedge.thread.i
 
 .lr.ph.i:                                         ; preds = %.thread61, %88
-  %.067108.i = phi i32 [ %.2.i, %88 ], [ 0, %.thread61 ]
-  %.273106.i = phi i64 [ %79, %88 ], [ %.071.i66, %.thread61 ]
-  %.076105.i = phi i32 [ %.278.i, %88 ], [ 0, %.thread61 ]
-  %72 = getelementptr inbounds nuw i8, ptr %55, i64 %.273106.i
+  %.067106.i = phi i32 [ %.2.i, %88 ], [ 0, %.thread61 ]
+  %.273104.i = phi i64 [ %79, %88 ], [ %.071.i66, %.thread61 ]
+  %.076103.i = phi i32 [ %.278.i, %88 ], [ 0, %.thread61 ]
+  %72 = getelementptr inbounds nuw i8, ptr %55, i64 %.273104.i
   %73 = load i8, ptr %72, align 1, !tbaa !4, !alias.scope !89
   %74 = sext i8 %73 to i32
   %75 = tail call fastcc noundef zeroext i1 @_ZN24__llvm_libc_common_utils8internalL7isalnumEi(i32 noundef %74)
@@ -4702,19 +4702,19 @@ _ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i: ; pred
   br i1 %.not.i, label %78, label %.critedge.i
 
 78:                                               ; preds = %76
-  %79 = add i64 %.273106.i, 1
-  %80 = icmp eq i32 %.067108.i, %70
+  %79 = add i64 %.273104.i, 1
+  %80 = icmp eq i32 %.067106.i, %70
   br i1 %80, label %88, label %81, !llvm.loop !24
 
 81:                                               ; preds = %78
-  %82 = icmp ugt i32 %.067108.i, 214748364
-  %83 = mul i32 %.067108.i, 10
+  %82 = icmp ugt i32 %.067106.i, 214748364
+  %83 = mul i32 %.067106.i, 10
   %.3.i = select i1 %82, i32 %70, i32 %83
   %84 = sub nuw i32 %70, %77
   %85 = icmp ugt i32 %.3.i, %84
   %86 = add i32 %77, %.3.i
   %87 = or i1 %82, %85
-  %.480.i = select i1 %87, i32 34, i32 %.076105.i
+  %.480.i = select i1 %87, i32 34, i32 %.076103.i
   %.4.i = select i1 %85, i32 %70, i32 %86
   br label %88
 
@@ -4725,15 +4725,15 @@ _ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i: ; pred
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %88, %76, %.lr.ph.i
-  %.076.lcssa.i = phi i32 [ %.076105.i, %.lr.ph.i ], [ %.278.i, %88 ], [ %.076105.i, %76 ]
-  %.067.lcssa.i = phi i32 [ %.067108.i, %.lr.ph.i ], [ %.2.i, %88 ], [ %.067108.i, %76 ]
+  %.076.lcssa.i = phi i32 [ %.076103.i, %.lr.ph.i ], [ %.278.i, %88 ], [ %.076103.i, %76 ]
+  %.067.lcssa.i = phi i32 [ %.067106.i, %.lr.ph.i ], [ %.2.i, %88 ], [ %.067106.i, %76 ]
   %89 = icmp eq i32 %.076.lcssa.i, 34
   br i1 %89, label %_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %.thread61
-  %.067.lcssa132.i = phi i32 [ %.067.lcssa.i, %.critedge.i ], [ 0, %.thread61 ]
-  %90 = sub i32 0, %.067.lcssa132.i
-  %91 = select i1 %.082.i64, i32 %.067.lcssa132.i, i32 %90
+  %.067.lcssa130.i = phi i32 [ %.067.lcssa.i, %.critedge.i ], [ 0, %.thread61 ]
+  %90 = sub i32 0, %.067.lcssa130.i
+  %91 = select i1 %.082.i64, i32 %.067.lcssa130.i, i32 %90
   br label %_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim.exit
 
 _ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim.exit: ; preds = %59, %.critedge.i, %.critedge.thread.i

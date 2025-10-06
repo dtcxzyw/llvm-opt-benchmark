@@ -2522,13 +2522,13 @@ blf_read_bytes.exit38:                            ; preds = %41
 blf_add_direction_option.exit:                    ; preds = %blf_read_bytes.exit38, %35
   %52 = load i8, ptr %29, align 2
   %53 = and i8 %52, 1
-  %switch.not.not = icmp eq i8 %53, 0
-  %. = select i1 %switch.not.not, i32 1, i32 2
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 232
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i32 @wtap_block_add_uint32_option(ptr noundef %57, i32 noundef 2, i32 noundef %.)
+  %54 = icmp eq i8 %53, 0
+  %. = select i1 %54, i32 1, i32 2
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 232
+  %58 = load ptr, ptr %57, align 8
+  %59 = call i32 @wtap_block_add_uint32_option(ptr noundef %58, i32 noundef 2, i32 noundef %.)
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %47, %44, %23, %20, %blf_read_bytes.exit, %blf_add_direction_option.exit, %39, %15
@@ -2727,12 +2727,12 @@ blf_add_direction_option.exit:                    ; preds = %.thread45
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %59 = load i16, ptr %58, align 4
   %60 = and i16 %59, 4096
-  %switch.not.not = icmp eq i16 %60, 0
-  %. = select i1 %switch.not.not, i32 1, i32 2
-  %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 232
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i32 @wtap_block_add_uint32_option(ptr noundef %63, i32 noundef 2, i32 noundef %.)
+  %61 = icmp eq i16 %60, 0
+  %. = select i1 %61, i32 1, i32 2
+  %62 = load ptr, ptr %52, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 232
+  %64 = load ptr, ptr %63, align 8
+  %65 = call i32 @wtap_block_add_uint32_option(ptr noundef %64, i32 noundef 2, i32 noundef %.)
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %.thread45, %blf_add_direction_option.exit, %13
@@ -2813,13 +2813,13 @@ blf_read_bytes.exit:                              ; preds = %15
 blf_add_direction_option.exit:                    ; preds = %blf_read_bytes.exit
   %46 = load i8, ptr %35, align 2
   %47 = and i8 %46, 1
-  %switch.not.not = icmp eq i8 %47, 0
-  %. = select i1 %switch.not.not, i32 1, i32 2
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 232
-  %51 = load ptr, ptr %50, align 8
-  %52 = call i32 @wtap_block_add_uint32_option(ptr noundef %51, i32 noundef 2, i32 noundef %.)
+  %48 = icmp eq i8 %47, 0
+  %. = select i1 %48, i32 1, i32 2
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 232
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 @wtap_block_add_uint32_option(ptr noundef %52, i32 noundef 2, i32 noundef %.)
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %blf_read_bytes.exit, %blf_add_direction_option.exit, %13
@@ -3063,12 +3063,12 @@ blf_add_direction_option.exit:                    ; preds = %.thread45
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 4096
-  %switch.not.not = icmp eq i16 %61, 0
-  %. = select i1 %switch.not.not, i32 1, i32 2
-  %62 = load ptr, ptr %52, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 232
-  %64 = load ptr, ptr %63, align 8
-  %65 = call i32 @wtap_block_add_uint32_option(ptr noundef %64, i32 noundef 2, i32 noundef %.)
+  %62 = icmp eq i16 %61, 0
+  %. = select i1 %62, i32 1, i32 2
+  %63 = load ptr, ptr %52, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 232
+  %65 = load ptr, ptr %64, align 8
+  %66 = call i32 @wtap_block_add_uint32_option(ptr noundef %65, i32 noundef 2, i32 noundef %.)
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %.thread45, %blf_add_direction_option.exit, %13

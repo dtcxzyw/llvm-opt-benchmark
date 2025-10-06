@@ -7414,7 +7414,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %43, %45, %46
 
 .lr.ph.i:                                         ; preds = %_ZN4lean4expraSERKS0_.exit.i, %.lr.ph.preheader.i
   %53 = phi ptr [ %68, %_ZN4lean4expraSERKS0_.exit.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.0511.i = phi i32 [ %78, %_ZN4lean4expraSERKS0_.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %.059.i = phi i32 [ %78, %_ZN4lean4expraSERKS0_.exit.i ], [ 0, %.lr.ph.preheader.i ]
   %54 = getelementptr i8, ptr %53, i64 4
   %.val.i.i.i.i.i = load i32, ptr %54, align 4
   %.mask.i.i = and i32 %.val.i.i.i.i.i, -16777216
@@ -7449,11 +7449,11 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %43, %45, %46
 
 .noexc17:                                         ; preds = %66
   %.pre.i.i.i = load ptr, ptr %57, align 8, !tbaa !3
-  %.pre12.i = load ptr, ptr %8, align 8, !tbaa !3
+  %.pre10.i = load ptr, ptr %8, align 8, !tbaa !3
   br label %_ZN4lean3incEP11lean_object.exit.i.i.i
 
 _ZN4lean3incEP11lean_object.exit.i.i.i:           ; preds = %.noexc17, %65, %63, %56
-  %67 = phi ptr [ %53, %56 ], [ %53, %63 ], [ %53, %65 ], [ %.pre12.i, %.noexc17 ]
+  %67 = phi ptr [ %53, %56 ], [ %53, %63 ], [ %53, %65 ], [ %.pre10.i, %.noexc17 ]
   %68 = phi ptr [ %58, %56 ], [ %58, %63 ], [ %58, %65 ], [ %.pre.i.i.i, %.noexc17 ]
   %69 = ptrtoint ptr %67 to i64
   %70 = and i64 %69, 1
@@ -7480,7 +7480,7 @@ _ZN4lean3incEP11lean_object.exit.i.i.i:           ; preds = %.noexc17, %65, %63,
 
 _ZN4lean4expraSERKS0_.exit.i:                     ; preds = %77, %76, %74, %_ZN4lean3incEP11lean_object.exit.i.i.i
   store ptr %68, ptr %8, align 8, !tbaa !3
-  %78 = add nuw i32 %.0511.i, 1
+  %78 = add nuw i32 %.059.i, 1
   %exitcond.not.i = icmp eq i32 %78, %52
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !121
 

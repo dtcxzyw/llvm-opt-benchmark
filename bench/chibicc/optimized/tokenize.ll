@@ -1800,8 +1800,8 @@ define dso_local ptr @tokenize_file(ptr noundef %0) local_unnamed_addr #5 {
   %3 = alloca i64, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = load i8, ptr %0, align 1
-  %.not23.i = icmp eq i8 %5, 45
-  br i1 %.not23.i, label %.tail.i, label %.tail.thread.i
+  %.not22.i = icmp eq i8 %5, 45
+  br i1 %.not22.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1

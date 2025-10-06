@@ -804,9 +804,9 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   br label %31
 
 31:                                               ; preds = %25, %48
-  %.089138 = phi double [ %.196.ph, %25 ], [ %42, %48 ]
-  %.090137 = phi i32 [ 50, %25 ], [ %49, %48 ]
-  %32 = tail call double @llvm.fmuladd.f64(double %14, double %.089138, double %0)
+  %.089137 = phi double [ %.196.ph, %25 ], [ %42, %48 ]
+  %.090136 = phi i32 [ 50, %25 ], [ %49, %48 ]
+  %32 = tail call double @llvm.fmuladd.f64(double %14, double %.089137, double %0)
   %33 = tail call double @cos(double noundef %32) #9, !tbaa !48
   %34 = tail call double @llvm.fabs.f64(double %33)
   %35 = fcmp olt double %34, 0x3E7AD7F29ABCAF48
@@ -818,7 +818,7 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   %40 = fdiv double %39, %33
   %41 = tail call double @atan(double noundef %40) #9, !tbaa !48
   %42 = fadd double %30, %41
-  %43 = tail call double @llvm.fabs.f64(double %.089138)
+  %43 = tail call double @llvm.fabs.f64(double %.089137)
   %44 = tail call double @llvm.fabs.f64(double %42)
   %45 = fsub double %43, %44
   %46 = tail call double @llvm.fabs.f64(double %45)
@@ -826,12 +826,12 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %31
-  %49 = add nsw i32 %.090137, -1
-  %.not145 = icmp eq i32 %.090137, 0
-  br i1 %.not145, label %.thread, label %31, !llvm.loop !72
+  %49 = add nsw i32 %.090136, -1
+  %.not144 = icmp eq i32 %.090136, 0
+  br i1 %.not144, label %.thread, label %31, !llvm.loop !72
 
 50:                                               ; preds = %31
-  %.not = icmp eq i32 %.090137, 0
+  %.not = icmp eq i32 %.090136, 0
   br i1 %.not, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %48, %50

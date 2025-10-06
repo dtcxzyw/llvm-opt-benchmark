@@ -251,15 +251,15 @@ select.unfold:                                    ; preds = %.lr.ph
 ._crit_edge:                                      ; preds = %select.unfold, %.lr.ph, %29
   %.043.lcssa = phi i32 [ %32, %29 ], [ %.04353, %.lr.ph ], [ %44, %select.unfold ]
   %46 = icmp slt i32 %.043.lcssa, 4095
-  br i1 %46, label %.lr.ph69, label %._crit_edge._crit_edge
+  br i1 %46, label %.lr.ph68, label %._crit_edge._crit_edge
 
-.lr.ph69:                                         ; preds = %._crit_edge, %86
-  %.14468 = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
-  %47 = shl i32 %.14468, 1
+.lr.ph68:                                         ; preds = %._crit_edge, %86
+  %.14467 = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
+  %47 = shl i32 %.14467, 1
   %48 = icmp ult i32 %47, 8164
   br i1 %48, label %49, label %54
 
-49:                                               ; preds = %.lr.ph69
+49:                                               ; preds = %.lr.ph68
   %50 = or disjoint i32 %47, 1
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 %51
@@ -267,7 +267,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %.not49 = icmp ult i8 %53, %1
   br i1 %.not49, label %54, label %86, !llvm.loop !8
 
-54:                                               ; preds = %49, %.lr.ph69
+54:                                               ; preds = %49, %.lr.ph68
   %55 = add i32 %47, 2
   %56 = icmp ult i32 %55, 8164
   br i1 %56, label %57, label %61
@@ -346,7 +346,7 @@ select.unfold:                                    ; preds = %.lr.ph
 86:                                               ; preds = %57, %49
   %.245 = phi i32 [ %50, %49 ], [ %55, %57 ]
   %87 = icmp slt i32 %.245, 4095
-  br i1 %87, label %.lr.ph69, label %._crit_edge._crit_edge
+  br i1 %87, label %.lr.ph68, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %86
   %.144.lcssa = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]

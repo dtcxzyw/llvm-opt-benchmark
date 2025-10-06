@@ -1822,8 +1822,8 @@ _ZNSt6vectorISt5tupleIJN4cvc58internal12NodeTemplateILb0EEEmiEESaIS5_EED2Ev.exit
   br label %_ZNSt6vectorISt5tupleIJN4cvc58internal12NodeTemplateILb0EEEmiEESaIS5_EED2Ev.exit73
 
 _ZNSt6vectorISt5tupleIJN4cvc58internal12NodeTemplateILb0EEEmiEESaIS5_EED2Ev.exit73: ; preds = %20, %.body
-  %.pn43.pn140 = phi { ptr, i32 } [ %.pn43.pn, %.body ], [ %21, %20 ]
-  resume { ptr, i32 } %.pn43.pn140
+  %.pn43.pn139 = phi { ptr, i32 } [ %.pn43.pn, %.body ], [ %21, %20 ]
+  resume { ptr, i32 } %.pn43.pn139
 }
 
 declare i32 @__gxx_personality_v0(...)

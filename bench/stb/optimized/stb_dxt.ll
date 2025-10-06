@@ -1173,16 +1173,16 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   br i1 %187, label %188, label %.thread70, !llvm.loop !25
 
 188:                                              ; preds = %171, %186
-  %.280 = phi i32 [ %.1, %171 ], [ %.1.i66, %186 ]
+  %.279 = phi i32 [ %.1, %171 ], [ %.1.i66, %186 ]
   %189 = phi i1 [ true, %171 ], [ false, %186 ]
-  %190 = call i32 @stb__RefineBlock(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.280)
+  %190 = call i32 @stb__RefineBlock(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.279)
   %.not46 = icmp eq i32 %190, 0
   %.pre.pre = load i16, ptr %8, align 2, !tbaa !20
-  %.pre83.pre = load i16, ptr %9, align 2, !tbaa !20
+  %.pre82.pre = load i16, ptr %9, align 2, !tbaa !20
   br i1 %.not46, label %.thread70, label %191
 
 191:                                              ; preds = %188
-  %.not47 = icmp eq i16 %.pre.pre, %.pre83.pre
+  %.not47 = icmp eq i16 %.pre.pre, %.pre82.pre
   br i1 %.not47, label %.thread70, label %192
 
 192:                                              ; preds = %191
@@ -1202,10 +1202,10 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   %203 = lshr i16 %narrow.i.i48, 2
   %204 = trunc nuw i16 %203 to i8
   store i8 %204, ptr %173, align 2, !tbaa !3
-  %205 = lshr i16 %.pre83.pre, 11
-  %206 = lshr i16 %.pre83.pre, 5
+  %205 = lshr i16 %.pre82.pre, 11
+  %206 = lshr i16 %.pre82.pre, 5
   %207 = and i16 %206, 63
-  %208 = and i16 %.pre83.pre, 31
+  %208 = and i16 %.pre82.pre, 31
   %209 = mul nuw nsw i16 %205, 33
   %210 = lshr i16 %209, 2
   %211 = trunc nuw i16 %210 to i8
@@ -1338,13 +1338,13 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
 295:                                              ; preds = %285
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %296 = icmp eq i32 %.1.i66, %.280
+  %296 = icmp eq i32 %.1.i66, %.279
   br i1 %296, label %.thread70, label %186
 
 .thread70:                                        ; preds = %188, %295, %191, %186, %19
-  %297 = phi i16 [ %51, %19 ], [ %.pre83.pre, %186 ], [ %.pre83.pre, %191 ], [ %.pre83.pre, %295 ], [ %.pre83.pre, %188 ]
+  %297 = phi i16 [ %51, %19 ], [ %.pre82.pre, %186 ], [ %.pre82.pre, %191 ], [ %.pre82.pre, %295 ], [ %.pre82.pre, %188 ]
   %298 = phi i16 [ %38, %19 ], [ %.pre.pre, %186 ], [ %.pre.pre, %191 ], [ %.pre.pre, %295 ], [ %.pre.pre, %188 ]
-  %.0 = phi i32 [ -1431655766, %19 ], [ %.280, %188 ], [ %.280, %295 ], [ 0, %191 ], [ %.1.i66, %186 ]
+  %.0 = phi i32 [ -1431655766, %19 ], [ %.279, %188 ], [ %.279, %295 ], [ 0, %191 ], [ %.1.i66, %186 ]
   %299 = icmp ult i16 %298, %297
   %300 = xor i32 %.0, 1431655765
   %301 = tail call i16 @llvm.umin.i16(i16 %298, i16 %297)

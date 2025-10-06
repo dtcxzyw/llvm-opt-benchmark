@@ -599,7 +599,7 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = icmp sgt i32 %1, 0
-  br i1 %13, label %.lr.ph, label %.thread306
+  br i1 %13, label %.lr.ph, label %.thread307
 
 .lr.ph:                                           ; preds = %4
   %14 = lshr i32 %12, 3
@@ -610,9 +610,9 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph, %.thread313
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread313 ]
-  %.1.fr323 = phi i32 [ %., %.lr.ph ], [ %.1.fr, %.thread313 ]
+19:                                               ; preds = %.lr.ph, %.thread312
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread312 ]
+  %.1.fr330 = phi i32 [ %., %.lr.ph ], [ %.1.fr, %.thread312 ]
   %20 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %2, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load i64, ptr %21, align 8
@@ -636,7 +636,7 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   br i1 %.not194, label %43, label %37
 
 37:                                               ; preds = %19
-  switch i16 %26, label %.thread306 [
+  switch i16 %26, label %.thread307 [
     i16 20, label %38
     i16 21, label %38
     i16 23, label %40
@@ -646,19 +646,19 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
 
 38:                                               ; preds = %37, %37
   %39 = icmp ult i8 %32, %36
-  %.not226.old = icmp eq i32 %.1.fr323, 0
-  %or.cond371 = or i1 %39, %.not226.old
-  br i1 %or.cond371, label %.thread306, label %.thread313
+  %.not226.old = icmp eq i32 %.1.fr330, 0
+  %or.cond379 = or i1 %39, %.not226.old
+  br i1 %or.cond379, label %.thread307, label %.thread312
 
 40:                                               ; preds = %37, %37
   %41 = icmp ugt i8 %32, %36
-  %.not226 = icmp eq i32 %.1.fr323, 0
-  %or.cond370 = or i1 %41, %.not226
-  br i1 %or.cond370, label %.thread306, label %.thread313
+  %.not226 = icmp eq i32 %.1.fr330, 0
+  %or.cond378 = or i1 %41, %.not226
+  br i1 %or.cond378, label %.thread307, label %.thread312
 
 42:                                               ; preds = %37
-  %.not226.old.old = icmp eq i32 %.1.fr323, 0
-  br i1 %.not226.old.old, label %.thread306, label %.thread313
+  %.not226.old.old = icmp eq i32 %.1.fr330, 0
+  br i1 %.not226.old.old, label %.thread307, label %.thread312
 
 43:                                               ; preds = %19
   switch i16 %26, label %select.unfold260 [
@@ -673,16 +673,16 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %46 = load i8, ptr %45, align 1
   %.not196 = icmp ugt i8 %11, %46
-  %47 = and i32 %.1.fr323, 12
-  %spec.select229 = select i1 %.not196, i32 %.1.fr323, i32 %47
+  %47 = and i32 %.1.fr330, 12
+  %spec.select229 = select i1 %.not196, i32 %.1.fr330, i32 %47
   br label %select.unfold260
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp ult i8 %11, %50
-  %52 = and i32 %.1.fr323, 12
-  %spec.select230 = select i1 %51, i32 %52, i32 %.1.fr323
+  %52 = and i32 %.1.fr330, 12
+  %spec.select230 = select i1 %51, i32 %52, i32 %.1.fr330
   br label %select.unfold260
 
 53:                                               ; preds = %43
@@ -694,12 +694,12 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %53
-  %60 = and i32 %.1.fr323, 3
+  %60 = and i32 %.1.fr330, 3
   br label %select.unfold260
 
 61:                                               ; preds = %53
   %.not195 = icmp ult i8 %11, %55
-  br i1 %.not195, label %select.unfold260, label %.thread306
+  br i1 %.not195, label %select.unfold260, label %.thread307
 
 62:                                               ; preds = %43
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 1
@@ -708,12 +708,12 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %62
-  %67 = and i32 %.1.fr323, 3
+  %67 = and i32 %.1.fr330, 3
   br label %select.unfold260
 
 68:                                               ; preds = %62
   %69 = icmp ugt i8 %11, %64
-  br i1 %69, label %.thread306, label %select.unfold260
+  br i1 %69, label %.thread307, label %select.unfold260
 
 70:                                               ; preds = %43
   %71 = getelementptr inbounds nuw i8, ptr %31, i64 1
@@ -722,18 +722,18 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %70
-  %75 = and i32 %.1.fr323, 12
+  %75 = and i32 %.1.fr330, 12
   br label %select.unfold260
 
 76:                                               ; preds = %70
   %77 = icmp eq i8 %11, %72
-  %78 = and i32 %.1.fr323, 3
-  br i1 %77, label %select.unfold260, label %.thread306
+  %78 = and i32 %.1.fr330, 3
+  br i1 %77, label %select.unfold260, label %.thread307
 
 select.unfold260:                                 ; preds = %76, %61, %68, %48, %44, %74, %66, %59, %43
-  %.5 = phi i32 [ %.1.fr323, %43 ], [ %60, %59 ], [ %67, %66 ], [ %75, %74 ], [ %spec.select229, %44 ], [ %spec.select230, %48 ], [ %.1.fr323, %68 ], [ %.1.fr323, %61 ], [ %78, %76 ]
+  %.5 = phi i32 [ %.1.fr330, %43 ], [ %60, %59 ], [ %67, %66 ], [ %75, %74 ], [ %spec.select229, %44 ], [ %spec.select230, %48 ], [ %.1.fr330, %68 ], [ %.1.fr330, %61 ], [ %78, %76 ]
   %.not197 = icmp eq i32 %.5, 0
-  br i1 %.not197, label %.thread306, label %79
+  br i1 %.not197, label %.thread307, label %79
 
 79:                                               ; preds = %select.unfold260
   %80 = getelementptr inbounds nuw i8, ptr %35, i64 2
@@ -747,21 +747,21 @@ select.unfold260:                                 ; preds = %76, %61, %68, %48, 
   br i1 %.not200, label %92, label %87
 
 87:                                               ; preds = %79
-  switch i16 %26, label %.thread306 [
+  switch i16 %26, label %.thread307 [
     i16 20, label %88
     i16 21, label %88
     i16 23, label %90
     i16 22, label %90
-    i16 19, label %.thread313
+    i16 19, label %.thread312
   ]
 
 88:                                               ; preds = %87, %87
   %89 = icmp sgt i32 %86, 0
-  br i1 %89, label %.thread306, label %.thread313
+  br i1 %89, label %.thread307, label %.thread312
 
 90:                                               ; preds = %87, %87
   %91 = icmp slt i32 %86, 0
-  br i1 %91, label %.thread306, label %.thread313
+  br i1 %91, label %.thread307, label %.thread312
 
 92:                                               ; preds = %79
   %93 = and i32 %.5, 12
@@ -817,13 +817,13 @@ select.unfold260:                                 ; preds = %76, %61, %68, %48, 
 select.unfold277:                                 ; preds = %107, %109, %112, %114
   %.8 = phi i32 [ %115, %114 ], [ %113, %112 ], [ %110, %109 ], [ %108, %107 ]
   %.not206.not = icmp eq i32 %.8, 0
-  br i1 %.not206.not, label %.thread306, label %116
+  br i1 %.not206.not, label %.thread307, label %116
 
 116:                                              ; preds = %select.unfold277, %94, %92
   %.7 = phi i32 [ %.8, %select.unfold277 ], [ %.5, %94 ], [ %.5, %92 ]
   %117 = add i16 %26, -24
   %or.cond = icmp ult i16 %117, -6
-  br i1 %or.cond, label %.thread313, label %.thread284
+  br i1 %or.cond, label %.thread312, label %.thread284
 
 .thread284:                                       ; preds = %107, %109, %116
   %.7287 = phi i32 [ %.7, %116 ], [ %.5, %109 ], [ %.5, %107 ]
@@ -854,7 +854,7 @@ select.unfold277:                                 ; preds = %107, %109, %112, %1
 
 127:                                              ; preds = %118
   %128 = icmp ugt i8 %11, %123
-  br i1 %128, label %.thread306, label %.thread291
+  br i1 %128, label %.thread307, label %.thread291
 
 129:                                              ; preds = %.thread284, %.thread284
   %130 = load i8, ptr %24, align 1
@@ -871,7 +871,7 @@ select.unfold289:                                 ; preds = %129, %125
   %137 = phi i8 [ %119, %125 ], [ %130, %129 ]
   %.9 = phi i32 [ %126, %125 ], [ %136, %129 ]
   %.not209 = icmp eq i32 %.9, 0
-  br i1 %.not209, label %.thread306, label %.thread291
+  br i1 %.not209, label %.thread307, label %.thread291
 
 .thread291:                                       ; preds = %.thread284..thread291_crit_edge, %101, %129, %127, %select.unfold289
   %138 = phi i8 [ %137, %select.unfold289 ], [ %130, %129 ], [ %119, %127 ], [ %.pre, %.thread284..thread291_crit_edge ], [ %95, %101 ]
@@ -882,7 +882,7 @@ select.unfold289:                                 ; preds = %129, %125
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
   %142 = load i8, ptr %141, align 1
   %.not211 = icmp eq i8 %11, %142
-  br i1 %.not211, label %143, label %.thread313
+  br i1 %.not211, label %143, label %.thread312
 
 143:                                              ; preds = %.thread291
   %144 = and i32 %.9294, 3
@@ -936,11 +936,11 @@ select.unfold289:                                 ; preds = %129, %125
 select.unfold298:                                 ; preds = %156, %158, %161, %163
   %.11 = phi i32 [ %164, %163 ], [ %162, %161 ], [ %159, %158 ], [ %157, %156 ]
   %.not216.not = icmp eq i32 %.11, 0
-  br i1 %.not216.not, label %.thread306, label %.thread301
+  br i1 %.not216.not, label %.thread307, label %.thread301
 
 .thread301:                                       ; preds = %158, %156, %150, %select.unfold298, %145, %143
   %.10 = phi i32 [ %.9294, %143 ], [ %.11, %select.unfold298 ], [ %.9294, %145 ], [ %.9294, %150 ], [ %.9294, %156 ], [ %.9294, %158 ]
-  br i1 %3, label %165, label %.thread313
+  br i1 %3, label %165, label %.thread312
 
 165:                                              ; preds = %.thread301
   %166 = load i8, ptr %0, align 1
@@ -955,49 +955,49 @@ select.unfold298:                                 ; preds = %156, %158, %161, %1
   %174 = tail call i32 @bitncmp(ptr noundef nonnull %169, ptr noundef nonnull %170, i32 noundef %173) #4
   switch i16 %26, label %default.unreachable [
     i16 20, label %175
-    i16 21, label %176
-    i16 18, label %178
-    i16 23, label %179
-    i16 22, label %181
-    i16 19, label %182
+    i16 21, label %177
+    i16 18, label %179
+    i16 23, label %180
+    i16 22, label %182
+    i16 19, label %184
   ]
 
 175:                                              ; preds = %165
-  %.inv321 = icmp slt i32 %174, 0
-  br i1 %.inv321, label %.thread313, label %.thread306
+  %176 = icmp sgt i32 %174, -1
+  br i1 %176, label %.thread307, label %.thread312
 
-176:                                              ; preds = %165
-  %177 = icmp sgt i32 %174, 0
-  br i1 %177, label %.thread306, label %.thread313
-
-178:                                              ; preds = %165
-  %.not219 = icmp eq i32 %174, 0
-  br i1 %.not219, label %.thread313, label %.thread306
+177:                                              ; preds = %165
+  %178 = icmp sgt i32 %174, 0
+  br i1 %178, label %.thread307, label %.thread312
 
 179:                                              ; preds = %165
-  %180 = icmp slt i32 %174, 0
-  br i1 %180, label %.thread306, label %.thread313
+  %.not219 = icmp eq i32 %174, 0
+  br i1 %.not219, label %.thread312, label %.thread307
 
-181:                                              ; preds = %165
-  %.inv = icmp sgt i32 %174, 0
-  br i1 %.inv, label %.thread313, label %.thread306
+180:                                              ; preds = %165
+  %181 = icmp slt i32 %174, 0
+  br i1 %181, label %.thread307, label %.thread312
 
 182:                                              ; preds = %165
-  %183 = icmp eq i32 %174, 0
-  br i1 %183, label %.thread306, label %.thread313
+  %183 = icmp slt i32 %174, 1
+  br i1 %183, label %.thread307, label %.thread312
+
+184:                                              ; preds = %165
+  %185 = icmp eq i32 %174, 0
+  br i1 %185, label %.thread307, label %.thread312
 
 default.unreachable:                              ; preds = %165
   unreachable
 
-.thread313:                                       ; preds = %38, %40, %181, %178, %175, %176, %179, %182, %87, %88, %90, %42, %.thread301, %.thread291, %116
-  %.4318 = phi i32 [ %.5, %90 ], [ %.5, %88 ], [ %.5, %87 ], [ %.1.fr323, %42 ], [ %.10, %.thread301 ], [ %.9294, %.thread291 ], [ %.7, %116 ], [ %.10, %176 ], [ %.10, %179 ], [ %.10, %182 ], [ %.10, %175 ], [ %.10, %178 ], [ %.10, %181 ], [ %.1.fr323, %40 ], [ %.1.fr323, %38 ]
+.thread312:                                       ; preds = %38, %40, %179, %175, %177, %180, %182, %184, %87, %88, %90, %42, %.thread301, %.thread291, %116
+  %.4315 = phi i32 [ %.5, %90 ], [ %.5, %88 ], [ %.5, %87 ], [ %.1.fr330, %42 ], [ %.10, %.thread301 ], [ %.9294, %.thread291 ], [ %.7, %116 ], [ %.10, %175 ], [ %.10, %177 ], [ %.10, %180 ], [ %.10, %182 ], [ %.10, %184 ], [ %.10, %179 ], [ %.1.fr330, %40 ], [ %.1.fr330, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.1.fr = freeze i32 %.4318
+  %.1.fr = freeze i32 %.4315
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread306, label %19, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread307, label %19, !llvm.loop !12
 
-.thread306:                                       ; preds = %182, %179, %176, %181, %178, %175, %select.unfold277, %select.unfold298, %.thread313, %select.unfold260, %select.unfold289, %37, %38, %40, %42, %61, %76, %68, %87, %88, %90, %127, %4
-  %.2 = phi i32 [ %., %4 ], [ 0, %182 ], [ 0, %179 ], [ 0, %176 ], [ 0, %181 ], [ 0, %178 ], [ 0, %175 ], [ 0, %select.unfold277 ], [ 0, %select.unfold298 ], [ 0, %127 ], [ 0, %90 ], [ 0, %88 ], [ 0, %87 ], [ 0, %68 ], [ 0, %76 ], [ 0, %61 ], [ 0, %42 ], [ 0, %40 ], [ 0, %38 ], [ 0, %37 ], [ 0, %select.unfold289 ], [ 0, %select.unfold260 ], [ %.1.fr, %.thread313 ]
+.thread307:                                       ; preds = %.thread312, %select.unfold260, %select.unfold289, %37, %38, %40, %42, %61, %76, %68, %87, %88, %90, %127, %179, %175, %177, %180, %182, %184, %select.unfold277, %select.unfold298, %4
+  %.2 = phi i32 [ %., %4 ], [ 0, %select.unfold298 ], [ 0, %select.unfold277 ], [ 0, %184 ], [ 0, %182 ], [ 0, %180 ], [ 0, %177 ], [ 0, %175 ], [ 0, %179 ], [ 0, %127 ], [ 0, %90 ], [ 0, %88 ], [ 0, %87 ], [ 0, %68 ], [ 0, %76 ], [ 0, %61 ], [ 0, %42 ], [ 0, %40 ], [ 0, %38 ], [ 0, %37 ], [ 0, %select.unfold289 ], [ 0, %select.unfold260 ], [ %.1.fr, %.thread312 ]
   ret i32 %.2
 }
 

@@ -446,25 +446,25 @@ define hidden ptr @_mi_heap_by_tag(ptr noundef readonly captures(ret: address, p
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.01013 = load ptr, ptr %8, align 8, !tbaa !40
-  %.not14 = icmp eq ptr %.01013, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph
+  %.01014 = load ptr, ptr %8, align 8, !tbaa !40
+  %.not15 = icmp eq ptr %.01014, null
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %12
-  %.01015 = phi ptr [ %.010, %12 ], [ %.01013, %6 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.01015, i64 225
+  %.01016 = phi ptr [ %.010, %12 ], [ %.01014, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.01016, i64 225
   %10 = load i8, ptr %9, align 1, !tbaa !42
   %11 = icmp eq i8 %10, %1
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.01015, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %.01016, i64 216
   %.010 = load ptr, ptr %13, align 8, !tbaa !40
   %.not = icmp eq ptr %.010, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
-.loopexit:                                        ; preds = %.lr.ph, %12, %6, %2
-  %.011 = phi ptr [ %0, %2 ], [ null, %6 ], [ %.01015, %.lr.ph ], [ null, %12 ]
+.loopexit:                                        ; preds = %12, %.lr.ph, %6, %2
+  %.011 = phi ptr [ %0, %2 ], [ null, %6 ], [ null, %12 ], [ %.01016, %.lr.ph ]
   ret ptr %.011
 }
 

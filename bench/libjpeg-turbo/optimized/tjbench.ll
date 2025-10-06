@@ -484,16 +484,16 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %.0795 = phi i32 [ 2, %38 ], [ 3, %58 ], [ 3, %52 ]
   %.0794 = phi i32 [ -1, %38 ], [ %47, %58 ], [ %47, %52 ]
   %60 = icmp samesign ugt i32 %0, %.0795
-  br i1 %60, label %.preheader1227, label %.loopexit
+  br i1 %60, label %.preheader1214, label %.loopexit
 
-.preheader1227:                                   ; preds = %59
+.preheader1214:                                   ; preds = %59
   %61 = add nsw i32 %0, -1
   br label %62
 
-62:                                               ; preds = %.preheader1227, %485
-  %.07901249 = phi i32 [ %.0795, %.preheader1227 ], [ %486, %485 ]
-  %.18041248 = phi i32 [ -1, %.preheader1227 ], [ %.2805, %485 ]
-  %63 = sext i32 %.07901249 to i64
+62:                                               ; preds = %.preheader1214, %485
+  %.07901236 = phi i32 [ %.0795, %.preheader1214 ], [ %486, %485 ]
+  %.18041235 = phi i32 [ -1, %.preheader1214 ], [ %.2805, %485 ]
+  %63 = sext i32 %.07901236 to i64
   %64 = getelementptr inbounds ptr, ptr %1, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !10
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #24
@@ -523,12 +523,12 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 74:                                               ; preds = %69
   %75 = call i32 @strncasecmp(ptr noundef nonnull %65, ptr noundef nonnull @.str.11, i64 noundef %spec.select) #24
   %.not988 = icmp eq i32 %75, 0
-  %76 = icmp slt i32 %.07901249, %61
+  %76 = icmp slt i32 %.07901236, %61
   %or.cond1080 = select i1 %.not988, i1 %76, i1 false
   br i1 %or.cond1080, label %77, label %87
 
 77:                                               ; preds = %74
-  %78 = add nsw i32 %.07901249, 1
+  %78 = add nsw i32 %.07901236, 1
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds ptr, ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !10
@@ -628,7 +628,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %113 = add nsw i32 %.07901249, 1
+  %113 = add nsw i32 %.07901236, 1
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds ptr, ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !10
@@ -686,7 +686,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %.not998, label %138, label %152
 
 138:                                              ; preds = %136
-  %139 = add nsw i32 %.07901249, 1
+  %139 = add nsw i32 %.07901236, 1
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds ptr, ptr %1, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !10
@@ -719,7 +719,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1095, label %154, label %166
 
 154:                                              ; preds = %152
-  %155 = add nsw i32 %.07901249, 1
+  %155 = add nsw i32 %.07901236, 1
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds ptr, ptr %1, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !10
@@ -771,7 +771,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1102, label %174, label %187
 
 174:                                              ; preds = %172
-  %175 = add nsw i32 %.07901249, 1
+  %175 = add nsw i32 %.07901236, 1
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds ptr, ptr %1, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !10
@@ -850,7 +850,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1112, label %205, label %216
 
 205:                                              ; preds = %203
-  %206 = add nsw i32 %.07901249, 1
+  %206 = add nsw i32 %.07901236, 1
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds ptr, ptr %1, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !10
@@ -875,7 +875,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1115, label %218, label %229
 
 218:                                              ; preds = %216
-  %219 = add nsw i32 %.07901249, 1
+  %219 = add nsw i32 %.07901236, 1
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds ptr, ptr %1, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !10
@@ -900,7 +900,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1118, label %231, label %242
 
 231:                                              ; preds = %229
-  %232 = add nsw i32 %.07901249, 1
+  %232 = add nsw i32 %.07901236, 1
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds ptr, ptr %1, i64 %233
   %235 = load ptr, ptr %234, align 8, !tbaa !10
@@ -972,7 +972,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1126, label %262, label %295
 
 262:                                              ; preds = %260
-  %263 = add nsw i32 %.07901249, 1
+  %263 = add nsw i32 %.07901236, 1
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds ptr, ptr %1, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !10
@@ -1066,7 +1066,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1132, label %297, label %308
 
 297:                                              ; preds = %295
-  %298 = add nsw i32 %.07901249, 1
+  %298 = add nsw i32 %.07901236, 1
   %299 = sext i32 %298 to i64
   %300 = getelementptr inbounds ptr, ptr %1, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !10
@@ -1168,7 +1168,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1137, label %336, label %352
 
 336:                                              ; preds = %334
-  %337 = add nsw i32 %.07901249, 1
+  %337 = add nsw i32 %.07901236, 1
   %338 = sext i32 %337 to i64
   %339 = getelementptr inbounds ptr, ptr %1, i64 %338
   %340 = load ptr, ptr %339, align 8, !tbaa !10
@@ -1217,7 +1217,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i32 -1, ptr %11, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1, !tbaa !14
-  %355 = add nsw i32 %.07901249, 1
+  %355 = add nsw i32 %.07901236, 1
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds ptr, ptr %1, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !10
@@ -1270,7 +1270,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1148, label %378, label %401
 
 378:                                              ; preds = %376
-  %379 = add nsw i32 %.07901249, 1
+  %379 = add nsw i32 %.07901236, 1
   %380 = sext i32 %379 to i64
   %381 = getelementptr inbounds ptr, ptr %1, i64 %380
   %382 = load ptr, ptr %381, align 8, !tbaa !10
@@ -1332,7 +1332,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i32 0, ptr %13, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !4
-  %404 = add nsw i32 %.07901249, 1
+  %404 = add nsw i32 %.07901236, 1
   %405 = sext i32 %404 to i64
   %406 = getelementptr inbounds ptr, ptr %1, i64 %405
   %407 = load ptr, ptr %406, align 8, !tbaa !10
@@ -1342,8 +1342,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 .preheader:                                       ; preds = %403
   %410 = load i32, ptr @nsf, align 4, !tbaa !4
-  %.not10641246 = icmp sgt i32 %410, 0
-  br i1 %.not10641246, label %.lr.ph, label %.critedge
+  %.not10641233 = icmp sgt i32 %410, 0
+  br i1 %.not10641233, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %411 = load i32, ptr %13, align 4, !tbaa !4
@@ -1436,7 +1436,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1166, label %448, label %459
 
 448:                                              ; preds = %446
-  %449 = add nsw i32 %.07901249, 1
+  %449 = add nsw i32 %.07901236, 1
   %450 = sext i32 %449 to i64
   %451 = getelementptr inbounds ptr, ptr %1, i64 %450
   %452 = load ptr, ptr %451, align 8, !tbaa !10
@@ -1489,7 +1489,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond1171, label %470, label %483
 
 470:                                              ; preds = %468
-  %471 = add nsw i32 %.07901249, 1
+  %471 = add nsw i32 %.07901236, 1
   %472 = sext i32 %471 to i64
   %473 = getelementptr inbounds ptr, ptr %1, i64 %472
   %474 = load ptr, ptr %473, align 8, !tbaa !10
@@ -1516,8 +1516,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   unreachable
 
 485:                                              ; preds = %480, %397, %395, %393, %391, %389, %387, %378, %385, %84, %68, %92, %98, %104, %130, %148, %145, %168, %184, %181, %196, %202, %228, %244, %252, %271, %280, %286, %292, %289, %283, %275, %268, %310, %318, %324, %330, %346, %349, %343, %375, %427, %439, %445, %461, %467, %464, %455, %442, %434, %370, %333, %327, %321, %315, %307, %257, %249, %241, %215, %199, %191, %171, %161, %162, %135, %107, %101, %95, %89, %71
-  %.2805 = phi i32 [ %.18041248, %467 ], [ %.18041248, %464 ], [ %.18041248, %461 ], [ %.18041248, %455 ], [ %.18041248, %445 ], [ %.18041248, %442 ], [ %.18041248, %439 ], [ %.18041248, %434 ], [ %.18041248, %427 ], [ %.18041248, %375 ], [ %.18041248, %370 ], [ %.18041248, %349 ], [ %.18041248, %346 ], [ %.18041248, %343 ], [ %.18041248, %333 ], [ %.18041248, %330 ], [ %.18041248, %327 ], [ %.18041248, %324 ], [ %.18041248, %321 ], [ %.18041248, %318 ], [ %.18041248, %315 ], [ %.18041248, %310 ], [ %.18041248, %307 ], [ %.18041248, %292 ], [ %.18041248, %289 ], [ %.18041248, %286 ], [ %.18041248, %283 ], [ %.18041248, %280 ], [ %.18041248, %275 ], [ %.18041248, %271 ], [ %.18041248, %268 ], [ %.18041248, %257 ], [ %.18041248, %252 ], [ %.18041248, %249 ], [ %.18041248, %244 ], [ %.18041248, %241 ], [ %.18041248, %228 ], [ %.18041248, %215 ], [ %.18041248, %202 ], [ %.18041248, %199 ], [ %.18041248, %196 ], [ %.18041248, %191 ], [ %.18041248, %184 ], [ %.18041248, %181 ], [ %.18041248, %171 ], [ %.18041248, %168 ], [ %.18041248, %162 ], [ %.18041248, %161 ], [ %.18041248, %148 ], [ %.18041248, %145 ], [ %.18041248, %135 ], [ %.18041248, %130 ], [ %.18041248, %107 ], [ %.18041248, %104 ], [ %.18041248, %101 ], [ %.18041248, %98 ], [ %.18041248, %95 ], [ %.18041248, %92 ], [ %.18041248, %89 ], [ %.18041248, %71 ], [ %.18041248, %68 ], [ %.18041248, %84 ], [ 3, %385 ], [ 3, %378 ], [ 0, %387 ], [ 1, %389 ], [ 4, %391 ], [ 2, %393 ], [ 5, %395 ], [ 6, %397 ], [ %.18041248, %480 ]
-  %.1791 = phi i32 [ %.07901249, %467 ], [ %.07901249, %464 ], [ %.07901249, %461 ], [ %449, %455 ], [ %.07901249, %445 ], [ %.07901249, %442 ], [ %.07901249, %439 ], [ %.07901249, %434 ], [ %404, %427 ], [ %.07901249, %375 ], [ %355, %370 ], [ %337, %349 ], [ %337, %346 ], [ %337, %343 ], [ %.07901249, %333 ], [ %.07901249, %330 ], [ %.07901249, %327 ], [ %.07901249, %324 ], [ %.07901249, %321 ], [ %.07901249, %318 ], [ %.07901249, %315 ], [ %.07901249, %310 ], [ %298, %307 ], [ %263, %292 ], [ %263, %289 ], [ %263, %286 ], [ %263, %283 ], [ %263, %280 ], [ %263, %275 ], [ %263, %271 ], [ %263, %268 ], [ %.07901249, %257 ], [ %.07901249, %252 ], [ %.07901249, %249 ], [ %.07901249, %244 ], [ %232, %241 ], [ %219, %228 ], [ %206, %215 ], [ %.07901249, %202 ], [ %.07901249, %199 ], [ %.07901249, %196 ], [ %.07901249, %191 ], [ %175, %184 ], [ %175, %181 ], [ %.07901249, %171 ], [ %.07901249, %168 ], [ %155, %162 ], [ %155, %161 ], [ %139, %148 ], [ %139, %145 ], [ %.07901249, %135 ], [ %113, %130 ], [ %.07901249, %107 ], [ %.07901249, %104 ], [ %.07901249, %101 ], [ %.07901249, %98 ], [ %.07901249, %95 ], [ %.07901249, %92 ], [ %.07901249, %89 ], [ %.07901249, %71 ], [ %.07901249, %68 ], [ %78, %84 ], [ %379, %385 ], [ %379, %378 ], [ %379, %387 ], [ %379, %389 ], [ %379, %391 ], [ %379, %393 ], [ %379, %395 ], [ %379, %397 ], [ %471, %480 ]
+  %.2805 = phi i32 [ %.18041235, %467 ], [ %.18041235, %464 ], [ %.18041235, %461 ], [ %.18041235, %455 ], [ %.18041235, %445 ], [ %.18041235, %442 ], [ %.18041235, %439 ], [ %.18041235, %434 ], [ %.18041235, %427 ], [ %.18041235, %375 ], [ %.18041235, %370 ], [ %.18041235, %349 ], [ %.18041235, %346 ], [ %.18041235, %343 ], [ %.18041235, %333 ], [ %.18041235, %330 ], [ %.18041235, %327 ], [ %.18041235, %324 ], [ %.18041235, %321 ], [ %.18041235, %318 ], [ %.18041235, %315 ], [ %.18041235, %310 ], [ %.18041235, %307 ], [ %.18041235, %292 ], [ %.18041235, %289 ], [ %.18041235, %286 ], [ %.18041235, %283 ], [ %.18041235, %280 ], [ %.18041235, %275 ], [ %.18041235, %271 ], [ %.18041235, %268 ], [ %.18041235, %257 ], [ %.18041235, %252 ], [ %.18041235, %249 ], [ %.18041235, %244 ], [ %.18041235, %241 ], [ %.18041235, %228 ], [ %.18041235, %215 ], [ %.18041235, %202 ], [ %.18041235, %199 ], [ %.18041235, %196 ], [ %.18041235, %191 ], [ %.18041235, %184 ], [ %.18041235, %181 ], [ %.18041235, %171 ], [ %.18041235, %168 ], [ %.18041235, %162 ], [ %.18041235, %161 ], [ %.18041235, %148 ], [ %.18041235, %145 ], [ %.18041235, %135 ], [ %.18041235, %130 ], [ %.18041235, %107 ], [ %.18041235, %104 ], [ %.18041235, %101 ], [ %.18041235, %98 ], [ %.18041235, %95 ], [ %.18041235, %92 ], [ %.18041235, %89 ], [ %.18041235, %71 ], [ %.18041235, %68 ], [ %.18041235, %84 ], [ 3, %385 ], [ 3, %378 ], [ 0, %387 ], [ 1, %389 ], [ 4, %391 ], [ 2, %393 ], [ 5, %395 ], [ 6, %397 ], [ %.18041235, %480 ]
+  %.1791 = phi i32 [ %.07901236, %467 ], [ %.07901236, %464 ], [ %.07901236, %461 ], [ %449, %455 ], [ %.07901236, %445 ], [ %.07901236, %442 ], [ %.07901236, %439 ], [ %.07901236, %434 ], [ %404, %427 ], [ %.07901236, %375 ], [ %355, %370 ], [ %337, %349 ], [ %337, %346 ], [ %337, %343 ], [ %.07901236, %333 ], [ %.07901236, %330 ], [ %.07901236, %327 ], [ %.07901236, %324 ], [ %.07901236, %321 ], [ %.07901236, %318 ], [ %.07901236, %315 ], [ %.07901236, %310 ], [ %298, %307 ], [ %263, %292 ], [ %263, %289 ], [ %263, %286 ], [ %263, %283 ], [ %263, %280 ], [ %263, %275 ], [ %263, %271 ], [ %263, %268 ], [ %.07901236, %257 ], [ %.07901236, %252 ], [ %.07901236, %249 ], [ %.07901236, %244 ], [ %232, %241 ], [ %219, %228 ], [ %206, %215 ], [ %.07901236, %202 ], [ %.07901236, %199 ], [ %.07901236, %196 ], [ %.07901236, %191 ], [ %175, %184 ], [ %175, %181 ], [ %.07901236, %171 ], [ %.07901236, %168 ], [ %155, %162 ], [ %155, %161 ], [ %139, %148 ], [ %139, %145 ], [ %.07901236, %135 ], [ %113, %130 ], [ %.07901236, %107 ], [ %.07901236, %104 ], [ %.07901236, %101 ], [ %.07901236, %98 ], [ %.07901236, %95 ], [ %.07901236, %92 ], [ %.07901236, %89 ], [ %.07901236, %71 ], [ %.07901236, %68 ], [ %78, %84 ], [ %379, %385 ], [ %379, %378 ], [ %379, %387 ], [ %379, %389 ], [ %379, %391 ], [ %379, %393 ], [ %379, %395 ], [ %379, %397 ], [ %471, %480 ]
   %486 = add nsw i32 %.1791, 1
   %487 = icmp slt i32 %486, %0
   br i1 %487, label %62, label %.loopexit, !llvm.loop !25
@@ -1653,7 +1653,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 538:                                              ; preds = %535, %534
   %.b929 = load i1, ptr @doYUV, align 4
-  br i1 %.b929, label %539, label %.thread1308
+  br i1 %.b929, label %539, label %.thread1295
 
 539:                                              ; preds = %538
   %puts982 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
@@ -1662,7 +1662,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 540:                                              ; preds = %523
   %.b914 = load i1, ptr @noRealloc, align 4
   %or.cond55 = select i1 %.b914, i1 %.b923, i1 false
-  br i1 %or.cond55, label %541, label %.thread1308
+  br i1 %or.cond55, label %541, label %.thread1295
 
 541:                                              ; preds = %540
   %puts948 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
@@ -1671,13 +1671,13 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %542 = load i32, ptr @xformOpt, align 4, !tbaa !4
   %543 = and i32 %542, -5
   store i32 %543, ptr @xformOpt, align 4, !tbaa !4
-  br label %.thread1308
+  br label %.thread1295
 
-.thread1308:                                      ; preds = %538, %541, %540
+.thread1295:                                      ; preds = %538, %541, %540
   %.b911 = load i1, ptr @decompOnly, align 4
-  br i1 %.b911, label %.thread1326, label %544
+  br i1 %.b911, label %.thread1313, label %544
 
-544:                                              ; preds = %.thread1308
+544:                                              ; preds = %.thread1295
   %545 = call ptr @tj3Init(i32 noundef 0) #23
   %546 = icmp eq ptr %545, null
   br i1 %546, label %547, label %550
@@ -1733,7 +1733,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %571 = zext i1 %.b916 to i32
   %572 = call i32 @tj3Set(ptr noundef nonnull %545, i32 noundef 1, i32 noundef %571) #23
   %573 = icmp eq i32 %572, -1
-  br i1 %573, label %574, label %.thread1198
+  br i1 %573, label %574, label %.thread1191
 
 574:                                              ; preds = %.thread
   %575 = call i32 @tj3GetErrorCode(ptr noundef nonnull %545) #23
@@ -1754,7 +1754,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %583 = load i32, ptr @tjErrorLine, align 4
   %584 = icmp eq i32 %583, 1371
   %or.cond63.not = select i1 %.b935, i1 %584, i1 false
-  br i1 %or.cond63.not, label %.thread1198, label %585
+  br i1 %or.cond63.not, label %.thread1191, label %585
 
 585:                                              ; preds = %582, %580
   %586 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %576, i64 noundef 200) #23
@@ -1762,20 +1762,20 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1371, ptr @tjErrorLine, align 4, !tbaa !4
   %587 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 1371, ptr noundef nonnull %576)
-  br label %.thread1198
+  br label %.thread1191
 
 588:                                              ; preds = %574
   %589 = select i1 %579, ptr @.str.111, ptr @.str.112
   %590 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %589, i32 noundef 1371, ptr noundef %576)
   br label %769
 
-.thread1198:                                      ; preds = %582, %585, %.thread
+.thread1191:                                      ; preds = %582, %585, %.thread
   %591 = load i32, ptr @precision, align 4, !tbaa !4
   %592 = call i32 @tj3Set(ptr noundef nonnull %545, i32 noundef 7, i32 noundef %591) #23
   %593 = icmp eq i32 %592, -1
-  br i1 %593, label %594, label %.thread1203
+  br i1 %593, label %594, label %.thread1195
 
-594:                                              ; preds = %.thread1198
+594:                                              ; preds = %.thread1191
   %595 = call i32 @tj3GetErrorCode(ptr noundef nonnull %545) #23
   %596 = call ptr @tj3GetErrorStr(ptr noundef nonnull %545) #23
   %597 = call i32 @tj3Get(ptr noundef nonnull %545, i32 noundef 0) #23
@@ -1794,7 +1794,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %603 = load i32, ptr @tjErrorLine, align 4
   %604 = icmp eq i32 %603, 1373
   %or.cond67.not = select i1 %.b934, i1 %604, i1 false
-  br i1 %or.cond67.not, label %.thread1203, label %605
+  br i1 %or.cond67.not, label %.thread1195, label %605
 
 605:                                              ; preds = %602, %600
   %606 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %596, i64 noundef 200) #23
@@ -1802,20 +1802,20 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1373, ptr @tjErrorLine, align 4, !tbaa !4
   %607 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 1373, ptr noundef nonnull %596)
-  br label %.thread1203
+  br label %.thread1195
 
 608:                                              ; preds = %594
   %609 = select i1 %599, ptr @.str.111, ptr @.str.112
   %610 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %609, i32 noundef 1373, ptr noundef %596)
   br label %769
 
-.thread1203:                                      ; preds = %602, %605, %.thread1198
+.thread1195:                                      ; preds = %602, %605, %.thread1191
   %611 = load i32, ptr @maxPixels, align 4, !tbaa !4
   %612 = call i32 @tj3Set(ptr noundef nonnull %545, i32 noundef 24, i32 noundef %611) #23
   %613 = icmp eq i32 %612, -1
-  br i1 %613, label %614, label %.thread1208
+  br i1 %613, label %614, label %.thread1199
 
-614:                                              ; preds = %.thread1203
+614:                                              ; preds = %.thread1195
   %615 = call i32 @tj3GetErrorCode(ptr noundef nonnull %545) #23
   %616 = call ptr @tj3GetErrorStr(ptr noundef nonnull %545) #23
   %617 = call i32 @tj3Get(ptr noundef nonnull %545, i32 noundef 0) #23
@@ -1834,7 +1834,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %623 = load i32, ptr @tjErrorLine, align 4
   %624 = icmp eq i32 %623, 1375
   %or.cond71.not = select i1 %.b933, i1 %624, i1 false
-  br i1 %or.cond71.not, label %.thread1208, label %625
+  br i1 %or.cond71.not, label %.thread1199, label %625
 
 625:                                              ; preds = %622, %620
   %626 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %616, i64 noundef 200) #23
@@ -1842,23 +1842,23 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1375, ptr @tjErrorLine, align 4, !tbaa !4
   %627 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 1375, ptr noundef nonnull %616)
-  br label %.thread1208
+  br label %.thread1199
 
 628:                                              ; preds = %614
   %629 = select i1 %619, ptr @.str.111, ptr @.str.112
   %630 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %629, i32 noundef 1375, ptr noundef %616)
   br label %769
 
-.thread1208:                                      ; preds = %622, %625, %.thread1203
+.thread1199:                                      ; preds = %622, %625, %.thread1195
   %631 = load i32, ptr @precision, align 4, !tbaa !4
   %632 = icmp slt i32 %631, 9
   br i1 %632, label %633, label %654
 
-633:                                              ; preds = %.thread1208
+633:                                              ; preds = %.thread1199
   %634 = load ptr, ptr %27, align 8, !tbaa !10
   %635 = call ptr @tj3LoadImage8(ptr noundef nonnull %545, ptr noundef %634, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull @pf) #23
   %636 = icmp eq ptr %635, null
-  br i1 %636, label %637, label %.thread1213
+  br i1 %636, label %637, label %.thread1203
 
 637:                                              ; preds = %633
   %638 = call i32 @tj3GetErrorCode(ptr noundef nonnull %545) #23
@@ -1879,7 +1879,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %646 = load i32, ptr @tjErrorLine, align 4
   %647 = icmp eq i32 %646, 1379
   %or.cond75.not = select i1 %.b932, i1 %647, i1 false
-  br i1 %or.cond75.not, label %.thread1213, label %648
+  br i1 %or.cond75.not, label %.thread1203, label %648
 
 648:                                              ; preds = %645, %643
   %649 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %639, i64 noundef 200) #23
@@ -1887,14 +1887,14 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1379, ptr @tjErrorLine, align 4, !tbaa !4
   %650 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 1379, ptr noundef nonnull %639)
-  br label %.thread1213
+  br label %.thread1203
 
 651:                                              ; preds = %637
   %652 = select i1 %642, ptr @.str.111, ptr @.str.112
   %653 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %652, i32 noundef 1379, ptr noundef %639)
   br label %769
 
-654:                                              ; preds = %.thread1208
+654:                                              ; preds = %.thread1199
   %655 = icmp samesign ult i32 %631, 13
   %656 = load ptr, ptr %27, align 8, !tbaa !10
   br i1 %655, label %657, label %677
@@ -1902,7 +1902,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 657:                                              ; preds = %654
   %658 = call ptr @tj3LoadImage12(ptr noundef nonnull %545, ptr noundef %656, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull @pf) #23
   %659 = icmp eq ptr %658, null
-  br i1 %659, label %660, label %.thread1213
+  br i1 %659, label %660, label %.thread1203
 
 660:                                              ; preds = %657
   %661 = call i32 @tj3GetErrorCode(ptr noundef nonnull %545) #23
@@ -1923,7 +1923,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %669 = load i32, ptr @tjErrorLine, align 4
   %670 = icmp eq i32 %669, 1382
   %or.cond79.not = select i1 %.b931, i1 %670, i1 false
-  br i1 %or.cond79.not, label %.thread1213, label %671
+  br i1 %or.cond79.not, label %.thread1203, label %671
 
 671:                                              ; preds = %668, %666
   %672 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %662, i64 noundef 200) #23
@@ -1931,7 +1931,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1382, ptr @tjErrorLine, align 4, !tbaa !4
   %673 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 1382, ptr noundef nonnull %662)
-  br label %.thread1213
+  br label %.thread1203
 
 674:                                              ; preds = %660
   %675 = select i1 %665, ptr @.str.111, ptr @.str.112
@@ -1941,7 +1941,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 677:                                              ; preds = %654
   %678 = call ptr @tj3LoadImage16(ptr noundef nonnull %545, ptr noundef %656, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull @pf) #23
   %679 = icmp eq ptr %678, null
-  br i1 %679, label %680, label %.thread1213
+  br i1 %679, label %680, label %.thread1203
 
 680:                                              ; preds = %677
   %681 = call i32 @tj3GetErrorCode(ptr noundef nonnull %545) #23
@@ -1962,7 +1962,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %689 = load i32, ptr @tjErrorLine, align 4
   %690 = icmp eq i32 %689, 1385
   %or.cond83.not = select i1 %.b930, i1 %690, i1 false
-  br i1 %or.cond83.not, label %.thread1213, label %691
+  br i1 %or.cond83.not, label %.thread1203, label %691
 
 691:                                              ; preds = %688, %686
   %692 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %682, i64 noundef 200) #23
@@ -1970,25 +1970,25 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1385, ptr @tjErrorLine, align 4, !tbaa !4
   %693 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 1385, ptr noundef nonnull %682)
-  br label %.thread1213
+  br label %.thread1203
 
 694:                                              ; preds = %680
   %695 = select i1 %685, ptr @.str.111, ptr @.str.112
   %696 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %695, i32 noundef 1385, ptr noundef %682)
   br label %769
 
-.thread1213:                                      ; preds = %688, %691, %668, %671, %645, %648, %657, %677, %633
+.thread1203:                                      ; preds = %688, %691, %668, %671, %645, %648, %657, %677, %633
   %.2 = phi ptr [ %635, %633 ], [ %658, %657 ], [ %678, %677 ], [ null, %648 ], [ null, %645 ], [ null, %671 ], [ null, %668 ], [ null, %691 ], [ null, %688 ]
   %697 = load ptr, ptr %27, align 8, !tbaa !10
   %698 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %697, i32 noundef 46) #24
   %.not964 = icmp eq ptr %698, null
   br i1 %.not964, label %700, label %699
 
-699:                                              ; preds = %.thread1213
+699:                                              ; preds = %.thread1203
   store i8 0, ptr %698, align 1, !tbaa !14
   br label %700
 
-700:                                              ; preds = %.thread1213, %699
+700:                                              ; preds = %.thread1203, %699
   %.b.pr = load i1, ptr @decompOnly, align 4
   %701 = load i32, ptr @quiet, align 4, !tbaa !4
   %702 = icmp ne i32 %701, 1
@@ -2041,14 +2041,14 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 722:                                              ; preds = %720, %718
   %puts968 = call i32 @puts(ptr nonnull dereferenceable(1) @str.129)
   %.b910.pr = load i1, ptr @decompOnly, align 4
-  br i1 %.b910.pr, label %.thread1326, label %725
+  br i1 %.b910.pr, label %.thread1313, label %725
 
 723:                                              ; preds = %700
-  br i1 %.b.pr, label %.thread1326, label %725
+  br i1 %.b.pr, label %.thread1313, label %725
 
-.thread1326:                                      ; preds = %.thread1308, %722, %723
-  %.11322 = phi ptr [ %.2, %722 ], [ %.2, %723 ], [ null, %.thread1308 ]
-  %.18091318 = phi ptr [ %545, %722 ], [ %545, %723 ], [ null, %.thread1308 ]
+.thread1313:                                      ; preds = %.thread1295, %722, %723
+  %.11309 = phi ptr [ %.2, %722 ], [ %.2, %723 ], [ null, %.thread1295 ]
+  %.18091305 = phi ptr [ %545, %722 ], [ %545, %723 ], [ null, %.thread1295 ]
   %724 = load ptr, ptr %27, align 8, !tbaa !10
   call fastcc void @decompTest(ptr noundef %724)
   %putchar981 = call i32 @putchar(i32 10)
@@ -2091,20 +2091,20 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond99, label %741, label %746
 
 741:                                              ; preds = %740
-  %.not9791268 = icmp samesign ult i32 %727, %.0794
-  br i1 %.not9791268, label %._crit_edge1272, label %.lr.ph1271
+  %.not9791255 = icmp samesign ult i32 %727, %.0794
+  br i1 %.not9791255, label %._crit_edge1259, label %.lr.ph1258
 
-.lr.ph1271:                                       ; preds = %741, %.lr.ph1271
-  %.27921269 = phi i32 [ %745, %.lr.ph1271 ], [ %727, %741 ]
+.lr.ph1258:                                       ; preds = %741, %.lr.ph1258
+  %.27921256 = phi i32 [ %745, %.lr.ph1258 ], [ %727, %741 ]
   %742 = load i32, ptr %3, align 4, !tbaa !4
   %743 = load i32, ptr %4, align 4, !tbaa !4
   %744 = load ptr, ptr %27, align 8, !tbaa !10
-  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %742, i32 noundef %743, i32 noundef %.4807, i32 noundef %.27921269, ptr noundef %744)
-  %745 = add nsw i32 %.27921269, -1
-  %.not979.not = icmp samesign ugt i32 %.27921269, %.0794
-  br i1 %.not979.not, label %.lr.ph1271, label %._crit_edge1272, !llvm.loop !26
+  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %742, i32 noundef %743, i32 noundef %.4807, i32 noundef %.27921256, ptr noundef %744)
+  %745 = add nsw i32 %.27921256, -1
+  %.not979.not = icmp samesign ugt i32 %.27921256, %.0794
+  br i1 %.not979.not, label %.lr.ph1258, label %._crit_edge1259, !llvm.loop !26
 
-._crit_edge1272:                                  ; preds = %.lr.ph1271, %741
+._crit_edge1259:                                  ; preds = %.lr.ph1258, %741
   %putchar980 = call i32 @putchar(i32 10)
   br label %769
 
@@ -2114,79 +2114,79 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %.not970, label %753, label %748
 
 748:                                              ; preds = %746
-  %.not9711250 = icmp samesign ult i32 %727, %.0794
-  br i1 %.not9711250, label %._crit_edge, label %.lr.ph1252
+  %.not9711237 = icmp samesign ult i32 %727, %.0794
+  br i1 %.not9711237, label %._crit_edge, label %.lr.ph1239
 
-.lr.ph1252:                                       ; preds = %748, %.lr.ph1252
-  %.31251 = phi i32 [ %752, %.lr.ph1252 ], [ %727, %748 ]
+.lr.ph1239:                                       ; preds = %748, %.lr.ph1239
+  %.31238 = phi i32 [ %752, %.lr.ph1239 ], [ %727, %748 ]
   %749 = load i32, ptr %3, align 4, !tbaa !4
   %750 = load i32, ptr %4, align 4, !tbaa !4
   %751 = load ptr, ptr %27, align 8, !tbaa !10
-  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %749, i32 noundef %750, i32 noundef 3, i32 noundef %.31251, ptr noundef %751)
-  %752 = add nsw i32 %.31251, -1
-  %.not971.not = icmp samesign ugt i32 %.31251, %.0794
-  br i1 %.not971.not, label %.lr.ph1252, label %._crit_edge, !llvm.loop !27
+  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %749, i32 noundef %750, i32 noundef 3, i32 noundef %.31238, ptr noundef %751)
+  %752 = add nsw i32 %.31238, -1
+  %.not971.not = icmp samesign ugt i32 %.31238, %.0794
+  br i1 %.not971.not, label %.lr.ph1239, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.lr.ph1252, %748
+._crit_edge:                                      ; preds = %.lr.ph1239, %748
   %putchar972 = call i32 @putchar(i32 10)
-  %.pre1279 = load i32, ptr %5, align 4, !tbaa !4
+  %.pre1266 = load i32, ptr %5, align 4, !tbaa !4
   br label %753
 
 753:                                              ; preds = %._crit_edge, %746
-  %754 = phi i32 [ %.pre1279, %._crit_edge ], [ %727, %746 ]
-  %.not9731253 = icmp slt i32 %754, %.0794
-  br i1 %.not9731253, label %._crit_edge1257, label %.lr.ph1256
+  %754 = phi i32 [ %.pre1266, %._crit_edge ], [ %727, %746 ]
+  %.not9731240 = icmp slt i32 %754, %.0794
+  br i1 %.not9731240, label %._crit_edge1244, label %.lr.ph1243
 
-.lr.ph1256:                                       ; preds = %753, %.lr.ph1256
-  %.41254 = phi i32 [ %758, %.lr.ph1256 ], [ %754, %753 ]
+.lr.ph1243:                                       ; preds = %753, %.lr.ph1243
+  %.41241 = phi i32 [ %758, %.lr.ph1243 ], [ %754, %753 ]
   %755 = load i32, ptr %3, align 4, !tbaa !4
   %756 = load i32, ptr %4, align 4, !tbaa !4
   %757 = load ptr, ptr %27, align 8, !tbaa !10
-  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %755, i32 noundef %756, i32 noundef 2, i32 noundef %.41254, ptr noundef %757)
-  %758 = add nsw i32 %.41254, -1
-  %.not973.not = icmp samesign ugt i32 %.41254, %.0794
-  br i1 %.not973.not, label %.lr.ph1256, label %._crit_edge1257, !llvm.loop !28
+  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %755, i32 noundef %756, i32 noundef 2, i32 noundef %.41241, ptr noundef %757)
+  %758 = add nsw i32 %.41241, -1
+  %.not973.not = icmp samesign ugt i32 %.41241, %.0794
+  br i1 %.not973.not, label %.lr.ph1243, label %._crit_edge1244, !llvm.loop !28
 
-._crit_edge1257:                                  ; preds = %.lr.ph1256, %753
+._crit_edge1244:                                  ; preds = %.lr.ph1243, %753
   %putchar974 = call i32 @putchar(i32 10)
   %759 = load i32, ptr %5, align 4, !tbaa !4
-  %.not9751258 = icmp slt i32 %759, %.0794
-  br i1 %.not9751258, label %._crit_edge1262, label %.lr.ph1261
+  %.not9751245 = icmp slt i32 %759, %.0794
+  br i1 %.not9751245, label %._crit_edge1249, label %.lr.ph1248
 
-.lr.ph1261:                                       ; preds = %._crit_edge1257, %.lr.ph1261
-  %.51259 = phi i32 [ %763, %.lr.ph1261 ], [ %759, %._crit_edge1257 ]
+.lr.ph1248:                                       ; preds = %._crit_edge1244, %.lr.ph1248
+  %.51246 = phi i32 [ %763, %.lr.ph1248 ], [ %759, %._crit_edge1244 ]
   %760 = load i32, ptr %3, align 4, !tbaa !4
   %761 = load i32, ptr %4, align 4, !tbaa !4
   %762 = load ptr, ptr %27, align 8, !tbaa !10
-  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %760, i32 noundef %761, i32 noundef 1, i32 noundef %.51259, ptr noundef %762)
-  %763 = add nsw i32 %.51259, -1
-  %.not975.not = icmp samesign ugt i32 %.51259, %.0794
-  br i1 %.not975.not, label %.lr.ph1261, label %._crit_edge1262, !llvm.loop !29
+  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %760, i32 noundef %761, i32 noundef 1, i32 noundef %.51246, ptr noundef %762)
+  %763 = add nsw i32 %.51246, -1
+  %.not975.not = icmp samesign ugt i32 %.51246, %.0794
+  br i1 %.not975.not, label %.lr.ph1248, label %._crit_edge1249, !llvm.loop !29
 
-._crit_edge1262:                                  ; preds = %.lr.ph1261, %._crit_edge1257
+._crit_edge1249:                                  ; preds = %.lr.ph1248, %._crit_edge1244
   %putchar976 = call i32 @putchar(i32 10)
   %764 = load i32, ptr %5, align 4, !tbaa !4
-  %.not9771263 = icmp slt i32 %764, %.0794
-  br i1 %.not9771263, label %._crit_edge1267, label %.lr.ph1266
+  %.not9771250 = icmp slt i32 %764, %.0794
+  br i1 %.not9771250, label %._crit_edge1254, label %.lr.ph1253
 
-.lr.ph1266:                                       ; preds = %._crit_edge1262, %.lr.ph1266
-  %.61264 = phi i32 [ %768, %.lr.ph1266 ], [ %764, %._crit_edge1262 ]
+.lr.ph1253:                                       ; preds = %._crit_edge1249, %.lr.ph1253
+  %.61251 = phi i32 [ %768, %.lr.ph1253 ], [ %764, %._crit_edge1249 ]
   %765 = load i32, ptr %3, align 4, !tbaa !4
   %766 = load i32, ptr %4, align 4, !tbaa !4
   %767 = load ptr, ptr %27, align 8, !tbaa !10
-  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %765, i32 noundef %766, i32 noundef 0, i32 noundef %.61264, ptr noundef %767)
-  %768 = add nsw i32 %.61264, -1
-  %.not977.not = icmp samesign ugt i32 %.61264, %.0794
-  br i1 %.not977.not, label %.lr.ph1266, label %._crit_edge1267, !llvm.loop !30
+  call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %765, i32 noundef %766, i32 noundef 0, i32 noundef %.61251, ptr noundef %767)
+  %768 = add nsw i32 %.61251, -1
+  %.not977.not = icmp samesign ugt i32 %.61251, %.0794
+  br i1 %.not977.not, label %.lr.ph1253, label %._crit_edge1254, !llvm.loop !30
 
-._crit_edge1267:                                  ; preds = %.lr.ph1266, %._crit_edge1262
+._crit_edge1254:                                  ; preds = %.lr.ph1253, %._crit_edge1249
   %putchar978 = call i32 @putchar(i32 10)
   br label %769
 
-769:                                              ; preds = %694, %674, %651, %628, %608, %588, %568, %._crit_edge1272, %._crit_edge1267, %.thread1326, %547, %539, %533, %512, %510, %507, %19
-  %.0808 = phi ptr [ null, %19 ], [ null, %510 ], [ null, %512 ], [ null, %539 ], [ %.18091318, %.thread1326 ], [ %545, %._crit_edge1272 ], [ %545, %._crit_edge1267 ], [ null, %547 ], [ %545, %651 ], [ %545, %674 ], [ %545, %694 ], [ %545, %628 ], [ %545, %608 ], [ %545, %588 ], [ %545, %568 ], [ null, %533 ], [ null, %507 ]
-  %.0796 = phi i32 [ -1, %19 ], [ -1, %510 ], [ -1, %512 ], [ -1, %539 ], [ 0, %.thread1326 ], [ 0, %._crit_edge1272 ], [ 0, %._crit_edge1267 ], [ -1, %547 ], [ -1, %651 ], [ -1, %674 ], [ -1, %694 ], [ -1, %628 ], [ -1, %608 ], [ -1, %588 ], [ -1, %568 ], [ -1, %533 ], [ -1, %507 ]
-  %.0789 = phi ptr [ null, %19 ], [ null, %510 ], [ null, %512 ], [ null, %539 ], [ %.11322, %.thread1326 ], [ %.2, %._crit_edge1272 ], [ %.2, %._crit_edge1267 ], [ null, %547 ], [ null, %651 ], [ null, %674 ], [ null, %694 ], [ null, %628 ], [ null, %608 ], [ null, %588 ], [ null, %568 ], [ null, %533 ], [ null, %507 ]
+769:                                              ; preds = %694, %674, %651, %628, %608, %588, %568, %._crit_edge1259, %._crit_edge1254, %.thread1313, %547, %539, %533, %512, %510, %507, %19
+  %.0808 = phi ptr [ null, %19 ], [ null, %510 ], [ null, %512 ], [ null, %539 ], [ %.18091305, %.thread1313 ], [ %545, %._crit_edge1259 ], [ %545, %._crit_edge1254 ], [ null, %547 ], [ %545, %651 ], [ %545, %674 ], [ %545, %694 ], [ %545, %628 ], [ %545, %608 ], [ %545, %588 ], [ %545, %568 ], [ null, %533 ], [ null, %507 ]
+  %.0796 = phi i32 [ -1, %19 ], [ -1, %510 ], [ -1, %512 ], [ -1, %539 ], [ 0, %.thread1313 ], [ 0, %._crit_edge1259 ], [ 0, %._crit_edge1254 ], [ -1, %547 ], [ -1, %651 ], [ -1, %674 ], [ -1, %694 ], [ -1, %628 ], [ -1, %608 ], [ -1, %588 ], [ -1, %568 ], [ -1, %533 ], [ -1, %507 ]
+  %.0789 = phi ptr [ null, %19 ], [ null, %510 ], [ null, %512 ], [ null, %539 ], [ %.11309, %.thread1313 ], [ %.2, %._crit_edge1259 ], [ %.2, %._crit_edge1254 ], [ null, %547 ], [ null, %651 ], [ null, %674 ], [ null, %694 ], [ null, %628 ], [ null, %608 ], [ null, %588 ], [ null, %568 ], [ null, %533 ], [ null, %507 ]
   call void @tj3Destroy(ptr noundef %.0808) #23
   call void @tj3Free(ptr noundef %.0789) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2487,7 +2487,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = tail call ptr @strerror(i32 noundef %20) #23
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 656, ptr noundef nonnull @.str.242, ptr noundef %21)
-  br label %.thread993
+  br label %.thread962
 
 23:                                               ; preds = %1
   %24 = tail call i32 @fseek(ptr noundef nonnull %16, i64 noundef 0, i32 noundef 2)
@@ -2505,7 +2505,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = tail call ptr @strerror(i32 noundef %31) #23
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 659, ptr noundef nonnull @.str.243, ptr noundef %32)
-  br label %.thread976
+  br label %.thread945
 
 34:                                               ; preds = %26
   %35 = tail call noalias ptr @malloc(i64 noundef %27) #27
@@ -2518,7 +2518,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = tail call ptr @strerror(i32 noundef %39) #23
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 661, ptr noundef nonnull @.str.244, ptr noundef %40)
-  br label %.thread976
+  br label %.thread945
 
 42:                                               ; preds = %34
   %43 = tail call i32 @fseek(ptr noundef nonnull %16, i64 noundef 0, i32 noundef 0)
@@ -2530,7 +2530,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %47 = load i32, ptr %46, align 4, !tbaa !4
   %48 = tail call ptr @strerror(i32 noundef %47) #23
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 663, ptr noundef nonnull @.str.245, ptr noundef %48)
-  br label %.thread976
+  br label %.thread945
 
 50:                                               ; preds = %42
   %51 = tail call i64 @fread(ptr noundef nonnull %35, i64 noundef %27, i64 noundef 1, ptr noundef nonnull %16)
@@ -2542,7 +2542,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = tail call ptr @strerror(i32 noundef %55) #23
   %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 665, ptr noundef nonnull @.str.246, ptr noundef %56)
-  br label %.thread976
+  br label %.thread945
 
 58:                                               ; preds = %50
   %59 = tail call i32 @fclose(ptr noundef nonnull %16)
@@ -2562,7 +2562,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 65:                                               ; preds = %62
   %66 = tail call ptr @tj3GetErrorStr(ptr noundef null) #23
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.108, i32 noundef 672, ptr noundef %66)
-  br label %.thread993
+  br label %.thread962
 
 68:                                               ; preds = %62
   %.b741 = load i1, ptr @stopOnWarning, align 4
@@ -2603,14 +2603,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 86:                                               ; preds = %72
   %87 = select i1 %77, ptr @.str.111, ptr @.str.112
   %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %87, i32 noundef 674, ptr noundef %74)
-  br label %.thread993
+  br label %.thread962
 
 .thread:                                          ; preds = %80, %83, %68
   %.b737 = load i1, ptr @bottomUp, align 4
   %89 = zext i1 %.b737 to i32
   %90 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 1, i32 noundef %89) #23
   %91 = icmp eq i32 %90, -1
-  br i1 %91, label %92, label %.thread869
+  br i1 %91, label %92, label %.thread853
 
 92:                                               ; preds = %.thread
   %93 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
@@ -2631,7 +2631,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %101 = load i32, ptr @tjErrorLine, align 4
   %102 = icmp eq i32 %101, 676
   %or.cond13.not = select i1 %.b765, i1 %102, i1 false
-  br i1 %or.cond13.not, label %.thread869, label %103
+  br i1 %or.cond13.not, label %.thread853, label %103
 
 103:                                              ; preds = %100, %98
   %104 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 200) #23
@@ -2639,22 +2639,22 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 676, ptr @tjErrorLine, align 4, !tbaa !4
   %105 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 676, ptr noundef nonnull %94)
-  br label %.thread869
+  br label %.thread853
 
 106:                                              ; preds = %92
   %107 = select i1 %97, ptr @.str.111, ptr @.str.112
   %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %107, i32 noundef 676, ptr noundef %94)
-  br label %.thread993
+  br label %.thread962
 
-.thread869:                                       ; preds = %100, %103, %.thread
+.thread853:                                       ; preds = %100, %103, %.thread
   %.b733 = load i1, ptr @noRealloc, align 4
   %not..b733 = xor i1 %.b733, true
   %109 = zext i1 %not..b733 to i32
   %110 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 2, i32 noundef %109) #23
   %111 = icmp eq i32 %110, -1
-  br i1 %111, label %112, label %.thread874
+  br i1 %111, label %112, label %.thread857
 
-112:                                              ; preds = %.thread869
+112:                                              ; preds = %.thread853
   %113 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %114 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %115 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2673,7 +2673,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %121 = load i32, ptr @tjErrorLine, align 4
   %122 = icmp eq i32 %121, 678
   %or.cond17.not = select i1 %.b764, i1 %122, i1 false
-  br i1 %or.cond17.not, label %.thread874, label %123
+  br i1 %or.cond17.not, label %.thread857, label %123
 
 123:                                              ; preds = %120, %118
   %124 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %114, i64 noundef 200) #23
@@ -2681,21 +2681,21 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 678, ptr @tjErrorLine, align 4, !tbaa !4
   %125 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 678, ptr noundef nonnull %114)
-  br label %.thread874
+  br label %.thread857
 
 126:                                              ; preds = %112
   %127 = select i1 %117, ptr @.str.111, ptr @.str.112
   %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %127, i32 noundef 678, ptr noundef %114)
-  br label %.thread993
+  br label %.thread962
 
-.thread874:                                       ; preds = %120, %123, %.thread869
+.thread857:                                       ; preds = %120, %123, %.thread853
   %.b739 = load i1, ptr @fastUpsample, align 4
   %129 = zext i1 %.b739 to i32
   %130 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 9, i32 noundef %129) #23
   %131 = icmp eq i32 %130, -1
-  br i1 %131, label %132, label %.thread879
+  br i1 %131, label %132, label %.thread861
 
-132:                                              ; preds = %.thread874
+132:                                              ; preds = %.thread857
   %133 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %134 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %135 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2714,7 +2714,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %141 = load i32, ptr @tjErrorLine, align 4
   %142 = icmp eq i32 %141, 680
   %or.cond21.not = select i1 %.b763, i1 %142, i1 false
-  br i1 %or.cond21.not, label %.thread879, label %143
+  br i1 %or.cond21.not, label %.thread861, label %143
 
 143:                                              ; preds = %140, %138
   %144 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %134, i64 noundef 200) #23
@@ -2722,21 +2722,21 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 680, ptr @tjErrorLine, align 4, !tbaa !4
   %145 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 680, ptr noundef nonnull %134)
-  br label %.thread879
+  br label %.thread861
 
 146:                                              ; preds = %132
   %147 = select i1 %137, ptr @.str.111, ptr @.str.112
   %148 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %147, i32 noundef 680, ptr noundef %134)
-  br label %.thread993
+  br label %.thread962
 
-.thread879:                                       ; preds = %140, %143, %.thread874
+.thread861:                                       ; preds = %140, %143, %.thread857
   %.b738 = load i1, ptr @fastDCT, align 4
   %149 = zext i1 %.b738 to i32
   %150 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 10, i32 noundef %149) #23
   %151 = icmp eq i32 %150, -1
-  br i1 %151, label %152, label %.thread884
+  br i1 %151, label %152, label %.thread865
 
-152:                                              ; preds = %.thread879
+152:                                              ; preds = %.thread861
   %153 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %154 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %155 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2755,7 +2755,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %161 = load i32, ptr @tjErrorLine, align 4
   %162 = icmp eq i32 %161, 682
   %or.cond25.not = select i1 %.b762, i1 %162, i1 false
-  br i1 %or.cond25.not, label %.thread884, label %163
+  br i1 %or.cond25.not, label %.thread865, label %163
 
 163:                                              ; preds = %160, %158
   %164 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %154, i64 noundef 200) #23
@@ -2763,20 +2763,20 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 682, ptr @tjErrorLine, align 4, !tbaa !4
   %165 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 682, ptr noundef nonnull %154)
-  br label %.thread884
+  br label %.thread865
 
 166:                                              ; preds = %152
   %167 = select i1 %157, ptr @.str.111, ptr @.str.112
   %168 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %167, i32 noundef 682, ptr noundef %154)
-  br label %.thread993
+  br label %.thread962
 
-.thread884:                                       ; preds = %160, %163, %.thread879
+.thread865:                                       ; preds = %160, %163, %.thread861
   %169 = load i32, ptr @maxScans, align 4, !tbaa !4
   %170 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 13, i32 noundef %169) #23
   %171 = icmp eq i32 %170, -1
-  br i1 %171, label %172, label %.thread889
+  br i1 %171, label %172, label %.thread869
 
-172:                                              ; preds = %.thread884
+172:                                              ; preds = %.thread865
   %173 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %174 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %175 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2795,7 +2795,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %181 = load i32, ptr @tjErrorLine, align 4
   %182 = icmp eq i32 %181, 684
   %or.cond29.not = select i1 %.b761, i1 %182, i1 false
-  br i1 %or.cond29.not, label %.thread889, label %183
+  br i1 %or.cond29.not, label %.thread869, label %183
 
 183:                                              ; preds = %180, %178
   %184 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %174, i64 noundef 200) #23
@@ -2803,20 +2803,20 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 684, ptr @tjErrorLine, align 4, !tbaa !4
   %185 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 684, ptr noundef nonnull %174)
-  br label %.thread889
+  br label %.thread869
 
 186:                                              ; preds = %172
   %187 = select i1 %177, ptr @.str.111, ptr @.str.112
   %188 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %187, i32 noundef 684, ptr noundef %174)
-  br label %.thread993
+  br label %.thread962
 
-.thread889:                                       ; preds = %180, %183, %.thread884
+.thread869:                                       ; preds = %180, %183, %.thread865
   %189 = load i32, ptr @restartIntervalBlocks, align 4, !tbaa !4
   %190 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 18, i32 noundef %189) #23
   %191 = icmp eq i32 %190, -1
-  br i1 %191, label %192, label %.thread894
+  br i1 %191, label %192, label %.thread873
 
-192:                                              ; preds = %.thread889
+192:                                              ; preds = %.thread869
   %193 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %194 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %195 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2835,7 +2835,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %201 = load i32, ptr @tjErrorLine, align 4
   %202 = icmp eq i32 %201, 686
   %or.cond33.not = select i1 %.b760, i1 %202, i1 false
-  br i1 %or.cond33.not, label %.thread894, label %203
+  br i1 %or.cond33.not, label %.thread873, label %203
 
 203:                                              ; preds = %200, %198
   %204 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %194, i64 noundef 200) #23
@@ -2843,20 +2843,20 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 686, ptr @tjErrorLine, align 4, !tbaa !4
   %205 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 686, ptr noundef nonnull %194)
-  br label %.thread894
+  br label %.thread873
 
 206:                                              ; preds = %192
   %207 = select i1 %197, ptr @.str.111, ptr @.str.112
   %208 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %207, i32 noundef 686, ptr noundef %194)
-  br label %.thread993
+  br label %.thread962
 
-.thread894:                                       ; preds = %200, %203, %.thread889
+.thread873:                                       ; preds = %200, %203, %.thread869
   %209 = load i32, ptr @restartIntervalRows, align 4, !tbaa !4
   %210 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 19, i32 noundef %209) #23
   %211 = icmp eq i32 %210, -1
-  br i1 %211, label %212, label %.thread899
+  br i1 %211, label %212, label %.thread877
 
-212:                                              ; preds = %.thread894
+212:                                              ; preds = %.thread873
   %213 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %214 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %215 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2875,7 +2875,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %221 = load i32, ptr @tjErrorLine, align 4
   %222 = icmp eq i32 %221, 688
   %or.cond37.not = select i1 %.b759, i1 %222, i1 false
-  br i1 %or.cond37.not, label %.thread899, label %223
+  br i1 %or.cond37.not, label %.thread877, label %223
 
 223:                                              ; preds = %220, %218
   %224 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %214, i64 noundef 200) #23
@@ -2883,20 +2883,20 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 688, ptr @tjErrorLine, align 4, !tbaa !4
   %225 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 688, ptr noundef nonnull %214)
-  br label %.thread899
+  br label %.thread877
 
 226:                                              ; preds = %212
   %227 = select i1 %217, ptr @.str.111, ptr @.str.112
   %228 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %227, i32 noundef 688, ptr noundef %214)
-  br label %.thread993
+  br label %.thread962
 
-.thread899:                                       ; preds = %220, %223, %.thread894
+.thread877:                                       ; preds = %220, %223, %.thread873
   %229 = load i32, ptr @maxMemory, align 4, !tbaa !4
   %230 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 23, i32 noundef %229) #23
   %231 = icmp eq i32 %230, -1
-  br i1 %231, label %232, label %.thread904
+  br i1 %231, label %232, label %.thread881
 
-232:                                              ; preds = %.thread899
+232:                                              ; preds = %.thread877
   %233 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %234 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %235 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2915,7 +2915,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %241 = load i32, ptr @tjErrorLine, align 4
   %242 = icmp eq i32 %241, 690
   %or.cond41.not = select i1 %.b758, i1 %242, i1 false
-  br i1 %or.cond41.not, label %.thread904, label %243
+  br i1 %or.cond41.not, label %.thread881, label %243
 
 243:                                              ; preds = %240, %238
   %244 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %234, i64 noundef 200) #23
@@ -2923,20 +2923,20 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 690, ptr @tjErrorLine, align 4, !tbaa !4
   %245 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 690, ptr noundef nonnull %234)
-  br label %.thread904
+  br label %.thread881
 
 246:                                              ; preds = %232
   %247 = select i1 %237, ptr @.str.111, ptr @.str.112
   %248 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %247, i32 noundef 690, ptr noundef %234)
-  br label %.thread993
+  br label %.thread962
 
-.thread904:                                       ; preds = %240, %243, %.thread899
+.thread881:                                       ; preds = %240, %243, %.thread877
   %249 = load i32, ptr @maxPixels, align 4, !tbaa !4
   %250 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 24, i32 noundef %249) #23
   %251 = icmp eq i32 %250, -1
-  br i1 %251, label %252, label %.thread909
+  br i1 %251, label %252, label %.thread885
 
-252:                                              ; preds = %.thread904
+252:                                              ; preds = %.thread881
   %253 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %254 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %255 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2955,7 +2955,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %261 = load i32, ptr @tjErrorLine, align 4
   %262 = icmp eq i32 %261, 692
   %or.cond45.not = select i1 %.b757, i1 %262, i1 false
-  br i1 %or.cond45.not, label %.thread909, label %263
+  br i1 %or.cond45.not, label %.thread885, label %263
 
 263:                                              ; preds = %260, %258
   %264 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %254, i64 noundef 200) #23
@@ -2963,19 +2963,19 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 692, ptr @tjErrorLine, align 4, !tbaa !4
   %265 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 692, ptr noundef nonnull %254)
-  br label %.thread909
+  br label %.thread885
 
 266:                                              ; preds = %252
   %267 = select i1 %257, ptr @.str.111, ptr @.str.112
   %268 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %267, i32 noundef 692, ptr noundef %254)
-  br label %.thread993
+  br label %.thread962
 
-.thread909:                                       ; preds = %260, %263, %.thread904
+.thread885:                                       ; preds = %260, %263, %.thread881
   %269 = tail call i32 @tj3DecompressHeader(ptr noundef nonnull %63, ptr noundef nonnull %35, i64 noundef %27) #23
   %270 = icmp eq i32 %269, -1
-  br i1 %270, label %271, label %.thread914
+  br i1 %270, label %271, label %.thread889
 
-271:                                              ; preds = %.thread909
+271:                                              ; preds = %.thread885
   %272 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %273 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %274 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -2994,7 +2994,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %280 = load i32, ptr @tjErrorLine, align 4
   %281 = icmp eq i32 %280, 695
   %or.cond49.not = select i1 %.b756, i1 %281, i1 false
-  br i1 %or.cond49.not, label %.thread914, label %282
+  br i1 %or.cond49.not, label %.thread889, label %282
 
 282:                                              ; preds = %279, %277
   %283 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %273, i64 noundef 200) #23
@@ -3002,14 +3002,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 695, ptr @tjErrorLine, align 4, !tbaa !4
   %284 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 695, ptr noundef nonnull %273)
-  br label %.thread914
+  br label %.thread889
 
 285:                                              ; preds = %271
   %286 = select i1 %276, ptr @.str.111, ptr @.str.112
   %287 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %286, i32 noundef 695, ptr noundef %273)
-  br label %.thread993
+  br label %.thread962
 
-.thread914:                                       ; preds = %279, %282, %.thread909
+.thread889:                                       ; preds = %279, %282, %.thread885
   %288 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 5) #23
   %289 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 6) #23
   %290 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 4) #23
@@ -3020,11 +3020,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %293 = icmp eq i32 %292, 1
   br i1 %293, label %294, label %295
 
-294:                                              ; preds = %.thread914
+294:                                              ; preds = %.thread889
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.126)
   br label %295
 
-295:                                              ; preds = %294, %.thread914
+295:                                              ; preds = %294, %.thread889
   %296 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 14) #23
   %297 = icmp eq i32 %296, 1
   br i1 %297, label %298, label %299
@@ -3038,7 +3038,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %300 = zext i1 %.b740 to i32
   %301 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 12, i32 noundef %300) #23
   %302 = icmp eq i32 %301, -1
-  br i1 %302, label %303, label %.thread919
+  br i1 %302, label %303, label %.thread893
 
 303:                                              ; preds = %299
   %304 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
@@ -3059,7 +3059,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %312 = load i32, ptr @tjErrorLine, align 4
   %313 = icmp eq i32 %312, 705
   %or.cond53.not = select i1 %.b755, i1 %313, i1 false
-  br i1 %or.cond53.not, label %.thread919, label %314
+  br i1 %or.cond53.not, label %.thread893, label %314
 
 314:                                              ; preds = %311, %309
   %315 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %305, i64 noundef 200) #23
@@ -3067,21 +3067,21 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 705, ptr @tjErrorLine, align 4, !tbaa !4
   %316 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 705, ptr noundef nonnull %305)
-  br label %.thread919
+  br label %.thread893
 
 317:                                              ; preds = %303
   %318 = select i1 %308, ptr @.str.111, ptr @.str.112
   %319 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %318, i32 noundef 705, ptr noundef %305)
-  br label %.thread993
+  br label %.thread962
 
-.thread919:                                       ; preds = %311, %314, %299
+.thread893:                                       ; preds = %311, %314, %299
   %.b734 = load i1, ptr @arithmetic, align 4
   %320 = zext i1 %.b734 to i32
   %321 = tail call i32 @tj3Set(ptr noundef nonnull %63, i32 noundef 14, i32 noundef %320) #23
   %322 = icmp eq i32 %321, -1
-  br i1 %322, label %323, label %.thread924
+  br i1 %322, label %323, label %.thread897
 
-323:                                              ; preds = %.thread919
+323:                                              ; preds = %.thread893
   %324 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %325 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %326 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -3100,7 +3100,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %332 = load i32, ptr @tjErrorLine, align 4
   %333 = icmp eq i32 %332, 707
   %or.cond57.not = select i1 %.b754, i1 %333, i1 false
-  br i1 %or.cond57.not, label %.thread924, label %334
+  br i1 %or.cond57.not, label %.thread897, label %334
 
 334:                                              ; preds = %331, %329
   %335 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %325, i64 noundef 200) #23
@@ -3108,14 +3108,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 707, ptr @tjErrorLine, align 4, !tbaa !4
   %336 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 707, ptr noundef nonnull %325)
-  br label %.thread924
+  br label %.thread897
 
 337:                                              ; preds = %323
   %338 = select i1 %328, ptr @.str.111, ptr @.str.112
   %339 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %338, i32 noundef 707, ptr noundef %325)
-  br label %.thread993
+  br label %.thread962
 
-.thread924:                                       ; preds = %331, %334, %.thread919
+.thread897:                                       ; preds = %331, %334, %.thread893
   %340 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 15) #23
   store i32 %340, ptr @lossless, align 4, !tbaa !4
   %341 = load i32, ptr @precision, align 4, !tbaa !4
@@ -3128,11 +3128,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %or.cond59 = select i1 %345, i1 true, i1 %346
   br i1 %or.cond59, label %347, label %349
 
-347:                                              ; preds = %.thread924
+347:                                              ; preds = %.thread897
   %348 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 713, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.250)
-  br label %.thread993
+  br label %.thread962
 
-349:                                              ; preds = %.thread924
+349:                                              ; preds = %.thread897
   %350 = add i32 %344, -3
   %or.cond61 = icmp ult i32 %350, 2
   br i1 %or.cond61, label %351, label %352
@@ -3145,9 +3145,9 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %.0628 = phi i32 [ 4, %351 ], [ %9, %349 ]
   %353 = load i32, ptr @lossless, align 4, !tbaa !4
   %.not794 = icmp eq i32 %353, 0
-  br i1 %.not794, label %._crit_edge1174, label %354
+  br i1 %.not794, label %._crit_edge1143, label %354
 
-._crit_edge1174:                                  ; preds = %352
+._crit_edge1143:                                  ; preds = %352
   %.pre = load i64, ptr @sf, align 8
   br label %355
 
@@ -3155,11 +3155,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i64 4294967297, ptr @sf, align 8
   br label %355
 
-355:                                              ; preds = %._crit_edge1174, %354
-  %356 = phi i64 [ %.pre, %._crit_edge1174 ], [ 4294967297, %354 ]
+355:                                              ; preds = %._crit_edge1143, %354
+  %356 = phi i64 [ %.pre, %._crit_edge1143 ], [ 4294967297, %354 ]
   %357 = tail call i32 @tj3SetScalingFactor(ptr noundef nonnull %63, i64 %356) #23
   %358 = icmp eq i32 %357, -1
-  br i1 %358, label %359, label %.thread929
+  br i1 %358, label %359, label %.thread901
 
 359:                                              ; preds = %355
   %360 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
@@ -3180,7 +3180,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %368 = load i32, ptr @tjErrorLine, align 4
   %369 = icmp eq i32 %368, 720
   %or.cond65.not = select i1 %.b753, i1 %369, i1 false
-  br i1 %or.cond65.not, label %.thread929, label %370
+  br i1 %or.cond65.not, label %.thread901, label %370
 
 370:                                              ; preds = %367, %365
   %371 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %361, i64 noundef 200) #23
@@ -3188,21 +3188,21 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 720, ptr @tjErrorLine, align 4, !tbaa !4
   %372 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 720, ptr noundef nonnull %361)
-  br label %.thread929
+  br label %.thread901
 
 373:                                              ; preds = %359
   %374 = select i1 %364, ptr @.str.111, ptr @.str.112
   %375 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %374, i32 noundef 720, ptr noundef %361)
-  br label %.thread993
+  br label %.thread962
 
-.thread929:                                       ; preds = %367, %370, %355
+.thread901:                                       ; preds = %367, %370, %355
   %376 = load i64, ptr @cr, align 8
   %377 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cr, i64 8), align 8
   %378 = tail call i32 @tj3SetCroppingRegion(ptr noundef nonnull %63, i64 %376, i64 %377) #23
   %379 = icmp eq i32 %378, -1
-  br i1 %379, label %380, label %.thread934
+  br i1 %379, label %380, label %.thread905
 
-380:                                              ; preds = %.thread929
+380:                                              ; preds = %.thread901
   %381 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
   %382 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %63) #23
   %383 = tail call i32 @tj3Get(ptr noundef nonnull %63, i32 noundef 0) #23
@@ -3221,7 +3221,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %389 = load i32, ptr @tjErrorLine, align 4
   %390 = icmp eq i32 %389, 722
   %or.cond69.not = select i1 %.b752, i1 %390, i1 false
-  br i1 %or.cond69.not, label %.thread934, label %391
+  br i1 %or.cond69.not, label %.thread905, label %391
 
 391:                                              ; preds = %388, %386
   %392 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %382, i64 noundef 200) #23
@@ -3229,21 +3229,21 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i1 true, ptr @tjErrorCode, align 4
   store i32 722, ptr @tjErrorLine, align 4, !tbaa !4
   %393 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 722, ptr noundef nonnull %382)
-  br label %.thread934
+  br label %.thread905
 
 394:                                              ; preds = %380
   %395 = select i1 %385, ptr @.str.111, ptr @.str.112
   %396 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %395, i32 noundef 722, ptr noundef %382)
-  br label %.thread993
+  br label %.thread962
 
-.thread934:                                       ; preds = %388, %391, %.thread929
+.thread905:                                       ; preds = %388, %391, %.thread901
   %397 = load i32, ptr @quiet, align 4, !tbaa !4
   switch i32 %397, label %417 [
     i32 1, label %398
     i32 0, label %408
   ]
 
-398:                                              ; preds = %.thread934
+398:                                              ; preds = %.thread905
   %puts800 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.128)
   %.b746 = load i1, ptr @doTile, align 4
   %399 = select i1 %.b746, ptr @.str.115, ptr @.str.116
@@ -3269,7 +3269,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %puts801 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.129)
   br label %417
 
-408:                                              ; preds = %.thread934
+408:                                              ; preds = %.thread905
   %409 = load i32, ptr @precision, align 4, !tbaa !4
   %410 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %344, ptr noundef %4)
   %411 = load i32, ptr @pf, align 4, !tbaa !4
@@ -3281,7 +3281,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %416 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.253, i32 noundef %409, ptr noundef %410, ptr noundef %414, ptr noundef nonnull %415)
   br label %417
 
-417:                                              ; preds = %.thread934, %408, %407
+417:                                              ; preds = %.thread905, %408, %407
   %.b745 = load i1, ptr @doTile, align 4
   br i1 %.b745, label %418, label %428
 
@@ -3291,7 +3291,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 420:                                              ; preds = %418
   %421 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 741, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.257)
-  br label %.thread993
+  br label %.thread962
 
 422:                                              ; preds = %418
   %423 = sext i32 %.fr to i64
@@ -3329,8 +3329,8 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %445 = shl nsw i64 %444, 3
   %446 = sext i32 %443 to i64
   %447 = mul i64 %445, %446
-  %calloc1218 = call ptr @calloc(i64 1, i64 %447)
-  %448 = icmp eq ptr %calloc1218, null
+  %calloc1187 = call ptr @calloc(i64 1, i64 %447)
+  %448 = icmp eq ptr %calloc1187, null
   br i1 %448, label %449, label %454
 
 449:                                              ; preds = %439
@@ -3338,7 +3338,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %451 = load i32, ptr %450, align 4, !tbaa !4
   %452 = call ptr @strerror(i32 noundef %451) #23
   %453 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 753, ptr noundef nonnull @.str.258, ptr noundef %452)
-  br label %.thread993
+  br label %.thread962
 
 454:                                              ; preds = %439
   %calloc = call ptr @calloc(i64 1, i64 %447)
@@ -3350,7 +3350,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %458 = load i32, ptr %457, align 4, !tbaa !4
   %459 = call ptr @strerror(i32 noundef %458) #23
   %460 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 757, ptr noundef nonnull @.str.259, ptr noundef %459)
-  br label %.thread948
+  br label %.thread918
 
 461:                                              ; preds = %454
   %462 = load i32, ptr @xformOpt, align 4, !tbaa !4
@@ -3400,7 +3400,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %477 = load i32, ptr %476, align 4, !tbaa !4
   %478 = call ptr @strerror(i32 noundef %477) #23
   %479 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 772, ptr noundef nonnull @.str.260, ptr noundef %478)
-  br label %.thread948
+  br label %.thread918
 
 480:                                              ; preds = %472, %471
   %.2 = phi ptr [ %473, %472 ], [ null, %471 ]
@@ -3518,7 +3518,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   br label %550
 
 550:                                              ; preds = %541, %542
-  %.ph941 = phi i32 [ %537, %541 ], [ %549, %542 ]
+  %.ph911 = phi i32 [ %537, %541 ], [ %549, %542 ]
   br i1 %540, label %569, label %551
 
 551:                                              ; preds = %550
@@ -3544,7 +3544,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   br label %569
 
 569:                                              ; preds = %550, %551, %559
-  %570 = phi i32 [ %565, %559 ], [ %.ph941, %551 ], [ %.ph941, %550 ]
+  %570 = phi i32 [ %565, %559 ], [ %.ph911, %551 ], [ %.ph911, %550 ]
   %571 = phi i32 [ %568, %559 ], [ %558, %551 ], [ %539, %550 ]
   %572 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.267, i32 noundef %570, i32 noundef %571)
   br label %573
@@ -3564,7 +3564,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %581 = load i32, ptr %580, align 4, !tbaa !4
   %582 = call ptr @strerror(i32 noundef %581) #23
   %583 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 790, ptr noundef nonnull @.str.268, ptr noundef %582)
-  br label %.thread948
+  br label %.thread918
 
 584:                                              ; preds = %574
   %585 = load i32, ptr @xformOp, align 4, !tbaa !4
@@ -3593,7 +3593,7 @@ switch.early.test:                                ; preds = %587
 
 588:                                              ; preds = %switch.early.test
   %589 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 800, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.257)
-  br label %.thread948
+  br label %.thread918
 
 590:                                              ; preds = %587
   switch i32 %585, label %597 [
@@ -3638,41 +3638,41 @@ switch.early.test:                                ; preds = %587
   %610 = sdiv i32 %609, %.0661
   %611 = icmp sgt i32 %610, 0
   %612 = icmp sgt i32 %607, 0
-  %or.cond1275 = select i1 %611, i1 %612, i1 false
-  br i1 %or.cond1275, label %.preheader1005.us.preheader, label %.preheader1006
+  %or.cond1244 = select i1 %611, i1 %612, i1 false
+  br i1 %or.cond1244, label %.preheader974.us.preheader, label %.preheader975
 
-.preheader1005.us.preheader:                      ; preds = %604
-  %.pre1178.pre = load i32, ptr @xformOpt, align 4, !tbaa !4
-  %.pre1180.pre = load ptr, ptr @customFilter, align 8, !tbaa !8
-  %.b.us.pre1181.pre = load i1, ptr @noRealloc, align 4
-  br label %.preheader1005.us
+.preheader974.us.preheader:                       ; preds = %604
+  %.pre1147.pre = load i32, ptr @xformOpt, align 4, !tbaa !4
+  %.pre1149.pre = load ptr, ptr @customFilter, align 8, !tbaa !8
+  %.b.us.pre1150.pre = load i1, ptr @noRealloc, align 4
+  br label %.preheader974.us
 
-.preheader1005.us:                                ; preds = %.preheader1005.us.preheader, %._crit_edge.us
-  %.b.us.pre1181 = phi i1 [ %.b.us.pre11811193, %._crit_edge.us ], [ %.b.us.pre1181.pre, %.preheader1005.us.preheader ]
-  %.pre1180 = phi ptr [ %.pre11801190, %._crit_edge.us ], [ %.pre1180.pre, %.preheader1005.us.preheader ]
-  %.pre1178 = phi i32 [ %.pre11781187, %._crit_edge.us ], [ %.pre1178.pre, %.preheader1005.us.preheader ]
-  %.pre1176 = phi i32 [ %.pre11761184, %._crit_edge.us ], [ %585, %.preheader1005.us.preheader ]
-  %.06291069.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader1005.us.preheader ]
-  %.06321068.us = phi i32 [ %660, %._crit_edge.us ], [ 0, %.preheader1005.us.preheader ]
-  %613 = mul nsw i32 %.06321068.us, %.0661
+.preheader974.us:                                 ; preds = %.preheader974.us.preheader, %._crit_edge.us
+  %.b.us.pre1150 = phi i1 [ %.b.us.pre11501162, %._crit_edge.us ], [ %.b.us.pre1150.pre, %.preheader974.us.preheader ]
+  %.pre1149 = phi ptr [ %.pre11491159, %._crit_edge.us ], [ %.pre1149.pre, %.preheader974.us.preheader ]
+  %.pre1147 = phi i32 [ %.pre11471156, %._crit_edge.us ], [ %.pre1147.pre, %.preheader974.us.preheader ]
+  %.pre1145 = phi i32 [ %.pre11451153, %._crit_edge.us ], [ %585, %.preheader974.us.preheader ]
+  %.06291038.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader974.us.preheader ]
+  %.06321037.us = phi i32 [ %660, %._crit_edge.us ], [ 0, %.preheader974.us.preheader ]
+  %613 = mul nsw i32 %.06321037.us, %.0661
   %614 = sub nsw i32 %.1656, %613
   %615 = call i32 @llvm.smin.i32(i32 %.0661, i32 %614)
-  %sext = shl i64 %.06291069.us, 32
+  %sext = shl i64 %.06291038.us, 32
   %616 = ashr exact i64 %sext, 32
   br label %617
 
-617:                                              ; preds = %.preheader1005.us, %655
-  %.b.us.pre11811194 = phi i1 [ %.b.us.pre1181, %.preheader1005.us ], [ %.b.us.pre11811193, %655 ]
-  %.pre11801191 = phi ptr [ %.pre1180, %.preheader1005.us ], [ %.pre11801190, %655 ]
-  %.pre11781188 = phi i32 [ %.pre1178, %.preheader1005.us ], [ %.pre11781187, %655 ]
-  %.pre11761185 = phi i32 [ %.pre1176, %.preheader1005.us ], [ %.pre11761184, %655 ]
-  %.b.us = phi i1 [ %.b.us.pre1181, %.preheader1005.us ], [ %.b.us1182, %655 ]
-  %618 = phi ptr [ %.pre1180, %.preheader1005.us ], [ %656, %655 ]
-  %619 = phi i32 [ %.pre1178, %.preheader1005.us ], [ %657, %655 ]
-  %620 = phi i32 [ %.pre1176, %.preheader1005.us ], [ %658, %655 ]
-  %indvars.iv = phi i64 [ %616, %.preheader1005.us ], [ %indvars.iv.next, %655 ]
-  %.06331066.us = phi i32 [ 0, %.preheader1005.us ], [ %659, %655 ]
-  %621 = mul nsw i32 %.06331066.us, %.0658
+617:                                              ; preds = %.preheader974.us, %655
+  %.b.us.pre11501163 = phi i1 [ %.b.us.pre1150, %.preheader974.us ], [ %.b.us.pre11501162, %655 ]
+  %.pre11491160 = phi ptr [ %.pre1149, %.preheader974.us ], [ %.pre11491159, %655 ]
+  %.pre11471157 = phi i32 [ %.pre1147, %.preheader974.us ], [ %.pre11471156, %655 ]
+  %.pre11451154 = phi i32 [ %.pre1145, %.preheader974.us ], [ %.pre11451153, %655 ]
+  %.b.us = phi i1 [ %.b.us.pre1150, %.preheader974.us ], [ %.b.us1151, %655 ]
+  %618 = phi ptr [ %.pre1149, %.preheader974.us ], [ %656, %655 ]
+  %619 = phi i32 [ %.pre1147, %.preheader974.us ], [ %657, %655 ]
+  %620 = phi i32 [ %.pre1145, %.preheader974.us ], [ %658, %655 ]
+  %indvars.iv = phi i64 [ %616, %.preheader974.us ], [ %indvars.iv.next, %655 ]
+  %.06331035.us = phi i32 [ 0, %.preheader974.us ], [ %659, %655 ]
+  %621 = mul nsw i32 %.06331035.us, %.0658
   %622 = sub nsw i32 %.1653, %621
   %.0658..us = call i32 @llvm.smin.i32(i32 %.0658, i32 %622)
   %623 = getelementptr inbounds %struct.tjtransform, ptr %577, i64 %indvars.iv
@@ -3698,7 +3698,7 @@ switch.early.test:                                ; preds = %587
 633:                                              ; preds = %617
   %634 = call i64 @tj3TransformBufSize(ptr noundef nonnull %63, ptr noundef nonnull %623) #23
   %635 = icmp eq i64 %634, 0
-  br i1 %635, label %636, label %.thread944.us
+  br i1 %635, label %636, label %.thread914.us
 
 636:                                              ; preds = %633
   %637 = call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
@@ -3719,7 +3719,7 @@ switch.early.test:                                ; preds = %587
   %645 = load i32, ptr @tjErrorLine, align 4
   %646 = icmp eq i32 %645, 822
   %or.cond139.not.us = select i1 %.b751.us, i1 %646, i1 false
-  br i1 %or.cond139.not.us, label %.thread944.us, label %647
+  br i1 %or.cond139.not.us, label %.thread914.us, label %647
 
 647:                                              ; preds = %644, %642
   %648 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %638, i64 noundef 200) #23
@@ -3727,44 +3727,44 @@ switch.early.test:                                ; preds = %587
   store i1 true, ptr @tjErrorCode, align 4
   store i32 822, ptr @tjErrorLine, align 4, !tbaa !4
   %649 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 822, ptr noundef nonnull %638)
-  br label %.thread944.us
+  br label %.thread914.us
 
-.thread944.us:                                    ; preds = %647, %644, %633
+.thread914.us:                                    ; preds = %647, %644, %633
   %650 = call ptr @tj3Alloc(i64 noundef %634) #23
-  %651 = getelementptr inbounds ptr, ptr %calloc1218, i64 %indvars.iv
+  %651 = getelementptr inbounds ptr, ptr %calloc1187, i64 %indvars.iv
   store ptr %650, ptr %651, align 8, !tbaa !10
   %652 = icmp eq ptr %650, null
-  br i1 %652, label %.split1078.us, label %653
+  br i1 %652, label %.split1047.us, label %653
 
-653:                                              ; preds = %.thread944.us
+653:                                              ; preds = %.thread914.us
   %.b.us.pre = load i1, ptr @noRealloc, align 4
-  %.pre1179 = load ptr, ptr @customFilter, align 8, !tbaa !8
-  %.pre1177 = load i32, ptr @xformOpt, align 4, !tbaa !4
-  %.pre1175 = load i32, ptr @xformOp, align 4, !tbaa !4
+  %.pre1148 = load ptr, ptr @customFilter, align 8, !tbaa !8
+  %.pre1146 = load i32, ptr @xformOpt, align 4, !tbaa !4
+  %.pre1144 = load i32, ptr @xformOp, align 4, !tbaa !4
   %654 = getelementptr inbounds i64, ptr %.2, i64 %indvars.iv
   store i64 %634, ptr %654, align 8, !tbaa !35
   br label %655
 
 655:                                              ; preds = %653, %617
-  %.b.us.pre11811193 = phi i1 [ %.b.us.pre, %653 ], [ %.b.us.pre11811194, %617 ]
-  %.pre11801190 = phi ptr [ %.pre1179, %653 ], [ %.pre11801191, %617 ]
-  %.pre11781187 = phi i32 [ %.pre1177, %653 ], [ %.pre11781188, %617 ]
-  %.pre11761184 = phi i32 [ %.pre1175, %653 ], [ %.pre11761185, %617 ]
-  %.b.us1182 = phi i1 [ %.b.us.pre, %653 ], [ %.b.us, %617 ]
-  %656 = phi ptr [ %.pre1179, %653 ], [ %618, %617 ]
-  %657 = phi i32 [ %.pre1177, %653 ], [ %619, %617 ]
-  %658 = phi i32 [ %.pre1175, %653 ], [ %620, %617 ]
-  %659 = add nuw nsw i32 %.06331066.us, 1
+  %.b.us.pre11501162 = phi i1 [ %.b.us.pre, %653 ], [ %.b.us.pre11501163, %617 ]
+  %.pre11491159 = phi ptr [ %.pre1148, %653 ], [ %.pre11491160, %617 ]
+  %.pre11471156 = phi i32 [ %.pre1146, %653 ], [ %.pre11471157, %617 ]
+  %.pre11451153 = phi i32 [ %.pre1144, %653 ], [ %.pre11451154, %617 ]
+  %.b.us1151 = phi i1 [ %.b.us.pre, %653 ], [ %.b.us, %617 ]
+  %656 = phi ptr [ %.pre1148, %653 ], [ %618, %617 ]
+  %657 = phi i32 [ %.pre1146, %653 ], [ %619, %617 ]
+  %658 = phi i32 [ %.pre1144, %653 ], [ %620, %617 ]
+  %659 = add nuw nsw i32 %.06331035.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %659, %607
   br i1 %exitcond.not, label %._crit_edge.us, label %617, !llvm.loop !45
 
 ._crit_edge.us:                                   ; preds = %655
-  %660 = add nuw nsw i32 %.06321068.us, 1
-  %exitcond1156.not = icmp eq i32 %660, %610
-  br i1 %exitcond1156.not, label %.preheader1006, label %.preheader1005.us, !llvm.loop !46
+  %660 = add nuw nsw i32 %.06321037.us, 1
+  %exitcond1125.not = icmp eq i32 %660, %610
+  br i1 %exitcond1125.not, label %.preheader975, label %.preheader974.us, !llvm.loop !46
 
-.preheader1006:                                   ; preds = %._crit_edge.us, %604
+.preheader975:                                    ; preds = %._crit_edge.us, %604
   %661 = mul i32 %610, %607
   %662 = icmp slt i32 %661, 1
   %663 = load ptr, ptr %2, align 8
@@ -3776,14 +3776,14 @@ switch.early.test:                                ; preds = %587
 .split.us:                                        ; preds = %636
   %667 = select i1 %641, ptr @.str.111, ptr @.str.112
   %668 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %667, i32 noundef 822, ptr noundef %638)
-  br label %.thread948
+  br label %.thread918
 
-.split1078.us:                                    ; preds = %.thread944.us
+.split1047.us:                                    ; preds = %.thread914.us
   %669 = tail call ptr @__errno_location() #26
   %670 = load i32, ptr %669, align 4, !tbaa !4
   %671 = call ptr @strerror(i32 noundef %670) #23
   %672 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 824, ptr noundef nonnull @.str.269, ptr noundef %671)
-  br label %.thread948
+  br label %.thread918
 
 673:                                              ; preds = %.outer, %709
   %.0626 = phi double [ %703, %709 ], [ %.0626.ph, %.outer ]
@@ -3803,17 +3803,17 @@ switch.early.test:                                ; preds = %587
   %680 = load ptr, ptr @customFilter, align 8
   %681 = icmp eq ptr %680, null
   %or.cond145 = select i1 %or.cond143, i1 %681, i1 false
-  %brmerge1096 = select i1 %or.cond145, i1 true, i1 %662
-  br i1 %brmerge1096, label %.loopexit, label %.lr.ph.preheader
+  %brmerge1065 = select i1 %or.cond145, i1 true, i1 %662
+  br i1 %brmerge1065, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %675
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %calloc, ptr align 8 %.2, i64 %666, i1 false), !tbaa !35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %675, %673
-  %682 = call i32 @tj3Transform(ptr noundef nonnull %63, ptr noundef %663, i64 noundef %664, i32 noundef %661, ptr noundef nonnull %calloc1218, ptr noundef nonnull %calloc, ptr noundef nonnull %577) #23
+  %682 = call i32 @tj3Transform(ptr noundef nonnull %63, ptr noundef %663, i64 noundef %664, i32 noundef %661, ptr noundef nonnull %calloc1187, ptr noundef nonnull %calloc, ptr noundef nonnull %577) #23
   %683 = icmp eq i32 %682, -1
-  br i1 %683, label %684, label %.thread952
+  br i1 %683, label %684, label %.thread922
 
 684:                                              ; preds = %.loopexit
   %685 = call i32 @tj3GetErrorCode(ptr noundef nonnull %63) #23
@@ -3834,7 +3834,7 @@ switch.early.test:                                ; preds = %587
   %693 = load i32, ptr @tjErrorLine, align 4
   %694 = icmp eq i32 %693, 841
   %or.cond149.not = select i1 %.b750, i1 %694, i1 false
-  br i1 %or.cond149.not, label %.thread952, label %695
+  br i1 %or.cond149.not, label %.thread922, label %695
 
 695:                                              ; preds = %692, %690
   %696 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %686, i64 noundef 200) #23
@@ -3842,20 +3842,20 @@ switch.early.test:                                ; preds = %587
   store i1 true, ptr @tjErrorCode, align 4
   store i32 841, ptr @tjErrorLine, align 4, !tbaa !4
   %697 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 841, ptr noundef nonnull %686)
-  br label %.thread952
+  br label %.thread922
 
 698:                                              ; preds = %684
   %699 = select i1 %689, ptr @.str.111, ptr @.str.112
   %700 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %699, i32 noundef 841, ptr noundef %686)
-  br label %.thread948
+  br label %.thread918
 
-.thread952:                                       ; preds = %692, %695, %.loopexit
+.thread922:                                       ; preds = %692, %695, %.loopexit
   %701 = call double @getTime() #23
   %702 = fsub double %701, %674
   %703 = fadd double %.0626, %702
   br i1 %708, label %704, label %709
 
-704:                                              ; preds = %.thread952
+704:                                              ; preds = %.thread922
   %705 = add nuw nsw i32 %.0636.ph, 1
   %706 = load double, ptr @benchTime, align 8, !tbaa !12
   %707 = fcmp ult double %703, %706
@@ -3866,13 +3866,13 @@ switch.early.test:                                ; preds = %587
   %.0626.ph.be = phi double [ %703, %704 ], [ 0.000000e+00, %709 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.preheader1006
-  %.0636.ph = phi i32 [ -1, %.preheader1006 ], [ %.0636.ph.be, %.outer.backedge ]
-  %.0626.ph = phi double [ 0.000000e+00, %.preheader1006 ], [ %.0626.ph.be, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge, %.preheader975
+  %.0636.ph = phi i32 [ -1, %.preheader975 ], [ %.0636.ph.be, %.outer.backedge ]
+  %.0626.ph = phi double [ 0.000000e+00, %.preheader975 ], [ %.0626.ph.be, %.outer.backedge ]
   %708 = icmp sgt i32 %.0636.ph, -1
   br label %673
 
-709:                                              ; preds = %.thread952
+709:                                              ; preds = %.thread922
   %710 = load double, ptr @warmup, align 8, !tbaa !12
   %711 = fcmp ult double %703, %710
   br i1 %711, label %673, label %.outer.backedge
@@ -3880,20 +3880,20 @@ switch.early.test:                                ; preds = %587
 712:                                              ; preds = %704
   call void @free(ptr noundef nonnull %577) #23
   %713 = icmp sgt i32 %661, 0
-  br i1 %713, label %.lr.ph1088, label %._crit_edge
+  br i1 %713, label %.lr.ph1057, label %._crit_edge
 
-.lr.ph1088:                                       ; preds = %712, %.lr.ph1088
-  %indvars.iv1160 = phi i64 [ %indvars.iv.next1161, %.lr.ph1088 ], [ 0, %712 ]
-  %.06221087 = phi i64 [ %716, %.lr.ph1088 ], [ 0, %712 ]
-  %714 = getelementptr inbounds nuw i64, ptr %calloc, i64 %indvars.iv1160
+.lr.ph1057:                                       ; preds = %712, %.lr.ph1057
+  %indvars.iv1129 = phi i64 [ %indvars.iv.next1130, %.lr.ph1057 ], [ 0, %712 ]
+  %.06221056 = phi i64 [ %716, %.lr.ph1057 ], [ 0, %712 ]
+  %714 = getelementptr inbounds nuw i64, ptr %calloc, i64 %indvars.iv1129
   %715 = load i64, ptr %714, align 8, !tbaa !35
-  %716 = add i64 %715, %.06221087
-  %indvars.iv.next1161 = add nuw nsw i64 %indvars.iv1160, 1
-  %exitcond1163.not = icmp eq i64 %indvars.iv.next1161, %665
-  br i1 %exitcond1163.not, label %._crit_edge, label %.lr.ph1088, !llvm.loop !47
+  %716 = add i64 %715, %.06221056
+  %indvars.iv.next1130 = add nuw nsw i64 %indvars.iv1129, 1
+  %exitcond1132.not = icmp eq i64 %indvars.iv.next1130, %665
+  br i1 %exitcond1132.not, label %._crit_edge, label %.lr.ph1057, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph1088, %712
-  %.0622.lcssa = phi i64 [ 0, %712 ], [ %716, %.lr.ph1088 ]
+._crit_edge:                                      ; preds = %.lr.ph1057, %712
+  %.0622.lcssa = phi i64 [ 0, %712 ], [ %716, %.lr.ph1057 ]
   %717 = load i32, ptr @quiet, align 4, !tbaa !4
   %.not807 = icmp eq i32 %717, 0
   br i1 %.not807, label %731, label %718
@@ -3938,9 +3938,9 @@ switch.early.test:                                ; preds = %587
   br label %749
 
 749:                                              ; preds = %747, %744
-  %750 = load ptr, ptr %calloc1218, align 8, !tbaa !10
+  %750 = load ptr, ptr %calloc1187, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %750) #23
-  store ptr null, ptr %calloc1218, align 8, !tbaa !10
+  store ptr null, ptr %calloc1187, align 8, !tbaa !10
   br label %751
 
 751:                                              ; preds = %718, %731, %749
@@ -3949,22 +3949,22 @@ switch.early.test:                                ; preds = %587
   %.2657 = phi i32 [ %.1656, %718 ], [ %.1656, %731 ], [ %289, %749 ]
   %.2654 = phi i32 [ %.1653, %718 ], [ %.1653, %731 ], [ %288, %749 ]
   %.1643 = phi i32 [ %.0642, %718 ], [ %.0642, %731 ], [ 1, %749 ]
-  %.not1003 = icmp sgt i32 %288, %.0646
-  %.not1004 = icmp sgt i32 %289, %.0648
+  %.not972 = icmp sgt i32 %288, %.0646
+  %.not973 = icmp sgt i32 %289, %.0648
   %752 = load i32, ptr @xformOpt, align 4, !tbaa !4
   %753 = and i32 %752, 16
   %.not808 = icmp eq i32 %753, 0
   br i1 %.not808, label %754, label %759
 
 754:                                              ; preds = %751
-  %.2663 = select i1 %.not1004, i32 %.1662, i32 %.2657
-  %spec.select862 = select i1 %.not1003, i32 %.1659, i32 %.2654
+  %.2663 = select i1 %.not973, i32 %.1662, i32 %.2657
+  %spec.select847 = select i1 %.not972, i32 %.1659, i32 %.2654
   %.not809 = icmp eq i32 %.1643, 0
-  %755 = select i1 %.not809, ptr %calloc1218, ptr %2
+  %755 = select i1 %.not809, ptr %calloc1187, ptr %2
   %756 = select i1 %.not809, ptr %calloc, ptr %3
-  %757 = call fastcc i32 @decomp(ptr noundef %755, ptr noundef %756, ptr noundef null, i32 noundef %.2654, i32 noundef %.2657, i32 noundef %.0664, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %spec.select862, i32 noundef %.2663)
+  %757 = call fastcc i32 @decomp(ptr noundef %755, ptr noundef %756, ptr noundef null, i32 noundef %.2654, i32 noundef %.2657, i32 noundef %.0664, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %spec.select847, i32 noundef %.2663)
   %758 = icmp eq i32 %757, -1
-  br i1 %758, label %.thread948, label %763
+  br i1 %758, label %.thread918, label %763
 
 759:                                              ; preds = %751
   %760 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -3978,71 +3978,71 @@ switch.early.test:                                ; preds = %587
 763:                                              ; preds = %759, %762, %754
   %764 = mul nsw i32 %443, %441
   %765 = icmp sgt i32 %764, 0
-  br i1 %765, label %.lr.ph1091.preheader, label %._crit_edge1092
+  br i1 %765, label %.lr.ph1060.preheader, label %._crit_edge1061
 
-.lr.ph1091.preheader:                             ; preds = %763
-  %wide.trip.count1167 = zext nneg i32 %764 to i64
-  br label %.lr.ph1091
+.lr.ph1060.preheader:                             ; preds = %763
+  %wide.trip.count1136 = zext nneg i32 %764 to i64
+  br label %.lr.ph1060
 
-.lr.ph1091:                                       ; preds = %.lr.ph1091.preheader, %.lr.ph1091
-  %indvars.iv1164 = phi i64 [ 0, %.lr.ph1091.preheader ], [ %indvars.iv.next1165, %.lr.ph1091 ]
-  %766 = getelementptr inbounds nuw ptr, ptr %calloc1218, i64 %indvars.iv1164
+.lr.ph1060:                                       ; preds = %.lr.ph1060.preheader, %.lr.ph1060
+  %indvars.iv1133 = phi i64 [ 0, %.lr.ph1060.preheader ], [ %indvars.iv.next1134, %.lr.ph1060 ]
+  %766 = getelementptr inbounds nuw ptr, ptr %calloc1187, i64 %indvars.iv1133
   %767 = load ptr, ptr %766, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %767) #23
   store ptr null, ptr %766, align 8, !tbaa !10
-  %indvars.iv.next1165 = add nuw nsw i64 %indvars.iv1164, 1
-  %exitcond1168.not = icmp eq i64 %indvars.iv.next1165, %wide.trip.count1167
-  br i1 %exitcond1168.not, label %._crit_edge1092, label %.lr.ph1091, !llvm.loop !48
+  %indvars.iv.next1134 = add nuw nsw i64 %indvars.iv1133, 1
+  %exitcond1137.not = icmp eq i64 %indvars.iv.next1134, %wide.trip.count1136
+  br i1 %exitcond1137.not, label %._crit_edge1061, label %.lr.ph1060, !llvm.loop !48
 
-._crit_edge1092:                                  ; preds = %.lr.ph1091, %763
-  call void @free(ptr noundef nonnull %calloc1218) #23
+._crit_edge1061:                                  ; preds = %.lr.ph1060, %763
+  call void @free(ptr noundef nonnull %calloc1187) #23
   call void @free(ptr noundef %.2) #23
   call void @free(ptr noundef nonnull %calloc) #23
-  %brmerge = select i1 %.not1003, i1 true, i1 %.not1004
-  br i1 %brmerge, label %768, label %.thread993
+  %brmerge = select i1 %.not972, i1 true, i1 %.not973
+  br i1 %brmerge, label %768, label %.thread962
 
-768:                                              ; preds = %._crit_edge1092
+768:                                              ; preds = %._crit_edge1061
   %769 = shl nsw i32 %spec.select, 1
   %770 = shl nsw i32 %.1649, 1
   br label %439
 
-.thread976:                                       ; preds = %53, %45, %37, %29
+.thread945:                                       ; preds = %53, %45, %37, %29
   %771 = tail call i32 @fclose(ptr noundef nonnull %16)
-  br label %.thread993
+  br label %.thread962
 
-.thread948:                                       ; preds = %754, %.split.us, %.split1078.us, %456, %475, %579, %588, %698
-  %.0623.ph = phi ptr [ %577, %698 ], [ %577, %588 ], [ null, %579 ], [ null, %475 ], [ null, %456 ], [ %577, %.split1078.us ], [ %577, %.split.us ], [ null, %754 ]
-  %.0619.ph = phi ptr [ %.2, %698 ], [ %.2, %588 ], [ %.2, %579 ], [ null, %475 ], [ null, %456 ], [ %.2, %.split1078.us ], [ %.2, %.split.us ], [ %.2, %754 ]
+.thread918:                                       ; preds = %754, %.split.us, %.split1047.us, %456, %475, %579, %588, %698
+  %.0623.ph = phi ptr [ %577, %698 ], [ %577, %588 ], [ null, %579 ], [ null, %475 ], [ null, %456 ], [ %577, %.split1047.us ], [ %577, %.split.us ], [ null, %754 ]
+  %.0619.ph = phi ptr [ %.2, %698 ], [ %.2, %588 ], [ %.2, %579 ], [ null, %475 ], [ null, %456 ], [ %.2, %.split1047.us ], [ %.2, %.split.us ], [ %.2, %754 ]
   %772 = mul nsw i32 %443, %441
   %773 = icmp sgt i32 %772, 0
-  br i1 %773, label %.lr.ph1094.preheader, label %.thread993
+  br i1 %773, label %.lr.ph1063.preheader, label %.thread962
 
-.lr.ph1094.preheader:                             ; preds = %.thread948
-  %wide.trip.count1172 = zext nneg i32 %772 to i64
-  br label %.lr.ph1094
+.lr.ph1063.preheader:                             ; preds = %.thread918
+  %wide.trip.count1141 = zext nneg i32 %772 to i64
+  br label %.lr.ph1063
 
-.lr.ph1094:                                       ; preds = %.lr.ph1094.preheader, %.lr.ph1094
-  %indvars.iv1169 = phi i64 [ 0, %.lr.ph1094.preheader ], [ %indvars.iv.next1170, %.lr.ph1094 ]
-  %774 = getelementptr inbounds nuw ptr, ptr %calloc1218, i64 %indvars.iv1169
+.lr.ph1063:                                       ; preds = %.lr.ph1063.preheader, %.lr.ph1063
+  %indvars.iv1138 = phi i64 [ 0, %.lr.ph1063.preheader ], [ %indvars.iv.next1139, %.lr.ph1063 ]
+  %774 = getelementptr inbounds nuw ptr, ptr %calloc1187, i64 %indvars.iv1138
   %775 = load ptr, ptr %774, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %775) #23
-  %indvars.iv.next1170 = add nuw nsw i64 %indvars.iv1169, 1
-  %exitcond1173.not = icmp eq i64 %indvars.iv.next1170, %wide.trip.count1172
-  br i1 %exitcond1173.not, label %.thread993, label %.lr.ph1094, !llvm.loop !49
+  %indvars.iv.next1139 = add nuw nsw i64 %indvars.iv1138, 1
+  %exitcond1142.not = icmp eq i64 %indvars.iv.next1139, %wide.trip.count1141
+  br i1 %exitcond1142.not, label %.thread962, label %.lr.ph1063, !llvm.loop !49
 
-.thread993:                                       ; preds = %._crit_edge1092, %.lr.ph1094, %.thread948, %18, %65, %347, %420, %449, %394, %373, %337, %317, %285, %266, %246, %226, %206, %186, %166, %146, %126, %106, %86, %.thread976
-  %.0623971990 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %.0623.ph, %.thread948 ], [ %.0623.ph, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
-  %.0620972989 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %calloc, %.thread948 ], [ %calloc, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
-  %.0619973988 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %.0619.ph, %.thread948 ], [ %.0619.ph, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
-  %.0618974987 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %calloc1218, %.thread948 ], [ %calloc1218, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
-  %.0617975986 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ %63, %347 ], [ %63, %420 ], [ %63, %449 ], [ %63, %394 ], [ %63, %373 ], [ %63, %337 ], [ %63, %317 ], [ %63, %285 ], [ %63, %266 ], [ %63, %246 ], [ %63, %226 ], [ %63, %206 ], [ %63, %186 ], [ %63, %166 ], [ %63, %146 ], [ %63, %126 ], [ %63, %106 ], [ %63, %86 ], [ %63, %.thread948 ], [ %63, %.lr.ph1094 ], [ %63, %._crit_edge1092 ]
-  call void @free(ptr noundef %.0618974987) #23
-  call void @free(ptr noundef %.0619973988) #23
-  call void @free(ptr noundef %.0620972989) #23
+.thread962:                                       ; preds = %._crit_edge1061, %.lr.ph1063, %.thread918, %18, %65, %347, %420, %449, %394, %373, %337, %317, %285, %266, %246, %226, %206, %186, %166, %146, %126, %106, %86, %.thread945
+  %.0623940959 = phi ptr [ null, %.thread945 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %.0623.ph, %.thread918 ], [ %.0623.ph, %.lr.ph1063 ], [ null, %._crit_edge1061 ]
+  %.0620941958 = phi ptr [ null, %.thread945 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %calloc, %.thread918 ], [ %calloc, %.lr.ph1063 ], [ null, %._crit_edge1061 ]
+  %.0619942957 = phi ptr [ null, %.thread945 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %.0619.ph, %.thread918 ], [ %.0619.ph, %.lr.ph1063 ], [ null, %._crit_edge1061 ]
+  %.0618943956 = phi ptr [ null, %.thread945 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ null, %86 ], [ %calloc1187, %.thread918 ], [ %calloc1187, %.lr.ph1063 ], [ null, %._crit_edge1061 ]
+  %.0617944955 = phi ptr [ null, %.thread945 ], [ null, %18 ], [ null, %65 ], [ %63, %347 ], [ %63, %420 ], [ %63, %449 ], [ %63, %394 ], [ %63, %373 ], [ %63, %337 ], [ %63, %317 ], [ %63, %285 ], [ %63, %266 ], [ %63, %246 ], [ %63, %226 ], [ %63, %206 ], [ %63, %186 ], [ %63, %166 ], [ %63, %146 ], [ %63, %126 ], [ %63, %106 ], [ %63, %86 ], [ %63, %.thread918 ], [ %63, %.lr.ph1063 ], [ %63, %._crit_edge1061 ]
+  call void @free(ptr noundef %.0618943956) #23
+  call void @free(ptr noundef %.0619942957) #23
+  call void @free(ptr noundef %.0620941958) #23
   %776 = load ptr, ptr %2, align 8, !tbaa !10
   call void @free(ptr noundef %776) #23
-  call void @free(ptr noundef %.0623971990) #23
-  call void @tj3Destroy(ptr noundef %.0617975986) #23
+  call void @free(ptr noundef %.0623940959) #23
+  call void @tj3Destroy(ptr noundef %.0617944955) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4087,7 +4087,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = tail call ptr @strerror(i32 noundef %30) #23
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 400, ptr noundef nonnull @.str.320, ptr noundef %31)
-  br label %.thread914.thread
+  br label %.thread889.thread
 
 33:                                               ; preds = %7
   %34 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -4129,8 +4129,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %58 = mul nsw i32 %16, %55
   %59 = sitofp i32 %58 to double
   %60 = getelementptr inbounds ptr, ptr @subName, i64 %52
-  %wide.trip.count1483 = zext nneg i32 %3 to i64
-  %wide.trip.count1488 = zext nneg i32 %3 to i64
+  %wide.trip.count1458 = zext nneg i32 %3 to i64
+  %wide.trip.count1463 = zext nneg i32 %3 to i64
   br label %61
 
 61:                                               ; preds = %686, %47
@@ -4148,8 +4148,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %67 = shl nsw i64 %66, 3
   %68 = sext i32 %65 to i64
   %69 = mul i64 %67, %68
-  %calloc1536 = call ptr @calloc(i64 1, i64 %69)
-  %70 = icmp eq ptr %calloc1536, null
+  %calloc1511 = call ptr @calloc(i64 1, i64 %69)
+  %70 = icmp eq ptr %calloc1511, null
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %61
@@ -4157,7 +4157,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %73 = load i32, ptr %72, align 4, !tbaa !4
   %74 = call ptr @strerror(i32 noundef %73) #23
   %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 417, ptr noundef nonnull @.str.258, ptr noundef %74)
-  br label %.thread914.thread
+  br label %.thread889.thread
 
 76:                                               ; preds = %61
   %calloc = call ptr @calloc(i64 1, i64 %69)
@@ -4169,23 +4169,23 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %80 = load i32, ptr %79, align 4, !tbaa !4
   %81 = call ptr @strerror(i32 noundef %80) #23
   %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 421, ptr noundef nonnull @.str.259, ptr noundef %81)
-  br label %.thread914
+  br label %.thread889
 
 83:                                               ; preds = %76
   %.b682 = load i1, ptr @noRealloc, align 4
-  br i1 %.b682, label %.loopexit959, label %84
+  br i1 %.b682, label %.loopexit934, label %84
 
 84:                                               ; preds = %83
   %85 = call noalias ptr @malloc(i64 noundef %69) #27
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %89, label %.preheader958
+  br i1 %86, label %89, label %.preheader933
 
-.preheader958:                                    ; preds = %84
+.preheader933:                                    ; preds = %84
   %87 = mul nsw i32 %65, %63
   %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph.preheader, label %.loopexit959
+  br i1 %88, label %.lr.ph.preheader, label %.loopexit934
 
-.lr.ph.preheader:                                 ; preds = %.preheader958
+.lr.ph.preheader:                                 ; preds = %.preheader933
   %wide.trip.count = zext nneg i32 %87 to i64
   br label %.lr.ph
 
@@ -4194,7 +4194,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %91 = load i32, ptr %90, align 4, !tbaa !4
   %92 = call ptr @strerror(i32 noundef %91) #23
   %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 427, ptr noundef nonnull @.str.260, ptr noundef %92)
-  br label %.thread914
+  br label %.thread889
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %108 ]
@@ -4205,11 +4205,11 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 96:                                               ; preds = %.lr.ph
   %97 = call ptr @tj3GetErrorStr(ptr noundef null) #23
   %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.108, i32 noundef 432, ptr noundef %97)
-  br label %.thread914
+  br label %.thread889
 
 99:                                               ; preds = %.lr.ph
   %100 = call ptr @tj3Alloc(i64 noundef %94) #23
-  %101 = getelementptr inbounds nuw ptr, ptr %calloc1536, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw ptr, ptr %calloc1511, i64 %indvars.iv
   store ptr %100, ptr %101, align 8, !tbaa !10
   %102 = icmp eq ptr %100, null
   br i1 %102, label %103, label %108
@@ -4219,22 +4219,22 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %105 = load i32, ptr %104, align 4, !tbaa !4
   %106 = call ptr @strerror(i32 noundef %105) #23
   %107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 434, ptr noundef nonnull @.str.269, ptr noundef %106)
-  br label %.thread914
+  br label %.thread889
 
 108:                                              ; preds = %99
   %109 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv
   store i64 %94, ptr %109, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit959, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit934, label %.lr.ph, !llvm.loop !50
 
-.loopexit959:                                     ; preds = %108, %.preheader958, %83
-  %.2615 = phi ptr [ null, %83 ], [ %85, %.preheader958 ], [ %85, %108 ]
+.loopexit934:                                     ; preds = %108, %.preheader933, %83
+  %.2615 = phi ptr [ null, %83 ], [ %85, %.preheader933 ], [ %85, %108 ]
   %110 = load i32, ptr @quiet, align 4, !tbaa !4
   %111 = icmp eq i32 %110, 1
   br i1 %111, label %112, label %121
 
-112:                                              ; preds = %.loopexit959
+112:                                              ; preds = %.loopexit934
   %.b684 = load i1, ptr @bottomUp, align 4
   %113 = select i1 %.b684, ptr @.str.265, ptr @.str.266
   %114 = load i32, ptr @precision, align 4, !tbaa !4
@@ -4251,50 +4251,50 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %120 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.322, ptr noundef %19, ptr noundef nonnull %113, i32 noundef %114, ptr noundef %119, i32 noundef %5)
   br label %121
 
-121:                                              ; preds = %118, %.loopexit959
+121:                                              ; preds = %118, %.loopexit934
   %122 = load i32, ptr @precision, align 4, !tbaa !4
   %123 = icmp slt i32 %122, 9
-  br i1 %123, label %.preheader955, label %.preheader956
+  br i1 %123, label %.preheader930, label %.preheader931
 
-.preheader956:                                    ; preds = %121
-  br i1 %54, label %.lr.ph1196, label %.loopexit
+.preheader931:                                    ; preds = %121
+  br i1 %54, label %.lr.ph1171, label %.loopexit
 
-.lr.ph1196:                                       ; preds = %.preheader956
+.lr.ph1171:                                       ; preds = %.preheader931
   %124 = load i32, ptr @sampleSize, align 4, !tbaa !4
   %125 = mul nsw i32 %124, %17
   %126 = sext i32 %125 to i64
   br label %130
 
-.preheader955:                                    ; preds = %121
-  br i1 %54, label %.lr.ph1198, label %.loopexit
+.preheader930:                                    ; preds = %121
+  br i1 %54, label %.lr.ph1173, label %.loopexit
 
-.lr.ph1198:                                       ; preds = %.preheader955, %.lr.ph1198
-  %indvars.iv1485 = phi i64 [ %indvars.iv.next1486, %.lr.ph1198 ], [ 0, %.preheader955 ]
-  %127 = mul nsw i64 %indvars.iv1485, %20
+.lr.ph1173:                                       ; preds = %.preheader930, %.lr.ph1173
+  %indvars.iv1460 = phi i64 [ %indvars.iv.next1461, %.lr.ph1173 ], [ 0, %.preheader930 ]
+  %127 = mul nsw i64 %indvars.iv1460, %20
   %128 = getelementptr inbounds i8, ptr %26, i64 %127
   %129 = getelementptr inbounds i8, ptr %1, i64 %127
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr align 1 %129, i64 %20, i1 false)
-  %indvars.iv.next1486 = add nuw nsw i64 %indvars.iv1485, 1
-  %exitcond1489.not = icmp eq i64 %indvars.iv.next1486, %wide.trip.count1488
-  br i1 %exitcond1489.not, label %.loopexit, label %.lr.ph1198, !llvm.loop !51
+  %indvars.iv.next1461 = add nuw nsw i64 %indvars.iv1460, 1
+  %exitcond1464.not = icmp eq i64 %indvars.iv.next1461, %wide.trip.count1463
+  br i1 %exitcond1464.not, label %.loopexit, label %.lr.ph1173, !llvm.loop !51
 
-130:                                              ; preds = %.lr.ph1196, %130
-  %indvars.iv1480 = phi i64 [ 0, %.lr.ph1196 ], [ %indvars.iv.next1481, %130 ]
-  %131 = mul nsw i64 %indvars.iv1480, %20
+130:                                              ; preds = %.lr.ph1171, %130
+  %indvars.iv1455 = phi i64 [ 0, %.lr.ph1171 ], [ %indvars.iv.next1456, %130 ]
+  %131 = mul nsw i64 %indvars.iv1455, %20
   %132 = getelementptr inbounds i16, ptr %26, i64 %131
   %133 = getelementptr inbounds i16, ptr %1, i64 %131
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %132, ptr align 2 %133, i64 %126, i1 false)
-  %indvars.iv.next1481 = add nuw nsw i64 %indvars.iv1480, 1
-  %exitcond1484.not = icmp eq i64 %indvars.iv.next1481, %wide.trip.count1483
-  br i1 %exitcond1484.not, label %.loopexit, label %130, !llvm.loop !52
+  %indvars.iv.next1456 = add nuw nsw i64 %indvars.iv1455, 1
+  %exitcond1459.not = icmp eq i64 %indvars.iv.next1456, %wide.trip.count1458
+  br i1 %exitcond1459.not, label %.loopexit, label %130, !llvm.loop !52
 
-.loopexit:                                        ; preds = %130, %.lr.ph1198, %.preheader956, %.preheader955
+.loopexit:                                        ; preds = %130, %.lr.ph1173, %.preheader931, %.preheader930
   %.b681 = load i1, ptr @noRealloc, align 4
   %not..b681 = xor i1 %.b681, true
   %134 = zext i1 %not..b681 to i32
   %135 = call i32 @tj3Set(ptr noundef %0, i32 noundef 2, i32 noundef %134) #23
   %136 = icmp eq i32 %135, -1
-  br i1 %136, label %137, label %.thread808
+  br i1 %136, label %137, label %.thread795
 
 137:                                              ; preds = %.loopexit
   %138 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -4315,7 +4315,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %146 = load i32, ptr @tjErrorLine, align 4
   %147 = icmp eq i32 %146, 454
   %or.cond9.not = select i1 %.b716, i1 %147, i1 false
-  br i1 %or.cond9.not, label %.thread808, label %148
+  br i1 %or.cond9.not, label %.thread795, label %148
 
 148:                                              ; preds = %145, %143
   %149 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %139, i64 noundef 200) #23
@@ -4323,19 +4323,19 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 454, ptr @tjErrorLine, align 4, !tbaa !4
   %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 454, ptr noundef nonnull %139)
-  br label %.thread808
+  br label %.thread795
 
 151:                                              ; preds = %137
   %152 = select i1 %142, ptr @.str.111, ptr @.str.112
   %153 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %152, i32 noundef 454, ptr noundef %139)
-  br label %.thread914
+  br label %.thread889
 
-.thread808:                                       ; preds = %145, %148, %.loopexit
+.thread795:                                       ; preds = %145, %148, %.loopexit
   %154 = call i32 @tj3Set(ptr noundef %0, i32 noundef 4, i32 noundef %4) #23
   %155 = icmp eq i32 %154, -1
-  br i1 %155, label %156, label %.thread813
+  br i1 %155, label %156, label %.thread799
 
-156:                                              ; preds = %.thread808
+156:                                              ; preds = %.thread795
   %157 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %158 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %159 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4354,7 +4354,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %165 = load i32, ptr @tjErrorLine, align 4
   %166 = icmp eq i32 %165, 456
   %or.cond13.not = select i1 %.b715, i1 %166, i1 false
-  br i1 %or.cond13.not, label %.thread813, label %167
+  br i1 %or.cond13.not, label %.thread799, label %167
 
 167:                                              ; preds = %164, %162
   %168 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %158, i64 noundef 200) #23
@@ -4362,21 +4362,21 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 456, ptr @tjErrorLine, align 4, !tbaa !4
   %169 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 456, ptr noundef nonnull %158)
-  br label %.thread813
+  br label %.thread799
 
 170:                                              ; preds = %156
   %171 = select i1 %161, ptr @.str.111, ptr @.str.112
   %172 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %171, i32 noundef 456, ptr noundef %158)
-  br label %.thread914
+  br label %.thread889
 
-.thread813:                                       ; preds = %164, %167, %.thread808
+.thread799:                                       ; preds = %164, %167, %.thread795
   %.b687 = load i1, ptr @fastDCT, align 4
   %173 = zext i1 %.b687 to i32
   %174 = call i32 @tj3Set(ptr noundef %0, i32 noundef 10, i32 noundef %173) #23
   %175 = icmp eq i32 %174, -1
-  br i1 %175, label %176, label %.thread818
+  br i1 %175, label %176, label %.thread803
 
-176:                                              ; preds = %.thread813
+176:                                              ; preds = %.thread799
   %177 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %178 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %179 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4395,7 +4395,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %185 = load i32, ptr @tjErrorLine, align 4
   %186 = icmp eq i32 %185, 458
   %or.cond17.not = select i1 %.b714, i1 %186, i1 false
-  br i1 %or.cond17.not, label %.thread818, label %187
+  br i1 %or.cond17.not, label %.thread803, label %187
 
 187:                                              ; preds = %184, %182
   %188 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %178, i64 noundef 200) #23
@@ -4403,21 +4403,21 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 458, ptr @tjErrorLine, align 4, !tbaa !4
   %189 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 458, ptr noundef nonnull %178)
-  br label %.thread818
+  br label %.thread803
 
 190:                                              ; preds = %176
   %191 = select i1 %181, ptr @.str.111, ptr @.str.112
   %192 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %191, i32 noundef 458, ptr noundef %178)
-  br label %.thread914
+  br label %.thread889
 
-.thread818:                                       ; preds = %184, %187, %.thread813
+.thread803:                                       ; preds = %184, %187, %.thread799
   %.b689 = load i1, ptr @optimize, align 4
   %193 = zext i1 %.b689 to i32
   %194 = call i32 @tj3Set(ptr noundef %0, i32 noundef 11, i32 noundef %193) #23
   %195 = icmp eq i32 %194, -1
-  br i1 %195, label %196, label %.thread823
+  br i1 %195, label %196, label %.thread807
 
-196:                                              ; preds = %.thread818
+196:                                              ; preds = %.thread803
   %197 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %198 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %199 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4436,7 +4436,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %205 = load i32, ptr @tjErrorLine, align 4
   %206 = icmp eq i32 %205, 460
   %or.cond21.not = select i1 %.b713, i1 %206, i1 false
-  br i1 %or.cond21.not, label %.thread823, label %207
+  br i1 %or.cond21.not, label %.thread807, label %207
 
 207:                                              ; preds = %204, %202
   %208 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %198, i64 noundef 200) #23
@@ -4444,21 +4444,21 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 460, ptr @tjErrorLine, align 4, !tbaa !4
   %209 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 460, ptr noundef nonnull %198)
-  br label %.thread823
+  br label %.thread807
 
 210:                                              ; preds = %196
   %211 = select i1 %201, ptr @.str.111, ptr @.str.112
   %212 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %211, i32 noundef 460, ptr noundef %198)
-  br label %.thread914
+  br label %.thread889
 
-.thread823:                                       ; preds = %204, %207, %.thread818
+.thread807:                                       ; preds = %204, %207, %.thread803
   %.b690 = load i1, ptr @progressive, align 4
   %213 = zext i1 %.b690 to i32
   %214 = call i32 @tj3Set(ptr noundef %0, i32 noundef 12, i32 noundef %213) #23
   %215 = icmp eq i32 %214, -1
-  br i1 %215, label %216, label %.thread828
+  br i1 %215, label %216, label %.thread811
 
-216:                                              ; preds = %.thread823
+216:                                              ; preds = %.thread807
   %217 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %218 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %219 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4477,7 +4477,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %225 = load i32, ptr @tjErrorLine, align 4
   %226 = icmp eq i32 %225, 462
   %or.cond25.not = select i1 %.b712, i1 %226, i1 false
-  br i1 %or.cond25.not, label %.thread828, label %227
+  br i1 %or.cond25.not, label %.thread811, label %227
 
 227:                                              ; preds = %224, %222
   %228 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %218, i64 noundef 200) #23
@@ -4485,21 +4485,21 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 462, ptr @tjErrorLine, align 4, !tbaa !4
   %229 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 462, ptr noundef nonnull %218)
-  br label %.thread828
+  br label %.thread811
 
 230:                                              ; preds = %216
   %231 = select i1 %221, ptr @.str.111, ptr @.str.112
   %232 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %231, i32 noundef 462, ptr noundef %218)
-  br label %.thread914
+  br label %.thread889
 
-.thread828:                                       ; preds = %224, %227, %.thread823
+.thread811:                                       ; preds = %224, %227, %.thread807
   %.b683 = load i1, ptr @arithmetic, align 4
   %233 = zext i1 %.b683 to i32
   %234 = call i32 @tj3Set(ptr noundef %0, i32 noundef 14, i32 noundef %233) #23
   %235 = icmp eq i32 %234, -1
-  br i1 %235, label %236, label %.thread833
+  br i1 %235, label %236, label %.thread815
 
-236:                                              ; preds = %.thread828
+236:                                              ; preds = %.thread811
   %237 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %238 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %239 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4518,7 +4518,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %245 = load i32, ptr @tjErrorLine, align 4
   %246 = icmp eq i32 %245, 464
   %or.cond29.not = select i1 %.b711, i1 %246, i1 false
-  br i1 %or.cond29.not, label %.thread833, label %247
+  br i1 %or.cond29.not, label %.thread815, label %247
 
 247:                                              ; preds = %244, %242
   %248 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %238, i64 noundef 200) #23
@@ -4526,20 +4526,20 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 464, ptr @tjErrorLine, align 4, !tbaa !4
   %249 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 464, ptr noundef nonnull %238)
-  br label %.thread833
+  br label %.thread815
 
 250:                                              ; preds = %236
   %251 = select i1 %241, ptr @.str.111, ptr @.str.112
   %252 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %251, i32 noundef 464, ptr noundef %238)
-  br label %.thread914
+  br label %.thread889
 
-.thread833:                                       ; preds = %244, %247, %.thread828
+.thread815:                                       ; preds = %244, %247, %.thread811
   %253 = load i32, ptr @lossless, align 4, !tbaa !4
   %254 = call i32 @tj3Set(ptr noundef %0, i32 noundef 15, i32 noundef %253) #23
   %255 = icmp eq i32 %254, -1
-  br i1 %255, label %256, label %.thread838
+  br i1 %255, label %256, label %.thread819
 
-256:                                              ; preds = %.thread833
+256:                                              ; preds = %.thread815
   %257 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %258 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %259 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4558,7 +4558,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %265 = load i32, ptr @tjErrorLine, align 4
   %266 = icmp eq i32 %265, 466
   %or.cond33.not = select i1 %.b710, i1 %266, i1 false
-  br i1 %or.cond33.not, label %.thread838, label %267
+  br i1 %or.cond33.not, label %.thread819, label %267
 
 267:                                              ; preds = %264, %262
   %268 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %258, i64 noundef 200) #23
@@ -4566,22 +4566,22 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 466, ptr @tjErrorLine, align 4, !tbaa !4
   %269 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 466, ptr noundef nonnull %258)
-  br label %.thread838
+  br label %.thread819
 
 270:                                              ; preds = %256
   %271 = select i1 %261, ptr @.str.111, ptr @.str.112
   %272 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %271, i32 noundef 466, ptr noundef %258)
-  br label %.thread914
+  br label %.thread889
 
-.thread838:                                       ; preds = %264, %267, %.thread833
+.thread819:                                       ; preds = %264, %267, %.thread815
   %273 = load i32, ptr @lossless, align 4, !tbaa !4
   %.not734 = icmp eq i32 %273, 0
   br i1 %.not734, label %294, label %274
 
-274:                                              ; preds = %.thread838
+274:                                              ; preds = %.thread819
   %275 = call i32 @tj3Set(ptr noundef %0, i32 noundef 16, i32 noundef %5) #23
   %276 = icmp eq i32 %275, -1
-  br i1 %276, label %277, label %.thread843
+  br i1 %276, label %277, label %.thread823
 
 277:                                              ; preds = %274
   %278 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -4602,7 +4602,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %286 = load i32, ptr @tjErrorLine, align 4
   %287 = icmp eq i32 %286, 469
   %or.cond37.not = select i1 %.b709, i1 %287, i1 false
-  br i1 %or.cond37.not, label %.thread843, label %288
+  br i1 %or.cond37.not, label %.thread823, label %288
 
 288:                                              ; preds = %285, %283
   %289 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %279, i64 noundef 200) #23
@@ -4610,17 +4610,17 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 469, ptr @tjErrorLine, align 4, !tbaa !4
   %290 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 469, ptr noundef nonnull %279)
-  br label %.thread843
+  br label %.thread823
 
 291:                                              ; preds = %277
   %292 = select i1 %282, ptr @.str.111, ptr @.str.112
   %293 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %292, i32 noundef 469, ptr noundef %279)
-  br label %.thread914
+  br label %.thread889
 
-294:                                              ; preds = %.thread838
+294:                                              ; preds = %.thread819
   %295 = call i32 @tj3Set(ptr noundef %0, i32 noundef 3, i32 noundef %5) #23
   %296 = icmp eq i32 %295, -1
-  br i1 %296, label %297, label %.thread843
+  br i1 %296, label %297, label %.thread823
 
 297:                                              ; preds = %294
   %298 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -4641,7 +4641,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %306 = load i32, ptr @tjErrorLine, align 4
   %307 = icmp eq i32 %306, 472
   %or.cond41.not = select i1 %.b708, i1 %307, i1 false
-  br i1 %or.cond41.not, label %.thread843, label %308
+  br i1 %or.cond41.not, label %.thread823, label %308
 
 308:                                              ; preds = %305, %303
   %309 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %299, i64 noundef 200) #23
@@ -4649,20 +4649,20 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 472, ptr @tjErrorLine, align 4, !tbaa !4
   %310 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 472, ptr noundef nonnull %299)
-  br label %.thread843
+  br label %.thread823
 
 311:                                              ; preds = %297
   %312 = select i1 %302, ptr @.str.111, ptr @.str.112
   %313 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %312, i32 noundef 472, ptr noundef %299)
-  br label %.thread914
+  br label %.thread889
 
-.thread843:                                       ; preds = %305, %308, %285, %288, %294, %274
+.thread823:                                       ; preds = %305, %308, %285, %288, %294, %274
   %314 = load i32, ptr @restartIntervalBlocks, align 4, !tbaa !4
   %315 = call i32 @tj3Set(ptr noundef %0, i32 noundef 18, i32 noundef %314) #23
   %316 = icmp eq i32 %315, -1
-  br i1 %316, label %317, label %.thread853
+  br i1 %316, label %317, label %.thread831
 
-317:                                              ; preds = %.thread843
+317:                                              ; preds = %.thread823
   %318 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %319 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %320 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4681,7 +4681,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %326 = load i32, ptr @tjErrorLine, align 4
   %327 = icmp eq i32 %326, 475
   %or.cond45.not = select i1 %.b707, i1 %327, i1 false
-  br i1 %or.cond45.not, label %.thread853, label %328
+  br i1 %or.cond45.not, label %.thread831, label %328
 
 328:                                              ; preds = %325, %323
   %329 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %319, i64 noundef 200) #23
@@ -4689,20 +4689,20 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 475, ptr @tjErrorLine, align 4, !tbaa !4
   %330 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 475, ptr noundef nonnull %319)
-  br label %.thread853
+  br label %.thread831
 
 331:                                              ; preds = %317
   %332 = select i1 %322, ptr @.str.111, ptr @.str.112
   %333 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %332, i32 noundef 475, ptr noundef %319)
-  br label %.thread914
+  br label %.thread889
 
-.thread853:                                       ; preds = %325, %328, %.thread843
+.thread831:                                       ; preds = %325, %328, %.thread823
   %334 = load i32, ptr @restartIntervalRows, align 4, !tbaa !4
   %335 = call i32 @tj3Set(ptr noundef %0, i32 noundef 19, i32 noundef %334) #23
   %336 = icmp eq i32 %335, -1
-  br i1 %336, label %337, label %.thread858
+  br i1 %336, label %337, label %.thread835
 
-337:                                              ; preds = %.thread853
+337:                                              ; preds = %.thread831
   %338 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %339 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %340 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4721,7 +4721,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %346 = load i32, ptr @tjErrorLine, align 4
   %347 = icmp eq i32 %346, 477
   %or.cond49.not = select i1 %.b706, i1 %347, i1 false
-  br i1 %or.cond49.not, label %.thread858, label %348
+  br i1 %or.cond49.not, label %.thread835, label %348
 
 348:                                              ; preds = %345, %343
   %349 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %339, i64 noundef 200) #23
@@ -4729,20 +4729,20 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 477, ptr @tjErrorLine, align 4, !tbaa !4
   %350 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 477, ptr noundef nonnull %339)
-  br label %.thread858
+  br label %.thread835
 
 351:                                              ; preds = %337
   %352 = select i1 %342, ptr @.str.111, ptr @.str.112
   %353 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %352, i32 noundef 477, ptr noundef %339)
-  br label %.thread914
+  br label %.thread889
 
-.thread858:                                       ; preds = %345, %348, %.thread853
+.thread835:                                       ; preds = %345, %348, %.thread831
   %354 = load i32, ptr @maxMemory, align 4, !tbaa !4
   %355 = call i32 @tj3Set(ptr noundef %0, i32 noundef 23, i32 noundef %354) #23
   %356 = icmp eq i32 %355, -1
-  br i1 %356, label %357, label %.thread863
+  br i1 %356, label %357, label %.thread839
 
-357:                                              ; preds = %.thread858
+357:                                              ; preds = %.thread835
   %358 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
   %359 = call ptr @tj3GetErrorStr(ptr noundef %0) #23
   %360 = call i32 @tj3Get(ptr noundef %0, i32 noundef 0) #23
@@ -4761,7 +4761,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %366 = load i32, ptr @tjErrorLine, align 4
   %367 = icmp eq i32 %366, 479
   %or.cond53.not = select i1 %.b705, i1 %367, i1 false
-  br i1 %or.cond53.not, label %.thread863, label %368
+  br i1 %or.cond53.not, label %.thread839, label %368
 
 368:                                              ; preds = %365, %363
   %369 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %359, i64 noundef 200) #23
@@ -4769,18 +4769,18 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 479, ptr @tjErrorLine, align 4, !tbaa !4
   %370 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 479, ptr noundef nonnull %359)
-  br label %.thread863
+  br label %.thread839
 
 371:                                              ; preds = %357
   %372 = select i1 %362, ptr @.str.111, ptr @.str.112
   %373 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %372, i32 noundef 479, ptr noundef %359)
-  br label %.thread914
+  br label %.thread889
 
-.thread863:                                       ; preds = %365, %368, %.thread858
+.thread839:                                       ; preds = %365, %368, %.thread835
   %.b699 = load i1, ptr @doYUV, align 4
   br i1 %.b699, label %374, label %390
 
-374:                                              ; preds = %.thread863
+374:                                              ; preds = %.thread839
   %375 = load i32, ptr @yuvAlign, align 4, !tbaa !4
   %376 = call i64 @tj3YUVBufSize(i32 noundef %spec.select, i32 noundef %375, i32 noundef %.1596, i32 noundef %4) #23
   %377 = icmp eq i64 %376, 0
@@ -4789,7 +4789,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 378:                                              ; preds = %374
   %379 = call ptr @tj3GetErrorStr(ptr noundef null) #23
   %380 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.108, i32 noundef 484, ptr noundef %379)
-  br label %.thread914
+  br label %.thread889
 
 381:                                              ; preds = %374
   %382 = call noalias ptr @malloc(i64 noundef %376) #27
@@ -4801,67 +4801,67 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %386 = load i32, ptr %385, align 4, !tbaa !4
   %387 = call ptr @strerror(i32 noundef %386) #23
   %388 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 486, ptr noundef nonnull @.str.307, ptr noundef %387)
-  br label %.thread914
+  br label %.thread889
 
 389:                                              ; preds = %381
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %382, i8 127, i64 %376, i1 false)
   br label %390
 
-390:                                              ; preds = %389, %.thread863
-  %.1619 = phi i64 [ %376, %389 ], [ %.0618, %.thread863 ]
-  %.2573 = phi ptr [ %382, %389 ], [ %.1572, %.thread863 ]
+390:                                              ; preds = %389, %.thread839
+  %.1619 = phi i64 [ %376, %389 ], [ %.0618, %.thread839 ]
+  %.2573 = phi ptr [ %382, %389 ], [ %.1572, %.thread839 ]
   %391 = icmp sgt i32 %65, 0
   %392 = icmp sgt i32 %63, 0
   %393 = mul nsw i32 %spec.select, %16
   %394 = mul nsw i32 %.1596, %17
-  br label %.thread895.outer
+  br label %.thread870.outer
 
-.thread895.outer:                                 ; preds = %.thread895.outer.backedge, %390
-  %.0606.ph = phi i32 [ -1, %390 ], [ %.0606.ph.be, %.thread895.outer.backedge ]
-  %.0580.ph = phi double [ 0.000000e+00, %390 ], [ %.0580.ph.be, %.thread895.outer.backedge ]
-  %.0576.ph = phi double [ 0.000000e+00, %390 ], [ %.0576.ph.be, %.thread895.outer.backedge ]
+.thread870.outer:                                 ; preds = %.thread870.outer.backedge, %390
+  %.0606.ph = phi i32 [ -1, %390 ], [ %.0606.ph.be, %.thread870.outer.backedge ]
+  %.0580.ph = phi double [ 0.000000e+00, %390 ], [ %.0580.ph.be, %.thread870.outer.backedge ]
+  %.0576.ph = phi double [ 0.000000e+00, %390 ], [ %.0576.ph.be, %.thread870.outer.backedge ]
   %395 = icmp sgt i32 %.0606.ph, -1
   %396 = icmp sgt i32 %.0606.ph, -1
-  br label %.thread895
+  br label %.thread870
 
-.thread895:                                       ; preds = %.thread895.outer, %545
-  %.0580 = phi double [ %.1581.lcssa, %545 ], [ %.0580.ph, %.thread895.outer ]
-  %.0576 = phi double [ %540, %545 ], [ %.0576.ph, %.thread895.outer ]
+.thread870:                                       ; preds = %.thread870.outer, %545
+  %.0580 = phi double [ %.1581.lcssa, %545 ], [ %.0580.ph, %.thread870.outer ]
+  %.0576 = phi double [ %540, %545 ], [ %.0576.ph, %.thread870.outer ]
   %397 = call double @getTime() #23
   %.not641 = xor i1 %391, true
   %.not642 = xor i1 %392, true
   %brmerge = or i1 %.not641, %.not642
-  br i1 %brmerge, label %._crit_edge1212, label %.preheader.us
+  br i1 %brmerge, label %._crit_edge1187, label %.preheader.us
 
-.preheader.us:                                    ; preds = %.thread895, %._crit_edge.us
-  %.05741211.us = phi ptr [ %527, %._crit_edge.us ], [ %1, %.thread895 ]
-  %.15811210.us = phi double [ %.6.us, %._crit_edge.us ], [ %.0580, %.thread895 ]
-  %.05841209.us = phi i32 [ %524, %._crit_edge.us ], [ 0, %.thread895 ]
-  %.05931208.us = phi i64 [ %indvars.iv.next1491, %._crit_edge.us ], [ 0, %.thread895 ]
-  %.06091207.us = phi i64 [ %518, %._crit_edge.us ], [ 0, %.thread895 ]
-  %398 = mul nsw i32 %.05841209.us, %.1596
+.preheader.us:                                    ; preds = %.thread870, %._crit_edge.us
+  %.05741186.us = phi ptr [ %527, %._crit_edge.us ], [ %1, %.thread870 ]
+  %.15811185.us = phi double [ %.6.us, %._crit_edge.us ], [ %.0580, %.thread870 ]
+  %.05841184.us = phi i32 [ %524, %._crit_edge.us ], [ 0, %.thread870 ]
+  %.05931183.us = phi i64 [ %indvars.iv.next1466, %._crit_edge.us ], [ 0, %.thread870 ]
+  %.06091182.us = phi i64 [ %518, %._crit_edge.us ], [ 0, %.thread870 ]
+  %398 = mul nsw i32 %.05841184.us, %.1596
   %399 = sub nsw i32 %3, %398
   %400 = call i32 @llvm.smin.i32(i32 %.1596, i32 %399)
-  %sext = shl i64 %.05931208.us, 32
+  %sext = shl i64 %.05931183.us, 32
   %401 = ashr exact i64 %sext, 32
   br label %402
 
-402:                                              ; preds = %.preheader.us, %.thread872.us
-  %indvars.iv1490 = phi i64 [ %401, %.preheader.us ], [ %indvars.iv.next1491, %.thread872.us ]
-  %.05751203.us = phi ptr [ %.05741211.us, %.preheader.us ], [ %523, %.thread872.us ]
-  %.25821202.us = phi double [ %.15811210.us, %.preheader.us ], [ %.6.us, %.thread872.us ]
-  %.05851201.us = phi i32 [ 0, %.preheader.us ], [ %519, %.thread872.us ]
-  %.16101199.us = phi i64 [ %.06091207.us, %.preheader.us ], [ %518, %.thread872.us ]
-  %403 = mul nsw i32 %.05851201.us, %spec.select
+402:                                              ; preds = %.preheader.us, %.thread847.us
+  %indvars.iv1465 = phi i64 [ %401, %.preheader.us ], [ %indvars.iv.next1466, %.thread847.us ]
+  %.05751178.us = phi ptr [ %.05741186.us, %.preheader.us ], [ %523, %.thread847.us ]
+  %.25821177.us = phi double [ %.15811185.us, %.preheader.us ], [ %.6.us, %.thread847.us ]
+  %.05851176.us = phi i32 [ 0, %.preheader.us ], [ %519, %.thread847.us ]
+  %.16101174.us = phi i64 [ %.06091182.us, %.preheader.us ], [ %518, %.thread847.us ]
+  %403 = mul nsw i32 %.05851176.us, %spec.select
   %404 = sub nsw i32 %2, %403
   %spec.select..us = call i32 @llvm.smin.i32(i32 %spec.select, i32 %404)
   %.b.us = load i1, ptr @noRealloc, align 4
   br i1 %.b.us, label %409, label %405
 
 405:                                              ; preds = %402
-  %406 = getelementptr inbounds i64, ptr %.2615, i64 %indvars.iv1490
+  %406 = getelementptr inbounds i64, ptr %.2615, i64 %indvars.iv1465
   %407 = load i64, ptr %406, align 8, !tbaa !35
-  %408 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
+  %408 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1465
   store i64 %407, ptr %408, align 8, !tbaa !35
   br label %409
 
@@ -4877,14 +4877,14 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 413:                                              ; preds = %410
   %414 = icmp samesign ult i32 %411, 13
   %415 = load i32, ptr @pf, align 4, !tbaa !4
-  %416 = getelementptr inbounds ptr, ptr %calloc1536, i64 %indvars.iv1490
-  %417 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
+  %416 = getelementptr inbounds ptr, ptr %calloc1511, i64 %indvars.iv1465
+  %417 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1465
   br i1 %414, label %435, label %418
 
 418:                                              ; preds = %413
-  %419 = call i32 @tj3Compress16(ptr noundef %0, ptr noundef %.05751203.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %415, ptr noundef nonnull %416, ptr noundef nonnull %417) #23
+  %419 = call i32 @tj3Compress16(ptr noundef %0, ptr noundef %.05751178.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %415, ptr noundef nonnull %416, ptr noundef nonnull %417) #23
   %420 = icmp eq i32 %419, -1
-  br i1 %420, label %421, label %.thread872.us
+  br i1 %420, label %421, label %.thread847.us
 
 421:                                              ; preds = %418
   %422 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -4905,7 +4905,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %430 = load i32, ptr @tjErrorLine, align 4
   %431 = icmp eq i32 %430, 529
   %or.cond73.not.us = select i1 %.b700.us, i1 %431, i1 false
-  br i1 %or.cond73.not.us, label %.thread872.us, label %432
+  br i1 %or.cond73.not.us, label %.thread847.us, label %432
 
 432:                                              ; preds = %429, %427
   %433 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %423, i64 noundef 200) #23
@@ -4913,12 +4913,12 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 529, ptr @tjErrorLine, align 4, !tbaa !4
   %434 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 529, ptr noundef nonnull %423)
-  br label %.thread872.us
+  br label %.thread847.us
 
 435:                                              ; preds = %413
-  %436 = call i32 @tj3Compress12(ptr noundef %0, ptr noundef %.05751203.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %415, ptr noundef nonnull %416, ptr noundef nonnull %417) #23
+  %436 = call i32 @tj3Compress12(ptr noundef %0, ptr noundef %.05751178.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %415, ptr noundef nonnull %416, ptr noundef nonnull %417) #23
   %437 = icmp eq i32 %436, -1
-  br i1 %437, label %438, label %.thread872.us
+  br i1 %437, label %438, label %.thread847.us
 
 438:                                              ; preds = %435
   %439 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -4927,7 +4927,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %442 = icmp eq i32 %441, 0
   %443 = icmp eq i32 %439, 0
   %or.cond67.us = select i1 %442, i1 %443, i1 false
-  br i1 %or.cond67.us, label %444, label %.split1225.us
+  br i1 %or.cond67.us, label %444, label %.split1200.us
 
 444:                                              ; preds = %438
   %445 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %440, i64 noundef 200) #24
@@ -4939,7 +4939,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %447 = load i32, ptr @tjErrorLine, align 4
   %448 = icmp eq i32 %447, 524
   %or.cond69.not.us = select i1 %.b701.us, i1 %448, i1 false
-  br i1 %or.cond69.not.us, label %.thread872.us, label %449
+  br i1 %or.cond69.not.us, label %.thread847.us, label %449
 
 449:                                              ; preds = %446, %444
   %450 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %440, i64 noundef 200) #23
@@ -4947,15 +4947,15 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 524, ptr @tjErrorLine, align 4, !tbaa !4
   %451 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 524, ptr noundef nonnull %440)
-  br label %.thread872.us
+  br label %.thread847.us
 
 452:                                              ; preds = %410
   %453 = load i32, ptr @pf, align 4, !tbaa !4
-  %454 = getelementptr inbounds ptr, ptr %calloc1536, i64 %indvars.iv1490
-  %455 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
-  %456 = call i32 @tj3Compress8(ptr noundef %0, ptr noundef %.05751203.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %453, ptr noundef nonnull %454, ptr noundef nonnull %455) #23
+  %454 = getelementptr inbounds ptr, ptr %calloc1511, i64 %indvars.iv1465
+  %455 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1465
+  %456 = call i32 @tj3Compress8(ptr noundef %0, ptr noundef %.05751178.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %453, ptr noundef nonnull %454, ptr noundef nonnull %455) #23
   %457 = icmp eq i32 %456, -1
-  br i1 %457, label %458, label %.thread872.us
+  br i1 %457, label %458, label %.thread847.us
 
 458:                                              ; preds = %452
   %459 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -4964,7 +4964,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %462 = icmp eq i32 %461, 0
   %463 = icmp eq i32 %459, 0
   %or.cond63.us = select i1 %462, i1 %463, i1 false
-  br i1 %or.cond63.us, label %464, label %.split1235.us
+  br i1 %or.cond63.us, label %464, label %.split1210.us
 
 464:                                              ; preds = %458
   %465 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %460, i64 noundef 200) #24
@@ -4976,7 +4976,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %467 = load i32, ptr @tjErrorLine, align 4
   %468 = icmp eq i32 %467, 520
   %or.cond65.not.us = select i1 %.b702.us, i1 %468, i1 false
-  br i1 %or.cond65.not.us, label %.thread872.us, label %469
+  br i1 %or.cond65.not.us, label %.thread847.us, label %469
 
 469:                                              ; preds = %466, %464
   %470 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %460, i64 noundef 200) #23
@@ -4984,15 +4984,15 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 520, ptr @tjErrorLine, align 4, !tbaa !4
   %471 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 520, ptr noundef nonnull %460)
-  br label %.thread872.us
+  br label %.thread847.us
 
 472:                                              ; preds = %409
   %473 = call double @getTime() #23
   %474 = load i32, ptr @pf, align 4, !tbaa !4
   %475 = load i32, ptr @yuvAlign, align 4, !tbaa !4
-  %476 = call i32 @tj3EncodeYUV8(ptr noundef %0, ptr noundef %.05751203.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %474, ptr noundef %.2573, i32 noundef %475) #23
+  %476 = call i32 @tj3EncodeYUV8(ptr noundef %0, ptr noundef %.05751178.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %474, ptr noundef %.2573, i32 noundef %475) #23
   %477 = icmp eq i32 %476, -1
-  br i1 %477, label %478, label %.thread868.us
+  br i1 %477, label %478, label %.thread843.us
 
 478:                                              ; preds = %472
   %479 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -5001,7 +5001,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %482 = icmp eq i32 %481, 0
   %483 = icmp eq i32 %479, 0
   %or.cond55.us = select i1 %482, i1 %483, i1 false
-  br i1 %or.cond55.us, label %484, label %.thread877
+  br i1 %or.cond55.us, label %484, label %.thread852
 
 484:                                              ; preds = %478
   %485 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %480, i64 noundef 200) #24
@@ -5013,7 +5013,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %487 = load i32, ptr @tjErrorLine, align 4
   %488 = icmp eq i32 %487, 511
   %or.cond57.not.us = select i1 %.b704.us, i1 %488, i1 false
-  br i1 %or.cond57.not.us, label %.thread868.us, label %489
+  br i1 %or.cond57.not.us, label %.thread843.us, label %489
 
 489:                                              ; preds = %486, %484
   %490 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %480, i64 noundef 200) #23
@@ -5021,25 +5021,25 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 511, ptr @tjErrorLine, align 4, !tbaa !4
   %491 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 511, ptr noundef nonnull %480)
-  br label %.thread868.us
+  br label %.thread843.us
 
-.thread868.us:                                    ; preds = %489, %486, %472
+.thread843.us:                                    ; preds = %489, %486, %472
   br i1 %395, label %492, label %496
 
-492:                                              ; preds = %.thread868.us
+492:                                              ; preds = %.thread843.us
   %493 = call double @getTime() #23
   %494 = fsub double %493, %473
-  %495 = fadd double %.25821202.us, %494
+  %495 = fadd double %.25821177.us, %494
   br label %496
 
-496:                                              ; preds = %492, %.thread868.us
-  %.4.us = phi double [ %495, %492 ], [ %.25821202.us, %.thread868.us ]
+496:                                              ; preds = %492, %.thread843.us
+  %.4.us = phi double [ %495, %492 ], [ %.25821177.us, %.thread843.us ]
   %497 = load i32, ptr @yuvAlign, align 4, !tbaa !4
-  %498 = getelementptr inbounds ptr, ptr %calloc1536, i64 %indvars.iv1490
-  %499 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
+  %498 = getelementptr inbounds ptr, ptr %calloc1511, i64 %indvars.iv1465
+  %499 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1465
   %500 = call i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %.2573, i32 noundef %spec.select..us, i32 noundef %497, i32 noundef %400, ptr noundef nonnull %498, ptr noundef nonnull %499) #23
   %501 = icmp eq i32 %500, -1
-  br i1 %501, label %502, label %.thread872.us
+  br i1 %501, label %502, label %.thread847.us
 
 502:                                              ; preds = %496
   %503 = call i32 @tj3GetErrorCode(ptr noundef %0) #23
@@ -5048,7 +5048,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %506 = icmp eq i32 %505, 0
   %507 = icmp eq i32 %503, 0
   %or.cond59.us = select i1 %506, i1 %507, i1 false
-  br i1 %or.cond59.us, label %508, label %.split1253.us
+  br i1 %or.cond59.us, label %508, label %.split1228.us
 
 508:                                              ; preds = %502
   %509 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %504, i64 noundef 200) #24
@@ -5060,7 +5060,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %511 = load i32, ptr @tjErrorLine, align 4
   %512 = icmp eq i32 %511, 515
   %or.cond61.not.us = select i1 %.b703.us, i1 %512, i1 false
-  br i1 %or.cond61.not.us, label %.thread872.us, label %513
+  br i1 %or.cond61.not.us, label %.thread847.us, label %513
 
 513:                                              ; preds = %510, %508
   %514 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %504, i64 noundef 200) #23
@@ -5068,81 +5068,81 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i1 true, ptr @tjErrorCode, align 4
   store i32 515, ptr @tjErrorLine, align 4, !tbaa !4
   %515 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 515, ptr noundef nonnull %504)
-  br label %.thread872.us
+  br label %.thread847.us
 
-.thread872.us:                                    ; preds = %513, %510, %496, %469, %466, %452, %449, %446, %435, %432, %429, %418
-  %.6.us = phi double [ %.25821202.us, %452 ], [ %.25821202.us, %435 ], [ %.25821202.us, %418 ], [ %.4.us, %496 ], [ %.4.us, %510 ], [ %.4.us, %513 ], [ %.25821202.us, %466 ], [ %.25821202.us, %469 ], [ %.25821202.us, %446 ], [ %.25821202.us, %449 ], [ %.25821202.us, %429 ], [ %.25821202.us, %432 ]
-  %516 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
+.thread847.us:                                    ; preds = %513, %510, %496, %469, %466, %452, %449, %446, %435, %432, %429, %418
+  %.6.us = phi double [ %.25821177.us, %452 ], [ %.25821177.us, %435 ], [ %.25821177.us, %418 ], [ %.4.us, %496 ], [ %.4.us, %510 ], [ %.4.us, %513 ], [ %.25821177.us, %466 ], [ %.25821177.us, %469 ], [ %.25821177.us, %446 ], [ %.25821177.us, %449 ], [ %.25821177.us, %429 ], [ %.25821177.us, %432 ]
+  %516 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1465
   %517 = load i64, ptr %516, align 8, !tbaa !35
-  %518 = add i64 %517, %.16101199.us
-  %519 = add nuw nsw i32 %.05851201.us, 1
-  %indvars.iv.next1491 = add nsw i64 %indvars.iv1490, 1
+  %518 = add i64 %517, %.16101174.us
+  %519 = add nuw nsw i32 %.05851176.us, 1
+  %indvars.iv.next1466 = add nsw i64 %indvars.iv1465, 1
   %520 = load i32, ptr @sampleSize, align 4, !tbaa !4
   %521 = mul nsw i32 %393, %520
   %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds i8, ptr %.05751203.us, i64 %522
-  %exitcond1493.not = icmp eq i32 %519, %63
-  br i1 %exitcond1493.not, label %._crit_edge.us, label %402, !llvm.loop !53
+  %523 = getelementptr inbounds i8, ptr %.05751178.us, i64 %522
+  %exitcond1468.not = icmp eq i32 %519, %63
+  br i1 %exitcond1468.not, label %._crit_edge.us, label %402, !llvm.loop !53
 
-._crit_edge.us:                                   ; preds = %.thread872.us
-  %524 = add nuw nsw i32 %.05841209.us, 1
+._crit_edge.us:                                   ; preds = %.thread847.us
+  %524 = add nuw nsw i32 %.05841184.us, 1
   %525 = mul nsw i32 %394, %520
   %526 = sext i32 %525 to i64
-  %527 = getelementptr inbounds i8, ptr %.05741211.us, i64 %526
-  %exitcond1494.not = icmp eq i32 %524, %65
-  br i1 %exitcond1494.not, label %._crit_edge1212, label %.preheader.us, !llvm.loop !54
+  %527 = getelementptr inbounds i8, ptr %.05741186.us, i64 %526
+  %exitcond1469.not = icmp eq i32 %524, %65
+  br i1 %exitcond1469.not, label %._crit_edge1187, label %.preheader.us, !llvm.loop !54
 
-.thread877:                                       ; preds = %478
+.thread852:                                       ; preds = %478
   %528 = select i1 %483, ptr @.str.111, ptr @.str.112
   %529 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %528, i32 noundef 511, ptr noundef %480)
-  br label %.thread914
+  br label %.thread889
 
-.split1253.us:                                    ; preds = %502
+.split1228.us:                                    ; preds = %502
   %530 = select i1 %507, ptr @.str.111, ptr @.str.112
   %531 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %530, i32 noundef 515, ptr noundef %504)
-  br label %.thread914
+  br label %.thread889
 
-.split1235.us:                                    ; preds = %458
+.split1210.us:                                    ; preds = %458
   %532 = select i1 %463, ptr @.str.111, ptr @.str.112
   %533 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %532, i32 noundef 520, ptr noundef %460)
-  br label %.thread914
+  br label %.thread889
 
-.split1225.us:                                    ; preds = %438
+.split1200.us:                                    ; preds = %438
   %534 = select i1 %443, ptr @.str.111, ptr @.str.112
   %535 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %534, i32 noundef 524, ptr noundef %440)
-  br label %.thread914
+  br label %.thread889
 
 .split.us:                                        ; preds = %421
   %536 = select i1 %426, ptr @.str.111, ptr @.str.112
   %537 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %536, i32 noundef 529, ptr noundef %423)
-  br label %.thread914
+  br label %.thread889
 
-._crit_edge1212:                                  ; preds = %._crit_edge.us, %.thread895
-  %.0609.lcssa = phi i64 [ 0, %.thread895 ], [ %518, %._crit_edge.us ]
-  %.1581.lcssa = phi double [ %.0580, %.thread895 ], [ %.6.us, %._crit_edge.us ]
+._crit_edge1187:                                  ; preds = %._crit_edge.us, %.thread870
+  %.0609.lcssa = phi i64 [ 0, %.thread870 ], [ %518, %._crit_edge.us ]
+  %.1581.lcssa = phi double [ %.0580, %.thread870 ], [ %.6.us, %._crit_edge.us ]
   %538 = call double @getTime() #23
   %539 = fsub double %538, %397
   %540 = fadd double %.0576, %539
   br i1 %396, label %541, label %545
 
-541:                                              ; preds = %._crit_edge1212
+541:                                              ; preds = %._crit_edge1187
   %542 = add nuw nsw i32 %.0606.ph, 1
   %543 = load double, ptr @benchTime, align 8, !tbaa !12
   %544 = fcmp ult double %540, %543
-  br i1 %544, label %.thread895.outer.backedge, label %.thread901
+  br i1 %544, label %.thread870.outer.backedge, label %.thread876
 
-545:                                              ; preds = %._crit_edge1212
+545:                                              ; preds = %._crit_edge1187
   %546 = load double, ptr @warmup, align 8, !tbaa !12
   %547 = fcmp ult double %540, %546
-  br i1 %547, label %.thread895, label %.thread895.outer.backedge
+  br i1 %547, label %.thread870, label %.thread870.outer.backedge
 
-.thread895.outer.backedge:                        ; preds = %545, %541
+.thread870.outer.backedge:                        ; preds = %545, %541
   %.0606.ph.be = phi i32 [ %542, %541 ], [ 0, %545 ]
   %.0580.ph.be = phi double [ %.1581.lcssa, %541 ], [ 0.000000e+00, %545 ]
   %.0576.ph.be = phi double [ %540, %541 ], [ 0.000000e+00, %545 ]
-  br label %.thread895.outer
+  br label %.thread870.outer
 
-.thread901:                                       ; preds = %541
+.thread876:                                       ; preds = %541
   %.b697 = load i1, ptr @doYUV, align 4
   %548 = fsub double %540, %.1581.lcssa
   %.3579 = select i1 %.b697, double %548, double %540
@@ -5150,13 +5150,13 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %550 = icmp eq i32 %549, 1
   br i1 %550, label %551, label %553
 
-551:                                              ; preds = %.thread901
+551:                                              ; preds = %.thread876
   %552 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.267, i32 noundef %spec.select, i32 noundef %.1596)
   %.pr = load i32, ptr @quiet, align 4, !tbaa !4
   br label %553
 
-553:                                              ; preds = %551, %.thread901
-  %554 = phi i32 [ %.pr, %551 ], [ %549, %.thread901 ]
+553:                                              ; preds = %551, %.thread876
+  %554 = phi i32 [ %.pr, %551 ], [ %549, %.thread876 ]
   %.not755 = icmp eq i32 %554, 0
   br i1 %.not755, label %608, label %555
 
@@ -5164,7 +5164,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %.b696 = load i1, ptr @doYUV, align 4
   %556 = uitofp nneg i32 %542 to double
   %557 = fmul double %57, %556
-  br i1 %.b696, label %558, label %._crit_edge1506
+  br i1 %.b696, label %558, label %._crit_edge1481
 
 558:                                              ; preds = %555
   %559 = fdiv double %557, %.1581.lcssa
@@ -5192,9 +5192,9 @@ sigfig.exit:                                      ; preds = %565, %567
   %572 = icmp eq i32 %571, 2
   %573 = select i1 %572, ptr @str.129, ptr @.str.271
   %574 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.308, ptr noundef nonnull %11, ptr noundef nonnull %573)
-  br label %._crit_edge1506
+  br label %._crit_edge1481
 
-._crit_edge1506:                                  ; preds = %555, %sigfig.exit
+._crit_edge1481:                                  ; preds = %555, %sigfig.exit
   %575 = fdiv double %557, %.3579
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %576 = call double @llvm.fabs.f64(double %575)
@@ -5204,16 +5204,16 @@ sigfig.exit:                                      ; preds = %565, %567
   %580 = icmp sgt i32 %579, 3
   br i1 %580, label %581, label %583
 
-581:                                              ; preds = %._crit_edge1506
+581:                                              ; preds = %._crit_edge1481
   %582 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 80, ptr noundef nonnull @.str.301) #23
-  br label %sigfig.exit802
+  br label %sigfig.exit790
 
-583:                                              ; preds = %._crit_edge1506
+583:                                              ; preds = %._crit_edge1481
   %584 = sub nsw i32 4, %579
   %585 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 80, ptr noundef nonnull @.str.302, i32 noundef %584) #23
-  br label %sigfig.exit802
+  br label %sigfig.exit790
 
-sigfig.exit802:                                   ; preds = %581, %583
+sigfig.exit790:                                   ; preds = %581, %583
   %586 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull %9, double noundef %575) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %587 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -5230,16 +5230,16 @@ sigfig.exit802:                                   ; preds = %581, %583
   %597 = icmp sgt i32 %596, 3
   br i1 %597, label %598, label %600
 
-598:                                              ; preds = %sigfig.exit802
+598:                                              ; preds = %sigfig.exit790
   %599 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 80, ptr noundef nonnull @.str.301) #23
-  br label %sigfig.exit803
+  br label %sigfig.exit791
 
-600:                                              ; preds = %sigfig.exit802
+600:                                              ; preds = %sigfig.exit790
   %601 = sub nsw i32 4, %596
   %602 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 80, ptr noundef nonnull @.str.302, i32 noundef %601) #23
-  br label %sigfig.exit803
+  br label %sigfig.exit791
 
-sigfig.exit803:                                   ; preds = %598, %600
+sigfig.exit791:                                   ; preds = %598, %600
   %603 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 80, ptr noundef nonnull %8, double noundef %592) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %604 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -5254,10 +5254,10 @@ sigfig.exit803:                                   ; preds = %598, %600
   %610 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.323, ptr noundef nonnull %609, i32 noundef %spec.select, i32 noundef %.1596)
   %.b695 = load i1, ptr @doYUV, align 4
   %611 = uitofp nneg i32 %542 to double
-  br i1 %.b695, label %612, label %._crit_edge1507
+  br i1 %.b695, label %612, label %._crit_edge1482
 
-._crit_edge1507:                                  ; preds = %608
-  %.pre1508 = fmul double %57, %611
+._crit_edge1482:                                  ; preds = %608
+  %.pre1483 = fmul double %57, %611
   br label %628
 
 612:                                              ; preds = %608
@@ -5279,16 +5279,16 @@ sigfig.exit803:                                   ; preds = %598, %600
   %627 = select i1 %.b694.pre, ptr @.str.325, ptr @.str.326
   br label %628
 
-628:                                              ; preds = %._crit_edge1507, %612
-  %.pre-phi1509 = phi double [ %.pre1508, %._crit_edge1507 ], [ %619, %612 ]
-  %.b694 = phi ptr [ @.str.326, %._crit_edge1507 ], [ %627, %612 ]
+628:                                              ; preds = %._crit_edge1482, %612
+  %.pre-phi1484 = phi double [ %.pre1483, %._crit_edge1482 ], [ %619, %612 ]
+  %.b694 = phi ptr [ @.str.326, %._crit_edge1482 ], [ %627, %612 ]
   %629 = fdiv double %611, %.3579
   %630 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.310, ptr noundef nonnull %.b694, double noundef %629)
   %631 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.273, i64 noundef %.0609.lcssa)
   %632 = uitofp i64 %.0609.lcssa to double
   %633 = fdiv double %59, %632
   %634 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.274, double noundef %633)
-  %635 = fdiv double %.pre-phi1509, %.3579
+  %635 = fdiv double %.pre-phi1484, %.3579
   %636 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.275, double noundef %635)
   %637 = fmul double %632, 8.000000e+00
   %638 = fdiv double %637, 1.000000e+06
@@ -5297,7 +5297,7 @@ sigfig.exit803:                                   ; preds = %598, %600
   %641 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.276, double noundef %640)
   br label %642
 
-642:                                              ; preds = %628, %sigfig.exit803
+642:                                              ; preds = %628, %sigfig.exit791
   %643 = icmp sle i32 %2, %.0591
   br i1 %643, label %644, label %670
 
@@ -5329,10 +5329,10 @@ sigfig.exit803:                                   ; preds = %598, %600
   %658 = load i32, ptr %657, align 4, !tbaa !4
   %659 = call ptr @strerror(i32 noundef %658) #23
   %660 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 592, ptr noundef nonnull @.str.329, ptr noundef %659)
-  br label %.thread914
+  br label %.thread889
 
 661:                                              ; preds = %650
-  %662 = load ptr, ptr %calloc1536, align 8, !tbaa !10
+  %662 = load ptr, ptr %calloc1511, align 8, !tbaa !10
   %663 = load i64, ptr %calloc, align 8, !tbaa !35
   %664 = call i64 @fwrite(ptr noundef %662, i64 noundef %663, i64 noundef 1, ptr noundef nonnull %654)
   %.not759 = icmp eq i64 %664, 1
@@ -5353,9 +5353,9 @@ sigfig.exit803:                                   ; preds = %598, %600
   br i1 %.b686, label %674, label %671
 
 671:                                              ; preds = %670
-  %672 = call fastcc i32 @decomp(ptr noundef %calloc1536, ptr noundef %calloc, ptr noundef nonnull %26, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1596)
+  %672 = call fastcc i32 @decomp(ptr noundef %calloc1511, ptr noundef %calloc, ptr noundef nonnull %26, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1596)
   %673 = icmp eq i32 %672, -1
-  br i1 %673, label %.thread914, label %678
+  br i1 %673, label %.thread889, label %678
 
 674:                                              ; preds = %670
   %675 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -5369,24 +5369,24 @@ sigfig.exit803:                                   ; preds = %598, %600
 678:                                              ; preds = %674, %677, %671
   %679 = mul nsw i32 %65, %63
   %680 = icmp sgt i32 %679, 0
-  br i1 %680, label %.lr.ph1263.preheader, label %._crit_edge
+  br i1 %680, label %.lr.ph1238.preheader, label %._crit_edge
 
-.lr.ph1263.preheader:                             ; preds = %678
-  %wide.trip.count1498 = zext nneg i32 %679 to i64
-  br label %.lr.ph1263
+.lr.ph1238.preheader:                             ; preds = %678
+  %wide.trip.count1473 = zext nneg i32 %679 to i64
+  br label %.lr.ph1238
 
-.lr.ph1263:                                       ; preds = %.lr.ph1263.preheader, %.lr.ph1263
-  %indvars.iv1495 = phi i64 [ 0, %.lr.ph1263.preheader ], [ %indvars.iv.next1496, %.lr.ph1263 ]
-  %681 = getelementptr inbounds nuw ptr, ptr %calloc1536, i64 %indvars.iv1495
+.lr.ph1238:                                       ; preds = %.lr.ph1238.preheader, %.lr.ph1238
+  %indvars.iv1470 = phi i64 [ 0, %.lr.ph1238.preheader ], [ %indvars.iv.next1471, %.lr.ph1238 ]
+  %681 = getelementptr inbounds nuw ptr, ptr %calloc1511, i64 %indvars.iv1470
   %682 = load ptr, ptr %681, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %682) #23
   store ptr null, ptr %681, align 8, !tbaa !10
-  %indvars.iv.next1496 = add nuw nsw i64 %indvars.iv1495, 1
-  %exitcond1499.not = icmp eq i64 %indvars.iv.next1496, %wide.trip.count1498
-  br i1 %exitcond1499.not, label %._crit_edge, label %.lr.ph1263, !llvm.loop !55
+  %indvars.iv.next1471 = add nuw nsw i64 %indvars.iv1470, 1
+  %exitcond1474.not = icmp eq i64 %indvars.iv.next1471, %wide.trip.count1473
+  br i1 %exitcond1474.not, label %._crit_edge, label %.lr.ph1238, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %.lr.ph1263, %678
-  call void @free(ptr noundef %calloc1536) #23
+._crit_edge:                                      ; preds = %.lr.ph1238, %678
+  call void @free(ptr noundef %calloc1511) #23
   call void @free(ptr noundef %.2615) #23
   call void @free(ptr noundef %calloc) #23
   %.b693 = load i1, ptr @doYUV, align 4
@@ -5399,8 +5399,8 @@ sigfig.exit803:                                   ; preds = %598, %600
 684:                                              ; preds = %683, %._crit_edge
   %.3 = phi ptr [ null, %683 ], [ %.2573, %._crit_edge ]
   %685 = icmp sle i32 %3, %.0595
-  %or.cond800 = and i1 %685, %643
-  br i1 %or.cond800, label %.thread914.thread, label %686
+  %or.cond788 = and i1 %685, %643
+  br i1 %or.cond788, label %.thread889.thread, label %686
 
 686:                                              ; preds = %684
   %687 = shl nsw i32 %spec.select, 1
@@ -5413,37 +5413,37 @@ sigfig.exit803:                                   ; preds = %598, %600
   %692 = call ptr @strerror(i32 noundef %691) #23
   %693 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 594, ptr noundef nonnull @.str.330, ptr noundef %692)
   %694 = call i32 @fclose(ptr noundef nonnull %654)
-  br label %.thread914
+  br label %.thread889
 
-.thread914:                                       ; preds = %671, %.split1253.us, %.split1235.us, %.split1225.us, %.split.us, %.thread877, %103, %96, %151, %170, %190, %210, %230, %250, %270, %311, %291, %331, %351, %371, %656, %384, %378, %89, %78, %689
-  %.0571929 = phi ptr [ %.2573, %689 ], [ %.1572, %151 ], [ %.1572, %170 ], [ %.1572, %190 ], [ %.1572, %210 ], [ %.1572, %230 ], [ %.1572, %250 ], [ %.1572, %270 ], [ %.1572, %311 ], [ %.1572, %291 ], [ %.1572, %331 ], [ %.1572, %351 ], [ %.1572, %371 ], [ %.2573, %656 ], [ null, %384 ], [ %.1572, %378 ], [ %.1572, %89 ], [ %.1572, %78 ], [ %.1572, %96 ], [ %.1572, %103 ], [ %.2573, %.thread877 ], [ %.2573, %.split.us ], [ %.2573, %.split1225.us ], [ %.2573, %.split1235.us ], [ %.2573, %.split1253.us ], [ %.2573, %671 ]
-  %.0613927 = phi ptr [ %.2615, %689 ], [ %.2615, %151 ], [ %.2615, %170 ], [ %.2615, %190 ], [ %.2615, %210 ], [ %.2615, %230 ], [ %.2615, %250 ], [ %.2615, %270 ], [ %.2615, %311 ], [ %.2615, %291 ], [ %.2615, %331 ], [ %.2615, %351 ], [ %.2615, %371 ], [ %.2615, %656 ], [ %.2615, %384 ], [ %.2615, %378 ], [ null, %89 ], [ null, %78 ], [ %85, %96 ], [ %85, %103 ], [ %.2615, %.thread877 ], [ %.2615, %.split.us ], [ %.2615, %.split1225.us ], [ %.2615, %.split1235.us ], [ %.2615, %.split1253.us ], [ %.2615, %671 ]
+.thread889:                                       ; preds = %671, %.split1228.us, %.split1210.us, %.split1200.us, %.split.us, %.thread852, %103, %96, %151, %170, %190, %210, %230, %250, %270, %311, %291, %331, %351, %371, %656, %384, %378, %89, %78, %689
+  %.0571904 = phi ptr [ %.2573, %689 ], [ %.1572, %151 ], [ %.1572, %170 ], [ %.1572, %190 ], [ %.1572, %210 ], [ %.1572, %230 ], [ %.1572, %250 ], [ %.1572, %270 ], [ %.1572, %311 ], [ %.1572, %291 ], [ %.1572, %331 ], [ %.1572, %351 ], [ %.1572, %371 ], [ %.2573, %656 ], [ null, %384 ], [ %.1572, %378 ], [ %.1572, %89 ], [ %.1572, %78 ], [ %.1572, %96 ], [ %.1572, %103 ], [ %.2573, %.thread852 ], [ %.2573, %.split.us ], [ %.2573, %.split1200.us ], [ %.2573, %.split1210.us ], [ %.2573, %.split1228.us ], [ %.2573, %671 ]
+  %.0613902 = phi ptr [ %.2615, %689 ], [ %.2615, %151 ], [ %.2615, %170 ], [ %.2615, %190 ], [ %.2615, %210 ], [ %.2615, %230 ], [ %.2615, %250 ], [ %.2615, %270 ], [ %.2615, %311 ], [ %.2615, %291 ], [ %.2615, %331 ], [ %.2615, %351 ], [ %.2615, %371 ], [ %.2615, %656 ], [ %.2615, %384 ], [ %.2615, %378 ], [ null, %89 ], [ null, %78 ], [ %85, %96 ], [ %85, %103 ], [ %.2615, %.thread852 ], [ %.2615, %.split.us ], [ %.2615, %.split1200.us ], [ %.2615, %.split1210.us ], [ %.2615, %.split1228.us ], [ %.2615, %671 ]
   %695 = mul nsw i32 %65, %63
   %696 = icmp sgt i32 %695, 0
-  br i1 %696, label %.lr.ph1265.preheader, label %.thread914.thread
+  br i1 %696, label %.lr.ph1240.preheader, label %.thread889.thread
 
-.lr.ph1265.preheader:                             ; preds = %.thread914
-  %wide.trip.count1503 = zext nneg i32 %695 to i64
-  br label %.lr.ph1265
+.lr.ph1240.preheader:                             ; preds = %.thread889
+  %wide.trip.count1478 = zext nneg i32 %695 to i64
+  br label %.lr.ph1240
 
-.lr.ph1265:                                       ; preds = %.lr.ph1265.preheader, %.lr.ph1265
-  %indvars.iv1500 = phi i64 [ 0, %.lr.ph1265.preheader ], [ %indvars.iv.next1501, %.lr.ph1265 ]
-  %697 = getelementptr inbounds nuw ptr, ptr %calloc1536, i64 %indvars.iv1500
+.lr.ph1240:                                       ; preds = %.lr.ph1240.preheader, %.lr.ph1240
+  %indvars.iv1475 = phi i64 [ 0, %.lr.ph1240.preheader ], [ %indvars.iv.next1476, %.lr.ph1240 ]
+  %697 = getelementptr inbounds nuw ptr, ptr %calloc1511, i64 %indvars.iv1475
   %698 = load ptr, ptr %697, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %698) #23
-  %indvars.iv.next1501 = add nuw nsw i64 %indvars.iv1500, 1
-  %exitcond1504.not = icmp eq i64 %indvars.iv.next1501, %wide.trip.count1503
-  br i1 %exitcond1504.not, label %.thread914.thread, label %.lr.ph1265, !llvm.loop !56
+  %indvars.iv.next1476 = add nuw nsw i64 %indvars.iv1475, 1
+  %exitcond1479.not = icmp eq i64 %indvars.iv.next1476, %wide.trip.count1478
+  br i1 %exitcond1479.not, label %.thread889.thread, label %.lr.ph1240, !llvm.loop !56
 
-.thread914.thread:                                ; preds = %684, %.lr.ph1265, %.thread914, %28, %71
-  %.0616926954 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc, %.thread914 ], [ %calloc, %.lr.ph1265 ], [ null, %684 ]
-  %.0613927953 = phi ptr [ null, %71 ], [ null, %28 ], [ %.0613927, %.thread914 ], [ %.0613927, %.lr.ph1265 ], [ null, %684 ]
-  %.0571929951 = phi ptr [ %.1572, %71 ], [ null, %28 ], [ %.0571929, %.thread914 ], [ %.0571929, %.lr.ph1265 ], [ %.3, %684 ]
-  %.0570930950 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc1536, %.thread914 ], [ %calloc1536, %.lr.ph1265 ], [ null, %684 ]
-  call void @free(ptr noundef %.0570930950) #23
-  call void @free(ptr noundef %.0571929951) #23
-  call void @free(ptr noundef %.0613927953) #23
-  call void @free(ptr noundef %.0616926954) #23
+.thread889.thread:                                ; preds = %684, %.lr.ph1240, %.thread889, %28, %71
+  %.0616901929 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc, %.thread889 ], [ %calloc, %.lr.ph1240 ], [ null, %684 ]
+  %.0613902928 = phi ptr [ null, %71 ], [ null, %28 ], [ %.0613902, %.thread889 ], [ %.0613902, %.lr.ph1240 ], [ null, %684 ]
+  %.0571904926 = phi ptr [ %.1572, %71 ], [ null, %28 ], [ %.0571904, %.thread889 ], [ %.0571904, %.lr.ph1240 ], [ %.3, %684 ]
+  %.0570905925 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc1511, %.thread889 ], [ %calloc1511, %.lr.ph1240 ], [ null, %684 ]
+  call void @free(ptr noundef %.0570905925) #23
+  call void @free(ptr noundef %.0571904926) #23
+  call void @free(ptr noundef %.0613902928) #23
+  call void @free(ptr noundef %.0616901929) #23
   call void @free(ptr noundef %26) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -5614,7 +5614,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 
 ._crit_edge:                                      ; preds = %10
   %.pre = load i32, ptr @sf, align 8, !tbaa !22
-  %.pre934 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sf, i64 4), align 4, !tbaa !24
+  %.pre913 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sf, i64 4), align 4, !tbaa !24
   br label %26
 
 25:                                               ; preds = %10
@@ -5622,7 +5622,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   br label %26
 
 26:                                               ; preds = %._crit_edge, %25
-  %27 = phi i32 [ %.pre934, %._crit_edge ], [ 1, %25 ]
+  %27 = phi i32 [ %.pre913, %._crit_edge ], [ 1, %25 ]
   %28 = phi i32 [ %.pre, %._crit_edge ], [ 1, %25 ]
   %29 = mul nsw i32 %28, %3
   %30 = add i32 %27, -1
@@ -5649,7 +5649,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 44:                                               ; preds = %41
   %45 = tail call ptr @tj3GetErrorStr(ptr noundef null) #23
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.108, i32 noundef 201, ptr noundef %45)
-  br label %.thread800
+  br label %.thread779
 
 47:                                               ; preds = %41
   %.b587 = load i1, ptr @stopOnWarning, align 4
@@ -5690,14 +5690,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 65:                                               ; preds = %51
   %66 = select i1 %56, ptr @.str.111, ptr @.str.112
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %66, i32 noundef 203, ptr noundef %53)
-  br label %.thread800
+  br label %.thread779
 
 .thread:                                          ; preds = %59, %62, %47
   %.b583 = load i1, ptr @bottomUp, align 4
   %68 = zext i1 %.b583 to i32
   %69 = tail call i32 @tj3Set(ptr noundef nonnull %42, i32 noundef 1, i32 noundef %68) #23
   %70 = icmp eq i32 %69, -1
-  br i1 %70, label %71, label %.thread698
+  br i1 %70, label %71, label %.thread687
 
 71:                                               ; preds = %.thread
   %72 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -5718,7 +5718,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %80 = load i32, ptr @tjErrorLine, align 4
   %81 = icmp eq i32 %80, 205
   %or.cond13.not = select i1 %.b613, i1 %81, i1 false
-  br i1 %or.cond13.not, label %.thread698, label %82
+  br i1 %or.cond13.not, label %.thread687, label %82
 
 82:                                               ; preds = %79, %77
   %83 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %73, i64 noundef 200) #23
@@ -5726,21 +5726,21 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 205, ptr @tjErrorLine, align 4, !tbaa !4
   %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 205, ptr noundef nonnull %73)
-  br label %.thread698
+  br label %.thread687
 
 85:                                               ; preds = %71
   %86 = select i1 %76, ptr @.str.111, ptr @.str.112
   %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %86, i32 noundef 205, ptr noundef %73)
-  br label %.thread800
+  br label %.thread779
 
-.thread698:                                       ; preds = %79, %82, %.thread
+.thread687:                                       ; preds = %79, %82, %.thread
   %.b585 = load i1, ptr @fastUpsample, align 4
   %88 = zext i1 %.b585 to i32
   %89 = tail call i32 @tj3Set(ptr noundef nonnull %42, i32 noundef 9, i32 noundef %88) #23
   %90 = icmp eq i32 %89, -1
-  br i1 %90, label %91, label %.thread703
+  br i1 %90, label %91, label %.thread691
 
-91:                                               ; preds = %.thread698
+91:                                               ; preds = %.thread687
   %92 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %93 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %94 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
@@ -5759,7 +5759,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %100 = load i32, ptr @tjErrorLine, align 4
   %101 = icmp eq i32 %100, 207
   %or.cond17.not = select i1 %.b612, i1 %101, i1 false
-  br i1 %or.cond17.not, label %.thread703, label %102
+  br i1 %or.cond17.not, label %.thread691, label %102
 
 102:                                              ; preds = %99, %97
   %103 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %93, i64 noundef 200) #23
@@ -5767,21 +5767,21 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 207, ptr @tjErrorLine, align 4, !tbaa !4
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 207, ptr noundef nonnull %93)
-  br label %.thread703
+  br label %.thread691
 
 105:                                              ; preds = %91
   %106 = select i1 %96, ptr @.str.111, ptr @.str.112
   %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %106, i32 noundef 207, ptr noundef %93)
-  br label %.thread800
+  br label %.thread779
 
-.thread703:                                       ; preds = %99, %102, %.thread698
+.thread691:                                       ; preds = %99, %102, %.thread687
   %.b584 = load i1, ptr @fastDCT, align 4
   %108 = zext i1 %.b584 to i32
   %109 = tail call i32 @tj3Set(ptr noundef nonnull %42, i32 noundef 10, i32 noundef %108) #23
   %110 = icmp eq i32 %109, -1
-  br i1 %110, label %111, label %.thread708
+  br i1 %110, label %111, label %.thread695
 
-111:                                              ; preds = %.thread703
+111:                                              ; preds = %.thread691
   %112 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %113 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %114 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
@@ -5800,7 +5800,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %120 = load i32, ptr @tjErrorLine, align 4
   %121 = icmp eq i32 %120, 209
   %or.cond21.not = select i1 %.b611, i1 %121, i1 false
-  br i1 %or.cond21.not, label %.thread708, label %122
+  br i1 %or.cond21.not, label %.thread695, label %122
 
 122:                                              ; preds = %119, %117
   %123 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %113, i64 noundef 200) #23
@@ -5808,20 +5808,20 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 209, ptr @tjErrorLine, align 4, !tbaa !4
   %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 209, ptr noundef nonnull %113)
-  br label %.thread708
+  br label %.thread695
 
 125:                                              ; preds = %111
   %126 = select i1 %116, ptr @.str.111, ptr @.str.112
   %127 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %126, i32 noundef 209, ptr noundef %113)
-  br label %.thread800
+  br label %.thread779
 
-.thread708:                                       ; preds = %119, %122, %.thread703
+.thread695:                                       ; preds = %119, %122, %.thread691
   %128 = load i32, ptr @maxScans, align 4, !tbaa !4
   %129 = tail call i32 @tj3Set(ptr noundef nonnull %42, i32 noundef 13, i32 noundef %128) #23
   %130 = icmp eq i32 %129, -1
-  br i1 %130, label %131, label %.thread713
+  br i1 %130, label %131, label %.thread699
 
-131:                                              ; preds = %.thread708
+131:                                              ; preds = %.thread695
   %132 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %133 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %134 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
@@ -5840,7 +5840,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %140 = load i32, ptr @tjErrorLine, align 4
   %141 = icmp eq i32 %140, 211
   %or.cond25.not = select i1 %.b610, i1 %141, i1 false
-  br i1 %or.cond25.not, label %.thread713, label %142
+  br i1 %or.cond25.not, label %.thread699, label %142
 
 142:                                              ; preds = %139, %137
   %143 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %133, i64 noundef 200) #23
@@ -5848,20 +5848,20 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 211, ptr @tjErrorLine, align 4, !tbaa !4
   %144 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 211, ptr noundef nonnull %133)
-  br label %.thread713
+  br label %.thread699
 
 145:                                              ; preds = %131
   %146 = select i1 %136, ptr @.str.111, ptr @.str.112
   %147 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %146, i32 noundef 211, ptr noundef %133)
-  br label %.thread800
+  br label %.thread779
 
-.thread713:                                       ; preds = %139, %142, %.thread708
+.thread699:                                       ; preds = %139, %142, %.thread695
   %148 = load i32, ptr @maxMemory, align 4, !tbaa !4
   %149 = tail call i32 @tj3Set(ptr noundef nonnull %42, i32 noundef 23, i32 noundef %148) #23
   %150 = icmp eq i32 %149, -1
-  br i1 %150, label %151, label %.thread718
+  br i1 %150, label %151, label %.thread703
 
-151:                                              ; preds = %.thread713
+151:                                              ; preds = %.thread699
   %152 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %153 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %154 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
@@ -5880,7 +5880,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %160 = load i32, ptr @tjErrorLine, align 4
   %161 = icmp eq i32 %160, 213
   %or.cond29.not = select i1 %.b609, i1 %161, i1 false
-  br i1 %or.cond29.not, label %.thread718, label %162
+  br i1 %or.cond29.not, label %.thread703, label %162
 
 162:                                              ; preds = %159, %157
   %163 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %153, i64 noundef 200) #23
@@ -5888,20 +5888,20 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 213, ptr @tjErrorLine, align 4, !tbaa !4
   %164 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 213, ptr noundef nonnull %153)
-  br label %.thread718
+  br label %.thread703
 
 165:                                              ; preds = %151
   %166 = select i1 %156, ptr @.str.111, ptr @.str.112
   %167 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %166, i32 noundef 213, ptr noundef %153)
-  br label %.thread800
+  br label %.thread779
 
-.thread718:                                       ; preds = %159, %162, %.thread713
+.thread703:                                       ; preds = %159, %162, %.thread699
   %168 = load i32, ptr @maxPixels, align 4, !tbaa !4
   %169 = tail call i32 @tj3Set(ptr noundef nonnull %42, i32 noundef 24, i32 noundef %168) #23
   %170 = icmp eq i32 %169, -1
-  br i1 %170, label %171, label %.thread723
+  br i1 %170, label %171, label %.thread707
 
-171:                                              ; preds = %.thread718
+171:                                              ; preds = %.thread703
   %172 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %173 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %174 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
@@ -5920,7 +5920,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %180 = load i32, ptr @tjErrorLine, align 4
   %181 = icmp eq i32 %180, 215
   %or.cond33.not = select i1 %.b608, i1 %181, i1 false
-  br i1 %or.cond33.not, label %.thread723, label %182
+  br i1 %or.cond33.not, label %.thread707, label %182
 
 182:                                              ; preds = %179, %177
   %183 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %173, i64 noundef 200) #23
@@ -5928,14 +5928,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 215, ptr @tjErrorLine, align 4, !tbaa !4
   %184 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 215, ptr noundef nonnull %173)
-  br label %.thread723
+  br label %.thread707
 
 185:                                              ; preds = %171
   %186 = select i1 %176, ptr @.str.111, ptr @.str.112
   %187 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %186, i32 noundef 215, ptr noundef %173)
-  br label %.thread800
+  br label %.thread779
 
-.thread723:                                       ; preds = %179, %182, %.thread718
+.thread707:                                       ; preds = %179, %182, %.thread703
   %188 = load i32, ptr @cr, align 8, !tbaa !18
   %189 = icmp ne i32 %188, 0
   %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cr, i64 4), align 4
@@ -5947,14 +5947,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %194 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cr, i64 12), align 4
   %195 = icmp ne i32 %194, 0
   %or.cond39 = select i1 %or.cond37, i1 true, i1 %195
-  br i1 %or.cond39, label %196, label %.thread728
+  br i1 %or.cond39, label %196, label %.thread711
 
-196:                                              ; preds = %.thread723
+196:                                              ; preds = %.thread707
   %197 = load ptr, ptr %0, align 8, !tbaa !10
   %198 = load i64, ptr %1, align 8, !tbaa !35
   %199 = tail call i32 @tj3DecompressHeader(ptr noundef nonnull %42, ptr noundef %197, i64 noundef %198) #23
   %200 = icmp eq i32 %199, -1
-  br i1 %200, label %201, label %.thread728
+  br i1 %200, label %201, label %.thread711
 
 201:                                              ; preds = %196
   %202 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -5975,7 +5975,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %210 = load i32, ptr @tjErrorLine, align 4
   %211 = icmp eq i32 %210, 219
   %or.cond43.not = select i1 %.b607, i1 %211, i1 false
-  br i1 %or.cond43.not, label %.thread728, label %212
+  br i1 %or.cond43.not, label %.thread711, label %212
 
 212:                                              ; preds = %209, %207
   %213 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %203, i64 noundef 200) #23
@@ -5983,20 +5983,20 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 219, ptr @tjErrorLine, align 4, !tbaa !4
   %214 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 219, ptr noundef nonnull %203)
-  br label %.thread728
+  br label %.thread711
 
 215:                                              ; preds = %201
   %216 = select i1 %206, ptr @.str.111, ptr @.str.112
   %217 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %216, i32 noundef 219, ptr noundef %203)
-  br label %.thread800
+  br label %.thread779
 
-.thread728:                                       ; preds = %209, %212, %196, %.thread723
+.thread711:                                       ; preds = %209, %212, %196, %.thread707
   %218 = load i64, ptr @sf, align 8
   %219 = tail call i32 @tj3SetScalingFactor(ptr noundef nonnull %42, i64 %218) #23
   %220 = icmp eq i32 %219, -1
-  br i1 %220, label %221, label %.thread733
+  br i1 %220, label %221, label %.thread715
 
-221:                                              ; preds = %.thread728
+221:                                              ; preds = %.thread711
   %222 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %223 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %224 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
@@ -6015,7 +6015,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %230 = load i32, ptr @tjErrorLine, align 4
   %231 = icmp eq i32 %230, 222
   %or.cond47.not = select i1 %.b606, i1 %231, i1 false
-  br i1 %or.cond47.not, label %.thread733, label %232
+  br i1 %or.cond47.not, label %.thread715, label %232
 
 232:                                              ; preds = %229, %227
   %233 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %223, i64 noundef 200) #23
@@ -6023,21 +6023,21 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 222, ptr @tjErrorLine, align 4, !tbaa !4
   %234 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 222, ptr noundef nonnull %223)
-  br label %.thread733
+  br label %.thread715
 
 235:                                              ; preds = %221
   %236 = select i1 %226, ptr @.str.111, ptr @.str.112
   %237 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %236, i32 noundef 222, ptr noundef %223)
-  br label %.thread800
+  br label %.thread779
 
-.thread733:                                       ; preds = %229, %232, %.thread728
+.thread715:                                       ; preds = %229, %232, %.thread711
   %238 = load i64, ptr @cr, align 8
   %239 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cr, i64 8), align 8
   %240 = tail call i32 @tj3SetCroppingRegion(ptr noundef nonnull %42, i64 %238, i64 %239) #23
   %241 = icmp eq i32 %240, -1
-  br i1 %241, label %242, label %.thread738
+  br i1 %241, label %242, label %.thread719
 
-242:                                              ; preds = %.thread733
+242:                                              ; preds = %.thread715
   %243 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %244 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %245 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
@@ -6056,7 +6056,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %251 = load i32, ptr @tjErrorLine, align 4
   %252 = icmp eq i32 %251, 224
   %or.cond51.not = select i1 %.b605, i1 %252, i1 false
-  br i1 %or.cond51.not, label %.thread738, label %253
+  br i1 %or.cond51.not, label %.thread719, label %253
 
 253:                                              ; preds = %250, %248
   %254 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %244, i64 noundef 200) #23
@@ -6064,14 +6064,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 224, ptr @tjErrorLine, align 4, !tbaa !4
   %255 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 224, ptr noundef nonnull %244)
-  br label %.thread738
+  br label %.thread719
 
 256:                                              ; preds = %242
   %257 = select i1 %247, ptr @.str.111, ptr @.str.112
   %258 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %257, i32 noundef 224, ptr noundef %244)
-  br label %.thread800
+  br label %.thread779
 
-.thread738:                                       ; preds = %250, %253, %.thread733
+.thread719:                                       ; preds = %250, %253, %.thread715
   %259 = load i32, ptr @cr, align 8, !tbaa !18
   %260 = icmp ne i32 %259, 0
   %261 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cr, i64 4), align 4
@@ -6090,10 +6090,10 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %.0517 = select i1 %266, i32 %265, i32 %270
   %.0516 = select i1 %or.cond57, i32 %268, i32 %32
   %271 = mul nsw i32 %.0516, %17
-  %.not808 = icmp eq ptr %2, null
-  br i1 %.not808, label %272, label %286
+  %.not787 = icmp eq ptr %2, null
+  br i1 %.not787, label %272, label %286
 
-272:                                              ; preds = %.thread738
+272:                                              ; preds = %.thread719
   %273 = sext i32 %271 to i64
   %274 = sext i32 %.0517 to i64
   %275 = mul nsw i64 %273, %274
@@ -6109,10 +6109,10 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %283 = load i32, ptr %282, align 4, !tbaa !4
   %284 = tail call ptr @strerror(i32 noundef %283) #23
   %285 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 238, ptr noundef nonnull @.str.306, ptr noundef %284)
-  br label %.thread800
+  br label %.thread779
 
-286:                                              ; preds = %272, %.thread738
-  %.1 = phi ptr [ %2, %.thread738 ], [ %279, %272 ]
+286:                                              ; preds = %272, %.thread719
+  %.1 = phi ptr [ %2, %.thread719 ], [ %279, %272 ]
   %287 = load i32, ptr @precision, align 4, !tbaa !4
   %288 = icmp slt i32 %287, 9
   br i1 %288, label %289, label %293
@@ -6128,29 +6128,29 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %294 = icmp samesign ult i32 %287, 13
   %295 = mul nsw i32 %271, %.0517
   %296 = icmp sgt i32 %295, 0
-  br i1 %294, label %.preheader809, label %.preheader810
+  br i1 %294, label %.preheader788, label %.preheader789
 
-.preheader810:                                    ; preds = %293
+.preheader789:                                    ; preds = %293
   br i1 %296, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.preheader810
+.lr.ph.preheader:                                 ; preds = %.preheader789
   %wide.trip.count = zext nneg i32 %295 to i64
   br label %.lr.ph
 
-.preheader809:                                    ; preds = %293
-  br i1 %296, label %.lr.ph840.preheader, label %.loopexit
+.preheader788:                                    ; preds = %293
+  br i1 %296, label %.lr.ph819.preheader, label %.loopexit
 
-.lr.ph840.preheader:                              ; preds = %.preheader809
-  %wide.trip.count927 = zext nneg i32 %295 to i64
-  br label %.lr.ph840
+.lr.ph819.preheader:                              ; preds = %.preheader788
+  %wide.trip.count906 = zext nneg i32 %295 to i64
+  br label %.lr.ph819
 
-.lr.ph840:                                        ; preds = %.lr.ph840.preheader, %.lr.ph840
-  %indvars.iv924 = phi i64 [ 0, %.lr.ph840.preheader ], [ %indvars.iv.next925, %.lr.ph840 ]
-  %297 = getelementptr inbounds nuw i16, ptr %.1, i64 %indvars.iv924
+.lr.ph819:                                        ; preds = %.lr.ph819.preheader, %.lr.ph819
+  %indvars.iv903 = phi i64 [ 0, %.lr.ph819.preheader ], [ %indvars.iv.next904, %.lr.ph819 ]
+  %297 = getelementptr inbounds nuw i16, ptr %.1, i64 %indvars.iv903
   store i16 2047, ptr %297, align 2, !tbaa !32
-  %indvars.iv.next925 = add nuw nsw i64 %indvars.iv924, 1
-  %exitcond928.not = icmp eq i64 %indvars.iv.next925, %wide.trip.count927
-  br i1 %exitcond928.not, label %.loopexit, label %.lr.ph840, !llvm.loop !57
+  %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 1
+  %exitcond907.not = icmp eq i64 %indvars.iv.next904, %wide.trip.count906
+  br i1 %exitcond907.not, label %.loopexit, label %.lr.ph819, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -6160,7 +6160,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph840, %.preheader810, %.preheader809, %289
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph819, %.preheader789, %.preheader788, %289
   %.b596 = load i1, ptr @doYUV, align 4
   br i1 %.b596, label %299, label %317
 
@@ -6176,7 +6176,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 305:                                              ; preds = %299
   %306 = tail call ptr @tj3GetErrorStr(ptr noundef null) #23
   %307 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.108, i32 noundef 260, ptr noundef %306)
-  br label %.thread743
+  br label %.thread723
 
 308:                                              ; preds = %299
   %309 = tail call noalias ptr @malloc(i64 noundef %303) #27
@@ -6188,7 +6188,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %313 = load i32, ptr %312, align 4, !tbaa !4
   %314 = tail call ptr @strerror(i32 noundef %313) #23
   %315 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 262, ptr noundef nonnull @.str.307, ptr noundef %314)
-  br label %.thread743
+  br label %.thread723
 
 316:                                              ; preds = %308
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %309, i8 127, i64 %303, i1 false)
@@ -6201,16 +6201,16 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %320 = sext i32 %271 to i64
   %321 = sext i32 %9 to i64
   %322 = mul nsw i64 %320, %321
-  br i1 %318, label %.split.us871, label %.split.outer
+  br i1 %318, label %.split.us850, label %.split.outer
 
-.split.us871:                                     ; preds = %317
+.split.us850:                                     ; preds = %317
   %323 = icmp sgt i32 %20, 0
   br i1 %323, label %.preheader.lr.ph.us.us.outer, label %.preheader.lr.ph.us.outer
 
-.preheader.lr.ph.us.us.outer:                     ; preds = %.split.us871, %.preheader.lr.ph.us.us.outer.backedge
-  %.0507.us.us.ph = phi double [ %.0507.us.us.ph.be, %.preheader.lr.ph.us.us.outer.backedge ], [ 0.000000e+00, %.split.us871 ]
-  %.0503.us.us.ph = phi double [ %.0503.us.us.ph.be, %.preheader.lr.ph.us.us.outer.backedge ], [ 0.000000e+00, %.split.us871 ]
-  %.0496.us.us.ph = phi i32 [ %.0496.us.us.ph.be, %.preheader.lr.ph.us.us.outer.backedge ], [ -1, %.split.us871 ]
+.preheader.lr.ph.us.us.outer:                     ; preds = %.split.us850, %.preheader.lr.ph.us.us.outer.backedge
+  %.0507.us.us.ph = phi double [ %.0507.us.us.ph.be, %.preheader.lr.ph.us.us.outer.backedge ], [ 0.000000e+00, %.split.us850 ]
+  %.0503.us.us.ph = phi double [ %.0503.us.us.ph.be, %.preheader.lr.ph.us.us.outer.backedge ], [ 0.000000e+00, %.split.us850 ]
+  %.0496.us.us.ph = phi i32 [ %.0496.us.us.ph.be, %.preheader.lr.ph.us.us.outer.backedge ], [ -1, %.split.us850 ]
   %324 = icmp sgt i32 %.0496.us.us.ph, -1
   br label %.preheader.lr.ph.us.us
 
@@ -6220,7 +6220,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %325 = tail call double @getTime() #23
   br label %.preheader.us.us.us
 
-326:                                              ; preds = %._crit_edge851.split.us.us.us
+326:                                              ; preds = %._crit_edge830.split.us.us.us
   %327 = load double, ptr @warmup, align 8, !tbaa !12
   %328 = fcmp ult double %463, %327
   br i1 %328, label %.preheader.lr.ph.us.us, label %.preheader.lr.ph.us.us.outer.backedge
@@ -6231,35 +6231,35 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %.0496.us.us.ph.be = phi i32 [ %330, %329 ], [ 0, %326 ]
   br label %.preheader.lr.ph.us.us.outer
 
-329:                                              ; preds = %._crit_edge851.split.us.us.us
+329:                                              ; preds = %._crit_edge830.split.us.us.us
   %330 = add nuw nsw i32 %.0496.us.us.ph, 1
   %331 = load double, ptr @benchTime, align 8, !tbaa !12
   %332 = fcmp ult double %463, %331
-  br i1 %332, label %.preheader.lr.ph.us.us.outer.backedge, label %.split878.us
+  br i1 %332, label %.preheader.lr.ph.us.us.outer.backedge, label %.split857.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
-  %.0494850.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us ], [ %457, %._crit_edge.us.us.us ]
-  %.1508849.us.us.us = phi double [ %.0507.us.us, %.preheader.lr.ph.us.us ], [ %.5512.ph.us.us.us, %._crit_edge.us.us.us ]
-  %.0518848.us.us.us = phi ptr [ %.1, %.preheader.lr.ph.us.us ], [ %460, %._crit_edge.us.us.us ]
-  %.0545847.us.us.us = phi i64 [ 0, %.preheader.lr.ph.us.us ], [ %indvars.iv.next930, %._crit_edge.us.us.us ]
-  %333 = mul nsw i32 %.0494850.us.us.us, %9
+  %.0494829.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us ], [ %457, %._crit_edge.us.us.us ]
+  %.1508828.us.us.us = phi double [ %.0507.us.us, %.preheader.lr.ph.us.us ], [ %.5512.ph.us.us.us, %._crit_edge.us.us.us ]
+  %.0518827.us.us.us = phi ptr [ %.1, %.preheader.lr.ph.us.us ], [ %460, %._crit_edge.us.us.us ]
+  %.0545826.us.us.us = phi i64 [ 0, %.preheader.lr.ph.us.us ], [ %indvars.iv.next909, %._crit_edge.us.us.us ]
+  %333 = mul nsw i32 %.0494829.us.us.us, %9
   %334 = sub nsw i32 %4, %333
-  %.689.us.us.us = tail call i32 @llvm.smin.i32(i32 %9, i32 %334)
-  %sext = shl i64 %.0545847.us.us.us, 32
+  %.679.us.us.us = tail call i32 @llvm.smin.i32(i32 %9, i32 %334)
+  %sext = shl i64 %.0545826.us.us.us, 32
   %335 = ashr exact i64 %sext, 32
   br label %336
 
-336:                                              ; preds = %.thread757.us.us.us, %.preheader.us.us.us
-  %indvars.iv929 = phi i64 [ %indvars.iv.next930, %.thread757.us.us.us ], [ %335, %.preheader.us.us.us ]
-  %.0495844.us.us.us = phi i32 [ %452, %.thread757.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %.2509843.us.us.us = phi double [ %.5512.ph.us.us.us, %.thread757.us.us.us ], [ %.1508849.us.us.us, %.preheader.us.us.us ]
-  %.0519842.us.us.us = phi ptr [ %456, %.thread757.us.us.us ], [ %.0518848.us.us.us, %.preheader.us.us.us ]
+336:                                              ; preds = %.thread736.us.us.us, %.preheader.us.us.us
+  %indvars.iv908 = phi i64 [ %indvars.iv.next909, %.thread736.us.us.us ], [ %335, %.preheader.us.us.us ]
+  %.0495823.us.us.us = phi i32 [ %452, %.thread736.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %.2509822.us.us.us = phi double [ %.5512.ph.us.us.us, %.thread736.us.us.us ], [ %.1508828.us.us.us, %.preheader.us.us.us ]
+  %.0519821.us.us.us = phi ptr [ %456, %.thread736.us.us.us ], [ %.0518827.us.us.us, %.preheader.us.us.us ]
   %.b589.us.us.us = load i1, ptr @doTile, align 4
-  %337 = mul nsw i32 %.0495844.us.us.us, %8
+  %337 = mul nsw i32 %.0495823.us.us.us, %8
   %338 = sub nsw i32 %3, %337
   %..us.us.us = tail call i32 @llvm.smin.i32(i32 %8, i32 %338)
   %339 = select i1 %.b589.us.us.us, i32 %..us.us.us, i32 %.0516
-  %340 = select i1 %.b589.us.us.us, i32 %.689.us.us.us, i32 %.0517
+  %340 = select i1 %.b589.us.us.us, i32 %.679.us.us.us, i32 %.0517
   %.b595.us.us.us = load i1, ptr @doYUV, align 4
   br i1 %.b595.us.us.us, label %407, label %341
 
@@ -6270,17 +6270,17 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 
 344:                                              ; preds = %341
   %345 = icmp samesign ult i32 %342, 13
-  %346 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv929
+  %346 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv908
   %347 = load ptr, ptr %346, align 8, !tbaa !10
-  %348 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv929
+  %348 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv908
   %349 = load i64, ptr %348, align 8, !tbaa !35
   %350 = load i32, ptr @pf, align 4, !tbaa !4
   br i1 %345, label %368, label %351
 
 351:                                              ; preds = %344
-  %352 = tail call i32 @tj3Decompress16(ptr noundef nonnull %42, ptr noundef %347, i64 noundef %349, ptr noundef %.0519842.us.us.us, i32 noundef %271, i32 noundef %350) #23
+  %352 = tail call i32 @tj3Decompress16(ptr noundef nonnull %42, ptr noundef %347, i64 noundef %349, ptr noundef %.0519821.us.us.us, i32 noundef %271, i32 noundef %350) #23
   %353 = icmp eq i32 %352, -1
-  br i1 %353, label %354, label %.thread757.us.us.us
+  br i1 %353, label %354, label %.thread736.us.us.us
 
 354:                                              ; preds = %351
   %355 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -6301,7 +6301,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %363 = load i32, ptr @tjErrorLine, align 4
   %364 = icmp eq i32 %363, 303
   %or.cond77.not.us.us.us = select i1 %.b600.us.us.us, i1 %364, i1 false
-  br i1 %or.cond77.not.us.us.us, label %.thread757.us.us.us, label %365
+  br i1 %or.cond77.not.us.us.us, label %.thread736.us.us.us, label %365
 
 365:                                              ; preds = %362, %360
   %366 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %356, i64 noundef 200) #23
@@ -6309,12 +6309,12 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 303, ptr @tjErrorLine, align 4, !tbaa !4
   %367 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 303, ptr noundef nonnull %356)
-  br label %.thread757.us.us.us
+  br label %.thread736.us.us.us
 
 368:                                              ; preds = %344
-  %369 = tail call i32 @tj3Decompress12(ptr noundef nonnull %42, ptr noundef %347, i64 noundef %349, ptr noundef %.0519842.us.us.us, i32 noundef %271, i32 noundef %350) #23
+  %369 = tail call i32 @tj3Decompress12(ptr noundef nonnull %42, ptr noundef %347, i64 noundef %349, ptr noundef %.0519821.us.us.us, i32 noundef %271, i32 noundef %350) #23
   %370 = icmp eq i32 %369, -1
-  br i1 %370, label %371, label %.thread757.us.us.us
+  br i1 %370, label %371, label %.thread736.us.us.us
 
 371:                                              ; preds = %368
   %372 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -6323,7 +6323,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %375 = icmp eq i32 %374, 0
   %376 = icmp eq i32 %372, 0
   %or.cond71.us.us.us = select i1 %375, i1 %376, i1 false
-  br i1 %or.cond71.us.us.us, label %377, label %.split856.us
+  br i1 %or.cond71.us.us.us, label %377, label %.split835.us
 
 377:                                              ; preds = %371
   %378 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %373, i64 noundef 200) #24
@@ -6335,7 +6335,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %380 = load i32, ptr @tjErrorLine, align 4
   %381 = icmp eq i32 %380, 299
   %or.cond73.not.us.us.us = select i1 %.b601.us.us.us, i1 %381, i1 false
-  br i1 %or.cond73.not.us.us.us, label %.thread757.us.us.us, label %382
+  br i1 %or.cond73.not.us.us.us, label %.thread736.us.us.us, label %382
 
 382:                                              ; preds = %379, %377
   %383 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %373, i64 noundef 200) #23
@@ -6343,17 +6343,17 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 299, ptr @tjErrorLine, align 4, !tbaa !4
   %384 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 299, ptr noundef nonnull %373)
-  br label %.thread757.us.us.us
+  br label %.thread736.us.us.us
 
 385:                                              ; preds = %341
-  %386 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv929
+  %386 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv908
   %387 = load ptr, ptr %386, align 8, !tbaa !10
-  %388 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv929
+  %388 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv908
   %389 = load i64, ptr %388, align 8, !tbaa !35
   %390 = load i32, ptr @pf, align 4, !tbaa !4
-  %391 = tail call i32 @tj3Decompress8(ptr noundef nonnull %42, ptr noundef %387, i64 noundef %389, ptr noundef %.0519842.us.us.us, i32 noundef %271, i32 noundef %390) #23
+  %391 = tail call i32 @tj3Decompress8(ptr noundef nonnull %42, ptr noundef %387, i64 noundef %389, ptr noundef %.0519821.us.us.us, i32 noundef %271, i32 noundef %390) #23
   %392 = icmp eq i32 %391, -1
-  br i1 %392, label %393, label %.thread757.us.us.us
+  br i1 %392, label %393, label %.thread736.us.us.us
 
 393:                                              ; preds = %385
   %394 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -6362,7 +6362,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %397 = icmp eq i32 %396, 0
   %398 = icmp eq i32 %394, 0
   %or.cond67.us.us.us = select i1 %397, i1 %398, i1 false
-  br i1 %or.cond67.us.us.us, label %399, label %.split860.us
+  br i1 %or.cond67.us.us.us, label %399, label %.split839.us
 
 399:                                              ; preds = %393
   %400 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %395, i64 noundef 200) #24
@@ -6374,7 +6374,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %402 = load i32, ptr @tjErrorLine, align 4
   %403 = icmp eq i32 %402, 295
   %or.cond69.not.us.us.us = select i1 %.b602.us.us.us, i1 %403, i1 false
-  br i1 %or.cond69.not.us.us.us, label %.thread757.us.us.us, label %404
+  br i1 %or.cond69.not.us.us.us, label %.thread736.us.us.us, label %404
 
 404:                                              ; preds = %401, %399
   %405 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %395, i64 noundef 200) #23
@@ -6382,17 +6382,17 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 295, ptr @tjErrorLine, align 4, !tbaa !4
   %406 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 295, ptr noundef nonnull %395)
-  br label %.thread757.us.us.us
+  br label %.thread736.us.us.us
 
 407:                                              ; preds = %336
-  %408 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv929
+  %408 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv908
   %409 = load ptr, ptr %408, align 8, !tbaa !10
-  %410 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv929
+  %410 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv908
   %411 = load i64, ptr %410, align 8, !tbaa !35
   %412 = load i32, ptr @yuvAlign, align 4, !tbaa !4
   %413 = tail call i32 @tj3DecompressToYUV8(ptr noundef nonnull %42, ptr noundef %409, i64 noundef %411, ptr noundef %.1521, i32 noundef %412) #23
   %414 = icmp eq i32 %413, -1
-  br i1 %414, label %415, label %.thread749.us.us.us
+  br i1 %414, label %415, label %.thread728.us.us.us
 
 415:                                              ; preds = %407
   %416 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -6401,7 +6401,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %419 = icmp eq i32 %418, 0
   %420 = icmp eq i32 %416, 0
   %or.cond59.us.us.us = select i1 %419, i1 %420, i1 false
-  br i1 %or.cond59.us.us.us, label %421, label %.split864.us
+  br i1 %or.cond59.us.us.us, label %421, label %.split843.us
 
 421:                                              ; preds = %415
   %422 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %417, i64 noundef 200) #24
@@ -6413,7 +6413,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %424 = load i32, ptr @tjErrorLine, align 4
   %425 = icmp eq i32 %424, 285
   %or.cond61.not.us.us.us = select i1 %.b604.us.us.us, i1 %425, i1 false
-  br i1 %or.cond61.not.us.us.us, label %.thread749.us.us.us, label %426
+  br i1 %or.cond61.not.us.us.us, label %.thread728.us.us.us, label %426
 
 426:                                              ; preds = %423, %421
   %427 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %417, i64 noundef 200) #23
@@ -6421,24 +6421,24 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 285, ptr @tjErrorLine, align 4, !tbaa !4
   %428 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 285, ptr noundef nonnull %417)
-  br label %.thread749.us.us.us
+  br label %.thread728.us.us.us
 
-.thread749.us.us.us:                              ; preds = %426, %423, %407
+.thread728.us.us.us:                              ; preds = %426, %423, %407
   %429 = tail call double @getTime() #23
   %430 = load i32, ptr @yuvAlign, align 4, !tbaa !4
   %431 = load i32, ptr @pf, align 4, !tbaa !4
-  %432 = tail call i32 @tj3DecodeYUV8(ptr noundef nonnull %42, ptr noundef %.1521, i32 noundef %430, ptr noundef %.0519842.us.us.us, i32 noundef %339, i32 noundef %271, i32 noundef %340, i32 noundef %431) #23
+  %432 = tail call i32 @tj3DecodeYUV8(ptr noundef nonnull %42, ptr noundef %.1521, i32 noundef %430, ptr noundef %.0519821.us.us.us, i32 noundef %339, i32 noundef %271, i32 noundef %340, i32 noundef %431) #23
   %433 = icmp eq i32 %432, -1
-  br i1 %433, label %434, label %.thread753.us.us.us
+  br i1 %433, label %434, label %.thread732.us.us.us
 
-434:                                              ; preds = %.thread749.us.us.us
+434:                                              ; preds = %.thread728.us.us.us
   %435 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
   %436 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #23
   %437 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #23
   %438 = icmp eq i32 %437, 0
   %439 = icmp eq i32 %435, 0
   %or.cond63.us.us.us = select i1 %438, i1 %439, i1 false
-  br i1 %or.cond63.us.us.us, label %440, label %.split868.us
+  br i1 %or.cond63.us.us.us, label %440, label %.split847.us
 
 440:                                              ; preds = %434
   %441 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %436, i64 noundef 200) #24
@@ -6450,7 +6450,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %443 = load i32, ptr @tjErrorLine, align 4
   %444 = icmp eq i32 %443, 289
   %or.cond65.not.us.us.us = select i1 %.b603.us.us.us, i1 %444, i1 false
-  br i1 %or.cond65.not.us.us.us, label %.thread753.us.us.us, label %445
+  br i1 %or.cond65.not.us.us.us, label %.thread732.us.us.us, label %445
 
 445:                                              ; preds = %442, %440
   %446 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %436, i64 noundef 200) #23
@@ -6458,37 +6458,37 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 289, ptr @tjErrorLine, align 4, !tbaa !4
   %447 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 289, ptr noundef nonnull %436)
-  br label %.thread753.us.us.us
+  br label %.thread732.us.us.us
 
-.thread753.us.us.us:                              ; preds = %445, %442, %.thread749.us.us.us
-  br i1 %324, label %448, label %.thread757.us.us.us
+.thread732.us.us.us:                              ; preds = %445, %442, %.thread728.us.us.us
+  br i1 %324, label %448, label %.thread736.us.us.us
 
-448:                                              ; preds = %.thread753.us.us.us
+448:                                              ; preds = %.thread732.us.us.us
   %449 = tail call double @getTime() #23
   %450 = fsub double %449, %429
-  %451 = fadd double %.2509843.us.us.us, %450
-  br label %.thread757.us.us.us
+  %451 = fadd double %.2509822.us.us.us, %450
+  br label %.thread736.us.us.us
 
-.thread757.us.us.us:                              ; preds = %448, %.thread753.us.us.us, %404, %401, %385, %382, %379, %368, %365, %362, %351
-  %.5512.ph.us.us.us = phi double [ %.2509843.us.us.us, %351 ], [ %.2509843.us.us.us, %368 ], [ %.2509843.us.us.us, %385 ], [ %.2509843.us.us.us, %.thread753.us.us.us ], [ %451, %448 ], [ %.2509843.us.us.us, %401 ], [ %.2509843.us.us.us, %404 ], [ %.2509843.us.us.us, %379 ], [ %.2509843.us.us.us, %382 ], [ %.2509843.us.us.us, %362 ], [ %.2509843.us.us.us, %365 ]
-  %452 = add nuw nsw i32 %.0495844.us.us.us, 1
-  %indvars.iv.next930 = add nsw i64 %indvars.iv929, 1
+.thread736.us.us.us:                              ; preds = %448, %.thread732.us.us.us, %404, %401, %385, %382, %379, %368, %365, %362, %351
+  %.5512.ph.us.us.us = phi double [ %.2509822.us.us.us, %351 ], [ %.2509822.us.us.us, %368 ], [ %.2509822.us.us.us, %385 ], [ %.2509822.us.us.us, %.thread732.us.us.us ], [ %451, %448 ], [ %.2509822.us.us.us, %401 ], [ %.2509822.us.us.us, %404 ], [ %.2509822.us.us.us, %379 ], [ %.2509822.us.us.us, %382 ], [ %.2509822.us.us.us, %362 ], [ %.2509822.us.us.us, %365 ]
+  %452 = add nuw nsw i32 %.0495823.us.us.us, 1
+  %indvars.iv.next909 = add nsw i64 %indvars.iv908, 1
   %453 = load i32, ptr @sampleSize, align 4, !tbaa !4
   %454 = mul nsw i32 %319, %453
   %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds i8, ptr %.0519842.us.us.us, i64 %455
-  %exitcond932.not = icmp eq i32 %452, %20
-  br i1 %exitcond932.not, label %._crit_edge.us.us.us, label %336, !llvm.loop !59
+  %456 = getelementptr inbounds i8, ptr %.0519821.us.us.us, i64 %455
+  %exitcond911.not = icmp eq i32 %452, %20
+  br i1 %exitcond911.not, label %._crit_edge.us.us.us, label %336, !llvm.loop !59
 
-._crit_edge.us.us.us:                             ; preds = %.thread757.us.us.us
-  %457 = add nuw nsw i32 %.0494850.us.us.us, 1
+._crit_edge.us.us.us:                             ; preds = %.thread736.us.us.us
+  %457 = add nuw nsw i32 %.0494829.us.us.us, 1
   %458 = zext nneg i32 %453 to i64
   %459 = mul i64 %322, %458
-  %460 = getelementptr inbounds nuw i8, ptr %.0518848.us.us.us, i64 %459
-  %exitcond933.not = icmp eq i32 %457, %23
-  br i1 %exitcond933.not, label %._crit_edge851.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !60
+  %460 = getelementptr inbounds nuw i8, ptr %.0518827.us.us.us, i64 %459
+  %exitcond912.not = icmp eq i32 %457, %23
+  br i1 %exitcond912.not, label %._crit_edge830.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !60
 
-._crit_edge851.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
+._crit_edge830.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
   %461 = tail call double @getTime() #23
   %462 = fsub double %461, %325
   %463 = fadd double %.0503.us.us, %462
@@ -6512,9 +6512,9 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %.0496.us.ph.be = phi i32 [ %473, %472 ], [ 0, %468 ]
   br label %.preheader.lr.ph.us.outer
 
-.preheader.lr.ph.us.outer:                        ; preds = %.split.us871, %.preheader.lr.ph.us.outer.backedge
-  %.0503.us.ph = phi double [ %.0503.us.ph.be, %.preheader.lr.ph.us.outer.backedge ], [ 0.000000e+00, %.split.us871 ]
-  %.0496.us.ph = phi i32 [ %.0496.us.ph.be, %.preheader.lr.ph.us.outer.backedge ], [ -1, %.split.us871 ]
+.preheader.lr.ph.us.outer:                        ; preds = %.split.us850, %.preheader.lr.ph.us.outer.backedge
+  %.0503.us.ph = phi double [ %.0503.us.ph.be, %.preheader.lr.ph.us.outer.backedge ], [ 0.000000e+00, %.split.us850 ]
+  %.0496.us.ph = phi i32 [ %.0496.us.ph.be, %.preheader.lr.ph.us.outer.backedge ], [ -1, %.split.us850 ]
   %471 = icmp sgt i32 %.0496.us.ph, -1
   br label %.preheader.lr.ph.us
 
@@ -6522,7 +6522,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %473 = add nuw nsw i32 %.0496.us.ph, 1
   %474 = load double, ptr @benchTime, align 8, !tbaa !12
   %475 = fcmp ult double %467, %474
-  br i1 %475, label %.preheader.lr.ph.us.outer.backedge, label %.split878.us
+  br i1 %475, label %.preheader.lr.ph.us.outer.backedge, label %.split857.us
 
 .split:                                           ; preds = %.split.outer, %495
   %.0503 = phi double [ %479, %495 ], [ %.0503.ph, %.split.outer ]
@@ -6532,36 +6532,36 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %479 = fadd double %.0503, %478
   br i1 %494, label %490, label %495
 
-.split864.us:                                     ; preds = %415
+.split843.us:                                     ; preds = %415
   %480 = select i1 %420, ptr @.str.111, ptr @.str.112
   %481 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %480, i32 noundef 285, ptr noundef %417)
-  br label %.thread743
+  br label %.thread723
 
-.split868.us:                                     ; preds = %434
+.split847.us:                                     ; preds = %434
   %482 = select i1 %439, ptr @.str.111, ptr @.str.112
   %483 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %482, i32 noundef 289, ptr noundef %436)
-  br label %.thread743
+  br label %.thread723
 
-.split860.us:                                     ; preds = %393
+.split839.us:                                     ; preds = %393
   %484 = select i1 %398, ptr @.str.111, ptr @.str.112
   %485 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %484, i32 noundef 295, ptr noundef %395)
-  br label %.thread743
+  br label %.thread723
 
-.split856.us:                                     ; preds = %371
+.split835.us:                                     ; preds = %371
   %486 = select i1 %376, ptr @.str.111, ptr @.str.112
   %487 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %486, i32 noundef 299, ptr noundef %373)
-  br label %.thread743
+  br label %.thread723
 
 .split.us:                                        ; preds = %354
   %488 = select i1 %359, ptr @.str.111, ptr @.str.112
   %489 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %488, i32 noundef 303, ptr noundef %356)
-  br label %.thread743
+  br label %.thread723
 
 490:                                              ; preds = %.split
   %491 = add nuw nsw i32 %.0496.ph, 1
   %492 = load double, ptr @benchTime, align 8, !tbaa !12
   %493 = fcmp ult double %479, %492
-  br i1 %493, label %.split.outer.backedge, label %.split878.us
+  br i1 %493, label %.split.outer.backedge, label %.split857.us
 
 .split.outer:                                     ; preds = %317, %.split.outer.backedge
   %.0503.ph = phi double [ %.0503.ph.be, %.split.outer.backedge ], [ 0.000000e+00, %317 ]
@@ -6579,22 +6579,22 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %.0496.ph.be = phi i32 [ %491, %490 ], [ 0, %495 ]
   br label %.split.outer
 
-.split878.us:                                     ; preds = %490, %472, %329
-  %.us-phi879 = phi i32 [ %330, %329 ], [ %473, %472 ], [ %491, %490 ]
-  %.us-phi880 = phi double [ %463, %329 ], [ %467, %472 ], [ %479, %490 ]
-  %.us-phi881 = phi double [ %.5512.ph.us.us.us, %329 ], [ 0.000000e+00, %472 ], [ 0.000000e+00, %490 ]
+.split857.us:                                     ; preds = %490, %472, %329
+  %.us-phi858 = phi i32 [ %330, %329 ], [ %473, %472 ], [ %491, %490 ]
+  %.us-phi859 = phi double [ %463, %329 ], [ %467, %472 ], [ %479, %490 ]
+  %.us-phi860 = phi double [ %.5512.ph.us.us.us, %329 ], [ 0.000000e+00, %472 ], [ 0.000000e+00, %490 ]
   %.b594 = load i1, ptr @doYUV, align 4
-  %498 = fsub double %.us-phi880, %.us-phi881
-  %.3506 = select i1 %.b594, double %498, double %.us-phi880
+  %498 = fsub double %.us-phi859, %.us-phi860
+  %.3506 = select i1 %.b594, double %498, double %.us-phi859
   %499 = load i32, ptr @quiet, align 4, !tbaa !4
   %.not646 = icmp eq i32 %499, 0
   br i1 %.not646, label %518, label %500
 
-500:                                              ; preds = %.split878.us
+500:                                              ; preds = %.split857.us
   %501 = mul nsw i32 %4, %3
   %502 = sitofp i32 %501 to double
   %503 = fdiv double %502, 1.000000e+06
-  %504 = uitofp nneg i32 %.us-phi879 to double
+  %504 = uitofp nneg i32 %.us-phi858 to double
   %505 = fmul double %503, %504
   %506 = fdiv double %505, %.3506
   %507 = call fastcc ptr @sigfig(double noundef %506, ptr noundef %11, i32 noundef 1024)
@@ -6606,7 +6606,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   br i1 %.b593, label %512, label %515
 
 512:                                              ; preds = %500
-  %513 = fdiv double %505, %.us-phi881
+  %513 = fdiv double %505, %.us-phi860
   %514 = call fastcc ptr @sigfig(double noundef %513, ptr noundef %11, i32 noundef 1024)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %11)
   br label %534
@@ -6620,9 +6620,9 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %putchar = call i32 @putchar(i32 10)
   br label %534
 
-518:                                              ; preds = %.split878.us
+518:                                              ; preds = %.split857.us
   %519 = select i1 %.b594, ptr @.str.311, ptr @.str.312
-  %520 = uitofp nneg i32 %.us-phi879 to double
+  %520 = uitofp nneg i32 %.us-phi858 to double
   %521 = fdiv double %520, %.3506
   %522 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.310, ptr noundef nonnull %519, double noundef %521)
   %523 = mul nsw i32 %4, %3
@@ -6635,15 +6635,15 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   br i1 %.b591, label %529, label %534
 
 529:                                              ; preds = %518
-  %530 = fdiv double %520, %.us-phi881
+  %530 = fdiv double %520, %.us-phi860
   %531 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.313, double noundef %530)
-  %532 = fdiv double %526, %.us-phi881
+  %532 = fdiv double %526, %.us-phi860
   %533 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.275, double noundef %532)
   br label %534
 
 534:                                              ; preds = %518, %529, %512, %517, %515
   %.b586 = load i1, ptr @doWrite, align 4
-  br i1 %.b586, label %.thread743, label %535
+  br i1 %.b586, label %.thread723, label %535
 
 535:                                              ; preds = %534
   %536 = load i32, ptr @sf, align 8, !tbaa !22
@@ -6660,8 +6660,8 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 542:                                              ; preds = %535
   %.not648 = icmp eq i32 %8, %3
   %.not649 = icmp eq i32 %9, %4
-  %or.cond690 = and i1 %.not648, %.not649
-  br i1 %or.cond690, label %545, label %543
+  %or.cond680 = and i1 %.not648, %.not649
+  br i1 %or.cond680, label %545, label %543
 
 543:                                              ; preds = %542
   %544 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 24, ptr noundef nonnull @.str.315, i32 noundef %8, i32 noundef %9) #23
@@ -6706,7 +6706,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %564 = load i32, ptr @pf, align 4, !tbaa !4
   %565 = call i32 @tj3SaveImage8(ptr noundef nonnull %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0516, i32 noundef 0, i32 noundef %.0517, i32 noundef %564) #23
   %566 = icmp eq i32 %565, -1
-  br i1 %566, label %567, label %.thread743
+  br i1 %566, label %567, label %.thread723
 
 567:                                              ; preds = %563
   %568 = call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -6727,7 +6727,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %576 = load i32, ptr @tjErrorLine, align 4
   %577 = icmp eq i32 %576, 358
   %or.cond83.not = select i1 %.b599, i1 %577, i1 false
-  br i1 %or.cond83.not, label %.thread743, label %578
+  br i1 %or.cond83.not, label %.thread723, label %578
 
 578:                                              ; preds = %575, %573
   %579 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %569, i64 noundef 200) #23
@@ -6735,12 +6735,12 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 358, ptr @tjErrorLine, align 4, !tbaa !4
   %580 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 358, ptr noundef nonnull %569)
-  br label %.thread743
+  br label %.thread723
 
 581:                                              ; preds = %567
   %582 = select i1 %572, ptr @.str.111, ptr @.str.112
   %583 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %582, i32 noundef 358, ptr noundef %569)
-  br label %.thread743
+  br label %.thread723
 
 584:                                              ; preds = %560
   %585 = icmp samesign ult i32 %561, 13
@@ -6750,7 +6750,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 587:                                              ; preds = %584
   %588 = call i32 @tj3SaveImage12(ptr noundef nonnull %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0516, i32 noundef 0, i32 noundef %.0517, i32 noundef %586) #23
   %589 = icmp eq i32 %588, -1
-  br i1 %589, label %590, label %.thread743
+  br i1 %589, label %590, label %.thread723
 
 590:                                              ; preds = %587
   %591 = call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -6771,7 +6771,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %599 = load i32, ptr @tjErrorLine, align 4
   %600 = icmp eq i32 %599, 362
   %or.cond87.not = select i1 %.b598, i1 %600, i1 false
-  br i1 %or.cond87.not, label %.thread743, label %601
+  br i1 %or.cond87.not, label %.thread723, label %601
 
 601:                                              ; preds = %598, %596
   %602 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %592, i64 noundef 200) #23
@@ -6779,17 +6779,17 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 362, ptr @tjErrorLine, align 4, !tbaa !4
   %603 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 362, ptr noundef nonnull %592)
-  br label %.thread743
+  br label %.thread723
 
 604:                                              ; preds = %590
   %605 = select i1 %595, ptr @.str.111, ptr @.str.112
   %606 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %605, i32 noundef 362, ptr noundef %592)
-  br label %.thread743
+  br label %.thread723
 
 607:                                              ; preds = %584
   %608 = call i32 @tj3SaveImage16(ptr noundef nonnull %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0516, i32 noundef 0, i32 noundef %.0517, i32 noundef %586) #23
   %609 = icmp eq i32 %608, -1
-  br i1 %609, label %610, label %.thread743
+  br i1 %609, label %610, label %.thread723
 
 610:                                              ; preds = %607
   %611 = call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #23
@@ -6810,7 +6810,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %619 = load i32, ptr @tjErrorLine, align 4
   %620 = icmp eq i32 %619, 366
   %or.cond91.not = select i1 %.b597, i1 %620, i1 false
-  br i1 %or.cond91.not, label %.thread743, label %621
+  br i1 %or.cond91.not, label %.thread723, label %621
 
 621:                                              ; preds = %618, %616
   %622 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %612, i64 noundef 200) #23
@@ -6818,35 +6818,35 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   store i1 true, ptr @tjErrorCode, align 4
   store i32 366, ptr @tjErrorLine, align 4, !tbaa !4
   %623 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, i32 noundef 366, ptr noundef nonnull %612)
-  br label %.thread743
+  br label %.thread723
 
 624:                                              ; preds = %610
   %625 = select i1 %615, ptr @.str.111, ptr @.str.112
   %626 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %625, i32 noundef 366, ptr noundef %612)
-  br label %.thread743
+  br label %.thread723
 
-.thread800:                                       ; preds = %44, %281, %256, %235, %215, %185, %165, %145, %125, %105, %85, %65
+.thread779:                                       ; preds = %44, %281, %256, %235, %215, %185, %165, %145, %125, %105, %85, %65
   tail call void @tj3Destroy(ptr noundef %42) #23
   br label %628
 
-.thread743:                                       ; preds = %.split864.us, %.split868.us, %.split.us, %.split856.us, %.split860.us, %311, %305, %534, %587, %607, %563, %575, %578, %581, %598, %601, %604, %618, %621, %624
-  %.0520 = phi ptr [ %.1521, %563 ], [ %.1521, %587 ], [ %.1521, %607 ], [ %.1521, %534 ], [ %.1521, %575 ], [ %.1521, %578 ], [ %.1521, %581 ], [ %.1521, %598 ], [ %.1521, %601 ], [ %.1521, %604 ], [ %.1521, %618 ], [ %.1521, %621 ], [ %.1521, %624 ], [ null, %305 ], [ null, %311 ], [ %.1521, %.split860.us ], [ %.1521, %.split856.us ], [ %.1521, %.split.us ], [ %.1521, %.split868.us ], [ %.1521, %.split864.us ]
-  %.0500 = phi i32 [ 0, %563 ], [ 0, %587 ], [ 0, %607 ], [ 0, %534 ], [ 0, %575 ], [ 0, %578 ], [ -1, %581 ], [ 0, %598 ], [ 0, %601 ], [ -1, %604 ], [ 0, %618 ], [ 0, %621 ], [ -1, %624 ], [ -1, %305 ], [ -1, %311 ], [ -1, %.split860.us ], [ -1, %.split856.us ], [ -1, %.split.us ], [ -1, %.split868.us ], [ -1, %.split864.us ]
+.thread723:                                       ; preds = %.split843.us, %.split847.us, %.split.us, %.split835.us, %.split839.us, %311, %305, %534, %587, %607, %563, %575, %578, %581, %598, %601, %604, %618, %621, %624
+  %.0520 = phi ptr [ %.1521, %563 ], [ %.1521, %587 ], [ %.1521, %607 ], [ %.1521, %534 ], [ %.1521, %575 ], [ %.1521, %578 ], [ %.1521, %581 ], [ %.1521, %598 ], [ %.1521, %601 ], [ %.1521, %604 ], [ %.1521, %618 ], [ %.1521, %621 ], [ %.1521, %624 ], [ null, %305 ], [ null, %311 ], [ %.1521, %.split839.us ], [ %.1521, %.split835.us ], [ %.1521, %.split.us ], [ %.1521, %.split847.us ], [ %.1521, %.split843.us ]
+  %.0500 = phi i32 [ 0, %563 ], [ 0, %587 ], [ 0, %607 ], [ 0, %534 ], [ 0, %575 ], [ 0, %578 ], [ -1, %581 ], [ 0, %598 ], [ 0, %601 ], [ -1, %604 ], [ 0, %618 ], [ 0, %621 ], [ -1, %624 ], [ -1, %305 ], [ -1, %311 ], [ -1, %.split839.us ], [ -1, %.split835.us ], [ -1, %.split.us ], [ -1, %.split847.us ], [ -1, %.split843.us ]
   call void @tj3Destroy(ptr noundef nonnull %42) #23
-  br i1 %.not808, label %627, label %628
+  br i1 %.not787, label %627, label %628
 
-627:                                              ; preds = %.thread743
+627:                                              ; preds = %.thread723
   call void @free(ptr noundef nonnull %.1) #23
   br label %628
 
-628:                                              ; preds = %.thread743, %627, %.thread800
-  %.0500807 = phi i32 [ -1, %.thread800 ], [ %.0500, %627 ], [ %.0500, %.thread743 ]
-  %.0520806 = phi ptr [ null, %.thread800 ], [ %.0520, %627 ], [ %.0520, %.thread743 ]
-  call void @free(ptr noundef %.0520806) #23
+628:                                              ; preds = %.thread723, %627, %.thread779
+  %.0500786 = phi i32 [ -1, %.thread779 ], [ %.0500, %627 ], [ %.0500, %.thread723 ]
+  %.0520785 = phi ptr [ null, %.thread779 ], [ %.0520, %627 ], [ %.0520, %.thread723 ]
+  call void @free(ptr noundef %.0520785) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  ret i32 %.0500807
+  ret i32 %.0500786
 }
 
 ; Function Attrs: nofree nounwind

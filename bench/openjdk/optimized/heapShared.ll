@@ -7088,43 +7088,43 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit43:    ; preds = %_ZN16SymbolHandleBa
   br label %93
 
 93:                                               ; preds = %76, %89, %84, %72, %60, %52
-  %switch = phi i1 [ false, %52 ], [ true, %89 ], [ false, %84 ], [ false, %72 ], [ false, %60 ], [ false, %76 ]
-  %94 = load ptr, ptr %43, align 8
-  %.not.i.i.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i.i.i, label %96, label %95
+  %94 = phi i1 [ false, %52 ], [ true, %89 ], [ false, %84 ], [ false, %72 ], [ false, %60 ], [ false, %76 ]
+  %95 = load ptr, ptr %43, align 8
+  %.not.i.i.i.i = icmp eq ptr %95, null
+  br i1 %.not.i.i.i.i, label %97, label %96
 
-95:                                               ; preds = %93
+96:                                               ; preds = %93
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %41, i64 noundef %49) #19
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %43) #19
-  br label %96
+  br label %97
 
-96:                                               ; preds = %95, %93
-  %97 = load ptr, ptr %44, align 8
-  %.not8.i.i.i.i = icmp eq ptr %97, %45
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %98
+97:                                               ; preds = %96, %93
+  %98 = load ptr, ptr %44, align 8
+  %.not8.i.i.i.i = icmp eq ptr %98, %45
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %99
 
-98:                                               ; preds = %96
+99:                                               ; preds = %97
   store ptr %43, ptr %42, align 8
   store ptr %45, ptr %44, align 8
   store ptr %47, ptr %46, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %96, %98
-  br i1 %.not.i42, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %99
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %97, %99
+  br i1 %.not.i42, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %100
 
-99:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
+100:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %33) #19
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %_ZN12ResourceMarkD2Ev.exit, %99
-  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit45, label %100
+_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %_ZN12ResourceMarkD2Ev.exit, %100
+  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit45, label %101
 
-100:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit
+101:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %23) #19
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit45
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit45:           ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit, %100
-  br i1 %switch, label %15, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit45._crit_edge
+_ZN16SymbolHandleBaseILb1EED2Ev.exit45:           ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit, %101
+  br i1 %94, label %15, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit45._crit_edge
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit45._crit_edge: ; preds = %15, %_ZN16SymbolHandleBaseILb1EED2Ev.exit45, %2
   ret void

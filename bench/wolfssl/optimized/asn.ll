@@ -1493,11 +1493,11 @@ GetASN_BitString.exit:                            ; preds = %160
 
 174:                                              ; preds = %124, %171
   %.not256 = icmp eq i32 %.240.i, 0
-  br i1 %.not256, label %GetASN_UTF8String.exit, label %.lr.ph48.i
+  br i1 %.not256, label %GetASN_UTF8String.exit, label %.lr.ph47.i
 
-.lr.ph48.i:                                       ; preds = %174, %._crit_edge.i191
-  %.02646.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i191 ], [ 0, %174 ]
-  %175 = add i32 %.02646.i, %.2.i
+.lr.ph47.i:                                       ; preds = %174, %._crit_edge.i191
+  %.02645.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i191 ], [ 0, %174 ]
+  %175 = add i32 %.02645.i, %.2.i
   %176 = zext i32 %175 to i64
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !3
@@ -1505,7 +1505,7 @@ GetASN_BitString.exit:                            ; preds = %160
   %180 = icmp slt i8 %178, 0
   br i1 %180, label %181, label %190
 
-181:                                              ; preds = %.lr.ph48.i
+181:                                              ; preds = %.lr.ph47.i
   %182 = and i32 %179, 224
   %183 = icmp eq i32 %182, 192
   br i1 %183, label %.lr.ph.preheader.i192, label %184
@@ -1520,30 +1520,30 @@ GetASN_BitString.exit:                            ; preds = %160
   %189 = icmp eq i32 %188, 240
   br i1 %189, label %.lr.ph.preheader.i192, label %GetLength_ex.exit.thread
 
-190:                                              ; preds = %.lr.ph48.i
-  %.236.i = add nsw i32 %.02646.i, 1
+190:                                              ; preds = %.lr.ph47.i
+  %.235.i = add nsw i32 %.02645.i, 1
   br label %._crit_edge.i191
 
 .lr.ph.preheader.i192:                            ; preds = %187, %184, %181
   %.025.ph.i = phi i32 [ 3, %187 ], [ 2, %184 ], [ 1, %181 ]
   %191 = add nuw nsw i32 %.025.ph.i, 1
-  %192 = add i32 %191, %.02646.i
+  %192 = add i32 %191, %.02645.i
   br label %.lr.ph.i193
 
 193:                                              ; preds = %197
-  %194 = add nsw i32 %.137.i, -1
-  %195 = icmp sgt i32 %.137.i, 1
+  %194 = add nsw i32 %.136.i, -1
+  %195 = icmp sgt i32 %.136.i, 1
   br i1 %195, label %.lr.ph.i193, label %._crit_edge.i191, !llvm.loop !36
 
 .lr.ph.i193:                                      ; preds = %193, %.lr.ph.preheader.i192
-  %.238.i.in = phi i32 [ %.238.i, %193 ], [ %.02646.i, %.lr.ph.preheader.i192 ]
-  %.137.i = phi i32 [ %194, %193 ], [ %.025.ph.i, %.lr.ph.preheader.i192 ]
-  %.238.i = add i32 %.238.i.in, 1
-  %196 = icmp eq i32 %.238.i, %.240.i
+  %.237.i.in = phi i32 [ %.237.i, %193 ], [ %.02645.i, %.lr.ph.preheader.i192 ]
+  %.136.i = phi i32 [ %194, %193 ], [ %.025.ph.i, %.lr.ph.preheader.i192 ]
+  %.237.i = add i32 %.237.i.in, 1
+  %196 = icmp eq i32 %.237.i, %.240.i
   br i1 %196, label %GetLength_ex.exit.thread, label %197
 
 197:                                              ; preds = %.lr.ph.i193
-  %198 = add i32 %.238.i, %.2.i
+  %198 = add i32 %.237.i, %.2.i
   %199 = zext i32 %198 to i64
   %200 = getelementptr inbounds nuw i8, ptr %4, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !3
@@ -1551,9 +1551,9 @@ GetASN_BitString.exit:                            ; preds = %160
   br i1 %.not.not.i, label %GetLength_ex.exit.thread, label %193
 
 ._crit_edge.i191:                                 ; preds = %193, %190
-  %.2.lcssa.i = phi i32 [ %.236.i, %190 ], [ %192, %193 ]
+  %.2.lcssa.i = phi i32 [ %.235.i, %190 ], [ %192, %193 ]
   %202 = icmp slt i32 %.2.lcssa.i, %.240.i
-  br i1 %202, label %.lr.ph48.i, label %GetASN_UTF8String.exit
+  br i1 %202, label %.lr.ph47.i, label %GetASN_UTF8String.exit
 
 203:                                              ; preds = %171
   %204 = icmp eq i8 %126, 6
@@ -10414,8 +10414,8 @@ DecodeAuthInfo.exit.i:                            ; preds = %584, %569
   %598 = load i8, ptr %477, align 1, !tbaa !3
   %.not15.i.i.i.i = icmp ne i8 %598, 48
   %599 = icmp eq i32 %475, 1
-  %or.cond31.i.i.i = or i1 %599, %.not15.i.i.i.i
-  br i1 %or.cond31.i.i.i, label %DecodeAltNames.exit.i.i, label %600
+  %or.cond30.i.i.i = or i1 %599, %.not15.i.i.i.i
+  br i1 %or.cond30.i.i.i, label %DecodeAltNames.exit.i.i, label %600
 
 600:                                              ; preds = %597
   %601 = getelementptr inbounds nuw i8, ptr %477, i64 1
@@ -10505,10 +10505,10 @@ GetASN_Sequence.exit.i.i.i:                       ; preds = %631
   br label %635
 
 635:                                              ; preds = %DecodeGeneralName.exit.i.i.i, %.lr.ph.i.i.i213
-  %.01734.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i213 ], [ %636, %DecodeGeneralName.exit.i.i.i ]
+  %.01733.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i213 ], [ %636, %DecodeGeneralName.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %636 = add nuw nsw i32 %.01734.i.i.i, 1
-  %exitcond.i.i.i = icmp eq i32 %.01734.i.i.i, 1024
+  %636 = add nuw nsw i32 %.01733.i.i.i, 1
+  %exitcond.i.i.i = icmp eq i32 %.01733.i.i.i, 1024
   br i1 %exitcond.i.i.i, label %.loopexit.sink.split.i.i.i, label %637
 
 637:                                              ; preds = %635
@@ -10549,7 +10549,7 @@ GetASN_Sequence.exit.i.i.i:                       ; preds = %631
   %652 = getelementptr inbounds nuw i8, ptr %647, i64 16
   store ptr %651, ptr %652, align 8, !tbaa !85
   %653 = icmp eq ptr %651, null
-  br i1 %653, label %DecodeGeneralName.exit.thread80.sink.split.i.i.i, label %654
+  br i1 %653, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %654
 
 654:                                              ; preds = %648
   %655 = getelementptr inbounds nuw i8, ptr %647, i64 8
@@ -10677,7 +10677,7 @@ GetASN_Sequence.exit.i.i.i.i:                     ; preds = %703
   %712 = getelementptr inbounds nuw i8, ptr %707, i64 16
   store ptr %711, ptr %712, align 8, !tbaa !85
   %713 = icmp eq ptr %711, null
-  br i1 %713, label %DecodeGeneralName.exit.thread80.sink.split.i.i.i, label %714
+  br i1 %713, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %714
 
 714:                                              ; preds = %708
   %715 = getelementptr inbounds nuw i8, ptr %707, i64 8
@@ -10708,7 +10708,7 @@ GetASN_Sequence.exit.i.i.i.i:                     ; preds = %703
   %728 = getelementptr inbounds nuw i8, ptr %723, i64 16
   store ptr %727, ptr %728, align 8, !tbaa !85
   %729 = icmp eq ptr %727, null
-  br i1 %729, label %DecodeGeneralName.exit.thread80.sink.split.i.i.i, label %730
+  br i1 %729, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %730
 
 730:                                              ; preds = %724
   %731 = getelementptr inbounds nuw i8, ptr %723, i64 8
@@ -10775,7 +10775,7 @@ GetASN_Sequence.exit.i.i.i.i:                     ; preds = %703
   %760 = getelementptr inbounds nuw i8, ptr %755, i64 16
   store ptr %759, ptr %760, align 8, !tbaa !85
   %761 = icmp eq ptr %759, null
-  br i1 %761, label %DecodeGeneralName.exit.thread80.sink.split.i.i.i, label %762
+  br i1 %761, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %762
 
 762:                                              ; preds = %756
   %763 = getelementptr inbounds nuw i8, ptr %755, i64 8
@@ -10796,9 +10796,9 @@ GetASN_Sequence.exit.i.i.i.i:                     ; preds = %703
   %770 = add i32 %642, %.pre.i.i.i
   br label %DecodeGeneralName.exit.i.i.i
 
-DecodeGeneralName.exit.thread80.sink.split.i.i.i: ; preds = %756, %724, %708, %648
-  %.lcssa95.sink.i.i.i = phi ptr [ %647, %648 ], [ %707, %708 ], [ %723, %724 ], [ %755, %756 ]
-  call void @wolfSSL_Free(ptr noundef nonnull %.lcssa95.sink.i.i.i) #23
+DecodeGeneralName.exit.thread79.sink.split.i.i.i: ; preds = %756, %724, %708, %648
+  %.lcssa94.sink.i.i.i = phi ptr [ %647, %648 ], [ %707, %708 ], [ %723, %724 ], [ %755, %756 ]
+  call void @wolfSSL_Free(ptr noundef nonnull %.lcssa94.sink.i.i.i) #23
   br label %.loopexit.sink.split.i.i.i
 
 DecodeGeneralName.exit.i.i.i:                     ; preds = %769, %762, %730, %714, %654
@@ -10808,8 +10808,8 @@ DecodeGeneralName.exit.i.i.i:                     ; preds = %769, %762, %730, %7
   %771 = icmp ult i32 %.066.ph.i.i.i.i, %475
   br i1 %771, label %635, label %DecodeAltNames.exit.i.i
 
-.loopexit.sink.split.i.i.i:                       ; preds = %752, %747, %._crit_edge.i.i.i.i, %720, %GetASN_Sequence.exit.i.i.i.i, %703, %._crit_edge.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i, %687, %681, %.thread.i.i.i.i.i, %664, %661, %644, %.preheader.i.i.i.i, %637, %635, %DecodeGeneralName.exit.thread80.sink.split.i.i.i
-  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread80.sink.split.i.i.i ], [ -161, %.preheader.i.i.i.i ], [ -125, %752 ], [ -125, %720 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -125, %644 ], [ -140, %661 ], [ -140, %664 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %703 ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %687 ], [ -140, %681 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -161, %._crit_edge.i.i.i.i ], [ -161, %747 ], [ %638, %637 ], [ -161, %635 ]
+.loopexit.sink.split.i.i.i:                       ; preds = %752, %747, %._crit_edge.i.i.i.i, %720, %GetASN_Sequence.exit.i.i.i.i, %703, %._crit_edge.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i, %687, %681, %.thread.i.i.i.i.i, %664, %661, %644, %.preheader.i.i.i.i, %637, %635, %DecodeGeneralName.exit.thread79.sink.split.i.i.i
+  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread79.sink.split.i.i.i ], [ -161, %.preheader.i.i.i.i ], [ -125, %752 ], [ -125, %720 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -125, %644 ], [ -140, %661 ], [ -140, %664 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %703 ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %687 ], [ -140, %681 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -161, %._crit_edge.i.i.i.i ], [ -161, %747 ], [ %638, %637 ], [ -161, %635 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %DecodeAltNames.exit.i.i
 
@@ -12801,7 +12801,7 @@ switch.early.test174:                             ; preds = %109
   br i1 %.not167, label %ConfirmSignature.exit.thread, label %113
 
 113:                                              ; preds = %110
-  switch i32 %2, label %290 [
+  switch i32 %2, label %293 [
     i32 5, label %114
     i32 3, label %114
     i32 1, label %114
@@ -12853,8 +12853,8 @@ switch.early.test174:                             ; preds = %109
     i32 0, label %149
     i32 1, label %158
     i32 2, label %180
-    i32 3, label %217
-    i32 4, label %249
+    i32 3, label %220
+    i32 4, label %252
   ]
 
 149:                                              ; preds = %147
@@ -12923,7 +12923,7 @@ RsaPssHashOidToSigOid.exit.i:                     ; preds = %174, %switch.lookup
   switch i32 %116, label %ConfirmSignature.exit.thread186 [
     i32 654, label %181
     i32 645, label %181
-    i32 518, label %202
+    i32 518, label %203
   ]
 
 181:                                              ; preds = %180, %180
@@ -12959,459 +12959,462 @@ RsaPssHashOidToSigOid.exit.i:                     ; preds = %174, %switch.lookup
   %198 = load ptr, ptr %183, align 8, !tbaa !3
   %199 = call i32 @wc_RsaPublicKeyDecode(ptr noundef nonnull %127, ptr noundef nonnull %6, ptr noundef %198, i32 noundef %128)
   %.not151.i = icmp eq i32 %199, 0
-  br i1 %.not151.i, label %.thread20.i, label %.thread.i
+  br i1 %.not151.i, label %200, label %.thread.i
 
 .thread.i:                                        ; preds = %197, %195, %190, %185, %181
   %.3.ph.i = phi i32 [ %199, %197 ], [ -132, %195 ], [ -125, %190 ], [ %189, %185 ], [ -125, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ConfirmSignature.exit.thread186
 
-.thread20.i:                                      ; preds = %197
-  %200 = load ptr, ptr %193, align 8, !tbaa !101
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %200, ptr nonnull align 1 %130, i64 %191, i1 false)
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store ptr null, ptr %201, align 8, !tbaa !171
+200:                                              ; preds = %197
+  %201 = load ptr, ptr %193, align 8, !tbaa !101
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %201, ptr nonnull align 1 %130, i64 %191, i1 false)
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  store ptr null, ptr %202, align 8, !tbaa !171
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %216
+  br label %219
 
-202:                                              ; preds = %180
+203:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !22
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  store i32 0, ptr %203, align 8, !tbaa !172
-  %204 = tail call ptr @wolfSSL_Malloc(i64 noundef 4208) #23
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  store ptr %204, ptr %205, align 8, !tbaa !3
-  %206 = icmp eq ptr %204, null
-  br i1 %206, label %.thread15.i, label %207
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  store i32 0, ptr %204, align 8, !tbaa !172
+  %205 = tail call ptr @wolfSSL_Malloc(i64 noundef 4208) #23
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  store ptr %205, ptr %206, align 8, !tbaa !3
+  %207 = icmp eq ptr %205, null
+  br i1 %207, label %.thread14.i, label %208
 
-207:                                              ; preds = %202
-  %208 = load ptr, ptr %11, align 8, !tbaa !82
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %210 = load i32, ptr %209, align 8, !tbaa !81
-  %211 = tail call i32 @wc_ecc_init_ex(ptr noundef nonnull %204, ptr noundef %208, i32 noundef %210) #23
-  %212 = icmp slt i32 %211, 0
-  br i1 %212, label %.thread15.i, label %213
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %11, align 8, !tbaa !82
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 976
+  %211 = load i32, ptr %210, align 8, !tbaa !81
+  %212 = tail call i32 @wc_ecc_init_ex(ptr noundef nonnull %205, ptr noundef %209, i32 noundef %211) #23
+  %213 = icmp slt i32 %212, 0
+  br i1 %213, label %.thread14.i, label %214
 
-.thread15.i:                                      ; preds = %207, %202
-  %.5.ph.i = phi i32 [ %211, %207 ], [ -125, %202 ]
+214:                                              ; preds = %208
+  %215 = load ptr, ptr %206, align 8, !tbaa !3
+  %216 = call i32 @wc_EccPublicKeyDecode(ptr noundef nonnull %127, ptr noundef nonnull %7, ptr noundef %215, i32 noundef %128)
+  %217 = icmp slt i32 %216, 0
+  br i1 %217, label %.thread14.i, label %218
+
+.thread14.i:                                      ; preds = %214, %208, %203
+  %.5.ph.i = phi i32 [ %212, %208 ], [ -125, %203 ], [ %216, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ConfirmSignature.exit.thread186
 
-213:                                              ; preds = %207
-  %214 = load ptr, ptr %205, align 8, !tbaa !3
-  %215 = call i32 @wc_EccPublicKeyDecode(ptr noundef nonnull %127, ptr noundef nonnull %7, ptr noundef %214, i32 noundef %128)
+218:                                              ; preds = %214
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not152.i = icmp eq i32 %215, 0
-  br i1 %.not152.i, label %216, label %ConfirmSignature.exit.thread186
+  br label %219
 
-216:                                              ; preds = %213, %.thread20.i
+219:                                              ; preds = %218, %200
   store i32 3, ptr %12, align 4, !tbaa !103
-  br label %217
+  br label %220
 
-217:                                              ; preds = %216, %147
-  %.0125.i = phi i32 [ 0, %216 ], [ -155, %147 ]
-  switch i32 %116, label %246 [
-    i32 645, label %218
-    i32 654, label %218
-    i32 518, label %237
+220:                                              ; preds = %219, %147
+  %.0125.i = phi i32 [ 0, %219 ], [ -155, %147 ]
+  switch i32 %116, label %249 [
+    i32 645, label %221
+    i32 654, label %221
+    i32 518, label %240
   ]
 
-218:                                              ; preds = %217, %217
-  %219 = icmp eq i32 %134, 654
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %221 = load ptr, ptr %220, align 8, !tbaa !101
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  br i1 %219, label %223, label %233
+221:                                              ; preds = %220, %220
+  %222 = icmp eq i32 %134, 654
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %224 = load ptr, ptr %223, align 8, !tbaa !101
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  br i1 %222, label %226, label %236
 
-223:                                              ; preds = %218
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 996
-  %225 = load i32, ptr %224, align 4, !tbaa !168
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  %227 = load i32, ptr %226, align 8, !tbaa !169
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 1004
-  %229 = load i32, ptr %228, align 4, !tbaa !170
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %231 = load ptr, ptr %230, align 8, !tbaa !3
-  %232 = call i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef %221, i32 noundef %132, ptr noundef nonnull %222, i32 noundef %225, i32 noundef %227, i32 noundef %229, ptr noundef %231) #23
-  br label %246
-
-233:                                              ; preds = %218
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %235 = load ptr, ptr %234, align 8, !tbaa !3
-  %236 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %221, i32 noundef %132, ptr noundef nonnull %222, ptr noundef %235) #23
-  br label %246
-
-237:                                              ; preds = %217
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %239 = load ptr, ptr %238, align 8, !tbaa !100
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 988
-  %241 = load i32, ptr %240, align 4, !tbaa !173
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %244 = load ptr, ptr %243, align 8, !tbaa !3
-  %245 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %130, i32 noundef %132, ptr noundef %239, i32 noundef %241, ptr noundef nonnull %242, ptr noundef %244) #23
-  br label %246
-
-246:                                              ; preds = %237, %233, %223, %217
-  %.6.i = phi i32 [ %.0125.i, %217 ], [ %232, %223 ], [ %236, %233 ], [ %245, %237 ]
-  %247 = icmp slt i32 %.6.i, 0
-  br i1 %247, label %ConfirmSignature.exit.thread186, label %248
-
-248:                                              ; preds = %246
-  store i32 4, ptr %12, align 4, !tbaa !103
+226:                                              ; preds = %221
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 996
+  %228 = load i32, ptr %227, align 4, !tbaa !168
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %230 = load i32, ptr %229, align 8, !tbaa !169
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 1004
+  %232 = load i32, ptr %231, align 4, !tbaa !170
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %234 = load ptr, ptr %233, align 8, !tbaa !3
+  %235 = call i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef %224, i32 noundef %132, ptr noundef nonnull %225, i32 noundef %228, i32 noundef %230, i32 noundef %232, ptr noundef %234) #23
   br label %249
 
-249:                                              ; preds = %248, %147
-  %.1.i = phi i32 [ %.6.i, %248 ], [ -155, %147 ]
+236:                                              ; preds = %221
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %238 = load ptr, ptr %237, align 8, !tbaa !3
+  %239 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %224, i32 noundef %132, ptr noundef nonnull %225, ptr noundef %238) #23
+  br label %249
+
+240:                                              ; preds = %220
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %242 = load ptr, ptr %241, align 8, !tbaa !100
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 988
+  %244 = load i32, ptr %243, align 4, !tbaa !173
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %247 = load ptr, ptr %246, align 8, !tbaa !3
+  %248 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %130, i32 noundef %132, ptr noundef %242, i32 noundef %244, ptr noundef nonnull %245, ptr noundef %247) #23
+  br label %249
+
+249:                                              ; preds = %240, %236, %226, %220
+  %.6.i = phi i32 [ %.0125.i, %220 ], [ %235, %226 ], [ %239, %236 ], [ %248, %240 ]
+  %250 = icmp slt i32 %.6.i, 0
+  br i1 %250, label %ConfirmSignature.exit.thread186, label %251
+
+251:                                              ; preds = %249
+  store i32 4, ptr %12, align 4, !tbaa !103
+  br label %252
+
+252:                                              ; preds = %251, %147
+  %.1.i = phi i32 [ %.6.i, %251 ], [ -155, %147 ]
   switch i32 %116, label %ConfirmSignature.exit [
-    i32 645, label %250
-    i32 654, label %250
-    i32 518, label %286
+    i32 645, label %253
+    i32 654, label %253
+    i32 518, label %289
   ]
 
-250:                                              ; preds = %249, %249
-  %251 = icmp eq i32 %134, 654
-  br i1 %251, label %252, label %269
+253:                                              ; preds = %252, %252
+  %254 = icmp eq i32 %134, 654
+  br i1 %254, label %255, label %272
 
-252:                                              ; preds = %250
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %254 = load ptr, ptr %253, align 8, !tbaa !100
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 988
-  %256 = load i32, ptr %255, align 4, !tbaa !173
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %258 = load ptr, ptr %257, align 8, !tbaa !171
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 996
-  %260 = load i32, ptr %259, align 4, !tbaa !168
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 1004
-  %262 = load i32, ptr %261, align 4, !tbaa !170
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %264 = load ptr, ptr %263, align 8, !tbaa !3
-  %265 = call i32 @wc_RsaEncryptSize(ptr noundef %264) #23
-  %266 = shl nsw i32 %265, 3
-  %267 = load ptr, ptr %11, align 8, !tbaa !82
-  %268 = call i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef %254, i32 noundef %256, ptr noundef %258, i32 noundef %.1.i, i32 noundef %260, i32 noundef %262, i32 noundef %266, ptr noundef %267) #23
+255:                                              ; preds = %253
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %257 = load ptr, ptr %256, align 8, !tbaa !100
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 988
+  %259 = load i32, ptr %258, align 4, !tbaa !173
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %261 = load ptr, ptr %260, align 8, !tbaa !171
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 996
+  %263 = load i32, ptr %262, align 4, !tbaa !168
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 1004
+  %265 = load i32, ptr %264, align 4, !tbaa !170
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %267 = load ptr, ptr %266, align 8, !tbaa !3
+  %268 = call i32 @wc_RsaEncryptSize(ptr noundef %267) #23
+  %269 = shl nsw i32 %268, 3
+  %270 = load ptr, ptr %11, align 8, !tbaa !82
+  %271 = call i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef %257, i32 noundef %259, ptr noundef %261, i32 noundef %.1.i, i32 noundef %263, i32 noundef %265, i32 noundef %269, ptr noundef %270) #23
   br label %ConfirmSignature.exit
 
-269:                                              ; preds = %250
+272:                                              ; preds = %253
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %271 = load ptr, ptr %270, align 8, !tbaa !100
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 988
-  %273 = load i32, ptr %272, align 4, !tbaa !173
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %275 = load i32, ptr %274, align 8, !tbaa !174
-  %276 = call i32 @wc_EncodeSignature(ptr noundef nonnull %8, ptr noundef %271, i32 noundef %273, i32 noundef %275)
-  %277 = icmp eq i32 %276, %.1.i
-  br i1 %277, label %278, label %284
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %274 = load ptr, ptr %273, align 8, !tbaa !100
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 988
+  %276 = load i32, ptr %275, align 4, !tbaa !173
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %278 = load i32, ptr %277, align 8, !tbaa !174
+  %279 = call i32 @wc_EncodeSignature(ptr noundef nonnull %8, ptr noundef %274, i32 noundef %276, i32 noundef %278)
+  %280 = icmp eq i32 %279, %.1.i
+  br i1 %280, label %281, label %287
 
-278:                                              ; preds = %269
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %280 = load ptr, ptr %279, align 8, !tbaa !171
-  %.not153.i = icmp eq ptr %280, null
-  br i1 %.not153.i, label %284, label %281
+281:                                              ; preds = %272
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %283 = load ptr, ptr %282, align 8, !tbaa !171
+  %.not153.i = icmp eq ptr %283, null
+  br i1 %.not153.i, label %287, label %284
 
-281:                                              ; preds = %278
-  %282 = sext i32 %.1.i to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull %280, ptr nonnull %8, i64 %282)
-  %283 = icmp eq i32 %bcmp.i, 0
-  br i1 %283, label %285, label %284
+284:                                              ; preds = %281
+  %285 = sext i32 %.1.i to i64
+  %bcmp.i = call i32 @bcmp(ptr nonnull %283, ptr nonnull %8, i64 %285)
+  %286 = icmp eq i32 %bcmp.i, 0
+  br i1 %286, label %288, label %287
 
-284:                                              ; preds = %281, %278, %269
-  br label %285
+287:                                              ; preds = %284, %281, %272
+  br label %288
 
-285:                                              ; preds = %284, %281
-  %.7.i = phi i32 [ -155, %284 ], [ 0, %281 ]
+288:                                              ; preds = %287, %284
+  %.7.i = phi i32 [ -155, %287 ], [ 0, %284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ConfirmSignature.exit
 
-286:                                              ; preds = %249
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %288 = load i32, ptr %287, align 8, !tbaa !172
-  %289 = icmp eq i32 %288, 1
-  br i1 %289, label %ConfirmSignature.exit.thread189, label %ConfirmSignature.exit.thread186
+289:                                              ; preds = %252
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %291 = load i32, ptr %290, align 8, !tbaa !172
+  %292 = icmp eq i32 %291, 1
+  br i1 %292, label %ConfirmSignature.exit.thread189, label %ConfirmSignature.exit.thread186
 
-ConfirmSignature.exit.thread189:                  ; preds = %286
+ConfirmSignature.exit.thread189:                  ; preds = %289
   call void @FreeSignatureCtx(ptr noundef nonnull %11)
-  br label %290
+  br label %293
 
-ConfirmSignature.exit.thread186:                  ; preds = %165, %147, %213, %174, %149, %246, %286, %.thread.i, %.thread15.i, %switch.lookup, %160, %180
-  %.8.i.ph = phi i32 [ -148, %180 ], [ %164, %160 ], [ %173, %switch.lookup ], [ -140, %165 ], [ %.5.ph.i, %.thread15.i ], [ %.3.ph.i, %.thread.i ], [ -155, %286 ], [ -155, %246 ], [ -125, %149 ], [ %179, %174 ], [ %215, %213 ], [ -155, %147 ]
+ConfirmSignature.exit.thread186:                  ; preds = %165, %147, %174, %149, %249, %289, %.thread.i, %.thread14.i, %180, %switch.lookup, %160
+  %.8.i.ph = phi i32 [ %164, %160 ], [ %173, %switch.lookup ], [ -140, %165 ], [ -148, %180 ], [ %.5.ph.i, %.thread14.i ], [ %.3.ph.i, %.thread.i ], [ -155, %289 ], [ -155, %249 ], [ -125, %149 ], [ %179, %174 ], [ -155, %147 ]
   call void @FreeSignatureCtx(ptr noundef nonnull %11)
   br label %ConfirmSignature.exit.thread
 
-ConfirmSignature.exit:                            ; preds = %249, %252, %285
-  %.8.i = phi i32 [ %.1.i, %249 ], [ %268, %252 ], [ %.7.i, %285 ]
+ConfirmSignature.exit:                            ; preds = %252, %255, %288
+  %.8.i = phi i32 [ %.1.i, %252 ], [ %271, %255 ], [ %.7.i, %288 ]
   call void @FreeSignatureCtx(ptr noundef nonnull %11)
   %.not168 = icmp eq i32 %.8.i, 0
-  br i1 %.not168, label %290, label %ConfirmSignature.exit.thread
+  br i1 %.not168, label %293, label %ConfirmSignature.exit.thread
 
-290:                                              ; preds = %ConfirmSignature.exit.thread189, %113, %ConfirmSignature.exit
+293:                                              ; preds = %ConfirmSignature.exit.thread189, %113, %ConfirmSignature.exit
   %.5 = phi i32 [ 0, %ConfirmSignature.exit ], [ %.0136, %113 ], [ 0, %ConfirmSignature.exit.thread189 ]
   switch i32 %2, label %ConfirmNameConstraints.exit [
-    i32 5, label %291
-    i32 4, label %291
-    i32 3, label %291
-    i32 1, label %291
+    i32 5, label %294
+    i32 4, label %294
+    i32 3, label %294
+    i32 1, label %294
   ]
 
-291:                                              ; preds = %290, %290, %290, %290
-  %292 = load ptr, ptr %111, align 8, !tbaa !162
-  %293 = icmp eq ptr %292, null
-  br i1 %293, label %ConfirmSignature.exit.thread, label %294
+294:                                              ; preds = %293, %293, %293, %293
+  %295 = load ptr, ptr %111, align 8, !tbaa !162
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %ConfirmSignature.exit.thread, label %297
 
-294:                                              ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %292, i64 48
-  %296 = load ptr, ptr %295, align 8, !tbaa !175
-  %297 = icmp eq ptr %296, null
-  br i1 %297, label %298, label %302
+297:                                              ; preds = %294
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 48
+  %299 = load ptr, ptr %298, align 8, !tbaa !175
+  %300 = icmp eq ptr %299, null
+  br i1 %300, label %301, label %305
 
-298:                                              ; preds = %294
-  %299 = getelementptr inbounds nuw i8, ptr %292, i64 40
-  %300 = load ptr, ptr %299, align 8, !tbaa !176
-  %301 = icmp eq ptr %300, null
-  br i1 %301, label %ConfirmNameConstraints.exit, label %302
+301:                                              ; preds = %297
+  %302 = getelementptr inbounds nuw i8, ptr %295, i64 40
+  %303 = load ptr, ptr %302, align 8, !tbaa !176
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %ConfirmNameConstraints.exit, label %305
 
-302:                                              ; preds = %298, %294
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %310 = getelementptr inbounds nuw i8, ptr %292, i64 40
-  br label %311
+305:                                              ; preds = %301, %297
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %313 = getelementptr inbounds nuw i8, ptr %295, i64 40
+  br label %314
 
-311:                                              ; preds = %.critedge.i, %302
-  %indvars.iv.i = phi i64 [ 0, %302 ], [ %indvars.iv.next.i, %.critedge.i ]
-  %312 = getelementptr inbounds nuw i8, ptr @__const.ConfirmNameConstraints.nameTypes, i64 %indvars.iv.i
-  %313 = load i8, ptr %312, align 1, !tbaa !3
-  switch i8 %313, label %ConfirmSignature.exit.thread [
-    i8 2, label %314
-    i8 1, label %316
-    i8 4, label %321
+314:                                              ; preds = %.critedge.i, %305
+  %indvars.iv.i = phi i64 [ 0, %305 ], [ %indvars.iv.next.i, %.critedge.i ]
+  %315 = getelementptr inbounds nuw i8, ptr @__const.ConfirmNameConstraints.nameTypes, i64 %indvars.iv.i
+  %316 = load i8, ptr %315, align 1, !tbaa !3
+  switch i8 %316, label %ConfirmSignature.exit.thread [
+    i8 2, label %317
+    i8 1, label %319
+    i8 4, label %324
   ]
 
-314:                                              ; preds = %311
-  %315 = load ptr, ptr %309, align 8, !tbaa !95
-  br label %326
+317:                                              ; preds = %314
+  %318 = load ptr, ptr %312, align 8, !tbaa !95
+  br label %329
 
-316:                                              ; preds = %311
-  %317 = load ptr, ptr %306, align 8, !tbaa !96
-  %318 = load ptr, ptr %307, align 8, !tbaa !113
-  %.not40.i = icmp eq ptr %318, null
-  br i1 %.not40.i, label %326, label %319
+319:                                              ; preds = %314
+  %320 = load ptr, ptr %309, align 8, !tbaa !96
+  %321 = load ptr, ptr %310, align 8, !tbaa !113
+  %.not40.i = icmp eq ptr %321, null
+  br i1 %.not40.i, label %329, label %322
 
-319:                                              ; preds = %316
-  %320 = load i32, ptr %308, align 8, !tbaa !114
-  br label %326
+322:                                              ; preds = %319
+  %323 = load i32, ptr %311, align 8, !tbaa !114
+  br label %329
 
-321:                                              ; preds = %311
-  %322 = load ptr, ptr %303, align 8, !tbaa !97
-  %323 = load ptr, ptr %304, align 8, !tbaa !107
-  %.not.i175 = icmp eq ptr %323, null
-  br i1 %.not.i175, label %326, label %324
+324:                                              ; preds = %314
+  %325 = load ptr, ptr %306, align 8, !tbaa !97
+  %326 = load ptr, ptr %307, align 8, !tbaa !107
+  %.not.i175 = icmp eq ptr %326, null
+  br i1 %.not.i175, label %329, label %327
 
-324:                                              ; preds = %321
-  %325 = load i32, ptr %305, align 8, !tbaa !108
-  br label %326
+327:                                              ; preds = %324
+  %328 = load i32, ptr %308, align 8, !tbaa !108
+  br label %329
 
-326:                                              ; preds = %324, %321, %319, %316, %314
-  %.sroa.8.1.i = phi i32 [ 0, %314 ], [ 0, %316 ], [ %320, %319 ], [ 0, %321 ], [ %325, %324 ]
-  %.sroa.13.1.i = phi ptr [ null, %314 ], [ null, %316 ], [ %318, %319 ], [ null, %321 ], [ %323, %324 ]
-  %.0.i176 = phi ptr [ %315, %314 ], [ %317, %316 ], [ %317, %319 ], [ %322, %321 ], [ %322, %324 ]
+329:                                              ; preds = %327, %324, %322, %319, %317
+  %.sroa.8.1.i = phi i32 [ 0, %317 ], [ 0, %319 ], [ %323, %322 ], [ 0, %324 ], [ %328, %327 ]
+  %.sroa.13.1.i = phi ptr [ null, %317 ], [ null, %319 ], [ %321, %322 ], [ null, %324 ], [ %326, %327 ]
+  %.0.i176 = phi ptr [ %318, %317 ], [ %320, %319 ], [ %320, %322 ], [ %325, %324 ], [ %325, %327 ]
   %.not4194.i = icmp eq ptr %.0.i176, null
   br i1 %.not4194.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %326
-  %327 = zext nneg i8 %313 to i32
-  br label %328
-
-328:                                              ; preds = %PermittedListOk.exit.thread.i, %.lr.ph.i
-  %.195.i = phi ptr [ %.0.i176, %.lr.ph.i ], [ %363, %PermittedListOk.exit.thread.i ]
-  %329 = getelementptr inbounds nuw i8, ptr %.195.i, i64 16
-  br i1 %297, label %.loopexit.i, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %328
-  %330 = getelementptr inbounds nuw i8, ptr %.195.i, i64 12
+.lr.ph.i:                                         ; preds = %329
+  %330 = zext nneg i8 %316 to i32
   br label %331
 
-331:                                              ; preds = %344, %.lr.ph.i.i
-  %.019.i.i = phi ptr [ %296, %.lr.ph.i.i ], [ %345, %344 ]
-  %332 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 20
-  %333 = load i8, ptr %332, align 4, !tbaa !177
-  %334 = icmp eq i8 %333, %313
-  br i1 %334, label %335, label %344
+331:                                              ; preds = %PermittedListOk.exit.thread.i, %.lr.ph.i
+  %.195.i = phi ptr [ %.0.i176, %.lr.ph.i ], [ %366, %PermittedListOk.exit.thread.i ]
+  %332 = getelementptr inbounds nuw i8, ptr %.195.i, i64 16
+  br i1 %300, label %.loopexit.i, label %.lr.ph.i.i
 
-335:                                              ; preds = %331
-  %336 = load i32, ptr %330, align 4, !tbaa !88
-  %337 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
-  %338 = load i32, ptr %337, align 8, !tbaa !178
-  %.not16.i.i = icmp slt i32 %336, %338
-  br i1 %.not16.i.i, label %344, label %339
+.lr.ph.i.i:                                       ; preds = %331
+  %333 = getelementptr inbounds nuw i8, ptr %.195.i, i64 12
+  br label %334
 
-339:                                              ; preds = %335
-  %340 = load ptr, ptr %329, align 8, !tbaa !85
-  %341 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
-  %342 = load ptr, ptr %341, align 8, !tbaa !91
-  %343 = call fastcc i32 @MatchBaseName(i32 noundef %327, ptr noundef %340, i32 noundef %336, ptr noundef %342, i32 noundef %338)
-  %.not17.i.i = icmp eq i32 %343, 0
-  br i1 %.not17.i.i, label %344, label %ConfirmSignature.exit.thread
+334:                                              ; preds = %347, %.lr.ph.i.i
+  %.019.i.i = phi ptr [ %299, %.lr.ph.i.i ], [ %348, %347 ]
+  %335 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 20
+  %336 = load i8, ptr %335, align 4, !tbaa !177
+  %337 = icmp eq i8 %336, %316
+  br i1 %337, label %338, label %347
 
-344:                                              ; preds = %339, %335, %331
-  %345 = load ptr, ptr %.019.i.i, align 8, !tbaa !89
-  %.not.i.i = icmp eq ptr %345, null
-  br i1 %.not.i.i, label %.loopexit.i, label %331, !llvm.loop !179
+338:                                              ; preds = %334
+  %339 = load i32, ptr %333, align 4, !tbaa !88
+  %340 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %341 = load i32, ptr %340, align 8, !tbaa !178
+  %.not16.i.i = icmp slt i32 %339, %341
+  br i1 %.not16.i.i, label %347, label %342
 
-.loopexit.i:                                      ; preds = %344, %328
-  %346 = load ptr, ptr %310, align 8, !tbaa !176
-  %.not23.not.i.i = icmp eq ptr %346, null
+342:                                              ; preds = %338
+  %343 = load ptr, ptr %332, align 8, !tbaa !85
+  %344 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %345 = load ptr, ptr %344, align 8, !tbaa !91
+  %346 = call fastcc i32 @MatchBaseName(i32 noundef %330, ptr noundef %343, i32 noundef %339, ptr noundef %345, i32 noundef %341)
+  %.not17.i.i = icmp eq i32 %346, 0
+  br i1 %.not17.i.i, label %347, label %ConfirmSignature.exit.thread
+
+347:                                              ; preds = %342, %338, %334
+  %348 = load ptr, ptr %.019.i.i, align 8, !tbaa !89
+  %.not.i.i = icmp eq ptr %348, null
+  br i1 %.not.i.i, label %.loopexit.i, label %334, !llvm.loop !179
+
+.loopexit.i:                                      ; preds = %347, %331
+  %349 = load ptr, ptr %313, align 8, !tbaa !176
+  %.not23.not.i.i = icmp eq ptr %349, null
   br i1 %.not23.not.i.i, label %PermittedListOk.exit.thread.i, label %.lr.ph.i46.i
 
 .lr.ph.i46.i:                                     ; preds = %.loopexit.i
-  %347 = getelementptr inbounds nuw i8, ptr %.195.i, i64 12
-  br label %348
+  %350 = getelementptr inbounds nuw i8, ptr %.195.i, i64 12
+  br label %351
 
-348:                                              ; preds = %361, %.lr.ph.i46.i
-  %.01525.i.i = phi i32 [ 0, %.lr.ph.i46.i ], [ %.2.i.i, %361 ]
-  %.01724.i.i = phi ptr [ %346, %.lr.ph.i46.i ], [ %362, %361 ]
-  %349 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 20
-  %350 = load i8, ptr %349, align 4, !tbaa !177
-  %351 = icmp eq i8 %350, %313
-  br i1 %351, label %352, label %361
+351:                                              ; preds = %364, %.lr.ph.i46.i
+  %.01525.i.i = phi i32 [ 0, %.lr.ph.i46.i ], [ %.2.i.i, %364 ]
+  %.01724.i.i = phi ptr [ %349, %.lr.ph.i46.i ], [ %365, %364 ]
+  %352 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 20
+  %353 = load i8, ptr %352, align 4, !tbaa !177
+  %354 = icmp eq i8 %353, %316
+  br i1 %354, label %355, label %364
 
-352:                                              ; preds = %348
-  %353 = load i32, ptr %347, align 4, !tbaa !88
-  %354 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 16
-  %355 = load i32, ptr %354, align 8, !tbaa !178
-  %.not21.i.i = icmp slt i32 %353, %355
-  br i1 %.not21.i.i, label %361, label %356
+355:                                              ; preds = %351
+  %356 = load i32, ptr %350, align 4, !tbaa !88
+  %357 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 16
+  %358 = load i32, ptr %357, align 8, !tbaa !178
+  %.not21.i.i = icmp slt i32 %356, %358
+  br i1 %.not21.i.i, label %364, label %359
 
-356:                                              ; preds = %352
-  %357 = load ptr, ptr %329, align 8, !tbaa !85
-  %358 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 8
-  %359 = load ptr, ptr %358, align 8, !tbaa !91
-  %360 = call fastcc i32 @MatchBaseName(i32 noundef %327, ptr noundef %357, i32 noundef %353, ptr noundef %359, i32 noundef %355)
-  %.not22.i.i = icmp eq i32 %360, 0
-  br i1 %.not22.i.i, label %361, label %PermittedListOk.exit.thread.i
+359:                                              ; preds = %355
+  %360 = load ptr, ptr %332, align 8, !tbaa !85
+  %361 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 8
+  %362 = load ptr, ptr %361, align 8, !tbaa !91
+  %363 = call fastcc i32 @MatchBaseName(i32 noundef %330, ptr noundef %360, i32 noundef %356, ptr noundef %362, i32 noundef %358)
+  %.not22.i.i = icmp eq i32 %363, 0
+  br i1 %.not22.i.i, label %364, label %PermittedListOk.exit.thread.i
 
-361:                                              ; preds = %356, %352, %348
-  %.2.i.i = phi i32 [ 1, %356 ], [ 1, %352 ], [ %.01525.i.i, %348 ]
-  %362 = load ptr, ptr %.01724.i.i, align 8, !tbaa !89
-  %.not.not.i.i = icmp eq ptr %362, null
-  br i1 %.not.not.i.i, label %PermittedListOk.exit.i, label %348, !llvm.loop !180
+364:                                              ; preds = %359, %355, %351
+  %.2.i.i = phi i32 [ 1, %359 ], [ 1, %355 ], [ %.01525.i.i, %351 ]
+  %365 = load ptr, ptr %.01724.i.i, align 8, !tbaa !89
+  %.not.not.i.i = icmp eq ptr %365, null
+  br i1 %.not.not.i.i, label %PermittedListOk.exit.i, label %351, !llvm.loop !180
 
-PermittedListOk.exit.i:                           ; preds = %361
+PermittedListOk.exit.i:                           ; preds = %364
   %.not45.not.not.i = icmp eq i32 %.2.i.i, 0
   br i1 %.not45.not.not.i, label %PermittedListOk.exit.thread.i, label %ConfirmSignature.exit.thread
 
-PermittedListOk.exit.thread.i:                    ; preds = %356, %PermittedListOk.exit.i, %.loopexit.i
-  %363 = load ptr, ptr %.195.i, align 8, !tbaa !83
-  %.not41.i = icmp eq ptr %363, null
-  br i1 %.not41.i, label %._crit_edge.i, label %328, !llvm.loop !181
+PermittedListOk.exit.thread.i:                    ; preds = %359, %PermittedListOk.exit.i, %.loopexit.i
+  %366 = load ptr, ptr %.195.i, align 8, !tbaa !83
+  %.not41.i = icmp eq ptr %366, null
+  br i1 %.not41.i, label %._crit_edge.i, label %331, !llvm.loop !181
 
-._crit_edge.i:                                    ; preds = %PermittedListOk.exit.thread.i, %326
-  %364 = icmp sgt i32 %.sroa.8.1.i, 0
-  %365 = icmp ne ptr %.sroa.13.1.i, null
-  %or.cond4.i = and i1 %364, %365
-  br i1 %or.cond4.i, label %366, label %.critedge.i
+._crit_edge.i:                                    ; preds = %PermittedListOk.exit.thread.i, %329
+  %367 = icmp sgt i32 %.sroa.8.1.i, 0
+  %368 = icmp ne ptr %.sroa.13.1.i, null
+  %or.cond4.i = and i1 %367, %368
+  br i1 %or.cond4.i, label %369, label %.critedge.i
 
-366:                                              ; preds = %._crit_edge.i
-  br i1 %297, label %.loopexit91.i, label %.lr.ph.i48.i
+369:                                              ; preds = %._crit_edge.i
+  br i1 %300, label %.loopexit91.i, label %.lr.ph.i48.i
 
-.lr.ph.i48.i:                                     ; preds = %366
-  %367 = zext i8 %313 to i32
-  br label %368
+.lr.ph.i48.i:                                     ; preds = %369
+  %370 = zext i8 %316 to i32
+  br label %371
 
-368:                                              ; preds = %379, %.lr.ph.i48.i
-  %.019.i49.i = phi ptr [ %296, %.lr.ph.i48.i ], [ %380, %379 ]
-  %369 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 20
-  %370 = load i8, ptr %369, align 4, !tbaa !177
-  %371 = icmp eq i8 %370, %313
-  br i1 %371, label %372, label %379
+371:                                              ; preds = %382, %.lr.ph.i48.i
+  %.019.i49.i = phi ptr [ %299, %.lr.ph.i48.i ], [ %383, %382 ]
+  %372 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 20
+  %373 = load i8, ptr %372, align 4, !tbaa !177
+  %374 = icmp eq i8 %373, %316
+  br i1 %374, label %375, label %382
 
-372:                                              ; preds = %368
-  %373 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 16
-  %374 = load i32, ptr %373, align 8, !tbaa !178
-  %.not16.i52.i = icmp slt i32 %.sroa.8.1.i, %374
-  br i1 %.not16.i52.i, label %379, label %375
+375:                                              ; preds = %371
+  %376 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 16
+  %377 = load i32, ptr %376, align 8, !tbaa !178
+  %.not16.i52.i = icmp slt i32 %.sroa.8.1.i, %377
+  br i1 %.not16.i52.i, label %382, label %378
 
-375:                                              ; preds = %372
-  %376 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 8
-  %377 = load ptr, ptr %376, align 8, !tbaa !91
-  %378 = call fastcc i32 @MatchBaseName(i32 noundef %367, ptr noundef nonnull %.sroa.13.1.i, i32 noundef %.sroa.8.1.i, ptr noundef %377, i32 noundef %374)
-  %.not17.i53.i = icmp eq i32 %378, 0
-  br i1 %.not17.i53.i, label %379, label %ConfirmSignature.exit.thread
+378:                                              ; preds = %375
+  %379 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 8
+  %380 = load ptr, ptr %379, align 8, !tbaa !91
+  %381 = call fastcc i32 @MatchBaseName(i32 noundef %370, ptr noundef nonnull %.sroa.13.1.i, i32 noundef %.sroa.8.1.i, ptr noundef %380, i32 noundef %377)
+  %.not17.i53.i = icmp eq i32 %381, 0
+  br i1 %.not17.i53.i, label %382, label %ConfirmSignature.exit.thread
 
-379:                                              ; preds = %375, %372, %368
-  %380 = load ptr, ptr %.019.i49.i, align 8, !tbaa !89
-  %.not.i50.i = icmp eq ptr %380, null
-  br i1 %.not.i50.i, label %.loopexit91.i, label %368, !llvm.loop !179
+382:                                              ; preds = %378, %375, %371
+  %383 = load ptr, ptr %.019.i49.i, align 8, !tbaa !89
+  %.not.i50.i = icmp eq ptr %383, null
+  br i1 %.not.i50.i, label %.loopexit91.i, label %371, !llvm.loop !179
 
-.loopexit91.i:                                    ; preds = %379, %366
-  %381 = load ptr, ptr %310, align 8, !tbaa !176
-  %.not23.not.i55.i = icmp eq ptr %381, null
+.loopexit91.i:                                    ; preds = %382, %369
+  %384 = load ptr, ptr %313, align 8, !tbaa !176
+  %.not23.not.i55.i = icmp eq ptr %384, null
   br i1 %.not23.not.i55.i, label %.critedge.i, label %.lr.ph.i56.i
 
 .lr.ph.i56.i:                                     ; preds = %.loopexit91.i
-  %382 = zext i8 %313 to i32
-  br label %383
+  %385 = zext i8 %316 to i32
+  br label %386
 
-383:                                              ; preds = %394, %.lr.ph.i56.i
-  %.01525.i57.i = phi i32 [ 0, %.lr.ph.i56.i ], [ %.2.i59.i, %394 ]
-  %.01724.i58.i = phi ptr [ %381, %.lr.ph.i56.i ], [ %395, %394 ]
-  %384 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 20
-  %385 = load i8, ptr %384, align 4, !tbaa !177
-  %386 = icmp eq i8 %385, %313
-  br i1 %386, label %387, label %394
+386:                                              ; preds = %397, %.lr.ph.i56.i
+  %.01525.i57.i = phi i32 [ 0, %.lr.ph.i56.i ], [ %.2.i59.i, %397 ]
+  %.01724.i58.i = phi ptr [ %384, %.lr.ph.i56.i ], [ %398, %397 ]
+  %387 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 20
+  %388 = load i8, ptr %387, align 4, !tbaa !177
+  %389 = icmp eq i8 %388, %316
+  br i1 %389, label %390, label %397
 
-387:                                              ; preds = %383
-  %388 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 16
-  %389 = load i32, ptr %388, align 8, !tbaa !178
-  %.not21.i65.i = icmp slt i32 %.sroa.8.1.i, %389
-  br i1 %.not21.i65.i, label %394, label %390
+390:                                              ; preds = %386
+  %391 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 16
+  %392 = load i32, ptr %391, align 8, !tbaa !178
+  %.not21.i65.i = icmp slt i32 %.sroa.8.1.i, %392
+  br i1 %.not21.i65.i, label %397, label %393
 
-390:                                              ; preds = %387
-  %391 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 8
-  %392 = load ptr, ptr %391, align 8, !tbaa !91
-  %393 = call fastcc i32 @MatchBaseName(i32 noundef %382, ptr noundef nonnull %.sroa.13.1.i, i32 noundef %.sroa.8.1.i, ptr noundef %392, i32 noundef %389)
-  %.not22.i66.i = icmp eq i32 %393, 0
-  br i1 %.not22.i66.i, label %394, label %.critedge.i
+393:                                              ; preds = %390
+  %394 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 8
+  %395 = load ptr, ptr %394, align 8, !tbaa !91
+  %396 = call fastcc i32 @MatchBaseName(i32 noundef %385, ptr noundef nonnull %.sroa.13.1.i, i32 noundef %.sroa.8.1.i, ptr noundef %395, i32 noundef %392)
+  %.not22.i66.i = icmp eq i32 %396, 0
+  br i1 %.not22.i66.i, label %397, label %.critedge.i
 
-394:                                              ; preds = %390, %387, %383
-  %.2.i59.i = phi i32 [ 1, %390 ], [ 1, %387 ], [ %.01525.i57.i, %383 ]
-  %395 = load ptr, ptr %.01724.i58.i, align 8, !tbaa !89
-  %.not.not.i60.i = icmp eq ptr %395, null
-  br i1 %.not.not.i60.i, label %PermittedListOk.exit67.i, label %383, !llvm.loop !180
+397:                                              ; preds = %393, %390, %386
+  %.2.i59.i = phi i32 [ 1, %393 ], [ 1, %390 ], [ %.01525.i57.i, %386 ]
+  %398 = load ptr, ptr %.01724.i58.i, align 8, !tbaa !89
+  %.not.not.i60.i = icmp eq ptr %398, null
+  br i1 %.not.not.i60.i, label %PermittedListOk.exit67.i, label %386, !llvm.loop !180
 
-PermittedListOk.exit67.i:                         ; preds = %394
+PermittedListOk.exit67.i:                         ; preds = %397
   %.not43.not.not.i = icmp eq i32 %.2.i59.i, 0
   br i1 %.not43.not.not.i, label %.critedge.i, label %ConfirmSignature.exit.thread
 
-.critedge.i:                                      ; preds = %390, %PermittedListOk.exit67.i, %.loopexit91.i, %._crit_edge.i
+.critedge.i:                                      ; preds = %393, %PermittedListOk.exit67.i, %.loopexit91.i, %._crit_edge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %ConfirmNameConstraints.exit, label %311, !llvm.loop !182
+  br i1 %exitcond.not.i, label %ConfirmNameConstraints.exit, label %314, !llvm.loop !182
 
-ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %99, %298, %290, %switch.early.test174, %switch.early.test174, %109
-  %.4 = phi i32 [ %.5, %290 ], [ %.0136, %switch.early.test174 ], [ %.0136, %109 ], [ %.0136, %switch.early.test174 ], [ %.5, %298 ], [ %.2, %99 ], [ %.5, %.critedge.i ]
-  %396 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %397 = load i32, ptr %396, align 8, !tbaa !161
-  %398 = icmp ne i32 %397, 0
-  %399 = icmp ne i32 %2, 5
-  %or.cond25 = and i1 %399, %398
-  br i1 %or.cond25, label %ConfirmSignature.exit.thread, label %400
+ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %99, %301, %293, %switch.early.test174, %switch.early.test174, %109
+  %.4 = phi i32 [ %.5, %293 ], [ %.0136, %switch.early.test174 ], [ %.0136, %109 ], [ %.0136, %switch.early.test174 ], [ %.5, %301 ], [ %.2, %99 ], [ %.5, %.critedge.i ]
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %400 = load i32, ptr %399, align 8, !tbaa !161
+  %401 = icmp ne i32 %400, 0
+  %402 = icmp ne i32 %2, 5
+  %or.cond25 = and i1 %402, %401
+  br i1 %or.cond25, label %ConfirmSignature.exit.thread, label %403
 
-400:                                              ; preds = %ConfirmNameConstraints.exit
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 1012
-  %402 = load i32, ptr %401, align 4, !tbaa !183
-  %.not170 = icmp eq i32 %402, 0
-  %.4. = select i1 %.not170, i32 %.4, i32 %402
+403:                                              ; preds = %ConfirmNameConstraints.exit
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 1012
+  %405 = load i32, ptr %404, align 4, !tbaa !183
+  %.not170 = icmp eq i32 %405, 0
+  %.4. = select i1 %.not170, i32 %.4, i32 %405
   br label %ConfirmSignature.exit.thread
 
-ConfirmSignature.exit.thread:                     ; preds = %PermittedListOk.exit67.i, %311, %PermittedListOk.exit.i, %375, %339, %291, %114, %ConfirmSignature.exit.thread186, %400, %ConfirmNameConstraints.exit, %110, %99, %53, %28, %22, %5, %ConfirmSignature.exit
-  %.0 = phi i32 [ %.8.i, %ConfirmSignature.exit ], [ -173, %5 ], [ %17, %22 ], [ -226, %28 ], [ %.3, %53 ], [ -238, %99 ], [ -188, %110 ], [ %397, %ConfirmNameConstraints.exit ], [ %.4., %400 ], [ %.8.i.ph, %ConfirmSignature.exit.thread186 ], [ -173, %114 ], [ -198, %291 ], [ -198, %339 ], [ -198, %375 ], [ -198, %PermittedListOk.exit.i ], [ -198, %311 ], [ -198, %PermittedListOk.exit67.i ]
+ConfirmSignature.exit.thread:                     ; preds = %PermittedListOk.exit67.i, %314, %PermittedListOk.exit.i, %378, %342, %294, %114, %ConfirmSignature.exit.thread186, %403, %ConfirmNameConstraints.exit, %110, %99, %53, %28, %22, %5, %ConfirmSignature.exit
+  %.0 = phi i32 [ %.8.i, %ConfirmSignature.exit ], [ -173, %5 ], [ %17, %22 ], [ -226, %28 ], [ %.3, %53 ], [ -238, %99 ], [ -188, %110 ], [ %400, %ConfirmNameConstraints.exit ], [ %.4., %403 ], [ %.8.i.ph, %ConfirmSignature.exit.thread186 ], [ -173, %114 ], [ -198, %294 ], [ -198, %342 ], [ -198, %378 ], [ -198, %PermittedListOk.exit.i ], [ -198, %314 ], [ -198, %PermittedListOk.exit67.i ]
   ret i32 %.0
 }
 
@@ -15827,13 +15830,13 @@ define internal fastcc range(i32 -198, 1) i32 @DecodeSubtree(ptr noundef nonnull
   br label %17
 
 17:                                               ; preds = %.lr.ph, %DecodeSubtreeGeneralName.exit
-  %.0245 = phi i32 [ 0, %.lr.ph ], [ %18, %DecodeSubtreeGeneralName.exit ]
+  %.0244 = phi i32 [ 0, %.lr.ph ], [ %18, %DecodeSubtreeGeneralName.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !3
-  %18 = add nuw nsw i32 %.0245, 1
-  %exitcond = icmp eq i32 %.0245, 128
+  %18 = add nuw nsw i32 %.0244, 1
+  %exitcond = icmp eq i32 %.0244, 128
   br i1 %exitcond, label %.loopexit.sink.split, label %19
 
 19:                                               ; preds = %17

@@ -532,7 +532,7 @@ InternalIpcMemoryCreate.exit.thread:              ; preds = %74, %74, %74, %80, 
 
 113:                                              ; preds = %InternalIpcMemoryCreate.exit.thread
   %114 = call fastcc i32 @PGSharedMemoryAttach(i32 noundef %111, ptr noundef %7)
-  switch i32 %114, label %default.unreachable114 [
+  switch i32 %114, label %default.unreachable113 [
     i32 0, label %115
     i32 1, label %115
     i32 2, label %123
@@ -583,7 +583,7 @@ InternalIpcMemoryCreate.exit.thread:              ; preds = %74, %74, %74, %80, 
   %spec.select = add i32 %138, %.033
   br label %139
 
-default.unreachable114:                           ; preds = %113
+default.unreachable113:                           ; preds = %113
   unreachable
 
 139:                                              ; preds = %136, %123, %125, %129

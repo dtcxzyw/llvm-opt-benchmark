@@ -337,19 +337,19 @@ define hidden noundef ptr @validate_filters(ptr noundef readonly captures(addres
 
 .preheader.i:                                     ; preds = %.lr.ph
   %9 = load i8, ptr %6, align 1
-  %.not35.i = icmp eq i8 %9, 0
-  br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not33.i = icmp eq i8 %9, 0
+  br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %21
   %10 = phi i8 [ %23, %21 ], [ %9, %.preheader.i ]
-  %.02036.i = phi ptr [ %22, %21 ], [ %6, %.preheader.i ]
+  %.02034.i = phi ptr [ %22, %21 ], [ %6, %.preheader.i ]
   %11 = and i8 %10, -33
   %12 = add i8 %11, -65
-  %or.cond33.i = icmp ult i8 %12, 26
+  %or.cond31.i = icmp ult i8 %12, 26
   %13 = add i8 %10, -48
   %or.cond28.i = icmp ult i8 %13, 10
-  %or.cond34.i = or i1 %or.cond28.i, %or.cond33.i
-  br i1 %or.cond34.i, label %21, label %14
+  %or.cond32.i = or i1 %or.cond28.i, %or.cond31.i
+  br i1 %or.cond32.i, label %21, label %14
 
 14:                                               ; preds = %.lr.ph.i
   switch i8 %10, label %.thread [
@@ -360,17 +360,17 @@ define hidden noundef ptr @validate_filters(ptr noundef readonly captures(addres
   ]
 
 15:                                               ; preds = %14
-  %16 = icmp eq ptr %.02036.i, %6
+  %16 = icmp eq ptr %.02034.i, %6
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.02036.i, i64 -1
+  %18 = getelementptr inbounds i8, ptr %.02034.i, i64 -1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 59
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17, %14, %14, %14, %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %.02036.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02034.i, i64 1
   %23 = load i8, ptr %22, align 1
   %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -401,19 +401,19 @@ define hidden ptr @validate_list(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1
   %4 = load i8, ptr %0, align 1
-  %.not35 = icmp eq i8 %4, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i8 %4, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %5 = phi i8 [ %18, %16 ], [ %4, %.preheader ]
-  %.02036 = phi ptr [ %17, %16 ], [ %0, %.preheader ]
+  %.02034 = phi ptr [ %17, %16 ], [ %0, %.preheader ]
   %6 = and i8 %5, -33
   %7 = add i8 %6, -65
-  %or.cond33 = icmp ult i8 %7, 26
+  %or.cond31 = icmp ult i8 %7, 26
   %8 = add i8 %5, -48
   %or.cond28 = icmp ult i8 %8, 10
-  %or.cond34 = or i1 %or.cond28, %or.cond33
-  br i1 %or.cond34, label %16, label %9
+  %or.cond32 = or i1 %or.cond28, %or.cond31
+  br i1 %or.cond32, label %16, label %9
 
 9:                                                ; preds = %.lr.ph
   switch i8 %5, label %.thread [
@@ -424,17 +424,17 @@ define hidden ptr @validate_list(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 10:                                               ; preds = %9
-  %11 = icmp eq ptr %.02036, %0
+  %11 = icmp eq ptr %.02034, %0
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.02036, i64 -1
+  %13 = getelementptr inbounds i8, ptr %.02034, i64 -1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 59
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %9, %9, %9, %.lr.ph, %12
-  %17 = getelementptr inbounds nuw i8, ptr %.02036, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.02034, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7

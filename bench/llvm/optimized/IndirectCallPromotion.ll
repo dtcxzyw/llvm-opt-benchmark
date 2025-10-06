@@ -6756,8 +6756,8 @@ select.unfold.i.i.i.i:                            ; preds = %_ZN12_GLOBAL__N_117
   br i1 %.not8.i.i.i.i, label %_ZN12_GLOBAL__N_123isDestBBSuitableForSinkEPN4llvm11InstructionEPNS0_10BasicBlockE.exit.i.i.i, label %.lr.ph.i.i.i.i106
 
 _ZN12_GLOBAL__N_123isDestBBSuitableForSinkEPN4llvm11InstructionEPNS0_10BasicBlockE.exit.i.i.i: ; preds = %select.unfold.i.i.i.i
-  %.not61.i.i.i = icmp eq ptr %.218.ph.i.i.i.i, null
-  br i1 %.not61.i.i.i, label %_ZN12_GLOBAL__N_120tryToSinkInstructionEPN4llvm11InstructionEPNS0_10BasicBlockE.exit.thread.i.i, label %1452
+  %.not57.i.i.i = icmp eq ptr %.218.ph.i.i.i.i, null
+  br i1 %.not57.i.i.i, label %_ZN12_GLOBAL__N_120tryToSinkInstructionEPN4llvm11InstructionEPNS0_10BasicBlockE.exit.thread.i.i, label %1452
 
 1452:                                             ; preds = %_ZN12_GLOBAL__N_123isDestBBSuitableForSinkEPN4llvm11InstructionEPNS0_10BasicBlockE.exit.i.i.i
   %1453 = load i8, ptr %1427, align 8, !tbaa !306
@@ -6824,17 +6824,17 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i: ; pr
   %1475 = getelementptr inbounds nuw i8, ptr %.sroa.023.040.i.i, i64 16
   %1476 = load ptr, ptr %1475, align 8, !tbaa !521
   %1477 = getelementptr inbounds nuw i8, ptr %1476, i64 48
-  %.not64.i.i.i = icmp eq ptr %1474, %1477
-  br i1 %.not64.i.i.i, label %.loopexit.i.i109, label %.lr.ph.i.i.i110
+  %.not60.i.i.i = icmp eq ptr %1474, %1477
+  br i1 %.not60.i.i.i, label %.loopexit.i.i109, label %.lr.ph.i.i.i110
 
 .lr.ph.i.i.i110:                                  ; preds = %.preheader.i.i.i.i21.i.i, %1480
-  %.sroa.037.065.i.i.i = phi ptr [ %1482, %1480 ], [ %1474, %.preheader.i.i.i.i21.i.i ]
-  %1478 = getelementptr inbounds i8, ptr %.sroa.037.065.i.i.i, i64 -24
+  %.sroa.036.061.i.i.i = phi ptr [ %1482, %1480 ], [ %1474, %.preheader.i.i.i.i21.i.i ]
+  %1478 = getelementptr inbounds i8, ptr %.sroa.036.061.i.i.i, i64 -24
   %1479 = call noundef zeroext i1 @_ZNK4llvm11Instruction16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %1478) #29
   br i1 %1479, label %_ZN12_GLOBAL__N_120tryToSinkInstructionEPN4llvm11InstructionEPNS0_10BasicBlockE.exit.thread.i.i, label %1480
 
 1480:                                             ; preds = %.lr.ph.i.i.i110
-  %1481 = getelementptr inbounds nuw i8, ptr %.sroa.037.065.i.i.i, i64 8
+  %1481 = getelementptr inbounds nuw i8, ptr %.sroa.036.061.i.i.i, i64 8
   %1482 = load ptr, ptr %1481, align 8, !tbaa !546
   %.not.i.i.i111 = icmp eq ptr %1482, %1477
   br i1 %.not.i.i.i111, label %.loopexit.i.i109, label %.lr.ph.i.i.i110, !llvm.loop !547

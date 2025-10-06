@@ -111,49 +111,49 @@ define internal noundef ptr @syslog_openlog(ptr readnone captures(none) %0, ptr 
   %9 = icmp ult i64 %2, 4
   %10 = icmp ne ptr %1, null
   %or.cond5 = and i1 %10, %9
-  br i1 %or.cond5, label %.thread60, label %11
+  br i1 %or.cond5, label %.thread59, label %11
 
 11:                                               ; preds = %8, %.thread
   %12 = phi i64 [ %7, %.thread ], [ %2, %8 ]
   %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @syslog_openlog._parser, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %.not47 = icmp eq ptr %13, null
-  br i1 %.not47, label %43, label %.thread60
+  br i1 %.not47, label %44, label %.thread59
 
-.thread60:                                        ; preds = %8, %11
+.thread59:                                        ; preds = %8, %11
   %14 = phi ptr [ %13, %11 ], [ %1, %8 ]
   %15 = phi i64 [ %12, %11 ], [ %2, %8 ]
   %.not48 = icmp eq i64 %15, 0
-  br i1 %.not48, label %41, label %16
+  br i1 %.not48, label %42, label %16
 
-16:                                               ; preds = %.thread60
+16:                                               ; preds = %.thread59
   %17 = load ptr, ptr %14, align 8, !tbaa !11
   %.not49 = icmp eq ptr %17, null
   br i1 %.not49, label %25, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr i8, ptr %17, i64 8
-  %.val56 = load ptr, ptr %19, align 8, !tbaa !13
-  %20 = getelementptr i8, ptr %.val56, i64 168
-  %.val57 = load i64, ptr %20, align 8, !tbaa !14
-  %21 = and i64 %.val57, 268435456
+  %.val55 = load ptr, ptr %19, align 8, !tbaa !13
+  %20 = getelementptr i8, ptr %.val55, i64 168
+  %.val56 = load i64, ptr %20, align 8, !tbaa !14
+  %21 = and i64 %.val56, 268435456
   %.not50 = icmp eq i64 %21, 0
   br i1 %.not50, label %22, label %23
 
 22:                                               ; preds = %18
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %17) #4
-  br label %43
+  br label %44
 
 23:                                               ; preds = %18
   %24 = add i64 %15, -1
   %.not51 = icmp eq i64 %24, 0
-  br i1 %.not51, label %41, label %25
+  br i1 %.not51, label %42, label %25
 
 25:                                               ; preds = %23, %16
   %.036 = phi i64 [ %24, %23 ], [ %15, %16 ]
   %26 = getelementptr i8, ptr %14, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !11
   %.not52 = icmp eq ptr %27, null
-  br i1 %.not52, label %34, label %28
+  br i1 %.not52, label %35, label %28
 
 28:                                               ; preds = %25
   %29 = call i64 @PyLong_AsLong(ptr noundef nonnull %27) #4
@@ -163,34 +163,34 @@ define internal noundef ptr @syslog_openlog(ptr readnone captures(none) %0, ptr 
 31:                                               ; preds = %28
   %32 = call ptr @PyErr_Occurred() #4
   %.not53 = icmp eq ptr %32, null
-  br i1 %.not53, label %33, label %43
+  br i1 %.not53, label %33, label %44
 
 33:                                               ; preds = %31, %28
-  %.not54 = icmp eq i64 %.036, 1
-  br i1 %.not54, label %41, label %34
+  %34 = icmp ugt i64 %.036, 1
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %33, %25
+35:                                               ; preds = %33, %25
   %.1 = phi i64 [ %29, %33 ], [ 0, %25 ]
-  %35 = getelementptr i8, ptr %14, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !11
-  %37 = call i64 @PyLong_AsLong(ptr noundef %36) #4
-  %38 = icmp eq i64 %37, -1
-  br i1 %38, label %39, label %41
+  %36 = getelementptr i8, ptr %14, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !11
+  %38 = call i64 @PyLong_AsLong(ptr noundef %37) #4
+  %39 = icmp eq i64 %38, -1
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %34
-  %40 = call ptr @PyErr_Occurred() #4
-  %.not55 = icmp eq ptr %40, null
-  br i1 %.not55, label %41, label %43
+40:                                               ; preds = %35
+  %41 = call ptr @PyErr_Occurred() #4
+  %.not54 = icmp eq ptr %41, null
+  br i1 %.not54, label %42, label %44
 
-41:                                               ; preds = %34, %39, %33, %23, %.thread60
-  %.034 = phi ptr [ %17, %39 ], [ %17, %34 ], [ %17, %33 ], [ %17, %23 ], [ null, %.thread60 ]
-  %.033 = phi i64 [ %.1, %39 ], [ %.1, %34 ], [ %29, %33 ], [ 0, %23 ], [ 0, %.thread60 ]
-  %.0 = phi i64 [ -1, %39 ], [ %37, %34 ], [ 8, %33 ], [ 8, %23 ], [ 8, %.thread60 ]
-  %42 = call fastcc ptr @syslog_openlog_impl(ptr noundef %.034, i64 noundef %.033, i64 noundef %.0)
-  br label %43
+42:                                               ; preds = %35, %40, %33, %23, %.thread59
+  %.034 = phi ptr [ %17, %40 ], [ %17, %35 ], [ %17, %33 ], [ %17, %23 ], [ null, %.thread59 ]
+  %.033 = phi i64 [ %.1, %40 ], [ %.1, %35 ], [ %29, %33 ], [ 0, %23 ], [ 0, %.thread59 ]
+  %.0 = phi i64 [ -1, %40 ], [ %38, %35 ], [ 8, %33 ], [ 8, %23 ], [ 8, %.thread59 ]
+  %43 = call fastcc ptr @syslog_openlog_impl(ptr noundef %.034, i64 noundef %.033, i64 noundef %.0)
+  br label %44
 
-43:                                               ; preds = %39, %31, %11, %41, %22
-  %.037 = phi ptr [ null, %31 ], [ null, %39 ], [ %42, %41 ], [ null, %22 ], [ null, %11 ]
+44:                                               ; preds = %40, %31, %11, %42, %22
+  %.037 = phi ptr [ null, %31 ], [ null, %40 ], [ %43, %42 ], [ null, %22 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.037
 }

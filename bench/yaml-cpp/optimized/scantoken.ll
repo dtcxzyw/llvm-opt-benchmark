@@ -7644,7 +7644,7 @@ _ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %1
 define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.YAML::StreamCharSource", align 8
   %4 = load i32, ptr %0, align 8, !tbaa !182
-  switch i32 %4, label %common.ret83 [
+  switch i32 %4, label %common.ret85 [
     i32 0, label %9
     i32 1, label %42
     i32 2, label %75
@@ -7659,8 +7659,8 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamChar
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = load ptr, ptr %5, align 8, !tbaa !88
-  %.not20.i37.not = icmp eq ptr %7, %8
-  br i1 %.not20.i37.not, label %common.ret83, label %.lr.ph40
+  %.not20.i39.not = icmp eq ptr %7, %8
+  br i1 %.not20.i39.not, label %common.ret85, label %.lr.ph42
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7709,7 +7709,7 @@ _ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %26,
   %39 = load i8, ptr %storemerge.i.i.i.i.i.i.i, align 1, !tbaa !12
   %40 = icmp ne i8 %39, 4
   %41 = sext i1 %40 to i32
-  br label %common.ret83
+  br label %common.ret85
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7760,7 +7760,7 @@ _ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %59,
   %74 = load i8, ptr %73, align 4, !tbaa !195
   %.not.i = icmp eq i8 %72, %74
   %..i = select i1 %.not.i, i32 1, i32 -1
-  br label %common.ret83
+  br label %common.ret85
 
 75:                                               ; preds = %2
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -7793,7 +7793,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %92
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !12
   %100 = icmp sgt i8 %77, %99
-  br i1 %100, label %common.ret83, label %111
+  br i1 %100, label %common.ret85, label %111
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %75
   %101 = ashr i64 %90, 9
@@ -7803,13 +7803,13 @@ _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %75
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !12
   %107 = icmp sgt i8 %77, %106
-  br i1 %107, label %common.ret83, label %111
+  br i1 %107, label %common.ret85, label %111
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread.i:    ; preds = %92
   %108 = getelementptr inbounds i8, ptr %82, i64 %80
   %109 = load i8, ptr %108, align 1, !tbaa !12
   %110 = icmp sgt i8 %77, %109
-  br i1 %110, label %common.ret83, label %_ZNK4YAML16StreamCharSourceixEm.exit4.i
+  br i1 %110, label %common.ret85, label %_ZNK4YAML16StreamCharSourceixEm.exit4.i
 
 111:                                              ; preds = %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i, %_ZNK4YAML16StreamCharSourceixEm.exit.i
   %112 = phi ptr [ %96, %_ZNK4YAML16StreamCharSourceixEm.exit.i ], [ %103, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i ]
@@ -7826,40 +7826,40 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %118 = load i8, ptr %.in9.i, align 1, !tbaa !199
   %119 = icmp slt i8 %118, %117
   %spec.select.i = select i1 %119, i32 -1, i32 1
-  br label %common.ret83
+  br label %common.ret85
 
 120:                                              ; preds = %2
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !157
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !157
-  %.not2744 = icmp eq ptr %122, %124
-  br i1 %.not2744, label %common.ret83, label %.lr.ph46
+  %.not2946 = icmp eq ptr %122, %124
+  br i1 %.not2946, label %common.ret85, label %.lr.ph48
 
-125:                                              ; preds = %.lr.ph46
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.020.045, i64 32
-  %.not27 = icmp eq ptr %126, %124
-  br i1 %.not27, label %common.ret83, label %.lr.ph46
+125:                                              ; preds = %.lr.ph48
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.020.047, i64 32
+  %.not29 = icmp eq ptr %126, %124
+  br i1 %.not29, label %common.ret85, label %.lr.ph48
 
-.lr.ph46:                                         ; preds = %120, %125
-  %.sroa.020.045 = phi ptr [ %126, %125 ], [ %122, %120 ]
-  %127 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.020.045, ptr noundef nonnull align 8 dereferenceable(16) %1)
+.lr.ph48:                                         ; preds = %120, %125
+  %.sroa.020.047 = phi ptr [ %126, %125 ], [ %122, %120 ]
+  %127 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.020.047, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %128 = icmp slt i32 %127, 0
-  br i1 %128, label %125, label %common.ret83
+  br i1 %128, label %125, label %common.ret85
 
-.lr.ph40:                                         ; preds = %.preheader, %132
+.lr.ph42:                                         ; preds = %.preheader, %132
   %129 = phi ptr [ %136, %132 ], [ %8, %.preheader ]
-  %.014.i39 = phi i64 [ %134, %132 ], [ 0, %.preheader ]
-  %.015.i38 = phi i32 [ %spec.select.i12, %132 ], [ -1, %.preheader ]
-  %130 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %129, i64 %.014.i39
+  %.014.i41 = phi i64 [ %134, %132 ], [ 0, %.preheader ]
+  %.015.i40 = phi i32 [ %spec.select.i12, %132 ], [ -1, %.preheader ]
+  %130 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %129, i64 %.014.i41
   %131 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not.i11 = icmp eq i32 %131, -1
-  br i1 %.not.i11, label %common.ret83, label %132
+  br i1 %.not.i11, label %common.ret85, label %132
 
-132:                                              ; preds = %.lr.ph40
-  %133 = icmp eq i64 %.014.i39, 0
-  %spec.select.i12 = select i1 %133, i32 %131, i32 %.015.i38
-  %134 = add nuw i64 %.014.i39, 1
+132:                                              ; preds = %.lr.ph42
+  %133 = icmp eq i64 %.014.i41, 0
+  %spec.select.i12 = select i1 %133, i32 %131, i32 %.015.i40
+  %134 = add nuw i64 %.014.i41, 1
   %135 = load ptr, ptr %6, align 8, !tbaa !91
   %136 = load ptr, ptr %5, align 8, !tbaa !88
   %137 = ptrtoint ptr %135 to i64
@@ -7867,7 +7867,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %139 = sub i64 %137, %138
   %140 = ashr exact i64 %139, 5
   %.not20.i = icmp ult i64 %134, %140
-  br i1 %.not20.i, label %.lr.ph40, label %common.ret83, !llvm.loop !209
+  br i1 %.not20.i, label %.lr.ph42, label %common.ret85, !llvm.loop !209
 
 141:                                              ; preds = %2
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7875,25 +7875,25 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !157
   %146 = icmp eq ptr %143, %145
-  br i1 %146, label %common.ret83, label %147
+  br i1 %146, label %common.ret85, label %147
 
-common.ret83:                                     ; preds = %141, %_ZNK4YAML16StreamCharSourceixEm.exit4.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i, %_ZNK4YAML16StreamCharSourceixEm.exit.i, %2, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit, %120, %.preheader, %150, %125, %.lr.ph46, %132, %.lr.ph40, %163, %156, %147
-  %common.ret83.op = phi i32 [ %..i13, %147 ], [ %41, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit ], [ %..i, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit ], [ -1, %2 ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.i ], [ %spec.select.i, %_ZNK4YAML16StreamCharSourceixEm.exit4.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i ], [ -1, %141 ], [ -1, %120 ], [ -1, %.preheader ], [ 0, %150 ], [ %127, %.lr.ph46 ], [ -1, %125 ], [ -1, %.lr.ph40 ], [ %spec.select.i12, %132 ], [ -1, %156 ], [ %164, %163 ]
-  ret i32 %common.ret83.op
+common.ret85:                                     ; preds = %141, %_ZNK4YAML16StreamCharSourceixEm.exit4.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i, %_ZNK4YAML16StreamCharSourceixEm.exit.i, %2, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit, %120, %.preheader, %150, %125, %.lr.ph48, %132, %.lr.ph42, %163, %156, %147
+  %common.ret85.op = phi i32 [ %..i13, %147 ], [ %41, %_ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit ], [ %..i, %_ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit ], [ -1, %2 ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.i ], [ %spec.select.i, %_ZNK4YAML16StreamCharSourceixEm.exit4.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i ], [ -1, %_ZNK4YAML16StreamCharSourceixEm.exit.thread7.i ], [ -1, %141 ], [ -1, %120 ], [ -1, %.preheader ], [ 0, %150 ], [ %127, %.lr.ph48 ], [ -1, %125 ], [ -1, %.lr.ph42 ], [ %spec.select.i12, %132 ], [ -1, %156 ], [ %164, %163 ]
+  ret i32 %common.ret85.op
 
 147:                                              ; preds = %141
   %148 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %149 = icmp sgt i32 %148, -1
   %..i13 = select i1 %149, i32 -1, i32 1
-  br label %common.ret83
+  br label %common.ret85
 
 150:                                              ; preds = %2
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !157
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !157
-  %.not32 = icmp eq ptr %152, %154
-  br i1 %.not32, label %common.ret83, label %.lr.ph
+  %.not34 = icmp eq ptr %152, %154
+  br i1 %.not34, label %common.ret85, label %.lr.ph
 
 .lr.ph:                                           ; preds = %150
   %.sroa.6.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7901,29 +7901,29 @@ common.ret83:                                     ; preds = %141, %_ZNK4YAML16St
   br label %156
 
 156:                                              ; preds = %.lr.ph, %163
-  %.015.i1534 = phi i32 [ 0, %.lr.ph ], [ %164, %163 ]
-  %.sroa.024.033 = phi ptr [ %152, %.lr.ph ], [ %165, %163 ]
+  %.015.i1536 = phi i32 [ 0, %.lr.ph ], [ %164, %163 ]
+  %.sroa.024.035 = phi ptr [ %152, %.lr.ph ], [ %165, %163 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !94
   %.sroa.6.0.copyload.i = load ptr, ptr %.sroa.6.0..0..sroa_idx.i, align 8, !tbaa !81
   %157 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %158 = add nsw i32 %.015.i1534, %157
+  %158 = add nsw i32 %.015.i1536, %157
   %159 = icmp sgt i32 %158, -1
-  %160 = sext i32 %.015.i1534 to i64
+  %160 = sext i32 %.015.i1536 to i64
   %161 = add i64 %.sroa.0.0.copyload.i, %160
   %.sroa.0.0.i = select i1 %159, i64 %161, i64 0
   store i64 %.sroa.0.0.i, ptr %3, align 8
   store ptr %.sroa.6.0.copyload.i, ptr %155, align 8
-  %162 = call noundef i32 @_ZNK4YAML5RegEx5MatchINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.033, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %162 = call noundef i32 @_ZNK4YAML5RegEx5MatchINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.035, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i18 = icmp eq i32 %162, -1
-  br i1 %.not.i18, label %common.ret83, label %163
+  br i1 %.not.i18, label %common.ret85, label %163
 
 163:                                              ; preds = %156
-  %164 = add nsw i32 %162, %.015.i1534
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 32
+  %164 = add nsw i32 %162, %.015.i1536
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.024.035, i64 32
   %.not = icmp eq ptr %165, %154
-  br i1 %.not, label %common.ret83, label %156
+  br i1 %.not, label %common.ret85, label %156
 }
 
 declare noundef zeroext i1 @_ZNK4YAML6Stream12_ReadAheadToEm(ptr noundef nonnull align 8 dereferenceable(136), i64 noundef) local_unnamed_addr #1
@@ -7934,23 +7934,23 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx9MatchOpOrINS_16StreamCharSource
   %4 = load ptr, ptr %3, align 8, !tbaa !157
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !157
-  %.not17 = icmp eq ptr %4, %6
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %4, %6
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 32
   %.not = icmp eq ptr %8, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
-  %.sroa.014.018 = phi ptr [ %8, %7 ], [ %4, %2 ]
-  %9 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.018, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %.sroa.014.020 = phi ptr [ %8, %7 ], [ %4, %2 ]
+  %9 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.020, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %2
-  %spec.select = phi i32 [ -1, %2 ], [ -1, %7 ], [ %9, %.lr.ph ]
-  ret i32 %spec.select
+  %11 = phi i32 [ -1, %2 ], [ -1, %7 ], [ %9, %.lr.ph ]
+  ret i32 %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -8115,17 +8115,17 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx5MatchERKNSt7__cxx1112basic_stri
   %30 = load ptr, ptr %29, align 8, !tbaa !157
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !157
-  %.not17.i = icmp eq ptr %30, %32
-  br i1 %.not17.i, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, label %.lr.ph.i3
+  %.not19.i = icmp eq ptr %30, %32
+  br i1 %.not19.i, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, label %.lr.ph.i3
 
 33:                                               ; preds = %.lr.ph.i3
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.018.i, i64 32
-  %.not.i5 = icmp eq ptr %34, %32
-  br i1 %.not.i5, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, label %.lr.ph.i3
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 32
+  %.not.i4 = icmp eq ptr %34, %32
+  br i1 %.not.i4, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %28, %33
-  %.sroa.014.018.i = phi ptr [ %34, %33 ], [ %30, %28 ]
-  %35 = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.018.i, ptr noundef nonnull align 8 dereferenceable(24) %3) #24
+  %.sroa.014.020.i = phi ptr [ %34, %33 ], [ %30, %28 ]
+  %35 = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.020.i, ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %33, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
 
@@ -8260,7 +8260,7 @@ _ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_.exit: ; preds = %3
 define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca %"class.YAML::StringCharSource", align 8
   %4 = load i32, ptr %0, align 8, !tbaa !182
-  switch i32 %4, label %common.ret76 [
+  switch i32 %4, label %common.ret78 [
     i32 0, label %9
     i32 1, label %15
     i32 2, label %23
@@ -8275,8 +8275,8 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = load ptr, ptr %5, align 8, !tbaa !88
-  %.not20.i36.not = icmp eq ptr %7, %8
-  br i1 %.not20.i36.not, label %common.ret76, label %.lr.ph39
+  %.not20.i38.not = icmp eq ptr %7, %8
+  br i1 %.not20.i38.not, label %common.ret78, label %.lr.ph41
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8285,7 +8285,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %13 = load i64, ptr %12, align 8, !tbaa !212
   %.not.i = icmp ult i64 %11, %13
   %14 = sext i1 %.not.i to i32
-  br label %common.ret76
+  br label %common.ret78
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %1, align 8, !tbaa !210
@@ -8297,7 +8297,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %22 = load i8, ptr %21, align 4, !tbaa !195
   %.not.i8 = icmp eq i8 %20, %22
   %..i = select i1 %.not.i8, i32 1, i32 -1
-  br label %common.ret76
+  br label %common.ret78
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -8313,40 +8313,40 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %34 = icmp slt i8 %33, %30
   %35 = select i1 %31, i1 true, i1 %34
   %.0.i = select i1 %35, i32 -1, i32 1
-  br label %common.ret76
+  br label %common.ret78
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !157
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !157
-  %.not2643 = icmp eq ptr %38, %40
-  br i1 %.not2643, label %common.ret76, label %.lr.ph45
+  %.not2845 = icmp eq ptr %38, %40
+  br i1 %.not2845, label %common.ret78, label %.lr.ph47
 
-41:                                               ; preds = %.lr.ph45
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.019.044, i64 32
-  %.not26 = icmp eq ptr %42, %40
-  br i1 %.not26, label %common.ret76, label %.lr.ph45
+41:                                               ; preds = %.lr.ph47
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.019.046, i64 32
+  %.not28 = icmp eq ptr %42, %40
+  br i1 %.not28, label %common.ret78, label %.lr.ph47
 
-.lr.ph45:                                         ; preds = %36, %41
-  %.sroa.019.044 = phi ptr [ %42, %41 ], [ %38, %36 ]
-  %43 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.019.044, ptr noundef nonnull align 8 dereferenceable(24) %1)
+.lr.ph47:                                         ; preds = %36, %41
+  %.sroa.019.046 = phi ptr [ %42, %41 ], [ %38, %36 ]
+  %43 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.019.046, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %41, label %common.ret76
+  br i1 %44, label %41, label %common.ret78
 
-.lr.ph39:                                         ; preds = %.preheader, %48
+.lr.ph41:                                         ; preds = %.preheader, %48
   %45 = phi ptr [ %52, %48 ], [ %8, %.preheader ]
-  %.014.i38 = phi i64 [ %50, %48 ], [ 0, %.preheader ]
-  %.015.i37 = phi i32 [ %spec.select.i11, %48 ], [ -1, %.preheader ]
-  %46 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %45, i64 %.014.i38
+  %.014.i40 = phi i64 [ %50, %48 ], [ 0, %.preheader ]
+  %.015.i39 = phi i32 [ %spec.select.i11, %48 ], [ -1, %.preheader ]
+  %46 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %45, i64 %.014.i40
   %47 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not.i10 = icmp eq i32 %47, -1
-  br i1 %.not.i10, label %common.ret76, label %48
+  br i1 %.not.i10, label %common.ret78, label %48
 
-48:                                               ; preds = %.lr.ph39
-  %49 = icmp eq i64 %.014.i38, 0
-  %spec.select.i11 = select i1 %49, i32 %47, i32 %.015.i37
-  %50 = add nuw i64 %.014.i38, 1
+48:                                               ; preds = %.lr.ph41
+  %49 = icmp eq i64 %.014.i40, 0
+  %spec.select.i11 = select i1 %49, i32 %47, i32 %.015.i39
+  %50 = add nuw i64 %.014.i40, 1
   %51 = load ptr, ptr %6, align 8, !tbaa !91
   %52 = load ptr, ptr %5, align 8, !tbaa !88
   %53 = ptrtoint ptr %51 to i64
@@ -8354,7 +8354,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 5
   %.not20.i = icmp ult i64 %50, %56
-  br i1 %.not20.i, label %.lr.ph39, label %common.ret76, !llvm.loop !214
+  br i1 %.not20.i, label %.lr.ph41, label %common.ret78, !llvm.loop !214
 
 57:                                               ; preds = %2
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8362,53 +8362,53 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !157
   %62 = icmp eq ptr %59, %61
-  br i1 %62, label %common.ret76, label %63
+  br i1 %62, label %common.ret78, label %63
 
-common.ret76:                                     ; preds = %57, %2, %23, %15, %9, %36, %.preheader, %66, %41, %.lr.ph45, %48, %.lr.ph39, %80, %72, %63
-  %common.ret76.op = phi i32 [ %..i12, %63 ], [ %14, %9 ], [ %..i, %15 ], [ %.0.i, %23 ], [ -1, %2 ], [ -1, %57 ], [ -1, %36 ], [ -1, %.preheader ], [ 0, %66 ], [ %43, %.lr.ph45 ], [ -1, %41 ], [ -1, %.lr.ph39 ], [ %spec.select.i11, %48 ], [ -1, %72 ], [ %81, %80 ]
-  ret i32 %common.ret76.op
+common.ret78:                                     ; preds = %57, %2, %23, %15, %9, %36, %.preheader, %66, %41, %.lr.ph47, %48, %.lr.ph41, %80, %72, %63
+  %common.ret78.op = phi i32 [ %..i12, %63 ], [ %14, %9 ], [ %..i, %15 ], [ %.0.i, %23 ], [ -1, %2 ], [ -1, %57 ], [ -1, %36 ], [ -1, %.preheader ], [ 0, %66 ], [ %43, %.lr.ph47 ], [ -1, %41 ], [ -1, %.lr.ph41 ], [ %spec.select.i11, %48 ], [ -1, %72 ], [ %81, %80 ]
+  ret i32 %common.ret78.op
 
 63:                                               ; preds = %57
   %64 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %65 = icmp sgt i32 %64, -1
   %..i12 = select i1 %65, i32 -1, i32 1
-  br label %common.ret76
+  br label %common.ret78
 
 66:                                               ; preds = %2
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !157
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !157
-  %.not31 = icmp eq ptr %68, %70
-  br i1 %.not31, label %common.ret76, label %.lr.ph
+  %.not33 = icmp eq ptr %68, %70
+  br i1 %.not33, label %common.ret78, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %72
 
 72:                                               ; preds = %.lr.ph, %80
-  %.015.i1433 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
-  %.sroa.023.032 = phi ptr [ %68, %.lr.ph ], [ %82, %80 ]
+  %.015.i1435 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
+  %.sroa.023.034 = phi ptr [ %68, %.lr.ph ], [ %82, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !215
   %73 = load i64, ptr %71, align 8, !tbaa !213, !alias.scope !216
   %74 = trunc i64 %73 to i32
-  %75 = add nsw i32 %.015.i1433, %74
+  %75 = add nsw i32 %.015.i1435, %74
   %76 = icmp sgt i32 %75, -1
-  %77 = sext i32 %.015.i1433 to i64
+  %77 = sext i32 %.015.i1435 to i64
   %78 = add i64 %73, %77
   %storemerge.i = select i1 %76, i64 %78, i64 0
   store i64 %storemerge.i, ptr %71, align 8, !tbaa !213, !alias.scope !216
-  %79 = call noundef i32 @_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.032, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %79 = call noundef i32 @_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.034, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i17 = icmp eq i32 %79, -1
-  br i1 %.not.i17, label %common.ret76, label %80
+  br i1 %.not.i17, label %common.ret78, label %80
 
 80:                                               ; preds = %72
-  %81 = add nsw i32 %79, %.015.i1433
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 32
+  %81 = add nsw i32 %79, %.015.i1435
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 32
   %.not = icmp eq ptr %82, %70
-  br i1 %.not, label %common.ret76, label %72
+  br i1 %.not, label %common.ret78, label %72
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -8417,23 +8417,23 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx9MatchOpOrINS_16StringCharSource
   %4 = load ptr, ptr %3, align 8, !tbaa !157
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !157
-  %.not17 = icmp eq ptr %4, %6
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %4, %6
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 32
   %.not = icmp eq ptr %8, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
-  %.sroa.014.018 = phi ptr [ %8, %7 ], [ %4, %2 ]
-  %9 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.018, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %.sroa.014.020 = phi ptr [ %8, %7 ], [ %4, %2 ]
+  %9 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.020, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %2
-  %spec.select = phi i32 [ -1, %2 ], [ -1, %7 ], [ %9, %.lr.ph ]
-  ret i32 %spec.select
+  %11 = phi i32 [ -1, %2 ], [ -1, %7 ], [ %9, %.lr.ph ]
+  ret i32 %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

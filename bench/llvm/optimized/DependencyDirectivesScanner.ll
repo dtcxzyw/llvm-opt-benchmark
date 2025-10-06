@@ -1106,13 +1106,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i11.i.i.i:    ; preds = %_ZN4llvm12StringSwi
   br i1 %396, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i11.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i23.i.i
-  %.promoted39.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !10
-  %397 = icmp eq ptr %.promoted39.i.i.i.i, %69
+  %.promoted38.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !10
+  %397 = icmp eq ptr %.promoted38.i.i.i.i, %69
   br i1 %397, label %_ZN12_GLOBAL__N_17Scanner13skipDirectiveEN4llvm9StringRefERPKcS4_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i, %421
-  %.promoted4041.i.i.i.i = phi ptr [ %422, %421 ], [ %.promoted39.i.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i ]
-  %.pre.i.i.i.i.i = load i8, ptr %.promoted4041.i.i.i.i, align 1, !tbaa !95
+  %.promoted3940.i.i.i.i = phi ptr [ %422, %421 ], [ %.promoted38.i.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i ]
+  %.pre.i.i.i.i.i = load i8, ptr %.promoted3940.i.i.i.i, align 1, !tbaa !95
   %398 = zext i8 %.pre.i.i.i.i.i to i64
   %399 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %398
   %400 = load i16, ptr %399, align 2, !tbaa !132
@@ -1121,7 +1121,7 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i: ; preds = %_ZN4
   br i1 %.not12.i.not.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12_GLOBAL__N_17Scanner13skipDirectiveEN4llvm9StringRefERPKcS4_.exit.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %_ZL5isEOLPKcS0_.exit27.i.i.i.i
-  %402 = phi ptr [ %403, %_ZL5isEOLPKcS0_.exit27.i.i.i.i ], [ %.promoted4041.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %402 = phi ptr [ %403, %_ZL5isEOLPKcS0_.exit27.i.i.i.i ], [ %.promoted3940.i.i.i.i, %.lr.ph.i.i.i.i ]
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 1
   store ptr %403, ptr %42, align 8, !tbaa !10
   %404 = icmp eq ptr %403, %69
@@ -2722,8 +2722,8 @@ _ZL5isEOLPKcS0_.exit.i:                           ; preds = %._crit_edge.i.i, %3
   br i1 %50, label %_ZL15skipLineCommentRPKcS0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %48, %74
-  %.promoted4041.i.i = phi ptr [ %75, %74 ], [ %49, %48 ]
-  %.pre.i.i.i = load i8, ptr %.promoted4041.i.i, align 1, !tbaa !95
+  %.promoted3940.i.i = phi ptr [ %75, %74 ], [ %49, %48 ]
+  %.pre.i.i.i = load i8, ptr %.promoted3940.i.i, align 1, !tbaa !95
   %51 = zext i8 %.pre.i.i.i to i64
   %52 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !132
@@ -2732,7 +2732,7 @@ _ZL5isEOLPKcS0_.exit.i:                           ; preds = %._crit_edge.i.i, %3
   br i1 %.not12.i.not.i.i, label %.preheader.i.i, label %_ZL15skipLineCommentRPKcS0_.exit
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %_ZL5isEOLPKcS0_.exit27.i.i
-  %55 = phi ptr [ %56, %_ZL5isEOLPKcS0_.exit27.i.i ], [ %.promoted4041.i.i, %.lr.ph.i.i ]
+  %55 = phi ptr [ %56, %_ZL5isEOLPKcS0_.exit27.i.i ], [ %.promoted3940.i.i, %.lr.ph.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %56, ptr %0, align 8, !tbaa !10
   %57 = icmp eq ptr %56, %1
@@ -2833,8 +2833,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_17Scanner8skipLineERPKcS2_(ptr noun
   %12 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !132
   %14 = and i16 %13, 2
-  %.not96 = icmp eq i16 %14, 0
-  br i1 %.not96, label %.lr.ph, label %15
+  %.not95 = icmp eq i16 %14, 0
+  br i1 %.not95, label %.lr.ph, label %15
 
 15:                                               ; preds = %9
   %16 = ptrtoint ptr %7 to i64
@@ -2870,8 +2870,8 @@ _ZL11skipNewlineRPKcS0_.exit:                     ; preds = %19, %._crit_edge.i.
   %30 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !132
   %32 = and i16 %31, 2
-  %.not97 = icmp eq i16 %32, 0
-  br i1 %.not97, label %33, label %.critedge
+  %.not96 = icmp eq i16 %32, 0
+  br i1 %.not96, label %33, label %.critedge
 
 33:                                               ; preds = %.lr.ph
   switch i8 %28, label %154 [
@@ -2921,8 +2921,8 @@ _ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit:      ; preds = %49
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr @_ZZN5clang25isAsciiIdentifierContinueEhE10IDContinue, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !95
-  %.not98 = icmp eq i8 %55, 0
-  br i1 %.not98, label %_ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit.thread, label %.thread
+  %.not97 = icmp eq i8 %55, 0
+  br i1 %.not97, label %_ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit.thread, label %.thread
 
 _ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit.thread: ; preds = %49, %44, %40, %36, %36, %36, %34, %33, %_ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit
   store ptr %27, ptr %4, align 8, !tbaa !86
@@ -3199,7 +3199,7 @@ _ZL5isEOLPKcS0_.exit.thread.i:                    ; preds = %_ZL5isEOLPKcS0_.exi
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.i, %111, %117, %_ZL5isEOLPKcS0_.exit.thread.i, %207, %189, %_ZL5isEOLPKcS0_.exit27.thread.i.i, %.lr.ph.i.i68, %90, %.preheader.i.i, %.backedge.sink.split, %197, %163, %.critedge.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread86
-  %153 = phi ptr [ %198, %197 ], [ %164, %163 ], [ %.056.i, %.critedge.i ], [ %storemerge43.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread86 ], [ %.sink.i.sink, %.backedge.sink.split ], [ %171, %.preheader.i.i ], [ %89, %90 ], [ %190, %189 ], [ %171, %_ZL5isEOLPKcS0_.exit27.thread.i.i ], [ %.promoted4041.i.i, %.lr.ph.i.i68 ], [ %208, %207 ], [ %storemerge46.i, %111 ], [ %118, %117 ], [ %storemerge.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %.263.lcssa.i90, %.backedge.i ]
+  %153 = phi ptr [ %198, %197 ], [ %164, %163 ], [ %.056.i, %.critedge.i ], [ %storemerge43.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread86 ], [ %.sink.i.sink, %.backedge.sink.split ], [ %171, %.preheader.i.i ], [ %89, %90 ], [ %190, %189 ], [ %171, %_ZL5isEOLPKcS0_.exit27.thread.i.i ], [ %.promoted3940.i.i, %.lr.ph.i.i68 ], [ %208, %207 ], [ %storemerge46.i, %111 ], [ %118, %117 ], [ %storemerge.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %.263.lcssa.i90, %.backedge.i ]
   %.not = icmp eq ptr %153, %2
   br i1 %.not, label %.thread93, label %.lr.ph, !llvm.loop !180
 
@@ -3232,8 +3232,8 @@ _ZL5isEOLPKcS0_.exit.thread.i:                    ; preds = %_ZL5isEOLPKcS0_.exi
   br i1 %165, label %.backedge, label %.lr.ph.i.i68
 
 .lr.ph.i.i68:                                     ; preds = %163, %189
-  %.promoted4041.i.i = phi ptr [ %190, %189 ], [ %164, %163 ]
-  %.pre.i.i.i = load i8, ptr %.promoted4041.i.i, align 1, !tbaa !95
+  %.promoted3940.i.i = phi ptr [ %190, %189 ], [ %164, %163 ]
+  %.pre.i.i.i = load i8, ptr %.promoted3940.i.i, align 1, !tbaa !95
   %166 = zext i8 %.pre.i.i.i to i64
   %167 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %166
   %168 = load i16, ptr %167, align 2, !tbaa !132
@@ -3242,7 +3242,7 @@ _ZL5isEOLPKcS0_.exit.thread.i:                    ; preds = %_ZL5isEOLPKcS0_.exi
   br i1 %.not12.i.not.i.i, label %.preheader.i.i, label %.backedge
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i68, %_ZL5isEOLPKcS0_.exit27.i.i
-  %170 = phi ptr [ %171, %_ZL5isEOLPKcS0_.exit27.i.i ], [ %.promoted4041.i.i, %.lr.ph.i.i68 ]
+  %170 = phi ptr [ %171, %_ZL5isEOLPKcS0_.exit27.i.i ], [ %.promoted3940.i.i, %.lr.ph.i.i68 ]
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 1
   store ptr %171, ptr %1, align 8, !tbaa !10
   %172 = icmp eq ptr %171, %2

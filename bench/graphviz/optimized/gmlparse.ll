@@ -615,7 +615,7 @@ gv_alloc.exit5.i:                                 ; preds = %gv_alloc.exit.i
 ._crit_edge.i.i.i:                                ; preds = %105
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !32
-  %.pre46.i.i.i = load ptr, ptr %107, align 8, !tbaa !31
+  %.pre45.i.i.i = load ptr, ptr %107, align 8, !tbaa !31
   br label %graphs_append.exit.i
 
 113:                                              ; preds = %105
@@ -670,7 +670,7 @@ gv_alloc.exit5.i:                                 ; preds = %gv_alloc.exit.i
   unreachable
 
 graphs_append.exit.i:                             ; preds = %137, %._crit_edge.i.i.i
-  %143 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %119, %137 ]
+  %143 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %119, %137 ]
   %144 = phi i64 [ %111, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %137 ]
   %145 = phi i64 [ %109, %._crit_edge.i.i.i ], [ %128, %137 ]
   %146 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %138, %137 ]
@@ -700,7 +700,7 @@ pushG.exit:                                       ; preds = %gv_alloc.exit5.i, %
 ._crit_edge.i.i:                                  ; preds = %151
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %152, i64 56
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !11
-  %.pre46.i.i = load ptr, ptr %153, align 8, !tbaa !10
+  %.pre45.i.i = load ptr, ptr %153, align 8, !tbaa !10
   br label %nodes_append.exit
 
 160:                                              ; preds = %151
@@ -755,7 +755,7 @@ pushG.exit:                                       ; preds = %gv_alloc.exit5.i, %
   unreachable
 
 nodes_append.exit:                                ; preds = %._crit_edge.i.i, %184
-  %190 = phi ptr [ %.pre46.i.i, %._crit_edge.i.i ], [ %166, %184 ]
+  %190 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %166, %184 ]
   %191 = phi i64 [ %158, %._crit_edge.i.i ], [ %spec.select.i.i, %184 ]
   %192 = phi i64 [ %156, %._crit_edge.i.i ], [ %175, %184 ]
   %193 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %185, %184 ]
@@ -781,7 +781,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i, %1
 ._crit_edge.i.i232:                               ; preds = %198
   %.phi.trans.insert.i.i233 = getelementptr inbounds nuw i8, ptr %199, i64 88
   %.pre.i.i234 = load i64, ptr %.phi.trans.insert.i.i233, align 8, !tbaa !11
-  %.pre46.i.i235 = load ptr, ptr %200, align 8, !tbaa !10
+  %.pre45.i.i235 = load ptr, ptr %200, align 8, !tbaa !10
   br label %edges_append.exit
 
 207:                                              ; preds = %198
@@ -836,7 +836,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i, %1
   unreachable
 
 edges_append.exit:                                ; preds = %._crit_edge.i.i232, %231
-  %237 = phi ptr [ %.pre46.i.i235, %._crit_edge.i.i232 ], [ %213, %231 ]
+  %237 = phi ptr [ %.pre45.i.i235, %._crit_edge.i.i232 ], [ %213, %231 ]
   %238 = phi i64 [ %205, %._crit_edge.i.i232 ], [ %spec.select.i.i236, %231 ]
   %239 = phi i64 [ %203, %._crit_edge.i.i232 ], [ %222, %231 ]
   %240 = phi i64 [ %.pre.i.i234, %._crit_edge.i.i232 ], [ %232, %231 ]
@@ -933,7 +933,7 @@ gv_strdup.exit.i:                                 ; preds = %gv_strdup.exit
 ._crit_edge.i.i242:                               ; preds = %gv_strdup.exit.i
   %.phi.trans.insert.i.i243 = getelementptr inbounds nuw i8, ptr %259, i64 24
   %.pre.i.i244 = load i64, ptr %.phi.trans.insert.i.i243, align 8, !tbaa !11
-  %.pre46.i.i245 = load ptr, ptr %260, align 8, !tbaa !10
+  %.pre45.i.i245 = load ptr, ptr %260, align 8, !tbaa !10
   br label %attrs_append.exit
 
 280:                                              ; preds = %gv_strdup.exit.i
@@ -988,7 +988,7 @@ gv_strdup.exit.i:                                 ; preds = %gv_strdup.exit
   unreachable
 
 attrs_append.exit:                                ; preds = %._crit_edge.i.i242, %304
-  %310 = phi ptr [ %.pre46.i.i245, %._crit_edge.i.i242 ], [ %286, %304 ]
+  %310 = phi ptr [ %.pre45.i.i245, %._crit_edge.i.i242 ], [ %286, %304 ]
   %311 = phi i64 [ %278, %._crit_edge.i.i242 ], [ %spec.select.i.i246, %304 ]
   %312 = phi i64 [ %276, %._crit_edge.i.i242 ], [ %295, %304 ]
   %313 = phi i64 [ %.pre.i.i244, %._crit_edge.i.i242 ], [ %305, %304 ]
@@ -1014,7 +1014,7 @@ attrs_append.exit:                                ; preds = %._crit_edge.i.i242,
 ._crit_edge.i.i249:                               ; preds = %318
   %.phi.trans.insert.i.i250 = getelementptr inbounds nuw i8, ptr %319, i64 24
   %.pre.i.i251 = load i64, ptr %.phi.trans.insert.i.i250, align 8, !tbaa !11
-  %.pre46.i.i252 = load ptr, ptr %320, align 8, !tbaa !10
+  %.pre45.i.i252 = load ptr, ptr %320, align 8, !tbaa !10
   br label %attrs_append.exit256
 
 327:                                              ; preds = %318
@@ -1069,7 +1069,7 @@ attrs_append.exit:                                ; preds = %._crit_edge.i.i242,
   unreachable
 
 attrs_append.exit256:                             ; preds = %._crit_edge.i.i249, %351
-  %357 = phi ptr [ %.pre46.i.i252, %._crit_edge.i.i249 ], [ %333, %351 ]
+  %357 = phi ptr [ %.pre45.i.i252, %._crit_edge.i.i249 ], [ %333, %351 ]
   %358 = phi i64 [ %325, %._crit_edge.i.i249 ], [ %spec.select.i.i253, %351 ]
   %359 = phi i64 [ %323, %._crit_edge.i.i249 ], [ %342, %351 ]
   %360 = phi i64 [ %.pre.i.i251, %._crit_edge.i.i249 ], [ %352, %351 ]
@@ -1121,7 +1121,7 @@ mkNode.exit:                                      ; preds = %365
 ._crit_edge.i.i258:                               ; preds = %376
   %.phi.trans.insert.i.i259 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %.pre.i.i260 = load i64, ptr %.phi.trans.insert.i.i259, align 8, !tbaa !11
-  %.pre46.i.i261 = load ptr, ptr %378, align 8, !tbaa !10
+  %.pre45.i.i261 = load ptr, ptr %378, align 8, !tbaa !10
   br label %attrs_append.exit265
 
 385:                                              ; preds = %376
@@ -1176,7 +1176,7 @@ mkNode.exit:                                      ; preds = %365
   unreachable
 
 attrs_append.exit265:                             ; preds = %._crit_edge.i.i258, %409
-  %415 = phi ptr [ %.pre46.i.i261, %._crit_edge.i.i258 ], [ %391, %409 ]
+  %415 = phi ptr [ %.pre45.i.i261, %._crit_edge.i.i258 ], [ %391, %409 ]
   %416 = phi i64 [ %383, %._crit_edge.i.i258 ], [ %spec.select.i.i262, %409 ]
   %417 = phi i64 [ %381, %._crit_edge.i.i258 ], [ %400, %409 ]
   %418 = phi i64 [ %.pre.i.i260, %._crit_edge.i.i258 ], [ %410, %409 ]
@@ -1264,7 +1264,7 @@ gv_strdup.exit.i270:                              ; preds = %gv_strdup.exit267
 ._crit_edge.i.i275:                               ; preds = %gv_strdup.exit.i270
   %.phi.trans.insert.i.i276 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %.pre.i.i277 = load i64, ptr %.phi.trans.insert.i.i276, align 8, !tbaa !11
-  %.pre46.i.i278 = load ptr, ptr %440, align 8, !tbaa !10
+  %.pre45.i.i278 = load ptr, ptr %440, align 8, !tbaa !10
   br label %attrs_append.exit282
 
 460:                                              ; preds = %gv_strdup.exit.i270
@@ -1319,7 +1319,7 @@ gv_strdup.exit.i270:                              ; preds = %gv_strdup.exit267
   unreachable
 
 attrs_append.exit282:                             ; preds = %._crit_edge.i.i275, %484
-  %490 = phi ptr [ %.pre46.i.i278, %._crit_edge.i.i275 ], [ %466, %484 ]
+  %490 = phi ptr [ %.pre45.i.i278, %._crit_edge.i.i275 ], [ %466, %484 ]
   %491 = phi i64 [ %458, %._crit_edge.i.i275 ], [ %spec.select.i.i279, %484 ]
   %492 = phi i64 [ %456, %._crit_edge.i.i275 ], [ %475, %484 ]
   %493 = phi i64 [ %.pre.i.i277, %._crit_edge.i.i275 ], [ %485, %484 ]
@@ -1345,7 +1345,7 @@ attrs_append.exit282:                             ; preds = %._crit_edge.i.i275,
 ._crit_edge.i.i283:                               ; preds = %498
   %.phi.trans.insert.i.i284 = getelementptr inbounds nuw i8, ptr %499, i64 24
   %.pre.i.i285 = load i64, ptr %.phi.trans.insert.i.i284, align 8, !tbaa !11
-  %.pre46.i.i286 = load ptr, ptr %500, align 8, !tbaa !10
+  %.pre45.i.i286 = load ptr, ptr %500, align 8, !tbaa !10
   br label %attrs_append.exit290
 
 507:                                              ; preds = %498
@@ -1400,7 +1400,7 @@ attrs_append.exit282:                             ; preds = %._crit_edge.i.i275,
   unreachable
 
 attrs_append.exit290:                             ; preds = %._crit_edge.i.i283, %531
-  %537 = phi ptr [ %.pre46.i.i286, %._crit_edge.i.i283 ], [ %513, %531 ]
+  %537 = phi ptr [ %.pre45.i.i286, %._crit_edge.i.i283 ], [ %513, %531 ]
   %538 = phi i64 [ %505, %._crit_edge.i.i283 ], [ %spec.select.i.i287, %531 ]
   %539 = phi i64 [ %503, %._crit_edge.i.i283 ], [ %522, %531 ]
   %540 = phi i64 [ %.pre.i.i285, %._crit_edge.i.i283 ], [ %532, %531 ]
@@ -1452,7 +1452,7 @@ popAlist.exit:                                    ; preds = %546, %550
 ._crit_edge.i.i291:                               ; preds = %559
   %.phi.trans.insert.i.i292 = getelementptr inbounds nuw i8, ptr %560, i64 8
   %.pre.i.i293 = load i64, ptr %.phi.trans.insert.i.i292, align 8, !tbaa !11
-  %.pre46.i.i294 = load ptr, ptr %560, align 8, !tbaa !10
+  %.pre45.i.i294 = load ptr, ptr %560, align 8, !tbaa !10
   br label %attrs_append.exit298
 
 567:                                              ; preds = %559
@@ -1507,7 +1507,7 @@ popAlist.exit:                                    ; preds = %546, %550
   unreachable
 
 attrs_append.exit298:                             ; preds = %._crit_edge.i.i291, %591
-  %597 = phi ptr [ %.pre46.i.i294, %._crit_edge.i.i291 ], [ %573, %591 ]
+  %597 = phi ptr [ %.pre45.i.i294, %._crit_edge.i.i291 ], [ %573, %591 ]
   %598 = phi i64 [ %565, %._crit_edge.i.i291 ], [ %spec.select.i.i295, %591 ]
   %599 = phi i64 [ %563, %._crit_edge.i.i291 ], [ %582, %591 ]
   %600 = phi i64 [ %.pre.i.i293, %._crit_edge.i.i291 ], [ %592, %591 ]
@@ -1532,7 +1532,7 @@ attrs_append.exit298:                             ; preds = %._crit_edge.i.i291,
 ._crit_edge.i.i299:                               ; preds = %605
   %.phi.trans.insert.i.i300 = getelementptr inbounds nuw i8, ptr %606, i64 8
   %.pre.i.i301 = load i64, ptr %.phi.trans.insert.i.i300, align 8, !tbaa !11
-  %.pre46.i.i302 = load ptr, ptr %606, align 8, !tbaa !10
+  %.pre45.i.i302 = load ptr, ptr %606, align 8, !tbaa !10
   br label %attrs_append.exit306
 
 613:                                              ; preds = %605
@@ -1587,7 +1587,7 @@ attrs_append.exit298:                             ; preds = %._crit_edge.i.i291,
   unreachable
 
 attrs_append.exit306:                             ; preds = %._crit_edge.i.i299, %637
-  %643 = phi ptr [ %.pre46.i.i302, %._crit_edge.i.i299 ], [ %619, %637 ]
+  %643 = phi ptr [ %.pre45.i.i302, %._crit_edge.i.i299 ], [ %619, %637 ]
   %644 = phi i64 [ %611, %._crit_edge.i.i299 ], [ %spec.select.i.i303, %637 ]
   %645 = phi i64 [ %609, %._crit_edge.i.i299 ], [ %628, %637 ]
   %646 = phi i64 [ %.pre.i.i301, %._crit_edge.i.i299 ], [ %638, %637 ]
@@ -2189,7 +2189,7 @@ gv_alloc.exit:                                    ; preds = %0
 
 ._crit_edge.i.i.i:                                ; preds = %7
   %.pre.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @liststk, i64 8), align 8, !tbaa !11
-  %.pre4.i.i.i = load ptr, ptr @liststk, align 8, !tbaa !10
+  %.pre3.i.i.i = load ptr, ptr @liststk, align 8, !tbaa !10
   br label %dts_push_back.exit
 
 11:                                               ; preds = %7
@@ -2243,7 +2243,7 @@ gv_alloc.exit:                                    ; preds = %0
   unreachable
 
 dts_push_back.exit:                               ; preds = %._crit_edge.i.i.i, %34
-  %40 = phi ptr [ %.pre4.i.i.i, %._crit_edge.i.i.i ], [ %17, %34 ]
+  %40 = phi ptr [ %.pre3.i.i.i, %._crit_edge.i.i.i ], [ %17, %34 ]
   %41 = phi i64 [ %9, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %34 ]
   %42 = phi i64 [ %8, %._crit_edge.i.i.i ], [ %25, %34 ]
   %43 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %35, %34 ]

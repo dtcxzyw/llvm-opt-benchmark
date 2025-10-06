@@ -1298,13 +1298,12 @@ land.lhs.true:                                    ; preds = %_ZNSt10filesystem7_
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %land.lhs.true
-  %trunc = trunc i64 %call.i3 to i8
-  switch i8 %trunc, label %if.end11 [
-    i8 -1, label %if.then
-    i8 0, label %if.then
-  ]
+  %2 = and i64 %call.i3, 255
+  %.off = add nsw i64 %2, -1
+  %switch = icmp ult i64 %.off, 254
+  br i1 %switch, label %if.end11, label %if.then
 
-if.then:                                          ; preds = %invoke.cont6, %invoke.cont6
+if.then:                                          ; preds = %invoke.cont6
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %dir) #12
   %call9 = invoke noundef zeroext i1 @_ZN8facebook5velox6common21generateFileDirectoryEPKc(ptr noundef %call.i)
           to label %invoke.cont8 unwind label %lpad5
@@ -1317,26 +1316,26 @@ if.then10:                                        ; preds = %invoke.cont8
   unreachable
 
 lpad3:                                            ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup39
-
-lpad5:                                            ; preds = %land.lhs.true, %if.end11, %if.then
   %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup39
 
+lpad5:                                            ; preds = %land.lhs.true, %if.end11, %if.then
+  %4 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup39
+
 if.end11:                                         ; preds = %invoke.cont6, %invoke.cont8, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %4 = load i64, ptr %path, align 8
-  %add = add i64 %4, 1
+  %5 = load i64, ptr %path, align 8
+  %add = add i64 %5, 1
   %call14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add) #32
           to label %invoke.cont13 unwind label %lpad5
 
 invoke.cont13:                                    ; preds = %if.end11
-  %arrayidx.i = getelementptr inbounds i8, ptr %call14, i64 %4
+  %arrayidx.i = getelementptr inbounds i8, ptr %call14, i64 %5
   store i8 0, ptr %arrayidx.i, align 1
-  %5 = load ptr, ptr %0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call14, ptr align 1 %5, i64 %4, i1 false)
+  %6 = load ptr, ptr %0, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call14, ptr align 1 %6, i64 %5, i1 false)
   br i1 %shouldThrowOnFileAlreadyExists, label %if.then23, label %if.end32
 
 if.then23:                                        ; preds = %invoke.cont13
@@ -1362,12 +1361,12 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.end32
   store ptr %call35, ptr %file_, align 8
   call void @_ZdaPv(ptr noundef nonnull %call14) #31
   %_M_cmpts.i4 = getelementptr inbounds nuw i8, ptr %dir, i64 32
-  %6 = load ptr, ptr %_M_cmpts.i4, align 8
-  %cmp.not.i.i.i5 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_cmpts.i4, align 8
+  %cmp.not.i.i.i5 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i5, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit7, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i4, ptr noundef nonnull %6) #12
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i4, ptr noundef nonnull %7) #12
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit7
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit7:         ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, %if.then.i.i.i6
@@ -1377,7 +1376,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit7:         ; preds = %_ZNSt10unique_ptrIA
 
 ehcleanup39:                                      ; preds = %lpad5, %lpad3
   %dir.sink = phi ptr [ %dir, %lpad5 ], [ %ref.tmp, %lpad3 ]
-  %.pn = phi { ptr, i32 } [ %3, %lpad5 ], [ %2, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad5 ], [ %3, %lpad3 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %dir.sink) #12
   resume { ptr, i32 } %.pn
 }

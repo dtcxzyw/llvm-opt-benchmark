@@ -42,8 +42,8 @@ define void @ff_eac3_get_frame_exp_strategy(ptr noundef captures(none) initializ
   %9 = zext i1 %.not to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %11 = load i32, ptr %10, align 8, !tbaa !27
-  %.not2528 = icmp slt i32 %11, %9
-  br i1 %.not2528, label %.loopexit, label %.lr.ph
+  %.not2527 = icmp slt i32 %11, %9
+  br i1 %.not2527, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5408
@@ -105,29 +105,29 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %4 = load i32, ptr %3, align 8, !tbaa !27
-  %.not38 = icmp slt i32 %4, 1
-  br i1 %.not38, label %.preheader35, label %.lr.ph.preheader
+  %.not37 = icmp slt i32 %4, 1
+  br i1 %.not37, label %.preheader34, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %5 = add nuw i32 %4, 1
   %wide.trip.count = zext i32 %5 to i64
   br label %.lr.ph
 
-.preheader35:                                     ; preds = %1
+.preheader34:                                     ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4964
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph46, label %.loopexit
+  br i1 %8, label %.lr.ph45, label %.loopexit
 
-.preheader35.thread:                              ; preds = %.lr.ph
+.preheader34.thread:                              ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4964
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph44.split.preheader, label %.loopexit
+  br i1 %11, label %.lr.ph43.split.preheader, label %.loopexit
 
-.lr.ph44.split.preheader:                         ; preds = %.preheader35.thread
+.lr.ph43.split.preheader:                         ; preds = %.preheader34.thread
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  br label %.lr.ph44.split
+  br label %.lr.ph43.split
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -135,39 +135,39 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
   store i32 1, ptr %13, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader35.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.preheader34.thread, label %.lr.ph, !llvm.loop !32
 
 .preheader:                                       ; preds = %._crit_edge
   %14 = icmp sgt i32 %35, 0
-  br i1 %14, label %.lr.ph46, label %.loopexit
+  br i1 %14, label %.lr.ph45, label %.loopexit
 
-.lr.ph46:                                         ; preds = %.preheader35, %.preheader
-  %.lcssa3669 = phi i32 [ %35, %.preheader ], [ %7, %.preheader35 ]
+.lr.ph45:                                         ; preds = %.preheader34, %.preheader
+  %.lcssa3568 = phi i32 [ %35, %.preheader ], [ %7, %.preheader34 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %wide.trip.count60 = zext nneg i32 %.lcssa3669 to i64
+  %wide.trip.count59 = zext nneg i32 %.lcssa3568 to i64
   br label %41
 
-.lr.ph44.split:                                   ; preds = %.lr.ph44.split.preheader, %._crit_edge
-  %16 = phi i32 [ %10, %.lr.ph44.split.preheader ], [ %35, %._crit_edge ]
-  %17 = phi i32 [ %4, %.lr.ph44.split.preheader ], [ %36, %._crit_edge ]
-  %18 = phi i32 [ %4, %.lr.ph44.split.preheader ], [ %37, %._crit_edge ]
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph44.split.preheader ], [ %indvars.iv.next55, %._crit_edge ]
-  %.not3040 = icmp slt i32 %18, 1
-  br i1 %.not3040, label %._crit_edge, label %.lr.ph42
+.lr.ph43.split:                                   ; preds = %.lr.ph43.split.preheader, %._crit_edge
+  %16 = phi i32 [ %10, %.lr.ph43.split.preheader ], [ %35, %._crit_edge ]
+  %17 = phi i32 [ %4, %.lr.ph43.split.preheader ], [ %36, %._crit_edge ]
+  %18 = phi i32 [ %4, %.lr.ph43.split.preheader ], [ %37, %._crit_edge ]
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph43.split.preheader ], [ %indvars.iv.next54, %._crit_edge ]
+  %.not3039 = icmp slt i32 %18, 1
+  br i1 %.not3039, label %._crit_edge, label %.lr.ph41
 
-.lr.ph42:                                         ; preds = %.lr.ph44.split
-  %19 = getelementptr inbounds nuw %struct.AC3Block, ptr %12, i64 %indvars.iv54
+.lr.ph41:                                         ; preds = %.lr.ph43.split
+  %19 = getelementptr inbounds nuw %struct.AC3Block, ptr %12, i64 %indvars.iv53
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 580
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 592
   br label %22
 
-22:                                               ; preds = %.lr.ph42, %32
-  %23 = phi i32 [ %17, %.lr.ph42 ], [ %33, %32 ]
-  %indvars.iv51 = phi i64 [ 1, %.lr.ph42 ], [ %indvars.iv.next52, %32 ]
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv51
+22:                                               ; preds = %.lr.ph41, %32
+  %23 = phi i32 [ %17, %.lr.ph41 ], [ %33, %32 ]
+  %indvars.iv50 = phi i64 [ 1, %.lr.ph41 ], [ %indvars.iv.next51, %32 ]
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv50
   %25 = load i8, ptr %24, align 1, !tbaa !28
   %.not31 = icmp eq i8 %25, 0
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv51
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv50
   br i1 %.not31, label %31, label %27
 
 27:                                               ; preds = %22
@@ -176,7 +176,7 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
   br i1 %.not32, label %32, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv51
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv50
   store i8 2, ptr %30, align 1, !tbaa !28
   store i32 0, ptr %26, align 4, !tbaa !31
   %.pre = load i32, ptr %3, align 8, !tbaa !27
@@ -188,32 +188,32 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
 
 32:                                               ; preds = %31, %29, %27
   %33 = phi i32 [ %23, %31 ], [ %.pre, %29 ], [ %23, %27 ]
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %34 = sext i32 %33 to i64
-  %.not30.not = icmp slt i64 %indvars.iv51, %34
+  %.not30.not = icmp slt i64 %indvars.iv50, %34
   br i1 %.not30.not, label %22, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %32
-  %.pre62 = load i32, ptr %9, align 4, !tbaa !4
+  %.pre61 = load i32, ptr %9, align 4, !tbaa !4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph44.split
-  %35 = phi i32 [ %.pre62, %._crit_edge.loopexit ], [ %16, %.lr.ph44.split ]
-  %36 = phi i32 [ %33, %._crit_edge.loopexit ], [ %17, %.lr.ph44.split ]
-  %37 = phi i32 [ %33, %._crit_edge.loopexit ], [ %18, %.lr.ph44.split ]
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph43.split
+  %35 = phi i32 [ %.pre61, %._crit_edge.loopexit ], [ %16, %.lr.ph43.split ]
+  %36 = phi i32 [ %33, %._crit_edge.loopexit ], [ %17, %.lr.ph43.split ]
+  %37 = phi i32 [ %33, %._crit_edge.loopexit ], [ %18, %.lr.ph43.split ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %38 = sext i32 %35 to i64
-  %39 = icmp slt i64 %indvars.iv.next55, %38
-  br i1 %39, label %.lr.ph44.split, label %.preheader, !llvm.loop !34
+  %39 = icmp slt i64 %indvars.iv.next54, %38
+  br i1 %39, label %.lr.ph43.split, label %.preheader, !llvm.loop !34
 
 40:                                               ; preds = %41
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.loopexit, label %41, !llvm.loop !36
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %.loopexit, label %41, !llvm.loop !36
 
-41:                                               ; preds = %.lr.ph46, %40
-  %indvars.iv57 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next58, %40 ]
-  %42 = getelementptr inbounds nuw %struct.AC3Block, ptr %15, i64 %indvars.iv57
+41:                                               ; preds = %.lr.ph45, %40
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next57, %40 ]
+  %42 = getelementptr inbounds nuw %struct.AC3Block, ptr %15, i64 %indvars.iv56
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 576
   %44 = load i32, ptr %43, align 8, !tbaa !37
   %.not29 = icmp eq i32 %44, 0
@@ -224,7 +224,7 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
   store i32 2, ptr %46, align 4, !tbaa !39
   br label %.loopexit
 
-.loopexit:                                        ; preds = %40, %.preheader35.thread, %.preheader35, %.preheader, %45
+.loopexit:                                        ; preds = %40, %.preheader34.thread, %.preheader34, %.preheader, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

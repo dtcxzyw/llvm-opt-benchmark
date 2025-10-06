@@ -446,11 +446,11 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
 .split.us:                                        ; preds = %16, %33
   %30 = phi double [ %40, %33 ], [ %25, %16 ]
   %31 = phi i32 [ %44, %33 ], [ 9, %16 ]
-  %.02338.us = phi i1 [ %43, %33 ], [ true, %16 ]
+  %.02337.us = phi i1 [ %43, %33 ], [ true, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = call double @geod_genposition(ptr noundef nonnull %5, i32 noundef 0, double noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, ptr noundef null)
-  br i1 %.02338.us, label %33, label %.thread34
+  br i1 %.02337.us, label %33, label %.thread33
 
 33:                                               ; preds = %.split.us
   %34 = load double, ptr %8, align 8, !tbaa !54
@@ -468,18 +468,18 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %44 = add nsw i32 %31, -1
   %.not28.us = icmp eq i32 %31, 0
-  br i1 %.not28.us, label %.split40.us, label %.split.us
+  br i1 %.not28.us, label %.split39.us, label %.split.us
 
 .split:                                           ; preds = %16, %48
   %45 = phi double [ %54, %48 ], [ %25, %16 ]
   %46 = phi i32 [ %58, %48 ], [ 9, %16 ]
-  %.02338 = phi i1 [ %57, %48 ], [ true, %16 ]
+  %.02337 = phi i1 [ %57, %48 ], [ true, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = call double @geod_genposition(ptr noundef nonnull %5, i32 noundef 0, double noundef %45, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, ptr noundef null)
-  br i1 %.02338, label %48, label %.thread34
+  br i1 %.02337, label %48, label %.thread33
 
-.thread34:                                        ; preds = %.split, %.split.us
+.thread33:                                        ; preds = %.split, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
@@ -499,20 +499,20 @@ define internal { double, double } @_ZL14gnom_e_inverse5PJ_XYP8PJconsts(double %
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %58 = add nsw i32 %46, -1
   %.not28 = icmp eq i32 %46, 0
-  br i1 %.not28, label %.split40.us, label %.split
+  br i1 %.not28, label %.split39.us, label %.split
 
-.split40.us:                                      ; preds = %48, %33
+.split39.us:                                      ; preds = %48, %33
   %.us-phi = phi i1 [ %43, %33 ], [ %57, %48 ]
   br i1 %.us-phi, label %64, label %59
 
-59:                                               ; preds = %.thread34, %.split40.us
+59:                                               ; preds = %.thread33, %.split39.us
   %60 = load double, ptr %6, align 8, !tbaa !54
   %61 = fmul double %60, 0x3F91DF46A2529D39
   %62 = load double, ptr %7, align 8, !tbaa !54
   %63 = fmul double %62, 0x3F91DF46A2529D39
   br label %66
 
-64:                                               ; preds = %.split40.us
+64:                                               ; preds = %.split39.us
   %65 = call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
   br label %66
 

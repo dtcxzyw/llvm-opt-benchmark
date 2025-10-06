@@ -1099,14 +1099,14 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_OpenJoystick(ptr noundef 
   %25 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %24, ptr noundef nonnull %8, i64 noundef 20) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %.loopexit27, label %SetFeatureReport.exit.thread99.i
+  br i1 %26, label %.loopexit27, label %SetFeatureReport.exit.thread100.i
 
 27:                                               ; preds = %31, %.preheader.i.i
   %.034.i.i = phi i32 [ 0, %.preheader.i.i ], [ %32, %31 ]
   %28 = load ptr, ptr %20, align 8
   %29 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %28, ptr noundef nonnull %9, i64 noundef 65) #9
   %30 = icmp sgt i32 %29, -1
-  br i1 %30, label %SetFeatureReport.exit.thread99.i, label %31
+  br i1 %30, label %SetFeatureReport.exit.thread100.i, label %31
 
 31:                                               ; preds = %27
   call void @SDL_DelayNS_REAL(i64 noundef 500000) #9
@@ -1114,7 +1114,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_OpenJoystick(ptr noundef 
   %exitcond.not.i.i = icmp eq i32 %32, 50
   br i1 %exitcond.not.i.i, label %.loopexit27, label %27, !llvm.loop !5
 
-SetFeatureReport.exit.thread99.i:                 ; preds = %27, %.lr.ph.i.i
+SetFeatureReport.exit.thread100.i:                ; preds = %27, %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 148
@@ -1122,8 +1122,8 @@ SetFeatureReport.exit.thread99.i:                 ; preds = %27, %.lr.ph.i.i
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %38
 
-38:                                               ; preds = %.thread.i.i, %SetFeatureReport.exit.thread99.i
-  %.01227.i.i = phi i32 [ 0, %SetFeatureReport.exit.thread99.i ], [ %84, %.thread.i.i ]
+38:                                               ; preds = %.thread.i.i, %SetFeatureReport.exit.thread100.i
+  %.01231.i.i = phi i32 [ 0, %SetFeatureReport.exit.thread100.i ], [ %84, %.thread.i.i ]
   %39 = load i8, ptr %17, align 4, !range !3, !noundef !4
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %75
@@ -1212,9 +1212,8 @@ SetFeatureReport.exit.thread99.i:                 ; preds = %27, %.lr.ph.i.i
 
 WriteSegmentToSteamControllerPacketAssembler.exit.i.i.i: ; preds = %71, %67
   %.1.i.i.i.i = phi i32 [ %44, %71 ], [ %68, %67 ]
-  %73 = add nsw i32 %.1.i.i.i.i, -65
-  %or.cond.i.i.i = icmp ult i32 %73, -64
-  br i1 %or.cond.i.i.i, label %.thread.i.i.i, label %GetFeatureReport.exit.i.i
+  %73 = icmp samesign ugt i32 %.1.i.i.i.i, 64
+  br i1 %73, label %.thread.i.i.i, label %GetFeatureReport.exit.i.i
 
 .thread.sink.split.i.i.i:                         ; preds = %69, %57
   %.sink.i.i.i = phi i32 [ 0, %57 ], [ %70, %69 ]
@@ -1263,9 +1262,9 @@ GetFeatureReport.exit.thread16.i.i:               ; preds = %76, %GetFeatureRepo
   br i1 %.not.not.i.i, label %ReadResponse.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %80, %GetFeatureReport.exit.thread16.i.i, %GetFeatureReport.exit.thread19.i.i
-  %84 = add nuw nsw i32 %.01227.i.i, 1
-  %exitcond.i.i = icmp eq i32 %84, 10
-  br i1 %exitcond.i.i, label %.loopexit27, label %38, !llvm.loop !10
+  %84 = add nuw nsw i32 %.01231.i.i, 1
+  %exitcond.not.i62.i = icmp eq i32 %84, 10
+  br i1 %exitcond.not.i62.i, label %.loopexit27, label %38, !llvm.loop !10
 
 ReadResponse.exit.i:                              ; preds = %GetFeatureReport.exit.thread16.i.i
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 2
@@ -1310,9 +1309,9 @@ ReadResponse.exit.i:                              ; preds = %GetFeatureReport.ex
   store i8 -127, ptr %16, align 1
   %98 = load i8, ptr %17, align 4, !range !3, !noundef !4
   %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %.lr.ph.i66.i, label %.preheader.i62.i
+  br i1 %99, label %.lr.ph.i67.i, label %.preheader.i63.i
 
-.lr.ph.i66.i:                                     ; preds = %._crit_edge.i
+.lr.ph.i67.i:                                     ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -1324,29 +1323,29 @@ ReadResponse.exit.i:                              ; preds = %GetFeatureReport.ex
   %103 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %102, ptr noundef nonnull %5, i64 noundef 20) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = icmp slt i32 %103, 0
-  br i1 %104, label %.loopexit27, label %SetFeatureReport.exit73.thread104.i
+  br i1 %104, label %.loopexit27, label %SetFeatureReport.exit74.thread104.i
 
-.preheader.i62.i:                                 ; preds = %._crit_edge.i, %108
-  %.034.i63.i = phi i32 [ %109, %108 ], [ 0, %._crit_edge.i ]
+.preheader.i63.i:                                 ; preds = %._crit_edge.i, %108
+  %.034.i64.i = phi i32 [ %109, %108 ], [ 0, %._crit_edge.i ]
   %105 = load ptr, ptr %33, align 8
   %106 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %105, ptr noundef nonnull %9, i64 noundef 65) #9
   %107 = icmp sgt i32 %106, -1
-  br i1 %107, label %SetFeatureReport.exit73.thread104.i, label %108
+  br i1 %107, label %SetFeatureReport.exit74.thread104.i, label %108
 
-108:                                              ; preds = %.preheader.i62.i
+108:                                              ; preds = %.preheader.i63.i
   call void @SDL_DelayNS_REAL(i64 noundef 500000) #9
-  %109 = add nuw nsw i32 %.034.i63.i, 1
-  %exitcond.not.i64.i = icmp eq i32 %109, 50
-  br i1 %exitcond.not.i64.i, label %.loopexit27, label %.preheader.i62.i, !llvm.loop !5
+  %109 = add nuw nsw i32 %.034.i64.i, 1
+  %exitcond.not.i65.i = icmp eq i32 %109, 50
+  br i1 %exitcond.not.i65.i, label %.loopexit27, label %.preheader.i63.i, !llvm.loop !5
 
-SetFeatureReport.exit73.thread104.i:              ; preds = %.preheader.i62.i, %.lr.ph.i66.i
+SetFeatureReport.exit74.thread104.i:              ; preds = %.preheader.i63.i, %.lr.ph.i67.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %9, i8 0, i64 65, i1 false)
   store i8 -114, ptr %16, align 1
   %110 = load i8, ptr %17, align 4, !range !3, !noundef !4
   %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %.lr.ph.i78.i, label %.preheader.i74.i
+  br i1 %111, label %.lr.ph.i79.i, label %.preheader.i75.i
 
-.lr.ph.i78.i:                                     ; preds = %SetFeatureReport.exit73.thread104.i
+.lr.ph.i79.i:                                     ; preds = %SetFeatureReport.exit74.thread104.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -1359,22 +1358,22 @@ SetFeatureReport.exit73.thread104.i:              ; preds = %.preheader.i62.i, %
   %116 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %115, ptr noundef nonnull %4, i64 noundef 20) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %117 = icmp slt i32 %116, 0
-  br i1 %117, label %.loopexit27, label %SetFeatureReport.exit85.thread107.i
+  br i1 %117, label %.loopexit27, label %SetFeatureReport.exit86.thread107.i
 
-.preheader.i74.i:                                 ; preds = %SetFeatureReport.exit73.thread104.i, %121
-  %.034.i75.i = phi i32 [ %122, %121 ], [ 0, %SetFeatureReport.exit73.thread104.i ]
+.preheader.i75.i:                                 ; preds = %SetFeatureReport.exit74.thread104.i, %121
+  %.034.i76.i = phi i32 [ %122, %121 ], [ 0, %SetFeatureReport.exit74.thread104.i ]
   %118 = load ptr, ptr %33, align 8
   %119 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %118, ptr noundef nonnull %9, i64 noundef 65) #9
   %120 = icmp sgt i32 %119, -1
-  br i1 %120, label %SetFeatureReport.exit85.thread107.i, label %121
+  br i1 %120, label %SetFeatureReport.exit86.thread107.i, label %121
 
-121:                                              ; preds = %.preheader.i74.i
+121:                                              ; preds = %.preheader.i75.i
   call void @SDL_DelayNS_REAL(i64 noundef 500000) #9
-  %122 = add nuw nsw i32 %.034.i75.i, 1
-  %exitcond.not.i76.i = icmp eq i32 %122, 50
-  br i1 %exitcond.not.i76.i, label %.loopexit27, label %.preheader.i74.i, !llvm.loop !5
+  %122 = add nuw nsw i32 %.034.i76.i, 1
+  %exitcond.not.i77.i = icmp eq i32 %122, 50
+  br i1 %exitcond.not.i77.i, label %.loopexit27, label %.preheader.i75.i, !llvm.loop !5
 
-SetFeatureReport.exit85.thread107.i:              ; preds = %.preheader.i74.i, %.lr.ph.i78.i
+SetFeatureReport.exit86.thread107.i:              ; preds = %.preheader.i75.i, %.lr.ph.i79.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %9, i8 0, i64 65, i1 false)
   store i8 -121, ptr %16, align 1
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 3
@@ -1394,9 +1393,9 @@ SetFeatureReport.exit85.thread107.i:              ; preds = %.preheader.i74.i, %
   store i8 12, ptr %85, align 2
   %130 = load i8, ptr %17, align 4, !range !3, !noundef !4
   %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %.lr.ph.i90.i, label %.preheader.i86.i
+  br i1 %131, label %.lr.ph.i91.i, label %.preheader.i87.i
 
-.lr.ph.i90.i:                                     ; preds = %SetFeatureReport.exit85.thread107.i
+.lr.ph.i91.i:                                     ; preds = %SetFeatureReport.exit86.thread107.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -1411,27 +1410,27 @@ SetFeatureReport.exit85.thread107.i:              ; preds = %.preheader.i74.i, %
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %.loopexit27, label %.loopexit
 
-.preheader.i86.i:                                 ; preds = %SetFeatureReport.exit85.thread107.i, %141
-  %.034.i87.i = phi i32 [ %142, %141 ], [ 0, %SetFeatureReport.exit85.thread107.i ]
+.preheader.i87.i:                                 ; preds = %SetFeatureReport.exit86.thread107.i, %141
+  %.034.i88.i = phi i32 [ %142, %141 ], [ 0, %SetFeatureReport.exit86.thread107.i ]
   %138 = load ptr, ptr %33, align 8
   %139 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %138, ptr noundef nonnull %9, i64 noundef 65) #9
   %140 = icmp sgt i32 %139, -1
   br i1 %140, label %.loopexit, label %141
 
-141:                                              ; preds = %.preheader.i86.i
+141:                                              ; preds = %.preheader.i87.i
   call void @SDL_DelayNS_REAL(i64 noundef 500000) #9
-  %142 = add nuw nsw i32 %.034.i87.i, 1
-  %exitcond.not.i88.i = icmp eq i32 %142, 50
-  br i1 %exitcond.not.i88.i, label %.loopexit27, label %.preheader.i86.i, !llvm.loop !5
+  %142 = add nuw nsw i32 %.034.i88.i, 1
+  %exitcond.not.i89.i = icmp eq i32 %142, 50
+  br i1 %exitcond.not.i89.i, label %.loopexit27, label %.preheader.i87.i, !llvm.loop !5
 
-.loopexit27:                                      ; preds = %31, %.thread.i.i, %108, %121, %141, %.lr.ph.i90.i, %.lr.ph.i78.i, %.lr.ph.i66.i, %ReadResponse.exit.i, %.lr.ph.i.i
-  %.str.13.sink.i = phi ptr [ @.str.9, %.lr.ph.i.i ], [ @.str.10, %ReadResponse.exit.i ], [ @.str.11, %.lr.ph.i66.i ], [ @.str.12, %.lr.ph.i78.i ], [ @.str.13, %.lr.ph.i90.i ], [ @.str.13, %141 ], [ @.str.12, %121 ], [ @.str.11, %108 ], [ @.str.10, %.thread.i.i ], [ @.str.9, %31 ]
+.loopexit27:                                      ; preds = %31, %.thread.i.i, %108, %121, %141, %.lr.ph.i91.i, %.lr.ph.i79.i, %.lr.ph.i67.i, %ReadResponse.exit.i, %.lr.ph.i.i
+  %.str.13.sink.i = phi ptr [ @.str.9, %.lr.ph.i.i ], [ @.str.10, %ReadResponse.exit.i ], [ @.str.11, %.lr.ph.i67.i ], [ @.str.12, %.lr.ph.i79.i ], [ @.str.13, %.lr.ph.i91.i ], [ @.str.13, %141 ], [ @.str.12, %121 ], [ @.str.11, %108 ], [ @.str.10, %.thread.i.i ], [ @.str.9, %31 ]
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull %.str.13.sink.i, ptr noundef %0) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %143 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9
   br label %160
 
-.loopexit:                                        ; preds = %.preheader.i86.i, %.lr.ph.i90.i
+.loopexit:                                        ; preds = %.preheader.i87.i, %.lr.ph.i91.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %144 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %144, 0

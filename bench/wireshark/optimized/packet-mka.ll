@@ -781,13 +781,13 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
   %318 = load i32, ptr @hf_mka_param_body_length, align 4
   %319 = call ptr @proto_tree_add_uint(ptr noundef %315, i32 noundef %318, ptr noundef %0, i32 noundef %307, i32 noundef 2, i32 noundef %311)
   %320 = add i32 %.08588, 4
-  %.not122.i = icmp samesign ult i16 %309, 2
-  br i1 %.not122.i, label %.thread.i, label %.lr.ph124.i
+  %.not121.i = icmp samesign ult i16 %309, 2
+  br i1 %.not121.i, label %.thread.i, label %.lr.ph123.i
 
-.lr.ph124.i:                                      ; preds = %306, %.loopexit.i
+.lr.ph123.i:                                      ; preds = %306, %.loopexit.i
   %321 = phi i32 [ %377, %.loopexit.i ], [ 2, %306 ]
-  %.0106123.i = phi i32 [ %.1.i63, %.loopexit.i ], [ 0, %306 ]
-  %322 = add i32 %.0106123.i, %320
+  %.0106122.i = phi i32 [ %.1.i63, %.loopexit.i ], [ 0, %306 ]
+  %322 = add i32 %.0106122.i, %320
   %323 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %322)
   %324 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %322)
   %325 = and i16 %324, 511
@@ -796,7 +796,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
   %328 = icmp sgt i32 %327, %311
   br i1 %328, label %.thread.i, label %329
 
-329:                                              ; preds = %.lr.ph124.i
+329:                                              ; preds = %.lr.ph123.i
   %330 = lshr i8 %323, 1
   %331 = load i32, ptr @hf_mka_tlv_entry, align 4
   %332 = add nuw nsw i32 %326, 2
@@ -821,8 +821,8 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
   ]
 
 .preheader.i:                                     ; preds = %342
-  %.not115120.i = icmp samesign ult i16 %325, 10
-  br i1 %.not115120.i, label %.loopexit.i, label %.lr.ph.i66
+  %.not115119.i = icmp samesign ult i16 %325, 10
+  br i1 %.not115119.i, label %.loopexit.i, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %.preheader.i
   %343 = add i32 %321, %320
@@ -830,7 +830,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
 
 344:                                              ; preds = %344, %.lr.ph.i66
   %345 = phi i32 [ 0, %.lr.ph.i66 ], [ %366, %344 ]
-  %.0107121.i = phi i32 [ 0, %.lr.ph.i66 ], [ %365, %344 ]
+  %.0107120.i = phi i32 [ 0, %.lr.ph.i66 ], [ %365, %344 ]
   %346 = add i32 %345, %343
   %347 = add i32 %346, 2
   %348 = call i64 @tvb_get_uint64(ptr noundef %0, i32 noundef %347, i32 noundef 0)
@@ -845,7 +845,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
   %357 = call ptr @proto_item_add_subtree(ptr noundef %355, i32 noundef %356)
   %358 = load i32, ptr @hf_mka_tlv_cipher_suite_impl_cap, align 4
   %359 = call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %358, ptr noundef %0, i32 noundef %346, i32 noundef 2, i32 noundef 0)
-  %360 = add nsw i32 %.0107121.i, 2
+  %360 = add nsw i32 %.0107120.i, 2
   %361 = load i32, ptr @hf_mka_macsec_cipher_suite, align 4
   %362 = and i32 %360, 65535
   %363 = add i32 %362, %343
@@ -873,9 +873,9 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
   %.1.i63 = phi i32 [ %321, %329 ], [ %327, %373 ], [ %327, %368 ], [ %327, %.preheader.i ], [ %327, %344 ]
   %377 = add i32 %.1.i63, 2
   %.not.i64 = icmp sgt i32 %377, %311
-  br i1 %.not.i64, label %.thread.i, label %.lr.ph124.i
+  br i1 %.not.i64, label %.thread.i, label %.lr.ph123.i
 
-.thread.i:                                        ; preds = %.loopexit.i, %.lr.ph124.i, %306
+.thread.i:                                        ; preds = %.loopexit.i, %.lr.ph123.i, %306
   %378 = add i32 %320, %311
   %379 = and i32 %311, 3
   %.not116.i = icmp eq i32 %379, 0

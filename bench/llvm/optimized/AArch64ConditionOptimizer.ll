@@ -1377,41 +1377,41 @@ define internal fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjust
   br i1 %.not, label %switch.early.test, label %_ZL16getComplementOpci.exit
 
 switch.early.test:                                ; preds = %21
-  switch i16 %5, label %25 [
+  switch i16 %5, label %26 [
     i16 1494, label %_ZL16getComplementOpci.exit
     i16 1491, label %_ZL16getComplementOpci.exit
-    i16 7422, label %23
-    i16 7425, label %24
+    i16 7422, label %24
+    i16 7425, label %25
   ]
 
 22:                                               ; preds = %19
-  %switch = icmp eq i16 %5, 1491
-  %spec.select = select i1 %switch, i16 7422, i16 7425
-  br label %_ZL16getComplementOpci.exit
-
-23:                                               ; preds = %switch.early.test
+  %23 = icmp eq i16 %5, 1491
+  %spec.select = select i1 %23, i16 7422, i16 7425
   br label %_ZL16getComplementOpci.exit
 
 24:                                               ; preds = %switch.early.test
   br label %_ZL16getComplementOpci.exit
 
 25:                                               ; preds = %switch.early.test
+  br label %_ZL16getComplementOpci.exit
+
+26:                                               ; preds = %switch.early.test
   unreachable
 
-_ZL16getComplementOpci.exit:                      ; preds = %22, %switch.early.test, %switch.early.test, %24, %23, %21, %12
-  %.04.shrunk = phi i16 [ %5, %21 ], [ %5, %switch.early.test ], [ %5, %switch.early.test ], [ %5, %12 ], [ 1491, %23 ], [ 1494, %24 ], [ %spec.select, %22 ]
-  %26 = sext i32 %2 to i64
-  %27 = getelementptr i32, ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 %26
-  %switch.gep = getelementptr i8, ptr %27, i64 -40
+_ZL16getComplementOpci.exit:                      ; preds = %22, %switch.early.test, %switch.early.test, %25, %24, %21, %12
+  %.04.shrunk = phi i16 [ %5, %21 ], [ %5, %switch.early.test ], [ %5, %switch.early.test ], [ %5, %12 ], [ 1491, %24 ], [ 1494, %25 ], [ %spec.select, %22 ]
+  %27 = sext i32 %2 to i64
+  %28 = getelementptr i32, ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 %27
+  %switch.gep = getelementptr i8, ptr %28, i64 -40
   %switch.load = load i32, ptr %switch.gep, align 4
   %.04 = zext i16 %.04.shrunk to i32
-  %28 = add nsw i32 %.0, %17
-  %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %29 = add nsw i32 %.0, %17
+  %30 = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
   store i32 %switch.load, ptr %0, align 4, !tbaa !267
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.04, ptr %30, align 4, !tbaa !270
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %29, ptr %31, align 4, !tbaa !272
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.04, ptr %31, align 4, !tbaa !270
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %30, ptr %32, align 4, !tbaa !272
   ret void
 }
 
@@ -1983,8 +1983,8 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_20MachineDominatorTre
   %23 = load i32, ptr %20, align 8, !tbaa !199
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
-  %.not.not43 = icmp eq ptr %21, %25
-  br i1 %.not.not43, label %.thread, label %.lr.ph
+  %.not.not42 = icmp eq ptr %21, %25
+  br i1 %.not.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.critedge.backedge
   %26 = phi ptr [ %44, %.critedge.backedge ], [ %21, %18 ]
@@ -2001,36 +2001,36 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_20MachineDominatorTre
   %34 = zext i32 %33 to i64
   %.idx.i.i.i = shl nuw nsw i64 %34, 3
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %33, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %31, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %37, %.critedge.i.i.i ], [ %32, %31 ]
-  %36 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !3, !noalias !331
+  %.02935.i.i.i = phi ptr [ %37, %.critedge.i.i.i ], [ %32, %31 ]
+  %36 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !3, !noalias !331
   %.not17.i.i.i = icmp eq ptr %36, %28
   br i1 %.not17.i.i.i, label %.critedge.backedge, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %37, %35
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !336
 
 ._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %31
   %38 = load i32, ptr %6, align 8, !tbaa !247, !noalias !331
   %39 = icmp ult i32 %33, %38
-  br i1 %39, label %.critedge37, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+  br i1 %39, label %.critedge36, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-.critedge37:                                      ; preds = %._crit_edge.i.i.i
+.critedge36:                                      ; preds = %._crit_edge.i.i.i
   %40 = add nuw i32 %33, 1
   store i32 %40, ptr %5, align 4, !tbaa !249, !noalias !331
   store ptr %28, ptr %35, align 8, !tbaa !3, !noalias !331
-  br label %.loopexit38
+  br label %.loopexit37
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %.lr.ph
   %41 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %28) #17, !noalias !331
   %42 = extractvalue { ptr, i8 } %41, 1
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.loopexit38, label %.critedge.backedge
+  br i1 %43, label %.loopexit37, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   %44 = load ptr, ptr %11, align 8, !tbaa !183
@@ -2041,14 +2041,14 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   %.not.not = icmp eq ptr %44, %48
   br i1 %.not.not, label %.thread, label %.lr.ph
 
-.loopexit38:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge37
+.loopexit37:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge36
   %49 = load ptr, ptr %3, align 8, !tbaa !162
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %51 = load ptr, ptr %50, align 8, !tbaa !166
   %.not.i.i = icmp eq ptr %49, %51
   br i1 %.not.i.i, label %55, label %52
 
-52:                                               ; preds = %.loopexit38
+52:                                               ; preds = %.loopexit37
   store ptr %28, ptr %49, align 8
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i8 0, ptr %.sroa.512.0..sroa_idx, align 8
@@ -2057,7 +2057,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   store ptr %54, ptr %3, align 8, !tbaa !162
   br label %.loopexit
 
-55:                                               ; preds = %.loopexit38
+55:                                               ; preds = %.loopexit37
   %56 = load ptr, ptr %2, align 8, !tbaa !165
   %57 = ptrtoint ptr %49 to i64
   %58 = ptrtoint ptr %56 to i64

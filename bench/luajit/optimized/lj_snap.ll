@@ -1396,8 +1396,8 @@ define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %0, ptr n
   %15 = load i8, ptr %14, align 2, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store i32 0, ptr %16, align 4, !tbaa !94
-  %.not494 = icmp eq i8 %15, 0
-  br i1 %.not494, label %._crit_edge.thread, label %.lr.ph
+  %.not493 = icmp eq i8 %15, 0
+  br i1 %.not493, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1411,8 +1411,8 @@ define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %0, ptr n
 
 23:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %.0253472 = phi i64 [ 0, %.lr.ph ], [ %.1254, %90 ]
-  %.0255471 = phi i32 [ 0, %.lr.ph ], [ %.1256, %90 ]
+  %.0253471 = phi i64 [ 0, %.lr.ph ], [ %.1254, %90 ]
+  %.0255470 = phi i32 [ 0, %.lr.ph ], [ %.1256, %90 ]
   %24 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = lshr i32 %25, 24
@@ -1422,7 +1422,7 @@ define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %0, ptr n
   %30 = getelementptr inbounds nuw %union.IRIns, ptr %28, i64 %29
   %31 = and i64 %29, 63
   %32 = shl nuw i64 1, %31
-  %33 = and i64 %32, %.0253472
+  %33 = and i64 %32, %.0253471
   %.not292 = icmp eq i64 %33, 0
   %.not.i309 = icmp eq i64 %indvars.iv, 0
   %or.cond = or i1 %.not.i309, %.not292
@@ -1451,7 +1451,7 @@ snap_dedup.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not293, label %snap_dedup.exit.thread, label %75
 
 snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exit, %23
-  %44 = or i64 %32, %.0253472
+  %44 = or i64 %32, %.0253471
   %45 = icmp samesign ult i32 %27, 32768
   br i1 %45, label %46, label %50
 
@@ -1504,8 +1504,8 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
 
 75:                                               ; preds = %50, %46, %48, %68, %snap_dedup.exit
   %.0258 = phi i32 [ %43, %snap_dedup.exit ], [ %49, %48 ], [ %74, %68 ], [ 0, %46 ], [ %26, %50 ]
-  %.1256 = phi i32 [ %.0255471, %snap_dedup.exit ], [ %.0255471, %48 ], [ %.0255471, %68 ], [ %.0255471, %46 ], [ 1, %50 ]
-  %.1254 = phi i64 [ %.0253472, %snap_dedup.exit ], [ %44, %48 ], [ %44, %68 ], [ %44, %46 ], [ %44, %50 ]
+  %.1256 = phi i32 [ %.0255470, %snap_dedup.exit ], [ %.0255470, %48 ], [ %.0255470, %68 ], [ %.0255470, %46 ], [ 1, %50 ]
+  %.1254 = phi i64 [ %.0253471, %snap_dedup.exit ], [ %44, %48 ], [ %44, %68 ], [ %44, %46 ], [ %44, %50 ]
   %76 = and i32 %25, 1245184
   %77 = or i32 %.0258, %76
   %78 = zext nneg i32 %26 to i64
@@ -1535,9 +1535,9 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
 
 ._crit_edge:                                      ; preds = %90
   %91 = icmp eq i32 %.1256, 0
-  br i1 %91, label %._crit_edge.thread, label %.lr.ph483
+  br i1 %91, label %._crit_edge.thread, label %.lr.ph482
 
-.lr.ph483:                                        ; preds = %._crit_edge
+.lr.ph482:                                        ; preds = %._crit_edge
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %93 = load ptr, ptr %92, align 8, !tbaa !90
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1549,14 +1549,14 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  %wide.trip.count519 = zext i8 %15 to i64
+  %wide.trip.count518 = zext i8 %15 to i64
   br label %109
 
-.preheader:                                       ; preds = %.loopexit451
+.preheader:                                       ; preds = %.loopexit450
   %.not = icmp eq i32 %.5, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph491
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph490
 
-.lr.ph491:                                        ; preds = %.preheader
+.lr.ph490:                                        ; preds = %.preheader
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %wide.trip.count.i.i374 = zext i8 %15 to i64
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1567,10 +1567,10 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
   %108 = zext i8 %15 to i64
   br label %345
 
-109:                                              ; preds = %.lr.ph483, %.loopexit451
-  %indvars.iv516 = phi i64 [ 0, %.lr.ph483 ], [ %indvars.iv.next517, %.loopexit451 ]
-  %.3480 = phi i32 [ 0, %.lr.ph483 ], [ %.5, %.loopexit451 ]
-  %110 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv516
+109:                                              ; preds = %.lr.ph482, %.loopexit450
+  %indvars.iv515 = phi i64 [ 0, %.lr.ph482 ], [ %indvars.iv.next516, %.loopexit450 ]
+  %.3479 = phi i32 [ 0, %.lr.ph482 ], [ %.5, %.loopexit450 ]
+  %110 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv515
   %111 = load i32, ptr %110, align 4, !tbaa !4
   %112 = and i32 %111, 65535
   %113 = load ptr, ptr %92, align 8, !tbaa !90
@@ -1587,7 +1587,7 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
   %122 = getelementptr inbounds nuw i32, ptr %98, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !4
   %.not289 = icmp eq i32 %123, %120
-  br i1 %.not289, label %124, label %.loopexit451
+  br i1 %.not289, label %124, label %.loopexit450
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %115, i64 5
@@ -1730,21 +1730,21 @@ snap_dedup.exit.thread.i322:                      ; preds = %184, %snap_dedup.ex
 snap_pref.exit325:                                ; preds = %snap_dedup.exit.thread.i322, %snap_dedup.exit.i324, %176, %174, %snap_pref.exit
   %202 = load i8, ptr %125, align 1, !tbaa !40
   %203 = icmp ne i8 %202, 84
-  %.0265475 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %204 = icmp ult ptr %.0265475, %97
-  %or.cond493 = select i1 %203, i1 %204, i1 false
-  br i1 %or.cond493, label %.lr.ph479, label %.loopexit451
+  %.0265474 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %204 = icmp ult ptr %.0265474, %97
+  %or.cond492 = select i1 %203, i1 %204, i1 false
+  br i1 %or.cond492, label %.lr.ph478, label %.loopexit450
 
-.lr.ph479:                                        ; preds = %snap_pref.exit325, %snap_pref.exit354
-  %.0265477 = phi ptr [ %.0265, %snap_pref.exit354 ], [ %.0265475, %snap_pref.exit325 ]
-  %.pn291476 = phi ptr [ %.0265477, %snap_pref.exit354 ], [ %115, %snap_pref.exit325 ]
-  %205 = getelementptr inbounds nuw i8, ptr %.pn291476, i64 14
+.lr.ph478:                                        ; preds = %snap_pref.exit325, %snap_pref.exit354
+  %.0265476 = phi ptr [ %.0265, %snap_pref.exit354 ], [ %.0265474, %snap_pref.exit325 ]
+  %.pn291475 = phi ptr [ %.0265476, %snap_pref.exit354 ], [ %115, %snap_pref.exit325 ]
+  %205 = getelementptr inbounds nuw i8, ptr %.pn291475, i64 14
   %206 = load i8, ptr %205, align 2, !tbaa !40
   %207 = icmp eq i8 %206, -2
   br i1 %207, label %208, label %snap_pref.exit354
 
-208:                                              ; preds = %.lr.ph479
-  %209 = getelementptr inbounds nuw i8, ptr %.pn291476, i64 15
+208:                                              ; preds = %.lr.ph478
+  %209 = getelementptr inbounds nuw i8, ptr %.pn291475, i64 15
   %210 = load i8, ptr %209, align 1, !tbaa !40
   %.not.i = icmp eq i8 %210, -1
   br i1 %.not.i, label %215, label %211
@@ -1752,11 +1752,11 @@ snap_pref.exit325:                                ; preds = %snap_dedup.exit.thr
 211:                                              ; preds = %208
   %212 = zext i8 %210 to i64
   %213 = getelementptr inbounds nuw %union.IRIns, ptr %115, i64 %212
-  %214 = icmp eq ptr %213, %.0265477
+  %214 = icmp eq ptr %213, %.0265476
   br i1 %214, label %234, label %snap_pref.exit354
 
 215:                                              ; preds = %208
-  %216 = getelementptr inbounds nuw i8, ptr %.pn291476, i64 13
+  %216 = getelementptr inbounds nuw i8, ptr %.pn291475, i64 13
   %217 = load i8, ptr %216, align 1, !tbaa !40
   switch i8 %217, label %snap_pref.exit354 [
     i8 74, label %218
@@ -1767,7 +1767,7 @@ snap_pref.exit325:                                ; preds = %snap_dedup.exit.thr
 
 218:                                              ; preds = %215, %215, %215, %215
   %219 = load ptr, ptr %92, align 8, !tbaa !90
-  %220 = load i16, ptr %.0265477, align 8, !tbaa !40
+  %220 = load i16, ptr %.0265476, align 8, !tbaa !40
   %221 = zext i16 %220 to i64
   %222 = getelementptr inbounds nuw %union.IRIns, ptr %219, i64 %221
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 5
@@ -1791,7 +1791,7 @@ snap_sunk_store.exit:                             ; preds = %218, %226
   br i1 %233, label %234, label %snap_pref.exit354
 
 234:                                              ; preds = %211, %snap_sunk_store.exit
-  %235 = getelementptr inbounds nuw i8, ptr %.pn291476, i64 10
+  %235 = getelementptr inbounds nuw i8, ptr %.pn291475, i64 10
   %236 = load i16, ptr %235, align 2, !tbaa !40
   %.val302 = load ptr, ptr %92, align 8, !tbaa !90
   %237 = zext i16 %236 to i64
@@ -1859,12 +1859,12 @@ snap_pref.exit340:                                ; preds = %240, %snap_dedup.ex
 
 snap_pref.exit340.snap_pref.exit340.thread_crit_edge: ; preds = %snap_pref.exit340
   %.pre = load ptr, ptr %92, align 8, !tbaa !90
-  %.pre524 = load i16, ptr %235, align 2, !tbaa !40
-  %.pre527 = zext i16 %.pre524 to i64
+  %.pre523 = load i16, ptr %235, align 2, !tbaa !40
+  %.pre526 = zext i16 %.pre523 to i64
   br label %snap_pref.exit340.thread
 
 snap_pref.exit340.thread:                         ; preds = %snap_pref.exit340.snap_pref.exit340.thread_crit_edge, %242
-  %.pre-phi = phi i64 [ %.pre527, %snap_pref.exit340.snap_pref.exit340.thread_crit_edge ], [ %237, %242 ]
+  %.pre-phi = phi i64 [ %.pre526, %snap_pref.exit340.snap_pref.exit340.thread_crit_edge ], [ %237, %242 ]
   %269 = phi ptr [ %.pre, %snap_pref.exit340.snap_pref.exit340.thread_crit_edge ], [ %.val302, %242 ]
   %270 = getelementptr inbounds nuw %union.IRIns, ptr %269, i64 %.pre-phi
   %271 = load i16, ptr %270, align 8, !tbaa !40
@@ -1926,20 +1926,20 @@ snap_dedup.exit.thread.i351:                      ; preds = %285, %snap_dedup.ex
   %302 = tail call i32 @lj_opt_fold(ptr noundef %0) #10
   br label %snap_pref.exit354
 
-snap_pref.exit354:                                ; preds = %211, %snap_dedup.exit.i339, %215, %snap_dedup.exit.thread.i351, %snap_dedup.exit.i353, %277, %275, %.lr.ph479, %snap_sunk_store.exit, %snap_pref.exit340
-  %.0265 = getelementptr inbounds nuw i8, ptr %.0265477, i64 8
+snap_pref.exit354:                                ; preds = %211, %snap_dedup.exit.i339, %215, %snap_dedup.exit.thread.i351, %snap_dedup.exit.i353, %277, %275, %.lr.ph478, %snap_sunk_store.exit, %snap_pref.exit340
+  %.0265 = getelementptr inbounds nuw i8, ptr %.0265476, i64 8
   %303 = icmp ult ptr %.0265, %97
-  br i1 %303, label %.lr.ph479, label %.loopexit451, !llvm.loop !97
+  br i1 %303, label %.lr.ph478, label %.loopexit450, !llvm.loop !97
 
 304:                                              ; preds = %109
   %305 = icmp samesign ult i32 %112, 32768
-  br i1 %305, label %.loopexit451, label %306
+  br i1 %305, label %.loopexit450, label %306
 
 306:                                              ; preds = %304
   %307 = load i16, ptr %116, align 2, !tbaa !40
   %308 = and i16 %307, -128
   %.not288 = icmp eq i16 %308, 128
-  br i1 %.not288, label %309, label %.loopexit451
+  br i1 %.not288, label %309, label %.loopexit450
 
 309:                                              ; preds = %306
   %310 = load i16, ptr %115, align 8, !tbaa !40
@@ -2007,17 +2007,17 @@ snap_pref.exit368:                                ; preds = %314, %316, %snap_de
   %343 = zext nneg i32 %342 to i64
   %344 = getelementptr inbounds nuw i32, ptr %98, i64 %343
   store i32 %.0.i366, ptr %344, align 4, !tbaa !4
-  br label %.loopexit451
+  br label %.loopexit450
 
-.loopexit451:                                     ; preds = %snap_pref.exit354, %119, %snap_pref.exit325, %snap_pref.exit368, %306, %304
-  %.5 = phi i32 [ %.3480, %304 ], [ %.3480, %306 ], [ %.3480, %snap_pref.exit368 ], [ %.3480, %119 ], [ 1, %snap_pref.exit325 ], [ 1, %snap_pref.exit354 ]
-  %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
-  %exitcond520.not = icmp eq i64 %indvars.iv.next517, %wide.trip.count519
-  br i1 %exitcond520.not, label %.preheader, label %109, !llvm.loop !98
+.loopexit450:                                     ; preds = %snap_pref.exit354, %119, %snap_pref.exit325, %snap_pref.exit368, %306, %304
+  %.5 = phi i32 [ %.3479, %304 ], [ %.3479, %306 ], [ %.3479, %snap_pref.exit368 ], [ %.3479, %119 ], [ 1, %snap_pref.exit325 ], [ 1, %snap_pref.exit354 ]
+  %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
+  %exitcond519.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count518
+  br i1 %exitcond519.not, label %.preheader, label %109, !llvm.loop !98
 
-345:                                              ; preds = %.lr.ph491, %.loopexit
-  %indvars.iv521 = phi i64 [ 0, %.lr.ph491 ], [ %indvars.iv.next522, %.loopexit ]
-  %346 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv521
+345:                                              ; preds = %.lr.ph490, %.loopexit
+  %indvars.iv520 = phi i64 [ 0, %.lr.ph490 ], [ %indvars.iv.next521, %.loopexit ]
+  %346 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv520
   %347 = load i32, ptr %346, align 4, !tbaa !4
   %348 = and i32 %347, 65535
   %349 = load ptr, ptr %92, align 8, !tbaa !90
@@ -2213,25 +2213,25 @@ snap_pref.exit396:                                ; preds = %416, %418, %snap_de
   store i16 %.0275, ptr %105, align 2, !tbaa !40
   %454 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #10
   store i32 %454, ptr %358, align 4, !tbaa !4
-  %.0276485 = getelementptr inbounds nuw i8, ptr %351, i64 8
-  %455 = icmp ult ptr %.0276485, %97
-  br i1 %455, label %.lr.ph489, label %.loopexit
+  %.0276484 = getelementptr inbounds nuw i8, ptr %351, i64 8
+  %455 = icmp ult ptr %.0276484, %97
+  br i1 %455, label %.lr.ph488, label %.loopexit
 
-.lr.ph489:                                        ; preds = %453
+.lr.ph488:                                        ; preds = %453
   %456 = and i32 %454, 65535
   %457 = trunc i32 %454 to i16
   br label %458
 
-458:                                              ; preds = %.lr.ph489, %623
-  %.0276487 = phi ptr [ %.0276485, %.lr.ph489 ], [ %.0276, %623 ]
-  %.pn486 = phi ptr [ %351, %.lr.ph489 ], [ %.0276487, %623 ]
-  %459 = getelementptr inbounds nuw i8, ptr %.pn486, i64 14
+458:                                              ; preds = %.lr.ph488, %623
+  %.0276486 = phi ptr [ %.0276484, %.lr.ph488 ], [ %.0276, %623 ]
+  %.pn485 = phi ptr [ %351, %.lr.ph488 ], [ %.0276486, %623 ]
+  %459 = getelementptr inbounds nuw i8, ptr %.pn485, i64 14
   %460 = load i8, ptr %459, align 2, !tbaa !40
   %461 = icmp eq i8 %460, -2
   br i1 %461, label %462, label %snap_sunk_store.exit300.thread
 
 462:                                              ; preds = %458
-  %463 = getelementptr inbounds nuw i8, ptr %.pn486, i64 15
+  %463 = getelementptr inbounds nuw i8, ptr %.pn485, i64 15
   %464 = load i8, ptr %463, align 1, !tbaa !40
   %.not.i298 = icmp eq i8 %464, -1
   br i1 %.not.i298, label %469, label %465
@@ -2239,11 +2239,11 @@ snap_pref.exit396:                                ; preds = %416, %418, %snap_de
 465:                                              ; preds = %462
   %466 = zext i8 %464 to i64
   %467 = getelementptr inbounds nuw %union.IRIns, ptr %351, i64 %466
-  %468 = icmp eq ptr %467, %.0276487
+  %468 = icmp eq ptr %467, %.0276486
   br i1 %468, label %488, label %snap_sunk_store.exit300.thread
 
 469:                                              ; preds = %462
-  %470 = getelementptr inbounds nuw i8, ptr %.pn486, i64 13
+  %470 = getelementptr inbounds nuw i8, ptr %.pn485, i64 13
   %471 = load i8, ptr %470, align 1, !tbaa !40
   switch i8 %471, label %snap_sunk_store.exit300.thread [
     i8 74, label %472
@@ -2254,7 +2254,7 @@ snap_pref.exit396:                                ; preds = %416, %418, %snap_de
 
 472:                                              ; preds = %469, %469, %469, %469
   %473 = load ptr, ptr %92, align 8, !tbaa !90
-  %474 = load i16, ptr %.0276487, align 8, !tbaa !40
+  %474 = load i16, ptr %.0276486, align 8, !tbaa !40
   %475 = zext i16 %474 to i64
   %476 = getelementptr inbounds nuw %union.IRIns, ptr %473, i64 %475
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 5
@@ -2279,7 +2279,7 @@ snap_sunk_store.exit300:                          ; preds = %472, %480
 
 488:                                              ; preds = %465, %snap_sunk_store.exit300
   %489 = load ptr, ptr %92, align 8, !tbaa !90
-  %490 = load i16, ptr %.0276487, align 8, !tbaa !40
+  %490 = load i16, ptr %.0276486, align 8, !tbaa !40
   %491 = zext i16 %490 to i64
   %492 = getelementptr inbounds nuw %union.IRIns, ptr %489, i64 %491
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 2
@@ -2333,7 +2333,7 @@ snap_sunk_store.exit300:                          ; preds = %472, %480
   store i16 %457, ptr %103, align 8, !tbaa !40
   store i16 %523, ptr %105, align 2, !tbaa !40
   %524 = tail call i32 @lj_opt_fold(ptr noundef %0) #10
-  %.pre530 = trunc i32 %524 to i16
+  %.pre529 = trunc i32 %524 to i16
   br label %.thread443
 
 525:                                              ; preds = %513
@@ -2353,13 +2353,13 @@ snap_sunk_store.exit300:                          ; preds = %472, %480
   br i1 %536, label %542, label %.thread443
 
 .thread443:                                       ; preds = %529, %525, %515, %513, %488
-  %.pre-phi531 = phi i16 [ %457, %529 ], [ %457, %525 ], [ %.pre530, %515 ], [ %457, %513 ], [ %457, %488 ]
+  %.pre-phi530 = phi i16 [ %457, %529 ], [ %457, %525 ], [ %.pre529, %515 ], [ %457, %513 ], [ %457, %488 ]
   %.0271 = phi i32 [ %.1272, %529 ], [ %.1272, %525 ], [ %.1272, %515 ], [ %.1272, %513 ], [ %495, %488 ]
   %537 = getelementptr inbounds nuw i8, ptr %492, i64 4
   %538 = load i16, ptr %537, align 4, !tbaa !40
   %539 = trunc i32 %.0271 to i16
   store i16 %538, ptr %104, align 4, !tbaa !40
-  store i16 %.pre-phi531, ptr %103, align 8, !tbaa !40
+  store i16 %.pre-phi530, ptr %103, align 8, !tbaa !40
   store i16 %539, ptr %105, align 2, !tbaa !40
   %540 = tail call i32 @lj_opt_fold(ptr noundef %0) #10
   %541 = trunc i32 %540 to i16
@@ -2367,7 +2367,7 @@ snap_sunk_store.exit300:                          ; preds = %472, %480
 
 542:                                              ; preds = %529, %.thread443
   %.4270 = phi i16 [ %541, %.thread443 ], [ %526, %529 ]
-  %543 = getelementptr inbounds nuw i8, ptr %.pn486, i64 10
+  %543 = getelementptr inbounds nuw i8, ptr %.pn485, i64 10
   %544 = load i16, ptr %543, align 2, !tbaa !40
   %.val307 = load ptr, ptr %92, align 8, !tbaa !90
   %545 = zext i16 %544 to i64
@@ -2413,7 +2413,7 @@ snap_dedup.exit.i413:                             ; preds = %.lr.ph.i.i407
   %566 = load i32, ptr %565, align 4, !tbaa !4
   %567 = and i32 %566, -1245185
   %568 = icmp eq i32 %567, 0
-  br i1 %568, label %snap_dedup.exit.thread.i411, label %snap_pref.exit414.thread448
+  br i1 %568, label %snap_dedup.exit.thread.i411, label %snap_pref.exit414.thread447
 
 snap_dedup.exit.thread.i411:                      ; preds = %558, %snap_dedup.exit.i413, %554
   %569 = getelementptr inbounds nuw i8, ptr %546, i64 4
@@ -2431,18 +2431,18 @@ snap_dedup.exit.thread.i411:                      ; preds = %558, %snap_dedup.ex
 snap_pref.exit414:                                ; preds = %548, %snap_dedup.exit.thread.i411
   %.0.i412 = phi i32 [ %549, %548 ], [ %575, %snap_dedup.exit.thread.i411 ]
   %576 = icmp eq i32 %.0.i412, 0
-  br i1 %576, label %snap_pref.exit414.snap_pref.exit414.thread_crit_edge, label %snap_pref.exit414.thread448
+  br i1 %576, label %snap_pref.exit414.snap_pref.exit414.thread_crit_edge, label %snap_pref.exit414.thread447
 
 snap_pref.exit414.snap_pref.exit414.thread_crit_edge: ; preds = %snap_pref.exit414
-  %.pre525 = load ptr, ptr %92, align 8, !tbaa !90
-  %.pre526 = load i16, ptr %543, align 2, !tbaa !40
-  %.pre528 = zext i16 %.pre526 to i64
+  %.pre524 = load ptr, ptr %92, align 8, !tbaa !90
+  %.pre525 = load i16, ptr %543, align 2, !tbaa !40
+  %.pre527 = zext i16 %.pre525 to i64
   br label %snap_pref.exit414.thread
 
 snap_pref.exit414.thread:                         ; preds = %snap_pref.exit414.snap_pref.exit414.thread_crit_edge, %550
-  %.pre-phi529 = phi i64 [ %.pre528, %snap_pref.exit414.snap_pref.exit414.thread_crit_edge ], [ %545, %550 ]
-  %577 = phi ptr [ %.pre525, %snap_pref.exit414.snap_pref.exit414.thread_crit_edge ], [ %.val307, %550 ]
-  %578 = getelementptr inbounds nuw %union.IRIns, ptr %577, i64 %.pre-phi529
+  %.pre-phi528 = phi i64 [ %.pre527, %snap_pref.exit414.snap_pref.exit414.thread_crit_edge ], [ %545, %550 ]
+  %577 = phi ptr [ %.pre524, %snap_pref.exit414.snap_pref.exit414.thread_crit_edge ], [ %.val307, %550 ]
+  %578 = getelementptr inbounds nuw %union.IRIns, ptr %577, i64 %.pre-phi528
   %579 = load i16, ptr %578, align 8, !tbaa !40
   %580 = zext i16 %579 to i64
   %581 = getelementptr inbounds nuw %union.IRIns, ptr %577, i64 %580
@@ -2509,17 +2509,17 @@ snap_pref.exit428:                                ; preds = %583, %585, %snap_de
   store i16 %611, ptr %103, align 8, !tbaa !40
   store i16 467, ptr %105, align 2, !tbaa !40
   %612 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #10
-  br label %snap_pref.exit414.thread448
+  br label %snap_pref.exit414.thread447
 
-snap_pref.exit414.thread448:                      ; preds = %snap_dedup.exit.i413, %snap_pref.exit414, %snap_pref.exit428
+snap_pref.exit414.thread447:                      ; preds = %snap_dedup.exit.i413, %snap_pref.exit414, %snap_pref.exit428
   %.0273 = phi i32 [ %612, %snap_pref.exit428 ], [ %.0.i412, %snap_pref.exit414 ], [ %567, %snap_dedup.exit.i413 ]
-  %613 = getelementptr inbounds nuw i8, ptr %.pn486, i64 12
+  %613 = getelementptr inbounds nuw i8, ptr %.pn485, i64 12
   %614 = load i16, ptr %613, align 4, !tbaa !40
   %615 = trunc i32 %.0273 to i16
   br label %.sink.split
 
 snap_sunk_store.exit300.thread:                   ; preds = %465, %469, %snap_sunk_store.exit300, %458
-  %616 = getelementptr inbounds nuw i8, ptr %.pn486, i64 13
+  %616 = getelementptr inbounds nuw i8, ptr %.pn485, i64 13
   %617 = load i8, ptr %616, align 1, !tbaa !40
   %618 = icmp eq i8 %617, 90
   br i1 %618, label %619, label %623
@@ -2529,29 +2529,29 @@ snap_sunk_store.exit300.thread:                   ; preds = %465, %469, %snap_su
   %621 = icmp eq i8 %620, 83
   br i1 %621, label %.sink.split, label %623
 
-.sink.split:                                      ; preds = %619, %snap_pref.exit414.thread448
-  %.sink576 = phi i16 [ %614, %snap_pref.exit414.thread448 ], [ 23040, %619 ]
-  %.4270.sink = phi i16 [ %.4270, %snap_pref.exit414.thread448 ], [ 0, %619 ]
-  %.sink = phi i16 [ %615, %snap_pref.exit414.thread448 ], [ 0, %619 ]
-  store i16 %.sink576, ptr %104, align 4, !tbaa !40
+.sink.split:                                      ; preds = %619, %snap_pref.exit414.thread447
+  %.sink575 = phi i16 [ %614, %snap_pref.exit414.thread447 ], [ 23040, %619 ]
+  %.4270.sink = phi i16 [ %.4270, %snap_pref.exit414.thread447 ], [ 0, %619 ]
+  %.sink = phi i16 [ %615, %snap_pref.exit414.thread447 ], [ 0, %619 ]
+  store i16 %.sink575, ptr %104, align 4, !tbaa !40
   store i16 %.4270.sink, ptr %103, align 8, !tbaa !40
   store i16 %.sink, ptr %105, align 2, !tbaa !40
   %622 = tail call i32 @lj_opt_fold(ptr noundef %0) #10
   br label %623
 
 623:                                              ; preds = %.sink.split, %619, %snap_sunk_store.exit300.thread
-  %.0276 = getelementptr inbounds nuw i8, ptr %.0276487, i64 8
+  %.0276 = getelementptr inbounds nuw i8, ptr %.0276486, i64 8
   %624 = icmp ult ptr %.0276, %97
   br i1 %624, label %458, label %.loopexit, !llvm.loop !99
 
 .loopexit.sink.split:                             ; preds = %450, %360
-  %.sink577 = phi i32 [ %363, %360 ], [ %452, %450 ]
-  store i32 %.sink577, ptr %358, align 4, !tbaa !4
+  %.sink576 = phi i32 [ %363, %360 ], [ %452, %450 ]
+  store i32 %.sink576, ptr %358, align 4, !tbaa !4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %623, %.loopexit.sink.split, %453, %345
-  %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
-  %625 = icmp samesign ult i64 %indvars.iv.next522, %108
+  %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
+  %625 = icmp samesign ult i64 %indvars.iv.next521, %108
   br i1 %625, label %345, label %._crit_edge.thread, !llvm.loop !100
 
 ._crit_edge.thread:                               ; preds = %.loopexit, %.preheader, %2, %._crit_edge

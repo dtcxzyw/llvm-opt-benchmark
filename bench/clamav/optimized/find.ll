@@ -123,7 +123,7 @@ define noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull ali
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %34 = call ptr @readdir64(ptr noundef %32)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread29, label %sub_0.lr.ph
+  br i1 %35, label %.thread28, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -137,7 +137,7 @@ sub_0.lr.ph:                                      ; preds = %31
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %sub_0
 
-.thread29:                                        ; preds = %.backedge, %31
+.thread28:                                        ; preds = %.backedge, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -146,31 +146,31 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.back
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 19
   %47 = load i8, ptr %46, align 1
   %.not = icmp eq i8 %47, 46
-  br i1 %.not, label %.tail, label %.tail31.thread
+  br i1 %.not, label %.tail, label %.tail30.thread
 
 .tail:                                            ; preds = %sub_0
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.backedge, label %sub_133, !llvm.loop !21
+  br i1 %50, label %.backedge, label %sub_132, !llvm.loop !21
 
-sub_133:                                          ; preds = %.tail
+sub_132:                                          ; preds = %.tail
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %52 = load i8, ptr %51, align 1
-  %.not36 = icmp eq i8 %52, 46
-  br i1 %.not36, label %.tail31, label %.tail31.thread
+  %.not35 = icmp eq i8 %52, 46
+  br i1 %.not35, label %.tail30, label %.tail30.thread
 
-.tail31:                                          ; preds = %sub_133
+.tail30:                                          ; preds = %sub_132
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 21
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.backedge, label %.tail31.thread, !llvm.loop !21
+  br i1 %55, label %.backedge, label %.tail30.thread, !llvm.loop !21
 
-.tail31.thread:                                   ; preds = %sub_0, %sub_133, %.tail31
+.tail30.thread:                                   ; preds = %sub_0, %sub_132, %.tail30
   %56 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %46, ptr noundef nonnull %8, i64 noundef 2048)
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %.tail31.thread
+57:                                               ; preds = %.tail30.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %58
 
@@ -192,7 +192,7 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
-60:                                               ; preds = %_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, %.tail31.thread
+60:                                               ; preds = %_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, %.tail30.thread
   %61 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0)
   br i1 %61, label %62, label %.backedge
 
@@ -222,20 +222,20 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
 71:                                               ; preds = %62
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 2048)
   %72 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %9, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %72, label %76, label %.thread43
+  br i1 %72, label %76, label %.thread42
 
-.thread43:                                        ; preds = %71
+.thread42:                                        ; preds = %71
   call void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge
 
-.backedge:                                        ; preds = %60, %.tail, %.tail31, %.thread43
+.backedge:                                        ; preds = %60, %.tail, %.tail30, %.thread42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %73 = load ptr, ptr %33, align 8, !tbaa !12
   %74 = call ptr @readdir64(ptr noundef %73)
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread29, label %sub_0, !llvm.loop !21
+  br i1 %75, label %.thread28, label %sub_0, !llvm.loop !21
 
 76:                                               ; preds = %71
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %1, ptr noundef nonnull %9, i64 noundef 2048)
@@ -282,8 +282,8 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.thread29, %26, %93, %90, %3
-  %.0 = phi i1 [ false, %26 ], [ false, %3 ], [ %94, %93 ], [ true, %90 ], [ false, %.thread29 ], [ false, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.thread28, %26, %93, %90, %3
+  %.0 = phi i1 [ false, %26 ], [ false, %3 ], [ %94, %93 ], [ true, %90 ], [ false, %.thread28 ], [ false, %.loopexit.loopexit ]
   ret i1 %.0
 }
 

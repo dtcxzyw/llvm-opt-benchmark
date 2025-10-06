@@ -165,7 +165,7 @@ BufferGetPage.exit:                               ; preds = %24, %30
   br i1 %48, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %46, %130
-  %.07593 = phi ptr [ %.0.i.i82, %130 ], [ %.0.i.i, %46 ]
+  %.07592 = phi ptr [ %.0.i.i82, %130 ], [ %.0.i.i, %46 ]
   %49 = load i32, ptr %.073.ph, align 8
   %50 = load i32, ptr %5, align 8
   %.not79 = icmp eq i32 %49, %50
@@ -173,14 +173,14 @@ BufferGetPage.exit:                               ; preds = %24, %30
 
 51:                                               ; preds = %.lr.ph
   %52 = load ptr, ptr %18, align 8
-  %53 = tail call zeroext i1 %52(ptr noundef nonnull %0, ptr noundef %.07593) #5
+  %53 = tail call zeroext i1 %52(ptr noundef nonnull %0, ptr noundef %.07592) #5
   br i1 %53, label %54, label %.critedge
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %.07593, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.07592, i64 16
   %56 = load i16, ptr %55, align 4
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %.07593, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %.07592, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %.critedge, label %61
@@ -303,7 +303,7 @@ BufferGetPage.exit83:                             ; preds = %109, %115
   br i1 %132, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %51, %130, %.lr.ph, %54, %46
-  %.075.lcssa = phi ptr [ %.0.i.i, %46 ], [ %.07593, %54 ], [ %.07593, %.lr.ph ], [ %.0.i.i82, %130 ], [ %.07593, %51 ]
+  %.075.lcssa = phi ptr [ %.0.i.i, %46 ], [ %.07592, %54 ], [ %.07592, %.lr.ph ], [ %.0.i.i82, %130 ], [ %.07592, %51 ]
   %133 = getelementptr inbounds nuw i8, ptr %.075.lcssa, i64 16
   %134 = load i16, ptr %133, align 4
   %135 = zext i16 %134 to i64

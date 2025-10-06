@@ -23247,17 +23247,17 @@ if.then65:                                        ; preds = %for.body57
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond55, %if.then65, %if.then51, %if.then43
-  %switch = phi i1 [ false, %if.then43 ], [ false, %if.then51 ], [ false, %if.then65 ], [ true, %for.cond55 ]
-  %50 = load ptr, ptr %Children, align 8
-  %cmp.i.i.i87 = icmp eq ptr %50, %add.ptr.i.i.i.i.i
+  %50 = phi i1 [ false, %if.then43 ], [ false, %if.then51 ], [ false, %if.then65 ], [ true, %for.cond55 ]
+  %51 = load ptr, ptr %Children, align 8
+  %cmp.i.i.i87 = icmp eq ptr %51, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i87, label %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit, label %if.then.i.i88
 
 if.then.i.i88:                                    ; preds = %cleanup
-  call void @free(ptr noundef %50) #13
+  call void @free(ptr noundef %51) #13
   br label %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit: ; preds = %cleanup, %if.then.i.i88
-  br i1 %switch, label %for.inc70, label %return
+  br i1 %50, label %for.inc70, label %return
 
 for.inc70:                                        ; preds = %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit, %if.then19
   %incdec.ptr3.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.095, i64 16
@@ -23266,8 +23266,8 @@ for.inc70:                                        ; preds = %_ZN4llvh11SmallVect
 
 land.rhs.i4.i:                                    ; preds = %for.inc70, %while.body.i6.i
   %__begin0.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i6.i ], [ %incdec.ptr3.i, %for.inc70 ]
-  %51 = load ptr, ptr %__begin0.sroa.0.1, align 8
-  %magicptr.i5.i = ptrtoint ptr %51 to i64
+  %52 = load ptr, ptr %__begin0.sroa.0.1, align 8
+  %magicptr.i5.i = ptrtoint ptr %52 to i64
   switch i64 %magicptr.i5.i, label %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit [
     i64 -8, label %while.body.i6.i
     i64 -16, label %while.body.i6.i

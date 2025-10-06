@@ -613,18 +613,18 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define range(i64 1, 3) i64 @_ZN16ruff_source_file8newlines10LineEnding3len17h6903b40ae1650d79E(ptr readonly align 1 captures(none) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1
-  %switch = icmp ult i8 %2, 2
-  %. = select i1 %switch, i64 1, i64 2
+  %3 = icmp eq i8 %2, 2
+  %. = select i1 %3, i64 2, i64 1
   ret i64 %.
 }
 
 ; Function Attrs: nonlazybind uwtable
 define i32 @_ZN16ruff_source_file8newlines10LineEnding8text_len17h584999e3505a35d4E(ptr readonly align 1 captures(none) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
-  %switch = icmp ult i8 %2, 2
-  %. = select i1 %switch, i32 1, i32 2
-  %3 = tail call i32 @_ZN14ruff_text_size4size8TextSize3new17hdf09347c0d8982fdE(i32 %.)
-  ret i32 %3
+  %3 = icmp eq i8 %2, 2
+  %. = select i1 %3, i32 2, i32 1
+  %4 = tail call i32 @_ZN14ruff_text_size4size8TextSize3new17hdf09347c0d8982fdE(i32 %.)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

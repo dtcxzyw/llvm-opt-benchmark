@@ -645,7 +645,7 @@ define range(i32 -1094995529, 1) i32 @ff_tak_decode_frame_header(ptr noundef %0,
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %.not.i.i = icmp ult ptr %10, %12
-  %.val.i.i.pre65 = load i64, ptr %1, align 8, !tbaa !17
+  %.val.i.i.pre64 = load i64, ptr %1, align 8, !tbaa !17
   br i1 %.not.i.i, label %bits_priv_refill_32_le.exit.i, label %bits_read_nz_le.exit
 
 bits_priv_refill_32_le.exit.i:                    ; preds = %8
@@ -653,14 +653,14 @@ bits_priv_refill_32_le.exit.i:                    ; preds = %8
   %14 = zext i32 %13 to i64
   %15 = zext nneg i32 %6 to i64
   %16 = shl nuw nsw i64 %14, %15
-  %17 = or i64 %16, %.val.i.i.pre65
+  %17 = or i64 %16, %.val.i.i.pre64
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store ptr %18, ptr %9, align 8, !tbaa !14
   %19 = or disjoint i32 %6, 32
   br label %bits_read_nz_le.exit
 
 bits_read_nz_le.exit:                             ; preds = %.bits_read_nz_le.exit_crit_edge, %8, %bits_priv_refill_32_le.exit.i
-  %.val.i.i = phi i64 [ %17, %bits_priv_refill_32_le.exit.i ], [ %.val.i.i.pre, %.bits_read_nz_le.exit_crit_edge ], [ %.val.i.i.pre65, %8 ]
+  %.val.i.i = phi i64 [ %17, %bits_priv_refill_32_le.exit.i ], [ %.val.i.i.pre, %.bits_read_nz_le.exit_crit_edge ], [ %.val.i.i.pre64, %8 ]
   %20 = phi i32 [ %19, %bits_priv_refill_32_le.exit.i ], [ %6, %.bits_read_nz_le.exit_crit_edge ], [ 16, %8 ]
   %21 = lshr i64 %.val.i.i, 16
   store i64 %21, ptr %1, align 8, !tbaa !17
@@ -856,7 +856,7 @@ bits_skip_le.exit:                                ; preds = %.sink.split.i, %bit
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !13
   %.not.i.i43 = icmp ult ptr %116, %118
-  %.val.i.i42.pre70 = load i64, ptr %1, align 8, !tbaa !17
+  %.val.i.i42.pre69 = load i64, ptr %1, align 8, !tbaa !17
   br i1 %.not.i.i43, label %bits_priv_refill_32_le.exit.i44, label %bits_read_nz_le.exit45
 
 bits_priv_refill_32_le.exit.i44:                  ; preds = %114
@@ -864,14 +864,14 @@ bits_priv_refill_32_le.exit.i44:                  ; preds = %114
   %120 = zext i32 %119 to i64
   %121 = zext nneg i32 %112 to i64
   %122 = shl nuw nsw i64 %120, %121
-  %123 = or i64 %122, %.val.i.i42.pre70
+  %123 = or i64 %122, %.val.i.i42.pre69
   %124 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store ptr %124, ptr %115, align 8, !tbaa !14
   %125 = or disjoint i32 %112, 32
   br label %bits_read_nz_le.exit45
 
 bits_read_nz_le.exit45:                           ; preds = %.bits_read_nz_le.exit45_crit_edge, %114, %bits_priv_refill_32_le.exit.i44
-  %.val.i.i42 = phi i64 [ %123, %bits_priv_refill_32_le.exit.i44 ], [ %.val.i.i42.pre, %.bits_read_nz_le.exit45_crit_edge ], [ %.val.i.i42.pre70, %114 ]
+  %.val.i.i42 = phi i64 [ %123, %bits_priv_refill_32_le.exit.i44 ], [ %.val.i.i42.pre, %.bits_read_nz_le.exit45_crit_edge ], [ %.val.i.i42.pre69, %114 ]
   %126 = phi i32 [ %125, %bits_priv_refill_32_le.exit.i44 ], [ %112, %.bits_read_nz_le.exit45_crit_edge ], [ 6, %114 ]
   %127 = lshr i64 %.val.i.i42, 6
   store i64 %127, ptr %1, align 8, !tbaa !17

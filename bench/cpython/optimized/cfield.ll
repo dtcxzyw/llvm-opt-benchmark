@@ -509,47 +509,47 @@ define internal ptr @PyCField_new(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %4 = alloca [6 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %1, i64 16
-  %.val92 = load i64, ptr %5, align 8, !tbaa !42
+  %.val90 = load i64, ptr %5, align 8, !tbaa !42
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %.thread
 
 .thread:                                          ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 16
-  %.val93 = load i64, ptr %6, align 8, !tbaa !47
-  %7 = add i64 %.val93, %.val92
+  %.val91 = load i64, ptr %6, align 8, !tbaa !47
+  %7 = add i64 %.val91, %.val90
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %13
 
 9:                                                ; preds = %3
-  %10 = add i64 %.val92, -5
+  %10 = add i64 %.val90, -5
   %11 = icmp ult i64 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br i1 %11, label %.thread96, label %13
+  br i1 %11, label %.thread94, label %13
 
 13:                                               ; preds = %9, %.thread
   %14 = phi ptr [ %8, %.thread ], [ %12, %9 ]
-  %15 = phi i64 [ %7, %.thread ], [ %.val92, %9 ]
-  %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %14, i64 noundef %.val92, ptr noundef %2, ptr noundef null, ptr noundef nonnull @PyCField_new._parser, i32 noundef 5, i32 noundef 6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #8
+  %15 = phi i64 [ %7, %.thread ], [ %.val90, %9 ]
+  %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %14, i64 noundef %.val90, ptr noundef %2, ptr noundef null, ptr noundef nonnull @PyCField_new._parser, i32 noundef 5, i32 noundef 6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #8
   %.not69 = icmp eq ptr %16, null
-  br i1 %.not69, label %PyCField_new_impl.exit, label %.thread96
+  br i1 %.not69, label %PyCField_new_impl.exit, label %.thread94
 
-.thread96:                                        ; preds = %9, %13
+.thread94:                                        ; preds = %9, %13
   %17 = phi ptr [ %16, %13 ], [ %12, %9 ]
-  %18 = phi i64 [ %15, %13 ], [ %.val92, %9 ]
+  %18 = phi i64 [ %15, %13 ], [ %.val90, %9 ]
   %19 = load ptr, ptr %17, align 8, !tbaa !51
   %20 = getelementptr i8, ptr %19, i64 8
   %.val = load ptr, ptr %20, align 8, !tbaa !53
   %21 = getelementptr i8, ptr %.val, i64 168
-  %.val91 = load i64, ptr %21, align 8, !tbaa !54
-  %22 = and i64 %.val91, 268435456
+  %.val89 = load i64, ptr %21, align 8, !tbaa !54
+  %22 = and i64 %.val89, 268435456
   %.not70 = icmp eq i64 %22, 0
   br i1 %.not70, label %23, label %24
 
-23:                                               ; preds = %.thread96
+23:                                               ; preds = %.thread94
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %19) #8
   br label %PyCField_new_impl.exit
 
-24:                                               ; preds = %.thread96
+24:                                               ; preds = %.thread94
   %25 = getelementptr i8, ptr %17, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !51
   %27 = getelementptr i8, ptr %17, i64 16
@@ -584,73 +584,73 @@ Py_DECREF.exit.thread:                            ; preds = %24, %Py_DECREF.exit
   br i1 %.not72, label %39, label %PyCField_new_impl.exit
 
 39:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit
-  %.06099.ph = phi i64 [ %31, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
+  %.06097.ph = phi i64 [ %31, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %40 = getelementptr i8, ptr %17, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !51
   %42 = call ptr @_PyNumber_Index(ptr noundef %41) #8
   %.not73 = icmp eq ptr %42, null
-  br i1 %.not73, label %Py_DECREF.exit86.thread, label %43
+  br i1 %.not73, label %Py_DECREF.exit84.thread, label %43
 
 43:                                               ; preds = %39
   %44 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %42) #8
   %45 = load i32, ptr %42, align 8, !tbaa !10
-  %.not.i85 = icmp sgt i32 %45, -1
-  br i1 %.not.i85, label %46, label %Py_DECREF.exit86
+  %.not.i83 = icmp sgt i32 %45, -1
+  br i1 %.not.i83, label %46, label %Py_DECREF.exit84
 
 46:                                               ; preds = %43
   %47 = add nsw i32 %45, -1
   store i32 %47, ptr %42, align 8, !tbaa !10
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %Py_DECREF.exit86
+  br i1 %48, label %49, label %Py_DECREF.exit84
 
 49:                                               ; preds = %46
   call void @_Py_Dealloc(ptr noundef nonnull %42) #8
-  br label %Py_DECREF.exit86
+  br label %Py_DECREF.exit84
 
-Py_DECREF.exit86:                                 ; preds = %49, %46, %43
+Py_DECREF.exit84:                                 ; preds = %49, %46, %43
   %50 = icmp eq i64 %44, -1
-  br i1 %50, label %Py_DECREF.exit86.thread, label %52
+  br i1 %50, label %Py_DECREF.exit84.thread, label %52
 
-Py_DECREF.exit86.thread:                          ; preds = %39, %Py_DECREF.exit86
+Py_DECREF.exit84.thread:                          ; preds = %39, %Py_DECREF.exit84
   %51 = call ptr @PyErr_Occurred() #8
   %.not74 = icmp eq ptr %51, null
   br i1 %.not74, label %52, label %PyCField_new_impl.exit
 
-52:                                               ; preds = %Py_DECREF.exit86.thread, %Py_DECREF.exit86
-  %.057108.ph = phi i64 [ %44, %Py_DECREF.exit86 ], [ -1, %Py_DECREF.exit86.thread ]
+52:                                               ; preds = %Py_DECREF.exit84.thread, %Py_DECREF.exit84
+  %.057105.ph = phi i64 [ %44, %Py_DECREF.exit84 ], [ -1, %Py_DECREF.exit84.thread ]
   %53 = getelementptr i8, ptr %17, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !51
   %55 = call ptr @_PyNumber_Index(ptr noundef %54) #8
   %.not75 = icmp eq ptr %55, null
-  br i1 %.not75, label %Py_DECREF.exit88.thread, label %56
+  br i1 %.not75, label %Py_DECREF.exit86.thread, label %56
 
 56:                                               ; preds = %52
   %57 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %55) #8
   %58 = load i32, ptr %55, align 8, !tbaa !10
-  %.not.i87 = icmp sgt i32 %58, -1
-  br i1 %.not.i87, label %59, label %Py_DECREF.exit88
+  %.not.i85 = icmp sgt i32 %58, -1
+  br i1 %.not.i85, label %59, label %Py_DECREF.exit86
 
 59:                                               ; preds = %56
   %60 = add nsw i32 %58, -1
   store i32 %60, ptr %55, align 8, !tbaa !10
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %Py_DECREF.exit88
+  br i1 %61, label %62, label %Py_DECREF.exit86
 
 62:                                               ; preds = %59
   call void @_Py_Dealloc(ptr noundef nonnull %55) #8
-  br label %Py_DECREF.exit88
+  br label %Py_DECREF.exit86
 
-Py_DECREF.exit88:                                 ; preds = %62, %59, %56
+Py_DECREF.exit86:                                 ; preds = %62, %59, %56
   %63 = icmp eq i64 %57, -1
-  br i1 %63, label %Py_DECREF.exit88.thread, label %65
+  br i1 %63, label %Py_DECREF.exit86.thread, label %65
 
-Py_DECREF.exit88.thread:                          ; preds = %52, %Py_DECREF.exit88
+Py_DECREF.exit86.thread:                          ; preds = %52, %Py_DECREF.exit86
   %64 = call ptr @PyErr_Occurred() #8
   %.not76 = icmp eq ptr %64, null
   br i1 %.not76, label %65, label %PyCField_new_impl.exit
 
-65:                                               ; preds = %Py_DECREF.exit88.thread, %Py_DECREF.exit88
-  %.055118.ph = phi i64 [ %57, %Py_DECREF.exit88 ], [ -1, %Py_DECREF.exit88.thread ]
+65:                                               ; preds = %Py_DECREF.exit86.thread, %Py_DECREF.exit86
+  %.055114.ph = phi i64 [ %57, %Py_DECREF.exit86 ], [ -1, %Py_DECREF.exit86.thread ]
   %.not77 = icmp eq i64 %18, 5
   br i1 %.not77, label %70, label %66
 
@@ -662,21 +662,21 @@ Py_DECREF.exit88.thread:                          ; preds = %52, %Py_DECREF.exit
 
 70:                                               ; preds = %65, %66
   %.061 = phi i1 [ %69, %66 ], [ true, %65 ]
-  %71 = icmp slt i64 %.06099.ph, 0
+  %71 = icmp slt i64 %.06097.ph, 0
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !51
-  %74 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %73, ptr noundef nonnull @.str.12, ptr noundef nonnull %19, i64 noundef %.06099.ph) #8
+  %74 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %73, ptr noundef nonnull @.str.12, ptr noundef nonnull %19, i64 noundef %.06097.ph) #8
   br label %PyCField_new_impl.exit
 
 75:                                               ; preds = %70
-  %76 = icmp samesign ugt i64 %.06099.ph, 1152921504606846975
+  %76 = icmp samesign ugt i64 %.06097.ph, 1152921504606846975
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !51
-  %79 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %78, ptr noundef nonnull @.str.13, ptr noundef nonnull %19, i64 noundef %.06099.ph) #8
+  %79 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %78, ptr noundef nonnull @.str.13, ptr noundef nonnull %19, i64 noundef %.06097.ph) #8
   br label %PyCField_new_impl.exit
 
 80:                                               ; preds = %75
@@ -687,8 +687,8 @@ Py_DECREF.exit88.thread:                          ; preds = %52, %Py_DECREF.exit
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %84 = load ptr, ptr %83, align 8, !tbaa !73
   %85 = call ptr %84(ptr noundef %0, i64 noundef 0) #8
-  %.not.i94 = icmp eq ptr %85, null
-  br i1 %.not.i94, label %PyCField_new_impl.exit, label %86
+  %.not.i92 = icmp eq ptr %85, null
+  br i1 %.not.i92, label %PyCField_new_impl.exit, label %86
 
 86:                                               ; preds = %80
   %.val.i = load ptr, ptr %20, align 8, !tbaa !53
@@ -793,11 +793,11 @@ _Py_NewRef.exit68.i:                              ; preds = %131, %128
   %133 = getelementptr inbounds nuw i8, ptr %85, i64 40
   store ptr %26, ptr %133, align 8, !tbaa !87
   %134 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  store i64 %.06099.ph, ptr %134, align 8, !tbaa !88
+  store i64 %.06097.ph, ptr %134, align 8, !tbaa !88
   %135 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i64 %.057108.ph, ptr %135, align 8, !tbaa !89
+  store i64 %.057105.ph, ptr %135, align 8, !tbaa !89
   %136 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store i64 %.055118.ph, ptr %136, align 8, !tbaa !90
+  store i64 %.055114.ph, ptr %136, align 8, !tbaa !90
   %137 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %138 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %139 = getelementptr inbounds nuw i8, ptr %.val67.val.i, i64 72
@@ -902,8 +902,8 @@ PyStgInfo_FromType.exit76.i:                      ; preds = %154
   call void @_Py_Dealloc(ptr noundef nonnull %85) #8
   br label %PyCField_new_impl.exit
 
-PyCField_new_impl.exit:                           ; preds = %189, %186, %184, %176, %170, %PyStgInfo_FromType.exit72.i, %145, %PyObject_TypeCheck.exit.thread.i, %PyObject_TypeCheck.exit.i, %80, %77, %72, %Py_DECREF.exit88.thread, %Py_DECREF.exit86.thread, %Py_DECREF.exit.thread, %23, %13
-  %.056 = phi ptr [ null, %23 ], [ null, %13 ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit86.thread ], [ null, %Py_DECREF.exit88.thread ], [ null, %80 ], [ %85, %PyObject_TypeCheck.exit.i ], [ null, %72 ], [ null, %77 ], [ null, %184 ], [ null, %186 ], [ null, %189 ], [ %85, %PyStgInfo_FromType.exit72.i ], [ %85, %PyObject_TypeCheck.exit.thread.i ], [ %85, %145 ], [ %85, %176 ], [ %85, %170 ]
+PyCField_new_impl.exit:                           ; preds = %189, %186, %184, %176, %170, %PyStgInfo_FromType.exit72.i, %145, %PyObject_TypeCheck.exit.thread.i, %PyObject_TypeCheck.exit.i, %80, %77, %72, %Py_DECREF.exit86.thread, %Py_DECREF.exit84.thread, %Py_DECREF.exit.thread, %23, %13
+  %.056 = phi ptr [ null, %23 ], [ null, %13 ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit84.thread ], [ null, %Py_DECREF.exit86.thread ], [ null, %80 ], [ %85, %PyObject_TypeCheck.exit.i ], [ null, %72 ], [ null, %77 ], [ null, %184 ], [ null, %186 ], [ null, %189 ], [ %85, %PyStgInfo_FromType.exit72.i ], [ %85, %PyObject_TypeCheck.exit.thread.i ], [ %85, %145 ], [ %85, %176 ], [ %85, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.056
 }

@@ -4672,17 +4672,17 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_OrderedTagAttribute_getAllEntries___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not27 = icmp eq i64 %1, %2
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq i64 %1, %2
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %26
-  %.01529 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
-  %.01728 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01529
+  %.01527 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
+  %.01726 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01527
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -4708,11 +4708,11 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_OrderedTagAttribute_getAllEntrie
   br label %18
 
 lean_array_uget.exit:                             ; preds = %6
-  %17 = tail call ptr @l_Array_append___rarg(ptr noundef %.01728, ptr noundef %8) #6
+  %17 = tail call ptr @l_Array_append___rarg(ptr noundef %.01726, ptr noundef %8) #6
   br label %26
 
 18:                                               ; preds = %13, %15, %16
-  %19 = tail call ptr @l_Array_append___rarg(ptr noundef %.01728, ptr noundef nonnull %8) #6
+  %19 = tail call ptr @l_Array_append___rarg(ptr noundef %.01726, ptr noundef nonnull %8) #6
   %20 = load i32, ptr %8, align 4, !tbaa !8
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %24, !prof !11
@@ -4732,7 +4732,7 @@ lean_array_uget.exit:                             ; preds = %6
 
 26:                                               ; preds = %lean_array_uget.exit, %22, %24, %25
   %27 = phi ptr [ %17, %lean_array_uget.exit ], [ %19, %22 ], [ %19, %24 ], [ %19, %25 ]
-  %28 = add i64 %.01529, 1
+  %28 = add i64 %.01527, 1
   %.not = icmp eq i64 %28, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -4941,9 +4941,9 @@ lean_dec.exit48:                                  ; preds = %lean_inc.exit, %74,
   br label %81
 
 81:                                               ; preds = %101, %lean_dec.exit48
-  %.01529.i = phi i64 [ 0, %lean_dec.exit48 ], [ %103, %101 ]
-  %.01728.i = phi ptr [ %79, %lean_dec.exit48 ], [ %102, %101 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %.01529.i
+  %.01527.i = phi i64 [ 0, %lean_dec.exit48 ], [ %103, %101 ]
+  %.01726.i = phi ptr [ %79, %lean_dec.exit48 ], [ %102, %101 ]
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %.01527.i
   %83 = load ptr, ptr %82, align 8, !tbaa !4
   %84 = ptrtoint ptr %83 to i64
   %85 = and i64 %84, 1
@@ -4969,11 +4969,11 @@ lean_dec.exit48:                                  ; preds = %lean_inc.exit, %74,
   br label %93
 
 lean_array_uget.exit.i:                           ; preds = %81
-  %92 = tail call ptr @l_Array_append___rarg(ptr noundef %.01728.i, ptr noundef %83) #6
+  %92 = tail call ptr @l_Array_append___rarg(ptr noundef %.01726.i, ptr noundef %83) #6
   br label %101
 
 93:                                               ; preds = %91, %90, %88
-  %94 = tail call ptr @l_Array_append___rarg(ptr noundef %.01728.i, ptr noundef nonnull %83) #6
+  %94 = tail call ptr @l_Array_append___rarg(ptr noundef %.01726.i, ptr noundef nonnull %83) #6
   %95 = load i32, ptr %83, align 4, !tbaa !8
   %96 = icmp sgt i32 %95, 1
   br i1 %96, label %97, label %99, !prof !11
@@ -4993,7 +4993,7 @@ lean_array_uget.exit.i:                           ; preds = %81
 
 101:                                              ; preds = %100, %99, %97, %lean_array_uget.exit.i
   %102 = phi ptr [ %92, %lean_array_uget.exit.i ], [ %94, %97 ], [ %94, %99 ], [ %94, %100 ]
-  %103 = add i64 %.01529.i, 1
+  %103 = add i64 %.01527.i, 1
   %.not.i88 = icmp eq i64 %103, %78
   br i1 %.not.i88, label %l_Array_foldlMUnsafe_fold___at_Lake_OrderedTagAttribute_getAllEntries___spec__1.exit, label %81
 
@@ -5101,17 +5101,17 @@ lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
-  %.not27.i = icmp eq i64 %.val, %.val15
-  br i1 %.not27.i, label %l_Array_foldlMUnsafe_fold___at_Lake_OrderedTagAttribute_getAllEntries___spec__1.exit, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %.val, %.val15
+  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Lake_OrderedTagAttribute_getAllEntries___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %46, %.lr.ph.i
-  %.01529.i = phi i64 [ %.val, %.lr.ph.i ], [ %48, %46 ]
-  %.01728.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01529.i
+  %.01527.i = phi i64 [ %.val, %.lr.ph.i ], [ %48, %46 ]
+  %.01726.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01527.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -5137,11 +5137,11 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
   br label %38
 
 lean_array_uget.exit.i:                           ; preds = %26
-  %37 = tail call ptr @l_Array_append___rarg(ptr noundef %.01728.i, ptr noundef %28) #6
+  %37 = tail call ptr @l_Array_append___rarg(ptr noundef %.01726.i, ptr noundef %28) #6
   br label %46
 
 38:                                               ; preds = %36, %35, %33
-  %39 = tail call ptr @l_Array_append___rarg(ptr noundef %.01728.i, ptr noundef nonnull %28) #6
+  %39 = tail call ptr @l_Array_append___rarg(ptr noundef %.01726.i, ptr noundef nonnull %28) #6
   %40 = load i32, ptr %28, align 4, !tbaa !8
   %41 = icmp sgt i32 %40, 1
   br i1 %41, label %42, label %44, !prof !11
@@ -5161,7 +5161,7 @@ lean_array_uget.exit.i:                           ; preds = %26
 
 46:                                               ; preds = %45, %44, %42, %lean_array_uget.exit.i
   %47 = phi ptr [ %37, %lean_array_uget.exit.i ], [ %39, %42 ], [ %39, %44 ], [ %39, %45 ]
-  %48 = add i64 %.01529.i, 1
+  %48 = add i64 %.01527.i, 1
   %.not.i16 = icmp eq i64 %48, %.val15
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lake_OrderedTagAttribute_getAllEntries___spec__1.exit, label %26
 

@@ -8092,13 +8092,13 @@ define internal fastcc ptr @range_bound_escape(ptr noundef readonly captures(non
   %.044 = phi ptr [ %15, %14 ], [ %0, %1 ]
   switch i8 %6, label %7 [
     i8 0, label %16
-    i8 93, label %.thread54
-    i8 92, label %.thread54
-    i8 91, label %.thread54
-    i8 44, label %.thread54
-    i8 41, label %.thread54
-    i8 40, label %.thread54
-    i8 34, label %.thread54
+    i8 93, label %.thread53
+    i8 92, label %.thread53
+    i8 91, label %.thread53
+    i8 44, label %.thread53
+    i8 41, label %.thread53
+    i8 40, label %.thread53
+    i8 34, label %.thread53
   ]
 
 7:                                                ; preds = %5
@@ -8109,7 +8109,7 @@ define internal fastcc ptr @range_bound_escape(ptr noundef readonly captures(non
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %.not48 = icmp eq i16 %13, 0
-  br i1 %.not48, label %14, label %.thread54
+  br i1 %.not48, label %14, label %.thread53
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %.044, i64 1
@@ -8117,14 +8117,14 @@ define internal fastcc ptr @range_bound_escape(ptr noundef readonly captures(non
   br label %5, !llvm.loop !22
 
 16:                                               ; preds = %5
-  br i1 %4, label %.thread54, label %17
+  br i1 %4, label %.thread53, label %17
 
-.thread54:                                        ; preds = %7, %5, %5, %5, %5, %5, %5, %5, %16
+.thread53:                                        ; preds = %7, %5, %5, %5, %5, %5, %5, %5, %16
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 34) #13
   br label %17
 
-17:                                               ; preds = %.thread54, %16
-  %18 = phi i1 [ true, %.thread54 ], [ false, %16 ]
+17:                                               ; preds = %.thread53, %16
+  %18 = phi i1 [ true, %.thread53 ], [ false, %16 ]
   br label %19
 
 19:                                               ; preds = %22, %17

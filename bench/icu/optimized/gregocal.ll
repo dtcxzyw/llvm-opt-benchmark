@@ -1195,8 +1195,8 @@ _ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(222) %0, i32 noundef %8)
-  %.not50 = icmp sgt i32 %12, %20
-  br i1 %.not50, label %.thread, label %21
+  %.not44 = icmp sgt i32 %12, %20
+  br i1 %.not44, label %.thread, label %21
 
 21:                                               ; preds = %4, %7, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1218,7 +1218,7 @@ _ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 5)
   %31 = icmp slt i32 %26, %30
-  br i1 %31, label %.thread36, label %32
+  br i1 %31, label %.thread32, label %32
 
 32:                                               ; preds = %24
   %33 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1232,10 +1232,10 @@ _ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %41 = icmp sle i32 %26, %40
   %42 = load i32, ptr %2, align 4
   %43 = icmp slt i32 %42, 1
-  %or.cond52 = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond52, label %44, label %.thread36
+  %or.cond46 = select i1 %41, i1 %43, i1 false
+  br i1 %or.cond46, label %44, label %.thread32
 
-.thread36:                                        ; preds = %32, %24
+.thread32:                                        ; preds = %32, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
@@ -1273,8 +1273,8 @@ _ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %.not5.i.i = icmp ne i32 %59, 0
   %60 = srem i32 %.fr.i, 400
   %61 = icmp eq i32 %60, 0
-  %or.cond43 = or i1 %.not5.i.i, %61
-  br i1 %or.cond43, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i, label %62
+  %or.cond37 = or i1 %.not5.i.i, %61
+  br i1 %or.cond37, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i, label %62
 
 _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.i: ; preds = %51
   %.mux.i.i = and i1 %.not.i.i, %57
@@ -1285,8 +1285,8 @@ _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i: ; preds = %_ZNK6icu_
 
 62:                                               ; preds = %58, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.i
   %63 = phi i32 [ 366, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i ], [ 365, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.i ], [ 365, %58 ]
-  %.not48 = icmp samesign ugt i32 %49, %63
-  br i1 %.not48, label %.thread, label %64
+  %.not42 = icmp samesign ugt i32 %49, %63
+  br i1 %.not42, label %.thread, label %64
 
 64:                                               ; preds = %62, %45
   %65 = call noundef signext i8 @_ZNK6icu_778Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 8)
@@ -1294,12 +1294,12 @@ _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i: ; preds = %_ZNK6icu_
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load i32, ptr %66, align 8
   %68 = icmp ne i32 %67, 0
-  %or.cond47.not = select i1 %.not25, i1 true, i1 %68
-  %spec.select = zext i1 %or.cond47.not to i8
+  %or.cond41.not = select i1 %.not25, i1 true, i1 %68
+  %spec.select = zext i1 %or.cond41.not to i8
   br label %.thread
 
-.thread:                                          ; preds = %10, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %64, %47, %.thread36, %62
-  %.1 = phi i8 [ 0, %62 ], [ 0, %.thread36 ], [ 0, %47 ], [ %spec.select, %64 ], [ 0, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %10 ]
+.thread:                                          ; preds = %10, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %64, %47, %.thread32, %62
+  %.1 = phi i8 [ 0, %62 ], [ 0, %.thread32 ], [ 0, %47 ], [ %spec.select, %64 ], [ 0, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %10 ]
   ret i8 %.1
 }
 

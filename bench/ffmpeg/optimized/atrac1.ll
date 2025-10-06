@@ -207,12 +207,11 @@ define internal i32 @atrac1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %60 = and i32 %50, 7
   %61 = shl i32 %59, %60
   %62 = lshr i32 %61, 30
-  switch i32 %62, label %.thread [
-    i32 3, label %63
-    i32 0, label %63
-  ]
+  %.off.i = add nsw i32 %62, -1
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %.thread, label %63
 
-63:                                               ; preds = %54, %54
+63:                                               ; preds = %54
   %64 = xor i32 %62, 3
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %64, ptr %65, align 4, !tbaa !47

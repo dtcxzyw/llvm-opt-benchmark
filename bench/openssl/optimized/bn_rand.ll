@@ -524,7 +524,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   br i1 %28, label %.lr.ph.us, label %.preheader.split
 
 .lr.ph.us:                                        ; preds = %.preheader, %34
-  %.04870.us = phi i32 [ %35, %34 ], [ 0, %.preheader ]
+  %.04869.us = phi i32 [ %35, %34 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !3
   br label %36
@@ -539,12 +539,12 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
 
 34:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %35 = add nuw nsw i32 %.04870.us, 1
-  %exitcond75.not = icmp eq i32 %35, 64
-  br i1 %exitcond75.not, label %.split.us, label %.lr.ph.us, !llvm.loop !16
+  %35 = add nuw nsw i32 %.04869.us, 1
+  %exitcond74.not = icmp eq i32 %35, 64
+  br i1 %exitcond74.not, label %.split.us, label %.lr.ph.us, !llvm.loop !16
 
 36:                                               ; preds = %.lr.ph.us, %51
-  %.04969.us = phi i32 [ 1, %.lr.ph.us ], [ %56, %51 ]
+  %.04968.us = phi i32 [ 1, %.lr.ph.us ], [ %56, %51 ]
   %37 = call i32 @RAND_priv_bytes_ex(ptr noundef %16, ptr noundef nonnull %7, i64 noundef 64, i32 noundef 0) #5
   %38 = icmp slt i32 %37, 1
   br i1 %38, label %.thread, label %39
@@ -580,13 +580,13 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   br i1 %.not63.us, label %.thread, label %51
 
 51:                                               ; preds = %49
-  %52 = sub i32 %15, %.04969.us
+  %52 = sub i32 %15, %.04968.us
   %spec.store.select.us = call i32 @llvm.umin.i32(i32 %52, i32 64)
-  %53 = zext i32 %.04969.us to i64
+  %53 = zext i32 %.04968.us to i64
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 %53
   %55 = zext nneg i32 %spec.store.select.us to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 16 %8, i64 %55, i1 false)
-  %56 = add i32 %spec.store.select.us, %.04969.us
+  %56 = add i32 %spec.store.select.us, %.04968.us
   %57 = load i8, ptr %10, align 1, !tbaa !3
   %58 = add i8 %57, 1
   store i8 %58, ptr %10, align 1, !tbaa !3
@@ -605,7 +605,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   br label %._crit_edge
 
 .preheader.split:                                 ; preds = %.preheader, %68
-  %.04870 = phi i32 [ %69, %68 ], [ 0, %.preheader ]
+  %.04869 = phi i32 [ %69, %68 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %62 = call ptr @BN_bin2bn(ptr noundef nonnull %19, i32 noundef %15, ptr noundef %0) #5
   %.not = icmp eq ptr %62, null
@@ -626,7 +626,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
 
 68:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %69 = add nuw nsw i32 %.04870, 1
+  %69 = add nuw nsw i32 %.04869, 1
   %exitcond.not = icmp eq i32 %69, 64
   br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !16
 

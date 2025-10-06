@@ -1992,8 +1992,8 @@ define hidden void @_ZN3sat8aig_cuts7augmentEjRKNS0_4nodeE(ptr noundef nonnull a
   %9 = load ptr, ptr %8, align 8, !tbaa !48
   %10 = zext i32 %1 to i64
   %11 = getelementptr inbounds nuw %"class.sat::cut_set", ptr %9, i64 %10
-  %.not20.i = icmp eq i32 %6, 0
-  br i1 %.not20.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
+  %.not18.i = icmp eq i32 %6, 0
+  br i1 %.not18.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %3
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2010,34 +2010,34 @@ define hidden void @_ZN3sat8aig_cuts7augmentEjRKNS0_4nodeE(ptr noundef nonnull a
   %18 = icmp eq ptr %17, null
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %.fr21.i = freeze ptr %20
-  %21 = getelementptr inbounds i8, ptr %.fr21.i, i64 -4
+  %.fr19.i = freeze ptr %20
+  %21 = getelementptr inbounds i8, ptr %.fr19.i, i64 -4
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %22 = load i32, ptr %.in.i.i.i, align 8
   br i1 %18, label %_ZN3sat8aig_cuts10is_touchedEjRKNS0_4nodeE.exit.thread, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %23 = icmp eq ptr %.fr21.i, null
+  %23 = icmp eq ptr %.fr19.i, null
   %24 = getelementptr inbounds i8, ptr %17, i64 -4
   %25 = load i32, ptr %24, align 4, !tbaa !50
-  %wide.trip.count29.i = zext i32 %6 to i64
+  %wide.trip.count27.i = zext i32 %6 to i64
   br i1 %23, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
 
-_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us.i:         ; preds = %.lr.ph.split.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19.i
-  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19.i ], [ 0, %.lr.ph.split.i ]
-  %26 = trunc nuw i64 %indvars.iv26.i to i32
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us.i:         ; preds = %.lr.ph.split.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17.i ], [ 0, %.lr.ph.split.i ]
+  %26 = trunc nuw i64 %indvars.iv24.i to i32
   %27 = add i32 %14, %26
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw %"class.sat::literal", ptr %15, i64 %28
-  %.sroa.01.0.copyload.us18.i = load i32, ptr %29, align 4, !tbaa !50
-  %30 = lshr i32 %.sroa.01.0.copyload.us18.i, 1
+  %.sroa.01.0.copyload.us16.i = load i32, ptr %29, align 4, !tbaa !50
+  %30 = lshr i32 %.sroa.01.0.copyload.us16.i, 1
   %31 = icmp ult i32 %30, %25
-  br i1 %31, label %_ZN3sat8aig_cuts10is_touchedEjRKNS0_4nodeE.exit.thread35, label %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19.i
+  br i1 %31, label %_ZN3sat8aig_cuts10is_touchedEjRKNS0_4nodeE.exit.thread35, label %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17.i
 
-_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19.i: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us.i
-  %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %._crit_edge.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us.i, !llvm.loop !95
+_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17.i: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us.i
+  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
+  %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
+  br i1 %exitcond28.not.i, label %._crit_edge.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us.i, !llvm.loop !95
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %.lr.ph.split.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.i ], [ 0, %.lr.ph.split.i ]
@@ -2062,11 +2062,11 @@ _ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.i: ; preds = %_ZNK6vectorIjLb0Ej
 
 _ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.i: ; preds = %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count29.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i, !llvm.loop !95
 
-._crit_edge.i:                                    ; preds = %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19.i, %.._crit_edge_crit_edge.i
-  %44 = phi ptr [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %17, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19.i ], [ %17, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.i ]
+._crit_edge.i:                                    ; preds = %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17.i, %.._crit_edge_crit_edge.i
+  %44 = phi ptr [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %17, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17.i ], [ %17, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.i ]
   %45 = icmp eq ptr %44, null
   br i1 %45, label %_ZN3sat8aig_cuts10is_touchedEjRKNS0_4nodeE.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
@@ -2238,8 +2238,8 @@ _ZN3sat8aig_cuts5touchEj.exit:                    ; preds = %_ZN6vectorIjLb0EjE7
 define hidden noundef zeroext i1 @_ZN3sat8aig_cuts10is_touchedEjRKNS0_4nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !75
-  %.not20 = icmp eq i32 %5, 0
-  br i1 %.not20, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not18 = icmp eq i32 %5, 0
+  br i1 %.not18, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2256,34 +2256,34 @@ define hidden noundef zeroext i1 @_ZN3sat8aig_cuts10is_touchedEjRKNS0_4nodeE(ptr
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %.fr21 = freeze ptr %14
-  %15 = getelementptr inbounds i8, ptr %.fr21, i64 -4
+  %.fr19 = freeze ptr %14
+  %15 = getelementptr inbounds i8, ptr %.fr19, i64 -4
   %.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %16 = load i32, ptr %.in.i.i, align 8
   br i1 %12, label %_ZNK3sat8aig_cuts10is_touchedEj.exit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %17 = icmp eq ptr %.fr21, null
+  %17 = icmp eq ptr %.fr19, null
   %18 = getelementptr inbounds i8, ptr %11, i64 -4
   %19 = load i32, ptr %18, align 4, !tbaa !50
-  %wide.trip.count29 = zext i32 %5 to i64
+  %wide.trip.count27 = zext i32 %5 to i64
   br i1 %17, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
-_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us:           ; preds = %.lr.ph.split, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19 ], [ 0, %.lr.ph.split ]
-  %20 = trunc nuw i64 %indvars.iv26 to i32
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us:           ; preds = %.lr.ph.split, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17
+  %indvars.iv24 = phi i64 [ %indvars.iv.next25, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17 ], [ 0, %.lr.ph.split ]
+  %20 = trunc nuw i64 %indvars.iv24 to i32
   %21 = add i32 %8, %20
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %22
-  %.sroa.01.0.copyload.us18 = load i32, ptr %23, align 4, !tbaa !50
-  %24 = lshr i32 %.sroa.01.0.copyload.us18, 1
+  %.sroa.01.0.copyload.us16 = load i32, ptr %23, align 4, !tbaa !50
+  %24 = lshr i32 %.sroa.01.0.copyload.us16, 1
   %25 = icmp ult i32 %24, %19
-  br i1 %25, label %_ZNK3sat8aig_cuts10is_touchedEj.exit, label %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19
+  br i1 %25, label %_ZNK3sat8aig_cuts10is_touchedEj.exit, label %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17
 
-_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us, !llvm.loop !95
+_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
+  %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
+  br i1 %exitcond28.not, label %._crit_edge, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.us, !llvm.loop !95
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %.lr.ph.split, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread ], [ 0, %.lr.ph.split ]
@@ -2308,11 +2308,11 @@ _ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit:  ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count27
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19, %.._crit_edge_crit_edge
-  %38 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %11, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us19 ], [ %11, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread ]
+._crit_edge:                                      ; preds = %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17, %.._crit_edge_crit_edge
+  %38 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %11, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread.us17 ], [ %11, %_ZNK3sat8aig_cuts10is_touchedENS_7literalE.exit.thread ]
   %39 = icmp eq ptr %38, null
   br i1 %39, label %_ZNK3sat8aig_cuts10is_touchedEj.exit, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
 

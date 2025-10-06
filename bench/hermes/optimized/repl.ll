@@ -1255,12 +1255,12 @@ if.end.i.i.i.i.i.i171:                            ; preds = %if.then196
 _ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit: ; preds = %if.then.i.i.i.i.i.i174, %if.end.i.i.i.i.i.i171
   %retval.0.i.i.i.i.i.i173 = phi ptr [ %128, %if.then.i.i.i.i.i.i174 ], [ %call7.i.i.i.i.i.i172, %if.end.i.i.i.i.i.i171 ]
   %130 = load ptr, ptr %ctx, align 8, !noalias !17
-  %cmp.i.i176265 = icmp eq ptr %130, %ctx
-  br i1 %cmp.i.i176265, label %if.end246, label %while.body201
+  %cmp.i.i176264 = icmp eq ptr %130, %ctx
+  br i1 %cmp.i.i176264, label %if.end246, label %while.body201
 
 while.body201:                                    ; preds = %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit
   %131 = phi ptr [ %145, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ], [ %130, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ]
-  %threwException.2266 = phi i1 [ %threwException.4, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ], [ %cmp.i152, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ]
+  %threwException.2265 = phi i1 [ %threwException.4, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ], [ %cmp.i152, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ]
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %131, i64 16
   %second.i = getelementptr inbounds nuw i8, ptr %131, i64 24
   %132 = load ptr, ptr %second.i, align 8, !noalias !17
@@ -1323,7 +1323,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit192: ; preds =
   br label %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit
 
 _ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit192, %while.body201
-  %threwException.4 = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit192 ], [ %threwException.2266, %while.body201 ]
+  %threwException.4 = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit192 ], [ %threwException.2265, %while.body201 ]
   %144 = load ptr, ptr %runtime, align 8
   call void @_ZN6hermes9microtask17performCheckpointERNS_2vm7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %144)
   %145 = load ptr, ptr %ctx, align 8, !noalias !17

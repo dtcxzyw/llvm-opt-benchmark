@@ -1137,11 +1137,11 @@ define internal fastcc noundef zeroext i1 @has_flonum(ptr noundef readonly captu
   br i1 %22, label %15, label %.loopexit, !llvm.loop !77
 
 23:                                               ; preds = %23, %.lr.ph
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %27, %23 ]
-  %24 = mul nsw i32 %12, %.044
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %27, %23 ]
+  %24 = mul nsw i32 %12, %.043
   %25 = add nsw i32 %24, %3
   %26 = tail call fastcc zeroext i1 @has_flonum(ptr noundef %10, i32 noundef %1, i32 noundef %2, i32 noundef %25)
-  %27 = add nuw nsw i32 %.044, 1
+  %27 = add nuw nsw i32 %.043, 1
   %exitcond.not = icmp ne i32 %27, %7
   %or.cond.not = select i1 %26, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %23, label %.loopexit, !llvm.loop !78
@@ -1149,14 +1149,14 @@ define internal fastcc noundef zeroext i1 @has_flonum(ptr noundef readonly captu
 28:                                               ; preds = %4
   %29 = icmp slt i32 %3, %1
   %.not = icmp sle i32 %2, %3
-  %or.cond.not41 = or i1 %29, %.not
+  %or.cond.not40 = or i1 %29, %.not
   %30 = and i32 %5, -2
   %31 = icmp eq i32 %30, 6
-  %spec.select39 = or i1 %or.cond.not41, %31
+  %spec.select38 = or i1 %or.cond.not40, %31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %15, %16, %.preheader, %28
-  %.131 = phi i1 [ %spec.select39, %28 ], [ true, %.preheader ], [ %.not34, %16 ], [ %.not34, %15 ], [ %26, %23 ]
+  %.131 = phi i1 [ %spec.select38, %28 ], [ true, %.preheader ], [ %.not34, %16 ], [ %.not34, %15 ], [ %26, %23 ]
   ret i1 %.131
 }
 

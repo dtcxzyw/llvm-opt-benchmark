@@ -8892,9 +8892,9 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
   %.sroa.066.091.i = phi ptr [ %264, %.loopexit.i ], [ %165, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %170 = load i64, ptr %.sroa.066.091.i, align 8, !tbaa !24
   %.not.not.i.i = icmp eq i64 %169, 0
-  br i1 %.not.not.i.i, label %.preheader.i, label %.thread36.i.i
+  br i1 %.not.not.i.i, label %.preheader.i, label %.thread34.i.i
 
-.thread36.i.i:                                    ; preds = %.lr.ph.i
+.thread34.i.i:                                    ; preds = %.lr.ph.i
   %171 = load i64, ptr %49, align 8, !tbaa !180
   %172 = urem i64 %170, %171
   %173 = getelementptr inbounds nuw ptr, ptr %168, i64 %172
@@ -8919,7 +8919,7 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
   %181 = urem i64 %170, %180
   br label %.critedge.i.i
 
-182:                                              ; preds = %.thread36.i.i
+182:                                              ; preds = %.thread34.i.i
   %183 = load ptr, ptr %174, align 8, !tbaa !29
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load i64, ptr %184, align 8, !tbaa !24
@@ -8946,9 +8946,9 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %190
   br label %.critedge.i.i, !llvm.loop !187
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i.i57.i, %..loopexit_crit_edge21.i.i.i.i, %179, %.thread36.i.i
-  %194 = phi i64 [ %180, %179 ], [ %171, %.thread36.i.i ], [ %171, %..loopexit_crit_edge21.i.i.i.i ], [ %171, %.lr.ph.i.i.i57.i ]
-  %195 = phi i64 [ %181, %179 ], [ %172, %.thread36.i.i ], [ %172, %..loopexit_crit_edge21.i.i.i.i ], [ %172, %.lr.ph.i.i.i57.i ]
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i.i57.i, %..loopexit_crit_edge21.i.i.i.i, %179, %.thread34.i.i
+  %194 = phi i64 [ %180, %179 ], [ %171, %.thread34.i.i ], [ %171, %..loopexit_crit_edge21.i.i.i.i ], [ %171, %.lr.ph.i.i.i57.i ]
+  %195 = phi i64 [ %181, %179 ], [ %172, %.thread34.i.i ], [ %172, %..loopexit_crit_edge21.i.i.i.i ], [ %172, %.lr.ph.i.i.i57.i ]
   %196 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
           to label %.noexc59.i unwind label %265
 
@@ -10693,9 +10693,9 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
   %.sroa.061.092.i = phi ptr [ %270, %.loopexit.i ], [ %171, %_ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE4findERS8_.exit.i ]
   %176 = load i64, ptr %.sroa.061.092.i, align 8, !tbaa !24
   %.not.not.i.i = icmp eq i64 %175, 0
-  br i1 %.not.not.i.i, label %.preheader.i, label %.thread36.i.i
+  br i1 %.not.not.i.i, label %.preheader.i, label %.thread34.i.i
 
-.thread36.i.i:                                    ; preds = %.lr.ph.i
+.thread34.i.i:                                    ; preds = %.lr.ph.i
   %177 = load i64, ptr %48, align 8, !tbaa !180
   %178 = urem i64 %176, %177
   %179 = getelementptr inbounds nuw ptr, ptr %174, i64 %178
@@ -10720,7 +10720,7 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
   %187 = urem i64 %176, %186
   br label %.critedge.i.i
 
-188:                                              ; preds = %.thread36.i.i
+188:                                              ; preds = %.thread34.i.i
   %189 = load ptr, ptr %180, align 8, !tbaa !29
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load i64, ptr %190, align 8, !tbaa !24
@@ -10747,9 +10747,9 @@ _ZNKSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %196
   br label %.critedge.i.i, !llvm.loop !187
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i.i56.i, %..loopexit_crit_edge21.i.i.i.i, %185, %.thread36.i.i
-  %200 = phi i64 [ %186, %185 ], [ %177, %.thread36.i.i ], [ %177, %..loopexit_crit_edge21.i.i.i.i ], [ %177, %.lr.ph.i.i.i56.i ]
-  %201 = phi i64 [ %187, %185 ], [ %178, %.thread36.i.i ], [ %178, %..loopexit_crit_edge21.i.i.i.i ], [ %178, %.lr.ph.i.i.i56.i ]
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i.i56.i, %..loopexit_crit_edge21.i.i.i.i, %185, %.thread34.i.i
+  %200 = phi i64 [ %186, %185 ], [ %177, %.thread34.i.i ], [ %177, %..loopexit_crit_edge21.i.i.i.i ], [ %177, %.lr.ph.i.i.i56.i ]
+  %201 = phi i64 [ %187, %185 ], [ %178, %.thread34.i.i ], [ %178, %..loopexit_crit_edge21.i.i.i.i ], [ %178, %.lr.ph.i.i.i56.i ]
   %202 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
           to label %.noexc58.i unwind label %271
 

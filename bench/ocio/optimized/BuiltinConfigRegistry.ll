@@ -2134,21 +2134,21 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev25BuiltinConfigRegistryImpl2
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !84
-  %.not3335 = icmp eq ptr %6, %8
-  br i1 %.not3335, label %._crit_edge, label %.lr.ph
+  %.not3133 = icmp eq ptr %6, %8
+  br i1 %.not3133, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %12
-  %.sroa.023.036 = phi ptr [ %13, %12 ], [ %6, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.023.036, i64 8
+  %.sroa.023.034 = phi ptr [ %13, %12 ], [ %6, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %1, ptr noundef %10)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %34, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.023.036, i64 80
-  %.not33 = icmp eq ptr %13, %8
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 80
+  %.not31 = icmp eq ptr %13, %8
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %12, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2211,18 +2211,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25
   br i1 %.0, label %32, label %33
 
 32:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn32 = phi { ptr, i32 } [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn30 = phi { ptr, i32 } [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %18) #28
   br label %33
 
 33:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %32, %22
-  %.pn.pn = phi { ptr, i32 } [ %.pn32, %32 ], [ %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %23, %22 ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn30, %32 ], [ %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %23, %22 ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 34:                                               ; preds = %.lr.ph
-  %35 = load ptr, ptr %.sroa.023.036, align 8
+  %35 = load ptr, ptr %.sroa.023.034, align 8
   ret ptr %35
 
 36:                                               ; preds = %21

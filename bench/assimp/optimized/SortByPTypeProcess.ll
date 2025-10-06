@@ -154,9 +154,9 @@ define hidden void @_Z11UpdateNodesRKSt6vectorIjSaIjEEP6aiNode(ptr noundef nonnu
   br i1 %9, label %.thread, label %19
 
 10:                                               ; preds = %.preheader, %15
-  %indvars.iv76 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next77, %15 ]
-  %.04663 = phi i32 [ 0, %.preheader ], [ %spec.select, %15 ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv76
+  %indvars.iv75 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next76, %15 ]
+  %.04662 = phi i32 [ 0, %.preheader ], [ %spec.select, %15 ]
+  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv75
   %12 = load i32, ptr %11, align 4
   %13 = shl i32 %12, 2
   %14 = zext i32 %13 to i64
@@ -164,18 +164,18 @@ define hidden void @_Z11UpdateNodesRKSt6vectorIjSaIjEEP6aiNode(ptr noundef nonnu
   br label %16
 
 15:                                               ; preds = %16
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
-  br i1 %exitcond79.not, label %8, label %10, !llvm.loop !3
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
+  br i1 %exitcond78.not, label %8, label %10, !llvm.loop !3
 
 16:                                               ; preds = %10, %16
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %16 ]
-  %.161 = phi i32 [ %.04663, %10 ], [ %spec.select, %16 ]
+  %.160 = phi i32 [ %.04662, %10 ], [ %spec.select, %16 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %17 = load i32, ptr %gep, align 4
   %.not57 = icmp ne i32 %17, -1
   %18 = zext i1 %.not57 to i32
-  %spec.select = add i32 %.161, %18
+  %spec.select = add i32 %.160, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %15, label %16, !llvm.loop !5
@@ -191,7 +191,7 @@ define hidden void @_Z11UpdateNodesRKSt6vectorIjSaIjEEP6aiNode(ptr noundef nonnu
   br i1 %20, label %21, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21, %19
-  %.05066.ph = phi ptr [ %6, %19 ], [ %24, %21 ]
+  %.05065.ph = phi ptr [ %6, %19 ], [ %24, %21 ]
   br label %.lr.ph
 
 21:                                               ; preds = %19
@@ -205,42 +205,42 @@ define hidden void @_Z11UpdateNodesRKSt6vectorIjSaIjEEP6aiNode(ptr noundef nonnu
   br i1 %25, label %43, label %_ZL17clearMeshesInNodeP6aiNode.exit58
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %31 ], [ 0, %.lr.ph.preheader ]
-  %.05066 = phi ptr [ %.252, %31 ], [ %.05066.ph, %.lr.ph.preheader ]
+  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %31 ], [ 0, %.lr.ph.preheader ]
+  %.05065 = phi ptr [ %.252, %31 ], [ %.05065.ph, %.lr.ph.preheader ]
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv84
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv83
   %28 = load i32, ptr %27, align 4
   %29 = shl i32 %28, 2
   %30 = zext i32 %29 to i64
   br label %35
 
 31:                                               ; preds = %42
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %32 = load i32, ptr %3, align 8
   %33 = zext i32 %32 to i64
-  %34 = icmp samesign ult i64 %indvars.iv.next85, %33
+  %34 = icmp samesign ult i64 %indvars.iv.next84, %33
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 35:                                               ; preds = %.lr.ph, %42
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next81, %42 ]
-  %.15164 = phi ptr [ %.05066, %.lr.ph ], [ %.252, %42 ]
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next80, %42 ]
+  %.15163 = phi ptr [ %.05065, %.lr.ph ], [ %.252, %42 ]
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv80
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv79
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %30
   %39 = load i32, ptr %38, align 4
   %.not56 = icmp eq i32 %39, -1
   br i1 %.not56, label %42, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %.15164, i64 4
-  store i32 %39, ptr %.15164, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %.15163, i64 4
+  store i32 %39, ptr %.15163, align 4
   br label %42
 
 42:                                               ; preds = %35, %40
-  %.252 = phi ptr [ %41, %40 ], [ %.15164, %35 ]
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 4
-  br i1 %exitcond83.not, label %31, label %35, !llvm.loop !7
+  %.252 = phi ptr [ %41, %40 ], [ %.15163, %35 ]
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next80, 4
+  br i1 %exitcond82.not, label %31, label %35, !llvm.loop !7
 
 43:                                               ; preds = %._crit_edge
   %44 = load ptr, ptr %5, align 8
@@ -262,23 +262,23 @@ _ZL17clearMeshesInNodeP6aiNode.exit58:            ; preds = %46, %43, %._crit_ed
 50:                                               ; preds = %_ZL17clearMeshesInNodeP6aiNode.exit58, %2
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 1104
   %52 = load i32, ptr %51, align 8
-  %.not73 = icmp eq i32 %52, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph71
+  %.not72 = icmp eq i32 %52, 0
+  br i1 %.not72, label %.loopexit, label %.lr.ph70
 
-.lr.ph71:                                         ; preds = %50
+.lr.ph70:                                         ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 1112
   br label %54
 
-54:                                               ; preds = %.lr.ph71, %54
-  %indvars.iv87 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next88, %54 ]
+54:                                               ; preds = %.lr.ph70, %54
+  %indvars.iv86 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next87, %54 ]
   %55 = load ptr, ptr %53, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv87
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv86
   %57 = load ptr, ptr %56, align 8
   tail call void @_Z11UpdateNodesRKSt6vectorIjSaIjEEP6aiNode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %57)
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %58 = load i32, ptr %51, align 8
   %59 = zext i32 %58 to i64
-  %60 = icmp samesign ult i64 %indvars.iv.next88, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next87, %59
   br i1 %60, label %54, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %54, %50, %.thread
@@ -3018,9 +3018,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3056,7 +3056,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -3084,10 +3084,10 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !62
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

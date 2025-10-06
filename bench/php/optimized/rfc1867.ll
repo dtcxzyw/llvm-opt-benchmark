@@ -463,21 +463,21 @@ multipart_buffer_new.exit:                        ; preds = %148, %152
   br i1 %194, label %195, label %multipart_buffer_eof.exit.thread
 
 195:                                              ; preds = %192
-  %.pre39.i.i = load ptr, ptr %131, align 8, !tbaa !49
-  store ptr %.pre39.i.i, ptr %144, align 8, !tbaa !55
+  %.pre38.i.i = load ptr, ptr %131, align 8, !tbaa !49
+  store ptr %.pre38.i.i, ptr %144, align 8, !tbaa !55
   %196 = load i32, ptr %136, align 8, !tbaa !53
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %.lr.ph.i.i, label %multipart_buffer_eof.exit.thread540
 
 .lr.ph.i.i:                                       ; preds = %195, %207
   %198 = phi i32 [ %209, %207 ], [ 0, %195 ]
-  %.02436.i.i = phi i32 [ %214, %207 ], [ %196, %195 ]
-  %.02535.i.i = phi i32 [ %213, %207 ], [ 0, %195 ]
+  %.02435.i.i = phi i32 [ %214, %207 ], [ %196, %195 ]
+  %.02534.i.i = phi i32 [ %213, %207 ], [ 0, %195 ]
   %199 = load ptr, ptr %131, align 8, !tbaa !49
   %200 = sext i32 %198 to i64
   %201 = getelementptr inbounds i8, ptr %199, i64 %200
   %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 112), align 8, !tbaa !60
-  %203 = zext nneg i32 %.02436.i.i to i64
+  %203 = zext nneg i32 %.02435.i.i to i64
   %204 = call i64 %202(ptr noundef %201, i64 noundef %203) #21
   %205 = trunc i64 %204 to i32
   %206 = icmp sgt i32 %205, 0
@@ -491,13 +491,13 @@ multipart_buffer_new.exit:                        ; preds = %148, %152
   %211 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
   %212 = add nsw i64 %211, %210
   store i64 %212, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
-  %213 = add nuw nsw i32 %.02535.i.i, %205
-  %214 = sub nsw i32 %.02436.i.i, %205
+  %213 = add nuw nsw i32 %.02534.i.i, %205
+  %214 = sub nsw i32 %.02435.i.i, %205
   %215 = icmp sgt i32 %214, 0
   br i1 %215, label %.lr.ph.i.i, label %multipart_buffer_eof.exit.thread
 
 multipart_buffer_eof.exit:                        ; preds = %.lr.ph.i.i
-  %.not640 = icmp eq i32 %.02535.i.i, 0
+  %.not640 = icmp eq i32 %.02534.i.i, 0
   br i1 %.not640, label %multipart_buffer_eof.exit.thread540, label %multipart_buffer_eof.exit.thread
 
 multipart_buffer_eof.exit.thread:                 ; preds = %207, %192, %multipart_buffer_eof.exit
@@ -2316,25 +2316,25 @@ define internal fastcc range(i64 -1, 5120) i64 @multipart_buffer_read(ptr nounde
 
 7:                                                ; preds = %3
   %.not = icmp eq i32 %5, 0
-  %.pre39.i = load ptr, ptr %0, align 8, !tbaa !49
+  %.pre38.i = load ptr, ptr %0, align 8, !tbaa !49
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !55
-  %.not.i = icmp eq ptr %10, %.pre39.i
+  %.not.i = icmp eq ptr %10, %.pre38.i
   br i1 %.not.i, label %13, label %11
 
 11:                                               ; preds = %8
   %12 = zext nneg i32 %5 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre39.i, ptr align 1 %10, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre38.i, ptr align 1 %10, i64 %12, i1 false)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !49
-  %.pre40.i = load i32, ptr %4, align 4, !tbaa !56
+  %.pre39.i = load i32, ptr %4, align 4, !tbaa !56
   br label %13
 
 13:                                               ; preds = %11, %8, %7
-  %14 = phi i32 [ %.pre40.i, %11 ], [ %5, %8 ], [ 0, %7 ]
-  %15 = phi ptr [ %.pre.i, %11 ], [ %.pre39.i, %8 ], [ %.pre39.i, %7 ]
+  %14 = phi i32 [ %.pre39.i, %11 ], [ %5, %8 ], [ 0, %7 ]
+  %15 = phi ptr [ %.pre.i, %11 ], [ %.pre38.i, %8 ], [ %.pre38.i, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2345,12 +2345,12 @@ define internal fastcc range(i64 -1, 5120) i64 @multipart_buffer_read(ptr nounde
 
 .lr.ph.i:                                         ; preds = %13, %30
   %21 = phi i32 [ %31, %30 ], [ %14, %13 ]
-  %.02436.i = phi i32 [ %35, %30 ], [ %19, %13 ]
+  %.02435.i = phi i32 [ %35, %30 ], [ %19, %13 ]
   %22 = load ptr, ptr %0, align 8, !tbaa !49
   %23 = sext i32 %21 to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 112), align 8, !tbaa !60
-  %26 = zext nneg i32 %.02436.i to i64
+  %26 = zext nneg i32 %.02435.i to i64
   %27 = tail call i64 %25(ptr noundef %24, i64 noundef %26) #21
   %28 = trunc i64 %27 to i32
   %29 = icmp sgt i32 %28, 0
@@ -2364,7 +2364,7 @@ define internal fastcc range(i64 -1, 5120) i64 @multipart_buffer_read(ptr nounde
   %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
   %34 = add nsw i64 %33, %32
   store i64 %34, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
-  %35 = sub nsw i32 %.02436.i, %28
+  %35 = sub nsw i32 %.02435.i, %28
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.i, label %fill_buffer.exit
 
@@ -2582,21 +2582,21 @@ next_line.exit.thread:                            ; preds = %19, %next_line.exit
   %30 = phi ptr [ %25, %next_line.exit ], [ %3, %19 ]
   %31 = phi i32 [ %29, %next_line.exit ], [ %5, %19 ]
   %32 = icmp slt i32 %31, 1
-  %.pre39.i = load ptr, ptr %0, align 8, !tbaa !49
-  %.not.i6 = icmp eq ptr %30, %.pre39.i
+  %.pre38.i = load ptr, ptr %0, align 8, !tbaa !49
+  %.not.i6 = icmp eq ptr %30, %.pre38.i
   %or.cond = select i1 %32, i1 true, i1 %.not.i6
   br i1 %or.cond, label %35, label %33
 
 33:                                               ; preds = %next_line.exit.thread
   %34 = zext nneg i32 %31 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre39.i, ptr align 1 %30, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre38.i, ptr align 1 %30, i64 %34, i1 false)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !49
-  %.pre40.i = load i32, ptr %4, align 4, !tbaa !56
+  %.pre39.i = load i32, ptr %4, align 4, !tbaa !56
   br label %35
 
 35:                                               ; preds = %33, %next_line.exit.thread
-  %36 = phi i32 [ %.pre40.i, %33 ], [ %31, %next_line.exit.thread ]
-  %37 = phi ptr [ %.pre.i, %33 ], [ %.pre39.i, %next_line.exit.thread ]
+  %36 = phi i32 [ %.pre39.i, %33 ], [ %31, %next_line.exit.thread ]
+  %37 = phi ptr [ %.pre.i, %33 ], [ %.pre38.i, %next_line.exit.thread ]
   store ptr %37, ptr %2, align 8, !tbaa !55
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load i32, ptr %38, align 8, !tbaa !53
@@ -2606,12 +2606,12 @@ next_line.exit.thread:                            ; preds = %19, %next_line.exit
 
 .lr.ph.i:                                         ; preds = %35, %51
   %42 = phi i32 [ %52, %51 ], [ %36, %35 ]
-  %.02436.i = phi i32 [ %56, %51 ], [ %40, %35 ]
+  %.02435.i = phi i32 [ %56, %51 ], [ %40, %35 ]
   %43 = load ptr, ptr %0, align 8, !tbaa !49
   %44 = sext i32 %42 to i64
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 112), align 8, !tbaa !60
-  %47 = zext nneg i32 %.02436.i to i64
+  %47 = zext nneg i32 %.02435.i to i64
   %48 = tail call i64 %46(ptr noundef %45, i64 noundef %47) #21
   %49 = trunc i64 %48 to i32
   %50 = icmp sgt i32 %49, 0
@@ -2625,7 +2625,7 @@ next_line.exit.thread:                            ; preds = %19, %next_line.exit
   %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
   %55 = add nsw i64 %54, %53
   store i64 %55, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
-  %56 = sub nsw i32 %.02436.i, %49
+  %56 = sub nsw i32 %.02435.i, %49
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph.i, label %fill_buffer.exit.loopexit
 

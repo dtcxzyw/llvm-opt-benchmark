@@ -1213,8 +1213,8 @@ define internal fastcc void @_ZL33printCXXConstructorDestructorNameN5clang8QualT
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp ne i8 %19, 47
-  %.not.not20 = icmp eq ptr %17, null
-  %.not.not = or i1 %.not.not20, %20
+  %.not.not17 = icmp eq ptr %17, null
+  %.not.not = or i1 %.not.not17, %20
   br i1 %.not.not, label %26, label %21
 
 21:                                               ; preds = %4
@@ -1230,8 +1230,8 @@ define internal fastcc void @_ZL33printCXXConstructorDestructorNameN5clang8QualT
   %.not10 = icmp eq i64 %27, 0
   %28 = icmp ne i8 %19, 28
   %29 = or i1 %28, %.not10
-  %or.cond = or i1 %29, %.not.not20
-  br i1 %or.cond, label %.thread18, label %30
+  %or.cond = or i1 %29, %.not.not17
+  br i1 %or.cond, label %.thread16, label %30
 
 30:                                               ; preds = %26
   %31 = tail call noundef ptr @_ZNK5clang21InjectedClassNameType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(40) %17) #18
@@ -1241,7 +1241,7 @@ define internal fastcc void @_ZL33printCXXConstructorDestructorNameN5clang8QualT
   call void %34(ptr noundef nonnull align 8 dereferenceable(128) %31, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %37
 
-.thread18:                                        ; preds = %26
+.thread16:                                        ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %35, align 8, !tbaa !59
@@ -1251,7 +1251,7 @@ define internal fastcc void @_ZL33printCXXConstructorDestructorNameN5clang8QualT
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
-37:                                               ; preds = %30, %21, %.thread18
+37:                                               ; preds = %30, %21, %.thread16
   ret void
 }
 

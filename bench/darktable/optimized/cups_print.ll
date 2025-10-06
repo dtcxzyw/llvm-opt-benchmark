@@ -384,12 +384,12 @@ define ptr @dt_get_papers(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %cmp.i, label %paper_exists.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %25
-  %.not19.not.i = icmp eq ptr %.1102, null
-  br i1 %.not19.not.i, label %paper_exists.exit, label %.lr.ph.i
+  %.not20.i = icmp eq ptr %.1102, null
+  br i1 %.not20.i, label %paper_exists.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.critedge.i
-  %.01520.i = phi ptr [ %32, %.critedge.i ], [ %.1102, %.preheader.i ]
-  %26 = load ptr, ptr %.01520.i, align 8, !tbaa !89
+  %.01521.i = phi ptr [ %32, %.critedge.i ], [ %.1102, %.preheader.i ]
+  %26 = load ptr, ptr %.01521.i, align 8, !tbaa !89
   %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %5) #17
   %.not17.i = icmp eq i32 %27, 0
   br i1 %.not17.i, label %paper_exists.exit.thread, label %28
@@ -401,10 +401,10 @@ define ptr @dt_get_papers(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not18.i, label %paper_exists.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.01520.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !91
-  %.not.not.i = icmp eq ptr %32, null
-  br i1 %.not.not.i, label %paper_exists.exit, label %.lr.ph.i
+  %.not.i = icmp eq ptr %32, null
+  br i1 %.not.i, label %paper_exists.exit, label %.lr.ph.i
 
 paper_exists.exit:                                ; preds = %.critedge.i, %.preheader.i
   %33 = call ptr @pwgMediaForPWG(ptr noundef nonnull %5) #16
@@ -445,8 +445,8 @@ paper_exists.exit:                                ; preds = %.critedge.i, %.preh
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %paper_exists.exit.thread
 
-paper_exists.exit.thread:                         ; preds = %.lr.ph.i, %28, %25, %18, %55, %20
-  %.2 = phi ptr [ %49, %55 ], [ %.1102, %20 ], [ %.1102, %18 ], [ %.1102, %25 ], [ %.1102, %28 ], [ %.1102, %.lr.ph.i ]
+paper_exists.exit.thread:                         ; preds = %28, %.lr.ph.i, %25, %18, %55, %20
+  %.2 = phi ptr [ %49, %55 ], [ %.1102, %20 ], [ %.1102, %18 ], [ %.1102, %25 ], [ %.1102, %.lr.ph.i ], [ %.1102, %28 ]
   %56 = add nuw nsw i32 %.070100, 1
   %exitcond.not = icmp eq i32 %56, %14
   br i1 %exitcond.not, label %._crit_edge, label %18
@@ -513,12 +513,12 @@ paper_exists.exit.thread:                         ; preds = %.lr.ph.i, %28, %25,
   br i1 %cmp.i85, label %paper_exists.exit95.thread, label %.preheader.i86
 
 .preheader.i86:                                   ; preds = %80
-  %.not19.not.i87 = icmp eq ptr %.5106, null
-  br i1 %.not19.not.i87, label %paper_exists.exit95, label %.lr.ph.i88
+  %.not20.i87 = icmp eq ptr %.5106, null
+  br i1 %.not20.i87, label %paper_exists.exit95, label %.lr.ph.i88
 
 .lr.ph.i88:                                       ; preds = %.preheader.i86, %.critedge.i92
-  %.01520.i89 = phi ptr [ %88, %.critedge.i92 ], [ %.5106, %.preheader.i86 ]
-  %82 = load ptr, ptr %.01520.i89, align 8, !tbaa !89
+  %.01521.i89 = phi ptr [ %88, %.critedge.i92 ], [ %.5106, %.preheader.i86 ]
+  %82 = load ptr, ptr %.01521.i89, align 8, !tbaa !89
   %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %81) #17
   %.not17.i90 = icmp eq i32 %83, 0
   br i1 %.not17.i90, label %paper_exists.exit95.thread, label %84
@@ -530,10 +530,10 @@ paper_exists.exit.thread:                         ; preds = %.lr.ph.i, %28, %25,
   br i1 %.not18.i91, label %paper_exists.exit95.thread, label %.critedge.i92
 
 .critedge.i92:                                    ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %.01520.i89, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.01521.i89, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !91
-  %.not.not.i93 = icmp eq ptr %88, null
-  br i1 %.not.not.i93, label %paper_exists.exit95, label %.lr.ph.i88
+  %.not.i93 = icmp eq ptr %88, null
+  br i1 %.not.i93, label %paper_exists.exit95, label %.lr.ph.i88
 
 paper_exists.exit95:                              ; preds = %.critedge.i92, %.preheader.i86
   %89 = call noalias dereferenceable_or_null(272) ptr @malloc(i64 noundef 272) #18
@@ -562,8 +562,8 @@ paper_exists.exit95:                              ; preds = %.critedge.i92, %.pr
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, i32 noundef %.068104, double noundef %105, double noundef %106, ptr noundef nonnull %89, ptr noundef nonnull %91) #16
   br label %paper_exists.exit95.thread
 
-paper_exists.exit95.thread:                       ; preds = %.lr.ph.i88, %84, %80, %paper_exists.exit95, %104, %76, %.lr.ph108
-  %.6 = phi ptr [ %.5106, %76 ], [ %.5106, %.lr.ph108 ], [ %101, %104 ], [ %101, %paper_exists.exit95 ], [ %.5106, %80 ], [ %.5106, %84 ], [ %.5106, %.lr.ph.i88 ]
+paper_exists.exit95.thread:                       ; preds = %84, %.lr.ph.i88, %80, %paper_exists.exit95, %104, %76, %.lr.ph108
+  %.6 = phi ptr [ %.5106, %76 ], [ %.5106, %.lr.ph108 ], [ %101, %104 ], [ %101, %paper_exists.exit95 ], [ %.5106, %80 ], [ %.5106, %.lr.ph.i88 ], [ %.5106, %84 ]
   %107 = getelementptr inbounds nuw i8, ptr %.069103, i64 72
   %108 = add nuw nsw i32 %.068104, 1
   %109 = load i32, ptr %67, align 8, !tbaa !100
@@ -868,14 +868,14 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !99
   %78 = and i32 %77, 32768
   %.not84 = icmp eq i32 %78, 0
-  br i1 %.not84, label %.thread92, label %79
+  br i1 %.not84, label %.thread91, label %79
 
 79:                                               ; preds = %75
   %80 = load i32, ptr %8, align 4, !tbaa !33
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.34, i32 noundef %80) #16
-  br label %.thread92
+  br label %.thread91
 
-.thread92:                                        ; preds = %75, %79
+.thread91:                                        ; preds = %75, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -927,12 +927,12 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 106:                                              ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
-  %.595 = phi i32 [ 0, %.lr.ph ], [ %.6, %120 ]
+  %.594 = phi i32 [ 0, %.lr.ph ], [ %.6, %120 ]
   %107 = load ptr, ptr %91, align 8, !tbaa !24
   %108 = getelementptr inbounds nuw %struct.cups_option_s, ptr %107, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !126
   %110 = load ptr, ptr %5, align 8, !tbaa !120
-  %111 = call ptr @cupsGetOption(ptr noundef %109, i32 noundef %.595, ptr noundef %110) #16
+  %111 = call ptr @cupsGetOption(ptr noundef %109, i32 noundef %.594, ptr noundef %110) #16
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %120
 
@@ -942,11 +942,11 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %116 = load ptr, ptr %115, align 8, !tbaa !126
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !128
-  %119 = call i32 @cupsAddOption(ptr noundef %116, ptr noundef %118, i32 noundef %.595, ptr noundef nonnull %5) #16
+  %119 = call i32 @cupsAddOption(ptr noundef %116, ptr noundef %118, i32 noundef %.594, ptr noundef nonnull %5) #16
   br label %120
 
 120:                                              ; preds = %106, %113
-  %.6 = phi i32 [ %119, %113 ], [ %.595, %106 ]
+  %.6 = phi i32 [ %119, %113 ], [ %.594, %106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = load i32, ptr %88, align 4, !tbaa !23
   %122 = sext i32 %121 to i64
@@ -995,14 +995,14 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 145:                                              ; preds = %144, %141
   %146 = icmp sgt i32 %.8, 0
-  br i1 %146, label %.lr.ph98.preheader, label %._crit_edge99
+  br i1 %146, label %.lr.ph97.preheader, label %._crit_edge98
 
-.lr.ph98.preheader:                               ; preds = %145
+.lr.ph97.preheader:                               ; preds = %145
   %wide.trip.count = zext nneg i32 %.8 to i64
-  %.pre105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !99
-  br label %.lr.ph98
+  %.pre104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !99
+  br label %.lr.ph97
 
-._crit_edge99:                                    ; preds = %.lr.ph98._crit_edge, %145
+._crit_edge98:                                    ; preds = %.lr.ph97._crit_edge, %145
   %147 = load ptr, ptr %5, align 8, !tbaa !120
   %148 = call i32 @cupsPrintFile(ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef %.8, ptr noundef %147) #16
   %149 = icmp eq i32 %148, 0
@@ -1013,31 +1013,31 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   call void @cupsFreeOptions(i32 noundef %.8, ptr noundef %151) #16
   br label %162
 
-.lr.ph98:                                         ; preds = %.lr.ph98.preheader, %.lr.ph98._crit_edge
-  %152 = phi i32 [ %.pre105, %.lr.ph98.preheader ], [ %161, %.lr.ph98._crit_edge ]
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph98.preheader ], [ %.pre106, %.lr.ph98._crit_edge ]
+.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97._crit_edge
+  %152 = phi i32 [ %.pre104, %.lr.ph97.preheader ], [ %161, %.lr.ph97._crit_edge ]
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph97.preheader ], [ %.pre105, %.lr.ph97._crit_edge ]
   %153 = and i32 %152, 32768
   %.not86 = icmp eq i32 %153, 0
-  %.pre106 = add nuw nsw i64 %indvars.iv101, 1
-  br i1 %.not86, label %.lr.ph98._crit_edge, label %154
+  %.pre105 = add nuw nsw i64 %indvars.iv100, 1
+  br i1 %.not86, label %.lr.ph97._crit_edge, label %154
 
-154:                                              ; preds = %.lr.ph98
+154:                                              ; preds = %.lr.ph97
   %155 = load ptr, ptr %5, align 8, !tbaa !120
-  %156 = getelementptr inbounds nuw %struct.cups_option_s, ptr %155, i64 %indvars.iv101
+  %156 = getelementptr inbounds nuw %struct.cups_option_s, ptr %155, i64 %indvars.iv100
   %157 = load ptr, ptr %156, align 8, !tbaa !126
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !128
-  %160 = trunc nuw nsw i64 %.pre106 to i32
+  %160 = trunc nuw nsw i64 %.pre105 to i32
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.47, i32 noundef %160, ptr noundef %157, ptr noundef %159) #16
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !99
-  br label %.lr.ph98._crit_edge
+  br label %.lr.ph97._crit_edge
 
-.lr.ph98._crit_edge:                              ; preds = %.lr.ph98, %154
-  %161 = phi i32 [ %.pre, %154 ], [ %152, %.lr.ph98 ]
-  %exitcond.not = icmp eq i64 %.pre106, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98
+.lr.ph97._crit_edge:                              ; preds = %.lr.ph97, %154
+  %161 = phi i32 [ %.pre, %154 ], [ %152, %.lr.ph97 ]
+  %exitcond.not = icmp eq i64 %.pre105, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge98, label %.lr.ph97
 
-162:                                              ; preds = %.thread92, %.critedge, %._crit_edge99
+162:                                              ; preds = %.thread91, %.critedge, %._crit_edge98
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %163
 

@@ -601,18 +601,18 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr noundef readonly captu
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
-  %.not98 = icmp eq i32 %18, 0
-  br i1 %.not98, label %._crit_edge, label %.lr.ph
+  %.not97 = icmp eq i32 %18, 0
+  br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %20
 
 20:                                               ; preds = %.lr.ph, %37
-  %.08297 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
-  %21 = tail call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08297, i32 noundef 0)
-  %22 = tail call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08297, i32 noundef 1)
-  %23 = tail call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08297, i32 noundef 2)
+  %.08296 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
+  %21 = tail call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 0)
+  %22 = tail call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 1)
+  %23 = tail call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 2)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(12) %3, ptr noundef dereferenceable(12) %25, i64 12)
@@ -632,10 +632,10 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr noundef readonly captu
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, %33
-  br i1 %36, label %.thread93, label %37
+  br i1 %36, label %.thread92, label %37
 
 37:                                               ; preds = %20, %31, %27
-  %38 = add nuw i32 %.08297, 1
+  %38 = add nuw i32 %.08296, 1
   %39 = load i32, ptr %17, align 4
   %40 = icmp ult i32 %38, %39
   br i1 %40, label %20, label %._crit_edge, !llvm.loop !6
@@ -704,17 +704,17 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr noundef readonly captu
   call void @stat_tap_set_field_data(ptr noundef %16, i32 noundef %.082.lcssa, i32 noundef 2, ptr noundef %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread93
+  br label %.thread92
 
-.thread93:                                        ; preds = %31, %66
-  %.08296 = phi i32 [ %.082.lcssa, %66 ], [ %.08297, %31 ]
-  %72 = call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 3)
+.thread92:                                        ; preds = %31, %66
+  %.08295 = phi i32 [ %.082.lcssa, %66 ], [ %.08296, %31 ]
+  %72 = call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08295, i32 noundef 3)
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 8
-  call void @stat_tap_set_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 3, ptr noundef %72)
-  %76 = call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 4)
+  call void @stat_tap_set_field_data(ptr noundef %16, i32 noundef %.08295, i32 noundef 3, ptr noundef %72)
+  %76 = call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08295, i32 noundef 4)
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i32
@@ -722,20 +722,20 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr noundef readonly captu
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, %79
   store i32 %82, ptr %80, align 8
-  call void @stat_tap_set_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 4, ptr noundef %76)
+  call void @stat_tap_set_field_data(ptr noundef %16, i32 noundef %.08295, i32 noundef 4, ptr noundef %76)
   %.not88 = icmp eq i32 %75, 0
   %83 = uitofp i32 %82 to double
   %84 = uitofp i32 %75 to double
   %85 = fdiv double %83, %84
   %.083 = select i1 %.not88, double 0.000000e+00, double %85
-  %86 = call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 5)
+  %86 = call ptr @stat_tap_get_field_data(ptr noundef %16, i32 noundef %.08295, i32 noundef 5)
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store double %.083, ptr %87, align 8
-  call void @stat_tap_set_field_data(ptr noundef %16, i32 noundef %.08296, i32 noundef 5, ptr noundef %86)
+  call void @stat_tap_set_field_data(ptr noundef %16, i32 noundef %.08295, i32 noundef 5, ptr noundef %86)
   br label %88
 
-88:                                               ; preds = %5, %.thread93
-  %.080 = phi i32 [ 1, %.thread93 ], [ 0, %5 ]
+88:                                               ; preds = %5, %.thread92
+  %.080 = phi i32 [ 1, %.thread92 ], [ 0, %5 ]
   ret i32 %.080
 }
 

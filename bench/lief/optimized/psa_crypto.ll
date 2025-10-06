@@ -4450,28 +4450,28 @@ psa_cipher_abort.exit.thread:                     ; preds = %4
   %25 = icmp ne i8 %24, 2
   %26 = load i8, ptr @global_data, align 8
   %27 = icmp ne i8 %26, 7
-  %.not25.i = select i1 %25, i1 true, i1 %27
-  br i1 %.not25.i, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split, label %psa_generate_random_internal.exit.thread
+  %.not24.i = select i1 %25, i1 true, i1 %27
+  br i1 %.not24.i, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split, label %psa_generate_random_internal.exit.thread
 
 .thread:                                          ; preds = %20
   %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1), align 1, !tbaa !67
   %29 = icmp ne i8 %28, 2
   %30 = load i8, ptr @global_data, align 8
   %31 = icmp ne i8 %30, 7
-  %.not25.i89 = select i1 %29, i1 true, i1 %31
-  br i1 %.not25.i89, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split, label %.lr.ph.i
+  %.not24.i89 = select i1 %29, i1 true, i1 %31
+  br i1 %.not24.i89, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %34
-  %.01328.i = phi i64 [ %35, %34 ], [ %14, %.thread ]
-  %.01527.i = phi ptr [ %36, %34 ], [ %21, %.thread ]
-  %32 = tail call i64 @llvm.umin.i64(i64 %.01328.i, i64 1024)
-  %33 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01527.i, i64 noundef %32) #22
+  %.01327.i = phi i64 [ %35, %34 ], [ %14, %.thread ]
+  %.01526.i = phi ptr [ %36, %34 ], [ %21, %.thread ]
+  %32 = tail call i64 @llvm.umin.i64(i64 %.01327.i, i64 1024)
+  %33 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01526.i, i64 noundef %32) #22
   %.not18.not.i = icmp eq i32 %33, 0
   br i1 %.not18.not.i, label %34, label %psa_generate_random_internal.exit
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = sub i64 %.01328.i, %32
-  %36 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 %32
+  %35 = sub i64 %.01327.i, %32
+  %36 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 %32
   %.not.i = icmp eq i64 %35, 0
   br i1 %.not.i, label %psa_generate_random_internal.exit.thread, label %.lr.ph.i
 
@@ -4961,20 +4961,20 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   %43 = icmp ne i8 %42, 2
   %44 = load i8, ptr @global_data, align 8
   %45 = icmp ne i8 %44, 7
-  %.not25.i = select i1 %43, i1 true, i1 %45
-  br i1 %.not25.i, label %.thread121, label %.lr.ph.i
+  %.not24.i = select i1 %43, i1 true, i1 %45
+  br i1 %.not24.i, label %.thread121, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %41, %48
-  %.01328.i = phi i64 [ %49, %48 ], [ %39, %41 ]
-  %.01527.i = phi ptr [ %50, %48 ], [ %9, %41 ]
-  %46 = call i64 @llvm.umin.i64(i64 %.01328.i, i64 1024)
-  %47 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01527.i, i64 noundef %46) #22
+  %.01327.i = phi i64 [ %49, %48 ], [ %39, %41 ]
+  %.01526.i = phi ptr [ %50, %48 ], [ %9, %41 ]
+  %46 = call i64 @llvm.umin.i64(i64 %.01327.i, i64 1024)
+  %47 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01526.i, i64 noundef %46) #22
   %.not18.not.i = icmp eq i32 %47, 0
   br i1 %.not18.not.i, label %48, label %psa_generate_random_internal.exit
 
 48:                                               ; preds = %.lr.ph.i
-  %49 = sub i64 %.01328.i, %46
-  %50 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 %46
+  %49 = sub i64 %.01327.i, %46
+  %50 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 %46
   %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %psa_generate_random_internal.exit.thread, label %.lr.ph.i
 
@@ -5803,32 +5803,32 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr noundef writeonly
   %40 = icmp ne i8 %39, 2
   %41 = load i8, ptr @global_data, align 8
   %42 = icmp ne i8 %41, 7
-  %.not25.i = select i1 %40, i1 true, i1 %42
-  br i1 %.not25.i, label %psa_generate_random_internal.exit.thread68, label %.preheader.i
+  %.not24.i = select i1 %40, i1 true, i1 %42
+  br i1 %.not24.i, label %psa_generate_random_internal.exit.thread68, label %.preheader.i
 
 .thread61:                                        ; preds = %28
   %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1), align 1, !tbaa !67
   %44 = icmp ne i8 %43, 2
   %45 = load i8, ptr @global_data, align 8
   %46 = icmp ne i8 %45, 7
-  %.not25.i62 = select i1 %44, i1 true, i1 %46
-  br i1 %.not25.i62, label %psa_generate_random_internal.exit.thread68, label %psa_generate_random_internal.exit.thread
+  %.not24.i62 = select i1 %44, i1 true, i1 %46
+  br i1 %.not24.i62, label %psa_generate_random_internal.exit.thread68, label %psa_generate_random_internal.exit.thread
 
 .preheader.i:                                     ; preds = %38
-  %.not26.i = icmp eq i64 %36, 0
-  br i1 %.not26.i, label %psa_generate_random_internal.exit.thread, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %36, 0
+  br i1 %.not25.i, label %psa_generate_random_internal.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %49
-  %.01328.i = phi i64 [ %50, %49 ], [ %36, %.preheader.i ]
-  %.01527.i = phi ptr [ %51, %49 ], [ %5, %.preheader.i ]
-  %47 = call i64 @llvm.umin.i64(i64 %.01328.i, i64 1024)
-  %48 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef nonnull %.01527.i, i64 noundef %47) #22
+  %.01327.i = phi i64 [ %50, %49 ], [ %36, %.preheader.i ]
+  %.01526.i = phi ptr [ %51, %49 ], [ %5, %.preheader.i ]
+  %47 = call i64 @llvm.umin.i64(i64 %.01327.i, i64 1024)
+  %48 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef nonnull %.01526.i, i64 noundef %47) #22
   %.not18.not.i = icmp eq i32 %48, 0
   br i1 %.not18.not.i, label %49, label %psa_generate_random_internal.exit
 
 49:                                               ; preds = %.lr.ph.i
-  %50 = sub i64 %.01328.i, %47
-  %51 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 %47
+  %50 = sub i64 %.01327.i, %47
+  %51 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 %47
   %.not.i = icmp eq i64 %50, 0
   br i1 %.not.i, label %psa_generate_random_internal.exit.thread, label %.lr.ph.i
 
@@ -8066,7 +8066,7 @@ psa_generate_derived_ecc_key_weierstrass_helper.exit.i: ; preds = %.thread56.i.i
   br i1 %.not45.i, label %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i, label %.thread26
 
 psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i: ; preds = %psa_generate_derived_ecc_key_weierstrass_helper.exit.i
-  %.pre101.i = load i64, ptr %11, align 8, !tbaa !25
+  %.pre100.i = load i64, ptr %11, align 8, !tbaa !25
   br label %.thread.i
 
 87:                                               ; preds = %42
@@ -8154,7 +8154,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %101, %95
   br label %.thread.i
 
 .thread.i:                                        ; preds = %119, %116, %psa_generate_derived_ecc_key_montgomery_helper.exit.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i
-  %120 = phi i64 [ %32, %119 ], [ %32, %116 ], [ %32, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %.pre101.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i ]
+  %120 = phi i64 [ %32, %119 ], [ %32, %116 ], [ %32, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %.pre100.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i ]
   %.3.i = phi ptr [ %112, %119 ], [ %112, %116 ], [ %90, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %.6.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i ]
   %121 = trunc i64 %120 to i16
   %122 = getelementptr inbounds nuw i8, ptr %30, i64 2
@@ -8191,11 +8191,11 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %101, %95
 
 137:                                              ; preds = %135
   %138 = call i32 @psa_import_key_into_slot(ptr noundef nonnull %30, ptr noundef %.3.i, i64 noundef range(i64 0, 2305843009213693952) %34, ptr noundef nonnull %133, i64 noundef %129, ptr noundef nonnull %136, ptr noundef nonnull %11)
-  %.pre102.i = load i64, ptr %11, align 8, !tbaa !25
+  %.pre101.i = load i64, ptr %11, align 8, !tbaa !25
   br label %psa_driver_wrapper_import_key.exit.i
 
 psa_driver_wrapper_import_key.exit.i:             ; preds = %137, %135
-  %139 = phi i64 [ %.pre102.i, %137 ], [ %120, %135 ]
+  %139 = phi i64 [ %.pre101.i, %137 ], [ %120, %135 ]
   %.0.i54.i = phi i32 [ %138, %137 ], [ -135, %135 ]
   %140 = load i16, ptr %122, align 2, !tbaa !46
   %141 = zext i16 %140 to i64
@@ -9454,18 +9454,18 @@ psa_crypto_local_output_alloc.exit:               ; preds = %16, %23, %35, %27, 
   %45 = icmp ne i8 %44, 2
   %46 = load i8, ptr @global_data, align 8
   %47 = icmp ne i8 %46, 7
-  %.not25.i = select i1 %45, i1 true, i1 %47
-  %brmerge = or i1 %9, %.not25.i
+  %.not24.i = select i1 %45, i1 true, i1 %47
+  %brmerge = or i1 %9, %.not24.i
   br i1 %brmerge, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i
-  %.01328.i = phi i64 [ %50, %.lr.ph.i ], [ %5, %43 ]
-  %.01527.i = phi ptr [ %51, %.lr.ph.i ], [ %.sroa.6.0.ph, %43 ]
-  %48 = call i64 @llvm.umin.i64(i64 %.01328.i, i64 1024)
-  %49 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef nonnull %.01527.i, i64 noundef %48) #22
+  %.01327.i = phi i64 [ %50, %.lr.ph.i ], [ %5, %43 ]
+  %.01526.i = phi ptr [ %51, %.lr.ph.i ], [ %.sroa.6.0.ph, %43 ]
+  %48 = call i64 @llvm.umin.i64(i64 %.01327.i, i64 1024)
+  %49 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef nonnull %.01526.i, i64 noundef %48) #22
   %.not18.not.i = icmp ne i32 %49, 0
-  %50 = sub i64 %.01328.i, %48
-  %51 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 %48
+  %50 = sub i64 %.01327.i, %48
+  %51 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 %48
   %.not.i43 = icmp eq i64 %50, 0
   %or.cond109 = or i1 %.not18.not.i, %.not.i43
   br i1 %or.cond109, label %.sink.split, label %.lr.ph.i
@@ -9576,17 +9576,17 @@ define hidden range(i32 -151, 1) i32 @psa_generate_random(ptr noundef writeonly 
   %9 = icmp ne i8 %8, 2
   %10 = load i8, ptr @global_data, align 8
   %11 = icmp ne i8 %10, 7
-  %.not25.i = select i1 %9, i1 true, i1 %11
-  %brmerge = or i1 %3, %.not25.i
-  %.mux = select i1 %.not25.i, i64 %1, i64 0
-  %.mux38 = select i1 %.not25.i, i32 -137, i32 0
+  %.not24.i = select i1 %9, i1 true, i1 %11
+  %brmerge = or i1 %3, %.not24.i
+  %.mux = select i1 %.not24.i, i64 %1, i64 0
+  %.mux38 = select i1 %.not24.i, i32 -137, i32 0
   br i1 %brmerge, label %psa_crypto_local_output_alloc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %15
-  %.01328.i = phi i64 [ %16, %15 ], [ %1, %7 ]
-  %.01527.i = phi ptr [ %17, %15 ], [ %.sroa.6.0.ph, %7 ]
-  %12 = tail call i64 @llvm.umin.i64(i64 %.01328.i, i64 1024)
-  %13 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01527.i, i64 noundef %12) #22
+  %.01327.i = phi i64 [ %16, %15 ], [ %1, %7 ]
+  %.01526.i = phi ptr [ %17, %15 ], [ %.sroa.6.0.ph, %7 ]
+  %12 = tail call i64 @llvm.umin.i64(i64 %.01327.i, i64 1024)
+  %13 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01526.i, i64 noundef %12) #22
   %.not18.not.i = icmp eq i32 %13, 0
   br i1 %.not18.not.i, label %15, label %.thread.i
 
@@ -9595,8 +9595,8 @@ define hidden range(i32 -151, 1) i32 @psa_generate_random(ptr noundef writeonly 
   br label %psa_crypto_local_output_alloc.exit
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = sub i64 %.01328.i, %12
-  %17 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 %12
+  %16 = sub i64 %.01327.i, %12
+  %17 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 %12
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %psa_crypto_local_output_alloc.exit, label %.lr.ph.i
 
@@ -9641,24 +9641,24 @@ define hidden i32 @psa_generate_key_internal(ptr noundef %0, ptr readnone captur
   %12 = icmp ne i8 %11, 2
   %13 = load i8, ptr @global_data, align 8
   %14 = icmp ne i8 %13, 7
-  %.not25.i = select i1 %12, i1 true, i1 %14
-  br i1 %.not25.i, label %psa_des_set_key_parity.exit, label %.preheader.i
+  %.not24.i = select i1 %12, i1 true, i1 %14
+  br i1 %.not24.i, label %psa_des_set_key_parity.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10
-  %.not26.i = icmp eq i64 %5, 0
-  br i1 %.not26.i, label %psa_des_set_key_parity.exit, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %5, 0
+  br i1 %.not25.i, label %psa_des_set_key_parity.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %17
-  %.01328.i = phi i64 [ %18, %17 ], [ %5, %.preheader.i ]
-  %.01527.i = phi ptr [ %19, %17 ], [ %4, %.preheader.i ]
-  %15 = tail call i64 @llvm.umin.i64(i64 %.01328.i, i64 1024)
-  %16 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01527.i, i64 noundef %15) #22
+  %.01327.i = phi i64 [ %18, %17 ], [ %5, %.preheader.i ]
+  %.01526.i = phi ptr [ %19, %17 ], [ %4, %.preheader.i ]
+  %15 = tail call i64 @llvm.umin.i64(i64 %.01327.i, i64 1024)
+  %16 = tail call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef %.01526.i, i64 noundef %15) #22
   %.not18.not.i = icmp eq i32 %16, 0
   br i1 %.not18.not.i, label %17, label %psa_generate_random_internal.exit
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = sub i64 %.01328.i, %15
-  %19 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 %15
+  %18 = sub i64 %.01327.i, %15
+  %19 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 %15
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %psa_generate_random_internal.exit.thread, label %.lr.ph.i
 
@@ -11818,7 +11818,7 @@ switch.early.test138:                             ; preds = %8
   %53 = and i32 %2, 62914560
   switch i32 %53, label %67 [
     i32 58720256, label %54
-    i32 62914560, label %.thread154
+    i32 62914560, label %.thread153
   ]
 
 54:                                               ; preds = %52
@@ -11836,7 +11836,7 @@ switch.early.test138:                             ; preds = %8
   %59 = select i1 %58, i32 64, i32 0
   br label %.thread
 
-.thread154:                                       ; preds = %52
+.thread153:                                       ; preds = %52
   %60 = zext i16 %0 to i32
   %61 = and i32 %60, 28672
   %62 = icmp eq i32 %61, 8192
@@ -11883,8 +11883,8 @@ switch.lookup:                                    ; preds = %54
   %74 = select i1 %73, i32 64, i32 0
   br label %84
 
-75:                                               ; preds = %.thread154, %67
-  %76 = phi i32 [ %66, %.thread154 ], [ %68, %67 ]
+75:                                               ; preds = %.thread153, %67
+  %76 = phi i32 [ %66, %.thread153 ], [ %68, %67 ]
   %77 = zext i16 %0 to i32
   %78 = and i32 %77, 28672
   %79 = icmp eq i32 %78, 8192
@@ -12004,46 +12004,46 @@ switch.early.test:                                ; preds = %5
   br i1 %.old, label %16, label %.critedge187
 
 16:                                               ; preds = %10, %15
-  switch i32 %6, label %switch.early.test223 [
+  switch i32 %6, label %switch.early.test222 [
     i32 100668160, label %18
     i32 100664064, label %18
     i32 100663808, label %18
     i32 100665600, label %18
   ]
 
-switch.early.test223:                             ; preds = %16
+switch.early.test222:                             ; preds = %16
   %17 = and i32 %1, -512
   switch i32 %17, label %.critedge [
     i32 100664832, label %18
     i32 100664320, label %18
   ]
 
-18:                                               ; preds = %16, %16, %16, %16, %switch.early.test223, %switch.early.test223
+18:                                               ; preds = %16, %16, %16, %16, %switch.early.test222, %switch.early.test222
   %19 = and i32 %1, 255
   %20 = icmp eq i32 %19, 255
   br i1 %20, label %psa_mac_key_can_do.exit, label %.critedge
 
-.critedge:                                        ; preds = %switch.early.test223, %18
-  switch i32 %9, label %switch.early.test224 [
+.critedge:                                        ; preds = %switch.early.test222, %18
+  switch i32 %9, label %switch.early.test223 [
     i32 100668160, label %22
     i32 100664064, label %22
     i32 100663808, label %22
     i32 100665600, label %22
   ]
 
-switch.early.test224:                             ; preds = %.critedge
+switch.early.test223:                             ; preds = %.critedge
   %21 = and i32 %2, -512
   switch i32 %21, label %.critedge187 [
     i32 100664832, label %22
     i32 100664320, label %22
   ]
 
-22:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %switch.early.test224, %switch.early.test224
+22:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %switch.early.test223, %switch.early.test223
   %23 = and i32 %2, 255
   %24 = icmp eq i32 %23, 255
   br i1 %24, label %psa_mac_key_can_do.exit, label %.critedge187
 
-.critedge187:                                     ; preds = %switch.early.test224, %switch.early.test, %10, %22, %15
+.critedge187:                                     ; preds = %switch.early.test223, %switch.early.test, %10, %22, %15
   %25 = and i32 %1, 2130706432
   %26 = icmp eq i32 %25, 83886080
   %27 = and i32 %2, 2130706432
@@ -12055,7 +12055,7 @@ switch.early.test224:                             ; preds = %.critedge
   %30 = and i32 %1, -2050981889
   %31 = and i32 %2, -2050981889
   %32 = icmp eq i32 %30, %31
-  br i1 %32, label %33, label %.thread231
+  br i1 %32, label %33, label %.thread229
 
 33:                                               ; preds = %29
   %34 = lshr i32 %1, 16
@@ -12085,9 +12085,9 @@ switch.early.test224:                             ; preds = %.critedge
 47:                                               ; preds = %46
   %.not152 = icmp samesign ugt i32 %37, %35
   %or.cond194 = select i1 %.not149, i1 true, i1 %.not152
-  br i1 %or.cond194, label %.thread231, label %psa_mac_key_can_do.exit
+  br i1 %or.cond194, label %.thread229, label %psa_mac_key_can_do.exit
 
-.thread231:                                       ; preds = %47, %29
+.thread229:                                       ; preds = %47, %29
   br label %psa_mac_key_can_do.exit
 
 48:                                               ; preds = %.critedge187
@@ -12185,13 +12185,13 @@ switch.lookup:                                    ; preds = %70
 
 92:                                               ; preds = %90
   %93 = and i32 %2, 33554687
-  %switch.tableidx249 = add nsw i32 %93, -33554435
-  %94 = icmp ult i32 %switch.tableidx249, 16
-  %switch.maskindex252 = trunc i32 %switch.tableidx249 to i16
-  %switch.shifted253 = lshr i16 -6169, %switch.maskindex252
-  %switch.lobit254 = trunc i16 %switch.shifted253 to i1
-  %or.cond257 = select i1 %94, i1 %switch.lobit254, i1 false
-  br i1 %or.cond257, label %switch.lookup251, label %95
+  %switch.tableidx246 = add nsw i32 %93, -33554435
+  %94 = icmp ult i32 %switch.tableidx246, 16
+  %switch.maskindex249 = trunc i32 %switch.tableidx246 to i16
+  %switch.shifted250 = lshr i16 -6169, %switch.maskindex249
+  %switch.lobit251 = trunc i16 %switch.shifted250 to i1
+  %or.cond254 = select i1 %94, i1 %switch.lobit251, i1 false
+  br i1 %or.cond254, label %switch.lookup248, label %95
 
 95:                                               ; preds = %92
   %96 = icmp eq i32 %93, 33554451
@@ -12208,14 +12208,14 @@ switch.lookup:                                    ; preds = %70
   %105 = select i1 %101, i32 %104, i32 0
   br label %107
 
-switch.lookup251:                                 ; preds = %92
-  %106 = zext nneg i32 %switch.tableidx249 to i64
-  %switch.gep255 = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 %106
-  %switch.load256 = load i32, ptr %switch.gep255, align 4
+switch.lookup248:                                 ; preds = %92
+  %106 = zext nneg i32 %switch.tableidx246 to i64
+  %switch.gep252 = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 %106
+  %switch.load253 = load i32, ptr %switch.gep252, align 4
   br label %107
 
-107:                                              ; preds = %switch.lookup251, %90, %95, %98, %88
-  %108 = phi i32 [ %89, %88 ], [ %97, %95 ], [ %105, %98 ], [ 0, %90 ], [ %switch.load256, %switch.lookup251 ]
+107:                                              ; preds = %switch.lookup248, %90, %95, %98, %88
+  %108 = phi i32 [ %89, %88 ], [ %97, %95 ], [ %105, %98 ], [ 0, %90 ], [ %switch.load253, %switch.lookup248 ]
   %109 = and i32 %2, 32768
   %.not157 = icmp eq i32 %109, 0
   %110 = and i32 %1, 32768
@@ -12258,8 +12258,8 @@ switch.lookup251:                                 ; preds = %92
   %129 = or disjoint i32 %128, %52
   br label %psa_mac_key_can_do.exit
 
-psa_mac_key_can_do.exit:                          ; preds = %126, %122, %119, %112, %47, %46, %41, %48, %51, %.thread231, %124, %59, %22, %18, %3
-  %.0 = phi i32 [ %1, %3 ], [ %2, %18 ], [ %1, %22 ], [ 0, %59 ], [ 0, %124 ], [ 0, %.thread231 ], [ 0, %51 ], [ 0, %48 ], [ %1, %47 ], [ %2, %46 ], [ %45, %41 ], [ %129, %126 ], [ %123, %122 ], [ %120, %119 ], [ %117, %112 ]
+psa_mac_key_can_do.exit:                          ; preds = %126, %122, %119, %112, %47, %46, %41, %48, %51, %.thread229, %124, %59, %22, %18, %3
+  %.0 = phi i32 [ %1, %3 ], [ %2, %18 ], [ %1, %22 ], [ 0, %59 ], [ 0, %124 ], [ 0, %.thread229 ], [ 0, %51 ], [ 0, %48 ], [ %1, %47 ], [ %2, %46 ], [ %45, %41 ], [ %129, %126 ], [ %123, %122 ], [ %120, %119 ], [ %117, %112 ]
   ret i32 %.0
 }
 

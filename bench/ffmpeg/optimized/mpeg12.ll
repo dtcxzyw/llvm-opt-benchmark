@@ -279,7 +279,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %109 = and i32 %103, 7
   %110 = shl i32 %108, %109
   %111 = icmp slt i32 %110, -1073741824
-  br i1 %111, label %.thread127, label %.preheader
+  br i1 %111, label %.thread126, label %.preheader
 
 .preheader:                                       ; preds = %decode_dc.exit, %223
   %.1110 = phi i32 [ %.4113, %223 ], [ %103, %decode_dc.exit ]
@@ -330,7 +330,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %142 = zext i8 %141 to i32
   %143 = add nuw nsw i32 %.1, %142
   %144 = icmp sgt i32 %143, 63
-  br i1 %144, label %.thread127, label %145
+  br i1 %144, label %.thread126, label %145
 
 145:                                              ; preds = %137
   %146 = zext nneg i32 %143 to i64
@@ -392,7 +392,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %189 = add nuw nsw i32 %.1, 1
   %190 = add nuw nsw i32 %189, %164
   %191 = icmp sgt i32 %190, 63
-  br i1 %191, label %.thread127, label %192
+  br i1 %191, label %.thread126, label %192
 
 192:                                              ; preds = %188
   %193 = zext nneg i32 %190 to i64
@@ -437,7 +437,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %221 = getelementptr inbounds nuw i16, ptr %4, i64 %.pre-phi
   store i16 %220, ptr %221, align 2, !tbaa !42
   %222 = icmp slt i32 %.3108, -1073741824
-  br i1 %222, label %.thread127, label %223
+  br i1 %222, label %.thread126, label %223
 
 223:                                              ; preds = %219
   %224 = lshr i32 %.4113, 3
@@ -449,7 +449,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %230 = shl i32 %228, %229
   br label %.preheader
 
-.thread127:                                       ; preds = %137, %188, %219, %decode_dc.exit
+.thread126:                                       ; preds = %137, %188, %219, %decode_dc.exit
   %.4113.lcssa.sink = phi i32 [ %103, %decode_dc.exit ], [ %.4113, %219 ], [ %136, %137 ], [ %.5, %188 ]
   %231 = phi i32 [ 0, %decode_dc.exit ], [ %.3, %219 ], [ -1094995529, %137 ], [ -1094995529, %188 ]
   %232 = add i32 %.4113.lcssa.sink, 2

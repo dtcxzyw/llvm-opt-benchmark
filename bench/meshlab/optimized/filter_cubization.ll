@@ -9380,18 +9380,17 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
-  switch i32 %6, label %7 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %6, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %7, label %_ZN7QStringC2ERKS_.exit
 
 7:                                                ; preds = %2
   %8 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   %.pre = load ptr, ptr %4, align 8, !noalias !115
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %7
-  %9 = phi ptr [ %5, %2 ], [ %5, %2 ], [ %.pre, %7 ]
+_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %7
+  %9 = phi ptr [ %5, %2 ], [ %.pre, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
   %11 = icmp eq ptr %9, @_ZN10QArrayData11shared_nullE
@@ -10862,31 +10861,29 @@ define linkonce_odr void @_ZN9MeshModelC2ERKS_(ptr noundef nonnull align 8 deref
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
   %9 = load atomic i32, ptr %8 monotonic, align 4
-  switch i32 %9, label %10 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %9, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %10, label %_ZN7QStringC2ERKS_.exit
 
 10:                                               ; preds = %2
   %11 = atomicrmw add ptr %8, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %10
+_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1216
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   %15 = load atomic i32, ptr %14 monotonic, align 4
-  switch i32 %15, label %16 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit8
-    i32 0, label %_ZN7QStringC2ERKS_.exit8
-  ]
+  %.off.i.i8 = add i32 %15, -1
+  %switch.i.i9 = icmp ult i32 %.off.i.i8, -2
+  br i1 %switch.i.i9, label %16, label %_ZN7QStringC2ERKS_.exit10
 
 16:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   %17 = atomicrmw add ptr %14, i32 1 seq_cst, align 4
-  br label %_ZN7QStringC2ERKS_.exit8
+  br label %_ZN7QStringC2ERKS_.exit10
 
-_ZN7QStringC2ERKS_.exit8:                         ; preds = %_ZN7QStringC2ERKS_.exit, %_ZN7QStringC2ERKS_.exit, %16
+_ZN7QStringC2ERKS_.exit10:                        ; preds = %_ZN7QStringC2ERKS_.exit, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(12) %19, i64 12, i1 false)
@@ -10905,7 +10902,7 @@ _ZN7QStringC2ERKS_.exit8:                         ; preds = %_ZN7QStringC2ERKS_.
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE6QImageSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit, label %27
 
-27:                                               ; preds = %_ZN7QStringC2ERKS_.exit8
+27:                                               ; preds = %_ZN7QStringC2ERKS_.exit10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %28, ptr %3, align 8
@@ -10939,7 +10936,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_6
   store ptr %29, ptr %21, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE6QImageSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE6QImageSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit: ; preds = %35, %_ZN7QStringC2ERKS_.exit8
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE6QImageSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit: ; preds = %35, %_ZN7QStringC2ERKS_.exit10
   ret void
 
 38:                                               ; preds = %27

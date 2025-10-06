@@ -656,10 +656,9 @@ define void @expert_register_field_array(ptr noundef readonly captures(none) %0,
   %.01929 = phi i32 [ 0, %.lr.ph ], [ %66, %expert_register_field_init.exit ]
   %7 = load ptr, ptr %.030, align 8
   %8 = load i32, ptr %7, align 4
-  switch i32 %8, label %9 [
-    i32 -1, label %16
-    i32 0, label %16
-  ]
+  %.off = add i32 %8, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %9, label %16
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @stderr, align 8
@@ -670,7 +669,7 @@ define void @expert_register_field_array(ptr noundef readonly captures(none) %0,
   %15 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.50, ptr noundef %13, ptr noundef %14)
   br label %.loopexit
 
-16:                                               ; preds = %6, %6
+16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %.030, i64 16
   %19 = load i32, ptr %18, align 8

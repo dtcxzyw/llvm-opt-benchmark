@@ -425,7 +425,7 @@ _ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit:   ; preds = %1, %6
   %13 = add i32 %12, -1
   %14 = load ptr, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.promoted21 = load i32, ptr %15, align 8
+  %.promoted20 = load i32, ptr %15, align 8
   %16 = zext i32 %.promoted to i64
   %umax = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 %.promoted)
   %wide.trip.count = zext i32 %umax to i64
@@ -433,7 +433,7 @@ _ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit:   ; preds = %1, %6
 
 _ZN11ast_manager7dec_refEP3ast.exit12:            ; preds = %_ZNK4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9find_coreERKS3_.exit, %_ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9find_coreERKS3_.exit ], [ %16, %_ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit ]
-  %.promoted.i23 = phi i32 [ %.promoted.i22, %_ZNK4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9find_coreERKS3_.exit ], [ %.promoted21, %_ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit ]
+  %.promoted.i22 = phi i32 [ %.promoted.i21, %_ZNK4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9find_coreERKS3_.exit ], [ %.promoted20, %_ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %_ZN11ast_manager7dec_refEP3ast.exit12.thread, label %.preheader.i.i
 
@@ -461,11 +461,11 @@ _ZN11ast_manager7dec_refEP3ast.exit12:            ; preds = %_ZNK4cmapISt4pairIP
   br i1 %31, label %_ZNK4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9find_coreERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.i.i, %.lr.ph
-  %.0.i.i20 = phi ptr [ %34, %.lr.ph ], [ %24, %.preheader.i.i ]
-  %32 = phi i32 [ %33, %.lr.ph ], [ %.promoted.i23, %.preheader.i.i ]
+  %.0.i.i19 = phi ptr [ %34, %.lr.ph ], [ %24, %.preheader.i.i ]
+  %32 = phi i32 [ %33, %.lr.ph ], [ %.promoted.i22, %.preheader.i.i ]
   %33 = add i32 %32, 1
   store i32 %33, ptr %15, align 8, !tbaa !50
-  %34 = load ptr, ptr %.0.i.i20, align 8, !tbaa !33, !nonnull !55, !noundef !55
+  %34 = load ptr, ptr %.0.i.i19, align 8, !tbaa !33, !nonnull !55, !noundef !55
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !18
   %37 = icmp eq ptr %36, %.sroa.0.0.copyload.i
@@ -476,7 +476,7 @@ _ZN11ast_manager7dec_refEP3ast.exit12:            ; preds = %_ZNK4cmapISt4pairIP
   br i1 %41, label %_ZNK4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9find_coreERKS3_.exit, label %.lr.ph
 
 _ZNK4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE9find_coreERKS3_.exit: ; preds = %.lr.ph, %.preheader.i.i
-  %.promoted.i22 = phi i32 [ %.promoted.i23, %.preheader.i.i ], [ %33, %.lr.ph ]
+  %.promoted.i21 = phi i32 [ %.promoted.i22, %.preheader.i.i ], [ %33, %.lr.ph ]
   %.0.i.i.lcssa = phi ptr [ %24, %.preheader.i.i ], [ %34, %.lr.ph ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.lcssa, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !41

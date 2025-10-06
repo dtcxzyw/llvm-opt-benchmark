@@ -57,16 +57,16 @@ define noundef range(i64 0, 4) i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6
   ret i64 %5
 
 .lr.ph:                                           ; preds = %3, %6
-  %.sroa.01.09 = phi i64 [ %7, %6 ], [ 0, %3 ]
-  %exitcond.not = icmp eq i64 %.sroa.01.09, %2
+  %.sroa.01.08 = phi i64 [ %7, %6 ], [ 0, %3 ]
+  %exitcond.not = icmp eq i64 %.sroa.01.08, %2
   br i1 %exitcond.not, label %9, label %6, !prof !4
 
 6:                                                ; preds = %.lr.ph
-  %7 = add nuw nsw i64 %.sroa.01.09, 1
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.01.09
+  %7 = add nuw nsw i64 %.sroa.01.08, 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.01.08
   store i8 61, ptr %8, align 1
-  %exitcond11.not = icmp eq i64 %7, %5
-  br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph
+  %exitcond10.not = icmp eq i64 %7, %5
+  br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22e5fd453cee8def79982159f9b88e16.1) #5

@@ -1342,9 +1342,9 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %22 = add nuw nsw i32 %21, 262120
   %23 = lshr i32 %22, 2
   %24 = trunc i32 %23 to i16
-  %.not4043 = icmp eq i16 %24, 0
-  %.not40 = select i1 %20, i1 true, i1 %.not4043
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  %.not3942 = icmp eq i16 %24, 0
+  %.not39 = select i1 %20, i1 true, i1 %.not3942
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
   %25 = getelementptr i8, ptr %.0.i.i, i64 20
@@ -1352,7 +1352,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %27
 
 27:                                               ; preds = %.lr.ph, %select.unfold
-  %.03141 = phi i16 [ 1, %.lr.ph ], [ %51, %select.unfold ]
+  %.03140 = phi i16 [ 1, %.lr.ph ], [ %51, %select.unfold ]
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not32 = icmp eq i32 %28, 0
   br i1 %.not32, label %30, label %29, !prof !6
@@ -1362,7 +1362,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %30
 
 30:                                               ; preds = %29, %27
-  %31 = zext i16 %.03141 to i64
+  %31 = zext i16 %.03140 to i64
   %32 = getelementptr %struct.ItemIdData, ptr %25, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 98304
@@ -1378,10 +1378,10 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %41 = call ptr @brin_copy_tuple(ptr noundef %40, i64 noundef %37, ptr noundef null, ptr noundef nonnull %5) #5
   call void @LockBuffer(i32 noundef %3, i32 noundef 0) #5
   %42 = load i32, ptr %41, align 4
-  %43 = call zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %42, i32 noundef %3, i16 noundef zeroext %.03141, ptr noundef nonnull %41, i64 noundef %37, ptr noundef nonnull %41, i64 noundef %37, i1 noundef zeroext false)
+  %43 = call zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %42, i32 noundef %3, i16 noundef zeroext %.03140, ptr noundef nonnull %41, i64 noundef %37, ptr noundef nonnull %41, i64 noundef %37, i1 noundef zeroext false)
   %not. = xor i1 %43, true
   %44 = sext i1 %not. to i16
-  %spec.select = add i16 %.03141, %44
+  %spec.select = add i16 %.03140, %44
   call void @LockBuffer(i32 noundef %3, i32 noundef 1) #5
   %45 = load i16, ptr %26, align 4
   %46 = zext i16 %45 to i64
@@ -1392,7 +1392,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br i1 %50, label %select.unfold, label %._crit_edge
 
 select.unfold:                                    ; preds = %35, %30
-  %.3.ph = phi i16 [ %.03141, %30 ], [ %spec.select, %35 ]
+  %.3.ph = phi i16 [ %.03140, %30 ], [ %spec.select, %35 ]
   %51 = add i16 %.3.ph, 1
   %.not = icmp ugt i16 %51, %24
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !11

@@ -1847,8 +1847,8 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1s
   %618 = load i64, ptr %49, align 8, !tbaa !32
   %619 = urem i64 %617, %618
   %620 = load i64, ptr %487, align 8, !tbaa !81
-  %.not32.i = icmp eq i64 %620, 0
-  br i1 %.not32.i, label %.critedge.i598, label %621
+  %.not30.i = icmp eq i64 %620, 0
+  br i1 %.not30.i, label %.critedge.i598, label %621
 
 621:                                              ; preds = %.noexc600
   %622 = load ptr, ptr %16, align 8, !tbaa !25
@@ -13633,8 +13633,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %18 = load i64, ptr %17, align 8, !tbaa !32
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !81
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !25

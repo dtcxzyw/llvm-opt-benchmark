@@ -1664,11 +1664,11 @@ define hidden noundef zeroext i1 @_ZN17stackChunkOopDesc26try_acquire_relativiza
   br i1 %.not22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.backedge
-  %10 = phi i32 [ %48, %.backedge ], [ %8, %1 ]
-  %11 = phi i8 [ %47, %.backedge ], [ %7, %1 ]
+  %10 = phi i32 [ %49, %.backedge ], [ %8, %1 ]
+  %11 = phi i8 [ %48, %.backedge ], [ %7, %1 ]
   %12 = and i32 %10, 2
   %.not11 = icmp eq i32 %12, 0
-  br i1 %.not11, label %35, label %13
+  br i1 %.not11, label %36, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ContinuationRelativize_lock, align 8
@@ -1724,33 +1724,33 @@ _ZN13MonitorLocker4waitEl.exit14:                 ; preds = %25
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %33, %.thread
   %.021 = phi i32 [ %.0, %33 ], [ %.020, %.thread ]
-  %switch = icmp eq i32 %.021, 1
-  br i1 %switch, label %._crit_edge, label %.backedge
+  %35 = icmp eq i32 %.021, 1
+  br i1 %35, label %._crit_edge, label %.backedge
 
-35:                                               ; preds = %.lr.ph
-  %36 = or i8 %11, 2
-  %37 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
-  %38 = sext i32 %37 to i64
-  %39 = add nsw i64 %38, %2
-  %40 = inttoptr i64 %39 to ptr
-  %41 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %36, i8 %11, ptr %40) #8, !srcloc !14
-  %42 = icmp eq i8 %41, %11
-  br i1 %42, label %._crit_edge, label %.backedge
+36:                                               ; preds = %.lr.ph
+  %37 = or i8 %11, 2
+  %38 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
+  %39 = sext i32 %38 to i64
+  %40 = add nsw i64 %39, %2
+  %41 = inttoptr i64 %40 to ptr
+  %42 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %37, i8 %11, ptr %41) #8, !srcloc !14
+  %43 = icmp eq i8 %42, %11
+  br i1 %43, label %._crit_edge, label %.backedge
 
-.backedge:                                        ; preds = %35, %_ZN13MonitorLockerD2Ev.exit
-  %43 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
-  %44 = sext i32 %43 to i64
-  %45 = add nsw i64 %44, %2
-  %46 = inttoptr i64 %45 to ptr
-  %47 = load volatile i8, ptr %46, align 1
+.backedge:                                        ; preds = %36, %_ZN13MonitorLockerD2Ev.exit
+  %44 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
+  %45 = sext i32 %44 to i64
+  %46 = add nsw i64 %45, %2
+  %47 = inttoptr i64 %46 to ptr
+  %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
-  %48 = zext i8 %47 to i32
-  %49 = and i32 %48, 8
-  %.not = icmp eq i32 %49, 0
+  %49 = zext i8 %48 to i32
+  %50 = and i32 %49, 8
+  %.not = icmp eq i32 %50, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.backedge, %_ZN13MonitorLockerD2Ev.exit, %35, %1
-  %.1 = phi i1 [ false, %1 ], [ true, %35 ], [ false, %_ZN13MonitorLockerD2Ev.exit ], [ false, %.backedge ]
+._crit_edge:                                      ; preds = %.backedge, %_ZN13MonitorLockerD2Ev.exit, %36, %1
+  %.1 = phi i1 [ false, %1 ], [ true, %36 ], [ false, %_ZN13MonitorLockerD2Ev.exit ], [ false, %.backedge ]
   ret i1 %.1
 }
 

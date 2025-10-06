@@ -956,7 +956,7 @@ expect_byte.exit:                                 ; preds = %12
   br i1 %or.cond77, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %expect_byte.exit, %av_bprint_utf8.exit.thread
-  %31 = phi i32 [ %96, %av_bprint_utf8.exit.thread ], [ %29, %expect_byte.exit ]
+  %31 = phi i32 [ %97, %av_bprint_utf8.exit.thread ], [ %29, %expect_byte.exit ]
   %32 = icmp eq i32 %31, 92
   br i1 %32, label %33, label %av_bprint_utf8.exit.thread.sink.split
 
@@ -1018,130 +1018,130 @@ expect_byte.exit:                                 ; preds = %12
   br i1 %65, label %av_bprint_utf8.exit.thread.sink.split, label %66
 
 66:                                               ; preds = %64
-  %.not.i.i = icmp ult i32 %62, 65536
-  %67 = lshr i32 %62, 16
-  %spec.select.i.i = select i1 %.not.i.i, i32 %62, i32 %67
-  %spec.select12.i.i = select i1 %.not.i.i, i16 0, i16 16
-  %.not11.i.i = icmp samesign ult i32 %spec.select.i.i, 256
-  %68 = lshr i32 %spec.select.i.i, 8
-  %69 = or disjoint i16 %spec.select12.i.i, 8
-  %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %68
-  %.1.i.i = select i1 %.not11.i.i, i16 %spec.select12.i.i, i16 %69
-  %70 = zext nneg i32 %.110.i.i to i64
-  %71 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !11
-  %73 = zext i8 %72 to i16
-  %74 = add nsw i16 %.1.i.i, -2
-  %.lhs.trunc.i = add nsw i16 %74, %73
-  %75 = sdiv i16 %.lhs.trunc.i, 5
-  %.sext.i = zext nneg i16 %75 to i32
-  %76 = mul nuw nsw i32 %.sext.i, 6
-  %77 = lshr i32 %62, %76
-  %78 = lshr i32 65408, %.sext.i
-  %79 = or i32 %77, %78
-  %80 = trunc i32 %79 to i8
-  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %80, i32 noundef 1) #7
-  %81 = icmp sgt i16 %.lhs.trunc.i, 4
-  br i1 %81, label %.lr.ph.i, label %av_bprint_utf8.exit.thread
+  %67 = icmp ugt i32 %62, 65535
+  %68 = lshr i32 %62, 16
+  %spec.select.i.i = select i1 %67, i32 %68, i32 %62
+  %spec.select11.i.i = select i1 %67, i16 16, i16 0
+  %.not.i.i = icmp samesign ult i32 %spec.select.i.i, 256
+  %69 = lshr i32 %spec.select.i.i, 8
+  %70 = or disjoint i16 %spec.select11.i.i, 8
+  %.110.i.i = select i1 %.not.i.i, i32 %spec.select.i.i, i32 %69
+  %.1.i.i = select i1 %.not.i.i, i16 %spec.select11.i.i, i16 %70
+  %71 = zext nneg i32 %.110.i.i to i64
+  %72 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !11
+  %74 = zext i8 %73 to i16
+  %75 = add nsw i16 %.1.i.i, -2
+  %.lhs.trunc.i = add nsw i16 %75, %74
+  %76 = sdiv i16 %.lhs.trunc.i, 5
+  %.sext.i = zext nneg i16 %76 to i32
+  %77 = mul nuw nsw i32 %.sext.i, 6
+  %78 = lshr i32 %62, %77
+  %79 = lshr i32 65408, %.sext.i
+  %80 = or i32 %78, %79
+  %81 = trunc i32 %80 to i8
+  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %81, i32 noundef 1) #7
+  %82 = icmp sgt i16 %.lhs.trunc.i, 4
+  br i1 %82, label %.lr.ph.i, label %av_bprint_utf8.exit.thread
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.i
   %.0.in14.i = phi i32 [ %.0.i51, %.lr.ph.i ], [ %.sext.i, %66 ]
   %.0.i51 = add nsw i32 %.0.in14.i, -1
-  %82 = mul nsw i32 %.0.i51, 6
-  %83 = lshr i32 %62, %82
-  %84 = trunc i32 %83 to i8
-  %85 = and i8 %84, 63
-  %86 = or disjoint i8 %85, -128
-  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %86, i32 noundef 1) #7
-  %87 = icmp samesign ugt i32 %.0.in14.i, 1
-  br i1 %87, label %.lr.ph.i, label %av_bprint_utf8.exit.thread, !llvm.loop !78
+  %83 = mul nsw i32 %.0.i51, 6
+  %84 = lshr i32 %62, %83
+  %85 = trunc i32 %84 to i8
+  %86 = and i8 %85, 63
+  %87 = or disjoint i8 %86, -128
+  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %87, i32 noundef 1) #7
+  %88 = icmp samesign ugt i32 %.0.in14.i, 1
+  br i1 %88, label %.lr.ph.i, label %av_bprint_utf8.exit.thread, !llvm.loop !78
 
 av_bprint_utf8.exit:                              ; preds = %54
-  %88 = icmp slt i32 %51, 0
-  %spec.select = select i1 %88, i32 %51, i32 -1094995529
+  %89 = icmp slt i32 %51, 0
+  %spec.select = select i1 %89, i32 %51, i32 -1094995529
   br label %expect_byte.exit.thread
 
 av_bprint_utf8.exit.thread.sink.split:            ; preds = %.lr.ph, %42, %64
   %.lcssa93.sink = phi i32 [ %62, %64 ], [ %40, %42 ], [ %31, %.lr.ph ]
-  %89 = trunc i32 %.lcssa93.sink to i8
-  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %89, i32 noundef 1) #7
+  %90 = trunc i32 %.lcssa93.sink to i8
+  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %90, i32 noundef 1) #7
   br label %av_bprint_utf8.exit.thread
 
 av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprint_utf8.exit.thread.sink.split, %66
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %90 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1) #7
-  %91 = icmp sgt i32 %90, 0
-  %92 = load i8, ptr %7, align 1
-  %93 = zext i8 %92 to i32
-  %94 = icmp eq i32 %90, 0
-  %95 = select i1 %94, i32 -541478725, i32 %90
-  %96 = select i1 %91, i32 %93, i32 %95
-  store i32 %96, ptr %1, align 4, !tbaa !31
+  %91 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1) #7
+  %92 = icmp sgt i32 %91, 0
+  %93 = load i8, ptr %7, align 1
+  %94 = zext i8 %93 to i32
+  %95 = icmp eq i32 %91, 0
+  %96 = select i1 %95, i32 -541478725, i32 %91
+  %97 = select i1 %92, i32 %94, i32 %96
+  store i32 %97, ptr %1, align 4, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %97 = icmp slt i32 %96, 1
-  %.not = icmp eq i32 %96, 34
-  %or.cond = or i1 %97, %.not
+  %98 = icmp slt i32 %97, 1
+  %.not = icmp eq i32 %97, 34
+  %or.cond = or i1 %98, %.not
   br i1 %or.cond, label %.critedge.preheader, label %.lr.ph, !llvm.loop !79
 
 .critedge.preheader:                              ; preds = %av_bprint_utf8.exit.thread, %expect_byte.exit
-  %.ph = phi i32 [ %29, %expect_byte.exit ], [ %96, %av_bprint_utf8.exit.thread ]
+  %.ph = phi i32 [ %29, %expect_byte.exit ], [ %97, %av_bprint_utf8.exit.thread ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge.i.i53
-  %98 = phi i32 [ %105, %.critedge.i.i53 ], [ %.ph, %.critedge.preheader ]
-  switch i32 %98, label %106 [
+  %99 = phi i32 [ %106, %.critedge.i.i53 ], [ %.ph, %.critedge.preheader ]
+  switch i32 %99, label %107 [
     i32 32, label %.critedge.i.i53
     i32 9, label %.critedge.i.i53
     i32 10, label %.critedge.i.i53
     i32 13, label %.critedge.i.i53
-    i32 34, label %108
+    i32 34, label %109
   ]
 
 .critedge.i.i53:                                  ; preds = %.critedge, %.critedge, %.critedge, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %99 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1) #7
-  %100 = icmp sgt i32 %99, 0
-  %101 = load i8, ptr %6, align 1
-  %102 = zext i8 %101 to i32
-  %103 = icmp eq i32 %99, 0
-  %104 = select i1 %103, i32 -541478725, i32 %99
-  %105 = select i1 %100, i32 %102, i32 %104
-  store i32 %105, ptr %1, align 4, !tbaa !31
+  %100 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1) #7
+  %101 = icmp sgt i32 %100, 0
+  %102 = load i8, ptr %6, align 1
+  %103 = zext i8 %102 to i32
+  %104 = icmp eq i32 %100, 0
+  %105 = select i1 %104, i32 -541478725, i32 %100
+  %106 = select i1 %101, i32 %103, i32 %105
+  store i32 %106, ptr %1, align 4, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge, !llvm.loop !76
 
-106:                                              ; preds = %.critedge
-  %107 = icmp slt i32 %98, 0
-  %spec.select64 = select i1 %107, i32 %98, i32 -1094995529
+107:                                              ; preds = %.critedge
+  %108 = icmp slt i32 %99, 0
+  %spec.select64 = select i1 %108, i32 %99, i32 -1094995529
   br label %expect_byte.exit.thread
 
-108:                                              ; preds = %.critedge
+109:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %109 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #7
-  %110 = icmp sgt i32 %109, 0
-  %111 = load i8, ptr %5, align 1
-  %112 = zext i8 %111 to i32
-  %113 = icmp eq i32 %109, 0
-  %114 = select i1 %113, i32 -541478725, i32 %109
-  %115 = select i1 %110, i32 %112, i32 %114
-  store i32 %115, ptr %1, align 4, !tbaa !31
+  %110 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #7
+  %111 = icmp sgt i32 %110, 0
+  %112 = load i8, ptr %5, align 1
+  %113 = zext i8 %112 to i32
+  %114 = icmp eq i32 %110, 0
+  %115 = select i1 %114, i32 -541478725, i32 %110
+  %116 = select i1 %111, i32 %113, i32 %115
+  store i32 %116, ptr %1, align 4, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not48 = icmp eq i32 %3, 0
-  br i1 %.not48, label %119, label %116
+  br i1 %.not48, label %120, label %117
 
-116:                                              ; preds = %108
-  %117 = getelementptr i8, ptr %2, i64 8
-  %.val = load i32, ptr %117, align 8, !tbaa !80
-  %118 = getelementptr i8, ptr %2, i64 12
-  %.val50 = load i32, ptr %118, align 4, !tbaa !37
+117:                                              ; preds = %109
+  %118 = getelementptr i8, ptr %2, i64 8
+  %.val = load i32, ptr %118, align 8, !tbaa !80
+  %119 = getelementptr i8, ptr %2, i64 12
+  %.val50 = load i32, ptr %119, align 4, !tbaa !37
   %.not65 = icmp ult i32 %.val, %.val50
-  br i1 %.not65, label %119, label %expect_byte.exit.thread
+  br i1 %.not65, label %120, label %expect_byte.exit.thread
 
-119:                                              ; preds = %116, %108
+120:                                              ; preds = %117, %109
   br label %expect_byte.exit.thread
 
-expect_byte.exit.thread:                          ; preds = %33, %106, %21, %av_bprint_utf8.exit, %116, %119
-  %.040 = phi i32 [ %spec.select, %av_bprint_utf8.exit ], [ 0, %119 ], [ -12, %116 ], [ %spec.select63, %21 ], [ %spec.select64, %106 ], [ -1094995529, %33 ]
+expect_byte.exit.thread:                          ; preds = %33, %107, %21, %av_bprint_utf8.exit, %117, %120
+  %.040 = phi i32 [ %spec.select, %av_bprint_utf8.exit ], [ 0, %120 ], [ -12, %117 ], [ %spec.select63, %21 ], [ %spec.select64, %107 ], [ -1094995529, %33 ]
   ret i32 %.040
 }
 

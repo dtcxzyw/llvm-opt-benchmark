@@ -375,18 +375,18 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   br i1 %10, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %32, %.loopexit
-  %.021.lcssa45.pre-phi.i.i.i.i = phi i64 [ %8, %.loopexit ], [ %34, %32 ]
+  %.021.lcssa44.pre-phi.i.i.i.i = phi i64 [ %8, %.loopexit ], [ %34, %32 ]
   %.021.lcssa.i.i.i.i = phi ptr [ %.promoted142, %.loopexit ], [ %33, %32 ]
-  %.not35.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i, %2
-  br i1 %.not35.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.preheader.i.i.i.i
+  %.not34.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i, %2
+  br i1 %.not34.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph36.preheader.i.i.i.i
 
-.lr.ph37.preheader.i.i.i.i:                       ; preds = %.preheader.i.i.i.i
-  %11 = sub i64 %7, %.021.lcssa45.pre-phi.i.i.i.i
+.lr.ph36.preheader.i.i.i.i:                       ; preds = %.preheader.i.i.i.i
+  %11 = sub i64 %7, %.021.lcssa44.pre-phi.i.i.i.i
   %scevgep.i.i.i.i = getelementptr i8, ptr %.021.lcssa.i.i.i.i, i64 %11
-  br label %.lr.ph37.i.i.i.i
+  br label %.lr.ph36.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %32
-  %.02134.i.i.i.i = phi ptr [ %33, %32 ], [ %.promoted142, %.loopexit ]
+  %.02133.i.i.i.i = phi ptr [ %33, %32 ], [ %.promoted142, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %16
@@ -400,7 +400,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %16 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !10
   %19 = and i8 %18, 3
   %20 = zext nneg i8 %19 to i64
@@ -410,8 +410,8 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %24 = zext nneg i8 %23 to i64
   %25 = shl nuw i64 1, %24
   %26 = and i64 %25, %22
-  %.not31.i.i.i.i = icmp eq i64 %26, 0
-  %27 = sext i1 %.not31.i.i.i.i to i8
+  %.not30.i.i.i.i = icmp eq i64 %26, 0
+  %27 = sext i1 %.not30.i.i.i.i to i8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %27, ptr %28, align 1, !tbaa !10
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -421,21 +421,21 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
 .thread.i.i.i.i:                                  ; preds = %12
   %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %15, i1 true)
   %30 = zext nneg i16 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i, i64 %30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit
 
 32:                                               ; preds = %12
-  %33 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.02133.i.i.i.i, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %7, %34
   %36 = icmp sgt i64 %35, 15
   br i1 %36, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
-.lr.ph37.i.i.i.i:                                 ; preds = %46, %.lr.ph37.preheader.i.i.i.i
-  %.22336.i.i.i.i = phi ptr [ %47, %46 ], [ %.021.lcssa.i.i.i.i, %.lr.ph37.preheader.i.i.i.i ]
-  %37 = load i8, ptr %.22336.i.i.i.i, align 1, !tbaa !10
+.lr.ph36.i.i.i.i:                                 ; preds = %46, %.lr.ph36.preheader.i.i.i.i
+  %.22335.i.i.i.i = phi ptr [ %47, %46 ], [ %.021.lcssa.i.i.i.i, %.lr.ph36.preheader.i.i.i.i ]
+  %37 = load i8, ptr %.22335.i.i.i.i, align 1, !tbaa !10
   %38 = and i8 %37, 3
   %39 = zext nneg i8 %38 to i64
   %40 = getelementptr inbounds nuw i64, ptr %3, i64 %39
@@ -444,16 +444,16 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %43 = zext nneg i8 %42 to i64
   %44 = shl nuw i64 1, %43
   %45 = and i64 %44, %41
-  %.not30.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not30.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %46
+  %.not29.i.i.i.i = icmp eq i64 %45, 0
+  br i1 %.not29.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %46
 
-46:                                               ; preds = %.lr.ph37.i.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.22336.i.i.i.i, i64 1
+46:                                               ; preds = %.lr.ph36.i.i.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %.22335.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %47, %2
-  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.i.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph36.i.i.i.i, !llvm.loop !30
 
-_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds = %.lr.ph37.i.i.i.i, %46, %.preheader.i.i.i.i, %.thread.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %31, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %46 ], [ %.22336.i.i.i.i, %.lr.ph37.i.i.i.i ]
+_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds = %.lr.ph36.i.i.i.i, %46, %.preheader.i.i.i.i, %.thread.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %31, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %46 ], [ %.22335.i.i.i.i, %.lr.ph36.i.i.i.i ]
   store ptr %.2.i.i.i.i, ptr %1, align 8, !tbaa !3
   %48 = ptrtoint ptr %.2.i.i.i.i to i64
   %49 = sub i64 %48, %8

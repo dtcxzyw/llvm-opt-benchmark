@@ -2416,7 +2416,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L29_Dir
   %10 = and i32 %8, %6
   %.not = icmp eq i32 %10, 0
   %or.cond = and i1 %9, %.not
-  br i1 %or.cond, label %38, label %11
+  br i1 %or.cond, label %39, label %11
 
 11:                                               ; preds = %2
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13HdRenderIndex15UpdateRenderTagERKNS_7SdfPathEj(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %3, ptr noundef nonnull align 8 dereferenceable(4080) %4, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %8)
@@ -2450,27 +2450,27 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L29_Dir
   br i1 %or.cond30.not, label %24, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %24, %11
-  %switch = phi i1 [ false, %11 ], [ %29, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 7
-  %.not.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %34
+  %31 = phi i1 [ false, %11 ], [ %29, %24 ]
+  %32 = load ptr, ptr %3, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, 7
+  %.not.i.i = icmp eq i64 %34, 0
+  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %35
 
-34:                                               ; preds = %.loopexit
-  %35 = and i64 %32, -8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = atomicrmw sub ptr %36, i32 2 release, align 4
+35:                                               ; preds = %.loopexit
+  %36 = and i64 %33, -8
+  %37 = inttoptr i64 %36 to ptr
+  %38 = atomicrmw sub ptr %37, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %.loopexit, %34
-  br i1 %switch, label %38, label %39
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %.loopexit, %35
+  br i1 %31, label %39, label %40
 
-38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %2
-  br label %39
+39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %2
+  br label %40
 
-39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %38
-  %.1 = phi i1 [ false, %38 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ]
+40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %39
+  %.1 = phi i1 [ false, %39 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ]
   ret i1 %.1
 }
 

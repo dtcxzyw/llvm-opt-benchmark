@@ -4354,8 +4354,8 @@ define internal fastcc noundef zeroext i1 @_ZL27is_volatile_ok_on_one_levelPK4Ty
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8, !tbaa !98
   %5 = and i32 %4, -2
-  %switch20 = icmp eq i32 %5, 2
-  br i1 %switch20, label %6, label %.loopexit
+  %switch = icmp eq i32 %5, 2
+  br i1 %switch, label %6, label %.loopexit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 79
@@ -4378,8 +4378,8 @@ define internal fastcc noundef zeroext i1 @_ZL27is_volatile_ok_on_one_levelPK4Ty
 .lr.ph:                                           ; preds = %.preheader, %.critedge
   %17 = phi ptr [ %24, %.critedge ], [ %15, %.preheader ]
   %18 = phi ptr [ %25, %.critedge ], [ %14, %.preheader ]
-  %.01621 = phi i64 [ %26, %.critedge ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %.01621
+  %.01620 = phi i64 [ %26, %.critedge ], [ 0, %.preheader ]
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %.01620
   %20 = load ptr, ptr %19, align 8, !tbaa !102
   %21 = load i32, ptr %20, align 8, !tbaa !98
   switch i32 %21, label %.critedge [
@@ -4393,13 +4393,13 @@ define internal fastcc noundef zeroext i1 @_ZL27is_volatile_ok_on_one_levelPK4Ty
 
 ..critedge_crit_edge:                             ; preds = %22
   %.pre = load ptr, ptr %13, align 8, !tbaa !100
-  %.pre26 = load ptr, ptr %12, align 8, !tbaa !101
+  %.pre25 = load ptr, ptr %12, align 8, !tbaa !101
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph
-  %24 = phi ptr [ %.pre26, %..critedge_crit_edge ], [ %17, %.lr.ph ]
+  %24 = phi ptr [ %.pre25, %..critedge_crit_edge ], [ %17, %.lr.ph ]
   %25 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %18, %.lr.ph ]
-  %26 = add nuw i64 %.01621, 1
+  %26 = add nuw i64 %.01620, 1
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %24 to i64
   %29 = sub i64 %27, %28

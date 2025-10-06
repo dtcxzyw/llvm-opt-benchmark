@@ -2571,8 +2571,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 58:                                               ; preds = %61
   %59 = landingpad { ptr, i32 }
           cleanup
-  %switch.i4.i.i = icmp samesign ult i64 %46, 2
-  br i1 %switch.i4.i.i, label %"_ZN4core3ptr76drop_in_place$LT$uv_configuration..name_specifiers..PackageNameSpecifier$GT$17hec247ec67adc8619E.exit.i.i", label %60
+  %switch.i.i.i = icmp samesign ult i64 %46, 2
+  br i1 %switch.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$uv_configuration..name_specifiers..PackageNameSpecifier$GT$17hec247ec67adc8619E.exit.i.i", label %60
 
 60:                                               ; preds = %58
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4958092705238926489"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
@@ -13033,7 +13033,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i: ; pr
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %.val9.i = load i64, ptr %40, align 8, !alias.scope !3669, !noalias !3672, !noundef !24
+  %.val8.i = load i64, ptr %40, align 8, !alias.scope !3669, !noalias !3672, !noundef !24
   br label %47
 
 41:                                               ; preds = %36
@@ -13052,7 +13052,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i: ; pr
           to label %104 unwind label %101
 
 47:                                               ; preds = %35, %36, %39, %41
-  %.sink.i = phi i64 [ %43, %41 ], [ %.val9.i, %39 ], [ %38, %36 ], [ 0, %35 ]
+  %.sink.i = phi i64 [ %43, %41 ], [ %.val8.i, %39 ], [ %38, %36 ], [ 0, %35 ]
   %48 = tail call i64 @llvm.uadd.sat.i64(i64 %.sink.i, i64 1)
   %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %48, i64 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3674
@@ -13190,8 +13190,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i.i.i: 
   br i1 %82, label %85, label %86
 
 85:                                               ; preds = %80
-  %.val9.i.i.i = load i64, ptr %59, align 8, !alias.scope !3721, !noalias !3718
-  %spec.select.i.i = select i1 %84, i64 0, i64 %.val9.i.i.i
+  %.val8.i.i.i = load i64, ptr %59, align 8, !alias.scope !3721, !noalias !3718
+  %spec.select.i.i = select i1 %84, i64 0, i64 %.val8.i.i.i
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha249b840ad8223c7E.exit.i.i"
 
 86:                                               ; preds = %80

@@ -855,10 +855,10 @@ _ZN11duckdb_zstd19COVER_computeEpochsEjjjj.exit:  ; preds = %6, %16
   br label %30
 
 30:                                               ; preds = %25, %_ZN11duckdb_zstd19COVER_computeEpochsEjjjj.exit
-  %.not95 = icmp eq i64 %4, 0
-  br i1 %.not95, label %.thread73, label %.lr.ph99
+  %.not86 = icmp eq i64 %4, 0
+  br i1 %.not86, label %._crit_edge, label %.lr.ph90
 
-.lr.ph99:                                         ; preds = %30
+.lr.ph90:                                         ; preds = %30
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   %31 = getelementptr i8, ptr %2, i64 12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -866,11 +866,11 @@ _ZN11duckdb_zstd19COVER_computeEpochsEjjjj.exit:  ; preds = %6, %16
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %35
 
-35:                                               ; preds = %.lr.ph99, %.thread
-  %.04598 = phi i64 [ %4, %.lr.ph99 ], [ %.272, %.thread ]
-  %.04697 = phi i64 [ 0, %.lr.ph99 ], [ %.14771, %.thread ]
-  %.04896 = phi i64 [ 0, %.lr.ph99 ], [ %215, %.thread ]
-  %36 = trunc i64 %.04896 to i32
+35:                                               ; preds = %.lr.ph90, %select.unfold
+  %.04589 = phi i64 [ %4, %.lr.ph90 ], [ %.2.ph, %select.unfold ]
+  %.04688 = phi i64 [ 0, %.lr.ph90 ], [ %.147.ph, %select.unfold ]
+  %.04887 = phi i64 [ 0, %.lr.ph90 ], [ %215, %select.unfold ]
+  %36 = trunc i64 %.04887 to i32
   %37 = mul i32 %.sroa.4.0.i, %36
   %38 = add i32 %37, %.sroa.4.0.i
   %.sroa.0.0.copyload = load i32, ptr %5, align 8, !tbaa !18
@@ -918,8 +918,8 @@ _ZN11duckdb_zstd19COVER_computeEpochsEjjjj.exit:  ; preds = %6, %16
 
 .lr.ph.i.i.i.preheader:                           ; preds = %47
   %58 = load i32, ptr %54, align 4, !tbaa !51
-  %.not.i.not.i.i87 = icmp eq i32 %58, %49
-  br i1 %.not.i.not.i.i87, label %_ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit.i, label %.lr.ph
+  %.not.i.not.i.i78 = icmp eq i32 %58, %49
+  br i1 %.not.i.not.i.i78, label %_ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.preheader
   %59 = load i32, ptr %34, align 8, !tbaa !28
@@ -931,8 +931,8 @@ _ZN11duckdb_zstd19COVER_computeEpochsEjjjj.exit:  ; preds = %6, %16
   br i1 %.not.i.not.i.i, label %_ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit.i, label %61, !llvm.loop !52
 
 61:                                               ; preds = %.lr.ph, %.lr.ph.i.i.i
-  %.01418.i.i.i88 = phi i32 [ %52, %.lr.ph ], [ %63, %.lr.ph.i.i.i ]
-  %62 = add i32 %.01418.i.i.i88, 1
+  %.01418.i.i.i79 = phi i32 [ %52, %.lr.ph ], [ %63, %.lr.ph.i.i.i ]
+  %62 = add i32 %.01418.i.i.i79, 1
   %63 = and i32 %59, %62
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw %"struct.duckdb_zstd::COVER_map_pair_t_s", ptr %43, i64 %64
@@ -994,10 +994,10 @@ _ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit.i: ; preds = %.lr.ph.i.
 
 .lr.ph.i.i72.i.preheader:                         ; preds = %86
   %98 = load i32, ptr %94, align 4, !tbaa !51
-  %.not.i.not.i74.i90 = icmp eq i32 %98, %89
-  br i1 %.not.i.not.i74.i90, label %_ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit79.i, label %.lr.ph92
+  %.not.i.not.i74.i81 = icmp eq i32 %98, %89
+  br i1 %.not.i.not.i74.i81, label %_ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit79.i, label %.lr.ph83
 
-.lr.ph92:                                         ; preds = %.lr.ph.i.i72.i.preheader
+.lr.ph83:                                         ; preds = %.lr.ph.i.i72.i.preheader
   %99 = load i32, ptr %34, align 8, !tbaa !28
   br label %101
 
@@ -1006,9 +1006,9 @@ _ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit.i: ; preds = %.lr.ph.i.
   %.not.i.not.i74.i = icmp eq i32 %100, %89
   br i1 %.not.i.not.i74.i, label %_ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit79.i, label %101, !llvm.loop !52
 
-101:                                              ; preds = %.lr.ph92, %.lr.ph.i.i72.i
-  %.01418.i.i73.i91 = phi i32 [ %92, %.lr.ph92 ], [ %103, %.lr.ph.i.i72.i ]
-  %102 = add i32 %.01418.i.i73.i91, 1
+101:                                              ; preds = %.lr.ph83, %.lr.ph.i.i72.i
+  %.01418.i.i73.i82 = phi i32 [ %92, %.lr.ph83 ], [ %103, %.lr.ph.i.i72.i ]
+  %102 = add i32 %.01418.i.i73.i82, 1
   %103 = and i32 %99, %102
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw %"struct.duckdb_zstd::COVER_map_pair_t_s", ptr %43, i64 %104
@@ -1028,10 +1028,10 @@ _ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit79.thread.i: ; preds = %
 
 _ZN11duckdb_zstdL12COVER_map_atEPNS_11COVER_map_sEj.exit79.i: ; preds = %.lr.ph.i.i72.i, %.lr.ph.i.i72.i.preheader
   %.phi.trans.insert.phi.trans.insert.i78.i.pre-phi = phi i64 [ %93, %.lr.ph.i.i72.i.preheader ], [ %104, %.lr.ph.i.i72.i ]
-  %.lcssa83 = phi i32 [ %96, %.lr.ph.i.i72.i.preheader ], [ %107, %.lr.ph.i.i72.i ]
+  %.lcssa74 = phi i32 [ %96, %.lr.ph.i.i72.i.preheader ], [ %107, %.lr.ph.i.i72.i ]
   %112 = getelementptr inbounds nuw %"struct.duckdb_zstd::COVER_map_pair_t_s", ptr %43, i64 %.phi.trans.insert.phi.trans.insert.i78.i.pre-phi
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %114 = add i32 %.lcssa83, -1
+  %114 = add i32 %.lcssa74, -1
   %115 = add i32 %.sroa.022.06.i, 1
   store i32 %114, ptr %113, align 4, !tbaa !18
   %116 = icmp eq i32 %114, 0
@@ -1177,79 +1177,79 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
   %.066.lcssa48.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.lr.ph24.i ]
   %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.066.lcssa48.i to i64
   %180 = icmp eq i32 %.sroa.12.1.i, 0
-  br i1 %180, label %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, label %181
-
-181:                                              ; preds = %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit
-  %182 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !57
-  %183 = xor i32 %.066.lcssa48.i, -1
-  %184 = add i32 %.065.lcssa49.i, %183
-  %185 = add i32 %184, %182
-  %186 = zext i32 %185 to i64
-  %..045 = tail call i64 @llvm.umin.i64(i64 %.04598, i64 %186)
-  %187 = zext i32 %182 to i64
-  %188 = icmp samesign ult i64 %..045, %187
-  br i1 %188, label %.thread73, label %189
-
-189:                                              ; preds = %181
-  %190 = sub i64 %.04598, %..045
-  %191 = getelementptr inbounds nuw i8, ptr %3, i64 %190
-  %192 = load ptr, ptr %0, align 8, !tbaa !34
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 %.sroa.048.sroa.0.0.insert.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %191, ptr align 1 %193, i64 %..045, i1 false)
-  %194 = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
-  %195 = icmp sgt i32 %194, 1
-  br i1 %195, label %196, label %.thread
-
-196:                                              ; preds = %189
-  %197 = tail call i64 @clock() #26
-  %198 = load i64, ptr @_ZL6g_time, align 8, !tbaa !3
-  %199 = sub nsw i64 %197, %198
-  %200 = icmp sgt i64 %199, 150000
-  %201 = load i32, ptr @_ZL14g_displayLevel, align 4
-  %202 = icmp sgt i32 %201, 3
-  %or.cond = select i1 %200, i1 true, i1 %202
-  br i1 %or.cond, label %203, label %.thread
-
-203:                                              ; preds = %196
-  %204 = tail call i64 @clock() #26
-  store i64 %204, ptr @_ZL6g_time, align 8, !tbaa !3
-  %205 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %206 = sub i64 %4, %190
-  %207 = mul i64 %206, 100
-  %208 = udiv i64 %207, %4
-  %209 = trunc i64 %208 to i32
-  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.13, i32 noundef %209) #23
-  %211 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %212 = tail call i32 @fflush(ptr noundef %211)
-  br label %.thread
+  br i1 %180, label %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, label %182
 
 _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread: ; preds = %35, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit
-  %213 = add i64 %.04697, 1
-  %.not54.not = icmp ult i64 %213, %22
-  br i1 %.not54.not, label %.thread, label %.thread73
+  %181 = add i64 %.04688, 1
+  %.not54 = icmp ult i64 %181, %22
+  br i1 %.not54, label %select.unfold, label %._crit_edge
 
-.thread:                                          ; preds = %189, %196, %203, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread
-  %.272 = phi i64 [ %.04598, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ], [ %190, %203 ], [ %190, %196 ], [ %190, %189 ]
-  %.14771 = phi i64 [ %213, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ], [ 0, %203 ], [ 0, %196 ], [ 0, %189 ]
-  %214 = add nsw i64 %.04896, 1
+182:                                              ; preds = %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit
+  %183 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !57
+  %184 = xor i32 %.066.lcssa48.i, -1
+  %185 = add i32 %.065.lcssa49.i, %184
+  %186 = add i32 %185, %183
+  %187 = zext i32 %186 to i64
+  %..045 = tail call i64 @llvm.umin.i64(i64 %.04589, i64 %187)
+  %188 = zext i32 %183 to i64
+  %189 = icmp samesign ult i64 %..045, %188
+  br i1 %189, label %._crit_edge, label %190
+
+190:                                              ; preds = %182
+  %191 = sub i64 %.04589, %..045
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 %191
+  %193 = load ptr, ptr %0, align 8, !tbaa !34
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 %.sroa.048.sroa.0.0.insert.ext.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %192, ptr align 1 %194, i64 %..045, i1 false)
+  %195 = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
+  %196 = icmp sgt i32 %195, 1
+  br i1 %196, label %197, label %select.unfold
+
+197:                                              ; preds = %190
+  %198 = tail call i64 @clock() #26
+  %199 = load i64, ptr @_ZL6g_time, align 8, !tbaa !3
+  %200 = sub nsw i64 %198, %199
+  %201 = icmp sgt i64 %200, 150000
+  %202 = load i32, ptr @_ZL14g_displayLevel, align 4
+  %203 = icmp sgt i32 %202, 3
+  %or.cond = select i1 %201, i1 true, i1 %203
+  br i1 %or.cond, label %204, label %select.unfold
+
+204:                                              ; preds = %197
+  %205 = tail call i64 @clock() #26
+  store i64 %205, ptr @_ZL6g_time, align 8, !tbaa !3
+  %206 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %207 = sub i64 %4, %191
+  %208 = mul i64 %207, 100
+  %209 = udiv i64 %208, %4
+  %210 = trunc i64 %209 to i32
+  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef nonnull @.str.13, i32 noundef %210) #23
+  %212 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %213 = tail call i32 @fflush(ptr noundef %212)
+  br label %select.unfold
+
+select.unfold:                                    ; preds = %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, %204, %197, %190
+  %.147.ph = phi i64 [ 0, %190 ], [ 0, %197 ], [ 0, %204 ], [ %181, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ]
+  %.2.ph = phi i64 [ %191, %190 ], [ %191, %197 ], [ %191, %204 ], [ %.04589, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ]
+  %214 = add nsw i64 %.04887, 1
   %215 = urem i64 %214, %.sroa.0.0.insert.ext.i
-  %.not = icmp eq i64 %.272, 0
-  br i1 %.not, label %.thread73, label %35, !llvm.loop !58
+  %.not = icmp eq i64 %.2.ph, 0
+  br i1 %.not, label %._crit_edge, label %35, !llvm.loop !58
 
-.thread73:                                        ; preds = %.thread, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, %181, %30
-  %.045.lcssa = phi i64 [ 0, %30 ], [ %.04598, %181 ], [ %.04598, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ], [ 0, %.thread ]
+._crit_edge:                                      ; preds = %select.unfold, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, %182, %30
+  %.045.lcssa = phi i64 [ 0, %30 ], [ %.04589, %182 ], [ %.04589, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ], [ 0, %select.unfold ]
   %216 = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
   %217 = icmp sgt i32 %216, 1
   br i1 %217, label %218, label %223
 
-218:                                              ; preds = %.thread73
+218:                                              ; preds = %._crit_edge
   %219 = load ptr, ptr @stderr, align 8, !tbaa !9
   %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
   %221 = load ptr, ptr @stderr, align 8, !tbaa !9
   %222 = tail call i32 @fflush(ptr noundef %221)
   br label %223
 
-223:                                              ; preds = %218, %.thread73
+223:                                              ; preds = %218, %._crit_edge
   ret i64 %.045.lcssa
 }
 

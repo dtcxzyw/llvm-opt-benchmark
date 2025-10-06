@@ -1703,8 +1703,8 @@ _ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit: ; 
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load i32, ptr %56, align 8, !tbaa !26
   %58 = sext i32 %57 to i64
-  %.not2327.i = icmp eq i32 %57, 0
-  br i1 %.not2327.i, label %_ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit, label %.lr.ph.i
+  %.not2630.i = icmp eq i32 %57, 0
+  br i1 %.not2630.i, label %_ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1712,36 +1712,36 @@ _ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit: ; 
   br label %61
 
 61:                                               ; preds = %72, %.lr.ph.i
-  %.sroa.016.028.i = phi i64 [ 0, %.lr.ph.i ], [ %73, %72 ]
-  %62 = and i64 %.sroa.016.028.i, 4294967295
+  %.sroa.016.031.i = phi i64 [ 0, %.lr.ph.i ], [ %73, %72 ]
+  %62 = and i64 %.sroa.016.031.i, 4294967295
   %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !73
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load i16, ptr %65, align 8, !tbaa !100
   %67 = icmp ne i16 %66, 8
-  %.not24.i = icmp eq ptr %64, null
-  %.not.i34 = or i1 %.not24.i, %67
+  %.not27.i = icmp eq ptr %64, null
+  %.not.i34 = or i1 %.not27.i, %67
   br i1 %.not.i34, label %72, label %68
 
 68:                                               ; preds = %61
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %70 = load ptr, ptr %69, align 8, !tbaa !109
   %71 = icmp eq ptr %70, %1
-  br i1 %71, label %.split.loop.exit.i, label %72
+  br i1 %71, label %.split.loop.exit28.i, label %72
 
 72:                                               ; preds = %68, %61
-  %73 = add i64 %.sroa.016.028.i, 1
-  %.not23.i = icmp eq i64 %73, %58
-  br i1 %.not23.i, label %_ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit, label %61
+  %73 = add i64 %.sroa.016.031.i, 1
+  %.not26.i = icmp eq i64 %73, %58
+  br i1 %.not26.i, label %_ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit, label %61
 
-.split.loop.exit.i:                               ; preds = %68
-  %74 = trunc i64 %.sroa.016.028.i to i32
+.split.loop.exit28.i:                             ; preds = %68
+  %74 = trunc i64 %.sroa.016.031.i to i32
   %75 = add i32 %74, 1
   br label %_ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit
 
-_ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit: ; preds = %72, %55, %.split.loop.exit.i
-  %spec.select.i = phi i32 [ %75, %.split.loop.exit.i ], [ 0, %55 ], [ 0, %72 ]
-  %76 = zext i32 %spec.select.i to i64
+_ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit: ; preds = %72, %55, %.split.loop.exit28.i
+  %.03245 = phi i32 [ %75, %.split.loop.exit28.i ], [ 0, %55 ], [ 0, %72 ]
+  %76 = zext i32 %.03245 to i64
   %77 = zext i32 %57 to i64
   %78 = add nsw i64 %77, -1
   %79 = icmp ugt i64 %78, %76
@@ -1757,7 +1757,7 @@ _ZNK4llvm16IndexedReference17getSubscriptIndexERKNS_4LoopE.exit: ; preds = %72, 
 
 84:                                               ; preds = %.lr.ph, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit40
   %85 = phi i64 [ %76, %.lr.ph ], [ %144, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit40 ]
-  %.03247 = phi i32 [ %spec.select.i, %.lr.ph ], [ %.032, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit40 ]
+  %.03247 = phi i32 [ %.03245, %.lr.ph ], [ %.032, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit40 ]
   %.146 = phi ptr [ %.0.i, %.lr.ph ], [ %140, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit40 ]
   %86 = load ptr, ptr %80, align 8, !tbaa !25
   %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
@@ -2305,8 +2305,8 @@ define dso_local noundef i32 @_ZNK4llvm16IndexedReference17getSubscriptIndexERKN
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !26
   %5 = sext i32 %4 to i64
-  %.not2327 = icmp eq i32 %4, 0
-  br i1 %.not2327, label %.split.loop.exit25, label %.lr.ph
+  %.not2630 = icmp eq i32 %4, 0
+  br i1 %.not2630, label %.split.loop.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2314,35 +2314,35 @@ define dso_local noundef i32 @_ZNK4llvm16IndexedReference17getSubscriptIndexERKN
   br label %8
 
 8:                                                ; preds = %.lr.ph, %19
-  %.sroa.016.028 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %9 = and i64 %.sroa.016.028, 4294967295
+  %.sroa.016.031 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
+  %9 = and i64 %.sroa.016.031, 4294967295
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !73
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i16, ptr %12, align 8, !tbaa !100
   %14 = icmp ne i16 %13, 8
-  %.not24 = icmp eq ptr %11, null
-  %.not = or i1 %.not24, %14
+  %.not27 = icmp eq ptr %11, null
+  %.not = or i1 %.not27, %14
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !109
   %18 = icmp eq ptr %17, %1
-  br i1 %18, label %.split.loop.exit, label %19
+  br i1 %18, label %.split.loop.exit28, label %19
 
 19:                                               ; preds = %8, %15
-  %20 = add i64 %.sroa.016.028, 1
-  %.not23 = icmp eq i64 %20, %5
-  br i1 %.not23, label %.split.loop.exit25, label %8
+  %20 = add i64 %.sroa.016.031, 1
+  %.not26 = icmp eq i64 %20, %5
+  br i1 %.not26, label %.split.loop.exit, label %8
 
-.split.loop.exit:                                 ; preds = %15
-  %21 = trunc i64 %.sroa.016.028 to i32
-  br label %.split.loop.exit25
+.split.loop.exit28:                               ; preds = %15
+  %21 = trunc i64 %.sroa.016.031 to i32
+  br label %.split.loop.exit
 
-.split.loop.exit25:                               ; preds = %19, %2, %.split.loop.exit
-  %spec.select = phi i32 [ %21, %.split.loop.exit ], [ -1, %2 ], [ -1, %19 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %19, %2, %.split.loop.exit28
+  %22 = phi i32 [ %21, %.split.loop.exit28 ], [ -1, %2 ], [ -1, %19 ]
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2711,8 +2711,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 268435456
-  %.not9.i = icmp eq i32 %30, 0
-  br i1 %.not9.i, label %_ZNK4llvm4Loop7getNameEv.exit, label %31
+  %.not8.i = icmp eq i32 %30, 0
+  br i1 %.not8.i, label %_ZNK4llvm4Loop7getNameEv.exit, label %31
 
 31:                                               ; preds = %27
   %32 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #19
@@ -8804,35 +8804,35 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   %101 = sub nsw i64 %85, %100
   %102 = getelementptr inbounds %"class.std::optional.229", ptr %98, i64 %101
   %.pre = load ptr, ptr %4, align 8, !tbaa !387
-  %.pre113 = load ptr, ptr %6, align 8, !tbaa !387
+  %.pre111 = load ptr, ptr %6, align 8, !tbaa !387
   br label %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit
 
 _ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit: ; preds = %89, %95
   %103 = phi ptr [ %97, %95 ], [ %18, %89 ]
-  %.promoted107 = phi ptr [ %99, %95 ], [ %16, %89 ]
-  %.promoted106 = phi ptr [ %98, %95 ], [ %14, %89 ]
-  %104 = phi ptr [ %.pre113, %95 ], [ %7, %89 ]
+  %.promoted105 = phi ptr [ %99, %95 ], [ %16, %89 ]
+  %.promoted104 = phi ptr [ %98, %95 ], [ %14, %89 ]
+  %104 = phi ptr [ %.pre111, %95 ], [ %7, %89 ]
   %105 = phi ptr [ %.pre, %95 ], [ %5, %89 ]
   %.promoted = phi ptr [ %102, %95 ], [ %90, %89 ]
   store ptr %.promoted, ptr %2, align 8, !tbaa !380
-  %.017102 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %.not19103 = icmp eq ptr %.017102, %104
-  br i1 %.not19103, label %._crit_edge, label %.lr.ph
+  %.017100 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %.not19101 = icmp eq ptr %.017100, %104
+  br i1 %.not19101, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41
   %106 = phi ptr [ %191, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %104, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
   %107 = phi ptr [ %192, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %103, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
-  %108 = phi ptr [ %193, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.promoted107, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
-  %109 = phi ptr [ %194, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.promoted106, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
-  %storemerge.i40105 = phi ptr [ %storemerge.i40, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.promoted, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
-  %.017104 = phi ptr [ %.017, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.017102, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
-  %110 = load ptr, ptr %.017104, align 8, !tbaa !206
+  %108 = phi ptr [ %193, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.promoted105, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
+  %109 = phi ptr [ %194, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.promoted104, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
+  %storemerge.i40103 = phi ptr [ %storemerge.i40, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.promoted, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
+  %.017102 = phi ptr [ %.017, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ], [ %.017100, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ]
+  %110 = load ptr, ptr %.017102, align 8, !tbaa !206
   br label %111
 
 111:                                              ; preds = %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36, %.lr.ph
   %.sroa.989.0 = phi ptr [ %107, %.lr.ph ], [ %.sroa.989.1, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36 ]
   %.sroa.387.0 = phi ptr [ %109, %.lr.ph ], [ %.sroa.387.1, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36 ]
-  %storemerge.i24.i23 = phi ptr [ %storemerge.i40105, %.lr.ph ], [ %storemerge.i.i37, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36 ]
+  %storemerge.i24.i23 = phi ptr [ %storemerge.i40103, %.lr.ph ], [ %storemerge.i.i37, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36 ]
   %112 = phi ptr [ %108, %.lr.ph ], [ %167, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36 ]
   %.01122.i24 = phi ptr [ %110, %.lr.ph ], [ %117, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36 ]
   %.021.i25 = phi i64 [ 16, %.lr.ph ], [ %145, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36 ]
@@ -8936,7 +8936,7 @@ _ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__norma
   br i1 %168, label %_ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEESF_RKSF_PSH_ENS5_11__enable_ifIXsr23__is_random_access_iterIT_EE7__valueEbE6__typeESL_SL_St15_Deque_iteratorIT0_T1_T2_E.exit39, label %111, !llvm.loop !441
 
 _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEESF_RKSF_PSH_ENS5_11__enable_ifIXsr23__is_random_access_iterIT_EE7__valueEbE6__typeESL_SL_St15_Deque_iteratorIT0_T1_T2_E.exit39: ; preds = %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit.i36
-  %169 = ptrtoint ptr %storemerge.i40105 to i64
+  %169 = ptrtoint ptr %storemerge.i40103 to i64
   %170 = ptrtoint ptr %109 to i64
   %171 = sub i64 %169, %170
   %172 = ashr exact i64 %171, 5
@@ -8949,7 +8949,7 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %storemerge.i40105, i64 512
+  %178 = getelementptr inbounds nuw i8, ptr %storemerge.i40103, i64 512
   br label %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41
 
 179:                                              ; preds = %175
@@ -8971,24 +8971,24 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   %188 = shl nsw i64 %184, 4
   %189 = sub nsw i64 %173, %188
   %190 = getelementptr inbounds %"class.std::optional.229", ptr %186, i64 %189
-  %.pre116 = load ptr, ptr %6, align 8, !tbaa !387
+  %.pre114 = load ptr, ptr %6, align 8, !tbaa !387
   br label %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41
 
 _ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41: ; preds = %177, %183
-  %191 = phi ptr [ %.pre116, %183 ], [ %106, %177 ]
+  %191 = phi ptr [ %.pre114, %183 ], [ %106, %177 ]
   %192 = phi ptr [ %185, %183 ], [ %107, %177 ]
   %193 = phi ptr [ %187, %183 ], [ %108, %177 ]
   %194 = phi ptr [ %186, %183 ], [ %109, %177 ]
   %storemerge.i40 = phi ptr [ %190, %183 ], [ %178, %177 ]
   store ptr %storemerge.i40, ptr %2, align 8, !tbaa !380
-  %.017 = getelementptr inbounds nuw i8, ptr %.017104, i64 8
+  %.017 = getelementptr inbounds nuw i8, ptr %.017102, i64 8
   %.not19 = icmp eq ptr %.017, %191
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !442
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit
   %195 = phi ptr [ %103, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ], [ %192, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ]
-  %196 = phi ptr [ %.promoted107, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ], [ %193, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ]
-  %197 = phi ptr [ %.promoted106, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ], [ %194, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ]
+  %196 = phi ptr [ %.promoted105, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ], [ %193, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ]
+  %197 = phi ptr [ %.promoted104, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ], [ %194, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ]
   %198 = phi ptr [ %.promoted, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit ], [ %storemerge.i40, %_ZNSt15_Deque_iteratorISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEERKSF_PSG_EpLEl.exit41 ]
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !385
@@ -10039,17 +10039,17 @@ define linkonce_odr hidden void @_ZN4llvm11bf_iteratorIPNS_4LoopENS_11SmallPtrSe
   %24 = zext i32 %23 to i64
   %.idx.i.i = shl nuw nsw i64 %24, 3
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %23, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %23, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %27, %.critedge.i.i ], [ %22, %21 ]
-  %26 = load ptr, ptr %.02937.i.i, align 8, !tbaa !274, !noalias !486
+  %.02935.i.i = phi ptr [ %27, %.critedge.i.i ], [ %22, %21 ]
+  %26 = load ptr, ptr %.02935.i.i, align 8, !tbaa !274, !noalias !486
   %.not17.i.i = icmp eq ptr %26, %18
   br i1 %.not17.i.i, label %.critedge46, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %27, %25
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !489
 

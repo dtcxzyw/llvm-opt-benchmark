@@ -250,7 +250,7 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
   %.022 = phi i8 [ 1, %6 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ]
   %28 = load ptr, ptr %22, align 8
   %.not81 = icmp eq ptr %28, null
-  br i1 %.not81, label %29, label %82
+  br i1 %.not81, label %29, label %83
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %23, align 8
@@ -401,32 +401,32 @@ _ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %48, %_ZNK7Compil
   %.126 = phi i8 [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.025, %73 ], [ %.025, %75 ]
   %.124 = phi i8 [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.023, %73 ], [ %.023, %75 ]
   %.1 = phi i8 [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.022, %73 ], [ %.022, %75 ]
-  %switch = phi i1 [ true, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ true, %73 ], [ false, %75 ]
+  %77 = phi i1 [ true, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ true, %73 ], [ false, %75 ]
   call void @_ZN7CompileD1Ev(ptr noundef nonnull align 8 dereferenceable(2316) %8) #10
-  %77 = load ptr, ptr %34, align 8
-  %.not.i.i.i.i = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i, label %79, label %78
+  %78 = load ptr, ptr %34, align 8
+  %.not.i.i.i.i = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i, label %80, label %79
 
-78:                                               ; preds = %76
+79:                                               ; preds = %76
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %32, i64 noundef %40) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %34) #10
-  br label %79
+  br label %80
 
-79:                                               ; preds = %78, %76
-  %80 = load ptr, ptr %35, align 8
-  %.not8.i.i.i.i = icmp eq ptr %80, %36
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %81
+80:                                               ; preds = %79, %76
+  %81 = load ptr, ptr %35, align 8
+  %.not8.i.i.i.i = icmp eq ptr %81, %36
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %82
 
-81:                                               ; preds = %79
+82:                                               ; preds = %80
   store ptr %34, ptr %33, align 8
   store ptr %36, ptr %35, align 8
   store ptr %38, ptr %37, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %79, %81
-  br i1 %switch, label %27, label %82
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %80, %82
+  br i1 %77, label %27, label %83
 
-82:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %27
+83:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %27
   call void @_ZN30CompilationMemoryStatisticMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
   ret void
 }

@@ -5886,8 +5886,8 @@ define internal void @common_timeout_callback(i32 %0, i16 signext %1, ptr nounde
 
 gettime.exit:                                     ; preds = %17, %18, %22, %42
   %43 = load ptr, ptr %2, align 8
-  %.not2634 = icmp eq ptr %43, null
-  br i1 %.not2634, label %.loopexit, label %.lr.ph
+  %.not2633 = icmp eq ptr %43, null
+  br i1 %.not2633, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gettime.exit
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6606,8 +6606,8 @@ update_time_cache.exit:                           ; preds = %210, %213, %216, %2
 
 gettime.exit.i:                                   ; preds = %267, %252, %249, %248
   %268 = load i64, ptr %50, align 8
-  %.not.i2125.i = icmp eq i64 %268, 0
-  br i1 %.not.i2125.i, label %timeout_process.exit, label %min_heap_top_.exit.i114
+  %.not.i2124.i = icmp eq i64 %268, 0
+  br i1 %.not.i2124.i, label %timeout_process.exit, label %min_heap_top_.exit.i114
 
 min_heap_top_.exit.i114:                          ; preds = %gettime.exit.i, %296
   %269 = load ptr, ptr %51, align 8

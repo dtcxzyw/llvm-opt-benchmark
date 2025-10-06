@@ -90,15 +90,15 @@ define internal void @_ZN8WasmEdge12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv(i
   %7 = call i32 @sigemptyset(ptr noundef nonnull %4) #7
   %8 = call i32 @sigaddset(ptr noundef nonnull %4, i32 noundef %0) #7
   %9 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #7
-  %switch = icmp eq i32 %0, 8
-  br i1 %switch, label %11, label %10
+  %10 = icmp eq i32 %0, 8
+  br i1 %10, label %12, label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   store i32 1032, ptr %5, align 4
   call void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef nonnull %5) #9
   unreachable
 
-11:                                               ; preds = %3
+12:                                               ; preds = %3
   store i32 1028, ptr %6, align 4
   call void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef nonnull %6) #9
   unreachable

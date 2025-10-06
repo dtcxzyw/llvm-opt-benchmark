@@ -1666,8 +1666,8 @@ _ZN7counter5resetEv.exit:                         ; preds = %3, %._crit_edge.thr
   %66 = phi ptr [ %29, %3 ], [ %.pre, %._crit_edge.thread.i.i.i ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   tail call void @_ZN11var_counter10count_varsEPK3appi(ptr noundef nonnull align 8 dereferenceable(224) %67, ptr noundef nonnull %24, i32 noundef 1)
-  %.not119 = icmp eq i32 %28, 0
-  br i1 %.not119, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit, label %.lr.ph
+  %.not118 = icmp eq i32 %28, 0
+  br i1 %.not118, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7counter5resetEv.exit
   %68 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -1710,8 +1710,8 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
   %93 = and i32 %83, 31
   %94 = shl nuw i32 1, %93
   %95 = and i32 %92, %94
-  %.not106 = icmp eq i32 %95, 0
-  br i1 %.not106, label %_ZNK8uint_set8containsEj.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread
+  %.not105 = icmp eq i32 %95, 0
+  br i1 %.not105, label %_ZNK8uint_set8containsEj.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread
 
 _ZNK8uint_set8containsEj.exit.thread:             ; preds = %81, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %_ZNK8uint_set8containsEj.exit
   %96 = load ptr, ptr %20, align 8, !tbaa !289
@@ -1810,17 +1810,17 @@ _ZNK8uint_set8containsEj.exit.thread:             ; preds = %81, %_ZNK6vectorIjL
 _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread: ; preds = %.lr.ph.i.i, %149, %.lr.ph34.i.i, %.preheader.i.i, %_ZNK8uint_set8containsEj.exit.thread, %_ZNK8uint_set8containsEj.exit, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155, label %74, !llvm.loop !345
+  br i1 %exitcond.not, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154, label %74, !llvm.loop !345
 
 _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit: ; preds = %124, %140, %_ZN7counter5resetEv.exit
-  %storemerge114 = phi i32 [ 0, %_ZN7counter5resetEv.exit ], [ %102, %140 ], [ %102, %124 ]
-  %151 = icmp eq i32 %storemerge114, %28
-  br i1 %151, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155, label %152
+  %storemerge113 = phi i32 [ 0, %_ZN7counter5resetEv.exit ], [ %102, %140 ], [ %102, %124 ]
+  %151 = icmp eq i32 %storemerge113, %28
+  br i1 %151, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154, label %152
 
 152:                                              ; preds = %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit
   %153 = ptrtoint ptr %26 to i64
   %154 = trunc i64 %153 to i32
-  %155 = sub i32 %storemerge114, %154
+  %155 = sub i32 %storemerge113, %154
   %156 = shl i32 %154, 8
   %157 = xor i32 %155, %156
   %158 = sub i32 %154, %157
@@ -1864,7 +1864,7 @@ _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_
   %182 = icmp eq ptr %181, %26
   %183 = getelementptr inbounds nuw i8, ptr %.031.i.i.i, i64 16
   %184 = load i32, ptr %183, align 8
-  %185 = icmp eq i32 %184, %storemerge114
+  %185 = icmp eq i32 %184, %storemerge113
   %186 = select i1 %182, i1 %185, i1 false
   br i1 %186, label %_ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE4findERKS4_.exit, label %187
 
@@ -1894,7 +1894,7 @@ _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_
   %197 = icmp eq ptr %196, %26
   %198 = getelementptr inbounds nuw i8, ptr %.133.i.i.i, i64 16
   %199 = load i32, ptr %198, align 8
-  %200 = icmp eq i32 %199, %storemerge114
+  %200 = icmp eq i32 %199, %storemerge113
   %201 = select i1 %197, i1 %200, i1 false
   br i1 %201, label %_ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE4findERKS4_.exit, label %202
 
@@ -1908,12 +1908,12 @@ _ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashI
   %205 = load ptr, ptr %204, align 8, !tbaa !346
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !347
-  br i1 %.not119, label %._crit_edge, label %.lr.ph118
+  br i1 %.not118, label %._crit_edge, label %.lr.ph117
 
-.lr.ph118:                                        ; preds = %_ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE4findERKS4_.exit
+.lr.ph117:                                        ; preds = %_ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE4findERKS4_.exit
   %206 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %207 = zext i32 %storemerge114 to i64
-  %wide.trip.count132 = zext i32 %28 to i64
+  %207 = zext i32 %storemerge113 to i64
+  %wide.trip.count131 = zext i32 %28 to i64
   br label %213
 
 ._crit_edge:                                      ; preds = %235, %_ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE4findERKS4_.exit
@@ -1925,14 +1925,14 @@ _ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashI
   %212 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %210, ptr noundef %205, i32 noundef %211, ptr noundef %208)
           to label %237 unwind label %290
 
-213:                                              ; preds = %.lr.ph118, %235
-  %214 = phi ptr [ null, %.lr.ph118 ], [ %236, %235 ]
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next130, %235 ]
-  %.not = icmp eq i64 %indvars.iv129, %207
+213:                                              ; preds = %.lr.ph117, %235
+  %214 = phi ptr [ null, %.lr.ph117 ], [ %236, %235 ]
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next129, %235 ]
+  %.not = icmp eq i64 %indvars.iv128, %207
   br i1 %.not, label %235, label %215
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv129
+  %216 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv128
   %217 = load ptr, ptr %216, align 8, !tbaa !284
   %218 = icmp eq ptr %214, null
   br i1 %218, label %225, label %219
@@ -1973,9 +1973,9 @@ _ZN9table2mapI17default_map_entryISt4pairIP9func_decljES3_E9pair_hashI8ptr_hashI
 
 235:                                              ; preds = %213, %226
   %236 = phi ptr [ %214, %213 ], [ %227, %226 ]
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %._crit_edge, label %213, !llvm.loop !348
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
+  br i1 %exitcond132.not, label %._crit_edge, label %213, !llvm.loop !348
 
 237:                                              ; preds = %._crit_edge
   %238 = load ptr, ptr %209, align 8, !tbaa !253
@@ -2165,11 +2165,11 @@ _ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerE
           to label %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit_crit_edge unwind label %356
 
 ._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit_crit_edge: ; preds = %317
-  %.pre134 = load ptr, ptr %308, align 8, !tbaa !302
+  %.pre133 = load ptr, ptr %308, align 8, !tbaa !302
   br label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit: ; preds = %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit_crit_edge, %313
-  %318 = phi ptr [ %.pre134, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit_crit_edge ], [ %314, %313 ]
+  %318 = phi ptr [ %.pre133, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit_crit_edge ], [ %314, %313 ]
   invoke void @_ZN7datalog16accounted_object28set_accounting_parent_objectERNS_7contextEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(33) %312, ptr noundef nonnull align 8 dereferenceable(3028) %318, ptr noundef nonnull %19)
           to label %319 unwind label %358
 
@@ -2313,7 +2313,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN15ref_vector_cor
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %371
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155
+  br label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154
 
 376:                                              ; preds = %.loopexit, %.loopexit.split-lp, %360, %292
   %.pn49 = phi { ptr, i32 } [ %293, %292 ], [ %.pn, %360 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -2331,7 +2331,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI3app11a
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn52
 
-_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155: ; preds = %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit, %_ZN6vectorIP4exprLb0EjED2Ev.exit
+_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154: ; preds = %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit, %_ZN6vectorIP4exprLb0EjED2Ev.exit
   %.0 = phi i32 [ %.1, %_ZN6vectorIP4exprLb0EjED2Ev.exit ], [ 0, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit ], [ 0, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread ]
   ret i32 %.0
 }

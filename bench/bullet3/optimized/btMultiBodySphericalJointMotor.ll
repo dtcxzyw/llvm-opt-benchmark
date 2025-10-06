@@ -196,8 +196,8 @@ define dso_local noundef i32 @_ZNK30btMultiBodySphericalJointMotor12getIslandIdA
   br i1 %.not, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %10, %7
-  %.sink12 = phi ptr [ %9, %7 ], [ %16, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink12, i64 228
+  %.sink11 = phi ptr [ %9, %7 ], [ %16, %10 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 228
   %18 = load i32, ptr %17, align 4, !tbaa !55
   br label %.thread
 
@@ -232,8 +232,8 @@ define dso_local noundef i32 @_ZNK30btMultiBodySphericalJointMotor12getIslandIdB
   br i1 %.not, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %10, %7
-  %.sink12 = phi ptr [ %9, %7 ], [ %16, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink12, i64 228
+  %.sink11 = phi ptr [ %9, %7 ], [ %16, %10 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 228
   %18 = load i32, ptr %17, align 4, !tbaa !55
   br label %.thread
 

@@ -140,11 +140,11 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
   call void @free(ptr noundef %47) #11
   br label %315
 
-.preheader222:                                    ; preds = %134
-  %.not256 = icmp eq i32 %136, 0
-  br i1 %.not256, label %._crit_edge, label %.lr.ph242
+.preheader220:                                    ; preds = %134
+  %.not254 = icmp eq i32 %136, 0
+  br i1 %.not254, label %._crit_edge, label %.lr.ph240
 
-.lr.ph242:                                        ; preds = %.preheader222
+.lr.ph240:                                        ; preds = %.preheader220
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -289,28 +289,28 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   %136 = load i32, ptr %5, align 4, !tbaa !14
   %137 = zext i32 %136 to i64
   %138 = icmp samesign ult i64 %indvars.iv.next, %137
-  br i1 %138, label %59, label %.preheader222, !llvm.loop !39
+  br i1 %138, label %59, label %.preheader220, !llvm.loop !39
 
-139:                                              ; preds = %.lr.ph242, %.loopexit221
-  %indvars.iv271 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next272, %.loopexit221 ]
-  %.0139240 = phi i32 [ 0, %.lr.ph242 ], [ %.1140227, %.loopexit221 ]
-  %.0189239 = phi i32 [ %136, %.lr.ph242 ], [ %.1190229, %.loopexit221 ]
+139:                                              ; preds = %.lr.ph240, %.loopexit219
+  %indvars.iv269 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next270, %.loopexit219 ]
+  %.0139238 = phi i32 [ 0, %.lr.ph240 ], [ %.1140225, %.loopexit219 ]
+  %.0189237 = phi i32 [ %136, %.lr.ph240 ], [ %.1190227, %.loopexit219 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %140 = trunc nuw i64 %indvars.iv271 to i32
+  %140 = trunc nuw i64 %indvars.iv269 to i32
   %141 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %140, ptr noundef nonnull %11) #11
-  %142 = mul nuw nsw i64 %indvars.iv271, 18
-  %143 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv271
+  %142 = mul nuw nsw i64 %indvars.iv269, 18
+  %143 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv269
   br label %144
 
 144:                                              ; preds = %139, %252
-  %indvars.iv268 = phi i64 [ 0, %139 ], [ %indvars.iv.next269, %252 ]
-  %.1140238 = phi i32 [ %.0139240, %139 ], [ %.3142.ph, %252 ]
-  %.1190235 = phi i32 [ %.0189239, %139 ], [ %.3192.ph, %252 ]
+  %indvars.iv266 = phi i64 [ 0, %139 ], [ %indvars.iv.next267, %252 ]
+  %.1140236 = phi i32 [ %.0139238, %139 ], [ %.3142.ph, %252 ]
+  %.1190233 = phi i32 [ %.0189237, %139 ], [ %.3192.ph, %252 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %145 = trunc nuw nsw i64 %indvars.iv268 to i32
-  %146 = add nuw i64 %142, %indvars.iv268
+  %145 = trunc nuw nsw i64 %indvars.iv266 to i32
+  %146 = add nuw i64 %142, %indvars.iv266
   %147 = and i64 %146, 4294967295
   %148 = getelementptr inbounds nuw i32, ptr %47, i64 %147
   store i32 -1, ptr %148, align 4, !tbaa !14
@@ -325,7 +325,7 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   br i1 %.not170, label %153, label %252
 
 153:                                              ; preds = %151
-  %154 = add nsw i32 %.1140238, 1
+  %154 = add nsw i32 %.1140236, 1
   %155 = load ptr, ptr %11, align 8, !tbaa !30
   %156 = call i32 @nvmlDeviceGetNvLinkRemoteDeviceType(ptr noundef %155, i32 noundef %145, ptr noundef nonnull %14) #11
   %.not171 = icmp eq i32 %156, 0
@@ -514,16 +514,16 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 .loopexit:                                        ; preds = %.lr.ph.i179, %217, %214, %.thread.i
   %.020.i = phi ptr [ %182, %217 ], [ %182, %214 ], [ %spec.select.i, %.thread.i ], [ %211, %.lr.ph.i179 ]
   %241 = load i32, ptr %5, align 4, !tbaa !14
-  %242 = icmp ult i32 %241, %.1190235
+  %242 = icmp ult i32 %241, %.1190233
   br i1 %242, label %.lr.ph.preheader.i, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %.loopexit
-  %.pre.i = zext i32 %.1190235 to i64
+  %.pre.i = zext i32 %.1190233 to i64
   br label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit
   %243 = zext i32 %241 to i64
-  %wide.trip.count.i180 = zext i32 %.1190235 to i64
+  %wide.trip.count.i180 = zext i32 %.1190233 to i64
   br label %.lr.ph.i181
 
 .lr.ph.i181:                                      ; preds = %247, %.lr.ph.preheader.i
@@ -542,7 +542,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %wide.trip.count.i180, %247 ]
   %248 = getelementptr inbounds nuw ptr, ptr %43, i64 %.pre-phi.i
   store ptr %.020.i, ptr %248, align 8, !tbaa !38
-  %249 = add i32 %.1190235, 1
+  %249 = add i32 %.1190233, 1
   br label %.thread206
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i181
@@ -550,72 +550,72 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   br label %.thread206
 
 .thread206:                                       ; preds = %hwloc__nvml_get_peer_gpu_by_pci.exit, %._crit_edge.i, %.loopexit.loopexit.i
-  %.7195 = phi i32 [ %.1190235, %hwloc__nvml_get_peer_gpu_by_pci.exit ], [ %249, %._crit_edge.i ], [ %.1190235, %.loopexit.loopexit.i ]
-  %.1 = phi i32 [ %178, %hwloc__nvml_get_peer_gpu_by_pci.exit ], [ %.1190235, %._crit_edge.i ], [ %250, %.loopexit.loopexit.i ]
+  %.7195 = phi i32 [ %.1190233, %hwloc__nvml_get_peer_gpu_by_pci.exit ], [ %249, %._crit_edge.i ], [ %.1190233, %.loopexit.loopexit.i ]
+  %.1 = phi i32 [ %178, %hwloc__nvml_get_peer_gpu_by_pci.exit ], [ %.1190233, %._crit_edge.i ], [ %250, %.loopexit.loopexit.i ]
   store i32 %.1, ptr %148, align 4, !tbaa !14
   br label %252
 
 251:                                              ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.loopexit221
+  br label %.loopexit219
 
 252:                                              ; preds = %240, %193, %198, %196, %151, %.thread206, %158
-  %.3192.ph = phi i32 [ %.7195, %.thread206 ], [ %.1190235, %158 ], [ %.1190235, %151 ], [ %.1190235, %196 ], [ %.1190235, %198 ], [ %.1190235, %193 ], [ %.1190235, %240 ]
-  %.3142.ph = phi i32 [ %154, %.thread206 ], [ %154, %158 ], [ %.1140238, %151 ], [ %154, %196 ], [ %154, %198 ], [ %154, %193 ], [ %154, %240 ]
+  %.3192.ph = phi i32 [ %.7195, %.thread206 ], [ %.1190233, %158 ], [ %.1190233, %151 ], [ %.1190233, %196 ], [ %.1190233, %198 ], [ %.1190233, %193 ], [ %.1190233, %240 ]
+  %.3142.ph = phi i32 [ %154, %.thread206 ], [ %154, %158 ], [ %.1140236, %151 ], [ %154, %196 ], [ %154, %198 ], [ %154, %193 ], [ %154, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next269, 18
-  br i1 %exitcond.not, label %.loopexit221, label %144, !llvm.loop !46
+  %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next267, 18
+  br i1 %exitcond.not, label %.loopexit219, label %144, !llvm.loop !46
 
-.loopexit221:                                     ; preds = %252, %251
-  %.1190229 = phi i32 [ %.1190235, %251 ], [ %.3192.ph, %252 ]
-  %.1140227 = phi i32 [ %.1140238, %251 ], [ %.3142.ph, %252 ]
+.loopexit219:                                     ; preds = %252, %251
+  %.1190227 = phi i32 [ %.1190233, %251 ], [ %.3192.ph, %252 ]
+  %.1140225 = phi i32 [ %.1140236, %251 ], [ %.3142.ph, %252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
+  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %253 = load i32, ptr %5, align 4, !tbaa !14
   %254 = zext i32 %253 to i64
-  %255 = icmp samesign ult i64 %indvars.iv.next272, %254
+  %255 = icmp samesign ult i64 %indvars.iv.next270, %254
   br i1 %255, label %139, label %._crit_edge.loopexit, !llvm.loop !47
 
-._crit_edge.loopexit:                             ; preds = %.loopexit221
-  %256 = icmp eq i32 %.1140227, 0
+._crit_edge.loopexit:                             ; preds = %.loopexit219
+  %256 = icmp eq i32 %.1140225, 0
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader222
-  %.0189.lcssa = phi i32 [ 0, %.preheader222 ], [ %.1190229, %._crit_edge.loopexit ]
-  %.0139.lcssa = phi i1 [ true, %.preheader222 ], [ %256, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader220
+  %.0189.lcssa = phi i32 [ 0, %.preheader220 ], [ %.1190227, %._crit_edge.loopexit ]
+  %.0139.lcssa = phi i1 [ true, %.preheader220 ], [ %256, %._crit_edge.loopexit ]
   %257 = call i64 @hwloc_topology_get_flags(ptr noundef %18) #11
   %258 = and i64 %257, 128
   %.not163 = icmp ne i64 %258, 0
   %.not164 = select i1 %.not163, i1 true, i1 %.0139.lcssa
   %259 = load i32, ptr %5, align 4
-  %.not257 = icmp eq i32 %259, 0
-  %or.cond303 = select i1 %.not164, i1 true, i1 %.not257
-  br i1 %or.cond303, label %._crit_edge250.thread, label %.lr.ph249
+  %.not255 = icmp eq i32 %259, 0
+  %or.cond301 = select i1 %.not164, i1 true, i1 %.not255
+  br i1 %or.cond301, label %._crit_edge248.thread, label %.lr.ph247
 
-.lr.ph249:                                        ; preds = %._crit_edge, %300
-  %.2248 = phi i32 [ %301, %300 ], [ 0, %._crit_edge ]
-  %.5247 = phi i32 [ %.7, %300 ], [ 0, %._crit_edge ]
+.lr.ph247:                                        ; preds = %._crit_edge, %300
+  %.2246 = phi i32 [ %301, %300 ], [ 0, %._crit_edge ]
+  %.5245 = phi i32 [ %.7, %300 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %260 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %.2248, ptr noundef nonnull %15) #11
-  %261 = mul i32 %.2248, 18
-  %262 = mul i32 %.2248, %.0189.lcssa
+  %260 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %.2246, ptr noundef nonnull %15) #11
+  %261 = mul i32 %.2246, 18
+  %262 = mul i32 %.2246, %.0189.lcssa
   br label %263
 
-263:                                              ; preds = %.lr.ph249, %299
-  %indvars.iv274 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next275, %299 ]
-  %.6246 = phi i32 [ %.5247, %.lr.ph249 ], [ %.7, %299 ]
+263:                                              ; preds = %.lr.ph247, %299
+  %indvars.iv272 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next273, %299 ]
+  %.6244 = phi i32 [ %.5245, %.lr.ph247 ], [ %.7, %299 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %264 = trunc nuw nsw i64 %indvars.iv274 to i32
+  %264 = trunc nuw nsw i64 %indvars.iv272 to i32
   %265 = add i32 %261, %264
   %266 = zext i32 %265 to i64
   %267 = getelementptr inbounds nuw i32, ptr %47, i64 %266
   %268 = load i32, ptr %267, align 4, !tbaa !14
   %269 = icmp eq i32 %268, -1
-  %270 = icmp ult i32 %268, %.2248
+  %270 = icmp ult i32 %268, %.2246
   %or.cond177 = or i1 %269, %270
   br i1 %or.cond177, label %299, label %271
 
@@ -661,60 +661,60 @@ switch.lookup:                                    ; preds = %274
   %291 = add i64 %290, %switch.load
   store i64 %291, ptr %289, align 8, !tbaa !48
   %292 = mul i32 %268, %.0189.lcssa
-  %293 = add i32 %292, %.2248
+  %293 = add i32 %292, %.2246
   %294 = zext i32 %293 to i64
   %295 = getelementptr inbounds nuw i64, ptr %46, i64 %294
   %296 = load i64, ptr %295, align 8, !tbaa !48
   %297 = add i64 %296, %switch.load
   store i64 %297, ptr %295, align 8, !tbaa !48
-  %298 = add nsw i32 %.6246, 1
+  %298 = add nsw i32 %.6244, 1
   br label %299
 
 299:                                              ; preds = %271, %263, %switch.lookup, %285
-  %.7 = phi i32 [ %.6246, %285 ], [ %298, %switch.lookup ], [ %.6246, %263 ], [ %.6246, %271 ]
+  %.7 = phi i32 [ %.6244, %285 ], [ %298, %switch.lookup ], [ %.6244, %263 ], [ %.6244, %271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %exitcond277.not = icmp eq i64 %indvars.iv.next275, 18
-  br i1 %exitcond277.not, label %300, label %263, !llvm.loop !49
+  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
+  %exitcond275.not = icmp eq i64 %indvars.iv.next273, 18
+  br i1 %exitcond275.not, label %300, label %263, !llvm.loop !49
 
 300:                                              ; preds = %299
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %301 = add nuw i32 %.2248, 1
+  %301 = add nuw i32 %.2246, 1
   %302 = load i32, ptr %5, align 4, !tbaa !14
   %303 = icmp ult i32 %301, %302
-  br i1 %303, label %.lr.ph249, label %._crit_edge250, !llvm.loop !50
+  br i1 %303, label %.lr.ph247, label %._crit_edge248, !llvm.loop !50
 
-._crit_edge250:                                   ; preds = %300
+._crit_edge248:                                   ; preds = %300
   %304 = icmp eq i32 %.7, 0
-  br i1 %304, label %._crit_edge250.thread, label %.preheader
+  br i1 %304, label %._crit_edge248.thread, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge250
-  %.not258 = icmp eq i32 %.0189.lcssa, 0
-  br i1 %.not258, label %._crit_edge254, label %.lr.ph253
+.preheader:                                       ; preds = %._crit_edge248
+  %.not256 = icmp eq i32 %.0189.lcssa, 0
+  br i1 %.not256, label %._crit_edge252, label %.lr.ph251
 
-.lr.ph253:                                        ; preds = %.preheader
+.lr.ph251:                                        ; preds = %.preheader
   %.3167 = add i32 %.0189.lcssa, 1
   %wide.trip.count = zext i32 %.0189.lcssa to i64
   br label %305
 
-305:                                              ; preds = %.lr.ph253, %305
-  %indvars.iv278 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next279, %305 ]
-  %306 = trunc nuw i64 %indvars.iv278 to i32
+305:                                              ; preds = %.lr.ph251, %305
+  %indvars.iv276 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next277, %305 ]
+  %306 = trunc nuw i64 %indvars.iv276 to i32
   %307 = mul i32 %.3167, %306
   %308 = zext i32 %307 to i64
   %309 = getelementptr inbounds nuw i64, ptr %46, i64 %308
   store i64 1000000, ptr %309, align 8, !tbaa !48
-  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %exitcond281.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count
-  br i1 %exitcond281.not, label %._crit_edge254, label %305, !llvm.loop !51
+  %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
+  %exitcond279.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count
+  br i1 %exitcond279.not, label %._crit_edge252, label %305, !llvm.loop !51
 
-._crit_edge254:                                   ; preds = %305, %.preheader
+._crit_edge252:                                   ; preds = %305, %.preheader
   call fastcc void @hwloc__nvml_add_nvlink_bandwidth(ptr noundef %18, i32 noundef %.0189.lcssa, ptr noundef %43, ptr noundef %46)
-  br label %._crit_edge250.thread
+  br label %._crit_edge248.thread
 
-._crit_edge250.thread:                            ; preds = %._crit_edge250, %._crit_edge254, %._crit_edge
-  %.0146 = phi ptr [ null, %._crit_edge254 ], [ %43, %._crit_edge250 ], [ %43, %._crit_edge ]
-  %.0143 = phi ptr [ null, %._crit_edge254 ], [ %46, %._crit_edge250 ], [ %46, %._crit_edge ]
+._crit_edge248.thread:                            ; preds = %._crit_edge248, %._crit_edge252, %._crit_edge
+  %.0146 = phi ptr [ null, %._crit_edge252 ], [ %43, %._crit_edge248 ], [ %43, %._crit_edge ]
+  %.0143 = phi ptr [ null, %._crit_edge252 ], [ %46, %._crit_edge248 ], [ %46, %._crit_edge ]
   call void @free(ptr noundef %.0146) #11
   call void @free(ptr noundef %.0143) #11
   call void @free(ptr noundef %40) #11
@@ -724,13 +724,13 @@ switch.lookup:                                    ; preds = %274
   %.not166 = icmp eq i64 %311, 0
   br i1 %.not166, label %315, label %312
 
-312:                                              ; preds = %._crit_edge250.thread
+312:                                              ; preds = %._crit_edge248.thread
   %313 = call ptr @hwloc_topology_get_infos(ptr noundef %18) #11
   %314 = call i32 @hwloc_modify_infos(ptr noundef %313, i64 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.4) #11
   br label %315
 
-315:                                              ; preds = %._crit_edge250.thread, %312, %24, %27, %2, %55, %36
-  %.0 = phi i32 [ -1, %55 ], [ 0, %36 ], [ 0, %2 ], [ -1, %27 ], [ -1, %24 ], [ 0, %312 ], [ 0, %._crit_edge250.thread ]
+315:                                              ; preds = %._crit_edge248.thread, %312, %24, %27, %2, %55, %36
+  %.0 = phi i32 [ -1, %55 ], [ 0, %36 ], [ 0, %2 ], [ -1, %27 ], [ -1, %24 ], [ 0, %312 ], [ 0, %._crit_edge248.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

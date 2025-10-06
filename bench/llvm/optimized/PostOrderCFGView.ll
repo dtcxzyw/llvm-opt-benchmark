@@ -728,7 +728,7 @@ define linkonce_odr hidden void @_ZN4llvm11po_iteratorIPKN5clang3CFGENS1_16PostO
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread
-  %.pre9 = phi ptr [ %7, %.lr.ph ], [ %.pre10, %_ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread ]
+  %.pre8 = phi ptr [ %7, %.lr.ph ], [ %.pre9, %_ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread ]
   %18 = phi i32 [ %8, %.lr.ph ], [ %52, %_ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread ]
   %19 = phi ptr [ %7, %.lr.ph ], [ %53, %_ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread ]
   %20 = phi ptr [ %13, %.lr.ph ], [ %58, %_ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread ]
@@ -782,7 +782,7 @@ define linkonce_odr hidden void @_ZN4llvm11po_iteratorIPKN5clang3CFGENS1_16PostO
 45:                                               ; preds = %38
   %46 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EELb0EE18growAndEmplaceBackIJRS5_SA_SA_EEERSB_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pre.pre = load ptr, ptr %5, align 8, !tbaa !23
-  %.pre8.pre = load i32, ptr %6, align 8, !tbaa !29
+  %.pre7.pre = load i32, ptr %6, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit
 
 47:                                               ; preds = %38
@@ -797,15 +797,15 @@ define linkonce_odr hidden void @_ZN4llvm11po_iteratorIPKN5clang3CFGENS1_16PostO
   br label %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit: ; preds = %45, %47
-  %.pre8 = phi i32 [ %.pre8.pre, %45 ], [ %51, %47 ]
-  %.pre = phi ptr [ %.pre.pre, %45 ], [ %.pre9, %47 ]
+  %.pre7 = phi i32 [ %.pre7.pre, %45 ], [ %51, %47 ]
+  %.pre = phi ptr [ %.pre.pre, %45 ], [ %.pre8, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread
 
 _ZN4llvm19po_iterator_storageIN5clang16PostOrderCFGView11CFGBlockSetELb1EE10insertEdgeIPKNS1_8CFGBlockEEEbSt8optionalIT_ESA_.exit.thread: ; preds = %25, %17, %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit
-  %.pre10 = phi ptr [ %.pre9, %25 ], [ %.pre9, %17 ], [ %.pre, %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit ]
-  %52 = phi i32 [ %18, %25 ], [ %18, %17 ], [ %.pre8, %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit ]
+  %.pre9 = phi ptr [ %.pre8, %25 ], [ %.pre8, %17 ], [ %.pre, %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit ]
+  %52 = phi i32 [ %18, %25 ], [ %18, %17 ], [ %.pre7, %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit ]
   %53 = phi ptr [ %19, %25 ], [ %19, %17 ], [ %.pre, %_ZN4llvm15SmallVectorImplISt5tupleIJPKN5clang8CFGBlockESt16reverse_iteratorIPKNS3_13AdjacentBlockEESA_EEE12emplace_backIJRS5_SA_SA_EEERSB_DpOT_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = zext i32 %52 to i64

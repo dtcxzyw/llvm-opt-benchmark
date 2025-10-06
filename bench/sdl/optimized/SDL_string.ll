@@ -409,12 +409,12 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 4:                                                ; preds = %2
   %5 = add nsw i32 %0, -65
   %or.cond = icmp ult i32 %5, 26
-  br i1 %or.cond, label %6, label %.thread129
+  br i1 %or.cond, label %6, label %.thread127
 
 6:                                                ; preds = %4
   %7 = or disjoint i32 %0, 32
   store i32 %7, ptr %1, align 4
-  br label %.thread125
+  br label %.thread124
 
 8:                                                ; preds = %2
   %9 = icmp ult i32 %0, 65536
@@ -437,29 +437,29 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
   %16 = load i8, ptr %15, align 8
   %17 = load ptr, ptr %14, align 16
   %18 = tail call i8 @llvm.umax.i8(i8 %16, i8 1)
-  %wide.trip.count166 = zext i8 %18 to i64
+  %wide.trip.count163 = zext i8 %18 to i64
   br label %.critedge
 
 19:                                               ; preds = %.critedge
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond167.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count166
-  br i1 %exitcond167.not, label %.lr.ph, label %.critedge, !llvm.loop !3
+  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
+  %exitcond164.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count163
+  br i1 %exitcond164.not, label %.lr.ph, label %.critedge, !llvm.loop !3
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %19
-  %indvars.iv162 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next163, %19 ]
-  %20 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv162
+  %indvars.iv159 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next160, %19 ]
+  %20 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv159
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   %.not107 = icmp eq i32 %0, %22
   br i1 %.not107, label %.thread, label %19
 
 .thread:                                          ; preds = %.critedge
-  %23 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv162
+  %23 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv159
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   store i32 %26, ptr %1, align 4
-  br label %.thread125
+  br label %.thread124
 
 .lr.ph:                                           ; preds = %19, %12, %12
   %27 = and i32 %11, 15
@@ -469,23 +469,23 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
   %31 = load i8, ptr %30, align 8
   %32 = load ptr, ptr %29, align 16
   %33 = tail call i8 @llvm.umax.i8(i8 %31, i8 1)
-  %wide.trip.count172 = zext i8 %33 to i64
+  %wide.trip.count169 = zext i8 %33 to i64
   br label %35
 
 34:                                               ; preds = %35
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge146, label %35, !llvm.loop !5
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
+  br i1 %exitcond170.not, label %._crit_edge143, label %35, !llvm.loop !5
 
 35:                                               ; preds = %.lr.ph, %34
-  %indvars.iv168 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next169, %34 ]
-  %36 = getelementptr inbounds nuw %struct.CaseFoldMapping2_16, ptr %32, i64 %indvars.iv168
+  %indvars.iv165 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next166, %34 ]
+  %36 = getelementptr inbounds nuw %struct.CaseFoldMapping2_16, ptr %32, i64 %indvars.iv165
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   %.not109 = icmp eq i32 %0, %38
-  br i1 %.not109, label %.thread120, label %34
+  br i1 %.not109, label %.thread119, label %34
 
-.thread120:                                       ; preds = %35
+.thread119:                                       ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
@@ -495,38 +495,38 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
   %44 = zext i16 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %44, ptr %45, align 4
-  br label %.thread125
+  br label %.thread124
 
-._crit_edge146:                                   ; preds = %34
+._crit_edge143:                                   ; preds = %34
   %46 = and i32 %11, 3
-  %.not112149.not = icmp eq i32 %46, 2
-  br i1 %.not112149.not, label %.thread129, label %.lr.ph152
+  %.not112146.not = icmp eq i32 %46, 2
+  br i1 %.not112146.not, label %.thread127, label %.lr.ph149
 
-.lr.ph152:                                        ; preds = %._crit_edge146
+.lr.ph149:                                        ; preds = %._crit_edge143
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw %struct.CaseFoldHashBucket3_16, ptr @case_fold_hash3_16, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 8
   %51 = load ptr, ptr %48, align 16
   %52 = tail call i8 @llvm.umax.i8(i8 %50, i8 1)
-  %wide.trip.count178 = zext i8 %52 to i64
+  %wide.trip.count175 = zext i8 %52 to i64
   br label %54
 
 53:                                               ; preds = %54
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %exitcond179.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count178
-  br i1 %exitcond179.not, label %.thread129, label %54, !llvm.loop !6
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %exitcond176.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count175
+  br i1 %exitcond176.not, label %.thread127, label %54, !llvm.loop !6
 
-54:                                               ; preds = %.lr.ph152, %53
-  %indvars.iv174 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next175, %53 ]
-  %55 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %51, i64 %indvars.iv174
+54:                                               ; preds = %.lr.ph149, %53
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next172, %53 ]
+  %55 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %51, i64 %indvars.iv171
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %.not111 = icmp eq i32 %0, %57
-  br i1 %.not111, label %.thread123, label %53
+  br i1 %.not111, label %.thread122, label %53
 
-.thread123:                                       ; preds = %54
-  %58 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %51, i64 %indvars.iv174
+.thread122:                                       ; preds = %54
+  %58 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %51, i64 %indvars.iv171
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
@@ -541,7 +541,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
   %68 = zext i16 %67 to i32
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %68, ptr %69, align 4
-  br label %.thread125
+  br label %.thread124
 
 .critedge114.lr.ph:                               ; preds = %8
   %70 = and i32 %11, 15
@@ -557,7 +557,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 77:                                               ; preds = %.critedge114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread129, label %.critedge114, !llvm.loop !7
+  br i1 %exitcond.not, label %.thread127, label %.critedge114, !llvm.loop !7
 
 .critedge114:                                     ; preds = %.critedge114.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.critedge114.lr.ph ], [ %indvars.iv.next, %77 ]
@@ -571,14 +571,14 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   store i32 %83, ptr %1, align 4
-  br label %.thread125
+  br label %.thread124
 
-.thread129:                                       ; preds = %77, %53, %._crit_edge146, %4
+.thread127:                                       ; preds = %77, %53, %._crit_edge143, %4
   store i32 %0, ptr %1, align 4
-  br label %.thread125
+  br label %.thread124
 
-.thread125:                                       ; preds = %.thread123, %.thread120, %.thread, %80, %.thread129, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %.thread129 ], [ 1, %80 ], [ 3, %.thread123 ], [ 2, %.thread120 ], [ 1, %.thread ]
+.thread124:                                       ; preds = %.thread122, %.thread119, %.thread, %80, %.thread127, %6
+  %.0 = phi i32 [ 1, %6 ], [ 1, %.thread127 ], [ 1, %80 ], [ 3, %.thread122 ], [ 2, %.thread119 ], [ 1, %.thread ]
   ret i32 %.0
 }
 

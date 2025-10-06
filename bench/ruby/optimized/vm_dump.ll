@@ -662,72 +662,72 @@ vm_block_self.exit:                               ; preds = %tailrecurse.i, %5
   %14 = call ptr @rb_string_value_cstr(ptr noundef nonnull %3) #13
   %15 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.7) #13
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %40, label %17
+  br i1 %16, label %42, label %17
 
 17:                                               ; preds = %vm_block_self.exit
   %18 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef %14) #13
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %40, label %tailrecurse.i9.preheader
+  br i1 %19, label %42, label %tailrecurse.i9.preheader
 
 tailrecurse.i9.preheader:                         ; preds = %17
   %20 = getelementptr i8, ptr %0, i64 24
   %.val.i1122 = load i32, ptr %20, align 8, !tbaa !83
-  %switch23 = icmp ult i32 %.val.i1122, 2
-  br i1 %switch23, label %vm_block_ep.exit, label %tailrecurse.i9
+  %21 = icmp eq i32 %.val.i1122, 3
+  br i1 %21, label %tailrecurse.i9, label %vm_block_ep.exit
 
 vm_block_ep.exit:                                 ; preds = %tailrecurse.i9, %tailrecurse.i9.preheader
-  %.tr.i10.lcssa = phi ptr [ %0, %tailrecurse.i9.preheader ], [ %28, %tailrecurse.i9 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.tr.i10.lcssa, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !85
-  %23 = getelementptr i8, ptr %22, i64 8
-  %.val = load i64, ptr %23, align 8, !tbaa !26
-  %24 = inttoptr i64 %.val to ptr
+  %.tr.i10.lcssa = phi ptr [ %0, %tailrecurse.i9.preheader ], [ %29, %tailrecurse.i9 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.tr.i10.lcssa, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !85
+  %24 = getelementptr i8, ptr %23, i64 8
+  %.val = load i64, ptr %24, align 8, !tbaa !26
+  %25 = inttoptr i64 %.val to ptr
   br label %tailrecurse.i13
 
 tailrecurse.i9:                                   ; preds = %tailrecurse.i9.preheader, %tailrecurse.i9
-  %.tr.i1024 = phi ptr [ %28, %tailrecurse.i9 ], [ %0, %tailrecurse.i9.preheader ]
-  %25 = load i64, ptr %.tr.i1024, align 8, !tbaa !85
-  %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !86
-  %29 = getelementptr i8, ptr %28, i64 24
-  %.val.i11 = load i32, ptr %29, align 8, !tbaa !83
-  %switch = icmp ult i32 %.val.i11, 2
-  br i1 %switch, label %vm_block_ep.exit, label %tailrecurse.i9
+  %.tr.i1023 = phi ptr [ %29, %tailrecurse.i9 ], [ %0, %tailrecurse.i9.preheader ]
+  %26 = load i64, ptr %.tr.i1023, align 8, !tbaa !85
+  %27 = inttoptr i64 %26 to ptr
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = load ptr, ptr %28, align 8, !tbaa !86
+  %30 = getelementptr i8, ptr %29, i64 24
+  %.val.i11 = load i32, ptr %30, align 8, !tbaa !83
+  %31 = icmp eq i32 %.val.i11, 3
+  br i1 %31, label %tailrecurse.i9, label %vm_block_ep.exit
 
-tailrecurse.i13:                                  ; preds = %33, %vm_block_ep.exit
-  %.val.i15 = phi i32 [ %.val.i1122, %vm_block_ep.exit ], [ %.val.i15.pre, %33 ]
-  %.tr.i14 = phi ptr [ %0, %vm_block_ep.exit ], [ %37, %33 ]
-  switch i32 %.val.i15, label %38 [
-    i32 0, label %30
-    i32 1, label %30
-    i32 3, label %33
+tailrecurse.i13:                                  ; preds = %35, %vm_block_ep.exit
+  %.val.i15 = phi i32 [ %.val.i1122, %vm_block_ep.exit ], [ %.val.i15.pre, %35 ]
+  %.tr.i14 = phi ptr [ %0, %vm_block_ep.exit ], [ %39, %35 ]
+  switch i32 %.val.i15, label %40 [
+    i32 0, label %32
+    i32 1, label %32
+    i32 3, label %35
     i32 2, label %vm_block_ep.exit17
   ]
 
-30:                                               ; preds = %tailrecurse.i13, %tailrecurse.i13
-  %31 = getelementptr inbounds nuw i8, ptr %.tr.i14, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !85
+32:                                               ; preds = %tailrecurse.i13, %tailrecurse.i13
+  %33 = getelementptr inbounds nuw i8, ptr %.tr.i14, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !85
   br label %vm_block_ep.exit17
 
-33:                                               ; preds = %tailrecurse.i13
-  %34 = load i64, ptr %.tr.i14, align 8, !tbaa !85
-  %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !86
-  %.phi.trans.insert = getelementptr i8, ptr %37, i64 24
+35:                                               ; preds = %tailrecurse.i13
+  %36 = load i64, ptr %.tr.i14, align 8, !tbaa !85
+  %37 = inttoptr i64 %36 to ptr
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !86
+  %.phi.trans.insert = getelementptr i8, ptr %39, i64 24
   %.val.i15.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !83
   br label %tailrecurse.i13
 
-38:                                               ; preds = %tailrecurse.i13
+40:                                               ; preds = %tailrecurse.i13
   unreachable
 
-vm_block_ep.exit17:                               ; preds = %tailrecurse.i13, %30
-  %.0.i16 = phi ptr [ %32, %30 ], [ null, %tailrecurse.i13 ]
-  %39 = call zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %24, ptr noundef %.0.i16, ptr noundef %1)
-  br label %40
+vm_block_ep.exit17:                               ; preds = %tailrecurse.i13, %32
+  %.0.i16 = phi ptr [ %34, %32 ], [ null, %tailrecurse.i13 ]
+  %41 = call zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %25, ptr noundef %.0.i16, ptr noundef %1)
+  br label %42
 
-40:                                               ; preds = %vm_block_self.exit, %17, %vm_block_ep.exit17
+42:                                               ; preds = %vm_block_self.exit, %17, %vm_block_ep.exit17
   %.0 = phi i1 [ true, %vm_block_ep.exit17 ], [ false, %17 ], [ false, %vm_block_self.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -1615,9 +1615,9 @@ RSTRING_PTR.exit:                                 ; preds = %319, %328
 337:                                              ; preds = %334
   %338 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.26) #13
   %339 = icmp slt i32 %338, 0
-  br i1 %339, label %.thread159, label %.preheader165
+  br i1 %339, label %.thread159, label %.preheader164
 
-.preheader165:                                    ; preds = %337, %423
+.preheader164:                                    ; preds = %337, %423
   %.088 = phi i32 [ %424, %423 ], [ 0, %337 ]
   %340 = sext i32 %.088 to i64
   %341 = load i64, ptr %335, align 8, !tbaa !147
@@ -1627,13 +1627,13 @@ RSTRING_PTR.exit:                                 ; preds = %319, %328
   %.not.i125 = icmp eq i64 %344, 0
   br i1 %.not.i125, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
-rb_array_len.exit:                                ; preds = %.preheader165
+rb_array_len.exit:                                ; preds = %.preheader164
   %345 = getelementptr inbounds nuw i8, ptr %342, i64 16
   %346 = load i64, ptr %345, align 8, !tbaa !85
   %347 = icmp sgt i64 %346, %340
   br i1 %347, label %352, label %.loopexit
 
-rb_array_len.exit.thread:                         ; preds = %.preheader165
+rb_array_len.exit.thread:                         ; preds = %.preheader164
   %348 = lshr i64 %343, 15
   %349 = and i64 %348, 127
   %350 = icmp sgt i64 %349, %340
@@ -1780,7 +1780,7 @@ RSTRING_PTR.exit140:                              ; preds = %412, %419
 
 423:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit119.thread, %RSTRING_PTR.exit140, %rbimpl_RB_TYPE_P_fastpath.exit117.thread, %RSTRING_PTR.exit136, %RSTRING_PTR.exit132
   %424 = add i32 %.088, 1
-  br label %.preheader165, !llvm.loop !148
+  br label %.preheader164, !llvm.loop !148
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %334
   %425 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.1) #13

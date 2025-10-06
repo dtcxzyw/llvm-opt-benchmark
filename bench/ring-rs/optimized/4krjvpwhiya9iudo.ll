@@ -452,8 +452,8 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17h44e99081b328cf8
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !12, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %.not.not.i.not = icmp eq i64 %4, 0
-  br i1 %.not.not.i.not, label %9, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i
+  %.not7.not.i.not = icmp eq i64 %4, 0
+  br i1 %.not7.not.i.not, label %9, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i
 
 _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i: ; preds = %1
   %5 = load i8, ptr %2, align 1, !noalias !61, !noundef !4
@@ -778,8 +778,8 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.57.0.copyload = load i64, ptr %.sroa.57.0..sroa_idx, align 8
-  %.not30.i.not = icmp eq i64 %5, 0
-  br i1 %.not30.i.not, label %.loopexit, label %6
+  %.not25.i.not = icmp eq i64 %5, 0
+  br i1 %.not25.i.not, label %.loopexit, label %6
 
 6:                                                ; preds = %2
   %.sroa.06.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -805,7 +805,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
   br i1 %17, label %"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ring..rsa..padding..Verification$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h6d8459b1931f626fE.llvm.4525565709555364834.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit.i"
-  %.sroa.0.032.i = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 1
+  %.sroa.0.027.i = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 1
   br label %19
 
 18:                                               ; preds = %12
@@ -813,7 +813,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
   unreachable
 
 19:                                               ; preds = %21, %.lr.ph.i
-  %.sroa.0.033.i = phi ptr [ %.sroa.0.032.i, %.lr.ph.i ], [ %.sroa.0.0.i, %21 ]
+  %.sroa.0.028.i = phi ptr [ %.sroa.0.027.i, %.lr.ph.i ], [ %.sroa.0.0.i, %21 ]
   %20 = phi i64 [ 1, %.lr.ph.i ], [ %23, %21 ]
   %exitcond.not = icmp eq i64 %20, %5
   br i1 %exitcond.not, label %.loopexit, label %21
@@ -822,10 +822,10 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
   %22 = getelementptr inbounds i8, ptr %3, i64 %20
   %23 = add i64 %20, 1
   %24 = load i8, ptr %22, align 1, !noalias !122, !noundef !4
-  %25 = load i8, ptr %.sroa.0.033.i, align 1, !noalias !120, !noundef !4
+  %25 = load i8, ptr %.sroa.0.028.i, align 1, !noalias !120, !noundef !4
   %26 = xor i8 %25, %24
-  store i8 %26, ptr %.sroa.0.033.i, align 1, !noalias !120
-  %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i, i64 1
+  store i8 %26, ptr %.sroa.0.028.i, align 1, !noalias !120
+  %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.028.i, i64 1
   %27 = icmp eq ptr %.sroa.0.0.i, %16
   br i1 %27, label %"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ring..rsa..padding..Verification$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h6d8459b1931f626fE.llvm.4525565709555364834.exit", label %19
 
@@ -890,8 +890,8 @@ define hidden void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr n
 
 28:                                               ; preds = %19
   %.sroa.612.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.6.0..sroa_idx.i14.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx.i14.i.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.612.0..sroa_idx.i.i.i, i64 216, i1 false), !noalias !135
+  %.sroa.6.0..sroa_idx.i13.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx.i13.i.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.612.0..sroa_idx.i.i.i, i64 216, i1 false), !noalias !135
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !135
   store ptr %22, ptr %6, align 8, !noalias !135
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -900,8 +900,8 @@ define hidden void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr n
   store i64 %27, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !135
   %29 = load i64, ptr %21, align 8, !noalias !135, !noundef !4
   %30 = load i64, ptr %20, align 8, !noalias !135, !noundef !4
-  %.not.i15.i.i = icmp eq i64 %29, %30
-  br i1 %.not.i15.i.i, label %33, label %32
+  %.not.i14.i.i = icmp eq i64 %29, %30
+  br i1 %.not.i14.i.i, label %33, label %32
 
 31:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !135
@@ -920,7 +920,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr n
 
 33:                                               ; preds = %28
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx.i14.i.i, i64 216, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx.i13.i.i, i64 216, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !135
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !135
   store ptr %22, ptr %9, align 8
@@ -990,8 +990,8 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59
 
 12:                                               ; preds = %1
   %.not.i.i.i.i.i = icmp ne i8 %.sroa.04.0.copyload.i.i.i.i.i, 3
-  %.not.not.i.not.i.i.i.i.i = icmp eq i64 %.sroa.6.0.copyload.i.i.i.i.i, 0
-  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not.not.i.not.i.i.i.i.i
+  %.not7.not.i.not.i.i.i.i.i = icmp eq i64 %.sroa.6.0.copyload.i.i.i.i.i, 0
+  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not7.not.i.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %20, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i
 
 _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i: ; preds = %12
@@ -1031,54 +1031,54 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %6 = load i64, ptr %.sroa.06.0.copyload, align 8, !noalias !159, !noundef !4
-  %.not51.i = icmp eq i64 %6, 0
-  br i1 %.not51.i, label %.loopexit, label %.lr.ph45.i
+  %.not45.i = icmp eq i64 %6, 0
+  br i1 %.not45.i, label %.loopexit, label %.lr.ph39.i
 
-.lr.ph45.i:                                       ; preds = %2
+.lr.ph39.i:                                       ; preds = %2
   %7 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   %.pre.i = load i64, ptr %.sroa.4.0.copyload, align 8, !noalias !159
   br label %8
 
-8:                                                ; preds = %26, %.lr.ph45.i
-  %.sroa.8.0 = phi i64 [ 0, %.lr.ph45.i ], [ %.sroa.8.2, %26 ]
-  %9 = phi i64 [ %.pre.i, %.lr.ph45.i ], [ 8, %26 ]
-  %.promoted49.i = phi i64 [ 0, %.lr.ph45.i ], [ %.promoted48.i, %26 ]
-  %.sroa.01.043.i = phi i64 [ 0, %.lr.ph45.i ], [ %10, %26 ]
-  %10 = add nuw i64 %.sroa.01.043.i, 1
-  %.not52.i = icmp eq i64 %9, 0
-  br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+8:                                                ; preds = %26, %.lr.ph39.i
+  %.sroa.8.0 = phi i64 [ 0, %.lr.ph39.i ], [ %.sroa.8.2, %26 ]
+  %9 = phi i64 [ %.pre.i, %.lr.ph39.i ], [ 8, %26 ]
+  %.promoted43.i = phi i64 [ 0, %.lr.ph39.i ], [ %.promoted42.i, %26 ]
+  %.sroa.01.037.i = phi i64 [ 0, %.lr.ph39.i ], [ %10, %26 ]
+  %10 = add nuw i64 %.sroa.01.037.i, 1
+  %.not46.i = icmp eq i64 %9, 0
+  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %8
-  %11 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %.promoted49.i)
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %.promoted43.i)
   %12 = add i64 %9, -1
   %.not.not = icmp ugt i64 %11, %12
   br i1 %.not.not, label %.lr.ph.i, label %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit"
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %13 = add i64 %9, %.promoted49.i
+  %13 = add i64 %9, %.promoted43.i
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %8
   %.sroa.8.2 = phi i64 [ %.sroa.8.0, %8 ], [ %13, %._crit_edge.i.loopexit ]
-  %.promoted48.i = phi i64 [ %.promoted49.i, %8 ], [ %13, %._crit_edge.i.loopexit ]
+  %.promoted42.i = phi i64 [ %.promoted43.i, %8 ], [ %13, %._crit_edge.i.loopexit ]
   %.016.lcssa.i = phi i64 [ 0, %8 ], [ %25, %._crit_edge.i.loopexit ]
   %14 = load i64, ptr %.sroa.06.0.copyload, align 8, !noalias !159, !noundef !4
-  %15 = xor i64 %.sroa.01.043.i, -1
+  %15 = xor i64 %.sroa.01.037.i, -1
   %16 = add i64 %14, %15
   %17 = icmp ult i64 %16, %.sroa.6.0.copyload
   br i1 %17, label %26, label %28, !prof !163
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %18 = phi i64 [ %21, %.lr.ph.i ], [ %.promoted49.i, %.lr.ph.i.preheader ]
-  %.01642.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.sroa.07.041.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %19 = add nuw i64 %.sroa.07.041.i, 1
+  %18 = phi i64 [ %21, %.lr.ph.i ], [ %.promoted43.i, %.lr.ph.i.preheader ]
+  %.01636.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.sroa.07.035.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %19 = add nuw i64 %.sroa.07.035.i, 1
   %20 = getelementptr inbounds i8, ptr %3, i64 %18
   %21 = add nuw i64 %18, 1
   %22 = load i8, ptr %20, align 1, !noalias !164, !noundef !4
   %23 = zext i8 %22 to i64
-  %24 = shl i64 %.01642.i, 8
+  %24 = shl i64 %.01636.i, 8
   %25 = or disjoint i64 %24, %23
   %exitcond.not.i = icmp eq i64 %19, %9
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
@@ -1087,8 +1087,8 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   %27 = getelementptr inbounds i64, ptr %.sroa.57.0.copyload, i64 %16
   store i64 %.016.lcssa.i, ptr %27, align 8, !noalias !159
   store i64 8, ptr %.sroa.4.0.copyload, align 8, !noalias !159
-  %exitcond57.not.i = icmp eq i64 %10, %6
-  br i1 %exitcond57.not.i, label %.loopexit, label %8
+  %exitcond51.not.i = icmp eq i64 %10, %6
+  br i1 %exitcond51.not.i, label %.loopexit, label %8
 
 28:                                               ; preds = %._crit_edge.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %16, i64 noundef %.sroa.6.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ff1dd95649c33f7f644ca666ff5dfd9.13) #13, !noalias !159
@@ -1123,8 +1123,8 @@ define hidden { ptr, i64 } @_ZN4ring2io3der6nested17h097f5b9f87b4d413E(ptr noali
   %9 = icmp ult i8 %8, -93
   tail call void @llvm.assume(i1 %9)
   %.not.i = icmp ne i8 %1, %.sroa.04.0.copyload.i
-  %.not.not.i.not.i = icmp eq i64 %.sroa.6.0.copyload.i, 0
-  %or.cond = select i1 %.not.i, i1 true, i1 %.not.not.i.not.i
+  %.not7.not.i.not.i = icmp eq i64 %.sroa.6.0.copyload.i, 0
+  %or.cond = select i1 %.not.i, i1 true, i1 %.not7.not.i.not.i
   br i1 %or.cond, label %_ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.exit, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i
 
 _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i: ; preds = %7
@@ -1274,8 +1274,8 @@ define hidden { ptr, i64 } @_ZN4ring2io3der6nested17h871765488c25baf8E(ptr noali
 
 18:                                               ; preds = %12
   %.not.i.i.i.i.i.i = icmp ne i8 %.sroa.04.0.copyload.i.i.i.i.i.i, 3
-  %.not.not.i.not.i.i.i.i.i.i = icmp eq i64 %.sroa.6.0.copyload.i.i.i.i.i.i, 0
-  %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %.not.not.i.not.i.i.i.i.i.i
+  %.not7.not.i.not.i.i.i.i.i.i = icmp eq i64 %.sroa.6.0.copyload.i.i.i.i.i.i, 0
+  %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %.not7.not.i.not.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i
 
 _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i: ; preds = %18
@@ -1332,10 +1332,10 @@ define void @_ZN4ring3cpu5intel32init_global_shared_with_assembly17h0ac86681fed7
 define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %.not51 = icmp eq i64 %4, 0
-  br i1 %.not51, label %.thread, label %.lr.ph45
+  %.not45 = icmp eq i64 %4, 0
+  br i1 %.not45, label %.thread, label %.lr.ph39
 
-.lr.ph45:                                         ; preds = %2
+.lr.ph39:                                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !align !5, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1346,35 +1346,35 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !5
-  %.promoted47 = load i64, ptr %7, align 8
+  %.promoted41 = load i64, ptr %7, align 8
   %.pre = load i64, ptr %6, align 8
   br label %15
 
-15:                                               ; preds = %.lr.ph45, %24
-  %16 = phi i64 [ %.pre, %.lr.ph45 ], [ 8, %24 ]
-  %.promoted49 = phi i64 [ %.promoted47, %.lr.ph45 ], [ %.promoted48, %24 ]
-  %.sroa.01.043 = phi i64 [ 0, %.lr.ph45 ], [ %17, %24 ]
-  %17 = add nuw i64 %.sroa.01.043, 1
-  %.not52 = icmp eq i64 %16, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph
+15:                                               ; preds = %.lr.ph39, %24
+  %16 = phi i64 [ %.pre, %.lr.ph39 ], [ 8, %24 ]
+  %.promoted43 = phi i64 [ %.promoted41, %.lr.ph39 ], [ %.promoted42, %24 ]
+  %.sroa.01.037 = phi i64 [ 0, %.lr.ph39 ], [ %17, %24 ]
+  %17 = add nuw i64 %.sroa.01.037, 1
+  %.not46 = icmp eq i64 %16, 0
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %24, %.lr.ph, %2
   %18 = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ false, %24 ]
   ret i1 %18
 
 ._crit_edge:                                      ; preds = %27, %15
-  %.promoted48 = phi i64 [ %.promoted49, %15 ], [ %30, %27 ]
+  %.promoted42 = phi i64 [ %.promoted43, %15 ], [ %30, %27 ]
   %.016.lcssa = phi i64 [ 0, %15 ], [ %34, %27 ]
   %19 = load i64, ptr %3, align 8, !noundef !4
-  %20 = xor i64 %.sroa.01.043, -1
+  %20 = xor i64 %.sroa.01.037, -1
   %21 = add i64 %19, %20
   %22 = icmp ult i64 %21, %12
   br i1 %22, label %24, label %26, !prof !163
 
 .lr.ph:                                           ; preds = %15, %27
-  %23 = phi i64 [ %30, %27 ], [ %.promoted49, %15 ]
-  %.01642 = phi i64 [ %34, %27 ], [ 0, %15 ]
-  %.sroa.07.041 = phi i64 [ %28, %27 ], [ 0, %15 ]
+  %23 = phi i64 [ %30, %27 ], [ %.promoted43, %15 ]
+  %.01636 = phi i64 [ %34, %27 ], [ 0, %15 ]
+  %.sroa.07.035 = phi i64 [ %28, %27 ], [ 0, %15 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %.not = icmp ult i64 %23, %9
   br i1 %.not, label %27, label %.thread
@@ -1383,21 +1383,21 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
   %25 = getelementptr inbounds i64, ptr %14, i64 %21
   store i64 %.016.lcssa, ptr %25, align 8
   store i64 8, ptr %6, align 8
-  %exitcond57.not = icmp eq i64 %17, %4
-  br i1 %exitcond57.not, label %.thread, label %15
+  %exitcond51.not = icmp eq i64 %17, %4
+  br i1 %exitcond51.not, label %.thread, label %15
 
 26:                                               ; preds = %._crit_edge
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %21, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ff1dd95649c33f7f644ca666ff5dfd9.13) #13
   unreachable
 
 27:                                               ; preds = %.lr.ph
-  %28 = add nuw i64 %.sroa.07.041, 1
+  %28 = add nuw i64 %.sroa.07.035, 1
   %29 = getelementptr inbounds i8, ptr %10, i64 %23
   %30 = add nuw i64 %23, 1
   store i64 %30, ptr %7, align 8, !alias.scope !213
   %31 = load i8, ptr %29, align 1, !noalias !213, !noundef !4
   %32 = zext i8 %31 to i64
-  %33 = shl i64 %.01642, 8
+  %33 = shl i64 %.01636, 8
   %34 = or disjoint i64 %33, %32
   %exitcond.not = icmp eq i64 %28, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1410,8 +1410,8 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   %4 = load i64, ptr %3, align 8, !alias.scope !216, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !216, !noundef !4
-  %.not30 = icmp ult i64 %4, %6
-  br i1 %.not30, label %7, label %.loopexit
+  %.not25 = icmp ult i64 %4, %6
+  br i1 %.not25, label %7, label %.loopexit
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !alias.scope !216, !nonnull !4, !align !12
@@ -1443,7 +1443,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   br i1 %25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit"
-  %.sroa.0.032 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %.sroa.0.027 = getelementptr inbounds nuw i8, ptr %21, i64 1
   br label %27
 
 26:                                               ; preds = %17
@@ -1451,14 +1451,14 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   unreachable
 
 27:                                               ; preds = %.lr.ph, %29
-  %.sroa.0.033 = phi ptr [ %.sroa.0.032, %.lr.ph ], [ %.sroa.0.0, %29 ]
+  %.sroa.0.028 = phi ptr [ %.sroa.0.027, %.lr.ph ], [ %.sroa.0.0, %29 ]
   %28 = phi i64 [ %10, %.lr.ph ], [ %31, %29 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
-  %.not31.not.not = icmp uge i64 %28, %6
-  br i1 %.not31.not.not, label %.loopexit, label %29
+  %.not26.not.not = icmp uge i64 %28, %6
+  br i1 %.not26.not.not, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %29, %27, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit", %2, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %.not31.not.not, %27 ], [ %.not31.not.not, %29 ]
+  %.0 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %.not26.not.not, %27 ], [ %.not26.not.not, %29 ]
   ret i1 %.0
 
 29:                                               ; preds = %27
@@ -1466,10 +1466,10 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   %31 = add nuw i64 %28, 1
   store i64 %31, ptr %3, align 8, !alias.scope !219
   %32 = load i8, ptr %30, align 1, !noalias !219, !noundef !4
-  %33 = load i8, ptr %.sroa.0.033, align 1, !noundef !4
+  %33 = load i8, ptr %.sroa.0.028, align 1, !noundef !4
   %34 = xor i8 %33, %32
-  store i8 %34, ptr %.sroa.0.033, align 1
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 1
+  store i8 %34, ptr %.sroa.0.028, align 1
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.028, i64 1
   %35 = icmp eq ptr %.sroa.0.0, %24
   br i1 %35, label %.loopexit, label %27
 }

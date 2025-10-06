@@ -2597,7 +2597,7 @@ define void @_ZNK10open_spiel12breakthrough17BreakthroughState12LegalActionsEv(p
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 25:                                               ; preds = %16, %11
-  %switch = phi i32 [ 1, %16 ], [ 2, %11 ]
+  %spec.select = phi i32 [ 1, %16 ], [ 2, %11 ]
   %.04.i = phi i32 [ 2, %16 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2818,7 +2818,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
 125:                                              ; preds = %79
   %126 = and i64 %indvars.iv, 1
   %or.cond = icmp eq i64 %126, 0
-  %127 = icmp eq i32 %92, %switch
+  %127 = icmp eq i32 %92, %spec.select
   %or.cond144 = and i1 %or.cond, %127
   br i1 %or.cond144, label %128, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 

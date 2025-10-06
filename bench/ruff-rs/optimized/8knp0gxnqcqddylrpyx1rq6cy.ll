@@ -4294,12 +4294,12 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN83_$LT$ty_test..assertion..ErrorAssertionParseError$u20$as$u20$core..error..Error$GT$6source17h9a3786a13312f818E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
   %2 = load i8, ptr %0, align 8, !range !397, !noundef !3
-  %switch = icmp eq i8 %2, 1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr @anon.35fae172b15448b848af16c19885cbac.160, 1
-  ret { ptr, ptr } %5
+  %3 = icmp eq i8 %2, 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sroa.0.0 = select i1 %3, ptr %4, ptr null
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr @anon.35fae172b15448b848af16c19885cbac.160, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

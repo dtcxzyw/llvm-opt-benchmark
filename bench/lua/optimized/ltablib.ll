@@ -589,12 +589,12 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %5, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %4, %92
-  %.07597 = phi i32 [ %.1, %92 ], [ %3, %4 ]
-  %.07696 = phi i32 [ %.278, %92 ], [ %2, %4 ]
-  %.07995 = phi i32 [ %.281, %92 ], [ %1, %4 ]
-  %6 = zext i32 %.07995 to i64
+  %.07596 = phi i32 [ %.1, %92 ], [ %3, %4 ]
+  %.07695 = phi i32 [ %.278, %92 ], [ %2, %4 ]
+  %.07994 = phi i32 [ %.281, %92 ], [ %1, %4 ]
+  %6 = zext i32 %.07994 to i64
   %7 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %6) #3
-  %8 = zext i32 %.07696 to i64
+  %8 = zext i32 %.07695 to i64
   %9 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %8) #3
   %10 = tail call fastcc i32 @sort_comp(ptr noundef %0, i32 noundef -1, i32 noundef -2)
   %.not = icmp eq i32 %10, 0
@@ -610,28 +610,28 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %13
 
 13:                                               ; preds = %12, %11
-  %14 = sub i32 %.07696, %.07995
+  %14 = sub i32 %.07695, %.07994
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %13
   %17 = icmp ult i32 %14, 100
-  %18 = icmp eq i32 %.07597, 0
+  %18 = icmp eq i32 %.07596, 0
   %or.cond = select i1 %17, i1 true, i1 %18
   br i1 %or.cond, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = add i32 %.07696, %.07995
+  %20 = add i32 %.07695, %.07994
   %21 = lshr i32 %20, 1
   br label %30
 
 22:                                               ; preds = %16
   %23 = lshr i32 %14, 2
-  %24 = xor i32 %.07696, %.07995
-  %25 = xor i32 %24, %.07597
+  %24 = xor i32 %.07695, %.07994
+  %25 = xor i32 %24, %.07596
   %26 = shl nuw nsw i32 %23, 1
   %27 = urem i32 %25, %26
-  %28 = add i32 %23, %.07995
+  %28 = add i32 %23, %.07994
   %29 = add i32 %28, %27
   br label %30
 
@@ -672,18 +672,18 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
 43:                                               ; preds = %41
   %44 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %31) #3
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #3
-  %45 = add i32 %.07696, -1
+  %45 = add i32 %.07695, -1
   %46 = zext i32 %45 to i64
   %47 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %46) #3
   br label %48
 
 48:                                               ; preds = %78, %43
   %.lcssa.sink = phi i64 [ %31, %43 ], [ %51, %78 ]
-  %.lcssa111.sink = phi i64 [ %46, %43 ], [ %65, %78 ]
-  %.025.i = phi i32 [ %.07995, %43 ], [ %50, %78 ]
+  %.lcssa110.sink = phi i64 [ %46, %43 ], [ %65, %78 ]
+  %.025.i = phi i32 [ %.07994, %43 ], [ %50, %78 ]
   %.0.i = phi i32 [ %45, %43 ], [ %64, %78 ]
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.lcssa.sink) #3
-  tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.lcssa111.sink) #3
+  tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.lcssa110.sink) #3
   br label %49
 
 49:                                               ; preds = %63, %48
@@ -771,24 +771,24 @@ partition.exit:                                   ; preds = %78
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %46) #3
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %51) #3
-  %79 = sub i32 %50, %.07995
-  %80 = sub i32 %.07696, %50
+  %79 = sub i32 %50, %.07994
+  %80 = sub i32 %.07695, %50
   %81 = icmp ult i32 %79, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %partition.exit
-  tail call fastcc void @auxsort(ptr noundef %0, i32 noundef %.07995, i32 noundef %.126.i, i32 noundef %.07597)
+  tail call fastcc void @auxsort(ptr noundef %0, i32 noundef %.07994, i32 noundef %.126.i, i32 noundef %.07596)
   %83 = add i32 %.126.i, 2
   br label %86
 
 84:                                               ; preds = %partition.exit
   %85 = add i32 %.126.i, 2
-  tail call fastcc void @auxsort(ptr noundef %0, i32 noundef %85, i32 noundef %.07696, i32 noundef %.07597)
+  tail call fastcc void @auxsort(ptr noundef %0, i32 noundef %85, i32 noundef %.07695, i32 noundef %.07596)
   br label %86
 
 86:                                               ; preds = %84, %82
-  %.281 = phi i32 [ %83, %82 ], [ %.07995, %84 ]
-  %.278 = phi i32 [ %.07696, %82 ], [ %.126.i, %84 ]
+  %.281 = phi i32 [ %83, %82 ], [ %.07994, %84 ]
+  %.278 = phi i32 [ %.07695, %82 ], [ %.126.i, %84 ]
   %.073 = phi i32 [ %79, %82 ], [ %80, %84 ]
   %87 = sub i32 %.278, %.281
   %88 = lshr i32 %87, 7
@@ -800,7 +800,7 @@ partition.exit:                                   ; preds = %78
   br label %92
 
 92:                                               ; preds = %86, %90
-  %.1 = phi i32 [ %91, %90 ], [ %.07597, %86 ]
+  %.1 = phi i32 [ %91, %90 ], [ %.07596, %86 ]
   %93 = icmp ult i32 %.281, %.278
   br i1 %93, label %.lr.ph, label %.thread
 

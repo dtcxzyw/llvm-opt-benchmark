@@ -96,8 +96,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br label %"_ZN93_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38ef1b0408e779efE.llvm.10555996572525425549.exit.thread"
 
 "_ZN93_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38ef1b0408e779efE.llvm.10555996572525425549.exit.thread": ; preds = %2, %7
-  %.sroa.04.0.i3 = phi i64 [ 1, %7 ], [ 0, %2 ]
-  store i64 %.sroa.04.0.i3, ptr %0, align 8
+  %.sroa.04.0.i2 = phi i64 [ 1, %7 ], [ 0, %2 ]
+  store i64 %.sroa.04.0.i2, ptr %0, align 8
   ret void
 }
 

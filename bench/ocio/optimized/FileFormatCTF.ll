@@ -15042,8 +15042,8 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !179
   %11 = load ptr, ptr %2, align 8, !tbaa !174
-  %.not29 = icmp eq ptr %10, %11
-  br i1 %.not29, label %.loopexit, label %.lr.ph.preheader
+  %.not28 = icmp eq ptr %10, %11
+  br i1 %.not28, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
   %12 = ptrtoint ptr %10 to i64
@@ -15053,14 +15053,14 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   br label %.lr.ph
 
 16:                                               ; preds = %.lr.ph
-  %17 = add nuw i64 %.01828, 1
+  %17 = add nuw i64 %.01827, 1
   %exitcond.not = icmp eq i64 %17, %15
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !393
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %.01828 = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader ]
+  %.01827 = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader ]
   %18 = load ptr, ptr %2, align 8, !tbaa !174
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01828
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01827
   %20 = load ptr, ptr %19, align 8, !tbaa !173
   %21 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull %0, ptr noundef %20)
   %22 = icmp eq i32 %21, 0
@@ -15078,8 +15078,8 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr %1, align 8, !tbaa !74
-  %.not27 = icmp eq ptr %26, null
-  br i1 %.not27, label %.loopexit, label %27
+  %.not26 = icmp eq ptr %26, null
+  br i1 %.not26, label %.loopexit, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -15779,8 +15779,8 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   %.not21 = icmp ne i8 %10, 0
   %11 = load ptr, ptr %1, align 8
   %12 = icmp ne ptr %11, null
-  %or.cond3 = select i1 %.not21, i1 %12, i1 false
-  br i1 %or.cond3, label %13, label %.thread
+  %or.cond2 = select i1 %.not21, i1 %12, i1 false
+  br i1 %or.cond2, label %13, label %.thread
 
 13:                                               ; preds = %9
   %14 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %2)
@@ -15791,8 +15791,8 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   store i8 1, ptr %3, align 1, !tbaa !203
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN19OpenColorIO_v2_5dev12_GLOBAL__N_115XMLParserHelper19StartElementHandlerEPvPKcPS4_E26gradingRGBCurveSubElements, i64 8), align 8, !tbaa !179
   %18 = load ptr, ptr @_ZZN19OpenColorIO_v2_5dev12_GLOBAL__N_115XMLParserHelper19StartElementHandlerEPvPKcPS4_E26gradingRGBCurveSubElements, align 8, !tbaa !174
-  %.not7 = icmp eq ptr %17, %18
-  br i1 %.not7, label %.thread, label %.lr.ph.preheader
+  %.not6 = icmp eq ptr %17, %18
+  br i1 %.not6, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
   %19 = ptrtoint ptr %17 to i64
@@ -15802,19 +15802,19 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0174 = phi i64 [ 0, %.lr.ph.preheader ], [ %31, %.lr.ph ]
+  %.0173 = phi i64 [ 0, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   %23 = load ptr, ptr %1, align 8, !tbaa !74
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = load ptr, ptr @_ZZN19OpenColorIO_v2_5dev12_GLOBAL__N_115XMLParserHelper19StartElementHandlerEPvPKcPS4_E26gradingRGBCurveSubElements, align 8, !tbaa !174
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.0174
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.0173
   %28 = load ptr, ptr %27, align 8, !tbaa !173
   %29 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %25, ptr noundef %28)
   %30 = icmp eq i32 %29, 0
-  %31 = add nuw i64 %.0174, 1
+  %31 = add nuw i64 %.0173, 1
   %exitcond.not = icmp eq i64 %31, %22
-  %or.cond10 = select i1 %30, i1 true, i1 %exitcond.not
-  br i1 %or.cond10, label %.thread, label %.lr.ph, !llvm.loop !404
+  %or.cond9 = select i1 %30, i1 true, i1 %exitcond.not
+  br i1 %or.cond9, label %.thread, label %.lr.ph, !llvm.loop !404
 
 .thread:                                          ; preds = %.lr.ph, %16, %4, %5, %9, %13
   %.1 = phi i1 [ false, %13 ], [ false, %9 ], [ false, %5 ], [ false, %4 ], [ false, %16 ], [ %30, %.lr.ph ]

@@ -71,7 +71,7 @@ define internal i32 @jpegxl_parse(ptr noundef captures(none) %0, ptr noundef %1,
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %44 = load i32, ptr %43, align 4, !tbaa !23
   %.not58 = icmp eq i32 %44, 0
-  br i1 %.not58, label %45, label %.thread73
+  br i1 %.not58, label %45, label %.thread72
 
 45:                                               ; preds = %42, %6
   %.053 = phi ptr [ %38, %6 ], [ %4, %42 ]
@@ -85,7 +85,7 @@ define internal i32 @jpegxl_parse(ptr noundef captures(none) %0, ptr noundef %1,
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 168
   %50 = load i64, ptr %49, align 8, !tbaa !25
   %.not60 = icmp eq i64 %50, 0
-  br i1 %.not60, label %51, label %.thread.thread159
+  br i1 %.not60, label %51, label %.thread.thread158
 
 51:                                               ; preds = %48, %45
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 184
@@ -1398,12 +1398,11 @@ jxl_u32.exit322.i.i:                              ; preds = %get_bits_long.exit3
   br i1 %793, label %try_parse.exit.thread, label %794
 
 794:                                              ; preds = %792
-  switch i32 %319, label %.thread511.i.i [
-    i32 0, label %795
-    i32 3, label %795
-  ]
+  %.off.i = add nsw i32 %319, -1
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %.thread511.i.i, label %795
 
-795:                                              ; preds = %794, %794
+795:                                              ; preds = %794
   %796 = load i32, ptr %218, align 4, !tbaa !74
   %.not276.i.i = icmp ne i32 %796, 0
   br label %799
@@ -2605,13 +2604,13 @@ jxl_u32.exit337.i.i:                              ; preds = %get_bits_long.exit4
 
 try_parse.exit.thread:                            ; preds = %1422, %jxl_u32.exit.i.i, %792, %jxl_u32.exit334.i.i, %1076, %.thread575.i.i, %1102, %1120, %1138, %1165, %1153, %1167, %1189, %.thread580.i.i, %1191, %888, %1163, %1187, %jxl_u32.exit337.i.i, %75, %54, %208, %178, %.thread604.i.i, %66, %82, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br label %.thread73
+  br label %.thread72
 
 try_parse.exit:                                   ; preds = %175, %1420
   %.061.i = phi i64 [ %177, %175 ], [ %1421, %1420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %1430 = icmp slt i64 %.061.i, 0
-  br i1 %1430, label %.thread73, label %1431
+  br i1 %1430, label %.thread72, label %1431
 
 1431:                                             ; preds = %try_parse.exit
   store i64 %.061.i, ptr %52, align 8, !tbaa !26
@@ -2623,29 +2622,29 @@ try_parse.exit:                                   ; preds = %175, %1420
   %1434 = load i64, ptr %55, align 8, !tbaa !27
   %1435 = add nsw i64 %1434, %.061.i
   store i64 %1435, ptr %55, align 8, !tbaa !27
-  br label %.thread.thread159
+  br label %.thread.thread158
 
 .thread:                                          ; preds = %51
   %.not63 = icmp eq i32 %47, 0
-  br i1 %.not63, label %.thread..thread.thread_crit_edge, label %.thread.thread159
+  br i1 %.not63, label %.thread..thread.thread_crit_edge, label %.thread.thread158
 
 .thread..thread.thread_crit_edge:                 ; preds = %.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 184
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !26
   br label %.thread.thread
 
-.thread.thread159:                                ; preds = %48, %1433, %.thread
+.thread.thread158:                                ; preds = %48, %1433, %.thread
   %1436 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %1437 = load i64, ptr %1436, align 8, !tbaa !26
   %1438 = icmp sgt i64 %1437, -1
-  br i1 %1438, label %1439, label %.thread73
+  br i1 %1438, label %1439, label %.thread72
 
-1439:                                             ; preds = %.thread.thread159
+1439:                                             ; preds = %.thread.thread158
   %1440 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %1441 = load i64, ptr %1440, align 8, !tbaa !27
   %1442 = sext i32 %.052 to i64
   %1443 = icmp sgt i64 %1441, %1442
-  br i1 %1443, label %.thread73, label %1444
+  br i1 %1443, label %.thread72, label %1444
 
 1444:                                             ; preds = %1439
   %1445 = trunc i64 %1441 to i32
@@ -2690,7 +2689,7 @@ bytestream2_peek_le64.exit.i:                     ; preds = %1460
 bytestream2_peek_le64.exit.thread.i:              ; preds = %bytestream2_peek_le64.exit.i, %1460, %1453
   %1464 = trunc i64 %1456 to i32
   %1465 = icmp slt i32 %1464, 8
-  br i1 %1465, label %.thread73, label %1466
+  br i1 %1465, label %.thread72, label %1466
 
 1466:                                             ; preds = %bytestream2_peek_le64.exit.thread.i
   %1467 = icmp slt i64 %1456, 4
@@ -2713,7 +2712,7 @@ bytestream2_get_be32.exit.i:                      ; preds = %1466
   %1478 = sub i64 %1452, %1477
   %1479 = trunc i64 %1478 to i32
   %1480 = icmp slt i32 %1479, 8
-  br i1 %1480, label %.thread73, label %1481
+  br i1 %1480, label %.thread72, label %1481
 
 1481:                                             ; preds = %1476
   %1482 = icmp slt i64 %1478, 8
@@ -2748,11 +2747,11 @@ bytestream2_get_be64.exit.i:                      ; preds = %1483, %bytestream2_
   %1497 = sub i64 %1452, %1496
   %1498 = trunc i64 %1497 to i32
   %1499 = icmp slt i32 %1498, 1
-  br i1 %1499, label %.thread73, label %1453
+  br i1 %1499, label %.thread72, label %1453
 
 1500:                                             ; preds = %bytestream2_get_be64.exit.i, %1481, %1466
   store i64 -1, ptr %1436, align 8, !tbaa !26
-  br label %.thread73
+  br label %.thread72
 
 skip_boxes.exit:                                  ; preds = %bytestream2_peek_le64.exit.i, %bytestream2_peek_le16.exit.i
   store i64 %1454, ptr %1436, align 8, !tbaa !26
@@ -2761,17 +2760,17 @@ skip_boxes.exit:                                  ; preds = %bytestream2_peek_le
 .thread.thread:                                   ; preds = %.thread..thread.thread_crit_edge, %skip_boxes.exit
   %1501 = phi i64 [ %.pre, %.thread..thread.thread_crit_edge ], [ %1454, %skip_boxes.exit ]
   %1502 = icmp sgt i64 %1501, -1
-  br i1 %1502, label %.thread.thread.thread, label %.thread73
+  br i1 %1502, label %.thread.thread.thread, label %.thread72
 
 .thread.thread.thread:                            ; preds = %1431, %.thread.thread
   %1503 = phi i64 [ %1501, %.thread.thread ], [ %.061.i, %1431 ]
   %1504 = load i32, ptr %39, align 8, !tbaa !22
   %1505 = trunc i64 %1503 to i32
   %1506 = sub i32 %1505, %1504
-  br label %.thread73
+  br label %.thread72
 
-.thread73:                                        ; preds = %1489, %bytestream2_peek_le64.exit.thread.i, %1476, %.thread.thread159, %1439, %try_parse.exit, %try_parse.exit.thread, %.thread.thread, %.thread.thread.thread, %1500, %42
-  %.054 = phi i32 [ -100, %1500 ], [ %1506, %.thread.thread.thread ], [ -100, %.thread.thread ], [ -100, %42 ], [ -100, %try_parse.exit.thread ], [ -100, %try_parse.exit ], [ -100, %1439 ], [ -100, %.thread.thread159 ], [ -100, %1476 ], [ -100, %bytestream2_peek_le64.exit.thread.i ], [ -100, %1489 ]
+.thread72:                                        ; preds = %1489, %bytestream2_peek_le64.exit.thread.i, %1476, %.thread.thread158, %1439, %try_parse.exit, %try_parse.exit.thread, %.thread.thread, %.thread.thread.thread, %1500, %42
+  %.054 = phi i32 [ -100, %1500 ], [ %1506, %.thread.thread.thread ], [ -100, %.thread.thread ], [ -100, %42 ], [ -100, %try_parse.exit.thread ], [ -100, %try_parse.exit ], [ -100, %1439 ], [ -100, %.thread.thread158 ], [ -100, %1476 ], [ -100, %bytestream2_peek_le64.exit.thread.i ], [ -100, %1489 ]
   %1507 = load i32, ptr %36, align 4, !tbaa !9
   %1508 = icmp sgt i32 %.054, %1507
   %spec.store.select = select i1 %1508, i32 -100, i32 %.054
@@ -2779,11 +2778,11 @@ skip_boxes.exit:                                  ; preds = %bytestream2_peek_le
   %1510 = icmp slt i32 %1509, 0
   br i1 %1510, label %1511, label %1513
 
-1511:                                             ; preds = %.thread73
+1511:                                             ; preds = %.thread72
   %1512 = load i32, ptr %36, align 4, !tbaa !9
   br label %1519
 
-1513:                                             ; preds = %.thread73
+1513:                                             ; preds = %.thread72
   %1514 = load ptr, ptr %35, align 8, !tbaa !4
   store ptr %1514, ptr %2, align 8, !tbaa !4
   %1515 = load i32, ptr %36, align 4, !tbaa !9
@@ -2820,7 +2819,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @skip_icc_profile(ptr nound
   %5 = tail call fastcc i64 @jxl_u64(ptr noundef %1)
   %6 = add i64 %5, -4194305
   %or.cond = icmp ult i64 %6, -4194304
-  br i1 %or.cond, label %111, label %7
+  br i1 %or.cond, label %110, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2870,7 +2869,7 @@ entropy_decoder_init.exit.thread:                 ; preds = %.lr.ph.i.i.i, %13, 
   call void @av_freep(ptr noundef nonnull %29) #11
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @av_freep(ptr noundef nonnull %30) #11
-  br label %93
+  br label %.thread
 
 31:                                               ; preds = %7
   %32 = getelementptr i8, ptr %1, i64 16
@@ -2878,7 +2877,7 @@ entropy_decoder_init.exit.thread:                 ; preds = %.lr.ph.i.i.i, %13, 
   %33 = getelementptr i8, ptr %1, i64 20
   %.val45 = load i32, ptr %33, align 4, !tbaa !62
   %34 = icmp slt i32 %.val45, %.val
-  br i1 %34, label %93, label %.lr.ph
+  br i1 %34, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %90
   %.08 = phi i64 [ %91, %90 ], [ 0, %31 ]
@@ -2966,17 +2965,17 @@ icc_context.exit:                                 ; preds = %.lr.ph, %65
   %.0.i48 = select i1 %68, i64 %69, i64 %71
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = icmp slt i64 %.0.i48, 0
-  br i1 %72, label %._crit_edge, label %73
+  br i1 %72, label %.thread.loopexit, label %73
 
 73:                                               ; preds = %icc_context.exit
   %74 = icmp samesign ugt i64 %.0.i48, 255
-  br i1 %74, label %._crit_edge, label %75
+  br i1 %74, label %.thread.loopexit, label %75
 
 75:                                               ; preds = %73
   %.val46 = load i32, ptr %32, align 8, !tbaa !65
   %.val47 = load i32, ptr %33, align 4, !tbaa !62
   %76 = icmp slt i32 %.val47, %.val46
-  br i1 %76, label %._crit_edge, label %77
+  br i1 %76, label %.thread.loopexit, label %77
 
 77:                                               ; preds = %75
   %78 = trunc nuw nsw i64 %.0.i48 to i32
@@ -2994,65 +2993,65 @@ icc_context.exit:                                 ; preds = %.lr.ph, %65
 85:                                               ; preds = %80
   %86 = add nuw nsw i32 %.0317, 7
   %87 = icmp sgt i32 %.0317, 49
-  br i1 %87, label %._crit_edge, label %90
+  br i1 %87, label %.thread.loopexit, label %90
 
 88:                                               ; preds = %77
   %89 = icmp ult i64 %.0326, 132
-  br i1 %89, label %._crit_edge, label %90
+  br i1 %89, label %.thread.loopexit, label %90
 
 90:                                               ; preds = %80, %85, %88
   %.133 = phi i64 [ %84, %85 ], [ %.0326, %88 ], [ %84, %80 ]
   %.1 = phi i32 [ %86, %85 ], [ 63, %88 ], [ 63, %80 ]
   %91 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %91, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %exitcond.not, label %.thread.loopexit, label %.lr.ph, !llvm.loop !96
 
-._crit_edge:                                      ; preds = %90, %icc_context.exit, %73, %75, %85, %88
-  %spec.select.ph = phi i64 [ 0, %90 ], [ %.0.i48, %icc_context.exit ], [ -1094995529, %73 ], [ -1397118274, %75 ], [ -1094995529, %85 ], [ -1094995529, %88 ]
-  %92 = trunc nsw i64 %spec.select.ph to i32
-  br label %93
+.thread.loopexit:                                 ; preds = %88, %85, %75, %73, %icc_context.exit, %90
+  %.037.ph = phi i64 [ -1094995529, %88 ], [ -1094995529, %85 ], [ -1397118274, %75 ], [ -1094995529, %73 ], [ %.0.i48, %icc_context.exit ], [ 0, %90 ]
+  %92 = trunc nsw i64 %.037.ph to i32
+  br label %.thread
 
-93:                                               ; preds = %entropy_decoder_init.exit.thread, %._crit_edge, %31
-  %.037 = phi i32 [ -1397118274, %31 ], [ %92, %._crit_edge ], [ %11, %entropy_decoder_init.exit.thread ]
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @av_freep(ptr noundef nonnull %94) #11
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %96 = load i32, ptr %95, align 4, !tbaa !87
-  %.not.i.i = icmp eq i32 %96, 0
-  br i1 %.not.i.i, label %entropy_decoder_close.exit, label %97
+.thread:                                          ; preds = %.thread.loopexit, %entropy_decoder_init.exit.thread, %31
+  %.037 = phi i32 [ -1397118274, %31 ], [ %11, %entropy_decoder_init.exit.thread ], [ %92, %.thread.loopexit ]
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @av_freep(ptr noundef nonnull %93) #11
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  %95 = load i32, ptr %94, align 4, !tbaa !87
+  %.not.i.i = icmp eq i32 %95, 0
+  br i1 %.not.i.i, label %entropy_decoder_close.exit, label %96
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %99 = load ptr, ptr %98, align 8, !tbaa !88
-  %.not8.i.i = icmp eq ptr %99, null
+96:                                               ; preds = %.thread
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %98 = load ptr, ptr %97, align 8, !tbaa !88
+  %.not8.i.i = icmp eq ptr %98, null
   br i1 %.not8.i.i, label %entropy_decoder_close.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %101 = load i32, ptr %100, align 8, !tbaa !89
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph.i.i, label %entropy_decoder_close.exit
+.preheader.i.i:                                   ; preds = %96
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %100 = load i32, ptr %99, align 8, !tbaa !89
+  %101 = icmp sgt i32 %100, 0
+  br i1 %101, label %.lr.ph.i.i, label %entropy_decoder_close.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %103 = load ptr, ptr %98, align 8, !tbaa !88
-  %104 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %103, i64 %indvars.iv.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  call void @ff_vlc_free(ptr noundef nonnull %105) #11
+  %102 = load ptr, ptr %97, align 8, !tbaa !88
+  %103 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %102, i64 %indvars.iv.i.i
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  call void @ff_vlc_free(ptr noundef nonnull %104) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %106 = load i32, ptr %100, align 8, !tbaa !89
-  %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next.i.i, %107
-  br i1 %108, label %.lr.ph.i.i, label %entropy_decoder_close.exit, !llvm.loop !90
+  %105 = load i32, ptr %99, align 8, !tbaa !89
+  %106 = sext i32 %105 to i64
+  %107 = icmp slt i64 %indvars.iv.next.i.i, %106
+  br i1 %107, label %.lr.ph.i.i, label %entropy_decoder_close.exit, !llvm.loop !90
 
-entropy_decoder_close.exit:                       ; preds = %.lr.ph.i.i, %93, %97, %.preheader.i.i
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 72
+entropy_decoder_close.exit:                       ; preds = %.lr.ph.i.i, %.thread, %96, %.preheader.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  call void @av_freep(ptr noundef nonnull %108) #11
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @av_freep(ptr noundef nonnull %109) #11
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @av_freep(ptr noundef nonnull %110) #11
-  br label %111
+  br label %110
 
-111:                                              ; preds = %2, %entropy_decoder_close.exit
+110:                                              ; preds = %2, %entropy_decoder_close.exit
   %.034 = phi i32 [ %.037, %entropy_decoder_close.exit ], [ -1094995529, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.034

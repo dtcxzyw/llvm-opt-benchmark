@@ -4961,10 +4961,9 @@ check_marker.exit:                                ; preds = %.thread
   %103 = lshr i32 %102, 29
   %104 = add i32 %56, 16
   store i32 %104, ptr %3, align 8, !tbaa !73
-  %105 = or disjoint i32 %103, -8
-  %or.cond = icmp samesign ult i32 %105, -2
+  %105 = icmp ult i32 %102, -1073741824
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 508
-  br i1 %or.cond, label %107, label %186
+  br i1 %105, label %107, label %186
 
 107:                                              ; preds = %94
   store i32 0, ptr %106, align 4, !tbaa !57

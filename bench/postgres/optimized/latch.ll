@@ -556,12 +556,12 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   %.neg = mul i64 %12, -1000000000
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8
-  %.neg85 = sub i64 %.neg, %14
+  %.neg84 = sub i64 %.neg, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %15
 
 15:                                               ; preds = %5, %10
-  %.sroa.09.0.neg86 = phi i64 [ %.neg85, %10 ], [ 0, %5 ]
+  %.sroa.09.0.neg85 = phi i64 [ %.neg84, %10 ], [ 0, %5 ]
   %.049 = phi i64 [ %1, %10 ], [ -1, %5 ]
   %16 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 %4, ptr %16, align 4
@@ -578,9 +578,9 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   br label %26
 
 26:                                               ; preds = %15, %180
-  %.084 = phi i64 [ %1, %15 ], [ %.1, %180 ]
-  %.04383 = phi ptr [ %2, %15 ], [ %.144, %180 ]
-  %.15082 = phi i64 [ %.049, %15 ], [ %.352, %180 ]
+  %.083 = phi i64 [ %1, %15 ], [ %.1, %180 ]
+  %.04382 = phi ptr [ %2, %15 ], [ %.144, %180 ]
+  %.15081 = phi i64 [ %.049, %15 ], [ %.352, %180 ]
   %27 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.thread, label %28
@@ -604,30 +604,30 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   br i1 %.not65, label %.thread, label %.thread73
 
 .thread73:                                        ; preds = %28, %32
-  %33 = getelementptr inbounds nuw i8, ptr %.04383, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.04382, i64 8
   store i32 -1, ptr %33, align 8
   %34 = load i32, ptr %18, align 8
-  store i32 %34, ptr %.04383, align 8
+  store i32 %34, ptr %.04382, align 8
   %35 = load ptr, ptr %19, align 8
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds %struct.WaitEvent, ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.04383, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.04382, i64 16
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %.04383, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.04382, i64 4
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %.04383, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.04382, i64 24
   %43 = load ptr, ptr %17, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 0, ptr %44, align 4
   br i1 %20, label %.thread75, label %.thread
 
 .thread:                                          ; preds = %26, %.thread73, %32, %30
-  %.251 = phi i64 [ %.15082, %32 ], [ %.15082, %30 ], [ 0, %.thread73 ], [ %.15082, %26 ]
+  %.251 = phi i64 [ %.15081, %32 ], [ %.15081, %30 ], [ 0, %.thread73 ], [ %.15081, %26 ]
   %.248 = phi i32 [ 0, %32 ], [ 0, %30 ], [ 1, %.thread73 ], [ 0, %26 ]
-  %.144 = phi ptr [ %.04383, %32 ], [ %.04383, %30 ], [ %42, %.thread73 ], [ %.04383, %26 ]
-  %.1 = phi i64 [ %.084, %32 ], [ %.084, %30 ], [ 0, %.thread73 ], [ %.084, %26 ]
+  %.144 = phi ptr [ %.04382, %32 ], [ %.04382, %30 ], [ %42, %.thread73 ], [ %.04382, %26 ]
+  %.1 = phi i64 [ %.083, %32 ], [ %.083, %30 ], [ 0, %.thread73 ], [ %.083, %26 ]
   %45 = trunc i64 %.251 to i32
   %46 = sub i32 %3, %.248
   %47 = load i32, ptr %21, align 8
@@ -905,7 +905,7 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread75.i, %52, %
   %171 = mul i64 %170, 1000000000
   %172 = load i64, ptr %25, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %173 = add i64 %172, %.sroa.09.0.neg86
+  %173 = add i64 %172, %.sroa.09.0.neg85
   %174 = add i64 %173, %171
   %175 = sitofp i64 %174 to double
   %176 = fdiv double %175, 1.000000e+06

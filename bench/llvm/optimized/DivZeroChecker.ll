@@ -732,13 +732,13 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_14BinaryOperatorEE10_check
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i8, ptr %33, align 16
   %35 = icmp ne i8 %34, 13
-  %.not.not27.i.i = icmp eq ptr %32, null
-  %.not.not.i.i = or i1 %.not.not27.i.i, %35
+  %.not.not24.i.i = icmp eq ptr %32, null
+  %.not.not.i.i = or i1 %.not.not24.i.i, %35
   br i1 %.not.not.i.i, label %36, label %_ZNK5clang4Type12isScalarTypeEv.exit.i
 
 36:                                               ; preds = %22
   %37 = icmp ne i8 %34, 46
-  %.not12.not.i.i = or i1 %.not.not27.i.i, %37
+  %.not12.not.i.i = or i1 %.not.not24.i.i, %37
   br i1 %.not12.not.i.i, label %46, label %38
 
 38:                                               ; preds = %36

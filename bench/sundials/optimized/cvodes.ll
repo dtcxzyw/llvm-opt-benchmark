@@ -3048,111 +3048,111 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
 .loopexit:                                        ; preds = %60
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %79, align 4, !tbaa !166
-  %switch = icmp eq i32 %1, 1
-  br i1 %switch, label %80, label %84
+  %80 = icmp eq i32 %1, 1
+  br i1 %80, label %81, label %85
 
-80:                                               ; preds = %.loopexit
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1848
-  %82 = load ptr, ptr %81, align 8, !tbaa !183
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread126, label %.thread122
+81:                                               ; preds = %.loopexit
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1848
+  %83 = load ptr, ptr %82, align 8, !tbaa !183
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %.thread126, label %.thread122
 
-84:                                               ; preds = %.loopexit
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1864
-  %86 = load ptr, ptr %85, align 8, !tbaa !184
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %92, label %.thread122
+85:                                               ; preds = %.loopexit
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1864
+  %87 = load ptr, ptr %86, align 8, !tbaa !184
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %93, label %.thread122
 
 .loopexit172:                                     ; preds = %75, %.preheader
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 1, ptr %88, align 4, !tbaa !166
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %90 = load ptr, ptr %89, align 8, !tbaa !185
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread160, label %.thread122
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 1, ptr %89, align 4, !tbaa !166
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1880
+  %91 = load ptr, ptr %90, align 8, !tbaa !185
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %.thread160, label %.thread122
 
-92:                                               ; preds = %84
-  %93 = load i32, ptr %50, align 8, !tbaa !156
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %95 = load ptr, ptr %94, align 8, !tbaa !97
-  %96 = load ptr, ptr %0, align 8, !tbaa !3
-  %97 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %93, ptr noundef %95, ptr noundef %96) #13
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %111, label %.thread167
+93:                                               ; preds = %85
+  %94 = load i32, ptr %50, align 8, !tbaa !156
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %96 = load ptr, ptr %95, align 8, !tbaa !97
+  %97 = load ptr, ptr %0, align 8, !tbaa !3
+  %98 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %94, ptr noundef %96, ptr noundef %97) #13
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %112, label %.thread167
 
 .thread160:                                       ; preds = %.loopexit172
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %100 = load ptr, ptr %99, align 8, !tbaa !97
-  %101 = load ptr, ptr %0, align 8, !tbaa !3
-  %102 = tail call ptr @SUNNonlinSol_Newton(ptr noundef %100, ptr noundef %101) #13
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %111, label %112
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %101 = load ptr, ptr %100, align 8, !tbaa !97
+  %102 = load ptr, ptr %0, align 8, !tbaa !3
+  %103 = tail call ptr @SUNNonlinSol_Newton(ptr noundef %101, ptr noundef %102) #13
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %112, label %113
 
-.thread126:                                       ; preds = %80
-  %104 = load i32, ptr %50, align 8, !tbaa !156
-  %105 = add nsw i32 %104, 1
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %107 = load ptr, ptr %106, align 8, !tbaa !97
-  %108 = load ptr, ptr %0, align 8, !tbaa !3
-  %109 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %105, ptr noundef %107, ptr noundef %108) #13
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %.thread133
+.thread126:                                       ; preds = %81
+  %105 = load i32, ptr %50, align 8, !tbaa !156
+  %106 = add nsw i32 %105, 1
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %108 = load ptr, ptr %107, align 8, !tbaa !97
+  %109 = load ptr, ptr %0, align 8, !tbaa !3
+  %110 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %106, ptr noundef %108, ptr noundef %109) #13
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %.thread133
 
-111:                                              ; preds = %.thread160, %.thread126, %92
+112:                                              ; preds = %.thread160, %.thread126, %93
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 1998, ptr noundef nonnull @__func__.CVodeSensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
   br label %.thread122
 
-112:                                              ; preds = %.thread160
-  %113 = tail call i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef nonnull %0, ptr noundef nonnull %102) #13
-  %.not119 = icmp eq i32 %113, 0
-  br i1 %.not119, label %122, label %116
+113:                                              ; preds = %.thread160
+  %114 = tail call i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef nonnull %0, ptr noundef nonnull %103) #13
+  %.not119 = icmp eq i32 %114, 0
+  br i1 %.not119, label %123, label %117
 
-.thread167:                                       ; preds = %92
-  %114 = tail call i32 @CVodeSetNonlinearSolverSensStg(ptr noundef nonnull %0, ptr noundef nonnull %97) #13
-  %.not119170 = icmp eq i32 %114, 0
-  br i1 %.not119170, label %.thread171, label %116
+.thread167:                                       ; preds = %93
+  %115 = tail call i32 @CVodeSetNonlinearSolverSensStg(ptr noundef nonnull %0, ptr noundef nonnull %98) #13
+  %.not119170 = icmp eq i32 %115, 0
+  br i1 %.not119170, label %.thread171, label %117
 
 .thread133:                                       ; preds = %.thread126
-  %115 = tail call i32 @CVodeSetNonlinearSolverSensSim(ptr noundef nonnull %0, ptr noundef nonnull %109) #13
-  %.not119136 = icmp eq i32 %115, 0
-  br i1 %.not119136, label %.thread139, label %116
+  %116 = tail call i32 @CVodeSetNonlinearSolverSensSim(ptr noundef nonnull %0, ptr noundef nonnull %110) #13
+  %.not119136 = icmp eq i32 %116, 0
+  br i1 %.not119136, label %.thread139, label %117
 
-116:                                              ; preds = %.thread167, %.thread133, %112
-  %.0110138 = phi i32 [ %115, %.thread133 ], [ %113, %112 ], [ %114, %.thread167 ]
-  %.0128131137 = phi ptr [ %109, %.thread133 ], [ %102, %112 ], [ %97, %.thread167 ]
+117:                                              ; preds = %.thread167, %.thread133, %113
+  %.0110138 = phi i32 [ %116, %.thread133 ], [ %114, %113 ], [ %115, %.thread167 ]
+  %.0128131137 = phi ptr [ %110, %.thread133 ], [ %103, %113 ], [ %98, %.thread167 ]
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef %.0110138, i32 noundef 2017, ptr noundef nonnull @__func__.CVodeSensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9)
-  %117 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %.0128131137) #13
+  %118 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %.0128131137) #13
   br label %.thread122
 
 .thread139:                                       ; preds = %.thread133
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 1856
-  store i32 1, ptr %118, align 8, !tbaa !167
-  %119 = tail call i32 @cvNlsInitSensSim(ptr noundef nonnull %0) #13
-  br label %125
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1856
+  store i32 1, ptr %119, align 8, !tbaa !167
+  %120 = tail call i32 @cvNlsInitSensSim(ptr noundef nonnull %0) #13
+  br label %126
 
 .thread171:                                       ; preds = %.thread167
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  store i32 1, ptr %120, align 8, !tbaa !168
-  %121 = tail call i32 @cvNlsInitSensStg(ptr noundef nonnull %0) #13
-  br label %125
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  store i32 1, ptr %121, align 8, !tbaa !168
+  %122 = tail call i32 @cvNlsInitSensStg(ptr noundef nonnull %0) #13
+  br label %126
 
-122:                                              ; preds = %112
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1888
-  store i32 1, ptr %123, align 8, !tbaa !182
-  %124 = tail call i32 @cvNlsInitSensStg1(ptr noundef nonnull %0) #13
-  br label %125
+123:                                              ; preds = %113
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1888
+  store i32 1, ptr %124, align 8, !tbaa !182
+  %125 = tail call i32 @cvNlsInitSensStg1(ptr noundef nonnull %0) #13
+  br label %126
 
-125:                                              ; preds = %.thread171, %122, %.thread139
-  %.1 = phi i32 [ %119, %.thread139 ], [ %121, %.thread171 ], [ %124, %122 ]
+126:                                              ; preds = %.thread171, %123, %.thread139
+  %.1 = phi i32 [ %120, %.thread139 ], [ %122, %.thread171 ], [ %125, %123 ]
   %.not120 = icmp eq i32 %.1, 0
-  br i1 %.not120, label %.thread122, label %126
+  br i1 %.not120, label %.thread122, label %127
 
-126:                                              ; preds = %125
+127:                                              ; preds = %126
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -13, i32 noundef 2036, ptr noundef nonnull @__func__.CVodeSensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24)
   br label %.thread122
 
-.thread122:                                       ; preds = %80, %84, %.loopexit172, %125, %._crit_edge, %126, %116, %111, %48, %23, %19, %16, %10, %5
-  %.0113 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -22, %16 ], [ -22, %19 ], [ -22, %23 ], [ -20, %48 ], [ -20, %111 ], [ -20, %116 ], [ -13, %126 ], [ -28, %._crit_edge ], [ 0, %125 ], [ 0, %.loopexit172 ], [ 0, %84 ], [ 0, %80 ]
+.thread122:                                       ; preds = %81, %85, %.loopexit172, %126, %._crit_edge, %127, %117, %112, %48, %23, %19, %16, %10, %5
+  %.0113 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -22, %16 ], [ -22, %19 ], [ -22, %23 ], [ -20, %48 ], [ -20, %112 ], [ -20, %117 ], [ -13, %127 ], [ -28, %._crit_edge ], [ 0, %126 ], [ 0, %.loopexit172 ], [ 0, %85 ], [ 0, %81 ]
   ret i32 %.0113
 }
 

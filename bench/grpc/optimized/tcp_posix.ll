@@ -422,8 +422,8 @@ define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = sub i64 %1, %2
-  %.not18 = icmp eq i64 %4, 0
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  %.not17 = icmp eq i64 %4, 0
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -434,7 +434,7 @@ define void @_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm(p
 
 8:                                                ; preds = %.lr.ph, %24
   %9 = phi i64 [ %.promoted, %.lr.ph ], [ %10, %24 ]
-  %.01019 = phi i64 [ %4, %.lr.ph ], [ %25, %24 ]
+  %.01018 = phi i64 [ %4, %.lr.ph ], [ %25, %24 ]
   %10 = add i64 %9, -1
   store i64 %10, ptr %5, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw %struct.grpc_slice, ptr %7, i64 %10
@@ -454,17 +454,17 @@ define void @_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm(p
 
 19:                                               ; preds = %16, %14
   %20 = phi i64 [ %15, %14 ], [ %18, %16 ]
-  %21 = icmp ugt i64 %20, %.01019
+  %21 = icmp ugt i64 %20, %.01018
   br i1 %21, label %.thread, label %24
 
 .thread:                                          ; preds = %19
-  %22 = sub nuw i64 %20, %.01019
+  %22 = sub nuw i64 %20, %.01018
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %22, ptr %23, align 8, !tbaa !19
   br label %.loopexit
 
 24:                                               ; preds = %19
-  %25 = sub nuw i64 %.01019, %20
+  %25 = sub nuw i64 %.01018, %20
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.loopexit, label %8
 
@@ -7015,9 +7015,9 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit.i
   %181 = add i32 %179, %180
   store i32 %181, ptr %32, align 8, !tbaa !116
   %182 = sub i64 %.1.i, %178
-  %.not18.i.i = icmp eq i64 %182, 0
+  %.not17.i.i = icmp eq i64 %182, 0
   %.pre95.i = load i64, ptr %13, align 8, !tbaa !9
-  br i1 %.not18.i.i, label %_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit.i, label %.lr.ph.i38.i
+  br i1 %.not17.i.i, label %_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit.i, label %.lr.ph.i38.i
 
 .lr.ph.i38.i:                                     ; preds = %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit.i
   %183 = load ptr, ptr %21, align 8, !tbaa !21
@@ -7025,7 +7025,7 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit.i
 
 184:                                              ; preds = %199, %.lr.ph.i38.i
   %185 = phi i64 [ %.pre95.i, %.lr.ph.i38.i ], [ %186, %199 ]
-  %.01019.i.i = phi i64 [ %182, %.lr.ph.i38.i ], [ %200, %199 ]
+  %.01018.i.i = phi i64 [ %182, %.lr.ph.i38.i ], [ %200, %199 ]
   %186 = add i64 %185, -1
   store i64 %186, ptr %13, align 8, !tbaa !9
   %187 = getelementptr inbounds nuw %struct.grpc_slice, ptr %183, i64 %186
@@ -7045,16 +7045,16 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit.i
 
 195:                                              ; preds = %192, %190
   %196 = phi i64 [ %191, %190 ], [ %194, %192 ]
-  %197 = icmp ugt i64 %196, %.01019.i.i
+  %197 = icmp ugt i64 %196, %.01018.i.i
   br i1 %197, label %.thread.i.i, label %199
 
 .thread.i.i:                                      ; preds = %195
-  %198 = sub nuw i64 %196, %.01019.i.i
+  %198 = sub nuw i64 %196, %.01018.i.i
   store i64 %198, ptr %14, align 8, !tbaa !19
   br label %_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit.i
 
 199:                                              ; preds = %195
-  %200 = sub nuw i64 %.01019.i.i, %196
+  %200 = sub nuw i64 %.01018.i.i, %196
   %.not.i39.i = icmp eq i64 %200, 0
   br i1 %.not.i39.i, label %_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit.i, label %184
 
@@ -7171,16 +7171,16 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %.pre = load ptr, ptr %15, align 8, !tbaa !264
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre198 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !200
+  %.pre197 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !200
   br label %27
 
-27:                                               ; preds = %.loopexit134, %2
-  %28 = phi i64 [ %.pre198, %2 ], [ %203, %.loopexit134 ]
-  %29 = phi ptr [ %.pre, %2 ], [ %.pre200, %.loopexit134 ]
-  %.091 = phi i64 [ 0, %2 ], [ %.4, %.loopexit134 ]
+27:                                               ; preds = %.loopexit133, %2
+  %28 = phi i64 [ %.pre197, %2 ], [ %203, %.loopexit133 ]
+  %29 = phi ptr [ %.pre, %2 ], [ %.pre199, %.loopexit133 ]
+  %.091 = phi i64 [ 0, %2 ], [ %.4, %.loopexit133 ]
   %30 = load i64, ptr %14, align 8, !tbaa !265
-  %.not173 = icmp eq i64 %.091, %28
-  br i1 %.not173, label %63, label %.lr.ph
+  %.not172 = icmp eq i64 %.091, %28
+  br i1 %.not172, label %63, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -7189,10 +7189,10 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 
 33:                                               ; preds = %.lr.ph, %51
   %34 = phi i64 [ %30, %.lr.ph ], [ 0, %51 ]
-  %.081161 = phi i64 [ 0, %.lr.ph ], [ %58, %51 ]
-  %.082160 = phi i64 [ 0, %.lr.ph ], [ %56, %51 ]
-  %.192159 = phi i64 [ %.091, %.lr.ph ], [ %57, %51 ]
-  %35 = getelementptr inbounds nuw %struct.grpc_slice, ptr %32, i64 %.192159
+  %.081160 = phi i64 [ 0, %.lr.ph ], [ %58, %51 ]
+  %.082159 = phi i64 [ 0, %.lr.ph ], [ %56, %51 ]
+  %.192158 = phi i64 [ %.091, %.lr.ph ], [ %57, %51 ]
+  %35 = getelementptr inbounds nuw %struct.grpc_slice, ptr %32, i64 %.192158
   %36 = load ptr, ptr %35, align 8, !tbaa !22
   %.not102 = icmp eq ptr %36, null
   br i1 %.not102, label %44, label %37
@@ -7201,7 +7201,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %34
-  %41 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081161
+  %41 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081160
   store ptr %40, ptr %41, align 16, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !25
@@ -7210,7 +7210,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 9
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %34
-  %47 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081161
+  %47 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081160
   store ptr %46, ptr %47, align 16, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !25
@@ -7219,14 +7219,14 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 
 51:                                               ; preds = %44, %37
   %52 = phi i64 [ %43, %37 ], [ %50, %44 ]
-  %53 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081161
+  %53 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081160
   %54 = sub i64 %52, %34
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %54, ptr %55, align 8, !tbaa !28
-  %56 = add i64 %54, %.082160
-  %57 = add i64 %.192159, 1
+  %56 = add i64 %54, %.082159
+  %57 = add i64 %.192158, 1
   store i64 0, ptr %14, align 8, !tbaa !265
-  %58 = add nuw nsw i64 %.081161, 1
+  %58 = add nuw nsw i64 %.081160, 1
   %59 = icmp ne i64 %57, %28
   %60 = icmp ne i64 %58, 260
   %61 = select i1 %59, i1 %60, i1 false
@@ -7260,20 +7260,20 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 
 71:                                               ; preds = %68
   %72 = call fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef nonnull %0, ptr noundef %4, i64 noundef %56, ptr noundef %6, ptr noundef %7, i32 noundef 0)
-  br i1 %72, label %thread-pre-split, label %._crit_edge203
+  br i1 %72, label %thread-pre-split, label %._crit_edge202
 
-._crit_edge203:                                   ; preds = %71
-  %.promoted164.pre.pre = load i32, ptr %7, align 4
+._crit_edge202:                                   ; preds = %71
+  %.promoted163.pre.pre = load i32, ptr %7, align 4
   br label %73
 
-73:                                               ; preds = %._crit_edge203, %68
-  %.promoted164.pre = phi i32 [ %.promoted164.pre.pre, %._crit_edge203 ], [ 0, %68 ]
+73:                                               ; preds = %._crit_edge202, %68
+  %.promoted163.pre = phi i32 [ %.promoted163.pre.pre, %._crit_edge202 ], [ 0, %68 ]
   store i8 0, ptr %21, align 8, !tbaa !118
   call fastcc void @_Z24tcp_shutdown_buffer_listPN12_GLOBAL__N_18grpc_tcpE(ptr noundef nonnull %0)
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %73
-  %.promoted164 = phi i32 [ 0, %._crit_edge ], [ %.promoted164.pre, %73 ]
+  %.promoted163 = phi i32 [ 0, %._crit_edge ], [ %.promoted163.pre, %73 ]
   %74 = trunc i64 %56 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %75 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
@@ -7293,7 +7293,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   br label %89
 
 89:                                               ; preds = %112, %.critedge
-  %90 = phi i32 [ 4, %112 ], [ %.promoted164, %.critedge ]
+  %90 = phi i32 [ 4, %112 ], [ %.promoted163, %.critedge ]
   br i1 %.not.i.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i.i
 
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %89
@@ -7377,16 +7377,16 @@ thread-pre-split:                                 ; preds = %71
 
 122:                                              ; preds = %120, %120
   store i64 %30, ptr %14, align 8, !tbaa !265
-  %.not174 = icmp eq i64 %.091, 0
-  br i1 %.not174, label %.loopexit, label %.lr.ph172
+  %.not173 = icmp eq i64 %.091, 0
+  br i1 %.not173, label %.loopexit, label %.lr.ph171
 
-.lr.ph172:                                        ; preds = %122, %.lr.ph172
-  %.087170 = phi i64 [ %124, %.lr.ph172 ], [ 0, %122 ]
+.lr.ph171:                                        ; preds = %122, %.lr.ph171
+  %.087169 = phi i64 [ %124, %.lr.ph171 ], [ 0, %122 ]
   %123 = load ptr, ptr %15, align 8, !tbaa !264
   call void @_Z30grpc_slice_buffer_remove_firstP17grpc_slice_buffer(ptr noundef %123)
-  %124 = add nuw i64 %.087170, 1
+  %124 = add nuw i64 %.087169, 1
   %exitcond.not = icmp eq i64 %124, %.091
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph172, !llvm.loop !275
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph171, !llvm.loop !275
 
 125:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -7431,7 +7431,7 @@ thread-pre-split:                                 ; preds = %71
           to label %._ZN4absl12lts_202407226StatusaSEOS1_.exit_crit_edge unwind label %137
 
 ._ZN4absl12lts_202407226StatusaSEOS1_.exit_crit_edge: ; preds = %135
-  %.pre202 = load i64, ptr %9, align 8, !tbaa !110
+  %.pre201 = load i64, ptr %9, align 8, !tbaa !110
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit
 
 137:                                              ; preds = %135
@@ -7442,7 +7442,7 @@ thread-pre-split:                                 ; preds = %71
   unreachable
 
 _ZN4absl12lts_202407226StatusaSEOS1_.exit:        ; preds = %._ZN4absl12lts_202407226StatusaSEOS1_.exit_crit_edge, %130
-  %140 = phi i64 [ %.pre202, %._ZN4absl12lts_202407226StatusaSEOS1_.exit_crit_edge ], [ %131, %130 ]
+  %140 = phi i64 [ %.pre201, %._ZN4absl12lts_202407226StatusaSEOS1_.exit_crit_edge ], [ %131, %130 ]
   %141 = and i64 %140, 1
   %.not.i.i104 = icmp eq i64 %141, 0
   br i1 %.not.i.i104, label %142, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -7547,12 +7547,12 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
   %177 = add i32 %175, %176
   store i32 %177, ptr %26, align 8, !tbaa !116
   %178 = sub i64 %56, %174
-  %.not99165 = icmp eq i64 %178, 0
-  %.pre200 = load ptr, ptr %15, align 8, !tbaa !264
-  br i1 %.not99165, label %.loopexit134, label %.lr.ph168
+  %.not99164 = icmp eq i64 %178, 0
+  %.pre199 = load ptr, ptr %15, align 8, !tbaa !264
+  br i1 %.not99164, label %.loopexit133, label %.lr.ph167
 
-.lr.ph168:                                        ; preds = %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit
-  %179 = getelementptr inbounds nuw i8, ptr %.pre200, i64 8
+.lr.ph167:                                        ; preds = %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit
+  %179 = getelementptr inbounds nuw i8, ptr %.pre199, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !188
   br label %186
 
@@ -7566,10 +7566,10 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #37
   unreachable
 
-186:                                              ; preds = %.lr.ph168, %200
-  %.083167 = phi i64 [ %178, %.lr.ph168 ], [ %201, %200 ]
-  %.3166 = phi i64 [ %57, %.lr.ph168 ], [ %187, %200 ]
-  %187 = add i64 %.3166, -1
+186:                                              ; preds = %.lr.ph167, %200
+  %.083166 = phi i64 [ %178, %.lr.ph167 ], [ %201, %200 ]
+  %.3165 = phi i64 [ %57, %.lr.ph167 ], [ %187, %200 ]
+  %187 = add i64 %.3165, -1
   %188 = getelementptr inbounds nuw %struct.grpc_slice, ptr %180, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !22
   %.not100 = icmp eq ptr %189, null
@@ -7587,27 +7587,27 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
 
 196:                                              ; preds = %193, %191
   %197 = phi i64 [ %192, %191 ], [ %195, %193 ]
-  %198 = icmp ugt i64 %197, %.083167
+  %198 = icmp ugt i64 %197, %.083166
   br i1 %198, label %.thread125, label %200
 
 .thread125:                                       ; preds = %196
-  %199 = sub nuw i64 %197, %.083167
+  %199 = sub nuw i64 %197, %.083166
   store i64 %199, ptr %14, align 8, !tbaa !265
-  br label %.loopexit134
+  br label %.loopexit133
 
 200:                                              ; preds = %196
-  %201 = sub nuw i64 %.083167, %197
+  %201 = sub nuw i64 %.083166, %197
   %.not99 = icmp eq i64 %201, 0
-  br i1 %.not99, label %.loopexit134, label %186
+  br i1 %.not99, label %.loopexit133, label %186
 
-.loopexit134:                                     ; preds = %200, %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit, %.thread125
+.loopexit133:                                     ; preds = %200, %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit, %.thread125
   %.4 = phi i64 [ %187, %.thread125 ], [ %57, %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit ], [ %187, %200 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.pre200, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %.pre199, i64 16
   %203 = load i64, ptr %202, align 8, !tbaa !200
   %204 = icmp eq i64 %.4, %203
   br i1 %204, label %205, label %27, !llvm.loop !279
 
-205:                                              ; preds = %.loopexit134
+205:                                              ; preds = %.loopexit133
   %206 = load i64, ptr %1, align 8, !tbaa !110
   %.not.i111 = icmp eq i64 %206, 1
   br i1 %.not.i111, label %_ZN4absl12lts_202407226StatusD2Ev.exit115, label %207
@@ -7624,7 +7624,7 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
           to label %._ZN4absl12lts_202407226StatusD2Ev.exit115_crit_edge unwind label %211
 
 ._ZN4absl12lts_202407226StatusD2Ev.exit115_crit_edge: ; preds = %209
-  %.pre201 = load ptr, ptr %15, align 8, !tbaa !264
+  %.pre200 = load ptr, ptr %15, align 8, !tbaa !264
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit115
 
 211:                                              ; preds = %209
@@ -7635,12 +7635,12 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit115:        ; preds = %._ZN4absl12lts_202407226StatusD2Ev.exit115_crit_edge, %207, %205
-  %214 = phi ptr [ %.pre201, %._ZN4absl12lts_202407226StatusD2Ev.exit115_crit_edge ], [ %.pre200, %207 ], [ %.pre200, %205 ]
+  %214 = phi ptr [ %.pre200, %._ZN4absl12lts_202407226StatusD2Ev.exit115_crit_edge ], [ %.pre199, %207 ], [ %.pre199, %205 ]
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef %214)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph172, %122, %_ZN4absl12lts_202407226StatusD2Ev.exit108, %_ZN4absl12lts_202407226StatusD2Ev.exit115
-  %.1.ph = phi i1 [ true, %_ZN4absl12lts_202407226StatusD2Ev.exit115 ], [ true, %_ZN4absl12lts_202407226StatusD2Ev.exit108 ], [ false, %122 ], [ false, %.lr.ph172 ]
+.loopexit:                                        ; preds = %.lr.ph171, %122, %_ZN4absl12lts_202407226StatusD2Ev.exit108, %_ZN4absl12lts_202407226StatusD2Ev.exit115
+  %.1.ph = phi i1 [ true, %_ZN4absl12lts_202407226StatusD2Ev.exit115 ], [ true, %_ZN4absl12lts_202407226StatusD2Ev.exit108 ], [ false, %122 ], [ false, %.lr.ph171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

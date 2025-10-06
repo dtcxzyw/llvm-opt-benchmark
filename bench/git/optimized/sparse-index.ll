@@ -1101,13 +1101,13 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %22 = load i64, ptr %19, align 8, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1, !tbaa !62
-  %.not32 = icmp eq i64 %2, 0
-  br i1 %.not32, label %.thread, label %.lr.ph
+  %.not31 = icmp eq i64 %2, 0
+  br i1 %.not31, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %strbuf_addch.exit, %36
-  %.030 = phi i64 [ %33, %36 ], [ 0, %strbuf_addch.exit ]
+  %.029 = phi i64 [ %33, %36 ], [ 0, %strbuf_addch.exit ]
   %24 = load ptr, ptr %17, align 8, !tbaa !61
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.030
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.029
   %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 47) #13
   %.not24 = icmp eq ptr %26, null
   br i1 %.not24, label %.thread, label %27

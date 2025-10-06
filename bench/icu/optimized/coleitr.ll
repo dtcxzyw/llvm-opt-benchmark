@@ -1060,7 +1060,7 @@ define void @_ZN6icu_7724CollationElementIterator9setOffsetEiR10UErrorCode(ptr n
 
 6:                                                ; preds = %3
   %7 = icmp sgt i32 %1, 0
-  br i1 %7, label %8, label %.thread50
+  br i1 %7, label %8, label %.thread48
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1073,17 +1073,17 @@ define void @_ZN6icu_7724CollationElementIterator9setOffsetEiR10UErrorCode(ptr n
   %16 = load i32, ptr %15, align 4
   %17 = select i1 %12, i32 %16, i32 %14
   %18 = icmp slt i32 %1, %17
-  br i1 %18, label %.preheader57, label %.thread50
+  br i1 %18, label %.preheader54, label %.thread48
 
-.preheader57:                                     ; preds = %8
+.preheader54:                                     ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = zext nneg i32 %1 to i64
   br label %23
 
-23:                                               ; preds = %.preheader57, %49
-  %indvars.iv = phi i64 [ %22, %.preheader57 ], [ %indvars.iv.next, %49 ]
+23:                                               ; preds = %.preheader54, %49
+  %indvars.iv = phi i64 [ %22, %.preheader54 ], [ %indvars.iv.next, %49 ]
   %24 = load i16, ptr %10, align 8, !tbaa !17
   %25 = icmp slt i16 %24, 0
   %26 = ashr i16 %24, 5
@@ -1131,16 +1131,16 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23, %32
   br i1 %.not, label %.thread, label %23, !llvm.loop !61
 
 .thread:                                          ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %45, %49
-  %.13348 = phi i32 [ 0, %49 ], [ %41, %45 ], [ %41, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
-  %51 = icmp slt i32 %.13348, %1
-  br i1 %51, label %.preheader, label %.thread50
+  %.13346 = phi i32 [ 0, %49 ], [ %41, %45 ], [ %41, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
+  %51 = icmp slt i32 %.13346, %1
+  br i1 %51, label %.preheader, label %.thread48
 
 .preheader:                                       ; preds = %.thread
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %53
 
 53:                                               ; preds = %.preheader, %70
-  %.0 = phi i32 [ %spec.select, %70 ], [ %.13348, %.preheader ]
+  %.0 = phi i32 [ %spec.select, %70 ], [ %.13346, %.preheader ]
   %54 = load ptr, ptr %52, align 8, !tbaa !18
   %55 = load ptr, ptr %54, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
@@ -1168,9 +1168,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23, %32
   %.not40 = icmp sgt i32 %68, %1
   %spec.select = select i1 %.not40, i32 %.0, i32 %68
   %71 = icmp slt i32 %68, %1
-  br i1 %71, label %53, label %.thread50, !llvm.loop !64
+  br i1 %71, label %53, label %.thread48, !llvm.loop !64
 
-.thread50:                                        ; preds = %70, %.thread, %8, %6
+.thread48:                                        ; preds = %70, %.thread, %8, %6
   %.029 = phi i32 [ %1, %8 ], [ %1, %6 ], [ %1, %.thread ], [ %spec.select, %70 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !18
@@ -1184,7 +1184,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23, %32
   store i8 1, ptr %78, align 4, !tbaa !21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %58, %3, %.thread50
+.loopexit:                                        ; preds = %58, %3, %.thread48
   ret void
 }
 

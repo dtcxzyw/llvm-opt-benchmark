@@ -352,17 +352,17 @@ define dso_local void @_ZN4llvm6object12IRObjectFile19findBitcodeInObjectERKNS0_
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %19, align 8
   %20 = icmp ne ptr %12, %18
-  %.not.i.i.i.i43 = icmp ne i64 %11, %17
-  %.not2.i44 = select i1 %20, i1 true, i1 %.not.i.i.i.i43
-  br i1 %.not2.i44, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit20
+  %.not.i.i.i.i41 = icmp ne i64 %11, %17
+  %.not2.i42 = select i1 %20, i1 true, i1 %.not.i.i.i.i41
+  br i1 %.not2.i42, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit20
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %lhsv.i.i.i.i45 = phi i64 [ %lhsv.i.i.i.i, %.critedge ], [ %11, %2 ]
+  %lhsv.i.i.i.i43 = phi i64 [ %lhsv.i.i.i.i, %.critedge ], [ %11, %2 ]
   %21 = phi ptr [ %56, %.critedge ], [ %12, %2 ]
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 232
   %24 = load ptr, ptr %23, align 8
-  %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 %lhsv.i.i.i.i45) #16
+  %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 %lhsv.i.i.i.i43) #16
   br i1 %25, label %_ZNK4llvm6object10SectionRef11getContentsEv.exit, label %.critedge
 
 _ZNK4llvm6object10SectionRef11getContentsEv.exit: ; preds = %.lr.ph

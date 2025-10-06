@@ -819,21 +819,21 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7712RegexPatter
 
 93:                                               ; preds = %35
   %94 = icmp eq i32 %86, 0
-  br i1 %94, label %.loopexit89.thread, label %.loopexit89
+  br i1 %94, label %.loopexit86.thread, label %.loopexit86
 
-.loopexit89.thread:                               ; preds = %93
+.loopexit86.thread:                               ; preds = %93
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %91, ptr %95, align 8, !tbaa !51
   br label %.loopexit
 
-.loopexit89:                                      ; preds = %93
+.loopexit86:                                      ; preds = %93
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %91, i8 0, i64 %89, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %91, ptr %96, align 8, !tbaa !51
   %97 = icmp sgt i32 %86, 1
   br i1 %97, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.loopexit89
+.lr.ph:                                           ; preds = %.loopexit86
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %wide.trip.count = zext nneg i32 %86 to i64
@@ -885,7 +885,7 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7712RegexPatter
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %102, !llvm.loop !52
 
-.loopexit:                                        ; preds = %115, %.loopexit89.thread, %.loopexit89, %114
+.loopexit:                                        ; preds = %115, %.loopexit86.thread, %.loopexit86, %114
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %122 = load ptr, ptr %121, align 8, !tbaa !36
   %.not71 = icmp eq ptr %122, null
@@ -914,13 +914,13 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7712RegexPatter
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !12
   %134 = call ptr @uhash_nextElement_77(ptr noundef %133, ptr noundef nonnull %3)
-  %.not7293 = icmp ne ptr %134, null
+  %.not7290 = icmp ne ptr %134, null
   %135 = load i32, ptr %8, align 8
   %136 = icmp slt i32 %135, 1
-  %or.cond94 = select i1 %.not7293, i1 %136, i1 false
-  br i1 %or.cond94, label %.lr.ph95, label %._crit_edge
+  %or.cond91 = select i1 %.not7290, i1 %136, i1 false
+  br i1 %or.cond91, label %.lr.ph92, label %._crit_edge
 
-.lr.ph95:                                         ; preds = %132, %151
+.lr.ph92:                                         ; preds = %132, %151
   %137 = phi ptr [ %153, %151 ], [ %134, %132 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !17
@@ -928,11 +928,11 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7712RegexPatter
   %141 = icmp eq ptr %140, null
   br i1 %141, label %143, label %142
 
-142:                                              ; preds = %.lr.ph95
+142:                                              ; preds = %.lr.ph92
   invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %140, ptr noundef nonnull align 8 dereferenceable(64) %139)
           to label %146 unwind label %144
 
-143:                                              ; preds = %.lr.ph95
+143:                                              ; preds = %.lr.ph92
   store i32 7, ptr %8, align 8, !tbaa !39
   br label %151
 
@@ -957,7 +957,7 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7712RegexPatter
   %154 = load i32, ptr %8, align 8
   %155 = icmp slt i32 %154, 1
   %or.cond = select i1 %.not72, i1 %155, i1 false
-  br i1 %or.cond, label %.lr.ph95, label %._crit_edge
+  br i1 %or.cond, label %.lr.ph92, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %151, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

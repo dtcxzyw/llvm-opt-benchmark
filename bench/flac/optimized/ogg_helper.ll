@@ -72,11 +72,11 @@ define hidden range(i32 0, 2) i32 @simple_ogg_page__get_at(ptr noundef %0, i64 n
   br label %84
 
 .lr.ph.i:                                         ; preds = %14, %26
-  %.01529.i = phi ptr [ %.116.i, %26 ], [ %15, %14 ]
-  %.01828.i = phi i64 [ %.119.i, %26 ], [ 27, %14 ]
+  %.01528.i = phi ptr [ %.116.i, %26 ], [ %15, %14 ]
+  %.01827.i = phi i64 [ %.119.i, %26 ], [ 27, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 %.01828.i, ptr %7, align 8, !tbaa !23
-  %19 = call i32 %4(ptr noundef %0, ptr noundef %.01529.i, ptr noundef nonnull %7, ptr noundef %5) #11
+  store i64 %.01827.i, ptr %7, align 8, !tbaa !23
+  %19 = call i32 %4(ptr noundef %0, ptr noundef %.01528.i, ptr noundef nonnull %7, ptr noundef %5) #11
   switch i32 %19, label %.thread.sink.split.i [
     i32 0, label %20
     i32 1, label %22
@@ -104,8 +104,8 @@ full_read_.exit.thread:                           ; preds = %.lr.ph.i, %.thread.
 
 26:                                               ; preds = %22, %20
   %.pn.i = phi i64 [ %21, %20 ], [ %23, %22 ]
-  %.116.i = getelementptr inbounds nuw i8, ptr %.01529.i, i64 %.pn.i
-  %.119.i = sub i64 %.01828.i, %.pn.i
+  %.116.i = getelementptr inbounds nuw i8, ptr %.01528.i, i64 %.pn.i
+  %.119.i = sub i64 %.01827.i, %.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i = icmp eq i64 %.119.i, 0
   br i1 %.not.i, label %full_read_.exit, label %.lr.ph.i
@@ -240,15 +240,15 @@ full_read_.exit:                                  ; preds = %26
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @full_read_(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #4 {
   %6 = alloca i64, align 8
-  %.not27 = icmp eq i64 %2, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph
+  %.not26 = icmp eq i64 %2, 0
+  br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %14
-  %.01529 = phi ptr [ %.116, %14 ], [ %1, %5 ]
-  %.01828 = phi i64 [ %.119, %14 ], [ %2, %5 ]
+  %.01528 = phi ptr [ %.116, %14 ], [ %1, %5 ]
+  %.01827 = phi i64 [ %.119, %14 ], [ %2, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.01828, ptr %6, align 8, !tbaa !23
-  %7 = call i32 %3(ptr noundef %0, ptr noundef %.01529, ptr noundef nonnull %6, ptr noundef %4) #11
+  store i64 %.01827, ptr %6, align 8, !tbaa !23
+  %7 = call i32 %3(ptr noundef %0, ptr noundef %.01528, ptr noundef nonnull %6, ptr noundef %4) #11
   switch i32 %7, label %.thread.sink.split [
     i32 0, label %8
     i32 1, label %10
@@ -276,8 +276,8 @@ define internal fastcc range(i32 0, 2) i32 @full_read_(ptr noundef %0, ptr nound
 
 14:                                               ; preds = %8, %10
   %.pn = phi i64 [ %9, %8 ], [ %11, %10 ]
-  %.116 = getelementptr inbounds nuw i8, ptr %.01529, i64 %.pn
-  %.119 = sub i64 %.01828, %.pn
+  %.116 = getelementptr inbounds nuw i8, ptr %.01528, i64 %.pn
+  %.119 = sub i64 %.01827, %.pn
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i64 %.119, 0
   br i1 %.not, label %.loopexit, label %.lr.ph

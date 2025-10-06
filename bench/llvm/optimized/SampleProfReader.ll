@@ -4224,11 +4224,11 @@ define linkonce_odr void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readN
   br i1 %16, label %17, label %thread-pre-split.i, !prof !207
 
 17:                                               ; preds = %12
-  %.not44.i = icmp eq i32 %.028.i, 63
+  %.not43.i = icmp eq i32 %.028.i, 63
   %.not.i = icmp samesign ugt i8 %14, 1
   %18 = icmp ne i8 %14, 0
-  %or.cond43.i = select i1 %.not44.i, i1 %.not.i, i1 %18
-  br i1 %or.cond43.i, label %25, label %thread-pre-split.i
+  %or.cond42.i = select i1 %.not43.i, i1 %.not.i, i1 %18
+  br i1 %or.cond42.i, label %25, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %17, %12
   %19 = zext nneg i32 %.028.i to i64
@@ -5053,11 +5053,11 @@ define linkonce_odr void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readN
   br i1 %19, label %20, label %thread-pre-split.i, !prof !207
 
 20:                                               ; preds = %15
-  %.not44.i = icmp eq i32 %.028.i, 63
+  %.not43.i = icmp eq i32 %.028.i, 63
   %.not.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
-  %or.cond43.i = select i1 %.not44.i, i1 %.not.i, i1 %21
-  br i1 %or.cond43.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread, label %thread-pre-split.i
+  %or.cond42.i = select i1 %.not43.i, i1 %.not.i, i1 %21
+  br i1 %or.cond42.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %20, %15
   %22 = zext nneg i32 %.028.i to i64
@@ -7335,14 +7335,14 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinar
 
 _ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread: ; preds = %17
   %20 = call ptr @_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(40) %5)
-  %.not22 = icmp eq ptr %20, null
+  %.not21 = icmp eq ptr %20, null
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.0 = select i1 %.not22, ptr null, ptr %21
+  %.0 = select i1 %.not21, ptr null, ptr %21
   %22 = load ptr, ptr %7, align 8, !tbaa !300
   %23 = call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase16readFuncMetadataEbPNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(504) %0, i1 noundef zeroext %1, ptr noundef %.0)
   %24 = extractvalue { i32, ptr } %23, 0
-  %.not23 = icmp eq i32 %24, 0
-  br i1 %.not23, label %25, label %.thread.split.loop.exit24
+  %.not22 = icmp eq i32 %24, 0
+  br i1 %.not22, label %25, label %.thread.split.loop.exit23
 
 25:                                               ; preds = %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread
   %26 = load ptr, ptr %7, align 8, !tbaa !54
@@ -7375,7 +7375,7 @@ _ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
-.thread.split.loop.exit24:                        ; preds = %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread
+.thread.split.loop.exit23:                        ; preds = %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread
   %33 = extractvalue { i32, ptr } %23, 1
   br label %.thread
 
@@ -7383,9 +7383,9 @@ _ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thr
   %.sroa.31.0.copyload.i = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8, !tbaa !320
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit, %.thread.split.loop.exit24
-  %.sroa.011.0.ph = phi i32 [ %24, %.thread.split.loop.exit24 ], [ %.sroa.0.0.copyload.i, %.thread.loopexit ]
-  %.sroa.6.0.ph = phi ptr [ %33, %.thread.split.loop.exit24 ], [ %.sroa.31.0.copyload.i, %.thread.loopexit ]
+.thread:                                          ; preds = %.thread.loopexit, %.thread.split.loop.exit23
+  %.sroa.011.0.ph = phi i32 [ %24, %.thread.split.loop.exit23 ], [ %.sroa.0.0.copyload.i, %.thread.loopexit ]
+  %.sroa.6.0.ph = phi ptr [ %33, %.thread.split.loop.exit23 ], [ %.sroa.31.0.copyload.i, %.thread.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
@@ -8467,9 +8467,9 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinar
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.017.040 = load ptr, ptr %14, align 8, !tbaa !140
-  %.not41 = icmp eq ptr %.sroa.017.040, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph
+  %.sroa.017.038 = load ptr, ptr %14, align 8, !tbaa !140
+  %.not39 = icmp eq ptr %.sroa.017.038, null
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -8479,26 +8479,26 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinar
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4findERS8_.exit.thread
-  %.sroa.017.042 = phi ptr [ %.sroa.017.040, %.lr.ph ], [ %.sroa.017.0, %_ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4findERS8_.exit.thread ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.017.042, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.017.042, i64 64
+  %.sroa.017.040 = phi ptr [ %.sroa.017.038, %.lr.ph ], [ %.sroa.017.0, %_ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4findERS8_.exit.thread ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.017.040, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.017.040, i64 64
   %22 = load i32, ptr %21, align 8, !tbaa !61
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %27, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.042, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.040, i64 48
   %.sroa.0.0.copyload.i.i = load ptr, ptr %24, align 8, !tbaa !69
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.017.042, i64 56
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.017.040, i64 56
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
   %26 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_10sampleprof18SampleContextFrameEEENS_9hash_codeET_S8_(ptr noundef %.sroa.0.0.copyload.i.i, ptr noundef %25)
   br label %_ZNK4llvm10sampleprof13SampleContext11getHashCodeEv.exit
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.017.042, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.017.040, i64 32
   %.sroa.0.0.copyload.i1.i = load ptr, ptr %28, align 8, !tbaa !54
-  %.sroa.2.0..sroa_idx.i2.i = getelementptr inbounds nuw i8, ptr %.sroa.017.042, i64 40
+  %.sroa.2.0..sroa_idx.i2.i = getelementptr inbounds nuw i8, ptr %.sroa.017.040, i64 40
   %.sroa.2.0.copyload.i3.i = load i64, ptr %.sroa.2.0..sroa_idx.i2.i, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %.sroa.0.0.copyload.i1.i, null
   br i1 %.not.i.i, label %_ZNK4llvm10sampleprof13SampleContext11getHashCodeEv.exit, label %29
@@ -8578,11 +8578,11 @@ _ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4fin
   store ptr %56, ptr %18, align 8, !tbaa !316
   %57 = call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase16readFuncMetadataEbPNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(504) %0, i1 noundef zeroext %1, ptr noundef nonnull %20)
   %58 = extractvalue { i32, ptr } %57, 0
-  %.not34 = icmp eq i32 %58, 0
-  br i1 %.not34, label %_ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4findERS8_.exit.thread, label %.loopexit
+  %.not32 = icmp eq i32 %58, 0
+  br i1 %.not32, label %_ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4findERS8_.exit.thread, label %.loopexit
 
 _ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %35, %_ZNSt13unordered_mapImSt4pairIPKhS2_ESt4hashImESt8equal_toImESaIS0_IKmS3_EEE4findERS8_.exit
-  %.sroa.017.0 = load ptr, ptr %.sroa.017.042, align 8, !tbaa !140
+  %.sroa.017.0 = load ptr, ptr %.sroa.017.040, align 8, !tbaa !140
   %.not = icmp eq ptr %.sroa.017.0, null
   br i1 %.not, label %._crit_edge, label %19
 
@@ -9813,9 +9813,9 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit:             ; preds = %25, %26
   %28 = icmp ne i32 %.sroa.0.0.i, 0
   %.not = icmp eq ptr %2, null
   %or.cond = or i1 %.not, %28
-  br i1 %or.cond, label %31, label %.thread160
+  br i1 %or.cond, label %31, label %.thread157
 
-.thread160:                                       ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit
+.thread157:                                       ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit
   %29 = load i64, ptr %4, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %29, ptr %30, align 8, !tbaa !248
@@ -9826,7 +9826,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit:             ; preds = %25, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %28, label %88, label %32
 
-32:                                               ; preds = %.thread160, %31, %17
+32:                                               ; preds = %.thread157, %31, %17
   br i1 %1, label %33, label %44
 
 33:                                               ; preds = %32
@@ -9838,9 +9838,9 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit:             ; preds = %25, %26
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33
-  %.sroa.0.0.copyload.i41 = load i32, ptr %5, align 8, !tbaa !257
-  %.sroa.31.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.31.0.copyload.i43 = load ptr, ptr %.sroa.31.0..sroa_idx.i42, align 8, !tbaa !320
+  %.sroa.0.0.copyload.i39 = load i32, ptr %5, align 8, !tbaa !257
+  %.sroa.31.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.31.0.copyload.i41 = load ptr, ptr %.sroa.31.0..sroa_idx.i40, align 8, !tbaa !320
   br label %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit
 
 38:                                               ; preds = %33
@@ -9848,14 +9848,14 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit:             ; preds = %25, %26
   br label %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit
 
 _ZNK4llvm7ErrorOrIjE8getErrorEv.exit:             ; preds = %37, %38
-  %.sroa.31.0.i37 = phi ptr [ %.sroa.31.0.copyload.i43, %37 ], [ %39, %38 ]
-  %.sroa.0.0.i38 = phi i32 [ %.sroa.0.0.copyload.i41, %37 ], [ 0, %38 ]
-  %40 = icmp ne i32 %.sroa.0.0.i38, 0
+  %.sroa.31.0.i35 = phi ptr [ %.sroa.31.0.copyload.i41, %37 ], [ %39, %38 ]
+  %.sroa.0.0.i36 = phi i32 [ %.sroa.0.0.copyload.i39, %37 ], [ 0, %38 ]
+  %40 = icmp ne i32 %.sroa.0.0.i36, 0
   %.not25 = icmp eq ptr %2, null
-  %or.cond32 = or i1 %.not25, %40
-  br i1 %or.cond32, label %43, label %.thread161
+  %or.cond30 = or i1 %.not25, %40
+  br i1 %or.cond30, label %43, label %.thread158
 
-.thread161:                                       ; preds = %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit
+.thread158:                                       ; preds = %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit
   %41 = load i32, ptr %5, align 8, !tbaa !257
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %41, ptr %42, align 4, !tbaa !198
@@ -9866,7 +9866,7 @@ _ZNK4llvm7ErrorOrIjE8getErrorEv.exit:             ; preds = %37, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %40, label %88, label %44
 
-44:                                               ; preds = %.thread161, %43, %32
+44:                                               ; preds = %.thread158, %43, %32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %46 = load i8, ptr %45, align 2, !tbaa !254, !range !50, !noundef !51
   %47 = trunc nuw i8 %46 to i1
@@ -9878,18 +9878,18 @@ _ZNK4llvm7ErrorOrIjE8getErrorEv.exit:             ; preds = %37, %38
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %50 = load i8, ptr %49, align 8
   %51 = trunc i8 %50 to i1
-  %.sroa.0.0.copyload.i48 = load i32, ptr %6, align 8, !tbaa !257
-  br i1 %51, label %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit51, label %.preheader
+  %.sroa.0.0.copyload.i46 = load i32, ptr %6, align 8, !tbaa !257
+  br i1 %51, label %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit49, label %.preheader
 
-_ZNK4llvm7ErrorOrIjE8getErrorEv.exit51:           ; preds = %48
-  %.sroa.31.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.31.0.copyload.i50 = load ptr, ptr %.sroa.31.0..sroa_idx.i49, align 8, !tbaa !320
-  %.not101 = icmp eq i32 %.sroa.0.0.copyload.i48, 0
-  br i1 %.not101, label %._crit_edge, label %.thread
+_ZNK4llvm7ErrorOrIjE8getErrorEv.exit49:           ; preds = %48
+  %.sroa.31.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.31.0.copyload.i48 = load ptr, ptr %.sroa.31.0..sroa_idx.i47, align 8, !tbaa !320
+  %.not98 = icmp eq i32 %.sroa.0.0.copyload.i46, 0
+  br i1 %.not98, label %._crit_edge, label %.thread
 
 .preheader:                                       ; preds = %48
-  %.not27108.not = icmp eq i32 %.sroa.0.0.copyload.i48, 0
-  br i1 %.not27108.not, label %._crit_edge, label %.lr.ph
+  %.not27105.not = icmp eq i32 %.sroa.0.0.copyload.i46, 0
+  br i1 %.not27105.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -9902,89 +9902,89 @@ _ZNK4llvm7ErrorOrIjE8getErrorEv.exit51:           ; preds = %48
   br i1 %.not26, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %59
-  %.021109.us = phi i32 [ %60, %59 ], [ 0, %.lr.ph ]
+  %.021106.us = phi i32 [ %60, %59 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readNumberImEENS_7ErrorOrIT_EEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.103") align 8 %7, ptr noundef nonnull align 8 dereferenceable(304) %0)
   %57 = load i8, ptr %52, align 8
   %58 = trunc i8 %57 to i1
-  %.sroa.0.0.copyload.i56.us = load i32, ptr %7, align 8
-  %.not102.us = icmp ne i32 %.sroa.0.0.copyload.i56.us, 0
-  %or.cond115.not = select i1 %58, i1 %.not102.us, i1 false
-  br i1 %or.cond115.not, label %.critedge, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread.us
+  %.sroa.0.0.copyload.i54.us = load i32, ptr %7, align 8
+  %.not99.us = icmp ne i32 %.sroa.0.0.copyload.i54.us, 0
+  %or.cond112.not = select i1 %58, i1 %.not99.us, i1 false
+  br i1 %or.cond112.not, label %.critedge, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread.us
 
 59:                                               ; preds = %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us
-  %60 = add nuw i32 %.021109.us, 1
+  %60 = add nuw i32 %.021106.us, 1
   %61 = load i32, ptr %6, align 8, !tbaa !257
   %.not27.us = icmp ult i32 %60, %61
   br i1 %.not27.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !529
 
-_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread.us: ; preds = %.lr.ph.split.us
+_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread.us: ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readNumberImEENS_7ErrorOrIT_EEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.103") align 8 %8, ptr noundef nonnull align 8 dereferenceable(304) %0)
   %62 = load i8, ptr %53, align 8
   %63 = trunc i8 %62 to i1
-  %.sroa.0.0.copyload.i64.us = load i32, ptr %8, align 8
-  %.not103.us = icmp ne i32 %.sroa.0.0.copyload.i64.us, 0
-  %or.cond117.not = select i1 %63, i1 %.not103.us, i1 false
-  br i1 %or.cond117.not, label %.critedge34, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread.us
+  %.sroa.0.0.copyload.i62.us = load i32, ptr %8, align 8
+  %.not100.us = icmp ne i32 %.sroa.0.0.copyload.i62.us, 0
+  %or.cond114.not = select i1 %63, i1 %.not100.us, i1 false
+  br i1 %or.cond114.not, label %.critedge32, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread.us
 
-_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread.us: ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread.us
+_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread.us: ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread.us
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4llvm10sampleprof25SampleProfileReaderBinary26readSampleContextFromTableEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.116") align 8 %9, ptr noundef nonnull align 8 dereferenceable(304) %0)
   %64 = load i8, ptr %54, align 8
   %65 = trunc i8 %64 to i1
-  %.sroa.0.0.copyload.i72.us = load i32, ptr %9, align 8
-  %.not104.us = icmp ne i32 %.sroa.0.0.copyload.i72.us, 0
-  %or.cond119.not = select i1 %65, i1 %.not104.us, i1 false
-  br i1 %or.cond119.not, label %.critedge36, label %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us
+  %.sroa.0.0.copyload.i70.us = load i32, ptr %9, align 8
+  %.not101.us = icmp ne i32 %.sroa.0.0.copyload.i70.us, 0
+  %or.cond116.not = select i1 %65, i1 %.not101.us, i1 false
+  br i1 %or.cond116.not, label %.critedge34, label %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us
 
-_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us: ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread.us
+_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us: ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread.us
   %66 = call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase16readFuncMetadataEbPNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(504) %0, i1 noundef zeroext %1, ptr noundef null)
   %67 = extractvalue { i32, ptr } %66, 0
-  %.not105.us = icmp eq i32 %67, 0
+  %.not102.us = icmp eq i32 %67, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not105.us, label %59, label %.thread.loopexit
+  br i1 %.not102.us, label %59, label %.thread.loopexit
 
 68:                                               ; preds = %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread
-  %69 = add nuw i32 %.021109, 1
+  %69 = add nuw i32 %.021106, 1
   %70 = load i32, ptr %6, align 8, !tbaa !257
   %.not27 = icmp ult i32 %69, %70
   br i1 %.not27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !529
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
-  %.021109 = phi i32 [ %69, %68 ], [ 0, %.lr.ph ]
+  %.021106 = phi i32 [ %69, %68 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readNumberImEENS_7ErrorOrIT_EEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.103") align 8 %7, ptr noundef nonnull align 8 dereferenceable(304) %0)
   %71 = load i8, ptr %52, align 8
   %72 = trunc i8 %71 to i1
-  %.sroa.0.0.copyload.i56 = load i32, ptr %7, align 8
-  %.not102 = icmp ne i32 %.sroa.0.0.copyload.i56, 0
-  %or.cond121.not = select i1 %72, i1 %.not102, i1 false
-  br i1 %or.cond121.not, label %.critedge, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread
+  %.sroa.0.0.copyload.i54 = load i32, ptr %7, align 8
+  %.not99 = icmp ne i32 %.sroa.0.0.copyload.i54, 0
+  %or.cond118.not = select i1 %72, i1 %.not99, i1 false
+  br i1 %or.cond118.not, label %.critedge, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread
 
-_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread:    ; preds = %.lr.ph.split
+_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread:    ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readNumberImEENS_7ErrorOrIT_EEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.103") align 8 %8, ptr noundef nonnull align 8 dereferenceable(304) %0)
   %73 = load i8, ptr %53, align 8
   %74 = trunc i8 %73 to i1
-  %.sroa.0.0.copyload.i64 = load i32, ptr %8, align 8
-  %.not103 = icmp ne i32 %.sroa.0.0.copyload.i64, 0
-  %or.cond123.not = select i1 %74, i1 %.not103, i1 false
-  br i1 %or.cond123.not, label %.critedge34, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread
+  %.sroa.0.0.copyload.i62 = load i32, ptr %8, align 8
+  %.not100 = icmp ne i32 %.sroa.0.0.copyload.i62, 0
+  %or.cond120.not = select i1 %74, i1 %.not100, i1 false
+  br i1 %or.cond120.not, label %.critedge32, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread
 
-_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread:    ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread
+_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread:    ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4llvm10sampleprof25SampleProfileReaderBinary26readSampleContextFromTableEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.116") align 8 %9, ptr noundef nonnull align 8 dereferenceable(304) %0)
   %75 = load i8, ptr %54, align 8
   %76 = trunc i8 %75 to i1
-  %.sroa.0.0.copyload.i72 = load i32, ptr %9, align 8
-  %.not104 = icmp ne i32 %.sroa.0.0.copyload.i72, 0
-  %or.cond125.not = select i1 %76, i1 %.not104, i1 false
-  br i1 %or.cond125.not, label %.critedge36, label %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread
+  %.sroa.0.0.copyload.i70 = load i32, ptr %9, align 8
+  %.not101 = icmp ne i32 %.sroa.0.0.copyload.i70, 0
+  %or.cond122.not = select i1 %76, i1 %.not101, i1 false
+  br i1 %or.cond122.not, label %.critedge34, label %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread
 
-_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread: ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread
+_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread: ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %77 = load i64, ptr %7, align 8, !tbaa !55
   %78 = trunc i64 %77 to i32
@@ -9994,57 +9994,57 @@ _ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thr
   store i32 %80, ptr %55, align 4, !tbaa !120
   %81 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm10sampleprof15FunctionSamples17functionSamplesAtERKNS0_12LineLocationE(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 4 dereferenceable(8) %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %.sroa.0.0.copyload.i75 = load ptr, ptr %9, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i73 = load ptr, ptr %9, align 8, !tbaa !54
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !55
-  store ptr %.sroa.0.0.copyload.i75, ptr %11, align 8
+  store ptr %.sroa.0.0.copyload.i73, ptr %11, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %56, align 8
   %82 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt3mapIN4llvm10sampleprof10FunctionIdENS1_15FunctionSamplesESt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %83 = call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase16readFuncMetadataEbPNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(504) %0, i1 noundef zeroext %1, ptr noundef nonnull %82)
   %84 = extractvalue { i32, ptr } %83, 0
-  %.not105 = icmp eq i32 %84, 0
+  %.not102 = icmp eq i32 %84, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not105, label %68, label %.thread.loopexit
+  br i1 %.not102, label %68, label %.thread.loopexit
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i32 [ %.sroa.0.0.copyload.i56.us, %.lr.ph.split.us ], [ %.sroa.0.0.copyload.i56, %.lr.ph.split ]
-  %.sroa.31.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.31.0.copyload.i58 = load ptr, ptr %.sroa.31.0..sroa_idx.i57, align 8, !tbaa !320
+  %.us-phi = phi i32 [ %.sroa.0.0.copyload.i54.us, %.lr.ph.split.us ], [ %.sroa.0.0.copyload.i54, %.lr.ph.split ]
+  %.sroa.31.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.31.0.copyload.i56 = load ptr, ptr %.sroa.31.0..sroa_idx.i55, align 8, !tbaa !320
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-.critedge34:                                      ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread.us
-  %.us-phi110 = phi i32 [ %.sroa.0.0.copyload.i64.us, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread.us ], [ %.sroa.0.0.copyload.i64, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit59.thread ]
-  %.sroa.31.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.31.0.copyload.i66 = load ptr, ptr %.sroa.31.0..sroa_idx.i65, align 8, !tbaa !320
+.critedge32:                                      ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread.us
+  %.us-phi107 = phi i32 [ %.sroa.0.0.copyload.i62.us, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread.us ], [ %.sroa.0.0.copyload.i62, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit57.thread ]
+  %.sroa.31.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.31.0.copyload.i64 = load ptr, ptr %.sroa.31.0..sroa_idx.i63, align 8, !tbaa !320
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-.critedge36:                                      ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread.us
-  %.us-phi111 = phi i32 [ %.sroa.0.0.copyload.i72.us, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread.us ], [ %.sroa.0.0.copyload.i72, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit67.thread ]
-  %.sroa.31.0.copyload.i74 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !320
+.critedge34:                                      ; preds = %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread.us
+  %.us-phi108 = phi i32 [ %.sroa.0.0.copyload.i70.us, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread.us ], [ %.sroa.0.0.copyload.i70, %_ZNK4llvm7ErrorOrImE8getErrorEv.exit65.thread ]
+  %.sroa.31.0.copyload.i72 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !320
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us
-  %.us-phi112 = phi { i32, ptr } [ %66, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us ], [ %83, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread ]
-  %.us-phi113 = phi i32 [ %67, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us ], [ %84, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread ]
-  %85 = extractvalue { i32, ptr } %.us-phi112, 1
+  %.us-phi109 = phi { i32, ptr } [ %66, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us ], [ %83, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread ]
+  %.us-phi110 = phi i32 [ %67, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread.us ], [ %84, %_ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thread ]
+  %85 = extractvalue { i32, ptr } %.us-phi109, 1
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit51, %.critedge, %.critedge34, %.critedge36
-  %.sroa.16.1.ph = phi ptr [ %.sroa.31.0.copyload.i74, %.critedge36 ], [ %.sroa.31.0.copyload.i66, %.critedge34 ], [ %.sroa.31.0.copyload.i58, %.critedge ], [ %.sroa.31.0.copyload.i50, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit51 ], [ %85, %.thread.loopexit ]
-  %.sroa.0.1.ph = phi i32 [ %.us-phi111, %.critedge36 ], [ %.us-phi110, %.critedge34 ], [ %.us-phi, %.critedge ], [ %.sroa.0.0.copyload.i48, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit51 ], [ %.us-phi113, %.thread.loopexit ]
+.thread:                                          ; preds = %.thread.loopexit, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit49, %.critedge, %.critedge32, %.critedge34
+  %.sroa.16.1.ph = phi ptr [ %.sroa.31.0.copyload.i72, %.critedge34 ], [ %.sroa.31.0.copyload.i64, %.critedge32 ], [ %.sroa.31.0.copyload.i56, %.critedge ], [ %.sroa.31.0.copyload.i48, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit49 ], [ %85, %.thread.loopexit ]
+  %.sroa.0.1.ph = phi i32 [ %.us-phi108, %.critedge34 ], [ %.us-phi107, %.critedge32 ], [ %.us-phi, %.critedge ], [ %.sroa.0.0.copyload.i46, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit49 ], [ %.us-phi110, %.thread.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %88
 
-._crit_edge:                                      ; preds = %68, %59, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit51, %.preheader
+._crit_edge:                                      ; preds = %68, %59, %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit49, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
 
@@ -10053,8 +10053,8 @@ _ZNK4llvm7ErrorOrISt4pairINS_10sampleprof13SampleContextEmEE8getErrorEv.exit.thr
   br label %88
 
 88:                                               ; preds = %.thread, %43, %31, %86
-  %.sroa.16.0 = phi ptr [ %87, %86 ], [ %.sroa.31.0.i37, %43 ], [ %.sroa.31.0.i, %31 ], [ %.sroa.16.1.ph, %.thread ]
-  %.sroa.0.0 = phi i32 [ 0, %86 ], [ %.sroa.0.0.i38, %43 ], [ %.sroa.0.0.i, %31 ], [ %.sroa.0.1.ph, %.thread ]
+  %.sroa.16.0 = phi ptr [ %87, %86 ], [ %.sroa.31.0.i35, %43 ], [ %.sroa.31.0.i, %31 ], [ %.sroa.16.1.ph, %.thread ]
+  %.sroa.0.0 = phi i32 [ 0, %86 ], [ %.sroa.0.0.i36, %43 ], [ %.sroa.0.0.i, %31 ], [ %.sroa.0.1.ph, %.thread ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.16.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -11794,11 +11794,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof28SampleProfileReaderRa
   br i1 %10, label %11, label %thread-pre-split.i, !prof !207
 
 11:                                               ; preds = %6
-  %.not44.i = icmp eq i32 %.028.i, 63
+  %.not43.i = icmp eq i32 %.028.i, 63
   %.not.i = icmp samesign ugt i8 %8, 1
   %12 = icmp ne i8 %8, 0
-  %or.cond43.i = select i1 %.not44.i, i1 %.not.i, i1 %12
-  br i1 %or.cond43.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %thread-pre-split.i
+  %or.cond42.i = select i1 %.not43.i, i1 %.not.i, i1 %12
+  br i1 %or.cond42.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %11, %6
   %13 = zext nneg i32 %.028.i to i64
@@ -11836,11 +11836,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof28SampleProfileReaderEx
   br i1 %10, label %11, label %thread-pre-split.i, !prof !207
 
 11:                                               ; preds = %6
-  %.not44.i = icmp eq i32 %.028.i, 63
+  %.not43.i = icmp eq i32 %.028.i, 63
   %.not.i = icmp samesign ugt i8 %8, 1
   %12 = icmp ne i8 %8, 0
-  %or.cond43.i = select i1 %.not44.i, i1 %.not.i, i1 %12
-  br i1 %or.cond43.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %thread-pre-split.i
+  %or.cond42.i = select i1 %.not43.i, i1 %.not.i, i1 %12
+  br i1 %or.cond42.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %11, %6
   %13 = zext nneg i32 %.028.i to i64
@@ -13819,11 +13819,11 @@ define dso_local void @_ZN4llvm10sampleprof19SampleProfileReader6createERSt10uni
   br i1 %24, label %25, label %thread-pre-split.i.i, !prof !207
 
 25:                                               ; preds = %20
-  %.not44.i.i = icmp eq i32 %.028.i.i, 63
+  %.not43.i.i = icmp eq i32 %.028.i.i, 63
   %.not.i.i = icmp samesign ugt i8 %22, 1
   %26 = icmp ne i8 %22, 0
-  %or.cond43.i.i = select i1 %.not44.i.i, i1 %.not.i.i, i1 %26
-  br i1 %or.cond43.i.i, label %_ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBufferE.exit.thread.preheader, label %thread-pre-split.i.i
+  %or.cond42.i.i = select i1 %.not43.i.i, i1 %.not.i.i, i1 %26
+  br i1 %or.cond42.i.i, label %_ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBufferE.exit.thread.preheader, label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %25, %20
   %27 = zext nneg i32 %.028.i.i to i64
@@ -13903,11 +13903,11 @@ _ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBuffer
   br i1 %61, label %62, label %thread-pre-split.i.i36, !prof !207
 
 62:                                               ; preds = %57
-  %.not44.i.i38 = icmp eq i32 %.028.i.i34, 63
+  %.not43.i.i38 = icmp eq i32 %.028.i.i34, 63
   %.not.i.i39 = icmp samesign ugt i8 %59, 1
   %63 = icmp ne i8 %59, 0
-  %or.cond43.i.i40 = select i1 %.not44.i.i38, i1 %.not.i.i39, i1 %63
-  br i1 %or.cond43.i.i40, label %_ZN4llvm10sampleprof28SampleProfileReaderExtBinary9hasFormatERKNS_12MemoryBufferE.exit.thread, label %thread-pre-split.i.i36
+  %or.cond42.i.i40 = select i1 %.not43.i.i38, i1 %.not.i.i39, i1 %63
+  br i1 %or.cond42.i.i40, label %_ZN4llvm10sampleprof28SampleProfileReaderExtBinary9hasFormatERKNS_12MemoryBufferE.exit.thread, label %thread-pre-split.i.i36
 
 thread-pre-split.i.i36:                           ; preds = %62, %57
   %64 = zext nneg i32 %.028.i.i34 to i64

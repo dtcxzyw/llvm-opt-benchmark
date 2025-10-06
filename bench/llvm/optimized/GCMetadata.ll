@@ -109,26 +109,26 @@ $_ZTVN4llvm12GCModuleInfoE = comdat any
 define dso_local noundef zeroext i1 @_ZN4llvm13GCStrategyMap10invalidateERNS_6ModuleERKNS_17PreservedAnalysesERNS_15AnalysisManagerIS1_JEE11InvalidatorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.012.017 = load ptr, ptr %5, align 8, !tbaa !3
-  %.not18.not = icmp eq ptr %.sroa.012.017, %6
-  br i1 %.not18.not, label %._crit_edge, label %.lr.ph
+  %.sroa.012.019 = load ptr, ptr %5, align 8, !tbaa !3
+  %.not20.not = icmp eq ptr %.sroa.012.019, %6
+  br i1 %.not20.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %select.unfold
-  %.sroa.012.019 = phi ptr [ %.sroa.012.017, %.lr.ph ], [ %.sroa.012.0, %select.unfold ]
-  %9 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 -56
+  %.sroa.012.021 = phi ptr [ %.sroa.012.019, %.lr.ph ], [ %.sroa.012.0, %select.unfold ]
+  %9 = getelementptr inbounds i8, ptr %.sroa.012.021, i64 -56
   %10 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #16
   br i1 %10, label %select.unfold, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 -54
+  %12 = getelementptr inbounds i8, ptr %.sroa.012.021, i64 -54
   %13 = load i16, ptr %12, align 2, !tbaa !9
   %14 = and i16 %13, 16384
-  %.not16 = icmp eq i16 %14, 0
-  br i1 %.not16, label %select.unfold, label %15
+  %.not18 = icmp eq i16 %14, 0
+  br i1 %.not18, label %select.unfold, label %15
 
 15:                                               ; preds = %11
   %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4llvm8Function5getGCB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #16
@@ -146,13 +146,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm13GCStrategyMap10invalidateERNS_6Mo
   br i1 %27, label %select.unfold, label %._crit_edge
 
 select.unfold:                                    ; preds = %15, %11, %8
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 8
   %.sroa.012.0 = load ptr, ptr %28, align 8, !tbaa !3
   %.not.not = icmp eq ptr %.sroa.012.0, %6
   br i1 %.not.not, label %._crit_edge, label %8
 
-._crit_edge:                                      ; preds = %select.unfold, %15, %4
-  %.not.lcssa = phi i1 [ false, %4 ], [ true, %15 ], [ false, %select.unfold ]
+._crit_edge:                                      ; preds = %15, %select.unfold, %4
+  %.not.lcssa = phi i1 [ false, %4 ], [ false, %select.unfold ], [ true, %15 ]
   ret i1 %.not.lcssa
 }
 

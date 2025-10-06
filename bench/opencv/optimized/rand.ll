@@ -108,16 +108,16 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
 
 6:                                                ; preds = %5, %6
   %indvars.iv = phi i64 [ 126, %5 ], [ %indvars.iv.next, %6 ]
-  %.07189 = phi double [ 0x400B8A7C476D2BE8, %5 ], [ %14, %6 ]
-  %7 = fdiv double 0x3F844D09B072AAA1, %.07189
-  %8 = fmul double %.07189, -5.000000e-01
-  %9 = fmul double %.07189, %8
+  %.07188 = phi double [ 0x400B8A7C476D2BE8, %5 ], [ %14, %6 ]
+  %7 = fdiv double 0x3F844D09B072AAA1, %.07188
+  %8 = fmul double %.07188, -5.000000e-01
+  %9 = fmul double %.07188, %8
   %10 = tail call double @exp(double noundef %9) #19, !tbaa !9
   %11 = fadd double %7, %10
   %12 = tail call double @log(double noundef %11) #19, !tbaa !9
   %13 = fmul double %12, -2.000000e+00
   %14 = tail call double @sqrt(double noundef %13) #19, !tbaa !9
-  %15 = fdiv double %14, %.07189
+  %15 = fdiv double %14, %.07188
   %16 = fmul double %15, 0x41E0000000000000
   %17 = fptoui double %16 to i32
   %18 = getelementptr inbounds nuw i32, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2kn, i64 %indvars.iv
@@ -143,19 +143,19 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
 
 30:                                               ; preds = %29, %3
   %31 = icmp sgt i32 %1, 0
-  br i1 %31, label %.preheader81.preheader, label %._crit_edge
+  br i1 %31, label %.preheader80.preheader, label %._crit_edge
 
-.preheader81.preheader:                           ; preds = %30
+.preheader80.preheader:                           ; preds = %30
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.preheader81
+  br label %.preheader80
 
-.preheader81:                                     ; preds = %.preheader81.preheader, %select.unfold
-  %indvars.iv101 = phi i64 [ 0, %.preheader81.preheader ], [ %indvars.iv.next102, %select.unfold ]
-  %.06792 = phi i64 [ %4, %.preheader81.preheader ], [ %.2.ph, %select.unfold ]
+.preheader80:                                     ; preds = %.preheader80.preheader, %select.unfold
+  %indvars.iv100 = phi i64 [ 0, %.preheader80.preheader ], [ %indvars.iv.next101, %select.unfold ]
+  %.06791 = phi i64 [ %4, %.preheader80.preheader ], [ %.2.ph, %select.unfold ]
   br label %32
 
-32:                                               ; preds = %.preheader81, %81
-  %.1 = phi i64 [ %88, %81 ], [ %.06792, %.preheader81 ]
+32:                                               ; preds = %.preheader80, %81
+  %.1 = phi i64 [ %88, %81 ], [ %.06791, %.preheader80 ]
   %33 = trunc i64 %.1 to i32
   %34 = and i64 %.1, 4294967295
   %35 = mul nuw i64 %34, 4164903690
@@ -239,11 +239,11 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
 select.unfold:                                    ; preds = %81, %32, %76
   %.070.ph = phi float [ %80, %76 ], [ %42, %32 ], [ %42, %81 ]
   %.2.ph = phi i64 [ %63, %76 ], [ %88, %81 ], [ %37, %32 ]
-  %101 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv101
+  %101 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv100
   store float %.070.ph, ptr %101, align 4, !tbaa !3
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader81, !llvm.loop !14
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %select.unfold, %30
   %.067.lcssa = phi i64 [ %4, %30 ], [ %.2.ph, %select.unfold ]

@@ -1023,8 +1023,8 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h11efa476055caa85E.exit": ; preds = %2, %10, %6, %8, %4, %4
   %.pn = phi { i64, ptr } [ %12, %10 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %8 ], [ { i64 1, ptr poison }, %4 ], [ { i64 1, ptr poison }, %4 ], [ { i64 1, ptr poison }, %2 ]
-  %.pn8 = phi ptr [ %0, %10 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ], [ %0, %2 ]
-  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn8, 1
+  %.pn7 = phi ptr [ %0, %10 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ], [ %0, %2 ]
+  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn7, 1
   ret { i64, ptr } %.merged
 }
 
@@ -1103,8 +1103,8 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hda61e9d9ba0791f0E.exit": ; preds = %2, %7, %7, %9, %11, %13
   %.pn.i = phi { i64, ptr } [ %15, %13 ], [ { i64 1, ptr poison }, %9 ], [ { i64 1, ptr poison }, %11 ], [ { i64 1, ptr poison }, %7 ], [ { i64 1, ptr poison }, %7 ], [ { i64 1, ptr poison }, %2 ]
-  %.pn8.i = phi ptr [ %4, %13 ], [ %10, %9 ], [ %12, %11 ], [ %8, %7 ], [ %8, %7 ], [ %4, %2 ]
-  %.merged.i = insertvalue { i64, ptr } %.pn.i, ptr %.pn8.i, 1
+  %.pn7.i = phi ptr [ %4, %13 ], [ %10, %9 ], [ %12, %11 ], [ %8, %7 ], [ %8, %7 ], [ %4, %2 ]
+  %.merged.i = insertvalue { i64, ptr } %.pn.i, ptr %.pn7.i, 1
   ret { i64, ptr } %.merged.i
 }
 
@@ -1216,54 +1216,54 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..layer
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !noalias !247
   %6 = load i64, ptr %1, align 8, !range !250, !alias.scope !247, !noundef !4
-  switch i64 %6, label %16 [
+  switch i64 %6, label %17 [
     i64 0, label %7
-    i64 1, label %10
+    i64 1, label %11
   ]
 
-7:                                                ; preds = %16, %15, %2
-  %.010.i = phi i64 [ %.1.i, %15 ], [ %18, %16 ], [ %6, %2 ]
+7:                                                ; preds = %17, %16, %2
+  %.010.i = phi i64 [ %.1.i, %16 ], [ %19, %17 ], [ %6, %2 ]
   %8 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h33d4bc69cb262de8E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.010.i)
   %9 = extractvalue { i64, i64 } %8, 0
-  %switch.i = icmp eq i64 %9, 0
-  br i1 %switch.i, label %19, label %"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h699839550d6e5b21E.exit"
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %20, label %"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h699839550d6e5b21E.exit"
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !247
   call void @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12current_span17he92ebc7e9e8c8b17E"(ptr noalias noundef nonnull sret({ { i64, [2 x i64] } }) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %0)
-  %11 = load i64, ptr %3, align 8, !range !250, !noalias !247, !noundef !4
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %15
+  %12 = load i64, ptr %3, align 8, !range !250, !noalias !247, !noundef !4
+  %.not.i = icmp eq i64 %12, 0
+  br i1 %.not.i, label %13, label %16
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = call noundef i64 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17h1f07a45fa9a267bbE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13), !range !202
-  br label %15
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = call noundef i64 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17h1f07a45fa9a267bbE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14), !range !202
+  br label %16
 
-15:                                               ; preds = %12, %10
-  %.1.i = phi i64 [ %14, %12 ], [ 0, %10 ]
+16:                                               ; preds = %13, %11
+  %.1.i = phi i64 [ %15, %13 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !247
   br label %7
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = tail call noundef i64 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17h1f07a45fa9a267bbE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17), !range !202
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = tail call noundef i64 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17h1f07a45fa9a267bbE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18), !range !202
   br label %7
 
-19:                                               ; preds = %7
+20:                                               ; preds = %7
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6395d1cb207c881b70a17ddf5dcd3ce8.0, i64 noundef 31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6395d1cb207c881b70a17ddf5dcd3ce8.2) #42
   unreachable
 
 "_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h699839550d6e5b21E.exit": ; preds = %7
-  %20 = extractvalue { i64, i64 } %8, 1
-  %21 = add i64 %20, 1
-  %22 = call noundef range(i64 1, 0) i64 @_ZN12tracing_core4span2Id8from_u6417ha8a3c33800f958cbE(i64 noundef %21), !range !202
+  %21 = extractvalue { i64, i64 } %8, 1
+  %22 = add i64 %21, 1
+  %23 = call noundef range(i64 1, 0) i64 @_ZN12tracing_core4span2Id8from_u6417ha8a3c33800f958cbE(i64 noundef %22), !range !202
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store i64 %22, ptr %5, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  call void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$11on_new_span17h470fd374394d1a94E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 %0, i64 noundef 0)
+  store i64 %23, ptr %5, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  call void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$11on_new_span17h470fd374394d1a94E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 %0, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %22
+  ret i64 %23
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3434,45 +3434,45 @@ define hidden void @"_ZN4core5tuple66_$LT$impl$u20$core..default..Default$u20$fo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h0841812d9856124cE.llvm.14686358490642834259"(i64 noundef %0, ptr %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %3) unnamed_addr #21 personality ptr @rust_eh_personality {
-  %switch = icmp eq i64 %0, 0
-  br i1 %switch, label %5, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
+  %5 = icmp eq i64 %0, 0
+  br i1 %5, label %6, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
 
-5:                                                ; preds = %4
+6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !901)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
-  %6 = load ptr, ptr %2, align 8, !alias.scope !901, !noalias !904, !nonnull !4, !align !6, !noundef !4
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 736
-  %8 = load i128, ptr %3, align 16, !alias.scope !904, !noalias !901, !noundef !4
-  %9 = icmp eq i128 %8, 81861206759694168833185280843234076031
-  br i1 %9, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit", label %10
+  %7 = load ptr, ptr %2, align 8, !alias.scope !901, !noalias !904, !nonnull !4, !align !6, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 736
+  %9 = load i128, ptr %3, align 16, !alias.scope !904, !noalias !901, !noundef !4
+  %10 = icmp eq i128 %9, 81861206759694168833185280843234076031
+  br i1 %10, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit", label %11
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 1304
-  switch i128 %8, label %16 [
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1304
+  switch i128 %9, label %17 [
     i128 12607448037198027464039095800766607253, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
     i128 -69446687048680687396193738901140408924, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
-    i128 75669237243050581987684813451057699828, label %12
-    i128 22112934870606236130618177662660700094, label %14
+    i128 75669237243050581987684813451057699828, label %13
+    i128 22112934870606236130618177662660700094, label %15
   ]
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1316
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1316
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1316
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 1316
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
 
-16:                                               ; preds = %10
-  %17 = icmp eq i128 %8, 73676889782529201616355281012274205276
-  %..i.i.i.i.i = zext i1 %17 to i64
-  %18 = insertvalue { i64, ptr } poison, i64 %..i.i.i.i.i, 0
+17:                                               ; preds = %11
+  %18 = icmp eq i128 %9, 73676889782529201616355281012274205276
+  %..i.i.i.i.i = zext i1 %18 to i64
+  %19 = insertvalue { i64, ptr } poison, i64 %..i.i.i.i.i, 0
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit": ; preds = %4, %16, %14, %12, %10, %10, %5
-  %.pn.i.i.pn = phi { i64, ptr } [ %18, %16 ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %14 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %5 ], [ { i64 1, ptr poison }, %4 ]
-  %.pn8.i.i.pn = phi ptr [ %7, %16 ], [ %13, %12 ], [ %15, %14 ], [ %11, %10 ], [ %11, %10 ], [ %7, %5 ], [ %1, %4 ]
-  %.merged = insertvalue { i64, ptr } %.pn.i.i.pn, ptr %.pn8.i.i.pn, 1
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit": ; preds = %4, %17, %15, %13, %11, %11, %6
+  %.pn.i.i.pn = phi { i64, ptr } [ %19, %17 ], [ { i64 1, ptr poison }, %13 ], [ { i64 1, ptr poison }, %15 ], [ { i64 1, ptr poison }, %11 ], [ { i64 1, ptr poison }, %11 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %4 ]
+  %.pn7.i.i.pn = phi ptr [ %8, %17 ], [ %14, %13 ], [ %16, %15 ], [ %12, %11 ], [ %12, %11 ], [ %8, %6 ], [ %1, %4 ]
+  %.merged = insertvalue { i64, ptr } %.pn.i.i.pn, ptr %.pn7.i.i.pn, 1
   ret { i64, ptr } %.merged
 }
 

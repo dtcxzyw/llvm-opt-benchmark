@@ -1222,10 +1222,10 @@ UploadVertices.exit:                              ; preds = %47, %4
   br i1 %.not137, label %81, label %.preheader
 
 .preheader:                                       ; preds = %65
-  %.not138214 = icmp eq ptr %1, null
-  br i1 %.not138214, label %thread-pre-split, label %.lr.ph216
+  %.not138211 = icmp eq ptr %1, null
+  br i1 %.not138211, label %thread-pre-split, label %.lr.ph213
 
-.lr.ph216:                                        ; preds = %.preheader
+.lr.ph213:                                        ; preds = %.preheader
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 184
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1249,9 +1249,9 @@ UploadVertices.exit:                              ; preds = %47, %4
   %82 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #11
   br label %UploadVertices.exit.thread
 
-83:                                               ; preds = %.lr.ph216, %199
-  %.0113215 = phi ptr [ %1, %.lr.ph216 ], [ %201, %199 ]
-  %84 = load i32, ptr %.0113215, align 8
+83:                                               ; preds = %.lr.ph213, %199
+  %.0113212 = phi ptr [ %1, %.lr.ph213 ], [ %201, %199 ]
+  %84 = load i32, ptr %.0113212, align 8
   switch i32 %84, label %199 [
     i32 3, label %85
     i32 1, label %97
@@ -1264,7 +1264,7 @@ UploadVertices.exit:                              ; preds = %47, %4
 
 85:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %86 = getelementptr inbounds nuw i8, ptr %.0113215, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %.0113212, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %86, i64 16, i1 false)
   %87 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #11
   br i1 %87, label %88, label %GetDrawCmdColor.exit
@@ -1274,7 +1274,7 @@ UploadVertices.exit:                              ; preds = %47, %4
   br label %GetDrawCmdColor.exit
 
 GetDrawCmdColor.exit:                             ; preds = %85, %88
-  %89 = getelementptr inbounds nuw i8, ptr %.0113215, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.0113212, i64 16
   %90 = load float, ptr %89, align 8
   %91 = load float, ptr %6, align 8
   %92 = fmul float %90, %91
@@ -1293,27 +1293,27 @@ GetDrawCmdColor.exit:                             ; preds = %85, %88
   br label %199
 
 97:                                               ; preds = %83
-  %98 = getelementptr inbounds nuw i8, ptr %.0113215, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.0113212, i64 16
   %99 = load i32, ptr %98, align 4
   %100 = sitofp i32 %99 to float
   store float %100, ptr %69, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.0113215, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %.0113212, i64 20
   %102 = load i32, ptr %101, align 4
   %103 = sitofp i32 %102 to float
   store float %103, ptr %71, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.0113215, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.0113212, i64 24
   %105 = load i32, ptr %104, align 4
   %106 = sitofp i32 %105 to float
   store float %106, ptr %76, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %.0113215, i64 28
+  %107 = getelementptr inbounds nuw i8, ptr %.0113212, i64 28
   %108 = load i32, ptr %107, align 4
   %109 = sitofp i32 %108 to float
   store float %109, ptr %77, align 4
   br label %199
 
 110:                                              ; preds = %83
-  %111 = getelementptr inbounds nuw i8, ptr %.0113215, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %.0113215, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %.0113212, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0113212, i64 12
   %113 = load float, ptr %69, align 8
   %114 = fptosi float %113 to i32
   %115 = load i32, ptr %112, align 4
@@ -1321,14 +1321,14 @@ GetDrawCmdColor.exit:                             ; preds = %85, %88
   store i32 %116, ptr %70, align 8
   %117 = load float, ptr %71, align 4
   %118 = fptosi float %117 to i32
-  %119 = getelementptr inbounds nuw i8, ptr %.0113215, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.0113212, i64 16
   %120 = load i32, ptr %119, align 4
   %121 = add nsw i32 %120, %118
   store i32 %121, ptr %72, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %.0113215, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %.0113212, i64 20
   %123 = load i32, ptr %122, align 4
   store i32 %123, ptr %73, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %.0113215, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %.0113212, i64 24
   %125 = load i32, ptr %124, align 4
   store i32 %125, ptr %74, align 4
   %126 = load i8, ptr %111, align 8, !range !7, !noundef !8
@@ -1337,17 +1337,17 @@ GetDrawCmdColor.exit:                             ; preds = %85, %88
 
 127:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %128 = getelementptr inbounds nuw i8, ptr %.0113215, i64 20
+  %128 = getelementptr inbounds nuw i8, ptr %.0113212, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %128, i64 16, i1 false)
   %129 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #11
-  br i1 %129, label %130, label %GetDrawCmdColor.exit157
+  br i1 %129, label %130, label %GetDrawCmdColor.exit156
 
 130:                                              ; preds = %127
   call void @SDL_ConvertToLinear(ptr noundef nonnull %5) #11
-  br label %GetDrawCmdColor.exit157
+  br label %GetDrawCmdColor.exit156
 
-GetDrawCmdColor.exit157:                          ; preds = %127, %130
-  %131 = getelementptr inbounds nuw i8, ptr %.0113215, i64 16
+GetDrawCmdColor.exit156:                          ; preds = %127, %130
+  %131 = getelementptr inbounds nuw i8, ptr %.0113212, i64 16
   %132 = load float, ptr %131, align 8
   %133 = load float, ptr %5, align 8
   %134 = fmul float %132, %133
@@ -1358,17 +1358,17 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   %137 = load float, ptr %68, align 8
   %138 = fmul float %132, %137
   store float %138, ptr %68, align 8
-  %.fca.0.load.i153 = load <2 x float>, ptr %5, align 8
-  %.fca.1.load.i155 = load <2 x float>, ptr %68, align 8
+  %.fca.0.load.i152 = load <2 x float>, ptr %5, align 8
+  %.fca.1.load.i154 = load <2 x float>, ptr %68, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store <2 x float> %.fca.0.load.i153, ptr %66, align 8
-  store <2 x float> %.fca.1.load.i155, ptr %.sroa.4.0..sroa_idx, align 8
+  store <2 x float> %.fca.0.load.i152, ptr %66, align 8
+  store <2 x float> %.fca.1.load.i154, ptr %.sroa.4.0..sroa_idx, align 8
   store i32 1, ptr %57, align 8
   br label %199
 
 139:                                              ; preds = %83
-  %140 = getelementptr inbounds nuw i8, ptr %.0113215, i64 8
-  %141 = getelementptr inbounds nuw i8, ptr %.0113215, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.0113212, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.0113212, i64 16
   %142 = load i64, ptr %141, align 8
   %143 = trunc i64 %142 to i32
   %144 = load i64, ptr %140, align 8
@@ -1377,140 +1377,140 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %139
-  call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113215, i32 noundef %143, i32 noundef %145, i32 noundef 3)
+  call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113212, i32 noundef %143, i32 noundef %145, i32 noundef 3)
   br label %199
 
 148:                                              ; preds = %139
-  %149 = getelementptr inbounds nuw i8, ptr %.0113215, i64 44
+  %149 = getelementptr inbounds nuw i8, ptr %.0113212, i64 44
   %150 = load i32, ptr %149, align 4
-  %.0130.in171 = getelementptr inbounds nuw i8, ptr %.0113215, i64 80
-  %.0130172 = load ptr, ptr %.0130.in171, align 8
-  %.not140173 = icmp eq ptr %.0130172, null
-  br i1 %.not140173, label %.thread, label %.lr.ph.preheader
+  %.0130.in168 = getelementptr inbounds nuw i8, ptr %.0113212, i64 80
+  %.0130169 = load ptr, ptr %.0130.in168, align 8
+  %.not140170 = icmp eq ptr %.0130169, null
+  br i1 %.not140170, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %148
-  %151 = load i32, ptr %.0130172, align 8
-  %.not141229 = icmp eq i32 %151, 6
-  br i1 %.not141229, label %.lr.ph233, label %.thread
+  %151 = load i32, ptr %.0130169, align 8
+  %.not141226 = icmp eq i32 %151, 6
+  br i1 %.not141226, label %.lr.ph230, label %.thread
 
 .lr.ph:                                           ; preds = %158
   %152 = load i32, ptr %.0130, align 8
   %.not141 = icmp eq i32 %152, 6
-  br i1 %.not141, label %.lr.ph233, label %.thread
+  br i1 %.not141, label %.lr.ph230, label %.thread
 
-.lr.ph233:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0127174232 = phi ptr [ %.0130176230, %.lr.ph ], [ %.0113215, %.lr.ph.preheader ]
-  %.0124175231 = phi i32 [ %159, %.lr.ph ], [ %143, %.lr.ph.preheader ]
-  %.0130176230 = phi ptr [ %.0130, %.lr.ph ], [ %.0130172, %.lr.ph.preheader ]
-  %153 = getelementptr inbounds nuw i8, ptr %.0130176230, i64 16
+.lr.ph230:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0127171229 = phi ptr [ %.0130173227, %.lr.ph ], [ %.0113212, %.lr.ph.preheader ]
+  %.0124172228 = phi i32 [ %159, %.lr.ph ], [ %143, %.lr.ph.preheader ]
+  %.0130173227 = phi ptr [ %.0130, %.lr.ph ], [ %.0130169, %.lr.ph.preheader ]
+  %153 = getelementptr inbounds nuw i8, ptr %.0130173227, i64 16
   %154 = load i64, ptr %153, align 8
   %.not142 = icmp eq i64 %154, 2
   br i1 %.not142, label %155, label %.thread
 
-155:                                              ; preds = %.lr.ph233
-  %156 = getelementptr inbounds nuw i8, ptr %.0130176230, i64 44
+155:                                              ; preds = %.lr.ph230
+  %156 = getelementptr inbounds nuw i8, ptr %.0130173227, i64 44
   %157 = load i32, ptr %156, align 4
   %.not143 = icmp eq i32 %157, %150
   br i1 %.not143, label %158, label %.thread
 
 158:                                              ; preds = %155
-  %159 = add i32 %.0124175231, 2
-  %.0130.in = getelementptr inbounds nuw i8, ptr %.0130176230, i64 80
+  %159 = add i32 %.0124172228, 2
+  %.0130.in = getelementptr inbounds nuw i8, ptr %.0130173227, i64 80
   %.0130 = load ptr, ptr %.0130.in, align 8
   %.not140 = icmp eq ptr %.0130, null
   br i1 %.not140, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %155, %.lr.ph233, %.lr.ph, %158, %.lr.ph.preheader, %148
-  %.0127.lcssa = phi ptr [ %.0113215, %148 ], [ %.0113215, %.lr.ph.preheader ], [ %.0130176230, %158 ], [ %.0130176230, %.lr.ph ], [ %.0127174232, %.lr.ph233 ], [ %.0127174232, %155 ]
-  %.0124.lcssa = phi i32 [ %143, %148 ], [ %143, %.lr.ph.preheader ], [ %159, %158 ], [ %159, %.lr.ph ], [ %.0124175231, %.lr.ph233 ], [ %.0124175231, %155 ]
-  call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113215, i32 noundef %.0124.lcssa, i32 noundef %145, i32 noundef 2)
+.thread:                                          ; preds = %155, %.lr.ph230, %.lr.ph, %158, %.lr.ph.preheader, %148
+  %.0127.lcssa = phi ptr [ %.0113212, %148 ], [ %.0113212, %.lr.ph.preheader ], [ %.0130173227, %158 ], [ %.0130173227, %.lr.ph ], [ %.0127171229, %.lr.ph230 ], [ %.0127171229, %155 ]
+  %.0124.lcssa = phi i32 [ %143, %148 ], [ %143, %.lr.ph.preheader ], [ %159, %158 ], [ %159, %.lr.ph ], [ %.0124172228, %.lr.ph230 ], [ %.0124172228, %155 ]
+  call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113212, i32 noundef %.0124.lcssa, i32 noundef %145, i32 noundef 2)
   br label %199
 
 160:                                              ; preds = %83, %83
-  %161 = getelementptr inbounds nuw i8, ptr %.0113215, i64 8
-  %162 = getelementptr inbounds nuw i8, ptr %.0113215, i64 48
+  %161 = getelementptr inbounds nuw i8, ptr %.0113212, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %.0113212, i64 48
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %.0113215, i64 44
+  %164 = getelementptr inbounds nuw i8, ptr %.0113212, i64 44
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %.0113215, i64 56
+  %166 = getelementptr inbounds nuw i8, ptr %.0113212, i64 56
   %167 = load i32, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %.0113215, i64 60
+  %168 = getelementptr inbounds nuw i8, ptr %.0113212, i64 60
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %.0113215, i64 64
+  %170 = getelementptr inbounds nuw i8, ptr %.0113212, i64 64
   %171 = load i32, ptr %170, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %.0113215, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %.0113212, i64 16
   %173 = load i64, ptr %172, align 8
   %174 = trunc i64 %173 to i32
   %175 = load i64, ptr %161, align 8
   %176 = trunc i64 %175 to i32
-  %.0119.in187 = getelementptr inbounds nuw i8, ptr %.0113215, i64 80
-  %.0119188 = load ptr, ptr %.0119.in187, align 8
-  %.not144189 = icmp eq ptr %.0119188, null
-  br i1 %.not144189, label %.thread165, label %.lr.ph193.preheader
+  %.0119.in184 = getelementptr inbounds nuw i8, ptr %.0113212, i64 80
+  %.0119185 = load ptr, ptr %.0119.in184, align 8
+  %.not144186 = icmp eq ptr %.0119185, null
+  br i1 %.not144186, label %.thread163, label %.lr.ph190.preheader
 
-.lr.ph193.preheader:                              ; preds = %160
-  %177 = load i32, ptr %.0119188, align 8
-  %.not145243 = icmp eq i32 %177, %84
-  br i1 %.not145243, label %.lr.ph247, label %.thread165
+.lr.ph190.preheader:                              ; preds = %160
+  %177 = load i32, ptr %.0119185, align 8
+  %.not145240 = icmp eq i32 %177, %84
+  br i1 %.not145240, label %.lr.ph244, label %.thread163
 
-.lr.ph193:                                        ; preds = %193
+.lr.ph190:                                        ; preds = %193
   %178 = load i32, ptr %.0119, align 8
   %.not145 = icmp eq i32 %178, %84
-  br i1 %.not145, label %.lr.ph247, label %.thread165
+  br i1 %.not145, label %.lr.ph244, label %.thread163
 
-.lr.ph247:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
-  %.0121190246 = phi ptr [ %.0119192244, %.lr.ph193 ], [ %.0113215, %.lr.ph193.preheader ]
-  %.0116191245 = phi i32 [ %197, %.lr.ph193 ], [ %174, %.lr.ph193.preheader ]
-  %.0119192244 = phi ptr [ %.0119, %.lr.ph193 ], [ %.0119188, %.lr.ph193.preheader ]
-  %179 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 48
+.lr.ph244:                                        ; preds = %.lr.ph190.preheader, %.lr.ph190
+  %.0121187243 = phi ptr [ %.0119189241, %.lr.ph190 ], [ %.0113212, %.lr.ph190.preheader ]
+  %.0116188242 = phi i32 [ %197, %.lr.ph190 ], [ %174, %.lr.ph190.preheader ]
+  %.0119189241 = phi ptr [ %.0119, %.lr.ph190 ], [ %.0119185, %.lr.ph190.preheader ]
+  %179 = getelementptr inbounds nuw i8, ptr %.0119189241, i64 48
   %180 = load ptr, ptr %179, align 8
   %.not146 = icmp eq ptr %180, %163
-  br i1 %.not146, label %181, label %.thread165
+  br i1 %.not146, label %181, label %.thread163
 
-181:                                              ; preds = %.lr.ph247
-  %182 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 56
+181:                                              ; preds = %.lr.ph244
+  %182 = getelementptr inbounds nuw i8, ptr %.0119189241, i64 56
   %183 = load i32, ptr %182, align 8
   %.not147 = icmp eq i32 %183, %167
-  br i1 %.not147, label %184, label %.thread165
+  br i1 %.not147, label %184, label %.thread163
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 60
+  %185 = getelementptr inbounds nuw i8, ptr %.0119189241, i64 60
   %186 = load i32, ptr %185, align 4
   %.not148 = icmp eq i32 %186, %169
-  br i1 %.not148, label %187, label %.thread165
+  br i1 %.not148, label %187, label %.thread163
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 64
+  %188 = getelementptr inbounds nuw i8, ptr %.0119189241, i64 64
   %189 = load i32, ptr %188, align 8
   %.not149 = icmp eq i32 %189, %171
-  br i1 %.not149, label %190, label %.thread165
+  br i1 %.not149, label %190, label %.thread163
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 44
+  %191 = getelementptr inbounds nuw i8, ptr %.0119189241, i64 44
   %192 = load i32, ptr %191, align 4
   %.not150 = icmp eq i32 %192, %165
-  br i1 %.not150, label %193, label %.thread165
+  br i1 %.not150, label %193, label %.thread163
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %.0119192244, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %.0119189241, i64 16
   %195 = load i64, ptr %194, align 8
   %196 = trunc i64 %195 to i32
-  %197 = add i32 %.0116191245, %196
-  %.0119.in = getelementptr inbounds nuw i8, ptr %.0119192244, i64 80
+  %197 = add i32 %.0116188242, %196
+  %.0119.in = getelementptr inbounds nuw i8, ptr %.0119189241, i64 80
   %.0119 = load ptr, ptr %.0119.in, align 8
   %.not144 = icmp eq ptr %.0119, null
-  br i1 %.not144, label %.thread165, label %.lr.ph193
+  br i1 %.not144, label %.thread163, label %.lr.ph190
 
-.thread165:                                       ; preds = %.lr.ph247, %181, %184, %187, %190, %.lr.ph193, %193, %.lr.ph193.preheader, %160
-  %.0121.lcssa = phi ptr [ %.0113215, %160 ], [ %.0113215, %.lr.ph193.preheader ], [ %.0119192244, %193 ], [ %.0119192244, %.lr.ph193 ], [ %.0121190246, %190 ], [ %.0121190246, %187 ], [ %.0121190246, %184 ], [ %.0121190246, %181 ], [ %.0121190246, %.lr.ph247 ]
-  %.0116.lcssa = phi i32 [ %174, %160 ], [ %174, %.lr.ph193.preheader ], [ %197, %193 ], [ %197, %.lr.ph193 ], [ %.0116191245, %190 ], [ %.0116191245, %187 ], [ %.0116191245, %184 ], [ %.0116191245, %181 ], [ %.0116191245, %.lr.ph247 ]
+.thread163:                                       ; preds = %.lr.ph244, %181, %184, %187, %190, %.lr.ph190, %193, %.lr.ph190.preheader, %160
+  %.0121.lcssa = phi ptr [ %.0113212, %160 ], [ %.0113212, %.lr.ph190.preheader ], [ %.0119189241, %193 ], [ %.0119189241, %.lr.ph190 ], [ %.0121187243, %190 ], [ %.0121187243, %187 ], [ %.0121187243, %184 ], [ %.0121187243, %181 ], [ %.0121187243, %.lr.ph244 ]
+  %.0116.lcssa = phi i32 [ %174, %160 ], [ %174, %.lr.ph190.preheader ], [ %197, %193 ], [ %197, %.lr.ph190 ], [ %.0116188242, %190 ], [ %.0116188242, %187 ], [ %.0116188242, %184 ], [ %.0116188242, %181 ], [ %.0116188242, %.lr.ph244 ]
   %198 = icmp eq i32 %84, 5
   %spec.store.select = select i1 %198, i32 4, i32 0
-  call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113215, i32 noundef %.0116.lcssa, i32 noundef %176, i32 noundef %spec.store.select)
+  call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113212, i32 noundef %.0116.lcssa, i32 noundef %176, i32 noundef %spec.store.select)
   br label %199
 
-199:                                              ; preds = %147, %.thread, %.thread165, %GetDrawCmdColor.exit157, %110, %97, %GetDrawCmdColor.exit, %83
-  %.1 = phi ptr [ %.0113215, %83 ], [ %.0113215, %GetDrawCmdColor.exit ], [ %.0113215, %97 ], [ %.0113215, %110 ], [ %.0113215, %GetDrawCmdColor.exit157 ], [ %.0121.lcssa, %.thread165 ], [ %.0113215, %147 ], [ %.0127.lcssa, %.thread ]
+199:                                              ; preds = %147, %.thread, %.thread163, %GetDrawCmdColor.exit156, %110, %97, %GetDrawCmdColor.exit, %83
+  %.1 = phi ptr [ %.0113212, %83 ], [ %.0113212, %GetDrawCmdColor.exit ], [ %.0113212, %97 ], [ %.0113212, %110 ], [ %.0113212, %GetDrawCmdColor.exit156 ], [ %.0121.lcssa, %.thread163 ], [ %.0113212, %147 ], [ %.0127.lcssa, %.thread ]
   %200 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %201 = load ptr, ptr %200, align 8
   %.not138 = icmp eq ptr %201, null

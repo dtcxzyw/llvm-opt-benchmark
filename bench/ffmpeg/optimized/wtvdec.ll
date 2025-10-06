@@ -207,8 +207,8 @@ define internal i32 @read_header(ptr noundef %0) #1 {
 59:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %60 = call i32 @avio_feof(ptr noundef nonnull %58) #11
-  %.not27.i = icmp eq i32 %60, 0
-  br i1 %.not27.i, label %.lr.ph.i, label %parse_legacy_attrib.exit
+  %.not26.i = icmp eq i32 %60, 0
+  br i1 %.not26.i, label %.lr.ph.i, label %parse_legacy_attrib.exit
 
 .lr.ph.i:                                         ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -291,8 +291,8 @@ define internal i32 @read_header(ptr noundef %0) #1 {
 126:                                              ; preds = %77
   %127 = call i32 @avio_get_str16le(ptr noundef nonnull %58, i32 noundef 2147483647, ptr noundef nonnull %11, i32 noundef 1024) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %bcmp19.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %11, ptr noundef nonnull dereferenceable(18) @.str.24, i64 18)
-  %.not.i.i = icmp eq i32 %bcmp19.i, 0
+  %bcmp18.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %11, ptr noundef nonnull dereferenceable(18) @.str.24, i64 18)
+  %.not.i.i = icmp eq i32 %bcmp18.i, 0
   br i1 %.not.i.i, label %128, label %131
 
 128:                                              ; preds = %126
@@ -355,13 +355,13 @@ define internal i32 @read_header(ptr noundef %0) #1 {
 
 158:                                              ; preds = %155
   %159 = call i64 @avio_rl64(ptr noundef nonnull %58) #11
-  %bcmp21.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) @.str.28, i64 16)
-  %.not75.i.i = icmp eq i32 %bcmp21.i, 0
+  %bcmp20.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) @.str.28, i64 16)
+  %.not75.i.i = icmp eq i32 %bcmp20.i, 0
   br i1 %.not75.i.i, label %161, label %160
 
 160:                                              ; preds = %158
-  %bcmp22.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %11, ptr noundef nonnull dereferenceable(34) @.str.29, i64 34)
-  %.not76.i.i = icmp eq i32 %bcmp22.i, 0
+  %bcmp21.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %11, ptr noundef nonnull dereferenceable(34) @.str.29, i64 34)
+  %.not76.i.i = icmp eq i32 %bcmp21.i, 0
   br i1 %.not76.i.i, label %161, label %166
 
 161:                                              ; preds = %160, %158
@@ -387,13 +387,13 @@ filetime_to_iso8601.exit.i.i:                     ; preds = %161
   br i1 %.not6.i.i.i, label %224, label %.critedge.i.i
 
 166:                                              ; preds = %160
-  %bcmp23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %11, ptr noundef nonnull dereferenceable(18) @.str.30, i64 18)
-  %.not77.i.i = icmp eq i32 %bcmp23.i, 0
+  %bcmp22.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %11, ptr noundef nonnull dereferenceable(18) @.str.30, i64 18)
+  %.not77.i.i = icmp eq i32 %bcmp22.i, 0
   br i1 %.not77.i.i, label %168, label %167
 
 167:                                              ; preds = %166
-  %bcmp24.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %11, ptr noundef nonnull dereferenceable(15) @.str.31, i64 15)
-  %.not78.i.i = icmp eq i32 %bcmp24.i, 0
+  %bcmp23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %11, ptr noundef nonnull dereferenceable(15) @.str.31, i64 15)
+  %.not78.i.i = icmp eq i32 %bcmp23.i, 0
   br i1 %.not78.i.i, label %168, label %173
 
 168:                                              ; preds = %167, %166
@@ -419,8 +419,8 @@ crazytime_to_iso8601.exit.i:                      ; preds = %168
   br i1 %.not6.i.i, label %224, label %.critedge.i.i
 
 173:                                              ; preds = %167
-  %bcmp25.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %11, ptr noundef nonnull dereferenceable(22) @.str.32, i64 22)
-  %.not79.i.i = icmp eq i32 %bcmp25.i, 0
+  %bcmp24.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %11, ptr noundef nonnull dereferenceable(22) @.str.32, i64 22)
+  %.not79.i.i = icmp eq i32 %bcmp24.i, 0
   br i1 %.not79.i.i, label %174, label %177
 
 174:                                              ; preds = %173
@@ -429,8 +429,8 @@ crazytime_to_iso8601.exit.i:                      ; preds = %168
   br i1 %176, label %224, label %.critedge.i.i
 
 177:                                              ; preds = %173
-  %bcmp26.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %11, ptr noundef nonnull dereferenceable(15) @.str.33, i64 15)
-  %.not80.i.i = icmp eq i32 %bcmp26.i, 0
+  %bcmp25.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %11, ptr noundef nonnull dereferenceable(15) @.str.33, i64 15)
+  %.not80.i.i = icmp eq i32 %bcmp25.i, 0
   br i1 %.not80.i.i, label %178, label %181
 
 178:                                              ; preds = %177
@@ -492,8 +492,8 @@ crazytime_to_iso8601.exit.i:                      ; preds = %168
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %216
-  %bcmp20.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %11, ptr noundef nonnull dereferenceable(11) @.str.37, i64 11)
-  %.not74.i.i = icmp eq i32 %bcmp20.i, 0
+  %bcmp19.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %11, ptr noundef nonnull dereferenceable(11) @.str.37, i64 11)
+  %.not74.i.i = icmp eq i32 %bcmp19.i, 0
   br i1 %.not74.i.i, label %219, label %220
 
 219:                                              ; preds = %218
@@ -562,8 +562,8 @@ parse_legacy_attrib.exit:                         ; preds = %224, %59, %.thread.
   %242 = call i64 @avio_rl64(ptr noundef nonnull %241) #11
   %243 = call i64 @avio_rl64(ptr noundef nonnull %241) #11
   %244 = call i32 @avio_feof(ptr noundef nonnull %241) #11
-  %.not8895 = icmp eq i32 %244, 0
-  br i1 %.not8895, label %.lr.ph, label %._crit_edge
+  %.not8894 = icmp eq i32 %244, 0
+  br i1 %.not8894, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %245 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -618,26 +618,26 @@ parse_legacy_attrib.exit:                         ; preds = %224, %59, %.thread.
   %.076 = phi i64 [ 0, %264 ], [ %273, %.critedge ]
   %272 = call i64 @avio_rl64(ptr noundef nonnull %263) #11
   %273 = call i64 @avio_rl64(ptr noundef nonnull %263) #11
-  %.not9196 = icmp ugt ptr %.077, %270
-  br i1 %.not9196, label %.critedge, label %.lr.ph99
+  %.not9195 = icmp ugt ptr %.077, %270
+  br i1 %.not9195, label %.critedge, label %.lr.ph98
 
-.lr.ph99:                                         ; preds = %271, %279
-  %.17897 = phi ptr [ %280, %279 ], [ %.077, %271 ]
-  %274 = getelementptr inbounds nuw i8, ptr %.17897, i64 16
+.lr.ph98:                                         ; preds = %271, %279
+  %.17896 = phi ptr [ %280, %279 ], [ %.077, %271 ]
+  %274 = getelementptr inbounds nuw i8, ptr %.17896, i64 16
   %275 = load i32, ptr %274, align 8
   %276 = ashr i32 %275, 2
   %277 = sext i32 %276 to i64
   %278 = icmp ugt i64 %272, %277
   br i1 %278, label %279, label %.critedge
 
-279:                                              ; preds = %.lr.ph99
-  store i64 %.076, ptr %.17897, align 8, !tbaa !45
-  %280 = getelementptr inbounds nuw i8, ptr %.17897, i64 24
+279:                                              ; preds = %.lr.ph98
+  store i64 %.076, ptr %.17896, align 8, !tbaa !45
+  %280 = getelementptr inbounds nuw i8, ptr %.17896, i64 24
   %.not91 = icmp ugt ptr %280, %270
-  br i1 %.not91, label %.critedge, label %.lr.ph99, !llvm.loop !47
+  br i1 %.not91, label %.critedge, label %.lr.ph98, !llvm.loop !47
 
-.critedge:                                        ; preds = %.lr.ph99, %279, %271
-  %.178.lcssa = phi ptr [ %.077, %271 ], [ %280, %279 ], [ %.17897, %.lr.ph99 ]
+.critedge:                                        ; preds = %.lr.ph98, %279, %271
+  %.178.lcssa = phi ptr [ %.077, %271 ], [ %280, %279 ], [ %.17896, %.lr.ph98 ]
   %281 = call i32 @avio_feof(ptr noundef nonnull %263) #11
   %.not92 = icmp eq i32 %281, 0
   br i1 %.not92, label %271, label %282
@@ -2532,8 +2532,8 @@ define internal i32 @wtvfile_read_packet(ptr noundef captures(none) %0, ptr noun
   br label %28
 
 28:                                               ; preds = %.lr.ph, %.thread
-  %.05485 = phi ptr [ %1, %.lr.ph ], [ %43, %.thread ]
-  %.05984 = phi i32 [ 0, %.lr.ph ], [ %41, %.thread ]
+  %.05484 = phi ptr [ %1, %.lr.ph ], [ %43, %.thread ]
+  %.05983 = phi i32 [ 0, %.lr.ph ], [ %41, %.thread ]
   %29 = load i32, ptr %25, align 8, !tbaa !66
   %30 = shl nuw i32 1, %29
   %31 = load i64, ptr %11, align 8, !tbaa !70
@@ -2541,16 +2541,16 @@ define internal i32 @wtvfile_read_packet(ptr noundef captures(none) %0, ptr noun
   %33 = trunc i64 %31 to i32
   %34 = and i32 %32, %33
   %35 = sub i32 %30, %34
-  %36 = sub nsw i32 %23, %.05984
+  %36 = sub nsw i32 %23, %.05983
   %37 = tail call i32 @llvm.smin.i32(i32 %36, i32 %35)
-  %38 = tail call i32 @avio_read(ptr noundef nonnull %4, ptr noundef %.05485, i32 noundef %37) #11
+  %38 = tail call i32 @avio_read(ptr noundef nonnull %4, ptr noundef %.05484, i32 noundef %37) #11
   %39 = icmp slt i32 %38, 1
   br i1 %39, label %.thread77, label %40
 
 40:                                               ; preds = %28
-  %41 = add nuw nsw i32 %38, %.05984
+  %41 = add nuw nsw i32 %38, %.05983
   %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %.05485, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %.05484, i64 %42
   %44 = load i64, ptr %11, align 8, !tbaa !70
   %45 = add nsw i64 %44, %42
   store i64 %45, ptr %11, align 8, !tbaa !70
@@ -2598,7 +2598,7 @@ define internal i32 @wtvfile_read_packet(ptr noundef captures(none) %0, ptr noun
   br i1 %70, label %28, label %.thread77
 
 .thread77:                                        ; preds = %.thread, %28, %69
-  %.160 = phi i32 [ %41, %69 ], [ %41, %.thread ], [ %.05984, %28 ]
+  %.160 = phi i32 [ %41, %69 ], [ %41, %.thread ], [ %.05983, %28 ]
   %.158 = phi i32 [ %35, %69 ], [ %38, %28 ], [ %38, %.thread ]
   %.160.fr = freeze i32 %.160
   %.not73 = icmp eq i32 %.160.fr, 0

@@ -210,29 +210,29 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %43 = call fastcc i32 @hash_init_with_dom(ptr noundef %0, ptr noundef %20, i8 noundef zeroext %6, ptr noundef %7, i64 noundef %8, ptr noundef %9)
   %.not46 = icmp eq i32 %43, 0
-  br i1 %.not46, label %.thread64, label %44
+  br i1 %.not46, label %.thread60, label %44
 
 44:                                               ; preds = %41
   %45 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %20, ptr noundef nonnull %13, i64 noundef 57) #5
   %.not47 = icmp eq i32 %45, 0
-  br i1 %.not47, label %.thread64, label %46
+  br i1 %.not47, label %.thread60, label %46
 
 46:                                               ; preds = %44
   %47 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %20, ptr noundef %3, i64 noundef 57) #5
   %.not48 = icmp eq i32 %47, 0
-  br i1 %.not48, label %.thread64, label %48
+  br i1 %.not48, label %.thread60, label %48
 
 48:                                               ; preds = %46
   %49 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %20, ptr noundef %4, i64 noundef %5) #5
   %.not49 = icmp eq i32 %49, 0
-  br i1 %.not49, label %.thread64, label %50
+  br i1 %.not49, label %.thread60, label %50
 
 50:                                               ; preds = %48
   %51 = call i32 @EVP_DigestFinalXOF(ptr noundef nonnull %20, ptr noundef nonnull %19, i64 noundef 114) #5
   %.not50 = icmp eq i32 %51, 0
-  br i1 %.not50, label %.thread64, label %52
+  br i1 %.not50, label %.thread60, label %52
 
-.thread64:                                        ; preds = %50, %48, %46, %44, %41
+.thread60:                                        ; preds = %50, %48, %46, %44, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
@@ -251,8 +251,8 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   call void @ossl_curve448_scalar_destroy(ptr noundef nonnull %14) #5
   br label %54
 
-54:                                               ; preds = %.thread64, %40, %.thread, %52
-  %.039 = phi i32 [ -1, %52 ], [ 0, %40 ], [ 0, %.thread ], [ 0, %.thread64 ]
+54:                                               ; preds = %.thread60, %40, %.thread, %52
+  %.039 = phi i32 [ -1, %52 ], [ 0, %40 ], [ 0, %.thread ], [ 0, %.thread60 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %20) #5
   br label %55
 

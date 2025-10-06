@@ -868,8 +868,8 @@ sub_0:                                            ; preds = %_ZN5clang6driver5ty
 sub_1:                                            ; preds = %sub_0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %28 = load i8, ptr %27, align 1
-  %.not26 = icmp eq i8 %28, 117
-  br i1 %.not26, label %sub_2, label %.loopexit
+  %.not24 = icmp eq i8 %28, 117
+  br i1 %.not24, label %sub_2, label %.loopexit
 
 sub_2:                                            ; preds = %sub_1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2

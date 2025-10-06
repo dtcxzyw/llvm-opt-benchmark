@@ -23692,14 +23692,14 @@ define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(560) ptr 
   br label %43
 
 43:                                               ; preds = %41, %.thread
-  %.05582 = phi i64 [ 0, %41 ], [ %98, %.thread ]
-  %44 = icmp eq i64 %.05582, 2
+  %.05581 = phi i64 [ 0, %41 ], [ %98, %.thread ]
+  %44 = icmp eq i64 %.05581, 2
   br i1 %44, label %._crit_edge, label %45
 
 45:                                               ; preds = %43
-  %46 = add nuw nsw i64 %.05582, 1
+  %46 = add nuw nsw i64 %.05581, 1
   %47 = getelementptr double, ptr %12, i64 %46
-  %.idx.i = mul nuw nsw i64 %.05582, 24
+  %.idx.i = mul nuw nsw i64 %.05581, 24
   %48 = getelementptr i8, ptr %47, i64 %.idx.i
   %49 = load double, ptr %48, align 8, !tbaa !41
   %50 = fcmp oeq double %49, 0.000000e+00
@@ -23707,10 +23707,10 @@ define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(560) ptr 
 
 ._crit_edge:                                      ; preds = %43, %45
   %.idx.i60.pre-phi = phi i64 [ %.idx.i, %45 ], [ 48, %43 ]
-  %51 = getelementptr double, ptr %12, i64 %.05582
+  %51 = getelementptr double, ptr %12, i64 %.05581
   %52 = getelementptr i8, ptr %51, i64 %.idx.i60.pre-phi
   %53 = load double, ptr %52, align 8, !tbaa !41
-  %54 = getelementptr inbounds nuw %"class.std::complex", ptr %42, i64 %.05582
+  %54 = getelementptr inbounds nuw %"class.std::complex", ptr %42, i64 %.05581
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %53, ptr %54, align 16
   store double 0.000000e+00, ptr %55, align 8
@@ -23727,7 +23727,7 @@ define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(560) ptr 
   br label %104
 
 61:                                               ; preds = %45
-  %62 = getelementptr double, ptr %12, i64 %.05582
+  %62 = getelementptr double, ptr %12, i64 %.05581
   %63 = getelementptr i8, ptr %62, i64 %.idx.i
   %64 = load double, ptr %63, align 8, !tbaa !41
   %.idx.i62 = mul nuw nsw i64 %46, 24
@@ -23753,7 +23753,7 @@ define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(560) ptr 
   %sqrt = tail call double @llvm.sqrt.f64(double %81)
   %82 = fmul double %.sroa.speculated71, %sqrt
   %83 = fadd double %66, %68
-  %84 = getelementptr inbounds nuw %"class.std::complex", ptr %42, i64 %.05582
+  %84 = getelementptr inbounds nuw %"class.std::complex", ptr %42, i64 %.05581
   store double %83, ptr %84, align 16
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
   store double %82, ptr %.sroa.469.0..sroa_idx, align 8, !tbaa !65
@@ -23768,10 +23768,10 @@ define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(560) ptr 
   %90 = fcmp ueq double %89, 0x7FF0000000000000
   %91 = tail call double @llvm.fabs.f64(double %82)
   %92 = fcmp ueq double %91, 0x7FF0000000000000
-  %.not85 = or i1 %90, %92
+  %.not84 = or i1 %90, %92
   %93 = tail call double @llvm.fabs.f64(double %86)
   %94 = fcmp ueq double %93, 0x7FF0000000000000
-  %or.cond = select i1 %.not85, i1 true, i1 %94
+  %or.cond = select i1 %.not84, i1 true, i1 %94
   br i1 %or.cond, label %95, label %.thread
 
 95:                                               ; preds = %61
@@ -23784,7 +23784,7 @@ define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(560) ptr 
 
 .thread:                                          ; preds = %61, %._crit_edge
   %.sink = phi i64 [ 1, %._crit_edge ], [ 2, %61 ]
-  %98 = add nuw nsw i64 %.05582, %.sink
+  %98 = add nuw nsw i64 %.05581, %.sink
   %99 = icmp samesign ult i64 %98, 3
   br i1 %99, label %43, label %100, !llvm.loop !692
 
@@ -25255,8 +25255,8 @@ _ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE12computeShiftEllRdRNS1_I
 
 146:                                              ; preds = %_ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE12computeShiftEllRdRNS1_IdLi3ELi1ELi0ELi3ELi1EEE.exit
   %147 = add nsw i64 %.045, -2
-  %.not56.i = icmp slt i64 %147, %.014.lcssa.i
-  br i1 %.not56.i, label %_ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE17initFrancisQRStepEllRKNS1_IdLi3ELi1ELi0ELi3ELi1EEERlRS4_.exit, label %.lr.ph.i62
+  %.not55.i = icmp slt i64 %147, %.014.lcssa.i
+  br i1 %.not55.i, label %_ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE17initFrancisQRStepEllRKNS1_IdLi3ELi1ELi0ELi3ELi1EEERlRS4_.exit, label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %146
   %148 = load double, ptr %7, align 8, !tbaa !41
@@ -25266,15 +25266,15 @@ _ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE12computeShiftEllRdRNS1_I
   br label %152
 
 152:                                              ; preds = %176, %.lr.ph.i62
-  %storemerge57.i = phi i64 [ %147, %.lr.ph.i62 ], [ %177, %176 ]
-  %153 = getelementptr double, ptr %0, i64 %storemerge57.i
-  %.idx.i.i63 = mul i64 %storemerge57.i, 24
+  %storemerge56.i = phi i64 [ %147, %.lr.ph.i62 ], [ %177, %176 ]
+  %153 = getelementptr double, ptr %0, i64 %storemerge56.i
+  %.idx.i.i63 = mul i64 %storemerge56.i, 24
   %154 = getelementptr i8, ptr %153, i64 %.idx.i.i63
   %155 = load double, ptr %154, align 8, !tbaa !41
   %156 = fsub double %148, %155
   %157 = fsub double %149, %155
   %158 = call double @llvm.fmuladd.f64(double %156, double %157, double %151)
-  %159 = add nsw i64 %storemerge57.i, 1
+  %159 = add nsw i64 %storemerge56.i, 1
   %160 = getelementptr double, ptr %0, i64 %159
   %161 = getelementptr i8, ptr %160, i64 %.idx.i.i63
   %162 = load double, ptr %161, align 8, !tbaa !41
@@ -25291,11 +25291,11 @@ _ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE12computeShiftEllRdRNS1_I
   %172 = getelementptr i8, ptr %153, i64 16
   %173 = getelementptr i8, ptr %172, i64 %.idx.i48.i
   %174 = load double, ptr %173, align 8, !tbaa !41
-  %175 = icmp eq i64 %storemerge57.i, %.014.lcssa.i
+  %175 = icmp eq i64 %storemerge56.i, %.014.lcssa.i
   br i1 %175, label %_ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE17initFrancisQRStepEllRKNS1_IdLi3ELi1ELi0ELi3ELi1EEERlRS4_.exit.loopexit, label %176
 
 176:                                              ; preds = %152
-  %177 = add nsw i64 %storemerge57.i, -1
+  %177 = add nsw i64 %storemerge56.i, -1
   %.idx.i51.i = mul i64 %177, 24
   %178 = getelementptr i8, ptr %153, i64 %.idx.i51.i
   %179 = load double, ptr %178, align 8, !tbaa !41
@@ -25318,7 +25318,7 @@ _ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE12computeShiftEllRdRNS1_I
   br i1 %195, label %_ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE17initFrancisQRStepEllRKNS1_IdLi3ELi1ELi0ELi3ELi1EEERlRS4_.exit.loopexit, label %152
 
 _ZN5Eigen9RealSchurINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE17initFrancisQRStepEllRKNS1_IdLi3ELi1ELi0ELi3ELi1EEERlRS4_.exit.loopexit: ; preds = %176, %152
-  %storemerge.lcssa.i.ph = phi i64 [ %storemerge57.i, %176 ], [ %.014.lcssa.i, %152 ]
+  %storemerge.lcssa.i.ph = phi i64 [ %storemerge56.i, %176 ], [ %.014.lcssa.i, %152 ]
   store double %166, ptr %6, align 8, !tbaa !41
   store double %171, ptr %60, align 8, !tbaa !41
   store double %174, ptr %61, align 8, !tbaa !41

@@ -721,8 +721,8 @@ _ZN3tbb6detail2r110arena_slot14free_task_poolEv.exit: ; preds = %64, %68
   %71 = xor i64 %70, -1
   %72 = getelementptr inbounds %"class.tbb::detail::r1::mail_outbox", ptr %0, i64 %71
   %73 = load atomic i64, ptr %72 seq_cst, align 128
-  %.not9.i = icmp eq i64 %73, 0
-  br i1 %.not9.i, label %_ZN3tbb6detail2r111mail_outbox5drainEv.exit, label %.lr.ph.i
+  %.not8.i = icmp eq i64 %73, 0
+  br i1 %.not8.i, label %_ZN3tbb6detail2r111mail_outbox5drainEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN3tbb6detail2r110arena_slot14free_task_poolEv.exit, %.lr.ph.i
   %74 = phi i64 [ %82, %.lr.ph.i ], [ %73, %_ZN3tbb6detail2r110arena_slot14free_task_poolEv.exit ]
@@ -5493,11 +5493,11 @@ _ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit: ; preds = %55, %62, %_ZNK3tbb
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit
-  %.pr87 = load ptr, ptr %8, align 8, !tbaa !169
+  %.pr85 = load ptr, ptr %8, align 8, !tbaa !169
   br label %65
 
 65:                                               ; preds = %thread-pre-split, %143
-  %66 = phi ptr [ %.pr87, %thread-pre-split ], [ %146, %143 ]
+  %66 = phi ptr [ %.pr85, %thread-pre-split ], [ %146, %143 ]
   %.not.i60 = icmp eq ptr %66, null
   br i1 %.not.i60, label %_ZN3tbb6detail2r120context_guard_helperILb1EE7set_ctxEPKNS0_2d118task_group_contextE.exit, label %67
 
@@ -5542,8 +5542,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 _ZN3tbb6detail2r120context_guard_helperILb1EE7set_ctxEPKNS0_2d118task_group_contextE.exit: ; preds = %65, %76, %.noexc61
   %.pr = load ptr, ptr %4, align 8, !tbaa !196
-  %.not4976 = icmp eq ptr %.pr, null
-  br i1 %.not4976, label %._crit_edge, label %.lr.ph
+  %.not4974 = icmp eq ptr %.pr, null
+  br i1 %.not4974, label %._crit_edge, label %.lr.ph
 
 82:                                               ; preds = %.noexc, %79
   %83 = landingpad { ptr, i32 }
@@ -5605,14 +5605,14 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
 
 110:                                              ; preds = %108
   invoke void %109(ptr noundef %86)
-          to label %._crit_edge77 unwind label %106
+          to label %._crit_edge75 unwind label %106
 
-._crit_edge77:                                    ; preds = %110
-  %.pre78 = load ptr, ptr %4, align 8, !tbaa !196
+._crit_edge75:                                    ; preds = %110
+  %.pre76 = load ptr, ptr %4, align 8, !tbaa !196
   br label %111
 
-111:                                              ; preds = %._crit_edge77, %108
-  %112 = phi ptr [ %.pre78, %._crit_edge77 ], [ %105, %108 ]
+111:                                              ; preds = %._crit_edge75, %108
+  %112 = phi ptr [ %.pre76, %._crit_edge75 ], [ %105, %108 ]
   store i16 -1, ptr %35, align 2, !tbaa !258
   %113 = load ptr, ptr %0, align 128, !tbaa !133
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
@@ -5631,23 +5631,23 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %120 = load ptr, ptr %119, align 8, !tbaa !116
   %121 = invoke noundef zeroext i1 @_ZNK3tbb6detail2r123outermost_worker_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 128 dereferenceable(176) %120, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %122 unwind label %.loopexit88
+          to label %122 unwind label %.loopexit86
 
 122:                                              ; preds = %._crit_edge
   br i1 %121, label %128, label %.thread69
 
-.loopexit88:                                      ; preds = %._crit_edge, %133
-  %lpad.loopexit90 = landingpad { ptr, i32 }
+.loopexit86:                                      ; preds = %._crit_edge, %133
+  %lpad.loopexit88 = landingpad { ptr, i32 }
           catch ptr null
   br label %123
 
-.loopexit.split-lp89:                             ; preds = %136
-  %lpad.loopexit.split-lp91 = landingpad { ptr, i32 }
+.loopexit.split-lp87:                             ; preds = %136
+  %lpad.loopexit.split-lp89 = landingpad { ptr, i32 }
           catch ptr null
   br label %123
 
-123:                                              ; preds = %.loopexit88, %.loopexit.split-lp89, %106, %82
-  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %83, %82 ], [ %lpad.loopexit90, %.loopexit88 ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp89 ]
+123:                                              ; preds = %.loopexit86, %.loopexit.split-lp87, %106, %82
+  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %83, %82 ], [ %lpad.loopexit88, %.loopexit86 ], [ %lpad.loopexit.split-lp89, %.loopexit.split-lp87 ]
   %.2 = extractvalue { ptr, i32 } %.pn, 0
   %124 = call ptr @__cxa_begin_catch(ptr %.2) #12
   %125 = invoke noundef i64 @_ZN3tbb6detail2r127global_control_active_valueEi(i32 noundef 2)
@@ -5669,12 +5669,12 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %132 = load atomic i64, ptr %131 monotonic, align 8
-  %.not75 = icmp eq i64 %132, 0
-  br i1 %.not75, label %136, label %133
+  %.not73 = icmp eq i64 %132, 0
+  br i1 %.not73, label %136, label %133
 
 133:                                              ; preds = %130
   %134 = invoke noundef ptr @_ZN3tbb6detail2r110arena_slot8get_taskERNS1_18execution_data_extEl(ptr noundef nonnull align 128 dereferenceable(176) %120, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 noundef %22)
-          to label %135 unwind label %.loopexit88
+          to label %135 unwind label %.loopexit86
 
 135:                                              ; preds = %133
   store ptr %134, ptr %4, align 8, !tbaa !196
@@ -5686,7 +5686,7 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
   %138 = load i8, ptr %64, align 1, !tbaa !309, !range !136, !noundef !137
   %139 = trunc nuw i8 %138 to i1
   %140 = invoke noundef ptr @_ZN3tbb6detail2r115task_dispatcher21receive_or_steal_taskILb1ENS1_23outermost_worker_waiterEEEPNS0_2d14taskERNS1_11thread_dataERNS1_18execution_data_extERT0_lbb(ptr noundef nonnull align 128 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(240) %137, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %22, i1 noundef zeroext %139, i1 noundef zeroext %25)
-          to label %141 unwind label %.loopexit.split-lp89
+          to label %141 unwind label %.loopexit.split-lp87
 
 141:                                              ; preds = %136
   store ptr %140, ptr %4, align 8, !tbaa !196
@@ -5961,11 +5961,11 @@ _ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit: ; preds = %55, %62, %_ZNK3tbb
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit
-  %.pr69 = load ptr, ptr %8, align 8, !tbaa !169
+  %.pr67 = load ptr, ptr %8, align 8, !tbaa !169
   br label %65
 
 65:                                               ; preds = %thread-pre-split, %121
-  %66 = phi ptr [ %.pr69, %thread-pre-split ], [ %124, %121 ]
+  %66 = phi ptr [ %.pr67, %thread-pre-split ], [ %124, %121 ]
   %.not.i52 = icmp eq ptr %66, null
   br i1 %.not.i52, label %_ZN3tbb6detail2r120context_guard_helperILb0EE7set_ctxEPKNS0_2d118task_group_contextE.exit, label %67
 
@@ -5987,8 +5987,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 _ZN3tbb6detail2r120context_guard_helperILb0EE7set_ctxEPKNS0_2d118task_group_contextE.exit: ; preds = %65, %67, %75
   %.pr = load ptr, ptr %4, align 8, !tbaa !196
-  %.not4564 = icmp eq ptr %.pr, null
-  br i1 %.not4564, label %._crit_edge, label %.lr.ph
+  %.not4562 = icmp eq ptr %.pr, null
+  br i1 %.not4562, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3tbb6detail2r120context_guard_helperILb0EE7set_ctxEPKNS0_2d118task_group_contextE.exit, %95
   %76 = load ptr, ptr %8, align 8, !tbaa !169
@@ -6035,23 +6035,23 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load ptr, ptr %97, align 8, !tbaa !116
   %99 = invoke noundef zeroext i1 @_ZNK3tbb6detail2r123outermost_worker_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 128 dereferenceable(176) %98, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %100 unwind label %.loopexit70
+          to label %100 unwind label %.loopexit68
 
 100:                                              ; preds = %._crit_edge
   br i1 %99, label %106, label %.thread57
 
-.loopexit70:                                      ; preds = %._crit_edge, %111
-  %lpad.loopexit72 = landingpad { ptr, i32 }
+.loopexit68:                                      ; preds = %._crit_edge, %111
+  %lpad.loopexit70 = landingpad { ptr, i32 }
           catch ptr null
   br label %101
 
-.loopexit.split-lp71:                             ; preds = %114
-  %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
+.loopexit.split-lp69:                             ; preds = %114
+  %lpad.loopexit.split-lp71 = landingpad { ptr, i32 }
           catch ptr null
   br label %101
 
-101:                                              ; preds = %.loopexit70, %.loopexit.split-lp71, %88
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %lpad.loopexit72, %.loopexit70 ], [ %lpad.loopexit.split-lp73, %.loopexit.split-lp71 ]
+101:                                              ; preds = %.loopexit68, %.loopexit.split-lp69, %88
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp69 ]
   %.1 = extractvalue { ptr, i32 } %.pn, 0
   %102 = call ptr @__cxa_begin_catch(ptr %.1) #12
   %103 = invoke noundef i64 @_ZN3tbb6detail2r127global_control_active_valueEi(i32 noundef 2)
@@ -6073,12 +6073,12 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %110 = load atomic i64, ptr %109 monotonic, align 8
-  %.not63 = icmp eq i64 %110, 0
-  br i1 %.not63, label %114, label %111
+  %.not61 = icmp eq i64 %110, 0
+  br i1 %.not61, label %114, label %111
 
 111:                                              ; preds = %108
   %112 = invoke noundef ptr @_ZN3tbb6detail2r110arena_slot8get_taskERNS1_18execution_data_extEl(ptr noundef nonnull align 128 dereferenceable(176) %98, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 noundef %22)
-          to label %113 unwind label %.loopexit70
+          to label %113 unwind label %.loopexit68
 
 113:                                              ; preds = %111
   store ptr %112, ptr %4, align 8, !tbaa !196
@@ -6090,7 +6090,7 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
   %116 = load i8, ptr %64, align 1, !tbaa !319, !range !136, !noundef !137
   %117 = trunc nuw i8 %116 to i1
   %118 = invoke noundef ptr @_ZN3tbb6detail2r115task_dispatcher21receive_or_steal_taskILb0ENS1_23outermost_worker_waiterEEEPNS0_2d14taskERNS1_11thread_dataERNS1_18execution_data_extERT0_lbb(ptr noundef nonnull align 128 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(240) %115, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %22, i1 noundef zeroext %117, i1 noundef zeroext %25)
-          to label %119 unwind label %.loopexit.split-lp71
+          to label %119 unwind label %.loopexit.split-lp69
 
 119:                                              ; preds = %114
   store ptr %118, ptr %4, align 8, !tbaa !196
@@ -6480,8 +6480,8 @@ _ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit: ; preds = %_ZNK
   store ptr %.0.i7, ptr %2, align 8, !tbaa !196
   br label %.thread
 
-.thread:                                          ; preds = %50, %58, %63, %41, %_ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit
-  %.1 = phi i1 [ true, %_ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit ], [ false, %41 ], [ true, %50 ], [ false, %58 ], [ false, %63 ]
+.thread:                                          ; preds = %58, %63, %50, %41, %_ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit
+  %.1 = phi i1 [ true, %_ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit ], [ false, %41 ], [ false, %58 ], [ false, %63 ], [ true, %50 ]
   ret i1 %.1
 }
 

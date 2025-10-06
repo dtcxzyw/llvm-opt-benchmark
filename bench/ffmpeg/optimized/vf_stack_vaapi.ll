@@ -1022,8 +1022,8 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %22
   %32 = load i32, ptr %23, align 8, !tbaa !93
-  %.not67 = icmp eq i32 %32, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i32 %32, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 304

@@ -292,19 +292,19 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
   %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %.lr.ph46, label %._crit_edge47
+  br i1 %3, label %.lr.ph45, label %._crit_edge46
 
-.lr.ph46:                                         ; preds = %0, %79
+.lr.ph45:                                         ; preds = %0, %79
   %4 = phi i32 [ %80, %79 ], [ %2, %0 ]
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %79 ], [ 0, %0 ]
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %79 ], [ 0, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 1, %0 ]
   %5 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv55
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv54
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %79, label %8
 
-8:                                                ; preds = %.lr.ph46
+8:                                                ; preds = %.lr.ph45
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 19
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 1
@@ -324,7 +324,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   br i1 %.not32, label %.preheader, label %78
 
 .preheader:                                       ; preds = %12
-  %21 = add nuw nsw i64 %indvars.iv55, 1
+  %21 = add nuw nsw i64 %indvars.iv54, 1
   %22 = sext i32 %4 to i64
   %23 = icmp slt i64 %21, %22
   br i1 %23, label %.lr.ph, label %._crit_edge
@@ -334,8 +334,8 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %.lr.ph, %77
-  %indvars.iv52 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next53, %77 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv52
+  %indvars.iv51 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next52, %77 ]
+  %25 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv51
   %26 = load ptr, ptr %25, align 8, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 19
   %28 = load i8, ptr %27, align 1
@@ -429,13 +429,13 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   call void @free(ptr noundef nonnull %spec.select.i) #11
   call void @free(ptr noundef nonnull %spec.select24.i) #11
   %75 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv52
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv51
   store ptr null, ptr %76, align 8, !tbaa !12
   br label %79
 
 77:                                               ; preds = %24, %30, %39
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %77, %.preheader
@@ -446,15 +446,15 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   call void @diff_q(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
   br label %79
 
-79:                                               ; preds = %.thread, %._crit_edge, %78, %.lr.ph46
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+79:                                               ; preds = %.thread, %._crit_edge, %78, %.lr.ph45
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
   %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next56, %81
+  %82 = icmp slt i64 %indvars.iv.next55, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %82, label %.lr.ph46, label %._crit_edge47, !llvm.loop !41
+  br i1 %82, label %.lr.ph45, label %._crit_edge46, !llvm.loop !41
 
-._crit_edge47:                                    ; preds = %79, %0
+._crit_edge46:                                    ; preds = %79, %0
   %83 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
   call void @free(ptr noundef %83) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !36

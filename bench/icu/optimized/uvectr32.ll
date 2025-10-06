@@ -616,7 +616,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779UVector3211containsAllERKS
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !6
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %_ZNK6icu_779UVector327indexOfEii.exit.thread
+  br i1 %5, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -626,7 +626,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779UVector3211containsAllERKS
   %10 = icmp sgt i32 %9, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  br i1 %10, label %.lr.ph.i.preheader, label %_ZNK6icu_779UVector327indexOfEii.exit.thread
+  br i1 %10, label %.lr.ph.i.preheader, label %.thread
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -649,16 +649,16 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779UVector3211containsAllERKS
 19:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %20, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %15, !llvm.loop !23
+  br i1 %20, label %.thread, label %15, !llvm.loop !23
 
 _ZNK6icu_779UVector327indexOfEii.exit:            ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not, label %.thread, label %.lr.ph.i, !llvm.loop !24
 
-_ZNK6icu_779UVector327indexOfEii.exit.thread:     ; preds = %_ZNK6icu_779UVector327indexOfEii.exit, %19, %2, %.lr.ph
-  %switch = phi i8 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %19 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit ]
-  ret i8 %switch
+.thread:                                          ; preds = %_ZNK6icu_779UVector327indexOfEii.exit, %19, %2, %.lr.ph
+  %21 = phi i8 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %19 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit ]
+  ret i8 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -700,50 +700,50 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_779UVector327ind
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779UVector3212containsNoneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !6
-  %.not13 = icmp slt i32 %4, 1
-  br i1 %.not13, label %_ZNK6icu_779UVector327indexOfEii.exit, label %.lr.ph
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %_ZNK6icu_779UVector327indexOfEii.exit
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !6
-  %9 = icmp sgt i32 %8, 0
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8
-  br i1 %9, label %.lr.ph.i.us.preheader, label %_ZNK6icu_779UVector327indexOfEii.exit
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !6
+  %10 = icmp sgt i32 %9, 0
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  br i1 %10, label %.lr.ph.i.us.preheader, label %_ZNK6icu_779UVector327indexOfEii.exit
 
 .lr.ph.i.us.preheader:                            ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %4 to i64
-  %zext = zext nneg i32 %8 to i64
+  %zext = zext nneg i32 %9 to i64
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.us.preheader ], [ %indvars.iv.next, %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us ]
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4, !tbaa !18
-  br label %14
+  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !18
+  br label %15
 
-14:                                               ; preds = %18, %.lr.ph.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %18 ]
-  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.us
-  %16 = load i32, ptr %15, align 4, !tbaa !18
-  %17 = icmp eq i32 %13, %16
-  br i1 %17, label %_ZNK6icu_779UVector327indexOfEii.exit, label %18
+15:                                               ; preds = %19, %.lr.ph.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %19 ]
+  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.us
+  %17 = load i32, ptr %16, align 4, !tbaa !18
+  %18 = icmp eq i32 %14, %17
+  br i1 %18, label %_ZNK6icu_779UVector327indexOfEii.exit, label %19
 
-18:                                               ; preds = %14
+19:                                               ; preds = %15
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %19 = icmp eq i64 %indvars.iv.next.i.us, %zext
-  br i1 %19, label %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us, label %14, !llvm.loop !23
+  %20 = icmp eq i64 %indvars.iv.next.i.us, %zext
+  br i1 %20, label %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us, label %15, !llvm.loop !23
 
-_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us: ; preds = %18
+_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us: ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK6icu_779UVector327indexOfEii.exit, label %.lr.ph.i.us, !llvm.loop !25
 
-_ZNK6icu_779UVector327indexOfEii.exit:            ; preds = %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us, %14, %.lr.ph, %2
-  %.not12 = phi i8 [ 1, %2 ], [ 1, %.lr.ph ], [ 0, %14 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us ]
-  ret i8 %.not12
+_ZNK6icu_779UVector327indexOfEii.exit:            ; preds = %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us, %15, %.lr.ph, %2
+  %21 = phi i8 [ 1, %2 ], [ 1, %.lr.ph ], [ 0, %15 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us ]
+  ret i8 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

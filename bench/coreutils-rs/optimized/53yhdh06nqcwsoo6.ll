@@ -263,21 +263,21 @@ define void @_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h17608d746
   ret void
 
 8:                                                ; preds = %.lr.ph, %11
-  %.sroa.01.011 = phi i64 [ %1, %.lr.ph ], [ %12, %11 ]
+  %.sroa.01.010 = phi i64 [ %1, %.lr.ph ], [ %12, %11 ]
   %9 = load i64, ptr %6, align 8, !noundef !4
-  %10 = icmp ult i64 %.sroa.01.011, %9
+  %10 = icmp ult i64 %.sroa.01.010, %9
   br i1 %10, label %11, label %15, !prof !42
 
 11:                                               ; preds = %8
-  %12 = add nuw i64 %.sroa.01.011, 1
+  %12 = add nuw i64 %.sroa.01.010, 1
   %13 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %13, i64 %.sroa.01.011
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.sroa.01.010
   store i8 0, ptr %14, align 1
   %exitcond.not = icmp eq i64 %12, %2
   br i1 %exitcond.not, label %._crit_edge, label %8
 
 15:                                               ; preds = %8
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.01.011, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.44) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.01.010, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.44) #16
   unreachable
 }
 

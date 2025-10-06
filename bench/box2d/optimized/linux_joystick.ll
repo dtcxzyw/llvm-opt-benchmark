@@ -296,9 +296,9 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   %71 = and i32 %60, 255
   %72 = lshr i32 %60, 8
   %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef %70, i32 noundef %71, i32 noundef %72) #13
-  br label %.preheader83
+  br label %.preheader81
 
-.preheader83:                                     ; preds = %74, %59
+.preheader81:                                     ; preds = %74, %59
   br label %114
 
 74:                                               ; preds = %49
@@ -339,18 +339,18 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   %109 = load i8, ptr %108, align 2, !tbaa !100
   %110 = sext i8 %109 to i32
   %111 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %77, i32 noundef %78, i32 noundef %80, i32 noundef %83, i32 noundef %86, i32 noundef %89, i32 noundef %92, i32 noundef %95, i32 noundef %98, i32 noundef %101, i32 noundef %104, i32 noundef %107, i32 noundef %110) #13
-  br label %.preheader83
+  br label %.preheader81
 
 .preheader:                                       ; preds = %128
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 6148
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 6404
   br label %131
 
-114:                                              ; preds = %.preheader83, %128
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %128 ], [ 256, %.preheader83 ]
-  %.05269 = phi i32 [ %.153, %128 ], [ 0, %.preheader83 ]
-  %115 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %116 = lshr i64 %indvars.iv75, 3
+114:                                              ; preds = %.preheader81, %128
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %128 ], [ 256, %.preheader81 ]
+  %.05267 = phi i32 [ %.153, %128 ], [ 0, %.preheader81 ]
+  %115 = trunc nuw nsw i64 %indvars.iv73 to i32
+  %116 = lshr i64 %indvars.iv73, 3
   %117 = and i64 %116, 536870911
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !100
@@ -362,17 +362,17 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   br i1 %.not64, label %128, label %124
 
 124:                                              ; preds = %114
-  %125 = getelementptr i32, ptr %2, i64 %indvars.iv75
+  %125 = getelementptr i32, ptr %2, i64 %indvars.iv73
   %126 = getelementptr i8, ptr %125, i64 3076
-  store i32 %.05269, ptr %126, align 4, !tbaa !93
-  %127 = add nsw i32 %.05269, 1
+  store i32 %.05267, ptr %126, align 4, !tbaa !93
+  %127 = add nsw i32 %.05267, 1
   br label %128
 
 128:                                              ; preds = %114, %124
-  %.153 = phi i32 [ %127, %124 ], [ %.05269, %114 ]
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next76, 768
-  br i1 %exitcond78.not, label %.preheader, label %114
+  %.153 = phi i32 [ %127, %124 ], [ %.05267, %114 ]
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next74, 768
+  br i1 %exitcond76.not, label %.preheader, label %114
 
 129:                                              ; preds = %157
   %130 = call ptr @_glfwAllocJoystick(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.155, i32 noundef %.153, i32 noundef %.151) #13
@@ -380,37 +380,37 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   br i1 %.not62, label %160, label %163
 
 131:                                              ; preds = %.preheader, %157
-  %.04773 = phi i32 [ 0, %.preheader ], [ %158, %157 ]
-  %.05072 = phi i32 [ 0, %.preheader ], [ %.151, %157 ]
-  %.05471 = phi i32 [ 0, %.preheader ], [ %.155, %157 ]
-  %132 = sext i32 %.04773 to i64
+  %.04771 = phi i32 [ 0, %.preheader ], [ %158, %157 ]
+  %.05070 = phi i32 [ 0, %.preheader ], [ %.151, %157 ]
+  %.05469 = phi i32 [ 0, %.preheader ], [ %.155, %157 ]
+  %132 = sext i32 %.04771 to i64
   %133 = getelementptr inbounds i32, ptr %112, i64 %132
   store i32 -1, ptr %133, align 4, !tbaa !93
-  %134 = sdiv i32 %.04773, 8
+  %134 = sdiv i32 %.04771, 8
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i8, ptr %5, i64 %135
   %137 = load i8, ptr %136, align 1, !tbaa !100
   %138 = zext i8 %137 to i32
-  %139 = and i32 %.04773, 7
+  %139 = and i32 %.04771, 7
   %140 = shl nuw nsw i32 1, %139
   %141 = and i32 %140, %138
   %.not63 = icmp eq i32 %141, 0
   br i1 %.not63, label %157, label %142
 
 142:                                              ; preds = %131
-  %143 = and i32 %.04773, -8
+  %143 = and i32 %.04771, -8
   %or.cond9 = icmp eq i32 %143, 16
   br i1 %or.cond9, label %144, label %147
 
 144:                                              ; preds = %142
-  store i32 %.05072, ptr %133, align 4, !tbaa !93
-  %145 = add nsw i32 %.05072, 1
-  %146 = add nuw nsw i32 %.04773, 1
+  store i32 %.05070, ptr %133, align 4, !tbaa !93
+  %145 = add nsw i32 %.05070, 1
+  %146 = add nuw nsw i32 %.04771, 1
   br label %157
 
 147:                                              ; preds = %142
   %148 = load i32, ptr %2, align 4, !tbaa !99
-  %149 = add nsw i32 %.04773, 64
+  %149 = add nsw i32 %.04771, 64
   %150 = or i32 %149, -2145893120
   %151 = zext i32 %150 to i64
   %152 = getelementptr inbounds %struct.input_absinfo, ptr %113, i64 %132
@@ -419,14 +419,14 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   br i1 %154, label %157, label %155
 
 155:                                              ; preds = %147
-  store i32 %.05471, ptr %133, align 4, !tbaa !93
-  %156 = add nsw i32 %.05471, 1
+  store i32 %.05469, ptr %133, align 4, !tbaa !93
+  %156 = add nsw i32 %.05469, 1
   br label %157
 
 157:                                              ; preds = %144, %155, %147, %131
-  %.155 = phi i32 [ %.05471, %144 ], [ %.05471, %147 ], [ %156, %155 ], [ %.05471, %131 ]
-  %.151 = phi i32 [ %145, %144 ], [ %.05072, %147 ], [ %.05072, %155 ], [ %.05072, %131 ]
-  %.148 = phi i32 [ %146, %144 ], [ %.04773, %147 ], [ %.04773, %155 ], [ %.04773, %131 ]
+  %.155 = phi i32 [ %.05469, %144 ], [ %.05469, %147 ], [ %156, %155 ], [ %.05469, %131 ]
+  %.151 = phi i32 [ %145, %144 ], [ %.05070, %147 ], [ %.05070, %155 ], [ %.05070, %131 ]
+  %.148 = phi i32 [ %146, %144 ], [ %.04771, %147 ], [ %.04771, %155 ], [ %.04771, %131 ]
   %158 = add nsw i32 %.148, 1
   %159 = icmp slt i32 %.148, 63
   br i1 %159, label %131, label %129

@@ -2194,11 +2194,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %32, ptr %0, align 8, !tbaa !14
   %38 = load i64, ptr %15, align 8, !tbaa !24
   store i64 %38, ptr %31, align 8, !tbaa !24
-  %.pre46 = load i64, ptr %27, align 8, !tbaa !8
+  %.pre45 = load i64, ptr %27, align 8, !tbaa !8
   br label %_ZN4Luau6detail10IdentifierD2Ev.exit
 
 _ZN4Luau6detail10IdentifierD2Ev.exit:             ; preds = %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
-  %39 = phi i64 [ %35, %34 ], [ %.pre46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
+  %39 = phi i64 [ %35, %34 ], [ %.pre45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %39, ptr %40, align 8, !tbaa !8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2210,8 +2210,8 @@ _ZN4Luau6detail10IdentifierD2Ev.exit:             ; preds = %34, %_ZNKSt7__cxx11
 
 43:                                               ; preds = %2
   %44 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4, !tbaa !4
-  %.not42 = icmp eq i32 %9, %44
-  br i1 %.not42, label %45, label %76
+  %.not41 = icmp eq i32 %9, %44
+  br i1 %.not41, label %45, label %76
 
 45:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2285,11 +2285,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %65, ptr %0, align 8, !tbaa !14
   %71 = load i64, ptr %48, align 8, !tbaa !24
   store i64 %71, ptr %64, align 8, !tbaa !24
-  %.pre45 = load i64, ptr %60, align 8, !tbaa !8
+  %.pre44 = load i64, ptr %60, align 8, !tbaa !8
   br label %_ZN4Luau6detail10IdentifierD2Ev.exit32
 
 _ZN4Luau6detail10IdentifierD2Ev.exit32:           ; preds = %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i28
-  %72 = phi i64 [ %68, %67 ], [ %.pre45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i28 ]
+  %72 = phi i64 [ %68, %67 ], [ %.pre44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i28 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %72, ptr %73, align 8, !tbaa !8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2301,8 +2301,8 @@ _ZN4Luau6detail10IdentifierD2Ev.exit32:           ; preds = %67, %_ZNKSt7__cxx11
 
 76:                                               ; preds = %43
   %77 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4, !tbaa !4
-  %.not43 = icmp eq i32 %9, %77
-  br i1 %.not43, label %78, label %79
+  %.not42 = icmp eq i32 %9, %77
+  br i1 %.not42, label %78, label %79
 
 78:                                               ; preds = %76
   tail call void @_ZN4Luau6detail6mkNameERKNS_16AstExprIndexNameE(ptr dead_on_unwind writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1)
@@ -2310,8 +2310,8 @@ _ZN4Luau6detail10IdentifierD2Ev.exit32:           ; preds = %67, %_ZNKSt7__cxx11
 
 79:                                               ; preds = %76
   %80 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprErrorEE5valueE, align 4, !tbaa !4
-  %.not44 = icmp eq i32 %9, %80
-  br i1 %.not44, label %81, label %99
+  %.not43 = icmp eq i32 %9, %80
+  br i1 %.not43, label %81, label %99
 
 81:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2908,8 +2908,8 @@ define dso_local void @_ZN4Luau6detail6mkNameEPNS_7AstStatE(ptr dead_on_unwind n
   %8 = load i32, ptr %7, align 8, !tbaa !46
   %9 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstStatFunctionEE5valueE, align 4, !tbaa !4
   %10 = icmp ne i32 %8, %9
-  %.not50 = icmp eq ptr %1, null
-  %.not = or i1 %.not50, %10
+  %.not49 = icmp eq ptr %1, null
+  %.not = or i1 %.not49, %10
   br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %2
@@ -2955,7 +2955,7 @@ _ZN4Luau6detail10IdentifierD2Ev.exit:             ; preds = %16, %_ZNKSt7__cxx11
 28:                                               ; preds = %2
   %29 = load i32, ptr @_ZN4Luau7AstRttiINS_20AstStatLocalFunctionEE5valueE, align 4, !tbaa !4
   %30 = icmp ne i32 %8, %29
-  %.not30 = or i1 %.not50, %30
+  %.not30 = or i1 %.not49, %30
   br i1 %.not30, label %63, label %31
 
 31:                                               ; preds = %28
@@ -3032,11 +3032,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %52, ptr %0, align 8, !tbaa !14
   %58 = load i64, ptr %35, align 8, !tbaa !24
   store i64 %58, ptr %51, align 8, !tbaa !24
-  %.pre55 = load i64, ptr %47, align 8, !tbaa !8
+  %.pre54 = load i64, ptr %47, align 8, !tbaa !8
   br label %_ZN4Luau6detail10IdentifierD2Ev.exit39
 
 _ZN4Luau6detail10IdentifierD2Ev.exit39:           ; preds = %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i35
-  %59 = phi i64 [ %55, %54 ], [ %.pre55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i35 ]
+  %59 = phi i64 [ %55, %54 ], [ %.pre54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i35 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %59, ptr %60, align 8, !tbaa !8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3049,7 +3049,7 @@ _ZN4Luau6detail10IdentifierD2Ev.exit39:           ; preds = %54, %_ZNKSt7__cxx11
 63:                                               ; preds = %28
   %64 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstStatAssignEE5valueE, align 4, !tbaa !4
   %65 = icmp ne i32 %8, %64
-  %.not31 = or i1 %.not50, %65
+  %.not31 = or i1 %.not49, %65
   br i1 %.not31, label %75, label %66
 
 66:                                               ; preds = %63
@@ -3074,7 +3074,7 @@ _ZN4Luau6detail10IdentifierD2Ev.exit39:           ; preds = %54, %_ZNKSt7__cxx11
 75:                                               ; preds = %63
   %76 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatLocalEE5valueE, align 4, !tbaa !4
   %77 = icmp ne i32 %8, %76
-  %.not32 = or i1 %.not50, %77
+  %.not32 = or i1 %.not49, %77
   br i1 %.not32, label %79, label %78
 
 78:                                               ; preds = %75
@@ -3084,7 +3084,7 @@ _ZN4Luau6detail10IdentifierD2Ev.exit39:           ; preds = %54, %_ZNKSt7__cxx11
 79:                                               ; preds = %75
   %80 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstStatTypeAliasEE5valueE, align 4, !tbaa !4
   %81 = icmp ne i32 %8, %80
-  %.not33 = or i1 %.not50, %81
+  %.not33 = or i1 %.not49, %81
   br i1 %.not33, label %_ZN4Luau6detail6mkNameERKNS_13AstStatAssignE.exit, label %82
 
 82:                                               ; preds = %79
@@ -3110,12 +3110,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %84, ptr %0, align 8, !tbaa !14
   %92 = load i64, ptr %85, align 8, !tbaa !24
   store i64 %92, ptr %83, align 8, !tbaa !24
-  %.phi.trans.insert56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre57 = load i64, ptr %.phi.trans.insert56, align 8, !tbaa !8
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.pre56 = load i64, ptr %.phi.trans.insert55, align 8, !tbaa !8
   br label %_ZN4Luau6detail10IdentifierD2Ev.exit47
 
 _ZN4Luau6detail10IdentifierD2Ev.exit47:           ; preds = %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i43
-  %93 = phi i64 [ %89, %87 ], [ %.pre57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i43 ]
+  %93 = phi i64 [ %89, %87 ], [ %.pre56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i43 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %93, ptr %94, align 8, !tbaa !8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3174,8 +3174,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau6detail24containsToposortableNodeER
   %2 = load ptr, ptr %0, align 8, !tbaa !109
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !109
-  %.not12.not = icmp eq ptr %2, %4
-  br i1 %.not12.not, label %_ZN4Luau6detail18isToposortableNodeERKNS_7AstStatE.exit.thread, label %.lr.ph
+  %.not13.not = icmp eq ptr %2, %4
+  br i1 %.not13.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstStatFunctionEE5valueE, align 4, !tbaa !4
@@ -3184,8 +3184,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau6detail24containsToposortableNodeER
   br label %8
 
 8:                                                ; preds = %8, %.lr.ph
-  %.sroa.08.013 = phi ptr [ %2, %.lr.ph ], [ %16, %8 ]
-  %9 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !111
+  %.sroa.08.014 = phi ptr [ %2, %.lr.ph ], [ %16, %8 ]
+  %9 = load ptr, ptr %.sroa.08.014, align 8, !tbaa !111
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !46
   %12 = icmp eq i32 %11, %5
@@ -3193,12 +3193,12 @@ define dso_local noundef zeroext i1 @_ZN4Luau6detail24containsToposortableNodeER
   %14 = select i1 %12, i1 true, i1 %13
   %15 = icmp eq i32 %11, %7
   %or.cond = select i1 %14, i1 true, i1 %15
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 8
   %.not.not = icmp eq ptr %16, %4
-  %or.cond19 = select i1 %or.cond, i1 true, i1 %.not.not
-  br i1 %or.cond19, label %_ZN4Luau6detail18isToposortableNodeERKNS_7AstStatE.exit.thread, label %8
+  %or.cond20 = select i1 %or.cond, i1 true, i1 %.not.not
+  br i1 %or.cond20, label %.thread, label %8
 
-_ZN4Luau6detail18isToposortableNodeERKNS_7AstStatE.exit.thread: ; preds = %8, %1
+.thread:                                          ; preds = %8, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ %or.cond, %8 ]
   ret i1 %.not.lcssa
 }
@@ -4695,13 +4695,13 @@ define dso_local void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr no
   br label %19
 
 17:                                               ; preds = %19
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.014.i, i64 8
   %.not.not.i = icmp eq ptr %18, %12
   br i1 %.not.not.i, label %_ZN4Luau6detail24containsToposortableNodeERKSt6vectorIPNS_7AstStatESaIS3_EE.exit, label %19
 
 19:                                               ; preds = %17, %.lr.ph.i
-  %.sroa.08.013.i = phi ptr [ %10, %.lr.ph.i ], [ %18, %17 ]
-  %20 = load ptr, ptr %.sroa.08.013.i, align 8, !tbaa !111
+  %.sroa.08.014.i = phi ptr [ %10, %.lr.ph.i ], [ %18, %17 ]
+  %20 = load ptr, ptr %.sroa.08.014.i, align 8, !tbaa !111
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !46
   %23 = icmp eq i32 %22, %14

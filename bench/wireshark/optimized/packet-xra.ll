@@ -815,11 +815,11 @@ dissect_xra_tlv.exit:                             ; preds = %202, %4
   br i1 %222, label %.lr.ph.i73, label %.sink.split
 
 .lr.ph.i73:                                       ; preds = %215, %243
-  %.0365.i = phi i32 [ %247, %243 ], [ 0, %215 ]
-  %223 = call zeroext i8 @tvb_get_uint8(ptr noundef %216, i32 noundef %.0365.i)
+  %.0364.i = phi i32 [ %247, %243 ], [ 0, %215 ]
+  %223 = call zeroext i8 @tvb_get_uint8(ptr noundef %216, i32 noundef %.0364.i)
   %224 = lshr i8 %223, 4
-  %225 = call zeroext i8 @tvb_get_uint8(ptr noundef %216, i32 noundef %.0365.i)
-  %226 = add i32 %.0365.i, 1
+  %225 = call zeroext i8 @tvb_get_uint8(ptr noundef %216, i32 noundef %.0364.i)
+  %226 = add i32 %.0364.i, 1
   %227 = call zeroext i8 @tvb_get_uint8(ptr noundef %216, i32 noundef %226)
   switch i8 %224, label %236 [
     i8 1, label %243
@@ -836,11 +836,11 @@ dissect_xra_tlv.exit:                             ; preds = %202, %4
   br label %243
 
 .thread.i:                                        ; preds = %.lr.ph.i73
-  %231 = call i32 @tvb_reported_length_remaining(ptr noundef %216, i32 noundef %.0365.i)
+  %231 = call i32 @tvb_reported_length_remaining(ptr noundef %216, i32 noundef %.0364.i)
   %232 = trunc i32 %231 to i16
   %233 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %233, i32 noundef 25, ptr noundef nonnull @.str.250)
-  %234 = call ptr @tvb_new_subset_remaining(ptr noundef %216, i32 noundef %.0365.i)
+  %234 = call ptr @tvb_new_subset_remaining(ptr noundef %216, i32 noundef %.0364.i)
   call fastcc void @dissect_message_block(ptr noundef %234, ptr noundef %1, ptr noundef %220, i8 noundef zeroext 3, i16 noundef zeroext %232)
   br label %.sink.split
 
@@ -861,10 +861,10 @@ dissect_xra_tlv.exit:                             ; preds = %202, %4
   %.034.i = phi i16 [ %230, %228 ], [ 9, %235 ], [ %242, %236 ], [ 12, %.lr.ph.i73 ]
   %244 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %244, i32 noundef 25, ptr noundef nonnull %.str.248.sink.i)
-  %245 = call ptr @tvb_new_subset_remaining(ptr noundef %216, i32 noundef %.0365.i)
+  %245 = call ptr @tvb_new_subset_remaining(ptr noundef %216, i32 noundef %.0364.i)
   call fastcc void @dissect_message_block(ptr noundef %245, ptr noundef %1, ptr noundef %220, i8 noundef zeroext %224, i16 noundef zeroext %.034.i)
   %246 = zext nneg i16 %.034.i to i32
-  %247 = add i32 %.0365.i, %246
+  %247 = add i32 %.0364.i, %246
   %248 = call i32 @tvb_reported_length_remaining(ptr noundef %216, i32 noundef %247)
   %249 = icmp sgt i32 %248, 0
   br i1 %249, label %.lr.ph.i73, label %.sink.split

@@ -1541,8 +1541,8 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %92 = load ptr, ptr %75, align 8, !tbaa !23
   %93 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %94 = call fastcc i32 @_lock_single_database(ptr noundef nonnull %73, ptr noundef %92, ptr noundef nonnull %93)
-  %.not.i278 = icmp eq i32 %94, 0
-  br i1 %.not.i278, label %.loopexit, label %95
+  %.not.i276 = icmp eq i32 %94, 0
+  br i1 %.not.i276, label %.loopexit, label %95
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %77, align 8, !tbaa !24
@@ -1559,7 +1559,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 .loopexit:                                        ; preds = %91, %99
   store i32 0, ptr %73, align 8, !tbaa !14
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.31) #18
-  br label %.thread291
+  br label %.thread289
 
 102:                                              ; preds = %95
   store i32 1, ptr %73, align 8, !tbaa !14
@@ -1589,7 +1589,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   call void @g_free(ptr noundef %114) #18
   %115 = load ptr, ptr %77, align 8, !tbaa !24
   call void @g_free(ptr noundef %115) #18
-  br label %.thread291
+  br label %.thread289
 
 116:                                              ; preds = %102
   %117 = load ptr, ptr %104, align 8, !tbaa !6
@@ -1621,7 +1621,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %133 = call i32 @sqlite3_finalize(ptr noundef %132) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.40, ptr noundef nonnull %11) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
-  br label %.thread291
+  br label %.thread289
 
 134:                                              ; preds = %128
   %135 = load ptr, ptr %12, align 8, !tbaa !21
@@ -1668,7 +1668,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %173 = call i32 @sqlite3_exec(ptr noundef %172, ptr noundef nonnull @.str.167, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %174 = call fastcc i32 @_upgrade_data_schema(ptr noundef nonnull readonly %73, i32 noundef 10)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread295
+  br label %.thread293
 
 175:                                              ; preds = %134
   %176 = load ptr, ptr %104, align 8, !tbaa !6
@@ -1705,24 +1705,24 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 195:                                              ; preds = %193
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.48, ptr noundef nonnull %11, i32 noundef %189, i32 noundef 12) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
-  br label %.thread291
+  br label %.thread289
 
 196:                                              ; preds = %193
   %197 = load ptr, ptr %104, align 8, !tbaa !6
   %198 = call i32 @sqlite3_exec(ptr noundef %197, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %199 = load ptr, ptr %104, align 8, !tbaa !6
   %200 = call i32 @sqlite3_exec(ptr noundef %199, ptr noundef nonnull @.str.50, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread295
+  br label %.thread293
 
 201:                                              ; preds = %187
   %.not258 = icmp eq i32 %189, 12
-  br i1 %.not258, label %.thread295, label %202
+  br i1 %.not258, label %.thread293, label %202
 
 202:                                              ; preds = %201
   call fastcc void @_too_new_db_version(ptr noundef %11, i32 noundef %2)
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.51, ptr noundef nonnull %11) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
-  br label %.thread291
+  br label %.thread289
 
 203:                                              ; preds = %183, %175
   %204 = call i32 @g_strcmp0(ptr noundef %177, ptr noundef nonnull @.str.47) #18
@@ -1758,18 +1758,18 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   br label %222
 
 222:                                              ; preds = %219, %215
-  %.sink555 = phi ptr [ %221, %219 ], [ %218, %215 ]
-  %.sink554 = phi i32 [ -7, %219 ], [ -3, %215 ]
+  %.sink549 = phi ptr [ %221, %219 ], [ %218, %215 ]
+  %.sink548 = phi i32 [ -7, %219 ], [ -3, %215 ]
   %.str.58.sink = phi ptr [ @.str.58, %219 ], [ @.str.57, %215 ]
   %223 = tail call i64 @gtk_dialog_get_type() #22
-  %224 = call ptr @g_type_check_instance_cast(ptr noundef %.sink555, i64 noundef %223) #18
-  call void @gtk_dialog_set_default_response(ptr noundef %224, i32 noundef %.sink554) #18
+  %224 = call ptr @g_type_check_instance_cast(ptr noundef %.sink549, i64 noundef %223) #18
+  call void @gtk_dialog_set_default_response(ptr noundef %224, i32 noundef %.sink548) #18
   %225 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.58.sink, i32 noundef 5) #18
   %226 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #18
   %227 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %226, ptr noundef nonnull %11, ptr noundef %.0218, ptr noundef %225) #18
   call void @g_free(ptr noundef %.0218) #18
   call void @g_free(ptr noundef %177) #18
-  %228 = call ptr @g_type_check_instance_cast(ptr noundef %.sink555, i64 noundef %223) #18
+  %228 = call ptr @g_type_check_instance_cast(ptr noundef %.sink549, i64 noundef %223) #18
   %229 = call ptr @gtk_dialog_get_content_area(ptr noundef %228) #18
   %230 = call ptr @gtk_label_new(ptr noundef null) #18
   %231 = tail call i64 @gtk_label_get_type() #22
@@ -1780,9 +1780,9 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %234 = call ptr @g_type_check_instance_cast(ptr noundef %229, i64 noundef %233) #18
   call void @gtk_container_add(ptr noundef %234, ptr noundef %230) #18
   call void @gtk_widget_show_all(ptr noundef %229) #18
-  %235 = call ptr @g_type_check_instance_cast(ptr noundef %.sink555, i64 noundef %223) #18
+  %235 = call ptr @g_type_check_instance_cast(ptr noundef %.sink549, i64 noundef %223) #18
   %236 = call i32 @gtk_dialog_run(ptr noundef %235) #18
-  call void @gtk_widget_destroy(ptr noundef %.sink555) #18
+  call void @gtk_widget_destroy(ptr noundef %.sink549) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
   %237 = add i32 %236, 1
   %or.cond3 = icmp ult i32 %237, -2
@@ -1791,7 +1791,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 238:                                              ; preds = %222
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull %11) #18
   call void @g_free(ptr noundef %211) #18
-  br label %.thread291
+  br label %.thread289
 
 239:                                              ; preds = %222
   %240 = call i32 @g_unlink(ptr noundef nonnull %11) #18
@@ -1829,24 +1829,24 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 255:                                              ; preds = %252
   %256 = call i32 @g_close(i32 noundef %253, ptr noundef nonnull %13) #18
   %.not255 = icmp eq i32 %256, 0
-  br i1 %.not255, label %.thread, label %.thread288
+  br i1 %.not255, label %.thread, label %.thread286
 
 257:                                              ; preds = %250
   %258 = call i32 @chmod(ptr noundef nonnull %11, i32 noundef 420) #18
-  %.not320 = icmp eq i32 %258, 0
-  br i1 %.not320, label %.thread288, label %.thread
+  %.not314 = icmp eq i32 %258, 0
+  br i1 %.not314, label %.thread286, label %.thread
 
 .thread:                                          ; preds = %252, %255, %250, %257
-  br label %.thread288
+  br label %.thread286
 
-.thread288:                                       ; preds = %255, %257, %.thread
+.thread286:                                       ; preds = %255, %257, %.thread
   %259 = phi ptr [ @.str.65, %.thread ], [ @.str.64, %257 ], [ @.str.64, %255 ]
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.63, ptr noundef nonnull %11, ptr noundef nonnull %211, ptr noundef nonnull %259) #18
   call void @g_object_unref(ptr noundef %247) #18
   call void @g_object_unref(ptr noundef %248) #18
   br label %260
 
-260:                                              ; preds = %.thread288, %244
+260:                                              ; preds = %.thread286, %244
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.backedge
 
@@ -1856,7 +1856,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   call void @g_free(ptr noundef %.0208) #18
   br label %18
 
-.thread295:                                       ; preds = %196, %201, %145
+.thread293:                                       ; preds = %196, %201, %145
   %261 = load ptr, ptr %104, align 8, !tbaa !6
   %262 = call ptr @_get_pragma_string_val(ptr noundef %261, ptr noundef nonnull @.str.66)
   %263 = load ptr, ptr %104, align 8, !tbaa !6
@@ -1867,7 +1867,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %or.cond7 = select i1 %266, i1 %267, i1 false
   br i1 %or.cond7, label %268, label %290
 
-268:                                              ; preds = %.thread295
+268:                                              ; preds = %.thread293
   %269 = load ptr, ptr %12, align 8, !tbaa !21
   %270 = call i32 @sqlite3_step(ptr noundef %269) #18
   %271 = icmp eq i32 %270, 100
@@ -1893,36 +1893,36 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 
 281:                                              ; preds = %279
   %282 = call fastcc i32 @_upgrade_library_schema_step(ptr noundef nonnull %73, i32 noundef %.08.i)
-  %.not.i279 = icmp eq i32 %282, %.08.i
-  br i1 %.not.i279, label %283, label %279
+  %.not.i277 = icmp eq i32 %282, %.08.i
+  br i1 %.not.i277, label %283, label %279
 
 283:                                              ; preds = %281
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.48, ptr noundef %.0208, i32 noundef %274, i32 noundef 56) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
-  br label %.thread291
+  br label %.thread289
 
 _upgrade_library_schema.exit:                     ; preds = %279
   %284 = load ptr, ptr %104, align 8, !tbaa !6
   %285 = call i32 @sqlite3_exec(ptr noundef %284, ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %286 = load ptr, ptr %104, align 8, !tbaa !6
   %287 = call i32 @sqlite3_exec(ptr noundef %286, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %_upgrade_library_schema.exit283
+  br label %_upgrade_library_schema.exit281
 
 288:                                              ; preds = %272
   %.not268 = icmp eq i32 %274, 56
-  br i1 %.not268, label %_upgrade_library_schema.exit283, label %289
+  br i1 %.not268, label %_upgrade_library_schema.exit281, label %289
 
 289:                                              ; preds = %288
   call fastcc void @_too_new_db_version(ptr noundef %9, i32 noundef %2)
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.51, ptr noundef %.0208) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
-  br label %.thread291
+  br label %.thread289
 
-290:                                              ; preds = %268, %.thread295
+290:                                              ; preds = %268, %.thread293
   %291 = call i32 @g_strcmp0(ptr noundef %262, ptr noundef nonnull @.str.47) #18
   %.fr = freeze i32 %291
-  %.not321 = icmp eq i32 %.fr, 0
-  br i1 %.not321, label %switch.early.test, label %292
+  %.not315 = icmp eq i32 %.fr, 0
+  br i1 %.not315, label %switch.early.test, label %292
 
 switch.early.test:                                ; preds = %290
   switch i32 %264, label %349 [
@@ -1964,18 +1964,18 @@ switch.early.test:                                ; preds = %290
   br label %311
 
 311:                                              ; preds = %308, %304
-  %.sink560 = phi ptr [ %310, %308 ], [ %307, %304 ]
-  %.sink559 = phi i32 [ -7, %308 ], [ -3, %304 ]
-  %.str.58.sink557 = phi ptr [ @.str.58, %308 ], [ @.str.57, %304 ]
+  %.sink554 = phi ptr [ %310, %308 ], [ %307, %304 ]
+  %.sink553 = phi i32 [ -7, %308 ], [ -3, %304 ]
+  %.str.58.sink551 = phi ptr [ @.str.58, %308 ], [ @.str.57, %304 ]
   %312 = tail call i64 @gtk_dialog_get_type() #22
-  %313 = call ptr @g_type_check_instance_cast(ptr noundef %.sink560, i64 noundef %312) #18
-  call void @gtk_dialog_set_default_response(ptr noundef %313, i32 noundef %.sink559) #18
-  %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.58.sink557, i32 noundef 5) #18
+  %313 = call ptr @g_type_check_instance_cast(ptr noundef %.sink554, i64 noundef %312) #18
+  call void @gtk_dialog_set_default_response(ptr noundef %313, i32 noundef %.sink553) #18
+  %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.58.sink551, i32 noundef 5) #18
   %315 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #18
   %316 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %315, ptr noundef nonnull %11, ptr noundef %.0224, ptr noundef %314) #18
   call void @g_free(ptr noundef %.0224) #18
   call void @g_free(ptr noundef %262) #18
-  %317 = call ptr @g_type_check_instance_cast(ptr noundef %.sink560, i64 noundef %312) #18
+  %317 = call ptr @g_type_check_instance_cast(ptr noundef %.sink554, i64 noundef %312) #18
   %318 = call ptr @gtk_dialog_get_content_area(ptr noundef %317) #18
   %319 = call ptr @gtk_label_new(ptr noundef null) #18
   %320 = tail call i64 @gtk_label_get_type() #22
@@ -1986,18 +1986,18 @@ switch.early.test:                                ; preds = %290
   %323 = call ptr @g_type_check_instance_cast(ptr noundef %318, i64 noundef %322) #18
   call void @gtk_container_add(ptr noundef %323, ptr noundef %319) #18
   call void @gtk_widget_show_all(ptr noundef %318) #18
-  %324 = call ptr @g_type_check_instance_cast(ptr noundef %.sink560, i64 noundef %312) #18
+  %324 = call ptr @g_type_check_instance_cast(ptr noundef %.sink554, i64 noundef %312) #18
   %325 = call i32 @gtk_dialog_run(ptr noundef %324) #18
-  call void @gtk_widget_destroy(ptr noundef %.sink560) #18
+  call void @gtk_widget_destroy(ptr noundef %.sink554) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
   %326 = add i32 %325, 1
   %or.cond13 = icmp ult i32 %326, -2
-  br i1 %or.cond13, label %.thread310, label %327
+  br i1 %or.cond13, label %.thread307, label %327
 
-.thread310:                                       ; preds = %311
+.thread307:                                       ; preds = %311
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull %9) #18
   call void @g_free(ptr noundef %300) #18
-  br label %.thread291
+  br label %.thread289
 
 327:                                              ; preds = %311
   %328 = call i32 @g_unlink(ptr noundef nonnull %9) #18
@@ -2025,34 +2025,34 @@ switch.early.test:                                ; preds = %290
 338:                                              ; preds = %334
   %339 = call i32 @g_file_copy(ptr noundef %335, ptr noundef %336, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %14) #18
   %.not266 = icmp eq i32 %339, 0
-  br i1 %.not266, label %.thread306, label %345
+  br i1 %.not266, label %.thread303, label %345
 
 340:                                              ; preds = %334
   %341 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %9, i32 noundef 64, i32 noundef 420) #18
   %342 = icmp slt i32 %341, 0
-  br i1 %342, label %.thread306, label %343
+  br i1 %342, label %.thread303, label %343
 
 343:                                              ; preds = %340
   %344 = call i32 @g_close(i32 noundef %341, ptr noundef nonnull %14) #18
   %.not265 = icmp eq i32 %344, 0
-  br i1 %.not265, label %.thread306, label %.thread308
+  br i1 %.not265, label %.thread303, label %.thread305
 
 345:                                              ; preds = %338
   %346 = call i32 @chmod(ptr noundef nonnull %9, i32 noundef 420) #18
-  %.not322 = icmp eq i32 %346, 0
-  br i1 %.not322, label %.thread308, label %.thread306
+  %.not316 = icmp eq i32 %346, 0
+  br i1 %.not316, label %.thread305, label %.thread303
 
-.thread306:                                       ; preds = %340, %343, %338, %345
-  br label %.thread308
+.thread303:                                       ; preds = %340, %343, %338, %345
+  br label %.thread305
 
-.thread308:                                       ; preds = %343, %345, %.thread306
-  %347 = phi ptr [ @.str.62, %.thread306 ], [ @.str.64, %345 ], [ @.str.64, %343 ]
+.thread305:                                       ; preds = %343, %345, %.thread303
+  %347 = phi ptr [ @.str.62, %.thread303 ], [ @.str.64, %345 ], [ @.str.64, %343 ]
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.72, ptr noundef nonnull %9, ptr noundef nonnull %300, ptr noundef nonnull %347) #18
   call void @g_object_unref(ptr noundef %335) #18
   call void @g_object_unref(ptr noundef %336) #18
   br label %348
 
-348:                                              ; preds = %.thread308, %332
+348:                                              ; preds = %.thread305, %332
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge
 
@@ -2083,22 +2083,22 @@ switch.early.test:                                ; preds = %290
 366:                                              ; preds = %359
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.74, ptr noundef %.0208, i32 noundef %362) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
-  br label %.thread291
+  br label %.thread289
 
 .preheader:                                       ; preds = %359, %368
-  %.08.i280 = phi i32 [ %369, %368 ], [ 1, %359 ]
-  %367 = icmp slt i32 %.08.i280, 56
-  br i1 %367, label %368, label %_upgrade_library_schema.exit283
+  %.08.i278 = phi i32 [ %369, %368 ], [ 1, %359 ]
+  %367 = icmp slt i32 %.08.i278, 56
+  br i1 %367, label %368, label %_upgrade_library_schema.exit281
 
 368:                                              ; preds = %.preheader
-  %369 = call fastcc i32 @_upgrade_library_schema_step(ptr noundef nonnull %73, i32 noundef %.08.i280)
-  %.not.i282 = icmp eq i32 %369, %.08.i280
-  br i1 %.not.i282, label %370, label %.preheader
+  %369 = call fastcc i32 @_upgrade_library_schema_step(ptr noundef nonnull %73, i32 noundef %.08.i278)
+  %.not.i280 = icmp eq i32 %369, %.08.i278
+  br i1 %.not.i280, label %370, label %.preheader
 
 370:                                              ; preds = %368
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.75, ptr noundef %.0208, i32 noundef 56) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
-  br label %.thread291
+  br label %.thread289
 
 371:                                              ; preds = %355, %349
   %372 = load ptr, ptr %12, align 8, !tbaa !21
@@ -2234,9 +2234,9 @@ switch.early.test:                                ; preds = %290
 
 _create_library_schema.exit:                      ; preds = %490, %492
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %_upgrade_library_schema.exit283
+  br label %_upgrade_library_schema.exit281
 
-_upgrade_library_schema.exit283:                  ; preds = %.preheader, %_upgrade_library_schema.exit, %288, %_create_library_schema.exit
+_upgrade_library_schema.exit281:                  ; preds = %.preheader, %_upgrade_library_schema.exit, %288, %_create_library_schema.exit
   %494 = load ptr, ptr %104, align 8, !tbaa !6
   %495 = call i32 @sqlite3_exec(ptr noundef %494, ptr noundef nonnull @.str.965, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %496 = load ptr, ptr %104, align 8, !tbaa !6
@@ -2274,13 +2274,13 @@ _upgrade_library_schema.exit283:                  ; preds = %.preheader, %_upgra
   %526 = icmp eq i32 %525, 100
   br i1 %526, label %.lr.ph.i, label %_sanitize_db.exit
 
-.lr.ph.i:                                         ; preds = %_upgrade_library_schema.exit283, %545
+.lr.ph.i:                                         ; preds = %_upgrade_library_schema.exit281, %545
   %527 = load ptr, ptr %4, align 8, !tbaa !21
   %528 = call i32 @sqlite3_column_int(ptr noundef %527, i32 noundef 0) #18
   %529 = load ptr, ptr %4, align 8, !tbaa !21
   %530 = call ptr @sqlite3_column_text(ptr noundef %529, i32 noundef 1) #18
-  %.not.i284 = icmp eq ptr %530, null
-  br i1 %.not.i284, label %545, label %531
+  %.not.i282 = icmp eq ptr %530, null
+  br i1 %.not.i282, label %545, label %531
 
 531:                                              ; preds = %.lr.ph.i
   %532 = call i32 @g_utf8_validate(ptr noundef nonnull %530, i64 noundef -1, ptr noundef null) #18
@@ -2309,7 +2309,7 @@ _upgrade_library_schema.exit283:                  ; preds = %.preheader, %_upgra
   %548 = icmp eq i32 %547, 100
   br i1 %548, label %.lr.ph.i, label %_sanitize_db.exit
 
-_sanitize_db.exit:                                ; preds = %545, %_upgrade_library_schema.exit283
+_sanitize_db.exit:                                ; preds = %545, %_upgrade_library_schema.exit281
   %549 = load ptr, ptr %4, align 8, !tbaa !21
   %550 = call i32 @sqlite3_finalize(ptr noundef %549) #18
   %551 = load ptr, ptr %5, align 8, !tbaa !21
@@ -2323,22 +2323,22 @@ _sanitize_db.exit:                                ; preds = %545, %_upgrade_libr
   %557 = load ptr, ptr %12, align 8, !tbaa !21
   %558 = call i32 @sqlite3_finalize(ptr noundef %557) #18
   %.not270 = icmp eq i32 %556, 0
-  br i1 %.not270, label %.thread291, label %559
+  br i1 %.not270, label %.thread289, label %559
 
 559:                                              ; preds = %_sanitize_db.exit
   %560 = load ptr, ptr %104, align 8, !tbaa !6
   %561 = call i32 @sqlite3IcuInit(ptr noundef %560) #18
   %.not271 = icmp eq i32 %561, 0
-  br i1 %.not271, label %.thread291, label %562
+  br i1 %.not271, label %.thread289, label %562
 
 562:                                              ; preds = %559
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.78, i32 noundef %561) #18
-  br label %.thread291
+  br label %.thread289
 
-.thread291:                                       ; preds = %131, %559, %562, %_sanitize_db.exit, %289, %283, %.thread310, %195, %202, %238, %370, %366, %106, %.loopexit
-  %.0208491.sink = phi ptr [ %73, %106 ], [ %.0208, %.loopexit ], [ %.0208, %131 ], [ %.0208, %562 ], [ %.0208, %559 ], [ %.0208, %_sanitize_db.exit ], [ %.0208, %283 ], [ %.0208, %289 ], [ %.0208, %.thread310 ], [ %.0208, %195 ], [ %.0208, %202 ], [ %.0208, %238 ], [ %.0208, %370 ], [ %.0208, %366 ]
-  %.0 = phi ptr [ null, %106 ], [ %73, %.loopexit ], [ null, %131 ], [ %73, %562 ], [ %73, %559 ], [ %73, %_sanitize_db.exit ], [ null, %283 ], [ null, %289 ], [ null, %.thread310 ], [ null, %195 ], [ null, %202 ], [ null, %238 ], [ null, %370 ], [ null, %366 ]
-  call void @g_free(ptr noundef %.0208491.sink) #18
+.thread289:                                       ; preds = %131, %559, %562, %_sanitize_db.exit, %289, %283, %.thread307, %195, %202, %238, %370, %366, %106, %.loopexit
+  %.0208485.sink = phi ptr [ %73, %106 ], [ %.0208, %.loopexit ], [ %.0208, %131 ], [ %.0208, %562 ], [ %.0208, %559 ], [ %.0208, %_sanitize_db.exit ], [ %.0208, %283 ], [ %.0208, %289 ], [ %.0208, %.thread307 ], [ %.0208, %195 ], [ %.0208, %202 ], [ %.0208, %238 ], [ %.0208, %370 ], [ %.0208, %366 ]
+  %.0 = phi ptr [ null, %106 ], [ %73, %.loopexit ], [ null, %131 ], [ %73, %562 ], [ %73, %559 ], [ %73, %_sanitize_db.exit ], [ null, %283 ], [ null, %289 ], [ null, %.thread307 ], [ null, %195 ], [ null, %202 ], [ null, %238 ], [ null, %370 ], [ null, %366 ]
+  call void @g_free(ptr noundef %.0208485.sink) #18
   ret ptr %.0
 }
 
@@ -3311,61 +3311,61 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %9 = load ptr, ptr %6, align 8, !tbaa !6
   %10 = tail call i32 @sqlite3_exec(ptr noundef %9, ptr noundef nonnull @.str.858, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not139 = icmp eq i32 %10, 0
-  br i1 %.not139, label %11, label %.thread208
+  br i1 %.not139, label %11, label %.thread207
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8, !tbaa !6
   %13 = tail call i32 @sqlite3_exec(ptr noundef %12, ptr noundef nonnull @.str.859, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not140 = icmp eq i32 %13, 0
-  br i1 %.not140, label %14, label %.thread208
+  br i1 %.not140, label %14, label %.thread207
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %6, align 8, !tbaa !6
   %16 = tail call i32 @sqlite3_exec(ptr noundef %15, ptr noundef nonnull @.str.860, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not141 = icmp eq i32 %16, 0
-  br i1 %.not141, label %17, label %.thread208
+  br i1 %.not141, label %17, label %.thread207
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %6, align 8, !tbaa !6
   %19 = tail call i32 @sqlite3_exec(ptr noundef %18, ptr noundef nonnull @.str.861, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not142 = icmp eq i32 %19, 0
-  br i1 %.not142, label %20, label %.thread208
+  br i1 %.not142, label %20, label %.thread207
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %6, align 8, !tbaa !6
   %22 = tail call i32 @sqlite3_exec(ptr noundef %21, ptr noundef nonnull @.str.862, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not143 = icmp eq i32 %22, 0
-  br i1 %.not143, label %23, label %.thread208
+  br i1 %.not143, label %23, label %.thread207
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %6, align 8, !tbaa !6
   %25 = tail call i32 @sqlite3_exec(ptr noundef %24, ptr noundef nonnull @.str.863, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not144 = icmp eq i32 %25, 0
-  br i1 %.not144, label %26, label %.thread208
+  br i1 %.not144, label %26, label %.thread207
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %6, align 8, !tbaa !6
   %28 = tail call i32 @sqlite3_exec(ptr noundef %27, ptr noundef nonnull @.str.864, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not145 = icmp eq i32 %28, 0
-  br i1 %.not145, label %29, label %.thread208
+  br i1 %.not145, label %29, label %.thread207
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %6, align 8, !tbaa !6
   %31 = tail call i32 @sqlite3_exec(ptr noundef %30, ptr noundef nonnull @.str.865, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not146 = icmp eq i32 %31, 0
-  br i1 %.not146, label %32, label %.thread208
+  br i1 %.not146, label %32, label %.thread207
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %6, align 8, !tbaa !6
   %34 = tail call i32 @sqlite3_exec(ptr noundef %33, ptr noundef nonnull @.str.866, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not147 = icmp eq i32 %34, 0
-  br i1 %.not147, label %35, label %.thread208
+  br i1 %.not147, label %35, label %.thread207
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %6, align 8, !tbaa !6
   %37 = tail call i32 @sqlite3_exec(ptr noundef %36, ptr noundef nonnull @.str.481, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not148 = icmp eq i32 %37, 0
-  br i1 %.not148, label %38, label %.thread208
+  br i1 %.not148, label %38, label %.thread207
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %6, align 8, !tbaa !6
@@ -3393,115 +3393,115 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %61 = load ptr, ptr %6, align 8, !tbaa !6
   %62 = tail call i32 @sqlite3_exec(ptr noundef %61, ptr noundef nonnull @.str.878, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not149 = icmp eq i32 %62, 0
-  br i1 %.not149, label %63, label %.thread208
+  br i1 %.not149, label %63, label %.thread207
 
 63:                                               ; preds = %38
   %64 = load ptr, ptr %6, align 8, !tbaa !6
   %65 = tail call i32 @sqlite3_exec(ptr noundef %64, ptr noundef nonnull @.str.879, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not150 = icmp eq i32 %65, 0
-  br i1 %.not150, label %66, label %.thread208
+  br i1 %.not150, label %66, label %.thread207
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %6, align 8, !tbaa !6
   %68 = tail call i32 @sqlite3_exec(ptr noundef %67, ptr noundef nonnull @.str.880, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not151 = icmp eq i32 %68, 0
-  br i1 %.not151, label %69, label %.thread208
+  br i1 %.not151, label %69, label %.thread207
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %6, align 8, !tbaa !6
   %71 = tail call i32 @sqlite3_exec(ptr noundef %70, ptr noundef nonnull @.str.881, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not152 = icmp eq i32 %71, 0
-  br i1 %.not152, label %72, label %.thread208
+  br i1 %.not152, label %72, label %.thread207
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %6, align 8, !tbaa !6
   %74 = tail call i32 @sqlite3_exec(ptr noundef %73, ptr noundef nonnull @.str.882, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not153 = icmp eq i32 %74, 0
-  br i1 %.not153, label %75, label %.thread208
+  br i1 %.not153, label %75, label %.thread207
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %6, align 8, !tbaa !6
   %77 = tail call i32 @sqlite3_exec(ptr noundef %76, ptr noundef nonnull @.str.883, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not154 = icmp eq i32 %77, 0
-  br i1 %.not154, label %78, label %.thread208
+  br i1 %.not154, label %78, label %.thread207
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %6, align 8, !tbaa !6
   %80 = tail call i32 @sqlite3_exec(ptr noundef %79, ptr noundef nonnull @.str.884, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not155 = icmp eq i32 %80, 0
-  br i1 %.not155, label %81, label %.thread208
+  br i1 %.not155, label %81, label %.thread207
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %6, align 8, !tbaa !6
   %83 = tail call i32 @sqlite3_exec(ptr noundef %82, ptr noundef nonnull @.str.885, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not156 = icmp eq i32 %83, 0
-  br i1 %.not156, label %84, label %.thread208
+  br i1 %.not156, label %84, label %.thread207
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %6, align 8, !tbaa !6
   %86 = tail call i32 @sqlite3_exec(ptr noundef %85, ptr noundef nonnull @.str.886, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not157 = icmp eq i32 %86, 0
-  br i1 %.not157, label %87, label %.thread208
+  br i1 %.not157, label %87, label %.thread207
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %6, align 8, !tbaa !6
   %89 = tail call i32 @sqlite3_exec(ptr noundef %88, ptr noundef nonnull @.str.536, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not158 = icmp eq i32 %89, 0
-  br i1 %.not158, label %90, label %.thread208
+  br i1 %.not158, label %90, label %.thread207
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %6, align 8, !tbaa !6
   %92 = tail call i32 @sqlite3_exec(ptr noundef %91, ptr noundef nonnull @.str.538, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not159 = icmp eq i32 %92, 0
-  br i1 %.not159, label %93, label %.thread208
+  br i1 %.not159, label %93, label %.thread207
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %6, align 8, !tbaa !6
   %95 = tail call i32 @sqlite3_exec(ptr noundef %94, ptr noundef nonnull @.str.887, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not160 = icmp eq i32 %95, 0
-  br i1 %.not160, label %96, label %.thread208
+  br i1 %.not160, label %96, label %.thread207
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %6, align 8, !tbaa !6
   %98 = tail call i32 @sqlite3_exec(ptr noundef %97, ptr noundef nonnull @.str.888, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not161 = icmp eq i32 %98, 0
-  br i1 %.not161, label %99, label %.thread208
+  br i1 %.not161, label %99, label %.thread207
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %6, align 8, !tbaa !6
   %101 = tail call i32 @sqlite3_exec(ptr noundef %100, ptr noundef nonnull @.str.889, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not162 = icmp eq i32 %101, 0
-  br i1 %.not162, label %102, label %.thread208
+  br i1 %.not162, label %102, label %.thread207
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %6, align 8, !tbaa !6
   %104 = tail call i32 @sqlite3_exec(ptr noundef %103, ptr noundef nonnull @.str.890, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not163 = icmp eq i32 %104, 0
-  br i1 %.not163, label %105, label %.thread208
+  br i1 %.not163, label %105, label %.thread207
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %6, align 8, !tbaa !6
   %107 = tail call i32 @sqlite3_exec(ptr noundef %106, ptr noundef nonnull @.str.891, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not164 = icmp eq i32 %107, 0
-  br i1 %.not164, label %108, label %.thread208
+  br i1 %.not164, label %108, label %.thread207
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr %6, align 8, !tbaa !6
   %110 = tail call i32 @sqlite3_exec(ptr noundef %109, ptr noundef nonnull @.str.892, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not165 = icmp eq i32 %110, 0
-  br i1 %.not165, label %111, label %.thread208
+  br i1 %.not165, label %111, label %.thread207
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %6, align 8, !tbaa !6
   %113 = tail call i32 @sqlite3_exec(ptr noundef %112, ptr noundef nonnull @.str.893, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not166 = icmp eq i32 %113, 0
-  br i1 %.not166, label %114, label %.thread208
+  br i1 %.not166, label %114, label %.thread207
 
 114:                                              ; preds = %111
   %115 = load ptr, ptr %6, align 8, !tbaa !6
   %116 = tail call i32 @sqlite3_exec(ptr noundef %115, ptr noundef nonnull @.str.888, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not167 = icmp eq i32 %116, 0
-  br i1 %.not167, label %117, label %.thread208
+  br i1 %.not167, label %117, label %.thread207
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %6, align 8, !tbaa !6
@@ -3515,31 +3515,31 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %126 = load ptr, ptr %6, align 8, !tbaa !6
   %127 = tail call i32 @sqlite3_exec(ptr noundef %126, ptr noundef nonnull @.str.898, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not168 = icmp eq i32 %127, 0
-  br i1 %.not168, label %128, label %.thread208
+  br i1 %.not168, label %128, label %.thread207
 
 128:                                              ; preds = %117
   %129 = load ptr, ptr %6, align 8, !tbaa !6
   %130 = tail call i32 @sqlite3_exec(ptr noundef %129, ptr noundef nonnull @.str.899, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not169 = icmp eq i32 %130, 0
-  br i1 %.not169, label %131, label %.thread208
+  br i1 %.not169, label %131, label %.thread207
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr %6, align 8, !tbaa !6
   %133 = tail call i32 @sqlite3_exec(ptr noundef %132, ptr noundef nonnull @.str.900, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not170 = icmp eq i32 %133, 0
-  br i1 %.not170, label %134, label %.thread208
+  br i1 %.not170, label %134, label %.thread207
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr %6, align 8, !tbaa !6
   %136 = tail call i32 @sqlite3_exec(ptr noundef %135, ptr noundef nonnull @.str.901, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not171 = icmp eq i32 %136, 0
-  br i1 %.not171, label %137, label %.thread208
+  br i1 %.not171, label %137, label %.thread207
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr %6, align 8, !tbaa !6
   %139 = tail call i32 @sqlite3_exec(ptr noundef %138, ptr noundef nonnull @.str.902, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not172 = icmp eq i32 %139, 0
-  br i1 %.not172, label %140, label %.thread208
+  br i1 %.not172, label %140, label %.thread207
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %6, align 8, !tbaa !6
@@ -3547,13 +3547,13 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %143 = load ptr, ptr %6, align 8, !tbaa !6
   %144 = tail call i32 @sqlite3_exec(ptr noundef %143, ptr noundef nonnull @.str.904, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not173 = icmp eq i32 %144, 0
-  br i1 %.not173, label %145, label %.thread208
+  br i1 %.not173, label %145, label %.thread207
 
 145:                                              ; preds = %140
   %146 = load ptr, ptr %6, align 8, !tbaa !6
   %147 = tail call i32 @sqlite3_exec(ptr noundef %146, ptr noundef nonnull @.str.905, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not174 = icmp eq i32 %147, 0
-  br i1 %.not174, label %148, label %.thread208
+  br i1 %.not174, label %148, label %.thread207
 
 148:                                              ; preds = %145
   %149 = load ptr, ptr %6, align 8, !tbaa !6
@@ -3561,13 +3561,13 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %151 = load ptr, ptr %6, align 8, !tbaa !6
   %152 = tail call i32 @sqlite3_exec(ptr noundef %151, ptr noundef nonnull @.str.907, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not175 = icmp eq i32 %152, 0
-  br i1 %.not175, label %153, label %.thread208
+  br i1 %.not175, label %153, label %.thread207
 
 153:                                              ; preds = %148
   %154 = load ptr, ptr %6, align 8, !tbaa !6
   %155 = tail call i32 @sqlite3_exec(ptr noundef %154, ptr noundef nonnull @.str.908, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not176 = icmp eq i32 %155, 0
-  br i1 %.not176, label %156, label %.thread208
+  br i1 %.not176, label %156, label %.thread207
 
 156:                                              ; preds = %153
   %157 = load ptr, ptr %6, align 8, !tbaa !6
@@ -3581,79 +3581,79 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %165 = load ptr, ptr %6, align 8, !tbaa !6
   %166 = tail call i32 @sqlite3_exec(ptr noundef %165, ptr noundef nonnull @.str.913, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not177 = icmp eq i32 %166, 0
-  br i1 %.not177, label %167, label %.thread208
+  br i1 %.not177, label %167, label %.thread207
 
 167:                                              ; preds = %156
   %168 = load ptr, ptr %6, align 8, !tbaa !6
   %169 = tail call i32 @sqlite3_exec(ptr noundef %168, ptr noundef nonnull @.str.914, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not178 = icmp eq i32 %169, 0
-  br i1 %.not178, label %170, label %.thread208
+  br i1 %.not178, label %170, label %.thread207
 
 170:                                              ; preds = %167
   %171 = load ptr, ptr %6, align 8, !tbaa !6
   %172 = tail call i32 @sqlite3_exec(ptr noundef %171, ptr noundef nonnull @.str.915, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not179 = icmp eq i32 %172, 0
-  br i1 %.not179, label %173, label %.thread208
+  br i1 %.not179, label %173, label %.thread207
 
 173:                                              ; preds = %170
   %174 = load ptr, ptr %6, align 8, !tbaa !6
   %175 = tail call i32 @sqlite3_exec(ptr noundef %174, ptr noundef nonnull @.str.916, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not180 = icmp eq i32 %175, 0
-  br i1 %.not180, label %176, label %.thread208
+  br i1 %.not180, label %176, label %.thread207
 
 176:                                              ; preds = %173
   %177 = load ptr, ptr %6, align 8, !tbaa !6
   %178 = tail call i32 @sqlite3_exec(ptr noundef %177, ptr noundef nonnull @.str.917, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not181 = icmp eq i32 %178, 0
-  br i1 %.not181, label %179, label %.thread208
+  br i1 %.not181, label %179, label %.thread207
 
 179:                                              ; preds = %176
   %180 = load ptr, ptr %6, align 8, !tbaa !6
   %181 = tail call i32 @sqlite3_exec(ptr noundef %180, ptr noundef nonnull @.str.918, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not182 = icmp eq i32 %181, 0
-  br i1 %.not182, label %182, label %.thread208
+  br i1 %.not182, label %182, label %.thread207
 
 182:                                              ; preds = %179
   %183 = load ptr, ptr %6, align 8, !tbaa !6
   %184 = tail call i32 @sqlite3_exec(ptr noundef %183, ptr noundef nonnull @.str.919, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not183 = icmp eq i32 %184, 0
-  br i1 %.not183, label %185, label %.thread208
+  br i1 %.not183, label %185, label %.thread207
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %6, align 8, !tbaa !6
   %187 = tail call i32 @sqlite3_exec(ptr noundef %186, ptr noundef nonnull @.str.920, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not184 = icmp eq i32 %187, 0
-  br i1 %.not184, label %188, label %.thread208
+  br i1 %.not184, label %188, label %.thread207
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %6, align 8, !tbaa !6
   %190 = tail call i32 @sqlite3_exec(ptr noundef %189, ptr noundef nonnull @.str.921, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not185 = icmp eq i32 %190, 0
-  br i1 %.not185, label %191, label %.thread208
+  br i1 %.not185, label %191, label %.thread207
 
 191:                                              ; preds = %188
   %192 = load ptr, ptr %6, align 8, !tbaa !6
   %193 = tail call i32 @sqlite3_exec(ptr noundef %192, ptr noundef nonnull @.str.888, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not186 = icmp eq i32 %193, 0
-  br i1 %.not186, label %194, label %.thread208
+  br i1 %.not186, label %194, label %.thread207
 
 194:                                              ; preds = %191
   %195 = load ptr, ptr %6, align 8, !tbaa !6
   %196 = tail call i32 @sqlite3_exec(ptr noundef %195, ptr noundef nonnull @.str.922, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not187 = icmp eq i32 %196, 0
-  br i1 %.not187, label %197, label %.thread208
+  br i1 %.not187, label %197, label %.thread207
 
 197:                                              ; preds = %194
   %198 = load ptr, ptr %6, align 8, !tbaa !6
   %199 = tail call i32 @sqlite3_exec(ptr noundef %198, ptr noundef nonnull @.str.923, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not188 = icmp eq i32 %199, 0
-  br i1 %.not188, label %200, label %.thread208
+  br i1 %.not188, label %200, label %.thread207
 
 200:                                              ; preds = %197
   %201 = load ptr, ptr %6, align 8, !tbaa !6
   %202 = tail call i32 @sqlite3_exec(ptr noundef %201, ptr noundef nonnull @.str.924, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not189 = icmp eq i32 %202, 0
-  br i1 %.not189, label %203, label %.thread208
+  br i1 %.not189, label %203, label %.thread207
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr %6, align 8, !tbaa !6
@@ -3674,10 +3674,10 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   br i1 %218, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %203, %266
-  %.0130219 = phi ptr [ %.1131, %266 ], [ null, %203 ]
-  %.0132218 = phi ptr [ %.1133, %266 ], [ null, %203 ]
-  %.0134217 = phi i32 [ %.1135, %266 ], [ 0, %203 ]
-  %.0136216 = phi i32 [ %.2138, %266 ], [ 0, %203 ]
+  %.0130218 = phi ptr [ %.1131, %266 ], [ null, %203 ]
+  %.0132217 = phi ptr [ %.1133, %266 ], [ null, %203 ]
+  %.0134216 = phi i32 [ %.1135, %266 ], [ 0, %203 ]
+  %.0136215 = phi i32 [ %.2138, %266 ], [ 0, %203 ]
   %219 = load ptr, ptr %3, align 8, !tbaa !21
   %220 = call i32 @sqlite3_column_int(ptr noundef %219, i32 noundef 0) #18
   %221 = load ptr, ptr %3, align 8, !tbaa !21
@@ -3686,35 +3686,35 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %224 = call ptr @sqlite3_column_text(ptr noundef %223, i32 noundef 2) #18
   %225 = load ptr, ptr %3, align 8, !tbaa !21
   %226 = call i32 @sqlite3_column_int(ptr noundef %225, i32 noundef 3) #18
-  %.not195 = icmp eq ptr %.0130219, null
+  %.not195 = icmp eq ptr %.0130218, null
   br i1 %.not195, label %233, label %227
 
 227:                                              ; preds = %.lr.ph
-  %228 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0130219, ptr noundef nonnull dereferenceable(1) %222) #19
+  %228 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0130218, ptr noundef nonnull dereferenceable(1) %222) #19
   %229 = icmp eq i32 %228, 0
-  %230 = icmp ne ptr %.0132218, null
+  %230 = icmp ne ptr %.0132217, null
   %or.cond = select i1 %229, i1 %230, i1 false
   br i1 %or.cond, label %231, label %233
 
 231:                                              ; preds = %227
-  %232 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0132218, ptr noundef nonnull dereferenceable(1) %224) #19
+  %232 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0132217, ptr noundef nonnull dereferenceable(1) %224) #19
   %.not196 = icmp eq i32 %232, 0
-  %.not197 = icmp eq i32 %.0134217, %226
+  %.not197 = icmp eq i32 %.0134216, %226
   %or.cond201 = select i1 %.not196, i1 %.not197, i1 false
   br i1 %or.cond201, label %236, label %233
 
 233:                                              ; preds = %231, %227, %.lr.ph
-  call void @g_free(ptr noundef %.0130219) #18
-  call void @g_free(ptr noundef %.0132218) #18
+  call void @g_free(ptr noundef %.0130218) #18
+  call void @g_free(ptr noundef %.0132217) #18
   %234 = call noalias ptr @g_strdup(ptr noundef %222) #18
   %235 = call noalias ptr @g_strdup(ptr noundef %224) #18
   br label %236
 
 236:                                              ; preds = %231, %233
-  %.1137 = phi i32 [ 0, %233 ], [ %.0136216, %231 ]
-  %.1135 = phi i32 [ %226, %233 ], [ %.0134217, %231 ]
-  %.1133 = phi ptr [ %235, %233 ], [ %.0132218, %231 ]
-  %.1131 = phi ptr [ %234, %233 ], [ %.0130219, %231 ]
+  %.1137 = phi i32 [ 0, %233 ], [ %.0136215, %231 ]
+  %.1135 = phi i32 [ %226, %233 ], [ %.0134216, %231 ]
+  %.1133 = phi ptr [ %235, %233 ], [ %.0132217, %231 ]
+  %.1131 = phi ptr [ %234, %233 ], [ %.0130218, %231 ]
   %237 = load ptr, ptr %6, align 8, !tbaa !6
   %238 = call i32 @sqlite3_prepare_v2(ptr noundef %237, ptr noundef nonnull @.str.931, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
   br label %239
@@ -3753,7 +3753,7 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %264 = load ptr, ptr %4, align 8, !tbaa !21
   %265 = call i32 @sqlite3_step(ptr noundef %264) #18
   %.not199 = icmp eq i32 %265, 101
-  br i1 %.not199, label %266, label %.thread208
+  br i1 %.not199, label %266, label %.thread207
 
 266:                                              ; preds = %256
   %267 = load ptr, ptr %4, align 8, !tbaa !21
@@ -3773,25 +3773,25 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %274 = load ptr, ptr %6, align 8, !tbaa !6
   %275 = call i32 @sqlite3_exec(ptr noundef %274, ptr noundef nonnull @.str.933, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not190 = icmp eq i32 %275, 0
-  br i1 %.not190, label %276, label %.thread208
+  br i1 %.not190, label %276, label %.thread207
 
 276:                                              ; preds = %._crit_edge
   %277 = load ptr, ptr %6, align 8, !tbaa !6
   %278 = call i32 @sqlite3_exec(ptr noundef %277, ptr noundef nonnull @.str.934, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not191 = icmp eq i32 %278, 0
-  br i1 %.not191, label %279, label %.thread208
+  br i1 %.not191, label %279, label %.thread207
 
 279:                                              ; preds = %276
   %280 = load ptr, ptr %6, align 8, !tbaa !6
   %281 = call i32 @sqlite3_exec(ptr noundef %280, ptr noundef nonnull @.str.935, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not192 = icmp eq i32 %281, 0
-  br i1 %.not192, label %282, label %.thread208
+  br i1 %.not192, label %282, label %.thread207
 
 282:                                              ; preds = %279
   %283 = load ptr, ptr %6, align 8, !tbaa !6
   %284 = call i32 @sqlite3_exec(ptr noundef %283, ptr noundef nonnull @.str.936, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not193 = icmp eq i32 %284, 0
-  br i1 %.not193, label %285, label %.thread208
+  br i1 %.not193, label %285, label %.thread207
 
 285:                                              ; preds = %282
   %286 = load ptr, ptr %6, align 8, !tbaa !6
@@ -3801,9 +3801,9 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %290 = load ptr, ptr %3, align 8, !tbaa !21
   %291 = call i32 @sqlite3_step(ptr noundef %290) #18
   %292 = icmp eq i32 %291, 100
-  br i1 %292, label %.lr.ph222, label %._crit_edge223
+  br i1 %292, label %.lr.ph221, label %._crit_edge222
 
-.lr.ph222:                                        ; preds = %285, %.lr.ph222
+.lr.ph221:                                        ; preds = %285, %.lr.ph221
   %293 = load ptr, ptr %3, align 8, !tbaa !21
   %294 = call i32 @sqlite3_column_int(ptr noundef %293, i32 noundef 0) #18
   %295 = load ptr, ptr %3, align 8, !tbaa !21
@@ -3823,9 +3823,9 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %308 = load ptr, ptr %3, align 8, !tbaa !21
   %309 = call i32 @sqlite3_step(ptr noundef %308) #18
   %310 = icmp eq i32 %309, 100
-  br i1 %310, label %.lr.ph222, label %._crit_edge223
+  br i1 %310, label %.lr.ph221, label %._crit_edge222
 
-._crit_edge223:                                   ; preds = %.lr.ph222, %285
+._crit_edge222:                                   ; preds = %.lr.ph221, %285
   %311 = load ptr, ptr %3, align 8, !tbaa !21
   %312 = call i32 @sqlite3_finalize(ptr noundef %311) #18
   %313 = load ptr, ptr %4, align 8, !tbaa !21
@@ -3833,18 +3833,18 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %315 = load ptr, ptr %6, align 8, !tbaa !6
   %316 = call i32 @sqlite3_exec(ptr noundef %315, ptr noundef nonnull @.str.939, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not194 = icmp eq i32 %316, 0
-  br i1 %.not194, label %.sink.split, label %.thread208
+  br i1 %.not194, label %.sink.split, label %.thread207
 
-.thread208:                                       ; preds = %256, %._crit_edge223, %282, %279, %276, %._crit_edge, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167, %156, %153, %148, %145, %140, %137, %134, %131, %128, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %5
-  %.0126212 = phi ptr [ @.str.939, %._crit_edge223 ], [ @.str.936, %282 ], [ @.str.935, %279 ], [ @.str.934, %276 ], [ @.str.933, %._crit_edge ], [ @.str.924, %200 ], [ @.str.923, %197 ], [ @.str.922, %194 ], [ @.str.888, %191 ], [ @.str.921, %188 ], [ @.str.920, %185 ], [ @.str.919, %182 ], [ @.str.918, %179 ], [ @.str.917, %176 ], [ @.str.916, %173 ], [ @.str.915, %170 ], [ @.str.914, %167 ], [ @.str.913, %156 ], [ @.str.908, %153 ], [ @.str.907, %148 ], [ @.str.905, %145 ], [ @.str.904, %140 ], [ @.str.902, %137 ], [ @.str.901, %134 ], [ @.str.900, %131 ], [ @.str.899, %128 ], [ @.str.898, %117 ], [ @.str.888, %114 ], [ @.str.893, %111 ], [ @.str.892, %108 ], [ @.str.891, %105 ], [ @.str.890, %102 ], [ @.str.889, %99 ], [ @.str.888, %96 ], [ @.str.887, %93 ], [ @.str.538, %90 ], [ @.str.536, %87 ], [ @.str.886, %84 ], [ @.str.885, %81 ], [ @.str.884, %78 ], [ @.str.883, %75 ], [ @.str.882, %72 ], [ @.str.881, %69 ], [ @.str.880, %66 ], [ @.str.879, %63 ], [ @.str.878, %38 ], [ @.str.481, %35 ], [ @.str.866, %32 ], [ @.str.865, %29 ], [ @.str.864, %26 ], [ @.str.863, %23 ], [ @.str.862, %20 ], [ @.str.861, %17 ], [ @.str.860, %14 ], [ @.str.859, %11 ], [ @.str.858, %5 ], [ @.str.932, %256 ]
+.thread207:                                       ; preds = %256, %._crit_edge222, %282, %279, %276, %._crit_edge, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167, %156, %153, %148, %145, %140, %137, %134, %131, %128, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %5
+  %.0126211 = phi ptr [ @.str.939, %._crit_edge222 ], [ @.str.936, %282 ], [ @.str.935, %279 ], [ @.str.934, %276 ], [ @.str.933, %._crit_edge ], [ @.str.924, %200 ], [ @.str.923, %197 ], [ @.str.922, %194 ], [ @.str.888, %191 ], [ @.str.921, %188 ], [ @.str.920, %185 ], [ @.str.919, %182 ], [ @.str.918, %179 ], [ @.str.917, %176 ], [ @.str.916, %173 ], [ @.str.915, %170 ], [ @.str.914, %167 ], [ @.str.913, %156 ], [ @.str.908, %153 ], [ @.str.907, %148 ], [ @.str.905, %145 ], [ @.str.904, %140 ], [ @.str.902, %137 ], [ @.str.901, %134 ], [ @.str.900, %131 ], [ @.str.899, %128 ], [ @.str.898, %117 ], [ @.str.888, %114 ], [ @.str.893, %111 ], [ @.str.892, %108 ], [ @.str.891, %105 ], [ @.str.890, %102 ], [ @.str.889, %99 ], [ @.str.888, %96 ], [ @.str.887, %93 ], [ @.str.538, %90 ], [ @.str.536, %87 ], [ @.str.886, %84 ], [ @.str.885, %81 ], [ @.str.884, %78 ], [ @.str.883, %75 ], [ @.str.882, %72 ], [ @.str.881, %69 ], [ @.str.880, %66 ], [ @.str.879, %63 ], [ @.str.878, %38 ], [ @.str.481, %35 ], [ @.str.866, %32 ], [ @.str.865, %29 ], [ @.str.864, %26 ], [ @.str.863, %23 ], [ @.str.862, %20 ], [ @.str.861, %17 ], [ @.str.860, %14 ], [ @.str.859, %11 ], [ @.str.858, %5 ], [ @.str.932, %256 ]
   %317 = load ptr, ptr %6, align 8, !tbaa !6
   %318 = call ptr @sqlite3_errmsg(ptr noundef %317) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.940, ptr noundef nonnull %.0126212, ptr noundef %318) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.940, ptr noundef nonnull %.0126211, ptr noundef %318) #18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge223, %.thread208
-  %.str.196.sink = phi ptr [ @.str.145, %.thread208 ], [ @.str.196, %._crit_edge223 ]
-  %.0.ph = phi i32 [ 0, %.thread208 ], [ 1, %._crit_edge223 ]
+.sink.split:                                      ; preds = %._crit_edge222, %.thread207
+  %.str.196.sink = phi ptr [ @.str.145, %.thread207 ], [ @.str.196, %._crit_edge222 ]
+  %.0.ph = phi i32 [ 0, %.thread207 ], [ 1, %._crit_edge222 ]
   %319 = load ptr, ptr %6, align 8, !tbaa !6
   %320 = call i32 @sqlite3_exec(ptr noundef %319, ptr noundef nonnull %.str.196.sink, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %321
@@ -6688,8 +6688,8 @@ define internal fastcc range(i32 0, 2) i32 @_lock_single_database(ptr noundef ca
   %14 = load ptr, ptr %2, align 8, !tbaa !70
   %15 = tail call i32 (ptr, i32, ...) @open(ptr noundef %14, i32 noundef 194, i32 noundef 438) #18
   %16 = tail call i32 @umask(i32 noundef %13) #18
-  %.not3866 = icmp eq i32 %15, -1
-  br i1 %.not3866, label %.lr.ph, label %._crit_edge
+  %.not3865 = icmp eq i32 %15, -1
+  br i1 %.not3865, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6752,12 +6752,12 @@ pid_is_alive.exit.thread44:                       ; preds = %.thread.i
 pid_is_alive.exit:                                ; preds = %.thread.i
   %41 = load ptr, ptr %4, align 8, !tbaa !70
   %42 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) @.str.156) #19
-  %.not52 = icmp eq ptr %42, null
+  %.not51 = icmp eq ptr %42, null
   call void @g_free(ptr noundef nonnull %41) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not52, label %pid_is_alive.exit.thread, label %.loopexit
+  br i1 %.not51, label %pid_is_alive.exit.thread, label %.loopexit
 
 pid_is_alive.exit.thread:                         ; preds = %36, %pid_is_alive.exit
   %43 = load ptr, ptr %2, align 8, !tbaa !70
@@ -7602,13 +7602,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 415:                                              ; preds = %396
   %416 = call i32 @sqlite3_prepare_v2(ptr noundef %398, ptr noundef nonnull @.str.315, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #18
   %.not2275 = icmp eq i32 %416, 0
-  br i1 %.not2275, label %.preheader2386, label %420
+  br i1 %.not2275, label %.preheader2385, label %420
 
-.preheader2386:                                   ; preds = %415
+.preheader2385:                                   ; preds = %415
   %417 = load ptr, ptr %6, align 8, !tbaa !21
   %418 = call i32 @sqlite3_step(ptr noundef %417) #18
   %419 = icmp eq i32 %418, 100
-  br i1 %419, label %.lr.ph2428, label %.critedge2337.preheader
+  br i1 %419, label %.lr.ph2427, label %.critedge2337.preheader
 
 420:                                              ; preds = %415
   %421 = load ptr, ptr %304, align 8, !tbaa !6
@@ -7630,15 +7630,15 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %436 = call i32 @sqlite3_exec(ptr noundef %435, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2347
 
-.lr.ph2428:                                       ; preds = %.preheader2386, %480
+.lr.ph2427:                                       ; preds = %.preheader2385, %480
   %437 = load ptr, ptr %6, align 8, !tbaa !21
   %438 = call i32 @sqlite3_column_int(ptr noundef %437, i32 noundef 0) #18
   %439 = load ptr, ptr %6, align 8, !tbaa !21
   %440 = call i32 @sqlite3_column_int(ptr noundef %439, i32 noundef 1) #18
   br label %441
 
-441:                                              ; preds = %454, %.lr.ph2428
-  %.01895 = phi i32 [ 0, %.lr.ph2428 ], [ %442, %454 ]
+441:                                              ; preds = %454, %.lr.ph2427
+  %.01895 = phi i32 [ 0, %.lr.ph2427 ], [ %442, %454 ]
   %442 = add nuw nsw i32 %.01895, 1
   %443 = load ptr, ptr %7, align 8, !tbaa !21
   %444 = call i32 @sqlite3_reset(ptr noundef %443) #18
@@ -7697,9 +7697,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %485 = load ptr, ptr %6, align 8, !tbaa !21
   %486 = call i32 @sqlite3_step(ptr noundef %485) #18
   %487 = icmp eq i32 %486, 100
-  br i1 %487, label %.lr.ph2428, label %.critedge2337.preheader
+  br i1 %487, label %.lr.ph2427, label %.critedge2337.preheader
 
-.critedge2337.preheader:                          ; preds = %480, %.preheader2386
+.critedge2337.preheader:                          ; preds = %480, %.preheader2385
   br label %.critedge2337
 
 .critedge2337:                                    ; preds = %.critedge2337.preheader, %506
@@ -8028,13 +8028,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 731:                                              ; preds = %710
   %732 = call i32 @sqlite3_prepare_v2(ptr noundef %712, ptr noundef nonnull @.str.336, i32 noundef -1, ptr noundef nonnull %11, ptr noundef null) #18
   %.not2285 = icmp eq i32 %732, 0
-  br i1 %.not2285, label %.preheader2385, label %736
+  br i1 %.not2285, label %.preheader2384, label %736
 
-.preheader2385:                                   ; preds = %731
+.preheader2384:                                   ; preds = %731
   %733 = load ptr, ptr %3, align 8, !tbaa !21
   %734 = call i32 @sqlite3_step(ptr noundef %733) #18
   %735 = icmp eq i32 %734, 100
-  br i1 %735, label %.lr.ph2429, label %._crit_edge2430
+  br i1 %735, label %.lr.ph2428, label %._crit_edge2429
 
 736:                                              ; preds = %731
   %737 = load ptr, ptr %304, align 8, !tbaa !6
@@ -8058,7 +8058,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %754 = call i32 @sqlite3_finalize(ptr noundef %753) #18
   br label %.thread2351
 
-.lr.ph2429:                                       ; preds = %.preheader2385, %931
+.lr.ph2428:                                       ; preds = %.preheader2384, %931
   %755 = load ptr, ptr %3, align 8, !tbaa !21
   %756 = call i32 @sqlite3_column_int(ptr noundef %755, i32 noundef 0) #18
   %757 = load ptr, ptr %3, align 8, !tbaa !21
@@ -8070,9 +8070,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %763 = icmp eq i32 %762, 100
   br i1 %763, label %.preheader, label %805
 
-.preheader:                                       ; preds = %.lr.ph2429, %.preheader
-  %.01899 = phi ptr [ %765, %.preheader ], [ null, %.lr.ph2429 ]
-  %.01898 = phi i32 [ %764, %.preheader ], [ 0, %.lr.ph2429 ]
+.preheader:                                       ; preds = %.lr.ph2428, %.preheader
+  %.01899 = phi ptr [ %765, %.preheader ], [ null, %.lr.ph2428 ]
+  %.01898 = phi i32 [ %764, %.preheader ], [ 0, %.lr.ph2428 ]
   %764 = add nuw nsw i32 %.01898, 1
   call void @g_free(ptr noundef %.01899) #18
   %765 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.338, ptr noundef %758, i32 noundef %764) #18
@@ -8127,7 +8127,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %804 = call i32 @sqlite3_finalize(ptr noundef %803) #18
   br label %.thread2351
 
-805:                                              ; preds = %.thread2346, %.lr.ph2429
+805:                                              ; preds = %.thread2346, %.lr.ph2428
   %806 = load ptr, ptr %4, align 8, !tbaa !21
   %807 = call i32 @sqlite3_bind_int(ptr noundef %806, i32 noundef 1, i32 noundef %756) #18
   %808 = load ptr, ptr %4, align 8, !tbaa !21
@@ -8311,9 +8311,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %956 = load ptr, ptr %3, align 8, !tbaa !21
   %957 = call i32 @sqlite3_step(ptr noundef %956) #18
   %958 = icmp eq i32 %957, 100
-  br i1 %958, label %.lr.ph2429, label %._crit_edge2430
+  br i1 %958, label %.lr.ph2428, label %._crit_edge2429
 
-._crit_edge2430:                                  ; preds = %931, %.preheader2385
+._crit_edge2429:                                  ; preds = %931, %.preheader2384
   %959 = load ptr, ptr %3, align 8, !tbaa !21
   %960 = call i32 @sqlite3_finalize(ptr noundef %959) #18
   %961 = load ptr, ptr %4, align 8, !tbaa !21
@@ -8336,12 +8336,12 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %977 = load ptr, ptr %304, align 8, !tbaa !6
   br i1 %.not2286, label %980, label %978
 
-978:                                              ; preds = %._crit_edge2430
+978:                                              ; preds = %._crit_edge2429
   %979 = call ptr @sqlite3_errmsg(ptr noundef %977) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.346, ptr noundef %979) #18
   br label %.thread2351
 
-980:                                              ; preds = %._crit_edge2430
+980:                                              ; preds = %._crit_edge2429
   %981 = call i32 @sqlite3_exec(ptr noundef %977, ptr noundef nonnull @.str.347, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2287 = icmp eq i32 %981, 0
   %982 = load ptr, ptr %304, align 8, !tbaa !6
@@ -8850,11 +8850,11 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1239:                                             ; preds = %1232
   %1240 = tail call i32 @sqlite3_exec(ptr noundef %1234, ptr noundef nonnull @.str.174, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2250 = icmp eq i32 %1240, 0
-  br i1 %.not2250, label %.preheader2388, label %1241
+  br i1 %.not2250, label %.preheader2387, label %1241
 
-.preheader2388:                                   ; preds = %1239
-  %.not22512423 = icmp eq ptr %1210, null
-  br i1 %.not22512423, label %.critedge2341, label %.lr.ph2425
+.preheader2387:                                   ; preds = %1239
+  %.not22512422 = icmp eq ptr %1210, null
+  br i1 %.not22512422, label %.critedge2341, label %.lr.ph2424
 
 1241:                                             ; preds = %1239
   %1242 = load ptr, ptr %1150, align 8, !tbaa !6
@@ -8864,9 +8864,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1245 = tail call i32 @sqlite3_exec(ptr noundef %1244, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-.lr.ph2425:                                       ; preds = %.preheader2388, %1257
-  %.019002424 = phi ptr [ %1261, %1257 ], [ %1210, %.preheader2388 ]
-  %1246 = load ptr, ptr %.019002424, align 8, !tbaa !65
+.lr.ph2424:                                       ; preds = %.preheader2387, %1257
+  %.019002423 = phi ptr [ %1261, %1257 ], [ %1210, %.preheader2387 ]
+  %1246 = load ptr, ptr %.019002423, align 8, !tbaa !65
   %1247 = load ptr, ptr %1150, align 8, !tbaa !6
   %1248 = call i32 @sqlite3_prepare_v2(ptr noundef %1247, ptr noundef nonnull @.str.177, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %1249 = load ptr, ptr %3, align 8, !tbaa !21
@@ -8880,15 +8880,15 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %.not2252 = icmp eq i32 %1256, 101
   br i1 %.not2252, label %1257, label %1262
 
-1257:                                             ; preds = %.lr.ph2425
+1257:                                             ; preds = %.lr.ph2424
   %1258 = load ptr, ptr %3, align 8, !tbaa !21
   %1259 = call i32 @sqlite3_finalize(ptr noundef %1258) #18
-  %1260 = getelementptr inbounds nuw i8, ptr %.019002424, i64 8
+  %1260 = getelementptr inbounds nuw i8, ptr %.019002423, i64 8
   %1261 = load ptr, ptr %1260, align 8, !tbaa !67
   %.not2251 = icmp eq ptr %1261, null
-  br i1 %.not2251, label %.critedge2341, label %.lr.ph2425
+  br i1 %.not2251, label %.critedge2341, label %.lr.ph2424
 
-1262:                                             ; preds = %.lr.ph2425
+1262:                                             ; preds = %.lr.ph2424
   %1263 = load ptr, ptr %1150, align 8, !tbaa !6
   %1264 = call ptr @sqlite3_errmsg(ptr noundef %1263) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179, ptr noundef %1264) #18
@@ -8896,7 +8896,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1266 = call i32 @sqlite3_exec(ptr noundef %1265, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-.critedge2341:                                    ; preds = %1257, %.preheader2388
+.critedge2341:                                    ; preds = %1257, %.preheader2387
   call void @g_list_free_full(ptr noundef %1210, ptr noundef nonnull @free) #18
   %1267 = load ptr, ptr %1150, align 8, !tbaa !6
   %1268 = call i32 @sqlite3_exec(ptr noundef %1267, ptr noundef nonnull @.str.417, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8916,13 +8916,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1275 = load ptr, ptr %1150, align 8, !tbaa !6
   %1276 = call i32 @sqlite3_prepare_v2(ptr noundef %1275, ptr noundef nonnull @.str.419, i32 noundef -1, ptr noundef nonnull %12, ptr noundef null) #18
   %.not2254 = icmp eq i32 %1276, 0
-  br i1 %.not2254, label %.preheader2387, label %1280
+  br i1 %.not2254, label %.preheader2386, label %1280
 
-.preheader2387:                                   ; preds = %1274
+.preheader2386:                                   ; preds = %1274
   %1277 = load ptr, ptr %12, align 8, !tbaa !21
   %1278 = call i32 @sqlite3_step(ptr noundef %1277) #18
   %1279 = icmp eq i32 %1278, 100
-  br i1 %1279, label %.lr.ph2426, label %._crit_edge2427
+  br i1 %1279, label %.lr.ph2425, label %._crit_edge2426
 
 1280:                                             ; preds = %1274
   %1281 = load ptr, ptr %1150, align 8, !tbaa !6
@@ -8930,16 +8930,16 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.420, ptr noundef %1282) #18
   br label %.thread2359
 
-.lr.ph2426:                                       ; preds = %.preheader2387, %.lr.ph2426
+.lr.ph2425:                                       ; preds = %.preheader2386, %.lr.ph2425
   %1283 = load ptr, ptr %12, align 8, !tbaa !21
   %1284 = call ptr @sqlite3_column_text(ptr noundef %1283, i32 noundef 0) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.421, ptr noundef %1284) #18
   %1285 = load ptr, ptr %12, align 8, !tbaa !21
   %1286 = call i32 @sqlite3_step(ptr noundef %1285) #18
   %1287 = icmp eq i32 %1286, 100
-  br i1 %1287, label %.lr.ph2426, label %._crit_edge2427
+  br i1 %1287, label %.lr.ph2425, label %._crit_edge2426
 
-._crit_edge2427:                                  ; preds = %.lr.ph2426, %.preheader2387
+._crit_edge2426:                                  ; preds = %.lr.ph2425, %.preheader2386
   %1288 = load ptr, ptr %12, align 8, !tbaa !21
   %1289 = call i32 @sqlite3_finalize(ptr noundef %1288) #18
   %1290 = load ptr, ptr %1150, align 8, !tbaa !6
@@ -8948,7 +8948,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1292 = load ptr, ptr %1150, align 8, !tbaa !6
   br i1 %.not2255, label %1297, label %1293
 
-1293:                                             ; preds = %._crit_edge2427
+1293:                                             ; preds = %._crit_edge2426
   %1294 = call ptr @sqlite3_errmsg(ptr noundef %1292) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.187, ptr noundef %1294) #18
   br label %.thread2359
@@ -8959,7 +8959,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread2355
 
-1297:                                             ; preds = %._crit_edge2427
+1297:                                             ; preds = %._crit_edge2426
   %1298 = call i32 @sqlite3_exec(ptr noundef %1292, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %3736
@@ -9200,18 +9200,18 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.447, ptr noundef %1431) #18
   %1432 = load ptr, ptr %1416, align 8, !tbaa !6
   %1433 = call i32 @sqlite3_exec(ptr noundef %1432, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1434:                                             ; preds = %1426
   %1435 = load ptr, ptr %13, align 8, !tbaa !21
   %1436 = call i32 @sqlite3_step(ptr noundef %1435) #18
   %1437 = icmp eq i32 %1436, 100
-  br i1 %1437, label %.lr.ph2421, label %._crit_edge2422
+  br i1 %1437, label %.lr.ph2420, label %._crit_edge2421
 
-.lr.ph2421:                                       ; preds = %1434, %1520
-  %.019012419 = phi ptr [ %1524, %1520 ], [ null, %1434 ]
-  %.019062418 = phi i32 [ %.11907, %1520 ], [ 0, %1434 ]
-  %.019092417 = phi i32 [ %.11910, %1520 ], [ -1, %1434 ]
+.lr.ph2420:                                       ; preds = %1434, %1520
+  %.019012418 = phi ptr [ %1524, %1520 ], [ null, %1434 ]
+  %.019062417 = phi i32 [ %.11907, %1520 ], [ 0, %1434 ]
+  %.019092416 = phi i32 [ %.11910, %1520 ], [ -1, %1434 ]
   %1438 = load ptr, ptr %13, align 8, !tbaa !21
   %1439 = call i32 @sqlite3_column_int(ptr noundef %1438, i32 noundef 0) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -9228,60 +9228,60 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1449 = load ptr, ptr %13, align 8, !tbaa !21
   %1450 = call i32 @sqlite3_step(ptr noundef %1449) #18
   %1451 = icmp eq i32 %1450, 100
-  %1452 = icmp eq i32 %1439, %.019062418
+  %1452 = icmp eq i32 %1439, %.019062417
   %or.cond = select i1 %1452, i1 %1451, i1 false
   br i1 %or.cond, label %1520, label %1453
 
-1453:                                             ; preds = %.lr.ph2421
-  %.not2213 = icmp eq ptr %.019012419, null
+1453:                                             ; preds = %.lr.ph2420
+  %.not2213 = icmp eq ptr %.019012418, null
   br i1 %.not2213, label %1520, label %1454
 
 1454:                                             ; preds = %1453
-  %1455 = icmp eq i32 %.019092417, 2
+  %1455 = icmp eq i32 %.019092416, 2
   %1456 = select i1 %1455, i32 1, i32 2
   %1457 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %1456) #18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1472, %1454
-  %.019132409 = phi ptr [ %1457, %1454 ], [ %.11914, %1472 ]
-  %.019162408 = phi ptr [ %.019012419, %1454 ], [ %1471, %1472 ]
-  %1458 = load ptr, ptr %.019162408, align 8, !tbaa !65
-  %.not22202404 = icmp eq ptr %.019132409, null
-  br i1 %.not22202404, label %.critedge2342, label %.lr.ph2407
+  %.019132408 = phi ptr [ %1457, %1454 ], [ %.11914, %1472 ]
+  %.019162407 = phi ptr [ %.019012418, %1454 ], [ %1471, %1472 ]
+  %1458 = load ptr, ptr %.019162407, align 8, !tbaa !65
+  %.not22202403 = icmp eq ptr %.019132408, null
+  br i1 %.not22202403, label %.critedge2342, label %.lr.ph2406
 
-.lr.ph2407:                                       ; preds = %.loopexit
+.lr.ph2406:                                       ; preds = %.loopexit
   %1459 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   br label %1460
 
-1460:                                             ; preds = %.lr.ph2407, %1464
-  %.019242405 = phi ptr [ %.019132409, %.lr.ph2407 ], [ %1466, %1464 ]
-  %1461 = load ptr, ptr %.019242405, align 8, !tbaa !65
+1460:                                             ; preds = %.lr.ph2406, %1464
+  %.019242404 = phi ptr [ %.019132408, %.lr.ph2406 ], [ %1466, %1464 ]
+  %1461 = load ptr, ptr %.019242404, align 8, !tbaa !65
   %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 8
   %1463 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1462, ptr noundef nonnull dereferenceable(1) %1459) #19
   %.not2221 = icmp eq i32 %1463, 0
   br i1 %.not2221, label %.critedge19, label %1464
 
 1464:                                             ; preds = %1460
-  %1465 = getelementptr inbounds nuw i8, ptr %.019242405, i64 8
+  %1465 = getelementptr inbounds nuw i8, ptr %.019242404, i64 8
   %1466 = load ptr, ptr %1465, align 8, !tbaa !67
   %.not2220 = icmp eq ptr %1466, null
   br i1 %.not2220, label %.critedge2342, label %1460
 
 .critedge19:                                      ; preds = %1460
-  %1467 = call ptr @g_list_delete_link(ptr noundef nonnull %.019132409, ptr noundef nonnull %.019242405) #18
+  %1467 = call ptr @g_list_delete_link(ptr noundef nonnull %.019132408, ptr noundef nonnull %.019242404) #18
   br label %.critedge2342
 
 .critedge2342:                                    ; preds = %1464, %.loopexit, %.critedge19
-  %.11914 = phi ptr [ %1467, %.critedge19 ], [ null, %.loopexit ], [ %.019132409, %1464 ]
+  %.11914 = phi ptr [ %1467, %.critedge19 ], [ null, %.loopexit ], [ %.019132408, %1464 ]
   %1468 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   br label %1469
 
 1469:                                             ; preds = %1472, %.critedge2342
-  %.01918 = phi ptr [ %.019162408, %.critedge2342 ], [ %1471, %1472 ]
+  %.01918 = phi ptr [ %.019162407, %.critedge2342 ], [ %1471, %1472 ]
   %1470 = getelementptr inbounds nuw i8, ptr %.01918, i64 8
   %1471 = load ptr, ptr %1470, align 8, !tbaa !67
   %.not2222 = icmp eq ptr %1471, null
-  br i1 %.not2222, label %.preheader2389, label %1472
+  br i1 %.not2222, label %.preheader2388, label %1472
 
 1472:                                             ; preds = %1469
   %1473 = load ptr, ptr %1471, align 8, !tbaa !65
@@ -9290,55 +9290,55 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %.not2223 = icmp eq i32 %1475, 0
   br i1 %.not2223, label %1469, label %.loopexit
 
-.preheader2389:                                   ; preds = %1469, %.preheader2389
-  %.219152411 = phi ptr [ %1477, %.preheader2389 ], [ %.11914, %1469 ]
-  %.119172410 = phi ptr [ %1479, %.preheader2389 ], [ %.019012419, %1469 ]
-  %1476 = load ptr, ptr %.119172410, align 8, !tbaa !65
-  %1477 = call ptr @g_list_prepend(ptr noundef %.219152411, ptr noundef %1476) #18
-  %1478 = getelementptr inbounds nuw i8, ptr %.119172410, i64 8
+.preheader2388:                                   ; preds = %1469, %.preheader2388
+  %.219152410 = phi ptr [ %1477, %.preheader2388 ], [ %.11914, %1469 ]
+  %.119172409 = phi ptr [ %1479, %.preheader2388 ], [ %.019012418, %1469 ]
+  %1476 = load ptr, ptr %.119172409, align 8, !tbaa !65
+  %1477 = call ptr @g_list_prepend(ptr noundef %.219152410, ptr noundef %1476) #18
+  %1478 = getelementptr inbounds nuw i8, ptr %.119172409, i64 8
   %1479 = load ptr, ptr %1478, align 8, !tbaa !67
   %.not2215 = icmp eq ptr %1479, null
-  br i1 %.not2215, label %1480, label %.preheader2389
+  br i1 %.not2215, label %1480, label %.preheader2388
 
-1480:                                             ; preds = %.preheader2389
+1480:                                             ; preds = %.preheader2388
   %1481 = call ptr @g_list_sort(ptr noundef %1477, ptr noundef nonnull @dt_sort_iop_list_by_order_f) #18
   %1482 = call i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef %1481) #18
-  %.not22162412 = icmp eq ptr %1481, null
-  br i1 %.not22162412, label %._crit_edge2416, label %.lr.ph2415
+  %.not22162411 = icmp eq ptr %1481, null
+  br i1 %.not22162411, label %._crit_edge2415, label %.lr.ph2414
 
-.lr.ph2415:                                       ; preds = %1480, %1485
-  %.019192413 = phi ptr [ %1484, %1485 ], [ %1481, %1480 ]
-  %1483 = getelementptr inbounds nuw i8, ptr %.019192413, i64 8
+.lr.ph2414:                                       ; preds = %1480, %1485
+  %.019192412 = phi ptr [ %1484, %1485 ], [ %1481, %1480 ]
+  %1483 = getelementptr inbounds nuw i8, ptr %.019192412, i64 8
   %1484 = load ptr, ptr %1483, align 8, !tbaa !67
   %cond = icmp eq ptr %1484, null
-  br i1 %cond, label %._crit_edge2416, label %1485
+  br i1 %cond, label %._crit_edge2415, label %1485
 
-1485:                                             ; preds = %.lr.ph2415
-  %1486 = load ptr, ptr %.019192413, align 8, !tbaa !65
+1485:                                             ; preds = %.lr.ph2414
+  %1486 = load ptr, ptr %.019192412, align 8, !tbaa !65
   %1487 = getelementptr inbounds nuw i8, ptr %1486, i64 8
   %1488 = load ptr, ptr %1484, align 8, !tbaa !65
   %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 8
   %1490 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1487, ptr noundef nonnull dereferenceable(1) %1489) #19
   %1491 = icmp eq i32 %1490, 0
-  br i1 %1491, label %.thread2366, label %.lr.ph2415
+  br i1 %1491, label %.thread2365, label %.lr.ph2414
 
-.thread2366:                                      ; preds = %1485
+.thread2365:                                      ; preds = %1485
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !21
   br label %1493
 
-._crit_edge2416:                                  ; preds = %.lr.ph2415, %1480
+._crit_edge2415:                                  ; preds = %.lr.ph2414, %1480
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !21
   %1492 = icmp eq i32 %1482, 0
   br i1 %1492, label %1493, label %1507
 
-1493:                                             ; preds = %.thread2366, %._crit_edge2416
+1493:                                             ; preds = %.thread2365, %._crit_edge2415
   %1494 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %1481) #18
   %1495 = load ptr, ptr %1416, align 8, !tbaa !6
   %1496 = call i32 @sqlite3_prepare_v2(ptr noundef %1495, ptr noundef nonnull @.str.448, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
   %1497 = load ptr, ptr %15, align 8, !tbaa !21
-  %1498 = call i32 @sqlite3_bind_int(ptr noundef %1497, i32 noundef 1, i32 noundef %.019062418) #18
+  %1498 = call i32 @sqlite3_bind_int(ptr noundef %1497, i32 noundef 1, i32 noundef %.019062417) #18
   %1499 = load ptr, ptr %15, align 8, !tbaa !21
   %1500 = call i32 @sqlite3_bind_int(ptr noundef %1499, i32 noundef 2, i32 noundef %1482) #18
   %1501 = load ptr, ptr %15, align 8, !tbaa !21
@@ -9346,19 +9346,19 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1503 = load ptr, ptr %15, align 8, !tbaa !21
   %1504 = call i32 @sqlite3_step(ptr noundef %1503) #18
   %.not2219 = icmp eq i32 %1504, 101
-  br i1 %.not2219, label %.thread2369, label %.critedge2344.critedge
+  br i1 %.not2219, label %.thread2368, label %.critedge2344.critedge
 
-.thread2369:                                      ; preds = %1493
+.thread2368:                                      ; preds = %1493
   %1505 = load ptr, ptr %15, align 8, !tbaa !21
   %1506 = call i32 @sqlite3_finalize(ptr noundef %1505) #18
   call void @g_free(ptr noundef %1494) #18
   br label %1519
 
-1507:                                             ; preds = %._crit_edge2416
+1507:                                             ; preds = %._crit_edge2415
   %1508 = load ptr, ptr %1416, align 8, !tbaa !6
   %1509 = call i32 @sqlite3_prepare_v2(ptr noundef %1508, ptr noundef nonnull @.str.450, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
   %1510 = load ptr, ptr %15, align 8, !tbaa !21
-  %1511 = call i32 @sqlite3_bind_int(ptr noundef %1510, i32 noundef 1, i32 noundef %.019062418) #18
+  %1511 = call i32 @sqlite3_bind_int(ptr noundef %1510, i32 noundef 1, i32 noundef %.019062417) #18
   %1512 = load ptr, ptr %15, align 8, !tbaa !21
   %1513 = call i32 @sqlite3_bind_int(ptr noundef %1512, i32 noundef 2, i32 noundef %1482) #18
   %1514 = load ptr, ptr %15, align 8, !tbaa !21
@@ -9371,16 +9371,16 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1518 = call i32 @sqlite3_finalize(ptr noundef %1517) #18
   br label %1519
 
-1519:                                             ; preds = %.thread2369, %1516
-  call void @g_list_free(ptr noundef nonnull %.019012419) #18
+1519:                                             ; preds = %.thread2368, %1516
+  call void @g_list_free(ptr noundef nonnull %.019012418) #18
   call void @g_list_free_full(ptr noundef %1481, ptr noundef nonnull @free) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1520
 
-1520:                                             ; preds = %1519, %1453, %.lr.ph2421
-  %.11910 = phi i32 [ %.019092417, %.lr.ph2421 ], [ %1448, %1519 ], [ %1448, %1453 ]
-  %.11907 = phi i32 [ %.019062418, %.lr.ph2421 ], [ %1439, %1519 ], [ %1439, %1453 ]
-  %.11902 = phi ptr [ %.019012419, %.lr.ph2421 ], [ null, %1519 ], [ null, %1453 ]
+1520:                                             ; preds = %1519, %1453, %.lr.ph2420
+  %.11910 = phi i32 [ %.019092416, %.lr.ph2420 ], [ %1448, %1519 ], [ %1448, %1453 ]
+  %.11907 = phi i32 [ %.019062417, %.lr.ph2420 ], [ %1439, %1519 ], [ %1439, %1453 ]
+  %.11902 = phi ptr [ %.019012418, %.lr.ph2420 ], [ null, %1519 ], [ null, %1453 ]
   %1521 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
   %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1522, ptr noundef nonnull align 16 dereferenceable(20) %14, i64 20, i1 false)
@@ -9389,9 +9389,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   store double %1446, ptr %1521, align 8, !tbaa !16
   %1524 = call ptr @g_list_append(ptr noundef %.11902, ptr noundef nonnull %1521) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %1451, label %.lr.ph2421, label %._crit_edge2422
+  br i1 %1451, label %.lr.ph2420, label %._crit_edge2421
 
-._crit_edge2422:                                  ; preds = %1520, %1434
+._crit_edge2421:                                  ; preds = %1520, %1434
   %1525 = load ptr, ptr %13, align 8, !tbaa !21
   %1526 = call i32 @sqlite3_finalize(ptr noundef %1525) #18
   %1527 = load ptr, ptr %1416, align 8, !tbaa !6
@@ -9400,14 +9400,14 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1529 = load ptr, ptr %1416, align 8, !tbaa !6
   br i1 %.not2202, label %1534, label %1530
 
-1530:                                             ; preds = %._crit_edge2422
+1530:                                             ; preds = %._crit_edge2421
   %1531 = call ptr @sqlite3_errmsg(ptr noundef %1529) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1531) #18
   %1532 = load ptr, ptr %1416, align 8, !tbaa !6
   %1533 = call i32 @sqlite3_exec(ptr noundef %1532, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
-1534:                                             ; preds = %._crit_edge2422
+1534:                                             ; preds = %._crit_edge2421
   %1535 = call i32 @sqlite3_exec(ptr noundef %1529, ptr noundef nonnull @.str.454, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2203 = icmp eq i32 %1535, 0
   %1536 = load ptr, ptr %1416, align 8, !tbaa !6
@@ -9418,7 +9418,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.455, ptr noundef %1538) #18
   %1539 = load ptr, ptr %1416, align 8, !tbaa !6
   %1540 = call i32 @sqlite3_exec(ptr noundef %1539, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1541:                                             ; preds = %1534
   %1542 = call i32 @sqlite3_exec(ptr noundef %1536, ptr noundef nonnull @.str.456, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9431,7 +9431,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1545) #18
   %1546 = load ptr, ptr %1416, align 8, !tbaa !6
   %1547 = call i32 @sqlite3_exec(ptr noundef %1546, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1548:                                             ; preds = %1541
   %1549 = call i32 @sqlite3_exec(ptr noundef %1543, ptr noundef nonnull @.str.457, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9444,7 +9444,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.458, ptr noundef %1552) #18
   %1553 = load ptr, ptr %1416, align 8, !tbaa !6
   %1554 = call i32 @sqlite3_exec(ptr noundef %1553, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1555:                                             ; preds = %1548
   %1556 = call i32 @sqlite3_exec(ptr noundef %1550, ptr noundef nonnull @.str.459, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9457,7 +9457,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.460, ptr noundef %1559) #18
   %1560 = load ptr, ptr %1416, align 8, !tbaa !6
   %1561 = call i32 @sqlite3_exec(ptr noundef %1560, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1562:                                             ; preds = %1555
   %1563 = call i32 @sqlite3_exec(ptr noundef %1557, ptr noundef nonnull @.str.461, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9470,7 +9470,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.462, ptr noundef %1566) #18
   %1567 = load ptr, ptr %1416, align 8, !tbaa !6
   %1568 = call i32 @sqlite3_exec(ptr noundef %1567, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1569:                                             ; preds = %1562
   %1570 = call i32 @sqlite3_exec(ptr noundef %1564, ptr noundef nonnull @.str.463, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9483,7 +9483,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.464, ptr noundef %1573) #18
   %1574 = load ptr, ptr %1416, align 8, !tbaa !6
   %1575 = call i32 @sqlite3_exec(ptr noundef %1574, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1576:                                             ; preds = %1569
   %1577 = call i32 @sqlite3_exec(ptr noundef %1571, ptr noundef nonnull @.str.465, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9496,7 +9496,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.466, ptr noundef %1580) #18
   %1581 = load ptr, ptr %1416, align 8, !tbaa !6
   %1582 = call i32 @sqlite3_exec(ptr noundef %1581, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1583:                                             ; preds = %1576
   %1584 = call i32 @sqlite3_exec(ptr noundef %1578, ptr noundef nonnull @.str.467, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9509,7 +9509,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.468, ptr noundef %1587) #18
   %1588 = load ptr, ptr %1416, align 8, !tbaa !6
   %1589 = call i32 @sqlite3_exec(ptr noundef %1588, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1590:                                             ; preds = %1583
   %1591 = call i32 @sqlite3_exec(ptr noundef %1585, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9522,7 +9522,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1594) #18
   %1595 = load ptr, ptr %1416, align 8, !tbaa !6
   %1596 = call i32 @sqlite3_exec(ptr noundef %1595, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 1597:                                             ; preds = %1590
   %1598 = call i32 @sqlite3_exec(ptr noundef %1592, ptr noundef nonnull @.str.471, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9535,7 +9535,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1601) #18
   %1602 = load ptr, ptr %1416, align 8, !tbaa !6
   %1603 = call i32 @sqlite3_exec(ptr noundef %1602, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
+  br label %.thread2370
 
 .critedge2344.critedge:                           ; preds = %1507, %1493
   %.str.449.sink = phi ptr [ @.str.449, %1493 ], [ @.str.451, %1507 ]
@@ -9546,9 +9546,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1607 = call i32 @sqlite3_exec(ptr noundef %1606, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread2371
+  br label %.thread2370
 
-.thread2371:                                      ; preds = %1429, %1530, %1537, %1544, %1551, %1558, %1565, %1572, %1579, %1586, %1593, %1600, %.critedge2344.critedge
+.thread2370:                                      ; preds = %1429, %1530, %1537, %1544, %1551, %1558, %1565, %1572, %1579, %1586, %1593, %1600, %.critedge2344.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread2355
 
@@ -9656,13 +9656,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1666 = load ptr, ptr %1652, align 8, !tbaa !6
   %1667 = call i32 @sqlite3_prepare_v2(ptr noundef %1666, ptr noundef %1665, i32 noundef -1, ptr noundef nonnull %16, ptr noundef null) #18
   %.not2188 = icmp eq i32 %1667, 0
-  br i1 %.not2188, label %.preheader2390, label %1671
+  br i1 %.not2188, label %.preheader2389, label %1671
 
-.preheader2390:                                   ; preds = %1662
+.preheader2389:                                   ; preds = %1662
   %1668 = load ptr, ptr %16, align 8, !tbaa !21
   %1669 = call i32 @sqlite3_step(ptr noundef %1668) #18
   %1670 = icmp eq i32 %1669, 100
-  br i1 %1670, label %.lr.ph2402, label %._crit_edge2403
+  br i1 %1670, label %.lr.ph2401, label %._crit_edge2402
 
 1671:                                             ; preds = %1662
   %1672 = load ptr, ptr %1652, align 8, !tbaa !6
@@ -9670,9 +9670,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.487, ptr noundef %1673) #18
   %1674 = load ptr, ptr %1652, align 8, !tbaa !6
   %1675 = call i32 @sqlite3_exec(ptr noundef %1674, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2376
+  br label %.thread2375
 
-.lr.ph2402:                                       ; preds = %.preheader2390, %1753
+.lr.ph2401:                                       ; preds = %.preheader2389, %1753
   %1676 = load ptr, ptr %16, align 8, !tbaa !21
   %1677 = call i32 @sqlite3_column_int(ptr noundef %1676, i32 noundef 0) #18
   %1678 = load ptr, ptr %16, align 8, !tbaa !21
@@ -9688,19 +9688,19 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1685 = load ptr, ptr %18, align 8, !tbaa !21
   %1686 = call i32 @sqlite3_step(ptr noundef %1685) #18
   %1687 = icmp eq i32 %1686, 100
-  br i1 %1687, label %.lr.ph2400, label %._crit_edge2401
+  br i1 %1687, label %.lr.ph2399, label %._crit_edge2400
 
-.lr.ph2400:                                       ; preds = %.lr.ph2402, %1705
+.lr.ph2399:                                       ; preds = %.lr.ph2401, %1705
   %1688 = load ptr, ptr %18, align 8, !tbaa !21
   %1689 = call ptr @sqlite3_column_text(ptr noundef %1688, i32 noundef 0) #18
   %.not2192 = icmp eq ptr %1689, null
   br i1 %.not2192, label %1691, label %1690
 
-1690:                                             ; preds = %.lr.ph2400
+1690:                                             ; preds = %.lr.ph2399
   call void @g_checksum_update(ptr noundef %1680, ptr noundef nonnull %1689, i64 noundef -1) #18
   br label %1691
 
-1691:                                             ; preds = %1690, %.lr.ph2400
+1691:                                             ; preds = %1690, %.lr.ph2399
   %1692 = load ptr, ptr %18, align 8, !tbaa !21
   %1693 = call ptr @sqlite3_column_blob(ptr noundef %1692, i32 noundef 1) #18
   %1694 = load ptr, ptr %18, align 8, !tbaa !21
@@ -9730,9 +9730,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1706 = load ptr, ptr %18, align 8, !tbaa !21
   %1707 = call i32 @sqlite3_step(ptr noundef %1706) #18
   %1708 = icmp eq i32 %1707, 100
-  br i1 %1708, label %.lr.ph2400, label %._crit_edge2401
+  br i1 %1708, label %.lr.ph2399, label %._crit_edge2400
 
-._crit_edge2401:                                  ; preds = %1705, %.lr.ph2402
+._crit_edge2400:                                  ; preds = %1705, %.lr.ph2401
   %1709 = load ptr, ptr %18, align 8, !tbaa !21
   %1710 = call i32 @sqlite3_finalize(ptr noundef %1709) #18
   store ptr null, ptr %18, align 8, !tbaa !21
@@ -9745,7 +9745,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1717 = icmp eq i32 %1716, 100
   br i1 %1717, label %1718, label %1728
 
-1718:                                             ; preds = %._crit_edge2401
+1718:                                             ; preds = %._crit_edge2400
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1719 = load ptr, ptr %18, align 8, !tbaa !21
   %1720 = call i32 @sqlite3_column_int(ptr noundef %1719, i32 noundef 0) #18
@@ -9769,7 +9769,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %1728
 
-1728:                                             ; preds = %1727, %._crit_edge2401
+1728:                                             ; preds = %1727, %._crit_edge2400
   %1729 = load ptr, ptr %18, align 8, !tbaa !21
   %1730 = call i32 @sqlite3_finalize(ptr noundef %1729) #18
   %1731 = call i64 @g_checksum_type_get_length(i32 noundef 0) #18
@@ -9796,9 +9796,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1747 = load ptr, ptr %18, align 8, !tbaa !21
   %1748 = call i32 @sqlite3_step(ptr noundef %1747) #18
   %.not2191 = icmp eq i32 %1748, 101
-  br i1 %.not2191, label %1753, label %.thread2374
+  br i1 %.not2191, label %1753, label %.thread2373
 
-.thread2374:                                      ; preds = %1728
+.thread2373:                                      ; preds = %1728
   %1749 = load ptr, ptr %1652, align 8, !tbaa !6
   %1750 = call ptr @sqlite3_errmsg(ptr noundef %1749) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.491, ptr noundef %1750) #18
@@ -9806,7 +9806,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1752 = call i32 @sqlite3_exec(ptr noundef %1751, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.thread2376
+  br label %.thread2375
 
 1753:                                             ; preds = %1728
   %1754 = load ptr, ptr %18, align 8, !tbaa !21
@@ -9817,13 +9817,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1756 = load ptr, ptr %16, align 8, !tbaa !21
   %1757 = call i32 @sqlite3_step(ptr noundef %1756) #18
   %1758 = icmp eq i32 %1757, 100
-  br i1 %1758, label %.lr.ph2402, label %._crit_edge2403
+  br i1 %1758, label %.lr.ph2401, label %._crit_edge2402
 
-.thread2376:                                      ; preds = %1671, %.thread2374
+.thread2375:                                      ; preds = %1671, %.thread2373
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread2355
 
-._crit_edge2403:                                  ; preds = %1753, %.preheader2390
+._crit_edge2402:                                  ; preds = %1753, %.preheader2389
   %1759 = load ptr, ptr %16, align 8, !tbaa !21
   %1760 = call i32 @sqlite3_finalize(ptr noundef %1759) #18
   call void @g_free(ptr noundef %1665) #18
@@ -11378,13 +11378,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 2612:                                             ; preds = %2605
   %2613 = call i32 @sqlite3_prepare_v2(ptr noundef %2607, ptr noundef nonnull @.str.696, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %.not2061 = icmp eq i32 %2613, 0
-  br i1 %.not2061, label %.preheader2391, label %2617
+  br i1 %.not2061, label %.preheader2390, label %2617
 
-.preheader2391:                                   ; preds = %2612
+.preheader2390:                                   ; preds = %2612
   %2614 = load ptr, ptr %3, align 8, !tbaa !21
   %2615 = call i32 @sqlite3_step(ptr noundef %2614) #18
   %2616 = icmp eq i32 %2615, 100
-  br i1 %2616, label %.lr.ph2397, label %._crit_edge2398
+  br i1 %2616, label %.lr.ph2396, label %._crit_edge2397
 
 2617:                                             ; preds = %2612
   %2618 = load ptr, ptr %2593, align 8, !tbaa !6
@@ -11394,7 +11394,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2621 = call i32 @sqlite3_exec(ptr noundef %2620, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-.lr.ph2397:                                       ; preds = %.preheader2391, %2662
+.lr.ph2396:                                       ; preds = %.preheader2390, %2662
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %2622 = load ptr, ptr %2593, align 8, !tbaa !6
   %2623 = call i32 @sqlite3_prepare_v2(ptr noundef %2622, ptr noundef nonnull @.str.698, i32 noundef -1, ptr noundef nonnull %20, ptr noundef null) #18
@@ -11405,36 +11405,36 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2628 = load ptr, ptr %3, align 8, !tbaa !21
   %2629 = call i32 @sqlite3_column_type(ptr noundef %2628, i32 noundef 1) #18
   %.not2070 = icmp eq i32 %2629, 5
-  br i1 %.not2070, label %.preheader2480, label %2630
+  br i1 %.not2070, label %.preheader2479, label %2630
 
-.preheader2480:                                   ; preds = %2630, %2635, %.lr.ph2397
+.preheader2479:                                   ; preds = %2630, %2635, %.lr.ph2396
   br label %2642
 
-2630:                                             ; preds = %.lr.ph2397
+2630:                                             ; preds = %.lr.ph2396
   %2631 = load ptr, ptr %3, align 8, !tbaa !21
   %2632 = call ptr @sqlite3_column_text(ptr noundef %2631, i32 noundef 1) #18
   %2633 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3328), align 8, !tbaa !78
   %2634 = call ptr @dt_datetime_exif_to_gdatetime(ptr noundef %2632, ptr noundef %2633) #18
   %.not2071 = icmp eq ptr %2634, null
-  br i1 %.not2071, label %.preheader2480, label %2635
+  br i1 %.not2071, label %.preheader2479, label %2635
 
 2635:                                             ; preds = %2630
   %2636 = load ptr, ptr %20, align 8, !tbaa !21
   %2637 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2634) #18
   %2638 = call i32 @sqlite3_bind_int64(ptr noundef %2636, i32 noundef 2, i64 noundef %2637) #18
   call void @g_date_time_unref(ptr noundef nonnull %2634) #18
-  br label %.preheader2480
+  br label %.preheader2479
 
 2639:                                             ; preds = %2656
   %2640 = load ptr, ptr %20, align 8, !tbaa !21
   %2641 = call i32 @sqlite3_step(ptr noundef %2640) #18
   %.not2072 = icmp eq i32 %2641, 101
-  br i1 %.not2072, label %2662, label %.thread2379
+  br i1 %.not2072, label %2662, label %.thread2378
 
-2642:                                             ; preds = %.preheader2480, %2656
-  %.018962396 = phi i32 [ %2657, %2656 ], [ 0, %.preheader2480 ]
+2642:                                             ; preds = %.preheader2479, %2656
+  %.018962395 = phi i32 [ %2657, %2656 ], [ 0, %.preheader2479 ]
   %2643 = load ptr, ptr %3, align 8, !tbaa !21
-  %2644 = add nuw nsw i32 %.018962396, 2
+  %2644 = add nuw nsw i32 %.018962395, 2
   %2645 = call i32 @sqlite3_column_type(ptr noundef %2643, i32 noundef %2644) #18
   %.not2073 = icmp eq i32 %2645, 5
   br i1 %.not2073, label %2656, label %2646
@@ -11449,18 +11449,18 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 2651:                                             ; preds = %2646
   %2652 = load ptr, ptr %20, align 8, !tbaa !21
-  %2653 = add nuw nsw i32 %.018962396, 3
+  %2653 = add nuw nsw i32 %.018962395, 3
   %2654 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2650) #18
   %2655 = call i32 @sqlite3_bind_int64(ptr noundef %2652, i32 noundef %2653, i64 noundef %2654) #18
   call void @g_date_time_unref(ptr noundef nonnull %2650) #18
   br label %2656
 
 2656:                                             ; preds = %2646, %2651, %2642
-  %2657 = add nuw nsw i32 %.018962396, 1
+  %2657 = add nuw nsw i32 %.018962395, 1
   %exitcond.not = icmp eq i32 %2657, 4
   br i1 %exitcond.not, label %2639, label %2642
 
-.thread2379:                                      ; preds = %2639
+.thread2378:                                      ; preds = %2639
   %2658 = load ptr, ptr %2593, align 8, !tbaa !6
   %2659 = call ptr @sqlite3_errmsg(ptr noundef %2658) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.699, ptr noundef %2659) #18
@@ -11476,9 +11476,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2665 = load ptr, ptr %3, align 8, !tbaa !21
   %2666 = call i32 @sqlite3_step(ptr noundef %2665) #18
   %2667 = icmp eq i32 %2666, 100
-  br i1 %2667, label %.lr.ph2397, label %._crit_edge2398
+  br i1 %2667, label %.lr.ph2396, label %._crit_edge2397
 
-._crit_edge2398:                                  ; preds = %2662, %.preheader2391
+._crit_edge2397:                                  ; preds = %2662, %.preheader2390
   %2668 = load ptr, ptr %3, align 8, !tbaa !21
   %2669 = call i32 @sqlite3_finalize(ptr noundef %2668) #18
   %2670 = load ptr, ptr %2593, align 8, !tbaa !6
@@ -11487,14 +11487,14 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2672 = load ptr, ptr %2593, align 8, !tbaa !6
   br i1 %.not2062, label %2677, label %2673
 
-2673:                                             ; preds = %._crit_edge2398
+2673:                                             ; preds = %._crit_edge2397
   %2674 = call ptr @sqlite3_errmsg(ptr noundef %2672) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.701, ptr noundef %2674) #18
   %2675 = load ptr, ptr %2593, align 8, !tbaa !6
   %2676 = call i32 @sqlite3_exec(ptr noundef %2675, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2677:                                             ; preds = %._crit_edge2398
+2677:                                             ; preds = %._crit_edge2397
   %2678 = call i32 @sqlite3_exec(ptr noundef %2672, ptr noundef nonnull @.str.702, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2063 = icmp eq i32 %2678, 0
   %2679 = load ptr, ptr %2593, align 8, !tbaa !6
@@ -11624,9 +11624,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 2748:                                             ; preds = %2739
   %2749 = call i32 @sqlite3_prepare_v2(ptr noundef %2743, ptr noundef nonnull @.str.707, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %.not2056 = icmp eq i32 %2749, 0
-  br i1 %.not2056, label %.preheader2392, label %2753
+  br i1 %.not2056, label %.preheader2391, label %2753
 
-.preheader2392:                                   ; preds = %2748
+.preheader2391:                                   ; preds = %2748
   %2750 = load ptr, ptr %3, align 8, !tbaa !21
   %2751 = call i32 @sqlite3_step(ptr noundef %2750) #18
   %2752 = icmp eq i32 %2751, 100
@@ -11640,7 +11640,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2757 = call i32 @sqlite3_exec(ptr noundef %2756, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-.lr.ph:                                           ; preds = %.preheader2392, %2779
+.lr.ph:                                           ; preds = %.preheader2391, %2779
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %2758 = load ptr, ptr %2731, align 8, !tbaa !6
   %2759 = call i32 @sqlite3_prepare_v2(ptr noundef %2758, ptr noundef nonnull @.str.709, i32 noundef -1, ptr noundef nonnull %21, ptr noundef null) #18
@@ -11660,9 +11660,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2773 = load ptr, ptr %21, align 8, !tbaa !21
   %2774 = call i32 @sqlite3_step(ptr noundef %2773) #18
   %.not2058 = icmp eq i32 %2774, 101
-  br i1 %.not2058, label %2779, label %.thread2380
+  br i1 %.not2058, label %2779, label %.thread2379
 
-.thread2380:                                      ; preds = %.lr.ph
+.thread2379:                                      ; preds = %.lr.ph
   %2775 = load ptr, ptr %2731, align 8, !tbaa !6
   %2776 = call ptr @sqlite3_errmsg(ptr noundef %2775) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.711, ptr noundef %2776) #18
@@ -11680,7 +11680,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2784 = icmp eq i32 %2783, 100
   br i1 %2784, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %2779, %.preheader2392
+._crit_edge:                                      ; preds = %2779, %.preheader2391
   %2785 = load ptr, ptr %3, align 8, !tbaa !21
   %2786 = call i32 @sqlite3_finalize(ptr noundef %2785) #18
   %2787 = load ptr, ptr %2731, align 8, !tbaa !6
@@ -13381,8 +13381,8 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %3735 = tail call i32 @sqlite3_exec(ptr noundef %3734, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %3736
 
-3736:                                             ; preds = %._crit_edge, %._crit_edge2403, %1608, %1297, %1032, %3594, %3684, %2, %3331, %3322, %3313, %3240, %3166, %3105, %2812, %2794, %1772, %1763, %53, %121, %172, %227, %260, %1100, %1147, %1345, %1413, %1649, %1820, %1888, %2061, %2570, %2726, %3056, %3309, %3393, %3561, %3671, %3732, %3592, %3413, %3162, %3101, %2590, %2088, %1978, %1868, %1393, %1127, %1059, %301, %240, %207, %134, %87, %40
-  %.81871 = phi i32 [ 2, %40 ], [ 3, %53 ], [ 4, %87 ], [ 5, %121 ], [ 6, %134 ], [ 7, %172 ], [ 8, %207 ], [ 9, %227 ], [ 10, %240 ], [ 11, %260 ], [ 12, %301 ], [ 13, %1032 ], [ 14, %1059 ], [ 15, %1100 ], [ 16, %1127 ], [ 17, %1147 ], [ 18, %1297 ], [ 19, %1345 ], [ 20, %1393 ], [ 21, %1413 ], [ 22, %1608 ], [ 23, %1649 ], [ 24, %._crit_edge2403 ], [ 27, %1820 ], [ 28, %1868 ], [ 29, %1888 ], [ 30, %1978 ], [ 31, %2061 ], [ 32, %2088 ], [ 33, %2570 ], [ 34, %2590 ], [ 35, %2726 ], [ 39, %3056 ], [ 40, %3101 ], [ 42, %3162 ], [ 45, %3309 ], [ 49, %3393 ], [ 50, %3413 ], [ 51, %3561 ], [ 53, %3592 ], [ 54, %3671 ], [ 56, %3732 ], [ 1, %2 ], [ 25, %1763 ], [ 26, %1772 ], [ 37, %2794 ], [ 38, %2812 ], [ 41, %3105 ], [ 43, %3166 ], [ 44, %3240 ], [ 46, %3313 ], [ 47, %3322 ], [ 48, %3331 ], [ 55, %3684 ], [ %1, %3594 ], [ 36, %._crit_edge ]
+3736:                                             ; preds = %._crit_edge, %._crit_edge2402, %1608, %1297, %1032, %3594, %3684, %2, %3331, %3322, %3313, %3240, %3166, %3105, %2812, %2794, %1772, %1763, %53, %121, %172, %227, %260, %1100, %1147, %1345, %1413, %1649, %1820, %1888, %2061, %2570, %2726, %3056, %3309, %3393, %3561, %3671, %3732, %3592, %3413, %3162, %3101, %2590, %2088, %1978, %1868, %1393, %1127, %1059, %301, %240, %207, %134, %87, %40
+  %.81871 = phi i32 [ 2, %40 ], [ 3, %53 ], [ 4, %87 ], [ 5, %121 ], [ 6, %134 ], [ 7, %172 ], [ 8, %207 ], [ 9, %227 ], [ 10, %240 ], [ 11, %260 ], [ 12, %301 ], [ 13, %1032 ], [ 14, %1059 ], [ 15, %1100 ], [ 16, %1127 ], [ 17, %1147 ], [ 18, %1297 ], [ 19, %1345 ], [ 20, %1393 ], [ 21, %1413 ], [ 22, %1608 ], [ 23, %1649 ], [ 24, %._crit_edge2402 ], [ 27, %1820 ], [ 28, %1868 ], [ 29, %1888 ], [ 30, %1978 ], [ 31, %2061 ], [ 32, %2088 ], [ 33, %2570 ], [ 34, %2590 ], [ 35, %2726 ], [ 39, %3056 ], [ 40, %3101 ], [ 42, %3162 ], [ 45, %3309 ], [ 49, %3393 ], [ 50, %3413 ], [ 51, %3561 ], [ 53, %3592 ], [ 54, %3671 ], [ 56, %3732 ], [ 1, %2 ], [ 25, %1763 ], [ 26, %1772 ], [ 37, %2794 ], [ 38, %2812 ], [ 41, %3105 ], [ 43, %3166 ], [ 44, %3240 ], [ 46, %3313 ], [ 47, %3322 ], [ 48, %3331 ], [ 55, %3684 ], [ %1, %3594 ], [ 36, %._crit_edge ]
   %3737 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3738 = load ptr, ptr %3737, align 8, !tbaa !6
   %3739 = call i32 @sqlite3_prepare_v2(ptr noundef %3738, ptr noundef nonnull @.str.857, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
@@ -13394,8 +13394,8 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %3745 = call i32 @sqlite3_finalize(ptr noundef %3744) #18
   br label %.thread2355
 
-.thread2355:                                      ; preds = %.thread2380, %2789, %2753, %2744, %1262, %1269, %1241, %1235, %1228, %1221, %1214, %.thread2379, %.thread2376, %.thread2371, %.thread2359, %.thread2351, %.thread2347, %3736, %3728, %3721, %3714, %3707, %3700, %3686, %3680, %3667, %3660, %3653, %3646, %3639, %3632, %3625, %3618, %3611, %3604, %3588, %3581, %3574, %3557, %3550, %3543, %3536, %3529, %3522, %3515, %3508, %3501, %3494, %3487, %3480, %3473, %3466, %3459, %3452, %3445, %3438, %3431, %3424, %3409, %3402, %3389, %3382, %3375, %3368, %3361, %3354, %3347, %3335, %3326, %3317, %3305, %3298, %3291, %3284, %3277, %3270, %3263, %3256, %3242, %3236, %3229, %3222, %3215, %3208, %3201, %3194, %3187, %3180, %3170, %3158, %3151, %3144, %3137, %3130, %3123, %3109, %3097, %3090, %3083, %3076, %3069, %3052, %3045, %3038, %3031, %3024, %3017, %3010, %3003, %2996, %2989, %2982, %2975, %2968, %2961, %2954, %2947, %2940, %2933, %2926, %2919, %2912, %2905, %2898, %2891, %2884, %2877, %2870, %2863, %2856, %2849, %2842, %2835, %2828, %2814, %2808, %2798, %2734, %2722, %2715, %2708, %2701, %2694, %2687, %2680, %2673, %2617, %2608, %2601, %2586, %2579, %2566, %2559, %2552, %2545, %2538, %2531, %2524, %2517, %2510, %2503, %2496, %2489, %2482, %2475, %2468, %2461, %2454, %2447, %2440, %2433, %2426, %2419, %2412, %2405, %2398, %2391, %2384, %2377, %2370, %2363, %2356, %2349, %2342, %2335, %2328, %2321, %2314, %2307, %2300, %2293, %2286, %2279, %2272, %2265, %2258, %2251, %2244, %2237, %2230, %2223, %2216, %2209, %2202, %2195, %2188, %2181, %2174, %2167, %2160, %2153, %2146, %2139, %2132, %2125, %2118, %2111, %2104, %2097, %2084, %2077, %2070, %2057, %2050, %2043, %2036, %2029, %2022, %2015, %2008, %2001, %1994, %1987, %1974, %1967, %1960, %1953, %1946, %1939, %1932, %1925, %1918, %1911, %1904, %1897, %1884, %1877, %1864, %1857, %1850, %1843, %1836, %1829, %1816, %1809, %1802, %1795, %1788, %1776, %1767, %1657, %1645, %1638, %1631, %1624, %1617, %1421, %1409, %1402, %1389, %1382, %1375, %1368, %1361, %1354, %1341, %1334, %1327, %1320, %1313, %1306, %1204, %1198, %1191, %1184, %1177, %1170, %1163, %1156, %1143, %1136, %1123, %1116, %1109, %1096, %1089, %1082, %1075, %1068, %1055, %1048, %1041, %297, %290, %283, %276, %269, %256, %249, %236, %223, %216, %203, %196, %189, %182, %167, %161, %154, %147, %130, %117, %110, %103, %96, %83, %76, %69, %62, %49, %36, %29
-  %.0 = phi i32 [ %.81871, %3736 ], [ 1, %29 ], [ 1, %36 ], [ 2, %49 ], [ 3, %62 ], [ 3, %69 ], [ 3, %76 ], [ 3, %83 ], [ 4, %96 ], [ 4, %103 ], [ 4, %110 ], [ 4, %117 ], [ 5, %130 ], [ 6, %147 ], [ 6, %154 ], [ 6, %161 ], [ 6, %167 ], [ 7, %182 ], [ 7, %189 ], [ 7, %196 ], [ 7, %203 ], [ 8, %216 ], [ 8, %223 ], [ 9, %236 ], [ 10, %249 ], [ 10, %256 ], [ 11, %269 ], [ 11, %276 ], [ 11, %283 ], [ 11, %290 ], [ 11, %297 ], [ 13, %1041 ], [ 13, %1048 ], [ 13, %1055 ], [ 14, %1068 ], [ 14, %1075 ], [ 14, %1082 ], [ 14, %1089 ], [ 14, %1096 ], [ 15, %1109 ], [ 15, %1116 ], [ 15, %1123 ], [ 16, %1136 ], [ 16, %1143 ], [ 17, %1156 ], [ 17, %1163 ], [ 17, %1170 ], [ 17, %1177 ], [ 17, %1184 ], [ 17, %1191 ], [ 17, %1198 ], [ 17, %1204 ], [ 18, %1306 ], [ 18, %1313 ], [ 18, %1320 ], [ 18, %1327 ], [ 18, %1334 ], [ 18, %1341 ], [ 19, %1354 ], [ 19, %1361 ], [ 19, %1368 ], [ 19, %1375 ], [ 19, %1382 ], [ 19, %1389 ], [ 20, %1402 ], [ 20, %1409 ], [ 21, %1421 ], [ 22, %1617 ], [ 22, %1624 ], [ 22, %1631 ], [ 22, %1638 ], [ 22, %1645 ], [ 23, %1657 ], [ 24, %1767 ], [ 25, %1776 ], [ 26, %1788 ], [ 26, %1795 ], [ 26, %1802 ], [ 26, %1809 ], [ 26, %1816 ], [ 27, %1829 ], [ 27, %1836 ], [ 27, %1843 ], [ 27, %1850 ], [ 27, %1857 ], [ 27, %1864 ], [ 28, %1877 ], [ 28, %1884 ], [ 29, %1897 ], [ 29, %1904 ], [ 29, %1911 ], [ 29, %1918 ], [ 29, %1925 ], [ 29, %1932 ], [ 29, %1939 ], [ 29, %1946 ], [ 29, %1953 ], [ 29, %1960 ], [ 29, %1967 ], [ 29, %1974 ], [ 30, %1987 ], [ 30, %1994 ], [ 30, %2001 ], [ 30, %2008 ], [ 30, %2015 ], [ 30, %2022 ], [ 30, %2029 ], [ 30, %2036 ], [ 30, %2043 ], [ 30, %2050 ], [ 30, %2057 ], [ 31, %2070 ], [ 31, %2077 ], [ 31, %2084 ], [ 32, %2097 ], [ 32, %2104 ], [ 32, %2111 ], [ 32, %2118 ], [ 32, %2125 ], [ 32, %2132 ], [ 32, %2139 ], [ 32, %2146 ], [ 32, %2153 ], [ 32, %2160 ], [ 32, %2167 ], [ 32, %2174 ], [ 32, %2181 ], [ 32, %2188 ], [ 32, %2195 ], [ 32, %2202 ], [ 32, %2209 ], [ 32, %2216 ], [ 32, %2223 ], [ 32, %2230 ], [ 32, %2237 ], [ 32, %2244 ], [ 32, %2251 ], [ 32, %2258 ], [ 32, %2265 ], [ 32, %2272 ], [ 32, %2279 ], [ 32, %2286 ], [ 32, %2293 ], [ 32, %2300 ], [ 32, %2307 ], [ 32, %2314 ], [ 32, %2321 ], [ 32, %2328 ], [ 32, %2335 ], [ 32, %2342 ], [ 32, %2349 ], [ 32, %2356 ], [ 32, %2363 ], [ 32, %2370 ], [ 32, %2377 ], [ 32, %2384 ], [ 32, %2391 ], [ 32, %2398 ], [ 32, %2405 ], [ 32, %2412 ], [ 32, %2419 ], [ 32, %2426 ], [ 32, %2433 ], [ 32, %2440 ], [ 32, %2447 ], [ 32, %2454 ], [ 32, %2461 ], [ 32, %2468 ], [ 32, %2475 ], [ 32, %2482 ], [ 32, %2489 ], [ 32, %2496 ], [ 32, %2503 ], [ 32, %2510 ], [ 32, %2517 ], [ 32, %2524 ], [ 32, %2531 ], [ 32, %2538 ], [ 32, %2545 ], [ 32, %2552 ], [ 32, %2559 ], [ 32, %2566 ], [ 33, %2579 ], [ 33, %2586 ], [ 34, %2601 ], [ 34, %2608 ], [ 34, %2617 ], [ 34, %2673 ], [ 34, %2680 ], [ 34, %2687 ], [ 34, %2694 ], [ 34, %2701 ], [ 34, %2708 ], [ 34, %2715 ], [ 34, %2722 ], [ 35, %2734 ], [ 36, %2798 ], [ 37, %2808 ], [ 37, %2814 ], [ 38, %2828 ], [ 38, %2835 ], [ 38, %2842 ], [ 38, %2849 ], [ 38, %2856 ], [ 38, %2863 ], [ 38, %2870 ], [ 38, %2877 ], [ 38, %2884 ], [ 38, %2891 ], [ 38, %2898 ], [ 38, %2905 ], [ 38, %2912 ], [ 38, %2919 ], [ 38, %2926 ], [ 38, %2933 ], [ 38, %2940 ], [ 38, %2947 ], [ 38, %2954 ], [ 38, %2961 ], [ 38, %2968 ], [ 38, %2975 ], [ 38, %2982 ], [ 38, %2989 ], [ 38, %2996 ], [ 38, %3003 ], [ 38, %3010 ], [ 38, %3017 ], [ 38, %3024 ], [ 38, %3031 ], [ 38, %3038 ], [ 38, %3045 ], [ 38, %3052 ], [ 39, %3069 ], [ 39, %3076 ], [ 39, %3083 ], [ 39, %3090 ], [ 39, %3097 ], [ 40, %3109 ], [ 41, %3123 ], [ 41, %3130 ], [ 41, %3137 ], [ 41, %3144 ], [ 41, %3151 ], [ 41, %3158 ], [ 42, %3170 ], [ 43, %3180 ], [ 43, %3187 ], [ 43, %3194 ], [ 43, %3201 ], [ 43, %3208 ], [ 43, %3215 ], [ 43, %3222 ], [ 43, %3229 ], [ 43, %3236 ], [ 43, %3242 ], [ 44, %3256 ], [ 44, %3263 ], [ 44, %3270 ], [ 44, %3277 ], [ 44, %3284 ], [ 44, %3291 ], [ 44, %3298 ], [ 44, %3305 ], [ 45, %3317 ], [ 46, %3326 ], [ 47, %3335 ], [ 48, %3347 ], [ 48, %3354 ], [ 48, %3361 ], [ 48, %3368 ], [ 48, %3375 ], [ 48, %3382 ], [ 48, %3389 ], [ 49, %3402 ], [ 49, %3409 ], [ 50, %3424 ], [ 50, %3431 ], [ 50, %3438 ], [ 50, %3445 ], [ 50, %3452 ], [ 50, %3459 ], [ 50, %3466 ], [ 50, %3473 ], [ 50, %3480 ], [ 50, %3487 ], [ 50, %3494 ], [ 50, %3501 ], [ 50, %3508 ], [ 50, %3515 ], [ 50, %3522 ], [ 50, %3529 ], [ 50, %3536 ], [ 50, %3543 ], [ 50, %3550 ], [ 50, %3557 ], [ %1, %3574 ], [ %1, %3581 ], [ %1, %3588 ], [ 53, %3604 ], [ 53, %3611 ], [ 53, %3618 ], [ 53, %3625 ], [ 53, %3632 ], [ 53, %3639 ], [ 53, %3646 ], [ 53, %3653 ], [ 53, %3660 ], [ 53, %3667 ], [ 54, %3680 ], [ 54, %3686 ], [ 55, %3700 ], [ 55, %3707 ], [ 55, %3714 ], [ 55, %3721 ], [ 55, %3728 ], [ 12, %.thread2347 ], [ 12, %.thread2351 ], [ 17, %.thread2359 ], [ 21, %.thread2371 ], [ 23, %.thread2376 ], [ 34, %.thread2379 ], [ 17, %1214 ], [ 17, %1221 ], [ 17, %1228 ], [ 17, %1235 ], [ 17, %1241 ], [ 17, %1269 ], [ 17, %1262 ], [ 35, %2744 ], [ 35, %2753 ], [ 35, %2789 ], [ 35, %.thread2380 ]
+.thread2355:                                      ; preds = %.thread2379, %2789, %2753, %2744, %1262, %1269, %1241, %1235, %1228, %1221, %1214, %.thread2378, %.thread2375, %.thread2370, %.thread2359, %.thread2351, %.thread2347, %3736, %3728, %3721, %3714, %3707, %3700, %3686, %3680, %3667, %3660, %3653, %3646, %3639, %3632, %3625, %3618, %3611, %3604, %3588, %3581, %3574, %3557, %3550, %3543, %3536, %3529, %3522, %3515, %3508, %3501, %3494, %3487, %3480, %3473, %3466, %3459, %3452, %3445, %3438, %3431, %3424, %3409, %3402, %3389, %3382, %3375, %3368, %3361, %3354, %3347, %3335, %3326, %3317, %3305, %3298, %3291, %3284, %3277, %3270, %3263, %3256, %3242, %3236, %3229, %3222, %3215, %3208, %3201, %3194, %3187, %3180, %3170, %3158, %3151, %3144, %3137, %3130, %3123, %3109, %3097, %3090, %3083, %3076, %3069, %3052, %3045, %3038, %3031, %3024, %3017, %3010, %3003, %2996, %2989, %2982, %2975, %2968, %2961, %2954, %2947, %2940, %2933, %2926, %2919, %2912, %2905, %2898, %2891, %2884, %2877, %2870, %2863, %2856, %2849, %2842, %2835, %2828, %2814, %2808, %2798, %2734, %2722, %2715, %2708, %2701, %2694, %2687, %2680, %2673, %2617, %2608, %2601, %2586, %2579, %2566, %2559, %2552, %2545, %2538, %2531, %2524, %2517, %2510, %2503, %2496, %2489, %2482, %2475, %2468, %2461, %2454, %2447, %2440, %2433, %2426, %2419, %2412, %2405, %2398, %2391, %2384, %2377, %2370, %2363, %2356, %2349, %2342, %2335, %2328, %2321, %2314, %2307, %2300, %2293, %2286, %2279, %2272, %2265, %2258, %2251, %2244, %2237, %2230, %2223, %2216, %2209, %2202, %2195, %2188, %2181, %2174, %2167, %2160, %2153, %2146, %2139, %2132, %2125, %2118, %2111, %2104, %2097, %2084, %2077, %2070, %2057, %2050, %2043, %2036, %2029, %2022, %2015, %2008, %2001, %1994, %1987, %1974, %1967, %1960, %1953, %1946, %1939, %1932, %1925, %1918, %1911, %1904, %1897, %1884, %1877, %1864, %1857, %1850, %1843, %1836, %1829, %1816, %1809, %1802, %1795, %1788, %1776, %1767, %1657, %1645, %1638, %1631, %1624, %1617, %1421, %1409, %1402, %1389, %1382, %1375, %1368, %1361, %1354, %1341, %1334, %1327, %1320, %1313, %1306, %1204, %1198, %1191, %1184, %1177, %1170, %1163, %1156, %1143, %1136, %1123, %1116, %1109, %1096, %1089, %1082, %1075, %1068, %1055, %1048, %1041, %297, %290, %283, %276, %269, %256, %249, %236, %223, %216, %203, %196, %189, %182, %167, %161, %154, %147, %130, %117, %110, %103, %96, %83, %76, %69, %62, %49, %36, %29
+  %.0 = phi i32 [ %.81871, %3736 ], [ 1, %29 ], [ 1, %36 ], [ 2, %49 ], [ 3, %62 ], [ 3, %69 ], [ 3, %76 ], [ 3, %83 ], [ 4, %96 ], [ 4, %103 ], [ 4, %110 ], [ 4, %117 ], [ 5, %130 ], [ 6, %147 ], [ 6, %154 ], [ 6, %161 ], [ 6, %167 ], [ 7, %182 ], [ 7, %189 ], [ 7, %196 ], [ 7, %203 ], [ 8, %216 ], [ 8, %223 ], [ 9, %236 ], [ 10, %249 ], [ 10, %256 ], [ 11, %269 ], [ 11, %276 ], [ 11, %283 ], [ 11, %290 ], [ 11, %297 ], [ 13, %1041 ], [ 13, %1048 ], [ 13, %1055 ], [ 14, %1068 ], [ 14, %1075 ], [ 14, %1082 ], [ 14, %1089 ], [ 14, %1096 ], [ 15, %1109 ], [ 15, %1116 ], [ 15, %1123 ], [ 16, %1136 ], [ 16, %1143 ], [ 17, %1156 ], [ 17, %1163 ], [ 17, %1170 ], [ 17, %1177 ], [ 17, %1184 ], [ 17, %1191 ], [ 17, %1198 ], [ 17, %1204 ], [ 18, %1306 ], [ 18, %1313 ], [ 18, %1320 ], [ 18, %1327 ], [ 18, %1334 ], [ 18, %1341 ], [ 19, %1354 ], [ 19, %1361 ], [ 19, %1368 ], [ 19, %1375 ], [ 19, %1382 ], [ 19, %1389 ], [ 20, %1402 ], [ 20, %1409 ], [ 21, %1421 ], [ 22, %1617 ], [ 22, %1624 ], [ 22, %1631 ], [ 22, %1638 ], [ 22, %1645 ], [ 23, %1657 ], [ 24, %1767 ], [ 25, %1776 ], [ 26, %1788 ], [ 26, %1795 ], [ 26, %1802 ], [ 26, %1809 ], [ 26, %1816 ], [ 27, %1829 ], [ 27, %1836 ], [ 27, %1843 ], [ 27, %1850 ], [ 27, %1857 ], [ 27, %1864 ], [ 28, %1877 ], [ 28, %1884 ], [ 29, %1897 ], [ 29, %1904 ], [ 29, %1911 ], [ 29, %1918 ], [ 29, %1925 ], [ 29, %1932 ], [ 29, %1939 ], [ 29, %1946 ], [ 29, %1953 ], [ 29, %1960 ], [ 29, %1967 ], [ 29, %1974 ], [ 30, %1987 ], [ 30, %1994 ], [ 30, %2001 ], [ 30, %2008 ], [ 30, %2015 ], [ 30, %2022 ], [ 30, %2029 ], [ 30, %2036 ], [ 30, %2043 ], [ 30, %2050 ], [ 30, %2057 ], [ 31, %2070 ], [ 31, %2077 ], [ 31, %2084 ], [ 32, %2097 ], [ 32, %2104 ], [ 32, %2111 ], [ 32, %2118 ], [ 32, %2125 ], [ 32, %2132 ], [ 32, %2139 ], [ 32, %2146 ], [ 32, %2153 ], [ 32, %2160 ], [ 32, %2167 ], [ 32, %2174 ], [ 32, %2181 ], [ 32, %2188 ], [ 32, %2195 ], [ 32, %2202 ], [ 32, %2209 ], [ 32, %2216 ], [ 32, %2223 ], [ 32, %2230 ], [ 32, %2237 ], [ 32, %2244 ], [ 32, %2251 ], [ 32, %2258 ], [ 32, %2265 ], [ 32, %2272 ], [ 32, %2279 ], [ 32, %2286 ], [ 32, %2293 ], [ 32, %2300 ], [ 32, %2307 ], [ 32, %2314 ], [ 32, %2321 ], [ 32, %2328 ], [ 32, %2335 ], [ 32, %2342 ], [ 32, %2349 ], [ 32, %2356 ], [ 32, %2363 ], [ 32, %2370 ], [ 32, %2377 ], [ 32, %2384 ], [ 32, %2391 ], [ 32, %2398 ], [ 32, %2405 ], [ 32, %2412 ], [ 32, %2419 ], [ 32, %2426 ], [ 32, %2433 ], [ 32, %2440 ], [ 32, %2447 ], [ 32, %2454 ], [ 32, %2461 ], [ 32, %2468 ], [ 32, %2475 ], [ 32, %2482 ], [ 32, %2489 ], [ 32, %2496 ], [ 32, %2503 ], [ 32, %2510 ], [ 32, %2517 ], [ 32, %2524 ], [ 32, %2531 ], [ 32, %2538 ], [ 32, %2545 ], [ 32, %2552 ], [ 32, %2559 ], [ 32, %2566 ], [ 33, %2579 ], [ 33, %2586 ], [ 34, %2601 ], [ 34, %2608 ], [ 34, %2617 ], [ 34, %2673 ], [ 34, %2680 ], [ 34, %2687 ], [ 34, %2694 ], [ 34, %2701 ], [ 34, %2708 ], [ 34, %2715 ], [ 34, %2722 ], [ 35, %2734 ], [ 36, %2798 ], [ 37, %2808 ], [ 37, %2814 ], [ 38, %2828 ], [ 38, %2835 ], [ 38, %2842 ], [ 38, %2849 ], [ 38, %2856 ], [ 38, %2863 ], [ 38, %2870 ], [ 38, %2877 ], [ 38, %2884 ], [ 38, %2891 ], [ 38, %2898 ], [ 38, %2905 ], [ 38, %2912 ], [ 38, %2919 ], [ 38, %2926 ], [ 38, %2933 ], [ 38, %2940 ], [ 38, %2947 ], [ 38, %2954 ], [ 38, %2961 ], [ 38, %2968 ], [ 38, %2975 ], [ 38, %2982 ], [ 38, %2989 ], [ 38, %2996 ], [ 38, %3003 ], [ 38, %3010 ], [ 38, %3017 ], [ 38, %3024 ], [ 38, %3031 ], [ 38, %3038 ], [ 38, %3045 ], [ 38, %3052 ], [ 39, %3069 ], [ 39, %3076 ], [ 39, %3083 ], [ 39, %3090 ], [ 39, %3097 ], [ 40, %3109 ], [ 41, %3123 ], [ 41, %3130 ], [ 41, %3137 ], [ 41, %3144 ], [ 41, %3151 ], [ 41, %3158 ], [ 42, %3170 ], [ 43, %3180 ], [ 43, %3187 ], [ 43, %3194 ], [ 43, %3201 ], [ 43, %3208 ], [ 43, %3215 ], [ 43, %3222 ], [ 43, %3229 ], [ 43, %3236 ], [ 43, %3242 ], [ 44, %3256 ], [ 44, %3263 ], [ 44, %3270 ], [ 44, %3277 ], [ 44, %3284 ], [ 44, %3291 ], [ 44, %3298 ], [ 44, %3305 ], [ 45, %3317 ], [ 46, %3326 ], [ 47, %3335 ], [ 48, %3347 ], [ 48, %3354 ], [ 48, %3361 ], [ 48, %3368 ], [ 48, %3375 ], [ 48, %3382 ], [ 48, %3389 ], [ 49, %3402 ], [ 49, %3409 ], [ 50, %3424 ], [ 50, %3431 ], [ 50, %3438 ], [ 50, %3445 ], [ 50, %3452 ], [ 50, %3459 ], [ 50, %3466 ], [ 50, %3473 ], [ 50, %3480 ], [ 50, %3487 ], [ 50, %3494 ], [ 50, %3501 ], [ 50, %3508 ], [ 50, %3515 ], [ 50, %3522 ], [ 50, %3529 ], [ 50, %3536 ], [ 50, %3543 ], [ 50, %3550 ], [ 50, %3557 ], [ %1, %3574 ], [ %1, %3581 ], [ %1, %3588 ], [ 53, %3604 ], [ 53, %3611 ], [ 53, %3618 ], [ 53, %3625 ], [ 53, %3632 ], [ 53, %3639 ], [ 53, %3646 ], [ 53, %3653 ], [ 53, %3660 ], [ 53, %3667 ], [ 54, %3680 ], [ 54, %3686 ], [ 55, %3700 ], [ 55, %3707 ], [ 55, %3714 ], [ 55, %3721 ], [ 55, %3728 ], [ 12, %.thread2347 ], [ 12, %.thread2351 ], [ 17, %.thread2359 ], [ 21, %.thread2370 ], [ 23, %.thread2375 ], [ 34, %.thread2378 ], [ 17, %1214 ], [ 17, %1221 ], [ 17, %1228 ], [ 17, %1235 ], [ 17, %1241 ], [ 17, %1269 ], [ 17, %1262 ], [ 35, %2744 ], [ 35, %2753 ], [ 35, %2789 ], [ 35, %.thread2379 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -36,8 +36,8 @@ define noundef i32 @_ZN5folly10symbolizer10LineReader8readLineERNS_5RangeIPKcEE(
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
   %11 = tail call noundef ptr @memchr(ptr noundef %4, i32 noundef 10, i64 noundef %10) #5
-  %.not21 = icmp eq ptr %11, null
-  br i1 %.not21, label %.lr.ph, label %._crit_edge
+  %.not20 = icmp eq ptr %11, null
+  br i1 %.not20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48

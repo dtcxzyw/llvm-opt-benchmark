@@ -648,8 +648,8 @@ define noundef ptr @_ZNK6icu_7722SimpleLocaleKeyFactory6createERKNS_13ICUService
           to label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit unwind label %62
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %48
-  %.not23 = icmp eq i8 %54, 0
-  br i1 %.not23, label %.thread.sink.split, label %55
+  %.not21 = icmp eq i8 %54, 0
+  br i1 %.not21, label %.thread.sink.split, label %55
 
 55:                                               ; preds = %29, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80

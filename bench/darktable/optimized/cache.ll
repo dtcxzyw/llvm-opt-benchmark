@@ -522,8 +522,8 @@ declare void @g_usleep(i64 noundef) local_unnamed_addr #1
 define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %.not34 = icmp eq ptr %4, null
-  br i1 %.not34, label %.thread, label %.lr.ph
+  %.not32 = icmp eq ptr %4, null
+  br i1 %.not32, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -534,9 +534,9 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
   br label %10
 
 10:                                               ; preds = %.lr.ph, %51
-  %.02635 = phi ptr [ %4, %.lr.ph ], [ %13, %51 ]
-  %11 = load ptr, ptr %.02635, align 8, !tbaa !20
-  %12 = getelementptr inbounds nuw i8, ptr %.02635, i64 8
+  %.02633 = phi ptr [ %4, %.lr.ph ], [ %13, %51 ]
+  %11 = load ptr, ptr %.02633, align 8, !tbaa !20
+  %12 = getelementptr inbounds nuw i8, ptr %.02633, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !73
   %14 = load i64, ptr %5, align 8, !tbaa !6
   %15 = uitofp i64 %14 to float

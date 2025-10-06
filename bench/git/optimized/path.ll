@@ -1243,8 +1243,8 @@ define dso_local ptr @enter_repo(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %9, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %6, %15
-  %.04185 = phi i32 [ %16, %15 ], [ %8, %6 ]
-  %10 = zext nneg i32 %.04185 to i64
+  %.04181 = phi i32 [ %16, %15 ], [ %8, %6 ]
+  %10 = zext nneg i32 %.04181 to i64
   %11 = getelementptr i8, ptr %0, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !14
@@ -1252,16 +1252,16 @@ define dso_local ptr @enter_repo(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %.lr.ph
-  %16 = add nsw i32 %.04185, -1
-  %17 = icmp sgt i32 %.04185, 2
+  %16 = add nsw i32 %.04181, -1
+  %17 = icmp sgt i32 %.04181, 2
   br i1 %17, label %.lr.ph, label %.critedge.thread, !llvm.loop !72
 
 .critedge:                                        ; preds = %.lr.ph
-  %18 = icmp samesign ugt i32 %.04185, 4095
+  %18 = icmp samesign ugt i32 %.04181, 4095
   br i1 %18, label %.critedge66.thread, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %15, %6, %.critedge
-  %.04184 = phi i32 [ %.04185, %.critedge ], [ %8, %6 ], [ 1, %15 ]
+  %.04180 = phi i32 [ %.04181, %.critedge ], [ %8, %6 ], [ 1, %15 ]
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8, !tbaa !8
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8, !tbaa !13
   %.not9.i = icmp eq ptr %19, @strbuf_slopbuf
@@ -1274,15 +1274,15 @@ define dso_local ptr @enter_repo(ptr noundef %0, i32 noundef %1) local_unnamed_a
 strbuf_setlen.exit:                               ; preds = %.critedge.thread, %20
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.validated_path, i64 8), align 8, !tbaa !8
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.validated_path, i64 16), align 8, !tbaa !13
-  %.not9.i72 = icmp eq ptr %21, @strbuf_slopbuf
-  br i1 %.not9.i72, label %strbuf_setlen.exit73, label %22
+  %.not9.i70 = icmp eq ptr %21, @strbuf_slopbuf
+  br i1 %.not9.i70, label %strbuf_setlen.exit71, label %22
 
 22:                                               ; preds = %strbuf_setlen.exit
   store i8 0, ptr %21, align 1, !tbaa !14
-  br label %strbuf_setlen.exit73
+  br label %strbuf_setlen.exit71
 
-strbuf_setlen.exit73:                             ; preds = %strbuf_setlen.exit, %22
-  %23 = sext i32 %.04184 to i64
+strbuf_setlen.exit71:                             ; preds = %strbuf_setlen.exit, %22
+  %23 = sext i32 %.04180 to i64
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.used_path, ptr noundef nonnull %0, i64 noundef %23) #30
   tail call void @strbuf_add(ptr noundef nonnull @enter_repo.validated_path, ptr noundef nonnull %0, i64 noundef %23) #30
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8, !tbaa !13
@@ -1290,7 +1290,7 @@ strbuf_setlen.exit73:                             ; preds = %strbuf_setlen.exit,
   %26 = icmp eq i8 %25, 126
   br i1 %26, label %27, label %31
 
-27:                                               ; preds = %strbuf_setlen.exit73
+27:                                               ; preds = %strbuf_setlen.exit71
   %28 = tail call ptr @interpolate_path(ptr noundef nonnull %24, i32 noundef 0)
   %.not53.not = icmp eq ptr %28, null
   br i1 %.not53.not, label %.critedge66.thread, label %29
@@ -1300,13 +1300,13 @@ strbuf_setlen.exit73:                             ; preds = %strbuf_setlen.exit,
   tail call void @strbuf_attach(ptr noundef nonnull @enter_repo.used_path, ptr noundef nonnull %28, i64 noundef %30, i64 noundef %30) #30
   br label %31
 
-31:                                               ; preds = %29, %strbuf_setlen.exit73
+31:                                               ; preds = %29, %strbuf_setlen.exit71
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.pre92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8, !tbaa !8
+  %.pre88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8, !tbaa !8
   br label %33
 
 33:                                               ; preds = %31, %54
-  %34 = phi i64 [ %.pre92, %31 ], [ %55, %54 ]
+  %34 = phi i64 [ %.pre88, %31 ], [ %55, %54 ]
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %54 ]
   %35 = getelementptr inbounds nuw ptr, ptr @enter_repo.suffix, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1335,8 +1335,8 @@ strbuf_setlen.exit73:                             ; preds = %strbuf_setlen.exit,
 
 46:                                               ; preds = %40, %43, %33
   %47 = load i64, ptr @enter_repo.used_path, align 8, !tbaa !15
-  %spec.select.i74 = tail call i64 @llvm.usub.sat.i64(i64 %47, i64 1)
-  %48 = icmp ugt i64 %34, %spec.select.i74
+  %spec.select.i72 = tail call i64 @llvm.usub.sat.i64(i64 %47, i64 1)
+  %48 = icmp ugt i64 %34, %spec.select.i72
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46
@@ -1346,8 +1346,8 @@ strbuf_setlen.exit73:                             ; preds = %strbuf_setlen.exit,
 50:                                               ; preds = %46
   store i64 %34, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 8), align 8, !tbaa !8
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @enter_repo.used_path, i64 16), align 8, !tbaa !13
-  %.not9.i75 = icmp eq ptr %51, @strbuf_slopbuf
-  br i1 %.not9.i75, label %54, label %52
+  %.not9.i73 = icmp eq ptr %51, @strbuf_slopbuf
+  br i1 %.not9.i73, label %54, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %34

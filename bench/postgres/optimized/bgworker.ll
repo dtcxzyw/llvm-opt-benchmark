@@ -1269,11 +1269,11 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %.thread45
+  br i1 %4, label %5, label %.thread44
 
 5:                                                ; preds = %2
   %6 = tail call fastcc zeroext i1 @SanityCheckBackgroundWorker(ptr noundef %0, i32 noundef 21)
-  br i1 %6, label %7, label %.thread45
+  br i1 %6, label %7, label %.thread44
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1300,7 +1300,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4224
   tail call void @LWLockRelease(ptr noundef nonnull %23) #13
-  br label %.thread45
+  br label %.thread44
 
 24:                                               ; preds = %14, %7
   %25 = load i32, ptr %.pre, align 8
@@ -1331,24 +1331,24 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   store i64 %38, ptr %36, align 8
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 0, ptr %39, align 1
-  br i1 %.not, label %.thread40, label %40
+  br i1 %.not, label %.thread39, label %40
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 4
-  br label %.thread40
+  br label %.thread39
 
-.thread40:                                        ; preds = %40, %32
+.thread39:                                        ; preds = %40, %32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
   store i8 1, ptr %29, align 8
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4224
   tail call void @LWLockRelease(ptr noundef nonnull %45) #13
   tail call void @SendPostmasterSignal(i32 noundef 5) #13
-  %.not48 = icmp eq ptr %1, null
-  br i1 %.not48, label %.thread45, label %49
+  %.not47 = icmp eq ptr %1, null
+  br i1 %.not47, label %.thread44, label %49
 
 46:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1359,19 +1359,19 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %47 = load ptr, ptr @MainLWLockArray, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4224
   tail call void @LWLockRelease(ptr noundef nonnull %48) #13
-  br label %.thread45
+  br label %.thread44
 
-49:                                               ; preds = %.thread40
+49:                                               ; preds = %.thread39
   %50 = tail call ptr @palloc(i64 noundef 16) #13
   store ptr %50, ptr %1, align 8
   store i32 %33, ptr %50, align 8
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %38, ptr %52, align 8
-  br label %.thread45
+  br label %.thread44
 
-.thread45:                                        ; preds = %._crit_edge, %.thread40, %49, %5, %2, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %5 ], [ true, %49 ], [ true, %.thread40 ], [ false, %._crit_edge ]
+.thread44:                                        ; preds = %._crit_edge, %.thread39, %49, %5, %2, %21
+  %.0 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %5 ], [ true, %49 ], [ true, %.thread39 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 

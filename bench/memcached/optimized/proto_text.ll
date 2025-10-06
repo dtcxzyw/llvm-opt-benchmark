@@ -5574,14 +5574,14 @@ define internal fastcc void @process_debugitem_command(ptr noundef %0, ptr nound
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   %46 = tail call ptr @item_get(ptr noundef %41, i64 noundef %43, ptr noundef %45, i1 noundef zeroext false) #13
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %.thread29
+  br i1 %47, label %48, label %.thread27
 
-.thread29:                                        ; preds = %39
+.thread27:                                        ; preds = %39
   tail call void @do_item_remove(ptr noundef nonnull %46) #13
   tail call void @do_item_remove(ptr noundef nonnull %46) #13
   br label %.thread
 
-.thread:                                          ; preds = %27, %.thread29, %17, %7
+.thread:                                          ; preds = %27, %.thread27, %17, %7
   br label %48
 
 48:                                               ; preds = %36, %39, %27, %.thread

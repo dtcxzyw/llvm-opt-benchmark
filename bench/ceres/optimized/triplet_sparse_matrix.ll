@@ -2451,11 +2451,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %_ZNSt6vectorIiSaIiE
   %163 = ptrtoint ptr %21 to i64
   %164 = sub i64 %162, %163
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %164) #28
-  %.pre130 = load ptr, ptr %6, align 8, !tbaa !53
+  %.pre129 = load ptr, ptr %6, align 8, !tbaa !53
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit55
 
 _ZNSt6vectorIdSaIdEED2Ev.exit55:                  ; preds = %.body, %160
-  %165 = phi ptr [ %159, %.body ], [ %.pre130, %160 ]
+  %165 = phi ptr [ %159, %.body ], [ %.pre129, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i56 = icmp eq ptr %165, null
   br i1 %.not.i.i.i56, label %_ZNSt6vectorIiSaIiEED2Ev.exit57, label %166

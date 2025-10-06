@@ -6516,9 +6516,9 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %call1.i.i.i63 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #29
-  %tobool.not.i.i64 = icmp eq i32 %call1.i.i.i63, 0
-  br i1 %tobool.not.i.i64, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph, label %if.then.i.i17
+  %call1.i.i.i62 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #29
+  %tobool.not.i.i63 = icmp eq i32 %call1.i.i.i62, 0
+  br i1 %tobool.not.i.i63, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph, label %if.then.i.i17
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph:    ; preds = %for.cond.preheader
   %reservationBytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
@@ -6530,12 +6530,12 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.then.i.i17:                                    ; preds = %for.inc, %for.cond.preheader
-  %call1.i.i.i.lcssa = phi i32 [ %call1.i.i.i63, %for.cond.preheader ], [ %call1.i.i.i, %for.inc ]
+  %call1.i.i.i.lcssa = phi i32 [ %call1.i.i.i62, %for.cond.preheader ], [ %call1.i.i.i, %for.inc ]
   call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.lcssa) #32
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph, %for.inc
-  %numAttempts.065 = phi i32 [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph ], [ %inc, %for.inc ]
+  %numAttempts.064 = phi i32 [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph ], [ %inc, %for.inc ]
   %1 = load i64, ptr %reservationBytes_.i, align 8
   %2 = load i64, ptr %usedReservationBytes_.i, align 8
   %sub.i.neg = add i64 %2, %size
@@ -6547,10 +6547,10 @@ if.end.i:                                         ; preds = %_ZNSt10lock_guardIS
   %cmp.i.i = icmp ult i64 %sub.i.neg, 16777216
   %cmp1.i.i = icmp ult i64 %sub.i.neg, 67108864
   %. = select i1 %cmp1.i.i, i64 4194303, i64 8388607
-  %.99 = select i1 %cmp1.i.i, i64 130023424, i64 -8388608
-  %.sink98 = select i1 %cmp.i.i, i64 1048575, i64 %.
-  %.sink = select i1 %cmp.i.i, i64 32505856, i64 %.99
-  %add.i18 = add i64 %sub.i.neg, %.sink98
+  %.98 = select i1 %cmp1.i.i, i64 130023424, i64 -8388608
+  %.sink97 = select i1 %cmp.i.i, i64 1048575, i64 %.
+  %.sink = select i1 %cmp.i.i, i64 32505856, i64 %.98
+  %add.i18 = add i64 %sub.i.neg, %.sink97
   %mul.i = and i64 %add.i18, %.sink
   %sub.i49 = sub i64 %mul.i, %1
   %cmp = icmp eq i64 %mul.i, %1
@@ -6672,18 +6672,18 @@ ehcleanup26:                                      ; preds = %if.then.i, %lpad23,
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %invoke.cont15
-  %inc = add nuw nsw i32 %numAttempts.065, 1
+  %inc = add nuw nsw i32 %numAttempts.064, 1
   %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #29
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i17, !llvm.loop !60
 
 for.end:                                          ; preds = %if.end10
   %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #29
-  %cmp28 = icmp samesign ugt i32 %numAttempts.065, 1
+  %cmp28 = icmp samesign ugt i32 %numAttempts.064, 1
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %for.end
-  %sub = add nsw i32 %numAttempts.065, -1
+  %sub = add nsw i32 %numAttempts.064, -1
   %conv = zext nneg i32 %sub to i64
   %numCollisions_ = getelementptr inbounds nuw i8, ptr %this, i64 376
   %17 = atomicrmw add ptr %numCollisions_, i64 %conv seq_cst, align 8
@@ -6874,7 +6874,7 @@ if.then2:                                         ; preds = %_ZNSt10lock_guardIS
   br i1 %cmp, label %cleanup.thread, label %if.end4
 
 cleanup.thread:                                   ; preds = %if.then2
-  %call1.i.i.i3344 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #29
+  %call1.i.i.i3343 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #29
   br label %if.end24
 
 if.end4:                                          ; preds = %if.then2
@@ -6883,10 +6883,10 @@ if.end4:                                          ; preds = %if.then2
   %cmp.i34 = icmp ult i64 %2, 16777216
   %cmp1.i36 = icmp ult i64 %2, 67108864
   %. = select i1 %cmp1.i36, i64 4194303, i64 8388607
-  %.48 = select i1 %cmp1.i36, i64 130023424, i64 -8388608
-  %.sink47 = select i1 %cmp.i34, i64 1048575, i64 %.
-  %.sink = select i1 %cmp.i34, i64 32505856, i64 %.48
-  %add.i22 = add i64 %2, %.sink47
+  %.47 = select i1 %cmp1.i36, i64 130023424, i64 -8388608
+  %.sink46 = select i1 %cmp.i34, i64 1048575, i64 %.
+  %.sink = select i1 %cmp.i34, i64 32505856, i64 %.47
+  %add.i22 = add i64 %2, %.sink46
   %mul.i23 = and i64 %add.i22, %.sink
   store i64 0, ptr %minReservationBytes_, align 8
   br label %if.end14

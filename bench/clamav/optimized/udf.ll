@@ -1044,8 +1044,8 @@ findFileEntries.exit:                             ; preds = %414
   %.val30.i = load i8, ptr %458, align 1, !tbaa !48
   %459 = load i32, ptr %440, align 1, !tbaa !49
   %460 = and i8 %.val30.i, 2
-  %.not8.i.i = icmp eq i8 %460, 0
-  br i1 %.not8.i.i, label %461, label %extractFile.exit.thread33.i
+  %.not6.i.i = icmp eq i8 %460, 0
+  br i1 %.not6.i.i, label %461, label %extractFile.exit.thread33.i
 
 extractFile.exit.thread33.i:                      ; preds = %452
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #7
@@ -1101,9 +1101,9 @@ extractFile.exit.thread33.i:                      ; preds = %452
   %484 = load i16, ptr %483, align 1, !tbaa !57
   %485 = load i16, ptr %441, align 1, !tbaa !55
   %.not55.i.i = icmp eq i16 %484, %485
-  br i1 %.not55.i.i, label %.thread4.i.i, label %extractFile.exit.thread.sink.split.i
+  br i1 %.not55.i.i, label %.thread3.i.i, label %extractFile.exit.thread.sink.split.i
 
-.thread4.i.i:                                     ; preds = %482
+.thread3.i.i:                                     ; preds = %482
   %486 = getelementptr inbounds nuw i8, ptr %456, i64 180
   %487 = getelementptr inbounds nuw i8, ptr %456, i64 188
   %488 = load i32, ptr %487, align 1, !tbaa !58
@@ -1115,9 +1115,9 @@ extractFile.exit.thread33.i:                      ; preds = %452
 default.unreachable:                              ; preds = %461
   unreachable
 
-492:                                              ; preds = %.thread4.i.i, %.thread.i.i, %466
-  %.053.in.i.i = phi ptr [ %457, %466 ], [ %457, %.thread.i.i ], [ %486, %.thread4.i.i ]
-  %.051.i.i = phi i32 [ %470, %466 ], [ %480, %.thread.i.i ], [ %491, %.thread4.i.i ]
+492:                                              ; preds = %.thread3.i.i, %.thread.i.i, %466
+  %.053.in.i.i = phi ptr [ %457, %466 ], [ %457, %.thread.i.i ], [ %486, %.thread3.i.i ]
+  %.051.i.i = phi i32 [ %470, %466 ], [ %480, %.thread.i.i ], [ %491, %.thread3.i.i ]
   %.053.i.i = load i32, ptr %.053.in.i.i, align 1, !tbaa !59
   %493 = load ptr, ptr %7, align 8, !tbaa !3
   %494 = zext i32 %.051.i.i to i64

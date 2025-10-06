@@ -34,19 +34,19 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %11, ptr %18, align 8, !tbaa !18
   store i64 %8, ptr %14, align 8, !tbaa !13
-  %.not17.i = icmp eq i64 %8, 0
-  br i1 %.not17.i, label %pqueue_move_down.exit, label %.lr.ph.i
+  %.not16.i = icmp eq i64 %8, 0
+  br i1 %.not16.i, label %pqueue_move_down.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %20
 
 20:                                               ; preds = %30, %.lr.ph.i
-  %.01218.i = phi i64 [ %8, %.lr.ph.i ], [ %22, %30 ]
-  %21 = add i64 %.01218.i, -1
+  %.01217.i = phi i64 [ %8, %.lr.ph.i ], [ %22, %30 ]
+  %21 = add i64 %.01217.i, -1
   %22 = lshr i64 %21, 1
   %23 = load ptr, ptr %19, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %.01218.i
+  %24 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %.01217.i
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %22
   %27 = load ptr, ptr %26, align 8, !tbaa !16
@@ -58,7 +58,7 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %.val.i = load ptr, ptr %0, align 8, !tbaa !15
   %.val13.i = load ptr, ptr %12, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %.01218.i
+  %31 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %.01217.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !20
   %32 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !20
@@ -66,7 +66,7 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !18
   %35 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val13.i, i64 %34
-  store i64 %.01218.i, ptr %35, align 8, !tbaa !13
+  store i64 %.01217.i, ptr %35, align 8, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val13.i, i64 %37

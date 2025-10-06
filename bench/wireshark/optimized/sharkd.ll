@@ -859,29 +859,29 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr noundef writeonly captures(
   %16 = add nuw nsw i32 %15, 2
   %17 = zext nneg i32 %16 to i64
   %18 = call noalias ptr @g_malloc(i64 noundef %17) #8
-  %.not44 = icmp eq i32 %13, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not43 = icmp eq i32 %13, 0
+  br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %33
-  %.03147 = phi i8 [ %.4, %33 ], [ 0, %12 ]
-  %.03246 = phi i32 [ %48, %33 ], [ 1, %12 ]
-  %.03445 = phi i32 [ %.236, %33 ], [ 0, %12 ]
+  %.03146 = phi i8 [ %.4, %33 ], [ 0, %12 ]
+  %.03245 = phi i32 [ %48, %33 ], [ 1, %12 ]
+  %.03444 = phi i32 [ %.236, %33 ], [ 0, %12 ]
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
-  %20 = call ptr @frame_data_sequence_find(ptr noundef %19, i32 noundef %.03246)
-  %21 = and i32 %.03246, 7
+  %20 = call ptr @frame_data_sequence_find(ptr noundef %19, i32 noundef %.03245)
+  %21 = and i32 %.03245, 7
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %.lr.ph
-  %24 = lshr exact i32 %.03246, 3
+  %24 = lshr exact i32 %.03245, 3
   %25 = add nsw i32 %24, -1
   %26 = zext i32 %25 to i64
   %27 = getelementptr i8, ptr %18, i64 %26
-  store i8 %.03147, ptr %27, align 1
+  store i8 %.03146, ptr %27, align 1
   br label %28
 
 28:                                               ; preds = %23, %.lr.ph
-  %.2 = phi i8 [ 0, %23 ], [ %.03147, %.lr.ph ]
+  %.2 = phi i8 [ 0, %23 ], [ %.03146, %.lr.ph ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %31 = load i64, ptr %30, align 8
@@ -895,12 +895,12 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr noundef writeonly captures(
   %36 = load i16, ptr %35, align 1
   %37 = and i16 %36, -33
   store i16 %37, ptr %35, align 1
-  %.not37 = icmp ne i32 %.03246, 1
+  %.not37 = icmp ne i32 %.03245, 1
   %38 = zext i1 %.not37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 96
   store i32 %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 100
-  store i32 %.03445, ptr %40, align 4
+  store i32 %.03444, ptr %40, align 4
   %41 = load i16, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 48), align 8
   %42 = zext i16 %41 to i32
   call void @epan_dissect_run(ptr noundef nonnull %7, i32 noundef %42, ptr noundef nonnull %4, ptr noundef %20, ptr noundef null)
@@ -908,17 +908,17 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr noundef writeonly captures(
   %44 = call zeroext i1 @dfilter_apply_edt(ptr noundef %43, ptr noundef nonnull %7)
   %45 = shl nuw nsw i32 1, %21
   %46 = trunc nuw i32 %45 to i8
-  %.236 = select i1 %44, i32 %.03246, i32 %.03445
+  %.236 = select i1 %44, i32 %.03245, i32 %.03444
   %47 = select i1 %44, i8 %46, i8 0
   %.4 = or i8 %47, %.2
   call void @wtap_rec_reset(ptr noundef nonnull %4)
   call void @epan_dissect_reset(ptr noundef nonnull %7)
-  %48 = add i32 %.03246, 1
+  %48 = add i32 %.03245, 1
   %.not = icmp ugt i32 %48, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %33, %28, %12
-  %.032.lcssa = phi i32 [ 1, %12 ], [ %.03246, %28 ], [ %48, %33 ]
+  %.032.lcssa = phi i32 [ 1, %12 ], [ %.03245, %28 ], [ %48, %33 ]
   %.1 = phi i8 [ 0, %12 ], [ %.2, %28 ], [ %.4, %33 ]
   %49 = and i32 %.032.lcssa, 7
   %50 = icmp eq i32 %49, 0

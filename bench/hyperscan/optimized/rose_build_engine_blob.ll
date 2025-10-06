@@ -212,19 +212,19 @@ _ZNK3ue29CharReach4noneEv.exit53:                 ; preds = %45
   br i1 %.not13.i.i49, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK3ue29CharReach4noneEv.exit53, %49
-  %.0710.i.i = phi i64 [ %50, %49 ], [ 0, %_ZNK3ue29CharReach4noneEv.exit53 ]
-  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ %50, %49 ], [ 0, %_ZNK3ue29CharReach4noneEv.exit53 ]
+  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %.0712.i.i
   %48 = load i64, ptr %47, align 8
   %.not.i.i54 = icmp eq i64 %48, 0
   br i1 %.not.i.i54, label %49, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 49:                                               ; preds = %.preheader
-  %50 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %50, 4
-  br i1 %exitcond.i.i, label %.loopexit, label %.preheader, !llvm.loop !7
+  %50 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %50, 4
+  br i1 %exitcond.not.i.i, label %.loopexit, label %.preheader, !llvm.loop !7
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
-  %51 = shl nuw nsw i64 %.0710.i.i, 6
+  %51 = shl nuw nsw i64 %.0712.i.i, 6
   %52 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %48, i1 true)
   %53 = or disjoint i64 %52, %51
   %.not85 = icmp eq i64 %53, 256
@@ -238,7 +238,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
   %57 = load i8, ptr %gep132, align 1
   %58 = or i8 %57, %56
   store i8 %58, ptr %gep132, align 1
-  %.not.i.i55133 = icmp samesign ult i64 %.0710.i.i, 4
+  %.not.i.i55133 = icmp samesign ult i64 %.0712.i.i, 4
   br i1 %.not.i.i55133, label %.lr.ph135, label %.loopexit
 
 .lr.ph135:                                        ; preds = %.lr.ph87, %_ZNK3ue29CharReach9find_nextEm.exit

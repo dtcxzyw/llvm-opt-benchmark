@@ -1214,7 +1214,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStre
 
 8:                                                ; preds = %.lr.ph, %21
   %9 = phi ptr [ %.pre, %.lr.ph ], [ %35, %21 ]
-  %.0812 = phi i32 [ %1, %.lr.ph ], [ %31, %21 ]
+  %.0811 = phi i32 [ %1, %.lr.ph ], [ %31, %21 ]
   %10 = load ptr, ptr %9, align 8, !tbaa !56
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1225,11 +1225,11 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStre
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %.0812)
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %.0811)
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %8
-  %22 = zext i32 %.0812 to i64
+  %22 = zext i32 %.0811 to i64
   %23 = add i64 %14, %22
   %24 = load ptr, ptr %6, align 8, !tbaa !49
   %25 = load ptr, ptr %24, align 8, !tbaa !56

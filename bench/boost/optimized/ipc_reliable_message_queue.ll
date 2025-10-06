@@ -1728,9 +1728,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3ipc22reliable_messag
 _ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit.i: ; preds = %.noexc.i, %.critedge
   %56 = phi ptr [ %.pre, %.noexc.i ], [ %.sroa.0.0.copyload.i.i, %.critedge ]
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %_ZN5boost12interprocess20shared_memory_objectD2Ev.exit, label %.sink.split.i.i.i42
+  br i1 %57, label %_ZN5boost12interprocess20shared_memory_objectD2Ev.exit, label %.sink.split.i.i.i41
 
-.sink.split.i.i.i42:                              ; preds = %_ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit.i
+.sink.split.i.i.i41:                              ; preds = %_ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit.i
   call void @_ZdaPv(ptr noundef nonnull %56) #36
   br label %_ZN5boost12interprocess20shared_memory_objectD2Ev.exit
 
@@ -1741,7 +1741,7 @@ _ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit.i: ; preds = %.
   call void @__clang_call_terminate(ptr %60) #33
   unreachable
 
-_ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit.i, %.sink.split.i.i.i42
+_ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit.i, %.sink.split.i.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation13create_regionEjj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %2, i32 noundef %3)
           to label %131 unwind label %129
@@ -1763,8 +1763,8 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
   %68 = call ptr @__cxa_begin_catch(ptr %67) #32
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !70
-  %.not45 = icmp eq i32 %70, 9
-  br i1 %.not45, label %77, label %71
+  %.not44 = icmp eq i32 %70, 9
+  br i1 %.not44, label %77, label %71
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -1787,7 +1787,7 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
           to label %78 unwind label %79
 
 78:                                               ; preds = %77
-  br i1 %.not45, label %.preheader, label %36
+  br i1 %.not44, label %.preheader, label %36
 
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
@@ -1812,10 +1812,10 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
   store i32 %86, ptr %85, align 4, !tbaa !60
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.0.0.copyload.i.i44 = load ptr, ptr %88, align 8
+  %.sroa.0.0.copyload.i.i43 = load ptr, ptr %88, align 8
   %90 = load i64, ptr %89, align 8
   store i64 %90, ptr %88, align 8
-  store ptr %.sroa.0.0.copyload.i.i44, ptr %89, align 8
+  store ptr %.sroa.0.0.copyload.i.i43, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load i8, ptr %91, align 8, !tbaa !61, !range !62, !noundef !63
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1841,8 +1841,8 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
   %101 = call ptr @__cxa_begin_catch(ptr %100) #32
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 12
   %103 = load i32, ptr %102, align 4, !tbaa !70
-  %.not46 = icmp eq i32 %103, 7
-  br i1 %.not46, label %110, label %104
+  %.not45 = icmp eq i32 %103, 7
+  br i1 %.not45, label %110, label %104
 
 104:                                              ; preds = %99
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -1865,7 +1865,7 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
           to label %111 unwind label %112
 
 111:                                              ; preds = %110
-  br i1 %.not46, label %114, label %.preheader
+  br i1 %.not45, label %114, label %.preheader
 
 112:                                              ; preds = %110
   %113 = landingpad { ptr, i32 }
@@ -5697,15 +5697,15 @@ _ZN5boost12interprocess13mapped_regionD2Ev.exit:  ; preds = %34, %56, %58
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE4loadERVKjNS_12memory_orderE.exit
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE4loadERVKjNS_12memory_orderE.exit: ; preds = %_ZN5boost12interprocess13mapped_regionD2Ev.exit, %82
-  %.356 = phi i32 [ 0, %_ZN5boost12interprocess13mapped_regionD2Ev.exit ], [ %83, %82 ]
+  %.355 = phi i32 [ 0, %_ZN5boost12interprocess13mapped_regionD2Ev.exit ], [ %83, %82 ]
   %66 = load atomic volatile i32, ptr %64 acquire, align 4
-  %.not54 = icmp eq i32 %66, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not53 = icmp eq i32 %66, 0
+  br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE4loadERVKjNS_12memory_orderE.exit, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit
-  %.03455 = phi i32 [ %70, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit ], [ %66, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE4loadERVKjNS_12memory_orderE.exit ]
-  %67 = add i32 %.03455, 1
-  %68 = cmpxchg weak volatile ptr %64, i32 %.03455, i32 %67 acq_rel acquire, align 4
+  %.03454 = phi i32 [ %70, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit ], [ %66, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE4loadERVKjNS_12memory_orderE.exit ]
+  %67 = add i32 %.03454, 1
+  %68 = cmpxchg weak volatile ptr %64, i32 %.03454, i32 %67 acq_rel acquire, align 4
   %69 = extractvalue { i32, i1 } %68, 1
   br i1 %69, label %85, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit
 
@@ -5715,7 +5715,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE21compare_exch
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE4loadERVKjNS_12memory_orderE.exit
-  %71 = icmp samesign ult i32 %.356, 16
+  %71 = icmp samesign ult i32 %.355, 16
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %._crit_edge
@@ -5723,7 +5723,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE21compare_exch
   br label %82
 
 73:                                               ; preds = %._crit_edge
-  %74 = icmp samesign ult i32 %.356, 64
+  %74 = icmp samesign ult i32 %.355, 64
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %73
@@ -5749,7 +5749,7 @@ _ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation10long_yie
   br label %82
 
 82:                                               ; preds = %75, %_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation10long_yieldEv.exit, %72
-  %83 = add nuw nsw i32 %.356, 1
+  %83 = add nuw nsw i32 %.355, 1
   %exitcond.not = icmp eq i32 %83, 200
   br i1 %exitcond.not, label %84, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb1EE4loadERVKjNS_12memory_orderE.exit, !llvm.loop !135
 

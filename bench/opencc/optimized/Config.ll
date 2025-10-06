@@ -10014,8 +10014,8 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .noexc30:                                         ; preds = %47
   %50 = load i32, ptr %11, align 8, !tbaa !96
-  %.not45 = icmp eq i32 %50, 0
-  br i1 %.not45, label %51, label %.critedge, !prof !284
+  %.not44 = icmp eq i32 %50, 0
+  br i1 %.not44, label %51, label %.critedge, !prof !284
 
 51:                                               ; preds = %.noexc30
   %52 = add i32 %49, -57344
@@ -10089,8 +10089,8 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store ptr %76, ptr %9, align 8, !tbaa !111
   store i8 0, ptr %75, align 1, !tbaa !19
-  %.pre86 = load i32, ptr %11, align 8, !tbaa !96
-  %77 = icmp eq i32 %.pre86, 0
+  %.pre85 = load i32, ptr %11, align 8, !tbaa !96
+  %77 = icmp eq i32 %.pre85, 0
   br i1 %77, label %80, label %.critedge, !prof !309
 
 78:                                               ; preds = %47, %31

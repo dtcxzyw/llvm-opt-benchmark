@@ -5661,9 +5661,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %230, %238
   %251 = zext nneg i16 %232 to i32
   %252 = icmp eq i32 %214, %251
   %or.cond.not306 = select i1 %252, i1 true, i1 %220
-  %253 = and i16 %228, -16384
-  %.not197 = icmp eq i16 %253, 16384
-  %or.cond287 = or i1 %.not197, %or.cond.not306
+  %253 = icmp sgt i16 %228, 16383
+  %or.cond287 = or i1 %253, %or.cond.not306
   br i1 %or.cond287, label %271, label %254
 
 254:                                              ; preds = %250
@@ -6356,9 +6355,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %234, %242
   %255 = zext nneg i16 %236 to i32
   %256 = icmp eq i32 %217, %255
   %or.cond3.not304 = select i1 %256, i1 true, i1 %223
-  %257 = and i16 %232, -16384
-  %.not196 = icmp eq i16 %257, 16384
-  %or.cond289 = or i1 %.not196, %or.cond3.not304
+  %257 = icmp sgt i16 %232, 16383
+  %or.cond289 = or i1 %257, %or.cond3.not304
   br i1 %or.cond289, label %275, label %258
 
 258:                                              ; preds = %254

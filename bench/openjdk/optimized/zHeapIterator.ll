@@ -4075,10 +4075,10 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %14 = load i32, ptr %13, align 8
-  %.not60 = icmp eq i32 %14, -1
+  %.not64 = icmp eq i32 %14, -1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 516
   %.pre = load i32, ptr %15, align 4
-  br i1 %.not60, label %.preheader, label %.loopexit
+  br i1 %.not64, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12, %.preheader
   %16 = phi i32 [ %.0.i.i, %.preheader ], [ %.pre, %12 ]
@@ -4097,13 +4097,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %12
-  %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
+  %.pre66 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
   %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 516
   br label %27
 
 27:                                               ; preds = %.loopexit, %27
-  %28 = phi i32 [ %.pre62, %.loopexit ], [ %.0.i.i41, %27 ]
+  %28 = phi i32 [ %.pre66, %.loopexit ], [ %.0.i.i41, %27 ]
   %29 = sdiv i32 %28, 127773
   %30 = srem i32 %28, 127773
   %31 = mul nsw i32 %30, 16807
@@ -4155,10 +4155,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
-  switch i32 %69, label %70 [
-    i32 131071, label %100
-    i32 0, label %100
-  ]
+  %.off.i = add nsw i32 %69, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %70, label %100
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 384
@@ -4191,10 +4190,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %86 = sub i32 %85, %.sroa.010.0.extract.trunc.i42
   %87 = and i32 %86, 131071
-  switch i32 %87, label %88 [
-    i32 131071, label %100
-    i32 0, label %100
-  ]
+  %.off.i43 = add nsw i32 %87, -1
+  %switch.i44 = icmp ult i32 %.off.i43, 131070
+  br i1 %switch.i44, label %88, label %100
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %44, i64 384
@@ -4204,30 +4202,30 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %93 = load ptr, ptr %92, align 8
   store ptr %93, ptr %2, align 8
   %94 = add i64 %84, 1
-  %.sroa.09.0.insert.ext.i44 = and i64 %94, 131071
+  %.sroa.09.0.insert.ext.i46 = and i64 %94, 131071
   %95 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
   %96 = icmp eq i32 %95, 131071
   %97 = select i1 %96, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i45 = add i64 %97, %84
-  %.sroa.3.0.insert.ext.i46 = and i64 %.sroa.6.0.extract.shift21.i45, -4294967296
-  %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i46, %.sroa.09.0.insert.ext.i44
-  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %84, ptr nonnull %47) #13, !srcloc !17
+  %.sroa.6.0.extract.shift21.i47 = add i64 %97, %84
+  %.sroa.3.0.insert.ext.i48 = and i64 %.sroa.6.0.extract.shift21.i47, -4294967296
+  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i48, %.sroa.09.0.insert.ext.i46
+  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i49, i64 %84, ptr nonnull %47) #13, !srcloc !17
   %99 = icmp eq i64 %98, %84
   br i1 %99, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, label %100
 
 _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; preds = %88, %70
   %.036 = phi i32 [ %36, %70 ], [ %.034, %88 ]
   store i32 %.036, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
-100:                                              ; preds = %82, %70, %65, %65, %88, %83, %83
-  %.035.ph = phi i32 [ 0, %83 ], [ 0, %83 ], [ 1, %88 ], [ 0, %65 ], [ 0, %65 ], [ 1, %70 ], [ 0, %82 ]
+100:                                              ; preds = %82, %70, %65, %88, %83
+  %.035.ph = phi i32 [ 0, %83 ], [ 1, %88 ], [ 0, %65 ], [ 1, %70 ], [ 0, %82 ]
   store i32 -1, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
 101:                                              ; preds = %3
   %102 = icmp eq i32 %10, 2
-  br i1 %102, label %103, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br i1 %102, label %103, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
 103:                                              ; preds = %101
   %104 = and i32 %1, 1
@@ -4237,17 +4235,16 @@ _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; p
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 256
   %110 = load volatile i64, ptr %109, align 8
-  %.sroa.010.0.extract.trunc.i49 = trunc i64 %110 to i32
+  %.sroa.010.0.extract.trunc.i51 = trunc i64 %110 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
   %112 = load volatile i32, ptr %111, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
-  %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i49
+  %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i51
   %114 = and i32 %113, 131071
-  switch i32 %114, label %115 [
-    i32 131071, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
-    i32 0, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
-  ]
+  %.off.i52 = add nsw i32 %114, -1
+  %switch.i53 = icmp ult i32 %.off.i52, 131070
+  br i1 %switch.i53, label %115, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
 115:                                              ; preds = %103
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 384
@@ -4257,20 +4254,20 @@ _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; p
   %120 = load ptr, ptr %119, align 8
   store ptr %120, ptr %2, align 8
   %121 = add i64 %110, 1
-  %.sroa.09.0.insert.ext.i51 = and i64 %121, 131071
-  %122 = and i32 %.sroa.010.0.extract.trunc.i49, 131071
+  %.sroa.09.0.insert.ext.i55 = and i64 %121, 131071
+  %122 = and i32 %.sroa.010.0.extract.trunc.i51, 131071
   %123 = icmp eq i32 %122, 131071
   %124 = select i1 %123, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i52 = add i64 %124, %110
-  %.sroa.3.0.insert.ext.i53 = and i64 %.sroa.6.0.extract.shift21.i52, -4294967296
-  %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i53, %.sroa.09.0.insert.ext.i51
-  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %110, ptr nonnull %109) #13, !srcloc !17
+  %.sroa.6.0.extract.shift21.i56 = add i64 %124, %110
+  %.sroa.3.0.insert.ext.i57 = and i64 %.sroa.6.0.extract.shift21.i56, -4294967296
+  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i57, %.sroa.09.0.insert.ext.i55
+  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i58, i64 %110, ptr nonnull %109) #13, !srcloc !17
   %126 = icmp eq i64 %125, %110
   %127 = select i1 %126, i32 2, i32 1
-  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
-_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55: ; preds = %115, %103, %103, %101, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, %100
-  %.0 = phi i32 [ %.035.ph, %100 ], [ 2, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit ], [ 0, %101 ], [ %127, %115 ], [ 0, %103 ], [ 0, %103 ]
+_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59: ; preds = %115, %103, %101, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, %100
+  %.0 = phi i32 [ %.035.ph, %100 ], [ 2, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit ], [ 0, %101 ], [ %127, %115 ], [ 0, %103 ]
   ret i32 %.0
 }
 
@@ -4289,10 +4286,10 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %14 = load i32, ptr %13, align 8
-  %.not60 = icmp eq i32 %14, -1
+  %.not64 = icmp eq i32 %14, -1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 516
   %.pre = load i32, ptr %15, align 4
-  br i1 %.not60, label %.preheader, label %.loopexit
+  br i1 %.not64, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12, %.preheader
   %16 = phi i32 [ %.0.i.i, %.preheader ], [ %.pre, %12 ]
@@ -4311,13 +4308,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %12
-  %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
+  %.pre66 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
   %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 516
   br label %27
 
 27:                                               ; preds = %.loopexit, %27
-  %28 = phi i32 [ %.pre62, %.loopexit ], [ %.0.i.i41, %27 ]
+  %28 = phi i32 [ %.pre66, %.loopexit ], [ %.0.i.i41, %27 ]
   %29 = sdiv i32 %28, 127773
   %30 = srem i32 %28, 127773
   %31 = mul nsw i32 %30, 16807
@@ -4369,10 +4366,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
-  switch i32 %69, label %70 [
-    i32 131071, label %98
-    i32 0, label %98
-  ]
+  %.off.i = add nsw i32 %69, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %70, label %98
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 384
@@ -4404,10 +4400,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %85 = sub i32 %84, %.sroa.010.0.extract.trunc.i42
   %86 = and i32 %85, 131071
-  switch i32 %86, label %87 [
-    i32 131071, label %98
-    i32 0, label %98
-  ]
+  %.off.i43 = add nsw i32 %86, -1
+  %switch.i44 = icmp ult i32 %.off.i43, 131070
+  br i1 %switch.i44, label %87, label %98
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %44, i64 384
@@ -4416,30 +4411,30 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %91 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %89, i64 %90
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %91, i64 12, i1 false)
   %92 = add i64 %83, 1
-  %.sroa.09.0.insert.ext.i44 = and i64 %92, 131071
+  %.sroa.09.0.insert.ext.i46 = and i64 %92, 131071
   %93 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
   %94 = icmp eq i32 %93, 131071
   %95 = select i1 %94, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i45 = add i64 %95, %83
-  %.sroa.3.0.insert.ext.i46 = and i64 %.sroa.6.0.extract.shift21.i45, -4294967296
-  %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i46, %.sroa.09.0.insert.ext.i44
-  %96 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %83, ptr nonnull %47) #13, !srcloc !17
+  %.sroa.6.0.extract.shift21.i47 = add i64 %95, %83
+  %.sroa.3.0.insert.ext.i48 = and i64 %.sroa.6.0.extract.shift21.i47, -4294967296
+  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i48, %.sroa.09.0.insert.ext.i46
+  %96 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i49, i64 %83, ptr nonnull %47) #13, !srcloc !17
   %97 = icmp eq i64 %96, %83
   br i1 %97, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %98
 
 _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit: ; preds = %87, %70
   %.036 = phi i32 [ %36, %70 ], [ %.034, %87 ]
   store i32 %.036, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
-98:                                               ; preds = %81, %70, %65, %65, %87, %82, %82
-  %.035.ph = phi i32 [ 0, %82 ], [ 0, %82 ], [ 1, %87 ], [ 0, %65 ], [ 0, %65 ], [ 1, %70 ], [ 0, %81 ]
+98:                                               ; preds = %81, %70, %65, %87, %82
+  %.035.ph = phi i32 [ 0, %82 ], [ 1, %87 ], [ 0, %65 ], [ 1, %70 ], [ 0, %81 ]
   store i32 -1, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 99:                                               ; preds = %3
   %100 = icmp eq i32 %10, 2
-  br i1 %100, label %101, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br i1 %100, label %101, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 101:                                              ; preds = %99
   %102 = and i32 %1, 1
@@ -4449,17 +4444,16 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 256
   %108 = load volatile i64, ptr %107, align 8
-  %.sroa.010.0.extract.trunc.i49 = trunc i64 %108 to i32
+  %.sroa.010.0.extract.trunc.i51 = trunc i64 %108 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 128
   %110 = load volatile i32, ptr %109, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
-  %111 = sub i32 %110, %.sroa.010.0.extract.trunc.i49
+  %111 = sub i32 %110, %.sroa.010.0.extract.trunc.i51
   %112 = and i32 %111, 131071
-  switch i32 %112, label %113 [
-    i32 131071, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
-    i32 0, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
-  ]
+  %.off.i52 = add nsw i32 %112, -1
+  %switch.i53 = icmp ult i32 %.off.i52, 131070
+  br i1 %switch.i53, label %113, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 113:                                              ; preds = %101
   %114 = getelementptr inbounds nuw i8, ptr %106, i64 384
@@ -4468,20 +4462,20 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit
   %117 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %115, i64 %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %117, i64 12, i1 false)
   %118 = add i64 %108, 1
-  %.sroa.09.0.insert.ext.i51 = and i64 %118, 131071
-  %119 = and i32 %.sroa.010.0.extract.trunc.i49, 131071
+  %.sroa.09.0.insert.ext.i55 = and i64 %118, 131071
+  %119 = and i32 %.sroa.010.0.extract.trunc.i51, 131071
   %120 = icmp eq i32 %119, 131071
   %121 = select i1 %120, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i52 = add i64 %121, %108
-  %.sroa.3.0.insert.ext.i53 = and i64 %.sroa.6.0.extract.shift21.i52, -4294967296
-  %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i53, %.sroa.09.0.insert.ext.i51
-  %122 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %108, ptr nonnull %107) #13, !srcloc !17
+  %.sroa.6.0.extract.shift21.i56 = add i64 %121, %108
+  %.sroa.3.0.insert.ext.i57 = and i64 %.sroa.6.0.extract.shift21.i56, -4294967296
+  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i57, %.sroa.09.0.insert.ext.i55
+  %122 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i58, i64 %108, ptr nonnull %107) #13, !srcloc !17
   %123 = icmp eq i64 %122, %108
   %124 = select i1 %123, i32 2, i32 1
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
-_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55: ; preds = %113, %101, %101, %99, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, %98
-  %.0 = phi i32 [ %.035.ph, %98 ], [ 2, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit ], [ 0, %99 ], [ %124, %113 ], [ 0, %101 ], [ 0, %101 ]
+_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59: ; preds = %113, %101, %99, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, %98
+  %.0 = phi i32 [ %.035.ph, %98 ], [ 2, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit ], [ 0, %99 ], [ %124, %113 ], [ 0, %101 ]
   ret i32 %.0
 }
 
@@ -4649,44 +4643,38 @@ _ZN13ZHeapIterator5stealILb1EEEvRK20ZHeapIteratorContext.exit: ; preds = %30, %_
   %85 = load volatile i32, ptr %84, align 4
   %86 = sub i32 %83, %85
   %87 = and i32 %86, 131071
-  switch i32 %87, label %.critedge.backedge [
-    i32 131071, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-    i32 0, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  ]
+  %88 = add nsw i32 %87, -131071
+  %switch.i.i = icmp ult i32 %88, -131070
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 696
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  %92 = select i1 %switch.i.i, i1 %91, i1 false
+  br i1 %92, label %93, label %.critedge.backedge
 
-_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i: ; preds = %_ZN13ZHeapIterator5stealILb1EEEvRK20ZHeapIteratorContext.exit, %_ZN13ZHeapIterator5stealILb1EEEvRK20ZHeapIteratorContext.exit
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 696
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %.critedge.backedge
-
-91:                                               ; preds = %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  %92 = load ptr, ptr %18, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 128
-  %94 = load volatile i32, ptr %93, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 256
+93:                                               ; preds = %_ZN13ZHeapIterator5stealILb1EEEvRK20ZHeapIteratorContext.exit
+  %94 = load ptr, ptr %18, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 128
   %96 = load volatile i32, ptr %95, align 4
-  %97 = sub i32 %94, %96
-  %98 = and i32 %97, 131071
-  switch i32 %98, label %.critedge.backedge [
-    i32 131071, label %99
-    i32 0, label %99
-  ]
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 256
+  %98 = load volatile i32, ptr %97, align 4
+  %99 = sub i32 %96, %98
+  %100 = and i32 %99, 131071
+  %101 = add nsw i32 %100, -131071
+  %switch.i1.i = icmp ult i32 %101, -131070
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 696
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp eq ptr %103, null
+  %105 = select i1 %switch.i1.i, i1 %104, i1 false
+  br i1 %105, label %106, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %91, %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i, %_ZN13ZHeapIterator5stealILb1EEEvRK20ZHeapIteratorContext.exit, %103, %99
+106:                                              ; preds = %93
+  %107 = call noundef zeroext i1 @_ZN14TaskTerminator17offer_terminationEP20TerminatorTerminator(ptr noundef nonnull align 8 dereferenceable(384) %19, ptr noundef null) #13
+  br i1 %107, label %108, label %.critedge.backedge
+
+.critedge.backedge:                               ; preds = %106, %93, %_ZN13ZHeapIterator5stealILb1EEEvRK20ZHeapIteratorContext.exit
   br label %.critedge, !llvm.loop !31
 
-99:                                               ; preds = %91, %91
-  %100 = getelementptr inbounds nuw i8, ptr %92, i64 696
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %.critedge.backedge
-
-103:                                              ; preds = %99
-  %104 = call noundef zeroext i1 @_ZN14TaskTerminator17offer_terminationEP20TerminatorTerminator(ptr noundef nonnull align 8 dereferenceable(384) %19, ptr noundef null) #13
-  br i1 %104, label %105, label %.critedge.backedge
-
-105:                                              ; preds = %103
+108:                                              ; preds = %106
   ret void
 }
 
@@ -4707,16 +4695,16 @@ define linkonce_odr hidden void @_ZN13ZHeapIterator5drainILb1EEEvRK20ZHeapIterat
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit
 
-_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit: ; preds = %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge, %2
+_ZNK20ZHeapIteratorContext10is_drainedEv.exit:    ; preds = %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge, %2
   %16 = load ptr, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 696
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, label %19
 
-19:                                               ; preds = %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit
+19:                                               ; preds = %_ZNK20ZHeapIteratorContext10is_drainedEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 640
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 672
   %22 = load i64, ptr %21, align 8
@@ -4770,7 +4758,7 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i: ; preds = %43, %38
   store i64 %52, ptr %50, align 8
   br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread
 
-_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i: ; preds = %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit
+_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i: ; preds = %_ZNK20ZHeapIteratorContext10is_drainedEv.exit
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %54 = load volatile i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 256
@@ -4778,7 +4766,7 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
   %57 = sub i32 %54, %56
   %58 = and i32 %57, 131071
   %.not.i.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i.not.i, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10, label %59
+  br i1 %.not.i.not.i, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11, label %59
 
 59:                                               ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
   %60 = add i32 %54, 131071
@@ -4794,12 +4782,11 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
   %67 = load volatile i32, ptr %55, align 8
   %68 = sub i32 %60, %67
   %69 = and i32 %68, 131071
-  switch i32 %69, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread [
-    i32 131071, label %70
-    i32 0, label %70
-  ]
+  %.off.i.i = add nsw i32 %69, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, 131070
+  br i1 %switch.i.i, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread, label %70
 
-70:                                               ; preds = %59, %59
+70:                                               ; preds = %59
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %71 = load volatile i64, ptr %55, align 8
   %.sroa.016.0.extract.trunc.i.i.i = trunc i64 %71 to i32
@@ -4812,19 +4799,19 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
 74:                                               ; preds = %70
   %75 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i.i, i64 %71, ptr nonnull %55) #13, !srcloc !17
   %76 = icmp eq i64 %75, %71
-  br i1 %76, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
+  br i1 %76, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
 
-_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13: ; preds = %74
+_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14: ; preds = %74
   %77 = load volatile i32, ptr %55, align 4
   br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread
 
 _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit:   ; preds = %70, %74
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i, ptr %55, align 8
   %78 = load volatile i32, ptr %55, align 8
-  br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10
+  br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11
 
-_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread: ; preds = %19, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i, %59, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13
-  %.28 = phi ptr [ %66, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13 ], [ %25, %19 ], [ %25, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i ], [ %66, %59 ]
+_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread: ; preds = %19, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i, %59, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14
+  %.29 = phi ptr [ %66, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14 ], [ %25, %19 ], [ %25, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i ], [ %66, %59 ]
   %79 = load i8, ptr %8, align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %85, label %81
@@ -4833,13 +4820,13 @@ _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread: ; preds = %19, %_ZN5Stack
   %82 = load ptr, ptr %1, align 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %.28) #13
+  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %.29) #13
   br label %85
 
 85:                                               ; preds = %81, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread
   %86 = load i8, ptr @UseCompressedClassPointers, align 1
   %87 = trunc i8 %86 to i1
-  %88 = getelementptr inbounds nuw i8, ptr %.28, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.29, i64 8
   br i1 %87, label %_ZNK7oopDesc11is_objArrayEv.exit.i.i, label %_ZNK7oopDesc11is_objArrayEv.exit.i.i.thread
 
 _ZNK7oopDesc11is_objArrayEv.exit.i.i:             ; preds = %85
@@ -4889,14 +4876,14 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.
   %115 = load ptr, ptr %114, align 8
   %116 = zext i32 %109 to i64
   %117 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %115, i64 %116
-  store ptr %.28, ptr %117, align 8
+  store ptr %.29, ptr %117, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %118 = add i32 %109, 1
   %119 = and i32 %118, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   store volatile i32 %119, ptr %108, align 8
-  br label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
 _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %_ZNK7oopDesc5klassEv.exit.i
   %120 = getelementptr inbounds nuw i8, ptr %107, i64 640
@@ -4958,17 +4945,17 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %1
 
 _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %150 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.0.i.i.i.i6 = phi i64 [ 0, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %123, %._crit_edge.i.i.i.i ]
-  %151 = getelementptr inbounds %class.ObjArrayTask, ptr %150, i64 %.0.i.i.i.i6
-  store ptr %.28, ptr %151, align 8
+  %.0.i.i.i.i7 = phi i64 [ 0, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %123, %._crit_edge.i.i.i.i ]
+  %151 = getelementptr inbounds %class.ObjArrayTask, ptr %150, i64 %.0.i.i.i.i7
+  store ptr %.29, ptr %151, align 8
   %.sroa.2.0..sroa_idx.i8.i.i.i = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i8.i.i.i, align 8
-  %152 = add i64 %.0.i.i.i.i6, 1
+  %152 = add i64 %.0.i.i.i.i7, 1
   store i64 %152, ptr %122, align 8
-  br label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %174, %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i, %163, %182
-  br label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit, !llvm.loop !33
+_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %176, %163
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit, !llvm.loop !33
 
 153:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4976,7 +4963,7 @@ _ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.ex
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZHeapIteratorOopClosureILb1EE, i64 16), ptr %4, align 8
   store ptr %0, ptr %10, align 8
   store ptr %1, ptr %11, align 8
-  store ptr %.28, ptr %12, align 8
+  store ptr %.29, ptr %12, align 8
   br label %_ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i
 
 154:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.i.i.thread
@@ -4985,7 +4972,7 @@ _ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.ex
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZHeapIteratorOopClosureILb1EE, i64 16), ptr %4, align 8
   store ptr %0, ptr %10, align 8
   store ptr %1, ptr %11, align 8
-  store ptr %.28, ptr %12, align 8
+  store ptr %.29, ptr %12, align 8
   %155 = load ptr, ptr %88, align 8
   br label %_ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i
 
@@ -4996,19 +4983,19 @@ _ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE6_tableE, i64 %158
   %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.28, ptr noundef %.0.i.i.i.i.i.i) #13
+  call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.29, ptr noundef %.0.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
+_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
   %161 = call noundef zeroext i1 @_ZNK20ZHeapIteratorContext15pop_array_chunkER12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(12) %5)
   br i1 %161, label %162, label %163
 
-162:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10
+162:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11
   call void @_ZN13ZHeapIterator18follow_array_chunkERK20ZHeapIteratorContextRK12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(1480) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(12) %5)
   br label %163
 
-163:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10, %162
+163:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11, %162
   %164 = load ptr, ptr %7, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 128
   %166 = load volatile i32, ptr %165, align 4
@@ -5016,37 +5003,31 @@ _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10: ; preds = %_ZN17Overflo
   %168 = load volatile i32, ptr %167, align 4
   %169 = sub i32 %166, %168
   %170 = and i32 %169, 131071
-  switch i32 %170, label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge [
-    i32 131071, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-    i32 0, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  ]
+  %171 = add nsw i32 %170, -131071
+  %switch.i.i6 = icmp ult i32 %171, -131070
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 696
+  %173 = load ptr, ptr %172, align 8
+  %174 = icmp eq ptr %173, null
+  %175 = select i1 %switch.i.i6, i1 %174, i1 false
+  br i1 %175, label %176, label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i: ; preds = %163, %163
-  %171 = getelementptr inbounds nuw i8, ptr %164, i64 696
-  %172 = load ptr, ptr %171, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
-
-174:                                              ; preds = %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  %175 = load ptr, ptr %15, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 128
-  %177 = load volatile i32, ptr %176, align 4
-  %178 = getelementptr inbounds nuw i8, ptr %175, i64 256
+176:                                              ; preds = %163
+  %177 = load ptr, ptr %15, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 128
   %179 = load volatile i32, ptr %178, align 4
-  %180 = sub i32 %177, %179
-  %181 = and i32 %180, 131071
-  switch i32 %181, label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge [
-    i32 131071, label %182
-    i32 0, label %182
-  ]
+  %180 = getelementptr inbounds nuw i8, ptr %177, i64 256
+  %181 = load volatile i32, ptr %180, align 4
+  %182 = sub i32 %179, %181
+  %183 = and i32 %182, 131071
+  %184 = add nsw i32 %183, -131071
+  %switch.i1.i = icmp ult i32 %184, -131070
+  %185 = getelementptr inbounds nuw i8, ptr %177, i64 696
+  %186 = load ptr, ptr %185, align 8
+  %187 = icmp eq ptr %186, null
+  %188 = select i1 %switch.i1.i, i1 %187, i1 false
+  br i1 %188, label %189, label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-182:                                              ; preds = %174, %174
-  %183 = getelementptr inbounds nuw i8, ptr %175, i64 696
-  %184 = load ptr, ptr %183, align 8
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %186, label %_ZN13ZHeapIterator16visit_and_followILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
-
-186:                                              ; preds = %182
+189:                                              ; preds = %176
   ret void
 }
 
@@ -5145,12 +5126,11 @@ _ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.e
   %53 = load volatile i32, ptr %42, align 8
   %54 = sub i32 %47, %53
   %55 = and i32 %54, 131071
-  switch i32 %55, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit [
-    i32 131071, label %56
-    i32 0, label %56
-  ]
+  %.off.i = add nsw i32 %55, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit, label %56
 
-56:                                               ; preds = %46, %46
+56:                                               ; preds = %46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %57 = load volatile i64, ptr %42, align 8
   %.sroa.016.0.extract.trunc.i.i = trunc i64 %57 to i32
@@ -9543,44 +9523,38 @@ _ZN13ZHeapIterator5stealILb0EEEvRK20ZHeapIteratorContext.exit: ; preds = %30, %_
   %85 = load volatile i32, ptr %84, align 4
   %86 = sub i32 %83, %85
   %87 = and i32 %86, 131071
-  switch i32 %87, label %.critedge.backedge [
-    i32 131071, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-    i32 0, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  ]
+  %88 = add nsw i32 %87, -131071
+  %switch.i.i = icmp ult i32 %88, -131070
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 696
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  %92 = select i1 %switch.i.i, i1 %91, i1 false
+  br i1 %92, label %93, label %.critedge.backedge
 
-_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i: ; preds = %_ZN13ZHeapIterator5stealILb0EEEvRK20ZHeapIteratorContext.exit, %_ZN13ZHeapIterator5stealILb0EEEvRK20ZHeapIteratorContext.exit
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 696
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %.critedge.backedge
-
-91:                                               ; preds = %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  %92 = load ptr, ptr %18, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 128
-  %94 = load volatile i32, ptr %93, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 256
+93:                                               ; preds = %_ZN13ZHeapIterator5stealILb0EEEvRK20ZHeapIteratorContext.exit
+  %94 = load ptr, ptr %18, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 128
   %96 = load volatile i32, ptr %95, align 4
-  %97 = sub i32 %94, %96
-  %98 = and i32 %97, 131071
-  switch i32 %98, label %.critedge.backedge [
-    i32 131071, label %99
-    i32 0, label %99
-  ]
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 256
+  %98 = load volatile i32, ptr %97, align 4
+  %99 = sub i32 %96, %98
+  %100 = and i32 %99, 131071
+  %101 = add nsw i32 %100, -131071
+  %switch.i1.i = icmp ult i32 %101, -131070
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 696
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp eq ptr %103, null
+  %105 = select i1 %switch.i1.i, i1 %104, i1 false
+  br i1 %105, label %106, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %91, %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i, %_ZN13ZHeapIterator5stealILb0EEEvRK20ZHeapIteratorContext.exit, %103, %99
+106:                                              ; preds = %93
+  %107 = call noundef zeroext i1 @_ZN14TaskTerminator17offer_terminationEP20TerminatorTerminator(ptr noundef nonnull align 8 dereferenceable(384) %19, ptr noundef null) #13
+  br i1 %107, label %108, label %.critedge.backedge
+
+.critedge.backedge:                               ; preds = %106, %93, %_ZN13ZHeapIterator5stealILb0EEEvRK20ZHeapIteratorContext.exit
   br label %.critedge, !llvm.loop !57
 
-99:                                               ; preds = %91, %91
-  %100 = getelementptr inbounds nuw i8, ptr %92, i64 696
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %.critedge.backedge
-
-103:                                              ; preds = %99
-  %104 = call noundef zeroext i1 @_ZN14TaskTerminator17offer_terminationEP20TerminatorTerminator(ptr noundef nonnull align 8 dereferenceable(384) %19, ptr noundef null) #13
-  br i1 %104, label %105, label %.critedge.backedge
-
-105:                                              ; preds = %103
+108:                                              ; preds = %106
   ret void
 }
 
@@ -9601,16 +9575,16 @@ define linkonce_odr hidden void @_ZN13ZHeapIterator5drainILb0EEEvRK20ZHeapIterat
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit
 
-_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit: ; preds = %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge, %2
+_ZNK20ZHeapIteratorContext10is_drainedEv.exit:    ; preds = %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge, %2
   %16 = load ptr, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 696
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, label %19
 
-19:                                               ; preds = %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit
+19:                                               ; preds = %_ZNK20ZHeapIteratorContext10is_drainedEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 640
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 672
   %22 = load i64, ptr %21, align 8
@@ -9664,7 +9638,7 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i: ; preds = %43, %38
   store i64 %52, ptr %50, align 8
   br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread
 
-_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i: ; preds = %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit
+_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i: ; preds = %_ZNK20ZHeapIteratorContext10is_drainedEv.exit
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %54 = load volatile i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 256
@@ -9672,7 +9646,7 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
   %57 = sub i32 %54, %56
   %58 = and i32 %57, 131071
   %.not.i.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i.not.i, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10, label %59
+  br i1 %.not.i.not.i, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11, label %59
 
 59:                                               ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
   %60 = add i32 %54, 131071
@@ -9688,12 +9662,11 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
   %67 = load volatile i32, ptr %55, align 8
   %68 = sub i32 %60, %67
   %69 = and i32 %68, 131071
-  switch i32 %69, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread [
-    i32 131071, label %70
-    i32 0, label %70
-  ]
+  %.off.i.i = add nsw i32 %69, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, 131070
+  br i1 %switch.i.i, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread, label %70
 
-70:                                               ; preds = %59, %59
+70:                                               ; preds = %59
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %71 = load volatile i64, ptr %55, align 8
   %.sroa.016.0.extract.trunc.i.i.i = trunc i64 %71 to i32
@@ -9706,19 +9679,19 @@ _ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i
 74:                                               ; preds = %70
   %75 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i.i, i64 %71, ptr nonnull %55) #13, !srcloc !17
   %76 = icmp eq i64 %75, %71
-  br i1 %76, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
+  br i1 %76, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14, label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
 
-_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13: ; preds = %74
+_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14: ; preds = %74
   %77 = load volatile i32, ptr %55, align 4
   br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread
 
 _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit:   ; preds = %70, %74
   store volatile i64 %.sroa.08.0.insert.insert11.i.i.i, ptr %55, align 8
   %78 = load volatile i32, ptr %55, align 8
-  br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10
+  br label %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11
 
-_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread: ; preds = %19, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i, %59, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13
-  %.28 = phi ptr [ %66, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread13 ], [ %25, %19 ], [ %25, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i ], [ %66, %59 ]
+_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread: ; preds = %19, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i, %59, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14
+  %.29 = phi ptr [ %66, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread14 ], [ %25, %19 ], [ %25, %_ZN5StackIP7oopDescL8MEMFLAGS5EE11pop_segmentEv.exit.i.i.i ], [ %66, %59 ]
   %79 = load i8, ptr %8, align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %85, label %81
@@ -9727,13 +9700,13 @@ _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread: ; preds = %19, %_ZN5Stack
   %82 = load ptr, ptr %1, align 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %.28) #13
+  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %.29) #13
   br label %85
 
 85:                                               ; preds = %81, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread
   %86 = load i8, ptr @UseCompressedClassPointers, align 1
   %87 = trunc i8 %86 to i1
-  %88 = getelementptr inbounds nuw i8, ptr %.28, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.29, i64 8
   br i1 %87, label %_ZNK7oopDesc11is_objArrayEv.exit.i.i, label %_ZNK7oopDesc11is_objArrayEv.exit.i.i.thread
 
 _ZNK7oopDesc11is_objArrayEv.exit.i.i:             ; preds = %85
@@ -9783,14 +9756,14 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.
   %115 = load ptr, ptr %114, align 8
   %116 = zext i32 %109 to i64
   %117 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %115, i64 %116
-  store ptr %.28, ptr %117, align 8
+  store ptr %.29, ptr %117, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %118 = add i32 %109, 1
   %119 = and i32 %118, 131071
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   store volatile i32 %119, ptr %108, align 8
-  br label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
 _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i: ; preds = %_ZNK7oopDesc5klassEv.exit.i
   %120 = getelementptr inbounds nuw i8, ptr %107, i64 640
@@ -9852,17 +9825,17 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i: ; preds = %1
 
 _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %150 = phi ptr [ %.0.i.i.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.0.i.i.i.i6 = phi i64 [ 0, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %123, %._crit_edge.i.i.i.i ]
-  %151 = getelementptr inbounds %class.ObjArrayTask, ptr %150, i64 %.0.i.i.i.i6
-  store ptr %.28, ptr %151, align 8
+  %.0.i.i.i.i7 = phi i64 [ 0, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i ], [ %123, %._crit_edge.i.i.i.i ]
+  %151 = getelementptr inbounds %class.ObjArrayTask, ptr %150, i64 %.0.i.i.i.i7
+  store ptr %.29, ptr %151, align 8
   %.sroa.2.0..sroa_idx.i8.i.i.i = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i8.i.i.i, align 8
-  %152 = add i64 %.0.i.i.i.i6, 1
+  %152 = add i64 %.0.i.i.i.i7, 1
   store i64 %152, ptr %122, align 8
-  br label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %174, %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i, %163, %182
-  br label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit, !llvm.loop !58
+_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %176, %163
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit, !llvm.loop !58
 
 153:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -9870,7 +9843,7 @@ _ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.ex
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZHeapIteratorOopClosureILb0EE, i64 16), ptr %4, align 8
   store ptr %0, ptr %10, align 8
   store ptr %1, ptr %11, align 8
-  store ptr %.28, ptr %12, align 8
+  store ptr %.29, ptr %12, align 8
   br label %_ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i
 
 154:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.i.i.thread
@@ -9879,7 +9852,7 @@ _ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.ex
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZHeapIteratorOopClosureILb0EE, i64 16), ptr %4, align 8
   store ptr %0, ptr %10, align 8
   store ptr %1, ptr %11, align 8
-  store ptr %.28, ptr %12, align 8
+  store ptr %.29, ptr %12, align 8
   %155 = load ptr, ptr %88, align 8
   br label %_ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i
 
@@ -9890,19 +9863,19 @@ _ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE6_tableE, i64 %158
   %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.28, ptr noundef %.0.i.i.i.i.i.i) #13
+  call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.29, ptr noundef %.0.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
+_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
   %161 = call noundef zeroext i1 @_ZNK20ZHeapIteratorContext15pop_array_chunkER12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(12) %5)
   br i1 %161, label %162, label %163
 
-162:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10
+162:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11
   call void @_ZN13ZHeapIterator18follow_array_chunkERK20ZHeapIteratorContextRK12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(1480) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(12) %5)
   br label %163
 
-163:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10, %162
+163:                                              ; preds = %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11, %162
   %164 = load ptr, ptr %7, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 128
   %166 = load volatile i32, ptr %165, align 4
@@ -9910,37 +9883,31 @@ _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread10: ; preds = %_ZN17Overflo
   %168 = load volatile i32, ptr %167, align 4
   %169 = sub i32 %166, %168
   %170 = and i32 %169, 131071
-  switch i32 %170, label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge [
-    i32 131071, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-    i32 0, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  ]
+  %171 = add nsw i32 %170, -131071
+  %switch.i.i6 = icmp ult i32 %171, -131070
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 696
+  %173 = load ptr, ptr %172, align 8
+  %174 = icmp eq ptr %173, null
+  %175 = select i1 %switch.i.i6, i1 %174, i1 false
+  br i1 %175, label %176, label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i: ; preds = %163, %163
-  %171 = getelementptr inbounds nuw i8, ptr %164, i64 696
-  %172 = load ptr, ptr %171, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
-
-174:                                              ; preds = %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  %175 = load ptr, ptr %15, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 128
-  %177 = load volatile i32, ptr %176, align 4
-  %178 = getelementptr inbounds nuw i8, ptr %175, i64 256
+176:                                              ; preds = %163
+  %177 = load ptr, ptr %15, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 128
   %179 = load volatile i32, ptr %178, align 4
-  %180 = sub i32 %177, %179
-  %181 = and i32 %180, 131071
-  switch i32 %181, label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge [
-    i32 131071, label %182
-    i32 0, label %182
-  ]
+  %180 = getelementptr inbounds nuw i8, ptr %177, i64 256
+  %181 = load volatile i32, ptr %180, align 4
+  %182 = sub i32 %179, %181
+  %183 = and i32 %182, 131071
+  %184 = add nsw i32 %183, -131071
+  %switch.i1.i = icmp ult i32 %184, -131070
+  %185 = getelementptr inbounds nuw i8, ptr %177, i64 696
+  %186 = load ptr, ptr %185, align 8
+  %187 = icmp eq ptr %186, null
+  %188 = select i1 %switch.i1.i, i1 %187, i1 false
+  br i1 %188, label %189, label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-182:                                              ; preds = %174, %174
-  %183 = getelementptr inbounds nuw i8, ptr %175, i64 696
-  %184 = load ptr, ptr %183, align 8
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %186, label %_ZN13ZHeapIterator16visit_and_followILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.backedge
-
-186:                                              ; preds = %182
+189:                                              ; preds = %176
   ret void
 }
 

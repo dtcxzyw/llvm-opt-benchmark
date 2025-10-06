@@ -666,7 +666,7 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
   %135 = load i32, ptr %6, align 4
   %136 = icmp ne i32 %135, -1
   %or.cond5 = select i1 %134, i1 %136, i1 false
-  br i1 %or.cond5, label %.sink.split153, label %137
+  br i1 %or.cond5, label %.sink.split151, label %137
 
 137:                                              ; preds = %131
   br i1 %134, label %143, label %138
@@ -674,29 +674,29 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
 138:                                              ; preds = %137
   %139 = load ptr, ptr %123, align 8, !tbaa !45
   %.not104 = icmp eq ptr %139, null
-  br i1 %.not104, label %.sink.split153, label %143
+  br i1 %.not104, label %.sink.split151, label %143
 
-.sink.split153:                                   ; preds = %138, %131
+.sink.split151:                                   ; preds = %138, %131
   %140 = getelementptr inbounds nuw i8, ptr %7, i64 132
   %141 = load i32, ptr %140, align 4, !tbaa !49
   %142 = or i32 %141, 128
   store i32 %142, ptr %140, align 4, !tbaa !49
   br label %143
 
-143:                                              ; preds = %.sink.split153, %138, %137
+143:                                              ; preds = %.sink.split151, %138, %137
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %145 = load ptr, ptr %144, align 8, !tbaa !63
   %146 = call i32 @OPENSSL_sk_num(ptr noundef %145) #9
   %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %.lr.ph, label %.loopexit122
+  br i1 %147, label %.lr.ph, label %.loopexit120
 
 .lr.ph:                                           ; preds = %143
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 132
   br label %149
 
 149:                                              ; preds = %.lr.ph, %163
-  %.089127 = phi i32 [ 0, %.lr.ph ], [ %164, %163 ]
-  %150 = call ptr @OPENSSL_sk_value(ptr noundef %145, i32 noundef %.089127) #9
+  %.089125 = phi i32 [ 0, %.lr.ph ], [ %164, %163 ]
+  %150 = call ptr @OPENSSL_sk_value(ptr noundef %145, i32 noundef %.089125) #9
   %151 = call ptr @X509_EXTENSION_get_object(ptr noundef %150) #9
   %152 = call i32 @OBJ_obj2nid(ptr noundef %151) #9
   %153 = icmp eq i32 %152, 857
@@ -724,22 +724,22 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
   %161 = load i32, ptr %148, align 4, !tbaa !49
   %162 = or i32 %161, 512
   store i32 %162, ptr %148, align 4, !tbaa !49
-  br label %.loopexit122
+  br label %.loopexit120
 
 163:                                              ; preds = %159, %159, %159, %157
-  %164 = add nuw nsw i32 %.089127, 1
+  %164 = add nuw nsw i32 %.089125, 1
   %165 = call i32 @OPENSSL_sk_num(ptr noundef %145) #9
   %166 = icmp slt i32 %164, %165
-  br i1 %166, label %149, label %.loopexit122, !llvm.loop !64
+  br i1 %166, label %149, label %.loopexit120, !llvm.loop !64
 
-.loopexit122:                                     ; preds = %163, %143, %160
+.loopexit120:                                     ; preds = %163, %143, %160
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %167 = call ptr @X509_CRL_get_REVOKED(ptr noundef %7) #9
   %168 = call i32 @OPENSSL_sk_num(ptr noundef %167) #9
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %.lr.ph56.i, label %.loopexit
 
-.lr.ph56.i:                                       ; preds = %.loopexit122
+.lr.ph56.i:                                       ; preds = %.loopexit120
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 132
   br label %172
@@ -854,7 +854,7 @@ crl_set_issuers.exit:                             ; preds = %185, %182
   store i32 %225, ptr %171, align 4, !tbaa !49
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.i, %.loopexit.sink.split, %.loopexit122
+.loopexit:                                        ; preds = %.loopexit.i, %.loopexit.sink.split, %.loopexit120
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %226 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %227 = load ptr, ptr %226, align 8, !tbaa !32

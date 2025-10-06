@@ -112,36 +112,36 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   %33 = tail call i64 @llvm.umax.i64(i64 %.sroa.5.0.extract.shift, i64 4)
   %spec.store.select = add nsw i64 %33, -3
   %34 = icmp ugt i64 %0, 21474836479
-  br i1 %34, label %.lr.ph, label %.preheader110
+  br i1 %34, label %.lr.ph, label %.preheader108
 
-.preheader110:                                    ; preds = %.lr.ph, %20
+.preheader108:                                    ; preds = %.lr.ph, %20
   %.090.lcssa = phi i64 [ 1, %20 ], [ %spec.select, %.lr.ph ]
   %.088.lcssa = phi ptr [ %32, %20 ], [ %36, %.lr.ph ]
-  %.not95114 = icmp samesign ugt i64 %.090.lcssa, %.sroa.5.0.extract.shift
-  br i1 %.not95114, label %._crit_edge, label %.lr.ph118
+  %.not95112 = icmp samesign ugt i64 %.090.lcssa, %.sroa.5.0.extract.shift
+  br i1 %.not95112, label %._crit_edge, label %.lr.ph116
 
-.lr.ph118:                                        ; preds = %.preheader110
+.lr.ph116:                                        ; preds = %.preheader108
   %35 = sub i32 116, %24
   br label %41
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
-  %.088112 = phi ptr [ %36, %.lr.ph ], [ %32, %20 ]
-  %.090111 = phi i64 [ %spec.select, %.lr.ph ], [ 1, %20 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.088112, i64 1
-  %37 = load i8, ptr %.088112, align 1
+  %.088110 = phi ptr [ %36, %.lr.ph ], [ %32, %20 ]
+  %.090109 = phi i64 [ %spec.select, %.lr.ph ], [ 1, %20 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.088110, i64 1
+  %37 = load i8, ptr %.088110, align 1
   %38 = icmp eq i8 %37, 10
   %39 = zext i1 %38 to i64
-  %spec.select = add nuw nsw i64 %.090111, %39
+  %spec.select = add nuw nsw i64 %.090109, %39
   %40 = icmp slt i64 %spec.select, %spec.store.select
-  br i1 %40, label %.lr.ph, label %.preheader110, !llvm.loop !7
+  br i1 %40, label %.lr.ph, label %.preheader108, !llvm.loop !7
 
-41:                                               ; preds = %.lr.ph118, %53
-  %.087117 = phi i64 [ -1, %.lr.ph118 ], [ %indvars.iv, %53 ]
-  %.189116 = phi ptr [ %.088.lcssa, %.lr.ph118 ], [ %44, %53 ]
-  %.2115 = phi i64 [ %.090.lcssa, %.lr.ph118 ], [ %54, %53 ]
-  %sext = shl i64 %.087117, 32
+41:                                               ; preds = %.lr.ph116, %53
+  %.087115 = phi i64 [ -1, %.lr.ph116 ], [ %indvars.iv, %53 ]
+  %.189114 = phi ptr [ %.088.lcssa, %.lr.ph116 ], [ %44, %53 ]
+  %.2113 = phi i64 [ %.090.lcssa, %.lr.ph116 ], [ %54, %53 ]
+  %sext = shl i64 %.087115, 32
   %42 = ashr exact i64 %sext, 32
-  %43 = getelementptr i8, ptr %.189116, i64 %42
+  %43 = getelementptr i8, ptr %.189114, i64 %42
   %44 = getelementptr i8, ptr %43, i64 1
   br label %45
 
@@ -164,32 +164,32 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %.critedge
-  call void (ptr, ...) @eprintf(ptr noundef nonnull %5, i64 noundef %.2115, i32 noundef %35, ptr noundef %44) #8
+  call void (ptr, ...) @eprintf(ptr noundef nonnull %5, i64 noundef %.2113, i32 noundef %35, ptr noundef %44) #8
   br label %53
 
 52:                                               ; preds = %.critedge
-  call void (ptr, ...) @eprintf(ptr noundef nonnull %4, i64 noundef %.2115, i32 noundef %49, ptr noundef %44) #8
+  call void (ptr, ...) @eprintf(ptr noundef nonnull %4, i64 noundef %.2113, i32 noundef %49, ptr noundef %44) #8
   br label %53
 
 53:                                               ; preds = %52, %51
-  %54 = add nuw nsw i64 %.2115, 1
-  %.not95.not = icmp samesign ult i64 %.2115, %.sroa.5.0.extract.shift
+  %54 = add nuw nsw i64 %.2113, 1
+  %.not95.not = icmp samesign ult i64 %.2113, %.sroa.5.0.extract.shift
   br i1 %.not95.not, label %41, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %53, %.preheader110
-  %.189.lcssa = phi ptr [ %.088.lcssa, %.preheader110 ], [ %44, %53 ]
+._crit_edge:                                      ; preds = %53, %.preheader108
+  %.189.lcssa = phi ptr [ %.088.lcssa, %.preheader108 ], [ %44, %53 ]
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.10) #8
-  %.not129 = icmp eq i32 %25, 0
-  br i1 %.not129, label %._crit_edge123, label %.lr.ph122
+  %.not127 = icmp eq i32 %25, 0
+  br i1 %.not127, label %._crit_edge121, label %.lr.ph120
 
-.lr.ph122:                                        ; preds = %._crit_edge, %.lr.ph122
-  %.086120 = phi i32 [ %55, %.lr.ph122 ], [ 0, %._crit_edge ]
+.lr.ph120:                                        ; preds = %._crit_edge, %.lr.ph120
+  %.086118 = phi i32 [ %55, %.lr.ph120 ], [ 0, %._crit_edge ]
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.11) #8
-  %55 = add nuw i32 %.086120, 1
-  %exitcond.not = icmp eq i32 %.086120, %24
-  br i1 %exitcond.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !11
+  %55 = add nuw i32 %.086118, 1
+  %exitcond.not = icmp eq i32 %.086118, %24
+  br i1 %exitcond.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !11
 
-._crit_edge123:                                   ; preds = %.lr.ph122, %._crit_edge
+._crit_edge121:                                   ; preds = %.lr.ph120, %._crit_edge
   %.not96 = icmp ult i32 %6, 16777216
   %56 = icmp ugt i32 %8, %26
   %or.cond104 = or i1 %.not96, %56
@@ -198,38 +198,38 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   %57 = sub i32 116, %24
   %58 = select i1 %.not97, i32 %57, i32 %.085
   %59 = add i32 %58, -1
-  %.not130 = icmp eq i32 %59, 0
-  br i1 %.not130, label %._crit_edge127, label %.lr.ph126.preheader
+  %.not128 = icmp eq i32 %59, 0
+  br i1 %.not128, label %._crit_edge125, label %.lr.ph124.preheader
 
-.lr.ph126.preheader:                              ; preds = %._crit_edge123
+.lr.ph124.preheader:                              ; preds = %._crit_edge121
   %wide.trip.count = zext i32 %59 to i64
-  br label %.lr.ph126
+  br label %.lr.ph124
 
-.lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
-  %indvars.iv133 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next134, %.lr.ph126 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.189.lcssa, i64 %indvars.iv133
+.lr.ph124:                                        ; preds = %.lr.ph124.preheader, %.lr.ph124
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph124.preheader ], [ %indvars.iv.next132, %.lr.ph124 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.189.lcssa, i64 %indvars.iv131
   %61 = load i8, ptr %60, align 1
   %cond = icmp eq i8 %61, 9
   %.str.12..str.11 = select i1 %cond, ptr @.str.12, ptr @.str.11
   call void (ptr, ...) @eprintf(ptr noundef nonnull %.str.12..str.11) #8
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond136.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !12
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond134.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
+  br i1 %exitcond134.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !12
 
-._crit_edge127:                                   ; preds = %.lr.ph126, %._crit_edge123
+._crit_edge125:                                   ; preds = %.lr.ph124, %._crit_edge121
   br i1 %.not97, label %.critedge106, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %._crit_edge127
+.preheader.preheader:                             ; preds = %._crit_edge125
   %62 = and i32 %7, 255
   %umax = call i32 @llvm.umax.i32(i32 %62, i32 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.0128 = phi i32 [ %63, %.preheader ], [ 0, %.preheader.preheader ]
+  %.0126 = phi i32 [ %63, %.preheader ], [ 0, %.preheader.preheader ]
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.13) #8
-  %63 = add nuw nsw i32 %.0128, 1
-  %exitcond137.not = icmp eq i32 %63, %umax
-  br i1 %exitcond137.not, label %64, label %.preheader, !llvm.loop !13
+  %63 = add nuw nsw i32 %.0126, 1
+  %exitcond135.not = icmp eq i32 %63, %umax
+  br i1 %exitcond135.not, label %64, label %.preheader, !llvm.loop !13
 
 64:                                               ; preds = %.preheader
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.1) #8
@@ -246,7 +246,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.15, ptr noundef %66, i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.085, ptr noundef %1) #8
   br label %73
 
-.critedge106:                                     ; preds = %._crit_edge127
+.critedge106:                                     ; preds = %._crit_edge125
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.1) #8
   %trunc = trunc nuw i32 %2 to i1
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 40

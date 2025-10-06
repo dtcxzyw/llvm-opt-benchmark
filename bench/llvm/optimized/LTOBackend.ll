@@ -7628,28 +7628,28 @@ define dso_local noundef ptr @_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayR
 7:                                                ; preds = %2
   %.idx = shl nuw nsw i64 %1, 6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not22 = icmp eq i64 %1, 0
-  br i1 %.not22, label %.loopexit, label %.lr.ph
+  %.not23 = icmp eq i64 %1, 0
+  br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %12
 
 10:                                               ; preds = %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit
-  %11 = getelementptr inbounds nuw i8, ptr %.01423, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.01424, i64 64
   %.not = icmp eq ptr %11, %8
   br i1 %.not, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph, %10
-  %.01423 = phi ptr [ %0, %.lr.ph ], [ %11, %10 ]
+  %.01424 = phi ptr [ %0, %.lr.ph ], [ %11, %10 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN4llvm13BitcodeModule10getLTOInfoEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.307") align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %.01423) #27
+  call void @_ZN4llvm13BitcodeModule10getLTOInfoEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.307") align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %.01424) #27
   %13 = load i8, ptr %9, align 8
   %14 = trunc i8 %13 to i1
   %15 = xor i1 %14, true
   %16 = load i8, ptr %3, align 8, !range !54
   %17 = trunc nuw i8 %16 to i1
-  %or.cond19 = select i1 %15, i1 %17, i1 false
+  %or.cond21 = select i1 %15, i1 %17, i1 false
   br i1 %14, label %18, label %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit
 
 18:                                               ; preds = %12
@@ -7666,10 +7666,10 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %18
 
 _ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit: ; preds = %18, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %or.cond19, label %.loopexit, label %10
+  br i1 %or.cond21, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %10, %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit, %7, %2
-  %.0 = phi ptr [ %0, %2 ], [ null, %7 ], [ null, %10 ], [ %.01423, %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit ]
+  %.0 = phi ptr [ %0, %2 ], [ null, %7 ], [ null, %10 ], [ %.01424, %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit ]
   ret ptr %.0
 }
 
@@ -7712,28 +7712,28 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br i1 %or.cond.i, label %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit, label %24
 
 24:                                               ; preds = %14
-  %.not22.i = icmp eq ptr %17, %15
-  br i1 %.not22.i, label %_ZN4llvm5ErrorD2Ev.exit3, label %.lr.ph.i
+  %.not23.i = icmp eq ptr %17, %15
+  br i1 %.not23.i, label %_ZN4llvm5ErrorD2Ev.exit3, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %28
 
 26:                                               ; preds = %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit.i
-  %27 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 64
   %.not.i = icmp eq ptr %27, %17
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit3, label %28
 
 28:                                               ; preds = %26, %.lr.ph.i
-  %.01423.i = phi ptr [ %15, %.lr.ph.i ], [ %27, %26 ]
+  %.01424.i = phi ptr [ %15, %.lr.ph.i ], [ %27, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN4llvm13BitcodeModule10getLTOInfoEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.307") align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %.01423.i) #27
+  call void @_ZN4llvm13BitcodeModule10getLTOInfoEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.307") align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %.01424.i) #27
   %29 = load i8, ptr %25, align 8
   %30 = trunc i8 %29 to i1
   %31 = xor i1 %30, true
   %32 = load i8, ptr %4, align 8, !range !54
   %33 = trunc nuw i8 %32 to i1
-  %or.cond19.i = select i1 %31, i1 %33, i1 false
+  %or.cond21.i = select i1 %31, i1 %33, i1 false
   br i1 %30, label %34, label %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit.i
 
 34:                                               ; preds = %28
@@ -7750,14 +7750,14 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %34
 
 _ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i, %34, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %or.cond19.i, label %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread13, label %26
+  br i1 %or.cond21.i, label %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread13, label %26
 
 _ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit: ; preds = %14
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit3, label %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread13
 
 _ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread13: ; preds = %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit.i, %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit
-  %.0.i16 = phi ptr [ %15, %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit ], [ %.01423.i, %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit.i ]
+  %.0.i16 = phi ptr [ %15, %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit ], [ %.01424.i, %_ZN4llvm8ExpectedINS_14BitcodeLTOInfoEED2Ev.exit.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load i8, ptr %39, align 8
   %41 = and i8 %40, -2

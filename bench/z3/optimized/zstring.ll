@@ -1632,9 +1632,9 @@ _ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i
   %87 = icmp ugt ptr %84, %86
   %.08.i.i.i = select i1 %87, ptr %84, ptr %86
   %.not.i.i = icmp eq ptr %.08.i.i.i, null
-  br i1 %.not.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit11.i.i
+  br i1 %.not.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit10.i.i
 
-_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit11.i.i: ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i
+_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit10.i.i: ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %90 = load ptr, ptr %89, align 8, !tbaa !53, !noalias !51
@@ -1648,7 +1648,7 @@ _ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit11
   store i8 0, ptr %96, align 1, !tbaa !8, !noalias !51
   br label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i
 
-_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i: ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit11.i.i, %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38
+_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i: ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit10.i.i, %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %98, ptr %0, align 8, !tbaa !54, !alias.scope !51
@@ -1936,11 +1936,11 @@ define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr noundef nonnull r
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !16
-  br i1 %5, label %.critedge.thread, label %8
+  br i1 %5, label %.loopexit, label %8
 
 8:                                                ; preds = %2
   %9 = icmp ugt i32 %4, %7
-  br i1 %9, label %.critedge.thread, label %.preheader.lr.ph
+  br i1 %9, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %8
   %reass.sub = sub nuw i32 %7, %4
@@ -1952,7 +1952,7 @@ define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr noundef nonnull r
 .critedge.loopexit:                               ; preds = %15
   %12 = add i32 %13, -1
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %.critedge.thread, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge.loopexit
   %13 = phi i32 [ %reass.sub, %.preheader.lr.ph ], [ %12, %.critedge.loopexit ]
@@ -1961,7 +1961,7 @@ define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr noundef nonnull r
 14:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %15
+  br i1 %exitcond.not, label %.loopexit, label %15
 
 15:                                               ; preds = %14
   %16 = trunc nuw i64 %indvars.iv to i32
@@ -1975,7 +1975,7 @@ define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr noundef nonnull r
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %23, label %14, label %.critedge.loopexit, !llvm.loop !61
 
-.critedge.thread:                                 ; preds = %.critedge.loopexit, %14, %2, %8
+.loopexit:                                        ; preds = %.critedge.loopexit, %14, %2, %8
   %.020 = phi i32 [ -1, %8 ], [ %7, %2 ], [ %13, %14 ], [ -1, %.critedge.loopexit ]
   ret i32 %.020
 }

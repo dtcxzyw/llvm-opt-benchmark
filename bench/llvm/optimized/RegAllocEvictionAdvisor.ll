@@ -1029,22 +1029,22 @@ _ZN4llvm17LiveIntervalUnion5Query16interferingVRegsEj.exit: ; preds = %59, %69
   %86 = zext i32 %85 to i64
   %.idx.i.i.i = shl nuw nsw i64 %86, 2
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i.i.i
-  %.not13.i.i.i = icmp eq i32 %85, 0
-  br i1 %.not13.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i
+  %.not11.i.i.i = icmp eq i32 %85, 0
+  br i1 %.not11.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %83, %90
-  %.0914.i.i.i = phi ptr [ %91, %90 ], [ %84, %83 ]
-  %88 = load i32, ptr %.0914.i.i.i, align 4, !tbaa !496
+  %.0912.i.i.i = phi ptr [ %91, %90 ], [ %84, %83 ]
+  %88 = load i32, ptr %.0912.i.i.i, align 4, !tbaa !496
   %89 = icmp eq i32 %88, %.sroa.0.0.copyload.i76
   br i1 %89, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %90
 
 90:                                               ; preds = %.lr.ph.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %91, %87
   br i1 %.not.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !497
 
 _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i: ; preds = %90, %.lr.ph.i.i.i, %83
-  %.1.i.i.i = phi ptr [ %87, %83 ], [ %87, %90 ], [ %.0914.i.i.i, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi ptr [ %87, %83 ], [ %.0912.i.i.i, %.lr.ph.i.i.i ], [ %87, %90 ]
   %92 = getelementptr inbounds nuw %"class.llvm::Register", ptr %84, i64 %86
   %.not214 = icmp eq ptr %.1.i.i.i, %92
   br i1 %.not214, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread, label %.thread126

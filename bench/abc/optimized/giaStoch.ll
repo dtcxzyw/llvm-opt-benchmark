@@ -4273,15 +4273,15 @@ Abc_Clock.exit:                                   ; preds = %14, %17
 
 31:                                               ; preds = %27
   %32 = load i64, ptr %12, align 8, !tbaa !113
-  %.neg129 = mul i64 %32, -1000000
+  %.neg128 = mul i64 %32, -1000000
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !115
-  %.neg128 = sdiv i64 %34, -1000
-  %.neg130 = add i64 %.neg128, %.neg129
+  %.neg127 = sdiv i64 %34, -1000
+  %.neg129 = add i64 %.neg127, %.neg128
   br label %Abc_Clock.exit81
 
 Abc_Clock.exit81:                                 ; preds = %27, %31
-  %.0.i80.neg = phi i64 [ %.neg130, %31 ], [ 1, %27 ]
+  %.0.i80.neg = phi i64 [ %.neg129, %31 ], [ 1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %35 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
   %36 = call ptr @Abc_FrameReadGia(ptr noundef %35) #18
@@ -4320,10 +4320,10 @@ Abc_Clock.exit81:                                 ; preds = %27, %31
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.066134 = phi i32 [ %59, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.066133 = phi i32 [ %59, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %58 = call i32 @Abc_Random(i32 noundef 0) #18
-  %59 = add nuw i32 %.066134, 1
-  %exitcond.not = icmp eq i32 %.066134, %smax
+  %59 = add nuw i32 %.066133, 1
+  %exitcond.not = icmp eq i32 %.066133, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %.lr.ph, %43
@@ -4336,17 +4336,17 @@ Abc_Clock.exit81:                                 ; preds = %27, %31
 
 62:                                               ; preds = %60, %._crit_edge
   %63 = icmp sgt i32 %1, 0
-  br i1 %63, label %.lr.ph137, label %.loopexit
+  br i1 %63, label %.lr.ph136, label %.loopexit
 
-.lr.ph137:                                        ; preds = %62
+.lr.ph136:                                        ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.not72 = icmp eq i64 %28, 0
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %67
 
-67:                                               ; preds = %.lr.ph137, %182
-  %.1135 = phi i32 [ 0, %.lr.ph137 ], [ %183, %182 ]
+67:                                               ; preds = %.lr.ph136, %182
+  %.1134 = phi i32 [ 0, %.lr.ph136 ], [ %183, %182 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %68 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #18
   %69 = icmp slt i32 %68, 0
@@ -4354,14 +4354,14 @@ Abc_Clock.exit81:                                 ; preds = %27, %31
 
 70:                                               ; preds = %67
   %71 = load i64, ptr %11, align 8, !tbaa !113
-  %.neg122 = mul i64 %71, -1000000
+  %.neg121 = mul i64 %71, -1000000
   %72 = load i64, ptr %64, align 8, !tbaa !115
   %.neg = sdiv i64 %72, -1000
-  %.neg123 = add i64 %.neg, %.neg122
+  %.neg122 = add i64 %.neg, %.neg121
   br label %Abc_Clock.exit83
 
 Abc_Clock.exit83:                                 ; preds = %67, %70
-  %.0.i82.neg = phi i64 [ %.neg123, %70 ], [ 1, %67 ]
+  %.0.i82.neg = phi i64 [ %.neg122, %70 ], [ 1, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %73 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
   %74 = call ptr @Abc_FrameReadGia(ptr noundef %73) #18
@@ -4376,8 +4376,8 @@ Abc_Clock.exit83:                                 ; preds = %67, %70
   %82 = call ptr @Gia_ManDupStitchMap(ptr noundef %75, ptr noundef %79, ptr poison, ptr noundef %80, ptr noundef %81)
   %83 = getelementptr i8, ptr %75, i64 264
   %.val78 = load ptr, ptr %83, align 8, !tbaa !56
-  %.not121 = icmp eq ptr %.val78, null
-  br i1 %.not121, label %87, label %84
+  %.not120 = icmp eq ptr %.val78, null
+  br i1 %.not120, label %87, label %84
 
 84:                                               ; preds = %Abc_Clock.exit83
   %85 = getelementptr i8, ptr %82, i64 264
@@ -4434,7 +4434,7 @@ Abc_Clock.exit83:                                 ; preds = %67, %70
   %119 = phi i32 [ %93, %92 ], [ %106, %95 ]
   %120 = phi ptr [ @.str.10, %92 ], [ @.str.11, %95 ]
   %121 = phi i32 [ %94, %92 ], [ %117, %95 ]
-  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.1135, i32 noundef %.val, i32 noundef %119, i32 noundef %121, ptr noundef nonnull %120)
+  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.1134, i32 noundef %.val, i32 noundef %119, i32 noundef %121, ptr noundef nonnull %120)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %123 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #18
   %124 = icmp slt i32 %123, 0
@@ -4484,8 +4484,8 @@ Abc_Clock.exit89:                                 ; preds = %118, %125
 
 142:                                              ; preds = %141, %138
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next.i, %137
-  br i1 %exitcond139.not, label %.critedge.i.thread, label %138, !llvm.loop !117
+  %exitcond138.not = icmp eq i64 %indvars.iv.next.i, %137
+  br i1 %exitcond138.not, label %.critedge.i.thread, label %138, !llvm.loop !117
 
 .critedge.i:                                      ; preds = %.critedge
   %.not.i.i = icmp eq ptr %.val9.i, null
@@ -4522,8 +4522,8 @@ Vec_PtrFreeFunc.exit:                             ; preds = %.critedge.i, %.crit
 
 151:                                              ; preds = %150, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next.i.i, %146
-  br i1 %exitcond140.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !118
+  %exitcond139.not = icmp eq i64 %indvars.iv.next.i.i, %146
+  br i1 %exitcond139.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !118
 
 ._crit_edge.i.i:                                  ; preds = %Vec_PtrFreeFunc.exit
   %.not.i.i91 = icmp eq ptr %.pre.i.i, null
@@ -4560,8 +4560,8 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
 
 160:                                              ; preds = %159, %.lr.ph.i.i96
   %indvars.iv.next.i.i100 = add nuw nsw i64 %indvars.iv.i.i97, 1
-  %exitcond141.not = icmp eq i64 %indvars.iv.next.i.i100, %155
-  br i1 %exitcond141.not, label %._crit_edge.thread.i.i95, label %.lr.ph.i.i96, !llvm.loop !118
+  %exitcond140.not = icmp eq i64 %indvars.iv.next.i.i100, %155
+  br i1 %exitcond140.not, label %._crit_edge.thread.i.i95, label %.lr.ph.i.i96, !llvm.loop !118
 
 ._crit_edge.i.i93:                                ; preds = %Vec_WecFree.exit
   %.not.i.i94 = icmp eq ptr %.pre.i.i92, null
@@ -4598,8 +4598,8 @@ Vec_WecFree.exit101:                              ; preds = %._crit_edge.i.i93, 
 
 169:                                              ; preds = %168, %.lr.ph.i.i106
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i107, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next.i.i110, %164
-  br i1 %exitcond142.not, label %._crit_edge.thread.i.i105, label %.lr.ph.i.i106, !llvm.loop !118
+  %exitcond141.not = icmp eq i64 %indvars.iv.next.i.i110, %164
+  br i1 %exitcond141.not, label %._crit_edge.thread.i.i105, label %.lr.ph.i.i106, !llvm.loop !118
 
 ._crit_edge.i.i103:                               ; preds = %Vec_WecFree.exit101
   %.not.i.i104 = icmp eq ptr %.pre.i.i102, null
@@ -4634,13 +4634,13 @@ Abc_Clock.exit113:                                ; preds = %170, %173
   br i1 %179, label %180, label %182
 
 180:                                              ; preds = %Abc_Clock.exit113
-  %181 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %2, i32 noundef %.1135)
+  %181 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %2, i32 noundef %.1134)
   br label %.loopexit
 
 182:                                              ; preds = %Abc_Clock.exit113, %Vec_WecFree.exit111
-  %183 = add nuw nsw i32 %.1135, 1
-  %exitcond143.not = icmp eq i32 %183, %1
-  br i1 %exitcond143.not, label %.loopexit, label %67, !llvm.loop !119
+  %183 = add nuw nsw i32 %.1134, 1
+  %exitcond142.not = icmp eq i32 %183, %1
+  br i1 %exitcond142.not, label %.loopexit, label %67, !llvm.loop !119
 
 .loopexit:                                        ; preds = %182, %62, %180
   %184 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
@@ -4648,8 +4648,8 @@ Abc_Clock.exit113:                                ; preds = %170, %173
   %186 = getelementptr i8, ptr %185, i64 264
   %.val76 = load ptr, ptr %186, align 8, !tbaa !56
   %187 = icmp eq ptr %.val76, null
-  %.not126 = or i1 %38, %187
-  br i1 %.not126, label %192, label %188
+  %.not125 = or i1 %38, %187
+  br i1 %.not125, label %192, label %188
 
 188:                                              ; preds = %.loopexit
   %189 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
@@ -4677,11 +4677,11 @@ Abc_Clock.exit113:                                ; preds = %170, %173
   %205 = sub nsw i32 %44, %193
   %206 = add i32 %.val.i, %.val3.i
   %207 = add i32 %206, %198
-  %.neg131 = sub i32 %48, %207
-  %.neg127 = add i32 %.neg131, %.val3.i115
-  %208 = add i32 %.neg127, %.val.i114
-  %209 = select i1 %.not126, ptr @.str.11, ptr @.str.10
-  %210 = select i1 %.not126, i32 %208, i32 %205
+  %.neg130 = sub i32 %48, %207
+  %.neg126 = add i32 %.neg130, %.val3.i115
+  %208 = add i32 %.neg126, %.val.i114
+  %209 = select i1 %.not125, ptr @.str.11, ptr @.str.10
+  %210 = select i1 %.not125, i32 %208, i32 %205
   %211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %210, ptr noundef nonnull %209, i32 noundef %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %212 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #18

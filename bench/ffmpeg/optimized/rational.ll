@@ -30,26 +30,26 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
   %13 = trunc i64 %.079 to i32
   %.sroa.022.1.ph = select i1 %or.cond.not, i32 %12, i32 1
   %.sroa.13.1.ph = select i1 %or.cond.not, i32 %13, i32 0
-  %.not95120150 = icmp eq i64 %.079, 0
-  %.not95120 = or i1 %or.cond.not, %.not95120150
-  br i1 %.not95120, label %.loopexit, label %.lr.ph
+  %.not95119149 = icmp eq i64 %.079, 0
+  %.not95119 = or i1 %or.cond.not, %.not95119149
+  br i1 %.not95119, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %44
-  %.1126 = phi i64 [ %.281125, %44 ], [ %.0, %.preheader ]
-  %.281125 = phi i64 [ %.recomposed, %44 ], [ %.079, %.preheader ]
-  %.sroa.7.0124 = phi i32 [ %.sroa.13.1122, %44 ], [ 1, %.preheader ]
-  %.sroa.037.0123 = phi i32 [ %.sroa.022.1121, %44 ], [ 0, %.preheader ]
-  %.sroa.13.1122 = phi i32 [ %47, %44 ], [ %.sroa.13.1.ph, %.preheader ]
-  %.sroa.022.1121 = phi i32 [ %46, %44 ], [ %.sroa.022.1.ph, %.preheader ]
-  %14 = sdiv i64 %.1126, %.281125
-  %.recomposed = srem i64 %.1126, %.281125
-  %15 = sext i32 %.sroa.022.1121 to i64
+  %.1125 = phi i64 [ %.281124, %44 ], [ %.0, %.preheader ]
+  %.281124 = phi i64 [ %.recomposed, %44 ], [ %.079, %.preheader ]
+  %.sroa.7.0123 = phi i32 [ %.sroa.13.1121, %44 ], [ 1, %.preheader ]
+  %.sroa.037.0122 = phi i32 [ %.sroa.022.1120, %44 ], [ 0, %.preheader ]
+  %.sroa.13.1121 = phi i32 [ %47, %44 ], [ %.sroa.13.1.ph, %.preheader ]
+  %.sroa.022.1120 = phi i32 [ %46, %44 ], [ %.sroa.022.1.ph, %.preheader ]
+  %14 = sdiv i64 %.1125, %.281124
+  %.recomposed = srem i64 %.1125, %.281124
+  %15 = sext i32 %.sroa.022.1120 to i64
   %16 = mul i64 %14, %15
-  %17 = sext i32 %.sroa.037.0123 to i64
+  %17 = sext i32 %.sroa.037.0122 to i64
   %18 = add i64 %16, %17
-  %19 = sext i32 %.sroa.13.1122 to i64
+  %19 = sext i32 %.sroa.13.1121 to i64
   %20 = mul i64 %14, %19
-  %21 = sext i32 %.sroa.7.0124 to i64
+  %21 = sext i32 %.sroa.7.0123 to i64
   %22 = add i64 %20, %21
   %23 = icmp sgt i64 %18, %4
   %24 = icmp sgt i64 %22, %4
@@ -57,7 +57,7 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
   br i1 %or.cond100, label %25, label %44
 
 25:                                               ; preds = %.lr.ph
-  %.not96 = icmp eq i32 %.sroa.022.1121, 0
+  %.not96 = icmp eq i32 %.sroa.022.1120, 0
   br i1 %.not96, label %29, label %26
 
 26:                                               ; preds = %25
@@ -67,7 +67,7 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
 
 29:                                               ; preds = %26, %25
   %.083 = phi i64 [ %28, %26 ], [ %14, %25 ]
-  %.not97 = icmp eq i32 %.sroa.13.1122, 0
+  %.not97 = icmp eq i32 %.sroa.13.1121, 0
   br i1 %.not97, label %.thread, label %30
 
 30:                                               ; preds = %29
@@ -81,27 +81,27 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
   %33 = shl nsw i64 %19, 1
   %34 = mul i64 %33, %.184
   %35 = add i64 %34, %21
-  %36 = mul i64 %35, %.281125
-  %37 = mul nsw i64 %.1126, %19
+  %36 = mul i64 %35, %.281124
+  %37 = mul nsw i64 %.1125, %19
   %38 = icmp ugt i64 %36, %37
   %39 = trunc i64 %.184 to i32
-  %40 = mul i32 %.sroa.022.1121, %39
-  %41 = add i32 %40, %.sroa.037.0123
-  %42 = mul i32 %.sroa.13.1122, %39
-  %43 = add i32 %42, %.sroa.7.0124
-  %.sroa.022.3 = select i1 %38, i32 %41, i32 %.sroa.022.1121
-  %.sroa.13.3 = select i1 %38, i32 %43, i32 %.sroa.13.1122
+  %40 = mul i32 %.sroa.022.1120, %39
+  %41 = add i32 %40, %.sroa.037.0122
+  %42 = mul i32 %.sroa.13.1121, %39
+  %43 = add i32 %42, %.sroa.7.0123
+  %.sroa.022.3 = select i1 %38, i32 %41, i32 %.sroa.022.1120
+  %.sroa.13.3 = select i1 %38, i32 %43, i32 %.sroa.13.1121
   br label %.loopexit
 
 44:                                               ; preds = %.lr.ph
-  %45 = mul i64 %14, %.281125
+  %45 = mul i64 %14, %.281124
   %46 = trunc i64 %18 to i32
   %47 = trunc i64 %22 to i32
   %.not95 = icmp eq i64 %.recomposed, 0
   br i1 %.not95, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %44, %.preheader, %.thread
-  %.281111 = phi i32 [ 0, %.thread ], [ 1, %.preheader ], [ 1, %44 ]
+  %.281110 = phi i32 [ 0, %.thread ], [ 1, %.preheader ], [ 1, %44 ]
   %.sroa.022.2 = phi i32 [ %.sroa.022.3, %.thread ], [ %.sroa.022.1.ph, %.preheader ], [ %46, %44 ]
   %.sroa.13.2 = phi i32 [ %.sroa.13.3, %.thread ], [ %.sroa.13.1.ph, %.preheader ], [ %47, %44 ]
   %.lobit92 = xor i64 %3, %2
@@ -110,7 +110,7 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
   %49 = select i1 %.not9899, i32 %48, i32 %.sroa.022.2
   store i32 %49, ptr %0, align 4, !tbaa !4
   store i32 %.sroa.13.2, ptr %1, align 4, !tbaa !4
-  ret i32 %.281111
+  ret i32 %.281110
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -428,97 +428,97 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %.mux = select i1 %6, i32 -4194304, i32 0
   %brmerge41 = or i1 %6, %5
   %.mux.mux = select i1 %5, i32 %.mux, i32 2139095040
-  br i1 %brmerge41, label %63, label %7
+  br i1 %brmerge41, label %65, label %7
 
 7:                                                ; preds = %1
-  %.not.i = icmp samesign ult i32 %.sroa.14.0, 65536
-  %8 = lshr i32 %.sroa.14.0, 16
-  %spec.select.i = select i1 %.not.i, i32 %.sroa.14.0, i32 %8
-  %spec.select12.i = select i1 %.not.i, i32 0, i32 16
-  %.not11.i = icmp samesign ult i32 %spec.select.i, 256
-  %9 = lshr i32 %spec.select.i, 8
-  %10 = or disjoint i32 %spec.select12.i, 8
-  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %9
-  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %10
-  %11 = zext nneg i32 %.110.i to i64
-  %12 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %11
-  %13 = load i8, ptr %12, align 1, !tbaa !12
-  %14 = zext i8 %13 to i32
-  %.not.i42 = icmp samesign ult i32 %.sroa.0.1, 65536
-  %15 = lshr i32 %.sroa.0.1, 16
-  %spec.select.i43 = select i1 %.not.i42, i32 %.sroa.0.1, i32 %15
-  %spec.select12.i44.neg = select i1 %.not.i42, i32 0, i32 -16
-  %.not11.i45 = icmp samesign ult i32 %spec.select.i43, 256
-  %16 = lshr i32 %spec.select.i43, 8
-  %.neg53 = add nsw i32 %spec.select12.i44.neg, -8
-  %.110.i46 = select i1 %.not11.i45, i32 %spec.select.i43, i32 %16
-  %.1.i47.neg54 = select i1 %.not11.i45, i32 %spec.select12.i44.neg, i32 %.neg53
-  %17 = zext nneg i32 %.110.i46 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !12
-  %20 = zext i8 %19 to i32
-  %.neg52 = add nsw i32 %.1.i47.neg54, 23
-  %21 = add nsw i32 %.neg52, %.1.i
-  %22 = add nsw i32 %21, %14
-  %23 = sub nsw i32 %22, %20
-  %24 = icmp sgt i32 %23, -1
-  %25 = zext nneg i32 %.sroa.0.1 to i64
-  br i1 %24, label %26, label %31
+  %8 = icmp samesign ugt i32 %.sroa.14.0, 65535
+  %9 = lshr i32 %.sroa.14.0, 16
+  %spec.select.i = select i1 %8, i32 %9, i32 %.sroa.14.0
+  %spec.select11.i = select i1 %8, i32 16, i32 0
+  %.not.i = icmp samesign ult i32 %spec.select.i, 256
+  %10 = lshr i32 %spec.select.i, 8
+  %11 = or disjoint i32 %spec.select11.i, 8
+  %.110.i = select i1 %.not.i, i32 %spec.select.i, i32 %10
+  %.1.i = select i1 %.not.i, i32 %spec.select11.i, i32 %11
+  %12 = zext nneg i32 %.110.i to i64
+  %13 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !12
+  %15 = zext i8 %14 to i32
+  %16 = icmp samesign ugt i32 %.sroa.0.1, 65535
+  %17 = lshr i32 %.sroa.0.1, 16
+  %spec.select.i42 = select i1 %16, i32 %17, i32 %.sroa.0.1
+  %spec.select11.i43.neg = select i1 %16, i32 -16, i32 0
+  %.not.i44 = icmp samesign ult i32 %spec.select.i42, 256
+  %18 = lshr i32 %spec.select.i42, 8
+  %.neg52 = add nsw i32 %spec.select11.i43.neg, -8
+  %.110.i45 = select i1 %.not.i44, i32 %spec.select.i42, i32 %18
+  %.1.i46.neg53 = select i1 %.not.i44, i32 %spec.select11.i43.neg, i32 %.neg52
+  %19 = zext nneg i32 %.110.i45 to i64
+  %20 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !12
+  %22 = zext i8 %21 to i32
+  %.neg51 = add nsw i32 %.1.i46.neg53, 23
+  %23 = add nsw i32 %.neg51, %.1.i
+  %24 = add nsw i32 %23, %15
+  %25 = sub nsw i32 %24, %22
+  %26 = icmp sgt i32 %25, -1
+  %27 = zext nneg i32 %.sroa.0.1 to i64
+  br i1 %26, label %28, label %33
 
-26:                                               ; preds = %7
-  %27 = zext nneg i32 %23 to i64
-  %28 = shl nuw i64 1, %27
-  %29 = zext nneg i32 %.sroa.14.0 to i64
-  %30 = tail call i64 @av_rescale(i64 noundef %25, i64 noundef %28, i64 noundef %29) #8
-  br label %37
+28:                                               ; preds = %7
+  %29 = zext nneg i32 %25 to i64
+  %30 = shl nuw i64 1, %29
+  %31 = zext nneg i32 %.sroa.14.0 to i64
+  %32 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef %30, i64 noundef %31) #8
+  br label %39
 
-31:                                               ; preds = %7
-  %32 = zext nneg i32 %.sroa.14.0 to i64
-  %33 = sub nsw i32 0, %23
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl i64 %32, %34
-  %36 = tail call i64 @av_rescale(i64 noundef %25, i64 noundef 1, i64 noundef %35) #8
-  br label %37
+33:                                               ; preds = %7
+  %34 = zext nneg i32 %.sroa.14.0 to i64
+  %35 = sub nsw i32 0, %25
+  %36 = zext nneg i32 %35 to i64
+  %37 = shl i64 %34, %36
+  %38 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef 1, i64 noundef %37) #8
+  br label %39
 
-37:                                               ; preds = %31, %26
-  %.034 = phi i64 [ %30, %26 ], [ %36, %31 ]
-  %38 = icmp sgt i64 %.034, 16777215
-  %.neg = sext i1 %38 to i32
-  %39 = add nsw i32 %23, %.neg
-  %40 = icmp slt i64 %.034, 8388608
-  %41 = zext i1 %40 to i32
-  %42 = add nsw i32 %39, %41
-  %43 = icmp sgt i32 %42, -1
-  %44 = zext nneg i32 %.sroa.0.1 to i64
-  br i1 %43, label %45, label %50
+39:                                               ; preds = %33, %28
+  %.034 = phi i64 [ %32, %28 ], [ %38, %33 ]
+  %40 = icmp sgt i64 %.034, 16777215
+  %.neg = sext i1 %40 to i32
+  %41 = add nsw i32 %25, %.neg
+  %42 = icmp slt i64 %.034, 8388608
+  %43 = zext i1 %42 to i32
+  %44 = add nsw i32 %41, %43
+  %45 = icmp sgt i32 %44, -1
+  %46 = zext nneg i32 %.sroa.0.1 to i64
+  br i1 %45, label %47, label %52
 
-45:                                               ; preds = %37
-  %46 = zext nneg i32 %42 to i64
-  %47 = shl nuw i64 1, %46
-  %48 = zext nneg i32 %.sroa.14.0 to i64
-  %49 = tail call i64 @av_rescale(i64 noundef %44, i64 noundef %47, i64 noundef %48) #8
-  br label %56
+47:                                               ; preds = %39
+  %48 = zext nneg i32 %44 to i64
+  %49 = shl nuw i64 1, %48
+  %50 = zext nneg i32 %.sroa.14.0 to i64
+  %51 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef %49, i64 noundef %50) #8
+  br label %58
 
-50:                                               ; preds = %37
-  %51 = zext nneg i32 %.sroa.14.0 to i64
-  %52 = sub nsw i32 0, %42
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl i64 %51, %53
-  %55 = tail call i64 @av_rescale(i64 noundef %44, i64 noundef 1, i64 noundef %54) #8
-  br label %56
+52:                                               ; preds = %39
+  %53 = zext nneg i32 %.sroa.14.0 to i64
+  %54 = sub nsw i32 0, %44
+  %55 = zext nneg i32 %54 to i64
+  %56 = shl i64 %53, %55
+  %57 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef 1, i64 noundef %56) #8
+  br label %58
 
-56:                                               ; preds = %50, %45
-  %.1 = phi i64 [ %49, %45 ], [ %55, %50 ]
-  %57 = shl i32 %42, 23
-  %58 = sub i32 1258291200, %57
-  %59 = or i32 %58, %.0
-  %60 = trunc i64 %.1 to i32
-  %61 = add i32 %60, -8388608
-  %62 = or i32 %59, %61
-  br label %63
+58:                                               ; preds = %52, %47
+  %.1 = phi i64 [ %51, %47 ], [ %57, %52 ]
+  %59 = shl i32 %44, 23
+  %60 = sub i32 1258291200, %59
+  %61 = or i32 %60, %.0
+  %62 = trunc i64 %.1 to i32
+  %63 = add i32 %62, -8388608
+  %64 = or i32 %61, %63
+  br label %65
 
-63:                                               ; preds = %1, %56
-  %.035 = phi i32 [ %62, %56 ], [ %.mux.mux, %1 ]
+65:                                               ; preds = %1, %58
+  %.035 = phi i32 [ %64, %58 ], [ %.mux.mux, %1 ]
   ret i32 %.035
 }
 

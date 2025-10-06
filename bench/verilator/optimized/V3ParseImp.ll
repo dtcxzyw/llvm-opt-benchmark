@@ -10783,23 +10783,23 @@ _ZN10V3ParseImp10tokenPeekpEm.exit:               ; preds = %52, %58
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader
-  %.ph = phi ptr [ %29, %.preheader ], [ %.lcssa154, %.outer.backedge ]
-  %.ph179 = phi ptr [ %28, %.preheader ], [ %.lcssa151, %.outer.backedge ]
-  %.ph180 = phi ptr [ %22, %.preheader ], [ %.lcssa148, %.outer.backedge ]
-  %.ph181 = phi ptr [ %21, %.preheader ], [ %.lcssa145, %.outer.backedge ]
-  %.ph182 = phi ptr [ %13, %.preheader ], [ %.lcssa142, %.outer.backedge ]
-  %.ph183 = phi ptr [ %12, %.preheader ], [ %.lcssa139, %.outer.backedge ]
+  %.ph = phi ptr [ %29, %.preheader ], [ %.lcssa153, %.outer.backedge ]
+  %.ph178 = phi ptr [ %28, %.preheader ], [ %.lcssa150, %.outer.backedge ]
+  %.ph179 = phi ptr [ %22, %.preheader ], [ %.lcssa147, %.outer.backedge ]
+  %.ph180 = phi ptr [ %21, %.preheader ], [ %.lcssa144, %.outer.backedge ]
+  %.ph181 = phi ptr [ %13, %.preheader ], [ %.lcssa141, %.outer.backedge ]
+  %.ph182 = phi ptr [ %12, %.preheader ], [ %.lcssa138, %.outer.backedge ]
   %.019.ph = phi i32 [ 1, %.preheader ], [ %.019.ph.be, %.outer.backedge ]
   %.018.in.ph = phi i64 [ %1, %.preheader ], [ %.018, %.outer.backedge ]
   br label %68
 
 68:                                               ; preds = %.outer, %_ZN10V3ParseImp10tokenPeekpEm.exit30
-  %69 = phi ptr [ %.lcssa154, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph, %.outer ]
-  %70 = phi ptr [ %.lcssa151, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph179, %.outer ]
-  %71 = phi ptr [ %.lcssa148, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph180, %.outer ]
-  %72 = phi ptr [ %.lcssa145, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph181, %.outer ]
-  %73 = phi ptr [ %.lcssa142, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph182, %.outer ]
-  %74 = phi ptr [ %.lcssa139, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph183, %.outer ]
+  %69 = phi ptr [ %.lcssa153, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph, %.outer ]
+  %70 = phi ptr [ %.lcssa150, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph178, %.outer ]
+  %71 = phi ptr [ %.lcssa147, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph179, %.outer ]
+  %72 = phi ptr [ %.lcssa144, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph180, %.outer ]
+  %73 = phi ptr [ %.lcssa141, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph181, %.outer ]
+  %74 = phi ptr [ %.lcssa138, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.ph182, %.outer ]
   %.018.in = phi i64 [ %.018, %_ZN10V3ParseImp10tokenPeekpEm.exit30 ], [ %.018.in.ph, %.outer ]
   %.018 = add nuw i64 %.018.in, 1
   %75 = ptrtoint ptr %74 to i64
@@ -10807,8 +10807,8 @@ _ZN10V3ParseImp10tokenPeekpEm.exit:               ; preds = %52, %58
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 3
   %79 = icmp ne ptr %74, null
-  %.neg.i.i.i24171 = sext i1 %79 to i64
-  %80 = add nsw i64 %78, %.neg.i.i.i24171
+  %.neg.i.i.i24170 = sext i1 %79 to i64
+  %80 = add nsw i64 %78, %.neg.i.i.i24170
   %81 = shl nsw i64 %80, 4
   %82 = ptrtoint ptr %72 to i64
   %83 = ptrtoint ptr %71 to i64
@@ -10820,8 +10820,8 @@ _ZN10V3ParseImp10tokenPeekpEm.exit:               ; preds = %52, %58
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 5
   %91 = add nsw i64 %86, %90
-  %.not.i25172 = icmp ugt i64 %91, %.018
-  br i1 %.not.i25172, label %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28, label %.lr.ph
+  %.not.i25171 = icmp ugt i64 %91, %.018
+  br i1 %.not.i25171, label %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68, %_ZN10V3ParseImp9tokenPullEv.exit.i27
   tail call void @_ZN10V3ParseImp12yylexReadTokEv(ptr noundef nonnull align 8 dereferenceable(528) %0)
@@ -10837,7 +10837,7 @@ _ZN10V3ParseImp10tokenPeekpEm.exit:               ; preds = %52, %58
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr %97, ptr %5, align 8, !tbaa !434
   %.pre.pre = load ptr, ptr %7, align 8, !tbaa !438
-  %.pre76.pre = load ptr, ptr %9, align 8, !tbaa !440
+  %.pre75.pre = load ptr, ptr %9, align 8, !tbaa !440
   br label %_ZN10V3ParseImp9tokenPullEv.exit.i27
 
 98:                                               ; preds = %.lr.ph
@@ -10995,14 +10995,14 @@ _ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE16_M_push_back_auxIJRKS0_EEEvDpOT_.exit
   br label %_ZN10V3ParseImp9tokenPullEv.exit.i27
 
 _ZN10V3ParseImp9tokenPullEv.exit.i27:             ; preds = %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE16_M_push_back_auxIJRKS0_EEEvDpOT_.exit, %95
-  %.pre76 = phi ptr [ %182, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE16_M_push_back_auxIJRKS0_EEEvDpOT_.exit ], [ %.pre76.pre, %95 ]
+  %.pre75 = phi ptr [ %182, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE16_M_push_back_auxIJRKS0_EEEvDpOT_.exit ], [ %.pre75.pre, %95 ]
   %.pre = phi ptr [ %181, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE16_M_push_back_auxIJRKS0_EEEvDpOT_.exit ], [ %.pre.pre, %95 ]
   %184 = phi ptr [ %182, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE16_M_push_back_auxIJRKS0_EEEvDpOT_.exit ], [ %97, %95 ]
-  %.pre75 = load ptr, ptr %8, align 8, !tbaa !438
-  %.pre77 = load ptr, ptr %10, align 8, !tbaa !441
-  %.pre78 = load ptr, ptr %6, align 8, !tbaa !439
+  %.pre74 = load ptr, ptr %8, align 8, !tbaa !438
+  %.pre76 = load ptr, ptr %10, align 8, !tbaa !441
+  %.pre77 = load ptr, ptr %6, align 8, !tbaa !439
   %185 = ptrtoint ptr %.pre to i64
-  %186 = ptrtoint ptr %.pre75 to i64
+  %186 = ptrtoint ptr %.pre74 to i64
   %187 = sub i64 %185, %186
   %188 = ashr exact i64 %187, 3
   %189 = icmp ne ptr %.pre, null
@@ -11010,12 +11010,12 @@ _ZN10V3ParseImp9tokenPullEv.exit.i27:             ; preds = %_ZNSt5dequeI19V3Par
   %190 = add nsw i64 %188, %.neg.i.i.i24
   %191 = shl nsw i64 %190, 4
   %192 = ptrtoint ptr %184 to i64
-  %193 = ptrtoint ptr %.pre76 to i64
+  %193 = ptrtoint ptr %.pre75 to i64
   %194 = sub i64 %192, %193
   %195 = ashr exact i64 %194, 5
   %196 = add nsw i64 %191, %195
-  %197 = ptrtoint ptr %.pre77 to i64
-  %198 = ptrtoint ptr %.pre78 to i64
+  %197 = ptrtoint ptr %.pre76 to i64
+  %198 = ptrtoint ptr %.pre77 to i64
   %199 = sub i64 %197, %198
   %200 = ashr exact i64 %199, 5
   %201 = add nsw i64 %196, %200
@@ -11023,12 +11023,12 @@ _ZN10V3ParseImp9tokenPullEv.exit.i27:             ; preds = %_ZNSt5dequeI19V3Par
   br i1 %.not.i25, label %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28, label %.lr.ph, !llvm.loop !442
 
 _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28: ; preds = %_ZN10V3ParseImp9tokenPullEv.exit.i27, %68
-  %.lcssa154 = phi ptr [ %69, %68 ], [ %.pre78, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
-  %.lcssa151 = phi ptr [ %70, %68 ], [ %.pre77, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
-  %.lcssa148 = phi ptr [ %71, %68 ], [ %.pre76, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
-  %.lcssa145 = phi ptr [ %72, %68 ], [ %184, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
-  %.lcssa142 = phi ptr [ %73, %68 ], [ %.pre75, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
-  %.lcssa139 = phi ptr [ %74, %68 ], [ %.pre, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
+  %.lcssa153 = phi ptr [ %69, %68 ], [ %.pre77, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
+  %.lcssa150 = phi ptr [ %70, %68 ], [ %.pre76, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
+  %.lcssa147 = phi ptr [ %71, %68 ], [ %.pre75, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
+  %.lcssa144 = phi ptr [ %72, %68 ], [ %184, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
+  %.lcssa141 = phi ptr [ %73, %68 ], [ %.pre74, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
+  %.lcssa138 = phi ptr [ %74, %68 ], [ %.pre, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
   %.lcssa = phi i64 [ %88, %68 ], [ %198, %_ZN10V3ParseImp9tokenPullEv.exit.i27 ]
   %202 = load ptr, ptr %43, align 8, !tbaa !440, !noalias !476
   %203 = ptrtoint ptr %202 to i64
@@ -11043,7 +11043,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28: ; preds
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %208
-  %211 = getelementptr inbounds %struct.V3ParseBisonYYSType, ptr %.lcssa154, i64 %.018
+  %211 = getelementptr inbounds %struct.V3ParseBisonYYSType, ptr %.lcssa153, i64 %.018
   br label %_ZN10V3ParseImp10tokenPeekpEm.exit30
 
 212:                                              ; preds = %208
@@ -11056,7 +11056,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28: ; preds
 
 216:                                              ; preds = %214, %212
   %217 = phi i64 [ %213, %212 ], [ %215, %214 ]
-  %218 = getelementptr inbounds ptr, ptr %.lcssa142, i64 %217
+  %218 = getelementptr inbounds ptr, ptr %.lcssa141, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !123, !noalias !476
   %220 = shl nsw i64 %217, 4
   %221 = sub nsw i64 %206, %220
@@ -14928,9 +14928,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPK7VSymEntS2_SaIS2_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !530
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !531
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14966,7 +14966,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPK7VSymEntS2_SaIS2_
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !528
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !531
@@ -14994,10 +14994,10 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPK7VSymEntS2_SaIS2_
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !574
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr null, ptr %44, align 8, !tbaa !528
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -16741,7 +16741,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i: ; preds = %_ZN7V3Error
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt15recursive_mutexEEC2ERS2_.exit, label %.preheader.i.i, !prof !271
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i, %16
-  %.039.i.i = phi i32 [ %17, %16 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i ]
+  %.037.i.i = phi i32 [ %17, %16 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i.i ]
   %13 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !630, !range !158, !noundef !159
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt15recursive_mutexEEC2ERS2_.exit
@@ -16753,7 +16753,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i.i: ; preds = %.preheader
 
 16:                                               ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !633
-  %17 = add nuw nsw i32 %.039.i.i, 1
+  %17 = add nuw nsw i32 %.037.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %17, 50000
   br i1 %exitcond.not.i.i, label %18, label %.preheader.i.i, !llvm.loop !634
 
@@ -16975,7 +16975,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i: ; preds = %2
   br i1 %.not.i.i.i, label %_ZN10V3MutexImpISt15recursive_mutexE4lockEv.exit, label %.preheader.i, !prof !271
 
 .preheader.i:                                     ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i, %9
-  %.039.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i ]
+  %.037.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit.i ]
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !630, !range !158, !noundef !159
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i, label %_ZN10V3MutexImpISt15recursive_mutexE4lockEv.exit
@@ -16987,7 +16987,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i: ; preds = %.preheader.i
 
 9:                                                ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !633
-  %10 = add nuw nsw i32 %.039.i, 1
+  %10 = add nuw nsw i32 %.037.i, 1
   %exitcond.not.i = icmp eq i32 %10, 50000
   br i1 %exitcond.not.i, label %11, label %.preheader.i, !llvm.loop !634
 
@@ -17205,7 +17205,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit: ; preds = %1
   br i1 %.not.i.i, label %.thread, label %.preheader, !prof !271
 
 .preheader:                                       ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit, %8
-  %.039 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit ]
+  %.037 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit ]
   %5 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !630, !range !158, !noundef !159
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5, label %.thread
@@ -17217,7 +17217,7 @@ _ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5: ; preds = %.preheader
 
 8:                                                ; preds = %_ZN10V3MutexImpISt15recursive_mutexE8try_lockEv.exit5
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !633
-  %9 = add nuw nsw i32 %.039, 1
+  %9 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %9, 50000
   br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !634
 

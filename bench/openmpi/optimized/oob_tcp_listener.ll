@@ -539,22 +539,22 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1368) seq_cst, align 8, !tbaa !63
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %.preheader90.lr.ph, label %.loopexit
+  br i1 %6, label %.preheader89.lr.ph, label %.loopexit
 
-.preheader90.lr.ph:                               ; preds = %1
+.preheader89.lr.ph:                               ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %.preheader90
+  br label %.preheader89
 
-.preheader90:                                     ; preds = %.preheader90.lr.ph, %.backedge
+.preheader89:                                     ; preds = %.preheader89.lr.ph, %.backedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false), !tbaa !69
-  %.06498 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1192), align 8, !tbaa !59
-  %.not99 = icmp eq ptr %.06498, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
-  br i1 %.not99, label %._crit_edge, label %.lr.ph
+  %.06497 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1192), align 8, !tbaa !59
+  %.not98 = icmp eq ptr %.06497, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
+  br i1 %.not98, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader90, %.lr.ph
-  %.064101 = phi ptr [ %.064, %.lr.ph ], [ %.06498, %.preheader90 ]
-  %.059100 = phi i32 [ %..059, %.lr.ph ], [ -1, %.preheader90 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.064101, i64 284
+.lr.ph:                                           ; preds = %.preheader89, %.lr.ph
+  %.064100 = phi ptr [ %.064, %.lr.ph ], [ %.06497, %.preheader89 ]
+  %.05999 = phi i32 [ %..059, %.lr.ph ], [ -1, %.preheader89 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.064100, i64 284
   %9 = load i32, ptr %8, align 4, !tbaa !46
   %10 = srem i32 %9, 64
   %11 = zext nneg i32 %10 to i64
@@ -565,14 +565,14 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = or i64 %12, %16
   store i64 %17, ptr %15, align 8, !tbaa !69
-  %..059 = call i32 @llvm.smax.i32(i32 %9, i32 %.059100)
-  %18 = getelementptr inbounds nuw i8, ptr %.064101, i64 120
+  %..059 = call i32 @llvm.smax.i32(i32 %9, i32 %.05999)
+  %18 = getelementptr inbounds nuw i8, ptr %.064100, i64 120
   %.064 = load ptr, ptr %18, align 8, !tbaa !59
   %.not = icmp eq ptr %.064, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader90
-  %.059.lcssa = phi i32 [ -1, %.preheader90 ], [ %..059, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader89
+  %.059.lcssa = phi i32 [ -1, %.preheader89 ], [ %..059, %.lr.ph ]
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1392), align 8, !tbaa !30
   %20 = srem i32 %19, 64
   %21 = zext nneg i32 %20 to i64
@@ -601,7 +601,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
 .preheader:                                       ; preds = %35
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1192), align 8, !tbaa !59
   %38 = icmp eq ptr %37, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
-  br i1 %38, label %.backedge, label %.lr.ph107
+  br i1 %38, label %.backedge, label %.lr.ph106
 
 39:                                               ; preds = %35
   %40 = tail call ptr @__errno_location() #14
@@ -615,15 +615,15 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   call void @perror(ptr noundef nonnull @.str.19) #16
   br label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge108, %.preheader, %42, %39, %39
+.backedge:                                        ; preds = %._crit_edge107, %.preheader, %42, %39, %39
   %43 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1368) seq_cst, align 8, !tbaa !63
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %.preheader90, label %.loopexit, !llvm.loop !75
+  br i1 %44, label %.preheader89, label %.loopexit, !llvm.loop !75
 
-.lr.ph107:                                        ; preds = %.preheader, %.lr.ph107.backedge
-  %.165105 = phi ptr [ %.165105.be, %.lr.ph107.backedge ], [ %37, %.preheader ]
-  %.060104 = phi i32 [ %.060104.be, %.lr.ph107.backedge ], [ 0, %.preheader ]
-  %45 = getelementptr inbounds nuw i8, ptr %.165105, i64 284
+.lr.ph106:                                        ; preds = %.preheader, %.lr.ph106.backedge
+  %.165104 = phi ptr [ %.165104.be, %.lr.ph106.backedge ], [ %37, %.preheader ]
+  %.060103 = phi i32 [ %.060103.be, %.lr.ph106.backedge ], [ 0, %.preheader ]
+  %45 = getelementptr inbounds nuw i8, ptr %.165104, i64 284
   %46 = load i32, ptr %45, align 4, !tbaa !46
   %47 = sdiv i32 %46, 64
   %48 = sext i32 %47 to i64
@@ -636,7 +636,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %.thread, label %56
 
-56:                                               ; preds = %.lr.ph107
+56:                                               ; preds = %.lr.ph106
   %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_tcp_pending_connection_t_class, i64 56), align 8, !tbaa !37
   %58 = call noalias noundef ptr @malloc(i64 noundef %57) #15
   %59 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !30
@@ -790,7 +790,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %91
   br label %135
 
 135:                                              ; preds = %128, %122, %120
-  %136 = getelementptr inbounds nuw i8, ptr %.165105, i64 288
+  %136 = getelementptr inbounds nuw i8, ptr %.165104, i64 288
   %137 = load i16, ptr %136, align 8, !tbaa !54
   %138 = icmp ult i16 %137, 1025
   br i1 %138, label %139, label %176
@@ -867,27 +867,27 @@ pmix_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %162
 176:                                              ; preds = %139, %135
   fence release
   call void @event_active(ptr noundef nonnull %74, i32 noundef 4, i16 noundef signext 1) #13
-  %177 = add nsw i32 %.060104, 1
+  %177 = add nsw i32 %.060103, 1
   br label %.thread
 
-.thread:                                          ; preds = %pmix_obj_update.exit77, %175, %173, %105, %.lr.ph107, %176, %116
-  %.1 = phi i32 [ %.060104, %.lr.ph107 ], [ %.060104, %105 ], [ %.060104, %116 ], [ %177, %176 ], [ %.060104, %173 ], [ %.060104, %175 ], [ %.060104, %pmix_obj_update.exit77 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.165105, i64 120
+.thread:                                          ; preds = %pmix_obj_update.exit77, %175, %173, %105, %.lr.ph106, %176, %116
+  %.1 = phi i32 [ %.060103, %.lr.ph106 ], [ %.060103, %105 ], [ %.060103, %116 ], [ %177, %176 ], [ %.060103, %173 ], [ %.060103, %175 ], [ %.060103, %pmix_obj_update.exit77 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.165104, i64 120
   %.165 = load ptr, ptr %178, align 8, !tbaa !59
   %.not72 = icmp eq ptr %.165, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
-  br i1 %.not72, label %._crit_edge108, label %.lr.ph107.backedge
+  br i1 %.not72, label %._crit_edge107, label %.lr.ph106.backedge
 
-.lr.ph107.backedge:                               ; preds = %.thread, %._crit_edge108
-  %.165105.be = phi ptr [ %.165, %.thread ], [ %.165102.pr, %._crit_edge108 ]
-  %.060104.be = phi i32 [ %.1, %.thread ], [ 0, %._crit_edge108 ]
-  br label %.lr.ph107, !llvm.loop !83
+.lr.ph106.backedge:                               ; preds = %.thread, %._crit_edge107
+  %.165104.be = phi ptr [ %.165, %.thread ], [ %.165101.pr, %._crit_edge107 ]
+  %.060103.be = phi i32 [ %.1, %.thread ], [ 0, %._crit_edge107 ]
+  br label %.lr.ph106, !llvm.loop !83
 
-._crit_edge108:                                   ; preds = %.thread
+._crit_edge107:                                   ; preds = %.thread
   %179 = icmp slt i32 %.1, 1
-  %.165102.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1192), align 8
-  %.not72103 = icmp eq ptr %.165102.pr, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
-  %or.cond133 = select i1 %179, i1 true, i1 %.not72103
-  br i1 %or.cond133, label %.backedge, label %.lr.ph107.backedge
+  %.165101.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1192), align 8
+  %.not72102 = icmp eq ptr %.165101.pr, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
+  %or.cond132 = select i1 %179, i1 true, i1 %.not72102
+  br i1 %or.cond132, label %.backedge, label %.lr.ph106.backedge
 
 .loopexit:                                        ; preds = %._crit_edge, %.backedge, %1, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

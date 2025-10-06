@@ -7928,9 +7928,9 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   br i1 %12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.thread171, %3
-  %.lcssa316 = phi ptr [ %2, %3 ], [ %187, %.thread171 ]
-  %.lcssa266 = phi i1 [ %8, %3 ], [ %191, %.thread171 ]
-  br i1 %.lcssa266, label %13, label %.thread181
+  %.lcssa312 = phi ptr [ %2, %3 ], [ %187, %.thread171 ]
+  %.lcssa262 = phi i1 [ %8, %3 ], [ %191, %.thread171 ]
+  br i1 %.lcssa262, label %13, label %.thread181
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -7990,8 +7990,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %47 = icmp eq i64 %46, 1
   %48 = xor i64 %44, %22
   %49 = icmp eq i64 %48, 1
-  %or.cond192 = select i1 %47, i1 true, i1 %49
-  br i1 %or.cond192, label %50, label %53
+  %or.cond188 = select i1 %47, i1 true, i1 %49
+  br i1 %or.cond188, label %50, label %53
 
 50:                                               ; preds = %42
   br i1 %18, label %.thread181, label %51
@@ -8030,7 +8030,7 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   %69 = ptrtoint ptr %67 to i64
-  br i1 %68, label %.thread162.thread433, label %70
+  br i1 %68, label %.thread162.thread429, label %70
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -8046,14 +8046,14 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %78 = icmp eq i64 %77, 1
   %79 = xor i64 %72, %41
   %80 = icmp eq i64 %79, 1
-  %or.cond194 = select i1 %78, i1 true, i1 %80
+  %or.cond190 = select i1 %78, i1 true, i1 %80
   %81 = xor i64 %44, %69
   %82 = icmp eq i64 %81, 1
-  %or.cond196 = select i1 %or.cond194, i1 true, i1 %82
+  %or.cond192 = select i1 %or.cond190, i1 true, i1 %82
   %83 = xor i64 %72, %44
   %84 = icmp eq i64 %83, 1
-  %or.cond198 = select i1 %or.cond196, i1 true, i1 %84
-  br i1 %or.cond198, label %85, label %87
+  %or.cond194 = select i1 %or.cond192, i1 true, i1 %84
+  br i1 %or.cond194, label %85, label %87
 
 85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -8063,8 +8063,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
 87:                                               ; preds = %76
   %88 = icmp eq ptr %39, %67
   %89 = icmp eq i64 %44, %69
-  %or.cond199 = select i1 %88, i1 true, i1 %89
-  br i1 %or.cond199, label %.thread171, label %90
+  %or.cond195 = select i1 %88, i1 true, i1 %89
+  br i1 %or.cond195, label %.thread171, label %90
 
 90:                                               ; preds = %87
   %91 = icmp eq i64 %44, %72
@@ -8084,20 +8084,20 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %97 = icmp eq i64 %96, 1
   %98 = xor i64 %72, %41
   %99 = icmp eq i64 %98, 1
-  %or.cond201 = select i1 %97, i1 true, i1 %99
+  %or.cond197 = select i1 %97, i1 true, i1 %99
   %100 = xor i64 %44, %69
   %101 = icmp eq i64 %100, 1
-  %or.cond203 = select i1 %or.cond201, i1 true, i1 %101
+  %or.cond199 = select i1 %or.cond197, i1 true, i1 %101
   %102 = xor i64 %72, %44
   %103 = icmp eq i64 %102, 1
-  %or.cond205 = select i1 %or.cond203, i1 true, i1 %103
-  br i1 %or.cond205, label %.thread181, label %104
+  %or.cond201 = select i1 %or.cond199, i1 true, i1 %103
+  br i1 %or.cond201, label %.thread181, label %104
 
 104:                                              ; preds = %95
   %105 = icmp eq i64 %44, %69
   %106 = icmp eq i64 %44, %72
-  %or.cond206 = select i1 %105, i1 true, i1 %106
-  br i1 %or.cond206, label %107, label %110
+  %or.cond202 = select i1 %105, i1 true, i1 %106
+  br i1 %or.cond202, label %107, label %110
 
 107:                                              ; preds = %104
   %108 = xor i64 %41, 1
@@ -8107,8 +8107,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
 110:                                              ; preds = %104
   %111 = icmp eq ptr %39, %67
   %112 = icmp eq i64 %72, %41
-  %or.cond207 = select i1 %111, i1 true, i1 %112
-  br i1 %or.cond207, label %113, label %.thread162.thread
+  %or.cond203 = select i1 %111, i1 true, i1 %112
+  br i1 %or.cond203, label %113, label %.thread162.thread
 
 113:                                              ; preds = %110
   %114 = xor i64 %44, 1
@@ -8124,20 +8124,20 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %119 = icmp eq i64 %118, 1
   %120 = xor i64 %72, %41
   %121 = icmp eq i64 %120, 1
-  %or.cond209 = select i1 %119, i1 true, i1 %121
+  %or.cond205 = select i1 %119, i1 true, i1 %121
   %122 = xor i64 %44, %69
   %123 = icmp eq i64 %122, 1
-  %or.cond211 = select i1 %or.cond209, i1 true, i1 %123
+  %or.cond207 = select i1 %or.cond205, i1 true, i1 %123
   %124 = xor i64 %72, %44
   %125 = icmp eq i64 %124, 1
-  %or.cond213 = select i1 %or.cond211, i1 true, i1 %125
-  br i1 %or.cond213, label %.thread181, label %126
+  %or.cond209 = select i1 %or.cond207, i1 true, i1 %125
+  br i1 %or.cond209, label %.thread181, label %126
 
 126:                                              ; preds = %117
   %127 = icmp eq ptr %67, %39
   %128 = icmp eq i64 %44, %69
-  %or.cond214 = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond214, label %129, label %132
+  %or.cond210 = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond210, label %129, label %132
 
 129:                                              ; preds = %126
   %130 = xor i64 %72, 1
@@ -8147,8 +8147,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
 132:                                              ; preds = %126
   %133 = icmp eq i64 %72, %41
   %134 = icmp eq i64 %72, %44
-  %or.cond215 = select i1 %133, i1 true, i1 %134
-  br i1 %or.cond215, label %135, label %138
+  %or.cond211 = select i1 %133, i1 true, i1 %134
+  br i1 %or.cond211, label %135, label %138
 
 135:                                              ; preds = %132
   %136 = xor i64 %69, 1
@@ -8165,8 +8165,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %142 = icmp eq ptr %39, %67
   %143 = xor i64 %72, %44
   %144 = icmp eq i64 %143, 1
-  %or.cond217 = select i1 %142, i1 %144, i1 false
-  br i1 %or.cond217, label %145, label %148
+  %or.cond213 = select i1 %142, i1 %144, i1 false
+  br i1 %or.cond213, label %145, label %148
 
 145:                                              ; preds = %141
   %146 = xor i64 %41, 1
@@ -8177,8 +8177,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %149 = xor i64 %69, %41
   %150 = icmp eq i64 %149, 1
   %151 = icmp eq i64 %44, %72
-  %or.cond218 = select i1 %150, i1 %151, i1 false
-  br i1 %or.cond218, label %152, label %.thread162.thread
+  %or.cond214 = select i1 %150, i1 %151, i1 false
+  br i1 %or.cond214, label %152, label %.thread162.thread
 
 152:                                              ; preds = %148
   %153 = xor i64 %44, 1
@@ -8190,7 +8190,7 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %155 = ptrtoint ptr %.pre to i64
   %156 = icmp eq ptr %.pre, null
-  br i1 %156, label %.thread162.thread433, label %.thread162.thread
+  br i1 %156, label %.thread162.thread429, label %.thread162.thread
 
 .thread162.thread:                                ; preds = %148, %138, %92, %110, %.thread162
   %157 = phi i64 [ %155, %.thread162 ], [ %69, %110 ], [ %69, %92 ], [ %69, %138 ], [ %69, %148 ]
@@ -8202,8 +8202,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %163 = icmp eq i64 %162, 1
   %164 = xor i64 %159, %161
   %165 = icmp eq i64 %164, 1
-  %or.cond220 = select i1 %163, i1 true, i1 %165
-  br i1 %or.cond220, label %166, label %169
+  %or.cond216 = select i1 %163, i1 true, i1 %165
+  br i1 %or.cond216, label %166, label %169
 
 166:                                              ; preds = %.thread162.thread
   br i1 %23, label %.thread181, label %167
@@ -8228,7 +8228,7 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
 
 176:                                              ; preds = %169
   %177 = icmp eq ptr %20, %160
-  br i1 %177, label %178, label %.thread162.thread433
+  br i1 %177, label %178, label %.thread162.thread429
 
 178:                                              ; preds = %176
   br i1 %23, label %179, label %.thread181
@@ -8238,17 +8238,17 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %181 = inttoptr i64 %180 to ptr
   br label %.thread171
 
-.thread162.thread433:                             ; preds = %65, %176, %.thread162
+.thread162.thread429:                             ; preds = %65, %176, %.thread162
   store ptr %20, ptr %4, align 8
   store ptr %21, ptr %5, align 8
   %182 = icmp ugt i32 %15, %26
   br i1 %182, label %183, label %185
 
-183:                                              ; preds = %.thread162.thread433
+183:                                              ; preds = %.thread162.thread429
   %184 = call ptr @_ZN11aig_manager3imp12mk_node_coreERK7aig_litS3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %.thread181
 
-185:                                              ; preds = %.thread162.thread433
+185:                                              ; preds = %.thread162.thread429
   %186 = call ptr @_ZN11aig_manager3imp12mk_node_coreERK7aig_litS3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %.thread181
 
@@ -8265,8 +8265,8 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   br i1 %195, label %._crit_edge, label %.lr.ph
 
 .thread181:                                       ; preds = %95, %117, %55, %61, %178, %172, %167, %166, %145, %152, %85, %51, %50, %33, %28, %._crit_edge, %185, %183, %35, %29, %13
-  %.sroa.0.1186 = phi ptr [ %20, %33 ], [ %20, %28 ], [ %.lcssa316, %._crit_edge ], [ %186, %185 ], [ %184, %183 ], [ %.sroa.0.0.copyload51, %35 ], [ %.sroa.0.0.copyload48, %29 ], [ %.sroa.0.0.copyload, %13 ], [ %.sroa.0.0.copyload62, %167 ], [ %20, %166 ], [ %147, %145 ], [ %154, %152 ], [ %.sroa.0.0.copyload56, %85 ], [ %.sroa.0.0.copyload53, %51 ], [ %21, %50 ], [ %21, %172 ], [ %21, %178 ], [ %20, %61 ], [ %20, %55 ], [ %20, %117 ], [ %21, %95 ]
-  ret ptr %.sroa.0.1186
+  %.sroa.0.1184 = phi ptr [ %20, %33 ], [ %20, %28 ], [ %.lcssa312, %._crit_edge ], [ %186, %185 ], [ %184, %183 ], [ %.sroa.0.0.copyload51, %35 ], [ %.sroa.0.0.copyload48, %29 ], [ %.sroa.0.0.copyload, %13 ], [ %.sroa.0.0.copyload62, %167 ], [ %20, %166 ], [ %147, %145 ], [ %154, %152 ], [ %.sroa.0.0.copyload56, %85 ], [ %.sroa.0.0.copyload53, %51 ], [ %21, %50 ], [ %21, %172 ], [ %21, %178 ], [ %20, %61 ], [ %20, %55 ], [ %20, %117 ], [ %21, %95 ]
+  ret ptr %.sroa.0.1184
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9876,8 +9876,8 @@ _ZNK6vectorI7aig_litLb0EjE4sizeEv.exit:           ; preds = %2, %6
   %.sroa.0.0.copyload.i.i6.i = load ptr, ptr %44, align 8, !tbaa !24
   %45 = ptrtoint ptr %.sroa.0.0.copyload.i.i6.i to i64
   %46 = and i64 %45, 1
-  %.not17.i = icmp eq i64 %46, 0
-  br i1 %.not17.i, label %47, label %57
+  %.not16.i = icmp eq i64 %46, 0
+  br i1 %.not16.i, label %47, label %57
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i6.i, i64 4
@@ -9969,8 +9969,8 @@ _ZNK6vectorI7aig_litLb0EjE4sizeEv.exit:           ; preds = %2, %6
   %.sroa.0.0.copyload.i.i6.i11 = load ptr, ptr %96, align 8, !tbaa !24
   %97 = ptrtoint ptr %.sroa.0.0.copyload.i.i6.i11 to i64
   %98 = and i64 %97, 1
-  %.not17.i12 = icmp eq i64 %98, 0
-  br i1 %.not17.i12, label %99, label %109
+  %.not16.i12 = icmp eq i64 %98, 0
+  br i1 %.not16.i12, label %99, label %109
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i6.i11, i64 4
@@ -14938,7 +14938,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   %5 = phi i32 [ %.pre, %2 ], [ %46, %41 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %41 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable27 [
+  switch i32 %6, label %default.unreachable26 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit
@@ -15019,7 +15019,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef %37, ptr noundef nonnull %33)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread
 
-default.unreachable27:                            ; preds = %4
+default.unreachable26:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i

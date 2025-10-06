@@ -266,8 +266,8 @@ switch.lookup:                                    ; preds = %14, %9, %6
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @list_iterator_create(ptr noundef %23) #19
   %25 = tail call ptr @list_next(ptr noundef %24) #19
-  %.not3344 = icmp eq ptr %25, null
-  br i1 %.not3344, label %.loopexit, label %.lr.ph
+  %.not3342 = icmp eq ptr %25, null
+  br i1 %.not3342, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %switch.lookup
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -275,7 +275,7 @@ switch.lookup:                                    ; preds = %14, %9, %6
   %switch.shifted = lshr i16 8189, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %27 = zext nneg i32 %1 to i64
-  %switch.gep59 = getelementptr inbounds nuw i64, ptr @switch.table._do_call_stack.7, i64 %27
+  %switch.gep57 = getelementptr inbounds nuw i64, ptr @switch.table._do_call_stack.7, i64 %27
   br label %28
 
 28:                                               ; preds = %.lr.ph, %50
@@ -284,20 +284,20 @@ switch.lookup:                                    ; preds = %14, %9, %6
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @xbasename(ptr noundef %31) #19
   store ptr %29, ptr %26, align 8
-  br i1 %switch.lobit, label %switch.lookup58, label %spank_plugin_get_fn.exit.thread
+  br i1 %switch.lobit, label %switch.lookup56, label %spank_plugin_get_fn.exit.thread
 
 spank_plugin_get_fn.exit.thread:                  ; preds = %28
   %33 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef range(i32 0, 13) %1) #19
   br label %50
 
-switch.lookup58:                                  ; preds = %28
-  %switch.load60 = load i64, ptr %switch.gep59, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %switch.load60
+switch.lookup56:                                  ; preds = %28
+  %switch.load58 = load i64, ptr %switch.gep57, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %switch.load58
   %.0.i36 = load ptr, ptr %34, align 8
   %.not34 = icmp eq ptr %.0.i36, null
   br i1 %.not34, label %50, label %35, !llvm.loop !8
 
-35:                                               ; preds = %switch.lookup58
+35:                                               ; preds = %switch.lookup56
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -325,7 +325,7 @@ switch.lookup58:                                  ; preds = %28
   %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %32, ptr noundef nonnull %switch.load, i32 noundef %40) #19
   br label %.loopexit
 
-50:                                               ; preds = %spank_plugin_get_fn.exit.thread, %44, %45, %switch.lookup58
+50:                                               ; preds = %spank_plugin_get_fn.exit.thread, %44, %45, %switch.lookup56
   %51 = call ptr @list_next(ptr noundef %24) #19
   %.not33 = icmp eq ptr %51, null
   br i1 %.not33, label %.loopexit, label %28
@@ -1274,8 +1274,8 @@ get_global_option_cache.exit:                     ; preds = %0
 10:                                               ; preds = %7
   %11 = tail call ptr @list_iterator_create(ptr noundef nonnull %5) #19
   %12 = tail call ptr @list_next(ptr noundef %11) #19
-  %.not31 = icmp eq ptr %12, null
-  br i1 %.not31, label %.loopexit, label %.lr.ph
+  %.not29 = icmp eq ptr %12, null
+  br i1 %.not29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %39
   %13 = phi ptr [ %40, %39 ], [ %12, %10 ]

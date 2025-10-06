@@ -1098,9 +1098,8 @@ define noundef zeroext i1 @_ZN3vfs11ChangedFile6exists17h0dd4e0428a6f18a5E(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3vfs11ChangedFile21is_created_or_deleted17h9d84305e03f95b5cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !40, !noundef !22
-  %switch.and = and i64 %2, 1
-  %switch.selectcmp = icmp eq i64 %switch.and, 0
-  ret i1 %switch.selectcmp
+  %3 = icmp ne i64 %2, 1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1752,11 +1751,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %18, %.thread,
 64:                                               ; preds = %57
   store i8 1, ptr %59, align 1
   %.pre = load ptr, ptr %.sroa.2.0..sroa_idx30, align 8, !alias.scope !366
-  %.pre48 = load ptr, ptr %3, align 8, !alias.scope !366
+  %.pre47 = load ptr, ptr %3, align 8, !alias.scope !366
   br label %65
 
 65:                                               ; preds = %57, %64
-  %66 = phi ptr [ %51, %57 ], [ %.pre48, %64 ]
+  %66 = phi ptr [ %51, %57 ], [ %.pre47, %64 ]
   %67 = phi ptr [ %49, %57 ], [ %.pre, %64 ]
   %68 = icmp eq ptr %66, %67
   br i1 %68, label %._crit_edge, label %48

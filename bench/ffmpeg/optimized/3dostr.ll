@@ -14,84 +14,84 @@ target triple = "x86_64-pc-linux-gnu"
 define internal range(i32 0, 101) i32 @threedostr_probe(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !4
-  %.not4750 = icmp sgt i32 %3, 0
-  br i1 %.not4750, label %.lr.ph, label %.thread
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !11
-  br label %6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  br label %7
 
-6:                                                ; preds = %.lr.ph, %41
-  %.03651 = phi i32 [ 0, %.lr.ph ], [ %42, %41 ]
-  %7 = sext i32 %.03651 to i64
-  %8 = getelementptr i8, ptr %5, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = load i32, ptr %9, align 1, !tbaa !12
-  %11 = tail call i32 @llvm.bswap.i32(i32 %10)
-  %12 = icmp ult i32 %11, 8
-  %13 = sub nsw i32 %3, %.03651
-  %14 = icmp ult i32 %13, %11
-  %or.cond = select i1 %12, i1 true, i1 %14
-  br i1 %or.cond, label %.thread, label %15
+7:                                                ; preds = %.lr.ph, %42
+  %.03652 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
+  %8 = sext i32 %.03652 to i64
+  %9 = getelementptr i8, ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i32, ptr %10, align 1, !tbaa !12
+  %12 = tail call i32 @llvm.bswap.i32(i32 %11)
+  %13 = icmp ult i32 %12, 8
+  %14 = sub nsw i32 %3, %.03652
+  %15 = icmp ult i32 %14, %12
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %.loopexit, label %16
 
-15:                                               ; preds = %6
-  %16 = load i32, ptr %8, align 1, !tbaa !12
-  %17 = add nsw i32 %.03651, 8
-  %18 = add i32 %11, -8
-  switch i32 %16, label %41 [
-    i32 1380206675, label %36
-    i32 1396985427, label %19
+16:                                               ; preds = %7
+  %17 = load i32, ptr %9, align 1, !tbaa !12
+  %18 = add nsw i32 %.03652, 8
+  %19 = add i32 %12, -8
+  switch i32 %17, label %42 [
+    i32 1380206675, label %37
+    i32 1396985427, label %20
   ]
 
-19:                                               ; preds = %15
-  %20 = icmp ult i32 %18, 56
-  br i1 %20, label %.thread, label %21
+20:                                               ; preds = %16
+  %21 = icmp ult i32 %19, 56
+  br i1 %21, label %.loopexit, label %22
 
-21:                                               ; preds = %19
-  %22 = getelementptr i8, ptr %8, i64 16
-  %23 = load i32, ptr %22, align 1, !tbaa !12
-  %.not = icmp eq i32 %23, 1380206675
-  br i1 %.not, label %24, label %.thread
+22:                                               ; preds = %20
+  %23 = getelementptr i8, ptr %9, i64 16
+  %24 = load i32, ptr %23, align 1, !tbaa !12
+  %.not = icmp eq i32 %24, 1380206675
+  br i1 %.not, label %25, label %.loopexit
 
-24:                                               ; preds = %21
-  %25 = getelementptr i8, ptr %8, i64 44
-  %26 = load i32, ptr %25, align 1, !tbaa !12
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread, label %28
+25:                                               ; preds = %22
+  %26 = getelementptr i8, ptr %9, i64 44
+  %27 = load i32, ptr %26, align 1, !tbaa !12
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %.loopexit, label %29
 
-28:                                               ; preds = %24
-  %29 = getelementptr i8, ptr %8, i64 48
-  %30 = load i32, ptr %29, align 1, !tbaa !12
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread, label %32
+29:                                               ; preds = %25
+  %30 = getelementptr i8, ptr %9, i64 48
+  %31 = load i32, ptr %30, align 1, !tbaa !12
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.loopexit, label %33
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %8, i64 52
-  %34 = load i32, ptr %33, align 1, !tbaa !12
-  %35 = icmp eq i32 %34, 844645459
-  %. = select i1 %35, i32 100, i32 0
-  br label %.thread
+33:                                               ; preds = %29
+  %34 = getelementptr i8, ptr %9, i64 52
+  %35 = load i32, ptr %34, align 1, !tbaa !12
+  %36 = icmp eq i32 %35, 844645459
+  %. = select i1 %36, i32 100, i32 0
+  br label %.loopexit
 
-36:                                               ; preds = %15
-  %37 = icmp ugt i32 %18, 120
-  br i1 %37, label %38, label %41
+37:                                               ; preds = %16
+  %38 = icmp ugt i32 %19, 120
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %36
-  %39 = add nsw i32 %.03651, 128
-  %40 = add i32 %11, -128
-  br label %41
+39:                                               ; preds = %37
+  %40 = add nsw i32 %.03652, 128
+  %41 = add i32 %12, -128
+  br label %42
 
-41:                                               ; preds = %38, %36, %15
-  %.238 = phi i32 [ %17, %15 ], [ %39, %38 ], [ %17, %36 ]
-  %.0 = phi i32 [ %18, %15 ], [ %40, %38 ], [ %18, %36 ]
-  %42 = add i32 %.0, %.238
-  %.not47 = icmp slt i32 %42, %3
-  br i1 %.not47, label %6, label %.thread, !llvm.loop !13
+42:                                               ; preds = %39, %37, %16
+  %.238 = phi i32 [ %18, %16 ], [ %40, %39 ], [ %18, %37 ]
+  %.0 = phi i32 [ %19, %16 ], [ %41, %39 ], [ %19, %37 ]
+  %43 = add i32 %.0, %.238
+  %44 = icmp slt i32 %43, %3
+  br i1 %44, label %7, label %.loopexit, !llvm.loop !13
 
-.thread:                                          ; preds = %41, %6, %1, %32, %28, %24, %21, %19
-  %spec.select = phi i32 [ 0, %19 ], [ 0, %21 ], [ 0, %24 ], [ 0, %28 ], [ %., %32 ], [ 0, %1 ], [ 0, %6 ], [ 0, %41 ]
-  ret i32 %spec.select
+.loopexit:                                        ; preds = %7, %42, %1, %33, %29, %25, %22, %20
+  %45 = phi i32 [ %., %33 ], [ 0, %29 ], [ 0, %25 ], [ 0, %22 ], [ 0, %20 ], [ 0, %1 ], [ 0, %42 ], [ 0, %7 ]
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind uwtable

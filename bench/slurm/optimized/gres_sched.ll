@@ -357,9 +357,9 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   %.mask.i = and i32 %106, 65535
   %107 = zext nneg i32 %.mask.i to i64
   %.not69.i = icmp ult i64 %104, %107
-  br i1 %.not69.i, label %.preheader77.i, label %109
+  br i1 %.not69.i, label %.preheader76.i, label %109
 
-.preheader77.i:                                   ; preds = %103
+.preheader76.i:                                   ; preds = %103
   %108 = trunc i32 %106 to i16
   br label %.preheader.i
 
@@ -367,27 +367,27 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   %.not72.i = icmp eq ptr %105, null
   br i1 %.not72.i, label %_gres_per_job_reduce_res_cores.exit.thread, label %.sink.split.i
 
-.preheader.i:                                     ; preds = %149, %.preheader77.i
-  %.4114 = phi i64 [ %74, %.preheader77.i ], [ %147, %149 ]
-  %.5 = phi i64 [ %.2, %.preheader77.i ], [ %.6, %149 ]
-  %.087.i = phi i16 [ %108, %.preheader77.i ], [ %.1.lcssa.i, %149 ]
-  %.04886.i = phi i64 [ %104, %.preheader77.i ], [ %150, %149 ]
-  %.05285.i = phi i32 [ %25, %.preheader77.i ], [ %.254.i, %149 ]
-  %110 = zext i16 %.087.i to i64
-  %111 = icmp ult i64 %.04886.i, %110
+.preheader.i:                                     ; preds = %149, %.preheader76.i
+  %.4114 = phi i64 [ %74, %.preheader76.i ], [ %147, %149 ]
+  %.5 = phi i64 [ %.2, %.preheader76.i ], [ %.6, %149 ]
+  %.086.i = phi i16 [ %108, %.preheader76.i ], [ %.1.lcssa.i, %149 ]
+  %.04885.i = phi i64 [ %104, %.preheader76.i ], [ %150, %149 ]
+  %.05284.i = phi i32 [ %25, %.preheader76.i ], [ %.254.i, %149 ]
+  %110 = zext i16 %.086.i to i64
+  %111 = icmp ult i64 %.04885.i, %110
   br i1 %111, label %.lr.ph.preheader.i, label %.thread.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %112 = trunc nuw i64 %.04886.i to i16
-  %113 = add i16 %.087.i, -1
+  %112 = trunc nuw i64 %.04885.i to i16
+  %113 = add i16 %.086.i, -1
   %umin = call i16 @llvm.umin.i16(i16 %113, i16 %112)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %132, %.lr.ph.preheader.i
   %.7 = phi i64 [ %.5, %.lr.ph.preheader.i ], [ %126, %132 ]
-  %.179.i = phi i16 [ %.087.i, %.lr.ph.preheader.i ], [ %120, %132 ]
-  %.15378.i = phi i32 [ %.05285.i, %.lr.ph.preheader.i ], [ %133, %132 ]
-  %114 = sext i32 %.15378.i to i64
+  %.178.i = phi i16 [ %.086.i, %.lr.ph.preheader.i ], [ %120, %132 ]
+  %.15377.i = phi i32 [ %.05284.i, %.lr.ph.preheader.i ], [ %133, %132 ]
+  %114 = sext i32 %.15377.i to i64
   %115 = call i64 @slurm_bit_fls_from_bit(ptr noundef %105, i64 noundef %114) #4
   %116 = trunc i64 %115 to i32
   %117 = icmp slt i32 %116, 0
@@ -396,7 +396,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
 118:                                              ; preds = %.lr.ph.i
   %119 = and i64 %115, 2147483647
   call void @slurm_bit_clear(ptr noundef %1, i64 noundef %119) #4
-  %120 = add i16 %.179.i, -1
+  %120 = add i16 %.178.i, -1
   %121 = udiv i32 %116, %23
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr inbounds nuw i16, ptr %96, i64 %122
@@ -421,8 +421,8 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
 
 .thread.i:                                        ; preds = %132, %.lr.ph.i, %.preheader.i
   %.6 = phi i64 [ %.5, %.preheader.i ], [ %126, %132 ], [ %.7, %.lr.ph.i ]
-  %.1.lcssa.i = phi i16 [ %.087.i, %.preheader.i ], [ %umin, %132 ], [ %.179.i, %.lr.ph.i ]
-  %.254.i = phi i32 [ %.05285.i, %.preheader.i ], [ %133, %132 ], [ %116, %.lr.ph.i ]
+  %.1.lcssa.i = phi i16 [ %.086.i, %.preheader.i ], [ %umin, %132 ], [ %.178.i, %.lr.ph.i ]
+  %.254.i = phi i32 [ %.05284.i, %.preheader.i ], [ %133, %132 ], [ %116, %.lr.ph.i ]
   %135 = mul i64 %.6, %29
   %136 = trunc i64 %135 to i32
   %137 = load i16, ptr %0, align 2

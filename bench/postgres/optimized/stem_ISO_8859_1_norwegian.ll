@@ -206,7 +206,7 @@ select.unfold.i:                                  ; preds = %70, %57
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = icmp slt i32 %78, %81
-  %.pre91.pre92 = load i32, ptr %30, align 8
+  %.pre86.pre87 = load i32, ptr %30, align 8
   br i1 %82, label %r_consonant_pair.exit.thread, label %83
 
 83:                                               ; preds = %77
@@ -214,8 +214,8 @@ select.unfold.i:                                  ; preds = %70, %57
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %78, ptr %84, align 8
   %85 = add i32 %78, -1
-  %.not.i61 = icmp sgt i32 %85, %81
-  br i1 %.not.i61, label %86, label %91
+  %.not.i59 = icmp sgt i32 %85, %81
+  br i1 %.not.i59, label %86, label %91
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %0, align 8
@@ -226,7 +226,7 @@ select.unfold.i:                                  ; preds = %70, %57
   br i1 %.not42.i, label %92, label %91
 
 91:                                               ; preds = %86, %83
-  store i32 %.pre91.pre92, ptr %30, align 8
+  store i32 %.pre86.pre87, ptr %30, align 8
   br label %r_consonant_pair.exit.thread
 
 92:                                               ; preds = %86
@@ -235,16 +235,16 @@ select.unfold.i:                                  ; preds = %70, %57
   br i1 %.not43.i, label %94, label %95
 
 94:                                               ; preds = %92
-  store i32 %.pre91.pre92, ptr %30, align 8
+  store i32 %.pre86.pre87, ptr %30, align 8
   br label %r_consonant_pair.exit.thread
 
 95:                                               ; preds = %92
   %96 = load i32, ptr %2, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %96, ptr %97, align 4
-  store i32 %.pre91.pre92, ptr %30, align 8
+  store i32 %.pre86.pre87, ptr %30, align 8
   %98 = load i32, ptr %4, align 4
-  %.not44.i = icmp sgt i32 %98, %.pre91.pre92
+  %.not44.i = icmp sgt i32 %98, %.pre86.pre87
   br i1 %.not44.i, label %99, label %r_consonant_pair.exit.thread
 
 99:                                               ; preds = %95
@@ -256,11 +256,11 @@ select.unfold.i:                                  ; preds = %70, %57
   br i1 %102, label %.r_consonant_pair.exit.thread_crit_edge, label %r_consonant_pair.exit
 
 .r_consonant_pair.exit.thread_crit_edge:          ; preds = %99
-  %.pre91.pre = load i32, ptr %30, align 8
+  %.pre86.pre = load i32, ptr %30, align 8
   br label %r_consonant_pair.exit.thread
 
 r_consonant_pair.exit.thread:                     ; preds = %.r_consonant_pair.exit.thread_crit_edge, %77, %94, %91, %95
-  %.pre91 = phi i32 [ %.pre91.pre, %.r_consonant_pair.exit.thread_crit_edge ], [ %.pre91.pre92, %77 ], [ %.pre91.pre92, %94 ], [ %.pre91.pre92, %91 ], [ %.pre91.pre92, %95 ]
+  %.pre86 = phi i32 [ %.pre86.pre, %.r_consonant_pair.exit.thread_crit_edge ], [ %.pre86.pre87, %77 ], [ %.pre86.pre87, %94 ], [ %.pre86.pre87, %91 ], [ %.pre86.pre87, %95 ]
   %103 = load i32, ptr %4, align 4
   store i32 %103, ptr %2, align 8
   %104 = load ptr, ptr %6, align 8
@@ -274,8 +274,8 @@ r_consonant_pair.exit.thread:                     ; preds = %.r_consonant_pair.e
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %103, ptr %109, align 8
   %110 = add i32 %103, -1
-  %.not.i63 = icmp sgt i32 %110, %106
-  br i1 %.not.i63, label %111, label %121
+  %.not.i61 = icmp sgt i32 %110, %106
+  br i1 %.not.i61, label %111, label %121
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %0, align 8
@@ -283,8 +283,8 @@ r_consonant_pair.exit.thread:                     ; preds = %.r_consonant_pair.e
   %114 = getelementptr inbounds i8, ptr %112, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
-  %.mask.i65 = and i32 %116, 224
-  %.not31.i = icmp eq i32 %.mask.i65, 96
+  %.mask.i63 = and i32 %116, 224
+  %.not31.i = icmp eq i32 %.mask.i63, 96
   br i1 %.not31.i, label %117, label %121
 
 117:                                              ; preds = %111
@@ -295,7 +295,7 @@ r_consonant_pair.exit.thread:                     ; preds = %.r_consonant_pair.e
   br i1 %.not32.i, label %121, label %122
 
 121:                                              ; preds = %117, %111, %108
-  store i32 %.pre91, ptr %30, align 8
+  store i32 %.pre86, ptr %30, align 8
   br label %r_other_suffix.exit.thread
 
 122:                                              ; preds = %117
@@ -304,14 +304,14 @@ r_consonant_pair.exit.thread:                     ; preds = %.r_consonant_pair.e
   br i1 %.not33.i, label %124, label %125
 
 124:                                              ; preds = %122
-  store i32 %.pre91, ptr %30, align 8
+  store i32 %.pre86, ptr %30, align 8
   br label %r_other_suffix.exit.thread
 
 125:                                              ; preds = %122
   %126 = load i32, ptr %2, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %126, ptr %127, align 4
-  store i32 %.pre91, ptr %30, align 8
+  store i32 %.pre86, ptr %30, align 8
   %128 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %.r_other_suffix.exit.thread_crit_edge, label %r_consonant_pair.exit
@@ -321,7 +321,7 @@ r_consonant_pair.exit.thread:                     ; preds = %.r_consonant_pair.e
   br label %r_other_suffix.exit.thread
 
 r_other_suffix.exit.thread:                       ; preds = %.r_other_suffix.exit.thread_crit_edge, %r_consonant_pair.exit.thread, %124, %121
-  %130 = phi i32 [ %.pre, %.r_other_suffix.exit.thread_crit_edge ], [ %.pre91, %r_consonant_pair.exit.thread ], [ %.pre91, %124 ], [ %.pre91, %121 ]
+  %130 = phi i32 [ %.pre, %.r_other_suffix.exit.thread_crit_edge ], [ %.pre86, %r_consonant_pair.exit.thread ], [ %.pre86, %124 ], [ %.pre86, %121 ]
   store i32 %130, ptr %2, align 8
   br label %r_consonant_pair.exit
 

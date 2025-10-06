@@ -4539,7 +4539,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %21, %16
 
 38:                                               ; preds = %70, %.lr.ph.i
   %39 = phi i16 [ %.pre.i, %.lr.ph.i ], [ %71, %70 ]
-  %.02646.i = phi i32 [ 0, %.lr.ph.i ], [ %58, %70 ]
+  %.02645.i = phi i32 [ 0, %.lr.ph.i ], [ %58, %70 ]
   %40 = zext i16 %39 to i32
   call fastcc void @vring_packed_desc_read(ptr noundef %4, ptr noundef %28, i32 noundef %40, i1 noundef zeroext true)
   %41 = load i16, ptr %34, align 2
@@ -4551,8 +4551,8 @@ rcu_read_auto_lock.exit.i:                        ; preds = %21, %16
   %.not.i.i = icmp eq i16 %.lobit.i.i, %.lobit6.i.i
   %45 = trunc i16 %44 to i1
   %46 = xor i1 %43, %45
-  %.not43.i = or i1 %.not.i.i, %46
-  br i1 %.not43.i, label %.thread.i, label %47
+  %.not42.i = or i1 %.not.i.i, %46
+  br i1 %.not42.i, label %.thread.i, label %47
 
 47:                                               ; preds = %38
   %48 = load i16, ptr %36, align 4
@@ -4560,13 +4560,13 @@ rcu_read_auto_lock.exit.i:                        ; preds = %21, %16
   store i32 %49, ptr %3, align 8
   store i32 1, ptr %37, align 8
   %50 = and i16 %41, 1
-  %.not.i3244.i = icmp eq i16 %50, 0
-  br i1 %.not.i3244.i, label %._crit_edge.i, label %.thread.i.i
+  %.not.i3243.i = icmp eq i16 %50, 0
+  br i1 %.not.i3243.i, label %._crit_edge.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %47, %.thread.i.i
-  %.03445.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ %40, %47 ]
+  %.03444.i = phi i32 [ %spec.select.i, %.thread.i.i ], [ %40, %47 ]
   %51 = load i32, ptr %0, align 8
-  %52 = add i32 %.03445.i, 1
+  %52 = add i32 %.03444.i, 1
   %53 = icmp eq i32 %52, %51
   %spec.select.i = select i1 %53, i32 0, i32 %52
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %4, ptr noundef nonnull %28, i32 noundef %spec.select.i, i1 noundef zeroext false)
@@ -4580,7 +4580,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %21, %16
 
 ._crit_edge.i:                                    ; preds = %.thread.i.i, %47
   call void @virtqueue_push(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0)
-  %58 = add i32 %.02646.i, 1
+  %58 = add i32 %.02645.i, 1
   %59 = load i32, ptr %37, align 8
   %60 = load i16, ptr %33, align 8
   %61 = trunc i32 %59 to i16
@@ -4607,7 +4607,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %21, %16
   br i1 %73, label %38, label %.thread.i
 
 .thread.i:                                        ; preds = %70, %38, %26, %rcu_read_auto_lock.exit.i
-  %.025.i = phi i32 [ 0, %rcu_read_auto_lock.exit.i ], [ 0, %26 ], [ %.02646.i, %38 ], [ %58, %70 ]
+  %.025.i = phi i32 [ 0, %rcu_read_auto_lock.exit.i ], [ 0, %26 ], [ %.02645.i, %38 ], [ %58, %70 ]
   %74 = call ptr @get_ptr_rcu_reader() #24
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %76 = load i32, ptr %75, align 4
@@ -9156,8 +9156,8 @@ define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_element(ptr nound
   %22 = getelementptr i8, ptr %8, i64 176
   %.val = load i64, ptr %22, align 8
   %23 = and i64 %.val, 17179869184
-  %.not194 = icmp eq i64 %23, 0
-  br i1 %.not194, label %25, label %24
+  %.not193 = icmp eq i64 %23, 0
+  br i1 %.not193, label %25, label %24
 
 24:                                               ; preds = %21
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef 4280, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.61) #24
@@ -9247,8 +9247,8 @@ rcu_read_auto_lock.exit:                          ; preds = %25, %32
   %65 = urem i32 %64, %35
   %66 = inttoptr i64 %62 to ptr
   %67 = shl nuw nsw i32 %65, 1
-  %narrow195 = add nuw nsw i32 %67, 4
-  %68 = zext nneg i32 %narrow195 to i64
+  %narrow194 = add nuw nsw i32 %67, 4
+  %68 = zext nneg i32 %narrow194 to i64
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 128
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 144
   %71 = load i64, ptr %70, align 16
@@ -9519,8 +9519,8 @@ vring_used_idx.exit:                              ; preds = %vring_used_flags.ex
   %.0.i184 = phi i16 [ 0, %vring_used_flags.exit ], [ %.val.i.i.i.i182, %183 ], [ %186, %185 ]
   %187 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i16 %.0.i184, ptr %187, align 2
-  %.not155199.not = icmp eq i32 %.0141, 0
-  br i1 %.not155199.not, label %virtqueue_split_read_next_desc.exit.thread, label %.lr.ph
+  %.not155198.not = icmp eq i32 %.0141, 0
+  br i1 %.not155198.not, label %virtqueue_split_read_next_desc.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %vring_used_idx.exit
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -9529,8 +9529,8 @@ vring_used_idx.exit:                              ; preds = %vring_used_flags.ex
   br label %191
 
 191:                                              ; preds = %.lr.ph, %virtqueue_split_read_next_desc.exit
-  %.0145201 = phi ptr [ null, %.lr.ph ], [ %192, %virtqueue_split_read_next_desc.exit ]
-  %.0148200 = phi i32 [ 0, %.lr.ph ], [ %213, %virtqueue_split_read_next_desc.exit ]
+  %.0145200 = phi ptr [ null, %.lr.ph ], [ %192, %virtqueue_split_read_next_desc.exit ]
+  %.0148199 = phi i32 [ 0, %.lr.ph ], [ %213, %virtqueue_split_read_next_desc.exit ]
   %192 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   %193 = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #23
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -9572,8 +9572,8 @@ qmp_decode_vring_desc_flags.exit:                 ; preds = %210
   %211 = load ptr, ptr %194, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   store ptr %.1.i, ptr %212, align 8
-  store ptr %.0145201, ptr %192, align 8
-  %213 = add nuw i32 %.0148200, 1
+  store ptr %.0145200, ptr %192, align 8
+  %213 = add nuw i32 %.0148199, 1
   %214 = load i16, ptr %106, align 4
   %215 = and i16 %214, 1
   %.not.i186 = icmp eq i16 %215, 0
@@ -10065,10 +10065,10 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   br label %.thread
 
 15:                                               ; preds = %.preheader, %25
-  %.03760 = phi i64 [ %6, %.preheader ], [ %29, %25 ]
-  %.03859 = phi i64 [ %7, %.preheader ], [ %28, %25 ]
-  %.14258 = phi i32 [ %10, %.preheader ], [ %30, %25 ]
-  %16 = icmp eq i32 %.14258, %4
+  %.03759 = phi i64 [ %6, %.preheader ], [ %29, %25 ]
+  %.03858 = phi i64 [ %7, %.preheader ], [ %28, %25 ]
+  %.14257 = phi i32 [ %10, %.preheader ], [ %30, %25 ]
+  %16 = icmp eq i32 %.14257, %4
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
@@ -10078,11 +10078,11 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
 18:                                               ; preds = %15
   %19 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 %.03859, ptr %9, align 8
-  %20 = call ptr @address_space_map(ptr noundef %19, i64 noundef %.03760, ptr noundef nonnull %9, i1 noundef zeroext %5, i64 4294967296) #24
+  store i64 %.03858, ptr %9, align 8
+  %20 = call ptr @address_space_map(ptr noundef %19, i64 noundef %.03759, ptr noundef nonnull %9, i1 noundef zeroext %5, i64 4294967296) #24
   %21 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %22 = zext i32 %.14258 to i64
+  %22 = zext i32 %.14257 to i64
   %23 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %22
   store ptr %20, ptr %23, align 8
   %.not48 = icmp eq ptr %20, null
@@ -10096,15 +10096,15 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %21, ptr %26, align 8
   %27 = getelementptr inbounds nuw i64, ptr %2, i64 %22
-  store i64 %.03760, ptr %27, align 8
-  %28 = sub i64 %.03859, %21
-  %29 = add i64 %21, %.03760
-  %30 = add i32 %.14258, 1
+  store i64 %.03759, ptr %27, align 8
+  %28 = sub i64 %.03858, %21
+  %29 = add i64 %21, %.03759
+  %30 = add i32 %.14257, 1
   %.not47 = icmp eq i64 %28, 0
   br i1 %.not47, label %.thread, label %15
 
 .thread:                                          ; preds = %25, %24, %17, %14
-  %.041 = phi i32 [ %10, %14 ], [ %4, %17 ], [ %.14258, %24 ], [ %30, %25 ]
+  %.041 = phi i32 [ %10, %14 ], [ %4, %17 ], [ %.14257, %24 ], [ %30, %25 ]
   %.040 = phi i1 [ false, %14 ], [ false, %17 ], [ false, %24 ], [ true, %25 ]
   store i32 %.041, ptr %1, align 4
   ret i1 %.040

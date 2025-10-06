@@ -162,29 +162,29 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc, %39
 
 50:                                               ; preds = %50, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %indvars.iv.next.i, %50 ]
-  %.0225311.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1226.i, %50 ]
-  %.0227310.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1228.i, %50 ]
-  %.0229309.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1230.i, %50 ]
-  %.0231308.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1232.i, %50 ]
-  %.0238307.i = phi float [ %.sroa.0102.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1239.i, %50 ]
-  %.0240306.i = phi float [ %.sroa.0102.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1241.i, %50 ]
-  %.0242305.i = phi float [ %.sroa.11.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1243.i, %50 ]
-  %.0245304.i = phi float [ %.sroa.11.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1246.i, %50 ]
-  %.sroa.11.0303.i = phi float [ %.sroa.11.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.sroa.5.0.copyload.i, %50 ]
-  %.sroa.0102.0302.i = phi float [ %.sroa.0102.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.sroa.0.0.copyload.i, %50 ]
-  %51 = fcmp olt float %.sroa.0102.0302.i, %.0238307.i
-  %.1239.i = select i1 %51, float %.sroa.0102.0302.i, float %.0238307.i
+  %.0225310.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1226.i, %50 ]
+  %.0227309.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1228.i, %50 ]
+  %.0229308.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1230.i, %50 ]
+  %.0231307.i = phi i32 [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1232.i, %50 ]
+  %.0238306.i = phi float [ %.sroa.0102.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1239.i, %50 ]
+  %.0240305.i = phi float [ %.sroa.0102.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1241.i, %50 ]
+  %.0242304.i = phi float [ %.sroa.11.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1243.i, %50 ]
+  %.0245303.i = phi float [ %.sroa.11.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.1246.i, %50 ]
+  %.sroa.11.0302.i = phi float [ %.sroa.11.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.sroa.5.0.copyload.i, %50 ]
+  %.sroa.0102.0301.i = phi float [ %.sroa.0102.0.copyload.i, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.sroa.0.0.copyload.i, %50 ]
+  %51 = fcmp olt float %.sroa.0102.0301.i, %.0238306.i
+  %.1239.i = select i1 %51, float %.sroa.0102.0301.i, float %.0238306.i
   %52 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.1226.i = select i1 %51, i32 %52, i32 %.0225311.i
-  %53 = fcmp ogt float %.sroa.0102.0302.i, %.0240306.i
-  %.1241.i = select i1 %53, float %.sroa.0102.0302.i, float %.0240306.i
-  %.1230.i = select i1 %53, i32 %52, i32 %.0229309.i
-  %54 = fcmp ogt float %.sroa.11.0303.i, %.0242305.i
-  %.1243.i = select i1 %54, float %.sroa.11.0303.i, float %.0242305.i
-  %.1232.i = select i1 %54, i32 %52, i32 %.0231308.i
-  %55 = fcmp olt float %.sroa.11.0303.i, %.0245304.i
-  %.1246.i = select i1 %55, float %.sroa.11.0303.i, float %.0245304.i
-  %.1228.i = select i1 %55, i32 %52, i32 %.0227310.i
+  %.1226.i = select i1 %51, i32 %52, i32 %.0225310.i
+  %53 = fcmp ogt float %.sroa.0102.0301.i, %.0240305.i
+  %.1241.i = select i1 %53, float %.sroa.0102.0301.i, float %.0240305.i
+  %.1230.i = select i1 %53, i32 %52, i32 %.0229308.i
+  %54 = fcmp ogt float %.sroa.11.0302.i, %.0242304.i
+  %.1243.i = select i1 %54, float %.sroa.11.0302.i, float %.0242304.i
+  %.1232.i = select i1 %54, i32 %52, i32 %.0231307.i
+  %55 = fcmp olt float %.sroa.11.0302.i, %.0245303.i
+  %.1246.i = select i1 %55, float %.sroa.11.0302.i, float %.0245303.i
+  %.1228.i = select i1 %55, i32 %52, i32 %.0227309.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = icmp samesign ult i64 %indvars.iv.next.i, %48
   %57 = and i64 %indvars.iv.next.i, 4294967295
@@ -193,9 +193,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc, %39
   %.sroa.0.0.copyload.i = load float, ptr %59, align 4, !tbaa !26
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 4
   %.sroa.5.0.copyload.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !26
-  %60 = fsub float %.sroa.0.0.copyload.i, %.sroa.0102.0302.i
+  %60 = fsub float %.sroa.0.0.copyload.i, %.sroa.0102.0301.i
   %61 = fpext float %60 to double
-  %62 = fsub float %.sroa.5.0.copyload.i, %.sroa.11.0303.i
+  %62 = fsub float %.sroa.5.0.copyload.i, %.sroa.11.0302.i
   %63 = fpext float %62 to double
   %64 = getelementptr inbounds nuw %"class.cv::Point_", ptr %49, i64 %indvars.iv.i
   store float %60, ptr %64, align 4, !tbaa !28
@@ -222,23 +222,23 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc, %39
   br label %80
 
 79:                                               ; preds = %80
-  %indvars.iv.next328.i = add nuw nsw i64 %indvars.iv327.i, 1
-  %exitcond331.not.i = icmp eq i64 %indvars.iv.next328.i, %48
-  br i1 %exitcond331.not.i, label %91, label %80, !llvm.loop !33
+  %indvars.iv.next327.i = add nuw nsw i64 %indvars.iv326.i, 1
+  %exitcond330.not.i = icmp eq i64 %indvars.iv.next327.i, %48
+  br i1 %exitcond330.not.i, label %91, label %80, !llvm.loop !33
 
 80:                                               ; preds = %79, %71
-  %indvars.iv327.i = phi i64 [ 0, %71 ], [ %indvars.iv.next328.i, %79 ]
-  %.0247314.i = phi double [ %75, %71 ], [ %83, %79 ]
-  %.0249313.i = phi double [ %78, %71 ], [ %86, %79 ]
-  %81 = getelementptr inbounds nuw %"class.cv::Point_", ptr %49, i64 %indvars.iv327.i
+  %indvars.iv326.i = phi i64 [ 0, %71 ], [ %indvars.iv.next327.i, %79 ]
+  %.0247313.i = phi double [ %75, %71 ], [ %83, %79 ]
+  %.0249312.i = phi double [ %78, %71 ], [ %86, %79 ]
+  %81 = getelementptr inbounds nuw %"class.cv::Point_", ptr %49, i64 %indvars.iv326.i
   %82 = load float, ptr %81, align 4, !tbaa !28
   %83 = fpext float %82 to double
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = load float, ptr %84, align 4, !tbaa !30
   %86 = fpext float %85 to double
   %87 = fneg double %83
-  %88 = fmul double %.0249313.i, %87
-  %89 = call double @llvm.fmuladd.f64(double %.0247314.i, double %86, double %88)
+  %88 = fmul double %.0249312.i, %87
+  %89 = call double @llvm.fmuladd.f64(double %.0247313.i, double %86, double %88)
   %90 = fcmp une double %89, 0.000000e+00
   br i1 %90, label %101, label %79
 
@@ -299,14 +299,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %96,
   %113 = phi i32 [ %.1232.i, %101 ], [ %196, %216 ]
   %114 = phi i32 [ %.1230.i, %101 ], [ %180, %216 ]
   %115 = phi i32 [ %.1228.i, %101 ], [ %200, %216 ]
-  %.0325.i = phi float [ 0x47EFFFFFE0000000, %101 ], [ %.2.i, %216 ]
-  %.0217324.i = phi i32 [ 0, %101 ], [ %217, %216 ]
-  %.sroa.0.0323.i = phi i32 [ 0, %101 ], [ %.sroa.0.2.i, %216 ]
-  %.sroa.19.0322.i = phi i32 [ 0, %101 ], [ %.sroa.19.2.i, %216 ]
-  %.sroa.16.0321.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.16.2.i, %216 ]
-  %.sroa.13.0320.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.13.2.i, %216 ]
-  %.sroa.10.0319.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.10.2.i, %216 ]
-  %.sroa.7.0318.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.7.2.i, %216 ]
+  %.0324.i = phi float [ 0x47EFFFFFE0000000, %101 ], [ %.2.i, %216 ]
+  %.0217323.i = phi i32 [ 0, %101 ], [ %217, %216 ]
+  %.sroa.0.0322.i = phi i32 [ 0, %101 ], [ %.sroa.0.2.i, %216 ]
+  %.sroa.19.0321.i = phi i32 [ 0, %101 ], [ %.sroa.19.2.i, %216 ]
+  %.sroa.16.0320.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.16.2.i, %216 ]
+  %.sroa.13.0319.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.13.2.i, %216 ]
+  %.sroa.10.0318.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.10.2.i, %216 ]
+  %.sroa.7.0317.i = phi float [ 0.000000e+00, %101 ], [ %.sroa.7.2.i, %216 ]
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds %"class.cv::Point_", ptr %49, i64 %116
   %118 = load i64, ptr %117, align 4
@@ -339,10 +339,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %96,
   br label %136
 
 136:                                              ; preds = %136, %111
-  %indvars.iv332.i = phi i64 [ 1, %111 ], [ %indvars.iv.next333.i, %136 ]
-  %.0252316.i = phi i32 [ 0, %111 ], [ %spec.select.i, %136 ]
-  %137 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %indvars.iv332.i
-  %138 = zext nneg i32 %.0252316.i to i64
+  %indvars.iv331.i = phi i64 [ 1, %111 ], [ %indvars.iv.next332.i, %136 ]
+  %.0252315.i = phi i32 [ 0, %111 ], [ %spec.select.i, %136 ]
+  %137 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %indvars.iv331.i
+  %138 = zext nneg i32 %.0252315.i to i64
   %139 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %138
   %.val276.i = load float, ptr %137, align 8, !tbaa !28
   %140 = getelementptr i8, ptr %137, i64 4
@@ -354,11 +354,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %96,
   %143 = fmul float %.val279.i, %142
   %144 = call float @llvm.fmuladd.f32(float %.val277.i, float %.val278.i, float %143)
   %145 = fcmp olt float %144, 0.000000e+00
-  %146 = trunc nuw nsw i64 %indvars.iv332.i to i32
-  %spec.select.i = select i1 %145, i32 %146, i32 %.0252316.i
-  %indvars.iv.next333.i = add nuw nsw i64 %indvars.iv332.i, 1
-  %exitcond335.not.i = icmp eq i64 %indvars.iv.next333.i, 4
-  br i1 %exitcond335.not.i, label %147, label %136, !llvm.loop !38
+  %146 = trunc nuw nsw i64 %indvars.iv331.i to i32
+  %spec.select.i = select i1 %145, i32 %146, i32 %.0252315.i
+  %indvars.iv.next332.i = add nuw nsw i64 %indvars.iv331.i, 1
+  %exitcond334.not.i = icmp eq i64 %indvars.iv.next332.i, 4
+  br i1 %exitcond334.not.i, label %147, label %136, !llvm.loop !38
 
 147:                                              ; preds = %136
   %148 = zext nneg i32 %spec.select.i to i64
@@ -470,23 +470,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282.i: ; preds = %
   %211 = fmul float %.0236.i, %209
   %212 = call float @llvm.fmuladd.f32(float %210, float %.0237.i, float %211)
   %213 = fmul float %195, %212
-  %214 = fcmp ugt float %213, %.0325.i
+  %214 = fcmp ugt float %213, %.0324.i
   br i1 %214, label %216, label %215
 
 215:                                              ; preds = %177
   br label %216
 
 216:                                              ; preds = %215, %177
-  %.sroa.7.2.i = phi float [ %.0236.i, %215 ], [ %.sroa.7.0318.i, %177 ]
-  %.sroa.10.2.i = phi float [ %195, %215 ], [ %.sroa.10.0319.i, %177 ]
-  %.sroa.13.2.i = phi float [ %.0237.i, %215 ], [ %.sroa.13.0320.i, %177 ]
-  %.sroa.16.2.i = phi float [ %212, %215 ], [ %.sroa.16.0321.i, %177 ]
-  %.sroa.19.2.i = phi i32 [ %200, %215 ], [ %.sroa.19.0322.i, %177 ]
-  %.sroa.0.2.i = phi i32 [ %184, %215 ], [ %.sroa.0.0323.i, %177 ]
-  %.2.i = phi float [ %213, %215 ], [ %.0325.i, %177 ]
-  %217 = add nuw nsw i32 %.0217324.i, 1
-  %exitcond336.not.i = icmp eq i32 %217, %34
-  br i1 %exitcond336.not.i, label %218, label %111, !llvm.loop !39
+  %.sroa.7.2.i = phi float [ %.0236.i, %215 ], [ %.sroa.7.0317.i, %177 ]
+  %.sroa.10.2.i = phi float [ %195, %215 ], [ %.sroa.10.0318.i, %177 ]
+  %.sroa.13.2.i = phi float [ %.0237.i, %215 ], [ %.sroa.13.0319.i, %177 ]
+  %.sroa.16.2.i = phi float [ %212, %215 ], [ %.sroa.16.0320.i, %177 ]
+  %.sroa.19.2.i = phi i32 [ %200, %215 ], [ %.sroa.19.0321.i, %177 ]
+  %.sroa.0.2.i = phi i32 [ %184, %215 ], [ %.sroa.0.0322.i, %177 ]
+  %.2.i = phi float [ %213, %215 ], [ %.0324.i, %177 ]
+  %217 = add nuw nsw i32 %.0217323.i, 1
+  %exitcond335.not.i = icmp eq i32 %217, %34
+  br i1 %exitcond335.not.i, label %218, label %111, !llvm.loop !39
 
 218:                                              ; preds = %216
   %219 = fneg float %.sroa.13.2.i

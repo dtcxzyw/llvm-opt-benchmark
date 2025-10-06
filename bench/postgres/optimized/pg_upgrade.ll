@@ -632,26 +632,26 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
 .loopexit.i:                                      ; preds = %264, %255
   %265 = phi i32 [ %.pre.i, %255 ], [ %247, %264 ]
   %266 = icmp sgt i32 %265, 0
-  br i1 %266, label %.lr.ph33.preheader.i, label %.preheader.i6.preheader
+  br i1 %266, label %.lr.ph31.preheader.i, label %.preheader.i6.preheader
 
-.lr.ph33.preheader.i:                             ; preds = %.loopexit.i
-  %.pre42.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  br label %.lr.ph33.i
+.lr.ph31.preheader.i:                             ; preds = %.loopexit.i
+  %.pre40.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
+  br label %.lr.ph31.i
 
-.lr.ph33.i:                                       ; preds = %291, %.lr.ph33.preheader.i
-  %267 = phi i32 [ %265, %.lr.ph33.preheader.i ], [ %292, %291 ]
-  %268 = phi ptr [ %.pre42.i, %.lr.ph33.preheader.i ], [ %293, %291 ]
-  %indvars.iv38.i = phi i64 [ 0, %.lr.ph33.preheader.i ], [ %indvars.iv.next39.i, %291 ]
+.lr.ph31.i:                                       ; preds = %291, %.lr.ph31.preheader.i
+  %267 = phi i32 [ %265, %.lr.ph31.preheader.i ], [ %292, %291 ]
+  %268 = phi ptr [ %.pre40.i, %.lr.ph31.preheader.i ], [ %293, %291 ]
+  %indvars.iv36.i = phi i64 [ 0, %.lr.ph31.preheader.i ], [ %indvars.iv.next37.i, %291 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %269 = getelementptr inbounds nuw %struct.DbInfo, ptr %268, i64 %indvars.iv38.i
+  %269 = getelementptr inbounds nuw %struct.DbInfo, ptr %268, i64 %indvars.iv36.i
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load ptr, ptr %270, align 8
   %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(10) @.str.28) #11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %291, label %274
 
-274:                                              ; preds = %.lr.ph33.i
+274:                                              ; preds = %.lr.ph31.i
   call void (i32, ptr, ...) @pg_log(i32 noundef 1, ptr noundef nonnull @.str.56, ptr noundef nonnull %271) #9
   %275 = load i32, ptr %269, align 8
   %276 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.57, i32 noundef %275) #9
@@ -676,19 +676,19 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   %289 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #9
   %290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 32), align 8
   call void (ptr, ptr, ptr, ...) @parallel_exec_prog(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull @.str.63, ptr noundef %288, ptr noundef %289, ptr noundef nonnull %.str.59..str.62.i, i32 noundef %.0.i9, ptr noundef %290, ptr noundef nonnull %5) #9
-  %.pre41.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  %.pre43.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
+  %.pre39.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
+  %.pre41.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   br label %291
 
-291:                                              ; preds = %287, %.lr.ph33.i
-  %292 = phi i32 [ %267, %.lr.ph33.i ], [ %.pre43.i, %287 ]
-  %293 = phi ptr [ %268, %.lr.ph33.i ], [ %.pre41.i, %287 ]
+291:                                              ; preds = %287, %.lr.ph31.i
+  %292 = phi i32 [ %267, %.lr.ph31.i ], [ %.pre41.i, %287 ]
+  %293 = phi ptr [ %268, %.lr.ph31.i ], [ %.pre39.i, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
+  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %294 = sext i32 %292 to i64
-  %295 = icmp slt i64 %indvars.iv.next39.i, %294
-  br i1 %295, label %.lr.ph33.i, label %.preheader.i6.preheader, !llvm.loop !9
+  %295 = icmp slt i64 %indvars.iv.next37.i, %294
+  br i1 %295, label %.lr.ph31.i, label %.preheader.i6.preheader, !llvm.loop !9
 
 .preheader.i6.preheader:                          ; preds = %291, %.loopexit.i, %copy_xact_xlog_xid.exit
   br label %.preheader.i6
@@ -738,23 +738,23 @@ create_new_objects.exit:                          ; preds = %297, %300
   call void (ptr, ...) @prep_status_progress(ptr noundef nonnull @.str.84) #9
   %314 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %315 = icmp sgt i32 %314, 0
-  br i1 %315, label %.lr.ph31.preheader.i, label %create_logical_replication_slots.exit
+  br i1 %315, label %.lr.ph31.preheader.i10, label %create_logical_replication_slots.exit
 
-.lr.ph31.preheader.i:                             ; preds = %312
+.lr.ph31.preheader.i10:                           ; preds = %312
   %.pre37.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  br label %.lr.ph31.i
+  br label %.lr.ph31.i11
 
-.lr.ph31.i:                                       ; preds = %350, %.lr.ph31.preheader.i
-  %316 = phi i32 [ %314, %.lr.ph31.preheader.i ], [ %351, %350 ]
-  %317 = phi ptr [ %.pre37.i, %.lr.ph31.preheader.i ], [ %352, %350 ]
-  %indvars.iv34.i = phi i64 [ 0, %.lr.ph31.preheader.i ], [ %indvars.iv.next35.i, %350 ]
+.lr.ph31.i11:                                     ; preds = %350, %.lr.ph31.preheader.i10
+  %316 = phi i32 [ %314, %.lr.ph31.preheader.i10 ], [ %351, %350 ]
+  %317 = phi ptr [ %.pre37.i, %.lr.ph31.preheader.i10 ], [ %352, %350 ]
+  %indvars.iv34.i = phi i64 [ 0, %.lr.ph31.preheader.i10 ], [ %indvars.iv.next35.i, %350 ]
   %318 = getelementptr inbounds nuw %struct.DbInfo, ptr %317, i64 %indvars.iv34.i
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 1056
   %320 = load i32, ptr %319, align 8
   %321 = icmp eq i32 %320, 0
   br i1 %321, label %350, label %322
 
-322:                                              ; preds = %.lr.ph31.i
+322:                                              ; preds = %.lr.ph31.i11
   %323 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %324 = load ptr, ptr %323, align 8
   %325 = call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef %324) #9
@@ -763,23 +763,23 @@ create_new_objects.exit:                          ; preds = %297, %300
   call void (i32, ptr, ...) @pg_log(i32 noundef 1, ptr noundef nonnull @.str.56, ptr noundef %327) #9
   %328 = load i32, ptr %319, align 8
   %329 = icmp sgt i32 %328, 0
-  br i1 %329, label %.lr.ph.i11, label %._crit_edge.i
+  br i1 %329, label %.lr.ph.i13, label %._crit_edge.i
 
-.lr.ph.i11:                                       ; preds = %322
+.lr.ph.i13:                                       ; preds = %322
   %330 = getelementptr inbounds nuw i8, ptr %318, i64 1064
   br label %331
 
 ._crit_edge.i:                                    ; preds = %331, %322
   call void @PQfinish(ptr noundef %325) #9
   call void @destroyPQExpBuffer(ptr noundef %326) #9
-  %.pre.i10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
+  %.pre.i12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   %.pre38.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   br label %350
 
-331:                                              ; preds = %331, %.lr.ph.i11
-  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %331 ]
+331:                                              ; preds = %331, %.lr.ph.i13
+  %indvars.iv.i14 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i15, %331 ]
   %332 = load ptr, ptr %330, align 8
-  %333 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %332, i64 %indvars.iv.i12
+  %333 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %332, i64 %indvars.iv.i14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %326, ptr noundef nonnull @.str.85) #9
   %334 = load ptr, ptr %333, align 8
   call void @appendStringLiteralConn(ptr noundef %326, ptr noundef %334, ptr noundef %325) #9
@@ -800,19 +800,19 @@ create_new_objects.exit:                          ; preds = %297, %300
   %346 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %325, ptr noundef nonnull @.str.56, ptr noundef %345) #9
   call void @PQclear(ptr noundef %346) #9
   call void @resetPQExpBuffer(ptr noundef nonnull %326) #9
-  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
+  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %347 = load i32, ptr %319, align 8
   %348 = sext i32 %347 to i64
-  %349 = icmp slt i64 %indvars.iv.next.i13, %348
+  %349 = icmp slt i64 %indvars.iv.next.i15, %348
   br i1 %349, label %331, label %._crit_edge.i, !llvm.loop !11
 
-350:                                              ; preds = %._crit_edge.i, %.lr.ph31.i
-  %351 = phi i32 [ %316, %.lr.ph31.i ], [ %.pre38.i, %._crit_edge.i ]
-  %352 = phi ptr [ %317, %.lr.ph31.i ], [ %.pre.i10, %._crit_edge.i ]
+350:                                              ; preds = %._crit_edge.i, %.lr.ph31.i11
+  %351 = phi i32 [ %316, %.lr.ph31.i11 ], [ %.pre38.i, %._crit_edge.i ]
+  %352 = phi ptr [ %317, %.lr.ph31.i11 ], [ %.pre.i12, %._crit_edge.i ]
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %353 = sext i32 %351 to i64
   %354 = icmp slt i64 %indvars.iv.next35.i, %353
-  br i1 %354, label %.lr.ph31.i, label %create_logical_replication_slots.exit, !llvm.loop !12
+  br i1 %354, label %.lr.ph31.i11, label %create_logical_replication_slots.exit, !llvm.loop !12
 
 create_logical_replication_slots.exit:            ; preds = %350, %312
   call void @end_progress_output() #9

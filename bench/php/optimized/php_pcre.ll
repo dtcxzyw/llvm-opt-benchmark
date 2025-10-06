@@ -1095,8 +1095,8 @@ define dso_local ptr @pcre_get_compiled_regex(ptr noundef %0, ptr noundef writeo
 define dso_local ptr @php_pcre_create_match_data(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4, !tbaa !51
-  %.b9 = load i1, ptr @mdata_used, align 1
-  br i1 %.b9, label %.thread, label %4, !prof !47
+  %.b8 = load i1, ptr @mdata_used, align 1
+  br i1 %.b8, label %.thread, label %4, !prof !47
 
 4:                                                ; preds = %2
   %.not = icmp eq i32 %0, 0
@@ -4709,8 +4709,8 @@ define internal fastcc i64 @php_preg_replace_func_impl(ptr noundef writeonly cap
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !107
-  %.not7892 = icmp eq i32 %30, 0
-  br i1 %.not7892, label %zend_tmp_string_release.exit, label %.lr.ph
+  %.not7890 = icmp eq i32 %30, 0
+  br i1 %.not7890, label %zend_tmp_string_release.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4719,35 +4719,35 @@ define internal fastcc i64 @php_preg_replace_func_impl(ptr noundef writeonly cap
   br label %34
 
 34:                                               ; preds = %.lr.ph, %75
-  %.06696 = phi ptr [ null, %.lr.ph ], [ %.1, %75 ]
-  %.06995 = phi i32 [ 0, %.lr.ph ], [ %.170, %75 ]
-  %.07194 = phi ptr [ %32, %.lr.ph ], [ %.172, %75 ]
-  %.07393 = phi i32 [ %30, %.lr.ph ], [ %76, %75 ]
+  %.06694 = phi ptr [ null, %.lr.ph ], [ %.1, %75 ]
+  %.06993 = phi i32 [ 0, %.lr.ph ], [ %.170, %75 ]
+  %.07192 = phi ptr [ %32, %.lr.ph ], [ %.172, %75 ]
+  %.07391 = phi i32 [ %30, %.lr.ph ], [ %76, %75 ]
   %35 = load i32, ptr %28, align 8, !tbaa !11
   %36 = and i32 %35, 4
   %.not79 = icmp eq i32 %36, 0
   br i1 %.not79, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %.07194, i64 16
-  %39 = zext i32 %.06995 to i64
-  %40 = add i32 %.06995, 1
+  %38 = getelementptr inbounds nuw i8, ptr %.07192, i64 16
+  %39 = zext i32 %.06993 to i64
+  %40 = add i32 %.06993, 1
   br label %47
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %.07194, i64 32
-  %43 = getelementptr inbounds nuw i8, ptr %.07194, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.07192, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.07192, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !108
-  %45 = getelementptr inbounds nuw i8, ptr %.07194, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.07192, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !110
   br label %47
 
 47:                                               ; preds = %41, %37
   %.172 = phi ptr [ %38, %37 ], [ %42, %41 ]
-  %.170 = phi i32 [ %40, %37 ], [ %.06995, %41 ]
-  %.1 = phi ptr [ %.06696, %37 ], [ %46, %41 ]
+  %.170 = phi i32 [ %40, %37 ], [ %.06993, %41 ]
+  %.1 = phi ptr [ %.06694, %37 ], [ %46, %41 ]
   %.0 = phi i64 [ %39, %37 ], [ %44, %41 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.07194, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.07192, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !11
   switch i8 %49, label %zval_try_get_tmp_string.exit [
     i8 0, label %75
@@ -4755,11 +4755,11 @@ define internal fastcc i64 @php_preg_replace_func_impl(ptr noundef writeonly cap
   ], !prof !117
 
 zval_try_get_tmp_string.exit.thread:              ; preds = %47
-  %50 = load ptr, ptr %.07194, align 8, !tbaa !11, !nonnull !45, !noundef !45
+  %50 = load ptr, ptr %.07192, align 8, !tbaa !11, !nonnull !45, !noundef !45
   br label %53
 
 zval_try_get_tmp_string.exit:                     ; preds = %47
-  %51 = call ptr @zval_try_get_string_func(ptr noundef nonnull %.07194) #24
+  %51 = call ptr @zval_try_get_string_func(ptr noundef nonnull %.07192) #24
   %52 = icmp eq ptr %51, null
   br i1 %52, label %zend_tmp_string_release.exit, label %53, !prof !100
 
@@ -4814,7 +4814,7 @@ zval_try_get_tmp_string.exit:                     ; preds = %47
   br label %75
 
 75:                                               ; preds = %47, %65, %69, %74, %64
-  %76 = add i32 %.07393, -1
+  %76 = add i32 %.07391, -1
   %.not78 = icmp eq i32 %76, 0
   br i1 %.not78, label %zend_tmp_string_release.exit, label %34
 
@@ -5440,17 +5440,16 @@ define dso_local void @php_pcre_split_impl(ptr noundef readonly captures(none) %
   %21 = load i32, ptr %20, align 8, !tbaa !65
   %22 = add i32 %21, 1
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
-  switch i64 %3, label %23 [
-    i64 -1, label %25
-    i64 0, label %25
-  ]
+  %.off = add i64 %3, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %23, label %25
 
 23:                                               ; preds = %5
   %24 = icmp slt i64 %3, 2
   br i1 %24, label %249, label %25
 
-25:                                               ; preds = %5, %5, %23
-  %.0 = phi i64 [ -1, %5 ], [ %3, %23 ], [ -1, %5 ]
+25:                                               ; preds = %5, %23
+  %.0 = phi i64 [ %3, %23 ], [ -1, %5 ]
   %.b269 = load i1, ptr @mdata_used, align 1
   %26 = icmp ugt i32 %22, 32
   %or.cond.not = select i1 %.b269, i1 true, i1 %26
@@ -6445,10 +6444,10 @@ define dso_local void @php_pcre_grep_impl(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 775, ptr %9, align 8, !tbaa !11
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
-  %.b155 = load i1, ptr @mdata_used, align 1
+  %.b153 = load i1, ptr @mdata_used, align 1
   %10 = add i32 %7, -32
   %11 = icmp ult i32 %10, -33
-  %or.cond.not = select i1 %.b155, i1 true, i1 %11
+  %or.cond.not = select i1 %.b153, i1 true, i1 %11
   br i1 %or.cond.not, label %14, label %12
 
 12:                                               ; preds = %4
@@ -6477,8 +6476,8 @@ define dso_local void @php_pcre_grep_impl(ptr noundef readonly captures(none) %0
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !107
-  %.not91117 = icmp eq i32 %28, 0
-  br i1 %.not91117, label %zend_tmp_string_release.exit, label %.lr.ph
+  %.not91115 = icmp eq i32 %28, 0
+  br i1 %.not91115, label %zend_tmp_string_release.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -6488,35 +6487,35 @@ define dso_local void @php_pcre_grep_impl(ptr noundef readonly captures(none) %0
   br label %33
 
 33:                                               ; preds = %.lr.ph, %120
-  %.080121 = phi ptr [ null, %.lr.ph ], [ %.181, %120 ]
-  %.082120 = phi i32 [ %28, %.lr.ph ], [ %121, %120 ]
-  %.083119 = phi ptr [ %30, %.lr.ph ], [ %.184, %120 ]
-  %.085118 = phi i32 [ 0, %.lr.ph ], [ %.186, %120 ]
+  %.080119 = phi ptr [ null, %.lr.ph ], [ %.181, %120 ]
+  %.082118 = phi i32 [ %28, %.lr.ph ], [ %121, %120 ]
+  %.083117 = phi ptr [ %30, %.lr.ph ], [ %.184, %120 ]
+  %.085116 = phi i32 [ 0, %.lr.ph ], [ %.186, %120 ]
   %34 = load i32, ptr %26, align 8, !tbaa !11
   %35 = and i32 %34, 4
   %.not92 = icmp eq i32 %35, 0
   br i1 %.not92, label %40, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %.083119, i64 16
-  %38 = zext i32 %.085118 to i64
-  %39 = add i32 %.085118, 1
+  %37 = getelementptr inbounds nuw i8, ptr %.083117, i64 16
+  %38 = zext i32 %.085116 to i64
+  %39 = add i32 %.085116, 1
   br label %46
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %.083119, i64 32
-  %42 = getelementptr inbounds nuw i8, ptr %.083119, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.083117, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.083117, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !108
-  %44 = getelementptr inbounds nuw i8, ptr %.083119, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.083117, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !110
   br label %46
 
 46:                                               ; preds = %40, %36
-  %.186 = phi i32 [ %39, %36 ], [ %.085118, %40 ]
+  %.186 = phi i32 [ %39, %36 ], [ %.085116, %40 ]
   %.184 = phi ptr [ %37, %36 ], [ %41, %40 ]
-  %.181 = phi ptr [ %.080121, %36 ], [ %45, %40 ]
+  %.181 = phi ptr [ %.080119, %36 ], [ %45, %40 ]
   %.079 = phi i64 [ %38, %36 ], [ %43, %40 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.083119, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.083117, i64 8
   %48 = load i8, ptr %47, align 8, !tbaa !11
   switch i8 %48, label %51 [
     i8 0, label %120
@@ -6524,11 +6523,11 @@ define dso_local void @php_pcre_grep_impl(ptr noundef readonly captures(none) %0
   ], !prof !117
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr %.083119, align 8, !tbaa !11
+  %50 = load ptr, ptr %.083117, align 8, !tbaa !11
   br label %zval_get_tmp_string.exit
 
 51:                                               ; preds = %46
-  %52 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.083119) #24
+  %52 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.083117) #24
   br label %zval_get_tmp_string.exit
 
 zval_get_tmp_string.exit:                         ; preds = %49, %51
@@ -6570,13 +6569,13 @@ zval_get_tmp_string.exit:                         ; preds = %49, %51
   br i1 %.not88, label %71, label %109
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds nuw i8, ptr %.083119, i64 9
+  %72 = getelementptr inbounds nuw i8, ptr %.083117, i64 9
   %73 = load i8, ptr %72, align 1, !tbaa !11
   %.not95 = icmp eq i8 %73, 0
   br i1 %.not95, label %78, label %74
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr %.083119, align 8, !tbaa !11
+  %75 = load ptr, ptr %.083117, align 8, !tbaa !11
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4, !tbaa !12
@@ -6587,11 +6586,11 @@ zval_get_tmp_string.exit:                         ; preds = %49, %51
   br i1 %.not96, label %81, label %79
 
 79:                                               ; preds = %78
-  %80 = tail call ptr @zend_hash_update(ptr noundef %8, ptr noundef nonnull %.181, ptr noundef nonnull %.083119) #24
+  %80 = tail call ptr @zend_hash_update(ptr noundef %8, ptr noundef nonnull %.181, ptr noundef nonnull %.083117) #24
   br label %109
 
 81:                                               ; preds = %78
-  %82 = tail call ptr @zend_hash_index_update(ptr noundef %8, i64 noundef %.079, ptr noundef nonnull %.083119) #24
+  %82 = tail call ptr @zend_hash_index_update(ptr noundef %8, i64 noundef %.079, ptr noundef nonnull %.083117) #24
   br label %109
 
 83:                                               ; preds = %65
@@ -6599,21 +6598,21 @@ zval_get_tmp_string.exit:                         ; preds = %49, %51
     i32 -1, label %84
     i32 -47, label %pcre_handle_exec_error.exit.loopexit
     i32 -53, label %pcre_handle_exec_error.exit
-    i32 -36, label %pcre_handle_exec_error.exit.loopexit135
-    i32 -46, label %pcre_handle_exec_error.exit.loopexit145
+    i32 -36, label %pcre_handle_exec_error.exit.loopexit133
+    i32 -46, label %pcre_handle_exec_error.exit.loopexit143
   ]
 
 84:                                               ; preds = %83
   br i1 %.not88, label %109, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %.083119, i64 9
+  %86 = getelementptr inbounds nuw i8, ptr %.083117, i64 9
   %87 = load i8, ptr %86, align 1, !tbaa !11
   %.not93 = icmp eq i8 %87, 0
   br i1 %.not93, label %92, label %88
 
 88:                                               ; preds = %85
-  %89 = load ptr, ptr %.083119, align 8, !tbaa !11
+  %89 = load ptr, ptr %.083117, align 8, !tbaa !11
   %90 = load i32, ptr %89, align 4, !tbaa !12
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4, !tbaa !12
@@ -6624,11 +6623,11 @@ zval_get_tmp_string.exit:                         ; preds = %49, %51
   br i1 %.not94, label %95, label %93
 
 93:                                               ; preds = %92
-  %94 = tail call ptr @zend_hash_update(ptr noundef %8, ptr noundef nonnull %.181, ptr noundef nonnull %.083119) #24
+  %94 = tail call ptr @zend_hash_update(ptr noundef %8, ptr noundef nonnull %.181, ptr noundef nonnull %.083117) #24
   br label %109
 
 95:                                               ; preds = %92
-  %96 = tail call ptr @zend_hash_index_update(ptr noundef %8, i64 noundef %.079, ptr noundef nonnull %.083119) #24
+  %96 = tail call ptr @zend_hash_index_update(ptr noundef %8, i64 noundef %.079, ptr noundef nonnull %.083117) #24
   br label %109
 
 97:                                               ; preds = %83
@@ -6637,17 +6636,17 @@ zval_get_tmp_string.exit:                         ; preds = %49, %51
   %..i = select i1 %or.cond.i, i32 4, i32 1
   br label %pcre_handle_exec_error.exit
 
-pcre_handle_exec_error.exit.loopexit135:          ; preds = %83
+pcre_handle_exec_error.exit.loopexit133:          ; preds = %83
   br label %pcre_handle_exec_error.exit
 
-pcre_handle_exec_error.exit.loopexit145:          ; preds = %83
+pcre_handle_exec_error.exit.loopexit143:          ; preds = %83
   br label %pcre_handle_exec_error.exit
 
 pcre_handle_exec_error.exit.loopexit:             ; preds = %83
   br label %pcre_handle_exec_error.exit
 
-pcre_handle_exec_error.exit:                      ; preds = %83, %pcre_handle_exec_error.exit.loopexit, %pcre_handle_exec_error.exit.loopexit145, %pcre_handle_exec_error.exit.loopexit135, %97
-  %.0.i102 = phi i32 [ %..i, %97 ], [ 5, %pcre_handle_exec_error.exit.loopexit135 ], [ 6, %pcre_handle_exec_error.exit.loopexit145 ], [ 2, %pcre_handle_exec_error.exit.loopexit ], [ 3, %83 ]
+pcre_handle_exec_error.exit:                      ; preds = %83, %pcre_handle_exec_error.exit.loopexit, %pcre_handle_exec_error.exit.loopexit143, %pcre_handle_exec_error.exit.loopexit133, %97
+  %.0.i102 = phi i32 [ %..i, %97 ], [ 5, %pcre_handle_exec_error.exit.loopexit133 ], [ 6, %pcre_handle_exec_error.exit.loopexit143 ], [ 2, %pcre_handle_exec_error.exit.loopexit ], [ 3, %83 ]
   store i32 %.0.i102, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
   %.not.i = icmp eq ptr %.0104, null
   br i1 %.not.i, label %zend_tmp_string_release.exit, label %99, !prof !55
@@ -6697,7 +6696,7 @@ pcre_handle_exec_error.exit:                      ; preds = %83, %pcre_handle_ex
   br label %120
 
 120:                                              ; preds = %46, %110, %114, %119, %109
-  %121 = add i32 %.082120, -1
+  %121 = add i32 %.082118, -1
   %.not91 = icmp eq i32 %121, 0
   br i1 %.not91, label %zend_tmp_string_release.exit, label %33
 
@@ -7568,8 +7567,8 @@ define internal fastcc ptr @php_replace_in_subject_func(ptr noundef %0, ptr noun
 zend_string_addref.exit:                          ; preds = %19, %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !107
-  %.not4358 = icmp eq i32 %28, 0
-  br i1 %.not4358, label %php_pcre_replace_func.exit, label %.lr.ph
+  %.not4357 = icmp eq i32 %28, 0
+  br i1 %.not4357, label %php_pcre_replace_func.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_string_addref.exit
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7583,10 +7582,10 @@ zend_string_addref.exit:                          ; preds = %19, %24
   br label %37
 
 37:                                               ; preds = %.lr.ph, %76
-  %.03561 = phi ptr [ %30, %.lr.ph ], [ %78, %76 ]
-  %.03660 = phi ptr [ %4, %.lr.ph ], [ %.2, %76 ]
-  %.03759 = phi i32 [ %28, %.lr.ph ], [ %79, %76 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.03561, i64 8
+  %.03560 = phi ptr [ %30, %.lr.ph ], [ %78, %76 ]
+  %.03659 = phi ptr [ %4, %.lr.ph ], [ %.2, %76 ]
+  %.03758 = phi i32 [ %28, %.lr.ph ], [ %79, %76 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.03560, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !11
   switch i8 %39, label %zval_try_get_tmp_string.exit [
     i8 0, label %76
@@ -7594,11 +7593,11 @@ zend_string_addref.exit:                          ; preds = %19, %24
   ], !prof !117
 
 zval_try_get_tmp_string.exit.thread:              ; preds = %37
-  %40 = load ptr, ptr %.03561, align 8, !tbaa !11, !nonnull !45, !noundef !45
+  %40 = load ptr, ptr %.03560, align 8, !tbaa !11, !nonnull !45, !noundef !45
   br label %43
 
 zval_try_get_tmp_string.exit:                     ; preds = %37
-  %41 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.03561) #24
+  %41 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.03560) #24
   %42 = icmp eq ptr %41, null
   br i1 %42, label %php_pcre_replace_func.exit, label %43, !prof !100
 
@@ -7614,7 +7613,7 @@ zval_try_get_tmp_string.exit:                     ; preds = %37
   %48 = load i32, ptr %47, align 8, !tbaa !63
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8, !tbaa !63
-  %50 = tail call fastcc ptr @php_pcre_replace_func_impl(ptr noundef %44, ptr noundef %.03660, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %6, i64 noundef %7)
+  %50 = tail call fastcc ptr @php_pcre_replace_func_impl(ptr noundef %44, ptr noundef %.03659, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %6, i64 noundef %7)
   %51 = load i32, ptr %47, align 8, !tbaa !63
   %52 = add i32 %51, -1
   store i32 %52, ptr %47, align 8, !tbaa !63
@@ -7646,18 +7645,18 @@ php_pcre_replace_func.exit50:                     ; preds = %43, %46
   br label %zend_tmp_string_release.exit
 
 zend_tmp_string_release.exit:                     ; preds = %53, %57, %62, %php_pcre_replace_func.exit50
-  %63 = getelementptr inbounds nuw i8, ptr %.03660, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.03659, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !11
   %65 = and i32 %64, 64
   %.not.i = icmp eq i32 %65, 0
   br i1 %.not.i, label %66, label %zend_string_release.exit
 
 66:                                               ; preds = %zend_tmp_string_release.exit
-  %67 = load i32, ptr %.03660, align 4, !tbaa !12
+  %67 = load i32, ptr %.03659, align 4, !tbaa !12
   %68 = icmp ne i32 %67, 0
   tail call void @llvm.assume(i1 %68)
   %69 = add i32 %67, -1
-  store i32 %69, ptr %.03660, align 4, !tbaa !12
+  store i32 %69, ptr %.03659, align 4, !tbaa !12
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %zend_string_release.exit
 
@@ -7667,11 +7666,11 @@ zend_tmp_string_release.exit:                     ; preds = %53, %57, %62, %php_
   br i1 %.not5.i, label %74, label %73
 
 73:                                               ; preds = %71
-  tail call void @free(ptr noundef nonnull %.03660) #24
+  tail call void @free(ptr noundef nonnull %.03659) #24
   br label %zend_string_release.exit
 
 74:                                               ; preds = %71
-  tail call void @_efree(ptr noundef nonnull %.03660) #24
+  tail call void @_efree(ptr noundef nonnull %.03659) #24
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %zend_tmp_string_release.exit, %66, %73, %74
@@ -7679,15 +7678,15 @@ zend_string_release.exit:                         ; preds = %zend_tmp_string_rel
   br i1 %75, label %php_pcre_replace_func.exit, label %76, !prof !47
 
 76:                                               ; preds = %37, %zend_string_release.exit
-  %.2 = phi ptr [ %.03660, %37 ], [ %.0.i49, %zend_string_release.exit ]
-  %77 = getelementptr inbounds nuw i8, ptr %.03561, i64 %36
+  %.2 = phi ptr [ %.03659, %37 ], [ %.0.i49, %zend_string_release.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %.03560, i64 %36
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %79 = add i32 %.03759, -1
+  %79 = add i32 %.03758, -1
   %.not43 = icmp eq i32 %79, 0
   br i1 %.not43, label %php_pcre_replace_func.exit, label %37
 
 php_pcre_replace_func.exit:                       ; preds = %76, %zval_try_get_tmp_string.exit, %zend_string_release.exit, %zend_string_addref.exit, %12, %9
-  %.0 = phi ptr [ %16, %12 ], [ null, %9 ], [ %4, %zend_string_addref.exit ], [ %.2, %76 ], [ %.03660, %zval_try_get_tmp_string.exit ], [ null, %zend_string_release.exit ]
+  %.0 = phi ptr [ %16, %12 ], [ null, %9 ], [ %4, %zend_string_addref.exit ], [ %.2, %76 ], [ %.03659, %zval_try_get_tmp_string.exit ], [ null, %zend_string_release.exit ]
   ret ptr %.0
 }
 

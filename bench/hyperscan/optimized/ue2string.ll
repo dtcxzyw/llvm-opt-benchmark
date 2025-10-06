@@ -93,109 +93,109 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNSt7__cxx1112basic_string
   br i1 %2, label %.lr.ph.split.us, label %_ZN3ue23cmpEPKcS1_mb.exit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not1819.not.i = icmp eq i64 %5, 0
-  br i1 %.not1819.not.i, label %.critedge, label %.lr.ph.i.preheader.us
+  %.not23.i = icmp eq i64 %5, 0
+  br i1 %.not23.i, label %.critedge, label %.lr.ph.i.preheader.us
 
-.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %_ZN3ue23cmpEPKcS1_mb.exit.thread41.loopexit.us
-  %.056.us = phi i64 [ %24, %_ZN3ue23cmpEPKcS1_mb.exit.thread41.loopexit.us ], [ %7, %.lr.ph.split.us ]
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %.056.us
+.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %_ZN3ue23cmpEPKcS1_mb.exit.thread40.loopexit.us
+  %.055.us = phi i64 [ %25, %_ZN3ue23cmpEPKcS1_mb.exit.thread40.loopexit.us ], [ %7, %.lr.ph.split.us ]
+  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %.055.us
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %21
-  %.01421.i.us = phi ptr [ %22, %21 ], [ %8, %.lr.ph.i.preheader.us ]
-  %.01520.i.us = phi ptr [ %23, %21 ], [ %gep.us, %.lr.ph.i.preheader.us ]
-  %13 = load i8, ptr %.01421.i.us, align 1
+  %.01420.i.us = phi ptr [ %22, %21 ], [ %8, %.lr.ph.i.preheader.us ]
+  %.01519.i.us = phi ptr [ %23, %21 ], [ %gep.us, %.lr.ph.i.preheader.us ]
+  %13 = load i8, ptr %.01420.i.us, align 1
   %14 = add i8 %13, -123
   %15 = icmp ult i8 %14, -26
   %16 = add i8 %13, -32
   %.0.i17.i.us = select i1 %15, i8 %13, i8 %16
-  %17 = load i8, ptr %.01520.i.us, align 1
+  %17 = load i8, ptr %.01519.i.us, align 1
   %18 = add i8 %17, -123
   %19 = icmp ult i8 %18, -26
   %20 = add i8 %17, -32
   %.0.i.i.us = select i1 %19, i8 %17, i8 %20
   %.not.i.us = icmp eq i8 %.0.i17.i.us, %.0.i.i.us
-  br i1 %.not.i.us, label %21, label %_ZN3ue23cmpEPKcS1_mb.exit.thread41.loopexit.us
+  br i1 %.not.i.us, label %21, label %_ZN3ue23cmpEPKcS1_mb.exit.thread40.loopexit.us
 
 21:                                               ; preds = %.lr.ph.i.us
-  %22 = getelementptr inbounds nuw i8, ptr %.01421.i.us, i64 1
-  %23 = getelementptr inbounds nuw i8, ptr %.01520.i.us, i64 1
-  %.not18.i.us = icmp ult ptr %22, %10
-  br i1 %.not18.i.us, label %.lr.ph.i.us, label %.critedge, !llvm.loop !5
+  %22 = getelementptr inbounds nuw i8, ptr %.01420.i.us, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01519.i.us, i64 1
+  %24 = icmp ult ptr %22, %10
+  br i1 %24, label %.lr.ph.i.us, label %.critedge, !llvm.loop !5
 
-_ZN3ue23cmpEPKcS1_mb.exit.thread41.loopexit.us:   ; preds = %.lr.ph.i.us
-  %24 = add i64 %.056.us, -1
-  %25 = icmp ugt i64 %24, %5
-  br i1 %25, label %.lr.ph.i.preheader.us, label %.preheader, !llvm.loop !7
+_ZN3ue23cmpEPKcS1_mb.exit.thread40.loopexit.us:   ; preds = %.lr.ph.i.us
+  %25 = add i64 %.055.us, -1
+  %26 = icmp ugt i64 %25, %5
+  br i1 %26, label %.lr.ph.i.preheader.us, label %.preheader, !llvm.loop !7
 
-.preheader:                                       ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.thread41, %_ZN3ue23cmpEPKcS1_mb.exit.thread41.loopexit.us, %3
-  %.0.lcssa = phi i64 [ %7, %3 ], [ %5, %_ZN3ue23cmpEPKcS1_mb.exit.thread41.loopexit.us ], [ %5, %_ZN3ue23cmpEPKcS1_mb.exit.thread41 ]
-  %.not61 = icmp eq i64 %.0.lcssa, 0
-  br i1 %.not61, label %.critedge, label %.lr.ph63
+.preheader:                                       ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.thread40, %_ZN3ue23cmpEPKcS1_mb.exit.thread40.loopexit.us, %3
+  %.0.lcssa = phi i64 [ %7, %3 ], [ %5, %_ZN3ue23cmpEPKcS1_mb.exit.thread40.loopexit.us ], [ %5, %_ZN3ue23cmpEPKcS1_mb.exit.thread40 ]
+  %.not60 = icmp eq i64 %.0.lcssa, 0
+  br i1 %.not60, label %.critedge, label %.lr.ph62
 
-.lr.ph63:                                         ; preds = %.preheader
-  br i1 %2, label %.lr.ph.i31.preheader.us, label %_ZN3ue23cmpEPKcS1_mb.exit38
+.lr.ph62:                                         ; preds = %.preheader
+  br i1 %2, label %.lr.ph.i31.preheader.us, label %_ZN3ue23cmpEPKcS1_mb.exit37
 
-.lr.ph.i31.preheader.us:                          ; preds = %.lr.ph63, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46.loopexit.us
-  %.162.us = phi i64 [ %39, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46.loopexit.us ], [ %.0.lcssa, %.lr.ph63 ]
-  %26 = sub i64 0, %.162.us
-  %27 = getelementptr inbounds i8, ptr %10, i64 %26
+.lr.ph.i31.preheader.us:                          ; preds = %.lr.ph62, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us
+  %.161.us = phi i64 [ %41, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us ], [ %.0.lcssa, %.lr.ph62 ]
+  %27 = sub i64 0, %.161.us
+  %28 = getelementptr inbounds i8, ptr %10, i64 %27
   br label %.lr.ph.i31.us
 
-.lr.ph.i31.us:                                    ; preds = %.lr.ph.i31.preheader.us, %36
-  %.01421.i32.us = phi ptr [ %37, %36 ], [ %27, %.lr.ph.i31.preheader.us ]
-  %.01520.i33.us = phi ptr [ %38, %36 ], [ %9, %.lr.ph.i31.preheader.us ]
-  %28 = load i8, ptr %.01421.i32.us, align 1
-  %29 = add i8 %28, -123
-  %30 = icmp ult i8 %29, -26
-  %31 = add i8 %28, -32
-  %.0.i17.i34.us = select i1 %30, i8 %28, i8 %31
-  %32 = load i8, ptr %.01520.i33.us, align 1
-  %33 = add i8 %32, -123
-  %34 = icmp ult i8 %33, -26
-  %35 = add i8 %32, -32
-  %.0.i.i35.us = select i1 %34, i8 %32, i8 %35
+.lr.ph.i31.us:                                    ; preds = %.lr.ph.i31.preheader.us, %37
+  %.01420.i32.us = phi ptr [ %38, %37 ], [ %28, %.lr.ph.i31.preheader.us ]
+  %.01519.i33.us = phi ptr [ %39, %37 ], [ %9, %.lr.ph.i31.preheader.us ]
+  %29 = load i8, ptr %.01420.i32.us, align 1
+  %30 = add i8 %29, -123
+  %31 = icmp ult i8 %30, -26
+  %32 = add i8 %29, -32
+  %.0.i17.i34.us = select i1 %31, i8 %29, i8 %32
+  %33 = load i8, ptr %.01519.i33.us, align 1
+  %34 = add i8 %33, -123
+  %35 = icmp ult i8 %34, -26
+  %36 = add i8 %33, -32
+  %.0.i.i35.us = select i1 %35, i8 %33, i8 %36
   %.not.i36.us = icmp eq i8 %.0.i17.i34.us, %.0.i.i35.us
-  br i1 %.not.i36.us, label %36, label %_ZN3ue23cmpEPKcS1_mb.exit38.thread46.loopexit.us
+  br i1 %.not.i36.us, label %37, label %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us
 
-36:                                               ; preds = %.lr.ph.i31.us
-  %37 = getelementptr inbounds nuw i8, ptr %.01421.i32.us, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %.01520.i33.us, i64 1
-  %.not18.i37.us = icmp ult ptr %37, %10
-  br i1 %.not18.i37.us, label %.lr.ph.i31.us, label %.critedge, !llvm.loop !5
+37:                                               ; preds = %.lr.ph.i31.us
+  %38 = getelementptr inbounds nuw i8, ptr %.01420.i32.us, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.01519.i33.us, i64 1
+  %40 = icmp ult ptr %38, %10
+  br i1 %40, label %.lr.ph.i31.us, label %.critedge, !llvm.loop !5
 
-_ZN3ue23cmpEPKcS1_mb.exit38.thread46.loopexit.us: ; preds = %.lr.ph.i31.us
-  %39 = add i64 %.162.us, -1
-  %.not.us = icmp eq i64 %39, 0
+_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us: ; preds = %.lr.ph.i31.us
+  %41 = add i64 %.161.us, -1
+  %.not.us = icmp eq i64 %41, 0
   br i1 %.not.us, label %.critedge, label %.lr.ph.i31.preheader.us, !llvm.loop !8
 
-_ZN3ue23cmpEPKcS1_mb.exit:                        ; preds = %.lr.ph, %_ZN3ue23cmpEPKcS1_mb.exit.thread41
-  %.056 = phi i64 [ %40, %_ZN3ue23cmpEPKcS1_mb.exit.thread41 ], [ %7, %.lr.ph ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.056
-  %bcmp49 = tail call i32 @bcmp(ptr %8, ptr nonnull %gep, i64 %5)
-  %.not28 = icmp eq i32 %bcmp49, 0
-  br i1 %.not28, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit.thread41
+_ZN3ue23cmpEPKcS1_mb.exit:                        ; preds = %.lr.ph, %_ZN3ue23cmpEPKcS1_mb.exit.thread40
+  %.055 = phi i64 [ %42, %_ZN3ue23cmpEPKcS1_mb.exit.thread40 ], [ %7, %.lr.ph ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.055
+  %bcmp48 = tail call i32 @bcmp(ptr %8, ptr nonnull %gep, i64 %5)
+  %.not28 = icmp eq i32 %bcmp48, 0
+  br i1 %.not28, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit.thread40
 
-_ZN3ue23cmpEPKcS1_mb.exit.thread41:               ; preds = %_ZN3ue23cmpEPKcS1_mb.exit
-  %40 = add i64 %.056, -1
-  %41 = icmp ugt i64 %40, %5
-  br i1 %41, label %_ZN3ue23cmpEPKcS1_mb.exit, label %.preheader, !llvm.loop !7
+_ZN3ue23cmpEPKcS1_mb.exit.thread40:               ; preds = %_ZN3ue23cmpEPKcS1_mb.exit
+  %42 = add i64 %.055, -1
+  %43 = icmp ugt i64 %42, %5
+  br i1 %43, label %_ZN3ue23cmpEPKcS1_mb.exit, label %.preheader, !llvm.loop !7
 
-_ZN3ue23cmpEPKcS1_mb.exit38:                      ; preds = %.lr.ph63, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46
-  %.162 = phi i64 [ %44, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46 ], [ %.0.lcssa, %.lr.ph63 ]
-  %42 = sub i64 0, %.162
-  %43 = getelementptr inbounds i8, ptr %10, i64 %42
-  %bcmp = tail call i32 @bcmp(ptr nonnull %43, ptr %9, i64 %.162)
+_ZN3ue23cmpEPKcS1_mb.exit37:                      ; preds = %.lr.ph62, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45
+  %.161 = phi i64 [ %46, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45 ], [ %.0.lcssa, %.lr.ph62 ]
+  %44 = sub i64 0, %.161
+  %45 = getelementptr inbounds i8, ptr %10, i64 %44
+  %bcmp = tail call i32 @bcmp(ptr nonnull %45, ptr %9, i64 %.161)
   %.not27 = icmp eq i32 %bcmp, 0
-  br i1 %.not27, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit38.thread46
+  br i1 %.not27, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit37.thread45
 
-_ZN3ue23cmpEPKcS1_mb.exit38.thread46:             ; preds = %_ZN3ue23cmpEPKcS1_mb.exit38
-  %44 = add i64 %.162, -1
-  %.not = icmp eq i64 %44, 0
-  br i1 %.not, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit38, !llvm.loop !8
+_ZN3ue23cmpEPKcS1_mb.exit37.thread45:             ; preds = %_ZN3ue23cmpEPKcS1_mb.exit37
+  %46 = add i64 %.161, -1
+  %.not = icmp eq i64 %46, 0
+  br i1 %.not, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit37, !llvm.loop !8
 
-.critedge:                                        ; preds = %_ZN3ue23cmpEPKcS1_mb.exit, %21, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46, %_ZN3ue23cmpEPKcS1_mb.exit38, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46.loopexit.us, %36, %.lr.ph.split.us, %.preheader
-  %.025 = phi i64 [ 0, %.preheader ], [ %7, %.lr.ph.split.us ], [ %.162.us, %36 ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46.loopexit.us ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit38.thread46 ], [ %.162, %_ZN3ue23cmpEPKcS1_mb.exit38 ], [ %.056.us, %21 ], [ %.056, %_ZN3ue23cmpEPKcS1_mb.exit ]
+.critedge:                                        ; preds = %_ZN3ue23cmpEPKcS1_mb.exit, %21, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45, %_ZN3ue23cmpEPKcS1_mb.exit37, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us, %37, %.lr.ph.split.us, %.preheader
+  %.025 = phi i64 [ 0, %.preheader ], [ %7, %.lr.ph.split.us ], [ %.161.us, %37 ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45 ], [ %.161, %_ZN3ue23cmpEPKcS1_mb.exit37 ], [ %.055.us, %21 ], [ %.055, %_ZN3ue23cmpEPKcS1_mb.exit ]
   ret i64 %.025
 }
 
@@ -205,37 +205,37 @@ define hidden noundef i32 @_ZN3ue23cmpEPKcS1_mb(ptr noundef readonly captures(ad
 
 5:                                                ; preds = %4
   %6 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %2) #23
-  br label %._crit_edge
+  br label %.loopexit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %2
-  %.not1819.not = icmp eq i64 %2, 0
-  br i1 %.not1819.not, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i64 %2, 0
+  br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %17
-  %.01421 = phi ptr [ %18, %17 ], [ %0, %7 ]
-  %.01520 = phi ptr [ %19, %17 ], [ %1, %7 ]
-  %9 = load i8, ptr %.01421, align 1
+  %.01420 = phi ptr [ %18, %17 ], [ %0, %7 ]
+  %.01519 = phi ptr [ %19, %17 ], [ %1, %7 ]
+  %9 = load i8, ptr %.01420, align 1
   %10 = add i8 %9, -123
   %11 = icmp ult i8 %10, -26
   %12 = add i8 %9, -32
   %.0.i17 = select i1 %11, i8 %9, i8 %12
-  %13 = load i8, ptr %.01520, align 1
+  %13 = load i8, ptr %.01519, align 1
   %14 = add i8 %13, -123
   %15 = icmp ult i8 %14, -26
   %16 = add i8 %13, -32
   %.0.i = select i1 %15, i8 %13, i8 %16
   %.not = icmp eq i8 %.0.i17, %.0.i
-  br i1 %.not, label %17, label %._crit_edge
+  br i1 %.not, label %17, label %.loopexit
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw i8, ptr %.01421, i64 1
-  %19 = getelementptr inbounds nuw i8, ptr %.01520, i64 1
-  %.not18 = icmp ult ptr %18, %8
-  br i1 %.not18, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  %18 = getelementptr inbounds nuw i8, ptr %.01420, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01519, i64 1
+  %20 = icmp ult ptr %18, %8
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %.lr.ph, %17, %7, %5
-  %.013 = phi i32 [ %6, %5 ], [ 0, %7 ], [ 1, %.lr.ph ], [ 0, %17 ]
+.loopexit:                                        ; preds = %17, %.lr.ph, %7, %5
+  %.013 = phi i32 [ %6, %5 ], [ 0, %7 ], [ 0, %17 ], [ 1, %.lr.ph ]
   ret i32 %.013
 }
 
@@ -245,8 +245,8 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNS_11ue2_literalES2_(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
-  %.not78.not.i.i = icmp eq ptr %5, %6
-  br i1 %.not78.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
+  %.not11.i.i = icmp eq ptr %5, %6
+  br i1 %.not11.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -256,13 +256,13 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNS_11ue2_literalES2_(ptr 
   br label %.lr.ph.i.i
 
 11:                                               ; preds = %.lr.ph.i.i
-  %12 = add nuw i64 %.059.i.i, 1
+  %12 = add nuw i64 %.058.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %12, %10
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.preheader.i.i
-  %.059.i.i = phi i64 [ %12, %11 ], [ 0, %.lr.ph.preheader.i.i ]
-  %13 = getelementptr inbounds nuw i64, ptr %6, i64 %.059.i.i
+  %.058.i.i = phi i64 [ %12, %11 ], [ 0, %.lr.ph.preheader.i.i ]
+  %13 = getelementptr inbounds nuw i64, ptr %6, i64 %.058.i.i
   %14 = load i64, ptr %13, align 8
   %.not.not.i.not.i = icmp eq i64 %14, 0
   br i1 %.not.not.i.not.i, label %11, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit
@@ -272,8 +272,8 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNS_11ue2_literalES2_(ptr 
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
-  %.not78.not.i.i4 = icmp eq ptr %17, %18
-  br i1 %.not78.not.i.i4, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.preheader.i.i5
+  %.not11.i.i4 = icmp eq ptr %17, %18
+  br i1 %.not11.i.i4, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.preheader.i.i5
 
 .lr.ph.preheader.i.i5:                            ; preds = %.loopexit
   %19 = ptrtoint ptr %17 to i64
@@ -283,11 +283,11 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNS_11ue2_literalES2_(ptr 
   br label %.lr.ph.i.i6
 
 .lr.ph.i.i6:                                      ; preds = %.lr.ph.i.i6, %.lr.ph.preheader.i.i5
-  %.059.i.i7 = phi i64 [ 0, %.lr.ph.preheader.i.i5 ], [ %25, %.lr.ph.i.i6 ]
-  %23 = getelementptr inbounds nuw i64, ptr %18, i64 %.059.i.i7
+  %.058.i.i7 = phi i64 [ 0, %.lr.ph.preheader.i.i5 ], [ %25, %.lr.ph.i.i6 ]
+  %23 = getelementptr inbounds nuw i64, ptr %18, i64 %.058.i.i7
   %24 = load i64, ptr %23, align 8
   %.not.not.i.not.i8.not = icmp ne i64 %24, 0
-  %25 = add nuw i64 %.059.i.i7, 1
+  %25 = add nuw i64 %.058.i.i7, 1
   %exitcond.not.i.i10 = icmp eq i64 %25, %22
   %or.cond = select i1 %.not.not.i.not.i8.not, i1 true, i1 %exitcond.not.i.i10
   br i1 %or.cond, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.i.i6, !llvm.loop !9
@@ -304,8 +304,8 @@ define hidden noundef zeroext i1 @_ZNK3ue211ue2_literal10any_nocaseEv(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %.not78.not.i = icmp eq ptr %4, %5
-  br i1 %.not78.not.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit, label %.lr.ph.preheader.i
+  %.not11.i = icmp eq ptr %4, %5
+  br i1 %.not11.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %1
   %6 = ptrtoint ptr %4 to i64
@@ -315,18 +315,18 @@ define hidden noundef zeroext i1 @_ZNK3ue211ue2_literal10any_nocaseEv(ptr nounde
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.059.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %12, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %.059.i
+  %.058.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %12, %.lr.ph.i ]
+  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %.058.i
   %11 = load i64, ptr %10, align 8
   %.not.not.i.not = icmp ne i64 %11, 0
-  %12 = add nuw i64 %.059.i, 1
+  %12 = add nuw i64 %.058.i, 1
   %exitcond.not.i = icmp eq i64 %12, %9
   %or.cond = select i1 %.not.not.i.not, i1 true, i1 %exitcond.not.i
   br i1 %or.cond, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit:    ; preds = %.lr.ph.i, %1
-  %.not7.lcssa.i = phi i1 [ false, %1 ], [ %.not.not.i.not, %.lr.ph.i ]
-  ret i1 %.not7.lcssa.i
+  %.lcssa.i = phi i1 [ false, %1 ], [ %.not.not.i.not, %.lr.ph.i ]
+  ret i1 %.lcssa.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -350,14 +350,14 @@ define hidden noundef i64 @_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_st
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %17
-  %.01421.i.us = phi ptr [ %18, %17 ], [ %8, %.lr.ph.i.preheader.us ]
-  %.01520.i.us = phi ptr [ %19, %17 ], [ %5, %.lr.ph.i.preheader.us ]
-  %9 = load i8, ptr %.01421.i.us, align 1
+  %.01420.i.us = phi ptr [ %18, %17 ], [ %8, %.lr.ph.i.preheader.us ]
+  %.01519.i.us = phi ptr [ %19, %17 ], [ %5, %.lr.ph.i.preheader.us ]
+  %9 = load i8, ptr %.01420.i.us, align 1
   %10 = add i8 %9, -123
   %11 = icmp ult i8 %10, -26
   %12 = add i8 %9, -32
   %.0.i17.i.us = select i1 %11, i8 %9, i8 %12
-  %13 = load i8, ptr %.01520.i.us, align 1
+  %13 = load i8, ptr %.01519.i.us, align 1
   %14 = add i8 %13, -123
   %15 = icmp ult i8 %14, -26
   %16 = add i8 %13, -32
@@ -366,10 +366,10 @@ define hidden noundef i64 @_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_st
   br i1 %.not.i.us, label %17, label %.critedge16.loopexit.us
 
 17:                                               ; preds = %.lr.ph.i.us
-  %18 = getelementptr inbounds nuw i8, ptr %.01421.i.us, i64 1
-  %19 = getelementptr inbounds nuw i8, ptr %.01520.i.us, i64 1
-  %.not18.i.us = icmp ult ptr %18, %6
-  br i1 %.not18.i.us, label %.lr.ph.i.us, label %.critedge, !llvm.loop !5
+  %18 = getelementptr inbounds nuw i8, ptr %.01420.i.us, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01519.i.us, i64 1
+  %20 = icmp ult ptr %18, %6
+  br i1 %20, label %.lr.ph.i.us, label %.critedge, !llvm.loop !5
 
 .critedge16.loopexit.us:                          ; preds = %.lr.ph.i.us
   %.0.us = add i64 %.023.us, -1
@@ -379,11 +379,11 @@ define hidden noundef i64 @_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_st
 _ZN3ue23cmpEPKcS1_mb.exit:                        ; preds = %.lr.ph, %.critedge16.backedge
   %.023 = phi i64 [ %.0, %.critedge16.backedge ], [ %.020, %.lr.ph ]
   %.0.in22 = phi i64 [ %.023, %.critedge16.backedge ], [ %4, %.lr.ph ]
-  %20 = sub i64 1, %.0.in22
-  %21 = getelementptr inbounds i8, ptr %6, i64 %20
-  %bcmp = tail call i32 @bcmp(ptr %21, ptr %5, i64 %.023)
-  %22 = icmp eq i32 %bcmp, 0
-  br i1 %22, label %.critedge, label %.critedge16.backedge
+  %21 = sub i64 1, %.0.in22
+  %22 = getelementptr inbounds i8, ptr %6, i64 %21
+  %bcmp = tail call i32 @bcmp(ptr %22, ptr %5, i64 %.023)
+  %23 = icmp eq i32 %bcmp, 0
+  br i1 %23, label %.critedge, label %.critedge16.backedge
 
 .critedge16.backedge:                             ; preds = %_ZN3ue23cmpEPKcS1_mb.exit
   %.0 = add i64 %.023, -1
@@ -720,7 +720,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue29case_ite
 7:                                                ; preds = %8, %1
   %.016 = phi i64 [ %3, %1 ], [ %9, %8 ]
   %.not = icmp eq i64 %.016, 0
-  br i1 %.not, label %33, label %8
+  br i1 %.not, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit, label %8
 
 8:                                                ; preds = %7
   %9 = add i64 %.016, -1
@@ -738,8 +738,8 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue29case_ite
   %19 = shl nuw i64 1, %18
   %20 = load i64, ptr %storemerge.i.i.i.i.i, align 8
   %21 = and i64 %20, %19
-  %.not32 = icmp eq i64 %21, 0
-  %brmerge = select i1 %.not32, i1 true, i1 %13
+  %.not30 = icmp eq i64 %21, 0
+  %brmerge = select i1 %.not30, i1 true, i1 %13
   br i1 %brmerge, label %7, label %22, !llvm.loop !11
 
 22:                                               ; preds = %8
@@ -761,12 +761,12 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue29case_ite
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %30, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit.thread26
 
-33:                                               ; preds = %7
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit: ; preds = %7
   store i64 0, ptr %2, align 8
   store i8 0, ptr %4, align 1
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit.thread26
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit.thread26: ; preds = %22, %27, %33
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit.thread26: ; preds = %22, %27, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit
   ret ptr %0
 }
 
@@ -2347,8 +2347,8 @@ _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %_ZN5boost14dynamic_
 define hidden noundef zeroext i1 @_ZN3ue28containsERKNS_11ue2_literalERKNS_9CharReachE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %.not22.not = icmp eq i64 %4, 0
-  br i1 %.not22.not, label %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit.thread, label %.lr.ph
+  %.not23.not = icmp eq i64 %4, 0
+  br i1 %.not23.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = load ptr, ptr %0, align 8
@@ -2357,18 +2357,18 @@ define hidden noundef zeroext i1 @_ZN3ue28containsERKNS_11ue2_literalERKNS_9Char
   br label %10
 
 8:                                                ; preds = %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit
-  %9 = add nuw i64 %.sroa.6.023, 1
+  %9 = add nuw i64 %.sroa.6.024, 1
   %.not.not = icmp eq i64 %9, %4
-  br i1 %.not.not, label %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit.thread, label %10, !llvm.loop !30
+  br i1 %.not.not, label %.thread, label %10, !llvm.loop !30
 
 10:                                               ; preds = %.lr.ph, %8
-  %.sroa.6.023 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.6.023
+  %.sroa.6.024 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.6.024
   %12 = load i8, ptr %11, align 1
-  %13 = lshr i64 %.sroa.6.023, 6
+  %13 = lshr i64 %.sroa.6.024, 6
   %14 = getelementptr inbounds nuw i64, ptr %7, i64 %13
   %15 = load i64, ptr %14, align 8
-  %16 = and i64 %.sroa.6.023, 63
+  %16 = and i64 %.sroa.6.024, 63
   %17 = lshr i64 %15, %16
   %18 = trunc i64 %17 to i1
   br i1 %18, label %19, label %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit
@@ -2386,7 +2386,7 @@ define hidden noundef zeroext i1 @_ZN3ue28containsERKNS_11ue2_literalERKNS_9Char
   %28 = shl nuw i64 1, %27
   %29 = and i64 %26, %28
   %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %30, label %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit.thread
+  br i1 %.not.i, label %30, label %.thread
 
 30:                                               ; preds = %19
   %31 = add i8 %12, -123
@@ -2404,10 +2404,10 @@ _ZN3ue2L8testcharEcRKNS_9CharReachEb.exit:        ; preds = %10, %30
   %38 = and i64 %34, 63
   %39 = shl nuw i64 1, %38
   %40 = and i64 %39, %37
-  %.not21 = icmp eq i64 %40, 0
-  br i1 %.not21, label %8, label %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit.thread
+  %.not22 = icmp eq i64 %40, 0
+  br i1 %.not22, label %8, label %.thread
 
-_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit.thread: ; preds = %8, %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit, %19, %2
+.thread:                                          ; preds = %8, %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit, %19, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %19 ], [ true, %_ZN3ue2L8testcharEcRKNS_9CharReachEb.exit ], [ false, %8 ]
   ret i1 %.not.lcssa
 }
@@ -2418,8 +2418,8 @@ define hidden noundef i64 @_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %.not78.not.i.i = icmp eq ptr %4, %5
-  br i1 %.not78.not.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread, label %.lr.ph.preheader.i.i
+  %.not11.i.i = icmp eq ptr %4, %5
+  br i1 %.not11.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %1
   %6 = ptrtoint ptr %4 to i64
@@ -2429,11 +2429,11 @@ define hidden noundef i64 @_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE(ptr
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.059.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %12, %.lr.ph.i.i ]
-  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %.059.i.i
+  %.058.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %12, %.lr.ph.i.i ]
+  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %.058.i.i
   %11 = load i64, ptr %10, align 8
   %.not.not.i.not.i = icmp ne i64 %11, 0
-  %12 = add nuw i64 %.059.i.i, 1
+  %12 = add nuw i64 %.058.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %12, %9
   %or.cond = select i1 %.not.not.i.not.i, i1 true, i1 %exitcond.not.i.i
   br i1 %or.cond, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.i.i, !llvm.loop !9
@@ -2474,14 +2474,14 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.preheader:            ; preds = %_ZNK3ue211ue2_liter
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %34, %.lr.ph.i.preheader.us.i
-  %.01421.i.us.i = phi ptr [ %35, %34 ], [ %25, %.lr.ph.i.preheader.us.i ]
-  %.01520.i.us.i = phi ptr [ %36, %34 ], [ %15, %.lr.ph.i.preheader.us.i ]
-  %26 = load i8, ptr %.01421.i.us.i, align 1
+  %.01420.i.us.i = phi ptr [ %35, %34 ], [ %25, %.lr.ph.i.preheader.us.i ]
+  %.01519.i.us.i = phi ptr [ %36, %34 ], [ %15, %.lr.ph.i.preheader.us.i ]
+  %26 = load i8, ptr %.01420.i.us.i, align 1
   %27 = add i8 %26, -123
   %28 = icmp ult i8 %27, -26
   %29 = add i8 %26, -32
   %.0.i17.i.us.i = select i1 %28, i8 %26, i8 %29
-  %30 = load i8, ptr %.01520.i.us.i, align 1
+  %30 = load i8, ptr %.01519.i.us.i, align 1
   %31 = add i8 %30, -123
   %32 = icmp ult i8 %31, -26
   %33 = add i8 %30, -32
@@ -2490,10 +2490,10 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.preheader:            ; preds = %_ZNK3ue211ue2_liter
   br i1 %.not.i.us.i, label %34, label %.critedge16.loopexit.us.i
 
 34:                                               ; preds = %.lr.ph.i.us.i
-  %35 = getelementptr inbounds nuw i8, ptr %.01421.i.us.i, i64 1
-  %36 = getelementptr inbounds nuw i8, ptr %.01520.i.us.i, i64 1
-  %.not18.i.us.i = icmp ult ptr %35, %16
-  br i1 %.not18.i.us.i, label %.lr.ph.i.us.i, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, !llvm.loop !5
+  %35 = getelementptr inbounds nuw i8, ptr %.01420.i.us.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.01519.i.us.i, i64 1
+  %37 = icmp ult ptr %35, %16
+  br i1 %37, label %.lr.ph.i.us.i, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, !llvm.loop !5
 
 .critedge16.loopexit.us.i:                        ; preds = %.lr.ph.i.us.i
   %.0.us.i = add i64 %.023.us.i, -1
@@ -2503,11 +2503,11 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.preheader:            ; preds = %_ZNK3ue211ue2_liter
 _ZN3ue23cmpEPKcS1_mb.exit.i:                      ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.i.preheader, %.critedge16.backedge.i
   %.023.i = phi i64 [ %.0.i, %.critedge16.backedge.i ], [ %.020.i1518, %_ZN3ue23cmpEPKcS1_mb.exit.i.preheader ]
   %.0.in22.i = phi i64 [ %.023.i, %.critedge16.backedge.i ], [ %21, %_ZN3ue23cmpEPKcS1_mb.exit.i.preheader ]
-  %37 = sub i64 1, %.0.in22.i
-  %38 = getelementptr inbounds i8, ptr %23, i64 %37
-  %bcmp.i = tail call i32 @bcmp(ptr %38, ptr %22, i64 %.023.i)
-  %39 = icmp eq i32 %bcmp.i, 0
-  br i1 %39, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %.critedge16.backedge.i
+  %38 = sub i64 1, %.0.in22.i
+  %39 = getelementptr inbounds i8, ptr %23, i64 %38
+  %bcmp.i = tail call i32 @bcmp(ptr %39, ptr %22, i64 %.023.i)
+  %40 = icmp eq i32 %bcmp.i, 0
+  br i1 %40, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %.critedge16.backedge.i
 
 .critedge16.backedge.i:                           ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.i
   %.0.i = add i64 %.023.i, -1
@@ -2527,8 +2527,8 @@ define hidden noundef i64 @_ZN3ue215minStringPeriodERKNS_11ue2_literalE(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %.not78.not.i.i.i = icmp eq ptr %6, %7
-  br i1 %.not78.not.i.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread.i, label %.lr.ph.preheader.i.i.i
+  %.not11.i.i.i = icmp eq ptr %6, %7
+  br i1 %.not11.i.i.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %1
   %8 = ptrtoint ptr %6 to i64
@@ -2538,11 +2538,11 @@ define hidden noundef i64 @_ZN3ue215minStringPeriodERKNS_11ue2_literalE(ptr noun
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.059.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %14, %.lr.ph.i.i.i ]
-  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %.059.i.i.i
+  %.058.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %14, %.lr.ph.i.i.i ]
+  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %.058.i.i.i
   %13 = load i64, ptr %12, align 8
   %.not.not.i.not.i.i = icmp ne i64 %13, 0
-  %14 = add nuw i64 %.059.i.i.i, 1
+  %14 = add nuw i64 %.058.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %14, %11
   %or.cond.i = select i1 %.not.not.i.not.i.i, i1 true, i1 %exitcond.not.i.i.i
   br i1 %or.cond.i, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !9
@@ -2577,14 +2577,14 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.preheader.i:          ; preds = %.lr.ph.i.i, %_ZNK3u
   br label %.lr.ph.i.us.i.i
 
 .lr.ph.i.us.i.i:                                  ; preds = %30, %.lr.ph.i.preheader.us.i.i
-  %.01421.i.us.i.i = phi ptr [ %31, %30 ], [ %21, %.lr.ph.i.preheader.us.i.i ]
-  %.01520.i.us.i.i = phi ptr [ %32, %30 ], [ %15, %.lr.ph.i.preheader.us.i.i ]
-  %22 = load i8, ptr %.01421.i.us.i.i, align 1
+  %.01420.i.us.i.i = phi ptr [ %31, %30 ], [ %21, %.lr.ph.i.preheader.us.i.i ]
+  %.01519.i.us.i.i = phi ptr [ %32, %30 ], [ %15, %.lr.ph.i.preheader.us.i.i ]
+  %22 = load i8, ptr %.01420.i.us.i.i, align 1
   %23 = add i8 %22, -123
   %24 = icmp ult i8 %23, -26
   %25 = add i8 %22, -32
   %.0.i17.i.us.i.i = select i1 %24, i8 %22, i8 %25
-  %26 = load i8, ptr %.01520.i.us.i.i, align 1
+  %26 = load i8, ptr %.01519.i.us.i.i, align 1
   %27 = add i8 %26, -123
   %28 = icmp ult i8 %27, -26
   %29 = add i8 %26, -32
@@ -2593,10 +2593,10 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.preheader.i:          ; preds = %.lr.ph.i.i, %_ZNK3u
   br i1 %.not.i.us.i.i, label %30, label %.critedge16.loopexit.us.i.i
 
 30:                                               ; preds = %.lr.ph.i.us.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %.01421.i.us.i.i, i64 1
-  %32 = getelementptr inbounds nuw i8, ptr %.01520.i.us.i.i, i64 1
-  %.not18.i.us.i.i = icmp ult ptr %31, %16
-  br i1 %.not18.i.us.i.i, label %.lr.ph.i.us.i.i, label %_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE.exit, !llvm.loop !5
+  %31 = getelementptr inbounds nuw i8, ptr %.01420.i.us.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.01519.i.us.i.i, i64 1
+  %33 = icmp ult ptr %31, %16
+  br i1 %33, label %.lr.ph.i.us.i.i, label %_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE.exit, !llvm.loop !5
 
 .critedge16.loopexit.us.i.i:                      ; preds = %.lr.ph.i.us.i.i
   %.0.us.i.i = add i64 %.023.us.i.i, -1
@@ -2606,11 +2606,11 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.preheader.i:          ; preds = %.lr.ph.i.i, %_ZNK3u
 _ZN3ue23cmpEPKcS1_mb.exit.i.i:                    ; preds = %.critedge16.backedge.i.i, %_ZN3ue23cmpEPKcS1_mb.exit.i.preheader.i
   %.023.i.i = phi i64 [ %.0.i.i, %.critedge16.backedge.i.i ], [ %.020.i1518.i, %_ZN3ue23cmpEPKcS1_mb.exit.i.preheader.i ]
   %.0.in22.i.i = phi i64 [ %.023.i.i, %.critedge16.backedge.i.i ], [ %3, %_ZN3ue23cmpEPKcS1_mb.exit.i.preheader.i ]
-  %33 = sub i64 1, %.0.in22.i.i
-  %34 = getelementptr inbounds i8, ptr %19, i64 %33
-  %bcmp.i.i = tail call i32 @bcmp(ptr %34, ptr %18, i64 %.023.i.i)
-  %35 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %35, label %_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE.exit, label %.critedge16.backedge.i.i
+  %34 = sub i64 1, %.0.in22.i.i
+  %35 = getelementptr inbounds i8, ptr %19, i64 %34
+  %bcmp.i.i = tail call i32 @bcmp(ptr %35, ptr %18, i64 %.023.i.i)
+  %36 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %36, label %_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE.exit, label %.critedge16.backedge.i.i
 
 .critedge16.backedge.i.i:                         ; preds = %_ZN3ue23cmpEPKcS1_mb.exit.i.i
   %.0.i.i = add i64 %.023.i.i, -1
@@ -2619,8 +2619,8 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.i:                    ; preds = %.critedge16.backedg
 
 _ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE.exit: ; preds = %.critedge16.loopexit.us.i.i, %30, %_ZN3ue23cmpEPKcS1_mb.exit.i.i, %.critedge16.backedge.i.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread.i
   %.019.i.i = phi i64 [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.i ], [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread.i ], [ %.023.i.i, %_ZN3ue23cmpEPKcS1_mb.exit.i.i ], [ 0, %.critedge16.backedge.i.i ], [ %.023.us.i.i, %30 ], [ 0, %.critedge16.loopexit.us.i.i ]
-  %36 = sub i64 %3, %.019.i.i
-  ret i64 %36
+  %37 = sub i64 %3, %.019.i.i
+  ret i64 %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

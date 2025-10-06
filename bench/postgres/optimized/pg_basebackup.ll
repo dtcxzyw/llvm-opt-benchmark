@@ -3610,8 +3610,8 @@ define internal zeroext i1 @reached_end_position(i64 noundef %0, i32 %1, i1 zero
   store i64 %18, ptr %16, align 8
   %19 = add i32 %10, 1
   %20 = call i32 @select(i32 noundef %19, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef nonnull %5) #17
-  %.not14 = icmp eq i32 %20, 1
-  br i1 %.not14, label %21, label %35
+  %.not13 = icmp eq i32 %20, 1
+  br i1 %.not13, label %21, label %35
 
 21:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

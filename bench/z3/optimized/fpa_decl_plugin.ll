@@ -10587,107 +10587,107 @@ define hidden noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr nounde
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %31, %2
-  %.tr129 = phi ptr [ %1, %2 ], [ %32, %31 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.tr129, i64 4
+  %.tr117 = phi ptr [ %1, %2 ], [ %32, %31 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.tr117, i64 4
   %4 = load i32, ptr %3, align 4
   %trunc = trunc i32 %4 to i16
   switch i16 %trunc, label %137 [
     i16 0, label %17
     i16 1, label %31
-    i16 2, label %.preheader134
+    i16 2, label %.preheader120
     i16 3, label %75
-    i16 4, label %.preheader142
+    i16 4, label %.preheader128
   ]
 
-.preheader142:                                    ; preds = %tailrecurse
-  %5 = getelementptr inbounds nuw i8, ptr %.tr129, i64 32
+.preheader128:                                    ; preds = %tailrecurse
+  %5 = getelementptr inbounds nuw i8, ptr %.tr117, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !211
-  %.not148.not = icmp eq i32 %6, 0
-  br i1 %.not148.not, label %._crit_edge, label %.lr.ph
+  %.not134.not = icmp eq i32 %6, 0
+  br i1 %.not134.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader142
-  %7 = getelementptr inbounds nuw i8, ptr %.tr129, i64 48
+.lr.ph:                                           ; preds = %.preheader128
+  %7 = getelementptr inbounds nuw i8, ptr %.tr117, i64 48
   br label %110
 
-.preheader134:                                    ; preds = %tailrecurse
-  %8 = getelementptr inbounds nuw i8, ptr %.tr129, i64 72
-  %9 = getelementptr inbounds nuw i8, ptr %.tr129, i64 76
+.preheader120:                                    ; preds = %tailrecurse
+  %8 = getelementptr inbounds nuw i8, ptr %.tr117, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %.tr117, i64 76
   %10 = load i32, ptr %8, align 8, !tbaa !212
   %11 = add i32 %10, 1
   %12 = load i32, ptr %9, align 4, !tbaa !215
   %13 = sub i32 0, %12
-  %.not87156.not = icmp eq i32 %11, %13
-  br i1 %.not87156.not, label %.preheader132, label %.lr.ph158
+  %.not87149.not = icmp eq i32 %11, %13
+  br i1 %.not87149.not, label %.preheader119, label %.lr.ph151
 
-.lr.ph158:                                        ; preds = %.preheader134
-  %14 = getelementptr inbounds nuw i8, ptr %.tr129, i64 80
-  %15 = getelementptr inbounds nuw i8, ptr %.tr129, i64 20
-  %16 = getelementptr inbounds nuw i8, ptr %.tr129, i64 24
+.lr.ph151:                                        ; preds = %.preheader120
+  %14 = getelementptr inbounds nuw i8, ptr %.tr117, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %.tr117, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.tr117, i64 24
   br label %42
 
 17:                                               ; preds = %tailrecurse
-  %18 = getelementptr inbounds nuw i8, ptr %.tr129, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.tr117, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !166
   %20 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %19)
   br i1 %20, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %.tr129, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.tr117, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !216
-  %.not89163.not = icmp eq i32 %22, 0
-  br i1 %.not89163.not, label %.critedge130, label %.lr.ph165
+  %.not89156.not = icmp eq i32 %22, 0
+  br i1 %.not89156.not, label %.thread, label %.lr.ph158
 
-.lr.ph165:                                        ; preds = %.preheader
-  %23 = getelementptr inbounds nuw i8, ptr %.tr129, i64 32
+.lr.ph158:                                        ; preds = %.preheader
+  %23 = getelementptr inbounds nuw i8, ptr %.tr117, i64 32
   br label %27
 
 24:                                               ; preds = %27
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %25 = load i32, ptr %21, align 8, !tbaa !216
   %26 = zext i32 %25 to i64
-  %.not89 = icmp samesign ult i64 %indvars.iv.next191, %26
-  br i1 %.not89, label %27, label %.critedge130, !llvm.loop !217
+  %.not89 = icmp samesign ult i64 %indvars.iv.next186, %26
+  br i1 %.not89, label %27, label %.thread, !llvm.loop !217
 
-27:                                               ; preds = %.lr.ph165, %24
-  %indvars.iv190 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next191, %24 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv190
+27:                                               ; preds = %.lr.ph158, %24
+  %indvars.iv185 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next186, %24 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv185
   %29 = load ptr, ptr %28, align 8, !tbaa !199
   %30 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %29)
   br i1 %30, label %.thread, label %24
 
 31:                                               ; preds = %tailrecurse
-  %32 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %.tr129)
+  %32 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %.tr117)
   br label %tailrecurse
 
 33:                                               ; preds = %_ZNK10quantifier9get_childEj.exit
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %34 = load i32, ptr %8, align 8, !tbaa !212
   %35 = add i32 %34, 1
   %36 = load i32, ptr %9, align 4, !tbaa !215
   %37 = add i32 %35, %36
   %38 = zext i32 %37 to i64
-  %.not87 = icmp samesign ult i64 %indvars.iv.next185, %38
-  br i1 %.not87, label %42, label %.preheader132, !llvm.loop !218
+  %.not87 = icmp samesign ult i64 %indvars.iv.next180, %38
+  br i1 %.not87, label %42, label %.preheader119, !llvm.loop !218
 
-.preheader132:                                    ; preds = %33, %.preheader134
-  %39 = getelementptr inbounds nuw i8, ptr %.tr129, i64 20
+.preheader119:                                    ; preds = %33, %.preheader120
+  %39 = getelementptr inbounds nuw i8, ptr %.tr117, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !219
-  %.not88159.not = icmp eq i32 %40, 0
-  br i1 %.not88159.not, label %._crit_edge162, label %.lr.ph161
+  %.not88152.not = icmp eq i32 %40, 0
+  br i1 %.not88152.not, label %._crit_edge155, label %.lr.ph154
 
-.lr.ph161:                                        ; preds = %.preheader132
-  %41 = getelementptr inbounds nuw i8, ptr %.tr129, i64 80
+.lr.ph154:                                        ; preds = %.preheader119
+  %41 = getelementptr inbounds nuw i8, ptr %.tr117, i64 80
   br label %68
 
-42:                                               ; preds = %.lr.ph158, %33
-  %indvars.iv184 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next185, %33 ]
-  %43 = phi i32 [ %10, %.lr.ph158 ], [ %34, %33 ]
-  %44 = icmp eq i64 %indvars.iv184, 0
+42:                                               ; preds = %.lr.ph151, %33
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next180, %33 ]
+  %43 = phi i32 [ %10, %.lr.ph151 ], [ %34, %33 ]
+  %44 = icmp eq i64 %indvars.iv179, 0
   br i1 %44, label %_ZNK10quantifier9get_childEj.exit, label %45
 
 45:                                               ; preds = %42
   %46 = zext i32 %43 to i64
-  %.not.i = icmp samesign ugt i64 %indvars.iv184, %46
+  %.not.i = icmp samesign ugt i64 %indvars.iv179, %46
   br i1 %.not.i, label %54, label %47
 
 47:                                               ; preds = %45
@@ -10695,13 +10695,13 @@ tailrecurse:                                      ; preds = %31, %2
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %14, i64 %49
   %51 = getelementptr inbounds nuw %class.symbol, ptr %50, i64 %49
-  %52 = getelementptr ptr, ptr %51, i64 %indvars.iv184
+  %52 = getelementptr ptr, ptr %51, i64 %indvars.iv179
   %53 = getelementptr i8, ptr %52, i64 -8
   br label %_ZNK10quantifier9get_childEj.exit
 
 54:                                               ; preds = %45
   %55 = xor i32 %43, -1
-  %56 = trunc nuw i64 %indvars.iv184 to i32
+  %56 = trunc nuw i64 %indvars.iv179 to i32
   %57 = add i32 %56, %55
   %58 = load i32, ptr %15, align 4, !tbaa !219
   %59 = zext i32 %58 to i64
@@ -10715,40 +10715,43 @@ _ZNK10quantifier9get_childEj.exit:                ; preds = %42, %47, %54
   %.0.in.i = phi ptr [ %53, %47 ], [ %63, %54 ], [ %16, %42 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !199
   %64 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.0.i)
-  br i1 %64, label %.thread, label %33
+  br i1 %64, label %.thread105, label %33
 
 65:                                               ; preds = %68
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %66 = load i32, ptr %39, align 4, !tbaa !219
   %67 = zext i32 %66 to i64
-  %.not88 = icmp samesign ult i64 %indvars.iv.next188, %67
-  br i1 %.not88, label %68, label %._crit_edge162, !llvm.loop !220
+  %.not88 = icmp samesign ult i64 %indvars.iv.next183, %67
+  br i1 %.not88, label %68, label %._crit_edge155, !llvm.loop !220
 
-68:                                               ; preds = %.lr.ph161, %65
-  %indvars.iv187 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next188, %65 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv187
+68:                                               ; preds = %.lr.ph154, %65
+  %indvars.iv182 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next183, %65 ]
+  %69 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv182
   %70 = load ptr, ptr %69, align 8, !tbaa !189
   %71 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %70)
-  br i1 %71, label %.thread, label %65
+  br i1 %71, label %.thread105, label %65
 
-._crit_edge162:                                   ; preds = %65, %.preheader132
-  %72 = getelementptr inbounds nuw i8, ptr %.tr129, i64 24
+._crit_edge155:                                   ; preds = %65, %.preheader119
+  %72 = getelementptr inbounds nuw i8, ptr %.tr117, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !221
   %74 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %73)
-  br i1 %74, label %.thread, label %.critedge130
+  br i1 %74, label %.thread105, label %.thread
+
+.thread105:                                       ; preds = %_ZNK10quantifier9get_childEj.exit, %68, %._crit_edge155
+  br label %.thread
 
 75:                                               ; preds = %tailrecurse
-  %76 = getelementptr inbounds nuw i8, ptr %.tr129, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.tr117, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !171
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %.critedge130, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
+  br i1 %78, label %.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
 
 _ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i32, ptr %79, align 8, !tbaa !202
   %81 = load i32, ptr %77, align 8, !tbaa !91
   %82 = icmp eq i32 %81, %80
-  br i1 %82, label %_ZNK8fpa_util8is_floatEP4sort.exit, label %.lr.ph154.preheader
+  br i1 %82, label %_ZNK8fpa_util8is_floatEP4sort.exit, label %.lr.ph143.preheader
 
 _ZNK8fpa_util8is_floatEP4sort.exit:               ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -10760,28 +10763,28 @@ _ZNK8fpa_util8is_floatEP4sort.exit:               ; preds = %_ZNK4decl13get_fami
   %87 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !188
   %89 = icmp eq i32 %88, 1
-  br i1 %89, label %.thread, label %.lr.ph154.preheader
+  br i1 %89, label %.thread, label %.lr.ph143.preheader
 
-.lr.ph154.preheader:                              ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %86
-  br label %.lr.ph154
+.lr.ph143.preheader:                              ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %86
+  br label %.lr.ph143
 
-.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %.critedge
-  %90 = phi ptr [ %105, %.critedge ], [ %77, %.lr.ph154.preheader ]
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.critedge ], [ 0, %.lr.ph154.preheader ]
+.lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.critedge
+  %90 = phi ptr [ %105, %.critedge ], [ %77, %.lr.ph143.preheader ]
+  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.critedge ], [ 0, %.lr.ph143.preheader ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !96
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.critedge130, label %_ZNK4decl18get_num_parametersEv.exit
+  br i1 %93, label %.thread, label %_ZNK4decl18get_num_parametersEv.exit
 
-_ZNK4decl18get_num_parametersEv.exit:             ; preds = %.lr.ph154
+_ZNK4decl18get_num_parametersEv.exit:             ; preds = %.lr.ph143
   %94 = getelementptr inbounds i8, ptr %92, i64 -4
   %95 = load i32, ptr %94, align 4, !tbaa !66
   %96 = zext i32 %95 to i64
-  %97 = icmp samesign ult i64 %indvars.iv181, %96
-  br i1 %97, label %98, label %.critedge130
+  %97 = icmp samesign ult i64 %indvars.iv176, %96
+  br i1 %97, label %98, label %.thread
 
 98:                                               ; preds = %_ZNK4decl18get_num_parametersEv.exit
-  %99 = getelementptr inbounds nuw %class.parameter, ptr %92, i64 %indvars.iv181
+  %99 = getelementptr inbounds nuw %class.parameter, ptr %92, i64 %indvars.iv176
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i8, ptr %100, align 8, !tbaa !100
   %102 = icmp eq i8 %101, 1
@@ -10793,14 +10796,14 @@ _ZNK9parameter7get_astEv.exit:                    ; preds = %98
   br i1 %104, label %.thread, label %_ZNK9parameter7get_astEv.exit..critedge_crit_edge
 
 _ZNK9parameter7get_astEv.exit..critedge_crit_edge: ; preds = %_ZNK9parameter7get_astEv.exit
-  %.pre193 = load ptr, ptr %76, align 8, !tbaa !171
+  %.pre188 = load ptr, ptr %76, align 8, !tbaa !171
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK9parameter7get_astEv.exit..critedge_crit_edge, %98
-  %105 = phi ptr [ %.pre193, %_ZNK9parameter7get_astEv.exit..critedge_crit_edge ], [ %90, %98 ]
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %105 = phi ptr [ %.pre188, %_ZNK9parameter7get_astEv.exit..critedge_crit_edge ], [ %90, %98 ]
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.critedge130, label %.lr.ph154, !llvm.loop !222
+  br i1 %106, label %.thread, label %.lr.ph143, !llvm.loop !222
 
 107:                                              ; preds = %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10816,65 +10819,62 @@ _ZNK9parameter7get_astEv.exit..critedge_crit_edge: ; preds = %_ZNK9parameter7get
   %113 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %112)
   br i1 %113, label %.thread, label %107
 
-._crit_edge:                                      ; preds = %107, %.preheader142
-  %114 = getelementptr inbounds nuw i8, ptr %.tr129, i64 40
+._crit_edge:                                      ; preds = %107, %.preheader128
+  %114 = getelementptr inbounds nuw i8, ptr %.tr117, i64 40
   %115 = load ptr, ptr %114, align 8, !tbaa !177
   %116 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %115)
-  br i1 %116, label %.thread, label %.preheader139
+  br i1 %116, label %.thread, label %.preheader125
 
-.preheader139:                                    ; preds = %._crit_edge
-  %117 = getelementptr inbounds nuw i8, ptr %.tr129, i64 24
+.preheader125:                                    ; preds = %._crit_edge
+  %117 = getelementptr inbounds nuw i8, ptr %.tr117, i64 24
   %118 = load ptr, ptr %117, align 8, !tbaa !171
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %.critedge130, label %.lr.ph151
+  br i1 %119, label %.thread, label %.lr.ph137
 
-.lr.ph151:                                        ; preds = %.preheader139, %.critedge95
-  %120 = phi ptr [ %135, %.critedge95 ], [ %118, %.preheader139 ]
-  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.critedge95 ], [ 0, %.preheader139 ]
+.lr.ph137:                                        ; preds = %.preheader125, %.critedge93
+  %120 = phi ptr [ %135, %.critedge93 ], [ %118, %.preheader125 ]
+  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %.critedge93 ], [ 0, %.preheader125 ]
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !96
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %.critedge130, label %_ZNK4decl18get_num_parametersEv.exit99
+  br i1 %123, label %.thread, label %_ZNK4decl18get_num_parametersEv.exit96
 
-_ZNK4decl18get_num_parametersEv.exit99:           ; preds = %.lr.ph151
+_ZNK4decl18get_num_parametersEv.exit96:           ; preds = %.lr.ph137
   %124 = getelementptr inbounds i8, ptr %122, i64 -4
   %125 = load i32, ptr %124, align 4, !tbaa !66
   %126 = zext i32 %125 to i64
-  %127 = icmp samesign ult i64 %indvars.iv178, %126
-  br i1 %127, label %128, label %.critedge130
+  %127 = icmp samesign ult i64 %indvars.iv173, %126
+  br i1 %127, label %128, label %.thread
 
-128:                                              ; preds = %_ZNK4decl18get_num_parametersEv.exit99
-  %129 = getelementptr inbounds nuw %class.parameter, ptr %122, i64 %indvars.iv178
+128:                                              ; preds = %_ZNK4decl18get_num_parametersEv.exit96
+  %129 = getelementptr inbounds nuw %class.parameter, ptr %122, i64 %indvars.iv173
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load i8, ptr %130, align 8, !tbaa !100
   %132 = icmp eq i8 %131, 1
-  br i1 %132, label %_ZNK9parameter7get_astEv.exit101, label %.critedge95
+  br i1 %132, label %_ZNK9parameter7get_astEv.exit98, label %.critedge93
 
-_ZNK9parameter7get_astEv.exit101:                 ; preds = %128
+_ZNK9parameter7get_astEv.exit98:                  ; preds = %128
   %133 = load ptr, ptr %129, align 8, !tbaa !186
   %134 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %133)
-  br i1 %134, label %.thread, label %_ZNK9parameter7get_astEv.exit101..critedge95_crit_edge
+  br i1 %134, label %.thread, label %_ZNK9parameter7get_astEv.exit98..critedge93_crit_edge
 
-_ZNK9parameter7get_astEv.exit101..critedge95_crit_edge: ; preds = %_ZNK9parameter7get_astEv.exit101
+_ZNK9parameter7get_astEv.exit98..critedge93_crit_edge: ; preds = %_ZNK9parameter7get_astEv.exit98
   %.pre = load ptr, ptr %117, align 8, !tbaa !171
-  br label %.critedge95
+  br label %.critedge93
 
-.critedge95:                                      ; preds = %_ZNK9parameter7get_astEv.exit101..critedge95_crit_edge, %128
-  %135 = phi ptr [ %.pre, %_ZNK9parameter7get_astEv.exit101..critedge95_crit_edge ], [ %120, %128 ]
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+.critedge93:                                      ; preds = %_ZNK9parameter7get_astEv.exit98..critedge93_crit_edge, %128
+  %135 = phi ptr [ %.pre, %_ZNK9parameter7get_astEv.exit98..critedge93_crit_edge ], [ %120, %128 ]
+  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %136 = icmp eq ptr %135, null
-  br i1 %136, label %.critedge130, label %.lr.ph151, !llvm.loop !224
+  br i1 %136, label %.thread, label %.lr.ph137, !llvm.loop !224
 
 137:                                              ; preds = %tailrecurse
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.23, i32 noundef 1061, ptr noundef nonnull @.str.24)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
-  br label %.critedge130
-
-.critedge130:                                     ; preds = %.critedge95, %.lr.ph151, %_ZNK4decl18get_num_parametersEv.exit99, %.critedge, %.lr.ph154, %_ZNK4decl18get_num_parametersEv.exit, %24, %75, %.preheader139, %.preheader, %._crit_edge162, %137
   br label %.thread
 
-.thread:                                          ; preds = %110, %_ZNK9parameter7get_astEv.exit101, %_ZNK9parameter7get_astEv.exit, %_ZNK10quantifier9get_childEj.exit, %68, %27, %._crit_edge, %86, %_ZNK8fpa_util8is_floatEP4sort.exit, %17, %._crit_edge162, %.critedge130
-  %.2 = phi i1 [ false, %.critedge130 ], [ true, %._crit_edge162 ], [ true, %17 ], [ true, %_ZNK8fpa_util8is_floatEP4sort.exit ], [ true, %86 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %68 ], [ true, %_ZNK10quantifier9get_childEj.exit ], [ true, %_ZNK9parameter7get_astEv.exit ], [ true, %_ZNK9parameter7get_astEv.exit101 ], [ true, %110 ]
+.thread:                                          ; preds = %110, %_ZNK4decl18get_num_parametersEv.exit96, %_ZNK9parameter7get_astEv.exit98, %.lr.ph137, %.critedge93, %_ZNK4decl18get_num_parametersEv.exit, %_ZNK9parameter7get_astEv.exit, %.lr.ph143, %.critedge, %24, %27, %75, %.preheader125, %.preheader, %._crit_edge, %86, %_ZNK8fpa_util8is_floatEP4sort.exit, %17, %137, %._crit_edge155, %.thread105
+  %.2 = phi i1 [ true, %.thread105 ], [ false, %._crit_edge155 ], [ false, %137 ], [ true, %17 ], [ true, %_ZNK8fpa_util8is_floatEP4sort.exit ], [ true, %86 ], [ true, %._crit_edge ], [ false, %.preheader ], [ false, %.preheader125 ], [ false, %75 ], [ %30, %27 ], [ %30, %24 ], [ false, %_ZNK4decl18get_num_parametersEv.exit ], [ true, %_ZNK9parameter7get_astEv.exit ], [ false, %.lr.ph143 ], [ false, %.critedge ], [ false, %_ZNK4decl18get_num_parametersEv.exit96 ], [ true, %_ZNK9parameter7get_astEv.exit98 ], [ false, %.lr.ph137 ], [ false, %.critedge93 ], [ true, %110 ]
   ret i1 %.2
 }
 

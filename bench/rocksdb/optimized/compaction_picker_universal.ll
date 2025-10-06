@@ -1383,14 +1383,14 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder43ShouldSkipLastSortedRunF
 466:                                              ; preds = %462
   %467 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %468 = load i64, ptr %467, align 8, !tbaa !256
-  %.not132.i = icmp eq i64 %457, 0
-  br i1 %.not132.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSizeAmpEv.exit.thread, label %.lr.ph.i86
+  %.not131.i = icmp eq i64 %457, 0
+  br i1 %.not131.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSizeAmpEv.exit.thread, label %.lr.ph.i86
 
 .lr.ph.i86:                                       ; preds = %466, %504
-  %.030135.i = phi i64 [ %511, %504 ], [ 0, %466 ]
-  %.071134.i = phi i64 [ %507, %504 ], [ 0, %466 ]
-  %.073133.i = phi i64 [ %469, %504 ], [ %457, %466 ]
-  %469 = add i64 %.073133.i, -1
+  %.030134.i = phi i64 [ %511, %504 ], [ 0, %466 ]
+  %.071133.i = phi i64 [ %507, %504 ], [ 0, %466 ]
+  %.073132.i = phi i64 [ %469, %504 ], [ %457, %466 ]
+  %469 = add i64 %.073132.i, -1
   %470 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %.val71, i64 %469
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 32
   %472 = load i8, ptr %471, align 8, !tbaa !258, !range !160, !noundef !161
@@ -1459,23 +1459,23 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.
 504:                                              ; preds = %474
   %505 = getelementptr inbounds nuw i8, ptr %470, i64 24
   %506 = load i64, ptr %505, align 8, !tbaa !257
-  %507 = add i64 %506, %.071134.i
+  %507 = add i64 %506, %.071133.i
   %508 = load i32, ptr %470, align 8, !tbaa !253
   %509 = icmp eq i32 %508, 0
   %510 = zext i1 %509 to i64
-  %511 = add i64 %.030135.i, %510
+  %511 = add i64 %.030134.i, %510
   %.not.i87 = icmp eq i64 %469, 0
   br i1 %.not.i87, label %.loopexit.i88, label %.lr.ph.i86
 
 .loopexit.i88:                                    ; preds = %504, %.thread.i
-  %.073127.i = phi i64 [ %.073133.i, %.thread.i ], [ 0, %504 ]
-  %.071125.i = phi i64 [ %.071134.i, %.thread.i ], [ %507, %504 ]
-  %.030123.i = phi i64 [ %.030135.i, %.thread.i ], [ %511, %504 ]
-  %512 = icmp eq i64 %.073127.i, %457
+  %.073126.i = phi i64 [ %.073132.i, %.thread.i ], [ 0, %504 ]
+  %.071124.i = phi i64 [ %.071133.i, %.thread.i ], [ %507, %504 ]
+  %.030122.i = phi i64 [ %.030134.i, %.thread.i ], [ %511, %504 ]
+  %512 = icmp eq i64 %.073126.i, %457
   br i1 %512, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSizeAmpEv.exit.thread, label %513
 
 513:                                              ; preds = %.loopexit.i88
-  %514 = icmp eq i64 %.030123.i, 0
+  %514 = icmp eq i64 %.030122.i, 0
   br i1 %514, label %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder35MightExcludeNewL0sToReduceWriteStopEmmRmS2_.exit.i, label %515
 
 515:                                              ; preds = %513
@@ -1490,12 +1490,12 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.
   %524 = load i32, ptr %523, align 4, !tbaa !337
   %525 = zext i32 %524 to i64
   %.val.i48.i = load ptr, ptr %299, align 8, !tbaa !275
-  %526 = add i64 %.030123.i, -1
-  %527 = xor i64 %.073127.i, -1
+  %526 = add i64 %.030122.i, -1
+  %527 = xor i64 %.073126.i, -1
   %528 = add i64 %457, %527
   %.sroa.speculated72.i.i = call i64 @llvm.umin.i64(i64 %528, i64 %526)
   %529 = add nsw i64 %457, 1
-  %530 = sub i64 %529, %.073127.i
+  %530 = sub i64 %529, %.073126.i
   %531 = call i64 @llvm.usub.sat.i64(i64 %519, i64 %530)
   %532 = call i64 @llvm.usub.sat.i64(i64 %522, i64 %531)
   %533 = call i64 @llvm.usub.sat.i64(i64 %525, i64 %531)
@@ -1517,7 +1517,7 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.
   %542 = sub i64 %540, %541
   %543 = sdiv exact i64 %542, 40
   %544 = mul i64 %536, %539
-  %545 = mul i64 %.071125.i, 9
+  %545 = mul i64 %.071124.i, 9
   %546 = udiv i64 %545, 10
   %umax.i = call i64 @llvm.umax.i64(i64 %.sroa.speculated.i.i, i64 %.sroa.speculated52.i.i)
   br label %.preheader.i.i
@@ -1529,7 +1529,7 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.
 
 .preheader.i.i:                                   ; preds = %547, %.preheader.lr.ph.i.i
   %.036102.i.i = phi i64 [ %.sroa.speculated.i.i, %.preheader.lr.ph.i.i ], [ %548, %547 ]
-  %.037101.i.i = phi i64 [ %.071125.i, %.preheader.lr.ph.i.i ], [ %.034.lcssa.i.i, %547 ]
+  %.037101.i.i = phi i64 [ %.071124.i, %.preheader.lr.ph.i.i ], [ %.034.lcssa.i.i, %547 ]
   %.038100.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %.036102.i.i, %547 ]
   %549 = icmp ult i64 %.038100.i.i, %.036102.i.i
   br i1 %549, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -1545,7 +1545,7 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i
   %.098.i.i = phi i64 [ %559, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i ], [ %.038100.i.i, %.preheader.i.i ]
   %.03497.i.i = phi i64 [ %558, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i ], [ %.037101.i.i, %.preheader.i.i ]
-  %553 = add i64 %.098.i.i, %.073127.i
+  %553 = add i64 %.098.i.i, %.073126.i
   %.not.i.i.i.i99 = icmp ult i64 %553, %543
   br i1 %.not.i.i.i.i99, label %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i, label %554
 
@@ -1564,13 +1564,13 @@ _ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS
 
 .thread.i.i90:                                    ; preds = %._crit_edge.i.i, %547, %515
   %.038.lcssa.i.i = phi i64 [ 0, %515 ], [ %.038100.i.i, %._crit_edge.i.i ], [ %umax.i, %547 ]
-  %.037.lcssa.i.i = phi i64 [ %.071125.i, %515 ], [ %.037101.i.i, %._crit_edge.i.i ], [ %.034.lcssa.i.i, %547 ]
-  %560 = add i64 %.038.lcssa.i.i, %.073127.i
+  %.037.lcssa.i.i = phi i64 [ %.071124.i, %515 ], [ %.037101.i.i, %._crit_edge.i.i ], [ %.034.lcssa.i.i, %547 ]
+  %560 = add i64 %.038.lcssa.i.i, %.073126.i
   br label %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder35MightExcludeNewL0sToReduceWriteStopEmmRmS2_.exit.i
 
 _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder35MightExcludeNewL0sToReduceWriteStopEmmRmS2_.exit.i: ; preds = %.thread.i.i90, %513
-  %.376.i = phi i64 [ %.073127.i, %513 ], [ %560, %.thread.i.i90 ]
-  %.3.i = phi i64 [ %.071125.i, %513 ], [ %.037.lcssa.i.i, %.thread.i.i90 ]
+  %.376.i = phi i64 [ %.073126.i, %513 ], [ %560, %.thread.i.i90 ]
+  %.3.i = phi i64 [ %.071124.i, %513 ], [ %.037.lcssa.i.i, %.thread.i.i90 ]
   %.041.i.i = phi i64 [ 0, %513 ], [ %.038.lcssa.i.i, %.thread.i.i90 ]
   %561 = load ptr, ptr %353, align 8, !tbaa !83
   %562 = load ptr, ptr %355, align 8, !tbaa !301

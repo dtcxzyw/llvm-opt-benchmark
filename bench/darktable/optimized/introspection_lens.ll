@@ -9338,17 +9338,17 @@ define internal fastcc noundef ptr @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8
 
 43:                                               ; preds = %38
   %44 = add nsw i32 %.val53, -2
-  %.not488.i = icmp eq i32 %.val53, 1
-  br i1 %.not488.i, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit, label %.lr.ph.i55.preheader
+  %.not487.i = icmp eq i32 %.val53, 1
+  br i1 %.not487.i, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit, label %.lr.ph.i55.preheader
 
 .lr.ph.i55.preheader:                             ; preds = %43, %38
-  %.110.i.ph = phi i32 [ %39, %38 ], [ %44, %43 ]
+  %.19.i.ph = phi i32 [ %39, %38 ], [ %44, %43 ]
   br label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %.lr.ph.i55.preheader, %53
-  %.110.i = phi i32 [ %.3.i, %53 ], [ %.110.i.ph, %.lr.ph.i55.preheader ]
-  %.0399.i = phi i32 [ %.241.i, %53 ], [ 0, %.lr.ph.i55.preheader ]
-  %45 = add nuw nsw i32 %.0399.i, %.110.i
+  %.19.i = phi i32 [ %.3.i, %53 ], [ %.19.i.ph, %.lr.ph.i55.preheader ]
+  %.0398.i = phi i32 [ %.241.i, %53 ], [ 0, %.lr.ph.i55.preheader ]
+  %45 = add nuw nsw i32 %.0398.i, %.19.i
   %46 = lshr i32 %45, 1
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %47
@@ -9365,8 +9365,8 @@ define internal fastcc noundef ptr @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8
   %54 = icmp slt i32 %50, 0
   %55 = add nuw nsw i32 %46, 1
   %56 = add nsw i32 %46, -1
-  %.241.i = select i1 %54, i32 %55, i32 %.0399.i
-  %.3.i = select i1 %54, i32 %.110.i, i32 %56
+  %.241.i = select i1 %54, i32 %55, i32 %.0398.i
+  %.3.i = select i1 %54, i32 %.19.i, i32 %56
   %.not48.i = icmp sgt i32 %.241.i, %.3.i
   br i1 %.not48.i, label %._crit_edge.loopexit.i, label %.lr.ph.i55
 
@@ -9628,17 +9628,17 @@ define internal fastcc noundef ptr @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6l
 
 43:                                               ; preds = %38
   %44 = add nsw i32 %.val42, -2
-  %.not488.i = icmp eq i32 %.val42, 1
-  br i1 %.not488.i, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit, label %.lr.ph.i44.preheader
+  %.not487.i = icmp eq i32 %.val42, 1
+  br i1 %.not487.i, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit, label %.lr.ph.i44.preheader
 
 .lr.ph.i44.preheader:                             ; preds = %43, %38
-  %.110.i.ph = phi i32 [ %39, %38 ], [ %44, %43 ]
+  %.19.i.ph = phi i32 [ %39, %38 ], [ %44, %43 ]
   br label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44.preheader, %53
-  %.110.i = phi i32 [ %.3.i, %53 ], [ %.110.i.ph, %.lr.ph.i44.preheader ]
-  %.0399.i = phi i32 [ %.241.i, %53 ], [ 0, %.lr.ph.i44.preheader ]
-  %45 = add nuw nsw i32 %.0399.i, %.110.i
+  %.19.i = phi i32 [ %.3.i, %53 ], [ %.19.i.ph, %.lr.ph.i44.preheader ]
+  %.0398.i = phi i32 [ %.241.i, %53 ], [ 0, %.lr.ph.i44.preheader ]
+  %45 = add nuw nsw i32 %.0398.i, %.19.i
   %46 = lshr i32 %45, 1
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %47
@@ -9655,8 +9655,8 @@ define internal fastcc noundef ptr @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6l
   %54 = icmp slt i32 %50, 0
   %55 = add nuw nsw i32 %46, 1
   %56 = add nsw i32 %46, -1
-  %.241.i = select i1 %54, i32 %55, i32 %.0399.i
-  %.3.i = select i1 %54, i32 %.110.i, i32 %56
+  %.241.i = select i1 %54, i32 %55, i32 %.0398.i
+  %.3.i = select i1 %54, i32 %.19.i, i32 %56
   %.not48.i = icmp sgt i32 %.241.i, %.3.i
   br i1 %.not48.i, label %._crit_edge.loopexit.i, label %.lr.ph.i44
 

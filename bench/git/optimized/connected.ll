@@ -134,24 +134,24 @@ strip_suffix.exit:                                ; preds = %27
   %.051 = phi ptr [ %37, %40 ], [ %54, %53 ]
   %43 = load ptr, ptr @the_repository, align 8, !tbaa !30
   %44 = call ptr @get_all_packs(ptr noundef %43) #11
-  %.not69182 = icmp eq ptr %44, null
-  br i1 %.not69182, label %.loopexit, label %.lr.ph
+  %.not69181 = icmp eq ptr %44, null
+  br i1 %.not69181, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %50
-  %.0183 = phi ptr [ %52, %50 ], [ %44, %42 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.0183, i64 152
+  %.0182 = phi ptr [ %52, %50 ], [ %44, %42 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.0182, i64 152
   %46 = load i8, ptr %45, align 8
   %47 = and i8 %46, 32
   %.not70 = icmp eq i8 %47, 0
   br i1 %.not70, label %50, label %48
 
 48:                                               ; preds = %.lr.ph
-  %49 = call i64 @find_pack_entry_one(ptr noundef nonnull %.051, ptr noundef nonnull %.0183) #11
+  %49 = call i64 @find_pack_entry_one(ptr noundef nonnull %.051, ptr noundef nonnull %.0182) #11
   %.not71 = icmp eq i64 %49, 0
   br i1 %.not71, label %50, label %53
 
 50:                                               ; preds = %48, %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %.0183, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0182, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !35
   %.not69 = icmp eq ptr %52, null
   br i1 %.not69, label %.loopexit, label %.lr.ph, !llvm.loop !37
@@ -226,7 +226,7 @@ strip_suffix.exit:                                ; preds = %27
 73:                                               ; preds = %71, %.cont123
   %74 = call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull @.str.10) #11
   %75 = call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull @.str.11) #11
-  br i1 %.not, label %.thread180, label %.cont129
+  br i1 %.not, label %.thread179, label %.cont129
 
 .cont129:                                         ; preds = %73
   %.sroa.gep113 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -253,8 +253,8 @@ _.exit:                                           ; preds = %76, %78
   %82 = load i16, ptr %81, align 8
   %83 = or i16 %82, 8
   store i16 %83, ptr %81, align 8
-  %.sroa.gep116172 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.else.val128 = load ptr, ptr %.sroa.gep116172, align 8, !tbaa !44
+  %.sroa.gep116171 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.else.val128 = load ptr, ptr %.sroa.gep116171, align 8, !tbaa !44
   %.not77 = icmp eq ptr %.else.val128, null
   br i1 %.not77, label %.cont132, label %84
 
@@ -264,7 +264,7 @@ _.exit:                                           ; preds = %76, %78
   %.pre = load i16, ptr %81, align 8
   br label %.cont132
 
-.thread180:                                       ; preds = %73
+.thread179:                                       ; preds = %73
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %87 = load i16, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -278,8 +278,8 @@ _.exit:                                           ; preds = %76, %78
   store i32 -1, ptr %91, align 8, !tbaa !45
   %92 = or i16 %90, 2
   store i16 %92, ptr %81, align 8
-  %.sroa.gep119177 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.else.val134 = load i32, ptr %.sroa.gep119177, align 8, !tbaa !13
+  %.sroa.gep119176 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.else.val134 = load i32, ptr %.sroa.gep119176, align 8, !tbaa !13
   %.not78 = icmp eq i32 %.else.val134, 0
   br i1 %.not78, label %.else151, label %93
 
@@ -295,11 +295,11 @@ _.exit:                                           ; preds = %76, %78
   %97 = and i16 %96, 4
   br label %.cont150
 
-.cont150:                                         ; preds = %.thread180, %.else151
-  %98 = phi i16 [ %92, %.else151 ], [ %89, %.thread180 ]
-  %99 = phi ptr [ %91, %.else151 ], [ %88, %.thread180 ]
-  %100 = phi ptr [ %81, %.else151 ], [ %86, %.thread180 ]
-  %101 = phi i16 [ %97, %.else151 ], [ 0, %.thread180 ]
+.cont150:                                         ; preds = %.thread179, %.else151
+  %98 = phi i16 [ %92, %.else151 ], [ %89, %.thread179 ]
+  %99 = phi ptr [ %91, %.else151 ], [ %88, %.thread179 ]
+  %100 = phi ptr [ %81, %.else151 ], [ %86, %.thread179 ]
+  %101 = phi i16 [ %97, %.else151 ], [ 0, %.thread179 ]
   %102 = and i16 %98, -5
   %103 = or disjoint i16 %101, %102
   store i16 %103, ptr %100, align 8
@@ -338,12 +338,12 @@ _.exit92:                                         ; preds = %107, %109
   %116 = call ptr @oid_to_hex(ptr noundef %.2.us) #11
   %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.16, ptr noundef %116) #11
   %118 = icmp slt i32 %117, 0
-  br i1 %118, label %.split187.us, label %119
+  br i1 %118, label %.split186.us, label %119
 
 119:                                              ; preds = %.split.us
   %120 = call ptr %0(ptr noundef %1) #11
   %.not82.us = icmp eq ptr %120, null
-  br i1 %.not82.us, label %.split187.us, label %.split.us, !llvm.loop !50
+  br i1 %.not82.us, label %.split186.us, label %.split.us, !llvm.loop !50
 
 .split:                                           ; preds = %112, %126
   %.2 = phi ptr [ %127, %126 ], [ %.152, %112 ]
@@ -355,24 +355,24 @@ _.exit92:                                         ; preds = %107, %109
   %123 = call ptr @oid_to_hex(ptr noundef %.2) #11
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.16, ptr noundef %123) #11
   %125 = icmp slt i32 %124, 0
-  br i1 %125, label %.split187.us, label %126
+  br i1 %125, label %.split186.us, label %126
 
 126:                                              ; preds = %122, %.split
   %127 = call ptr %0(ptr noundef %1) #11
   %.not82 = icmp eq ptr %127, null
-  br i1 %.not82, label %.split187.us, label %.split, !llvm.loop !50
+  br i1 %.not82, label %.split186.us, label %.split, !llvm.loop !50
 
-.split187.us:                                     ; preds = %126, %122, %.split.us, %119
+.split186.us:                                     ; preds = %126, %122, %.split.us, %119
   %128 = call i32 @ferror(ptr noundef %115) #11
   %.not83 = icmp eq i32 %128, 0
   br i1 %.not83, label %129, label %131
 
-129:                                              ; preds = %.split187.us
+129:                                              ; preds = %.split186.us
   %130 = call i32 @fflush(ptr noundef %115)
   %.not84 = icmp eq i32 %130, 0
   br i1 %.not84, label %139, label %131
 
-131:                                              ; preds = %129, %.split187.us
+131:                                              ; preds = %129, %.split186.us
   %132 = tail call ptr @__errno_location() #13
   %133 = load i32, ptr %132, align 4, !tbaa !43
   switch i32 %133, label %134 [

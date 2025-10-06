@@ -483,11 +483,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %37 = call ptr @__cxa_allocate_exception(i64 24) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str)
-          to label %38 unwind label %.thread37
+          to label %38 unwind label %.thread36
 
 38:                                               ; preds = %34
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-          to label %39 unwind label %.thread42
+          to label %39 unwind label %.thread41
 
 39:                                               ; preds = %38
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx11FileIOErrorE, i64 16), ptr %7, align 8, !tbaa !16
@@ -522,12 +522,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   invoke void @__cxa_throw(ptr %37, ptr nonnull @_ZTIN3gmx11FileIOErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #23
           to label %74 unwind label %52
 
-.thread37:                                        ; preds = %34
+.thread36:                                        ; preds = %34
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread42:                                        ; preds = %38
+.thread41:                                        ; preds = %38
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #22
@@ -570,13 +570,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.3, label %56, label %69
 
-.sink.split:                                      ; preds = %.thread37, %.thread42
-  %.pn.pn.pn.pn41.ph = phi { ptr, i32 } [ %47, %.thread42 ], [ %46, %.thread37 ]
+.sink.split:                                      ; preds = %.thread36, %.thread41
+  %.pn.pn.pn.pn40.ph = phi { ptr, i32 } [ %47, %.thread41 ], [ %46, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %56
 
 56:                                               ; preds = %.sink.split, %55
-  %.pn.pn.pn.pn41 = phi { ptr, i32 } [ %.pn.pn, %55 ], [ %.pn.pn.pn.pn41.ph, %.sink.split ]
+  %.pn.pn.pn.pn40 = phi { ptr, i32 } [ %.pn.pn, %55 ], [ %.pn.pn.pn.pn40.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %37) #22
   br label %69
 
@@ -612,7 +612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %63, %
   ret i1 %64
 
 69:                                               ; preds = %.loopexit, %.loopexit.split-lp, %55, %56, %31
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn.pn.pn.pn41, %56 ], [ %.pn.pn, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn.pn.pn.pn40, %56 ], [ %.pn.pn, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %70 = load ptr, ptr %3, align 8, !tbaa !29
   %71 = icmp eq ptr %70, %14

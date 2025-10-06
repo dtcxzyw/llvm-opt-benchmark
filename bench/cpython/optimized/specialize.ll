@@ -3859,20 +3859,20 @@ define hidden void @_Py_Specialize_ToBool(i64 %0, ptr noundef captures(none) %1)
   br i1 %.not, label %33, label %6
 
 6:                                                ; preds = %2
-  %.not31 = icmp eq ptr %.val27, @PyLong_Type
-  br i1 %.not31, label %33, label %7
+  %.not29 = icmp eq ptr %.val27, @PyLong_Type
+  br i1 %.not29, label %33, label %7
 
 7:                                                ; preds = %6
-  %.not32 = icmp eq ptr %.val27, @PyList_Type
-  br i1 %.not32, label %33, label %8
+  %.not30 = icmp eq ptr %.val27, @PyList_Type
+  br i1 %.not30, label %33, label %8
 
 8:                                                ; preds = %7
   %9 = icmp eq i64 %0, ptrtoint (ptr @_Py_NoneStruct to i64)
   br i1 %9, label %33, label %10
 
 10:                                               ; preds = %8
-  %.not33 = icmp eq ptr %.val27, @PyUnicode_Type
-  br i1 %.not33, label %33, label %11
+  %.not31 = icmp eq ptr %.val27, @PyUnicode_Type
+  br i1 %.not31, label %33, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr i8, ptr %.val27, i64 168

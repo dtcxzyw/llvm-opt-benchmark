@@ -275,12 +275,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20build_script_outpu
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 153
   %26 = load i8, ptr %25, align 1
-  %27 = icmp ugt i8 %26, 6
-  br i1 %27, label %31, label %40
+  %27 = icmp ult i8 %26, 7
+  br i1 %27, label %40, label %31
 
 28:                                               ; preds = %2
-  %29 = icmp ugt i8 %22, 2
-  br i1 %29, label %31, label %40
+  %29 = icmp ult i8 %22, 3
+  br i1 %29, label %40, label %31
 
 30:                                               ; preds = %45
   unreachable
@@ -3291,7 +3291,7 @@ define void @_ZN17pyo3_build_config5impl_21default_lib_name_unix17hcfdd55c0a5ed3
   switch i8 %3, label %24 [
     i8 0, label %25
     i8 1, label %27
-    i8 2, label %29
+    i8 2, label %32
   ]
 
 24:                                               ; preds = %6
@@ -3299,147 +3299,147 @@ define void @_ZN17pyo3_build_config5impl_21default_lib_name_unix17hcfdd55c0a5ed3
 
 25:                                               ; preds = %6
   %26 = icmp eq ptr %4, null
-  br i1 %26, label %30, label %34
+  br i1 %26, label %33, label %37
 
 27:                                               ; preds = %6
   %28 = icmp eq i8 %1, 3
-  %switch48 = icmp ugt i8 %2, 8
-  %switch49 = icmp ugt i8 %1, 2
-  %switch = select i1 %28, i1 %switch48, i1 %switch49
-  br i1 %switch, label %53, label %55
+  %29 = icmp ult i8 %2, 9
+  %30 = icmp ult i8 %1, 3
+  %31 = select i1 %28, i1 %29, i1 %30
+  br i1 %31, label %58, label %56
 
-29:                                               ; preds = %6
+32:                                               ; preds = %6
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %7, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.138, i64 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  br label %52
+  br label %55
 
-30:                                               ; preds = %25
-  %31 = icmp eq i8 %1, 3
-  %32 = icmp ugt i8 %1, 3
-  %33 = icmp ugt i8 %2, 7
-  %spec.select = select i1 %31, i1 %33, i1 %32
-  br i1 %spec.select, label %46, label %40
+33:                                               ; preds = %25
+  %34 = icmp eq i8 %1, 3
+  %35 = icmp ugt i8 %1, 3
+  %36 = icmp ugt i8 %2, 7
+  %spec.select = select i1 %34, i1 %36, i1 %35
+  br i1 %spec.select, label %49, label %43
 
-34:                                               ; preds = %25
+37:                                               ; preds = %25
   store ptr %4, ptr %21, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %5, ptr %35, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %5, ptr %38, align 8
   store ptr %21, ptr %19, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hc457227902524b89E", ptr %.sroa.211.0..sroa_idx, align 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.122, ptr %20, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 1, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %19, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 1, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %19, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i64 1, ptr %42, align 8
   call void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %20)
-  br label %52
+  br label %55
 
-40:                                               ; preds = %30
+43:                                               ; preds = %33
   store ptr %22, ptr %15, align 8
   %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h863fba6a29561d2aE", ptr %.sroa.223.0..sroa_idx, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %23, ptr %41, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr %23, ptr %44, align 8
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h863fba6a29561d2aE", ptr %.sroa.227.0..sroa_idx, align 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.134, ptr %16, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 3, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %15, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 2, ptr %45, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 3, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr %15, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i64 2, ptr %48, align 8
   call void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %16)
-  br label %52
+  br label %55
 
-46:                                               ; preds = %30
+49:                                               ; preds = %33
   store ptr %22, ptr %17, align 8
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h863fba6a29561d2aE", ptr %.sroa.215.0..sroa_idx, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %23, ptr %47, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %23, ptr %50, align 8
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h863fba6a29561d2aE", ptr %.sroa.219.0..sroa_idx, align 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.130, ptr %18, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 2, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %17, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 2, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr null, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %17, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i64 2, ptr %54, align 8
   call void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %18)
-  br label %52
+  br label %55
 
-52:                                               ; preds = %66, %60, %55, %46, %40, %34, %29
+55:                                               ; preds = %69, %63, %58, %49, %43, %37, %32
   ret void
 
-53:                                               ; preds = %27
-  %54 = icmp eq ptr %4, null
-  br i1 %54, label %60, label %66
+56:                                               ; preds = %27
+  %57 = icmp eq ptr %4, null
+  br i1 %57, label %63, label %69
 
-55:                                               ; preds = %27
+58:                                               ; preds = %27
   store ptr %22, ptr %8, align 8
   %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h863fba6a29561d2aE", ptr %.sroa.246.0..sroa_idx, align 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.137, ptr %9, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 1, ptr %59, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 2, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %8, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 1, ptr %62, align 8
   call void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %9)
-  br label %52
+  br label %55
 
-60:                                               ; preds = %53
+63:                                               ; preds = %56
   store ptr %22, ptr %10, align 8
   %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h863fba6a29561d2aE", ptr %.sroa.234.0..sroa_idx, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %23, ptr %61, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %23, ptr %64, align 8
   %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h863fba6a29561d2aE", ptr %.sroa.242.0..sroa_idx, align 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.136, ptr %11, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 3, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr null, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %10, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 2, ptr %65, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 3, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store ptr null, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %10, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 2, ptr %68, align 8
   call void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %11)
-  br label %52
+  br label %55
 
-66:                                               ; preds = %53
+69:                                               ; preds = %56
   store ptr %4, ptr %14, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %5, ptr %67, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 %5, ptr %70, align 8
   store ptr %14, ptr %12, align 8
   %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hc457227902524b89E", ptr %.sroa.238.0..sroa_idx, align 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.137, ptr %13, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 2, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %12, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 1, ptr %71, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 2, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr null, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %12, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i64 1, ptr %74, align 8
   call void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %13)
-  br label %52
+  br label %55
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4898,8 +4898,8 @@ _ZN17pyo3_build_config5impl_25load_cross_compile_config17h3df21c1adc49da8dE.exit
   %224 = getelementptr inbounds nuw i8, ptr %52, i64 157
   %225 = load i8, ptr %224, align 1, !noalias !42
   %226 = add i8 %225, -3
-  %switch19.i = icmp ult i8 %226, -2
-  %or.cond = select i1 %switch19.i, i1 %220, i1 false
+  %switch.i = icmp ult i8 %226, -2
+  %or.cond = select i1 %switch.i, i1 %220, i1 false
   br i1 %or.cond, label %227, label %.thread
 
 227:                                              ; preds = %219

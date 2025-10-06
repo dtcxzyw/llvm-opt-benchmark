@@ -2034,13 +2034,13 @@ define internal ptr @tuple_repr(ptr noundef %0) #0 {
   br label %24
 
 22:                                               ; preds = %31
-  %23 = add nuw nsw i64 %.038, 1
+  %23 = add nuw nsw i64 %.036, 1
   %exitcond.not = icmp eq i64 %23, %.val
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !121
 
 24:                                               ; preds = %.lr.ph, %22
-  %.038 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
-  %.not34 = icmp eq i64 %.038, 0
+  %.036 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
+  %.not34 = icmp eq i64 %.036, 0
   br i1 %.not34, label %31, label %25
 
 25:                                               ; preds = %24
@@ -2054,7 +2054,7 @@ define internal ptr @tuple_repr(ptr noundef %0) #0 {
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %28, %24
-  %32 = getelementptr ptr, ptr %21, i64 %.038
+  %32 = getelementptr ptr, ptr %21, i64 %.036
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = tail call i32 @PyUnicodeWriter_WriteRepr(ptr noundef nonnull %15, ptr noundef %33) #9
   %35 = icmp slt i32 %34, 0

@@ -1120,14 +1120,14 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
           to label %66 unwind label %.loopexit.split-lp
 
 66:                                               ; preds = %64
-  br i1 %65, label %.preheader99, label %68
+  br i1 %65, label %.preheader96, label %68
 
-.preheader99:                                     ; preds = %66
+.preheader96:                                     ; preds = %66
   %67 = trunc nuw i8 %.062 to i1
   br label %73
 
 68:                                               ; preds = %66, %63
-  br i1 %.064, label %69, label %.loopexit100
+  br i1 %.064, label %69, label %.loopexit97
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %28, align 8, !tbaa !36
@@ -1135,7 +1135,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
   store i32 0, ptr %71, align 8, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16392
   store i64 0, ptr %72, align 8, !tbaa !134
-  br label %.loopexit100
+  br label %.loopexit97
 
 .loopexit:                                        ; preds = %73, %76
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1147,10 +1147,10 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
           cleanup
   br label %173
 
-73:                                               ; preds = %.preheader99, %165
-  %.258 = phi i8 [ %.561, %165 ], [ %.062, %.preheader99 ]
-  %.247 = phi i1 [ %.550, %165 ], [ %.045, %.preheader99 ]
-  %.2 = phi i1 [ %.5, %165 ], [ %.041, %.preheader99 ]
+73:                                               ; preds = %.preheader96, %165
+  %.258 = phi i8 [ %.561, %165 ], [ %.062, %.preheader96 ]
+  %.247 = phi i1 [ %.550, %165 ], [ %.045, %.preheader96 ]
+  %.2 = phi i1 [ %.5, %165 ], [ %.041, %.preheader96 ]
   %74 = invoke noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %6)
           to label %75 unwind label %.loopexit
 
@@ -1237,21 +1237,21 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
 
 .preheader:                                       ; preds = %108
   %113 = load i64, ptr %7, align 8, !tbaa !42
-  %.not117 = icmp eq i64 %113, 0
-  br i1 %.not117, label %.critedge.thread, label %.lr.ph
+  %.not114 = icmp eq i64 %113, 0
+  br i1 %.not114, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %114 = load ptr, ptr %0, align 8, !tbaa !41
   br label %117
 
 115:                                              ; preds = %117
-  %116 = add nuw i64 %.043116, 1
+  %116 = add nuw i64 %.043113, 1
   %exitcond.not = icmp eq i64 %116, %113
   br i1 %exitcond.not, label %.critedge, label %117, !llvm.loop !141
 
 117:                                              ; preds = %.lr.ph, %115
-  %.043116 = phi i64 [ 0, %.lr.ph ], [ %116, %115 ]
-  %118 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %114, i64 %.043116
+  %.043113 = phi i64 [ 0, %.lr.ph ], [ %116, %115 ]
+  %118 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %114, i64 %.043113
   %119 = load ptr, ptr %118, align 8, !tbaa !45
   %120 = call i32 @wcscmp(ptr noundef nonnull %54, ptr noundef %119) #25
   %121 = icmp eq i32 %120, 0
@@ -1283,9 +1283,9 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
 
 132:                                              ; preds = %.critedge.thread
   %133 = load i64, ptr %56, align 8, !tbaa !144
-  %.not.i.i79 = icmp ne i64 %133, 0
+  %.not.i.i78 = icmp ne i64 %133, 0
   %134 = icmp ugt i64 %129, %133
-  %or.cond.i.i = and i1 %.not.i.i79, %134
+  %or.cond.i.i = and i1 %.not.i.i78, %134
   br i1 %or.cond.i.i, label %135, label %136
 
 135:                                              ; preds = %132
@@ -1294,16 +1294,16 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
 
 .noexc:                                           ; preds = %135
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-          to label %.noexc81 unwind label %151
+          to label %.noexc80 unwind label %151
 
-.noexc81:                                         ; preds = %.noexc
+.noexc80:                                         ; preds = %.noexc
   %.pre.i.i = load i64, ptr %55, align 8, !tbaa !143
   %.pre10.i.i = load i64, ptr %7, align 8, !tbaa !42
   br label %136
 
-136:                                              ; preds = %.noexc81, %132
-  %137 = phi i64 [ %.pre10.i.i, %.noexc81 ], [ %129, %132 ]
-  %138 = phi i64 [ %.pre.i.i, %.noexc81 ], [ %130, %132 ]
+136:                                              ; preds = %.noexc80, %132
+  %137 = phi i64 [ %.pre10.i.i, %.noexc80 ], [ %129, %132 ]
+  %138 = phi i64 [ %.pre.i.i, %.noexc80 ], [ %130, %132 ]
   %139 = lshr i64 %138, 2
   %140 = add i64 %138, 32
   %141 = add i64 %140, %139
@@ -1312,21 +1312,21 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
   %143 = mul i64 %..i.i, 24
   %144 = call ptr @realloc(ptr noundef %142, i64 noundef %143) #26
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %146, label %.noexc82
+  br i1 %145, label %146, label %.noexc81
 
 146:                                              ; preds = %136
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-          to label %.noexc82 unwind label %151
+          to label %.noexc81 unwind label %151
 
-.noexc82:                                         ; preds = %146, %136
+.noexc81:                                         ; preds = %146, %136
   store ptr %144, ptr %0, align 8, !tbaa !41
   store i64 %..i.i, ptr %55, align 8, !tbaa !143
-  %.pre.i80 = load i64, ptr %7, align 8, !tbaa !42
+  %.pre.i79 = load i64, ptr %7, align 8, !tbaa !42
   br label %_ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit
 
-_ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i, %.noexc82
-  %147 = phi ptr [ %.pre1.i, %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i ], [ %144, %.noexc82 ]
-  %148 = phi i64 [ %129, %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i ], [ %.pre.i80, %.noexc82 ]
+_ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i, %.noexc81
+  %147 = phi ptr [ %.pre1.i, %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i ], [ %144, %.noexc81 ]
+  %148 = phi i64 [ %129, %._ZN5ArrayIN10CmdExtract10ExtractRefEE3AddEm.exit_crit_edge.i ], [ %.pre.i79, %.noexc81 ]
   %149 = getelementptr %"struct.CmdExtract::ExtractRef", ptr %147, i64 %148
   %150 = getelementptr i8, ptr %149, i64 -24
   store ptr %127, ptr %150, align 8, !tbaa !77
@@ -1383,7 +1383,7 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10Cm
 
 167:                                              ; preds = %.thread
   %or.cond12 = select i1 %2, i1 %.367, i1 false
-  br i1 %or.cond12, label %168, label %.loopexit100
+  br i1 %or.cond12, label %168, label %.loopexit97
 
 168:                                              ; preds = %167
   %169 = load i8, ptr %59, align 2, !tbaa !117, !range !67, !noundef !68
@@ -1404,19 +1404,19 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10Cm
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn74
 
-.loopexit100:                                     ; preds = %167, %69, %68
+.loopexit97:                                      ; preds = %167, %69, %68
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %174 = load i64, ptr %7, align 8, !tbaa !42
   %.not76 = icmp eq i64 %174, 0
   br i1 %.not76, label %177, label %175
 
-175:                                              ; preds = %.loopexit100
+175:                                              ; preds = %.loopexit97
   %176 = load ptr, ptr %28, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16400) %176, i8 0, i64 16400, i1 false)
   br label %177
 
-177:                                              ; preds = %175, %.loopexit100
+177:                                              ; preds = %175, %.loopexit97
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %178
 
@@ -4099,8 +4099,8 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
 .preheader:                                       ; preds = %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !42
-  %.not117 = icmp eq i64 %15, 0
-  br i1 %.not117, label %.loopexit.thread, label %.lr.ph
+  %.not116 = icmp eq i64 %15, 0
+  br i1 %.not116, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %16 = load ptr, ptr %0, align 8, !tbaa !41
@@ -4112,8 +4112,8 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
   br label %_ZN5ArrayIhED2Ev.exit71
 
 19:                                               ; preds = %.lr.ph, %62
-  %.047116 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
-  %20 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %16, i64 %.047116
+  %.047115 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
+  %20 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %16, i64 %.047115
   %21 = load ptr, ptr %20, align 8, !tbaa !45
   %22 = call i32 @wcscmp(ptr noundef %3, ptr noundef %21) #25
   %23 = icmp eq i32 %22, 0
@@ -4177,12 +4177,12 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
 
 .thread:                                          ; preds = %48, %49
   %53 = load ptr, ptr %0, align 8, !tbaa !41
-  %54 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %53, i64 %.047116
+  %54 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %53, i64 %.047115
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !43
   call void @free(ptr noundef %56) #23
   %57 = load ptr, ptr %0, align 8, !tbaa !41
-  %58 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %57, i64 %.047116
+  %58 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %57, i64 %.047115
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr null, ptr %59, align 8, !tbaa !43
   br label %.thread103
@@ -4195,7 +4195,7 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
           to label %.loopexit unwind label %39
 
 62:                                               ; preds = %19, %24
-  %63 = add nuw i64 %.047116, 1
+  %63 = add nuw i64 %.047115, 1
   %exitcond.not = icmp eq i64 %63, %15
   br i1 %exitcond.not, label %.loopexit.thread, label %19, !llvm.loop !230
 
@@ -4203,8 +4203,8 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
   br i1 %61, label %84, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %62, %.preheader, %.loopexit
-  %.085126 = phi ptr [ %26, %.loopexit ], [ %5, %.preheader ], [ %5, %62 ]
-  invoke void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef %.085126)
+  %.085125 = phi ptr [ %26, %.loopexit ], [ %5, %.preheader ], [ %5, %62 ]
+  invoke void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef %.085125)
           to label %64 unwind label %82
 
 64:                                               ; preds = %.loopexit.thread
@@ -4227,7 +4227,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i:        ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %2, ptr %10, align 8, !tbaa !77
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.085126, ptr %70, align 8, !tbaa !77
+  store ptr %.085125, ptr %70, align 8, !tbaa !77
   store i32 3, ptr %69, align 8, !tbaa !82
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %4, ptr %71, align 8, !tbaa !77
@@ -4290,7 +4290,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
 
 87:                                               ; preds = %_ZN5ArrayIhEC2Em.exit
   %88 = invoke noundef i32 @_ZN4File4ReadEPvm(ptr noundef nonnull align 8 dereferenceable(8256) %11, ptr noundef nonnull %malloc.i, i64 noundef 1048576)
-          to label %89 unwind label %.thread110
+          to label %89 unwind label %.thread109
 
 89:                                               ; preds = %87
   %90 = icmp eq i32 %88, 0
@@ -4301,19 +4301,19 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
           cleanup
   br label %_ZN5ArrayIhED2Ev.exit71
 
-.thread110:                                       ; preds = %87, %94, %95
+.thread109:                                       ; preds = %87, %94, %95
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %102
 
 94:                                               ; preds = %89
   invoke void @_Z17uiExtractProgressllll(i64 noundef %.033, i64 noundef %7, i64 noundef 0, i64 noundef 0)
-          to label %95 unwind label %.thread110
+          to label %95 unwind label %.thread109
 
 95:                                               ; preds = %94
   %96 = sext i32 %88 to i64
   %97 = invoke noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %1, ptr noundef nonnull %malloc.i, i64 noundef %96)
-          to label %98 unwind label %.thread110
+          to label %98 unwind label %.thread109
 
 98:                                               ; preds = %95
   %99 = add nsw i64 %.033, %96
@@ -4328,8 +4328,8 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %89
           cleanup
   br i1 %85, label %_ZN5ArrayIhED2Ev.exit71, label %102
 
-102:                                              ; preds = %.thread110, %100
-  %.pn60112 = phi { ptr, i32 } [ %93, %.thread110 ], [ %101, %100 ]
+102:                                              ; preds = %.thread109, %100
+  %.pn60111 = phi { ptr, i32 } [ %93, %.thread109 ], [ %101, %100 ]
   call void @free(ptr noundef nonnull %malloc.i) #23
   br label %_ZN5ArrayIhED2Ev.exit71
 
@@ -4340,7 +4340,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %89
   ret i1 %.5
 
 _ZN5ArrayIhED2Ev.exit71:                          ; preds = %91, %100, %102, %82, %41, %39, %17
-  %.pn60.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %83, %82 ], [ %40, %39 ], [ %42, %41 ], [ %92, %91 ], [ %101, %100 ], [ %.pn60112, %102 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %83, %82 ], [ %40, %39 ], [ %42, %41 ], [ %92, %91 ], [ %101, %100 ], [ %.pn60111, %102 ]
   call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn60.pn.pn

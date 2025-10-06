@@ -532,17 +532,17 @@ define internal fastcc void @add_split_lines(ptr noundef readonly captures(none)
   br label %9
 
 9:                                                ; preds = %.lr.ph, %12
-  %.022 = phi i32 [ %2, %.lr.ph ], [ %18, %12 ]
-  %10 = call i32 @tvb_find_line_end(ptr noundef %1, i32 noundef %.022, i32 noundef -1, ptr noundef nonnull %6, i1 noundef zeroext false)
+  %.021 = phi i32 [ %2, %.lr.ph ], [ %18, %12 ]
+  %10 = call i32 @tvb_find_line_end(ptr noundef %1, i32 noundef %.021, i32 noundef -1, ptr noundef nonnull %6, i1 noundef zeroext false)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %8, align 8
-  %14 = call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %1, i32 noundef %.022, i32 noundef %10, i32 noundef 2)
+  %14 = call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %1, i32 noundef %.021, i32 noundef %10, i32 noundef 2)
   %15 = load i32, ptr %6, align 4
-  %16 = sub i32 %15, %.022
-  %17 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %1, i32 noundef %.022, i32 noundef %16, ptr noundef %14, ptr noundef nonnull @.str.181, ptr noundef %14)
+  %16 = sub i32 %15, %.021
+  %17 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %1, i32 noundef %.021, i32 noundef %16, ptr noundef %14, ptr noundef nonnull @.str.181, ptr noundef %14)
   %18 = load i32, ptr %6, align 4
   %19 = call zeroext i1 @tvb_offset_exists(ptr noundef %1, i32 noundef %18)
   br i1 %19, label %9, label %.thread
@@ -608,16 +608,15 @@ define internal fastcc i32 @dissect_samples_im(i1 noundef zeroext %0, ptr nounde
   %36 = load i32, ptr @hf_samples_control, align 4
   %37 = load i32, ptr @ett_samples_control, align 4
   %38 = tail call ptr @proto_tree_add_bitmask(ptr noundef %26, ptr noundef %1, i32 noundef 3, i32 noundef %36, i32 noundef %37, ptr noundef nonnull @controlBits, i32 noundef 0)
-  switch i8 %32, label %39 [
-    i8 48, label %41
-    i8 0, label %41
-  ]
+  %.off = add nsw i8 %32, -1
+  %switch = icmp ult i8 %.off, 47
+  br i1 %switch, label %39, label %41
 
 39:                                               ; preds = %5
   %40 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %38, ptr noundef nonnull @ei_samples_im_version_invalid)
   br label %41
 
-41:                                               ; preds = %5, %5, %39
+41:                                               ; preds = %5, %39
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef 4, i32 noundef 2)
   %42 = load i32, ptr @hf_samples_temperature, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %42, ptr noundef %1, i32 noundef 4, i32 noundef 2, i32 noundef 0)

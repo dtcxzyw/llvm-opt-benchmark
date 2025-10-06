@@ -725,17 +725,17 @@ define dso_local range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr rea
 11:                                               ; preds = %.lr.ph
   %12 = load i32, ptr %5, align 8, !tbaa !25
   %.off = add i32 %12, -37
-  %switch15 = icmp ult i32 %.off, 2
-  br i1 %switch15, label %13, label %._crit_edge
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %13, label %._crit_edge
 
 13:                                               ; preds = %11, %.lr.ph
   %14 = load ptr, ptr %.0917, align 8, !tbaa !22
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %13, %11, %3
-  %.not.lcssa = phi i32 [ 1, %3 ], [ 0, %11 ], [ 1, %13 ]
-  ret i32 %.not.lcssa
+._crit_edge:                                      ; preds = %11, %13, %3
+  %15 = phi i32 [ 1, %3 ], [ 1, %13 ], [ 0, %11 ]
+  ret i32 %15
 }
 
 declare ptr @opcode_describe(i32 noundef) local_unnamed_addr #3
@@ -744,12 +744,12 @@ declare ptr @opcode_describe(i32 noundef) local_unnamed_addr #3
 define dso_local range(i32 0, 2) i32 @block_has_only_binders(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = and i32 %2, -3073
   %5 = or disjoint i32 %4, 1024
-  %.not13 = icmp eq ptr %0, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq ptr %0, null
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %14
-  %.0914 = phi ptr [ %15, %14 ], [ %0, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.0914, i64 16
+  %.0915 = phi ptr [ %15, %14 ], [ %0, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.0915, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !25
   %8 = tail call ptr @opcode_describe(i32 noundef %7) #17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -764,13 +764,13 @@ define dso_local range(i32 0, 2) i32 @block_has_only_binders(ptr readonly captur
   br i1 %.not12, label %14, label %._crit_edge
 
 14:                                               ; preds = %.lr.ph, %12
-  %15 = load ptr, ptr %.0914, align 8, !tbaa !22
+  %15 = load ptr, ptr %.0915, align 8, !tbaa !22
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %14, %12, %3
-  %.not.lcssa = phi i32 [ 1, %3 ], [ 0, %12 ], [ 1, %14 ]
-  ret i32 %.not.lcssa
+._crit_edge:                                      ; preds = %12, %14, %3
+  %16 = phi i32 [ 1, %3 ], [ 1, %14 ], [ 0, %12 ]
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3974,24 +3974,24 @@ block_join.exit209:                               ; preds = %178, %166
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @block_has_main(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1) local_unnamed_addr #13 {
-  %.not6.not = icmp eq ptr %0, null
-  br i1 %.not6.not, label %._crit_edge, label %.lr.ph
+  %.not7 = icmp eq ptr %0, null
+  br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %6
-  %.047 = phi ptr [ %7, %6 ], [ %0, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.047, i64 16
+  %.048 = phi ptr [ %7, %6 ], [ %0, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !25
   %5 = icmp eq i32 %4, 35
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = load ptr, ptr %.047, align 8, !tbaa !22
-  %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  %7 = load ptr, ptr %.048, align 8, !tbaa !22
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %6, %.lr.ph, %2
-  %.not.lcssa = phi i32 [ 0, %2 ], [ 1, %.lr.ph ], [ 0, %6 ]
-  ret i32 %.not.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %6, %2
+  %8 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 1, %.lr.ph ]
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

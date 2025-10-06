@@ -3037,12 +3037,11 @@ H5FD__onion_remove_unused_symbols.exit:           ; preds = %42, %32
 .loopexit:                                        ; preds = %100, %23
   %.168 = phi ptr [ null, %23 ], [ %26, %100 ]
   %103 = load i64, ptr %15, align 8, !tbaa !20
-  switch i64 %103, label %.thread [
-    i64 0, label %104
-    i64 -1, label %104
-  ]
+  %.off = add i64 %103, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %.thread, label %104
 
-104:                                              ; preds = %.loopexit, %.loopexit
+104:                                              ; preds = %.loopexit
   %105 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !10
   %106 = tail call ptr @H5I_object_verify(i64 noundef %105, i32 noundef 10) #18
   %107 = icmp eq ptr %106, null

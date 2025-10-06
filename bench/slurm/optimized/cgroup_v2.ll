@@ -643,27 +643,27 @@ cgroup_p_has_feature.exit:                        ; preds = %96
   %143 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.131, ptr noundef %142) #17
   %144 = load i32, ptr %21, align 4
   %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.lr.ph12.i, label %._crit_edge13.i
+  br i1 %145, label %.lr.ph8.i, label %._crit_edge9.i
 
-146:                                              ; preds = %.lr.ph12.i
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
+146:                                              ; preds = %.lr.ph8.i
+  %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %147 = load i32, ptr %21, align 4
   %148 = sext i32 %147 to i64
-  %149 = icmp slt i64 %indvars.iv.next19.i, %148
-  br i1 %149, label %.lr.ph12.i, label %._crit_edge13.i, !llvm.loop !14
+  %149 = icmp slt i64 %indvars.iv.next15.i, %148
+  br i1 %149, label %.lr.ph8.i, label %._crit_edge9.i, !llvm.loop !14
 
-.lr.ph12.i:                                       ; preds = %141, %146
-  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %146 ], [ 0, %141 ]
+.lr.ph8.i:                                        ; preds = %141, %146
+  %indvars.iv14.i = phi i64 [ %indvars.iv.next15.i, %146 ], [ 0, %141 ]
   %150 = load ptr, ptr %20, align 8
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv18.i
+  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv14.i
   %152 = load i32, ptr %151, align 4
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 16), align 16
   %154 = call zeroext i1 @common_cgroup_wait_pid_moved(ptr noundef nonnull @int_cg, i32 noundef %152, ptr noundef %153) #17
   br i1 %154, label %146, label %155
 
-155:                                              ; preds = %.lr.ph12.i
+155:                                              ; preds = %.lr.ph8.i
   %156 = load ptr, ptr %20, align 8
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv18.i
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv14.i
   %158 = load i32, ptr %157, align 4
   %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 16), align 16
   %160 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -671,19 +671,19 @@ cgroup_p_has_feature.exit:                        ; preds = %96
   %162 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.132, i32 noundef %158, ptr noundef %159, ptr noundef %161) #17
   br label %168
 
-._crit_edge13.i:                                  ; preds = %146, %141
+._crit_edge9.i:                                   ; preds = %146, %141
   %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 16), align 16
   %164 = call fastcc i32 @_enable_subtree_control(ptr noundef %163, ptr noundef %101)
   %.not32.i = icmp eq i32 %164, 0
   br i1 %.not32.i, label %168, label %165
 
-165:                                              ; preds = %._crit_edge13.i
+165:                                              ; preds = %._crit_edge9.i
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 16), align 16
   %167 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.133, ptr noundef %166) #17
   br label %168
 
-168:                                              ; preds = %165, %._crit_edge13.i, %155, %._crit_edge.i17, %131, %120, %112, %108, %104
-  %.not4 = phi i1 [ false, %104 ], [ false, %108 ], [ false, %112 ], [ false, %120 ], [ false, %165 ], [ false, %155 ], [ false, %131 ], [ true, %._crit_edge13.i ], [ true, %._crit_edge.i17 ]
+168:                                              ; preds = %165, %._crit_edge9.i, %155, %._crit_edge.i17, %131, %120, %112, %108, %104
+  %.not4 = phi i1 [ false, %104 ], [ false, %108 ], [ false, %112 ], [ false, %120 ], [ false, %165 ], [ false, %155 ], [ false, %131 ], [ true, %._crit_edge9.i ], [ true, %._crit_edge.i17 ]
   call void @common_cgroup_destroy(ptr noundef nonnull %22) #17
   %.not33.i = icmp eq ptr %101, null
   br i1 %.not33.i, label %_empty_pids.exit, label %169

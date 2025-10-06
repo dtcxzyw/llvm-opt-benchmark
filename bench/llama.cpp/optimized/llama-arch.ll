@@ -7989,30 +7989,30 @@ _ZNKSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit.thread: 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z20llm_arch_from_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14LLM_ARCH_NAMES, i64 24), align 8, !tbaa !13
-  %.not12 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZL14LLM_ARCH_NAMES, i64 8)
-  br i1 %.not12, label %.split.loop.exit, label %.lr.ph
+  %.not14 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZL14LLM_ARCH_NAMES, i64 8)
+  br i1 %.not14, label %.split.loop.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
-  %.sroa.07.013 = phi ptr [ %8, %7 ], [ %2, %1 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 40
+  %.sroa.07.015 = phi ptr [ %8, %7 ], [ %2, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.sroa.07.015, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !85
   %5 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4) #21
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.split.loop.exit10, label %7
+  br i1 %6, label %.split.loop.exit12, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.013) #19
+  %8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.015) #19
   %.not = icmp eq ptr %8, getelementptr inbounds nuw (i8, ptr @_ZL14LLM_ARCH_NAMES, i64 8)
   br i1 %.not, label %.split.loop.exit, label %.lr.ph
 
-.split.loop.exit10:                               ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 32
+.split.loop.exit12:                               ; preds = %.lr.ph
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.07.015, i64 32
   %10 = load i32, ptr %9, align 8
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %7, %1, %.split.loop.exit10
-  %spec.select = phi i32 [ %10, %.split.loop.exit10 ], [ 57, %1 ], [ 57, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %1, %.split.loop.exit12
+  %11 = phi i32 [ %10, %.split.loop.exit12 ], [ 57, %1 ], [ 57, %7 ]
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress uwtable

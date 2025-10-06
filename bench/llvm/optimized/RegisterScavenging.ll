@@ -470,8 +470,8 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm12RegScavenger13FindUnusedReg
   %7 = zext i16 %6 to i64
   %.idx = shl nuw nsw i64 %7, 1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not18 = icmp eq i16 %6, 0
-  br i1 %.not18, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit.thread12, label %.lr.ph
+  %.not16 = icmp eq i16 %6, 0
+  br i1 %.not16, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -487,8 +487,8 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm12RegScavenger13FindUnusedReg
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.loopexit
-  %.019 = phi ptr [ %4, %.lr.ph ], [ %54, %.loopexit ]
-  %20 = load i16, ptr %.019, align 2, !tbaa !42
+  %.017 = phi ptr [ %4, %.lr.ph ], [ %54, %.loopexit ]
+  %20 = load i16, ptr %.017, align 2, !tbaa !42
   %21 = zext i16 %20 to i32
   %22 = and i32 %21, 63
   %23 = zext nneg i32 %22 to i64
@@ -504,7 +504,7 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm12RegScavenger13FindUnusedReg
 30:                                               ; preds = %19
   %31 = load ptr, ptr %15, align 8, !tbaa !17, !noalias !244
   %.not18.i.i = icmp eq ptr %31, null
-  br i1 %.not18.i.i, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit.thread12, label %.lr.ph.i.i
+  br i1 %.not18.i.i, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30
   %32 = load ptr, ptr %16, align 8, !tbaa !33, !noalias !244
@@ -538,15 +538,15 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i:         ; preds = %41
   %52 = sext i16 %51 to i32
   %53 = add i32 %.sroa.09.019.i.i, %52
   %.not.i.i.i.i = icmp eq i16 %51, 0
-  br i1 %.not.i.i.i.i, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit.thread12, label %41
+  br i1 %.not.i.i.i.i, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit, label %41
 
 .loopexit:                                        ; preds = %41, %19
-  %54 = getelementptr inbounds nuw i8, ptr %.019, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   %.not = icmp eq ptr %54, %8
-  br i1 %.not, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit.thread12, label %19
+  br i1 %.not, label %_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit, label %19
 
-_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit.thread12: ; preds = %30, %.loopexit, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i, %2
-  %.sroa.0.2 = phi i32 [ 0, %2 ], [ %21, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i ], [ %21, %30 ], [ 0, %.loopexit ]
+_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb.exit: ; preds = %.loopexit, %30, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i, %2
+  %.sroa.0.2 = phi i32 [ 0, %2 ], [ %21, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i ], [ 0, %.loopexit ], [ %21, %30 ]
   ret i32 %.sroa.0.2
 }
 

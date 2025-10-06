@@ -2293,13 +2293,13 @@ define noundef zeroext i16 @_ZN6icu_7720TransliteratorParser8parseSetERKNS_13Uni
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %13, %21
-  %.01324.i = phi i32 [ %22, %21 ], [ 0, %13 ]
-  %19 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %.01324.i)
+  %.01322.i = phi i32 [ %22, %21 ], [ 0, %13 ]
+  %19 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %.01322.i)
   %20 = icmp eq ptr %19, %5
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = add nuw nsw i32 %.01324.i, 1
+  %22 = add nuw nsw i32 %.01322.i, 1
   %23 = load i32, ptr %16, align 8, !tbaa !38
   %24 = icmp slt i32 %22, %23
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !75
@@ -2309,7 +2309,7 @@ define noundef zeroext i16 @_ZN6icu_7720TransliteratorParser8parseSetERKNS_13Uni
   %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1162
   %29 = load i16, ptr %28, align 2, !tbaa !31
-  %30 = trunc i32 %.01324.i to i16
+  %30 = trunc i32 %.01322.i to i16
   %31 = add i16 %29, %30
   br label %_ZN6icu_7720TransliteratorParser18generateStandInForEPNS_14UnicodeFunctorER10UErrorCode.exit
 
@@ -2547,13 +2547,13 @@ define noundef zeroext i16 @_ZN6icu_7720TransliteratorParser18generateStandInFor
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %10
-  %.01324 = phi i32 [ %11, %10 ], [ 0, %3 ]
-  %8 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %.01324)
+  %.01322 = phi i32 [ %11, %10 ], [ 0, %3 ]
+  %8 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %.01322)
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = add nuw nsw i32 %.01324, 1
+  %11 = add nuw nsw i32 %.01322, 1
   %12 = load i32, ptr %5, align 8, !tbaa !38
   %13 = icmp slt i32 %11, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !75
@@ -2563,7 +2563,7 @@ define noundef zeroext i16 @_ZN6icu_7720TransliteratorParser18generateStandInFor
   %16 = load ptr, ptr %15, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1162
   %18 = load i16, ptr %17, align 2, !tbaa !31
-  %19 = trunc i32 %.01324 to i16
+  %19 = trunc i32 %.01322 to i16
   %20 = add i16 %18, %19
   br label %44
 
@@ -2741,13 +2741,13 @@ define noundef zeroext i16 @_ZN6icu_7720TransliteratorParser13getDotStandInER10U
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %18, %26
-  %.01324.i = phi i32 [ %27, %26 ], [ 0, %18 ]
-  %24 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef %.01324.i)
+  %.01322.i = phi i32 [ %27, %26 ], [ 0, %18 ]
+  %24 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef %.01322.i)
   %25 = icmp eq ptr %24, %9
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = add nuw nsw i32 %.01324.i, 1
+  %27 = add nuw nsw i32 %.01322.i, 1
   %28 = load i32, ptr %21, align 8, !tbaa !38
   %29 = icmp slt i32 %27, %28
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !75
@@ -2757,7 +2757,7 @@ define noundef zeroext i16 @_ZN6icu_7720TransliteratorParser13getDotStandInER10U
   %32 = load ptr, ptr %31, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1162
   %34 = load i16, ptr %33, align 2, !tbaa !31
-  %35 = trunc i32 %.01324.i to i16
+  %35 = trunc i32 %.01322.i to i16
   %36 = add i16 %34, %35
   br label %.thread27
 
@@ -2872,64 +2872,64 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_778RuleHalf13isValidOutputERNS
   %8 = sext i16 %7 to i32
   %9 = load i32, ptr %4, align 4
   %10 = select i1 %6, i32 %9, i32 %8
-  %.not1415 = icmp slt i32 %10, 1
-  br i1 %.not1415, label %_ZN6icu_779ParseData10isReplacerEi.exit.thread, label %.lr.ph
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  br label %13
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  br label %14
 
-13:                                               ; preds = %.lr.ph, %.backedge
-  %.01116 = phi i32 [ 0, %.lr.ph ], [ %17, %.backedge ]
-  %14 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %.01116)
-  %15 = icmp ult i32 %14, 65536
-  %16 = select i1 %15, i32 1, i32 2
-  %17 = add nuw nsw i32 %16, %.01116
-  %18 = load ptr, ptr %12, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !17
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1162
-  %22 = load i16, ptr %21, align 2, !tbaa !31
-  %23 = zext i16 %22 to i32
-  %24 = sub nsw i32 %14, %23
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %26, label %.backedge
+14:                                               ; preds = %.lr.ph, %.backedge
+  %.01115 = phi i32 [ 0, %.lr.ph ], [ %18, %.backedge ]
+  %15 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef %.01115)
+  %16 = icmp ult i32 %15, 65536
+  %17 = select i1 %16, i32 1, i32 2
+  %18 = add nuw nsw i32 %17, %.01115
+  %19 = load ptr, ptr %13, align 8, !tbaa !74
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1162
+  %23 = load i16, ptr %22, align 2, !tbaa !31
+  %24 = zext i16 %23 to i32
+  %25 = sub nsw i32 %15, %24
+  %26 = icmp sgt i32 %25, -1
+  br i1 %26, label %27, label %.backedge
 
-26:                                               ; preds = %13
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !38
-  %31 = icmp slt i32 %24, %30
-  br i1 %31, label %32, label %.backedge
+27:                                               ; preds = %14
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !38
+  %32 = icmp slt i32 %25, %31
+  br i1 %32, label %33, label %.backedge
 
-32:                                               ; preds = %26
-  %33 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %24)
-  %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %_ZN6icu_779ParseData10isReplacerEi.exit.thread, label %_ZN6icu_779ParseData10isReplacerEi.exit
+33:                                               ; preds = %27
+  %34 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef %25)
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %.thread, label %_ZN6icu_779ParseData10isReplacerEi.exit
 
-_ZN6icu_779ParseData10isReplacerEi.exit:          ; preds = %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %33)
-  %.not = icmp eq ptr %37, null
-  br i1 %.not, label %_ZN6icu_779ParseData10isReplacerEi.exit.thread, label %.backedge
+_ZN6icu_779ParseData10isReplacerEi.exit:          ; preds = %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !15
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %34)
+  %.not = icmp eq ptr %38, null
+  br i1 %.not, label %.thread, label %.backedge
 
-.backedge:                                        ; preds = %26, %13, %_ZN6icu_779ParseData10isReplacerEi.exit
-  %38 = load i16, ptr %3, align 8, !tbaa !44
-  %39 = icmp slt i16 %38, 0
-  %40 = ashr i16 %38, 5
-  %41 = sext i16 %40 to i32
-  %42 = load i32, ptr %4, align 4
-  %43 = select i1 %39, i32 %42, i32 %41
-  %.not14.not = icmp slt i32 %17, %43
-  br i1 %.not14.not, label %13, label %_ZN6icu_779ParseData10isReplacerEi.exit.thread, !llvm.loop !80
+.backedge:                                        ; preds = %27, %14, %_ZN6icu_779ParseData10isReplacerEi.exit
+  %39 = load i16, ptr %3, align 8, !tbaa !44
+  %40 = icmp slt i16 %39, 0
+  %41 = ashr i16 %39, 5
+  %42 = sext i16 %41 to i32
+  %43 = load i32, ptr %4, align 4
+  %44 = select i1 %40, i32 %43, i32 %42
+  %45 = icmp slt i32 %18, %44
+  br i1 %45, label %14, label %.thread, !llvm.loop !80
 
-_ZN6icu_779ParseData10isReplacerEi.exit.thread:   ; preds = %_ZN6icu_779ParseData10isReplacerEi.exit, %.backedge, %32, %2
-  %.not14.lcssa = phi i8 [ 1, %2 ], [ 0, %32 ], [ 1, %.backedge ], [ 0, %_ZN6icu_779ParseData10isReplacerEi.exit ]
-  ret i8 %.not14.lcssa
+.thread:                                          ; preds = %.backedge, %_ZN6icu_779ParseData10isReplacerEi.exit, %33, %2
+  %46 = phi i8 [ 1, %2 ], [ 0, %33 ], [ 0, %_ZN6icu_779ParseData10isReplacerEi.exit ], [ 1, %.backedge ]
+  ret i8 %46
 }
 
 declare noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #8
@@ -2944,64 +2944,64 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_778RuleHalf12isValidInputERNS_
   %8 = sext i16 %7 to i32
   %9 = load i32, ptr %4, align 4
   %10 = select i1 %6, i32 %9, i32 %8
-  %.not1415 = icmp slt i32 %10, 1
-  br i1 %.not1415, label %_ZN6icu_779ParseData9isMatcherEi.exit.thread, label %.lr.ph
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  br label %13
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  br label %14
 
-13:                                               ; preds = %.lr.ph, %.backedge
-  %.01116 = phi i32 [ 0, %.lr.ph ], [ %17, %.backedge ]
-  %14 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %.01116)
-  %15 = icmp ult i32 %14, 65536
-  %16 = select i1 %15, i32 1, i32 2
-  %17 = add nuw nsw i32 %16, %.01116
-  %18 = load ptr, ptr %12, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !17
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1162
-  %22 = load i16, ptr %21, align 2, !tbaa !31
-  %23 = zext i16 %22 to i32
-  %24 = sub nsw i32 %14, %23
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %26, label %.backedge
+14:                                               ; preds = %.lr.ph, %.backedge
+  %.01115 = phi i32 [ 0, %.lr.ph ], [ %18, %.backedge ]
+  %15 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef %.01115)
+  %16 = icmp ult i32 %15, 65536
+  %17 = select i1 %16, i32 1, i32 2
+  %18 = add nuw nsw i32 %17, %.01115
+  %19 = load ptr, ptr %13, align 8, !tbaa !74
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1162
+  %23 = load i16, ptr %22, align 2, !tbaa !31
+  %24 = zext i16 %23 to i32
+  %25 = sub nsw i32 %15, %24
+  %26 = icmp sgt i32 %25, -1
+  br i1 %26, label %27, label %.backedge
 
-26:                                               ; preds = %13
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !38
-  %31 = icmp slt i32 %24, %30
-  br i1 %31, label %32, label %.backedge
+27:                                               ; preds = %14
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !38
+  %32 = icmp slt i32 %25, %31
+  br i1 %32, label %33, label %.backedge
 
-32:                                               ; preds = %26
-  %33 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %24)
-  %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %_ZN6icu_779ParseData9isMatcherEi.exit.thread, label %_ZN6icu_779ParseData9isMatcherEi.exit
+33:                                               ; preds = %27
+  %34 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef %25)
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %.thread, label %_ZN6icu_779ParseData9isMatcherEi.exit
 
-_ZN6icu_779ParseData9isMatcherEi.exit:            ; preds = %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %33)
-  %.not = icmp eq ptr %37, null
-  br i1 %.not, label %_ZN6icu_779ParseData9isMatcherEi.exit.thread, label %.backedge
+_ZN6icu_779ParseData9isMatcherEi.exit:            ; preds = %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !15
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %34)
+  %.not = icmp eq ptr %38, null
+  br i1 %.not, label %.thread, label %.backedge
 
-.backedge:                                        ; preds = %26, %13, %_ZN6icu_779ParseData9isMatcherEi.exit
-  %38 = load i16, ptr %3, align 8, !tbaa !44
-  %39 = icmp slt i16 %38, 0
-  %40 = ashr i16 %38, 5
-  %41 = sext i16 %40 to i32
-  %42 = load i32, ptr %4, align 4
-  %43 = select i1 %39, i32 %42, i32 %41
-  %.not14.not = icmp slt i32 %17, %43
-  br i1 %.not14.not, label %13, label %_ZN6icu_779ParseData9isMatcherEi.exit.thread, !llvm.loop !81
+.backedge:                                        ; preds = %27, %14, %_ZN6icu_779ParseData9isMatcherEi.exit
+  %39 = load i16, ptr %3, align 8, !tbaa !44
+  %40 = icmp slt i16 %39, 0
+  %41 = ashr i16 %39, 5
+  %42 = sext i16 %41 to i32
+  %43 = load i32, ptr %4, align 4
+  %44 = select i1 %40, i32 %43, i32 %42
+  %45 = icmp slt i32 %18, %44
+  br i1 %45, label %14, label %.thread, !llvm.loop !81
 
-_ZN6icu_779ParseData9isMatcherEi.exit.thread:     ; preds = %_ZN6icu_779ParseData9isMatcherEi.exit, %.backedge, %32, %2
-  %.not14.lcssa = phi i8 [ 1, %2 ], [ 0, %32 ], [ 1, %.backedge ], [ 0, %_ZN6icu_779ParseData9isMatcherEi.exit ]
-  ret i8 %.not14.lcssa
+.thread:                                          ; preds = %.backedge, %_ZN6icu_779ParseData9isMatcherEi.exit, %33, %2
+  %46 = phi i8 [ 1, %2 ], [ 0, %33 ], [ 0, %_ZN6icu_779ParseData9isMatcherEi.exit ], [ 1, %.backedge ]
+  ret i8 %46
 }
 
 ; Function Attrs: mustprogress uwtable

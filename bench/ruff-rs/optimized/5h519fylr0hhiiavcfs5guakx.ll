@@ -340,9 +340,9 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h5b3016816b20ef04E(ptr no
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %18
 
-18:                                               ; preds = %.lr.ph, %115
-  %.sroa.0.048 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.122, %115 ]
-  %.sroa.4.046 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.120, %115 ]
+18:                                               ; preds = %.lr.ph, %116
+  %.sroa.0.048 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.122, %116 ]
+  %.sroa.4.046 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.120, %116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %19 = load i8, ptr %8, align 8, !range !44, !alias.scope !41, !noalias !45, !noundef !13
@@ -522,8 +522,8 @@ default.unreachable:                              ; preds = %90, %67, %23
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #13
   unreachable
 
-common.resume:                                    ; preds = %108, %117, %45, %48
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %48 ], [ %.pn.i, %45 ], [ %109, %117 ], [ %109, %108 ]
+common.resume:                                    ; preds = %108, %118, %45, %48
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %48 ], [ %.pn.i, %45 ], [ %109, %118 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 81:                                               ; preds = %40
@@ -555,8 +555,8 @@ common.resume:                                    ; preds = %108, %117, %45, %48
   %89 = ptrtoint ptr %87 to i64
   br i1 %88, label %90, label %102
 
-.loopexit:                                        ; preds = %115, %3, %107
-  %.sroa.04.0 = phi ptr [ %.sroa.04.1, %107 ], [ null, %3 ], [ null, %115 ]
+.loopexit:                                        ; preds = %116, %3, %107
+  %.sroa.04.0 = phi ptr [ %.sroa.04.1, %107 ], [ null, %3 ], [ null, %116 ]
   ret ptr %.sroa.04.0
 
 90:                                               ; preds = %"_ZN3zip5write87_$LT$impl$u20$std..io..Write$u20$for$u20$zip..write..zip_writer..ZipWriter$LT$W$GT$$GT$5write17h79122aec714d0827E.exit.thread", %"_ZN3zip5write87_$LT$impl$u20$std..io..Write$u20$for$u20$zip..write..zip_writer..ZipWriter$LT$W$GT$$GT$5write17h79122aec714d0827E.exit"
@@ -612,36 +612,36 @@ common.resume:                                    ; preds = %108, %117, %45, %48
           cleanup
   %110 = load i64, ptr %6, align 8, !range !50, !noundef !13
   %.not = icmp eq i64 %110, 0
-  br i1 %.not, label %common.resume, label %117
+  br i1 %.not, label %common.resume, label %118
 
 111:                                              ; preds = %.thread70, %104
   %112 = phi i64 [ %.sroa.4.046, %.thread70 ], [ %89, %104 ]
   %113 = sub nuw i64 %.sroa.4.046, %112
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 %112
-  br label %115
+  br label %116
 
 _ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit: ; preds = %90
   %.mask20.i = and i64 %.pre-phi, -4294967296
-  %switch.i = icmp eq i64 %.mask20.i, 150323855360
-  br i1 %switch.i, label %.thread, label %107
+  %115 = icmp eq i64 %.mask20.i, 150323855360
+  br i1 %115, label %.thread, label %107
 
 .thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %92, %94, %98
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236267c20707bcfdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
-  br label %115
+  br label %116
 
-115:                                              ; preds = %111, %.thread
+116:                                              ; preds = %111, %.thread
   %.sroa.0.122 = phi ptr [ %.sroa.0.048, %.thread ], [ %114, %111 ]
   %.sroa.4.120 = phi i64 [ %.sroa.4.046, %.thread ], [ %113, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %116 = icmp eq i64 %.sroa.4.120, 0
-  br i1 %116, label %.loopexit, label %18
+  %117 = icmp eq i64 %.sroa.4.120, 0
+  br i1 %117, label %.loopexit, label %18
 
-117:                                              ; preds = %108
+118:                                              ; preds = %108
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236267c20707bcfdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17) #15
-          to label %common.resume unwind label %118
+          to label %common.resume unwind label %119
 
-118:                                              ; preds = %117
-  %119 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #13
   unreachable

@@ -763,9 +763,9 @@ define dso_local { i64, i8 } @_ZN4llvm20DWARF5AccelTableData26getDefiningParentD
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNK4llvm3DIE13findAttributeENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DIEValue") align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i16 noundef zeroext 60) #20
   %4 = load i32, ptr %2, align 8, !tbaa !127
-  %.not.not14 = icmp eq i32 %4, 0
+  %.not.not13 = icmp eq i32 %4, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not.not14, label %5, label %9
+  br i1 %.not.not13, label %5, label %9
 
 5:                                                ; preds = %.critedge
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -775,13 +775,13 @@ define dso_local { i64, i8 } @_ZN4llvm20DWARF5AccelTableData26getDefiningParentD
 
 9:                                                ; preds = %.critedge, %5
   %.sroa.0.0 = phi i64 [ %8, %5 ], [ undef, %.critedge ]
-  %spec.select = zext i1 %.not.not14 to i8
+  %spec.select = zext i1 %.not.not13 to i8
   br label %.thread9
 
 .thread9:                                         ; preds = %9, %1
-  %.sroa.0.012 = phi i64 [ undef, %1 ], [ %.sroa.0.0, %9 ]
+  %.sroa.0.011 = phi i64 [ undef, %1 ], [ %.sroa.0.0, %9 ]
   %.sroa.2.1 = phi i8 [ 0, %1 ], [ %spec.select, %9 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.012, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.011, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert
 }

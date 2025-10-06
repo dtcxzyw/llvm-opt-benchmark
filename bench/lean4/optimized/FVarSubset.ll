@@ -83,8 +83,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 lean_inc.exit:                                    ; preds = %31, %30, %28, %23
   %32 = ptrtoint ptr %17 to i64
   %33 = and i64 %32, 1
-  %.not36 = icmp eq i64 %33, 0
-  br i1 %.not36, label %34, label %lean_inc.exit24
+  %.not34 = icmp eq i64 %33, 0
+  br i1 %.not34, label %34, label %lean_inc.exit24
 
 34:                                               ; preds = %lean_inc.exit
   %.val.i27 = load i32, ptr %17, align 4, !tbaa !8

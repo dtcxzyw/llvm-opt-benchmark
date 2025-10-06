@@ -305,11 +305,11 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %5, align 1
   %.not59 = icmp eq i8 %4, 115
-  %.pre79 = load ptr, ptr %11, align 8
+  %.pre77 = load ptr, ptr %11, align 8
   br i1 %.not59, label %41, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %.pre79, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.pre77, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not60 = icmp eq ptr %35, null
   br i1 %.not60, label %41, label %36
@@ -326,7 +326,7 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   br label %41
 
 41:                                               ; preds = %40, %36, %33, %29
-  %42 = phi ptr [ %.pre, %40 ], [ %.pre79, %36 ], [ %.pre79, %33 ], [ %.pre79, %29 ]
+  %42 = phi ptr [ %.pre, %40 ], [ %.pre77, %36 ], [ %.pre77, %33 ], [ %.pre77, %29 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not61 = icmp eq ptr %44, null
@@ -359,11 +359,11 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   br i1 %59, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %56
-  %.not71 = icmp eq i8 %4, 115
+  %.not69 = icmp eq i8 %4, 115
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not71, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.not69, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %88
   %60 = phi i32 [ %89, %88 ], [ %58, %.lr.ph.split.us ]
@@ -456,7 +456,7 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   br i1 %120, label %.lr.ph.split.us.split, label %.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not71, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.not69, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %146
   %121 = phi i32 [ %147, %146 ], [ %58, %.lr.ph.split ]
@@ -473,9 +473,9 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %130 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %131 = zext i1 %129 to i8
   %132 = or i8 %130, %131
-  %.not62.us69 = icmp eq i8 %132, 0
+  %.not62.us67 = icmp eq i8 %132, 0
   store i8 %132, ptr %5, align 1
-  br i1 %.not62.us69, label %146, label %133
+  br i1 %.not62.us67, label %146, label %133
 
 133:                                              ; preds = %126
   %134 = load i8, ptr %6, align 1, !range !4, !noundef !5

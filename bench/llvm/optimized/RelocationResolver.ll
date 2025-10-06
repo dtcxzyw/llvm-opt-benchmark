@@ -280,10 +280,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL18supportsCOFFX86_64Em(i64 n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i64 @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
-  %switch = icmp eq i64 %0, 11
-  %6 = add i64 %3, %2
-  %7 = and i64 %6, 4294967295
-  %.0 = select i1 %switch, i64 %7, i64 %6
+  %6 = icmp eq i64 %0, 11
+  %7 = add i64 %3, %2
+  %8 = and i64 %7, 4294967295
+  %.0 = select i1 %6, i64 %8, i64 %7
   ret i64 %.0
 }
 
@@ -327,10 +327,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL17supportsCOFFARM64Em(i64 no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i64 @_ZN4llvm6objectL16resolveCOFFARM64Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
-  %switch = icmp eq i64 %0, 8
-  %6 = add i64 %3, %2
-  %7 = and i64 %6, 4294967295
-  %.0 = select i1 %switch, i64 %7, i64 %6
+  %6 = icmp eq i64 %0, 8
+  %7 = add i64 %3, %2
+  %8 = and i64 %7, 4294967295
+  %.0 = select i1 %6, i64 %8, i64 %7
   ret i64 %.0
 }
 
@@ -436,10 +436,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsBPFEm(i64 noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i64 @_ZN4llvm6objectL10resolveBPFEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
-  %switch = icmp eq i64 %0, 3
-  %6 = add i64 %3, %2
-  %7 = and i64 %6, 4294967295
-  %.0 = select i1 %switch, i64 %7, i64 %6
+  %6 = icmp eq i64 %0, 3
+  %7 = add i64 %3, %2
+  %8 = and i64 %7, 4294967295
+  %.0 = select i1 %6, i64 %8, i64 %7
   ret i64 %.0
 }
 
@@ -672,10 +672,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSystemZEm(i64 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i64 @_ZN4llvm6objectL14resolveSystemZEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
-  %switch = icmp eq i64 %0, 4
-  %6 = add i64 %4, %2
-  %7 = and i64 %6, 4294967295
-  %.0 = select i1 %switch, i64 %7, i64 %6
+  %6 = icmp eq i64 %0, 4
+  %7 = add i64 %4, %2
+  %8 = and i64 %7, 4294967295
+  %.0 = select i1 %6, i64 %8, i64 %7
   ret i64 %.0
 }
 
@@ -881,10 +881,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsPPC32Em(i64 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL12resolvePPC32Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
-  %switch = icmp eq i64 %0, 1
-  %6 = select i1 %switch, i64 0, i64 %1
-  %7 = sub i64 %2, %6
-  %.0.in = add i64 %7, %4
+  %6 = icmp eq i64 %0, 1
+  %7 = select i1 %6, i64 0, i64 %1
+  %8 = sub i64 %2, %7
+  %.0.in = add i64 %8, %4
   %.0 = and i64 %.0.in, 4294967295
   ret i64 %.0
 }
@@ -898,10 +898,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsARMEm(i64 noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveARMEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
-  %switch = icmp eq i64 %0, 2
-  %6 = add i64 %3, %2
-  %7 = select i1 %switch, i64 0, i64 %1
-  %.pn = sub i64 %6, %7
+  %6 = icmp eq i64 %0, 2
+  %7 = add i64 %3, %2
+  %8 = select i1 %6, i64 0, i64 %1
+  %.pn = sub i64 %7, %8
   %.0.in = add i64 %.pn, %4
   %.0 = and i64 %.0.in, 4294967295
   ret i64 %.0
@@ -917,10 +917,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsAVREm(i64 noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveAVREmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
-  %switch = icmp eq i64 %0, 4
-  %6 = add i64 %4, %2
-  %.0.v = select i1 %switch, i64 65535, i64 4294967295
-  %.0 = and i64 %6, %.0.v
+  %6 = icmp eq i64 %0, 4
+  %7 = add i64 %4, %2
+  %.0.v = select i1 %6, i64 65535, i64 4294967295
+  %.0 = and i64 %7, %.0.v
   ret i64 %.0
 }
 
@@ -971,10 +971,10 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMSP430Em(i64 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL13resolveMSP430Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
-  %switch = icmp eq i64 %0, 1
-  %6 = add i64 %4, %2
-  %.0.v = select i1 %switch, i64 4294967295, i64 65535
-  %.0 = and i64 %6, %.0.v
+  %6 = icmp eq i64 %0, 1
+  %7 = add i64 %4, %2
+  %.0.v = select i1 %6, i64 4294967295, i64 65535
+  %.0 = and i64 %7, %.0.v
   ret i64 %.0
 }
 
@@ -1179,22 +1179,22 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i:
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
 54:                                               ; preds = %35
-  %.not40 = icmp eq i32 %33, 15
+  %.not39 = icmp eq i32 %33, 15
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  br i1 %.not40, label %56, label %73
+  br i1 %.not39, label %56, label %73
 
 56:                                               ; preds = %54
-  %.sroa.0.0.copyload.i27.i = load i64, ptr %1, align 8, !tbaa !18
+  %.sroa.0.0.copyload.i25.i = load i64, ptr %1, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %.sroa.0.0.extract.trunc.i28.i = trunc i64 %.sroa.0.0.copyload.i27.i to i32
+  %.sroa.0.0.extract.trunc.i26.i = trunc i64 %.sroa.0.0.copyload.i25.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.61") align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i28.i) #12
+  call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.61") align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i26.i) #12
   %57 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
-  br i1 %59, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.i, label %70
+  br i1 %59, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i27.i, label %70
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.i: ; preds = %56
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i27.i: ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -1222,25 +1222,25 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %.0.copyload.i.i.i30.i = load i32, ptr %72, align 1
+  %.0.copyload.i.i.i28.i = load i32, ptr %72, align 1
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
 73:                                               ; preds = %54
-  %.not41 = icmp eq i32 %33, 14
-  %.sroa.0.0.copyload.i36.i = load i64, ptr %1, align 8, !tbaa !18
-  %.sroa.0.0.extract.trunc.i37.i = trunc i64 %.sroa.0.0.copyload.i36.i to i32
-  br i1 %.not41, label %74, label %92
+  %.not40 = icmp eq i32 %33, 14
+  %.sroa.0.0.copyload.i34.i = load i64, ptr %1, align 8, !tbaa !18
+  %.sroa.0.0.extract.trunc.i35.i = trunc i64 %.sroa.0.0.copyload.i34.i to i32
+  br i1 %.not40, label %74, label %92
 
 74:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.65") align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i37.i) #12
+  call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.65") align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i35.i) #12
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %76 = load i8, ptr %75, align 8
   %77 = trunc i8 %76 to i1
-  br i1 %77, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.i, label %88
+  br i1 %77, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i32.i, label %88
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.i: ; preds = %74
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i32.i: ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
@@ -1268,20 +1268,20 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %.0.copyload.i.i.i35.i = load i32, ptr %90, align 1
-  %91 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i35.i)
+  %.0.copyload.i.i.i33.i = load i32, ptr %90, align 1
+  %91 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i33.i)
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
 92:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.69") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i37.i) #12
+  call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.69") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i35.i) #12
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %94 = load i8, ptr %93, align 8
   %95 = trunc i8 %94 to i1
-  br i1 %95, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i38.i, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i
+  br i1 %95, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i36.i, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i38.i: ; preds = %92
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i36.i: ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
@@ -1309,12 +1309,12 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelS
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %.0.copyload.i.i.i39.i = load i32, ptr %107, align 1
-  %108 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i39.i)
+  %.0.copyload.i.i.i37.i = load i32, ptr %107, align 1
+  %108 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i37.i)
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
 "_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit": ; preds = %51, %70, %88, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i
-  %.1.i = phi i32 [ %108, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i ], [ %91, %88 ], [ %.0.copyload.i.i.i30.i, %70 ], [ %.0.copyload.i.i.i.i, %51 ]
+  %.1.i = phi i32 [ %108, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i ], [ %91, %88 ], [ %.0.copyload.i.i.i28.i, %70 ], [ %.0.copyload.i.i.i.i, %51 ]
   %109 = icmp eq i32 %.1.i, 4
   br i1 %109, label %110, label %194
 

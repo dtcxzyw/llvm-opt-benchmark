@@ -893,7 +893,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !109
   switch i32 %12, label %_ZNK3app13get_decl_kindEv.exit.thread [
-    i32 0, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+    i32 0, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
     i32 1, label %13
     i32 8, label %14
     i32 5, label %26
@@ -906,7 +906,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
   ]
 
 13:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 14:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -930,71 +930,71 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
 _ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit: ; preds = %20, %22
   %.0.i = phi i1 [ %21, %20 ], [ %23, %22 ]
   %25 = xor i1 %.0.i, true
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 26:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !110
   %30 = zext i32 %29 to i64
-  %.idx85 = shl nuw nsw i64 %30, 3
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx85
-  %.not.i2576 = icmp eq i32 %29, 0
-  br i1 %.not.i2576, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph79
+  %.idx83 = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx83
+  %.not.i2574 = icmp eq i32 %29, 0
+  br i1 %.not.i2574, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph77
 
-.lr.ph79:                                         ; preds = %26, %38
-  %.013.i77 = phi ptr [ %39, %38 ], [ %27, %26 ]
-  %32 = load ptr, ptr %.013.i77, align 8, !tbaa !104
+.lr.ph77:                                         ; preds = %26, %38
+  %.013.i75 = phi ptr [ %39, %38 ], [ %27, %26 ]
+  %32 = load ptr, ptr %.013.i75, align 8, !tbaa !104
   %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %32)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %35 = load i32, ptr %34, align 4, !tbaa !85
-  switch i32 %35, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit [
+  switch i32 %35, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit [
     i32 0, label %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit
     i32 1, label %38
   ]
 
-_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit: ; preds = %.lr.ph79
+_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit: ; preds = %.lr.ph77
   %36 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %32)
   %37 = select i1 %36, i32 1, i32 -1
   store i32 %37, ptr %34, align 4, !tbaa !85
-  br i1 %36, label %38, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br i1 %36, label %38, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
-38:                                               ; preds = %.lr.ph79, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit
-  %39 = getelementptr inbounds nuw i8, ptr %.013.i77, i64 8
+38:                                               ; preds = %.lr.ph77, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i75, i64 8
   %.not.i25 = icmp eq ptr %39, %31
-  br i1 %.not.i25, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph79
+  br i1 %.not.i25, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph77
 
 40:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !110
   %44 = zext i32 %43 to i64
-  %.idx84 = shl nuw nsw i64 %44, 3
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx84
-  %.not.i2768.not = icmp eq i32 %43, 0
-  br i1 %.not.i2768.not, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph71
+  %.idx82 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx82
+  %.not.i2767 = icmp eq i32 %43, 0
+  br i1 %.not.i2767, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph69
 
-.lr.ph71:                                         ; preds = %40, %52
-  %.013.i2669 = phi ptr [ %53, %52 ], [ %41, %40 ]
-  %46 = load ptr, ptr %.013.i2669, align 8, !tbaa !104
+.lr.ph69:                                         ; preds = %40, %52
+  %.013.i2668 = phi ptr [ %53, %52 ], [ %41, %40 ]
+  %46 = load ptr, ptr %.013.i2668, align 8, !tbaa !104
   %47 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %46)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4, !tbaa !85
   switch i32 %49, label %52 [
     i32 0, label %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit
-    i32 1, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+    i32 1, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
   ]
 
-_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit: ; preds = %.lr.ph71
+_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit: ; preds = %.lr.ph69
   %50 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %46)
   %51 = select i1 %50, i32 1, i32 -1
   store i32 %51, ptr %48, align 4, !tbaa !85
-  br i1 %50, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %52
+  br i1 %50, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %52
 
-52:                                               ; preds = %.lr.ph71, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit
-  %53 = getelementptr inbounds nuw i8, ptr %.013.i2669, i64 8
-  %.not.i27.not = icmp eq ptr %53, %45
-  br i1 %.not.i27.not, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph71
+52:                                               ; preds = %.lr.ph69, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit
+  %53 = getelementptr inbounds nuw i8, ptr %.013.i2668, i64 8
+  %.not.i27 = icmp eq ptr %53, %45
+  br i1 %.not.i27, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph69
 
 54:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1003,18 +1003,18 @@ _ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKU
   %58 = zext i32 %57 to i64
   %.idx = shl nuw nsw i64 %58, 3
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
-  %.not.i3265 = icmp eq i32 %57, 0
-  br i1 %.not.i3265, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph
+  %.not.i3064 = icmp eq i32 %57, 0
+  br i1 %.not.i3064, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit
-  %.0.i3167 = phi i1 [ %69, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit ], [ false, %54 ]
-  %.010.i66 = phi ptr [ %70, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit ], [ %55, %54 ]
-  %60 = load ptr, ptr %.010.i66, align 8, !tbaa !104
+  %.0.i2966 = phi i1 [ %69, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit ], [ false, %54 ]
+  %.010.i65 = phi ptr [ %70, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit ], [ %55, %54 ]
+  %60 = load ptr, ptr %.010.i65, align 8, !tbaa !104
   %61 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %60)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %63 = load i32, ptr %62, align 4, !tbaa !85
-  %.not.i.i59 = icmp eq i32 %63, 0
-  br i1 %.not.i.i59, label %66, label %64
+  %.not.i.i57 = icmp eq i32 %63, 0
+  br i1 %.not.i.i57, label %66, label %64
 
 64:                                               ; preds = %.lr.ph
   %65 = icmp eq i32 %63, 1
@@ -1027,11 +1027,11 @@ _ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKU
   br label %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit
 
 _ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit: ; preds = %64, %66
-  %.0.i.i60 = phi i1 [ %65, %64 ], [ %67, %66 ]
-  %69 = xor i1 %.0.i3167, %.0.i.i60
-  %70 = getelementptr inbounds nuw i8, ptr %.010.i66, i64 8
-  %.not.i32 = icmp eq ptr %70, %59
-  br i1 %.not.i32, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph
+  %.0.i.i58 = phi i1 [ %65, %64 ], [ %67, %66 ]
+  %69 = xor i1 %.0.i2966, %.0.i.i58
+  %70 = getelementptr inbounds nuw i8, ptr %.010.i65, i64 8
+  %.not.i30 = icmp eq ptr %70, %59
+  br i1 %.not.i30, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph
 
 71:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1039,35 +1039,35 @@ _ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKU
   %74 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %73)
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %76 = load i32, ptr %75, align 4, !tbaa !85
-  switch i32 %76, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit [
-    i32 0, label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit35
+  switch i32 %76, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit [
+    i32 0, label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit33
     i32 1, label %79
   ]
 
-_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit35: ; preds = %71
+_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit33: ; preds = %71
   %77 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %73)
   %78 = select i1 %77, i32 1, i32 -1
   store i32 %78, ptr %75, align 4, !tbaa !85
-  br i1 %77, label %79, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br i1 %77, label %79, label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
-79:                                               ; preds = %71, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit35
+79:                                               ; preds = %71, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit33
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !104
   %82 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %81)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %84 = load i32, ptr %83, align 4, !tbaa !85
-  %.not.i36 = icmp eq i32 %84, 0
-  br i1 %.not.i36, label %87, label %85
+  %.not.i34 = icmp eq i32 %84, 0
+  br i1 %.not.i34, label %87, label %85
 
 85:                                               ; preds = %79
   %86 = icmp eq i32 %84, 1
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 87:                                               ; preds = %79
   %88 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %81)
   %89 = select i1 %88, i32 1, i32 -1
   store i32 %89, ptr %83, align 4, !tbaa !85
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 90:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1082,44 +1082,44 @@ _ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit35: ;
   %98 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %97)
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 20
   %100 = load i32, ptr %99, align 4, !tbaa !85
-  %.not.i39 = icmp eq i32 %100, 0
-  br i1 %.not.i39, label %103, label %101
+  %.not.i37 = icmp eq i32 %100, 0
+  br i1 %.not.i37, label %103, label %101
 
 101:                                              ; preds = %96
   %102 = icmp eq i32 %100, 1
-  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit41
+  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit39
 
 103:                                              ; preds = %96
   %104 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %97)
   %105 = select i1 %104, i32 1, i32 -1
   store i32 %105, ptr %99, align 4, !tbaa !85
-  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit41
+  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit39
 
-_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit41: ; preds = %101, %103
-  %.0.i40 = phi i1 [ %102, %101 ], [ %104, %103 ]
+_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit39: ; preds = %101, %103
+  %.0.i38 = phi i1 [ %102, %101 ], [ %104, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %107 = load ptr, ptr %106, align 8, !tbaa !104
   %108 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %107)
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %110 = load i32, ptr %109, align 4, !tbaa !85
-  %.not.i42 = icmp eq i32 %110, 0
-  br i1 %.not.i42, label %113, label %111
+  %.not.i40 = icmp eq i32 %110, 0
+  br i1 %.not.i40, label %113, label %111
 
-111:                                              ; preds = %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit41
+111:                                              ; preds = %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit39
   %112 = icmp eq i32 %110, 1
-  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit44
+  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit42
 
-113:                                              ; preds = %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit41
+113:                                              ; preds = %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit39
   %114 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %107)
   %115 = select i1 %114, i32 1, i32 -1
   store i32 %115, ptr %109, align 4, !tbaa !85
-  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit44
+  br label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit42
 
-_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit44: ; preds = %111, %113
-  %.0.i43 = phi i1 [ %112, %111 ], [ %114, %113 ]
-  %116 = xor i1 %.0.i40, %.0.i43
+_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit42: ; preds = %111, %113
+  %.0.i41 = phi i1 [ %112, %111 ], [ %114, %113 ]
+  %116 = xor i1 %.0.i38, %.0.i41
   %117 = xor i1 %116, true
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 118:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1168,8 +1168,8 @@ _ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit44: ;
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %128, %._ZN7obj_refI4expr11ast_managerED2Ev.exitthread-pre-split_crit_edge, %124
   %139 = phi ptr [ %125, %124 ], [ %.pr.pre, %._ZN7obj_refI4expr11ast_managerED2Ev.exitthread-pre-split_crit_edge ], [ %125, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i.i45 = icmp eq ptr %139, null
-  br i1 %.not.i.i45, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit46, label %140
+  %.not.i.i43 = icmp eq ptr %139, null
+  br i1 %.not.i.i43, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit44, label %140
 
 140:                                              ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1179,11 +1179,11 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %128, %._ZN7obj_refI
   %145 = add i32 %144, -1
   store i32 %145, ptr %143, align 4, !tbaa !90
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit46
+  br i1 %146, label %147, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit44
 
 147:                                              ; preds = %140
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %142, ptr noundef nonnull %139)
-          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit46 unwind label %148
+          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit44 unwind label %148
 
 148:                                              ; preds = %147
   %149 = landingpad { ptr, i32 }
@@ -1192,9 +1192,9 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %128, %._ZN7obj_refI
   call void @__clang_call_terminate(ptr %150) #24
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit46:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %140, %147
+_ZN7obj_refI4expr11ast_managerED2Ev.exit44:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %140, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 151:                                              ; preds = %118
   %152 = landingpad { ptr, i32 }
@@ -1211,53 +1211,53 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit46:       ; preds = %_ZN7obj_refI4expr11
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 20
   %158 = load i32, ptr %157, align 4, !tbaa !85
   switch i32 %158, label %172 [
-    i32 0, label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit49
+    i32 0, label %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit47
     i32 1, label %161
   ]
 
-_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit49: ; preds = %153
+_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit47: ; preds = %153
   %159 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %155)
   %160 = select i1 %159, i32 1, i32 -1
   store i32 %160, ptr %157, align 4, !tbaa !85
   br i1 %159, label %161, label %172
 
-161:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit49
+161:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit47
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %163 = load ptr, ptr %162, align 8, !tbaa !104
   %164 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %163)
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 20
   %166 = load i32, ptr %165, align 4, !tbaa !85
-  %.not.i50 = icmp eq i32 %166, 0
-  br i1 %.not.i50, label %169, label %167
+  %.not.i48 = icmp eq i32 %166, 0
+  br i1 %.not.i48, label %169, label %167
 
 167:                                              ; preds = %161
   %168 = icmp eq i32 %166, 1
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 169:                                              ; preds = %161
   %170 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %163)
   %171 = select i1 %170, i32 1, i32 -1
   store i32 %171, ptr %165, align 4, !tbaa !85
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
-172:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit49
+172:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit47
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %174 = load ptr, ptr %173, align 8, !tbaa !104
   %175 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %174)
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 20
   %177 = load i32, ptr %176, align 4, !tbaa !85
-  %.not.i53 = icmp eq i32 %177, 0
-  br i1 %.not.i53, label %180, label %178
+  %.not.i51 = icmp eq i32 %177, 0
+  br i1 %.not.i51, label %180, label %178
 
 178:                                              ; preds = %172
   %179 = icmp eq i32 %177, 1
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 180:                                              ; preds = %172
   %181 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %174)
   %182 = select i1 %181, i32 1, i32 -1
   store i32 %182, ptr %176, align 4, !tbaa !85
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %2, %_ZNK3app13get_decl_kindEv.exit
   %183 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
@@ -1278,7 +1278,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.5, i32 noundef 102, ptr noundef nonnull @.str.6)
   call void @_Z18invoke_exit_actionj(i32 noundef 107)
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 190:                                              ; preds = %187, %_ZNK3app13get_decl_kindEv.exit.thread
   %191 = landingpad { ptr, i32 }
@@ -1288,8 +1288,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %193
 
-_Z6xor_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit: ; preds = %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit, %.lr.ph71, %52, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit, %.lr.ph79, %38, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit, %54, %40, %26, %71, %180, %178, %169, %167, %87, %85, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit35, %_ZNK3app13get_decl_kindEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit46, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit44, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit, %13
-  %.021 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ false, %13 ], [ %25, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit ], [ %117, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit44 ], [ %127, %_ZN7obj_refI4expr11ast_managerED2Ev.exit46 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit35 ], [ %86, %85 ], [ %88, %87 ], [ %168, %167 ], [ %170, %169 ], [ %179, %178 ], [ %181, %180 ], [ true, %71 ], [ true, %26 ], [ false, %40 ], [ false, %54 ], [ false, %.lr.ph79 ], [ true, %38 ], [ false, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit ], [ true, %.lr.ph71 ], [ false, %52 ], [ true, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit ], [ %69, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit ]
+_Z6any_ofI3appZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit: ; preds = %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit, %52, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit, %.lr.ph69, %.lr.ph77, %38, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit, %54, %40, %26, %71, %180, %178, %169, %167, %87, %85, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit33, %_ZNK3app13get_decl_kindEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit44, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit42, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit, %13
+  %.021 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ false, %13 ], [ %25, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit ], [ %117, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit42 ], [ %127, %_ZN7obj_refI4expr11ast_managerED2Ev.exit44 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZN3sls15arith_lookaheadI13checked_int64ILb1EEE14get_bool_valueEP4expr.exit33 ], [ %86, %85 ], [ %88, %87 ], [ %168, %167 ], [ %170, %169 ], [ %179, %178 ], [ %181, %180 ], [ true, %71 ], [ true, %26 ], [ false, %40 ], [ false, %54 ], [ false, %.lr.ph77 ], [ true, %38 ], [ false, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE_clES7_.exit ], [ false, %52 ], [ true, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE0_clES7_.exit ], [ true, %.lr.ph69 ], [ %69, %_ZZN3sls15arith_lookaheadI13checked_int64ILb1EEE20get_basic_bool_valueEP3appENKUlP4exprE1_clES7_.exit ]
   ret i1 %.021
 
 193:                                              ; preds = %190, %151
@@ -7949,7 +7949,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !109
   switch i32 %12, label %_ZNK3app13get_decl_kindEv.exit.thread [
-    i32 0, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+    i32 0, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
     i32 1, label %13
     i32 8, label %14
     i32 5, label %26
@@ -7962,7 +7962,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
   ]
 
 13:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 14:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7986,71 +7986,71 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
 _ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit: ; preds = %20, %22
   %.0.i = phi i1 [ %21, %20 ], [ %23, %22 ]
   %25 = xor i1 %.0.i, true
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 26:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !110
   %30 = zext i32 %29 to i64
-  %.idx85 = shl nuw nsw i64 %30, 3
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx85
-  %.not.i2576 = icmp eq i32 %29, 0
-  br i1 %.not.i2576, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph79
+  %.idx83 = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx83
+  %.not.i2574 = icmp eq i32 %29, 0
+  br i1 %.not.i2574, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph77
 
-.lr.ph79:                                         ; preds = %26, %38
-  %.013.i77 = phi ptr [ %39, %38 ], [ %27, %26 ]
-  %32 = load ptr, ptr %.013.i77, align 8, !tbaa !104
+.lr.ph77:                                         ; preds = %26, %38
+  %.013.i75 = phi ptr [ %39, %38 ], [ %27, %26 ]
+  %32 = load ptr, ptr %.013.i75, align 8, !tbaa !104
   %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %32)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %35 = load i32, ptr %34, align 4, !tbaa !352
-  switch i32 %35, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit [
+  switch i32 %35, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit [
     i32 0, label %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit
     i32 1, label %38
   ]
 
-_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit: ; preds = %.lr.ph79
+_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit: ; preds = %.lr.ph77
   %36 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %32)
   %37 = select i1 %36, i32 1, i32 -1
   store i32 %37, ptr %34, align 4, !tbaa !352
-  br i1 %36, label %38, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br i1 %36, label %38, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
-38:                                               ; preds = %.lr.ph79, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit
-  %39 = getelementptr inbounds nuw i8, ptr %.013.i77, i64 8
+38:                                               ; preds = %.lr.ph77, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i75, i64 8
   %.not.i25 = icmp eq ptr %39, %31
-  br i1 %.not.i25, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph79
+  br i1 %.not.i25, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph77
 
 40:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !110
   %44 = zext i32 %43 to i64
-  %.idx84 = shl nuw nsw i64 %44, 3
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx84
-  %.not.i2768.not = icmp eq i32 %43, 0
-  br i1 %.not.i2768.not, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph71
+  %.idx82 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx82
+  %.not.i2767 = icmp eq i32 %43, 0
+  br i1 %.not.i2767, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph69
 
-.lr.ph71:                                         ; preds = %40, %52
-  %.013.i2669 = phi ptr [ %53, %52 ], [ %41, %40 ]
-  %46 = load ptr, ptr %.013.i2669, align 8, !tbaa !104
+.lr.ph69:                                         ; preds = %40, %52
+  %.013.i2668 = phi ptr [ %53, %52 ], [ %41, %40 ]
+  %46 = load ptr, ptr %.013.i2668, align 8, !tbaa !104
   %47 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %46)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4, !tbaa !352
   switch i32 %49, label %52 [
     i32 0, label %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit
-    i32 1, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+    i32 1, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
   ]
 
-_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit: ; preds = %.lr.ph71
+_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit: ; preds = %.lr.ph69
   %50 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %46)
   %51 = select i1 %50, i32 1, i32 -1
   store i32 %51, ptr %48, align 4, !tbaa !352
-  br i1 %50, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %52
+  br i1 %50, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %52
 
-52:                                               ; preds = %.lr.ph71, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit
-  %53 = getelementptr inbounds nuw i8, ptr %.013.i2669, i64 8
-  %.not.i27.not = icmp eq ptr %53, %45
-  br i1 %.not.i27.not, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph71
+52:                                               ; preds = %.lr.ph69, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit
+  %53 = getelementptr inbounds nuw i8, ptr %.013.i2668, i64 8
+  %.not.i27 = icmp eq ptr %53, %45
+  br i1 %.not.i27, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph69
 
 54:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8059,18 +8059,18 @@ _ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_cl
   %58 = zext i32 %57 to i64
   %.idx = shl nuw nsw i64 %58, 3
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
-  %.not.i3265 = icmp eq i32 %57, 0
-  br i1 %.not.i3265, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph
+  %.not.i3064 = icmp eq i32 %57, 0
+  br i1 %.not.i3064, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit
-  %.0.i3167 = phi i1 [ %69, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit ], [ false, %54 ]
-  %.010.i66 = phi ptr [ %70, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit ], [ %55, %54 ]
-  %60 = load ptr, ptr %.010.i66, align 8, !tbaa !104
+  %.0.i2966 = phi i1 [ %69, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit ], [ false, %54 ]
+  %.010.i65 = phi ptr [ %70, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit ], [ %55, %54 ]
+  %60 = load ptr, ptr %.010.i65, align 8, !tbaa !104
   %61 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %60)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %63 = load i32, ptr %62, align 4, !tbaa !352
-  %.not.i.i59 = icmp eq i32 %63, 0
-  br i1 %.not.i.i59, label %66, label %64
+  %.not.i.i57 = icmp eq i32 %63, 0
+  br i1 %.not.i.i57, label %66, label %64
 
 64:                                               ; preds = %.lr.ph
   %65 = icmp eq i32 %63, 1
@@ -8083,11 +8083,11 @@ _ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_cl
   br label %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit
 
 _ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit: ; preds = %64, %66
-  %.0.i.i60 = phi i1 [ %65, %64 ], [ %67, %66 ]
-  %69 = xor i1 %.0.i3167, %.0.i.i60
-  %70 = getelementptr inbounds nuw i8, ptr %.010.i66, i64 8
-  %.not.i32 = icmp eq ptr %70, %59
-  br i1 %.not.i32, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit, label %.lr.ph
+  %.0.i.i58 = phi i1 [ %65, %64 ], [ %67, %66 ]
+  %69 = xor i1 %.0.i2966, %.0.i.i58
+  %70 = getelementptr inbounds nuw i8, ptr %.010.i65, i64 8
+  %.not.i30 = icmp eq ptr %70, %59
+  br i1 %.not.i30, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit, label %.lr.ph
 
 71:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8095,35 +8095,35 @@ _ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_cl
   %74 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %73)
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %76 = load i32, ptr %75, align 4, !tbaa !352
-  switch i32 %76, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit [
-    i32 0, label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit35
+  switch i32 %76, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit [
+    i32 0, label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit33
     i32 1, label %79
   ]
 
-_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit35: ; preds = %71
+_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit33: ; preds = %71
   %77 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %73)
   %78 = select i1 %77, i32 1, i32 -1
   store i32 %78, ptr %75, align 4, !tbaa !352
-  br i1 %77, label %79, label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br i1 %77, label %79, label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
-79:                                               ; preds = %71, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit35
+79:                                               ; preds = %71, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit33
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !104
   %82 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %81)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %84 = load i32, ptr %83, align 4, !tbaa !352
-  %.not.i36 = icmp eq i32 %84, 0
-  br i1 %.not.i36, label %87, label %85
+  %.not.i34 = icmp eq i32 %84, 0
+  br i1 %.not.i34, label %87, label %85
 
 85:                                               ; preds = %79
   %86 = icmp eq i32 %84, 1
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 87:                                               ; preds = %79
   %88 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %81)
   %89 = select i1 %88, i32 1, i32 -1
   store i32 %89, ptr %83, align 4, !tbaa !352
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 90:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8138,44 +8138,44 @@ _ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit35: ; preds = %71
   %98 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %97)
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 20
   %100 = load i32, ptr %99, align 4, !tbaa !352
-  %.not.i39 = icmp eq i32 %100, 0
-  br i1 %.not.i39, label %103, label %101
+  %.not.i37 = icmp eq i32 %100, 0
+  br i1 %.not.i37, label %103, label %101
 
 101:                                              ; preds = %96
   %102 = icmp eq i32 %100, 1
-  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit41
+  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit39
 
 103:                                              ; preds = %96
   %104 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %97)
   %105 = select i1 %104, i32 1, i32 -1
   store i32 %105, ptr %99, align 4, !tbaa !352
-  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit41
+  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit39
 
-_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit41: ; preds = %101, %103
-  %.0.i40 = phi i1 [ %102, %101 ], [ %104, %103 ]
+_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit39: ; preds = %101, %103
+  %.0.i38 = phi i1 [ %102, %101 ], [ %104, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %107 = load ptr, ptr %106, align 8, !tbaa !104
   %108 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %107)
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %110 = load i32, ptr %109, align 4, !tbaa !352
-  %.not.i42 = icmp eq i32 %110, 0
-  br i1 %.not.i42, label %113, label %111
+  %.not.i40 = icmp eq i32 %110, 0
+  br i1 %.not.i40, label %113, label %111
 
-111:                                              ; preds = %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit41
+111:                                              ; preds = %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit39
   %112 = icmp eq i32 %110, 1
-  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit44
+  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit42
 
-113:                                              ; preds = %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit41
+113:                                              ; preds = %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit39
   %114 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %107)
   %115 = select i1 %114, i32 1, i32 -1
   store i32 %115, ptr %109, align 4, !tbaa !352
-  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit44
+  br label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit42
 
-_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit44: ; preds = %111, %113
-  %.0.i43 = phi i1 [ %112, %111 ], [ %114, %113 ]
-  %116 = xor i1 %.0.i40, %.0.i43
+_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit42: ; preds = %111, %113
+  %.0.i41 = phi i1 [ %112, %111 ], [ %114, %113 ]
+  %116 = xor i1 %.0.i38, %.0.i41
   %117 = xor i1 %116, true
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 118:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8224,8 +8224,8 @@ _ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit44: ; preds = %11
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %128, %._ZN7obj_refI4expr11ast_managerED2Ev.exitthread-pre-split_crit_edge, %124
   %139 = phi ptr [ %125, %124 ], [ %.pr.pre, %._ZN7obj_refI4expr11ast_managerED2Ev.exitthread-pre-split_crit_edge ], [ %125, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i.i45 = icmp eq ptr %139, null
-  br i1 %.not.i.i45, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit46, label %140
+  %.not.i.i43 = icmp eq ptr %139, null
+  br i1 %.not.i.i43, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit44, label %140
 
 140:                                              ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8235,11 +8235,11 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %128, %._ZN7obj_refI
   %145 = add i32 %144, -1
   store i32 %145, ptr %143, align 4, !tbaa !90
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit46
+  br i1 %146, label %147, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit44
 
 147:                                              ; preds = %140
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %142, ptr noundef nonnull %139)
-          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit46 unwind label %148
+          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit44 unwind label %148
 
 148:                                              ; preds = %147
   %149 = landingpad { ptr, i32 }
@@ -8248,9 +8248,9 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %128, %._ZN7obj_refI
   call void @__clang_call_terminate(ptr %150) #24
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit46:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %140, %147
+_ZN7obj_refI4expr11ast_managerED2Ev.exit44:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %140, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 151:                                              ; preds = %118
   %152 = landingpad { ptr, i32 }
@@ -8267,53 +8267,53 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit46:       ; preds = %_ZN7obj_refI4expr11
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 20
   %158 = load i32, ptr %157, align 4, !tbaa !352
   switch i32 %158, label %172 [
-    i32 0, label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit49
+    i32 0, label %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit47
     i32 1, label %161
   ]
 
-_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit49: ; preds = %153
+_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit47: ; preds = %153
   %159 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %155)
   %160 = select i1 %159, i32 1, i32 -1
   store i32 %160, ptr %157, align 4, !tbaa !352
   br i1 %159, label %161, label %172
 
-161:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit49
+161:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit47
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %163 = load ptr, ptr %162, align 8, !tbaa !104
   %164 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %163)
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 20
   %166 = load i32, ptr %165, align 4, !tbaa !352
-  %.not.i50 = icmp eq i32 %166, 0
-  br i1 %.not.i50, label %169, label %167
+  %.not.i48 = icmp eq i32 %166, 0
+  br i1 %.not.i48, label %169, label %167
 
 167:                                              ; preds = %161
   %168 = icmp eq i32 %166, 1
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 169:                                              ; preds = %161
   %170 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %163)
   %171 = select i1 %170, i32 1, i32 -1
   store i32 %171, ptr %165, align 4, !tbaa !352
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
-172:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit49
+172:                                              ; preds = %153, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit47
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %174 = load ptr, ptr %173, align 8, !tbaa !104
   %175 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3sls15arith_lookaheadI8rationalE13get_bool_infoEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %174)
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 20
   %177 = load i32, ptr %176, align 4, !tbaa !352
-  %.not.i53 = icmp eq i32 %177, 0
-  br i1 %.not.i53, label %180, label %178
+  %.not.i51 = icmp eq i32 %177, 0
+  br i1 %.not.i51, label %180, label %178
 
 178:                                              ; preds = %172
   %179 = icmp eq i32 %177, 1
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 180:                                              ; preds = %172
   %181 = tail call noundef zeroext i1 @_ZN3sls15arith_lookaheadI8rationalE18get_bool_value_recEP4expr(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %174)
   %182 = select i1 %181, i32 1, i32 -1
   store i32 %182, ptr %176, align 4, !tbaa !352
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %2, %_ZNK3app13get_decl_kindEv.exit
   %183 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
@@ -8334,7 +8334,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.5, i32 noundef 102, ptr noundef nonnull @.str.6)
   call void @_Z18invoke_exit_actionj(i32 noundef 107)
-  br label %_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit
+  br label %_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit
 
 190:                                              ; preds = %187, %_ZNK3app13get_decl_kindEv.exit.thread
   %191 = landingpad { ptr, i32 }
@@ -8344,8 +8344,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %193
 
-_Z6xor_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE1_EbRKT_RKT0_.exit: ; preds = %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit, %.lr.ph71, %52, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit, %.lr.ph79, %38, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit, %54, %40, %26, %71, %180, %178, %169, %167, %87, %85, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit35, %_ZNK3app13get_decl_kindEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit46, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit44, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit, %13
-  %.021 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ false, %13 ], [ %25, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit ], [ %117, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit44 ], [ %127, %_ZN7obj_refI4expr11ast_managerED2Ev.exit46 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit35 ], [ %86, %85 ], [ %88, %87 ], [ %168, %167 ], [ %170, %169 ], [ %179, %178 ], [ %181, %180 ], [ true, %71 ], [ true, %26 ], [ false, %40 ], [ false, %54 ], [ false, %.lr.ph79 ], [ true, %38 ], [ false, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit ], [ true, %.lr.ph71 ], [ false, %52 ], [ true, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit ], [ %69, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit ]
+_Z6any_ofI3appZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEPS0_EUlP4exprE0_EbRKT_RKT0_.exit: ; preds = %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit, %52, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit, %.lr.ph69, %.lr.ph77, %38, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit, %54, %40, %26, %71, %180, %178, %169, %167, %87, %85, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit33, %_ZNK3app13get_decl_kindEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit44, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit42, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit, %13
+  %.021 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ false, %13 ], [ %25, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit ], [ %117, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit42 ], [ %127, %_ZN7obj_refI4expr11ast_managerED2Ev.exit44 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZN3sls15arith_lookaheadI8rationalE14get_bool_valueEP4expr.exit33 ], [ %86, %85 ], [ %88, %87 ], [ %168, %167 ], [ %170, %169 ], [ %179, %178 ], [ %181, %180 ], [ true, %71 ], [ true, %26 ], [ false, %40 ], [ false, %54 ], [ false, %.lr.ph77 ], [ true, %38 ], [ false, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE_clES6_.exit ], [ false, %52 ], [ true, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE0_clES6_.exit ], [ true, %.lr.ph69 ], [ %69, %_ZZN3sls15arith_lookaheadI8rationalE20get_basic_bool_valueEP3appENKUlP4exprE1_clES6_.exit ]
   ret i1 %.021
 
 193:                                              ; preds = %190, %151

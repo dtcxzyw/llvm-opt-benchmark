@@ -1121,30 +1121,30 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
 
 .preheader:                                       ; preds = %12
   %21 = icmp ult i32 %15, 2
-  br i1 %21, label %.thread, label %.lr.ph106.preheader
+  br i1 %21, label %.thread, label %.lr.ph103.preheader
 
-.lr.ph106.preheader:                              ; preds = %.preheader
+.lr.ph103.preheader:                              ; preds = %.preheader
   %22 = ashr i32 %15, 1
-  br label %.lr.ph106
+  br label %.lr.ph103
 
-.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
-  %23 = phi i32 [ %30, %.lr.ph106 ], [ %22, %.lr.ph106.preheader ]
-  %.076105 = phi i32 [ %.076., %.lr.ph106 ], [ 0, %.lr.ph106.preheader ]
-  %.180104 = phi i32 [ %..180, %.lr.ph106 ], [ %15, %.lr.ph106.preheader ]
+.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
+  %23 = phi i32 [ %30, %.lr.ph103 ], [ %22, %.lr.ph103.preheader ]
+  %.076102 = phi i32 [ %.076., %.lr.ph103 ], [ 0, %.lr.ph103.preheader ]
+  %.180101 = phi i32 [ %..180, %.lr.ph103 ], [ %15, %.lr.ph103.preheader ]
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i16, ptr %6, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !32
   %27 = zext i16 %26 to i32
   %28 = icmp samesign ult i32 %1, %27
-  %..180 = select i1 %28, i32 %23, i32 %.180104
-  %.076. = select i1 %28, i32 %.076105, i32 %23
+  %..180 = select i1 %28, i32 %23, i32 %.180101
+  %.076. = select i1 %28, i32 %.076102, i32 %23
   %29 = add nsw i32 %.076., %..180
   %30 = ashr i32 %29, 1
   %31 = icmp eq i32 %30, %.076.
-  br i1 %31, label %.thread, label %.lr.ph106
+  br i1 %31, label %.thread, label %.lr.ph103
 
-.thread:                                          ; preds = %.lr.ph106, %.preheader, %12, %8
-  %.079 = phi i32 [ 0, %8 ], [ %14, %12 ], [ %15, %.preheader ], [ %..180, %.lr.ph106 ]
+.thread:                                          ; preds = %.lr.ph103, %.preheader, %12, %8
+  %.079 = phi i32 [ 0, %8 ], [ %14, %12 ], [ %15, %.preheader ], [ %..180, %.lr.ph103 ]
   %32 = trunc i32 %.079 to i8
   %33 = and i8 %32, 1
   br label %103
@@ -1162,7 +1162,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %44 = load i16, ptr %43, align 2, !tbaa !32
   %45 = zext i16 %44 to i32
   %46 = icmp samesign ult i32 %35, %45
-  br i1 %46, label %.thread97, label %47
+  br i1 %46, label %.thread95, label %47
 
 47:                                               ; preds = %34
   %48 = icmp eq i32 %35, %45
@@ -1174,7 +1174,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %52 = load i16, ptr %51, align 2, !tbaa !32
   %53 = zext i16 %52 to i32
   %54 = icmp samesign ult i32 %50, %53
-  br i1 %54, label %.thread97, label %55
+  br i1 %54, label %.thread95, label %55
 
 55:                                               ; preds = %49, %47
   %56 = sext i32 %40 to i64
@@ -1202,7 +1202,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %72 = ashr i32 %41, 1
   %73 = and i32 %72, -2
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread97, label %.lr.ph
+  br i1 %74, label %.thread95, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71
   %75 = and i32 %1, 65535
@@ -1210,8 +1210,8 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
 
 76:                                               ; preds = %.lr.ph, %92
   %77 = phi i32 [ %73, %.lr.ph ], [ %95, %92 ]
-  %.172103 = phi i32 [ %41, %.lr.ph ], [ %.2, %92 ]
-  %.073102 = phi i32 [ 0, %.lr.ph ], [ %.174, %92 ]
+  %.172100 = phi i32 [ %41, %.lr.ph ], [ %.2, %92 ]
+  %.07399 = phi i32 [ 0, %.lr.ph ], [ %.174, %92 ]
   %78 = add nsw i32 %77, %37
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i16, ptr %6, i64 %79
@@ -1235,19 +1235,19 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   br label %92
 
 92:                                               ; preds = %91, %86, %76
-  %.174 = phi i32 [ %77, %91 ], [ %.073102, %86 ], [ %.073102, %76 ]
-  %.2 = phi i32 [ %.172103, %91 ], [ %77, %86 ], [ %77, %76 ]
+  %.174 = phi i32 [ %77, %91 ], [ %.07399, %86 ], [ %.07399, %76 ]
+  %.2 = phi i32 [ %.172100, %91 ], [ %77, %86 ], [ %77, %76 ]
   %93 = add nsw i32 %.2, %.174
   %94 = ashr i32 %93, 1
   %95 = and i32 %94, -2
   %96 = icmp eq i32 %95, %.174
-  br i1 %96, label %.thread97, label %76
+  br i1 %96, label %.thread95, label %76
 
 97:                                               ; preds = %63, %61
   %98 = add nsw i32 %41, 2
-  br label %.thread97
+  br label %.thread95
 
-.thread97:                                        ; preds = %92, %71, %34, %49, %97
+.thread95:                                        ; preds = %92, %71, %34, %49, %97
   %.071 = phi i32 [ %98, %97 ], [ 0, %49 ], [ 0, %34 ], [ %41, %71 ], [ %.2, %92 ]
   %99 = lshr i32 %.071, 1
   %100 = add i32 %99, %37
@@ -1255,8 +1255,8 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %102 = and i8 %101, 1
   br label %103
 
-103:                                              ; preds = %2, %.thread97, %.thread
-  %.0 = phi i8 [ %33, %.thread ], [ %102, %.thread97 ], [ 0, %2 ]
+103:                                              ; preds = %2, %.thread95, %.thread
+  %.0 = phi i8 [ %33, %.thread ], [ %102, %.thread95 ], [ 0, %2 ]
   ret i8 %.0
 }
 

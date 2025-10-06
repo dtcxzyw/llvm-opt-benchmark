@@ -7656,35 +7656,35 @@ _ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %23, %30, %_Z17is
   %49 = zext i32 %48 to i64
   %.idx.i = shl nuw nsw i64 %49, 3
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i
-  %.not14.not.i = icmp eq i32 %48, 0
-  br i1 %.not14.not.i, label %.loopexit, label %.lr.ph.i
+  %.not15.not.i = icmp eq i32 %48, 0
+  br i1 %.not15.not.i, label %.loopexit, label %.lr.ph.i
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.01315.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 8
   %.not.not.i = icmp eq ptr %52, %50
-  br i1 %.not.not.i, label %.loopexit23, label %.lr.ph.i
+  br i1 %.not.not.i, label %.loopexit24, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, %51
-  %.01315.i = phi ptr [ %52, %51 ], [ %46, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread ]
-  %53 = load ptr, ptr %.01315.i, align 8, !tbaa !63
+  %.01316.i = phi ptr [ %52, %51 ], [ %46, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread ]
+  %53 = load ptr, ptr %.01316.i, align 8, !tbaa !63
   %54 = tail call noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %53)
   br i1 %54, label %.loopexit.sink.split, label %51
 
-.loopexit23:                                      ; preds = %51
+.loopexit24:                                      ; preds = %51
   %.pre = load i32, ptr %47, align 8, !tbaa !88
   %55 = zext i32 %.pre to i64
   %.idx = shl nuw nsw i64 %55, 3
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
-  %.not25.not = icmp eq i32 %.pre, 0
-  br i1 %.not25.not, label %.loopexit, label %.critedge
+  %.not25 = icmp eq i32 %.pre, 0
+  br i1 %.not25, label %.loopexit, label %.critedge
 
 57:                                               ; preds = %.critedge
   %58 = getelementptr inbounds nuw i8, ptr %.02126, i64 8
-  %.not.not = icmp eq ptr %58, %56
-  br i1 %.not.not, label %.loopexit, label %.critedge
+  %.not = icmp eq ptr %58, %56
+  br i1 %.not, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %.loopexit23, %57
-  %.02126 = phi ptr [ %58, %57 ], [ %46, %.loopexit23 ]
+.critedge:                                        ; preds = %.loopexit24, %57
+  %.02126 = phi ptr [ %58, %57 ], [ %46, %.loopexit24 ]
   %59 = load ptr, ptr %.02126, align 8, !tbaa !63
   %60 = tail call noundef zeroext i1 @_ZN3mbp12mbp_array_tg4impl10has_storesEP4expr(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %59)
   br i1 %60, label %.loopexit.sink.split, label %57
@@ -7693,8 +7693,8 @@ _ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %23, %30, %_Z17is
   tail call void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1, i1 noundef zeroext true)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %.loopexit.sink.split, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, %.loopexit23, %5, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %.loopexit23 ], [ false, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread ], [ true, %.loopexit.sink.split ], [ false, %57 ]
+.loopexit:                                        ; preds = %57, %.loopexit.sink.split, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, %.loopexit24, %5, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %.loopexit24 ], [ false, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread ], [ true, %.loopexit.sink.split ], [ false, %57 ]
   ret i1 %.0
 }
 

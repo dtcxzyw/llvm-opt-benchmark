@@ -1776,17 +1776,17 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread: ; 
   %430 = zext i32 %429 to i64
   %.idx.i.i111 = shl nuw nsw i64 %430, 3
   %431 = getelementptr inbounds nuw i8, ptr %428, i64 %.idx.i.i111
-  %.not36.i.i = icmp eq i32 %429, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i112
+  %.not34.i.i = icmp eq i32 %429, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i112
 
 .lr.ph.i.i112:                                    ; preds = %427, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %433, %.critedge.i.i ], [ %428, %427 ]
-  %432 = load ptr, ptr %.02937.i.i, align 8, !tbaa !340, !noalias !341
+  %.02935.i.i = phi ptr [ %433, %.critedge.i.i ], [ %428, %427 ]
+  %432 = load ptr, ptr %.02935.i.i, align 8, !tbaa !340, !noalias !341
   %.not17.i.i113 = icmp eq ptr %432, %424
   br i1 %.not17.i.i113, label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i112
-  %433 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %433 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i114 = icmp eq ptr %433, %431
   br i1 %.not.i.i114, label %._crit_edge.i.i, label %.lr.ph.i.i112, !llvm.loop !344
 
@@ -4466,52 +4466,52 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering24computeSplitWorkItemIn
 
 .lr.ph:                                           ; preds = %3, %47
   %28 = phi ptr [ %49, %47 ], [ %26, %3 ]
-  %.0160 = phi i32 [ %48, %47 ], [ 0, %3 ]
-  %.sroa.0122.0159 = phi ptr [ %.sroa.0122.1, %47 ], [ %6, %3 ]
-  %.sroa.0114.0158.idx = phi i64 [ %.sroa.0114.1.idx, %47 ], [ 0, %3 ]
-  %.sroa.0110.0157 = phi i32 [ %.sroa.0110.1, %47 ], [ %spec.select.i.i, %3 ]
-  %.sroa.0106.0156 = phi i32 [ %.sroa.0106.1, %47 ], [ %spec.select.i.i41, %3 ]
-  %.sroa.0114.0158.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.0114.0158.idx
-  %29 = icmp ult i32 %.sroa.0110.0157, %.sroa.0106.0156
+  %.0158 = phi i32 [ %48, %47 ], [ 0, %3 ]
+  %.sroa.0122.0157 = phi ptr [ %.sroa.0122.1, %47 ], [ %6, %3 ]
+  %.sroa.0114.0156.idx = phi i64 [ %.sroa.0114.1.idx, %47 ], [ 0, %3 ]
+  %.sroa.0110.0155 = phi i32 [ %.sroa.0110.1, %47 ], [ %spec.select.i.i, %3 ]
+  %.sroa.0106.0154 = phi i32 [ %.sroa.0106.1, %47 ], [ %spec.select.i.i41, %3 ]
+  %.sroa.0114.0156.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.0114.0156.idx
+  %29 = icmp ult i32 %.sroa.0110.0155, %.sroa.0106.0154
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = icmp ne i32 %.sroa.0110.0157, %.sroa.0106.0156
-  %32 = and i32 %.0160, 1
+  %31 = icmp ne i32 %.sroa.0110.0155, %.sroa.0106.0154
+  %32 = and i32 %.0158, 1
   %.not39 = icmp eq i32 %32, 0
   %or.cond = select i1 %31, i1 true, i1 %.not39
   br i1 %or.cond, label %40, label %33
 
 33:                                               ; preds = %30, %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0159, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0157, i64 72
   %.sroa.019.0.copyload = load i32, ptr %34, align 8, !tbaa !24
-  %35 = zext i32 %.sroa.0110.0157 to i64
+  %35 = zext i32 %.sroa.0110.0155 to i64
   %36 = zext i32 %.sroa.019.0.copyload to i64
   %37 = add nuw nsw i64 %36, %35
   %38 = icmp samesign ugt i64 %37, 2147483648
-  %39 = add i32 %.sroa.019.0.copyload, %.sroa.0110.0157
+  %39 = add i32 %.sroa.019.0.copyload, %.sroa.0110.0155
   %spec.select.i = select i1 %38, i32 -2147483648, i32 %39
   br label %47
 
 40:                                               ; preds = %30
-  %.sroa.0114.0158.add = add nsw i64 %.sroa.0114.0158.idx, -40
-  %41 = getelementptr inbounds i8, ptr %.sroa.0114.0158.ptr, i64 -8
+  %.sroa.0114.0156.add = add nsw i64 %.sroa.0114.0156.idx, -40
+  %41 = getelementptr inbounds i8, ptr %.sroa.0114.0156.ptr, i64 -8
   %.sroa.018.0.copyload = load i32, ptr %41, align 8, !tbaa !24
-  %42 = zext i32 %.sroa.0106.0156 to i64
+  %42 = zext i32 %.sroa.0106.0154 to i64
   %43 = zext i32 %.sroa.018.0.copyload to i64
   %44 = add nuw nsw i64 %43, %42
   %45 = icmp samesign ugt i64 %44, 2147483648
-  %46 = add i32 %.sroa.018.0.copyload, %.sroa.0106.0156
+  %46 = add i32 %.sroa.018.0.copyload, %.sroa.0106.0154
   %spec.select.i42 = select i1 %45, i32 -2147483648, i32 %46
   br label %47
 
 47:                                               ; preds = %40, %33
-  %.sroa.0106.1 = phi i32 [ %.sroa.0106.0156, %33 ], [ %spec.select.i42, %40 ]
-  %.sroa.0110.1 = phi i32 [ %spec.select.i, %33 ], [ %.sroa.0110.0157, %40 ]
-  %.sroa.0114.1.idx = phi i64 [ %.sroa.0114.0158.idx, %33 ], [ %.sroa.0114.0158.add, %40 ]
-  %.sroa.0122.1 = phi ptr [ %28, %33 ], [ %.sroa.0122.0159, %40 ]
+  %.sroa.0106.1 = phi i32 [ %.sroa.0106.0154, %33 ], [ %spec.select.i42, %40 ]
+  %.sroa.0110.1 = phi i32 [ %spec.select.i, %33 ], [ %.sroa.0110.0155, %40 ]
+  %.sroa.0114.1.idx = phi i64 [ %.sroa.0114.0156.idx, %33 ], [ %.sroa.0114.0156.add, %40 ]
+  %.sroa.0122.1 = phi ptr [ %28, %33 ], [ %.sroa.0122.0157, %40 ]
   %.sroa.0114.1.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.0114.1.idx
-  %48 = add i32 %.0160, 1
+  %48 = add i32 %.0158, 1
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0122.1, i64 40
   %50 = icmp ult ptr %49, %.sroa.0114.1.ptr
   br i1 %50, label %.lr.ph, label %.preheader, !llvm.loop !469
@@ -4534,8 +4534,8 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering24computeSplitWorkItemIn
   %62 = icmp ult i32 %.sroa.speculated96, 3
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %56, i32 %61)
   %63 = icmp ugt i32 %.sroa.speculated, 3
-  %or.cond155 = and i1 %62, %63
-  br i1 %or.cond155, label %64, label %.thread
+  %or.cond153 = and i1 %62, %63
+  br i1 %or.cond153, label %64, label %.thread
 
 64:                                               ; preds = %51
   %65 = icmp ult i32 %56, %61

@@ -40522,11 +40522,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4wave8cpplexer7re2clex4fillIN9_
   %25 = sub i64 %24, %11
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %8, i64 %25, i1 false)
   %.pre = load ptr, ptr %9, align 8, !tbaa !131
-  %.pre260 = load ptr, ptr %15, align 8, !tbaa !124
+  %.pre259 = load ptr, ptr %15, align 8, !tbaa !124
   br label %26
 
 26:                                               ; preds = %23, %21
-  %27 = phi ptr [ %.pre260, %23 ], [ %22, %21 ]
+  %27 = phi ptr [ %.pre259, %23 ], [ %22, %21 ]
   %28 = phi ptr [ %.pre, %23 ], [ %10, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %28, ptr %29, align 8, !tbaa !120
@@ -40642,11 +40642,11 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   store ptr %89, ptr %59, align 8, !tbaa !169
   tail call void @free(ptr noundef %68) #33
   store ptr %72, ptr %9, align 8, !tbaa !131
-  %.pre261 = load ptr, ptr %61, align 8, !tbaa !124
+  %.pre260 = load ptr, ptr %61, align 8, !tbaa !124
   br label %90
 
 90:                                               ; preds = %78, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit
-  %91 = phi ptr [ %.pre261, %78 ], [ %62, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit ]
+  %91 = phi ptr [ %.pre260, %78 ], [ %62, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit ]
   %.2186 = phi ptr [ %87, %78 ], [ %.1185, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.026.0.copyload = load ptr, ptr %92, align 8, !tbaa !24
@@ -40664,34 +40664,34 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre263.pre = load ptr, ptr %61, align 8, !tbaa !124
+  %.pre262.pre = load ptr, ptr %61, align 8, !tbaa !124
   %.not214 = icmp samesign ugt i64 %96, 196607
   br i1 %.not214, label %105, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0198250 = phi ptr [ %101, %.lr.ph ], [ %91, %.lr.ph.preheader ]
-  %.0199249 = phi i64 [ %102, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0198249 = phi ptr [ %101, %.lr.ph ], [ %91, %.lr.ph.preheader ]
+  %.0199248 = phi i64 [ %102, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %98 = load ptr, ptr %92, align 8, !tbaa !173
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store ptr %99, ptr %92, align 8, !tbaa !173
   %100 = load i8, ptr %98, align 1, !tbaa !11
-  %101 = getelementptr inbounds nuw i8, ptr %.0198250, i64 1
-  store i8 %100, ptr %.0198250, align 1, !tbaa !11
-  %102 = add nuw nsw i64 %.0199249, 1
+  %101 = getelementptr inbounds nuw i8, ptr %.0198249, i64 1
+  store i8 %100, ptr %.0198249, align 1, !tbaa !11
+  %102 = add nuw nsw i64 %.0199248, 1
   %exitcond.not = icmp eq i64 %102, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !174
 
 ._crit_edge.thread:                               ; preds = %90, %._crit_edge
-  %.pre263286 = phi ptr [ %.pre263.pre, %._crit_edge ], [ %91, %90 ]
-  %103 = getelementptr inbounds i8, ptr %.pre263286, i64 %spec.store.select
+  %.pre262285 = phi ptr [ %.pre262.pre, %._crit_edge ], [ %91, %90 ]
+  %103 = getelementptr inbounds i8, ptr %.pre262285, i64 %spec.store.select
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1
   store ptr %104, ptr %4, align 8, !tbaa !129
   store i8 0, ptr %103, align 1, !tbaa !11
-  %.pre262 = load ptr, ptr %61, align 8, !tbaa !124
+  %.pre261 = load ptr, ptr %61, align 8, !tbaa !124
   br label %105
 
 105:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %106 = phi ptr [ %.pre262, %._crit_edge.thread ], [ %.pre263.pre, %._crit_edge ]
+  %106 = phi ptr [ %.pre261, %._crit_edge.thread ], [ %.pre262.pre, %._crit_edge ]
   %107 = getelementptr inbounds i8, ptr %106, i64 -3
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %109 = load ptr, ptr %108, align 8, !tbaa !24
@@ -40700,27 +40700,27 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %111 = getelementptr inbounds i8, ptr %106, i64 %spec.store.select
   %112 = getelementptr inbounds i8, ptr %111, i64 -2
   %113 = icmp ult ptr %.sroa.speculated, %112
-  br i1 %113, label %.lr.ph254, label %._crit_edge255
+  br i1 %113, label %.lr.ph253, label %._crit_edge254
 
-.lr.ph254:                                        ; preds = %105
+.lr.ph253:                                        ; preds = %105
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %115
 
-115:                                              ; preds = %.lr.ph254, %148
-  %116 = phi ptr [ %111, %.lr.ph254 ], [ %151, %148 ]
-  %.0188252 = phi ptr [ %.sroa.speculated, %.lr.ph254 ], [ %149, %148 ]
-  %.0191251 = phi i64 [ %spec.store.select, %.lr.ph254 ], [ %.1192, %148 ]
+115:                                              ; preds = %.lr.ph253, %148
+  %116 = phi ptr [ %111, %.lr.ph253 ], [ %151, %148 ]
+  %.0188251 = phi ptr [ %.sroa.speculated, %.lr.ph253 ], [ %149, %148 ]
+  %.0191250 = phi i64 [ %spec.store.select, %.lr.ph253 ], [ %.1192, %148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !175
-  %117 = call noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef %.0188252, ptr noundef %116, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %117 = call noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef %.0188251, ptr noundef %116, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %117, label %118, label %148
 
 118:                                              ; preds = %115
   %119 = load i32, ptr %3, align 4, !tbaa !175
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i8, ptr %.0188252, i64 %120
+  %121 = getelementptr inbounds i8, ptr %.0188251, i64 %120
   %122 = load ptr, ptr %61, align 8, !tbaa !124
-  %123 = getelementptr inbounds i8, ptr %122, i64 %.0191251
+  %123 = getelementptr inbounds i8, ptr %122, i64 %.0191250
   %124 = icmp ult ptr %121, %123
   br i1 %124, label %125, label %148
 
@@ -40745,20 +40745,20 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   br label %.sink.split
 
 .sink.split:                                      ; preds = %133, %130, %125
-  %.sink295.sink = phi i32 [ 1, %125 ], [ 1, %133 ], [ 2, %130 ]
-  %134 = add nsw i32 %119, %.sink295.sink
+  %.sink294.sink = phi i32 [ 1, %125 ], [ 1, %133 ], [ 2, %130 ]
+  %134 = add nsw i32 %119, %.sink294.sink
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %.0188252, i64 %135
+  %136 = getelementptr inbounds i8, ptr %.0188251, i64 %135
   %137 = ptrtoint ptr %123 to i64
-  %138 = ptrtoint ptr %.0188252 to i64
+  %138 = ptrtoint ptr %.0188251 to i64
   %139 = add i64 %135, %138
   %140 = sub i64 %137, %139
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0188252, ptr align 1 %136, i64 %140, i1 false)
-  %.sink301 = getelementptr inbounds i8, ptr %.0188252, i64 -1
-  %.1192.ph = sub nsw i64 %.0191251, %135
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0188251, ptr align 1 %136, i64 %140, i1 false)
+  %.sink300 = getelementptr inbounds i8, ptr %.0188251, i64 -1
+  %.1192.ph = sub nsw i64 %.0191250, %135
   %141 = load ptr, ptr %114, align 8, !tbaa !25
   %142 = load ptr, ptr %9, align 8, !tbaa !131
-  %143 = ptrtoint ptr %.sink301 to i64
+  %143 = ptrtoint ptr %.sink300 to i64
   %144 = ptrtoint ptr %142 to i64
   %145 = add i64 %143, 1
   %146 = sub i64 %145, %144
@@ -40766,24 +40766,24 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   br label %148
 
 148:                                              ; preds = %.sink.split, %125, %118, %115
-  %.1192 = phi i64 [ %.0191251, %118 ], [ %.0191251, %115 ], [ %.0191251, %125 ], [ %.1192.ph, %.sink.split ]
-  %.1189 = phi ptr [ %.0188252, %118 ], [ %.0188252, %115 ], [ %.0188252, %125 ], [ %.sink301, %.sink.split ]
+  %.1192 = phi i64 [ %.0191250, %118 ], [ %.0191250, %115 ], [ %.0191250, %125 ], [ %.1192.ph, %.sink.split ]
+  %.1189 = phi ptr [ %.0188251, %118 ], [ %.0188251, %115 ], [ %.0188251, %125 ], [ %.sink300, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %149 = getelementptr inbounds nuw i8, ptr %.1189, i64 1
   %150 = load ptr, ptr %61, align 8, !tbaa !124
   %151 = getelementptr inbounds i8, ptr %150, i64 %.1192
   %152 = getelementptr inbounds i8, ptr %151, i64 -2
   %153 = icmp ult ptr %149, %152
-  br i1 %153, label %115, label %._crit_edge255, !llvm.loop !176
+  br i1 %153, label %115, label %._crit_edge254, !llvm.loop !176
 
-._crit_edge255:                                   ; preds = %148, %105
+._crit_edge254:                                   ; preds = %148, %105
   %.0191.lcssa = phi i64 [ %spec.store.select, %105 ], [ %.1192, %148 ]
-  %.lcssa248 = phi ptr [ %106, %105 ], [ %150, %148 ]
+  %.lcssa247 = phi ptr [ %106, %105 ], [ %150, %148 ]
   %.lcssa = phi ptr [ %111, %105 ], [ %151, %148 ]
   %154 = icmp sgt i64 %.0191.lcssa, 1
   br i1 %154, label %155, label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
-155:                                              ; preds = %._crit_edge255
+155:                                              ; preds = %._crit_edge254
   %156 = getelementptr i8, ptr %.lcssa, i64 -1
   %157 = load i8, ptr %156, align 1, !tbaa !11
   %158 = add nsw i64 %.0191.lcssa, -2
@@ -40811,7 +40811,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcN
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %169 = load ptr, ptr %168, align 8, !tbaa !25
   %170 = load ptr, ptr %9, align 8, !tbaa !131
-  %171 = ptrtoint ptr %.lcssa248 to i64
+  %171 = ptrtoint ptr %.lcssa247 to i64
   %172 = ptrtoint ptr %170 to i64
   %173 = add i64 %167, %171
   %174 = sub i64 %173, %172
@@ -40841,7 +40841,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcN
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %186 = load ptr, ptr %185, align 8, !tbaa !25
   %187 = load ptr, ptr %9, align 8, !tbaa !131
-  %188 = ptrtoint ptr %.lcssa248 to i64
+  %188 = ptrtoint ptr %.lcssa247 to i64
   %189 = ptrtoint ptr %187 to i64
   %190 = add i64 %.5, %188
   %191 = sub i64 %190, %189
@@ -40853,7 +40853,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcN
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
 194:                                              ; preds = %155
-  %195 = getelementptr inbounds nuw i8, ptr %.lcssa248, i64 %158
+  %195 = getelementptr inbounds nuw i8, ptr %.lcssa247, i64 %158
   %196 = load i8, ptr %195, align 1, !tbaa !11
   %197 = icmp eq i8 %157, 13
   %198 = icmp eq i8 %196, 92
@@ -40883,7 +40883,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcN
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %210 = load ptr, ptr %209, align 8, !tbaa !25
   %211 = load ptr, ptr %9, align 8, !tbaa !131
-  %212 = ptrtoint ptr %.lcssa248 to i64
+  %212 = ptrtoint ptr %.lcssa247 to i64
   %213 = ptrtoint ptr %211 to i64
   %214 = add i64 %158, %212
   %215 = sub i64 %214, %213
@@ -40899,15 +40899,15 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcN
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %221 = load ptr, ptr %220, align 8, !tbaa !25
   %222 = load ptr, ptr %9, align 8, !tbaa !131
-  %223 = ptrtoint ptr %.lcssa248 to i64
+  %223 = ptrtoint ptr %.lcssa247 to i64
   %224 = ptrtoint ptr %222 to i64
   %225 = add i64 %158, %223
   %226 = sub i64 %225, %224
   %227 = call noundef i32 @_ZN5boost4wave8cpplexer7re2clex10aq_enqueueEPNS2_16tag_aq_queuetypeEm(ptr noundef %221, i64 noundef %226)
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
-_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread: ; preds = %160, %217, %219, %208, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit, %184, %193, %166, %._crit_edge255
-  %.3194 = phi i64 [ %.0191.lcssa, %._crit_edge255 ], [ %158, %208 ], [ %158, %219 ], [ %.0191.lcssa, %217 ], [ %167, %166 ], [ %.5, %184 ], [ %.0191.lcssa, %193 ], [ %.0191.lcssa, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit ], [ %.0191.lcssa, %160 ]
+_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread: ; preds = %160, %217, %219, %208, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit, %184, %193, %166, %._crit_edge254
+  %.3194 = phi i64 [ %.0191.lcssa, %._crit_edge254 ], [ %158, %208 ], [ %158, %219 ], [ %.0191.lcssa, %217 ], [ %167, %166 ], [ %.5, %184 ], [ %.0191.lcssa, %193 ], [ %.0191.lcssa, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit ], [ %.0191.lcssa, %160 ]
   %228 = load ptr, ptr %61, align 8, !tbaa !124
   %229 = getelementptr inbounds i8, ptr %228, i64 %.3194
   store ptr %229, ptr %61, align 8, !tbaa !124
@@ -41532,11 +41532,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %59 = getelementptr i8, ptr %52, i64 %57
   %60 = getelementptr i8, ptr %59, i64 %55
   %61 = icmp ule ptr %1, %60
-  %or.cond20 = select i1 %58, i1 %61, i1 false
+  %or.cond19 = select i1 %58, i1 %61, i1 false
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16, %3
-  %.1 = phi i1 [ false, %3 ], [ %or.cond20, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16 ]
+  %.1 = phi i1 [ false, %3 ], [ %or.cond19, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16 ]
   ret i1 %.1
 }
 
@@ -42306,11 +42306,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %59 = getelementptr i8, ptr %52, i64 %57
   %60 = getelementptr i8, ptr %59, i64 %55
   %61 = icmp ule ptr %1, %60
-  %or.cond20 = select i1 %58, i1 %61, i1 false
+  %or.cond19 = select i1 %58, i1 %61, i1 false
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16, %3
-  %.1 = phi i1 [ false, %3 ], [ %or.cond20, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16 ]
+  %.1 = phi i1 [ false, %3 ], [ %or.cond19, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16 ]
   ret i1 %.1
 }
 
@@ -81022,11 +81022,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4wave8cpplexer7re2clex4fillIN9_
   %25 = sub i64 %24, %11
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %8, i64 %25, i1 false)
   %.pre = load ptr, ptr %9, align 8, !tbaa !215
-  %.pre260 = load ptr, ptr %15, align 8, !tbaa !212
+  %.pre259 = load ptr, ptr %15, align 8, !tbaa !212
   br label %26
 
 26:                                               ; preds = %23, %21
-  %27 = phi ptr [ %.pre260, %23 ], [ %22, %21 ]
+  %27 = phi ptr [ %.pre259, %23 ], [ %22, %21 ]
   %28 = phi ptr [ %.pre, %23 ], [ %10, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %28, ptr %29, align 8, !tbaa !208
@@ -81142,11 +81142,11 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   store ptr %89, ptr %59, align 8, !tbaa !224
   tail call void @free(ptr noundef %68) #33
   store ptr %72, ptr %9, align 8, !tbaa !215
-  %.pre261 = load ptr, ptr %61, align 8, !tbaa !212
+  %.pre260 = load ptr, ptr %61, align 8, !tbaa !212
   br label %90
 
 90:                                               ; preds = %78, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit
-  %91 = phi ptr [ %.pre261, %78 ], [ %62, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit ]
+  %91 = phi ptr [ %.pre260, %78 ], [ %62, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit ]
   %.2186 = phi ptr [ %87, %78 ], [ %.1185, %_ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPNS2_7ScannerIT_EEm.exit ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.026.0.copyload = load ptr, ptr %92, align 8, !tbaa !24
@@ -81164,34 +81164,34 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre263.pre = load ptr, ptr %61, align 8, !tbaa !212
+  %.pre262.pre = load ptr, ptr %61, align 8, !tbaa !212
   %.not214 = icmp samesign ugt i64 %96, 196607
   br i1 %.not214, label %105, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0198250 = phi ptr [ %101, %.lr.ph ], [ %91, %.lr.ph.preheader ]
-  %.0199249 = phi i64 [ %102, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0198249 = phi ptr [ %101, %.lr.ph ], [ %91, %.lr.ph.preheader ]
+  %.0199248 = phi i64 [ %102, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %98 = load ptr, ptr %92, align 8, !tbaa !226
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store ptr %99, ptr %92, align 8, !tbaa !226
   %100 = load i8, ptr %98, align 1, !tbaa !11
-  %101 = getelementptr inbounds nuw i8, ptr %.0198250, i64 1
-  store i8 %100, ptr %.0198250, align 1, !tbaa !11
-  %102 = add nuw nsw i64 %.0199249, 1
+  %101 = getelementptr inbounds nuw i8, ptr %.0198249, i64 1
+  store i8 %100, ptr %.0198249, align 1, !tbaa !11
+  %102 = add nuw nsw i64 %.0199248, 1
   %exitcond.not = icmp eq i64 %102, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !227
 
 ._crit_edge.thread:                               ; preds = %90, %._crit_edge
-  %.pre263286 = phi ptr [ %.pre263.pre, %._crit_edge ], [ %91, %90 ]
-  %103 = getelementptr inbounds i8, ptr %.pre263286, i64 %spec.store.select
+  %.pre262285 = phi ptr [ %.pre262.pre, %._crit_edge ], [ %91, %90 ]
+  %103 = getelementptr inbounds i8, ptr %.pre262285, i64 %spec.store.select
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1
   store ptr %104, ptr %4, align 8, !tbaa !213
   store i8 0, ptr %103, align 1, !tbaa !11
-  %.pre262 = load ptr, ptr %61, align 8, !tbaa !212
+  %.pre261 = load ptr, ptr %61, align 8, !tbaa !212
   br label %105
 
 105:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %106 = phi ptr [ %.pre262, %._crit_edge.thread ], [ %.pre263.pre, %._crit_edge ]
+  %106 = phi ptr [ %.pre261, %._crit_edge.thread ], [ %.pre262.pre, %._crit_edge ]
   %107 = getelementptr inbounds i8, ptr %106, i64 -3
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %109 = load ptr, ptr %108, align 8, !tbaa !24
@@ -81200,27 +81200,27 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %111 = getelementptr inbounds i8, ptr %106, i64 %spec.store.select
   %112 = getelementptr inbounds i8, ptr %111, i64 -2
   %113 = icmp ult ptr %.sroa.speculated, %112
-  br i1 %113, label %.lr.ph254, label %._crit_edge255
+  br i1 %113, label %.lr.ph253, label %._crit_edge254
 
-.lr.ph254:                                        ; preds = %105
+.lr.ph253:                                        ; preds = %105
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %115
 
-115:                                              ; preds = %.lr.ph254, %148
-  %116 = phi ptr [ %111, %.lr.ph254 ], [ %151, %148 ]
-  %.0188252 = phi ptr [ %.sroa.speculated, %.lr.ph254 ], [ %149, %148 ]
-  %.0191251 = phi i64 [ %spec.store.select, %.lr.ph254 ], [ %.1192, %148 ]
+115:                                              ; preds = %.lr.ph253, %148
+  %116 = phi ptr [ %111, %.lr.ph253 ], [ %151, %148 ]
+  %.0188251 = phi ptr [ %.sroa.speculated, %.lr.ph253 ], [ %149, %148 ]
+  %.0191250 = phi i64 [ %spec.store.select, %.lr.ph253 ], [ %.1192, %148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !175
-  %117 = call noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef %.0188252, ptr noundef %116, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %117 = call noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef %.0188251, ptr noundef %116, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %117, label %118, label %148
 
 118:                                              ; preds = %115
   %119 = load i32, ptr %3, align 4, !tbaa !175
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i8, ptr %.0188252, i64 %120
+  %121 = getelementptr inbounds i8, ptr %.0188251, i64 %120
   %122 = load ptr, ptr %61, align 8, !tbaa !212
-  %123 = getelementptr inbounds i8, ptr %122, i64 %.0191251
+  %123 = getelementptr inbounds i8, ptr %122, i64 %.0191250
   %124 = icmp ult ptr %121, %123
   br i1 %124, label %125, label %148
 
@@ -81245,20 +81245,20 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   br label %.sink.split
 
 .sink.split:                                      ; preds = %133, %130, %125
-  %.sink295.sink = phi i32 [ 1, %125 ], [ 1, %133 ], [ 2, %130 ]
-  %134 = add nsw i32 %119, %.sink295.sink
+  %.sink294.sink = phi i32 [ 1, %125 ], [ 1, %133 ], [ 2, %130 ]
+  %134 = add nsw i32 %119, %.sink294.sink
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %.0188252, i64 %135
+  %136 = getelementptr inbounds i8, ptr %.0188251, i64 %135
   %137 = ptrtoint ptr %123 to i64
-  %138 = ptrtoint ptr %.0188252 to i64
+  %138 = ptrtoint ptr %.0188251 to i64
   %139 = add i64 %135, %138
   %140 = sub i64 %137, %139
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0188252, ptr align 1 %136, i64 %140, i1 false)
-  %.sink301 = getelementptr inbounds i8, ptr %.0188252, i64 -1
-  %.1192.ph = sub nsw i64 %.0191251, %135
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0188251, ptr align 1 %136, i64 %140, i1 false)
+  %.sink300 = getelementptr inbounds i8, ptr %.0188251, i64 -1
+  %.1192.ph = sub nsw i64 %.0191250, %135
   %141 = load ptr, ptr %114, align 8, !tbaa !184
   %142 = load ptr, ptr %9, align 8, !tbaa !215
-  %143 = ptrtoint ptr %.sink301 to i64
+  %143 = ptrtoint ptr %.sink300 to i64
   %144 = ptrtoint ptr %142 to i64
   %145 = add i64 %143, 1
   %146 = sub i64 %145, %144
@@ -81266,24 +81266,24 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   br label %148
 
 148:                                              ; preds = %.sink.split, %125, %118, %115
-  %.1192 = phi i64 [ %.0191251, %118 ], [ %.0191251, %115 ], [ %.0191251, %125 ], [ %.1192.ph, %.sink.split ]
-  %.1189 = phi ptr [ %.0188252, %118 ], [ %.0188252, %115 ], [ %.0188252, %125 ], [ %.sink301, %.sink.split ]
+  %.1192 = phi i64 [ %.0191250, %118 ], [ %.0191250, %115 ], [ %.0191250, %125 ], [ %.1192.ph, %.sink.split ]
+  %.1189 = phi ptr [ %.0188251, %118 ], [ %.0188251, %115 ], [ %.0188251, %125 ], [ %.sink300, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %149 = getelementptr inbounds nuw i8, ptr %.1189, i64 1
   %150 = load ptr, ptr %61, align 8, !tbaa !212
   %151 = getelementptr inbounds i8, ptr %150, i64 %.1192
   %152 = getelementptr inbounds i8, ptr %151, i64 -2
   %153 = icmp ult ptr %149, %152
-  br i1 %153, label %115, label %._crit_edge255, !llvm.loop !228
+  br i1 %153, label %115, label %._crit_edge254, !llvm.loop !228
 
-._crit_edge255:                                   ; preds = %148, %105
+._crit_edge254:                                   ; preds = %148, %105
   %.0191.lcssa = phi i64 [ %spec.store.select, %105 ], [ %.1192, %148 ]
-  %.lcssa248 = phi ptr [ %106, %105 ], [ %150, %148 ]
+  %.lcssa247 = phi ptr [ %106, %105 ], [ %150, %148 ]
   %.lcssa = phi ptr [ %111, %105 ], [ %151, %148 ]
   %154 = icmp sgt i64 %.0191.lcssa, 1
   br i1 %154, label %155, label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
-155:                                              ; preds = %._crit_edge255
+155:                                              ; preds = %._crit_edge254
   %156 = getelementptr i8, ptr %.lcssa, i64 -1
   %157 = load i8, ptr %156, align 1, !tbaa !11
   %158 = add nsw i64 %.0191.lcssa, -2
@@ -81311,7 +81311,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKc
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %169 = load ptr, ptr %168, align 8, !tbaa !184
   %170 = load ptr, ptr %9, align 8, !tbaa !215
-  %171 = ptrtoint ptr %.lcssa248 to i64
+  %171 = ptrtoint ptr %.lcssa247 to i64
   %172 = ptrtoint ptr %170 to i64
   %173 = add i64 %167, %171
   %174 = sub i64 %173, %172
@@ -81341,7 +81341,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKc
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %186 = load ptr, ptr %185, align 8, !tbaa !184
   %187 = load ptr, ptr %9, align 8, !tbaa !215
-  %188 = ptrtoint ptr %.lcssa248 to i64
+  %188 = ptrtoint ptr %.lcssa247 to i64
   %189 = ptrtoint ptr %187 to i64
   %190 = add i64 %.5, %188
   %191 = sub i64 %190, %189
@@ -81353,7 +81353,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKc
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
 194:                                              ; preds = %155
-  %195 = getelementptr inbounds nuw i8, ptr %.lcssa248, i64 %158
+  %195 = getelementptr inbounds nuw i8, ptr %.lcssa247, i64 %158
   %196 = load i8, ptr %195, align 1, !tbaa !11
   %197 = icmp eq i8 %157, 13
   %198 = icmp eq i8 %196, 92
@@ -81383,7 +81383,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKc
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %210 = load ptr, ptr %209, align 8, !tbaa !184
   %211 = load ptr, ptr %9, align 8, !tbaa !215
-  %212 = ptrtoint ptr %.lcssa248 to i64
+  %212 = ptrtoint ptr %.lcssa247 to i64
   %213 = ptrtoint ptr %211 to i64
   %214 = add i64 %158, %212
   %215 = sub i64 %214, %213
@@ -81399,15 +81399,15 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKc
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %221 = load ptr, ptr %220, align 8, !tbaa !184
   %222 = load ptr, ptr %9, align 8, !tbaa !215
-  %223 = ptrtoint ptr %.lcssa248 to i64
+  %223 = ptrtoint ptr %.lcssa247 to i64
   %224 = ptrtoint ptr %222 to i64
   %225 = add i64 %158, %223
   %226 = sub i64 %225, %224
   %227 = call noundef i32 @_ZN5boost4wave8cpplexer7re2clex10aq_enqueueEPNS2_16tag_aq_queuetypeEm(ptr noundef %221, i64 noundef %226)
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
-_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread: ; preds = %160, %217, %219, %208, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit, %184, %193, %166, %._crit_edge255
-  %.3194 = phi i64 [ %.0191.lcssa, %._crit_edge255 ], [ %158, %208 ], [ %158, %219 ], [ %.0191.lcssa, %217 ], [ %167, %166 ], [ %.5, %184 ], [ %.0191.lcssa, %193 ], [ %.0191.lcssa, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit ], [ %.0191.lcssa, %160 ]
+_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread: ; preds = %160, %217, %219, %208, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit, %184, %193, %166, %._crit_edge254
+  %.3194 = phi i64 [ %.0191.lcssa, %._crit_edge254 ], [ %158, %208 ], [ %158, %219 ], [ %.0191.lcssa, %217 ], [ %167, %166 ], [ %.5, %184 ], [ %.0191.lcssa, %193 ], [ %.0191.lcssa, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit ], [ %.0191.lcssa, %160 ]
   %228 = load ptr, ptr %61, align 8, !tbaa !212
   %229 = getelementptr inbounds i8, ptr %228, i64 %.3194
   store ptr %229, ptr %61, align 8, !tbaa !212

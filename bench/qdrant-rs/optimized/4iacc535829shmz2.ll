@@ -1820,7 +1820,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %.val13 = phi ptr [ %4, %38 ], [ %.val13.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
   %.sroa.7.0 = phi i64 [ %8, %38 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
   %40 = icmp ult i64 %.sroa.7.0, %.val14
-  br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", label %53, !prof !250
+  br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", label %54, !prof !250
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i": ; preds = %39
   %41 = icmp ne ptr %.val13, null
@@ -1840,27 +1840,27 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %50 = or i1 %46, %49
   %51 = fcmp ord float %48, 0.000000e+00
   %52 = fcmp ult float %48, %45
-  %.not4.i.i.not.not.i.i = and i1 %51, %52
-  %switch.i.i = and i1 %50, %.not4.i.i.not.not.i.i
-  %.0.sroa.speculated.i.i = select i1 %switch.i.i, float %45, float %48
+  %.not4.i.i.i.i = and i1 %51, %52
+  %53 = and i1 %50, %.not4.i.i.i.i
+  %.0.sroa.speculated.i.i = select i1 %53, float %45, float %48
   br label %.lr.ph.i
 
-53:                                               ; preds = %39
+54:                                               ; preds = %39
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.7.0, i64 noundef %.val14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.81e6ab35a181dc861ce075a8d33b6c5d.16) #32
   unreachable
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.04.i = phi float [ %59, %.lr.ph.i ], [ %.0.sroa.speculated.i.i, %.lr.ph.preheader.i ]
-  %.sroa.4.03.i = phi ptr [ %58, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
-  %54 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -4
-  store float %.04.i, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -8
-  %56 = load float, ptr %55, align 4, !noundef !10
-  %57 = fcmp oge float %56, %.04.i
-  %58 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -12
-  %59 = tail call float @llvm.maxnum.f32(float %.04.i, float %56)
-  %60 = icmp eq ptr %.val13, %58
-  %or.cond.i = select i1 %57, i1 true, i1 %60
+  %.04.i = phi float [ %60, %.lr.ph.i ], [ %.0.sroa.speculated.i.i, %.lr.ph.preheader.i ]
+  %.sroa.4.03.i = phi ptr [ %59, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
+  %55 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -4
+  store float %.04.i, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -8
+  %57 = load float, ptr %56, align 4, !noundef !10
+  %58 = fcmp oge float %57, %.04.i
+  %59 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -12
+  %60 = tail call float @llvm.maxnum.f32(float %.04.i, float %57)
+  %61 = icmp eq ptr %.val13, %59
+  %or.cond.i = select i1 %58, i1 true, i1 %61
   br i1 %or.cond.i, label %.critedge, label %.lr.ph.i
 
 .critedge:                                        ; preds = %.lr.ph.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", %32

@@ -6748,14 +6748,14 @@ define noundef zeroext i1 @_ZNK10open_spiel9solitaire14SolitaireState12IsChanceN
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
-  %.not25 = icmp eq ptr %3, %5
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq ptr %3, %5
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.critedge
-  %.sroa.019.026 = phi ptr [ %13, %.critedge ], [ %3, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.019.026, i64 8
+  %.sroa.019.025 = phi ptr [ %13, %.critedge ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.019.026, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %.critedge, label %11
@@ -6767,7 +6767,7 @@ define noundef zeroext i1 @_ZNK10open_spiel9solitaire14SolitaireState12IsChanceN
   br i1 %12, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %11, %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.026, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 48
   %.not = icmp eq ptr %13, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -6805,13 +6805,13 @@ define noundef zeroext i1 @_ZNK10open_spiel9solitaire14SolitaireState12IsChanceN
   br i1 %.not.i.i.i.i.i.i, label %_ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit.preheader, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !17
 
 _ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit.preheader: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit.preheader
-  %.sroa.010.027 = phi ptr [ %32, %_ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit.preheader ], [ %26, %.lr.ph.i.i.i.i.i.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.027, i64 12
+  %.sroa.010.026 = phi ptr [ %32, %_ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit.preheader ], [ %26, %.lr.ph.i.i.i.i.i.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.026, i64 12
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.010.027, i64 20
-  %.not22 = icmp eq ptr %.sroa.010.027, %.09.i.i.i.i.i.i
-  %or.cond = or i1 %.not22, %31
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.010.026, i64 20
+  %.not23 = icmp eq ptr %.sroa.010.026, %.09.i.i.i.i.i.i
+  %or.cond = or i1 %.not23, %31
   br i1 %or.cond, label %.loopexit.sink.split, label %_ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit.preheader
 
 .loopexit.sink.split:                             ; preds = %_ZNK10open_spiel9solitaire4Pile8GetCardsEv.exit.preheader

@@ -1424,17 +1424,17 @@ define noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16Ba
   store ptr %0, ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %1, ptr %19, align 8
-  %.not57 = icmp eq i64 %3, 0
-  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph
+  %.not55 = icmp eq i64 %3, 0
+  br i1 %.not55, label %.critedge31.thread, label %.lr.ph
 
 20:                                               ; preds = %.lr.ph
-  %21 = add nuw i64 %.02456, 1
+  %21 = add nuw i64 %.02454, 1
   %exitcond.not = icmp eq i64 %21, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %.critedge31, label %.lr.ph, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %8, %20
-  %.02456 = phi i64 [ %21, %20 ], [ 0, %8 ]
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.02456
+  %.02454 = phi i64 [ %21, %20 ], [ 0, %8 ]
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.02454
   %23 = load i8, ptr %22, align 1, !tbaa !11
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %25, label %20
@@ -1462,15 +1462,15 @@ define noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16Ba
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %110
 
-._crit_edge:                                      ; preds = %20
+.critedge31:                                      ; preds = %20
   %.not = icmp ult i64 %5, 4294967295
   br i1 %.not, label %44, label %32
 
-._crit_edge.thread:                               ; preds = %8
-  %.not66 = icmp ult i64 %5, 4294967295
-  br i1 %.not66, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread, label %32
+.critedge31.thread:                               ; preds = %8
+  %.not64 = icmp ult i64 %5, 4294967295
+  br i1 %.not64, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread, label %32
 
-32:                                               ; preds = %._crit_edge.thread, %._crit_edge
+32:                                               ; preds = %.critedge31.thread, %.critedge31
   %33 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %33, label %34, label %.critedge34
 
@@ -1493,7 +1493,7 @@ define noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16Ba
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %110
 
-_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread: ; preds = %._crit_edge.thread
+_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread: ; preds = %.critedge31.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %39 = trunc nuw i64 %5 to i32
   store i32 %39, ptr %13, align 4, !tbaa !53
@@ -1507,7 +1507,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br label %62
 
-44:                                               ; preds = %._crit_edge
+44:                                               ; preds = %.critedge31
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %45 = trunc nuw i64 %5 to i32
   store i32 %45, ptr %13, align 4, !tbaa !53
@@ -1540,31 +1540,31 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %53 = phi ptr [ %48, %._crit_edge.i.i.thread.i ], [ %46, %._crit_edge.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 1 %2, i64 %3, i1 false)
   %.pre = load i64, ptr %9, align 8, !tbaa !27, !noalias !54
-  %.pre58 = load ptr, ptr %14, align 8, !tbaa !3, !alias.scope !54
+  %.pre56 = load ptr, ptr %14, align 8, !tbaa !3, !alias.scope !54
   br label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit
 
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit: ; preds = %50, %52
-  %54 = phi ptr [ %.pre58, %52 ], [ %46, %50 ]
+  %54 = phi ptr [ %.pre56, %52 ], [ %46, %50 ]
   %55 = phi i64 [ %.pre, %52 ], [ 1, %50 ]
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %55, ptr %56, align 8, !tbaa !26, !alias.scope !54
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   store i8 0, ptr %57, align 1, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !54
-  %.pre59 = load i64, ptr %56, align 8, !tbaa !26
-  %.pre60 = load ptr, ptr %14, align 8, !tbaa !3
+  %.pre57 = load i64, ptr %56, align 8, !tbaa !26
+  %.pre58 = load ptr, ptr %14, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %59 = add i64 %.pre59, 1
+  %59 = add i64 %.pre57, 1
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %61 = icmp eq ptr %.pre60, %60
+  %61 = icmp eq ptr %.pre58, %60
   br i1 %61, label %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
 62:                                               ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit
   %63 = phi ptr [ %43, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread ], [ %60, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
   %64 = phi i64 [ 1, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread ], [ %59, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
   %65 = phi ptr [ %42, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread ], [ %58, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
-  %66 = phi i64 [ 0, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread ], [ %.pre59, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
-  %67 = phi ptr [ %40, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread ], [ %.pre60, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
+  %66 = phi i64 [ 0, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread ], [ %.pre57, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
+  %67 = phi ptr [ %40, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit.thread ], [ %.pre58, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
   %68 = icmp ult i64 %66, 16
   call void @llvm.assume(i1 %68)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -1574,8 +1574,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   %70 = phi ptr [ %63, %62 ], [ %60, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
   %71 = phi i64 [ %64, %62 ], [ %59, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
   %72 = phi ptr [ %65, %62 ], [ %58, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
-  %73 = phi i64 [ %66, %62 ], [ %.pre59, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
-  %74 = phi ptr [ %67, %62 ], [ %.pre60, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
+  %73 = phi i64 [ %66, %62 ], [ %.pre57, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
+  %74 = phi ptr [ %67, %62 ], [ %.pre58, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit ]
   %75 = load i64, ptr %70, align 8
   %76 = select i1 %69, i64 15, i64 %75
   %77 = icmp ugt i64 %71, %76

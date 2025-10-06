@@ -718,7 +718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %210
   %sext = shl i32 %342, 24
   %343 = ashr exact i32 %sext, 24
   switch i32 %sext, label %390 [
-    i32 452984832, label %.thread335
+    i32 452984832, label %1503
     i32 1761607680, label %356
   ]
 
@@ -3413,14 +3413,14 @@ _ZN2cv3Mat2atIfEERT_i.exit68.i:                   ; preds = %1342, %1338, %.thre
   %1388 = trunc nuw nsw i64 %indvars.iv114.i to i32
   %1389 = sdiv i32 %1388, %1387
   %1390 = mul nsw i32 %1389, %1387
-  %.recomposed1271 = srem i32 %1388, %1387
+  %.recomposed1269 = srem i32 %1388, %1387
   %1391 = load ptr, ptr %323, align 8, !tbaa !87
   %1392 = load ptr, ptr %324, align 8, !tbaa !96
   %1393 = load i64, ptr %1392, align 8, !tbaa !73
   %1394 = sext i32 %1389 to i64
   %1395 = mul i64 %1393, %1394
   %1396 = getelementptr inbounds nuw i8, ptr %1391, i64 %1395
-  %1397 = sext i32 %.recomposed1271 to i64
+  %1397 = sext i32 %.recomposed1269 to i64
   %1398 = getelementptr inbounds double, ptr %1396, i64 %1397
   br label %_ZN2cv3Mat2atIdEERT_i.exit.i
 
@@ -3818,7 +3818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282: ; preds = %14
 .backedge:                                        ; preds = %.sink.split, %394
   br label %341
 
-.thread335:                                       ; preds = %341
+1503:                                             ; preds = %341
   ret i32 0
 }
 

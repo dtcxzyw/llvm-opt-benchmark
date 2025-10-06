@@ -729,16 +729,16 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z19dumpPropertyAliases9UPropertyP8_IO_FILE(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef 2)
-  %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %._crit_edge.thread, label %.lr.ph
+  %.not17 = icmp eq ptr %3, null
+  br i1 %.not17, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %4 = phi ptr [ %8, %.lr.ph ], [ %3, %2 ]
-  %.01119 = phi i32 [ %7, %.lr.ph ], [ 2, %2 ]
-  %5 = icmp eq i32 %.01119, 2
+  %.01118 = phi i32 [ %7, %.lr.ph ], [ 2, %2 ]
+  %5 = icmp eq i32 %.01118, 2
   %.str.4..str.5 = select i1 %5, ptr @.str.4, ptr @.str.5
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull %.str.4..str.5, ptr noundef nonnull %4) #28
-  %7 = add nuw nsw i32 %.01119, 1
+  %7 = add nuw nsw i32 %.01118, 1
   %8 = tail call ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef %7)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -820,16 +820,16 @@ define dso_local void @_Z18dumpBinaryProperty9UPropertyP8_IO_FILE(i32 noundef %0
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
-  %.not18.i = icmp eq ptr %23, null
-  br i1 %.not18.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %23, null
+  br i1 %.not17.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc22
   %24 = phi ptr [ %28, %.noexc22 ], [ %23, %.noexc ]
-  %.01119.i = phi i32 [ %27, %.noexc22 ], [ 2, %.noexc ]
-  %25 = icmp eq i32 %.01119.i, 2
+  %.01118.i = phi i32 [ %27, %.noexc22 ], [ 2, %.noexc ]
+  %25 = icmp eq i32 %.01118.i, 2
   %.str.4..str.5.i = select i1 %25, ptr @.str.4, ptr @.str.5
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull %.str.4..str.5.i, ptr noundef nonnull %24) #28
-  %27 = add nuw nsw i32 %.01119.i, 1
+  %27 = add nuw nsw i32 %.01118.i, 1
   %28 = invoke ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef %27)
           to label %.noexc22 unwind label %.loopexit
 
@@ -888,16 +888,16 @@ define dso_local void @_Z14dumpValueEntry9UPropertyibP8_IO_FILE(i32 noundef %0, 
 
 12:                                               ; preds = %10, %7
   %13 = tail call ptr @u_getPropertyValueName_77(i32 noundef %0, i32 noundef %1, i32 noundef 2)
-  %.not3339 = icmp eq ptr %13, null
-  br i1 %.not3339, label %._crit_edge.thread, label %.lr.ph
+  %.not3338 = icmp eq ptr %13, null
+  br i1 %.not3338, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %14 = phi ptr [ %18, %.lr.ph ], [ %13, %12 ]
-  %.02840 = phi i32 [ %17, %.lr.ph ], [ 2, %12 ]
-  %15 = icmp eq i32 %.02840, 2
+  %.02839 = phi i32 [ %17, %.lr.ph ], [ 2, %12 ]
+  %15 = icmp eq i32 %.02839, 2
   %.str.16..str.5 = select i1 %15, ptr @.str.16, ptr @.str.5
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull %.str.16..str.5, ptr noundef nonnull %14) #28
-  %17 = add nuw nsw i32 %.02840, 1
+  %17 = add nuw nsw i32 %.02839, 1
   %18 = tail call ptr @u_getPropertyValueName_77(i32 noundef %0, i32 noundef %1, i32 noundef %17)
   %.not33 = icmp eq ptr %18, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph
@@ -983,16 +983,16 @@ define dso_local void @_Z22dumpEnumeratedProperty9UPropertyP8_IO_FILE(i32 nounde
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %24
-  %.not18.i = icmp eq ptr %26, null
-  br i1 %.not18.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %26, null
+  br i1 %.not17.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc60
   %27 = phi ptr [ %31, %.noexc60 ], [ %26, %.noexc ]
-  %.01119.i = phi i32 [ %30, %.noexc60 ], [ 2, %.noexc ]
-  %28 = icmp eq i32 %.01119.i, 2
+  %.01118.i = phi i32 [ %30, %.noexc60 ], [ 2, %.noexc ]
+  %28 = icmp eq i32 %.01118.i, 2
   %.str.4..str.5.i = select i1 %28, ptr @.str.4, ptr @.str.5
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull %.str.4..str.5.i, ptr noundef nonnull %27) #28
-  %30 = add nuw nsw i32 %.01119.i, 1
+  %30 = add nuw nsw i32 %.01118.i, 1
   %31 = invoke ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef %30)
           to label %.noexc60 unwind label %.loopexit
 
@@ -1338,16 +1338,16 @@ define dso_local void @_Z22dumpBidiMirroringGlyphP8_IO_FILE(ptr noundef %0) loca
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %41
-  %.not18.i = icmp eq ptr %43, null
-  br i1 %.not18.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %43, null
+  br i1 %.not17.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc46
   %44 = phi ptr [ %48, %.noexc46 ], [ %43, %.noexc ]
-  %.01119.i = phi i32 [ %47, %.noexc46 ], [ 2, %.noexc ]
-  %45 = icmp eq i32 %.01119.i, 2
+  %.01118.i = phi i32 [ %47, %.noexc46 ], [ 2, %.noexc ]
+  %45 = icmp eq i32 %.01118.i, 2
   %.str.4..str.5.i = select i1 %45, ptr @.str.4, ptr @.str.5
   %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.4..str.5.i, ptr noundef nonnull %44) #28
-  %47 = add nuw nsw i32 %.01119.i, 1
+  %47 = add nuw nsw i32 %.01118.i, 1
   %48 = invoke ptr @u_getPropertyName_77(i32 noundef 16385, i32 noundef %47)
           to label %.noexc46 unwind label %.loopexit
 
@@ -1510,16 +1510,16 @@ define dso_local void @_Z23dumpGeneralCategoryMaskP8_IO_FILE(ptr noundef capture
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %15
-  %.not18.i = icmp eq ptr %17, null
-  br i1 %.not18.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %17, null
+  br i1 %.not17.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc58
   %18 = phi ptr [ %22, %.noexc58 ], [ %17, %.noexc ]
-  %.01119.i = phi i32 [ %21, %.noexc58 ], [ 2, %.noexc ]
-  %19 = icmp eq i32 %.01119.i, 2
+  %.01118.i = phi i32 [ %21, %.noexc58 ], [ 2, %.noexc ]
+  %19 = icmp eq i32 %.01118.i, 2
   %.str.4..str.5.i = select i1 %19, ptr @.str.4, ptr @.str.5
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.4..str.5.i, ptr noundef nonnull %18) #28
-  %21 = add nuw nsw i32 %.01119.i, 1
+  %21 = add nuw nsw i32 %.01118.i, 1
   %22 = invoke ptr @u_getPropertyName_77(i32 noundef 8192, i32 noundef %21)
           to label %.noexc58 unwind label %.loopexit
 
@@ -1707,16 +1707,16 @@ define dso_local void @_Z20dumpScriptExtensionsP8_IO_FILE(ptr noundef %0) local_
           to label %.noexc unwind label %.loopexit.split-lp126
 
 .noexc:                                           ; preds = %20
-  %.not18.i = icmp eq ptr %22, null
-  br i1 %.not18.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %22, null
+  br i1 %.not17.i, label %_Z19dumpPropertyAliases9UPropertyP8_IO_FILE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc84
   %23 = phi ptr [ %27, %.noexc84 ], [ %22, %.noexc ]
-  %.01119.i = phi i32 [ %26, %.noexc84 ], [ 2, %.noexc ]
-  %24 = icmp eq i32 %.01119.i, 2
+  %.01118.i = phi i32 [ %26, %.noexc84 ], [ 2, %.noexc ]
+  %24 = icmp eq i32 %.01118.i, 2
   %.str.4..str.5.i = select i1 %24, ptr @.str.4, ptr @.str.5
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.4..str.5.i, ptr noundef nonnull %23) #28
-  %26 = add nuw nsw i32 %.01119.i, 1
+  %26 = add nuw nsw i32 %.01118.i, 1
   %27 = invoke ptr @u_getPropertyName_77(i32 noundef 28672, i32 noundef %26)
           to label %.noexc84 unwind label %.loopexit125
 
@@ -5953,16 +5953,16 @@ define linkonce_odr dso_local noundef i64 @_Z12findOrAppendItEmRSt6vectorIT_SaIS
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 1
-  %.not47 = icmp ugt i64 %2, %10
-  br i1 %.not47, label %.lr.ph, label %.preheader38.lr.ph
+  %.not45 = icmp ugt i64 %2, %10
+  br i1 %.not45, label %.lr.ph, label %.preheader36.lr.ph
 
-.preheader38.lr.ph:                               ; preds = %3
-  %.not2944 = icmp eq i64 %2, 0
-  br i1 %.not2944, label %.loopexit, label %.preheader38
+.preheader36.lr.ph:                               ; preds = %3
+  %.not2942 = icmp eq i64 %2, 0
+  br i1 %.not2942, label %.loopexit, label %.preheader36
 
-.preheader38:                                     ; preds = %.preheader38.lr.ph, %21
-  %.02748 = phi i64 [ %22, %21 ], [ 0, %.preheader38.lr.ph ]
-  %11 = getelementptr i16, ptr %6, i64 %.02748
+.preheader36:                                     ; preds = %.preheader36.lr.ph, %21
+  %.02746 = phi i64 [ %22, %21 ], [ 0, %.preheader36.lr.ph ]
+  %11 = getelementptr i16, ptr %6, i64 %.02746
   br label %15
 
 .lr.ph:                                           ; preds = %21, %3
@@ -5971,32 +5971,32 @@ define linkonce_odr dso_local noundef i64 @_Z12findOrAppendItEmRSt6vectorIT_SaIS
   br label %24
 
 13:                                               ; preds = %15
-  %14 = add nuw i64 %.02445, 1
+  %14 = add nuw i64 %.02443, 1
   %.not29 = icmp eq i64 %14, %2
   br i1 %.not29, label %.loopexit, label %15, !llvm.loop !150
 
-15:                                               ; preds = %.preheader38, %13
-  %.02445 = phi i64 [ 0, %.preheader38 ], [ %14, %13 ]
-  %16 = getelementptr i16, ptr %11, i64 %.02445
+15:                                               ; preds = %.preheader36, %13
+  %.02443 = phi i64 [ 0, %.preheader36 ], [ %14, %13 ]
+  %16 = getelementptr i16, ptr %11, i64 %.02443
   %17 = load i16, ptr %16, align 2, !tbaa !40
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %.02445
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %.02443
   %20 = load i32, ptr %19, align 4, !tbaa !13
   %.not28 = icmp eq i32 %20, %18
   br i1 %.not28, label %13, label %21
 
 21:                                               ; preds = %15
-  %22 = add i64 %.02748, 1
+  %22 = add i64 %.02746, 1
   %23 = add i64 %22, %2
   %.not = icmp ugt i64 %23, %10
-  br i1 %.not, label %.lr.ph, label %.preheader38, !llvm.loop !151
+  br i1 %.not, label %.lr.ph, label %.preheader36, !llvm.loop !151
 
 24:                                               ; preds = %.lr.ph, %_ZNSt6vectorItSaItEE9push_backEOt.exit
   %25 = phi ptr [ %6, %.lr.ph ], [ %52, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %26 = phi ptr [ %.pre, %.lr.ph ], [ %53, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %27 = phi ptr [ %5, %.lr.ph ], [ %54, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %.050 = phi i64 [ 0, %.lr.ph ], [ %55, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %.050
+  %.048 = phi i64 [ 0, %.lr.ph ], [ %55, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
+  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %.048
   %29 = load i32, ptr %28, align 4, !tbaa !13
   %30 = trunc i32 %29 to i16
   %.not.i.i = icmp eq ptr %27, %26
@@ -6059,12 +6059,12 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %31, %_ZNSt6vectorIt
   %52 = phi ptr [ %25, %31 ], [ %45, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
   %53 = phi ptr [ %26, %31 ], [ %51, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
   %54 = phi ptr [ %32, %31 ], [ %49, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
-  %55 = add nuw i64 %.050, 1
+  %55 = add nuw i64 %.048, 1
   %exitcond.not = icmp eq i64 %55, %2
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !152
 
-.loopexit:                                        ; preds = %13, %_ZNSt6vectorItSaItEE9push_backEOt.exit, %.preheader38.lr.ph
-  %.3 = phi i64 [ 0, %.preheader38.lr.ph ], [ %10, %_ZNSt6vectorItSaItEE9push_backEOt.exit ], [ %.02748, %13 ]
+.loopexit:                                        ; preds = %13, %_ZNSt6vectorItSaItEE9push_backEOt.exit, %.preheader36.lr.ph
+  %.3 = phi i64 [ 0, %.preheader36.lr.ph ], [ %10, %_ZNSt6vectorItSaItEE9push_backEOt.exit ], [ %.02746, %13 ]
   ret i64 %.3
 }
 
@@ -6077,16 +6077,16 @@ define linkonce_odr dso_local noundef i64 @_Z12findOrAppendIjEmRSt6vectorIT_SaIS
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %.not47 = icmp ugt i64 %2, %10
-  br i1 %.not47, label %.lr.ph, label %.preheader38.lr.ph
+  %.not45 = icmp ugt i64 %2, %10
+  br i1 %.not45, label %.lr.ph, label %.preheader36.lr.ph
 
-.preheader38.lr.ph:                               ; preds = %3
-  %.not2944 = icmp eq i64 %2, 0
-  br i1 %.not2944, label %.loopexit, label %.preheader38
+.preheader36.lr.ph:                               ; preds = %3
+  %.not2942 = icmp eq i64 %2, 0
+  br i1 %.not2942, label %.loopexit, label %.preheader36
 
-.preheader38:                                     ; preds = %.preheader38.lr.ph, %20
-  %.02748 = phi i64 [ %21, %20 ], [ 0, %.preheader38.lr.ph ]
-  %11 = getelementptr i32, ptr %6, i64 %.02748
+.preheader36:                                     ; preds = %.preheader36.lr.ph, %20
+  %.02746 = phi i64 [ %21, %20 ], [ 0, %.preheader36.lr.ph ]
+  %11 = getelementptr i32, ptr %6, i64 %.02746
   br label %15
 
 .lr.ph:                                           ; preds = %20, %3
@@ -6095,31 +6095,31 @@ define linkonce_odr dso_local noundef i64 @_Z12findOrAppendIjEmRSt6vectorIT_SaIS
   br label %23
 
 13:                                               ; preds = %15
-  %14 = add nuw i64 %.02445, 1
+  %14 = add nuw i64 %.02443, 1
   %.not29 = icmp eq i64 %14, %2
   br i1 %.not29, label %.loopexit, label %15, !llvm.loop !154
 
-15:                                               ; preds = %.preheader38, %13
-  %.02445 = phi i64 [ 0, %.preheader38 ], [ %14, %13 ]
-  %16 = getelementptr i32, ptr %11, i64 %.02445
+15:                                               ; preds = %.preheader36, %13
+  %.02443 = phi i64 [ 0, %.preheader36 ], [ %14, %13 ]
+  %16 = getelementptr i32, ptr %11, i64 %.02443
   %17 = load i32, ptr %16, align 4, !tbaa !13
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %.02445
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %.02443
   %19 = load i32, ptr %18, align 4, !tbaa !13
   %.not28 = icmp eq i32 %17, %19
   br i1 %.not28, label %13, label %20
 
 20:                                               ; preds = %15
-  %21 = add i64 %.02748, 1
+  %21 = add i64 %.02746, 1
   %22 = add i64 %21, %2
   %.not = icmp ugt i64 %22, %10
-  br i1 %.not, label %.lr.ph, label %.preheader38, !llvm.loop !155
+  br i1 %.not, label %.lr.ph, label %.preheader36, !llvm.loop !155
 
 23:                                               ; preds = %.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %24 = phi ptr [ %6, %.lr.ph ], [ %50, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
   %25 = phi ptr [ %.pre, %.lr.ph ], [ %51, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
   %26 = phi ptr [ %5, %.lr.ph ], [ %52, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %.050 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %.050
+  %.048 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %.048
   %28 = load i32, ptr %27, align 4, !tbaa !13
   %.not.i.i = icmp eq ptr %26, %25
   br i1 %.not.i.i, label %31, label %29
@@ -6181,12 +6181,12 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %29, %_ZNSt6vectorIj
   %50 = phi ptr [ %24, %29 ], [ %43, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
   %51 = phi ptr [ %25, %29 ], [ %49, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
   %52 = phi ptr [ %30, %29 ], [ %47, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
-  %53 = add nuw i64 %.050, 1
+  %53 = add nuw i64 %.048, 1
   %exitcond.not = icmp eq i64 %53, %2
   br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !156
 
-.loopexit:                                        ; preds = %13, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %.preheader38.lr.ph
-  %.3 = phi i64 [ 0, %.preheader38.lr.ph ], [ %10, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %.02748, %13 ]
+.loopexit:                                        ; preds = %13, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %.preheader36.lr.ph
+  %.3 = phi i64 [ 0, %.preheader36.lr.ph ], [ %10, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %.02746, %13 ]
   ret i64 %.3
 }
 

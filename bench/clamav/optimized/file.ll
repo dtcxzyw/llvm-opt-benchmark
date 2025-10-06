@@ -553,8 +553,8 @@ define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 deref
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = icmp eq i64 %10, -1
-  %or.cond34 = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond34, label %12, label %._crit_edge
+  %or.cond32 = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond32, label %12, label %._crit_edge
 
 12:                                               ; preds = %5
   %13 = tail call i32 @dup(i32 noundef 1) #19
@@ -568,15 +568,15 @@ define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 deref
   %17 = trunc i64 %15 to i32
   %18 = tail call i64 @write(i32 noundef %17, ptr noundef %1, i64 noundef %2)
   %19 = icmp eq i64 %18, %2
-  %.not27 = xor i1 %19, true
+  %.not25 = xor i1 %19, true
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %21 = load i8, ptr %20, align 2, !range !31
   %22 = trunc nuw i8 %21 to i1
-  %or.cond1928 = select i1 %.not27, i1 %22, i1 false
+  %or.cond1926 = select i1 %.not25, i1 %22, i1 false
   %23 = load i32, ptr %6, align 4
   %24 = icmp eq i32 %23, 0
-  %or.cond2129 = select i1 %or.cond1928, i1 %24, i1 false
-  br i1 %or.cond2129, label %.lr.ph, label %.loopexit
+  %or.cond2127 = select i1 %or.cond1926, i1 %24, i1 false
+  br i1 %or.cond2127, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %._crit_edge
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1402,14 +1402,14 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %3
 
 _ZN5ArrayIhEC2Em.exit.thread:                     ; preds = %3
   %6 = icmp sgt i64 %2, 0
-  br i1 %6, label %.lr.ph, label %.thread43
+  br i1 %6, label %.lr.ph, label %.thread42
 
 .lr.ph:                                           ; preds = %_ZN5ArrayIhEC2Em.exit.thread, %_ZN5ArrayIhEC2Em.exit
   %7 = icmp eq i64 %2, 9223372034707292159
   br i1 %7, label %.lr.ph.split.us.split, label %.lr.ph.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %18
-  %.02355.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph ]
+  %.02354.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph ]
   invoke void @_Z4Waitv()
           to label %8 unwind label %.split.us
 
@@ -1418,19 +1418,19 @@ _ZN5ArrayIhEC2Em.exit.thread:                     ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %malloc.i, i64 noundef 1048576)
-          to label %13 unwind label %.split63.us
+          to label %13 unwind label %.split62.us
 
 13:                                               ; preds = %8
   %14 = icmp eq i32 %12, 0
-  br i1 %14, label %.thread43, label %15
+  br i1 %14, label %.thread42, label %15
 
 15:                                               ; preds = %13
   %16 = sext i32 %12 to i64
   %17 = invoke noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %1, ptr noundef nonnull %malloc.i, i64 noundef %16)
-          to label %18 unwind label %.split59.us
+          to label %18 unwind label %.split58.us
 
 18:                                               ; preds = %15
-  %19 = add nsw i64 %.02355.us, %16
+  %19 = add nsw i64 %.02354.us, %16
   br label %.lr.ph.split.us.split
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split
@@ -1438,63 +1438,63 @@ _ZN5ArrayIhEC2Em.exit.thread:                     ; preds = %3
           cleanup
   br label %40
 
-.split59.us:                                      ; preds = %15
+.split58.us:                                      ; preds = %15
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread44
+  br label %.thread43
 
-.split63.us:                                      ; preds = %8
+.split62.us:                                      ; preds = %8
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread44
+  br label %.thread43
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
-  %.056 = phi i64 [ %spec.select, %36 ], [ %2, %.lr.ph ]
-  %.02355 = phi i64 [ %37, %36 ], [ 0, %.lr.ph ]
+  %.055 = phi i64 [ %spec.select, %36 ], [ %2, %.lr.ph ]
+  %.02354 = phi i64 [ %37, %36 ], [ 0, %.lr.ph ]
   invoke void @_Z4Waitv()
           to label %23 unwind label %.split
 
 23:                                               ; preds = %.lr.ph.split
-  %24 = tail call i64 @llvm.umin.i64(i64 %.056, i64 1048576)
+  %24 = tail call i64 @llvm.umin.i64(i64 %.055, i64 1048576)
   %25 = load ptr, ptr %0, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = invoke noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %malloc.i, i64 noundef %24)
-          to label %29 unwind label %.split63
+          to label %29 unwind label %.split62
 
 29:                                               ; preds = %23
   %30 = icmp eq i32 %28, 0
-  br i1 %30, label %.thread43, label %32
+  br i1 %30, label %.thread42, label %32
 
-.split63:                                         ; preds = %23
+.split62:                                         ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread44
+  br label %.thread43
 
 32:                                               ; preds = %29
   %33 = sext i32 %28 to i64
   %34 = invoke noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %1, ptr noundef nonnull %malloc.i, i64 noundef %33)
-          to label %36 unwind label %.split59
+          to label %36 unwind label %.split58
 
-.split59:                                         ; preds = %32
+.split58:                                         ; preds = %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread44
+  br label %.thread43
 
 36:                                               ; preds = %32
-  %37 = add nsw i64 %.02355, %33
-  %spec.select = sub nsw i64 %.056, %33
+  %37 = add nsw i64 %.02354, %33
+  %spec.select = sub nsw i64 %.055, %33
   %38 = icmp sgt i64 %spec.select, 0
-  br i1 %38, label %.lr.ph.split, label %.thread43
+  br i1 %38, label %.lr.ph.split, label %.thread42
 
-.thread43:                                        ; preds = %36, %29, %13, %_ZN5ArrayIhEC2Em.exit.thread
-  %.02353 = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit.thread ], [ %.02355.us, %13 ], [ %37, %36 ], [ %.02355, %29 ]
+.thread42:                                        ; preds = %36, %29, %13, %_ZN5ArrayIhEC2Em.exit.thread
+  %.02352 = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit.thread ], [ %.02354.us, %13 ], [ %37, %36 ], [ %.02354, %29 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit
 
-_ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayIhEC2Em.exit, %.thread43
-  %.02354 = phi i64 [ %.02353, %.thread43 ], [ 0, %_ZN5ArrayIhEC2Em.exit ]
-  ret i64 %.02354
+_ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayIhEC2Em.exit, %.thread42
+  %.02353 = phi i64 [ %.02352, %.thread42 ], [ 0, %_ZN5ArrayIhEC2Em.exit ]
+  ret i64 %.02353
 
 .split:                                           ; preds = %.lr.ph.split
   %39 = landingpad { ptr, i32 }
@@ -1503,16 +1503,16 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
 
 40:                                               ; preds = %.split.us, %.split
   %.us-phi = phi { ptr, i32 } [ %39, %.split ], [ %20, %.split.us ]
-  br i1 %4, label %_ZN5ArrayIhED2Ev.exit34, label %.thread44
+  br i1 %4, label %_ZN5ArrayIhED2Ev.exit34, label %.thread43
 
-.thread44:                                        ; preds = %.split59, %.split59.us, %.split63, %.split63.us, %40
-  %.pn.pn46 = phi { ptr, i32 } [ %.us-phi, %40 ], [ %31, %.split63 ], [ %22, %.split63.us ], [ %35, %.split59 ], [ %21, %.split59.us ]
+.thread43:                                        ; preds = %.split58, %.split58.us, %.split62, %.split62.us, %40
+  %.pn.pn45 = phi { ptr, i32 } [ %.us-phi, %40 ], [ %31, %.split62 ], [ %22, %.split62.us ], [ %35, %.split58 ], [ %21, %.split58.us ]
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit34
 
-_ZN5ArrayIhED2Ev.exit34:                          ; preds = %40, %.thread44
-  %.pn.pn47 = phi { ptr, i32 } [ %.us-phi, %40 ], [ %.pn.pn46, %.thread44 ]
-  resume { ptr, i32 } %.pn.pn47
+_ZN5ArrayIhED2Ev.exit34:                          ; preds = %40, %.thread43
+  %.pn.pn46 = phi { ptr, i32 } [ %.us-phi, %40 ], [ %.pn.pn45, %.thread43 ]
+  resume { ptr, i32 } %.pn.pn46
 }
 
 declare void @_Z4Waitv() local_unnamed_addr #6

@@ -1640,21 +1640,21 @@ define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr nou
   br label %28
 
 28:                                               ; preds = %18, %_Z8NotEqualRK12btDbvtAabbMmS1_.exit.thread
-  %.03347 = phi ptr [ %10, %18 ], [ %65, %_Z8NotEqualRK12btDbvtAabbMmS1_.exit.thread ]
-  %.sroa.0.0.copyload = load float, ptr %.03347, align 8
-  %.sroa.4.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03347, i64 4
+  %.03346 = phi ptr [ %10, %18 ], [ %65, %_Z8NotEqualRK12btDbvtAabbMmS1_.exit.thread ]
+  %.sroa.0.0.copyload = load float, ptr %.03346, align 8
+  %.sroa.4.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03346, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..033.sroa_idx, align 4
-  %.sroa.5.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03347, i64 8
+  %.sroa.5.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03346, i64 8
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..033.sroa_idx, align 8
-  %.sroa.639.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03347, i64 16
+  %.sroa.639.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03346, i64 16
   %.sroa.639.0.copyload = load float, ptr %.sroa.639.0..033.sroa_idx, align 8
-  %.sroa.7.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03347, i64 20
+  %.sroa.7.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03346, i64 20
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..033.sroa_idx, align 4
-  %.sroa.8.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03347, i64 24
+  %.sroa.8.0..033.sroa_idx = getelementptr inbounds nuw i8, ptr %.03346, i64 24
   %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..033.sroa_idx, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.03347, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.03346, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw i8, ptr %.03347, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.03346, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -1668,7 +1668,7 @@ define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr nou
   %39 = load float, ptr %38, align 4, !tbaa !37
   %40 = fcmp olt float %37, %39
   %.sink.i = select i1 %40, float %37, float %39
-  %41 = getelementptr inbounds nuw float, ptr %.03347, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw float, ptr %.03346, i64 %indvars.iv.i
   store float %.sink.i, ptr %41, align 4, !tbaa !37
   %42 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i
   %43 = load float, ptr %42, align 4, !tbaa !37
@@ -1683,7 +1683,7 @@ define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr nou
   br i1 %exitcond.not.i, label %_Z5MergeRK12btDbvtAabbMmS1_RS_.exit, label %35, !llvm.loop !39
 
 _Z5MergeRK12btDbvtAabbMmS1_RS_.exit:              ; preds = %35
-  %48 = load float, ptr %.03347, align 4, !tbaa !37
+  %48 = load float, ptr %.03346, align 4, !tbaa !37
   %49 = fcmp une float %.sroa.0.0.copyload, %48
   br i1 %49, label %_Z8NotEqualRK12btDbvtAabbMmS1_.exit.thread, label %50
 
@@ -1713,7 +1713,7 @@ _Z8NotEqualRK12btDbvtAabbMmS1_.exit:              ; preds = %59
   br i1 %63, label %_Z8NotEqualRK12btDbvtAabbMmS1_.exit.thread, label %.loopexit
 
 _Z8NotEqualRK12btDbvtAabbMmS1_.exit.thread:       ; preds = %_Z5MergeRK12btDbvtAabbMmS1_RS_.exit, %50, %53, %56, %59, %_Z8NotEqualRK12btDbvtAabbMmS1_.exit
-  %64 = getelementptr inbounds nuw i8, ptr %.03347, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.03346, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !40
   %.not37 = icmp eq ptr %65, null
   br i1 %.not37, label %66, label %28
@@ -1734,7 +1734,7 @@ _Z8NotEqualRK12btDbvtAabbMmS1_.exit.thread:       ; preds = %_Z5MergeRK12btDbvtA
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_Z8NotEqualRK12btDbvtAabbMmS1_.exit, %68, %66, %5
-  %.032 = phi ptr [ null, %5 ], [ %72, %68 ], [ %67, %66 ], [ %.03347, %_Z8NotEqualRK12btDbvtAabbMmS1_.exit ]
+  %.032 = phi ptr [ null, %5 ], [ %72, %68 ], [ %67, %66 ], [ %.03346, %_Z8NotEqualRK12btDbvtAabbMmS1_.exit ]
   ret ptr %.032
 }
 

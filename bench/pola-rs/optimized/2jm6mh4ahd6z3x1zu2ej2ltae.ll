@@ -51710,12 +51710,11 @@ define hidden void @_ZN5tokio7runtime7runtime7Runtime8block_on17ha2b4b1accb4f221
           cleanup
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = load i8, ptr %24, align 8, !range !698, !alias.scope !4896, !noalias !4902, !noundef !8
-  switch i8 %25, label %.thread.i [
-    i8 0, label %common.ret.sink.split.i.i
-    i8 3, label %common.ret.sink.split.i.i
-  ]
+  %.off.i.i = add nsw i8 %25, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %.thread.i, label %common.ret.sink.split.i.i
 
-common.ret.sink.split.i.i:                        ; preds = %22, %22
+common.ret.sink.split.i.i:                        ; preds = %22
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
           to label %.thread.i unwind label %20, !noalias !4902
 

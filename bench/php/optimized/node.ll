@@ -4617,19 +4617,19 @@ define internal fastcc void @dom_node_lookup_prefix(ptr noundef readonly capture
 
 53:                                               ; preds = %45, %42, %39
   %54 = getelementptr inbounds nuw i8, ptr %.020.i, i64 88
-  %.01840.i = load ptr, ptr %54, align 8, !tbaa !59
-  %.not2641.i = icmp eq ptr %.01840.i, null
-  br i1 %.not2641.i, label %._crit_edge.i, label %.lr.ph.i
+  %.01838.i = load ptr, ptr %54, align 8, !tbaa !59
+  %.not2639.i = icmp eq ptr %.01838.i, null
+  br i1 %.not2639.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %69
-  %.01842.i = phi ptr [ %.018.i, %69 ], [ %.01840.i, %53 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.01842.i, i64 72
+  %.01840.i = phi ptr [ %.018.i, %69 ], [ %.01838.i, %53 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 72
   %56 = load ptr, ptr %55, align 8, !tbaa !93
   %.not27.i = icmp eq ptr %56, null
   br i1 %.not27.i, label %69, label %57
 
 57:                                               ; preds = %.lr.ph.i
-  %58 = getelementptr inbounds nuw i8, ptr %.01842.i, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !94
   %.not28.i = icmp eq ptr %59, null
   br i1 %.not28.i, label %69, label %60
@@ -4650,13 +4650,13 @@ define internal fastcc void @dom_node_lookup_prefix(ptr noundef readonly capture
   br i1 %.not30.i, label %69, label %71
 
 69:                                               ; preds = %64, %60, %57, %.lr.ph.i
-  %70 = getelementptr inbounds nuw i8, ptr %.01842.i, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 48
   %.018.i = load ptr, ptr %70, align 8, !tbaa !59
   %.not26.i = icmp eq ptr %.018.i, null
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw i8, ptr %.01842.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 16
   br label %dom_locate_a_namespace_prefix.exit
 
 ._crit_edge.i:                                    ; preds = %69, %53
@@ -4768,7 +4768,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 5:                                                ; preds = %tailrecurse
   %.not58 = icmp eq ptr %1, null
-  br i1 %.not58, label %.split86.us, label %6
+  br i1 %.not58, label %.split84.us, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4789,37 +4789,37 @@ thread-pre-split:                                 ; preds = %10
 13:                                               ; preds = %thread-pre-split, %6
   %14 = phi i64 [ %.pr, %thread-pre-split ], [ %8, %6 ]
   %15 = icmp eq i64 %14, 5
-  br i1 %15, label %16, label %.split86.preheader
+  br i1 %15, label %16, label %.split84.preheader
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %17, i64 noundef 5, ptr noundef nonnull @.str, i64 noundef 5) #11
   %.not60 = icmp eq i32 %18, 0
-  br i1 %.not60, label %.thread71, label %.split86.preheader
+  br i1 %.not60, label %.thread71, label %.split84.preheader
 
-.split86.preheader:                               ; preds = %13, %16
+.split84.preheader:                               ; preds = %13, %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.split86
+  br label %.split84
 
-.split86.us:                                      ; preds = %5, %31
+.split84.us:                                      ; preds = %5, %31
   %.046.us = phi ptr [ %29, %31 ], [ %.tr, %5 ]
   %20 = getelementptr inbounds nuw i8, ptr %.046.us, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %.not61.us = icmp eq ptr %21, null
   br i1 %.not61.us, label %26, label %22
 
-22:                                               ; preds = %.split86.us
+22:                                               ; preds = %.split84.us
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   %25 = tail call i32 @xmlStrEqual(ptr noundef %24, ptr noundef null) #11
   %.not62.us = icmp eq i32 %25, 0
-  br i1 %.not62.us, label %26, label %.split88.us
+  br i1 %.not62.us, label %26, label %.split86.us
 
-26:                                               ; preds = %22, %.split86.us
+26:                                               ; preds = %22, %.split84.us
   %27 = getelementptr inbounds nuw i8, ptr %.046.us, i64 88
-  %.04482.us = load ptr, ptr %27, align 8, !tbaa !59
-  %.not6383.us = icmp eq ptr %.04482.us, null
-  br i1 %.not6383.us, label %._crit_edge.split.us.us, label %.lr.ph.us
+  %.04480.us = load ptr, ptr %27, align 8, !tbaa !59
+  %.not6381.us = icmp eq ptr %.04480.us, null
+  br i1 %.not6381.us, label %._crit_edge.split.us.us, label %.lr.ph.us
 
 ._crit_edge.split.us.us:                          ; preds = %.thread.us.us, %26
   %28 = getelementptr inbounds nuw i8, ptr %.046.us, i64 40
@@ -4831,11 +4831,11 @@ thread-pre-split:                                 ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !26
   %.not69.us = icmp eq i32 %33, 1
-  br i1 %.not69.us, label %.split86.us, label %.thread71
+  br i1 %.not69.us, label %.split84.us, label %.thread71
 
 .lr.ph.us:                                        ; preds = %26, %.thread.us.us
-  %.04484.us.us = phi ptr [ %.044.us.us, %.thread.us.us ], [ %.04482.us, %26 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.04484.us.us, i64 72
+  %.04482.us.us = phi ptr [ %.044.us.us, %.thread.us.us ], [ %.04480.us, %26 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.04482.us.us, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !93
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread.us.us, label %37
@@ -4853,49 +4853,49 @@ thread-pre-split:                                 ; preds = %10
   br i1 %44, label %45, label %.thread.us.us
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %.04484.us.us, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.04482.us.us, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !98
   %48 = tail call i32 @xmlStrEqual(ptr noundef %47, ptr noundef nonnull @.str) #11
   %.not66.us.us = icmp eq i32 %48, 0
   br i1 %.not66.us.us, label %.thread.us.us, label %.split.us
 
 .thread.us.us:                                    ; preds = %45, %40, %37, %.lr.ph.us
-  %49 = getelementptr inbounds nuw i8, ptr %.04484.us.us, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.04482.us.us, i64 48
   %.044.us.us = load ptr, ptr %49, align 8, !tbaa !59
   %.not63.us.us = icmp eq ptr %.044.us.us, null
   br i1 %.not63.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us
 
-.split86:                                         ; preds = %.split86.preheader, %88
-  %.046 = phi ptr [ %86, %88 ], [ %.tr, %.split86.preheader ]
+.split84:                                         ; preds = %.split84.preheader, %88
+  %.046 = phi ptr [ %86, %88 ], [ %.tr, %.split84.preheader ]
   %50 = getelementptr inbounds nuw i8, ptr %.046, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !23
   %.not61 = icmp eq ptr %51, null
   br i1 %.not61, label %60, label %52
 
-52:                                               ; preds = %.split86
+52:                                               ; preds = %.split84
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = tail call i32 @xmlStrEqual(ptr noundef %54, ptr noundef nonnull %19) #11
   %.not62 = icmp eq i32 %55, 0
-  br i1 %.not62, label %60, label %.split88.us
+  br i1 %.not62, label %60, label %.split86.us
 
-.split88.us:                                      ; preds = %52, %22
-  %.us-phi89 = phi ptr [ %.046.us, %22 ], [ %.046, %52 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.us-phi89, i64 72
+.split86.us:                                      ; preds = %52, %22
+  %.us-phi87 = phi ptr [ %.046.us, %22 ], [ %.046, %52 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.us-phi87, i64 72
   %57 = load ptr, ptr %56, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !47
   br label %.thread71
 
-60:                                               ; preds = %52, %.split86
+60:                                               ; preds = %52, %.split84
   %61 = getelementptr inbounds nuw i8, ptr %.046, i64 88
-  %.04482 = load ptr, ptr %61, align 8, !tbaa !59
-  %.not6383 = icmp eq ptr %.04482, null
-  br i1 %.not6383, label %._crit_edge.split, label %.lr.ph
+  %.04480 = load ptr, ptr %61, align 8, !tbaa !59
+  %.not6381 = icmp eq ptr %.04480, null
+  br i1 %.not6381, label %._crit_edge.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60, %.thread
-  %.04484 = phi ptr [ %.044, %.thread ], [ %.04482, %60 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.04484, i64 72
+  %.04482 = phi ptr [ %.044, %.thread ], [ %.04480, %60 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.04482, i64 72
   %63 = load ptr, ptr %62, align 8, !tbaa !93
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread, label %65
@@ -4914,14 +4914,14 @@ thread-pre-split:                                 ; preds = %10
   br i1 %.not64, label %.thread, label %73
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %.04484, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.04482, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !98
   %76 = tail call i32 @xmlStrEqual(ptr noundef %75, ptr noundef nonnull %19) #11
   %.not65 = icmp eq i32 %76, 0
   br i1 %.not65, label %.thread, label %.split.us
 
 .split.us:                                        ; preds = %73, %45
-  %.us-phi = phi ptr [ %.04484.us.us, %45 ], [ %.04484, %73 ]
+  %.us-phi = phi ptr [ %.04482.us.us, %45 ], [ %.04482, %73 ]
   %77 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %78 = load ptr, ptr %77, align 8, !tbaa !94
   %.not67 = icmp eq ptr %78, null
@@ -4938,7 +4938,7 @@ thread-pre-split:                                 ; preds = %10
   br label %.thread71
 
 .thread:                                          ; preds = %68, %73, %.lr.ph, %65
-  %84 = getelementptr inbounds nuw i8, ptr %.04484, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %.04482, i64 48
   %.044 = load ptr, ptr %84, align 8, !tbaa !59
   %.not63 = icmp eq ptr %.044, null
   br i1 %.not63, label %._crit_edge.split, label %.lr.ph
@@ -4953,7 +4953,7 @@ thread-pre-split:                                 ; preds = %10
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load i32, ptr %89, align 8, !tbaa !26
   %.not69 = icmp eq i32 %90, 1
-  br i1 %.not69, label %.split86, label %.thread71
+  br i1 %.not69, label %.split84, label %.thread71
 
 91:                                               ; preds = %tailrecurse, %tailrecurse
   %92 = tail call ptr @xmlDocGetRootElement(ptr noundef nonnull %.tr) #11
@@ -4976,8 +4976,8 @@ tailrecurse.backedge:                             ; preds = %91, %98
   %.not = icmp eq i32 %100, 1
   br i1 %.not, label %tailrecurse.backedge, label %.thread71
 
-.thread71:                                        ; preds = %94, %98, %tailrecurse, %tailrecurse, %91, %88, %._crit_edge.split, %31, %._crit_edge.split.us.us, %79, %83, %16, %10, %.split88.us
-  %.045 = phi ptr [ %59, %.split88.us ], [ @.str.7, %10 ], [ @.str.8, %16 ], [ %81, %79 ], [ null, %83 ], [ null, %._crit_edge.split.us.us ], [ null, %31 ], [ null, %._crit_edge.split ], [ null, %88 ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
+.thread71:                                        ; preds = %94, %98, %tailrecurse, %tailrecurse, %91, %88, %._crit_edge.split, %31, %._crit_edge.split.us.us, %79, %83, %16, %10, %.split86.us
+  %.045 = phi ptr [ %59, %.split86.us ], [ @.str.7, %10 ], [ @.str.8, %16 ], [ %81, %79 ], [ null, %83 ], [ null, %._crit_edge.split.us.us ], [ null, %31 ], [ null, %._crit_edge.split ], [ null, %88 ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
   ret ptr %.045
 }
 

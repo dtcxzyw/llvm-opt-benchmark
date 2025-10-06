@@ -735,17 +735,17 @@ _ZN12_GLOBAL__N_17Builder9addModuleEPN4llvm6ModuleE.exit.thread.i: ; preds = %19
   %217 = zext i32 %216 to i64
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %217, 3
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 %.idx.i.i.i.i.i.i
-  %.not36.i.i.i.i.i.i = icmp eq i32 %216, 0
-  br i1 %.not36.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  %.not34.i.i.i.i.i.i = icmp eq i32 %216, 0
+  br i1 %.not34.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %214, %.critedge.i.i.i.i.i.i
-  %.02937.i.i.i.i.i.i = phi ptr [ %220, %.critedge.i.i.i.i.i.i ], [ %215, %214 ]
-  %219 = load ptr, ptr %.02937.i.i.i.i.i.i, align 8, !tbaa !135, !noalias !136
+  %.02935.i.i.i.i.i.i = phi ptr [ %220, %.critedge.i.i.i.i.i.i ], [ %215, %214 ]
+  %219 = load ptr, ptr %.02935.i.i.i.i.i.i, align 8, !tbaa !135, !noalias !136
   %.not17.i.i.i.i.i.i = icmp eq ptr %219, %212
   br i1 %.not17.i.i.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11GlobalValueEE6insertES2_.exit.i.i.i.i, label %.critedge.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i.i
-  %220 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i.i, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %220, %218
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !137
 
@@ -2774,12 +2774,12 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
 ..thread_crit_edge:                               ; preds = %18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !281
-  %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.pre60 = load i64, ptr %.phi.trans.insert59, align 8, !tbaa !282
-  %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre62 = load ptr, ptr %.phi.trans.insert61, align 8, !tbaa !281
-  %.phi.trans.insert63 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.pre64 = load i64, ptr %.phi.trans.insert63, align 8, !tbaa !282
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.pre59 = load i64, ptr %.phi.trans.insert58, align 8, !tbaa !282
+  %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.pre61 = load ptr, ptr %.phi.trans.insert60, align 8, !tbaa !281
+  %.phi.trans.insert62 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.pre63 = load i64, ptr %.phi.trans.insert62, align 8, !tbaa !282
   br label %.thread
 
 21:                                               ; preds = %18
@@ -2789,8 +2789,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = icmp ult i64 %26, 76
-  %or.cond58 = select i1 %24, i1 true, i1 %27
-  br i1 %or.cond58, label %28, label %33
+  %or.cond57 = select i1 %24, i1 true, i1 %27
+  br i1 %or.cond57, label %28, label %33
 
 28:                                               ; preds = %21
   %29 = ptrtoint ptr %7 to i64
@@ -2836,8 +2836,8 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %42, %44
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %47
   %bcmp.i.i = tail call i32 @bcmp(ptr %39, ptr %43, i64 %41)
-  %.not55 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not55, label %.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.not54 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not54, label %.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %33, %_ZN4llvmneENS_9StringRefES0_.exit
   %49 = ptrtoint ptr %7 to i64
@@ -2848,9 +2848,9 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm9StringRefC
   br label %93
 
 .thread:                                          ; preds = %..thread_crit_edge, %47, %_ZN4llvmneENS_9StringRefES0_.exit
-  %53 = phi i64 [ %.pre64, %..thread_crit_edge ], [ %23, %47 ], [ %23, %_ZN4llvmneENS_9StringRefES0_.exit ]
-  %54 = phi ptr [ %.pre62, %..thread_crit_edge ], [ %.sroa.01.0.copyload, %47 ], [ %.sroa.01.0.copyload, %_ZN4llvmneENS_9StringRefES0_.exit ]
-  %55 = phi i64 [ %.pre60, %..thread_crit_edge ], [ %26, %47 ], [ %26, %_ZN4llvmneENS_9StringRefES0_.exit ]
+  %53 = phi i64 [ %.pre63, %..thread_crit_edge ], [ %23, %47 ], [ %23, %_ZN4llvmneENS_9StringRefES0_.exit ]
+  %54 = phi ptr [ %.pre61, %..thread_crit_edge ], [ %.sroa.01.0.copyload, %47 ], [ %.sroa.01.0.copyload, %_ZN4llvmneENS_9StringRefES0_.exit ]
+  %55 = phi i64 [ %.pre59, %..thread_crit_edge ], [ %26, %47 ], [ %26, %_ZN4llvmneENS_9StringRefES0_.exit ]
   %56 = phi ptr [ %.pre, %..thread_crit_edge ], [ %36, %47 ], [ %36, %_ZN4llvmneENS_9StringRefES0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2918,9 +2918,9 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm9StringRefC
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 6
   %.not19 = icmp eq i64 %.sroa.2.0.extract.shift.i.i, %79
-  br i1 %.not19, label %.thread81, label %87
+  br i1 %.not19, label %.thread80, label %87
 
-.thread81:                                        ; preds = %.thread
+.thread80:                                        ; preds = %.thread
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %81 = load i8, ptr %80, align 8
   %82 = and i8 %81, -2
@@ -2938,15 +2938,15 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm9StringRefC
 
 87:                                               ; preds = %.thread
   call fastcc void @_ZL7upgradeN4llvm8ArrayRefINS_13BitcodeModuleEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %5, i64 %79)
-  %.pre65 = load ptr, ptr %57, align 8, !tbaa !181
-  %88 = icmp eq ptr %.pre65, %59
+  %.pre64 = load ptr, ptr %57, align 8, !tbaa !181
+  %88 = icmp eq ptr %.pre64, %59
   br i1 %88, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i, label %89
 
 89:                                               ; preds = %87
-  call void @free(ptr noundef %.pre65) #20
+  call void @free(ptr noundef %.pre64) #20
   br label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i:          ; preds = %.thread81, %89, %87
+_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i:          ; preds = %.thread80, %89, %87
   %90 = load ptr, ptr %4, align 8, !tbaa !181
   %91 = icmp eq ptr %90, %57
   br i1 %91, label %_ZN4llvm8irsymtab12FileContentsD2Ev.exit, label %92

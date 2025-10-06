@@ -143,7 +143,7 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br label %26
 
 ._crit_edge:                                      ; preds = %52, %5
-  %.lcssa59 = phi i32 [ %6, %5 ], [ %53, %52 ]
+  %.lcssa58 = phi i32 [ %6, %5 ], [ %53, %52 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = and i32 %12, 1
@@ -229,7 +229,7 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br label %52
 
 49:                                               ; preds = %38
-  %50 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.lcssa59, i32 noundef %41) #12
+  %50 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.lcssa58, i32 noundef %41) #12
   br label %.thread54.sink.split
 
 .thread53:                                        ; preds = %.thread51
@@ -243,9 +243,9 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br i1 %55, label %._crit_edge, label %26
 
 .thread54.sink.split:                             ; preds = %38, %49
-  %.lcssa59.sink = phi i32 [ 0, %49 ], [ %.lcssa59, %38 ]
+  %.lcssa58.sink = phi i32 [ 0, %49 ], [ %.lcssa58, %38 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store i32 %.lcssa59.sink, ptr %56, align 8, !tbaa !26
+  store i32 %.lcssa58.sink, ptr %56, align 8, !tbaa !26
   br label %.thread54
 
 .thread54:                                        ; preds = %.thread54.sink.split, %2

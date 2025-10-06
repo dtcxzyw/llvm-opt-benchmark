@@ -554,13 +554,13 @@ get_encode_size.exit.i:                           ; preds = %.lr.ph.i.i, %43
   br label %56
 
 56:                                               ; preds = %56, %54
-  %.02531.i = phi i64 [ %50, %54 ], [ %60, %56 ]
-  %.02630.i = phi i64 [ %44, %54 ], [ %59, %56 ]
-  %57 = trunc i64 %.02630.i to i8
-  %58 = getelementptr inbounds nuw i8, ptr %37, i64 %.02531.i
+  %.02530.i = phi i64 [ %50, %54 ], [ %60, %56 ]
+  %.02629.i = phi i64 [ %44, %54 ], [ %59, %56 ]
+  %57 = trunc i64 %.02629.i to i8
+  %58 = getelementptr inbounds nuw i8, ptr %37, i64 %.02530.i
   store i8 %57, ptr %58, align 1, !tbaa !20
-  %59 = lshr i64 %.02630.i, 8
-  %60 = add nsw i64 %.02531.i, -1
+  %59 = lshr i64 %.02629.i, 8
+  %60 = add nsw i64 %.02530.i, -1
   %.not.i = icmp eq i64 %60, 0
   br i1 %.not.i, label %61, label %56, !llvm.loop !30
 
@@ -786,13 +786,13 @@ get_encode_size.exit.i.i:                         ; preds = %.lr.ph.i.i.i
   br label %31
 
 31:                                               ; preds = %31, %29
-  %.02531.i.i = phi i64 [ %25, %29 ], [ %35, %31 ]
-  %.02630.i.i = phi i64 [ %19, %29 ], [ %34, %31 ]
-  %32 = trunc i64 %.02630.i.i to i8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %.02531.i.i
+  %.02530.i.i = phi i64 [ %25, %29 ], [ %35, %31 ]
+  %.02629.i.i = phi i64 [ %19, %29 ], [ %34, %31 ]
+  %32 = trunc i64 %.02629.i.i to i8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %.02530.i.i
   store i8 %32, ptr %33, align 1, !tbaa !20
-  %34 = lshr i64 %.02630.i.i, 8
-  %35 = add nsw i64 %.02531.i.i, -1
+  %34 = lshr i64 %.02629.i.i, 8
+  %35 = add nsw i64 %.02530.i.i, -1
   %.not.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i, label %36, label %31, !llvm.loop !30
 

@@ -3037,9 +3037,9 @@ define dso_local noundef zeroext i1 @restriction_is_always_true(ptr noundef %0, 
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = load i32, ptr %42, align 4
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph38, label %expr_is_nonnullable.exit
+  br i1 %45, label %.lr.ph37, label %expr_is_nonnullable.exit
 
-.lr.ph38:                                         ; preds = %.lr.ph, %54
+.lr.ph37:                                         ; preds = %.lr.ph, %54
   %46 = phi i32 [ %55, %54 ], [ %44, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph ]
   %47 = load ptr, ptr %43, align 8
@@ -3049,7 +3049,7 @@ define dso_local noundef zeroext i1 @restriction_is_always_true(ptr noundef %0, 
   %51 = icmp eq i32 %50, 317
   br i1 %51, label %52, label %54
 
-52:                                               ; preds = %.lr.ph38
+52:                                               ; preds = %.lr.ph37
   %53 = tail call zeroext i1 @restriction_is_always_true(ptr noundef %0, ptr noundef nonnull %49)
   br i1 %53, label %expr_is_nonnullable.exit, label %._crit_edge
 
@@ -3057,12 +3057,12 @@ define dso_local noundef zeroext i1 @restriction_is_always_true(ptr noundef %0, 
   %.pre = load i32, ptr %42, align 4
   br label %54
 
-54:                                               ; preds = %._crit_edge, %.lr.ph38
-  %55 = phi i32 [ %.pre, %._crit_edge ], [ %46, %.lr.ph38 ]
+54:                                               ; preds = %._crit_edge, %.lr.ph37
+  %55 = phi i32 [ %.pre, %._crit_edge ], [ %46, %.lr.ph37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph38, label %expr_is_nonnullable.exit
+  br i1 %57, label %.lr.ph37, label %expr_is_nonnullable.exit
 
 expr_is_nonnullable.exit:                         ; preds = %52, %54, %37, %.lr.ph, %35, %34, %29, %19, %15, %10, %7
   %.1 = phi i1 [ false, %7 ], [ false, %34 ], [ false, %10 ], [ false, %15 ], [ true, %19 ], [ true, %29 ], [ false, %35 ], [ false, %37 ], [ false, %.lr.ph ], [ true, %52 ], [ false, %54 ]

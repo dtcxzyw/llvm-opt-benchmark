@@ -3185,20 +3185,20 @@ define hidden ptr @_Py_module_getattro_impl(ptr noundef %0, ptr noundef %1, i32 
 
 82:                                               ; preds = %79
   %.not60 = icmp eq i32 %80, 0
-  br i1 %.not60, label %.thread92, label %83
+  br i1 %.not60, label %.thread91, label %83
 
 83:                                               ; preds = %82
   %84 = call ptr @PySys_GetObject(ptr noundef nonnull @.str.26) #8
   %.not61 = icmp eq ptr %84, null
-  br i1 %.not61, label %.thread92, label %85
+  br i1 %.not61, label %.thread91, label %85
 
 85:                                               ; preds = %83
   %86 = getelementptr i8, ptr %84, i64 8
   %.val86 = load ptr, ptr %86, align 8, !tbaa !4
-  %.not99 = icmp eq ptr %.val86, @PySet_Type
-  %.not100 = icmp eq ptr %.val86, @PyFrozenSet_Type
-  %or.cond101 = or i1 %.not99, %.not100
-  br i1 %or.cond101, label %91, label %87
+  %.not98 = icmp eq ptr %.val86, @PySet_Type
+  %.not99 = icmp eq ptr %.val86, @PyFrozenSet_Type
+  %or.cond100 = or i1 %.not98, %.not99
+  br i1 %or.cond100, label %91, label %87
 
 87:                                               ; preds = %85
   %88 = call i32 @PyType_IsSubtype(ptr noundef %.val86, ptr noundef nonnull @PySet_Type) #8
@@ -3209,7 +3209,7 @@ define hidden ptr @_Py_module_getattro_impl(ptr noundef %0, ptr noundef %1, i32 
   %.val = load ptr, ptr %86, align 8, !tbaa !4
   %90 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFrozenSet_Type) #8
   %.not65 = icmp eq i32 %90, 0
-  br i1 %.not65, label %.thread92, label %91
+  br i1 %.not65, label %.thread91, label %91
 
 91:                                               ; preds = %89, %87, %85
   %92 = load ptr, ptr %4, align 8, !tbaa !24
@@ -3219,7 +3219,7 @@ define hidden ptr @_Py_module_getattro_impl(ptr noundef %0, ptr noundef %1, i32 
 
 95:                                               ; preds = %91
   %.not66 = icmp eq i32 %93, 0
-  br i1 %.not66, label %.thread92, label %96
+  br i1 %.not66, label %.thread91, label %96
 
 96:                                               ; preds = %95
   %97 = load ptr, ptr @PyExc_AttributeError, align 8, !tbaa !24
@@ -3227,13 +3227,13 @@ define hidden ptr @_Py_module_getattro_impl(ptr noundef %0, ptr noundef %1, i32 
   %99 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %97, ptr noundef nonnull @.str.27, ptr noundef %98, ptr noundef %1, ptr noundef %.pre, ptr noundef %98) #8
   br label %130
 
-.thread92:                                        ; preds = %89, %83, %82, %95
+.thread91:                                        ; preds = %89, %83, %82, %95
   %100 = load ptr, ptr %6, align 8, !tbaa !24
   %101 = call i32 @_PyModuleSpec_IsInitializing(ptr noundef %100)
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %130, label %103
 
-103:                                              ; preds = %.thread92
+103:                                              ; preds = %.thread91
   %.not67 = icmp eq i32 %101, 0
   br i1 %.not67, label %116, label %104
 
@@ -3282,7 +3282,7 @@ define hidden ptr @_Py_module_getattro_impl(ptr noundef %0, ptr noundef %1, i32 
   %129 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %127, ptr noundef nonnull @.str.25, ptr noundef %128, ptr noundef %1) #8
   br label %130
 
-130:                                              ; preds = %91, %.thread92, %112, %114, %105, %124, %126, %120, %96, %79, %76
+130:                                              ; preds = %91, %.thread91, %112, %114, %105, %124, %126, %120, %96, %79, %76
   call fastcc void @Py_XDECREF(ptr noundef %.pre)
   %131 = load ptr, ptr %6, align 8, !tbaa !24
   %132 = load i32, ptr %131, align 8, !tbaa !22

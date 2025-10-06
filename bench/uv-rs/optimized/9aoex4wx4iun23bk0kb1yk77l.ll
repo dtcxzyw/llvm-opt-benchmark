@@ -34,7 +34,7 @@ define noundef zeroext i1 @_ZN10uv_extract5error5Error24is_http_streaming_failed
   %2 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 5)
-  switch i64 %4, label %14 [
+  switch i64 %4, label %15 [
     i64 1, label %5
     i64 2, label %9
   ]
@@ -43,36 +43,36 @@ define noundef zeroext i1 @_ZN10uv_extract5error5Error24is_http_streaming_failed
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !4
   %8 = icmp eq i8 %7, 13
-  br label %14
+  br label %15
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 3
-  %switch = icmp eq i64 %13, 1
-  br i1 %switch, label %15, label %14
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %16, label %15
 
-14:                                               ; preds = %9, %1, %15, %5
-  %.sroa.0.0.shrunk = phi i1 [ %8, %5 ], [ %.sroa.0.0.i, %15 ], [ false, %1 ], [ false, %9 ]
+15:                                               ; preds = %9, %1, %16, %5
+  %.sroa.0.0.shrunk = phi i1 [ %8, %5 ], [ %.sroa.0.0.i, %16 ], [ false, %1 ], [ false, %9 ]
   ret i1 %.sroa.0.0.shrunk
 
-15:                                               ; preds = %9
-  %16 = getelementptr i8, ptr %11, i64 -1
-  %17 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr i8, ptr %11, i64 7
-  %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !6, !noundef !4
-  %21 = getelementptr i8, ptr %20, i64 56
-  %.val = load ptr, ptr %21, align 8
-  %22 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %18)
-  %23 = extractvalue { i64, i64 } %22, 0
-  %24 = extractvalue { i64, i64 } %22, 1
-  %25 = icmp eq i64 %23, 3651417219560125105
-  %26 = icmp eq i64 %24, -2221366707112211979
-  %.sroa.0.0.i = select i1 %25, i1 %26, i1 false
-  br label %14
+16:                                               ; preds = %9
+  %17 = getelementptr i8, ptr %11, i64 -1
+  %18 = icmp ne ptr %17, null
+  tail call void @llvm.assume(i1 %18)
+  %19 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %20 = getelementptr i8, ptr %11, i64 7
+  %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !6, !noundef !4
+  %22 = getelementptr i8, ptr %21, i64 56
+  %.val = load ptr, ptr %22, align 8
+  %23 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %19)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  %26 = icmp eq i64 %24, 3651417219560125105
+  %27 = icmp eq i64 %25, -2221366707112211979
+  %.sroa.0.0.i = select i1 %26, i1 %27, i1 false
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -82,11 +82,11 @@ define { ptr, ptr } @"_ZN63_$LT$uv_extract..error..Error$u20$as$u20$core..error.
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 5)
   switch i64 %4, label %default.unreachable [
     i64 0, label %5
-    i64 1, label %9
-    i64 2, label %13
-    i64 3, label %18
-    i64 4, label %18
-    i64 5, label %18
+    i64 1, label %10
+    i64 2, label %15
+    i64 3, label %20
+    i64 4, label %20
+    i64 5, label %20
   ]
 
 default.unreachable:                              ; preds = %1
@@ -95,32 +95,32 @@ default.unreachable:                              ; preds = %1
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !range !7, !alias.scope !8, !noundef !4
-  %switch.i = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.i = select i1 %switch.i, ptr %8, ptr null
-  br label %18
+  %8 = icmp eq i64 %7, 0
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.i = select i1 %8, ptr %9, ptr null
+  br label %20
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i8, ptr %10, align 8, !range !5, !alias.scope !11, !noundef !4
-  %switch.i1 = icmp eq i8 %11, 13
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.i2 = select i1 %switch.i1, ptr %12, ptr null
-  br label %18
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i8, ptr %11, align 8, !range !5, !alias.scope !11, !noundef !4
+  %13 = icmp eq i8 %12, 13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.i1 = select i1 %13, ptr %14, ptr null
+  br label %20
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull align 1 %14)
-  %16 = extractvalue { ptr, ptr } %15, 0
-  %17 = extractvalue { ptr, ptr } %15, 1
-  br label %18
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull align 1 %16)
+  %18 = extractvalue { ptr, ptr } %17, 0
+  %19 = extractvalue { ptr, ptr } %17, 1
+  br label %20
 
-18:                                               ; preds = %1, %1, %1, %13, %9, %5
-  %.sroa.7.0 = phi ptr [ @anon.443a863bdedd4387a5fdaaa27ef2826d.14, %5 ], [ @anon.443a863bdedd4387a5fdaaa27ef2826d.14, %9 ], [ %17, %13 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i, %5 ], [ %.sroa.0.0.i2, %9 ], [ %16, %13 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %19 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.7.0, 1
-  ret { ptr, ptr } %20
+20:                                               ; preds = %1, %1, %1, %15, %10, %5
+  %.sroa.7.0 = phi ptr [ @anon.443a863bdedd4387a5fdaaa27ef2826d.14, %5 ], [ @anon.443a863bdedd4387a5fdaaa27ef2826d.14, %10 ], [ %19, %15 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i, %5 ], [ %.sroa.0.0.i1, %10 ], [ %18, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.7.0, 1
+  ret { ptr, ptr } %22
 }
 
 ; Function Attrs: nonlazybind uwtable

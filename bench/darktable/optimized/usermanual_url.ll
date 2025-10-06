@@ -306,8 +306,8 @@ define ptr @dt_get_help_url(ptr noundef readonly captures(address_is_null) %0) l
 
 3:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 155
-  br i1 %exitcond, label %.loopexit, label %.preheader
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 155
+  br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]

@@ -1212,8 +1212,8 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef cap
   br i1 %.not, label %71, label %6
 
 6:                                                ; preds = %2
-  %.not70 = icmp eq i32 %.val61, %.val60
-  br i1 %.not70, label %7, label %14
+  %.not69 = icmp eq i32 %.val61, %.val60
+  br i1 %.not69, label %7, label %14
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr @stdout, align 8, !tbaa !56
@@ -1243,13 +1243,13 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef cap
   %22 = getelementptr i8, ptr %1, i64 12
   %.val65 = load i32, ptr %22, align 4, !tbaa !58
   %23 = icmp slt i32 %.val65, 1
-  %.not43.not74 = icmp eq ptr %20, %1
-  %or.cond = or i1 %23, %.not43.not74
+  %.not43.not73 = icmp eq ptr %20, %1
+  %or.cond = or i1 %23, %.not43.not73
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %36
-  %.03775 = phi ptr [ %41, %36 ], [ %20, %21 ]
-  %24 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %.03775)
+  %.03774 = phi ptr [ %41, %36 ], [ %20, %21 ]
+  %24 = tail call i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %.03774)
   %.not44 = icmp eq i32 %24, 0
   br i1 %.not44, label %25, label %36
 
@@ -1258,24 +1258,24 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef cap
   %.val57 = load i32, ptr %1, align 8, !tbaa !3
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.3, i32 noundef %.val57) #15
   %28 = load ptr, ptr %19, align 8, !tbaa !17
-  %.not4576 = icmp eq ptr %28, %1
-  br i1 %.not4576, label %._crit_edge, label %.lr.ph78
+  %.not4575 = icmp eq ptr %28, %1
+  br i1 %.not4575, label %._crit_edge, label %.lr.ph77
 
-.lr.ph78:                                         ; preds = %25, %.lr.ph78
-  %.177 = phi ptr [ %35, %.lr.ph78 ], [ %28, %25 ]
+.lr.ph77:                                         ; preds = %25, %.lr.ph77
+  %.176 = phi ptr [ %35, %.lr.ph77 ], [ %28, %25 ]
   %29 = load ptr, ptr @stdout, align 8, !tbaa !56
-  %.1.val = load i32, ptr %.177, align 8, !tbaa !3
+  %.1.val = load i32, ptr %.176, align 8, !tbaa !3
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.2, i32 noundef %.1.val) #15
-  %31 = getelementptr inbounds nuw i8, ptr %.177, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %.176, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !17
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   %.not45 = icmp eq ptr %1, %35
-  br i1 %.not45, label %._crit_edge, label %.lr.ph78, !llvm.loop !59
+  br i1 %.not45, label %._crit_edge, label %.lr.ph77, !llvm.loop !59
 
 36:                                               ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw i8, ptr %.03775, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %.03774, i64 72
   %38 = load ptr, ptr %37, align 8, !tbaa !17
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, -2
@@ -1283,7 +1283,7 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef cap
   %.not43.not = icmp eq ptr %1, %41
   br i1 %.not43.not, label %.thread, label %.lr.ph, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %.lr.ph78, %25
+._crit_edge:                                      ; preds = %.lr.ph77, %25
   %42 = load ptr, ptr @stdout, align 8, !tbaa !56
   %fputc = tail call i32 @fputc(i32 41, ptr %42)
   br label %71
@@ -1299,8 +1299,8 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef cap
 
 45:                                               ; preds = %.thread
   %.val = load i32, ptr %1, align 8, !tbaa !3
-  %.not73 = icmp eq i32 %.val, 0
-  br i1 %.not73, label %46, label %48
+  %.not72 = icmp eq i32 %.val, 0
+  br i1 %.not72, label %46, label %48
 
 46:                                               ; preds = %.thread, %.thread, %45
   %.val66 = load i32, ptr %3, align 8, !tbaa !54

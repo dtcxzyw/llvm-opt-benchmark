@@ -3021,8 +3021,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = load ptr, ptr %6, align 8, !tbaa !72
-  %.not38 = icmp eq ptr %8, %9
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %8, %9
+  br i1 %.not, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = ptrtoint ptr %8 to i64
@@ -3034,9 +3034,9 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   br label %16
 
 16:                                               ; preds = %.lr.ph, %103
-  %.02439 = phi i64 [ 0, %.lr.ph ], [ %104, %103 ]
+  %.02434 = phi i64 [ 0, %.lr.ph ], [ %104, %103 ]
   %17 = load ptr, ptr %6, align 8, !tbaa !72
-  %18 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %17, i64 %.02439
+  %18 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %17, i64 %.02434
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   store ptr %19, ptr %4, align 8, !tbaa !27
@@ -3142,7 +3142,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %35, %39, %45
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit27 unwind label %54
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit27: ; preds = %68, %62, %70
-  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorENS0_7TrustIdE(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02439, ptr noundef nonnull %5, ptr noundef null, i32 noundef 36)
+  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorENS0_7TrustIdE(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02434, ptr noundef nonnull %5, ptr noundef null, i32 noundef 36)
           to label %72 unwind label %88
 
 72:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit27
@@ -3173,7 +3173,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit27: ; preds = %68, %62, %70
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29: ; preds = %72, %76, %82
-  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline15ensureRewrittenEm(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02439)
+  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline15ensureRewrittenEm(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02434)
           to label %86 unwind label %54
 
 86:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29
@@ -3216,15 +3216,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29: ; preds = %72, %76, %82
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31: ; preds = %90, %93, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %.123, label %._crit_edge [
+  switch i32 %.123, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31._crit_edge [
     i32 0, label %103
     i32 4, label %103
   ]
 
 103:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31
-  %104 = add nuw i64 %.02439, 1
+  %104 = add nuw i64 %.02434, 1
   %exitcond.not = icmp eq i64 %104, %13
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !129
+  br i1 %exitcond.not, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31._crit_edge, label %16, !llvm.loop !129
 
 105:                                              ; preds = %54, %88, %52
   %.sink = phi ptr [ %4, %52 ], [ %3, %88 ], [ %3, %54 ]
@@ -3233,9 +3233,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31: ; preds = %90, %93, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
-._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31, %103, %2
-  %.not.lcssa = phi i32 [ 1, %2 ], [ 1, %103 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31 ]
-  ret i32 %.not.lcssa
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31._crit_edge: ; preds = %103, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31, %2
+  %106 = phi i32 [ 1, %2 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31 ], [ 1, %103 ]
+  ret i32 %106
 }
 
 declare void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorENS0_7TrustIdE(ptr noundef nonnull align 8 dereferenceable(232), i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0

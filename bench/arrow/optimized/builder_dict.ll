@@ -9620,8 +9620,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %46, %4
 50:                                               ; preds = %49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %34, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load ptr, ptr %7, align 8, !tbaa !1031
-  %.not.i21 = icmp eq ptr %51, null
-  br i1 %.not.i21, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i
+  %.not.i20 = icmp eq ptr %51, null
+  br i1 %.not.i20, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i: ; preds = %50
   %52 = load ptr, ptr %51, align 8, !tbaa !46
@@ -9642,8 +9642,8 @@ _ZN5arrow6StatusC2ERKS0_.exit:                    ; preds = %17, %_ZNSt10unique_
 57:                                               ; preds = %_ZN5arrow6StatusC2ERKS0_.exit
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !1031
-  %.not.i.i.i.i22 = icmp eq ptr %59, null
-  br i1 %.not.i.i.i.i22, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit.i
+  %.not.i.i.i.i21 = icmp eq ptr %59, null
+  br i1 %.not.i.i.i.i21, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit.i
 
 _ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit.i: ; preds = %57
   %60 = load ptr, ptr %59, align 8, !tbaa !46
@@ -9674,22 +9674,22 @@ _ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = load ptr, ptr %7, align 8, !tbaa !1031
-  %.not.i23 = icmp eq ptr %70, null
-  br i1 %.not.i23, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit25, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i24
+  %.not.i22 = icmp eq ptr %70, null
+  br i1 %.not.i22, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit24, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i23
 
-_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i24: ; preds = %68
+_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i23: ; preds = %68
   %71 = load ptr, ptr %70, align 8, !tbaa !46
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(80) %70) #26
-  br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit25
+  br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit24
 
-_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit25: ; preds = %68, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i24
+_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit24: ; preds = %68, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %74
 
-74:                                               ; preds = %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit25, %18
-  %.pn17 = phi { ptr, i32 } [ %19, %18 ], [ %69, %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit25 ]
+74:                                               ; preds = %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit24, %18
+  %.pn17 = phi { ptr, i32 } [ %19, %18 ], [ %69, %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit24 ]
   call void @_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn17
@@ -11473,16 +11473,16 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6ResizeE
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %11 = load i64, ptr %10, align 8, !tbaa !1108, !noalias !1105
   %12 = icmp slt i64 %2, %11
-  br i1 %12, label %13, label %_ZN5arrow6StatusD2Ev.exit12.thread, !prof !48
+  br i1 %12, label %13, label %_ZN5arrow6StatusD2Ev.exit11.thread, !prof !48
 
 13:                                               ; preds = %9
   call void @_ZN5arrow6Status7InvalidIJRA36_KcRlRA19_S2_S5_RA2_S2_EEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %5, ptr noundef nonnull align 1 dereferenceable(36) @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(19) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(2) @.str.14)
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit12.thread:               ; preds = %9
+_ZN5arrow6StatusD2Ev.exit11.thread:               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN5arrow6StatusD2Ev.exit14
+  br label %_ZN5arrow6StatusD2Ev.exit13
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   %.pr = load ptr, ptr %5, align 8, !tbaa !65, !noalias !1109
@@ -11491,9 +11491,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   store ptr %.pr, ptr %0, align 8, !tbaa !65, !alias.scope !1109
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = icmp eq ptr %.pr, null
-  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit14, label %21
+  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit13, label %21
 
-_ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit12.thread
+_ZN5arrow6StatusD2Ev.exit13:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit11.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %16 = shl i64 %2, 2
@@ -11506,11 +11506,11 @@ _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZN5arrow6StatusD2E
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
-20:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit14
+20:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13
   call void @_ZN5arrow12ArrayBuilder6ResizeEl(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %2)
   br label %21
 
-21:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit14, %_ZN5arrow6StatusD2Ev.exit, %20
+21:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13, %_ZN5arrow6StatusD2Ev.exit, %20
   ret void
 }
 
@@ -13870,27 +13870,27 @@ _ZN5arrow6StatusD2Ev.exit:
 12:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit
   %13 = load i64, ptr %8, align 8, !tbaa !1081
   %.not = icmp eq i64 %13, 0
-  %.pre33 = load ptr, ptr %1, align 8, !tbaa !1024
+  %.pre32 = load ptr, ptr %1, align 8, !tbaa !1024
   br i1 %.not, label %_ZN5arrow6Buffer11ZeroPaddingEv.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.pre33, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.pre32, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !1037
-  %.not.i24 = icmp eq i64 %16, 0
-  br i1 %.not.i24, label %_ZN5arrow6Buffer11ZeroPaddingEv.exit, label %17
+  %.not.i23 = icmp eq i64 %16, 0
+  br i1 %.not.i23, label %_ZN5arrow6Buffer11ZeroPaddingEv.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %.pre33, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %.pre32, i64 9
   %19 = load i8, ptr %18, align 1, !tbaa !1047, !range !81, !noundef !82
   %20 = trunc nuw i8 %19 to i1
-  %21 = getelementptr inbounds nuw i8, ptr %.pre33, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.pre32, i64 8
   %22 = load i8, ptr %21, align 8, !range !81
   %23 = trunc nuw i8 %22 to i1
   %24 = select i1 %20, i1 %23, i1 false, !prof !68
-  %25 = getelementptr inbounds nuw i8, ptr %.pre33, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.pre32, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = select i1 %24, ptr %26, ptr null, !prof !68
-  %28 = getelementptr inbounds nuw i8, ptr %.pre33, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.pre32, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !1247
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   %31 = sub nsw i64 %16, %29
@@ -13899,7 +13899,7 @@ _ZN5arrow6StatusD2Ev.exit:
   br label %_ZN5arrow6Buffer11ZeroPaddingEv.exit
 
 _ZN5arrow6Buffer11ZeroPaddingEv.exit:             ; preds = %17, %14, %12
-  %32 = phi ptr [ %.pre, %17 ], [ %.pre33, %14 ], [ %.pre33, %12 ]
+  %32 = phi ptr [ %.pre, %17 ], [ %.pre32, %14 ], [ %.pre32, %12 ]
   store ptr %32, ptr %2, align 8, !tbaa !1228
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13980,13 +13980,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %64, %62
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %52, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
   store ptr %35, ptr %34, align 8, !tbaa !38
-  %.pre34 = load ptr, ptr %2, align 8, !tbaa !1228
+  %.pre33 = load ptr, ptr %2, align 8, !tbaa !1228
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEaSINS0_15ResizableBufferEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEaSINS0_15ResizableBufferEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit: ; preds = %_ZN5arrow6Buffer11ZeroPaddingEv.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
-  %68 = phi ptr [ %32, %_ZN5arrow6Buffer11ZeroPaddingEv.exit ], [ %.pre34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
-  %.not.i25 = icmp eq ptr %68, null
-  br i1 %.not.i25, label %69, label %133
+  %68 = phi ptr [ %32, %_ZN5arrow6Buffer11ZeroPaddingEv.exit ], [ %.pre33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
+  %.not.i24 = icmp eq ptr %68, null
+  br i1 %.not.i24, label %69, label %133
 
 69:                                               ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSINS0_15ResizableBufferEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -14031,8 +14031,8 @@ _ZNSt10shared_ptrIN5arrow6BufferEEaSINS0_15ResizableBufferEEENSt9enable_ifIXsr13
   %86 = load ptr, ptr %84, align 8, !tbaa !38
   store ptr %86, ptr %34, align 8, !tbaa !38
   store ptr %85, ptr %84, align 8, !tbaa !38
-  %.not.i.i.i.i26 = icmp eq ptr %85, null
-  br i1 %.not.i.i.i.i26, label %108, label %87
+  %.not.i.i.i.i25 = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i25, label %108, label %87
 
 87:                                               ; preds = %.noexc
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -14081,8 +14081,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %104, %
 108:                                              ; preds = %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %92, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %109 = load ptr, ptr %7, align 8, !tbaa !1254
-  %.not.i27 = icmp eq ptr %109, null
-  br i1 %.not.i27, label %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i
+  %.not.i26 = icmp eq ptr %109, null
+  br i1 %.not.i26, label %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i: ; preds = %108
   %110 = load ptr, ptr %109, align 8, !tbaa !46
@@ -14103,8 +14103,8 @@ _ZN5arrow6StatusC2ERKS0_.exit:                    ; preds = %76, %_ZNSt10unique_
 115:                                              ; preds = %_ZN5arrow6StatusC2ERKS0_.exit
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !1254
-  %.not.i.i.i.i28 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i.i28, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit.i
+  %.not.i.i.i.i27 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i.i27, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit.i
 
 _ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit.i: ; preds = %115
   %118 = load ptr, ptr %117, align 8, !tbaa !46
@@ -14135,22 +14135,22 @@ _ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev.exit: ;
   %127 = landingpad { ptr, i32 }
           cleanup
   %128 = load ptr, ptr %7, align 8, !tbaa !1254
-  %.not.i29 = icmp eq ptr %128, null
-  br i1 %.not.i29, label %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit31, label %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i30
+  %.not.i28 = icmp eq ptr %128, null
+  br i1 %.not.i28, label %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit30, label %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i29
 
-_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i30: ; preds = %126
+_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i29: ; preds = %126
   %129 = load ptr, ptr %128, align 8, !tbaa !46
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
   call void %131(ptr noundef nonnull align 8 dereferenceable(80) %128) #26
-  br label %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit31
+  br label %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit30
 
-_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit31: ; preds = %126, %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i30
+_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit30: ; preds = %126, %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %132
 
-132:                                              ; preds = %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit31, %77
-  %.pn18 = phi { ptr, i32 } [ %78, %77 ], [ %127, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit31 ]
+132:                                              ; preds = %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit30, %77
+  %.pn18 = phi { ptr, i32 } [ %78, %77 ], [ %127, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit30 ]
   call void @_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn18
@@ -14159,8 +14159,8 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit31: ; preds = 
   store ptr null, ptr %1, align 8, !tbaa !1031
   %134 = load ptr, ptr %33, align 8, !tbaa !38
   store ptr null, ptr %33, align 8, !tbaa !38
-  %.not.i.i.i.i.i32 = icmp eq ptr %134, null
-  br i1 %.not.i.i.i.i.i32, label %_ZN5arrow13BufferBuilder5ResetEv.exit, label %135
+  %.not.i.i.i.i.i31 = icmp eq ptr %134, null
+  br i1 %.not.i.i.i.i.i31, label %_ZN5arrow13BufferBuilder5ResetEv.exit, label %135
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
@@ -14954,16 +14954,16 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6Re
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %11 = load i64, ptr %10, align 8, !tbaa !1108, !noalias !1308
   %12 = icmp slt i64 %2, %11
-  br i1 %12, label %13, label %_ZN5arrow6StatusD2Ev.exit12.thread, !prof !48
+  br i1 %12, label %13, label %_ZN5arrow6StatusD2Ev.exit11.thread, !prof !48
 
 13:                                               ; preds = %9
   call void @_ZN5arrow6Status7InvalidIJRA36_KcRlRA19_S2_S5_RA2_S2_EEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %5, ptr noundef nonnull align 1 dereferenceable(36) @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(19) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(2) @.str.14)
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit12.thread:               ; preds = %9
+_ZN5arrow6StatusD2Ev.exit11.thread:               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN5arrow6StatusD2Ev.exit14
+  br label %_ZN5arrow6StatusD2Ev.exit13
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   %.pr = load ptr, ptr %5, align 8, !tbaa !65, !noalias !1311
@@ -14972,9 +14972,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   store ptr %.pr, ptr %0, align 8, !tbaa !65, !alias.scope !1311
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = icmp eq ptr %.pr, null
-  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit14, label %21
+  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit13, label %21
 
-_ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit12.thread
+_ZN5arrow6StatusD2Ev.exit13:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit11.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %16 = shl i64 %2, 3
@@ -14987,11 +14987,11 @@ _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZN5arrow6StatusD2E
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
-20:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit14
+20:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13
   call void @_ZN5arrow12ArrayBuilder6ResizeEl(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %2)
   br label %21
 
-21:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit14, %_ZN5arrow6StatusD2Ev.exit, %20
+21:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13, %_ZN5arrow6StatusD2Ev.exit, %20
   ret void
 }
 
@@ -17682,12 +17682,12 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i:              ; preds = %.preheader.i.i
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i
-  %.018.i.i = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %132, %_ZN5arrow6StatusD2Ev.exit14.i.i ]
+  %.016.i.i = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %132, %_ZN5arrow6StatusD2Ev.exit14.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !1475
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !1475
   %118 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1475
   %119 = load ptr, ptr %115, align 8, !tbaa !1491, !noalias !1475
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %.018.i.i
+  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %.016.i.i
   %121 = load i32, ptr %120, align 4, !tbaa !40, !noalias !1475
   %122 = load ptr, ptr %116, align 8, !tbaa !1496, !noalias !1475
   %123 = sext i32 %121 to i64
@@ -17709,7 +17709,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %131, label %_ZN5arrow6StatusD2Ev.exit14.i.i, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_10StringTypeENS_11StringArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i:                  ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
-  %132 = add nuw nsw i64 %.018.i.i, 1
+  %132 = add nuw nsw i64 %.016.i.i, 1
   %133 = load ptr, ptr %110, align 8, !tbaa !87, !noalias !1475
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load i64, ptr %134, align 8, !tbaa !1476, !noalias !1475
@@ -17755,12 +17755,12 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i93:            ; preds = %.preheader.i.i91
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i94:                  ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i96, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i93
-  %.018.i.i95 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i93 ], [ %165, %_ZN5arrow6StatusD2Ev.exit14.i.i96 ]
+  %.016.i.i95 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i93 ], [ %165, %_ZN5arrow6StatusD2Ev.exit14.i.i96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !1518
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !1518
   %151 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1518
   %152 = load ptr, ptr %148, align 8, !tbaa !1491, !noalias !1518
-  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %.018.i.i95
+  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %.016.i.i95
   %154 = load i32, ptr %153, align 4, !tbaa !40, !noalias !1518
   %155 = load ptr, ptr %149, align 8, !tbaa !1496, !noalias !1518
   %156 = sext i32 %154 to i64
@@ -17782,7 +17782,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i94:                  ; preds = %_ZN5arrow6StatusD2E
   br i1 %164, label %_ZN5arrow6StatusD2Ev.exit14.i.i96, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_10BinaryTypeENS_11BinaryArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i96:                ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i94
-  %165 = add nuw nsw i64 %.018.i.i95, 1
+  %165 = add nuw nsw i64 %.016.i.i95, 1
   %166 = load ptr, ptr %143, align 8, !tbaa !87, !noalias !1518
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load i64, ptr %167, align 8, !tbaa !1476, !noalias !1518
@@ -17828,12 +17828,12 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i99:            ; preds = %.preheader.i.i97
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i100:                 ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i102, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i99
-  %.018.i.i101 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i99 ], [ %197, %_ZN5arrow6StatusD2Ev.exit14.i.i102 ]
+  %.016.i.i101 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i99 ], [ %197, %_ZN5arrow6StatusD2Ev.exit14.i.i102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !1540
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !1540
   %184 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1540
   %185 = load ptr, ptr %181, align 8, !tbaa !1541, !noalias !1540
-  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %.018.i.i101
+  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %.016.i.i101
   %187 = load i64, ptr %186, align 8, !tbaa !129, !noalias !1540
   %188 = load ptr, ptr %182, align 8, !tbaa !1543, !noalias !1540
   %189 = getelementptr inbounds i8, ptr %188, i64 %187
@@ -17854,7 +17854,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i100:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %196, label %_ZN5arrow6StatusD2Ev.exit14.i.i102, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_15LargeStringTypeENS_16LargeStringArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i102:               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i100
-  %197 = add nuw nsw i64 %.018.i.i101, 1
+  %197 = add nuw nsw i64 %.016.i.i101, 1
   %198 = load ptr, ptr %176, align 8, !tbaa !87, !noalias !1540
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load i64, ptr %199, align 8, !tbaa !1476, !noalias !1540
@@ -17896,12 +17896,12 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i105:           ; preds = %.preheader.i.i103
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i106:                 ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i108, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i105
-  %.018.i.i107 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i105 ], [ %228, %_ZN5arrow6StatusD2Ev.exit14.i.i108 ]
+  %.016.i.i107 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i105 ], [ %228, %_ZN5arrow6StatusD2Ev.exit14.i.i108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !1565
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !1565
   %215 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1565
   %216 = load ptr, ptr %212, align 8, !tbaa !1541, !noalias !1565
-  %217 = getelementptr inbounds nuw i64, ptr %216, i64 %.018.i.i107
+  %217 = getelementptr inbounds nuw i64, ptr %216, i64 %.016.i.i107
   %218 = load i64, ptr %217, align 8, !tbaa !129, !noalias !1565
   %219 = load ptr, ptr %213, align 8, !tbaa !1543, !noalias !1565
   %220 = getelementptr inbounds i8, ptr %219, i64 %218
@@ -17922,7 +17922,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i106:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %227, label %_ZN5arrow6StatusD2Ev.exit14.i.i108, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_15LargeBinaryTypeENS_16LargeBinaryArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i108:               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i106
-  %228 = add nuw nsw i64 %.018.i.i107, 1
+  %228 = add nuw nsw i64 %.016.i.i107, 1
   %229 = load ptr, ptr %207, align 8, !tbaa !87, !noalias !1565
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %231 = load i64, ptr %230, align 8, !tbaa !1476, !noalias !1565
@@ -17964,14 +17964,14 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i111:           ; preds = %.preheader.i.i109
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i112:                 ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i114, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i111
-  %.018.i.i113 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i111 ], [ %256, %_ZN5arrow6StatusD2Ev.exit14.i.i114 ]
+  %.016.i.i113 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i111 ], [ %256, %_ZN5arrow6StatusD2Ev.exit14.i.i114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1587
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1587
   %246 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1587
   %247 = load ptr, ptr %243, align 8, !tbaa !1588, !noalias !1587
   %248 = load i32, ptr %244, align 8, !tbaa !1591, !noalias !1587
   %249 = sext i32 %248 to i64
-  %250 = mul nsw i64 %.018.i.i113, %249
+  %250 = mul nsw i64 %.016.i.i113, %249
   %251 = getelementptr inbounds i8, ptr %247, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %253 = load ptr, ptr %252, align 8, !tbaa !83, !noalias !1592
@@ -17987,7 +17987,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i112:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %255, label %_ZN5arrow6StatusD2Ev.exit14.i.i114, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_19FixedSizeBinaryTypeENS_20FixedSizeBinaryArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i114:               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i112
-  %256 = add nuw nsw i64 %.018.i.i113, 1
+  %256 = add nuw nsw i64 %.016.i.i113, 1
   %257 = load ptr, ptr %238, align 8, !tbaa !87, !noalias !1587
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %259 = load i64, ptr %258, align 8, !tbaa !1476, !noalias !1587
@@ -18083,14 +18083,14 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i117:           ; preds = %.preheader.i.i115
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i118:                 ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i120, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i117
-  %.018.i.i119 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i117 ], [ %311, %_ZN5arrow6StatusD2Ev.exit14.i.i120 ]
+  %.016.i.i119 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i117 ], [ %311, %_ZN5arrow6StatusD2Ev.exit14.i.i120 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !1640
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !1640
   %301 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1640
   %302 = load ptr, ptr %298, align 8, !tbaa !1588, !noalias !1640
   %303 = load i32, ptr %299, align 8, !tbaa !1591, !noalias !1640
   %304 = sext i32 %303 to i64
-  %305 = mul nsw i64 %.018.i.i119, %304
+  %305 = mul nsw i64 %.016.i.i119, %304
   %306 = getelementptr inbounds i8, ptr %302, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %301, i64 24
   %308 = load ptr, ptr %307, align 8, !tbaa !83, !noalias !1641
@@ -18106,7 +18106,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i118:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %310, label %_ZN5arrow6StatusD2Ev.exit14.i.i120, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_13Decimal32TypeENS_14Decimal32ArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i120:               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i118
-  %311 = add nuw nsw i64 %.018.i.i119, 1
+  %311 = add nuw nsw i64 %.016.i.i119, 1
   %312 = load ptr, ptr %293, align 8, !tbaa !87, !noalias !1640
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i64, ptr %313, align 8, !tbaa !1476, !noalias !1640
@@ -18148,14 +18148,14 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i123:           ; preds = %.preheader.i.i121
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i124:                 ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i126, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i123
-  %.018.i.i125 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i123 ], [ %339, %_ZN5arrow6StatusD2Ev.exit14.i.i126 ]
+  %.016.i.i125 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i123 ], [ %339, %_ZN5arrow6StatusD2Ev.exit14.i.i126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1662
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1662
   %329 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1662
   %330 = load ptr, ptr %326, align 8, !tbaa !1588, !noalias !1662
   %331 = load i32, ptr %327, align 8, !tbaa !1591, !noalias !1662
   %332 = sext i32 %331 to i64
-  %333 = mul nsw i64 %.018.i.i125, %332
+  %333 = mul nsw i64 %.016.i.i125, %332
   %334 = getelementptr inbounds i8, ptr %330, i64 %333
   %335 = getelementptr inbounds nuw i8, ptr %329, i64 24
   %336 = load ptr, ptr %335, align 8, !tbaa !83, !noalias !1663
@@ -18171,7 +18171,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i124:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %338, label %_ZN5arrow6StatusD2Ev.exit14.i.i126, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_13Decimal64TypeENS_14Decimal64ArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i126:               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i124
-  %339 = add nuw nsw i64 %.018.i.i125, 1
+  %339 = add nuw nsw i64 %.016.i.i125, 1
   %340 = load ptr, ptr %321, align 8, !tbaa !87, !noalias !1662
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %342 = load i64, ptr %341, align 8, !tbaa !1476, !noalias !1662
@@ -18213,14 +18213,14 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i129:           ; preds = %.preheader.i.i127
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i130:                 ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i132, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i129
-  %.018.i.i131 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i129 ], [ %367, %_ZN5arrow6StatusD2Ev.exit14.i.i132 ]
+  %.016.i.i131 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i129 ], [ %367, %_ZN5arrow6StatusD2Ev.exit14.i.i132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1684
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1684
   %357 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1684
   %358 = load ptr, ptr %354, align 8, !tbaa !1588, !noalias !1684
   %359 = load i32, ptr %355, align 8, !tbaa !1591, !noalias !1684
   %360 = sext i32 %359 to i64
-  %361 = mul nsw i64 %.018.i.i131, %360
+  %361 = mul nsw i64 %.016.i.i131, %360
   %362 = getelementptr inbounds i8, ptr %358, i64 %361
   %363 = getelementptr inbounds nuw i8, ptr %357, i64 24
   %364 = load ptr, ptr %363, align 8, !tbaa !83, !noalias !1685
@@ -18236,7 +18236,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i130:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %366, label %_ZN5arrow6StatusD2Ev.exit14.i.i132, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_14Decimal128TypeENS_15Decimal128ArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i132:               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i130
-  %367 = add nuw nsw i64 %.018.i.i131, 1
+  %367 = add nuw nsw i64 %.016.i.i131, 1
   %368 = load ptr, ptr %349, align 8, !tbaa !87, !noalias !1684
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load i64, ptr %369, align 8, !tbaa !1476, !noalias !1684
@@ -18278,14 +18278,14 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i135:           ; preds = %.preheader.i.i133
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter5VisitINS_10StringTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i.i136:                 ; preds = %_ZN5arrow6StatusD2Ev.exit14.i.i138, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i135
-  %.018.i.i137 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i135 ], [ %395, %_ZN5arrow6StatusD2Ev.exit14.i.i138 ]
+  %.016.i.i137 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i135 ], [ %395, %_ZN5arrow6StatusD2Ev.exit14.i.i138 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1706
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1706
   %385 = load ptr, ptr %2, align 8, !tbaa !109, !noalias !1706
   %386 = load ptr, ptr %382, align 8, !tbaa !1588, !noalias !1706
   %387 = load i32, ptr %383, align 8, !tbaa !1591, !noalias !1706
   %388 = sext i32 %387 to i64
-  %389 = mul nsw i64 %.018.i.i137, %388
+  %389 = mul nsw i64 %.016.i.i137, %388
   %390 = getelementptr inbounds i8, ptr %386, i64 %389
   %391 = getelementptr inbounds nuw i8, ptr %385, i64 24
   %392 = load ptr, ptr %391, align 8, !tbaa !83, !noalias !1707
@@ -18301,7 +18301,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i136:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %394, label %_ZN5arrow6StatusD2Ev.exit14.i.i138, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_14Decimal256TypeENS_15Decimal256ArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit.i
 
 _ZN5arrow6StatusD2Ev.exit14.i.i138:               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i136
-  %395 = add nuw nsw i64 %.018.i.i137, 1
+  %395 = add nuw nsw i64 %.016.i.i137, 1
   %396 = load ptr, ptr %377, align 8, !tbaa !87, !noalias !1706
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %398 = load i64, ptr %397, align 8, !tbaa !1476, !noalias !1706
@@ -18830,11 +18830,11 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_14StringViewTypeENS_15StringViewArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.preheader.i, %_ZN5arrow6StatusD2Ev.exit14.i
-  %.018.i = phi i64 [ %27, %_ZN5arrow6StatusD2Ev.exit14.i ], [ 0, %.preheader.i ]
+  %.016.i = phi i64 [ %27, %_ZN5arrow6StatusD2Ev.exit14.i ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1830
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1830
   %18 = load ptr, ptr %1, align 8, !tbaa !109, !noalias !1830
-  %19 = call { i64, ptr } @_ZNK5arrow15BinaryViewArray7GetViewEl(ptr noundef nonnull align 8 dereferenceable(40) %9, i64 noundef %.018.i), !noalias !1830
+  %19 = call { i64, ptr } @_ZNK5arrow15BinaryViewArray7GetViewEl(ptr noundef nonnull align 8 dereferenceable(40) %9, i64 noundef %.016.i), !noalias !1830
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -18852,7 +18852,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.preheader.i, %_ZN5
   br i1 %26, label %_ZN5arrow6StatusD2Ev.exit14.i, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_14StringViewTypeENS_15StringViewArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit
 
 _ZN5arrow6StatusD2Ev.exit14.i:                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i
-  %27 = add nuw nsw i64 %.018.i, 1
+  %27 = add nuw nsw i64 %.016.i, 1
   %28 = load ptr, ptr %12, align 8, !tbaa !87, !noalias !1830
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !1476, !noalias !1830
@@ -18897,11 +18897,11 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_14BinaryViewTypeENS_15BinaryViewArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.preheader.i, %_ZN5arrow6StatusD2Ev.exit14.i
-  %.018.i = phi i64 [ %27, %_ZN5arrow6StatusD2Ev.exit14.i ], [ 0, %.preheader.i ]
+  %.016.i = phi i64 [ %27, %_ZN5arrow6StatusD2Ev.exit14.i ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1848
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1848
   %18 = load ptr, ptr %1, align 8, !tbaa !109, !noalias !1848
-  %19 = call { i64, ptr } @_ZNK5arrow15BinaryViewArray7GetViewEl(ptr noundef nonnull align 8 dereferenceable(40) %9, i64 noundef %.018.i), !noalias !1848
+  %19 = call { i64, ptr } @_ZNK5arrow15BinaryViewArray7GetViewEl(ptr noundef nonnull align 8 dereferenceable(40) %9, i64 noundef %.016.i), !noalias !1848
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -18919,7 +18919,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.preheader.i, %_ZN5
   br i1 %26, label %_ZN5arrow6StatusD2Ev.exit14.i, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl19ArrayValuesInserter12InsertValuesINS_14BinaryViewTypeENS_15BinaryViewArrayEEENSt9enable_ifIXntsr3std7is_sameINS0_16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS9_RKT0_.exit.loopexit
 
 _ZN5arrow6StatusD2Ev.exit14.i:                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i
-  %27 = add nuw nsw i64 %.018.i, 1
+  %27 = add nuw nsw i64 %.016.i, 1
   %28 = load ptr, ptr %12, align 8, !tbaa !87, !noalias !1848
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !1476, !noalias !1848
@@ -19452,10 +19452,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !1911
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %.01217
   %19 = load i16, ptr %18, align 2, !tbaa !1914
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !1915
@@ -19529,7 +19529,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKsPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !1929
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -19572,10 +19572,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !1938
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %.01217
   %19 = load i16, ptr %18, align 2, !tbaa !1914
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !1940
@@ -19648,7 +19648,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !1954
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -19691,10 +19691,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !1963
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01217
   %19 = load i32, ptr %18, align 4, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !1965
@@ -19768,7 +19768,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !1979
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -19811,10 +19811,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !1988
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01217
   %19 = load i32, ptr %18, align 4, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !1990
@@ -19887,7 +19887,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKjPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2004
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -19930,10 +19930,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2013
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01217
   %19 = load i64, ptr %18, align 8, !tbaa !129
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2015
@@ -20004,7 +20004,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2029
-  %53 = add nuw nsw i64 %.01219, 1
+  %53 = add nuw nsw i64 %.01217, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -20047,10 +20047,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2038
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01217
   %19 = load i64, ptr %18, align 8, !tbaa !129
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2040
@@ -20121,7 +20121,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKmPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2054
-  %53 = add nuw nsw i64 %.01219, 1
+  %53 = add nuw nsw i64 %.01217, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -20164,10 +20164,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2063
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %.01217
   %19 = load i16, ptr %18, align 2, !tbaa !1914
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2065
@@ -20240,7 +20240,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2079
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -21002,10 +21002,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %65
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %59, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %59, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2113
-  %18 = getelementptr inbounds nuw float, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw float, ptr %17, i64 %.01217
   %19 = load float, ptr %18, align 4, !tbaa !2116
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2117
@@ -21084,7 +21084,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %46
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKfPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2131
-  %59 = add nuw nsw i64 %.01219, 1
+  %59 = add nuw nsw i64 %.01217, 1
   %60 = load ptr, ptr %8, align 8, !tbaa !87
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !1476
@@ -21127,10 +21127,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %67
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %61, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %61, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2140
-  %18 = getelementptr inbounds nuw double, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw double, ptr %17, i64 %.01217
   %19 = load double, ptr %18, align 8, !tbaa !426
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2143
@@ -21210,7 +21210,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %48
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKdPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2157
-  %61 = add nuw nsw i64 %.01219, 1
+  %61 = add nuw nsw i64 %.01217, 1
   %62 = load ptr, ptr %8, align 8, !tbaa !87
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8, !tbaa !1476
@@ -21904,9 +21904,9 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendE
   %14 = load ptr, ptr %13, align 8, !noalias !2232
   %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(144) %1), !noalias !2232
   %.not.i.not = icmp slt i64 %15, %11
-  br i1 %.not.i.not, label %_ZN5arrow6StatusD2Ev.exit20.thread, label %_ZN5arrow6StatusD2Ev.exit
+  br i1 %.not.i.not, label %_ZN5arrow6StatusD2Ev.exit18.thread, label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit20.thread:               ; preds = %4
+_ZN5arrow6StatusD2Ev.exit18.thread:               ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %22
 
@@ -21925,7 +21925,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   %21 = icmp eq ptr %.pr, null
   br i1 %21, label %22, label %72
 
-22:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit20.thread, %_ZN5arrow6StatusD2Ev.exit
+22:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit18.thread, %_ZN5arrow6StatusD2Ev.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %24 = load i64, ptr %23, align 8, !tbaa !1081
   %25 = trunc i64 %24 to i32
@@ -21949,34 +21949,34 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   %37 = add nsw i64 %36, %35
   store i64 %37, ptr %6, align 8, !tbaa !129, !noalias !2238
   %38 = icmp sgt i64 %37, 2147483646
-  br i1 %38, label %_ZN5arrow6StatusD2Ev.exit22, label %_ZN5arrow6StatusD2Ev.exit24.thread, !prof !48
+  br i1 %38, label %_ZN5arrow6StatusD2Ev.exit20, label %_ZN5arrow6StatusD2Ev.exit22.thread, !prof !48
 
-_ZN5arrow6StatusD2Ev.exit24.thread:               ; preds = %34
+_ZN5arrow6StatusD2Ev.exit22.thread:               ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2238
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %40
 
-_ZN5arrow6StatusD2Ev.exit22:                      ; preds = %34
+_ZN5arrow6StatusD2Ev.exit20:                      ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2238
   store i64 2147483646, ptr %7, align 8, !tbaa !129, !noalias !2238
   call void @_ZN5arrow6Status13CapacityErrorIJRA32_KclRA14_S2_RlEEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %9, ptr noundef nonnull align 1 dereferenceable(32) @.str.17, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(14) @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2238
-  %.pr30 = load ptr, ptr %9, align 8, !tbaa !65, !noalias !2241
+  %.pr28 = load ptr, ptr %9, align 8, !tbaa !65, !noalias !2241
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2238
   call void @llvm.experimental.noalias.scope.decl(metadata !2241)
-  store ptr %.pr30, ptr %0, align 8, !tbaa !65, !alias.scope !2241
+  store ptr %.pr28, ptr %0, align 8, !tbaa !65, !alias.scope !2241
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %39 = icmp eq ptr %.pr30, null
-  br i1 %39, label %_ZN5arrow6StatusD2Ev.exit22._crit_edge, label %72
+  %39 = icmp eq ptr %.pr28, null
+  br i1 %39, label %_ZN5arrow6StatusD2Ev.exit20._crit_edge, label %72
 
-_ZN5arrow6StatusD2Ev.exit22._crit_edge:           ; preds = %_ZN5arrow6StatusD2Ev.exit22
+_ZN5arrow6StatusD2Ev.exit20._crit_edge:           ; preds = %_ZN5arrow6StatusD2Ev.exit20
   %.pre = load i64, ptr %23, align 8, !tbaa !1081, !noalias !2244
-  %.pre33 = add nsw i64 %.pre, %35
+  %.pre31 = add nsw i64 %.pre, %35
   br label %40
 
-40:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit22._crit_edge, %_ZN5arrow6StatusD2Ev.exit24.thread
-  %.pre-phi = phi i64 [ %.pre33, %_ZN5arrow6StatusD2Ev.exit22._crit_edge ], [ %37, %_ZN5arrow6StatusD2Ev.exit24.thread ]
-  %41 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit22._crit_edge ], [ %36, %_ZN5arrow6StatusD2Ev.exit24.thread ]
+40:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit20._crit_edge, %_ZN5arrow6StatusD2Ev.exit22.thread
+  %.pre-phi = phi i64 [ %.pre31, %_ZN5arrow6StatusD2Ev.exit20._crit_edge ], [ %37, %_ZN5arrow6StatusD2Ev.exit22.thread ]
+  %41 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit20._crit_edge ], [ %36, %_ZN5arrow6StatusD2Ev.exit22.thread ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %43 = load i64, ptr %42, align 8, !tbaa !1046, !noalias !2244
   %44 = icmp sgt i64 %.pre-phi, %43
@@ -22035,7 +22035,7 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge.i.i:         ; preds = %_ZN5arrow6StatusD2E
   store ptr %.sink, ptr %0, align 8, !tbaa !65
   br label %72
 
-72:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit22, %_ZN5arrow6StatusD2Ev.exit
+72:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit20, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -22501,9 +22501,9 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6Ap
   %14 = load ptr, ptr %13, align 8, !noalias !2290
   %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(144) %1), !noalias !2290
   %.not.i.not = icmp slt i64 %15, %11
-  br i1 %.not.i.not, label %_ZN5arrow6StatusD2Ev.exit20.thread, label %_ZN5arrow6StatusD2Ev.exit
+  br i1 %.not.i.not, label %_ZN5arrow6StatusD2Ev.exit18.thread, label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit20.thread:               ; preds = %4
+_ZN5arrow6StatusD2Ev.exit18.thread:               ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %22
 
@@ -22522,7 +22522,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   %21 = icmp eq ptr %.pr, null
   br i1 %21, label %22, label %70
 
-22:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit20.thread, %_ZN5arrow6StatusD2Ev.exit
+22:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit18.thread, %_ZN5arrow6StatusD2Ev.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %24 = load i64, ptr %23, align 8, !tbaa !1081
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -22544,34 +22544,34 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   %35 = add nsw i64 %34, %3
   store i64 %35, ptr %6, align 8, !tbaa !129, !noalias !2296
   %36 = icmp eq i64 %35, 9223372036854775807
-  br i1 %36, label %_ZN5arrow6StatusD2Ev.exit22, label %_ZN5arrow6StatusD2Ev.exit24.thread, !prof !48
+  br i1 %36, label %_ZN5arrow6StatusD2Ev.exit20, label %_ZN5arrow6StatusD2Ev.exit22.thread, !prof !48
 
-_ZN5arrow6StatusD2Ev.exit24.thread:               ; preds = %33
+_ZN5arrow6StatusD2Ev.exit22.thread:               ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2296
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %38
 
-_ZN5arrow6StatusD2Ev.exit22:                      ; preds = %33
+_ZN5arrow6StatusD2Ev.exit20:                      ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2296
   store i64 9223372036854775806, ptr %7, align 8, !tbaa !129, !noalias !2296
   call void @_ZN5arrow6Status13CapacityErrorIJRA32_KclRA14_S2_RlEEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %9, ptr noundef nonnull align 1 dereferenceable(32) @.str.17, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(14) @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2296
-  %.pr30 = load ptr, ptr %9, align 8, !tbaa !65, !noalias !2299
+  %.pr28 = load ptr, ptr %9, align 8, !tbaa !65, !noalias !2299
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2296
   call void @llvm.experimental.noalias.scope.decl(metadata !2299)
-  store ptr %.pr30, ptr %0, align 8, !tbaa !65, !alias.scope !2299
+  store ptr %.pr28, ptr %0, align 8, !tbaa !65, !alias.scope !2299
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %37 = icmp eq ptr %.pr30, null
-  br i1 %37, label %_ZN5arrow6StatusD2Ev.exit22._crit_edge, label %70
+  %37 = icmp eq ptr %.pr28, null
+  br i1 %37, label %_ZN5arrow6StatusD2Ev.exit20._crit_edge, label %70
 
-_ZN5arrow6StatusD2Ev.exit22._crit_edge:           ; preds = %_ZN5arrow6StatusD2Ev.exit22
+_ZN5arrow6StatusD2Ev.exit20._crit_edge:           ; preds = %_ZN5arrow6StatusD2Ev.exit20
   %.pre = load i64, ptr %23, align 8, !tbaa !1081, !noalias !2302
-  %.pre33 = add nsw i64 %.pre, %3
+  %.pre31 = add nsw i64 %.pre, %3
   br label %38
 
-38:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit22._crit_edge, %_ZN5arrow6StatusD2Ev.exit24.thread
-  %.pre-phi = phi i64 [ %.pre33, %_ZN5arrow6StatusD2Ev.exit22._crit_edge ], [ %35, %_ZN5arrow6StatusD2Ev.exit24.thread ]
-  %39 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit22._crit_edge ], [ %34, %_ZN5arrow6StatusD2Ev.exit24.thread ]
+38:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit20._crit_edge, %_ZN5arrow6StatusD2Ev.exit22.thread
+  %.pre-phi = phi i64 [ %.pre31, %_ZN5arrow6StatusD2Ev.exit20._crit_edge ], [ %35, %_ZN5arrow6StatusD2Ev.exit22.thread ]
+  %39 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit20._crit_edge ], [ %34, %_ZN5arrow6StatusD2Ev.exit22.thread ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %41 = load i64, ptr %40, align 8, !tbaa !1046, !noalias !2302
   %42 = icmp sgt i64 %.pre-phi, %41
@@ -22630,7 +22630,7 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge.i.i:         ; preds = %_ZN5arrow6StatusD2E
   store ptr %.sink, ptr %0, align 8, !tbaa !65
   br label %70
 
-70:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit22, %_ZN5arrow6StatusD2Ev.exit
+70:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit20, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -22910,10 +22910,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2330
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01217
   %19 = load i64, ptr %18, align 8, !tbaa !129
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2332
@@ -22984,7 +22984,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2346
-  %53 = add nuw nsw i64 %.01219, 1
+  %53 = add nuw nsw i64 %.01217, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -23027,10 +23027,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2355
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01217
   %19 = load i32, ptr %18, align 4, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2357
@@ -23104,7 +23104,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2371
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -23147,10 +23147,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2380
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01217
   %19 = load i64, ptr %18, align 8, !tbaa !129
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2382
@@ -23221,7 +23221,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2396
-  %53 = add nuw nsw i64 %.01219, 1
+  %53 = add nuw nsw i64 %.01217, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -23264,10 +23264,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2405
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01217
   %19 = load i64, ptr %18, align 8, !tbaa !129
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2407
@@ -23338,7 +23338,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2421
-  %53 = add nuw nsw i64 %.01219, 1
+  %53 = add nuw nsw i64 %.01217, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -23381,10 +23381,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2430
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01217
   %19 = load i32, ptr %18, align 4, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2432
@@ -23458,7 +23458,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2446
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -23501,10 +23501,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2455
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01217
   %19 = load i64, ptr %18, align 8, !tbaa !129
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2457
@@ -23575,7 +23575,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2471
-  %53 = add nuw nsw i64 %.01219, 1
+  %53 = add nuw nsw i64 %.01217, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -23614,9 +23614,9 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5arrow6StatusD2Ev.exit14
-  %.019 = phi i64 [ %53, %_ZN5arrow6StatusD2Ev.exit14 ], [ 0, %.preheader ]
+  %.017 = phi i64 [ %53, %_ZN5arrow6StatusD2Ev.exit14 ], [ 0, %.preheader ]
   %14 = load ptr, ptr %1, align 8, !tbaa !109
-  %15 = call { i64, i64 } @_ZNK5arrow25MonthDayNanoIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %.019)
+  %15 = call { i64, i64 } @_ZNK5arrow25MonthDayNanoIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %.017)
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -23697,7 +23697,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2494
-  %53 = add nuw nsw i64 %.019, 1
+  %53 = add nuw nsw i64 %.017, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -23742,10 +23742,10 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %60
 
 15:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit14
-  %.01219 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN5arrow6StatusD2Ev.exit14 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !109
   %17 = load ptr, ptr %13, align 8, !tbaa !2503
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01219
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %.01217
   %19 = load i32, ptr %18, align 4, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !2505
@@ -23819,7 +23819,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %41
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2519
-  %54 = add nuw nsw i64 %.01219, 1
+  %54 = add nuw nsw i64 %.01217, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !87
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !1476
@@ -23858,9 +23858,9 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   br label %59
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5arrow6StatusD2Ev.exit14
-  %.019 = phi i64 [ %53, %_ZN5arrow6StatusD2Ev.exit14 ], [ 0, %.preheader ]
+  %.017 = phi i64 [ %53, %_ZN5arrow6StatusD2Ev.exit14 ], [ 0, %.preheader ]
   %14 = load ptr, ptr %1, align 8, !tbaa !109
-  %15 = call i64 @_ZNK5arrow20DayTimeIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %.019)
+  %15 = call i64 @_ZNK5arrow20DayTimeIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %.017)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !83, !noalias !2528
   %18 = lshr i64 %15, 32
@@ -23935,7 +23935,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %40
 
 _ZN5arrow6StatusD2Ev.exit14:                      ; preds = %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2542
-  %53 = add nuw nsw i64 %.019, 1
+  %53 = add nuw nsw i64 %.017, 1
   %54 = load ptr, ptr %8, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !1476
@@ -42004,16 +42004,16 @@ define linkonce_odr void @_ZN5arrow17BinaryViewBuilder6ResizeEl(ptr dead_on_unwi
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %11 = load i64, ptr %10, align 8, !tbaa !1108, !noalias !3179
   %12 = icmp slt i64 %2, %11
-  br i1 %12, label %13, label %_ZN5arrow6StatusD2Ev.exit9.thread, !prof !48
+  br i1 %12, label %13, label %_ZN5arrow6StatusD2Ev.exit8.thread, !prof !48
 
 13:                                               ; preds = %9
   call void @_ZN5arrow6Status7InvalidIJRA36_KcRlRA19_S2_S5_RA2_S2_EEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %5, ptr noundef nonnull align 1 dereferenceable(36) @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(19) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(2) @.str.14)
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit9.thread:                ; preds = %9
+_ZN5arrow6StatusD2Ev.exit8.thread:                ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN5arrow6StatusD2Ev.exit11
+  br label %_ZN5arrow6StatusD2Ev.exit10
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   %.pr = load ptr, ptr %5, align 8, !tbaa !65, !noalias !3182
@@ -42022,9 +42022,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   store ptr %.pr, ptr %0, align 8, !tbaa !65, !alias.scope !3182
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = icmp eq ptr %.pr, null
-  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit11, label %20
+  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit10, label %20
 
-_ZN5arrow6StatusD2Ev.exit11:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit9.thread
+_ZN5arrow6StatusD2Ev.exit10:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit8.thread
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %2, i64 32)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -42037,11 +42037,11 @@ _ZN5arrow6StatusD2Ev.exit11:                      ; preds = %_ZN5arrow6StatusD2E
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit11
+19:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10
   call void @_ZN5arrow12ArrayBuilder6ResizeEl(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.sroa.speculated)
   br label %20
 
-20:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit11, %_ZN5arrow6StatusD2Ev.exit, %19
+20:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10, %_ZN5arrow6StatusD2Ev.exit, %19
   ret void
 }
 

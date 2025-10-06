@@ -577,7 +577,7 @@ define internal i32 @dissect_rtp_hdr_ext_ed137(ptr noundef %0, ptr noundef reado
 define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.thread138, label %6
+  br i1 %.not, label %.thread137, label %6
 
 6:                                                ; preds = %4
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
@@ -636,7 +636,7 @@ define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, 
 
 28:                                               ; preds = %.sink.split, %26
   %29 = icmp ne ptr %.0111, null
-  br i1 %29, label %30, label %.thread136
+  br i1 %29, label %30, label %.thread135
 
 30:                                               ; preds = %28
   %31 = load i32, ptr @hf_rtp_hdr_ed137a, align 4
@@ -663,20 +663,20 @@ define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, 
   %.not128 = icmp eq i32 %51, 0
   br i1 %.not128, label %88, label %.preheader
 
-.thread136:                                       ; preds = %28
+.thread135:                                       ; preds = %28
   %52 = and i32 %8, 1
-  %.not128137 = icmp eq i32 %52, 0
-  br i1 %.not128137, label %.thread138, label %.preheader
+  %.not128136 = icmp eq i32 %52, 0
+  br i1 %.not128136, label %.thread137, label %.preheader
 
-.preheader:                                       ; preds = %30, %.thread136
+.preheader:                                       ; preds = %30, %.thread135
   %.0.ph = add i32 %5, -2
   %53 = icmp ugt i32 %.0.ph, 1
   br i1 %53, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %79
-  %.0140 = phi i32 [ %81, %79 ], [ %.0.ph, %.preheader ]
-  %.0112139 = phi i32 [ %80, %79 ], [ 2, %.preheader ]
-  %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0112139)
+  %.0139 = phi i32 [ %81, %79 ], [ %.0.ph, %.preheader ]
+  %.0112138 = phi i32 [ %80, %79 ], [ 2, %.preheader ]
+  %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0112138)
   %55 = lshr i16 %54, 8
   %56 = zext nneg i16 %55 to i32
   %57 = and i32 %56, 15
@@ -688,21 +688,21 @@ define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, 
   %.not130 = icmp eq i32 %57, 0
   %60 = add nuw nsw i32 %57, 1
   %61 = select i1 %.not130, i32 2, i32 %60
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %.0111, i32 noundef %59, ptr noundef %0, i32 noundef %.0112139, i32 noundef %61, i32 noundef 0)
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %.0111, i32 noundef %59, ptr noundef %0, i32 noundef %.0112138, i32 noundef %61, i32 noundef 0)
   %63 = load i32, ptr @ett_hdr_ext_ed137a_add, align 4
   %64 = tail call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63)
   br i1 %29, label %65, label %70
 
 65:                                               ; preds = %58
   %66 = load i32, ptr @hf_rtp_hdr_ed137a_ft_type, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %66, ptr noundef %0, i32 noundef %.0112139, i32 noundef 1, i32 noundef 0)
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %66, ptr noundef %0, i32 noundef %.0112138, i32 noundef 1, i32 noundef 0)
   %68 = load i32, ptr @hf_rtp_hdr_ed137a_ft_len, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %68, ptr noundef %0, i32 noundef %.0112139, i32 noundef 1, i32 noundef 0)
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %68, ptr noundef %0, i32 noundef %.0112138, i32 noundef 1, i32 noundef 0)
   br label %70
 
 70:                                               ; preds = %65, %58
-  %71 = add i32 %.0112139, 1
-  %72 = add i32 %.0140, -1
+  %71 = add i32 %.0112138, 1
+  %72 = add i32 %.0139, -1
   %73 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %71, i32 noundef %72)
   %74 = load ptr, ptr @rtp_hdr_ext_ed137a_add_features_table, align 8
   %75 = tail call i32 @dissector_try_uint(ptr noundef %74, i32 noundef %56, ptr noundef %73, ptr noundef %1, ptr noundef %64)
@@ -721,17 +721,17 @@ define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, 
   br i1 %82, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %79, %.lr.ph, %.preheader
-  %.0112.lcssa = phi i32 [ 2, %.preheader ], [ %.0112139, %.lr.ph ], [ %80, %79 ]
-  %.0.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.0140, %.lr.ph ], [ %81, %79 ]
+  %.0112.lcssa = phi i32 [ 2, %.preheader ], [ %.0112138, %.lr.ph ], [ %80, %79 ]
+  %.0.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.0139, %.lr.ph ], [ %81, %79 ]
   %83 = and i32 %.0.lcssa, 3
   %84 = icmp ne i32 %83, 0
   %or.cond = and i1 %29, %84
-  br i1 %or.cond, label %85, label %.thread138
+  br i1 %or.cond, label %85, label %.thread137
 
 85:                                               ; preds = %.thread
   %86 = load i32, ptr @hf_rtp_hdr_ed137a_ft_padding, align 4
   %87 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0111, i32 noundef %86, ptr noundef %0, i32 noundef %.0112.lcssa, i32 noundef %83, i32 noundef 0)
-  br label %.thread138
+  br label %.thread137
 
 88:                                               ; preds = %30
   %89 = load i32, ptr @hf_rtp_hdr_ed137a_add, align 4
@@ -740,9 +740,9 @@ define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, 
   %92 = tail call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91)
   %93 = load i32, ptr @hf_rtp_hdr_ed137a_x_nu, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  br label %.thread138
+  br label %.thread137
 
-.thread138:                                       ; preds = %.thread136, %88, %85, %.thread, %4
+.thread137:                                       ; preds = %.thread135, %88, %85, %.thread, %4
   %95 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %95
 }

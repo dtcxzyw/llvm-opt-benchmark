@@ -994,17 +994,17 @@ define noundef zeroext i1 @_ZN3net30QuicMultipathSentPacketManager28MaybeRetrans
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not15.not = icmp eq ptr %4, %6
-  br i1 %.not15.not, label %.loopexit, label %.lr.ph
+  %.not16.not = icmp eq ptr %4, %6
+  br i1 %.not16.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.critedge
-  %.sroa.010.016 = phi ptr [ %4, %.lr.ph ], [ %18, %.critedge ]
+  %.sroa.010.017 = phi ptr [ %4, %.lr.ph ], [ %18, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.010.016)
+  call void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.010.017)
   %9 = load ptr, ptr %2, align 8, !tbaa !21
   %10 = icmp ne ptr %9, null
   %11 = load i32, ptr %7, align 8
@@ -1021,7 +1021,7 @@ define noundef zeroext i1 @_ZN3net30QuicMultipathSentPacketManager28MaybeRetrans
 
 .critedge:                                        ; preds = %13, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 16
   %.not.not = icmp eq ptr %18, %6
   br i1 %.not.not, label %.loopexit, label %8
 
@@ -1030,8 +1030,8 @@ define noundef zeroext i1 @_ZN3net30QuicMultipathSentPacketManager28MaybeRetrans
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %1, %19
-  %.not14 = phi i1 [ true, %19 ], [ false, %1 ], [ false, %.critedge ]
-  ret i1 %.not14
+  %.not15 = phi i1 [ true, %19 ], [ false, %1 ], [ false, %.critedge ]
+  ret i1 %.not15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1119,17 +1119,17 @@ define noundef zeroext i1 @_ZNK3net30QuicMultipathSentPacketManager17HasUnackedP
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not15.not = icmp eq ptr %4, %6
-  br i1 %.not15.not, label %.loopexit, label %.lr.ph
+  %.not16.not = icmp eq ptr %4, %6
+  br i1 %.not16.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.critedge
-  %.sroa.010.016 = phi ptr [ %4, %.lr.ph ], [ %18, %.critedge ]
+  %.sroa.010.017 = phi ptr [ %4, %.lr.ph ], [ %18, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.010.016)
+  call void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.010.017)
   %9 = load ptr, ptr %2, align 8, !tbaa !21
   %10 = icmp ne ptr %9, null
   %11 = load i32, ptr %7, align 8
@@ -1146,7 +1146,7 @@ define noundef zeroext i1 @_ZNK3net30QuicMultipathSentPacketManager17HasUnackedP
 
 .critedge:                                        ; preds = %13, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 16
   %.not.not = icmp eq ptr %18, %6
   br i1 %.not.not, label %.loopexit, label %8
 
@@ -1155,8 +1155,8 @@ define noundef zeroext i1 @_ZNK3net30QuicMultipathSentPacketManager17HasUnackedP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %1, %19
-  %.not14 = phi i1 [ true, %19 ], [ false, %1 ], [ false, %.critedge ]
-  ret i1 %.not14
+  %.not15 = phi i1 [ true, %19 ], [ false, %1 ], [ false, %.critedge ]
+  ret i1 %.not15
 }
 
 ; Function Attrs: mustprogress uwtable

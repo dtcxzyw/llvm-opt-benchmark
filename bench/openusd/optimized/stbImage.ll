@@ -50214,7 +50214,7 @@ _ZL10stbi__get8P13stbi__context.exit36.i.i.i:     ; preds = %_ZL19stbi__refill_b
   %1186 = add nsw i32 %1185, %1184
   store i32 %1186, ptr %27, align 8
   %1187 = icmp eq i32 %1178, 0
-  %.pre346 = load ptr, ptr %94, align 8
+  %.pre347 = load ptr, ptr %94, align 8
   br i1 %1187, label %_ZL14stbi__gif_testP13stbi__context.exit.i.thread, label %_ZL14stbi__gif_testP13stbi__context.exit.i
 
 _ZL14stbi__gif_testP13stbi__context.exit.i.thread: ; preds = %1174
@@ -50230,7 +50230,7 @@ _ZL14stbi__gif_testP13stbi__context.exit.thread.i: ; preds = %1172, %_ZL10stbi__
   br label %.sink.split
 
 _ZL14stbi__gif_testP13stbi__context.exit.i:       ; preds = %1174, %1170
-  %1190 = phi ptr [ %.pre, %1170 ], [ %.pre346, %1174 ]
+  %1190 = phi ptr [ %.pre, %1170 ], [ %.pre347, %1174 ]
   %1191 = phi ptr [ %1165, %1170 ], [ %1180, %1174 ]
   %.0.i41.i.i.i.in = phi ptr [ %1167, %1170 ], [ %24, %1174 ]
   %.0.i41.i.i.i = load i8, ptr %.0.i41.i.i.i.in, align 1
@@ -51465,8 +51465,8 @@ _ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i: ; preds
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
 .sink.split:                                      ; preds = %_ZL14stbi__gif_testP13stbi__context.exit.thread.i, %_ZL14stbi__gif_testP13stbi__context.exit.i.thread
-  %.pre346.sink = phi ptr [ %.pre346, %_ZL14stbi__gif_testP13stbi__context.exit.i.thread ], [ %1189, %_ZL14stbi__gif_testP13stbi__context.exit.thread.i ]
-  store ptr %.pre346.sink, ptr %20, align 8
+  %.pre347.sink = phi ptr [ %.pre347, %_ZL14stbi__gif_testP13stbi__context.exit.i.thread ], [ %1189, %_ZL14stbi__gif_testP13stbi__context.exit.thread.i ]
+  store ptr %.pre347.sink, ptr %20, align 8
   br label %1781
 
 1781:                                             ; preds = %.sink.split, %_ZL14stbi__gif_testP13stbi__context.exit.i
@@ -51630,9 +51630,9 @@ _ZL10stbi__skipP13stbi__contexti.exit.i121.i:     ; preds = %1812, %1807
 1855:                                             ; preds = %1848
   %1856 = mul i32 %1826, %1822
   %.not206.i.i = icmp eq i32 %1842, 0
-  br i1 %.not206.i.i, label %.preheader224.i.i, label %1859
+  br i1 %.not206.i.i, label %.preheader226.i.i, label %1859
 
-.preheader224.i.i:                                ; preds = %1855
+.preheader226.i.i:                                ; preds = %1855
   %1857 = icmp sgt i32 %1856, 0
   %1858 = zext nneg i32 %1815 to i64
   br label %1875
@@ -51645,125 +51645,125 @@ _ZL10stbi__skipP13stbi__contexti.exit.i121.i:     ; preds = %1812, %1807
   %1863 = zext nneg i32 %1815 to i64
   br i1 %1862, label %.split.us.i.i, label %.split.i.i
 
-.split.us.i.i:                                    ; preds = %1859, %..loopexit227_crit_edge.us.i.i
-  %indvars.iv260.i.i = phi i64 [ %indvars.iv.next261.i.i, %..loopexit227_crit_edge.us.i.i ], [ 0, %1859 ]
-  %1864 = getelementptr inbounds nuw i8, ptr %1853, i64 %indvars.iv260.i.i
-  %.not212.us.i.i = icmp samesign ult i64 %indvars.iv260.i.i, %1863
-  br i1 %.not212.us.i.i, label %1868, label %.preheader226.us.i.i
+.split.us.i.i:                                    ; preds = %1859, %..loopexit229_crit_edge.us.i.i
+  %indvars.iv262.i.i = phi i64 [ %indvars.iv.next263.i.i, %..loopexit229_crit_edge.us.i.i ], [ 0, %1859 ]
+  %1864 = getelementptr inbounds nuw i8, ptr %1853, i64 %indvars.iv262.i.i
+  %.not212.us.i.i = icmp samesign ult i64 %indvars.iv262.i.i, %1863
+  br i1 %.not212.us.i.i, label %1868, label %.preheader228.us.i.i
 
-1865:                                             ; preds = %.preheader226.us.i.i, %1865
-  %.0183230.us.i.i = phi i32 [ 0, %.preheader226.us.i.i ], [ %1866, %1865 ]
-  %.0188229.us.i.i = phi ptr [ %1864, %.preheader226.us.i.i ], [ %1867, %1865 ]
-  store i8 %1871, ptr %.0188229.us.i.i, align 1
-  %1866 = add nuw nsw i32 %.0183230.us.i.i, 1
-  %1867 = getelementptr inbounds nuw i8, ptr %.0188229.us.i.i, i64 4
-  %exitcond259.not.i.i = icmp eq i32 %1866, %1856
-  br i1 %exitcond259.not.i.i, label %..loopexit227_crit_edge.us.i.i, label %1865, !llvm.loop !1075
+1865:                                             ; preds = %.preheader228.us.i.i, %1865
+  %.0183232.us.i.i = phi i32 [ 0, %.preheader228.us.i.i ], [ %1866, %1865 ]
+  %.0188231.us.i.i = phi ptr [ %1864, %.preheader228.us.i.i ], [ %1867, %1865 ]
+  store i8 %1871, ptr %.0188231.us.i.i, align 1
+  %1866 = add nuw nsw i32 %.0183232.us.i.i, 1
+  %1867 = getelementptr inbounds nuw i8, ptr %.0188231.us.i.i, i64 4
+  %exitcond261.not.i.i = icmp eq i32 %1866, %1856
+  br i1 %exitcond261.not.i.i, label %..loopexit229_crit_edge.us.i.i, label %1865, !llvm.loop !1075
 
 1868:                                             ; preds = %.split.us.i.i
   %1869 = tail call fastcc noundef i32 @_ZL20stbi__psd_decode_rleP13stbi__contextPhi(ptr noundef nonnull %0, ptr noundef %1864, i32 noundef %1856)
   %.not213.us.i.i = icmp eq i32 %1869, 0
-  br i1 %.not213.us.i.i, label %.split234.us.i.i, label %..loopexit227_crit_edge.us.i.i
+  br i1 %.not213.us.i.i, label %.split236.us.i.i, label %..loopexit229_crit_edge.us.i.i
 
-..loopexit227_crit_edge.us.i.i:                   ; preds = %1865, %1868
-  %indvars.iv.next261.i.i = add nuw nsw i64 %indvars.iv260.i.i, 1
-  %exitcond263.not.i.i = icmp eq i64 %indvars.iv.next261.i.i, 4
-  br i1 %exitcond263.not.i.i, label %.loopexit225.i.i, label %.split.us.i.i, !llvm.loop !1076
+..loopexit229_crit_edge.us.i.i:                   ; preds = %1865, %1868
+  %indvars.iv.next263.i.i = add nuw nsw i64 %indvars.iv262.i.i, 1
+  %exitcond265.not.i.i = icmp eq i64 %indvars.iv.next263.i.i, 4
+  br i1 %exitcond265.not.i.i, label %.loopexit227.i.i, label %.split.us.i.i, !llvm.loop !1076
 
-.preheader226.us.i.i:                             ; preds = %.split.us.i.i
-  %1870 = icmp eq i64 %indvars.iv260.i.i, 3
+.preheader228.us.i.i:                             ; preds = %.split.us.i.i
+  %1870 = icmp eq i64 %indvars.iv262.i.i, 3
   %1871 = sext i1 %1870 to i8
   br label %1865
 
-.split.i.i:                                       ; preds = %1859, %.preheader226.i.i
-  %indvars.iv.i122.i = phi i64 [ %indvars.iv.next.i123.i, %.preheader226.i.i ], [ 0, %1859 ]
+.split.i.i:                                       ; preds = %1859, %.preheader228.i.i
+  %indvars.iv.i122.i = phi i64 [ %indvars.iv.next.i123.i, %.preheader228.i.i ], [ 0, %1859 ]
   %.not212.i.i = icmp samesign ult i64 %indvars.iv.i122.i, %1863
-  br i1 %.not212.i.i, label %1872, label %.preheader226.i.i
+  br i1 %.not212.i.i, label %1872, label %.preheader228.i.i
 
 1872:                                             ; preds = %.split.i.i
   %1873 = getelementptr inbounds nuw i8, ptr %1853, i64 %indvars.iv.i122.i
   %1874 = tail call fastcc noundef i32 @_ZL20stbi__psd_decode_rleP13stbi__contextPhi(ptr noundef nonnull %0, ptr noundef %1873, i32 noundef %1856)
   %.not213.i.i = icmp eq i32 %1874, 0
-  br i1 %.not213.i.i, label %.split234.us.i.i, label %.preheader226.i.i
+  br i1 %.not213.i.i, label %.split236.us.i.i, label %.preheader228.i.i
 
-.split234.us.i.i:                                 ; preds = %1872, %1868
+.split236.us.i.i:                                 ; preds = %1872, %1868
   tail call void @free(ptr noundef nonnull %1853) #46
   store ptr @.str.107, ptr %92, align 8
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread
 
-.preheader226.i.i:                                ; preds = %1872, %.split.i.i
+.preheader228.i.i:                                ; preds = %1872, %.split.i.i
   %indvars.iv.next.i123.i = add nuw nsw i64 %indvars.iv.i122.i, 1
   %exitcond.not.i124.i = icmp eq i64 %indvars.iv.next.i123.i, 4
-  br i1 %exitcond.not.i124.i, label %.loopexit225.i.i, label %.split.i.i, !llvm.loop !1076
+  br i1 %exitcond.not.i124.i, label %.loopexit227.i.i, label %.split.i.i, !llvm.loop !1076
 
-1875:                                             ; preds = %.loopexit218.i.i, %.preheader224.i.i
-  %indvars.iv268.i.i = phi i64 [ 0, %.preheader224.i.i ], [ %indvars.iv.next269.i.i, %.loopexit218.i.i ]
-  %.not207.i.i = icmp samesign ult i64 %indvars.iv268.i.i, %1858
+1875:                                             ; preds = %.loopexit220.i.i, %.preheader226.i.i
+  %indvars.iv270.i.i = phi i64 [ 0, %.preheader226.i.i ], [ %indvars.iv.next271.i.i, %.loopexit220.i.i ]
+  %.not207.i.i = icmp samesign ult i64 %indvars.iv270.i.i, %1858
   br i1 %.not207.i.i, label %1882, label %1876
 
 1876:                                             ; preds = %1875
-  %1877 = icmp eq i64 %indvars.iv268.i.i, 3
+  %1877 = icmp eq i64 %indvars.iv270.i.i, 3
   %1878 = sext i1 %1877 to i8
-  br i1 %1857, label %.lr.ph.preheader.i128.i, label %.loopexit218.i.i
+  br i1 %1857, label %.lr.ph.preheader.i128.i, label %.loopexit220.i.i
 
 .lr.ph.preheader.i128.i:                          ; preds = %1876
-  %1879 = getelementptr inbounds nuw i8, ptr %1853, i64 %indvars.iv268.i.i
+  %1879 = getelementptr inbounds nuw i8, ptr %1853, i64 %indvars.iv270.i.i
   br label %.lr.ph.i129.i
 
 .lr.ph.i129.i:                                    ; preds = %.lr.ph.i129.i, %.lr.ph.preheader.i128.i
-  %.2236.i.i = phi i32 [ %1880, %.lr.ph.i129.i ], [ 0, %.lr.ph.preheader.i128.i ]
-  %.0190235.i.i = phi ptr [ %1881, %.lr.ph.i129.i ], [ %1879, %.lr.ph.preheader.i128.i ]
-  store i8 %1878, ptr %.0190235.i.i, align 1
-  %1880 = add nuw nsw i32 %.2236.i.i, 1
-  %1881 = getelementptr inbounds nuw i8, ptr %.0190235.i.i, i64 4
-  %exitcond264.not.i.i = icmp eq i32 %1880, %1856
-  br i1 %exitcond264.not.i.i, label %.loopexit218.i.i, label %.lr.ph.i129.i, !llvm.loop !1077
+  %.2238.i.i = phi i32 [ %1880, %.lr.ph.i129.i ], [ 0, %.lr.ph.preheader.i128.i ]
+  %.0190237.i.i = phi ptr [ %1881, %.lr.ph.i129.i ], [ %1879, %.lr.ph.preheader.i128.i ]
+  store i8 %1878, ptr %.0190237.i.i, align 1
+  %1880 = add nuw nsw i32 %.2238.i.i, 1
+  %1881 = getelementptr inbounds nuw i8, ptr %.0190237.i.i, i64 4
+  %exitcond266.not.i.i = icmp eq i32 %1880, %1856
+  br i1 %exitcond266.not.i.i, label %.loopexit220.i.i, label %.lr.ph.i129.i, !llvm.loop !1077
 
 1882:                                             ; preds = %1875
-  %1883 = getelementptr inbounds nuw i8, ptr %1853, i64 %indvars.iv268.i.i
-  br i1 %1849, label %.preheader219.i.i, label %.preheader221.i.i
+  %1883 = getelementptr inbounds nuw i8, ptr %1853, i64 %indvars.iv270.i.i
+  br i1 %1849, label %.preheader221.i.i, label %.preheader223.i.i
+
+.preheader223.i.i:                                ; preds = %1882
+  br i1 %1857, label %.lr.ph241.preheader.i.i, label %.loopexit220.i.i
+
+.lr.ph241.preheader.i.i:                          ; preds = %.preheader223.i.i
+  %.pre.i130.i = load ptr, ptr %19, align 8
+  %.pre283.i.i = load ptr, ptr %20, align 8
+  br label %.lr.ph241.i.i
 
 .preheader221.i.i:                                ; preds = %1882
-  br i1 %1857, label %.lr.ph239.preheader.i.i, label %.loopexit218.i.i
+  br i1 %1857, label %.lr.ph244.i.i, label %.loopexit220.i.i
 
-.lr.ph239.preheader.i.i:                          ; preds = %.preheader221.i.i
-  %.pre.i130.i = load ptr, ptr %19, align 8
-  %.pre281.i.i = load ptr, ptr %20, align 8
-  br label %.lr.ph239.i.i
-
-.preheader219.i.i:                                ; preds = %1882
-  br i1 %1857, label %.lr.ph242.i.i, label %.loopexit218.i.i
-
-.lr.ph242.i.i:                                    ; preds = %.preheader219.i.i, %.lr.ph242.i.i
-  %.4241.i.i = phi i32 [ %1887, %.lr.ph242.i.i ], [ 0, %.preheader219.i.i ]
-  %.0192240.i.i = phi ptr [ %1888, %.lr.ph242.i.i ], [ %1883, %.preheader219.i.i ]
+.lr.ph244.i.i:                                    ; preds = %.preheader221.i.i, %.lr.ph244.i.i
+  %.4243.i.i = phi i32 [ %1887, %.lr.ph244.i.i ], [ 0, %.preheader221.i.i ]
+  %.0192242.i.i = phi ptr [ %1888, %.lr.ph244.i.i ], [ %1883, %.preheader221.i.i ]
   %1884 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
   %1885 = lshr i32 %1884, 8
   %1886 = trunc nuw i32 %1885 to i8
-  store i8 %1886, ptr %.0192240.i.i, align 1
-  %1887 = add nuw nsw i32 %.4241.i.i, 1
-  %1888 = getelementptr inbounds nuw i8, ptr %.0192240.i.i, i64 4
-  %exitcond266.not.i.i = icmp eq i32 %1887, %1856
-  br i1 %exitcond266.not.i.i, label %.loopexit218.i.i, label %.lr.ph242.i.i, !llvm.loop !1078
+  store i8 %1886, ptr %.0192242.i.i, align 1
+  %1887 = add nuw nsw i32 %.4243.i.i, 1
+  %1888 = getelementptr inbounds nuw i8, ptr %.0192242.i.i, i64 4
+  %exitcond268.not.i.i = icmp eq i32 %1887, %1856
+  br i1 %exitcond268.not.i.i, label %.loopexit220.i.i, label %.lr.ph244.i.i, !llvm.loop !1078
 
-.lr.ph239.i.i:                                    ; preds = %_ZL10stbi__get8P13stbi__context.exit.i133.i, %.lr.ph239.preheader.i.i
-  %1889 = phi ptr [ %1916, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ %.pre281.i.i, %.lr.ph239.preheader.i.i ]
-  %1890 = phi ptr [ %1917, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ %.pre.i130.i, %.lr.ph239.preheader.i.i ]
-  %.5238.i.i = phi i32 [ %1918, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ 0, %.lr.ph239.preheader.i.i ]
-  %.1193237.i.i = phi ptr [ %1919, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ %1883, %.lr.ph239.preheader.i.i ]
+.lr.ph241.i.i:                                    ; preds = %_ZL10stbi__get8P13stbi__context.exit.i133.i, %.lr.ph241.preheader.i.i
+  %1889 = phi ptr [ %1916, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ %.pre283.i.i, %.lr.ph241.preheader.i.i ]
+  %1890 = phi ptr [ %1917, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ %.pre.i130.i, %.lr.ph241.preheader.i.i ]
+  %.5240.i.i = phi i32 [ %1918, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ 0, %.lr.ph241.preheader.i.i ]
+  %.1193239.i.i = phi ptr [ %1919, %_ZL10stbi__get8P13stbi__context.exit.i133.i ], [ %1883, %.lr.ph241.preheader.i.i ]
   %1891 = icmp ult ptr %1890, %1889
   br i1 %1891, label %1892, label %1895
 
-1892:                                             ; preds = %.lr.ph239.i.i
+1892:                                             ; preds = %.lr.ph241.i.i
   %1893 = getelementptr inbounds nuw i8, ptr %1890, i64 1
   store ptr %1893, ptr %19, align 8
   %1894 = load i8, ptr %1890, align 1
   br label %_ZL10stbi__get8P13stbi__context.exit.i133.i
 
-1895:                                             ; preds = %.lr.ph239.i.i
+1895:                                             ; preds = %.lr.ph241.i.i
   %1896 = load i32, ptr %21, align 8
-  %.not.i214.i.i = icmp eq i32 %1896, 0
-  br i1 %.not.i214.i.i, label %_ZL10stbi__get8P13stbi__context.exit.i133.i, label %1897
+  %.not.i216.i.i = icmp eq i32 %1896, 0
+  br i1 %.not.i216.i.i, label %_ZL10stbi__get8P13stbi__context.exit.i133.i, label %1897
 
 1897:                                             ; preds = %1895
   %1898 = load ptr, ptr %22, align 8
@@ -51790,11 +51790,11 @@ _ZL10stbi__skipP13stbi__contexti.exit.i121.i:     ; preds = %1812, %1807
 1912:                                             ; preds = %1897
   %1913 = sext i32 %1901 to i64
   %1914 = getelementptr inbounds i8, ptr %24, i64 %1913
-  %.pre.i215.i.i = load i8, ptr %24, align 1
+  %.pre.i217.i.i = load i8, ptr %24, align 1
   br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i131.i
 
 _ZL19stbi__refill_bufferP13stbi__context.exit.i.i131.i: ; preds = %1912, %1911
-  %1915 = phi i8 [ 0, %1911 ], [ %.pre.i215.i.i, %1912 ]
+  %1915 = phi i8 [ 0, %1911 ], [ %.pre.i217.i.i, %1912 ]
   %.sink.i.i.i132.i = phi ptr [ %28, %1911 ], [ %1914, %1912 ]
   store ptr %.sink.i.i.i132.i, ptr %20, align 8
   store ptr %28, ptr %19, align 8
@@ -51804,39 +51804,38 @@ _ZL10stbi__get8P13stbi__context.exit.i133.i:      ; preds = %_ZL19stbi__refill_b
   %1916 = phi ptr [ %1889, %1892 ], [ %.sink.i.i.i132.i, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i131.i ], [ %1889, %1895 ]
   %1917 = phi ptr [ %1893, %1892 ], [ %28, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i131.i ], [ %1890, %1895 ]
   %.0.i.i134.i = phi i8 [ %1894, %1892 ], [ %1915, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i131.i ], [ 0, %1895 ]
-  store i8 %.0.i.i134.i, ptr %.1193237.i.i, align 1
-  %1918 = add nuw nsw i32 %.5238.i.i, 1
-  %1919 = getelementptr inbounds nuw i8, ptr %.1193237.i.i, i64 4
-  %exitcond265.not.i.i = icmp eq i32 %1918, %1856
-  br i1 %exitcond265.not.i.i, label %.loopexit218.i.i, label %.lr.ph239.i.i, !llvm.loop !1079
+  store i8 %.0.i.i134.i, ptr %.1193239.i.i, align 1
+  %1918 = add nuw nsw i32 %.5240.i.i, 1
+  %1919 = getelementptr inbounds nuw i8, ptr %.1193239.i.i, i64 4
+  %exitcond267.not.i.i = icmp eq i32 %1918, %1856
+  br i1 %exitcond267.not.i.i, label %.loopexit220.i.i, label %.lr.ph241.i.i, !llvm.loop !1079
 
-.loopexit218.i.i:                                 ; preds = %.lr.ph.i129.i, %_ZL10stbi__get8P13stbi__context.exit.i133.i, %.lr.ph242.i.i, %.preheader219.i.i, %.preheader221.i.i, %1876
-  %indvars.iv.next269.i.i = add nuw nsw i64 %indvars.iv268.i.i, 1
-  %exitcond271.not.i.i = icmp eq i64 %indvars.iv.next269.i.i, 4
-  br i1 %exitcond271.not.i.i, label %.loopexit225.i.i, label %1875, !llvm.loop !1080
+.loopexit220.i.i:                                 ; preds = %.lr.ph.i129.i, %_ZL10stbi__get8P13stbi__context.exit.i133.i, %.lr.ph244.i.i, %.preheader221.i.i, %.preheader223.i.i, %1876
+  %indvars.iv.next271.i.i = add nuw nsw i64 %indvars.iv270.i.i, 1
+  %exitcond273.not.i.i = icmp eq i64 %indvars.iv.next271.i.i, 4
+  br i1 %exitcond273.not.i.i, label %.loopexit227.i.i, label %1875, !llvm.loop !1080
 
-.loopexit225.i.i:                                 ; preds = %.preheader226.i.i, %..loopexit227_crit_edge.us.i.i, %.loopexit218.i.i
+.loopexit227.i.i:                                 ; preds = %.preheader228.i.i, %..loopexit229_crit_edge.us.i.i, %.loopexit220.i.i
   %1920 = icmp samesign ugt i32 %1815, 3
   %1921 = icmp sgt i32 %1856, 0
   %or.cond = select i1 %1920, i1 %1921, i1 false
-  br i1 %or.cond, label %.lr.ph248.preheader.i.i, label %.loopexit.i125.i
+  br i1 %or.cond, label %.lr.ph250.preheader.i.i, label %.loopexit.i125.i
 
-.lr.ph248.preheader.i.i:                          ; preds = %.loopexit225.i.i
+.lr.ph250.preheader.i.i:                          ; preds = %.loopexit227.i.i
   %wide.trip.count.i126.i = zext nneg i32 %1856 to i64
-  br label %.lr.ph248.i.i
+  br label %.lr.ph250.i.i
 
-.lr.ph248.i.i:                                    ; preds = %1946, %.lr.ph248.preheader.i.i
-  %indvars.iv272.i.i = phi i64 [ 0, %.lr.ph248.preheader.i.i ], [ %indvars.iv.next273.i.i, %1946 ]
-  %1922 = shl nsw i64 %indvars.iv272.i.i, 2
+.lr.ph250.i.i:                                    ; preds = %1946, %.lr.ph250.preheader.i.i
+  %indvars.iv274.i.i = phi i64 [ 0, %.lr.ph250.preheader.i.i ], [ %indvars.iv.next275.i.i, %1946 ]
+  %1922 = shl nsw i64 %indvars.iv274.i.i, 2
   %1923 = getelementptr inbounds nuw i8, ptr %1853, i64 %1922
   %1924 = getelementptr inbounds nuw i8, ptr %1923, i64 3
   %1925 = load i8, ptr %1924, align 1
-  switch i8 %1925, label %1926 [
-    i8 0, label %1946
-    i8 -1, label %1946
-  ]
+  %.off214.i.i = add i8 %1925, -1
+  %switch215.i.i = icmp ult i8 %.off214.i.i, -2
+  br i1 %switch215.i.i, label %1926, label %1946
 
-1926:                                             ; preds = %.lr.ph248.i.i
+1926:                                             ; preds = %.lr.ph250.i.i
   %1927 = uitofp i8 %1925 to float
   %1928 = fdiv float %1927, 2.550000e+02
   %1929 = fdiv float 1.000000e+00, %1928
@@ -51861,27 +51860,27 @@ _ZL10stbi__get8P13stbi__context.exit.i133.i:      ; preds = %_ZL19stbi__refill_b
   store i8 %1945, ptr %1941, align 1
   br label %1946
 
-1946:                                             ; preds = %1926, %.lr.ph248.i.i, %.lr.ph248.i.i
-  %indvars.iv.next273.i.i = add nuw nsw i64 %indvars.iv272.i.i, 1
-  %exitcond275.not.i.i = icmp eq i64 %indvars.iv.next273.i.i, %wide.trip.count.i126.i
-  br i1 %exitcond275.not.i.i, label %.loopexit.i125.i, label %.lr.ph248.i.i, !llvm.loop !1081
+1946:                                             ; preds = %1926, %.lr.ph250.i.i
+  %indvars.iv.next275.i.i = add nuw nsw i64 %indvars.iv274.i.i, 1
+  %exitcond277.not.i.i = icmp eq i64 %indvars.iv.next275.i.i, %wide.trip.count.i126.i
+  br i1 %exitcond277.not.i.i, label %.loopexit.i125.i, label %.lr.ph250.i.i, !llvm.loop !1081
 
-.loopexit.i125.i:                                 ; preds = %1946, %.loopexit225.i.i
+.loopexit.i125.i:                                 ; preds = %1946, %.loopexit227.i.i
   store i32 4, ptr %3, align 4
   store i32 %1822, ptr %2, align 4
   store i32 %1826, ptr %1, align 4
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-1947:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i.i121
-  %indvars.iv.next.i.i.i124 = add nuw nsw i64 %indvars.iv.i.i.i116, 1
-  %exitcond.not.i.i.i125 = icmp eq i64 %indvars.iv.next.i.i.i124, 4
-  br i1 %exitcond.not.i.i.i125, label %_ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i, label %.preheader, !llvm.loop !966
+1947:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i.i122
+  %indvars.iv.next.i.i.i125 = add nuw nsw i64 %indvars.iv.i.i.i117, 1
+  %exitcond.not.i.i.i126 = icmp eq i64 %indvars.iv.next.i.i.i125, 4
+  br i1 %exitcond.not.i.i.i126, label %_ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i, label %.preheader, !llvm.loop !966
 
 .preheader:                                       ; preds = %1781, %1947
   %1948 = phi ptr [ %1976, %1947 ], [ %1786, %1781 ]
   %1949 = phi ptr [ %1977, %1947 ], [ %1787, %1781 ]
   %1950 = phi ptr [ %1978, %1947 ], [ %1786, %1781 ]
-  %indvars.iv.i.i.i116 = phi i64 [ %indvars.iv.next.i.i.i124, %1947 ], [ 0, %1781 ]
+  %indvars.iv.i.i.i117 = phi i64 [ %indvars.iv.next.i.i.i125, %1947 ], [ 0, %1781 ]
   %1951 = icmp ult ptr %1950, %1949
   br i1 %1951, label %1952, label %1955
 
@@ -51889,12 +51888,12 @@ _ZL10stbi__get8P13stbi__context.exit.i133.i:      ; preds = %_ZL19stbi__refill_b
   %1953 = getelementptr inbounds nuw i8, ptr %1950, i64 1
   store ptr %1953, ptr %19, align 8
   %1954 = load i8, ptr %1950, align 1
-  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i121
+  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i122
 
 1955:                                             ; preds = %.preheader
   %1956 = load i32, ptr %21, align 8
-  %.not.i.i.i.i117 = icmp eq i32 %1956, 0
-  br i1 %.not.i.i.i.i117, label %_ZL10stbi__get8P13stbi__context.exit.i.i.i121, label %1957
+  %.not.i.i.i.i118 = icmp eq i32 %1956, 0
+  br i1 %.not.i.i.i.i118, label %_ZL10stbi__get8P13stbi__context.exit.i.i.i122, label %1957
 
 1957:                                             ; preds = %1955
   %1958 = load ptr, ptr %22, align 8
@@ -51916,36 +51915,36 @@ _ZL10stbi__get8P13stbi__context.exit.i133.i:      ; preds = %_ZL19stbi__refill_b
 1971:                                             ; preds = %1957
   store i32 0, ptr %21, align 8
   store i8 0, ptr %24, align 8
-  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119
+  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120
 
 1972:                                             ; preds = %1957
   %1973 = sext i32 %1961 to i64
   %1974 = getelementptr inbounds i8, ptr %24, i64 %1973
-  %.pre.i.i.i.i118 = load i8, ptr %24, align 1
-  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119
+  %.pre.i.i.i.i119 = load i8, ptr %24, align 1
+  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120
 
-_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119: ; preds = %1972, %1971
-  %1975 = phi i8 [ 0, %1971 ], [ %.pre.i.i.i.i118, %1972 ]
-  %.sink.i.i.i.i.i120 = phi ptr [ %28, %1971 ], [ %1974, %1972 ]
-  store ptr %.sink.i.i.i.i.i120, ptr %20, align 8
+_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120: ; preds = %1972, %1971
+  %1975 = phi i8 [ 0, %1971 ], [ %.pre.i.i.i.i119, %1972 ]
+  %.sink.i.i.i.i.i121 = phi ptr [ %28, %1971 ], [ %1974, %1972 ]
+  store ptr %.sink.i.i.i.i.i121, ptr %20, align 8
   store ptr %28, ptr %19, align 8
-  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i121
+  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i122
 
-_ZL10stbi__get8P13stbi__context.exit.i.i.i121:    ; preds = %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119, %1955, %1952
-  %1976 = phi ptr [ %1948, %1952 ], [ %1963, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119 ], [ %1948, %1955 ]
-  %1977 = phi ptr [ %1949, %1952 ], [ %.sink.i.i.i.i.i120, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119 ], [ %1949, %1955 ]
-  %1978 = phi ptr [ %1953, %1952 ], [ %28, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119 ], [ %1950, %1955 ]
-  %.0.i.i.i.i122 = phi i8 [ %1954, %1952 ], [ %1975, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i119 ], [ 0, %1955 ]
-  %1979 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %indvars.iv.i.i.i116
+_ZL10stbi__get8P13stbi__context.exit.i.i.i122:    ; preds = %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120, %1955, %1952
+  %1976 = phi ptr [ %1948, %1952 ], [ %1963, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120 ], [ %1948, %1955 ]
+  %1977 = phi ptr [ %1949, %1952 ], [ %.sink.i.i.i.i.i121, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120 ], [ %1949, %1955 ]
+  %1978 = phi ptr [ %1953, %1952 ], [ %28, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120 ], [ %1950, %1955 ]
+  %.0.i.i.i.i123 = phi i8 [ %1954, %1952 ], [ %1975, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i120 ], [ 0, %1955 ]
+  %1979 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %indvars.iv.i.i.i117
   %1980 = load i8, ptr %1979, align 1
-  %.not.i.i.i123 = icmp eq i8 %.0.i.i.i.i122, %1980
-  br i1 %.not.i.i.i123, label %1947, label %.loopexit
+  %.not.i.i.i124 = icmp eq i8 %.0.i.i.i.i123, %1980
+  br i1 %.not.i.i.i124, label %1947, label %.loopexit
 
-_ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i: ; preds = %1947, %_ZL10stbi__get8P13stbi__context.exit.i.i129
-  %1981 = phi ptr [ %2008, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ], [ %1976, %1947 ]
-  %1982 = phi ptr [ %.pre8.i10.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ], [ %1977, %1947 ]
-  %1983 = phi ptr [ %.pre.i9.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ], [ %1978, %1947 ]
-  %.028.i.i = phi i32 [ %2009, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ], [ 0, %1947 ]
+_ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i: ; preds = %1947, %_ZL10stbi__get8P13stbi__context.exit.i.i130
+  %1981 = phi ptr [ %2008, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ], [ %1976, %1947 ]
+  %1982 = phi ptr [ %.pre8.i10.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ], [ %1977, %1947 ]
+  %1983 = phi ptr [ %.pre.i9.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ], [ %1978, %1947 ]
+  %.028.i.i = phi i32 [ %2009, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ], [ 0, %1947 ]
   %1984 = icmp ult ptr %1983, %1982
   br i1 %1984, label %1985, label %1987
 
@@ -51956,7 +51955,7 @@ _ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i: ; preds = %1947, %_ZL1
 1987:                                             ; preds = %_ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i
   %1988 = load i32, ptr %21, align 8
   %.not.i7.i.i = icmp eq i32 %1988, 0
-  br i1 %.not.i7.i.i, label %_ZL10stbi__get8P13stbi__context.exit.i.i129, label %1989
+  br i1 %.not.i7.i.i, label %_ZL10stbi__get8P13stbi__context.exit.i.i130, label %1989
 
 1989:                                             ; preds = %1987
   %1990 = load ptr, ptr %22, align 8
@@ -51978,53 +51977,53 @@ _ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i: ; preds = %1947, %_ZL1
 2003:                                             ; preds = %1989
   store i32 0, ptr %21, align 8
   store i8 0, ptr %24, align 8
-  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i126
+  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i127
 
 2004:                                             ; preds = %1989
   %2005 = sext i32 %1993 to i64
   %2006 = getelementptr inbounds i8, ptr %24, i64 %2005
-  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i126
+  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i127
 
-_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i126: ; preds = %2004, %2003
-  %.sink.i.i.i.i127 = phi ptr [ %28, %2003 ], [ %2006, %2004 ]
-  store ptr %.sink.i.i.i.i127, ptr %20, align 8
+_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i127: ; preds = %2004, %2003
+  %.sink.i.i.i.i128 = phi ptr [ %28, %2003 ], [ %2006, %2004 ]
+  store ptr %.sink.i.i.i.i128, ptr %20, align 8
   br label %_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i
 
-_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i: ; preds = %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i126, %1985
-  %2007 = phi ptr [ %1981, %1985 ], [ %1995, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i126 ]
-  %.sink.i.i128 = phi ptr [ %1986, %1985 ], [ %28, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i126 ]
-  %.pre8.i10.ph.i.i = phi ptr [ %1982, %1985 ], [ %.sink.i.i.i.i127, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i126 ]
-  store ptr %.sink.i.i128, ptr %19, align 8
-  br label %_ZL10stbi__get8P13stbi__context.exit.i.i129
+_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i: ; preds = %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i127, %1985
+  %2007 = phi ptr [ %1981, %1985 ], [ %1995, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i127 ]
+  %.sink.i.i129 = phi ptr [ %1986, %1985 ], [ %28, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i127 ]
+  %.pre8.i10.ph.i.i = phi ptr [ %1982, %1985 ], [ %.sink.i.i.i.i128, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i127 ]
+  store ptr %.sink.i.i129, ptr %19, align 8
+  br label %_ZL10stbi__get8P13stbi__context.exit.i.i130
 
-_ZL10stbi__get8P13stbi__context.exit.i.i129:      ; preds = %_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i, %1987
+_ZL10stbi__get8P13stbi__context.exit.i.i130:      ; preds = %_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i, %1987
   %2008 = phi ptr [ %1981, %1987 ], [ %2007, %_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i ]
   %.pre8.i10.i.i = phi ptr [ %1982, %1987 ], [ %.pre8.i10.ph.i.i, %_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i ]
-  %.pre.i9.i.i = phi ptr [ %1983, %1987 ], [ %.sink.i.i128, %_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i ]
+  %.pre.i9.i.i = phi ptr [ %1983, %1987 ], [ %.sink.i.i129, %_ZL10stbi__get8P13stbi__context.exit.sink.split.i.i ]
   %2009 = add nuw nsw i32 %.028.i.i, 1
-  %exitcond.not.i.i130 = icmp eq i32 %2009, 84
-  br i1 %exitcond.not.i.i130, label %.preheader.i131, label %_ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i, !llvm.loop !1082
+  %exitcond.not.i.i131 = icmp eq i32 %2009, 84
+  br i1 %exitcond.not.i.i131, label %.preheader.i132, label %_ZL13stbi__pic_is4P13stbi__contextPKc.exit.preheader.i.i, !llvm.loop !1082
 
 2010:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i16.i.i
   %indvars.iv.next.i20.i.i = add nuw nsw i64 %indvars.iv.i11.i.i, 1
   %exitcond.not.i21.i.i = icmp eq i64 %indvars.iv.next.i20.i.i, 4
-  br i1 %exitcond.not.i21.i.i, label %2044, label %.preheader.i131, !llvm.loop !966
+  br i1 %exitcond.not.i21.i.i, label %2044, label %.preheader.i132, !llvm.loop !966
 
-.preheader.i131:                                  ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i129, %2010
-  %2011 = phi ptr [ %2039, %2010 ], [ %2008, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ]
-  %2012 = phi ptr [ %2040, %2010 ], [ %.pre8.i10.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ]
-  %2013 = phi ptr [ %2041, %2010 ], [ %.pre.i9.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ]
-  %indvars.iv.i11.i.i = phi i64 [ %indvars.iv.next.i20.i.i, %2010 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit.i.i129 ]
+.preheader.i132:                                  ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i130, %2010
+  %2011 = phi ptr [ %2039, %2010 ], [ %2008, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ]
+  %2012 = phi ptr [ %2040, %2010 ], [ %.pre8.i10.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ]
+  %2013 = phi ptr [ %2041, %2010 ], [ %.pre.i9.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ]
+  %indvars.iv.i11.i.i = phi i64 [ %indvars.iv.next.i20.i.i, %2010 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit.i.i130 ]
   %2014 = icmp ult ptr %2013, %2012
   br i1 %2014, label %2015, label %2018
 
-2015:                                             ; preds = %.preheader.i131
+2015:                                             ; preds = %.preheader.i132
   %2016 = getelementptr inbounds nuw i8, ptr %2013, i64 1
   store ptr %2016, ptr %19, align 8
   %2017 = load i8, ptr %2013, align 1
   br label %_ZL10stbi__get8P13stbi__context.exit.i16.i.i
 
-2018:                                             ; preds = %.preheader.i131
+2018:                                             ; preds = %.preheader.i132
   %2019 = load i32, ptr %21, align 8
   %.not.i.i12.i.i = icmp eq i32 %2019, 0
   br i1 %.not.i.i12.i.i, label %_ZL10stbi__get8P13stbi__context.exit.i16.i.i, label %2020
@@ -52499,7 +52498,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i.i: ; preds = %_ZL12stbi__at_eofP
   %2239 = shl nuw nsw i32 %2076, 2
   %.not303.i.i = icmp eq i32 %2076, 0
   %wide.trip.count335.i.i = zext nneg i32 %2077 to i64
-  %wide.trip.count.i.i100 = zext nneg i32 %indvars.iv326.i.i to i64
+  %wide.trip.count.i.i101 = zext nneg i32 %indvars.iv326.i.i to i64
   br label %.preheader265.i.i
 
 .preheader265.i.i:                                ; preds = %2551, %.preheader265.lr.ph.i.i
@@ -52550,7 +52549,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i.i: ; preds = %_ZL12stbi__at_eofP
   br label %2254
 
 2254:                                             ; preds = %2293, %2253
-  %indvars.iv.i.i.i106 = phi i64 [ 0, %2253 ], [ %indvars.iv.next.i.i.i109, %2293 ]
+  %indvars.iv.i.i.i107 = phi i64 [ 0, %2253 ], [ %indvars.iv.next.i.i.i110, %2293 ]
   %.01021.i.i.i = phi i32 [ 128, %2253 ], [ %2294, %2293 ]
   %2255 = and i32 %.01021.i.i.i, %2252
   %.not.i133.i.i = icmp eq i32 %2255, 0
@@ -52558,8 +52557,8 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i.i: ; preds = %_ZL12stbi__at_eofP
 
 2256:                                             ; preds = %2254
   %2257 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i107 = icmp eq ptr %2257, null
-  br i1 %.not.i.i.i.i107, label %_ZL12stbi__at_eofP13stbi__context.exit.i.i.i, label %2258
+  %.not.i.i.i.i108 = icmp eq ptr %2257, null
+  br i1 %.not.i.i.i.i108, label %_ZL12stbi__at_eofP13stbi__context.exit.i.i.i, label %2258
 
 2258:                                             ; preds = %2256
   %2259 = load ptr, ptr %2105, align 8
@@ -52590,12 +52589,12 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.thread.i.i.i: ; preds = %_ZL12stbi
   %2269 = getelementptr inbounds nuw i8, ptr %2268, i64 1
   store ptr %2269, ptr %19, align 8
   %2270 = load i8, ptr %2268, align 1
-  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i108
+  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i109
 
 2271:                                             ; preds = %_ZL12stbi__at_eofP13stbi__context.exit.thread.i.i.i
   %2272 = load i32, ptr %21, align 8
-  %.not.i13.i.i.i111 = icmp eq i32 %2272, 0
-  br i1 %.not.i13.i.i.i111, label %_ZL10stbi__get8P13stbi__context.exit.i.i.i108, label %2273
+  %.not.i13.i.i.i112 = icmp eq i32 %2272, 0
+  br i1 %.not.i13.i.i.i112, label %_ZL10stbi__get8P13stbi__context.exit.i.i.i109, label %2273
 
 2273:                                             ; preds = %2271
   %2274 = load ptr, ptr %22, align 8
@@ -52617,32 +52616,32 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.thread.i.i.i: ; preds = %_ZL12stbi
 2287:                                             ; preds = %2273
   store i32 0, ptr %21, align 8
   store i8 0, ptr %24, align 8
-  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i113
+  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i114
 
 2288:                                             ; preds = %2273
   %2289 = sext i32 %2277 to i64
   %2290 = getelementptr inbounds i8, ptr %24, i64 %2289
-  %.pre.i.i.i.i112 = load i8, ptr %24, align 1
-  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i113
+  %.pre.i.i.i.i113 = load i8, ptr %24, align 1
+  br label %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i114
 
-_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i113: ; preds = %2288, %2287
-  %2291 = phi i8 [ 0, %2287 ], [ %.pre.i.i.i.i112, %2288 ]
-  %.sink.i.i.i.i.i114 = phi ptr [ %28, %2287 ], [ %2290, %2288 ]
-  store ptr %.sink.i.i.i.i.i114, ptr %20, align 8
+_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i114: ; preds = %2288, %2287
+  %2291 = phi i8 [ 0, %2287 ], [ %.pre.i.i.i.i113, %2288 ]
+  %.sink.i.i.i.i.i115 = phi ptr [ %28, %2287 ], [ %2290, %2288 ]
+  store ptr %.sink.i.i.i.i.i115, ptr %20, align 8
   store ptr %28, ptr %19, align 8
-  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i108
+  br label %_ZL10stbi__get8P13stbi__context.exit.i.i.i109
 
-_ZL10stbi__get8P13stbi__context.exit.i.i.i108:    ; preds = %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i113, %2271, %_ZL12stbi__at_eofP13stbi__context.exit.thread.thread.i.i.i
-  %.0.i14.i.i.i = phi i8 [ %2270, %_ZL12stbi__at_eofP13stbi__context.exit.thread.thread.i.i.i ], [ %2291, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i113 ], [ 0, %2271 ]
-  %2292 = getelementptr inbounds nuw i8, ptr %.089297.i.i, i64 %indvars.iv.i.i.i106
+_ZL10stbi__get8P13stbi__context.exit.i.i.i109:    ; preds = %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i114, %2271, %_ZL12stbi__at_eofP13stbi__context.exit.thread.thread.i.i.i
+  %.0.i14.i.i.i = phi i8 [ %2270, %_ZL12stbi__at_eofP13stbi__context.exit.thread.thread.i.i.i ], [ %2291, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i114 ], [ 0, %2271 ]
+  %2292 = getelementptr inbounds nuw i8, ptr %.089297.i.i, i64 %indvars.iv.i.i.i107
   store i8 %.0.i14.i.i.i, ptr %2292, align 1
   br label %2293
 
-2293:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i.i108, %2254
-  %indvars.iv.next.i.i.i109 = add nuw nsw i64 %indvars.iv.i.i.i106, 1
+2293:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i.i109, %2254
+  %indvars.iv.next.i.i.i110 = add nuw nsw i64 %indvars.iv.i.i.i107, 1
   %2294 = lshr i32 %.01021.i.i.i, 1
-  %exitcond.not.i.i.i110 = icmp eq i64 %indvars.iv.next.i.i.i109, 4
-  br i1 %exitcond.not.i.i.i110, label %_ZL13stbi__readvalP13stbi__contextiPh.exit.i.i, label %2254, !llvm.loop !1085
+  %exitcond.not.i.i.i111 = icmp eq i64 %indvars.iv.next.i.i.i110, 4
+  br i1 %exitcond.not.i.i.i111, label %_ZL13stbi__readvalP13stbi__contextiPh.exit.i.i, label %2254, !llvm.loop !1085
 
 _ZL13stbi__readvalP13stbi__contextiPh.exit.i.i:   ; preds = %2293
   %2295 = add nuw nsw i32 %.088298.i.i, 1
@@ -52880,9 +52879,9 @@ _ZL13stbi__readvalP13stbi__contextiPh.exit166._crit_edge.i.i: ; preds = %_ZL13st
   %2394 = icmp sgt i32 %2393, 0
   br i1 %2394, label %2297, label %.loopexit260.i.i, !llvm.loop !1089
 
-2395:                                             ; preds = %.loopexit.i.i103, %.lr.ph289.i.i
-  %.084288.i.i = phi i32 [ %2076, %.lr.ph289.i.i ], [ %2549, %.loopexit.i.i103 ]
-  %.3287.i.i = phi ptr [ %2243, %.lr.ph289.i.i ], [ %.5.i.i104, %.loopexit.i.i103 ]
+2395:                                             ; preds = %.loopexit.i.i104, %.lr.ph289.i.i
+  %.084288.i.i = phi i32 [ %2076, %.lr.ph289.i.i ], [ %2549, %.loopexit.i.i104 ]
+  %.3287.i.i = phi ptr [ %2243, %.lr.ph289.i.i ], [ %.5.i.i105, %.loopexit.i.i104 ]
   %2396 = load ptr, ptr %19, align 8
   %2397 = load ptr, ptr %20, align 8
   %2398 = icmp ult ptr %2396, %2397
@@ -53089,18 +53088,18 @@ _ZL10stbi__get8P13stbi__context.exit.i191.i.i:    ; preds = %_ZL19stbi__refill_b
 
 _ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i: ; preds = %2487
   %2489 = icmp sgt i32 %.082.i.i, 0
-  br i1 %2489, label %.lr.ph.i.i105, label %.loopexit.i.i103
+  br i1 %2489, label %.lr.ph.i.i106, label %.loopexit.i.i104
 
-.lr.ph.i.i105:                                    ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i, %_ZL13stbi__copyvaliPhPKh.exit208.i.i
+.lr.ph.i.i106:                                    ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i, %_ZL13stbi__copyvaliPhPKh.exit208.i.i
   %.0286.i.i = phi i32 [ %2500, %_ZL13stbi__copyvaliPhPKh.exit208.i.i ], [ 0, %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i ]
   %.4285.i.i = phi ptr [ %2501, %_ZL13stbi__copyvaliPhPKh.exit208.i.i ], [ %.3287.i.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i ]
   %2490 = load i8, ptr %2248, align 1
   %2491 = zext i8 %2490 to i32
   br label %2492
 
-2492:                                             ; preds = %2498, %.lr.ph.i.i105
-  %indvars.iv.i203.i.i = phi i64 [ 0, %.lr.ph.i.i105 ], [ %indvars.iv.next.i206.i.i, %2498 ]
-  %.089.i204.i.i = phi i32 [ 128, %.lr.ph.i.i105 ], [ %2499, %2498 ]
+2492:                                             ; preds = %2498, %.lr.ph.i.i106
+  %indvars.iv.i203.i.i = phi i64 [ 0, %.lr.ph.i.i106 ], [ %indvars.iv.next.i206.i.i, %2498 ]
+  %.089.i204.i.i = phi i32 [ 128, %.lr.ph.i.i106 ], [ %2499, %2498 ]
   %2493 = and i32 %.089.i204.i.i, %2491
   %.not.i205.i.i = icmp eq i32 %2493, 0
   br i1 %.not.i205.i.i, label %2498, label %2494
@@ -53122,23 +53121,23 @@ _ZL13stbi__copyvaliPhPKh.exit208.i.i:             ; preds = %2498
   %2500 = add nuw nsw i32 %.0286.i.i, 1
   %2501 = getelementptr inbounds nuw i8, ptr %.4285.i.i, i64 4
   %exitcond320.not.i.i = icmp eq i32 %2500, %.082.i.i
-  br i1 %exitcond320.not.i.i, label %.loopexit.i.i103, label %.lr.ph.i.i105, !llvm.loop !1090
+  br i1 %exitcond320.not.i.i, label %.loopexit.i.i104, label %.lr.ph.i.i106, !llvm.loop !1090
 
 2502:                                             ; preds = %_ZL12stbi__at_eofP13stbi__context.exit180.thread.i.i
   %2503 = add nuw nsw i32 %2425, 1
   %.not106.i.i = icmp samesign ugt i32 %.084288.i.i, %2425
-  br i1 %.not106.i.i, label %.preheader.i.i101, label %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread.i
+  br i1 %.not106.i.i, label %.preheader.i.i102, label %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit.thread.i
 
-.preheader.i.i101:                                ; preds = %2502, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i
+.preheader.i.i102:                                ; preds = %2502, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i
   %.1284.i.i = phi i32 [ %2547, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i ], [ 0, %2502 ]
   %.6283.i.i = phi ptr [ %2548, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i ], [ %.3287.i.i, %2502 ]
   %2504 = load i8, ptr %2248, align 1
   %2505 = zext i8 %2504 to i32
   br label %2506
 
-2506:                                             ; preds = %2545, %.preheader.i.i101
-  %indvars.iv.i209.i.i = phi i64 [ 0, %.preheader.i.i101 ], [ %indvars.iv.next.i221.i.i, %2545 ]
-  %.01021.i210.i.i = phi i32 [ 128, %.preheader.i.i101 ], [ %2546, %2545 ]
+2506:                                             ; preds = %2545, %.preheader.i.i102
+  %indvars.iv.i209.i.i = phi i64 [ 0, %.preheader.i.i102 ], [ %indvars.iv.next.i221.i.i, %2545 ]
+  %.01021.i210.i.i = phi i32 [ 128, %.preheader.i.i102 ], [ %2546, %2545 ]
   %2507 = and i32 %.01021.i210.i.i, %2505
   %.not.i211.i.i = icmp eq i32 %2507, 0
   br i1 %.not.i211.i.i, label %2545, label %2508
@@ -53234,19 +53233,19 @@ _ZL10stbi__get8P13stbi__context.exit.i219.i.i:    ; preds = %_ZL19stbi__refill_b
 _ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i: ; preds = %2545
   %2547 = add nuw nsw i32 %.1284.i.i, 1
   %2548 = getelementptr inbounds nuw i8, ptr %.6283.i.i, i64 4
-  %exitcond.not.i.i102 = icmp eq i32 %.1284.i.i, %2425
-  br i1 %exitcond.not.i.i102, label %.loopexit.i.i103, label %.preheader.i.i101, !llvm.loop !1091
+  %exitcond.not.i.i103 = icmp eq i32 %.1284.i.i, %2425
+  br i1 %exitcond.not.i.i103, label %.loopexit.i.i104, label %.preheader.i.i102, !llvm.loop !1091
 
-.loopexit.i.i103:                                 ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i, %_ZL13stbi__copyvaliPhPKh.exit208.i.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i
-  %.5.i.i104 = phi ptr [ %.3287.i.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i ], [ %2501, %_ZL13stbi__copyvaliPhPKh.exit208.i.i ], [ %2548, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i ]
+.loopexit.i.i104:                                 ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i, %_ZL13stbi__copyvaliPhPKh.exit208.i.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i
+  %.5.i.i105 = phi ptr [ %.3287.i.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i ], [ %2501, %_ZL13stbi__copyvaliPhPKh.exit208.i.i ], [ %2548, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i ]
   %.183.i.i = phi i32 [ 0, %_ZL13stbi__readvalP13stbi__contextiPh.exit202.preheader.i.i ], [ %.082.i.i, %_ZL13stbi__copyvaliPhPKh.exit208.i.i ], [ %2503, %_ZL13stbi__readvalP13stbi__contextiPh.exit230.i.i ]
   %2549 = sub nsw i32 %.084288.i.i, %.183.i.i
   %2550 = icmp sgt i32 %2549, 0
   br i1 %2550, label %2395, label %.loopexit260.i.i, !llvm.loop !1092
 
-.loopexit260.i.i:                                 ; preds = %.loopexit.i.i103, %_ZL13stbi__readvalP13stbi__contextiPh.exit166._crit_edge.i.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit.i.i, %.preheader259.i.i, %.preheader261.i.i, %.preheader263.i.i
+.loopexit260.i.i:                                 ; preds = %.loopexit.i.i104, %_ZL13stbi__readvalP13stbi__contextiPh.exit166._crit_edge.i.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit.i.i, %.preheader259.i.i, %.preheader261.i.i, %.preheader263.i.i
   %indvars.iv.next324.i.i = add nuw nsw i64 %indvars.iv323.i.i, 1
-  %exitcond331.not.i.i = icmp eq i64 %indvars.iv.next324.i.i, %wide.trip.count.i.i100
+  %exitcond331.not.i.i = icmp eq i64 %indvars.iv.next324.i.i, %wide.trip.count.i.i101
   br i1 %exitcond331.not.i.i, label %2551, label %2244, !llvm.loop !1093
 
 2551:                                             ; preds = %.loopexit260.i.i
@@ -53292,35 +53291,35 @@ _ZL21stbi__mul2sizes_validii.exit.i.i.i.i93:      ; preds = %2556
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i95: ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i93, %2556
   %2559 = mul nuw nsw i32 %2553, %2076
-  br i1 %2089, label %_ZL17stbi__malloc_mad3iiii.exit.i.i99, label %_ZL21stbi__mul2sizes_validii.exit12.i.i.i.i96
+  br i1 %2089, label %_ZL17stbi__malloc_mad3iiii.exit.i.i100, label %_ZL21stbi__mul2sizes_validii.exit12.i.i.i.i96
 
 _ZL21stbi__mul2sizes_validii.exit12.i.i.i.i96:    ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i95
   %2560 = udiv i32 2147483647, %2077
   %.not.i.i.i56.i = icmp samesign ugt i32 %2559, %2560
   br i1 %.not.i.i.i56.i, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92, label %_ZL17stbi__malloc_mad3iiii.exit.thread272.i.i
 
-_ZL17stbi__malloc_mad3iiii.exit.i.i99:            ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i95
+_ZL17stbi__malloc_mad3iiii.exit.i.i100:           ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i95
   %2561 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) 0) #48
   %2562 = icmp eq ptr %2561, null
-  br i1 %2562, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92, label %._crit_edge.i.i98
+  br i1 %2562, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92, label %._crit_edge.i.i99
 
 _ZL17stbi__malloc_mad3iiii.exit.thread272.i.i:    ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i.i.i96
   %2563 = mul nuw nsw i32 %2559, %2077
   %2564 = zext nneg i32 %2563 to i64
   %2565 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %2564) #48
   %2566 = icmp eq ptr %2565, null
-  br i1 %2566, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92, label %.lr.ph242.i.i97
+  br i1 %2566, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92, label %.lr.ph242.i.i
 
-.lr.ph242.i.i97:                                  ; preds = %_ZL17stbi__malloc_mad3iiii.exit.thread272.i.i
-  %.off.i.i = add nsw i32 %2553, -1
-  %switch.i.i = icmp ult i32 %.off.i.i, 3
-  br i1 %switch.i.i, label %.lr.ph242.split.i.i, label %2710
+.lr.ph242.i.i:                                    ; preds = %_ZL17stbi__malloc_mad3iiii.exit.thread272.i.i
+  %.off.i.i97 = add nsw i32 %2553, -1
+  %switch.i.i98 = icmp ult i32 %.off.i.i97, 3
+  br i1 %switch.i.i98, label %.lr.ph242.split.i.i, label %2710
 
-.lr.ph242.split.i.i:                              ; preds = %.lr.ph242.i.i97
+.lr.ph242.split.i.i:                              ; preds = %.lr.ph242.i.i
   %wide.trip.count.i57.i = zext nneg i32 %2077 to i64
   br label %2567
 
-_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92:     ; preds = %_ZL17stbi__malloc_mad3iiii.exit.thread272.i.i, %_ZL17stbi__malloc_mad3iiii.exit.i.i99, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i.i96, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i93, %2555
+_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92:     ; preds = %_ZL17stbi__malloc_mad3iiii.exit.thread272.i.i, %_ZL17stbi__malloc_mad3iiii.exit.i.i100, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i.i96, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i93, %2555
   tail call void @free(ptr noundef %.039.i) #46
   store ptr @.str.30, ptr %92, align 8
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread
@@ -53633,7 +53632,7 @@ _ZL17stbi__malloc_mad3iiii.exit.thread.i.i92:     ; preds = %_ZL17stbi__malloc_m
   %2709 = icmp sgt i32 %.11166.in194.i.i, 1
   br i1 %2709, label %.lr.ph.i63.i, label %.loopexit.i59.i, !llvm.loop !1106
 
-2710:                                             ; preds = %.lr.ph242.i.i97
+2710:                                             ; preds = %.lr.ph242.i.i
   tail call void @free(ptr noundef %.039.i) #46
   tail call void @free(ptr noundef nonnull %2565) #46
   store ptr @.str.110, ptr %92, align 8
@@ -53642,15 +53641,15 @@ _ZL17stbi__malloc_mad3iiii.exit.thread.i.i92:     ; preds = %_ZL17stbi__malloc_m
 .loopexit.i59.i:                                  ; preds = %.lr.ph200.i.i, %.lr.ph204.i.i, %.lr.ph208.i.i, %.lr.ph212.i.i, %.lr.ph216.i.i, %.lr.ph220.i.i, %.lr.ph224.i.i, %.lr.ph228.i.i, %.lr.ph232.i.i, %.lr.ph236.i.i, %.lr.ph240.i.i, %.lr.ph.i63.i, %.preheader.i62.i, %.preheader171.i.i, %.preheader173.i.i, %.preheader175.i.i, %.preheader177.i.i, %.preheader179.i.i, %.preheader181.i.i, %.preheader183.i.i, %.preheader185.i.i, %.preheader187.i.i, %.preheader189.i.i, %.preheader191.i.i
   %indvars.iv.next.i60.i = add nuw nsw i64 %indvars.iv.i58.i, 1
   %exitcond.not.i61.i = icmp eq i64 %indvars.iv.next.i60.i, %wide.trip.count.i57.i
-  br i1 %exitcond.not.i61.i, label %._crit_edge.i.i98, label %2567, !llvm.loop !1107
+  br i1 %exitcond.not.i61.i, label %._crit_edge.i.i99, label %2567, !llvm.loop !1107
 
-._crit_edge.i.i98:                                ; preds = %.loopexit.i59.i, %_ZL17stbi__malloc_mad3iiii.exit.i.i99
-  %2711 = phi ptr [ %2561, %_ZL17stbi__malloc_mad3iiii.exit.i.i99 ], [ %2565, %.loopexit.i59.i ]
+._crit_edge.i.i99:                                ; preds = %.loopexit.i59.i, %_ZL17stbi__malloc_mad3iiii.exit.i.i100
+  %2711 = phi ptr [ %2561, %_ZL17stbi__malloc_mad3iiii.exit.i.i100 ], [ %2565, %.loopexit.i59.i ]
   tail call void @free(ptr noundef %.039.i) #46
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
-.loopexit:                                        ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i.i121, %_ZL10stbi__get8P13stbi__context.exit.i16.i.i
-  %2712 = phi ptr [ %2039, %_ZL10stbi__get8P13stbi__context.exit.i16.i.i ], [ %1976, %_ZL10stbi__get8P13stbi__context.exit.i.i.i121 ]
+.loopexit:                                        ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i.i122, %_ZL10stbi__get8P13stbi__context.exit.i16.i.i
+  %2712 = phi ptr [ %2039, %_ZL10stbi__get8P13stbi__context.exit.i16.i.i ], [ %1976, %_ZL10stbi__get8P13stbi__context.exit.i.i.i122 ]
   store ptr %2712, ptr %19, align 8
   %2713 = load ptr, ptr %94, align 8
   store ptr %2713, ptr %20, align 8
@@ -53675,8 +53674,8 @@ _ZL15stbi__jpeg_testP13stbi__context.exit.thread: ; preds = %.loopexit
   %2719 = getelementptr inbounds nuw i8, ptr %calloc.i69, i64 18472
   store i8 -1, ptr %2719, align 8
   %2720 = tail call fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(ptr noundef nonnull %calloc.i69)
-  %.not142 = icmp eq i8 %2720, -40
-  br i1 %.not142, label %.critedge, label %_ZL15stbi__jpeg_testP13stbi__context.exit
+  %.not143 = icmp eq i8 %2720, -40
+  br i1 %.not143, label %.critedge, label %_ZL15stbi__jpeg_testP13stbi__context.exit
 
 _ZL15stbi__jpeg_testP13stbi__context.exit:        ; preds = %2714
   store ptr @.str.31, ptr %92, align 8
@@ -56857,8 +56856,8 @@ _ZL14stbi__pnm_testP13stbi__context.exit:         ; preds = %_ZL10stbi__get8P13s
   store ptr @.str.29, ptr %92, align 8
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread
 
-_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds = %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i, %._crit_edge.i.i98, %2552, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %.loopexit.i125.i, %_ZL14stbi__pnm_testP13stbi__context.exit, %4318, %4326
-  %.0.i = phi ptr [ %.043.i.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i107.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %4313, %_ZL14stbi__pnm_testP13stbi__context.exit ], [ %4323, %4318 ], [ %4327, %4326 ], [ %1853, %.loopexit.i125.i ], [ %2711, %._crit_edge.i.i98 ], [ %.039.i, %2552 ], [ %.0.i.i33, %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i ]
+_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds = %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i, %._crit_edge.i.i99, %2552, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %.loopexit.i125.i, %_ZL14stbi__pnm_testP13stbi__context.exit, %4318, %4326
+  %.0.i = phi ptr [ %.043.i.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i107.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %4313, %_ZL14stbi__pnm_testP13stbi__context.exit ], [ %4323, %4318 ], [ %4327, %4326 ], [ %1853, %.loopexit.i125.i ], [ %2711, %._crit_edge.i.i99 ], [ %.039.i, %2552 ], [ %.0.i.i33, %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i ]
   %4329 = icmp eq ptr %.0.i, null
   br i1 %4329, label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread, label %4330
 
@@ -56907,8 +56906,8 @@ _ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds
   call void @free(ptr noundef nonnull %.0.i) #46
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread
 
-_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread: ; preds = %._crit_edge.i, %4342, %2725, %2710, %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92, %2092, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %_ZL12stbi__at_eofP13stbi__context.exit.thread3.i, %1847, %1854, %.split234.us.i.i, %1844, %1837, %1834, %1831, %1828, %1817, %1796, %1793, %4328, %4330, %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
-  %.0 = phi ptr [ null, %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit ], [ %.0.i, %4330 ], [ null, %4328 ], [ null, %1793 ], [ null, %1796 ], [ null, %1817 ], [ null, %1828 ], [ null, %1831 ], [ null, %1834 ], [ null, %1837 ], [ null, %1844 ], [ null, %.split234.us.i.i ], [ null, %1854 ], [ null, %1847 ], [ null, %_ZL12stbi__at_eofP13stbi__context.exit.thread3.i ], [ null, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ null, %2092 ], [ null, %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92 ], [ null, %2710 ], [ null, %2725 ], [ %4339, %4342 ], [ %4339, %._crit_edge.i ]
+_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread: ; preds = %._crit_edge.i, %4342, %2725, %2710, %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92, %2092, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %_ZL12stbi__at_eofP13stbi__context.exit.thread3.i, %1847, %1854, %.split236.us.i.i, %1844, %1837, %1834, %1831, %1828, %1817, %1796, %1793, %4328, %4330, %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
+  %.0 = phi ptr [ null, %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit ], [ %.0.i, %4330 ], [ null, %4328 ], [ null, %1793 ], [ null, %1796 ], [ null, %1817 ], [ null, %1828 ], [ null, %1831 ], [ null, %1834 ], [ null, %1837 ], [ null, %1844 ], [ null, %.split236.us.i.i ], [ null, %1854 ], [ null, %1847 ], [ null, %_ZL12stbi__at_eofP13stbi__context.exit.thread3.i ], [ null, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ null, %2092 ], [ null, %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i92 ], [ null, %2710 ], [ null, %2725 ], [ %4339, %4342 ], [ %4339, %._crit_edge.i ]
   ret ptr %.0
 }
 

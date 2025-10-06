@@ -3610,39 +3610,39 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit15: ; preds = 
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %80, %78
-  %.154.i.i.ph = phi ptr [ %9, %78 ], [ %81, %80 ]
-  %.13351.i.i.ph = phi i32 [ 1, %78 ], [ 2, %80 ]
-  %.13850.i.i.ph = phi i32 [ %2, %78 ], [ %82, %80 ]
+  %.153.i.i.ph = phi ptr [ %9, %78 ], [ %81, %80 ]
+  %.13350.i.i.ph = phi i32 [ 1, %78 ], [ 2, %80 ]
+  %.13849.i.i.ph = phi i32 [ %2, %78 ], [ %82, %80 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %93
-  %.154.i.i = phi ptr [ %.3.i.i, %93 ], [ %.154.i.i.ph, %.lr.ph.i.i.preheader ]
-  %.02753.i.i = phi i1 [ %or.cond3.i.i, %93 ], [ false, %.lr.ph.i.i.preheader ]
-  %.03052.i.i = phi i32 [ %94, %93 ], [ 1000000000, %.lr.ph.i.i.preheader ]
-  %.13351.i.i = phi i32 [ %.335.i.i, %93 ], [ %.13351.i.i.ph, %.lr.ph.i.i.preheader ]
-  %.13850.i.i = phi i32 [ %.239.i.i, %93 ], [ %.13850.i.i.ph, %.lr.ph.i.i.preheader ]
-  %83 = sdiv i32 %.13850.i.i, %.03052.i.i
-  %.recomposed = srem i32 %.13850.i.i, %.03052.i.i
+  %.153.i.i = phi ptr [ %.3.i.i, %93 ], [ %.153.i.i.ph, %.lr.ph.i.i.preheader ]
+  %.02752.i.i = phi i1 [ %or.cond3.i.i, %93 ], [ false, %.lr.ph.i.i.preheader ]
+  %.03051.i.i = phi i32 [ %94, %93 ], [ 1000000000, %.lr.ph.i.i.preheader ]
+  %.13350.i.i = phi i32 [ %.335.i.i, %93 ], [ %.13350.i.i.ph, %.lr.ph.i.i.preheader ]
+  %.13849.i.i = phi i32 [ %.239.i.i, %93 ], [ %.13849.i.i.ph, %.lr.ph.i.i.preheader ]
+  %83 = sdiv i32 %.13849.i.i, %.03051.i.i
+  %.recomposed = srem i32 %.13849.i.i, %.03051.i.i
   %84 = icmp ne i32 %83, 0
-  %85 = icmp eq i32 %.03052.i.i, 1
+  %85 = icmp eq i32 %.03051.i.i, 1
   %86 = or i1 %85, %84
-  %or.cond3.i.i = select i1 %.02753.i.i, i1 true, i1 %86
+  %or.cond3.i.i = select i1 %.02752.i.i, i1 true, i1 %86
   br i1 %or.cond3.i.i, label %87, label %93
 
 87:                                               ; preds = %.lr.ph.i.i
   %88 = trunc i32 %83 to i8
   %89 = add i8 %88, 48
-  %90 = getelementptr inbounds nuw i8, ptr %.154.i.i, i64 1
-  store i8 %89, ptr %.154.i.i, align 1
-  %91 = add nuw nsw i32 %.13351.i.i, 1
-  %92 = mul i32 %83, %.03052.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %.153.i.i, i64 1
+  store i8 %89, ptr %.153.i.i, align 1
+  %91 = add nuw nsw i32 %.13350.i.i, 1
+  %92 = mul i32 %83, %.03051.i.i
   br i1 %85, label %_ZN6Assimp13ASSIMP_itoa10ILm13EEEjRAT__ci.exit, label %93
 
 93:                                               ; preds = %87, %.lr.ph.i.i
-  %.239.i.i = phi i32 [ %.recomposed, %87 ], [ %.13850.i.i, %.lr.ph.i.i ]
-  %.335.i.i = phi i32 [ %91, %87 ], [ %.13351.i.i, %.lr.ph.i.i ]
-  %.3.i.i = phi ptr [ %90, %87 ], [ %.154.i.i, %.lr.ph.i.i ]
-  %94 = sdiv i32 %.03052.i.i, 10
+  %.239.i.i = phi i32 [ %.recomposed, %87 ], [ %.13849.i.i, %.lr.ph.i.i ]
+  %.335.i.i = phi i32 [ %91, %87 ], [ %.13350.i.i, %.lr.ph.i.i ]
+  %.3.i.i = phi ptr [ %90, %87 ], [ %.153.i.i, %.lr.ph.i.i ]
+  %94 = sdiv i32 %.03051.i.i, 10
   %95 = icmp ult i32 %.335.i.i, 13
   br i1 %95, label %.lr.ph.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm13EEEjRAT__ci.exit
 

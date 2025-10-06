@@ -435,9 +435,9 @@ list_formats.exit:                                ; preds = %140, %68
   %155 = load i32, ptr %153, align 8, !tbaa !28
   %156 = call i32 (i32, i64, ...) %154(i32 noundef %155, i64 noundef 3225966105, ptr noundef nonnull %3) #11
   %157 = icmp slt i32 %156, 0
-  br i1 %157, label %._crit_edge.i, label %.lr.ph.i136
+  br i1 %157, label %._crit_edge.i, label %.lr.ph.i135
 
-.lr.ph.i136:                                      ; preds = %.preheader.i
+.lr.ph.i135:                                      ; preds = %.preheader.i
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %166
@@ -455,7 +455,7 @@ list_formats.exit:                                ; preds = %140, %68
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #11
   br label %list_standards.exit
 
-166:                                              ; preds = %166, %.lr.ph.i136
+166:                                              ; preds = %166, %.lr.ph.i135
   %167 = load i32, ptr %3, align 8, !tbaa !59
   %168 = load i64, ptr %158, align 8, !tbaa !62
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.63, i32 noundef %167, i64 noundef %168, ptr noundef nonnull %159) #11
@@ -527,9 +527,9 @@ list_standards.exit:                              ; preds = %147, %._crit_edge.i
   %199 = load i32, ptr %22, align 8, !tbaa !28
   %200 = call i32 (i32, i64, ...) %198(i32 noundef %199, i64 noundef 3234878980, ptr noundef nonnull %13) #11
   %201 = icmp slt i32 %200, 0
-  br i1 %201, label %206, label %.thread141
+  br i1 %201, label %206, label %.thread139
 
-.thread141:                                       ; preds = %195
+.thread139:                                       ; preds = %195
   %202 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %203 = load i32, ptr %202, align 8, !tbaa !55
   store i32 %203, ptr %190, align 8, !tbaa !66
@@ -550,7 +550,7 @@ list_standards.exit:                              ; preds = %147, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %283
 
-211:                                              ; preds = %.thread141, %192, %.thread
+211:                                              ; preds = %.thread139, %192, %.thread
   %212 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %213 = call fastcc i32 @device_try_init(ptr noundef nonnull %0, i32 noundef %.0102, ptr noundef nonnull %190, ptr noundef nonnull %212, ptr noundef %7, ptr noundef %8)
   %214 = icmp slt i32 %213, 0
@@ -615,14 +615,14 @@ list_standards.exit:                              ; preds = %147, %._crit_edge.i
 
 247:                                              ; preds = %244
   %.val = load i32, ptr %22, align 8, !tbaa !28
-  %.val135 = load ptr, ptr %50, align 8, !tbaa !34
+  %.val134 = load ptr, ptr %50, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %248 = call i32 (i32, i64, ...) %.val135(i32 noundef %.val, i64 noundef 2148029975, ptr noundef nonnull %2) #11
+  %248 = call i32 (i32, i64, ...) %.val134(i32 noundef %.val, i64 noundef 2148029975, ptr noundef nonnull %2) #11
   %249 = icmp sgt i32 %248, -1
   %250 = load i64, ptr %2, align 8
   %251 = and i64 %250, 45056
-  %.not.i137 = icmp eq i64 %251, 0
-  %narrow.i = select i1 %249, i1 %.not.i137, i1 false
+  %.not.i136 = icmp eq i64 %251, 0
+  %narrow.i = select i1 %249, i1 %.not.i136, i1 false
   %.0.i = zext i1 %narrow.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %252 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -1230,8 +1230,8 @@ define internal i32 @v4l2_get_device_list(ptr noundef %0, ptr noundef %1) #0 {
 
 .preheader:                                       ; preds = %10
   %12 = tail call ptr @readdir64(ptr noundef nonnull %11) #11
-  %.not3460 = icmp eq ptr %12, null
-  br i1 %.not3460, label %.loopexit, label %.lr.ph
+  %.not3458 = icmp eq ptr %12, null
+  br i1 %.not3458, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 168
@@ -1251,7 +1251,7 @@ define internal i32 @v4l2_get_device_list(ptr noundef %0, ptr noundef %1) #0 {
 
 22:                                               ; preds = %.lr.ph, %67
   %23 = phi ptr [ %12, %.lr.ph ], [ %68, %67 ]
-  %.02661 = phi i32 [ 0, %.lr.ph ], [ %.2, %67 ]
+  %.02659 = phi i32 [ 0, %.lr.ph ], [ %.2, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !127
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1306,7 +1306,7 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   %42 = load ptr, ptr %13, align 8, !tbaa !34
   %43 = call i32 (i32, i64, ...) %42(i32 noundef %39, i64 noundef 2154321408, ptr noundef nonnull %5) #11
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %.loopexit49, label %45
+  br i1 %44, label %.loopexit47, label %45
 
 45:                                               ; preds = %41
   %46 = call noalias ptr @av_mallocz(i64 noundef 32) #11
@@ -1324,19 +1324,19 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   %.not37 = icmp eq ptr %51, null
   %.not38 = icmp eq ptr %49, null
   %or.cond = select i1 %.not37, i1 true, i1 %.not38
-  br i1 %or.cond, label %.loopexit49.thread, label %52
+  br i1 %or.cond, label %.loopexit47.thread, label %52
 
 52:                                               ; preds = %47
   %53 = call i32 @av_dynarray_add_nofree(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %46) #11
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.loopexit49.thread, label %55
+  br i1 %54, label %.loopexit47.thread, label %55
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %16, align 8, !tbaa !90
   %57 = call i32 %56(i32 noundef %39) #11
   br label %67, !llvm.loop !129
 
-.loopexit49:                                      ; preds = %41
+.loopexit47:                                      ; preds = %41
   %58 = tail call ptr @__errno_location() #12
   %59 = load i32, ptr %58, align 4, !tbaa !26
   %60 = sub nsw i32 0, %59
@@ -1345,11 +1345,11 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.51, ptr noundef nonnull %7) #11
   %.pr.pre = load ptr, ptr %4, align 8, !tbaa !127
   %.not39 = icmp eq ptr %.pr.pre, null
-  br i1 %.not39, label %.thread, label %.loopexit49.thread
+  br i1 %.not39, label %.thread, label %.loopexit47.thread
 
-.loopexit49.thread:                               ; preds = %47, %52, %.loopexit49
-  %.379 = phi i32 [ %60, %.loopexit49 ], [ %53, %52 ], [ -12, %47 ]
-  %62 = phi ptr [ %.pr.pre, %.loopexit49 ], [ %46, %52 ], [ %46, %47 ]
+.loopexit47.thread:                               ; preds = %47, %52, %.loopexit47
+  %.377 = phi i32 [ %60, %.loopexit47 ], [ %53, %52 ], [ -12, %47 ]
+  %62 = phi ptr [ %.pr.pre, %.loopexit47 ], [ %46, %52 ], [ %46, %47 ]
   call void @av_freep(ptr noundef nonnull %62) #11
   %63 = load ptr, ptr %4, align 8, !tbaa !127
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -1357,8 +1357,8 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   call void @av_freep(ptr noundef nonnull %4) #11
   br label %.thread
 
-.thread:                                          ; preds = %45, %.loopexit49.thread, %.loopexit49
-  %.343 = phi i32 [ %.379, %.loopexit49.thread ], [ %60, %.loopexit49 ], [ -12, %45 ]
+.thread:                                          ; preds = %45, %.loopexit47.thread, %.loopexit47
+  %.343 = phi i32 [ %.377, %.loopexit47.thread ], [ %60, %.loopexit47 ], [ -12, %45 ]
   %65 = load ptr, ptr %16, align 8, !tbaa !90
   %66 = call i32 %65(i32 noundef %39) #11
   br label %.thread44
@@ -1371,7 +1371,7 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   br label %.loopexit
 
 67:                                               ; preds = %38, %v4l2_is_v4l_dev.exit, %55
-  %.2 = phi i32 [ %53, %55 ], [ %.02661, %v4l2_is_v4l_dev.exit ], [ %.02661, %38 ]
+  %.2 = phi i32 [ %53, %55 ], [ %.02659, %v4l2_is_v4l_dev.exit ], [ %.02659, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

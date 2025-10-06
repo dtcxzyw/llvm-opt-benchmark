@@ -9869,8 +9869,8 @@ get_gzfile.exit:                                  ; preds = %3
 .preheader:                                       ; preds = %15
   %17 = load i64, ptr %1, align 8, !tbaa !6
   store i64 %17, ptr %4, align 8, !tbaa !6
-  %.not210 = icmp eq i32 %0, 1
-  br i1 %.not210, label %rb_scan_args_set.exit.thread, label %18
+  %.not209 = icmp eq i32 %0, 1
+  br i1 %.not209, label %rb_scan_args_set.exit.thread, label %18
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9888,9 +9888,9 @@ rb_scan_args_set.exit:                            ; preds = %18
 
 24:                                               ; preds = %rb_scan_args_set.exit
   %25 = icmp eq i64 %17, 4
-  br i1 %25, label %.thread169, label %thread-pre-split.thread249
+  br i1 %25, label %.thread169, label %thread-pre-split.thread248
 
-thread-pre-split.thread249:                       ; preds = %24
+thread-pre-split.thread248:                       ; preds = %24
   %26 = call i64 @rb_string_value(ptr noundef nonnull %4) #18
   br label %.thread169
 
@@ -9901,9 +9901,9 @@ rb_scan_args_set.exit.thread:                     ; preds = %.preheader, %rb_sca
 28:                                               ; preds = %rb_scan_args_set.exit.thread
   %29 = tail call i64 @rb_check_string_type(i64 noundef %17) #18
   %30 = icmp eq i64 %29, 4
-  br i1 %30, label %thread-pre-split, label %.thread251
+  br i1 %30, label %thread-pre-split, label %.thread250
 
-.thread251:                                       ; preds = %28
+.thread250:                                       ; preds = %28
   store i64 %29, ptr %4, align 8, !tbaa !6
   br label %134
 
@@ -9912,10 +9912,10 @@ thread-pre-split:                                 ; preds = %28
   %32 = load i64, ptr @rb_rs, align 8, !tbaa !6
   store i64 %32, ptr %4, align 8, !tbaa !6
   %33 = icmp eq i64 %31, 4
-  br i1 %33, label %.thread254, label %.thread169
+  br i1 %33, label %.thread253, label %.thread169
 
-.thread169:                                       ; preds = %thread-pre-split.thread249, %24, %thread-pre-split
-  %34 = phi i64 [ %31, %thread-pre-split ], [ %20, %24 ], [ %20, %thread-pre-split.thread249 ]
+.thread169:                                       ; preds = %thread-pre-split.thread248, %24, %thread-pre-split
+  %34 = phi i64 [ %31, %thread-pre-split ], [ %20, %24 ], [ %20, %thread-pre-split.thread248 ]
   %35 = and i64 %34, 1
   %.not.i143 = icmp eq i64 %35, 0
   br i1 %.not.i143, label %38, label %36
@@ -9942,7 +9942,7 @@ rb_num2long_inline.exit:                          ; preds = %36, %38
   %44 = icmp eq i64 %.pr174.pr.pr, 4
   br i1 %44, label %48, label %134
 
-.thread254:                                       ; preds = %thread-pre-split
+.thread253:                                       ; preds = %thread-pre-split
   %45 = icmp eq i64 %32, 4
   br i1 %45, label %.thread179, label %134
 
@@ -9956,7 +9956,7 @@ rb_num2long_inline.exit:                          ; preds = %36, %38
   %49 = icmp slt i64 %.0.i144, 0
   br i1 %49, label %.thread179, label %.preheader.i
 
-.thread179:                                       ; preds = %.thread254, %rb_scan_args_set.exit.thread, %.thread175, %48
+.thread179:                                       ; preds = %.thread253, %rb_scan_args_set.exit.thread, %.thread175, %48
   %50 = call fastcc i64 @gzfile_read_all(ptr noundef nonnull %6, i64 noundef 4)
   %51 = inttoptr i64 %50 to ptr
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -10034,8 +10034,8 @@ gzfile_fill.exit:                                 ; preds = %62, %72
   %85 = and i64 %79, 4
   %.not134 = icmp ne i64 %85, 0
   %86 = icmp eq i64 %80, 0
-  %or.cond266 = and i1 %.not134, %86
-  br i1 %or.cond266, label %.critedge, label %87
+  %or.cond265 = and i1 %.not134, %86
+  br i1 %or.cond265, label %.critedge, label %87
 
 87:                                               ; preds = %84
   %88 = call fastcc i64 @gzreader_charboundary(ptr noundef nonnull %6, i64 noundef %spec.select.i145)
@@ -10129,9 +10129,9 @@ gzfile_newstr.exit:                               ; preds = %124, %120, %112, %.
   store i32 %133, ptr %131, align 4, !tbaa !124
   br label %gzfile_newstr.exit168
 
-134:                                              ; preds = %.thread254, %.thread251, %.thread175, %43
-  %.0113178 = phi i64 [ -1, %.thread175 ], [ %.0.i144, %43 ], [ -1, %.thread251 ], [ -1, %.thread254 ]
-  %135 = phi i64 [ %46, %.thread175 ], [ %.pr174.pr.pr, %43 ], [ %29, %.thread251 ], [ %32, %.thread254 ]
+134:                                              ; preds = %.thread253, %.thread250, %.thread175, %43
+  %.0113178 = phi i64 [ -1, %.thread175 ], [ %.0.i144, %43 ], [ -1, %.thread250 ], [ -1, %.thread253 ]
+  %135 = phi i64 [ %46, %.thread175 ], [ %.pr174.pr.pr, %43 ], [ %29, %.thread250 ], [ %32, %.thread253 ]
   %136 = inttoptr i64 %135 to ptr
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load i64, ptr %137, align 8, !tbaa !18

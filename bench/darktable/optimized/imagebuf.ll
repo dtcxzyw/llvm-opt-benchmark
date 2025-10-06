@@ -104,9 +104,9 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
 52:                                               ; preds = %158, %47
   %53 = load i32, ptr %4, align 16
   %54 = icmp ult i32 %53, 41
-  br i1 %54, label %58, label %.thread160
+  br i1 %54, label %58, label %.thread155
 
-.thread160:                                       ; preds = %52
+.thread155:                                       ; preds = %52
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr i8, ptr %55, i64 8
   store ptr %56, ptr %5, align 8
@@ -131,9 +131,9 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   store i32 %69, ptr %4, align 16
   br label %75
 
-70:                                               ; preds = %.thread160, %58
-  %71 = phi i32 [ %57, %.thread160 ], [ %63, %58 ]
-  %72 = phi i32 [ %53, %.thread160 ], [ %62, %58 ]
+70:                                               ; preds = %.thread155, %58
+  %71 = phi i32 [ %57, %.thread155 ], [ %63, %58 ]
+  %72 = phi i32 [ %53, %.thread155 ], [ %62, %58 ]
   %73 = load ptr, ptr %5, align 8
   %74 = getelementptr i8, ptr %73, i64 8
   store ptr %74, ptr %5, align 8
@@ -176,9 +176,9 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   %96 = icmp ne i32 %76, 0
   %97 = icmp ne ptr %79, null
   %or.cond3 = select i1 %96, i1 %97, i1 false
-  br i1 %or.cond3, label %98, label %.thread128
+  br i1 %or.cond3, label %98, label %.thread124
 
-.thread128:                                       ; preds = %94
+.thread124:                                       ; preds = %94
   call void @llvm.va_end.p0(ptr nonnull %4)
   %.not106 = icmp eq ptr %0, null
   br i1 %.not106, label %208, label %161
@@ -297,11 +297,11 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %151, %157
-  %.pr137 = load ptr, ptr %79, align 8, !tbaa !13
+  %.pr132 = load ptr, ptr %79, align 8, !tbaa !13
   br label %158
 
 158:                                              ; preds = %thread-pre-split, %154, %145
-  %159 = phi ptr [ %.pr137, %thread-pre-split ], [ %155, %154 ], [ %149, %145 ]
+  %159 = phi ptr [ %.pr132, %thread-pre-split ], [ %155, %154 ], [ %149, %145 ]
   %.not101 = icmp eq ptr %159, null
   br i1 %.not101, label %160, label %52
 
@@ -310,16 +310,16 @@ thread-pre-split:                                 ; preds = %151, %157
   call void @llvm.va_start.p0(ptr nonnull %4)
   br label %162
 
-161:                                              ; preds = %.thread128
+161:                                              ; preds = %.thread124
   call void @dt_iop_set_module_trouble_message(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null) #14
   br label %208
 
 162:                                              ; preds = %203, %160
   %163 = load i32, ptr %4, align 16
   %164 = icmp ult i32 %163, 41
-  br i1 %164, label %168, label %.thread161
+  br i1 %164, label %168, label %.thread156
 
-.thread161:                                       ; preds = %162
+.thread156:                                       ; preds = %162
   %165 = load ptr, ptr %5, align 8
   %166 = getelementptr i8, ptr %165, i64 8
   store ptr %166, ptr %5, align 8
@@ -344,9 +344,9 @@ thread-pre-split:                                 ; preds = %151, %157
   store i32 %179, ptr %4, align 16
   br label %185
 
-180:                                              ; preds = %.thread161, %168
-  %181 = phi i32 [ %167, %.thread161 ], [ %173, %168 ]
-  %182 = phi i32 [ %163, %.thread161 ], [ %172, %168 ]
+180:                                              ; preds = %.thread156, %168
+  %181 = phi i32 [ %167, %.thread156 ], [ %173, %168 ]
+  %182 = phi i32 [ %163, %.thread156 ], [ %172, %168 ]
   %183 = load ptr, ptr %5, align 8
   %184 = getelementptr i8, ptr %183, i64 8
   store ptr %184, ptr %5, align 8
@@ -403,10 +403,10 @@ thread-pre-split:                                 ; preds = %151, %157
   call void @dt_iop_set_module_trouble_message(ptr noundef nonnull %0, ptr noundef %206, ptr noundef %207, ptr noundef nonnull @.str.2) #14
   br label %208
 
-208:                                              ; preds = %204, %205, %.thread128, %161
-  %.1126 = phi i32 [ 0, %204 ], [ 0, %205 ], [ 1, %.thread128 ], [ 1, %161 ]
+208:                                              ; preds = %204, %205, %.thread124, %161
+  %.1122 = phi i32 [ 0, %204 ], [ 0, %205 ], [ 1, %.thread124 ], [ 1, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.1126
+  ret i32 %.1122
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn

@@ -1838,8 +1838,8 @@ _part_is_visible.exit.thread:                     ; preds = %2, %9, %32, %_part_
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %.not16 = icmp eq ptr %3, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph
+  %.not15 = icmp eq ptr %3, null
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -1854,12 +1854,12 @@ define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly capt
   br i1 %7, label %10, label %13
 
 10:                                               ; preds = %5
-  br i1 %9, label %11, label %.loopexit
+  br i1 %9, label %11, label %.thread
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %4, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.part_not_on_list, ptr noundef %12) #16
-  br label %.loopexit
+  br label %.thread
 
 13:                                               ; preds = %5
   br i1 %9, label %14, label %16
@@ -1874,11 +1874,11 @@ define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly capt
   %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !27
+  br i1 %.not, label %.thread, label %5, !llvm.loop !27
 
-.loopexit:                                        ; preds = %16, %2, %10, %11
-  %.not15 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 1, %2 ], [ 1, %16 ]
-  ret i32 %.not15
+.thread:                                          ; preds = %16, %2, %10, %11
+  %19 = phi i32 [ 0, %11 ], [ 0, %10 ], [ 1, %2 ], [ 1, %16 ]
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1968,8 +1968,8 @@ define internal noundef i32 @_pack_part(ptr noundef %0, ptr noundef captures(non
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %.not16.i = icmp eq ptr %13, null
-  br i1 %.not16.i, label %part_not_on_list.exit, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %13, null
+  br i1 %.not15.i, label %part_not_on_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -2006,7 +2006,7 @@ define internal noundef i32 @_pack_part(ptr noundef %0, ptr noundef captures(non
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %part_not_on_list.exit, label %15, !llvm.loop !27
 
-part_not_on_list.exit.thread:                     ; preds = %21, %20, %6, %2
+part_not_on_list.exit.thread:                     ; preds = %20, %21, %6, %2
   %29 = load ptr, ptr %1, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %31 = load i16, ptr %30, align 2

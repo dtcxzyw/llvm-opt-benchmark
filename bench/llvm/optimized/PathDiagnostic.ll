@@ -4742,10 +4742,10 @@ define dso_local { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.035.0.copyload = load i32, ptr %5, align 8, !tbaa !49
-  %.sroa.258.0.insert.ext = zext i32 %.sroa.035.0.copyload to i64
-  %.sroa.258.0.insert.shift = shl nuw i64 %.sroa.258.0.insert.ext, 32
-  %.sroa.057.0.insert.insert = or disjoint i64 %.sroa.258.0.insert.shift, %.sroa.258.0.insert.ext
-  br label %.thread62
+  %.sroa.256.0.insert.ext = zext i32 %.sroa.035.0.copyload to i64
+  %.sroa.256.0.insert.shift = shl nuw i64 %.sroa.256.0.insert.ext, 32
+  %.sroa.055.0.insert.insert = or disjoint i64 %.sroa.256.0.insert.shift, %.sroa.256.0.insert.ext
+  br label %.thread60
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4778,18 +4778,18 @@ define dso_local { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 8, !tbaa !49
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sroa.0.0.copyload.i47 = load i32, ptr %18, align 8, !tbaa !49
-  %.sroa.256.0.insert.ext = zext i32 %.sroa.0.0.copyload.i47 to i64
-  %.sroa.256.0.insert.shift = shl nuw i64 %.sroa.256.0.insert.ext, 32
-  %.sroa.055.0.insert.ext = zext i32 %.sroa.0.0.copyload.i to i64
-  %.sroa.055.0.insert.insert = or disjoint i64 %.sroa.256.0.insert.shift, %.sroa.055.0.insert.ext
-  br label %.thread62
+  %.sroa.0.0.copyload.i45 = load i32, ptr %18, align 8, !tbaa !49
+  %.sroa.254.0.insert.ext = zext i32 %.sroa.0.0.copyload.i45 to i64
+  %.sroa.254.0.insert.shift = shl nuw i64 %.sroa.254.0.insert.ext, 32
+  %.sroa.053.0.insert.ext = zext i32 %.sroa.0.0.copyload.i to i64
+  %.sroa.053.0.insert.insert = or disjoint i64 %.sroa.254.0.insert.shift, %.sroa.053.0.insert.ext
+  br label %.thread60
 
 19:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %20 = tail call i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLocationEPKNS_4StmtEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEEb(ptr noundef nonnull %8, i64 %1, i1 noundef zeroext false)
-  %.sroa.254.0.insert.ext = zext i32 %20 to i64
-  %.sroa.053.0.insert.insert = mul nuw i64 %.sroa.254.0.insert.ext, 4294967297
-  br label %.thread62
+  %.sroa.252.0.insert.ext = zext i32 %20 to i64
+  %.sroa.051.0.insert.insert = mul nuw i64 %.sroa.252.0.insert.ext, 4294967297
+  br label %.thread60
 
 21:                                               ; preds = %11, %6
   %22 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #29
@@ -4797,7 +4797,7 @@ define dso_local { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN
   %24 = icmp ne i64 %23, 0
   %25 = icmp ugt i64 %22, 4294967295
   %26 = and i1 %25, %24
-  br i1 %26, label %.thread62, label %52
+  br i1 %26, label %.thread60, label %52
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4806,8 +4806,8 @@ define dso_local { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 127
   %33 = icmp ne i32 %32, 16
-  %.not.not77 = icmp eq ptr %29, null
-  %.not.not = or i1 %.not.not77, %33
+  %.not.not71 = icmp eq ptr %29, null
+  %.not.not = or i1 %.not.not71, %33
   br i1 %.not.not, label %39, label %34
 
 34:                                               ; preds = %27
@@ -4815,13 +4815,13 @@ define dso_local { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 %37(ptr noundef nonnull align 8 dereferenceable(136) %29) #29
-  br label %.thread62
+  br label %.thread60
 
 39:                                               ; preds = %27
   %40 = and i32 %31, 126
   %41 = add nsw i32 %40, -38
   %42 = icmp ult i32 %41, -6
-  %.not41 = or i1 %.not.not77, %42
+  %.not41 = or i1 %.not.not71, %42
   br i1 %.not41, label %50, label %43
 
 43:                                               ; preds = %39
@@ -4834,28 +4834,28 @@ define dso_local { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN
 
 48:                                               ; preds = %43
   %49 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %47) #29
-  br label %.thread62
+  br label %.thread60
 
 50:                                               ; preds = %39
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %.sroa.0.0.copyload.i49 = load i32, ptr %51, align 8, !tbaa !49
-  %.sroa.251.0.insert.ext = zext i32 %.sroa.0.0.copyload.i49 to i64
-  %.sroa.251.0.insert.shift = shl nuw i64 %.sroa.251.0.insert.ext, 32
-  %.sroa.050.0.insert.insert = or disjoint i64 %.sroa.251.0.insert.shift, %.sroa.251.0.insert.ext
-  br label %.thread62
+  %.sroa.0.0.copyload.i47 = load i32, ptr %51, align 8, !tbaa !49
+  %.sroa.249.0.insert.ext = zext i32 %.sroa.0.0.copyload.i47 to i64
+  %.sroa.249.0.insert.shift = shl nuw i64 %.sroa.249.0.insert.ext, 32
+  %.sroa.048.0.insert.insert = or disjoint i64 %.sroa.249.0.insert.shift, %.sroa.249.0.insert.ext
+  br label %.thread60
 
-52:                                               ; preds = %21, %43, %2
+52:                                               ; preds = %43, %21, %2
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.03.0.copyload = load i32, ptr %53, align 8, !tbaa !49
   %.sroa.2.0.insert.ext = zext i32 %.sroa.03.0.copyload to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.2.0.insert.ext
-  br label %.thread62
+  br label %.thread60
 
-.thread62:                                        ; preds = %21, %48, %50, %.thread, %19, %34, %52, %4
-  %.sroa.059.0 = phi i64 [ %.sroa.0.0.insert.insert, %52 ], [ %.sroa.057.0.insert.insert, %4 ], [ %38, %34 ], [ %.sroa.055.0.insert.insert, %.thread ], [ %.sroa.053.0.insert.insert, %19 ], [ %49, %48 ], [ %.sroa.050.0.insert.insert, %50 ], [ %22, %21 ]
+.thread60:                                        ; preds = %21, %48, %50, %.thread, %19, %34, %52, %4
+  %.sroa.057.0 = phi i64 [ %.sroa.0.0.insert.insert, %52 ], [ %.sroa.055.0.insert.insert, %4 ], [ %38, %34 ], [ %.sroa.053.0.insert.insert, %.thread ], [ %.sroa.051.0.insert.insert, %19 ], [ %49, %48 ], [ %.sroa.048.0.insert.insert, %50 ], [ %22, %21 ]
   %.sroa.9.0 = phi i8 [ 0, %52 ], [ 1, %4 ], [ 0, %34 ], [ 0, %.thread ], [ 0, %19 ], [ 0, %48 ], [ 1, %50 ], [ 0, %21 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.059.0, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.057.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.9.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
@@ -5292,8 +5292,8 @@ define internal fastcc noundef zeroext i1 @_ZL16describeCodeDeclRN4llvm11raw_ost
 
 24:                                               ; preds = %15
   %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3, i64 noundef %4) #25
-  %.phi.trans.insert135 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %.pre136 = load ptr, ptr %.phi.trans.insert135, align 8, !tbaa !96
+  %.phi.trans.insert134 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %.pre135 = load ptr, ptr %.phi.trans.insert134, align 8, !tbaa !96
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 26:                                               ; preds = %15
@@ -5308,7 +5308,7 @@ define internal fastcc noundef zeroext i1 @_ZL16describeCodeDeclRN4llvm11raw_ost
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %24, %26, %27
-  %30 = phi ptr [ %.pre136, %24 ], [ %29, %27 ], [ %19, %26 ]
+  %30 = phi ptr [ %.pre135, %24 ], [ %29, %27 ], [ %19, %26 ]
   %.0.i = phi ptr [ %25, %24 ], [ %0, %27 ], [ %0, %26 ]
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !95
@@ -5393,13 +5393,13 @@ _ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread: ; preds = %61, %_ZNK5cla
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 82
   %78 = load i32, ptr %77, align 2
   %79 = and i32 %78, 1024
-  %.not131 = icmp eq i32 %79, 0
+  %.not130 = icmp eq i32 %79, 0
   %80 = load ptr, ptr %46, align 8, !tbaa !95
   %81 = load ptr, ptr %48, align 8, !tbaa !96
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
-  br i1 %.not131, label %92, label %85
+  br i1 %.not130, label %92, label %85
 
 85:                                               ; preds = %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
   %86 = icmp ult i64 %84, 10
@@ -5676,8 +5676,8 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit88:     ; preds = %220, %228
   %231 = load i64, ptr %230, align 8, !tbaa !441
   %232 = and i64 %231, 7
   %233 = icmp ne i64 %232, 0
-  %.not49133 = icmp ult i64 %231, 8
-  %.not49 = or i1 %.not49133, %233
+  %.not49132 = icmp ult i64 %231, 8
+  %.not49 = or i1 %.not49132, %233
   %234 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.35)
   br i1 %.not49, label %247, label %235
 
@@ -5801,8 +5801,8 @@ define dso_local void @_ZNK5clang4ento23PathDiagnosticCallPiece29getCallEnterWit
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 8
-  %.not12 = icmp eq i32 %.sroa.0.0.copyload.i, 0
-  br i1 %.not12, label %7, label %8
+  %.not11 = icmp eq i32 %.sroa.0.0.copyload.i, 0
+  br i1 %.not11, label %7, label %8
 
 7:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -5814,8 +5814,8 @@ define dso_local void @_ZNK5clang4ento23PathDiagnosticCallPiece29getCallEnterWit
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 512
-  %.not13 = icmp eq i32 %13, 0
-  br i1 %.not13, label %14, label %19
+  %.not12 = icmp eq i32 %13, 0
+  br i1 %.not12, label %14, label %19
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %10, align 8, !tbaa !8
@@ -5835,16 +5835,16 @@ define dso_local void @_ZNK5clang4ento23PathDiagnosticCallPiece29getCallEnterWit
   %24 = and i32 %23, 127
   %25 = add nsw i32 %24, -37
   %26 = icmp ult i32 %25, -4
-  %.not14 = icmp eq ptr %21, null
-  %.not = or i1 %.not14, %26
+  %.not13 = icmp eq ptr %21, null
+  %.not = or i1 %.not13, %26
   br i1 %.not, label %32, label %27
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 82
   %29 = load i32, ptr %28, align 2
   %30 = and i32 %29, 512
-  %.not15 = icmp eq i32 %30, 0
-  br i1 %.not15, label %32, label %31
+  %.not14 = icmp eq i32 %30, 0
+  br i1 %.not14, label %32, label %31
 
 31:                                               ; preds = %27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

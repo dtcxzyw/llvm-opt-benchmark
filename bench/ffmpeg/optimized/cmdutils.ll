@@ -341,12 +341,12 @@ define range(i32 -2147483648, 2) i32 @parse_option(ptr noundef %0, ptr noundef %
   %spec.select.idx.i = zext i1 %8 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx.i
   %9 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not17.i = icmp eq ptr %9, null
-  br i1 %.not17.i, label %find_option.exit.thread, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %9, null
+  br i1 %.not16.i, label %find_option.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %15
   %10 = phi ptr [ %17, %15 ], [ %9, %4 ]
-  %.0818.i = phi ptr [ %16, %15 ], [ %3, %4 ]
+  %.0817.i = phi ptr [ %16, %15 ], [ %3, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call i32 @av_strstart(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %10, ptr noundef nonnull %6) #15
   %.not10.i = icmp eq i32 %11, 0
@@ -361,7 +361,7 @@ define range(i32 -2147483648, 2) i32 @parse_option(ptr noundef %0, ptr noundef %
   ]
 
 15:                                               ; preds = %12, %.lr.ph.i
-  %16 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
@@ -369,12 +369,12 @@ define range(i32 -2147483648, 2) i32 @parse_option(ptr noundef %0, ptr noundef %
 
 find_option.exit:                                 ; preds = %12, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pr = load ptr, ptr %.0818.i, align 8, !tbaa !14
+  %.pr = load ptr, ptr %.0817.i, align 8, !tbaa !14
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %find_option.exit.thread, label %find_option.exit41.thread.sink.split
 
 find_option.exit.thread:                          ; preds = %15, %4, %find_option.exit
-  %.0816.i47 = phi ptr [ %.0818.i, %find_option.exit ], [ %3, %4 ], [ %16, %15 ]
+  %.0815.i47 = phi ptr [ %.0817.i, %find_option.exit ], [ %3, %4 ], [ %16, %15 ]
   %18 = load i8, ptr %1, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 110
   br i1 %19, label %20, label %find_option.exit41.thread.sink.split
@@ -392,12 +392,12 @@ find_option.exit.thread:                          ; preds = %15, %4, %find_optio
   %spec.select.idx.i32 = zext i1 %27 to i64
   %spec.select.i33 = getelementptr inbounds nuw i8, ptr %25, i64 %spec.select.idx.i32
   %28 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not17.i34 = icmp eq ptr %28, null
-  br i1 %.not17.i34, label %find_option.exit41.thread, label %.lr.ph.i35
+  %.not16.i34 = icmp eq ptr %28, null
+  br i1 %.not16.i34, label %find_option.exit41.thread, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %24, %34
   %29 = phi ptr [ %36, %34 ], [ %28, %24 ]
-  %.0818.i36 = phi ptr [ %35, %34 ], [ %3, %24 ]
+  %.0817.i36 = phi ptr [ %35, %34 ], [ %3, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = call i32 @av_strstart(ptr noundef nonnull %spec.select.i33, ptr noundef nonnull %29, ptr noundef nonnull %5) #15
   %.not10.i37 = icmp eq i32 %30, 0
@@ -412,7 +412,7 @@ find_option.exit.thread:                          ; preds = %15, %4, %find_optio
   ]
 
 34:                                               ; preds = %31, %.lr.ph.i35
-  %35 = getelementptr inbounds nuw i8, ptr %.0818.i36, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0817.i36, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = load ptr, ptr %35, align 8, !tbaa !14
   %.not.i40 = icmp eq ptr %36, null
@@ -420,15 +420,15 @@ find_option.exit.thread:                          ; preds = %15, %4, %find_optio
 
 find_option.exit41:                               ; preds = %31, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pr48 = load ptr, ptr %.0818.i36, align 8, !tbaa !14
+  %.pr48 = load ptr, ptr %.0817.i36, align 8, !tbaa !14
   %.not28 = icmp eq ptr %.pr48, null
   br i1 %.not28, label %find_option.exit41.thread, label %find_option.exit41.thread.sink.split
 
 find_option.exit41.thread.sink.split:             ; preds = %find_option.exit, %find_option.exit.thread, %20, %find_option.exit41
-  %.0816.i46.sink = phi ptr [ %.0818.i36, %find_option.exit41 ], [ %.0816.i47, %20 ], [ %.0816.i47, %find_option.exit.thread ], [ %.0818.i, %find_option.exit ]
+  %.0815.i46.sink = phi ptr [ %.0817.i36, %find_option.exit41 ], [ %.0815.i47, %20 ], [ %.0815.i47, %find_option.exit.thread ], [ %.0817.i, %find_option.exit ]
   %.str.12.sink = phi ptr [ @.str.11, %find_option.exit41 ], [ @.str.12, %20 ], [ @.str.12, %find_option.exit.thread ], [ @.str.12, %find_option.exit ]
-  %.not29.ph = phi ptr [ %.0818.i36, %find_option.exit41 ], [ @parse_option.opt_avoptions, %20 ], [ @parse_option.opt_avoptions, %find_option.exit.thread ], [ %.0818.i, %find_option.exit ]
-  %37 = getelementptr inbounds nuw i8, ptr %.0816.i46.sink, i64 8
+  %.not29.ph = phi ptr [ %.0817.i36, %find_option.exit41 ], [ @parse_option.opt_avoptions, %20 ], [ @parse_option.opt_avoptions, %find_option.exit.thread ], [ %.0817.i, %find_option.exit ]
+  %37 = getelementptr inbounds nuw i8, ptr %.0815.i46.sink, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !29
   %39 = icmp eq i32 %38, 1
   %spec.select31 = select i1 %39, ptr %.str.12.sink, ptr %2
@@ -895,22 +895,22 @@ define internal fastcc i32 @write_option(ptr noundef %0, ptr noundef %1, ptr nou
 
 81:                                               ; preds = %79
   %.not128 = icmp eq ptr %37, null
-  br i1 %.not128, label %82, label %.thread167
+  br i1 %.not128, label %82, label %.thread165
 
-.thread167:                                       ; preds = %81
+.thread165:                                       ; preds = %81
   store ptr null, ptr %11, align 8, !tbaa !9
   tail call void @av_freep(ptr noundef %.096) #15
-  br label %.thread171
+  br label %.thread169
 
 82:                                               ; preds = %81
   %83 = tail call noalias ptr @av_strdup(ptr noundef %.098) #15
   tail call void @av_freep(ptr noundef %.096) #15
   %.not129 = icmp eq ptr %83, null
-  br i1 %.not129, label %.thread, label %.thread171
+  br i1 %.not129, label %.thread, label %.thread169
 
-.thread171:                                       ; preds = %82, %.thread167
-  %.0170 = phi ptr [ %37, %.thread167 ], [ %83, %82 ]
-  store ptr %.0170, ptr %.096, align 8, !tbaa !9
+.thread169:                                       ; preds = %82, %.thread165
+  %.0168 = phi ptr [ %37, %.thread165 ], [ %83, %82 ]
+  store ptr %.0168, ptr %.096, align 8, !tbaa !9
   br label %136
 
 84:                                               ; preds = %79, %79
@@ -918,8 +918,8 @@ define internal fastcc i32 @write_option(ptr noundef %0, ptr noundef %1, ptr nou
   %85 = call nsz double @av_strtod(ptr noundef %.098, ptr noundef nonnull %10) #15
   %86 = load ptr, ptr %10, align 8, !tbaa !9
   %87 = load i8, ptr %86, align 1, !tbaa !11
-  %.not.i137 = icmp eq i8 %87, 0
-  br i1 %.not.i137, label %88, label %parse_number.exit.thread
+  %.not.i136 = icmp eq i8 %87, 0
+  br i1 %.not.i136, label %88, label %parse_number.exit.thread
 
 88:                                               ; preds = %84
   %89 = fcmp nsz olt double %85, 0xC1E0000000000000
@@ -950,23 +950,23 @@ parse_number.exit.thread:                         ; preds = %84, %88, %91
   %98 = call nsz double @av_strtod(ptr noundef %.098, ptr noundef nonnull %9) #15
   %99 = load ptr, ptr %9, align 8, !tbaa !9
   %100 = load i8, ptr %99, align 1, !tbaa !11
-  %.not.i139 = icmp eq i8 %100, 0
-  br i1 %.not.i139, label %101, label %parse_number.exit143.thread
+  %.not.i138 = icmp eq i8 %100, 0
+  br i1 %.not.i138, label %101, label %parse_number.exit142.thread
 
 101:                                              ; preds = %97
   %102 = call nsz double @llvm.fabs.f64(double %98)
-  %or.cond.i142 = fcmp nsz ogt double %102, 0x43E0000000000000
-  br i1 %or.cond.i142, label %parse_number.exit143.thread, label %103
+  %or.cond.i141 = fcmp nsz ogt double %102, 0x43E0000000000000
+  br i1 %or.cond.i141, label %parse_number.exit142.thread, label %103
 
 103:                                              ; preds = %101
   %104 = fptosi double %98 to i64
   %105 = sitofp i64 %104 to double
   %106 = fcmp nsz une double %98, %105
-  br i1 %106, label %parse_number.exit143.thread, label %107
+  br i1 %106, label %parse_number.exit142.thread, label %107
 
-parse_number.exit143.thread:                      ; preds = %97, %101, %103
-  %.018.i140 = phi ptr [ @.str, %97 ], [ @.str.1, %101 ], [ @.str.2, %103 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull %.018.i140, ptr noundef nonnull %.090, ptr noundef %.098, double noundef 0xC3E0000000000000, double noundef 0x43E0000000000000) #15
+parse_number.exit142.thread:                      ; preds = %97, %101, %103
+  %.018.i139 = phi ptr [ @.str, %97 ], [ @.str.1, %101 ], [ @.str.2, %103 ]
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull %.018.i139, ptr noundef nonnull %.090, ptr noundef %.098, double noundef 0xC3E0000000000000, double noundef 0x43E0000000000000) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -989,10 +989,10 @@ parse_number.exit143.thread:                      ; preds = %97, %101, %103
   %113 = call nsz double @av_strtod(ptr noundef %.098, ptr noundef nonnull %8) #15
   %114 = load ptr, ptr %8, align 8, !tbaa !9
   %115 = load i8, ptr %114, align 1, !tbaa !11
-  %.not.i144 = icmp eq i8 %115, 0
-  br i1 %.not.i144, label %116, label %parse_number.exit148.thread
+  %.not.i143 = icmp eq i8 %115, 0
+  br i1 %.not.i143, label %116, label %parse_number.exit147.thread
 
-parse_number.exit148.thread:                      ; preds = %112
+parse_number.exit147.thread:                      ; preds = %112
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull %.090, ptr noundef %.098, double noundef 0xFFF0000000000000, double noundef 0x7FF0000000000000) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
@@ -1008,10 +1008,10 @@ parse_number.exit148.thread:                      ; preds = %112
   %119 = call nsz double @av_strtod(ptr noundef %.098, ptr noundef nonnull %7) #15
   %120 = load ptr, ptr %7, align 8, !tbaa !9
   %121 = load i8, ptr %120, align 1, !tbaa !11
-  %.not.i149 = icmp eq i8 %121, 0
-  br i1 %.not.i149, label %122, label %parse_number.exit153.thread
+  %.not.i148 = icmp eq i8 %121, 0
+  br i1 %.not.i148, label %122, label %parse_number.exit152.thread
 
-parse_number.exit153.thread:                      ; preds = %118
+parse_number.exit152.thread:                      ; preds = %118
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull %.090, ptr noundef %.098, double noundef 0xFFF0000000000000, double noundef 0x7FF0000000000000) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
@@ -1053,9 +1053,9 @@ parse_number.exit153.thread:                      ; preds = %118
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.96, ptr noundef %.098, ptr noundef nonnull %.090, ptr noundef nonnull %12) #15
   br label %.thread
 
-136:                                              ; preds = %.thread171, %108, %95, %122, %127, %116, %107
-  %.095 = phi i32 [ 3, %95 ], [ %25, %107 ], [ %25, %116 ], [ %25, %122 ], [ %25, %127 ], [ 4, %108 ], [ %25, %.thread171 ]
-  %.5 = phi i32 [ 0, %95 ], [ 0, %107 ], [ 0, %116 ], [ 0, %122 ], [ %128, %127 ], [ %109, %108 ], [ 0, %.thread171 ]
+136:                                              ; preds = %.thread169, %108, %95, %122, %127, %116, %107
+  %.095 = phi i32 [ 3, %95 ], [ %25, %107 ], [ %25, %116 ], [ %25, %122 ], [ %25, %127 ], [ 4, %108 ], [ %25, %.thread169 ]
+  %.5 = phi i32 [ 0, %95 ], [ 0, %107 ], [ 0, %116 ], [ 0, %122 ], [ %128, %127 ], [ %109, %108 ], [ 0, %.thread169 ]
   %137 = load i32, ptr %13, align 4, !tbaa !17
   %138 = and i32 %137, 2
   %.not130 = icmp eq i32 %138, 0
@@ -1080,12 +1080,12 @@ parse_number.exit153.thread:                      ; preds = %118
   %spec.select.idx.i = zext i1 %147 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %145, i64 %spec.select.idx.i
   %148 = load ptr, ptr %4, align 8, !tbaa !14
-  %.not17.i = icmp eq ptr %148, null
-  br i1 %.not17.i, label %find_option.exit, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %148, null
+  br i1 %.not16.i, label %find_option.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %143, %154
   %149 = phi ptr [ %156, %154 ], [ %148, %143 ]
-  %.0818.i = phi ptr [ %155, %154 ], [ %4, %143 ]
+  %.0817.i = phi ptr [ %155, %154 ], [ %4, %143 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %150 = call i32 @av_strstart(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %149, ptr noundef nonnull %6) #15
   %.not10.i = icmp eq i32 %150, 0
@@ -1104,20 +1104,20 @@ parse_number.exit153.thread:                      ; preds = %118
   br label %find_option.exit
 
 154:                                              ; preds = %151, %.lr.ph.i
-  %155 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 48
+  %155 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = load ptr, ptr %155, align 8, !tbaa !14
-  %.not.i154 = icmp eq ptr %156, null
-  br i1 %.not.i154, label %find_option.exit, label %.lr.ph.i
+  %.not.i153 = icmp eq ptr %156, null
+  br i1 %.not.i153, label %find_option.exit, label %.lr.ph.i
 
 find_option.exit:                                 ; preds = %154, %.thread.i, %143, %140
-  %157 = phi ptr [ %1, %140 ], [ %.0818.i, %.thread.i ], [ %4, %143 ], [ %155, %154 ]
+  %157 = phi ptr [ %1, %140 ], [ %.0817.i, %.thread.i ], [ %4, %143 ], [ %155, %154 ]
   %158 = getelementptr inbounds nuw i8, ptr %.094, i64 16
   store ptr %157, ptr %158, align 8, !tbaa !47
   br label %.thread
 
-.thread:                                          ; preds = %46, %45, %69, %50, %parse_number.exit153.thread, %parse_number.exit148.thread, %parse_number.exit143.thread, %parse_number.exit.thread, %82, %136, %139, %find_option.exit, %132, %134, %111
-  %.3 = phi i32 [ %.5, %find_option.exit ], [ %.5, %139 ], [ %109, %111 ], [ %128, %134 ], [ %128, %132 ], [ -1414092869, %136 ], [ -12, %82 ], [ -22, %parse_number.exit.thread ], [ -22, %parse_number.exit143.thread ], [ -22, %parse_number.exit148.thread ], [ -22, %parse_number.exit153.thread ], [ %71, %69 ], [ -12, %50 ], [ -12, %46 ], [ -34, %45 ]
+.thread:                                          ; preds = %46, %45, %69, %50, %parse_number.exit152.thread, %parse_number.exit147.thread, %parse_number.exit142.thread, %parse_number.exit.thread, %82, %136, %139, %find_option.exit, %132, %134, %111
+  %.3 = phi i32 [ %.5, %find_option.exit ], [ %.5, %139 ], [ %109, %111 ], [ %128, %134 ], [ %128, %132 ], [ -1414092869, %136 ], [ -12, %82 ], [ -22, %parse_number.exit.thread ], [ -22, %parse_number.exit142.thread ], [ -22, %parse_number.exit147.thread ], [ -22, %parse_number.exit152.thread ], [ %71, %69 ], [ -12, %50 ], [ -12, %46 ], [ -34, %45 ]
   call void @av_freep(ptr noundef nonnull %11) #15
   br label %159
 
@@ -1370,12 +1370,12 @@ define i32 @locate_option(i32 noundef %0, ptr noundef readonly captures(none) %1
   %spec.select.idx.i = zext i1 %17 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %14, i64 %spec.select.idx.i
   %18 = load ptr, ptr %2, align 8, !tbaa !14
-  %.not17.i = icmp eq ptr %18, null
-  br i1 %.not17.i, label %find_option.exit.thread, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %18, null
+  br i1 %.not16.i, label %find_option.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %24
   %19 = phi ptr [ %26, %24 ], [ %18, %16 ]
-  %.0818.i = phi ptr [ %25, %24 ], [ %2, %16 ]
+  %.0817.i = phi ptr [ %25, %24 ], [ %2, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = call i32 @av_strstart(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %19, ptr noundef nonnull %6) #15
   %.not10.i = icmp eq i32 %20, 0
@@ -1390,7 +1390,7 @@ define i32 @locate_option(i32 noundef %0, ptr noundef readonly captures(none) %1
   ]
 
 24:                                               ; preds = %21, %.lr.ph.i
-  %25 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = load ptr, ptr %25, align 8, !tbaa !14
   %.not.i = icmp eq ptr %26, null
@@ -1398,7 +1398,7 @@ define i32 @locate_option(i32 noundef %0, ptr noundef readonly captures(none) %1
 
 find_option.exit:                                 ; preds = %21, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pr = load ptr, ptr %.0818.i, align 8, !tbaa !14
+  %.pr = load ptr, ptr %.0817.i, align 8, !tbaa !14
   %.not32 = icmp eq ptr %.pr, null
   br i1 %.not32, label %find_option.exit.thread, label %.thread
 
@@ -1420,12 +1420,12 @@ find_option.exit.thread:                          ; preds = %24, %16, %find_opti
   %spec.select.idx.i39 = zext i1 %36 to i64
   %spec.select.i40 = getelementptr inbounds nuw i8, ptr %34, i64 %spec.select.idx.i39
   %37 = load ptr, ptr %2, align 8, !tbaa !14
-  %.not17.i41 = icmp eq ptr %37, null
-  br i1 %.not17.i41, label %find_option.exit48.thread, label %.lr.ph.i42
+  %.not16.i41 = icmp eq ptr %37, null
+  br i1 %.not16.i41, label %find_option.exit48.thread, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %33, %43
   %38 = phi ptr [ %45, %43 ], [ %37, %33 ]
-  %.0818.i43 = phi ptr [ %44, %43 ], [ %2, %33 ]
+  %.0817.i43 = phi ptr [ %44, %43 ], [ %2, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = call i32 @av_strstart(ptr noundef nonnull %spec.select.i40, ptr noundef nonnull %38, ptr noundef nonnull %5) #15
   %.not10.i44 = icmp eq i32 %39, 0
@@ -1440,7 +1440,7 @@ find_option.exit.thread:                          ; preds = %24, %16, %find_opti
   ]
 
 43:                                               ; preds = %40, %.lr.ph.i42
-  %44 = getelementptr inbounds nuw i8, ptr %.0818.i43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %.0817.i43, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = load ptr, ptr %44, align 8, !tbaa !14
   %.not.i47 = icmp eq ptr %45, null
@@ -1448,7 +1448,7 @@ find_option.exit.thread:                          ; preds = %24, %16, %find_opti
 
 find_option.exit48:                               ; preds = %40, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pr52.pre = load ptr, ptr %.0818.i43, align 8, !tbaa !14
+  %.pr52.pre = load ptr, ptr %.0817.i43, align 8, !tbaa !14
   %.not33 = icmp eq ptr %.pr52.pre, null
   br i1 %.not33, label %find_option.exit48.thread, label %.thread
 
@@ -1459,7 +1459,7 @@ find_option.exit48.thread:                        ; preds = %43, %29, %find_opti
 
 .thread:                                          ; preds = %find_option.exit, %find_option.exit48
   %47 = phi ptr [ %.pr52.pre, %find_option.exit48 ], [ %.pr, %find_option.exit ]
-  %.0275668 = phi ptr [ %.0818.i43, %find_option.exit48 ], [ %.0818.i, %find_option.exit ]
+  %.0275668 = phi ptr [ %.0817.i43, %find_option.exit48 ], [ %.0817.i, %find_option.exit ]
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %47) #16
   %.not36 = icmp eq i32 %48, 0
   br i1 %.not36, label %.thread._crit_edge, label %49
@@ -2051,12 +2051,12 @@ match_group_separator.exit.thread:                ; preds = %74, %68
   %spec.select.idx.i = zext i1 %115 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %28, i64 %spec.select.idx.i
   %116 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not17.i = icmp eq ptr %116, null
-  br i1 %.not17.i, label %find_option.exit.thread, label %.lr.ph.i128
+  %.not16.i = icmp eq ptr %116, null
+  br i1 %.not16.i, label %find_option.exit.thread, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %match_group_separator.exit.thread, %122
   %117 = phi ptr [ %124, %122 ], [ %116, %match_group_separator.exit.thread ]
-  %.0818.i = phi ptr [ %123, %122 ], [ %3, %match_group_separator.exit.thread ]
+  %.0817.i = phi ptr [ %123, %122 ], [ %3, %match_group_separator.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %118 = call i32 @av_strstart(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %117, ptr noundef nonnull %8) #15
   %.not10.i = icmp eq i32 %118, 0
@@ -2071,7 +2071,7 @@ match_group_separator.exit.thread:                ; preds = %74, %68
   ]
 
 122:                                              ; preds = %119, %.lr.ph.i128
-  %123 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %124 = load ptr, ptr %123, align 8, !tbaa !14
   %.not.i129 = icmp eq ptr %124, null
@@ -2079,12 +2079,12 @@ match_group_separator.exit.thread:                ; preds = %74, %68
 
 find_option.exit:                                 ; preds = %119, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pr = load ptr, ptr %.0818.i, align 8, !tbaa !14
+  %.pr = load ptr, ptr %.0817.i, align 8, !tbaa !14
   %.not106 = icmp eq ptr %.pr, null
   br i1 %.not106, label %find_option.exit.thread, label %125
 
 125:                                              ; preds = %find_option.exit
-  %126 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 12
   %127 = load i32, ptr %126, align 4, !tbaa !17
   %128 = and i32 %127, 2
   %.not111 = icmp eq i32 %128, 0
@@ -2098,7 +2098,7 @@ find_option.exit:                                 ; preds = %119, %119
   br label %opt_has_arg.exit.thread
 
 134:                                              ; preds = %125
-  %135 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 8
   %136 = load i32, ptr %135, align 8, !tbaa !29
   switch i32 %136, label %opt_has_arg.exit.thread158 [
     i32 1, label %opt_has_arg.exit.thread
@@ -2160,13 +2160,13 @@ opt_has_arg.exit.thread:                          ; preds = %134, %opt_has_arg.e
   store ptr %153, ptr %145, align 8, !tbaa !24
   %162 = getelementptr %struct.Option, ptr %153, i64 %152
   %163 = getelementptr i8, ptr %162, i64 -24
-  store ptr %.0818.i, ptr %163, align 8, !tbaa !61
+  store ptr %.0817.i, ptr %163, align 8, !tbaa !61
   %164 = getelementptr i8, ptr %162, i64 -16
   store ptr %28, ptr %164, align 8, !tbaa !63
   %165 = getelementptr i8, ptr %162, i64 -8
   store ptr %.085, ptr %165, align 8, !tbaa !64
-  %166 = load ptr, ptr %.0818.i, align 8, !tbaa !14
-  %167 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 24
+  %166 = load ptr, ptr %.0817.i, align 8, !tbaa !14
+  %167 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 24
   %168 = load ptr, ptr %167, align 8, !tbaa !19
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.40, ptr noundef %166, ptr noundef %168, ptr noundef %.085) #15
   br label %212, !llvm.loop !84
@@ -2216,12 +2216,12 @@ find_option.exit.thread:                          ; preds = %122, %match_group_s
   %spec.select.idx.i134 = zext i1 %191 to i64
   %spec.select.i135 = getelementptr inbounds nuw i8, ptr %189, i64 %spec.select.idx.i134
   %192 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not17.i136 = icmp eq ptr %192, null
-  br i1 %.not17.i136, label %find_option.exit143.thread, label %.lr.ph.i137
+  %.not16.i136 = icmp eq ptr %192, null
+  br i1 %.not16.i136, label %find_option.exit143.thread, label %.lr.ph.i137
 
 .lr.ph.i137:                                      ; preds = %188, %198
   %193 = phi ptr [ %200, %198 ], [ %192, %188 ]
-  %.0818.i138 = phi ptr [ %199, %198 ], [ %3, %188 ]
+  %.0817.i138 = phi ptr [ %199, %198 ], [ %3, %188 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %194 = call i32 @av_strstart(ptr noundef nonnull %spec.select.i135, ptr noundef nonnull %193, ptr noundef nonnull %7) #15
   %.not10.i139 = icmp eq i32 %194, 0
@@ -2236,7 +2236,7 @@ find_option.exit.thread:                          ; preds = %122, %match_group_s
   ]
 
 198:                                              ; preds = %195, %.lr.ph.i137
-  %199 = getelementptr inbounds nuw i8, ptr %.0818.i138, i64 48
+  %199 = getelementptr inbounds nuw i8, ptr %.0817.i138, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %200 = load ptr, ptr %199, align 8, !tbaa !14
   %.not.i142 = icmp eq ptr %200, null
@@ -2244,24 +2244,24 @@ find_option.exit.thread:                          ; preds = %122, %match_group_s
 
 find_option.exit143:                              ; preds = %195, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pr162 = load ptr, ptr %.0818.i138, align 8, !tbaa !14
+  %.pr162 = load ptr, ptr %.0817.i138, align 8, !tbaa !14
   %.not110 = icmp eq ptr %.pr162, null
   br i1 %.not110, label %find_option.exit143.thread, label %201
 
 201:                                              ; preds = %find_option.exit143
-  %202 = getelementptr inbounds nuw i8, ptr %.0818.i138, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %.0817.i138, i64 8
   %203 = load i32, ptr %202, align 8, !tbaa !29
   %204 = icmp eq i32 %203, 1
   br i1 %204, label %205, label %find_option.exit143.thread
 
 205:                                              ; preds = %201
-  %206 = call fastcc i32 @add_opt(ptr noundef nonnull %0, ptr noundef nonnull %.0818.i138, ptr noundef nonnull %28, ptr noundef nonnull @.str.11)
+  %206 = call fastcc i32 @add_opt(ptr noundef nonnull %0, ptr noundef nonnull %.0817.i138, ptr noundef nonnull %28, ptr noundef nonnull @.str.11)
   %207 = icmp slt i32 %206, 0
   br i1 %207, label %init_parse_context.exit.thread, label %208
 
 208:                                              ; preds = %205
-  %209 = load ptr, ptr %.0818.i138, align 8, !tbaa !14
-  %210 = getelementptr inbounds nuw i8, ptr %.0818.i138, i64 24
+  %209 = load ptr, ptr %.0817.i138, align 8, !tbaa !14
+  %210 = getelementptr inbounds nuw i8, ptr %.0817.i138, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !19
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.43, ptr noundef %209, ptr noundef %211) #15
   br label %212, !llvm.loop !84

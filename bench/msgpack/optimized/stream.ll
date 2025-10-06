@@ -2292,11 +2292,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
   br i1 %45, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %37
-  %.promoted23.i.i = load ptr, ptr %23, align 8
+  %.promoted22.i.i = load ptr, ptr %23, align 8
   br label %46
 
 46:                                               ; preds = %72, %.lr.ph.i.i
-  %47 = phi ptr [ %.promoted23.i.i, %.lr.ph.i.i ], [ %73, %72 ]
+  %47 = phi ptr [ %.promoted22.i.i, %.lr.ph.i.i ], [ %73, %72 ]
   %48 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %74, %72 ]
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = load i32, ptr %49, align 4, !tbaa !156
@@ -2385,11 +2385,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit: ; pred
   br i1 %92, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540, label %.lr.ph.i.i534
 
 .lr.ph.i.i534:                                    ; preds = %83
-  %.promoted23.i.i535 = load ptr, ptr %23, align 8
+  %.promoted22.i.i535 = load ptr, ptr %23, align 8
   br label %93
 
 93:                                               ; preds = %119, %.lr.ph.i.i534
-  %94 = phi ptr [ %.promoted23.i.i535, %.lr.ph.i.i534 ], [ %120, %119 ]
+  %94 = phi ptr [ %.promoted22.i.i535, %.lr.ph.i.i534 ], [ %120, %119 ]
   %95 = phi ptr [ %.promoted.i.i533, %.lr.ph.i.i534 ], [ %121, %119 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 -8
   %97 = load i32, ptr %96, align 4, !tbaa !156
@@ -2508,11 +2508,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548.thre
   br i1 %156, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548, label %.lr.ph.i.i542
 
 .lr.ph.i.i542:                                    ; preds = %154
-  %.promoted23.i.i543 = load ptr, ptr %23, align 8
+  %.promoted22.i.i543 = load ptr, ptr %23, align 8
   br label %157
 
 157:                                              ; preds = %183, %.lr.ph.i.i542
-  %158 = phi ptr [ %.promoted23.i.i543, %.lr.ph.i.i542 ], [ %184, %183 ]
+  %158 = phi ptr [ %.promoted22.i.i543, %.lr.ph.i.i542 ], [ %184, %183 ]
   %159 = phi ptr [ %.promoted.i.i541, %.lr.ph.i.i542 ], [ %185, %183 ]
   %160 = getelementptr inbounds i8, ptr %159, i64 -8
   %161 = load i32, ptr %160, align 4, !tbaa !156
@@ -2760,11 +2760,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548: ; p
   br i1 %257, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558, label %.lr.ph.i.i550
 
 .lr.ph.i.i550:                                    ; preds = %245
-  %.promoted23.i.i551 = load ptr, ptr %23, align 8
+  %.promoted22.i.i551 = load ptr, ptr %23, align 8
   br label %258
 
 258:                                              ; preds = %284, %.lr.ph.i.i550
-  %259 = phi ptr [ %.promoted23.i.i551, %.lr.ph.i.i550 ], [ %285, %284 ]
+  %259 = phi ptr [ %.promoted22.i.i551, %.lr.ph.i.i550 ], [ %285, %284 ]
   %260 = phi ptr [ %.promoted.i.i549, %.lr.ph.i.i550 ], [ %286, %284 ]
   %261 = getelementptr inbounds i8, ptr %260, i64 -8
   %262 = load i32, ptr %261, align 4, !tbaa !156
@@ -2850,11 +2850,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558: ; p
   br i1 %303, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568, label %.lr.ph.i.i560
 
 .lr.ph.i.i560:                                    ; preds = %293
-  %.promoted23.i.i561 = load ptr, ptr %23, align 8
+  %.promoted22.i.i561 = load ptr, ptr %23, align 8
   br label %304
 
 304:                                              ; preds = %330, %.lr.ph.i.i560
-  %305 = phi ptr [ %.promoted23.i.i561, %.lr.ph.i.i560 ], [ %331, %330 ]
+  %305 = phi ptr [ %.promoted22.i.i561, %.lr.ph.i.i560 ], [ %331, %330 ]
   %306 = phi ptr [ %.promoted.i.i559, %.lr.ph.i.i560 ], [ %332, %330 ]
   %307 = getelementptr inbounds i8, ptr %306, i64 -8
   %308 = load i32, ptr %307, align 4, !tbaa !156
@@ -2940,11 +2940,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568: ; p
   br i1 %349, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578, label %.lr.ph.i.i570
 
 .lr.ph.i.i570:                                    ; preds = %339
-  %.promoted23.i.i571 = load ptr, ptr %23, align 8
+  %.promoted22.i.i571 = load ptr, ptr %23, align 8
   br label %350
 
 350:                                              ; preds = %376, %.lr.ph.i.i570
-  %351 = phi ptr [ %.promoted23.i.i571, %.lr.ph.i.i570 ], [ %377, %376 ]
+  %351 = phi ptr [ %.promoted22.i.i571, %.lr.ph.i.i570 ], [ %377, %376 ]
   %352 = phi ptr [ %.promoted.i.i569, %.lr.ph.i.i570 ], [ %378, %376 ]
   %353 = getelementptr inbounds i8, ptr %352, i64 -8
   %354 = load i32, ptr %353, align 4, !tbaa !156
@@ -3031,11 +3031,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578: ; p
   br i1 %395, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588, label %.lr.ph.i.i580
 
 .lr.ph.i.i580:                                    ; preds = %385
-  %.promoted23.i.i581 = load ptr, ptr %23, align 8
+  %.promoted22.i.i581 = load ptr, ptr %23, align 8
   br label %396
 
 396:                                              ; preds = %422, %.lr.ph.i.i580
-  %397 = phi ptr [ %.promoted23.i.i581, %.lr.ph.i.i580 ], [ %423, %422 ]
+  %397 = phi ptr [ %.promoted22.i.i581, %.lr.ph.i.i580 ], [ %423, %422 ]
   %398 = phi ptr [ %.promoted.i.i579, %.lr.ph.i.i580 ], [ %424, %422 ]
   %399 = getelementptr inbounds i8, ptr %398, i64 -8
   %400 = load i32, ptr %399, align 4, !tbaa !156
@@ -3122,11 +3122,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588: ; p
   br i1 %442, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598, label %.lr.ph.i.i590
 
 .lr.ph.i.i590:                                    ; preds = %431
-  %.promoted23.i.i591 = load ptr, ptr %23, align 8
+  %.promoted22.i.i591 = load ptr, ptr %23, align 8
   br label %443
 
 443:                                              ; preds = %469, %.lr.ph.i.i590
-  %444 = phi ptr [ %.promoted23.i.i591, %.lr.ph.i.i590 ], [ %470, %469 ]
+  %444 = phi ptr [ %.promoted22.i.i591, %.lr.ph.i.i590 ], [ %470, %469 ]
   %445 = phi ptr [ %.promoted.i.i589, %.lr.ph.i.i590 ], [ %471, %469 ]
   %446 = getelementptr inbounds i8, ptr %445, i64 -8
   %447 = load i32, ptr %446, align 4, !tbaa !156
@@ -3212,11 +3212,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598: ; p
   br i1 %488, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608, label %.lr.ph.i.i600
 
 .lr.ph.i.i600:                                    ; preds = %478
-  %.promoted23.i.i601 = load ptr, ptr %23, align 8
+  %.promoted22.i.i601 = load ptr, ptr %23, align 8
   br label %489
 
 489:                                              ; preds = %515, %.lr.ph.i.i600
-  %490 = phi ptr [ %.promoted23.i.i601, %.lr.ph.i.i600 ], [ %516, %515 ]
+  %490 = phi ptr [ %.promoted22.i.i601, %.lr.ph.i.i600 ], [ %516, %515 ]
   %491 = phi ptr [ %.promoted.i.i599, %.lr.ph.i.i600 ], [ %517, %515 ]
   %492 = getelementptr inbounds i8, ptr %491, i64 -8
   %493 = load i32, ptr %492, align 4, !tbaa !156
@@ -3304,11 +3304,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608: ; p
   br i1 %535, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619, label %.lr.ph.i.i611
 
 .lr.ph.i.i611:                                    ; preds = %524
-  %.promoted23.i.i612 = load ptr, ptr %23, align 8
+  %.promoted22.i.i612 = load ptr, ptr %23, align 8
   br label %536
 
 536:                                              ; preds = %562, %.lr.ph.i.i611
-  %537 = phi ptr [ %.promoted23.i.i612, %.lr.ph.i.i611 ], [ %563, %562 ]
+  %537 = phi ptr [ %.promoted22.i.i612, %.lr.ph.i.i611 ], [ %563, %562 ]
   %538 = phi ptr [ %.promoted.i.i610, %.lr.ph.i.i611 ], [ %564, %562 ]
   %539 = getelementptr inbounds i8, ptr %538, i64 -8
   %540 = load i32, ptr %539, align 4, !tbaa !156
@@ -3397,11 +3397,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619: ; p
   br i1 %582, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631, label %.lr.ph.i.i623
 
 .lr.ph.i.i623:                                    ; preds = %571
-  %.promoted23.i.i624 = load ptr, ptr %23, align 8
+  %.promoted22.i.i624 = load ptr, ptr %23, align 8
   br label %583
 
 583:                                              ; preds = %609, %.lr.ph.i.i623
-  %584 = phi ptr [ %.promoted23.i.i624, %.lr.ph.i.i623 ], [ %610, %609 ]
+  %584 = phi ptr [ %.promoted22.i.i624, %.lr.ph.i.i623 ], [ %610, %609 ]
   %585 = phi ptr [ %.promoted.i.i622, %.lr.ph.i.i623 ], [ %611, %609 ]
   %586 = getelementptr inbounds i8, ptr %585, i64 -8
   %587 = load i32, ptr %586, align 4, !tbaa !156
@@ -3490,11 +3490,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631: ; p
   br i1 %630, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642, label %.lr.ph.i.i634
 
 .lr.ph.i.i634:                                    ; preds = %618
-  %.promoted23.i.i635 = load ptr, ptr %23, align 8
+  %.promoted22.i.i635 = load ptr, ptr %23, align 8
   br label %631
 
 631:                                              ; preds = %657, %.lr.ph.i.i634
-  %632 = phi ptr [ %.promoted23.i.i635, %.lr.ph.i.i634 ], [ %658, %657 ]
+  %632 = phi ptr [ %.promoted22.i.i635, %.lr.ph.i.i634 ], [ %658, %657 ]
   %633 = phi ptr [ %.promoted.i.i633, %.lr.ph.i.i634 ], [ %659, %657 ]
   %634 = getelementptr inbounds i8, ptr %633, i64 -8
   %635 = load i32, ptr %634, align 4, !tbaa !156
@@ -3582,11 +3582,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642: ; p
   br i1 %677, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit653, label %.lr.ph.i.i645
 
 .lr.ph.i.i645:                                    ; preds = %666
-  %.promoted23.i.i646 = load ptr, ptr %23, align 8
+  %.promoted22.i.i646 = load ptr, ptr %23, align 8
   br label %678
 
 678:                                              ; preds = %704, %.lr.ph.i.i645
-  %679 = phi ptr [ %.promoted23.i.i646, %.lr.ph.i.i645 ], [ %705, %704 ]
+  %679 = phi ptr [ %.promoted22.i.i646, %.lr.ph.i.i645 ], [ %705, %704 ]
   %680 = phi ptr [ %.promoted.i.i644, %.lr.ph.i.i645 ], [ %706, %704 ]
   %681 = getelementptr inbounds i8, ptr %680, i64 -8
   %682 = load i32, ptr %681, align 4, !tbaa !156
@@ -3677,11 +3677,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thre
   br i1 %724, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663, label %.lr.ph.i.i656
 
 .lr.ph.i.i656:                                    ; preds = %722
-  %.promoted23.i.i657 = load ptr, ptr %23, align 8
+  %.promoted22.i.i657 = load ptr, ptr %23, align 8
   br label %725
 
 725:                                              ; preds = %751, %.lr.ph.i.i656
-  %726 = phi ptr [ %.promoted23.i.i657, %.lr.ph.i.i656 ], [ %752, %751 ]
+  %726 = phi ptr [ %.promoted22.i.i657, %.lr.ph.i.i656 ], [ %752, %751 ]
   %727 = phi ptr [ %.promoted.i.i655, %.lr.ph.i.i656 ], [ %753, %751 ]
   %728 = getelementptr inbounds i8, ptr %727, i64 -8
   %729 = load i32, ptr %728, align 4, !tbaa !156
@@ -3772,11 +3772,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thre
   br i1 %771, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673, label %.lr.ph.i.i666
 
 .lr.ph.i.i666:                                    ; preds = %769
-  %.promoted23.i.i667 = load ptr, ptr %23, align 8
+  %.promoted22.i.i667 = load ptr, ptr %23, align 8
   br label %772
 
 772:                                              ; preds = %798, %.lr.ph.i.i666
-  %773 = phi ptr [ %.promoted23.i.i667, %.lr.ph.i.i666 ], [ %799, %798 ]
+  %773 = phi ptr [ %.promoted22.i.i667, %.lr.ph.i.i666 ], [ %799, %798 ]
   %774 = phi ptr [ %.promoted.i.i665, %.lr.ph.i.i666 ], [ %800, %798 ]
   %775 = getelementptr inbounds i8, ptr %774, i64 -8
   %776 = load i32, ptr %775, align 4, !tbaa !156
@@ -3867,11 +3867,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thre
   br i1 %818, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683, label %.lr.ph.i.i676
 
 .lr.ph.i.i676:                                    ; preds = %816
-  %.promoted23.i.i677 = load ptr, ptr %23, align 8
+  %.promoted22.i.i677 = load ptr, ptr %23, align 8
   br label %819
 
 819:                                              ; preds = %845, %.lr.ph.i.i676
-  %820 = phi ptr [ %.promoted23.i.i677, %.lr.ph.i.i676 ], [ %846, %845 ]
+  %820 = phi ptr [ %.promoted22.i.i677, %.lr.ph.i.i676 ], [ %846, %845 ]
   %821 = phi ptr [ %.promoted.i.i675, %.lr.ph.i.i676 ], [ %847, %845 ]
   %822 = getelementptr inbounds i8, ptr %821, i64 -8
   %823 = load i32, ptr %822, align 4, !tbaa !156
@@ -3962,11 +3962,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thre
   br i1 %865, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693, label %.lr.ph.i.i686
 
 .lr.ph.i.i686:                                    ; preds = %863
-  %.promoted23.i.i687 = load ptr, ptr %23, align 8
+  %.promoted22.i.i687 = load ptr, ptr %23, align 8
   br label %866
 
 866:                                              ; preds = %892, %.lr.ph.i.i686
-  %867 = phi ptr [ %.promoted23.i.i687, %.lr.ph.i.i686 ], [ %893, %892 ]
+  %867 = phi ptr [ %.promoted22.i.i687, %.lr.ph.i.i686 ], [ %893, %892 ]
   %868 = phi ptr [ %.promoted.i.i685, %.lr.ph.i.i686 ], [ %894, %892 ]
   %869 = getelementptr inbounds i8, ptr %868, i64 -8
   %870 = load i32, ptr %869, align 4, !tbaa !156
@@ -4057,11 +4057,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thre
   br i1 %912, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703, label %.lr.ph.i.i696
 
 .lr.ph.i.i696:                                    ; preds = %910
-  %.promoted23.i.i697 = load ptr, ptr %23, align 8
+  %.promoted22.i.i697 = load ptr, ptr %23, align 8
   br label %913
 
 913:                                              ; preds = %939, %.lr.ph.i.i696
-  %914 = phi ptr [ %.promoted23.i.i697, %.lr.ph.i.i696 ], [ %940, %939 ]
+  %914 = phi ptr [ %.promoted22.i.i697, %.lr.ph.i.i696 ], [ %940, %939 ]
   %915 = phi ptr [ %.promoted.i.i695, %.lr.ph.i.i696 ], [ %941, %939 ]
   %916 = getelementptr inbounds i8, ptr %915, i64 -8
   %917 = load i32, ptr %916, align 4, !tbaa !156
@@ -4159,11 +4159,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   br i1 %963, label %.loopexit, label %.lr.ph.i.i706
 
 .lr.ph.i.i706:                                    ; preds = %961
-  %.promoted23.i.i707 = load ptr, ptr %23, align 8
+  %.promoted22.i.i707 = load ptr, ptr %23, align 8
   br label %964
 
 964:                                              ; preds = %990, %.lr.ph.i.i706
-  %965 = phi ptr [ %.promoted23.i.i707, %.lr.ph.i.i706 ], [ %991, %990 ]
+  %965 = phi ptr [ %.promoted22.i.i707, %.lr.ph.i.i706 ], [ %991, %990 ]
   %966 = phi ptr [ %.promoted.i.i705, %.lr.ph.i.i706 ], [ %992, %990 ]
   %967 = getelementptr inbounds i8, ptr %966, i64 -8
   %968 = load i32, ptr %967, align 4, !tbaa !156
@@ -4261,11 +4261,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   br i1 %1014, label %.loopexit1007, label %.lr.ph.i.i716
 
 .lr.ph.i.i716:                                    ; preds = %1012
-  %.promoted23.i.i717 = load ptr, ptr %23, align 8
+  %.promoted22.i.i717 = load ptr, ptr %23, align 8
   br label %1015
 
 1015:                                             ; preds = %1041, %.lr.ph.i.i716
-  %1016 = phi ptr [ %.promoted23.i.i717, %.lr.ph.i.i716 ], [ %1042, %1041 ]
+  %1016 = phi ptr [ %.promoted22.i.i717, %.lr.ph.i.i716 ], [ %1042, %1041 ]
   %1017 = phi ptr [ %.promoted.i.i715, %.lr.ph.i.i716 ], [ %1043, %1041 ]
   %1018 = getelementptr inbounds i8, ptr %1017, i64 -8
   %1019 = load i32, ptr %1018, align 4, !tbaa !156
@@ -4372,11 +4372,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   br i1 %1070, label %.loopexit1008, label %.lr.ph.i.i727
 
 .lr.ph.i.i727:                                    ; preds = %1068
-  %.promoted23.i.i728 = load ptr, ptr %23, align 8
+  %.promoted22.i.i728 = load ptr, ptr %23, align 8
   br label %1071
 
 1071:                                             ; preds = %1097, %.lr.ph.i.i727
-  %1072 = phi ptr [ %.promoted23.i.i728, %.lr.ph.i.i727 ], [ %1098, %1097 ]
+  %1072 = phi ptr [ %.promoted22.i.i728, %.lr.ph.i.i727 ], [ %1098, %1097 ]
   %1073 = phi ptr [ %.promoted.i.i726, %.lr.ph.i.i727 ], [ %1099, %1097 ]
   %1074 = getelementptr inbounds i8, ptr %1073, i64 -8
   %1075 = load i32, ptr %1074, align 4, !tbaa !156
@@ -4476,11 +4476,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   br i1 %1122, label %.loopexit1009, label %.lr.ph.i.i738
 
 .lr.ph.i.i738:                                    ; preds = %1120
-  %.promoted23.i.i739 = load ptr, ptr %23, align 8
+  %.promoted22.i.i739 = load ptr, ptr %23, align 8
   br label %1123
 
 1123:                                             ; preds = %1149, %.lr.ph.i.i738
-  %1124 = phi ptr [ %.promoted23.i.i739, %.lr.ph.i.i738 ], [ %1150, %1149 ]
+  %1124 = phi ptr [ %.promoted22.i.i739, %.lr.ph.i.i738 ], [ %1150, %1149 ]
   %1125 = phi ptr [ %.promoted.i.i737, %.lr.ph.i.i738 ], [ %1151, %1149 ]
   %1126 = getelementptr inbounds i8, ptr %1125, i64 -8
   %1127 = load i32, ptr %1126, align 4, !tbaa !156
@@ -4587,11 +4587,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   br i1 %1178, label %.loopexit1010, label %.lr.ph.i.i749
 
 .lr.ph.i.i749:                                    ; preds = %1176
-  %.promoted23.i.i750 = load ptr, ptr %23, align 8
+  %.promoted22.i.i750 = load ptr, ptr %23, align 8
   br label %1179
 
 1179:                                             ; preds = %1205, %.lr.ph.i.i749
-  %1180 = phi ptr [ %.promoted23.i.i750, %.lr.ph.i.i749 ], [ %1206, %1205 ]
+  %1180 = phi ptr [ %.promoted22.i.i750, %.lr.ph.i.i749 ], [ %1206, %1205 ]
   %1181 = phi ptr [ %.promoted.i.i748, %.lr.ph.i.i749 ], [ %1207, %1205 ]
   %1182 = getelementptr inbounds i8, ptr %1181, i64 -8
   %1183 = load i32, ptr %1182, align 4, !tbaa !156
@@ -4690,11 +4690,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   br i1 %1230, label %.loopexit1011, label %.lr.ph.i.i759
 
 .lr.ph.i.i759:                                    ; preds = %1228
-  %.promoted23.i.i760 = load ptr, ptr %23, align 8
+  %.promoted22.i.i760 = load ptr, ptr %23, align 8
   br label %1231
 
 1231:                                             ; preds = %1257, %.lr.ph.i.i759
-  %1232 = phi ptr [ %.promoted23.i.i760, %.lr.ph.i.i759 ], [ %1258, %1257 ]
+  %1232 = phi ptr [ %.promoted22.i.i760, %.lr.ph.i.i759 ], [ %1258, %1257 ]
   %1233 = phi ptr [ %.promoted.i.i758, %.lr.ph.i.i759 ], [ %1259, %1257 ]
   %1234 = getelementptr inbounds i8, ptr %1233, i64 -8
   %1235 = load i32, ptr %1234, align 4, !tbaa !156
@@ -4794,11 +4794,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thre
   br i1 %1283, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776, label %.lr.ph.i.i769
 
 .lr.ph.i.i769:                                    ; preds = %1281
-  %.promoted23.i.i770 = load ptr, ptr %23, align 8
+  %.promoted22.i.i770 = load ptr, ptr %23, align 8
   br label %1284
 
 1284:                                             ; preds = %1310, %.lr.ph.i.i769
-  %1285 = phi ptr [ %.promoted23.i.i770, %.lr.ph.i.i769 ], [ %1311, %1310 ]
+  %1285 = phi ptr [ %.promoted22.i.i770, %.lr.ph.i.i769 ], [ %1311, %1310 ]
   %1286 = phi ptr [ %.promoted.i.i768, %.lr.ph.i.i769 ], [ %1312, %1310 ]
   %1287 = getelementptr inbounds i8, ptr %1286, i64 -8
   %1288 = load i32, ptr %1287, align 4, !tbaa !156
@@ -4890,11 +4890,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thre
   br i1 %1331, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786, label %.lr.ph.i.i779
 
 .lr.ph.i.i779:                                    ; preds = %1329
-  %.promoted23.i.i780 = load ptr, ptr %23, align 8
+  %.promoted22.i.i780 = load ptr, ptr %23, align 8
   br label %1332
 
 1332:                                             ; preds = %1358, %.lr.ph.i.i779
-  %1333 = phi ptr [ %.promoted23.i.i780, %.lr.ph.i.i779 ], [ %1359, %1358 ]
+  %1333 = phi ptr [ %.promoted22.i.i780, %.lr.ph.i.i779 ], [ %1359, %1358 ]
   %1334 = phi ptr [ %.promoted.i.i778, %.lr.ph.i.i779 ], [ %1360, %1358 ]
   %1335 = getelementptr inbounds i8, ptr %1334, i64 -8
   %1336 = load i32, ptr %1335, align 4, !tbaa !156
@@ -4986,11 +4986,11 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thre
   br i1 %1379, label %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796, label %.lr.ph.i.i789
 
 .lr.ph.i.i789:                                    ; preds = %1377
-  %.promoted23.i.i790 = load ptr, ptr %23, align 8
+  %.promoted22.i.i790 = load ptr, ptr %23, align 8
   br label %1380
 
 1380:                                             ; preds = %1406, %.lr.ph.i.i789
-  %1381 = phi ptr [ %.promoted23.i.i790, %.lr.ph.i.i789 ], [ %1407, %1406 ]
+  %1381 = phi ptr [ %.promoted22.i.i790, %.lr.ph.i.i789 ], [ %1407, %1406 ]
   %1382 = phi ptr [ %.promoted.i.i788, %.lr.ph.i.i789 ], [ %1408, %1406 ]
   %1383 = getelementptr inbounds i8, ptr %1382, i64 -8
   %1384 = load i32, ptr %1383, align 4, !tbaa !156
@@ -5165,11 +5165,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
 
 .lr.ph.i:                                         ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.promoted23.i = load ptr, ptr %17, align 8
+  %.promoted22.i = load ptr, ptr %17, align 8
   br label %18
 
 18:                                               ; preds = %44, %.lr.ph.i
-  %19 = phi ptr [ %.promoted23.i, %.lr.ph.i ], [ %45, %44 ]
+  %19 = phi ptr [ %.promoted22.i, %.lr.ph.i ], [ %45, %44 ]
   %20 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %46, %44 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 -8
   %22 = load i32, ptr %21, align 4, !tbaa !156
@@ -5409,11 +5409,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
 
 .lr.ph.i:                                         ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.promoted23.i = load ptr, ptr %31, align 8
+  %.promoted22.i = load ptr, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %58, %.lr.ph.i
-  %33 = phi ptr [ %.promoted23.i, %.lr.ph.i ], [ %59, %58 ]
+  %33 = phi ptr [ %.promoted22.i, %.lr.ph.i ], [ %59, %58 ]
   %34 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %60, %58 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %36 = load i32, ptr %35, align 4, !tbaa !156
@@ -5624,11 +5624,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
 
 .lr.ph.i:                                         ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.promoted23.i = load ptr, ptr %31, align 8
+  %.promoted22.i = load ptr, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %58, %.lr.ph.i
-  %33 = phi ptr [ %.promoted23.i, %.lr.ph.i ], [ %59, %58 ]
+  %33 = phi ptr [ %.promoted22.i, %.lr.ph.i ], [ %59, %58 ]
   %34 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %60, %58 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %36 = load i32, ptr %35, align 4, !tbaa !156
@@ -6103,11 +6103,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
 
 .lr.ph.i:                                         ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.promoted23.i = load ptr, ptr %30, align 8
+  %.promoted22.i = load ptr, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %57, %.lr.ph.i
-  %32 = phi ptr [ %.promoted23.i, %.lr.ph.i ], [ %58, %57 ]
+  %32 = phi ptr [ %.promoted22.i, %.lr.ph.i ], [ %58, %57 ]
   %33 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %59, %57 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 -8
   %35 = load i32, ptr %34, align 4, !tbaa !156
@@ -6319,11 +6319,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
 
 .lr.ph.i:                                         ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.promoted23.i = load ptr, ptr %31, align 8
+  %.promoted22.i = load ptr, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %58, %.lr.ph.i
-  %33 = phi ptr [ %.promoted23.i, %.lr.ph.i ], [ %59, %58 ]
+  %33 = phi ptr [ %.promoted22.i, %.lr.ph.i ], [ %59, %58 ]
   %34 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %60, %58 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %36 = load i32, ptr %35, align 4, !tbaa !156
@@ -6530,11 +6530,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
 
 .lr.ph.i:                                         ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.promoted23.i = load ptr, ptr %30, align 8
+  %.promoted22.i = load ptr, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %57, %.lr.ph.i
-  %32 = phi ptr [ %.promoted23.i, %.lr.ph.i ], [ %58, %57 ]
+  %32 = phi ptr [ %.promoted22.i, %.lr.ph.i ], [ %58, %57 ]
   %33 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %59, %57 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 -8
   %35 = load i32, ptr %34, align 4, !tbaa !156
@@ -6748,11 +6748,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS0_8un
 
 .lr.ph.i:                                         ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.promoted23.i = load ptr, ptr %31, align 8
+  %.promoted22.i = load ptr, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %58, %.lr.ph.i
-  %33 = phi ptr [ %.promoted23.i, %.lr.ph.i ], [ %59, %58 ]
+  %33 = phi ptr [ %.promoted22.i, %.lr.ph.i ], [ %59, %58 ]
   %34 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %60, %58 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %36 = load i32, ptr %35, align 4, !tbaa !156

@@ -363,12 +363,12 @@ _ZN13Probabilities18check_extra_filterE8ProbNamei.exit.thread: ; preds = %2, %_Z
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %.not25 = icmp eq ptr %33, %34
-  br i1 %.not25, label %.loopexit, label %.lr.ph
+  %.not24 = icmp eq ptr %33, %34
+  br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %48
-  %.sroa.015.026 = phi ptr [ %49, %48 ], [ %33, %30 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 32
+  %.sroa.015.025 = phi ptr [ %49, %48 ], [ %33, %30 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.015.025, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %36, ptr %3, align 4, !tbaa !21
@@ -381,7 +381,7 @@ _ZN13Probabilities18check_extra_filterE8ProbNamei.exit.thread: ; preds = %2, %_Z
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.015.025, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !38
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load i32, ptr %45, align 8, !tbaa !39
@@ -389,7 +389,7 @@ _ZN13Probabilities18check_extra_filterE8ProbNamei.exit.thread: ; preds = %2, %_Z
   br label %.loopexit
 
 48:                                               ; preds = %.lr.ph
-  %49 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.026) #29
+  %49 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.025) #29
   %.not = icmp eq ptr %49, %34
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
@@ -9445,8 +9445,8 @@ define dso_local noundef i32 @_ZNK17DistributionTable11key_to_probEi(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !165
   %6 = load ptr, ptr %3, align 8, !tbaa !168
-  %.not10.not = icmp eq ptr %5, %6
-  br i1 %.not10.not, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -9455,28 +9455,28 @@ define dso_local noundef i32 @_ZNK17DistributionTable11key_to_probEi(ptr noundef
   %10 = ashr exact i64 %9, 2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %.0711 = phi i64 [ %20, %19 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %.0711
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+  %.0712 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
+  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %.0712
   %12 = load i32, ptr %11, align 4, !tbaa !36
   %13 = icmp eq i32 %12, %1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %16, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !168
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %.0711
-  %18 = load i32, ptr %17, align 4, !tbaa !36
-  br label %.loopexit
-
-19:                                               ; preds = %.lr.ph
-  %20 = add nuw i64 %.0711, 1
-  %exitcond.not = icmp eq i64 %20, %10
+  %15 = add nuw i64 %.0712, 1
+  %exitcond.not = icmp eq i64 %15, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !174
 
-.loopexit:                                        ; preds = %19, %2, %14
-  %spec.select = phi i32 [ %18, %14 ], [ 0, %2 ], [ 0, %19 ]
-  ret i32 %spec.select
+16:                                               ; preds = %.lr.ph
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8, !tbaa !168
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.0712
+  %20 = load i32, ptr %19, align 4, !tbaa !36
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %14, %2, %16
+  %21 = phi i32 [ %20, %16 ], [ 0, %2 ], [ 0, %14 ]
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -9485,8 +9485,8 @@ define dso_local noundef i32 @_ZNK17DistributionTable14rnd_num_to_keyEi(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !165
   %6 = load ptr, ptr %3, align 8, !tbaa !168
-  %.not13.not = icmp eq ptr %5, %6
-  br i1 %.not13.not, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -9495,30 +9495,30 @@ define dso_local noundef i32 @_ZNK17DistributionTable14rnd_num_to_keyEi(ptr noun
   %10 = ashr exact i64 %9, 2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %.0915 = phi i64 [ %21, %19 ], [ 0, %.lr.ph.preheader ]
-  %.01014 = phi i32 [ %20, %19 ], [ %1, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %.0915
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+  %.0916 = phi i64 [ %16, %14 ], [ 0, %.lr.ph.preheader ]
+  %.01015 = phi i32 [ %15, %14 ], [ %1, %.lr.ph.preheader ]
+  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %.0916
   %12 = load i32, ptr %11, align 4, !tbaa !36
-  %13 = icmp slt i32 %.01014, %12
-  br i1 %13, label %14, label %19
+  %13 = icmp slt i32 %.01015, %12
+  br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !168
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %.0915
-  %18 = load i32, ptr %17, align 4, !tbaa !36
-  br label %.loopexit
-
-19:                                               ; preds = %.lr.ph
-  %20 = sub nsw i32 %.01014, %12
-  %21 = add nuw i64 %.0915, 1
-  %exitcond.not = icmp eq i64 %21, %10
+  %15 = sub nsw i32 %.01015, %12
+  %16 = add nuw i64 %.0916, 1
+  %exitcond.not = icmp eq i64 %16, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !175
 
-.loopexit:                                        ; preds = %19, %2, %14
-  %spec.select = phi i32 [ %18, %14 ], [ -1, %2 ], [ -1, %19 ]
-  ret i32 %spec.select
+17:                                               ; preds = %.lr.ph
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !168
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.0916
+  %21 = load i32, ptr %20, align 4, !tbaa !36
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %14, %2, %17
+  %22 = phi i32 [ %21, %17 ], [ -1, %2 ], [ -1, %14 ]
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

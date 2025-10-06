@@ -627,7 +627,7 @@ _getFilePos.exit:                                 ; preds = %_skipLOs.exit, %27
   %33 = load ptr, ptr %22, align 8
   %34 = tail call i32 @getc(ptr noundef %33)
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %_readBlockHeader.exit69.thread96, label %36
+  br i1 %35, label %_readBlockHeader.exit69.thread95, label %36
 
 36:                                               ; preds = %_getFilePos.exit, %32
   %.1 = phi i32 [ %34, %32 ], [ 1, %_getFilePos.exit ]
@@ -726,21 +726,21 @@ _skipLOs.exit.backedge:                           ; preds = %.lr.ph.i, %57, %56
   %73 = load ptr, ptr %62, align 8
   %74 = tail call i32 @getc(ptr noundef %73)
   %75 = icmp eq i32 %74, -1
-  br i1 %75, label %_readBlockHeader.exit69.thread96, label %_readBlockHeader.exit69
+  br i1 %75, label %_readBlockHeader.exit69.thread95, label %_readBlockHeader.exit69
 
-_readBlockHeader.exit69.thread96:                 ; preds = %32, %72
+_readBlockHeader.exit69.thread95:                 ; preds = %32, %72
   %76 = load i32, ptr %10, align 8
   %.not64 = icmp eq i32 %76, 0
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %78 = load i32, ptr %77, align 8
   br i1 %.not64, label %79, label %80
 
-79:                                               ; preds = %_readBlockHeader.exit69.thread96
+79:                                               ; preds = %_readBlockHeader.exit69.thread95
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12, i32 noundef %78) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-80:                                               ; preds = %_readBlockHeader.exit69.thread96
+80:                                               ; preds = %_readBlockHeader.exit69.thread95
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %78) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
@@ -759,8 +759,8 @@ _readBlockHeader.exit69:                          ; preds = %68, %72
   unreachable
 
 _readBlockHeader.exit69.thread:                   ; preds = %36, %_readBlockHeader.exit69
-  %.08094117 = phi i32 [ %.3, %_readBlockHeader.exit69 ], [ %.1, %36 ]
-  switch i32 %.08094117, label %99 [
+  %.08093116 = phi i32 [ %.3, %_readBlockHeader.exit69 ], [ %.1, %36 ]
+  switch i32 %.08093116, label %99 [
     i32 1, label %83
     i32 3, label %87
   ]
@@ -805,7 +805,7 @@ _LoadLOs.exit:                                    ; preds = %95, %87
   br label %100
 
 99:                                               ; preds = %_readBlockHeader.exit69.thread
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %.08094117) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %.08093116) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 

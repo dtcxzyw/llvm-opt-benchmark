@@ -2475,8 +2475,8 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   %14 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !97
   %15 = or i32 %14, %4
   %16 = and i32 %15, %13
-  %.not132 = icmp eq i32 %16, 1
-  br i1 %.not132, label %17, label %39
+  %.not131 = icmp eq i32 %16, 1
+  br i1 %.not131, label %17, label %39
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2517,8 +2517,8 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   %41 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !97
   %42 = or i32 %41, %4
   %43 = and i32 %42, %40
-  %.not133 = icmp eq i32 %43, 0
-  br i1 %.not133, label %44, label %67
+  %.not132 = icmp eq i32 %43, 0
+  br i1 %.not132, label %44, label %67
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2555,9 +2555,9 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %63
-  %.sink170 = phi float [ %65, %63 ], [ %38, %36 ]
+  %.sink169 = phi float [ %65, %63 ], [ %38, %36 ]
   %.sink = phi ptr [ %64, %63 ], [ %37, %36 ]
-  %66 = fpext reassoc nsz arcp contract afn float %.sink170 to double
+  %66 = fpext reassoc nsz arcp contract afn float %.sink169 to double
   tail call void (ptr, ...) @dt_toast_log(ptr noundef %.sink, double noundef %66) #19
   br label %67
 
@@ -2613,8 +2613,8 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   %95 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !97
   %96 = or i32 %95, %4
   %97 = and i32 %96, %94
-  %.not134 = icmp eq i32 %97, 4
-  br i1 %.not134, label %98, label %101
+  %.not133 = icmp eq i32 %97, 4
+  br i1 %.not133, label %98, label %101
 
 98:                                               ; preds = %93
   %.not115 = icmp eq i32 %3, 0
@@ -2627,35 +2627,35 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   %103 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !97
   %104 = or i32 %103, %4
   %105 = and i32 %104, %102
-  %.not135 = icmp eq i32 %105, 1
-  %.094155 = load ptr, ptr %5, align 8, !tbaa !83
-  %.not112156 = icmp eq ptr %.094155, null
-  br i1 %.not135, label %.preheader, label %.preheader140
+  %.not134 = icmp eq i32 %105, 1
+  %.094154 = load ptr, ptr %5, align 8, !tbaa !83
+  %.not112155 = icmp eq ptr %.094154, null
+  br i1 %.not134, label %.preheader, label %.preheader139
 
-.preheader140:                                    ; preds = %101
-  br i1 %.not112156, label %.thread129, label %.lr.ph
+.preheader139:                                    ; preds = %101
+  br i1 %.not112155, label %.thread129, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader140
+.lr.ph:                                           ; preds = %.preheader139
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %107 = load i32, ptr %106, align 8, !tbaa !94
-  %.fr160 = freeze i32 %107
+  %.fr159 = freeze i32 %107
   %.not108 = icmp eq i32 %3, 0
   br i1 %.not108, label %.critedge.us, label %.lr.ph.split
 
 .critedge.us:                                     ; preds = %.lr.ph, %.critedge.us
-  %.098144.us = phi ptr [ %.098.us, %.critedge.us ], [ %.094155, %.lr.ph ]
-  %108 = getelementptr inbounds nuw i8, ptr %.098144.us, i64 8
+  %.098143.us = phi ptr [ %.098.us, %.critedge.us ], [ %.094154, %.lr.ph ]
+  %108 = getelementptr inbounds nuw i8, ptr %.098143.us, i64 8
   %.098.us = load ptr, ptr %108, align 8, !tbaa !83
   %.not107.us = icmp eq ptr %.098.us, null
-  br i1 %.not107.us, label %.lr.ph154, label %.critedge.us
+  br i1 %.not107.us, label %.lr.ph153, label %.critedge.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not161 = icmp eq i32 %.fr160, -1
-  br i1 %.not161, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.not160 = icmp eq i32 %.fr159, -1
+  br i1 %.not160, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us147
-  %.098144.us145 = phi ptr [ %.098.us148, %.critedge.us147 ], [ %.094155, %.lr.ph.split ]
-  %109 = load ptr, ptr %.098144.us145, align 8, !tbaa !95
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us146
+  %.098143.us144 = phi ptr [ %.098.us147, %.critedge.us146 ], [ %.094154, %.lr.ph.split ]
+  %109 = load ptr, ptr %.098143.us144, align 8, !tbaa !95
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load float, ptr %110, align 4, !tbaa !93
   %112 = fcmp reassoc nsz arcp contract afn ogt float %111, 1.000000e+00
@@ -2665,18 +2665,18 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 28
   %115 = load float, ptr %114, align 4, !tbaa !93
   %116 = fcmp reassoc nsz arcp contract afn ogt float %115, 1.000000e+00
-  br i1 %116, label %.loopexit, label %.critedge.us147
+  br i1 %116, label %.loopexit, label %.critedge.us146
 
-.critedge.us147:                                  ; preds = %113
-  %117 = getelementptr inbounds nuw i8, ptr %.098144.us145, i64 8
-  %.098.us148 = load ptr, ptr %117, align 8, !tbaa !83
-  %.not107.us149 = icmp eq ptr %.098.us148, null
-  br i1 %.not107.us149, label %.lr.ph154, label %.lr.ph.split.split.us
+.critedge.us146:                                  ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %.098143.us144, i64 8
+  %.098.us147 = load ptr, ptr %117, align 8, !tbaa !83
+  %.not107.us148 = icmp eq ptr %.098.us147, null
+  br i1 %.not107.us148, label %.lr.ph153, label %.lr.ph.split.split.us
 
 .preheader:                                       ; preds = %101
-  br i1 %.not112156, label %._crit_edge, label %.lr.ph159
+  br i1 %.not112155, label %._crit_edge, label %.lr.ph158
 
-.lr.ph159:                                        ; preds = %.preheader
+.lr.ph158:                                        ; preds = %.preheader
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 80
   br label %128
 
@@ -2695,17 +2695,17 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   tail call void @dt_conf_set_float(ptr noundef nonnull %127, float noundef %124) #19
   br label %183
 
-128:                                              ; preds = %.lr.ph159, %141
-  %.094158 = phi ptr [ %.094155, %.lr.ph159 ], [ %.094, %141 ]
-  %.092157 = phi i32 [ 0, %.lr.ph159 ], [ %142, %141 ]
+128:                                              ; preds = %.lr.ph158, %141
+  %.094157 = phi ptr [ %.094154, %.lr.ph158 ], [ %.094, %141 ]
+  %.092156 = phi i32 [ 0, %.lr.ph158 ], [ %142, %141 ]
   %129 = load i32, ptr %118, align 8, !tbaa !94
   %130 = icmp eq i32 %129, -1
-  %131 = icmp eq i32 %129, %.092157
+  %131 = icmp eq i32 %129, %.092156
   %or.cond = select i1 %130, i1 true, i1 %131
   br i1 %or.cond, label %132, label %141
 
 132:                                              ; preds = %128
-  %133 = load ptr, ptr %.094158, align 8, !tbaa !95
+  %133 = load ptr, ptr %.094157, align 8, !tbaa !95
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 36
   %135 = load float, ptr %134, align 4, !tbaa !98
   %136 = tail call reassoc nsz arcp contract afn float @dt_masks_change_size(i32 noundef %3, float noundef %135, float noundef 0x3F40624DE0000000, float noundef 1.000000e+00) #19
@@ -2718,24 +2718,24 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   br label %141
 
 141:                                              ; preds = %128, %132
-  %142 = add nuw nsw i32 %.092157, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.094158, i64 8
+  %142 = add nuw nsw i32 %.092156, 1
+  %143 = getelementptr inbounds nuw i8, ptr %.094157, i64 8
   %.094 = load ptr, ptr %143, align 8, !tbaa !83
   %.not112 = icmp eq ptr %.094, null
   br i1 %.not112, label %._crit_edge, label %128
 
-.lr.ph154:                                        ; preds = %.critedge, %.critedge.us147, %.critedge.us
+.lr.ph153:                                        ; preds = %.critedge, %.critedge.us146, %.critedge.us
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 80
   br label %168
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge
-  %.098144 = phi ptr [ %.098, %.critedge ], [ %.094155, %.lr.ph.split ]
-  %.099143 = phi i32 [ %154, %.critedge ], [ 0, %.lr.ph.split ]
-  %.not162 = icmp eq i32 %.fr160, %.099143
-  br i1 %.not162, label %145, label %.critedge
+  %.098143 = phi ptr [ %.098, %.critedge ], [ %.094154, %.lr.ph.split ]
+  %.099142 = phi i32 [ %154, %.critedge ], [ 0, %.lr.ph.split ]
+  %.not161 = icmp eq i32 %.fr159, %.099142
+  br i1 %.not161, label %145, label %.critedge
 
 145:                                              ; preds = %.lr.ph.split.split
-  %146 = load ptr, ptr %.098144, align 8, !tbaa !95
+  %146 = load ptr, ptr %.098143, align 8, !tbaa !95
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load float, ptr %147, align 4, !tbaa !93
   %149 = fcmp reassoc nsz arcp contract afn ogt float %148, 1.000000e+00
@@ -2748,13 +2748,13 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   br i1 %153, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %150, %.lr.ph.split.split
-  %154 = add nuw nsw i32 %.099143, 1
-  %155 = getelementptr inbounds nuw i8, ptr %.098144, i64 8
+  %154 = add nuw nsw i32 %.099142, 1
+  %155 = getelementptr inbounds nuw i8, ptr %.098143, i64 8
   %.098 = load ptr, ptr %155, align 8, !tbaa !83
   %.not107 = icmp eq ptr %.098, null
-  br i1 %.not107, label %.lr.ph154, label %.lr.ph.split.split
+  br i1 %.not107, label %.lr.ph153, label %.lr.ph.split.split
 
-.thread129:                                       ; preds = %180, %.preheader140
+.thread129:                                       ; preds = %180, %.preheader139
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %157 = load i32, ptr %156, align 8, !tbaa !84
   %158 = and i32 %157, 136
@@ -2773,17 +2773,17 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   tail call void (ptr, ...) @dt_toast_log(ptr noundef %165, double noundef %167) #19
   br label %183
 
-168:                                              ; preds = %.lr.ph154, %180
-  %.093153 = phi ptr [ %.094155, %.lr.ph154 ], [ %.093, %180 ]
-  %.1100152 = phi i32 [ 0, %.lr.ph154 ], [ %181, %180 ]
+168:                                              ; preds = %.lr.ph153, %180
+  %.093152 = phi ptr [ %.094154, %.lr.ph153 ], [ %.093, %180 ]
+  %.1100151 = phi i32 [ 0, %.lr.ph153 ], [ %181, %180 ]
   %169 = load i32, ptr %144, align 8, !tbaa !94
   %170 = icmp eq i32 %169, -1
-  %171 = icmp eq i32 %169, %.1100152
+  %171 = icmp eq i32 %169, %.1100151
   %or.cond123 = select i1 %170, i1 true, i1 %171
   br i1 %or.cond123, label %172, label %180
 
 172:                                              ; preds = %168
-  %173 = load ptr, ptr %.093153, align 8, !tbaa !95
+  %173 = load ptr, ptr %.093152, align 8, !tbaa !95
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %175 = load float, ptr %174, align 4, !tbaa !93
   %176 = tail call reassoc nsz arcp contract afn float @dt_masks_change_size(i32 noundef %3, float noundef %175, float noundef 0x3F0A36E2E0000000, float noundef 5.000000e-01) #19
@@ -2795,8 +2795,8 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   br label %180
 
 180:                                              ; preds = %168, %172
-  %181 = add nuw nsw i32 %.1100152, 1
-  %182 = getelementptr inbounds nuw i8, ptr %.093153, i64 8
+  %181 = add nuw nsw i32 %.1100151, 1
+  %182 = getelementptr inbounds nuw i8, ptr %.093152, i64 8
   %.093 = load ptr, ptr %182, align 8, !tbaa !83
   %.not109 = icmp eq ptr %.093, null
   br i1 %.not109, label %.thread129, label %168

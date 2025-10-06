@@ -1382,17 +1382,17 @@ _ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit: ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not14.not = icmp eq i32 %7, 0
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
+  %.not15.not = icmp eq i32 %7, 0
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit, %.lr.ph
-  %.01315 = phi ptr [ %16, %.lr.ph ], [ %4, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit ]
-  %11 = load ptr, ptr %.01315, align 8, !tbaa !12
+  %.01316 = phi ptr [ %16, %.lr.ph ], [ %4, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit ]
+  %11 = load ptr, ptr %.01316, align 8, !tbaa !12
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef %1)
-  %16 = getelementptr inbounds nuw i8, ptr %.01315, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
   %.not.not = icmp eq ptr %16, %10
   %or.cond = select i1 %15, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -1415,17 +1415,17 @@ _ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit: ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not14.not = icmp eq i32 %7, 0
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
+  %.not15.not = icmp eq i32 %7, 0
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit, %.lr.ph
-  %.01315 = phi ptr [ %16, %.lr.ph ], [ %4, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit ]
-  %11 = load ptr, ptr %.01315, align 8, !tbaa !12
+  %.01316 = phi ptr [ %16, %.lr.ph ], [ %4, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit ]
+  %11 = load ptr, ptr %.01316, align 8, !tbaa !12
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef %1)
-  %16 = getelementptr inbounds nuw i8, ptr %.01315, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
   %.not.not = icmp eq ptr %16, %10
   %or.cond = select i1 %15, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -15019,17 +15019,17 @@ _ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i: ; preds = %_Z15get_array
   %37 = zext i32 %36 to i64
   %38 = shl nuw nsw i64 %37, 3
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
-  %.not14.not.i = icmp eq i32 %36, 0
-  br i1 %.not14.not.i, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph.i
+  %.not15.not.i = icmp eq i32 %36, 0
+  br i1 %.not15.not.i, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph.i
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds nuw i8, ptr %.01315.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 8
   %.not.not.i = icmp eq ptr %41, %39
   br i1 %.not.not.i, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i, %40
-  %.01315.i = phi ptr [ %41, %40 ], [ %33, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i ]
-  %42 = load ptr, ptr %.01315.i, align 8, !tbaa !12
+  %.01316.i = phi ptr [ %41, %40 ], [ %33, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i ]
+  %42 = load ptr, ptr %.01316.i, align 8, !tbaa !12
   %43 = load ptr, ptr %42, align 8, !tbaa !14
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8
@@ -15091,17 +15091,17 @@ _ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i13: ; preds = %_Z16get_arr
   %75 = zext i32 %74 to i64
   %76 = shl nuw nsw i64 %75, 3
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 %76
-  %.not14.not.i14 = icmp eq i32 %74, 0
-  br i1 %.not14.not.i14, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph.i15
+  %.not15.not.i14 = icmp eq i32 %74, 0
+  br i1 %.not15.not.i14, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph.i15
 
 78:                                               ; preds = %.lr.ph.i15
-  %79 = getelementptr inbounds nuw i8, ptr %.01315.i16, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.01316.i16, i64 8
   %.not.not.i17 = icmp eq ptr %79, %77
   br i1 %.not.not.i17, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i13, %78
-  %.01315.i16 = phi ptr [ %79, %78 ], [ %71, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i13 ]
-  %80 = load ptr, ptr %.01315.i16, align 8, !tbaa !12
+  %.01316.i16 = phi ptr [ %79, %78 ], [ %71, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i13 ]
+  %80 = load ptr, ptr %.01316.i16, align 8, !tbaa !12
   %81 = load ptr, ptr %80, align 8, !tbaa !14
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %83 = load ptr, ptr %82, align 8
@@ -24695,17 +24695,17 @@ _ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i84: ; preds = %_Z9is_exist
   %206 = zext i32 %205 to i64
   %207 = shl nuw nsw i64 %206, 3
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 %207
-  %.not14.not.i = icmp eq i32 %205, 0
-  br i1 %.not14.not.i, label %_ZN5smtfd14plugin_context12sort_coveredEP4sort.exit, label %.lr.ph.i85
+  %.not15.not.i = icmp eq i32 %205, 0
+  br i1 %.not15.not.i, label %_ZN5smtfd14plugin_context12sort_coveredEP4sort.exit, label %.lr.ph.i85
 
 209:                                              ; preds = %.noexc86
-  %210 = getelementptr inbounds nuw i8, ptr %.01315.i, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 8
   %.not.not.i = icmp eq ptr %210, %208
   br i1 %.not.not.i, label %_ZN5smtfd14plugin_context12sort_coveredEP4sort.exit, label %.lr.ph.i85
 
 .lr.ph.i85:                                       ; preds = %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i84, %209
-  %.01315.i = phi ptr [ %210, %209 ], [ %202, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i84 ]
-  %211 = load ptr, ptr %.01315.i, align 8, !tbaa !12
+  %.01316.i = phi ptr [ %210, %209 ], [ %202, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i84 ]
+  %211 = load ptr, ptr %.01316.i, align 8, !tbaa !12
   %212 = load ptr, ptr %211, align 8, !tbaa !14
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 48
   %214 = load ptr, ptr %213, align 8
@@ -24730,17 +24730,17 @@ _ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i87: ; preds = %217
   %222 = zext i32 %221 to i64
   %223 = shl nuw nsw i64 %222, 3
   %224 = getelementptr inbounds nuw i8, ptr %218, i64 %223
-  %.not14.not.i88 = icmp eq i32 %221, 0
-  br i1 %.not14.not.i88, label %_ZN5smtfd14plugin_context12sort_coveredEP4sort.exit, label %.lr.ph.i89
+  %.not15.not.i88 = icmp eq i32 %221, 0
+  br i1 %.not15.not.i88, label %_ZN5smtfd14plugin_context12sort_coveredEP4sort.exit, label %.lr.ph.i89
 
 225:                                              ; preds = %.noexc93
-  %226 = getelementptr inbounds nuw i8, ptr %.01315.i90, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %.01316.i90, i64 8
   %.not.not.i91 = icmp eq ptr %226, %224
   br i1 %.not.not.i91, label %_ZN5smtfd14plugin_context12sort_coveredEP4sort.exit, label %.lr.ph.i89
 
 .lr.ph.i89:                                       ; preds = %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i87, %225
-  %.01315.i90 = phi ptr [ %226, %225 ], [ %218, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i87 ]
-  %227 = load ptr, ptr %.01315.i90, align 8, !tbaa !12
+  %.01316.i90 = phi ptr [ %226, %225 ], [ %218, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i87 ]
+  %227 = load ptr, ptr %.01316.i90, align 8, !tbaa !12
   %228 = load ptr, ptr %227, align 8, !tbaa !14
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 56
   %230 = load ptr, ptr %229, align 8

@@ -710,7 +710,7 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %5)
   %7 = fcmp nsz une double %6, 0.000000e+00
-  br i1 %7, label %.lr.ph, label %common.ret535
+  br i1 %7, label %.lr.ph, label %common.ret534
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -719,7 +719,7 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load double, ptr %10, align 8, !tbaa !39
-  br label %common.ret535
+  br label %common.ret534
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -732,11 +732,11 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
   %20 = getelementptr inbounds double, ptr %16, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !48
   %22 = fmul nsz double %14, %21
-  br label %common.ret535
+  br label %common.ret534
 
-common.ret535:                                    ; preds = %639, %636, %628, %625, %620, %615, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
-  %common.ret535.op = phi double [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %261, %250 ], [ %11, %9 ], [ %22, %12 ], [ %190, %188 ], [ %207, %205 ], [ %249, %247 ], [ %265, %271 ], [ %325, %ff_sfc64_init.exit ], [ %387, %ff_sfc64_init.exit400 ], [ %.1358, %split ], [ %503, %.loopexit ], [ 0x7FF8000000000000, %208 ], [ 0x7FF8000000000000, %504 ], [ 0x7FF8000000000000, %636 ], [ %646, %639 ], [ 0x7FF8000000000000, %625 ], [ %635, %628 ], [ %624, %620 ], [ %619, %615 ], [ %614, %600 ], [ %599, %596 ], [ %595, %591 ], [ %590, %583 ], [ %582, %578 ], [ %577, %573 ], [ %572, %567 ], [ %566, %561 ], [ %560, %555 ], [ %554, %549 ], [ %548, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %523 ], [ %522, %512 ], [ 0x7FF8000000000000, %.preheader ], [ %390, %388 ]
-  ret double %common.ret535.op
+common.ret534:                                    ; preds = %639, %636, %628, %625, %620, %615, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
+  %common.ret534.op = phi double [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %261, %250 ], [ %11, %9 ], [ %22, %12 ], [ %190, %188 ], [ %207, %205 ], [ %249, %247 ], [ %265, %271 ], [ %325, %ff_sfc64_init.exit ], [ %387, %ff_sfc64_init.exit400 ], [ %.1358, %split ], [ %503, %.loopexit ], [ 0x7FF8000000000000, %208 ], [ 0x7FF8000000000000, %504 ], [ 0x7FF8000000000000, %636 ], [ %646, %639 ], [ 0x7FF8000000000000, %625 ], [ %635, %628 ], [ %624, %620 ], [ %619, %615 ], [ %614, %600 ], [ %599, %596 ], [ %595, %591 ], [ %590, %583 ], [ %582, %578 ], [ %577, %573 ], [ %572, %567 ], [ %566, %561 ], [ %560, %555 ], [ %554, %549 ], [ %548, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %523 ], [ %522, %512 ], [ 0x7FF8000000000000, %.preheader ], [ %390, %388 ]
+  ret double %common.ret534.op
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -748,7 +748,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %30 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %29)
   %31 = tail call nsz double %27(double noundef %30) #14
   %32 = fmul nsz double %25, %31
-  br label %common.ret535
+  br label %common.ret534
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -762,7 +762,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %42 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %41)
   %43 = tail call nsz double %37(ptr noundef %39, double noundef %42) #14
   %44 = fmul nsz double %35, %43
-  br label %common.ret535
+  br label %common.ret534
 
 45:                                               ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -779,7 +779,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %57 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %56)
   %58 = tail call nsz double %49(ptr noundef %51, double noundef %54, double noundef %57) #14
   %59 = fmul nsz double %47, %58
-  br label %common.ret535
+  br label %common.ret534
 
 60:                                               ; preds = %2
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -789,7 +789,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %65 = tail call nsz double @llvm.exp.f64(double %64)
   %66 = fadd nsz double %65, 1.000000e+00
   %67 = fdiv nsz double 1.000000e+00, %66
-  br label %common.ret535
+  br label %common.ret534
 
 68:                                               ; preds = %2
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -800,7 +800,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %74 = fmul nsz double %73, 5.000000e-01
   %75 = tail call nsz double @llvm.exp.f64(double %74)
   %76 = fdiv nsz double %75, 0x40040D931FF62705
-  br label %common.ret535
+  br label %common.ret534
 
 77:                                               ; preds = %2
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -817,7 +817,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %89 = getelementptr inbounds nuw double, ptr %81, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !48
   %91 = fmul nsz double %79, %90
-  br label %common.ret535
+  br label %common.ret534
 
 92:                                               ; preds = %2
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -828,7 +828,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %98 = fcmp uno double %97, 0.000000e+00
   %99 = uitofp i1 %98 to double
   %100 = fmul nsz double %94, %99
-  br label %common.ret535
+  br label %common.ret534
 
 101:                                              ; preds = %2
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -840,7 +840,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %108 = fcmp nsz oeq double %107, 0x7FF0000000000000
   %109 = uitofp i1 %108 to double
   %110 = fmul nsz double %103, %109
-  br label %common.ret535
+  br label %common.ret534
 
 111:                                              ; preds = %2
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -850,7 +850,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %116 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %115)
   %117 = tail call nsz double @llvm.floor.f64(double %116)
   %118 = fmul nsz double %113, %117
-  br label %common.ret535
+  br label %common.ret534
 
 119:                                              ; preds = %2
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -860,7 +860,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %124 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %123)
   %125 = tail call nsz double @llvm.ceil.f64(double %124)
   %126 = fmul nsz double %121, %125
-  br label %common.ret535
+  br label %common.ret534
 
 127:                                              ; preds = %2
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -870,7 +870,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %132 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %131)
   %133 = tail call nsz double @llvm.trunc.f64(double %132)
   %134 = fmul nsz double %129, %133
-  br label %common.ret535
+  br label %common.ret534
 
 135:                                              ; preds = %2
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -880,7 +880,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %140 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %139)
   %141 = tail call nsz double @llvm.round.f64(double %140)
   %142 = fmul nsz double %137, %141
-  br label %common.ret535
+  br label %common.ret534
 
 143:                                              ; preds = %2
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -897,7 +897,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %154 = add nsw i32 %.neg, %150
   %155 = sitofp i32 %154 to double
   %156 = fmul nsz double %145, %155
-  br label %common.ret535
+  br label %common.ret534
 
 157:                                              ; preds = %2
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -907,7 +907,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %162 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %161)
   %163 = tail call nsz double @llvm.sqrt.f64(double %162)
   %164 = fmul nsz double %159, %163
-  br label %common.ret535
+  br label %common.ret534
 
 165:                                              ; preds = %2
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -918,7 +918,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %171 = fcmp nsz oeq double %170, 0.000000e+00
   %172 = uitofp i1 %171 to double
   %173 = fmul nsz double %167, %172
-  br label %common.ret535
+  br label %common.ret534
 
 174:                                              ; preds = %2
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -948,7 +948,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
 188:                                              ; preds = %.sink.split, %184
   %189 = phi nsz double [ 0.000000e+00, %184 ], [ %187, %.sink.split ]
   %190 = fmul nsz double %176, %189
-  br label %common.ret535
+  br label %common.ret534
 
 191:                                              ; preds = %2
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -962,23 +962,23 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
 198:                                              ; preds = %191
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %200 = load ptr, ptr %199, align 8, !tbaa !14
-  br label %.sink.split486
+  br label %.sink.split485
 
 201:                                              ; preds = %191
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %203 = load ptr, ptr %202, align 8, !tbaa !14
   %.not377 = icmp eq ptr %203, null
-  br i1 %.not377, label %205, label %.sink.split486
+  br i1 %.not377, label %205, label %.sink.split485
 
-.sink.split486:                                   ; preds = %201, %198
-  %.sink487 = phi ptr [ %200, %198 ], [ %203, %201 ]
-  %204 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %.sink487)
+.sink.split485:                                   ; preds = %201, %198
+  %.sink486 = phi ptr [ %200, %198 ], [ %203, %201 ]
+  %204 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %.sink486)
   br label %205
 
-205:                                              ; preds = %.sink.split486, %201
-  %206 = phi nsz double [ 0.000000e+00, %201 ], [ %204, %.sink.split486 ]
+205:                                              ; preds = %.sink.split485, %201
+  %206 = phi nsz double [ 0.000000e+00, %201 ], [ %204, %.sink.split485 ]
   %207 = fmul nsz double %193, %206
-  br label %common.ret535
+  br label %common.ret534
 
 208:                                              ; preds = %2
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -997,7 +997,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %or.cond380 = select i1 %or.cond379, i1 true, i1 %220
   %221 = fcmp nsz ogt double %214, %217
   %or.cond381 = select i1 %or.cond380, i1 true, i1 %221
-  br i1 %or.cond381, label %common.ret535, label %222
+  br i1 %or.cond381, label %common.ret534, label %222
 
 222:                                              ; preds = %208
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1009,7 +1009,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %229 = fcmp nsz ogt double %228, %217
   %..i397 = select nsz i1 %229, double %217, double %228
   %230 = fmul nsz double %224, %..i397
-  br label %common.ret535
+  br label %common.ret534
 
 231:                                              ; preds = %2
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1034,7 +1034,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
 247:                                              ; preds = %241, %231
   %248 = phi double [ 0.000000e+00, %231 ], [ %246, %241 ]
   %249 = fmul nsz double %236, %248
-  br label %common.ret535
+  br label %common.ret534
 
 250:                                              ; preds = %2
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1048,7 +1048,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %259 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %258)
   %260 = fsub nsz double %256, %253
   %261 = tail call nsz double @llvm.fmuladd.f64(double %260, double %259, double %253)
-  br label %common.ret535
+  br label %common.ret534
 
 262:                                              ; preds = %2
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1067,7 +1067,7 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
 271:                                              ; preds = %262, %268
   %272 = phi i32 [ %270, %268 ], [ 32, %262 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef %272, ptr noundef nonnull @.str.63, double noundef %265) #14
-  br label %common.ret535
+  br label %common.ret534
 
 273:                                              ; preds = %2
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1083,16 +1083,16 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load i64, ptr %284, align 8, !tbaa !49
   %.not375 = icmp eq i64 %285, 0
-  br i1 %.not375, label %286, label %._crit_edge446
+  br i1 %.not375, label %286, label %._crit_edge445
 
-._crit_edge446:                                   ; preds = %273
-  %.pre447 = load i64, ptr %283, align 8, !tbaa !52
-  %.phi.trans.insert448 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  %.pre449 = load i64, ptr %.phi.trans.insert448, align 8, !tbaa !53
-  %.phi.trans.insert450 = getelementptr inbounds nuw i8, ptr %283, i64 16
-  %.pre451 = load i64, ptr %.phi.trans.insert450, align 8, !tbaa !54
-  %.phi.trans.insert452 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre453 = load ptr, ptr %.phi.trans.insert452, align 8, !tbaa !46
+._crit_edge445:                                   ; preds = %273
+  %.pre446 = load i64, ptr %283, align 8, !tbaa !52
+  %.phi.trans.insert447 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %.pre448 = load i64, ptr %.phi.trans.insert447, align 8, !tbaa !53
+  %.phi.trans.insert449 = getelementptr inbounds nuw i8, ptr %283, i64 16
+  %.pre450 = load i64, ptr %.phi.trans.insert449, align 8, !tbaa !54
+  %.phi.trans.insert451 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.pre452 = load ptr, ptr %.phi.trans.insert451, align 8, !tbaa !46
   br label %ff_sfc64_init.exit
 
 286:                                              ; preds = %273
@@ -1123,12 +1123,12 @@ common.ret535:                                    ; preds = %639, %636, %628, %6
   %.not.i = icmp eq i32 %299, 0
   br i1 %.not.i, label %ff_sfc64_init.exit, label %294, !llvm.loop !55
 
-ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge446
-  %308 = phi ptr [ %.pre453, %._crit_edge446 ], [ %288, %294 ]
-  %309 = phi i64 [ %.pre451, %._crit_edge446 ], [ %307, %294 ]
-  %310 = phi i64 [ %285, %._crit_edge446 ], [ 13, %294 ]
-  %311 = phi i64 [ %.pre449, %._crit_edge446 ], [ %305, %294 ]
-  %312 = phi i64 [ %.pre447, %._crit_edge446 ], [ %304, %294 ]
+ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge445
+  %308 = phi ptr [ %.pre452, %._crit_edge445 ], [ %288, %294 ]
+  %309 = phi i64 [ %.pre450, %._crit_edge445 ], [ %307, %294 ]
+  %310 = phi i64 [ %285, %._crit_edge445 ], [ 13, %294 ]
+  %311 = phi i64 [ %.pre448, %._crit_edge445 ], [ %305, %294 ]
+  %312 = phi i64 [ %.pre446, %._crit_edge445 ], [ %304, %294 ]
   %313 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %314 = add i64 %311, %312
   %315 = add i64 %310, 1
@@ -1147,7 +1147,7 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
   %324 = getelementptr inbounds nuw double, ptr %308, i64 %282
   store double %323, ptr %324, align 8, !tbaa !48
   %325 = fmul nsz double %323, 0x3BF0000000000000
-  br label %common.ret535
+  br label %common.ret534
 
 326:                                              ; preds = %2
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1169,16 +1169,16 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %344 = load i64, ptr %343, align 8, !tbaa !49
   %.not374 = icmp eq i64 %344, 0
-  br i1 %.not374, label %345, label %._crit_edge439
+  br i1 %.not374, label %345, label %._crit_edge438
 
-._crit_edge439:                                   ; preds = %326
-  %.pre440 = load i64, ptr %342, align 8, !tbaa !52
+._crit_edge438:                                   ; preds = %326
+  %.pre439 = load i64, ptr %342, align 8, !tbaa !52
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %.pre441 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !53
-  %.phi.trans.insert442 = getelementptr inbounds nuw i8, ptr %342, i64 16
-  %.pre443 = load i64, ptr %.phi.trans.insert442, align 8, !tbaa !54
-  %.phi.trans.insert444 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre445 = load ptr, ptr %.phi.trans.insert444, align 8, !tbaa !46
+  %.pre440 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !53
+  %.phi.trans.insert441 = getelementptr inbounds nuw i8, ptr %342, i64 16
+  %.pre442 = load i64, ptr %.phi.trans.insert441, align 8, !tbaa !54
+  %.phi.trans.insert443 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.pre444 = load ptr, ptr %.phi.trans.insert443, align 8, !tbaa !46
   br label %ff_sfc64_init.exit400
 
 345:                                              ; preds = %326
@@ -1209,12 +1209,12 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
   %.not.i399 = icmp eq i32 %358, 0
   br i1 %.not.i399, label %ff_sfc64_init.exit400, label %353, !llvm.loop !55
 
-ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge439
-  %367 = phi ptr [ %.pre445, %._crit_edge439 ], [ %347, %353 ]
-  %368 = phi i64 [ %.pre443, %._crit_edge439 ], [ %366, %353 ]
-  %369 = phi i64 [ %344, %._crit_edge439 ], [ 13, %353 ]
-  %370 = phi i64 [ %.pre441, %._crit_edge439 ], [ %364, %353 ]
-  %371 = phi i64 [ %.pre440, %._crit_edge439 ], [ %363, %353 ]
+ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge438
+  %367 = phi ptr [ %.pre444, %._crit_edge438 ], [ %347, %353 ]
+  %368 = phi i64 [ %.pre442, %._crit_edge438 ], [ %366, %353 ]
+  %369 = phi i64 [ %344, %._crit_edge438 ], [ 13, %353 ]
+  %370 = phi i64 [ %.pre440, %._crit_edge438 ], [ %364, %353 ]
+  %371 = phi i64 [ %.pre439, %._crit_edge438 ], [ %363, %353 ]
   %372 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %373 = add i64 %370, %371
   %374 = add i64 %369, 1
@@ -1236,7 +1236,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   %385 = fmul nsz double %384, %382
   %386 = fmul nsz double %385, 0x3BF0000000000000
   %387 = fadd nsz double %330, %386
-  br label %common.ret535
+  br label %common.ret534
 
 388:                                              ; preds = %.lr.ph, %388
   %389 = load ptr, ptr %8, align 8, !tbaa !14
@@ -1244,7 +1244,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   %391 = load ptr, ptr %4, align 8, !tbaa !14
   %392 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %391)
   %393 = fcmp nsz une double %392, 0.000000e+00
-  br i1 %393, label %388, label %common.ret535, !llvm.loop !56
+  br i1 %393, label %388, label %common.ret534, !llvm.loop !56
 
 394:                                              ; preds = %2
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1276,13 +1276,13 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   %.0359 = phi i32 [ 0, %407 ], [ %422, %414 ]
   %.0357 = phi nsz double [ 0.000000e+00, %407 ], [ %419, %414 ]
   %.0355 = phi nsz double [ 1.000000e+00, %407 ], [ %425, %414 ]
-  %exitcond437.not = icmp eq i32 %.0359, 1000
-  %.pre438 = load ptr, ptr %409, align 8, !tbaa !46
-  br i1 %exitcond437.not, label %split, label %414
+  %exitcond436.not = icmp eq i32 %.0359, 1000
+  %.pre437 = load ptr, ptr %409, align 8, !tbaa !46
+  br i1 %exitcond436.not, label %split, label %414
 
 414:                                              ; preds = %413
   %415 = uitofp nneg i32 %.0359 to double
-  %416 = getelementptr inbounds nuw double, ptr %.pre438, i64 %408
+  %416 = getelementptr inbounds nuw double, ptr %.pre437, i64 %408
   store double %415, ptr %416, align 8, !tbaa !48
   %417 = load ptr, ptr %395, align 8, !tbaa !14
   %418 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %417)
@@ -1301,11 +1301,11 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   br label %split, !llvm.loop !57
 
 split:                                            ; preds = %413, %._crit_edge
-  %426 = phi ptr [ %.pre, %._crit_edge ], [ %.pre438, %413 ]
+  %426 = phi ptr [ %.pre, %._crit_edge ], [ %.pre437, %413 ]
   %.1358 = phi nsz double [ %419, %._crit_edge ], [ %.0357, %413 ]
   %427 = getelementptr inbounds nuw double, ptr %426, i64 %408
   store double %412, ptr %427, align 8, !tbaa !48
-  br label %common.ret535
+  br label %common.ret534
 
 428:                                              ; preds = %2
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1318,21 +1318,21 @@ split:                                            ; preds = %413, %._crit_edge
   br label %438
 
 436:                                              ; preds = %476
-  %437 = add nsw i32 %.0354415, 1
+  %437 = add nsw i32 %.0354414, 1
   %exitcond.not = icmp eq i32 %437, 1024
   br i1 %exitcond.not, label %.loopexit, label %438, !llvm.loop !58
 
 438:                                              ; preds = %428, %436
-  %.0339419 = phi double [ 0x7FEFFFFFFFFFFFFF, %428 ], [ %.2341, %436 ]
-  %.0342418 = phi double [ 0xFFEFFFFFFFFFFFFF, %428 ], [ %.2344, %436 ]
-  %.0345417 = phi double [ -1.000000e+00, %428 ], [ %.2347, %436 ]
-  %.0348416 = phi double [ -1.000000e+00, %428 ], [ %.2350, %436 ]
-  %.0354415 = phi i32 [ -1, %428 ], [ %437, %436 ]
-  %439 = icmp slt i32 %.0354415, 255
+  %.0339418 = phi double [ 0x7FEFFFFFFFFFFFFF, %428 ], [ %.2341, %436 ]
+  %.0342417 = phi double [ 0xFFEFFFFFFFFFFFFF, %428 ], [ %.2344, %436 ]
+  %.0345416 = phi double [ -1.000000e+00, %428 ], [ %.2347, %436 ]
+  %.0348415 = phi double [ -1.000000e+00, %428 ], [ %.2350, %436 ]
+  %.0354414 = phi i32 [ -1, %428 ], [ %437, %436 ]
+  %439 = icmp slt i32 %.0354414, 255
   br i1 %439, label %440, label %449
 
 440:                                              ; preds = %438
-  %441 = and i32 %.0354415, 255
+  %441 = and i32 %.0354414, 255
   %442 = zext nneg i32 %441 to i64
   %443 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %442
   %444 = load i8, ptr %443, align 1, !tbaa !4
@@ -1344,26 +1344,26 @@ split:                                            ; preds = %413, %._crit_edge
   br label %462
 
 449:                                              ; preds = %438
-  %450 = add nsw i32 %.0354415, -255
+  %450 = add nsw i32 %.0354414, -255
   %451 = uitofp nneg i32 %450 to double
   %452 = tail call nsz double @llvm.pow.f64(double 9.000000e-01, double %451)
   %453 = fmul nsz double %435, %452
   %454 = load ptr, ptr %429, align 8, !tbaa !46
-  %455 = and i32 %.0354415, 1
+  %455 = and i32 %.0354414, 1
   %.not = icmp eq i32 %455, 0
   %456 = fneg nsz double %453
   %storemerge = select i1 %.not, double %453, double %456
-  %457 = and i32 %.0354415, 2
+  %457 = and i32 %.0354414, 2
   %.not372 = icmp eq i32 %457, 0
   br i1 %.not372, label %460, label %458
 
 458:                                              ; preds = %449
-  %459 = fadd nsz double %.0348416, %storemerge
+  %459 = fadd nsz double %.0348415, %storemerge
   store double %459, ptr %454, align 8, !tbaa !48
   br label %462
 
 460:                                              ; preds = %449
-  %461 = fadd nsz double %.0345417, %storemerge
+  %461 = fadd nsz double %.0345416, %storemerge
   store double %461, ptr %454, align 8, !tbaa !48
   br label %462
 
@@ -1371,7 +1371,7 @@ split:                                            ; preds = %413, %._crit_edge
   %463 = load ptr, ptr %432, align 8, !tbaa !14
   %464 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %463)
   %465 = fcmp nsz ole double %464, 0.000000e+00
-  %466 = fcmp nsz ogt double %464, %.0342418
+  %466 = fcmp nsz ogt double %464, %.0342417
   %or.cond382 = select i1 %465, i1 %466, i1 false
   br i1 %or.cond382, label %467, label %470
 
@@ -1381,10 +1381,10 @@ split:                                            ; preds = %413, %._crit_edge
   br label %470
 
 470:                                              ; preds = %467, %462
-  %.2350 = phi nsz double [ %469, %467 ], [ %.0348416, %462 ]
-  %.2344 = phi nsz double [ %464, %467 ], [ %.0342418, %462 ]
+  %.2350 = phi nsz double [ %469, %467 ], [ %.0348415, %462 ]
+  %.2344 = phi nsz double [ %464, %467 ], [ %.0342417, %462 ]
   %471 = fcmp nsz oge double %464, 0.000000e+00
-  %472 = fcmp nsz olt double %464, %.0339419
+  %472 = fcmp nsz olt double %464, %.0339418
   %or.cond383 = select i1 %471, i1 %472, i1 false
   br i1 %or.cond383, label %473, label %476
 
@@ -1394,32 +1394,32 @@ split:                                            ; preds = %413, %._crit_edge
   br label %476
 
 476:                                              ; preds = %473, %470
-  %.2347 = phi nsz double [ %475, %473 ], [ %.0345417, %470 ]
-  %.2341 = phi nsz double [ %464, %473 ], [ %.0339419, %470 ]
+  %.2347 = phi nsz double [ %475, %473 ], [ %.0345416, %470 ]
+  %.2341 = phi nsz double [ %464, %473 ], [ %.0339418, %470 ]
   %477 = fcmp nsz oge double %.2350, 0.000000e+00
   %478 = fcmp nsz oge double %.2347, 0.000000e+00
   %or.cond3 = select i1 %477, i1 %478, i1 false
-  br i1 %or.cond3, label %.preheader404, label %436
+  br i1 %or.cond3, label %.preheader403, label %436
 
 479:                                              ; preds = %498
-  %480 = add nuw nsw i32 %.0353420, 1
-  %exitcond436.not = icmp eq i32 %480, 1000
-  br i1 %exitcond436.not, label %.loopexit, label %.preheader404, !llvm.loop !59
+  %480 = add nuw nsw i32 %.0353419, 1
+  %exitcond435.not = icmp eq i32 %480, 1000
+  br i1 %exitcond435.not, label %.loopexit, label %.preheader403, !llvm.loop !59
 
-.preheader404:                                    ; preds = %476, %479
-  %.3422 = phi double [ %.4, %479 ], [ %.2347, %476 ]
-  %.3351421 = phi double [ %.4352, %479 ], [ %.2350, %476 ]
-  %.0353420 = phi i32 [ %480, %479 ], [ 0, %476 ]
-  %481 = fadd nsz double %.3351421, %.3422
+.preheader403:                                    ; preds = %476, %479
+  %.3421 = phi double [ %.4, %479 ], [ %.2347, %476 ]
+  %.3351420 = phi double [ %.4352, %479 ], [ %.2350, %476 ]
+  %.0353419 = phi i32 [ %480, %479 ], [ 0, %476 ]
+  %481 = fadd nsz double %.3351420, %.3421
   %482 = fmul nsz double %481, 5.000000e-01
   %483 = load ptr, ptr %429, align 8, !tbaa !46
   store double %482, ptr %483, align 8, !tbaa !48
-  %484 = fcmp nsz oeq double %.3351421, %482
-  %485 = fcmp nsz oeq double %.3422, %482
+  %484 = fcmp nsz oeq double %.3351420, %482
+  %485 = fcmp nsz oeq double %.3421, %482
   %or.cond384 = or i1 %484, %485
   br i1 %or.cond384, label %.loopexit, label %486
 
-486:                                              ; preds = %.preheader404
+486:                                              ; preds = %.preheader403
   %487 = load ptr, ptr %432, align 8, !tbaa !14
   %488 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %487)
   %489 = fcmp nsz ugt double %488, 0.000000e+00
@@ -1431,7 +1431,7 @@ split:                                            ; preds = %413, %._crit_edge
   br label %493
 
 493:                                              ; preds = %490, %486
-  %.4352 = phi nsz double [ %492, %490 ], [ %.3351421, %486 ]
+  %.4352 = phi nsz double [ %492, %490 ], [ %.3351420, %486 ]
   %494 = fcmp nsz ult double %488, 0.000000e+00
   br i1 %494, label %498, label %495
 
@@ -1441,19 +1441,19 @@ split:                                            ; preds = %413, %._crit_edge
   br label %498
 
 498:                                              ; preds = %495, %493
-  %.4 = phi nsz double [ %497, %495 ], [ %.3422, %493 ]
+  %.4 = phi nsz double [ %497, %495 ], [ %.3421, %493 ]
   %499 = fcmp uno double %488, 0.000000e+00
   br i1 %499, label %.loopexit, label %479
 
-.loopexit:                                        ; preds = %436, %498, %479, %.preheader404
-  %.1349 = phi nsz double [ %488, %498 ], [ %.4352, %479 ], [ %.3351421, %.preheader404 ], [ %.2350, %436 ]
-  %.1346 = phi nsz double [ %488, %498 ], [ %.4, %479 ], [ %.3422, %.preheader404 ], [ %.2347, %436 ]
+.loopexit:                                        ; preds = %436, %498, %479, %.preheader403
+  %.1349 = phi nsz double [ %488, %498 ], [ %.4352, %479 ], [ %.3351420, %.preheader403 ], [ %.2350, %436 ]
+  %.1346 = phi nsz double [ %488, %498 ], [ %.4, %479 ], [ %.3421, %.preheader403 ], [ %.2347, %436 ]
   %500 = load ptr, ptr %429, align 8, !tbaa !46
   store double %431, ptr %500, align 8, !tbaa !48
   %501 = fneg nsz double %.2344
   %502 = fcmp nsz ogt double %.2341, %501
   %503 = select nsz i1 %502, double %.1349, double %.1346
-  br label %common.ret535
+  br label %common.ret534
 
 504:                                              ; preds = %2
   %505 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1463,7 +1463,7 @@ split:                                            ; preds = %413, %._crit_edge
   %509 = load ptr, ptr %508, align 8, !tbaa !14
   %510 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %509)
   %511 = load i32, ptr %1, align 8, !tbaa !38
-  switch i32 %511, label %common.ret535 [
+  switch i32 %511, label %common.ret534 [
     i32 10, label %512
     i32 35, label %523
     i32 11, label %531
@@ -1496,7 +1496,7 @@ split:                                            ; preds = %413, %._crit_edge
   %520 = fneg nsz double %519
   %521 = tail call nsz double @llvm.fmuladd.f64(double %520, double %510, double %507)
   %522 = fmul nsz double %521, %514
-  br label %common.ret535
+  br label %common.ret534
 
 523:                                              ; preds = %504
   %524 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1506,7 +1506,7 @@ split:                                            ; preds = %413, %._crit_edge
   %528 = tail call i64 @av_gcd(i64 noundef %526, i64 noundef %527) #17
   %529 = sitofp i64 %528 to double
   %530 = fmul nsz double %525, %529
-  br label %common.ret535
+  br label %common.ret534
 
 531:                                              ; preds = %504
   %532 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1514,7 +1514,7 @@ split:                                            ; preds = %413, %._crit_edge
   %534 = fcmp nsz ogt double %507, %510
   %535 = select nsz i1 %534, double %507, double %510
   %536 = fmul nsz double %535, %533
-  br label %common.ret535
+  br label %common.ret534
 
 537:                                              ; preds = %504
   %538 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1522,7 +1522,7 @@ split:                                            ; preds = %413, %._crit_edge
   %540 = fcmp nsz olt double %507, %510
   %541 = select nsz i1 %540, double %507, double %510
   %542 = fmul nsz double %541, %539
-  br label %common.ret535
+  br label %common.ret534
 
 543:                                              ; preds = %504
   %544 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1530,7 +1530,7 @@ split:                                            ; preds = %413, %._crit_edge
   %546 = fcmp nsz oeq double %507, %510
   %547 = select nsz i1 %546, double 1.000000e+00, double 0.000000e+00
   %548 = fmul nsz double %547, %545
-  br label %common.ret535
+  br label %common.ret534
 
 549:                                              ; preds = %504
   %550 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1538,7 +1538,7 @@ split:                                            ; preds = %413, %._crit_edge
   %552 = fcmp nsz ogt double %507, %510
   %553 = select nsz i1 %552, double 1.000000e+00, double 0.000000e+00
   %554 = fmul nsz double %553, %551
-  br label %common.ret535
+  br label %common.ret534
 
 555:                                              ; preds = %504
   %556 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1546,7 +1546,7 @@ split:                                            ; preds = %413, %._crit_edge
   %558 = fcmp nsz oge double %507, %510
   %559 = select nsz i1 %558, double 1.000000e+00, double 0.000000e+00
   %560 = fmul nsz double %559, %557
-  br label %common.ret535
+  br label %common.ret534
 
 561:                                              ; preds = %504
   %562 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1554,7 +1554,7 @@ split:                                            ; preds = %413, %._crit_edge
   %564 = fcmp nsz olt double %507, %510
   %565 = select nsz i1 %564, double 1.000000e+00, double 0.000000e+00
   %566 = fmul nsz double %565, %563
-  br label %common.ret535
+  br label %common.ret534
 
 567:                                              ; preds = %504
   %568 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1562,21 +1562,21 @@ split:                                            ; preds = %413, %._crit_edge
   %570 = fcmp nsz ole double %507, %510
   %571 = select nsz i1 %570, double 1.000000e+00, double 0.000000e+00
   %572 = fmul nsz double %571, %569
-  br label %common.ret535
+  br label %common.ret534
 
 573:                                              ; preds = %504
   %574 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %575 = load double, ptr %574, align 8, !tbaa !39
   %576 = tail call nsz double @llvm.pow.f64(double %507, double %510)
   %577 = fmul nsz double %576, %575
-  br label %common.ret535
+  br label %common.ret534
 
 578:                                              ; preds = %504
   %579 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %580 = load double, ptr %579, align 8, !tbaa !39
   %581 = fmul nsz double %507, %510
   %582 = fmul nsz double %581, %580
-  br label %common.ret535
+  br label %common.ret534
 
 583:                                              ; preds = %504
   %584 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1586,20 +1586,20 @@ split:                                            ; preds = %413, %._crit_edge
   %588 = fmul nsz double %507, 0x7FF0000000000000
   %589 = select nsz i1 %586, double %587, double %588
   %590 = fmul nsz double %589, %585
-  br label %common.ret535
+  br label %common.ret534
 
 591:                                              ; preds = %504
   %592 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %593 = load double, ptr %592, align 8, !tbaa !39
   %594 = fadd nsz double %507, %510
   %595 = fmul nsz double %594, %593
-  br label %common.ret535
+  br label %common.ret534
 
 596:                                              ; preds = %504
   %597 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %598 = load double, ptr %597, align 8, !tbaa !39
   %599 = fmul nsz double %510, %598
-  br label %common.ret535
+  br label %common.ret534
 
 600:                                              ; preds = %504
   %601 = fptosi double %507 to i32
@@ -1618,27 +1618,27 @@ split:                                            ; preds = %413, %._crit_edge
   %613 = getelementptr inbounds nuw double, ptr %612, i64 %606
   store double %510, ptr %613, align 8, !tbaa !48
   %614 = fmul nsz double %510, %610
-  br label %common.ret535
+  br label %common.ret534
 
 615:                                              ; preds = %504
   %616 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %617 = load double, ptr %616, align 8, !tbaa !39
   %618 = tail call nsz double @hypot(double noundef %507, double noundef %510) #17
   %619 = fmul nsz double %617, %618
-  br label %common.ret535
+  br label %common.ret534
 
 620:                                              ; preds = %504
   %621 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %622 = load double, ptr %621, align 8, !tbaa !39
   %623 = tail call nsz double @llvm.atan2.f64(double %507, double %510)
   %624 = fmul nsz double %623, %622
-  br label %common.ret535
+  br label %common.ret534
 
 625:                                              ; preds = %504
   %626 = fcmp uno double %507, 0.000000e+00
   %627 = fcmp uno double %510, 0.000000e+00
   %or.cond385 = select i1 %626, i1 true, i1 %627
-  br i1 %or.cond385, label %common.ret535, label %628
+  br i1 %or.cond385, label %common.ret534, label %628
 
 628:                                              ; preds = %625
   %629 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1648,13 +1648,13 @@ split:                                            ; preds = %413, %._crit_edge
   %633 = and i64 %632, %631
   %634 = sitofp i64 %633 to double
   %635 = fmul nsz double %630, %634
-  br label %common.ret535
+  br label %common.ret534
 
 636:                                              ; preds = %504
   %637 = fcmp uno double %507, 0.000000e+00
   %638 = fcmp uno double %510, 0.000000e+00
   %or.cond386 = select i1 %637, i1 true, i1 %638
-  br i1 %or.cond386, label %common.ret535, label %639
+  br i1 %or.cond386, label %common.ret534, label %639
 
 639:                                              ; preds = %636
   %640 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1664,7 +1664,7 @@ split:                                            ; preds = %413, %._crit_edge
   %644 = or i64 %643, %642
   %645 = sitofp i64 %644 to double
   %646 = fmul nsz double %641, %645
-  br label %common.ret535
+  br label %common.ret534
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1919,7 +1919,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_factor(ptr noundef n
   br label %parse_dB.exit
 
 parse_dB.exit:                                    ; preds = %22, %24
-  %.128 = phi double [ %36, %24 ], [ 1.000000e+00, %22 ]
+  %.127 = phi double [ %36, %24 ], [ 1.000000e+00, %22 ]
   %.1.i = phi i32 [ %34, %24 ], [ %23, %22 ]
   %37 = icmp slt i32 %.1.i, 0
   br i1 %37, label %94, label %.preheader
@@ -1946,37 +1946,37 @@ parse_dB.exit:                                    ; preds = %22, %24
   %48 = load ptr, ptr %3, align 8, !tbaa !7
   %49 = load ptr, ptr %7, align 8, !tbaa !27
   %.not.i18 = icmp eq ptr %48, %49
-  br i1 %.not.i18, label %.thread33, label %50
+  br i1 %.not.i18, label %.thread31, label %50
 
 50:                                               ; preds = %46
   %51 = load i8, ptr %48, align 1, !tbaa !4
   %52 = icmp eq i8 %51, 100
-  br i1 %52, label %53, label %.thread33
+  br i1 %52, label %53, label %.thread31
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !4
   %56 = icmp eq i8 %55, 66
-  br i1 %56, label %57, label %.thread33
+  br i1 %56, label %57, label %.thread31
 
-.thread33:                                        ; preds = %53, %50, %46
+.thread31:                                        ; preds = %53, %50, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre53 = load i8, ptr %49, align 1, !tbaa !4
+  %.pre50 = load i8, ptr %49, align 1, !tbaa !4
   br label %59
 
 57:                                               ; preds = %53
   %58 = call fastcc i32 @parse_primary(ptr noundef nonnull %6, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %parse_dB.exit22
+  br label %parse_dB.exit21
 
-59:                                               ; preds = %.thread33, %.lr.ph
-  %60 = phi i8 [ %.pre53, %.thread33 ], [ %44, %.lr.ph ]
-  %61 = phi ptr [ %49, %.thread33 ], [ %43, %.lr.ph ]
+59:                                               ; preds = %.thread31, %.lr.ph
+  %60 = phi i8 [ %.pre50, %.thread31 ], [ %44, %.lr.ph ]
+  %61 = phi ptr [ %49, %.thread31 ], [ %43, %.lr.ph ]
   %62 = icmp eq i8 %60, 43
   %63 = zext i1 %62 to i32
   %64 = icmp eq i8 %60, 45
-  %.neg.i24 = sext i1 %64 to i32
-  %65 = add nsw i32 %.neg.i24, %63
+  %.neg.i23 = sext i1 %64 to i32
+  %65 = add nsw i32 %.neg.i23, %63
   %66 = and i32 %65, 1
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 %67
@@ -1984,23 +1984,23 @@ parse_dB.exit:                                    ; preds = %22, %24
   %69 = call fastcc range(i32 -2147483648, 1) i32 @parse_primary(ptr noundef nonnull %6, ptr noundef nonnull %1)
   %70 = or i32 %65, 1
   %71 = sitofp i32 %70 to double
-  br label %parse_dB.exit22
+  br label %parse_dB.exit21
 
-parse_dB.exit22:                                  ; preds = %57, %59
+parse_dB.exit21:                                  ; preds = %57, %59
   %.2 = phi double [ %71, %59 ], [ 1.000000e+00, %57 ]
   %.1.i17 = phi i32 [ %69, %59 ], [ %58, %57 ]
   %72 = icmp slt i32 %.1.i17, 0
   br i1 %72, label %73, label %74
 
-73:                                               ; preds = %parse_dB.exit22
+73:                                               ; preds = %parse_dB.exit21
   tail call void @av_expr_free(ptr noundef %42)
   br label %94
 
-74:                                               ; preds = %parse_dB.exit22
+74:                                               ; preds = %parse_dB.exit21
   %75 = load ptr, ptr %6, align 8, !tbaa !14
   %76 = tail call noalias ptr @av_mallocz(i64 noundef 72) #14
-  %.not.i23 = icmp eq ptr %76, null
-  br i1 %.not.i23, label %77, label %78
+  %.not.i22 = icmp eq ptr %76, null
+  br i1 %.not.i22, label %77, label %78
 
 77:                                               ; preds = %74
   tail call void @av_expr_free(ptr noundef %42)
@@ -2036,16 +2036,16 @@ parse_dB.exit22:                                  ; preds = %57, %59
   br i1 %.not, label %93, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %86, %._crit_edge
-  %.lcssa4262 = phi ptr [ %.promoted, %._crit_edge ], [ %76, %86 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.lcssa4262, i64 8
+  %.lcssa3959 = phi ptr [ %.promoted, %._crit_edge ], [ %76, %86 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.lcssa3959, i64 8
   %91 = load double, ptr %90, align 8, !tbaa !39
-  %92 = fmul nsz double %.128, %91
+  %92 = fmul nsz double %.127, %91
   store double %92, ptr %90, align 8, !tbaa !39
   br label %93
 
 93:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa4263 = phi ptr [ %.lcssa4262, %._crit_edge.thread ], [ null, %._crit_edge ]
-  store ptr %.lcssa4263, ptr %0, align 8, !tbaa !14
+  %.lcssa3960 = phi ptr [ %.lcssa3959, %._crit_edge.thread ], [ null, %._crit_edge ]
+  store ptr %.lcssa3960, ptr %0, align 8, !tbaa !14
   br label %94
 
 94:                                               ; preds = %parse_dB.exit, %93, %77, %73

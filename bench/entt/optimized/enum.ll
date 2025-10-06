@@ -2183,96 +2183,110 @@ define linkonce_odr hidden void @_ZN25Enum_Functionalities_TestIN4test15enum_is_
   %14 = alloca %"class.testing::AssertionResult", align 8
   %15 = alloca %"class.testing::AssertionResult", align 8
   %16 = alloca %"class.testing::AssertionResult", align 8
+  %17 = alloca %"class.testing::AssertionResult", align 8
+  %18 = alloca %"class.testing::AssertionResult", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 8, !tbaa !74
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %17, align 8, !tbaa !83
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %19, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !74
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %18, align 8, !tbaa !83
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %20, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %19, align 8, !tbaa !83
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %21, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 8, !tbaa !74
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %20, align 8, !tbaa !83
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %22, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8, !tbaa !74
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !83
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %23, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 8, !tbaa !74
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %22, align 8, !tbaa !83
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr null, ptr %24, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 8, !tbaa !74
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !83
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr null, ptr %25, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 8, !tbaa !74
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !83
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr null, ptr %26, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 8, !tbaa !74
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr null, ptr %25, align 8, !tbaa !83
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr null, ptr %27, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !74
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr null, ptr %26, align 8, !tbaa !83
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr null, ptr %28, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 1, ptr %12, align 8, !tbaa !74
-  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr null, ptr %27, align 8, !tbaa !83
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr null, ptr %29, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 1, ptr %13, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr null, ptr %28, align 8, !tbaa !83
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr null, ptr %30, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 1, ptr %14, align 8, !tbaa !74
-  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr null, ptr %29, align 8, !tbaa !83
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr null, ptr %31, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 1, ptr %15, align 8, !tbaa !74
-  %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr null, ptr %30, align 8, !tbaa !83
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr null, ptr %32, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 1, ptr %16, align 8, !tbaa !74
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr null, ptr %31, align 8, !tbaa !83
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr null, ptr %33, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  store i8 1, ptr %17, align 8, !tbaa !74
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr null, ptr %34, align 8, !tbaa !83
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  store i8 1, ptr %18, align 8, !tbaa !74
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr null, ptr %35, align 8, !tbaa !83
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }
 
@@ -2491,96 +2505,110 @@ define linkonce_odr hidden void @_ZN25Enum_Functionalities_TestIN4test15enum_as_
   %14 = alloca %"class.testing::AssertionResult", align 8
   %15 = alloca %"class.testing::AssertionResult", align 8
   %16 = alloca %"class.testing::AssertionResult", align 8
+  %17 = alloca %"class.testing::AssertionResult", align 8
+  %18 = alloca %"class.testing::AssertionResult", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 8, !tbaa !74
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %17, align 8, !tbaa !83
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %19, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !74
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %18, align 8, !tbaa !83
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %20, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %19, align 8, !tbaa !83
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %21, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 8, !tbaa !74
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %20, align 8, !tbaa !83
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %22, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8, !tbaa !74
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !83
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %23, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 8, !tbaa !74
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %22, align 8, !tbaa !83
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr null, ptr %24, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 8, !tbaa !74
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !83
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr null, ptr %25, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 8, !tbaa !74
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !83
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr null, ptr %26, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 8, !tbaa !74
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr null, ptr %25, align 8, !tbaa !83
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr null, ptr %27, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !74
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr null, ptr %26, align 8, !tbaa !83
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr null, ptr %28, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 1, ptr %12, align 8, !tbaa !74
-  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr null, ptr %27, align 8, !tbaa !83
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr null, ptr %29, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 1, ptr %13, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr null, ptr %28, align 8, !tbaa !83
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr null, ptr %30, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 1, ptr %14, align 8, !tbaa !74
-  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr null, ptr %29, align 8, !tbaa !83
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr null, ptr %31, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 1, ptr %15, align 8, !tbaa !74
-  %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr null, ptr %30, align 8, !tbaa !83
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr null, ptr %32, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 1, ptr %16, align 8, !tbaa !74
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr null, ptr %31, align 8, !tbaa !83
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr null, ptr %33, align 8, !tbaa !83
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  store i8 1, ptr %17, align 8, !tbaa !74
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr null, ptr %34, align 8, !tbaa !83
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  store i8 1, ptr %18, align 8, !tbaa !74
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr null, ptr %35, align 8, !tbaa !83
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }
 

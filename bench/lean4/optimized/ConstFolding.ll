@@ -876,8 +876,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
-  %.not102 = icmp eq i64 %14, 0
-  br i1 %.not102, label %15, label %lean_obj_tag.exit76
+  %.not100 = icmp eq i64 %14, 0
+  br i1 %.not100, label %15, label %lean_obj_tag.exit76
 
 15:                                               ; preds = %10
   %.val.i71 = load i32, ptr %12, align 4, !tbaa !8
@@ -914,8 +914,8 @@ lean_obj_tag.exit76.thread:                       ; preds = %17, %19, %20
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
-  %.not104 = icmp eq i64 %29, 0
-  br i1 %.not104, label %30, label %lean_inc.exit52
+  %.not102 = icmp eq i64 %29, 0
+  br i1 %.not102, label %30, label %lean_inc.exit52
 
 30:                                               ; preds = %25
   %.val.i77 = load i32, ptr %27, align 4, !tbaa !8
@@ -961,8 +961,8 @@ lean_dec.exit49:                                  ; preds = %42, %41, %39, %lean
   %44 = load ptr, ptr %43, align 8, !tbaa !4
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, 1
-  %.not106 = icmp eq i64 %46, 0
-  br i1 %.not106, label %47, label %lean_inc.exit51
+  %.not104 = icmp eq i64 %46, 0
+  br i1 %.not104, label %47, label %lean_inc.exit51
 
 47:                                               ; preds = %lean_dec.exit49
   %.val.i80 = load i32, ptr %44, align 4, !tbaa !8
@@ -983,7 +983,7 @@ lean_dec.exit49:                                  ; preds = %42, %41, %39, %lean
   br label %lean_inc.exit51
 
 lean_inc.exit51:                                  ; preds = %52, %51, %49, %lean_dec.exit49
-  br i1 %.not102, label %53, label %lean_dec.exit48
+  br i1 %.not100, label %53, label %lean_dec.exit48
 
 53:                                               ; preds = %lean_inc.exit51
   %54 = load i32, ptr %12, align 4, !tbaa !8
@@ -1031,7 +1031,7 @@ l_Lean_Compiler_isOfNat.exit:                     ; preds = %lean_dec.exit48
   br i1 %70, label %71, label %lean_dec.exit47
 
 71:                                               ; preds = %l_Lean_Compiler_isOfNat.exit
-  br i1 %.not104, label %72, label %lean_dec.exit42
+  br i1 %.not102, label %72, label %lean_dec.exit42
 
 72:                                               ; preds = %71
   %73 = load i32, ptr %27, align 4, !tbaa !8
@@ -1169,8 +1169,8 @@ lean_obj_tag.exit89.thread:                       ; preds = %lean_dec.exit44
   %123 = load ptr, ptr %122, align 8, !tbaa !4
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
-  %.not101 = icmp eq i64 %125, 0
-  br i1 %.not101, label %126, label %lean_inc.exit
+  %.not99 = icmp eq i64 %125, 0
+  br i1 %.not99, label %126, label %lean_inc.exit
 
 126:                                              ; preds = %121
   %.val.i90 = load i32, ptr %123, align 4, !tbaa !8

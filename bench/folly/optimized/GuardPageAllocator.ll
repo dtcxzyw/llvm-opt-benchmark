@@ -793,11 +793,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !54
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !54
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673
@@ -1462,9 +1462,9 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %.neg.i.i = select i1 %.not.i.i, i64 0, i64 -56
   %24 = getelementptr inbounds i8, ptr %23, i64 %.neg.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sroa.011.015.i = load ptr, ptr %25, align 8, !tbaa !65
-  %.not1416.not.i = icmp eq ptr %.sroa.011.015.i, null
-  br i1 %.not1416.not.i, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit, label %.lr.ph.i
+  %.sroa.011.016.i = load ptr, ptr %25, align 8, !tbaa !65
+  %.not1517.not.i = icmp eq ptr %.sroa.011.016.i, null
+  br i1 %.not1517.not.i, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22
   %26 = load ptr, ptr %1, align 8, !tbaa !137
@@ -1472,25 +1472,25 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %28
 
 28:                                               ; preds = %.critedge.i, %.lr.ph.i
-  %.sroa.011.017.i = phi ptr [ %.sroa.011.015.i, %.lr.ph.i ], [ %.sroa.011.0.i, %.critedge.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.011.017.i, i64 8
+  %.sroa.011.018.i = phi ptr [ %.sroa.011.016.i, %.lr.ph.i ], [ %.sroa.011.0.i, %.critedge.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.011.018.i, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !66
   %.not.i = icmp sgt i64 %30, %27
   br i1 %.not.i, label %.critedge.i, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.011.017.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.011.018.i, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !139
   %34 = icmp slt i64 %27, %33
   br i1 %34, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %31, %28
-  %.sroa.011.0.i = load ptr, ptr %.sroa.011.017.i, align 8, !tbaa !65
-  %.not14.not.i = icmp eq ptr %.sroa.011.0.i, null
-  br i1 %.not14.not.i, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit, label %28
+  %.sroa.011.0.i = load ptr, ptr %.sroa.011.018.i, align 8, !tbaa !65
+  %.not15.not.i = icmp eq ptr %.sroa.011.0.i, null
+  br i1 %.not15.not.i, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit, label %28
 
 _ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit: ; preds = %31, %.critedge.i, %22
-  %.not14.lcssa.i = phi i1 [ false, %22 ], [ false, %.critedge.i ], [ true, %31 ]
+  %.not15.lcssa.i = phi i1 [ false, %22 ], [ true, %31 ], [ false, %.critedge.i ]
   %35 = load i16, ptr %9, align 8, !tbaa !135
   switch i16 %35, label %55 [
     i16 0, label %_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_setISt4pairIllESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSH_22SynchronizedMutexLevelE2ELNSH_23SynchronizedMutexMethodE0EEEED2Ev.exit
@@ -1568,7 +1568,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
 
 _ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_setISt4pairIllESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSH_22SynchronizedMutexLevelE2ELNSH_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i, %48, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i.i, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i1 %.not14.lcssa.i
+  ret i1 %.not15.lcssa.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2719,7 +2719,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__de
 
 ..thread_crit_edge:                               ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre44 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !60
+  %.pre42 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !60
   br label %.thread
 
 7:                                                ; preds = %4
@@ -2745,7 +2745,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__de
   br i1 %19, label %_ZNKSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %11, !llvm.loop !175
 
 .thread:                                          ; preds = %11, %..thread_crit_edge
-  %20 = phi i64 [ %.pre44, %..thread_crit_edge ], [ %10, %11 ]
+  %20 = phi i64 [ %.pre42, %..thread_crit_edge ], [ %10, %11 ]
   %21 = xor i64 %20, %.pre
   %22 = mul i64 %21, -7070675565921424023
   %23 = lshr i64 %22, 47

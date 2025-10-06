@@ -510,7 +510,7 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i.i.i.i.i.i: ; preds = %.noex
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %166, %185
   %179 = phi i64 [ %187, %185 ], [ %171, %166 ]
-  %.01027.i.i.i.i.i.i.i = phi i64 [ %186, %185 ], [ %.sroa.01.0.i.i.i.i.i, %166 ]
+  %.01026.i.i.i.i.i.i.i = phi i64 [ %186, %185 ], [ %.sroa.01.0.i.i.i.i.i, %166 ]
   %180 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %167, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 15
   %182 = load i8, ptr %181, align 1, !tbaa !47
@@ -523,7 +523,7 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i.i.i.i.i.i: ; preds = %.noex
   br label %185
 
 185:                                              ; preds = %183, %.lr.ph.i.i.i.i.i.i.i
-  %186 = add i64 %.01027.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %186 = add i64 %.01026.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
   %187 = and i64 %186, %170
   %188 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %167, i64 %187
   %189 = icmp eq ptr %188, %116
@@ -2087,11 +2087,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !27
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !27
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673
@@ -4074,9 +4074,9 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %28 = bitcast <16 x i1> %27 to i16
   %29 = and i16 %28, 4095
   %.sroa.091.0.extract.trunc = zext nneg i16 %29 to i32
-  %.not131142 = icmp eq i16 %29, 0
+  %.not130141 = icmp eq i16 %29, 0
   %30 = extractelement <16 x i8> %26, i64 14
-  br i1 %.not131142, label %.loopexit, label %.lr.ph
+  br i1 %.not130141, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %31 = icmp ne ptr %25, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
@@ -4088,7 +4088,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
 ._crit_edge:                                      ; preds = %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit
   %34 = icmp ult i8 %30, 16
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  br i1 %34, label %.lr.ph152, label %.lr.ph148
+  br i1 %34, label %.lr.ph151, label %.lr.ph147
 
 36:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit
   %37 = landingpad { ptr, i32 }
@@ -4096,50 +4096,50 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   br i1 %.not, label %208, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE15rehashBuildFromIRKSF_EEvOT_EUlvE_Lb1EED2Ev.exit81
 
 38:                                               ; preds = %.lr.ph, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit
-  %.sroa.8.0144 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit ]
-  %.sroa.088.0143 = phi i32 [ %.sroa.091.0.extract.trunc, %.lr.ph ], [ %.sroa.088.1, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit ]
-  %39 = and i32 %.sroa.088.0143, 1
+  %.sroa.8.0143 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit ]
+  %.sroa.088.0142 = phi i32 [ %.sroa.091.0.extract.trunc, %.lr.ph ], [ %.sroa.088.1, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit ]
+  %39 = and i32 %.sroa.088.0142, 1
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %40, label %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit, !prof !100
 
 40:                                               ; preds = %38
-  %41 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.088.0143, i1 true)
-  %42 = add i32 %.sroa.8.0144, %41
+  %41 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.088.0142, i1 true)
+  %42 = add i32 %.sroa.8.0143, %41
   %43 = add nuw nsw i32 %41, 1
   br label %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit
 
 _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %38, %40
-  %.pn135 = phi i32 [ %43, %40 ], [ 1, %38 ]
-  %.sroa.8.1.in = phi i32 [ %42, %40 ], [ %.sroa.8.0144, %38 ]
+  %.pn134 = phi i32 [ %43, %40 ], [ 1, %38 ]
+  %.sroa.8.1.in = phi i32 [ %42, %40 ], [ %.sroa.8.0143, %38 ]
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
-  %.sroa.088.1 = lshr i32 %.sroa.088.0143, %.pn135
+  %.sroa.088.1 = lshr i32 %.sroa.088.0142, %.pn134
   %44 = zext i32 %.sroa.8.1.in to i64
   %45 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %32, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !27
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %47
   call void @llvm.prefetch.p0(ptr %48, i32 0, i32 3, i32 1)
-  %.not131 = icmp eq i32 %.sroa.088.1, 0
-  br i1 %.not131, label %._crit_edge, label %38
+  %.not130 = icmp eq i32 %.sroa.088.1, 0
+  br i1 %.not130, label %._crit_edge, label %38
 
-.lr.ph152:                                        ; preds = %._crit_edge, %88
-  %.sroa.12.0151 = phi i32 [ %.sroa.12.2, %88 ], [ 0, %._crit_edge ]
-  %.sroa.091.0150 = phi i32 [ %.sroa.091.2, %88 ], [ %.sroa.091.0.extract.trunc, %._crit_edge ]
-  %49 = and i32 %.sroa.091.0150, 1
+.lr.ph151:                                        ; preds = %._crit_edge, %88
+  %.sroa.12.0150 = phi i32 [ %.sroa.12.2, %88 ], [ 0, %._crit_edge ]
+  %.sroa.091.0149 = phi i32 [ %.sroa.091.2, %88 ], [ %.sroa.091.0.extract.trunc, %._crit_edge ]
+  %49 = and i32 %.sroa.091.0149, 1
   %.not.i62 = icmp eq i32 %49, 0
   br i1 %.not.i62, label %50, label %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit64, !prof !100
 
-50:                                               ; preds = %.lr.ph152
-  %51 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.091.0150, i1 true)
-  %52 = add i32 %.sroa.12.0151, %51
+50:                                               ; preds = %.lr.ph151
+  %51 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.091.0149, i1 true)
+  %52 = add i32 %.sroa.12.0150, %51
   %53 = add nuw nsw i32 %51, 1
   br label %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit64
 
-_ZN5folly3f146detail13DenseMaskIter4nextEv.exit64: ; preds = %.lr.ph152, %50
-  %.pn134 = phi i32 [ %53, %50 ], [ 1, %.lr.ph152 ]
-  %.sroa.12.2.in = phi i32 [ %52, %50 ], [ %.sroa.12.0151, %.lr.ph152 ]
+_ZN5folly3f146detail13DenseMaskIter4nextEv.exit64: ; preds = %.lr.ph151, %50
+  %.pn133 = phi i32 [ %53, %50 ], [ 1, %.lr.ph151 ]
+  %.sroa.12.2.in = phi i32 [ %52, %50 ], [ %.sroa.12.0150, %.lr.ph151 ]
   %.sroa.12.2 = add i32 %.sroa.12.2.in, 1
-  %.sroa.091.2 = lshr i32 %.sroa.091.0150, %.pn134
+  %.sroa.091.2 = lshr i32 %.sroa.091.0149, %.pn133
   %54 = zext i32 %.sroa.12.2.in to i64
   %55 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %35, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !27
@@ -4215,27 +4215,27 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %98 = add i64 %96, 256
   %99 = or disjoint i64 %98, %97
   store i64 %99, ptr %5, align 8, !tbaa !31
-  %.not133 = icmp eq i32 %.sroa.091.2, 0
-  br i1 %.not133, label %.loopexit, label %.lr.ph152, !llvm.loop !152
+  %.not132 = icmp eq i32 %.sroa.091.2, 0
+  br i1 %.not132, label %.loopexit, label %.lr.ph151, !llvm.loop !152
 
-.lr.ph148:                                        ; preds = %._crit_edge, %191
-  %.sroa.12.1147 = phi i32 [ %.sroa.12.3, %191 ], [ 0, %._crit_edge ]
-  %.sroa.091.1146 = phi i32 [ %.sroa.091.3, %191 ], [ %.sroa.091.0.extract.trunc, %._crit_edge ]
-  %100 = and i32 %.sroa.091.1146, 1
+.lr.ph147:                                        ; preds = %._crit_edge, %191
+  %.sroa.12.1146 = phi i32 [ %.sroa.12.3, %191 ], [ 0, %._crit_edge ]
+  %.sroa.091.1145 = phi i32 [ %.sroa.091.3, %191 ], [ %.sroa.091.0.extract.trunc, %._crit_edge ]
+  %100 = and i32 %.sroa.091.1145, 1
   %.not.i65 = icmp eq i32 %100, 0
   br i1 %.not.i65, label %101, label %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit67, !prof !100
 
-101:                                              ; preds = %.lr.ph148
-  %102 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.091.1146, i1 true)
-  %103 = add i32 %.sroa.12.1147, %102
+101:                                              ; preds = %.lr.ph147
+  %102 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.091.1145, i1 true)
+  %103 = add i32 %.sroa.12.1146, %102
   %104 = add nuw nsw i32 %102, 1
   br label %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit67
 
-_ZN5folly3f146detail13DenseMaskIter4nextEv.exit67: ; preds = %.lr.ph148, %101
-  %.pn = phi i32 [ %104, %101 ], [ 1, %.lr.ph148 ]
-  %.sroa.12.3.in = phi i32 [ %103, %101 ], [ %.sroa.12.1147, %.lr.ph148 ]
+_ZN5folly3f146detail13DenseMaskIter4nextEv.exit67: ; preds = %.lr.ph147, %101
+  %.pn = phi i32 [ %104, %101 ], [ 1, %.lr.ph147 ]
+  %.sroa.12.3.in = phi i32 [ %103, %101 ], [ %.sroa.12.1146, %.lr.ph147 ]
   %.sroa.12.3 = add i32 %.sroa.12.3.in, 1
-  %.sroa.091.3 = lshr i32 %.sroa.091.1146, %.pn
+  %.sroa.091.3 = lshr i32 %.sroa.091.1145, %.pn
   %105 = zext i32 %.sroa.12.3.in to i64
   %106 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %35, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !27
@@ -4410,8 +4410,8 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i71: ; preds 
   %202 = add i64 %200, 256
   %203 = or disjoint i64 %202, %201
   store i64 %203, ptr %5, align 8, !tbaa !31
-  %.not132 = icmp eq i32 %.sroa.091.3, 0
-  br i1 %.not132, label %.loopexit, label %.lr.ph148, !llvm.loop !153
+  %.not131 = icmp eq i32 %.sroa.091.3, 0
+  br i1 %.not131, label %.loopexit, label %.lr.ph147, !llvm.loop !153
 
 .loopexit:                                        ; preds = %191, %88, %23
   %204 = icmp eq i64 %.0119, 0

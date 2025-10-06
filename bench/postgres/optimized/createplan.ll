@@ -8760,17 +8760,17 @@ list_length.exit:                                 ; preds = %2
   %10 = tail call ptr @palloc(i64 noundef %9) #11
   %11 = load i32, ptr %4, align 4
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph, label %.lr.ph80.preheader
+  br i1 %12, label %.lr.ph, label %.lr.ph79.preheader
 
 .lr.ph:                                           ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %15
 
-.lr.ph80.preheader:                               ; preds = %35, %7
+.lr.ph79.preheader:                               ; preds = %35, %7
   %smax = call i32 @llvm.smax.i32(i32 %5, i32 2)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.lr.ph80
+  br label %.lr.ph79
 
 15:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
@@ -8814,16 +8814,16 @@ list_length.exit:                                 ; preds = %2
   %37 = load i32, ptr %4, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %15, label %.lr.ph80.preheader, !llvm.loop !17
+  br i1 %39, label %15, label %.lr.ph79.preheader, !llvm.loop !17
 
-.lr.ph83.preheader:                               ; preds = %.thread
-  %smax93 = call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count94 = zext nneg i32 %smax93 to i64
-  br label %.lr.ph83
+.lr.ph82.preheader:                               ; preds = %.thread
+  %smax92 = call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %wide.trip.count93 = zext nneg i32 %smax92 to i64
+  br label %.lr.ph82
 
-.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.thread
-  %indvars.iv87 = phi i64 [ 1, %.lr.ph80.preheader ], [ %indvars.iv.next88, %.thread ]
-  %40 = getelementptr inbounds nuw %struct.QualItem, ptr %10, i64 %indvars.iv87
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.thread
+  %indvars.iv86 = phi i64 [ 1, %.lr.ph79.preheader ], [ %indvars.iv.next87, %.thread ]
+  %40 = getelementptr inbounds nuw %struct.QualItem, ptr %10, i64 %indvars.iv86
   %.sroa.0.0.copyload = load ptr, ptr %40, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -8831,12 +8831,12 @@ list_length.exit:                                 ; preds = %2
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 20
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  %41 = trunc nuw nsw i64 %indvars.iv87 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv86 to i32
   br label %42
 
-42:                                               ; preds = %.lr.ph80, %55
-  %.06578 = phi i32 [ %41, %.lr.ph80 ], [ %56, %55 ]
-  %43 = zext nneg i32 %.06578 to i64
+42:                                               ; preds = %.lr.ph79, %55
+  %.06577 = phi i32 [ %41, %.lr.ph79 ], [ %56, %55 ]
+  %43 = zext nneg i32 %.06577 to i64
   %44 = getelementptr %struct.QualItem, ptr %10, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = getelementptr i8, ptr %44, i64 -8
@@ -8856,12 +8856,12 @@ list_length.exit:                                 ; preds = %2
 
 55:                                               ; preds = %51, %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
-  %56 = add nsw i32 %.06578, -1
-  %57 = icmp sgt i32 %.06578, 1
+  %56 = add nsw i32 %.06577, -1
+  %57 = icmp sgt i32 %.06577, 1
   br i1 %57, label %42, label %.thread, !llvm.loop !18
 
 .thread:                                          ; preds = %42, %51, %55
-  %.065.lcssa = phi i32 [ %.06578, %42 ], [ %.06578, %51 ], [ 0, %55 ]
+  %.065.lcssa = phi i32 [ %.06577, %42 ], [ %.06577, %51 ], [ 0, %55 ]
   %58 = sext i32 %.065.lcssa to i64
   %59 = getelementptr inbounds %struct.QualItem, ptr %10, i64 %58
   store ptr %.sroa.0.0.copyload, ptr %59, align 8
@@ -8871,22 +8871,22 @@ list_length.exit:                                 ; preds = %2
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx11, align 8
   %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store i32 %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx14, align 4
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph83.preheader, label %.lr.ph80, !llvm.loop !19
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
+  br i1 %exitcond.not, label %.lr.ph82.preheader, label %.lr.ph79, !llvm.loop !19
 
-.lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next91, %.lr.ph83 ]
-  %.06881 = phi ptr [ null, %.lr.ph83.preheader ], [ %62, %.lr.ph83 ]
-  %60 = getelementptr inbounds nuw %struct.QualItem, ptr %10, i64 %indvars.iv90
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next90, %.lr.ph82 ]
+  %.06880 = phi ptr [ null, %.lr.ph82.preheader ], [ %62, %.lr.ph82 ]
+  %60 = getelementptr inbounds nuw %struct.QualItem, ptr %10, i64 %indvars.iv89
   %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @lappend(ptr noundef %.06881, ptr noundef %61) #11
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count94
-  br i1 %exitcond95.not, label %list_length.exit.thread, label %.lr.ph83, !llvm.loop !20
+  %62 = call ptr @lappend(ptr noundef %.06880, ptr noundef %61) #11
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count93
+  br i1 %exitcond94.not, label %list_length.exit.thread, label %.lr.ph82, !llvm.loop !20
 
-list_length.exit.thread:                          ; preds = %.lr.ph83, %2, %list_length.exit
-  %.0 = phi ptr [ %1, %list_length.exit ], [ null, %2 ], [ %62, %.lr.ph83 ]
+list_length.exit.thread:                          ; preds = %.lr.ph82, %2, %list_length.exit
+  %.0 = phi ptr [ %1, %list_length.exit ], [ null, %2 ], [ %62, %.lr.ph82 ]
   ret ptr %.0
 }
 
@@ -10137,8 +10137,8 @@ define internal fastcc noundef zeroext i1 @mark_async_capable_plan(ptr noundef %
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %30, %2
-  %.tr29 = phi ptr [ %1, %2 ], [ %32, %30 ]
-  %3 = load i32, ptr %.tr29, align 4
+  %.tr24 = phi ptr [ %1, %2 ], [ %32, %30 ]
+  %3 = load i32, ptr %.tr24, align 4
   switch i32 %3, label %.thread [
     i32 286, label %4
     i32 287, label %15
@@ -10157,7 +10157,7 @@ tailrecurse:                                      ; preds = %30, %2
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %.tr29, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %.tr24, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = tail call fastcc zeroext i1 @mark_async_capable_plan(ptr noundef %11, ptr noundef %13)
   br i1 %14, label %33, label %.thread
@@ -10168,7 +10168,7 @@ tailrecurse:                                      ; preds = %30, %2
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %.tr29, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.tr24, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %22 = load ptr, ptr %21, align 8
@@ -10178,7 +10178,7 @@ tailrecurse:                                      ; preds = %30, %2
   br i1 %.not, label %.thread, label %25
 
 25:                                               ; preds = %18
-  %26 = tail call zeroext i1 %24(ptr noundef nonnull %.tr29) #11
+  %26 = tail call zeroext i1 %24(ptr noundef nonnull %.tr24) #11
   br i1 %26, label %33, label %.thread
 
 27:                                               ; preds = %tailrecurse
@@ -10187,7 +10187,7 @@ tailrecurse:                                      ; preds = %30, %2
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %.tr29, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %.tr24, i64 80
   %32 = load ptr, ptr %31, align 8
   br label %tailrecurse
 

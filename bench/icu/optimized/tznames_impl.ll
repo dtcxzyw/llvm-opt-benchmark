@@ -753,8 +753,8 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %28, %27, %25
   %44 = phi ptr [ %17, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit35 ], [ %10, %13 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !22
-  %.not49 = icmp eq ptr %46, null
-  br i1 %.not49, label %48, label %47
+  %.not48 = icmp eq ptr %46, null
+  br i1 %.not48, label %48, label %47
 
 47:                                               ; preds = %43
   tail call void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -6635,11 +6635,11 @@ _ZN6icu_7717TimeZoneNamesImpl24_getAvailableMetaZoneIDsER10UErrorCode.exit.i: ; 
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(116) %29, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %.not7698.i = icmp eq ptr %43, null
+  %.not7696.i = icmp eq ptr %43, null
   %44 = load i32, ptr %4, align 4
   %45 = icmp sgt i32 %44, 0
-  %or.cond9799.i = select i1 %.not7698.i, i1 true, i1 %45
-  br i1 %or.cond9799.i, label %.loopexit.i, label %.lr.ph.i
+  %or.cond9597.i = select i1 %.not7696.i, i1 true, i1 %45
+  br i1 %or.cond9597.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %99
   %46 = phi ptr [ %103, %99 ], [ %43, %.preheader.i ]
@@ -6751,8 +6751,8 @@ _ZNK6icu_779TZDBNames7getNameE17UTimeZoneNameType.exit83.i: ; preds = %56, %52
   %.not76.i = icmp eq ptr %103, null
   %104 = load i32, ptr %4, align 4
   %105 = icmp sgt i32 %104, 0
-  %or.cond97.i = select i1 %.not76.i, i1 true, i1 %105
-  br i1 %or.cond97.i, label %.loopexit.i, label %.lr.ph.i
+  %or.cond95.i = select i1 %.not76.i, i1 true, i1 %105
+  br i1 %or.cond95.i, label %.loopexit.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %_ZN6icu_7717TimeZoneNamesImpl24_getAvailableMetaZoneIDsER10UErrorCode.exit.i
   br i1 %30, label %.thread.i, label %.loopexit.i
@@ -6771,12 +6771,12 @@ _ZNK6icu_779TZDBNames7getNameE17UTimeZoneNameType.exit83.i: ; preds = %56, %52
   br i1 %109, label %116, label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit.i, %.critedge.i
-  %.pr116.i = load ptr, ptr @_ZN6icu_77L14gTZDBNamesTrieE, align 8, !tbaa !161
-  %110 = icmp eq ptr %.pr116.i, null
+  %.pr114.i = load ptr, ptr @_ZN6icu_77L14gTZDBNamesTrieE, align 8, !tbaa !161
+  %110 = icmp eq ptr %.pr114.i, null
   br i1 %110, label %115, label %.thread.thread.i
 
 .thread.thread.i:                                 ; preds = %.thread.i, %23
-  %111 = phi ptr [ %.pr116.i, %.thread.i ], [ %17, %23 ]
+  %111 = phi ptr [ %.pr114.i, %.thread.i ], [ %17, %23 ]
   %112 = load ptr, ptr %111, align 8, !tbaa !20
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8

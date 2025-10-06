@@ -564,8 +564,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 198:                                              ; preds = %194
   %199 = add i32 %190, -11
-  %spec.select.i.i.i.i.i.i.i.i.i36.i = icmp ult i32 %199, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i36.i, label %200, label %202
+  %spec.select.i.i.i.i.i.i.i.i.i34.i = icmp ult i32 %199, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i34.i, label %200, label %202
 
 200:                                              ; preds = %198
   %201 = call noundef i32 @_ZNK4llvm6object15XCOFFObjectFile18getSymbolSectionIDENS0_9SymbolRefE(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %lhsv.i.i.i.i160362, ptr nonnull %.sroa.5256.0.copyload) #14

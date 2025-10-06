@@ -4326,7 +4326,7 @@ rank_box.exit.i:                                  ; preds = %2197, %2189
 
 ._crit_edge.i.i.i:                                ; preds = %rank_box.exit.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !213
-  %.pre45.i.i.i = load ptr, ptr %29, align 8, !tbaa !214
+  %.pre44.i.i.i = load ptr, ptr %29, align 8, !tbaa !214
   br label %boxes_append.exit.i
 
 2225:                                             ; preds = %rank_box.exit.i
@@ -4378,7 +4378,7 @@ rank_box.exit.i:                                  ; preds = %2197, %2189
   unreachable
 
 boxes_append.exit.i:                              ; preds = %2246, %._crit_edge.i.i.i
-  %2252 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %2231, %2246 ]
+  %2252 = phi ptr [ %.pre44.i.i.i, %._crit_edge.i.i.i ], [ %2231, %2246 ]
   %2253 = phi i64 [ %2223, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %2246 ]
   %2254 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %2247, %2246 ]
   %2255 = add i64 %2254, %2222
@@ -5182,7 +5182,7 @@ rank_box.exit416.i:                               ; preds = %2646, %.critedge.i4
 
 ._crit_edge.i.i417.i:                             ; preds = %rank_box.exit416.i
   %.pre.i.i419.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !213
-  %.pre45.i.i420.i = load ptr, ptr %29, align 8, !tbaa !214
+  %.pre44.i.i420.i = load ptr, ptr %29, align 8, !tbaa !214
   br label %boxes_append.exit424.i
 
 2674:                                             ; preds = %rank_box.exit416.i
@@ -5234,7 +5234,7 @@ rank_box.exit416.i:                               ; preds = %2646, %.critedge.i4
   unreachable
 
 boxes_append.exit424.i:                           ; preds = %2695, %._crit_edge.i.i417.i
-  %2701 = phi ptr [ %.pre45.i.i420.i, %._crit_edge.i.i417.i ], [ %2680, %2695 ]
+  %2701 = phi ptr [ %.pre44.i.i420.i, %._crit_edge.i.i417.i ], [ %2680, %2695 ]
   %2702 = phi i64 [ %2672, %._crit_edge.i.i417.i ], [ %spec.select.i.i421.i, %2695 ]
   %2703 = phi i64 [ %.pre.i.i419.i, %._crit_edge.i.i417.i ], [ %2696, %2695 ]
   %2704 = add i64 %2703, %2671

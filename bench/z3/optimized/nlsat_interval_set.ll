@@ -2858,7 +2858,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5nlsat26compare_interval_with_zer
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.thread27, label %22
+  br i1 %21, label %.thread25, label %22
 
 22:                                               ; preds = %17
   %23 = icmp eq i32 %20, 0
@@ -2868,13 +2868,13 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5nlsat26compare_interval_with_zer
   %25 = load i8, ptr %0, align 8
   %26 = and i8 %25, 1
   %.not21 = icmp eq i8 %26, 0
-  br i1 %.not21, label %.thread, label %.thread27
+  br i1 %.not21, label %.thread, label %.thread25
 
-.thread27:                                        ; preds = %17, %24
+.thread25:                                        ; preds = %17, %24
   br label %.thread
 
-.thread:                                          ; preds = %11, %6, %14, %22, %24, %.thread27
-  %.2 = phi i32 [ 1, %.thread27 ], [ 0, %24 ], [ 0, %22 ], [ 0, %14 ], [ -1, %6 ], [ -1, %11 ]
+.thread:                                          ; preds = %11, %6, %14, %22, %24, %.thread25
+  %.2 = phi i32 [ 1, %.thread25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %14 ], [ -1, %6 ], [ -1, %11 ]
   ret i32 %.2
 }
 

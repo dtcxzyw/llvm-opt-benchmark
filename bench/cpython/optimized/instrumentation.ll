@@ -1257,8 +1257,8 @@ define internal fastcc range(i32 -1, 1) i32 @call_instrumentation_vector(ptr nou
   br i1 %.not.i63, label %36, label %33
 
 33:                                               ; preds = %28
-  %sext69 = shl i64 %15, 31
-  %34 = ashr i64 %sext69, 32
+  %sext68 = shl i64 %15, 31
+  %34 = ashr i64 %sext68, 32
   %35 = getelementptr i8, ptr %32, i64 %34
   br label %get_tools_for_instruction.exit
 
@@ -1278,14 +1278,14 @@ get_tools_for_instruction.exit:                   ; preds = %33, %36, %40
   %.0.in.i = phi ptr [ %35, %33 ], [ %39, %36 ], [ %43, %40 ]
   %.0.i = load i8, ptr %.0.in.i, align 1, !tbaa !33
   %44 = or disjoint i64 %5, -9223372036854775808
-  %.not5673 = icmp eq i8 %.0.i, 0
-  br i1 %.not5673, label %Py_DECREF.exit.thread, label %.lr.ph
+  %.not5672 = icmp eq i8 %.0.i, 0
+  br i1 %.not5672, label %Py_DECREF.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_tools_for_instruction.exit
   %45 = icmp slt i32 %2, 11
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  %sext70 = shl i64 %15, 31
-  %47 = ashr i64 %sext70, 32
+  %sext69 = shl i64 %15, 31
+  %47 = ashr i64 %sext69, 32
   %48 = sext i32 %2 to i64
   br i1 %45, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
@@ -1296,19 +1296,19 @@ get_tools_for_instruction.exit:                   ; preds = %33, %36, %40
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %Py_DECREF.exit.us
-  %.04874.us = phi i8 [ %67, %Py_DECREF.exit.us ], [ %.0.i, %.lr.ph.split.us.preheader ]
-  %52 = icmp ugt i8 %.04874.us, 15
+  %.04873.us = phi i8 [ %67, %Py_DECREF.exit.us ], [ %.0.i, %.lr.ph.split.us.preheader ]
+  %52 = icmp ugt i8 %.04873.us, 15
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %.lr.ph.split.us
-  %54 = zext nneg i8 %.04874.us to i64
+  %54 = zext nneg i8 %.04873.us to i64
   %55 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !33
   %57 = sext i8 %56 to i32
   br label %most_significant_bit.exit.us
 
 58:                                               ; preds = %.lr.ph.split.us
-  %59 = lshr i8 %.04874.us, 4
+  %59 = lshr i8 %.04873.us, 4
   %60 = zext nneg i8 %59 to i64
   %61 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !33
@@ -1320,7 +1320,7 @@ most_significant_bit.exit.us:                     ; preds = %58, %53
   %.0.i64.us = phi i32 [ %64, %58 ], [ %57, %53 ]
   %65 = shl nuw i32 1, %.0.i64.us
   %66 = trunc i32 %65 to i8
-  %67 = xor i8 %.04874.us, %66
+  %67 = xor i8 %.04873.us, %66
   %68 = trunc i32 %.0.i64.us to i8
   %69 = tail call fastcc i32 @call_one_instrument(ptr noundef %25, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %44, i8 noundef signext %68, i32 noundef %2)
   %70 = icmp eq i32 %69, 0
@@ -1373,8 +1373,8 @@ most_significant_bit.exit.us:                     ; preds = %58, %53
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   %100 = load i8, ptr %98, align 1, !tbaa !31
   %101 = zext i8 %100 to i64
-  %sext72.us = mul i64 %sext70, %101
-  %102 = ashr exact i64 %sext72.us, 32
+  %sext71.us = mul i64 %sext69, %101
+  %102 = ashr exact i64 %sext71.us, 32
   %103 = getelementptr i8, ptr %99, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !33
   br label %105
@@ -1414,16 +1414,16 @@ most_significant_bit.exit.us:                     ; preds = %58, %53
   br label %Py_DECREF.exit.us
 
 Py_DECREF.exit.us:                                ; preds = %121, %117, %112, %87, %78, %most_significant_bit.exit.us
-  %.not56.us = icmp eq i8 %.04874.us, %66
+  %.not56.us = icmp eq i8 %.04873.us, %66
   br i1 %.not56.us, label %Py_DECREF.exit.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Py_DECREF.exit
-  %.04874 = phi i8 [ %159, %Py_DECREF.exit ], [ %.0.i, %.lr.ph ]
-  %122 = icmp ugt i8 %.04874, 15
+  %.04873 = phi i8 [ %159, %Py_DECREF.exit ], [ %.0.i, %.lr.ph ]
+  %122 = icmp ugt i8 %.04873, 15
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %.lr.ph.split
-  %124 = lshr i8 %.04874, 4
+  %124 = lshr i8 %.04873, 4
   %125 = zext nneg i8 %124 to i64
   %126 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !33
@@ -1432,7 +1432,7 @@ Py_DECREF.exit.us:                                ; preds = %121, %117, %112, %8
   br label %most_significant_bit.exit
 
 130:                                              ; preds = %.lr.ph.split
-  %131 = zext nneg i8 %.04874 to i64
+  %131 = zext nneg i8 %.04873 to i64
   %132 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !33
   %134 = sext i8 %133 to i32
@@ -1482,8 +1482,8 @@ most_significant_bit.exit:                        ; preds = %123, %130
 Py_DECREF.exit:                                   ; preds = %most_significant_bit.exit
   %157 = shl nuw i32 1, %.0.i64
   %158 = trunc i32 %157 to i8
-  %159 = xor i8 %.04874, %158
-  %.not56 = icmp eq i8 %.04874, %158
+  %159 = xor i8 %.04873, %158
+  %.not56 = icmp eq i8 %.04873, %158
   br i1 %.not56, label %Py_DECREF.exit.thread, label %.lr.ph.split
 
 Py_DECREF.exit.thread:                            ; preds = %Py_DECREF.exit, %Py_DECREF.exit.us, %71, %get_tools_for_instruction.exit, %138, %156, %153, %151, %140
@@ -6511,23 +6511,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FirePyStartEvent(ptr nounde
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %9, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %9, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %17, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %34, %Py_DECREF.exit.us.i ], [ %9, %17 ]
-  %19 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %34, %Py_DECREF.exit.us.i ], [ %9, %17 ]
+  %19 = icmp ugt i8 %.03854.us.i, 15
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %.lr.ph.split.us.i
-  %21 = zext nneg i8 %.03855.us.i to i64
+  %21 = zext nneg i8 %.03854.us.i to i64
   %22 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !33
   %24 = sext i8 %23 to i32
   br label %most_significant_bit.exit.us.i
 
 25:                                               ; preds = %.lr.ph.split.us.i
-  %26 = lshr i8 %.03855.us.i, 4
+  %26 = lshr i8 %.03854.us.i, 4
   %27 = zext nneg i8 %26 to i64
   %28 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !33
@@ -6539,7 +6539,7 @@ most_significant_bit.exit.us.i:                   ; preds = %25, %20
   %.0.i.us.i = phi i32 [ %31, %25 ], [ %24, %20 ]
   %32 = shl nuw i32 1, %.0.i.us.i
   %33 = trunc i32 %32 to i8
-  %34 = xor i8 %.03855.us.i, %33
+  %34 = xor i8 %.03854.us.i, %33
   %35 = trunc i32 %.0.i.us.i to i8
   %36 = call fastcc i32 @call_one_instrument(ptr noundef %8, ptr noundef %6, ptr noundef nonnull %10, i64 noundef -9223372036854775806, i8 noundef signext %35, i32 noundef 0)
   %37 = icmp eq i32 %36, 0
@@ -6557,7 +6557,7 @@ most_significant_bit.exit.us.i:                   ; preds = %25, %20
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %40, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %33
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %33
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %38, %Py_DECREF.exit.us.i, %12, %14, %17
@@ -6597,13 +6597,13 @@ define internal fastcc range(i32 -1, 1) i32 @capi_call_instrumentation(ptr nound
   %21 = getelementptr i8, ptr %3, i64 16
   store ptr %19, ptr %21, align 8, !tbaa !46
   %22 = or disjoint i64 %4, -9223372036854775808
-  %.not4954 = icmp eq i8 %11, 0
-  br i1 %.not4954, label %.critedge, label %.lr.ph
+  %.not4953 = icmp eq i8 %11, 0
+  br i1 %.not4953, label %.critedge, label %.lr.ph
 
 .thread:                                          ; preds = %16
   %23 = or disjoint i64 %4, -9223372036854775808
-  %.not495473 = icmp eq i8 %11, 0
-  br i1 %.not495473, label %.critedge, label %.lr.ph.split.us.preheader
+  %.not495372 = icmp eq i8 %11, 0
+  br i1 %.not495372, label %.critedge, label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %20
   %24 = icmp slt i32 %5, 11
@@ -6614,19 +6614,19 @@ define internal fastcc range(i32 -1, 1) i32 @capi_call_instrumentation(ptr nound
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %Py_DECREF.exit.us
-  %.03855.us = phi i8 [ %41, %Py_DECREF.exit.us ], [ %11, %.lr.ph.split.us.preheader ]
-  %26 = icmp ugt i8 %.03855.us, 15
+  %.03854.us = phi i8 [ %41, %Py_DECREF.exit.us ], [ %11, %.lr.ph.split.us.preheader ]
+  %26 = icmp ugt i8 %.03854.us, 15
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %.lr.ph.split.us
-  %28 = zext nneg i8 %.03855.us to i64
+  %28 = zext nneg i8 %.03854.us to i64
   %29 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !33
   %31 = sext i8 %30 to i32
   br label %most_significant_bit.exit.us
 
 32:                                               ; preds = %.lr.ph.split.us
-  %33 = lshr i8 %.03855.us, 4
+  %33 = lshr i8 %.03854.us, 4
   %34 = zext nneg i8 %33 to i64
   %35 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !33
@@ -6638,7 +6638,7 @@ most_significant_bit.exit.us:                     ; preds = %32, %27
   %.0.i.us = phi i32 [ %38, %32 ], [ %31, %27 ]
   %39 = shl nuw i32 1, %.0.i.us
   %40 = trunc i32 %39 to i8
-  %41 = xor i8 %.03855.us, %40
+  %41 = xor i8 %.03854.us, %40
   %42 = trunc i32 %.0.i.us to i8
   %43 = tail call fastcc i32 @call_one_instrument(ptr noundef %10, ptr noundef %8, ptr noundef nonnull %12, i64 noundef %25, i8 noundef signext %42, i32 noundef %5)
   %44 = icmp eq i32 %43, 0
@@ -6656,16 +6656,16 @@ most_significant_bit.exit.us:                     ; preds = %32, %27
   br label %Py_DECREF.exit.us
 
 Py_DECREF.exit.us:                                ; preds = %47, %most_significant_bit.exit.us
-  %.not49.us = icmp eq i8 %.03855.us, %40
+  %.not49.us = icmp eq i8 %.03854.us, %40
   br i1 %.not49.us, label %.critedge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Py_DECREF.exit
-  %.03855 = phi i8 [ %88, %Py_DECREF.exit ], [ %11, %.lr.ph ]
-  %51 = icmp ugt i8 %.03855, 15
+  %.03854 = phi i8 [ %88, %Py_DECREF.exit ], [ %11, %.lr.ph ]
+  %51 = icmp ugt i8 %.03854, 15
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %.lr.ph.split
-  %53 = lshr i8 %.03855, 4
+  %53 = lshr i8 %.03854, 4
   %54 = zext nneg i8 %53 to i64
   %55 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !33
@@ -6674,7 +6674,7 @@ Py_DECREF.exit.us:                                ; preds = %47, %most_significa
   br label %most_significant_bit.exit
 
 59:                                               ; preds = %.lr.ph.split
-  %60 = zext nneg i8 %.03855 to i64
+  %60 = zext nneg i8 %.03854 to i64
   %61 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !33
   %63 = sext i8 %62 to i32
@@ -6724,8 +6724,8 @@ most_significant_bit.exit:                        ; preds = %52, %59
 Py_DECREF.exit:                                   ; preds = %most_significant_bit.exit
   %86 = shl nuw i32 1, %.0.i
   %87 = trunc i32 %86 to i8
-  %88 = xor i8 %.03855, %87
-  %.not49 = icmp eq i8 %.03855, %87
+  %88 = xor i8 %.03854, %87
+  %.not49 = icmp eq i8 %.03854, %87
   br i1 %.not49, label %.critedge, label %.lr.ph.split
 
 .critedge:                                        ; preds = %Py_DECREF.exit, %Py_DECREF.exit.us, %45, %.thread, %20, %67, %85, %82, %80, %69, %17, %14
@@ -6762,23 +6762,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FirePyResumeEvent(ptr nound
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %9, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %9, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %17, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %34, %Py_DECREF.exit.us.i ], [ %9, %17 ]
-  %19 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %34, %Py_DECREF.exit.us.i ], [ %9, %17 ]
+  %19 = icmp ugt i8 %.03854.us.i, 15
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %.lr.ph.split.us.i
-  %21 = zext nneg i8 %.03855.us.i to i64
+  %21 = zext nneg i8 %.03854.us.i to i64
   %22 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !33
   %24 = sext i8 %23 to i32
   br label %most_significant_bit.exit.us.i
 
 25:                                               ; preds = %.lr.ph.split.us.i
-  %26 = lshr i8 %.03855.us.i, 4
+  %26 = lshr i8 %.03854.us.i, 4
   %27 = zext nneg i8 %26 to i64
   %28 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !33
@@ -6790,7 +6790,7 @@ most_significant_bit.exit.us.i:                   ; preds = %25, %20
   %.0.i.us.i = phi i32 [ %31, %25 ], [ %24, %20 ]
   %32 = shl nuw i32 1, %.0.i.us.i
   %33 = trunc i32 %32 to i8
-  %34 = xor i8 %.03855.us.i, %33
+  %34 = xor i8 %.03854.us.i, %33
   %35 = trunc i32 %.0.i.us.i to i8
   %36 = call fastcc i32 @call_one_instrument(ptr noundef %8, ptr noundef %6, ptr noundef nonnull %10, i64 noundef -9223372036854775806, i8 noundef signext %35, i32 noundef 1)
   %37 = icmp eq i32 %36, 0
@@ -6808,7 +6808,7 @@ most_significant_bit.exit.us.i:                   ; preds = %25, %20
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %40, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %33
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %33
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %38, %Py_DECREF.exit.us.i, %12, %14, %17
@@ -6848,23 +6848,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FirePyReturnEvent(ptr nound
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %20, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %11, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %11, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
-  %21 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
+  %21 = icmp ugt i8 %.03854.us.i, 15
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us.i
-  %23 = zext nneg i8 %.03855.us.i to i64
+  %23 = zext nneg i8 %.03854.us.i to i64
   %24 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !33
   %26 = sext i8 %25 to i32
   br label %most_significant_bit.exit.us.i
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = lshr i8 %.03855.us.i, 4
+  %28 = lshr i8 %.03854.us.i, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !33
@@ -6876,7 +6876,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   %.0.i.us.i = phi i32 [ %33, %27 ], [ %26, %22 ]
   %34 = shl nuw i32 1, %.0.i.us.i
   %35 = trunc i32 %34 to i8
-  %36 = xor i8 %.03855.us.i, %35
+  %36 = xor i8 %.03854.us.i, %35
   %37 = trunc i32 %.0.i.us.i to i8
   %38 = call fastcc i32 @call_one_instrument(ptr noundef %10, ptr noundef %8, ptr noundef nonnull %12, i64 noundef -9223372036854775805, i8 noundef signext %37, i32 noundef 2)
   %39 = icmp eq i32 %38, 0
@@ -6894,7 +6894,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %42, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %35
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %35
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %14, %16, %19
@@ -6934,23 +6934,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FirePyYieldEvent(ptr nounde
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %20, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %11, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %11, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
-  %21 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
+  %21 = icmp ugt i8 %.03854.us.i, 15
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us.i
-  %23 = zext nneg i8 %.03855.us.i to i64
+  %23 = zext nneg i8 %.03854.us.i to i64
   %24 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !33
   %26 = sext i8 %25 to i32
   br label %most_significant_bit.exit.us.i
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = lshr i8 %.03855.us.i, 4
+  %28 = lshr i8 %.03854.us.i, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !33
@@ -6962,7 +6962,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   %.0.i.us.i = phi i32 [ %33, %27 ], [ %26, %22 ]
   %34 = shl nuw i32 1, %.0.i.us.i
   %35 = trunc i32 %34 to i8
-  %36 = xor i8 %.03855.us.i, %35
+  %36 = xor i8 %.03854.us.i, %35
   %37 = trunc i32 %.0.i.us.i to i8
   %38 = call fastcc i32 @call_one_instrument(ptr noundef %10, ptr noundef %8, ptr noundef nonnull %12, i64 noundef -9223372036854775805, i8 noundef signext %37, i32 noundef 3)
   %39 = icmp eq i32 %38, 0
@@ -6980,7 +6980,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %42, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %35
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %35
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %14, %16, %19
@@ -7022,23 +7022,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FireCallEvent(ptr noundef c
 
 22:                                               ; preds = %19
   store ptr %21, ptr %8, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %15, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %15, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %22, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %38, %Py_DECREF.exit.us.i ], [ %15, %22 ]
-  %23 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %38, %Py_DECREF.exit.us.i ], [ %15, %22 ]
+  %23 = icmp ugt i8 %.03854.us.i, 15
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %.lr.ph.split.us.i
-  %25 = zext nneg i8 %.03855.us.i to i64
+  %25 = zext nneg i8 %.03854.us.i to i64
   %26 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !33
   %28 = sext i8 %27 to i32
   br label %most_significant_bit.exit.us.i
 
 29:                                               ; preds = %.lr.ph.split.us.i
-  %30 = lshr i8 %.03855.us.i, 4
+  %30 = lshr i8 %.03854.us.i, 4
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !33
@@ -7050,7 +7050,7 @@ most_significant_bit.exit.us.i:                   ; preds = %29, %24
   %.0.i.us.i = phi i32 [ %35, %29 ], [ %28, %24 ]
   %36 = shl nuw i32 1, %.0.i.us.i
   %37 = trunc i32 %36 to i8
-  %38 = xor i8 %.03855.us.i, %37
+  %38 = xor i8 %.03854.us.i, %37
   %39 = trunc i32 %.0.i.us.i to i8
   %40 = call fastcc i32 @call_one_instrument(ptr noundef %14, ptr noundef %12, ptr noundef nonnull %7, i64 noundef -9223372036854775804, i8 noundef signext %39, i32 noundef 4)
   %41 = icmp eq i32 %40, 0
@@ -7068,7 +7068,7 @@ most_significant_bit.exit.us.i:                   ; preds = %29, %24
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %44, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %37
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %37
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %42, %Py_DECREF.exit.us.i, %17, %19, %22
@@ -7106,23 +7106,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FireLineEvent(ptr noundef c
   br label %capi_call_instrumentation.exit
 
 20:                                               ; preds = %9
-  %.not495473.i = icmp eq i8 %16, 0
-  br i1 %.not495473.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not495372.i = icmp eq i8 %16, 0
+  br i1 %.not495372.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %20, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %16, %20 ]
-  %21 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %16, %20 ]
+  %21 = icmp ugt i8 %.03854.us.i, 15
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us.i
-  %23 = zext nneg i8 %.03855.us.i to i64
+  %23 = zext nneg i8 %.03854.us.i to i64
   %24 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !33
   %26 = sext i8 %25 to i32
   br label %most_significant_bit.exit.us.i
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = lshr i8 %.03855.us.i, 4
+  %28 = lshr i8 %.03854.us.i, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !33
@@ -7134,7 +7134,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   %.0.i.us.i = phi i32 [ %33, %27 ], [ %26, %22 ]
   %34 = shl nuw i32 1, %.0.i.us.i
   %35 = trunc i32 %34 to i8
-  %36 = xor i8 %.03855.us.i, %35
+  %36 = xor i8 %.03854.us.i, %35
   %37 = trunc i32 %.0.i.us.i to i8
   %38 = call fastcc i32 @call_one_instrument(ptr noundef %15, ptr noundef %13, ptr noundef nonnull %10, i64 noundef -9223372036854775806, i8 noundef signext %37, i32 noundef 5)
   %39 = icmp eq i32 %38, 0
@@ -7152,7 +7152,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %42, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %35
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %35
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %18, %20
@@ -7211,23 +7211,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FireJumpEvent(ptr noundef c
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %20, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %11, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %11, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
-  %21 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
+  %21 = icmp ugt i8 %.03854.us.i, 15
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us.i
-  %23 = zext nneg i8 %.03855.us.i to i64
+  %23 = zext nneg i8 %.03854.us.i to i64
   %24 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !33
   %26 = sext i8 %25 to i32
   br label %most_significant_bit.exit.us.i
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = lshr i8 %.03855.us.i, 4
+  %28 = lshr i8 %.03854.us.i, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !33
@@ -7239,7 +7239,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   %.0.i.us.i = phi i32 [ %33, %27 ], [ %26, %22 ]
   %34 = shl nuw i32 1, %.0.i.us.i
   %35 = trunc i32 %34 to i8
-  %36 = xor i8 %.03855.us.i, %35
+  %36 = xor i8 %.03854.us.i, %35
   %37 = trunc i32 %.0.i.us.i to i8
   %38 = call fastcc i32 @call_one_instrument(ptr noundef %10, ptr noundef %8, ptr noundef nonnull %12, i64 noundef -9223372036854775805, i8 noundef signext %37, i32 noundef 7)
   %39 = icmp eq i32 %38, 0
@@ -7257,7 +7257,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %42, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %35
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %35
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %14, %16, %19
@@ -7297,23 +7297,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FireBranchEvent(ptr noundef
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %20, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %11, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %11, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
-  %21 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
+  %21 = icmp ugt i8 %.03854.us.i, 15
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us.i
-  %23 = zext nneg i8 %.03855.us.i to i64
+  %23 = zext nneg i8 %.03854.us.i to i64
   %24 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !33
   %26 = sext i8 %25 to i32
   br label %most_significant_bit.exit.us.i
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = lshr i8 %.03855.us.i, 4
+  %28 = lshr i8 %.03854.us.i, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !33
@@ -7325,7 +7325,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   %.0.i.us.i = phi i32 [ %33, %27 ], [ %26, %22 ]
   %34 = shl nuw i32 1, %.0.i.us.i
   %35 = trunc i32 %34 to i8
-  %36 = xor i8 %.03855.us.i, %35
+  %36 = xor i8 %.03854.us.i, %35
   %37 = trunc i32 %.0.i.us.i to i8
   %38 = call fastcc i32 @call_one_instrument(ptr noundef %10, ptr noundef %8, ptr noundef nonnull %12, i64 noundef -9223372036854775805, i8 noundef signext %37, i32 noundef 9)
   %39 = icmp eq i32 %38, 0
@@ -7343,7 +7343,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %42, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %35
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %35
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %14, %16, %19
@@ -7383,23 +7383,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FireBranchRightEvent(ptr no
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %20, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %11, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %11, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
-  %21 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
+  %21 = icmp ugt i8 %.03854.us.i, 15
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us.i
-  %23 = zext nneg i8 %.03855.us.i to i64
+  %23 = zext nneg i8 %.03854.us.i to i64
   %24 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !33
   %26 = sext i8 %25 to i32
   br label %most_significant_bit.exit.us.i
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = lshr i8 %.03855.us.i, 4
+  %28 = lshr i8 %.03854.us.i, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !33
@@ -7411,7 +7411,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   %.0.i.us.i = phi i32 [ %33, %27 ], [ %26, %22 ]
   %34 = shl nuw i32 1, %.0.i.us.i
   %35 = trunc i32 %34 to i8
-  %36 = xor i8 %.03855.us.i, %35
+  %36 = xor i8 %.03854.us.i, %35
   %37 = trunc i32 %.0.i.us.i to i8
   %38 = call fastcc i32 @call_one_instrument(ptr noundef %10, ptr noundef %8, ptr noundef nonnull %12, i64 noundef -9223372036854775805, i8 noundef signext %37, i32 noundef 9)
   %39 = icmp eq i32 %38, 0
@@ -7429,7 +7429,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %42, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %35
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %35
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %14, %16, %19
@@ -7469,23 +7469,23 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FireBranchLeftEvent(ptr nou
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %20, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %11, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %11, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
-  %21 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %11, %19 ]
+  %21 = icmp ugt i8 %.03854.us.i, 15
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us.i
-  %23 = zext nneg i8 %.03855.us.i to i64
+  %23 = zext nneg i8 %.03854.us.i to i64
   %24 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !33
   %26 = sext i8 %25 to i32
   br label %most_significant_bit.exit.us.i
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = lshr i8 %.03855.us.i, 4
+  %28 = lshr i8 %.03854.us.i, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !33
@@ -7497,7 +7497,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   %.0.i.us.i = phi i32 [ %33, %27 ], [ %26, %22 ]
   %34 = shl nuw i32 1, %.0.i.us.i
   %35 = trunc i32 %34 to i8
-  %36 = xor i8 %.03855.us.i, %35
+  %36 = xor i8 %.03854.us.i, %35
   %37 = trunc i32 %.0.i.us.i to i8
   %38 = call fastcc i32 @call_one_instrument(ptr noundef %10, ptr noundef %8, ptr noundef nonnull %12, i64 noundef -9223372036854775805, i8 noundef signext %37, i32 noundef 8)
   %39 = icmp eq i32 %38, 0
@@ -7515,7 +7515,7 @@ most_significant_bit.exit.us.i:                   ; preds = %27, %22
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %42, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %35
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %35
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %14, %16, %19
@@ -7873,23 +7873,23 @@ exception_event_setup.exit:                       ; preds = %4
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %23, ptr %25, align 16, !tbaa !46
-  %.not4954.i = icmp eq i8 %16, 0
-  br i1 %.not4954.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not4953.i = icmp eq i8 %16, 0
+  br i1 %.not4953.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %24, %Py_DECREF.exit.us.i
-  %.03855.us.i = phi i8 [ %41, %Py_DECREF.exit.us.i ], [ %16, %24 ]
-  %26 = icmp ugt i8 %.03855.us.i, 15
+  %.03854.us.i = phi i8 [ %41, %Py_DECREF.exit.us.i ], [ %16, %24 ]
+  %26 = icmp ugt i8 %.03854.us.i, 15
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %.lr.ph.split.us.i
-  %28 = zext nneg i8 %.03855.us.i to i64
+  %28 = zext nneg i8 %.03854.us.i to i64
   %29 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !33
   %31 = sext i8 %30 to i32
   br label %most_significant_bit.exit.us.i
 
 32:                                               ; preds = %.lr.ph.split.us.i
-  %33 = lshr i8 %.03855.us.i, 4
+  %33 = lshr i8 %.03854.us.i, 4
   %34 = zext nneg i8 %33 to i64
   %35 = getelementptr i8, ptr @MOST_SIGNIFICANT_BITS, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !33
@@ -7901,7 +7901,7 @@ most_significant_bit.exit.us.i:                   ; preds = %32, %27
   %.0.i.us.i = phi i32 [ %38, %32 ], [ %31, %27 ]
   %39 = shl nuw i32 1, %.0.i.us.i
   %40 = trunc i32 %39 to i8
-  %41 = xor i8 %.03855.us.i, %40
+  %41 = xor i8 %.03854.us.i, %40
   %42 = trunc i32 %.0.i.us.i to i8
   %43 = call fastcc i32 @call_one_instrument(ptr noundef %15, ptr noundef %13, ptr noundef nonnull %17, i64 noundef -9223372036854775805, i8 noundef signext %42, i32 noundef 10)
   %44 = icmp eq i32 %43, 0
@@ -7919,7 +7919,7 @@ most_significant_bit.exit.us.i:                   ; preds = %32, %27
   br label %Py_DECREF.exit.us.i
 
 Py_DECREF.exit.us.i:                              ; preds = %47, %most_significant_bit.exit.us.i
-  %.not49.us.i = icmp eq i8 %.03855.us.i, %40
+  %.not49.us.i = icmp eq i8 %.03854.us.i, %40
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %45, %Py_DECREF.exit.us.i, %19, %21, %24

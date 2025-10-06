@@ -2929,7 +2929,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK26model_reconstruction_trail5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !96
   %5 = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread33, label %6
+  br i1 %.not.i, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread32, label %6
 
 6:                                                ; preds = %2
   br i1 %5, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit
@@ -2940,34 +2940,34 @@ _ZNK26model_reconstruction_trail5entry7is_hideEv.exit: ; preds = %6
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit
 
-_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread33: ; preds = %2
+_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread32: ; preds = %2
   br i1 %5, label %._crit_edge, label %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit
 
-_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit: ; preds = %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread33
+_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit: ; preds = %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread32
   %10 = getelementptr inbounds i8, ptr %.pre, i64 -4
   %11 = load i32, ptr %10, align 4, !tbaa !68
   %12 = zext i32 %11 to i64
   %13 = mul nuw nsw i64 %12, 48
   %14 = getelementptr inbounds nuw i8, ptr %.pre, i64 %13
-  %.not44 = icmp eq i32 %11, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq i32 %11, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.02145, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.02140, i64 48
   %.not = icmp eq ptr %16, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit, %15
-  %.02145 = phi ptr [ %16, %15 ], [ %.pre, %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit ]
-  %17 = getelementptr inbounds nuw i8, ptr %.02145, i64 32
+  %.02140 = phi ptr [ %16, %15 ], [ %.pre, %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit ]
+  %17 = getelementptr inbounds nuw i8, ptr %.02140, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = tail call noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %18)
   br i1 %19, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %15
 
-._crit_edge:                                      ; preds = %15, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread33, %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit
+._crit_edge:                                      ; preds = %15, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread32, %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE3endEv.exit
   %20 = load ptr, ptr %0, align 8, !tbaa !98
-  %.not41 = icmp eq ptr %20, null
-  br i1 %.not41, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %21
+  %.not36 = icmp eq ptr %20, null
+  br i1 %.not36, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2994,40 +2994,40 @@ _ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18depen
 _ZNK7obj_mapI4exprPS0_E5beginEv.exit:             ; preds = %.lr.ph.i.i.i.i, %29, %21
   %.sroa.0.1.i.i = phi ptr [ %23, %21 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %27, %29 ]
   %31 = getelementptr inbounds nuw %"class.obj_map<expr, expr *>::obj_map_entry", ptr %23, i64 %26
-  %.not4246 = icmp eq ptr %.sroa.0.1.i.i, %31
-  br i1 %.not4246, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %.lr.ph48
+  %.not3741 = icmp eq ptr %.sroa.0.1.i.i, %31
+  br i1 %.not3741, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %.lr.ph43
 
-.lr.ph48:                                         ; preds = %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit
-  %.sroa.030.047 = phi ptr [ %.sroa.030.2, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ]
-  %32 = load ptr, ptr %.sroa.030.047, align 8, !tbaa !109
+.lr.ph43:                                         ; preds = %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit
+  %.sroa.029.042 = phi ptr [ %.sroa.029.2, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ]
+  %32 = load ptr, ptr %.sroa.029.042, align 8, !tbaa !109
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !41
   %35 = tail call noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %34)
   br i1 %35, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %36
 
-36:                                               ; preds = %.lr.ph48
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.030.047, i64 16
+36:                                               ; preds = %.lr.ph43
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.029.042, i64 16
   %.not1.i.i = icmp eq ptr %37, %27
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36, %39
-  %.sroa.030.1 = phi ptr [ %40, %39 ], [ %37, %36 ]
-  %38 = load ptr, ptr %.sroa.030.1, align 8, !tbaa !104
+  %.sroa.029.1 = phi ptr [ %40, %39 ], [ %37, %36 ]
+  %38 = load ptr, ptr %.sroa.029.1, align 8, !tbaa !104
   %switch.i.i = icmp ult ptr %38, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i, label %39, label %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit
 
 39:                                               ; preds = %.lr.ph.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.030.1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.029.1, i64 16
   %.not.i.i = icmp eq ptr %40, %27
   br i1 %.not.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, label %.lr.ph.i.i, !llvm.loop !107
 
 _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i, %39, %36
-  %.sroa.030.2 = phi ptr [ %37, %36 ], [ %.sroa.030.1, %.lr.ph.i.i ], [ %40, %39 ]
-  %.not42 = icmp eq ptr %.sroa.030.2, %31
-  br i1 %.not42, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %.lr.ph48
+  %.sroa.029.2 = phi ptr [ %37, %36 ], [ %.sroa.029.1, %.lr.ph.i.i ], [ %40, %39 ]
+  %.not37 = icmp eq ptr %.sroa.029.2, %31
+  br i1 %.not37, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %.lr.ph43
 
-_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread: ; preds = %.lr.ph, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %.lr.ph48, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, %6, %._crit_edge, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit
-  %.0 = phi i1 [ false, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit ], [ false, %._crit_edge ], [ false, %6 ], [ false, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ], [ %35, %.lr.ph48 ], [ %35, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ true, %.lr.ph ]
+_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread: ; preds = %.lr.ph, %.lr.ph43, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, %6, %._crit_edge, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit
+  %.0 = phi i1 [ false, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit ], [ false, %._crit_edge ], [ false, %6 ], [ false, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ], [ %35, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ %35, %.lr.ph43 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 

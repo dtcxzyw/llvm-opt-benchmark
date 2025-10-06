@@ -1004,17 +1004,17 @@ define dso_local void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr nou
   %6 = load ptr, ptr %5, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not1112 = icmp eq ptr %6, %8
-  br i1 %.not1112, label %._crit_edge, label %.lr.ph
+  %.not910 = icmp eq ptr %6, %8
+  br i1 %.not910, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.013, i64 32
-  %.not11 = icmp eq ptr %10, %8
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.011, i64 32
+  %.not9 = icmp eq ptr %10, %8
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %9
-  %.sroa.05.013 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.013, ptr noundef nonnull %1) #29
+  %.sroa.05.011 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.011, ptr noundef nonnull %1) #29
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit, label %9
 
@@ -1109,17 +1109,17 @@ define dso_local void @_ZN25cmDependsJavaParserHelper17AddPackagesImportEPKc(ptr
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !56
-  %.not11 = icmp eq ptr %5, %7
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq ptr %5, %7
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 32
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %8
-  %.sroa.05.012 = phi ptr [ %9, %8 ], [ %5, %2 ]
-  %10 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.012, ptr noundef %1) #29
+  %.sroa.05.010 = phi ptr [ %9, %8 ], [ %5, %2 ]
+  %10 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.010, ptr noundef %1) #29
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.loopexit, label %8
 
@@ -1143,12 +1143,12 @@ define dso_local void @_ZN25cmDependsJavaParserHelper16SafePrintMissingEPKcii(pt
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %3)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.3, i64 noundef 9)
   %char0 = load i8, ptr %1, align 1
-  %.not21 = icmp eq i8 %char0, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph
+  %.not20 = icmp eq i8 %char0, 0
+  br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %31
   %11 = phi i64 [ %33, %31 ], [ 0, %6 ]
-  %.01520 = phi i32 [ %32, %31 ], [ 0, %6 ]
+  %.01519 = phi i32 [ %32, %31 ], [ 0, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !13
   %14 = add i8 %13, -32
@@ -1184,7 +1184,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper16SafePrintMissingEPKcii(pt
 
 31:                                               ; preds = %24, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = add i32 %.01520, 1
+  %32 = add i32 %.01519, 1
   %33 = zext i32 %32 to i64
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
   %35 = icmp ugt i64 %34, %33

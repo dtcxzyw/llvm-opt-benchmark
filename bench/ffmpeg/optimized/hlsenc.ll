@@ -3577,7 +3577,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %848 = call i32 @ff_get_chomp_line(ptr noundef %847, ptr noundef nonnull %3, i32 noundef 4096) #17
   %lhsv.i = load i64, ptr %3, align 16
   %.not.i319 = icmp eq i64 %lhsv.i, 23981780240975139
-  br i1 %.not.i319, label %849, label %.thread113.i
+  br i1 %.not.i319, label %849, label %.thread112.i
 
 849:                                              ; preds = %846
   %850 = getelementptr inbounds nuw i8, ptr %462, i64 184
@@ -3601,7 +3601,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %860 = load ptr, ptr %2, align 8, !tbaa !178
   %861 = call i32 @avio_feof(ptr noundef %860) #17
   %.not90.i = icmp eq i32 %861, 0
-  br i1 %.not90.i, label %862, label %.thread113.i
+  br i1 %.not90.i, label %862, label %.thread112.i
 
 862:                                              ; preds = %859
   %863 = load ptr, ptr %2, align 8, !tbaa !178
@@ -3755,7 +3755,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread113.i
+  br label %.thread112.i
 
 925:                                              ; preds = %906
   %926 = call i32 @av_strstart(ptr noundef nonnull %3, ptr noundef nonnull @.str.289, ptr noundef null) #17
@@ -3772,7 +3772,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
 931:                                              ; preds = %927
   %932 = call noalias ptr @av_strdup(ptr noundef nonnull %3) #17
   %.not97.i = icmp eq ptr %932, null
-  br i1 %.not97.i, label %.thread113.i, label %933
+  br i1 %.not97.i, label %.thread112.i, label %933
 
 933:                                              ; preds = %931
   %934 = load ptr, ptr %659, align 8, !tbaa !29
@@ -3791,7 +3791,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %942 = ashr exact i64 %sext.i, 32
   %943 = call noalias ptr @av_mallocz(i64 noundef %942) #17
   %.not99.not.i = icmp eq ptr %943, null
-  br i1 %.not99.not.i, label %.thread113.i, label %944
+  br i1 %.not99.not.i, label %.thread112.i, label %944
 
 944:                                              ; preds = %936
   %945 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %943, i64 noundef %942, ptr noundef nonnull %939, i32 noundef %937) #17
@@ -3823,7 +3823,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
 962:                                              ; preds = %957, %947
   %.473.i = phi nsz double [ %961, %957 ], [ %.069.ph.i, %947 ]
   %963 = icmp slt i32 %955, 0
-  br i1 %963, label %.thread113.i, label %964
+  br i1 %963, label %.thread112.i, label %964
 
 964:                                              ; preds = %962
   store i64 %951, ptr %785, align 8, !tbaa !90
@@ -3834,12 +3834,12 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %.066.ph.i.be = phi i32 [ 1, %876 ], [ 1, %879 ], [ %.066.ph.i, %899 ], [ %.066.ph.i, %904 ], [ %.066.ph.i, %893 ], [ 0, %964 ], [ %.066.ph.i, %927 ], [ %.066.ph.i, %873 ], [ %.066.ph.i, %871 ], [ %.066.ph.i, %.thread.i323 ]
   br label %.outer.i, !llvm.loop !189
 
-.thread113.i:                                     ; preds = %962, %936, %931, %859, %924, %846
+.thread112.i:                                     ; preds = %962, %936, %931, %859, %924, %846
   %965 = load ptr, ptr %2, align 8, !tbaa !178
   %966 = call i32 @avio_close(ptr noundef %965) #17
   br label %parse_playlist.exit
 
-parse_playlist.exit:                              ; preds = %839, %.thread113.i
+parse_playlist.exit:                              ; preds = %839, %.thread112.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -4061,8 +4061,8 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %42 = icmp eq i32 %41, 1
   %43 = and i32 %25, 520093696
   %44 = icmp eq i32 %43, 117440512
-  %or.cond147 = and i1 %42, %44
-  br i1 %or.cond147, label %45, label %47
+  %or.cond146 = and i1 %42, %44
+  br i1 %or.cond146, label %45, label %47
 
 45:                                               ; preds = %35
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -4096,8 +4096,8 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %65 = load i32, ptr %64, align 8, !tbaa !202
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %67 = load i32, ptr %66, align 4, !tbaa !203
-  %.not113137 = icmp eq ptr %63, null
-  br i1 %.not113137, label %.critedge, label %.lr.ph
+  %.not113136 = icmp eq ptr %63, null
+  br i1 %.not113136, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61
   %68 = ptrtoint ptr %63 to i64
@@ -4105,28 +4105,28 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %70 = load i32, ptr %69, align 8, !tbaa !204
   %71 = sext i32 %70 to i64
   %72 = icmp sgt i32 %70, 19
-  br i1 %72, label %.lr.ph150, label %.critedge
+  br i1 %72, label %.lr.ph149, label %.critedge
 
-.lr.ph150:                                        ; preds = %.lr.ph, %124
-  %.0103138149 = phi ptr [ %74, %124 ], [ %63, %.lr.ph ]
-  %73 = load i8, ptr %.0103138149, align 1, !tbaa !102
-  %74 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 1
+.lr.ph149:                                        ; preds = %.lr.ph, %124
+  %.0103137148 = phi ptr [ %74, %124 ], [ %63, %.lr.ph ]
+  %73 = load i8, ptr %.0103137148, align 1, !tbaa !102
+  %74 = getelementptr inbounds nuw i8, ptr %.0103137148, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !102
   %76 = or i8 %75, %73
-  %77 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.0103137148, i64 2
   %78 = load i8, ptr %77, align 1, !tbaa !102
   %79 = or i8 %76, %78
   %.not114 = icmp eq i8 %79, 0
   br i1 %.not114, label %80, label %124
 
-80:                                               ; preds = %.lr.ph150
-  %81 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 3
+80:                                               ; preds = %.lr.ph149
+  %81 = getelementptr inbounds nuw i8, ptr %.0103137148, i64 3
   %82 = load i8, ptr %81, align 1, !tbaa !102
   %83 = icmp eq i8 %82, 1
   br i1 %83, label %84, label %124
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.0103137148, i64 4
   %86 = load i8, ptr %85, align 1, !tbaa !102
   %87 = and i8 %86, 126
   %88 = icmp eq i8 %87, 66
@@ -4136,7 +4136,7 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !65
-  %90 = getelementptr inbounds nuw i8, ptr %.0103138149, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %.0103137148, i64 6
   %91 = ptrtoint ptr %90 to i64
   %.neg = sub i64 %68, %91
   %92 = trunc i64 %.neg to i32
@@ -4144,12 +4144,12 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %94 = call ptr @ff_nal_unit_extract_rbsp(ptr noundef nonnull %90, i32 noundef %93, ptr noundef nonnull %6, i32 noundef 0) #17
   store ptr %94, ptr %5, align 8, !tbaa !66
   %.not115.not = icmp eq ptr %94, null
-  br i1 %.not115.not, label %.thread130, label %95
+  br i1 %.not115.not, label %.thread129, label %95
 
 95:                                               ; preds = %89
   %96 = load i32, ptr %6, align 4, !tbaa !65
   %97 = icmp slt i32 %96, 13
-  br i1 %97, label %.thread124, label %98
+  br i1 %97, label %.thread123, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 1
@@ -4177,9 +4177,9 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 12
   %121 = load i8, ptr %120, align 1, !tbaa !102
   %122 = zext i8 %121 to i32
-  br label %.thread124
+  br label %.thread123
 
-.thread124:                                       ; preds = %95, %98
+.thread123:                                       ; preds = %95, %98
   %.2102.ph = phi i32 [ %105, %98 ], [ %65, %95 ]
   %.199.ph = phi i32 [ %109, %98 ], [ -99, %95 ]
   %.197.ph = phi i32 [ %104, %98 ], [ 0, %95 ]
@@ -4188,30 +4188,30 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %10, align 8, !tbaa !39
-  %.pre141 = load i8, ptr %4, align 8
-  %123 = icmp ne i8 %.pre141, 0
+  %.pre140 = load i8, ptr %4, align 8
+  %123 = icmp ne i8 %.pre140, 0
   br label %.critedge
 
-.thread130:                                       ; preds = %89
+.thread129:                                       ; preds = %89
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %160
 
-124:                                              ; preds = %84, %80, %.lr.ph150
+124:                                              ; preds = %84, %80, %.lr.ph149
   %125 = ptrtoint ptr %74 to i64
   %reass.sub = sub i64 %125, %68
   %126 = add i64 %reass.sub, 19
   %127 = icmp slt i64 %126, %71
-  br i1 %127, label %.lr.ph150, label %.critedge
+  br i1 %127, label %.lr.ph149, label %.critedge
 
-.critedge:                                        ; preds = %124, %.lr.ph, %61, %.thread124
-  %128 = phi i1 [ %123, %.thread124 ], [ false, %61 ], [ false, %.lr.ph ], [ false, %124 ]
-  %129 = phi ptr [ %.pre, %.thread124 ], [ %11, %61 ], [ %11, %.lr.ph ], [ %11, %124 ]
-  %.1101 = phi i32 [ %.2102.ph, %.thread124 ], [ %65, %61 ], [ %65, %.lr.ph ], [ %65, %124 ]
-  %.098 = phi i32 [ %.199.ph, %.thread124 ], [ -99, %61 ], [ -99, %.lr.ph ], [ -99, %124 ]
-  %.096 = phi i32 [ %.197.ph, %.thread124 ], [ 0, %61 ], [ 0, %.lr.ph ], [ 0, %124 ]
-  %.194 = phi i32 [ %.295.ph, %.thread124 ], [ %67, %61 ], [ %67, %.lr.ph ], [ %67, %124 ]
+.critedge:                                        ; preds = %124, %.lr.ph, %61, %.thread123
+  %128 = phi i1 [ %123, %.thread123 ], [ false, %61 ], [ false, %.lr.ph ], [ false, %124 ]
+  %129 = phi ptr [ %.pre, %.thread123 ], [ %11, %61 ], [ %11, %.lr.ph ], [ %11, %124 ]
+  %.1101 = phi i32 [ %.2102.ph, %.thread123 ], [ %65, %61 ], [ %65, %.lr.ph ], [ %65, %124 ]
+  %.098 = phi i32 [ %.199.ph, %.thread123 ], [ -99, %61 ], [ -99, %.lr.ph ], [ -99, %124 ]
+  %.096 = phi i32 [ %.197.ph, %.thread123 ], [ 0, %61 ], [ 0, %.lr.ph ], [ 0, %124 ]
+  %.194 = phi i32 [ %.295.ph, %.thread123 ], [ %67, %61 ], [ %67, %.lr.ph ], [ %67, %124 ]
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load i32, ptr %130, align 8, !tbaa !56
   %132 = icmp eq i32 %131, 828601960
@@ -4224,9 +4224,9 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %136 = icmp ne i32 %.194, -99
   %or.cond9 = select i1 %or.cond7, i1 %136, i1 false
   %or.cond13 = select i1 %or.cond9, i1 %128, i1 false
-  br i1 %or.cond13, label %.thread132, label %139
+  br i1 %or.cond13, label %.thread131, label %139
 
-.thread132:                                       ; preds = %.critedge
+.thread131:                                       ; preds = %.critedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %137 = call ptr @av_fourcc_make_string(ptr noundef nonnull %7, i32 noundef 828601960) #17
   %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.132, ptr noundef %137, i32 noundef %.1101, i32 noundef %.098, i32 noundef %.096, i32 noundef %.194, ptr noundef nonnull %4) #17
@@ -4268,7 +4268,7 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %3, ptr noundef nonnull align 1 dereferenceable(5) @.str.138, i64 5, i1 false)
   br label %151
 
-151:                                              ; preds = %.thread132, %51, %141, %149, %150, %145, %148, %140
+151:                                              ; preds = %.thread131, %51, %141, %149, %150, %145, %148, %140
   %152 = call ptr @av_stristr(ptr noundef nonnull %8, ptr noundef nonnull %3) #17
   %.not118 = icmp eq ptr %152, null
   br i1 %.not118, label %153, label %160
@@ -4289,7 +4289,7 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   store i32 1, ptr %15, align 8, !tbaa !200
   br label %160
 
-160:                                              ; preds = %.thread130, %151, %153, %14, %2, %.thread
+160:                                              ; preds = %.thread129, %151, %153, %14, %2, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -6673,13 +6673,13 @@ strftime_expand.exit:                             ; preds = %62
   %94 = load ptr, ptr %88, align 8, !tbaa !98
   %95 = call fastcc i32 @replace_int_data_in_filename(ptr noundef nonnull %12, ptr noundef %94, i8 noundef signext 115, i64 noundef 0)
   %96 = icmp slt i32 %95, 1
-  br i1 %96, label %98, label %.thread33.i
+  br i1 %96, label %98, label %.thread30.i
 
-.thread33.i:                                      ; preds = %93
+.thread30.i:                                      ; preds = %93
   %97 = load ptr, ptr %12, align 8, !tbaa !66
   call void @ff_format_set_url(ptr noundef nonnull %25, ptr noundef %97) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.pre37.i = load i32, ptr %28, align 8, !tbaa !81
+  %.pre32.i = load i32, ptr %28, align 8, !tbaa !81
   br label %100
 
 98:                                               ; preds = %93
@@ -6689,8 +6689,8 @@ strftime_expand.exit:                             ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge
 
-100:                                              ; preds = %.thread33.i, %86
-  %101 = phi i32 [ %.pre37.i, %.thread33.i ], [ %91, %86 ]
+100:                                              ; preds = %.thread30.i, %86
+  %101 = phi i32 [ %.pre32.i, %.thread30.i ], [ %91, %86 ]
   %102 = and i32 %101, 512
   %.not27.i = icmp eq i32 %102, 0
   br i1 %.not27.i, label %sls_flag_use_localtime_filename.exit, label %103
@@ -6701,9 +6701,9 @@ strftime_expand.exit:                             ; preds = %62
   %104 = load ptr, ptr %88, align 8, !tbaa !98
   %105 = call fastcc i32 @replace_int_data_in_filename(ptr noundef nonnull %13, ptr noundef %104, i8 noundef signext 116, i64 noundef 0)
   %106 = icmp slt i32 %105, 1
-  br i1 %106, label %108, label %.thread35.i
+  br i1 %106, label %108, label %.thread31.i
 
-.thread35.i:                                      ; preds = %103
+.thread31.i:                                      ; preds = %103
   %107 = load ptr, ptr %13, align 8, !tbaa !66
   call void @ff_format_set_url(ptr noundef nonnull %25, ptr noundef %107) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6716,7 +6716,7 @@ strftime_expand.exit:                             ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge
 
-sls_flag_use_localtime_filename.exit:             ; preds = %.thread35.i, %100, %83
+sls_flag_use_localtime_filename.exit:             ; preds = %.thread31.i, %100, %83
   %110 = getelementptr inbounds nuw i8, ptr %23, i64 84
   %111 = load i32, ptr %110, align 4, !tbaa !216
   %.not157 = icmp eq i32 %111, 0

@@ -4259,8 +4259,8 @@ _ZNK9func_decl14is_polymorphicEv.exit:            ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 17
   %12 = load i16, ptr %11, align 1
   %13 = and i16 %12, 1024
-  %.not52 = icmp eq i16 %13, 0
-  br i1 %.not52, label %_ZNK9func_decl14is_polymorphicEv.exit.thread, label %14
+  %.not50 = icmp eq i16 %13, 0
+  br i1 %.not50, label %_ZNK9func_decl14is_polymorphicEv.exit.thread, label %14
 
 14:                                               ; preds = %_ZNK9func_decl14is_polymorphicEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -4272,8 +4272,8 @@ _ZNK9func_decl14is_polymorphicEv.exit29:          ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 17
   %18 = load i16, ptr %17, align 1
   %19 = and i16 %18, 1024
-  %.not53 = icmp eq i16 %19, 0
-  br i1 %.not53, label %_ZNK9func_decl14is_polymorphicEv.exit.thread, label %20
+  %.not51 = icmp eq i16 %19, 0
+  br i1 %.not51, label %_ZNK9func_decl14is_polymorphicEv.exit.thread, label %20
 
 20:                                               ; preds = %_ZNK9func_decl14is_polymorphicEv.exit29
   %21 = load ptr, ptr %0, align 8, !tbaa !132

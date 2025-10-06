@@ -150,18 +150,18 @@ define zeroext i1 @ws_log_msg_is_active(ptr noundef %0, i32 noundef %1) local_un
 12:                                               ; preds = %7
   %13 = load ptr, ptr %10, align 8
   %14 = load ptr, ptr %13, align 8
-  %.not15.not.i = icmp eq ptr %14, null
-  br i1 %.not15.not.i, label %thread-pre-split, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %14, null
+  br i1 %.not16.i, label %thread-pre-split, label %.lr.ph.i
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr i8, ptr %.01016.i, i64 8
+  %16 = getelementptr i8, ptr %.01017.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.not.not.i = icmp eq ptr %17, null
-  br i1 %.not.not.i, label %thread-pre-split, label %.lr.ph.i, !llvm.loop !6
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %thread-pre-split, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %12, %15
   %18 = phi ptr [ %17, %15 ], [ %14, %12 ]
-  %.01016.i = phi ptr [ %16, %15 ], [ %13, %12 ]
+  %.01017.i = phi ptr [ %16, %15 ], [ %13, %12 ]
   %19 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %18, ptr noundef nonnull %0)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %filter_contains.exit, label %15
@@ -190,18 +190,18 @@ thread-pre-split:                                 ; preds = %15, %12, %filter_co
 31:                                               ; preds = %28
   %32 = load ptr, ptr %29, align 8
   %33 = load ptr, ptr %32, align 8
-  %.not15.not.i.i = icmp eq ptr %33, null
-  br i1 %.not15.not.i.i, label %.loopexit55, label %.lr.ph.i.i
+  %.not16.i.i = icmp eq ptr %33, null
+  br i1 %.not16.i.i, label %.loopexit55, label %.lr.ph.i.i
 
 34:                                               ; preds = %.lr.ph.i.i
-  %35 = getelementptr i8, ptr %.01016.i.i, i64 8
+  %35 = getelementptr i8, ptr %.01017.i.i, i64 8
   %36 = load ptr, ptr %35, align 8
-  %.not.not.i.i = icmp eq ptr %36, null
-  br i1 %.not.not.i.i, label %.loopexit55, label %.lr.ph.i.i, !llvm.loop !6
+  %.not.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i, label %.loopexit55, label %.lr.ph.i.i, !llvm.loop !6
 
 .lr.ph.i.i:                                       ; preds = %31, %34
   %37 = phi ptr [ %36, %34 ], [ %33, %31 ]
-  %.01016.i.i = phi ptr [ %35, %34 ], [ %32, %31 ]
+  %.01017.i.i = phi ptr [ %35, %34 ], [ %32, %31 ]
   %38 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %37, ptr noundef nonnull %0)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %filter_contains.exit.i, label %34
@@ -219,8 +219,8 @@ filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
   br label %.thread
 
 47:                                               ; preds = %filter_contains.exit.i
-  %.not.i = icmp ugt i32 %1, %44
-  br i1 %.not.i, label %.loopexit55, label %.thread
+  %.not.i24 = icmp ugt i32 %1, %44
+  br i1 %.not.i24, label %.loopexit55, label %.thread
 
 .loopexit55:                                      ; preds = %34, %28, %47, %31
   %48 = load ptr, ptr @debug_filter, align 8
@@ -235,23 +235,23 @@ filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
 53:                                               ; preds = %50
   %54 = load ptr, ptr %48, align 8
   %55 = load ptr, ptr %54, align 8
-  %.not15.not.i.i24 = icmp eq ptr %55, null
-  br i1 %.not15.not.i.i24, label %.critedge, label %.lr.ph.i.i25
+  %.not16.i.i25 = icmp eq ptr %55, null
+  br i1 %.not16.i.i25, label %.critedge, label %.lr.ph.i.i26
 
-56:                                               ; preds = %.lr.ph.i.i25
-  %57 = getelementptr i8, ptr %.01016.i.i26, i64 8
+56:                                               ; preds = %.lr.ph.i.i26
+  %57 = getelementptr i8, ptr %.01017.i.i27, i64 8
   %58 = load ptr, ptr %57, align 8
-  %.not.not.i.i27 = icmp eq ptr %58, null
-  br i1 %.not.not.i.i27, label %.critedge, label %.lr.ph.i.i25, !llvm.loop !6
+  %.not.i.i28 = icmp eq ptr %58, null
+  br i1 %.not.i.i28, label %.critedge, label %.lr.ph.i.i26, !llvm.loop !6
 
-.lr.ph.i.i25:                                     ; preds = %53, %56
+.lr.ph.i.i26:                                     ; preds = %53, %56
   %59 = phi ptr [ %58, %56 ], [ %55, %53 ]
-  %.01016.i.i26 = phi ptr [ %57, %56 ], [ %54, %53 ]
+  %.01017.i.i27 = phi ptr [ %57, %56 ], [ %54, %53 ]
   %60 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %59, ptr noundef nonnull %0)
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %filter_contains.exit.i29, label %56
+  br i1 %61, label %filter_contains.exit.i30, label %56
 
-filter_contains.exit.i29:                         ; preds = %.lr.ph.i.i25
+filter_contains.exit.i30:                         ; preds = %.lr.ph.i.i26
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %63 = load i8, ptr %62, align 8, !range !8, !noundef !9
   %64 = trunc nuw i8 %63 to i1
@@ -259,15 +259,15 @@ filter_contains.exit.i29:                         ; preds = %.lr.ph.i.i25
   %66 = load i32, ptr %65, align 4
   br i1 %64, label %67, label %69
 
-67:                                               ; preds = %filter_contains.exit.i29
+67:                                               ; preds = %filter_contains.exit.i30
   %68 = icmp uge i32 %1, %66
   br label %.thread
 
-69:                                               ; preds = %filter_contains.exit.i29
-  %.not.i30 = icmp ule i32 %1, %66
+69:                                               ; preds = %filter_contains.exit.i30
+  %.not.i31 = icmp ule i32 %1, %66
   %70 = load i32, ptr @current_log_level, align 4
   %71 = icmp ult i32 %1, %70
-  %or.cond54 = select i1 %.not.i30, i1 true, i1 %71
+  %or.cond54 = select i1 %.not.i31, i1 true, i1 %71
   br i1 %or.cond54, label %.thread, label %72
 
 .critedge:                                        ; preds = %56, %53, %.loopexit55, %50, %5, %25
@@ -289,23 +289,23 @@ filter_contains.exit.i29:                         ; preds = %.lr.ph.i.i25
 78:                                               ; preds = %75
   %79 = load ptr, ptr %73, align 8
   %80 = load ptr, ptr %79, align 8
-  %.not15.not.i34 = icmp eq ptr %80, null
-  br i1 %.not15.not.i34, label %.loopexit, label %.lr.ph.i35
+  %.not16.i35 = icmp eq ptr %80, null
+  br i1 %.not16.i35, label %.loopexit, label %.lr.ph.i36
 
-81:                                               ; preds = %.lr.ph.i35
-  %82 = getelementptr i8, ptr %.01016.i36, i64 8
+81:                                               ; preds = %.lr.ph.i36
+  %82 = getelementptr i8, ptr %.01017.i37, i64 8
   %83 = load ptr, ptr %82, align 8
-  %.not.not.i37 = icmp eq ptr %83, null
-  br i1 %.not.not.i37, label %.loopexit.loopexit, label %.lr.ph.i35, !llvm.loop !6
+  %.not.i38 = icmp eq ptr %83, null
+  br i1 %.not.i38, label %.loopexit.loopexit, label %.lr.ph.i36, !llvm.loop !6
 
-.lr.ph.i35:                                       ; preds = %78, %81
+.lr.ph.i36:                                       ; preds = %78, %81
   %84 = phi ptr [ %83, %81 ], [ %80, %78 ]
-  %.01016.i36 = phi ptr [ %82, %81 ], [ %79, %78 ]
+  %.01017.i37 = phi ptr [ %82, %81 ], [ %79, %78 ]
   %85 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %84, ptr noundef nonnull %0)
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %filter_contains.exit39, label %81
+  br i1 %86, label %filter_contains.exit40, label %81
 
-filter_contains.exit39:                           ; preds = %.lr.ph.i35
+filter_contains.exit40:                           ; preds = %.lr.ph.i36
   %87 = load ptr, ptr @domain_filter, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i8, ptr %88, align 8, !range !8, !noundef !9
@@ -324,8 +324,8 @@ filter_contains.exit39:                           ; preds = %.lr.ph.i35
   %95 = xor i1 %94, true
   br label %.thread
 
-.thread:                                          ; preds = %67, %69, %45, %47, %72, %75, %.critedge, %filter_contains.exit, %2, %.loopexit, %filter_contains.exit39
-  %.017 = phi i1 [ %90, %filter_contains.exit39 ], [ %95, %.loopexit ], [ true, %2 ], [ true, %filter_contains.exit ], [ false, %.critedge ], [ true, %72 ], [ true, %75 ], [ %46, %45 ], [ false, %47 ], [ %68, %67 ], [ false, %69 ]
+.thread:                                          ; preds = %67, %69, %45, %47, %72, %75, %.critedge, %filter_contains.exit, %2, %.loopexit, %filter_contains.exit40
+  %.017 = phi i1 [ %90, %filter_contains.exit40 ], [ %95, %.loopexit ], [ true, %2 ], [ true, %filter_contains.exit ], [ false, %.critedge ], [ true, %72 ], [ true, %75 ], [ %46, %45 ], [ false, %47 ], [ %68, %67 ], [ false, %69 ]
   ret i1 %.017
 }
 
@@ -2032,18 +2032,18 @@ define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %14, align 8
   %21 = load ptr, ptr %20, align 8
-  %.not15.not.i = icmp eq ptr %21, null
-  br i1 %.not15.not.i, label %filter_contains.exit.thread, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %21, null
+  br i1 %.not16.i, label %filter_contains.exit.thread, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr i8, ptr %.01016.i, i64 8
+  %23 = getelementptr i8, ptr %.01017.i, i64 8
   %24 = load ptr, ptr %23, align 8
-  %.not.not.i = icmp eq ptr %24, null
-  br i1 %.not.not.i, label %filter_contains.exit.thread, label %.lr.ph.i, !llvm.loop !6
+  %.not.i = icmp eq ptr %24, null
+  br i1 %.not.i, label %filter_contains.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %19, %22
   %25 = phi ptr [ %24, %22 ], [ %21, %19 ]
-  %.01016.i = phi ptr [ %23, %22 ], [ %20, %19 ]
+  %.01017.i = phi ptr [ %23, %22 ], [ %20, %19 ]
   %26 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %25, ptr noundef nonnull %0)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %filter_contains.exit, label %22

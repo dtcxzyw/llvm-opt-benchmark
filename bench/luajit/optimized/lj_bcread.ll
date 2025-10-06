@@ -849,13 +849,13 @@ bcread_header.exit:                               ; preds = %64, %bcread_need.ex
 bcread_want.exit:                                 ; preds = %100, %106
   %107 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %17) #11
   %.not39 = icmp eq i32 %107, 0
-  %.pre58 = load ptr, ptr %15, align 8, !tbaa !73
-  %.pre59 = load ptr, ptr %17, align 8, !tbaa !4
+  %.pre57 = load ptr, ptr %15, align 8, !tbaa !73
+  %.pre58 = load ptr, ptr %17, align 8, !tbaa !4
   br i1 %.not39, label %.loopexit, label %108
 
 108:                                              ; preds = %bcread_want.exit
-  %109 = ptrtoint ptr %.pre58 to i64
-  %110 = ptrtoint ptr %.pre59 to i64
+  %109 = ptrtoint ptr %.pre57 to i64
+  %110 = ptrtoint ptr %.pre58 to i64
   %111 = sub i64 %109, %110
   %112 = trunc i64 %111 to i32
   %113 = icmp ugt i32 %107, %112
@@ -867,7 +867,7 @@ bcread_want.exit:                                 ; preds = %100, %106
   br label %bcread_need.exit
 
 bcread_need.exit:                                 ; preds = %108, %114
-  %115 = phi ptr [ %.pre59, %108 ], [ %.pre, %114 ]
+  %115 = phi ptr [ %.pre58, %108 ], [ %.pre, %114 ]
   %116 = tail call ptr @lj_bcread_proto(ptr noundef nonnull %0)
   %117 = load ptr, ptr %17, align 8, !tbaa !4
   %118 = zext i32 %107 to i64
@@ -903,8 +903,8 @@ bcread_need.exit:                                 ; preds = %108, %114
   br label %.backedge
 
 .loopexit:                                        ; preds = %bcread_want.exit, %98
-  %131 = phi ptr [ %99, %98 ], [ %.pre59, %bcread_want.exit ]
-  %132 = phi ptr [ %93, %98 ], [ %.pre58, %bcread_want.exit ]
+  %131 = phi ptr [ %99, %98 ], [ %.pre58, %bcread_want.exit ]
+  %132 = phi ptr [ %93, %98 ], [ %.pre57, %bcread_want.exit ]
   %.not42 = icmp eq ptr %132, %131
   br i1 %.not42, label %136, label %133
 
@@ -1017,7 +1017,7 @@ define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 nou
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.pre = load ptr, ptr %12, align 8, !tbaa !73
-  %.pre82 = load ptr, ptr %13, align 8, !tbaa !4
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !4
   br label %21
 
 18:                                               ; preds = %6, %3
@@ -1029,7 +1029,7 @@ define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 nou
   unreachable
 
 21:                                               ; preds = %.preheader, %85
-  %22 = phi ptr [ %.pre82, %.preheader ], [ %86, %85 ]
+  %22 = phi ptr [ %.pre81, %.preheader ], [ %86, %85 ]
   %23 = phi ptr [ %.pre, %.preheader ], [ %storemerge, %85 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = load ptr, ptr %11, align 8, !tbaa !88
@@ -1038,7 +1038,7 @@ define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 nou
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %._crit_edge85, label %29
+  br i1 %.not, label %._crit_edge84, label %29
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %10, align 8, !tbaa !89
@@ -1051,11 +1051,11 @@ define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 nou
 
 35:                                               ; preds = %29
   %.not70 = icmp eq ptr %22, %24
-  %.pre87 = and i64 %27, 4294967295
+  %.pre86 = and i64 %27, 4294967295
   br i1 %.not70, label %._crit_edge, label %36
 
 36:                                               ; preds = %35
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %24, ptr align 1 %22, i64 %.pre87, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %24, ptr align 1 %22, i64 %.pre86, i1 false)
   br label %._crit_edge
 
 37:                                               ; preds = %29
@@ -1068,26 +1068,26 @@ define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 nou
 
 43:                                               ; preds = %37
   %44 = call ptr @lj_buf_need2(ptr noundef nonnull %10, i32 noundef %1) #11
-  %.pre83 = load ptr, ptr %13, align 8, !tbaa !4
+  %.pre82 = load ptr, ptr %13, align 8, !tbaa !4
   br label %lj_buf_need.exit
 
 lj_buf_need.exit:                                 ; preds = %37, %43
-  %45 = phi ptr [ %.pre83, %43 ], [ %22, %37 ]
+  %45 = phi ptr [ %.pre82, %43 ], [ %22, %37 ]
   %.0.i = phi ptr [ %44, %43 ], [ %24, %37 ]
   %46 = and i64 %27, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %45, i64 %46, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35, %36, %lj_buf_need.exit
-  %.pre-phi88 = phi i64 [ %.pre87, %36 ], [ %46, %lj_buf_need.exit ], [ %.pre87, %35 ]
+  %.pre-phi87 = phi i64 [ %.pre86, %36 ], [ %46, %lj_buf_need.exit ], [ %.pre86, %35 ]
   %.1 = phi ptr [ %24, %36 ], [ %.0.i, %lj_buf_need.exit ], [ %24, %35 ]
   store ptr %.1, ptr %13, align 8, !tbaa !4
-  %47 = getelementptr inbounds nuw i8, ptr %.1, i64 %.pre-phi88
+  %47 = getelementptr inbounds nuw i8, ptr %.1, i64 %.pre-phi87
   store ptr %47, ptr %12, align 8, !tbaa !73
-  br label %._crit_edge85
+  br label %._crit_edge84
 
-._crit_edge85:                                    ; preds = %21, %._crit_edge
-  %.pre-phi = phi i64 [ %.pre-phi88, %._crit_edge ], [ 0, %21 ]
+._crit_edge84:                                    ; preds = %21, %._crit_edge
+  %.pre-phi = phi i64 [ %.pre-phi87, %._crit_edge ], [ 0, %21 ]
   %.061 = phi ptr [ %.1, %._crit_edge ], [ %24, %21 ]
   %48 = getelementptr inbounds nuw i8, ptr %.061, i64 %.pre-phi
   store ptr %48, ptr %10, align 8, !tbaa !89
@@ -1101,7 +1101,7 @@ lj_buf_need.exit:                                 ; preds = %37, %43
   %or.cond = select i1 %53, i1 true, i1 %55
   br i1 %or.cond, label %56, label %59
 
-56:                                               ; preds = %._crit_edge85
+56:                                               ; preds = %._crit_edge84
   %.not72 = icmp eq i32 %2, 0
   br i1 %.not72, label %84, label %57
 
@@ -1112,7 +1112,7 @@ lj_buf_need.exit:                                 ; preds = %37, %43
   call fastcc void @bcread_error(ptr %.val, ptr %.val75, i32 noundef 2985)
   unreachable
 
-59:                                               ; preds = %._crit_edge85
+59:                                               ; preds = %._crit_edge84
   %60 = sub i64 2147483392, %27
   %61 = and i64 %60, 4294967295
   %.not71 = icmp ult i64 %54, %61
@@ -1141,11 +1141,11 @@ lj_buf_need.exit:                                 ; preds = %37, %43
 
 76:                                               ; preds = %65
   %77 = call ptr @lj_buf_need2(ptr noundef nonnull %10, i32 noundef %68) #11
-  %.pre84 = load i64, ptr %4, align 8, !tbaa !93
+  %.pre83 = load i64, ptr %4, align 8, !tbaa !93
   br label %lj_buf_need.exit74
 
 lj_buf_need.exit74:                               ; preds = %65, %76
-  %78 = phi i64 [ %.pre84, %76 ], [ %54, %65 ]
+  %78 = phi i64 [ %.pre83, %76 ], [ %54, %65 ]
   %.0.i73 = phi ptr [ %77, %76 ], [ %70, %65 ]
   %79 = load ptr, ptr %10, align 8, !tbaa !89
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr nonnull align 1 %52, i64 %78, i1 false)

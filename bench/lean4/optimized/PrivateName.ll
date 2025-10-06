@@ -310,8 +310,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_isPrivatePrefix_go(ptr noundef %0) loca
   br i1 %4, label %.lr.ph, label %lean_obj_tag.exit._crit_edge
 
 .lr.ph:                                           ; preds = %1, %14
-  %.0918 = phi ptr [ %16, %14 ], [ %0, %1 ]
-  %5 = ptrtoint ptr %.0918 to i64
+  %.0916 = phi ptr [ %16, %14 ], [ %0, %1 ]
+  %5 = ptrtoint ptr %.0916 to i64
   %6 = and i64 %5, 1
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %10, label %7
@@ -322,7 +322,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_isPrivatePrefix_go(ptr noundef %0) loca
   br label %lean_obj_tag.exit
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr i8, ptr %.0918, i64 4
+  %11 = getelementptr i8, ptr %.0916, i64 4
   %.val.i = load i32, ptr %11, align 4
   %12 = lshr i32 %.val.i, 24
   br label %lean_obj_tag.exit
@@ -333,7 +333,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   br i1 %13, label %14, label %lean_obj_tag.exit._crit_edge
 
 14:                                               ; preds = %lean_obj_tag.exit
-  %15 = getelementptr inbounds nuw i8, ptr %.0918, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0916, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %16, ptr noundef %17) #3
@@ -353,8 +353,8 @@ define noundef nonnull ptr @l_Lean_isPrivatePrefix_go___boxed(ptr noundef %0) lo
   br i1 %4, label %.lr.ph.i, label %l_Lean_isPrivatePrefix_go.exit
 
 .lr.ph.i:                                         ; preds = %1, %14
-  %.0918.i = phi ptr [ %16, %14 ], [ %0, %1 ]
-  %5 = ptrtoint ptr %.0918.i to i64
+  %.0916.i = phi ptr [ %16, %14 ], [ %0, %1 ]
+  %5 = ptrtoint ptr %.0916.i to i64
   %6 = and i64 %5, 1
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %10, label %7
@@ -365,7 +365,7 @@ define noundef nonnull ptr @l_Lean_isPrivatePrefix_go___boxed(ptr noundef %0) lo
   br label %lean_obj_tag.exit.i
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr i8, ptr %.0918.i, i64 4
+  %11 = getelementptr i8, ptr %.0916.i, i64 4
   %.val.i.i = load i32, ptr %11, align 4
   %12 = lshr i32 %.val.i.i, 24
   br label %lean_obj_tag.exit.i
@@ -376,7 +376,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   br i1 %13, label %14, label %l_Lean_isPrivatePrefix_go.exit
 
 14:                                               ; preds = %lean_obj_tag.exit.i
-  %15 = getelementptr inbounds nuw i8, ptr %.0918.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0916.i, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %16, ptr noundef %17) #3
@@ -461,8 +461,8 @@ lean_nat_eq.exit:                                 ; preds = %11
   br i1 %24, label %.lr.ph.i, label %l_Lean_isPrivatePrefix_go.exit
 
 .lr.ph.i:                                         ; preds = %21, %34
-  %.0918.i = phi ptr [ %36, %34 ], [ %13, %21 ]
-  %25 = ptrtoint ptr %.0918.i to i64
+  %.0916.i = phi ptr [ %36, %34 ], [ %13, %21 ]
+  %25 = ptrtoint ptr %.0916.i to i64
   %26 = and i64 %25, 1
   %.not.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i, label %30, label %27
@@ -473,7 +473,7 @@ lean_nat_eq.exit:                                 ; preds = %11
   br label %lean_obj_tag.exit.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr i8, ptr %.0918.i, i64 4
+  %31 = getelementptr i8, ptr %.0916.i, i64 4
   %.val.i.i = load i32, ptr %31, align 4
   %32 = lshr i32 %.val.i.i, 24
   br label %lean_obj_tag.exit.i
@@ -484,7 +484,7 @@ lean_obj_tag.exit.i:                              ; preds = %30, %27
   br i1 %33, label %34, label %l_Lean_isPrivatePrefix_go.exit
 
 34:                                               ; preds = %lean_obj_tag.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %.0918.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0916.i, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   %37 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %38 = tail call zeroext i8 @lean_name_eq(ptr noundef %36, ptr noundef %37) #3
@@ -544,8 +544,8 @@ lean_nat_eq.exit.i:                               ; preds = %11
   br i1 %24, label %.lr.ph.i.i, label %l_Lean_isPrivatePrefix.exit
 
 .lr.ph.i.i:                                       ; preds = %21, %34
-  %.0918.i.i = phi ptr [ %36, %34 ], [ %13, %21 ]
-  %25 = ptrtoint ptr %.0918.i.i to i64
+  %.0916.i.i = phi ptr [ %36, %34 ], [ %13, %21 ]
+  %25 = ptrtoint ptr %.0916.i.i to i64
   %26 = and i64 %25, 1
   %.not.i.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i.i, label %30, label %27
@@ -556,7 +556,7 @@ lean_nat_eq.exit.i:                               ; preds = %11
   br label %lean_obj_tag.exit.i.i
 
 30:                                               ; preds = %.lr.ph.i.i
-  %31 = getelementptr i8, ptr %.0918.i.i, i64 4
+  %31 = getelementptr i8, ptr %.0916.i.i, i64 4
   %.val.i.i.i = load i32, ptr %31, align 4
   %32 = lshr i32 %.val.i.i.i, 24
   br label %lean_obj_tag.exit.i.i
@@ -567,7 +567,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %30, %27
   br i1 %33, label %34, label %l_Lean_isPrivatePrefix.exit
 
 34:                                               ; preds = %lean_obj_tag.exit.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %.0918.i.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0916.i.i, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   %37 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %38 = tail call zeroext i8 @lean_name_eq(ptr noundef %36, ptr noundef %37) #3
@@ -802,8 +802,8 @@ lean_nat_eq.exit.i:                               ; preds = %68
   br i1 %79, label %.lr.ph.i.i, label %l_Lean_isPrivatePrefix.exit
 
 .lr.ph.i.i:                                       ; preds = %76, %88
-  %.0918.i.i = phi ptr [ %90, %88 ], [ %69, %76 ]
-  %80 = ptrtoint ptr %.0918.i.i to i64
+  %.0916.i.i = phi ptr [ %90, %88 ], [ %69, %76 ]
+  %80 = ptrtoint ptr %.0916.i.i to i64
   %81 = and i64 %80, 1
   %.not.i.i.i = icmp eq i64 %81, 0
   br i1 %.not.i.i.i, label %85, label %82
@@ -814,7 +814,7 @@ lean_nat_eq.exit.i:                               ; preds = %68
   br label %lean_obj_tag.exit.i.i
 
 85:                                               ; preds = %.lr.ph.i.i
-  %86 = getelementptr i8, ptr %.0918.i.i, i64 4
+  %86 = getelementptr i8, ptr %.0916.i.i, i64 4
   %.val.i.i.i = load i32, ptr %86, align 4
   %87 = lshr i32 %.val.i.i.i, 24
   br label %lean_obj_tag.exit.i.i
@@ -825,7 +825,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %85, %82
   br i1 %.not61.not, label %l_Lean_isPrivatePrefix.exit, label %88
 
 88:                                               ; preds = %lean_obj_tag.exit.i.i
-  %89 = getelementptr inbounds nuw i8, ptr %.0918.i.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.0916.i.i, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !4
   %91 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %92 = tail call zeroext i8 @lean_name_eq(ptr noundef %90, ptr noundef %91) #3

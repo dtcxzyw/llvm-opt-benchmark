@@ -226,9 +226,9 @@ define hidden void @"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$
   ret void
 
 .lr.ph:                                           ; preds = %5, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit"
-  %.sroa.4.022 = phi i64 [ %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit" ], [ %2, %5 ]
-  %12 = add i64 %.sroa.4.022, -1
-  %13 = icmp ult i64 %.sroa.4.022, 4294967296
+  %.sroa.4.021 = phi i64 [ %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit" ], [ %2, %5 ]
+  %12 = add i64 %.sroa.4.021, -1
+  %13 = icmp ult i64 %.sroa.4.021, 4294967296
   br i1 %13, label %_ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit, label %_ZN4rand3rng3Rng9gen_range17h4f078d5510069849E.exit
 
 _ZN4rand3rng3Rng9gen_range17h4f078d5510069849E.exit: ; preds = %.lr.ph
@@ -236,7 +236,7 @@ _ZN4rand3rng3Rng9gen_range17h4f078d5510069849E.exit: ; preds = %.lr.ph
   br label %19
 
 _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %.lr.ph
-  %15 = trunc nuw i64 %.sroa.4.022 to i32
+  %15 = trunc nuw i64 %.sroa.4.021 to i32
   %16 = add i32 %15, -1
   %17 = tail call noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h64bcbe45d26a7fa4E.llvm.7035662188962510802"(i32 noundef 0, i32 noundef %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %18 = zext i32 %17 to i64
@@ -291,9 +291,9 @@ define hidden void @"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$
   ret void
 
 .lr.ph:                                           ; preds = %5, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit"
-  %.sroa.4.022 = phi i64 [ %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit" ], [ %2, %5 ]
-  %12 = add i64 %.sroa.4.022, -1
-  %13 = icmp ult i64 %.sroa.4.022, 4294967296
+  %.sroa.4.021 = phi i64 [ %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit" ], [ %2, %5 ]
+  %12 = add i64 %.sroa.4.021, -1
+  %13 = icmp ult i64 %.sroa.4.021, 4294967296
   br i1 %13, label %_ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit, label %_ZN4rand3rng3Rng9gen_range17hcb986ca300b6c164E.exit
 
 _ZN4rand3rng3Rng9gen_range17hcb986ca300b6c164E.exit: ; preds = %.lr.ph
@@ -301,7 +301,7 @@ _ZN4rand3rng3Rng9gen_range17hcb986ca300b6c164E.exit: ; preds = %.lr.ph
   br label %19
 
 _ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit: ; preds = %.lr.ph
-  %15 = trunc nuw i64 %.sroa.4.022 to i32
+  %15 = trunc nuw i64 %.sroa.4.021 to i32
   %16 = add i32 %15, -1
   %17 = tail call noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h11df38e9fb7d7d92E.llvm.7035662188962510802"(i32 noundef 0, i32 noundef %16, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   %18 = zext i32 %17 to i64

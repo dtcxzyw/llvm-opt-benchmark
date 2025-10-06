@@ -1596,8 +1596,8 @@ define hidden ptr @ps_srlzr_encode_php() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !86
-  %.not5067 = icmp eq i32 %18, 0
-  br i1 %.not5067, label %._crit_edge, label %.lr.ph
+  %.not5065 = icmp eq i32 %18, 0
+  br i1 %.not5065, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1606,35 +1606,35 @@ define hidden ptr @ps_srlzr_encode_php() #0 {
   br label %22
 
 22:                                               ; preds = %.lr.ph, %php_get_session_var.exit.thread
-  %.04171 = phi i32 [ %18, %.lr.ph ], [ %94, %php_get_session_var.exit.thread ]
-  %.04270 = phi ptr [ %20, %.lr.ph ], [ %.143, %php_get_session_var.exit.thread ]
-  %.04569 = phi i32 [ 0, %.lr.ph ], [ %.146, %php_get_session_var.exit.thread ]
-  %.04768 = phi ptr [ null, %.lr.ph ], [ %.148, %php_get_session_var.exit.thread ]
+  %.04169 = phi i32 [ %18, %.lr.ph ], [ %94, %php_get_session_var.exit.thread ]
+  %.04268 = phi ptr [ %20, %.lr.ph ], [ %.143, %php_get_session_var.exit.thread ]
+  %.04567 = phi i32 [ 0, %.lr.ph ], [ %.146, %php_get_session_var.exit.thread ]
+  %.04766 = phi ptr [ null, %.lr.ph ], [ %.148, %php_get_session_var.exit.thread ]
   %23 = load i32, ptr %16, align 8, !tbaa !65
   %24 = and i32 %23, 4
   %.not51 = icmp eq i32 %24, 0
   br i1 %.not51, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.04270, i64 16
-  %27 = zext i32 %.04569 to i64
-  %28 = add i32 %.04569, 1
+  %26 = getelementptr inbounds nuw i8, ptr %.04268, i64 16
+  %27 = zext i32 %.04567 to i64
+  %28 = add i32 %.04567, 1
   br label %35
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %.04270, i64 32
-  %31 = getelementptr inbounds nuw i8, ptr %.04270, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.04268, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.04268, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !87
-  %33 = getelementptr inbounds nuw i8, ptr %.04270, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.04268, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !89
   br label %35
 
 35:                                               ; preds = %29, %25
-  %.148 = phi ptr [ %.04768, %25 ], [ %34, %29 ]
-  %.146 = phi i32 [ %28, %25 ], [ %.04569, %29 ]
+  %.148 = phi ptr [ %.04766, %25 ], [ %34, %29 ]
+  %.146 = phi i32 [ %28, %25 ], [ %.04567, %29 ]
   %.044 = phi i64 [ %27, %25 ], [ %32, %29 ]
   %.143 = phi ptr [ %26, %25 ], [ %30, %29 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.04270, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.04268, i64 8
   %37 = load i8, ptr %36, align 8, !tbaa !65
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %php_get_session_var.exit.thread, label %39, !prof !73
@@ -1687,11 +1687,11 @@ php_get_session_var.exit:                         ; preds = %45
   call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i.i) #25
   %.pre = load ptr, ptr %1, align 8, !tbaa !81
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre72 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !77
+  %.pre70 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !77
   br label %smart_str_appendl_ex.exit
 
 smart_str_appendl_ex.exit:                        ; preds = %58, %63
-  %64 = phi i64 [ %.pre72, %63 ], [ %60, %58 ]
+  %64 = phi i64 [ %.pre70, %63 ], [ %60, %58 ]
   %65 = phi ptr [ %.pre, %63 ], [ %57, %58 ]
   %.1.i.i = phi i64 [ %.0.i.i, %63 ], [ %61, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -1710,7 +1710,7 @@ smart_str_appendl_ex.exit:                        ; preds = %58, %63
   call void @php_var_serialize_destroy(ptr noundef %73) #25
   %74 = load ptr, ptr %1, align 8, !tbaa !81
   %.not.i55 = icmp eq ptr %74, null
-  br i1 %.not.i55, label %.thread65, label %75
+  br i1 %.not.i55, label %.thread63, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -1734,7 +1734,7 @@ smart_str_appendl_ex.exit:                        ; preds = %58, %63
 
 zend_string_release_ex.exit.i:                    ; preds = %84, %79, %75
   store ptr null, ptr %1, align 8, !tbaa !81
-  br label %.thread65
+  br label %.thread63
 
 85:                                               ; preds = %smart_str_appendl_ex.exit
   %86 = add i64 %.1.i.i, 1
@@ -1744,11 +1744,11 @@ zend_string_release_ex.exit.i:                    ; preds = %84, %79, %75
 
 88:                                               ; preds = %85
   call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %86) #25
-  %.pre73 = load ptr, ptr %1, align 8, !tbaa !81
+  %.pre71 = load ptr, ptr %1, align 8, !tbaa !81
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %85, %88
-  %89 = phi ptr [ %68, %85 ], [ %.pre73, %88 ]
+  %89 = phi ptr [ %68, %85 ], [ %.pre71, %88 ]
   %90 = getelementptr i8, ptr %89, i64 23
   %91 = getelementptr i8, ptr %90, i64 %86
   store i8 124, ptr %91, align 1, !tbaa !65
@@ -1758,14 +1758,14 @@ smart_str_alloc.exit:                             ; preds = %85, %88
   call void @php_var_serialize(ptr noundef nonnull %1, ptr noundef nonnull %52, ptr noundef nonnull %2) #25
   br label %php_get_session_var.exit.thread
 
-.thread65:                                        ; preds = %72, %zend_string_release_ex.exit.i
+.thread63:                                        ; preds = %72, %zend_string_release_ex.exit.i
   store i64 0, ptr %21, align 8, !tbaa !90
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %103
 
 php_get_session_var.exit.thread:                  ; preds = %42, %45, %41, %35, %smart_str_alloc.exit, %php_get_session_var.exit
-  %94 = add i32 %.04171, -1
+  %94 = add i32 %.04169, -1
   %.not50 = icmp eq i32 %94, 0
   br i1 %.not50, label %._crit_edge, label %22
 
@@ -1790,8 +1790,8 @@ smart_str_0.exit:                                 ; preds = %._crit_edge, %96
   %102 = load ptr, ptr %1, align 8, !tbaa !81
   br label %103
 
-103:                                              ; preds = %.thread65, %smart_str_0.exit
-  %.039 = phi ptr [ %102, %smart_str_0.exit ], [ null, %.thread65 ]
+103:                                              ; preds = %.thread63, %smart_str_0.exit
+  %.039 = phi ptr [ %102, %smart_str_0.exit ], [ null, %.thread63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.039
@@ -12515,7 +12515,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   store double %28, ptr %24, align 8, !tbaa !268
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %6, align 8, !tbaa !238
-  %.pre31 = load i64, ptr %.pre, align 8, !tbaa !65
+  %.pre30 = load i64, ptr %.pre, align 8, !tbaa !65
   br label %30
 
 29:                                               ; preds = %15
@@ -12523,7 +12523,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   br label %107
 
 30:                                               ; preds = %.thread, %12
-  %31 = phi i64 [ %.pre31, %.thread ], [ %8, %12 ]
+  %31 = phi i64 [ %.pre30, %.thread ], [ %8, %12 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8, !tbaa !235
   %34 = add nsw i64 %33, %31

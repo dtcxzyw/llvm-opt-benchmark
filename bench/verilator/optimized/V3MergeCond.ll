@@ -5249,34 +5249,34 @@ _ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.i.i.i: ; preds = %_ZN7
   br i1 %spec.select.i.i22.i.i, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.thread.i, label %_ZN12_GLOBAL__N_118extractCondFromRhsEP7AstNode.exit.thread.i.i
 
 _ZN12_GLOBAL__N_118extractCondFromRhsEP7AstNode.exit.thread.i.i: ; preds = %55, %_ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.i.i.i, %41
-  %.sink42.i.i = phi ptr [ %40, %41 ], [ %47, %_ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.i.i.i ], [ %1, %55 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink42.i.i, i64 24
+  %.sink41.i.i = phi ptr [ %40, %41 ], [ %47, %_ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.i.i.i ], [ %1, %55 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sink41.i.i, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !133
-  %.not.i33.i.i = icmp eq ptr %58, null
-  br i1 %.not.i33.i.i, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.thread.i, label %.lr.ph.i.i
+  %.not.i32.i.i = icmp eq ptr %58, null
+  br i1 %.not.i32.i.i, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN12_GLOBAL__N_118extractCondFromRhsEP7AstNode.exit.thread.i.i, %61
-  %.334.i.i = phi ptr [ %63, %61 ], [ %58, %_ZN12_GLOBAL__N_118extractCondFromRhsEP7AstNode.exit.thread.i.i ]
-  %59 = getelementptr inbounds nuw i8, ptr %.334.i.i, i64 64
+  %.333.i.i = phi ptr [ %63, %61 ], [ %58, %_ZN12_GLOBAL__N_118extractCondFromRhsEP7AstNode.exit.thread.i.i ]
+  %59 = getelementptr inbounds nuw i8, ptr %.333.i.i, i64 64
   %.sroa.0.0.copyload.i.i.i24.i.i = load i16, ptr %59, align 8, !tbaa !162
   %60 = icmp eq i16 %.sroa.0.0.copyload.i.i.i24.i.i, 268
   br i1 %60, label %61, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.i
 
 61:                                               ; preds = %.lr.ph.i.i
-  %62 = getelementptr inbounds nuw i8, ptr %.334.i.i, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.333.i.i, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !133
   %.not.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.thread.i, label %.lr.ph.i.i
 
 _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.i: ; preds = %.lr.ph.i.i
-  store ptr %.334.i.i, ptr %35, align 8, !tbaa !134
+  store ptr %.333.i.i, ptr %35, align 8, !tbaa !134
   br i1 %.0.shrunk, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.thread.i, label %64
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !229
   %67 = getelementptr inbounds i8, ptr %66, i64 -64
-  %68 = invoke ptr @_ZN11V3DupFinder13findDuplicateEP7AstNodeP19V3DupFinderUserSame(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull %.334.i.i, ptr noundef null)
+  %68 = invoke ptr @_ZN11V3DupFinder13findDuplicateEP7AstNodeP19V3DupFinderUserSame(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull %.333.i.i, ptr noundef null)
           to label %69 unwind label %96
 
 69:                                               ; preds = %64
@@ -5287,7 +5287,7 @@ _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.e
 72:                                               ; preds = %69
   %73 = getelementptr inbounds i8, ptr %66, i64 -8
   %74 = load ptr, ptr %73, align 8, !tbaa !230
-  %75 = invoke i32 @_ZNK8V3HasherclEP7AstNode(ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull %.334.i.i)
+  %75 = invoke i32 @_ZNK8V3HasherclEP7AstNode(ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull %.333.i.i)
           to label %.noexc.i unwind label %98
 
 .noexc.i:                                         ; preds = %72
@@ -5298,7 +5298,7 @@ _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.e
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
   store i32 %75, ptr %77, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  store ptr %.334.i.i, ptr %78, align 8, !tbaa !231
+  store ptr %.333.i.i, ptr %78, align 8, !tbaa !231
   %79 = getelementptr inbounds i8, ptr %66, i64 -48
   %.078.i.i.i.i.i = load ptr, ptr %79, align 8, !tbaa !234
   %.not9.i.i.i.i.i = icmp eq ptr %.078.i.i.i.i.i, null
@@ -5328,11 +5328,11 @@ _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.e
   %88 = load i64, ptr %87, align 8, !tbaa !237
   %89 = add i64 %88, 1
   store i64 %89, ptr %87, align 8, !tbaa !237
-  %90 = getelementptr inbounds nuw i8, ptr %.334.i.i, i64 128
+  %90 = getelementptr inbounds nuw i8, ptr %.333.i.i, i64 128
   %91 = ptrtoint ptr %1 to i64
   store i64 %91, ptr %90, align 8, !tbaa !14
   %92 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4, !tbaa !18
-  %93 = getelementptr inbounds nuw i8, ptr %.334.i.i, i64 136
+  %93 = getelementptr inbounds nuw i8, ptr %.333.i.i, i64 136
   store i32 %92, ptr %93, align 8, !tbaa !238
   br label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.exit.thread.i
 
@@ -7855,8 +7855,8 @@ _ZN12_GLOBAL__N_118extractCondFromRhsEP7AstNode.exit: ; preds = %_ZN7AstNode9pri
 
 _ZN7AstNode11privateCastI6AstAndP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZN12_GLOBAL__N_118extractCondFromRhsEP7AstNode.exit
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %26, align 8, !tbaa !162
-  %.not141 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 219
-  br i1 %.not141, label %43, label %125
+  %.not140 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 219
+  br i1 %.not140, label %43, label %125
 
 43:                                               ; preds = %_ZN7AstNode11privateCastI6AstAndP11AstNodeExprEEPT_PS_.exit
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -9127,66 +9127,66 @@ _ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit: ; preds = %tailrecurse, %_
     i16 97, label %12
     i16 320, label %16
     i16 199, label %31
-    i16 206, label %.thread137
-    i16 212, label %.thread137
-    i16 179, label %.thread137
-    i16 183, label %.thread137
-    i16 168, label %.thread137
-    i16 172, label %.thread137
+    i16 206, label %.thread131
+    i16 212, label %.thread131
+    i16 179, label %.thread131
+    i16 183, label %.thread131
+    i16 168, label %.thread131
+    i16 172, label %.thread131
   ]
 
 12:                                               ; preds = %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit
   %13 = getelementptr inbounds nuw i8, ptr %.tr, i64 152
   %14 = tail call noundef i64 @_ZNK8V3Number7toUQuadEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
   %15 = icmp ult i64 %14, 2
-  br label %.thread137
+  br label %.thread131
 
 16:                                               ; preds = %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit
   %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 152
   %18 = load ptr, ptr %17, align 8, !tbaa !241
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !281
-  %.not.i91 = icmp eq ptr %20, null
-  br i1 %.not.i91, label %.thread137, label %_ZNK7AstNode8widthMinEv.exit
+  %.not.i86 = icmp eq ptr %20, null
+  br i1 %.not.i86, label %.thread131, label %_ZNK7AstNode8widthMinEv.exit
 
 _ZNK7AstNode8widthMinEv.exit:                     ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 156
   %22 = load i32, ptr %21, align 4, !tbaa !302
-  %.not.i.i92 = icmp eq i32 %22, 0
+  %.not.i.i87 = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %24 = load i32, ptr %23, align 8
-  %25 = select i1 %.not.i.i92, i32 %24, i32 %22
+  %25 = select i1 %.not.i.i87, i32 %24, i32 %22
   %26 = icmp eq i32 %25, 1
-  br i1 %26, label %27, label %.thread137
+  br i1 %26, label %27, label %.thread131
 
 27:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 160
   %29 = load i8, ptr %28, align 1, !tbaa !303
   %30 = icmp ne i8 %29, 1
-  br label %.thread137
+  br label %.thread131
 
 31:                                               ; preds = %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit
   %32 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !144
-  %.not.i96 = icmp eq ptr %33, null
-  br i1 %.not.i96, label %.thread143, label %34
+  %.not.i91 = icmp eq ptr %33, null
+  br i1 %.not.i91, label %.thread136, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.sroa.0.0.copyload.i.i.i97 = load i16, ptr %35, align 8, !tbaa !162
-  %36 = icmp eq i16 %.sroa.0.0.copyload.i.i.i97, 97
-  br i1 %36, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit, label %.thread143
+  %.sroa.0.0.copyload.i.i.i92 = load i16, ptr %35, align 8, !tbaa !162
+  %36 = icmp eq i16 %.sroa.0.0.copyload.i.i.i92, 97
+  br i1 %36, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit, label %.thread136
 
 _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit: ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !133
-  %.not.i99 = icmp eq ptr %38, null
-  br i1 %.not.i99, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread, label %39
+  %.not.i94 = icmp eq ptr %38, null
+  br i1 %.not.i94, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread, label %39
 
 39:                                               ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %.sroa.0.0.copyload.i.i.i100 = load i16, ptr %40, align 8, !tbaa !162
-  %41 = icmp eq i16 %.sroa.0.0.copyload.i.i.i100, 320
+  %.sroa.0.0.copyload.i.i.i95 = load i16, ptr %40, align 8, !tbaa !162
+  %41 = icmp eq i16 %.sroa.0.0.copyload.i.i.i95, 320
   br i1 %41, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread
 
 _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %39
@@ -9197,15 +9197,15 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 160
   %47 = load i8, ptr %46, align 1, !tbaa !303
   %48 = icmp eq i8 %47, 1
-  br i1 %48, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread, label %_ZNK7AstNode8widthMinEv.exit104
+  br i1 %48, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread, label %_ZNK7AstNode8widthMinEv.exit99
 
-_ZNK7AstNode8widthMinEv.exit104:                  ; preds = %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit
+_ZNK7AstNode8widthMinEv.exit99:                   ; preds = %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 156
   %50 = load i32, ptr %49, align 4, !tbaa !302
-  %.not.i.i103 = icmp eq i32 %50, 0
+  %.not.i.i98 = icmp eq i32 %50, 0
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 152
   %52 = load i32, ptr %51, align 8
-  %53 = select i1 %.not.i.i103, i32 %52, i32 %50
+  %53 = select i1 %.not.i.i98, i32 %52, i32 %50
   br label %57
 
 _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread: ; preds = %39, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit
@@ -9216,17 +9216,17 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread: ; preds =
   %56 = load i32, ptr %55, align 8, !tbaa !297
   br label %57
 
-57:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit104, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread, %54
-  %58 = phi i32 [ %53, %_ZNK7AstNode8widthMinEv.exit104 ], [ %56, %54 ], [ 0, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread ]
+57:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit99, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread, %54
+  %58 = phi i32 [ %53, %_ZNK7AstNode8widthMinEv.exit99 ], [ %56, %54 ], [ 0, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread ]
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 152
   %60 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %59)
   %.fr = freeze i32 %58
   %61 = add i32 %.fr, -1
   %.not72 = icmp slt i32 %60, %61
-  br i1 %.not72, label %.thread143, label %.thread137
+  br i1 %.not72, label %.thread136, label %.thread131
 
-.thread143:                                       ; preds = %31, %34, %57
-  br label %.thread137
+.thread136:                                       ; preds = %31, %34, %57
+  br label %.thread131
 
 _ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit
   %62 = add i16 %.sroa.0.0.copyload.i.i.i, -237
@@ -9235,7 +9235,7 @@ _ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode
 
 _ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit:     ; preds = %_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit
   %trunc = trunc nuw i16 %.sroa.0.0.copyload.i.i.i to i8
-  switch i8 %trunc, label %.thread137 [
+  switch i8 %trunc, label %.thread131 [
     i8 -37, label %63
     i8 -33, label %68
     i8 -32, label %68
@@ -9245,7 +9245,7 @@ _ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit:     ; preds = %_ZN7AstNode11privat
   %64 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !133
   %66 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %65)
-  br i1 %66, label %.thread137, label %tailrecurse.backedge
+  br i1 %66, label %.thread131, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %63, %73, %68
   %.sink = phi i64 [ 32, %68 ], [ 40, %73 ], [ 32, %63 ]
@@ -9257,18 +9257,18 @@ tailrecurse.backedge:                             ; preds = %63, %73, %68
   %69 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !133
   %71 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %70)
-  br i1 %71, label %tailrecurse.backedge, label %.thread137
+  br i1 %71, label %tailrecurse.backedge, label %.thread131
 
 _ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit
   %72 = and i16 %.sroa.0.0.copyload.i.i.i, -2
-  %spec.select.i.i129.not = icmp eq i16 %72, 260
-  br i1 %spec.select.i.i129.not, label %73, label %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit
+  %spec.select.i.i124.not = icmp eq i16 %72, 260
+  br i1 %spec.select.i.i124.not, label %73, label %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit
 
 73:                                               ; preds = %_ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit
   %74 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %75 = load ptr, ptr %74, align 8, !tbaa !144
   %76 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %75)
-  br i1 %76, label %tailrecurse.backedge, label %.thread137
+  br i1 %76, label %tailrecurse.backedge, label %.thread131
 
 _ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit
   %77 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 268
@@ -9282,11 +9282,11 @@ _ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11pr
 
 82:                                               ; preds = %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit, %78
   %.9 = phi i1 [ %81, %78 ], [ undef, %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit ]
-  %spec.select86 = and i1 %77, %.9
-  br label %.thread137
+  %spec.select81 = and i1 %77, %.9
+  br label %.thread131
 
-.thread137:                                       ; preds = %73, %63, %68, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %57, %.thread143, %16, %27, %_ZNK7AstNode8widthMinEv.exit, %12, %82
-  %.1 = phi i1 [ %15, %12 ], [ %spec.select86, %82 ], [ %30, %27 ], [ false, %_ZNK7AstNode8widthMinEv.exit ], [ false, %16 ], [ true, %57 ], [ false, %.thread143 ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ false, %73 ], [ true, %63 ], [ false, %68 ], [ false, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit ]
+.thread131:                                       ; preds = %73, %63, %68, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %57, %.thread136, %16, %27, %_ZNK7AstNode8widthMinEv.exit, %12, %82
+  %.1 = phi i1 [ %15, %12 ], [ %spec.select81, %82 ], [ %30, %27 ], [ false, %_ZNK7AstNode8widthMinEv.exit ], [ false, %16 ], [ true, %57 ], [ false, %.thread136 ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ false, %73 ], [ true, %63 ], [ false, %68 ], [ false, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit ]
   ret i1 %.1
 }
 
@@ -9831,16 +9831,16 @@ _ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclE
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !218
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %.not1113.not.i = icmp eq ptr %19, %20
-  br i1 %.not1113.not.i, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread, label %.lr.ph.i
+  %.not1214.not.i = icmp eq ptr %19, %20
+  br i1 %.not1214.not.i, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
   %21 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !18
   br label %22
 
 22:                                               ; preds = %31, %.lr.ph.i
-  %.sroa.08.014.i = phi ptr [ %19, %.lr.ph.i ], [ %32, %31 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.014.i, i64 32
+  %.sroa.08.015.i = phi ptr [ %19, %.lr.ph.i ], [ %32, %31 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !255
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %26 = load i32, ptr %25, align 8, !tbaa !304
@@ -9848,14 +9848,14 @@ _ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclE
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 4294967295
-  %.not12.i = icmp ne i64 %30, 0
-  %.not.not.i = select i1 %27, i1 %.not12.i, i1 false
+  %.not13.i = icmp ne i64 %30, 0
+  %.not.not.i = select i1 %27, i1 %.not13.i, i1 false
   br i1 %.not.not.i, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit, label %31
 
 31:                                               ; preds = %22
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.014.i) #29
-  %.not11.not.i = icmp eq ptr %32, %20
-  br i1 %.not11.not.i, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread, label %22
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.015.i) #29
+  %.not12.not.i = icmp eq ptr %32, %20
+  br i1 %.not12.not.i, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread, label %22
 
 _ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit: ; preds = %22
   tail call fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor8mergeEndEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
@@ -10218,16 +10218,16 @@ _ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 80
   %143 = load ptr, ptr %142, align 8, !tbaa !218
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 64
-  %.not1113.not.i = icmp eq ptr %143, %144
-  br i1 %.not1113.not.i, label %.loopexit44, label %.lr.ph.i
+  %.not1214.not.i = icmp eq ptr %143, %144
+  br i1 %.not1214.not.i, label %.loopexit43, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
   %145 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !18
   br label %146
 
 146:                                              ; preds = %155, %.lr.ph.i
-  %.sroa.08.014.i = phi ptr [ %143, %.lr.ph.i ], [ %156, %155 ]
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.08.014.i, i64 32
+  %.sroa.08.015.i = phi ptr [ %143, %.lr.ph.i ], [ %156, %155 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i, i64 32
   %148 = load ptr, ptr %147, align 8, !tbaa !255
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 112
   %150 = load i32, ptr %149, align 8, !tbaa !304
@@ -10235,20 +10235,20 @@ _ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 104
   %153 = load i64, ptr %152, align 8
   %154 = and i64 %153, 4294967295
-  %.not12.i = icmp ne i64 %154, 0
-  %.not.not.i = select i1 %151, i1 %.not12.i, i1 false
+  %.not13.i = icmp ne i64 %154, 0
+  %.not.not.i = select i1 %151, i1 %.not13.i, i1 false
   br i1 %.not.not.i, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit, label %155
 
 155:                                              ; preds = %146
-  %156 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.014.i) #29
-  %.not11.not.i = icmp eq ptr %156, %144
-  br i1 %.not11.not.i, label %.loopexit44, label %146
+  %156 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.015.i) #29
+  %.not12.not.i = icmp eq ptr %156, %144
+  br i1 %.not12.not.i, label %.loopexit43, label %146
 
 _ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit: ; preds = %146
   tail call void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   br label %210
 
-.loopexit44:                                      ; preds = %155, %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
+.loopexit43:                                      ; preds = %155, %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
   store ptr %1, ptr %4, align 8, !tbaa !127
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %157, align 8, !tbaa !143
@@ -10256,12 +10256,12 @@ _ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit: ; preds = %146
   store i32 0, ptr %158, align 8, !tbaa !147
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !122
-  %.not.i52 = icmp eq ptr %160, null
-  br i1 %.not.i52, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34.thread40, label %.lr.ph
+  %.not.i51 = icmp eq ptr %160, null
+  br i1 %.not.i51, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34.thread40, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit44, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34
-  %161 = phi ptr [ %197, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34 ], [ %160, %.loopexit44 ]
-  %162 = phi ptr [ %161, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34 ], [ %1, %.loopexit44 ]
+.lr.ph:                                           ; preds = %.loopexit43, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34
+  %161 = phi ptr [ %197, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34 ], [ %160, %.loopexit43 ]
+  %162 = phi ptr [ %161, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34 ], [ %1, %.loopexit43 ]
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %163, align 8, !tbaa !162
   %164 = add i16 %.sroa.0.0.copyload.i.i.i, -348
@@ -10286,16 +10286,16 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit: ; preds = %.lr.ph
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 80
   %175 = load ptr, ptr %174, align 8, !tbaa !218
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 64
-  %.not1113.not.i27 = icmp eq ptr %175, %176
-  br i1 %.not1113.not.i27, label %.loopexit, label %.lr.ph.i28
+  %.not1214.not.i27 = icmp eq ptr %175, %176
+  br i1 %.not1214.not.i27, label %.loopexit, label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %173
   %177 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !18
   br label %178
 
 178:                                              ; preds = %187, %.lr.ph.i28
-  %.sroa.08.014.i29 = phi ptr [ %175, %.lr.ph.i28 ], [ %188, %187 ]
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.08.014.i29, i64 32
+  %.sroa.08.015.i29 = phi ptr [ %175, %.lr.ph.i28 ], [ %188, %187 ]
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i29, i64 32
   %180 = load ptr, ptr %179, align 8, !tbaa !255
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 112
   %182 = load i32, ptr %181, align 8, !tbaa !304
@@ -10303,14 +10303,14 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit: ; preds = %.lr.ph
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 104
   %185 = load i64, ptr %184, align 8
   %186 = and i64 %185, 4294967295
-  %.not12.i30 = icmp ne i64 %186, 0
-  %.not.not.i31 = select i1 %183, i1 %.not12.i30, i1 false
+  %.not13.i30 = icmp ne i64 %186, 0
+  %.not.not.i31 = select i1 %183, i1 %.not13.i30, i1 false
   br i1 %.not.not.i31, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34.thread40, label %187
 
 187:                                              ; preds = %178
-  %188 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.014.i29) #29
-  %.not11.not.i32 = icmp eq ptr %188, %176
-  br i1 %.not11.not.i32, label %.loopexit, label %178
+  %188 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.015.i29) #29
+  %.not12.not.i32 = icmp eq ptr %188, %176
+  br i1 %.not12.not.i32, label %.loopexit, label %178
 
 .loopexit:                                        ; preds = %187, %173
   %189 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor18isSimplifiableNodeEP7AstNode(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %161)
@@ -10338,7 +10338,7 @@ _ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34: ; preds = %192,
   %.not.i = icmp eq ptr %197, null
   br i1 %.not.i, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34.thread40, label %.lr.ph
 
-_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34.thread40: ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, %167, %190, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34, %.lr.ph, %178, %.loopexit44, %3
+_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34.thread40: ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, %167, %190, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit34, %.lr.ph, %178, %.loopexit43, %3
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %199 = load i32, ptr %198, align 8, !tbaa !147
   %200 = add i32 %199, 1
@@ -10604,19 +10604,19 @@ _ZN7AstNode9privateIsI10AstCommentPS_EEbPKS_.exit: ; preds = %1
 
 _ZN7AstNode11privateCastI13AstNodeAssignPS_EEPT_S2_.exit: ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.015.i73 = load ptr, ptr %6, align 8, !tbaa !77
-  %.not.i.i74 = icmp eq ptr %.015.i73, null
-  br i1 %.not.i.i74, label %.thread, label %.lr.ph
+  %.015.i72 = load ptr, ptr %6, align 8, !tbaa !77
+  %.not.i.i73 = icmp eq ptr %.015.i72, null
+  br i1 %.not.i.i73, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7AstNode11privateCastI13AstNodeAssignPS_EEPT_S2_.exit, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.i
-  %.015.i75 = phi ptr [ %.015.i, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.i ], [ %.015.i73, %_ZN7AstNode11privateCastI13AstNodeAssignPS_EEPT_S2_.exit ]
-  %7 = getelementptr inbounds nuw i8, ptr %.015.i75, i64 64
+  %.015.i74 = phi ptr [ %.015.i, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.i ], [ %.015.i72, %_ZN7AstNode11privateCastI13AstNodeAssignPS_EEPT_S2_.exit ]
+  %7 = getelementptr inbounds nuw i8, ptr %.015.i74, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %7, align 8, !tbaa !162
   %8 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 229
   br i1 %8, label %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.i, label %.lr.ph.i
 
 _ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.i: ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.015.i75, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.015.i74, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !144
   %.not.i22.i = icmp eq ptr %10, null
   br i1 %.not.i22.i, label %.thread, label %_ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.i
@@ -10628,13 +10628,13 @@ _ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.i: ; preds = %_ZN7AstN
   br i1 %12, label %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.i, label %.thread
 
 _ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.i: ; preds = %_ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.i
-  %13 = getelementptr inbounds nuw i8, ptr %.015.i75, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.015.i74, i64 24
   %.015.i = load ptr, ptr %13, align 8, !tbaa !77
   %.not.i.i = icmp eq ptr %.015.i, null
   br i1 %.not.i.i, label %.thread, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %19
-  %.21749.i = phi ptr [ %21, %19 ], [ %.015.i75, %.lr.ph ]
+  %.21749.i = phi ptr [ %21, %19 ], [ %.015.i74, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %.21749.i, i64 64
   %.sroa.0.0.copyload.i.i.i25.i = load i16, ptr %14, align 8, !tbaa !162
   switch i16 %.sroa.0.0.copyload.i.i.i25.i, label %.thread [

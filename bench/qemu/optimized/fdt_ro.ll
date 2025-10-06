@@ -113,7 +113,7 @@ define dso_local noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr
 
 86:                                               ; preds = %67
   %87 = sub nuw i32 %85, %1
-  %spec.select7173 = tail call i32 @llvm.umin.i32(i32 %87, i32 %27)
+  %spec.select7072 = tail call i32 @llvm.umin.i32(i32 %87, i32 %27)
   br label %112
 
 88:                                               ; preds = %26
@@ -144,11 +144,11 @@ define dso_local noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr
   br i1 %110, label %.thread, label %111
 
 111:                                              ; preds = %91
-  %spec.select72 = tail call i32 @llvm.umin.i32(i32 %27, i32 %89)
+  %spec.select71 = tail call i32 @llvm.umin.i32(i32 %27, i32 %89)
   br label %112
 
 112:                                              ; preds = %86, %111, %47
-  %.050.in = phi i32 [ %27, %47 ], [ %spec.select72, %111 ], [ %spec.select7173, %86 ]
+  %.050.in = phi i32 [ %27, %47 ], [ %spec.select71, %111 ], [ %spec.select7072, %86 ]
   %.050 = zext nneg i32 %.050.in to i64
   %113 = zext nneg i32 %25 to i64
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113

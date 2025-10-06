@@ -238,9 +238,9 @@ define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %0, ptr noundef r
   %17 = mul i64 %16, 40
   %18 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 629) #8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %33, label %.preheader154
+  br i1 %19, label %33, label %.preheader153
 
-.preheader154:                                    ; preds = %13
+.preheader153:                                    ; preds = %13
   %20 = lshr i32 %2, 7
   %21 = and i32 %20, 2
   %spec.select.i = xor i32 %21, 2
@@ -414,8 +414,8 @@ verify_extension.exit.thread127:                  ; preds = %validate_context.ex
   br i1 %107, label %verify_extension.exit.thread, label %108
 
 108:                                              ; preds = %verify_extension.exit.thread127.thread, %104, %verify_extension.exit.thread127
-  %.not77151 = phi i1 [ true, %verify_extension.exit.thread127.thread ], [ false, %104 ], [ true, %verify_extension.exit.thread127 ]
-  %.3106131150 = phi ptr [ null, %verify_extension.exit.thread127.thread ], [ %.3106131, %104 ], [ null, %verify_extension.exit.thread127 ]
+  %.not77150 = phi i1 [ true, %verify_extension.exit.thread127.thread ], [ false, %104 ], [ true, %verify_extension.exit.thread127 ]
+  %.3106131149 = phi ptr [ null, %verify_extension.exit.thread127.thread ], [ %.3106131, %104 ], [ null, %verify_extension.exit.thread127 ]
   %109 = icmp ne i32 %42, 41
   %brmerge = or i1 %.not, %109
   %.not78 = icmp eq i64 %59, 0
@@ -429,13 +429,13 @@ verify_extension.exit.thread:                     ; preds = %108, %77, %75, %63,
   br label %.thread
 
 110:                                              ; preds = %108
-  %111 = ptrtoint ptr %.3106131150 to i64
+  %111 = ptrtoint ptr %.3106131149 to i64
   %112 = sub i64 %111, %23
   %113 = sdiv exact i64 %112, 40
   %114 = and i64 %113, 4294967295
   %115 = icmp samesign ult i64 %114, 29
-  %or.cond153 = and i1 %25, %115
-  br i1 %or.cond153, label %switch.early.test, label %123
+  %or.cond152 = and i1 %25, %115
+  br i1 %or.cond152, label %switch.early.test, label %123
 
 switch.early.test:                                ; preds = %110
   %trunc = trunc nuw i32 %42 to i16
@@ -452,8 +452,8 @@ switch.early.test:                                ; preds = %110
   %120 = icmp ne i8 %119, 0
   %121 = icmp eq i32 %42, 65000
   %or.cond7 = select i1 %28, i1 %121, i1 false
-  %or.cond159 = select i1 %120, i1 true, i1 %or.cond7
-  br i1 %or.cond159, label %123, label %122
+  %or.cond158 = select i1 %120, i1 true, i1 %or.cond7
+  br i1 %or.cond158, label %123, label %122
 
 122:                                              ; preds = %116
   call void @ERR_new() #8
@@ -462,27 +462,27 @@ switch.early.test:                                ; preds = %110
   br label %.thread
 
 123:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %116, %110
-  br i1 %.not77151, label %34, label %124
+  br i1 %.not77150, label %34, label %124
 
 124:                                              ; preds = %123
-  store ptr %57, ptr %.3106131150, align 8, !tbaa !93
-  %.sroa.4.0..0.92.sroa_idx = getelementptr inbounds nuw i8, ptr %.3106131150, i64 8
+  store ptr %57, ptr %.3106131149, align 8, !tbaa !93
+  %.sroa.4.0..0.92.sroa_idx = getelementptr inbounds nuw i8, ptr %.3106131149, i64 8
   store i64 %53, ptr %.sroa.4.0..0.92.sroa_idx, align 8, !tbaa !94
-  %125 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.3106131149, i64 16
   store i32 1, ptr %125, align 8, !tbaa !75
-  %126 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %.3106131149, i64 24
   store i32 %42, ptr %126, align 8, !tbaa !78
   %127 = add i64 %.059.ph, 1
-  %128 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %.3106131149, i64 32
   store i64 %.059.ph, ptr %128, align 8, !tbaa !103
   %129 = load ptr, ptr %29, align 8, !tbaa !104
   %.not80 = icmp eq ptr %129, null
   br i1 %.not80, label %.outer.backedge, label %130
 
-.outer:                                           ; preds = %.outer.backedge, %.preheader154
-  %.sroa.7.0.ph = phi i64 [ %.sroa.7.0.copyload, %.preheader154 ], [ %59, %.outer.backedge ]
-  %.sroa.0100.0.ph = phi ptr [ %.sroa.0100.0.copyload, %.preheader154 ], [ %58, %.outer.backedge ]
-  %.059.ph = phi i64 [ 0, %.preheader154 ], [ %127, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge, %.preheader153
+  %.sroa.7.0.ph = phi i64 [ %.sroa.7.0.copyload, %.preheader153 ], [ %59, %.outer.backedge ]
+  %.sroa.0100.0.ph = phi ptr [ %.sroa.0100.0.copyload, %.preheader153 ], [ %58, %.outer.backedge ]
+  %.059.ph = phi i64 [ 0, %.preheader153 ], [ %127, %.outer.backedge ]
   br label %34
 
 130:                                              ; preds = %124
@@ -511,15 +511,15 @@ switch.early.test:                                ; preds = %110
   br label %141
 
 141:                                              ; preds = %.preheader, %extension_is_relevant.exit.thread
-  %.058158 = phi ptr [ @ext_defs, %.preheader ], [ %177, %extension_is_relevant.exit.thread ]
-  %.3157 = phi i64 [ 0, %.preheader ], [ %176, %extension_is_relevant.exit.thread ]
-  %142 = getelementptr inbounds nuw i8, ptr %.058158, i64 8
+  %.058157 = phi ptr [ @ext_defs, %.preheader ], [ %177, %extension_is_relevant.exit.thread ]
+  %.3156 = phi i64 [ 0, %.preheader ], [ %176, %extension_is_relevant.exit.thread ]
+  %142 = getelementptr inbounds nuw i8, ptr %.058157, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !107
   %.not70 = icmp eq ptr %143, null
   br i1 %.not70, label %extension_is_relevant.exit.thread, label %144
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %.058158, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.058157, i64 4
   %146 = load i32, ptr %145, align 4, !tbaa !99
   %147 = and i32 %146, %2
   %.not71 = icmp eq i32 %147, 0
@@ -594,8 +594,8 @@ extension_is_relevant.exit:                       ; preds = %169
   br i1 %.not73, label %.thread, label %extension_is_relevant.exit.thread
 
 extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %159, %164, %166, %169, %141, %144, %extension_is_relevant.exit, %174
-  %176 = add nuw nsw i64 %.3157, 1
-  %177 = getelementptr inbounds nuw i8, ptr %.058158, i64 56
+  %176 = add nuw nsw i64 %.3156, 1
+  %177 = getelementptr inbounds nuw i8, ptr %.058157, i64 56
   %exitcond.not = icmp eq i64 %176, 29
   br i1 %exitcond.not, label %.loopexit, label %141, !llvm.loop !108
 

@@ -1588,7 +1588,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN4core4iter6traits8i
 .loopexit.i..loopexit_crit_edge:                  ; preds = %.loopexit.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !341
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !341
+  %.pre8 = load ptr, ptr %0, align 8, !alias.scope !341
   br label %.loopexit
 
 .lr.ph40.i:                                       ; preds = %.loopexit.i
@@ -1623,12 +1623,12 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN4core4iter6traits8i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %24
-  %.sroa.01.011.i.i.i = phi i8 [ %29, %.lr.ph.i.i.i ], [ 0, %24 ]
+  %.sroa.01.09.i.i.i = phi i8 [ %29, %.lr.ph.i.i.i ], [ 0, %24 ]
   %25 = phi i64 [ %26, %.lr.ph.i.i.i ], [ 0, %24 ]
   %26 = add nuw nsw i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 %25
   %28 = load i8, ptr %27, align 1, !range !32, !alias.scope !354, !noalias !359, !noundef !7
-  %29 = add i8 %28, %.sroa.01.011.i.i.i
+  %29 = add i8 %28, %.sroa.01.09.i.i.i
   %.not.i.i.i.i = icmp eq i64 %26, 32
   br i1 %.not.i.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc9405c52ef24c6c6E.exit.i", label %.lr.ph.i.i.i
 
@@ -1694,7 +1694,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN4core4iter6traits8i
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit"
 
 .loopexit:                                        ; preds = %50, %.loopexit.i..loopexit_crit_edge
-  %61 = phi ptr [ %.pre9, %.loopexit.i..loopexit_crit_edge ], [ %59, %50 ]
+  %61 = phi ptr [ %.pre8, %.loopexit.i..loopexit_crit_edge ], [ %59, %50 ]
   %62 = phi ptr [ %.pre, %.loopexit.i..loopexit_crit_edge ], [ %19, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
@@ -2310,9 +2310,9 @@ _ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E.exit.i: ; preds 
   ret void
 
 68:                                               ; preds = %"_ZN65_$LT$alloc..string..String$u20$as$u20$sqlez..bindable..Column$GT$6column17h36723140ce61e0b7E.exit63", %"_ZN65_$LT$alloc..string..String$u20$as$u20$sqlez..bindable..Column$GT$6column17h36723140ce61e0b7E.exit63.thread", %.noexc54
-  %.sroa.667.086.sink = phi ptr [ %41, %.noexc54 ], [ %60, %"_ZN65_$LT$alloc..string..String$u20$as$u20$sqlez..bindable..Column$GT$6column17h36723140ce61e0b7E.exit63.thread" ], [ %63, %"_ZN65_$LT$alloc..string..String$u20$as$u20$sqlez..bindable..Column$GT$6column17h36723140ce61e0b7E.exit63" ]
+  %.sroa.667.085.sink = phi ptr [ %41, %.noexc54 ], [ %60, %"_ZN65_$LT$alloc..string..String$u20$as$u20$sqlez..bindable..Column$GT$6column17h36723140ce61e0b7E.exit63.thread" ], [ %63, %"_ZN65_$LT$alloc..string..String$u20$as$u20$sqlez..bindable..Column$GT$6column17h36723140ce61e0b7E.exit63" ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.667.086.sink, ptr %69, align 8
+  store ptr %.sroa.667.085.sink, ptr %69, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !458
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9117968456e27214E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)

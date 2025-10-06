@@ -1611,25 +1611,25 @@ _ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE6insertIS5_
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %0, ptr readonly %1, ptr readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
-  %.not4856.not = icmp eq ptr %1, %2
-  br i1 %.not4856.not, label %.critedge.thread42, label %.lr.ph59
+  %.not5058.not = icmp eq ptr %1, %2
+  br i1 %.not5058.not, label %.critedge.thread38, label %.lr.ph61
 
-.lr.ph59:                                         ; preds = %4
+.lr.ph61:                                         ; preds = %4
   %5 = lshr i32 %3, 5
   %6 = zext nneg i32 %5 to i64
   %7 = and i32 %3, 31
   %8 = shl nuw i32 1, %7
   br label %9
 
-9:                                                ; preds = %.lr.ph59, %.critedge
-  %.sroa.032.057 = phi ptr [ %1, %.lr.ph59 ], [ %45, %.critedge ]
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.032.057, i64 40
+9:                                                ; preds = %.lr.ph61, %.critedge
+  %.sroa.032.059 = phi ptr [ %1, %.lr.ph61 ], [ %45, %.critedge ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.032.059, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !237
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 16777216
   %14 = and i32 %12, 1090519040
   %or.cond = icmp eq i32 %14, 1090519040
-  br i1 %or.cond, label %.critedge.thread42, label %15
+  br i1 %or.cond, label %.critedge.thread38, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1641,16 +1641,16 @@ define hidden noundef zeroext i1 @_ZN4llvm22CriticalAntiDepBreaker23isNewRegClob
   %22 = zext i24 %21 to i64
   %.idx = shl nuw nsw i64 %22, 5
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
-  %.not54 = icmp eq i24 %21, 0
-  br i1 %.not54, label %.critedge, label %.lr.ph
+  %.not56 = icmp eq i24 %21, 0
+  br i1 %.not56, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 68
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.thread
-  %.02955 = phi ptr [ %19, %.lr.ph ], [ %44, %.thread ]
-  %26 = load i32, ptr %.02955, align 8
+  %.02957 = phi ptr [ %19, %.lr.ph ], [ %44, %.thread ]
+  %26 = load i32, ptr %.02957, align 8
   %trunc = trunc i32 %26 to i8
   switch i8 %trunc, label %.thread [
     i8 12, label %27
@@ -1658,50 +1658,50 @@ define hidden noundef zeroext i1 @_ZN4llvm22CriticalAntiDepBreaker23isNewRegClob
   ]
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %.02955, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02957, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !232
   %30 = getelementptr inbounds nuw i32, ptr %29, i64 %6
   %31 = load i32, ptr %30, align 4, !tbaa !191
   %32 = and i32 %31, %8
   %.not.i.i = icmp eq i32 %32, 0
-  br i1 %.not.i.i, label %.critedge.thread42, label %.thread
+  br i1 %.not.i.i, label %.critedge.thread38, label %.thread
 
 33:                                               ; preds = %25
   %34 = and i32 %26, 16777216
-  %.not49 = icmp eq i32 %34, 0
-  br i1 %.not49, label %.thread, label %35
+  %.not51 = icmp eq i32 %34, 0
+  br i1 %.not51, label %.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %.02955, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.02957, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !232
-  %.not50 = icmp eq i32 %37, %3
-  br i1 %.not50, label %38, label %.thread
+  %.not52 = icmp eq i32 %37, %3
+  br i1 %.not52, label %38, label %.thread
 
 38:                                               ; preds = %35
   %39 = and i32 %26, 1073741824
   %40 = or disjoint i32 %39, %13
-  %or.cond47.not = icmp eq i32 %40, 0
-  br i1 %or.cond47.not, label %41, label %.critedge.thread42
+  %or.cond49.not = icmp eq i32 %40, 0
+  br i1 %or.cond49.not, label %41, label %.critedge.thread38
 
 41:                                               ; preds = %38
   %42 = load i16, ptr %24, align 4, !tbaa !229
   %43 = add i16 %42, -1
   %spec.select.i = icmp ult i16 %43, 2
-  br i1 %spec.select.i, label %.critedge.thread42, label %.thread
+  br i1 %spec.select.i, label %.critedge.thread38, label %.thread
 
 .thread:                                          ; preds = %25, %27, %35, %41, %33
-  %44 = getelementptr inbounds nuw i8, ptr %.02955, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.02957, i64 32
   %.not = icmp eq ptr %44, %23
   br i1 %.not, label %.critedge, label %25
 
 .critedge:                                        ; preds = %.thread, %15
-  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.057) #15
-  %.not48.not = icmp eq ptr %45, %2
-  br i1 %.not48.not, label %.critedge.thread42, label %9, !llvm.loop !290
+  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.059) #15
+  %.not50.not = icmp eq ptr %45, %2
+  br i1 %.not50.not, label %.critedge.thread38, label %9, !llvm.loop !290
 
-.critedge.thread42:                               ; preds = %.critedge, %9, %41, %27, %38, %4
-  %.not4853 = phi i1 [ false, %4 ], [ true, %38 ], [ true, %27 ], [ true, %41 ], [ %or.cond, %9 ], [ %or.cond, %.critedge ]
-  ret i1 %.not4853
+.critedge.thread38:                               ; preds = %.critedge, %9, %41, %27, %38, %4
+  %.not5055 = phi i1 [ false, %4 ], [ true, %38 ], [ true, %27 ], [ true, %41 ], [ %or.cond, %9 ], [ %or.cond, %.critedge ]
+  ret i1 %.not5055
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1736,7 +1736,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   br i1 %.not75, label %.loopexit, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit
-  %.not4856.not.i = icmp eq ptr %1, %2
+  %.not5058.not.i = icmp eq ptr %1, %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = zext i32 %3 to i64
@@ -1756,18 +1756,18 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   br i1 %or.cond, label %.thread65, label %37
 
 37:                                               ; preds = %32
-  br i1 %.not4856.not.i, label %_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit, label %.lr.ph59.i
+  br i1 %.not5058.not.i, label %_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit, label %.lr.ph61.i
 
-.lr.ph59.i:                                       ; preds = %37
+.lr.ph61.i:                                       ; preds = %37
   %38 = lshr i32 %34, 5
   %39 = zext nneg i32 %38 to i64
   %40 = and i32 %34, 31
   %41 = shl nuw i32 1, %40
   br label %42
 
-42:                                               ; preds = %.critedge.i, %.lr.ph59.i
-  %.sroa.032.057.i = phi ptr [ %1, %.lr.ph59.i ], [ %78, %.critedge.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.032.057.i, i64 40
+42:                                               ; preds = %.critedge.i, %.lr.ph61.i
+  %.sroa.032.059.i = phi ptr [ %1, %.lr.ph61.i ], [ %78, %.critedge.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.032.059.i, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !237
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 16777216
@@ -1785,16 +1785,16 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   %55 = zext i24 %54 to i64
   %.idx.i = shl nuw nsw i64 %55, 5
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i
-  %.not54.i = icmp eq i24 %54, 0
-  br i1 %.not54.i, label %.critedge.i, label %.lr.ph.i
+  %.not56.i = icmp eq i24 %54, 0
+  br i1 %.not56.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 68
   br label %58
 
 58:                                               ; preds = %.thread.i, %.lr.ph.i
-  %.02955.i = phi ptr [ %52, %.lr.ph.i ], [ %77, %.thread.i ]
-  %59 = load i32, ptr %.02955.i, align 8
+  %.02957.i = phi ptr [ %52, %.lr.ph.i ], [ %77, %.thread.i ]
+  %59 = load i32, ptr %.02957.i, align 8
   %trunc.i = trunc i32 %59 to i8
   switch i8 %trunc.i, label %.thread.i [
     i8 12, label %60
@@ -1802,7 +1802,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   ]
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %.02955.i, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.02957.i, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !232
   %63 = getelementptr inbounds nuw i32, ptr %62, i64 %39
   %64 = load i32, ptr %63, align 4, !tbaa !191
@@ -1812,20 +1812,20 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
 
 66:                                               ; preds = %58
   %67 = and i32 %59, 16777216
-  %.not49.i = icmp eq i32 %67, 0
-  br i1 %.not49.i, label %.thread.i, label %68
+  %.not51.i = icmp eq i32 %67, 0
+  br i1 %.not51.i, label %.thread.i, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.02955.i, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.02957.i, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !232
-  %.not50.i = icmp eq i32 %70, %34
-  br i1 %.not50.i, label %71, label %.thread.i
+  %.not52.i = icmp eq i32 %70, %34
+  br i1 %.not52.i, label %71, label %.thread.i
 
 71:                                               ; preds = %68
   %72 = and i32 %59, 1073741824
   %73 = or disjoint i32 %72, %46
-  %or.cond47.not.i = icmp eq i32 %73, 0
-  br i1 %or.cond47.not.i, label %74, label %.thread65
+  %or.cond49.not.i = icmp eq i32 %73, 0
+  br i1 %or.cond49.not.i, label %74, label %.thread65
 
 74:                                               ; preds = %71
   %75 = load i16, ptr %57, align 4, !tbaa !229
@@ -1834,14 +1834,14 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   br i1 %spec.select.i.i, label %.thread65, label %.thread.i
 
 .thread.i:                                        ; preds = %74, %68, %66, %60, %58
-  %77 = getelementptr inbounds nuw i8, ptr %.02955.i, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %.02957.i, i64 32
   %.not.i = icmp eq ptr %77, %56
   br i1 %.not.i, label %.critedge.i, label %58
 
 .critedge.i:                                      ; preds = %.thread.i, %48
-  %78 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.057.i) #15
-  %.not48.not.i = icmp eq ptr %78, %2
-  br i1 %.not48.not.i, label %_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit, label %42, !llvm.loop !290
+  %78 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.059.i) #15
+  %.not50.not.i = icmp eq ptr %78, %2
+  br i1 %.not50.not.i, label %_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit, label %42, !llvm.loop !290
 
 _ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit: ; preds = %.critedge.i, %37
   %79 = zext i16 %.fr79 to i64

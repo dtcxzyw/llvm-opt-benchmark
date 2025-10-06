@@ -1238,12 +1238,12 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE11removeIndexEPS1_
   %6 = load ptr, ptr %5, align 8, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !48
-  %.not2834 = icmp eq ptr %6, %8
-  br i1 %.not2834, label %._crit_edge, label %.lr.ph
+  %.not2632 = icmp eq ptr %6, %8
+  br i1 %.not2632, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %65
-  %.sroa.013.035 = phi ptr [ %66, %65 ], [ %6, %2 ]
-  %9 = load ptr, ptr %.sroa.013.035, align 8, !tbaa !38
+  %.sroa.013.033 = phi ptr [ %66, %65 ], [ %6, %2 ]
+  %9 = load ptr, ptr %.sroa.013.033, align 8, !tbaa !38
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %65
 
@@ -1251,13 +1251,13 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE11removeIndexEPS1_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i8, ptr %12, align 8, !tbaa !49, !range !21, !noundef !22
   %14 = trunc nuw i8 %13 to i1
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.035, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.033, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !50
-  %.not30 = icmp eq ptr %16, null
+  %.not28 = icmp eq ptr %16, null
   br i1 %14, label %17, label %23
 
 17:                                               ; preds = %11
-  br i1 %.not30, label %18, label %21
+  br i1 %.not28, label %18, label %21
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr @stderr, align 8, !tbaa !51
@@ -1270,11 +1270,11 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE11removeIndexEPS1_
   %22 = load ptr, ptr %15, align 8, !tbaa !50
   tail call void @_ZN5faiss12WorkerThread17waitForThreadExitEv(ptr noundef nonnull align 8 dereferenceable(184) %22)
   %.pre = load ptr, ptr %5, align 8, !tbaa !48
-  %.pre37 = load ptr, ptr %7, align 8, !tbaa !48
+  %.pre35 = load ptr, ptr %7, align 8, !tbaa !48
   br label %27
 
 23:                                               ; preds = %11
-  br i1 %.not30, label %27, label %24
+  br i1 %.not28, label %27, label %24
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @stderr, align 8, !tbaa !51
@@ -1283,9 +1283,9 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE11removeIndexEPS1_
   unreachable
 
 27:                                               ; preds = %23, %21
-  %28 = phi ptr [ %8, %23 ], [ %.pre37, %21 ]
+  %28 = phi ptr [ %8, %23 ], [ %.pre35, %21 ]
   %29 = phi ptr [ %6, %23 ], [ %.pre, %21 ]
-  %30 = ptrtoint ptr %.sroa.013.035 to i64
+  %30 = ptrtoint ptr %.sroa.013.033 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
@@ -1367,9 +1367,9 @@ _ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defaul
   br label %79
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.013.035, i64 16
-  %.not28 = icmp eq ptr %66, %8
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.013.033, i64 16
+  %.not26 = icmp eq ptr %66, %8
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %65, %2
   %67 = tail call ptr @__cxa_allocate_exception(i64 40) #25
@@ -1416,7 +1416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71
   br i1 %.0, label %78, label %80
 
 78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn27 = phi { ptr, i32 } [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn25 = phi { ptr, i32 } [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %67) #25
   br label %80
 
@@ -1424,8 +1424,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71
   ret void
 
 80:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %78
-  %.pn26 = phi { ptr, i32 } [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn27, %78 ], [ %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  resume { ptr, i32 } %.pn26
+  %.pn24 = phi { ptr, i32 } [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn25, %78 ], [ %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  resume { ptr, i32 } %.pn24
 
 81:                                               ; preds = %69
   unreachable

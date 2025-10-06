@@ -2385,22 +2385,22 @@ define dso_local void @_ZN4llvm18ARMAttributeParser7handlerEmRb(ptr dead_on_unwi
   br label %.critedge
 
 5:                                                ; preds = %.critedge
-  %.015.add = add nuw nsw i64 %.015.idx34, 24
+  %.015.add = add nuw nsw i64 %.015.idx30, 24
   %.not = icmp eq i64 %.015.add, 1056
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit22, label %.critedge
 
 .critedge:                                        ; preds = %4, %5
-  %.015.idx34 = phi i64 [ 0, %4 ], [ %.015.add, %5 ]
-  %.015.ptr35 = getelementptr inbounds nuw i8, ptr @_ZN4llvm18ARMAttributeParser15displayRoutinesE, i64 %.015.idx34
-  %6 = load i32, ptr %.015.ptr35, align 8, !tbaa !119
+  %.015.idx30 = phi i64 [ 0, %4 ], [ %.015.add, %5 ]
+  %.015.ptr31 = getelementptr inbounds nuw i8, ptr @_ZN4llvm18ARMAttributeParser15displayRoutinesE, i64 %.015.idx30
+  %6 = load i32, ptr %.015.ptr31, align 8, !tbaa !119
   %7 = zext i32 %6 to i64
   %.not21 = icmp eq i64 %2, %7
   br i1 %.not21, label %8, label %5
 
 8:                                                ; preds = %.critedge
-  %9 = getelementptr inbounds nuw i8, ptr %.015.ptr35, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.015.ptr31, i64 8
   %.unpack = load i64, ptr %9, align 8, !tbaa !122
-  %.elt18 = getelementptr inbounds nuw i8, ptr %.015.ptr35, i64 16
+  %.elt18 = getelementptr inbounds nuw i8, ptr %.015.ptr31, i64 16
   %.unpack19 = load i64, ptr %.elt18, align 8, !tbaa !122
   %10 = getelementptr inbounds i8, ptr %1, i64 %.unpack19
   %11 = and i64 %.unpack, 1
@@ -2423,14 +2423,14 @@ define dso_local void @_ZN4llvm18ARMAttributeParser7handlerEmRb(ptr dead_on_unwi
   %21 = trunc nuw i64 %2 to i32
   tail call void %20(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %10, i32 noundef %21) #16
   %22 = load ptr, ptr %0, align 8, !tbaa !31
-  %.not32 = icmp eq ptr %22, null
-  br i1 %.not32, label %.thread28, label %23
+  %.not28 = icmp eq ptr %22, null
+  br i1 %.not28, label %.thread26, label %23
 
-.thread28:                                        ; preds = %19
+.thread26:                                        ; preds = %19
   store i8 1, ptr %3, align 1, !tbaa !118
   br label %_ZN4llvm5ErrorD2Ev.exit22
 
-_ZN4llvm5ErrorD2Ev.exit22:                        ; preds = %5, %.thread28
+_ZN4llvm5ErrorD2Ev.exit22:                        ; preds = %5, %.thread26
   store ptr null, ptr %0, align 8, !tbaa !31
   br label %23
 

@@ -380,8 +380,8 @@ define dso_local noundef i64 @rdbWriteRaw(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not.i, label %.preheader.i, label %rioWrite.exit
 
 .preheader.i:                                     ; preds = %4
-  %.not3137.i = icmp eq i64 %2, 0
-  br i1 %.not3137.i, label %rioWrite.exit, label %.lr.ph.i
+  %.not3136.i = icmp eq i64 %2, 0
+  br i1 %.not3136.i, label %rioWrite.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -391,23 +391,23 @@ define dso_local noundef i64 @rdbWriteRaw(ptr noundef %0, ptr noundef %1, i64 no
   br label %12
 
 12:                                               ; preds = %24, %.lr.ph.i
-  %.02539.i = phi i64 [ %2, %.lr.ph.i ], [ %26, %24 ]
-  %.02738.i = phi ptr [ %1, %.lr.ph.i ], [ %25, %24 ]
+  %.02538.i = phi i64 [ %2, %.lr.ph.i ], [ %26, %24 ]
+  %.02737.i = phi ptr [ %1, %.lr.ph.i ], [ %25, %24 ]
   %13 = load i64, ptr %8, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %13, 0
-  %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %.02539.i)
-  %15 = select i1 %.not32.not.i, i64 %.02539.i, i64 %14
+  %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %.02538.i)
+  %15 = select i1 %.not32.not.i, i64 %.02538.i, i64 %14
   %16 = load ptr, ptr %9, align 8, !tbaa !56
   %.not33.i = icmp eq ptr %16, null
   br i1 %.not33.i, label %18, label %17
 
 17:                                               ; preds = %12
-  tail call void %16(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %15) #23
+  tail call void %16(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %15) #23
   br label %18
 
 18:                                               ; preds = %17, %12
   %19 = load ptr, ptr %10, align 8, !tbaa !57
-  %20 = tail call i64 %19(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %15) #23
+  %20 = tail call i64 %19(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %15) #23
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.thread.i, label %24
 
@@ -418,8 +418,8 @@ define dso_local noundef i64 @rdbWriteRaw(ptr noundef %0, ptr noundef %1, i64 no
   br label %rioWrite.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %15
-  %26 = sub i64 %.02539.i, %15
+  %25 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %15
+  %26 = sub i64 %.02538.i, %15
   %27 = load i64, ptr %11, align 8, !tbaa !58
   %28 = add i64 %27, %15
   store i64 %28, ptr %11, align 8, !tbaa !58
@@ -536,8 +536,8 @@ define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %0, ptr noundef 
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3
-  %.not3137 = icmp eq i64 %2, 0
-  br i1 %.not3137, label %.loopexit, label %.lr.ph
+  %.not3136 = icmp eq i64 %2, 0
+  br i1 %.not3136, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -546,14 +546,14 @@ define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %0, ptr noundef 
   br label %10
 
 10:                                               ; preds = %.lr.ph, %22
-  %.02539 = phi i64 [ %2, %.lr.ph ], [ %24, %22 ]
-  %.02738 = phi ptr [ %1, %.lr.ph ], [ %23, %22 ]
+  %.02538 = phi i64 [ %2, %.lr.ph ], [ %24, %22 ]
+  %.02737 = phi ptr [ %1, %.lr.ph ], [ %23, %22 ]
   %11 = load i64, ptr %7, align 8, !tbaa !55
   %.not32.not = icmp eq i64 %11, 0
-  %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 %.02539)
-  %13 = select i1 %.not32.not, i64 %.02539, i64 %12
+  %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 %.02538)
+  %13 = select i1 %.not32.not, i64 %.02538, i64 %12
   %14 = load ptr, ptr %0, align 8, !tbaa !60
-  %15 = tail call i64 %14(ptr noundef nonnull %0, ptr noundef %.02738, i64 noundef %13) #23
+  %15 = tail call i64 %14(ptr noundef nonnull %0, ptr noundef %.02737, i64 noundef %13) #23
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.thread, label %19
 
@@ -569,12 +569,12 @@ define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %0, ptr noundef 
   br i1 %.not33, label %22, label %21
 
 21:                                               ; preds = %19
-  tail call void %20(ptr noundef nonnull %0, ptr noundef %.02738, i64 noundef %13) #23
+  tail call void %20(ptr noundef nonnull %0, ptr noundef %.02737, i64 noundef %13) #23
   br label %22
 
 22:                                               ; preds = %19, %21
-  %23 = getelementptr inbounds nuw i8, ptr %.02738, i64 %13
-  %24 = sub i64 %.02539, %13
+  %23 = getelementptr inbounds nuw i8, ptr %.02737, i64 %13
+  %24 = sub i64 %.02538, %13
   %25 = load i64, ptr %9, align 8, !tbaa !58
   %26 = add i64 %25, %13
   store i64 %26, ptr %9, align 8, !tbaa !58
@@ -603,14 +603,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @rdbLoadTime(ptr noundef
   br label %9
 
 9:                                                ; preds = %21, %.preheader.i
-  %.02539.i = phi i64 [ 4, %.preheader.i ], [ %23, %21 ]
-  %.02738.i = phi ptr [ %2, %.preheader.i ], [ %22, %21 ]
+  %.02538.i = phi i64 [ 4, %.preheader.i ], [ %23, %21 ]
+  %.02737.i = phi ptr [ %2, %.preheader.i ], [ %22, %21 ]
   %10 = load i64, ptr %6, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %10, 0
-  %11 = call i64 @llvm.umin.i64(i64 %10, i64 %.02539.i)
-  %12 = select i1 %.not32.not.i, i64 %.02539.i, i64 %11
+  %11 = call i64 @llvm.umin.i64(i64 %10, i64 %.02538.i)
+  %12 = select i1 %.not32.not.i, i64 %.02538.i, i64 %11
   %13 = load ptr, ptr %0, align 8, !tbaa !60
-  %14 = call i64 %13(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %12) #23
+  %14 = call i64 %13(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %12) #23
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.thread.i, label %18
 
@@ -626,12 +626,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @rdbLoadTime(ptr noundef
   br i1 %.not33.i, label %21, label %20
 
 20:                                               ; preds = %18
-  call void %19(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %12) #23
+  call void %19(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %12) #23
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %12
-  %23 = sub i64 %.02539.i, %12
+  %22 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %12
+  %23 = sub i64 %.02538.i, %12
   %24 = load i64, ptr %8, align 8, !tbaa !58
   %25 = add i64 %24, %12
   store i64 %25, ptr %8, align 8, !tbaa !58
@@ -672,23 +672,23 @@ define dso_local range(i64 -1, 9) i64 @rdbSaveMillisecondTime(ptr noundef %0, i6
   br label %12
 
 12:                                               ; preds = %24, %.preheader.i.i
-  %.02539.i.i = phi i64 [ 8, %.preheader.i.i ], [ %26, %24 ]
-  %.02738.i.i = phi ptr [ %3, %.preheader.i.i ], [ %25, %24 ]
+  %.02538.i.i = phi i64 [ 8, %.preheader.i.i ], [ %26, %24 ]
+  %.02737.i.i = phi ptr [ %3, %.preheader.i.i ], [ %25, %24 ]
   %13 = load i64, ptr %8, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %13, 0
-  %14 = call i64 @llvm.umin.i64(i64 %13, i64 %.02539.i.i)
-  %15 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %14
+  %14 = call i64 @llvm.umin.i64(i64 %13, i64 %.02538.i.i)
+  %15 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %14
   %16 = load ptr, ptr %9, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %16, null
   br i1 %.not33.i.i, label %18, label %17
 
 17:                                               ; preds = %12
-  call void %16(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %15) #23
+  call void %16(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %15) #23
   br label %18
 
 18:                                               ; preds = %17, %12
   %19 = load ptr, ptr %10, align 8, !tbaa !57
-  %20 = call i64 %19(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %15) #23
+  %20 = call i64 %19(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %15) #23
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.thread.i.i, label %24
 
@@ -699,8 +699,8 @@ define dso_local range(i64 -1, 9) i64 @rdbSaveMillisecondTime(ptr noundef %0, i6
   br label %rdbWriteRaw.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %15
-  %26 = sub i64 %.02539.i.i, %15
+  %25 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %15
+  %26 = sub i64 %.02538.i.i, %15
   %27 = load i64, ptr %11, align 8, !tbaa !58
   %28 = add i64 %27, %15
   store i64 %28, ptr %11, align 8, !tbaa !58
@@ -730,14 +730,14 @@ define dso_local i64 @rdbLoadMillisecondTime(ptr noundef %0, i32 %1) local_unnam
   br label %10
 
 10:                                               ; preds = %22, %.preheader.i
-  %.02539.i = phi i64 [ 8, %.preheader.i ], [ %24, %22 ]
-  %.02738.i = phi ptr [ %3, %.preheader.i ], [ %23, %22 ]
+  %.02538.i = phi i64 [ 8, %.preheader.i ], [ %24, %22 ]
+  %.02737.i = phi ptr [ %3, %.preheader.i ], [ %23, %22 ]
   %11 = load i64, ptr %7, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %11, 0
-  %12 = call i64 @llvm.umin.i64(i64 %11, i64 %.02539.i)
-  %13 = select i1 %.not32.not.i, i64 %.02539.i, i64 %12
+  %12 = call i64 @llvm.umin.i64(i64 %11, i64 %.02538.i)
+  %13 = select i1 %.not32.not.i, i64 %.02538.i, i64 %12
   %14 = load ptr, ptr %0, align 8, !tbaa !60
-  %15 = call i64 %14(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %13) #23
+  %15 = call i64 %14(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %13) #23
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.thread.i, label %19
 
@@ -753,12 +753,12 @@ define dso_local i64 @rdbLoadMillisecondTime(ptr noundef %0, i32 %1) local_unnam
   br i1 %.not33.i, label %22, label %21
 
 21:                                               ; preds = %19
-  call void %20(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %13) #23
+  call void %20(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %13) #23
   br label %22
 
 22:                                               ; preds = %21, %19
-  %23 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %13
-  %24 = sub i64 %.02539.i, %13
+  %23 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %13
+  %24 = sub i64 %.02538.i, %13
   %25 = load i64, ptr %9, align 8, !tbaa !58
   %26 = add i64 %25, %13
   store i64 %26, ptr %9, align 8, !tbaa !58
@@ -851,23 +851,23 @@ define dso_local range(i32 -1, 10) i32 @rdbSaveLen(ptr noundef %0, i64 noundef %
   br label %41
 
 41:                                               ; preds = %53, %.preheader.i.i15
-  %.02539.i.i16 = phi i64 [ 2, %.preheader.i.i15 ], [ %55, %53 ]
-  %.02738.i.i17 = phi ptr [ %4, %.preheader.i.i15 ], [ %54, %53 ]
+  %.02538.i.i16 = phi i64 [ 2, %.preheader.i.i15 ], [ %55, %53 ]
+  %.02737.i.i17 = phi ptr [ %4, %.preheader.i.i15 ], [ %54, %53 ]
   %42 = load i64, ptr %37, align 8, !tbaa !55
   %.not32.not.i.i18 = icmp eq i64 %42, 0
-  %43 = call i64 @llvm.umin.i64(i64 %42, i64 %.02539.i.i16)
-  %44 = select i1 %.not32.not.i.i18, i64 %.02539.i.i16, i64 %43
+  %43 = call i64 @llvm.umin.i64(i64 %42, i64 %.02538.i.i16)
+  %44 = select i1 %.not32.not.i.i18, i64 %.02538.i.i16, i64 %43
   %45 = load ptr, ptr %38, align 8, !tbaa !56
   %.not33.i.i19 = icmp eq ptr %45, null
   br i1 %.not33.i.i19, label %47, label %46
 
 46:                                               ; preds = %41
-  call void %45(ptr noundef nonnull %0, ptr noundef %.02738.i.i17, i64 noundef %44) #23
+  call void %45(ptr noundef nonnull %0, ptr noundef %.02737.i.i17, i64 noundef %44) #23
   br label %47
 
 47:                                               ; preds = %46, %41
   %48 = load ptr, ptr %39, align 8, !tbaa !57
-  %49 = call i64 %48(ptr noundef nonnull %0, ptr noundef %.02738.i.i17, i64 noundef %44) #23
+  %49 = call i64 %48(ptr noundef nonnull %0, ptr noundef %.02737.i.i17, i64 noundef %44) #23
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %.thread.i.i21, label %53
 
@@ -878,8 +878,8 @@ define dso_local range(i32 -1, 10) i32 @rdbSaveLen(ptr noundef %0, i64 noundef %
   br label %rdbWriteRaw.exit
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %.02738.i.i17, i64 %44
-  %55 = sub i64 %.02539.i.i16, %44
+  %54 = getelementptr inbounds nuw i8, ptr %.02737.i.i17, i64 %44
+  %55 = sub i64 %.02538.i.i16, %44
   %56 = load i64, ptr %40, align 8, !tbaa !58
   %57 = add i64 %56, %44
   store i64 %57, ptr %40, align 8, !tbaa !58
@@ -945,23 +945,23 @@ rdbWriteRaw.exit33.thread70:                      ; preds = %60
   br i1 %.not.i.i35, label %.preheader.i.i37, label %rdbWriteRaw.exit44.thread
 
 .preheader.i.i37:                                 ; preds = %78, %96
-  %.02539.i.i38 = phi i64 [ %98, %96 ], [ 4, %78 ]
-  %.02738.i.i39 = phi ptr [ %97, %96 ], [ %5, %78 ]
+  %.02538.i.i38 = phi i64 [ %98, %96 ], [ 4, %78 ]
+  %.02737.i.i39 = phi ptr [ %97, %96 ], [ %5, %78 ]
   %85 = load i64, ptr %66, align 8, !tbaa !55
   %.not32.not.i.i40 = icmp eq i64 %85, 0
-  %86 = call i64 @llvm.umin.i64(i64 %85, i64 %.02539.i.i38)
-  %87 = select i1 %.not32.not.i.i40, i64 %.02539.i.i38, i64 %86
+  %86 = call i64 @llvm.umin.i64(i64 %85, i64 %.02538.i.i38)
+  %87 = select i1 %.not32.not.i.i40, i64 %.02538.i.i38, i64 %86
   %88 = load ptr, ptr %67, align 8, !tbaa !56
   %.not33.i.i41 = icmp eq ptr %88, null
   br i1 %.not33.i.i41, label %90, label %89
 
 89:                                               ; preds = %.preheader.i.i37
-  call void %88(ptr noundef nonnull %0, ptr noundef %.02738.i.i39, i64 noundef %87) #23
+  call void %88(ptr noundef nonnull %0, ptr noundef %.02737.i.i39, i64 noundef %87) #23
   br label %90
 
 90:                                               ; preds = %89, %.preheader.i.i37
   %91 = load ptr, ptr %68, align 8, !tbaa !57
-  %92 = call i64 %91(ptr noundef nonnull %0, ptr noundef %.02738.i.i39, i64 noundef %87) #23
+  %92 = call i64 %91(ptr noundef nonnull %0, ptr noundef %.02737.i.i39, i64 noundef %87) #23
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %.thread.i.i43, label %96
 
@@ -972,8 +972,8 @@ rdbWriteRaw.exit33.thread70:                      ; preds = %60
   br label %rdbWriteRaw.exit44.thread
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %.02738.i.i39, i64 %87
-  %98 = sub i64 %.02539.i.i38, %87
+  %97 = getelementptr inbounds nuw i8, ptr %.02737.i.i39, i64 %87
+  %98 = sub i64 %.02538.i.i38, %87
   %99 = load i64, ptr %69, align 8, !tbaa !58
   %100 = add i64 %99, %87
   store i64 %100, ptr %69, align 8, !tbaa !58
@@ -1040,23 +1040,23 @@ rdbWriteRaw.exit55.thread75:                      ; preds = %101
   br i1 %.not.i.i57, label %.preheader.i.i59, label %rdbWriteRaw.exit
 
 .preheader.i.i59:                                 ; preds = %120, %137
-  %.02539.i.i60 = phi i64 [ %139, %137 ], [ 8, %120 ]
-  %.02738.i.i61 = phi ptr [ %138, %137 ], [ %3, %120 ]
+  %.02538.i.i60 = phi i64 [ %139, %137 ], [ 8, %120 ]
+  %.02737.i.i61 = phi ptr [ %138, %137 ], [ %3, %120 ]
   %126 = load i64, ptr %108, align 8, !tbaa !55
   %.not32.not.i.i62 = icmp eq i64 %126, 0
-  %127 = call i64 @llvm.umin.i64(i64 %126, i64 %.02539.i.i60)
-  %128 = select i1 %.not32.not.i.i62, i64 %.02539.i.i60, i64 %127
+  %127 = call i64 @llvm.umin.i64(i64 %126, i64 %.02538.i.i60)
+  %128 = select i1 %.not32.not.i.i62, i64 %.02538.i.i60, i64 %127
   %129 = load ptr, ptr %109, align 8, !tbaa !56
   %.not33.i.i63 = icmp eq ptr %129, null
   br i1 %.not33.i.i63, label %131, label %130
 
 130:                                              ; preds = %.preheader.i.i59
-  call void %129(ptr noundef nonnull %0, ptr noundef %.02738.i.i61, i64 noundef %128) #23
+  call void %129(ptr noundef nonnull %0, ptr noundef %.02737.i.i61, i64 noundef %128) #23
   br label %131
 
 131:                                              ; preds = %130, %.preheader.i.i59
   %132 = load ptr, ptr %110, align 8, !tbaa !57
-  %133 = call i64 %132(ptr noundef nonnull %0, ptr noundef %.02738.i.i61, i64 noundef %128) #23
+  %133 = call i64 %132(ptr noundef nonnull %0, ptr noundef %.02737.i.i61, i64 noundef %128) #23
   %134 = icmp eq i64 %133, 0
   br i1 %134, label %.thread.i.i65, label %137
 
@@ -1067,8 +1067,8 @@ rdbWriteRaw.exit55.thread75:                      ; preds = %101
   br label %rdbWriteRaw.exit
 
 137:                                              ; preds = %131
-  %138 = getelementptr inbounds nuw i8, ptr %.02738.i.i61, i64 %128
-  %139 = sub i64 %.02539.i.i60, %128
+  %138 = getelementptr inbounds nuw i8, ptr %.02737.i.i61, i64 %128
+  %139 = sub i64 %.02538.i.i60, %128
   %140 = load i64, ptr %111, align 8, !tbaa !58
   %141 = add i64 %140, %128
   store i64 %141, ptr %111, align 8, !tbaa !58
@@ -1224,14 +1224,14 @@ rioRead.exit39:                                   ; preds = %50, %52
   br i1 %.not.i40, label %.preheader.i42, label %.critedge
 
 .preheader.i42:                                   ; preds = %63, %77
-  %.02539.i43 = phi i64 [ %79, %77 ], [ 4, %63 ]
-  %.02738.i44 = phi ptr [ %78, %77 ], [ %5, %63 ]
+  %.02538.i43 = phi i64 [ %79, %77 ], [ 4, %63 ]
+  %.02737.i44 = phi ptr [ %78, %77 ], [ %5, %63 ]
   %66 = load i64, ptr %13, align 8, !tbaa !55
   %.not32.not.i45 = icmp eq i64 %66, 0
-  %67 = call i64 @llvm.umin.i64(i64 %66, i64 %.02539.i43)
-  %68 = select i1 %.not32.not.i45, i64 %.02539.i43, i64 %67
+  %67 = call i64 @llvm.umin.i64(i64 %66, i64 %.02538.i43)
+  %68 = select i1 %.not32.not.i45, i64 %.02538.i43, i64 %67
   %69 = load ptr, ptr %0, align 8, !tbaa !60
-  %70 = call i64 %69(ptr noundef nonnull %0, ptr noundef %.02738.i44, i64 noundef %68) #23
+  %70 = call i64 %69(ptr noundef nonnull %0, ptr noundef %.02737.i44, i64 noundef %68) #23
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %.thread.i48, label %74
 
@@ -1247,12 +1247,12 @@ rioRead.exit39:                                   ; preds = %50, %52
   br i1 %.not33.i46, label %77, label %76
 
 76:                                               ; preds = %74
-  call void %75(ptr noundef nonnull %0, ptr noundef %.02738.i44, i64 noundef %68) #23
+  call void %75(ptr noundef nonnull %0, ptr noundef %.02737.i44, i64 noundef %68) #23
   br label %77
 
 77:                                               ; preds = %76, %74
-  %78 = getelementptr inbounds nuw i8, ptr %.02738.i44, i64 %68
-  %79 = sub i64 %.02539.i43, %68
+  %78 = getelementptr inbounds nuw i8, ptr %.02737.i44, i64 %68
+  %79 = sub i64 %.02538.i43, %68
   %80 = load i64, ptr %15, align 8, !tbaa !58
   %81 = add i64 %80, %68
   store i64 %81, ptr %15, align 8, !tbaa !58
@@ -1275,14 +1275,14 @@ rioRead.exit49:                                   ; preds = %77
   br i1 %.not.i50, label %.preheader.i52, label %.critedge29
 
 .preheader.i52:                                   ; preds = %85, %99
-  %.02539.i53 = phi i64 [ %101, %99 ], [ 8, %85 ]
-  %.02738.i54 = phi ptr [ %100, %99 ], [ %6, %85 ]
+  %.02538.i53 = phi i64 [ %101, %99 ], [ 8, %85 ]
+  %.02737.i54 = phi ptr [ %100, %99 ], [ %6, %85 ]
   %88 = load i64, ptr %13, align 8, !tbaa !55
   %.not32.not.i55 = icmp eq i64 %88, 0
-  %89 = call i64 @llvm.umin.i64(i64 %88, i64 %.02539.i53)
-  %90 = select i1 %.not32.not.i55, i64 %.02539.i53, i64 %89
+  %89 = call i64 @llvm.umin.i64(i64 %88, i64 %.02538.i53)
+  %90 = select i1 %.not32.not.i55, i64 %.02538.i53, i64 %89
   %91 = load ptr, ptr %0, align 8, !tbaa !60
-  %92 = call i64 %91(ptr noundef nonnull %0, ptr noundef %.02738.i54, i64 noundef %90) #23
+  %92 = call i64 %91(ptr noundef nonnull %0, ptr noundef %.02737.i54, i64 noundef %90) #23
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %.thread.i58, label %96
 
@@ -1298,12 +1298,12 @@ rioRead.exit49:                                   ; preds = %77
   br i1 %.not33.i56, label %99, label %98
 
 98:                                               ; preds = %96
-  call void %97(ptr noundef nonnull %0, ptr noundef %.02738.i54, i64 noundef %90) #23
+  call void %97(ptr noundef nonnull %0, ptr noundef %.02737.i54, i64 noundef %90) #23
   br label %99
 
 99:                                               ; preds = %98, %96
-  %100 = getelementptr inbounds nuw i8, ptr %.02738.i54, i64 %90
-  %101 = sub i64 %.02539.i53, %90
+  %100 = getelementptr inbounds nuw i8, ptr %.02737.i54, i64 %90
+  %101 = sub i64 %.02538.i53, %90
   %102 = load i64, ptr %15, align 8, !tbaa !58
   %103 = add i64 %102, %90
   store i64 %103, ptr %15, align 8, !tbaa !58
@@ -1455,14 +1455,14 @@ rioRead.exit:                                     ; preds = %21, %24
   br label %36
 
 36:                                               ; preds = %48, %.preheader.i56
-  %.02539.i57 = phi i64 [ 2, %.preheader.i56 ], [ %50, %48 ]
-  %.02738.i58 = phi ptr [ %5, %.preheader.i56 ], [ %49, %48 ]
+  %.02538.i57 = phi i64 [ 2, %.preheader.i56 ], [ %50, %48 ]
+  %.02737.i58 = phi ptr [ %5, %.preheader.i56 ], [ %49, %48 ]
   %37 = load i64, ptr %33, align 8, !tbaa !55
   %.not32.not.i59 = icmp eq i64 %37, 0
-  %38 = call i64 @llvm.umin.i64(i64 %37, i64 %.02539.i57)
-  %39 = select i1 %.not32.not.i59, i64 %.02539.i57, i64 %38
+  %38 = call i64 @llvm.umin.i64(i64 %37, i64 %.02538.i57)
+  %39 = select i1 %.not32.not.i59, i64 %.02538.i57, i64 %38
   %40 = load ptr, ptr %0, align 8, !tbaa !60
-  %41 = call i64 %40(ptr noundef nonnull %0, ptr noundef %.02738.i58, i64 noundef %39) #23
+  %41 = call i64 %40(ptr noundef nonnull %0, ptr noundef %.02737.i58, i64 noundef %39) #23
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %.thread.i62, label %45
 
@@ -1478,12 +1478,12 @@ rioRead.exit:                                     ; preds = %21, %24
   br i1 %.not33.i60, label %48, label %47
 
 47:                                               ; preds = %45
-  call void %46(ptr noundef nonnull %0, ptr noundef %.02738.i58, i64 noundef %39) #23
+  call void %46(ptr noundef nonnull %0, ptr noundef %.02737.i58, i64 noundef %39) #23
   br label %48
 
 48:                                               ; preds = %47, %45
-  %49 = getelementptr inbounds nuw i8, ptr %.02738.i58, i64 %39
-  %50 = sub i64 %.02539.i57, %39
+  %49 = getelementptr inbounds nuw i8, ptr %.02737.i58, i64 %39
+  %50 = sub i64 %.02538.i57, %39
   %51 = load i64, ptr %35, align 8, !tbaa !58
   %52 = add i64 %51, %39
   store i64 %52, ptr %35, align 8, !tbaa !58
@@ -1509,14 +1509,14 @@ rioRead.exit63:                                   ; preds = %48
   br label %62
 
 62:                                               ; preds = %74, %.preheader.i66
-  %.02539.i67 = phi i64 [ 4, %.preheader.i66 ], [ %76, %74 ]
-  %.02738.i68 = phi ptr [ %5, %.preheader.i66 ], [ %75, %74 ]
+  %.02538.i67 = phi i64 [ 4, %.preheader.i66 ], [ %76, %74 ]
+  %.02737.i68 = phi ptr [ %5, %.preheader.i66 ], [ %75, %74 ]
   %63 = load i64, ptr %59, align 8, !tbaa !55
   %.not32.not.i69 = icmp eq i64 %63, 0
-  %64 = call i64 @llvm.umin.i64(i64 %63, i64 %.02539.i67)
-  %65 = select i1 %.not32.not.i69, i64 %.02539.i67, i64 %64
+  %64 = call i64 @llvm.umin.i64(i64 %63, i64 %.02538.i67)
+  %65 = select i1 %.not32.not.i69, i64 %.02538.i67, i64 %64
   %66 = load ptr, ptr %0, align 8, !tbaa !60
-  %67 = call i64 %66(ptr noundef nonnull %0, ptr noundef %.02738.i68, i64 noundef %65) #23
+  %67 = call i64 %66(ptr noundef nonnull %0, ptr noundef %.02737.i68, i64 noundef %65) #23
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %.thread.i72, label %71
 
@@ -1532,12 +1532,12 @@ rioRead.exit63:                                   ; preds = %48
   br i1 %.not33.i70, label %74, label %73
 
 73:                                               ; preds = %71
-  call void %72(ptr noundef nonnull %0, ptr noundef %.02738.i68, i64 noundef %65) #23
+  call void %72(ptr noundef nonnull %0, ptr noundef %.02737.i68, i64 noundef %65) #23
   br label %74
 
 74:                                               ; preds = %73, %71
-  %75 = getelementptr inbounds nuw i8, ptr %.02738.i68, i64 %65
-  %76 = sub i64 %.02539.i67, %65
+  %75 = getelementptr inbounds nuw i8, ptr %.02737.i68, i64 %65
+  %76 = sub i64 %.02538.i67, %65
   %77 = load i64, ptr %61, align 8, !tbaa !58
   %78 = add i64 %77, %65
   store i64 %78, ptr %61, align 8, !tbaa !58
@@ -1757,8 +1757,8 @@ rdbWriteRaw.exit:                                 ; preds = %rdbWriteRaw.exit.lo
   br i1 %.not.i.i22, label %.preheader.i.i24, label %rdbWriteRaw.exit.thread
 
 .preheader.i.i24:                                 ; preds = %30
-  %.not3137.i.i = icmp eq i64 %2, 0
-  br i1 %.not3137.i.i, label %rdbWriteRaw.exit31.thread34, label %.lr.ph.i.i
+  %.not3136.i.i = icmp eq i64 %2, 0
+  br i1 %.not3136.i.i, label %rdbWriteRaw.exit31.thread34, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1768,23 +1768,23 @@ rdbWriteRaw.exit:                                 ; preds = %rdbWriteRaw.exit.lo
   br label %38
 
 38:                                               ; preds = %50, %.lr.ph.i.i
-  %.02539.i.i25 = phi i64 [ %2, %.lr.ph.i.i ], [ %52, %50 ]
-  %.02738.i.i26 = phi ptr [ %1, %.lr.ph.i.i ], [ %51, %50 ]
+  %.02538.i.i25 = phi i64 [ %2, %.lr.ph.i.i ], [ %52, %50 ]
+  %.02737.i.i26 = phi ptr [ %1, %.lr.ph.i.i ], [ %51, %50 ]
   %39 = load i64, ptr %34, align 8, !tbaa !55
   %.not32.not.i.i27 = icmp eq i64 %39, 0
-  %40 = call i64 @llvm.umin.i64(i64 %39, i64 %.02539.i.i25)
-  %41 = select i1 %.not32.not.i.i27, i64 %.02539.i.i25, i64 %40
+  %40 = call i64 @llvm.umin.i64(i64 %39, i64 %.02538.i.i25)
+  %41 = select i1 %.not32.not.i.i27, i64 %.02538.i.i25, i64 %40
   %42 = load ptr, ptr %35, align 8, !tbaa !56
   %.not33.i.i28 = icmp eq ptr %42, null
   br i1 %.not33.i.i28, label %44, label %43
 
 43:                                               ; preds = %38
-  call void %42(ptr noundef nonnull %0, ptr noundef %.02738.i.i26, i64 noundef %41) #23
+  call void %42(ptr noundef nonnull %0, ptr noundef %.02737.i.i26, i64 noundef %41) #23
   br label %44
 
 44:                                               ; preds = %43, %38
   %45 = load ptr, ptr %36, align 8, !tbaa !57
-  %46 = call i64 %45(ptr noundef nonnull %0, ptr noundef %.02738.i.i26, i64 noundef %41) #23
+  %46 = call i64 %45(ptr noundef nonnull %0, ptr noundef %.02737.i.i26, i64 noundef %41) #23
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %.thread.i.i30, label %50
 
@@ -1795,8 +1795,8 @@ rdbWriteRaw.exit:                                 ; preds = %rdbWriteRaw.exit.lo
   br label %rdbWriteRaw.exit.thread
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw i8, ptr %.02738.i.i26, i64 %41
-  %52 = sub i64 %.02539.i.i25, %41
+  %51 = getelementptr inbounds nuw i8, ptr %.02737.i.i26, i64 %41
+  %52 = sub i64 %.02538.i.i25, %41
   %53 = load i64, ptr %37, align 8, !tbaa !58
   %54 = add i64 %53, %41
   store i64 %54, ptr %37, align 8, !tbaa !58
@@ -1980,8 +1980,8 @@ define dso_local ptr @rdbLoadLzfStringObject(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.i, label %.preheader.i, label %rioRead.exit.thread
 
 .preheader.i:                                     ; preds = %61
-  %.not3137.i = icmp eq i64 %13, 0
-  br i1 %.not3137.i, label %rioRead.exit, label %.lr.ph.i
+  %.not3136.i = icmp eq i64 %13, 0
+  br i1 %.not3136.i, label %rioRead.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1990,14 +1990,14 @@ define dso_local ptr @rdbLoadLzfStringObject(ptr noundef %0, i32 noundef %1, ptr
   br label %68
 
 68:                                               ; preds = %80, %.lr.ph.i
-  %.02539.i = phi i64 [ %13, %.lr.ph.i ], [ %82, %80 ]
-  %.02738.i = phi ptr [ %23, %.lr.ph.i ], [ %81, %80 ]
+  %.02538.i = phi i64 [ %13, %.lr.ph.i ], [ %82, %80 ]
+  %.02737.i = phi ptr [ %23, %.lr.ph.i ], [ %81, %80 ]
   %69 = load i64, ptr %65, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %69, 0
-  %70 = tail call i64 @llvm.umin.i64(i64 %69, i64 %.02539.i)
-  %71 = select i1 %.not32.not.i, i64 %.02539.i, i64 %70
+  %70 = tail call i64 @llvm.umin.i64(i64 %69, i64 %.02538.i)
+  %71 = select i1 %.not32.not.i, i64 %.02538.i, i64 %70
   %72 = load ptr, ptr %0, align 8, !tbaa !60
-  %73 = tail call i64 %72(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %71) #23
+  %73 = tail call i64 %72(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %71) #23
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %.thread.i, label %77
 
@@ -2013,12 +2013,12 @@ define dso_local ptr @rdbLoadLzfStringObject(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not33.i, label %80, label %79
 
 79:                                               ; preds = %77
-  tail call void %78(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %71) #23
+  tail call void %78(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %71) #23
   br label %80
 
 80:                                               ; preds = %79, %77
-  %81 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %71
-  %82 = sub i64 %.02539.i, %71
+  %81 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %71
+  %82 = sub i64 %.02538.i, %71
   %83 = load i64, ptr %67, align 8, !tbaa !58
   %84 = add i64 %83, %71
   store i64 %84, ptr %67, align 8, !tbaa !58
@@ -2153,23 +2153,23 @@ define dso_local i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 nound
   br label %34
 
 34:                                               ; preds = %46, %.lr.ph.i.i
-  %.02539.i.i = phi i64 [ %.0.i.ph, %.lr.ph.i.i ], [ %48, %46 ]
-  %.02738.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %47, %46 ]
+  %.02538.i.i = phi i64 [ %.0.i.ph, %.lr.ph.i.i ], [ %48, %46 ]
+  %.02737.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %47, %46 ]
   %35 = load i64, ptr %30, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %35, 0
-  %36 = call i64 @llvm.umin.i64(i64 %35, i64 %.02539.i.i)
-  %37 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %36
+  %36 = call i64 @llvm.umin.i64(i64 %35, i64 %.02538.i.i)
+  %37 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %36
   %38 = load ptr, ptr %31, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %38, null
   br i1 %.not33.i.i, label %40, label %39
 
 39:                                               ; preds = %34
-  call void %38(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %37) #23
+  call void %38(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %37) #23
   br label %40
 
 40:                                               ; preds = %39, %34
   %41 = load ptr, ptr %32, align 8, !tbaa !57
-  %42 = call i64 %41(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %37) #23
+  %42 = call i64 %41(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %37) #23
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %.thread.i.i, label %46
 
@@ -2180,8 +2180,8 @@ define dso_local i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 nound
   br label %.thread
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %37
-  %48 = sub i64 %.02539.i.i, %37
+  %47 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %37
+  %48 = sub i64 %.02538.i.i, %37
   %49 = load i64, ptr %33, align 8, !tbaa !58
   %50 = add i64 %49, %37
   store i64 %50, ptr %33, align 8, !tbaa !58
@@ -2260,23 +2260,23 @@ rdbSaveLzfStringObject.exit:                      ; preds = %59
   br label %80
 
 80:                                               ; preds = %92, %.lr.ph.i.i42
-  %.02539.i.i43 = phi i64 [ %2, %.lr.ph.i.i42 ], [ %94, %92 ]
-  %.02738.i.i44 = phi ptr [ %1, %.lr.ph.i.i42 ], [ %93, %92 ]
+  %.02538.i.i43 = phi i64 [ %2, %.lr.ph.i.i42 ], [ %94, %92 ]
+  %.02737.i.i44 = phi ptr [ %1, %.lr.ph.i.i42 ], [ %93, %92 ]
   %81 = load i64, ptr %76, align 8, !tbaa !55
   %.not32.not.i.i45 = icmp eq i64 %81, 0
-  %82 = call i64 @llvm.umin.i64(i64 %81, i64 %.02539.i.i43)
-  %83 = select i1 %.not32.not.i.i45, i64 %.02539.i.i43, i64 %82
+  %82 = call i64 @llvm.umin.i64(i64 %81, i64 %.02538.i.i43)
+  %83 = select i1 %.not32.not.i.i45, i64 %.02538.i.i43, i64 %82
   %84 = load ptr, ptr %77, align 8, !tbaa !56
   %.not33.i.i46 = icmp eq ptr %84, null
   br i1 %.not33.i.i46, label %86, label %85
 
 85:                                               ; preds = %80
-  call void %84(ptr noundef nonnull %0, ptr noundef %.02738.i.i44, i64 noundef %83) #23
+  call void %84(ptr noundef nonnull %0, ptr noundef %.02737.i.i44, i64 noundef %83) #23
   br label %86
 
 86:                                               ; preds = %85, %80
   %87 = load ptr, ptr %78, align 8, !tbaa !57
-  %88 = call i64 %87(ptr noundef nonnull %0, ptr noundef %.02738.i.i44, i64 noundef %83) #23
+  %88 = call i64 %87(ptr noundef nonnull %0, ptr noundef %.02737.i.i44, i64 noundef %83) #23
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %.thread.i.i48, label %92
 
@@ -2287,8 +2287,8 @@ rdbSaveLzfStringObject.exit:                      ; preds = %59
   br label %rdbWriteRaw.exit49.thread
 
 92:                                               ; preds = %86
-  %93 = getelementptr inbounds nuw i8, ptr %.02738.i.i44, i64 %83
-  %94 = sub i64 %.02539.i.i43, %83
+  %93 = getelementptr inbounds nuw i8, ptr %.02737.i.i44, i64 %83
+  %94 = sub i64 %.02538.i.i43, %83
   %95 = load i64, ptr %79, align 8, !tbaa !58
   %96 = add i64 %95, %83
   store i64 %96, ptr %79, align 8, !tbaa !58
@@ -2367,23 +2367,23 @@ define dso_local range(i64 -2147483649, 41) i64 @rdbSaveLongLongAsStringObject(p
   br label %27
 
 27:                                               ; preds = %39, %.lr.ph.i.i
-  %.02539.i.i = phi i64 [ %.0.i.ph, %.lr.ph.i.i ], [ %41, %39 ]
-  %.02738.i.i = phi ptr [ %3, %.lr.ph.i.i ], [ %40, %39 ]
+  %.02538.i.i = phi i64 [ %.0.i.ph, %.lr.ph.i.i ], [ %41, %39 ]
+  %.02737.i.i = phi ptr [ %3, %.lr.ph.i.i ], [ %40, %39 ]
   %28 = load i64, ptr %23, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %28, 0
-  %29 = call i64 @llvm.umin.i64(i64 %28, i64 %.02539.i.i)
-  %30 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %29
+  %29 = call i64 @llvm.umin.i64(i64 %28, i64 %.02538.i.i)
+  %30 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %29
   %31 = load ptr, ptr %24, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %31, null
   br i1 %.not33.i.i, label %33, label %32
 
 32:                                               ; preds = %27
-  call void %31(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %30) #23
+  call void %31(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %30) #23
   br label %33
 
 33:                                               ; preds = %32, %27
   %34 = load ptr, ptr %25, align 8, !tbaa !57
-  %35 = call i64 %34(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %30) #23
+  %35 = call i64 %34(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %30) #23
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %.thread.i.i, label %39
 
@@ -2394,8 +2394,8 @@ define dso_local range(i64 -2147483649, 41) i64 @rdbSaveLongLongAsStringObject(p
   br label %rdbWriteRaw.exit
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %30
-  %41 = sub i64 %.02539.i.i, %30
+  %40 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %30
+  %41 = sub i64 %.02538.i.i, %30
   %42 = load i64, ptr %26, align 8, !tbaa !58
   %43 = add i64 %42, %30
   store i64 %43, ptr %26, align 8, !tbaa !58
@@ -2431,8 +2431,8 @@ rdbEncodeInteger.exit:                            ; preds = %13
   br i1 %.not.i.i21, label %.preheader.i.i23, label %rdbWriteRaw.exit32.thread
 
 .preheader.i.i23:                                 ; preds = %53
-  %.not3137.i.i24 = icmp eq i32 %44, 0
-  br i1 %.not3137.i.i24, label %rdbWriteRaw.exit, label %.lr.ph.i.i25
+  %.not3136.i.i24 = icmp eq i32 %44, 0
+  br i1 %.not3136.i.i24, label %rdbWriteRaw.exit, label %.lr.ph.i.i25
 
 .lr.ph.i.i25:                                     ; preds = %.preheader.i.i23
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2442,23 +2442,23 @@ rdbEncodeInteger.exit:                            ; preds = %13
   br label %61
 
 61:                                               ; preds = %73, %.lr.ph.i.i25
-  %.02539.i.i26 = phi i64 [ %48, %.lr.ph.i.i25 ], [ %75, %73 ]
-  %.02738.i.i27 = phi ptr [ %3, %.lr.ph.i.i25 ], [ %74, %73 ]
+  %.02538.i.i26 = phi i64 [ %48, %.lr.ph.i.i25 ], [ %75, %73 ]
+  %.02737.i.i27 = phi ptr [ %3, %.lr.ph.i.i25 ], [ %74, %73 ]
   %62 = load i64, ptr %57, align 8, !tbaa !55
   %.not32.not.i.i28 = icmp eq i64 %62, 0
-  %63 = call i64 @llvm.umin.i64(i64 %62, i64 %.02539.i.i26)
-  %64 = select i1 %.not32.not.i.i28, i64 %.02539.i.i26, i64 %63
+  %63 = call i64 @llvm.umin.i64(i64 %62, i64 %.02538.i.i26)
+  %64 = select i1 %.not32.not.i.i28, i64 %.02538.i.i26, i64 %63
   %65 = load ptr, ptr %58, align 8, !tbaa !56
   %.not33.i.i29 = icmp eq ptr %65, null
   br i1 %.not33.i.i29, label %67, label %66
 
 66:                                               ; preds = %61
-  call void %65(ptr noundef nonnull %0, ptr noundef %.02738.i.i27, i64 noundef %64) #23
+  call void %65(ptr noundef nonnull %0, ptr noundef %.02737.i.i27, i64 noundef %64) #23
   br label %67
 
 67:                                               ; preds = %66, %61
   %68 = load ptr, ptr %59, align 8, !tbaa !57
-  %69 = call i64 %68(ptr noundef nonnull %0, ptr noundef %.02738.i.i27, i64 noundef %64) #23
+  %69 = call i64 %68(ptr noundef nonnull %0, ptr noundef %.02737.i.i27, i64 noundef %64) #23
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %.thread.i.i31, label %73
 
@@ -2469,8 +2469,8 @@ rdbEncodeInteger.exit:                            ; preds = %13
   br label %rdbWriteRaw.exit32.thread
 
 73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %.02738.i.i27, i64 %64
-  %75 = sub i64 %.02539.i.i26, %64
+  %74 = getelementptr inbounds nuw i8, ptr %.02737.i.i27, i64 %64
+  %75 = sub i64 %.02538.i.i26, %64
   %76 = load i64, ptr %60, align 8, !tbaa !58
   %77 = add i64 %76, %64
   store i64 %77, ptr %60, align 8, !tbaa !58
@@ -2719,14 +2719,14 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
   br label %49
 
 49:                                               ; preds = %61, %.lr.ph.i
-  %.02539.i = phi i64 [ %12, %.lr.ph.i ], [ %63, %61 ]
-  %.02738.i = phi ptr [ %45, %.lr.ph.i ], [ %62, %61 ]
+  %.02538.i = phi i64 [ %12, %.lr.ph.i ], [ %63, %61 ]
+  %.02737.i = phi ptr [ %45, %.lr.ph.i ], [ %62, %61 ]
   %50 = load i64, ptr %46, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %50, 0
-  %51 = call i64 @llvm.umin.i64(i64 %50, i64 %.02539.i)
-  %52 = select i1 %.not32.not.i, i64 %.02539.i, i64 %51
+  %51 = call i64 @llvm.umin.i64(i64 %50, i64 %.02538.i)
+  %52 = select i1 %.not32.not.i, i64 %.02538.i, i64 %51
   %53 = load ptr, ptr %0, align 8, !tbaa !60
-  %54 = call i64 %53(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %52) #23
+  %54 = call i64 %53(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %52) #23
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %.thread.i, label %58
 
@@ -2742,12 +2742,12 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
   br i1 %.not33.i, label %61, label %60
 
 60:                                               ; preds = %58
-  call void %59(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %52) #23
+  call void %59(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %52) #23
   br label %61
 
 61:                                               ; preds = %60, %58
-  %62 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %52
-  %63 = sub i64 %.02539.i, %52
+  %62 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %52
+  %63 = sub i64 %.02538.i, %52
   %64 = load i64, ptr %48, align 8, !tbaa !58
   %65 = add i64 %64, %52
   store i64 %65, ptr %48, align 8, !tbaa !58
@@ -2834,14 +2834,14 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
   br label %100
 
 100:                                              ; preds = %112, %.lr.ph.i80
-  %.02539.i81 = phi i64 [ %12, %.lr.ph.i80 ], [ %114, %112 ]
-  %.02738.i82 = phi ptr [ %.049, %.lr.ph.i80 ], [ %113, %112 ]
+  %.02538.i81 = phi i64 [ %12, %.lr.ph.i80 ], [ %114, %112 ]
+  %.02737.i82 = phi ptr [ %.049, %.lr.ph.i80 ], [ %113, %112 ]
   %101 = load i64, ptr %97, align 8, !tbaa !55
   %.not32.not.i83 = icmp eq i64 %101, 0
-  %102 = call i64 @llvm.umin.i64(i64 %101, i64 %.02539.i81)
-  %103 = select i1 %.not32.not.i83, i64 %.02539.i81, i64 %102
+  %102 = call i64 @llvm.umin.i64(i64 %101, i64 %.02538.i81)
+  %103 = select i1 %.not32.not.i83, i64 %.02538.i81, i64 %102
   %104 = load ptr, ptr %0, align 8, !tbaa !60
-  %105 = call i64 %104(ptr noundef nonnull %0, ptr noundef %.02738.i82, i64 noundef %103) #23
+  %105 = call i64 %104(ptr noundef nonnull %0, ptr noundef %.02737.i82, i64 noundef %103) #23
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %.thread.i86, label %109
 
@@ -2857,12 +2857,12 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
   br i1 %.not33.i84, label %112, label %111
 
 111:                                              ; preds = %109
-  call void %110(ptr noundef nonnull %0, ptr noundef %.02738.i82, i64 noundef %103) #23
+  call void %110(ptr noundef nonnull %0, ptr noundef %.02737.i82, i64 noundef %103) #23
   br label %112
 
 112:                                              ; preds = %111, %109
-  %113 = getelementptr inbounds nuw i8, ptr %.02738.i82, i64 %103
-  %114 = sub i64 %.02539.i81, %103
+  %113 = getelementptr inbounds nuw i8, ptr %.02737.i82, i64 %103
+  %114 = sub i64 %.02538.i81, %103
   %115 = load i64, ptr %99, align 8, !tbaa !58
   %116 = add i64 %115, %103
   store i64 %116, ptr %99, align 8, !tbaa !58
@@ -2982,23 +2982,23 @@ define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, doub
   br label %39
 
 39:                                               ; preds = %51, %.preheader.i.i
-  %.02539.i.i = phi i64 [ %.0, %.preheader.i.i ], [ %53, %51 ]
-  %.02738.i.i = phi ptr [ %3, %.preheader.i.i ], [ %52, %51 ]
+  %.02538.i.i = phi i64 [ %.0, %.preheader.i.i ], [ %53, %51 ]
+  %.02737.i.i = phi ptr [ %3, %.preheader.i.i ], [ %52, %51 ]
   %40 = load i64, ptr %35, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %40, 0
-  %41 = call i64 @llvm.umin.i64(i64 %40, i64 %.02539.i.i)
-  %42 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %41
+  %41 = call i64 @llvm.umin.i64(i64 %40, i64 %.02538.i.i)
+  %42 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %41
   %43 = load ptr, ptr %36, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %43, null
   br i1 %.not33.i.i, label %45, label %44
 
 44:                                               ; preds = %39
-  call void %43(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %42) #23
+  call void %43(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %42) #23
   br label %45
 
 45:                                               ; preds = %44, %39
   %46 = load ptr, ptr %37, align 8, !tbaa !57
-  %47 = call i64 %46(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %42) #23
+  %47 = call i64 %46(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %42) #23
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %.thread.i.i, label %51
 
@@ -3009,8 +3009,8 @@ define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, doub
   br label %rdbWriteRaw.exit
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %42
-  %53 = sub i64 %.02539.i.i, %42
+  %52 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %42
+  %53 = sub i64 %.02538.i.i, %42
   %54 = load i64, ptr %38, align 8, !tbaa !58
   %55 = add i64 %54, %42
   store i64 %55, ptr %38, align 8, !tbaa !58
@@ -3099,22 +3099,22 @@ rioRead.exit:                                     ; preds = %17, %19
   br i1 %.not.i6, label %.preheader.i8, label %rioRead.exit.thread
 
 .preheader.i8:                                    ; preds = %29
-  %.not3137.i = icmp eq i8 %22, 0
-  br i1 %.not3137.i, label %rioRead.exit15, label %.lr.ph.i.preheader
+  %.not3136.i = icmp eq i8 %22, 0
+  br i1 %.not3136.i, label %rioRead.exit15, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i8
   %32 = zext i8 %22 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %44
-  %.02539.i9 = phi i64 [ %46, %44 ], [ %32, %.lr.ph.i.preheader ]
-  %.02738.i10 = phi ptr [ %45, %44 ], [ %3, %.lr.ph.i.preheader ]
+  %.02538.i9 = phi i64 [ %46, %44 ], [ %32, %.lr.ph.i.preheader ]
+  %.02737.i10 = phi ptr [ %45, %44 ], [ %3, %.lr.ph.i.preheader ]
   %33 = load i64, ptr %9, align 8, !tbaa !55
   %.not32.not.i11 = icmp eq i64 %33, 0
-  %34 = call i64 @llvm.umin.i64(i64 %33, i64 %.02539.i9)
-  %35 = select i1 %.not32.not.i11, i64 %.02539.i9, i64 %34
+  %34 = call i64 @llvm.umin.i64(i64 %33, i64 %.02538.i9)
+  %35 = select i1 %.not32.not.i11, i64 %.02538.i9, i64 %34
   %36 = load ptr, ptr %0, align 8, !tbaa !60
-  %37 = call i64 %36(ptr noundef nonnull %0, ptr noundef %.02738.i10, i64 noundef %35) #23
+  %37 = call i64 %36(ptr noundef nonnull %0, ptr noundef %.02737.i10, i64 noundef %35) #23
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %.thread.i14, label %41
 
@@ -3130,12 +3130,12 @@ rioRead.exit:                                     ; preds = %17, %19
   br i1 %.not33.i12, label %44, label %43
 
 43:                                               ; preds = %41
-  call void %42(ptr noundef nonnull %0, ptr noundef %.02738.i10, i64 noundef %35) #23
+  call void %42(ptr noundef nonnull %0, ptr noundef %.02737.i10, i64 noundef %35) #23
   br label %44
 
 44:                                               ; preds = %43, %41
-  %45 = getelementptr inbounds nuw i8, ptr %.02738.i10, i64 %35
-  %46 = sub i64 %.02539.i9, %35
+  %45 = getelementptr inbounds nuw i8, ptr %.02737.i10, i64 %35
+  %46 = sub i64 %.02538.i9, %35
   %47 = load i64, ptr %11, align 8, !tbaa !58
   %48 = add i64 %47, %35
   store i64 %48, ptr %11, align 8, !tbaa !58
@@ -3188,23 +3188,23 @@ define dso_local range(i32 -1, 9) i32 @rdbSaveBinaryDoubleValue(ptr noundef %0, 
   br label %12
 
 12:                                               ; preds = %24, %.preheader.i.i
-  %.02539.i.i = phi i64 [ 8, %.preheader.i.i ], [ %26, %24 ]
-  %.02738.i.i = phi ptr [ %3, %.preheader.i.i ], [ %25, %24 ]
+  %.02538.i.i = phi i64 [ 8, %.preheader.i.i ], [ %26, %24 ]
+  %.02737.i.i = phi ptr [ %3, %.preheader.i.i ], [ %25, %24 ]
   %13 = load i64, ptr %8, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %13, 0
-  %14 = call i64 @llvm.umin.i64(i64 %13, i64 %.02539.i.i)
-  %15 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %14
+  %14 = call i64 @llvm.umin.i64(i64 %13, i64 %.02538.i.i)
+  %15 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %14
   %16 = load ptr, ptr %9, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %16, null
   br i1 %.not33.i.i, label %18, label %17
 
 17:                                               ; preds = %12
-  call void %16(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %15) #23
+  call void %16(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %15) #23
   br label %18
 
 18:                                               ; preds = %17, %12
   %19 = load ptr, ptr %10, align 8, !tbaa !57
-  %20 = call i64 %19(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %15) #23
+  %20 = call i64 %19(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %15) #23
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.thread.i.i, label %24
 
@@ -3215,8 +3215,8 @@ define dso_local range(i32 -1, 9) i32 @rdbSaveBinaryDoubleValue(ptr noundef %0, 
   br label %rdbWriteRaw.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %15
-  %26 = sub i64 %.02539.i.i, %15
+  %25 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %15
+  %26 = sub i64 %.02538.i.i, %15
   %27 = load i64, ptr %11, align 8, !tbaa !58
   %28 = add i64 %27, %15
   store i64 %28, ptr %11, align 8, !tbaa !58
@@ -3243,14 +3243,14 @@ define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryDoubleValue(ptr noundef %0, 
   br label %9
 
 9:                                                ; preds = %21, %.preheader.i
-  %.02539.i = phi i64 [ 8, %.preheader.i ], [ %23, %21 ]
-  %.02738.i = phi ptr [ %1, %.preheader.i ], [ %22, %21 ]
+  %.02538.i = phi i64 [ 8, %.preheader.i ], [ %23, %21 ]
+  %.02737.i = phi ptr [ %1, %.preheader.i ], [ %22, %21 ]
   %10 = load i64, ptr %6, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %10, 0
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %.02539.i)
-  %12 = select i1 %.not32.not.i, i64 %.02539.i, i64 %11
+  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %.02538.i)
+  %12 = select i1 %.not32.not.i, i64 %.02538.i, i64 %11
   %13 = load ptr, ptr %0, align 8, !tbaa !60
-  %14 = tail call i64 %13(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %12) #23
+  %14 = tail call i64 %13(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %12) #23
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.thread.i, label %18
 
@@ -3266,12 +3266,12 @@ define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryDoubleValue(ptr noundef %0, 
   br i1 %.not33.i, label %21, label %20
 
 20:                                               ; preds = %18
-  tail call void %19(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %12) #23
+  tail call void %19(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %12) #23
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %12
-  %23 = sub i64 %.02539.i, %12
+  %22 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %12
+  %23 = sub i64 %.02538.i, %12
   %24 = load i64, ptr %8, align 8, !tbaa !58
   %25 = add i64 %24, %12
   store i64 %25, ptr %8, align 8, !tbaa !58
@@ -3305,23 +3305,23 @@ define dso_local range(i32 -1, 5) i32 @rdbSaveBinaryFloatValue(ptr noundef %0, f
   br label %12
 
 12:                                               ; preds = %24, %.preheader.i.i
-  %.02539.i.i = phi i64 [ 4, %.preheader.i.i ], [ %26, %24 ]
-  %.02738.i.i = phi ptr [ %3, %.preheader.i.i ], [ %25, %24 ]
+  %.02538.i.i = phi i64 [ 4, %.preheader.i.i ], [ %26, %24 ]
+  %.02737.i.i = phi ptr [ %3, %.preheader.i.i ], [ %25, %24 ]
   %13 = load i64, ptr %8, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %13, 0
-  %14 = call i64 @llvm.umin.i64(i64 %13, i64 %.02539.i.i)
-  %15 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %14
+  %14 = call i64 @llvm.umin.i64(i64 %13, i64 %.02538.i.i)
+  %15 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %14
   %16 = load ptr, ptr %9, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %16, null
   br i1 %.not33.i.i, label %18, label %17
 
 17:                                               ; preds = %12
-  call void %16(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %15) #23
+  call void %16(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %15) #23
   br label %18
 
 18:                                               ; preds = %17, %12
   %19 = load ptr, ptr %10, align 8, !tbaa !57
-  %20 = call i64 %19(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %15) #23
+  %20 = call i64 %19(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %15) #23
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.thread.i.i, label %24
 
@@ -3332,8 +3332,8 @@ define dso_local range(i32 -1, 5) i32 @rdbSaveBinaryFloatValue(ptr noundef %0, f
   br label %rdbWriteRaw.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %15
-  %26 = sub i64 %.02539.i.i, %15
+  %25 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %15
+  %26 = sub i64 %.02538.i.i, %15
   %27 = load i64, ptr %11, align 8, !tbaa !58
   %28 = add i64 %27, %15
   store i64 %28, ptr %11, align 8, !tbaa !58
@@ -3360,14 +3360,14 @@ define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryFloatValue(ptr noundef %0, p
   br label %9
 
 9:                                                ; preds = %21, %.preheader.i
-  %.02539.i = phi i64 [ 4, %.preheader.i ], [ %23, %21 ]
-  %.02738.i = phi ptr [ %1, %.preheader.i ], [ %22, %21 ]
+  %.02538.i = phi i64 [ 4, %.preheader.i ], [ %23, %21 ]
+  %.02737.i = phi ptr [ %1, %.preheader.i ], [ %22, %21 ]
   %10 = load i64, ptr %6, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %10, 0
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %.02539.i)
-  %12 = select i1 %.not32.not.i, i64 %.02539.i, i64 %11
+  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %.02538.i)
+  %12 = select i1 %.not32.not.i, i64 %.02538.i, i64 %11
   %13 = load ptr, ptr %0, align 8, !tbaa !60
-  %14 = tail call i64 %13(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %12) #23
+  %14 = tail call i64 %13(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %12) #23
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.thread.i, label %18
 
@@ -3383,12 +3383,12 @@ define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryFloatValue(ptr noundef %0, p
   br i1 %.not33.i, label %21, label %20
 
 20:                                               ; preds = %18
-  tail call void %19(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %12) #23
+  tail call void %19(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %12) #23
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %12
-  %23 = sub i64 %.02539.i, %12
+  %22 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %12
+  %23 = sub i64 %.02538.i, %12
   %24 = load i64, ptr %8, align 8, !tbaa !58
   %25 = add i64 %24, %12
   store i64 %25, ptr %8, align 8, !tbaa !58
@@ -4251,29 +4251,29 @@ rdbWriteRaw.exit.thread30.us:                     ; preds = %.lr.ph.split.us, %2
   br label %.preheader.i.i.us
 
 .preheader.i.i.us:                                ; preds = %.preheader.i.i.us.preheader, %43
-  %.02539.i.i.us = phi i64 [ %45, %43 ], [ 16, %.preheader.i.i.us.preheader ]
-  %.02738.i.i.us = phi ptr [ %44, %43 ], [ %33, %.preheader.i.i.us.preheader ]
+  %.02538.i.i.us = phi i64 [ %45, %43 ], [ 16, %.preheader.i.i.us.preheader ]
+  %.02737.i.i.us = phi ptr [ %44, %43 ], [ %33, %.preheader.i.i.us.preheader ]
   %34 = load i64, ptr %15, align 8, !tbaa !55
   %.not32.not.i.i.us = icmp eq i64 %34, 0
-  %35 = call i64 @llvm.umin.i64(i64 %34, i64 %.02539.i.i.us)
-  %36 = select i1 %.not32.not.i.i.us, i64 %.02539.i.i.us, i64 %35
+  %35 = call i64 @llvm.umin.i64(i64 %34, i64 %.02538.i.i.us)
+  %36 = select i1 %.not32.not.i.i.us, i64 %.02538.i.i.us, i64 %35
   %37 = load ptr, ptr %16, align 8, !tbaa !56
   %.not33.i.i.us = icmp eq ptr %37, null
   br i1 %.not33.i.i.us, label %39, label %38
 
 38:                                               ; preds = %.preheader.i.i.us
-  call void %37(ptr noundef nonnull %0, ptr noundef %.02738.i.i.us, i64 noundef %36) #23
+  call void %37(ptr noundef nonnull %0, ptr noundef %.02737.i.i.us, i64 noundef %36) #23
   br label %39
 
 39:                                               ; preds = %38, %.preheader.i.i.us
   %40 = load ptr, ptr %17, align 8, !tbaa !57
-  %41 = call i64 %40(ptr noundef nonnull %0, ptr noundef %.02738.i.i.us, i64 noundef %36) #23
+  %41 = call i64 %40(ptr noundef nonnull %0, ptr noundef %.02737.i.i.us, i64 noundef %36) #23
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %.thread.i.i, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.02738.i.i.us, i64 %36
-  %45 = sub i64 %.02539.i.i.us, %36
+  %44 = getelementptr inbounds nuw i8, ptr %.02737.i.i.us, i64 %36
+  %45 = sub i64 %.02538.i.i.us, %36
   %46 = load i64, ptr %18, align 8, !tbaa !58
   %47 = add i64 %46, %36
   store i64 %47, ptr %18, align 8, !tbaa !58
@@ -4298,23 +4298,23 @@ rdbWriteRaw.exit.us:                              ; preds = %43
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %64
-  %.02539.i.i = phi i64 [ %66, %64 ], [ 16, %.preheader.i.i.preheader ]
-  %.02738.i.i = phi ptr [ %65, %64 ], [ %52, %.preheader.i.i.preheader ]
+  %.02538.i.i = phi i64 [ %66, %64 ], [ 16, %.preheader.i.i.preheader ]
+  %.02737.i.i = phi ptr [ %65, %64 ], [ %52, %.preheader.i.i.preheader ]
   %53 = load i64, ptr %15, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %53, 0
-  %54 = call i64 @llvm.umin.i64(i64 %53, i64 %.02539.i.i)
-  %55 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %54
+  %54 = call i64 @llvm.umin.i64(i64 %53, i64 %.02538.i.i)
+  %55 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %54
   %56 = load ptr, ptr %16, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %56, null
   br i1 %.not33.i.i, label %58, label %57
 
 57:                                               ; preds = %.preheader.i.i
-  call void %56(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %55) #23
+  call void %56(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %55) #23
   br label %58
 
 58:                                               ; preds = %57, %.preheader.i.i
   %59 = load ptr, ptr %17, align 8, !tbaa !57
-  %60 = call i64 %59(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %55) #23
+  %60 = call i64 %59(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %55) #23
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %.thread.i.i, label %64
 
@@ -4325,8 +4325,8 @@ rdbWriteRaw.exit.us:                              ; preds = %43
   br label %.critedge
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %55
-  %66 = sub i64 %.02539.i.i, %55
+  %65 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %55
+  %66 = sub i64 %.02538.i.i, %55
   %67 = load i64, ptr %18, align 8, !tbaa !58
   %68 = add i64 %67, %55
   store i64 %68, ptr %18, align 8, !tbaa !58
@@ -4344,23 +4344,23 @@ rdbWriteRaw.exit:                                 ; preds = %64
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.loopexit37
 
 .preheader.i.i.i:                                 ; preds = %rdbWriteRaw.exit, %84
-  %.02539.i.i.i = phi i64 [ %86, %84 ], [ 8, %rdbWriteRaw.exit ]
-  %.02738.i.i.i = phi ptr [ %85, %84 ], [ %4, %rdbWriteRaw.exit ]
+  %.02538.i.i.i = phi i64 [ %86, %84 ], [ 8, %rdbWriteRaw.exit ]
+  %.02737.i.i.i = phi ptr [ %85, %84 ], [ %4, %rdbWriteRaw.exit ]
   %73 = load i64, ptr %15, align 8, !tbaa !55
   %.not32.not.i.i.i = icmp eq i64 %73, 0
-  %74 = call i64 @llvm.umin.i64(i64 %73, i64 %.02539.i.i.i)
-  %75 = select i1 %.not32.not.i.i.i, i64 %.02539.i.i.i, i64 %74
+  %74 = call i64 @llvm.umin.i64(i64 %73, i64 %.02538.i.i.i)
+  %75 = select i1 %.not32.not.i.i.i, i64 %.02538.i.i.i, i64 %74
   %76 = load ptr, ptr %16, align 8, !tbaa !56
   %.not33.i.i.i = icmp eq ptr %76, null
   br i1 %.not33.i.i.i, label %78, label %77
 
 77:                                               ; preds = %.preheader.i.i.i
-  call void %76(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %75) #23
+  call void %76(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %75) #23
   br label %78
 
 78:                                               ; preds = %77, %.preheader.i.i.i
   %79 = load ptr, ptr %17, align 8, !tbaa !57
-  %80 = call i64 %79(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %75) #23
+  %80 = call i64 %79(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %75) #23
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %.thread.i.i.i, label %84
 
@@ -4371,8 +4371,8 @@ rdbWriteRaw.exit:                                 ; preds = %64
   br label %.loopexit37
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %.02738.i.i.i, i64 %75
-  %86 = sub i64 %.02539.i.i.i, %75
+  %85 = getelementptr inbounds nuw i8, ptr %.02737.i.i.i, i64 %75
+  %86 = sub i64 %.02538.i.i.i, %75
   %87 = load i64, ptr %18, align 8, !tbaa !58
   %88 = add i64 %87, %75
   store i64 %88, ptr %18, align 8, !tbaa !58
@@ -4497,23 +4497,23 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.loopexit44
 
 .preheader.i.i.i:                                 ; preds = %43, %58
-  %.02539.i.i.i = phi i64 [ %60, %58 ], [ 8, %43 ]
-  %.02738.i.i.i = phi ptr [ %59, %58 ], [ %4, %43 ]
+  %.02538.i.i.i = phi i64 [ %60, %58 ], [ 8, %43 ]
+  %.02737.i.i.i = phi ptr [ %59, %58 ], [ %4, %43 ]
   %47 = load i64, ptr %20, align 8, !tbaa !55
   %.not32.not.i.i.i = icmp eq i64 %47, 0
-  %48 = call i64 @llvm.umin.i64(i64 %47, i64 %.02539.i.i.i)
-  %49 = select i1 %.not32.not.i.i.i, i64 %.02539.i.i.i, i64 %48
+  %48 = call i64 @llvm.umin.i64(i64 %47, i64 %.02538.i.i.i)
+  %49 = select i1 %.not32.not.i.i.i, i64 %.02538.i.i.i, i64 %48
   %50 = load ptr, ptr %21, align 8, !tbaa !56
   %.not33.i.i.i = icmp eq ptr %50, null
   br i1 %.not33.i.i.i, label %52, label %51
 
 51:                                               ; preds = %.preheader.i.i.i
-  call void %50(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %49) #23
+  call void %50(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %49) #23
   br label %52
 
 52:                                               ; preds = %51, %.preheader.i.i.i
   %53 = load ptr, ptr %22, align 8, !tbaa !57
-  %54 = call i64 %53(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %49) #23
+  %54 = call i64 %53(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %49) #23
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %.thread.i.i.i, label %58
 
@@ -4524,8 +4524,8 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
   br label %.loopexit44
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw i8, ptr %.02738.i.i.i, i64 %49
-  %60 = sub i64 %.02539.i.i.i, %49
+  %59 = getelementptr inbounds nuw i8, ptr %.02737.i.i.i, i64 %49
+  %60 = sub i64 %.02538.i.i.i, %49
   %61 = load i64, ptr %23, align 8, !tbaa !58
   %62 = add i64 %61, %49
   store i64 %62, ptr %23, align 8, !tbaa !58
@@ -4548,23 +4548,23 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
   br i1 %.not.i.i.i31, label %.preheader.i.i.i33, label %.loopexit45
 
 .preheader.i.i.i33:                               ; preds = %63, %79
-  %.02539.i.i.i34 = phi i64 [ %81, %79 ], [ 8, %63 ]
-  %.02738.i.i.i35 = phi ptr [ %80, %79 ], [ %3, %63 ]
+  %.02538.i.i.i34 = phi i64 [ %81, %79 ], [ 8, %63 ]
+  %.02737.i.i.i35 = phi ptr [ %80, %79 ], [ %3, %63 ]
   %68 = load i64, ptr %20, align 8, !tbaa !55
   %.not32.not.i.i.i36 = icmp eq i64 %68, 0
-  %69 = call i64 @llvm.umin.i64(i64 %68, i64 %.02539.i.i.i34)
-  %70 = select i1 %.not32.not.i.i.i36, i64 %.02539.i.i.i34, i64 %69
+  %69 = call i64 @llvm.umin.i64(i64 %68, i64 %.02538.i.i.i34)
+  %70 = select i1 %.not32.not.i.i.i36, i64 %.02538.i.i.i34, i64 %69
   %71 = load ptr, ptr %21, align 8, !tbaa !56
   %.not33.i.i.i37 = icmp eq ptr %71, null
   br i1 %.not33.i.i.i37, label %73, label %72
 
 72:                                               ; preds = %.preheader.i.i.i33
-  call void %71(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i35, i64 noundef %70) #23
+  call void %71(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i35, i64 noundef %70) #23
   br label %73
 
 73:                                               ; preds = %72, %.preheader.i.i.i33
   %74 = load ptr, ptr %22, align 8, !tbaa !57
-  %75 = call i64 %74(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i35, i64 noundef %70) #23
+  %75 = call i64 %74(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i35, i64 noundef %70) #23
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %.thread.i.i.i39, label %79
 
@@ -4575,8 +4575,8 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
   br label %.loopexit45
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds nuw i8, ptr %.02738.i.i.i35, i64 %70
-  %81 = sub i64 %.02539.i.i.i34, %70
+  %80 = getelementptr inbounds nuw i8, ptr %.02737.i.i.i35, i64 %70
+  %81 = sub i64 %.02538.i.i.i34, %70
   %82 = load i64, ptr %23, align 8, !tbaa !58
   %83 = add i64 %82, %70
   store i64 %83, ptr %23, align 8, !tbaa !58
@@ -5045,23 +5045,23 @@ sdslen.exit422:                                   ; preds = %186, %192, %195, %1
   br i1 %.not.i.i.i424, label %.preheader.i.i.i, label %rdbSaveBinaryDoubleValue.exit.thread
 
 .preheader.i.i.i:                                 ; preds = %215, %229
-  %.02539.i.i.i = phi i64 [ %231, %229 ], [ 8, %215 ]
-  %.02738.i.i.i = phi ptr [ %230, %229 ], [ %8, %215 ]
+  %.02538.i.i.i = phi i64 [ %231, %229 ], [ 8, %215 ]
+  %.02737.i.i.i = phi ptr [ %230, %229 ], [ %8, %215 ]
   %218 = load i64, ptr %182, align 8, !tbaa !55
   %.not32.not.i.i.i = icmp eq i64 %218, 0
-  %219 = call i64 @llvm.umin.i64(i64 %218, i64 %.02539.i.i.i)
-  %220 = select i1 %.not32.not.i.i.i, i64 %.02539.i.i.i, i64 %219
+  %219 = call i64 @llvm.umin.i64(i64 %218, i64 %.02538.i.i.i)
+  %220 = select i1 %.not32.not.i.i.i, i64 %.02538.i.i.i, i64 %219
   %221 = load ptr, ptr %183, align 8, !tbaa !56
   %.not33.i.i.i425 = icmp eq ptr %221, null
   br i1 %.not33.i.i.i425, label %223, label %222
 
 222:                                              ; preds = %.preheader.i.i.i
-  call void %221(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %220) #23
+  call void %221(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %220) #23
   br label %223
 
 223:                                              ; preds = %222, %.preheader.i.i.i
   %224 = load ptr, ptr %184, align 8, !tbaa !57
-  %225 = call i64 %224(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %220) #23
+  %225 = call i64 %224(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %220) #23
   %226 = icmp eq i64 %225, 0
   br i1 %226, label %.thread.i.i.i426, label %229
 
@@ -5072,8 +5072,8 @@ sdslen.exit422:                                   ; preds = %186, %192, %195, %1
   br label %rdbSaveBinaryDoubleValue.exit.thread
 
 229:                                              ; preds = %223
-  %230 = getelementptr inbounds nuw i8, ptr %.02738.i.i.i, i64 %220
-  %231 = sub i64 %.02539.i.i.i, %220
+  %230 = getelementptr inbounds nuw i8, ptr %.02737.i.i.i, i64 %220
+  %231 = sub i64 %.02538.i.i.i, %220
   %232 = load i64, ptr %185, align 8, !tbaa !58
   %233 = add i64 %232, %220
   store i64 %233, ptr %185, align 8, !tbaa !58
@@ -5136,23 +5136,23 @@ rdbSaveBinaryDoubleValue.exit.thread:             ; preds = %215, %.thread.i.i.i
   br label %255
 
 255:                                              ; preds = %267, %.preheader.i.i.i430
-  %.02539.i.i.i431 = phi i64 [ 8, %.preheader.i.i.i430 ], [ %269, %267 ]
-  %.02738.i.i.i432 = phi ptr [ %7, %.preheader.i.i.i430 ], [ %268, %267 ]
+  %.02538.i.i.i431 = phi i64 [ 8, %.preheader.i.i.i430 ], [ %269, %267 ]
+  %.02737.i.i.i432 = phi ptr [ %7, %.preheader.i.i.i430 ], [ %268, %267 ]
   %256 = load i64, ptr %251, align 8, !tbaa !55
   %.not32.not.i.i.i433 = icmp eq i64 %256, 0
-  %257 = call i64 @llvm.umin.i64(i64 %256, i64 %.02539.i.i.i431)
-  %258 = select i1 %.not32.not.i.i.i433, i64 %.02539.i.i.i431, i64 %257
+  %257 = call i64 @llvm.umin.i64(i64 %256, i64 %.02538.i.i.i431)
+  %258 = select i1 %.not32.not.i.i.i433, i64 %.02538.i.i.i431, i64 %257
   %259 = load ptr, ptr %252, align 8, !tbaa !56
   %.not33.i.i.i434 = icmp eq ptr %259, null
   br i1 %.not33.i.i.i434, label %261, label %260
 
 260:                                              ; preds = %255
-  call void %259(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i432, i64 noundef %258) #23
+  call void %259(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i432, i64 noundef %258) #23
   br label %261
 
 261:                                              ; preds = %260, %255
   %262 = load ptr, ptr %253, align 8, !tbaa !57
-  %263 = call i64 %262(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i432, i64 noundef %258) #23
+  %263 = call i64 %262(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i432, i64 noundef %258) #23
   %264 = icmp eq i64 %263, 0
   br i1 %264, label %.thread.i.i.i436, label %267
 
@@ -5163,8 +5163,8 @@ rdbSaveBinaryDoubleValue.exit.thread:             ; preds = %215, %.thread.i.i.i
   br label %rdbSaveMillisecondTime.exit.thread
 
 267:                                              ; preds = %261
-  %268 = getelementptr inbounds nuw i8, ptr %.02738.i.i.i432, i64 %258
-  %269 = sub i64 %.02539.i.i.i431, %258
+  %268 = getelementptr inbounds nuw i8, ptr %.02737.i.i.i432, i64 %258
+  %269 = sub i64 %.02538.i.i.i431, %258
   %270 = load i64, ptr %254, align 8, !tbaa !58
   %271 = add i64 %270, %258
   store i64 %271, ptr %254, align 8, !tbaa !58
@@ -5215,23 +5215,23 @@ rdbSaveMillisecondTime.exit:                      ; preds = %267, %244
   br label %290
 
 290:                                              ; preds = %302, %.preheader.i.i.i440
-  %.02539.i.i.i441 = phi i64 [ 8, %.preheader.i.i.i440 ], [ %304, %302 ]
-  %.02738.i.i.i442 = phi ptr [ %6, %.preheader.i.i.i440 ], [ %303, %302 ]
+  %.02538.i.i.i441 = phi i64 [ 8, %.preheader.i.i.i440 ], [ %304, %302 ]
+  %.02737.i.i.i442 = phi ptr [ %6, %.preheader.i.i.i440 ], [ %303, %302 ]
   %291 = load i64, ptr %286, align 8, !tbaa !55
   %.not32.not.i.i.i443 = icmp eq i64 %291, 0
-  %292 = call i64 @llvm.umin.i64(i64 %291, i64 %.02539.i.i.i441)
-  %293 = select i1 %.not32.not.i.i.i443, i64 %.02539.i.i.i441, i64 %292
+  %292 = call i64 @llvm.umin.i64(i64 %291, i64 %.02538.i.i.i441)
+  %293 = select i1 %.not32.not.i.i.i443, i64 %.02538.i.i.i441, i64 %292
   %294 = load ptr, ptr %287, align 8, !tbaa !56
   %.not33.i.i.i444 = icmp eq ptr %294, null
   br i1 %.not33.i.i.i444, label %296, label %295
 
 295:                                              ; preds = %290
-  call void %294(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i442, i64 noundef %293) #23
+  call void %294(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i442, i64 noundef %293) #23
   br label %296
 
 296:                                              ; preds = %295, %290
   %297 = load ptr, ptr %288, align 8, !tbaa !57
-  %298 = call i64 %297(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i442, i64 noundef %293) #23
+  %298 = call i64 %297(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i442, i64 noundef %293) #23
   %299 = icmp eq i64 %298, 0
   br i1 %299, label %.thread.i.i.i446, label %302
 
@@ -5242,8 +5242,8 @@ rdbSaveMillisecondTime.exit:                      ; preds = %267, %244
   br label %307
 
 302:                                              ; preds = %296
-  %303 = getelementptr inbounds nuw i8, ptr %.02738.i.i.i442, i64 %293
-  %304 = sub i64 %.02539.i.i.i441, %293
+  %303 = getelementptr inbounds nuw i8, ptr %.02737.i.i.i442, i64 %293
+  %304 = sub i64 %.02538.i.i.i441, %293
   %305 = load i64, ptr %289, align 8, !tbaa !58
   %306 = add i64 %305, %293
   store i64 %306, ptr %289, align 8, !tbaa !58
@@ -5850,23 +5850,23 @@ rdbSaveType.exit.thread:                          ; preds = %15, %.thread.i.i.i
   br label %37
 
 37:                                               ; preds = %49, %.preheader.i.i.i
-  %.02539.i.i.i = phi i64 [ 8, %.preheader.i.i.i ], [ %51, %49 ]
-  %.02738.i.i.i = phi ptr [ %8, %.preheader.i.i.i ], [ %50, %49 ]
+  %.02538.i.i.i = phi i64 [ 8, %.preheader.i.i.i ], [ %51, %49 ]
+  %.02737.i.i.i = phi ptr [ %8, %.preheader.i.i.i ], [ %50, %49 ]
   %38 = load i64, ptr %36, align 8, !tbaa !55
   %.not32.not.i.i.i = icmp eq i64 %38, 0
-  %39 = call i64 @llvm.umin.i64(i64 %38, i64 %.02539.i.i.i)
-  %40 = select i1 %.not32.not.i.i.i, i64 %.02539.i.i.i, i64 %39
+  %39 = call i64 @llvm.umin.i64(i64 %38, i64 %.02538.i.i.i)
+  %40 = select i1 %.not32.not.i.i.i, i64 %.02538.i.i.i, i64 %39
   %41 = load ptr, ptr %20, align 8, !tbaa !56
   %.not33.i.i.i38 = icmp eq ptr %41, null
   br i1 %.not33.i.i.i38, label %43, label %42
 
 42:                                               ; preds = %37
-  call void %41(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %40) #23
+  call void %41(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %40) #23
   br label %43
 
 43:                                               ; preds = %42, %37
   %44 = load ptr, ptr %21, align 8, !tbaa !57
-  %45 = call i64 %44(ptr noundef nonnull %0, ptr noundef %.02738.i.i.i, i64 noundef %40) #23
+  %45 = call i64 %44(ptr noundef nonnull %0, ptr noundef %.02737.i.i.i, i64 noundef %40) #23
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %.thread.i.i.i39, label %49
 
@@ -5877,8 +5877,8 @@ rdbSaveType.exit.thread:                          ; preds = %15, %.thread.i.i.i
   br label %rdbSaveMillisecondTime.exit.thread
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %.02738.i.i.i, i64 %40
-  %51 = sub i64 %.02539.i.i.i, %40
+  %50 = getelementptr inbounds nuw i8, ptr %.02737.i.i.i, i64 %40
+  %51 = sub i64 %.02538.i.i.i, %40
   %52 = load i64, ptr %22, align 8, !tbaa !58
   %53 = add i64 %52, %40
   store i64 %53, ptr %22, align 8, !tbaa !58
@@ -6555,8 +6555,8 @@ sdslen.exit:                                      ; preds = %64, %69, %72, %76, 
   br i1 %.not.i.i, label %.preheader.i.i, label %rdbWriteRaw.exit.thread
 
 .preheader.i.i:                                   ; preds = %87
-  %.not3137.i.i = icmp eq i64 %.0.i, 0
-  br i1 %.not3137.i.i, label %rdbWriteRaw.exit.thread38, label %.lr.ph.i.i
+  %.not3136.i.i = icmp eq i64 %.0.i, 0
+  br i1 %.not3136.i.i, label %rdbWriteRaw.exit.thread38, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6566,23 +6566,23 @@ sdslen.exit:                                      ; preds = %64, %69, %72, %76, 
   br label %95
 
 95:                                               ; preds = %107, %.lr.ph.i.i
-  %.02539.i.i = phi i64 [ %.0.i, %.lr.ph.i.i ], [ %109, %107 ]
-  %.02738.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %108, %107 ]
+  %.02538.i.i = phi i64 [ %.0.i, %.lr.ph.i.i ], [ %109, %107 ]
+  %.02737.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %108, %107 ]
   %96 = load i64, ptr %91, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %96, 0
-  %97 = call i64 @llvm.umin.i64(i64 %96, i64 %.02539.i.i)
-  %98 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %97
+  %97 = call i64 @llvm.umin.i64(i64 %96, i64 %.02538.i.i)
+  %98 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %97
   %99 = load ptr, ptr %92, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %99, null
   br i1 %.not33.i.i, label %101, label %100
 
 100:                                              ; preds = %95
-  call void %99(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %98) #23
+  call void %99(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %98) #23
   br label %101
 
 101:                                              ; preds = %100, %95
   %102 = load ptr, ptr %93, align 8, !tbaa !57
-  %103 = call i64 %102(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %98) #23
+  %103 = call i64 %102(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %98) #23
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %.thread.i.i, label %107
 
@@ -6593,8 +6593,8 @@ sdslen.exit:                                      ; preds = %64, %69, %72, %76, 
   br label %rdbWriteRaw.exit.thread
 
 107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %98
-  %109 = sub i64 %.02539.i.i, %98
+  %108 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %98
+  %109 = sub i64 %.02538.i.i, %98
   %110 = load i64, ptr %94, align 8, !tbaa !58
   %111 = add i64 %110, %98
   store i64 %111, ptr %94, align 8, !tbaa !58
@@ -7276,23 +7276,23 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveRio(i32 noundef %0, ptr noundef %1
   br label %23
 
 23:                                               ; preds = %35, %.preheader.i.i
-  %.02539.i.i = phi i64 [ 9, %.preheader.i.i ], [ %37, %35 ]
-  %.02738.i.i = phi ptr [ %7, %.preheader.i.i ], [ %36, %35 ]
+  %.02538.i.i = phi i64 [ 9, %.preheader.i.i ], [ %37, %35 ]
+  %.02737.i.i = phi ptr [ %7, %.preheader.i.i ], [ %36, %35 ]
   %24 = load i64, ptr %19, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %24, 0
-  %25 = call i64 @llvm.umin.i64(i64 %24, i64 %.02539.i.i)
-  %26 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %25
+  %25 = call i64 @llvm.umin.i64(i64 %24, i64 %.02538.i.i)
+  %26 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %25
   %27 = load ptr, ptr %20, align 8, !tbaa !56
   %.not33.i.i = icmp eq ptr %27, null
   br i1 %.not33.i.i, label %29, label %28
 
 28:                                               ; preds = %23
-  call void %27(ptr noundef nonnull %1, ptr noundef %.02738.i.i, i64 noundef %26) #23
+  call void %27(ptr noundef nonnull %1, ptr noundef %.02737.i.i, i64 noundef %26) #23
   br label %29
 
 29:                                               ; preds = %28, %23
   %30 = load ptr, ptr %21, align 8, !tbaa !57
-  %31 = call i64 %30(ptr noundef nonnull %1, ptr noundef %.02738.i.i, i64 noundef %26) #23
+  %31 = call i64 %30(ptr noundef nonnull %1, ptr noundef %.02737.i.i, i64 noundef %26) #23
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.thread.i.i, label %35
 
@@ -7303,8 +7303,8 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveRio(i32 noundef %0, ptr noundef %1
   br label %rdbWriteRaw.exit.thread
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %26
-  %37 = sub i64 %.02539.i.i, %26
+  %36 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %26
+  %37 = sub i64 %.02538.i.i, %26
   %38 = load i64, ptr %22, align 8, !tbaa !58
   %39 = add i64 %38, %26
   store i64 %39, ptr %22, align 8, !tbaa !58
@@ -7427,23 +7427,23 @@ rdbSaveType.exit.thread:                          ; preds = %63, %.thread.i.i.i
   br label %91
 
 91:                                               ; preds = %103, %.preheader.i
-  %.02539.i = phi i64 [ 8, %.preheader.i ], [ %105, %103 ]
-  %.02738.i = phi ptr [ %8, %.preheader.i ], [ %104, %103 ]
+  %.02538.i = phi i64 [ 8, %.preheader.i ], [ %105, %103 ]
+  %.02737.i = phi ptr [ %8, %.preheader.i ], [ %104, %103 ]
   %92 = load i64, ptr %87, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %92, 0
-  %93 = call i64 @llvm.umin.i64(i64 %92, i64 %.02539.i)
-  %94 = select i1 %.not32.not.i, i64 %.02539.i, i64 %93
+  %93 = call i64 @llvm.umin.i64(i64 %92, i64 %.02538.i)
+  %94 = select i1 %.not32.not.i, i64 %.02538.i, i64 %93
   %95 = load ptr, ptr %88, align 8, !tbaa !56
   %.not33.i = icmp eq ptr %95, null
   br i1 %.not33.i, label %97, label %96
 
 96:                                               ; preds = %91
-  call void %95(ptr noundef nonnull %1, ptr noundef %.02738.i, i64 noundef %94) #23
+  call void %95(ptr noundef nonnull %1, ptr noundef %.02737.i, i64 noundef %94) #23
   br label %97
 
 97:                                               ; preds = %96, %91
   %98 = load ptr, ptr %89, align 8, !tbaa !57
-  %99 = call i64 %98(ptr noundef nonnull %1, ptr noundef %.02738.i, i64 noundef %94) #23
+  %99 = call i64 %98(ptr noundef nonnull %1, ptr noundef %.02737.i, i64 noundef %94) #23
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %.thread.i, label %103
 
@@ -7454,8 +7454,8 @@ rdbSaveType.exit.thread:                          ; preds = %63, %.thread.i.i.i
   br label %rdbWriteRaw.exit.thread
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %94
-  %105 = sub i64 %.02539.i, %94
+  %104 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %94
+  %105 = sub i64 %.02538.i, %94
   %106 = load i64, ptr %90, align 8, !tbaa !58
   %107 = add i64 %106, %94
   store i64 %107, ptr %90, align 8, !tbaa !58
@@ -7519,29 +7519,29 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveRioWithEOFMark(i32 noundef %0, ptr
   br label %17
 
 17:                                               ; preds = %27, %.preheader.i
-  %.02539.i = phi i64 [ 5, %.preheader.i ], [ %29, %27 ]
-  %.02738.i = phi ptr [ @.str.37, %.preheader.i ], [ %28, %27 ]
+  %.02538.i = phi i64 [ 5, %.preheader.i ], [ %29, %27 ]
+  %.02737.i = phi ptr [ @.str.37, %.preheader.i ], [ %28, %27 ]
   %18 = load i64, ptr %13, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %18, 0
-  %19 = call i64 @llvm.umin.i64(i64 %18, i64 %.02539.i)
-  %20 = select i1 %.not32.not.i, i64 %.02539.i, i64 %19
+  %19 = call i64 @llvm.umin.i64(i64 %18, i64 %.02538.i)
+  %20 = select i1 %.not32.not.i, i64 %.02538.i, i64 %19
   %21 = load ptr, ptr %14, align 8, !tbaa !56
   %.not33.i = icmp eq ptr %21, null
   br i1 %.not33.i, label %23, label %22
 
 22:                                               ; preds = %17
-  call void %21(ptr noundef nonnull %1, ptr noundef %.02738.i, i64 noundef %20) #23
+  call void %21(ptr noundef nonnull %1, ptr noundef %.02737.i, i64 noundef %20) #23
   br label %23
 
 23:                                               ; preds = %22, %17
   %24 = load ptr, ptr %15, align 8, !tbaa !57
-  %25 = call i64 %24(ptr noundef nonnull %1, ptr noundef %.02738.i, i64 noundef %20) #23
+  %25 = call i64 %24(ptr noundef nonnull %1, ptr noundef %.02737.i, i64 noundef %20) #23
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %rioWrite.exit.thread.sink.split, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %20
-  %29 = sub i64 %.02539.i, %20
+  %28 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %20
+  %29 = sub i64 %.02538.i, %20
   %30 = load i64, ptr %16, align 8, !tbaa !58
   %31 = add i64 %30, %20
   store i64 %31, ptr %16, align 8, !tbaa !58
@@ -7555,29 +7555,29 @@ rioWrite.exit:                                    ; preds = %27
   br i1 %.not.i14, label %.preheader.i16, label %rioWrite.exit.thread
 
 .preheader.i16:                                   ; preds = %rioWrite.exit, %43
-  %.02539.i17 = phi i64 [ %45, %43 ], [ 40, %rioWrite.exit ]
-  %.02738.i18 = phi ptr [ %44, %43 ], [ %5, %rioWrite.exit ]
+  %.02538.i17 = phi i64 [ %45, %43 ], [ 40, %rioWrite.exit ]
+  %.02737.i18 = phi ptr [ %44, %43 ], [ %5, %rioWrite.exit ]
   %34 = load i64, ptr %13, align 8, !tbaa !55
   %.not32.not.i19 = icmp eq i64 %34, 0
-  %35 = call i64 @llvm.umin.i64(i64 %34, i64 %.02539.i17)
-  %36 = select i1 %.not32.not.i19, i64 %.02539.i17, i64 %35
+  %35 = call i64 @llvm.umin.i64(i64 %34, i64 %.02538.i17)
+  %36 = select i1 %.not32.not.i19, i64 %.02538.i17, i64 %35
   %37 = load ptr, ptr %14, align 8, !tbaa !56
   %.not33.i20 = icmp eq ptr %37, null
   br i1 %.not33.i20, label %39, label %38
 
 38:                                               ; preds = %.preheader.i16
-  call void %37(ptr noundef nonnull %1, ptr noundef %.02738.i18, i64 noundef %36) #23
+  call void %37(ptr noundef nonnull %1, ptr noundef %.02737.i18, i64 noundef %36) #23
   br label %39
 
 39:                                               ; preds = %38, %.preheader.i16
   %40 = load ptr, ptr %15, align 8, !tbaa !57
-  %41 = call i64 %40(ptr noundef nonnull %1, ptr noundef %.02738.i18, i64 noundef %36) #23
+  %41 = call i64 %40(ptr noundef nonnull %1, ptr noundef %.02737.i18, i64 noundef %36) #23
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %rioWrite.exit.thread.sink.split, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.02738.i18, i64 %36
-  %45 = sub i64 %.02539.i17, %36
+  %44 = getelementptr inbounds nuw i8, ptr %.02737.i18, i64 %36
+  %45 = sub i64 %.02538.i17, %36
   %46 = load i64, ptr %16, align 8, !tbaa !58
   %47 = add i64 %46, %36
   store i64 %47, ptr %16, align 8, !tbaa !58
@@ -7591,29 +7591,29 @@ rioWrite.exit23:                                  ; preds = %43
   br i1 %.not.i24, label %.preheader.i26, label %rioWrite.exit.thread
 
 .preheader.i26:                                   ; preds = %rioWrite.exit23, %59
-  %.02539.i27 = phi i64 [ %61, %59 ], [ 2, %rioWrite.exit23 ]
-  %.02738.i28 = phi ptr [ %60, %59 ], [ @.str.38, %rioWrite.exit23 ]
+  %.02538.i27 = phi i64 [ %61, %59 ], [ 2, %rioWrite.exit23 ]
+  %.02737.i28 = phi ptr [ %60, %59 ], [ @.str.38, %rioWrite.exit23 ]
   %50 = load i64, ptr %13, align 8, !tbaa !55
   %.not32.not.i29 = icmp eq i64 %50, 0
-  %51 = call i64 @llvm.umin.i64(i64 %50, i64 %.02539.i27)
-  %52 = select i1 %.not32.not.i29, i64 %.02539.i27, i64 %51
+  %51 = call i64 @llvm.umin.i64(i64 %50, i64 %.02538.i27)
+  %52 = select i1 %.not32.not.i29, i64 %.02538.i27, i64 %51
   %53 = load ptr, ptr %14, align 8, !tbaa !56
   %.not33.i30 = icmp eq ptr %53, null
   br i1 %.not33.i30, label %55, label %54
 
 54:                                               ; preds = %.preheader.i26
-  call void %53(ptr noundef nonnull %1, ptr noundef %.02738.i28, i64 noundef %52) #23
+  call void %53(ptr noundef nonnull %1, ptr noundef %.02737.i28, i64 noundef %52) #23
   br label %55
 
 55:                                               ; preds = %54, %.preheader.i26
   %56 = load ptr, ptr %15, align 8, !tbaa !57
-  %57 = call i64 %56(ptr noundef nonnull %1, ptr noundef %.02738.i28, i64 noundef %52) #23
+  %57 = call i64 %56(ptr noundef nonnull %1, ptr noundef %.02737.i28, i64 noundef %52) #23
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %rioWrite.exit.thread.sink.split, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %.02738.i28, i64 %52
-  %61 = sub i64 %.02539.i27, %52
+  %60 = getelementptr inbounds nuw i8, ptr %.02737.i28, i64 %52
+  %61 = sub i64 %.02538.i27, %52
   %62 = load i64, ptr %16, align 8, !tbaa !58
   %63 = add i64 %62, %52
   store i64 %63, ptr %16, align 8, !tbaa !58
@@ -7632,29 +7632,29 @@ rioWrite.exit33:                                  ; preds = %59
   br i1 %.not.i34, label %.preheader.i36, label %rioWrite.exit.thread
 
 .preheader.i36:                                   ; preds = %66, %78
-  %.02539.i37 = phi i64 [ %80, %78 ], [ 40, %66 ]
-  %.02738.i38 = phi ptr [ %79, %78 ], [ %5, %66 ]
+  %.02538.i37 = phi i64 [ %80, %78 ], [ 40, %66 ]
+  %.02737.i38 = phi ptr [ %79, %78 ], [ %5, %66 ]
   %69 = load i64, ptr %13, align 8, !tbaa !55
   %.not32.not.i39 = icmp eq i64 %69, 0
-  %70 = call i64 @llvm.umin.i64(i64 %69, i64 %.02539.i37)
-  %71 = select i1 %.not32.not.i39, i64 %.02539.i37, i64 %70
+  %70 = call i64 @llvm.umin.i64(i64 %69, i64 %.02538.i37)
+  %71 = select i1 %.not32.not.i39, i64 %.02538.i37, i64 %70
   %72 = load ptr, ptr %14, align 8, !tbaa !56
   %.not33.i40 = icmp eq ptr %72, null
   br i1 %.not33.i40, label %74, label %73
 
 73:                                               ; preds = %.preheader.i36
-  call void %72(ptr noundef nonnull %1, ptr noundef %.02738.i38, i64 noundef %71) #23
+  call void %72(ptr noundef nonnull %1, ptr noundef %.02737.i38, i64 noundef %71) #23
   br label %74
 
 74:                                               ; preds = %73, %.preheader.i36
   %75 = load ptr, ptr %15, align 8, !tbaa !57
-  %76 = call i64 %75(ptr noundef nonnull %1, ptr noundef %.02738.i38, i64 noundef %71) #23
+  %76 = call i64 %75(ptr noundef nonnull %1, ptr noundef %.02737.i38, i64 noundef %71) #23
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %rioWrite.exit.thread.sink.split, label %78
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %.02738.i38, i64 %71
-  %80 = sub i64 %.02539.i37, %71
+  %79 = getelementptr inbounds nuw i8, ptr %.02737.i38, i64 %71
+  %80 = sub i64 %.02538.i37, %71
   %81 = load i64, ptr %16, align 8, !tbaa !58
   %82 = add i64 %81, %71
   store i64 %82, ptr %16, align 8, !tbaa !58
@@ -8164,14 +8164,14 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not.i.i, label %.preheader.i.i, label %45
 
 .preheader.i.i:                                   ; preds = %26, %40
-  %.02539.i.i = phi i64 [ %42, %40 ], [ 4, %26 ]
-  %.02738.i.i = phi ptr [ %41, %40 ], [ %5, %26 ]
+  %.02538.i.i = phi i64 [ %42, %40 ], [ 4, %26 ]
+  %.02737.i.i = phi ptr [ %41, %40 ], [ %5, %26 ]
   %29 = load i64, ptr %11, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %29, 0
-  %30 = call i64 @llvm.umin.i64(i64 %29, i64 %.02539.i.i)
-  %31 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %30
+  %30 = call i64 @llvm.umin.i64(i64 %29, i64 %.02538.i.i)
+  %31 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %30
   %32 = load ptr, ptr %0, align 8, !tbaa !60
-  %33 = call i64 %32(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %31) #23
+  %33 = call i64 %32(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %31) #23
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.thread.i.i, label %37
 
@@ -8187,12 +8187,12 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not33.i.i, label %40, label %39
 
 39:                                               ; preds = %37
-  call void %38(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %31) #23
+  call void %38(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %31) #23
   br label %40
 
 40:                                               ; preds = %39, %37
-  %41 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %31
-  %42 = sub i64 %.02539.i.i, %31
+  %41 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %31
+  %42 = sub i64 %.02538.i.i, %31
   %43 = load i64, ptr %13, align 8, !tbaa !58
   %44 = add i64 %43, %31
   store i64 %44, ptr %13, align 8, !tbaa !58
@@ -8215,14 +8215,14 @@ rdbLoadBinaryFloatValue.exit:                     ; preds = %40, %45
   br i1 %.not.i.i16, label %.preheader.i.i17, label %65
 
 .preheader.i.i17:                                 ; preds = %46, %60
-  %.02539.i.i18 = phi i64 [ %62, %60 ], [ 8, %46 ]
-  %.02738.i.i19 = phi ptr [ %61, %60 ], [ %6, %46 ]
+  %.02538.i.i18 = phi i64 [ %62, %60 ], [ 8, %46 ]
+  %.02737.i.i19 = phi ptr [ %61, %60 ], [ %6, %46 ]
   %49 = load i64, ptr %11, align 8, !tbaa !55
   %.not32.not.i.i20 = icmp eq i64 %49, 0
-  %50 = call i64 @llvm.umin.i64(i64 %49, i64 %.02539.i.i18)
-  %51 = select i1 %.not32.not.i.i20, i64 %.02539.i.i18, i64 %50
+  %50 = call i64 @llvm.umin.i64(i64 %49, i64 %.02538.i.i18)
+  %51 = select i1 %.not32.not.i.i20, i64 %.02538.i.i18, i64 %50
   %52 = load ptr, ptr %0, align 8, !tbaa !60
-  %53 = call i64 %52(ptr noundef nonnull %0, ptr noundef %.02738.i.i19, i64 noundef %51) #23
+  %53 = call i64 %52(ptr noundef nonnull %0, ptr noundef %.02737.i.i19, i64 noundef %51) #23
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %.thread.i.i23, label %57
 
@@ -8238,12 +8238,12 @@ rdbLoadBinaryFloatValue.exit:                     ; preds = %40, %45
   br i1 %.not33.i.i21, label %60, label %59
 
 59:                                               ; preds = %57
-  call void %58(ptr noundef nonnull %0, ptr noundef %.02738.i.i19, i64 noundef %51) #23
+  call void %58(ptr noundef nonnull %0, ptr noundef %.02737.i.i19, i64 noundef %51) #23
   br label %60
 
 60:                                               ; preds = %59, %57
-  %61 = getelementptr inbounds nuw i8, ptr %.02738.i.i19, i64 %51
-  %62 = sub i64 %.02539.i.i18, %51
+  %61 = getelementptr inbounds nuw i8, ptr %.02737.i.i19, i64 %51
+  %62 = sub i64 %.02538.i.i18, %51
   %63 = load i64, ptr %13, align 8, !tbaa !58
   %64 = add i64 %63, %51
   store i64 %64, ptr %13, align 8, !tbaa !58
@@ -9086,14 +9086,14 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   br i1 %.not.i.i, label %.preheader.i.i, label %.loopexit1219
 
 .preheader.i.i:                                   ; preds = %258, %272
-  %.02539.i.i = phi i64 [ %274, %272 ], [ 8, %258 ]
-  %.02738.i.i = phi ptr [ %273, %272 ], [ %35, %258 ]
+  %.02538.i.i = phi i64 [ %274, %272 ], [ 8, %258 ]
+  %.02737.i.i = phi ptr [ %273, %272 ], [ %35, %258 ]
   %261 = load i64, ptr %248, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %261, 0
-  %262 = call i64 @llvm.umin.i64(i64 %261, i64 %.02539.i.i)
-  %263 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %262
+  %262 = call i64 @llvm.umin.i64(i64 %261, i64 %.02538.i.i)
+  %263 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %262
   %264 = load ptr, ptr %1, align 8, !tbaa !60
-  %265 = call i64 %264(ptr noundef nonnull %1, ptr noundef %.02738.i.i, i64 noundef %263) #23
+  %265 = call i64 %264(ptr noundef nonnull %1, ptr noundef %.02737.i.i, i64 noundef %263) #23
   %266 = icmp eq i64 %265, 0
   br i1 %266, label %.thread.i.i, label %269
 
@@ -9109,12 +9109,12 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   br i1 %.not33.i.i, label %272, label %271
 
 271:                                              ; preds = %269
-  call void %270(ptr noundef nonnull %1, ptr noundef %.02738.i.i, i64 noundef %263) #23
+  call void %270(ptr noundef nonnull %1, ptr noundef %.02737.i.i, i64 noundef %263) #23
   br label %272
 
 272:                                              ; preds = %271, %269
-  %273 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %263
-  %274 = sub i64 %.02539.i.i, %263
+  %273 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %263
+  %274 = sub i64 %.02538.i.i, %263
   %275 = load i64, ptr %250, align 8, !tbaa !58
   %276 = add i64 %275, %263
   store i64 %276, ptr %250, align 8, !tbaa !58
@@ -9718,14 +9718,14 @@ sdslen.exit1079:                                  ; preds = %439, %447, %450, %4
   br label %521
 
 521:                                              ; preds = %533, %.preheader.i.i1081
-  %.02539.i.i1082 = phi i64 [ 8, %.preheader.i.i1081 ], [ %535, %533 ]
-  %.02738.i.i1083 = phi ptr [ %28, %.preheader.i.i1081 ], [ %534, %533 ]
+  %.02538.i.i1082 = phi i64 [ 8, %.preheader.i.i1081 ], [ %535, %533 ]
+  %.02737.i.i1083 = phi ptr [ %28, %.preheader.i.i1081 ], [ %534, %533 ]
   %522 = load i64, ptr %518, align 8, !tbaa !55
   %.not32.not.i.i1084 = icmp eq i64 %522, 0
-  %523 = call i64 @llvm.umin.i64(i64 %522, i64 %.02539.i.i1082)
-  %524 = select i1 %.not32.not.i.i1084, i64 %.02539.i.i1082, i64 %523
+  %523 = call i64 @llvm.umin.i64(i64 %522, i64 %.02538.i.i1082)
+  %524 = select i1 %.not32.not.i.i1084, i64 %.02538.i.i1082, i64 %523
   %525 = load ptr, ptr %1, align 8, !tbaa !60
-  %526 = call i64 %525(ptr noundef nonnull %1, ptr noundef %.02738.i.i1083, i64 noundef %524) #23
+  %526 = call i64 %525(ptr noundef nonnull %1, ptr noundef %.02737.i.i1083, i64 noundef %524) #23
   %527 = icmp eq i64 %526, 0
   br i1 %527, label %.thread.i.i1087, label %530
 
@@ -9741,12 +9741,12 @@ sdslen.exit1079:                                  ; preds = %439, %447, %450, %4
   br i1 %.not33.i.i1085, label %533, label %532
 
 532:                                              ; preds = %530
-  call void %531(ptr noundef nonnull %1, ptr noundef %.02738.i.i1083, i64 noundef %524) #23
+  call void %531(ptr noundef nonnull %1, ptr noundef %.02737.i.i1083, i64 noundef %524) #23
   br label %533
 
 533:                                              ; preds = %532, %530
-  %534 = getelementptr inbounds nuw i8, ptr %.02738.i.i1083, i64 %524
-  %535 = sub i64 %.02539.i.i1082, %524
+  %534 = getelementptr inbounds nuw i8, ptr %.02737.i.i1083, i64 %524
+  %535 = sub i64 %.02538.i.i1082, %524
   %536 = load i64, ptr %520, align 8, !tbaa !58
   %537 = add i64 %536, %524
   store i64 %537, ptr %520, align 8, !tbaa !58
@@ -12058,7 +12058,7 @@ define dso_local range(i32 -1, 1) i32 @rdbFunctionLoad(ptr noundef %0, i32 %1, p
 
 19:                                               ; preds = %17, %.thread
   %20 = phi ptr [ %18, %17 ], [ %.pr, %.thread ]
-  %.01231 = phi i32 [ -1, %17 ], [ %.012.ph, %.thread ]
+  %.01230 = phi i32 [ -1, %17 ], [ %.012.ph, %.thread ]
   %.not22 = icmp eq ptr %20, null
   br i1 %.not22, label %29, label %21
 
@@ -12087,7 +12087,7 @@ define dso_local range(i32 -1, 1) i32 @rdbFunctionLoad(ptr noundef %0, i32 %1, p
 
 29:                                               ; preds = %19, %27, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.01231
+  ret i32 %.01230
 }
 
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
@@ -12155,14 +12155,14 @@ define dso_local i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40),
   br label %37
 
 37:                                               ; preds = %49, %.preheader.i
-  %.02539.i = phi i64 [ 9, %.preheader.i ], [ %51, %49 ]
-  %.02738.i = phi ptr [ %19, %.preheader.i ], [ %50, %49 ]
+  %.02538.i = phi i64 [ 9, %.preheader.i ], [ %51, %49 ]
+  %.02737.i = phi ptr [ %19, %.preheader.i ], [ %50, %49 ]
   %38 = load i64, ptr %32, align 8, !tbaa !55
   %.not32.not.i = icmp eq i64 %38, 0
-  %39 = call i64 @llvm.umin.i64(i64 %38, i64 %.02539.i)
-  %40 = select i1 %.not32.not.i, i64 %.02539.i, i64 %39
+  %39 = call i64 @llvm.umin.i64(i64 %38, i64 %.02538.i)
+  %40 = select i1 %.not32.not.i, i64 %.02538.i, i64 %39
   %41 = load ptr, ptr %0, align 8, !tbaa !60
-  %42 = call i64 %41(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %40) #23
+  %42 = call i64 %41(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %40) #23
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %.thread.i, label %46
 
@@ -12178,12 +12178,12 @@ define dso_local i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40),
   br i1 %.not33.i, label %49, label %48
 
 48:                                               ; preds = %46
-  call void %47(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %40) #23
+  call void %47(ptr noundef nonnull %0, ptr noundef %.02737.i, i64 noundef %40) #23
   br label %49
 
 49:                                               ; preds = %48, %46
-  %50 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %40
-  %51 = sub i64 %.02539.i, %40
+  %50 = getelementptr inbounds nuw i8, ptr %.02737.i, i64 %40
+  %51 = sub i64 %.02538.i, %40
   %52 = load i64, ptr %36, align 8, !tbaa !58
   %53 = add i64 %52, %40
   store i64 %53, ptr %36, align 8, !tbaa !58
@@ -12323,14 +12323,14 @@ rdbLoadType.exit:                                 ; preds = %100, %102
   br i1 %.not.i.i280, label %.preheader.i.i, label %rdbLoadTime.exit
 
 .preheader.i.i:                                   ; preds = %107, %121
-  %.02539.i.i = phi i64 [ %123, %121 ], [ 4, %107 ]
-  %.02738.i.i = phi ptr [ %122, %121 ], [ %17, %107 ]
+  %.02538.i.i = phi i64 [ %123, %121 ], [ 4, %107 ]
+  %.02737.i.i = phi ptr [ %122, %121 ], [ %17, %107 ]
   %110 = load i64, ptr %32, align 8, !tbaa !55
   %.not32.not.i.i = icmp eq i64 %110, 0
-  %111 = call i64 @llvm.umin.i64(i64 %110, i64 %.02539.i.i)
-  %112 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %111
+  %111 = call i64 @llvm.umin.i64(i64 %110, i64 %.02538.i.i)
+  %112 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %111
   %113 = load ptr, ptr %0, align 8, !tbaa !60
-  %114 = call i64 %113(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %112) #23
+  %114 = call i64 %113(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %112) #23
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %.thread.i.i283, label %118
 
@@ -12346,12 +12346,12 @@ rdbLoadType.exit:                                 ; preds = %100, %102
   br i1 %.not33.i.i281, label %121, label %120
 
 120:                                              ; preds = %118
-  call void %119(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %112) #23
+  call void %119(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %112) #23
   br label %121
 
 121:                                              ; preds = %120, %118
-  %122 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %112
-  %123 = sub i64 %.02539.i.i, %112
+  %122 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %112
+  %123 = sub i64 %.02538.i.i, %112
   %124 = load i64, ptr %36, align 8, !tbaa !58
   %125 = add i64 %124, %112
   store i64 %125, ptr %36, align 8, !tbaa !58
@@ -12381,14 +12381,14 @@ rdbLoadTime.exit:                                 ; preds = %107, %.thread.i.i28
   br i1 %.not.i.i284, label %.preheader.i.i285, label %rdbLoadMillisecondTime.exit
 
 .preheader.i.i285:                                ; preds = %131, %145
-  %.02539.i.i286 = phi i64 [ %147, %145 ], [ 8, %131 ]
-  %.02738.i.i287 = phi ptr [ %146, %145 ], [ %16, %131 ]
+  %.02538.i.i286 = phi i64 [ %147, %145 ], [ 8, %131 ]
+  %.02737.i.i287 = phi ptr [ %146, %145 ], [ %16, %131 ]
   %134 = load i64, ptr %32, align 8, !tbaa !55
   %.not32.not.i.i288 = icmp eq i64 %134, 0
-  %135 = call i64 @llvm.umin.i64(i64 %134, i64 %.02539.i.i286)
-  %136 = select i1 %.not32.not.i.i288, i64 %.02539.i.i286, i64 %135
+  %135 = call i64 @llvm.umin.i64(i64 %134, i64 %.02538.i.i286)
+  %136 = select i1 %.not32.not.i.i288, i64 %.02538.i.i286, i64 %135
   %137 = load ptr, ptr %0, align 8, !tbaa !60
-  %138 = call i64 %137(ptr noundef nonnull %0, ptr noundef %.02738.i.i287, i64 noundef %136) #23
+  %138 = call i64 %137(ptr noundef nonnull %0, ptr noundef %.02737.i.i287, i64 noundef %136) #23
   %139 = icmp eq i64 %138, 0
   br i1 %139, label %.thread.i.i292, label %142
 
@@ -12404,12 +12404,12 @@ rdbLoadTime.exit:                                 ; preds = %107, %.thread.i.i28
   br i1 %.not33.i.i289, label %145, label %144
 
 144:                                              ; preds = %142
-  call void %143(ptr noundef nonnull %0, ptr noundef %.02738.i.i287, i64 noundef %136) #23
+  call void %143(ptr noundef nonnull %0, ptr noundef %.02737.i.i287, i64 noundef %136) #23
   br label %145
 
 145:                                              ; preds = %144, %142
-  %146 = getelementptr inbounds nuw i8, ptr %.02738.i.i287, i64 %136
-  %147 = sub i64 %.02539.i.i286, %136
+  %146 = getelementptr inbounds nuw i8, ptr %.02737.i.i287, i64 %136
+  %147 = sub i64 %.02538.i.i286, %136
   %148 = load i64, ptr %36, align 8, !tbaa !58
   %149 = add i64 %148, %136
   store i64 %149, ptr %36, align 8, !tbaa !58

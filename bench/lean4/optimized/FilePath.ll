@@ -18,26 +18,26 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef ptr @l_String_mapAux___at_Lake_mkRelPathString___spec__1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
-  %.not.i4052 = icmp eq i64 %4, 0
-  br i1 %.not.i4052, label %._crit_edge, label %lean_string_utf8_at_end.exit
+  %.not.i4050 = icmp eq i64 %4, 0
+  br i1 %.not.i4050, label %._crit_edge, label %lean_string_utf8_at_end.exit
 
 lean_string_utf8_at_end.exit:                     ; preds = %2, %lean_dec.exit35
   %5 = phi i64 [ %12, %lean_dec.exit35 ], [ %3, %2 ]
-  %.02754 = phi ptr [ %11, %lean_dec.exit35 ], [ %0, %2 ]
-  %.02953 = phi ptr [ %10, %lean_dec.exit35 ], [ %1, %2 ]
+  %.02752 = phi ptr [ %11, %lean_dec.exit35 ], [ %0, %2 ]
+  %.02951 = phi ptr [ %10, %lean_dec.exit35 ], [ %1, %2 ]
   %6 = lshr i64 %5, 1
-  %7 = getelementptr i8, ptr %.02953, i64 8
+  %7 = getelementptr i8, ptr %.02951, i64 8
   %.val.i = load i64, ptr %7, align 8, !tbaa !4
   %8 = add i64 %.val.i, -1
   %.not = icmp ult i64 %6, %8
   br i1 %.not, label %lean_dec.exit35, label %.thread
 
 lean_dec.exit35:                                  ; preds = %lean_string_utf8_at_end.exit
-  %9 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %.02953, ptr noundef %.02754) #3
-  %.not48 = icmp eq i32 %9, 92
-  %. = select i1 %.not48, i32 47, i32 %9
-  %10 = tail call ptr @lean_string_utf8_set(ptr noundef nonnull %.02953, ptr noundef %.02754, i32 noundef %.) #3
-  %11 = tail call ptr @lean_string_utf8_next(ptr noundef %10, ptr noundef %.02754) #3
+  %9 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %.02951, ptr noundef %.02752) #3
+  %.not46 = icmp eq i32 %9, 92
+  %. = select i1 %.not46, i32 47, i32 %9
+  %10 = tail call ptr @lean_string_utf8_set(ptr noundef nonnull %.02951, ptr noundef %.02752, i32 noundef %.) #3
+  %11 = tail call ptr @lean_string_utf8_next(ptr noundef %10, ptr noundef %.02752) #3
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
   %.not.i40 = icmp eq i64 %13, 0
@@ -64,8 +64,8 @@ lean_dec.exit35:                                  ; preds = %lean_string_utf8_at
   br label %.thread
 
 .thread:                                          ; preds = %lean_string_utf8_at_end.exit, %19, %18, %16
-  %.02951 = phi ptr [ %.029.lcssa, %19 ], [ %.029.lcssa, %18 ], [ %.029.lcssa, %16 ], [ %.02953, %lean_string_utf8_at_end.exit ]
-  ret ptr %.02951
+  %.02949 = phi ptr [ %.029.lcssa, %19 ], [ %.029.lcssa, %18 ], [ %.029.lcssa, %16 ], [ %.02951, %lean_string_utf8_at_end.exit ]
+  ret ptr %.02949
 }
 
 declare i32 @lean_string_utf8_get(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -82,21 +82,21 @@ define noundef ptr @l_Lake_mkRelPathString(ptr noundef %0) local_unnamed_addr #0
 
 lean_string_utf8_at_end.exit.i:                   ; preds = %1, %lean_dec.exit35.i
   %4 = phi i64 [ %11, %lean_dec.exit35.i ], [ 1, %1 ]
-  %.02754.i = phi ptr [ %10, %lean_dec.exit35.i ], [ inttoptr (i64 1 to ptr), %1 ]
-  %.02953.i = phi ptr [ %9, %lean_dec.exit35.i ], [ %0, %1 ]
+  %.02752.i = phi ptr [ %10, %lean_dec.exit35.i ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.02951.i = phi ptr [ %9, %lean_dec.exit35.i ], [ %0, %1 ]
   %5 = lshr i64 %4, 1
-  %6 = getelementptr i8, ptr %.02953.i, i64 8
+  %6 = getelementptr i8, ptr %.02951.i, i64 8
   %.val.i.i = load i64, ptr %6, align 8, !tbaa !4
   %7 = add i64 %.val.i.i, -1
   %.not.i = icmp ult i64 %5, %7
   br i1 %.not.i, label %lean_dec.exit35.i, label %l_String_mapAux___at_Lake_mkRelPathString___spec__1.exit
 
 lean_dec.exit35.i:                                ; preds = %lean_string_utf8_at_end.exit.i
-  %8 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %.02953.i, ptr noundef %.02754.i) #3
-  %.not48.i = icmp eq i32 %8, 92
-  %..i = select i1 %.not48.i, i32 47, i32 %8
-  %9 = tail call ptr @lean_string_utf8_set(ptr noundef nonnull %.02953.i, ptr noundef %.02754.i, i32 noundef %..i) #3
-  %10 = tail call ptr @lean_string_utf8_next(ptr noundef %9, ptr noundef %.02754.i) #3
+  %8 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %.02951.i, ptr noundef %.02752.i) #3
+  %.not46.i = icmp eq i32 %8, 92
+  %..i = select i1 %.not46.i, i32 47, i32 %8
+  %9 = tail call ptr @lean_string_utf8_set(ptr noundef nonnull %.02951.i, ptr noundef %.02752.i, i32 noundef %..i) #3
+  %10 = tail call ptr @lean_string_utf8_next(ptr noundef %9, ptr noundef %.02752.i) #3
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
   %.not.i40.i = icmp eq i64 %12, 0
@@ -121,7 +121,7 @@ lean_dec.exit35.i:                                ; preds = %lean_string_utf8_at
   br label %l_String_mapAux___at_Lake_mkRelPathString___spec__1.exit
 
 l_String_mapAux___at_Lake_mkRelPathString___spec__1.exit: ; preds = %lean_string_utf8_at_end.exit.i, %18, %17, %15, %1
-  %.0 = phi ptr [ %0, %1 ], [ %9, %18 ], [ %9, %17 ], [ %9, %15 ], [ %.02953.i, %lean_string_utf8_at_end.exit.i ]
+  %.0 = phi ptr [ %0, %1 ], [ %9, %18 ], [ %9, %17 ], [ %9, %15 ], [ %.02951.i, %lean_string_utf8_at_end.exit.i ]
   ret ptr %.0
 }
 
@@ -133,21 +133,21 @@ define noalias nonnull ptr @l_Lake_instToJsonFilePath__lake(ptr noundef %0) loca
 
 lean_string_utf8_at_end.exit.i.i:                 ; preds = %1, %lean_dec.exit35.i.i
   %4 = phi i64 [ %11, %lean_dec.exit35.i.i ], [ 1, %1 ]
-  %.02754.i.i = phi ptr [ %10, %lean_dec.exit35.i.i ], [ inttoptr (i64 1 to ptr), %1 ]
-  %.02953.i.i = phi ptr [ %9, %lean_dec.exit35.i.i ], [ %0, %1 ]
+  %.02752.i.i = phi ptr [ %10, %lean_dec.exit35.i.i ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.02951.i.i = phi ptr [ %9, %lean_dec.exit35.i.i ], [ %0, %1 ]
   %5 = lshr i64 %4, 1
-  %6 = getelementptr i8, ptr %.02953.i.i, i64 8
+  %6 = getelementptr i8, ptr %.02951.i.i, i64 8
   %.val.i.i.i = load i64, ptr %6, align 8, !tbaa !4
   %7 = add i64 %.val.i.i.i, -1
   %.not.i.i = icmp ult i64 %5, %7
   br i1 %.not.i.i, label %lean_dec.exit35.i.i, label %l_Lake_mkRelPathString.exit
 
 lean_dec.exit35.i.i:                              ; preds = %lean_string_utf8_at_end.exit.i.i
-  %8 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %.02953.i.i, ptr noundef %.02754.i.i) #3
-  %.not48.i.i = icmp eq i32 %8, 92
-  %..i.i = select i1 %.not48.i.i, i32 47, i32 %8
-  %9 = tail call ptr @lean_string_utf8_set(ptr noundef nonnull %.02953.i.i, ptr noundef %.02754.i.i, i32 noundef %..i.i) #3
-  %10 = tail call ptr @lean_string_utf8_next(ptr noundef %9, ptr noundef %.02754.i.i) #3
+  %8 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %.02951.i.i, ptr noundef %.02752.i.i) #3
+  %.not46.i.i = icmp eq i32 %8, 92
+  %..i.i = select i1 %.not46.i.i, i32 47, i32 %8
+  %9 = tail call ptr @lean_string_utf8_set(ptr noundef nonnull %.02951.i.i, ptr noundef %.02752.i.i, i32 noundef %..i.i) #3
+  %10 = tail call ptr @lean_string_utf8_next(ptr noundef %9, ptr noundef %.02752.i.i) #3
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
   %.not.i40.i.i = icmp eq i64 %12, 0
@@ -172,7 +172,7 @@ lean_dec.exit35.i.i:                              ; preds = %lean_string_utf8_at
   br label %l_Lake_mkRelPathString.exit
 
 l_Lake_mkRelPathString.exit:                      ; preds = %lean_string_utf8_at_end.exit.i.i, %1, %15, %17, %18
-  %.0.i = phi ptr [ %0, %1 ], [ %9, %18 ], [ %9, %17 ], [ %9, %15 ], [ %.02953.i.i, %lean_string_utf8_at_end.exit.i.i ]
+  %.0.i = phi ptr [ %0, %1 ], [ %9, %18 ], [ %9, %17 ], [ %9, %15 ], [ %.02951.i.i, %lean_string_utf8_at_end.exit.i.i ]
   tail call void @lean_inc_heartbeat() #3
   %19 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
   %20 = icmp eq ptr %19, null
@@ -423,8 +423,8 @@ lean_inc.exit:                                    ; preds = %lean_inc.exit.outer
   br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !15
 
 lean_nat_eq.exit:                                 ; preds = %lean_inc.exit
-  %.not67 = icmp eq ptr %.032, inttoptr (i64 1 to ptr)
-  br i1 %.not67, label %lean_dec.exit42, label %7
+  %.not65 = icmp eq ptr %.032, inttoptr (i64 1 to ptr)
+  br i1 %.not65, label %lean_dec.exit42, label %7
 
 lean_nat_eq.exit.thread:                          ; preds = %lean_inc.exit
   %6 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.032, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
@@ -457,18 +457,18 @@ lean_dec.exit46:                                  ; preds = %7, %16, %15, %13
   %17 = phi ptr [ %8, %7 ], [ %10, %13 ], [ %10, %15 ], [ %10, %16 ]
   %18 = tail call i32 @lean_string_utf8_get(ptr noundef %0, ptr noundef %17) #3
   %19 = load i32, ptr @l_System_FilePath_pathSeparator, align 4, !tbaa !16
-  %.not69 = icmp eq i32 %18, %19
-  br i1 %.not69, label %39, label %20
+  %.not67 = icmp eq i32 %18, %19
+  br i1 %.not67, label %39, label %20
 
 20:                                               ; preds = %lean_dec.exit46
-  %.not72 = icmp eq i32 %18, 46
-  br i1 %.not72, label %21, label %lean_inc.exit
+  %.not70 = icmp eq i32 %18, 46
+  br i1 %.not70, label %21, label %lean_inc.exit
 
 21:                                               ; preds = %20
   %22 = ptrtoint ptr %.038.ph to i64
   %23 = and i64 %22, 1
-  %.not73 = icmp eq i64 %23, 0
-  br i1 %.not73, label %24, label %lean_dec.exit45
+  %.not71 = icmp eq i64 %23, 0
+  br i1 %.not71, label %24, label %lean_dec.exit45
 
 24:                                               ; preds = %21
   %25 = load i32, ptr %.038.ph, align 4, !tbaa !8
@@ -491,8 +491,8 @@ lean_dec.exit46:                                  ; preds = %7, %16, %15, %13
 lean_dec.exit45:                                  ; preds = %30, %29, %27, %21
   %31 = ptrtoint ptr %17 to i64
   %32 = and i64 %31, 1
-  %.not74 = icmp eq i64 %32, 0
-  br i1 %.not74, label %33, label %lean_inc.exit.outer.backedge
+  %.not72 = icmp eq i64 %32, 0
+  br i1 %.not72, label %33, label %lean_inc.exit.outer.backedge
 
 33:                                               ; preds = %lean_dec.exit45
   %.val.i = load i32, ptr %17, align 4, !tbaa !8
@@ -518,8 +518,8 @@ lean_inc.exit.outer.backedge:                     ; preds = %38, %37, %35, %lean
 39:                                               ; preds = %lean_dec.exit46
   %40 = ptrtoint ptr %17 to i64
   %41 = and i64 %40, 1
-  %.not70 = icmp eq i64 %41, 0
-  br i1 %.not70, label %42, label %lean_dec.exit44
+  %.not68 = icmp eq i64 %41, 0
+  br i1 %.not68, label %42, label %lean_dec.exit44
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %17, align 4, !tbaa !8
@@ -543,8 +543,8 @@ lean_dec.exit44:                                  ; preds = %48, %47, %45, %39
   %49 = tail call ptr @lean_string_utf8_extract(ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.038.ph) #3
   %50 = ptrtoint ptr %.038.ph to i64
   %51 = and i64 %50, 1
-  %.not71 = icmp eq i64 %51, 0
-  br i1 %.not71, label %52, label %75
+  %.not69 = icmp eq i64 %51, 0
+  br i1 %.not69, label %52, label %75
 
 52:                                               ; preds = %lean_dec.exit44
   %53 = load i32, ptr %.038.ph, align 4, !tbaa !8
@@ -586,8 +586,8 @@ lean_dec.exit42:                                  ; preds = %lean_nat_eq.exit, %
   %65 = tail call ptr @lean_string_utf8_extract(ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.038.ph) #3
   %66 = ptrtoint ptr %.038.ph to i64
   %67 = and i64 %66, 1
-  %.not68 = icmp eq i64 %67, 0
-  br i1 %.not68, label %68, label %75
+  %.not66 = icmp eq i64 %67, 0
+  br i1 %.not66, label %68, label %75
 
 68:                                               ; preds = %lean_dec.exit42
   %69 = load i32, ptr %.038.ph, align 4, !tbaa !8

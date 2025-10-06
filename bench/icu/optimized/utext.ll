@@ -2440,8 +2440,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i32, ptr %7, align 8, !tbaa !47
   %9 = icmp slt i64 %1, 0
-  %spec.select492 = tail call i64 @llvm.umin.i64(i64 %1, i64 2147483647)
-  %spec.select = trunc nuw nsw i64 %spec.select492 to i32
+  %spec.select487 = tail call i64 @llvm.umin.i64(i64 %1, i64 2147483647)
+  %spec.select = trunc nuw nsw i64 %spec.select487 to i32
   %.0390 = select i1 %9, i32 0, i32 %spec.select
   %10 = icmp sgt i32 %.0390, %8
   br i1 %10, label %11, label %31
@@ -2454,13 +2454,13 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %15 = load i32, ptr %14, align 4, !tbaa !48
   %.not = icmp slt i32 %.0390, %15
-  br i1 %.not, label %31, label %.preheader494
+  br i1 %.not, label %31, label %.preheader489
 
-.preheader494:                                    ; preds = %13
+.preheader489:                                    ; preds = %13
   %16 = icmp slt i32 %15, %.0390
   br i1 %16, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %.preheader494
+.lr.ph.preheader:                                 ; preds = %.preheader489
   %17 = sext i32 %15 to i64
   br label %.lr.ph
 
@@ -2469,7 +2469,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %18 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !53
   %.not443 = icmp eq i8 %19, 0
-  br i1 %.not443, label %.critedge.loopexit.split.loop.exit563, label %20
+  br i1 %.not443, label %.critedge.loopexit.split.loop.exit558, label %20
 
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -2478,12 +2478,12 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %exitcond.not = icmp eq i32 %.0390, %21
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !60
 
-.critedge.loopexit.split.loop.exit563:            ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit558:            ; preds = %.lr.ph
   %22 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %20, %.critedge.loopexit.split.loop.exit563, %.preheader494
-  %.lcssa = phi i32 [ %15, %.preheader494 ], [ %22, %.critedge.loopexit.split.loop.exit563 ], [ %.0390, %20 ]
+.critedge:                                        ; preds = %20, %.critedge.loopexit.split.loop.exit558, %.preheader489
+  %.lcssa = phi i32 [ %15, %.preheader489 ], [ %22, %.critedge.loopexit.split.loop.exit558 ], [ %.0390, %20 ]
   %23 = sext i32 %.lcssa to i64
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !53
@@ -2514,7 +2514,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 ..thread_crit_edge:                               ; preds = %34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !50
-  %.pre515 = load i32, ptr %.pre, align 4, !tbaa !61
+  %.pre510 = load i32, ptr %.pre, align 4, !tbaa !61
   br label %.thread
 
 38:                                               ; preds = %34
@@ -2542,7 +2542,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   br i1 %51, label %137, label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %48, %44
-  %52 = phi i32 [ %.pre515, %..thread_crit_edge ], [ %47, %48 ], [ %47, %44 ]
+  %52 = phi i32 [ %.pre510, %..thread_crit_edge ], [ %47, %48 ], [ %47, %44 ]
   %53 = phi ptr [ %.pre, %..thread_crit_edge ], [ %46, %48 ], [ %46, %44 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.not451 = icmp slt i32 %.1391, %52
@@ -2579,8 +2579,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %72 = load i64, ptr %71, align 8, !tbaa !22
   %73 = icmp sle i64 %72, %33
   %.not452 = icmp sgt i64 %36, %33
-  %or.cond491 = and i1 %.not452, %73
-  br i1 %or.cond491, label %74, label %210
+  %or.cond486 = and i1 %.not452, %73
+  br i1 %or.cond486, label %74, label %210
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2604,13 +2604,13 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load i64, ptr %90, align 8, !tbaa !22
   %92 = icmp eq i64 %91, %33
-  br i1 %92, label %93, label %..thread468_crit_edge
+  br i1 %92, label %93, label %..thread465_crit_edge
 
-..thread468_crit_edge:                            ; preds = %89
-  %.phi.trans.insert519 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.pre520 = load ptr, ptr %.phi.trans.insert519, align 8, !tbaa !50
-  %.pre521 = load i32, ptr %.pre520, align 4, !tbaa !61
-  br label %.thread468
+..thread465_crit_edge:                            ; preds = %89
+  %.phi.trans.insert514 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.pre515 = load ptr, ptr %.phi.trans.insert514, align 8, !tbaa !50
+  %.pre516 = load i32, ptr %.pre515, align 4, !tbaa !61
+  br label %.thread465
 
 93:                                               ; preds = %89
   %94 = icmp eq i32 %.1391, 0
@@ -2626,28 +2626,28 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %99 = load ptr, ptr %98, align 8, !tbaa !50
   %100 = load i32, ptr %99, align 4, !tbaa !61
   %101 = icmp sgt i32 %.1391, %100
-  br i1 %101, label %102, label %.thread468
+  br i1 %101, label %102, label %.thread465
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !63
   %.not445 = icmp sgt i32 %.1391, %104
-  br i1 %.not445, label %.thread468, label %137
+  br i1 %.not445, label %.thread465, label %137
 
-.thread468:                                       ; preds = %..thread468_crit_edge, %102, %97
-  %105 = phi i32 [ %.pre521, %..thread468_crit_edge ], [ %100, %102 ], [ %100, %97 ]
-  %106 = phi ptr [ %.pre520, %..thread468_crit_edge ], [ %99, %102 ], [ %99, %97 ]
+.thread465:                                       ; preds = %..thread465_crit_edge, %102, %97
+  %105 = phi i32 [ %.pre516, %..thread465_crit_edge ], [ %100, %102 ], [ %100, %97 ]
+  %106 = phi ptr [ %.pre515, %..thread465_crit_edge ], [ %99, %102 ], [ %99, %97 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %108 = icmp sgt i32 %.1391, %105
   br i1 %108, label %109, label %112
 
-109:                                              ; preds = %.thread468
+109:                                              ; preds = %.thread465
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !63
   %.not446 = icmp sgt i32 %.1391, %111
   br i1 %.not446, label %112, label %137
 
-112:                                              ; preds = %109, %.thread468
+112:                                              ; preds = %109, %.thread465
   %113 = icmp eq i32 %.1391, 0
   br i1 %113, label %114, label %116
 
@@ -2730,8 +2730,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   br label %473
 
 171:                                              ; preds = %114, %66, %200
-  %172 = phi i32 [ 0, %114 ], [ %52, %66 ], [ %.pre526, %200 ]
-  %173 = phi ptr [ %106, %114 ], [ %53, %66 ], [ %.pre525, %200 ]
+  %172 = phi i32 [ 0, %114 ], [ %52, %66 ], [ %.pre521, %200 ]
+  %173 = phi ptr [ %106, %114 ], [ %53, %66 ], [ %.pre520, %200 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %176 = load ptr, ptr %175, align 8, !tbaa !49
@@ -2791,8 +2791,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   store i8 0, ptr %208, align 4, !tbaa !53
   %209 = getelementptr inbounds nuw i8, ptr %201, i64 132
   store i8 0, ptr %209, align 4, !tbaa !53
-  %.pre525 = load ptr, ptr %202, align 8, !tbaa !50
-  %.pre526 = load i32, ptr %.pre525, align 4, !tbaa !61
+  %.pre520 = load ptr, ptr %202, align 8, !tbaa !50
+  %.pre521 = load i32, ptr %.pre520, align 4, !tbaa !61
   br label %171
 
 210:                                              ; preds = %70
@@ -2803,34 +2803,34 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 
 214:                                              ; preds = %210
   %215 = tail call i32 @utf8_back1SafeBody_77(ptr noundef nonnull %6, i32 noundef 0, i32 noundef %.1391)
-  %.pre516 = load ptr, ptr %54, align 8, !tbaa !50
-  %.pre517 = load i32, ptr %7, align 8, !tbaa !47
-  %.pre527 = sext i32 %215 to i64
+  %.pre511 = load ptr, ptr %54, align 8, !tbaa !50
+  %.pre512 = load i32, ptr %7, align 8, !tbaa !47
+  %.pre522 = sext i32 %215 to i64
   br label %216
 
 216:                                              ; preds = %214, %210
-  %.pre-phi = phi i64 [ %.pre527, %214 ], [ %33, %210 ]
-  %217 = phi i32 [ %.pre517, %214 ], [ %32, %210 ]
-  %218 = phi ptr [ %.pre516, %214 ], [ %53, %210 ]
+  %.pre-phi = phi i64 [ %.pre522, %214 ], [ %33, %210 ]
+  %217 = phi i32 [ %.pre512, %214 ], [ %32, %210 ]
+  %218 = phi ptr [ %.pre511, %214 ], [ %53, %210 ]
   %.2392 = phi i32 [ %215, %214 ], [ %.1391, %210 ]
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %220 = load ptr, ptr %219, align 8, !tbaa !49
   store ptr %220, ptr %54, align 8, !tbaa !50
   store ptr %218, ptr %219, align 8, !tbaa !49
   %221 = icmp slt i32 %217, 0
-  %spec.select463 = tail call i32 @llvm.umin.i32(i32 %217, i32 2147483647)
+  %spec.select462 = tail call i32 @llvm.umin.i32(i32 %217, i32 2147483647)
   %222 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %223 = getelementptr i8, ptr %218, i64 96
   %224 = getelementptr inbounds nuw i8, ptr %218, i64 132
   %225 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %226 = sub nsw i64 132, %.pre-phi
-  %scevgep506 = getelementptr i8, ptr %218, i64 %226
+  %scevgep501 = getelementptr i8, ptr %218, i64 %226
   br label %227
 
-227:                                              ; preds = %216, %.thread485
-  %.0413 = phi i32 [ 0, %216 ], [ %.2415, %.thread485 ]
-  %.0407 = phi i32 [ %.2392, %216 ], [ %.2409, %.thread485 ]
-  %.0403 = phi i8 [ 0, %216 ], [ %.2405, %.thread485 ]
+227:                                              ; preds = %216, %.thread481
+  %.0413 = phi i32 [ 0, %216 ], [ %.2415, %.thread481 ]
+  %.0407 = phi i32 [ %.2392, %216 ], [ %.2409, %.thread481 ]
+  %.0403 = phi i8 [ 0, %216 ], [ %.2405, %.thread481 ]
   %228 = sext i32 %.0407 to i64
   %229 = getelementptr inbounds i8, ptr %6, i64 %228
   %230 = load i8, ptr %229, align 1, !tbaa !53
@@ -2852,7 +2852,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   store i8 %238, ptr %240, align 1, !tbaa !53
   %241 = add nsw i32 %.0407, 1
   %242 = add nsw i32 %.0413, 1
-  br label %.thread485
+  br label %.thread481
 
 243:                                              ; preds = %227
   %244 = icmp eq i8 %.0403, 0
@@ -2871,8 +2871,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   br i1 %250, label %317, label %251
 
 251:                                              ; preds = %246
-  %.not453 = icmp eq i32 %248, %spec.select463
-  br i1 %.not453, label %.thread478, label %252
+  %.not453 = icmp eq i32 %248, %spec.select462
+  br i1 %.not453, label %.thread474, label %252
 
 252:                                              ; preds = %251
   %253 = icmp samesign ugt i8 %247, -33
@@ -2896,7 +2896,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %267 = shl nuw nsw i32 1, %266
   %268 = and i32 %267, %261
   %.not456 = icmp eq i32 %268, 0
-  br i1 %.not456, label %.thread478, label %269
+  br i1 %.not456, label %.thread474, label %269
 
 269:                                              ; preds = %256
   %270 = and i8 %264, 63
@@ -2905,7 +2905,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 271:                                              ; preds = %254
   %272 = add nsw i32 %249, -240
   %273 = icmp samesign ult i8 %247, -11
-  br i1 %273, label %274, label %.thread478
+  br i1 %273, label %274, label %.thread474
 
 274:                                              ; preds = %271
   %275 = sext i32 %248 to i64
@@ -2920,12 +2920,12 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %284 = shl nuw nsw i32 1, %272
   %285 = and i32 %284, %283
   %.not454 = icmp eq i32 %285, 0
-  br i1 %.not454, label %.thread478, label %286
+  br i1 %.not454, label %.thread474, label %286
 
 286:                                              ; preds = %274
   %287 = add nsw i32 %.0407, 2
-  %.not455 = icmp eq i32 %287, %spec.select463
-  br i1 %.not455, label %.thread478, label %288
+  %.not455 = icmp eq i32 %287, %spec.select462
+  br i1 %.not455, label %.thread474, label %288
 
 288:                                              ; preds = %286
   %289 = shl nuw nsw i32 %272, 6
@@ -2936,7 +2936,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %294 = load i8, ptr %293, align 1, !tbaa !53
   %295 = xor i8 %294, -128
   %296 = icmp ult i8 %295, 64
-  br i1 %296, label %297, label %.thread478
+  br i1 %296, label %297, label %.thread474
 
 297:                                              ; preds = %269, %288
   %.4411 = phi i32 [ %248, %269 ], [ %287, %288 ]
@@ -2946,12 +2946,12 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %299 = zext nneg i8 %.0393 to i32
   %300 = or disjoint i32 %298, %299
   %301 = add nsw i32 %.4411, 1
-  %.not457 = icmp eq i32 %301, %spec.select463
-  br i1 %.not457, label %.thread478, label %306
+  %.not457 = icmp eq i32 %301, %spec.select462
+  br i1 %.not457, label %.thread474, label %306
 
 302:                                              ; preds = %252
   %303 = icmp samesign ugt i8 %247, -63
-  br i1 %303, label %304, label %.thread478
+  br i1 %303, label %304, label %.thread474
 
 304:                                              ; preds = %302
   %305 = and i32 %249, 31
@@ -2965,7 +2965,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %309 = load i8, ptr %308, align 1, !tbaa !53
   %310 = xor i8 %309, -128
   %311 = icmp ult i8 %310, 64
-  br i1 %311, label %312, label %.thread478
+  br i1 %311, label %312, label %.thread474
 
 312:                                              ; preds = %306
   %313 = zext nneg i8 %310 to i32
@@ -2983,17 +2983,17 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 
 319:                                              ; preds = %317
   %320 = icmp samesign ult i32 %.5, 65536
-  br i1 %320, label %.thread478, label %326
+  br i1 %320, label %.thread474, label %326
 
-.thread478:                                       ; preds = %306, %302, %297, %288, %286, %274, %271, %256, %251, %319
-  %.7475484 = phi i32 [ %.7, %319 ], [ %spec.select463, %251 ], [ %248, %302 ], [ %248, %271 ], [ %248, %274 ], [ %spec.select463, %286 ], [ %287, %288 ], [ %248, %256 ], [ %spec.select463, %297 ], [ %.5412, %306 ]
-  %.5477482 = phi i32 [ %.5, %319 ], [ 65533, %251 ], [ 65533, %302 ], [ 65533, %271 ], [ 65533, %274 ], [ 65533, %286 ], [ 65533, %288 ], [ 65533, %256 ], [ 65533, %297 ], [ 65533, %306 ]
-  %321 = trunc nuw i32 %.5477482 to i16
+.thread474:                                       ; preds = %306, %302, %297, %288, %286, %274, %271, %256, %251, %319
+  %.7471480 = phi i32 [ %.7, %319 ], [ %spec.select462, %251 ], [ %248, %302 ], [ %248, %271 ], [ %248, %274 ], [ %spec.select462, %286 ], [ %287, %288 ], [ %248, %256 ], [ %spec.select462, %297 ], [ %.5412, %306 ]
+  %.5473478 = phi i32 [ %.5, %319 ], [ 65533, %251 ], [ 65533, %302 ], [ 65533, %271 ], [ 65533, %274 ], [ 65533, %286 ], [ 65533, %288 ], [ 65533, %256 ], [ 65533, %297 ], [ 65533, %306 ]
+  %321 = trunc nuw i32 %.5473478 to i16
   %322 = add nsw i32 %.0413, 1
   %323 = sext i32 %.0413 to i64
   %324 = getelementptr inbounds i16, ptr %222, i64 %323
   store i16 %321, ptr %324, align 2, !tbaa !18
-  %325 = icmp eq i32 %.5477482, 0
+  %325 = icmp eq i32 %.5473478, 0
   br label %.preheader
 
 326:                                              ; preds = %319
@@ -3012,52 +3012,52 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %337 = add nsw i32 %.0413, 1
   br label %.preheader
 
-.preheader:                                       ; preds = %326, %.thread478
-  %.pre-phi530 = phi i32 [ %337, %326 ], [ %.0413, %.thread478 ]
-  %.pre-phi528 = phi i64 [ %330, %326 ], [ %323, %.thread478 ]
-  %.7475483 = phi i32 [ %.7, %326 ], [ %.7475484, %.thread478 ]
-  %.5477481 = phi i1 [ false, %326 ], [ %325, %.thread478 ]
-  %.4417 = phi i32 [ %335, %326 ], [ %322, %.thread478 ]
+.preheader:                                       ; preds = %326, %.thread474
+  %.pre-phi525 = phi i32 [ %337, %326 ], [ %.0413, %.thread474 ]
+  %.pre-phi523 = phi i64 [ %330, %326 ], [ %323, %.thread474 ]
+  %.7471479 = phi i32 [ %.7, %326 ], [ %.7471480, %.thread474 ]
+  %.5473477 = phi i1 [ false, %326 ], [ %325, %.thread474 ]
+  %.4417 = phi i32 [ %335, %326 ], [ %322, %.thread474 ]
   %338 = sub nsw i32 %.0407, %.2392
   %339 = trunc i32 %338 to i8
-  %scevgep502 = getelementptr i8, ptr %223, i64 %.pre-phi528
-  %340 = sub i32 %.pre-phi530, %.0413
+  %scevgep497 = getelementptr i8, ptr %223, i64 %.pre-phi523
+  %340 = sub i32 %.pre-phi525, %.0413
   %341 = zext i32 %340 to i64
   %342 = add nuw nsw i64 %341, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep502, i8 %339, i64 %342, i1 false), !tbaa !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep497, i8 %339, i64 %342, i1 false), !tbaa !53
   %343 = trunc i32 %.0413 to i8
-  %scevgep507 = getelementptr i8, ptr %scevgep506, i64 %228
-  %smax508 = tail call i32 @llvm.smax.i32(i32 %.7475483, i32 %248)
+  %scevgep502 = getelementptr i8, ptr %scevgep501, i64 %228
+  %smax503 = tail call i32 @llvm.smax.i32(i32 %.7471479, i32 %248)
   %344 = xor i32 %.0407, -1
-  %345 = add i32 %smax508, %344
+  %345 = add i32 %smax503, %344
   %346 = zext i32 %345 to i64
   %347 = add nuw nsw i64 %346, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep507, i8 %343, i64 %347, i1 false), !tbaa !53
-  br label %.thread485
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep502, i8 %343, i64 %347, i1 false), !tbaa !53
+  br label %.thread481
 
 348:                                              ; preds = %317
   %349 = add nsw i32 %.7, -1
-  br label %.loopexit493
+  br label %.loopexit488
 
-.thread485:                                       ; preds = %.preheader, %231
+.thread481:                                       ; preds = %.preheader, %231
   %.2415 = phi i32 [ %242, %231 ], [ %.4417, %.preheader ]
-  %.2409 = phi i32 [ %241, %231 ], [ %.7475483, %.preheader ]
+  %.2409 = phi i32 [ %241, %231 ], [ %.7471479, %.preheader ]
   %.2405 = phi i8 [ %.0403, %231 ], [ 1, %.preheader ]
-  %.1400 = phi i1 [ false, %231 ], [ %.5477481, %.preheader ]
-  %350 = icmp slt i32 %.2409, %spec.select463
+  %.1400 = phi i1 [ false, %231 ], [ %.5473477, %.preheader ]
+  %350 = icmp slt i32 %.2409, %spec.select462
   %351 = icmp slt i32 %.2415, 32
   %or.cond7 = select i1 %350, i1 %351, i1 false
-  br i1 %or.cond7, label %227, label %.loopexit493.loopexit, !llvm.loop !68
+  br i1 %or.cond7, label %227, label %.loopexit488.loopexit, !llvm.loop !68
 
-.loopexit493.loopexit:                            ; preds = %.thread485
+.loopexit488.loopexit:                            ; preds = %.thread481
   %352 = icmp eq i8 %.2405, 0
-  br label %.loopexit493
+  br label %.loopexit488
 
-.loopexit493:                                     ; preds = %.loopexit493.loopexit, %348
-  %.1414 = phi i32 [ %.0413, %348 ], [ %.2415, %.loopexit493.loopexit ]
-  %.1408 = phi i32 [ %349, %348 ], [ %.2409, %.loopexit493.loopexit ]
-  %.1404 = phi i1 [ false, %348 ], [ %352, %.loopexit493.loopexit ]
-  %.0399 = phi i1 [ true, %348 ], [ %.1400, %.loopexit493.loopexit ]
+.loopexit488:                                     ; preds = %.loopexit488.loopexit, %348
+  %.1414 = phi i32 [ %.0413, %348 ], [ %.2415, %.loopexit488.loopexit ]
+  %.1408 = phi i32 [ %349, %348 ], [ %.2409, %.loopexit488.loopexit ]
+  %.1404 = phi i1 [ false, %348 ], [ %352, %.loopexit488.loopexit ]
+  %.0399 = phi i1 [ true, %348 ], [ %.1400, %.loopexit488.loopexit ]
   %353 = sub nsw i32 %.1408, %.2392
   %354 = trunc i32 %353 to i8
   %355 = sext i32 %.1414 to i64
@@ -3074,18 +3074,18 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   store i32 0, ptr %361, align 4, !tbaa !65
   %362 = getelementptr inbounds nuw i8, ptr %218, i64 12
   store i32 %.1414, ptr %362, align 4, !tbaa !66
-  br i1 %.1404, label %363, label %.loopexit493._crit_edge
+  br i1 %.1404, label %363, label %.loopexit488._crit_edge
 
-.loopexit493._crit_edge:                          ; preds = %.loopexit493
-  %.pre518 = load i32, ptr %225, align 4, !tbaa !67
+.loopexit488._crit_edge:                          ; preds = %.loopexit488
+  %.pre513 = load i32, ptr %225, align 4, !tbaa !67
   br label %364
 
-363:                                              ; preds = %.loopexit493
+363:                                              ; preds = %.loopexit488
   store i32 %.1414, ptr %225, align 4, !tbaa !67
   br label %364
 
-364:                                              ; preds = %.loopexit493._crit_edge, %363
-  %365 = phi i32 [ %.pre518, %.loopexit493._crit_edge ], [ %.1414, %363 ]
+364:                                              ; preds = %.loopexit488._crit_edge, %363
+  %365 = phi i32 [ %.pre513, %.loopexit488._crit_edge ], [ %.1414, %363 ]
   %366 = getelementptr inbounds nuw i8, ptr %218, i64 20
   store i32 %.2392, ptr %366, align 4, !tbaa !64
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3131,11 +3131,11 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 
 386:                                              ; preds = %382
   %387 = tail call i32 @utf8_back1SafeBody_77(ptr noundef nonnull %6, i32 noundef 0, i32 noundef %.1391)
-  %.pre522 = load ptr, ptr %107, align 8, !tbaa !50
+  %.pre517 = load ptr, ptr %107, align 8, !tbaa !50
   br label %388
 
 388:                                              ; preds = %382, %386, %381
-  %389 = phi ptr [ %.pre522, %386 ], [ %106, %382 ], [ %106, %381 ]
+  %389 = phi ptr [ %.pre517, %386 ], [ %106, %382 ], [ %106, %381 ]
   %.3 = phi i32 [ %387, %386 ], [ %.1391, %382 ], [ %.1391, %381 ]
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %391 = load ptr, ptr %390, align 8, !tbaa !49
@@ -3155,8 +3155,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   br label %399
 
 399:                                              ; preds = %388, %.loopexit
-  %.0385499 = phi i32 [ 34, %388 ], [ %.1, %.loopexit ]
-  %.0386498 = phi i32 [ 34, %388 ], [ %.1387, %.loopexit ]
+  %.0385494 = phi i32 [ 34, %388 ], [ %.1, %.loopexit ]
+  %.0386493 = phi i32 [ 34, %388 ], [ %.1387, %.loopexit ]
   %400 = load i32, ptr %4, align 4, !tbaa !38
   %401 = sub nsw i32 %400, %395
   %402 = icmp sgt i32 %401, 5
@@ -3167,7 +3167,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 404:                                              ; preds = %399
   %405 = add nsw i32 %400, -1
   store i32 %405, ptr %4, align 4, !tbaa !38
-  %406 = add nsw i32 %.0386498, -1
+  %406 = add nsw i32 %.0386493, -1
   %407 = zext nneg i32 %405 to i64
   %408 = getelementptr inbounds nuw i8, ptr %6, i64 %407
   %409 = load i8, ptr %408, align 1, !tbaa !53
@@ -3212,13 +3212,13 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %437 = lshr i32 %425, 10
   %438 = trunc i32 %437 to i16
   %439 = add i16 %438, -10304
-  %440 = add nsw i32 %.0386498, -2
+  %440 = add nsw i32 %.0386493, -2
   br label %441
 
 441:                                              ; preds = %423, %428
-  %.sink570 = phi i32 [ %440, %428 ], [ %406, %423 ]
+  %.sink565 = phi i32 [ %440, %428 ], [ %406, %423 ]
   %.sink = phi i16 [ %439, %428 ], [ %427, %423 ]
-  %442 = zext nneg i32 %.sink570 to i64
+  %442 = zext nneg i32 %.sink565 to i64
   %443 = getelementptr inbounds nuw i16, ptr %392, i64 %442
   store i16 %.sink, ptr %443, align 2, !tbaa !18
   %444 = load i32, ptr %4, align 4, !tbaa !38
@@ -3226,35 +3226,35 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %446 = trunc i32 %445 to i8
   %447 = getelementptr inbounds nuw i8, ptr %393, i64 %442
   store i8 %446, ptr %447, align 1, !tbaa !53
-  %448 = trunc i32 %.sink570 to i8
+  %448 = trunc i32 %.sink565 to i8
   %449 = zext nneg i32 %405 to i64
   br label %450
 
 450:                                              ; preds = %450, %441
-  %indvars.iv512 = phi i64 [ %indvars.iv.next513, %450 ], [ %449, %441 ]
-  %indvars.iv.next513 = add nsw i64 %indvars.iv512, -1
-  %451 = sub nsw i64 %indvars.iv512, %398
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %450 ], [ %449, %441 ]
+  %indvars.iv.next508 = add nsw i64 %indvars.iv507, -1
+  %451 = sub nsw i64 %indvars.iv507, %398
   %452 = getelementptr inbounds i8, ptr %394, i64 %451
   store i8 %448, ptr %452, align 1, !tbaa !53
   %453 = load i32, ptr %4, align 4, !tbaa !38
   %454 = sext i32 %453 to i64
-  %.not449.not = icmp sgt i64 %indvars.iv512, %454
+  %.not449.not = icmp sgt i64 %indvars.iv507, %454
   br i1 %.not449.not, label %450, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %450, %411
-  %.1387 = phi i32 [ %406, %411 ], [ %.sink570, %450 ]
-  %.1 = phi i32 [ %.0385499, %411 ], [ %.sink570, %450 ]
+  %.1387 = phi i32 [ %406, %411 ], [ %.sink565, %450 ]
+  %.1 = phi i32 [ %.0385494, %411 ], [ %.sink565, %450 ]
   %455 = icmp sgt i32 %.1387, 2
   br i1 %455, label %399, label %.loopexit..critedge5_crit_edge, !llvm.loop !70
 
 .loopexit..critedge5_crit_edge:                   ; preds = %.loopexit
-  %.pre523 = load i32, ptr %4, align 4, !tbaa !38
+  %.pre518 = load i32, ptr %4, align 4, !tbaa !38
   br label %.critedge5, !llvm.loop !70
 
 .critedge5:                                       ; preds = %399, %.loopexit..critedge5_crit_edge
-  %456 = phi i32 [ %.pre523, %.loopexit..critedge5_crit_edge ], [ %400, %399 ]
-  %.0386.lcssa = phi i32 [ %.1387, %.loopexit..critedge5_crit_edge ], [ %.0386498, %399 ]
-  %.0385.lcssa = phi i32 [ %.1, %.loopexit..critedge5_crit_edge ], [ %.0385499, %399 ]
+  %456 = phi i32 [ %.pre518, %.loopexit..critedge5_crit_edge ], [ %400, %399 ]
+  %.0386.lcssa = phi i32 [ %.1387, %.loopexit..critedge5_crit_edge ], [ %.0386493, %399 ]
+  %.0385.lcssa = phi i32 [ %.1, %.loopexit..critedge5_crit_edge ], [ %.0385494, %399 ]
   store i32 %456, ptr %389, align 4, !tbaa !61
   %457 = getelementptr inbounds nuw i8, ptr %389, i64 4
   store i32 %.3, ptr %457, align 4, !tbaa !63
@@ -5715,11 +5715,11 @@ utext_getNativeIndex_77.exit:                     ; preds = %52, %57
   %98 = load ptr, ptr %97, align 8, !tbaa !15
   %99 = load i64, ptr %43, align 8, !tbaa !22
   %100 = tail call noundef signext i8 %98(ptr noundef nonnull %24, i64 noundef %99, i8 noundef signext 0)
-  %.pre28 = load i32, ptr %44, align 8, !tbaa !3
+  %.pre27 = load i32, ptr %44, align 8, !tbaa !3
   br label %101
 
 101:                                              ; preds = %95, %93
-  %102 = phi i32 [ %.pre28, %95 ], [ %83, %93 ]
+  %102 = phi i32 [ %.pre27, %95 ], [ %83, %93 ]
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %104, label %114
 

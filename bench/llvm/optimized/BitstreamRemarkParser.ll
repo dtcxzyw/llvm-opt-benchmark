@@ -3510,25 +3510,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %._crit_edge.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !456
-  br label %.thread28
+  br label %.thread27
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.025.0.copyload = load i64, ptr %22, align 8
+  %.sroa.024.0.copyload = load i64, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  store i64 %.sroa.025.0.copyload, ptr %23, align 8, !tbaa !459
+  store i64 %.sroa.024.0.copyload, ptr %23, align 8, !tbaa !459
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = load i16, ptr %24, align 8
   %26 = and i16 %25, 256
   %.not = icmp eq i16 %26, 0
-  br i1 %.not, label %._crit_edge.i.i.i17, label %27
+  br i1 %.not, label %._crit_edge.i.i.i16, label %27
 
 27:                                               ; preds = %21
-  %.sroa.023.0.extract.trunc = trunc i16 %25 to i8
-  %28 = icmp ugt i8 %.sroa.023.0.extract.trunc, 2
-  br i1 %28, label %._crit_edge.i.i.i11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.sroa.022.0.extract.trunc = trunc i16 %25 to i8
+  %28 = icmp ugt i8 %.sroa.022.0.extract.trunc, 2
+  br i1 %28, label %._crit_edge.i.i.i10, label %_ZN4llvm5ErrorD2Ev.exit
 
-._crit_edge.i.i.i11:                              ; preds = %27
+._crit_edge.i.i.i10:                              ; preds = %27
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !460
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3548,19 +3548,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 84, ptr nonnull %29) #22
   %35 = load ptr, ptr %7, align 8, !tbaa !93, !noalias !460
   %36 = icmp eq ptr %35, %30
-  br i1 %36, label %_ZN4llvm17createStringErrorESt10error_codePKc.exit15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13
+  br i1 %36, label %_ZN4llvm17createStringErrorESt10error_codePKc.exit14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13: ; preds = %._crit_edge.i.i.i11
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12: ; preds = %._crit_edge.i.i.i10
   %37 = load i64, ptr %30, align 8, !tbaa !62, !noalias !460
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %35, i64 noundef %38) #24
-  br label %_ZN4llvm17createStringErrorESt10error_codePKc.exit15
+  br label %_ZN4llvm17createStringErrorESt10error_codePKc.exit14
 
-_ZN4llvm17createStringErrorESt10error_codePKc.exit15: ; preds = %._crit_edge.i.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13
+_ZN4llvm17createStringErrorESt10error_codePKc.exit14: ; preds = %._crit_edge.i.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !460
-  br label %.thread28
+  br label %.thread27
 
-._crit_edge.i.i.i17:                              ; preds = %21
+._crit_edge.i.i.i16:                              ; preds = %21
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !463
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3580,27 +3580,27 @@ _ZN4llvm17createStringErrorESt10error_codePKc.exit15: ; preds = %._crit_edge.i.i
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 84, ptr nonnull %39) #22
   %45 = load ptr, ptr %5, align 8, !tbaa !93, !noalias !463
   %46 = icmp eq ptr %45, %40
-  br i1 %46, label %_ZN4llvm17createStringErrorESt10error_codePKc.exit21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i19
+  br i1 %46, label %_ZN4llvm17createStringErrorESt10error_codePKc.exit20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i18
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i19: ; preds = %._crit_edge.i.i.i17
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i18: ; preds = %._crit_edge.i.i.i16
   %47 = load i64, ptr %40, align 8, !tbaa !62, !noalias !463
   %48 = add i64 %47, 1
   call void @_ZdlPvm(ptr noundef %45, i64 noundef %48) #24
-  br label %_ZN4llvm17createStringErrorESt10error_codePKc.exit21
+  br label %_ZN4llvm17createStringErrorESt10error_codePKc.exit20
 
-_ZN4llvm17createStringErrorESt10error_codePKc.exit21: ; preds = %._crit_edge.i.i.i17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i19
+_ZN4llvm17createStringErrorESt10error_codePKc.exit20: ; preds = %._crit_edge.i.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i18
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !463
-  br label %.thread28
+  br label %.thread27
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %27
-  %.sroa.023.0.extract.trunc.mask = and i16 %25, 3
-  %49 = zext nneg i16 %.sroa.023.0.extract.trunc.mask to i32
+  %.sroa.022.0.extract.trunc.mask = and i16 %25, 3
+  %49 = zext nneg i16 %.sroa.022.0.extract.trunc.mask to i32
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 488
   store i32 %49, ptr %50, align 8, !tbaa !358
   store ptr null, ptr %0, align 8, !tbaa !48
-  br label %.thread28
+  br label %.thread27
 
-.thread28:                                        ; preds = %_ZN4llvm17createStringErrorESt10error_codePKc.exit21, %_ZN4llvm17createStringErrorESt10error_codePKc.exit15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZN4llvm5ErrorD2Ev.exit
+.thread27:                                        ; preds = %_ZN4llvm17createStringErrorESt10error_codePKc.exit20, %_ZN4llvm17createStringErrorESt10error_codePKc.exit14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

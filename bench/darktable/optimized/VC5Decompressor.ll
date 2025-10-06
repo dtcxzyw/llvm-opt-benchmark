@@ -4645,26 +4645,26 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 123:                                              ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %124 = phi i32 [ %110, %.lr.ph.i.i ], [ %127, %.loopexit.i.i ]
-  %.sroa.0.032.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %.lr.ph.i.i ], [ %131, %.loopexit.i.i ]
-  %.sroa.5.031.i.i = phi i8 [ 11, %.lr.ph.i.i ], [ %132, %.loopexit.i.i ]
+  %.sroa.0.031.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %.lr.ph.i.i ], [ %131, %.loopexit.i.i ]
+  %.sroa.5.030.i.i = phi i8 [ 11, %.lr.ph.i.i ], [ %132, %.loopexit.i.i ]
   %125 = phi i64 [ %111, %.lr.ph.i.i ], [ %128, %.loopexit.i.i ]
   %126 = icmp ne i32 %124, 0
   tail call void @llvm.assume(i1 %126)
   %127 = add nsw i32 %124, -1
   store i32 %127, ptr %10, align 8, !tbaa !315
   %128 = shl i64 %125, 1
-  %129 = shl i32 %.sroa.0.032.i.i, 1
+  %129 = shl i32 %.sroa.0.031.i.i, 1
   %.lobit.i.i = lshr i64 %125, 63
   %130 = trunc nuw nsw i64 %.lobit.i.i to i32
   %131 = or disjoint i32 %129, %130
-  %132 = add i8 %.sroa.5.031.i.i, 1
+  %132 = add i8 %.sroa.5.030.i.i, 1
   %133 = zext i8 %132 to i64
   %134 = getelementptr inbounds nuw i32, ptr %120, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !35
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %137 = load i32, ptr %136, align 4, !tbaa !35
-  %.not29.i.i = icmp ult i32 %135, %137
-  br i1 %.not29.i.i, label %.critedge.preheader.i.i, label %.loopexit.i.i
+  %.not28.i.i = icmp ult i32 %135, %137
+  br i1 %.not28.i.i, label %.critedge.preheader.i.i, label %.loopexit.i.i
 
 .critedge.preheader.i.i:                          ; preds = %123
   %138 = zext i32 %135 to i64
@@ -4905,18 +4905,18 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor12decodeThreadERb(ptr noundef 
 _ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit: ; preds = %.critedge28.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i8, ptr %19, align 8, !tbaa !185
-  %switch.i = icmp eq i8 %20, 0
-  br i1 %switch.i, label %21, label %22
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
+22:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
   tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit
 
-22:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
+23:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
   tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit
 
-_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit: ; preds = %7, %22, %21
+_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit: ; preds = %7, %23, %22
   ret void
 }
 
@@ -4924,18 +4924,18 @@ _ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit: ; preds = %7, %
 define hidden void @_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv(ptr noundef nonnull align 8 dereferenceable(1000) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !185
-  %switch = icmp eq i8 %3, 0
-  br i1 %switch, label %4, label %5
-
-4:                                                ; preds = %1
-  tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
-  br label %6
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
-  br label %6
+  tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
+  br label %7
 
-6:                                                ; preds = %5, %4
+6:                                                ; preds = %1
+  tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
+  br label %7
+
+7:                                                ; preds = %6, %5
   ret void
 }
 
@@ -5014,69 +5014,69 @@ define hidden void @_ZN8rawspeed15VC5Decompressor6decodeEjjjj(ptr noundef nonnul
 _ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i: ; preds = %.critedge28.i.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i8, ptr %35, align 8, !tbaa !185
-  %switch.i.i = icmp eq i8 %36, 0
-  br i1 %switch.i.i, label %37, label %38
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
+38:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
   call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
 
-38:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
+39:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
   call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
 
-_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit: ; preds = %23, %37, %38
+_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit: ; preds = %23, %38, %39
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %39, ptr %7, align 8, !tbaa !298
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %40, align 8, !tbaa !299
-  store i8 0, ptr %39, align 8, !tbaa !42
-  %41 = load ptr, ptr %0, align 8, !tbaa !83
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 1, ptr noundef nonnull %7)
-          to label %44 unwind label %48
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %40, ptr %7, align 8, !tbaa !298
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %41, align 8, !tbaa !299
+  store i8 0, ptr %40, align 8, !tbaa !42
+  %42 = load ptr, ptr %0, align 8, !tbaa !83
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 1, ptr noundef nonnull %7)
+          to label %45 unwind label %49
 
-44:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
-  %45 = load ptr, ptr %7, align 8, !tbaa !297
-  br i1 %43, label %46, label %54
+45:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
+  %46 = load ptr, ptr %7, align 8, !tbaa !297
+  br i1 %44, label %47, label %55
 
-46:                                               ; preds = %44
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15VC5Decompressor6decodeEjjjj, ptr noundef %45) #22
-          to label %47 unwind label %48
+47:                                               ; preds = %45
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15VC5Decompressor6decodeEjjjj, ptr noundef %46) #22
+          to label %48 unwind label %49
 
-47:                                               ; preds = %46
+48:                                               ; preds = %47
   unreachable
 
-48:                                               ; preds = %46, %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %47, %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = load ptr, ptr %7, align 8, !tbaa !297
-  %51 = icmp eq ptr %50, %39
-  br i1 %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %51 = load ptr, ptr %7, align 8, !tbaa !297
+  %52 = icmp eq ptr %51, %40
+  br i1 %52, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %48
-  %52 = load i64, ptr %39, align 8, !tbaa !42
-  %53 = add i64 %52, 1
-  call void @_ZdlPvm(ptr noundef %50, i64 noundef %53) #34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %49
+  %53 = load i64, ptr %40, align 8, !tbaa !42
+  %54 = add i64 %53, 1
+  call void @_ZdlPvm(ptr noundef %51, i64 noundef %54) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %48, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %50
 
-54:                                               ; preds = %44
-  %55 = icmp eq ptr %45, %39
-  br i1 %55, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+55:                                               ; preds = %45
+  %56 = icmp eq ptr %46, %40
+  br i1 %56, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7: ; preds = %54
-  %56 = load i64, ptr %39, align 8, !tbaa !42
-  %57 = add i64 %56, 1
-  call void @_ZdlPvm(ptr noundef %45, i64 noundef %57) #34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7: ; preds = %55
+  %57 = load i64, ptr %40, align 8, !tbaa !42
+  %58 = add i64 %57, 1
+  call void @_ZdlPvm(ptr noundef %46, i64 noundef %58) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -6241,26 +6241,26 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 69:                                               ; preds = %.loopexit.i, %.lr.ph.i
   %70 = phi i32 [ %52, %.lr.ph.i ], [ %73, %.loopexit.i ]
-  %.sroa.0.032.i = phi i32 [ %.sroa.0.0.extract.trunc.i, %.lr.ph.i ], [ %77, %.loopexit.i ]
-  %.sroa.5.031.i = phi i8 [ 11, %.lr.ph.i ], [ %78, %.loopexit.i ]
+  %.sroa.0.031.i = phi i32 [ %.sroa.0.0.extract.trunc.i, %.lr.ph.i ], [ %77, %.loopexit.i ]
+  %.sroa.5.030.i = phi i8 [ 11, %.lr.ph.i ], [ %78, %.loopexit.i ]
   %71 = phi i64 [ %53, %.lr.ph.i ], [ %74, %.loopexit.i ]
   %72 = icmp ne i32 %70, 0
   tail call void @llvm.assume(i1 %72)
   %73 = add nsw i32 %70, -1
   store i32 %73, ptr %3, align 8, !tbaa !315
   %74 = shl i64 %71, 1
-  %75 = shl i32 %.sroa.0.032.i, 1
+  %75 = shl i32 %.sroa.0.031.i, 1
   %.lobit.i = lshr i64 %71, 63
   %76 = trunc nuw nsw i64 %.lobit.i to i32
   %77 = or disjoint i32 %75, %76
-  %78 = add i8 %.sroa.5.031.i, 1
+  %78 = add i8 %.sroa.5.030.i, 1
   %79 = zext i8 %78 to i64
   %80 = getelementptr inbounds nuw i32, ptr %65, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !35
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !35
-  %.not29.i = icmp ult i32 %81, %83
-  br i1 %.not29.i, label %.critedge.preheader.i, label %.loopexit.i
+  %.not28.i = icmp ult i32 %81, %83
+  br i1 %.not28.i, label %.critedge.preheader.i, label %.loopexit.i
 
 .critedge.preheader.i:                            ; preds = %69
   %84 = zext i32 %81 to i64

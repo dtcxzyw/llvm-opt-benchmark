@@ -3056,10 +3056,9 @@ define internal noundef range(i32 0, 2) i32 @e100_intr(i32 %0, ptr noundef %1) #
   br label %16
 
 16:                                               ; preds = %12, %2
-  switch i8 %8, label %17 [
-    i8 -1, label %34
-    i8 0, label %34
-  ]
+  %.off = add i8 %8, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %17, label %34
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %4, align 8
@@ -3091,8 +3090,8 @@ define internal noundef range(i32 0, 2) i32 @e100_intr(i32 %0, ptr noundef %1) #
   tail call void @__napi_schedule(ptr noundef %25) #19
   br label %34
 
-34:                                               ; preds = %27, %24, %16, %16
-  %35 = phi i32 [ 0, %16 ], [ 0, %16 ], [ 1, %27 ], [ 1, %24 ]
+34:                                               ; preds = %16, %27, %24
+  %35 = phi i32 [ 0, %16 ], [ 1, %27 ], [ 1, %24 ]
   ret i32 %35
 }
 

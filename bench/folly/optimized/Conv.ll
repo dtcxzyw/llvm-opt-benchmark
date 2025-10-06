@@ -2854,11 +2854,11 @@ _ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %93, %59, %88, %_ZSt
   br i1 %117, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %118
 
 118:                                              ; preds = %111
-  %.not21.i = icmp ult i64 %114, %116
-  br i1 %.not21.i, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !71
+  %.not24.i = icmp ult i64 %114, %116
+  br i1 %.not24.i, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !71
 
 _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %111, %118, %_ZN10fast_float6bigint4pow2Ej.exit, %108
-  %119 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %108 ], [ false, %118 ], [ false, %.preheader.i ], [ true, %111 ]
+  %119 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %108 ], [ false, %.preheader.i ], [ false, %118 ], [ true, %111 ]
   %.not.i.i53 = phi i1 [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %108 ], [ %.not.i50, %118 ], [ %.not.i50, %111 ], [ %.not.i50, %.preheader.i ]
   br i1 %.not.i, label %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59, label %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
 
@@ -5160,11 +5160,11 @@ _ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %94, %60, %89, %_ZSt
   br i1 %118, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %119
 
 119:                                              ; preds = %112
-  %.not21.i = icmp ult i64 %115, %117
-  br i1 %.not21.i, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !71
+  %.not24.i = icmp ult i64 %115, %117
+  br i1 %.not24.i, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !71
 
 _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %112, %119, %_ZN10fast_float6bigint4pow2Ej.exit, %109
-  %120 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %109 ], [ false, %119 ], [ false, %.preheader.i ], [ true, %112 ]
+  %120 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %109 ], [ false, %.preheader.i ], [ false, %119 ], [ true, %112 ]
   %.not.i.i53 = phi i1 [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %109 ], [ %.not.i50, %119 ], [ %.not.i50, %112 ], [ %.not.i50, %.preheader.i ]
   br i1 %.not.i, label %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59, label %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
 
@@ -5299,8 +5299,8 @@ sub_1:                                            ; preds = %sub_0
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %31, -53
-  %.not97 = icmp eq i32 %32, 0
-  br i1 %.not97, label %sub_2, label %.tail
+  %.not95 = icmp eq i32 %32, 0
+  br i1 %.not95, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %33 = getelementptr inbounds nuw i8, ptr %.181, i64 2
@@ -5320,31 +5320,31 @@ sub_2:                                            ; preds = %sub_1
 
 41:                                               ; preds = %.tail
   %.pre = ptrtoint ptr %.181 to i64
-  %.pre103 = sub i64 %10, %.pre
-  %42 = icmp sgt i64 %.pre103, 3
+  %.pre101 = sub i64 %10, %.pre
+  %42 = icmp sgt i64 %.pre101, 3
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41, %70
-  %.04094 = phi i8 [ %73, %70 ], [ 0, %41 ]
-  %.293 = phi ptr [ %74, %70 ], [ %.181, %41 ]
-  %43 = load i8, ptr %.293, align 1, !tbaa !14
+  %.04092 = phi i8 [ %73, %70 ], [ 0, %41 ]
+  %.291 = phi ptr [ %74, %70 ], [ %.181, %41 ]
+  %43 = load i8, ptr %.291, align 1, !tbaa !14
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !89
   %47 = zext i16 %46 to i32
-  %48 = getelementptr inbounds nuw i8, ptr %.293, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.291, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = sext i8 %49 to i64
   %51 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !89
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds nuw i8, ptr %.293, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.291, i64 2
   %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = sext i8 %55 to i64
   %57 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !89
   %59 = zext i16 %58 to i32
-  %60 = getelementptr inbounds nuw i8, ptr %.293, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.291, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = sext i8 %61 to i64
   %63 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %62
@@ -5357,20 +5357,20 @@ sub_2:                                            ; preds = %sub_1
   br i1 %69, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = shl i8 %.04094, 4
+  %71 = shl i8 %.04092, 4
   %72 = trunc i32 %68 to i8
   %73 = add i8 %71, %72
-  %74 = getelementptr inbounds nuw i8, ptr %.293, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.291, i64 4
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %10, %75
   %77 = icmp sgt i64 %76, 3
   br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %70, %9, %22, %41
-  %.038118 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
+  %.038116 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
   %.2.lcssa = phi ptr [ %.181, %41 ], [ %.372.ph, %9 ], [ %storemerge, %22 ], [ %74, %70 ]
   %.040.lcssa = phi i8 [ 0, %41 ], [ 0, %9 ], [ 0, %22 ], [ %73, %70 ]
-  %.lcssa = phi i64 [ %.pre103, %41 ], [ %12, %9 ], [ %24, %22 ], [ %76, %70 ]
+  %.lcssa = phi i64 [ %.pre101, %41 ], [ %12, %9 ], [ %24, %22 ], [ %76, %70 ]
   switch i64 %.lcssa, label %131 [
     i64 3, label %78
     i64 2, label %103
@@ -5440,7 +5440,7 @@ sub_2:                                            ; preds = %sub_1
   br label %133
 
 131:                                              ; preds = %._crit_edge
-  %132 = icmp eq i64 %.038118, 0
+  %132 = icmp eq i64 %.038116, 0
   br i1 %132, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %133
 
 133:                                              ; preds = %.thread83, %103, %78, %131
@@ -5553,8 +5553,8 @@ sub_1:                                            ; preds = %sub_0
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %31, -53
-  %.not97 = icmp eq i32 %32, 0
-  br i1 %.not97, label %sub_2, label %.tail
+  %.not95 = icmp eq i32 %32, 0
+  br i1 %.not95, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %33 = getelementptr inbounds nuw i8, ptr %.181, i64 2
@@ -5574,31 +5574,31 @@ sub_2:                                            ; preds = %sub_1
 
 41:                                               ; preds = %.tail
   %.pre = ptrtoint ptr %.181 to i64
-  %.pre103 = sub i64 %10, %.pre
-  %42 = icmp sgt i64 %.pre103, 3
+  %.pre101 = sub i64 %10, %.pre
+  %42 = icmp sgt i64 %.pre101, 3
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41, %70
-  %.04094 = phi i8 [ %73, %70 ], [ 0, %41 ]
-  %.293 = phi ptr [ %74, %70 ], [ %.181, %41 ]
-  %43 = load i8, ptr %.293, align 1, !tbaa !14
+  %.04092 = phi i8 [ %73, %70 ], [ 0, %41 ]
+  %.291 = phi ptr [ %74, %70 ], [ %.181, %41 ]
+  %43 = load i8, ptr %.291, align 1, !tbaa !14
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !89
   %47 = zext i16 %46 to i32
-  %48 = getelementptr inbounds nuw i8, ptr %.293, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.291, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = sext i8 %49 to i64
   %51 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !89
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds nuw i8, ptr %.293, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.291, i64 2
   %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = sext i8 %55 to i64
   %57 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !89
   %59 = zext i16 %58 to i32
-  %60 = getelementptr inbounds nuw i8, ptr %.293, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.291, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = sext i8 %61 to i64
   %63 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %62
@@ -5611,20 +5611,20 @@ sub_2:                                            ; preds = %sub_1
   br i1 %69, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = shl i8 %.04094, 4
+  %71 = shl i8 %.04092, 4
   %72 = trunc i32 %68 to i8
   %73 = add i8 %71, %72
-  %74 = getelementptr inbounds nuw i8, ptr %.293, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.291, i64 4
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %10, %75
   %77 = icmp sgt i64 %76, 3
   br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %70, %9, %22, %41
-  %.038118 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
+  %.038116 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
   %.2.lcssa = phi ptr [ %.181, %41 ], [ %.372.ph, %9 ], [ %storemerge, %22 ], [ %74, %70 ]
   %.040.lcssa = phi i8 [ 0, %41 ], [ 0, %9 ], [ 0, %22 ], [ %73, %70 ]
-  %.lcssa = phi i64 [ %.pre103, %41 ], [ %12, %9 ], [ %24, %22 ], [ %76, %70 ]
+  %.lcssa = phi i64 [ %.pre101, %41 ], [ %12, %9 ], [ %24, %22 ], [ %76, %70 ]
   switch i64 %.lcssa, label %131 [
     i64 3, label %78
     i64 2, label %103
@@ -5694,7 +5694,7 @@ sub_2:                                            ; preds = %sub_1
   br label %133
 
 131:                                              ; preds = %._crit_edge
-  %132 = icmp eq i64 %.038118, 0
+  %132 = icmp eq i64 %.038116, 0
   br i1 %132, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %133
 
 133:                                              ; preds = %.thread83, %103, %78, %131
@@ -5773,16 +5773,16 @@ sub_0:                                            ; preds = %.thread
   %19 = load i8, ptr %.167, align 1
   %20 = zext i8 %19 to i32
   %21 = add nsw i32 %20, -50
-  %.not83 = icmp eq i32 %21, 0
-  br i1 %.not83, label %sub_1, label %.tail
+  %.not81 = icmp eq i32 %21, 0
+  br i1 %.not81, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %22 = getelementptr inbounds nuw i8, ptr %.167, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %24, -53
-  %.not84 = icmp eq i32 %25, 0
-  br i1 %.not84, label %sub_2, label %.tail
+  %.not82 = icmp eq i32 %25, 0
+  br i1 %.not82, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %26 = getelementptr inbounds nuw i8, ptr %.167, i64 2
@@ -5798,31 +5798,31 @@ sub_2:                                            ; preds = %sub_1
 
 32:                                               ; preds = %.tail
   %.pre = ptrtoint ptr %.167 to i64
-  %.pre90 = sub i64 %3, %.pre
-  %33 = icmp sgt i64 %.pre90, 3
+  %.pre88 = sub i64 %3, %.pre
+  %33 = icmp sgt i64 %.pre88, 3
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32, %61
-  %.04080 = phi i8 [ %64, %61 ], [ 0, %32 ]
-  %.279 = phi ptr [ %65, %61 ], [ %.167, %32 ]
-  %34 = load i8, ptr %.279, align 1, !tbaa !14
+  %.04078 = phi i8 [ %64, %61 ], [ 0, %32 ]
+  %.277 = phi ptr [ %65, %61 ], [ %.167, %32 ]
+  %34 = load i8, ptr %.277, align 1, !tbaa !14
   %35 = sext i8 %34 to i64
   %36 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !89
   %38 = zext i16 %37 to i32
-  %39 = getelementptr inbounds nuw i8, ptr %.279, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.277, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !14
   %41 = sext i8 %40 to i64
   %42 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !89
   %44 = zext i16 %43 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %.279, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.277, i64 2
   %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = sext i8 %46 to i64
   %48 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !89
   %50 = zext i16 %49 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %.279, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %.277, i64 3
   %52 = load i8, ptr %51, align 1, !tbaa !14
   %53 = sext i8 %52 to i64
   %54 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %53
@@ -5835,20 +5835,20 @@ sub_2:                                            ; preds = %sub_1
   br i1 %60, label %.loopexit, label %61
 
 61:                                               ; preds = %.lr.ph
-  %62 = shl i8 %.04080, 4
+  %62 = shl i8 %.04078, 4
   %63 = trunc i32 %59 to i8
   %64 = add i8 %62, %63
-  %65 = getelementptr inbounds nuw i8, ptr %.279, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.277, i64 4
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %3, %66
   %68 = icmp sgt i64 %67, 3
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %61, %2, %15, %32
-  %.038106 = phi i64 [ 3, %32 ], [ %5, %2 ], [ 3, %15 ], [ 3, %61 ]
+  %.038104 = phi i64 [ 3, %32 ], [ %5, %2 ], [ 3, %15 ], [ 3, %61 ]
   %.2.lcssa = phi ptr [ %.167, %32 ], [ %0, %2 ], [ %storemerge, %15 ], [ %65, %61 ]
   %.040.lcssa = phi i8 [ 0, %32 ], [ 0, %2 ], [ 0, %15 ], [ %64, %61 ]
-  %.lcssa = phi i64 [ %.pre90, %32 ], [ %5, %2 ], [ %17, %15 ], [ %67, %61 ]
+  %.lcssa = phi i64 [ %.pre88, %32 ], [ %5, %2 ], [ %17, %15 ], [ %67, %61 ]
   switch i64 %.lcssa, label %122 [
     i64 3, label %69
     i64 2, label %94
@@ -5918,7 +5918,7 @@ sub_2:                                            ; preds = %sub_1
   br label %124
 
 122:                                              ; preds = %._crit_edge
-  %123 = icmp eq i64 %.038106, 0
+  %123 = icmp eq i64 %.038104, 0
   br i1 %123, label %.loopexit, label %124
 
 124:                                              ; preds = %.thread69, %94, %69, %122
@@ -6005,45 +6005,45 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
 26:                                               ; preds = %.thread
   %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.180, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #22
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %29, label %._crit_edge101
+  br i1 %28, label %29, label %._crit_edge99
 
-._crit_edge101:                                   ; preds = %26
+._crit_edge99:                                    ; preds = %26
   %.pre = ptrtoint ptr %.180 to i64
-  %.pre102 = sub i64 %10, %.pre
+  %.pre100 = sub i64 %10, %.pre
   br label %31
 
 29:                                               ; preds = %.thread, %26
   %30 = add nuw nsw i8 %.sroa.064.1.ph, 7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
-31:                                               ; preds = %._crit_edge101, %22, %9
-  %.pre-phi103 = phi i64 [ %.pre102, %._crit_edge101 ], [ %24, %22 ], [ %12, %9 ]
-  %.0 = phi ptr [ %.180, %._crit_edge101 ], [ %storemerge, %22 ], [ %.371.ph, %9 ]
-  %.037 = phi i64 [ 5, %._crit_edge101 ], [ 5, %22 ], [ %12, %9 ]
-  %32 = icmp sgt i64 %.pre-phi103, 3
+31:                                               ; preds = %._crit_edge99, %22, %9
+  %.pre-phi101 = phi i64 [ %.pre100, %._crit_edge99 ], [ %24, %22 ], [ %12, %9 ]
+  %.0 = phi ptr [ %.180, %._crit_edge99 ], [ %storemerge, %22 ], [ %.371.ph, %9 ]
+  %.037 = phi i64 [ 5, %._crit_edge99 ], [ 5, %22 ], [ %12, %9 ]
+  %32 = icmp sgt i64 %.pre-phi101, 3
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %31, %60
-  %.03993 = phi i16 [ %63, %60 ], [ 0, %31 ]
-  %.292 = phi ptr [ %64, %60 ], [ %.0, %31 ]
-  %33 = load i8, ptr %.292, align 1, !tbaa !14
+  %.03991 = phi i16 [ %63, %60 ], [ 0, %31 ]
+  %.290 = phi ptr [ %64, %60 ], [ %.0, %31 ]
+  %33 = load i8, ptr %.290, align 1, !tbaa !14
   %34 = sext i8 %33 to i64
   %35 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !89
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %.292, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.290, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = sext i8 %39 to i64
   %41 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !89
   %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %.292, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.290, i64 2
   %45 = load i8, ptr %44, align 1, !tbaa !14
   %46 = sext i8 %45 to i64
   %47 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !89
   %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %.292, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %.290, i64 3
   %51 = load i8, ptr %50, align 1, !tbaa !14
   %52 = sext i8 %51 to i64
   %53 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %52
@@ -6056,10 +6056,10 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   br i1 %59, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %60
 
 60:                                               ; preds = %.lr.ph
-  %61 = mul i16 %.03993, 10000
+  %61 = mul i16 %.03991, 10000
   %62 = trunc nuw nsw i32 %58 to i16
   %63 = add i16 %61, %62
-  %64 = getelementptr inbounds nuw i8, ptr %.292, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.290, i64 4
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %10, %65
   %67 = icmp sgt i64 %66, 3
@@ -6068,7 +6068,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
 ._crit_edge:                                      ; preds = %60, %31
   %.2.lcssa = phi ptr [ %.0, %31 ], [ %64, %60 ]
   %.039.lcssa = phi i16 [ 0, %31 ], [ %63, %60 ]
-  %.lcssa = phi i64 [ %.pre-phi103, %31 ], [ %66, %60 ]
+  %.lcssa = phi i64 [ %.pre-phi101, %31 ], [ %66, %60 ]
   switch i64 %.lcssa, label %120 [
     i64 3, label %68
     i64 2, label %93
@@ -6222,41 +6222,41 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
 19:                                               ; preds = %.thread
   %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.166, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #22
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.loopexit, label %._crit_edge87
+  br i1 %21, label %.loopexit, label %._crit_edge85
 
-._crit_edge87:                                    ; preds = %19
+._crit_edge85:                                    ; preds = %19
   %.pre = ptrtoint ptr %.166 to i64
-  %.pre88 = sub i64 %3, %.pre
+  %.pre86 = sub i64 %3, %.pre
   br label %22
 
-22:                                               ; preds = %._crit_edge87, %15, %2
-  %.pre-phi89 = phi i64 [ %.pre88, %._crit_edge87 ], [ %17, %15 ], [ %5, %2 ]
-  %.0 = phi ptr [ %.166, %._crit_edge87 ], [ %storemerge, %15 ], [ %0, %2 ]
-  %.037 = phi i64 [ 5, %._crit_edge87 ], [ 5, %15 ], [ %5, %2 ]
-  %23 = icmp sgt i64 %.pre-phi89, 3
+22:                                               ; preds = %._crit_edge85, %15, %2
+  %.pre-phi87 = phi i64 [ %.pre86, %._crit_edge85 ], [ %17, %15 ], [ %5, %2 ]
+  %.0 = phi ptr [ %.166, %._crit_edge85 ], [ %storemerge, %15 ], [ %0, %2 ]
+  %.037 = phi i64 [ 5, %._crit_edge85 ], [ 5, %15 ], [ %5, %2 ]
+  %23 = icmp sgt i64 %.pre-phi87, 3
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %51
-  %.03979 = phi i16 [ %54, %51 ], [ 0, %22 ]
-  %.278 = phi ptr [ %55, %51 ], [ %.0, %22 ]
-  %24 = load i8, ptr %.278, align 1, !tbaa !14
+  %.03977 = phi i16 [ %54, %51 ], [ 0, %22 ]
+  %.276 = phi ptr [ %55, %51 ], [ %.0, %22 ]
+  %24 = load i8, ptr %.276, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %.278, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.276, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %.278, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.276, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %.278, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.276, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %43
@@ -6269,10 +6269,10 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = mul i16 %.03979, 10000
+  %52 = mul i16 %.03977, 10000
   %53 = trunc nuw nsw i32 %49 to i16
   %54 = add i16 %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %.278, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.276, i64 4
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %3, %56
   %58 = icmp sgt i64 %57, 3
@@ -6281,7 +6281,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %55, %51 ]
   %.039.lcssa = phi i16 [ 0, %22 ], [ %54, %51 ]
-  %.lcssa = phi i64 [ %.pre-phi89, %22 ], [ %57, %51 ]
+  %.lcssa = phi i64 [ %.pre-phi87, %22 ], [ %57, %51 ]
   switch i64 %.lcssa, label %111 [
     i64 3, label %59
     i64 2, label %84
@@ -6432,45 +6432,45 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
 26:                                               ; preds = %.thread
   %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.181, ptr noundef nonnull dereferenceable(11) @.str.5, i64 noundef 10) #22
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %29, label %._crit_edge102
+  br i1 %28, label %29, label %._crit_edge100
 
-._crit_edge102:                                   ; preds = %26
+._crit_edge100:                                   ; preds = %26
   %.pre = ptrtoint ptr %.181 to i64
-  %.pre103 = sub i64 %10, %.pre
+  %.pre101 = sub i64 %10, %.pre
   br label %31
 
 29:                                               ; preds = %.thread, %26
   %30 = add nuw nsw i8 %.sroa.064.1.ph, 7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
-31:                                               ; preds = %._crit_edge102, %22, %9
-  %.pre-phi104 = phi i64 [ %.pre103, %._crit_edge102 ], [ %24, %22 ], [ %12, %9 ]
-  %.0 = phi ptr [ %.181, %._crit_edge102 ], [ %storemerge, %22 ], [ %.372.ph, %9 ]
-  %.037 = phi i64 [ 10, %._crit_edge102 ], [ 10, %22 ], [ %12, %9 ]
-  %32 = icmp sgt i64 %.pre-phi104, 3
+31:                                               ; preds = %._crit_edge100, %22, %9
+  %.pre-phi102 = phi i64 [ %.pre101, %._crit_edge100 ], [ %24, %22 ], [ %12, %9 ]
+  %.0 = phi ptr [ %.181, %._crit_edge100 ], [ %storemerge, %22 ], [ %.372.ph, %9 ]
+  %.037 = phi i64 [ 10, %._crit_edge100 ], [ 10, %22 ], [ %12, %9 ]
+  %32 = icmp sgt i64 %.pre-phi102, 3
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %31, %60
-  %.03994 = phi i32 [ %62, %60 ], [ 0, %31 ]
-  %.293 = phi ptr [ %63, %60 ], [ %.0, %31 ]
-  %33 = load i8, ptr %.293, align 1, !tbaa !14
+  %.03992 = phi i32 [ %62, %60 ], [ 0, %31 ]
+  %.291 = phi ptr [ %63, %60 ], [ %.0, %31 ]
+  %33 = load i8, ptr %.291, align 1, !tbaa !14
   %34 = sext i8 %33 to i64
   %35 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !89
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %.293, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.291, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = sext i8 %39 to i64
   %41 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !89
   %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %.293, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.291, i64 2
   %45 = load i8, ptr %44, align 1, !tbaa !14
   %46 = sext i8 %45 to i64
   %47 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !89
   %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %.293, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %.291, i64 3
   %51 = load i8, ptr %50, align 1, !tbaa !14
   %52 = sext i8 %51 to i64
   %53 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %52
@@ -6483,9 +6483,9 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   br i1 %59, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %60
 
 60:                                               ; preds = %.lr.ph
-  %61 = mul i32 %.03994, 10000
+  %61 = mul i32 %.03992, 10000
   %62 = add i32 %58, %61
-  %63 = getelementptr inbounds nuw i8, ptr %.293, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.291, i64 4
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %10, %64
   %66 = icmp sgt i64 %65, 3
@@ -6494,7 +6494,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
 ._crit_edge:                                      ; preds = %60, %31
   %.2.lcssa = phi ptr [ %.0, %31 ], [ %63, %60 ]
   %.039.lcssa = phi i32 [ 0, %31 ], [ %62, %60 ]
-  %.lcssa = phi i64 [ %.pre-phi104, %31 ], [ %65, %60 ]
+  %.lcssa = phi i64 [ %.pre-phi102, %31 ], [ %65, %60 ]
   switch i64 %.lcssa, label %116 [
     i64 3, label %67
     i64 2, label %90
@@ -6645,41 +6645,41 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
 19:                                               ; preds = %.thread
   %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.167, ptr noundef nonnull dereferenceable(11) @.str.5, i64 noundef 10) #22
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.loopexit, label %._crit_edge88
+  br i1 %21, label %.loopexit, label %._crit_edge86
 
-._crit_edge88:                                    ; preds = %19
+._crit_edge86:                                    ; preds = %19
   %.pre = ptrtoint ptr %.167 to i64
-  %.pre89 = sub i64 %3, %.pre
+  %.pre87 = sub i64 %3, %.pre
   br label %22
 
-22:                                               ; preds = %._crit_edge88, %15, %2
-  %.pre-phi90 = phi i64 [ %.pre89, %._crit_edge88 ], [ %17, %15 ], [ %5, %2 ]
-  %.0 = phi ptr [ %.167, %._crit_edge88 ], [ %storemerge, %15 ], [ %0, %2 ]
-  %.037 = phi i64 [ 10, %._crit_edge88 ], [ 10, %15 ], [ %5, %2 ]
-  %23 = icmp sgt i64 %.pre-phi90, 3
+22:                                               ; preds = %._crit_edge86, %15, %2
+  %.pre-phi88 = phi i64 [ %.pre87, %._crit_edge86 ], [ %17, %15 ], [ %5, %2 ]
+  %.0 = phi ptr [ %.167, %._crit_edge86 ], [ %storemerge, %15 ], [ %0, %2 ]
+  %.037 = phi i64 [ 10, %._crit_edge86 ], [ 10, %15 ], [ %5, %2 ]
+  %23 = icmp sgt i64 %.pre-phi88, 3
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %51
-  %.03980 = phi i32 [ %53, %51 ], [ 0, %22 ]
-  %.279 = phi ptr [ %54, %51 ], [ %.0, %22 ]
-  %24 = load i8, ptr %.279, align 1, !tbaa !14
+  %.03978 = phi i32 [ %53, %51 ], [ 0, %22 ]
+  %.277 = phi ptr [ %54, %51 ], [ %.0, %22 ]
+  %24 = load i8, ptr %.277, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %.279, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.277, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %.279, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.277, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %.279, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.277, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %43
@@ -6692,9 +6692,9 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = mul i32 %.03980, 10000
+  %52 = mul i32 %.03978, 10000
   %53 = add i32 %49, %52
-  %54 = getelementptr inbounds nuw i8, ptr %.279, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.277, i64 4
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %3, %55
   %57 = icmp sgt i64 %56, 3
@@ -6703,7 +6703,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %54, %51 ]
   %.039.lcssa = phi i32 [ 0, %22 ], [ %53, %51 ]
-  %.lcssa = phi i64 [ %.pre-phi90, %22 ], [ %56, %51 ]
+  %.lcssa = phi i64 [ %.pre-phi88, %22 ], [ %56, %51 ]
   switch i64 %.lcssa, label %107 [
     i64 3, label %58
     i64 2, label %81
@@ -6851,11 +6851,11 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
 26:                                               ; preds = %.thread
   %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.185, ptr noundef nonnull dereferenceable(21) @.str.6, i64 noundef 20) #22
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %29, label %._crit_edge106
+  br i1 %28, label %29, label %._crit_edge104
 
-._crit_edge106:                                   ; preds = %26
+._crit_edge104:                                   ; preds = %26
   %.pre = ptrtoint ptr %.185 to i64
-  %.pre107 = sub i64 %10, %.pre
+  %.pre105 = sub i64 %10, %.pre
   br label %33
 
 29:                                               ; preds = %.thread, %26
@@ -6864,34 +6864,34 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   %32 = shl nuw nsw i64 %31, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
-33:                                               ; preds = %._crit_edge106, %22, %9
-  %.pre-phi108 = phi i64 [ %.pre107, %._crit_edge106 ], [ %24, %22 ], [ %12, %9 ]
-  %.0 = phi ptr [ %.185, %._crit_edge106 ], [ %storemerge, %22 ], [ %.376.ph, %9 ]
-  %.037 = phi i64 [ 20, %._crit_edge106 ], [ 20, %22 ], [ %12, %9 ]
-  %34 = icmp sgt i64 %.pre-phi108, 3
+33:                                               ; preds = %._crit_edge104, %22, %9
+  %.pre-phi106 = phi i64 [ %.pre105, %._crit_edge104 ], [ %24, %22 ], [ %12, %9 ]
+  %.0 = phi ptr [ %.185, %._crit_edge104 ], [ %storemerge, %22 ], [ %.376.ph, %9 ]
+  %.037 = phi i64 [ 20, %._crit_edge104 ], [ 20, %22 ], [ %12, %9 ]
+  %34 = icmp sgt i64 %.pre-phi106, 3
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %62
-  %.03998 = phi i64 [ %65, %62 ], [ 0, %33 ]
-  %.297 = phi ptr [ %66, %62 ], [ %.0, %33 ]
-  %35 = load i8, ptr %.297, align 1, !tbaa !14
+  %.03996 = phi i64 [ %65, %62 ], [ 0, %33 ]
+  %.295 = phi ptr [ %66, %62 ], [ %.0, %33 ]
+  %35 = load i8, ptr %.295, align 1, !tbaa !14
   %36 = sext i8 %35 to i64
   %37 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !89
   %39 = zext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i8, ptr %.297, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.295, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !14
   %42 = sext i8 %41 to i64
   %43 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !89
   %45 = zext i16 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %.297, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.295, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !14
   %48 = sext i8 %47 to i64
   %49 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !89
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %.297, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.295, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !14
   %54 = sext i8 %53 to i64
   %55 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %54
@@ -6904,10 +6904,10 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   br i1 %61, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %62
 
 62:                                               ; preds = %.lr.ph
-  %63 = mul i64 %.03998, 10000
+  %63 = mul i64 %.03996, 10000
   %64 = zext nneg i32 %60 to i64
   %65 = add i64 %63, %64
-  %66 = getelementptr inbounds nuw i8, ptr %.297, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.295, i64 4
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %10, %67
   %69 = icmp sgt i64 %68, 3
@@ -6916,7 +6916,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
 ._crit_edge:                                      ; preds = %62, %33
   %.2.lcssa = phi ptr [ %.0, %33 ], [ %66, %62 ]
   %.039.lcssa = phi i64 [ 0, %33 ], [ %65, %62 ]
-  %.lcssa = phi i64 [ %.pre-phi108, %33 ], [ %68, %62 ]
+  %.lcssa = phi i64 [ %.pre-phi106, %33 ], [ %68, %62 ]
   switch i64 %.lcssa, label %121 [
     i64 3, label %70
     i64 2, label %94
@@ -7058,41 +7058,41 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
 19:                                               ; preds = %.thread
   %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.170, ptr noundef nonnull dereferenceable(21) @.str.6, i64 noundef 20) #22
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.loopexit, label %._crit_edge91
+  br i1 %21, label %.loopexit, label %._crit_edge89
 
-._crit_edge91:                                    ; preds = %19
+._crit_edge89:                                    ; preds = %19
   %.pre = ptrtoint ptr %.170 to i64
-  %.pre92 = sub i64 %3, %.pre
+  %.pre90 = sub i64 %3, %.pre
   br label %22
 
-22:                                               ; preds = %._crit_edge91, %15, %2
-  %.pre-phi93 = phi i64 [ %.pre92, %._crit_edge91 ], [ %17, %15 ], [ %5, %2 ]
-  %.0 = phi ptr [ %.170, %._crit_edge91 ], [ %storemerge, %15 ], [ %0, %2 ]
-  %.037 = phi i64 [ 20, %._crit_edge91 ], [ 20, %15 ], [ %5, %2 ]
-  %23 = icmp sgt i64 %.pre-phi93, 3
+22:                                               ; preds = %._crit_edge89, %15, %2
+  %.pre-phi91 = phi i64 [ %.pre90, %._crit_edge89 ], [ %17, %15 ], [ %5, %2 ]
+  %.0 = phi ptr [ %.170, %._crit_edge89 ], [ %storemerge, %15 ], [ %0, %2 ]
+  %.037 = phi i64 [ 20, %._crit_edge89 ], [ 20, %15 ], [ %5, %2 ]
+  %23 = icmp sgt i64 %.pre-phi91, 3
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %51
-  %.03983 = phi i64 [ %54, %51 ], [ 0, %22 ]
-  %.282 = phi ptr [ %55, %51 ], [ %.0, %22 ]
-  %24 = load i8, ptr %.282, align 1, !tbaa !14
+  %.03981 = phi i64 [ %54, %51 ], [ 0, %22 ]
+  %.280 = phi ptr [ %55, %51 ], [ %.0, %22 ]
+  %24 = load i8, ptr %.280, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %.282, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.280, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %.282, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.280, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %.282, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.280, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %43
@@ -7105,10 +7105,10 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = mul i64 %.03983, 10000
+  %52 = mul i64 %.03981, 10000
   %53 = zext nneg i32 %49 to i64
   %54 = add i64 %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %.282, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.280, i64 4
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %3, %56
   %58 = icmp sgt i64 %57, 3
@@ -7117,7 +7117,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %55, %51 ]
   %.039.lcssa = phi i64 [ 0, %22 ], [ %54, %51 ]
-  %.lcssa = phi i64 [ %.pre-phi93, %22 ], [ %57, %51 ]
+  %.lcssa = phi i64 [ %.pre-phi91, %22 ], [ %57, %51 ]
   switch i64 %.lcssa, label %110 [
     i64 3, label %59
     i64 2, label %83
@@ -7268,11 +7268,11 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
 26:                                               ; preds = %.thread
   %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.185, ptr noundef nonnull dereferenceable(21) @.str.6, i64 noundef 20) #22
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %29, label %._crit_edge106
+  br i1 %28, label %29, label %._crit_edge104
 
-._crit_edge106:                                   ; preds = %26
+._crit_edge104:                                   ; preds = %26
   %.pre = ptrtoint ptr %.185 to i64
-  %.pre107 = sub i64 %10, %.pre
+  %.pre105 = sub i64 %10, %.pre
   br label %33
 
 29:                                               ; preds = %.thread, %26
@@ -7281,34 +7281,34 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   %32 = shl nuw nsw i64 %31, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
-33:                                               ; preds = %._crit_edge106, %22, %9
-  %.pre-phi108 = phi i64 [ %.pre107, %._crit_edge106 ], [ %24, %22 ], [ %12, %9 ]
-  %.0 = phi ptr [ %.185, %._crit_edge106 ], [ %storemerge, %22 ], [ %.376.ph, %9 ]
-  %.037 = phi i64 [ 20, %._crit_edge106 ], [ 20, %22 ], [ %12, %9 ]
-  %34 = icmp sgt i64 %.pre-phi108, 3
+33:                                               ; preds = %._crit_edge104, %22, %9
+  %.pre-phi106 = phi i64 [ %.pre105, %._crit_edge104 ], [ %24, %22 ], [ %12, %9 ]
+  %.0 = phi ptr [ %.185, %._crit_edge104 ], [ %storemerge, %22 ], [ %.376.ph, %9 ]
+  %.037 = phi i64 [ 20, %._crit_edge104 ], [ 20, %22 ], [ %12, %9 ]
+  %34 = icmp sgt i64 %.pre-phi106, 3
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %62
-  %.03998 = phi i64 [ %65, %62 ], [ 0, %33 ]
-  %.297 = phi ptr [ %66, %62 ], [ %.0, %33 ]
-  %35 = load i8, ptr %.297, align 1, !tbaa !14
+  %.03996 = phi i64 [ %65, %62 ], [ 0, %33 ]
+  %.295 = phi ptr [ %66, %62 ], [ %.0, %33 ]
+  %35 = load i8, ptr %.295, align 1, !tbaa !14
   %36 = sext i8 %35 to i64
   %37 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !89
   %39 = zext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i8, ptr %.297, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.295, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !14
   %42 = sext i8 %41 to i64
   %43 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !89
   %45 = zext i16 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %.297, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.295, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !14
   %48 = sext i8 %47 to i64
   %49 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !89
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %.297, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.295, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !14
   %54 = sext i8 %53 to i64
   %55 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %54
@@ -7321,10 +7321,10 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   br i1 %61, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %62
 
 62:                                               ; preds = %.lr.ph
-  %63 = mul i64 %.03998, 10000
+  %63 = mul i64 %.03996, 10000
   %64 = zext nneg i32 %60 to i64
   %65 = add i64 %63, %64
-  %66 = getelementptr inbounds nuw i8, ptr %.297, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.295, i64 4
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %10, %67
   %69 = icmp sgt i64 %68, 3
@@ -7333,7 +7333,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
 ._crit_edge:                                      ; preds = %62, %33
   %.2.lcssa = phi ptr [ %.0, %33 ], [ %66, %62 ]
   %.039.lcssa = phi i64 [ 0, %33 ], [ %65, %62 ]
-  %.lcssa = phi i64 [ %.pre-phi108, %33 ], [ %68, %62 ]
+  %.lcssa = phi i64 [ %.pre-phi106, %33 ], [ %68, %62 ]
   switch i64 %.lcssa, label %121 [
     i64 3, label %70
     i64 2, label %94
@@ -7475,41 +7475,41 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
 19:                                               ; preds = %.thread
   %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.170, ptr noundef nonnull dereferenceable(21) @.str.6, i64 noundef 20) #22
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.loopexit, label %._crit_edge91
+  br i1 %21, label %.loopexit, label %._crit_edge89
 
-._crit_edge91:                                    ; preds = %19
+._crit_edge89:                                    ; preds = %19
   %.pre = ptrtoint ptr %.170 to i64
-  %.pre92 = sub i64 %3, %.pre
+  %.pre90 = sub i64 %3, %.pre
   br label %22
 
-22:                                               ; preds = %._crit_edge91, %15, %2
-  %.pre-phi93 = phi i64 [ %.pre92, %._crit_edge91 ], [ %17, %15 ], [ %5, %2 ]
-  %.0 = phi ptr [ %.170, %._crit_edge91 ], [ %storemerge, %15 ], [ %0, %2 ]
-  %.037 = phi i64 [ 20, %._crit_edge91 ], [ 20, %15 ], [ %5, %2 ]
-  %23 = icmp sgt i64 %.pre-phi93, 3
+22:                                               ; preds = %._crit_edge89, %15, %2
+  %.pre-phi91 = phi i64 [ %.pre90, %._crit_edge89 ], [ %17, %15 ], [ %5, %2 ]
+  %.0 = phi ptr [ %.170, %._crit_edge89 ], [ %storemerge, %15 ], [ %0, %2 ]
+  %.037 = phi i64 [ 20, %._crit_edge89 ], [ 20, %15 ], [ %5, %2 ]
+  %23 = icmp sgt i64 %.pre-phi91, 3
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %51
-  %.03983 = phi i64 [ %54, %51 ], [ 0, %22 ]
-  %.282 = phi ptr [ %55, %51 ], [ %.0, %22 ]
-  %24 = load i8, ptr %.282, align 1, !tbaa !14
+  %.03981 = phi i64 [ %54, %51 ], [ 0, %22 ]
+  %.280 = phi ptr [ %55, %51 ], [ %.0, %22 ]
+  %24 = load i8, ptr %.280, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %.282, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.280, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %.282, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.280, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %.282, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.280, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 %43
@@ -7522,10 +7522,10 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = mul i64 %.03983, 10000
+  %52 = mul i64 %.03981, 10000
   %53 = zext nneg i32 %49 to i64
   %54 = add i64 %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %.282, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.280, i64 4
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %3, %56
   %58 = icmp sgt i64 %57, 3
@@ -7534,7 +7534,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %55, %51 ]
   %.039.lcssa = phi i64 [ 0, %22 ], [ %54, %51 ]
-  %.lcssa = phi i64 [ %.pre-phi93, %22 ], [ %57, %51 ]
+  %.lcssa = phi i64 [ %.pre-phi91, %22 ], [ %57, %51 ]
   switch i64 %.lcssa, label %110 [
     i64 3, label %59
     i64 2, label %83

@@ -1911,10 +1911,10 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
 
 5:                                                ; preds = %2, %45
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %45 ]
-  %.03055 = phi i32 [ 0, %2 ], [ %.2.ph, %45 ]
-  %.03154 = phi i32 [ 0, %2 ], [ %.233.ph, %45 ]
-  %.03453 = phi i32 [ 0, %2 ], [ %.236.ph, %45 ]
-  %.03752 = phi i32 [ 0, %2 ], [ %.239.ph, %45 ]
+  %.03054 = phi i32 [ 0, %2 ], [ %.2.ph, %45 ]
+  %.03153 = phi i32 [ 0, %2 ], [ %.233.ph, %45 ]
+  %.03452 = phi i32 [ 0, %2 ], [ %.236.ph, %45 ]
+  %.03751 = phi i32 [ 0, %2 ], [ %.239.ph, %45 ]
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !91
   %8 = sext i8 %7 to i32
@@ -1923,7 +1923,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
   br i1 %9, label %10, label %26
 
 10:                                               ; preds = %5
-  %11 = icmp eq i32 %.03154, 0
+  %11 = icmp eq i32 %.03153, 0
   br i1 %11, label %12, label %45
 
 12:                                               ; preds = %10
@@ -1931,8 +1931,8 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = add nsw i32 %.03752, 1
-  %16 = sext i32 %.03752 to i64
+  %15 = add nsw i32 %.03751, 1
+  %16 = sext i32 %.03751 to i64
   %17 = getelementptr inbounds i8, ptr %3, i64 %16
   store i8 49, ptr %17, align 1, !tbaa !91
   br label %45
@@ -1947,8 +1947,8 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
   br label %22
 
 22:                                               ; preds = %21, %18
-  %23 = add nsw i32 %.03752, 1
-  %24 = sext i32 %.03752 to i64
+  %23 = add nsw i32 %.03751, 1
+  %24 = sext i32 %.03751 to i64
   %25 = getelementptr inbounds i8, ptr %3, i64 %24
   store i8 47, ptr %25, align 1, !tbaa !91
   br label %45
@@ -1961,16 +1961,16 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
   ]
 
 28:                                               ; preds = %26, %26
-  %29 = icmp eq i32 %.03453, 0
+  %29 = icmp eq i32 %.03452, 0
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %28
   %31 = icmp eq i64 %indvars.iv, 0
-  %32 = zext i32 %.03055 to i64
+  %32 = zext i32 %.03054 to i64
   %33 = icmp eq i64 %indvars.iv, %32
   %or.cond = select i1 %31, i1 true, i1 %33
-  %34 = add nsw i32 %.03752, 1
-  %35 = sext i32 %.03752 to i64
+  %34 = add nsw i32 %.03751, 1
+  %35 = sext i32 %.03751 to i64
   %36 = getelementptr inbounds i8, ptr %3, i64 %35
   br i1 %or.cond, label %37, label %38
 
@@ -1987,17 +1987,17 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %39
-  %42 = add nsw i32 %.03752, 1
-  %43 = sext i32 %.03752 to i64
+  %42 = add nsw i32 %.03751, 1
+  %43 = sext i32 %.03751 to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 %43
   store i8 %7, ptr %44, align 1, !tbaa !91
   br label %45
 
 45:                                               ; preds = %41, %37, %38, %28, %10, %22, %14
-  %.239.ph = phi i32 [ %42, %41 ], [ %.03752, %28 ], [ %34, %38 ], [ %34, %37 ], [ %.03752, %10 ], [ %23, %22 ], [ %15, %14 ]
-  %.236.ph = phi i32 [ %.03453, %41 ], [ 1, %28 ], [ 1, %38 ], [ 0, %37 ], [ %.03453, %10 ], [ 0, %22 ], [ %.03453, %14 ]
-  %.233.ph = phi i32 [ %.03154, %41 ], [ %.03154, %28 ], [ %.03154, %38 ], [ %.03154, %37 ], [ 1, %10 ], [ 1, %22 ], [ 0, %14 ]
-  %.2.ph = phi i32 [ %.03055, %41 ], [ %.03055, %28 ], [ %.03055, %38 ], [ %.03055, %37 ], [ %.03055, %10 ], [ %23, %22 ], [ %.03055, %14 ]
+  %.239.ph = phi i32 [ %42, %41 ], [ %.03751, %28 ], [ %34, %38 ], [ %34, %37 ], [ %.03751, %10 ], [ %23, %22 ], [ %15, %14 ]
+  %.236.ph = phi i32 [ %.03452, %41 ], [ 1, %28 ], [ 1, %38 ], [ 0, %37 ], [ %.03452, %10 ], [ 0, %22 ], [ %.03452, %14 ]
+  %.233.ph = phi i32 [ %.03153, %41 ], [ %.03153, %28 ], [ %.03153, %38 ], [ %.03153, %37 ], [ 1, %10 ], [ 1, %22 ], [ 0, %14 ]
+  %.2.ph = phi i32 [ %.03054, %41 ], [ %.03054, %28 ], [ %.03054, %38 ], [ %.03054, %37 ], [ %.03054, %10 ], [ %23, %22 ], [ %.03054, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %46, label %5
@@ -2242,8 +2242,8 @@ define internal void @_batch_export_toggled_callback(ptr readnone captures(none)
   %31 = call ptr @g_type_check_instance_cast(ptr noundef %.val.val, i64 noundef %13) #19
   %32 = call ptr @gtk_tree_view_get_model(ptr noundef %31) #19
   %33 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %32, ptr noundef nonnull %4) #19
-  %.not5.i = icmp eq i32 %33, 0
-  br i1 %.not5.i, label %_batch_preset_active.exit, label %.lr.ph.i
+  %.not4.i = icmp eq i32 %33, 0
+  br i1 %.not4.i, label %_batch_preset_active.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

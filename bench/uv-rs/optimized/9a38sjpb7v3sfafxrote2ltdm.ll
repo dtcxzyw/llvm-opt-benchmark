@@ -3430,8 +3430,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find1
   %.sroa.08.0.i = phi i64 [ 0, %3 ], [ %70, %69 ]
   %.sroa.04.0.i = and i64 %.pn, %7
   %15 = getelementptr inbounds i8, ptr %8, i64 %.sroa.04.0.i
-  %.sroa.0.0.copyload.i24 = load <16 x i8>, ptr %15, align 1, !noalias !659
-  %16 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24, %.sroa.0.15.vec.insert.i
+  %.sroa.0.0.copyload.i23 = load <16 x i8>, ptr %15, align 1, !noalias !659
+  %16 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, %.sroa.0.15.vec.insert.i
   %17 = bitcast <16 x i1> %16 to i16
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
@@ -3441,11 +3441,11 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find1
   br label %20
 
 20:                                               ; preds = %.lr.ph, %.backedge
-  %.sroa.010.0.i28 = phi i16 [ %17, %.lr.ph ], [ %24, %.backedge ]
-  %21 = add i16 %.sroa.010.0.i28, -1
-  %22 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.010.0.i28, i1 true)
+  %.sroa.010.0.i27 = phi i16 [ %17, %.lr.ph ], [ %24, %.backedge ]
+  %21 = add i16 %.sroa.010.0.i27, -1
+  %22 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.010.0.i27, i1 true)
   %23 = zext nneg i16 %22 to i64
-  %24 = and i16 %21, %.sroa.010.0.i28
+  %24 = and i16 %21, %.sroa.010.0.i27
   %25 = add i64 %.sroa.04.0.i, %23
   %26 = and i64 %25, %7
   %27 = sub nsw i64 0, %26
@@ -3548,7 +3548,7 @@ default.unreachable:                              ; preds = %40
   br i1 %.not.i.i14.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.llvm.6992225405270262619.exit.sink.split.i.i.i.i", label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %14
-  %66 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24, splat (i8 -1)
+  %66 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, splat (i8 -1)
   %67 = bitcast <16 x i1> %66 to i16
   %68 = icmp eq i16 %67, 0
   br i1 %68, label %69, label %.loopexit

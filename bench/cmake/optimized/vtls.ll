@@ -1363,13 +1363,13 @@ define dso_local void @Curl_ssl_delsessionid(ptr noundef readonly captures(none)
   br label %9
 
 7:                                                ; preds = %9
-  %8 = add nuw i64 %.0811, 1
+  %8 = add nuw i64 %.0810, 1
   %exitcond.not = icmp eq i64 %8, %4
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !193
 
 9:                                                ; preds = %.lr.ph, %7
-  %.0811 = phi i64 [ 0, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.Curl_ssl_session, ptr %6, i64 %.0811
+  %.0810 = phi i64 [ 0, %.lr.ph ], [ %8, %7 ]
+  %10 = getelementptr inbounds nuw %struct.Curl_ssl_session, ptr %6, i64 %.0810
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !159
   %13 = icmp eq ptr %12, %1
@@ -1445,13 +1445,13 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_set_sessionid(ptr noundef %0, pt
   br label %37
 
 35:                                               ; preds = %37
-  %36 = add nuw i64 %.0811.i, 1
+  %36 = add nuw i64 %.0810.i, 1
   %exitcond.not.i = icmp eq i64 %36, %33
   br i1 %exitcond.not.i, label %Curl_ssl_delsessionid.exit, label %37, !llvm.loop !193
 
 37:                                               ; preds = %35, %.lr.ph.i
-  %.0811.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %35 ]
-  %38 = getelementptr inbounds nuw %struct.Curl_ssl_session, ptr %34, i64 %.0811.i
+  %.0810.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %35 ]
+  %38 = getelementptr inbounds nuw %struct.Curl_ssl_session, ptr %34, i64 %.0810.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !159
   %41 = icmp eq ptr %40, %.pre

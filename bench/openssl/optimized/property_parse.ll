@@ -58,15 +58,15 @@ define ptr @ossl_parse_property(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 skip_space.exit:                                  ; preds = %.preheader
   store ptr %.0.i, ptr %3, align 8, !tbaa !8
   %12 = load i8, ptr %.0.i, align 1, !tbaa !3
-  %.not58 = icmp eq i8 %12, 0
-  br i1 %.not58, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not57 = icmp eq i8 %12, 0
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %skip_space.exit
   %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 361) #9
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %.lr.ph87
+  br i1 %14, label %.thread, label %.lr.ph86
 
-.lr.ph87:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph86:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %15 = phi ptr [ %48, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %16 = phi ptr [ %.0.i.i42, %.lr.ph ], [ %.0.i, %.lr.ph.preheader ]
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -79,7 +79,7 @@ skip_space.exit:                                  ; preds = %.preheader
   %.not32 = icmp eq i32 %21, 0
   br i1 %.not32, label %.thread, label %22
 
-22:                                               ; preds = %.lr.ph87
+22:                                               ; preds = %.lr.ph86
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 0, ptr %23, align 8, !tbaa !11
   %24 = load i32, ptr %15, align 8, !tbaa !14
@@ -149,7 +149,7 @@ skip_space.exit:                                  ; preds = %.preheader
   store ptr %.0.i.i42, ptr %3, align 8, !tbaa !8
   %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 361) #9
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread, label %.lr.ph87
+  br i1 %49, label %.thread, label %.lr.ph86
 
 ._crit_edge:                                      ; preds = %41
   %.pre = load i8, ptr %42, align 1, !tbaa !3
@@ -166,9 +166,9 @@ skip_space.exit:                                  ; preds = %.preheader
   %52 = tail call fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef %6)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph87, %39, %.lr.ph.preheader, %36, %26, %._crit_edge.thread, %51
-  %.027 = phi ptr [ null, %51 ], [ %52, %._crit_edge.thread ], [ null, %26 ], [ null, %36 ], [ null, %.lr.ph.preheader ], [ null, %39 ], [ null, %.lr.ph87 ], [ null, %.lr.ph ]
-  %.2 = phi ptr [ null, %51 ], [ null, %._crit_edge.thread ], [ %15, %26 ], [ %15, %36 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %15, %.lr.ph87 ], [ %15, %39 ]
+.thread:                                          ; preds = %.lr.ph, %.lr.ph86, %39, %.lr.ph.preheader, %36, %26, %._crit_edge.thread, %51
+  %.027 = phi ptr [ null, %51 ], [ %52, %._crit_edge.thread ], [ null, %26 ], [ null, %36 ], [ null, %.lr.ph.preheader ], [ null, %39 ], [ null, %.lr.ph86 ], [ null, %.lr.ph ]
+  %.2 = phi ptr [ null, %51 ], [ null, %._crit_edge.thread ], [ %15, %26 ], [ %15, %36 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %15, %.lr.ph86 ], [ %15, %39 ]
   tail call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str, i32 noundef 399) #9
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %6, ptr noundef nonnull @pd_free) #9
   br label %53

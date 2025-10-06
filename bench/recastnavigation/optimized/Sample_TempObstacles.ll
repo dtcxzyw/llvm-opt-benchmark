@@ -1123,8 +1123,8 @@ define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us ], [ 0, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv65
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us ], [ 0, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv67
   %27 = load i32, ptr %26, align 4
   %28 = call noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr noundef nonnull align 8 dereferenceable(912) %1, i32 noundef %27)
   %29 = load ptr, ptr %10, align 8
@@ -1173,8 +1173,8 @@ define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef
 
 _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us: ; preds = %.noexc1.i.us
   store ptr null, ptr %22, align 8
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %50 = icmp samesign ult i64 %indvars.iv.next66, %25
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %50 = icmp samesign ult i64 %indvars.iv.next68, %25
   %or.cond = select i1 %38, i1 %50, i1 false
   br i1 %or.cond, label %.lr.ph.split.us, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, !llvm.loop !13
 
@@ -1186,7 +1186,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
 .split58.us:                                      ; preds = %.noexc1.i.us, %.noexc.i.us, %43
   %52 = landingpad { ptr, i32 }
           catch ptr null
-  br label %122
+  br label %123
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit ], [ 0, %.lr.ph ]
@@ -1305,43 +1305,43 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
           to label %114 unwind label %.split
 
 114:                                              ; preds = %105, %107, %101, %92, %89, %84, %78, %75, %68
-  %switch = phi i1 [ true, %68 ], [ true, %75 ], [ false, %78 ], [ true, %84 ], [ true, %89 ], [ false, %92 ], [ true, %101 ], [ %106, %105 ], [ false, %107 ]
-  %115 = load ptr, ptr %14, align 8
-  %116 = load ptr, ptr %7, align 8
-  invoke void @_Z20dtFreeTileCacheLayerP16dtTileCacheAllocP16dtTileCacheLayer(ptr noundef %115, ptr noundef %116)
+  %115 = phi i1 [ true, %68 ], [ true, %75 ], [ false, %78 ], [ true, %84 ], [ true, %89 ], [ false, %92 ], [ true, %101 ], [ %106, %105 ], [ false, %107 ]
+  %116 = load ptr, ptr %14, align 8
+  %117 = load ptr, ptr %7, align 8
+  invoke void @_Z20dtFreeTileCacheLayerP16dtTileCacheAllocP16dtTileCacheLayer(ptr noundef %116, ptr noundef %117)
           to label %.noexc.i unwind label %.split58
 
 .noexc.i:                                         ; preds = %114
   store ptr null, ptr %7, align 8
-  %117 = load ptr, ptr %14, align 8
-  %118 = load ptr, ptr %19, align 8
-  invoke void @_Z25dtFreeTileCacheContourSetP16dtTileCacheAllocP21dtTileCacheContourSet(ptr noundef %117, ptr noundef %118)
+  %118 = load ptr, ptr %14, align 8
+  %119 = load ptr, ptr %19, align 8
+  invoke void @_Z25dtFreeTileCacheContourSetP16dtTileCacheAllocP21dtTileCacheContourSet(ptr noundef %118, ptr noundef %119)
           to label %.noexc1.i unwind label %.split58
 
 .noexc1.i:                                        ; preds = %.noexc.i
   store ptr null, ptr %19, align 8
-  %119 = load ptr, ptr %14, align 8
-  %120 = load ptr, ptr %22, align 8
-  invoke void @_Z23dtFreeTileCachePolyMeshP16dtTileCacheAllocP19dtTileCachePolyMesh(ptr noundef %119, ptr noundef %120)
+  %120 = load ptr, ptr %14, align 8
+  %121 = load ptr, ptr %22, align 8
+  invoke void @_Z23dtFreeTileCachePolyMeshP16dtTileCacheAllocP19dtTileCachePolyMesh(ptr noundef %120, ptr noundef %121)
           to label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit unwind label %.split58
 
 .split58:                                         ; preds = %.noexc1.i, %.noexc.i, %114
-  %121 = landingpad { ptr, i32 }
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  br label %122
+  br label %123
 
-122:                                              ; preds = %.split58.us, %.split58
-  %.us-phi59 = phi { ptr, i32 } [ %121, %.split58 ], [ %52, %.split58.us ]
-  %123 = extractvalue { ptr, i32 } %.us-phi59, 0
-  call void @__clang_call_terminate(ptr %123) #17
+123:                                              ; preds = %.split58.us, %.split58
+  %.us-phi59 = phi { ptr, i32 } [ %122, %.split58 ], [ %52, %.split58.us ]
+  %124 = extractvalue { ptr, i32 } %.us-phi59, 0
+  call void @__clang_call_terminate(ptr %124) #17
   unreachable
 
 _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit: ; preds = %.noexc1.i
   store ptr null, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %124 = icmp samesign uge i64 %indvars.iv.next, %25
-  %or.cond61.not = select i1 %switch, i1 true, i1 %124
-  br i1 %or.cond61.not, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  %125 = icmp samesign uge i64 %indvars.iv.next, %25
+  %or.cond63.not = select i1 %115, i1 true, i1 %125
+  br i1 %or.cond63.not, label %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit._crit_edge: ; preds = %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us, %5
   ret void

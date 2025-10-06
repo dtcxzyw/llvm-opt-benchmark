@@ -604,17 +604,17 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZN4llvm23SmallVect
   %159 = zext i32 %158 to i64
   %.idx.i.i37 = shl nuw nsw i64 %159, 3
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i.i37
-  %.not36.i.i = icmp eq i32 %158, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i38
+  %.not34.i.i = icmp eq i32 %158, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i38
 
 .lr.ph.i.i38:                                     ; preds = %156, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %162, %.critedge.i.i ], [ %157, %156 ]
-  %161 = load ptr, ptr %.02937.i.i, align 8, !tbaa !3, !noalias !100
+  %.02935.i.i = phi ptr [ %162, %.critedge.i.i ], [ %157, %156 ]
+  %161 = load ptr, ptr %.02935.i.i, align 8, !tbaa !3, !noalias !100
   %.not17.i.i = icmp eq ptr %161, %154
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_11InstructionEE6insertES3_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i38
-  %162 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i39 = icmp eq ptr %162, %160
   br i1 %.not.i.i39, label %._crit_edge.i.i, label %.lr.ph.i.i38, !llvm.loop !107
 

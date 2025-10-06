@@ -40,8 +40,8 @@ define dso_local noundef ptr @ginCompressPostingList(ptr noundef readonly captur
 
 25:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %.03276 = phi i64 [ %22, %.lr.ph ], [ %35, %64 ]
-  %.05674 = phi ptr [ %9, %.lr.ph ], [ %.4.ph, %64 ]
+  %.03275 = phi i64 [ %22, %.lr.ph ], [ %35, %64 ]
+  %.05673 = phi ptr [ %9, %.lr.ph ], [ %.4.ph, %64 ]
   %26 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %0, i64 %indvars.iv
   %.val.i40 = load i16, ptr %26, align 2
   %27 = getelementptr i8, ptr %26, i64 2
@@ -55,8 +55,8 @@ define dso_local noundef ptr @ginCompressPostingList(ptr noundef readonly captur
   %.val5.i42 = load i16, ptr %33, align 2
   %34 = zext i16 %.val5.i42 to i64
   %35 = or i64 %32, %34
-  %36 = sub nsw i64 %35, %.03276
-  %37 = ptrtoint ptr %.05674 to i64
+  %36 = sub nsw i64 %35, %.03275
+  %37 = ptrtoint ptr %.05673 to i64
   %38 = sub i64 %23, %37
   %39 = icmp sgt i64 %38, 6
   br i1 %39, label %40, label %49
@@ -66,7 +66,7 @@ define dso_local noundef ptr @ginCompressPostingList(ptr noundef readonly captur
   br i1 %41, label %.lr.ph.i, label %encode_varbyte.exit
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
-  %.010.i = phi ptr [ %44, %.lr.ph.i ], [ %.05674, %40 ]
+  %.010.i = phi ptr [ %44, %.lr.ph.i ], [ %.05673, %40 ]
   %.089.i = phi i64 [ %45, %.lr.ph.i ], [ %36, %40 ]
   %42 = trunc i64 %.089.i to i8
   %43 = or i8 %42, -128
@@ -78,7 +78,7 @@ define dso_local noundef ptr @ginCompressPostingList(ptr noundef readonly captur
 
 encode_varbyte.exit:                              ; preds = %.lr.ph.i, %40
   %.08.lcssa.i = phi i64 [ %36, %40 ], [ %45, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %.05674, %40 ], [ %44, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %.05673, %40 ], [ %44, %.lr.ph.i ]
   %47 = trunc nuw nsw i64 %.08.lcssa.i to i8
   %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 1
   store i8 %47, ptr %.0.lcssa.i, align 1
@@ -112,8 +112,8 @@ encode_varbyte.exit48:                            ; preds = %.lr.ph.i45, %49
   br i1 %.not, label %62, label %60
 
 60:                                               ; preds = %encode_varbyte.exit48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05674, ptr nonnull align 1 %5, i64 %59, i1 false)
-  %61 = getelementptr inbounds i8, ptr %.05674, i64 %59
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05673, ptr nonnull align 1 %5, i64 %59, i1 false)
+  %61 = getelementptr inbounds i8, ptr %.05673, i64 %59
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
@@ -129,9 +129,9 @@ encode_varbyte.exit48:                            ; preds = %.lr.ph.i45, %49
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !6
 
 .loopexit:                                        ; preds = %64, %4, %62
-  %.05673 = phi ptr [ %.05674, %62 ], [ %9, %4 ], [ %.4.ph, %64 ]
-  %.03471 = phi i32 [ %63, %62 ], [ 1, %4 ], [ %1, %64 ]
-  %65 = ptrtoint ptr %.05673 to i64
+  %.05672 = phi ptr [ %.05673, %62 ], [ %9, %4 ], [ %.4.ph, %64 ]
+  %.03470 = phi i32 [ %63, %62 ], [ 1, %4 ], [ %1, %64 ]
+  %65 = ptrtoint ptr %.05672 to i64
   %66 = ptrtoint ptr %9 to i64
   %67 = sub i64 %65, %66
   %68 = trunc i64 %67 to i16
@@ -153,7 +153,7 @@ encode_varbyte.exit48:                            ; preds = %.lr.ph.i45, %49
   br i1 %.not39, label %77, label %76
 
 76:                                               ; preds = %75
-  store i32 %.03471, ptr %3, align 4
+  store i32 %.03470, ptr %3, align 4
   br label %77
 
 77:                                               ; preds = %76, %75

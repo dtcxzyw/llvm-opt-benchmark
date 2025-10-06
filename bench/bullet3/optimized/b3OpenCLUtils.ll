@@ -517,16 +517,16 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
 
 19:                                               ; preds = %_Z22b3OpenCLUtils_clewInitv.exit
   %.not82 = icmp eq ptr %1, null
-  br i1 %.not82, label %.thread92, label %20
+  br i1 %.not82, label %.thread91, label %20
 
 20:                                               ; preds = %19
   store i32 %18, ptr %1, align 4, !tbaa !4
-  br label %.thread92
+  br label %.thread91
 
 21:                                               ; preds = %_Z22b3OpenCLUtils_clewInitv.exit
   %22 = load i32, ptr %8, align 4, !tbaa !4
   %.not74 = icmp eq i32 %22, 0
-  br i1 %.not74, label %.thread92, label %23
+  br i1 %.not74, label %.thread91, label %23
 
 23:                                               ; preds = %21
   %24 = zext i32 %22 to i64
@@ -539,8 +539,8 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
 
 .preheader:                                       ; preds = %23
   %29 = load i32, ptr %8, align 4, !tbaa !4
-  %.not105 = icmp eq i32 %29, 0
-  br i1 %.not105, label %.loopexit, label %.lr.ph
+  %.not104 = icmp eq i32 %29, 0
+  br i1 %.not104, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %30 = icmp sgt i32 %5, -1
@@ -578,7 +578,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   %41 = load i32, ptr %8, align 4, !tbaa !4
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph.split.us, label %.loopexit96, !llvm.loop !19
+  br i1 %43, label %.lr.ph.split.us, label %.loopexit95, !llvm.loop !19
 
 44:                                               ; preds = %23
   %.not81 = icmp eq ptr %1, null
@@ -590,13 +590,13 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
 
 46:                                               ; preds = %45, %44
   call void @free(ptr noundef %26) #13
-  br label %.thread92
+  br label %.thread91
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %61
-  %indvars.iv121 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next122, %61 ]
+  %indvars.iv120 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next121, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = load ptr, ptr @__clewGetPlatformInfo, align 8, !tbaa !8
-  %48 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv121
+  %48 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv120
   %49 = load ptr, ptr %48, align 8, !tbaa !12
   %50 = call i32 %47(ptr noundef %49, i32 noundef 2307, i64 noundef 128, ptr noundef nonnull %9, ptr noundef null)
   %.not76 = icmp eq i32 %50, 0
@@ -612,7 +612,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   br label %.thread
 
 52:                                               ; preds = %.lr.ph.split
-  %53 = icmp eq i64 %indvars.iv121, %31
+  %53 = icmp eq i64 %indvars.iv120, %31
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %52
@@ -629,7 +629,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
 
 .thread:                                          ; preds = %51, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread92
+  br label %.thread91
 
 58:                                               ; preds = %52
   %59 = load ptr, ptr %26, align 8, !tbaa !12
@@ -638,37 +638,37 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   store ptr %59, ptr %48, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i32, ptr %8, align 4, !tbaa !4
-  br label %.loopexit96
+  br label %.loopexit95
 
 61:                                               ; preds = %54, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %62 = load i32, ptr %8, align 4, !tbaa !4
   %63 = zext i32 %62 to i64
-  %64 = icmp samesign ult i64 %indvars.iv.next122, %63
-  br i1 %64, label %.lr.ph.split, label %.loopexit96, !llvm.loop !19
+  %64 = icmp samesign ult i64 %indvars.iv.next121, %63
+  br i1 %64, label %.lr.ph.split, label %.loopexit95, !llvm.loop !19
 
-.loopexit96:                                      ; preds = %40, %61, %58
+.loopexit95:                                      ; preds = %40, %61, %58
   %65 = phi i32 [ %.pre, %58 ], [ %62, %61 ], [ %41, %40 ]
-  %.not106 = icmp eq i32 %65, 0
-  br i1 %.not106, label %.loopexit, label %.lr.ph104
+  %.not105 = icmp eq i32 %65, 0
+  br i1 %.not105, label %.loopexit, label %.lr.ph103
 
-66:                                               ; preds = %.lr.ph104
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+66:                                               ; preds = %.lr.ph103
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %67 = load i32, ptr %8, align 4, !tbaa !4
   %68 = zext i32 %67 to i64
-  %69 = icmp samesign ult i64 %indvars.iv.next125, %68
-  br i1 %69, label %.lr.ph104, label %.loopexit, !llvm.loop !20
+  %69 = icmp samesign ult i64 %indvars.iv.next124, %68
+  br i1 %69, label %.lr.ph103, label %.loopexit, !llvm.loop !20
 
-.lr.ph104:                                        ; preds = %.loopexit96, %66
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %66 ], [ 0, %.loopexit96 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv124
+.lr.ph103:                                        ; preds = %.loopexit95, %66
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %66 ], [ 0, %.loopexit95 ]
+  %70 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv123
   %71 = load ptr, ptr %70, align 8, !tbaa !12
   %72 = call ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %71, i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr poison, i32 noundef %4, i32 poison)
   %.not79 = icmp eq ptr %72, null
   br i1 %.not79, label %66, label %73
 
-73:                                               ; preds = %.lr.ph104
+73:                                               ; preds = %.lr.ph103
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !14
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 1024
@@ -716,12 +716,12 @@ _ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %66, %.preheader, %.loopexit96, %91
-  %.359 = phi ptr [ %72, %91 ], [ null, %.loopexit96 ], [ null, %.preheader ], [ null, %66 ]
+.loopexit:                                        ; preds = %66, %.preheader, %.loopexit95, %91
+  %.359 = phi ptr [ %72, %91 ], [ null, %.loopexit95 ], [ null, %.preheader ], [ null, %66 ]
   call void @free(ptr noundef %26) #13
-  br label %.thread92
+  br label %.thread91
 
-.thread92:                                        ; preds = %.thread, %46, %.loopexit, %21, %19, %20
+.thread91:                                        ; preds = %.thread, %46, %.loopexit, %21, %19, %20
   %.0 = phi ptr [ null, %20 ], [ null, %19 ], [ null, %21 ], [ %.359, %.loopexit ], [ null, %46 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0

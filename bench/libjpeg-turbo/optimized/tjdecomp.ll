@@ -119,45 +119,45 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %15 = tail call ptr @tj3GetErrorStr(ptr noundef null) #16
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %14, i32 noundef 175, ptr noundef nonnull @.str.3, ptr noundef %15)
   %17 = icmp eq i32 %12, 1
-  br i1 %17, label %.thread571, label %18
+  br i1 %17, label %.thread569, label %18
 
 18:                                               ; preds = %11, %2
   %19 = icmp sgt i32 %0, 1
-  br i1 %19, label %.lr.ph667, label %._crit_edge668
+  br i1 %19, label %.lr.ph665, label %._crit_edge666
 
-.lr.ph667:                                        ; preds = %18
+.lr.ph665:                                        ; preds = %18
   %20 = add nsw i32 %0, -1
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %24
 
-24:                                               ; preds = %.lr.ph667, %141
-  %.0405665 = phi i32 [ 1, %.lr.ph667 ], [ %142, %141 ]
-  %.0408664 = phi i32 [ -1, %.lr.ph667 ], [ %.1409, %141 ]
-  %.0410663 = phi i32 [ -1, %.lr.ph667 ], [ %.1411, %141 ]
-  %.0412662 = phi i32 [ -1, %.lr.ph667 ], [ %.1413, %141 ]
-  %.0414661 = phi i32 [ -1, %.lr.ph667 ], [ %.1415, %141 ]
-  %.0416660 = phi i32 [ -1, %.lr.ph667 ], [ %.1417, %141 ]
-  %.0419659 = phi i32 [ -1, %.lr.ph667 ], [ %.1420, %141 ]
-  %.sroa.8.0658 = phi i32 [ 1, %.lr.ph667 ], [ %.sroa.8.2, %141 ]
-  %.sroa.0.0657 = phi i32 [ 1, %.lr.ph667 ], [ %.sroa.0.2, %141 ]
-  %.0421656 = phi ptr [ null, %.lr.ph667 ], [ %.1422, %141 ]
-  %25 = sext i32 %.0405665 to i64
+24:                                               ; preds = %.lr.ph665, %141
+  %.0405663 = phi i32 [ 1, %.lr.ph665 ], [ %142, %141 ]
+  %.0408662 = phi i32 [ -1, %.lr.ph665 ], [ %.1409, %141 ]
+  %.0410661 = phi i32 [ -1, %.lr.ph665 ], [ %.1411, %141 ]
+  %.0412660 = phi i32 [ -1, %.lr.ph665 ], [ %.1413, %141 ]
+  %.0414659 = phi i32 [ -1, %.lr.ph665 ], [ %.1415, %141 ]
+  %.0416658 = phi i32 [ -1, %.lr.ph665 ], [ %.1417, %141 ]
+  %.0419657 = phi i32 [ -1, %.lr.ph665 ], [ %.1420, %141 ]
+  %.sroa.8.0656 = phi i32 [ 1, %.lr.ph665 ], [ %.sroa.8.2, %141 ]
+  %.sroa.0.0655 = phi i32 [ 1, %.lr.ph665 ], [ %.sroa.0.2, %141 ]
+  %.0421654 = phi ptr [ null, %.lr.ph665 ], [ %.1422, %141 ]
+  %25 = sext i32 %.0405663 to i64
   %26 = getelementptr inbounds ptr, ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
   %spec.select = call i64 @llvm.umax.i64(i64 %28, i64 2)
   %29 = call i32 @strncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.4, i64 noundef %spec.select) #17
   %.not = icmp eq i32 %29, 0
-  %30 = icmp slt i32 %.0405665, %20
+  %30 = icmp slt i32 %.0405663, %20
   %or.cond = select i1 %.not, i1 %30, i1 false
   br i1 %or.cond, label %31, label %52
 
 31:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -1, ptr %6, align 1, !tbaa !10
-  %32 = add nsw i32 %.0405665, 1
+  %32 = add nsw i32 %.0405663, 1
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds ptr, ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !4
@@ -199,7 +199,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond505, label %54, label %65
 
 54:                                               ; preds = %52
-  %55 = add nsw i32 %.0405665, 1
+  %55 = add nsw i32 %.0405663, 1
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds ptr, ptr %1, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !4
@@ -236,7 +236,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond512, label %71, label %76
 
 71:                                               ; preds = %69
-  %72 = add nsw i32 %.0405665, 1
+  %72 = add nsw i32 %.0405663, 1
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds ptr, ptr %1, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !4
@@ -250,7 +250,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond515, label %78, label %88
 
 78:                                               ; preds = %76
-  %79 = add nsw i32 %.0405665, 1
+  %79 = add nsw i32 %.0405663, 1
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds ptr, ptr %1, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !4
@@ -271,7 +271,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond518, label %90, label %100
 
 90:                                               ; preds = %88
-  %91 = add nsw i32 %.0405665, 1
+  %91 = add nsw i32 %.0405663, 1
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %1, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !4
@@ -305,14 +305,14 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %107 = call i32 @strncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.17, i64 noundef %spec.select) #17
   %.not492 = icmp eq i32 %107, 0
   %or.cond524 = select i1 %.not492, i1 %30, i1 false
-  br i1 %or.cond524, label %108, label %._crit_edge668
+  br i1 %or.cond524, label %108, label %._crit_edge666
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !11
-  %109 = add nsw i32 %.0405665, 1
+  %109 = add nsw i32 %.0405663, 1
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds ptr, ptr %1, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !4
@@ -379,41 +379,41 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br label %141
 
 141:                                              ; preds = %104, %102, %100, %90, %78, %65, %67, %54, %51, %.thread, %71, %61
-  %.1422 = phi ptr [ %.0421656, %.thread ], [ %75, %71 ], [ %.0421656, %61 ], [ %.0421656, %51 ], [ %.0421656, %54 ], [ %.0421656, %67 ], [ %.0421656, %65 ], [ %.0421656, %78 ], [ %.0421656, %90 ], [ %.0421656, %100 ], [ %.0421656, %102 ], [ %.0421656, %104 ]
-  %.sroa.0.2 = phi i32 [ %133, %.thread ], [ %.sroa.0.0657, %71 ], [ %.sroa.0.0657, %61 ], [ %.sroa.0.0657, %51 ], [ %.sroa.0.0657, %54 ], [ %.sroa.0.0657, %67 ], [ %.sroa.0.0657, %65 ], [ %.sroa.0.0657, %78 ], [ %.sroa.0.0657, %90 ], [ %.sroa.0.0657, %100 ], [ %.sroa.0.0657, %102 ], [ %.sroa.0.0657, %104 ]
-  %.sroa.8.2 = phi i32 [ %136, %.thread ], [ %.sroa.8.0658, %71 ], [ %.sroa.8.0658, %61 ], [ %.sroa.8.0658, %51 ], [ %.sroa.8.0658, %54 ], [ %.sroa.8.0658, %67 ], [ %.sroa.8.0658, %65 ], [ %.sroa.8.0658, %78 ], [ %.sroa.8.0658, %90 ], [ %.sroa.8.0658, %100 ], [ %.sroa.8.0658, %102 ], [ %.sroa.8.0658, %104 ]
-  %.1420 = phi i32 [ %.0419659, %.thread ], [ %.0419659, %71 ], [ %.0419659, %61 ], [ %.0419659, %51 ], [ %.0419659, %54 ], [ %.0419659, %67 ], [ %.0419659, %65 ], [ %.0419659, %78 ], [ %.0419659, %90 ], [ %.0419659, %100 ], [ %.0419659, %102 ], [ 1, %104 ]
-  %.1417 = phi i32 [ %.0416660, %.thread ], [ %.0416660, %71 ], [ %.0416660, %61 ], [ %.0416660, %51 ], [ %.0416660, %54 ], [ 6, %67 ], [ 6, %65 ], [ %.0416660, %78 ], [ %.0416660, %90 ], [ %.0416660, %100 ], [ 0, %102 ], [ %.0416660, %104 ]
-  %.1415 = phi i32 [ %.0414661, %.thread ], [ %.0414661, %71 ], [ %.0414661, %61 ], [ %.0414661, %51 ], [ %.0414661, %54 ], [ %.0414661, %67 ], [ %.0414661, %65 ], [ %84, %78 ], [ %.0414661, %90 ], [ %.0414661, %100 ], [ %.0414661, %102 ], [ %.0414661, %104 ]
-  %.1413 = phi i32 [ %.0412662, %.thread ], [ %.0412662, %71 ], [ %.0412662, %61 ], [ %.0412662, %51 ], [ %.0412662, %54 ], [ %.0412662, %67 ], [ %.0412662, %65 ], [ %.0412662, %78 ], [ %96, %90 ], [ %.0412662, %100 ], [ %.0412662, %102 ], [ %.0412662, %104 ]
-  %.1411 = phi i32 [ %.0410663, %.thread ], [ %.0410663, %71 ], [ %.0410663, %61 ], [ %.0410663, %51 ], [ %.0410663, %54 ], [ %.0410663, %67 ], [ %.0410663, %65 ], [ %.0410663, %78 ], [ %.0410663, %90 ], [ 1, %100 ], [ %.0410663, %102 ], [ %.0410663, %104 ]
-  %.1409 = phi i32 [ %.0408664, %.thread ], [ %.0408664, %71 ], [ %.0408664, %61 ], [ %.0408664, %51 ], [ 1, %54 ], [ %.0408664, %67 ], [ %.0408664, %65 ], [ %.0408664, %78 ], [ %.0408664, %90 ], [ %.0408664, %100 ], [ %.0408664, %102 ], [ %.0408664, %104 ]
-  %.1 = phi i32 [ %109, %.thread ], [ %72, %71 ], [ %55, %61 ], [ %32, %51 ], [ %55, %54 ], [ %.0405665, %67 ], [ %.0405665, %65 ], [ %79, %78 ], [ %91, %90 ], [ %.0405665, %100 ], [ %.0405665, %102 ], [ %.0405665, %104 ]
+  %.1422 = phi ptr [ %.0421654, %.thread ], [ %75, %71 ], [ %.0421654, %61 ], [ %.0421654, %51 ], [ %.0421654, %54 ], [ %.0421654, %67 ], [ %.0421654, %65 ], [ %.0421654, %78 ], [ %.0421654, %90 ], [ %.0421654, %100 ], [ %.0421654, %102 ], [ %.0421654, %104 ]
+  %.sroa.0.2 = phi i32 [ %133, %.thread ], [ %.sroa.0.0655, %71 ], [ %.sroa.0.0655, %61 ], [ %.sroa.0.0655, %51 ], [ %.sroa.0.0655, %54 ], [ %.sroa.0.0655, %67 ], [ %.sroa.0.0655, %65 ], [ %.sroa.0.0655, %78 ], [ %.sroa.0.0655, %90 ], [ %.sroa.0.0655, %100 ], [ %.sroa.0.0655, %102 ], [ %.sroa.0.0655, %104 ]
+  %.sroa.8.2 = phi i32 [ %136, %.thread ], [ %.sroa.8.0656, %71 ], [ %.sroa.8.0656, %61 ], [ %.sroa.8.0656, %51 ], [ %.sroa.8.0656, %54 ], [ %.sroa.8.0656, %67 ], [ %.sroa.8.0656, %65 ], [ %.sroa.8.0656, %78 ], [ %.sroa.8.0656, %90 ], [ %.sroa.8.0656, %100 ], [ %.sroa.8.0656, %102 ], [ %.sroa.8.0656, %104 ]
+  %.1420 = phi i32 [ %.0419657, %.thread ], [ %.0419657, %71 ], [ %.0419657, %61 ], [ %.0419657, %51 ], [ %.0419657, %54 ], [ %.0419657, %67 ], [ %.0419657, %65 ], [ %.0419657, %78 ], [ %.0419657, %90 ], [ %.0419657, %100 ], [ %.0419657, %102 ], [ 1, %104 ]
+  %.1417 = phi i32 [ %.0416658, %.thread ], [ %.0416658, %71 ], [ %.0416658, %61 ], [ %.0416658, %51 ], [ %.0416658, %54 ], [ 6, %67 ], [ 6, %65 ], [ %.0416658, %78 ], [ %.0416658, %90 ], [ %.0416658, %100 ], [ 0, %102 ], [ %.0416658, %104 ]
+  %.1415 = phi i32 [ %.0414659, %.thread ], [ %.0414659, %71 ], [ %.0414659, %61 ], [ %.0414659, %51 ], [ %.0414659, %54 ], [ %.0414659, %67 ], [ %.0414659, %65 ], [ %84, %78 ], [ %.0414659, %90 ], [ %.0414659, %100 ], [ %.0414659, %102 ], [ %.0414659, %104 ]
+  %.1413 = phi i32 [ %.0412660, %.thread ], [ %.0412660, %71 ], [ %.0412660, %61 ], [ %.0412660, %51 ], [ %.0412660, %54 ], [ %.0412660, %67 ], [ %.0412660, %65 ], [ %.0412660, %78 ], [ %96, %90 ], [ %.0412660, %100 ], [ %.0412660, %102 ], [ %.0412660, %104 ]
+  %.1411 = phi i32 [ %.0410661, %.thread ], [ %.0410661, %71 ], [ %.0410661, %61 ], [ %.0410661, %51 ], [ %.0410661, %54 ], [ %.0410661, %67 ], [ %.0410661, %65 ], [ %.0410661, %78 ], [ %.0410661, %90 ], [ 1, %100 ], [ %.0410661, %102 ], [ %.0410661, %104 ]
+  %.1409 = phi i32 [ %.0408662, %.thread ], [ %.0408662, %71 ], [ %.0408662, %61 ], [ %.0408662, %51 ], [ 1, %54 ], [ %.0408662, %67 ], [ %.0408662, %65 ], [ %.0408662, %78 ], [ %.0408662, %90 ], [ %.0408662, %100 ], [ %.0408662, %102 ], [ %.0408662, %104 ]
+  %.1 = phi i32 [ %109, %.thread ], [ %72, %71 ], [ %55, %61 ], [ %32, %51 ], [ %55, %54 ], [ %.0405663, %67 ], [ %.0405663, %65 ], [ %79, %78 ], [ %91, %90 ], [ %.0405663, %100 ], [ %.0405663, %102 ], [ %.0405663, %104 ]
   %142 = add nsw i32 %.1, 1
   %143 = icmp slt i32 %142, %0
-  br i1 %143, label %24, label %._crit_edge668, !llvm.loop !18
+  br i1 %143, label %24, label %._crit_edge666, !llvm.loop !18
 
-._crit_edge668:                                   ; preds = %141, %106, %18
-  %.0421.lcssa = phi ptr [ null, %18 ], [ %.0421656, %106 ], [ %.1422, %141 ]
-  %.sroa.0.0.lcssa = phi i32 [ 1, %18 ], [ %.sroa.0.0657, %106 ], [ %.sroa.0.2, %141 ]
-  %.sroa.8.0.lcssa = phi i32 [ 1, %18 ], [ %.sroa.8.0658, %106 ], [ %.sroa.8.2, %141 ]
-  %.0419.lcssa = phi i32 [ -1, %18 ], [ %.0419659, %106 ], [ %.1420, %141 ]
-  %.0416.lcssa = phi i32 [ -1, %18 ], [ %.0416660, %106 ], [ %.1417, %141 ]
-  %.0414.lcssa = phi i32 [ -1, %18 ], [ %.0414661, %106 ], [ %.1415, %141 ]
-  %.0412.lcssa = phi i32 [ -1, %18 ], [ %.0412662, %106 ], [ %.1413, %141 ]
-  %.0410.lcssa = phi i32 [ -1, %18 ], [ %.0410663, %106 ], [ %.1411, %141 ]
-  %.0408.lcssa = phi i32 [ -1, %18 ], [ %.0408664, %106 ], [ %.1409, %141 ]
-  %.0405.lcssa = phi i32 [ 1, %18 ], [ %.0405665, %106 ], [ %142, %141 ]
+._crit_edge666:                                   ; preds = %141, %106, %18
+  %.0421.lcssa = phi ptr [ null, %18 ], [ %.0421654, %106 ], [ %.1422, %141 ]
+  %.sroa.0.0.lcssa = phi i32 [ 1, %18 ], [ %.sroa.0.0655, %106 ], [ %.sroa.0.2, %141 ]
+  %.sroa.8.0.lcssa = phi i32 [ 1, %18 ], [ %.sroa.8.0656, %106 ], [ %.sroa.8.2, %141 ]
+  %.0419.lcssa = phi i32 [ -1, %18 ], [ %.0419657, %106 ], [ %.1420, %141 ]
+  %.0416.lcssa = phi i32 [ -1, %18 ], [ %.0416658, %106 ], [ %.1417, %141 ]
+  %.0414.lcssa = phi i32 [ -1, %18 ], [ %.0414659, %106 ], [ %.1415, %141 ]
+  %.0412.lcssa = phi i32 [ -1, %18 ], [ %.0412660, %106 ], [ %.1413, %141 ]
+  %.0410.lcssa = phi i32 [ -1, %18 ], [ %.0410661, %106 ], [ %.1411, %141 ]
+  %.0408.lcssa = phi i32 [ -1, %18 ], [ %.0408662, %106 ], [ %.1409, %141 ]
+  %.0405.lcssa = phi i32 [ 1, %18 ], [ %.0405663, %106 ], [ %142, %141 ]
   %144 = add nsw i32 %0, -2
   %.not494 = icmp eq i32 %.0405.lcssa, %144
   br i1 %.not494, label %147, label %145
 
-145:                                              ; preds = %._crit_edge668
+145:                                              ; preds = %._crit_edge666
   %146 = load ptr, ptr %1, align 8, !tbaa !4
   call fastcc void @usage(ptr noundef %146)
   unreachable
 
-147:                                              ; preds = %._crit_edge668
+147:                                              ; preds = %._crit_edge666
   %148 = call ptr @tj3Init(i32 noundef 1) #16
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %158
@@ -427,7 +427,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %156 = icmp eq i32 %151, 1
   %157 = icmp eq i32 %.0419.lcssa, 1
   %or.cond20 = select i1 %156, i1 true, i1 %157
-  br i1 %or.cond20, label %.thread571, label %158
+  br i1 %or.cond20, label %.thread569, label %158
 
 158:                                              ; preds = %150, %147
   %159 = icmp sgt i32 %.0419.lcssa, -1
@@ -447,7 +447,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %169 = icmp eq i32 %164, 1
   %170 = icmp eq i32 %.0419.lcssa, 1
   %or.cond22 = select i1 %169, i1 true, i1 %170
-  br i1 %or.cond22, label %.thread571, label %171
+  br i1 %or.cond22, label %.thread569, label %171
 
 171:                                              ; preds = %163, %160, %158
   %172 = icmp sgt i32 %.0410.lcssa, -1
@@ -467,7 +467,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %182 = icmp eq i32 %177, 1
   %183 = icmp eq i32 %.0419.lcssa, 1
   %or.cond24 = select i1 %182, i1 true, i1 %183
-  br i1 %or.cond24, label %.thread571, label %184
+  br i1 %or.cond24, label %.thread569, label %184
 
 184:                                              ; preds = %176, %173, %171
   %185 = icmp sgt i32 %.0408.lcssa, -1
@@ -487,7 +487,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %195 = icmp eq i32 %190, 1
   %196 = icmp eq i32 %.0419.lcssa, 1
   %or.cond26 = select i1 %195, i1 true, i1 %196
-  br i1 %or.cond26, label %.thread571, label %197
+  br i1 %or.cond26, label %.thread569, label %197
 
 197:                                              ; preds = %189, %186, %184
   %198 = icmp sgt i32 %.0414.lcssa, -1
@@ -507,7 +507,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %208 = icmp eq i32 %203, 1
   %209 = icmp eq i32 %.0419.lcssa, 1
   %or.cond28 = select i1 %208, i1 true, i1 %209
-  br i1 %or.cond28, label %.thread571, label %210
+  br i1 %or.cond28, label %.thread569, label %210
 
 210:                                              ; preds = %202, %199, %197
   %211 = icmp sgt i32 %.0412.lcssa, -1
@@ -527,7 +527,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %221 = icmp eq i32 %216, 1
   %222 = icmp eq i32 %.0419.lcssa, 1
   %or.cond30 = select i1 %221, i1 true, i1 %222
-  br i1 %or.cond30, label %.thread571, label %223
+  br i1 %or.cond30, label %.thread569, label %223
 
 223:                                              ; preds = %215, %212, %210
   %224 = add nsw i32 %.0405.lcssa, 1
@@ -543,7 +543,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %232 = load i32, ptr %231, align 4, !tbaa !11
   %233 = call ptr @strerror(i32 noundef %232) #16
   %234 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef 255, ptr noundef nonnull @.str.27, ptr noundef %233)
-  br label %.thread571
+  br label %.thread569
 
 235:                                              ; preds = %223
   %236 = call i32 @fseek(ptr noundef nonnull %228, i64 noundef 0, i32 noundef 2)
@@ -614,7 +614,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %279 = icmp eq i32 %274, 1
   %280 = icmp eq i32 %.0419.lcssa, 1
   %or.cond32 = select i1 %279, i1 true, i1 %280
-  br i1 %or.cond32, label %.thread571, label %281
+  br i1 %or.cond32, label %.thread569, label %281
 
 281:                                              ; preds = %273, %269
   %282 = call i32 @tj3Get(ptr noundef %148, i32 noundef 4) #16
@@ -640,7 +640,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %297 = icmp eq i32 %292, 1
   %298 = icmp eq i32 %.0419.lcssa, 1
   %or.cond34 = select i1 %297, i1 true, i1 %298
-  br i1 %or.cond34, label %.thread571, label %320
+  br i1 %or.cond34, label %.thread569, label %320
 
 299:                                              ; preds = %288
   %300 = call noalias ptr @fopen(ptr noundef nonnull %.0421.lcssa, ptr noundef nonnull @.str.34)
@@ -652,7 +652,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %304 = load i32, ptr %303, align 4, !tbaa !11
   %305 = call ptr @strerror(i32 noundef %304) #16
   %306 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef 282, ptr noundef nonnull @.str.35, ptr noundef %305)
-  br label %.thread571
+  br label %.thread569
 
 307:                                              ; preds = %299
   %308 = load ptr, ptr %5, align 8, !tbaa !4
@@ -666,7 +666,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %314 = load i32, ptr %313, align 4, !tbaa !11
   %315 = call ptr @strerror(i32 noundef %314) #16
   %316 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef 284, ptr noundef nonnull @.str.36, ptr noundef %315)
-  br label %.thread571
+  br label %.thread569
 
 317:                                              ; preds = %307
   %318 = load ptr, ptr %5, align 8, !tbaa !4
@@ -713,7 +713,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %337 = icmp eq i32 %332, 1
   %338 = icmp eq i32 %.0419.lcssa, 1
   %or.cond38 = select i1 %337, i1 true, i1 %338
-  br i1 %or.cond38, label %.thread571, label %339
+  br i1 %or.cond38, label %.thread569, label %339
 
 339:                                              ; preds = %331, %328
   %340 = mul nsw i32 %283, %.sroa.0.0.lcssa
@@ -741,11 +741,11 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 358:                                              ; preds = %339
   %359 = icmp eq i32 %282, -1
-  br i1 %359, label %.thread557, label %361
+  br i1 %359, label %.thread556, label %361
 
-.thread557:                                       ; preds = %358
+.thread556:                                       ; preds = %358
   %360 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef 310, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39)
-  br label %.thread571
+  br label %.thread569
 
 361:                                              ; preds = %358
   %362 = sext i32 %282 to i64
@@ -774,7 +774,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %381 = icmp ne i32 %376, 1
   %382 = icmp ne i32 %.0419.lcssa, 1
   %or.cond49.not = select i1 %381, i1 %382, i1 false
-  br i1 %or.cond49.not, label %.thread551, label %.thread571
+  br i1 %or.cond49.not, label %.thread551, label %.thread569
 
 .thread551:                                       ; preds = %361, %375
   %383 = load i32, ptr %352, align 8, !tbaa !23
@@ -803,7 +803,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %400 = load i32, ptr %399, align 4, !tbaa !11
   %401 = call ptr @strerror(i32 noundef %400) #16
   %402 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef 330, ptr noundef nonnull @.str.41, ptr noundef %401)
-  br label %.thread571
+  br label %.thread569
 
 403:                                              ; preds = %385
   br i1 %286, label %415, label %404
@@ -822,7 +822,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %413 = icmp eq i32 %408, 1
   %414 = icmp eq i32 %.0419.lcssa, 1
   %or.cond51 = select i1 %413, i1 true, i1 %414
-  br i1 %or.cond51, label %.thread571, label %439
+  br i1 %or.cond51, label %.thread569, label %439
 
 415:                                              ; preds = %403
   %416 = icmp samesign ult i32 %285, 13
@@ -842,7 +842,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %426 = icmp eq i32 %421, 1
   %427 = icmp eq i32 %.0419.lcssa, 1
   %or.cond53 = select i1 %426, i1 true, i1 %427
-  br i1 %or.cond53, label %.thread571, label %453
+  br i1 %or.cond53, label %.thread569, label %453
 
 428:                                              ; preds = %415
   %429 = call i32 @tj3Decompress16(ptr noundef %148, ptr noundef nonnull %254, i64 noundef %239, ptr noundef nonnull %396, i32 noundef 0, i32 noundef %.2418) #16
@@ -858,7 +858,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %437 = icmp eq i32 %432, 1
   %438 = icmp eq i32 %.0419.lcssa, 1
   %or.cond55 = select i1 %437, i1 true, i1 %438
-  br i1 %or.cond55, label %.thread571, label %467
+  br i1 %or.cond55, label %.thread569, label %467
 
 439:                                              ; preds = %404, %407
   call void @tj3Free(ptr noundef nonnull %254) #16
@@ -867,7 +867,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %442 = load ptr, ptr %441, align 8, !tbaa !4
   %443 = call i32 @tj3SaveImage8(ptr noundef %148, ptr noundef %442, ptr noundef nonnull %396, i32 noundef %.0427, i32 noundef 0, i32 noundef %.0431, i32 noundef %.2418) #16
   %444 = icmp slt i32 %443, 0
-  br i1 %444, label %445, label %.thread571
+  br i1 %444, label %445, label %.thread569
 
 445:                                              ; preds = %439
   %446 = call i32 @tj3GetErrorCode(ptr noundef %148) #16
@@ -879,7 +879,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %452 = icmp eq i32 %.0419.lcssa, 1
   %or.cond57 = select i1 %451, i1 true, i1 %452
   %..26 = sext i1 %or.cond57 to i32
-  br label %.thread571
+  br label %.thread569
 
 453:                                              ; preds = %420, %417
   call void @tj3Free(ptr noundef nonnull %254) #16
@@ -888,7 +888,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %456 = load ptr, ptr %455, align 8, !tbaa !4
   %457 = call i32 @tj3SaveImage12(ptr noundef %148, ptr noundef %456, ptr noundef nonnull %396, i32 noundef %.0427, i32 noundef 0, i32 noundef %.0431, i32 noundef %.2418) #16
   %458 = icmp slt i32 %457, 0
-  br i1 %458, label %459, label %.thread571
+  br i1 %458, label %459, label %.thread569
 
 459:                                              ; preds = %453
   %460 = call i32 @tj3GetErrorCode(ptr noundef %148) #16
@@ -900,7 +900,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %466 = icmp eq i32 %.0419.lcssa, 1
   %or.cond59 = select i1 %465, i1 true, i1 %466
   %..26544 = sext i1 %or.cond59 to i32
-  br label %.thread571
+  br label %.thread569
 
 467:                                              ; preds = %428, %431
   call void @tj3Free(ptr noundef nonnull %254) #16
@@ -909,7 +909,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %470 = load ptr, ptr %469, align 8, !tbaa !4
   %471 = call i32 @tj3SaveImage16(ptr noundef %148, ptr noundef %470, ptr noundef nonnull %396, i32 noundef %.0427, i32 noundef 0, i32 noundef %.0431, i32 noundef %.2418) #16
   %472 = icmp slt i32 %471, 0
-  br i1 %472, label %473, label %.thread571
+  br i1 %472, label %473, label %.thread569
 
 473:                                              ; preds = %467
   %474 = call i32 @tj3GetErrorCode(ptr noundef %148) #16
@@ -921,14 +921,14 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %480 = icmp eq i32 %.0419.lcssa, 1
   %or.cond61 = select i1 %479, i1 true, i1 %480
   %..26546 = sext i1 %or.cond61 to i32
-  br label %.thread571
+  br label %.thread569
 
-.thread571:                                       ; preds = %375, %230, %398, %445, %439, %459, %453, %473, %467, %407, %420, %431, %331, %291, %302, %312, %273, %215, %202, %189, %176, %163, %150, %11, %.thread557
-  %.0452.ph = phi ptr [ null, %.thread557 ], [ null, %11 ], [ null, %150 ], [ null, %163 ], [ null, %176 ], [ null, %189 ], [ null, %202 ], [ null, %215 ], [ null, %273 ], [ null, %312 ], [ null, %302 ], [ null, %291 ], [ null, %331 ], [ %396, %431 ], [ %396, %420 ], [ %396, %407 ], [ %396, %467 ], [ %396, %473 ], [ %396, %453 ], [ %396, %459 ], [ %396, %439 ], [ %396, %445 ], [ null, %398 ], [ null, %230 ], [ null, %375 ]
-  %.0433.ph = phi ptr [ %254, %.thread557 ], [ null, %11 ], [ null, %150 ], [ null, %163 ], [ null, %176 ], [ null, %189 ], [ null, %202 ], [ null, %215 ], [ %254, %273 ], [ %254, %312 ], [ %254, %302 ], [ %254, %291 ], [ %254, %331 ], [ %254, %431 ], [ %254, %420 ], [ %254, %407 ], [ null, %467 ], [ null, %473 ], [ null, %453 ], [ null, %459 ], [ null, %439 ], [ null, %445 ], [ %254, %398 ], [ null, %230 ], [ %254, %375 ]
-  %.0425.ph = phi ptr [ null, %.thread557 ], [ null, %11 ], [ null, %150 ], [ null, %163 ], [ null, %176 ], [ null, %189 ], [ null, %202 ], [ null, %215 ], [ null, %273 ], [ %300, %312 ], [ null, %302 ], [ null, %291 ], [ null, %331 ], [ null, %431 ], [ null, %420 ], [ null, %407 ], [ null, %467 ], [ null, %473 ], [ null, %453 ], [ null, %459 ], [ null, %439 ], [ null, %445 ], [ null, %398 ], [ null, %230 ], [ null, %375 ]
-  %.0423.ph = phi ptr [ %148, %.thread557 ], [ null, %11 ], [ null, %150 ], [ %148, %163 ], [ %148, %176 ], [ %148, %189 ], [ %148, %202 ], [ %148, %215 ], [ %148, %273 ], [ %148, %312 ], [ %148, %302 ], [ %148, %291 ], [ %148, %331 ], [ %148, %431 ], [ %148, %420 ], [ %148, %407 ], [ %148, %467 ], [ %148, %473 ], [ %148, %453 ], [ %148, %459 ], [ %148, %439 ], [ %148, %445 ], [ %148, %398 ], [ %148, %230 ], [ %148, %375 ]
-  %.2.ph = phi i32 [ -1, %.thread557 ], [ -1, %11 ], [ -1, %150 ], [ -1, %163 ], [ -1, %176 ], [ -1, %189 ], [ -1, %202 ], [ -1, %215 ], [ -1, %273 ], [ -1, %312 ], [ -1, %302 ], [ -1, %291 ], [ -1, %331 ], [ -1, %431 ], [ -1, %420 ], [ -1, %407 ], [ 0, %467 ], [ %..26546, %473 ], [ 0, %453 ], [ %..26544, %459 ], [ 0, %439 ], [ %..26, %445 ], [ -1, %398 ], [ -1, %230 ], [ -1, %375 ]
+.thread569:                                       ; preds = %375, %230, %398, %445, %439, %459, %453, %473, %467, %407, %420, %431, %331, %291, %302, %312, %273, %215, %202, %189, %176, %163, %150, %11, %.thread556
+  %.0452.ph = phi ptr [ null, %.thread556 ], [ null, %11 ], [ null, %150 ], [ null, %163 ], [ null, %176 ], [ null, %189 ], [ null, %202 ], [ null, %215 ], [ null, %273 ], [ null, %312 ], [ null, %302 ], [ null, %291 ], [ null, %331 ], [ %396, %431 ], [ %396, %420 ], [ %396, %407 ], [ %396, %467 ], [ %396, %473 ], [ %396, %453 ], [ %396, %459 ], [ %396, %439 ], [ %396, %445 ], [ null, %398 ], [ null, %230 ], [ null, %375 ]
+  %.0433.ph = phi ptr [ %254, %.thread556 ], [ null, %11 ], [ null, %150 ], [ null, %163 ], [ null, %176 ], [ null, %189 ], [ null, %202 ], [ null, %215 ], [ %254, %273 ], [ %254, %312 ], [ %254, %302 ], [ %254, %291 ], [ %254, %331 ], [ %254, %431 ], [ %254, %420 ], [ %254, %407 ], [ null, %467 ], [ null, %473 ], [ null, %453 ], [ null, %459 ], [ null, %439 ], [ null, %445 ], [ %254, %398 ], [ null, %230 ], [ %254, %375 ]
+  %.0425.ph = phi ptr [ null, %.thread556 ], [ null, %11 ], [ null, %150 ], [ null, %163 ], [ null, %176 ], [ null, %189 ], [ null, %202 ], [ null, %215 ], [ null, %273 ], [ %300, %312 ], [ null, %302 ], [ null, %291 ], [ null, %331 ], [ null, %431 ], [ null, %420 ], [ null, %407 ], [ null, %467 ], [ null, %473 ], [ null, %453 ], [ null, %459 ], [ null, %439 ], [ null, %445 ], [ null, %398 ], [ null, %230 ], [ null, %375 ]
+  %.0423.ph = phi ptr [ %148, %.thread556 ], [ null, %11 ], [ null, %150 ], [ %148, %163 ], [ %148, %176 ], [ %148, %189 ], [ %148, %202 ], [ %148, %215 ], [ %148, %273 ], [ %148, %312 ], [ %148, %302 ], [ %148, %291 ], [ %148, %331 ], [ %148, %431 ], [ %148, %420 ], [ %148, %407 ], [ %148, %467 ], [ %148, %473 ], [ %148, %453 ], [ %148, %459 ], [ %148, %439 ], [ %148, %445 ], [ %148, %398 ], [ %148, %230 ], [ %148, %375 ]
+  %.2.ph = phi i32 [ -1, %.thread556 ], [ -1, %11 ], [ -1, %150 ], [ -1, %163 ], [ -1, %176 ], [ -1, %189 ], [ -1, %202 ], [ -1, %215 ], [ -1, %273 ], [ -1, %312 ], [ -1, %302 ], [ -1, %291 ], [ -1, %331 ], [ -1, %431 ], [ -1, %420 ], [ -1, %407 ], [ 0, %467 ], [ %..26546, %473 ], [ 0, %453 ], [ %..26544, %459 ], [ 0, %439 ], [ %..26, %445 ], [ -1, %398 ], [ -1, %230 ], [ -1, %375 ]
   call void @tj3Destroy(ptr noundef %.0423.ph) #16
   br label %483
 
@@ -938,27 +938,27 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %482 = call i32 @fclose(ptr noundef nonnull %228)
   br label %483
 
-483:                                              ; preds = %.thread571, %481
-  %.2582 = phi i32 [ %.2.ph, %.thread571 ], [ -1, %481 ]
-  %.0425581 = phi ptr [ %.0425.ph, %.thread571 ], [ null, %481 ]
-  %.0433580 = phi ptr [ %.0433.ph, %.thread571 ], [ %.0433, %481 ]
-  %.0452579 = phi ptr [ %.0452.ph, %.thread571 ], [ null, %481 ]
-  call void @tj3Free(ptr noundef %.0433580) #16
+483:                                              ; preds = %.thread569, %481
+  %.2580 = phi i32 [ %.2.ph, %.thread569 ], [ -1, %481 ]
+  %.0425579 = phi ptr [ %.0425.ph, %.thread569 ], [ null, %481 ]
+  %.0433578 = phi ptr [ %.0433.ph, %.thread569 ], [ %.0433, %481 ]
+  %.0452577 = phi ptr [ %.0452.ph, %.thread569 ], [ null, %481 ]
+  call void @tj3Free(ptr noundef %.0433578) #16
   %484 = load ptr, ptr %5, align 8, !tbaa !4
   call void @tj3Free(ptr noundef %484) #16
-  %.not500 = icmp eq ptr %.0425581, null
+  %.not500 = icmp eq ptr %.0425579, null
   br i1 %.not500, label %487, label %485
 
 485:                                              ; preds = %483
-  %486 = call i32 @fclose(ptr noundef nonnull %.0425581)
+  %486 = call i32 @fclose(ptr noundef nonnull %.0425579)
   br label %487
 
 487:                                              ; preds = %485, %483
-  call void @free(ptr noundef %.0452579) #16
+  call void @free(ptr noundef %.0452577) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.2582
+  ret i32 %.2580
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

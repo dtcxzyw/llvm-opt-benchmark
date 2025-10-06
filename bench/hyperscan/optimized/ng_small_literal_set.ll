@@ -323,13 +323,13 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit195.i: ; preds = %_ZN5boost14dynamic_
   br i1 %122, label %.critedge.i.i.i, label %127
 
 .critedge.i.i.i:                                  ; preds = %118, %123
-  %.sroa.046.0.in.i.i.i = phi ptr [ %.sroa.046.0.i.i.i, %123 ], [ %109, %118 ]
-  %.sroa.046.0.i.i.i = load ptr, ptr %.sroa.046.0.in.i.i.i, align 8, !noalias !15
-  %.not62.i.i.i = icmp eq ptr %.sroa.046.0.i.i.i, %109
-  br i1 %.not62.i.i.i, label %.loopexit444.i, label %123
+  %.sroa.045.0.in.i.i.i = phi ptr [ %.sroa.045.0.i.i.i, %123 ], [ %109, %118 ]
+  %.sroa.045.0.i.i.i = load ptr, ptr %.sroa.045.0.in.i.i.i, align 8, !noalias !15
+  %.not57.i.i.i = icmp eq ptr %.sroa.045.0.i.i.i, %109
+  br i1 %.not57.i.i.i, label %.loopexit444.i, label %123
 
 123:                                              ; preds = %.critedge.i.i.i
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i, i64 16
   %125 = load ptr, ptr %124, align 8, !noalias !15
   %126 = icmp eq ptr %125, %.sroa.030.0.copyload.i
   br i1 %126, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.thread.i, label %.critedge.i.i.i
@@ -339,13 +339,13 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit195.i: ; preds = %_ZN5boost14dynamic_
   br label %.critedge24.i.i.i
 
 .critedge24.i.i.i:                                ; preds = %129, %127
-  %.sroa.035.0.in.i.i.i = phi ptr [ %128, %127 ], [ %.sroa.035.0.i.i.i, %129 ]
-  %.sroa.035.0.i.i.i = load ptr, ptr %.sroa.035.0.in.i.i.i, align 8, !noalias !15
-  %.not.i.i.i = icmp eq ptr %.sroa.035.0.i.i.i, %128
+  %.sroa.034.0.in.i.i.i = phi ptr [ %128, %127 ], [ %.sroa.034.0.i.i.i, %129 ]
+  %.sroa.034.0.i.i.i = load ptr, ptr %.sroa.034.0.in.i.i.i, align 8, !noalias !15
+  %.not.i.i.i = icmp eq ptr %.sroa.034.0.i.i.i, %128
   br i1 %.not.i.i.i, label %.loopexit444.i, label %129
 
 129:                                              ; preds = %.critedge24.i.i.i
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i, i64 40
   %131 = load ptr, ptr %130, align 8, !noalias !15
   %132 = icmp eq ptr %131, %.sroa.0285.0.copyload.i
   br i1 %132, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.thread.i, label %.critedge24.i.i.i
@@ -487,8 +487,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 175:                                              ; preds = %171, %.noexc4.i.i, %.noexc4.i.thread.i
   %176 = phi ptr [ null, %.noexc4.i.thread.i ], [ %168, %.noexc4.i.i ], [ %168, %171 ]
-  %.pre-phi547643.i = phi i64 [ 0, %.noexc4.i.thread.i ], [ 0, %.noexc4.i.i ], [ %.pre546.i, %171 ]
-  %177 = getelementptr inbounds i8, ptr %176, i64 %.pre-phi547643.i
+  %.pre-phi547644.i = phi i64 [ 0, %.noexc4.i.thread.i ], [ 0, %.noexc4.i.i ], [ %.pre546.i, %171 ]
+  %177 = getelementptr inbounds i8, ptr %176, i64 %.pre-phi547644.i
   store ptr %177, ptr %60, align 8
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.0273.0517.i, i64 96
   %179 = load i64, ptr %178, align 8
@@ -1351,19 +1351,19 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit211.i: ; preds = %_ZN5boost14dynamic_
   br label %660
 
 .preheader.i:                                     ; preds = %140, %537
-  %.0710.i.i.i = phi i64 [ %538, %537 ], [ 0, %140 ]
-  %535 = getelementptr inbounds nuw i64, ptr %79, i64 %.0710.i.i.i
+  %.0712.i.i.i = phi i64 [ %538, %537 ], [ 0, %140 ]
+  %535 = getelementptr inbounds nuw i64, ptr %79, i64 %.0712.i.i.i
   %536 = load i64, ptr %535, align 8
   %.not.i.i212.i = icmp eq i64 %536, 0
   br i1 %.not.i.i212.i, label %537, label %_ZNK3ue29CharReach10find_firstEv.exit.i
 
 537:                                              ; preds = %.preheader.i
-  %538 = add nuw nsw i64 %.0710.i.i.i, 1
-  %exitcond.i.i.i = icmp eq i64 %538, 4
-  br i1 %exitcond.i.i.i, label %.loopexit430.i, label %.preheader.i, !llvm.loop !68
+  %538 = add nuw nsw i64 %.0712.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %538, 4
+  br i1 %exitcond.not.i.i.i, label %.loopexit430.i, label %.preheader.i, !llvm.loop !68
 
 _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
-  %539 = shl nuw nsw i64 %.0710.i.i.i, 6
+  %539 = shl nuw nsw i64 %.0712.i.i.i, 6
   %540 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %536, i1 true)
   %541 = or disjoint i64 %540, %539
   %.not513.i = icmp eq i64 %541, 256

@@ -318,8 +318,8 @@ define void @_ZN6google8protobuf8internal9ArenaImplD2Ev(ptr noundef nonnull read
 13:                                               ; preds = %22, %5
   %.014.i.i.i = phi ptr [ %4, %5 ], [ %15, %22 ]
   %.013.i.i.i = phi i64 [ %12, %5 ], [ %23, %22 ]
-  %.not19.i.i.i = icmp eq i64 %.013.i.i.i, 0
-  br i1 %.not19.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not18.i.i.i = icmp eq i64 %.013.i.i.i, 0
+  br i1 %.not18.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %13
   %14 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 8
@@ -328,8 +328,8 @@ define void @_ZN6google8protobuf8internal9ArenaImplD2Ev(ptr noundef nonnull read
   br i1 %16, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i, label %22
 
 .lr.ph.i.i.i:                                     ; preds = %13, %.noexc
-  %.01220.i.i.i = phi i64 [ %21, %.noexc ], [ %.013.i.i.i, %13 ]
-  %17 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i.i, i64 %.01220.i.i.i
+  %.01219.i.i.i = phi i64 [ %21, %.noexc ], [ %.013.i.i.i, %13 ]
+  %17 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i.i, i64 %.01219.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = load ptr, ptr %17, align 8, !tbaa !59
@@ -337,7 +337,7 @@ define void @_ZN6google8protobuf8internal9ArenaImplD2Ev(ptr noundef nonnull read
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i
-  %21 = add i64 %.01220.i.i.i, -1
+  %21 = add i64 %.01219.i.i.i, -1
   %.not.i.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !60
 
@@ -475,8 +475,8 @@ define void @_ZN6google8protobuf8internal9ArenaImpl11CleanupListEv(ptr noundef n
 13:                                               ; preds = %22, %5
   %.014.i.i = phi ptr [ %4, %5 ], [ %15, %22 ]
   %.013.i.i = phi i64 [ %12, %5 ], [ %23, %22 ]
-  %.not19.i.i = icmp eq i64 %.013.i.i, 0
-  br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not18.i.i = icmp eq i64 %.013.i.i, 0
+  br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %13
   %14 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
@@ -485,13 +485,13 @@ define void @_ZN6google8protobuf8internal9ArenaImpl11CleanupListEv(ptr noundef n
   br i1 %16, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %22
 
 .lr.ph.i.i:                                       ; preds = %13, %.lr.ph.i.i
-  %.01220.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ %.013.i.i, %13 ]
-  %17 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i, i64 %.01220.i.i
+  %.01219.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ %.013.i.i, %13 ]
+  %17 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i, i64 %.01219.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = load ptr, ptr %17, align 8, !tbaa !59
   tail call void %19(ptr noundef %20)
-  %21 = add i64 %.01220.i.i, -1
+  %21 = add i64 %.01219.i.i, -1
   %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !60
 
@@ -579,8 +579,8 @@ define noundef i64 @_ZN6google8protobuf8internal9ArenaImpl5ResetEv(ptr noundef n
 25:                                               ; preds = %34, %17
   %.014.i.i.i = phi ptr [ %16, %17 ], [ %27, %34 ]
   %.013.i.i.i = phi i64 [ %24, %17 ], [ %35, %34 ]
-  %.not19.i.i.i = icmp eq i64 %.013.i.i.i, 0
-  br i1 %.not19.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not18.i.i.i = icmp eq i64 %.013.i.i.i, 0
+  br i1 %.not18.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %25
   %26 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 8
@@ -589,13 +589,13 @@ define noundef i64 @_ZN6google8protobuf8internal9ArenaImpl5ResetEv(ptr noundef n
   br i1 %28, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i, label %34
 
 .lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
-  %.01220.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %.013.i.i.i, %25 ]
-  %29 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i.i, i64 %.01220.i.i.i
+  %.01219.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %.013.i.i.i, %25 ]
+  %29 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i.i, i64 %.01219.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = load ptr, ptr %29, align 8, !tbaa !59
   tail call void %31(ptr noundef %32)
-  %33 = add i64 %.01220.i.i.i, -1
+  %33 = add i64 %.01219.i.i.i, -1
   %.not.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !60
 
@@ -1442,8 +1442,8 @@ define void @_ZN6google8protobuf8internal11SerialArena11CleanupListEv(ptr nounde
 12:                                               ; preds = %21, %4
   %.014.i = phi ptr [ %3, %4 ], [ %14, %21 ]
   %.013.i = phi i64 [ %11, %4 ], [ %22, %21 ]
-  %.not19.i = icmp eq i64 %.013.i, 0
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %.013.i, 0
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
   %13 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
@@ -1452,13 +1452,13 @@ define void @_ZN6google8protobuf8internal11SerialArena11CleanupListEv(ptr nounde
   br i1 %15, label %_ZN6google8protobuf8internal11SerialArena19CleanupListFallbackEv.exit, label %21
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
-  %.01220.i = phi i64 [ %20, %.lr.ph.i ], [ %.013.i, %12 ]
-  %16 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i, i64 %.01220.i
+  %.01219.i = phi i64 [ %20, %.lr.ph.i ], [ %.013.i, %12 ]
+  %16 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i, i64 %.01219.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !57
   %19 = load ptr, ptr %16, align 8, !tbaa !59
   tail call void %18(ptr noundef %19)
-  %20 = add i64 %.01220.i, -1
+  %20 = add i64 %.01219.i, -1
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !60
 
@@ -1486,8 +1486,8 @@ define void @_ZN6google8protobuf8internal11SerialArena19CleanupListFallbackEv(pt
 11:                                               ; preds = %20, %1
   %.014 = phi ptr [ %5, %1 ], [ %13, %20 ]
   %.013 = phi i64 [ %10, %1 ], [ %21, %20 ]
-  %.not19 = icmp eq i64 %.013, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i64 %.013, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %12 = getelementptr inbounds nuw i8, ptr %.014, i64 8
@@ -1496,13 +1496,13 @@ define void @_ZN6google8protobuf8internal11SerialArena19CleanupListFallbackEv(pt
   br i1 %14, label %22, label %20
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.01220 = phi i64 [ %19, %.lr.ph ], [ %.013, %11 ]
-  %15 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014, i64 %.01220
+  %.01219 = phi i64 [ %19, %.lr.ph ], [ %.013, %11 ]
+  %15 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014, i64 %.01219
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = load ptr, ptr %15, align 8, !tbaa !59
   tail call void %17(ptr noundef %18)
-  %19 = add i64 %.01220, -1
+  %19 = add i64 %.01219, -1
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 

@@ -513,7 +513,7 @@ define noundef zeroext i8 @_ZN7rocksdb11WriteThread10AwaitStateEPNS0_6WriterEhPN
   br label %7
 
 7:                                                ; preds = %4, %10
-  %.04297 = phi i32 [ 0, %4 ], [ %11, %10 ]
+  %.04296 = phi i32 [ 0, %4 ], [ %11, %10 ]
   %8 = load atomic i8, ptr %6 acquire, align 1
   %9 = and i8 %8, %2
   %.not = icmp eq i8 %9, 0
@@ -521,7 +521,7 @@ define noundef zeroext i8 @_ZN7rocksdb11WriteThread10AwaitStateEPNS0_6WriterEhPN
 
 10:                                               ; preds = %7
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !126
-  %11 = add nuw nsw i32 %.04297, 1
+  %11 = add nuw nsw i32 %.04296, 1
   %exitcond = icmp eq i32 %11, 200
   br i1 %exitcond, label %12, label %7, !llvm.loop !127
 
@@ -626,16 +626,16 @@ _ZN7rocksdb13PerfStepTimer5StartEv.exit:          ; preds = %_ZN7rocksdb13PerfSt
 62:                                               ; preds = %59, %47
   %63 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %64 = load i64, ptr %43, align 8, !tbaa !143
-  %.not9498 = icmp slt i64 %64, 0
-  br i1 %.not9498, label %.thread88, label %.lr.ph
+  %.not9397 = icmp slt i64 %64, 0
+  br i1 %.not9397, label %.thread88, label %.lr.ph
 
 .lr.ph:                                           ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %66
 
 66:                                               ; preds = %.lr.ph, %83
-  %.031100 = phi i64 [ 0, %.lr.ph ], [ %.2, %83 ]
-  %.sroa.081.099 = phi i64 [ %63, %.lr.ph ], [ %75, %83 ]
+  %.03199 = phi i64 [ 0, %.lr.ph ], [ %.2, %83 ]
+  %.sroa.081.098 = phi i64 [ %63, %.lr.ph ], [ %75, %83 ]
   %67 = tail call noundef i32 @sched_yield() #21
   %68 = load atomic i8, ptr %6 acquire, align 1
   %69 = and i8 %68, %2
@@ -654,28 +654,28 @@ _ZN7rocksdb13PerfStepTimer5StartEv.exit:          ; preds = %_ZN7rocksdb13PerfSt
 
 74:                                               ; preds = %66
   %75 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %76 = icmp eq i64 %75, %.sroa.081.099
+  %76 = icmp eq i64 %75, %.sroa.081.098
   br i1 %76, label %.critedge, label %77
 
 77:                                               ; preds = %74
-  %78 = sub nsw i64 %75, %.sroa.081.099
+  %78 = sub nsw i64 %75, %.sroa.081.098
   %79 = load i64, ptr %65, align 8, !tbaa !143
   %80 = mul nsw i64 %79, 1000
-  %.not95 = icmp slt i64 %78, %80
-  br i1 %.not95, label %83, label %.critedge
+  %.not94 = icmp slt i64 %78, %80
+  br i1 %.not94, label %83, label %.critedge
 
 .critedge:                                        ; preds = %74, %77
-  %81 = add nuw nsw i64 %.031100, 1
-  %82 = icmp ugt i64 %.031100, 1
+  %81 = add nuw nsw i64 %.03199, 1
+  %82 = icmp ugt i64 %.03199, 1
   br i1 %82, label %.thread88, label %83
 
 83:                                               ; preds = %.critedge, %77
-  %.2 = phi i64 [ %.031100, %77 ], [ %81, %.critedge ]
+  %.2 = phi i64 [ %.03199, %77 ], [ %81, %.critedge ]
   %84 = sub nsw i64 %75, %63
   %85 = load i64, ptr %43, align 8, !tbaa !143
   %86 = mul nsw i64 %85, 1000
-  %.not94 = icmp slt i64 %86, %84
-  br i1 %.not94, label %.thread88, label %66
+  %.not93 = icmp slt i64 %86, %84
+  br i1 %.not93, label %.thread88, label %66
 
 .thread88:                                        ; preds = %.critedge, %66, %83, %62, %59, %_ZN7rocksdb13PerfStepTimer5StartEv.exit
   %.038 = phi i1 [ false, %59 ], [ false, %_ZN7rocksdb13PerfStepTimer5StartEv.exit ], [ %58, %62 ], [ true, %.critedge ], [ %58, %66 ], [ %58, %83 ]
@@ -1133,14 +1133,14 @@ define void @_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE(ptr
 
 .lr.ph:                                           ; preds = %2, %9
   %6 = phi ptr [ %11, %9 ], [ %4, %2 ]
-  %.0611 = phi ptr [ %6, %9 ], [ %1, %2 ]
+  %.0610 = phi ptr [ %6, %9 ], [ %1, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %8 = load ptr, ptr %7, align 8, !tbaa !164
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %._crit_edge
 
 9:                                                ; preds = %.lr.ph
-  store ptr %.0611, ptr %7, align 8, !tbaa !164
+  store ptr %.0610, ptr %7, align 8, !tbaa !164
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %11 = load ptr, ptr %10, align 8, !tbaa !158
   %12 = icmp eq ptr %11, null
@@ -1632,14 +1632,14 @@ define noundef i64 @_ZN7rocksdb11WriteThread23EnterAsBatchGroupLeaderEPNS0_6Writ
 
 .lr.ph.i:                                         ; preds = %3, %22
   %19 = phi ptr [ %24, %22 ], [ %17, %3 ]
-  %.0611.i = phi ptr [ %19, %22 ], [ %.0.i.i, %3 ]
+  %.0610.i = phi ptr [ %19, %22 ], [ %.0.i.i, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 240
   %21 = load ptr, ptr %20, align 8, !tbaa !164
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %22, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
 
 22:                                               ; preds = %.lr.ph.i
-  store ptr %.0611.i, ptr %20, align 8, !tbaa !164
+  store ptr %.0610.i, ptr %20, align 8, !tbaa !164
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 232
   %24 = load ptr, ptr %23, align 8, !tbaa !158
   %25 = icmp eq ptr %24, null
@@ -1865,14 +1865,14 @@ define void @_ZN7rocksdb11WriteThread21EnterAsMemTableWriterEPNS0_6WriterEPNS0_1
 
 .lr.ph.i:                                         ; preds = %18, %27
   %24 = phi ptr [ %29, %27 ], [ %22, %18 ]
-  %.0611.i = phi ptr [ %24, %27 ], [ %.0.i.i, %18 ]
+  %.0610.i = phi ptr [ %24, %27 ], [ %.0.i.i, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 240
   %26 = load ptr, ptr %25, align 8, !tbaa !164
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %27, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
 
 27:                                               ; preds = %.lr.ph.i
-  store ptr %.0611.i, ptr %25, align 8, !tbaa !164
+  store ptr %.0610.i, ptr %25, align 8, !tbaa !164
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 232
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   %30 = icmp eq ptr %29, null
@@ -1960,14 +1960,14 @@ define void @_ZN7rocksdb11WriteThread20ExitAsMemTableWriterEPNS0_6WriterERNS0_10
 
 .lr.ph.i:                                         ; preds = %12, %21
   %18 = phi ptr [ %23, %21 ], [ %16, %12 ]
-  %.0611.i = phi ptr [ %18, %21 ], [ %14, %12 ]
+  %.0610.i = phi ptr [ %18, %21 ], [ %14, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 240
   %20 = load ptr, ptr %19, align 8, !tbaa !164
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %21, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
 
 21:                                               ; preds = %.lr.ph.i
-  store ptr %.0611.i, ptr %19, align 8, !tbaa !164
+  store ptr %.0610.i, ptr %19, align 8, !tbaa !164
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 232
   %23 = load ptr, ptr %22, align 8, !tbaa !158
   %24 = icmp eq ptr %23, null
@@ -2746,14 +2746,14 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St
 
 .lr.ph.i:                                         ; preds = %62, %69
   %66 = phi ptr [ %71, %69 ], [ %64, %62 ]
-  %.0611.i = phi ptr [ %66, %69 ], [ %.0121, %62 ]
+  %.0610.i = phi ptr [ %66, %69 ], [ %.0121, %62 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 240
   %68 = load ptr, ptr %67, align 8, !tbaa !164
   %.not.i51 = icmp eq ptr %68, null
   br i1 %.not.i51, label %69, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
 
 69:                                               ; preds = %.lr.ph.i
-  store ptr %.0611.i, ptr %67, align 8, !tbaa !164
+  store ptr %.0610.i, ptr %67, align 8, !tbaa !164
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 232
   %71 = load ptr, ptr %70, align 8, !tbaa !158
   %72 = icmp eq ptr %71, null
@@ -3118,14 +3118,14 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St
 
 .lr.ph.i77:                                       ; preds = %222, %229
   %226 = phi ptr [ %231, %229 ], [ %224, %222 ]
-  %.0611.i78 = phi ptr [ %226, %229 ], [ %.1122, %222 ]
+  %.0610.i78 = phi ptr [ %226, %229 ], [ %.1122, %222 ]
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 240
   %228 = load ptr, ptr %227, align 8, !tbaa !164
   %.not.i79 = icmp eq ptr %228, null
   br i1 %.not.i79, label %229, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit81
 
 229:                                              ; preds = %.lr.ph.i77
-  store ptr %.0611.i78, ptr %227, align 8, !tbaa !164
+  store ptr %.0610.i78, ptr %227, align 8, !tbaa !164
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 232
   %231 = load ptr, ptr %230, align 8, !tbaa !158
   %232 = icmp eq ptr %231, null
@@ -3241,14 +3241,14 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St
 
 .lr.ph.i93:                                       ; preds = %268, %275
   %272 = phi ptr [ %277, %275 ], [ %270, %268 ]
-  %.0611.i94 = phi ptr [ %272, %275 ], [ %.0120, %268 ]
+  %.0610.i94 = phi ptr [ %272, %275 ], [ %.0120, %268 ]
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 240
   %274 = load ptr, ptr %273, align 8, !tbaa !164
   %.not.i95 = icmp eq ptr %274, null
   br i1 %.not.i95, label %275, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit97
 
 275:                                              ; preds = %.lr.ph.i93
-  store ptr %.0611.i94, ptr %273, align 8, !tbaa !164
+  store ptr %.0610.i94, ptr %273, align 8, !tbaa !164
   %276 = getelementptr inbounds nuw i8, ptr %272, i64 232
   %277 = load ptr, ptr %276, align 8, !tbaa !158
   %278 = icmp eq ptr %277, null
@@ -3527,14 +3527,14 @@ define void @_ZN7rocksdb11WriteThread13ExitUnbatchedEPNS0_6WriterE(ptr noundef n
 
 .lr.ph.i:                                         ; preds = %7, %16
   %13 = phi ptr [ %18, %16 ], [ %11, %7 ]
-  %.0611.i = phi ptr [ %13, %16 ], [ %9, %7 ]
+  %.0610.i = phi ptr [ %13, %16 ], [ %9, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 240
   %15 = load ptr, ptr %14, align 8, !tbaa !164
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
 
 16:                                               ; preds = %.lr.ph.i
-  store ptr %.0611.i, ptr %14, align 8, !tbaa !164
+  store ptr %.0610.i, ptr %14, align 8, !tbaa !164
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 232
   %18 = load ptr, ptr %17, align 8, !tbaa !158
   %19 = icmp eq ptr %18, null

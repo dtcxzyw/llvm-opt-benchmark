@@ -10141,10 +10141,10 @@ define internal range(i32 -1, 1) i32 @Struct_init(ptr noundef %0, ptr noundef re
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val23 = load ptr, ptr %7, align 8, !tbaa !10
-  %8 = getelementptr i8, ptr %.val23, i64 168
-  %.val24 = load i64, ptr %8, align 8, !tbaa !12
-  %9 = and i64 %.val24, 67108864
+  %.val22 = load ptr, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr i8, ptr %.val22, i64 168
+  %.val23 = load i64, ptr %8, align 8, !tbaa !12
+  %9 = and i64 %.val23, 67108864
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %10, label %12
 
@@ -10155,8 +10155,8 @@ define internal range(i32 -1, 1) i32 @Struct_init(ptr noundef %0, ptr noundef re
 
 12:                                               ; preds = %3
   %13 = getelementptr i8, ptr %1, i64 16
-  %.val26 = load i64, ptr %13, align 8, !tbaa !94
-  %.not18 = icmp eq i64 %.val26, 0
+  %.val25 = load i64, ptr %13, align 8, !tbaa !94
+  %.not18 = icmp eq i64 %.val25, 0
   br i1 %.not18, label %22, label %14
 
 14:                                               ; preds = %12
@@ -10167,8 +10167,8 @@ define internal range(i32 -1, 1) i32 @Struct_init(ptr noundef %0, ptr noundef re
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %14
-  %.val25 = load i64, ptr %13, align 8, !tbaa !94
-  %19 = icmp slt i64 %16, %.val25
+  %.val24 = load i64, ptr %13, align 8, !tbaa !94
+  %19 = icmp slt i64 %16, %.val24
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
@@ -10190,9 +10190,9 @@ define internal range(i32 -1, 1) i32 @Struct_init(ptr noundef %0, ptr noundef re
 24:                                               ; preds = %26, %23
   %25 = call i32 @PyDict_Next(ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   %.not20.not = icmp eq i32 %25, 0
-  br i1 %.not20.not, label %.thread29, label %26
+  br i1 %.not20.not, label %.thread27, label %26
 
-.thread29:                                        ; preds = %24
+.thread27:                                        ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -10211,8 +10211,8 @@ define internal range(i32 -1, 1) i32 @Struct_init(ptr noundef %0, ptr noundef re
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %14, %20, %22, %.thread29, %31, %10
-  %.014 = phi i32 [ -1, %31 ], [ -1, %10 ], [ 0, %.thread29 ], [ 0, %22 ], [ -1, %20 ], [ -1, %14 ]
+.thread:                                          ; preds = %14, %20, %22, %.thread27, %31, %10
+  %.014 = phi i32 [ -1, %31 ], [ -1, %10 ], [ 0, %.thread27 ], [ 0, %22 ], [ -1, %20 ], [ -1, %14 ]
   ret i32 %.014
 }
 

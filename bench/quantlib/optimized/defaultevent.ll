@@ -3126,32 +3126,32 @@ for.cond.preheader:                               ; preds = %if.end
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %contractKey, i64 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !65
   %14 = load ptr, ptr %contractKey, align 8, !tbaa !66
-  %cmp9.not15.not = icmp eq ptr %13, %14
-  br i1 %cmp9.not15.not, label %return, label %for.body
+  %cmp916.not = icmp eq ptr %13, %14
+  br i1 %cmp916.not, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw i64 %i.016, 1
+  %inc = add nuw i64 %i.017, 1
   %15 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !65
   %16 = load ptr, ptr %contractKey, align 8, !tbaa !66
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
-  %cmp9.not = icmp ult i64 %inc, %sub.ptr.div.i.i
-  br i1 %cmp9.not, label %for.body, label %return, !llvm.loop !67
+  %cmp9 = icmp ult i64 %inc, %sub.ptr.div.i.i
+  br i1 %cmp9, label %for.body, label %return, !llvm.loop !67
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %17 = phi ptr [ %16, %for.cond ], [ %14, %for.cond.preheader ]
-  %i.016 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.22", ptr %17, i64 %i.016
+  %i.017 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
+  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.22", ptr %17, i64 %i.017
   %vtable = load ptr, ptr %this, align 8, !tbaa !14
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %18 = load ptr, ptr %vfn, align 8
   %call12 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
   br i1 %call12, label %return, label %for.cond
 
-return:                                           ; preds = %for.body, %for.cond, %if.end.i.i.i.i, %for.cond.preheader, %if.end, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i.i, %_ZN8QuantLibneERKNS_8CurrencyES2_.exit
-  %retval.0 = phi i1 [ false, %_ZN8QuantLibneERKNS_8CurrencyES2_.exit ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i.i ], [ false, %if.end ], [ false, %for.cond.preheader ], [ false, %if.end.i.i.i.i ], [ %call12, %for.cond ], [ %call12, %for.body ]
+return:                                           ; preds = %for.cond, %for.body, %if.end.i.i.i.i, %for.cond.preheader, %if.end, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i.i, %_ZN8QuantLibneERKNS_8CurrencyES2_.exit
+  %retval.0 = phi i1 [ false, %_ZN8QuantLibneERKNS_8CurrencyES2_.exit ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i.i ], [ false, %if.end ], [ false, %for.cond.preheader ], [ false, %if.end.i.i.i.i ], [ %call12, %for.body ], [ %call12, %for.cond ]
   ret i1 %retval.0
 }
 

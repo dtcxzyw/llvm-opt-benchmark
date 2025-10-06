@@ -3042,8 +3042,8 @@ _ZNSt3mapImSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS4_ESt8
   %148 = load i64, ptr %111, align 8, !tbaa !40
   %149 = urem i64 %147, %148
   %150 = load i64, ptr %118, align 8, !tbaa !131
-  %.not32.i = icmp eq i64 %150, 0
-  br i1 %.not32.i, label %.critedge.i106, label %151
+  %.not30.i = icmp eq i64 %150, 0
+  br i1 %.not30.i, label %.critedge.i106, label %151
 
 151:                                              ; preds = %.thread.i
   %152 = load ptr, ptr %92, align 8, !tbaa !38
@@ -3361,8 +3361,8 @@ _ZNSt3mapImSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS4_ESt8
   %285 = load i64, ptr %257, align 8, !tbaa !40
   %286 = urem i64 %284, %285
   %287 = load i64, ptr %255, align 8, !tbaa !131
-  %.not32.i110 = icmp eq i64 %287, 0
-  br i1 %.not32.i110, label %.critedge.i117, label %288
+  %.not30.i110 = icmp eq i64 %287, 0
+  br i1 %.not30.i110, label %.critedge.i117, label %288
 
 288:                                              ; preds = %.thread.i109
   %289 = load ptr, ptr %254, align 8, !tbaa !38
@@ -10290,9 +10290,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !393
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %14, label %.thread36
+  br i1 %.not.not, label %14, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i64, ptr %1, align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !32
@@ -10326,7 +10326,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %25 = urem i64 %16, %24
   br label %.critedge
 
-26:                                               ; preds = %.thread36
+26:                                               ; preds = %.thread34
   %27 = load ptr, ptr %13, align 8, !tbaa !53
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !93
@@ -10353,9 +10353,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
 ..loopexit_crit_edge21.i.i:                       ; preds = %34
   br label %.critedge, !llvm.loop !453
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread34
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread34 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr null, ptr %40, align 8, !tbaa !53
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

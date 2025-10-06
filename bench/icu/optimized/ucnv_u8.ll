@@ -1385,9 +1385,9 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %12 = load i8, ptr %6, align 1, !tbaa !25
-  %.fr150 = freeze i8 %12
-  %13 = zext i8 %.fr150 to i32
-  %14 = icmp sgt i8 %.fr150, -1
+  %.fr149 = freeze i8 %12
+  %13 = zext i8 %.fr149 to i32
+  %14 = icmp sgt i8 %.fr149, -1
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
@@ -1395,14 +1395,14 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
   br label %154
 
 16:                                               ; preds = %10
-  %17 = add nsw i8 %.fr150, 62
+  %17 = add nsw i8 %.fr149, 62
   %18 = icmp ult i8 %17, 51
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = icmp samesign ugt i8 %.fr150, -33
+  %20 = icmp samesign ugt i8 %.fr149, -33
   %21 = zext i1 %20 to i32
-  %22 = icmp samesign ugt i8 %.fr150, -17
+  %22 = icmp samesign ugt i8 %.fr149, -17
   %23 = zext i1 %22 to i32
   %24 = add nuw nsw i32 %21, %23
   %25 = zext nneg i32 %24 to i64
@@ -1413,7 +1413,7 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
 
 .thread:                                          ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  store i8 %.fr150, ptr %29, align 1, !tbaa !25
+  store i8 %.fr149, ptr %29, align 1, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 1, ptr %30, align 8, !tbaa !42
   store i32 12, ptr %1, align 4, !tbaa !27
@@ -1422,7 +1422,7 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  store i8 %.fr150, ptr %32, align 1, !tbaa !25
+  store i8 %.fr149, ptr %32, align 1, !tbaa !25
   store i32 11, ptr %1, align 4, !tbaa !27
   %33 = load ptr, ptr %7, align 8, !tbaa !40
   %34 = icmp ult ptr %11, %33
@@ -1430,7 +1430,7 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
 
 .lr.ph:                                           ; preds = %31
   %35 = icmp eq i32 %24, 0
-  %36 = and i8 %.fr150, 7
+  %36 = and i8 %.fr149, 7
   %37 = shl nuw i8 1, %36
   %38 = and i32 %13, 15
   %39 = zext nneg i32 %38 to i64
@@ -1438,18 +1438,18 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
   br i1 %35, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.lr.ph.split
 
 _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph, %43
-  %.090131.us = phi ptr [ %47, %43 ], [ %11, %.lr.ph ]
-  %.095130.us = phi i8 [ %44, %43 ], [ 1, %.lr.ph ]
-  %41 = load i8, ptr %.090131.us, align 1, !tbaa !25
+  %.090130.us = phi ptr [ %47, %43 ], [ %11, %.lr.ph ]
+  %.095129.us = phi i8 [ %44, %43 ], [ 1, %.lr.ph ]
+  %41 = load i8, ptr %.090130.us, align 1, !tbaa !25
   %42 = icmp sgt i8 %41, -65
   br i1 %42, label %.thread108, label %43
 
 43:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %44 = add i8 %.095130.us, 1
-  %45 = sext i8 %.095130.us to i64
+  %44 = add i8 %.095129.us, 1
+  %45 = sext i8 %.095129.us to i64
   %46 = getelementptr inbounds i8, ptr %32, i64 %45
   store i8 %41, ptr %46, align 1, !tbaa !25
-  %47 = getelementptr inbounds nuw i8, ptr %.090131.us, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.090130.us, i64 1
   %48 = load ptr, ptr %7, align 8, !tbaa !40
   %49 = icmp ult ptr %47, %48
   br i1 %49, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.loopexit
@@ -1459,17 +1459,17 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph, %43
   br i1 %50, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %60
-  %.090131.us136 = phi ptr [ %64, %60 ], [ %11, %.lr.ph.split ]
-  %.095130.us137 = phi i8 [ %61, %60 ], [ 1, %.lr.ph.split ]
-  %51 = load i8, ptr %.090131.us136, align 1, !tbaa !25
-  %52 = icmp sgt i8 %.095130.us137, 1
-  br i1 %52, label %53, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us138
+  %.090130.us135 = phi ptr [ %64, %60 ], [ %11, %.lr.ph.split ]
+  %.095129.us136 = phi i8 [ %61, %60 ], [ 1, %.lr.ph.split ]
+  %51 = load i8, ptr %.090130.us135, align 1, !tbaa !25
+  %52 = icmp sgt i8 %.095129.us136, 1
+  br i1 %52, label %53, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
 
 53:                                               ; preds = %.lr.ph.split.split.us
   %54 = icmp sgt i8 %51, -65
   br i1 %54, label %.thread108, label %60
 
-_ZN6icu_774UTF812isValidTrailEihii.exit.us138:    ; preds = %.lr.ph.split.split.us
+_ZN6icu_774UTF812isValidTrailEihii.exit.us137:    ; preds = %.lr.ph.split.split.us
   %55 = load i8, ptr %40, align 1, !tbaa !25
   %56 = lshr i8 %51, 5
   %57 = shl nuw i8 1, %56
@@ -1477,21 +1477,21 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us138:    ; preds = %.lr.ph.split.split.
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %.thread108, label %60
 
-60:                                               ; preds = %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us138
-  %61 = add i8 %.095130.us137, 1
-  %62 = sext i8 %.095130.us137 to i64
+60:                                               ; preds = %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
+  %61 = add i8 %.095129.us136, 1
+  %62 = sext i8 %.095129.us136 to i64
   %63 = getelementptr inbounds i8, ptr %32, i64 %62
   store i8 %51, ptr %63, align 1, !tbaa !25
-  %64 = getelementptr inbounds nuw i8, ptr %.090131.us136, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.090130.us135, i64 1
   %65 = load ptr, ptr %7, align 8, !tbaa !40
   %66 = icmp ult ptr %64, %65
   br i1 %66, label %.lr.ph.split.split.us, label %.loopexit
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %77
-  %.090131 = phi ptr [ %81, %77 ], [ %11, %.lr.ph.split ]
-  %.095130 = phi i8 [ %78, %77 ], [ 1, %.lr.ph.split ]
-  %67 = load i8, ptr %.090131, align 1, !tbaa !25
-  %68 = icmp sgt i8 %.095130, 1
+  %.090130 = phi ptr [ %81, %77 ], [ %11, %.lr.ph.split ]
+  %.095129 = phi i8 [ %78, %77 ], [ 1, %.lr.ph.split ]
+  %67 = load i8, ptr %.090130, align 1, !tbaa !25
+  %68 = icmp sgt i8 %.095129, 1
   br i1 %68, label %69, label %_ZN6icu_774UTF812isValidTrailEihii.exit
 
 69:                                               ; preds = %.lr.ph.split.split
@@ -1507,28 +1507,28 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %.thread108, label %77
 
-.thread108:                                       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit, %69, %_ZN6icu_774UTF812isValidTrailEihii.exit.us138, %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %.us-phi = phi i8 [ %.095130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095130.us137, %53 ], [ %.095130.us137, %_ZN6icu_774UTF812isValidTrailEihii.exit.us138 ], [ %.095130, %69 ], [ %.095130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
-  %.us-phi133 = phi ptr [ %.090131.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090131.us136, %53 ], [ %.090131.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us138 ], [ %.090131, %69 ], [ %.090131, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+.thread108:                                       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit, %69, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137, %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us
+  %.us-phi = phi i8 [ %.095129.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095129.us136, %53 ], [ %.095129.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.095129, %69 ], [ %.095129, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+  %.us-phi132 = phi ptr [ %.090130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090130.us135, %53 ], [ %.090130.us135, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.090130, %69 ], [ %.090130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
 77:                                               ; preds = %69, %_ZN6icu_774UTF812isValidTrailEihii.exit
-  %78 = add i8 %.095130, 1
-  %79 = sext i8 %.095130 to i64
+  %78 = add i8 %.095129, 1
+  %79 = sext i8 %.095129 to i64
   %80 = getelementptr inbounds i8, ptr %32, i64 %79
   store i8 %67, ptr %80, align 1, !tbaa !25
-  %81 = getelementptr inbounds nuw i8, ptr %.090131, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.090130, i64 1
   %82 = load ptr, ptr %7, align 8, !tbaa !40
   %83 = icmp ult ptr %81, %82
   br i1 %83, label %.lr.ph.split.split, label %.loopexit
 
 .loopexit:                                        ; preds = %77, %60, %43, %31, %.thread108
-  %.095127 = phi i8 [ %.us-phi, %.thread108 ], [ 1, %31 ], [ %44, %43 ], [ %61, %60 ], [ %78, %77 ]
-  %.090125 = phi ptr [ %.us-phi133, %.thread108 ], [ %11, %31 ], [ %47, %43 ], [ %64, %60 ], [ %81, %77 ]
+  %.095126 = phi i8 [ %.us-phi, %.thread108 ], [ 1, %31 ], [ %44, %43 ], [ %61, %60 ], [ %78, %77 ]
+  %.090124 = phi ptr [ %.us-phi132, %.thread108 ], [ %11, %31 ], [ %47, %43 ], [ %64, %60 ], [ %81, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i8 %.095127, ptr %84, align 8, !tbaa !42
-  store ptr %.090125, ptr %5, align 8, !tbaa !38
+  store i8 %.095126, ptr %84, align 8, !tbaa !42
+  store ptr %.090124, ptr %5, align 8, !tbaa !38
   br label %154
 
 85:                                               ; preds = %19
@@ -1550,13 +1550,13 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %96 = shl nuw nsw i32 1, %95
   %97 = and i32 %96, %93
   %.not106 = icmp eq i32 %97, 0
-  br i1 %.not106, label %.thread113, label %98
+  br i1 %.not106, label %.thread112, label %98
 
 98:                                               ; preds = %88
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %100 = load i8, ptr %99, align 1, !tbaa !25
   %101 = icmp slt i8 %100, -64
-  br i1 %101, label %102, label %.thread113
+  br i1 %101, label %102, label %.thread112
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -1570,7 +1570,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 
 109:                                              ; preds = %85
   %110 = icmp sgt i8 %87, -65
-  br i1 %110, label %.thread113, label %111
+  br i1 %110, label %.thread112, label %111
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -1591,19 +1591,19 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %124 = shl nuw nsw i32 1, %123
   %125 = and i32 %124, %122
   %.not105 = icmp eq i32 %125, 0
-  br i1 %.not105, label %.thread113, label %126
+  br i1 %.not105, label %.thread112, label %126
 
 126:                                              ; preds = %116
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %128 = load i8, ptr %127, align 1, !tbaa !25
   %129 = icmp slt i8 %128, -64
-  br i1 %129, label %130, label %.thread113
+  br i1 %129, label %130, label %.thread112
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %132 = load i8, ptr %131, align 1, !tbaa !25
   %133 = icmp slt i8 %132, -64
-  br i1 %133, label %134, label %.thread113
+  br i1 %133, label %134, label %.thread112
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1618,21 +1618,21 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %143 = add nsw i32 %142, %140
   br label %154
 
-.thread113:                                       ; preds = %116, %126, %130, %109, %88, %98
+.thread112:                                       ; preds = %116, %126, %130, %109, %88, %98
   %.5 = phi ptr [ %11, %88 ], [ %99, %98 ], [ %11, %109 ], [ %11, %116 ], [ %127, %126 ], [ %131, %130 ]
   store ptr %.5, ptr %5, align 8, !tbaa !38
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 65
   br label %145
 
-145:                                              ; preds = %.thread113, %145
-  %.089129 = phi ptr [ %6, %.thread113 ], [ %146, %145 ]
-  %.398128 = phi i8 [ 0, %.thread113 ], [ %150, %145 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.089129, i64 1
-  %147 = load i8, ptr %.089129, align 1, !tbaa !25
-  %148 = sext i8 %.398128 to i64
+145:                                              ; preds = %.thread112, %145
+  %.089128 = phi ptr [ %6, %.thread112 ], [ %146, %145 ]
+  %.398127 = phi i8 [ 0, %.thread112 ], [ %150, %145 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.089128, i64 1
+  %147 = load i8, ptr %.089128, align 1, !tbaa !25
+  %148 = sext i8 %.398127 to i64
   %149 = getelementptr inbounds i8, ptr %144, i64 %148
   store i8 %147, ptr %149, align 1, !tbaa !25
-  %150 = add i8 %.398128, 1
+  %150 = add i8 %.398127, 1
   %151 = icmp ult ptr %146, %.5
   br i1 %151, label %145, label %152, !llvm.loop !51
 

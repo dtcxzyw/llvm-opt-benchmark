@@ -418,21 +418,21 @@ put_char.exit:                                    ; preds = %141, %148
   %154 = and i32 %3, 1
   %.not336452 = icmp eq i32 %154, 0
   %155 = add nsw i32 %4, 1
-  %.not332500 = icmp sgt i32 %152, 0
-  br i1 %.not332500, label %.lr.ph, label %.loopexit499
+  %.not332499 = icmp sgt i32 %152, 0
+  br i1 %.not332499, label %.lr.ph, label %.loopexit498
 
-.loopexit499:                                     ; preds = %196, %put_char.exit
+.loopexit498:                                     ; preds = %196, %put_char.exit
   br i1 %.not336452, label %199, label %198
 
 .lr.ph:                                           ; preds = %put_char.exit, %196
-  %.1316501 = phi i32 [ %197, %196 ], [ 0, %put_char.exit ]
+  %.1316500 = phi i32 [ %197, %196 ], [ 0, %put_char.exit ]
   %156 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #11
   %157 = extractvalue { i64, ptr } %156, 0
   %158 = extractvalue { i64, ptr } %156, 1
-  %159 = call { i64, ptr } @jv_array_get(i64 %157, ptr %158, i32 noundef %.1316501) #11
+  %159 = call { i64, ptr } @jv_array_get(i64 %157, ptr %158, i32 noundef %.1316500) #11
   %160 = extractvalue { i64, ptr } %159, 0
   %161 = extractvalue { i64, ptr } %159, 1
-  %.not333 = icmp eq i32 %.1316501, 0
+  %.not333 = icmp eq i32 %.1316500, 0
   br i1 %.not333, label %180, label %162
 
 162:                                              ; preds = %.lr.ph
@@ -470,11 +470,11 @@ put_str.exit374:                                  ; preds = %162
 
 put_str.exit374._crit_edge:                       ; preds = %put_str.exit374
   %.pre = load i64, ptr %6, align 8
-  %.pre503 = load ptr, ptr %153, align 8
+  %.pre502 = load ptr, ptr %153, align 8
   br label %173
 
 173:                                              ; preds = %put_str.exit374._crit_edge, %put_str.exit374.thread451
-  %174 = phi ptr [ %.pre503, %put_str.exit374._crit_edge ], [ %170, %put_str.exit374.thread451 ]
+  %174 = phi ptr [ %.pre502, %put_str.exit374._crit_edge ], [ %170, %put_str.exit374.thread451 ]
   %175 = phi i64 [ %.pre, %put_str.exit374._crit_edge ], [ %169, %put_str.exit374.thread451 ]
   %176 = call { i64, ptr } @jv_string_append_buf(i64 %175, ptr %174, ptr noundef nonnull %17, i32 noundef 1) #11
   %177 = extractvalue { i64, ptr } %176, 0
@@ -530,13 +530,13 @@ put_str.exit380.thread:                           ; preds = %181
   br i1 %.not.i.i371, label %195, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %188
-  %.pre504 = load i64, ptr %6, align 8
-  %.pre505 = load ptr, ptr %153, align 8
+  %.pre503 = load i64, ptr %6, align 8
+  %.pre504 = load ptr, ptr %153, align 8
   br label %189
 
 189:                                              ; preds = %._crit_edge, %.thread453
-  %190 = phi ptr [ %.pre505, %._crit_edge ], [ %187, %.thread453 ]
-  %191 = phi i64 [ %.pre504, %._crit_edge ], [ %186, %.thread453 ]
+  %190 = phi ptr [ %.pre504, %._crit_edge ], [ %187, %.thread453 ]
+  %191 = phi i64 [ %.pre503, %._crit_edge ], [ %186, %.thread453 ]
   %192 = call { i64, ptr } @jv_string_append_buf(i64 %191, ptr %190, ptr noundef nonnull %16, i32 noundef 1) #11
   %193 = extractvalue { i64, ptr } %192, 0
   %194 = extractvalue { i64, ptr } %192, 1
@@ -555,16 +555,16 @@ put_char.exit383:                                 ; preds = %189, %195
 
 196:                                              ; preds = %put_str.exit380.thread454, %put_str.exit380.thread, %put_char.exit383, %put_str.exit380
   call fastcc void @jv_dump_term(ptr noundef %0, i64 %160, ptr %161, i32 noundef %3, i32 noundef %155, ptr noundef %5, ptr noundef %6)
-  %197 = add nuw nsw i32 %.1316501, 1
+  %197 = add nuw nsw i32 %.1316500, 1
   %exitcond.not = icmp eq i32 %197, %152
-  br i1 %exitcond.not, label %.loopexit499, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit498, label %.lr.ph, !llvm.loop !14
 
-198:                                              ; preds = %.loopexit499
+198:                                              ; preds = %.loopexit498
   call fastcc void @put_char(i8 noundef signext 10, ptr noundef %5, ptr noundef %6)
   call fastcc void @put_indent(i32 noundef %4, i32 noundef %3, ptr noundef %5, ptr noundef %6)
   br label %199
 
-199:                                              ; preds = %198, %.loopexit499
+199:                                              ; preds = %198, %.loopexit498
   br i1 %.not334, label %put_str.exit386, label %200
 
 200:                                              ; preds = %199
@@ -597,13 +597,13 @@ put_str.exit386:                                  ; preds = %199
   br i1 %.not.i.i371, label %216, label %put_str.exit386._crit_edge
 
 put_str.exit386._crit_edge:                       ; preds = %put_str.exit386
-  %.pre506 = load i64, ptr %6, align 8
-  %.pre507 = load ptr, ptr %153, align 8
+  %.pre505 = load i64, ptr %6, align 8
+  %.pre506 = load ptr, ptr %153, align 8
   br label %210
 
 210:                                              ; preds = %put_str.exit386._crit_edge, %put_str.exit386.thread457
-  %211 = phi ptr [ %.pre507, %put_str.exit386._crit_edge ], [ %207, %put_str.exit386.thread457 ]
-  %212 = phi i64 [ %.pre506, %put_str.exit386._crit_edge ], [ %206, %put_str.exit386.thread457 ]
+  %211 = phi ptr [ %.pre506, %put_str.exit386._crit_edge ], [ %207, %put_str.exit386.thread457 ]
+  %212 = phi i64 [ %.pre505, %put_str.exit386._crit_edge ], [ %206, %put_str.exit386.thread457 ]
   %213 = call { i64, ptr } @jv_string_append_buf(i64 %212, ptr %211, ptr noundef nonnull %15, i32 noundef 1) #11
   %214 = extractvalue { i64, ptr } %213, 0
   %215 = extractvalue { i64, ptr } %213, 1
@@ -809,13 +809,13 @@ put_str.exit398:                                  ; preds = %295
   br i1 %.not.i.i393, label %312, label %put_str.exit398._crit_edge
 
 put_str.exit398._crit_edge:                       ; preds = %put_str.exit398
-  %.pre508 = load i64, ptr %6, align 8
-  %.pre509 = load ptr, ptr %247, align 8
+  %.pre507 = load i64, ptr %6, align 8
+  %.pre508 = load ptr, ptr %247, align 8
   br label %306
 
 306:                                              ; preds = %put_str.exit398._crit_edge, %put_str.exit398.thread458
-  %307 = phi ptr [ %.pre509, %put_str.exit398._crit_edge ], [ %303, %put_str.exit398.thread458 ]
-  %308 = phi i64 [ %.pre508, %put_str.exit398._crit_edge ], [ %302, %put_str.exit398.thread458 ]
+  %307 = phi ptr [ %.pre508, %put_str.exit398._crit_edge ], [ %303, %put_str.exit398.thread458 ]
+  %308 = phi i64 [ %.pre507, %put_str.exit398._crit_edge ], [ %302, %put_str.exit398.thread458 ]
   %309 = call { i64, ptr } @jv_string_append_buf(i64 %308, ptr %307, ptr noundef nonnull %13, i32 noundef 1) #11
   %310 = extractvalue { i64, ptr } %309, 0
   %311 = extractvalue { i64, ptr } %309, 1
@@ -864,9 +864,9 @@ put_str.exit404.thread:                           ; preds = %314
   %324 = extractvalue { i64, ptr } %322, 1
   store i64 %323, ptr %6, align 8
   store ptr %324, ptr %247, align 8, !tbaa !11
-  br i1 %.not348459, label %.thread471.thread496, label %.thread462
+  br i1 %.not348459, label %.thread471.thread495, label %.thread462
 
-.thread471.thread496:                             ; preds = %put_str.exit404.thread
+.thread471.thread495:                             ; preds = %put_str.exit404.thread
   %325 = load ptr, ptr @colors, align 8, !tbaa !4
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 56
   %327 = load ptr, ptr %326, align 8, !tbaa !9
@@ -881,16 +881,16 @@ put_str.exit404.thread:                           ; preds = %314
 329:                                              ; preds = %put_str.exit404
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 10, ptr %12, align 1, !tbaa !11
-  br i1 %.not.i.i393, label %336, label %._crit_edge510
+  br i1 %.not.i.i393, label %336, label %._crit_edge509
 
-._crit_edge510:                                   ; preds = %329
-  %.pre511 = load i64, ptr %6, align 8
-  %.pre512 = load ptr, ptr %247, align 8
+._crit_edge509:                                   ; preds = %329
+  %.pre510 = load i64, ptr %6, align 8
+  %.pre511 = load ptr, ptr %247, align 8
   br label %330
 
-330:                                              ; preds = %._crit_edge510, %.thread462
-  %331 = phi ptr [ %.pre512, %._crit_edge510 ], [ %324, %.thread462 ]
-  %332 = phi i64 [ %.pre511, %._crit_edge510 ], [ %323, %.thread462 ]
+330:                                              ; preds = %._crit_edge509, %.thread462
+  %331 = phi ptr [ %.pre511, %._crit_edge509 ], [ %324, %.thread462 ]
+  %332 = phi i64 [ %.pre510, %._crit_edge509 ], [ %323, %.thread462 ]
   %333 = call { i64, ptr } @jv_string_append_buf(i64 %332, ptr %331, ptr noundef nonnull %12, i32 noundef 1) #11
   %334 = extractvalue { i64, ptr } %333, 0
   %335 = extractvalue { i64, ptr } %333, 1
@@ -915,16 +915,16 @@ put_str.exit404.thread:                           ; preds = %314
   br i1 %.not.i.i393, label %351, label %.thread471._crit_edge
 
 .thread471._crit_edge:                            ; preds = %.thread471
-  %.pre513 = load i64, ptr %6, align 8
-  %.pre514 = load ptr, ptr %247, align 8
+  %.pre512 = load i64, ptr %6, align 8
+  %.pre513 = load ptr, ptr %247, align 8
   br label %342
 
-342:                                              ; preds = %.thread471._crit_edge, %.thread471.thread496
-  %343 = phi ptr [ %324, %.thread471.thread496 ], [ %.pre514, %.thread471._crit_edge ]
-  %344 = phi i64 [ %323, %.thread471.thread496 ], [ %.pre513, %.thread471._crit_edge ]
-  %345 = phi i64 [ %328, %.thread471.thread496 ], [ %341, %.thread471._crit_edge ]
-  %346 = phi ptr [ %327, %.thread471.thread496 ], [ %340, %.thread471._crit_edge ]
-  %.not348461474498 = phi i1 [ true, %.thread471.thread496 ], [ false, %.thread471._crit_edge ]
+342:                                              ; preds = %.thread471._crit_edge, %.thread471.thread495
+  %343 = phi ptr [ %324, %.thread471.thread495 ], [ %.pre513, %.thread471._crit_edge ]
+  %344 = phi i64 [ %323, %.thread471.thread495 ], [ %.pre512, %.thread471._crit_edge ]
+  %345 = phi i64 [ %328, %.thread471.thread495 ], [ %341, %.thread471._crit_edge ]
+  %346 = phi ptr [ %327, %.thread471.thread495 ], [ %340, %.thread471._crit_edge ]
+  %.not348461474497 = phi i1 [ true, %.thread471.thread495 ], [ false, %.thread471._crit_edge ]
   %347 = trunc i64 %345 to i32
   %348 = call { i64, ptr } @jv_string_append_buf(i64 %344, ptr %343, ptr noundef nonnull %346, i32 noundef %347) #11
   %349 = extractvalue { i64, ptr } %348, 0
@@ -936,14 +936,14 @@ put_str.exit404.thread:                           ; preds = %314
 351:                                              ; preds = %.thread471.thread, %.thread471
   %352 = phi i64 [ %319, %.thread471.thread ], [ %341, %.thread471 ]
   %353 = phi ptr [ %318, %.thread471.thread ], [ %340, %.thread471 ]
-  %.not348461474495 = phi i1 [ true, %.thread471.thread ], [ false, %.thread471 ]
+  %.not348461474494 = phi i1 [ true, %.thread471.thread ], [ false, %.thread471 ]
   %sext.i409 = shl i64 %352, 32
   %354 = ashr exact i64 %sext.i409, 32
   %355 = call i64 @fwrite(ptr noundef nonnull %353, i64 noundef 1, i64 noundef %354, ptr noundef %5)
   br label %put_str.exit410
 
 put_str.exit410:                                  ; preds = %342, %351
-  %.not348461474494 = phi i1 [ %.not348461474498, %342 ], [ %.not348461474495, %351 ]
+  %.not348461474493 = phi i1 [ %.not348461474497, %342 ], [ %.not348461474494, %351 ]
   call fastcc void @jvp_dump_string(i64 %.sroa.019.0, ptr %.sroa.7.0, i32 noundef %250, ptr noundef %5, ptr noundef %6)
   call void @jv_free(i64 %.sroa.019.0, ptr %.sroa.7.0) #11
   br i1 %.not.i.i393, label %put_str.exit422, label %356
@@ -976,7 +976,7 @@ put_str.exit410:                                  ; preds = %342, %351
   %372 = extractvalue { i64, ptr } %370, 1
   store i64 %371, ptr %6, align 8
   store ptr %372, ptr %247, align 8, !tbaa !11
-  br i1 %.not348461474494, label %388, label %.thread482
+  br i1 %.not348461474493, label %388, label %.thread482
 
 .critedge355:                                     ; preds = %put_str.exit404, %337
   %.not348461477 = phi i1 [ false, %337 ], [ true, %put_str.exit404 ]
@@ -1013,7 +1013,7 @@ put_str.exit422:                                  ; preds = %put_str.exit410
   %fputc.i418 = call i32 @fputc(i32 58, ptr %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %382 = call i64 @fwrite(ptr noundef nonnull @.str.16, i64 noundef 1, i64 noundef 4, ptr noundef %5)
-  br i1 %.not348461474494, label %388, label %.thread481
+  br i1 %.not348461474493, label %388, label %.thread481
 
 .thread482:                                       ; preds = %put_char.exit425.thread, %356
   %383 = phi ptr [ %372, %356 ], [ %377, %put_char.exit425.thread ]
@@ -1054,9 +1054,9 @@ put_char.exit428:                                 ; preds = %.thread482, %.threa
 
 391:                                              ; preds = %390
   %392 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0440) #10
-  br i1 %.not.i.i393, label %put_str.exit431.thread, label %put_str.exit431.thread492
+  br i1 %.not.i.i393, label %put_str.exit431.thread, label %put_str.exit431.thread491
 
-put_str.exit431.thread492:                        ; preds = %391
+put_str.exit431.thread491:                        ; preds = %391
   %393 = trunc i64 %392 to i32
   %394 = load i64, ptr %6, align 8
   %395 = load ptr, ptr %247, align 8
@@ -1082,13 +1082,13 @@ put_str.exit431:                                  ; preds = %390
   br i1 %.not.i.i393, label %407, label %put_str.exit431._crit_edge
 
 put_str.exit431._crit_edge:                       ; preds = %put_str.exit431
-  %.pre515 = load i64, ptr %6, align 8
-  %.pre516 = load ptr, ptr %247, align 8
+  %.pre514 = load i64, ptr %6, align 8
+  %.pre515 = load ptr, ptr %247, align 8
   br label %401
 
-401:                                              ; preds = %put_str.exit431._crit_edge, %put_str.exit431.thread492
-  %402 = phi ptr [ %.pre516, %put_str.exit431._crit_edge ], [ %398, %put_str.exit431.thread492 ]
-  %403 = phi i64 [ %.pre515, %put_str.exit431._crit_edge ], [ %397, %put_str.exit431.thread492 ]
+401:                                              ; preds = %put_str.exit431._crit_edge, %put_str.exit431.thread491
+  %402 = phi ptr [ %.pre515, %put_str.exit431._crit_edge ], [ %398, %put_str.exit431.thread491 ]
+  %403 = phi i64 [ %.pre514, %put_str.exit431._crit_edge ], [ %397, %put_str.exit431.thread491 ]
   %404 = call { i64, ptr } @jv_string_append_buf(i64 %403, ptr %402, ptr noundef nonnull %8, i32 noundef 1) #11
   %405 = extractvalue { i64, ptr } %404, 0
   %406 = extractvalue { i64, ptr } %404, 1

@@ -568,9 +568,9 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %.val16.i = load i8, ptr %24, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %.val17.i = load i8, ptr %25, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %26 = icmp eq i8 %.val16.i, %.val17.i
+  %.val15.i = load i8, ptr %24, align 1, !alias.scope !148, !noalias !151, !noundef !3
+  %.val16.i = load i8, ptr %25, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %26 = icmp eq i8 %.val15.i, %.val16.i
   br label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
 27:                                               ; preds = %10
@@ -587,9 +587,9 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 30:                                               ; preds = %34
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val14.i = load i8, ptr %31, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %.val15.i = load i8, ptr %32, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %33 = icmp eq i8 %.val14.i, %.val15.i
+  %.val13.i = load i8, ptr %31, align 1, !alias.scope !148, !noalias !151, !noundef !3
+  %.val14.i = load i8, ptr %32, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %33 = icmp eq i8 %.val13.i, %.val14.i
   br i1 %33, label %40, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
 34:                                               ; preds = %29
@@ -611,9 +611,9 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val12.i = load i8, ptr %47, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %.val13.i = load i8, ptr %48, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %49 = icmp eq i8 %.val12.i, %.val13.i
+  %.val11.i = load i8, ptr %47, align 1, !alias.scope !148, !noalias !151, !noundef !3
+  %.val12.i = load i8, ptr %48, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %49 = icmp eq i8 %.val11.i, %.val12.i
   br label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
 50:                                               ; preds = %10
@@ -627,9 +627,9 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val10.i = load i8, ptr %57, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %.val11.i = load i8, ptr %58, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %59 = icmp eq i8 %.val10.i, %.val11.i
+  %.val9.i = load i8, ptr %57, align 1, !alias.scope !148, !noalias !151, !noundef !3
+  %.val10.i = load i8, ptr %58, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %59 = icmp eq i8 %.val9.i, %.val10.i
   br i1 %59, label %60, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
 60:                                               ; preds = %56
@@ -643,9 +643,9 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val8.i = load i8, ptr %67, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %.val9.i = load i8, ptr %68, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %69 = icmp eq i8 %.val8.i, %.val9.i
+  %.val7.i = load i8, ptr %67, align 1, !alias.scope !148, !noalias !151, !noundef !3
+  %.val8.i = load i8, ptr %68, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %69 = icmp eq i8 %.val7.i, %.val8.i
   br label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
 70:                                               ; preds = %10
@@ -660,8 +660,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.val.i = load i8, ptr %77, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %.val7.i = load i8, ptr %78, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %79 = icmp eq i8 %.val.i, %.val7.i
+  %.val6.i = load i8, ptr %78, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %79 = icmp eq i8 %.val.i, %.val6.i
   br label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
 "_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit": ; preds = %2, %10, %11, %17, %23, %28, %29, %30, %34, %40, %46, %50, %56, %60, %66, %70, %76
@@ -776,9 +776,9 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %.val16 = load i8, ptr %25, align 1, !noundef !3
-  %.val17 = load i8, ptr %26, align 1, !noundef !3
-  %27 = icmp eq i8 %.val16, %.val17
+  %.val15 = load i8, ptr %25, align 1, !noundef !3
+  %.val16 = load i8, ptr %26, align 1, !noundef !3
+  %27 = icmp eq i8 %.val15, %.val16
   br label %11
 
 28:                                               ; preds = %10
@@ -795,9 +795,9 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
 31:                                               ; preds = %35
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val14 = load i8, ptr %32, align 1, !noundef !3
-  %.val15 = load i8, ptr %33, align 1, !noundef !3
-  %34 = icmp eq i8 %.val14, %.val15
+  %.val13 = load i8, ptr %32, align 1, !noundef !3
+  %.val14 = load i8, ptr %33, align 1, !noundef !3
+  %34 = icmp eq i8 %.val13, %.val14
   br i1 %34, label %41, label %11
 
 35:                                               ; preds = %30
@@ -819,9 +819,9 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val12 = load i8, ptr %48, align 1, !noundef !3
-  %.val13 = load i8, ptr %49, align 1, !noundef !3
-  %50 = icmp eq i8 %.val12, %.val13
+  %.val11 = load i8, ptr %48, align 1, !noundef !3
+  %.val12 = load i8, ptr %49, align 1, !noundef !3
+  %50 = icmp eq i8 %.val11, %.val12
   br label %11
 
 51:                                               ; preds = %10
@@ -835,9 +835,9 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val10 = load i8, ptr %58, align 1, !noundef !3
-  %.val11 = load i8, ptr %59, align 1, !noundef !3
-  %60 = icmp eq i8 %.val10, %.val11
+  %.val9 = load i8, ptr %58, align 1, !noundef !3
+  %.val10 = load i8, ptr %59, align 1, !noundef !3
+  %60 = icmp eq i8 %.val9, %.val10
   br i1 %60, label %61, label %11
 
 61:                                               ; preds = %57
@@ -851,9 +851,9 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val8 = load i8, ptr %68, align 1, !noundef !3
-  %.val9 = load i8, ptr %69, align 1, !noundef !3
-  %70 = icmp eq i8 %.val8, %.val9
+  %.val7 = load i8, ptr %68, align 1, !noundef !3
+  %.val8 = load i8, ptr %69, align 1, !noundef !3
+  %70 = icmp eq i8 %.val7, %.val8
   br label %11
 
 71:                                               ; preds = %10
@@ -868,8 +868,8 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.val = load i8, ptr %78, align 1, !noundef !3
-  %.val7 = load i8, ptr %79, align 1, !noundef !3
-  %80 = icmp eq i8 %.val, %.val7
+  %.val6 = load i8, ptr %79, align 1, !noundef !3
+  %80 = icmp eq i8 %.val, %.val6
   br label %11
 }
 

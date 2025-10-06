@@ -1223,27 +1223,27 @@ define i32 @ff_isom_write_av1c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %133, label %.lr.ph.outer
 
-.lr.ph.outer:                                     ; preds = %17, %.thread233
-  %.041218.ph = phi ptr [ %81, %.thread233 ], [ %1, %17 ]
-  %.044217.ph = phi i32 [ %79, %.thread233 ], [ %2, %17 ]
-  %.046216.ph = phi i32 [ %61, %.thread233 ], [ undef, %17 ]
-  %20 = phi i1 [ true, %.thread233 ], [ false, %17 ]
-  %.not67 = phi i1 [ false, %.thread233 ], [ true, %17 ]
-  %.051214.ph = phi i32 [ 0, %.thread233 ], [ %18, %17 ]
-  %.054213.ph = phi ptr [ %.041218, %.thread233 ], [ undef, %17 ]
+.lr.ph.outer:                                     ; preds = %17, %.thread232
+  %.041217.ph = phi ptr [ %81, %.thread232 ], [ %1, %17 ]
+  %.044216.ph = phi i32 [ %79, %.thread232 ], [ %2, %17 ]
+  %.046215.ph = phi i32 [ %61, %.thread232 ], [ undef, %17 ]
+  %20 = phi i1 [ true, %.thread232 ], [ false, %17 ]
+  %.not67 = phi i1 [ false, %.thread232 ], [ true, %17 ]
+  %.051213.ph = phi i32 [ 0, %.thread232 ], [ %18, %17 ]
+  %.054212.ph = phi ptr [ %.041217, %.thread232 ], [ undef, %17 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %74
-  %.041218 = phi ptr [ %77, %74 ], [ %.041218.ph, %.lr.ph.outer ]
-  %.044217 = phi i32 [ %75, %74 ], [ %.044217.ph, %.lr.ph.outer ]
-  %21 = call i32 @llvm.umin.i32(i32 %.044217, i32 10)
+  %.041217 = phi ptr [ %77, %74 ], [ %.041217.ph, %.lr.ph.outer ]
+  %.044216 = phi i32 [ %75, %74 ], [ %.044216.ph, %.lr.ph.outer ]
+  %21 = call i32 @llvm.umin.i32(i32 %.044216, i32 10)
   %22 = shl nuw nsw i32 %21, 3
-  %23 = load i8, ptr %.041218, align 1, !tbaa !4
+  %23 = load i8, ptr %.041217, align 1, !tbaa !4
   %.not.i = icmp sgt i8 %23, -1
   br i1 %.not.i, label %24, label %.thread
 
 24:                                               ; preds = %.lr.ph
-  %25 = load i32, ptr %.041218, align 1
+  %25 = load i32, ptr %.041217, align 1
   %26 = lshr i32 %25, 3
   %27 = and i32 %26, 15
   %28 = trunc i32 %25 to i8
@@ -1261,7 +1261,7 @@ define i32 @ff_isom_write_av1c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %.011.i.i = phi i64 [ %47, %.preheader.i ], [ 0, %24 ]
   %33 = lshr i32 %32, 3
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %.041218, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %.041217, i64 %34
   %36 = load i32, ptr %35, align 1, !tbaa !4
   %37 = call i32 @llvm.bswap.i32(i32 %36)
   %38 = and i32 %32, 7
@@ -1283,7 +1283,7 @@ define i32 @ff_isom_write_av1c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 48:                                               ; preds = %24
   %49 = xor i8 %30, -1
   %50 = sext i8 %49 to i32
-  %51 = add nsw i32 %.044217, %50
+  %51 = add nsw i32 %.044216, %50
   %52 = sext i32 %51 to i64
   br label %get_leb128.exit.i
 
@@ -1297,7 +1297,7 @@ get_leb128.exit.i:                                ; preds = %.preheader.i, %48
   %56 = lshr i32 %.sroa.11.1.i, 3
   %57 = zext nneg i32 %56 to i64
   %58 = add nsw i64 %53, %57
-  %59 = zext nneg i32 %.044217 to i64
+  %59 = zext nneg i32 %.044216 to i64
   %60 = icmp sgt i64 %58, %59
   %61 = trunc i64 %58 to i32
   br i1 %60, label %.thread, label %parse_obu_header.exit
@@ -1318,11 +1318,11 @@ parse_obu_header.exit:                            ; preds = %55
   br i1 %or.cond3, label %.thread, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %.041218, i64 %57
+  %67 = getelementptr inbounds nuw i8, ptr %.041217, i64 %57
   %68 = trunc i64 %53 to i32
   %69 = call fastcc i32 @parse_sequence_header(ptr noundef nonnull %6, ptr noundef nonnull %67, i32 noundef %68)
   %70 = icmp slt i32 %69, 0
-  br i1 %70, label %.thread, label %.thread233
+  br i1 %70, label %.thread, label %.thread232
 
 71:                                               ; preds = %63
   %.not70 = icmp eq i64 %53, 0
@@ -1330,30 +1330,30 @@ parse_obu_header.exit:                            ; preds = %55
 
 72:                                               ; preds = %71
   %73 = load ptr, ptr %5, align 8, !tbaa !33
-  call void @avio_write(ptr noundef %73, ptr noundef nonnull %.041218, i32 noundef %61) #6
+  call void @avio_write(ptr noundef %73, ptr noundef nonnull %.041217, i32 noundef %61) #6
   br label %74
 
 74:                                               ; preds = %72, %63
-  %75 = sub nsw i32 %.044217, %61
+  %75 = sub nsw i32 %.044216, %61
   %76 = and i64 %58, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %.041218, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %.041217, i64 %76
   %78 = icmp sgt i32 %75, 0
   br i1 %78, label %.lr.ph, label %._crit_edge
 
-.thread233:                                       ; preds = %66
-  %79 = sub nsw i32 %.044217, %61
+.thread232:                                       ; preds = %66
+  %79 = sub nsw i32 %.044216, %61
   %80 = and i64 %58, 2147483647
-  %81 = getelementptr inbounds nuw i8, ptr %.041218, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %.041217, i64 %80
   %82 = icmp sgt i32 %79, 0
   br i1 %82, label %.lr.ph.outer, label %put_bits.exit75
 
 ._crit_edge:                                      ; preds = %74
   br i1 %.not67, label %.thread, label %put_bits.exit75
 
-put_bits.exit75:                                  ; preds = %.thread233, %._crit_edge
-  %.256238249 = phi ptr [ %.054213.ph, %._crit_edge ], [ %.041218, %.thread233 ]
-  %.253239248 = phi i32 [ %.051214.ph, %._crit_edge ], [ 0, %.thread233 ]
-  %.2241247 = phi i32 [ %.046216.ph, %._crit_edge ], [ %61, %.thread233 ]
+put_bits.exit75:                                  ; preds = %.thread232, %._crit_edge
+  %.256237248 = phi ptr [ %.054212.ph, %._crit_edge ], [ %.041217, %.thread232 ]
+  %.253238247 = phi i32 [ %.051213.ph, %._crit_edge ], [ 0, %.thread232 ]
+  %.2240246 = phi i32 [ %.046215.ph, %._crit_edge ], [ %61, %.thread232 ]
   %83 = load i8, ptr %6, align 1, !tbaa !15
   %84 = zext i8 %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1404,7 +1404,7 @@ put_bits.exit75:                                  ; preds = %.thread233, %._crit
   br i1 %.not68, label %128, label %127
 
 127:                                              ; preds = %put_bits.exit75
-  call void @avio_write(ptr noundef %0, ptr noundef %.256238249, i32 noundef %.2241247) #6
+  call void @avio_write(ptr noundef %0, ptr noundef %.256237248, i32 noundef %.2240246) #6
   br label %128
 
 128:                                              ; preds = %127, %put_bits.exit75
@@ -1419,7 +1419,7 @@ put_bits.exit75:                                  ; preds = %.thread233, %._crit
   br label %.thread
 
 .thread:                                          ; preds = %66, %64, %55, %get_leb128.exit.i, %.lr.ph, %71, %parse_obu_header.exit, %._crit_edge, %128, %131
-  %.3 = phi i32 [ %.253239248, %131 ], [ %.253239248, %128 ], [ -1094995529, %._crit_edge ], [ -1094995529, %71 ], [ %61, %parse_obu_header.exit ], [ -1094995529, %.lr.ph ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %55 ], [ %69, %66 ], [ -1094995529, %64 ]
+  %.3 = phi i32 [ %.253238247, %131 ], [ %.253238247, %128 ], [ -1094995529, %._crit_edge ], [ -1094995529, %71 ], [ %61, %parse_obu_header.exit ], [ -1094995529, %.lr.ph ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %55 ], [ %69, %66 ], [ -1094995529, %64 ]
   call void @ffio_free_dyn_buf(ptr noundef nonnull %5) #6
   br label %133
 

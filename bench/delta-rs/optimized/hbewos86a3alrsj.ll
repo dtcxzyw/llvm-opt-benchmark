@@ -607,11 +607,11 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %11 = load i64, ptr %5, align 8, !range !143, !alias.scope !144, !noalias !140, !noundef !4
   switch i64 %11, label %12 [
     i64 18, label %15
-    i64 17, label %.thread35
+    i64 17, label %.thread34
     i64 16, label %13
   ]
 
-.thread35:                                        ; preds = %10
+.thread34:                                        ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -648,7 +648,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 17, ptr %0, align 8
   br label %35
 
-.loopexit:                                        ; preds = %13, %.thread35
+.loopexit:                                        ; preds = %13, %.thread34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 0, ptr %6, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %9, align 8
@@ -746,11 +746,11 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %11 = load i64, ptr %5, align 8, !range !143, !alias.scope !205, !noalias !202, !noundef !4
   switch i64 %11, label %12 [
     i64 18, label %15
-    i64 17, label %.thread35
+    i64 17, label %.thread34
     i64 16, label %13
   ]
 
-.thread35:                                        ; preds = %10
+.thread34:                                        ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -787,7 +787,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 17, ptr %0, align 8
   br label %35
 
-.loopexit:                                        ; preds = %13, %.thread35
+.loopexit:                                        ; preds = %13, %.thread34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 0, ptr %6, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %9, align 8
@@ -885,11 +885,11 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %11 = load i64, ptr %5, align 8, !range !143, !alias.scope !266, !noalias !263, !noundef !4
   switch i64 %11, label %12 [
     i64 18, label %15
-    i64 17, label %.thread35
+    i64 17, label %.thread34
     i64 16, label %13
   ]
 
-.thread35:                                        ; preds = %10
+.thread34:                                        ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -926,7 +926,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 17, ptr %0, align 8
   br label %35
 
-.loopexit:                                        ; preds = %13, %.thread35
+.loopexit:                                        ; preds = %13, %.thread34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 0, ptr %6, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %9, align 8
@@ -2278,8 +2278,8 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h27a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %.not13 = icmp eq ptr %4, %5
-  br i1 %.not13, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17h4ecf77b1d39a30ffE.exit.thread", label %.lr.ph
+  %.not12 = icmp eq ptr %4, %5
+  br i1 %.not12, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17h4ecf77b1d39a30ffE.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2556,13 +2556,13 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2e55
   %14 = tail call { i64, ptr } @_ZN4core4sync6atomic23atomic_compare_exchange17h498e64e071eedcebE.llvm.11722135379827099087(ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %1, i8 noundef 3, i8 noundef 2), !noalias !551
   %15 = extractvalue { i64, ptr } %14, 1
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread21, label %6
+  br i1 %16, label %.thread20, label %6
 
 17:                                               ; preds = %6
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 8992, i64 noundef 8) #15, !noalias !554
-  br label %.thread21
+  br label %.thread20
 
-.thread21:                                        ; preds = %7, %17
+.thread20:                                        ; preds = %7, %17
   ret void
 }
 

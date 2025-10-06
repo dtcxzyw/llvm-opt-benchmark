@@ -398,15 +398,15 @@ define hidden void @"_ZN5uu_wc4utf84read23BufReadDecoder$LT$B$GT$11next_strict17
   call void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %18)
   %35 = load i64, ptr %4, align 8, !range !53, !noundef !4
   %trunc = trunc nuw i64 %35 to i1
-  br i1 %trunc, label %37, label %.split.loop.exit81
+  br i1 %trunc, label %37, label %.split.loop.exit77
 
-36:                                               ; preds = %58, %57, %55, %33, %22
+36:                                               ; preds = %59, %58, %55, %33, %22
   ret void
 
 37:                                               ; preds = %34
   %.sroa.03.0.copyload = load i64, ptr %10, align 8
   %.not35 = icmp eq i64 %.sroa.03.0.copyload, 0
-  br i1 %.not35, label %38, label %.split.loop.exit81
+  br i1 %.not35, label %38, label %.split.loop.exit77
 
 38:                                               ; preds = %37
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
@@ -439,9 +439,9 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %39
 .split.loop.exit:                                 ; preds = %38
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 1
   %43 = zext i8 %.sroa.6.0.copyload to i64
-  br label %.split.loop.exit81
+  br label %.split.loop.exit77
 
-.split.loop.exit81:                               ; preds = %34, %37, %.split.loop.exit
+.split.loop.exit77:                               ; preds = %34, %37, %.split.loop.exit
   %.sroa.627.1 = phi i64 [ %43, %.split.loop.exit ], [ %.sroa.03.0.copyload, %37 ], [ %18, %34 ]
   %.1 = phi i8 [ 1, %.split.loop.exit ], [ 0, %37 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -466,7 +466,7 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %39
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %48, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da842841755b59d00e4ceb51b0ca2ba9.20.llvm.3769632144542507335) #18, !noalias !66
   unreachable
 
-51:                                               ; preds = %.split.loop.exit81
+51:                                               ; preds = %.split.loop.exit77
   %52 = load i64, ptr %46, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = icmp ugt i64 %.sroa.627.1, %52
@@ -476,7 +476,7 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %39
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %.sroa.627.1, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a490c95bfae79f42c8c65d2de92d2c9a.7) #18, !noalias !69
   unreachable
 
-55:                                               ; preds = %.split.loop.exit81
+55:                                               ; preds = %.split.loop.exit77
   %56 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -487,23 +487,23 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %39
   br label %36
 
 _ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit: ; preds = %51, %.loopexit
-  %.050 = phi i8 [ %.0.ph, %.loopexit ], [ %.1, %51 ]
-  %.pn54 = phi ptr [ %8, %.loopexit ], [ %44, %51 ]
+  %.046 = phi i8 [ %.0.ph, %.loopexit ], [ %.1, %51 ]
+  %.pn50 = phi ptr [ %8, %.loopexit ], [ %44, %51 ]
   %.sroa.627.1.pn = phi i64 [ %48, %.loopexit ], [ %.sroa.627.1, %51 ]
-  %switch44 = icmp eq i8 %.050, 0
+  %57 = icmp eq i8 %.046, 0
   %.sroa.4.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %switch44, label %57, label %58
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
+58:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
   store i64 0, ptr %0, align 8
-  store ptr %.pn54, ptr %.sroa.4.0..sroa_idx14, align 8
+  store ptr %.pn50, ptr %.sroa.4.0..sroa_idx14, align 8
   store i64 %.sroa.627.1.pn, ptr %.sroa.515.0..sroa_idx, align 8
   br label %36
 
-58:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
+59:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
   store i64 1, ptr %0, align 8
-  store ptr %.pn54, ptr %.sroa.4.0..sroa_idx14, align 8
+  store ptr %.pn50, ptr %.sroa.4.0..sroa_idx14, align 8
   store i64 %.sroa.627.1.pn, ptr %.sroa.515.0..sroa_idx, align 8
   br label %36
 }
@@ -598,15 +598,15 @@ define hidden void @"_ZN5uu_wc4utf84read23BufReadDecoder$LT$B$GT$11next_strict17
   call void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %24)
   %41 = load i64, ptr %4, align 8, !range !53, !noundef !4
   %trunc = trunc nuw i64 %41 to i1
-  br i1 %trunc, label %43, label %.split.loop.exit87
+  br i1 %trunc, label %43, label %.split.loop.exit83
 
-42:                                               ; preds = %64, %63, %61, %39, %28
+42:                                               ; preds = %65, %64, %61, %39, %28
   ret void
 
 43:                                               ; preds = %40
   %.sroa.03.0.copyload = load i64, ptr %13, align 8
   %.not35 = icmp eq i64 %.sroa.03.0.copyload, 0
-  br i1 %.not35, label %44, label %.split.loop.exit87
+  br i1 %.not35, label %44, label %.split.loop.exit83
 
 44:                                               ; preds = %43
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
@@ -639,9 +639,9 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %45
 .split.loop.exit:                                 ; preds = %44
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 1
   %49 = zext i8 %.sroa.6.0.copyload to i64
-  br label %.split.loop.exit87
+  br label %.split.loop.exit83
 
-.split.loop.exit87:                               ; preds = %40, %43, %.split.loop.exit
+.split.loop.exit83:                               ; preds = %40, %43, %.split.loop.exit
   %.sroa.627.1 = phi i64 [ %49, %.split.loop.exit ], [ %.sroa.03.0.copyload, %43 ], [ %24, %40 ]
   %.1 = phi i8 [ 1, %.split.loop.exit ], [ 0, %43 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -666,7 +666,7 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %45
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %54, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da842841755b59d00e4ceb51b0ca2ba9.20.llvm.3769632144542507335) #18, !noalias !90
   unreachable
 
-57:                                               ; preds = %.split.loop.exit87
+57:                                               ; preds = %.split.loop.exit83
   %58 = load i64, ptr %52, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = icmp ugt i64 %.sroa.627.1, %58
@@ -676,7 +676,7 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %45
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %.sroa.627.1, i64 noundef %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a490c95bfae79f42c8c65d2de92d2c9a.7) #18, !noalias !93
   unreachable
 
-61:                                               ; preds = %.split.loop.exit87
+61:                                               ; preds = %.split.loop.exit83
   %62 = load ptr, ptr %52, align 8, !nonnull !4, !noundef !4
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -687,23 +687,23 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %45
   br label %42
 
 _ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit: ; preds = %57, %.loopexit
-  %.050 = phi i8 [ %.0.ph, %.loopexit ], [ %.1, %57 ]
-  %.pn54 = phi ptr [ %11, %.loopexit ], [ %50, %57 ]
+  %.046 = phi i8 [ %.0.ph, %.loopexit ], [ %.1, %57 ]
+  %.pn50 = phi ptr [ %11, %.loopexit ], [ %50, %57 ]
   %.sroa.627.1.pn = phi i64 [ %54, %.loopexit ], [ %.sroa.627.1, %57 ]
-  %switch44 = icmp eq i8 %.050, 0
+  %63 = icmp eq i8 %.046, 0
   %.sroa.4.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %switch44, label %63, label %64
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
+64:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
   store i64 0, ptr %0, align 8
-  store ptr %.pn54, ptr %.sroa.4.0..sroa_idx14, align 8
+  store ptr %.pn50, ptr %.sroa.4.0..sroa_idx14, align 8
   store i64 %.sroa.627.1.pn, ptr %.sroa.515.0..sroa_idx, align 8
   br label %42
 
-64:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
+65:                                               ; preds = %_ZN5uu_wc4utf810Incomplete11take_buffer17h6217c50af5758d4dE.exit
   store i64 1, ptr %0, align 8
-  store ptr %.pn54, ptr %.sroa.4.0..sroa_idx14, align 8
+  store ptr %.pn50, ptr %.sroa.4.0..sroa_idx14, align 8
   store i64 %.sroa.627.1.pn, ptr %.sroa.515.0..sroa_idx, align 8
   br label %42
 }

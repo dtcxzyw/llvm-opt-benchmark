@@ -719,8 +719,8 @@ _ZN5clang4edit12EditedSource18getActionForOffsetENS0_10FileOffsetE.exit.thread: 
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %37, align 8, !tbaa !75
-  %.pre17.i = load i32, ptr %39, align 8, !tbaa !76
-  %55 = zext i32 %.pre17.i to i64
+  %.pre16.i = load i32, ptr %39, align 8, !tbaa !76
+  %55 = zext i32 %.pre16.i to i64
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %34
@@ -1389,16 +1389,16 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
 
 28:                                               ; preds = %26, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE11upper_boundERS8_.exit
   %.sroa.0134.0 = phi ptr [ %27, %26 ], [ %.08.lcssa.i.i.i, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE11upper_boundERS8_.exit ]
-  %.not207213 = icmp eq ptr %.sroa.0134.0, %18
-  br i1 %.not207213, label %.thread, label %.lr.ph
+  %.not206212 = icmp eq ptr %.sroa.0134.0, %18
+  br i1 %.not206212, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %43
-  %.sroa.0134.1214 = phi ptr [ %44, %43 ], [ %.sroa.0134.0, %28 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0134.1214, i64 32
+  %.sroa.0134.1213 = phi ptr [ %44, %43 ], [ %.sroa.0134.0, %28 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0134.1213, i64 32
   %30 = load i64, ptr %29, align 8
   %.sroa.6.0.extract.shift = lshr i64 %30, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0134.1214, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0134.1213, i64 56
   %32 = load i32, ptr %31, align 8, !tbaa !96
   %33 = add i32 %32, %.sroa.6.0.extract.trunc
   %.sroa.2.0.insert.ext.i62 = zext i32 %33 to i64
@@ -1427,31 +1427,31 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit:       ; preds = %_ZN5clang4editltENS
   br i1 %spec.select.i.i, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread, label %.thread
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread: ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit
-  %42 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.1214) #18
+  %42 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.1213) #18
   br label %.thread
 
 43:                                               ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit
-  %44 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.1214) #18
-  %.not207 = icmp eq ptr %44, %18
-  br i1 %.not207, label %.thread, label %.lr.ph, !llvm.loop !121
+  %44 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.1213) #18
+  %.not206 = icmp eq ptr %44, %18
+  br i1 %.not206, label %.thread, label %.lr.ph, !llvm.loop !121
 
 .thread:                                          ; preds = %43, %.lr.ph, %28, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread
-  %.sroa.0134.2 = phi ptr [ %.sroa.0134.1214, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit ], [ %42, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread ], [ %.sroa.0134.0, %28 ], [ %44, %43 ], [ %.sroa.0134.1214, %.lr.ph ]
+  %.sroa.0134.2 = phi ptr [ %.sroa.0134.1213, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit ], [ %42, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread ], [ %.sroa.0134.0, %28 ], [ %44, %43 ], [ %.sroa.0134.1213, %.lr.ph ]
   %.sroa.0146.1 = phi i32 [ %.sroa.0146.0.extract.trunc166, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit ], [ %.sroa.03.0.extract.trunc.i, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread ], [ %.sroa.0146.0.extract.trunc166, %28 ], [ %.sroa.0146.0.extract.trunc166, %.lr.ph ], [ %.sroa.0146.0.extract.trunc166, %43 ]
   %.sroa.14.1 = phi i32 [ %.sroa.14.0.extract.trunc197, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit ], [ %33, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread ], [ %.sroa.14.0.extract.trunc197, %28 ], [ %.sroa.14.0.extract.trunc197, %.lr.ph ], [ %.sroa.14.0.extract.trunc197, %43 ]
-  %.not208217 = icmp eq ptr %.sroa.0134.2, %18
-  br i1 %.not208217, label %.critedge, label %.lr.ph221
+  %.not207216 = icmp eq ptr %.sroa.0134.2, %18
+  br i1 %.not207216, label %.critedge, label %.lr.ph220
 
-.lr.ph221:                                        ; preds = %.thread
+.lr.ph220:                                        ; preds = %.thread
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %46
 
-46:                                               ; preds = %.lr.ph221, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91
-  %47 = phi i64 [ 0, %.lr.ph221 ], [ %93, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
-  %.sroa.14.3220 = phi i32 [ %.sroa.14.1, %.lr.ph221 ], [ %55, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
-  %.sroa.0146.3219 = phi i32 [ %.sroa.0146.1, %.lr.ph221 ], [ %.sroa.0.0.extract.trunc.i.i66, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
-  %.sroa.0134.4218 = phi ptr [ %.sroa.0134.2, %.lr.ph221 ], [ %94, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0134.4218, i64 32
+46:                                               ; preds = %.lr.ph220, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91
+  %47 = phi i64 [ 0, %.lr.ph220 ], [ %93, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
+  %.sroa.14.3219 = phi i32 [ %.sroa.14.1, %.lr.ph220 ], [ %55, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
+  %.sroa.0146.3218 = phi i32 [ %.sroa.0146.1, %.lr.ph220 ], [ %.sroa.0.0.extract.trunc.i.i66, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
+  %.sroa.0134.4217 = phi ptr [ %.sroa.0134.2, %.lr.ph220 ], [ %94, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0134.4217, i64 32
   %.sroa.024.0.copyload = load i64, ptr %48, align 8
   %.sroa.0.0.extract.trunc.i.i66 = trunc i64 %.sroa.024.0.copyload to i32
   %49 = icmp slt i32 %.sroa.0.0.extract.trunc.i.i66, %.sroa.0146.0.extract.trunc166
@@ -1465,17 +1465,17 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit71:     ; preds = %46
   br i1 %spec.select.i.i70, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71.thread, label %.critedge
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit71.thread: ; preds = %46, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0134.4218, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0134.4217, i64 40
   %.sroa.7.0.extract.trunc = trunc nuw i64 %.pre to i32
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0134.4218, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0134.4217, i64 56
   %54 = load i32, ptr %53, align 8, !tbaa !96
   %55 = add i32 %54, %.sroa.7.0.extract.trunc
-  %56 = icmp slt i32 %.sroa.0146.3219, %.sroa.0.0.extract.trunc.i.i66
+  %56 = icmp slt i32 %.sroa.0146.3218, %.sroa.0.0.extract.trunc.i.i66
   br i1 %56, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit83.thread, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit83
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit83:     ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71.thread
-  %.sroa.14.0.insert.ext178 = zext i32 %.sroa.14.3220 to i64
-  %57 = icmp sle i32 %.sroa.0146.3219, %.sroa.0.0.extract.trunc.i.i66
+  %.sroa.14.0.insert.ext178 = zext i32 %.sroa.14.3219 to i64
+  %57 = icmp sle i32 %.sroa.0146.3218, %.sroa.0.0.extract.trunc.i.i66
   %58 = icmp samesign ugt i64 %.pre, %.sroa.14.0.insert.ext178
   %spec.select.i82 = select i1 %57, i1 %58, i1 false
   br i1 %spec.select.i82, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit83.thread, label %.critedge56
@@ -1484,7 +1484,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit83.thread: ; preds = %_ZN5clang4editgt
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !122
   %59 = load ptr, ptr %0, align 8, !tbaa !6
-  %60 = call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %59, i32 %.sroa.0146.3219)
+  %60 = call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %59, i32 %.sroa.0146.3218)
   %.not.not.i.i = icmp eq ptr %60, null
   br i1 %.not.not.i.i, label %_ZN5clang4edit12EditedSource13getSourceTextENS0_10FileOffsetES2_Rb.exit, label %61
 
@@ -1495,7 +1495,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit83.thread: ; preds = %_ZN5clang4editgt
 
 _ZN5clang4edit12EditedSource13getSourceTextENS0_10FileOffsetES2_Rb.exit: ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit83.thread, %61
   %.sroa.0.1.i.i = phi i32 [ %63, %61 ], [ 0, %_ZN5clang4editltENS0_10FileOffsetES1_.exit83.thread ]
-  %64 = add i32 %.sroa.0.1.i.i, %.sroa.14.3220
+  %64 = add i32 %.sroa.0.1.i.i, %.sroa.14.3219
   %65 = add i32 %.sroa.0.1.i.i, %.sroa.7.0.extract.trunc
   %.sroa.2.0.insert.ext.i.i = zext i32 %65 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
@@ -1544,7 +1544,7 @@ _ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit: ; preds = %_ZN4llvm15SmallV
 .critedge56:                                      ; preds = %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit, %_ZN5clang4editltENS0_10FileOffsetES1_.exit83
   %84 = phi i64 [ %83, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ %47, %_ZN5clang4editltENS0_10FileOffsetES1_.exit83 ]
   %.sroa.012.0.copyload = load ptr, ptr %52, align 8, !tbaa !106
-  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0134.4218, i64 48
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0134.4217, i64 48
   %.sroa.213.0.copyload = load i64, ptr %.sroa.213.0..sroa_idx, align 8, !tbaa !107
   %85 = add i64 %84, %.sroa.213.0.copyload
   %86 = load i64, ptr %14, align 8, !tbaa !55
@@ -1572,9 +1572,9 @@ _ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91: ; preds = %_ZN4llvm15Smal
   %92 = phi i64 [ %.pre8.i.i87, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i86 ], [ %.pre.i.i89, %89 ]
   %93 = add i64 %92, %.sroa.213.0.copyload
   store i64 %93, ptr %13, align 8, !tbaa !54
-  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.4218) #18
-  %.not208 = icmp eq ptr %94, %18
-  br i1 %.not208, label %.critedge, label %46, !llvm.loop !126
+  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.4217) #18
+  %.not207 = icmp eq ptr %94, %18
+  br i1 %.not207, label %.critedge, label %46, !llvm.loop !126
 
 .critedge54:                                      ; preds = %_ZN5clang4edit12EditedSource13getSourceTextENS0_10FileOffsetES2_Rb.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1582,8 +1582,8 @@ _ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91: ; preds = %_ZN4llvm15Smal
 
 .critedge:                                        ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91, %.thread
   %95 = phi i64 [ 0, %.thread ], [ %93, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ], [ %47, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71 ]
-  %.sroa.0146.3.lcssa = phi i32 [ %.sroa.0146.1, %.thread ], [ %.sroa.0.0.extract.trunc.i.i66, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ], [ %.sroa.0146.3219, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71 ]
-  %.sroa.14.3.lcssa = phi i32 [ %.sroa.14.1, %.thread ], [ %55, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ], [ %.sroa.14.3220, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71 ]
+  %.sroa.0146.3.lcssa = phi i32 [ %.sroa.0146.1, %.thread ], [ %.sroa.0.0.extract.trunc.i.i66, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ], [ %.sroa.0146.3218, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71 ]
+  %.sroa.14.3.lcssa = phi i32 [ %.sroa.14.1, %.thread ], [ %55, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit91 ], [ %.sroa.14.3219, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit71 ]
   %96 = icmp slt i32 %.sroa.0146.3.lcssa, %.sroa.0146.0.extract.trunc166
   br i1 %96, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit97.thread, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit97
 
@@ -1775,23 +1775,23 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
 
 22:                                               ; preds = %20, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE11upper_boundERS8_.exit
   %.sroa.0174.0 = phi ptr [ %21, %20 ], [ %.08.lcssa.i.i.i, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE11upper_boundERS8_.exit ]
-  %.not261267 = icmp eq ptr %.sroa.0174.0, %11
-  br i1 %.not261267, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %.lr.ph
+  %.not259265 = icmp eq ptr %.sroa.0174.0, %11
+  br i1 %.not259265, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %.sroa.0.0.extract.trunc.i = trunc i64 %2 to i32
   br label %23
 
 23:                                               ; preds = %.lr.ph, %32
-  %.sroa.0174.1268 = phi ptr [ %.sroa.0174.0, %.lr.ph ], [ %33, %32 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0174.1268, i64 32
+  %.sroa.0174.1266 = phi ptr [ %.sroa.0174.0, %.lr.ph ], [ %33, %32 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0174.1266, i64 32
   %25 = load i64, ptr %24, align 8
   %.sroa.03.0.extract.trunc.i = trunc i64 %25 to i32
   %26 = icmp slt i32 %.sroa.0.0.extract.trunc.i, %.sroa.03.0.extract.trunc.i
   br i1 %26, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit:       ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0174.1268, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0174.1266, i64 56
   %28 = load i32, ptr %27, align 8, !tbaa !96
   %.sroa.4171.0.extract.shift = lshr i64 %25, 32
   %.sroa.4171.0.extract.trunc = trunc nuw i64 %.sroa.4171.0.extract.shift to i32
@@ -1803,12 +1803,12 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit:       ; preds = %23
   br i1 %spec.select.i, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %32
 
 32:                                               ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit
-  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0174.1268) #18
-  %.not261 = icmp eq ptr %33, %11
-  br i1 %.not261, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %23, !llvm.loop !127
+  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0174.1266) #18
+  %.not259 = icmp eq ptr %33, %11
+  br i1 %.not259, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %23, !llvm.loop !127
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit.thread: ; preds = %32, %_ZN5clang4editltENS0_10FileOffsetES1_.exit, %23, %22
-  %.sroa.0174.1.lcssa = phi ptr [ %.sroa.0174.0, %22 ], [ %.sroa.0174.1268, %23 ], [ %.sroa.0174.1268, %_ZN5clang4editltENS0_10FileOffsetES1_.exit ], [ %33, %32 ]
+  %.sroa.0174.1.lcssa = phi ptr [ %.sroa.0174.0, %22 ], [ %.sroa.0174.1266, %23 ], [ %.sroa.0174.1266, %_ZN5clang4editltENS0_10FileOffsetES1_.exit ], [ %33, %32 ]
   %34 = icmp eq ptr %.sroa.0174.1.lcssa, %11
   br i1 %34, label %35, label %56
 
@@ -1942,8 +1942,8 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
 85:                                               ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit55
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.0174.1.lcssa, i64 40
   %87 = icmp slt i32 %.sroa.03.0.extract.trunc.i52, %.sroa.0.0.extract.trunc.i51
-  %.not289 = icmp ult i32 %61, %7
-  %or.cond = select i1 %87, i1 true, i1 %.not289
+  %.not287 = icmp ult i32 %61, %7
+  %or.cond = select i1 %87, i1 true, i1 %.not287
   br i1 %or.cond, label %_ZN5clang4editgeENS0_10FileOffsetES1_.exit.thread, label %.thread
 
 _ZN5clang4editgeENS0_10FileOffsetES1_.exit.thread: ; preds = %85
@@ -1963,21 +1963,21 @@ _ZN5clang4editgeENS0_10FileOffsetES1_.exit.thread: ; preds = %85
 93:                                               ; preds = %91, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE6insertIS7_IS2_S4_EEENSt9enable_ifIXsr16is_constructibleIS9_T_EE5valueESt17_Rb_tree_iteratorIS9_EE4typeESt23_Rb_tree_const_iteratorIS9_EOSF_.exit68
   %.sroa.0174.2 = phi ptr [ %.sroa.0174.1.lcssa, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE6insertIS7_IS2_S4_EEENSt9enable_ifIXsr16is_constructibleIS9_T_EE5valueESt17_Rb_tree_iteratorIS9_EE4typeESt23_Rb_tree_const_iteratorIS9_EOSF_.exit68 ], [ %92, %91 ]
   %94 = phi ptr [ %.sroa.07.011.i.i67, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE6insertIS7_IS2_S4_EEENSt9enable_ifIXsr16is_constructibleIS9_T_EE5valueESt17_Rb_tree_iteratorIS9_EE4typeESt23_Rb_tree_const_iteratorIS9_EOSF_.exit68 ], [ %.sroa.0174.1.lcssa, %91 ]
-  %.not262272 = icmp eq ptr %.sroa.0174.2, %11
-  br i1 %.not262272, label %.thread, label %.lr.ph274
+  %.not260270 = icmp eq ptr %.sroa.0174.2, %11
+  br i1 %.not260270, label %.thread, label %.lr.ph272
 
-.lr.ph274:                                        ; preds = %93
+.lr.ph272:                                        ; preds = %93
   %.sroa.11.0.insert.ext150 = zext i32 %7 to i64
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %96
 
-96:                                               ; preds = %.lr.ph274, %116
-  %.sroa.0174.3273 = phi ptr [ %.sroa.0174.2, %.lr.ph274 ], [ %117, %116 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0174.3273, i64 32
+96:                                               ; preds = %.lr.ph272, %116
+  %.sroa.0174.3271 = phi ptr [ %.sroa.0174.2, %.lr.ph272 ], [ %117, %116 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0174.3271, i64 32
   %98 = load i64, ptr %97, align 8
   %.sroa.6.0.extract.shift = lshr i64 %98, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0174.3273, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0174.3271, i64 56
   %100 = load i32, ptr %99, align 8, !tbaa !96
   %101 = add i32 %100, %.sroa.6.0.extract.trunc
   %.sroa.0.0.extract.trunc.i.i76 = trunc i64 %98 to i32
@@ -1994,8 +1994,8 @@ _ZN5clang4editgeENS0_10FileOffsetES1_.exit81.thread: ; preds = %96, %_ZN5clang4e
   %105 = icmp sge i32 %.sroa.0.0.extract.trunc.i51, %.sroa.0.0.extract.trunc.i.i76
   %106 = icmp uge i32 %7, %101
   %spec.select.i.not.i86 = select i1 %102, i1 true, i1 %106
-  %or.cond306 = select i1 %105, i1 %spec.select.i.not.i86, i1 false
-  br i1 %or.cond306, label %116, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit93
+  %or.cond304 = select i1 %105, i1 %spec.select.i.not.i86, i1 false
+  br i1 %or.cond304, label %116, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit93
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit93:     ; preds = %_ZN5clang4editgeENS0_10FileOffsetES1_.exit81.thread
   %107 = icmp sge i32 %.sroa.0.0.extract.trunc.i51, %.sroa.0.0.extract.trunc.i.i76
@@ -2009,7 +2009,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit93.thread: ; preds = %_ZN5clang4editlt
   %111 = load i32, ptr %110, align 8, !tbaa !96
   %112 = add i32 %109, %111
   store i32 %112, ptr %110, align 8, !tbaa !96
-  %113 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.0174.3273, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  %113 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.0174.3271, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef 64) #20
   %114 = load i64, ptr %95, align 8, !tbaa !120
   %115 = add i64 %114, -1
@@ -2017,14 +2017,14 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit93.thread: ; preds = %_ZN5clang4editlt
   br label %.thread
 
 116:                                              ; preds = %_ZN5clang4editgeENS0_10FileOffsetES1_.exit81.thread
-  %117 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0174.3273) #18
-  %118 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.0174.3273, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  %117 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0174.3271) #18
+  %118 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.0174.3271, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef 64) #20
   %119 = load i64, ptr %95, align 8, !tbaa !120
   %120 = add i64 %119, -1
   store i64 %120, ptr %95, align 8, !tbaa !120
-  %.not262 = icmp eq ptr %117, %11
-  br i1 %.not262, label %.thread, label %96
+  %.not260 = icmp eq ptr %117, %11
+  br i1 %.not260, label %.thread, label %96
 
 .thread:                                          ; preds = %116, %_ZN5clang4editgeENS0_10FileOffsetES1_.exit81, %85, %93, %_ZN5clang4editltENS0_10FileOffsetES1_.exit93, %_ZN5clang4editltENS0_10FileOffsetES1_.exit93.thread, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE6insertIS7_IS2_S4_EEENSt9enable_ifIXsr16is_constructibleIS9_T_EE5valueESt17_Rb_tree_iteratorIS9_EE4typeESt23_Rb_tree_const_iteratorIS9_EOSF_.exit, %4
   ret void

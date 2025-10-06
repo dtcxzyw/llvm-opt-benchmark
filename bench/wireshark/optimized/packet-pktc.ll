@@ -568,7 +568,7 @@ define internal fastcc noundef i32 @dissect_pktc_app_specific_data(ptr noundef %
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef 0)
   %9 = load i32, ptr @ett_pktc_app_spec_data, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
-  switch i8 %4, label %47 [
+  switch i8 %4, label %48 [
     i8 2, label %11
     i8 1, label %40
   ]
@@ -603,37 +603,34 @@ define internal fastcc noundef i32 @dissect_pktc_app_specific_data(ptr noundef %
   %35 = load i32, ptr @hf_pktc_usmUserName, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %2, i32 noundef %34, i32 noundef %32, i32 noundef 0)
   %37 = add i32 %34, %32
-  br label %49
+  br label %50
 
 38:                                               ; preds = %11
   %39 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_kmmid, ptr noundef %2, i32 noundef %3, i32 noundef 1)
-  br label %49
+  br label %50
 
 40:                                               ; preds = %6
-  switch i8 %5, label %45 [
-    i8 2, label %41
-    i8 3, label %41
-    i8 5, label %41
-  ]
+  %41 = icmp eq i8 %5, 4
+  br i1 %41, label %46, label %42
 
-41:                                               ; preds = %40, %40, %40
-  %42 = load i32, ptr @hf_pktc_ipsec_spi, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %42, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
-  %44 = add i32 %3, 4
-  br label %49
+42:                                               ; preds = %40
+  %43 = load i32, ptr @hf_pktc_ipsec_spi, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %43, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
+  %45 = add i32 %3, 4
+  br label %50
 
-45:                                               ; preds = %40
-  %46 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_kmmid, ptr noundef %2, i32 noundef %3, i32 noundef 1)
-  br label %49
+46:                                               ; preds = %40
+  %47 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_kmmid, ptr noundef %2, i32 noundef %3, i32 noundef 1)
+  br label %50
 
-47:                                               ; preds = %6
-  %48 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_doi, ptr noundef %2, i32 noundef %3, i32 noundef 1)
-  br label %49
+48:                                               ; preds = %6
+  %49 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_doi, ptr noundef %2, i32 noundef %3, i32 noundef 1)
+  br label %50
 
-49:                                               ; preds = %41, %45, %12, %38, %47
-  %.0 = phi i32 [ %3, %47 ], [ %3, %38 ], [ %37, %12 ], [ %3, %45 ], [ %44, %41 ]
-  %50 = sub i32 %.0, %3
-  tail call void @proto_item_set_len(ptr noundef %8, i32 noundef %50)
+50:                                               ; preds = %42, %46, %12, %38, %48
+  %.0 = phi i32 [ %3, %48 ], [ %3, %38 ], [ %37, %12 ], [ %3, %46 ], [ %45, %42 ]
+  %51 = sub i32 %.0, %3
+  tail call void @proto_item_set_len(ptr noundef %8, i32 noundef %51)
   ret i32 %.0
 }
 

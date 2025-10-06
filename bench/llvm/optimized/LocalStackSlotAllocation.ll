@@ -206,17 +206,17 @@ _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread.i.i: ; preds = %41, 
   %53 = zext i32 %52 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %53, 3
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not34.i.i.i.i = icmp eq i32 %52, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %49, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %56, %.critedge.i.i.i.i ], [ %50, %49 ]
-  %55 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !24, !noalias !29
+  %.02935.i.i.i.i = phi ptr [ %56, %.critedge.i.i.i.i ], [ %50, %49 ]
+  %55 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !24, !noalias !29
   %.not17.i.i.i.i = icmp eq ptr %55, @_ZN4llvm11CFGAnalyses6SetKeyE
   br i1 %.not17.i.i.i.i, label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %56, %54
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !32
 
@@ -1050,22 +1050,22 @@ _ZN4llvm9SetVectorIiNS_11SmallVectorIiLj8EEENS_8DenseSetIiNS_12DenseMapInfoIivEE
   %433 = zext i32 %432 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %433, 2
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 %.idx.i.i.i.i
-  %.not13.i.i.i.i = icmp eq i32 %432, 0
-  br i1 %.not13.i.i.i.i, label %_ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit.i.i.i, label %.lr.ph.i.i.i.i
+  %.not11.i.i.i.i = icmp eq i32 %432, 0
+  br i1 %.not11.i.i.i.i, label %_ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %430, %437
-  %.0914.i.i.i.i = phi ptr [ %438, %437 ], [ %431, %430 ]
-  %435 = load i32, ptr %.0914.i.i.i.i, align 4, !tbaa !193
+  %.0912.i.i.i.i = phi ptr [ %438, %437 ], [ %431, %430 ]
+  %435 = load i32, ptr %.0912.i.i.i.i, align 4, !tbaa !193
   %436 = icmp eq i32 %435, %.05033.i
   br i1 %436, label %_ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit.i.i.i, label %437
 
 437:                                              ; preds = %.lr.ph.i.i.i.i
-  %438 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i, i64 4
+  %438 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %438, %434
   br i1 %.not.i.i.i.i, label %_ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !201
 
 _ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit.i.i.i: ; preds = %437, %.lr.ph.i.i.i.i, %430
-  %.1.i.i.i.i = phi ptr [ %434, %430 ], [ %.0914.i.i.i.i, %.lr.ph.i.i.i.i ], [ %434, %437 ]
+  %.1.i.i.i.i = phi ptr [ %434, %430 ], [ %434, %437 ], [ %.0912.i.i.i.i, %.lr.ph.i.i.i.i ]
   %439 = getelementptr inbounds nuw i32, ptr %431, i64 %433
   %.not67.i = icmp eq ptr %.1.i.i.i.i, %439
   br i1 %.not67.i, label %_ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5countERKi.exit.thread.i, label %_ZN12_GLOBAL__N_118LocalStackSlotImpl17AdjustStackOffsetERN4llvm16MachineFrameInfoEiRlbRNS1_5AlignE.exit90.i
@@ -2428,23 +2428,23 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.pre = load i32, ptr %2, align 4, !tbaa !193
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !193
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !193
   %38 = icmp eq i32 %37, %.pre
   br i1 %38, label %_ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit, label %.lr.ph.i, !llvm.loop !201
 
 _ZNK4llvm8SmallSetIiLj16ESt4lessIiEE5vfindERKi.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw i32, ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit

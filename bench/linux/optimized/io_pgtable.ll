@@ -73,7 +73,7 @@ define internal void @v1_free_pgtable(ptr noundef %0) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %30, label %7
+  br i1 %6, label %31, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %0, i64 -240
@@ -88,42 +88,42 @@ define internal void @v1_free_pgtable(ptr noundef %0) #1 align 16 {
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8
-  %.not = icmp eq i32 %5, 1
-  br i1 %.not, label %14, label %28
+  %14 = icmp eq i32 %5, 1
+  br i1 %14, label %15, label %29
 
-14:                                               ; preds = %11
-  %15 = load i64, ptr @vmemmap_base, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %17 = ptrtoint ptr %13 to i64
-  %18 = add i64 %17, 2147483648
-  %19 = icmp ugt ptr %13, inttoptr (i64 -2147483649 to ptr)
-  %20 = load i64, ptr @phys_base, align 8
-  %21 = load i64, ptr @page_offset_base, align 8
-  %22 = sub i64 -2147483648, %21
-  %23 = select i1 %19, i64 %20, i64 %22
-  %24 = add i64 %18, %23
-  %25 = lshr i64 %24, 12
-  %.split = getelementptr %struct.page, ptr %16, i64 %25
-  %26 = getelementptr i8, ptr %.split, i64 8
-  store ptr %26, ptr %3, align 8
-  store ptr %2, ptr %26, align 8
-  %27 = getelementptr i8, ptr %.split, i64 16
+15:                                               ; preds = %11
+  %16 = load i64, ptr @vmemmap_base, align 8
+  %17 = inttoptr i64 %16 to ptr
+  %18 = ptrtoint ptr %13 to i64
+  %19 = add i64 %18, 2147483648
+  %20 = icmp ugt ptr %13, inttoptr (i64 -2147483649 to ptr)
+  %21 = load i64, ptr @phys_base, align 8
+  %22 = load i64, ptr @page_offset_base, align 8
+  %23 = sub i64 -2147483648, %22
+  %24 = select i1 %20, i64 %21, i64 %23
+  %25 = add i64 %19, %24
+  %26 = lshr i64 %25, 12
+  %.split = getelementptr %struct.page, ptr %17, i64 %26
+  %27 = getelementptr i8, ptr %.split, i64 8
+  store ptr %27, ptr %3, align 8
   store ptr %2, ptr %27, align 8
-  store volatile ptr %26, ptr %2, align 8
-  br label %29
+  %28 = getelementptr i8, ptr %.split, i64 16
+  store ptr %2, ptr %28, align 8
+  store volatile ptr %27, ptr %2, align 8
+  br label %30
 
-28:                                               ; preds = %11
+29:                                               ; preds = %11
   call fastcc void @free_pt_lvl(ptr noundef %13, ptr noundef nonnull %2, i32 noundef %5)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %14
+30:                                               ; preds = %29, %15
   store ptr null, ptr %12, align 8
   store i32 0, ptr %4, align 8
   call void @amd_iommu_domain_update(ptr noundef %8) #11
   call void @put_pages_list(ptr noundef nonnull %2) #11
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %1
+31:                                               ; preds = %30, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -678,10 +678,9 @@ define internal i64 @iommu_v1_unmap_pages(ptr noundef readonly captures(none) %0
 43:                                               ; preds = %.preheader.i
   %44 = lshr i64 %40, 9
   %45 = and i64 %44, 7
-  switch i64 %45, label %46 [
-    i64 7, label %.loopexit2.i
-    i64 0, label %.loopexit2.i
-  ]
+  %.off.i = add nsw i64 %45, -1
+  %switch.i = icmp ult i64 %.off.i, 6
+  br i1 %switch.i, label %46, label %.loopexit2.i
 
 46:                                               ; preds = %43
   %47 = zext nneg i32 %39 to i64
@@ -703,9 +702,9 @@ define internal i64 @iommu_v1_unmap_pages(ptr noundef readonly captures(none) %0
   %61 = icmp sgt i32 %39, 1
   br i1 %61, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
 
-.loopexit2.i:                                     ; preds = %49, %43, %43, %26
-  %.0 = phi i64 [ %35, %26 ], [ %.1, %43 ], [ %.1, %43 ], [ %60, %49 ]
-  %62 = phi ptr [ %34, %26 ], [ %38, %43 ], [ %38, %43 ], [ %59, %49 ]
+.loopexit2.i:                                     ; preds = %49, %43, %26
+  %.0 = phi i64 [ %35, %26 ], [ %.1, %43 ], [ %60, %49 ]
+  %62 = phi ptr [ %34, %26 ], [ %38, %43 ], [ %59, %49 ]
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %63, 3584
   %65 = icmp eq i64 %64, 3584
@@ -793,10 +792,9 @@ define internal range(i64 0, -9223372036854775808) i64 @iommu_v1_iova_to_phys(pt
 30:                                               ; preds = %.preheader.i
   %31 = lshr i64 %27, 9
   %32 = and i64 %31, 7
-  switch i64 %32, label %33 [
-    i64 7, label %.loopexit2.i
-    i64 0, label %.loopexit2.i
-  ]
+  %.off.i = add nsw i64 %32, -1
+  %switch.i = icmp ult i64 %.off.i, 6
+  br i1 %switch.i, label %33, label %.loopexit2.i
 
 33:                                               ; preds = %30
   %34 = zext nneg i32 %26 to i64
@@ -818,9 +816,9 @@ define internal range(i64 0, -9223372036854775808) i64 @iommu_v1_iova_to_phys(pt
   %48 = icmp sgt i32 %26, 1
   br i1 %48, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
 
-.loopexit2.i:                                     ; preds = %36, %30, %30, %12
-  %.0 = phi i64 [ %22, %12 ], [ %.1, %30 ], [ %.1, %30 ], [ %47, %36 ]
-  %49 = phi ptr [ %21, %12 ], [ %25, %30 ], [ %25, %30 ], [ %46, %36 ]
+.loopexit2.i:                                     ; preds = %36, %30, %12
+  %.0 = phi i64 [ %22, %12 ], [ %.1, %30 ], [ %47, %36 ]
+  %49 = phi ptr [ %21, %12 ], [ %25, %30 ], [ %46, %36 ]
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 3584
   %52 = icmp eq i64 %51, 3584
@@ -920,10 +918,9 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr noundef readonly 
 39:                                               ; preds = %.preheader.i
   %40 = lshr i64 %36, 9
   %41 = and i64 %40, 7
-  switch i64 %41, label %42 [
-    i64 7, label %.loopexit2.i
-    i64 0, label %.loopexit2.i
-  ]
+  %.off.i = add nsw i64 %41, -1
+  %switch.i = icmp ult i64 %.off.i, 6
+  br i1 %switch.i, label %42, label %.loopexit2.i
 
 42:                                               ; preds = %39
   %43 = icmp eq i64 %41, %indvars.iv
@@ -939,13 +936,13 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr noundef readonly 
   %50 = lshr i64 %13, %49
   %51 = and i64 %50, 511
   %52 = getelementptr i64, ptr %47, i64 %51
-  %53 = shl nuw i64 4096, %48
+  %53 = shl nuw nsw i64 4096, %48
   %54 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %54, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
 
-.loopexit2.i:                                     ; preds = %44, %39, %39, %22
-  %.0 = phi i64 [ %31, %22 ], [ %.1, %39 ], [ %.1, %39 ], [ %53, %44 ]
-  %55 = phi ptr [ %30, %22 ], [ %35, %39 ], [ %35, %39 ], [ %52, %44 ]
+.loopexit2.i:                                     ; preds = %44, %39, %22
+  %.0 = phi i64 [ %31, %22 ], [ %.1, %39 ], [ %53, %44 ]
+  %55 = phi ptr [ %30, %22 ], [ %35, %39 ], [ %52, %44 ]
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 3584
   %58 = icmp eq i64 %57, 3584
@@ -1118,10 +1115,9 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
 12:                                               ; preds = %.split2.us
   %13 = lshr i64 %9, 9
   %14 = and i64 %13, 7
-  switch i64 %14, label %15 [
-    i64 0, label %20
-    i64 7, label %20
-  ]
+  %.off.us = add nsw i64 %14, -1
+  %switch.us = icmp ult i64 %.off.us, 6
+  br i1 %switch.us, label %15, label %20
 
 15:                                               ; preds = %12
   %16 = and i64 %9, 4503599627366400
@@ -1131,7 +1127,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   tail call fastcc void @free_pt_lvl(ptr noundef %19, ptr noundef %1, i32 noundef %6)
   br label %20
 
-20:                                               ; preds = %15, %12, %12, %.split2.us
+20:                                               ; preds = %15, %12, %.split2.us
   %21 = add nuw nsw i64 %7, 1
   %22 = icmp eq i64 %21, 512
   br i1 %22, label %.split4.us, label %.split2.us, !llvm.loop !43
@@ -1147,10 +1143,9 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
 28:                                               ; preds = %.split2
   %29 = lshr i64 %25, 9
   %30 = and i64 %29, 7
-  switch i64 %30, label %31 [
-    i64 0, label %47
-    i64 7, label %47
-  ]
+  %.off = add nsw i64 %30, -1
+  %switch = icmp ult i64 %.off, 6
+  br i1 %switch, label %31, label %47
 
 31:                                               ; preds = %28
   %32 = and i64 %25, 4503599627366400
@@ -1175,7 +1170,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   store volatile ptr %44, ptr %45, align 8
   br label %47
 
-47:                                               ; preds = %31, %28, %28, %.split2
+47:                                               ; preds = %28, %31, %.split2
   %48 = add nuw nsw i64 %23, 1
   %49 = icmp eq i64 %48, 512
   br i1 %49, label %.split4.us, label %.split2, !llvm.loop !43

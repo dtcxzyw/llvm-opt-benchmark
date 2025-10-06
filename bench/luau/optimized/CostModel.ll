@@ -2319,8 +2319,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
   %42 = load i32, ptr %41, align 8, !tbaa !54
   %43 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantNumberEE5valueE, align 4, !tbaa !4
   %44 = icmp ne i32 %42, %43
-  %.not.not28.i = icmp eq ptr %40, null
-  %.not.not.i = or i1 %.not.not28.i, %44
+  %.not.not25.i = icmp eq ptr %40, null
+  %.not.not.i = or i1 %.not.not25.i, %44
   br i1 %.not.not.i, label %48, label %45
 
 45:                                               ; preds = %39
@@ -2331,7 +2331,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
 48:                                               ; preds = %39
   %49 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprUnaryEE5valueE, align 4, !tbaa !4
   %50 = icmp ne i32 %42, %49
-  %.not19.i = or i1 %.not.not28.i, %50
+  %.not19.i = or i1 %.not.not25.i, %50
   br i1 %.not19.i, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %51
 
 51:                                               ; preds = %48
@@ -2346,8 +2346,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !54
   %60 = icmp ne i32 %59, %43
-  %.not2030.i = icmp eq ptr %57, null
-  %.not20.i = or i1 %.not2030.i, %60
+  %.not2027.i = icmp eq ptr %57, null
+  %.not20.i = or i1 %.not2027.i, %60
   br i1 %.not20.i, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %55
@@ -2362,8 +2362,8 @@ _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit:  ; preds = %.critedge.i, %45
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !54
   %67 = icmp ne i32 %66, %43
-  %.not.not28.i13 = icmp eq ptr %64, null
-  %.not.not.i14 = or i1 %.not.not28.i13, %67
+  %.not.not25.i13 = icmp eq ptr %64, null
+  %.not.not.i14 = or i1 %.not.not25.i13, %67
   br i1 %.not.not.i14, label %71, label %68
 
 68:                                               ; preds = %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit
@@ -2374,7 +2374,7 @@ _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit:  ; preds = %.critedge.i, %45
 71:                                               ; preds = %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit
   %72 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprUnaryEE5valueE, align 4, !tbaa !4
   %73 = icmp ne i32 %66, %72
-  %.not19.i18 = or i1 %.not.not28.i13, %73
+  %.not19.i18 = or i1 %.not.not25.i13, %73
   br i1 %.not19.i18, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %74
 
 74:                                               ; preds = %71
@@ -2389,8 +2389,8 @@ _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit:  ; preds = %.critedge.i, %45
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !54
   %83 = icmp ne i32 %82, %43
-  %.not2030.i19 = icmp eq ptr %80, null
-  %.not20.i20 = or i1 %.not2030.i19, %83
+  %.not2027.i19 = icmp eq ptr %80, null
+  %.not20.i20 = or i1 %.not2027.i19, %83
   br i1 %.not20.i20, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %.critedge.i21
 
 .critedge.i21:                                    ; preds = %78
@@ -2433,8 +2433,8 @@ _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22: ; preds = %.critedge.i21, %68
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8, !tbaa !54
   %105 = icmp ne i32 %104, %43
-  %.not2030.i29 = icmp eq ptr %102, null
-  %.not20.i30 = or i1 %.not2030.i29, %105
+  %.not2027.i29 = icmp eq ptr %102, null
+  %.not20.i30 = or i1 %.not2027.i29, %105
   br i1 %.not20.i30, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %.critedge.i31
 
 .critedge.i31:                                    ; preds = %100

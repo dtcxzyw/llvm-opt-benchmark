@@ -1251,8 +1251,8 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_con
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not1967 = icmp eq ptr %1, null
-  %.not = or i1 %.not1967, %spec.select.i.i.i.i.i.i.i.i
+  %.not1966 = icmp eq ptr %1, null
+  %.not = or i1 %.not1966, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %2
@@ -1431,7 +1431,7 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_con
 43:                                               ; preds = %2
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not1967, %45
+  %.not314 = or i1 %.not1966, %45
   br i1 %.not314, label %65, label %46
 
 46:                                               ; preds = %43
@@ -2883,14 +2883,14 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
-  %.tr320 = phi ptr [ %1, %2 ], [ %.tr320.be, %tailrecurse.backedge ]
-  %3 = load i16, ptr %.tr320, align 8
+  %.tr319 = phi ptr [ %1, %2 ], [ %.tr319.be, %tailrecurse.backedge ]
+  %3 = load i16, ptr %.tr319, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %4, 120
   br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %5, label %11
 
 5:                                                ; preds = %tailrecurse
-  %6 = load i32, ptr %.tr320, align 8
+  %6 = load i32, ptr %.tr319, align 8
   %7 = lshr i32 %6, 19
   %8 = and i32 %7, 63
   %9 = trunc i32 %6 to i16
@@ -2931,7 +2931,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 10:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112SizeofFinder11VisitBinMulEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_112SizeofFinder11VisitBinMulEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 11:                                               ; preds = %tailrecurse
@@ -2940,7 +2940,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not, label %13, label %.critedge
 
 13:                                               ; preds = %11
-  %14 = load i32, ptr %.tr320, align 8
+  %14 = load i32, ptr %.tr319, align 8
   %15 = and i32 %14, 15728640
   %switch = icmp samesign ult i32 %15, 7340032
   %16 = trunc i32 %14 to i16
@@ -3212,7 +3212,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   unreachable
 
 20:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112SizeofFinder29VisitUnaryExprOrTypeTraitExprEPKN5clang24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_112SizeofFinder29VisitUnaryExprOrTypeTraitExprEPKN5clang24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 21:                                               ; preds = %.critedge
@@ -3220,8 +3220,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 tailrecurse.backedge:                             ; preds = %.critedge, %21
   %.sink = phi i64 [ 24, %21 ], [ 16, %.critedge ]
-  %22 = getelementptr inbounds nuw i8, ptr %.tr320, i64 %.sink
-  %.tr320.be = load ptr, ptr %22, align 8, !tbaa !448
+  %22 = getelementptr inbounds nuw i8, ptr %.tr319, i64 %.sink
+  %.tr319.be = load ptr, ptr %22, align 8, !tbaa !448
   br label %tailrecurse
 
 .critedge.thread:                                 ; preds = %13, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %10, %20

@@ -4504,9 +4504,9 @@ entry:
   %p60 = alloca ptr, align 8
   %passphrase_ = getelementptr inbounds nuw i8, ptr %config, i64 24
   %0 = load i8, ptr %passphrase_, align 8
-  %tobool.i25 = trunc i8 %0 to i1
-  %value_.i26 = getelementptr inbounds nuw i8, ptr %config, i64 32
-  %cond.i = select i1 %tobool.i25, ptr null, ptr %value_.i26
+  %tobool.i24 = trunc i8 %0 to i1
+  %value_.i25 = getelementptr inbounds nuw i8, ptr %config, i64 32
+  %cond.i = select i1 %tobool.i24, ptr null, ptr %value_.i25
   store ptr %cond.i, ptr %passphrase, align 8
   %format_ = getelementptr inbounds nuw i8, ptr %config, i64 4
   %1 = load i32, ptr %format_, align 4
@@ -4562,10 +4562,10 @@ if.then17:                                        ; preds = %_ZNKR2v85MaybeIN4no
   %call18 = call ptr @d2i_PrivateKey(i32 noundef 6, ptr noundef null, ptr noundef nonnull %p, i64 noundef %key_len) #23
   %5 = load ptr, ptr %pkey, align 8
   store ptr %call18, ptr %pkey, align 8
-  %tobool.not.i.i28 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i28, label %if.end64, label %if.then.i.i29
+  %tobool.not.i.i27 = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i27, label %if.end64, label %if.then.i.i28
 
-if.then.i.i29:                                    ; preds = %if.then17
+if.then.i.i28:                                    ; preds = %if.then17
   call void @EVP_PKEY_free(ptr noundef nonnull %5) #23
   br label %if.end64
 
@@ -4587,8 +4587,8 @@ _ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit98: ; preds = %if.
 if.then23:                                        ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit98
   %conv25 = trunc i64 %key_len to i32
   %call26 = tail call ptr @BIO_new_mem_buf(ptr noundef %key, i32 noundef %conv25) #23
-  %cmp.i31.not = icmp eq ptr %call26, null
-  br i1 %cmp.i31.not, label %return, label %if.end29
+  %cmp.i30.not = icmp eq ptr %call26, null
+  br i1 %cmp.i30.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.then23
   call void @llvm.lifetime.start.p0(ptr nonnull %length.i.i)
@@ -4606,8 +4606,8 @@ lor.lhs.false.i.i:                                ; preds = %if.end29
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %key, i64 1
   %9 = load i8, ptr %arrayidx2.i.i, align 1
-  %tobool.not.i.i32 = icmp sgt i8 %9, -1
-  br i1 %tobool.not.i.i32, label %if.else.i.i, label %if.then4.i.i
+  %tobool.not.i.i31 = icmp sgt i8 %9, -1
+  br i1 %tobool.not.i.i31, label %if.else.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %10 = and i8 %9, 127
@@ -4669,8 +4669,8 @@ _ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i: ; preds = %if.el
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i.i)
-  %cmp.not.i33 = icmp eq i64 %storemerge.i.i, 0
-  br i1 %cmp.not.i33, label %if.else34, label %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
+  %cmp.not.i32 = icmp eq i64 %storemerge.i.i, 0
+  br i1 %cmp.not.i32, label %if.else34, label %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
 
 _ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit: ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %key, i64 %offset.0.i
@@ -4682,34 +4682,34 @@ if.then31:                                        ; preds = %_ZN4node6crypto12_G
   %call33 = call ptr @d2i_PKCS8PrivateKey_bio(ptr noundef nonnull %call26, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto16PasswordCallbackEPciiPv, ptr noundef nonnull %passphrase) #23
   %14 = load ptr, ptr %pkey, align 8
   store ptr %call33, ptr %pkey, align 8
-  %tobool.not.i.i34 = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i34, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, label %if.then.i.i35
+  %tobool.not.i.i33 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i33, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread, label %if.then.i.i34
 
-if.then.i.i35:                                    ; preds = %if.then31
+if.then.i.i34:                                    ; preds = %if.then31
   call void @EVP_PKEY_free(ptr noundef nonnull %14) #23
-  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread
+  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread
 
 if.else34:                                        ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i, %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
   %call36 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO_bio(ptr noundef nonnull %call26, ptr noundef null) #23
-  %cmp.i37.not = icmp eq ptr %call36, null
-  br i1 %cmp.i37.not, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, label %if.then38
+  %cmp.i36.not = icmp eq ptr %call36, null
+  br i1 %cmp.i36.not, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread, label %if.then38
 
 if.then38:                                        ; preds = %if.else34
   %call40 = tail call ptr @EVP_PKCS82PKEY(ptr noundef nonnull %call36) #23
   %15 = load ptr, ptr %pkey, align 8
   store ptr %call40, ptr %pkey, align 8
-  %tobool.not.i.i38 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i38, label %if.then.i42, label %if.then.i.i39
+  %tobool.not.i.i37 = icmp eq ptr %15, null
+  br i1 %tobool.not.i.i37, label %if.then.i41, label %if.then.i.i38
 
-if.then.i.i39:                                    ; preds = %if.then38
+if.then.i.i38:                                    ; preds = %if.then38
   tail call void @EVP_PKEY_free(ptr noundef nonnull %15) #23
-  br label %if.then.i42
+  br label %if.then.i41
 
-if.then.i42:                                      ; preds = %if.then.i.i39, %if.then38
+if.then.i41:                                      ; preds = %if.then.i.i38, %if.then38
   tail call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %call36) #23
-  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread
+  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread
 
-_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread: ; preds = %if.then31, %if.then.i.i35, %if.else34, %if.then.i42
+_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread: ; preds = %if.then31, %if.then.i.i34, %if.else34, %if.then.i41
   call void @BIO_free_all(ptr noundef nonnull %call26) #23
   br label %if.end64
 
@@ -4738,14 +4738,14 @@ do.end59:                                         ; preds = %_ZNKR2v85MaybeIN4no
   %call61 = call ptr @d2i_PrivateKey(i32 noundef 408, ptr noundef null, ptr noundef nonnull %p60, i64 noundef %key_len) #23
   %18 = load ptr, ptr %pkey, align 8
   store ptr %call61, ptr %pkey, align 8
-  %tobool.not.i.i46 = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i46, label %if.end64, label %if.then.i.i47
+  %tobool.not.i.i45 = icmp eq ptr %18, null
+  br i1 %tobool.not.i.i45, label %if.end64, label %if.then.i.i46
 
-if.then.i.i47:                                    ; preds = %do.end59
+if.then.i.i46:                                    ; preds = %do.end59
   call void @EVP_PKEY_free(ptr noundef nonnull %18) #23
   br label %if.end64
 
-if.end64:                                         ; preds = %if.then.i.i47, %do.end59, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, %if.then.i.i29, %if.then17, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread
+if.end64:                                         ; preds = %if.then.i.i46, %do.end59, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread, %if.then.i.i28, %if.then17, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread
   %call65 = call i64 @ERR_peek_error() #23
   %cmp66.not = icmp eq i64 %call65, 0
   br i1 %cmp66.not, label %if.end68, label %if.then67
@@ -4753,33 +4753,33 @@ if.end64:                                         ; preds = %if.then.i.i47, %do.
 if.then67:                                        ; preds = %if.end64
   %19 = load ptr, ptr %pkey, align 8
   store ptr null, ptr %pkey, align 8
-  %tobool.not.i.i49 = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i49, label %if.end71, label %if.then.i.i50
+  %tobool.not.i.i48 = icmp eq ptr %19, null
+  br i1 %tobool.not.i.i48, label %if.end71, label %if.then.i.i49
 
-if.then.i.i50:                                    ; preds = %if.then67
+if.then.i.i49:                                    ; preds = %if.then67
   call void @EVP_PKEY_free(ptr noundef nonnull %19) #23
   br label %if.end68
 
-if.end68:                                         ; preds = %if.then.i.i50, %if.end64
-  %.pr72 = load ptr, ptr %pkey, align 8
-  %cmp.i52.not = icmp eq ptr %.pr72, null
-  br i1 %cmp.i52.not, label %if.end71, label %return
+if.end68:                                         ; preds = %if.then.i.i49, %if.end64
+  %.pr71 = load ptr, ptr %pkey, align 8
+  %cmp.i51.not = icmp eq ptr %.pr71, null
+  br i1 %cmp.i51.not, label %if.end71, label %return
 
 if.end71:                                         ; preds = %if.then67, %if.end68
   %and.i = and i64 %call65, 2147483648
-  %cmp.not.i53 = icmp eq i64 %and.i, 0
+  %cmp.not.i52 = icmp eq i64 %and.i, 0
   %20 = trunc i64 %call65 to i32
   %.mask = and i32 %20, -8388608
-  %cmp7374 = icmp eq i32 %.mask, 75497472
-  %cmp73 = and i1 %cmp.not.i53, %cmp7374
+  %cmp7373 = icmp eq i32 %.mask, 75497472
+  %cmp73 = and i1 %cmp.not.i52, %cmp7373
   br i1 %cmp73, label %land.lhs.true, label %if.end81
 
 land.lhs.true:                                    ; preds = %if.end71
-  %retval.0.i57 = and i32 %20, 8388607
-  %cmp75 = icmp eq i32 %retval.0.i57, 104
+  %retval.0.i56 = and i32 %20, 8388607
+  %cmp75 = icmp eq i32 %retval.0.i56, 104
   %21 = load i8, ptr %passphrase_, align 8
-  %tobool.i58 = trunc i8 %21 to i1
-  %or.cond = select i1 %cmp75, i1 %tobool.i58, i1 false
+  %tobool.i57 = trunc i8 %21 to i1
+  %or.cond = select i1 %cmp75, i1 %tobool.i57, i1 false
   br i1 %or.cond, label %return, label %if.end81
 
 if.end81:                                         ; preds = %land.lhs.true, %if.end71

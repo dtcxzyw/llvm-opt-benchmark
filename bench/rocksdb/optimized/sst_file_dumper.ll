@@ -7497,10 +7497,10 @@ define void @_ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt
   %15 = load ptr, ptr %3, align 8, !tbaa !666
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !666
-  %.not4649 = icmp eq ptr %15, %17
-  br i1 %.not4649, label %._crit_edge, label %.lr.ph51
+  %.not4447 = icmp eq ptr %15, %17
+  br i1 %.not4447, label %._crit_edge, label %.lr.ph49
 
-.lr.ph51:                                         ; preds = %10
+.lr.ph49:                                         ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -7511,35 +7511,35 @@ define void @_ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.not47 = icmp sgt i32 %4, %5
+  %.not45 = icmp sgt i32 %4, %5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not47, label %.lr.ph51.split.us, label %.lr.ph51.split
+  br i1 %.not45, label %.lr.ph49.split.us, label %.lr.ph49.split
 
-.lr.ph51.split.us:                                ; preds = %.lr.ph51, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
-  %.sroa.035.050.us = phi ptr [ %36, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us ], [ %15, %.lr.ph51 ]
-  %29 = load i8, ptr %.sroa.035.050.us, align 8, !tbaa !668
+.lr.ph49.split.us:                                ; preds = %.lr.ph49, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
+  %.sroa.035.048.us = phi ptr [ %36, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us ], [ %15, %.lr.ph49 ]
+  %29 = load i8, ptr %.sroa.035.048.us, align 8, !tbaa !668
   %30 = icmp ult i8 %29, 8
   br i1 %30, label %switch.lookup, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
 
-switch.lookup:                                    ; preds = %.lr.ph51.split.us
+switch.lookup:                                    ; preds = %.lr.ph49.split.us
   %31 = zext nneg i8 %29 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt4pairINS_15CompressionTypeEPKcESaIS6_EEiijjmb, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
 
-_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %.lr.ph51.split.us, %switch.lookup
-  %.str.47.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.47, %.lr.ph51.split.us ]
+_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %.lr.ph49.split.us, %switch.lookup
+  %.str.47.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.47, %.lr.ph49.split.us ]
   %32 = load ptr, ptr @stdout, align 8, !tbaa !203
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.035.050.us, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.035.048.us, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !670
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull %.str.47.sink, ptr noundef %34) #27
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.035.050.us, i64 16
-  %.not46.us = icmp eq ptr %36, %17
-  br i1 %.not46.us, label %._crit_edge, label %.lr.ph51.split.us
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.035.048.us, i64 16
+  %.not44.us = icmp eq ptr %36, %17
+  br i1 %.not44.us, label %._crit_edge, label %.lr.ph49.split.us
 
-.lr.ph51.split:                                   ; preds = %.lr.ph51, %55
-  %.sroa.035.050 = phi ptr [ %56, %55 ], [ %15, %.lr.ph51 ]
-  %37 = load i8, ptr %.sroa.035.050, align 8, !tbaa !668
+.lr.ph49.split:                                   ; preds = %.lr.ph49, %55
+  %.sroa.035.048 = phi ptr [ %56, %55 ], [ %15, %.lr.ph49 ]
+  %37 = load i8, ptr %.sroa.035.048, align 8, !tbaa !668
   switch i8 %37, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit [
     i8 0, label %.lr.ph
     i8 1, label %.lr.ph
@@ -7549,9 +7549,9 @@ _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %
     i8 5, label %.lr.ph
   ]
 
-.lr.ph:                                           ; preds = %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split
+.lr.ph:                                           ; preds = %.lr.ph49.split, %.lr.ph49.split, %.lr.ph49.split, %.lr.ph49.split, %.lr.ph49.split, %.lr.ph49.split
   %38 = load ptr, ptr @stdout, align 8, !tbaa !203
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.035.048, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !670
   %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.45, ptr noundef %40) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -7573,11 +7573,11 @@ _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %
   br label %55
 
 42:                                               ; preds = %.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit34
-  %.03048 = phi i32 [ %4, %.lr.ph ], [ %50, %_ZN7rocksdb6StatusD2Ev.exit34 ]
+  %.03046 = phi i32 [ %4, %.lr.ph ], [ %50, %_ZN7rocksdb6StatusD2Ev.exit34 ]
   %43 = load ptr, ptr @stdout, align 8, !tbaa !203
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.46, i32 noundef %.03048) #27
-  store i32 %.03048, ptr %18, align 4, !tbaa !672
-  %45 = load i8, ptr %.sroa.035.050, align 8, !tbaa !668
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.46, i32 noundef %.03046) #27
+  store i32 %.03046, ptr %18, align 4, !tbaa !672
+  %45 = load i8, ptr %.sroa.035.048, align 8, !tbaa !668
   call void @_ZN7rocksdb13SstFileDumper19ShowCompressionSizeEmNS_15CompressionTypeERKNS_18CompressionOptionsE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3336) %1, i64 noundef %2, i8 noundef zeroext %45, ptr noundef nonnull align 8 dereferenceable(49) %11)
   %46 = load i8, ptr %0, align 8, !tbaa !206
   %47 = icmp eq i8 %46, 0
@@ -7594,21 +7594,21 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit34:                    ; preds = %48, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33
   store ptr null, ptr %28, align 8, !tbaa !214
-  %50 = add i32 %.03048, 1
-  %exitcond.not = icmp eq i32 %.03048, %5
+  %50 = add i32 %.03046, 1
+  %exitcond.not = icmp eq i32 %.03046, %5
   br i1 %exitcond.not, label %..critedge.thread_crit_edge, label %42, !llvm.loop !682
 
-_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit: ; preds = %.lr.ph51.split
+_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit: ; preds = %.lr.ph49.split
   %51 = load ptr, ptr @stdout, align 8, !tbaa !203
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.035.048, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !670
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.47, ptr noundef %53) #27
   br label %55
 
 55:                                               ; preds = %..critedge.thread_crit_edge, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 16
-  %.not46 = icmp eq ptr %56, %17
-  br i1 %.not46, label %._crit_edge, label %.lr.ph51.split
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.035.048, i64 16
+  %.not44 = icmp eq ptr %56, %17
+  br i1 %.not44, label %._crit_edge, label %.lr.ph49.split
 
 57:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -9010,8 +9010,8 @@ define void @_ZN7rocksdb13SstFileDumper14ReadSequentialEbmbRKNSt7__cxx1112basic_
   %44 = alloca %"class.rocksdb::Slice", align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1664
   %46 = load ptr, ptr %45, align 8, !tbaa !216
-  %.not255 = icmp eq ptr %46, null
-  br i1 %.not255, label %47, label %73
+  %.not253 = icmp eq ptr %46, null
+  br i1 %.not253, label %47, label %73
 
 47:                                               ; preds = %9
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 1648
@@ -9237,7 +9237,7 @@ _ZN7rocksdb11InternalKeyD2Ev.exit129:             ; preds = %127, %_ZNKSt7__cxx1
           cleanup
   br label %638
 
-.loopexit.split-lp:                               ; preds = %132, %.loopexit258
+.loopexit.split-lp:                               ; preds = %132, %.loopexit256
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %638
@@ -9252,7 +9252,7 @@ _ZN7rocksdb11InternalKeyD2Ev.exit129:             ; preds = %127, %_ZNKSt7__cxx1
   %142 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %144 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %.not257 = xor i1 %2, true
+  %.not255 = xor i1 %2, true
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %147 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -9295,7 +9295,7 @@ _ZN7rocksdb11InternalKeyD2Ev.exit129:             ; preds = %127, %_ZNKSt7__cxx1
           to label %181 unwind label %.loopexit
 
 181:                                              ; preds = %176
-  br i1 %180, label %182, label %.loopexit258
+  br i1 %180, label %182, label %.loopexit256
 
 182:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -9330,7 +9330,7 @@ _ZN7rocksdb11InternalKeyD2Ev.exit129:             ; preds = %127, %_ZNKSt7__cxx1
 .thread:                                          ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %.loopexit258
+  br label %.loopexit256
 
 199:                                              ; preds = %182
   %200 = landingpad { ptr, i32 }
@@ -9422,7 +9422,7 @@ _ZNRSt8optionalIN7rocksdb5SliceEE5valueEv.exit136: ; preds = %.critedge
 
 238:                                              ; preds = %_ZNRSt8optionalIN7rocksdb5SliceEE5valueEv.exit136
   %239 = icmp sgt i32 %237, -1
-  %brmerge = or i1 %239, %.not257
+  %brmerge = or i1 %239, %.not255
   br i1 %brmerge, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133, label %241
 
 240:                                              ; preds = %.critedge
@@ -9991,7 +9991,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %.183, label %.loopexit258, label %438
+  br i1 %.183, label %.loopexit256, label %438
 
 438:                                              ; preds = %437
   %439 = load ptr, ptr %80, align 8, !tbaa !19
@@ -10026,7 +10026,7 @@ _ZN7rocksdb6StatusD2Ev.exit193:                   ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %638
 
-.loopexit258:                                     ; preds = %437, %181, %.thread
+.loopexit256:                                     ; preds = %437, %181, %.thread
   %.181 = phi i64 [ %197, %.thread ], [ %.080, %181 ], [ %197, %437 ]
   %446 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %447 = load i64, ptr %446, align 8, !tbaa !32
@@ -10038,7 +10038,7 @@ _ZN7rocksdb6StatusD2Ev.exit193:                   ; preds = %_ZNKSt14default_del
   invoke void %451(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %80)
           to label %452 unwind label %.loopexit.split-lp
 
-452:                                              ; preds = %.loopexit258
+452:                                              ; preds = %.loopexit256
   %453 = icmp eq i64 %3, 0
   br i1 %453, label %456, label %454
 
@@ -10060,8 +10060,8 @@ _ZN7rocksdb6StatusD2Ev.exit193:                   ; preds = %_ZNKSt14default_del
 460:                                              ; preds = %457
   %461 = getelementptr inbounds nuw i8, ptr %1, i64 3328
   %462 = load ptr, ptr %461, align 8, !tbaa !400
-  %.not256 = icmp eq ptr %462, null
-  br i1 %.not256, label %463, label %466
+  %.not254 = icmp eq ptr %462, null
+  br i1 %.not254, label %463, label %466
 
 463:                                              ; preds = %460
   %464 = load ptr, ptr @stderr, align 8, !tbaa !203

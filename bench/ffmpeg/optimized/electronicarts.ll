@@ -1096,17 +1096,17 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %.0135.ph = phi i32 [ undef, %2 ], [ %.0135.ph.be, %.outer.backedge ]
   %21 = or i32 %.0142.ph, %.0151.ph
   %or.cond = icmp ne i32 %21, 0
-  br label %.outer183
+  br label %.outer182
 
-.outer183:                                        ; preds = %.outer, %.loopexit187
-  %.0139.ph184 = phi i32 [ %.0139.ph, %.outer ], [ %.3, %.loopexit187 ]
-  %.0136.ph185 = phi i32 [ %.0136.ph, %.outer ], [ %.0136, %.loopexit187 ]
-  %.0135.ph186 = phi i32 [ %.0135.ph, %.outer ], [ %.0135, %.loopexit187 ]
+.outer182:                                        ; preds = %.outer, %.loopexit186
+  %.0139.ph183 = phi i32 [ %.0139.ph, %.outer ], [ %.3, %.loopexit186 ]
+  %.0136.ph184 = phi i32 [ %.0136.ph, %.outer ], [ %.0136, %.loopexit186 ]
+  %.0135.ph185 = phi i32 [ %.0135.ph, %.outer ], [ %.0135, %.loopexit186 ]
   br label %22
 
-22:                                               ; preds = %.outer183, %57
-  %.0136 = phi i32 [ 0, %57 ], [ %.0136.ph185, %.outer183 ]
-  %.0135 = phi i32 [ %.2, %57 ], [ %.0135.ph186, %.outer183 ]
+22:                                               ; preds = %.outer182, %57
+  %.0136 = phi i32 [ 0, %57 ], [ %.0136.ph184, %.outer182 ]
+  %.0135 = phi i32 [ %.2, %57 ], [ %.0135.ph185, %.outer182 ]
   %23 = icmp eq i32 %.0136, 0
   %or.cond17.not = select i1 %or.cond, i1 %23, i1 false
   br i1 %or.cond17.not, label %155, label %.critedge
@@ -1115,7 +1115,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %24 = tail call i32 @avio_rl32(ptr noundef %6) #4
   %25 = tail call i32 @avio_feof(ptr noundef %6) #4
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %.loopexit180
+  br i1 %.not, label %26, label %.loopexit179
 
 26:                                               ; preds = %.critedge
   %27 = load i32, ptr %7, align 8, !tbaa !33
@@ -1133,7 +1133,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 32:                                               ; preds = %30, %28
   %33 = phi i32 [ %29, %28 ], [ %31, %30 ]
   %34 = icmp ult i32 %33, 8
-  br i1 %34, label %.loopexit180, label %35
+  br i1 %34, label %.loopexit179, label %35
 
 35:                                               ; preds = %32
   %36 = add i32 %33, -8
@@ -1143,32 +1143,32 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
     i32 1816413011, label %42
     i32 1128549971, label %42
     i32 1313162323, label %42
-    i32 0, label %.loopexit574
-    i32 1699631921, label %.loopexit574
-    i32 1816478547, label %.loopexit574
-    i32 1145980243, label %.loopexit574
-    i32 1313162579, label %.loopexit574
-    i32 1749636685, label %.loopexit181
-    i32 1413961323, label %.loopexit181
-    i32 1413960048, label %.loopexit181
-    i32 1934706516, label %.loopexit181
-    i32 1799635277, label %.loopexit181
-    i32 1716082253, label %.loopexit181.loopexit
-    i32 1413961318, label %.loopexit181.loopexit
-    i32 1833189709, label %.loopexit181.loopexit
-    i32 1698971981, label %.loopexit181.loopexit
+    i32 0, label %.loopexit573
+    i32 1699631921, label %.loopexit573
+    i32 1816478547, label %.loopexit573
+    i32 1145980243, label %.loopexit573
+    i32 1313162579, label %.loopexit573
+    i32 1749636685, label %.loopexit180
+    i32 1413961323, label %.loopexit180
+    i32 1413960048, label %.loopexit180
+    i32 1934706516, label %.loopexit180
+    i32 1799635277, label %.loopexit180
+    i32 1716082253, label %.loopexit180.loopexit
+    i32 1413961318, label %.loopexit180.loopexit
+    i32 1833189709, label %.loopexit180.loopexit
+    i32 1698971981, label %.loopexit180.loopexit
     i32 1145263213, label %104
-    i32 1261459021, label %.loopexit187
-    i32 1261459009, label %.loopexit187
-    i32 1749241933, label %.loopexit187
-    i32 1414613360, label %.loopexit187
-    i32 1177572941, label %.loopexit187.loopexit
-    i32 1177572929, label %.loopexit187.loopexit
+    i32 1261459021, label %.loopexit186
+    i32 1261459009, label %.loopexit186
+    i32 1749241933, label %.loopexit186
+    i32 1414613360, label %.loopexit186
+    i32 1177572941, label %.loopexit186.loopexit
+    i32 1177572929, label %.loopexit186.loopexit
   ]
 
 37:                                               ; preds = %35
   %38 = icmp ult i32 %36, 32
-  br i1 %38, label %.loopexit180, label %39
+  br i1 %38, label %.loopexit179, label %39
 
 39:                                               ; preds = %37
   %40 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef 32) #4
@@ -1192,7 +1192,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 47:                                               ; preds = %42, %42
   %48 = icmp ult i32 %.0148, 12
-  br i1 %48, label %.loopexit180, label %49
+  br i1 %48, label %.loopexit179, label %49
 
 49:                                               ; preds = %47
   %50 = tail call i32 @avio_rl32(ptr noundef %6) #4
@@ -1200,7 +1200,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 51:                                               ; preds = %42
   %52 = icmp ult i32 %.0148, 8
-  br i1 %52, label %.loopexit180, label %.sink.split
+  br i1 %52, label %.loopexit179, label %.sink.split
 
 .sink.split:                                      ; preds = %51, %49
   %.sink = phi i32 [ -12, %49 ], [ -8, %51 ]
@@ -1226,7 +1226,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 58:                                               ; preds = %57
   %59 = tail call i32 @av_get_packet(ptr noundef %6, ptr noundef %1, i32 noundef %.1149) #4
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.loopexit180, label %61
+  br i1 %60, label %.loopexit179, label %61
 
 61:                                               ; preds = %58
   %62 = load i32, ptr %16, align 8, !tbaa !88
@@ -1251,7 +1251,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 67:                                               ; preds = %64
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.33) #4
-  br label %.loopexit180
+  br label %.loopexit179
 
 68:                                               ; preds = %64
   %69 = icmp eq i32 %63, 69653
@@ -1301,10 +1301,10 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   store i64 %95, ptr %18, align 8, !tbaa !94
   br label %.outer.backedge
 
-.loopexit574:                                     ; preds = %35, %35, %35, %35, %35
+.loopexit573:                                     ; preds = %35, %35, %35, %35, %35
   br label %96
 
-96:                                               ; preds = %.loopexit574, %98
+96:                                               ; preds = %.loopexit573, %98
   %97 = tail call i32 @avio_feof(ptr noundef %6) #4
   %.not163 = icmp eq i32 %97, 0
   br i1 %.not163, label %98, label %.loopexit
@@ -1328,46 +1328,46 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %spec.select = select i1 %.not164, i32 %.0144.ph, i32 -541478725
   br label %.outer.backedge
 
-.loopexit181.loopexit:                            ; preds = %35, %35, %35, %35
-  br label %.loopexit181
+.loopexit180.loopexit:                            ; preds = %35, %35, %35, %35
+  br label %.loopexit180
 
-.loopexit181:                                     ; preds = %35, %35, %35, %35, %35, %.loopexit181.loopexit
-  %.1140 = phi i32 [ %.0139.ph184, %.loopexit181.loopexit ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ]
+.loopexit180:                                     ; preds = %35, %35, %35, %35, %35, %.loopexit180.loopexit
+  %.1140 = phi i32 [ %.0139.ph183, %.loopexit180.loopexit ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ]
   %102 = icmp slt i32 %33, 8
-  br i1 %102, label %.loopexit180, label %.thread169
+  br i1 %102, label %.loopexit179, label %.thread168
 
-.thread169:                                       ; preds = %.loopexit181
+.thread168:                                       ; preds = %.loopexit180
   %103 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef -8, i32 noundef 1) #4
-  br label %.loopexit182
+  br label %.loopexit181
 
 104:                                              ; preds = %35
   %105 = icmp ult i32 %36, 8
-  br i1 %105, label %.loopexit180, label %106
+  br i1 %105, label %.loopexit179, label %106
 
 106:                                              ; preds = %104
   %107 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef 8) #4
   %108 = add i32 %33, -16
-  br label %.loopexit187
+  br label %.loopexit186
 
-.loopexit187.loopexit:                            ; preds = %35, %35
-  br label %.loopexit187
+.loopexit186.loopexit:                            ; preds = %35, %35
+  br label %.loopexit186
 
-.loopexit187:                                     ; preds = %35, %35, %35, %35, %.loopexit187.loopexit, %106
-  %.2150 = phi i32 [ %108, %106 ], [ %36, %.loopexit187.loopexit ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ]
-  %.3 = phi i32 [ %.0139.ph184, %106 ], [ %.0139.ph184, %.loopexit187.loopexit ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ]
+.loopexit186:                                     ; preds = %35, %35, %35, %35, %.loopexit186.loopexit, %106
+  %.2150 = phi i32 [ %108, %106 ], [ %36, %.loopexit186.loopexit ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ]
+  %.3 = phi i32 [ %.0139.ph183, %106 ], [ %.0139.ph183, %.loopexit186.loopexit ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ]
   %.not161 = icmp eq i32 %.2150, 0
-  br i1 %.not161, label %.outer183, label %.loopexit182, !llvm.loop !90
+  br i1 %.not161, label %.outer182, label %.loopexit181, !llvm.loop !90
 
-.loopexit182:                                     ; preds = %.loopexit187, %.thread169
-  %.3174 = phi i32 [ %.1140, %.thread169 ], [ %.3, %.loopexit187 ]
-  %.2150173 = phi i32 [ %33, %.thread169 ], [ %.2150, %.loopexit187 ]
-  %109 = icmp ugt i32 %.2150173, 2147483644
-  br i1 %109, label %.loopexit180, label %110
+.loopexit181:                                     ; preds = %.loopexit186, %.thread168
+  %.3173 = phi i32 [ %.1140, %.thread168 ], [ %.3, %.loopexit186 ]
+  %.2150172 = phi i32 [ %33, %.thread168 ], [ %.2150, %.loopexit186 ]
+  %109 = icmp ugt i32 %.2150172, 2147483644
+  br i1 %109, label %.loopexit179, label %110
 
-110:                                              ; preds = %.loopexit182
+110:                                              ; preds = %.loopexit181
   %111 = load i32, ptr %9, align 4, !tbaa !32
   %112 = icmp eq i32 %111, 106
-  br i1 %112, label %113, label %.thread175
+  br i1 %112, label %113, label %.thread174
 
 113:                                              ; preds = %110
   %114 = icmp eq i32 %24, 1177572941
@@ -1375,67 +1375,67 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %116 = or i1 %114, %115
   br i1 %23, label %120, label %117
 
-.thread175:                                       ; preds = %110
-  br i1 %23, label %.thread176, label %117
+.thread174:                                       ; preds = %110
+  br i1 %23, label %.thread175, label %117
 
-117:                                              ; preds = %.thread175, %113
-  %118 = phi i1 [ false, %.thread175 ], [ %116, %113 ]
-  %119 = tail call i32 @av_append_packet(ptr noundef %6, ptr noundef %1, i32 noundef %.2150173) #4
+117:                                              ; preds = %.thread174, %113
+  %118 = phi i1 [ false, %.thread174 ], [ %116, %113 ]
+  %119 = tail call i32 @av_append_packet(ptr noundef %6, ptr noundef %1, i32 noundef %.2150172) #4
   br label %138
 
 120:                                              ; preds = %113
-  switch i32 %24, label %.thread176 [
+  switch i32 %24, label %.thread175 [
     i32 1261459021, label %121
     i32 1177572941, label %121
   ]
 
 121:                                              ; preds = %120, %120
   %122 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef -3, i32 noundef 1) #4
-  br label %.thread176
+  br label %.thread175
 
-.thread176:                                       ; preds = %120, %.thread175, %121
-  %123 = phi i1 [ true, %121 ], [ false, %120 ], [ false, %.thread175 ]
-  %124 = phi i32 [ 3, %121 ], [ 0, %120 ], [ 0, %.thread175 ]
-  %125 = add nuw nsw i32 %124, %.2150173
+.thread175:                                       ; preds = %120, %.thread174, %121
+  %123 = phi i1 [ true, %121 ], [ false, %120 ], [ false, %.thread174 ]
+  %124 = phi i32 [ 3, %121 ], [ 0, %120 ], [ 0, %.thread174 ]
+  %125 = add nuw nsw i32 %124, %.2150172
   %126 = tail call i32 @av_get_packet(ptr noundef %6, ptr noundef %1, i32 noundef %125) #4
   %127 = icmp sgt i32 %126, -1
   %or.cond9 = and i1 %123, %127
-  br i1 %or.cond9, label %.thread177, label %138
+  br i1 %or.cond9, label %.thread176, label %138
 
-.thread177:                                       ; preds = %.thread176
-  %128 = trunc i32 %.2150173 to i8
+.thread176:                                       ; preds = %.thread175
+  %128 = trunc i32 %.2150172 to i8
   %129 = load ptr, ptr %10, align 8, !tbaa !93
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 2
   store i8 %128, ptr %130, align 1, !tbaa !11
-  %131 = lshr i32 %.2150173, 8
+  %131 = lshr i32 %.2150172, 8
   %132 = trunc i32 %131 to i8
   %133 = load ptr, ptr %10, align 8, !tbaa !93
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
   store i8 %132, ptr %134, align 1, !tbaa !11
-  %135 = lshr i32 %.2150173, 16
+  %135 = lshr i32 %.2150172, 16
   %136 = trunc i32 %135 to i8
   %137 = load ptr, ptr %10, align 8, !tbaa !93
   store i8 %136, ptr %137, align 1, !tbaa !11
   br label %141
 
-138:                                              ; preds = %.thread176, %117
-  %139 = phi i1 [ %118, %117 ], [ %123, %.thread176 ]
-  %.3147 = phi i32 [ %119, %117 ], [ %126, %.thread176 ]
+138:                                              ; preds = %.thread175, %117
+  %139 = phi i1 [ %118, %117 ], [ %123, %.thread175 ]
+  %.3147 = phi i32 [ %119, %117 ], [ %126, %.thread175 ]
   %140 = icmp slt i32 %.3147, 0
   br i1 %140, label %.outer.backedge, label %141
 
 .outer.backedge:                                  ; preds = %138, %77, %82, %84, %90, %75, %72, %152, %149, %.loopexit, %44
   %.0151.ph.be = phi i32 [ %.0151.ph, %152 ], [ %.0151.ph, %44 ], [ 1, %.loopexit ], [ %.0151.ph, %149 ], [ %.0151.ph, %72 ], [ %.0151.ph, %75 ], [ %.0151.ph, %90 ], [ %.0151.ph, %84 ], [ %.0151.ph, %82 ], [ %.0151.ph, %77 ], [ %.0151.ph, %138 ]
-  %.0144.ph.be = phi i32 [ %.0144.ph, %152 ], [ %.0144.ph, %44 ], [ %spec.select, %.loopexit ], [ %.3147179, %149 ], [ %59, %72 ], [ %59, %75 ], [ %59, %90 ], [ %59, %84 ], [ %59, %82 ], [ %59, %77 ], [ %.3147, %138 ]
+  %.0144.ph.be = phi i32 [ %.0144.ph, %152 ], [ %.0144.ph, %44 ], [ %spec.select, %.loopexit ], [ %.3147178, %149 ], [ %59, %72 ], [ %59, %75 ], [ %59, %90 ], [ %59, %84 ], [ %59, %82 ], [ %59, %77 ], [ %.3147, %138 ]
   %.0142.ph.be = phi i32 [ %.0142.ph, %152 ], [ %.0142.ph, %44 ], [ %.0142.ph, %.loopexit ], [ 1, %149 ], [ 1, %72 ], [ 1, %75 ], [ 1, %90 ], [ 1, %84 ], [ 1, %82 ], [ 1, %77 ], [ 1, %138 ]
-  %.0139.ph.be = phi i32 [ %.0139.ph184, %152 ], [ %.0139.ph184, %44 ], [ %.0139.ph184, %.loopexit ], [ %.3174, %149 ], [ %.0139.ph184, %72 ], [ %.0139.ph184, %75 ], [ %.0139.ph184, %90 ], [ %.0139.ph184, %84 ], [ %.0139.ph184, %82 ], [ %.0139.ph184, %77 ], [ %.3174, %138 ]
+  %.0139.ph.be = phi i32 [ %.0139.ph183, %152 ], [ %.0139.ph183, %44 ], [ %.0139.ph183, %.loopexit ], [ %.3173, %149 ], [ %.0139.ph183, %72 ], [ %.0139.ph183, %75 ], [ %.0139.ph183, %90 ], [ %.0139.ph183, %84 ], [ %.0139.ph183, %82 ], [ %.0139.ph183, %77 ], [ %.3173, %138 ]
   %.0136.ph.be = phi i32 [ %.0136, %152 ], [ %.0136, %44 ], [ %.0136, %.loopexit ], [ %145, %149 ], [ 0, %72 ], [ 0, %75 ], [ 0, %90 ], [ 0, %84 ], [ 0, %82 ], [ 0, %77 ], [ 0, %138 ]
   %.0135.ph.be = phi i32 [ %.0135, %152 ], [ %.0135, %44 ], [ %.0135, %.loopexit ], [ %.0135, %149 ], [ %.2, %72 ], [ %.2, %75 ], [ %.2, %90 ], [ %.2, %84 ], [ %.2, %82 ], [ %.2, %77 ], [ %.0135, %138 ]
   br label %.outer, !llvm.loop !90
 
-141:                                              ; preds = %.thread177, %138
-  %.3147179 = phi i32 [ %126, %.thread177 ], [ %.3147, %138 ]
-  %142 = phi i1 [ true, %.thread177 ], [ %139, %138 ]
+141:                                              ; preds = %.thread176, %138
+  %.3147178 = phi i32 [ %126, %.thread176 ], [ %.3147, %138 ]
+  %142 = phi i1 [ true, %.thread176 ], [ %139, %138 ]
   %143 = icmp eq i32 %24, 1749636685
   %144 = select i1 %142, i1 true, i1 %143
   %145 = zext i1 %144 to i32
@@ -1457,7 +1457,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !42
   store i32 %storemerge, ptr %13, align 4, !tbaa !91
   %150 = load i32, ptr %15, align 8, !tbaa !95
-  %151 = or i32 %150, %.3174
+  %151 = or i32 %150, %.3173
   store i32 %151, ptr %15, align 8, !tbaa !95
   br label %.outer.backedge
 
@@ -1470,13 +1470,13 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %156 = icmp ne i32 %.0142.ph, 0
   %157 = icmp eq i32 %.0151.ph, 0
   %158 = icmp slt i32 %.0144.ph, 0
-  %or.cond13.not573 = or i1 %158, %157
-  %or.cond15 = or i1 %156, %or.cond13.not573
+  %or.cond13.not572 = or i1 %158, %157
+  %or.cond15 = or i1 %156, %or.cond13.not572
   %.0144. = select i1 %or.cond15, i32 %.0144.ph, i32 -11
-  br label %.loopexit180
+  br label %.loopexit179
 
-.loopexit180:                                     ; preds = %.loopexit182, %.loopexit181, %58, %104, %51, %47, %37, %32, %.critedge, %155, %67
-  %.0 = phi i32 [ -1094995529, %67 ], [ %.0144., %155 ], [ -1094995529, %51 ], [ -1094995529, %47 ], [ -1094995529, %37 ], [ -1094995529, %32 ], [ -541478725, %.critedge ], [ -1094995529, %104 ], [ %59, %58 ], [ -1094995529, %.loopexit181 ], [ -1094995529, %.loopexit182 ]
+.loopexit179:                                     ; preds = %.loopexit181, %.loopexit180, %58, %104, %51, %47, %37, %32, %.critedge, %155, %67
+  %.0 = phi i32 [ -1094995529, %67 ], [ %.0144., %155 ], [ -1094995529, %51 ], [ -1094995529, %47 ], [ -1094995529, %37 ], [ -1094995529, %32 ], [ -541478725, %.critedge ], [ -1094995529, %104 ], [ %59, %58 ], [ -1094995529, %.loopexit180 ], [ -1094995529, %.loopexit181 ]
   ret i32 %.0
 }
 

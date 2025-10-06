@@ -191,42 +191,42 @@ define internal range(i32 -558323010, 1) i32 @config_props(ptr noundef readonly 
   store i32 %40, ptr %41, align 8, !tbaa !52
   %42 = load i32, ptr %6, align 4, !tbaa !45
   %43 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %42) #7
-  %.not23.i = icmp sgt i32 %43, 0
-  br i1 %.not23.i, label %.lr.ph.i, label %ff_hflip_init.exit
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph.i, label %ff_hflip_init.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %wide.trip.count.i = zext nneg i32 %43 to i64
-  br label %45
+  br label %46
 
-45:                                               ; preds = %switch.lookup, %.lr.ph.i
+46:                                               ; preds = %switch.lookup, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %switch.lookup ]
-  %46 = load i32, ptr %41, align 8, !tbaa !52
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
-  %48 = load i32, ptr %47, align 4, !tbaa !51
-  %49 = mul nsw i32 %48, %46
-  store i32 %49, ptr %47, align 4, !tbaa !51
-  %switch.tableidx = add i32 %49, -1
-  %50 = icmp ult i32 %switch.tableidx, 8
+  %47 = load i32, ptr %41, align 8, !tbaa !52
+  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %49 = load i32, ptr %48, align 4, !tbaa !51
+  %50 = mul nsw i32 %49, %47
+  store i32 %50, ptr %48, align 4, !tbaa !51
+  %switch.tableidx = add i32 %50, -1
+  %51 = icmp ult i32 %switch.tableidx, 8
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -81, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %50, i1 %switch.lobit, i1 false
+  %or.cond = select i1 %51, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %ff_hflip_init.exit
 
-switch.lookup:                                    ; preds = %45
-  %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_props, i64 %51
+switch.lookup:                                    ; preds = %46
+  %52 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_props, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
-  store ptr %switch.load, ptr %52, align 8, !tbaa !54
+  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
+  store ptr %switch.load, ptr %53, align 8, !tbaa !54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ff_hflip_init.exit, label %45, !llvm.loop !55
+  br i1 %exitcond.not.i, label %ff_hflip_init.exit, label %46, !llvm.loop !55
 
-ff_hflip_init.exit:                               ; preds = %switch.lookup, %45, %1
-  %spec.select.i = phi i32 [ 0, %1 ], [ 0, %switch.lookup ], [ -558323010, %45 ]
-  ret i32 %spec.select.i
+ff_hflip_init.exit:                               ; preds = %switch.lookup, %46, %1
+  %54 = phi i32 [ 0, %1 ], [ -558323010, %46 ], [ 0, %switch.lookup ]
+  ret i32 %54
 }
 
 declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

@@ -534,9 +534,9 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %29
-  %.01424 = phi ptr [ %31, %29 ], [ %0, %2 ]
-  %.01523 = phi i32 [ %32, %29 ], [ %1, %2 ]
-  %4 = load i8, ptr %.01424, align 1
+  %.01423 = phi ptr [ %31, %29 ], [ %0, %2 ]
+  %.01522 = phi i32 [ %32, %29 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01423, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -545,14 +545,14 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %.thread, label %29
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.01424, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
   switch i8 %4, label %23 [
     i8 -114, label %9
     i8 -113, label %14
   ]
 
 9:                                                ; preds = %7
-  %10 = icmp eq i32 %.01523, 1
+  %10 = icmp eq i32 %.01522, 1
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %9
@@ -562,7 +562,7 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond.i, label %.thread, label %29
 
 14:                                               ; preds = %7
-  %15 = icmp samesign ult i32 %.01523, 3
+  %15 = icmp samesign ult i32 %.01522, 3
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
@@ -572,14 +572,14 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond5.i, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %.01424, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.01423, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, 95
   %or.cond8.i = icmp ult i8 %22, 94
   br i1 %or.cond8.i, label %29, label %.thread
 
 23:                                               ; preds = %7
-  %24 = icmp ne i32 %.01523, 1
+  %24 = icmp ne i32 %.01522, 1
   %25 = add nsw i8 %4, 95
   %or.cond11.i = icmp ult i8 %25, 94
   %or.cond39.i = select i1 %24, i1 %or.cond11.i, i1 false
@@ -594,13 +594,13 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 29:                                               ; preds = %5, %11, %19, %26
   %.013 = phi i32 [ 1, %5 ], [ 2, %26 ], [ 2, %11 ], [ 3, %19 ]
   %30 = zext nneg i32 %.013 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %.01424, i64 %30
-  %32 = sub nsw i32 %.01523, %.013
+  %31 = getelementptr inbounds nuw i8, ptr %.01423, i64 %30
+  %32 = sub nsw i32 %.01522, %.013
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %29, %5, %9, %11, %14, %16, %19, %23, %26, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01424, %26 ], [ %.01424, %23 ], [ %.01424, %19 ], [ %.01424, %16 ], [ %.01424, %14 ], [ %.01424, %11 ], [ %.01424, %9 ], [ %.01424, %5 ], [ %31, %29 ]
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01423, %26 ], [ %.01423, %23 ], [ %.01423, %19 ], [ %.01423, %16 ], [ %.01423, %14 ], [ %.01423, %11 ], [ %.01423, %9 ], [ %.01423, %5 ], [ %31, %29 ]
   %34 = ptrtoint ptr %.014.lcssa to i64
   %35 = ptrtoint ptr %0 to i64
   %36 = sub i64 %34, %35
@@ -756,9 +756,9 @@ define internal i32 @pg_euckr_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %14
-  %.01424 = phi ptr [ %16, %14 ], [ %0, %2 ]
-  %.01523 = phi i32 [ %17, %14 ], [ %1, %2 ]
-  %4 = load i8, ptr %.01424, align 1
+  %.01423 = phi ptr [ %16, %14 ], [ %0, %2 ]
+  %.01522 = phi i32 [ %17, %14 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01423, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -767,14 +767,14 @@ define internal i32 @pg_euckr_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %.thread, label %14
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp ne i32 %.01523, 1
+  %8 = icmp ne i32 %.01522, 1
   %9 = add nsw i8 %4, 95
   %or.cond.i = icmp ult i8 %9, 94
   %or.cond16.i = select i1 %8, i1 %or.cond.i, i1 false
   br i1 %or.cond16.i, label %10, label %.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.01424, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = add i8 %12, 95
   %or.cond5.i = icmp ult i8 %13, 94
@@ -783,13 +783,13 @@ define internal i32 @pg_euckr_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 14:                                               ; preds = %5, %10
   %.013 = phi i32 [ 1, %5 ], [ 2, %10 ]
   %15 = zext nneg i32 %.013 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %.01424, i64 %15
-  %17 = sub nsw i32 %.01523, %.013
+  %16 = getelementptr inbounds nuw i8, ptr %.01423, i64 %15
+  %17 = sub nsw i32 %.01522, %.013
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %14, %5, %7, %10, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01424, %10 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %16, %14 ]
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01423, %10 ], [ %.01423, %7 ], [ %.01423, %5 ], [ %16, %14 ]
   %19 = ptrtoint ptr %.014.lcssa to i64
   %20 = ptrtoint ptr %0 to i64
   %21 = sub i64 %19, %20
@@ -1118,9 +1118,9 @@ define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %27
-  %.01424 = phi ptr [ %29, %27 ], [ %0, %2 ]
-  %.01523 = phi i32 [ %30, %27 ], [ %1, %2 ]
-  %4 = load i8, ptr %.01424, align 1
+  %.01423 = phi ptr [ %29, %27 ], [ %0, %2 ]
+  %.01522 = phi i32 [ %30, %27 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01423, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -1129,14 +1129,14 @@ define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %.thread, label %27
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.01424, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
   switch i8 %4, label %22 [
     i8 -114, label %9
     i8 -113, label %.thread
   ]
 
 9:                                                ; preds = %7
-  %10 = icmp samesign ult i32 %.01523, 4
+  %10 = icmp samesign ult i32 %.01522, 4
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %9
@@ -1146,21 +1146,21 @@ define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond.i, label %.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %.01424, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01423, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = add i8 %16, 95
   %or.cond5.i = icmp ult i8 %17, 94
   br i1 %or.cond5.i, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.01424, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %.01423, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, 95
   %or.cond8.i = icmp ult i8 %21, 94
   br i1 %or.cond8.i, label %27, label %.thread
 
 22:                                               ; preds = %7
-  %23 = icmp eq i32 %.01523, 1
+  %23 = icmp eq i32 %.01522, 1
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %22
@@ -1172,13 +1172,13 @@ define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 27:                                               ; preds = %5, %18, %24
   %.013 = phi i32 [ 1, %5 ], [ 2, %24 ], [ 4, %18 ]
   %28 = zext nneg i32 %.013 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %.01424, i64 %28
-  %30 = sub nsw i32 %.01523, %.013
+  %29 = getelementptr inbounds nuw i8, ptr %.01423, i64 %28
+  %30 = sub nsw i32 %.01522, %.013
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %27, %5, %9, %11, %14, %18, %7, %22, %24, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01424, %24 ], [ %.01424, %22 ], [ %.01424, %7 ], [ %.01424, %18 ], [ %.01424, %14 ], [ %.01424, %11 ], [ %.01424, %9 ], [ %.01424, %5 ], [ %29, %27 ]
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01423, %24 ], [ %.01423, %22 ], [ %.01423, %7 ], [ %.01423, %18 ], [ %.01423, %14 ], [ %.01423, %11 ], [ %.01423, %9 ], [ %.01423, %5 ], [ %29, %27 ]
   %32 = ptrtoint ptr %.014.lcssa to i64
   %33 = ptrtoint ptr %0 to i64
   %34 = sub i64 %32, %33
@@ -1620,20 +1620,20 @@ define internal range(i32 -1, 5) i32 @pg_utf8_verifychar(ptr noundef readonly ca
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
   %3 = icmp ugt i32 %1, 31
-  br i1 %3, label %.preheader54, label %pg_utf_mblen_private.exit.thread
+  br i1 %3, label %.preheader53, label %pg_utf_mblen_private.exit.thread
 
-.preheader54:                                     ; preds = %2, %26
-  %.160 = phi ptr [ %27, %26 ], [ %0, %2 ]
-  %.12859 = phi i32 [ %28, %26 ], [ %1, %2 ]
-  %.04158 = phi i32 [ %.142, %26 ], [ 11, %2 ]
-  %.not36 = icmp eq i32 %.04158, 11
-  br i1 %.not36, label %.preheader53, label %.preheader91
+.preheader53:                                     ; preds = %2, %26
+  %.159 = phi ptr [ %27, %26 ], [ %0, %2 ]
+  %.12858 = phi i32 [ %28, %26 ], [ %1, %2 ]
+  %.04157 = phi i32 [ %.142, %26 ], [ 11, %2 ]
+  %.not36 = icmp eq i32 %.04157, 11
+  br i1 %.not36, label %.preheader52, label %.preheader90
 
-.preheader53:                                     ; preds = %.preheader54, %.preheader53
-  %.013.i = phi <2 x i64> [ %10, %.preheader53 ], [ zeroinitializer, %.preheader54 ]
-  %4 = phi i1 [ false, %.preheader53 ], [ true, %.preheader54 ]
-  %.010.idx12.i = phi i64 [ 16, %.preheader53 ], [ 0, %.preheader54 ]
-  %.010.ptr.i = getelementptr inbounds nuw i8, ptr %.160, i64 %.010.idx12.i
+.preheader52:                                     ; preds = %.preheader53, %.preheader52
+  %.013.i = phi <2 x i64> [ %10, %.preheader52 ], [ zeroinitializer, %.preheader53 ]
+  %4 = phi i1 [ false, %.preheader52 ], [ true, %.preheader53 ]
+  %.010.idx12.i = phi i64 [ 16, %.preheader52 ], [ 0, %.preheader53 ]
+  %.010.ptr.i = getelementptr inbounds nuw i8, ptr %.159, i64 %.010.idx12.i
   %.010.ptr.val.i = load <2 x i64>, ptr %.010.ptr.i, align 1
   %5 = bitcast <2 x i64> %.010.ptr.val.i to <16 x i8>
   %6 = icmp eq <16 x i8> %5, zeroinitializer
@@ -1641,22 +1641,22 @@ define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
   %8 = bitcast <16 x i8> %7 to <2 x i64>
   %9 = or <2 x i64> %.013.i, %8
   %10 = or <2 x i64> %9, %.010.ptr.val.i
-  br i1 %4, label %.preheader53, label %is_valid_ascii.exit, !llvm.loop !14
+  br i1 %4, label %.preheader52, label %is_valid_ascii.exit, !llvm.loop !14
 
-is_valid_ascii.exit:                              ; preds = %.preheader53
+is_valid_ascii.exit:                              ; preds = %.preheader52
   %11 = bitcast <2 x i64> %10 to <16 x i8>
   %12 = icmp slt <16 x i8> %11, zeroinitializer
   %13 = bitcast <16 x i1> %12 to i16
   %.not.i = icmp eq i16 %13, 0
-  br i1 %.not.i, label %26, label %.preheader91
+  br i1 %.not.i, label %26, label %.preheader90
 
-.preheader91:                                     ; preds = %is_valid_ascii.exit, %.preheader54
+.preheader90:                                     ; preds = %is_valid_ascii.exit, %.preheader53
   br label %14
 
-14:                                               ; preds = %.preheader91, %14
-  %.07.i = phi i32 [ %23, %14 ], [ 32, %.preheader91 ]
-  %.056.i = phi ptr [ %16, %14 ], [ %.160, %.preheader91 ]
-  %15 = phi i32 [ %22, %14 ], [ %.04158, %.preheader91 ]
+14:                                               ; preds = %.preheader90, %14
+  %.07.i = phi i32 [ %23, %14 ], [ 32, %.preheader90 ]
+  %.056.i = phi ptr [ %16, %14 ], [ %.159, %.preheader90 ]
+  %15 = phi i32 [ %22, %14 ], [ %.04157, %.preheader90 ]
   %16 = getelementptr inbounds nuw i8, ptr %.056.i, i64 1
   %17 = load i8, ptr %.056.i, align 1
   %18 = zext i8 %17 to i64
@@ -1674,10 +1674,10 @@ utf8_advance.exit:                                ; preds = %14
 
 26:                                               ; preds = %utf8_advance.exit, %is_valid_ascii.exit
   %.142 = phi i32 [ 11, %is_valid_ascii.exit ], [ %25, %utf8_advance.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %.160, i64 32
-  %28 = add i32 %.12859, -32
+  %27 = getelementptr inbounds nuw i8, ptr %.159, i64 32
+  %28 = add i32 %.12858, -32
   %29 = icmp ugt i32 %28, 31
-  br i1 %29, label %.preheader54, label %30, !llvm.loop !16
+  br i1 %29, label %.preheader53, label %30, !llvm.loop !16
 
 30:                                               ; preds = %26
   switch i32 %.142, label %.preheader [
@@ -1703,8 +1703,8 @@ utf8_advance.exit:                                ; preds = %14
   %or.cond = or i1 %38, %40
   %41 = and i32 %36, 248
   %42 = icmp eq i32 %41, 240
-  %or.cond52 = or i1 %42, %or.cond
-  br i1 %or.cond52, label %pg_utf_mblen_private.exit.thread, label %.preheader.backedge
+  %or.cond51 = or i1 %42, %or.cond
+  br i1 %or.cond51, label %pg_utf_mblen_private.exit.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %35, %.preheader
   br label %.preheader, !llvm.loop !17
@@ -1719,9 +1719,9 @@ pg_utf_mblen_private.exit.thread:                 ; preds = %35, %30, %.fold.spl
   br i1 %43, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %pg_utf_mblen_private.exit.thread, %61
-  %.362 = phi ptr [ %63, %61 ], [ %.026, %pg_utf_mblen_private.exit.thread ]
-  %.33061 = phi i32 [ %64, %61 ], [ %.027, %pg_utf_mblen_private.exit.thread ]
-  %44 = load i8, ptr %.362, align 1
+  %.361 = phi ptr [ %63, %61 ], [ %.026, %pg_utf_mblen_private.exit.thread ]
+  %.33060 = phi i32 [ %64, %61 ], [ %.027, %pg_utf_mblen_private.exit.thread ]
+  %44 = load i8, ptr %.361, align 1
   %.not35 = icmp sgt i8 %44, -1
   br i1 %.not35, label %45, label %47
 
@@ -1748,23 +1748,23 @@ pg_utf_mblen_private.exit.thread:                 ; preds = %35, %30, %.fold.spl
 
 57:                                               ; preds = %54, %51, %47
   %.0.i37 = phi i32 [ 2, %47 ], [ 3, %51 ], [ %.11.i, %54 ]
-  %58 = icmp samesign ugt i32 %.0.i37, %.33061
+  %58 = icmp samesign ugt i32 %.0.i37, %.33060
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %57
-  %60 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull readonly %.362, i32 noundef %.0.i37)
+  %60 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull readonly %.361, i32 noundef %.0.i37)
   br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %45, %59
   %.025 = phi i32 [ 1, %45 ], [ %.0.i37, %59 ]
   %62 = zext nneg i32 %.025 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %.362, i64 %62
-  %64 = sub nsw i32 %.33061, %.025
+  %63 = getelementptr inbounds nuw i8, ptr %.361, i64 %62
+  %64 = sub nsw i32 %.33060, %.025
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %61, %45, %57, %59, %pg_utf_mblen_private.exit.thread
-  %.3.lcssa = phi ptr [ %.026, %pg_utf_mblen_private.exit.thread ], [ %.362, %59 ], [ %.362, %57 ], [ %.362, %45 ], [ %63, %61 ]
+  %.3.lcssa = phi ptr [ %.026, %pg_utf_mblen_private.exit.thread ], [ %.361, %59 ], [ %.361, %57 ], [ %.361, %45 ], [ %63, %61 ]
   %66 = ptrtoint ptr %.3.lcssa to i64
   %67 = ptrtoint ptr %0 to i64
   %68 = sub i64 %66, %67
@@ -2133,9 +2133,9 @@ define internal i32 @pg_mule_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+  %.01426 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
+  %.01525 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
+  %4 = load i8, ptr %.01426, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -2161,12 +2161,12 @@ define internal i32 @pg_mule_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 
 pg_mule_mblen.exit.i:                             ; preds = %11, %9, %7
   %.0.i.i = phi i32 [ 2, %7 ], [ 3, %9 ], [ %spec.select.i.i, %11 ]
-  %13 = icmp samesign ult i32 %.01526, %.0.i.i
+  %13 = icmp samesign ult i32 %.01525, %.0.i.i
   br i1 %13, label %.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pg_mule_mblen.exit.i, %15
   %.08.i = phi i32 [ %16, %15 ], [ %.0.i.i, %pg_mule_mblen.exit.i ]
-  %.07.i = phi ptr [ %17, %15 ], [ %.01427, %pg_mule_mblen.exit.i ]
+  %.07.i = phi ptr [ %17, %15 ], [ %.01426, %pg_mule_mblen.exit.i ]
   %14 = icmp sgt i32 %.08.i, 1
   br i1 %14, label %15, label %.loopexit
 
@@ -2180,14 +2180,14 @@ pg_mule_mblen.exit.i:                             ; preds = %11, %9, %7
 .loopexit:                                        ; preds = %.preheader.i, %5
   %.013 = phi i32 [ 1, %5 ], [ %.0.i.i, %.preheader.i ]
   %19 = zext nneg i32 %.013 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %.01427, i64 %19
-  %21 = sub nsw i32 %.01526, %.013
+  %20 = getelementptr inbounds nuw i8, ptr %.01426, i64 %19
+  %21 = sub nsw i32 %.01525, %.013
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %pg_mule_mblen.exit.i, %15, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %.01427, %15 ], [ %20, %.loopexit ], [ %.01427, %5 ], [ %.01427, %pg_mule_mblen.exit.i ]
-  %23 = ptrtoint ptr %.01425 to i64
+  %.01424 = phi ptr [ %0, %2 ], [ %.01426, %15 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %pg_mule_mblen.exit.i ]
+  %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
@@ -2336,9 +2336,9 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %pg_sjis_verifychar.exit.thread19
-  %.01426 = phi ptr [ %18, %pg_sjis_verifychar.exit.thread19 ], [ %0, %2 ]
-  %.01525 = phi i32 [ %19, %pg_sjis_verifychar.exit.thread19 ], [ %1, %2 ]
-  %4 = load i8, ptr %.01426, align 1
+  %.01425 = phi ptr [ %18, %pg_sjis_verifychar.exit.thread19 ], [ %0, %2 ]
+  %.01524 = phi i32 [ %19, %pg_sjis_verifychar.exit.thread19 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01425, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -2350,7 +2350,7 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %8 = add nsw i8 %4, 95
   %or.cond.i.i = icmp ult i8 %8, 63
   %.0.i.i = select i1 %or.cond.i.i, i32 1, i32 2
-  %9 = icmp samesign ult i32 %.01525, %.0.i.i
+  %9 = icmp samesign ult i32 %.01524, %.0.i.i
   %brmerge.i = or i1 %or.cond.i.i, %9
   br i1 %brmerge.i, label %pg_sjis_verifychar.exit, label %10
 
@@ -2363,7 +2363,7 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond28.i, label %13, label %.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01425, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = add i8 %15, -64
   %or.cond8.i = icmp ult i8 %16, 63
@@ -2377,13 +2377,13 @@ pg_sjis_verifychar.exit:                          ; preds = %7
 pg_sjis_verifychar.exit.thread19:                 ; preds = %13, %pg_sjis_verifychar.exit, %5
   %.013 = phi i32 [ 1, %pg_sjis_verifychar.exit ], [ 1, %5 ], [ 2, %13 ]
   %17 = zext nneg i32 %.013 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %.01426, i64 %17
-  %19 = sub nsw i32 %.01525, %.013
+  %18 = getelementptr inbounds nuw i8, ptr %.01425, i64 %17
+  %19 = sub nsw i32 %.01524, %.013
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %pg_sjis_verifychar.exit.thread19, %5, %pg_sjis_verifychar.exit, %10, %13, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01426, %13 ], [ %.01426, %10 ], [ %.01426, %pg_sjis_verifychar.exit ], [ %.01426, %5 ], [ %18, %pg_sjis_verifychar.exit.thread19 ]
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %13 ], [ %.01425, %10 ], [ %.01425, %pg_sjis_verifychar.exit ], [ %.01425, %5 ], [ %18, %pg_sjis_verifychar.exit.thread19 ]
   %21 = ptrtoint ptr %.014.lcssa to i64
   %22 = ptrtoint ptr %0 to i64
   %23 = sub i64 %21, %22
@@ -2460,9 +2460,9 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+  %.01426 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
+  %.01525 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
+  %4 = load i8, ptr %.01426, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -2471,7 +2471,7 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %.thread, label %.loopexit
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp eq i32 %.01526, 1
+  %8 = icmp eq i32 %.01525, 1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
@@ -2479,13 +2479,13 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 32
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11, %9
-  %16 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.thread, label %.loopexit, !llvm.loop !22
@@ -2493,14 +2493,14 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 .loopexit:                                        ; preds = %15, %5
   %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
   %19 = zext nneg i32 %.013 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %.01427, i64 %19
-  %21 = sub nsw i32 %.01526, %.013
+  %20 = getelementptr inbounds nuw i8, ptr %.01426, i64 %19
+  %21 = sub nsw i32 %.01525, %.013
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %7, %11, %15, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01427, %5 ], [ %.01427, %7 ], [ %.01427, %11 ], [ %.01427, %15 ]
-  %23 = ptrtoint ptr %.01425 to i64
+  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %7 ], [ %.01426, %11 ], [ %.01426, %15 ]
+  %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
@@ -2576,9 +2576,9 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+  %.01426 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
+  %.01525 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
+  %4 = load i8, ptr %.01426, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -2587,7 +2587,7 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %.thread, label %.loopexit
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp eq i32 %.01526, 1
+  %8 = icmp eq i32 %.01525, 1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
@@ -2595,13 +2595,13 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 32
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11, %9
-  %16 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.thread, label %.loopexit, !llvm.loop !23
@@ -2609,14 +2609,14 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 .loopexit:                                        ; preds = %15, %5
   %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
   %19 = zext nneg i32 %.013 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %.01427, i64 %19
-  %21 = sub nsw i32 %.01526, %.013
+  %20 = getelementptr inbounds nuw i8, ptr %.01426, i64 %19
+  %21 = sub nsw i32 %.01525, %.013
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %7, %11, %15, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01427, %5 ], [ %.01427, %7 ], [ %.01427, %11 ], [ %.01427, %15 ]
-  %23 = ptrtoint ptr %.01425 to i64
+  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %7 ], [ %.01426, %11 ], [ %.01426, %15 ]
+  %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
@@ -2692,9 +2692,9 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+  %.01426 = phi ptr [ %20, %.loopexit ], [ %0, %2 ]
+  %.01525 = phi i32 [ %21, %.loopexit ], [ %1, %2 ]
+  %4 = load i8, ptr %.01426, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -2703,7 +2703,7 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %.thread, label %.loopexit
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp eq i32 %.01526, 1
+  %8 = icmp eq i32 %.01525, 1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
@@ -2711,13 +2711,13 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 32
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11, %9
-  %16 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.thread, label %.loopexit, !llvm.loop !24
@@ -2725,14 +2725,14 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 .loopexit:                                        ; preds = %15, %5
   %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
   %19 = zext nneg i32 %.013 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %.01427, i64 %19
-  %21 = sub nsw i32 %.01526, %.013
+  %20 = getelementptr inbounds nuw i8, ptr %.01426, i64 %19
+  %21 = sub nsw i32 %.01525, %.013
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %7, %11, %15, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01427, %5 ], [ %.01427, %7 ], [ %.01427, %11 ], [ %.01427, %15 ]
-  %23 = ptrtoint ptr %.01425 to i64
+  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %7 ], [ %.01426, %11 ], [ %.01426, %15 ]
+  %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
@@ -2851,9 +2851,9 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %27
-  %.01426 = phi ptr [ %29, %27 ], [ %0, %2 ]
-  %.01524 = phi i32 [ %30, %27 ], [ %1, %2 ]
-  %4 = load i8, ptr %.01426, align 1
+  %.01425 = phi ptr [ %29, %27 ], [ %0, %2 ]
+  %.01523 = phi i32 [ %30, %27 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01425, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -2862,11 +2862,11 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %.thread, label %27
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp samesign ugt i32 %.01524, 3
+  %8 = icmp samesign ugt i32 %.01523, 3
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01425, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %11, -48
   %or.cond.i = icmp ult i8 %12, 10
@@ -2879,22 +2879,22 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %.01426, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01425, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = add i8 %16, 1
   %or.cond29.i = icmp ult i8 %17, -126
   br i1 %or.cond29.i, label %.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.01426, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %.01425, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, -48
   %or.cond30.i = icmp ult i8 %21, 10
   br i1 %or.cond30.i, label %27, label %.thread
 
 22:                                               ; preds = %7
-  %.not23 = icmp eq i32 %.01524, 1
-  br i1 %.not23, label %.thread, label %.thread.i
+  %.not22 = icmp eq i32 %.01523, 1
+  br i1 %.not22, label %.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %22, %9
   switch i8 %4, label %23 [
@@ -2903,7 +2903,7 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   ]
 
 23:                                               ; preds = %.thread.i
-  %24 = getelementptr inbounds nuw i8, ptr %.01426, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.01425, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = add i8 %25, -127
   %or.cond32.i = icmp ult i8 %26, -63
@@ -2914,13 +2914,13 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 27:                                               ; preds = %5, %18, %23
   %.013 = phi i32 [ 1, %5 ], [ 4, %18 ], [ 2, %23 ]
   %28 = zext nneg i32 %.013 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %.01426, i64 %28
-  %30 = sub nsw i32 %.01524, %.013
+  %29 = getelementptr inbounds nuw i8, ptr %.01425, i64 %28
+  %30 = sub nsw i32 %.01523, %.013
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %27, %5, %.thread.i, %.thread.i, %22, %18, %14, %13, %13, %23, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01426, %23 ], [ %.01426, %13 ], [ %.01426, %13 ], [ %.01426, %14 ], [ %.01426, %18 ], [ %.01426, %22 ], [ %.01426, %.thread.i ], [ %.01426, %.thread.i ], [ %.01426, %5 ], [ %29, %27 ]
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %23 ], [ %.01425, %13 ], [ %.01425, %13 ], [ %.01425, %14 ], [ %.01425, %18 ], [ %.01425, %22 ], [ %.01425, %.thread.i ], [ %.01425, %.thread.i ], [ %.01425, %5 ], [ %29, %27 ]
   %32 = ptrtoint ptr %.014.lcssa to i64
   %33 = ptrtoint ptr %0 to i64
   %34 = sub i64 %32, %33
@@ -3019,9 +3019,9 @@ define internal i32 @pg_johab_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %15, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %16, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+  %.01426 = phi ptr [ %15, %.loopexit ], [ %0, %2 ]
+  %.01525 = phi i32 [ %16, %.loopexit ], [ %1, %2 ]
+  %4 = load i8, ptr %.01426, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %pg_johab_mblen.exit.i
 
@@ -3032,12 +3032,12 @@ define internal i32 @pg_johab_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
   %cond = icmp eq i8 %4, -113
   %spec.select = select i1 %cond, i32 3, i32 2
-  %7 = icmp samesign ult i32 %.01526, %spec.select
+  %7 = icmp samesign ult i32 %.01525, %spec.select
   br i1 %7, label %.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pg_johab_mblen.exit.i, %9
   %.013.i = phi i32 [ %10, %9 ], [ %spec.select, %pg_johab_mblen.exit.i ]
-  %.012.i = phi ptr [ %11, %9 ], [ %.01427, %pg_johab_mblen.exit.i ]
+  %.012.i = phi ptr [ %11, %9 ], [ %.01426, %pg_johab_mblen.exit.i ]
   %8 = icmp samesign ugt i32 %.013.i, 1
   br i1 %8, label %9, label %.loopexit
 
@@ -3052,14 +3052,14 @@ pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
 .loopexit:                                        ; preds = %.preheader.i, %5
   %.013 = phi i32 [ 1, %5 ], [ %spec.select, %.preheader.i ]
   %14 = zext nneg i32 %.013 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %.01427, i64 %14
-  %16 = sub nsw i32 %.01526, %.013
+  %15 = getelementptr inbounds nuw i8, ptr %.01426, i64 %14
+  %16 = sub nsw i32 %.01525, %.013
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %5, %pg_johab_mblen.exit.i, %9, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %.01427, %9 ], [ %15, %.loopexit ], [ %.01427, %5 ], [ %.01427, %pg_johab_mblen.exit.i ]
-  %18 = ptrtoint ptr %.01425 to i64
+  %.01424 = phi ptr [ %0, %2 ], [ %.01426, %9 ], [ %15, %.loopexit ], [ %.01426, %5 ], [ %.01426, %pg_johab_mblen.exit.i ]
+  %18 = ptrtoint ptr %.01424 to i64
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32

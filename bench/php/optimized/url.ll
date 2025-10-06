@@ -2779,8 +2779,8 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !29
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
-  %.not185 = icmp eq i64 %21, %22
-  br i1 %.not185, label %23, label %zend_parse_arg_path.exit, !prof !34
+  %.not184 = icmp eq i64 %21, %22
+  br i1 %.not184, label %23, label %zend_parse_arg_path.exit, !prof !34
 
 zend_parse_arg_path.exit:                         ; preds = %18, %zend_parse_arg_str_ex.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2881,8 +2881,8 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %26
   %58 = load ptr, ptr %55, align 8, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i32, ptr %59, align 8, !tbaa !55
-  %.not126188 = icmp eq i32 %60, 0
-  br i1 %.not126188, label %._crit_edge, label %.lr.ph
+  %.not126187 = icmp eq i32 %60, 0
+  br i1 %.not126187, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -2896,9 +2896,9 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %26
   br label %69
 
 69:                                               ; preds = %.lr.ph, %123
-  %.0109190 = phi ptr [ %62, %.lr.ph ], [ %125, %123 ]
-  %.0110189 = phi i32 [ %60, %.lr.ph ], [ %126, %123 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.0109190, i64 8
+  %.0109189 = phi ptr [ %62, %.lr.ph ], [ %125, %123 ]
+  %.0110188 = phi i32 [ %60, %.lr.ph ], [ %126, %123 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.0109189, i64 8
   %71 = load i8, ptr %70, align 8, !tbaa !11
   %cond = icmp eq i8 %71, 6
   br i1 %cond, label %72, label %123, !prof !57
@@ -2906,7 +2906,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %26
 72:                                               ; preds = %69
   %73 = load i8, ptr %4, align 1, !tbaa !21, !range !38, !noundef !39
   %74 = trunc nuw i8 %73 to i1
-  %.pre = load ptr, ptr %.0109190, align 8, !tbaa !11
+  %.pre = load ptr, ptr %.0109189, align 8, !tbaa !11
   br i1 %74, label %83, label %75
 
 75:                                               ; preds = %83, %72
@@ -2952,7 +2952,7 @@ zend_string_copy.exit:                            ; preds = %75, %79
 
 96:                                               ; preds = %90
   %97 = load ptr, ptr %1, align 8, !tbaa !11
-  %98 = load ptr, ptr %.0109190, align 8, !tbaa !11
+  %98 = load ptr, ptr %.0109189, align 8, !tbaa !11
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = ptrtoint ptr %85 to i64
   %101 = ptrtoint ptr %99 to i64
@@ -2962,7 +2962,7 @@ zend_string_copy.exit:                            ; preds = %75, %79
   br i1 %104, label %105, label %114
 
 105:                                              ; preds = %96
-  %106 = load ptr, ptr %.0109190, align 8, !tbaa !11
+  %106 = load ptr, ptr %.0109189, align 8, !tbaa !11
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = ptrtoint ptr %107 to i64
   %109 = sub i64 %100, %108
@@ -2976,7 +2976,7 @@ zend_string_copy.exit:                            ; preds = %75, %79
 
 114:                                              ; preds = %96
   call void @convert_to_array(ptr noundef nonnull %103) #13
-  %115 = load ptr, ptr %.0109190, align 8, !tbaa !11
+  %115 = load ptr, ptr %.0109189, align 8, !tbaa !11
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !29
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 24
@@ -2992,9 +2992,9 @@ zend_string_copy.exit:                            ; preds = %75, %79
   br label %123
 
 123:                                              ; preds = %69, %.thread, %zend_string_copy.exit
-  %124 = getelementptr inbounds nuw i8, ptr %.0109190, i64 %68
+  %124 = getelementptr inbounds nuw i8, ptr %.0109189, i64 %68
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %126 = add i32 %.0110189, -1
+  %126 = add i32 %.0110188, -1
   %.not126 = icmp eq i32 %126, 0
   br i1 %.not126, label %._crit_edge, label %69
 

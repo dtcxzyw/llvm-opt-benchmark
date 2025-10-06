@@ -1621,27 +1621,27 @@ strmap_get_size.exit.i.i:                         ; preds = %110
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %strmap_get_size.exit.i.i
-  %exitcond218.not.i.i = phi i1 [ false, %strmap_get_size.exit.i.i ], [ true, %.backedge.i.i.backedge ]
-  %indvars.iv215.i.i = phi i64 [ 1, %strmap_get_size.exit.i.i ], [ 2, %.backedge.i.i.backedge ]
-  %.0116207.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %.1117.lcssa.i.i, %.backedge.i.i.backedge ]
-  %.0121206.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %.0121206.i.i.be, %.backedge.i.i.backedge ]
+  %exitcond216.not.i.i = phi i1 [ false, %strmap_get_size.exit.i.i ], [ true, %.backedge.i.i.backedge ]
+  %indvars.iv213.i.i = phi i64 [ 1, %strmap_get_size.exit.i.i ], [ 2, %.backedge.i.i.backedge ]
+  %.0116205.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %.1117.lcssa.i.i, %.backedge.i.i.backedge ]
+  %.0121204.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %.0121204.i.i.be, %.backedge.i.i.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %123 = getelementptr inbounds nuw %struct.strintmap, ptr %118, i64 %indvars.iv215.i.i
+  %123 = getelementptr inbounds nuw %struct.strintmap, ptr %118, i64 %indvars.iv213.i.i
   call void @hashmap_iter_init(ptr noundef nonnull %123, ptr noundef nonnull %25) #19
   %124 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
-  %125 = getelementptr inbounds nuw %struct.strmap, ptr %119, i64 %indvars.iv215.i.i
-  %.not134.not181.not.i.i = icmp eq ptr %124, null
-  br i1 %.not134.not181.not.i.i, label %._crit_edge186.i.i, label %.lr.ph185.i.i
+  %125 = getelementptr inbounds nuw %struct.strmap, ptr %119, i64 %indvars.iv213.i.i
+  %.not134.not179.not.i.i = icmp eq ptr %124, null
+  br i1 %.not134.not179.not.i.i, label %._crit_edge184.i.i, label %.lr.ph183.i.i
 
-.lr.ph185.i.i:                                    ; preds = %.backedge.i.i
-  %126 = getelementptr inbounds nuw %struct.strset, ptr %120, i64 %indvars.iv215.i.i
-  %127 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %111, i64 %indvars.iv215.i.i
+.lr.ph183.i.i:                                    ; preds = %.backedge.i.i
+  %126 = getelementptr inbounds nuw %struct.strset, ptr %120, i64 %indvars.iv213.i.i
+  %127 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %111, i64 %indvars.iv213.i.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 1160
   br label %129
 
-129:                                              ; preds = %150, %.lr.ph185.i.i
-  %.0108182.i.i = phi ptr [ %124, %.lr.ph185.i.i ], [ %151, %150 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.0108182.i.i, i64 16
+129:                                              ; preds = %150, %.lr.ph183.i.i
+  %.0108180.i.i = phi ptr [ %124, %.lr.ph183.i.i ], [ %151, %150 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.0108180.i.i, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !32
   %132 = call i32 @strmap_contains(ptr noundef nonnull %126, ptr noundef %131) #19
   %.not135.i.i = icmp eq i32 %132, 0
@@ -1651,7 +1651,7 @@ strmap_get_size.exit.i.i:                         ; preds = %110
   %134 = load ptr, ptr %130, align 8, !tbaa !32
   %135 = call ptr @strmap_get_entry(ptr noundef nonnull %125, ptr noundef %134) #19
   %.not136.i.i = icmp eq ptr %135, null
-  br i1 %.not136.i.i, label %._crit_edge186.i.i, label %136
+  br i1 %.not136.i.i, label %._crit_edge184.i.i, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 24
@@ -1668,8 +1668,8 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 142:                                              ; preds = %139
   %143 = call ptr @xstrdup(ptr noundef nonnull %138) #19
   %144 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %143, i32 noundef 47) #20
-  %.not139179.i.i = icmp eq ptr %144, null
-  br i1 %.not139179.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not139177.i.i = icmp eq ptr %144, null
+  br i1 %.not139177.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %142, %147
   %145 = phi ptr [ %149, %147 ], [ %144, %142 ]
@@ -1691,12 +1691,12 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 150:                                              ; preds = %._crit_edge.i.i, %139, %136, %129
   %151 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
   %.not134.not.not.i.i = icmp eq ptr %151, null
-  br i1 %.not134.not.not.i.i, label %._crit_edge186.i.i, label %129, !llvm.loop !155
+  br i1 %.not134.not.not.i.i, label %._crit_edge184.i.i, label %129, !llvm.loop !155
 
-._crit_edge186.i.i:                               ; preds = %150, %133, %.backedge.i.i
+._crit_edge184.i.i:                               ; preds = %150, %133, %.backedge.i.i
   %.not134.not.lcssa.i.i = phi i1 [ false, %.backedge.i.i ], [ true, %133 ], [ false, %150 ]
   %.1125.i.i = phi i32 [ 1, %.backedge.i.i ], [ 0, %133 ], [ 1, %150 ]
-  %152 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %121, i64 %indvars.iv215.i.i
+  %152 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %121, i64 %indvars.iv213.i.i
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 72
   store i32 %.1125.i.i, ptr %153, align 8, !tbaa !131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(72) %152, i64 72, i1 false), !tbaa.struct !156
@@ -1707,19 +1707,19 @@ strmap_get_size.exit.i.i:                         ; preds = %110
   store i32 0, ptr %156, align 8, !tbaa !142
   call void @hashmap_iter_init(ptr noundef nonnull %26, ptr noundef nonnull %25) #19
   %157 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
-  %.not141194.i.i = icmp eq ptr %157, null
-  br i1 %.not141194.i.i, label %._crit_edge199.i.i, label %.lr.ph198.i.i
+  %.not141192.i.i = icmp eq ptr %157, null
+  br i1 %.not141192.i.i, label %._crit_edge197.i.i, label %.lr.ph196.i.i
 
-.lr.ph198.i.i:                                    ; preds = %._crit_edge186.i.i
+.lr.ph196.i.i:                                    ; preds = %._crit_edge184.i.i
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 80
   br label %159
 
-159:                                              ; preds = %264, %.lr.ph198.i.i
-  %.1109196.i.i = phi ptr [ %157, %.lr.ph198.i.i ], [ %265, %264 ]
-  %.1117195.i.i = phi i32 [ %.0116207.i.i, %.lr.ph198.i.i ], [ %.2118.ph.i.i, %264 ]
-  %160 = getelementptr inbounds nuw i8, ptr %.1109196.i.i, i64 16
+159:                                              ; preds = %264, %.lr.ph196.i.i
+  %.1109194.i.i = phi ptr [ %157, %.lr.ph196.i.i ], [ %265, %264 ]
+  %.1117193.i.i = phi i32 [ %.0116205.i.i, %.lr.ph196.i.i ], [ %.2118.ph.i.i, %264 ]
+  %160 = getelementptr inbounds nuw i8, ptr %.1109194.i.i, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !32
-  %162 = getelementptr inbounds nuw i8, ptr %.1109196.i.i, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %.1109194.i.i, i64 24
   %163 = load ptr, ptr %162, align 8, !tbaa !28
   %164 = ptrtoint ptr %163 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -1741,7 +1741,7 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 
 174:                                              ; preds = %172
   %175 = getelementptr inbounds nuw i8, ptr %166, i64 64
-  %176 = getelementptr inbounds nuw %struct.version_info, ptr %175, i64 %indvars.iv215.i.i
+  %176 = getelementptr inbounds nuw %struct.version_info, ptr %175, i64 %indvars.iv213.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %166, ptr noundef nonnull readonly align 4 dereferenceable(32) %176, i64 32, i1 false)
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %178 = load i32, ptr %177, align 4, !tbaa !80
@@ -1776,7 +1776,7 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 
 195:                                              ; preds = %213, %191
   %indvars.iv.i.i = phi i64 [ 0, %191 ], [ %indvars.iv.next.i.i, %213 ]
-  %.0115191.i.i = phi i32 [ %171, %191 ], [ %214, %213 ]
+  %.0115189.i.i = phi i32 [ %171, %191 ], [ %214, %213 ]
   %196 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   switch i32 %196, label %.critedge.i.i [
     i32 1, label %197
@@ -1810,7 +1810,7 @@ strmap_get_size.exit.i.i:                         ; preds = %110
   br label %213
 
 .critedge.i.i:                                    ; preds = %202, %197, %195
-  %207 = and i32 %.0115191.i.i, 1
+  %207 = and i32 %.0115189.i.i, 1
   %.not145.i.i = icmp eq i32 %207, 0
   %208 = getelementptr inbounds nuw %struct.version_info, ptr %194, i64 %indvars.iv.i.i
   %.0112.i.i = select i1 %.not145.i.i, ptr null, ptr %208
@@ -1823,7 +1823,7 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 
 213:                                              ; preds = %.critedge.i.i, %206, %205, %201
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %214 = lshr i32 %.0115191.i.i, 1
+  %214 = lshr i32 %.0115189.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %215, label %195, !llvm.loop !168
 
@@ -1842,12 +1842,11 @@ strmap_get_size.exit.i.i:                         ; preds = %110
   %225 = and i8 %223, -8
   %226 = or disjoint i8 %225, %224
   store i8 %226, ptr %122, align 8
-  switch i8 %224, label %229 [
-    i8 0, label %227
-    i8 7, label %227
-  ]
+  %.off.i.i = add nsw i8 %224, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, 6
+  br i1 %switch.i.i, label %229, label %227
 
-227:                                              ; preds = %215, %215
+227:                                              ; preds = %215
   %228 = call i32 @traverse_trees(ptr noundef null, i32 noundef 3, ptr noundef nonnull %27, ptr noundef nonnull %30) #19
   br label %traverse_trees_wrapper.exit.i.i
 
@@ -1912,42 +1911,42 @@ traverse_trees_wrapper.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   br label %259
 
 259:                                              ; preds = %259, %traverse_trees_wrapper.exit.i.i
-  %indvars.iv211.i.i = phi i64 [ 0, %traverse_trees_wrapper.exit.i.i ], [ %indvars.iv.next212.i.i, %259 ]
-  %260 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv211.i.i
+  %indvars.iv209.i.i = phi i64 [ 0, %traverse_trees_wrapper.exit.i.i ], [ %indvars.iv.next210.i.i, %259 ]
+  %260 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv209.i.i
   %261 = load ptr, ptr %260, align 8, !tbaa !158
   call void @free(ptr noundef %261) #19
-  %indvars.iv.next212.i.i = add nuw nsw i64 %indvars.iv211.i.i, 1
-  %exitcond214.not.i.i = icmp eq i64 %indvars.iv.next212.i.i, 3
-  br i1 %exitcond214.not.i.i, label %262, label %259, !llvm.loop !176
+  %indvars.iv.next210.i.i = add nuw nsw i64 %indvars.iv209.i.i, 1
+  %exitcond212.not.i.i = icmp eq i64 %indvars.iv.next210.i.i, 3
+  br i1 %exitcond212.not.i.i, label %262, label %259, !llvm.loop !176
 
 262:                                              ; preds = %259
   %263 = icmp slt i32 %.3119.i.i, 0
   br i1 %263, label %collect_merge_info.exit.thread104, label %264
 
 264:                                              ; preds = %262, %174
-  %.2118.ph.i.i = phi i32 [ %.3119.i.i, %262 ], [ %.1117195.i.i, %174 ]
+  %.2118.ph.i.i = phi i32 [ %.3119.i.i, %262 ], [ %.1117193.i.i, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %265 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
   %.not141.i.i = icmp eq ptr %265, null
-  br i1 %.not141.i.i, label %._crit_edge199.i.i, label %159, !llvm.loop !177
+  br i1 %.not141.i.i, label %._crit_edge197.i.i, label %159, !llvm.loop !177
 
-._crit_edge199.i.i:                               ; preds = %264, %._crit_edge186.i.i
-  %.1117.lcssa.i.i = phi i32 [ %.0116207.i.i, %._crit_edge186.i.i ], [ %.2118.ph.i.i, %264 ]
+._crit_edge197.i.i:                               ; preds = %264, %._crit_edge184.i.i
+  %.1117.lcssa.i.i = phi i32 [ %.0116205.i.i, %._crit_edge184.i.i ], [ %.2118.ph.i.i, %264 ]
   call void @strmap_clear(ptr noundef nonnull %26, i32 noundef 0) #19
   call void @hashmap_iter_init(ptr noundef nonnull %152, ptr noundef nonnull %25) #19
   %266 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
-  %.not142201.i.i = icmp eq ptr %266, null
-  br i1 %.not142201.i.i, label %._crit_edge205.i.i, label %.lr.ph204.i.i
+  %.not142199.i.i = icmp eq ptr %266, null
+  br i1 %.not142199.i.i, label %._crit_edge203.i.i, label %.lr.ph202.i.i
 
-.lr.ph204.i.i:                                    ; preds = %._crit_edge199.i.i, %.lr.ph204.i.i
-  %.2110202.i.i = phi ptr [ %288, %.lr.ph204.i.i ], [ %266, %._crit_edge199.i.i ]
-  %267 = getelementptr inbounds nuw i8, ptr %.2110202.i.i, i64 16
+.lr.ph202.i.i:                                    ; preds = %._crit_edge197.i.i, %.lr.ph202.i.i
+  %.2110200.i.i = phi ptr [ %288, %.lr.ph202.i.i ], [ %266, %._crit_edge197.i.i ]
+  %267 = getelementptr inbounds nuw i8, ptr %.2110200.i.i, i64 16
   %268 = load ptr, ptr %267, align 8, !tbaa !32
   %269 = load ptr, ptr %56, align 8, !tbaa !118
   %270 = call ptr @strmap_get(ptr noundef %269, ptr noundef %268) #19
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 64
-  %272 = getelementptr inbounds nuw %struct.version_info, ptr %271, i64 %indvars.iv215.i.i
+  %272 = getelementptr inbounds nuw %struct.version_info, ptr %271, i64 %indvars.iv213.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %270, ptr noundef nonnull readonly align 4 dereferenceable(32) %272, i64 32, i1 false)
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 32
   %274 = load i32, ptr %273, align 4, !tbaa !80
@@ -1972,14 +1971,14 @@ traverse_trees_wrapper.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   store i8 %287, ptr %279, align 8
   %288 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
   %.not142.i.i = icmp eq ptr %288, null
-  br i1 %.not142.i.i, label %._crit_edge205.i.i, label %.lr.ph204.i.i, !llvm.loop !178
+  br i1 %.not142.i.i, label %._crit_edge203.i.i, label %.lr.ph202.i.i, !llvm.loop !178
 
-._crit_edge205.i.i:                               ; preds = %.lr.ph204.i.i, %._crit_edge199.i.i
-  %289 = icmp ne i32 %.0121206.i.i, 0
+._crit_edge203.i.i:                               ; preds = %.lr.ph202.i.i, %._crit_edge197.i.i
+  %289 = icmp ne i32 %.0121204.i.i, 0
   %or.cond.i.i = select i1 %.not134.not.lcssa.i.i, i1 true, i1 %289
   br i1 %or.cond.i.i, label %290, label %.thread.i.i
 
-290:                                              ; preds = %._crit_edge205.i.i
+290:                                              ; preds = %._crit_edge203.i.i
   %291 = load ptr, ptr %56, align 8, !tbaa !118
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 40
   %293 = load i8, ptr %292, align 8
@@ -2002,19 +2001,19 @@ collect_merge_info.exit.thread104:                ; preds = %262
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %298 = load i32, ptr %297, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %exitcond218.not.i.i, label %299, label %.backedge.i.i.backedge
+  br i1 %exitcond216.not.i.i, label %299, label %.backedge.i.i.backedge
 
-.thread.i.i:                                      ; preds = %._crit_edge205.i.i
+.thread.i.i:                                      ; preds = %._crit_edge203.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %exitcond218.not.i.i, label %.thread231.i.i, label %.backedge.i.i.backedge
+  br i1 %exitcond216.not.i.i, label %.thread229.i.i, label %.backedge.i.i.backedge
 
 .backedge.i.i.backedge:                           ; preds = %.thread.i.i, %296
-  %.0121206.i.i.be = phi i32 [ 0, %.thread.i.i ], [ %298, %296 ]
+  %.0121204.i.i.be = phi i32 [ 0, %.thread.i.i ], [ %298, %296 ]
   br label %.backedge.i.i, !llvm.loop !179
 
 299:                                              ; preds = %296
   %.not.i.i = icmp eq i32 %298, 0
-  br i1 %.not.i.i, label %.thread231.i.i, label %300
+  br i1 %.not.i.i, label %.thread229.i.i, label %300
 
 300:                                              ; preds = %299
   %301 = sdiv i32 %298, %117
@@ -2028,17 +2027,17 @@ collect_merge_info.exit.thread104:                ; preds = %262
   store i32 -1, ptr %305, align 8, !tbaa !129
   br label %collect_merge_info.exit
 
-.thread231.i.i:                                   ; preds = %.thread.i.i, %299
+.thread229.i.i:                                   ; preds = %.thread.i.i, %299
   %306 = getelementptr inbounds nuw i8, ptr %111, i64 2152
   %307 = load i32, ptr %306, align 8, !tbaa !180
   %308 = icmp eq i32 %307, 2
   br i1 %308, label %309, label %collect_merge_info.exit
 
-309:                                              ; preds = %.thread231.i.i
+309:                                              ; preds = %.thread229.i.i
   store i32 0, ptr %306, align 8, !tbaa !180
   br label %collect_merge_info.exit
 
-collect_merge_info.exit:                          ; preds = %300, %303, %.thread231.i.i, %309
+collect_merge_info.exit:                          ; preds = %300, %303, %.thread229.i.i, %309
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %310 = load ptr, ptr %0, align 8, !tbaa !14
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 1708, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.58, ptr noundef %310) #19
@@ -4634,8 +4633,8 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
   %.047 = phi ptr [ %37, %33 ], [ @.str.132, %19 ], [ @.str.133, %31 ]
   %.046 = phi ptr [ %18, %33 ], [ %27, %19 ], [ %18, %31 ]
   %39 = call ptr @pop_commit(ptr noundef nonnull %6) #19
-  %.not5157 = icmp eq ptr %39, null
-  br i1 %.not5157, label %._crit_edge, label %.lr.ph
+  %.not5156 = icmp eq ptr %39, null
+  br i1 %.not5156, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4645,8 +4644,8 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
   br label %44
 
 44:                                               ; preds = %.lr.ph, %96
-  %.04559 = phi ptr [ %39, %.lr.ph ], [ %104, %96 ]
-  %.158 = phi ptr [ %.046, %.lr.ph ], [ %60, %96 ]
+  %.04558 = phi ptr [ %39, %.lr.ph ], [ %104, %96 ]
+  %.157 = phi ptr [ %.046, %.lr.ph ], [ %60, %96 ]
   %45 = load ptr, ptr %40, align 8, !tbaa !118
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2432
   %47 = load i32, ptr %46, align 8, !tbaa !198
@@ -4656,7 +4655,7 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
   %50 = load ptr, ptr %42, align 8, !tbaa !210
   store ptr @.str.134, ptr %41, align 8, !tbaa !209
   store ptr @.str.135, ptr %42, align 8, !tbaa !210
-  call fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef null, ptr noundef %.158, ptr noundef nonnull %.04559, ptr noundef %4)
+  call fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef null, ptr noundef %.157, ptr noundef nonnull %.04558, ptr noundef %4)
   %51 = load i32, ptr %4, align 8, !tbaa !37
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %.loopexit, label %53
@@ -4679,10 +4678,10 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
   %63 = or i32 %62, 1
   store i32 %63, ptr %60, align 8
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %65 = call ptr @commit_list_insert(ptr noundef %.158, ptr noundef nonnull %64) #19
+  %65 = call ptr @commit_list_insert(ptr noundef %.157, ptr noundef nonnull %64) #19
   %66 = load ptr, ptr %64, align 8, !tbaa !248
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = call ptr @commit_list_insert(ptr noundef nonnull %.04559, ptr noundef nonnull %67) #19
+  %68 = call ptr @commit_list_insert(ptr noundef nonnull %.04558, ptr noundef nonnull %67) #19
   %69 = load ptr, ptr %40, align 8, !tbaa !118
   call void @strmap_partial_clear(ptr noundef %69, i32 noundef 0) #19, !callees !128
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
@@ -5552,12 +5551,11 @@ st_add.exit221:                                   ; preds = %st_add.exit
   store ptr %77, ptr %13, align 8, !tbaa !148
   %361 = load i8, ptr %15, align 8
   %362 = and i8 %361, 7
-  switch i8 %362, label %365 [
-    i8 0, label %363
-    i8 7, label %363
-  ]
+  %.off = add nsw i8 %362, -1
+  %switch = icmp ult i8 %.off, 6
+  br i1 %switch, label %365, label %363
 
-363:                                              ; preds = %.thread245, %.thread245
+363:                                              ; preds = %.thread245
   %364 = call i32 @traverse_trees(ptr noundef null, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %6) #19
   br label %367
 
@@ -6720,18 +6718,18 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   %144 = call ptr @mem_pool_strdup(ptr noundef nonnull %143, ptr noundef nonnull %.0.i) #19
   call void @free(ptr noundef nonnull %.0.i) #19
   %145 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %144, i32 noundef 47) #20
-  %.not162.i = icmp eq ptr %145, null
-  br i1 %.not162.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not161.i = icmp eq ptr %145, null
+  br i1 %.not161.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %132, %159
   %146 = phi ptr [ %161, %159 ], [ %145, %132 ]
-  %.0135163.i = phi ptr [ %152, %159 ], [ %144, %132 ]
+  %.0135162.i = phi ptr [ %152, %159 ], [ %144, %132 ]
   %147 = load ptr, ptr %10, align 8, !tbaa !118
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 128
   %149 = ptrtoint ptr %146 to i64
-  %150 = ptrtoint ptr %.0135163.i to i64
+  %150 = ptrtoint ptr %.0135162.i to i64
   %151 = sub i64 %149, %150
-  %152 = call ptr @mem_pool_strndup(ptr noundef nonnull %148, ptr noundef nonnull %.0135163.i, i64 noundef %151) #19
+  %152 = call ptr @mem_pool_strndup(ptr noundef nonnull %148, ptr noundef nonnull %.0135162.i, i64 noundef %151) #19
   %153 = load ptr, ptr %10, align 8, !tbaa !118
   %154 = call ptr @strmap_get_entry(ptr noundef %153, ptr noundef %152) #19
   %.not142.i = icmp eq ptr %154, null
@@ -6757,18 +6755,18 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   %.0137.ph.i = load ptr, ptr %.0137.ph.in.i, align 8, !tbaa !48
   %163 = load i64, ptr %26, align 8, !tbaa !38
   %164 = trunc i64 %163 to i32
-  %.0133164.i = add i32 %164, -1
-  %165 = icmp sgt i32 %.0133164.i, -1
-  br i1 %165, label %.lr.ph168.i, label %._crit_edge169.i
+  %.0133163.i = add i32 %164, -1
+  %165 = icmp sgt i32 %.0133163.i, -1
+  br i1 %165, label %.lr.ph167.i, label %._crit_edge168.i
 
-.lr.ph168.i:                                      ; preds = %162
+.lr.ph167.i:                                      ; preds = %162
   %166 = getelementptr inbounds nuw i8, ptr %141, i64 208
-  %167 = zext nneg i32 %.0133164.i to i64
+  %167 = zext nneg i32 %.0133163.i to i64
   br label %168
 
-168:                                              ; preds = %168, %.lr.ph168.i
-  %indvars.iv.i = phi i64 [ %167, %.lr.ph168.i ], [ %indvars.iv.next.i, %168 ]
-  %.1138165.i = phi ptr [ %.0137.ph.i, %.lr.ph168.i ], [ %171, %168 ]
+168:                                              ; preds = %168, %.lr.ph167.i
+  %indvars.iv.i = phi i64 [ %167, %.lr.ph167.i ], [ %indvars.iv.next.i, %168 ]
+  %.1138164.i = phi ptr [ %.0137.ph.i, %.lr.ph167.i ], [ %171, %168 ]
   %169 = load ptr, ptr %7, align 8, !tbaa !27
   %170 = getelementptr inbounds nuw %struct.string_list_item, ptr %169, i64 %indvars.iv.i
   %171 = load ptr, ptr %170, align 8, !tbaa !44
@@ -6776,8 +6774,8 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 128
   %174 = call ptr @mem_pool_calloc(ptr noundef nonnull %173, i64 noundef 1, i64 noundef 216) #19
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  store ptr %.1138165.i, ptr %175, align 8, !tbaa !296
-  %176 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1138165.i) #20
+  store ptr %.1138164.i, ptr %175, align 8, !tbaa !296
+  %176 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1138164.i) #20
   %177 = trunc i64 %176 to i32
   %178 = icmp sgt i32 %177, 0
   %179 = zext i1 %178 to i64
@@ -6797,10 +6795,10 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   %190 = load ptr, ptr %10, align 8, !tbaa !118
   %191 = call ptr @strmap_put(ptr noundef %190, ptr noundef %171, ptr noundef %174) #19
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not183.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not183.i, label %._crit_edge169.i, label %168, !llvm.loop !298
+  %.not182.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not182.i, label %._crit_edge168.i, label %168, !llvm.loop !298
 
-._crit_edge169.i:                                 ; preds = %168, %162
+._crit_edge168.i:                                 ; preds = %168, %162
   %.1138.lcssa.i = phi ptr [ %.0137.ph.i, %162 ], [ %171, %168 ]
   %192 = getelementptr inbounds nuw i8, ptr %141, i64 208
   %193 = load i16, ptr %192, align 8
@@ -6809,11 +6807,11 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   %196 = load ptr, ptr %10, align 8, !tbaa !118
   br i1 %195, label %197, label %198
 
-197:                                              ; preds = %._crit_edge169.i
+197:                                              ; preds = %._crit_edge168.i
   call void @strmap_remove(ptr noundef %196, ptr noundef %139, i32 noundef 0) #19
   br label %.loopexit.i
 
-198:                                              ; preds = %._crit_edge169.i
+198:                                              ; preds = %._crit_edge168.i
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 128
   %200 = call ptr @mem_pool_calloc(ptr noundef nonnull %199, i64 noundef 1, i64 noundef 216) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %200, ptr noundef nonnull align 8 dereferenceable(216) %141, i64 216, i1 false)
@@ -6841,19 +6839,19 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   br label %216
 
 216:                                              ; preds = %231, %198
-  %indvars.iv174.i = phi i64 [ 0, %198 ], [ %indvars.iv.next175.i, %231 ]
+  %indvars.iv173.i = phi i64 [ 0, %198 ], [ %indvars.iv.next174.i, %231 ]
   %217 = load i16, ptr %192, align 8
   %218 = lshr i16 %217, 5
   %219 = and i16 %218, 7
   %220 = zext nneg i16 %219 to i32
-  %221 = trunc nuw nsw i64 %indvars.iv174.i to i32
+  %221 = trunc nuw nsw i64 %indvars.iv173.i to i32
   %222 = shl nuw nsw i32 1, %221
   %223 = and i32 %222, %220
   %.not143.i = icmp eq i32 %223, 0
   br i1 %.not143.i, label %224, label %231
 
 224:                                              ; preds = %216
-  %225 = getelementptr inbounds nuw %struct.version_info, ptr %215, i64 %indvars.iv174.i
+  %225 = getelementptr inbounds nuw %struct.version_info, ptr %215, i64 %indvars.iv173.i
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 36
   store i16 0, ptr %226, align 4, !tbaa !76
   %227 = call ptr @null_oid() #19
@@ -6865,8 +6863,8 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   br label %231
 
 231:                                              ; preds = %224, %216
-  %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next175.i, 3
+  %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next174.i, 3
   br i1 %exitcond.not.i, label %.loopexit.i, label %216, !llvm.loop !299
 
 .loopexit.i:                                      ; preds = %231, %197

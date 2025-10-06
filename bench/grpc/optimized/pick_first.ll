@@ -11767,8 +11767,8 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_112OldPickFirst14Subchann
 
 .critedge:                                        ; preds = %.lr.ph
   %21 = and i64 %.val11, 4294967295
-  %.not18 = icmp eq i64 %21, 3
-  br i1 %.not18, label %90, label %.critedge.i
+  %.not17 = icmp eq i64 %21, 3
+  br i1 %.not17, label %90, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge
   %22 = trunc i64 %.val11 to i32
@@ -22727,8 +22727,8 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelLi
 
 .critedge:                                        ; preds = %.lr.ph
   %21 = and i64 %.val12, 4294967295
-  %.not19 = icmp eq i64 %21, 3
-  br i1 %.not19, label %95, label %.critedge.i
+  %.not18 = icmp eq i64 %21, 3
+  br i1 %.not18, label %95, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge
   %22 = trunc i64 %.val12 to i32

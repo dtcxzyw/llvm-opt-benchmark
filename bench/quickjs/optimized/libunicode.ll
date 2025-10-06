@@ -109,9 +109,9 @@ define dso_local range(i32 1, 4) i32 @lre_case_conv(ptr noundef writeonly captur
   br label %.thread
 
 .preheader:                                       ; preds = %3, %27
-  %.03348 = phi i32 [ %.1, %27 ], [ 369, %3 ]
-  %.03447 = phi i32 [ %.135, %27 ], [ 0, %3 ]
-  %12 = add i32 %.03348, %.03447
+  %.03347 = phi i32 [ %.1, %27 ], [ 369, %3 ]
+  %.03446 = phi i32 [ %.135, %27 ], [ 0, %3 ]
+  %12 = add i32 %.03347, %.03446
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i32, ptr @case_conv_table1, i64 %14
@@ -136,8 +136,8 @@ define dso_local range(i32 1, 4) i32 @lre_case_conv(ptr noundef writeonly captur
   br label %27
 
 27:                                               ; preds = %25, %19
-  %.135 = phi i32 [ %.03447, %19 ], [ %26, %25 ]
-  %.1 = phi i32 [ %20, %19 ], [ %.03348, %25 ]
+  %.135 = phi i32 [ %.03446, %19 ], [ %26, %25 ]
+  %.1 = phi i32 [ %20, %19 ], [ %.03347, %25 ]
   %.not.not = icmp sgt i32 %.135, %.1
   br i1 %.not.not, label %.thread, label %.preheader, !llvm.loop !11
 

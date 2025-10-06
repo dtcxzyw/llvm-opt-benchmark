@@ -1146,20 +1146,20 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %50, %6
   %136 = load ptr, ptr %1, align 8, !tbaa !3
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 45
   %138 = load i8, ptr %137, align 1, !tbaa !57
-  %.not121200 = icmp eq i8 %138, 1
-  br i1 %.not121200, label %.critedge, label %.lr.ph202.preheader
+  %.not121199 = icmp eq i8 %138, 1
+  br i1 %.not121199, label %.critedge, label %.lr.ph201.preheader
 
-.lr.ph202.preheader:                              ; preds = %123
+.lr.ph201.preheader:                              ; preds = %123
   %139 = zext i8 %138 to i32
-  br label %.lr.ph202
+  br label %.lr.ph201
 
-.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147
-  %140 = phi i32 [ %168, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147 ], [ %139, %.lr.ph202.preheader ]
-  %.0201 = phi i32 [ %164, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147 ], [ 1, %.lr.ph202.preheader ]
+.lr.ph201:                                        ; preds = %.lr.ph201.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147
+  %140 = phi i32 [ %168, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147 ], [ %139, %.lr.ph201.preheader ]
+  %.0200 = phi i32 [ %164, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147 ], [ 1, %.lr.ph201.preheader ]
   %141 = load ptr, ptr %0, align 8, !tbaa !67
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 48
   %143 = load i32, ptr %5, align 4, !tbaa !48
-  %144 = sub i32 %.0201, %140
+  %144 = sub i32 %.0200, %140
   %145 = add i32 %144, %143
   %146 = load ptr, ptr %2, align 8, !tbaa !58
   %147 = load ptr, ptr %146, align 8
@@ -1171,7 +1171,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %50, %6
   %.not.i.i.not.i145 = icmp ult i32 %150, %152
   br i1 %.not.i.i.not.i145, label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147, label %153, !prof !77
 
-153:                                              ; preds = %.lr.ph202
+153:                                              ; preds = %.lr.ph201
   %154 = zext i32 %150 to i64
   %155 = add nuw nsw i64 %154, 1
   %156 = getelementptr inbounds nuw i8, ptr %141, i64 64
@@ -1179,8 +1179,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %50, %6
   %.pre.i146 = load i32, ptr %149, align 8, !tbaa !75
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147
 
-_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147: ; preds = %.lr.ph202, %153
-  %157 = phi i32 [ %150, %.lr.ph202 ], [ %.pre.i146, %153 ]
+_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147: ; preds = %.lr.ph201, %153
+  %157 = phi i32 [ %150, %.lr.ph201 ], [ %.pre.i146, %153 ]
   %158 = load ptr, ptr %142, align 8, !tbaa !78
   %159 = zext i32 %157 to i64
   %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %159
@@ -1189,13 +1189,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147: ; preds = %.lr
   %162 = load i32, ptr %149, align 8, !tbaa !75
   %163 = add i32 %162, 1
   store i32 %163, ptr %149, align 8, !tbaa !75
-  %164 = add i32 %.0201, 1
+  %164 = add i32 %.0200, 1
   %165 = load ptr, ptr %1, align 8, !tbaa !3
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 45
   %167 = load i8, ptr %166, align 1, !tbaa !57
   %168 = zext i8 %167 to i32
   %.not121 = icmp eq i32 %164, %168
-  br i1 %.not121, label %.critedge, label %.lr.ph202, !llvm.loop !84
+  br i1 %.not121, label %.critedge, label %.lr.ph201, !llvm.loop !84
 
 169:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %.not119 = icmp eq i64 %4, %19
@@ -1327,9 +1327,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147: ; preds = %.lr
   %239 = load ptr, ptr %238, align 8
   %240 = tail call noundef i32 %239(ptr noundef nonnull align 8 dereferenceable(176) %2) #14
   %241 = icmp ult i32 %236, %240
-  br i1 %241, label %.lr.ph198, label %.critedge
+  br i1 %241, label %.lr.ph197, label %.critedge
 
-.lr.ph198:                                        ; preds = %232, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit168
+.lr.ph197:                                        ; preds = %232, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit168
   %242 = load i32, ptr %5, align 4, !tbaa !48
   %243 = load ptr, ptr %2, align 8, !tbaa !58
   %244 = load ptr, ptr %243, align 8
@@ -1337,7 +1337,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147: ; preds = %.lr
   %.not118 = icmp eq ptr %245, null
   br i1 %.not118, label %.critedge, label %246
 
-246:                                              ; preds = %.lr.ph198
+246:                                              ; preds = %.lr.ph197
   %247 = load ptr, ptr %0, align 8, !tbaa !67
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 48
   %249 = load i32, ptr %5, align 4, !tbaa !48
@@ -1377,7 +1377,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit168: ; preds = %246
   %272 = load ptr, ptr %271, align 8
   %273 = tail call noundef i32 %272(ptr noundef nonnull align 8 dereferenceable(176) %2) #14
   %274 = icmp ult i32 %269, %273
-  br i1 %274, label %.lr.ph198, label %.critedge, !llvm.loop !94
+  br i1 %274, label %.lr.ph197, label %.critedge, !llvm.loop !94
 
 275:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
@@ -1488,7 +1488,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit180: ; preds = %312
 341:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   unreachable
 
-.critedge:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit180, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit168, %.lr.ph198, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147, %300, %232, %123, %231, %217, %216, %194, %193, %171, %122, %109, %101, %100, %84, %78, %29, %25, %24
+.critedge:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit180, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit168, %.lr.ph197, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit147, %300, %232, %123, %231, %217, %216, %194, %193, %171, %122, %109, %101, %100, %84, %78, %29, %25, %24
   ret void
 }
 

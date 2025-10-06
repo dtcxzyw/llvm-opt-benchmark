@@ -519,11 +519,11 @@ define noundef zeroext i1 @_ZN14wasmtime_types23EngineOrModuleTypeIndex20is_engi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @_ZN14wasmtime_types23EngineOrModuleTypeIndex20as_engine_type_index17h6dff72cf49472111E(i32 noundef %0, i32 noundef %1) unnamed_addr #3 {
-  %switch = icmp eq i32 %0, 0
-  %. = zext i1 %switch to i32
-  %3 = insertvalue { i32, i32 } poison, i32 %., 0
-  %4 = insertvalue { i32, i32 } %3, i32 %1, 1
-  ret { i32, i32 } %4
+  %3 = icmp eq i32 %0, 0
+  %. = zext i1 %3 to i32
+  %4 = insertvalue { i32, i32 } poison, i32 %., 0
+  %5 = insertvalue { i32, i32 } %4, i32 %1, 1
+  ret { i32, i32 } %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -534,8 +534,8 @@ define noundef i32 @_ZN14wasmtime_types23EngineOrModuleTypeIndex24unwrap_engine_
   store i32 %0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
-  %switch.i = icmp eq i32 %0, 0
-  br i1 %switch.i, label %13, label %7
+  %.not = icmp eq i32 %0, 0
+  br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -567,11 +567,11 @@ define noundef zeroext i1 @_ZN14wasmtime_types23EngineOrModuleTypeIndex20is_modu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @_ZN14wasmtime_types23EngineOrModuleTypeIndex20as_module_type_index17hf0a13a2086caed28E(i32 noundef %0, i32 noundef %1) unnamed_addr #3 {
-  %switch = icmp eq i32 %0, 1
-  %. = zext i1 %switch to i32
-  %3 = insertvalue { i32, i32 } poison, i32 %., 0
-  %4 = insertvalue { i32, i32 } %3, i32 %1, 1
-  ret { i32, i32 } %4
+  %3 = icmp eq i32 %0, 1
+  %. = zext i1 %3 to i32
+  %4 = insertvalue { i32, i32 } poison, i32 %., 0
+  %5 = insertvalue { i32, i32 } %4, i32 %1, 1
+  ret { i32, i32 } %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -582,8 +582,8 @@ define noundef i32 @_ZN14wasmtime_types23EngineOrModuleTypeIndex24unwrap_module_
   store i32 %0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
-  %switch.i = icmp eq i32 %0, 1
-  br i1 %switch.i, label %13, label %7
+  %.not = icmp eq i32 %0, 1
+  br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -615,11 +615,11 @@ define noundef zeroext i1 @_ZN14wasmtime_types23EngineOrModuleTypeIndex23is_rec_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @_ZN14wasmtime_types23EngineOrModuleTypeIndex23as_rec_group_type_index17h75aace18210fc3f3E(i32 noundef %0, i32 noundef %1) unnamed_addr #3 {
-  %switch = icmp ugt i32 %0, 1
-  %. = zext i1 %switch to i32
-  %3 = insertvalue { i32, i32 } poison, i32 %., 0
-  %4 = insertvalue { i32, i32 } %3, i32 %1, 1
-  ret { i32, i32 } %4
+  %3 = icmp eq i32 %0, 2
+  %. = zext i1 %3 to i32
+  %4 = insertvalue { i32, i32 } poison, i32 %., 0
+  %5 = insertvalue { i32, i32 } %4, i32 %1, 1
+  ret { i32, i32 } %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -630,8 +630,8 @@ define noundef i32 @_ZN14wasmtime_types23EngineOrModuleTypeIndex27unwrap_rec_gro
   store i32 %0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
-  %switch.i = icmp ugt i32 %0, 1
-  br i1 %switch.i, label %13, label %7
+  %.not = icmp eq i32 %0, 2
+  br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

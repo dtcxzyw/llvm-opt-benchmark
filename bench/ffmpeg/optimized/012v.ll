@@ -45,14 +45,14 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %12 = shl nsw i32 %9, 3
   %13 = sdiv i32 %12, 3
   %14 = icmp slt i32 %9, 2
-  %.phi.trans.insert217 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %.pre218 = load i32, ptr %.phi.trans.insert217, align 4, !tbaa !32
-  %15 = icmp slt i32 %.pre218, 1
+  %.phi.trans.insert216 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %.pre217 = load i32, ptr %.phi.trans.insert216, align 4, !tbaa !32
+  %15 = icmp slt i32 %.pre217, 1
   %or.cond = select i1 %14, i1 true, i1 %15
-  br i1 %or.cond, label %._crit_edge216, label %16
+  br i1 %or.cond, label %._crit_edge215, label %16
 
-._crit_edge216:                                   ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %9, i32 noundef %.pre218) #5
+._crit_edge215:                                   ; preds = %4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %9, i32 noundef %.pre217) #5
   br label %136
 
 16:                                               ; preds = %4
@@ -61,39 +61,39 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %19 = icmp eq i32 %18, 1983000880
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %21 = load i32, ptr %20, align 8, !tbaa !33
-  br i1 %19, label %22, label %._crit_edge214
+  br i1 %19, label %22, label %._crit_edge213
 
 22:                                               ; preds = %16
-  %23 = srem i32 %21, %.pre218
-  %24 = sdiv i32 %21, %.pre218
+  %23 = srem i32 %21, %.pre217
+  %24 = sdiv i32 %21, %.pre217
   %25 = icmp eq i32 %23, 0
-  br i1 %25, label %26, label %._crit_edge214
+  br i1 %25, label %26, label %._crit_edge213
 
 26:                                               ; preds = %22
   %27 = mul nsw i32 %24, 3
   %.not = icmp slt i32 %27, %12
   %spec.select = select i1 %.not, i32 %13, i32 %24
-  br label %._crit_edge214
+  br label %._crit_edge213
 
-._crit_edge214:                                   ; preds = %16, %26, %22
+._crit_edge213:                                   ; preds = %16, %26, %22
   %.0120 = phi i32 [ %13, %22 ], [ %spec.select, %26 ], [ %13, %16 ]
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %29 = mul nsw i32 %.0120, %.pre218
+  %29 = mul nsw i32 %.0120, %.pre217
   %30 = icmp slt i32 %21, %29
   br i1 %30, label %31, label %32
 
-31:                                               ; preds = %._crit_edge214
+31:                                               ; preds = %._crit_edge213
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %21, i32 noundef %29) #5
   br label %136
 
-32:                                               ; preds = %._crit_edge214
+32:                                               ; preds = %._crit_edge213
   %33 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #5
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %136, label %35
 
 35:                                               ; preds = %32
   %36 = sext i32 %.0120 to i64
-  %37 = load i32, ptr %.phi.trans.insert217, align 4, !tbaa !32
+  %37 = load i32, ptr %.phi.trans.insert216, align 4, !tbaa !32
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.us.preheader, label %._crit_edge
 
@@ -108,10 +108,10 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.critedge.us
   %45 = phi i32 [ %132, %.critedge.us ], [ %37, %.lr.ph.us.preheader ]
-  %.0122189.us.pn = phi ptr [ %.0122189.us, %.critedge.us ], [ %44, %.lr.ph.us.preheader ]
-  %.0121188.us = phi ptr [ %.0122189.us, %.critedge.us ], [ %11, %.lr.ph.us.preheader ]
-  %.0133187.us = phi i32 [ %133, %.critedge.us ], [ 0, %.lr.ph.us.preheader ]
-  %.0122189.us = getelementptr inbounds i8, ptr %.0122189.us.pn, i64 %36
+  %.0122188.us.pn = phi ptr [ %.0122188.us, %.critedge.us ], [ %44, %.lr.ph.us.preheader ]
+  %.0121187.us = phi ptr [ %.0122188.us, %.critedge.us ], [ %11, %.lr.ph.us.preheader ]
+  %.0133186.us = phi i32 [ %133, %.critedge.us ], [ 0, %.lr.ph.us.preheader ]
+  %.0122188.us = getelementptr inbounds i8, ptr %.0122188.us.pn, i64 %36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %5, ptr noundef nonnull align 2 dereferenceable(12) @__const.zero12v_decode_frame.y_temp, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -120,31 +120,31 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) @__const.zero12v_decode_frame.v_temp, i64 6, i1 false)
   %46 = load ptr, ptr %1, align 8, !tbaa !34
   %47 = load i32, ptr %39, align 8, !tbaa !35
-  %48 = mul nsw i32 %47, %.0133187.us
+  %48 = mul nsw i32 %47, %.0133186.us
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
   %51 = load ptr, ptr %40, align 8, !tbaa !34
   %52 = load i32, ptr %41, align 4, !tbaa !35
-  %53 = mul nsw i32 %52, %.0133187.us
+  %53 = mul nsw i32 %52, %.0133186.us
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
   %56 = load ptr, ptr %42, align 8, !tbaa !34
   %57 = load i32, ptr %43, align 8, !tbaa !35
-  %58 = mul nsw i32 %57, %.0133187.us
+  %58 = mul nsw i32 %57, %.0133186.us
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = ptrtoint ptr %.0122189.us to i64
+  %61 = ptrtoint ptr %.0122188.us to i64
   br label %62
 
 62:                                               ; preds = %.lr.ph.us, %117
-  %.0185.us = phi i32 [ 0, %.lr.ph.us ], [ %119, %117 ]
-  %.1184.us = phi ptr [ %.0121188.us, %.lr.ph.us ], [ %118, %117 ]
-  %.0123183.us = phi ptr [ %60, %.lr.ph.us ], [ %.1124.sroa.sel.v.us.sroa.sel.v.sroa.sel, %117 ]
-  %.0126182.us = phi ptr [ %55, %.lr.ph.us ], [ %.1127.sroa.sel.v.us.sroa.sel.v.sroa.sel, %117 ]
-  %.0129181.us = phi ptr [ %50, %.lr.ph.us ], [ %.1130.sroa.sel.v.us.sroa.sel.v.sroa.sel, %117 ]
-  %63 = sub nuw nsw i32 %9, %.0185.us
+  %.0184.us = phi i32 [ 0, %.lr.ph.us ], [ %119, %117 ]
+  %.1183.us = phi ptr [ %.0121187.us, %.lr.ph.us ], [ %118, %117 ]
+  %.0123182.us = phi ptr [ %60, %.lr.ph.us ], [ %.1124.sroa.sel.v.us.sroa.sel.v.sroa.sel, %117 ]
+  %.0126181.us = phi ptr [ %55, %.lr.ph.us ], [ %.1127.sroa.sel.v.us.sroa.sel.v.sroa.sel, %117 ]
+  %.0129180.us = phi ptr [ %50, %.lr.ph.us ], [ %.1130.sroa.sel.v.us.sroa.sel.v.sroa.sel, %117 ]
+  %63 = sub nuw nsw i32 %9, %.0184.us
   %64 = icmp slt i32 %63, 6
-  %65 = ptrtoint ptr %.1184.us to i64
+  %65 = ptrtoint ptr %.1183.us to i64
   %66 = sub i64 %61, %65
   %67 = icmp slt i64 %66, 16
   %or.cond.us = or i1 %64, %67
@@ -152,11 +152,11 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %68, label %select.unfold.us, label %69
 
 69:                                               ; preds = %62
-  %.1124.us = select i1 %or.cond.us, ptr %7, ptr %.0123183.us
-  %.1127.us = select i1 %or.cond.us, ptr %6, ptr %.0126182.us
-  %.1130.us = select i1 %or.cond.us, ptr %5, ptr %.0129181.us
-  %70 = load i32, ptr %.1184.us, align 1, !tbaa !36
-  %71 = getelementptr inbounds nuw i8, ptr %.1184.us, i64 4
+  %.1124.us = select i1 %or.cond.us, ptr %7, ptr %.0123182.us
+  %.1127.us = select i1 %or.cond.us, ptr %6, ptr %.0126181.us
+  %.1130.us = select i1 %or.cond.us, ptr %5, ptr %.0129180.us
+  %70 = load i32, ptr %.1183.us, align 1, !tbaa !36
+  %71 = getelementptr inbounds nuw i8, ptr %.1183.us, i64 4
   %.tr.us = trunc i32 %70 to i16
   %72 = shl i16 %.tr.us, 6
   store i16 %72, ptr %.1127.us, align 2, !tbaa !37
@@ -167,7 +167,7 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %76 = lshr i32 %70, 14
   %77 = trunc i32 %76 to i16
   %78 = and i16 %77, -64
-  %.1124.sroa.sel150.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %7, ptr %.0123183.us
+  %.1124.sroa.sel150.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %7, ptr %.0123182.us
   %.1124.sroa.sel150.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1124.sroa.sel150.v.us.sroa.sel.v.sroa.sel.v, i64 2
   store i16 %78, ptr %.1124.us, align 2, !tbaa !37
   %79 = ptrtoint ptr %71 to i64
@@ -176,15 +176,15 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %81, label %select.unfold.us, label %82
 
 82:                                               ; preds = %69
-  %.1130.sroa.sel173.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129181.us
+  %.1130.sroa.sel173.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129180.us
   %.1130.sroa.sel173.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1130.sroa.sel173.v.us.sroa.sel.v.sroa.sel.v, i64 2
-  %.1127.sroa.sel157.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %6, ptr %.0126182.us
+  %.1127.sroa.sel157.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %6, ptr %.0126181.us
   %.1127.sroa.sel157.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1127.sroa.sel157.v.us.sroa.sel.v.sroa.sel.v, i64 2
   %83 = load i32, ptr %71, align 1, !tbaa !36
-  %84 = getelementptr inbounds nuw i8, ptr %.1184.us, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.1183.us, i64 8
   %.tr139.us = trunc i32 %83 to i16
   %85 = shl i16 %.tr139.us, 6
-  %.1130.sroa.sel170.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129181.us
+  %.1130.sroa.sel170.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129180.us
   %.1130.sroa.sel170.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1130.sroa.sel170.v.us.sroa.sel.v.sroa.sel.v, i64 4
   store i16 %85, ptr %.1130.sroa.sel173.v.us.sroa.sel.v.sroa.sel, align 2, !tbaa !37
   %86 = lshr i32 %83, 4
@@ -201,12 +201,12 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %94, label %select.unfold.us, label %95
 
 95:                                               ; preds = %82
-  %.1130.sroa.sel167.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129181.us
+  %.1130.sroa.sel167.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129180.us
   %.1130.sroa.sel167.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1130.sroa.sel167.v.us.sroa.sel.v.sroa.sel.v, i64 6
-  %.1127.sroa.sel154.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %6, ptr %.0126182.us
+  %.1127.sroa.sel154.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %6, ptr %.0126181.us
   %.1127.sroa.sel154.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1127.sroa.sel154.v.us.sroa.sel.v.sroa.sel.v, i64 4
   %96 = load i32, ptr %84, align 1, !tbaa !36
-  %97 = getelementptr inbounds nuw i8, ptr %.1184.us, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %.1183.us, i64 12
   %.tr140.us = trunc i32 %96 to i16
   %98 = shl i16 %.tr140.us, 6
   store i16 %98, ptr %.1124.sroa.sel150.v.us.sroa.sel.v.sroa.sel, align 2, !tbaa !37
@@ -217,7 +217,7 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %102 = lshr i32 %96, 14
   %103 = trunc i32 %102 to i16
   %104 = and i16 %103, -64
-  %.1127.sroa.sel.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %6, ptr %.0126182.us
+  %.1127.sroa.sel.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %6, ptr %.0126181.us
   %.1127.sroa.sel.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1127.sroa.sel.v.us.sroa.sel.v.sroa.sel.v, i64 6
   store i16 %104, ptr %.1127.sroa.sel154.v.us.sroa.sel.v.sroa.sel, align 2, !tbaa !37
   %105 = ptrtoint ptr %97 to i64
@@ -226,14 +226,14 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %107, label %select.unfold.us, label %108
 
 108:                                              ; preds = %95
-  %.1130.sroa.sel164.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129181.us
+  %.1130.sroa.sel164.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129180.us
   %.1130.sroa.sel164.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1130.sroa.sel164.v.us.sroa.sel.v.sroa.sel.v, i64 8
-  %.1124.sroa.sel147.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %7, ptr %.0123183.us
+  %.1124.sroa.sel147.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %7, ptr %.0123182.us
   %.1124.sroa.sel147.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1124.sroa.sel147.v.us.sroa.sel.v.sroa.sel.v, i64 4
   %109 = load i32, ptr %97, align 1, !tbaa !36
   %.tr141.us = trunc i32 %109 to i16
   %110 = shl i16 %.tr141.us, 6
-  %.1130.sroa.sel161.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129181.us
+  %.1130.sroa.sel161.v.us.sroa.sel.v.sroa.sel.v = select i1 %or.cond.us, ptr %5, ptr %.0129180.us
   %.1130.sroa.sel161.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1130.sroa.sel161.v.us.sroa.sel.v.sroa.sel.v, i64 10
   store i16 %110, ptr %.1130.sroa.sel164.v.us.sroa.sel.v.sroa.sel, align 2, !tbaa !37
   %111 = lshr i32 %109, 4
@@ -247,19 +247,19 @@ define internal i32 @zero12v_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %64, label %select.unfold.us, label %117
 
 117:                                              ; preds = %108
-  %.1130.sroa.sel.v.us.sroa.sel.v.sroa.sel.v = select i1 %67, ptr %5, ptr %.0129181.us
+  %.1130.sroa.sel.v.us.sroa.sel.v.sroa.sel.v = select i1 %67, ptr %5, ptr %.0129180.us
   %.1130.sroa.sel.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1130.sroa.sel.v.us.sroa.sel.v.sroa.sel.v, i64 12
-  %.1124.sroa.sel.v.us.sroa.sel.v.sroa.sel.v = select i1 %67, ptr %7, ptr %.0123183.us
+  %.1124.sroa.sel.v.us.sroa.sel.v.sroa.sel.v = select i1 %67, ptr %7, ptr %.0123182.us
   %.1124.sroa.sel.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.1124.sroa.sel.v.us.sroa.sel.v.sroa.sel.v, i64 6
-  %118 = getelementptr inbounds nuw i8, ptr %.1184.us, i64 16
-  %119 = add nuw nsw i32 %.0185.us, 6
+  %118 = getelementptr inbounds nuw i8, ptr %.1183.us, i64 16
+  %119 = add nuw nsw i32 %.0184.us, 6
   %120 = icmp slt i32 %119, %9
   br i1 %120, label %62, label %.critedge.us, !llvm.loop !39
 
 select.unfold.us:                                 ; preds = %108, %95, %82, %69, %62
-  %121 = zext nneg i32 %.0185.us to i64
+  %121 = zext nneg i32 %.0184.us to i64
   %122 = getelementptr inbounds nuw i16, ptr %50, i64 %121
-  %123 = lshr exact i32 %.0185.us, 1
+  %123 = lshr exact i32 %.0184.us, 1
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds nuw i16, ptr %55, i64 %124
   %126 = getelementptr inbounds nuw i16, ptr %60, i64 %124
@@ -271,15 +271,15 @@ select.unfold.us:                                 ; preds = %108, %95, %82, %69,
   %131 = zext nneg i32 %130 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %125, ptr nonnull align 2 %6, i64 %131, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %126, ptr nonnull align 2 %7, i64 %131, i1 false)
-  %.pre215 = load i32, ptr %.phi.trans.insert217, align 4, !tbaa !32
+  %.pre214 = load i32, ptr %.phi.trans.insert216, align 4, !tbaa !32
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %117, %select.unfold.us
-  %132 = phi i32 [ %.pre215, %select.unfold.us ], [ %45, %117 ]
+  %132 = phi i32 [ %.pre214, %select.unfold.us ], [ %45, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %133 = add nuw nsw i32 %.0133187.us, 1
+  %133 = add nuw nsw i32 %.0133186.us, 1
   %134 = icmp slt i32 %133, %132
   br i1 %134, label %.lr.ph.us, label %._crit_edge, !llvm.loop !41
 
@@ -288,8 +288,8 @@ select.unfold.us:                                 ; preds = %108, %95, %82, %69,
   %135 = load i32, ptr %28, align 8, !tbaa !33
   br label %136
 
-136:                                              ; preds = %32, %._crit_edge, %31, %._crit_edge216
-  %.0132 = phi i32 [ -1094995529, %._crit_edge216 ], [ -1094995529, %31 ], [ %135, %._crit_edge ], [ %33, %32 ]
+136:                                              ; preds = %32, %._crit_edge, %31, %._crit_edge215
+  %.0132 = phi i32 [ -1094995529, %._crit_edge215 ], [ -1094995529, %31 ], [ %135, %._crit_edge ], [ %33, %32 ]
   ret i32 %.0132
 }
 

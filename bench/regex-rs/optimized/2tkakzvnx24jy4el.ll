@@ -15,8 +15,8 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   %.0.i.in.i = phi i64 [ %.0.i.i, %.preheader.i ], [ %0, %3 ]
   %.0.i.i = add i64 %.0.i.in.i, -1
   tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef range(i32 0, 1114112) %1)
-  %4 = icmp eq i64 %.0.i.i, 0
-  br i1 %4, label %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each17h9bc333581fbb8989E.llvm.14277958325137290771.exit", label %.preheader.i
+  %.not.i.i = icmp eq i64 %.0.i.i, 0
+  br i1 %.not.i.i, label %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each17h9bc333581fbb8989E.llvm.14277958325137290771.exit", label %.preheader.i
 
 "_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each17h9bc333581fbb8989E.llvm.14277958325137290771.exit": ; preds = %.preheader.i, %3
   ret void
@@ -279,8 +279,8 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %.0.i.in.i.i = phi i64 [ %.0.i.i.i, %.preheader.i.i ], [ %1, %.preheader.i.i.preheader ]
   %.0.i.i.i = add i64 %.0.i.in.i.i, -1
   tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114112) %2)
-  %9 = icmp eq i64 %.0.i.i.i, 0
-  br i1 %9, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h954394dc15929c19E.llvm.14277958325137290771.exit", label %.preheader.i.i
+  %.not.i.i.i = icmp eq i64 %.0.i.i.i, 0
+  br i1 %.not.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h954394dc15929c19E.llvm.14277958325137290771.exit", label %.preheader.i.i
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h954394dc15929c19E.llvm.14277958325137290771.exit": ; preds = %.preheader.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE.exit"
   ret void
@@ -309,36 +309,36 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 
 .noexc3:                                          ; preds = %.preheader.i.i.i
   %.0.i.i.i.i = add i64 %.0.i.in.i.i.i, -1
-  %5 = icmp eq i64 %.0.i.i.i.i, 0
-  br i1 %5, label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h1c4370f637e765e3E.llvm.14277958325137290771.exit", label %.preheader.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %.0.i.i.i.i, 0
+  br i1 %.not.i.i.i.i, label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h1c4370f637e765e3E.llvm.14277958325137290771.exit", label %.preheader.i.i.i
 
 .loopexit:                                        ; preds = %.preheader.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %6
+  br label %5
 
 .loopexit.split-lp:                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE.exit.thread.i"
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %6
+  br label %5
 
-6:                                                ; preds = %.loopexit.split-lp, %.loopexit
+5:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbe614eedd24fc738E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #8
-          to label %9 unwind label %7
+          to label %8 unwind label %6
 
 "_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h1c4370f637e765e3E.llvm.14277958325137290771.exit": ; preds = %.noexc3, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
-9:                                                ; preds = %6
+8:                                                ; preds = %5
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -351,8 +351,8 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$
   %.0.i.in = phi i64 [ %.0.i, %.preheader ], [ %0, %3 ]
   %.0.i = add i64 %.0.i.in, -1
   tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef range(i32 0, 1114112) %1)
-  %4 = icmp eq i64 %.0.i, 0
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit, label %.preheader
+  %.not.i = icmp eq i64 %.0.i, 0
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit, label %.preheader
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit: ; preds = %.preheader, %3
   ret void

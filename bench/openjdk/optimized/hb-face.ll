@@ -5410,7 +5410,8 @@ _ZN23hb_bit_set_invertible_t3addEj.exit:          ; preds = %163, %138, %._crit_
   %202 = lshr i32 %201, 1
   %203 = add i32 %202, %201
   %204 = load i32, ptr %32, align 8
-  %.not34.i = icmp ult i32 %203, %204
+  %.fr.i = freeze i32 %204
+  %.not34.i = icmp ult i32 %203, %.fr.i
   br i1 %.not34.i, label %232, label %205
 
 205:                                              ; preds = %200
@@ -5436,7 +5437,7 @@ _ZN23hb_bit_set_invertible_t3addEj.exit:          ; preds = %163, %138, %._crit_
   br label %_ZL9hb_memsetPvij.exit.i
 
 _ZL9hb_memsetPvij.exit.i:                         ; preds = %214, %212
-  %215 = add i32 %204, 1
+  %215 = add i32 %.fr.i, 1
   %216 = load ptr, ptr %33, align 8
   store i32 0, ptr %31, align 4
   store i32 1, ptr %24, align 8
@@ -5457,14 +5458,12 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i:     ; preds = %219, %_ZL9hb_memset
   %222 = shl nuw nsw i32 %.0.i.i, 1
   store i32 %222, ptr %35, align 8
   store ptr %211, ptr %33, align 8
-  switch i32 %204, label %.lr.ph.split.preheader.i [
-    i32 -1, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread
-    i32 0, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread
-  ]
+  %.off.i = add i32 %.fr.i, -1
+  %switch.i = icmp ult i32 %.off.i, -2
+  br i1 %switch.i, label %.lr.ph.split.preheader.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread
 
 .lr.ph.split.preheader.i:                         ; preds = %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %215, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %215 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %231, %.lr.ph.split.preheader.i
@@ -5487,7 +5486,7 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i:     ; preds = %219, %_ZL9hb_memset
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread, label %.lr.ph.split.i, !llvm.loop !35
 
-_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread:    ; preds = %231, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
+_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread:    ; preds = %231, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
   tail call void @free(ptr noundef %216) #19
   br label %232
 
@@ -5576,7 +5575,7 @@ _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit:           ; preds = %205
 274:                                              ; preds = %.loopexit.thread.i.thread, %266, %.loopexit.thread.i
   %275 = phi ptr [ %243, %.loopexit.thread.i.thread ], [ %265, %266 ], [ %265, %.loopexit.thread.i ]
   %276 = phi ptr [ %242, %.loopexit.thread.i.thread ], [ %264, %266 ], [ %264, %.loopexit.thread.i ]
-  %.0293962.i95 = phi i32 [ 0, %.loopexit.thread.i.thread ], [ %.02939.i, %266 ], [ %.02939.i, %.loopexit.thread.i ]
+  %.0293962.i94 = phi i32 [ 0, %.loopexit.thread.i.thread ], [ %.02939.i, %266 ], [ %.02939.i, %.loopexit.thread.i ]
   store i32 %storemerge3666, ptr %276, align 4
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store i32 %.05965, ptr %277, align 4
@@ -5593,7 +5592,7 @@ _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit:           ; preds = %205
   %286 = or disjoint i32 %284, %285
   store i32 %286, ptr %24, align 8
   %287 = load i32, ptr %35, align 8
-  %288 = icmp ugt i32 %.0293962.i95, %287
+  %288 = icmp ugt i32 %.0293962.i94, %287
   br i1 %288, label %289, label %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit
 
 289:                                              ; preds = %274
@@ -5944,7 +5943,8 @@ _ZN23hb_bit_set_invertible_t3addEj.exit:          ; preds = %162, %137, %._crit_
   %201 = lshr i32 %200, 1
   %202 = add i32 %201, %200
   %203 = load i32, ptr %32, align 8
-  %.not34.i = icmp ult i32 %202, %203
+  %.fr.i = freeze i32 %203
+  %.not34.i = icmp ult i32 %202, %.fr.i
   br i1 %.not34.i, label %231, label %204
 
 204:                                              ; preds = %199
@@ -5970,7 +5970,7 @@ _ZN23hb_bit_set_invertible_t3addEj.exit:          ; preds = %162, %137, %._crit_
   br label %_ZL9hb_memsetPvij.exit.i
 
 _ZL9hb_memsetPvij.exit.i:                         ; preds = %213, %211
-  %214 = add i32 %203, 1
+  %214 = add i32 %.fr.i, 1
   %215 = load ptr, ptr %33, align 8
   store i32 0, ptr %31, align 4
   store i32 1, ptr %24, align 8
@@ -5991,14 +5991,12 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i:     ; preds = %218, %_ZL9hb_memset
   %221 = shl nuw nsw i32 %.0.i.i, 1
   store i32 %221, ptr %35, align 8
   store ptr %210, ptr %33, align 8
-  switch i32 %203, label %.lr.ph.split.preheader.i [
-    i32 -1, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread
-    i32 0, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread
-  ]
+  %.off.i = add i32 %.fr.i, -1
+  %switch.i = icmp ult i32 %.off.i, -2
+  br i1 %switch.i, label %.lr.ph.split.preheader.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread
 
 .lr.ph.split.preheader.i:                         ; preds = %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %214, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+  %wide.trip.count.i = zext i32 %214 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %230, %.lr.ph.split.preheader.i
@@ -6021,7 +6019,7 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i:     ; preds = %218, %_ZL9hb_memset
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread, label %.lr.ph.split.i, !llvm.loop !35
 
-_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread:    ; preds = %230, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
+_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread:    ; preds = %230, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
   tail call void @free(ptr noundef %215) #19
   br label %231
 
@@ -6110,7 +6108,7 @@ _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit:           ; preds = %204
 273:                                              ; preds = %.loopexit.thread.i.thread, %265, %.loopexit.thread.i
   %274 = phi ptr [ %242, %.loopexit.thread.i.thread ], [ %264, %265 ], [ %264, %.loopexit.thread.i ]
   %275 = phi ptr [ %241, %.loopexit.thread.i.thread ], [ %263, %265 ], [ %263, %.loopexit.thread.i ]
-  %.0293962.i90 = phi i32 [ 0, %.loopexit.thread.i.thread ], [ %.02939.i, %265 ], [ %.02939.i, %.loopexit.thread.i ]
+  %.0293962.i89 = phi i32 [ 0, %.loopexit.thread.i.thread ], [ %.02939.i, %265 ], [ %.02939.i, %.loopexit.thread.i ]
   store i32 %storemerge60, ptr %275, align 4
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i32 %122, ptr %276, align 4
@@ -6127,7 +6125,7 @@ _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit:           ; preds = %204
   %285 = or disjoint i32 %283, %284
   store i32 %285, ptr %24, align 8
   %286 = load i32, ptr %35, align 8
-  %287 = icmp ugt i32 %.0293962.i90, %286
+  %287 = icmp ugt i32 %.0293962.i89, %286
   br i1 %287, label %288, label %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit
 
 288:                                              ; preds = %273
@@ -6365,7 +6363,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allocEj
 _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8
-  %28 = add i32 %27, 1
+  %.fr = freeze i32 %27
+  %28 = add i32 %.fr, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6390,14 +6389,12 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %38, ptr %39, align 8
   store ptr %20, ptr %29, align 8
-  switch i32 %27, label %.lr.ph.split.preheader [
-    i32 -1, label %._crit_edge
-    i32 0, label %._crit_edge
-  ]
+  %.off = add i32 %.fr, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
-  %umax = tail call i32 @llvm.umax.i32(i32 %28, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %28 to i64
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %48
@@ -6420,7 +6417,7 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
+._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
   tail call void @free(ptr noundef %30) #19
   br label %49
 

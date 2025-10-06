@@ -2015,17 +2015,17 @@ _ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit: ; preds = %65
   %71 = zext i32 %70 to i64
   %72 = shl nuw nsw i64 %71, 3
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 %72
-  %.not3749 = icmp eq i32 %70, 0
-  br i1 %.not3749, label %._crit_edge, label %.lr.ph
+  %.not3748 = icmp eq i32 %70, 0
+  br i1 %.not3748, label %._crit_edge, label %.lr.ph
 
 74:                                               ; preds = %.lr.ph
-  %75 = getelementptr inbounds nuw i8, ptr %.03350, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.03349, i64 8
   %.not37 = icmp eq ptr %75, %73
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit, %74
-  %.03350 = phi ptr [ %75, %74 ], [ %67, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit ]
-  %76 = load ptr, ptr %.03350, align 8, !tbaa !39
+  %.03349 = phi ptr [ %75, %74 ], [ %67, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit ]
+  %76 = load ptr, ptr %.03349, align 8, !tbaa !39
   %77 = load ptr, ptr %76, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
@@ -2905,17 +2905,17 @@ _ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i: ; preds = %60
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 3
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 %66
-  %.not15.i = icmp eq i32 %64, 0
-  br i1 %.not15.i, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread, label %.lr.ph.i
+  %.not17.i = icmp eq i32 %64, 0
+  br i1 %.not17.i, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread, label %.lr.ph.i
 
 68:                                               ; preds = %.lr.ph.i
-  %69 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
   %.not.i = icmp eq ptr %69, %67
   br i1 %.not.i, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i, %68
-  %.01416.i = phi ptr [ %69, %68 ], [ %61, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i ]
-  %70 = load ptr, ptr %.01416.i, align 8, !tbaa !35
+  %.01418.i = phi ptr [ %69, %68 ], [ %61, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i ]
+  %70 = load ptr, ptr %.01418.i, align 8, !tbaa !35
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !307
   %73 = icmp eq ptr %72, %57
@@ -2925,7 +2925,7 @@ _ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit: ; preds = %.lr.p
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %75 = load ptr, ptr %74, align 8, !tbaa !308
   %.not8 = icmp eq ptr %75, null
-  br i1 %.not8, label %113, label %76
+  br i1 %.not8, label %115, label %76
 
 76:                                               ; preds = %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit
   %77 = icmp eq ptr %1, %75
@@ -2934,7 +2934,7 @@ _ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit: ; preds = %.lr.p
 78:                                               ; preds = %76
   %79 = load ptr, ptr %29, align 8, !tbaa !307
   %80 = icmp eq ptr %79, %57
-  br i1 %80, label %81, label %113
+  br i1 %80, label %81, label %115
 
 81:                                               ; preds = %78, %76
   %82 = load ptr, ptr %30, align 8, !tbaa !69
@@ -2953,7 +2953,7 @@ _ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit: ; preds = %.lr.p
   store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN7datalog18check_table_pluginE, i64 16), ptr %84, align 8, !tbaa !3
   %89 = load ptr, ptr %13, align 8, !tbaa !31
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i
+  br i1 %90, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i
 
 _ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i: ; preds = %81
   %91 = getelementptr inbounds i8, ptr %89, i64 -4
@@ -2961,177 +2961,177 @@ _ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i: ; preds = %81
   %93 = zext i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 3
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 %94
-  %.not15.i.i = icmp eq i32 %92, 0
-  br i1 %.not15.i.i, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i, label %.lr.ph.i.i
+  %.not17.i.i = icmp eq i32 %92, 0
+  br i1 %.not17.i.i, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i, label %.lr.ph.i.i
 
 96:                                               ; preds = %.lr.ph.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.01416.i.i, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 8
   %.not.i.i = icmp eq ptr %97, %95
   br i1 %.not.i.i, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i, %96
-  %.01416.i.i = phi ptr [ %97, %96 ], [ %89, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i ]
-  %98 = load ptr, ptr %.01416.i.i, align 8, !tbaa !35
+  %.01418.i.i = phi ptr [ %97, %96 ], [ %89, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i ]
+  %98 = load ptr, ptr %.01418.i.i, align 8, !tbaa !35
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !307
   %101 = icmp eq ptr %100, %57
   br i1 %101, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i, label %96
 
 _ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i: ; preds = %.lr.ph.i.i, %96
-  %spec.select.i.i = phi ptr [ null, %96 ], [ %98, %.lr.ph.i.i ]
-  %102 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr %spec.select.i.i, ptr %102, align 8, !tbaa !35
-  br label %105
+  %102 = phi ptr [ null, %96 ], [ %98, %.lr.ph.i.i ]
+  %103 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  store ptr %102, ptr %103, align 8, !tbaa !35
+  br label %106
 
-103:                                              ; preds = %105
-  %104 = getelementptr inbounds nuw i8, ptr %.01416.i10.i, i64 8
-  %.not.i11.i = icmp eq ptr %104, %95
-  br i1 %.not.i11.i, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit, label %105
+104:                                              ; preds = %106
+  %105 = getelementptr inbounds nuw i8, ptr %.01418.i10.i, i64 8
+  %.not.i11.i = icmp eq ptr %105, %95
+  br i1 %.not.i11.i, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit, label %106
 
-105:                                              ; preds = %103, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i
-  %.01416.i10.i = phi ptr [ %89, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i ], [ %104, %103 ]
-  %106 = load ptr, ptr %.01416.i10.i, align 8, !tbaa !35
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !307
-  %109 = icmp eq ptr %108, %83
-  br i1 %109, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit, label %103
+106:                                              ; preds = %104, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i
+  %.01418.i10.i = phi ptr [ %89, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i ], [ %105, %104 ]
+  %107 = load ptr, ptr %.01418.i10.i, align 8, !tbaa !35
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = load ptr, ptr %108, align 8, !tbaa !307
+  %110 = icmp eq ptr %109, %83
+  br i1 %110, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit, label %104
 
-_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i: ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i, %81
-  %110 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr null, ptr %110, align 8, !tbaa !35
+_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i: ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i, %81
+  %111 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  store ptr null, ptr %111, align 8, !tbaa !35
   br label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit
 
-_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit: ; preds = %103, %105, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i
-  %spec.select.i12.i = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i ], [ null, %103 ], [ %106, %105 ]
-  %111 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  store ptr %spec.select.i12.i, ptr %111, align 8, !tbaa !35
-  %112 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  store i32 0, ptr %112, align 8, !tbaa !323
+_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit: ; preds = %104, %106, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i
+  %112 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i ], [ null, %104 ], [ %107, %106 ]
+  %113 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  store ptr %112, ptr %113, align 8, !tbaa !35
+  %114 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  store i32 0, ptr %114, align 8, !tbaa !323
   call void @_ZN7datalog16relation_manager15register_pluginEPNS_12table_pluginE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %84)
   store ptr %84, ptr %74, align 8, !tbaa !308
-  br label %113
+  br label %115
 
-113:                                              ; preds = %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit, %78, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %115 = load ptr, ptr %114, align 8, !tbaa !296
-  %.not9 = icmp eq ptr %115, null
-  br i1 %.not9, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread, label %116
+115:                                              ; preds = %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit, %78, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %117 = load ptr, ptr %116, align 8, !tbaa !296
+  %.not9 = icmp eq ptr %117, null
+  br i1 %.not9, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread, label %118
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %118 = load i32, ptr %117, align 8, !tbaa !314
-  %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 32
+  %120 = load i32, ptr %119, align 8, !tbaa !314
+  %121 = icmp eq i32 %120, 1
+  br i1 %121, label %122, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %122 = load ptr, ptr %121, align 8, !tbaa !326
-  %123 = icmp eq ptr %122, %1
-  br i1 %123, label %127, label %124
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 40
+  %124 = load ptr, ptr %123, align 8, !tbaa !326
+  %125 = icmp eq ptr %124, %1
+  br i1 %125, label %129, label %126
 
-124:                                              ; preds = %120
-  %125 = load ptr, ptr %29, align 8, !tbaa !307
-  %126 = icmp eq ptr %125, %57
-  br i1 %126, label %127, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %29, align 8, !tbaa !307
+  %128 = icmp eq ptr %127, %57
+  br i1 %128, label %129, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread
 
-127:                                              ; preds = %124, %120
-  %128 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %129 = load i64, ptr %128, align 8, !tbaa !312
-  %130 = inttoptr i64 %129 to ptr
-  %131 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
+129:                                              ; preds = %126, %122
+  %130 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %131 = load i64, ptr %130, align 8, !tbaa !312
+  %132 = inttoptr i64 %131 to ptr
+  %133 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.13)
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store i32 -1, ptr %132, align 8, !tbaa !321
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %134 = load i64, ptr %4, align 8, !tbaa !312
-  store i64 %134, ptr %133, align 8, !tbaa !312
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  store ptr %0, ptr %135, align 8, !tbaa !313
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store i32 -1, ptr %134, align 8, !tbaa !321
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %136 = load i64, ptr %4, align 8, !tbaa !312
+  store i64 %136, ptr %135, align 8, !tbaa !312
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  store ptr %0, ptr %137, align 8, !tbaa !313
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN7datalog18check_table_pluginE, i64 16), ptr %131, align 8, !tbaa !3
-  %136 = load ptr, ptr %13, align 8, !tbaa !31
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i20, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN7datalog18check_table_pluginE, i64 16), ptr %133, align 8, !tbaa !3
+  %138 = load ptr, ptr %13, align 8, !tbaa !31
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10
 
-_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10: ; preds = %127
-  %138 = getelementptr inbounds i8, ptr %136, i64 -4
-  %139 = load i32, ptr %138, align 4, !tbaa !34
-  %140 = zext i32 %139 to i64
-  %141 = shl nuw nsw i64 %140, 3
-  %142 = getelementptr inbounds nuw i8, ptr %136, i64 %141
-  %.not15.i.i11 = icmp eq i32 %139, 0
-  br i1 %.not15.i.i11, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i20, label %.lr.ph.i.i12
+_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10: ; preds = %129
+  %140 = getelementptr inbounds i8, ptr %138, i64 -4
+  %141 = load i32, ptr %140, align 4, !tbaa !34
+  %142 = zext i32 %141 to i64
+  %143 = shl nuw nsw i64 %142, 3
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 %143
+  %.not17.i.i11 = icmp eq i32 %141, 0
+  br i1 %.not17.i.i11, label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18, label %.lr.ph.i.i12
 
-143:                                              ; preds = %.lr.ph.i.i12
-  %144 = getelementptr inbounds nuw i8, ptr %.01416.i.i13, i64 8
-  %.not.i.i14 = icmp eq ptr %144, %142
+145:                                              ; preds = %.lr.ph.i.i12
+  %146 = getelementptr inbounds nuw i8, ptr %.01418.i.i13, i64 8
+  %.not.i.i14 = icmp eq ptr %146, %144
   br i1 %.not.i.i14, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15, label %.lr.ph.i.i12
 
-.lr.ph.i.i12:                                     ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10, %143
-  %.01416.i.i13 = phi ptr [ %144, %143 ], [ %136, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10 ]
-  %145 = load ptr, ptr %.01416.i.i13, align 8, !tbaa !35
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  %147 = load ptr, ptr %146, align 8, !tbaa !307
-  %148 = icmp eq ptr %147, %57
-  br i1 %148, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15, label %143
+.lr.ph.i.i12:                                     ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10, %145
+  %.01418.i.i13 = phi ptr [ %146, %145 ], [ %138, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10 ]
+  %147 = load ptr, ptr %.01418.i.i13, align 8, !tbaa !35
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
+  %149 = load ptr, ptr %148, align 8, !tbaa !307
+  %150 = icmp eq ptr %149, %57
+  br i1 %150, label %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15, label %145
 
-_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15: ; preds = %.lr.ph.i.i12, %143
-  %spec.select.i.i16 = phi ptr [ null, %143 ], [ %145, %.lr.ph.i.i12 ]
-  %149 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  store ptr %spec.select.i.i16, ptr %149, align 8, !tbaa !35
-  br label %152
+_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15: ; preds = %.lr.ph.i.i12, %145
+  %151 = phi ptr [ null, %145 ], [ %147, %.lr.ph.i.i12 ]
+  %152 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  store ptr %151, ptr %152, align 8, !tbaa !35
+  br label %155
 
-150:                                              ; preds = %152
-  %151 = getelementptr inbounds nuw i8, ptr %.01416.i10.i17, i64 8
-  %.not.i11.i18 = icmp eq ptr %151, %142
-  br i1 %.not.i11.i18, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit21, label %152
+153:                                              ; preds = %155
+  %154 = getelementptr inbounds nuw i8, ptr %.01418.i10.i16, i64 8
+  %.not.i11.i17 = icmp eq ptr %154, %144
+  br i1 %.not.i11.i17, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19, label %155
 
-152:                                              ; preds = %150, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15
-  %.01416.i10.i17 = phi ptr [ %136, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15 ], [ %151, %150 ]
-  %153 = load ptr, ptr %.01416.i10.i17, align 8, !tbaa !35
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %155 = load ptr, ptr %154, align 8, !tbaa !307
-  %156 = icmp eq ptr %155, %130
-  br i1 %156, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit21, label %150
+155:                                              ; preds = %153, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15
+  %.01418.i10.i16 = phi ptr [ %138, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i7.i15 ], [ %154, %153 ]
+  %156 = load ptr, ptr %.01418.i10.i16, align 8, !tbaa !35
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  %158 = load ptr, ptr %157, align 8, !tbaa !307
+  %159 = icmp eq ptr %158, %132
+  br i1 %159, label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19, label %153
 
-_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i20: ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10, %127
-  %157 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  store ptr null, ptr %157, align 8, !tbaa !35
-  br label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit21
+_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18: ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i.i10, %129
+  %160 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  store ptr null, ptr %160, align 8, !tbaa !35
+  br label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19
 
-_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit21: ; preds = %150, %152, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i20
-  %spec.select.i12.i19 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit13.sink.split.i20 ], [ null, %150 ], [ %153, %152 ]
-  %158 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  store ptr %spec.select.i12.i19, ptr %158, align 8, !tbaa !35
-  %159 = getelementptr inbounds nuw i8, ptr %131, i64 48
-  store i32 0, ptr %159, align 8, !tbaa !323
-  call void @_ZN7datalog16relation_manager15register_pluginEPNS_12table_pluginE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %131)
-  %160 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  %161 = call ptr @_ZN7datalog21table_relation_plugin18create_plugin_nameERKNS_12table_pluginE(ptr noundef nonnull align 8 dereferenceable(32) %131)
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store i32 -1, ptr %162, align 8, !tbaa !309
-  %163 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %164 = ptrtoint ptr %161 to i64
-  store i64 %164, ptr %163, align 8, !tbaa !312
-  %165 = getelementptr inbounds nuw i8, ptr %160, i64 24
-  store ptr %0, ptr %165, align 8, !tbaa !313
-  %166 = getelementptr inbounds nuw i8, ptr %160, i64 32
-  store i32 1, ptr %166, align 8, !tbaa !314
-  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN7datalog21table_relation_pluginE, i64 16), ptr %160, align 8, !tbaa !3
-  %167 = getelementptr inbounds nuw i8, ptr %160, i64 40
-  store ptr %131, ptr %167, align 8, !tbaa !35
-  call void @_ZN7datalog16relation_manager29register_relation_plugin_implEPNS_15relation_pluginE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %160)
+_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19: ; preds = %153, %155, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18
+  %161 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18 ], [ null, %153 ], [ %156, %155 ]
+  %162 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  store ptr %161, ptr %162, align 8, !tbaa !35
+  %163 = getelementptr inbounds nuw i8, ptr %133, i64 48
+  store i32 0, ptr %163, align 8, !tbaa !323
+  call void @_ZN7datalog16relation_manager15register_pluginEPNS_12table_pluginE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %133)
+  %164 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
+  %165 = call ptr @_ZN7datalog21table_relation_plugin18create_plugin_nameERKNS_12table_pluginE(ptr noundef nonnull align 8 dereferenceable(32) %133)
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  store i32 -1, ptr %166, align 8, !tbaa !309
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %168 = ptrtoint ptr %165 to i64
+  store i64 %168, ptr %167, align 8, !tbaa !312
+  %169 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  store ptr %0, ptr %169, align 8, !tbaa !313
+  %170 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  store i32 1, ptr %170, align 8, !tbaa !314
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN7datalog21table_relation_pluginE, i64 16), ptr %164, align 8, !tbaa !3
+  %171 = getelementptr inbounds nuw i8, ptr %164, i64 40
+  store ptr %133, ptr %171, align 8, !tbaa !35
+  call void @_ZN7datalog16relation_manager29register_relation_plugin_implEPNS_15relation_pluginE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %164)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %131, ptr %3, align 8, !tbaa !317
-  %168 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %160, ptr %168, align 8, !tbaa !320
+  store ptr %133, ptr %3, align 8, !tbaa !317
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %164, ptr %172, align 8, !tbaa !320
   call void @_ZN14core_hashtableI17default_map_entryIPKN7datalog12table_pluginEPNS1_21table_relation_pluginEEN9table2mapIS7_8ptr_hashIS3_E6ptr_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6insertEO9_key_dataIS4_S6_E(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %160, ptr %114, align 8, !tbaa !296
+  store ptr %164, ptr %116, align 8, !tbaa !296
   br label %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread
 
-_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread: ; preds = %68, %60, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i, %124, %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit21, %113, %116, %55
+_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit.thread: ; preds = %68, %60, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i, %126, %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19, %115, %118, %55
   ret void
 }
 
@@ -3239,29 +3239,29 @@ _ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit: ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not15 = icmp eq i32 %7, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq i32 %7, 0
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit
   %11 = load ptr, ptr %1, align 8, !tbaa !307
   br label %14
 
 12:                                               ; preds = %14
-  %13 = getelementptr inbounds nuw i8, ptr %.01416, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01418, i64 8
   %.not = icmp eq ptr %13, %10
   br i1 %.not, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph, %12
-  %.01416 = phi ptr [ %4, %.lr.ph ], [ %13, %12 ]
-  %15 = load ptr, ptr %.01416, align 8, !tbaa !35
+  %.01418 = phi ptr [ %4, %.lr.ph ], [ %13, %12 ]
+  %15 = load ptr, ptr %.01418, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !307
   %18 = icmp eq ptr %17, %11
   br i1 %18, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %14, %12, %2, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit
-  %spec.select = phi ptr [ null, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit ], [ null, %2 ], [ null, %12 ], [ %15, %14 ]
-  ret ptr %spec.select
+  %19 = phi ptr [ null, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit ], [ null, %2 ], [ null, %12 ], [ %15, %14 ]
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3299,17 +3299,17 @@ _ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit: ; preds = %12
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
-  %.not1718 = icmp eq i32 %17, 0
-  br i1 %.not1718, label %.loopexit, label %.lr.ph
+  %.not1720 = icmp eq i32 %17, 0
+  br i1 %.not1720, label %.loopexit, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
   %.not17 = icmp eq ptr %22, %20
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit, %21
-  %.01519 = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit ]
-  %23 = load ptr, ptr %.01519, align 8, !tbaa !39
+  %.01521 = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit ]
+  %23 = load ptr, ptr %.01521, align 8, !tbaa !39
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -3349,17 +3349,17 @@ _ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit.i: ; preds = %12
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
-  %.not1718.i = icmp eq i32 %17, 0
-  br i1 %.not1718.i, label %_ZN7datalog16relation_manager26try_get_appropriate_pluginERKNS_18relation_signatureE.exit.thread, label %.lr.ph.i
+  %.not1720.i = icmp eq i32 %17, 0
+  br i1 %.not1720.i, label %_ZN7datalog16relation_manager26try_get_appropriate_pluginERKNS_18relation_signatureE.exit.thread, label %.lr.ph.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 8
   %.not17.i = icmp eq ptr %22, %20
   br i1 %.not17.i, label %_ZN7datalog16relation_manager26try_get_appropriate_pluginERKNS_18relation_signatureE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit.i, %21
-  %.01519.i = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit.i ]
-  %23 = load ptr, ptr %.01519.i, align 8, !tbaa !39
+  %.01521.i = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit.i ]
+  %23 = load ptr, ptr %.01521.i, align 8, !tbaa !39
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -3574,17 +3574,17 @@ _ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit: ; preds = %12
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
-  %.not1718 = icmp eq i32 %17, 0
-  br i1 %.not1718, label %.loopexit, label %.lr.ph
+  %.not1720 = icmp eq i32 %17, 0
+  br i1 %.not1720, label %.loopexit, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
   %.not17 = icmp eq ptr %22, %20
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit, %21
-  %.01519 = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit ]
-  %23 = load ptr, ptr %.01519, align 8, !tbaa !35
+  %.01521 = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit ]
+  %23 = load ptr, ptr %.01521, align 8, !tbaa !35
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -3624,17 +3624,17 @@ _ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i: ; preds = %12
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
-  %.not1718.i = icmp eq i32 %17, 0
-  br i1 %.not1718.i, label %_ZN7datalog16relation_manager26try_get_appropriate_pluginERKNS_15table_signatureE.exit.thread, label %.lr.ph.i
+  %.not1720.i = icmp eq i32 %17, 0
+  br i1 %.not1720.i, label %_ZN7datalog16relation_manager26try_get_appropriate_pluginERKNS_15table_signatureE.exit.thread, label %.lr.ph.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 8
   %.not17.i = icmp eq ptr %22, %20
   br i1 %.not17.i, label %_ZN7datalog16relation_manager26try_get_appropriate_pluginERKNS_15table_signatureE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i, %21
-  %.01519.i = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i ]
-  %23 = load ptr, ptr %.01519.i, align 8, !tbaa !35
+  %.01521.i = phi ptr [ %22, %21 ], [ %14, %_ZN6vectorIPN7datalog12table_pluginELb0EjE3endEv.exit.i ]
+  %23 = load ptr, ptr %.01521.i, align 8, !tbaa !35
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -3742,29 +3742,29 @@ _ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit: ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not15 = icmp eq i32 %7, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq i32 %7, 0
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit
   %11 = load ptr, ptr %1, align 8, !tbaa !307
   br label %14
 
 12:                                               ; preds = %14
-  %13 = getelementptr inbounds nuw i8, ptr %.01416, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01418, i64 8
   %.not = icmp eq ptr %13, %10
   br i1 %.not, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph, %12
-  %.01416 = phi ptr [ %4, %.lr.ph ], [ %13, %12 ]
-  %15 = load ptr, ptr %.01416, align 8, !tbaa !39
+  %.01418 = phi ptr [ %4, %.lr.ph ], [ %13, %12 ]
+  %15 = load ptr, ptr %.01418, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !307
   %18 = icmp eq ptr %17, %11
   br i1 %18, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %14, %12, %2, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit
-  %spec.select = phi ptr [ null, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit ], [ null, %2 ], [ null, %12 ], [ %15, %14 ]
-  ret ptr %spec.select
+  %19 = phi ptr [ null, %_ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit ], [ null, %2 ], [ null, %12 ], [ %15, %14 ]
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2775,17 +2775,17 @@ define hidden noundef range(i32 -2, 2) i32 @_ZN4cvc58internal6theory11quantifier
   %4 = load ptr, ptr %3, align 8, !tbaa !95
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !95
-  %.not13 = icmp eq ptr %4, %6
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq ptr %4, %6
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 8
   %.not = icmp eq ptr %8, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
-  %.sroa.010.014 = phi ptr [ %8, %7 ], [ %4, %1 ]
-  %9 = load ptr, ptr %.sroa.010.014, align 8, !tbaa !65
+  %.sroa.010.015 = phi ptr [ %8, %7 ], [ %4, %1 ]
+  %9 = load ptr, ptr %.sroa.010.015, align 8, !tbaa !65
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %10 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !tbaa !6, !noalias !96
   store ptr %10, ptr %2, align 8, !tbaa !6, !alias.scope !96
@@ -2859,8 +2859,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %30, %34, %40
   resume { ptr, i32 } %45
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %7, %1
-  %spec.select = phi i32 [ 1, %1 ], [ 1, %7 ], [ -2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  ret i32 %spec.select
+  %46 = phi i32 [ 1, %1 ], [ 1, %7 ], [ -2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  ret i32 %46
 }
 
 ; Function Attrs: mustprogress uwtable

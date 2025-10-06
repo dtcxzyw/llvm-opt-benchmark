@@ -414,7 +414,7 @@ gv_alloc.exit:                                    ; preds = %17
 
 ._crit_edge.i.i27:                                ; preds = %gv_alloc.exit
   %.pre.i.i29 = load i64, ptr %.0.sroa.phi53, align 8, !tbaa !88
-  %.pre46.i.i30 = load ptr, ptr %.0, align 8, !tbaa !79
+  %.pre45.i.i30 = load ptr, ptr %.0, align 8, !tbaa !79
   br label %clist_append.exit34
 
 47:                                               ; preds = %gv_alloc.exit
@@ -468,7 +468,7 @@ gv_alloc.exit:                                    ; preds = %17
   unreachable
 
 clist_append.exit34:                              ; preds = %._crit_edge.i.i27, %70
-  %76 = phi ptr [ %.pre46.i.i30, %._crit_edge.i.i27 ], [ %53, %70 ]
+  %76 = phi ptr [ %.pre45.i.i30, %._crit_edge.i.i27 ], [ %53, %70 ]
   %77 = phi i64 [ %45, %._crit_edge.i.i27 ], [ %spec.select.i.i31, %70 ]
   %78 = phi i64 [ %44, %._crit_edge.i.i27 ], [ %61, %70 ]
   %79 = phi i64 [ %.pre.i.i29, %._crit_edge.i.i27 ], [ %71, %70 ]

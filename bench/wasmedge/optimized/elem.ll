@@ -1083,31 +1083,31 @@ _ZN8WasmEdge7Runtime8Instance14ModuleInstance7addElemIJRjRKNS_7ValTypeERSt6vecto
 
 173:                                              ; preds = %_ZN8WasmEdge7Runtime8Instance14ModuleInstance7addElemIJRjRKNS_7ValTypeERSt6vectorINS_10RefVariantESaIS9_EEEEEvDpOT_.exit, %164, %114, %59
   %174 = phi i32 [ %60, %59 ], [ 772, %164 ], [ %115, %114 ], [ %40, %_ZN8WasmEdge7Runtime8Instance14ModuleInstance7addElemIJRjRKNS_7ValTypeERSt6vectorINS_10RefVariantESaIS9_EEEEEvDpOT_.exit ]
-  %switch = phi i1 [ false, %59 ], [ false, %164 ], [ false, %114 ], [ true, %_ZN8WasmEdge7Runtime8Instance14ModuleInstance7addElemIJRjRKNS_7ValTypeERSt6vectorINS_10RefVariantESaIS9_EEEEEvDpOT_.exit ]
-  %175 = load ptr, ptr %12, align 8
-  %.not.i.i.i68 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i68, label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EED2Ev.exit69, label %176
+  %175 = phi i1 [ false, %59 ], [ false, %164 ], [ false, %114 ], [ true, %_ZN8WasmEdge7Runtime8Instance14ModuleInstance7addElemIJRjRKNS_7ValTypeERSt6vectorINS_10RefVariantESaIS9_EEEEEvDpOT_.exit ]
+  %176 = load ptr, ptr %12, align 8
+  %.not.i.i.i68 = icmp eq ptr %176, null
+  br i1 %.not.i.i.i68, label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EED2Ev.exit69, label %177
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr %28, align 8
-  %178 = ptrtoint ptr %177 to i64
-  %179 = ptrtoint ptr %175 to i64
-  %180 = sub i64 %178, %179
-  call void @_ZdlPvm(ptr noundef nonnull %175, i64 noundef %180) #18
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %28, align 8
+  %179 = ptrtoint ptr %178 to i64
+  %180 = ptrtoint ptr %176 to i64
+  %181 = sub i64 %179, %180
+  call void @_ZdlPvm(ptr noundef nonnull %176, i64 noundef %181) #18
   br label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EED2Ev.exit69
 
-_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EED2Ev.exit69: ; preds = %173, %176
-  br i1 %switch, label %37, label %.loopexit89
+_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EED2Ev.exit69: ; preds = %173, %177
+  br i1 %175, label %37, label %.loopexit89
 
 ._crit_edge98:                                    ; preds = %37, %5
   store i64 1, ptr %0, align 4
-  br label %181
+  br label %182
 
 .loopexit89:                                      ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EED2Ev.exit69
   store i32 %174, ptr %30, align 4
-  br label %181
+  br label %182
 
-181:                                              ; preds = %.loopexit89, %._crit_edge98
+182:                                              ; preds = %.loopexit89, %._crit_edge98
   ret void
 }
 

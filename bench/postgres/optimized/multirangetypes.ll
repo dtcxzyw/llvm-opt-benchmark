@@ -6371,27 +6371,27 @@ multirange_get_typcache.exit:                     ; preds = %26, %36
 .lr.ph:                                           ; preds = %multirange_get_typcache.exit
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %smax = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
-  %smax54 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
+  %smax53 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
   br label %46
 
 46:                                               ; preds = %.lr.ph, %58
-  %.03753 = phi i32 [ 0, %.lr.ph ], [ %59, %58 ]
+  %.03752 = phi i32 [ 0, %.lr.ph ], [ %59, %58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %exitcond.not = icmp eq i32 %.03753, %smax
+  %exitcond.not = icmp eq i32 %.03752, %smax
   br i1 %exitcond.not, label %.thread, label %47
 
 47:                                               ; preds = %46
-  %exitcond55.not = icmp eq i32 %.03753, %smax54
-  br i1 %exitcond55.not, label %.thread, label %48
+  %exitcond54.not = icmp eq i32 %.03752, %smax53
+  br i1 %exitcond54.not, label %.thread, label %48
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %45, align 8
-  call void @multirange_get_bounds(ptr noundef %49, ptr noundef %9, i32 noundef %.03753, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call void @multirange_get_bounds(ptr noundef %49, ptr noundef %9, i32 noundef %.03752, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %50 = load ptr, ptr %45, align 8
-  call void @multirange_get_bounds(ptr noundef %50, ptr noundef %13, i32 noundef %.03753, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call void @multirange_get_bounds(ptr noundef %50, ptr noundef %13, i32 noundef %.03752, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %51 = load ptr, ptr %45, align 8
   %52 = call i32 @range_cmp_bounds(ptr noundef %51, ptr noundef nonnull %2, ptr noundef nonnull %4) #10
   %53 = icmp eq i32 %52, 0
@@ -6417,9 +6417,9 @@ multirange_get_typcache.exit:                     ; preds = %26, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %59 = add nuw nsw i32 %.03753, 1
-  %exitcond56.not = icmp eq i32 %59, %43
-  br i1 %exitcond56.not, label %.loopexit, label %46, !llvm.loop !39
+  %59 = add nuw nsw i32 %.03752, 1
+  %exitcond55.not = icmp eq i32 %59, %43
+  br i1 %exitcond55.not, label %.loopexit, label %46, !llvm.loop !39
 
 .loopexit:                                        ; preds = %58, %multirange_get_typcache.exit, %.thread
   %.3 = phi i64 [ %57, %.thread ], [ 0, %multirange_get_typcache.exit ], [ 0, %58 ]

@@ -2360,9 +2360,9 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
   call void @initPQExpBuffer(ptr noundef nonnull %10) #8
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %16 = icmp sgt i32 %15, 119999
-  %.sink1610.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink1610.sroa.gep1623 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink1610.sroa.gep1624 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink1595.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink1595.sroa.gep1608 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink1595.sroa.gep1609 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %4
@@ -2410,7 +2410,7 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
 35:                                               ; preds = %32
   %36 = call i32 @PQntuples(ptr noundef nonnull %34) #8
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %sub_01304
+  br i1 %37, label %38, label %sub_01289
 
 38:                                               ; preds = %35
   %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !9, !noundef !10
@@ -2421,102 +2421,102 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.654, ptr noundef %2) #8
   br label %986
 
-sub_01304:                                        ; preds = %35
+sub_01289:                                        ; preds = %35
   %42 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 0) #8
   %43 = call i64 @strtol(ptr noundef nonnull captures(none) %42, ptr noundef null, i32 noundef 10) #8
   %44 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 1) #8
   %45 = load i8, ptr %44, align 1
   %46 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 2) #8
   %47 = load i8, ptr %46, align 1
-  %.not1482 = icmp eq i8 %47, 116
-  br i1 %.not1482, label %sub_11305, label %.tail1303
+  %.not1467 = icmp eq i8 %47, 116
+  br i1 %.not1467, label %sub_11290, label %.tail1288
 
-sub_11305:                                        ; preds = %sub_01304
+sub_11290:                                        ; preds = %sub_01289
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 0
-  br label %.tail1303
+  br label %.tail1288
 
-.tail1303:                                        ; preds = %sub_01304, %sub_11305
-  %51 = phi i1 [ false, %sub_01304 ], [ %50, %sub_11305 ]
+.tail1288:                                        ; preds = %sub_01289, %sub_11290
+  %51 = phi i1 [ false, %sub_01289 ], [ %50, %sub_11290 ]
   %52 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 3) #8
   %53 = load i8, ptr %52, align 1
-  %.not1483 = icmp eq i8 %53, 116
-  br i1 %.not1483, label %sub_11301, label %.tail1299
+  %.not1468 = icmp eq i8 %53, 116
+  br i1 %.not1468, label %sub_11286, label %.tail1284
 
-sub_11301:                                        ; preds = %.tail1303
+sub_11286:                                        ; preds = %.tail1288
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 0
-  br label %.tail1299
+  br label %.tail1284
 
-.tail1299:                                        ; preds = %.tail1303, %sub_11301
-  %57 = phi i1 [ false, %.tail1303 ], [ %56, %sub_11301 ]
+.tail1284:                                        ; preds = %.tail1288, %sub_11286
+  %57 = phi i1 [ false, %.tail1288 ], [ %56, %sub_11286 ]
   %58 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 4) #8
   %59 = load i8, ptr %58, align 1
-  %.not1484 = icmp eq i8 %59, 116
-  br i1 %.not1484, label %sub_11297, label %.tail1295
+  %.not1469 = icmp eq i8 %59, 116
+  br i1 %.not1469, label %sub_11282, label %.tail1280
 
-sub_11297:                                        ; preds = %.tail1299
+sub_11282:                                        ; preds = %.tail1284
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
-  br label %.tail1295
+  br label %.tail1280
 
-.tail1295:                                        ; preds = %.tail1299, %sub_11297
-  %63 = phi i1 [ false, %.tail1299 ], [ %62, %sub_11297 ]
+.tail1280:                                        ; preds = %.tail1284, %sub_11282
+  %63 = phi i1 [ false, %.tail1284 ], [ %62, %sub_11282 ]
   %64 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 5) #8
   %65 = load i8, ptr %64, align 1
-  %.not1485 = icmp eq i8 %65, 116
-  br i1 %.not1485, label %sub_11293, label %.tail1291
+  %.not1470 = icmp eq i8 %65, 116
+  br i1 %.not1470, label %sub_11278, label %.tail1276
 
-sub_11293:                                        ; preds = %.tail1295
+sub_11278:                                        ; preds = %.tail1280
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 0
-  br label %.tail1291
+  br label %.tail1276
 
-.tail1291:                                        ; preds = %.tail1295, %sub_11293
-  %69 = phi i1 [ false, %.tail1295 ], [ %68, %sub_11293 ]
+.tail1276:                                        ; preds = %.tail1280, %sub_11278
+  %69 = phi i1 [ false, %.tail1280 ], [ %68, %sub_11278 ]
   %70 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 6) #8
   %71 = load i8, ptr %70, align 1
-  %.not1486 = icmp eq i8 %71, 116
-  br i1 %.not1486, label %sub_11289, label %.tail1287
+  %.not1471 = icmp eq i8 %71, 116
+  br i1 %.not1471, label %sub_11274, label %.tail1272
 
-sub_11289:                                        ; preds = %.tail1291
+sub_11274:                                        ; preds = %.tail1276
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 0
-  br label %.tail1287
+  br label %.tail1272
 
-.tail1287:                                        ; preds = %.tail1291, %sub_11289
-  %75 = phi i1 [ false, %.tail1291 ], [ %74, %sub_11289 ]
+.tail1272:                                        ; preds = %.tail1276, %sub_11274
+  %75 = phi i1 [ false, %.tail1276 ], [ %74, %sub_11274 ]
   %76 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 7) #8
   %77 = load i8, ptr %76, align 1
-  %.not1487 = icmp eq i8 %77, 116
-  br i1 %.not1487, label %sub_11285, label %.tail1283
+  %.not1472 = icmp eq i8 %77, 116
+  br i1 %.not1472, label %sub_11270, label %.tail1268
 
-sub_11285:                                        ; preds = %.tail1287
+sub_11270:                                        ; preds = %.tail1272
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 0
-  br label %.tail1283
+  br label %.tail1268
 
-.tail1283:                                        ; preds = %.tail1287, %sub_11285
-  %81 = phi i1 [ false, %.tail1287 ], [ %80, %sub_11285 ]
+.tail1268:                                        ; preds = %.tail1272, %sub_11270
+  %81 = phi i1 [ false, %.tail1272 ], [ %80, %sub_11270 ]
   %82 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 8) #8
   %83 = load i8, ptr %82, align 1
-  %.not1488 = icmp eq i8 %83, 116
-  br i1 %.not1488, label %sub_1, label %.tail
+  %.not1473 = icmp eq i8 %83, 116
+  br i1 %.not1473, label %sub_1, label %.tail
 
-sub_1:                                            ; preds = %.tail1283
+sub_1:                                            ; preds = %.tail1268
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 1
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, 0
   br label %.tail
 
-.tail:                                            ; preds = %.tail1283, %sub_1
-  %87 = phi i1 [ false, %.tail1283 ], [ %86, %sub_1 ]
+.tail:                                            ; preds = %.tail1268, %sub_1
+  %87 = phi i1 [ false, %.tail1268 ], [ %86, %sub_1 ]
   %88 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 9) #8
   %89 = call ptr @pg_strdup(ptr noundef %88) #8
   %90 = call ptr @PQgetvalue(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 10) #8
@@ -2660,15 +2660,15 @@ sub_1:                                            ; preds = %.tail1283
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.671) #8
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.672) #8
   switch i8 %45, label %159 [
-    i8 118, label %.sink.split1609
-    i8 114, label %.sink.split1609
-    i8 112, label %.sink.split1609
-    i8 109, label %.sink.split1609
-    i8 102, label %.sink.split1609
-    i8 99, label %.sink.split1609
+    i8 118, label %.sink.split1594
+    i8 114, label %.sink.split1594
+    i8 112, label %.sink.split1594
+    i8 109, label %.sink.split1594
+    i8 102, label %.sink.split1594
+    i8 99, label %.sink.split1594
   ]
 
-.sink.split1609:                                  ; preds = %149, %149, %149, %149, %149, %149
+.sink.split1594:                                  ; preds = %149, %149, %149, %149, %149, %149
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.673) #8
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.674) #8
   %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
@@ -2681,13 +2681,13 @@ sub_1:                                            ; preds = %.tail1283
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.677.sink) #8
   br label %159
 
-159:                                              ; preds = %.sink.split1609, %149
-  %.01006 = phi i32 [ -1, %149 ], [ 6, %.sink.split1609 ]
-  %.01005 = phi i32 [ -1, %149 ], [ 5, %.sink.split1609 ]
-  %.0998 = phi i32 [ -1, %149 ], [ 4, %.sink.split1609 ]
-  %.0997 = phi i32 [ -1, %149 ], [ 3, %.sink.split1609 ]
-  %.0996 = phi i32 [ -1, %149 ], [ 2, %.sink.split1609 ]
-  %.0982 = phi i32 [ 2, %149 ], [ 7, %.sink.split1609 ]
+159:                                              ; preds = %.sink.split1594, %149
+  %.01006 = phi i32 [ -1, %149 ], [ 6, %.sink.split1594 ]
+  %.01005 = phi i32 [ -1, %149 ], [ 5, %.sink.split1594 ]
+  %.0998 = phi i32 [ -1, %149 ], [ 4, %.sink.split1594 ]
+  %.0997 = phi i32 [ -1, %149 ], [ 3, %.sink.split1594 ]
+  %.0996 = phi i32 [ -1, %149 ], [ 2, %.sink.split1594 ]
+  %.0982 = phi i32 [ 2, %149 ], [ 7, %.sink.split1594 ]
   %160 = icmp eq i8 %45, 105
   %161 = icmp eq i8 %45, 73
   switch i8 %45, label %169 [
@@ -2800,11 +2800,11 @@ sub_1:                                            ; preds = %.tail1283
   %191 = call i32 @PQntuples(ptr noundef nonnull %189) #8
   switch i8 %45, label %206 [
     i8 114, label %192
-    i8 118, label %.thread1192
+    i8 118, label %.thread1185
     i8 109, label %194
     i8 105, label %195
     i8 73, label %197
-    i8 116, label %.thread1194
+    i8 116, label %.thread1187
     i8 99, label %199
     i8 102, label %200
     i8 112, label %201
@@ -2813,33 +2813,33 @@ sub_1:                                            ; preds = %.tail1283
 192:                                              ; preds = %190
   %193 = icmp eq i8 %100, 117
   %.str.689..str.690 = select i1 %193, ptr @.str.689, ptr @.str.690
-  br label %.thread1192
+  br label %.thread1185
 
 194:                                              ; preds = %190
-  br label %.thread1192
+  br label %.thread1185
 
 195:                                              ; preds = %190
   %196 = icmp eq i8 %100, 117
   %.str.693..str.694 = select i1 %196, ptr @.str.693, ptr @.str.694
-  br label %.thread1194
+  br label %.thread1187
 
 197:                                              ; preds = %190
   %198 = icmp eq i8 %100, 117
   %.str.695..str.696 = select i1 %198, ptr @.str.695, ptr @.str.696
-  br label %.thread1194
+  br label %.thread1187
 
 199:                                              ; preds = %190
-  br label %.thread1192
+  br label %.thread1185
 
 200:                                              ; preds = %190
-  br label %.thread1192
+  br label %.thread1185
 
 201:                                              ; preds = %190
   %202 = icmp eq i8 %100, 117
   %.str.700..str.701 = select i1 %202, ptr @.str.700, ptr @.str.701
-  br label %.thread1192
+  br label %.thread1185
 
-.thread1192:                                      ; preds = %201, %190, %192, %200, %199, %194
+.thread1185:                                      ; preds = %201, %190, %192, %200, %199, %194
   %.str.700.sink = phi ptr [ @.str.699, %200 ], [ @.str.698, %199 ], [ @.str.692, %194 ], [ %.str.689..str.690, %192 ], [ @.str.691, %190 ], [ %.str.700..str.701, %201 ]
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %9, ptr noundef nonnull %.str.700.sink, ptr noundef %0, ptr noundef %1) #8
   store ptr @.str.703, ptr %8, align 16
@@ -2851,7 +2851,7 @@ sub_1:                                            ; preds = %.tail1283
   store ptr @.str.335, ptr %205, align 8
   br label %207
 
-.thread1194:                                      ; preds = %190, %197, %195
+.thread1187:                                      ; preds = %190, %197, %195
   %.str.695.sink = phi ptr [ %.str.693..str.694, %195 ], [ %.str.695..str.696, %197 ], [ @.str.697, %190 ]
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %9, ptr noundef nonnull %.str.695.sink, ptr noundef %0, ptr noundef %1) #8
   store ptr @.str.703, ptr %8, align 16
@@ -2862,11 +2862,11 @@ sub_1:                                            ; preds = %.tail1283
   store ptr @.str.703, ptr %8, align 16
   br label %207
 
-207:                                              ; preds = %206, %.thread1194, %.thread1192
-  %.sink1610.sroa.phi = phi ptr [ %.sink1610.sroa.gep, %206 ], [ %.sink1610.sroa.gep1623, %.thread1194 ], [ %.sink1610.sroa.gep1624, %.thread1192 ]
-  %.str.18.sink = phi ptr [ @.str.18, %206 ], [ @.str.18, %.thread1194 ], [ @.str.336, %.thread1192 ]
-  %.6988 = phi i32 [ 2, %206 ], [ 2, %.thread1194 ], [ 5, %.thread1192 ]
-  store ptr %.str.18.sink, ptr %.sink1610.sroa.phi, align 8
+207:                                              ; preds = %206, %.thread1187, %.thread1185
+  %.sink1595.sroa.phi = phi ptr [ %.sink1595.sroa.gep, %206 ], [ %.sink1595.sroa.gep1608, %.thread1187 ], [ %.sink1595.sroa.gep1609, %.thread1185 ]
+  %.str.18.sink = phi ptr [ @.str.18, %206 ], [ @.str.18, %.thread1187 ], [ @.str.336, %.thread1185 ]
+  %.6988 = phi i32 [ 2, %206 ], [ 2, %.thread1187 ], [ 5, %.thread1185 ]
+  store ptr %.str.18.sink, ptr %.sink1595.sroa.phi, align 8
   %208 = icmp sgt i32 %.01007, -1
   br i1 %208, label %209, label %213
 
@@ -2956,9 +2956,9 @@ sub_1:                                            ; preds = %.tail1283
   %wide.trip.count = zext nneg i32 %.13995 to i64
   br label %.lr.ph
 
-.preheader1439:                                   ; preds = %.lr.ph
+.preheader1424:                                   ; preds = %.lr.ph
   %250 = icmp sgt i32 %191, 0
-  br i1 %250, label %.lr.ph1443, label %._crit_edge
+  br i1 %250, label %.lr.ph1428, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2967,55 +2967,55 @@ sub_1:                                            ; preds = %.tail1283
   call void @printTableAddHeader(ptr noundef nonnull %7, ptr noundef %252, i1 noundef zeroext true, i8 noundef signext 108) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1439, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader1424, label %.lr.ph, !llvm.loop !12
 
-.lr.ph1443:                                       ; preds = %.preheader1439, %308
-  %.19771441 = phi i32 [ %309, %308 ], [ 0, %.preheader1439 ]
-  %253 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef 0) #8
+.lr.ph1428:                                       ; preds = %.preheader1424, %308
+  %.19771426 = phi i32 [ %309, %308 ], [ 0, %.preheader1424 ]
+  %253 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef 0) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %253, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %254 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef 1) #8
+  %254 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef 1) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %254, i1 noundef zeroext false, i1 noundef zeroext false) #8
   switch i8 %45, label %275 [
-    i8 118, label %sub_01308
-    i8 114, label %sub_01308
-    i8 112, label %sub_01308
-    i8 109, label %sub_01308
-    i8 102, label %sub_01308
-    i8 99, label %sub_01308
+    i8 118, label %sub_01293
+    i8 114, label %sub_01293
+    i8 112, label %sub_01293
+    i8 109, label %sub_01293
+    i8 102, label %sub_01293
+    i8 99, label %sub_01293
   ]
 
-sub_01308:                                        ; preds = %.lr.ph1443, %.lr.ph1443, %.lr.ph1443, %.lr.ph1443, %.lr.ph1443, %.lr.ph1443
-  %255 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.0998) #8
+sub_01293:                                        ; preds = %.lr.ph1428, %.lr.ph1428, %.lr.ph1428, %.lr.ph1428, %.lr.ph1428, %.lr.ph1428
+  %255 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.0998) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %255, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %256 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.0997) #8
+  %256 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.0997) #8
   %257 = load i8, ptr %256, align 1
-  %.not1489 = icmp eq i8 %257, 116
-  br i1 %.not1489, label %sub_11309, label %.tail1307
+  %.not1474 = icmp eq i8 %257, 116
+  br i1 %.not1474, label %sub_11294, label %.tail1292
 
-sub_11309:                                        ; preds = %sub_01308
+sub_11294:                                        ; preds = %sub_01293
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 1
   %259 = load i8, ptr %258, align 1
   %260 = icmp eq i8 %259, 0
   %261 = select i1 %260, ptr @.str.708, ptr @.str.224
-  br label %.tail1307
+  br label %.tail1292
 
-.tail1307:                                        ; preds = %sub_01308, %sub_11309
-  %262 = phi ptr [ @.str.224, %sub_01308 ], [ %261, %sub_11309 ]
+.tail1292:                                        ; preds = %sub_01293, %sub_11294
+  %262 = phi ptr [ @.str.224, %sub_01293 ], [ %261, %sub_11294 ]
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef nonnull %262, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %263 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01005) #8
-  %264 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01006) #8
+  %263 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01005) #8
+  %264 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01006) #8
   %265 = load i8, ptr %263, align 1
   switch i8 %265, label %267 [
     i8 97, label %274
     i8 100, label %266
   ]
 
-266:                                              ; preds = %.tail1307
+266:                                              ; preds = %.tail1292
   br label %274
 
-267:                                              ; preds = %.tail1307
+267:                                              ; preds = %.tail1292
   %268 = load i8, ptr %264, align 1
-  %269 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.0996) #8
+  %269 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.0996) #8
   switch i8 %268, label %274 [
     i8 115, label %270
     i8 118, label %272
@@ -3029,17 +3029,17 @@ sub_11309:                                        ; preds = %sub_01308
   %273 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.712, ptr noundef %269) #8
   br label %274
 
-274:                                              ; preds = %267, %.tail1307, %266, %272, %270
-  %.01039 = phi i1 [ false, %266 ], [ true, %270 ], [ true, %272 ], [ false, %.tail1307 ], [ false, %267 ]
-  %.01038 = phi ptr [ @.str.710, %266 ], [ %271, %270 ], [ %273, %272 ], [ @.str.709, %.tail1307 ], [ %269, %267 ]
+274:                                              ; preds = %267, %.tail1292, %266, %272, %270
+  %.01039 = phi i1 [ false, %266 ], [ true, %270 ], [ true, %272 ], [ false, %.tail1292 ], [ false, %267 ]
+  %.01038 = phi ptr [ @.str.710, %266 ], [ %271, %270 ], [ %273, %272 ], [ @.str.709, %.tail1292 ], [ %269, %267 ]
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %.01038, i1 noundef zeroext false, i1 noundef zeroext %.01039) #8
   br label %275
 
-275:                                              ; preds = %.lr.ph1443, %274
+275:                                              ; preds = %.lr.ph1428, %274
   br i1 %208, label %276, label %278
 
 276:                                              ; preds = %275
-  %277 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01007) #8
+  %277 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01007) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %277, i1 noundef zeroext true, i1 noundef zeroext false) #8
   br label %278
 
@@ -3047,7 +3047,7 @@ sub_11309:                                        ; preds = %sub_01308
   br i1 %214, label %279, label %281
 
 279:                                              ; preds = %278
-  %280 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01009) #8
+  %280 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01009) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %280, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br label %281
 
@@ -3055,7 +3055,7 @@ sub_11309:                                        ; preds = %sub_01308
   br i1 %220, label %282, label %284
 
 282:                                              ; preds = %281
-  %283 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01010) #8
+  %283 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01010) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %283, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br label %284
 
@@ -3063,7 +3063,7 @@ sub_11309:                                        ; preds = %sub_01308
   br i1 %226, label %285, label %293
 
 285:                                              ; preds = %284
-  %286 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01011) #8
+  %286 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01011) #8
   %287 = load i8, ptr %286, align 1
   switch i8 %287, label %288 [
     i8 112, label %291
@@ -3091,7 +3091,7 @@ sub_11309:                                        ; preds = %sub_01308
   br i1 %232, label %294, label %302
 
 294:                                              ; preds = %293
-  %295 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01013) #8
+  %295 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01013) #8
   %296 = load i8, ptr %295, align 1
   switch i8 %296, label %297 [
     i8 112, label %300
@@ -3115,7 +3115,7 @@ sub_11309:                                        ; preds = %sub_01308
   br i1 %238, label %303, label %305
 
 303:                                              ; preds = %302
-  %304 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01021) #8
+  %304 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01021) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %304, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br label %305
 
@@ -3123,16 +3123,16 @@ sub_11309:                                        ; preds = %sub_01308
   br i1 %244, label %306, label %308
 
 306:                                              ; preds = %305
-  %307 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771441, i32 noundef %.01023) #8
+  %307 = call ptr @PQgetvalue(ptr noundef nonnull %189, i32 noundef %.19771426, i32 noundef %.01023) #8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %307, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br label %308
 
 308:                                              ; preds = %305, %306
-  %309 = add nuw nsw i32 %.19771441, 1
-  %exitcond1522.not = icmp eq i32 %309, %191
-  br i1 %exitcond1522.not, label %._crit_edge, label %.lr.ph1443, !llvm.loop !13
+  %309 = add nuw nsw i32 %.19771426, 1
+  %exitcond1507.not = icmp eq i32 %309, %191
+  br i1 %exitcond1507.not, label %._crit_edge, label %.lr.ph1428, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %308, %.preheader1439
+._crit_edge:                                      ; preds = %308, %.preheader1424
   br i1 %87, label %310, label %342
 
 310:                                              ; preds = %._crit_edge
@@ -3152,51 +3152,51 @@ sub_11309:                                        ; preds = %sub_01308
   %316 = load ptr, ptr %5, align 8
   %317 = call ptr @PSQLexec(ptr noundef %316) #8
   %.not1103 = icmp eq ptr %317, null
-  br i1 %.not1103, label %.thread1208, label %318
+  br i1 %.not1103, label %.thread1198, label %318
 
 318:                                              ; preds = %315
   %319 = call i32 @PQntuples(ptr noundef nonnull %317) #8
   %320 = icmp sgt i32 %319, 0
-  br i1 %320, label %sub_01312, label %.thread1197
+  br i1 %320, label %sub_01297, label %.thread1190
 
-sub_01312:                                        ; preds = %318
+sub_01297:                                        ; preds = %318
   %321 = call ptr @PQgetvalue(ptr noundef nonnull %317, i32 noundef 0, i32 noundef 0) #8
   %322 = call ptr @PQgetvalue(ptr noundef nonnull %317, i32 noundef 0, i32 noundef 1) #8
   %323 = call ptr @PQgetvalue(ptr noundef nonnull %317, i32 noundef 0, i32 noundef 2) #8
   %324 = load i8, ptr %323, align 1
-  %.not1490 = icmp eq i8 %324, 116
-  br i1 %.not1490, label %sub_11313, label %.tail1311
+  %.not1475 = icmp eq i8 %324, 116
+  br i1 %.not1475, label %sub_11298, label %.tail1296
 
-sub_11313:                                        ; preds = %sub_01312
+sub_11298:                                        ; preds = %sub_01297
   %325 = getelementptr inbounds nuw i8, ptr %323, i64 1
   %326 = load i8, ptr %325, align 1
   %327 = icmp eq i8 %326, 0
   %328 = select i1 %327, ptr @.str.726, ptr @.str.224
-  br label %.tail1311
+  br label %.tail1296
 
-.tail1311:                                        ; preds = %sub_01312, %sub_11313
-  %329 = phi ptr [ @.str.224, %sub_01312 ], [ %328, %sub_11313 ]
+.tail1296:                                        ; preds = %sub_01297, %sub_11298
+  %329 = phi ptr [ @.str.224, %sub_01297 ], [ %328, %sub_11298 ]
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.725, ptr noundef %321, ptr noundef %322, ptr noundef nonnull %329) #8
   %330 = load ptr, ptr %10, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %330) #8
-  br i1 %3, label %331, label %.thread1197
+  br i1 %3, label %331, label %.thread1190
 
-331:                                              ; preds = %.tail1311
+331:                                              ; preds = %.tail1296
   %332 = call i32 @PQgetisnull(ptr noundef nonnull %317, i32 noundef 0, i32 noundef 3) #8
   %.not1104 = icmp eq i32 %332, 0
-  br i1 %.not1104, label %333, label %.thread1195
+  br i1 %.not1104, label %333, label %.thread1188
 
 333:                                              ; preds = %331
   %334 = call ptr @PQgetvalue(ptr noundef nonnull %317, i32 noundef 0, i32 noundef 3) #8
   %335 = icmp eq ptr %334, null
-  br i1 %335, label %.thread1195, label %336
+  br i1 %335, label %.thread1188, label %336
 
 336:                                              ; preds = %333
   %337 = load i8, ptr %334, align 1
   %338 = icmp eq i8 %337, 0
-  br i1 %338, label %.thread1195, label %339
+  br i1 %338, label %.thread1188, label %339
 
-.thread1195:                                      ; preds = %331, %336, %333
+.thread1188:                                      ; preds = %331, %336, %333
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.727) #8
   br label %340
 
@@ -3204,16 +3204,16 @@ sub_11313:                                        ; preds = %sub_01312
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.728, ptr noundef nonnull %334) #8
   br label %340
 
-340:                                              ; preds = %339, %.thread1195
+340:                                              ; preds = %339, %.thread1188
   %341 = load ptr, ptr %10, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %341) #8
-  br label %.thread1197
+  br label %.thread1190
 
-.thread1197:                                      ; preds = %318, %340, %.tail1311
+.thread1190:                                      ; preds = %318, %340, %.tail1296
   call void @PQclear(ptr noundef nonnull %317) #8
   br label %342
 
-342:                                              ; preds = %.thread1197, %._crit_edge
+342:                                              ; preds = %.thread1190, %._crit_edge
   br i1 %154, label %343, label %351
 
 343:                                              ; preds = %342
@@ -3221,17 +3221,17 @@ sub_11313:                                        ; preds = %sub_01312
   %344 = load ptr, ptr %5, align 8
   %345 = call ptr @PSQLexec(ptr noundef %344) #8
   %.not1105 = icmp eq ptr %345, null
-  br i1 %.not1105, label %.thread1208, label %346
+  br i1 %.not1105, label %.thread1198, label %346
 
 346:                                              ; preds = %343
   %347 = call i32 @PQntuples(ptr noundef nonnull %345) #8
   %348 = icmp eq i32 %347, 1
-  br i1 %348, label %349, label %.sink.split1611
+  br i1 %348, label %349, label %.sink.split1596
 
 349:                                              ; preds = %346
   %350 = call ptr @PQgetvalue(ptr noundef nonnull %345, i32 noundef 0, i32 noundef 0) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.730, ptr noundef %350) #8
-  br label %.sink.split1611.sink.split
+  br label %.sink.split1596.sink.split
 
 351:                                              ; preds = %342
   switch i8 %45, label %797 [
@@ -3248,18 +3248,18 @@ sub_11313:                                        ; preds = %sub_01312
   %353 = load ptr, ptr %5, align 8
   %354 = call ptr @PSQLexec(ptr noundef %353) #8
   %.not1106 = icmp eq ptr %354, null
-  br i1 %.not1106, label %.thread1208, label %355
+  br i1 %.not1106, label %.thread1198, label %355
 
 355:                                              ; preds = %352
   %356 = call i32 @PQntuples(ptr noundef nonnull %354) #8
   %357 = icmp eq i32 %356, 1
-  br i1 %357, label %358, label %.sink.split1611
+  br i1 %357, label %358, label %.sink.split1596
 
 358:                                              ; preds = %355
   %359 = call ptr @PQgetvalue(ptr noundef nonnull %354, i32 noundef 0, i32 noundef 0) #8
   %360 = call ptr @PQgetvalue(ptr noundef nonnull %354, i32 noundef 0, i32 noundef 1) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.732, ptr noundef %359, ptr noundef %360) #8
-  br label %.sink.split1611.sink.split
+  br label %.sink.split1596.sink.split
 
 361:                                              ; preds = %351, %351
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.733) #8
@@ -3275,18 +3275,18 @@ sub_11313:                                        ; preds = %sub_01312
   %366 = load ptr, ptr %5, align 8
   %367 = call ptr @PSQLexec(ptr noundef %366) #8
   %.not1130 = icmp eq ptr %367, null
-  br i1 %.not1130, label %.thread1208, label %368
+  br i1 %.not1130, label %.thread1198, label %368
 
 368:                                              ; preds = %361
   %369 = call i32 @PQntuples(ptr noundef nonnull %367) #8
   %.not1131 = icmp eq i32 %369, 1
-  br i1 %.not1131, label %sub_01316, label %370
+  br i1 %.not1131, label %sub_01301, label %370
 
 370:                                              ; preds = %368
   call void @PQclear(ptr noundef nonnull %367) #8
-  br label %.thread1208
+  br label %.thread1198
 
-sub_01316:                                        ; preds = %368
+sub_01301:                                        ; preds = %368
   %371 = call ptr @PQgetvalue(ptr noundef nonnull %367, i32 noundef 0, i32 noundef 0) #8
   %372 = call ptr @PQgetvalue(ptr noundef nonnull %367, i32 noundef 0, i32 noundef 1) #8
   %373 = call ptr @PQgetvalue(ptr noundef nonnull %367, i32 noundef 0, i32 noundef 2) #8
@@ -3299,161 +3299,161 @@ sub_01316:                                        ; preds = %368
   %380 = call ptr @PQgetvalue(ptr noundef nonnull %367, i32 noundef 0, i32 noundef 9) #8
   %381 = call ptr @PQgetvalue(ptr noundef nonnull %367, i32 noundef 0, i32 noundef 10) #8
   %382 = load i8, ptr %372, align 1
-  %.not1491 = icmp eq i8 %382, 116
-  br i1 %.not1491, label %.tail1315, label %sub_01320
+  %.not1476 = icmp eq i8 %382, 116
+  br i1 %.not1476, label %.tail1300, label %sub_01305
 
-.tail1315:                                        ; preds = %sub_01316
+.tail1300:                                        ; preds = %sub_01301
   %383 = getelementptr inbounds nuw i8, ptr %372, i64 1
   %384 = load i8, ptr %383, align 1
   %385 = icmp eq i8 %384, 0
-  br i1 %385, label %386, label %sub_01320
+  br i1 %385, label %386, label %sub_01305
 
-386:                                              ; preds = %.tail1315
+386:                                              ; preds = %.tail1300
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.739) #8
   br label %396
 
-sub_01320:                                        ; preds = %sub_01316, %.tail1315
+sub_01305:                                        ; preds = %sub_01301, %.tail1300
   %387 = load i8, ptr %371, align 1
-  %.not1492 = icmp eq i8 %387, 116
-  br i1 %.not1492, label %.tail1319, label %.tail1319.thread
+  %.not1477 = icmp eq i8 %387, 116
+  br i1 %.not1477, label %.tail1304, label %.tail1304.thread
 
-.tail1319:                                        ; preds = %sub_01320
+.tail1304:                                        ; preds = %sub_01305
   %388 = getelementptr inbounds nuw i8, ptr %371, i64 1
   %389 = load i8, ptr %388, align 1
   %390 = icmp eq i8 %389, 0
-  br i1 %390, label %sub_01324, label %.tail1319.thread
+  br i1 %390, label %sub_01309, label %.tail1304.thread
 
-sub_01324:                                        ; preds = %.tail1319
+sub_01309:                                        ; preds = %.tail1304
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.740) #8
   %391 = load i8, ptr %378, align 1
-  %.not1493 = icmp eq i8 %391, 116
-  br i1 %.not1493, label %.tail1323, label %.tail1323.thread
+  %.not1478 = icmp eq i8 %391, 116
+  br i1 %.not1478, label %.tail1308, label %.tail1308.thread
 
-.tail1323:                                        ; preds = %sub_01324
+.tail1308:                                        ; preds = %sub_01309
   %392 = getelementptr inbounds nuw i8, ptr %378, i64 1
   %393 = load i8, ptr %392, align 1
   %394 = icmp eq i8 %393, 0
-  br i1 %394, label %395, label %.tail1323.thread
+  br i1 %394, label %395, label %.tail1308.thread
 
-395:                                              ; preds = %.tail1323
+395:                                              ; preds = %.tail1308
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.741) #8
-  br label %.tail1323.thread
+  br label %.tail1308.thread
 
-.tail1323.thread:                                 ; preds = %sub_01324, %395, %.tail1323
+.tail1308.thread:                                 ; preds = %sub_01309, %395, %.tail1308
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.742) #8
   br label %396
 
-.tail1319.thread:                                 ; preds = %sub_01320, %.tail1319
+.tail1304.thread:                                 ; preds = %sub_01305, %.tail1304
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #8
   br label %396
 
-396:                                              ; preds = %.tail1323.thread, %.tail1319.thread, %386
+396:                                              ; preds = %.tail1308.thread, %.tail1304.thread, %386
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.743, ptr noundef %379) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.744, ptr noundef %0, ptr noundef %380) #8
   %char0 = load i8, ptr %381, align 1
   %.not1132 = icmp eq i8 %char0, 0
-  br i1 %.not1132, label %sub_01328, label %397
+  br i1 %.not1132, label %sub_01313, label %397
 
 397:                                              ; preds = %396
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %10, ptr noundef nonnull @.str.745, ptr noundef nonnull %381) #8
-  br label %sub_01328
+  br label %sub_01313
 
-sub_01328:                                        ; preds = %396, %397
+sub_01313:                                        ; preds = %396, %397
   %398 = load i8, ptr %373, align 1
-  %.not1494 = icmp eq i8 %398, 116
-  br i1 %.not1494, label %.tail1327, label %sub_01332
+  %.not1479 = icmp eq i8 %398, 116
+  br i1 %.not1479, label %.tail1312, label %sub_01317
 
-.tail1327:                                        ; preds = %sub_01328
+.tail1312:                                        ; preds = %sub_01313
   %399 = getelementptr inbounds nuw i8, ptr %373, i64 1
   %400 = load i8, ptr %399, align 1
   %401 = icmp eq i8 %400, 0
-  br i1 %401, label %402, label %sub_01332
+  br i1 %401, label %402, label %sub_01317
 
-402:                                              ; preds = %.tail1327
+402:                                              ; preds = %.tail1312
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.746) #8
-  br label %sub_01332
+  br label %sub_01317
 
-sub_01332:                                        ; preds = %sub_01328, %.tail1327, %402
+sub_01317:                                        ; preds = %sub_01313, %.tail1312, %402
   %403 = load i8, ptr %374, align 1
-  %.not1495 = icmp eq i8 %403, 116
-  br i1 %.not1495, label %.tail1331, label %.tail1331.thread
+  %.not1480 = icmp eq i8 %403, 116
+  br i1 %.not1480, label %.tail1316, label %.tail1316.thread
 
-.tail1331:                                        ; preds = %sub_01332
+.tail1316:                                        ; preds = %sub_01317
   %404 = getelementptr inbounds nuw i8, ptr %374, i64 1
   %405 = load i8, ptr %404, align 1
   %406 = icmp eq i8 %405, 0
-  br i1 %406, label %sub_01336, label %.tail1331.thread
+  br i1 %406, label %sub_01321, label %.tail1316.thread
 
-.tail1331.thread:                                 ; preds = %sub_01332, %.tail1331
+.tail1316.thread:                                 ; preds = %sub_01317, %.tail1316
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.747) #8
-  br label %sub_01336
+  br label %sub_01321
 
-sub_01336:                                        ; preds = %.tail1331, %.tail1331.thread
+sub_01321:                                        ; preds = %.tail1316, %.tail1316.thread
   %407 = load i8, ptr %375, align 1
-  %.not1496 = icmp eq i8 %407, 116
-  br i1 %.not1496, label %.tail1335, label %sub_01340
+  %.not1481 = icmp eq i8 %407, 116
+  br i1 %.not1481, label %.tail1320, label %sub_01325
 
-.tail1335:                                        ; preds = %sub_01336
+.tail1320:                                        ; preds = %sub_01321
   %408 = getelementptr inbounds nuw i8, ptr %375, i64 1
   %409 = load i8, ptr %408, align 1
   %410 = icmp eq i8 %409, 0
-  br i1 %410, label %411, label %sub_01340
+  br i1 %410, label %411, label %sub_01325
 
-411:                                              ; preds = %.tail1335
+411:                                              ; preds = %.tail1320
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.748) #8
-  br label %sub_01340
+  br label %sub_01325
 
-sub_01340:                                        ; preds = %sub_01336, %.tail1335, %411
+sub_01325:                                        ; preds = %sub_01321, %.tail1320, %411
   %412 = load i8, ptr %376, align 1
-  %.not1497 = icmp eq i8 %412, 116
-  br i1 %.not1497, label %.tail1339, label %sub_01344
+  %.not1482 = icmp eq i8 %412, 116
+  br i1 %.not1482, label %.tail1324, label %sub_01329
 
-.tail1339:                                        ; preds = %sub_01340
+.tail1324:                                        ; preds = %sub_01325
   %413 = getelementptr inbounds nuw i8, ptr %376, i64 1
   %414 = load i8, ptr %413, align 1
   %415 = icmp eq i8 %414, 0
-  br i1 %415, label %416, label %sub_01344
+  br i1 %415, label %416, label %sub_01329
 
-416:                                              ; preds = %.tail1339
+416:                                              ; preds = %.tail1324
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.749) #8
-  br label %sub_01344
+  br label %sub_01329
 
-sub_01344:                                        ; preds = %sub_01340, %.tail1339, %416
+sub_01329:                                        ; preds = %sub_01325, %.tail1324, %416
   %417 = load i8, ptr %377, align 1
-  %.not1498 = icmp eq i8 %417, 116
-  br i1 %.not1498, label %.tail1343, label %.tail1343.thread
+  %.not1483 = icmp eq i8 %417, 116
+  br i1 %.not1483, label %.tail1328, label %.tail1328.thread
 
-.tail1343:                                        ; preds = %sub_01344
+.tail1328:                                        ; preds = %sub_01329
   %418 = getelementptr inbounds nuw i8, ptr %377, i64 1
   %419 = load i8, ptr %418, align 1
   %420 = icmp eq i8 %419, 0
-  br i1 %420, label %421, label %.tail1343.thread
+  br i1 %420, label %421, label %.tail1328.thread
 
-421:                                              ; preds = %.tail1343
+421:                                              ; preds = %.tail1328
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.750) #8
-  br label %.tail1343.thread
+  br label %.tail1328.thread
 
-.tail1343.thread:                                 ; preds = %sub_01344, %421, %.tail1343
+.tail1328.thread:                                 ; preds = %sub_01329, %421, %.tail1328
   %422 = load ptr, ptr %10, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %422) #8
-  br i1 %160, label %423, label %.sink.split1613
+  br i1 %160, label %423, label %.sink.split1598
 
-423:                                              ; preds = %.tail1343.thread
+423:                                              ; preds = %.tail1328.thread
   call fastcc void @add_tablespace_footer(ptr noundef %7, i8 noundef signext 105, i32 noundef %92, i1 noundef zeroext true)
-  br label %.sink.split1613
+  br label %.sink.split1598
 
-.sink.split1611.sink.split:                       ; preds = %349, %358
+.sink.split1596.sink.split:                       ; preds = %349, %358
   %.sink.ph = phi ptr [ %354, %358 ], [ %345, %349 ]
   %424 = load ptr, ptr %10, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %424) #8
-  br label %.sink.split1611
+  br label %.sink.split1596
 
-.sink.split1611:                                  ; preds = %.sink.split1611.sink.split, %355, %346
-  %.sink = phi ptr [ %345, %346 ], [ %354, %355 ], [ %.sink.ph, %.sink.split1611.sink.split ]
+.sink.split1596:                                  ; preds = %.sink.split1596.sink.split, %355, %346
+  %.sink = phi ptr [ %345, %346 ], [ %354, %355 ], [ %.sink.ph, %.sink.split1596.sink.split ]
   call void @PQclear(ptr noundef nonnull %.sink) #8
   br label %425
 
-425:                                              ; preds = %.sink.split1611, %351, %351, %351
+425:                                              ; preds = %.sink.split1596, %351, %351, %351
   br i1 %51, label %426, label %502
 
 426:                                              ; preds = %425
@@ -3471,195 +3471,195 @@ sub_01344:                                        ; preds = %sub_01340, %.tail13
   %431 = load ptr, ptr %5, align 8
   %432 = call ptr @PSQLexec(ptr noundef %431) #8
   %.not1107 = icmp eq ptr %432, null
-  br i1 %.not1107, label %.thread1208, label %433
+  br i1 %.not1107, label %.thread1198, label %433
 
 433:                                              ; preds = %426
   %434 = call i32 @PQntuples(ptr noundef nonnull %432) #8
   %435 = icmp sgt i32 %434, 0
-  br i1 %435, label %436, label %.loopexit1438
+  br i1 %435, label %436, label %.loopexit1423
 
 436:                                              ; preds = %433
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.758) #8
-  br label %sub_01348
+  br label %sub_01333
 
-sub_01348:                                        ; preds = %436, %.tail1383.thread
-  %.21444 = phi i32 [ 0, %436 ], [ %501, %.tail1383.thread ]
-  %437 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 0) #8
+sub_01333:                                        ; preds = %436, %.tail1368.thread
+  %.21429 = phi i32 [ 0, %436 ], [ %501, %.tail1368.thread ]
+  %437 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 0) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.445, ptr noundef %437) #8
-  %438 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 7) #8
+  %438 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 7) #8
   %439 = load i8, ptr %438, align 1
-  %.not1499 = icmp eq i8 %439, 120
-  br i1 %.not1499, label %.tail1347, label %sub_01352
+  %.not1484 = icmp eq i8 %439, 120
+  br i1 %.not1484, label %.tail1332, label %sub_01337
 
-.tail1347:                                        ; preds = %sub_01348
+.tail1332:                                        ; preds = %sub_01333
   %440 = getelementptr inbounds nuw i8, ptr %438, i64 1
   %441 = load i8, ptr %440, align 1
   %442 = icmp eq i8 %441, 0
-  br i1 %442, label %448, label %sub_01352
+  br i1 %442, label %448, label %sub_01337
 
-sub_01352:                                        ; preds = %sub_01348, %.tail1347
-  %443 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 12) #8
+sub_01337:                                        ; preds = %sub_01333, %.tail1332
+  %443 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 12) #8
   %444 = load i8, ptr %443, align 1
-  %.not1500 = icmp eq i8 %444, 116
-  br i1 %.not1500, label %.tail1351, label %sub_01356
+  %.not1485 = icmp eq i8 %444, 116
+  br i1 %.not1485, label %.tail1336, label %sub_01341
 
-.tail1351:                                        ; preds = %sub_01352
+.tail1336:                                        ; preds = %sub_01337
   %445 = getelementptr inbounds nuw i8, ptr %443, i64 1
   %446 = load i8, ptr %445, align 1
   %447 = icmp eq i8 %446, 0
-  br i1 %447, label %448, label %sub_01356
+  br i1 %447, label %448, label %sub_01341
 
-448:                                              ; preds = %.tail1351, %.tail1347
-  %449 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 6) #8
+448:                                              ; preds = %.tail1336, %.tail1332
+  %449 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 6) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.760, ptr noundef %449) #8
-  br label %sub_01376
+  br label %sub_01361
 
-sub_01356:                                        ; preds = %sub_01352, %.tail1351
-  %450 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 1) #8
+sub_01341:                                        ; preds = %sub_01337, %.tail1336
+  %450 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 1) #8
   %451 = load i8, ptr %450, align 1
-  %.not1501 = icmp eq i8 %451, 116
-  br i1 %.not1501, label %.tail1355, label %sub_01360
+  %.not1486 = icmp eq i8 %451, 116
+  br i1 %.not1486, label %.tail1340, label %sub_01345
 
-.tail1355:                                        ; preds = %sub_01356
+.tail1340:                                        ; preds = %sub_01341
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 1
   %453 = load i8, ptr %452, align 1
   %454 = icmp eq i8 %453, 0
-  br i1 %454, label %sub_01368.sink.split, label %sub_01360
+  br i1 %454, label %sub_01353.sink.split, label %sub_01345
 
-sub_01360:                                        ; preds = %sub_01356, %.tail1355
-  %455 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 2) #8
+sub_01345:                                        ; preds = %sub_01341, %.tail1340
+  %455 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 2) #8
   %456 = load i8, ptr %455, align 1
-  %.not1502 = icmp eq i8 %456, 116
-  br i1 %.not1502, label %.tail1359, label %sub_01368
+  %.not1487 = icmp eq i8 %456, 116
+  br i1 %.not1487, label %.tail1344, label %sub_01353
 
-.tail1359:                                        ; preds = %sub_01360
+.tail1344:                                        ; preds = %sub_01345
   %457 = getelementptr inbounds nuw i8, ptr %455, i64 1
   %458 = load i8, ptr %457, align 1
   %459 = icmp eq i8 %458, 0
-  br i1 %459, label %sub_01364, label %sub_01368
+  br i1 %459, label %sub_01349, label %sub_01353
 
-sub_01364:                                        ; preds = %.tail1359
-  %460 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 7) #8
+sub_01349:                                        ; preds = %.tail1344
+  %460 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 7) #8
   %461 = load i8, ptr %460, align 1
-  %.not1503 = icmp eq i8 %461, 117
-  br i1 %.not1503, label %.tail1363, label %.tail1363.thread
+  %.not1488 = icmp eq i8 %461, 117
+  br i1 %.not1488, label %.tail1348, label %.tail1348.thread
 
-.tail1363:                                        ; preds = %sub_01364
+.tail1348:                                        ; preds = %sub_01349
   %462 = getelementptr inbounds nuw i8, ptr %460, i64 1
   %463 = load i8, ptr %462, align 1
   %464 = icmp eq i8 %463, 0
-  br i1 %464, label %sub_01368.sink.split, label %.tail1363.thread
+  br i1 %464, label %sub_01353.sink.split, label %.tail1348.thread
 
-.tail1363.thread:                                 ; preds = %sub_01364, %.tail1363
-  br label %sub_01368.sink.split
+.tail1348.thread:                                 ; preds = %sub_01349, %.tail1348
+  br label %sub_01353.sink.split
 
-sub_01368.sink.split:                             ; preds = %.tail1363, %.tail1355, %.tail1363.thread
-  %.str.764.sink = phi ptr [ @.str.764, %.tail1363.thread ], [ @.str.761, %.tail1355 ], [ @.str.763, %.tail1363 ]
+sub_01353.sink.split:                             ; preds = %.tail1348, %.tail1340, %.tail1348.thread
+  %.str.764.sink = phi ptr [ @.str.764, %.tail1348.thread ], [ @.str.761, %.tail1340 ], [ @.str.763, %.tail1348 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.764.sink) #8
-  br label %sub_01368
+  br label %sub_01353
 
-sub_01368:                                        ; preds = %sub_01368.sink.split, %sub_01360, %.tail1359
-  %465 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 5) #8
+sub_01353:                                        ; preds = %sub_01353.sink.split, %sub_01345, %.tail1344
+  %465 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 5) #8
   %466 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %465, ptr noundef nonnull dereferenceable(1) @.str.765) #9
   %.not1128 = icmp eq ptr %466, null
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 7
   %spec.select = select i1 %.not1128, ptr %465, ptr %467
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.760, ptr noundef nonnull %spec.select) #8
-  %468 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 8) #8
+  %468 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 8) #8
   %469 = load i8, ptr %468, align 1
-  %.not1504 = icmp eq i8 %469, 116
-  br i1 %.not1504, label %.tail1367, label %sub_01372
+  %.not1489 = icmp eq i8 %469, 116
+  br i1 %.not1489, label %.tail1352, label %sub_01357
 
-.tail1367:                                        ; preds = %sub_01368
+.tail1352:                                        ; preds = %sub_01353
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 1
   %471 = load i8, ptr %470, align 1
   %472 = icmp eq i8 %471, 0
-  br i1 %472, label %473, label %sub_01372
+  br i1 %472, label %473, label %sub_01357
 
-473:                                              ; preds = %.tail1367
+473:                                              ; preds = %.tail1352
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.766) #8
-  br label %sub_01372
+  br label %sub_01357
 
-sub_01372:                                        ; preds = %sub_01368, %473, %.tail1367
-  %474 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 9) #8
+sub_01357:                                        ; preds = %sub_01353, %473, %.tail1352
+  %474 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 9) #8
   %475 = load i8, ptr %474, align 1
-  %.not1505 = icmp eq i8 %475, 116
-  br i1 %.not1505, label %.tail1371, label %sub_01376
+  %.not1490 = icmp eq i8 %475, 116
+  br i1 %.not1490, label %.tail1356, label %sub_01361
 
-.tail1371:                                        ; preds = %sub_01372
+.tail1356:                                        ; preds = %sub_01357
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 1
   %477 = load i8, ptr %476, align 1
   %478 = icmp eq i8 %477, 0
-  br i1 %478, label %479, label %sub_01376
+  br i1 %478, label %479, label %sub_01361
 
-479:                                              ; preds = %.tail1371
+479:                                              ; preds = %.tail1356
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.767) #8
-  br label %sub_01376
+  br label %sub_01361
 
-sub_01376:                                        ; preds = %sub_01372, %.tail1371, %479, %448
-  %480 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 3) #8
+sub_01361:                                        ; preds = %sub_01357, %.tail1356, %479, %448
+  %480 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 3) #8
   %481 = load i8, ptr %480, align 1
-  %.not1506 = icmp eq i8 %481, 116
-  br i1 %.not1506, label %.tail1375, label %sub_01380
+  %.not1491 = icmp eq i8 %481, 116
+  br i1 %.not1491, label %.tail1360, label %sub_01365
 
-.tail1375:                                        ; preds = %sub_01376
+.tail1360:                                        ; preds = %sub_01361
   %482 = getelementptr inbounds nuw i8, ptr %480, i64 1
   %483 = load i8, ptr %482, align 1
   %484 = icmp eq i8 %483, 0
-  br i1 %484, label %485, label %sub_01380
+  br i1 %484, label %485, label %sub_01365
 
-485:                                              ; preds = %.tail1375
+485:                                              ; preds = %.tail1360
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.768) #8
-  br label %sub_01380
+  br label %sub_01365
 
-sub_01380:                                        ; preds = %sub_01376, %485, %.tail1375
-  %486 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 4) #8
+sub_01365:                                        ; preds = %sub_01361, %485, %.tail1360
+  %486 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 4) #8
   %487 = load i8, ptr %486, align 1
-  %.not1507 = icmp eq i8 %487, 116
-  br i1 %.not1507, label %.tail1379, label %.tail1379.thread
+  %.not1492 = icmp eq i8 %487, 116
+  br i1 %.not1492, label %.tail1364, label %.tail1364.thread
 
-.tail1379:                                        ; preds = %sub_01380
+.tail1364:                                        ; preds = %sub_01365
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 1
   %489 = load i8, ptr %488, align 1
   %490 = icmp eq i8 %489, 0
-  br i1 %490, label %sub_01384, label %.tail1379.thread
+  br i1 %490, label %sub_01369, label %.tail1364.thread
 
-.tail1379.thread:                                 ; preds = %sub_01380, %.tail1379
+.tail1364.thread:                                 ; preds = %sub_01365, %.tail1364
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.769) #8
-  br label %sub_01384
+  br label %sub_01369
 
-sub_01384:                                        ; preds = %.tail1379.thread, %.tail1379
-  %491 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 10) #8
+sub_01369:                                        ; preds = %.tail1364.thread, %.tail1364
+  %491 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 10) #8
   %492 = load i8, ptr %491, align 1
-  %.not1508 = icmp eq i8 %492, 116
-  br i1 %.not1508, label %.tail1383, label %.tail1383.thread
+  %.not1493 = icmp eq i8 %492, 116
+  br i1 %.not1493, label %.tail1368, label %.tail1368.thread
 
-.tail1383:                                        ; preds = %sub_01384
+.tail1368:                                        ; preds = %sub_01369
   %493 = getelementptr inbounds nuw i8, ptr %491, i64 1
   %494 = load i8, ptr %493, align 1
   %495 = icmp eq i8 %494, 0
-  br i1 %495, label %496, label %.tail1383.thread
+  br i1 %495, label %496, label %.tail1368.thread
 
-496:                                              ; preds = %.tail1383
+496:                                              ; preds = %.tail1368
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.770) #8
-  br label %.tail1383.thread
+  br label %.tail1368.thread
 
-.tail1383.thread:                                 ; preds = %sub_01384, %496, %.tail1383
+.tail1368.thread:                                 ; preds = %sub_01369, %496, %.tail1368
   %497 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %497) #8
-  %498 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21444, i32 noundef 11) #8
+  %498 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21429, i32 noundef 11) #8
   %499 = call i64 @strtoul(ptr noundef captures(none) %498, ptr noundef null, i32 noundef 10) #8
   %500 = trunc i64 %499 to i32
   call fastcc void @add_tablespace_footer(ptr noundef %7, i8 noundef signext 105, i32 noundef %500, i1 noundef zeroext false)
-  %501 = add nuw nsw i32 %.21444, 1
-  %exitcond1523.not = icmp eq i32 %501, %434
-  br i1 %exitcond1523.not, label %.loopexit1438, label %sub_01348, !llvm.loop !14
+  %501 = add nuw nsw i32 %.21429, 1
+  %exitcond1508.not = icmp eq i32 %501, %434
+  br i1 %exitcond1508.not, label %.loopexit1423, label %sub_01333, !llvm.loop !14
 
-.loopexit1438:                                    ; preds = %.tail1383.thread, %433
+.loopexit1423:                                    ; preds = %.tail1368.thread, %433
   call void @PQclear(ptr noundef nonnull %432) #8
   br label %502
 
-502:                                              ; preds = %.loopexit1438, %425
+502:                                              ; preds = %.loopexit1423, %425
   %503 = and i64 %43, 65535
   %.not1108 = icmp eq i64 %503, 0
   br i1 %.not1108, label %516, label %504
@@ -3669,33 +3669,33 @@ sub_01384:                                        ; preds = %.tail1379.thread, %
   %505 = load ptr, ptr %5, align 8
   %506 = call ptr @PSQLexec(ptr noundef %505) #8
   %.not1109 = icmp eq ptr %506, null
-  br i1 %.not1109, label %.thread1208, label %507
+  br i1 %.not1109, label %.thread1198, label %507
 
 507:                                              ; preds = %504
   %508 = call i32 @PQntuples(ptr noundef nonnull %506) #8
   %509 = icmp sgt i32 %508, 0
-  br i1 %509, label %510, label %.loopexit1437
+  br i1 %509, label %510, label %.loopexit1422
 
 510:                                              ; preds = %507
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.772) #8
   br label %511
 
 511:                                              ; preds = %510, %511
-  %.31445 = phi i32 [ 0, %510 ], [ %515, %511 ]
-  %512 = call ptr @PQgetvalue(ptr noundef nonnull %506, i32 noundef %.31445, i32 noundef 0) #8
-  %513 = call ptr @PQgetvalue(ptr noundef nonnull %506, i32 noundef %.31445, i32 noundef 1) #8
+  %.31430 = phi i32 [ 0, %510 ], [ %515, %511 ]
+  %512 = call ptr @PQgetvalue(ptr noundef nonnull %506, i32 noundef %.31430, i32 noundef 0) #8
+  %513 = call ptr @PQgetvalue(ptr noundef nonnull %506, i32 noundef %.31430, i32 noundef 1) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.773, ptr noundef %512, ptr noundef %513) #8
   %514 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %514) #8
-  %515 = add nuw nsw i32 %.31445, 1
-  %exitcond1524.not = icmp eq i32 %515, %508
-  br i1 %exitcond1524.not, label %.loopexit1437, label %511, !llvm.loop !15
+  %515 = add nuw nsw i32 %.31430, 1
+  %exitcond1509.not = icmp eq i32 %515, %508
+  br i1 %exitcond1509.not, label %.loopexit1422, label %511, !llvm.loop !15
 
-.loopexit1437:                                    ; preds = %511, %507
+.loopexit1422:                                    ; preds = %511, %507
   call void @PQclear(ptr noundef nonnull %506) #8
   br label %516
 
-516:                                              ; preds = %.loopexit1437, %502
+516:                                              ; preds = %.loopexit1422, %502
   %or.cond102 = or i1 %154, %63
   br i1 %or.cond102, label %517, label %.critedge
 
@@ -3728,12 +3728,12 @@ sub_01384:                                        ; preds = %.tail1379.thread, %
   %527 = load ptr, ptr %5, align 8
   %528 = call ptr @PSQLexec(ptr noundef %527) #8
   %.not1110 = icmp eq ptr %528, null
-  br i1 %.not1110, label %.thread1208, label %529
+  br i1 %.not1110, label %.thread1198, label %529
 
 529:                                              ; preds = %526
   %530 = call i32 @PQntuples(ptr noundef nonnull %528) #8
   %531 = icmp sgt i32 %530, 0
-  br i1 %531, label %532, label %.loopexit1436
+  br i1 %531, label %532, label %.loopexit1421
 
 532:                                              ; preds = %529
   %533 = call i32 @PQfnumber(ptr noundef nonnull %528, ptr noundef nonnull @.str.778) #8
@@ -3741,52 +3741,52 @@ sub_01384:                                        ; preds = %.tail1379.thread, %
   %535 = call i32 @PQfnumber(ptr noundef nonnull %528, ptr noundef nonnull @.str.780) #8
   %536 = call i32 @PQfnumber(ptr noundef nonnull %528, ptr noundef nonnull @.str.781) #8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.782) #8
-  br label %sub_01388
+  br label %sub_01373
 
-sub_01388:                                        ; preds = %532, %548
-  %.41446 = phi i32 [ 0, %532 ], [ %550, %548 ]
-  %537 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41446, i32 noundef %533) #8
+sub_01373:                                        ; preds = %532, %548
+  %.41431 = phi i32 [ 0, %532 ], [ %550, %548 ]
+  %537 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41431, i32 noundef %533) #8
   %538 = load i8, ptr %537, align 1
-  %.not1509 = icmp eq i8 %538, 102
-  br i1 %.not1509, label %.tail1387, label %.tail1387.thread
+  %.not1494 = icmp eq i8 %538, 102
+  br i1 %.not1494, label %.tail1372, label %.tail1372.thread
 
-.tail1387:                                        ; preds = %sub_01388
+.tail1372:                                        ; preds = %sub_01373
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 1
   %540 = load i8, ptr %539, align 1
   %541 = icmp eq i8 %540, 0
-  br i1 %541, label %542, label %.tail1387.thread
+  br i1 %541, label %542, label %.tail1372.thread
 
-542:                                              ; preds = %.tail1387
-  %543 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41446, i32 noundef %536) #8
-  %544 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41446, i32 noundef %534) #8
-  %545 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41446, i32 noundef %535) #8
+542:                                              ; preds = %.tail1372
+  %543 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41431, i32 noundef %536) #8
+  %544 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41431, i32 noundef %534) #8
+  %545 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41431, i32 noundef %535) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.784, ptr noundef %543, ptr noundef %544, ptr noundef %545) #8
   br label %548
 
-.tail1387.thread:                                 ; preds = %sub_01388, %.tail1387
-  %546 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41446, i32 noundef %534) #8
-  %547 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41446, i32 noundef %535) #8
+.tail1372.thread:                                 ; preds = %sub_01373, %.tail1372
+  %546 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41431, i32 noundef %534) #8
+  %547 = call ptr @PQgetvalue(ptr noundef nonnull %528, i32 noundef %.41431, i32 noundef %535) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.773, ptr noundef %546, ptr noundef %547) #8
   br label %548
 
-548:                                              ; preds = %.tail1387.thread, %542
+548:                                              ; preds = %.tail1372.thread, %542
   %549 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %549) #8
-  %550 = add nuw nsw i32 %.41446, 1
-  %exitcond1525.not = icmp eq i32 %550, %530
-  br i1 %exitcond1525.not, label %.loopexit1436, label %sub_01388, !llvm.loop !16
+  %550 = add nuw nsw i32 %.41431, 1
+  %exitcond1510.not = icmp eq i32 %550, %530
+  br i1 %exitcond1510.not, label %.loopexit1421, label %sub_01373, !llvm.loop !16
 
-.loopexit1436:                                    ; preds = %548, %529
+.loopexit1421:                                    ; preds = %548, %529
   call void @PQclear(ptr noundef nonnull %528) #8
   %551 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %552 = icmp sgt i32 %551, 119999
   br i1 %552, label %553, label %554
 
-553:                                              ; preds = %.loopexit1436
+553:                                              ; preds = %.loopexit1421
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.785, ptr noundef %2, ptr noundef %2) #8
   br label %555
 
-554:                                              ; preds = %.loopexit1436
+554:                                              ; preds = %.loopexit1421
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.786, ptr noundef %2) #8
   br label %555
 
@@ -3794,12 +3794,12 @@ sub_01388:                                        ; preds = %532, %548
   %556 = load ptr, ptr %5, align 8
   %557 = call ptr @PSQLexec(ptr noundef %556) #8
   %.not1111 = icmp eq ptr %557, null
-  br i1 %.not1111, label %.thread1208, label %558
+  br i1 %.not1111, label %.thread1198, label %558
 
 558:                                              ; preds = %555
   %559 = call i32 @PQntuples(ptr noundef nonnull %557) #8
   %560 = icmp sgt i32 %559, 0
-  br i1 %560, label %561, label %.loopexit1435
+  br i1 %560, label %561, label %.loopexit1420
 
 561:                                              ; preds = %558
   %562 = call i32 @PQfnumber(ptr noundef nonnull %557, ptr noundef nonnull @.str.779) #8
@@ -3809,25 +3809,25 @@ sub_01388:                                        ; preds = %532, %548
   br label %565
 
 565:                                              ; preds = %561, %565
-  %.51447 = phi i32 [ 0, %561 ], [ %570, %565 ]
-  %566 = call ptr @PQgetvalue(ptr noundef nonnull %557, i32 noundef %.51447, i32 noundef %563) #8
-  %567 = call ptr @PQgetvalue(ptr noundef nonnull %557, i32 noundef %.51447, i32 noundef %562) #8
-  %568 = call ptr @PQgetvalue(ptr noundef nonnull %557, i32 noundef %.51447, i32 noundef %564) #8
+  %.51432 = phi i32 [ 0, %561 ], [ %570, %565 ]
+  %566 = call ptr @PQgetvalue(ptr noundef nonnull %557, i32 noundef %.51432, i32 noundef %563) #8
+  %567 = call ptr @PQgetvalue(ptr noundef nonnull %557, i32 noundef %.51432, i32 noundef %562) #8
+  %568 = call ptr @PQgetvalue(ptr noundef nonnull %557, i32 noundef %.51432, i32 noundef %564) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.784, ptr noundef %566, ptr noundef %567, ptr noundef %568) #8
   %569 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %569) #8
-  %570 = add nuw nsw i32 %.51447, 1
-  %exitcond1526.not = icmp eq i32 %570, %559
-  br i1 %exitcond1526.not, label %.loopexit1435, label %565, !llvm.loop !17
+  %570 = add nuw nsw i32 %.51432, 1
+  %exitcond1511.not = icmp eq i32 %570, %559
+  br i1 %exitcond1511.not, label %.loopexit1420, label %565, !llvm.loop !17
 
-.loopexit1435:                                    ; preds = %565, %558
+.loopexit1420:                                    ; preds = %565, %558
   call void @PQclear(ptr noundef nonnull %557) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %516, %.loopexit1435
+.critedge:                                        ; preds = %516, %.loopexit1420
   %571 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %572 = icmp sgt i32 %571, 90499
-  br i1 %572, label %573, label %.thread1228
+  br i1 %572, label %573, label %.thread1217
 
 573:                                              ; preds = %.critedge
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.788) #8
@@ -3839,7 +3839,7 @@ sub_01388:                                        ; preds = %532, %548
   %576 = load ptr, ptr %5, align 8
   %577 = call ptr @PSQLexec(ptr noundef %576) #8
   %.not1112 = icmp eq ptr %577, null
-  br i1 %.not1112, label %.thread1208, label %578
+  br i1 %.not1112, label %.thread1198, label %578
 
 578:                                              ; preds = %573
   %579 = call i32 @PQntuples(ptr noundef nonnull %577) #8
@@ -3848,189 +3848,189 @@ sub_01388:                                        ; preds = %532, %548
   %or.cond113.not = select i1 %69, i1 %.not1113, i1 false
   %580 = icmp sgt i32 %579, 0
   %or.cond115 = select i1 %or.cond113.not, i1 %580, i1 false
-  br i1 %or.cond115, label %.thread1216.thread.sink.split, label %581
+  br i1 %or.cond115, label %.thread1205.thread.sink.split, label %581
 
 581:                                              ; preds = %578
   %or.cond118 = select i1 %69, i1 %75, i1 false
   %or.cond120 = select i1 %or.cond118, i1 %580, i1 false
-  br i1 %or.cond120, label %.thread1216.thread.sink.split, label %582
+  br i1 %or.cond120, label %.thread1205.thread.sink.split, label %582
 
 582:                                              ; preds = %581
   %583 = icmp eq i32 %579, 0
   %or.cond126 = select i1 %or.cond113.not, i1 %583, i1 false
-  br i1 %or.cond126, label %584, label %.thread1216
+  br i1 %or.cond126, label %584, label %.thread1205
 
 584:                                              ; preds = %582
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.794) #8
-  br label %.thread1216
+  br label %.thread1205
 
-.thread1216:                                      ; preds = %584, %582
+.thread1205:                                      ; preds = %584, %582
   %585 = phi i1 [ true, %584 ], [ %583, %582 ]
   %or.cond131 = select i1 %or.cond118, i1 %585, i1 false
-  br i1 %or.cond131, label %.thread1216.thread.sink.split, label %.thread1216.thread
+  br i1 %or.cond131, label %.thread1205.thread.sink.split, label %.thread1205.thread
 
-.thread1216.thread.sink.split:                    ; preds = %.thread1216, %581, %578
-  %.str.793.sink = phi ptr [ @.str.792, %578 ], [ @.str.793, %581 ], [ @.str.795, %.thread1216 ]
+.thread1205.thread.sink.split:                    ; preds = %.thread1205, %581, %578
+  %.str.793.sink = phi ptr [ @.str.792, %578 ], [ @.str.793, %581 ], [ @.str.795, %.thread1205 ]
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull %.str.793.sink) #8
-  br label %.thread1216.thread
+  br label %.thread1205.thread
 
-.thread1216.thread:                               ; preds = %.thread1216.thread.sink.split, %.thread1216
+.thread1205.thread:                               ; preds = %.thread1205.thread.sink.split, %.thread1205
   %or.cond134 = select i1 %.not, i1 %580, i1 false
-  br i1 %or.cond134, label %.thread1603, label %586
+  br i1 %or.cond134, label %.thread1588, label %586
 
-.thread1603:                                      ; preds = %.thread1216.thread
+.thread1588:                                      ; preds = %.thread1205.thread
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.796) #8
-  br label %.lr.ph1450.preheader
+  br label %.lr.ph1435.preheader
 
-586:                                              ; preds = %.thread1216.thread
-  br i1 %580, label %.lr.ph1450.preheader, label %._crit_edge1451
+586:                                              ; preds = %.thread1205.thread
+  br i1 %580, label %.lr.ph1435.preheader, label %._crit_edge1436
 
-.lr.ph1450.preheader:                             ; preds = %.thread1603, %586
-  br label %.lr.ph1450
+.lr.ph1435.preheader:                             ; preds = %.thread1588, %586
+  br label %.lr.ph1435
 
-.lr.ph1450:                                       ; preds = %.lr.ph1450.preheader, %608
-  %.61448 = phi i32 [ %610, %608 ], [ 0, %.lr.ph1450.preheader ]
-  %587 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 0) #8
+.lr.ph1435:                                       ; preds = %.lr.ph1435.preheader, %608
+  %.61433 = phi i32 [ %610, %608 ], [ 0, %.lr.ph1435.preheader ]
+  %587 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 0) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.797, ptr noundef %587) #8
-  %588 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 1) #8
+  %588 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 1) #8
   %589 = load i8, ptr %588, align 1
   %590 = icmp eq i8 %589, 102
   br i1 %590, label %591, label %592
 
-591:                                              ; preds = %.lr.ph1450
+591:                                              ; preds = %.lr.ph1435
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.798) #8
   br label %592
 
-592:                                              ; preds = %591, %.lr.ph1450
-  %593 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 5) #8
+592:                                              ; preds = %591, %.lr.ph1435
+  %593 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 5) #8
   %.not1124 = icmp eq i32 %593, 0
   br i1 %.not1124, label %594, label %596
 
 594:                                              ; preds = %592
-  %595 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 5) #8
+  %595 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 5) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.799, ptr noundef %595) #8
   br label %596
 
 596:                                              ; preds = %594, %592
-  %597 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 2) #8
+  %597 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 2) #8
   %.not1125 = icmp eq i32 %597, 0
   br i1 %.not1125, label %598, label %600
 
 598:                                              ; preds = %596
-  %599 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 2) #8
+  %599 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 2) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.800, ptr noundef %599) #8
   br label %600
 
 600:                                              ; preds = %598, %596
-  %601 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 3) #8
+  %601 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 3) #8
   %.not1126 = icmp eq i32 %601, 0
   br i1 %.not1126, label %602, label %604
 
 602:                                              ; preds = %600
-  %603 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 3) #8
+  %603 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 3) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.801, ptr noundef %603) #8
   br label %604
 
 604:                                              ; preds = %602, %600
-  %605 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 4) #8
+  %605 = call i32 @PQgetisnull(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 4) #8
   %.not1127 = icmp eq i32 %605, 0
   br i1 %.not1127, label %606, label %608
 
 606:                                              ; preds = %604
-  %607 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61448, i32 noundef 4) #8
+  %607 = call ptr @PQgetvalue(ptr noundef nonnull %577, i32 noundef %.61433, i32 noundef 4) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.802, ptr noundef %607) #8
   br label %608
 
 608:                                              ; preds = %606, %604
   %609 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %609) #8
-  %610 = add nuw nsw i32 %.61448, 1
-  %exitcond1527.not = icmp eq i32 %610, %579
-  br i1 %exitcond1527.not, label %._crit_edge1451, label %.lr.ph1450, !llvm.loop !18
+  %610 = add nuw nsw i32 %.61433, 1
+  %exitcond1512.not = icmp eq i32 %610, %579
+  br i1 %exitcond1512.not, label %._crit_edge1436, label %.lr.ph1435, !llvm.loop !18
 
-._crit_edge1451:                                  ; preds = %608, %586
+._crit_edge1436:                                  ; preds = %608, %586
   call void @PQclear(ptr noundef nonnull %577) #8
-  %.pr1220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
-  %611 = icmp sgt i32 %.pr1220, 139999
+  %.pr1209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
+  %611 = icmp sgt i32 %.pr1209, 139999
   br i1 %611, label %612, label %669
 
-612:                                              ; preds = %._crit_edge1451
+612:                                              ; preds = %._crit_edge1436
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.803, ptr noundef %2) #8
   %613 = load ptr, ptr %5, align 8
   %614 = call ptr @PSQLexec(ptr noundef %613) #8
   %.not1116 = icmp eq ptr %614, null
-  br i1 %.not1116, label %.thread1208, label %615
+  br i1 %.not1116, label %.thread1198, label %615
 
 615:                                              ; preds = %612
   %616 = call i32 @PQntuples(ptr noundef nonnull %614) #8
   %617 = icmp sgt i32 %616, 0
-  br i1 %617, label %618, label %.thread1228.sink.split
+  br i1 %617, label %618, label %.thread1217.sink.split
 
 618:                                              ; preds = %615
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.804) #8
-  br label %sub_01400
+  br label %sub_01385
 
-sub_01400:                                        ; preds = %618, %666
-  %.71453 = phi i32 [ 0, %618 ], [ %668, %666 ]
-  %619 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 5) #8
+sub_01385:                                        ; preds = %618, %666
+  %.71438 = phi i32 [ 0, %618 ], [ %668, %666 ]
+  %619 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 5) #8
   %620 = load i8, ptr %619, align 1
-  %.not1515 = icmp eq i8 %620, 116
-  br i1 %.not1515, label %sub_11401, label %.tail1399
+  %.not1500 = icmp eq i8 %620, 116
+  br i1 %.not1500, label %sub_11386, label %.tail1384
 
-sub_11401:                                        ; preds = %sub_01400
+sub_11386:                                        ; preds = %sub_01385
   %621 = getelementptr inbounds nuw i8, ptr %619, i64 1
   %622 = load i8, ptr %621, align 1
   %623 = icmp eq i8 %622, 0
-  br label %.tail1399
+  br label %.tail1384
 
-.tail1399:                                        ; preds = %sub_01400, %sub_11401
-  %624 = phi i1 [ false, %sub_01400 ], [ %623, %sub_11401 ]
-  %625 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 6) #8
+.tail1384:                                        ; preds = %sub_01385, %sub_11386
+  %624 = phi i1 [ false, %sub_01385 ], [ %623, %sub_11386 ]
+  %625 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 6) #8
   %626 = load i8, ptr %625, align 1
-  %.not1516 = icmp eq i8 %626, 116
-  br i1 %.not1516, label %sub_11397, label %.tail1395
+  %.not1501 = icmp eq i8 %626, 116
+  br i1 %.not1501, label %sub_11382, label %.tail1380
 
-sub_11397:                                        ; preds = %.tail1399
+sub_11382:                                        ; preds = %.tail1384
   %627 = getelementptr inbounds nuw i8, ptr %625, i64 1
   %628 = load i8, ptr %627, align 1
   %629 = icmp eq i8 %628, 0
-  br label %.tail1395
+  br label %.tail1380
 
-.tail1395:                                        ; preds = %.tail1399, %sub_11397
-  %630 = phi i1 [ false, %.tail1399 ], [ %629, %sub_11397 ]
-  %631 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 7) #8
+.tail1380:                                        ; preds = %.tail1384, %sub_11382
+  %630 = phi i1 [ false, %.tail1384 ], [ %629, %sub_11382 ]
+  %631 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 7) #8
   %632 = load i8, ptr %631, align 1
-  %.not1517 = icmp eq i8 %632, 116
-  br i1 %.not1517, label %sub_11393, label %.tail1391
+  %.not1502 = icmp eq i8 %632, 116
+  br i1 %.not1502, label %sub_11378, label %.tail1376
 
-sub_11393:                                        ; preds = %.tail1395
+sub_11378:                                        ; preds = %.tail1380
   %633 = getelementptr inbounds nuw i8, ptr %631, i64 1
   %634 = load i8, ptr %633, align 1
   %635 = icmp eq i8 %634, 0
-  br label %.tail1391
+  br label %.tail1376
 
-.tail1391:                                        ; preds = %.tail1395, %sub_11393
-  %636 = phi i1 [ false, %.tail1395 ], [ %635, %sub_11393 ]
+.tail1376:                                        ; preds = %.tail1380, %sub_11378
+  %636 = phi i1 [ false, %.tail1380 ], [ %635, %sub_11378 ]
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.805) #8
-  %637 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 2) #8
-  %638 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 3) #8
+  %637 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 2) #8
+  %638 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 3) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.806, ptr noundef %637, ptr noundef %638) #8
   %or.cond136 = select i1 %624, i1 %630, i1 false
-  %spec.select1163 = select i1 %or.cond136, i1 %636, i1 false
+  %spec.select1160 = select i1 %or.cond136, i1 %636, i1 false
   %or.cond138 = select i1 %624, i1 true, i1 %630
   br i1 %or.cond138, label %642, label %639
 
-639:                                              ; preds = %.tail1391
+639:                                              ; preds = %.tail1376
   %640 = xor i1 %636, true
-  %641 = or i1 %spec.select1163, %640
-  br i1 %641, label %654, label %.thread1225
+  %641 = or i1 %spec.select1160, %640
+  br i1 %641, label %654, label %.thread1214
 
-.thread1225:                                      ; preds = %639
+.thread1214:                                      ; preds = %639
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.807) #8
   br label %650
 
-642:                                              ; preds = %.tail1391
-  br i1 %spec.select1163, label %654, label %643
+642:                                              ; preds = %.tail1376
+  br i1 %spec.select1160, label %654, label %643
 
 643:                                              ; preds = %642
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.807) #8
@@ -4054,9 +4054,9 @@ sub_11393:                                        ; preds = %.tail1395
   %.11026 = phi i8 [ 1, %646 ], [ %.01025, %645 ]
   br i1 %636, label %650, label %653
 
-650:                                              ; preds = %.thread1225, %649
-  %.110261227 = phi i8 [ 0, %.thread1225 ], [ %.11026, %649 ]
-  %651 = trunc nuw i8 %.110261227 to i1
+650:                                              ; preds = %.thread1214, %649
+  %.110261216 = phi i8 [ 0, %.thread1214 ], [ %.11026, %649 ]
+  %651 = trunc nuw i8 %.110261216 to i1
   %652 = select i1 %651, ptr @.str.742, ptr @.str.224
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.810, ptr noundef nonnull %652) #8
   br label %653
@@ -4066,46 +4066,46 @@ sub_11393:                                        ; preds = %.tail1395
   br label %654
 
 654:                                              ; preds = %639, %653, %642
-  %655 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 4) #8
-  %656 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 1) #8
+  %655 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 4) #8
+  %656 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 1) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.811, ptr noundef %655, ptr noundef %656) #8
-  %657 = call i32 @PQgetisnull(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 8) #8
+  %657 = call i32 @PQgetisnull(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 8) #8
   %.not1122 = icmp eq i32 %657, 0
-  br i1 %.not1122, label %sub_01404, label %666
+  br i1 %.not1122, label %sub_01389, label %666
 
-sub_01404:                                        ; preds = %654
-  %658 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 8) #8
+sub_01389:                                        ; preds = %654
+  %658 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 8) #8
   %659 = load i8, ptr %658, align 1
-  %.not1518 = icmp eq i8 %659, 45
-  br i1 %.not1518, label %sub_11405, label %.tail1403.thread
+  %.not1503 = icmp eq i8 %659, 45
+  br i1 %.not1503, label %sub_11390, label %.tail1388.thread
 
-sub_11405:                                        ; preds = %sub_01404
+sub_11390:                                        ; preds = %sub_01389
   %660 = getelementptr inbounds nuw i8, ptr %658, i64 1
   %661 = load i8, ptr %660, align 1
-  %.not1519 = icmp eq i8 %661, 49
-  br i1 %.not1519, label %.tail1403, label %.tail1403.thread
+  %.not1504 = icmp eq i8 %661, 49
+  br i1 %.not1504, label %.tail1388, label %.tail1388.thread
 
-.tail1403:                                        ; preds = %sub_11405
+.tail1388:                                        ; preds = %sub_11390
   %662 = getelementptr inbounds nuw i8, ptr %658, i64 2
   %663 = load i8, ptr %662, align 1
   %664 = icmp eq i8 %663, 0
-  br i1 %664, label %666, label %.tail1403.thread
+  br i1 %664, label %666, label %.tail1388.thread
 
-.tail1403.thread:                                 ; preds = %sub_11405, %sub_01404, %.tail1403
-  %665 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71453, i32 noundef 8) #8
+.tail1388.thread:                                 ; preds = %sub_11390, %sub_01389, %.tail1388
+  %665 = call ptr @PQgetvalue(ptr noundef nonnull %614, i32 noundef %.71438, i32 noundef 8) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.813, ptr noundef %665) #8
   br label %666
 
-666:                                              ; preds = %.tail1403.thread, %.tail1403, %654
+666:                                              ; preds = %.tail1388.thread, %.tail1388, %654
   %667 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %667) #8
-  %668 = add nuw nsw i32 %.71453, 1
-  %exitcond1529.not = icmp eq i32 %668, %616
-  br i1 %exitcond1529.not, label %.thread1228.sink.split, label %sub_01400, !llvm.loop !19
+  %668 = add nuw nsw i32 %.71438, 1
+  %exitcond1514.not = icmp eq i32 %668, %616
+  br i1 %exitcond1514.not, label %.thread1217.sink.split, label %sub_01385, !llvm.loop !19
 
-669:                                              ; preds = %._crit_edge1451
-  %670 = icmp sgt i32 %.pr1220, 99999
-  br i1 %670, label %671, label %.thread1228
+669:                                              ; preds = %._crit_edge1436
+  %670 = icmp sgt i32 %.pr1209, 99999
+  br i1 %670, label %671, label %.thread1217
 
 671:                                              ; preds = %669
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.814) #8
@@ -4117,141 +4117,141 @@ sub_11405:                                        ; preds = %sub_01404
   %674 = load ptr, ptr %5, align 8
   %675 = call ptr @PSQLexec(ptr noundef %674) #8
   %.not1114 = icmp eq ptr %675, null
-  br i1 %.not1114, label %.thread1208, label %676
+  br i1 %.not1114, label %.thread1198, label %676
 
 676:                                              ; preds = %671
   %677 = call i32 @PQntuples(ptr noundef nonnull %675) #8
   %678 = icmp sgt i32 %677, 0
-  br i1 %678, label %679, label %.thread1228.sink.split
+  br i1 %678, label %679, label %.thread1217.sink.split
 
 679:                                              ; preds = %676
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.804) #8
-  br label %sub_01408
+  br label %sub_01393
 
-sub_01408:                                        ; preds = %679, %714
-  %.81452 = phi i32 [ 0, %679 ], [ %716, %714 ]
+sub_01393:                                        ; preds = %679, %714
+  %.81437 = phi i32 [ 0, %679 ], [ %716, %714 ]
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.805) #8
-  %680 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 2) #8
-  %681 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 3) #8
+  %680 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 2) #8
+  %681 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 3) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.818, ptr noundef %680, ptr noundef %681) #8
-  %682 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 5) #8
+  %682 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 5) #8
   %683 = load i8, ptr %682, align 1
-  %.not1510 = icmp eq i8 %683, 116
-  br i1 %.not1510, label %.tail1407, label %sub_01412
+  %.not1495 = icmp eq i8 %683, 116
+  br i1 %.not1495, label %.tail1392, label %sub_01397
 
-.tail1407:                                        ; preds = %sub_01408
+.tail1392:                                        ; preds = %sub_01393
   %684 = getelementptr inbounds nuw i8, ptr %682, i64 1
   %685 = load i8, ptr %684, align 1
   %686 = icmp eq i8 %685, 0
-  br i1 %686, label %687, label %sub_01412
+  br i1 %686, label %687, label %sub_01397
 
-687:                                              ; preds = %.tail1407
+687:                                              ; preds = %.tail1392
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.808) #8
-  br label %sub_01412
+  br label %sub_01397
 
-sub_01412:                                        ; preds = %sub_01408, %687, %.tail1407
-  %.01019 = phi i8 [ 1, %687 ], [ 0, %.tail1407 ], [ 0, %sub_01408 ]
-  %688 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 6) #8
+sub_01397:                                        ; preds = %sub_01393, %687, %.tail1392
+  %.01019 = phi i8 [ 1, %687 ], [ 0, %.tail1392 ], [ 0, %sub_01393 ]
+  %688 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 6) #8
   %689 = load i8, ptr %688, align 1
-  %.not1511 = icmp eq i8 %689, 116
-  br i1 %.not1511, label %.tail1411, label %sub_01416
+  %.not1496 = icmp eq i8 %689, 116
+  br i1 %.not1496, label %.tail1396, label %sub_01401
 
-.tail1411:                                        ; preds = %sub_01412
+.tail1396:                                        ; preds = %sub_01397
   %690 = getelementptr inbounds nuw i8, ptr %688, i64 1
   %691 = load i8, ptr %690, align 1
   %692 = icmp eq i8 %691, 0
-  br i1 %692, label %693, label %sub_01416
+  br i1 %692, label %693, label %sub_01401
 
-693:                                              ; preds = %.tail1411
+693:                                              ; preds = %.tail1396
   %694 = trunc nuw i8 %.01019 to i1
   %695 = select i1 %694, ptr @.str.742, ptr @.str.224
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.809, ptr noundef nonnull %695) #8
-  br label %sub_01416
+  br label %sub_01401
 
-sub_01416:                                        ; preds = %sub_01412, %693, %.tail1411
-  %.11020 = phi i8 [ 1, %693 ], [ %.01019, %.tail1411 ], [ %.01019, %sub_01412 ]
-  %696 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 7) #8
+sub_01401:                                        ; preds = %sub_01397, %693, %.tail1396
+  %.11020 = phi i8 [ 1, %693 ], [ %.01019, %.tail1396 ], [ %.01019, %sub_01397 ]
+  %696 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 7) #8
   %697 = load i8, ptr %696, align 1
-  %.not1512 = icmp eq i8 %697, 116
-  br i1 %.not1512, label %.tail1415, label %sub_01420
+  %.not1497 = icmp eq i8 %697, 116
+  br i1 %.not1497, label %.tail1400, label %sub_01405
 
-.tail1415:                                        ; preds = %sub_01416
+.tail1400:                                        ; preds = %sub_01401
   %698 = getelementptr inbounds nuw i8, ptr %696, i64 1
   %699 = load i8, ptr %698, align 1
   %700 = icmp eq i8 %699, 0
-  br i1 %700, label %701, label %sub_01420
+  br i1 %700, label %701, label %sub_01405
 
-701:                                              ; preds = %.tail1415
+701:                                              ; preds = %.tail1400
   %702 = trunc nuw i8 %.11020 to i1
   %703 = select i1 %702, ptr @.str.742, ptr @.str.224
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.810, ptr noundef nonnull %703) #8
-  br label %sub_01420
+  br label %sub_01405
 
-sub_01420:                                        ; preds = %sub_01416, %701, %.tail1415
-  %704 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 4) #8
-  %705 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 1) #8
+sub_01405:                                        ; preds = %sub_01401, %701, %.tail1400
+  %704 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 4) #8
+  %705 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 1) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.819, ptr noundef %704, ptr noundef %705) #8
-  %706 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 8) #8
+  %706 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 8) #8
   %707 = load i8, ptr %706, align 1
-  %.not1513 = icmp eq i8 %707, 45
-  br i1 %.not1513, label %sub_11421, label %.tail1419.thread
+  %.not1498 = icmp eq i8 %707, 45
+  br i1 %.not1498, label %sub_11406, label %.tail1404.thread
 
-sub_11421:                                        ; preds = %sub_01420
+sub_11406:                                        ; preds = %sub_01405
   %708 = getelementptr inbounds nuw i8, ptr %706, i64 1
   %709 = load i8, ptr %708, align 1
-  %.not1514 = icmp eq i8 %709, 49
-  br i1 %.not1514, label %.tail1419, label %.tail1419.thread
+  %.not1499 = icmp eq i8 %709, 49
+  br i1 %.not1499, label %.tail1404, label %.tail1404.thread
 
-.tail1419:                                        ; preds = %sub_11421
+.tail1404:                                        ; preds = %sub_11406
   %710 = getelementptr inbounds nuw i8, ptr %706, i64 2
   %711 = load i8, ptr %710, align 1
   %712 = icmp eq i8 %711, 0
-  br i1 %712, label %714, label %.tail1419.thread
+  br i1 %712, label %714, label %.tail1404.thread
 
-.tail1419.thread:                                 ; preds = %sub_11421, %sub_01420, %.tail1419
-  %713 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81452, i32 noundef 8) #8
+.tail1404.thread:                                 ; preds = %sub_11406, %sub_01405, %.tail1404
+  %713 = call ptr @PQgetvalue(ptr noundef nonnull %675, i32 noundef %.81437, i32 noundef 8) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.813, ptr noundef %713) #8
   br label %714
 
-714:                                              ; preds = %.tail1419.thread, %.tail1419
+714:                                              ; preds = %.tail1404.thread, %.tail1404
   %715 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %715) #8
-  %716 = add nuw nsw i32 %.81452, 1
-  %exitcond1528.not = icmp eq i32 %716, %677
-  br i1 %exitcond1528.not, label %.thread1228.sink.split, label %sub_01408, !llvm.loop !20
+  %716 = add nuw nsw i32 %.81437, 1
+  %exitcond1513.not = icmp eq i32 %716, %677
+  br i1 %exitcond1513.not, label %.thread1217.sink.split, label %sub_01393, !llvm.loop !20
 
-.thread1228.sink.split:                           ; preds = %714, %666, %676, %615
-  %.sink1612 = phi ptr [ %614, %615 ], [ %675, %676 ], [ %614, %666 ], [ %675, %714 ]
-  call void @PQclear(ptr noundef nonnull %.sink1612) #8
-  br label %.thread1228
+.thread1217.sink.split:                           ; preds = %714, %666, %676, %615
+  %.sink1597 = phi ptr [ %614, %615 ], [ %675, %676 ], [ %614, %666 ], [ %675, %714 ]
+  call void @PQclear(ptr noundef nonnull %.sink1597) #8
+  br label %.thread1217
 
-.thread1228:                                      ; preds = %.thread1228.sink.split, %.critedge, %669
+.thread1217:                                      ; preds = %.thread1217.sink.split, %.critedge, %669
   %717 = icmp ne i8 %45, 109
   %or.cond145 = select i1 %57, i1 %717, i1 false
   br i1 %or.cond145, label %718, label %750
 
-718:                                              ; preds = %.thread1228
+718:                                              ; preds = %.thread1217
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.820, ptr noundef %2) #8
   %719 = load ptr, ptr %5, align 8
   %720 = call ptr @PSQLexec(ptr noundef %719) #8
   %.not1117 = icmp eq ptr %720, null
-  br i1 %.not1117, label %.thread1208, label %721
+  br i1 %.not1117, label %.thread1198, label %721
 
 721:                                              ; preds = %718
   %722 = call i32 @PQntuples(ptr noundef nonnull %720) #8
   %723 = icmp sgt i32 %722, 0
-  br i1 %723, label %.preheader1430.us, label %.loopexit1432
+  br i1 %723, label %.preheader1415.us, label %.loopexit1417
 
-.preheader1430.us:                                ; preds = %721, %._crit_edge1457.us
-  %.010151458.us = phi i32 [ %749, %._crit_edge1457.us ], [ 0, %721 ]
-  %724 = zext nneg i32 %.010151458.us to i64
+.preheader1415.us:                                ; preds = %721, %._crit_edge1442.us
+  %.010151443.us = phi i32 [ %749, %._crit_edge1442.us ], [ 0, %721 ]
+  %724 = zext nneg i32 %.010151443.us to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.describeOneTableDetails, i64 %724
   br label %725
 
-725:                                              ; preds = %.preheader1430.us, %.critedge1169.us
-  %.91455.us = phi i32 [ 0, %.preheader1430.us ], [ %748, %.critedge1169.us ]
-  %.010161454.us = phi i1 [ false, %.preheader1430.us ], [ %.11017.us, %.critedge1169.us ]
-  switch i32 %.010151458.us, label %.critedge1169.us [
+725:                                              ; preds = %.preheader1415.us, %.critedge1166.us
+  %.91440.us = phi i32 [ 0, %.preheader1415.us ], [ %748, %.critedge1166.us ]
+  %.010161439.us = phi i1 [ false, %.preheader1415.us ], [ %.11017.us, %.critedge1166.us ]
+  switch i32 %.010151443.us, label %.critedge1166.us [
     i32 0, label %738
     i32 1, label %734
     i32 2, label %730
@@ -4259,31 +4259,31 @@ sub_11421:                                        ; preds = %sub_01420
   ]
 
 726:                                              ; preds = %725
-  %727 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91455.us, i32 noundef 2) #8
+  %727 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91440.us, i32 noundef 2) #8
   %728 = load i8, ptr %727, align 1
   %729 = icmp eq i8 %728, 82
-  br i1 %729, label %742, label %.critedge1169.us
+  br i1 %729, label %742, label %.critedge1166.us
 
 730:                                              ; preds = %725
-  %731 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91455.us, i32 noundef 2) #8
+  %731 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91440.us, i32 noundef 2) #8
   %732 = load i8, ptr %731, align 1
   %733 = icmp eq i8 %732, 65
-  br i1 %733, label %742, label %.critedge1169.us
+  br i1 %733, label %742, label %.critedge1166.us
 
 734:                                              ; preds = %725
-  %735 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91455.us, i32 noundef 2) #8
+  %735 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91440.us, i32 noundef 2) #8
   %736 = load i8, ptr %735, align 1
   %737 = icmp eq i8 %736, 68
-  br i1 %737, label %742, label %.critedge1169.us
+  br i1 %737, label %742, label %.critedge1166.us
 
 738:                                              ; preds = %725
-  %739 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91455.us, i32 noundef 2) #8
+  %739 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91440.us, i32 noundef 2) #8
   %740 = load i8, ptr %739, align 1
   %741 = icmp eq i8 %740, 79
-  br i1 %741, label %742, label %.critedge1169.us
+  br i1 %741, label %742, label %.critedge1166.us
 
 742:                                              ; preds = %738, %734, %730, %726
-  br i1 %.010161454.us, label %744, label %switch.lookup
+  br i1 %.010161439.us, label %744, label %switch.lookup
 
 switch.lookup:                                    ; preds = %742
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -4293,29 +4293,29 @@ switch.lookup:                                    ; preds = %742
   br label %744
 
 744:                                              ; preds = %switch.lookup, %742
-  %745 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91455.us, i32 noundef 1) #8
+  %745 = call ptr @PQgetvalue(ptr noundef nonnull %720, i32 noundef %.91440.us, i32 noundef 1) #8
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 12
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.825, ptr noundef nonnull %746) #8
   %747 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %747) #8
-  br label %.critedge1169.us
+  br label %.critedge1166.us
 
-.critedge1169.us:                                 ; preds = %744, %738, %734, %730, %726, %725
-  %.11017.us = phi i1 [ true, %744 ], [ %.010161454.us, %726 ], [ %.010161454.us, %725 ], [ %.010161454.us, %738 ], [ %.010161454.us, %734 ], [ %.010161454.us, %730 ]
-  %748 = add nuw nsw i32 %.91455.us, 1
-  %exitcond1530.not = icmp eq i32 %748, %722
-  br i1 %exitcond1530.not, label %._crit_edge1457.us, label %725, !llvm.loop !21
+.critedge1166.us:                                 ; preds = %744, %738, %734, %730, %726, %725
+  %.11017.us = phi i1 [ true, %744 ], [ %.010161439.us, %726 ], [ %.010161439.us, %725 ], [ %.010161439.us, %738 ], [ %.010161439.us, %734 ], [ %.010161439.us, %730 ]
+  %748 = add nuw nsw i32 %.91440.us, 1
+  %exitcond1515.not = icmp eq i32 %748, %722
+  br i1 %exitcond1515.not, label %._crit_edge1442.us, label %725, !llvm.loop !21
 
-._crit_edge1457.us:                               ; preds = %.critedge1169.us
-  %749 = add nuw nsw i32 %.010151458.us, 1
-  %exitcond1531.not = icmp eq i32 %749, 4
-  br i1 %exitcond1531.not, label %.loopexit1432, label %.preheader1430.us, !llvm.loop !22
+._crit_edge1442.us:                               ; preds = %.critedge1166.us
+  %749 = add nuw nsw i32 %.010151443.us, 1
+  %exitcond1516.not = icmp eq i32 %749, 4
+  br i1 %exitcond1516.not, label %.loopexit1417, label %.preheader1415.us, !llvm.loop !22
 
-.loopexit1432:                                    ; preds = %._crit_edge1457.us, %721
+.loopexit1417:                                    ; preds = %._crit_edge1442.us, %721
   call void @PQclear(ptr noundef nonnull %720) #8
   br label %750
 
-750:                                              ; preds = %.loopexit1432, %.thread1228
+750:                                              ; preds = %.loopexit1417, %.thread1217
   %751 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %752 = icmp sgt i32 %751, 99999
   br i1 %752, label %753, label %774
@@ -4336,79 +4336,79 @@ switch.lookup:                                    ; preds = %742
   %758 = load ptr, ptr %5, align 8
   %759 = call ptr @PSQLexec(ptr noundef %758) #8
   %.not1118 = icmp eq ptr %759, null
-  br i1 %.not1118, label %.thread1208, label %760
+  br i1 %.not1118, label %.thread1198, label %760
 
 760:                                              ; preds = %757
   %761 = call i32 @PQntuples(ptr noundef nonnull %759) #8
   %762 = icmp sgt i32 %761, 0
-  br i1 %762, label %.lr.ph1461.preheader, label %._crit_edge1462
+  br i1 %762, label %.lr.ph1446.preheader, label %._crit_edge1447
 
-.lr.ph1461.preheader:                             ; preds = %760
+.lr.ph1446.preheader:                             ; preds = %760
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.444) #8
-  br label %.lr.ph1461
+  br label %.lr.ph1446
 
-.lr.ph1461:                                       ; preds = %.lr.ph1461.preheader, %771
-  %.101459 = phi i32 [ %773, %771 ], [ 0, %.lr.ph1461.preheader ]
-  %763 = call ptr @PQgetvalue(ptr noundef nonnull %759, i32 noundef %.101459, i32 noundef 0) #8
+.lr.ph1446:                                       ; preds = %.lr.ph1446.preheader, %771
+  %.101444 = phi i32 [ %773, %771 ], [ 0, %.lr.ph1446.preheader ]
+  %763 = call ptr @PQgetvalue(ptr noundef nonnull %759, i32 noundef %.101444, i32 noundef 0) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.445, ptr noundef %763) #8
-  %764 = call i32 @PQgetisnull(ptr noundef nonnull %759, i32 noundef %.101459, i32 noundef 2) #8
+  %764 = call i32 @PQgetisnull(ptr noundef nonnull %759, i32 noundef %.101444, i32 noundef 2) #8
   %.not1120 = icmp eq i32 %764, 0
   br i1 %.not1120, label %765, label %767
 
-765:                                              ; preds = %.lr.ph1461
-  %766 = call ptr @PQgetvalue(ptr noundef nonnull %759, i32 noundef %.101459, i32 noundef 2) #8
+765:                                              ; preds = %.lr.ph1446
+  %766 = call ptr @PQgetvalue(ptr noundef nonnull %759, i32 noundef %.101444, i32 noundef 2) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.828, ptr noundef %766) #8
   br label %767
 
-767:                                              ; preds = %765, %.lr.ph1461
-  %768 = call i32 @PQgetisnull(ptr noundef nonnull %759, i32 noundef %.101459, i32 noundef 1) #8
+767:                                              ; preds = %765, %.lr.ph1446
+  %768 = call i32 @PQgetisnull(ptr noundef nonnull %759, i32 noundef %.101444, i32 noundef 1) #8
   %.not1121 = icmp eq i32 %768, 0
   br i1 %.not1121, label %769, label %771
 
 769:                                              ; preds = %767
-  %770 = call ptr @PQgetvalue(ptr noundef nonnull %759, i32 noundef %.101459, i32 noundef 1) #8
+  %770 = call ptr @PQgetvalue(ptr noundef nonnull %759, i32 noundef %.101444, i32 noundef 1) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.829, ptr noundef %770) #8
   br label %771
 
 771:                                              ; preds = %769, %767
   %772 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %772) #8
-  %773 = add nuw nsw i32 %.101459, 1
-  %exitcond1532.not = icmp eq i32 %773, %761
-  br i1 %exitcond1532.not, label %._crit_edge1462, label %.lr.ph1461, !llvm.loop !23
+  %773 = add nuw nsw i32 %.101444, 1
+  %exitcond1517.not = icmp eq i32 %773, %761
+  br i1 %exitcond1517.not, label %._crit_edge1447, label %.lr.ph1446, !llvm.loop !23
 
-._crit_edge1462:                                  ; preds = %771, %760
+._crit_edge1447:                                  ; preds = %771, %760
   call void @PQclear(ptr noundef nonnull %759) #8
   br label %774
 
-774:                                              ; preds = %._crit_edge1462, %750
-  br i1 %3, label %775, label %.thread1241
+774:                                              ; preds = %._crit_edge1447, %750
+  br i1 %3, label %775, label %.thread1228
 
 775:                                              ; preds = %774
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.830, ptr noundef %2) #8
   %776 = load ptr, ptr %5, align 8
   %777 = call ptr @PSQLexec(ptr noundef %776) #8
   %.not1119 = icmp eq ptr %777, null
-  br i1 %.not1119, label %.thread1208, label %778
+  br i1 %.not1119, label %.thread1198, label %778
 
 778:                                              ; preds = %775
   %779 = call i32 @PQntuples(ptr noundef nonnull %777) #8
   %780 = icmp sgt i32 %779, 0
-  br i1 %780, label %.lr.ph1465.preheader, label %.sink.split1613
+  br i1 %780, label %.lr.ph1450.preheader, label %.sink.split1598
 
-.lr.ph1465.preheader:                             ; preds = %778
+.lr.ph1450.preheader:                             ; preds = %778
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.831) #8
-  br label %.lr.ph1465
+  br label %.lr.ph1450
 
-.lr.ph1465:                                       ; preds = %.lr.ph1465.preheader, %.lr.ph1465
-  %.111463 = phi i32 [ %796, %.lr.ph1465 ], [ 0, %.lr.ph1465.preheader ]
-  %781 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111463, i32 noundef 3) #8
+.lr.ph1450:                                       ; preds = %.lr.ph1450.preheader, %.lr.ph1450
+  %.111448 = phi i32 [ %796, %.lr.ph1450 ], [ 0, %.lr.ph1450.preheader ]
+  %781 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111448, i32 noundef 3) #8
   %782 = load i8, ptr %781, align 1
-  %783 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111463, i32 noundef 4) #8
+  %783 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111448, i32 noundef 4) #8
   %784 = load i8, ptr %783, align 1
-  %785 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111463, i32 noundef 0) #8
-  %786 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111463, i32 noundef 1) #8
-  %787 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111463, i32 noundef 2) #8
+  %785 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111448, i32 noundef 0) #8
+  %786 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111448, i32 noundef 1) #8
+  %787 = call ptr @PQgetvalue(ptr noundef nonnull %777, i32 noundef %.111448, i32 noundef 2) #8
   %788 = load i8, ptr %787, align 1
   %789 = icmp eq i8 %788, 116
   %790 = icmp eq i8 %784, 116
@@ -4419,85 +4419,85 @@ switch.lookup:                                    ; preds = %742
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.832, ptr noundef %785, ptr noundef %786, ptr noundef nonnull %794) #8
   %795 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %795) #8
-  %796 = add nuw nsw i32 %.111463, 1
-  %exitcond1533.not = icmp eq i32 %796, %779
-  br i1 %exitcond1533.not, label %.sink.split1613, label %.lr.ph1465, !llvm.loop !24
+  %796 = add nuw nsw i32 %.111448, 1
+  %exitcond1518.not = icmp eq i32 %796, %779
+  br i1 %exitcond1518.not, label %.sink.split1598, label %.lr.ph1450, !llvm.loop !24
 
-.sink.split1613:                                  ; preds = %.lr.ph1465, %778, %423, %.tail1343.thread
-  %.sink1614 = phi ptr [ %367, %.tail1343.thread ], [ %367, %423 ], [ %777, %778 ], [ %777, %.lr.ph1465 ]
-  call void @PQclear(ptr noundef nonnull %.sink1614) #8
+.sink.split1598:                                  ; preds = %.lr.ph1450, %778, %423, %.tail1328.thread
+  %.sink1599 = phi ptr [ %367, %.tail1328.thread ], [ %367, %423 ], [ %777, %778 ], [ %777, %.lr.ph1450 ]
+  call void @PQclear(ptr noundef nonnull %.sink1599) #8
   br label %797
 
-797:                                              ; preds = %.sink.split1613, %351
+797:                                              ; preds = %.sink.split1598, %351
   %or.cond151 = or i1 %151, %152
   %or.cond153 = and i1 %3, %or.cond151
-  br i1 %or.cond153, label %798, label %.thread1241
+  br i1 %or.cond153, label %798, label %.thread1228
 
 798:                                              ; preds = %797
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.836, ptr noundef %2) #8
   %799 = load ptr, ptr %5, align 8
   %800 = call ptr @PSQLexec(ptr noundef %799) #8
   %.not1134 = icmp eq ptr %800, null
-  br i1 %.not1134, label %.thread1208, label %801
+  br i1 %.not1134, label %.thread1198, label %801
 
 801:                                              ; preds = %798
   %802 = call i32 @PQntuples(ptr noundef nonnull %800) #8
   %803 = icmp sgt i32 %802, 0
-  br i1 %803, label %804, label %.thread1241.sink.split
+  br i1 %803, label %804, label %.thread1228.sink.split
 
 804:                                              ; preds = %801
   %805 = call ptr @PQgetvalue(ptr noundef nonnull %800, i32 noundef 0, i32 noundef 0) #8
   %806 = call ptr @pg_strdup(ptr noundef %805) #8
   call void @PQclear(ptr noundef nonnull %800) #8
   %.not1135 = icmp eq ptr %806, null
-  br i1 %.not1135, label %.thread1241, label %807
+  br i1 %.not1135, label %.thread1228, label %807
 
 807:                                              ; preds = %804
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.837) #8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull %806) #8
-  br i1 %57, label %808, label %.thread1241
+  br i1 %57, label %808, label %.thread1228
 
 808:                                              ; preds = %807
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.838, ptr noundef %2) #8
   %809 = load ptr, ptr %5, align 8
   %810 = call ptr @PSQLexec(ptr noundef %809) #8
   %.not1136 = icmp eq ptr %810, null
-  br i1 %.not1136, label %.thread1208, label %811
+  br i1 %.not1136, label %.thread1198, label %811
 
 811:                                              ; preds = %808
   %812 = call i32 @PQntuples(ptr noundef nonnull %810) #8
   %813 = icmp sgt i32 %812, 0
-  br i1 %813, label %814, label %.thread1241.sink.split
+  br i1 %813, label %814, label %.thread1228.sink.split
 
 814:                                              ; preds = %811
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef nonnull @.str.821) #8
   %815 = call i32 @PQntuples(ptr noundef nonnull %810) #8
   %816 = icmp sgt i32 %815, 0
-  br i1 %816, label %.lr.ph1469, label %.thread1241.sink.split
+  br i1 %816, label %.lr.ph1454, label %.thread1228.sink.split
 
-.lr.ph1469:                                       ; preds = %814, %.lr.ph1469
-  %.121467 = phi i32 [ %820, %.lr.ph1469 ], [ 0, %814 ]
-  %817 = call ptr @PQgetvalue(ptr noundef nonnull %810, i32 noundef %.121467, i32 noundef 1) #8
+.lr.ph1454:                                       ; preds = %814, %.lr.ph1454
+  %.121452 = phi i32 [ %820, %.lr.ph1454 ], [ 0, %814 ]
+  %817 = call ptr @PQgetvalue(ptr noundef nonnull %810, i32 noundef %.121452, i32 noundef 1) #8
   %818 = getelementptr inbounds nuw i8, ptr %817, i64 12
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.760, ptr noundef nonnull %818) #8
   %819 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %819) #8
-  %820 = add nuw nsw i32 %.121467, 1
+  %820 = add nuw nsw i32 %.121452, 1
   %821 = call i32 @PQntuples(ptr noundef nonnull %810) #8
   %822 = icmp slt i32 %820, %821
-  br i1 %822, label %.lr.ph1469, label %.thread1241.sink.split, !llvm.loop !25
+  br i1 %822, label %.lr.ph1454, label %.thread1228.sink.split, !llvm.loop !25
 
-.thread1241.sink.split:                           ; preds = %.lr.ph1469, %811, %814, %801
-  %.sink1615 = phi ptr [ %800, %801 ], [ %810, %814 ], [ %810, %811 ], [ %810, %.lr.ph1469 ]
-  %.19791244.ph = phi ptr [ null, %801 ], [ %806, %814 ], [ %806, %811 ], [ %806, %.lr.ph1469 ]
-  call void @PQclear(ptr noundef nonnull %.sink1615) #8
-  br label %.thread1241
+.thread1228.sink.split:                           ; preds = %.lr.ph1454, %811, %814, %801
+  %.sink1600 = phi ptr [ %800, %801 ], [ %810, %814 ], [ %810, %811 ], [ %810, %.lr.ph1454 ]
+  %.19791231.ph = phi ptr [ null, %801 ], [ %806, %814 ], [ %806, %811 ], [ %806, %.lr.ph1454 ]
+  call void @PQclear(ptr noundef nonnull %.sink1600) #8
+  br label %.thread1228
 
-.thread1241:                                      ; preds = %.thread1241.sink.split, %807, %774, %797, %804
-  %.19791244 = phi ptr [ null, %804 ], [ null, %797 ], [ null, %774 ], [ %806, %807 ], [ %.19791244.ph, %.thread1241.sink.split ]
+.thread1228:                                      ; preds = %.thread1228.sink.split, %807, %774, %797, %804
+  %.19791231 = phi ptr [ null, %804 ], [ null, %797 ], [ null, %774 ], [ %806, %807 ], [ %.19791231.ph, %.thread1228.sink.split ]
   br i1 %63, label %823, label %864
 
-823:                                              ; preds = %.thread1241
+823:                                              ; preds = %.thread1228
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.839) #8
   %824 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %825 = icmp sgt i32 %824, 129999
@@ -4513,25 +4513,25 @@ switch.lookup:                                    ; preds = %742
   %828 = load ptr, ptr %5, align 8
   %829 = call ptr @PSQLexec(ptr noundef %828) #8
   %.not1137 = icmp eq ptr %829, null
-  br i1 %.not1137, label %.thread1208, label %830
+  br i1 %.not1137, label %.thread1198, label %830
 
 830:                                              ; preds = %823
   %831 = call i32 @PQntuples(ptr noundef nonnull %829) #8
   %832 = icmp sgt i32 %831, 0
-  br i1 %832, label %.preheader.us, label %.thread1252
+  br i1 %832, label %.preheader.us, label %.thread1238
 
-.preheader.us:                                    ; preds = %830, %._crit_edge1473.us
-  %.010011474.us = phi i32 [ %863, %._crit_edge1473.us ], [ 0, %830 ]
-  %833 = zext nneg i32 %.010011474.us to i64
-  %switch.gep1620 = getelementptr inbounds nuw ptr, ptr @switch.table.describeOneTableDetails.1, i64 %833
+.preheader.us:                                    ; preds = %830, %._crit_edge1458.us
+  %.010011459.us = phi i32 [ %863, %._crit_edge1458.us ], [ 0, %830 ]
+  %833 = zext nneg i32 %.010011459.us to i64
+  %switch.gep1605 = getelementptr inbounds nuw ptr, ptr @switch.table.describeOneTableDetails.1, i64 %833
   br label %834
 
-834:                                              ; preds = %.preheader.us, %.critedge1184.us
-  %.131471.us = phi i32 [ 0, %.preheader.us ], [ %862, %.critedge1184.us ]
-  %.010021470.us = phi i8 [ 0, %.preheader.us ], [ %.11003.us, %.critedge1184.us ]
-  %835 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131471.us, i32 noundef 2) #8
-  %836 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131471.us, i32 noundef 3) #8
-  switch i32 %.010011474.us, label %.critedge1184.us [
+834:                                              ; preds = %.preheader.us, %.critedge1178.us
+  %.131456.us = phi i32 [ 0, %.preheader.us ], [ %862, %.critedge1178.us ]
+  %.010021455.us = phi i8 [ 0, %.preheader.us ], [ %.11003.us, %.critedge1178.us ]
+  %835 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131456.us, i32 noundef 2) #8
+  %836 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131456.us, i32 noundef 3) #8
+  switch i32 %.010011459.us, label %.critedge1178.us [
     i32 0, label %849
     i32 1, label %845
     i32 2, label %841
@@ -4541,94 +4541,94 @@ switch.lookup:                                    ; preds = %742
 
 837:                                              ; preds = %834
   %838 = load i8, ptr %835, align 1
-  %.not1276.us = icmp eq i8 %838, 82
-  br i1 %.not1276.us, label %.critedge1186.us, label %.critedge1184.us
+  %.not1261.us = icmp eq i8 %838, 82
+  br i1 %.not1261.us, label %.critedge1180.us, label %.critedge1178.us
 
 839:                                              ; preds = %834
   %840 = load i8, ptr %835, align 1
-  %.not1278.us = icmp eq i8 %840, 65
-  br i1 %.not1278.us, label %.critedge1186.us, label %.critedge1184.us
+  %.not1263.us = icmp eq i8 %840, 65
+  br i1 %.not1263.us, label %.critedge1180.us, label %.critedge1178.us
 
 841:                                              ; preds = %834
   %842 = load i8, ptr %835, align 1
-  switch i8 %842, label %.critedge1184.us [
+  switch i8 %842, label %.critedge1178.us [
     i8 68, label %843
     i8 102, label %843
   ]
 
 843:                                              ; preds = %841, %841
   %844 = load i8, ptr %836, align 1
-  %.not1280.us = icmp eq i8 %844, 116
-  br i1 %.not1280.us, label %.critedge1186.us, label %.critedge1184.us
+  %.not1265.us = icmp eq i8 %844, 116
+  br i1 %.not1265.us, label %.critedge1180.us, label %.critedge1178.us
 
 845:                                              ; preds = %834
   %846 = load i8, ptr %835, align 1
-  switch i8 %846, label %.critedge1184.us [
+  switch i8 %846, label %.critedge1178.us [
     i8 68, label %847
     i8 102, label %847
   ]
 
 847:                                              ; preds = %845, %845
   %848 = load i8, ptr %836, align 1
-  %.not1282.us = icmp eq i8 %848, 102
-  br i1 %.not1282.us, label %.critedge1186.us, label %.critedge1184.us
+  %.not1267.us = icmp eq i8 %848, 102
+  br i1 %.not1267.us, label %.critedge1180.us, label %.critedge1178.us
 
 849:                                              ; preds = %834
   %850 = load i8, ptr %835, align 1
-  switch i8 %850, label %.critedge1184.us [
-    i8 79, label %.critedge1186.us
-    i8 116, label %.critedge1186.us
+  switch i8 %850, label %.critedge1178.us [
+    i8 79, label %.critedge1180.us
+    i8 116, label %.critedge1180.us
   ]
 
-.critedge1186.us:                                 ; preds = %849, %849, %847, %843, %839, %837
-  %851 = icmp eq i8 %.010021470.us, 0
-  br i1 %851, label %switch.lookup1619, label %853
+.critedge1180.us:                                 ; preds = %849, %849, %847, %843, %839, %837
+  %851 = icmp eq i8 %.010021455.us, 0
+  br i1 %851, label %switch.lookup1604, label %853
 
-switch.lookup1619:                                ; preds = %.critedge1186.us
-  %switch.load1621 = load ptr, ptr %switch.gep1620, align 8
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull %switch.load1621) #8
+switch.lookup1604:                                ; preds = %.critedge1180.us
+  %switch.load1606 = load ptr, ptr %switch.gep1605, align 8
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull %switch.load1606) #8
   %852 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %852) #8
   br label %853
 
-853:                                              ; preds = %switch.lookup1619, %.critedge1186.us
-  %.21004.us = phi i8 [ 1, %switch.lookup1619 ], [ %.010021470.us, %.critedge1186.us ]
-  %854 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131471.us, i32 noundef 1) #8
+853:                                              ; preds = %switch.lookup1604, %.critedge1180.us
+  %.21004.us = phi i8 [ 1, %switch.lookup1604 ], [ %.010021455.us, %.critedge1180.us ]
+  %854 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131456.us, i32 noundef 1) #8
   %855 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %854, ptr noundef nonnull dereferenceable(1) @.str.851) #9
   %.not1147.us = icmp eq ptr %855, null
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 9
-  %spec.select1187.us = select i1 %.not1147.us, ptr %854, ptr %856
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.825, ptr noundef nonnull %spec.select1187.us) #8
-  %857 = call i32 @PQgetisnull(ptr noundef nonnull %829, i32 noundef %.131471.us, i32 noundef 4) #8
+  %spec.select1181.us = select i1 %.not1147.us, ptr %854, ptr %856
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.825, ptr noundef nonnull %spec.select1181.us) #8
+  %857 = call i32 @PQgetisnull(ptr noundef nonnull %829, i32 noundef %.131456.us, i32 noundef 4) #8
   %.not1148.us = icmp eq i32 %857, 0
   br i1 %.not1148.us, label %858, label %860
 
 858:                                              ; preds = %853
-  %859 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131471.us, i32 noundef 4) #8
+  %859 = call ptr @PQgetvalue(ptr noundef nonnull %829, i32 noundef %.131456.us, i32 noundef 4) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.852, ptr noundef %859) #8
   br label %860
 
 860:                                              ; preds = %858, %853
   %861 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %861) #8
-  br label %.critedge1184.us
+  br label %.critedge1178.us
 
-.critedge1184.us:                                 ; preds = %860, %849, %847, %845, %843, %841, %839, %837, %834
-  %.11003.us = phi i8 [ %.21004.us, %860 ], [ %.010021470.us, %837 ], [ %.010021470.us, %841 ], [ %.010021470.us, %845 ], [ %.010021470.us, %849 ], [ %.010021470.us, %834 ], [ %.010021470.us, %847 ], [ %.010021470.us, %843 ], [ %.010021470.us, %839 ]
-  %862 = add nuw nsw i32 %.131471.us, 1
-  %exitcond1534.not = icmp eq i32 %862, %831
-  br i1 %exitcond1534.not, label %._crit_edge1473.us, label %834, !llvm.loop !26
+.critedge1178.us:                                 ; preds = %860, %849, %847, %845, %843, %841, %839, %837, %834
+  %.11003.us = phi i8 [ %.21004.us, %860 ], [ %.010021455.us, %837 ], [ %.010021455.us, %841 ], [ %.010021455.us, %845 ], [ %.010021455.us, %849 ], [ %.010021455.us, %834 ], [ %.010021455.us, %847 ], [ %.010021455.us, %843 ], [ %.010021455.us, %839 ]
+  %862 = add nuw nsw i32 %.131456.us, 1
+  %exitcond1519.not = icmp eq i32 %862, %831
+  br i1 %exitcond1519.not, label %._crit_edge1458.us, label %834, !llvm.loop !26
 
-._crit_edge1473.us:                               ; preds = %.critedge1184.us
-  %863 = add nuw nsw i32 %.010011474.us, 1
-  %exitcond1535.not = icmp eq i32 %863, 5
-  br i1 %exitcond1535.not, label %.thread1252, label %.preheader.us, !llvm.loop !27
+._crit_edge1458.us:                               ; preds = %.critedge1178.us
+  %863 = add nuw nsw i32 %.010011459.us, 1
+  %exitcond1520.not = icmp eq i32 %863, 5
+  br i1 %exitcond1520.not, label %.thread1238, label %.preheader.us, !llvm.loop !27
 
-.thread1252:                                      ; preds = %._crit_edge1473.us, %830
+.thread1238:                                      ; preds = %._crit_edge1458.us, %830
   call void @PQclear(ptr noundef nonnull %829) #8
   br label %864
 
-864:                                              ; preds = %.thread1252, %.thread1241
+864:                                              ; preds = %.thread1238, %.thread1228
   %or.cond159 = or i1 %150, %152
   switch i8 %45, label %977 [
     i8 116, label %865
@@ -4648,7 +4648,7 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
   %868 = load ptr, ptr %5, align 8
   %869 = call ptr @PSQLexec(ptr noundef %868) #8
   %.not1138 = icmp eq ptr %869, null
-  br i1 %.not1138, label %.thread1208, label %870
+  br i1 %.not1138, label %.thread1198, label %870
 
 870:                                              ; preds = %867
   %871 = call i32 @PQntuples(ptr noundef nonnull %869) #8
@@ -4657,7 +4657,7 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
 
 872:                                              ; preds = %870
   call void @PQclear(ptr noundef nonnull %869) #8
-  br label %.thread1208
+  br label %.thread1198
 
 873:                                              ; preds = %870
   %874 = call ptr @PQgetvalue(ptr noundef nonnull %869, i32 noundef 0, i32 noundef 0) #8
@@ -4688,22 +4688,22 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
   %883 = load ptr, ptr %5, align 8
   %884 = call ptr @PSQLexec(ptr noundef %883) #8
   %.not1142 = icmp eq ptr %884, null
-  br i1 %.not1142, label %.thread1208, label %885
+  br i1 %.not1142, label %.thread1198, label %885
 
 885:                                              ; preds = %882
   %886 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %887 = call i32 @pg_wcswidth(ptr noundef nonnull @.str.857, i64 noundef 8, i32 noundef %886) #8
   %888 = call i32 @PQntuples(ptr noundef nonnull %884) #8
   %889 = icmp sgt i32 %888, 0
-  br i1 %889, label %.lr.ph1477, label %._crit_edge1478
+  br i1 %889, label %.lr.ph1462, label %._crit_edge1463
 
-.lr.ph1477:                                       ; preds = %885
+.lr.ph1462:                                       ; preds = %885
   %890 = add nsw i32 %888, -1
   br label %891
 
-891:                                              ; preds = %.lr.ph1477, %900
-  %.141475 = phi i32 [ 0, %.lr.ph1477 ], [ %902, %900 ]
-  %892 = icmp eq i32 %.141475, 0
+891:                                              ; preds = %.lr.ph1462, %900
+  %.141460 = phi i32 [ 0, %.lr.ph1462 ], [ %902, %900 ]
+  %892 = icmp eq i32 %.141460, 0
   br i1 %892, label %893, label %895
 
 893:                                              ; preds = %891
@@ -4712,12 +4712,12 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
   br label %897
 
 895:                                              ; preds = %891
-  %896 = call ptr @PQgetvalue(ptr noundef nonnull %884, i32 noundef %.141475, i32 noundef 0) #8
+  %896 = call ptr @PQgetvalue(ptr noundef nonnull %884, i32 noundef %.141460, i32 noundef 0) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.859, i32 noundef %887, ptr noundef nonnull @.str.224, ptr noundef %896) #8
   br label %897
 
 897:                                              ; preds = %895, %893
-  %898 = icmp slt i32 %.141475, %890
+  %898 = icmp slt i32 %.141460, %890
   br i1 %898, label %899, label %900
 
 899:                                              ; preds = %897
@@ -4727,11 +4727,11 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
 900:                                              ; preds = %899, %897
   %901 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %901) #8
-  %902 = add nuw nsw i32 %.141475, 1
-  %exitcond1536.not = icmp eq i32 %902, %888
-  br i1 %exitcond1536.not, label %._crit_edge1478, label %891, !llvm.loop !28
+  %902 = add nuw nsw i32 %.141460, 1
+  %exitcond1521.not = icmp eq i32 %902, %888
+  br i1 %exitcond1521.not, label %._crit_edge1463, label %891, !llvm.loop !28
 
-._crit_edge1478:                                  ; preds = %900, %885
+._crit_edge1463:                                  ; preds = %900, %885
   call void @PQclear(ptr noundef nonnull %884) #8
   %903 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %904 = icmp sgt i32 %903, 139999
@@ -4742,9 +4742,9 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
   %906 = load ptr, ptr %5, align 8
   %907 = call ptr @PSQLexec(ptr noundef %906) #8
   %.not1143 = icmp eq ptr %907, null
-  br i1 %.not1143, label %.thread1208, label %908
+  br i1 %.not1143, label %.thread1198, label %908
 
-908:                                              ; preds = %._crit_edge1478
+908:                                              ; preds = %._crit_edge1463
   %909 = call i32 @PQntuples(ptr noundef nonnull %907) #8
   %910 = icmp eq i32 %909, 0
   %or.cond177 = select i1 %866, i1 %910, i1 false
@@ -4775,17 +4775,17 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
   %920 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %921 = call i32 @pg_wcswidth(ptr noundef nonnull %918, i64 noundef %919, i32 noundef %920) #8
   %922 = icmp sgt i32 %909, 0
-  br i1 %922, label %.lr.ph1481, label %.loopexit
+  br i1 %922, label %.lr.ph1466, label %.loopexit
 
-.lr.ph1481:                                       ; preds = %917
+.lr.ph1466:                                       ; preds = %917
   %923 = add nsw i32 %909, -1
   br label %924
 
-924:                                              ; preds = %.lr.ph1481, %946
-  %.151479 = phi i32 [ 0, %.lr.ph1481 ], [ %948, %946 ]
-  %925 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151479, i32 noundef 1) #8
+924:                                              ; preds = %.lr.ph1466, %946
+  %.151464 = phi i32 [ 0, %.lr.ph1466 ], [ %948, %946 ]
+  %925 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151464, i32 noundef 1) #8
   %926 = load i8, ptr %925, align 1
-  %927 = icmp eq i32 %.151479, 0
+  %927 = icmp eq i32 %.151464, 0
   br i1 %927, label %928, label %930
 
 928:                                              ; preds = %924
@@ -4794,65 +4794,65 @@ switch.lookup1619:                                ; preds = %.critedge1186.us
   br label %932
 
 930:                                              ; preds = %924
-  %931 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151479, i32 noundef 0) #8
+  %931 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151464, i32 noundef 0) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.859, i32 noundef %921, ptr noundef nonnull @.str.224, ptr noundef %931) #8
   br label %932
 
 932:                                              ; preds = %930, %928
-  %933 = call i32 @PQgetisnull(ptr noundef nonnull %907, i32 noundef %.151479, i32 noundef 3) #8
+  %933 = call i32 @PQgetisnull(ptr noundef nonnull %907, i32 noundef %.151464, i32 noundef 3) #8
   %.not1144 = icmp eq i32 %933, 0
   br i1 %.not1144, label %934, label %936
 
 934:                                              ; preds = %932
-  %935 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151479, i32 noundef 3) #8
+  %935 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151464, i32 noundef 3) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.760, ptr noundef %935) #8
   br label %936
 
 936:                                              ; preds = %934, %932
-  switch i8 %926, label %sub_01425 [
-    i8 112, label %sub_01425.sink.split
-    i8 73, label %sub_01425.sink.split
+  switch i8 %926, label %sub_01410 [
+    i8 112, label %sub_01410.sink.split
+    i8 73, label %sub_01410.sink.split
     i8 102, label %937
   ]
 
 937:                                              ; preds = %936
-  br label %sub_01425.sink.split
+  br label %sub_01410.sink.split
 
-sub_01425.sink.split:                             ; preds = %936, %936, %937
+sub_01410.sink.split:                             ; preds = %936, %936, %937
   %.str.869.sink = phi ptr [ @.str.869, %937 ], [ @.str.868, %936 ], [ @.str.868, %936 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.869.sink) #8
-  br label %sub_01425
+  br label %sub_01410
 
-sub_01425:                                        ; preds = %sub_01425.sink.split, %936
-  %938 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151479, i32 noundef 2) #8
+sub_01410:                                        ; preds = %sub_01410.sink.split, %936
+  %938 = call ptr @PQgetvalue(ptr noundef nonnull %907, i32 noundef %.151464, i32 noundef 2) #8
   %939 = load i8, ptr %938, align 1
-  %.not1520 = icmp eq i8 %939, 116
-  br i1 %.not1520, label %.tail1424, label %.tail1424.thread
+  %.not1505 = icmp eq i8 %939, 116
+  br i1 %.not1505, label %.tail1409, label %.tail1409.thread
 
-.tail1424:                                        ; preds = %sub_01425
+.tail1409:                                        ; preds = %sub_01410
   %940 = getelementptr inbounds nuw i8, ptr %938, i64 1
   %941 = load i8, ptr %940, align 1
   %942 = icmp eq i8 %941, 0
-  br i1 %942, label %943, label %.tail1424.thread
+  br i1 %942, label %943, label %.tail1409.thread
 
-943:                                              ; preds = %.tail1424
+943:                                              ; preds = %.tail1409
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.870) #8
-  br label %.tail1424.thread
+  br label %.tail1409.thread
 
-.tail1424.thread:                                 ; preds = %sub_01425, %943, %.tail1424
-  %944 = icmp slt i32 %.151479, %923
+.tail1409.thread:                                 ; preds = %sub_01410, %943, %.tail1409
+  %944 = icmp slt i32 %.151464, %923
   br i1 %944, label %945, label %946
 
-945:                                              ; preds = %.tail1424.thread
+945:                                              ; preds = %.tail1409.thread
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 44) #8
   br label %946
 
-946:                                              ; preds = %945, %.tail1424.thread
+946:                                              ; preds = %945, %.tail1409.thread
   %947 = load ptr, ptr %5, align 8
   call void @printTableAddFooter(ptr noundef nonnull %7, ptr noundef %947) #8
-  %948 = add nuw nsw i32 %.151479, 1
-  %exitcond1537.not = icmp eq i32 %948, %909
-  br i1 %exitcond1537.not, label %.loopexit, label %924, !llvm.loop !29
+  %948 = add nuw nsw i32 %.151464, 1
+  %exitcond1522.not = icmp eq i32 %948, %909
+  br i1 %exitcond1522.not, label %.loopexit, label %924, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %911, %915
   %949 = load ptr, ptr %5, align 8
@@ -4873,8 +4873,8 @@ sub_01425:                                        ; preds = %sub_01425.sink.spli
 952:                                              ; preds = %950, %.loopexit
   %953 = icmp ne i32 %113, 105
   %954 = select i1 %3, i1 %or.cond159, i1 false
-  %or.cond1191 = select i1 %954, i1 %953, i1 false
-  br i1 %or.cond1191, label %955, label %968
+  %or.cond1184 = select i1 %954, i1 %953, i1 false
+  br i1 %or.cond1184, label %955, label %968
 
 955:                                              ; preds = %952
   %956 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.872) #9
@@ -4945,30 +4945,30 @@ sub_01425:                                        ; preds = %sub_01425.sink.spli
   %984 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
   %985 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
   call void @printTable(ptr noundef nonnull %7, ptr noundef %984, i1 noundef zeroext false, ptr noundef %985) #8
-  br label %.thread1208
+  br label %.thread1198
 
-.thread1208:                                      ; preds = %867, %872, %._crit_edge1478, %882, %775, %757, %718, %671, %612, %573, %555, %526, %504, %426, %361, %370, %983, %315, %343, %352, %798, %808, %823
-  %.0978.ph = phi ptr [ %.19791244, %823 ], [ %806, %808 ], [ null, %798 ], [ null, %352 ], [ null, %343 ], [ null, %315 ], [ %.19791244, %983 ], [ null, %370 ], [ null, %361 ], [ null, %426 ], [ null, %504 ], [ null, %526 ], [ null, %555 ], [ null, %573 ], [ null, %612 ], [ null, %671 ], [ null, %718 ], [ null, %757 ], [ null, %775 ], [ %.19791244, %882 ], [ %.19791244, %._crit_edge1478 ], [ %.19791244, %872 ], [ %.19791244, %867 ]
-  %.0973.ph = phi i1 [ false, %823 ], [ false, %808 ], [ false, %798 ], [ false, %352 ], [ false, %343 ], [ false, %315 ], [ true, %983 ], [ false, %370 ], [ false, %361 ], [ false, %426 ], [ false, %504 ], [ false, %526 ], [ false, %555 ], [ false, %573 ], [ false, %612 ], [ false, %671 ], [ false, %718 ], [ false, %757 ], [ false, %775 ], [ false, %882 ], [ false, %._crit_edge1478 ], [ false, %872 ], [ false, %867 ]
+.thread1198:                                      ; preds = %867, %872, %._crit_edge1463, %882, %775, %757, %718, %671, %612, %573, %555, %526, %504, %426, %361, %370, %983, %315, %343, %352, %798, %808, %823
+  %.0978.ph = phi ptr [ %.19791231, %823 ], [ %806, %808 ], [ null, %798 ], [ null, %352 ], [ null, %343 ], [ null, %315 ], [ %.19791231, %983 ], [ null, %370 ], [ null, %361 ], [ null, %426 ], [ null, %504 ], [ null, %526 ], [ null, %555 ], [ null, %573 ], [ null, %612 ], [ null, %671 ], [ null, %718 ], [ null, %757 ], [ null, %775 ], [ %.19791231, %882 ], [ %.19791231, %._crit_edge1463 ], [ %.19791231, %872 ], [ %.19791231, %867 ]
+  %.0973.ph = phi i1 [ false, %823 ], [ false, %808 ], [ false, %798 ], [ false, %352 ], [ false, %343 ], [ false, %315 ], [ true, %983 ], [ false, %370 ], [ false, %361 ], [ false, %426 ], [ false, %504 ], [ false, %526 ], [ false, %555 ], [ false, %573 ], [ false, %612 ], [ false, %671 ], [ false, %718 ], [ false, %757 ], [ false, %775 ], [ false, %882 ], [ false, %._crit_edge1463 ], [ false, %872 ], [ false, %867 ]
   call void @printTableCleanup(ptr noundef nonnull %7) #8
   br label %986
 
-986:                                              ; preds = %.thread1208, %148, %187, %38, %41, %32
-  %.09731272 = phi i1 [ %.0973.ph, %.thread1208 ], [ false, %38 ], [ false, %41 ], [ %.1, %148 ], [ false, %187 ], [ false, %32 ]
-  %.09741270 = phi ptr [ %189, %.thread1208 ], [ %34, %38 ], [ %34, %41 ], [ %125, %148 ], [ null, %187 ], [ null, %32 ]
-  %.09781268 = phi ptr [ %.0978.ph, %.thread1208 ], [ null, %38 ], [ null, %41 ], [ null, %148 ], [ null, %187 ], [ null, %32 ]
+986:                                              ; preds = %.thread1198, %148, %187, %38, %41, %32
+  %.09731257 = phi i1 [ %.0973.ph, %.thread1198 ], [ false, %38 ], [ false, %41 ], [ %.1, %148 ], [ false, %187 ], [ false, %32 ]
+  %.09741255 = phi ptr [ %189, %.thread1198 ], [ %34, %38 ], [ %34, %41 ], [ %125, %148 ], [ null, %187 ], [ null, %32 ]
+  %.09781253 = phi ptr [ %.0978.ph, %.thread1198 ], [ null, %38 ], [ null, %41 ], [ null, %148 ], [ null, %187 ], [ null, %32 ]
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   call void @termPQExpBuffer(ptr noundef nonnull %9) #8
   call void @termPQExpBuffer(ptr noundef nonnull %10) #8
-  call void @free(ptr noundef %.09781268) #8
-  call void @PQclear(ptr noundef %.09741270) #8
+  call void @free(ptr noundef %.09781253) #8
+  call void @PQclear(ptr noundef %.09741255) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.09731272
+  ret i1 %.09731257
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6789,14 +6789,14 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
 
 .preheader:                                       ; preds = %44
   %47 = load ptr, ptr %.040, align 8
-  %.not4854 = icmp eq ptr %47, null
-  br i1 %.not4854, label %._crit_edge, label %.lr.ph
+  %.not4853 = icmp eq ptr %47, null
+  br i1 %.not4853, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %48 = phi ptr [ %50, %.lr.ph ], [ %47, %.preheader ]
-  %.055 = phi ptr [ %49, %.lr.ph ], [ %.040, %.preheader ]
+  %.054 = phi ptr [ %49, %.lr.ph ], [ %.040, %.preheader ]
   call void @pg_free(ptr noundef nonnull %48) #8
-  %49 = getelementptr inbounds nuw i8, ptr %.055, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not48 = icmp eq ptr %50, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !33

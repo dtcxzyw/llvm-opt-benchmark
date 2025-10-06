@@ -1403,8 +1403,8 @@ declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) loc
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @append_normalized_escapes(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
-  %.not5 = icmp eq i64 %2, 0
-  br i1 %.not5, label %.thread, label %.lr.ph
+  %.not4 = icmp eq i64 %2, 0
+  br i1 %.not4, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1412,17 +1412,17 @@ define internal fastcc range(i32 0, 2) i32 @append_normalized_escapes(ptr nounde
   br label %6
 
 6:                                                ; preds = %.lr.ph, %51
-  %.0267 = phi ptr [ %1, %.lr.ph ], [ %.127, %51 ]
-  %.0296 = phi i64 [ %2, %.lr.ph ], [ %.130, %51 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.0267, i64 1
-  %8 = load i8, ptr %.0267, align 1, !tbaa !4
+  %.0266 = phi ptr [ %1, %.lr.ph ], [ %.127, %51 ]
+  %.0295 = phi i64 [ %2, %.lr.ph ], [ %.130, %51 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.0266, i64 1
+  %8 = load i8, ptr %.0266, align 1, !tbaa !4
   %9 = sext i8 %8 to i32
-  %10 = add i64 %.0296, -1
+  %10 = add i64 %.0295, -1
   %.not41 = icmp eq i8 %8, 37
   br i1 %.not41, label %11, label %34
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %.0296, 3
+  %12 = icmp ult i64 %.0295, 3
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %11
@@ -1436,7 +1436,7 @@ define internal fastcc range(i32 0, 2) i32 @append_normalized_escapes(ptr nounde
 
 20:                                               ; preds = %13
   %21 = shl nuw nsw i32 %18, 4
-  %22 = getelementptr inbounds nuw i8, ptr %.0267, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0266, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %24
@@ -1451,8 +1451,8 @@ hex2chr.exit:                                     ; preds = %13, %20
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %hex2chr.exit
-  %32 = getelementptr inbounds nuw i8, ptr %.0267, i64 3
-  %33 = add i64 %.0296, -3
+  %32 = getelementptr inbounds nuw i8, ptr %.0266, i64 3
+  %33 = add i64 %.0295, -3
   br label %34
 
 34:                                               ; preds = %31, %6

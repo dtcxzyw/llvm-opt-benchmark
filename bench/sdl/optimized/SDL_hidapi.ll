@@ -2432,14 +2432,14 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   store i32 %55, ptr %1, align 4
   store i16 1, ptr %57, align 4
   %58 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef 0) #22
-  %.not3142.i = icmp eq i32 %58, 1
-  br i1 %.not3142.i, label %.lr.ph43.i, label %.thread.i
+  %.not3141.i = icmp eq i32 %58, 1
+  br i1 %.not3141.i, label %.lr.ph42.i, label %.thread.i
 
 .thread.i:                                        ; preds = %82, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %HIDAPI_UpdateDiscovery.exitthread-pre-split
 
-.lr.ph43.i:                                       ; preds = %.preheader.i, %82
+.lr.ph42.i:                                       ; preds = %.preheader.i, %82
   %59 = load ptr, ptr @usyms, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 168
   %61 = load ptr, ptr %60, align 8
@@ -2448,7 +2448,7 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   %.not32.i = icmp eq ptr %63, null
   br i1 %.not32.i, label %82, label %64
 
-64:                                               ; preds = %.lr.ph43.i
+64:                                               ; preds = %.lr.ph42.i
   %65 = load ptr, ptr @usyms, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr %66(ptr noundef nonnull %63) #22
@@ -2478,7 +2478,7 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   call void %81(ptr noundef nonnull %63) #22
   br label %82
 
-82:                                               ; preds = %78, %.lr.ph43.i
+82:                                               ; preds = %78, %.lr.ph42.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %83 = load i32, ptr @SDL_HIDAPI_discovery.6, align 8
@@ -2486,7 +2486,7 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   store i16 1, ptr %57, align 4
   %84 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef 0) #22
   %.not31.i = icmp eq i32 %84, 1
-  br i1 %.not31.i, label %.lr.ph43.i, label %.thread.i
+  br i1 %.not31.i, label %.lr.ph42.i, label %.thread.i
 
 85:                                               ; preds = %HIDAPI_InitializeDiscovery.exit.thread.i
   %86 = load i32, ptr @inotify_fd, align 4
@@ -2496,8 +2496,8 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %89 = call i64 @read(i32 noundef %86, ptr noundef nonnull %2, i64 noundef 4096) #22
-  %.not2640.i = icmp slt i64 %89, 1
-  br i1 %.not2640.i, label %select.unfold._crit_edge.i, label %.lr.ph.i
+  %.not2639.i = icmp slt i64 %89, 1
+  br i1 %.not2639.i, label %select.unfold._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -2505,7 +2505,7 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   br label %92
 
 92:                                               ; preds = %select.unfold.i, %.lr.ph.i
-  %.141.i = phi i64 [ %89, %.lr.ph.i ], [ %111, %select.unfold.i ]
+  %.140.i = phi i64 [ %89, %.lr.ph.i ], [ %111, %select.unfold.i ]
   %93 = load i32, ptr %90, align 4
   %.not27.i = icmp eq i32 %93, 0
   br i1 %.not27.i, label %StrIsInteger.exit.thread.i, label %94
@@ -2513,8 +2513,8 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
 94:                                               ; preds = %92
   %95 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.3) #22
   %96 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull %91, ptr noundef nonnull @.str.3, i64 noundef %95) #22
-  %.not39.i = icmp eq i32 %96, 0
-  br i1 %.not39.i, label %97, label %StrIsInteger.exit.thread.i
+  %.not38.i = icmp eq i32 %96, 0
+  br i1 %.not38.i, label %97, label %StrIsInteger.exit.thread.i
 
 97:                                               ; preds = %94
   %98 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.3) #22
@@ -2546,7 +2546,7 @@ StrIsInteger.exit.thread.i:                       ; preds = %.preheader.i.i, %St
   %108 = load i32, ptr %90, align 4
   %109 = zext i32 %108 to i64
   %110 = add nuw nsw i64 %109, 16
-  %111 = sub i64 %.141.i, %110
+  %111 = sub i64 %.140.i, %110
   %cond.i = icmp eq i64 %111, 0
   br i1 %cond.i, label %select.unfold._crit_edge.i, label %select.unfold.i
 
@@ -3412,9 +3412,9 @@ define internal fastcc range(i32 -1, 2) i32 @get_next_hid_usage(ptr noundef nonn
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %12
 
-12:                                               ; preds = %.lr.ph, %106
-  %13 = phi i32 [ %6, %.lr.ph ], [ %109, %106 ]
-  %.04478 = phi i32 [ 0, %.lr.ph ], [ %.246, %106 ]
+12:                                               ; preds = %.lr.ph, %108
+  %13 = phi i32 [ %6, %.lr.ph ], [ %111, %108 ]
+  %.04478 = phi i32 [ 0, %.lr.ph ], [ %.246, %108 ]
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i8, ptr %15, align 1
@@ -3437,231 +3437,231 @@ define internal fastcc range(i32 -1, 2) i32 @get_next_hid_usage(ptr noundef nonn
 
 28:                                               ; preds = %20, %12
   %29 = and i32 %17, 3
-  %switch.not.i = icmp eq i32 %29, 3
-  %..i = select i1 %switch.not.i, i32 4, i32 %29
+  %30 = icmp eq i32 %29, 3
+  %..i = select i1 %30, i32 4, i32 %29
   br label %get_hid_item_size.exit
 
 get_hid_item_size.exit:                           ; preds = %23, %28
   %.sink22.i = phi i32 [ %27, %23 ], [ %..i, %28 ]
   %.sink.i = phi i32 [ 3, %23 ], [ 1, %28 ]
-  %30 = and i8 %16, -4
-  switch i8 %30, label %106 [
-    i8 4, label %31
-    i8 8, label %47
+  %31 = and i8 %16, -4
+  switch i8 %31, label %108 [
+    i8 4, label %32
+    i8 8, label %48
     i8 -96, label %.lr.ph.i
   ]
 
-31:                                               ; preds = %get_hid_item_size.exit
-  %32 = zext nneg i32 %.sink22.i to i64
-  %33 = add nuw nsw i64 %32, %14
-  %.not.i = icmp samesign ult i64 %33, %10
-  br i1 %.not.i, label %34, label %get_hid_report_bytes.exit
+32:                                               ; preds = %get_hid_item_size.exit
+  %33 = zext nneg i32 %.sink22.i to i64
+  %34 = add nuw nsw i64 %33, %14
+  %.not.i = icmp samesign ult i64 %34, %10
+  br i1 %.not.i, label %35, label %get_hid_report_bytes.exit
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   switch i32 %.sink22.i, label %get_hid_report_bytes.exit [
-    i32 4, label %43
-    i32 1, label %35
-    i32 2, label %39
+    i32 4, label %44
+    i32 1, label %36
+    i32 2, label %40
   ]
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
   br label %get_hid_report_bytes.exit
 
-39:                                               ; preds = %34
-  %40 = getelementptr i8, ptr %15, i64 1
-  %41 = load i16, ptr %40, align 1
-  %42 = zext i16 %41 to i32
+40:                                               ; preds = %35
+  %41 = getelementptr i8, ptr %15, i64 1
+  %42 = load i16, ptr %41, align 1
+  %43 = zext i16 %42 to i32
   br label %get_hid_report_bytes.exit
 
-43:                                               ; preds = %34
-  %44 = getelementptr i8, ptr %15, i64 1
-  %45 = load i32, ptr %44, align 1
+44:                                               ; preds = %35
+  %45 = getelementptr i8, ptr %15, i64 1
+  %46 = load i32, ptr %45, align 1
   br label %get_hid_report_bytes.exit
 
-get_hid_report_bytes.exit:                        ; preds = %31, %34, %35, %39, %43
-  %.0.i = phi i32 [ %38, %35 ], [ %42, %39 ], [ %45, %43 ], [ 0, %31 ], [ 0, %34 ]
-  %46 = trunc i32 %.0.i to i16
-  store i16 %46, ptr %11, align 4
+get_hid_report_bytes.exit:                        ; preds = %32, %35, %36, %40, %44
+  %.0.i = phi i32 [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %32 ], [ 0, %35 ]
+  %47 = trunc i32 %.0.i to i16
+  store i16 %47, ptr %11, align 4
   store i32 1, ptr %9, align 4
-  br label %106
+  br label %108
 
-47:                                               ; preds = %get_hid_item_size.exit
-  %48 = icmp eq i32 %.sink22.i, 4
-  br i1 %48, label %49, label %61
+48:                                               ; preds = %get_hid_item_size.exit
+  %49 = icmp eq i32 %.sink22.i, 4
+  br i1 %49, label %50, label %62
 
-49:                                               ; preds = %47
-  %50 = add i32 %13, 2
-  %51 = zext i32 %50 to i64
-  %52 = add nuw nsw i64 %51, 2
-  %.not.i53 = icmp samesign ult i64 %52, %10
-  br i1 %.not.i53, label %53, label %get_hid_report_bytes.exit55
+50:                                               ; preds = %48
+  %51 = add i32 %13, 2
+  %52 = zext i32 %51 to i64
+  %53 = add nuw nsw i64 %52, 2
+  %.not.i53 = icmp samesign ult i64 %53, %10
+  br i1 %.not.i53, label %54, label %get_hid_report_bytes.exit55
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  %55 = getelementptr i8, ptr %54, i64 1
-  %56 = load i16, ptr %55, align 1
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %52
+  %56 = getelementptr i8, ptr %55, i64 1
+  %57 = load i16, ptr %56, align 1
   br label %get_hid_report_bytes.exit55
 
-get_hid_report_bytes.exit55:                      ; preds = %49, %53
-  %.0.i54 = phi i16 [ %56, %53 ], [ 0, %49 ]
+get_hid_report_bytes.exit55:                      ; preds = %50, %54
+  %.0.i54 = phi i16 [ %57, %54 ], [ 0, %50 ]
   store i16 %.0.i54, ptr %11, align 4
   store i32 1, ptr %9, align 4
-  %57 = add nuw nsw i64 %14, 2
-  %.not.i56 = icmp samesign ult i64 %57, %10
-  br i1 %.not.i56, label %58, label %get_hid_report_bytes.exit58
+  %58 = add nuw nsw i64 %14, 2
+  %.not.i56 = icmp samesign ult i64 %58, %10
+  br i1 %.not.i56, label %59, label %get_hid_report_bytes.exit58
 
-58:                                               ; preds = %get_hid_report_bytes.exit55
-  %59 = getelementptr i8, ptr %15, i64 1
-  %60 = load i16, ptr %59, align 1
+59:                                               ; preds = %get_hid_report_bytes.exit55
+  %60 = getelementptr i8, ptr %15, i64 1
+  %61 = load i16, ptr %60, align 1
   br label %get_hid_report_bytes.exit58
 
-get_hid_report_bytes.exit58:                      ; preds = %get_hid_report_bytes.exit55, %58
-  %.0.i57 = phi i16 [ %60, %58 ], [ 0, %get_hid_report_bytes.exit55 ]
+get_hid_report_bytes.exit58:                      ; preds = %get_hid_report_bytes.exit55, %59
+  %.0.i57 = phi i16 [ %61, %59 ], [ 0, %get_hid_report_bytes.exit55 ]
   store i16 %.0.i57, ptr %4, align 2
-  br label %106
+  br label %108
 
-61:                                               ; preds = %47
-  %62 = zext nneg i32 %.sink22.i to i64
-  %63 = add nuw nsw i64 %62, %14
-  %.not.i59 = icmp samesign ult i64 %63, %10
-  br i1 %.not.i59, label %64, label %get_hid_report_bytes.exit61
+62:                                               ; preds = %48
+  %63 = zext nneg i32 %.sink22.i to i64
+  %64 = add nuw nsw i64 %63, %14
+  %.not.i59 = icmp samesign ult i64 %64, %10
+  br i1 %.not.i59, label %65, label %get_hid_report_bytes.exit61
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   switch i32 %.sink22.i, label %get_hid_report_bytes.exit61 [
-    i32 4, label %73
-    i32 1, label %65
-    i32 2, label %69
+    i32 4, label %74
+    i32 1, label %66
+    i32 2, label %70
   ]
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
   br label %get_hid_report_bytes.exit61
 
-69:                                               ; preds = %64
-  %70 = getelementptr i8, ptr %15, i64 1
-  %71 = load i16, ptr %70, align 1
-  %72 = zext i16 %71 to i32
+70:                                               ; preds = %65
+  %71 = getelementptr i8, ptr %15, i64 1
+  %72 = load i16, ptr %71, align 1
+  %73 = zext i16 %72 to i32
   br label %get_hid_report_bytes.exit61
 
-73:                                               ; preds = %64
-  %74 = getelementptr i8, ptr %15, i64 1
-  %75 = load i32, ptr %74, align 1
+74:                                               ; preds = %65
+  %75 = getelementptr i8, ptr %15, i64 1
+  %76 = load i32, ptr %75, align 1
   br label %get_hid_report_bytes.exit61
 
-get_hid_report_bytes.exit61:                      ; preds = %61, %64, %65, %69, %73
-  %.0.i60 = phi i32 [ %68, %65 ], [ %72, %69 ], [ %75, %73 ], [ 0, %61 ], [ 0, %64 ]
-  %76 = trunc i32 %.0.i60 to i16
-  store i16 %76, ptr %4, align 2
-  br label %106
+get_hid_report_bytes.exit61:                      ; preds = %62, %65, %66, %70, %74
+  %.0.i60 = phi i32 [ %69, %66 ], [ %73, %70 ], [ %76, %74 ], [ 0, %62 ], [ 0, %65 ]
+  %77 = trunc i32 %.0.i60 to i16
+  store i16 %77, ptr %4, align 2
+  br label %108
 
-.lr.ph.i:                                         ; preds = %get_hid_item_size.exit, %100
-  %77 = phi i32 [ %102, %100 ], [ %13, %get_hid_item_size.exit ]
-  %.02028.i = phi i32 [ %.2223840.i, %100 ], [ 0, %get_hid_item_size.exit ]
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = and i32 %81, 240
-  %83 = icmp eq i32 %82, 240
-  br i1 %83, label %84, label %92
+.lr.ph.i:                                         ; preds = %get_hid_item_size.exit, %102
+  %78 = phi i32 [ %104, %102 ], [ %13, %get_hid_item_size.exit ]
+  %.02028.i = phi i32 [ %.2223840.i, %102 ], [ 0, %get_hid_item_size.exit ]
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %79
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = and i32 %82, 240
+  %84 = icmp eq i32 %83, 240
+  br i1 %84, label %85, label %93
 
-84:                                               ; preds = %.lr.ph.i
-  %85 = add nuw i32 %77, 1
-  %86 = icmp ult i32 %85, %1
-  br i1 %86, label %87, label %92
+85:                                               ; preds = %.lr.ph.i
+  %86 = add nuw i32 %78, 1
+  %87 = icmp ult i32 %86, %1
+  br i1 %87, label %88, label %93
 
-87:                                               ; preds = %84
-  %88 = zext i32 %85 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %88
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
+88:                                               ; preds = %85
+  %89 = zext i32 %86 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 %89
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
   br label %get_hid_item_size.exit.i
 
-92:                                               ; preds = %84, %.lr.ph.i
-  %93 = and i32 %81, 3
-  %switch.not.i.i = icmp eq i32 %93, 3
-  %..i.i = select i1 %switch.not.i.i, i32 4, i32 %93
+93:                                               ; preds = %85, %.lr.ph.i
+  %94 = and i32 %82, 3
+  %95 = icmp eq i32 %94, 3
+  %..i.i = select i1 %95, i32 4, i32 %94
   br label %get_hid_item_size.exit.i
 
-get_hid_item_size.exit.i:                         ; preds = %92, %87
-  %.sink22.i.i = phi i32 [ %91, %87 ], [ %..i.i, %92 ]
-  %.sink.i.i = phi i32 [ 3, %87 ], [ 1, %92 ]
-  %94 = and i8 %80, -4
-  switch i8 %94, label %.thread36.i [
+get_hid_item_size.exit.i:                         ; preds = %93, %88
+  %.sink22.i.i = phi i32 [ %92, %88 ], [ %..i.i, %93 ]
+  %.sink.i.i = phi i32 [ 3, %88 ], [ 1, %93 ]
+  %96 = and i8 %81, -4
+  switch i8 %96, label %.thread36.i [
     i8 -96, label %.thread36.thread.i
-    i8 -64, label %96
+    i8 -64, label %98
   ]
 
 .thread36.thread.i:                               ; preds = %get_hid_item_size.exit.i
-  %95 = add nuw nsw i32 %.02028.i, 1
-  br label %100
+  %97 = add nuw nsw i32 %.02028.i, 1
+  br label %102
 
-96:                                               ; preds = %get_hid_item_size.exit.i
-  %97 = add nsw i32 %.02028.i, -1
-  %98 = icmp slt i32 %.02028.i, 1
-  br i1 %98, label %.thread, label %.thread36.i
+98:                                               ; preds = %get_hid_item_size.exit.i
+  %99 = add nsw i32 %.02028.i, -1
+  %100 = icmp slt i32 %.02028.i, 1
+  br i1 %100, label %.thread, label %.thread36.i
 
-.thread36.i:                                      ; preds = %96, %get_hid_item_size.exit.i
-  %.22238.i = phi i32 [ %97, %96 ], [ %.02028.i, %get_hid_item_size.exit.i ]
-  %99 = icmp eq i32 %.22238.i, 0
-  br i1 %99, label %hid_iterate_over_collection.exit, label %100
+.thread36.i:                                      ; preds = %98, %get_hid_item_size.exit.i
+  %.22238.i = phi i32 [ %99, %98 ], [ %.02028.i, %get_hid_item_size.exit.i ]
+  %101 = icmp eq i32 %.22238.i, 0
+  br i1 %101, label %hid_iterate_over_collection.exit, label %102
 
-100:                                              ; preds = %.thread36.i, %.thread36.thread.i
-  %.2223840.i = phi i32 [ %95, %.thread36.thread.i ], [ %.22238.i, %.thread36.i ]
-  %101 = add nuw nsw i32 %.sink.i.i, %.sink22.i.i
-  %102 = add i32 %101, %77
-  store i32 %102, ptr %2, align 4
-  %103 = icmp ult i32 %102, %1
-  br i1 %103, label %.lr.ph.i, label %.thread, !llvm.loop !20
+102:                                              ; preds = %.thread36.i, %.thread36.thread.i
+  %.2223840.i = phi i32 [ %97, %.thread36.thread.i ], [ %.22238.i, %.thread36.i ]
+  %103 = add nuw nsw i32 %.sink.i.i, %.sink22.i.i
+  %104 = add i32 %103, %78
+  store i32 %104, ptr %2, align 4
+  %105 = icmp ult i32 %104, %1
+  br i1 %105, label %.lr.ph.i, label %.thread, !llvm.loop !20
 
 hid_iterate_over_collection.exit:                 ; preds = %.thread36.i
   %.not51 = icmp eq i32 %.04478, 0
-  br i1 %.not51, label %106, label %104
+  br i1 %.not51, label %108, label %106
 
-104:                                              ; preds = %hid_iterate_over_collection.exit
-  %105 = load i32, ptr %9, align 4
-  %.not52 = icmp eq i32 %105, 0
-  br i1 %.not52, label %106, label %.thread.sink.split
+106:                                              ; preds = %hid_iterate_over_collection.exit
+  %107 = load i32, ptr %9, align 4
+  %.not52 = icmp eq i32 %107, 0
+  br i1 %.not52, label %108, label %.thread.sink.split
 
-106:                                              ; preds = %get_hid_item_size.exit, %get_hid_report_bytes.exit, %get_hid_report_bytes.exit61, %get_hid_report_bytes.exit58, %104, %hid_iterate_over_collection.exit
-  %.067 = phi i32 [ %.sink22.i, %get_hid_item_size.exit ], [ %.sink22.i, %get_hid_report_bytes.exit ], [ 4, %get_hid_report_bytes.exit58 ], [ %.sink22.i, %get_hid_report_bytes.exit61 ], [ %.sink22.i.i, %hid_iterate_over_collection.exit ], [ %.sink22.i.i, %104 ]
-  %.0 = phi i32 [ %.sink.i, %get_hid_item_size.exit ], [ %.sink.i, %get_hid_report_bytes.exit ], [ %.sink.i, %get_hid_report_bytes.exit58 ], [ %.sink.i, %get_hid_report_bytes.exit61 ], [ %.sink.i.i, %hid_iterate_over_collection.exit ], [ %.sink.i.i, %104 ]
-  %.246 = phi i32 [ %.04478, %get_hid_item_size.exit ], [ %.04478, %get_hid_report_bytes.exit ], [ 1, %get_hid_report_bytes.exit58 ], [ 1, %get_hid_report_bytes.exit61 ], [ 0, %hid_iterate_over_collection.exit ], [ 1, %104 ]
-  %107 = add nuw nsw i32 %.0, %.067
-  %108 = load i32, ptr %2, align 4
-  %109 = add i32 %107, %108
-  store i32 %109, ptr %2, align 4
-  %110 = icmp ult i32 %109, %1
-  br i1 %110, label %12, label %._crit_edge, !llvm.loop !21
+108:                                              ; preds = %get_hid_item_size.exit, %get_hid_report_bytes.exit, %get_hid_report_bytes.exit61, %get_hid_report_bytes.exit58, %106, %hid_iterate_over_collection.exit
+  %.067 = phi i32 [ %.sink22.i, %get_hid_item_size.exit ], [ %.sink22.i, %get_hid_report_bytes.exit ], [ 4, %get_hid_report_bytes.exit58 ], [ %.sink22.i, %get_hid_report_bytes.exit61 ], [ %.sink22.i.i, %hid_iterate_over_collection.exit ], [ %.sink22.i.i, %106 ]
+  %.0 = phi i32 [ %.sink.i, %get_hid_item_size.exit ], [ %.sink.i, %get_hid_report_bytes.exit ], [ %.sink.i, %get_hid_report_bytes.exit58 ], [ %.sink.i, %get_hid_report_bytes.exit61 ], [ %.sink.i.i, %hid_iterate_over_collection.exit ], [ %.sink.i.i, %106 ]
+  %.246 = phi i32 [ %.04478, %get_hid_item_size.exit ], [ %.04478, %get_hid_report_bytes.exit ], [ 1, %get_hid_report_bytes.exit58 ], [ 1, %get_hid_report_bytes.exit61 ], [ 0, %hid_iterate_over_collection.exit ], [ 1, %106 ]
+  %109 = add nuw nsw i32 %.0, %.067
+  %110 = load i32, ptr %2, align 4
+  %111 = add i32 %109, %110
+  store i32 %111, ptr %2, align 4
+  %112 = icmp ult i32 %111, %1
+  br i1 %112, label %12, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %106
-  %111 = icmp ne i32 %.246, 0
-  %or.cond = select i1 %7, i1 %111, i1 false
-  br i1 %or.cond, label %112, label %.thread
+._crit_edge:                                      ; preds = %108
+  %113 = icmp ne i32 %.246, 0
+  %or.cond = select i1 %7, i1 %113, i1 false
+  br i1 %or.cond, label %114, label %.thread
 
-112:                                              ; preds = %._crit_edge
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %114 = load i32, ptr %113, align 4
-  %.not = icmp eq i32 %114, 0
-  br i1 %.not, label %.thread, label %115
+114:                                              ; preds = %._crit_edge
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %116 = load i32, ptr %115, align 4
+  %.not = icmp eq i32 %116, 0
+  br i1 %.not, label %.thread, label %117
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 8
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %104, %115
-  %.sink.in = phi ptr [ %116, %115 ], [ %11, %104 ]
+.thread.sink.split:                               ; preds = %106, %117
+  %.sink.in = phi ptr [ %118, %117 ], [ %11, %106 ]
   %.sink = load i16, ptr %.sink.in, align 4
   store i16 %.sink, ptr %3, align 2
   br label %.thread
 
-.thread:                                          ; preds = %100, %96, %.thread.sink.split, %5, %._crit_edge, %112
-  %.2 = phi i32 [ 1, %112 ], [ 1, %._crit_edge ], [ 1, %5 ], [ 0, %.thread.sink.split ], [ -1, %96 ], [ -1, %100 ]
+.thread:                                          ; preds = %102, %98, %.thread.sink.split, %5, %._crit_edge, %114
+  %.2 = phi i32 [ 1, %114 ], [ 1, %._crit_edge ], [ 1, %5 ], [ 0, %.thread.sink.split ], [ -1, %98 ], [ -1, %102 ]
   ret i32 %.2
 }
 

@@ -9233,8 +9233,8 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i: ; preds = %66, %_Z
   br label %.critedge
 
 .critedge:                                        ; preds = %75, %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i, %24, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i, %6, %18
-  %.sink32 = phi i32 [ %1, %18 ], [ %1, %6 ], [ %1, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i ], [ %1, %24 ], [ %.sroa.04.0.lcssa.i.i, %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i ], [ %.sroa.01.0.copyload.i15, %75 ]
-  %77 = tail call { ptr, i64 } @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 %.sink32, i1 noundef zeroext true, ptr noundef null)
+  %.sink31 = phi i32 [ %1, %18 ], [ %1, %6 ], [ %1, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i ], [ %1, %24 ], [ %.sroa.04.0.lcssa.i.i, %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i ], [ %.sroa.01.0.copyload.i15, %75 ]
+  %77 = tail call { ptr, i64 } @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 %.sink31, i1 noundef zeroext true, ptr noundef null)
   %78 = extractvalue { ptr, i64 } %77, 0
   %79 = extractvalue { ptr, i64 } %77, 1
   %80 = load ptr, ptr %78, align 8, !tbaa !143

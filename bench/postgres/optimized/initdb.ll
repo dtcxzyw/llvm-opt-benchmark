@@ -4590,8 +4590,8 @@ guc_value_requires_quotes.exit:                   ; preds = %13, %20
   %.sink16.i = phi ptr [ %22, %20 ], [ %2, %13 ]
   %.sink.i = phi i64 [ %23, %20 ], [ %14, %13 ]
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink16.i) #21
-  %.not101 = icmp eq i64 %.sink.i, %24
-  br i1 %.not101, label %27, label %guc_value_requires_quotes.exit.thread
+  %.not99 = icmp eq i64 %.sink.i, %24
+  br i1 %.not99, label %27, label %guc_value_requires_quotes.exit.thread
 
 guc_value_requires_quotes.exit.thread:            ; preds = %15, %8, %guc_value_requires_quotes.exit
   %25 = tail call ptr @escape_single_quotes_ascii(ptr noundef nonnull %2) #19
@@ -4613,8 +4613,8 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 
 28:                                               ; preds = %27, %escape_quotes.exit
   %29 = load ptr, ptr %0, align 8
-  %.not112 = icmp eq ptr %29, null
-  br i1 %.not112, label %.thread100, label %.preheader.lr.ph
+  %.not110 = icmp eq ptr %29, null
+  br i1 %.not110, label %.thread98, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %28
   %sext = shl i64 %5, 32
@@ -4624,7 +4624,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 .preheader:                                       ; preds = %.preheader.lr.ph, %90
   %31 = phi ptr [ %29, %.preheader.lr.ph ], [ %94, %90 ]
   %32 = phi i64 [ 0, %.preheader.lr.ph ], [ %92, %90 ]
-  %.082113 = phi i32 [ 0, %.preheader.lr.ph ], [ %91, %90 ]
+  %.082111 = phi i32 [ 0, %.preheader.lr.ph ], [ %91, %90 ]
   br label %33
 
 33:                                               ; preds = %.preheader, %.critedge
@@ -4688,25 +4688,25 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br i1 %65, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %63, %73
-  %.078116 = phi i32 [ %.179, %73 ], [ 0, %63 ]
-  %.080115 = phi ptr [ %74, %73 ], [ %64, %63 ]
-  %66 = load i8, ptr %.080115, align 1
+  %.078114 = phi i32 [ %.179, %73 ], [ 0, %63 ]
+  %.080113 = phi ptr [ %74, %73 ], [ %64, %63 ]
+  %66 = load i8, ptr %.080113, align 1
   %67 = icmp eq i8 %66, 9
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %.lr.ph
-  %69 = srem i32 %.078116, 8
-  %reass.sub = add i32 %.078116, 8
+  %69 = srem i32 %.078114, 8
+  %reass.sub = add i32 %.078114, 8
   %70 = sub i32 %reass.sub, %69
   br label %73
 
 71:                                               ; preds = %.lr.ph
-  %72 = add i32 %.078116, 1
+  %72 = add i32 %.078114, 1
   br label %73
 
 73:                                               ; preds = %68, %71
   %.179 = phi i32 [ %70, %68 ], [ %72, %71 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.080115, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.080113, i64 1
   %exitcond.not = icmp eq ptr %74, %62
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
@@ -4718,31 +4718,31 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   %78 = add i32 %77, 1
   %79 = tail call i32 @llvm.smax.i32(i32 %.078.lcssa, i32 %78)
   %80 = icmp sgt i32 %79, %77
-  br i1 %80, label %.lr.ph120, label %._crit_edge121
+  br i1 %80, label %.lr.ph118, label %._crit_edge119
 
-.lr.ph120:                                        ; preds = %._crit_edge, %87
-  %.077118 = phi i32 [ %.1, %87 ], [ %77, %._crit_edge ]
-  %81 = add i32 %.077118, 8
-  %82 = srem i32 %.077118, 8
+.lr.ph118:                                        ; preds = %._crit_edge, %87
+  %.077116 = phi i32 [ %.1, %87 ], [ %77, %._crit_edge ]
+  %81 = add i32 %.077116, 8
+  %82 = srem i32 %.077116, 8
   %83 = sub i32 %81, %82
   %.not94 = icmp sgt i32 %83, %79
   br i1 %.not94, label %85, label %84
 
-84:                                               ; preds = %.lr.ph120
+84:                                               ; preds = %.lr.ph118
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %6, i8 noundef signext 9) #19
   br label %87
 
-85:                                               ; preds = %.lr.ph120
+85:                                               ; preds = %.lr.ph118
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %6, i8 noundef signext 32) #19
-  %86 = add nsw i32 %.077118, 1
+  %86 = add nsw i32 %.077116, 1
   br label %87
 
 87:                                               ; preds = %85, %84
   %.1 = phi i32 [ %83, %84 ], [ %86, %85 ]
   %88 = icmp slt i32 %.1, %79
-  br i1 %88, label %.lr.ph120, label %._crit_edge121, !llvm.loop !23
+  br i1 %88, label %.lr.ph118, label %._crit_edge119, !llvm.loop !23
 
-._crit_edge121:                                   ; preds = %87, %._crit_edge
+._crit_edge119:                                   ; preds = %87, %._crit_edge
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull %62) #19
   br label %95
 
@@ -4751,31 +4751,31 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br label %95
 
 90:                                               ; preds = %44, %56
-  %91 = add i32 %.082113, 1
+  %91 = add i32 %.082111, 1
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %0, i64 %92
   %94 = load ptr, ptr %93, align 8
   %.not = icmp eq ptr %94, null
-  br i1 %.not, label %.thread100, label %.preheader, !llvm.loop !24
+  br i1 %.not, label %.thread98, label %.preheader, !llvm.loop !24
 
-95:                                               ; preds = %89, %._crit_edge121
+95:                                               ; preds = %89, %._crit_edge119
   %96 = load ptr, ptr %58, align 8
   tail call void @free(ptr noundef %96) #19
   %97 = load ptr, ptr %6, align 8
   store ptr %97, ptr %58, align 8
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %.thread100, label %109
+  br i1 %98, label %.thread98, label %109
 
-.thread100:                                       ; preds = %90, %28, %95
-  %.082109 = phi i32 [ %.082113, %95 ], [ 0, %28 ], [ %91, %90 ]
+.thread98:                                        ; preds = %90, %28, %95
+  %.082107 = phi i32 [ %.082111, %95 ], [ 0, %28 ], [ %91, %90 ]
   %99 = phi i64 [ %32, %95 ], [ 0, %28 ], [ %92, %90 ]
   tail call void @appendPQExpBufferChar(ptr noundef %6, i8 noundef signext 10) #19
-  %100 = add i32 %.082109, 2
+  %100 = add i32 %.082107, 2
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 3
   %103 = tail call ptr @pg_realloc(ptr noundef nonnull %0, i64 noundef %102) #19
   %104 = load ptr, ptr %6, align 8
-  %105 = add i32 %.082109, 1
+  %105 = add i32 %.082107, 1
   %106 = getelementptr inbounds ptr, ptr %103, i64 %99
   store ptr %104, ptr %106, align 8
   %107 = sext i32 %105 to i64
@@ -4783,8 +4783,8 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   store ptr null, ptr %108, align 8
   br label %109
 
-109:                                              ; preds = %.thread100, %95
-  %.0 = phi ptr [ %103, %.thread100 ], [ %0, %95 ]
+109:                                              ; preds = %.thread98, %95
+  %.0 = phi ptr [ %103, %.thread98 ], [ %0, %95 ]
   tail call void @free(ptr noundef nonnull %6) #19
   ret ptr %.0
 }

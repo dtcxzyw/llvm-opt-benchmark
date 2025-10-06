@@ -1116,13 +1116,13 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5zxing15HybridBinarizer15binarize
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !23
   %7 = icmp sgt i32 %6, 39
-  br i1 %7, label %8, label %68
+  br i1 %7, label %8, label %69
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !28
   %11 = icmp sgt i32 %10, 39
-  br i1 %11, label %12, label %68
+  br i1 %11, label %12, label %69
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1219,103 +1219,103 @@ _ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit:       ; preds = %46, %51, %56
   br label %60
 
 60:                                               ; preds = %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit, %22, %45
-  %switch = phi i1 [ true, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit ], [ false, %22 ], [ false, %45 ]
-  %61 = load i32, ptr %15, align 8, !tbaa !9
-  %62 = add i32 %61, -1
-  store i32 %62, ptr %15, align 8, !tbaa !9
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17
+  %61 = phi i1 [ true, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit ], [ false, %22 ], [ false, %45 ]
+  %62 = load i32, ptr %15, align 8, !tbaa !9
+  %63 = add i32 %62, -1
+  store i32 %63, ptr %15, align 8, !tbaa !9
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17
 
-64:                                               ; preds = %60
+65:                                               ; preds = %60
   store i32 -559026175, ptr %15, align 8, !tbaa !9
-  %65 = load ptr, ptr %13, align 8, !tbaa !12
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(12) %13) #10
+  %66 = load ptr, ptr %13, align 8, !tbaa !12
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(12) %13) #10
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17
 
-_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17:         ; preds = %60, %64
+_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17:         ; preds = %60, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch, label %100, label %101
+  br i1 %61, label %101, label %102
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %30, %25, %23
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %26, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
-68:                                               ; preds = %8, %2
+69:                                               ; preds = %8, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5zxing24GlobalHistogramBinarizer14getBlackMatrixERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %70 = load ptr, ptr %4, align 8, !tbaa !70
-  %.not.i.i18 = icmp eq ptr %70, null
-  br i1 %.not.i.i18, label %75, label %71
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %4, align 8, !tbaa !70
+  %.not.i.i18 = icmp eq ptr %71, null
+  br i1 %.not.i.i18, label %76, label %72
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !9
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %72, align 8, !tbaa !9
-  br label %75
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = load i32, ptr %73, align 8, !tbaa !9
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %73, align 8, !tbaa !9
+  br label %76
 
-75:                                               ; preds = %71, %68
-  %76 = load ptr, ptr %69, align 8, !tbaa !70
-  %.not5.i.i19 = icmp eq ptr %76, null
-  br i1 %.not5.i.i19, label %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20, label %77
+76:                                               ; preds = %72, %69
+  %77 = load ptr, ptr %70, align 8, !tbaa !70
+  %.not5.i.i19 = icmp eq ptr %77, null
+  br i1 %.not5.i.i19, label %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20, label %78
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !9
-  %80 = add i32 %79, -1
-  store i32 %80, ptr %78, align 8, !tbaa !9
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %80 = load i32, ptr %79, align 8, !tbaa !9
+  %81 = add i32 %80, -1
+  store i32 %81, ptr %79, align 8, !tbaa !9
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20
 
-82:                                               ; preds = %77
-  store i32 -559026175, ptr %78, align 8, !tbaa !9
-  %83 = load ptr, ptr %76, align 8, !tbaa !12
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(12) %76) #10
+83:                                               ; preds = %78
+  store i32 -559026175, ptr %79, align 8, !tbaa !9
+  %84 = load ptr, ptr %77, align 8, !tbaa !12
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8
+  call void %86(ptr noundef nonnull align 8 dereferenceable(12) %77) #10
   %.pre = load ptr, ptr %4, align 8, !tbaa !70
   br label %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20
 
-_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20:     ; preds = %75, %77, %82
-  %86 = phi ptr [ %70, %75 ], [ %70, %77 ], [ %.pre, %82 ]
-  store ptr %70, ptr %69, align 8, !tbaa !70
-  %.not.i21 = icmp eq ptr %86, null
-  br i1 %.not.i21, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22, label %87
+_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20:     ; preds = %76, %78, %83
+  %87 = phi ptr [ %71, %76 ], [ %71, %78 ], [ %.pre, %83 ]
+  store ptr %71, ptr %70, align 8, !tbaa !70
+  %.not.i21 = icmp eq ptr %87, null
+  br i1 %.not.i21, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22, label %88
 
-87:                                               ; preds = %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %89 = load i32, ptr %88, align 8, !tbaa !9
-  %90 = add i32 %89, -1
-  store i32 %90, ptr %88, align 8, !tbaa !9
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22
+88:                                               ; preds = %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %90 = load i32, ptr %89, align 8, !tbaa !9
+  %91 = add i32 %90, -1
+  store i32 %91, ptr %89, align 8, !tbaa !9
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22
 
-92:                                               ; preds = %87
-  store i32 -559026175, ptr %88, align 8, !tbaa !9
-  %93 = load ptr, ptr %86, align 8, !tbaa !12
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(12) %86) #10
+93:                                               ; preds = %88
+  store i32 -559026175, ptr %89, align 8, !tbaa !9
+  %94 = load ptr, ptr %87, align 8, !tbaa !12
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(12) %87) #10
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22
 
-_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20, %87, %92
+_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit20, %88, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %96 = load ptr, ptr %1, align 8, !tbaa !12
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %99 = call noundef i32 %98(ptr noundef nonnull align 8 dereferenceable(48) %1)
-  %.not = icmp eq i32 %99, 0
-  br i1 %.not, label %100, label %101
+  %97 = load ptr, ptr %1, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = call noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %.not = icmp eq i32 %100, 0
+  br i1 %.not, label %101, label %102
 
-100:                                              ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22
-  br label %101
+101:                                              ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22
+  br label %102
 
-101:                                              ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17, %100
-  %.1 = phi i32 [ 1, %100 ], [ -1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17 ], [ 1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22 ]
+102:                                              ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17, %101
+  %.1 = phi i32 [ 1, %101 ], [ -1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit17 ], [ 1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit22 ]
   ret i32 %.1
 }
 

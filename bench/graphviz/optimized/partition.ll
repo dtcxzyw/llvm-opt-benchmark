@@ -1068,7 +1068,7 @@ bitarray_set.exit:                                ; preds = %17
 
 ._crit_edge.i.i:                                  ; preds = %70
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !31
-  %.pre45.i.i = load ptr, ptr %1, align 8, !tbaa !18
+  %.pre44.i.i = load ptr, ptr %1, align 8, !tbaa !18
   br label %boxes_append.exit
 
 74:                                               ; preds = %70
@@ -1122,7 +1122,7 @@ bitarray_set.exit:                                ; preds = %17
   unreachable
 
 boxes_append.exit:                                ; preds = %._crit_edge.i.i, %97
-  %103 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %80, %97 ]
+  %103 = phi ptr [ %.pre44.i.i, %._crit_edge.i.i ], [ %80, %97 ]
   %104 = phi i64 [ %72, %._crit_edge.i.i ], [ %spec.select.i.i, %97 ]
   %105 = phi i64 [ %71, %._crit_edge.i.i ], [ %88, %97 ]
   %106 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %98, %97 ]

@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef range(i32 0, 3) i32 @_ZN6duckdb8Utf8Proc7AnalyzeEPKcmPNS_20UnicodeInvalidReasonEPm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
-  %.not129.not = icmp eq i64 %1, 0
-  br i1 %.not129.not, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %.lr.ph
+  %.not130.not = icmp eq i64 %1, 0
+  br i1 %.not130.not, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit
-  %.034131 = phi i32 [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ], [ 1, %4 ]
-  %storemerge130 = phi i64 [ %127, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %storemerge130
+  %.034132 = phi i32 [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ], [ 1, %4 ]
+  %storemerge131 = phi i64 [ %127, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ], [ 0, %4 ]
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %storemerge131
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = zext i8 %6 to i32
   %8 = icmp sgt i8 %6, -1
@@ -33,20 +33,20 @@ define noundef range(i32 0, 3) i32 @_ZN6duckdb8Utf8Proc7AnalyzeEPKcmPNS_20Unicod
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %9
-  %13 = sub i64 %1, %storemerge130
+  %13 = sub i64 %1, %storemerge131
   %14 = icmp ult i64 %13, 2
   br i1 %14, label %18, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12
-  %15 = add nuw i64 %storemerge130, 1
+  %15 = add nuw i64 %storemerge131, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %.not.i = icmp slt i8 %17, -64
   br i1 %.not.i, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i, label %22
 
 18:                                               ; preds = %12
-  %sext91 = shl i64 %storemerge130, 32
-  %19 = ashr exact i64 %sext91, 32
+  %sext92 = shl i64 %storemerge131, 32
+  %19 = ashr exact i64 %sext92, 32
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %21, label %20
 
@@ -76,8 +76,8 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %26, label %27, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit
 
 27:                                               ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i
-  %sext90 = shl i64 %storemerge130, 32
-  %28 = ashr exact i64 %sext90, 32
+  %sext91 = shl i64 %storemerge131, 32
+  %28 = ashr exact i64 %sext91, 32
   %.not.i38.i = icmp eq ptr %2, null
   br i1 %.not.i38.i, label %30, label %29
 
@@ -95,34 +95,34 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %33, label %34, label %78
 
 34:                                               ; preds = %31
-  %35 = sub i64 %1, %storemerge130
+  %35 = sub i64 %1, %storemerge131
   %36 = icmp ult i64 %35, 3
   br i1 %36, label %41, label %.preheader.i44.preheader
 
 .preheader.i44.preheader:                         ; preds = %34
   %37 = and i32 %7, 15
-  %38 = add i64 %storemerge130, 2
-  %39 = trunc i64 %storemerge130 to i32
+  %38 = add i64 %storemerge131, 2
+  %39 = trunc i64 %storemerge131 to i32
   %40 = add i32 %39, 2
   br label %.preheader.i44
 
 41:                                               ; preds = %34
-  %sext89 = shl i64 %storemerge130, 32
-  %42 = ashr exact i64 %sext89, 32
-  %.not.i.i52 = icmp eq ptr %2, null
-  br i1 %.not.i.i52, label %44, label %43
+  %sext90 = shl i64 %storemerge131, 32
+  %42 = ashr exact i64 %sext90, 32
+  %.not.i.i53 = icmp eq ptr %2, null
+  br i1 %.not.i.i53, label %44, label %43
 
 43:                                               ; preds = %41
   store i32 0, ptr %2, align 4, !tbaa !6
   br label %44
 
 44:                                               ; preds = %43, %41
-  %.not6.i.i53 = icmp eq ptr %3, null
-  br i1 %.not6.i.i53, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
+  %.not6.i.i54 = icmp eq ptr %3, null
+  br i1 %.not6.i.i54, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 .preheader.i44:                                   ; preds = %.preheader.i44.preheader, %54
-  %.03252.i = phi i32 [ %57, %54 ], [ %37, %.preheader.i44.preheader ]
-  %45 = phi i64 [ %46, %54 ], [ %storemerge130, %.preheader.i44.preheader ]
+  %.03250.i = phi i32 [ %57, %54 ], [ %37, %.preheader.i44.preheader ]
+  %45 = phi i64 [ %46, %54 ], [ %storemerge131, %.preheader.i44.preheader ]
   %46 = add i64 %45, 1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !3
@@ -144,7 +144,7 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %.not6.i36.i47, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 54:                                               ; preds = %.preheader.i44
-  %55 = shl i32 %.03252.i, 6
+  %55 = shl i32 %.03250.i, 6
   %56 = and i32 %49, 63
   %57 = or disjoint i32 %56, %55
   %lftr.wideiv = trunc i64 %46 to i32
@@ -152,31 +152,31 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %exitcond.not, label %58, label %.preheader.i44, !llvm.loop !8
 
 58:                                               ; preds = %54
-  %59 = and i32 %.03252.i, 992
+  %59 = and i32 %.03250.i, 992
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %58
-  %sext88 = shl i64 %storemerge130, 32
-  %62 = ashr exact i64 %sext88, 32
-  %.not.i38.i50 = icmp eq ptr %2, null
-  br i1 %.not.i38.i50, label %64, label %63
+  %sext89 = shl i64 %storemerge131, 32
+  %62 = ashr exact i64 %sext89, 32
+  %.not.i38.i51 = icmp eq ptr %2, null
+  br i1 %.not.i38.i51, label %64, label %63
 
 63:                                               ; preds = %61
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %64
 
 64:                                               ; preds = %63, %61
-  %.not6.i39.i51 = icmp eq ptr %3, null
-  br i1 %.not6.i39.i51, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
+  %.not6.i39.i52 = icmp eq ptr %3, null
+  br i1 %.not6.i39.i52, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 65:                                               ; preds = %58
   %66 = icmp sgt i32 %57, 1114111
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %65
-  %sext87 = shl i64 %storemerge130, 32
-  %68 = ashr exact i64 %sext87, 32
+  %sext88 = shl i64 %storemerge131, 32
+  %68 = ashr exact i64 %sext88, 32
   %.not.i41.i = icmp eq ptr %2, null
   br i1 %.not.i41.i, label %70, label %69
 
@@ -189,13 +189,13 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %.not6.i42.i, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 71:                                               ; preds = %65
-  %72 = and i32 %.03252.i, 524256
+  %72 = and i32 %.03250.i, 524256
   %73 = icmp eq i32 %72, 864
   br i1 %73, label %74, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit
 
 74:                                               ; preds = %71
-  %sext86 = shl i64 %storemerge130, 32
-  %75 = ashr exact i64 %sext86, 32
+  %sext87 = shl i64 %storemerge131, 32
+  %75 = ashr exact i64 %sext87, 32
   %.not.i44.i = icmp eq ptr %2, null
   br i1 %.not.i44.i, label %77, label %76
 
@@ -213,120 +213,120 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %80, label %81, label %124
 
 81:                                               ; preds = %78
-  %82 = sub i64 %1, %storemerge130
+  %82 = sub i64 %1, %storemerge131
   %83 = icmp ult i64 %82, 4
-  br i1 %83, label %86, label %.preheader.i54.preheader
+  br i1 %83, label %86, label %.preheader.i55.preheader
 
-.preheader.i54.preheader:                         ; preds = %81
+.preheader.i55.preheader:                         ; preds = %81
   %84 = and i32 %7, 7
-  %85 = add i64 %storemerge130, 3
-  br label %.preheader.i54
+  %85 = add i64 %storemerge131, 3
+  br label %.preheader.i55
 
 86:                                               ; preds = %81
-  %sext85 = shl i64 %storemerge130, 32
-  %87 = ashr exact i64 %sext85, 32
-  %.not.i.i68 = icmp eq ptr %2, null
-  br i1 %.not.i.i68, label %89, label %88
+  %sext86 = shl i64 %storemerge131, 32
+  %87 = ashr exact i64 %sext86, 32
+  %.not.i.i69 = icmp eq ptr %2, null
+  br i1 %.not.i.i69, label %89, label %88
 
 88:                                               ; preds = %86
   store i32 0, ptr %2, align 4, !tbaa !6
   br label %89
 
 89:                                               ; preds = %88, %86
-  %.not6.i.i69 = icmp eq ptr %3, null
-  br i1 %.not6.i.i69, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
+  %.not6.i.i70 = icmp eq ptr %3, null
+  br i1 %.not6.i.i70, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
-.preheader.i54:                                   ; preds = %.preheader.i54.preheader, %99
-  %.03153.i = phi i64 [ %103, %99 ], [ 0, %.preheader.i54.preheader ]
-  %.03252.i55 = phi i32 [ %102, %99 ], [ %84, %.preheader.i54.preheader ]
-  %90 = phi i64 [ %91, %99 ], [ %storemerge130, %.preheader.i54.preheader ]
+.preheader.i55:                                   ; preds = %.preheader.i55.preheader, %99
+  %.03151.i = phi i64 [ %103, %99 ], [ 0, %.preheader.i55.preheader ]
+  %.03250.i56 = phi i32 [ %102, %99 ], [ %84, %.preheader.i55.preheader ]
+  %90 = phi i64 [ %91, %99 ], [ %storemerge131, %.preheader.i55.preheader ]
   %91 = add i64 %90, 1
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !3
   %94 = zext i8 %93 to i32
   %95 = and i32 %94, 192
-  %.not.i56 = icmp eq i32 %95, 128
-  br i1 %.not.i56, label %99, label %96
+  %.not.i57 = icmp eq i32 %95, 128
+  br i1 %.not.i57, label %99, label %96
 
-96:                                               ; preds = %.preheader.i54
-  %.not.i35.i57 = icmp eq ptr %2, null
-  br i1 %.not.i35.i57, label %98, label %97
+96:                                               ; preds = %.preheader.i55
+  %.not.i35.i58 = icmp eq ptr %2, null
+  br i1 %.not.i35.i58, label %98, label %97
 
 97:                                               ; preds = %96
   store i32 0, ptr %2, align 4, !tbaa !6
   br label %98
 
 98:                                               ; preds = %97, %96
-  %.not6.i36.i58 = icmp eq ptr %3, null
-  br i1 %.not6.i36.i58, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
+  %.not6.i36.i59 = icmp eq ptr %3, null
+  br i1 %.not6.i36.i59, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
-99:                                               ; preds = %.preheader.i54
-  %100 = shl i32 %.03252.i55, 6
+99:                                               ; preds = %.preheader.i55
+  %100 = shl i32 %.03250.i56, 6
   %101 = and i32 %94, 63
   %102 = or disjoint i32 %101, %100
-  %103 = add nuw nsw i64 %.03153.i, 1
+  %103 = add nuw nsw i64 %.03151.i, 1
   %exitcond.not.i = icmp eq i64 %103, 3
-  br i1 %exitcond.not.i, label %104, label %.preheader.i54, !llvm.loop !10
+  br i1 %exitcond.not.i, label %104, label %.preheader.i55, !llvm.loop !10
 
 104:                                              ; preds = %99
-  %105 = and i32 %.03252.i55, 31744
+  %105 = and i32 %.03250.i56, 31744
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %104
-  %sext84 = shl i64 %storemerge130, 32
-  %108 = ashr exact i64 %sext84, 32
-  %.not.i38.i66 = icmp eq ptr %2, null
-  br i1 %.not.i38.i66, label %110, label %109
+  %sext85 = shl i64 %storemerge131, 32
+  %108 = ashr exact i64 %sext85, 32
+  %.not.i38.i67 = icmp eq ptr %2, null
+  br i1 %.not.i38.i67, label %110, label %109
 
 109:                                              ; preds = %107
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %110
 
 110:                                              ; preds = %109, %107
-  %.not6.i39.i67 = icmp eq ptr %3, null
-  br i1 %.not6.i39.i67, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
+  %.not6.i39.i68 = icmp eq ptr %3, null
+  br i1 %.not6.i39.i68, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 111:                                              ; preds = %104
   %112 = icmp sgt i32 %102, 1114111
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %111
-  %sext83 = shl i64 %storemerge130, 32
-  %114 = ashr exact i64 %sext83, 32
-  %.not.i41.i64 = icmp eq ptr %2, null
-  br i1 %.not.i41.i64, label %116, label %115
+  %sext84 = shl i64 %storemerge131, 32
+  %114 = ashr exact i64 %sext84, 32
+  %.not.i41.i65 = icmp eq ptr %2, null
+  br i1 %.not.i41.i65, label %116, label %115
 
 115:                                              ; preds = %113
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %116
 
 116:                                              ; preds = %115, %113
-  %.not6.i42.i65 = icmp eq ptr %3, null
-  br i1 %.not6.i42.i65, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
+  %.not6.i42.i66 = icmp eq ptr %3, null
+  br i1 %.not6.i42.i66, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 117:                                              ; preds = %111
-  %118 = and i32 %.03252.i55, 524256
+  %118 = and i32 %.03250.i56, 524256
   %119 = icmp eq i32 %118, 864
   br i1 %119, label %120, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit
 
 120:                                              ; preds = %117
-  %sext = shl i64 %storemerge130, 32
+  %sext = shl i64 %storemerge131, 32
   %121 = ashr exact i64 %sext, 32
-  %.not.i44.i62 = icmp eq ptr %2, null
-  br i1 %.not.i44.i62, label %123, label %122
+  %.not.i44.i63 = icmp eq ptr %2, null
+  br i1 %.not.i44.i63, label %123, label %122
 
 122:                                              ; preds = %120
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %123
 
 123:                                              ; preds = %122, %120
-  %.not6.i45.i63 = icmp eq ptr %3, null
-  br i1 %.not6.i45.i63, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
+  %.not6.i45.i64 = icmp eq ptr %3, null
+  br i1 %.not6.i45.i64, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 124:                                              ; preds = %78
-  %.not.i70 = icmp eq ptr %2, null
-  br i1 %.not.i70, label %126, label %125
+  %.not.i71 = icmp eq ptr %2, null
+  br i1 %.not.i71, label %126, label %125
 
 125:                                              ; preds = %124
   store i32 0, ptr %2, align 4, !tbaa !6
@@ -337,19 +337,19 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %.not6.i, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit: ; preds = %.lr.ph, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i, %71, %117
-  %.0 = phi i64 [ %storemerge130, %.lr.ph ], [ %15, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ], [ %38, %71 ], [ %85, %117 ]
-  %.236 = phi i32 [ %.034131, %.lr.ph ], [ 2, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ], [ 2, %71 ], [ 2, %117 ]
+  %.0 = phi i64 [ %storemerge131, %.lr.ph ], [ %15, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ], [ %38, %71 ], [ %85, %117 ]
+  %.236 = phi i32 [ %.034132, %.lr.ph ], [ 2, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ], [ 2, %71 ], [ 2, %117 ]
   %127 = add i64 %.0, 1
   %.not = icmp ult i64 %127, %1
   br i1 %.not, label %.lr.ph, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, !llvm.loop !11
 
 _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split: ; preds = %126, %89, %98, %110, %116, %123, %44, %53, %64, %70, %77, %21, %24, %30
-  %.lcssa.sink.i60.sink = phi i64 [ %19, %21 ], [ %15, %24 ], [ %28, %30 ], [ %42, %44 ], [ %46, %53 ], [ %62, %64 ], [ %68, %70 ], [ %75, %77 ], [ %87, %89 ], [ %91, %98 ], [ %108, %110 ], [ %114, %116 ], [ %121, %123 ], [ %storemerge130, %126 ]
-  store i64 %.lcssa.sink.i60.sink, ptr %3, align 8, !tbaa !12
+  %.sink.i61.sink = phi i64 [ %19, %21 ], [ %15, %24 ], [ %28, %30 ], [ %42, %44 ], [ %46, %53 ], [ %62, %64 ], [ %68, %70 ], [ %75, %77 ], [ %87, %89 ], [ %91, %98 ], [ %108, %110 ], [ %114, %116 ], [ %121, %123 ], [ %storemerge131, %126 ]
+  store i64 %.sink.i61.sink, ptr %3, align 8, !tbaa !12
   br label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread
 
-_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %98, %123, %116, %110, %89, %53, %77, %70, %64, %44, %24, %30, %21, %126
-  %spec.select = phi i32 [ 0, %98 ], [ 0, %123 ], [ 0, %116 ], [ 0, %110 ], [ 0, %89 ], [ 0, %53 ], [ 0, %77 ], [ 0, %70 ], [ 0, %64 ], [ 0, %44 ], [ 0, %24 ], [ 0, %30 ], [ 0, %21 ], [ 0, %126 ], [ 1, %4 ], [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
+_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %123, %116, %110, %98, %89, %77, %70, %64, %53, %44, %30, %24, %21, %126
+  %spec.select = phi i32 [ 0, %123 ], [ 0, %116 ], [ 0, %110 ], [ 0, %98 ], [ 0, %89 ], [ 0, %77 ], [ 0, %70 ], [ 0, %64 ], [ 0, %53 ], [ 0, %44 ], [ 0, %30 ], [ 0, %24 ], [ 0, %21 ], [ 0, %126 ], [ 1, %4 ], [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
   ret i32 %spec.select
 }
 
@@ -406,7 +406,7 @@ define void @_ZN6duckdb8Utf8Proc9MakeValidEPcmc(ptr noundef captures(none) %0, i
 
 .preheader.i32:                                   ; preds = %.preheader.i32.preheader, %34
   %27 = phi i1 [ false, %34 ], [ true, %.preheader.i32.preheader ]
-  %.03252.i = phi i32 [ %37, %34 ], [ %25, %.preheader.i32.preheader ]
+  %.03250.i = phi i32 [ %37, %34 ], [ %25, %.preheader.i32.preheader ]
   %28 = phi i64 [ %29, %34 ], [ %storemerge70, %.preheader.i32.preheader ]
   %29 = add i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
@@ -417,17 +417,17 @@ define void @_ZN6duckdb8Utf8Proc9MakeValidEPcmc(ptr noundef captures(none) %0, i
   br i1 %.not.i33, label %34, label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread
 
 34:                                               ; preds = %.preheader.i32
-  %35 = shl i32 %.03252.i, 6
+  %35 = shl i32 %.03250.i, 6
   %36 = and i32 %32, 63
   %37 = or disjoint i32 %36, %35
   br i1 %27, label %.preheader.i32, label %38, !llvm.loop !8
 
 38:                                               ; preds = %34
-  %39 = and i32 %.03252.i, 992
+  %39 = and i32 %.03250.i, 992
   %40 = icmp eq i32 %39, 0
   %41 = icmp sgt i32 %37, 1114111
   %or.cond54 = select i1 %40, i1 true, i1 %41
-  %42 = and i32 %.03252.i, 524256
+  %42 = and i32 %.03250.i, 524256
   %43 = icmp eq i32 %42, 864
   %or.cond56 = select i1 %or.cond54, i1 true, i1 %43
   br i1 %or.cond56, label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread, label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51
@@ -448,8 +448,8 @@ define void @_ZN6duckdb8Utf8Proc9MakeValidEPcmc(ptr noundef captures(none) %0, i
   br label %.preheader.i35
 
 .preheader.i35:                                   ; preds = %.preheader.i35.preheader, %58
-  %.03153.i = phi i64 [ %62, %58 ], [ 0, %.preheader.i35.preheader ]
-  %.03252.i36 = phi i32 [ %61, %58 ], [ %50, %.preheader.i35.preheader ]
+  %.03151.i = phi i64 [ %62, %58 ], [ 0, %.preheader.i35.preheader ]
+  %.03250.i36 = phi i32 [ %61, %58 ], [ %50, %.preheader.i35.preheader ]
   %52 = phi i64 [ %53, %58 ], [ %storemerge70, %.preheader.i35.preheader ]
   %53 = add i64 %52, 1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 %53
@@ -460,19 +460,19 @@ define void @_ZN6duckdb8Utf8Proc9MakeValidEPcmc(ptr noundef captures(none) %0, i
   br i1 %.not.i37, label %58, label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread
 
 58:                                               ; preds = %.preheader.i35
-  %59 = shl i32 %.03252.i36, 6
+  %59 = shl i32 %.03250.i36, 6
   %60 = and i32 %56, 63
   %61 = or disjoint i32 %60, %59
-  %62 = add nuw nsw i64 %.03153.i, 1
+  %62 = add nuw nsw i64 %.03151.i, 1
   %exitcond.not.i = icmp eq i64 %62, 3
   br i1 %exitcond.not.i, label %63, label %.preheader.i35, !llvm.loop !10
 
 63:                                               ; preds = %58
-  %64 = and i32 %.03252.i36, 31744
+  %64 = and i32 %.03250.i36, 31744
   %65 = icmp eq i32 %64, 0
   %66 = icmp sgt i32 %61, 1114111
   %or.cond57 = select i1 %65, i1 true, i1 %66
-  %67 = and i32 %.03252.i36, 524256
+  %67 = and i32 %.03250.i36, 524256
   %68 = icmp eq i32 %67, 864
   %or.cond59 = select i1 %or.cond57, i1 true, i1 %68
   br i1 %or.cond59, label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread, label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51

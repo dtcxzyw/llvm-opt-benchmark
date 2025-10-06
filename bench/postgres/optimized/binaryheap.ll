@@ -179,8 +179,8 @@ define void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds ptr, ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %.not22.i = icmp eq i32 %11, 0
-  br i1 %.not22.i, label %sift_up.exit, label %.lr.ph.i
+  %.not21.i = icmp eq i32 %11, 0
+  br i1 %.not21.i, label %sift_up.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -188,8 +188,8 @@ define void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local
   br label %18
 
 18:                                               ; preds = %28, %.lr.ph.i
-  %.01823.i = phi i32 [ %11, %.lr.ph.i ], [ %20, %28 ]
-  %19 = add i32 %.01823.i, -1
+  %.01822.i = phi i32 [ %11, %.lr.ph.i ], [ %20, %28 ]
+  %19 = add i32 %.01822.i, -1
   %20 = sdiv i32 %19, 2
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %8, i64 %21
@@ -198,13 +198,13 @@ define void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local
   %25 = load ptr, ptr %17, align 8
   %26 = tail call i32 %24(ptr noundef %15, ptr noundef %23, ptr noundef %25) #5
   %27 = icmp slt i32 %26, 1
-  %.pre = sext i32 %.01823.i to i64
+  %.pre = sext i32 %.01822.i to i64
   br i1 %27, label %sift_up.exit, label %28
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds ptr, ptr %8, i64 %.pre
   store ptr %23, ptr %29, align 8
-  %.not.i = icmp ult i32 %.01823.i, 3
+  %.not.i = icmp ult i32 %.01822.i, 3
   br i1 %.not.i, label %sift_up.exit, label %18
 
 sift_up.exit:                                     ; preds = %28, %18, %7
@@ -328,12 +328,12 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %2
-  %.not22.i = icmp eq i32 %1, 0
-  br i1 %.not22.i, label %.sink.split, label %.lr.ph.i
+  %.not21.i = icmp eq i32 %1, 0
+  br i1 %.not21.i, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %32
-  %.01823.i = phi i32 [ %24, %32 ], [ %1, %22 ]
-  %23 = add i32 %.01823.i, -1
+  %.01822.i = phi i32 [ %24, %32 ], [ %1, %22 ]
+  %23 = add i32 %.01822.i, -1
   %24 = sdiv i32 %23, 2
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %5, i64 %25
@@ -342,13 +342,13 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
   %29 = load ptr, ptr %14, align 8
   %30 = tail call i32 %28(ptr noundef %20, ptr noundef %27, ptr noundef %29) #5
   %31 = icmp slt i32 %30, 1
-  %.pre = sext i32 %.01823.i to i64
+  %.pre = sext i32 %.01822.i to i64
   br i1 %31, label %.sink.split, label %32
 
 32:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds ptr, ptr %5, i64 %.pre
   store ptr %27, ptr %33, align 8
-  %.not.i = icmp ult i32 %.01823.i, 3
+  %.not.i = icmp ult i32 %.01822.i, 3
   br i1 %.not.i, label %.sink.split, label %.lr.ph.i
 
 34:                                               ; preds = %2

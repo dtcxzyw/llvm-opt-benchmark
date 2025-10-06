@@ -124,37 +124,37 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
-  %11 = add nuw i64 %.03964, 1
+  %11 = add nuw i64 %.03962, 1
   %12 = load i64, ptr %4, align 8, !tbaa !16
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %8, %10
-  %.03964 = phi i64 [ %11, %10 ], [ 0, %8 ]
-  %14 = getelementptr inbounds nuw %struct.merged_subiter, ptr %7, i64 %.03964
+  %.03962 = phi i64 [ %11, %10 ], [ 0, %8 ]
+  %14 = getelementptr inbounds nuw %struct.merged_subiter, ptr %7, i64 %.03962
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @reftable_record_init(ptr noundef nonnull %15, i8 noundef zeroext %2) #6
   %16 = load ptr, ptr %0, align 8, !tbaa !11
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.03964
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.03962
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call i32 @reader_init_iter(ptr noundef %18, ptr noundef nonnull %14, i8 noundef zeroext %2) #6
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %.lr.ph67.split, label %10
+  br i1 %20, label %.lr.ph65.split, label %10
 
 ._crit_edge:                                      ; preds = %10, %3, %8
-  %.04281 = phi ptr [ %7, %8 ], [ null, %3 ], [ %7, %10 ]
+  %.04279 = phi ptr [ %7, %8 ], [ null, %3 ], [ %7, %10 ]
   %21 = tail call ptr @reftable_calloc(i64 noundef 1, i64 noundef 56) #6
   %.not53 = icmp eq ptr %21, null
-  br i1 %.not53, label %.loopexit, label %.thread59
+  br i1 %.not53, label %.loopexit, label %.thread57
 
-.thread59:                                        ; preds = %._crit_edge
+.thread57:                                        ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i64 -1, ptr %22, align 8, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 %24, ptr %25, align 8, !tbaa !29
-  store ptr %.04281, ptr %21, align 8, !tbaa !30
+  store ptr %.04279, ptr %21, align 8, !tbaa !30
   %26 = load i64, ptr %4, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i64 %26, ptr %27, align 8, !tbaa !31
@@ -164,37 +164,37 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br label %35
 
 .loopexit:                                        ; preds = %._crit_edge
-  %.not54 = icmp eq ptr %.04281, null
-  br i1 %.not54, label %.critedge, label %.lr.ph67.split
+  %.not54 = icmp eq ptr %.04279, null
+  br i1 %.not54, label %.critedge, label %.lr.ph65.split
 
-.lr.ph67.split:                                   ; preds = %.lr.ph, %.loopexit
-  %.04092 = phi i32 [ -13, %.loopexit ], [ %19, %.lr.ph ]
-  %.14391 = phi ptr [ %.04281, %.loopexit ], [ %7, %.lr.ph ]
+.lr.ph65.split:                                   ; preds = %.lr.ph, %.loopexit
+  %.04090 = phi i32 [ -13, %.loopexit ], [ %19, %.lr.ph ]
+  %.14389 = phi ptr [ %.04279, %.loopexit ], [ %7, %.lr.ph ]
   %29 = load i64, ptr %4, align 8, !tbaa !16
-  %.not72 = icmp eq i64 %29, 0
-  br i1 %.not72, label %.critedge, label %.lr.ph70
+  %.not70 = icmp eq i64 %29, 0
+  br i1 %.not70, label %.critedge, label %.lr.ph68
 
-.critedge:                                        ; preds = %.lr.ph70, %6, %.lr.ph67.split, %.loopexit
-  %.04086 = phi i32 [ %.04092, %.lr.ph67.split ], [ -13, %.loopexit ], [ -13, %6 ], [ %.04092, %.lr.ph70 ]
-  %.14385 = phi ptr [ %.14391, %.lr.ph67.split ], [ null, %.loopexit ], [ null, %6 ], [ %.14391, %.lr.ph70 ]
-  tail call void @reftable_free(ptr noundef %.14385) #6
+.critedge:                                        ; preds = %.lr.ph68, %6, %.lr.ph65.split, %.loopexit
+  %.04084 = phi i32 [ %.04090, %.lr.ph65.split ], [ -13, %.loopexit ], [ -13, %6 ], [ %.04090, %.lr.ph68 ]
+  %.14383 = phi ptr [ %.14389, %.lr.ph65.split ], [ null, %.loopexit ], [ null, %6 ], [ %.14389, %.lr.ph68 ]
+  tail call void @reftable_free(ptr noundef %.14383) #6
   tail call void @reftable_free(ptr noundef null) #6
   br label %35
 
-.lr.ph70:                                         ; preds = %.lr.ph67.split, %.lr.ph70
-  %.06569 = phi i64 [ %32, %.lr.ph70 ], [ 0, %.lr.ph67.split ]
-  %30 = getelementptr inbounds nuw %struct.merged_subiter, ptr %.14391, i64 %.06569
+.lr.ph68:                                         ; preds = %.lr.ph65.split, %.lr.ph68
+  %.06367 = phi i64 [ %32, %.lr.ph68 ], [ 0, %.lr.ph65.split ]
+  %30 = getelementptr inbounds nuw %struct.merged_subiter, ptr %.14389, i64 %.06367
   tail call void @reftable_iterator_destroy(ptr noundef nonnull %30) #6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   tail call void @reftable_record_release(ptr noundef nonnull %31) #6
-  %32 = add nuw i64 %.06569, 1
+  %32 = add nuw i64 %.06367, 1
   %33 = load i64, ptr %4, align 8, !tbaa !16
   %34 = icmp ult i64 %32, %33
-  br i1 %34, label %.lr.ph70, label %.critedge
+  br i1 %34, label %.lr.ph68, label %.critedge
 
-35:                                               ; preds = %.thread59, %.critedge
-  %.04063 = phi i32 [ 0, %.thread59 ], [ %.04086, %.critedge ]
-  ret i32 %.04063
+35:                                               ; preds = %.thread57, %.critedge
+  %.04061 = phi i32 [ 0, %.thread57 ], [ %.04084, %.critedge ]
+  ret i32 %.04061
 }
 
 declare void @reftable_record_init(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1

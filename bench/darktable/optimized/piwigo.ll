@@ -768,13 +768,13 @@ _piwigo_load_account.exit:                        ; preds = %47, %1
   br i1 %.not.i118, label %_piwigo_get_account.exit, label %50
 
 50:                                               ; preds = %_piwigo_load_account.exit
-  %.01423.i = load ptr, ptr %17, align 8, !tbaa !98
-  %.not1724.i = icmp eq ptr %.01423.i, null
-  br i1 %.not1724.i, label %_piwigo_get_account.exit, label %.lr.ph.i119
+  %.01426.i = load ptr, ptr %17, align 8, !tbaa !98
+  %.not1727.i = icmp eq ptr %.01426.i, null
+  br i1 %.not1727.i, label %_piwigo_get_account.exit, label %.lr.ph.i119
 
 .lr.ph.i119:                                      ; preds = %50, %55
-  %.01425.i = phi ptr [ %.014.i, %55 ], [ %.01423.i, %50 ]
-  %51 = load ptr, ptr %.01425.i, align 8, !tbaa !99
+  %.01428.i = phi ptr [ %.014.i, %55 ], [ %.01426.i, %50 ]
+  %51 = load ptr, ptr %.01428.i, align 8, !tbaa !99
   %52 = load ptr, ptr %51, align 8, !tbaa !94
   %.not18.i = icmp eq ptr %52, null
   br i1 %.not18.i, label %55, label %53
@@ -785,13 +785,13 @@ _piwigo_load_account.exit:                        ; preds = %47, %1
   br i1 %.not19.i, label %_piwigo_get_account.exit, label %55
 
 55:                                               ; preds = %53, %.lr.ph.i119
-  %56 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.01428.i, i64 8
   %.014.i = load ptr, ptr %56, align 8, !tbaa !98
   %.not17.i = icmp eq ptr %.014.i, null
   br i1 %.not17.i, label %_piwigo_get_account.exit, label %.lr.ph.i119
 
 _piwigo_get_account.exit:                         ; preds = %53, %55, %_piwigo_load_account.exit, %50
-  %.0.i = phi ptr [ null, %_piwigo_load_account.exit ], [ null, %50 ], [ null, %55 ], [ %51, %53 ]
+  %.0.i = phi ptr [ null, %_piwigo_load_account.exit ], [ null, %50 ], [ %51, %53 ], [ null, %55 ]
   %57 = call ptr @dt_bauhaus_combobox_new_action(ptr noundef %0) #16
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store ptr %57, ptr %58, align 8, !tbaa !101
@@ -1121,13 +1121,13 @@ define internal void @_piwigo_account_changed(ptr readnone captures(none) %0, pt
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.01423.i = load ptr, ptr %7, align 8, !tbaa !98
-  %.not1724.i = icmp eq ptr %.01423.i, null
-  br i1 %.not1724.i, label %_piwigo_get_account.exit.thread, label %.lr.ph.i
+  %.01426.i = load ptr, ptr %7, align 8, !tbaa !98
+  %.not1727.i = icmp eq ptr %.01426.i, null
+  br i1 %.not1727.i, label %_piwigo_get_account.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %12
-  %.01425.i = phi ptr [ %.014.i, %12 ], [ %.01423.i, %6 ]
-  %8 = load ptr, ptr %.01425.i, align 8, !tbaa !99
+  %.01428.i = phi ptr [ %.014.i, %12 ], [ %.01426.i, %6 ]
+  %8 = load ptr, ptr %.01428.i, align 8, !tbaa !99
   %9 = load ptr, ptr %8, align 8, !tbaa !94
   %.not18.i = icmp eq ptr %9, null
   br i1 %.not18.i, label %12, label %10
@@ -1138,7 +1138,7 @@ define internal void @_piwigo_account_changed(ptr readnone captures(none) %0, pt
   br i1 %.not19.i, label %_piwigo_get_account.exit, label %12
 
 12:                                               ; preds = %10, %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01428.i, i64 8
   %.014.i = load ptr, ptr %13, align 8, !tbaa !98
   %.not17.i = icmp eq ptr %.014.i, null
   br i1 %.not17.i, label %_piwigo_get_account.exit.thread, label %.lr.ph.i

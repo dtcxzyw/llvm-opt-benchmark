@@ -268,13 +268,13 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   br label %12
 
 10:                                               ; preds = %12
-  %11 = add nuw i64 %.01242, 1
+  %11 = add nuw i64 %.01240, 1
   %exitcond.not = icmp eq i64 %11, %.val
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !44
 
 12:                                               ; preds = %.lr.ph, %10
-  %.01242 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
-  %13 = add i64 %7, %.01242
+  %.01240 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
+  %13 = add i64 %7, %.01240
   %14 = urem i64 %13, %9
   %15 = getelementptr inbounds nuw %struct.same_t, ptr %5, i64 %14
   %.sroa.033.0.copyload = load ptr, ptr %15, align 8, !tbaa !45
@@ -294,7 +294,7 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
 ._crit_edge.i.i:                                  ; preds = %18
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !48
-  %.pre46.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !49
+  %.pre45.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.le, align 8, !tbaa !49
   br label %54
 
 24:                                               ; preds = %18
@@ -349,7 +349,7 @@ define internal fastcc void @sameedge(ptr noundef nonnull captures(none) %0, ptr
   unreachable
 
 54:                                               ; preds = %48, %._crit_edge.i.i
-  %55 = phi ptr [ %.pre46.i.i, %._crit_edge.i.i ], [ %30, %48 ]
+  %55 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %30, %48 ]
   %56 = phi i64 [ %22, %._crit_edge.i.i ], [ %spec.select.i.i, %48 ]
   %57 = phi i64 [ %20, %._crit_edge.i.i ], [ %39, %48 ]
   %58 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %49, %48 ]
@@ -383,7 +383,7 @@ edge_list_append.exit20:                          ; preds = %._crit_edge
 ._crit_edge.i.i21:                                ; preds = %edge_list_append.exit20
   %.phi.trans.insert.i.i22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i23 = load i64, ptr %.phi.trans.insert.i.i22, align 8, !tbaa !13
-  %.pre45.i.i = load ptr, ptr %0, align 8, !tbaa !12
+  %.pre44.i.i = load ptr, ptr %0, align 8, !tbaa !12
   br label %same_list_append.exit
 
 71:                                               ; preds = %edge_list_append.exit20
@@ -437,7 +437,7 @@ edge_list_append.exit20:                          ; preds = %._crit_edge
   unreachable
 
 same_list_append.exit:                            ; preds = %._crit_edge.i.i21, %94
-  %100 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i21 ], [ %76, %94 ]
+  %100 = phi ptr [ %.pre44.i.i, %._crit_edge.i.i21 ], [ %76, %94 ]
   %101 = phi i64 [ %69, %._crit_edge.i.i21 ], [ %spec.select.i.i24, %94 ]
   %102 = phi i64 [ %.val, %._crit_edge.i.i21 ], [ %85, %94 ]
   %103 = phi i64 [ %.pre.i.i23, %._crit_edge.i.i21 ], [ %95, %94 ]

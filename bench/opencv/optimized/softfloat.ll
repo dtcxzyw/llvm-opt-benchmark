@@ -97,7 +97,7 @@ define void @_ZN2cv9softfloatC2Ej(ptr noundef nonnull writeonly align 4 captures
   br i1 %.not.i, label %_ZN2cvL11ui32_to_f32Ej.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = icmp slt i32 %1, 1
+  %4 = icmp slt i32 %1, 0
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %3
@@ -1604,7 +1604,7 @@ define void @_ZN2cv10softdoubleC2Em(ptr noundef nonnull writeonly align 8 captur
   br i1 %.not.i, label %_ZN2cvL11ui64_to_f64Em.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp slt i64 %1, 1
+  %5 = icmp slt i64 %1, 0
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %4

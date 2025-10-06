@@ -615,15 +615,15 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1953
   %4 = load i8, ptr %3, align 1, !tbaa !91, !range !100, !noundef !101
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %12, label %.preheader27
+  br i1 %5, label %12, label %.preheader26
 
-.preheader27:                                     ; preds = %2
+.preheader26:                                     ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %7 = tail call noundef i32 @_ZN3zmq4fq_t4recvEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(41) %6, ptr noundef %1)
-  %.not29 = icmp eq i32 %7, 0
-  br i1 %.not29, label %.lr.ph30, label %.thread
+  %.not28 = icmp eq i32 %7, 0
+  br i1 %.not28, label %.lr.ph29, label %.thread
 
-.lr.ph30:                                         ; preds = %.preheader27
+.lr.ph29:                                         ; preds = %.preheader26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2025
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1936
@@ -660,7 +660,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE(ptr nounde
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %.thread
 
-28:                                               ; preds = %.lr.ph30, %.loopexit
+28:                                               ; preds = %.lr.ph29, %.loopexit
   %29 = load i8, ptr %8, align 1, !tbaa !104, !range !100, !noundef !101
   %30 = trunc nuw i8 %29 to i1
   %.not20 = xor i1 %30, true
@@ -675,14 +675,14 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE(ptr nounde
   %36 = tail call noundef zeroext i1 @_ZN3zmq12radix_tree_t5checkEPKhm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %34, i64 noundef %35)
   %37 = load i8, ptr %11, align 1, !tbaa !105, !range !100, !noundef !101
   %38 = zext i1 %36 to i8
-  %.not26 = icmp eq i8 %37, %38
-  br i1 %.not26, label %.preheader, label %41
+  %.not25 = icmp eq i8 %37, %38
+  br i1 %.not25, label %.preheader, label %41
 
 .preheader:                                       ; preds = %33
   %39 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %40 = and i8 %39, 1
-  %.not1728 = icmp eq i8 %40, 0
-  br i1 %.not1728, label %.loopexit, label %.lr.ph
+  %.not1727 = icmp eq i8 %40, 0
+  br i1 %.not1727, label %.loopexit, label %.lr.ph
 
 41:                                               ; preds = %33, %28
   %42 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -712,8 +712,8 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE(ptr nounde
   %.not17 = icmp eq i8 %55, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !106
 
-.thread:                                          ; preds = %.loopexit, %.preheader27, %41, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %41 ], [ -1, %.preheader27 ], [ -1, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %.preheader26, %41, %23
+  %.0 = phi i32 [ 0, %23 ], [ 0, %41 ], [ -1, %.preheader26 ], [ -1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -745,16 +745,16 @@ define noundef zeroext i1 @_ZN3zmq6xsub_t7xhas_inEv(ptr noundef nonnull align 8 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1953
   %7 = load i8, ptr %6, align 1, !tbaa !91, !range !100, !noundef !101
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %.thread, label %.preheader16
+  br i1 %8, label %.thread, label %.preheader15
 
-.preheader16:                                     ; preds = %5
+.preheader15:                                     ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   %11 = tail call noundef i32 @_ZN3zmq4fq_t4recvEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(41) %9, ptr noundef nonnull %10)
-  %.not18 = icmp eq i32 %11, 0
-  br i1 %.not18, label %.lr.ph19, label %._crit_edge
+  %.not17 = icmp eq i32 %11, 0
+  br i1 %.not17, label %.lr.ph18, label %._crit_edge
 
-.lr.ph19:                                         ; preds = %.preheader16
+.lr.ph18:                                         ; preds = %.preheader15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 393
@@ -765,7 +765,7 @@ define noundef zeroext i1 @_ZN3zmq6xsub_t7xhas_inEv(ptr noundef nonnull align 8 
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %24, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader16
+._crit_edge:                                      ; preds = %.loopexit, %.preheader15
   %16 = tail call ptr @__errno_location() #14
   %17 = load i32, ptr %16, align 4, !tbaa !94
   %.not11 = icmp eq i32 %17, 11
@@ -780,7 +780,7 @@ define noundef zeroext i1 @_ZN3zmq6xsub_t7xhas_inEv(ptr noundef nonnull align 8 
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %19)
   br label %.thread
 
-24:                                               ; preds = %.lr.ph19, %.loopexit
+24:                                               ; preds = %.lr.ph18, %.loopexit
   %25 = load i8, ptr %12, align 8, !tbaa !108, !range !100, !noundef !101
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %35
@@ -791,14 +791,14 @@ define noundef zeroext i1 @_ZN3zmq6xsub_t7xhas_inEv(ptr noundef nonnull align 8 
   %30 = tail call noundef zeroext i1 @_ZN3zmq12radix_tree_t5checkEPKhm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %28, i64 noundef %29)
   %31 = load i8, ptr %14, align 1, !tbaa !105, !range !100, !noundef !101
   %32 = zext i1 %30 to i8
-  %.not15 = icmp eq i8 %31, %32
-  br i1 %.not15, label %.preheader, label %35
+  %.not14 = icmp eq i8 %31, %32
+  br i1 %.not14, label %.preheader, label %35
 
 .preheader:                                       ; preds = %27
   %33 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
   %34 = and i8 %33, 1
-  %.not917 = icmp eq i8 %34, 0
-  br i1 %.not917, label %.loopexit, label %.lr.ph
+  %.not916 = icmp eq i8 %34, 0
+  br i1 %.not916, label %.loopexit, label %.lr.ph
 
 35:                                               ; preds = %27, %24
   store i8 1, ptr %6, align 1, !tbaa !91

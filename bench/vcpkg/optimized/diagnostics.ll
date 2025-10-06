@@ -1924,21 +1924,21 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg25BufferedDiagnosticContext10any_
   %.val = load ptr, ptr %2, align 8, !tbaa !65
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1 = load ptr, ptr %3, align 8, !tbaa !65
-  %.not45.not.i = icmp eq ptr %.val, %.val1
-  br i1 %.not45.not.i, label %_ZN12_GLOBAL__N_127diagnostic_lines_any_errorsERKSt6vectorIN5vcpkg14DiagnosticLineESaIS2_EE.exit, label %.lr.ph.i
+  %.not56.not.i = icmp eq ptr %.val, %.val1
+  br i1 %.not56.not.i, label %_ZN12_GLOBAL__N_127diagnostic_lines_any_errorsERKSt6vectorIN5vcpkg14DiagnosticLineESaIS2_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %.sroa.01.06.i = phi ptr [ %5, %.lr.ph.i ], [ %.val, %1 ]
-  %4 = load i32, ptr %.sroa.01.06.i, align 8, !tbaa !30
+  %.sroa.01.07.i = phi ptr [ %5, %.lr.ph.i ], [ %.val, %1 ]
+  %4 = load i32, ptr %.sroa.01.07.i, align 8, !tbaa !30
   %.not.i = icmp eq i32 %4, 2
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 88
-  %.not4.not.i = icmp eq ptr %5, %.val1
-  %or.cond = select i1 %.not.i, i1 true, i1 %.not4.not.i
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 88
+  %.not5.not.i = icmp eq ptr %5, %.val1
+  %or.cond = select i1 %.not.i, i1 true, i1 %.not5.not.i
   br i1 %or.cond, label %_ZN12_GLOBAL__N_127diagnostic_lines_any_errorsERKSt6vectorIN5vcpkg14DiagnosticLineESaIS2_EE.exit, label %.lr.ph.i
 
 _ZN12_GLOBAL__N_127diagnostic_lines_any_errorsERKSt6vectorIN5vcpkg14DiagnosticLineESaIS2_EE.exit: ; preds = %.lr.ph.i, %1
-  %.not4.lcssa.i = phi i1 [ false, %1 ], [ %.not.i, %.lr.ph.i ]
-  ret i1 %.not4.lcssa.i
+  %.not5.lcssa.i = phi i1 [ false, %1 ], [ %.not.i, %.lr.ph.i ]
+  ret i1 %.not5.lcssa.i
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
@@ -4787,8 +4787,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt3v116detail5writeIcNS0_14basic_appende
   br i1 %.not12.i, label %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, label %32, !llvm.loop !168
 
 _ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit: ; preds = %40, %.thread.i
-  %.sroa.019.128.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
-  %42 = add i64 %.sroa.019.128.i, 1
+  %.sroa.019.127.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
+  %42 = add i64 %.sroa.019.127.i, 1
   br label %43
 
 43:                                               ; preds = %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, %23
@@ -6015,19 +6015,19 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
   br i1 %.not12, label %.loopexit, label %21, !llvm.loop !196
 
 .loopexit:                                        ; preds = %51, %.thread
-  %.sroa.022.128 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 8
+  %.sroa.022.127 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !177
   %55 = add i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !179
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %59, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
 
 59:                                               ; preds = %.loopexit
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !180
-  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.128, i64 noundef %55)
+  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.127, i64 noundef %55)
   %.pre.i.i16 = load i64, ptr %53, align 8, !tbaa !177
   %.pre2.i.i17 = add i64 %.pre.i.i16, 1
   br label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
@@ -6035,11 +6035,11 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
 _ZN3fmt3v1114basic_appenderIcEaSEc.exit18:        ; preds = %.loopexit, %59
   %.pre-phi.i.i15 = phi i64 [ %55, %.loopexit ], [ %.pre2.i.i17, %59 ]
   %62 = phi i64 [ %54, %.loopexit ], [ %.pre.i.i16, %59 ]
-  %63 = load ptr, ptr %.sroa.022.128, align 8, !tbaa !181
+  %63 = load ptr, ptr %.sroa.022.127, align 8, !tbaa !181
   store i64 %.pre-phi.i.i15, ptr %53, align 8, !tbaa !177
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 34, ptr %64, align 1, !tbaa !17
-  ret ptr %.sroa.022.128
+  ret ptr %.sroa.022.127
 }
 
 ; Function Attrs: mustprogress uwtable

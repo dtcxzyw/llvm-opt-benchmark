@@ -138,8 +138,8 @@ define hidden noundef range(i32 0, 64) i32 @_Z11uint64_log2m(i64 noundef %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_Z21product_iterator_nextjPKjPj(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #8 {
-  %.not14.not = icmp eq i32 %0, 0
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq i32 %0, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext i32 %0 to i64
@@ -162,9 +162,9 @@ define hidden noundef zeroext i1 @_Z21product_iterator_nextjPKjPj(i32 noundef %0
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %10, %.lr.ph, %3
-  %.not.lcssa = phi i1 [ false, %3 ], [ %9, %.lr.ph ], [ %9, %10 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %10, %3
+  %.lcssa = phi i1 [ false, %3 ], [ %9, %10 ], [ %9, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable

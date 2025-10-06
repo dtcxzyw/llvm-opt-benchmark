@@ -1400,40 +1400,40 @@ read_icc_profile.exit:                            ; preds = %66, %67, %73, %.lr.
 ; Function Attrs: nounwind uwtable
 define i32 @dt_imageio_jpeg_read_color_space(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %.0812 = load ptr, ptr %2, align 8, !tbaa !96
-  %.not13 = icmp eq ptr %.0812, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph
+  %.0814 = load ptr, ptr %2, align 8, !tbaa !96
+  %.not15 = icmp eq ptr %.0814, null
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %17
-  %.0814 = phi ptr [ %.08, %17 ], [ %.0812, %1 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.0814, i64 8
+.lr.ph:                                           ; preds = %1, %10
+  %.0816 = phi ptr [ %.08, %10 ], [ %.0814, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.0816, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !97
   %5 = icmp eq i8 %4, -31
-  br i1 %5, label %6, label %17
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.0814, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.0816, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !99
   %9 = icmp ugt i32 %8, 6
-  br i1 %9, label %10, label %17
+  br i1 %9, label %11, label %10
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %.0814, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !100
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %14 = add i32 %8, -6
-  %15 = zext i32 %14 to i64
-  %16 = tail call i32 @dt_exif_get_color_space(ptr noundef nonnull %13, i64 noundef %15) #14
-  br label %.loopexit
-
-17:                                               ; preds = %.lr.ph, %6
-  %.08 = load ptr, ptr %.0814, align 8, !tbaa !96
+10:                                               ; preds = %.lr.ph, %6
+  %.08 = load ptr, ptr %.0816, align 8, !tbaa !96
   %.not = icmp eq ptr %.08, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %17, %1, %10
-  %spec.select = phi i32 [ %16, %10 ], [ 8, %1 ], [ 8, %17 ]
-  ret i32 %spec.select
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %.0816, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !100
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
+  %15 = add i32 %8, -6
+  %16 = zext i32 %15 to i64
+  %17 = tail call i32 @dt_exif_get_color_space(ptr noundef nonnull %14, i64 noundef %16) #14
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %10, %1, %11
+  %18 = phi i32 [ %17, %11 ], [ 8, %1 ], [ 8, %10 ]
+  ret i32 %18
 }
 
 declare i32 @dt_exif_get_color_space(ptr noundef, i64 noundef) local_unnamed_addr #1

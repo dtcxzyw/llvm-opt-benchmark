@@ -1192,25 +1192,25 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit60.thread: 
 157:                                              ; preds = %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit60.thread
   %158 = load ptr, ptr %5, align 8, !tbaa !59
   %.not.i61 = icmp eq ptr %158, null
-  br i1 %.not.i61, label %.invoke125, label %160
+  br i1 %.not.i61, label %.invoke124, label %160
 
-.invoke125:                                       ; preds = %163, %160, %157, %182
+.invoke124:                                       ; preds = %163, %160, %157, %182
   %159 = phi i32 [ 1, %182 ], [ 1, %157 ], [ 35, %160 ], [ %164, %163 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %159) #27
-          to label %.cont126 unwind label %.loopexit.split-lp83
+          to label %.cont125 unwind label %.loopexit.split-lp82
 
-.cont126:                                         ; preds = %.invoke125
+.cont125:                                         ; preds = %.invoke124
   unreachable
 
 160:                                              ; preds = %157
   %161 = load i8, ptr %37, align 8, !tbaa !62, !range !70, !noundef !74
   %162 = trunc nuw i8 %161 to i1
-  br i1 %162, label %.invoke125, label %163
+  br i1 %162, label %.invoke124, label %163
 
 163:                                              ; preds = %160
   %164 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %158) #26
   %.not.i.i62 = icmp eq i32 %164, 0
-  br i1 %.not.i.i62, label %165, label %.invoke125
+  br i1 %.not.i.i62, label %165, label %.invoke124
 
 165:                                              ; preds = %163
   store i8 1, ptr %37, align 8, !tbaa !62
@@ -1220,7 +1220,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit60.thread: 
 
 168:                                              ; preds = %165
   %169 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %170 unwind label %.loopexit82
+          to label %170 unwind label %.loopexit81
 
 170:                                              ; preds = %168
   store volatile i8 1, ptr %73, align 8, !tbaa !10
@@ -1231,13 +1231,13 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit60.thread: 
           cleanup
   br label %196
 
-.loopexit82:                                      ; preds = %168
-  %lpad.loopexit84 = landingpad { ptr, i32 }
+.loopexit81:                                      ; preds = %168
+  %lpad.loopexit83 = landingpad { ptr, i32 }
           cleanup
   br label %196
 
-.loopexit.split-lp83:                             ; preds = %.invoke125
-  %lpad.loopexit.split-lp85 = landingpad { ptr, i32 }
+.loopexit.split-lp82:                             ; preds = %.invoke124
+  %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
           cleanup
   br label %196
 
@@ -1273,7 +1273,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit68.thread: 
 182:                                              ; preds = %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit68.thread, %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit68
   %183 = load i8, ptr %37, align 8, !tbaa !62, !range !70, !noundef !74
   %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %185, label %.invoke125
+  br i1 %184, label %185, label %.invoke124
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %5, align 8, !tbaa !59
@@ -1325,8 +1325,8 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt11unique_lockI
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-196:                                              ; preds = %.loopexit82, %.loopexit.split-lp83, %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %171, %154, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %155, %154 ], [ %172, %171 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit84, %.loopexit82 ], [ %lpad.loopexit.split-lp85, %.loopexit.split-lp83 ]
+196:                                              ; preds = %.loopexit81, %.loopexit.split-lp82, %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %171, %154, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %155, %154 ], [ %172, %171 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
   %197 = load i8, ptr %37, align 8, !tbaa !62, !range !70, !noundef !74
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %199, label %_ZNSt11unique_lockISt5mutexED2Ev.exit77

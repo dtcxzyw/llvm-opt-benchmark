@@ -178,8 +178,8 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null)
 
 49:                                               ; preds = %45
   call void @MuxImageInit(ptr noundef nonnull %47) #5
-  %.not89122 = icmp samesign eq i64 %42, 12
-  br i1 %.not89122, label %._crit_edge, label %.lr.ph
+  %.not89121 = icmp samesign eq i64 %42, 12
+  br i1 %.not89121, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49
   %50 = add nsw i64 %41, -4
@@ -193,17 +193,17 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null)
   br label %58
 
 58:                                               ; preds = %.lr.ph, %133
-  %.1124 = phi i64 [ %50, %.lr.ph ], [ %135, %133 ]
-  %.072123 = phi ptr [ %21, %.lr.ph ], [ %134, %133 ]
+  %.1123 = phi i64 [ %50, %.lr.ph ], [ %135, %133 ]
+  %.072122 = phi ptr [ %21, %.lr.ph ], [ %134, %133 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %59 = icmp ult i64 %.1124, 8
+  %59 = icmp ult i64 %.1123, 8
   br i1 %59, label %ChunkVerifyAndAssign.exit.thread, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %.072123, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.072122, i64 4
   %.val.i.i = load i16, ptr %61, align 1
   %62 = zext i16 %.val.i.i to i32
-  %63 = getelementptr inbounds nuw i8, ptr %.072123, i64 6
+  %63 = getelementptr inbounds nuw i8, ptr %.072122, i64 6
   %.val3.i.i = load i16, ptr %63, align 1
   %64 = zext i16 %.val3.i.i to i32
   %65 = shl nuw i32 %64, 16
@@ -217,19 +217,19 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null)
   %71 = and i64 %70, 4294967294
   %72 = add nuw nsw i64 %71, 8
   %73 = icmp samesign ugt i64 %71, %41
-  %.not.i = icmp ugt i64 %72, %.1124
-  %or.cond121 = select i1 %73, i1 true, i1 %.not.i
-  br i1 %or.cond121, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
+  %.not.i = icmp ugt i64 %72, %.1123
+  %or.cond120 = select i1 %73, i1 true, i1 %.not.i
+  br i1 %or.cond120, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
 
 ChunkVerifyAndAssign.exit.thread:                 ; preds = %58, %60, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 ChunkVerifyAndAssign.exit:                        ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %.072123, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.072122, i64 8
   store ptr %74, ptr %4, align 8, !tbaa !19
   store i64 %69, ptr %51, align 8, !tbaa !20
-  %.val.i19.i = load i32, ptr %.072123, align 1
+  %.val.i19.i = load i32, ptr %.072122, align 1
   %75 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not92 = icmp eq i32 %75, 1
@@ -330,20 +330,20 @@ ChunkVerifyAndAssign.exit:                        ; preds = %68
   br i1 %115, label %.thread, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %.072123, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %.072122, i64 12
   %.val.i113 = load i16, ptr %117, align 1
   %118 = zext i16 %.val.i113 to i32
-  %119 = getelementptr inbounds nuw i8, ptr %.072123, i64 14
+  %119 = getelementptr inbounds nuw i8, ptr %.072122, i64 14
   %120 = load i8, ptr %119, align 1, !tbaa !29
   %121 = zext i8 %120 to i32
   %122 = shl nuw nsw i32 %121, 16
   %123 = or disjoint i32 %122, %118
   %124 = add nuw nsw i32 %123, 1
   store i32 %124, ptr %56, align 8, !tbaa !30
-  %125 = getelementptr inbounds nuw i8, ptr %.072123, i64 15
+  %125 = getelementptr inbounds nuw i8, ptr %.072122, i64 15
   %.val.i114 = load i16, ptr %125, align 1
   %126 = zext i16 %.val.i114 to i32
-  %127 = getelementptr inbounds nuw i8, ptr %.072123, i64 17
+  %127 = getelementptr inbounds nuw i8, ptr %.072122, i64 17
   %128 = load i8, ptr %127, align 1, !tbaa !29
   %129 = zext i8 %128 to i32
   %130 = shl nuw nsw i32 %129, 16
@@ -353,8 +353,8 @@ ChunkVerifyAndAssign.exit:                        ; preds = %68
   br label %133
 
 133:                                              ; preds = %86, %94, %116, %112
-  %134 = getelementptr inbounds nuw i8, ptr %.072123, i64 %79
-  %135 = sub i64 %.1124, %79
+  %134 = getelementptr inbounds nuw i8, ptr %.072122, i64 %79
+  %135 = sub i64 %.1123, %79
   call void @ChunkInit(ptr noundef nonnull %5) #5
   %.not89 = icmp eq ptr %134, %46
   br i1 %.not89, label %._crit_edge, label %58
@@ -452,8 +452,8 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   %26 = add i64 %.val51, 1
   %27 = and i64 %26, 4294967294
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 %27
-  %.not4056 = icmp eq ptr %28, %14
-  br i1 %.not4056, label %.loopexit, label %.lr.ph
+  %.not4055 = icmp eq ptr %28, %14
+  br i1 %.not4055, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %29 = sub i64 %11, %27
@@ -463,18 +463,18 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   br label %33
 
 33:                                               ; preds = %.lr.ph, %68
-  %.03758 = phi ptr [ %28, %.lr.ph ], [ %72, %68 ]
-  %.03857 = phi i64 [ %29, %.lr.ph ], [ %73, %68 ]
+  %.03757 = phi ptr [ %28, %.lr.ph ], [ %72, %68 ]
+  %.03856 = phi i64 [ %29, %.lr.ph ], [ %73, %68 ]
   call void @ChunkInit(ptr noundef nonnull %5) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = icmp ult i64 %.03857, 8
+  %34 = icmp ult i64 %.03856, 8
   br i1 %34, label %ChunkVerifyAndAssign.exit.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %.03758, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.03757, i64 4
   %.val.i.i = load i16, ptr %36, align 1
   %37 = zext i16 %.val.i.i to i32
-  %38 = getelementptr inbounds nuw i8, ptr %.03758, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %.03757, i64 6
   %.val3.i.i = load i16, ptr %38, align 1
   %39 = zext i16 %.val3.i.i to i32
   %40 = shl nuw i32 %39, 16
@@ -487,7 +487,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   %45 = add nuw nsw i64 %44, 1
   %46 = and i64 %45, 4294967294
   %47 = add nuw nsw i64 %46, 8
-  %48 = icmp ugt i64 %47, %.03857
+  %48 = icmp ugt i64 %47, %.03856
   br i1 %48, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
 
 ChunkVerifyAndAssign.exit.thread:                 ; preds = %33, %35, %43
@@ -495,10 +495,10 @@ ChunkVerifyAndAssign.exit.thread:                 ; preds = %33, %35, %43
   br label %.loopexit
 
 ChunkVerifyAndAssign.exit:                        ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %.03758, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.03757, i64 8
   store ptr %49, ptr %4, align 8, !tbaa !19
   store i64 %44, ptr %30, align 8, !tbaa !20
-  %.val.i19.i = load i32, ptr %.03758, align 1
+  %.val.i19.i = load i32, ptr %.03757, align 1
   %50 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not42 = icmp eq i32 %50, 1
@@ -558,8 +558,8 @@ ChunkVerifyAndAssign.exit:                        ; preds = %43
   %69 = add i64 %.val, 1
   %70 = and i64 %69, 4294967294
   %71 = add nuw nsw i64 %70, 8
-  %72 = getelementptr inbounds nuw i8, ptr %.03758, i64 %71
-  %73 = sub i64 %.03857, %71
+  %72 = getelementptr inbounds nuw i8, ptr %.03757, i64 %71
+  %73 = sub i64 %.03856, %71
   %.not40 = icmp eq ptr %72, %14
   br i1 %.not40, label %._crit_edge, label %33, !llvm.loop !34
 

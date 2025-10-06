@@ -482,12 +482,12 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i: ; preds = %
   %182 = zext i32 %181 to i64
   %.idx.i.i = shl nuw nsw i64 %182, 3
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 %.idx.i.i
-  %.not1.not.i.i = icmp eq i32 %181, 0
-  br i1 %.not1.not.i.i, label %.critedge.i, label %.lr.ph.i.i
+  %.not2.not.i.i = icmp eq i32 %181, 0
+  br i1 %.not2.not.i.i, label %.critedge.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %178, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i"
-  %.0132.i.i = phi ptr [ %192, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i" ], [ %179, %178 ]
-  %184 = load ptr, ptr %.0132.i.i, align 8, !tbaa !43
+  %.0133.i.i = phi ptr [ %192, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i" ], [ %179, %178 ]
+  %184 = load ptr, ptr %.0133.i.i, align 8, !tbaa !43
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, 65535
@@ -501,7 +501,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25.i: ; preds = %
   br i1 %191, label %193, label %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i"
 
 "_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i": ; preds = %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.i.i", %.lr.ph.i.i
-  %192 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %.0133.i.i, i64 8
   %.not.not.i.i = icmp eq ptr %192, %183
   br i1 %.not.not.i.i, label %.critedge.i, label %.lr.ph.i.i
 

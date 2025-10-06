@@ -373,7 +373,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
   unreachable
 
 .body:                                            ; preds = %286, %289, %262, %.body.thread.thread.i, %.body62.thread69, %33, %21
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %22, %21 ], [ %lpad.thr_comm, %.body62.thread69 ], [ %.pn81.i, %.body.thread.thread.i ], [ %.pn81.i, %262 ], [ %lpad.thr_comm.split-lp, %289 ], [ %lpad.thr_comm.split-lp, %286 ]
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %22, %21 ], [ %lpad.thr_comm, %.body62.thread69 ], [ %.pn73.i, %.body.thread.thread.i ], [ %.pn73.i, %262 ], [ %lpad.thr_comm.split-lp, %289 ], [ %lpad.thr_comm.split-lp, %286 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$http..response..Parts$GT$17h872f5dcc66297e8dE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2) #11
           to label %301 unwind label %297
 
@@ -431,7 +431,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
   %52 = icmp eq ptr %45, %43
   br i1 %52, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.body62.thread69:                                 ; preds = %.noexc50.i, %215, %226, %230, %241
+.body62.thread69:                                 ; preds = %.noexc45.i, %215, %226, %230, %241
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -523,7 +523,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
   %92 = zext i16 %88 to i64
   %93 = and i64 %91, %92
   %94 = icmp samesign ult i64 %93, %.sroa.012.0.i.ph
-  br i1 %94, label %.noexc50.i, label %95
+  br i1 %94, label %.noexc45.i, label %95
 
 95:                                               ; preds = %84
   %96 = icmp eq i16 %87, %57
@@ -733,12 +733,12 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
 
 188:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1269c8d8ad1fab06E.exit15.i.i"
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %156, i64 noundef %181, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1603d253d8b0db2046e52b5b22d1c663.16) #13
-          to label %.noexc49.i unwind label %.body.thread.i, !noalias !126
+          to label %.noexc44.i unwind label %.body.thread.i, !noalias !126
 
-.noexc49.i:                                       ; preds = %188
+.noexc44.i:                                       ; preds = %188
   unreachable
 
-.noexc50.i:                                       ; preds = %84
+.noexc45.i:                                       ; preds = %84
   %189 = icmp samesign ugt i64 %.sroa.012.0.i.ph, 511
   %190 = load i64, ptr %2, align 8, !range !200, !alias.scope !121, !noalias !128
   %191 = icmp ne i64 %190, 2
@@ -751,7 +751,7 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
   %193 = invoke fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h48f9bb282be50257E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %2, i16 noundef %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %8)
           to label %.noexc57 unwind label %.body62.thread69
 
-.noexc57:                                         ; preds = %.noexc50.i
+.noexc57:                                         ; preds = %.noexc45.i
   br i1 %193, label %214, label %194
 
 194:                                              ; preds = %.noexc57
@@ -787,7 +787,7 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
   %207 = load i64, ptr %2, align 8, !range !200, !alias.scope !202, !noalias !205
   %208 = icmp eq i64 %207, 0
   %or.cond3.i.i = select i1 %or.cond.i.i, i1 %208, i1 false
-  br i1 %or.cond3.i.i, label %213, label %.thread72.i
+  br i1 %or.cond3.i.i, label %213, label %.thread65.i
 
 209:                                              ; preds = %200
   %210 = add i64 %.sroa.013.0.i.i.ph, 1
@@ -799,9 +799,9 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
 
 213:                                              ; preds = %205
   store i64 1, ptr %2, align 8, !alias.scope !202, !noalias !205
-  br label %.thread72.i
+  br label %.thread65.i
 
-.thread72.i:                                      ; preds = %213, %205
+.thread65.i:                                      ; preds = %213, %205
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !201
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !201
   br label %270
@@ -868,7 +868,7 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
           to label %270 unwind label %.body62.thread69
 
 .body.thread.i:                                   ; preds = %188
-  %lpad.thr_comm.split-lp84.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp76.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.thread.i
 
@@ -932,7 +932,7 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
   unreachable
 
 .body.thread.thread.i:                            ; preds = %249, %237, %.body.thread.i, %166, %138
-  %.pn81.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp84.i, %.body.thread.i ], [ %167, %166 ], [ %139, %138 ], [ %238, %237 ], [ %lpad.phi.i, %249 ]
+  %.pn73.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp76.i, %.body.thread.i ], [ %167, %166 ], [ %139, %138 ], [ %238, %237 ], [ %lpad.phi.i, %249 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !261)
   call void @llvm.experimental.noalias.scope.decl(metadata !264)
   %260 = load ptr, ptr %11, align 8, !alias.scope !267, !noalias !141, !noundef !4
@@ -954,7 +954,7 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
   invoke void %264(ptr noalias noundef nonnull align 8 dereferenceable(8) %265, ptr noundef %267, i64 noundef %269)
           to label %.body unwind label %258
 
-270:                                              ; preds = %230, %.thread72.i, %221, %227
+270:                                              ; preds = %230, %.thread65.i, %221, %227
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

@@ -6625,9 +6625,9 @@ archive_string_append.exit:                       ; preds = %119
   store i32 0, ptr %6, align 4, !tbaa !17
   %148 = add i64 %.149.lcssa, -3
   %149 = icmp ult i64 %148, 3
-  br i1 %149, label %.thread39.i, label %150
+  br i1 %149, label %.thread38.i, label %150
 
-.thread39.i:                                      ; preds = %147
+.thread38.i:                                      ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cesu8_to_unicode.exit
 
@@ -6662,9 +6662,9 @@ archive_string_append.exit:                       ; preds = %119
   %spec.select.i = sub i32 0, %164
   br label %cesu8_to_unicode.exit
 
-cesu8_to_unicode.exit:                            ; preds = %161, %157, %.thread39.i, %163
-  %.4 = phi i32 [ 65533, %.thread39.i ], [ 65533, %163 ], [ %160, %157 ], [ %spec.select111, %161 ]
-  %.027.i = phi i32 [ -3, %.thread39.i ], [ %spec.select.i, %163 ], [ 6, %157 ], [ %spec.select112, %161 ]
+cesu8_to_unicode.exit:                            ; preds = %161, %157, %.thread38.i, %163
+  %.4 = phi i32 [ 65533, %.thread38.i ], [ 65533, %163 ], [ %160, %157 ], [ %spec.select111, %161 ]
+  %.027.i = phi i32 [ -3, %.thread38.i ], [ %spec.select.i, %163 ], [ 6, %157 ], [ %spec.select112, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %165
 
@@ -7509,9 +7509,9 @@ define internal range(i32 -2147483647, -2147483648) i32 @cesu8_to_unicode(ptr no
   store i32 0, ptr %5, align 4, !tbaa !17
   %12 = add i64 %2, -3
   %13 = icmp ult i64 %12, 3
-  br i1 %13, label %.thread39, label %14
+  br i1 %13, label %.thread38, label %14
 
-.thread39:                                        ; preds = %11
+.thread38:                                        ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 65533, ptr %0, align 4, !tbaa !17
   br label %31
@@ -7537,9 +7537,9 @@ define internal range(i32 -2147483647, -2147483648) i32 @cesu8_to_unicode(ptr no
 25:                                               ; preds = %3
   %26 = icmp eq i32 %9, 56320
   %or.cond11 = select i1 %7, i1 %26, i1 false
-  br i1 %or.cond11, label %.thread36, label %27
+  br i1 %or.cond11, label %.thread35, label %27
 
-.thread36:                                        ; preds = %25
+.thread35:                                        ; preds = %25
   store i32 65533, ptr %0, align 4, !tbaa !17
   br label %31
 
@@ -7556,8 +7556,8 @@ define internal range(i32 -2147483647, -2147483648) i32 @cesu8_to_unicode(ptr no
   %spec.select = sub i32 0, %30
   br label %31
 
-31:                                               ; preds = %29, %.thread39, %.thread36, %27
-  %.027 = phi i32 [ %.2, %27 ], [ -3, %.thread36 ], [ -3, %.thread39 ], [ %spec.select, %29 ]
+31:                                               ; preds = %29, %.thread38, %.thread35, %27
+  %.027 = phi i32 [ %.2, %27 ], [ -3, %.thread35 ], [ -3, %.thread38 ], [ %spec.select, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
 }

@@ -97,7 +97,7 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = icmp sgt i32 %0, 0
-  br i1 %5, label %6, label %.preheader162
+  br i1 %5, label %6, label %.preheader159
 
 6:                                                ; preds = %4
   %7 = mul nuw nsw i32 %0, 5
@@ -106,13 +106,13 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %10 = zext i1 %9 to i32
   %11 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 88, ptr noundef nonnull @.str.6, i32 noundef %10) #5
   %.not68 = icmp eq i32 %11, 0
-  br i1 %.not68, label %93, label %.preheader162
+  br i1 %.not68, label %93, label %.preheader159
 
-.preheader162:                                    ; preds = %6, %4
+.preheader159:                                    ; preds = %6, %4
   br label %12
 
-12:                                               ; preds = %.preheader162, %17
-  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader162 ]
+12:                                               ; preds = %.preheader159, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader159 ]
   %13 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 93, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %13, i32 noundef %14) #5
@@ -134,29 +134,29 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %21 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %22 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 99, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, i32 noundef %21, i32 noundef 9) #5
   %.not69 = icmp eq i32 %22, 0
-  br i1 %.not69, label %93, label %.preheader93
+  br i1 %.not69, label %93, label %.preheader90
 
-.preheader93:                                     ; preds = %20, %28
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %28 ], [ 0, %20 ]
-  %23 = trunc nuw nsw i64 %indvars.iv116 to i32
+.preheader90:                                     ; preds = %20, %28
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %28 ], [ 0, %20 ]
+  %23 = trunc nuw nsw i64 %indvars.iv113 to i32
   %24 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef range(i32 -2147483648, 9) %23) #5
-  %25 = getelementptr inbounds nuw i32, ptr @test_int_stack.v, i64 %indvars.iv116
+  %25 = getelementptr inbounds nuw i32, ptr @test_int_stack.v, i64 %indvars.iv113
   %26 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 104, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %24, ptr noundef nonnull %25) #5
   %.not78 = icmp eq i32 %26, 0
   br i1 %.not78, label %27, label %28
 
-27:                                               ; preds = %.preheader93
+27:                                               ; preds = %.preheader90
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 105, ptr noundef nonnull @.str.13, i32 noundef %23) #5
   br label %93
 
-28:                                               ; preds = %.preheader93
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next117, 9
-  br i1 %exitcond119.not, label %.preheader92, label %.preheader93, !llvm.loop !6
+28:                                               ; preds = %.preheader90
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond116.not = icmp eq i64 %indvars.iv.next114, 9
+  br i1 %exitcond116.not, label %.preheader89, label %.preheader90, !llvm.loop !6
 
-.preheader92:                                     ; preds = %28, %41
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %41 ], [ 0, %28 ]
-  %29 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv120
+.preheader89:                                     ; preds = %28, %41
+  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %41 ], [ 0, %28 ]
+  %29 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv117
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !7
   %32 = icmp eq i32 %31, -1
@@ -169,19 +169,19 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %.not77 = icmp eq i32 %38, 0
   br i1 %.not77, label %39, label %41
 
-39:                                               ; preds = %.preheader92
-  %40 = trunc nuw nsw i64 %indvars.iv120 to i32
+39:                                               ; preds = %.preheader89
+  %40 = trunc nuw nsw i64 %indvars.iv117 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 115, ptr noundef nonnull @.str.16, i32 noundef %40) #5
   br label %93
 
-41:                                               ; preds = %.preheader92
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next121, 5
-  br i1 %exitcond123.not, label %.preheader91, label %.preheader92, !llvm.loop !12
+41:                                               ; preds = %.preheader89
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next118, 5
+  br i1 %exitcond120.not, label %.preheader88, label %.preheader89, !llvm.loop !12
 
-.preheader91:                                     ; preds = %41, %54
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %54 ], [ 0, %41 ]
-  %42 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv124
+.preheader88:                                     ; preds = %41, %54
+  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %54 ], [ 0, %41 ]
+  %42 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv121
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !7
   %45 = icmp eq i32 %44, -1
@@ -194,15 +194,15 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %.not76 = icmp eq i32 %51, 0
   br i1 %.not76, label %52, label %54
 
-52:                                               ; preds = %.preheader91
-  %53 = trunc nuw nsw i64 %indvars.iv124 to i32
+52:                                               ; preds = %.preheader88
+  %53 = trunc nuw nsw i64 %indvars.iv121 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 126, ptr noundef nonnull @.str.18, i32 noundef %53) #5
   br label %93
 
-54:                                               ; preds = %.preheader91
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next125, 5
-  br i1 %exitcond127.not, label %55, label %.preheader91, !llvm.loop !13
+54:                                               ; preds = %.preheader88
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %exitcond124.not = icmp eq i64 %indvars.iv.next122, 5
+  br i1 %exitcond124.not, label %55, label %.preheader88, !llvm.loop !13
 
 55:                                               ; preds = %54
   %56 = tail call i32 @OPENSSL_sk_is_sorted(ptr noundef %2) #5
@@ -220,11 +220,11 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %64 = zext i1 %63 to i32
   %65 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 136, ptr noundef nonnull @.str.19, i32 noundef %64) #5
   %.not71 = icmp eq i32 %65, 0
-  br i1 %.not71, label %93, label %.preheader90
+  br i1 %.not71, label %93, label %.preheader87
 
-.preheader90:                                     ; preds = %60, %73
-  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %73 ], [ 0, %60 ]
-  %66 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv128
+.preheader87:                                     ; preds = %60, %73
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %73 ], [ 0, %60 ]
+  %66 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv125
   %67 = tail call i32 @OPENSSL_sk_find(ptr noundef %2, ptr noundef nonnull %66) #5
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load i32, ptr %68, align 8, !tbaa !14
@@ -232,19 +232,19 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %.not75 = icmp eq i32 %70, 0
   br i1 %.not75, label %71, label %73
 
-71:                                               ; preds = %.preheader90
-  %72 = trunc nuw nsw i64 %indvars.iv128 to i32
+71:                                               ; preds = %.preheader87
+  %72 = trunc nuw nsw i64 %indvars.iv125 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 142, ptr noundef nonnull @.str.22, i32 noundef %72) #5
   br label %93
 
-73:                                               ; preds = %.preheader90
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 5
-  br i1 %exitcond131.not, label %.preheader89, label %.preheader90, !llvm.loop !15
+73:                                               ; preds = %.preheader87
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next126, 5
+  br i1 %exitcond128.not, label %.preheader86, label %.preheader87, !llvm.loop !15
 
-.preheader89:                                     ; preds = %73, %81
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %81 ], [ 0, %73 ]
-  %74 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv132
+.preheader86:                                     ; preds = %73, %81
+  %indvars.iv129 = phi i64 [ %indvars.iv.next130, %81 ], [ 0, %73 ]
+  %74 = getelementptr inbounds nuw %struct.anon, ptr @test_int_stack.finds, i64 %indvars.iv129
   %75 = tail call i32 @OPENSSL_sk_find_ex(ptr noundef %2, ptr noundef nonnull %74) #5
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %77 = load i32, ptr %76, align 4, !tbaa !16
@@ -252,19 +252,19 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %.not74 = icmp eq i32 %78, 0
   br i1 %.not74, label %79, label %81
 
-79:                                               ; preds = %.preheader89
-  %80 = trunc nuw nsw i64 %indvars.iv132 to i32
+79:                                               ; preds = %.preheader86
+  %80 = trunc nuw nsw i64 %indvars.iv129 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 149, ptr noundef nonnull @.str.25, i32 noundef %80) #5
   br label %93
 
-81:                                               ; preds = %.preheader89
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next133, 5
-  br i1 %exitcond135.not, label %.preheader, label %.preheader89, !llvm.loop !17
+81:                                               ; preds = %.preheader86
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next130, 5
+  br i1 %exitcond132.not, label %.preheader, label %.preheader86, !llvm.loop !17
 
 .preheader:                                       ; preds = %81, %89
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %89 ], [ 0, %81 ]
-  %82 = getelementptr inbounds nuw %struct.anon.0, ptr @test_int_stack.exfinds, i64 %indvars.iv136
+  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %89 ], [ 0, %81 ]
+  %82 = getelementptr inbounds nuw %struct.anon.0, ptr @test_int_stack.exfinds, i64 %indvars.iv133
   %83 = tail call i32 @OPENSSL_sk_find_ex(ptr noundef %2, ptr noundef nonnull %82) #5
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %85 = load i32, ptr %84, align 4, !tbaa !18
@@ -273,14 +273,14 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   br i1 %.not73, label %87, label %89
 
 87:                                               ; preds = %.preheader
-  %88 = trunc nuw nsw i64 %indvars.iv136 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv133 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 154, ptr noundef nonnull @.str.28, i32 noundef %88) #5
   br label %93
 
 89:                                               ; preds = %.preheader
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next137, 6
-  br i1 %exitcond139.not, label %90, label %.preheader, !llvm.loop !20
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %exitcond136.not = icmp eq i64 %indvars.iv.next134, 6
+  br i1 %exitcond136.not, label %90, label %.preheader, !llvm.loop !20
 
 90:                                               ; preds = %89
   %91 = tail call ptr @OPENSSL_sk_shift(ptr noundef %2) #5

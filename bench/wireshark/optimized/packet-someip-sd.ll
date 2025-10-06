@@ -1682,35 +1682,35 @@ define internal fastcc void @someip_sd_pdu_entry_append_text(ptr noundef %0, i8 
   br label %22
 
 22:                                               ; preds = %20, %19
-  %switch = icmp eq i8 %1, 1
-  br i1 %switch, label %23, label %27
+  %23 = icmp eq i8 %1, 1
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %22
-  %24 = icmp eq i32 %5, -1
-  br i1 %24, label %25, label %26
+24:                                               ; preds = %22
+  %25 = icmp eq i32 %5, -1
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.188)
-  br label %32
+  br label %33
 
-26:                                               ; preds = %23
+27:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.189, i32 noundef %5)
-  br label %32
+  br label %33
 
-27:                                               ; preds = %22
-  %28 = icmp eq i16 %6, -1
-  br i1 %28, label %29, label %30
+28:                                               ; preds = %22
+  %29 = icmp eq i16 %6, -1
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %27
+30:                                               ; preds = %28
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.190)
-  br label %32
+  br label %33
 
-30:                                               ; preds = %27
-  %31 = zext i16 %6 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.191, i32 noundef %31)
-  br label %32
+31:                                               ; preds = %28
+  %32 = zext i16 %6 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.191, i32 noundef %32)
+  br label %33
 
-32:                                               ; preds = %29, %30, %25, %26
+33:                                               ; preds = %30, %31, %26, %27
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.192, ptr noundef nonnull @dissect_someip_sd_pdu_entry.buf_opt_ref)
   ret void
 }

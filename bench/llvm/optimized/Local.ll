@@ -241,13 +241,13 @@ _ZN4llvm4User6op_endEv.exit:                      ; preds = %28, %31
   %118 = icmp ne i64 %117, 4
   %119 = and i64 %.sroa.7.0149, -8
   %120 = inttoptr i64 %119 to ptr
-  %.not.not16.i.i = icmp eq i64 %119, 0
-  %.not.not.i.i = or i1 %118, %.not.not16.i.i
+  %.not.not14.i.i = icmp eq i64 %119, 0
+  %.not.not.i.i = or i1 %118, %.not.not14.i.i
   br i1 %.not.not.i.i, label %121, label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i
 
 121:                                              ; preds = %116
   %122 = icmp ne i64 %117, 2
-  %.not9.not.i.i = or i1 %122, %.not.not16.i.i
+  %.not9.not.i.i = or i1 %122, %.not.not14.i.i
   br i1 %.not9.not.i.i, label %126, label %123
 
 123:                                              ; preds = %121
@@ -361,13 +361,13 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %142, %146
   %.pre-phi = phi i64 [ %.pre, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %117, %163 ], [ %117, %162 ]
   %.4 = phi ptr [ %.0130148, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %167, %163 ], [ %.256, %162 ]
   %168 = icmp ne i64 %.pre-phi, 4
-  %.not.not16.i.i81 = icmp eq i64 %.pre-phi154, 0
-  %.not.not.i.i82 = or i1 %168, %.not.not16.i.i81
+  %.not.not14.i.i81 = icmp eq i64 %.pre-phi154, 0
+  %.not.not.i.i82 = or i1 %168, %.not.not14.i.i81
   br i1 %.not.not.i.i82, label %169, label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i83
 
 169:                                              ; preds = %"_ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit"
   %170 = icmp ne i64 %.pre-phi, 2
-  %.not9.not.i.i86 = or i1 %170, %.not.not16.i.i81
+  %.not9.not.i.i86 = or i1 %170, %.not.not14.i.i81
   br i1 %.not9.not.i.i86, label %.thread, label %171
 
 171:                                              ; preds = %169
@@ -751,8 +751,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
-  %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %.critedge, label %22
+  %.not26.i.i = icmp eq i32 %21, 0
+  br i1 %.not26.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
@@ -764,7 +764,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.pre.i3.i = load i32, ptr %.phi.trans.insert.i2.i, align 8
-  %.pre30.i.i = and i32 %.pre.i3.i, 255
+  %.pre29.i.i = and i32 %.pre.i3.i, 255
   br label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
@@ -775,12 +775,12 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 255
   %33 = icmp ne i32 %32, 16
-  %.not1829.i.i = icmp eq ptr %29, null
-  %.not18.i.i = or i1 %.not1829.i.i, %33
+  %.not1828.i.i = icmp eq ptr %29, null
+  %.not18.i.i = or i1 %.not1828.i.i, %33
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !81
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %24, %19
-  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
+  %.pre-phi.i.i = phi i32 [ %.pre29.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
   %34 = phi i32 [ %.pre.i3.i, %24 ], [ %9, %19 ], [ %31, %.preheader.i.i ]
   %.013.ph.i.i = phi ptr [ %27, %24 ], [ %7, %19 ], [ %29, %.preheader.i.i ]
   %35 = add nsw i32 %.pre-phi.i.i, -17

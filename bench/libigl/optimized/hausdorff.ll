@@ -8919,23 +8919,23 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   br i1 %23, label %.preheader, label %111
 
 .preheader:                                       ; preds = %15
-  %.not66 = icmp ult i32 %6, 2
-  br i1 %.not66, label %.thread, label %.lr.ph69
+  %.not63 = icmp ult i32 %6, 2
+  br i1 %.not63, label %.thread, label %.lr.ph66
 
-.lr.ph69:                                         ; preds = %.preheader
+.lr.ph66:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %18, label %.lr.ph69.split.us, label %.lr.ph69.split
+  br i1 %18, label %.lr.ph66.split.us, label %.lr.ph66.split
 
-.lr.ph69.split.us:                                ; preds = %.lr.ph69, %42
-  %.068.us = phi i32 [ %.136.us, %42 ], [ 1, %.lr.ph69 ]
-  %.03567.us = phi i32 [ %47, %42 ], [ 2, %.lr.ph69 ]
-  %25 = zext i32 %.03567.us to i64
+.lr.ph66.split.us:                                ; preds = %.lr.ph66, %42
+  %.065.us = phi i32 [ %.136.us, %42 ], [ 1, %.lr.ph66 ]
+  %.03564.us = phi i32 [ %47, %42 ], [ 2, %.lr.ph66 ]
+  %25 = zext i32 %.03564.us to i64
   %26 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %25
-  %27 = icmp ult i32 %.03567.us, %6
+  %27 = icmp ult i32 %.03564.us, %6
   br i1 %27, label %28, label %37
 
-28:                                               ; preds = %.lr.ph69.split.us
-  %29 = or disjoint i32 %.03567.us, 1
+28:                                               ; preds = %.lr.ph66.split.us
+  %29 = or disjoint i32 %.03564.us, 1
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -8944,12 +8944,12 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   %35 = load double, ptr %34, align 8, !tbaa !578
   %36 = fcmp olt double %33, %35
   %spec.select.us = select i1 %36, ptr %31, ptr %26
-  %spec.select45.us = select i1 %36, i32 %29, i32 %.03567.us
+  %spec.select45.us = select i1 %36, i32 %29, i32 %.03564.us
   br label %37
 
-37:                                               ; preds = %28, %.lr.ph69.split.us
-  %.043.us = phi ptr [ %26, %.lr.ph69.split.us ], [ %spec.select.us, %28 ]
-  %.136.us = phi i32 [ %.03567.us, %.lr.ph69.split.us ], [ %spec.select45.us, %28 ]
+37:                                               ; preds = %28, %.lr.ph66.split.us
+  %.043.us = phi ptr [ %26, %.lr.ph66.split.us ], [ %spec.select.us, %28 ]
+  %.136.us = phi i32 [ %.03564.us, %.lr.ph66.split.us ], [ %spec.select45.us, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %.043.us, i64 8
   %39 = load double, ptr %38, align 8, !tbaa !578
   %40 = load double, ptr %24, align 8, !tbaa !578
@@ -8957,7 +8957,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %37
-  %43 = zext i32 %.068.us to i64
+  %43 = zext i32 %.065.us to i64
   %44 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %43
   %45 = load ptr, ptr %.043.us, align 8, !tbaa !95
   store ptr %45, ptr %44, align 8, !tbaa !95
@@ -8965,18 +8965,18 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   store double %39, ptr %46, align 8, !tbaa !578
   %47 = shl i32 %.136.us, 1
   %.not.us = icmp ugt i32 %47, %6
-  br i1 %.not.us, label %.thread, label %.lr.ph69.split.us
+  br i1 %.not.us, label %.thread, label %.lr.ph66.split.us
 
-.lr.ph69.split:                                   ; preds = %.lr.ph69, %65
-  %.068 = phi i32 [ %.136, %65 ], [ 1, %.lr.ph69 ]
-  %.03567 = phi i32 [ %70, %65 ], [ 2, %.lr.ph69 ]
-  %48 = zext i32 %.03567 to i64
+.lr.ph66.split:                                   ; preds = %.lr.ph66, %65
+  %.065 = phi i32 [ %.136, %65 ], [ 1, %.lr.ph66 ]
+  %.03564 = phi i32 [ %70, %65 ], [ 2, %.lr.ph66 ]
+  %48 = zext i32 %.03564 to i64
   %49 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %48
-  %50 = icmp ult i32 %.03567, %6
+  %50 = icmp ult i32 %.03564, %6
   br i1 %50, label %51, label %60
 
-51:                                               ; preds = %.lr.ph69.split
-  %52 = or disjoint i32 %.03567, 1
+51:                                               ; preds = %.lr.ph66.split
+  %52 = or disjoint i32 %.03564, 1
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -8985,12 +8985,12 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   %58 = load double, ptr %57, align 8, !tbaa !578
   %59 = fcmp olt double %56, %58
   %spec.select = select i1 %59, ptr %54, ptr %49
-  %spec.select45 = select i1 %59, i32 %52, i32 %.03567
+  %spec.select45 = select i1 %59, i32 %52, i32 %.03564
   br label %60
 
-60:                                               ; preds = %51, %.lr.ph69.split
-  %.043 = phi ptr [ %49, %.lr.ph69.split ], [ %spec.select, %51 ]
-  %.136 = phi i32 [ %.03567, %.lr.ph69.split ], [ %spec.select45, %51 ]
+60:                                               ; preds = %51, %.lr.ph66.split
+  %.043 = phi ptr [ %49, %.lr.ph66.split ], [ %spec.select, %51 ]
+  %.136 = phi i32 [ %.03564, %.lr.ph66.split ], [ %spec.select45, %51 ]
   %61 = load double, ptr %24, align 8, !tbaa !578
   %62 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %63 = load double, ptr %62, align 8, !tbaa !578
@@ -8998,7 +8998,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %60
-  %66 = zext i32 %.068 to i64
+  %66 = zext i32 %.065 to i64
   %67 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %66
   %68 = load ptr, ptr %.043, align 8, !tbaa !95
   store ptr %68, ptr %67, align 8, !tbaa !95
@@ -9006,10 +9006,10 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   store double %63, ptr %69, align 8, !tbaa !578
   %70 = shl i32 %.136, 1
   %.not = icmp ugt i32 %70, %6
-  br i1 %.not, label %.thread, label %.lr.ph69.split
+  br i1 %.not, label %.thread, label %.lr.ph66.split
 
 .thread:                                          ; preds = %65, %60, %42, %37, %.preheader
-  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %.068.us, %37 ], [ %.136.us, %42 ], [ %.068, %60 ], [ %.136, %65 ]
+  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %.065.us, %37 ], [ %.136.us, %42 ], [ %.065, %60 ], [ %.136, %65 ]
   %71 = zext i32 %.0.lcssa to i64
   br label %.sink.split
 
@@ -9017,7 +9017,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   %73 = add i32 %6, 1
   store i32 %73, ptr %0, align 8, !tbaa !560
   %74 = icmp sgt i32 %73, 1
-  br i1 %74, label %.lr.ph, label %.thread58
+  br i1 %74, label %.lr.ph, label %.thread56
 
 .lr.ph:                                           ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9027,54 +9027,54 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal22bounded_priority_queueISt
   br i1 %77, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %86
-  %.03862.us = phi i32 [ %79, %86 ], [ %73, %.lr.ph ]
-  %79 = lshr i32 %.03862.us, 1
+  %.03859.us = phi i32 [ %79, %86 ], [ %73, %.lr.ph ]
+  %79 = lshr i32 %.03859.us, 1
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %80
   %82 = load double, ptr %78, align 8, !tbaa !578
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = load double, ptr %83, align 8, !tbaa !578
   %85 = fcmp olt double %82, %84
-  br i1 %85, label %.thread58, label %86
+  br i1 %85, label %.thread56, label %86
 
 86:                                               ; preds = %.lr.ph.split.us
-  %87 = zext nneg i32 %.03862.us to i64
+  %87 = zext nneg i32 %.03859.us to i64
   %88 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %87
   %89 = load ptr, ptr %81, align 8, !tbaa !95
   store ptr %89, ptr %88, align 8, !tbaa !95
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store double %84, ptr %90, align 8, !tbaa !578
-  %91 = icmp samesign ugt i32 %.03862.us, 3
-  br i1 %91, label %.lr.ph.split.us, label %.thread58
+  %91 = icmp samesign ugt i32 %.03859.us, 3
+  br i1 %91, label %.lr.ph.split.us, label %.thread56
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %99
-  %.03862 = phi i32 [ %92, %99 ], [ %73, %.lr.ph ]
-  %92 = lshr i32 %.03862, 1
+  %.03859 = phi i32 [ %92, %99 ], [ %73, %.lr.ph ]
+  %92 = lshr i32 %.03859, 1
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load double, ptr %95, align 8, !tbaa !578
   %97 = load double, ptr %78, align 8, !tbaa !578
   %98 = fcmp olt double %96, %97
-  br i1 %98, label %.thread58, label %99
+  br i1 %98, label %.thread56, label %99
 
 99:                                               ; preds = %.lr.ph.split
-  %100 = zext nneg i32 %.03862 to i64
+  %100 = zext nneg i32 %.03859 to i64
   %101 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %5, i64 %100
   %102 = load ptr, ptr %94, align 8, !tbaa !95
   store ptr %102, ptr %101, align 8, !tbaa !95
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store double %96, ptr %103, align 8, !tbaa !578
-  %104 = icmp samesign ugt i32 %.03862, 3
-  br i1 %104, label %.lr.ph.split, label %.thread58
+  %104 = icmp samesign ugt i32 %.03859, 3
+  br i1 %104, label %.lr.ph.split, label %.thread56
 
-.thread58:                                        ; preds = %99, %.lr.ph.split, %86, %.lr.ph.split.us, %72
-  %.038.lcssa = phi i32 [ %73, %72 ], [ %.03862.us, %.lr.ph.split.us ], [ %79, %86 ], [ %.03862, %.lr.ph.split ], [ %92, %99 ]
+.thread56:                                        ; preds = %99, %.lr.ph.split, %86, %.lr.ph.split.us, %72
+  %.038.lcssa = phi i32 [ %73, %72 ], [ %.03859.us, %.lr.ph.split.us ], [ %79, %86 ], [ %.03859, %.lr.ph.split ], [ %92, %99 ]
   %105 = sext i32 %.038.lcssa to i64
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread58, %.thread
-  %.sink = phi i64 [ %71, %.thread ], [ %105, %.thread58 ]
+.sink.split:                                      ; preds = %.thread56, %.thread
+  %.sink = phi i64 [ %71, %.thread ], [ %105, %.thread56 ]
   %106 = getelementptr inbounds %"struct.std::pair.157", ptr %5, i64 %.sink
   %107 = load ptr, ptr %1, align 8, !tbaa !95
   store ptr %107, ptr %106, align 8, !tbaa !95

@@ -399,7 +399,7 @@ helper_ensure.exit.i:                             ; preds = %39, %37, %29, %25
   %.0.i.i = phi i32 [ 1, %39 ], [ 0, %37 ], [ 1, %25 ], [ 0, %29 ]
   %40 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 572, ptr noundef nonnull @.str.4, i32 noundef %.0.i.i) #6
   %.not280.i = icmp eq i32 %40, 0
-  br i1 %.not280.i, label %.thread368.i, label %.thread.i
+  br i1 %.not280.i, label %.thread351.i, label %.thread.i
 
 .thread.i:                                        ; preds = %helper_ensure.exit.i
   call void %.sroa.48.0.copyload189.i(ptr noundef nonnull %1) #6
@@ -410,41 +410,41 @@ helper_ensure.exit.i:                             ; preds = %39, %37, %29, %25
   %.sroa.48.0..sroa_idx190.i = getelementptr inbounds nuw i8, ptr %42, i64 32
   %.sroa.48.0.copyload191.i = load ptr, ptr %.sroa.48.0..sroa_idx190.i, align 8, !tbaa !4
   %43 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i304.i = icmp eq i32 %43, 0
-  br i1 %.not.i304.i, label %44, label %helper_ensure.exit308.i
+  %.not.i299.i = icmp eq i32 %43, 0
+  br i1 %.not.i299.i, label %44, label %helper_ensure.exit303.i
 
 44:                                               ; preds = %41
   %45 = call ptr @BIO_s_mem() #6
   %46 = call ptr @BIO_new(ptr noundef %45) #6
   store ptr %46, ptr %4, align 8, !tbaa !18
   %47 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @.str.13, ptr noundef %46) #6
-  %.not8.i306.i = icmp eq i32 %47, 0
-  br i1 %.not8.i306.i, label %helper_ensure.exit308.i, label %48
+  %.not8.i301.i = icmp eq i32 %47, 0
+  br i1 %.not8.i301.i, label %helper_ensure.exit303.i, label %48
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %4, align 8, !tbaa !18
   %50 = load i32, ptr %5, align 4, !tbaa !25
   %51 = call i32 @ossl_json_init(ptr noundef nonnull %1, ptr noundef %49, i32 noundef %50) #6
-  %.not9.i307.i = icmp eq i32 %51, 0
-  br i1 %.not9.i307.i, label %52, label %54
+  %.not9.i302.i = icmp eq i32 %51, 0
+  br i1 %.not9.i302.i, label %52, label %54
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %53) #6
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %helper_ensure.exit308.i
+  br label %helper_ensure.exit303.i
 
 54:                                               ; preds = %48
   store i32 1, ptr %3, align 8, !tbaa !24
-  br label %helper_ensure.exit308.i
+  br label %helper_ensure.exit303.i
 
-helper_ensure.exit308.i:                          ; preds = %54, %52, %44, %41
-  %.0.i305.i = phi i32 [ 1, %54 ], [ 0, %52 ], [ 1, %41 ], [ 0, %44 ]
-  %55 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 582, ptr noundef nonnull @.str.4, i32 noundef %.0.i305.i) #6
+helper_ensure.exit303.i:                          ; preds = %54, %52, %44, %41
+  %.0.i300.i = phi i32 [ 1, %54 ], [ 0, %52 ], [ 1, %41 ], [ 0, %44 ]
+  %55 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 582, ptr noundef nonnull @.str.4, i32 noundef %.0.i300.i) #6
   %.not279.i = icmp eq i32 %55, 0
-  br i1 %.not279.i, label %.thread368.i, label %.thread343.i
+  br i1 %.not279.i, label %.thread351.i, label %.thread336.i
 
-.thread343.i:                                     ; preds = %helper_ensure.exit308.i
+.thread336.i:                                     ; preds = %helper_ensure.exit303.i
   %56 = add i64 %.0265.i, 3
   %.sroa.39.0..sroa_idx113.i = getelementptr i8, ptr %17, i64 96
   %.sroa.39.0.copyload114.i = load i64, ptr %.sroa.39.0..sroa_idx113.i, align 8, !tbaa !17
@@ -457,41 +457,41 @@ helper_ensure.exit308.i:                          ; preds = %54, %52, %44, %41
   %.sroa.48.0..sroa_idx194.i = getelementptr inbounds nuw i8, ptr %59, i64 32
   %.sroa.48.0.copyload195.i = load ptr, ptr %.sroa.48.0..sroa_idx194.i, align 8, !tbaa !4
   %60 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i309.i = icmp eq i32 %60, 0
-  br i1 %.not.i309.i, label %61, label %helper_ensure.exit313.i
+  %.not.i304.i = icmp eq i32 %60, 0
+  br i1 %.not.i304.i, label %61, label %helper_ensure.exit308.i
 
 61:                                               ; preds = %58
   %62 = call ptr @BIO_s_mem() #6
   %63 = call ptr @BIO_new(ptr noundef %62) #6
   store ptr %63, ptr %4, align 8, !tbaa !18
   %64 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @.str.13, ptr noundef %63) #6
-  %.not8.i311.i = icmp eq i32 %64, 0
-  br i1 %.not8.i311.i, label %helper_ensure.exit313.i, label %65
+  %.not8.i306.i = icmp eq i32 %64, 0
+  br i1 %.not8.i306.i, label %helper_ensure.exit308.i, label %65
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %4, align 8, !tbaa !18
   %67 = load i32, ptr %5, align 4, !tbaa !25
   %68 = call i32 @ossl_json_init(ptr noundef nonnull %1, ptr noundef %66, i32 noundef %67) #6
-  %.not9.i312.i = icmp eq i32 %68, 0
-  br i1 %.not9.i312.i, label %69, label %71
+  %.not9.i307.i = icmp eq i32 %68, 0
+  br i1 %.not9.i307.i, label %69, label %71
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %70) #6
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %helper_ensure.exit313.i
+  br label %helper_ensure.exit308.i
 
 71:                                               ; preds = %65
   store i32 1, ptr %3, align 8, !tbaa !24
-  br label %helper_ensure.exit313.i
+  br label %helper_ensure.exit308.i
 
-helper_ensure.exit313.i:                          ; preds = %71, %69, %61, %58
-  %.0.i310.i = phi i32 [ 1, %71 ], [ 0, %69 ], [ 1, %58 ], [ 0, %61 ]
-  %72 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 592, ptr noundef nonnull @.str.4, i32 noundef %.0.i310.i) #6
+helper_ensure.exit308.i:                          ; preds = %71, %69, %61, %58
+  %.0.i305.i = phi i32 [ 1, %71 ], [ 0, %69 ], [ 1, %58 ], [ 0, %61 ]
+  %72 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 592, ptr noundef nonnull @.str.4, i32 noundef %.0.i305.i) #6
   %.not278.i = icmp eq i32 %72, 0
-  br i1 %.not278.i, label %.thread368.i, label %.thread348.i
+  br i1 %.not278.i, label %.thread351.i, label %.thread339.i
 
-.thread348.i:                                     ; preds = %helper_ensure.exit313.i
+.thread339.i:                                     ; preds = %helper_ensure.exit308.i
   %73 = add i64 %.0265.i, 3
   %.sroa.32.0..sroa_idx80.i = getelementptr i8, ptr %17, i64 88
   %.sroa.32.0.copyload81.i = load i64, ptr %.sroa.32.0..sroa_idx80.i, align 8, !tbaa !17
@@ -503,41 +503,41 @@ helper_ensure.exit313.i:                          ; preds = %71, %69, %61, %58
   %.sroa.48.0..sroa_idx198.i = getelementptr inbounds nuw i8, ptr %75, i64 32
   %.sroa.48.0.copyload199.i = load ptr, ptr %.sroa.48.0..sroa_idx198.i, align 8, !tbaa !4
   %76 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i314.i = icmp eq i32 %76, 0
-  br i1 %.not.i314.i, label %77, label %helper_ensure.exit318.i
+  %.not.i309.i = icmp eq i32 %76, 0
+  br i1 %.not.i309.i, label %77, label %helper_ensure.exit313.i
 
 77:                                               ; preds = %74
   %78 = call ptr @BIO_s_mem() #6
   %79 = call ptr @BIO_new(ptr noundef %78) #6
   store ptr %79, ptr %4, align 8, !tbaa !18
   %80 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @.str.13, ptr noundef %79) #6
-  %.not8.i316.i = icmp eq i32 %80, 0
-  br i1 %.not8.i316.i, label %helper_ensure.exit318.i, label %81
+  %.not8.i311.i = icmp eq i32 %80, 0
+  br i1 %.not8.i311.i, label %helper_ensure.exit313.i, label %81
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %4, align 8, !tbaa !18
   %83 = load i32, ptr %5, align 4, !tbaa !25
   %84 = call i32 @ossl_json_init(ptr noundef nonnull %1, ptr noundef %82, i32 noundef %83) #6
-  %.not9.i317.i = icmp eq i32 %84, 0
-  br i1 %.not9.i317.i, label %85, label %87
+  %.not9.i312.i = icmp eq i32 %84, 0
+  br i1 %.not9.i312.i, label %85, label %87
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %86) #6
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %helper_ensure.exit318.i
+  br label %helper_ensure.exit313.i
 
 87:                                               ; preds = %81
   store i32 1, ptr %3, align 8, !tbaa !24
-  br label %helper_ensure.exit318.i
+  br label %helper_ensure.exit313.i
 
-helper_ensure.exit318.i:                          ; preds = %87, %85, %77, %74
-  %.0.i315.i = phi i32 [ 1, %87 ], [ 0, %85 ], [ 1, %74 ], [ 0, %77 ]
-  %88 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 602, ptr noundef nonnull @.str.4, i32 noundef %.0.i315.i) #6
+helper_ensure.exit313.i:                          ; preds = %87, %85, %77, %74
+  %.0.i310.i = phi i32 [ 1, %87 ], [ 0, %85 ], [ 1, %74 ], [ 0, %77 ]
+  %88 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 602, ptr noundef nonnull @.str.4, i32 noundef %.0.i310.i) #6
   %.not277.i = icmp eq i32 %88, 0
-  br i1 %.not277.i, label %.thread368.i, label %.thread353.i
+  br i1 %.not277.i, label %.thread351.i, label %.thread342.i
 
-.thread353.i:                                     ; preds = %helper_ensure.exit318.i
+.thread342.i:                                     ; preds = %helper_ensure.exit313.i
   %89 = add i64 %.0265.i, 3
   %.sroa.39.0..sroa_idx121.i = getelementptr i8, ptr %17, i64 96
   %.sroa.39.0.copyload122.i = load i64, ptr %.sroa.39.0..sroa_idx121.i, align 8, !tbaa !17
@@ -549,41 +549,41 @@ helper_ensure.exit318.i:                          ; preds = %87, %85, %77, %74
   %.sroa.48.0..sroa_idx202.i = getelementptr inbounds nuw i8, ptr %91, i64 32
   %.sroa.48.0.copyload203.i = load ptr, ptr %.sroa.48.0..sroa_idx202.i, align 8, !tbaa !4
   %92 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i319.i = icmp eq i32 %92, 0
-  br i1 %.not.i319.i, label %93, label %helper_ensure.exit323.i
+  %.not.i314.i = icmp eq i32 %92, 0
+  br i1 %.not.i314.i, label %93, label %helper_ensure.exit318.i
 
 93:                                               ; preds = %90
   %94 = call ptr @BIO_s_mem() #6
   %95 = call ptr @BIO_new(ptr noundef %94) #6
   store ptr %95, ptr %4, align 8, !tbaa !18
   %96 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @.str.13, ptr noundef %95) #6
-  %.not8.i321.i = icmp eq i32 %96, 0
-  br i1 %.not8.i321.i, label %helper_ensure.exit323.i, label %97
+  %.not8.i316.i = icmp eq i32 %96, 0
+  br i1 %.not8.i316.i, label %helper_ensure.exit318.i, label %97
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr %4, align 8, !tbaa !18
   %99 = load i32, ptr %5, align 4, !tbaa !25
   %100 = call i32 @ossl_json_init(ptr noundef nonnull %1, ptr noundef %98, i32 noundef %99) #6
-  %.not9.i322.i = icmp eq i32 %100, 0
-  br i1 %.not9.i322.i, label %101, label %103
+  %.not9.i317.i = icmp eq i32 %100, 0
+  br i1 %.not9.i317.i, label %101, label %103
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %102) #6
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %helper_ensure.exit323.i
+  br label %helper_ensure.exit318.i
 
 103:                                              ; preds = %97
   store i32 1, ptr %3, align 8, !tbaa !24
-  br label %helper_ensure.exit323.i
+  br label %helper_ensure.exit318.i
 
-helper_ensure.exit323.i:                          ; preds = %103, %101, %93, %90
-  %.0.i320.i = phi i32 [ 1, %103 ], [ 0, %101 ], [ 1, %90 ], [ 0, %93 ]
-  %104 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @.str.4, i32 noundef %.0.i320.i) #6
+helper_ensure.exit318.i:                          ; preds = %103, %101, %93, %90
+  %.0.i315.i = phi i32 [ 1, %103 ], [ 0, %101 ], [ 1, %90 ], [ 0, %93 ]
+  %104 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @.str.4, i32 noundef %.0.i315.i) #6
   %.not276.i = icmp eq i32 %104, 0
-  br i1 %.not276.i, label %.thread368.i, label %.thread358.i
+  br i1 %.not276.i, label %.thread351.i, label %.thread345.i
 
-.thread358.i:                                     ; preds = %helper_ensure.exit323.i
+.thread345.i:                                     ; preds = %helper_ensure.exit318.i
   %105 = add i64 %.0265.i, 3
   %106 = getelementptr i8, ptr %17, i64 80
   %.sroa.047.0.copyload57.i = load ptr, ptr %106, align 8, !tbaa !4
@@ -595,41 +595,41 @@ helper_ensure.exit323.i:                          ; preds = %103, %101, %93, %90
   %.sroa.48.0..sroa_idx206.i = getelementptr inbounds nuw i8, ptr %108, i64 32
   %.sroa.48.0.copyload207.i = load ptr, ptr %.sroa.48.0..sroa_idx206.i, align 8, !tbaa !4
   %109 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i324.i = icmp eq i32 %109, 0
-  br i1 %.not.i324.i, label %110, label %helper_ensure.exit328.i
+  %.not.i319.i = icmp eq i32 %109, 0
+  br i1 %.not.i319.i, label %110, label %helper_ensure.exit323.i
 
 110:                                              ; preds = %107
   %111 = call ptr @BIO_s_mem() #6
   %112 = call ptr @BIO_new(ptr noundef %111) #6
   store ptr %112, ptr %4, align 8, !tbaa !18
   %113 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @.str.13, ptr noundef %112) #6
-  %.not8.i326.i = icmp eq i32 %113, 0
-  br i1 %.not8.i326.i, label %helper_ensure.exit328.i, label %114
+  %.not8.i321.i = icmp eq i32 %113, 0
+  br i1 %.not8.i321.i, label %helper_ensure.exit323.i, label %114
 
 114:                                              ; preds = %110
   %115 = load ptr, ptr %4, align 8, !tbaa !18
   %116 = load i32, ptr %5, align 4, !tbaa !25
   %117 = call i32 @ossl_json_init(ptr noundef nonnull %1, ptr noundef %115, i32 noundef %116) #6
-  %.not9.i327.i = icmp eq i32 %117, 0
-  br i1 %.not9.i327.i, label %118, label %120
+  %.not9.i322.i = icmp eq i32 %117, 0
+  br i1 %.not9.i322.i, label %118, label %120
 
 118:                                              ; preds = %114
   %119 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %119) #6
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %helper_ensure.exit328.i
+  br label %helper_ensure.exit323.i
 
 120:                                              ; preds = %114
   store i32 1, ptr %3, align 8, !tbaa !24
-  br label %helper_ensure.exit328.i
+  br label %helper_ensure.exit323.i
 
-helper_ensure.exit328.i:                          ; preds = %120, %118, %110, %107
-  %.0.i325.i = phi i32 [ 1, %120 ], [ 0, %118 ], [ 1, %107 ], [ 0, %110 ]
-  %121 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @.str.4, i32 noundef %.0.i325.i) #6
+helper_ensure.exit323.i:                          ; preds = %120, %118, %110, %107
+  %.0.i320.i = phi i32 [ 1, %120 ], [ 0, %118 ], [ 1, %107 ], [ 0, %110 ]
+  %121 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @.str.4, i32 noundef %.0.i320.i) #6
   %.not275.i = icmp eq i32 %121, 0
-  br i1 %.not275.i, label %.thread368.i, label %.thread363.i
+  br i1 %.not275.i, label %.thread351.i, label %.thread348.i
 
-.thread363.i:                                     ; preds = %helper_ensure.exit328.i
+.thread348.i:                                     ; preds = %helper_ensure.exit323.i
   %122 = getelementptr i8, ptr %17, i64 80
   %.sroa.047.0.copyload59.i = load ptr, ptr %122, align 8, !tbaa !4
   %123 = add i64 %.0265.i, 4
@@ -640,41 +640,41 @@ helper_ensure.exit328.i:                          ; preds = %120, %118, %110, %1
 
 124:                                              ; preds = %15
   %125 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i329.i = icmp eq i32 %125, 0
-  br i1 %.not.i329.i, label %126, label %helper_ensure.exit333.i
+  %.not.i324.i = icmp eq i32 %125, 0
+  br i1 %.not.i324.i, label %126, label %helper_ensure.exit328.i
 
 126:                                              ; preds = %124
   %127 = call ptr @BIO_s_mem() #6
   %128 = call ptr @BIO_new(ptr noundef %127) #6
   store ptr %128, ptr %4, align 8, !tbaa !18
   %129 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @.str.13, ptr noundef %128) #6
-  %.not8.i331.i = icmp eq i32 %129, 0
-  br i1 %.not8.i331.i, label %helper_ensure.exit333.i, label %130
+  %.not8.i326.i = icmp eq i32 %129, 0
+  br i1 %.not8.i326.i, label %helper_ensure.exit328.i, label %130
 
 130:                                              ; preds = %126
   %131 = load ptr, ptr %4, align 8, !tbaa !18
   %132 = load i32, ptr %5, align 4, !tbaa !25
   %133 = call i32 @ossl_json_init(ptr noundef nonnull %1, ptr noundef %131, i32 noundef %132) #6
-  %.not9.i332.i = icmp eq i32 %133, 0
-  br i1 %.not9.i332.i, label %134, label %136
+  %.not9.i327.i = icmp eq i32 %133, 0
+  br i1 %.not9.i327.i, label %134, label %136
 
 134:                                              ; preds = %130
   %135 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %135) #6
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %helper_ensure.exit333.i
+  br label %helper_ensure.exit328.i
 
 136:                                              ; preds = %130
   store i32 1, ptr %3, align 8, !tbaa !24
-  br label %helper_ensure.exit333.i
+  br label %helper_ensure.exit328.i
 
-helper_ensure.exit333.i:                          ; preds = %136, %134, %126, %124
-  %.0.i330.i = phi i32 [ 1, %136 ], [ 0, %134 ], [ 1, %124 ], [ 0, %126 ]
-  %137 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 634, ptr noundef nonnull @.str.4, i32 noundef %.0.i330.i) #6
+helper_ensure.exit328.i:                          ; preds = %136, %134, %126, %124
+  %.0.i325.i = phi i32 [ 1, %136 ], [ 0, %134 ], [ 1, %124 ], [ 0, %126 ]
+  %137 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 634, ptr noundef nonnull @.str.4, i32 noundef %.0.i325.i) #6
   %.not.i = icmp eq i32 %137, 0
-  br i1 %.not.i, label %.thread368.i, label %138
+  br i1 %.not.i, label %.thread351.i, label %138
 
-138:                                              ; preds = %helper_ensure.exit333.i
+138:                                              ; preds = %helper_ensure.exit328.i
   %139 = add i64 %.0265.i, 2
   %140 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
   %.sroa.32.0..sroa_idx96.i = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -683,60 +683,60 @@ helper_ensure.exit333.i:                          ; preds = %136, %134, %126, %1
   %142 = call i32 @ossl_json_in_error(ptr noundef nonnull %1) #6
   %143 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 638, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %142, i32 noundef %141) #6
   %.not274.i = icmp eq i32 %143, 0
-  br i1 %.not274.i, label %.thread368.i, label %.backedge
+  br i1 %.not274.i, label %.thread351.i, label %.backedge
 
-.backedge:                                        ; preds = %138, %.thread363.i, %.thread358.i, %.thread353.i, %.thread348.i, %.thread343.i, %.thread.i, %helper_set_flags.exit.i
-  %.0265.i.be = phi i64 [ %19, %helper_set_flags.exit.i ], [ %139, %138 ], [ %26, %.thread.i ], [ %56, %.thread343.i ], [ %73, %.thread348.i ], [ %89, %.thread353.i ], [ %105, %.thread358.i ], [ %123, %.thread363.i ]
-  %.0264.i.be = phi i32 [ %.0264.i, %helper_set_flags.exit.i ], [ %141, %138 ], [ %.0264.i, %.thread.i ], [ %.0264.i, %.thread343.i ], [ %.0264.i, %.thread348.i ], [ %.0264.i, %.thread353.i ], [ %.0264.i, %.thread358.i ], [ %.0264.i, %.thread363.i ]
+.backedge:                                        ; preds = %138, %.thread348.i, %.thread345.i, %.thread342.i, %.thread339.i, %.thread336.i, %.thread.i, %helper_set_flags.exit.i
+  %.0265.i.be = phi i64 [ %19, %helper_set_flags.exit.i ], [ %139, %138 ], [ %26, %.thread.i ], [ %56, %.thread336.i ], [ %73, %.thread339.i ], [ %89, %.thread342.i ], [ %105, %.thread345.i ], [ %123, %.thread348.i ]
+  %.0264.i.be = phi i32 [ %.0264.i, %helper_set_flags.exit.i ], [ %141, %138 ], [ %.0264.i, %.thread.i ], [ %.0264.i, %.thread336.i ], [ %.0264.i, %.thread339.i ], [ %.0264.i, %.thread342.i ], [ %.0264.i, %.thread345.i ], [ %.0264.i, %.thread348.i ]
   br label %15
 
 144:                                              ; preds = %15
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.1, i32 noundef 646, ptr noundef nonnull @.str.7) #6
-  br label %.thread368.i
+  br label %.thread351.i
 
 145:                                              ; preds = %15
   %146 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i334.i = icmp eq i32 %146, 0
-  br i1 %.not.i334.i, label %147, label %helper_ensure.exit338.i
+  %.not.i329.i = icmp eq i32 %146, 0
+  br i1 %.not.i329.i, label %147, label %helper_ensure.exit333.i
 
 147:                                              ; preds = %145
   %148 = call ptr @BIO_s_mem() #6
   %149 = call ptr @BIO_new(ptr noundef %148) #6
   store ptr %149, ptr %4, align 8, !tbaa !18
   %150 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @.str.13, ptr noundef %149) #6
-  %.not8.i336.i = icmp eq i32 %150, 0
-  br i1 %.not8.i336.i, label %helper_ensure.exit338.i, label %151
+  %.not8.i331.i = icmp eq i32 %150, 0
+  br i1 %.not8.i331.i, label %helper_ensure.exit333.i, label %151
 
 151:                                              ; preds = %147
   %152 = load ptr, ptr %4, align 8, !tbaa !18
   %153 = load i32, ptr %5, align 4, !tbaa !25
   %154 = call i32 @ossl_json_init(ptr noundef nonnull %1, ptr noundef %152, i32 noundef %153) #6
-  %.not9.i337.i = icmp eq i32 %154, 0
-  br i1 %.not9.i337.i, label %155, label %157
+  %.not9.i332.i = icmp eq i32 %154, 0
+  br i1 %.not9.i332.i, label %155, label %157
 
 155:                                              ; preds = %151
   %156 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %156) #6
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %helper_ensure.exit338.i
+  br label %helper_ensure.exit333.i
 
 157:                                              ; preds = %151
   store i32 1, ptr %3, align 8, !tbaa !24
-  br label %helper_ensure.exit338.i
+  br label %helper_ensure.exit333.i
 
-helper_ensure.exit338.i:                          ; preds = %157, %155, %147, %145
-  %.0.i335.i = phi i32 [ 1, %157 ], [ 0, %155 ], [ 1, %145 ], [ 0, %147 ]
-  %158 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 651, ptr noundef nonnull @.str.4, i32 noundef %.0.i335.i) #6
+helper_ensure.exit333.i:                          ; preds = %157, %155, %147, %145
+  %.0.i330.i = phi i32 [ 1, %157 ], [ 0, %155 ], [ 1, %145 ], [ 0, %147 ]
+  %158 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 651, ptr noundef nonnull @.str.4, i32 noundef %.0.i330.i) #6
   %.not281.i = icmp eq i32 %158, 0
-  br i1 %.not281.i, label %.thread368.i, label %159
+  br i1 %.not281.i, label %.thread351.i, label %159
 
-159:                                              ; preds = %helper_ensure.exit338.i
+159:                                              ; preds = %helper_ensure.exit333.i
   %160 = call i32 @ossl_json_flush(ptr noundef nonnull %1) #6
   %161 = icmp ne i32 %160, 0
   %162 = zext i1 %161 to i32
   %163 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 654, ptr noundef nonnull @.str.8, i32 noundef %162) #6
   %.not282.i = icmp eq i32 %163, 0
-  br i1 %.not282.i, label %.thread368.i, label %164
+  br i1 %.not282.i, label %.thread351.i, label %164
 
 164:                                              ; preds = %159
   %165 = icmp slt i32 %.0264.i, 0
@@ -748,7 +748,7 @@ helper_ensure.exit338.i:                          ; preds = %157, %155, %147, %1
   %169 = zext i1 %168 to i32
   %170 = call i32 @test_false(ptr noundef nonnull @.str.1, i32 noundef 658, ptr noundef nonnull @.str.5, i32 noundef %169) #6
   %.not283.i = icmp eq i32 %170, 0
-  br i1 %.not283.i, label %.thread368.i, label %171
+  br i1 %.not283.i, label %.thread351.i, label %171
 
 171:                                              ; preds = %166, %164
   %172 = load ptr, ptr %4, align 8, !tbaa !18
@@ -757,7 +757,7 @@ helper_ensure.exit338.i:                          ; preds = %157, %155, %147, %1
   %175 = zext i1 %174 to i32
   %176 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 661, ptr noundef nonnull @.str.9, i32 noundef %175) #6
   %.not284.i = icmp eq i32 %176, 0
-  br i1 %.not284.i, label %.thread368.i, label %177
+  br i1 %.not284.i, label %.thread351.i, label %177
 
 177:                                              ; preds = %171
   %178 = load ptr, ptr %2, align 8, !tbaa !13
@@ -779,21 +779,21 @@ helper_ensure.exit338.i:                          ; preds = %157, %155, %147, %1
   %190 = phi i64 [ %188, %187 ], [ %185, %177 ]
   %191 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 668, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %180, i64 noundef %181, ptr noundef %183, i64 noundef %190) #6
   %.not285.i = icmp eq i32 %191, 0
-  br i1 %.not285.i, label %.thread368.i, label %193
+  br i1 %.not285.i, label %.thread351.i, label %193
 
-.thread368.i:                                     ; preds = %138, %helper_ensure.exit333.i, %helper_ensure.exit328.i, %helper_ensure.exit323.i, %helper_ensure.exit318.i, %helper_ensure.exit313.i, %helper_ensure.exit308.i, %helper_ensure.exit.i, %189, %171, %166, %159, %helper_ensure.exit338.i, %144
+.thread351.i:                                     ; preds = %138, %helper_ensure.exit328.i, %helper_ensure.exit323.i, %helper_ensure.exit318.i, %helper_ensure.exit313.i, %helper_ensure.exit308.i, %helper_ensure.exit303.i, %helper_ensure.exit.i, %189, %171, %166, %159, %helper_ensure.exit333.i, %144
   %192 = load ptr, ptr %9, align 8, !tbaa !15
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.1, i32 noundef 674, ptr noundef nonnull @.str.12, ptr noundef %192) #6
   br label %193
 
-193:                                              ; preds = %.thread368.i, %189
-  %194 = phi i32 [ 0, %.thread368.i ], [ 1, %189 ]
+193:                                              ; preds = %.thread351.i, %189
+  %194 = phi i32 [ 0, %.thread351.i ], [ 1, %189 ]
   %195 = load ptr, ptr %4, align 8, !tbaa !18
   call void @BIO_free_all(ptr noundef %195) #6
   store ptr null, ptr %4, align 8, !tbaa !18
   %196 = load i32, ptr %3, align 8, !tbaa !24
-  %.not.i339.i = icmp eq i32 %196, 0
-  br i1 %.not.i339.i, label %run_script.exit, label %197
+  %.not.i334.i = icmp eq i32 %196, 0
+  br i1 %.not.i334.i, label %run_script.exit, label %197
 
 197:                                              ; preds = %193
   call void @ossl_json_cleanup(ptr noundef nonnull %1) #6

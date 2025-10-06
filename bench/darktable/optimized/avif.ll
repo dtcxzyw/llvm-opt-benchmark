@@ -166,7 +166,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %.0233 = phi i32 [ 0, %12 ], [ 0, %27 ], [ 1, %30 ], [ 4, %37 ], [ 1, %31 ], [ %., %35 ]
   %40 = tail call ptr @avifImageCreate(i32 noundef %17, i32 noundef %20, i32 noundef %23, i32 noundef %.0233) #17
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread302, label %42
+  br i1 %41, label %.thread301, label %42
 
 42:                                               ; preds = %38
   %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
@@ -226,13 +226,13 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %50, %53, %54, %55, %56, %57, %58, %59, %60
-  %.sink361 = phi i16 [ 12, %60 ], [ 12, %59 ], [ 12, %58 ], [ 9, %57 ], [ 9, %56 ], [ 9, %55 ], [ 1, %54 ], [ 1, %53 ], [ 1, %50 ]
-  %.sink359 = phi i16 [ 13, %60 ], [ 18, %59 ], [ 16, %58 ], [ 18, %57 ], [ 16, %56 ], [ 8, %55 ], [ 8, %54 ], [ 1, %53 ], [ 13, %50 ]
+  %.sink360 = phi i16 [ 12, %60 ], [ 12, %59 ], [ 12, %58 ], [ 9, %57 ], [ 9, %56 ], [ 9, %55 ], [ 1, %54 ], [ 1, %53 ], [ 1, %50 ]
+  %.sink358 = phi i16 [ 13, %60 ], [ 18, %59 ], [ 16, %58 ], [ 18, %57 ], [ 16, %56 ], [ 8, %55 ], [ 8, %54 ], [ 1, %53 ], [ 13, %50 ]
   %.sink = phi i16 [ 12, %60 ], [ 12, %59 ], [ 12, %58 ], [ 9, %57 ], [ 9, %56 ], [ 9, %55 ], [ 1, %54 ], [ 1, %53 ], [ 6, %50 ]
   %61 = getelementptr inbounds nuw i8, ptr %40, i64 112
-  store i16 %.sink361, ptr %61, align 8, !tbaa !64
+  store i16 %.sink360, ptr %61, align 8, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %40, i64 114
-  store i16 %.sink359, ptr %62, align 2, !tbaa !72
+  store i16 %.sink358, ptr %62, align 2, !tbaa !72
   %63 = getelementptr inbounds nuw i8, ptr %40, i64 116
   store i16 %.sink, ptr %63, align 4, !tbaa !73
   br label %64
@@ -306,7 +306,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 95:                                               ; preds = %86, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread302
+  br label %.thread301
 
 96:                                               ; preds = %.thread, %76
   %.1 = phi ptr [ null, %76 ], [ %.3.ph, %.thread ]
@@ -324,31 +324,31 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %105 = load ptr, ptr %104, align 8, !tbaa !80
-  switch i32 %23, label %.thread302 [
+  switch i32 %23, label %.thread301 [
     i32 12, label %150
     i32 10, label %150
-    i32 8, label %.preheader317
+    i32 8, label %.preheader316
   ]
 
-.preheader317:                                    ; preds = %96
+.preheader316:                                    ; preds = %96
   %.not = icmp eq i32 %20, 0
-  %.not324 = icmp eq i32 %17, 0
-  %or.cond363 = select i1 %.not, i1 true, i1 %.not324
-  br i1 %or.cond363, label %.loopexit, label %.preheader316.us
+  %.not323 = icmp eq i32 %17, 0
+  %or.cond362 = select i1 %.not, i1 true, i1 %.not323
+  br i1 %or.cond362, label %.loopexit, label %.preheader315.us
 
-.preheader316.us:                                 ; preds = %.preheader317, %._crit_edge.us
-  %.0238320.us = phi i64 [ %149, %._crit_edge.us ], [ 0, %.preheader317 ]
-  %106 = mul i64 %.0238320.us, %18
-  %107 = mul i64 %.0238320.us, %103
+.preheader315.us:                                 ; preds = %.preheader316, %._crit_edge.us
+  %.0238319.us = phi i64 [ %149, %._crit_edge.us ], [ 0, %.preheader316 ]
+  %106 = mul i64 %.0238319.us, %18
+  %107 = mul i64 %.0238319.us, %103
   %108 = getelementptr i8, ptr %105, i64 %107
   br label %109
 
-109:                                              ; preds = %.preheader316.us, %144
-  %.0237319.us = phi i64 [ 0, %.preheader316.us ], [ %148, %144 ]
-  %110 = add i64 %.0237319.us, %106
+109:                                              ; preds = %.preheader315.us, %144
+  %.0237318.us = phi i64 [ 0, %.preheader315.us ], [ %148, %144 ]
+  %110 = add i64 %.0237318.us, %106
   %.idx.us = shl i64 %110, 4
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.us
-  %112 = mul i64 %.0237319.us, 3
+  %112 = mul i64 %.0237318.us, 3
   %113 = getelementptr i8, ptr %108, i64 %112
   %114 = load float, ptr %111, align 4, !tbaa !81
   %115 = fmul reassoc nsz arcp contract afn float %114, %100
@@ -405,34 +405,34 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %146 = fptoui float %145 to i8
   %147 = getelementptr inbounds nuw i8, ptr %113, i64 2
   store i8 %146, ptr %147, align 1, !tbaa !83
-  %148 = add nuw i64 %.0237319.us, 1
+  %148 = add nuw i64 %.0237318.us, 1
   %exitcond.not = icmp eq i64 %148, %18
   br i1 %exitcond.not, label %._crit_edge.us, label %109
 
 ._crit_edge.us:                                   ; preds = %144
-  %149 = add nuw i64 %.0238320.us, 1
-  %exitcond331.not = icmp eq i64 %149, %21
-  br i1 %exitcond331.not, label %.loopexit, label %.preheader316.us
+  %149 = add nuw i64 %.0238319.us, 1
+  %exitcond330.not = icmp eq i64 %149, %21
+  br i1 %exitcond330.not, label %.loopexit, label %.preheader315.us
 
 150:                                              ; preds = %96, %96
-  %.not325 = icmp eq i32 %20, 0
-  %.not326 = icmp eq i32 %17, 0
-  %or.cond364 = select i1 %.not325, i1 true, i1 %.not326
-  br i1 %or.cond364, label %.loopexit, label %.preheader.us
+  %.not324 = icmp eq i32 %20, 0
+  %.not325 = icmp eq i32 %17, 0
+  %or.cond363 = select i1 %.not324, i1 true, i1 %.not325
+  br i1 %or.cond363, label %.loopexit, label %.preheader.us
 
-.preheader.us:                                    ; preds = %150, %._crit_edge.us323
-  %.0243322.us = phi i64 [ %194, %._crit_edge.us323 ], [ 0, %150 ]
-  %151 = mul i64 %.0243322.us, %18
-  %152 = mul i64 %.0243322.us, %103
+.preheader.us:                                    ; preds = %150, %._crit_edge.us322
+  %.0243321.us = phi i64 [ %194, %._crit_edge.us322 ], [ 0, %150 ]
+  %151 = mul i64 %.0243321.us, %18
+  %152 = mul i64 %.0243321.us, %103
   %153 = getelementptr i8, ptr %105, i64 %152
   br label %154
 
 154:                                              ; preds = %.preheader.us, %189
-  %.0242321.us = phi i64 [ 0, %.preheader.us ], [ %193, %189 ]
-  %155 = add i64 %.0242321.us, %151
+  %.0242320.us = phi i64 [ 0, %.preheader.us ], [ %193, %189 ]
+  %155 = add i64 %.0242320.us, %151
   %.idx291.us = shl i64 %155, 4
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx291.us
-  %157 = mul i64 %.0242321.us, 6
+  %157 = mul i64 %.0242320.us, 6
   %158 = getelementptr i8, ptr %153, i64 %157
   %159 = load float, ptr %156, align 4, !tbaa !81
   %160 = fmul reassoc nsz arcp contract afn float %159, %100
@@ -489,16 +489,16 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %191 = fptoui float %190 to i16
   %192 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i16 %191, ptr %192, align 2, !tbaa !84
-  %193 = add nuw i64 %.0242321.us, 1
-  %exitcond332.not = icmp eq i64 %193, %18
-  br i1 %exitcond332.not, label %._crit_edge.us323, label %154
+  %193 = add nuw i64 %.0242320.us, 1
+  %exitcond331.not = icmp eq i64 %193, %18
+  br i1 %exitcond331.not, label %._crit_edge.us322, label %154
 
-._crit_edge.us323:                                ; preds = %189
-  %194 = add nuw i64 %.0243322.us, 1
-  %exitcond333.not = icmp eq i64 %194, %21
-  br i1 %exitcond333.not, label %.loopexit, label %.preheader.us
+._crit_edge.us322:                                ; preds = %189
+  %194 = add nuw i64 %.0243321.us, 1
+  %exitcond332.not = icmp eq i64 %194, %21
+  br i1 %exitcond332.not, label %.loopexit, label %.preheader.us
 
-.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us323, %.preheader317, %150
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us322, %.preheader316, %150
   %195 = call i32 @avifImageRGBToYUV(ptr noundef nonnull %40, ptr noundef nonnull %13) #17
   %.not281 = icmp eq i32 %195, 0
   br i1 %.not281, label %200, label %196
@@ -507,11 +507,11 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %198 = and i32 %197, 262144
   %.not290 = icmp eq i32 %198, 0
-  br i1 %.not290, label %.thread302, label %199
+  br i1 %.not290, label %.thread301, label %199
 
 199:                                              ; preds = %196
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4) #17
-  br label %.thread302
+  br label %.thread301
 
 200:                                              ; preds = %.loopexit
   %201 = icmp ne ptr %5, null
@@ -544,11 +544,11 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %212 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %213 = and i32 %212, 262144
   %.not289 = icmp eq i32 %213, 0
-  br i1 %.not289, label %.thread302, label %214
+  br i1 %.not289, label %.thread301, label %214
 
 214:                                              ; preds = %211
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5) #17
-  br label %.thread302
+  br label %.thread301
 
 215:                                              ; preds = %.critedge
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -563,7 +563,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   store i32 8, ptr %219, align 8, !tbaa !85
   %220 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 0, ptr %220, align 8, !tbaa !91
-  br label %.sink.split365
+  br label %.sink.split364
 
 221:                                              ; preds = %215
   %222 = getelementptr inbounds nuw i8, ptr %209, i64 32
@@ -582,15 +582,15 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %233 = icmp ugt i32 %227, 5899
   %234 = add nuw nsw i32 %228, 5
   %235 = select i1 %233, i32 63, i32 %234
-  br label %.sink.split365
+  br label %.sink.split364
 
-.sink.split365:                                   ; preds = %218, %221
-  %.sink366 = phi i32 [ %235, %221 ], [ 0, %218 ]
+.sink.split364:                                   ; preds = %218, %221
+  %.sink365 = phi i32 [ %235, %221 ], [ 0, %218 ]
   %236 = getelementptr inbounds nuw i8, ptr %209, i64 12
-  store i32 %.sink366, ptr %236, align 4, !tbaa !92
+  store i32 %.sink365, ptr %236, align 4, !tbaa !92
   br label %237
 
-237:                                              ; preds = %.sink.split365, %215
+237:                                              ; preds = %.sink.split364, %215
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %239 = load i32, ptr %238, align 4, !tbaa !93
   %cond = icmp eq i32 %239, 0
@@ -624,8 +624,8 @@ floor_log2.exit:                                  ; preds = %240, %246
   br i1 %254, label %floor_log2.exit297, label %255
 
 255:                                              ; preds = %floor_log2.exit
-  %sext315 = shl i64 %252, 32
-  %256 = ashr exact i64 %sext315, 30
+  %sext314 = shl i64 %252, 32
+  %256 = ashr exact i64 %sext314, 30
   %257 = getelementptr inbounds i8, ptr @floor_log2.floor_log2_table, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !75
   %259 = sdiv i32 %258, 2
@@ -675,11 +675,11 @@ floor_log2.exit297:                               ; preds = %floor_log2.exit, %2
   %284 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %285 = and i32 %284, 262144
   %.not288 = icmp eq i32 %285, 0
-  br i1 %.not288, label %.thread302, label %286
+  br i1 %.not288, label %.thread301, label %286
 
 286:                                              ; preds = %283
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7) #17
-  br label %.thread302
+  br label %.thread301
 
 287:                                              ; preds = %281
   %288 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -694,16 +694,16 @@ floor_log2.exit297:                               ; preds = %floor_log2.exit, %2
   %294 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %295 = and i32 %294, 262144
   %.not287 = icmp eq i32 %295, 0
-  br i1 %.not287, label %.thread302, label %296
+  br i1 %.not287, label %.thread301, label %296
 
 296:                                              ; preds = %293
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8) #17
-  br label %.thread302
+  br label %.thread301
 
 297:                                              ; preds = %287
   %298 = call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.9)
   %299 = icmp eq ptr %298, null
-  br i1 %299, label %.thread302, label %300
+  br i1 %299, label %.thread301, label %300
 
 300:                                              ; preds = %297
   %301 = load ptr, ptr %15, align 8, !tbaa !98
@@ -716,9 +716,9 @@ floor_log2.exit297:                               ; preds = %floor_log2.exit, %2
 
 306:                                              ; preds = %300
   %307 = call i32 @g_unlink(ptr noundef %1) #17
-  br label %.thread302
+  br label %.thread301
 
-.thread302:                                       ; preds = %96, %199, %196, %214, %211, %286, %283, %296, %293, %306, %95, %38, %297
+.thread301:                                       ; preds = %96, %199, %196, %214, %211, %286, %283, %296, %293, %306, %95, %38, %297
   %.0236.ph = phi i32 [ 0, %297 ], [ 1, %293 ], [ 1, %296 ], [ %282, %283 ], [ %282, %286 ], [ 1, %211 ], [ 1, %214 ], [ %195, %196 ], [ %195, %199 ], [ 6, %96 ], [ 0, %38 ], [ 0, %95 ], [ 0, %306 ]
   %.0235.ph = phi ptr [ %.1, %297 ], [ %.1, %293 ], [ %.1, %296 ], [ %.1, %283 ], [ %.1, %286 ], [ %.1, %211 ], [ %.1, %214 ], [ %.1, %196 ], [ %.1, %199 ], [ %.1, %96 ], [ null, %38 ], [ null, %95 ], [ %.1, %306 ]
   %.0234.ph = phi ptr [ %209, %297 ], [ %209, %293 ], [ %209, %296 ], [ %209, %283 ], [ %209, %286 ], [ null, %211 ], [ null, %214 ], [ null, %196 ], [ null, %199 ], [ null, %96 ], [ null, %38 ], [ null, %95 ], [ %209, %306 ]
@@ -727,11 +727,11 @@ floor_log2.exit297:                               ; preds = %floor_log2.exit, %2
   %.not292 = icmp eq i32 %309, 0
   br i1 %.not292, label %317, label %310
 
-310:                                              ; preds = %.thread302
-  %.not327 = icmp eq i32 %.0236.ph, 0
+310:                                              ; preds = %.thread301
+  %.not326 = icmp eq i32 %.0236.ph, 0
   %311 = select i1 %41, ptr @.str.12, ptr @.str.11
-  %312 = select i1 %.not327, ptr @.str.14, ptr @.str.13
-  br i1 %.not327, label %315, label %313
+  %312 = select i1 %.not326, ptr @.str.14, ptr @.str.13
+  br i1 %.not326, label %315, label %313
 
 313:                                              ; preds = %310
   %314 = call ptr @avifResultToString(i32 noundef %.0236.ph) #17
@@ -742,17 +742,17 @@ floor_log2.exit297:                               ; preds = %floor_log2.exit, %2
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef nonnull %311, ptr noundef %1, ptr noundef nonnull %312, ptr noundef %316) #17
   br label %317
 
-317:                                              ; preds = %300, %.thread302, %315
-  %.0234313 = phi ptr [ %.0234.ph, %.thread302 ], [ %.0234.ph, %315 ], [ %209, %300 ]
-  %.0235311 = phi ptr [ %.0235.ph, %.thread302 ], [ %.0235.ph, %315 ], [ %.1, %300 ]
-  %.0239308 = phi i32 [ 1, %.thread302 ], [ 1, %315 ], [ 0, %300 ]
+317:                                              ; preds = %300, %.thread301, %315
+  %.0234312 = phi ptr [ %.0234.ph, %.thread301 ], [ %.0234.ph, %315 ], [ %209, %300 ]
+  %.0235310 = phi ptr [ %.0235.ph, %.thread301 ], [ %.0235.ph, %315 ], [ %.1, %300 ]
+  %.0239307 = phi i32 [ 1, %.thread301 ], [ 1, %315 ], [ 0, %300 ]
   call void @avifRGBImageFreePixels(ptr noundef nonnull %13) #17
   call void @avifImageDestroy(ptr noundef %40) #17
-  call void @avifEncoderDestroy(ptr noundef %.0234313) #17
+  call void @avifEncoderDestroy(ptr noundef %.0234312) #17
   call void @avifRWDataFree(ptr noundef nonnull %15) #17
-  call void @free(ptr noundef %.0235311) #17
+  call void @free(ptr noundef %.0235310) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  ret i32 %.0239308
+  ret i32 %.0239307
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

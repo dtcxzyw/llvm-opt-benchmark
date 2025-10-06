@@ -146,15 +146,15 @@ define dso_local noundef zeroext i1 @gistgettuple(ptr noundef %0, i32 noundef %1
 
 62:                                               ; preds = %61, %57
   %63 = getelementptr i8, ptr %58, i64 16
-  %.val40.i = load ptr, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.val40.i, i64 16
+  %.val38.i = load ptr, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.val38.i, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.critedge, label %getNextGISTSearchItem.exit.i
 
 getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
-  %.val41.i = phi ptr [ %.val.i, %93 ], [ %.val40.i, %62 ]
-  %67 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val41.i) #7
+  %.val39.i = phi ptr [ %.val.i, %93 ], [ %.val38.i, %62 ]
+  %67 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val39.i) #7
   %.not27.i = icmp eq ptr %67, null
   br i1 %.not27.i, label %.critedge, label %68
 
@@ -182,13 +182,13 @@ getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %85 = load i8, ptr %84, align 8, !range !4, !noundef !5
   %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %87, label %.thread36.i
+  br i1 %86, label %87, label %.thread35.i
 
 87:                                               ; preds = %72
   %88 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %59, align 8
-  br label %.thread36.i
+  br label %.thread35.i
 
 90:                                               ; preds = %68
   %91 = load volatile i32, ptr @InterruptPending, align 4
@@ -199,7 +199,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %62, %93
   tail call void @ProcessInterrupts() #7
   br label %93
 
-.thread36.i:                                      ; preds = %87, %72
+.thread35.i:                                      ; preds = %87, %72
   tail call void @pfree(ptr noundef nonnull %67) #7
   br label %.critedge
 
@@ -480,8 +480,8 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   %244 = icmp eq i16 %243, 0
   br i1 %244, label %177, label %.loopexit, !llvm.loop !10
 
-.critedge:                                        ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %93, %getNextGISTSearchItem.exit.i, %.thread36.i, %62, %9, %147
-  %.0 = phi i1 [ true, %147 ], [ false, %9 ], [ true, %.thread36.i ], [ false, %62 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %93 ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
+.critedge:                                        ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %93, %getNextGISTSearchItem.exit.i, %.thread35.i, %62, %9, %147
+  %.0 = phi i1 [ true, %147 ], [ false, %9 ], [ true, %.thread35.i ], [ false, %62 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %93 ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
   ret i1 %.0
 }
 
@@ -1254,11 +1254,11 @@ define dso_local i64 @gistgetbitmap(ptr noundef captures(none) %0, ptr noundef %
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %12) #7
   %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 480
-  %.pre33 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre32 = load ptr, ptr %.phi.trans.insert, align 8
   br label %20
 
 20:                                               ; preds = %10, %19
-  %21 = phi ptr [ %14, %10 ], [ %.pre33, %19 ]
+  %21 = phi ptr [ %14, %10 ], [ %.pre32, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 1
@@ -1288,15 +1288,15 @@ define dso_local i64 @gistgetbitmap(ptr noundef captures(none) %0, ptr noundef %
   store i64 0, ptr %34, align 8
   call fastcc void @gistScanPage(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull %3)
   %35 = getelementptr i8, ptr %6, i64 16
-  %.val31 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.val31, i64 16
+  %.val30 = load ptr, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %.val30, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %getNextGISTSearchItem.exit.thread, label %getNextGISTSearchItem.exit
 
 getNextGISTSearchItem.exit:                       ; preds = %32, %43
-  %.val32 = phi ptr [ %.val, %43 ], [ %.val31, %32 ]
-  %39 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val32) #7
+  %.val31 = phi ptr [ %.val, %43 ], [ %.val30, %32 ]
+  %39 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val31) #7
   %.not25 = icmp eq ptr %39, null
   br i1 %.not25, label %getNextGISTSearchItem.exit.thread, label %40
 

@@ -820,24 +820,24 @@ define internal fastcc noundef zeroext i1 @_ZL22IsNullTerminatedStringPKN4llvm8C
   %6 = add i32 %5, -1
   %7 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %6) #18
   %.not16 = icmp eq i64 %7, 0
-  br i1 %.not16, label %.preheader, label %.thread21
+  br i1 %.not16, label %.preheader, label %.thread20
 
 .preheader:                                       ; preds = %4
-  %.not1724 = icmp eq i32 %6, 0
-  br i1 %.not1724, label %.thread21, label %.lr.ph
+  %.not1722 = icmp eq i32 %6, 0
+  br i1 %.not1722, label %.thread20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.025 = phi i32 [ %9, %.lr.ph ], [ 0, %.preheader ]
-  %8 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.025) #18
+  %.023 = phi i32 [ %9, %.lr.ph ], [ 0, %.preheader ]
+  %8 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.023) #18
   %.not = icmp ne i64 %8, 0
-  %9 = add nuw i32 %.025, 1
+  %9 = add nuw i32 %.023, 1
   %.not17 = icmp ne i32 %9, %6
   %or.cond.not = select i1 %.not, i1 %.not17, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread21, !llvm.loop !337
+  br i1 %or.cond.not, label %.lr.ph, label %.thread20, !llvm.loop !337
 
 .thread:                                          ; preds = %1
   %10 = icmp eq i8 %2, 14
-  br i1 %10, label %11, label %.thread21
+  br i1 %10, label %11, label %.thread20
 
 11:                                               ; preds = %.thread
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -845,9 +845,9 @@ define internal fastcc noundef zeroext i1 @_ZL22IsNullTerminatedStringPKN4llvm8C
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !339
   %16 = icmp eq i64 %15, 1
-  br label %.thread21
+  br label %.thread20
 
-.thread21:                                        ; preds = %.lr.ph, %.preheader, %4, %.thread, %11
+.thread20:                                        ; preds = %.lr.ph, %.preheader, %4, %.thread, %11
   %.3 = phi i1 [ %16, %11 ], [ false, %.thread ], [ false, %4 ], [ true, %.preheader ], [ %.not, %.lr.ph ]
   ret i1 %.3
 }
@@ -885,8 +885,8 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 67108864
-  %.not57 = icmp eq i32 %8, 0
-  br i1 %.not57, label %14, label %9
+  %.not56 = icmp eq i32 %8, 0
+  br i1 %.not56, label %14, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8, !tbaa !136
@@ -914,21 +914,21 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlo
 19:                                               ; preds = %16
   %20 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull @.str.2, i64 12) #18
   %21 = icmp eq i8 %.sroa.024.0.extract.trunc, 19
-  %or.cond53 = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond53, label %30, label %22
+  %or.cond52 = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond52, label %30, label %22
 
 22:                                               ; preds = %19
   %23 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull @.str.3, i64 13) #18
   %24 = icmp eq i8 %.sroa.024.0.extract.trunc, 20
-  %or.cond54 = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond54, label %30, label %25
+  %or.cond53 = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond53, label %30, label %25
 
 25:                                               ; preds = %22
   %26 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull @.str.4, i64 14) #18
   %27 = add i8 %.sroa.024.0.extract.trunc, -4
   %28 = icmp ult i8 %27, 8
-  %or.cond56 = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond56, label %30, label %29
+  %or.cond55 = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond55, label %30, label %29
 
 29:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

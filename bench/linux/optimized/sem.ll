@@ -4927,7 +4927,7 @@ define internal fastcc range(i32 0, 2) i32 @update_queue(ptr noundef %0, i32 nou
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %20
 
-17:                                               ; preds = %108
+17:                                               ; preds = %109
   %18 = load ptr, ptr %10, align 8
   %19 = icmp eq ptr %18, %10
   br i1 %19, label %.thread6, label %.backedge
@@ -5058,45 +5058,45 @@ do_smart_wakeup_zero.exit:                        ; preds = %48, %52, %.loopexit
 
 95:                                               ; preds = %92, %do_smart_wakeup_zero.exit, %41
   %96 = phi i32 [ %22, %41 ], [ 1, %do_smart_wakeup_zero.exit ], [ 1, %92 ]
-  %switch = phi i1 [ true, %41 ], [ false, %do_smart_wakeup_zero.exit ], [ %94, %92 ]
-  %97 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %100 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, i32 1, ptr nonnull elementtype(i32) %99) #12, !srcloc !11
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %106, label %102, !prof !5
+  %97 = phi i1 [ true, %41 ], [ false, %do_smart_wakeup_zero.exit ], [ %94, %92 ]
+  %98 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  %101 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %100, i32 1, ptr nonnull elementtype(i32) %100) #12, !srcloc !11
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %107, label %103, !prof !5
 
-102:                                              ; preds = %95
-  %103 = add i32 %100, 1
-  %104 = or i32 %103, %100
-  %105 = icmp sgt i32 %104, -1
-  br i1 %105, label %108, label %106, !prof !12
+103:                                              ; preds = %95
+  %104 = add i32 %101, 1
+  %105 = or i32 %104, %101
+  %106 = icmp sgt i32 %105, -1
+  br i1 %106, label %109, label %107, !prof !12
 
-106:                                              ; preds = %102, %95
-  %107 = phi i32 [ 2, %95 ], [ 1, %102 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %99, i32 noundef %107) #12
-  br label %108
+107:                                              ; preds = %103, %95
+  %108 = phi i32 [ 2, %95 ], [ 1, %103 ]
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %100, i32 noundef %108) #12
+  br label %109
 
-108:                                              ; preds = %102, %106
+109:                                              ; preds = %103, %107
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
-  %109 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store volatile i32 %28, ptr %109, align 8
-  tail call void @wake_q_add_safe(ptr noundef %2, ptr noundef %98) #12
-  br i1 %switch, label %.thread, label %17
+  %110 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store volatile i32 %28, ptr %110, align 8
+  tail call void @wake_q_add_safe(ptr noundef %2, ptr noundef %99) #12
+  br i1 %97, label %.thread, label %17
 
-.thread:                                          ; preds = %108, %27
-  %110 = phi i32 [ %96, %108 ], [ %22, %27 ]
-  %111 = icmp eq ptr %23, %10
-  br i1 %111, label %.thread6, label %.backedge
+.thread:                                          ; preds = %109, %27
+  %111 = phi i32 [ %96, %109 ], [ %22, %27 ]
+  %112 = icmp eq ptr %23, %10
+  br i1 %112, label %.thread6, label %.backedge
 
 .backedge:                                        ; preds = %.thread, %17
   %.be = phi ptr [ %23, %.thread ], [ %18, %17 ]
-  %.be26 = phi i32 [ %110, %.thread ], [ %96, %17 ]
+  %.be26 = phi i32 [ %111, %.thread ], [ %96, %17 ]
   br label %20, !llvm.loop !68
 
 .thread6:                                         ; preds = %24, %.thread, %17, %3
-  %112 = phi i32 [ 0, %3 ], [ %22, %24 ], [ %96, %17 ], [ %110, %.thread ]
-  ret i32 %112
+  %113 = phi i32 [ 0, %3 ], [ %22, %24 ], [ %96, %17 ], [ %111, %.thread ]
+  ret i32 %113
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

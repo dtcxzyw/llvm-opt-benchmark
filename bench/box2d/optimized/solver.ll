@@ -1670,9 +1670,9 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !224
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph245, label %._crit_edge246
+  br i1 %27, label %.lr.ph244, label %._crit_edge245
 
-.lr.ph245:                                        ; preds = %18
+.lr.ph244:                                        ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 1628
   %30 = icmp sgt i32 %10, 0
@@ -1686,28 +1686,28 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
   %wide.trip.count = zext i32 %37 to i64
   br label %43
 
-._crit_edge246.loopexit:                          ; preds = %._crit_edge240
+._crit_edge245.loopexit:                          ; preds = %._crit_edge239
   %38 = shl i32 %175, 16
-  br label %._crit_edge246
+  br label %._crit_edge245
 
-._crit_edge246:                                   ; preds = %._crit_edge246.loopexit, %18
-  %.0140.lcssa = phi i32 [ 65536, %18 ], [ %38, %._crit_edge246.loopexit ]
+._crit_edge245:                                   ; preds = %._crit_edge245.loopexit, %18
+  %.0140.lcssa = phi i32 [ 65536, %18 ], [ %38, %._crit_edge245.loopexit ]
   %reass.add = shl i32 %10, 1
   %39 = add i32 %10, 4
   %40 = add i32 %39, %reass.add
   call void @b2ApplyOverflowRestitution(ptr noundef %8) #8
   %41 = icmp sgt i32 %10, 0
-  br i1 %41, label %.lr.ph251, label %._crit_edge252
+  br i1 %41, label %.lr.ph250, label %._crit_edge251
 
-.lr.ph251:                                        ; preds = %._crit_edge246
+.lr.ph250:                                        ; preds = %._crit_edge245
   %42 = sext i32 %40 to i64
   br label %246
 
-43:                                               ; preds = %.lr.ph245, %._crit_edge240
-  %.0243 = phi i32 [ 1, %.lr.ph245 ], [ %116, %._crit_edge240 ]
-  %.0140242 = phi i32 [ 1, %.lr.ph245 ], [ %175, %._crit_edge240 ]
-  %.0151241 = phi i32 [ 0, %.lr.ph245 ], [ %179, %._crit_edge240 ]
-  %44 = shl i32 %.0243, 16
+43:                                               ; preds = %.lr.ph244, %._crit_edge239
+  %.0242 = phi i32 [ 1, %.lr.ph244 ], [ %116, %._crit_edge239 ]
+  %.0140241 = phi i32 [ 1, %.lr.ph244 ], [ %175, %._crit_edge239 ]
+  %.0151240 = phi i32 [ 0, %.lr.ph244 ], [ %179, %._crit_edge239 ]
+  %44 = shl i32 %.0242, 16
   %45 = or disjoint i32 %44, 2
   call fastcc void @b2ExecuteMainStage(ptr noundef nonnull %28, ptr noundef %8, i32 noundef %45)
   %46 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
@@ -1716,13 +1716,13 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
   store float %48, ptr %29, align 4, !tbaa !225
   call void @b2WarmStartOverflowJoints(ptr noundef %8) #8
   call void @b2WarmStartOverflowContacts(ptr noundef %8) #8
-  br i1 %30, label %.lr.ph227, label %._crit_edge228
+  br i1 %30, label %.lr.ph226, label %._crit_edge227
 
-.lr.ph227:                                        ; preds = %43
-  %49 = shl i32 %.0140242, 16
+.lr.ph226:                                        ; preds = %43
+  %49 = shl i32 %.0140241, 16
   br label %56
 
-._crit_edge228:                                   ; preds = %b2ExecuteMainStage.exit, %43
+._crit_edge227:                                   ; preds = %b2ExecuteMainStage.exit, %43
   %.0148.lcssa = phi i32 [ 3, %43 ], [ %37, %b2ExecuteMainStage.exit ]
   %50 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %51 = load float, ptr %33, align 4, !tbaa !226
@@ -1730,16 +1730,16 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
   store float %52, ptr %33, align 4, !tbaa !226
   call void @b2SolveOverflowJoints(ptr noundef %8, i1 noundef zeroext true) #8
   call void @b2SolveOverflowContacts(ptr noundef %8, i1 noundef zeroext true) #8
-  br i1 %30, label %.lr.ph233, label %._crit_edge234
+  br i1 %30, label %.lr.ph232, label %._crit_edge233
 
-.lr.ph233:                                        ; preds = %._crit_edge228
-  %53 = shl i32 %.0140242, 16
+.lr.ph232:                                        ; preds = %._crit_edge227
+  %53 = shl i32 %.0140241, 16
   %54 = add i32 %53, 65536
   %55 = zext i32 %.0148.lcssa to i64
   br label %122
 
-56:                                               ; preds = %.lr.ph227, %b2ExecuteMainStage.exit
-  %indvars.iv = phi i64 [ 3, %.lr.ph227 ], [ %indvars.iv.next, %b2ExecuteMainStage.exit ]
+56:                                               ; preds = %.lr.ph226, %b2ExecuteMainStage.exit
+  %indvars.iv = phi i64 [ 3, %.lr.ph226 ], [ %indvars.iv.next, %b2ExecuteMainStage.exit ]
   %57 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8, !tbaa !123
@@ -1854,14 +1854,14 @@ b2ExecuteStage.exit.i:                            ; preds = %._crit_edge.i.i, %G
 b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge228, label %56, !llvm.loop !230
+  br i1 %exitcond.not, label %._crit_edge227, label %56, !llvm.loop !230
 
-._crit_edge234.loopexit:                          ; preds = %b2ExecuteMainStage.exit181
-  %108 = trunc nuw i64 %indvars.iv.next266 to i32
-  br label %._crit_edge234
+._crit_edge233.loopexit:                          ; preds = %b2ExecuteMainStage.exit181
+  %108 = trunc nuw i64 %indvars.iv.next265 to i32
+  br label %._crit_edge233
 
-._crit_edge234:                                   ; preds = %._crit_edge234.loopexit, %._crit_edge228
-  %.1149.lcssa = phi i32 [ %.0148.lcssa, %._crit_edge228 ], [ %108, %._crit_edge234.loopexit ]
+._crit_edge233:                                   ; preds = %._crit_edge233.loopexit, %._crit_edge227
+  %.1149.lcssa = phi i32 [ %.0148.lcssa, %._crit_edge227 ], [ %108, %._crit_edge233.loopexit ]
   %109 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %110 = load float, ptr %34, align 4, !tbaa !231
   %111 = fadd float %109, %110
@@ -1871,24 +1871,24 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
   %114 = zext i32 %.1149.lcssa to i64
   %115 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %114
   call fastcc void @b2ExecuteMainStage(ptr noundef nonnull %115, ptr noundef %8, i32 noundef %113)
-  %116 = add nuw nsw i32 %.0243, 2
+  %116 = add nuw nsw i32 %.0242, 2
   %117 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %118 = load float, ptr %35, align 4, !tbaa !232
   %119 = fadd float %117, %118
   store float %119, ptr %35, align 4, !tbaa !232
   call void @b2SolveOverflowJoints(ptr noundef %8, i1 noundef zeroext false) #8
   call void @b2SolveOverflowContacts(ptr noundef %8, i1 noundef zeroext false) #8
-  br i1 %30, label %.lr.ph239, label %._crit_edge240
+  br i1 %30, label %.lr.ph238, label %._crit_edge239
 
-.lr.ph239:                                        ; preds = %._crit_edge234
-  %120 = shl i32 %.0140242, 16
+.lr.ph238:                                        ; preds = %._crit_edge233
+  %120 = shl i32 %.0140241, 16
   %121 = add i32 %120, 131072
   br label %180
 
-122:                                              ; preds = %.lr.ph233, %b2ExecuteMainStage.exit181
-  %indvars.iv265 = phi i64 [ %55, %.lr.ph233 ], [ %indvars.iv.next266, %b2ExecuteMainStage.exit181 ]
-  %.0146231 = phi i32 [ 0, %.lr.ph233 ], [ %174, %b2ExecuteMainStage.exit181 ]
-  %123 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv265
+122:                                              ; preds = %.lr.ph232, %b2ExecuteMainStage.exit181
+  %indvars.iv264 = phi i64 [ %55, %.lr.ph232 ], [ %indvars.iv.next265, %b2ExecuteMainStage.exit181 ]
+  %.0146230 = phi i32 [ 0, %.lr.ph232 ], [ %174, %b2ExecuteMainStage.exit181 ]
+  %123 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv264
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i32, ptr %124, align 8, !tbaa !123
   switch i32 %125, label %129 [
@@ -1903,7 +1903,7 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
   br label %b2ExecuteMainStage.exit181
 
 129:                                              ; preds = %122
-  %130 = trunc nuw i64 %indvars.iv265 to i32
+  %130 = trunc nuw i64 %indvars.iv264 to i32
   %131 = or i32 %54, %130
   store atomic i32 %131, ptr %31 seq_cst, align 4
   %132 = lshr i32 %131, 16
@@ -2000,26 +2000,26 @@ b2ExecuteStage.exit.i158:                         ; preds = %._crit_edge.i.i168,
   br label %b2ExecuteMainStage.exit181
 
 b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_edge.i162
-  %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
-  %174 = add nuw nsw i32 %.0146231, 1
-  %exitcond268.not = icmp eq i32 %174, %10
-  br i1 %exitcond268.not, label %._crit_edge234.loopexit, label %122, !llvm.loop !233
+  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
+  %174 = add nuw nsw i32 %.0146230, 1
+  %exitcond267.not = icmp eq i32 %174, %10
+  br i1 %exitcond267.not, label %._crit_edge233.loopexit, label %122, !llvm.loop !233
 
-._crit_edge240:                                   ; preds = %b2ExecuteMainStage.exit207, %._crit_edge234
-  %175 = add nuw nsw i32 %.0140242, 3
+._crit_edge239:                                   ; preds = %b2ExecuteMainStage.exit207, %._crit_edge233
+  %175 = add nuw nsw i32 %.0140241, 3
   %176 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %177 = load float, ptr %36, align 4, !tbaa !234
   %178 = fadd float %176, %177
   store float %178, ptr %36, align 4, !tbaa !234
-  %179 = add nuw nsw i32 %.0151241, 1
-  %exitcond273.not = icmp eq i32 %179, %26
-  br i1 %exitcond273.not, label %._crit_edge246.loopexit, label %43, !llvm.loop !235
+  %179 = add nuw nsw i32 %.0151240, 1
+  %exitcond272.not = icmp eq i32 %179, %26
+  br i1 %exitcond272.not, label %._crit_edge245.loopexit, label %43, !llvm.loop !235
 
-180:                                              ; preds = %.lr.ph239, %b2ExecuteMainStage.exit207
-  %indvars.iv269 = phi i64 [ %114, %.lr.ph239 ], [ %indvars.iv.next270, %b2ExecuteMainStage.exit207 ]
-  %.0145237 = phi i32 [ 0, %.lr.ph239 ], [ %232, %b2ExecuteMainStage.exit207 ]
-  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %181 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv.next270
+180:                                              ; preds = %.lr.ph238, %b2ExecuteMainStage.exit207
+  %indvars.iv268 = phi i64 [ %114, %.lr.ph238 ], [ %indvars.iv.next269, %b2ExecuteMainStage.exit207 ]
+  %.0145236 = phi i32 [ 0, %.lr.ph238 ], [ %232, %b2ExecuteMainStage.exit207 ]
+  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
+  %181 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv.next269
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load i32, ptr %182, align 8, !tbaa !123
   switch i32 %183, label %187 [
@@ -2034,7 +2034,7 @@ b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_
   br label %b2ExecuteMainStage.exit207
 
 187:                                              ; preds = %180
-  %188 = trunc nuw i64 %indvars.iv.next270 to i32
+  %188 = trunc nuw i64 %indvars.iv.next269 to i32
   %189 = or i32 %121, %188
   store atomic i32 %189, ptr %31 seq_cst, align 4
   %190 = lshr i32 %189, 16
@@ -2131,11 +2131,11 @@ b2ExecuteStage.exit.i184:                         ; preds = %._crit_edge.i.i194,
   br label %b2ExecuteMainStage.exit207
 
 b2ExecuteMainStage.exit207:                       ; preds = %180, %184, %._crit_edge.i188
-  %232 = add nuw nsw i32 %.0145237, 1
-  %exitcond272.not = icmp eq i32 %232, %10
-  br i1 %exitcond272.not, label %._crit_edge240, label %180, !llvm.loop !236
+  %232 = add nuw nsw i32 %.0145236, 1
+  %exitcond271.not = icmp eq i32 %232, %10
+  br i1 %exitcond271.not, label %._crit_edge239, label %180, !llvm.loop !236
 
-._crit_edge252:                                   ; preds = %246, %._crit_edge246
+._crit_edge251:                                   ; preds = %246, %._crit_edge245
   %233 = add nsw i32 %40, %10
   %234 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %235 = getelementptr inbounds nuw i8, ptr %14, i64 1648
@@ -2157,27 +2157,27 @@ b2ExecuteMainStage.exit207:                       ; preds = %180, %184, %._crit_
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %b2ExecuteStage.exit.thread
 
-246:                                              ; preds = %.lr.ph251, %246
-  %indvars.iv274 = phi i64 [ %42, %.lr.ph251 ], [ %indvars.iv.next275, %246 ]
-  %.0143249 = phi i32 [ 0, %.lr.ph251 ], [ %250, %246 ]
-  %247 = trunc nsw i64 %indvars.iv274 to i32
+246:                                              ; preds = %.lr.ph250, %246
+  %indvars.iv273 = phi i64 [ %42, %.lr.ph250 ], [ %indvars.iv.next274, %246 ]
+  %.0143248 = phi i32 [ 0, %.lr.ph250 ], [ %250, %246 ]
+  %247 = trunc nsw i64 %indvars.iv273 to i32
   %248 = or i32 %.0140.lcssa, %247
-  %249 = getelementptr inbounds %struct.b2SolverStage, ptr %12, i64 %indvars.iv274
+  %249 = getelementptr inbounds %struct.b2SolverStage, ptr %12, i64 %indvars.iv273
   call fastcc void @b2ExecuteMainStage(ptr noundef %249, ptr noundef %8, i32 noundef %248)
-  %indvars.iv.next275 = add nsw i64 %indvars.iv274, 1
-  %250 = add nuw nsw i32 %.0143249, 1
-  %exitcond277.not = icmp eq i32 %250, %10
-  br i1 %exitcond277.not, label %._crit_edge252, label %246, !llvm.loop !239
+  %indvars.iv.next274 = add nsw i64 %indvars.iv273, 1
+  %250 = add nuw nsw i32 %.0143248, 1
+  %exitcond276.not = icmp eq i32 %250, %10
+  br i1 %exitcond276.not, label %._crit_edge251, label %246, !llvm.loop !239
 
 b2ExecuteStage.exit:                              ; preds = %b2ExecuteStage.exit.backedge, %.preheader
-  %.0141 = phi i32 [ 0, %.preheader ], [ %.lcssa220, %b2ExecuteStage.exit.backedge ]
+  %.0141 = phi i32 [ 0, %.preheader ], [ %.lcssa219, %b2ExecuteStage.exit.backedge ]
   %251 = load atomic i32, ptr %16 seq_cst, align 4
   %252 = icmp eq i32 %251, %.0141
   br i1 %252, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %b2ExecuteStage.exit, %257
-  %.0139223 = phi i32 [ %.1, %257 ], [ 0, %b2ExecuteStage.exit ]
-  %253 = icmp sgt i32 %.0139223, 5
+  %.0139222 = phi i32 [ %.1, %257 ], [ 0, %b2ExecuteStage.exit ]
+  %253 = icmp sgt i32 %.0139222, 5
   br i1 %253, label %254, label %255
 
 254:                                              ; preds = %.lr.ph
@@ -2187,7 +2187,7 @@ b2ExecuteStage.exit:                              ; preds = %b2ExecuteStage.exit
 255:                                              ; preds = %.lr.ph
   tail call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !228
   tail call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !228
-  %256 = add nsw i32 %.0139223, 1
+  %256 = add nsw i32 %.0139222, 1
   br label %257
 
 257:                                              ; preds = %255, %254
@@ -2197,13 +2197,13 @@ b2ExecuteStage.exit:                              ; preds = %b2ExecuteStage.exit
   br i1 %259, label %.lr.ph, label %._crit_edge, !llvm.loop !240
 
 ._crit_edge:                                      ; preds = %257, %b2ExecuteStage.exit
-  %.lcssa220 = phi i32 [ %251, %b2ExecuteStage.exit ], [ %258, %257 ]
-  %260 = icmp eq i32 %.lcssa220, -1
+  %.lcssa219 = phi i32 [ %251, %b2ExecuteStage.exit ], [ %258, %257 ]
+  %260 = icmp eq i32 %.lcssa219, -1
   br i1 %260, label %b2ExecuteStage.exit.thread, label %261
 
 261:                                              ; preds = %._crit_edge
-  %262 = and i32 %.lcssa220, 65535
-  %263 = lshr i32 %.lcssa220, 16
+  %262 = and i32 %.lcssa219, 65535
+  %263 = lshr i32 %.lcssa219, 16
   %264 = add nsw i32 %263, -1
   %265 = zext nneg i32 %262 to i64
   %266 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %265
@@ -2294,7 +2294,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %274, %272
 b2ExecuteStage.exit.backedge:                     ; preds = %._crit_edge.i209, %GetWorkerStartIndex.exit.i, %272
   br label %b2ExecuteStage.exit
 
-b2ExecuteStage.exit.thread:                       ; preds = %._crit_edge, %._crit_edge252
+b2ExecuteStage.exit.thread:                       ; preds = %._crit_edge, %._crit_edge251
   ret void
 }
 

@@ -4180,25 +4180,25 @@ declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Modifiers_filterAttrs___spec__1(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %.not53 = icmp eq i64 %2, %3
-  br i1 %.not53, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not51 = icmp eq i64 %2, %3
+  br i1 %.not51, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %5
   %.pre = ptrtoint ptr %0 to i64
-  %.pre56 = and i64 %.pre, 1
+  %.pre54 = and i64 %.pre, 1
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = ptrtoint ptr %0 to i64
   %8 = and i64 %7, 1
-  %.not50 = icmp eq i64 %8, 0
+  %.not48 = icmp eq i64 %8, 0
   br label %9
 
 9:                                                ; preds = %.lr.ph, %lean_dec.exit31
-  %.02555 = phi i64 [ %2, %.lr.ph ], [ %42, %lean_dec.exit31 ]
-  %.02754 = phi ptr [ %4, %.lr.ph ], [ %.229, %lean_dec.exit31 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02555
+  %.02553 = phi i64 [ %2, %.lr.ph ], [ %42, %lean_dec.exit31 ]
+  %.02752 = phi ptr [ %4, %.lr.ph ], [ %.229, %lean_dec.exit31 ]
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02553
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -4224,7 +4224,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Modifiers_filterAttrs___spe
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %9, %16, %18, %19
-  br i1 %.not50, label %20, label %lean_inc.exit30
+  br i1 %.not48, label %20, label %lean_inc.exit30
 
 20:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -4269,8 +4269,8 @@ lean_inc.exit:                                    ; preds = %31, %30, %28, %lean
   %32 = tail call ptr @lean_apply_1(ptr noundef %0, ptr noundef %11) #7
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 1
-  %.not52 = icmp eq i64 %34, 0
-  br i1 %.not52, label %35, label %lean_dec.exit32
+  %.not50 = icmp eq i64 %34, 0
+  br i1 %.not50, label %35, label %lean_dec.exit32
 
 35:                                               ; preds = %lean_inc.exit
   %36 = load i32, ptr %32, align 4, !tbaa !4
@@ -4291,7 +4291,7 @@ lean_inc.exit:                                    ; preds = %31, %30, %28, %lean
   br label %lean_dec.exit32
 
 lean_dec.exit32:                                  ; preds = %41, %40, %38, %lean_inc.exit
-  %42 = add i64 %.02555, 1
+  %42 = add i64 %.02553, 1
   %43 = and i64 %33, 510
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %53
@@ -4318,14 +4318,14 @@ lean_dec.exit32:                                  ; preds = %41, %40, %38, %lean
   br label %lean_dec.exit31
 
 53:                                               ; preds = %lean_dec.exit32
-  %54 = tail call ptr @lean_array_push(ptr noundef %.02754, ptr noundef %11) #7
+  %54 = tail call ptr @lean_array_push(ptr noundef %.02752, ptr noundef %11) #7
   br label %lean_dec.exit31
 
 ._crit_edge:                                      ; preds = %lean_dec.exit31, %.._crit_edge_crit_edge
-  %.pre-phi57 = phi i64 [ %.pre56, %.._crit_edge_crit_edge ], [ %8, %lean_dec.exit31 ]
+  %.pre-phi55 = phi i64 [ %.pre54, %.._crit_edge_crit_edge ], [ %8, %lean_dec.exit31 ]
   %.027.lcssa = phi ptr [ %4, %.._crit_edge_crit_edge ], [ %.229, %lean_dec.exit31 ]
-  %.not49 = icmp eq i64 %.pre-phi57, 0
-  br i1 %.not49, label %55, label %62
+  %.not47 = icmp eq i64 %.pre-phi55, 0
+  br i1 %.not47, label %55, label %62
 
 55:                                               ; preds = %._crit_edge
   %56 = load i32, ptr %0, align 4, !tbaa !4
@@ -4346,7 +4346,7 @@ lean_dec.exit32:                                  ; preds = %41, %40, %38, %lean
   br label %62
 
 lean_dec.exit31:                                  ; preds = %45, %49, %51, %52, %53
-  %.229 = phi ptr [ %54, %53 ], [ %.02754, %52 ], [ %.02754, %51 ], [ %.02754, %49 ], [ %.02754, %45 ]
+  %.229 = phi ptr [ %54, %53 ], [ %.02752, %52 ], [ %.02752, %51 ], [ %.02752, %49 ], [ %.02752, %45 ]
   %.not = icmp eq i64 %42, %3
   br i1 %.not, label %._crit_edge, label %9
 

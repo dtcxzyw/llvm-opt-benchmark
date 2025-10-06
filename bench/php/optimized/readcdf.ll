@@ -1030,11 +1030,11 @@ define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr noundef 
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %4 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %0, i64 noundef %3) #7
   %5 = load ptr, ptr %1, align 8, !tbaa !60
-  %.not26 = icmp eq ptr %5, null
-  br i1 %.not26, label %.loopexit, label %.lr.ph
+  %.not25 = icmp eq ptr %5, null
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
-  %7 = add i64 %.01727, 1
+  %7 = add i64 %.01726, 1
   %8 = getelementptr inbounds nuw %struct.nv, ptr %1, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !60
   %.not = icmp eq ptr %9, null
@@ -1042,7 +1042,7 @@ define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %2, %6
   %10 = phi ptr [ %9, %6 ], [ %5, %2 ]
-  %.01727 = phi i64 [ %7, %6 ], [ 0, %2 ]
+  %.01726 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
   %12 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %10, i64 noundef %11) #7
   %13 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %12) #9
@@ -1051,7 +1051,7 @@ define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not20, label %6, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw %struct.nv, ptr %1, i64 %.01727
+  %15 = getelementptr inbounds nuw %struct.nv, ptr %1, i64 %.01726
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !62
   br label %.loopexit

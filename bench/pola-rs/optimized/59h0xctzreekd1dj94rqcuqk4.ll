@@ -176944,8 +176944,8 @@ define noundef zeroext i1 @_ZN10polars_ops5frame4join4args8JoinArgs15should_coal
     i64 0, label %10
     i64 1, label %10
     i64 2, label %10
-    i64 3, label %12
-    i64 4, label %15
+    i64 3, label %13
+    i64 4, label %16
     i64 5, label %_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit
     i64 6, label %_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit
     i64 7, label %_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit
@@ -176957,21 +176957,21 @@ define noundef zeroext i1 @_ZN10polars_ops5frame4join4args8JoinArgs15should_coal
 
 10:                                               ; preds = %1, %1, %1
   %11 = load i8, ptr %2, align 2, !range !2394, !alias.scope !18749, !noalias !18752, !noundef !6
-  %switch.i = icmp samesign ult i8 %11, 2
+  %12 = icmp ne i8 %11, 2
   br label %_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit
 
-12:                                               ; preds = %1
-  %13 = load i8, ptr %2, align 2, !range !2394, !alias.scope !18749, !noalias !18752, !noundef !6
-  %14 = icmp eq i8 %13, 1
+13:                                               ; preds = %1
+  %14 = load i8, ptr %2, align 2, !range !2394, !alias.scope !18749, !noalias !18752, !noundef !6
+  %15 = icmp eq i8 %14, 1
   br label %_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit
 
-15:                                               ; preds = %1
-  %16 = load i8, ptr %2, align 2, !range !2394, !alias.scope !18749, !noalias !18752, !noundef !6
-  %switch1.i = icmp samesign ult i8 %16, 2
+16:                                               ; preds = %1
+  %17 = load i8, ptr %2, align 2, !range !2394, !alias.scope !18749, !noalias !18752, !noundef !6
+  %18 = icmp ne i8 %17, 2
   br label %_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit
 
-_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit: ; preds = %1, %1, %1, %1, %10, %12, %15
-  %.sroa.0.0.i = phi i1 [ %14, %12 ], [ %switch.i, %10 ], [ %switch1.i, %15 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesce17hb2b55ce98b48d0cfE.exit: ; preds = %1, %1, %1, %1, %10, %13, %16
+  %.sroa.0.0.i = phi i1 [ %15, %13 ], [ %12, %10 ], [ %18, %16 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -176988,12 +176988,12 @@ define noundef zeroext i1 @_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesc
     i64 0, label %10
     i64 1, label %10
     i64 2, label %10
-    i64 3, label %12
-    i64 4, label %15
-    i64 5, label %17
-    i64 6, label %17
-    i64 7, label %17
-    i64 8, label %17
+    i64 3, label %13
+    i64 4, label %16
+    i64 5, label %19
+    i64 6, label %19
+    i64 7, label %19
+    i64 8, label %19
   ]
 
 9:                                                ; preds = %2
@@ -177001,21 +177001,21 @@ define noundef zeroext i1 @_ZN10polars_ops5frame4join4args12JoinCoalesce8coalesc
 
 10:                                               ; preds = %2, %2, %2
   %11 = load i8, ptr %0, align 1, !range !2394, !noundef !6
-  %switch = icmp samesign ult i8 %11, 2
-  br label %17
+  %12 = icmp ne i8 %11, 2
+  br label %19
 
-12:                                               ; preds = %2
-  %13 = load i8, ptr %0, align 1, !range !2394, !noundef !6
-  %14 = icmp eq i8 %13, 1
-  br label %17
+13:                                               ; preds = %2
+  %14 = load i8, ptr %0, align 1, !range !2394, !noundef !6
+  %15 = icmp eq i8 %14, 1
+  br label %19
 
-15:                                               ; preds = %2
-  %16 = load i8, ptr %0, align 1, !range !2394, !noundef !6
-  %switch1 = icmp samesign ult i8 %16, 2
-  br label %17
+16:                                               ; preds = %2
+  %17 = load i8, ptr %0, align 1, !range !2394, !noundef !6
+  %18 = icmp ne i8 %17, 2
+  br label %19
 
-17:                                               ; preds = %2, %2, %2, %2, %15, %10, %12
-  %.sroa.0.0 = phi i1 [ %14, %12 ], [ %switch, %10 ], [ %switch1, %15 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+19:                                               ; preds = %2, %2, %2, %2, %16, %10, %13
+  %.sroa.0.0 = phi i1 [ %15, %13 ], [ %12, %10 ], [ %18, %16 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 

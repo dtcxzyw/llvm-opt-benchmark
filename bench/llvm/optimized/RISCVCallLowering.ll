@@ -800,8 +800,8 @@ define dso_local void @_ZNK4llvm17RISCVCallLowering19saveVarArgRegistersERNS_16M
   %29 = extractvalue { ptr, i64 } %27, 1
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !232
-  %.not16.i = icmp eq i64 %29, 0
-  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not14.i = icmp eq i64 %29, 0
+  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -810,7 +810,7 @@ define dso_local void @_ZNK4llvm17RISCVCallLowering19saveVarArgRegistersERNS_16M
 
 34:                                               ; preds = %46, %.lr.ph.i
   %35 = phi i64 [ 0, %.lr.ph.i ], [ %48, %46 ]
-  %.0615.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %46 ]
+  %.0613.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %46 ]
   %36 = getelementptr inbounds nuw i16, ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !419
   %38 = zext i16 %37 to i32
@@ -825,7 +825,7 @@ define dso_local void @_ZNK4llvm17RISCVCallLowering19saveVarArgRegistersERNS_16M
   br i1 %.not.i, label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit, label %46
 
 46:                                               ; preds = %34
-  %47 = add i32 %.0615.i, 1
+  %47 = add i32 %.0613.i, 1
   %48 = zext i32 %47 to i64
   %49 = icmp ugt i64 %29, %48
   br i1 %49, label %34, label %._crit_edge.i, !llvm.loop !420
@@ -840,7 +840,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit: ; preds =
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit, %._crit_edge.i
   %.pre-phi = phi i32 [ %.pre, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit ], [ %50, %._crit_edge.i ]
-  %.1.i = phi i32 [ %.0615.i, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit ], [ %50, %._crit_edge.i ]
+  %.1.i = phi i32 [ %.0613.i, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit ], [ %50, %._crit_edge.i ]
   %51 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !421
   %53 = getelementptr inbounds nuw i8, ptr %18, i64 40

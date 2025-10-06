@@ -585,8 +585,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit145:              ; preds = %234, %236
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %241 = load i8, ptr %240, align 8, !tbaa !35, !noalias !43
   %242 = icmp ne i8 %241, 5
-  %.not.not8.i = icmp eq ptr %239, null
-  %.not.not.i = or i1 %.not.not8.i, %242
+  %.not.not7.i = icmp eq ptr %239, null
+  %.not.not.i = or i1 %.not.not7.i, %242
   br i1 %.not.not.i, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit145
@@ -884,8 +884,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29.i:             ; preds = %379, %377
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %384 = load i8, ptr %383, align 8, !tbaa !35
   %385 = icmp ne i8 %384, 19
-  %.not.not9.i.i = icmp eq ptr %382, null
-  %.not.not.i.i = or i1 %.not.not9.i.i, %385
+  %.not.not8.i.i = icmp eq ptr %382, null
+  %.not.not.i.i = or i1 %.not.not8.i.i, %385
   br i1 %.not.not.i.i, label %_ZL14getStringValueRKN4llvm6RecordENS_9StringRefE.exit.i, label %386
 
 386:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29.i
@@ -1308,8 +1308,8 @@ _ZN4llvm11raw_ostreamlsEc.exit176:                ; preds = %563, %565
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 8
   %569 = load i8, ptr %568, align 8, !tbaa !35, !noalias !125
   %570 = icmp ne i8 %569, 5
-  %.not.not8.i.i = icmp eq ptr %567, null
-  %.not.not.i.i177 = or i1 %.not.not8.i.i, %570
+  %.not.not7.i.i = icmp eq ptr %567, null
+  %.not.not.i.i177 = or i1 %.not.not7.i.i, %570
   br i1 %.not.not.i.i177, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit176
@@ -1326,8 +1326,8 @@ _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i: ; pre
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
   %575 = load i8, ptr %574, align 8, !tbaa !35, !noalias !126
   %576 = icmp ne i8 %575, 5
-  %.not.not8.i297 = icmp eq ptr %573, null
-  %.not.not.i298 = or i1 %.not.not8.i297, %576
+  %.not.not7.i297 = icmp eq ptr %573, null
+  %.not.not.i298 = or i1 %.not.not7.i297, %576
   br i1 %.not.not.i298, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit300.thread, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit300
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit300.thread: ; preds = %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i
@@ -1458,8 +1458,8 @@ _ZN4llvm11raw_ostreamlsEc.exit190:                ; preds = %623, %625
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 8
   %629 = load i8, ptr %628, align 8, !tbaa !35, !noalias !138
   %630 = icmp ne i8 %629, 5
-  %.not.not8.i.i191 = icmp eq ptr %627, null
-  %.not.not.i.i192 = or i1 %.not.not8.i.i191, %630
+  %.not.not7.i.i191 = icmp eq ptr %627, null
+  %.not.not.i.i192 = or i1 %.not.not7.i.i191, %630
   br i1 %.not.not.i.i192, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i197, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i193
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i197: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit190
@@ -1476,8 +1476,8 @@ _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i193: ; 
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 8
   %635 = load i8, ptr %634, align 8, !tbaa !35, !noalias !139
   %636 = icmp ne i8 %635, 5
-  %.not.not8.i301 = icmp eq ptr %633, null
-  %.not.not.i302 = or i1 %.not.not8.i301, %636
+  %.not.not7.i301 = icmp eq ptr %633, null
+  %.not.not.i302 = or i1 %.not.not7.i301, %636
   br i1 %.not.not.i302, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit304.thread, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit304
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit304.thread: ; preds = %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i193
@@ -1746,8 +1746,8 @@ _ZN4llvm11raw_ostreamlsEc.exit225:                ; preds = %745, %747
   %750 = getelementptr inbounds nuw i8, ptr %749, i64 8
   %751 = load i8, ptr %750, align 8, !tbaa !35, !noalias !151
   %752 = icmp ne i8 %751, 5
-  %.not.not8.i.i226 = icmp eq ptr %749, null
-  %.not.not.i.i227 = or i1 %.not.not8.i.i226, %752
+  %.not.not7.i.i226 = icmp eq ptr %749, null
+  %.not.not.i.i227 = or i1 %.not.not7.i.i226, %752
   br i1 %.not.not.i.i227, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i232, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i228
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i232: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit225
@@ -1764,8 +1764,8 @@ _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i228: ; 
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
   %757 = load i8, ptr %756, align 8, !tbaa !35, !noalias !152
   %758 = icmp ne i8 %757, 5
-  %.not.not8.i305 = icmp eq ptr %755, null
-  %.not.not.i306 = or i1 %.not.not8.i305, %758
+  %.not.not7.i305 = icmp eq ptr %755, null
+  %.not.not.i306 = or i1 %.not.not7.i305, %758
   br i1 %.not.not.i306, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit308.thread, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit308
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit308.thread: ; preds = %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i228
@@ -1896,8 +1896,8 @@ _ZN4llvm11raw_ostreamlsEc.exit243:                ; preds = %805, %807
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 8
   %811 = load i8, ptr %810, align 8, !tbaa !35, !noalias !164
   %812 = icmp ne i8 %811, 5
-  %.not.not8.i.i244 = icmp eq ptr %809, null
-  %.not.not.i.i245 = or i1 %.not.not8.i.i244, %812
+  %.not.not7.i.i244 = icmp eq ptr %809, null
+  %.not.not.i.i245 = or i1 %.not.not7.i.i244, %812
   br i1 %.not.not.i.i245, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i250, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i246
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i250: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit243
@@ -1914,8 +1914,8 @@ _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i246: ; 
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
   %817 = load i8, ptr %816, align 8, !tbaa !35, !noalias !165
   %818 = icmp ne i8 %817, 5
-  %.not.not8.i309 = icmp eq ptr %815, null
-  %.not.not.i310 = or i1 %.not.not8.i309, %818
+  %.not.not7.i309 = icmp eq ptr %815, null
+  %.not.not.i310 = or i1 %.not.not7.i309, %818
   br i1 %.not.not.i310, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit312.thread, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit312
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit312.thread: ; preds = %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i246
@@ -2139,8 +2139,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit271:              ; preds = %905, %907
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 8
   %912 = load i8, ptr %911, align 8, !tbaa !35, !noalias !177
   %913 = icmp ne i8 %912, 5
-  %.not.not8.i.i272 = icmp eq ptr %910, null
-  %.not.not.i.i273 = or i1 %.not.not8.i.i272, %913
+  %.not.not7.i.i272 = icmp eq ptr %910, null
+  %.not.not.i.i273 = or i1 %.not.not7.i.i272, %913
   br i1 %.not.not.i.i273, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i278, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i274
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread.i278: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit271
@@ -2157,8 +2157,8 @@ _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i274: ; 
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 8
   %918 = load i8, ptr %917, align 8, !tbaa !35, !noalias !178
   %919 = icmp ne i8 %918, 5
-  %.not.not8.i313 = icmp eq ptr %916, null
-  %.not.not.i314 = or i1 %.not.not8.i313, %919
+  %.not.not7.i313 = icmp eq ptr %916, null
+  %.not.not.i314 = or i1 %.not.not7.i313, %919
   br i1 %.not.not.i314, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit316.thread, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit316
 
 _ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit316.thread: ; preds = %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i274
@@ -2508,8 +2508,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %92, %94
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i8, ptr %97, align 8, !tbaa !35
   %99 = icmp ne i8 %98, 19
-  %.not.not9.i = icmp eq ptr %96, null
-  %.not.not.i = or i1 %.not.not9.i, %99
+  %.not.not8.i = icmp eq ptr %96, null
+  %.not.not.i = or i1 %.not.not8.i, %99
   br i1 %.not.not.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %_ZL14getStringValueRKN4llvm6RecordENS_9StringRefE.exit
 
 _ZL14getStringValueRKN4llvm6RecordENS_9StringRefE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -2586,8 +2586,8 @@ _ZN4llvm11raw_ostreamlsEc.exit46:                 ; preds = %130, %132
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load i8, ptr %135, align 8, !tbaa !35
   %137 = icmp ne i8 %136, 19
-  %.not.not9.i47 = icmp eq ptr %134, null
-  %.not.not.i48 = or i1 %.not.not9.i47, %137
+  %.not.not8.i47 = icmp eq ptr %134, null
+  %.not.not.i48 = or i1 %.not.not8.i47, %137
   br i1 %.not.not.i48, label %_ZL14getStringValueRKN4llvm6RecordENS_9StringRefE.exit56, label %138
 
 138:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit46
@@ -2643,8 +2643,8 @@ _ZN4llvm11raw_ostreamlsEc.exit62:                 ; preds = %156, %158
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i8, ptr %161, align 8, !tbaa !35
   %163 = icmp ne i8 %162, 19
-  %.not.not9.i63 = icmp eq ptr %160, null
-  %.not.not.i64 = or i1 %.not.not9.i63, %163
+  %.not.not8.i63 = icmp eq ptr %160, null
+  %.not.not.i64 = or i1 %.not.not8.i63, %163
   br i1 %.not.not.i64, label %_ZL14getStringValueRKN4llvm6RecordENS_9StringRefE.exit72, label %164
 
 164:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit62
@@ -2877,8 +2877,8 @@ define internal fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9S
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !35, !noalias !184
   %8 = icmp ne i8 %7, 5
-  %.not.not8.i = icmp eq ptr %5, null
-  %.not.not.i = or i1 %.not.not8.i, %8
+  %.not.not7.i = icmp eq ptr %5, null
+  %.not.not.i = or i1 %.not.not7.i, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not.not.i, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.thread, label %_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit
 
@@ -2944,8 +2944,8 @@ define internal fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6Record
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !35
   %8 = icmp ne i8 %7, 5
-  %.not.not8 = icmp eq ptr %5, null
-  %.not.not = or i1 %.not.not8, %8
+  %.not.not7 = icmp eq ptr %5, null
+  %.not.not = or i1 %.not.not7, %8
   br i1 %.not.not, label %._crit_edge.i.i, label %9
 
 9:                                                ; preds = %4

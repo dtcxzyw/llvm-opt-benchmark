@@ -185,8 +185,8 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %63, ptr %70, align 8
   %71 = add i32 %63, -1
-  %.not.i76 = icmp sgt i32 %71, %66
-  br i1 %.not.i76, label %72, label %r_consonant_pair.exit.thread.sink.split
+  %.not.i73 = icmp sgt i32 %71, %66
+  br i1 %.not.i73, label %72, label %r_consonant_pair.exit.thread.sink.split
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %0, align 8
@@ -200,8 +200,8 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 77:                                               ; preds = %72, %72
   %78 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 4) #2
-  %.not47.i78 = icmp eq i32 %78, 0
-  br i1 %.not47.i78, label %r_consonant_pair.exit.thread.sink.split, label %79
+  %.not47.i75 = icmp eq i32 %78, 0
+  br i1 %.not47.i75, label %r_consonant_pair.exit.thread.sink.split, label %79
 
 79:                                               ; preds = %77
   %80 = load i32, ptr %2, align 8
@@ -209,8 +209,8 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   store i32 %80, ptr %81, align 4
   store i32 %69, ptr %30, align 8
   %82 = load i32, ptr %4, align 4
-  %.not48.i79 = icmp sgt i32 %82, %69
-  br i1 %.not48.i79, label %83, label %r_consonant_pair.exit.thread
+  %.not48.i76 = icmp sgt i32 %82, %69
+  br i1 %.not48.i76, label %83, label %r_consonant_pair.exit.thread
 
 83:                                               ; preds = %79
   %84 = add nsw i32 %82, -1
@@ -230,8 +230,8 @@ r_consonant_pair.exit.thread:                     ; preds = %r_consonant_pair.ex
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %87, ptr %88, align 8
   %89 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_0) #2
-  %.not.i81 = icmp eq i32 %89, 0
-  br i1 %.not.i81, label %97, label %90
+  %.not.i78 = icmp eq i32 %89, 0
+  br i1 %.not.i78, label %97, label %90
 
 90:                                               ; preds = %r_consonant_pair.exit.thread
   %91 = load i32, ptr %2, align 8
@@ -269,8 +269,8 @@ r_consonant_pair.exit.thread:                     ; preds = %r_consonant_pair.ex
   %109 = getelementptr inbounds i8, ptr %107, i64 %108
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
-  %.mask.i82 = and i32 %111, 224
-  %.not81.i = icmp eq i32 %.mask.i82, 96
+  %.mask.i79 = and i32 %111, 224
+  %.not81.i = icmp eq i32 %.mask.i79, 96
   br i1 %.not81.i, label %112, label %r_consonant_pair.exit.thread.i.sink.split
 
 112:                                              ; preds = %106
@@ -367,19 +367,19 @@ r_consonant_pair.exit.thread.i:                   ; preds = %r_consonant_pair.ex
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = icmp slt i32 %152, %155
-  br i1 %156, label %select.unfold108, label %157
+  br i1 %156, label %select.unfold102, label %157
 
 157:                                              ; preds = %r_consonant_pair.exit.thread.i
   %158 = load i32, ptr %30, align 8
   store i32 %155, ptr %30, align 8
   store i32 %152, ptr %88, align 8
   %159 = tail call i32 @in_grouping_b(ptr noundef nonnull %0, ptr noundef nonnull @g_c, i32 noundef 98, i32 noundef 122, i32 noundef 0) #2
-  %.not.i83 = icmp eq i32 %159, 0
-  br i1 %.not.i83, label %161, label %160
+  %.not.i80 = icmp eq i32 %159, 0
+  br i1 %.not.i80, label %161, label %160
 
 160:                                              ; preds = %157
   store i32 %158, ptr %30, align 8
-  br label %select.unfold108
+  br label %select.unfold102
 
 161:                                              ; preds = %157
   %162 = load i32, ptr %2, align 8
@@ -401,20 +401,20 @@ r_consonant_pair.exit.thread.i:                   ; preds = %r_consonant_pair.ex
   %173 = load ptr, ptr %169, align 8
   %174 = tail call i32 @eq_v_b(ptr noundef nonnull %0, ptr noundef %173) #2
   %.not29.i = icmp eq i32 %174, 0
-  br i1 %.not29.i, label %select.unfold108, label %175
+  br i1 %.not29.i, label %select.unfold102, label %175
 
 175:                                              ; preds = %172
   %176 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %177 = icmp sgt i32 %176, -1
-  br i1 %177, label %select.unfold108, label %r_consonant_pair.exit
+  br i1 %177, label %select.unfold102, label %r_consonant_pair.exit
 
-select.unfold108:                                 ; preds = %175, %160, %r_consonant_pair.exit.thread.i, %172
+select.unfold102:                                 ; preds = %175, %160, %r_consonant_pair.exit.thread.i, %172
   %178 = load i32, ptr %30, align 8
   store i32 %178, ptr %2, align 8
   br label %r_consonant_pair.exit
 
-r_consonant_pair.exit:                            ; preds = %175, %161, %83, %54, %59, %145, %94, %149, %121, %select.unfold108
-  %.1 = phi i32 [ 1, %select.unfold108 ], [ %147, %145 ], [ %95, %94 ], [ %150, %149 ], [ %122, %121 ], [ %55, %54 ], [ %60, %59 ], [ %85, %83 ], [ %176, %175 ], [ -1, %161 ]
+r_consonant_pair.exit:                            ; preds = %175, %161, %83, %54, %59, %145, %94, %149, %121, %select.unfold102
+  %.1 = phi i32 [ 1, %select.unfold102 ], [ %147, %145 ], [ %95, %94 ], [ %150, %149 ], [ %122, %121 ], [ %55, %54 ], [ %60, %59 ], [ %85, %83 ], [ %176, %175 ], [ -1, %161 ]
   ret i32 %.1
 }
 

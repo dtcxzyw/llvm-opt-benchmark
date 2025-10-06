@@ -4534,17 +4534,16 @@ define internal noundef i32 @parse_opt_am(ptr noundef readonly captures(none) %0
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %5, align 8, !tbaa !4
-  switch i32 %10, label %11 [
-    i32 -1, label %13
-    i32 0, label %13
-  ]
+  %.off = add i32 %10, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %11, label %13
 
 11:                                               ; preds = %9
   %12 = tail call fastcc ptr @_(ptr noundef nonnull @.str.139)
   tail call void (ptr, ...) @die(ptr noundef %12) #20
   unreachable
 
-13:                                               ; preds = %9, %9
+13:                                               ; preds = %9
   store i32 0, ptr %5, align 8, !tbaa !4
   ret i32 0
 }

@@ -116,31 +116,31 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %2
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
-  %.not19 = icmp eq i32 %6, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not22 = icmp eq i32 %6, 0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %18
-  %.01420 = phi ptr [ %19, %18 ], [ %3, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01420, i64 8
+  %.01423 = phi ptr [ %19, %18 ], [ %3, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %10 = getelementptr inbounds nuw i8, ptr %.01423, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = and i32 %11, 3
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.lr.ph
-  %15 = load i64, ptr %.01420, align 8, !tbaa !14
+  %15 = load i64, ptr %.01423, align 8, !tbaa !14
   %16 = trunc i64 %15 to i32
   %17 = icmp eq i32 %1, %16
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %14, %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %.01420, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.01423, i64 16
   %.not = icmp eq ptr %19, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %18, %14, %2, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit
-  %spec.select = phi ptr [ null, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ null, %2 ], [ %.01420, %14 ], [ null, %18 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %14, %18, %2, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit
+  %20 = phi ptr [ null, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ null, %2 ], [ null, %18 ], [ %.01423, %14 ]
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -155,31 +155,31 @@ _ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit:      ; preds = %2
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
-  %.not19 = icmp eq i32 %6, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not22 = icmp eq i32 %6, 0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit, %18
-  %.01420 = phi ptr [ %19, %18 ], [ %3, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01420, i64 8
+  %.01423 = phi ptr [ %19, %18 ], [ %3, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %10 = getelementptr inbounds nuw i8, ptr %.01423, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = and i32 %11, 3
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.lr.ph
-  %15 = load i64, ptr %.01420, align 8, !tbaa !14
+  %15 = load i64, ptr %.01423, align 8, !tbaa !14
   %16 = trunc i64 %15 to i32
   %17 = icmp eq i32 %1, %16
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %14, %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %.01420, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.01423, i64 16
   %.not = icmp eq ptr %19, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %18, %14, %2, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit
-  %spec.select = phi ptr [ null, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ null, %2 ], [ %.01420, %14 ], [ null, %18 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %14, %18, %2, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit
+  %20 = phi ptr [ null, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ null, %2 ], [ null, %18 ], [ %.01423, %14 ]
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress uwtable

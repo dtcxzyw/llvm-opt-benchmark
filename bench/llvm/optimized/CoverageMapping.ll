@@ -1907,8 +1907,8 @@ _ZNKSt3mapIN4llvm8coverage7CounterES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE4findERS6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %38
-  %.sink43 = phi i64 [ %41, %38 ], [ %37, %34 ]
-  %42 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder8simplifyENS0_7CounterE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %.sink43)
+  %.sink42 = phi i64 [ %41, %38 ], [ %37, %34 ]
+  %42 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder8simplifyENS0_7CounterE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %.sink42)
   %.sroa.7.0.extract.shift29 = lshr i64 %42, 32
   %43 = and i64 %42, 4294967295
   br label %44
@@ -8821,10 +8821,10 @@ define dso_local void @_ZN4llvm8coverage15CoverageMapping15loadFromReadersENS_8A
   store i16 %.sroa.053.0.insert.insert, ptr %12, align 8
   %.idx = shl nuw nsw i64 %2, 3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.not73 = icmp eq i64 %2, 0
-  br i1 %.not73, label %_ZN4llvm5ErrorD2Ev.exit43, label %.lr.ph77
+  %.not71 = icmp eq i64 %2, 0
+  br i1 %.not71, label %_ZN4llvm5ErrorD2Ev.exit43, label %.lr.ph75
 
-.lr.ph77:                                         ; preds = %5
+.lr.ph75:                                         ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -8832,17 +8832,17 @@ define dso_local void @_ZN4llvm8coverage15CoverageMapping15loadFromReadersENS_8A
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 33
   br label %19
 
-19:                                               ; preds = %.lr.ph77, %._crit_edge
-  %.02975 = phi ptr [ %1, %.lr.ph77 ], [ %29, %._crit_edge ]
-  %20 = load ptr, ptr %.02975, align 8, !tbaa !520
+19:                                               ; preds = %.lr.ph75, %._crit_edge
+  %.02973 = phi ptr [ %1, %.lr.ph75 ], [ %29, %._crit_edge ]
+  %20 = load ptr, ptr %.02973, align 8, !tbaa !520
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %20, ptr %7, align 8, !tbaa !522, !alias.scope !524
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 16, i1 false), !alias.scope !524
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %15, i8 0, i64 52, i1 false), !alias.scope !524
   call void @_ZN4llvm8coverage23CoverageMappingIterator9incrementEv(ptr noundef nonnull align 8 dereferenceable(84) %7) #30
   %21 = load ptr, ptr %7, align 8, !tbaa !522
-  %.not6772 = icmp eq ptr %21, null
-  br i1 %.not6772, label %._crit_edge, label %.lr.ph
+  %.not6570 = icmp eq ptr %21, null
+  br i1 %.not6570, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %24
   %22 = load i32, ptr %16, align 8, !tbaa !527, !noalias !528
@@ -8853,14 +8853,14 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.lr.ph
   store ptr null, ptr %0, align 8, !tbaa !107, !alias.scope !531
   call void @_ZN4llvm8coverage15CoverageMapping18loadFunctionRecordERKNS0_21CoverageMappingRecordERNS_22IndexedInstrProfReaderE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(98) %4, ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(492) %3)
   %23 = load ptr, ptr %0, align 8, !tbaa !107
-  %.not68 = icmp eq ptr %23, null
-  br i1 %.not68, label %24, label %.loopexit
+  %.not66 = icmp eq ptr %23, null
+  br i1 %.not66, label %24, label %.loopexit
 
 24:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
   call void @_ZN4llvm8coverage23CoverageMappingIterator9incrementEv(ptr noundef nonnull align 8 dereferenceable(84) %7) #30
   %25 = load ptr, ptr %7, align 8, !tbaa !522
-  %.not67 = icmp eq ptr %25, null
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq ptr %25, null
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 _ZN4llvm8ExpectedIRNS_8coverage21CoverageMappingRecordEED2Ev.exit40: ; preds = %.lr.ph
   %26 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28, !noalias !534
@@ -8878,7 +8878,7 @@ _ZN4llvm8ExpectedIRNS_8coverage21CoverageMappingRecordEED2Ev.exit40: ; preds = %
 
 ._crit_edge:                                      ; preds = %24, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %29 = getelementptr inbounds nuw i8, ptr %.02975, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.02973, i64 8
   %.not = icmp eq ptr %29, %13
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit43, label %19
 

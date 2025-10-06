@@ -420,7 +420,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h9f061aac512e
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 62
   %10 = load i8, ptr %9, align 1, !range !94, !noalias !95, !noundef !3
   %.not.i.i = icmp eq i8 %10, 2
-  br i1 %.not.i.i, label %11, label %28
+  br i1 %.not.i.i, label %11, label %29
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %2, align 1, !range !97, !alias.scope !98, !noalias !99, !noundef !3
@@ -434,37 +434,37 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h9f061aac512e
   %.sroa.02.0.copyload.i.i = load i32, ptr %18, align 4, !noalias !95
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 52
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
-  br i1 %switch.i.i, label %19, label %23
+  %19 = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %11
-  %20 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !95
-  %21 = extractvalue { i32, i32 } %20, 0
-  %22 = extractvalue { i32, i32 } %20, 1
-  br label %24
+20:                                               ; preds = %11
+  %21 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !95
+  %22 = extractvalue { i32, i32 } %21, 0
+  %23 = extractvalue { i32, i32 } %21, 1
+  br label %25
 
-23:                                               ; preds = %11
+24:                                               ; preds = %11
   %.sroa.5.0.copyload.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !noalias !95
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !95
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %19
-  %.sroa.07.0.i.i = phi i32 [ %21, %19 ], [ %.sroa.4.0.copyload.i.i, %23 ]
-  %.sroa.59.0.i.i = phi i32 [ %22, %19 ], [ %.sroa.5.0.copyload.i.i, %23 ]
+25:                                               ; preds = %24, %20
+  %.sroa.07.0.i.i = phi i32 [ %22, %20 ], [ %.sroa.4.0.copyload.i.i, %24 ]
+  %.sroa.59.0.i.i = phi i32 [ %23, %20 ], [ %.sroa.5.0.copyload.i.i, %24 ]
   store i32 1, ptr %18, align 4, !noalias !95
   store i32 %16, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !95
   store i32 %17, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !noalias !95
-  %25 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !101
-  %26 = extractvalue { ptr, i64 } %25, 0
-  %27 = extractvalue { ptr, i64 } %25, 1
-  br label %28
+  %26 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !101
+  %27 = extractvalue { ptr, i64 } %26, 0
+  %28 = extractvalue { ptr, i64 } %26, 1
+  br label %29
 
-28:                                               ; preds = %24, %8
-  %.sroa.9.0.ph = phi i32 [ undef, %8 ], [ %.sroa.59.0.i.i, %24 ]
-  %.sroa.8.0.ph = phi i32 [ undef, %8 ], [ %.sroa.07.0.i.i, %24 ]
-  %.sroa.7.0.ph = phi i64 [ undef, %8 ], [ %27, %24 ]
-  %.sroa.6.0.ph = phi ptr [ undef, %8 ], [ %26, %24 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %8 ], [ 1, %24 ]
+29:                                               ; preds = %25, %8
+  %.sroa.9.0.ph = phi i32 [ undef, %8 ], [ %.sroa.59.0.i.i, %25 ]
+  %.sroa.8.0.ph = phi i32 [ undef, %8 ], [ %.sroa.07.0.i.i, %25 ]
+  %.sroa.7.0.ph = phi i64 [ undef, %8 ], [ %28, %25 ]
+  %.sroa.6.0.ph = phi ptr [ undef, %8 ], [ %27, %25 ]
+  %.sroa.0.0.ph = phi i64 [ 0, %8 ], [ 1, %25 ]
   store i64 %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8
@@ -497,7 +497,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha4d9c0947323
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 62
   %10 = load i8, ptr %9, align 1, !range !94, !noalias !117, !noundef !3
   %.not.i.i = icmp eq i8 %10, 2
-  br i1 %.not.i.i, label %11, label %28
+  br i1 %.not.i.i, label %11, label %29
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %2, align 1, !range !97, !alias.scope !119, !noalias !120, !noundef !3
@@ -511,37 +511,37 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha4d9c0947323
   %.sroa.02.0.copyload.i.i = load i32, ptr %18, align 4, !noalias !117
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 52
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %switch.i.i = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
-  br i1 %switch.i.i, label %19, label %23
+  %19 = icmp eq i32 %.sroa.02.0.copyload.i.i, 0
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %11
-  %20 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !117
-  %21 = extractvalue { i32, i32 } %20, 0
-  %22 = extractvalue { i32, i32 } %20, 1
-  br label %24
+20:                                               ; preds = %11
+  %21 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !117
+  %22 = extractvalue { i32, i32 } %21, 0
+  %23 = extractvalue { i32, i32 } %21, 1
+  br label %25
 
-23:                                               ; preds = %11
+24:                                               ; preds = %11
   %.sroa.5.0.copyload.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !noalias !117
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !117
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %19
-  %.sroa.07.0.i.i = phi i32 [ %21, %19 ], [ %.sroa.4.0.copyload.i.i, %23 ]
-  %.sroa.59.0.i.i = phi i32 [ %22, %19 ], [ %.sroa.5.0.copyload.i.i, %23 ]
+25:                                               ; preds = %24, %20
+  %.sroa.07.0.i.i = phi i32 [ %22, %20 ], [ %.sroa.4.0.copyload.i.i, %24 ]
+  %.sroa.59.0.i.i = phi i32 [ %23, %20 ], [ %.sroa.5.0.copyload.i.i, %24 ]
   store i32 1, ptr %18, align 4, !noalias !117
   store i32 %16, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !117
   store i32 %17, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !noalias !117
-  %25 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !122
-  %26 = extractvalue { ptr, i64 } %25, 0
-  %27 = extractvalue { ptr, i64 } %25, 1
-  br label %28
+  %26 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !122
+  %27 = extractvalue { ptr, i64 } %26, 0
+  %28 = extractvalue { ptr, i64 } %26, 1
+  br label %29
 
-28:                                               ; preds = %24, %8
-  %.sroa.9.0.ph = phi i32 [ undef, %8 ], [ %.sroa.59.0.i.i, %24 ]
-  %.sroa.8.0.ph = phi i32 [ undef, %8 ], [ %.sroa.07.0.i.i, %24 ]
-  %.sroa.7.0.ph = phi i64 [ undef, %8 ], [ %27, %24 ]
-  %.sroa.6.0.ph = phi ptr [ undef, %8 ], [ %26, %24 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %8 ], [ 1, %24 ]
+29:                                               ; preds = %25, %8
+  %.sroa.9.0.ph = phi i32 [ undef, %8 ], [ %.sroa.59.0.i.i, %25 ]
+  %.sroa.8.0.ph = phi i32 [ undef, %8 ], [ %.sroa.07.0.i.i, %25 ]
+  %.sroa.7.0.ph = phi i64 [ undef, %8 ], [ %28, %25 ]
+  %.sroa.6.0.ph = phi ptr [ undef, %8 ], [ %27, %25 ]
+  %.sroa.0.0.ph = phi i64 [ 0, %8 ], [ 1, %25 ]
   store i64 %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8
@@ -740,7 +740,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h605fa929
 
 8:                                                ; preds = %4
   store i64 2, ptr %0, align 8
-  br label %29
+  br label %30
 
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
@@ -762,37 +762,37 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h605fa929
   %.sroa.02.0.copyload.i = load i32, ptr %19, align 4, !noalias !195
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 52
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %switch.i = icmp eq i32 %.sroa.02.0.copyload.i, 0
-  br i1 %switch.i, label %20, label %24
+  %20 = icmp eq i32 %.sroa.02.0.copyload.i, 0
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %12
-  %21 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !195
-  %22 = extractvalue { i32, i32 } %21, 0
-  %23 = extractvalue { i32, i32 } %21, 1
-  br label %25
+21:                                               ; preds = %12
+  %22 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !195
+  %23 = extractvalue { i32, i32 } %22, 0
+  %24 = extractvalue { i32, i32 } %22, 1
+  br label %26
 
-24:                                               ; preds = %12
+25:                                               ; preds = %12
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !195
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !195
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %20
-  %.sroa.07.0.i = phi i32 [ %22, %20 ], [ %.sroa.4.0.copyload.i, %24 ]
-  %.sroa.59.0.i = phi i32 [ %23, %20 ], [ %.sroa.5.0.copyload.i, %24 ]
+26:                                               ; preds = %25, %21
+  %.sroa.07.0.i = phi i32 [ %23, %21 ], [ %.sroa.4.0.copyload.i, %25 ]
+  %.sroa.59.0.i = phi i32 [ %24, %21 ], [ %.sroa.5.0.copyload.i, %25 ]
   store i32 1, ptr %19, align 4, !noalias !195
   store i32 %17, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !195
   store i32 %18, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !195
-  %26 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !198
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = extractvalue { ptr, i64 } %26, 1
+  %27 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !198
+  %28 = extractvalue { ptr, i64 } %27, 0
+  %29 = extractvalue { ptr, i64 } %27, 1
   br label %"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17h1253ccc0421d3377E.llvm.8630602682982378532.exit"
 
-"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17h1253ccc0421d3377E.llvm.8630602682982378532.exit": ; preds = %9, %25
-  %.sroa.6.0 = phi i32 [ %.sroa.07.0.i, %25 ], [ undef, %9 ]
-  %.sroa.5.0 = phi i64 [ %28, %25 ], [ undef, %9 ]
-  %.sroa.4.0 = phi ptr [ %27, %25 ], [ undef, %9 ]
-  %.sroa.7.0 = phi i32 [ %.sroa.59.0.i, %25 ], [ undef, %9 ]
-  %storemerge.i = phi i64 [ 1, %25 ], [ 0, %9 ]
+"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17h1253ccc0421d3377E.llvm.8630602682982378532.exit": ; preds = %9, %26
+  %.sroa.6.0 = phi i32 [ %.sroa.07.0.i, %26 ], [ undef, %9 ]
+  %.sroa.5.0 = phi i64 [ %29, %26 ], [ undef, %9 ]
+  %.sroa.4.0 = phi ptr [ %28, %26 ], [ undef, %9 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.59.0.i, %26 ], [ undef, %9 ]
+  %storemerge.i = phi i64 [ 1, %26 ], [ 0, %9 ]
   store i64 %storemerge.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -802,9 +802,9 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h605fa929
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17h1253ccc0421d3377E.llvm.8630602682982378532.exit", %8
+30:                                               ; preds = %"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17h1253ccc0421d3377E.llvm.8630602682982378532.exit", %8
   ret void
 }
 
@@ -817,7 +817,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9424d022
 
 8:                                                ; preds = %4
   store i64 2, ptr %0, align 8
-  br label %29
+  br label %30
 
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
@@ -839,37 +839,37 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9424d022
   %.sroa.02.0.copyload.i = load i32, ptr %19, align 4, !noalias !204
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 52
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %switch.i = icmp eq i32 %.sroa.02.0.copyload.i, 0
-  br i1 %switch.i, label %20, label %24
+  %20 = icmp eq i32 %.sroa.02.0.copyload.i, 0
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %12
-  %21 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !204
-  %22 = extractvalue { i32, i32 } %21, 0
-  %23 = extractvalue { i32, i32 } %21, 1
-  br label %25
+21:                                               ; preds = %12
+  %22 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE(), !noalias !204
+  %23 = extractvalue { i32, i32 } %22, 0
+  %24 = extractvalue { i32, i32 } %22, 1
+  br label %26
 
-24:                                               ; preds = %12
+25:                                               ; preds = %12
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !204
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !204
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %20
-  %.sroa.07.0.i = phi i32 [ %22, %20 ], [ %.sroa.4.0.copyload.i, %24 ]
-  %.sroa.59.0.i = phi i32 [ %23, %20 ], [ %.sroa.5.0.copyload.i, %24 ]
+26:                                               ; preds = %25, %21
+  %.sroa.07.0.i = phi i32 [ %23, %21 ], [ %.sroa.4.0.copyload.i, %25 ]
+  %.sroa.59.0.i = phi i32 [ %24, %21 ], [ %.sroa.5.0.copyload.i, %25 ]
   store i32 1, ptr %19, align 4, !noalias !204
   store i32 %17, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !204
   store i32 %18, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !204
-  %26 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !207
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = extractvalue { ptr, i64 } %26, 1
+  %27 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !207
+  %28 = extractvalue { ptr, i64 } %27, 0
+  %29 = extractvalue { ptr, i64 } %27, 1
   br label %"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17hda942ca54b6f1bb7E.llvm.8630602682982378532.exit"
 
-"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17hda942ca54b6f1bb7E.llvm.8630602682982378532.exit": ; preds = %9, %25
-  %.sroa.6.0 = phi i32 [ %.sroa.07.0.i, %25 ], [ undef, %9 ]
-  %.sroa.5.0 = phi i64 [ %28, %25 ], [ undef, %9 ]
-  %.sroa.4.0 = phi ptr [ %27, %25 ], [ undef, %9 ]
-  %.sroa.7.0 = phi i32 [ %.sroa.59.0.i, %25 ], [ undef, %9 ]
-  %storemerge.i = phi i64 [ 1, %25 ], [ 0, %9 ]
+"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17hda942ca54b6f1bb7E.llvm.8630602682982378532.exit": ; preds = %9, %26
+  %.sroa.6.0 = phi i32 [ %.sroa.07.0.i, %26 ], [ undef, %9 ]
+  %.sroa.5.0 = phi i64 [ %29, %26 ], [ undef, %9 ]
+  %.sroa.4.0 = phi ptr [ %28, %26 ], [ undef, %9 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.59.0.i, %26 ], [ undef, %9 ]
+  %storemerge.i = phi i64 [ 1, %26 ], [ 0, %9 ]
   store i64 %storemerge.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -879,9 +879,9 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9424d022
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17hda942ca54b6f1bb7E.llvm.8630602682982378532.exit", %8
+30:                                               ; preds = %"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7b$closure$u7d$$u7d$17hda942ca54b6f1bb7E.llvm.8630602682982378532.exit", %8
   ret void
 }
 
@@ -2197,7 +2197,7 @@ define hidden void @"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 62
   %6 = load i8, ptr %5, align 2, !range !94, !noundef !3
   %.not = icmp eq i8 %6, 2
-  br i1 %.not, label %7, label %15
+  br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %4
   %8 = load i8, ptr %1, align 1, !range !97, !noundef !3
@@ -2211,43 +2211,43 @@ define hidden void @"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7
   %.sroa.02.0.copyload = load i32, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 52
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %switch = icmp eq i32 %.sroa.02.0.copyload, 0
-  br i1 %switch, label %16, label %20
+  %15 = icmp eq i32 %.sroa.02.0.copyload, 0
+  br i1 %15, label %17, label %21
 
-15:                                               ; preds = %4, %21
-  %storemerge = phi i64 [ 1, %21 ], [ 0, %4 ]
+16:                                               ; preds = %4, %22
+  %storemerge = phi i64 [ 1, %22 ], [ 0, %4 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 
-16:                                               ; preds = %7
-  %17 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE()
-  %18 = extractvalue { i32, i32 } %17, 0
-  %19 = extractvalue { i32, i32 } %17, 1
-  br label %21
+17:                                               ; preds = %7
+  %18 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE()
+  %19 = extractvalue { i32, i32 } %18, 0
+  %20 = extractvalue { i32, i32 } %18, 1
+  br label %22
 
-20:                                               ; preds = %7
+21:                                               ; preds = %7
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %16
-  %.sroa.07.0 = phi i32 [ %18, %16 ], [ %.sroa.4.0.copyload, %20 ]
-  %.sroa.59.0 = phi i32 [ %19, %16 ], [ %.sroa.5.0.copyload, %20 ]
+22:                                               ; preds = %21, %17
+  %.sroa.07.0 = phi i32 [ %19, %17 ], [ %.sroa.4.0.copyload, %21 ]
+  %.sroa.59.0 = phi i32 [ %20, %17 ], [ %.sroa.5.0.copyload, %21 ]
   store i32 1, ptr %14, align 8
   store i32 %12, ptr %.sroa.4.0..sroa_idx, align 4
   store i32 %13, ptr %.sroa.5.0..sroa_idx, align 8
-  %22 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %25, align 8
+  %23 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
+  %24 = extractvalue { ptr, i64 } %23, 0
+  %25 = extractvalue { ptr, i64 } %23, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %26, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %24, ptr %.sroa.45.0..sroa_idx, align 8
+  store i64 %25, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.07.0, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.59.0, ptr %.sroa.6.0..sroa_idx, align 4
-  br label %15
+  br label %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2255,7 +2255,7 @@ define hidden void @"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 62
   %6 = load i8, ptr %5, align 2, !range !94, !noundef !3
   %.not = icmp eq i8 %6, 2
-  br i1 %.not, label %7, label %15
+  br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %4
   %8 = load i8, ptr %1, align 1, !range !97, !noundef !3
@@ -2269,43 +2269,43 @@ define hidden void @"_ZN5tokio7runtime7context7runtime13enter_runtime28_$u7b$$u7
   %.sroa.02.0.copyload = load i32, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 52
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %switch = icmp eq i32 %.sroa.02.0.copyload, 0
-  br i1 %switch, label %16, label %20
+  %15 = icmp eq i32 %.sroa.02.0.copyload, 0
+  br i1 %15, label %17, label %21
 
-15:                                               ; preds = %4, %21
-  %storemerge = phi i64 [ 1, %21 ], [ 0, %4 ]
+16:                                               ; preds = %4, %22
+  %storemerge = phi i64 [ 1, %22 ], [ 0, %4 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 
-16:                                               ; preds = %7
-  %17 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE()
-  %18 = extractvalue { i32, i32 } %17, 0
-  %19 = extractvalue { i32, i32 } %17, 1
-  br label %21
+17:                                               ; preds = %7
+  %18 = tail call { i32, i32 } @_ZN5tokio4util4rand8FastRand3new17hf77e9433c473c5cdE()
+  %19 = extractvalue { i32, i32 } %18, 0
+  %20 = extractvalue { i32, i32 } %18, 1
+  br label %22
 
-20:                                               ; preds = %7
+21:                                               ; preds = %7
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %16
-  %.sroa.07.0 = phi i32 [ %18, %16 ], [ %.sroa.4.0.copyload, %20 ]
-  %.sroa.59.0 = phi i32 [ %19, %16 ], [ %.sroa.5.0.copyload, %20 ]
+22:                                               ; preds = %21, %17
+  %.sroa.07.0 = phi i32 [ %19, %17 ], [ %.sroa.4.0.copyload, %21 ]
+  %.sroa.59.0 = phi i32 [ %20, %17 ], [ %.sroa.5.0.copyload, %21 ]
   store i32 1, ptr %14, align 8
   store i32 %12, ptr %.sroa.4.0..sroa_idx, align 4
   store i32 %13, ptr %.sroa.5.0..sroa_idx, align 8
-  %22 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %25, align 8
+  %23 = tail call { ptr, i64 } @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..context..Context$GT$11set_current17hb035c8c1901c0b68E"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
+  %24 = extractvalue { ptr, i64 } %23, 0
+  %25 = extractvalue { ptr, i64 } %23, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %26, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %24, ptr %.sroa.45.0..sroa_idx, align 8
+  store i64 %25, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.07.0, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.59.0, ptr %.sroa.6.0..sroa_idx, align 4
-  br label %15
+  br label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3218,15 +3218,15 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN9hashbrown3ma
   %.pn.i = phi i64 [ %42, %9 ], [ %70, %68 ]
   %.sroa.01.0.i.i = and i64 %.pn.i, %46
   %49 = getelementptr inbounds i8, ptr %47, i64 %.sroa.01.0.i.i
-  %.sroa.0.0.copyload.i24.i = load <16 x i8>, ptr %49, align 1, !noalias !731
-  %50 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i, %.sroa.0.15.vec.insert.i.i
+  %.sroa.0.0.copyload.i23.i = load <16 x i8>, ptr %49, align 1, !noalias !731
+  %50 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, %.sroa.0.15.vec.insert.i.i
   %51 = bitcast <16 x i1> %50 to i16
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread.i"
-  %.sroa.06.0.i27.i = phi i16 [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread.i" ], [ %51, %48 ]
-  %53 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i27.i, i1 true)
+  %.sroa.06.0.i26.i = phi i16 [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread.i" ], [ %51, %48 ]
+  %53 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i26.i, i1 true)
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.01.0.i.i, %54
   %56 = and i64 %55, %46
@@ -3245,14 +3245,14 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN9hashbrown3ma
   br i1 %61, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h97201df38c177a82E.llvm.8630602682982378532.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread.i", !prof !763
 
 ._crit_edge.i:                                    ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread.i", %48
-  %62 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i, splat (i8 -1)
+  %62 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, splat (i8 -1)
   %63 = bitcast <16 x i1> %62 to i16
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %68, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h97201df38c177a82E.llvm.8630602682982378532.exit", !prof !764
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.i", %.lr.ph.i
-  %65 = add i16 %.sroa.06.0.i27.i, -1
-  %66 = and i16 %65, %.sroa.06.0.i27.i
+  %65 = add i16 %.sroa.06.0.i26.i, -1
+  %66 = and i16 %65, %.sroa.06.0.i26.i
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %._crit_edge.i, label %.lr.ph.i
 
@@ -3294,15 +3294,15 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h9720
   %.pn = phi i64 [ %1, %3 ], [ %35, %33 ]
   %.sroa.01.0.i = and i64 %.pn, %7
   %14 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i
-  %.sroa.0.0.copyload.i24 = load <16 x i8>, ptr %14, align 1, !noalias !768
-  %15 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24, %.sroa.0.15.vec.insert.i
+  %.sroa.0.0.copyload.i23 = load <16 x i8>, ptr %14, align 1, !noalias !768
+  %15 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, %.sroa.0.15.vec.insert.i
   %16 = bitcast <16 x i1> %15 to i16
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread"
-  %.sroa.06.0.i27 = phi i16 [ %31, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread" ], [ %16, %13 ]
-  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i27, i1 true)
+  %.sroa.06.0.i26 = phi i16 [ %31, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread" ], [ %16, %13 ]
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i26, i1 true)
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.sroa.01.0.i, %19
   %21 = and i64 %20, %7
@@ -3321,14 +3321,14 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h9720
   br i1 %26, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread", !prof !763
 
 ._crit_edge:                                      ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread", %13
-  %27 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24, splat (i8 -1)
+  %27 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, splat (i8 -1)
   %28 = bitcast <16 x i1> %27 to i16
   %29 = icmp eq i16 %28, 0
   br i1 %29, label %33, label %.loopexit, !prof !764
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit.thread": ; preds = %.lr.ph, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4cefbc3e4252bfeE.exit"
-  %30 = add i16 %.sroa.06.0.i27, -1
-  %31 = and i16 %30, %.sroa.06.0.i27
+  %30 = add i16 %.sroa.06.0.i26, -1
+  %31 = and i16 %30, %.sroa.06.0.i26
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %._crit_edge, label %.lr.ph
 

@@ -337,8 +337,8 @@ define dso_local i32 @getExtensionOfObject(i32 noundef %0, i32 noundef %1) local
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #6
   %8 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #6
   %9 = call ptr @systable_getnext(ptr noundef %8) #6
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph
+  %.not15 = icmp eq ptr %9, null
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %25
   %10 = phi ptr [ %26, %25 ], [ %9, %2 ]
@@ -938,8 +938,8 @@ define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef 
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
   %9 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5) #6
   %10 = call ptr @systable_getnext(ptr noundef %9) #6
-  %.not21.not = icmp eq ptr %10, null
-  br i1 %.not21.not, label %.loopexit, label %.lr.ph
+  %.not20.not = icmp eq ptr %10, null
+  br i1 %.not20.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %28
   %11 = phi ptr [ %29, %28 ], [ %10, %4 ]
@@ -975,11 +975,11 @@ define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef 
   br i1 %.not.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %28, %4, %.thread
-  %.not20 = phi i1 [ true, %.thread ], [ false, %4 ], [ false, %28 ]
+  %.not19 = phi i1 [ true, %.thread ], [ false, %4 ], [ false, %28 ]
   call void @systable_endscan(ptr noundef %9) #6
   call void @table_close(ptr noundef %6, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.not20
+  ret i1 %.not19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1230,8 +1230,8 @@ define dso_local i32 @get_index_constraint(i32 noundef %0) local_unnamed_addr #0
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef 0) #6
   %7 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 3, ptr noundef nonnull %2) #6
   %8 = call ptr @systable_getnext(ptr noundef %7) #6
-  %.not16 = icmp eq ptr %8, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph
+  %.not15 = icmp eq ptr %8, null
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %28
   %9 = phi ptr [ %29, %28 ], [ %8, %1 ]

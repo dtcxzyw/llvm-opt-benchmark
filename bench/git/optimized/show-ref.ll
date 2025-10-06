@@ -521,9 +521,9 @@ cmd_show_ref__exclude_existing.exit:              ; preds = %.critedge.i, %161
   unreachable
 
 thread-pre-split.i:                               ; preds = %236
-  %229 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %229 = load ptr, ptr %.01226.i, align 8, !tbaa !32
   call fastcc void @show_one(ptr noundef nonnull readonly %15, ptr noundef %229, ptr noundef nonnull %10)
-  %230 = getelementptr inbounds nuw i8, ptr %.01227.i, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %.01226.i, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pr.i = load ptr, ptr %230, align 8, !tbaa !32
   %.not17.i = icmp eq ptr %.pr.i, null
@@ -531,14 +531,14 @@ thread-pre-split.i:                               ; preds = %236
 
 .preheader.i:                                     ; preds = %226, %thread-pre-split.i
   %231 = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %227, %226 ]
-  %.01227.i = phi ptr [ %230, %thread-pre-split.i ], [ %1, %226 ]
+  %.01226.i = phi ptr [ %230, %thread-pre-split.i ], [ %1, %226 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %232 = call i32 @starts_with(ptr noundef nonnull %231, ptr noundef nonnull @.str.38) #12
   %.not18.i = icmp eq i32 %232, 0
   br i1 %.not18.i, label %233, label %236
 
 233:                                              ; preds = %.preheader.i
-  %234 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %234 = load ptr, ptr %.01226.i, align 8, !tbaa !32
   %235 = call i32 @refname_is_safe(ptr noundef %234) #12
   %.not19.i = icmp eq i32 %235, 0
   br i1 %.not19.i, label %241, label %236
@@ -546,7 +546,7 @@ thread-pre-split.i:                               ; preds = %236
 236:                                              ; preds = %233, %.preheader.i
   %237 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %238 = call ptr @get_main_ref_store(ptr noundef %237) #12
-  %239 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %239 = load ptr, ptr %.01226.i, align 8, !tbaa !32
   %240 = call i32 @refs_read_ref(ptr noundef %238, ptr noundef %239, ptr noundef nonnull %10) #12
   %.not20.i = icmp eq i32 %240, 0
   br i1 %.not20.i, label %thread-pre-split.i, label %241
@@ -557,7 +557,7 @@ thread-pre-split.i:                               ; preds = %236
   br i1 %.not21.i, label %243, label %245
 
 243:                                              ; preds = %241
-  %244 = load ptr, ptr %.01227.i, align 8, !tbaa !32
+  %244 = load ptr, ptr %.01226.i, align 8, !tbaa !32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.39, ptr noundef %244) #14
   unreachable
 

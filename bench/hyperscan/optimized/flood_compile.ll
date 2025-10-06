@@ -353,7 +353,7 @@ _ZN3ue2L11isDifferentEhhb.exit:                   ; preds = %112
   br label %_ZN3ue2L8addFloodERSt6vectorI8FDRFloodSaIS1_EEhRKNS_11hwlmLiteralEj.exit
 
 .thread285:                                       ; preds = %.thread247, %.loopexit295
-  %.1153393 = phi i32 [ %.1153, %.loopexit295 ], [ %71, %.thread247 ]
+  %.1153394 = phi i32 [ %.1153, %.loopexit295 ], [ %71, %.thread247 ]
   %149 = add i8 %.0144, -123
   %150 = icmp ult i8 %149, -26
   %151 = add i8 %.0144, -32
@@ -392,7 +392,7 @@ _ZN3ue2L11isDifferentEhhb.exit:                   ; preds = %112
   br label %_ZN3ue2L8addFloodERSt6vectorI8FDRFloodSaIS1_EEhRKNS_11hwlmLiteralEj.exit
 
 _ZN3ue2L8addFloodERSt6vectorI8FDRFloodSaIS1_EEhRKNS_11hwlmLiteralEj.exit: ; preds = %161, %.thread285, %.thread264
-  %.1153259 = phi i32 [ %.1153260268, %.thread264 ], [ %.1153393, %.thread285 ], [ %.1153393, %161 ]
+  %.1153259 = phi i32 [ %.1153260268, %.thread264 ], [ %.1153394, %.thread285 ], [ %.1153394, %161 ]
   br i1 %.0145.shrunk.fr, label %175, label %_ZN3ue2L8addFloodERSt6vectorI8FDRFloodSaIS1_EEhRKNS_11hwlmLiteralEj.exit218
 
 175:                                              ; preds = %_ZN3ue2L8addFloodERSt6vectorI8FDRFloodSaIS1_EEhRKNS_11hwlmLiteralEj.exit
@@ -779,19 +779,19 @@ _ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit:          ; preds = %._crit_edge332, %31
   br label %327
 
 327:                                              ; preds = %330, %.lr.ph337
-  %.0710.i.i = phi i64 [ 0, %.lr.ph337 ], [ %331, %330 ]
-  %328 = getelementptr inbounds nuw i64, ptr %324, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %.lr.ph337 ], [ %331, %330 ]
+  %328 = getelementptr inbounds nuw i64, ptr %324, i64 %.0712.i.i
   %329 = load i64, ptr %328, align 8
   %.not.i.i223 = icmp eq i64 %329, 0
   br i1 %.not.i.i223, label %330, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 330:                                              ; preds = %327
-  %331 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %331, 4
-  br i1 %exitcond.i.i, label %._crit_edge332, label %327, !llvm.loop !17
+  %331 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %331, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge332, label %327, !llvm.loop !17
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %327
-  %332 = shl nuw nsw i64 %.0710.i.i, 6
+  %332 = shl nuw nsw i64 %.0712.i.i, 6
   %333 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %329, i1 true)
   %334 = or disjoint i64 %333, %332
   %.not329 = icmp eq i64 %334, 256
@@ -800,7 +800,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %327
 .lr.ph331.preheader:                              ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %335 = getelementptr inbounds nuw i32, ptr %319, i64 %334
   store i32 %.0143335, ptr %335, align 4
-  %.not.i.i224440 = icmp samesign ult i64 %.0710.i.i, 4
+  %.not.i.i224440 = icmp samesign ult i64 %.0712.i.i, 4
   br i1 %.not.i.i224440, label %.lr.ph442, label %._crit_edge332
 
 ._crit_edge332:                                   ; preds = %330, %_ZNK3ue29CharReach9find_nextEm.exit, %347, %.lr.ph331.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

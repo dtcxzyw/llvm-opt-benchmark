@@ -4592,8 +4592,8 @@ hash_agg_set_limits.exit.i:                       ; preds = %202, %199
   br i1 %or.cond.i, label %240, label %.loopexit.i.sink.split
 
 240:                                              ; preds = %hash_agg_set_limits.exit.i
-  %.not149.i = icmp eq i32 %233, 0
-  br i1 %.not149.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  %.not148.i = icmp eq i32 %233, 0
+  br i1 %.not148.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %240
   %241 = add i64 %235, %236
@@ -4615,9 +4615,9 @@ hash_agg_set_limits.exit.i:                       ; preds = %202, %199
   call void @ReScanExprContext(ptr noundef %247) #11
   %248 = load i32, ptr %16, align 4
   %249 = icmp sgt i32 %248, 0
-  br i1 %249, label %.lr.ph148.i, label %._crit_edge.i7
+  br i1 %249, label %.lr.ph147.i, label %._crit_edge.i7
 
-._crit_edge.i7:                                   ; preds = %.lr.ph148.i, %.loopexit.i
+._crit_edge.i7:                                   ; preds = %.lr.ph147.i, %.loopexit.i
   store i64 0, ptr %29, align 8
   %250 = load ptr, ptr %19, align 8
   %251 = load i32, ptr %250, align 8
@@ -4628,8 +4628,8 @@ hash_agg_set_limits.exit.i:                       ; preds = %202, %199
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %262
 
-.lr.ph148.i:                                      ; preds = %.loopexit.i, %.lr.ph148.i
-  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %.lr.ph148.i ], [ 0, %.loopexit.i ]
+.lr.ph147.i:                                      ; preds = %.loopexit.i, %.lr.ph147.i
+  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %.lr.ph147.i ], [ 0, %.loopexit.i ]
   %253 = load ptr, ptr %12, align 8
   %254 = getelementptr inbounds nuw %struct.AggStatePerHashData, ptr %253, i64 %indvars.iv.i10
   %255 = load ptr, ptr %254, align 8
@@ -4638,7 +4638,7 @@ hash_agg_set_limits.exit.i:                       ; preds = %202, %199
   %256 = load i32, ptr %16, align 4
   %257 = sext i32 %256 to i64
   %258 = icmp slt i64 %indvars.iv.next.i11, %257
-  br i1 %258, label %.lr.ph148.i, label %._crit_edge.i7, !llvm.loop !39
+  br i1 %258, label %.lr.ph147.i, label %._crit_edge.i7, !llvm.loop !39
 
 259:                                              ; preds = %._crit_edge.i7
   store i32 1, ptr %30, align 4
@@ -5001,10 +5001,10 @@ prepare_hash_slot.exit.i:                         ; preds = %346, %slot_getsomea
   br i1 %.not30.i113.i, label %465, label %hash_agg_update_metrics.exit.sink.split.i
 
 hash_agg_update_metrics.exit.sink.split.i:        ; preds = %459, %434
-  %.sink195.i = phi i64 [ %417, %434 ], [ %445, %459 ]
-  %.sink194.i = phi i64 [ %435, %434 ], [ %460, %459 ]
-  %461 = uitofp i64 %.sink195.i to double
-  %462 = uitofp i64 %.sink194.i to double
+  %.sink194.i = phi i64 [ %417, %434 ], [ %445, %459 ]
+  %.sink193.i = phi i64 [ %435, %434 ], [ %460, %459 ]
+  %461 = uitofp i64 %.sink194.i to double
+  %462 = uitofp i64 %.sink193.i to double
   %463 = fdiv double %461, %462
   %464 = fadd double %463, 2.400000e+01
   store double %464, ptr %25, align 8

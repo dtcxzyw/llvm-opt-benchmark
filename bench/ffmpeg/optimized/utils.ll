@@ -124,11 +124,11 @@ define noundef ptr @av_fourcc_make_string(ptr noundef returned writeonly capture
   br label %3
 
 3:                                                ; preds = %2, %15
-  %.03052 = phi ptr [ %0, %2 ], [ %17, %15 ]
-  %.03151 = phi i32 [ %1, %2 ], [ %19, %15 ]
-  %.03350 = phi i32 [ 0, %2 ], [ %20, %15 ]
-  %.03449 = phi i64 [ 32, %2 ], [ %18, %15 ]
-  %4 = and i32 %.03151, 255
+  %.03051 = phi ptr [ %0, %2 ], [ %17, %15 ]
+  %.03150 = phi i32 [ %1, %2 ], [ %19, %15 ]
+  %.03349 = phi i32 [ 0, %2 ], [ %20, %15 ]
+  %.03448 = phi i64 [ 32, %2 ], [ %18, %15 ]
+  %4 = and i32 %.03150, 255
   %5 = add nsw i32 %4, -48
   %or.cond = icmp ult i32 %5, 10
   %6 = add nsw i32 %4, -97
@@ -151,16 +151,16 @@ define noundef ptr @av_fourcc_make_string(ptr noundef returned writeonly capture
 
 11:                                               ; preds = %8, %9, %3
   %12 = phi ptr [ @.str.9, %3 ], [ @.str.10, %8 ], [ %10, %9 ]
-  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.03052, i64 noundef %.03449, ptr noundef nonnull %12, i32 noundef %4) #8
+  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.03051, i64 noundef %.03448, ptr noundef nonnull %12, i32 noundef %4) #8
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %11
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %.03052, i64 %16
-  %18 = tail call i64 @llvm.usub.sat.i64(i64 %.03449, i64 %16)
-  %19 = lshr i32 %.03151, 8
-  %20 = add nuw nsw i32 %.03350, 1
+  %17 = getelementptr inbounds nuw i8, ptr %.03051, i64 %16
+  %18 = tail call i64 @llvm.usub.sat.i64(i64 %.03448, i64 %16)
+  %19 = lshr i32 %.03150, 8
+  %20 = add nuw nsw i32 %.03349, 1
   %exitcond.not = icmp eq i32 %20, 4
   br i1 %exitcond.not, label %21, label %3, !llvm.loop !18
 

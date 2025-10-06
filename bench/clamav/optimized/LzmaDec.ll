@@ -1277,12 +1277,12 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %.pre = phi i64 [ %.pre.pre, %3 ], [ %875, %877 ]
   %23 = load i32, ptr %4, align 4, !tbaa !16
   %24 = icmp eq i32 %23, 0
-  %.pre68 = load i32, ptr %16, align 8, !tbaa !15
+  %.pre67 = load i32, ptr %16, align 8, !tbaa !15
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %20, align 4, !tbaa !23
-  %27 = sub i32 %26, %.pre68
+  %27 = sub i32 %26, %.pre67
   %28 = sub i64 %1, %.pre
   %29 = zext i32 %27 to i64
   %30 = icmp ugt i64 %28, %29
@@ -1329,7 +1329,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %.0924.i = phi ptr [ %46, %32 ], [ %.7931.ph.i, %.loopexit1142.i ]
   %.0868.i = phi i32 [ %47, %32 ], [ %.9877.ph.i, %.loopexit1142.i ]
   %.0852.i = phi i32 [ %48, %32 ], [ %.9861.ph.i, %.loopexit1142.i ]
-  %.0848.i = phi i32 [ %.pre68, %32 ], [ %.1849.ph.i, %.loopexit1142.i ]
+  %.0848.i = phi i32 [ %.pre67, %32 ], [ %.1849.ph.i, %.loopexit1142.i ]
   %.0836.i = phi i64 [ %.pre, %32 ], [ %.1837.ph.i, %.loopexit1142.i ]
   %.0828.i = phi i32 [ %38, %32 ], [ %.1829.ph.i, %.loopexit1142.i ]
   %.0805.i = phi i32 [ %37, %32 ], [ %.1806.ph.i, %.loopexit1142.i ]
@@ -2763,19 +2763,19 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br i1 %876, label %877, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %874
-  %.pre69 = load i32, ptr %21, align 4, !tbaa !13
+  %.pre68 = load i32, ptr %21, align 4, !tbaa !13
   br label %.critedge
 
 877:                                              ; preds = %874
   %878 = load ptr, ptr %17, align 8, !tbaa !33
   %879 = icmp ult ptr %878, %2
-  %.pre70 = load i32, ptr %21, align 4, !tbaa !13
-  %880 = icmp ult i32 %.pre70, 274
-  %or.cond143 = select i1 %879, i1 %880, i1 false
-  br i1 %or.cond143, label %22, label %.critedge
+  %.pre69 = load i32, ptr %21, align 4, !tbaa !13
+  %880 = icmp ult i32 %.pre69, 274
+  %or.cond142 = select i1 %879, i1 %880, i1 false
+  br i1 %or.cond142, label %22, label %.critedge
 
 .critedge:                                        ; preds = %877, %..critedge_crit_edge
-  %881 = phi i32 [ %.pre69, %..critedge_crit_edge ], [ %.pre70, %877 ]
+  %881 = phi i32 [ %.pre68, %..critedge_crit_edge ], [ %.pre69, %877 ]
   %882 = icmp ugt i32 %881, 274
   br i1 %882, label %883, label %LzmaDec_WriteRem.exit
 

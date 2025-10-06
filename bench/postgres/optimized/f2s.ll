@@ -166,10 +166,10 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nound
   br i1 %103, label %.lr.ph.i.i.i, label %107
 
 .lr.ph.i.i.i:                                     ; preds = %.thread.i, %.lr.ph.i.i.i
-  %.0717.i.i.i = phi i32 [ %104, %.lr.ph.i.i.i ], [ %34, %.thread.i ]
-  %.0816.i.i.i = phi i32 [ %105, %.lr.ph.i.i.i ], [ 0, %.thread.i ]
-  %104 = udiv i32 %.0717.i.i.i, 5
-  %105 = add i32 %.0816.i.i.i, 1
+  %.0716.i.i.i = phi i32 [ %104, %.lr.ph.i.i.i ], [ %34, %.thread.i ]
+  %.0815.i.i.i = phi i32 [ %105, %.lr.ph.i.i.i ], [ 0, %.thread.i ]
+  %104 = udiv i32 %.0716.i.i.i, 5
+  %105 = add i32 %.0815.i.i.i, 1
   %106 = urem i32 %104, 5
   %.not.i.i.i = icmp eq i32 %106, 0
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %multipleOfPowerOf5.exit.i
@@ -181,14 +181,14 @@ multipleOfPowerOf5.exit.i:                        ; preds = %.lr.ph.i.i.i
 
 107:                                              ; preds = %.thread.i
   %108 = urem i32 %35, 5
-  %.not15.i.i167.i = icmp eq i32 %108, 0
-  br i1 %.not15.i.i167.i, label %.lr.ph.i.i169.i, label %multipleOfPowerOf5.exit173.i
+  %.not14.i.i167.i = icmp eq i32 %108, 0
+  br i1 %.not14.i.i167.i, label %.lr.ph.i.i169.i, label %multipleOfPowerOf5.exit173.i
 
 .lr.ph.i.i169.i:                                  ; preds = %107, %.lr.ph.i.i169.i
-  %.0717.i.i170.i = phi i32 [ %109, %.lr.ph.i.i169.i ], [ %35, %107 ]
-  %.0816.i.i171.i = phi i32 [ %110, %.lr.ph.i.i169.i ], [ 0, %107 ]
-  %109 = udiv i32 %.0717.i.i170.i, 5
-  %110 = add i32 %.0816.i.i171.i, 1
+  %.0716.i.i170.i = phi i32 [ %109, %.lr.ph.i.i169.i ], [ %35, %107 ]
+  %.0815.i.i171.i = phi i32 [ %110, %.lr.ph.i.i169.i ], [ 0, %107 ]
+  %109 = udiv i32 %.0716.i.i170.i, 5
+  %110 = add i32 %.0815.i.i171.i, 1
   %111 = urem i32 %109, 5
   %.not.i.i172.i = icmp eq i32 %111, 0
   br i1 %.not.i.i172.i, label %.lr.ph.i.i169.i, label %multipleOfPowerOf5.exit173.i

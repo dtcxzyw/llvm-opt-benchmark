@@ -3275,71 +3275,71 @@ _ZNK4llvm19MachineRegisterInfo15getPressureSetsENS_8RegisterE.exit: ; preds = %1
   %40 = icmp eq i32 %39, -1
   %41 = sub i32 0, %storemerge.i.i
   %spec.select = select i1 %2, i32 %41, i32 %storemerge.i.i
-  br i1 %40, label %.critedge, label %.preheader64
+  br i1 %40, label %.critedge, label %.preheader63
 
-.preheader64:                                     ; preds = %_ZNK4llvm19MachineRegisterInfo15getPressureSetsENS_8RegisterE.exit, %select.unfold
-  %.sroa.049.090 = phi ptr [ %66, %select.unfold ], [ %.sroa.0.0.i, %_ZNK4llvm19MachineRegisterInfo15getPressureSetsENS_8RegisterE.exit ]
+.preheader63:                                     ; preds = %_ZNK4llvm19MachineRegisterInfo15getPressureSetsENS_8RegisterE.exit, %select.unfold
+  %.sroa.049.089 = phi ptr [ %66, %select.unfold ], [ %.sroa.0.0.i, %_ZNK4llvm19MachineRegisterInfo15getPressureSetsENS_8RegisterE.exit ]
   br label %42
 
-42:                                               ; preds = %.preheader64, %48
-  %.037.idx74 = phi i64 [ 0, %.preheader64 ], [ %.037.add, %48 ]
-  %.037.ptr.ptr.ptr75 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.idx74
-  %43 = load i16, ptr %.037.ptr.ptr.ptr75, align 2, !tbaa !476
-  %.not61 = icmp eq i16 %43, 0
-  br i1 %.not61, label %.thread.loopexit, label %44
+42:                                               ; preds = %.preheader63, %48
+  %.037.idx73 = phi i64 [ 0, %.preheader63 ], [ %.037.add, %48 ]
+  %.037.ptr.ptr.ptr74 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.idx73
+  %43 = load i16, ptr %.037.ptr.ptr.ptr74, align 2, !tbaa !476
+  %.not60 = icmp eq i16 %43, 0
+  br i1 %.not60, label %.thread.loopexit, label %44
 
 44:                                               ; preds = %42
   %45 = zext i16 %43 to i32
   %46 = add nsw i32 %45, -1
-  %47 = load i32, ptr %.sroa.049.090, align 4, !tbaa !236
+  %47 = load i32, ptr %.sroa.049.089, align 4, !tbaa !236
   %.not42 = icmp ult i32 %46, %47
   br i1 %.not42, label %48, label %49
 
 48:                                               ; preds = %44
-  %.037.add = add nuw nsw i64 %.037.idx74, 4
+  %.037.add = add nuw nsw i64 %.037.idx73, 4
   %.not = icmp eq i64 %.037.add, 64
   br i1 %.not, label %.critedge, label %42, !llvm.loop !478
 
 49:                                               ; preds = %44
-  %.037.ptr.ptr.ptr75.le = getelementptr inbounds nuw i8, ptr %0, i64 %.037.idx74
+  %.037.ptr.ptr.ptr74.le = getelementptr inbounds nuw i8, ptr %0, i64 %.037.idx73
   %.not43 = icmp eq i32 %46, %47
   br i1 %.not43, label %.critedge2, label %.thread
 
 .thread.loopexit:                                 ; preds = %42
-  %.037.ptr.ptr.ptr75.le118 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.idx74
-  %.pre = load i32, ptr %.sroa.049.090, align 4, !tbaa !236
+  %.037.ptr.ptr.ptr74.le117 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.idx73
+  %.pre = load i32, ptr %.sroa.049.089, align 4, !tbaa !236
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %49
-  %.037.ptr.ptr.ptr75108 = phi ptr [ %.037.ptr.ptr.ptr75.le118, %.thread.loopexit ], [ %.037.ptr.ptr.ptr75.le, %49 ]
+  %.037.ptr.ptr.ptr74107 = phi ptr [ %.037.ptr.ptr.ptr74.le117, %.thread.loopexit ], [ %.037.ptr.ptr.ptr74.le, %49 ]
   %50 = phi i32 [ %.pre, %.thread.loopexit ], [ %47, %49 ]
   %51 = trunc i32 %50 to i16
   %52 = add i16 %51, 1
-  %.not4476 = icmp ne i64 %.037.idx74, 64
+  %.not4475 = icmp ne i64 %.037.idx73, 64
   %53 = icmp ne i16 %52, 0
-  %or.cond77 = select i1 %.not4476, i1 %53, i1 false
-  br i1 %or.cond77, label %.lr.ph, label %.critedge2
+  %or.cond76 = select i1 %.not4475, i1 %53, i1 false
+  br i1 %or.cond76, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
-  %.038.idx80 = phi i64 [ %.038.add, %.lr.ph ], [ %.037.idx74, %.thread ]
-  %.sroa.6.079 = phi i32 [ %.sroa.6.0.extract.shift, %.lr.ph ], [ 0, %.thread ]
-  %.sroa.047.078 = phi i16 [ %.sroa.047.0.extract.trunc, %.lr.ph ], [ %52, %.thread ]
-  %.038.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.038.idx80
+  %.038.idx79 = phi i64 [ %.038.add, %.lr.ph ], [ %.037.idx73, %.thread ]
+  %.sroa.6.078 = phi i32 [ %.sroa.6.0.extract.shift, %.lr.ph ], [ 0, %.thread ]
+  %.sroa.047.077 = phi i16 [ %.sroa.047.0.extract.trunc, %.lr.ph ], [ %52, %.thread ]
+  %.038.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.038.idx79
   %54 = load i32, ptr %.038.ptr, align 2
-  %.sroa.047.0.insert.ext = zext i16 %.sroa.047.078 to i32
-  %.sroa.047.0.insert.insert = or disjoint i32 %.sroa.6.079, %.sroa.047.0.insert.ext
+  %.sroa.047.0.insert.ext = zext i16 %.sroa.047.077 to i32
+  %.sroa.047.0.insert.insert = or disjoint i32 %.sroa.6.078, %.sroa.047.0.insert.ext
   store i32 %.sroa.047.0.insert.insert, ptr %.038.ptr, align 2
   %.sroa.047.0.extract.trunc = trunc i32 %54 to i16
   %.sroa.6.0.extract.shift = and i32 %54, -65536
-  %.038.add = add nuw nsw i64 %.038.idx80, 4
+  %.038.add = add nuw nsw i64 %.038.idx79, 4
   %.not44 = icmp ne i64 %.038.add, 64
   %55 = icmp ne i16 %.sroa.047.0.extract.trunc, 0
   %or.cond = select i1 %.not44, i1 %55, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge2, !llvm.loop !479
 
 .critedge2:                                       ; preds = %.lr.ph, %.thread, %49
-  %.037.ptr.ptr.ptr75109 = phi ptr [ %.037.ptr.ptr.ptr75108, %.thread ], [ %.037.ptr.ptr.ptr75.le, %49 ], [ %.037.ptr.ptr.ptr75108, %.lr.ph ]
-  %56 = getelementptr inbounds nuw i8, ptr %.037.ptr.ptr.ptr75109, i64 2
+  %.037.ptr.ptr.ptr74108 = phi ptr [ %.037.ptr.ptr.ptr74107, %.thread ], [ %.037.ptr.ptr.ptr74.le, %49 ], [ %.037.ptr.ptr.ptr74107, %.lr.ph ]
+  %56 = getelementptr inbounds nuw i8, ptr %.037.ptr.ptr.ptr74108, i64 2
   %57 = load i16, ptr %56, align 2, !tbaa !480
   %58 = sext i16 %57 to i32
   %59 = add nsw i32 %spec.select, %58
@@ -3347,41 +3347,41 @@ _ZNK4llvm19MachineRegisterInfo15getPressureSetsENS_8RegisterE.exit: ; preds = %1
   br i1 %.not45, label %.preheader, label %60
 
 .preheader:                                       ; preds = %.critedge2
-  %.037.ptr.ptr.pn.add81 = add nuw nsw i64 %.037.idx74, 4
-  %.not4683 = icmp eq i64 %.037.ptr.ptr.pn.add81, 64
-  br i1 %.not4683, label %.critedge4, label %.lr.ph87
+  %.037.ptr.ptr.pn.add80 = add nuw nsw i64 %.037.idx73, 4
+  %.not4682 = icmp eq i64 %.037.ptr.ptr.pn.add80, 64
+  br i1 %.not4682, label %.critedge4, label %.lr.ph86
 
 60:                                               ; preds = %.critedge2
   %61 = trunc i32 %59 to i16
   store i16 %61, ptr %56, align 2, !tbaa !480
   br label %select.unfold
 
-.lr.ph87:                                         ; preds = %.preheader, %63
-  %.037.ptr.ptr.pn.add85 = phi i64 [ %.037.ptr.ptr.pn.add, %63 ], [ %.037.ptr.ptr.pn.add81, %.preheader ]
-  %.184 = phi ptr [ %65, %63 ], [ %.037.ptr.ptr.ptr75109, %.preheader ]
-  %.0.ptr86 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.ptr.ptr.pn.add85
-  %62 = load i16, ptr %.0.ptr86, align 2, !tbaa !476
-  %.not63 = icmp eq i16 %62, 0
-  br i1 %.not63, label %.critedge4, label %63
+.lr.ph86:                                         ; preds = %.preheader, %63
+  %.037.ptr.ptr.pn.add84 = phi i64 [ %.037.ptr.ptr.pn.add, %63 ], [ %.037.ptr.ptr.pn.add80, %.preheader ]
+  %.183 = phi ptr [ %65, %63 ], [ %.037.ptr.ptr.ptr74108, %.preheader ]
+  %.0.ptr85 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.ptr.ptr.pn.add84
+  %62 = load i16, ptr %.0.ptr85, align 2, !tbaa !476
+  %.not62 = icmp eq i16 %62, 0
+  br i1 %.not62, label %.critedge4, label %63
 
-63:                                               ; preds = %.lr.ph87
-  %64 = load i32, ptr %.0.ptr86, align 2
-  store i32 %64, ptr %.184, align 2
-  %65 = getelementptr inbounds nuw i8, ptr %.184, i64 4
-  %.037.ptr.ptr.pn.add = add nuw nsw i64 %.037.ptr.ptr.pn.add85, 4
+63:                                               ; preds = %.lr.ph86
+  %64 = load i32, ptr %.0.ptr85, align 2
+  store i32 %64, ptr %.183, align 2
+  %65 = getelementptr inbounds nuw i8, ptr %.183, i64 4
+  %.037.ptr.ptr.pn.add = add nuw nsw i64 %.037.ptr.ptr.pn.add84, 4
   %.not46 = icmp eq i64 %.037.ptr.ptr.pn.add, 64
-  br i1 %.not46, label %.critedge4, label %.lr.ph87, !llvm.loop !481
+  br i1 %.not46, label %.critedge4, label %.lr.ph86, !llvm.loop !481
 
-.critedge4:                                       ; preds = %.lr.ph87, %63, %.preheader
-  %.1.lcssa = phi ptr [ %.037.ptr.ptr.ptr75109, %.preheader ], [ %65, %63 ], [ %.184, %.lr.ph87 ]
+.critedge4:                                       ; preds = %.lr.ph86, %63, %.preheader
+  %.1.lcssa = phi ptr [ %.037.ptr.ptr.ptr74108, %.preheader ], [ %65, %63 ], [ %.183, %.lr.ph86 ]
   store i32 0, ptr %.1.lcssa, align 2
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.critedge4, %60
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.049.090, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.049.089, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !236
   %68 = icmp eq i32 %67, -1
-  br i1 %68, label %.critedge, label %.preheader64
+  br i1 %68, label %.critedge, label %.preheader63
 
 .critedge:                                        ; preds = %select.unfold, %48, %_ZNK4llvm19MachineRegisterInfo15getPressureSetsENS_8RegisterE.exit
   ret void

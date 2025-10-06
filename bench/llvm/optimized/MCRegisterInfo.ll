@@ -585,16 +585,16 @@ define dso_local range(i32 0, 65536) i32 @_ZNK4llvm14MCRegisterInfo19getMatching
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.critedge
-  %.pn = phi ptr [ %14, %.lr.ph ], [ %.sroa.516.033, %.critedge ]
-  %.sroa.015.032 = phi i32 [ %17, %.lr.ph ], [ %60, %.critedge ]
-  %.sroa.516.033 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
-  %25 = and i32 %.sroa.015.032, 65535
+  %.pn = phi ptr [ %14, %.lr.ph ], [ %.sroa.516.031, %.critedge ]
+  %.sroa.015.030 = phi i32 [ %17, %.lr.ph ], [ %60, %.critedge ]
+  %.sroa.516.031 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
+  %25 = and i32 %.sroa.015.030, 65535
   %26 = lshr i32 %25, 3
   %.not.i = icmp samesign ult i32 %26, %20
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %.critedge
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %24
-  %27 = and i32 %.sroa.015.032, 7
+  %27 = and i32 %.sroa.015.030, 7
   %28 = load ptr, ptr %21, align 8, !tbaa !53
   %29 = zext nneg i32 %26 to i64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
@@ -602,8 +602,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %24
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 1, %27
   %34 = and i32 %33, %32
-  %.not30 = icmp eq i32 %34, 0
-  br i1 %.not30, label %.critedge, label %35
+  %.not28 = icmp eq i32 %34, 0
+  br i1 %.not28, label %.critedge, label %35
 
 35:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
   %36 = zext nneg i32 %25 to i64
@@ -653,9 +653,9 @@ _ZNK4llvm14MCRegisterInfo9getSubRegENS_10MCRegisterEj.exit: ; preds = %_ZN4llvm1
   br i1 %57, label %.critedge10, label %.critedge
 
 .critedge:                                        ; preds = %24, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, %_ZNK4llvm14MCRegisterInfo9getSubRegENS_10MCRegisterEj.exit
-  %58 = load i16, ptr %.sroa.516.033, align 2, !tbaa !32
+  %58 = load i16, ptr %.sroa.516.031, align 2, !tbaa !32
   %59 = zext i16 %58 to i32
-  %60 = add i32 %.sroa.015.032, %59
+  %60 = add i32 %.sroa.015.030, %59
   %.not.i.i = icmp eq i16 %58, 0
   br i1 %.not.i.i, label %.critedge10, label %24
 
@@ -1281,7 +1281,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo19isArtificialRegU
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %12, !llvm.loop !107
 
-19:                                               ; preds = %13, %12
+19:                                               ; preds = %12, %13
   ret i1 %.not.not.not.not.not.not
 }
 

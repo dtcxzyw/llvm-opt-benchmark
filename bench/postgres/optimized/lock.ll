@@ -2698,16 +2698,16 @@ VirtualXactLockTableCleanup.exit:                 ; preds = %27, %15, %10
   %36 = load ptr, ptr @LockMethodLocalHash, align 8
   call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %36) #16
   %37 = call ptr @hash_seq_search(ptr noundef nonnull %4) #16
-  %.not130135 = icmp eq ptr %37, null
-  br i1 %.not130135, label %.outer._crit_edge.thread, label %.lr.ph131
+  %.not129134 = icmp eq ptr %37, null
+  br i1 %.not129134, label %.outer._crit_edge.thread, label %.lr.ph130
 
-.lr.ph131:                                        ; preds = %VirtualXactLockTableCleanup.exit, %.outer
+.lr.ph130:                                        ; preds = %VirtualXactLockTableCleanup.exit, %.outer
   %38 = phi ptr [ %159, %.outer ], [ %37, %VirtualXactLockTableCleanup.exit ]
-  %.098.ph136 = phi i8 [ %.2, %.outer ], [ 0, %VirtualXactLockTableCleanup.exit ]
+  %.098.ph135 = phi i8 [ %.2, %.outer ], [ 0, %VirtualXactLockTableCleanup.exit ]
   br label %39
 
-39:                                               ; preds = %.lr.ph131, %.backedge
-  %40 = phi ptr [ %38, %.lr.ph131 ], [ %45, %.backedge ]
+39:                                               ; preds = %.lr.ph130, %.backedge
+  %40 = phi ptr [ %38, %.lr.ph130 ], [ %45, %.backedge ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 0
@@ -2829,7 +2829,7 @@ VirtualXactLockTableCleanup.exit:                 ; preds = %27, %15, %10
   unreachable
 
 102:                                              ; preds = %93
-  %103 = trunc nuw i8 %.098.ph136 to i1
+  %103 = trunc nuw i8 %.098.ph135 to i1
   br i1 %103, label %108, label %104
 
 104:                                              ; preds = %102
@@ -2931,8 +2931,8 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %.2 = phi i8 [ 0, %156 ], [ 1, %FastPathUnGrantRelationLock.exit ]
   call fastcc void @RemoveLocalLock(ptr noundef nonnull %40)
   %159 = call ptr @hash_seq_search(ptr noundef nonnull %4) #16
-  %.not130 = icmp eq ptr %159, null
-  br i1 %.not130, label %.outer._crit_edge, label %.lr.ph131
+  %.not129 = icmp eq ptr %159, null
+  br i1 %.not129, label %.outer._crit_edge, label %.lr.ph130
 
 160:                                              ; preds = %79
   %161 = load i64, ptr %41, align 8
@@ -2954,8 +2954,8 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   br label %.backedge
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
-  %.098.ph.lcssa127 = phi i8 [ %.098.ph136, %.backedge ], [ %.2, %.outer ]
-  %171 = trunc nuw i8 %.098.ph.lcssa127 to i1
+  %.098.ph.lcssa126 = phi i8 [ %.098.ph135, %.backedge ], [ %.2, %.outer ]
+  %171 = trunc nuw i8 %.098.ph.lcssa126 to i1
   br i1 %171, label %172, label %.outer._crit_edge.thread
 
 172:                                              ; preds = %.outer._crit_edge
@@ -2965,22 +2965,22 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   br label %.outer._crit_edge.thread
 
 .outer._crit_edge.thread:                         ; preds = %VirtualXactLockTableCleanup.exit, %172, %.outer._crit_edge
-  %.not114138 = icmp slt i32 %35, 1
+  %.not114137 = icmp slt i32 %35, 1
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %176 = add i32 %35, 1
   %smax = call i32 @llvm.smax.i32(i32 %176, i32 2)
-  %.pre167 = load ptr, ptr @MyProc, align 8
-  %.pre169 = load ptr, ptr @MainLWLockArray, align 8
+  %.pre166 = load ptr, ptr @MyProc, align 8
+  %.pre168 = load ptr, ptr @MainLWLockArray, align 8
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %177
 
 177:                                              ; preds = %.outer._crit_edge.thread, %284
-  %178 = phi ptr [ %.pre169, %.outer._crit_edge.thread ], [ %285, %284 ]
-  %179 = phi ptr [ %.pre167, %.outer._crit_edge.thread ], [ %286, %284 ]
-  %indvars.iv163 = phi i64 [ 0, %.outer._crit_edge.thread ], [ %indvars.iv.next164, %284 ]
+  %178 = phi ptr [ %.pre168, %.outer._crit_edge.thread ], [ %285, %284 ]
+  %179 = phi ptr [ %.pre166, %.outer._crit_edge.thread ], [ %286, %284 ]
+  %indvars.iv162 = phi i64 [ 0, %.outer._crit_edge.thread ], [ %indvars.iv.next163, %284 ]
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 184
-  %181 = getelementptr inbounds nuw %struct.dlist_head, ptr %180, i64 %indvars.iv163
-  %182 = getelementptr inbounds nuw %union.LWLockPadded, ptr %178, i64 %indvars.iv163
+  %181 = getelementptr inbounds nuw %struct.dlist_head, ptr %180, i64 %indvars.iv162
+  %182 = getelementptr inbounds nuw %union.LWLockPadded, ptr %178, i64 %indvars.iv162
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 23168
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %185 = load ptr, ptr %184, align 8
@@ -2993,15 +2993,15 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %189 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %183, i32 noundef 0) #16
   %190 = load ptr, ptr %184, align 8
   %.not110 = icmp eq ptr %190, null
-  %.not111147181 = icmp eq ptr %190, %181
-  %.not111147 = or i1 %.not110, %.not111147181
-  br i1 %.not111147, label %._crit_edge152, label %.lr.ph151
+  %.not111146180 = icmp eq ptr %190, %181
+  %.not111146 = or i1 %.not110, %.not111146180
+  br i1 %.not111146, label %._crit_edge151, label %.lr.ph150
 
-.lr.ph151:                                        ; preds = %188, %CleanUpLock.exit
-  %.sroa.0.0148 = phi ptr [ %.sroa.8.0149, %CleanUpLock.exit ], [ %190, %188 ]
-  %.sroa.8.0149.in = getelementptr inbounds nuw i8, ptr %.sroa.0.0148, i64 8
-  %.sroa.8.0149 = load ptr, ptr %.sroa.8.0149.in, align 8
-  %191 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -48
+.lr.ph150:                                        ; preds = %188, %CleanUpLock.exit
+  %.sroa.0.0147 = phi ptr [ %.sroa.8.0148, %CleanUpLock.exit ], [ %190, %188 ]
+  %.sroa.8.0148.in = getelementptr inbounds nuw i8, ptr %.sroa.0.0147, i64 8
+  %.sroa.8.0148 = load ptr, ptr %.sroa.8.0148.in, align 8
+  %191 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -48
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 15
   %194 = load i8, ptr %193, align 1
@@ -3009,51 +3009,51 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %.not112 = icmp eq i16 %0, %195
   br i1 %.not112, label %196, label %CleanUpLock.exit
 
-196:                                              ; preds = %.lr.ph151
-  br i1 %1, label %197, label %._crit_edge170
+196:                                              ; preds = %.lr.ph150
+  br i1 %1, label %197, label %._crit_edge169
 
-._crit_edge170:                                   ; preds = %196
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -20
-  %.pre171 = load i32, ptr %.phi.trans.insert, align 4
+._crit_edge169:                                   ; preds = %196
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -20
+  %.pre170 = load i32, ptr %.phi.trans.insert, align 4
   br label %201
 
 197:                                              ; preds = %196
-  %198 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -24
+  %198 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -24
   %199 = load i32, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -20
+  %200 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -20
   store i32 %199, ptr %200, align 4
   br label %201
 
-201:                                              ; preds = %._crit_edge170, %197
-  %202 = phi i32 [ %.pre171, %._crit_edge170 ], [ %199, %197 ]
-  %203 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -20
+201:                                              ; preds = %._crit_edge169, %197
+  %202 = phi i32 [ %.pre170, %._crit_edge169 ], [ %199, %197 ]
+  %203 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -20
   %204 = icmp eq i32 %202, 0
   br i1 %204, label %205, label %208
 
 205:                                              ; preds = %201
-  %206 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -24
+  %206 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -24
   %207 = load i32, ptr %206, align 8
   %.not113 = icmp eq i32 %207, 0
   br i1 %.not113, label %208, label %CleanUpLock.exit
 
 208:                                              ; preds = %205, %201
-  br i1 %.not114138, label %._crit_edge143, label %.lr.ph142
+  br i1 %.not114137, label %._crit_edge142, label %.lr.ph141
 
-.lr.ph142:                                        ; preds = %208
+.lr.ph141:                                        ; preds = %208
   %209 = getelementptr inbounds nuw i8, ptr %192, i64 104
   %210 = getelementptr inbounds nuw i8, ptr %192, i64 64
   %211 = getelementptr inbounds nuw i8, ptr %192, i64 148
   %212 = getelementptr inbounds nuw i8, ptr %192, i64 108
   %213 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %214 = getelementptr inbounds nuw i8, ptr %192, i64 20
-  %215 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -24
+  %215 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -24
   br label %216
 
-216:                                              ; preds = %.lr.ph142, %245
-  %indvars.iv161 = phi i64 [ 1, %.lr.ph142 ], [ %indvars.iv.next162, %245 ]
-  %.0140 = phi i1 [ false, %.lr.ph142 ], [ %.1, %245 ]
+216:                                              ; preds = %.lr.ph141, %245
+  %indvars.iv160 = phi i64 [ 1, %.lr.ph141 ], [ %indvars.iv.next161, %245 ]
+  %.0139 = phi i1 [ false, %.lr.ph141 ], [ %.1, %245 ]
   %217 = load i32, ptr %203, align 4
-  %218 = trunc nuw nsw i64 %indvars.iv161 to i32
+  %218 = trunc nuw nsw i64 %indvars.iv160 to i32
   %219 = shl nuw i32 1, %218
   %220 = and i32 %217, %219
   %.not115 = icmp eq i32 %220, 0
@@ -3063,14 +3063,14 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %222 = load i32, ptr %209, align 8
   %223 = add i32 %222, -1
   store i32 %223, ptr %209, align 8
-  %224 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv161
+  %224 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv160
   %225 = load i32, ptr %224, align 4
   %226 = add i32 %225, -1
   store i32 %226, ptr %224, align 4
   %227 = load i32, ptr %211, align 4
   %228 = add i32 %227, -1
   store i32 %228, ptr %211, align 4
-  %229 = getelementptr inbounds nuw i32, ptr %212, i64 %indvars.iv161
+  %229 = getelementptr inbounds nuw i32, ptr %212, i64 %indvars.iv160
   %230 = load i32, ptr %229, align 4
   %231 = add i32 %230, -1
   store i32 %231, ptr %229, align 4
@@ -3086,7 +3086,7 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
 
 UnGrantLock.exit:                                 ; preds = %221, %234
   %237 = load ptr, ptr %175, align 8
-  %238 = getelementptr inbounds nuw i32, ptr %237, i64 %indvars.iv161
+  %238 = getelementptr inbounds nuw i32, ptr %237, i64 %indvars.iv160
   %239 = load i32, ptr %238, align 4
   %240 = load i32, ptr %214, align 4
   %241 = and i32 %240, %239
@@ -3094,41 +3094,41 @@ UnGrantLock.exit:                                 ; preds = %221, %234
   %242 = load i32, ptr %215, align 8
   %243 = and i32 %242, %233
   store i32 %243, ptr %215, align 8
-  %244 = or i1 %.0140, %.not.i118
+  %244 = or i1 %.0139, %.not.i118
   br label %245
 
 245:                                              ; preds = %216, %UnGrantLock.exit
-  %.1 = phi i1 [ %244, %UnGrantLock.exit ], [ %.0140, %216 ]
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %exitcond = icmp eq i64 %indvars.iv.next162, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge143, label %216, !llvm.loop !26
+  %.1 = phi i1 [ %244, %UnGrantLock.exit ], [ %.0139, %216 ]
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond = icmp eq i64 %indvars.iv.next161, %wide.trip.count
+  br i1 %exitcond, label %._crit_edge142, label %216, !llvm.loop !26
 
-._crit_edge143:                                   ; preds = %245, %208
+._crit_edge142:                                   ; preds = %245, %208
   %.0.lcssa = phi i1 [ false, %208 ], [ %.1, %245 ]
   store i32 0, ptr %203, align 4
   %246 = load ptr, ptr @LockMethodLockHash, align 8
   %247 = call i32 @get_hash_value(ptr noundef %246, ptr noundef %192) #16
-  %248 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -24
+  %248 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -24
   %249 = load i32, ptr %248, align 8
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %251, label %272
 
-251:                                              ; preds = %._crit_edge143
-  %252 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -16
-  %253 = getelementptr inbounds i8, ptr %.sroa.0.0148, i64 -8
+251:                                              ; preds = %._crit_edge142
+  %252 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -16
+  %253 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -8
   %254 = load ptr, ptr %253, align 8
   %255 = load ptr, ptr %252, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store ptr %254, ptr %256, align 8
   %257 = load ptr, ptr %252, align 8
   store ptr %257, ptr %254, align 8
-  %258 = load ptr, ptr %.sroa.8.0149.in, align 8
-  %259 = load ptr, ptr %.sroa.0.0148, align 8
+  %258 = load ptr, ptr %.sroa.8.0148.in, align 8
+  %259 = load ptr, ptr %.sroa.0.0147, align 8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store ptr %258, ptr %260, align 8
-  %261 = load ptr, ptr %.sroa.0.0148, align 8
+  %261 = load ptr, ptr %.sroa.0.0147, align 8
   store ptr %261, ptr %258, align 8
-  %262 = getelementptr i8, ptr %.sroa.0.0148, i64 -40
+  %262 = getelementptr i8, ptr %.sroa.0.0147, i64 -40
   %.val.i = load ptr, ptr %262, align 8
   %263 = ptrtoint ptr %.val.i to i64
   %264 = trunc i64 %263 to i32
@@ -3145,7 +3145,7 @@ UnGrantLock.exit:                                 ; preds = %221, %234
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1708, ptr noundef nonnull @__func__.CleanUpLock) #16
   unreachable
 
-272:                                              ; preds = %251, %._crit_edge143
+272:                                              ; preds = %251, %._crit_edge142
   %273 = getelementptr inbounds nuw i8, ptr %192, i64 104
   %274 = load i32, ptr %273, align 8
   %275 = icmp eq i32 %274, 0
@@ -3170,22 +3170,22 @@ UnGrantLock.exit:                                 ; preds = %221, %234
   call void @ProcLockWakeup(ptr noundef nonnull %13, ptr noundef nonnull %192) #16
   br label %CleanUpLock.exit
 
-CleanUpLock.exit:                                 ; preds = %283, %282, %276, %205, %.lr.ph151
-  %.not111 = icmp eq ptr %.sroa.8.0149, %181
-  br i1 %.not111, label %._crit_edge152, label %.lr.ph151, !llvm.loop !27
+CleanUpLock.exit:                                 ; preds = %283, %282, %276, %205, %.lr.ph150
+  %.not111 = icmp eq ptr %.sroa.8.0148, %181
+  br i1 %.not111, label %._crit_edge151, label %.lr.ph150, !llvm.loop !27
 
-._crit_edge152:                                   ; preds = %CleanUpLock.exit, %188
+._crit_edge151:                                   ; preds = %CleanUpLock.exit, %188
   call void @LWLockRelease(ptr noundef nonnull %183) #16
   %.pre = load ptr, ptr @MyProc, align 8
-  %.pre168 = load ptr, ptr @MainLWLockArray, align 8
+  %.pre167 = load ptr, ptr @MainLWLockArray, align 8
   br label %284
 
-284:                                              ; preds = %177, %._crit_edge152
-  %285 = phi ptr [ %178, %177 ], [ %.pre168, %._crit_edge152 ]
-  %286 = phi ptr [ %179, %177 ], [ %.pre, %._crit_edge152 ]
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next164, 16
-  br i1 %exitcond166.not, label %287, label %177, !llvm.loop !28
+284:                                              ; preds = %177, %._crit_edge151
+  %285 = phi ptr [ %178, %177 ], [ %.pre167, %._crit_edge151 ]
+  %286 = phi ptr [ %179, %177 ], [ %.pre, %._crit_edge151 ]
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
+  %exitcond165.not = icmp eq i64 %indvars.iv.next163, 16
+  br i1 %exitcond165.not, label %287, label %177, !llvm.loop !28
 
 287:                                              ; preds = %284
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3865,8 +3865,8 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %71 = load ptr, ptr @ProcGlobal, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 8
-  %.not136 = icmp eq i32 %73, 0
-  br i1 %.not136, label %.loopexit, label %.lr.ph
+  %.not134 = icmp eq i32 %73, 0
+  br i1 %.not134, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68
   %74 = zext i32 %70 to i64
@@ -3875,10 +3875,10 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
 
 76:                                               ; preds = %.lr.ph, %124
   %77 = phi ptr [ %71, %.lr.ph ], [ %126, %124 ]
-  %.1126 = phi i32 [ 0, %.lr.ph ], [ %.2, %124 ]
-  %.093125 = phi i32 [ 0, %.lr.ph ], [ %125, %124 ]
+  %.1124 = phi i32 [ 0, %.lr.ph ], [ %.2, %124 ]
+  %.093123 = phi i32 [ 0, %.lr.ph ], [ %125, %124 ]
   %78 = load ptr, ptr %77, align 8
-  %79 = sext i32 %.093125 to i64
+  %79 = sext i32 %.093123 to i64
   %80 = getelementptr inbounds %struct.PGPROC, ptr %78, i64 %79
   %81 = load ptr, ptr @MyProc, align 8
   %82 = icmp eq ptr %80, %81
@@ -3891,7 +3891,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %87 = load i32, ptr %86, align 4
   %88 = load i32, ptr %0, align 4
   %.not115 = icmp eq i32 %87, %88
-  br i1 %.not115, label %89, label %.sink.split160
+  br i1 %.not115, label %89, label %.sink.split158
 
 89:                                               ; preds = %83
   %90 = load i32, ptr @FastPathLockGroupsPerBackend, align 4
@@ -3928,39 +3928,39 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %110 = shl nuw nsw i32 %108, 1
   %111 = and i32 %110, %57
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %.sink.split160, label %113
+  br i1 %112, label %.sink.split158, label %113
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %115 = load i32, ptr %114, align 4
   %.not118 = icmp eq i32 %115, 0
-  br i1 %.not118, label %.sink.split160, label %116
+  br i1 %.not118, label %.sink.split158, label %116
 
 116:                                              ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %80, i64 68
   %118 = load i32, ptr %117, align 4
   %119 = load ptr, ptr @GetLockConflicts.vxids, align 8
-  %120 = add i32 %.1126, 1
-  %121 = sext i32 %.1126 to i64
+  %120 = add i32 %.1124, 1
+  %121 = sext i32 %.1124 to i64
   %122 = getelementptr inbounds %struct.VirtualTransactionId, ptr %119, i64 %121
   store i32 %118, ptr %122, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 %115, ptr %.sroa.4.0..sroa_idx, align 4
-  br label %.sink.split160
+  br label %.sink.split158
 
 123:                                              ; preds = %99, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.sink.split160, label %99, !llvm.loop !37
+  br i1 %exitcond.not, label %.sink.split158, label %99, !llvm.loop !37
 
-.sink.split160:                                   ; preds = %123, %109, %116, %113, %83
-  %.2.ph = phi i32 [ %.1126, %83 ], [ %.1126, %113 ], [ %120, %116 ], [ %.1126, %109 ], [ %.1126, %123 ]
+.sink.split158:                                   ; preds = %123, %109, %116, %113, %83
+  %.2.ph = phi i32 [ %.1124, %83 ], [ %.1124, %113 ], [ %120, %116 ], [ %.1124, %109 ], [ %.1124, %123 ]
   tail call void @LWLockRelease(ptr noundef nonnull %84) #16
   br label %124
 
-124:                                              ; preds = %.sink.split160, %76
-  %.2 = phi i32 [ %.1126, %76 ], [ %.2.ph, %.sink.split160 ]
-  %125 = add nuw i32 %.093125, 1
+124:                                              ; preds = %.sink.split158, %76
+  %.2 = phi i32 [ %.1124, %76 ], [ %.2.ph, %.sink.split158 ]
+  %125 = add nuw i32 %.093123, 1
   %126 = load ptr, ptr @ProcGlobal, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %128 = load i32, ptr %127, align 8
@@ -3984,41 +3984,41 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 0, ptr %137, align 4
   %.not107 = icmp eq ptr %2, null
-  br i1 %.not107, label %198, label %.sink.split161
+  br i1 %.not107, label %198, label %.sink.split159
 
 138:                                              ; preds = %.loopexit
   %139 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %140 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %141 = load ptr, ptr %140, align 8
   %.not108 = icmp eq ptr %141, null
-  %.not109129137 = icmp eq ptr %141, %139
-  %.not109129 = select i1 %.not108, i1 true, i1 %.not109129137
-  br i1 %.not109129, label %._crit_edge134, label %.lr.ph133
+  %.not109127135 = icmp eq ptr %141, %139
+  %.not109127 = select i1 %.not108, i1 true, i1 %.not109127135
+  br i1 %.not109127, label %._crit_edge132, label %.lr.ph131
 
-.lr.ph133:                                        ; preds = %138
+.lr.ph131:                                        ; preds = %138
   %142 = icmp sgt i32 %.092, 0
   %143 = load ptr, ptr @GetLockConflicts.vxids, align 8
-  br i1 %142, label %.lr.ph133.split.us.preheader, label %.lr.ph133.split
+  br i1 %142, label %.lr.ph131.split.us.preheader, label %.lr.ph131.split
 
-.lr.ph133.split.us.preheader:                     ; preds = %.lr.ph133
+.lr.ph131.split.us.preheader:                     ; preds = %.lr.ph131
   %wide.trip.count = zext nneg i32 %.092 to i64
-  br label %.lr.ph133.split.us
+  br label %.lr.ph131.split.us
 
-.lr.ph133.split.us:                               ; preds = %.lr.ph133.split.us.preheader, %.thread123.us
-  %.sroa.057.0131.us = phi ptr [ %165, %.thread123.us ], [ %141, %.lr.ph133.split.us.preheader ]
-  %.7130.us = phi i32 [ %.11.us, %.thread123.us ], [ %.092, %.lr.ph133.split.us.preheader ]
-  %144 = getelementptr inbounds i8, ptr %.sroa.057.0131.us, i64 -8
+.lr.ph131.split.us:                               ; preds = %.lr.ph131.split.us.preheader, %.thread121.us
+  %.sroa.057.0129.us = phi ptr [ %165, %.thread121.us ], [ %141, %.lr.ph131.split.us.preheader ]
+  %.7128.us = phi i32 [ %.11.us, %.thread121.us ], [ %.092, %.lr.ph131.split.us.preheader ]
+  %144 = getelementptr inbounds i8, ptr %.sroa.057.0129.us, i64 -8
   %145 = load i32, ptr %144, align 8
   %146 = and i32 %145, %57
   %.not111.us = icmp eq i32 %146, 0
-  br i1 %.not111.us, label %.thread123.us, label %147
+  br i1 %.not111.us, label %.thread121.us, label %147
 
-147:                                              ; preds = %.lr.ph133.split.us
-  %148 = getelementptr inbounds i8, ptr %.sroa.057.0131.us, i64 -24
+147:                                              ; preds = %.lr.ph131.split.us
+  %148 = getelementptr inbounds i8, ptr %.sroa.057.0129.us, i64 -24
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr @MyProc, align 8
   %.not112.us = icmp eq ptr %149, %150
-  br i1 %.not112.us, label %.thread123.us, label %151
+  br i1 %.not112.us, label %.thread121.us, label %151
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 68
@@ -4026,11 +4026,11 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 72
   %155 = load i32, ptr %154, align 4
   %.not113.us = icmp eq i32 %155, 0
-  br i1 %.not113.us, label %.thread123.us, label %.preheader.us
+  br i1 %.not113.us, label %.thread121.us, label %.preheader.us
 
 .preheader.us:                                    ; preds = %151, %163
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %163 ], [ 0, %151 ]
-  %156 = getelementptr inbounds nuw %struct.VirtualTransactionId, ptr %143, i64 %indvars.iv140
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %163 ], [ 0, %151 ]
+  %156 = getelementptr inbounds nuw %struct.VirtualTransactionId, ptr %143, i64 %indvars.iv138
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, %153
   br i1 %158, label %159, label %163
@@ -4039,71 +4039,71 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %161 = load i32, ptr %160, align 4
   %162 = icmp eq i32 %161, %155
-  br i1 %162, label %.thread123.us, label %163
+  br i1 %162, label %.thread121.us, label %163
 
 163:                                              ; preds = %159, %.preheader.us
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
-  br i1 %exitcond143.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !39
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count
+  br i1 %exitcond141.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !39
 
-.thread123.us:                                    ; preds = %159, %._crit_edge.us, %151, %147, %.lr.ph133.split.us
-  %.11.us = phi i32 [ %.7130.us, %.lr.ph133.split.us ], [ %.7130.us, %147 ], [ %.7130.us, %151 ], [ %166, %._crit_edge.us ], [ %.7130.us, %159 ]
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.057.0131.us, i64 8
+.thread121.us:                                    ; preds = %159, %._crit_edge.us, %151, %147, %.lr.ph131.split.us
+  %.11.us = phi i32 [ %.7128.us, %.lr.ph131.split.us ], [ %.7128.us, %147 ], [ %.7128.us, %151 ], [ %166, %._crit_edge.us ], [ %.7128.us, %159 ]
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.057.0129.us, i64 8
   %165 = load ptr, ptr %164, align 8
   %.not109.us = icmp eq ptr %165, %139
-  br i1 %.not109.us, label %._crit_edge134, label %.lr.ph133.split.us, !llvm.loop !40
+  br i1 %.not109.us, label %._crit_edge132, label %.lr.ph131.split.us, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %163
-  %166 = add i32 %.7130.us, 1
-  %167 = sext i32 %.7130.us to i64
+  %166 = add i32 %.7128.us, 1
+  %167 = sext i32 %.7128.us to i64
   %168 = getelementptr inbounds %struct.VirtualTransactionId, ptr %143, i64 %167
   store i32 %153, ptr %168, align 4
   %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %168, i64 4
   store i32 %155, ptr %.sroa.5.0..sroa_idx.us, align 4
-  br label %.thread123.us
+  br label %.thread121.us
 
-.lr.ph133.split:                                  ; preds = %.lr.ph133, %.thread123
-  %.sroa.057.0131 = phi ptr [ %185, %.thread123 ], [ %141, %.lr.ph133 ]
-  %.7130 = phi i32 [ %.11, %.thread123 ], [ %.092, %.lr.ph133 ]
-  %169 = getelementptr inbounds i8, ptr %.sroa.057.0131, i64 -8
+.lr.ph131.split:                                  ; preds = %.lr.ph131, %.thread121
+  %.sroa.057.0129 = phi ptr [ %185, %.thread121 ], [ %141, %.lr.ph131 ]
+  %.7128 = phi i32 [ %.11, %.thread121 ], [ %.092, %.lr.ph131 ]
+  %169 = getelementptr inbounds i8, ptr %.sroa.057.0129, i64 -8
   %170 = load i32, ptr %169, align 8
   %171 = and i32 %170, %57
   %.not111 = icmp eq i32 %171, 0
-  br i1 %.not111, label %.thread123, label %172
+  br i1 %.not111, label %.thread121, label %172
 
-172:                                              ; preds = %.lr.ph133.split
-  %173 = getelementptr inbounds i8, ptr %.sroa.057.0131, i64 -24
+172:                                              ; preds = %.lr.ph131.split
+  %173 = getelementptr inbounds i8, ptr %.sroa.057.0129, i64 -24
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr @MyProc, align 8
   %.not112 = icmp eq ptr %174, %175
-  br i1 %.not112, label %.thread123, label %176
+  br i1 %.not112, label %.thread121, label %176
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 72
   %178 = load i32, ptr %177, align 4
   %.not113 = icmp eq i32 %178, 0
-  br i1 %.not113, label %.thread123, label %.preheader
+  br i1 %.not113, label %.thread121, label %.preheader
 
 .preheader:                                       ; preds = %176
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 68
   %180 = load i32, ptr %179, align 4
-  %181 = add i32 %.7130, 1
-  %182 = sext i32 %.7130 to i64
+  %181 = add i32 %.7128, 1
+  %182 = sext i32 %.7128 to i64
   %183 = getelementptr inbounds %struct.VirtualTransactionId, ptr %143, i64 %182
   store i32 %180, ptr %183, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i32 %178, ptr %.sroa.5.0..sroa_idx, align 4
-  br label %.thread123
+  br label %.thread121
 
-.thread123:                                       ; preds = %172, %.preheader, %176, %.lr.ph133.split
-  %.11 = phi i32 [ %.7130, %.lr.ph133.split ], [ %.7130, %172 ], [ %.7130, %176 ], [ %181, %.preheader ]
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.057.0131, i64 8
+.thread121:                                       ; preds = %172, %.preheader, %176, %.lr.ph131.split
+  %.11 = phi i32 [ %.7128, %.lr.ph131.split ], [ %.7128, %172 ], [ %.7128, %176 ], [ %181, %.preheader ]
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.057.0129, i64 8
   %185 = load ptr, ptr %184, align 8
   %.not109 = icmp eq ptr %185, %139
-  br i1 %.not109, label %._crit_edge134, label %.lr.ph133.split, !llvm.loop !40
+  br i1 %.not109, label %._crit_edge132, label %.lr.ph131.split, !llvm.loop !40
 
-._crit_edge134:                                   ; preds = %.thread123, %.thread123.us, %138
-  %.7.lcssa = phi i32 [ %.092, %138 ], [ %.11.us, %.thread123.us ], [ %.11, %.thread123 ]
+._crit_edge132:                                   ; preds = %.thread121, %.thread121.us, %138
+  %.7.lcssa = phi i32 [ %.092, %138 ], [ %.11.us, %.thread121.us ], [ %.11, %.thread121 ]
   tail call void @LWLockRelease(ptr noundef nonnull %52) #16
   %186 = load i32, ptr @MaxBackends, align 4
   %187 = load i32, ptr @max_prepared_xacts, align 4
@@ -4111,13 +4111,13 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %189 = icmp sgt i32 %.7.lcssa, %188
   br i1 %189, label %190, label %193
 
-190:                                              ; preds = %._crit_edge134
+190:                                              ; preds = %._crit_edge132
   %191 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
   %192 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #16
   tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 3170, ptr noundef nonnull @__func__.GetLockConflicts) #16
   unreachable
 
-193:                                              ; preds = %._crit_edge134
+193:                                              ; preds = %._crit_edge132
   %194 = load ptr, ptr @GetLockConflicts.vxids, align 8
   %195 = sext i32 %.7.lcssa to i64
   %196 = getelementptr inbounds %struct.VirtualTransactionId, ptr %194, i64 %195
@@ -4125,16 +4125,16 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   store i32 0, ptr %197, align 4
   %.not110 = icmp eq ptr %2, null
-  br i1 %.not110, label %198, label %.sink.split161
+  br i1 %.not110, label %198, label %.sink.split159
 
-.sink.split161:                                   ; preds = %193, %133
+.sink.split159:                                   ; preds = %193, %133
   %.7.lcssa.sink = phi i32 [ %.092, %133 ], [ %.7.lcssa, %193 ]
   %.091.ph = phi ptr [ %134, %133 ], [ %194, %193 ]
   store i32 %.7.lcssa.sink, ptr %2, align 4
   br label %198
 
-198:                                              ; preds = %.sink.split161, %193, %133
-  %.091 = phi ptr [ %194, %193 ], [ %134, %133 ], [ %.091.ph, %.sink.split161 ]
+198:                                              ; preds = %.sink.split159, %193, %133
+  %.091 = phi ptr [ %194, %193 ], [ %134, %133 ], [ %.091.ph, %.sink.split159 ]
   ret ptr %.091
 }
 
@@ -4268,7 +4268,7 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %57, %0
   br label %63
 
 63:                                               ; preds = %.lr.ph34, %.critedge
-  %64 = phi ptr [ %60, %.lr.ph34 ], [ %211, %.critedge ]
+  %64 = phi ptr [ %60, %.lr.ph34 ], [ %212, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %66 = load ptr, ptr %65, align 8
@@ -4325,7 +4325,7 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %57, %0
   %88 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %207
+  br i1 %90, label %91, label %208
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr @MainLWLockArray, align 8
@@ -4382,7 +4382,7 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %57, %0
   %133 = shl nuw i64 1, %132
   %134 = and i64 %133, %121
   %.not46.i = icmp eq i64 %134, 0
-  br i1 %.not46.i, label %.thread55.i, label %135
+  br i1 %.not46.i, label %.loopexit.i, label %135
 
 135:                                              ; preds = %126
   %136 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %98, i32 noundef 0) #16
@@ -4439,7 +4439,7 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %57, %0
 171:                                              ; preds = %118, %116
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i23, 16
-  br i1 %exitcond.not.i, label %.thread55.i, label %116, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.loopexit.i, label %116, !llvm.loop !45
 
 172:                                              ; preds = %166, %147
   %173 = getelementptr inbounds nuw i8, ptr %139, i64 24
@@ -4455,75 +4455,75 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %57, %0
   %182 = and i64 %181, %176
   store i64 %182, ptr %180, align 8
   call void @LWLockRelease(ptr noundef nonnull %98) #16
-  %.pre.i = load ptr, ptr @MyProc, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 752
-  call void @LWLockRelease(ptr noundef nonnull %183) #16
+  %183 = load ptr, ptr @MyProc, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 752
+  call void @LWLockRelease(ptr noundef nonnull %184) #16
   br label %FastPathGetRelationLockEntry.exit
 
-.thread55.i:                                      ; preds = %171, %126
-  %184 = getelementptr inbounds nuw i8, ptr %110, i64 752
-  call void @LWLockRelease(ptr noundef nonnull %184) #16
+.loopexit.i:                                      ; preds = %171, %126
+  %185 = getelementptr inbounds nuw i8, ptr %110, i64 752
+  call void @LWLockRelease(ptr noundef nonnull %185) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %185 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %98, i32 noundef 1) #16
-  %186 = load ptr, ptr @LockMethodLockHash, align 8
-  %187 = load i32, ptr %93, align 4
-  %188 = call ptr @hash_search_with_hash_value(ptr noundef %186, ptr noundef nonnull %64, i32 noundef %187, i32 noundef 0, ptr noundef null) #16
-  %.not48.i = icmp eq ptr %188, null
-  br i1 %.not48.i, label %189, label %192
+  %186 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %98, i32 noundef 1) #16
+  %187 = load ptr, ptr @LockMethodLockHash, align 8
+  %188 = load i32, ptr %93, align 4
+  %189 = call ptr @hash_search_with_hash_value(ptr noundef %187, ptr noundef nonnull %64, i32 noundef %188, i32 noundef 0, ptr noundef null) #16
+  %.not48.i = icmp eq ptr %189, null
+  br i1 %.not48.i, label %190, label %193
 
-189:                                              ; preds = %.thread55.i
-  %190 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  %191 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #16
+190:                                              ; preds = %.loopexit.i
+  %191 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %192 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #16
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 2936, ptr noundef nonnull @__func__.FastPathGetRelationLockEntry) #16
   unreachable
 
-192:                                              ; preds = %.thread55.i
-  store ptr %188, ptr %1, align 8
-  %193 = load ptr, ptr @MyProc, align 8
-  store ptr %193, ptr %61, align 8
-  %194 = load i32, ptr %93, align 4
-  %195 = ptrtoint ptr %193 to i64
-  %196 = trunc i64 %195 to i32
-  %197 = shl i32 %196, 4
-  %198 = xor i32 %197, %194
-  %199 = load ptr, ptr @LockMethodProcLockHash, align 8
-  %200 = call ptr @hash_search_with_hash_value(ptr noundef %199, ptr noundef nonnull %1, i32 noundef %198, i32 noundef 0, ptr noundef null) #16
-  %.not49.i = icmp eq ptr %200, null
-  br i1 %.not49.i, label %201, label %204
+193:                                              ; preds = %.loopexit.i
+  store ptr %189, ptr %1, align 8
+  %194 = load ptr, ptr @MyProc, align 8
+  store ptr %194, ptr %61, align 8
+  %195 = load i32, ptr %93, align 4
+  %196 = ptrtoint ptr %194 to i64
+  %197 = trunc i64 %196 to i32
+  %198 = shl i32 %197, 4
+  %199 = xor i32 %198, %195
+  %200 = load ptr, ptr @LockMethodProcLockHash, align 8
+  %201 = call ptr @hash_search_with_hash_value(ptr noundef %200, ptr noundef nonnull %1, i32 noundef %199, i32 noundef 0, ptr noundef null) #16
+  %.not49.i = icmp eq ptr %201, null
+  br i1 %.not49.i, label %202, label %205
 
-201:                                              ; preds = %192
-  %202 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  %203 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #16
+202:                                              ; preds = %193
+  %203 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %204 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #16
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 2949, ptr noundef nonnull @__func__.FastPathGetRelationLockEntry) #16
   unreachable
 
-204:                                              ; preds = %192
+205:                                              ; preds = %193
   call void @LWLockRelease(ptr noundef nonnull %98) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %FastPathGetRelationLockEntry.exit
 
-FastPathGetRelationLockEntry.exit:                ; preds = %172, %204
-  %.3.i = phi ptr [ %200, %204 ], [ %139, %172 ]
+FastPathGetRelationLockEntry.exit:                ; preds = %172, %205
+  %.3.i = phi ptr [ %201, %205 ], [ %139, %172 ]
   store ptr %.3.i, ptr %88, align 8
-  %205 = load ptr, ptr %.3.i, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store ptr %205, ptr %206, align 8
-  br label %207
+  %206 = load ptr, ptr %.3.i, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store ptr %206, ptr %207, align 8
+  br label %208
 
-207:                                              ; preds = %FastPathGetRelationLockEntry.exit, %87
-  %208 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  store i8 0, ptr %208, align 8
+208:                                              ; preds = %FastPathGetRelationLockEntry.exit, %87
+  %209 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  store i8 0, ptr %209, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
-  %209 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %210 = load i32, ptr %209, align 8
-  store i32 %210, ptr %62, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %211 = load i32, ptr %210, align 8
+  store i32 %211, ptr %62, align 4
   call void @RegisterTwoPhaseRecord(i8 noundef zeroext 1, i16 noundef zeroext 0, ptr noundef nonnull %6, i32 noundef 20) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %74, %._crit_edge, %70, %63, %207
+.critedge:                                        ; preds = %74, %._crit_edge, %70, %63, %208
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %211 = call ptr @hash_seq_search(ptr noundef nonnull %5) #16
-  %.not = icmp eq ptr %211, null
+  %212 = call ptr @hash_seq_search(ptr noundef nonnull %5) #16
+  %.not = icmp eq ptr %212, null
   br i1 %.not, label %._crit_edge35, label %63
 
 ._crit_edge35:                                    ; preds = %.critedge, %CheckForSessionAndXactLocks.exit
@@ -5272,9 +5272,9 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  %.not8795103 = icmp eq ptr %23, %21
-  %.not8795 = select i1 %.not, i1 true, i1 %.not8795103
-  br i1 %.not8795, label %._crit_edge, label %.lr.ph
+  %.not8794102 = icmp eq ptr %23, %21
+  %.not8794 = select i1 %.not, i1 true, i1 %.not8794102
+  br i1 %.not8794, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -5284,14 +5284,14 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
 
 26:                                               ; preds = %.lr.ph, %53
   %27 = phi i32 [ %.pre, %.lr.ph ], [ %71, %53 ]
-  %.sroa.033.096 = phi ptr [ %23, %.lr.ph ], [ %73, %53 ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.033.096, i64 -32
-  %29 = getelementptr inbounds i8, ptr %.sroa.033.096, i64 -24
+  %.sroa.033.095 = phi ptr [ %23, %.lr.ph ], [ %73, %53 ]
+  %28 = getelementptr inbounds i8, ptr %.sroa.033.095, i64 -32
+  %29 = getelementptr inbounds i8, ptr %.sroa.033.095, i64 -24
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
   %32 = load i32, ptr %24, align 4
   %.not90 = icmp slt i32 %27, %32
-  %.pre104 = load ptr, ptr %25, align 8
+  %.pre103 = load ptr, ptr %25, align 8
   br i1 %.not90, label %39, label %33
 
 33:                                               ; preds = %26
@@ -5300,18 +5300,18 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
   store i32 %35, ptr %24, align 4
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %36, 56
-  %38 = tail call ptr @repalloc(ptr noundef %.pre104, i64 noundef %37) #16
+  %38 = tail call ptr @repalloc(ptr noundef %.pre103, i64 noundef %37) #16
   store ptr %38, ptr %25, align 8
-  %.pre105 = load i32, ptr %15, align 8
+  %.pre104 = load i32, ptr %15, align 8
   br label %39
 
 39:                                               ; preds = %33, %26
-  %40 = phi i32 [ %.pre105, %33 ], [ %27, %26 ]
-  %41 = phi ptr [ %38, %33 ], [ %.pre104, %26 ]
+  %40 = phi i32 [ %.pre104, %33 ], [ %27, %26 ]
+  %41 = phi ptr [ %38, %33 ], [ %.pre103, %26 ]
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds %struct.LockInstanceData, ptr %41, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
-  %44 = getelementptr inbounds i8, ptr %.sroa.033.096, i64 -8
+  %44 = getelementptr inbounds i8, ptr %.sroa.033.095, i64 -8
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 %45, ptr %46, align 8
@@ -5341,7 +5341,7 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i32 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.sroa.033.096, i64 -16
+  %64 = getelementptr inbounds i8, ptr %.sroa.033.095, i64 -16
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 60
   %67 = load i32, ptr %66, align 4
@@ -5352,17 +5352,17 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
   %70 = load i32, ptr %15, align 8
   %71 = add i32 %70, 1
   store i32 %71, ptr %15, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.033.096, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.033.095, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not87 = icmp eq ptr %73, %21
   br i1 %.not87, label %._crit_edge.loopexit, label %26, !llvm.loop !59
 
 ._crit_edge.loopexit:                             ; preds = %53
-  %.pre106 = load i32, ptr %18, align 8
+  %.pre105 = load i32, ptr %18, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %74 = phi i32 [ %.pre106, %._crit_edge.loopexit ], [ %19, %6 ]
+  %74 = phi i32 [ %.pre105, %._crit_edge.loopexit ], [ %19, %6 ]
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %76 = getelementptr i8, ptr %4, i64 56
   %.val = load i32, ptr %76, align 8
@@ -5391,18 +5391,18 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
   %92 = load ptr, ptr %91, align 8
   %.not88 = icmp eq ptr %92, null
   %.92 = select i1 %.not88, ptr %75, ptr %92
-  %.not8997 = icmp eq ptr %.92, %75
+  %.not8996 = icmp eq ptr %.92, %75
   %93 = icmp eq ptr %.92, %0
-  %or.cond98 = or i1 %.not8997, %93
-  br i1 %or.cond98, label %._crit_edge102, label %.lr.ph101
+  %or.cond97 = or i1 %.not8996, %93
+  br i1 %or.cond97, label %._crit_edge101, label %.lr.ph100
 
-.lr.ph101:                                        ; preds = %90
+.lr.ph100:                                        ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %95
 
-95:                                               ; preds = %.lr.ph101, %95
-  %.sroa.0.099 = phi ptr [ %.92, %.lr.ph101 ], [ %104, %95 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.099, i64 60
+95:                                               ; preds = %.lr.ph100, %95
+  %.sroa.0.098 = phi ptr [ %.92, %.lr.ph100 ], [ %104, %95 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.098, i64 60
   %97 = load i32, ptr %96, align 4
   %98 = load ptr, ptr %94, align 8
   %99 = load i32, ptr %18, align 8
@@ -5411,14 +5411,14 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
   %101 = sext i32 %99 to i64
   %102 = getelementptr inbounds i32, ptr %98, i64 %101
   store i32 %97, ptr %102, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.099, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.098, i64 8
   %104 = load ptr, ptr %103, align 8
   %.not89 = icmp eq ptr %104, %75
   %105 = icmp eq ptr %104, %0
   %or.cond = or i1 %.not89, %105
-  br i1 %or.cond, label %._crit_edge102, label %95, !llvm.loop !60
+  br i1 %or.cond, label %._crit_edge101, label %95, !llvm.loop !60
 
-._crit_edge102:                                   ; preds = %95, %90
+._crit_edge101:                                   ; preds = %95, %90
   %106 = load i32, ptr %15, align 8
   %107 = load i32, ptr %17, align 4
   %108 = sub i32 %106, %107
@@ -5431,7 +5431,7 @@ define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly
   store i32 %112, ptr %113, align 4
   br label %114
 
-114:                                              ; preds = %2, %._crit_edge102
+114:                                              ; preds = %2, %._crit_edge101
   ret void
 }
 
@@ -5514,13 +5514,13 @@ define dso_local ptr @GetRunningTransactionLocks(ptr noundef writeonly captures(
   br label %.outer.outer, !llvm.loop !62
 
 .preheader:                                       ; preds = %15, %.preheader
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 16, %15 ]
-  %indvars.iv.next42 = add nsw i64 %indvars.iv41, -1
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.preheader ], [ 16, %15 ]
+  %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
   %39 = load ptr, ptr @MainLWLockArray, align 8
-  %40 = getelementptr %union.LWLockPadded, ptr %39, i64 %indvars.iv41
+  %40 = getelementptr %union.LWLockPadded, ptr %39, i64 %indvars.iv40
   %41 = getelementptr i8, ptr %40, i64 23040
   call void @LWLockRelease(ptr noundef nonnull %41) #16
-  %42 = icmp samesign ugt i64 %indvars.iv41, 1
+  %42 = icmp samesign ugt i64 %indvars.iv40, 1
   br i1 %42, label %.preheader, label %43, !llvm.loop !63
 
 43:                                               ; preds = %.preheader

@@ -1416,33 +1416,33 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   %36 = icmp eq ptr %31, null
   %37 = icmp eq ptr %35, null
   %or.cond.i = select i1 %36, i1 true, i1 %37
-  br i1 %or.cond.i, label %.thread.i, label %.preheader86.i
+  br i1 %or.cond.i, label %.thread.i, label %.preheader85.i
 
-.preheader86.i:                                   ; preds = %26
+.preheader85.i:                                   ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load i32, ptr %38, align 8, !tbaa !34
-  %.not103.i = icmp eq i32 %39, 0
-  br i1 %.not103.i, label %._crit_edge98.i, label %.preheader85.lr.ph.i
+  %.not102.i = icmp eq i32 %39, 0
+  br i1 %.not102.i, label %._crit_edge97.i, label %.preheader84.lr.ph.i
 
-.preheader85.lr.ph.i:                             ; preds = %.preheader86.i
+.preheader84.lr.ph.i:                             ; preds = %.preheader85.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.pre.pre.i = load i32, ptr %27, align 4, !tbaa !16
-  br label %.preheader85.i
+  br label %.preheader84.i
 
-.preheader85.i:                                   ; preds = %95, %.preheader85.lr.ph.i
-  %.pre.i3 = phi i32 [ %.pre.pre.i, %.preheader85.lr.ph.i ], [ %.pre123.i, %95 ]
-  %.06797.i = phi i32 [ 0, %.preheader85.lr.ph.i ], [ %96, %95 ]
-  br label %.preheader83.i
+.preheader84.i:                                   ; preds = %95, %.preheader84.lr.ph.i
+  %.pre.i3 = phi i32 [ %.pre.pre.i, %.preheader84.lr.ph.i ], [ %.pre122.i, %95 ]
+  %.06796.i = phi i32 [ 0, %.preheader84.lr.ph.i ], [ %96, %95 ]
+  br label %.preheader82.i
 
-.preheader83.i:                                   ; preds = %._crit_edge95.i, %.preheader85.i
-  %.pre125.i = phi i32 [ %.pre.i3, %.preheader85.i ], [ %.pre123.i, %._crit_edge95.i ]
-  %41 = phi i32 [ %.pre.i3, %.preheader85.i ], [ %93, %._crit_edge95.i ]
-  %.06896.i = phi i32 [ 0, %.preheader85.i ], [ %94, %._crit_edge95.i ]
-  %.not104.i = icmp eq i32 %41, 0
-  br i1 %.not104.i, label %._crit_edge95.i, label %.lr.ph.i4
+.preheader82.i:                                   ; preds = %._crit_edge94.i, %.preheader84.i
+  %.pre124.i = phi i32 [ %.pre.i3, %.preheader84.i ], [ %.pre122.i, %._crit_edge94.i ]
+  %41 = phi i32 [ %.pre.i3, %.preheader84.i ], [ %93, %._crit_edge94.i ]
+  %.06895.i = phi i32 [ 0, %.preheader84.i ], [ %94, %._crit_edge94.i ]
+  %.not103.i = icmp eq i32 %41, 0
+  br i1 %.not103.i, label %._crit_edge94.i, label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %.preheader83.i
-  %42 = trunc nuw nsw i32 %.06896.i to i8
+.lr.ph.i4:                                        ; preds = %.preheader82.i
+  %42 = trunc nuw nsw i32 %.06895.i to i8
   br label %43
 
 43:                                               ; preds = %74, %.lr.ph.i4
@@ -1451,7 +1451,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   %44 = load i32, ptr %2, align 8, !tbaa !17
   %45 = zext i32 %44 to i64
   %.not.i5 = icmp samesign ult i64 %indvars.iv.i, %45
-  br i1 %.not.i5, label %._crit_edge127.i, label %46
+  br i1 %.not.i5, label %._crit_edge126.i, label %46
 
 46:                                               ; preds = %43
   %47 = sub nuw nsw i64 %indvars.iv.i, %45
@@ -1469,13 +1469,13 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   %58 = tail call i32 @ossl_crypto_thread_clean(ptr noundef %57) #10
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.thread.i, label %._crit_edge127.i
+  br i1 %59, label %.thread.i, label %._crit_edge126.i
 
-._crit_edge127.i:                                 ; preds = %52, %43
+._crit_edge126.i:                                 ; preds = %52, %43
   %60 = getelementptr inbounds nuw %struct.ARGON2_THREAD_DATA, ptr %35, i64 %indvars.iv.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %0, ptr %61, align 8, !tbaa !53
-  store i32 %.06797.i, ptr %60, align 8
+  store i32 %.06796.i, ptr %60, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %indvars25, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -1489,34 +1489,34 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   %65 = icmp eq ptr %63, null
   br i1 %65, label %.preheader.i8, label %74
 
-.preheader.i8:                                    ; preds = %._crit_edge127.i
-  %.not105.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not105.i, label %.thread.thread.i, label %.lr.ph100.preheader.i
+.preheader.i8:                                    ; preds = %._crit_edge126.i
+  %.not104.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not104.i, label %.thread.thread.i, label %.lr.ph99.preheader.i
 
-.lr.ph100.preheader.i:                            ; preds = %.preheader.i8
+.lr.ph99.preheader.i:                             ; preds = %.preheader.i8
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
-  br label %.lr.ph100.i
+  br label %.lr.ph99.i
 
-.lr.ph100.i:                                      ; preds = %73, %.lr.ph100.preheader.i
-  %indvars.iv115.i = phi i64 [ 0, %.lr.ph100.preheader.i ], [ %indvars.iv.next116.i, %73 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv115.i
+.lr.ph99.i:                                       ; preds = %73, %.lr.ph99.preheader.i
+  %indvars.iv114.i = phi i64 [ 0, %.lr.ph99.preheader.i ], [ %indvars.iv.next115.i, %73 ]
+  %66 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv114.i
   %67 = load ptr, ptr %66, align 8, !tbaa !52
   %68 = tail call i32 @ossl_crypto_thread_join(ptr noundef %67, ptr noundef null) #10
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread.i, label %70
 
-70:                                               ; preds = %.lr.ph100.i
+70:                                               ; preds = %.lr.ph99.i
   %71 = tail call i32 @ossl_crypto_thread_clean(ptr noundef %67) #10
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.thread.i, label %73
 
 73:                                               ; preds = %70
   store ptr null, ptr %66, align 8, !tbaa !52
-  %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
-  %exitcond122.not.i = icmp eq i64 %indvars.iv.next116.i, %wide.trip.count.i
-  br i1 %exitcond122.not.i, label %.thread.i, label %.lr.ph100.i, !llvm.loop !56
+  %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
+  %exitcond121.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count.i
+  br i1 %exitcond121.not.i, label %.thread.i, label %.lr.ph99.i, !llvm.loop !56
 
-74:                                               ; preds = %._crit_edge127.i
+74:                                               ; preds = %._crit_edge126.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %75 = load i32, ptr %27, align 4, !tbaa !16
   %76 = zext i32 %75 to i64
@@ -1527,51 +1527,51 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   %78 = load i32, ptr %2, align 8, !tbaa !17
   %79 = sub i32 %75, %78
   %80 = icmp ult i32 %79, %75
-  br i1 %80, label %.lr.ph94.preheader.i, label %._crit_edge95.i
+  br i1 %80, label %.lr.ph93.preheader.i, label %._crit_edge94.i
 
-.lr.ph94.preheader.i:                             ; preds = %._crit_edge.i6
+.lr.ph93.preheader.i:                             ; preds = %._crit_edge.i6
   %81 = zext i32 %79 to i64
-  br label %.lr.ph94.i
+  br label %.lr.ph93.i
 
-.lr.ph94.i:                                       ; preds = %89, %.lr.ph94.preheader.i
-  %indvars.iv112.i = phi i64 [ %81, %.lr.ph94.preheader.i ], [ %indvars.iv.next113.i, %89 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv112.i
+.lr.ph93.i:                                       ; preds = %89, %.lr.ph93.preheader.i
+  %indvars.iv111.i = phi i64 [ %81, %.lr.ph93.preheader.i ], [ %indvars.iv.next112.i, %89 ]
+  %82 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv111.i
   %83 = load ptr, ptr %82, align 8, !tbaa !52
   %84 = tail call i32 @ossl_crypto_thread_join(ptr noundef %83, ptr noundef null) #10
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.thread.i, label %86
 
-86:                                               ; preds = %.lr.ph94.i
+86:                                               ; preds = %.lr.ph93.i
   %87 = tail call i32 @ossl_crypto_thread_clean(ptr noundef %83) #10
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %.thread.i, label %89
 
 89:                                               ; preds = %86
   store ptr null, ptr %82, align 8, !tbaa !52
-  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
+  %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %90 = load i32, ptr %27, align 4, !tbaa !16
   %91 = zext i32 %90 to i64
-  %92 = icmp samesign ult i64 %indvars.iv.next113.i, %91
-  br i1 %92, label %.lr.ph94.i, label %._crit_edge95.i, !llvm.loop !58
+  %92 = icmp samesign ult i64 %indvars.iv.next112.i, %91
+  br i1 %92, label %.lr.ph93.i, label %._crit_edge94.i, !llvm.loop !58
 
-._crit_edge95.i:                                  ; preds = %89, %._crit_edge.i6, %.preheader83.i
-  %.pre123.i = phi i32 [ %75, %._crit_edge.i6 ], [ %.pre125.i, %.preheader83.i ], [ %90, %89 ]
-  %93 = phi i32 [ %75, %._crit_edge.i6 ], [ 0, %.preheader83.i ], [ %90, %89 ]
-  %94 = add nuw nsw i32 %.06896.i, 1
+._crit_edge94.i:                                  ; preds = %89, %._crit_edge.i6, %.preheader82.i
+  %.pre122.i = phi i32 [ %75, %._crit_edge.i6 ], [ %.pre124.i, %.preheader82.i ], [ %90, %89 ]
+  %93 = phi i32 [ %75, %._crit_edge.i6 ], [ 0, %.preheader82.i ], [ %90, %89 ]
+  %94 = add nuw nsw i32 %.06895.i, 1
   %exitcond.not.i7 = icmp eq i32 %94, 4
-  br i1 %exitcond.not.i7, label %95, label %.preheader83.i, !llvm.loop !59
+  br i1 %exitcond.not.i7, label %95, label %.preheader82.i, !llvm.loop !59
 
-95:                                               ; preds = %._crit_edge95.i
-  %96 = add nuw i32 %.06797.i, 1
+95:                                               ; preds = %._crit_edge94.i
+  %96 = add nuw i32 %.06796.i, 1
   %97 = load i32, ptr %38, align 8, !tbaa !34
   %98 = icmp ult i32 %96, %97
-  br i1 %98, label %.preheader85.i, label %._crit_edge98.i, !llvm.loop !60
+  br i1 %98, label %.preheader84.i, label %._crit_edge97.i, !llvm.loop !60
 
-._crit_edge98.i:                                  ; preds = %95, %.preheader86.i
+._crit_edge97.i:                                  ; preds = %95, %.preheader85.i
   tail call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str, i32 noundef 615) #10
   br label %.sink.split.i
 
-.thread.i:                                        ; preds = %52, %46, %86, %.lr.ph94.i, %73, %70, %.lr.ph100.i, %26
+.thread.i:                                        ; preds = %52, %46, %86, %.lr.ph93.i, %73, %70, %.lr.ph99.i, %26
   br i1 %37, label %99, label %.thread.thread.i
 
 .thread.thread.i:                                 ; preds = %.thread.i, %.preheader.i8
@@ -1581,9 +1581,9 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
 99:                                               ; preds = %.thread.thread.i, %.thread.i
   br i1 %36, label %fill_mem_blocks_st.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %99, %._crit_edge98.i
-  %.sink.i = phi i32 [ 616, %._crit_edge98.i ], [ 624, %99 ]
-  %.066.ph.i = phi i32 [ 1, %._crit_edge98.i ], [ 0, %99 ]
+.sink.split.i:                                    ; preds = %99, %._crit_edge97.i
+  %.sink.i = phi i32 [ 616, %._crit_edge97.i ], [ 624, %99 ]
+  %.066.ph.i = phi i32 [ 1, %._crit_edge97.i ], [ 0, %99 ]
   tail call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef %.sink.i) #10
   br label %fill_mem_blocks_st.exit
 

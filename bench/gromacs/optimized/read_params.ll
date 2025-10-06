@@ -12318,36 +12318,36 @@ define noundef zeroext i1 @_ZN3gmx24awhHasFepLambdaDimensionERKNS_9AwhParamsE(pt
   %2 = load ptr, ptr %0, align 8, !tbaa !170
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !171
-  %.not3340.not = icmp eq ptr %2, %4
-  br i1 %.not3340.not, label %.thread, label %.lr.ph44
+  %.not3542.not = icmp eq ptr %2, %4
+  br i1 %.not3542.not, label %.loopexit, label %.lr.ph46
 
-.lr.ph44:                                         ; preds = %1, %._crit_edge
-  %.sroa.028.041 = phi ptr [ %11, %._crit_edge ], [ %2, %1 ]
-  %5 = load ptr, ptr %.sroa.028.041, align 8, !tbaa !129
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.028.041, i64 8
+.lr.ph46:                                         ; preds = %1, %._crit_edge
+  %.sroa.028.043 = phi ptr [ %11, %._crit_edge ], [ %2, %1 ]
+  %5 = load ptr, ptr %.sroa.028.043, align 8, !tbaa !129
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.028.043, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !125
-  %.not3438 = icmp eq ptr %5, %7
-  br i1 %.not3438, label %._crit_edge, label %.lr.ph
+  %.not3640 = icmp eq ptr %5, %7
+  br i1 %.not3640, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.039, i64 64
-  %.not34 = icmp eq ptr %9, %7
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.041, i64 64
+  %.not36 = icmp eq ptr %9, %7
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph44, %8
-  %.sroa.0.039 = phi ptr [ %9, %8 ], [ %5, %.lr.ph44 ]
-  %10 = load i32, ptr %.sroa.0.039, align 8, !tbaa !20
+.lr.ph:                                           ; preds = %.lr.ph46, %8
+  %.sroa.0.041 = phi ptr [ %9, %8 ], [ %5, %.lr.ph46 ]
+  %10 = load i32, ptr %.sroa.0.041, align 8, !tbaa !20
   %.not = icmp eq i32 %10, 1
-  br i1 %.not, label %.thread, label %8
+  br i1 %.not, label %.loopexit, label %8
 
-._crit_edge:                                      ; preds = %8, %.lr.ph44
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.028.041, i64 96
-  %.not33.not = icmp eq ptr %11, %4
-  br i1 %.not33.not, label %.thread, label %.lr.ph44
+._crit_edge:                                      ; preds = %8, %.lr.ph46
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.028.043, i64 96
+  %.not35.not = icmp eq ptr %11, %4
+  br i1 %.not35.not, label %.loopexit, label %.lr.ph46
 
-.thread:                                          ; preds = %._crit_edge, %.lr.ph, %1
-  %.not3337 = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ false, %._crit_edge ]
-  ret i1 %.not3337
+.loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %1
+  %.not3539 = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ false, %._crit_edge ]
+  ret i1 %.not3539
 }
 
 ; Function Attrs: uwtable

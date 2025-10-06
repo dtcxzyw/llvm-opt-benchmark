@@ -869,21 +869,21 @@ define internal fastcc noundef zeroext i1 @focus_next_core(ptr noundef nonnull %
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %.262, align 8, !tbaa !13
-  %.not7094 = icmp eq ptr %32, null
-  br i1 %.not7094, label %.loopexit, label %.lr.ph
+  %.not7092 = icmp eq ptr %32, null
+  br i1 %.not7092, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %34
-  %.05395 = phi ptr [ %35, %34 ], [ %32, %31 ]
-  %33 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05395, i32 noundef 1) #10
+  %.05393 = phi ptr [ %35, %34 ], [ %32, %31 ]
+  %33 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05393, i32 noundef 1) #10
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.05395) #10
+  %35 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.05393) #10
   %.not70 = icmp eq ptr %35, null
   br i1 %.not70, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 36:                                               ; preds = %.lr.ph
-  %37 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05395, i32 noundef 1) #10
+  %37 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05393, i32 noundef 1) #10
   br i1 %37, label %.backedge.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %36, %31, %34

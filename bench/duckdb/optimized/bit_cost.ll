@@ -14,29 +14,29 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostLiteralEPKNS_16Hi
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %174, label %.preheader118
+  br i1 %7, label %174, label %.preheader117
 
-.preheader118:                                    ; preds = %1, %15
-  %.088120 = phi i32 [ %.2, %15 ], [ 0, %1 ]
-  %.097119 = phi i64 [ %16, %15 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097119
+.preheader117:                                    ; preds = %1, %15
+  %.088119 = phi i32 [ %.2, %15 ], [ 0, %1 ]
+  %.097118 = phi i64 [ %16, %15 ], [ 0, %1 ]
+  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097118
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
-10:                                               ; preds = %.preheader118
-  %11 = sext i32 %.088120 to i64
+10:                                               ; preds = %.preheader117
+  %11 = sext i32 %.088119 to i64
   %12 = getelementptr inbounds i64, ptr %2, i64 %11
-  store i64 %.097119, ptr %12, align 8, !tbaa !11
-  %13 = add nsw i32 %.088120, 1
-  %14 = icmp sgt i32 %.088120, 3
+  store i64 %.097118, ptr %12, align 8, !tbaa !11
+  %13 = add nsw i32 %.088119, 1
+  %14 = icmp sgt i32 %.088119, 3
   br i1 %14, label %17, label %15
 
-15:                                               ; preds = %.preheader118, %10
-  %.2 = phi i32 [ %13, %10 ], [ %.088120, %.preheader118 ]
-  %16 = add nuw nsw i64 %.097119, 1
+15:                                               ; preds = %.preheader117, %10
+  %.2 = phi i32 [ %13, %10 ], [ %.088119, %.preheader117 ]
+  %16 = add nuw nsw i64 %.097118, 1
   %exitcond.not = icmp eq i64 %16, 256
-  br i1 %exitcond.not, label %17, label %.preheader118, !llvm.loop !12
+  br i1 %exitcond.not, label %17, label %.preheader117, !llvm.loop !12
 
 17:                                               ; preds = %10, %15
   %.189 = phi i32 [ %13, %10 ], [ %.2, %15 ]
@@ -80,36 +80,36 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostLiteralEPKNS_16Hi
   br label %43
 
 43:                                               ; preds = %42, %43
-  %.198121 = phi i64 [ 0, %42 ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198121
+  %.198120 = phi i64 [ 0, %42 ], [ %49, %43 ]
+  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198120
   %45 = load i64, ptr %44, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i32, ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198121
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198120
   store i32 %47, ptr %48, align 4, !tbaa !9
-  %49 = add nuw nsw i64 %.198121, 1
-  %exitcond150.not = icmp eq i64 %49, 4
-  br i1 %exitcond150.not, label %.preheader117, label %43, !llvm.loop !14
+  %49 = add nuw nsw i64 %.198120, 1
+  %exitcond149.not = icmp eq i64 %49, 4
+  br i1 %exitcond149.not, label %.preheader116, label %43, !llvm.loop !14
 
-.loopexit:                                        ; preds = %59, %.preheader117
-  %exitcond152.not = icmp eq i64 %50, 4
-  br i1 %exitcond152.not, label %62, label %.preheader117, !llvm.loop !15
+.loopexit:                                        ; preds = %59, %.preheader116
+  %exitcond151.not = icmp eq i64 %50, 4
+  br i1 %exitcond151.not, label %62, label %.preheader116, !llvm.loop !15
 
-.preheader117:                                    ; preds = %43, %.loopexit
-  %.299123 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
-  %50 = add nuw nsw i64 %.299123, 1
-  %51 = icmp samesign ult i64 %.299123, 3
+.preheader116:                                    ; preds = %43, %.loopexit
+  %.299122 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
+  %50 = add nuw nsw i64 %.299122, 1
+  %51 = icmp samesign ult i64 %.299122, 3
   br i1 %51, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader117
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299123
+.lr.ph:                                           ; preds = %.preheader116
+  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299122
   %.pre = load i32, ptr %52, align 4, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.lr.ph, %59
   %54 = phi i32 [ %.pre, %.lr.ph ], [ %60, %59 ]
-  %.096122 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096122
+  %.096121 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096121
   %56 = load i32, ptr %55, align 4, !tbaa !9
   %57 = icmp ugt i32 %56, %54
   br i1 %57, label %58, label %59
@@ -121,9 +121,9 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostLiteralEPKNS_16Hi
 
 59:                                               ; preds = %53, %58
   %60 = phi i32 [ %54, %53 ], [ %56, %58 ]
-  %61 = add nuw nsw i64 %.096122, 1
-  %exitcond151.not = icmp eq i64 %61, 4
-  br i1 %exitcond151.not, label %.loopexit, label %53, !llvm.loop !16
+  %61 = add nuw nsw i64 %.096121, 1
+  %exitcond150.not = icmp eq i64 %61, 4
+  br i1 %exitcond150.not, label %.loopexit, label %53, !llvm.loop !16
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -169,18 +169,18 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %83, %86
   br label %90
 
 90:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit, %.thread
-  %.lcssa141 = phi i32 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa139, %.thread ]
-  %.090137 = phi i64 [ 1, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.292, %.thread ]
-  %.093136 = phi double [ 0.000000e+00, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.295, %.thread ]
-  %.3100135 = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.4101, %.thread ]
-  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100135
+  %.lcssa140 = phi i32 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa138, %.thread ]
+  %.090136 = phi i64 [ 1, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.292, %.thread ]
+  %.093135 = phi double [ 0.000000e+00, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.295, %.thread ]
+  %.3100134 = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.4101, %.thread ]
+  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100134
   %92 = load i32, ptr %91, align 4, !tbaa !9
   %.not109 = icmp eq i32 %92, 0
   br i1 %.not109, label %.preheader, label %93
 
 .preheader:                                       ; preds = %90
-  %.not146 = icmp eq i64 %.3100135, 255
-  br i1 %.not146, label %.critedge.thread, label %.lr.ph127
+  %.not145 = icmp eq i64 %.3100134, 255
+  br i1 %.not145, label %.critedge.thread, label %.lr.ph126
 
 93:                                               ; preds = %90
   %94 = icmp ult i32 %92, 256
@@ -195,50 +195,50 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %83, %86
 99:                                               ; preds = %93
   %100 = uitofp i32 %92 to double
   %101 = tail call double @log2(double noundef %100) #6, !tbaa !9
-  %.pre153 = load i32, ptr %91, align 4, !tbaa !9
+  %.pre152 = load i32, ptr %91, align 4, !tbaa !9
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit112
 
 _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
-  %102 = phi i32 [ %92, %95 ], [ %.pre153, %99 ]
+  %102 = phi i32 [ %92, %95 ], [ %.pre152, %99 ]
   %.0.i111 = phi double [ %98, %95 ], [ %101, %99 ]
   %103 = fsub double %.0.i, %.0.i111
   %104 = fadd double %103, 5.000000e-01
   %105 = fptoui double %104 to i64
   %106 = uitofp i32 %102 to double
-  %107 = tail call double @llvm.fmuladd.f64(double %106, double %103, double %.093136)
+  %107 = tail call double @llvm.fmuladd.f64(double %106, double %103, double %.093135)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %105, i64 15)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090137)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090136)
   %108 = getelementptr inbounds nuw i32, ptr %4, i64 %spec.store.select
   %109 = load i32, ptr %108, align 4, !tbaa !9
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4, !tbaa !9
-  %111 = add nuw nsw i64 %.3100135, 1
+  %111 = add nuw nsw i64 %.3100134, 1
   br label %.thread
 
-.lr.ph127:                                        ; preds = %.preheader, %115
-  %.0126.in = phi i64 [ %.0126, %115 ], [ %.3100135, %.preheader ]
-  %.086125 = phi i32 [ %116, %115 ], [ 1, %.preheader ]
-  %.0126 = add nuw nsw i64 %.0126.in, 1
-  %112 = getelementptr inbounds nuw i32, ptr %0, i64 %.0126
+.lr.ph126:                                        ; preds = %.preheader, %115
+  %.0125.in = phi i64 [ %.0125, %115 ], [ %.3100134, %.preheader ]
+  %.086124 = phi i32 [ %116, %115 ], [ 1, %.preheader ]
+  %.0125 = add nuw nsw i64 %.0125.in, 1
+  %112 = getelementptr inbounds nuw i32, ptr %0, i64 %.0125
   %113 = load i32, ptr %112, align 4, !tbaa !9
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %.critedge
 
-115:                                              ; preds = %.lr.ph127
-  %116 = add nuw nsw i32 %.086125, 1
-  %117 = icmp samesign ult i64 %.0126.in, 254
-  br i1 %117, label %.lr.ph127, label %.critedge, !llvm.loop !18
+115:                                              ; preds = %.lr.ph126
+  %116 = add nuw nsw i32 %.086124, 1
+  %117 = icmp samesign ult i64 %.0125.in, 254
+  br i1 %117, label %.lr.ph126, label %.critedge, !llvm.loop !18
 
-.critedge:                                        ; preds = %.lr.ph127, %115
-  %.086.lcssa = phi i32 [ %.086125, %.lr.ph127 ], [ %116, %115 ]
+.critedge:                                        ; preds = %.lr.ph126, %115
+  %.086.lcssa = phi i32 [ %.086124, %.lr.ph126 ], [ %116, %115 ]
   %118 = zext i32 %.086.lcssa to i64
-  %119 = add nuw nsw i64 %.3100135, %118
+  %119 = add nuw nsw i64 %.3100134, %118
   %120 = icmp eq i64 %119, 256
   br i1 %120, label %.critedge.thread, label %121
 
 121:                                              ; preds = %.critedge
   %122 = icmp ult i32 %.086.lcssa, 3
-  br i1 %122, label %123, label %.lr.ph133.preheader
+  br i1 %122, label %123, label %.lr.ph132.preheader
 
 123:                                              ; preds = %121
   %124 = load i32, ptr %4, align 16, !tbaa !9
@@ -246,40 +246,40 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
   store i32 %125, ptr %4, align 16, !tbaa !9
   br label %.thread
 
-.lr.ph133.preheader:                              ; preds = %121
+.lr.ph132.preheader:                              ; preds = %121
   %126 = add i32 %.086.lcssa, -2
-  br label %.lr.ph133
+  br label %.lr.ph132
 
-.lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
-  %127 = phi i32 [ %128, %.lr.ph133 ], [ %.lcssa141, %.lr.ph133.preheader ]
-  %.1132 = phi i32 [ %130, %.lr.ph133 ], [ %126, %.lr.ph133.preheader ]
-  %.5131 = phi double [ %129, %.lr.ph133 ], [ %.093136, %.lr.ph133.preheader ]
+.lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
+  %127 = phi i32 [ %128, %.lr.ph132 ], [ %.lcssa140, %.lr.ph132.preheader ]
+  %.1131 = phi i32 [ %130, %.lr.ph132 ], [ %126, %.lr.ph132.preheader ]
+  %.5130 = phi double [ %129, %.lr.ph132 ], [ %.093135, %.lr.ph132.preheader ]
   %128 = add i32 %127, 1
-  %129 = fadd double %.5131, 3.000000e+00
-  %130 = lshr i32 %.1132, 3
-  %.not110 = icmp ult i32 %.1132, 8
-  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !19
+  %129 = fadd double %.5130, 3.000000e+00
+  %130 = lshr i32 %.1131, 3
+  %.not110 = icmp ult i32 %.1131, 8
+  br i1 %.not110, label %.thread, label %.lr.ph132, !llvm.loop !19
 
-.thread:                                          ; preds = %.lr.ph133, %123, %_ZN13duckdb_brotliL8FastLog2Em.exit112
-  %.lcssa139 = phi i32 [ %.lcssa141, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.lcssa141, %123 ], [ %128, %.lr.ph133 ]
-  %.4101 = phi i64 [ %111, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %119, %123 ], [ %119, %.lr.ph133 ]
-  %.295 = phi double [ %107, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.093136, %123 ], [ %129, %.lr.ph133 ]
-  %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.090137, %123 ], [ %.090137, %.lr.ph133 ]
+.thread:                                          ; preds = %.lr.ph132, %123, %_ZN13duckdb_brotliL8FastLog2Em.exit112
+  %.lcssa138 = phi i32 [ %.lcssa140, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.lcssa140, %123 ], [ %128, %.lr.ph132 ]
+  %.4101 = phi i64 [ %111, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %119, %123 ], [ %119, %.lr.ph132 ]
+  %.295 = phi double [ %107, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.093135, %123 ], [ %129, %.lr.ph132 ]
+  %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.090136, %123 ], [ %.090136, %.lr.ph132 ]
   %131 = icmp ult i64 %.4101, 256
   br i1 %131, label %90, label %.critedge.thread, !llvm.loop !20
 
 .critedge.thread:                                 ; preds = %.critedge, %.thread, %.preheader
-  %.lcssa142 = phi i32 [ %.lcssa141, %.preheader ], [ %.lcssa139, %.thread ], [ %.lcssa141, %.critedge ]
-  %.093.lcssa = phi double [ %.093136, %.preheader ], [ %.295, %.thread ], [ %.093136, %.critedge ]
-  %.090.lcssa = phi i64 [ %.090137, %.preheader ], [ %.292, %.thread ], [ %.090137, %.critedge ]
-  store i32 %.lcssa142, ptr %89, align 4
+  %.lcssa141 = phi i32 [ %.lcssa140, %.preheader ], [ %.lcssa138, %.thread ], [ %.lcssa140, %.critedge ]
+  %.093.lcssa = phi double [ %.093135, %.preheader ], [ %.295, %.thread ], [ %.093135, %.critedge ]
+  %.090.lcssa = phi i64 [ %.090136, %.preheader ], [ %.292, %.thread ], [ %.090136, %.critedge ]
+  store i32 %.lcssa141, ptr %89, align 4
   br label %132
 
 132:                                              ; preds = %.critedge.thread, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
-  %.1.idx.i145 = phi i64 [ 0, %.critedge.thread ], [ %.add.i, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.124.i144 = phi double [ 0.000000e+00, %.critedge.thread ], [ %156, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.126.i143 = phi i64 [ 0, %.critedge.thread ], [ %147, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.1.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.1.idx.i145
+  %.1.idx.i144 = phi i64 [ 0, %.critedge.thread ], [ %.add.i, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.124.i143 = phi double [ 0.000000e+00, %.critedge.thread ], [ %156, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.126.i142 = phi i64 [ 0, %.critedge.thread ], [ %147, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.1.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.1.idx.i144
   %133 = load i32, ptr %.1.ptr.i, align 8, !tbaa !9
   %134 = zext i32 %133 to i64
   %135 = icmp ult i32 %133, 256
@@ -288,7 +288,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %134
   %138 = load double, ptr %137, align 8, !tbaa !17
-  %.pre154 = uitofp nneg i32 %133 to double
+  %.pre153 = uitofp nneg i32 %133 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
 139:                                              ; preds = %132
@@ -297,13 +297,13 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit31.i:          ; preds = %139, %136
-  %.pre-phi = phi double [ %140, %139 ], [ %.pre154, %136 ]
+  %.pre-phi = phi double [ %140, %139 ], [ %.pre153, %136 ]
   %.0.i30.i = phi double [ %141, %139 ], [ %138, %136 ]
   %142 = fneg double %.pre-phi
-  %143 = tail call double @llvm.fmuladd.f64(double %142, double %.0.i30.i, double %.124.i144)
-  %144 = add i64 %.126.i143, %134
+  %143 = tail call double @llvm.fmuladd.f64(double %142, double %.0.i30.i, double %.124.i143)
+  %144 = add i64 %.126.i142, %134
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.1.ptr.i, i64 4
-  %.add.i = add nuw nsw i64 %.1.idx.i145, 8
+  %.add.i = add nuw nsw i64 %.1.idx.i144, 8
   %145 = load i32, ptr %.ptr.i, align 4, !tbaa !9
   %146 = zext i32 %145 to i64
   %147 = add i64 %144, %146
@@ -324,7 +324,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %153, %150
   %.0.i28.i = phi double [ %152, %150 ], [ %154, %153 ]
   %155 = fneg double %148
   %156 = tail call double @llvm.fmuladd.f64(double %155, double %.0.i28.i, double %143)
-  %157 = icmp samesign ult i64 %.1.idx.i145, 64
+  %157 = icmp samesign ult i64 %.1.idx.i144, 64
   br i1 %157, label %132, label %158, !llvm.loop !21
 
 158:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
@@ -355,10 +355,10 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %169, %166
   br label %_ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit
 
 _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit:  ; preds = %158, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
-  %.pre-phi156 = phi double [ %164, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ 0.000000e+00, %158 ]
+  %.pre-phi155 = phi double [ %164, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ 0.000000e+00, %158 ]
   %.2.i = phi double [ %171, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %156, %158 ]
-  %172 = fcmp olt double %.2.i, %.pre-phi156
-  %.0.i113 = select i1 %172, double %.pre-phi156, double %.2.i
+  %172 = fcmp olt double %.2.i, %.pre-phi155
+  %.0.i113 = select i1 %172, double %.pre-phi155, double %.2.i
   %173 = fadd double %162, %.0.i113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %174
@@ -384,29 +384,29 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %179, label %.preheader118
+  br i1 %7, label %179, label %.preheader117
 
-.preheader118:                                    ; preds = %1, %15
-  %.088120 = phi i32 [ %.2, %15 ], [ 0, %1 ]
-  %.097119 = phi i64 [ %16, %15 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097119
+.preheader117:                                    ; preds = %1, %15
+  %.088119 = phi i32 [ %.2, %15 ], [ 0, %1 ]
+  %.097118 = phi i64 [ %16, %15 ], [ 0, %1 ]
+  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097118
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
-10:                                               ; preds = %.preheader118
-  %11 = sext i32 %.088120 to i64
+10:                                               ; preds = %.preheader117
+  %11 = sext i32 %.088119 to i64
   %12 = getelementptr inbounds i64, ptr %2, i64 %11
-  store i64 %.097119, ptr %12, align 8, !tbaa !11
-  %13 = add nsw i32 %.088120, 1
-  %14 = icmp sgt i32 %.088120, 3
+  store i64 %.097118, ptr %12, align 8, !tbaa !11
+  %13 = add nsw i32 %.088119, 1
+  %14 = icmp sgt i32 %.088119, 3
   br i1 %14, label %17, label %15
 
-15:                                               ; preds = %.preheader118, %10
-  %.2 = phi i32 [ %13, %10 ], [ %.088120, %.preheader118 ]
-  %16 = add nuw nsw i64 %.097119, 1
+15:                                               ; preds = %.preheader117, %10
+  %.2 = phi i32 [ %13, %10 ], [ %.088119, %.preheader117 ]
+  %16 = add nuw nsw i64 %.097118, 1
   %exitcond.not = icmp eq i64 %16, 704
-  br i1 %exitcond.not, label %17, label %.preheader118, !llvm.loop !24
+  br i1 %exitcond.not, label %17, label %.preheader117, !llvm.loop !24
 
 17:                                               ; preds = %10, %15
   %.189 = phi i32 [ %13, %10 ], [ %.2, %15 ]
@@ -450,36 +450,36 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
   br label %43
 
 43:                                               ; preds = %42, %43
-  %.198121 = phi i64 [ 0, %42 ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198121
+  %.198120 = phi i64 [ 0, %42 ], [ %49, %43 ]
+  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198120
   %45 = load i64, ptr %44, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i32, ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198121
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198120
   store i32 %47, ptr %48, align 4, !tbaa !9
-  %49 = add nuw nsw i64 %.198121, 1
-  %exitcond149.not = icmp eq i64 %49, 4
-  br i1 %exitcond149.not, label %.preheader117, label %43, !llvm.loop !25
+  %49 = add nuw nsw i64 %.198120, 1
+  %exitcond148.not = icmp eq i64 %49, 4
+  br i1 %exitcond148.not, label %.preheader116, label %43, !llvm.loop !25
 
-.loopexit:                                        ; preds = %59, %.preheader117
-  %exitcond151.not = icmp eq i64 %50, 4
-  br i1 %exitcond151.not, label %62, label %.preheader117, !llvm.loop !26
+.loopexit:                                        ; preds = %59, %.preheader116
+  %exitcond150.not = icmp eq i64 %50, 4
+  br i1 %exitcond150.not, label %62, label %.preheader116, !llvm.loop !26
 
-.preheader117:                                    ; preds = %43, %.loopexit
-  %.299123 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
-  %50 = add nuw nsw i64 %.299123, 1
-  %51 = icmp samesign ult i64 %.299123, 3
+.preheader116:                                    ; preds = %43, %.loopexit
+  %.299122 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
+  %50 = add nuw nsw i64 %.299122, 1
+  %51 = icmp samesign ult i64 %.299122, 3
   br i1 %51, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader117
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299123
+.lr.ph:                                           ; preds = %.preheader116
+  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299122
   %.pre = load i32, ptr %52, align 4, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.lr.ph, %59
   %54 = phi i32 [ %.pre, %.lr.ph ], [ %60, %59 ]
-  %.096122 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096122
+  %.096121 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096121
   %56 = load i32, ptr %55, align 4, !tbaa !9
   %57 = icmp ugt i32 %56, %54
   br i1 %57, label %58, label %59
@@ -491,9 +491,9 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
 
 59:                                               ; preds = %53, %58
   %60 = phi i32 [ %54, %53 ], [ %56, %58 ]
-  %61 = add nuw nsw i64 %.096122, 1
-  %exitcond150.not = icmp eq i64 %61, 4
-  br i1 %exitcond150.not, label %.loopexit, label %53, !llvm.loop !27
+  %61 = add nuw nsw i64 %.096121, 1
+  %exitcond149.not = icmp eq i64 %61, 4
+  br i1 %exitcond149.not, label %.loopexit, label %53, !llvm.loop !27
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -539,23 +539,23 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %83, %86
   br label %90
 
 90:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit112, %.thread
-  %.lcssa141 = phi i32 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.lcssa139, %.thread ]
-  %.090137 = phi i64 [ 1, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.292, %.thread ]
-  %.093136 = phi double [ 0.000000e+00, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.295, %.thread ]
-  %.3100135 = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.4101, %.thread ]
-  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100135
+  %.lcssa140 = phi i32 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.lcssa138, %.thread ]
+  %.090136 = phi i64 [ 1, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.292, %.thread ]
+  %.093135 = phi double [ 0.000000e+00, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.295, %.thread ]
+  %.3100134 = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.4101, %.thread ]
+  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100134
   %92 = load i32, ptr %91, align 4, !tbaa !9
   %.not109 = icmp eq i32 %92, 0
   br i1 %.not109, label %.preheader, label %96
 
 .preheader:                                       ; preds = %90
-  %93 = icmp samesign ult i64 %.3100135, 703
-  br i1 %93, label %.lr.ph127.preheader, label %.critedge.thread
+  %93 = icmp samesign ult i64 %.3100134, 703
+  br i1 %93, label %.lr.ph126.preheader, label %.critedge.thread
 
-.lr.ph127.preheader:                              ; preds = %.preheader
-  %94 = trunc nuw nsw i64 %.3100135 to i32
+.lr.ph126.preheader:                              ; preds = %.preheader
+  %94 = trunc nuw nsw i64 %.3100134 to i32
   %95 = sub nuw nsw i32 704, %94
-  br label %.lr.ph127
+  br label %.lr.ph126
 
 96:                                               ; preds = %90
   %97 = icmp ult i32 %92, 256
@@ -570,98 +570,98 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %83, %86
 102:                                              ; preds = %96
   %103 = uitofp i32 %92 to double
   %104 = tail call double @log2(double noundef %103) #6, !tbaa !9
-  %.pre153 = load i32, ptr %91, align 4, !tbaa !9
+  %.pre152 = load i32, ptr %91, align 4, !tbaa !9
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
-  %105 = phi i32 [ %92, %98 ], [ %.pre153, %102 ]
+  %105 = phi i32 [ %92, %98 ], [ %.pre152, %102 ]
   %.0.i = phi double [ %101, %98 ], [ %104, %102 ]
   %106 = fsub double %.0.i111, %.0.i
   %107 = fadd double %106, 5.000000e-01
   %108 = fptoui double %107 to i64
   %109 = uitofp i32 %105 to double
-  %110 = tail call double @llvm.fmuladd.f64(double %109, double %106, double %.093136)
+  %110 = tail call double @llvm.fmuladd.f64(double %109, double %106, double %.093135)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %108, i64 15)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090137)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090136)
   %111 = getelementptr inbounds nuw i32, ptr %4, i64 %spec.store.select
   %112 = load i32, ptr %111, align 4, !tbaa !9
   %113 = add i32 %112, 1
   store i32 %113, ptr %111, align 4, !tbaa !9
-  %114 = add nuw nsw i64 %.3100135, 1
+  %114 = add nuw nsw i64 %.3100134, 1
   br label %.thread
 
-.lr.ph127:                                        ; preds = %.lr.ph127.preheader, %118
-  %.0126.in = phi i64 [ %.0126, %118 ], [ %.3100135, %.lr.ph127.preheader ]
-  %.086125 = phi i32 [ %119, %118 ], [ 1, %.lr.ph127.preheader ]
-  %.0126 = add nuw nsw i64 %.0126.in, 1
-  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %.0126
+.lr.ph126:                                        ; preds = %.lr.ph126.preheader, %118
+  %.0125.in = phi i64 [ %.0125, %118 ], [ %.3100134, %.lr.ph126.preheader ]
+  %.086124 = phi i32 [ %119, %118 ], [ 1, %.lr.ph126.preheader ]
+  %.0125 = add nuw nsw i64 %.0125.in, 1
+  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %.0125
   %116 = load i32, ptr %115, align 4, !tbaa !9
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %.critedge
 
-118:                                              ; preds = %.lr.ph127
-  %119 = add nuw nsw i32 %.086125, 1
-  %exitcond152.not = icmp eq i64 %.0126, 703
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph127, !llvm.loop !28
+118:                                              ; preds = %.lr.ph126
+  %119 = add nuw nsw i32 %.086124, 1
+  %exitcond151.not = icmp eq i64 %.0125, 703
+  br i1 %exitcond151.not, label %.critedge, label %.lr.ph126, !llvm.loop !28
 
-.critedge:                                        ; preds = %.lr.ph127, %118
-  %.086.lcssa = phi i32 [ %.086125, %.lr.ph127 ], [ %95, %118 ]
+.critedge:                                        ; preds = %.lr.ph126, %118
+  %.086.lcssa = phi i32 [ %.086124, %.lr.ph126 ], [ %95, %118 ]
   %120 = zext nneg i32 %.086.lcssa to i64
-  %121 = add nuw nsw i64 %.3100135, %120
+  %121 = add nuw nsw i64 %.3100134, %120
   %122 = icmp eq i64 %121, 704
   br i1 %122, label %136, label %125
 
 .critedge.thread:                                 ; preds = %.preheader
-  %123 = add nuw nsw i64 %.3100135, 1
+  %123 = add nuw nsw i64 %.3100134, 1
   %124 = icmp eq i64 %123, 704
-  br i1 %124, label %136, label %.thread171
+  br i1 %124, label %136, label %.thread170
 
 125:                                              ; preds = %.critedge
   %126 = icmp samesign ult i32 %.086.lcssa, 3
-  br i1 %126, label %.thread171, label %.lr.ph133.preheader
+  br i1 %126, label %.thread170, label %.lr.ph132.preheader
 
-.thread171:                                       ; preds = %.critedge.thread, %125
-  %.086.lcssa170173 = phi i32 [ %.086.lcssa, %125 ], [ 1, %.critedge.thread ]
+.thread170:                                       ; preds = %.critedge.thread, %125
+  %.086.lcssa169172 = phi i32 [ %.086.lcssa, %125 ], [ 1, %.critedge.thread ]
   %127 = phi i64 [ %121, %125 ], [ %123, %.critedge.thread ]
   %128 = load i32, ptr %4, align 16, !tbaa !9
-  %129 = add i32 %128, %.086.lcssa170173
+  %129 = add i32 %128, %.086.lcssa169172
   store i32 %129, ptr %4, align 16, !tbaa !9
   br label %.thread
 
-.lr.ph133.preheader:                              ; preds = %125
+.lr.ph132.preheader:                              ; preds = %125
   %130 = add nsw i32 %.086.lcssa, -2
-  br label %.lr.ph133
+  br label %.lr.ph132
 
-.lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
-  %131 = phi i32 [ %132, %.lr.ph133 ], [ %.lcssa141, %.lr.ph133.preheader ]
-  %.1132 = phi i32 [ %134, %.lr.ph133 ], [ %130, %.lr.ph133.preheader ]
-  %.5131 = phi double [ %133, %.lr.ph133 ], [ %.093136, %.lr.ph133.preheader ]
+.lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
+  %131 = phi i32 [ %132, %.lr.ph132 ], [ %.lcssa140, %.lr.ph132.preheader ]
+  %.1131 = phi i32 [ %134, %.lr.ph132 ], [ %130, %.lr.ph132.preheader ]
+  %.5130 = phi double [ %133, %.lr.ph132 ], [ %.093135, %.lr.ph132.preheader ]
   %132 = add i32 %131, 1
-  %133 = fadd double %.5131, 3.000000e+00
-  %134 = lshr i32 %.1132, 3
-  %.not110 = icmp ult i32 %.1132, 8
-  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !29
+  %133 = fadd double %.5130, 3.000000e+00
+  %134 = lshr i32 %.1131, 3
+  %.not110 = icmp ult i32 %.1131, 8
+  br i1 %.not110, label %.thread, label %.lr.ph132, !llvm.loop !29
 
-.thread:                                          ; preds = %.lr.ph133, %.thread171, %_ZN13duckdb_brotliL8FastLog2Em.exit
-  %.lcssa139 = phi i32 [ %.lcssa141, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa141, %.thread171 ], [ %132, %.lr.ph133 ]
-  %.4101 = phi i64 [ %114, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %127, %.thread171 ], [ %121, %.lr.ph133 ]
-  %.295 = phi double [ %110, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.093136, %.thread171 ], [ %133, %.lr.ph133 ]
-  %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.090137, %.thread171 ], [ %.090137, %.lr.ph133 ]
+.thread:                                          ; preds = %.lr.ph132, %.thread170, %_ZN13duckdb_brotliL8FastLog2Em.exit
+  %.lcssa138 = phi i32 [ %.lcssa140, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa140, %.thread170 ], [ %132, %.lr.ph132 ]
+  %.4101 = phi i64 [ %114, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %127, %.thread170 ], [ %121, %.lr.ph132 ]
+  %.295 = phi double [ %110, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.093135, %.thread170 ], [ %133, %.lr.ph132 ]
+  %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.090136, %.thread170 ], [ %.090136, %.lr.ph132 ]
   %135 = icmp ult i64 %.4101, 704
   br i1 %135, label %90, label %136, !llvm.loop !30
 
 136:                                              ; preds = %.critedge.thread, %.critedge, %.thread
-  %.lcssa142 = phi i32 [ %.lcssa141, %.critedge ], [ %.lcssa139, %.thread ], [ %.lcssa141, %.critedge.thread ]
-  %.093.lcssa = phi double [ %.093136, %.critedge ], [ %.295, %.thread ], [ %.093136, %.critedge.thread ]
-  %.090.lcssa = phi i64 [ %.090137, %.critedge ], [ %.292, %.thread ], [ %.090137, %.critedge.thread ]
-  store i32 %.lcssa142, ptr %89, align 4
+  %.lcssa141 = phi i32 [ %.lcssa140, %.critedge ], [ %.lcssa138, %.thread ], [ %.lcssa140, %.critedge.thread ]
+  %.093.lcssa = phi double [ %.093135, %.critedge ], [ %.295, %.thread ], [ %.093135, %.critedge.thread ]
+  %.090.lcssa = phi i64 [ %.090136, %.critedge ], [ %.292, %.thread ], [ %.090136, %.critedge.thread ]
+  store i32 %.lcssa141, ptr %89, align 4
   br label %137
 
 137:                                              ; preds = %136, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
-  %.1.idx.i145 = phi i64 [ 0, %136 ], [ %.add.i, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.124.i144 = phi double [ 0.000000e+00, %136 ], [ %161, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.126.i143 = phi i64 [ 0, %136 ], [ %152, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.1.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.1.idx.i145
+  %.1.idx.i144 = phi i64 [ 0, %136 ], [ %.add.i, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.124.i143 = phi double [ 0.000000e+00, %136 ], [ %161, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.126.i142 = phi i64 [ 0, %136 ], [ %152, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.1.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.1.idx.i144
   %138 = load i32, ptr %.1.ptr.i, align 8, !tbaa !9
   %139 = zext i32 %138 to i64
   %140 = icmp ult i32 %138, 256
@@ -670,7 +670,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %139
   %143 = load double, ptr %142, align 8, !tbaa !17
-  %.pre154 = uitofp nneg i32 %138 to double
+  %.pre153 = uitofp nneg i32 %138 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
 144:                                              ; preds = %137
@@ -679,13 +679,13 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit31.i:          ; preds = %144, %141
-  %.pre-phi = phi double [ %145, %144 ], [ %.pre154, %141 ]
+  %.pre-phi = phi double [ %145, %144 ], [ %.pre153, %141 ]
   %.0.i30.i = phi double [ %146, %144 ], [ %143, %141 ]
   %147 = fneg double %.pre-phi
-  %148 = tail call double @llvm.fmuladd.f64(double %147, double %.0.i30.i, double %.124.i144)
-  %149 = add i64 %.126.i143, %139
+  %148 = tail call double @llvm.fmuladd.f64(double %147, double %.0.i30.i, double %.124.i143)
+  %149 = add i64 %.126.i142, %139
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.1.ptr.i, i64 4
-  %.add.i = add nuw nsw i64 %.1.idx.i145, 8
+  %.add.i = add nuw nsw i64 %.1.idx.i144, 8
   %150 = load i32, ptr %.ptr.i, align 4, !tbaa !9
   %151 = zext i32 %150 to i64
   %152 = add i64 %149, %151
@@ -706,7 +706,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %158, %155
   %.0.i28.i = phi double [ %157, %155 ], [ %159, %158 ]
   %160 = fneg double %153
   %161 = tail call double @llvm.fmuladd.f64(double %160, double %.0.i28.i, double %148)
-  %162 = icmp samesign ult i64 %.1.idx.i145, 64
+  %162 = icmp samesign ult i64 %.1.idx.i144, 64
   br i1 %162, label %137, label %163, !llvm.loop !21
 
 163:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
@@ -737,10 +737,10 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %174, %171
   br label %_ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit
 
 _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit:  ; preds = %163, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
-  %.pre-phi156 = phi double [ %169, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ 0.000000e+00, %163 ]
+  %.pre-phi155 = phi double [ %169, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ 0.000000e+00, %163 ]
   %.2.i = phi double [ %176, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %161, %163 ]
-  %177 = fcmp olt double %.2.i, %.pre-phi156
-  %.0.i113 = select i1 %177, double %.pre-phi156, double %.2.i
+  %177 = fcmp olt double %.2.i, %.pre-phi155
+  %.0.i113 = select i1 %177, double %.pre-phi155, double %.2.i
   %178 = fadd double %167, %.0.i113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %179
@@ -760,29 +760,29 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %6 = load i64, ptr %5, align 8, !tbaa !31
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %179, label %.preheader118
+  br i1 %7, label %179, label %.preheader117
 
-.preheader118:                                    ; preds = %1, %15
-  %.088120 = phi i32 [ %.2, %15 ], [ 0, %1 ]
-  %.097119 = phi i64 [ %16, %15 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097119
+.preheader117:                                    ; preds = %1, %15
+  %.088119 = phi i32 [ %.2, %15 ], [ 0, %1 ]
+  %.097118 = phi i64 [ %16, %15 ], [ 0, %1 ]
+  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097118
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
-10:                                               ; preds = %.preheader118
-  %11 = sext i32 %.088120 to i64
+10:                                               ; preds = %.preheader117
+  %11 = sext i32 %.088119 to i64
   %12 = getelementptr inbounds i64, ptr %2, i64 %11
-  store i64 %.097119, ptr %12, align 8, !tbaa !11
-  %13 = add nsw i32 %.088120, 1
-  %14 = icmp sgt i32 %.088120, 3
+  store i64 %.097118, ptr %12, align 8, !tbaa !11
+  %13 = add nsw i32 %.088119, 1
+  %14 = icmp sgt i32 %.088119, 3
   br i1 %14, label %17, label %15
 
-15:                                               ; preds = %.preheader118, %10
-  %.2 = phi i32 [ %13, %10 ], [ %.088120, %.preheader118 ]
-  %16 = add nuw nsw i64 %.097119, 1
+15:                                               ; preds = %.preheader117, %10
+  %.2 = phi i32 [ %13, %10 ], [ %.088119, %.preheader117 ]
+  %16 = add nuw nsw i64 %.097118, 1
   %exitcond.not = icmp eq i64 %16, 544
-  br i1 %exitcond.not, label %17, label %.preheader118, !llvm.loop !33
+  br i1 %exitcond.not, label %17, label %.preheader117, !llvm.loop !33
 
 17:                                               ; preds = %10, %15
   %.189 = phi i32 [ %13, %10 ], [ %.2, %15 ]
@@ -826,36 +826,36 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
   br label %43
 
 43:                                               ; preds = %42, %43
-  %.198121 = phi i64 [ 0, %42 ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198121
+  %.198120 = phi i64 [ 0, %42 ], [ %49, %43 ]
+  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198120
   %45 = load i64, ptr %44, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i32, ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198121
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198120
   store i32 %47, ptr %48, align 4, !tbaa !9
-  %49 = add nuw nsw i64 %.198121, 1
-  %exitcond149.not = icmp eq i64 %49, 4
-  br i1 %exitcond149.not, label %.preheader117, label %43, !llvm.loop !34
+  %49 = add nuw nsw i64 %.198120, 1
+  %exitcond148.not = icmp eq i64 %49, 4
+  br i1 %exitcond148.not, label %.preheader116, label %43, !llvm.loop !34
 
-.loopexit:                                        ; preds = %59, %.preheader117
-  %exitcond151.not = icmp eq i64 %50, 4
-  br i1 %exitcond151.not, label %62, label %.preheader117, !llvm.loop !35
+.loopexit:                                        ; preds = %59, %.preheader116
+  %exitcond150.not = icmp eq i64 %50, 4
+  br i1 %exitcond150.not, label %62, label %.preheader116, !llvm.loop !35
 
-.preheader117:                                    ; preds = %43, %.loopexit
-  %.299123 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
-  %50 = add nuw nsw i64 %.299123, 1
-  %51 = icmp samesign ult i64 %.299123, 3
+.preheader116:                                    ; preds = %43, %.loopexit
+  %.299122 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
+  %50 = add nuw nsw i64 %.299122, 1
+  %51 = icmp samesign ult i64 %.299122, 3
   br i1 %51, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader117
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299123
+.lr.ph:                                           ; preds = %.preheader116
+  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299122
   %.pre = load i32, ptr %52, align 4, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.lr.ph, %59
   %54 = phi i32 [ %.pre, %.lr.ph ], [ %60, %59 ]
-  %.096122 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096122
+  %.096121 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096121
   %56 = load i32, ptr %55, align 4, !tbaa !9
   %57 = icmp ugt i32 %56, %54
   br i1 %57, label %58, label %59
@@ -867,9 +867,9 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
 
 59:                                               ; preds = %53, %58
   %60 = phi i32 [ %54, %53 ], [ %56, %58 ]
-  %61 = add nuw nsw i64 %.096122, 1
-  %exitcond150.not = icmp eq i64 %61, 4
-  br i1 %exitcond150.not, label %.loopexit, label %53, !llvm.loop !36
+  %61 = add nuw nsw i64 %.096121, 1
+  %exitcond149.not = icmp eq i64 %61, 4
+  br i1 %exitcond149.not, label %.loopexit, label %53, !llvm.loop !36
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -915,23 +915,23 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %83, %86
   br label %90
 
 90:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit112, %.thread
-  %.lcssa141 = phi i32 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.lcssa139, %.thread ]
-  %.090137 = phi i64 [ 1, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.292, %.thread ]
-  %.093136 = phi double [ 0.000000e+00, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.295, %.thread ]
-  %.3100135 = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.4101, %.thread ]
-  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100135
+  %.lcssa140 = phi i32 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.lcssa138, %.thread ]
+  %.090136 = phi i64 [ 1, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.292, %.thread ]
+  %.093135 = phi double [ 0.000000e+00, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.295, %.thread ]
+  %.3100134 = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.4101, %.thread ]
+  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100134
   %92 = load i32, ptr %91, align 4, !tbaa !9
   %.not109 = icmp eq i32 %92, 0
   br i1 %.not109, label %.preheader, label %96
 
 .preheader:                                       ; preds = %90
-  %93 = icmp samesign ult i64 %.3100135, 543
-  br i1 %93, label %.lr.ph127.preheader, label %.critedge.thread
+  %93 = icmp samesign ult i64 %.3100134, 543
+  br i1 %93, label %.lr.ph126.preheader, label %.critedge.thread
 
-.lr.ph127.preheader:                              ; preds = %.preheader
-  %94 = trunc nuw nsw i64 %.3100135 to i32
+.lr.ph126.preheader:                              ; preds = %.preheader
+  %94 = trunc nuw nsw i64 %.3100134 to i32
   %95 = sub nuw nsw i32 544, %94
-  br label %.lr.ph127
+  br label %.lr.ph126
 
 96:                                               ; preds = %90
   %97 = icmp ult i32 %92, 256
@@ -946,98 +946,98 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %83, %86
 102:                                              ; preds = %96
   %103 = uitofp i32 %92 to double
   %104 = tail call double @log2(double noundef %103) #6, !tbaa !9
-  %.pre153 = load i32, ptr %91, align 4, !tbaa !9
+  %.pre152 = load i32, ptr %91, align 4, !tbaa !9
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
-  %105 = phi i32 [ %92, %98 ], [ %.pre153, %102 ]
+  %105 = phi i32 [ %92, %98 ], [ %.pre152, %102 ]
   %.0.i = phi double [ %101, %98 ], [ %104, %102 ]
   %106 = fsub double %.0.i111, %.0.i
   %107 = fadd double %106, 5.000000e-01
   %108 = fptoui double %107 to i64
   %109 = uitofp i32 %105 to double
-  %110 = tail call double @llvm.fmuladd.f64(double %109, double %106, double %.093136)
+  %110 = tail call double @llvm.fmuladd.f64(double %109, double %106, double %.093135)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %108, i64 15)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090137)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090136)
   %111 = getelementptr inbounds nuw i32, ptr %4, i64 %spec.store.select
   %112 = load i32, ptr %111, align 4, !tbaa !9
   %113 = add i32 %112, 1
   store i32 %113, ptr %111, align 4, !tbaa !9
-  %114 = add nuw nsw i64 %.3100135, 1
+  %114 = add nuw nsw i64 %.3100134, 1
   br label %.thread
 
-.lr.ph127:                                        ; preds = %.lr.ph127.preheader, %118
-  %.0126.in = phi i64 [ %.0126, %118 ], [ %.3100135, %.lr.ph127.preheader ]
-  %.086125 = phi i32 [ %119, %118 ], [ 1, %.lr.ph127.preheader ]
-  %.0126 = add nuw nsw i64 %.0126.in, 1
-  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %.0126
+.lr.ph126:                                        ; preds = %.lr.ph126.preheader, %118
+  %.0125.in = phi i64 [ %.0125, %118 ], [ %.3100134, %.lr.ph126.preheader ]
+  %.086124 = phi i32 [ %119, %118 ], [ 1, %.lr.ph126.preheader ]
+  %.0125 = add nuw nsw i64 %.0125.in, 1
+  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %.0125
   %116 = load i32, ptr %115, align 4, !tbaa !9
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %.critedge
 
-118:                                              ; preds = %.lr.ph127
-  %119 = add nuw nsw i32 %.086125, 1
-  %exitcond152.not = icmp eq i64 %.0126, 543
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph127, !llvm.loop !37
+118:                                              ; preds = %.lr.ph126
+  %119 = add nuw nsw i32 %.086124, 1
+  %exitcond151.not = icmp eq i64 %.0125, 543
+  br i1 %exitcond151.not, label %.critedge, label %.lr.ph126, !llvm.loop !37
 
-.critedge:                                        ; preds = %.lr.ph127, %118
-  %.086.lcssa = phi i32 [ %.086125, %.lr.ph127 ], [ %95, %118 ]
+.critedge:                                        ; preds = %.lr.ph126, %118
+  %.086.lcssa = phi i32 [ %.086124, %.lr.ph126 ], [ %95, %118 ]
   %120 = zext nneg i32 %.086.lcssa to i64
-  %121 = add nuw nsw i64 %.3100135, %120
+  %121 = add nuw nsw i64 %.3100134, %120
   %122 = icmp eq i64 %121, 544
   br i1 %122, label %136, label %125
 
 .critedge.thread:                                 ; preds = %.preheader
-  %123 = add nuw nsw i64 %.3100135, 1
+  %123 = add nuw nsw i64 %.3100134, 1
   %124 = icmp eq i64 %123, 544
-  br i1 %124, label %136, label %.thread171
+  br i1 %124, label %136, label %.thread170
 
 125:                                              ; preds = %.critedge
   %126 = icmp samesign ult i32 %.086.lcssa, 3
-  br i1 %126, label %.thread171, label %.lr.ph133.preheader
+  br i1 %126, label %.thread170, label %.lr.ph132.preheader
 
-.thread171:                                       ; preds = %.critedge.thread, %125
-  %.086.lcssa170173 = phi i32 [ %.086.lcssa, %125 ], [ 1, %.critedge.thread ]
+.thread170:                                       ; preds = %.critedge.thread, %125
+  %.086.lcssa169172 = phi i32 [ %.086.lcssa, %125 ], [ 1, %.critedge.thread ]
   %127 = phi i64 [ %121, %125 ], [ %123, %.critedge.thread ]
   %128 = load i32, ptr %4, align 16, !tbaa !9
-  %129 = add i32 %128, %.086.lcssa170173
+  %129 = add i32 %128, %.086.lcssa169172
   store i32 %129, ptr %4, align 16, !tbaa !9
   br label %.thread
 
-.lr.ph133.preheader:                              ; preds = %125
+.lr.ph132.preheader:                              ; preds = %125
   %130 = add nsw i32 %.086.lcssa, -2
-  br label %.lr.ph133
+  br label %.lr.ph132
 
-.lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
-  %131 = phi i32 [ %132, %.lr.ph133 ], [ %.lcssa141, %.lr.ph133.preheader ]
-  %.1132 = phi i32 [ %134, %.lr.ph133 ], [ %130, %.lr.ph133.preheader ]
-  %.5131 = phi double [ %133, %.lr.ph133 ], [ %.093136, %.lr.ph133.preheader ]
+.lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
+  %131 = phi i32 [ %132, %.lr.ph132 ], [ %.lcssa140, %.lr.ph132.preheader ]
+  %.1131 = phi i32 [ %134, %.lr.ph132 ], [ %130, %.lr.ph132.preheader ]
+  %.5130 = phi double [ %133, %.lr.ph132 ], [ %.093135, %.lr.ph132.preheader ]
   %132 = add i32 %131, 1
-  %133 = fadd double %.5131, 3.000000e+00
-  %134 = lshr i32 %.1132, 3
-  %.not110 = icmp ult i32 %.1132, 8
-  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !38
+  %133 = fadd double %.5130, 3.000000e+00
+  %134 = lshr i32 %.1131, 3
+  %.not110 = icmp ult i32 %.1131, 8
+  br i1 %.not110, label %.thread, label %.lr.ph132, !llvm.loop !38
 
-.thread:                                          ; preds = %.lr.ph133, %.thread171, %_ZN13duckdb_brotliL8FastLog2Em.exit
-  %.lcssa139 = phi i32 [ %.lcssa141, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa141, %.thread171 ], [ %132, %.lr.ph133 ]
-  %.4101 = phi i64 [ %114, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %127, %.thread171 ], [ %121, %.lr.ph133 ]
-  %.295 = phi double [ %110, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.093136, %.thread171 ], [ %133, %.lr.ph133 ]
-  %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.090137, %.thread171 ], [ %.090137, %.lr.ph133 ]
+.thread:                                          ; preds = %.lr.ph132, %.thread170, %_ZN13duckdb_brotliL8FastLog2Em.exit
+  %.lcssa138 = phi i32 [ %.lcssa140, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa140, %.thread170 ], [ %132, %.lr.ph132 ]
+  %.4101 = phi i64 [ %114, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %127, %.thread170 ], [ %121, %.lr.ph132 ]
+  %.295 = phi double [ %110, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.093135, %.thread170 ], [ %133, %.lr.ph132 ]
+  %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.090136, %.thread170 ], [ %.090136, %.lr.ph132 ]
   %135 = icmp ult i64 %.4101, 544
   br i1 %135, label %90, label %136, !llvm.loop !39
 
 136:                                              ; preds = %.critedge.thread, %.critedge, %.thread
-  %.lcssa142 = phi i32 [ %.lcssa141, %.critedge ], [ %.lcssa139, %.thread ], [ %.lcssa141, %.critedge.thread ]
-  %.093.lcssa = phi double [ %.093136, %.critedge ], [ %.295, %.thread ], [ %.093136, %.critedge.thread ]
-  %.090.lcssa = phi i64 [ %.090137, %.critedge ], [ %.292, %.thread ], [ %.090137, %.critedge.thread ]
-  store i32 %.lcssa142, ptr %89, align 4
+  %.lcssa141 = phi i32 [ %.lcssa140, %.critedge ], [ %.lcssa138, %.thread ], [ %.lcssa140, %.critedge.thread ]
+  %.093.lcssa = phi double [ %.093135, %.critedge ], [ %.295, %.thread ], [ %.093135, %.critedge.thread ]
+  %.090.lcssa = phi i64 [ %.090136, %.critedge ], [ %.292, %.thread ], [ %.090136, %.critedge.thread ]
+  store i32 %.lcssa141, ptr %89, align 4
   br label %137
 
 137:                                              ; preds = %136, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
-  %.1.idx.i145 = phi i64 [ 0, %136 ], [ %.add.i, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.124.i144 = phi double [ 0.000000e+00, %136 ], [ %161, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.126.i143 = phi i64 [ 0, %136 ], [ %152, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
-  %.1.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.1.idx.i145
+  %.1.idx.i144 = phi i64 [ 0, %136 ], [ %.add.i, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.124.i143 = phi double [ 0.000000e+00, %136 ], [ %161, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.126.i142 = phi i64 [ 0, %136 ], [ %152, %_ZN13duckdb_brotliL8FastLog2Em.exit29.i ]
+  %.1.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.1.idx.i144
   %138 = load i32, ptr %.1.ptr.i, align 8, !tbaa !9
   %139 = zext i32 %138 to i64
   %140 = icmp ult i32 %138, 256
@@ -1046,7 +1046,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %139
   %143 = load double, ptr %142, align 8, !tbaa !17
-  %.pre154 = uitofp nneg i32 %138 to double
+  %.pre153 = uitofp nneg i32 %138 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
 144:                                              ; preds = %137
@@ -1055,13 +1055,13 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit31.i:          ; preds = %144, %141
-  %.pre-phi = phi double [ %145, %144 ], [ %.pre154, %141 ]
+  %.pre-phi = phi double [ %145, %144 ], [ %.pre153, %141 ]
   %.0.i30.i = phi double [ %146, %144 ], [ %143, %141 ]
   %147 = fneg double %.pre-phi
-  %148 = tail call double @llvm.fmuladd.f64(double %147, double %.0.i30.i, double %.124.i144)
-  %149 = add i64 %.126.i143, %139
+  %148 = tail call double @llvm.fmuladd.f64(double %147, double %.0.i30.i, double %.124.i143)
+  %149 = add i64 %.126.i142, %139
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.1.ptr.i, i64 4
-  %.add.i = add nuw nsw i64 %.1.idx.i145, 8
+  %.add.i = add nuw nsw i64 %.1.idx.i144, 8
   %150 = load i32, ptr %.ptr.i, align 4, !tbaa !9
   %151 = zext i32 %150 to i64
   %152 = add i64 %149, %151
@@ -1082,7 +1082,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %158, %155
   %.0.i28.i = phi double [ %157, %155 ], [ %159, %158 ]
   %160 = fneg double %153
   %161 = tail call double @llvm.fmuladd.f64(double %160, double %.0.i28.i, double %148)
-  %162 = icmp samesign ult i64 %.1.idx.i145, 64
+  %162 = icmp samesign ult i64 %.1.idx.i144, 64
   br i1 %162, label %137, label %163, !llvm.loop !21
 
 163:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
@@ -1113,10 +1113,10 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %174, %171
   br label %_ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit
 
 _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit:  ; preds = %163, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
-  %.pre-phi156 = phi double [ %169, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ 0.000000e+00, %163 ]
+  %.pre-phi155 = phi double [ %169, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ 0.000000e+00, %163 ]
   %.2.i = phi double [ %176, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %161, %163 ]
-  %177 = fcmp olt double %.2.i, %.pre-phi156
-  %.0.i113 = select i1 %177, double %.pre-phi156, double %.2.i
+  %177 = fcmp olt double %.2.i, %.pre-phi155
+  %.0.i113 = select i1 %177, double %.pre-phi155, double %.2.i
   %178 = fadd double %167, %.0.i113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %179

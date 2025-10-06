@@ -7031,8 +7031,8 @@ define ptr @l_Lean_Elab_Tactic_Conv___aux__Lean__Elab__Tactic__Conv__Lets______e
 17:                                               ; preds = %14
   %18 = ptrtoint ptr %15 to i64
   %19 = and i64 %18, 1
-  %.not14.i = icmp eq i64 %19, 0
-  br i1 %.not14.i, label %20, label %lean_dec.exit.i
+  %.not13.i = icmp eq i64 %19, 0
+  br i1 %.not13.i, label %20, label %lean_dec.exit.i
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %15, align 4, !tbaa !4

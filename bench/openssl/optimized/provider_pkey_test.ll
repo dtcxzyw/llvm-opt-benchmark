@@ -160,7 +160,7 @@ define internal range(i32 0, 2) i32 @test_pkey_sig() #0 {
   br label %36
 
 36:                                               ; preds = %35, %50
-  %.01734 = phi i32 [ 0, %35 ], [ %51, %50 ]
+  %.01733 = phi i32 [ 0, %35 ], [ %51, %50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %37 = load ptr, ptr @libctx, align 8, !tbaa !4
   %38 = load ptr, ptr %1, align 8, !tbaa !9
@@ -194,7 +194,7 @@ define internal range(i32 0, 2) i32 @test_pkey_sig() #0 {
 50:                                               ; preds = %47
   call void @EVP_PKEY_CTX_free(ptr noundef %39) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %51 = add nuw nsw i32 %.01734, 1
+  %51 = add nuw nsw i32 %.01733, 1
   %exitcond.not = icmp eq i32 %51, 3
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !13
 

@@ -437,7 +437,7 @@ define internal fastcc i32 @visit(ptr noundef %0, ptr noundef %1, ptr noundef no
 ._crit_edge.i.i.i:                                ; preds = %4
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !44
-  %.pre46.i.i.i = load ptr, ptr %2, align 8, !tbaa !38
+  %.pre45.i.i.i = load ptr, ptr %2, align 8, !tbaa !38
   br label %node_stack_push_back.exit
 
 16:                                               ; preds = %4
@@ -492,7 +492,7 @@ define internal fastcc i32 @visit(ptr noundef %0, ptr noundef %1, ptr noundef no
   unreachable
 
 node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, %40
-  %46 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %22, %40 ]
+  %46 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %22, %40 ]
   %47 = phi i64 [ %14, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %40 ]
   %48 = phi i64 [ %12, %._crit_edge.i.i.i ], [ %31, %40 ]
   %49 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]

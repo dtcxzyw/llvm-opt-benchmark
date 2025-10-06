@@ -474,17 +474,16 @@ define range(i32 0, 2) i32 @evutil_v4addr_is_local_(ptr noundef readonly capture
   %2 = load i32, ptr %0, align 4
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   %4 = icmp eq i32 %2, 0
-  %.mask.i = and i32 %3, -16777216
-  %.not = icmp eq i32 %.mask.i, 2130706432
-  %or.cond = or i1 %4, %.not
-  %5 = and i32 %3, -65536
-  %.not5 = icmp eq i32 %5, -1442971648
-  %or.cond6 = or i1 %.not5, %or.cond
-  %6 = and i32 %3, -268435456
-  %7 = icmp eq i32 %6, -536870912
-  %narrow = or i1 %or.cond6, %7
-  %8 = zext i1 %narrow to i32
-  ret i32 %8
+  %5 = icmp sgt i32 %3, 2130706431
+  %or.cond.not8 = or i1 %4, %5
+  %6 = and i32 %3, -65536
+  %.not = icmp eq i32 %6, -1442971648
+  %or.cond5 = or i1 %or.cond.not8, %.not
+  %7 = and i32 %3, -268435456
+  %8 = icmp eq i32 %7, -536870912
+  %narrow = or i1 %or.cond5, %8
+  %9 = zext i1 %narrow to i32
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
@@ -1493,13 +1492,13 @@ define void @evutil_adjust_hints_for_addrconfig_(ptr noundef captures(none) %0) 
   %14 = load i32, ptr %0, align 8
   %15 = and i32 %14, 32
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %143, label %16
+  br i1 %.not, label %146, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %.not8 = icmp eq i32 %18, 0
-  br i1 %.not8, label %19, label %143
+  br i1 %.not8, label %19, label %146
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1519,7 +1518,7 @@ define void @evutil_adjust_hints_for_addrconfig_(ptr noundef captures(none) %0) 
   store ptr null, ptr %7, align 8
   %21 = call i32 @getifaddrs(ptr noundef nonnull %7) #30
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %49, label %.preheader.i.i
+  br i1 %22, label %50, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %20
   %.07.i.i = load ptr, ptr %7, align 8
@@ -1537,7 +1536,7 @@ define void @evutil_adjust_hints_for_addrconfig_(ptr noundef captures(none) %0) 
   %26 = load i16, ptr %24, align 2
   switch i16 %26, label %evutil_found_ifaddr.exit.i.i [
     i16 2, label %27
-    i16 10, label %37
+    i16 10, label %38
   ]
 
 27:                                               ; preds = %25
@@ -1545,63 +1544,62 @@ define void @evutil_adjust_hints_for_addrconfig_(ptr noundef captures(none) %0) 
   %29 = load i32, ptr %28, align 4
   %30 = call noundef i32 @llvm.bswap.i32(i32 %29)
   %31 = icmp ne i32 %29, 0
-  %.mask.i.i.i.i.i = and i32 %30, -16777216
-  %.not.i.i.i.i = icmp ne i32 %.mask.i.i.i.i.i, 2130706432
-  %or.cond.i.not17.i.i.i = and i1 %31, %.not.i.i.i.i
-  %32 = and i32 %30, -65536
-  %.not5.i.i.i.i = icmp ne i32 %32, -1442971648
-  %or.cond6.i.not15.i.i.i = and i1 %.not5.i.i.i.i, %or.cond.i.not17.i.i.i
-  %33 = and i32 %30, -268435456
-  %34 = icmp ne i32 %33, -536870912
-  %narrow.i.not.i.i.i = and i1 %34, %or.cond6.i.not15.i.i.i
-  br i1 %narrow.i.not.i.i.i, label %35, label %evutil_found_ifaddr.exit.i.i
+  %32 = icmp slt i32 %30, 2130706432
+  %or.cond.not8.i.not17.i.i.i = and i1 %31, %32
+  %33 = and i32 %30, -65536
+  %.not.i.i.i.i = icmp ne i32 %33, -1442971648
+  %or.cond5.i.not14.i.i.i = and i1 %or.cond.not8.i.not17.i.i.i, %.not.i.i.i.i
+  %34 = and i32 %30, -268435456
+  %35 = icmp ne i32 %34, -536870912
+  %narrow.i.not.i.i.i = and i1 %35, %or.cond5.i.not14.i.i.i
+  br i1 %narrow.i.not.i.i.i, label %36, label %evutil_found_ifaddr.exit.i.i
 
-35:                                               ; preds = %27
-  %36 = load i32, ptr @event_debug_logging_mask_, align 4
-  %.not8.i.i.i = icmp eq i32 %36, 0
+36:                                               ; preds = %27
+  %37 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not8.i.i.i = icmp eq i32 %37, 0
   br i1 %.not8.i.i.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i
 
-37:                                               ; preds = %25
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %38, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
+38:                                               ; preds = %25
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %39, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
   %.not.i9.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not.i9.i.i.i, label %evutil_found_ifaddr.exit.i.i, label %39
+  br i1 %.not.i9.i.i.i, label %evutil_found_ifaddr.exit.i.i, label %40
 
-39:                                               ; preds = %37
-  %40 = load i8, ptr %38, align 1
-  %41 = and i8 %40, -2
-  %42 = icmp eq i8 %41, -4
-  br i1 %42, label %evutil_found_ifaddr.exit.i.i, label %43
+40:                                               ; preds = %38
+  %41 = load i8, ptr %39, align 1
+  %42 = and i8 %41, -2
+  %43 = icmp eq i8 %42, -4
+  br i1 %43, label %evutil_found_ifaddr.exit.i.i, label %44
 
-43:                                               ; preds = %39
-  switch i8 %40, label %evutil_v6addr_is_local_.exit.thread12.i.i.i [
-    i8 -2, label %44
+44:                                               ; preds = %40
+  switch i8 %41, label %evutil_v6addr_is_local_.exit.thread11.i.i.i [
+    i8 -2, label %45
     i8 -1, label %evutil_found_ifaddr.exit.i.i
   ]
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 9
-  %46 = load i8, ptr %45, align 1
-  %or.cond.i10.i.i.i = icmp slt i8 %46, 0
-  br i1 %or.cond.i10.i.i.i, label %evutil_found_ifaddr.exit.i.i, label %evutil_v6addr_is_local_.exit.thread12.i.i.i
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 9
+  %47 = load i8, ptr %46, align 1
+  %or.cond.i.i.i.i = icmp slt i8 %47, 0
+  br i1 %or.cond.i.i.i.i, label %evutil_found_ifaddr.exit.i.i, label %evutil_v6addr_is_local_.exit.thread11.i.i.i
 
-evutil_v6addr_is_local_.exit.thread12.i.i.i:      ; preds = %44, %43
-  %47 = load i32, ptr @event_debug_logging_mask_, align 4
-  %.not6.i.i.i = icmp eq i32 %47, 0
+evutil_v6addr_is_local_.exit.thread11.i.i.i:      ; preds = %45, %44
+  %48 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not6.i.i.i = icmp eq i32 %48, 0
   br i1 %.not6.i.i.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i
 
-evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread12.i.i.i, %35
-  %.str.34.sink.i.i.i = phi ptr [ @.str.33, %35 ], [ @.str.34, %evutil_v6addr_is_local_.exit.thread12.i.i.i ]
-  %had_ipv6_address.sink.ph.i.i.i = phi ptr [ @had_ipv4_address, %35 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread12.i.i.i ]
+evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread11.i.i.i, %36
+  %.str.34.sink.i.i.i = phi ptr [ @.str.33, %36 ], [ @.str.34, %evutil_v6addr_is_local_.exit.thread11.i.i.i ]
+  %had_ipv6_address.sink.ph.i.i.i = phi ptr [ @had_ipv4_address, %36 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread11.i.i.i ]
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull %.str.34.sink.i.i.i) #30
   br label %evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i
 
-evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i, %evutil_v6addr_is_local_.exit.thread12.i.i.i, %35
-  %had_ipv6_address.sink.i.i.i = phi ptr [ @had_ipv4_address, %35 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread12.i.i.i ], [ %had_ipv6_address.sink.ph.i.i.i, %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i ]
+evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i, %evutil_v6addr_is_local_.exit.thread11.i.i.i, %36
+  %had_ipv6_address.sink.i.i.i = phi ptr [ @had_ipv4_address, %36 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread11.i.i.i ], [ %had_ipv6_address.sink.ph.i.i.i, %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i.i ]
   store i1 true, ptr %had_ipv6_address.sink.i.i.i, align 1
   br label %evutil_found_ifaddr.exit.i.i
 
-evutil_found_ifaddr.exit.i.i:                     ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i, %44, %43, %39, %37, %27, %25, %.lr.ph.i.i
+evutil_found_ifaddr.exit.i.i:                     ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i, %45, %44, %40, %38, %27, %25, %.lr.ph.i.i
   %.0.i.i = load ptr, ptr %.09.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
@@ -1611,248 +1609,246 @@ evutil_found_ifaddr.exit.i.i:                     ; preds = %evutil_v6addr_is_lo
   br label %evutil_check_ifaddrs.exit.thread.i
 
 evutil_check_ifaddrs.exit.thread.i:               ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
-  %48 = phi ptr [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ null, %.preheader.i.i ]
-  call void @freeifaddrs(ptr noundef %48) #30
+  %49 = phi ptr [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ null, %.preheader.i.i ]
+  call void @freeifaddrs(ptr noundef %49) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %evutil_check_interfaces.exit
 
-49:                                               ; preds = %20
+50:                                               ; preds = %20
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.32) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, i8 0, i64 12, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, i8 0, i64 12, i1 false)
   store i16 2, ptr %8, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i16 13568, ptr %51, align 2
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i16 13568, ptr %52, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.22, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #30
-  %.not134.i.i = icmp eq i32 %52, 4
-  br i1 %.not134.i.i, label %53, label %evutil_inet_pton.exit.i
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.22, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #30
+  %.not134.i.i = icmp eq i32 %53, 4
+  br i1 %.not134.i.i, label %54, label %evutil_inet_pton.exit.i
 
-53:                                               ; preds = %49
-  %54 = load i32, ptr %2, align 4
-  %55 = icmp ugt i32 %54, 255
-  br i1 %55, label %evutil_inet_pton.exit.i, label %56
+54:                                               ; preds = %50
+  %55 = load i32, ptr %2, align 4
+  %56 = icmp ugt i32 %55, 255
+  br i1 %56, label %evutil_inet_pton.exit.i, label %57
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %3, align 4
-  %58 = icmp ugt i32 %57, 255
-  br i1 %58, label %evutil_inet_pton.exit.i, label %59
+57:                                               ; preds = %54
+  %58 = load i32, ptr %3, align 4
+  %59 = icmp ugt i32 %58, 255
+  br i1 %59, label %evutil_inet_pton.exit.i, label %60
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %4, align 4
-  %61 = icmp ugt i32 %60, 255
-  br i1 %61, label %evutil_inet_pton.exit.i, label %62
+60:                                               ; preds = %57
+  %61 = load i32, ptr %4, align 4
+  %62 = icmp ugt i32 %61, 255
+  br i1 %62, label %evutil_inet_pton.exit.i, label %63
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %5, align 4
-  %64 = icmp ugt i32 %63, 255
-  br i1 %64, label %evutil_inet_pton.exit.i, label %65
+63:                                               ; preds = %60
+  %64 = load i32, ptr %5, align 4
+  %65 = icmp ugt i32 %64, 255
+  br i1 %65, label %evutil_inet_pton.exit.i, label %66
 
-65:                                               ; preds = %62
-  %66 = shl nuw i32 %54, 24
-  %67 = shl nuw nsw i32 %57, 16
-  %68 = or disjoint i32 %67, %66
-  %69 = shl nuw nsw i32 %60, 8
-  %70 = or disjoint i32 %68, %69
-  %71 = or disjoint i32 %70, %63
-  %72 = call noundef i32 @llvm.bswap.i32(i32 %71)
-  store i32 %72, ptr %50, align 4
+66:                                               ; preds = %63
+  %67 = shl nuw i32 %55, 24
+  %68 = shl nuw nsw i32 %58, 16
+  %69 = or disjoint i32 %68, %67
+  %70 = shl nuw nsw i32 %61, 8
+  %71 = or disjoint i32 %69, %70
+  %72 = or disjoint i32 %71, %64
+  %73 = call noundef i32 @llvm.bswap.i32(i32 %72)
+  store i32 %73, ptr %51, align 4
   br label %evutil_inet_pton.exit.i
 
-evutil_inet_pton.exit.i:                          ; preds = %65, %62, %59, %56, %53, %49
+evutil_inet_pton.exit.i:                          ; preds = %66, %63, %60, %57, %54, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %73 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %73, i8 0, i64 24, i1 false)
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %74, i8 0, i64 24, i1 false)
   store i16 10, ptr %10, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i16 13568, ptr %74, align 2
-  %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %76 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull @.str.31, ptr noundef nonnull %75)
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i16 13568, ptr %75, align 2
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %77 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull @.str.31, ptr noundef nonnull %76)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 28, i1 false)
-  %77 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #30
-  %78 = icmp sgt i32 %77, -1
-  br i1 %78, label %79, label %.critedge.i
+  %78 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #30
+  %79 = icmp sgt i32 %78, -1
+  br i1 %79, label %80, label %.critedge.i
 
-79:                                               ; preds = %evutil_inet_pton.exit.i
-  %80 = call i32 @connect(i32 noundef %77, ptr nonnull %8, i32 noundef 16) #30
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %evutil_found_ifaddr.exit.i
+80:                                               ; preds = %evutil_inet_pton.exit.i
+  %81 = call i32 @connect(i32 noundef %78, ptr nonnull %8, i32 noundef 16) #30
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %evutil_found_ifaddr.exit.i
 
-82:                                               ; preds = %79
-  %83 = call i32 @getsockname(i32 noundef %77, ptr nonnull %9, ptr noundef nonnull %12) #30
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %evutil_found_ifaddr.exit.i
+83:                                               ; preds = %80
+  %84 = call i32 @getsockname(i32 noundef %78, ptr nonnull %9, ptr noundef nonnull %12) #30
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %evutil_found_ifaddr.exit.i
 
-85:                                               ; preds = %82
-  %86 = load i16, ptr %9, align 4
-  switch i16 %86, label %evutil_found_ifaddr.exit.i [
-    i16 2, label %87
-    i16 10, label %97
+86:                                               ; preds = %83
+  %87 = load i16, ptr %9, align 4
+  switch i16 %87, label %evutil_found_ifaddr.exit.i [
+    i16 2, label %88
+    i16 10, label %99
   ]
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = call noundef i32 @llvm.bswap.i32(i32 %89)
-  %91 = icmp ne i32 %89, 0
-  %.mask.i.i.i.i = and i32 %90, -16777216
-  %.not.i.i.i = icmp ne i32 %.mask.i.i.i.i, 2130706432
-  %or.cond.i.not17.i.i = and i1 %91, %.not.i.i.i
-  %92 = and i32 %90, -65536
-  %.not5.i.i.i = icmp ne i32 %92, -1442971648
-  %or.cond6.i.not15.i.i = and i1 %.not5.i.i.i, %or.cond.i.not17.i.i
-  %93 = and i32 %90, -268435456
-  %94 = icmp ne i32 %93, -536870912
-  %narrow.i.not.i.i = and i1 %94, %or.cond6.i.not15.i.i
-  br i1 %narrow.i.not.i.i, label %95, label %evutil_found_ifaddr.exit.i
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = call noundef i32 @llvm.bswap.i32(i32 %90)
+  %92 = icmp ne i32 %90, 0
+  %93 = icmp slt i32 %91, 2130706432
+  %or.cond.not8.i.not17.i.i = and i1 %92, %93
+  %94 = and i32 %91, -65536
+  %.not.i.i.i = icmp ne i32 %94, -1442971648
+  %or.cond5.i.not14.i.i = and i1 %or.cond.not8.i.not17.i.i, %.not.i.i.i
+  %95 = and i32 %91, -268435456
+  %96 = icmp ne i32 %95, -536870912
+  %narrow.i.not.i.i = and i1 %96, %or.cond5.i.not14.i.i
+  br i1 %narrow.i.not.i.i, label %97, label %evutil_found_ifaddr.exit.i
 
-95:                                               ; preds = %87
-  %96 = load i32, ptr @event_debug_logging_mask_, align 4
-  %.not8.i18.i = icmp eq i32 %96, 0
+97:                                               ; preds = %88
+  %98 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not8.i18.i = icmp eq i32 %98, 0
   br i1 %.not8.i18.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.i.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i
 
-97:                                               ; preds = %85
-  %98 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %98, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
+99:                                               ; preds = %86
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %100, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
   %.not.i9.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not.i9.i.i, label %evutil_found_ifaddr.exit.i, label %99
+  br i1 %.not.i9.i.i, label %evutil_found_ifaddr.exit.i, label %101
 
-99:                                               ; preds = %97
-  %100 = load i8, ptr %98, align 4
-  %101 = and i8 %100, -2
-  %102 = icmp eq i8 %101, -4
-  br i1 %102, label %evutil_found_ifaddr.exit.i, label %103
+101:                                              ; preds = %99
+  %102 = load i8, ptr %100, align 4
+  %103 = and i8 %102, -2
+  %104 = icmp eq i8 %103, -4
+  br i1 %104, label %evutil_found_ifaddr.exit.i, label %105
 
-103:                                              ; preds = %99
-  switch i8 %100, label %evutil_v6addr_is_local_.exit.thread12.i.i [
-    i8 -2, label %104
+105:                                              ; preds = %101
+  switch i8 %102, label %evutil_v6addr_is_local_.exit.thread11.i.i [
+    i8 -2, label %106
     i8 -1, label %evutil_found_ifaddr.exit.i
   ]
 
-104:                                              ; preds = %103
-  %105 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %106 = load i8, ptr %105, align 1
-  %or.cond.i10.i.i = icmp slt i8 %106, 0
-  br i1 %or.cond.i10.i.i, label %evutil_found_ifaddr.exit.i, label %evutil_v6addr_is_local_.exit.thread12.i.i
+106:                                              ; preds = %105
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %108 = load i8, ptr %107, align 1
+  %or.cond.i.i.i = icmp slt i8 %108, 0
+  br i1 %or.cond.i.i.i, label %evutil_found_ifaddr.exit.i, label %evutil_v6addr_is_local_.exit.thread11.i.i
 
-evutil_v6addr_is_local_.exit.thread12.i.i:        ; preds = %104, %103
-  %107 = load i32, ptr @event_debug_logging_mask_, align 4
-  %.not6.i17.i = icmp eq i32 %107, 0
+evutil_v6addr_is_local_.exit.thread11.i.i:        ; preds = %106, %105
+  %109 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not6.i17.i = icmp eq i32 %109, 0
   br i1 %.not6.i17.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.i.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i
 
-evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread12.i.i, %95
-  %.str.34.sink.i.i = phi ptr [ @.str.33, %95 ], [ @.str.34, %evutil_v6addr_is_local_.exit.thread12.i.i ]
-  %had_ipv6_address.sink.ph.i.i = phi ptr [ @had_ipv4_address, %95 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread12.i.i ]
+evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread11.i.i, %97
+  %.str.34.sink.i.i = phi ptr [ @.str.33, %97 ], [ @.str.34, %evutil_v6addr_is_local_.exit.thread11.i.i ]
+  %had_ipv6_address.sink.ph.i.i = phi ptr [ @had_ipv4_address, %97 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread11.i.i ]
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull %.str.34.sink.i.i) #30
   br label %evutil_v6addr_is_local_.exit.thread.sink.split.i.i
 
-evutil_v6addr_is_local_.exit.thread.sink.split.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i, %evutil_v6addr_is_local_.exit.thread12.i.i, %95
-  %had_ipv6_address.sink.i.i = phi ptr [ @had_ipv4_address, %95 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread12.i.i ], [ %had_ipv6_address.sink.ph.i.i, %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i ]
+evutil_v6addr_is_local_.exit.thread.sink.split.i.i: ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i, %evutil_v6addr_is_local_.exit.thread11.i.i, %97
+  %had_ipv6_address.sink.i.i = phi ptr [ @had_ipv4_address, %97 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread11.i.i ], [ %had_ipv6_address.sink.ph.i.i, %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i.i ]
   store i1 true, ptr %had_ipv6_address.sink.i.i, align 1
   br label %evutil_found_ifaddr.exit.i
 
-evutil_found_ifaddr.exit.i:                       ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.i.i, %104, %103, %99, %97, %87, %85, %82, %79
-  %108 = call i32 @close(i32 noundef %77) #30
+evutil_found_ifaddr.exit.i:                       ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.i.i, %106, %105, %101, %99, %88, %86, %83, %80
+  %110 = call i32 @close(i32 noundef %78) #30
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %evutil_found_ifaddr.exit.i, %evutil_inet_pton.exit.i
-  %109 = call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 17) #30
-  %110 = icmp sgt i32 %109, -1
-  br i1 %110, label %111, label %evutil_check_interfaces.exit
+  %111 = call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 17) #30
+  %112 = icmp sgt i32 %111, -1
+  br i1 %112, label %113, label %evutil_check_interfaces.exit
 
-111:                                              ; preds = %.critedge.i
-  %112 = call i32 @connect(i32 noundef %109, ptr nonnull %10, i32 noundef 28) #30
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %evutil_found_ifaddr.exit36.i
+113:                                              ; preds = %.critedge.i
+  %114 = call i32 @connect(i32 noundef %111, ptr nonnull %10, i32 noundef 28) #30
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %evutil_found_ifaddr.exit34.i
 
-114:                                              ; preds = %111
-  %115 = call i32 @getsockname(i32 noundef %109, ptr nonnull %11, ptr noundef nonnull %13) #30
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %evutil_found_ifaddr.exit36.i
+116:                                              ; preds = %113
+  %117 = call i32 @getsockname(i32 noundef %111, ptr nonnull %11, ptr noundef nonnull %13) #30
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %evutil_found_ifaddr.exit34.i
 
-117:                                              ; preds = %114
-  %118 = load i16, ptr %11, align 4
-  switch i16 %118, label %evutil_found_ifaddr.exit36.i [
-    i16 2, label %119
-    i16 10, label %129
+119:                                              ; preds = %116
+  %120 = load i16, ptr %11, align 4
+  switch i16 %120, label %evutil_found_ifaddr.exit34.i [
+    i16 2, label %121
+    i16 10, label %132
   ]
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %121 = load i32, ptr %120, align 4
-  %122 = call noundef i32 @llvm.bswap.i32(i32 %121)
-  %123 = icmp ne i32 %121, 0
-  %.mask.i.i.i29.i = and i32 %122, -16777216
-  %.not.i.i30.i = icmp ne i32 %.mask.i.i.i29.i, 2130706432
-  %or.cond.i.not17.i31.i = and i1 %123, %.not.i.i30.i
-  %124 = and i32 %122, -65536
-  %.not5.i.i32.i = icmp ne i32 %124, -1442971648
-  %or.cond6.i.not15.i33.i = and i1 %.not5.i.i32.i, %or.cond.i.not17.i31.i
-  %125 = and i32 %122, -268435456
-  %126 = icmp ne i32 %125, -536870912
-  %narrow.i.not.i34.i = and i1 %126, %or.cond6.i.not15.i33.i
-  br i1 %narrow.i.not.i34.i, label %127, label %evutil_found_ifaddr.exit36.i
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %123 = load i32, ptr %122, align 4
+  %124 = call noundef i32 @llvm.bswap.i32(i32 %123)
+  %125 = icmp ne i32 %123, 0
+  %126 = icmp slt i32 %124, 2130706432
+  %or.cond.not8.i.not17.i29.i = and i1 %125, %126
+  %127 = and i32 %124, -65536
+  %.not.i.i30.i = icmp ne i32 %127, -1442971648
+  %or.cond5.i.not14.i31.i = and i1 %or.cond.not8.i.not17.i29.i, %.not.i.i30.i
+  %128 = and i32 %124, -268435456
+  %129 = icmp ne i32 %128, -536870912
+  %narrow.i.not.i32.i = and i1 %129, %or.cond5.i.not14.i31.i
+  br i1 %narrow.i.not.i32.i, label %130, label %evutil_found_ifaddr.exit34.i
 
-127:                                              ; preds = %119
-  %128 = load i32, ptr @event_debug_logging_mask_, align 4
-  %.not8.i35.i = icmp eq i32 %128, 0
-  br i1 %.not8.i35.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.i27.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i
+130:                                              ; preds = %121
+  %131 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not8.i33.i = icmp eq i32 %131, 0
+  br i1 %.not8.i33.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.i27.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i
 
-129:                                              ; preds = %117
-  %130 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %bcmp.i.i19.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %130, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
+132:                                              ; preds = %119
+  %133 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %bcmp.i.i19.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %133, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
   %.not.i9.i20.i = icmp eq i32 %bcmp.i.i19.i, 0
-  br i1 %.not.i9.i20.i, label %evutil_found_ifaddr.exit36.i, label %131
+  br i1 %.not.i9.i20.i, label %evutil_found_ifaddr.exit34.i, label %134
 
-131:                                              ; preds = %129
-  %132 = load i8, ptr %130, align 4
-  %133 = and i8 %132, -2
-  %134 = icmp eq i8 %133, -4
-  br i1 %134, label %evutil_found_ifaddr.exit36.i, label %135
+134:                                              ; preds = %132
+  %135 = load i8, ptr %133, align 4
+  %136 = and i8 %135, -2
+  %137 = icmp eq i8 %136, -4
+  br i1 %137, label %evutil_found_ifaddr.exit34.i, label %138
 
-135:                                              ; preds = %131
-  switch i8 %132, label %evutil_v6addr_is_local_.exit.thread12.i22.i [
-    i8 -2, label %136
-    i8 -1, label %evutil_found_ifaddr.exit36.i
+138:                                              ; preds = %134
+  switch i8 %135, label %evutil_v6addr_is_local_.exit.thread11.i22.i [
+    i8 -2, label %139
+    i8 -1, label %evutil_found_ifaddr.exit34.i
   ]
 
-136:                                              ; preds = %135
-  %137 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  %138 = load i8, ptr %137, align 1
-  %or.cond.i10.i21.i = icmp slt i8 %138, 0
-  br i1 %or.cond.i10.i21.i, label %evutil_found_ifaddr.exit36.i, label %evutil_v6addr_is_local_.exit.thread12.i22.i
+139:                                              ; preds = %138
+  %140 = getelementptr inbounds nuw i8, ptr %11, i64 9
+  %141 = load i8, ptr %140, align 1
+  %or.cond.i.i21.i = icmp slt i8 %141, 0
+  br i1 %or.cond.i.i21.i, label %evutil_found_ifaddr.exit34.i, label %evutil_v6addr_is_local_.exit.thread11.i22.i
 
-evutil_v6addr_is_local_.exit.thread12.i22.i:      ; preds = %136, %135
-  %139 = load i32, ptr @event_debug_logging_mask_, align 4
-  %.not6.i23.i = icmp eq i32 %139, 0
+evutil_v6addr_is_local_.exit.thread11.i22.i:      ; preds = %139, %138
+  %142 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not6.i23.i = icmp eq i32 %142, 0
   br i1 %.not6.i23.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.i27.i, label %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i
 
-evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i: ; preds = %evutil_v6addr_is_local_.exit.thread12.i22.i, %127
-  %.str.34.sink.i25.i = phi ptr [ @.str.33, %127 ], [ @.str.34, %evutil_v6addr_is_local_.exit.thread12.i22.i ]
-  %had_ipv6_address.sink.ph.i26.i = phi ptr [ @had_ipv4_address, %127 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread12.i22.i ]
+evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i: ; preds = %evutil_v6addr_is_local_.exit.thread11.i22.i, %130
+  %.str.34.sink.i25.i = phi ptr [ @.str.33, %130 ], [ @.str.34, %evutil_v6addr_is_local_.exit.thread11.i22.i ]
+  %had_ipv6_address.sink.ph.i26.i = phi ptr [ @had_ipv4_address, %130 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread11.i22.i ]
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull %.str.34.sink.i25.i) #30
   br label %evutil_v6addr_is_local_.exit.thread.sink.split.i27.i
 
-evutil_v6addr_is_local_.exit.thread.sink.split.i27.i: ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i, %evutil_v6addr_is_local_.exit.thread12.i22.i, %127
-  %had_ipv6_address.sink.i28.i = phi ptr [ @had_ipv4_address, %127 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread12.i22.i ], [ %had_ipv6_address.sink.ph.i26.i, %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i ]
+evutil_v6addr_is_local_.exit.thread.sink.split.i27.i: ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i, %evutil_v6addr_is_local_.exit.thread11.i22.i, %130
+  %had_ipv6_address.sink.i28.i = phi ptr [ @had_ipv4_address, %130 ], [ @had_ipv6_address, %evutil_v6addr_is_local_.exit.thread11.i22.i ], [ %had_ipv6_address.sink.ph.i26.i, %evutil_v6addr_is_local_.exit.thread.sink.split.sink.split.i24.i ]
   store i1 true, ptr %had_ipv6_address.sink.i28.i, align 1
-  br label %evutil_found_ifaddr.exit36.i
+  br label %evutil_found_ifaddr.exit34.i
 
-evutil_found_ifaddr.exit36.i:                     ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.i27.i, %136, %135, %131, %129, %119, %117, %114, %111
-  %140 = call i32 @close(i32 noundef %109) #30
+evutil_found_ifaddr.exit34.i:                     ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.i27.i, %139, %138, %134, %132, %121, %119, %116, %113
+  %143 = call i32 @close(i32 noundef %111) #30
   br label %evutil_check_interfaces.exit
 
-evutil_check_interfaces.exit:                     ; preds = %19, %evutil_check_ifaddrs.exit.thread.i, %.critedge.i, %evutil_found_ifaddr.exit36.i
+evutil_check_interfaces.exit:                     ; preds = %19, %evutil_check_ifaddrs.exit.thread.i, %.critedge.i, %evutil_found_ifaddr.exit34.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1860,21 +1856,21 @@ evutil_check_interfaces.exit:                     ; preds = %19, %evutil_check_i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.b = load i1, ptr @had_ipv4_address, align 4
-  %141 = xor i1 %.b, true
+  %144 = xor i1 %.b, true
   %.b7 = load i1, ptr @had_ipv6_address, align 4
-  %or.cond = select i1 %141, i1 true, i1 %.b7
-  br i1 %or.cond, label %142, label %.sink.split
+  %or.cond = select i1 %144, i1 true, i1 %.b7
+  br i1 %or.cond, label %145, label %.sink.split
 
-142:                                              ; preds = %evutil_check_interfaces.exit
-  %or.cond3 = select i1 %141, i1 %.b7, i1 false
-  br i1 %or.cond3, label %.sink.split, label %143
+145:                                              ; preds = %evutil_check_interfaces.exit
+  %or.cond3 = select i1 %144, i1 %.b7, i1 false
+  br i1 %or.cond3, label %.sink.split, label %146
 
-.sink.split:                                      ; preds = %142, %evutil_check_interfaces.exit
-  %.sink = phi i32 [ 2, %evutil_check_interfaces.exit ], [ 10, %142 ]
+.sink.split:                                      ; preds = %145, %evutil_check_interfaces.exit
+  %.sink = phi i32 [ 2, %evutil_check_interfaces.exit ], [ 10, %145 ]
   store i32 %.sink, ptr %17, align 4
-  br label %143
+  br label %146
 
-143:                                              ; preds = %.sink.split, %142, %16, %1
+146:                                              ; preds = %.sink.split, %145, %16, %1
   ret void
 }
 

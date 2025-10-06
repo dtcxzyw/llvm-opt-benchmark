@@ -20,25 +20,25 @@ define internal range(i32 0, 52) i32 @loas_probe(ptr noundef readonly captures(n
   %7 = getelementptr i8, ptr %3, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -3
   %9 = icmp sgt i32 %5, 3
-  br i1 %9, label %.preheader.lr.ph, label %.thread63
+  br i1 %9, label %.preheader.lr.ph, label %.thread62
 
 .preheader.lr.ph:                                 ; preds = %1
   %10 = ptrtoint ptr %8 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
-  %.03753 = phi i32 [ 0, %.preheader.lr.ph ], [ %35, %.thread ]
-  %.03852 = phi ptr [ %3, %.preheader.lr.ph ], [ %37, %.thread ]
-  %.04051 = phi i32 [ 0, %.preheader.lr.ph ], [ %spec.select, %.thread ]
+  %.03752 = phi i32 [ 0, %.preheader.lr.ph ], [ %35, %.thread ]
+  %.03851 = phi ptr [ %3, %.preheader.lr.ph ], [ %37, %.thread ]
+  %.04050 = phi i32 [ 0, %.preheader.lr.ph ], [ %spec.select, %.thread ]
   br label %11
 
 11:                                               ; preds = %.preheader, %25
-  %.03950 = phi ptr [ %.03852, %.preheader ], [ %32, %25 ]
-  %.04249 = phi i32 [ 0, %.preheader ], [ %33, %25 ]
-  %12 = load i8, ptr %.03950, align 1, !tbaa !12
+  %.03949 = phi ptr [ %.03851, %.preheader ], [ %32, %25 ]
+  %.04248 = phi i32 [ 0, %.preheader ], [ %33, %25 ]
+  %12 = load i8, ptr %.03949, align 1, !tbaa !12
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 16
-  %15 = getelementptr inbounds nuw i8, ptr %.03950, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.03949, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !12
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 8
@@ -48,7 +48,7 @@ define internal range(i32 0, 52) i32 @loas_probe(ptr noundef readonly captures(n
   br i1 %.not, label %19, label %.thread
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %.03950, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.03949, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = zext i8 %21 to i32
   %.masked45 = and i32 %18, 7936
@@ -59,42 +59,42 @@ define internal range(i32 0, 52) i32 @loas_probe(ptr noundef readonly captures(n
 25:                                               ; preds = %19
   %26 = add nuw nsw i32 %23, 3
   %27 = zext nneg i32 %26 to i64
-  %28 = ptrtoint ptr %.03950 to i64
+  %28 = ptrtoint ptr %.03949 to i64
   %29 = sub i64 %10, %28
   %30 = tail call i64 @llvm.smin.i64(i64 %29, i64 %27)
   %sext = shl i64 %30, 32
   %31 = ashr exact i64 %sext, 32
-  %32 = getelementptr inbounds i8, ptr %.03950, i64 %31
-  %33 = add nuw nsw i32 %.04249, 1
+  %32 = getelementptr inbounds i8, ptr %.03949, i64 %31
+  %33 = add nuw nsw i32 %.04248, 1
   %34 = icmp ult ptr %32, %8
   br i1 %34, label %11, label %.thread, !llvm.loop !13
 
 .thread:                                          ; preds = %19, %11, %25
-  %.042.lcssa = phi i32 [ %.04249, %19 ], [ %.04249, %11 ], [ %33, %25 ]
-  %.039.lcssa = phi ptr [ %.03950, %19 ], [ %.03950, %11 ], [ %32, %25 ]
+  %.042.lcssa = phi i32 [ %.04248, %19 ], [ %.04248, %11 ], [ %33, %25 ]
+  %.039.lcssa = phi ptr [ %.03949, %19 ], [ %.03949, %11 ], [ %32, %25 ]
   %.042.lcssa.fr = freeze i32 %.042.lcssa
-  %35 = tail call i32 @llvm.umax.i32(i32 %.03753, i32 %.042.lcssa.fr)
-  %36 = icmp eq ptr %.03852, %3
-  %spec.select = select i1 %36, i32 %.042.lcssa.fr, i32 %.04051
+  %35 = tail call i32 @llvm.umax.i32(i32 %.03752, i32 %.042.lcssa.fr)
+  %36 = icmp eq ptr %.03851, %3
+  %spec.select = select i1 %36, i32 %.042.lcssa.fr, i32 %.04050
   %37 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 1
   %38 = icmp ult ptr %37, %8
   br i1 %38, label %.preheader, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.thread
   %39 = icmp samesign ugt i32 %spec.select, 2
-  br i1 %39, label %.thread63, label %40
+  br i1 %39, label %.thread62, label %40
 
 40:                                               ; preds = %._crit_edge
   %41 = icmp samesign ugt i32 %35, 100
-  br i1 %41, label %.thread63, label %42
+  br i1 %41, label %.thread62, label %42
 
 42:                                               ; preds = %40
   %43 = icmp ugt i32 %35, 2
-  %spec.select66 = select i1 %43, i32 25, i32 0
-  br label %.thread63
+  %spec.select65 = select i1 %43, i32 25, i32 0
+  br label %.thread62
 
-.thread63:                                        ; preds = %42, %1, %40, %._crit_edge
-  %.036 = phi i32 [ 51, %._crit_edge ], [ 50, %40 ], [ 0, %1 ], [ %spec.select66, %42 ]
+.thread62:                                        ; preds = %42, %1, %40, %._crit_edge
+  %.036 = phi i32 [ 51, %._crit_edge ], [ 50, %40 ], [ 0, %1 ], [ %spec.select65, %42 ]
   ret i32 %.036
 }
 

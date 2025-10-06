@@ -4332,19 +4332,19 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %26, %19
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %33
-  %.promoted21.i.le = ptrtoint ptr %.promoted.i33 to i64
+  %.promoted20.i.le = ptrtoint ptr %.promoted.i33 to i64
   %35 = ptrtoint ptr %8 to i64
-  %36 = sub i64 %35, %.promoted21.i.le
+  %36 = sub i64 %35, %.promoted20.i.le
   %scevgep.i.le = getelementptr i8, ptr %.promoted.i33, i64 %36
   br label %._crit_edge.i
 
 ._crit_edge.i.loopexit12:                         ; preds = %full_escape_UTF8_char.exit, %2
   %.promoted.i.lcssa31 = phi ptr [ %.promoted.i32, %2 ], [ %307, %full_escape_UTF8_char.exit ]
-  %.promoted21.i.le30 = ptrtoint ptr %.promoted.i.lcssa31 to i64
+  %.promoted20.i.le30 = ptrtoint ptr %.promoted.i.lcssa31 to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit12, %._crit_edge.i.loopexit
-  %.pre-phi.i = phi i64 [ %35, %._crit_edge.i.loopexit ], [ %.promoted21.i.le30, %._crit_edge.i.loopexit12 ]
+  %.pre-phi.i = phi i64 [ %35, %._crit_edge.i.loopexit ], [ %.promoted20.i.le30, %._crit_edge.i.loopexit12 ]
   %.lcssa.i = phi ptr [ %scevgep.i.le, %._crit_edge.i.loopexit ], [ %.promoted.i.lcssa31, %._crit_edge.i.loopexit12 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !69

@@ -1803,11 +1803,11 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %.sroa.0.0.extract.trunc.i = trunc i64 %20 to i32
   %21 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 16) #9
   %22 = ptrtoint ptr %21 to i64
-  %.sroa.0.0.extract.trunc.i178 = trunc i64 %22 to i32
+  %.sroa.0.0.extract.trunc.i177 = trunc i64 %22 to i32
   %23 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 17) #9
   %24 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 18) #9
   %25 = ptrtoint ptr %24 to i64
-  %.sroa.0.0.extract.trunc.i180 = trunc i64 %25 to i32
+  %.sroa.0.0.extract.trunc.i179 = trunc i64 %25 to i32
   %26 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 19) #9
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %28 = load i16, ptr %27, align 4, !tbaa !53
@@ -1836,7 +1836,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %37 = load i32, ptr %36, align 4, !tbaa !39
   %38 = call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %13) #9
   %39 = xor i32 %38, -1
-  %40 = add i32 %.sroa.0.0.extract.trunc.i178, %.sroa.0.0.extract.trunc.i
+  %40 = add i32 %.sroa.0.0.extract.trunc.i177, %.sroa.0.0.extract.trunc.i
   %41 = add i32 %40, %37
   %42 = add i32 %41, %39
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -1852,21 +1852,21 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %52 = load i32, ptr %51, align 4, !tbaa !18
-  %.not232 = icmp eq i32 %52, 0
-  br i1 %.not232, label %._crit_edge230, label %.lr.ph229
+  %.not229 = icmp eq i32 %52, 0
+  br i1 %.not229, label %._crit_edge227, label %.lr.ph226
 
-.lr.ph229:                                        ; preds = %18
+.lr.ph226:                                        ; preds = %18
   %53 = ptrtoint ptr %26 to i64
-  %.sroa.0.0.extract.trunc.i181 = trunc i64 %53 to i32
+  %.sroa.0.0.extract.trunc.i180 = trunc i64 %53 to i32
   %54 = ptrtoint ptr %23 to i64
-  %.sroa.0.0.extract.trunc.i179 = trunc i64 %54 to i32
+  %.sroa.0.0.extract.trunc.i178 = trunc i64 %54 to i32
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %57 = xor i32 %45, -1
-  %58 = add i32 %.sroa.0.0.extract.trunc.i180, %.sroa.0.0.extract.trunc.i
+  %58 = add i32 %.sroa.0.0.extract.trunc.i179, %.sroa.0.0.extract.trunc.i
   %59 = add i32 %58, %57
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %61 = xor i32 %.sroa.0.0.extract.trunc.i181, -1
+  %61 = xor i32 %.sroa.0.0.extract.trunc.i180, -1
   %62 = add i32 %45, %.sroa.0.0.extract.trunc.i
   %63 = sub i32 %61, %62
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -1879,7 +1879,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 105
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 52
-  %74 = xor i32 %.sroa.0.0.extract.trunc.i179, -1
+  %74 = xor i32 %.sroa.0.0.extract.trunc.i178, -1
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1899,12 +1899,12 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %91 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %92
 
-92:                                               ; preds = %.lr.ph229, %._crit_edge224
-  %93 = phi i32 [ %52, %.lr.ph229 ], [ %308, %._crit_edge224 ]
-  %indvars.iv243 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next244, %._crit_edge224 ]
-  %.0146226 = phi i32 [ 0, %.lr.ph229 ], [ %.2148.lcssa, %._crit_edge224 ]
+92:                                               ; preds = %.lr.ph226, %._crit_edge221
+  %93 = phi i32 [ %52, %.lr.ph226 ], [ %308, %._crit_edge221 ]
+  %indvars.iv240 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next241, %._crit_edge221 ]
+  %.0146223 = phi i32 [ 0, %.lr.ph226 ], [ %.2148.lcssa, %._crit_edge221 ]
   %94 = load ptr, ptr %50, align 8, !tbaa !20
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv243
+  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv240
   %96 = load i32, ptr %95, align 4, !tbaa !21
   %97 = load i32, ptr %43, align 4, !tbaa !51
   %98 = add nsw i32 %97, 1
@@ -1913,7 +1913,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   store i32 %99, ptr %43, align 4, !tbaa !51
   %100 = load i32, ptr %56, align 4, !tbaa !51
   %.not = icmp slt i32 %97, %100
-  br i1 %.not, label %101, label %._crit_edge230
+  br i1 %.not, label %101, label %._crit_edge227
 
 101:                                              ; preds = %92
   br i1 %49, label %102, label %105
@@ -1932,20 +1932,20 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 108:                                              ; preds = %105, %102
   %109 = load i32, ptr %64, align 8, !tbaa !3
-  %.not233 = icmp eq i32 %109, 0
-  br i1 %.not233, label %._crit_edge224, label %.lr.ph223
+  %.not230 = icmp eq i32 %109, 0
+  br i1 %.not230, label %._crit_edge221, label %.lr.ph220
 
-.lr.ph223:                                        ; preds = %108
+.lr.ph220:                                        ; preds = %108
   %110 = sdiv i32 %96, 2
-  %111 = trunc nuw i64 %indvars.iv243 to i32
+  %111 = trunc nuw i64 %indvars.iv240 to i32
   br label %112
 
-112:                                              ; preds = %.lr.ph223, %304
-  %113 = phi i32 [ %109, %.lr.ph223 ], [ %305, %304 ]
-  %.0142219 = phi i32 [ 0, %.lr.ph223 ], [ %306, %304 ]
-  %.2148217 = phi i32 [ %.0146226, %.lr.ph223 ], [ %.3, %304 ]
+112:                                              ; preds = %.lr.ph220, %304
+  %113 = phi i32 [ %109, %.lr.ph220 ], [ %305, %304 ]
+  %.0142216 = phi i32 [ 0, %.lr.ph220 ], [ %306, %304 ]
+  %.2148214 = phi i32 [ %.0146223, %.lr.ph220 ], [ %.3, %304 ]
   %114 = load ptr, ptr %65, align 8, !tbaa !22
-  %115 = zext i32 %.2148217 to i64
+  %115 = zext i32 %.2148214 to i64
   %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !23
   %.not161 = icmp eq ptr %117, null
@@ -1959,9 +1959,9 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 122:                                              ; preds = %118, %112
   %.0149 = phi i1 [ %121, %118 ], [ true, %112 ]
-  %123 = zext i32 %.0142219 to i64
+  %123 = zext i32 %.0142216 to i64
   %124 = add i32 %113, -1
-  %125 = icmp ult i32 %.0142219, %124
+  %125 = icmp ult i32 %.0142216, %124
   br i1 %49, label %126, label %.thread
 
 126:                                              ; preds = %122
@@ -1987,21 +1987,21 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br i1 %125, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %.thread
-  %139 = zext i32 %.0142219 to i64
-  %140 = sub nuw i32 %124, %.0142219
+  %139 = zext i32 %.0142216 to i64
+  %140 = sub nuw i32 %124, %.0142216
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %126
-  %141 = zext i32 %.0142219 to i64
-  %142 = sub nuw i32 %124, %.0142219
+  %141 = zext i32 %.0142216 to i64
+  %142 = sub nuw i32 %124, %.0142216
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %154
-  %indvars.iv238 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next239, %154 ]
+  %indvars.iv235 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next236, %154 ]
   %143 = phi i32 [ %132, %.lr.ph.split.us.preheader ], [ %158, %154 ]
-  %144 = add nuw nsw i64 %indvars.iv238, %141
-  %145 = trunc nuw i64 %indvars.iv238 to i32
-  %146 = add i32 %.2148217, %145
+  %144 = add nuw nsw i64 %indvars.iv235, %141
+  %145 = trunc nuw i64 %indvars.iv235 to i32
+  %146 = add i32 %.2148214, %145
   %147 = zext i32 %146 to i64
   %148 = getelementptr inbounds nuw ptr, ptr %114, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !23
@@ -2012,7 +2012,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %152 = load i32, ptr %149, align 8, !tbaa !41
   %153 = and i32 %152, 1
   %.not162.us = icmp eq i32 %153, 0
-  br i1 %.not162.us, label %._crit_edge.loopexit.split.loop.exit284, label %154
+  br i1 %.not162.us, label %._crit_edge.loopexit.split.loop.exit281, label %154
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i32, ptr %129, i64 %144
@@ -2020,28 +2020,28 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %157 = load i32, ptr %156, align 4, !tbaa !21
   %158 = sub nsw i32 %143, %157
   store i32 %158, ptr %5, align 4, !tbaa !48
-  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %lftr.wideiv241 = trunc i64 %indvars.iv.next239 to i32
-  %exitcond242.not = icmp eq i32 %142, %lftr.wideiv241
-  br i1 %exitcond242.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !66
+  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
+  %lftr.wideiv238 = trunc i64 %indvars.iv.next236 to i32
+  %exitcond239.not = icmp eq i32 %142, %lftr.wideiv238
+  br i1 %exitcond239.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !66
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %170
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %170 ]
   %159 = phi i32 [ %138, %.lr.ph.split.preheader ], [ %174, %170 ]
   %160 = add nuw nsw i64 %indvars.iv, %139
   %161 = trunc nuw i64 %indvars.iv to i32
-  %162 = add i32 %.2148217, %161
+  %162 = add i32 %.2148214, %161
   %163 = zext i32 %162 to i64
   %164 = getelementptr inbounds nuw ptr, ptr %114, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !23
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %._crit_edge.loopexit270.split.loop.exit, label %167
+  br i1 %166, label %._crit_edge.loopexit267.split.loop.exit, label %167
 
 167:                                              ; preds = %.lr.ph.split
   %168 = load i32, ptr %165, align 8, !tbaa !41
   %169 = and i32 %168, 1
   %.not162 = icmp eq i32 %169, 0
-  br i1 %.not162, label %._crit_edge.loopexit270.split.loop.exit274, label %170
+  br i1 %.not162, label %._crit_edge.loopexit267.split.loop.exit271, label %170
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i32, ptr %135, i64 %160
@@ -2058,23 +2058,23 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %175 = trunc nuw i64 %144 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit.split.loop.exit284:          ; preds = %151
+._crit_edge.loopexit.split.loop.exit281:          ; preds = %151
   %176 = trunc nuw i64 %144 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit270.split.loop.exit:          ; preds = %.lr.ph.split
+._crit_edge.loopexit267.split.loop.exit:          ; preds = %.lr.ph.split
   %177 = trunc nuw i64 %160 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit270.split.loop.exit274:       ; preds = %167
+._crit_edge.loopexit267.split.loop.exit271:       ; preds = %167
   %178 = trunc nuw i64 %160 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %170, %154, %._crit_edge.loopexit270.split.loop.exit, %._crit_edge.loopexit270.split.loop.exit274, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit284, %.thread, %126
-  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit284 ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit270.split.loop.exit ], [ %159, %._crit_edge.loopexit270.split.loop.exit274 ], [ %128, %154 ], [ %174, %170 ]
-  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit284 ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %134, %._crit_edge.loopexit270.split.loop.exit ], [ %134, %._crit_edge.loopexit270.split.loop.exit274 ], [ %158, %154 ], [ %134, %170 ]
-  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit284 ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %161, %._crit_edge.loopexit270.split.loop.exit ], [ %161, %._crit_edge.loopexit270.split.loop.exit274 ], [ %142, %154 ], [ %140, %170 ]
-  %.lcssa = phi i32 [ %.0142219, %126 ], [ %.0142219, %.thread ], [ %176, %._crit_edge.loopexit.split.loop.exit284 ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %177, %._crit_edge.loopexit270.split.loop.exit ], [ %178, %._crit_edge.loopexit270.split.loop.exit274 ], [ %124, %154 ], [ %124, %170 ]
+._crit_edge:                                      ; preds = %170, %154, %._crit_edge.loopexit267.split.loop.exit, %._crit_edge.loopexit267.split.loop.exit271, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit281, %.thread, %126
+  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit281 ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit267.split.loop.exit ], [ %159, %._crit_edge.loopexit267.split.loop.exit271 ], [ %128, %154 ], [ %174, %170 ]
+  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit281 ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %134, %._crit_edge.loopexit267.split.loop.exit ], [ %134, %._crit_edge.loopexit267.split.loop.exit271 ], [ %158, %154 ], [ %134, %170 ]
+  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit281 ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %161, %._crit_edge.loopexit267.split.loop.exit ], [ %161, %._crit_edge.loopexit267.split.loop.exit271 ], [ %142, %154 ], [ %140, %170 ]
+  %.lcssa = phi i32 [ %.0142216, %126 ], [ %.0142216, %.thread ], [ %176, %._crit_edge.loopexit.split.loop.exit281 ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %177, %._crit_edge.loopexit267.split.loop.exit ], [ %178, %._crit_edge.loopexit267.split.loop.exit271 ], [ %124, %154 ], [ %124, %170 ]
   %181 = load i32, ptr %43, align 4, !tbaa !51
   %182 = load i32, ptr %67, align 4, !tbaa !50
   %183 = icmp slt i32 %181, %182
@@ -2094,7 +2094,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 188:                                              ; preds = %184
   %189 = load i32, ptr %15, align 8, !tbaa !37
-  %190 = add nsw i32 %189, %.sroa.0.0.extract.trunc.i180
+  %190 = add nsw i32 %189, %.sroa.0.0.extract.trunc.i179
   %191 = icmp sgt i32 %180, %190
   br i1 %191, label %192, label %195
 
@@ -2112,7 +2112,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 197:                                              ; preds = %195
   %198 = load i32, ptr %36, align 4, !tbaa !39
-  %199 = add nsw i32 %198, %.sroa.0.0.extract.trunc.i178
+  %199 = add nsw i32 %198, %.sroa.0.0.extract.trunc.i177
   %200 = icmp sgt i32 %185, %199
   br i1 %200, label %201, label %204
 
@@ -2166,13 +2166,13 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 228:                                              ; preds = %222, %218, %216
   %229 = load i32, ptr %75, align 4, !tbaa !25
   %230 = zext i32 %229 to i64
-  %231 = icmp eq i64 %indvars.iv243, %230
-  br i1 %231, label %232, label %.thread190
+  %231 = icmp eq i64 %indvars.iv240, %230
+  br i1 %231, label %232, label %.thread188
 
 232:                                              ; preds = %228
   %233 = load i32, ptr %76, align 8, !tbaa !26
-  %234 = icmp eq i32 %.0142219, %233
-  br i1 %234, label %235, label %.thread190
+  %234 = icmp eq i32 %.0142216, %233
+  br i1 %234, label %235, label %.thread188
 
 235:                                              ; preds = %232
   %236 = load i16, ptr %27, align 4, !tbaa !53
@@ -2184,20 +2184,20 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %239 = and i16 %236, 8
   %.not172 = icmp eq i16 %239, 0
   %240 = or disjoint i16 %.3154, 8
-  br i1 %.not172, label %241, label %.thread192
+  br i1 %.not172, label %241, label %.thread190
 
 241:                                              ; preds = %235
   %242 = icmp eq i16 %.3154, 0
-  br i1 %242, label %.thread190, label %.thread192
+  br i1 %242, label %.thread188, label %.thread190
 
-.thread190:                                       ; preds = %228, %232, %241
+.thread188:                                       ; preds = %228, %232, %241
   %243 = call ptr @lv_memcpy(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 144) #9
   %244 = call ptr @lv_memcpy(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 144) #9
   br label %249
 
-.thread192:                                       ; preds = %235, %241
-  %.0151194 = phi i16 [ %.3154, %241 ], [ %240, %235 ]
-  store i16 %.0151194, ptr %27, align 4, !tbaa !53
+.thread190:                                       ; preds = %235, %241
+  %.0151192 = phi i16 [ %.3154, %241 ], [ %240, %235 ]
+  store i16 %.0151192, ptr %27, align 4, !tbaa !53
   %245 = load i16, ptr %29, align 2
   %246 = or i16 %245, 8
   store i16 %246, ptr %29, align 2
@@ -2213,11 +2213,11 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   store i16 %248, ptr %29, align 2
   br label %249
 
-249:                                              ; preds = %.thread192, %.thread190
+249:                                              ; preds = %.thread190, %.thread188
   store i32 %111, ptr %79, align 4, !tbaa !69
-  store i32 %.0142219, ptr %80, align 8, !tbaa !70
+  store i32 %.0142216, ptr %80, align 8, !tbaa !70
   store i32 %111, ptr %81, align 4, !tbaa !71
-  store i32 %.0142219, ptr %82, align 8, !tbaa !72
+  store i32 %.0142216, ptr %82, align 8, !tbaa !72
   call void @lv_draw_rect(ptr noundef %14, ptr noundef nonnull %7, ptr noundef nonnull %10) #9
   %250 = load ptr, ptr %65, align 8, !tbaa !22
   %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %115
@@ -2228,28 +2228,28 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 253:                                              ; preds = %249
   %254 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 327680, i8 noundef zeroext 18) #9
   %255 = ptrtoint ptr %254 to i64
-  %.sroa.0.0.extract.trunc.i183 = trunc i64 %255 to i32
+  %.sroa.0.0.extract.trunc.i182 = trunc i64 %255 to i32
   %256 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 327680, i8 noundef zeroext 19) #9
   %257 = ptrtoint ptr %256 to i64
-  %.sroa.0.0.extract.trunc.i184 = trunc i64 %257 to i32
+  %.sroa.0.0.extract.trunc.i183 = trunc i64 %257 to i32
   %258 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 327680, i8 noundef zeroext 16) #9
   %259 = ptrtoint ptr %258 to i64
-  %.sroa.0.0.extract.trunc.i185 = trunc i64 %259 to i32
+  %.sroa.0.0.extract.trunc.i184 = trunc i64 %259 to i32
   %260 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 327680, i8 noundef zeroext 17) #9
   %261 = ptrtoint ptr %260 to i64
-  %.sroa.0.0.extract.trunc.i186 = trunc i64 %261 to i32
+  %.sroa.0.0.extract.trunc.i185 = trunc i64 %261 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %262 = load i32, ptr %5, align 4, !tbaa !48
-  %263 = add nsw i32 %262, %.sroa.0.0.extract.trunc.i183
+  %263 = add nsw i32 %262, %.sroa.0.0.extract.trunc.i182
   store i32 %263, ptr %11, align 4, !tbaa !48
   %264 = load i32, ptr %44, align 4, !tbaa !49
-  %265 = sub nsw i32 %264, %.sroa.0.0.extract.trunc.i184
+  %265 = sub nsw i32 %264, %.sroa.0.0.extract.trunc.i183
   store i32 %265, ptr %83, align 4, !tbaa !49
   %266 = load i32, ptr %55, align 4, !tbaa !50
-  %267 = add nsw i32 %266, %.sroa.0.0.extract.trunc.i185
+  %267 = add nsw i32 %266, %.sroa.0.0.extract.trunc.i184
   store i32 %267, ptr %84, align 4, !tbaa !50
   %268 = load i32, ptr %43, align 4, !tbaa !51
-  %269 = sub nsw i32 %268, %.sroa.0.0.extract.trunc.i186
+  %269 = sub nsw i32 %268, %.sroa.0.0.extract.trunc.i185
   store i32 %269, ptr %85, align 4, !tbaa !51
   br i1 %.0149, label %.critedge, label %270
 
@@ -2317,25 +2317,25 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 304:                                              ; preds = %._crit_edge, %303
   %305 = phi i32 [ %113, %._crit_edge ], [ %.pre, %303 ]
-  %.pn = add i32 %.2148217, 1
+  %.pn = add i32 %.2148214, 1
   %.3 = add i32 %.pn, %.0150.lcssa
   %306 = add i32 %.lcssa, 1
   %307 = icmp ult i32 %306, %305
-  br i1 %307, label %112, label %._crit_edge224.loopexit, !llvm.loop !78
+  br i1 %307, label %112, label %._crit_edge221.loopexit, !llvm.loop !78
 
-._crit_edge224.loopexit:                          ; preds = %304
-  %.pre248 = load i32, ptr %51, align 4, !tbaa !18
-  br label %._crit_edge224
+._crit_edge221.loopexit:                          ; preds = %304
+  %.pre245 = load i32, ptr %51, align 4, !tbaa !18
+  br label %._crit_edge221
 
-._crit_edge224:                                   ; preds = %._crit_edge224.loopexit, %108
-  %308 = phi i32 [ %93, %108 ], [ %.pre248, %._crit_edge224.loopexit ]
-  %.2148.lcssa = phi i32 [ %.0146226, %108 ], [ %.3, %._crit_edge224.loopexit ]
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+._crit_edge221:                                   ; preds = %._crit_edge221.loopexit, %108
+  %308 = phi i32 [ %93, %108 ], [ %.pre245, %._crit_edge221.loopexit ]
+  %.2148.lcssa = phi i32 [ %.0146223, %108 ], [ %.3, %._crit_edge221.loopexit ]
+  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %309 = zext i32 %308 to i64
-  %310 = icmp samesign ult i64 %indvars.iv.next244, %309
-  br i1 %310, label %92, label %._crit_edge230, !llvm.loop !79
+  %310 = icmp samesign ult i64 %indvars.iv.next241, %309
+  br i1 %310, label %92, label %._crit_edge227, !llvm.loop !79
 
-._crit_edge230:                                   ; preds = %._crit_edge224, %92, %18
+._crit_edge227:                                   ; preds = %._crit_edge221, %92, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !52
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2346,7 +2346,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %311
 
-311:                                              ; preds = %1, %._crit_edge230
+311:                                              ; preds = %1, %._crit_edge227
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -2393,22 +2393,22 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   %16 = mul i32 %15, %1
   %17 = add i32 %15, %16
   %18 = icmp ult i32 %16, %17
-  br i1 %18, label %.lr.ph96, label %._crit_edge
+  br i1 %18, label %.lr.ph95, label %._crit_edge
 
-.lr.ph96:                                         ; preds = %9
+.lr.ph95:                                         ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = add i32 %6, %5
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %23
 
-23:                                               ; preds = %.lr.ph96, %70
-  %24 = phi i32 [ %15, %.lr.ph96 ], [ %73, %70 ]
-  %.095 = phi i32 [ %13, %.lr.ph96 ], [ %.1, %70 ]
-  %.06194 = phi i32 [ %16, %.lr.ph96 ], [ %71, %70 ]
-  %.06493 = phi i32 [ 0, %.lr.ph96 ], [ %72, %70 ]
+23:                                               ; preds = %.lr.ph95, %70
+  %24 = phi i32 [ %15, %.lr.ph95 ], [ %73, %70 ]
+  %.094 = phi i32 [ %13, %.lr.ph95 ], [ %.1, %70 ]
+  %.06193 = phi i32 [ %16, %.lr.ph95 ], [ %71, %70 ]
+  %.06492 = phi i32 [ 0, %.lr.ph95 ], [ %72, %70 ]
   %25 = load ptr, ptr %19, align 8, !tbaa !22
-  %26 = zext i32 %.06194 to i64
+  %26 = zext i32 %.06193 to i64
   %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = icmp eq ptr %28, null
@@ -2416,28 +2416,28 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
 
 30:                                               ; preds = %23
   %31 = load ptr, ptr %20, align 8, !tbaa !19
-  %32 = zext i32 %.06493 to i64
+  %32 = zext i32 %.06492 to i64
   %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !21
   %35 = add i32 %24, -1
-  %36 = icmp ult i32 %.06493, %35
+  %36 = icmp ult i32 %.06492, %35
   br i1 %36, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %30
-  %37 = sub nuw i32 %35, %.06493
+  %37 = sub nuw i32 %35, %.06492
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %48 ]
-  %.06881 = phi i32 [ %34, %.lr.ph.preheader ], [ %52, %48 ]
+  %.06880 = phi i32 [ %34, %.lr.ph.preheader ], [ %52, %48 ]
   %38 = add nuw nsw i64 %indvars.iv, %32
   %39 = trunc nuw i64 %indvars.iv to i32
-  %40 = add i32 %.06194, %39
+  %40 = add i32 %.06193, %39
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw ptr, ptr %25, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread.loopexit.split.loop.exit104, label %45
+  br i1 %44, label %.thread.loopexit.split.loop.exit103, label %45
 
 45:                                               ; preds = %.lr.ph
   %46 = load i32, ptr %43, align 8, !tbaa !41
@@ -2449,7 +2449,7 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   %49 = getelementptr inbounds nuw i32, ptr %31, i64 %38
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !21
-  %52 = add nsw i32 %51, %.06881
+  %52 = add nsw i32 %51, %.06880
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %37, %lftr.wideiv
@@ -2459,14 +2459,14 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   %53 = trunc nuw i64 %38 to i32
   br label %.thread
 
-.thread.loopexit.split.loop.exit104:              ; preds = %.lr.ph
+.thread.loopexit.split.loop.exit103:              ; preds = %.lr.ph
   %54 = trunc nuw i64 %38 to i32
   br label %.thread
 
-.thread:                                          ; preds = %48, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit104, %30
-  %.068.lcssa = phi i32 [ %34, %30 ], [ %.06881, %.thread.loopexit.split.loop.exit ], [ %.06881, %.thread.loopexit.split.loop.exit104 ], [ %52, %48 ]
-  %.067.lcssa = phi i32 [ 0, %30 ], [ %39, %.thread.loopexit.split.loop.exit ], [ %39, %.thread.loopexit.split.loop.exit104 ], [ %37, %48 ]
-  %.lcssa = phi i32 [ %.06493, %30 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit.split.loop.exit104 ], [ %35, %48 ]
+.thread:                                          ; preds = %48, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit103, %30
+  %.068.lcssa = phi i32 [ %34, %30 ], [ %.06880, %.thread.loopexit.split.loop.exit ], [ %.06880, %.thread.loopexit.split.loop.exit103 ], [ %52, %48 ]
+  %.067.lcssa = phi i32 [ 0, %30 ], [ %39, %.thread.loopexit.split.loop.exit ], [ %39, %.thread.loopexit.split.loop.exit103 ], [ %37, %48 ]
+  %.lcssa = phi i32 [ %.06492, %30 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit.split.loop.exit103 ], [ %35, %48 ]
   %55 = load i32, ptr %28, align 8, !tbaa !41
   %56 = and i32 %55, 2
   %.not75 = icmp eq i32 %56, 0
@@ -2475,7 +2475,7 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
 57:                                               ; preds = %.thread
   %58 = call i32 @lv_font_get_line_height(ptr noundef %2) #9
   %59 = add i32 %12, %58
-  %60 = icmp sgt i32 %59, %.095
+  %60 = icmp sgt i32 %59, %.094
   br i1 %60, label %61, label %70
 
 61:                                               ; preds = %57
@@ -2490,15 +2490,15 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   call void @lv_text_get_size(ptr noundef nonnull %10, ptr noundef nonnull %66, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %65, i32 noundef 0) #9
   %67 = load i32, ptr %22, align 4, !tbaa !35
   %68 = add i32 %12, %67
-  %..0 = call i32 @llvm.smax.i32(i32 %68, i32 %.095)
-  %69 = add i32 %.067.lcssa, %.06194
+  %..0 = call i32 @llvm.smax.i32(i32 %68, i32 %.094)
+  %69 = add i32 %.067.lcssa, %.06193
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %70
 
 70:                                               ; preds = %64, %57, %61, %23
-  %.165 = phi i32 [ %.06493, %23 ], [ %.lcssa, %64 ], [ %.06493, %57 ], [ %.06493, %61 ]
-  %.162 = phi i32 [ %.06194, %23 ], [ %69, %64 ], [ %.06194, %57 ], [ %.06194, %61 ]
-  %.1 = phi i32 [ %.095, %23 ], [ %..0, %64 ], [ %.095, %57 ], [ %63, %61 ]
+  %.165 = phi i32 [ %.06492, %23 ], [ %.lcssa, %64 ], [ %.06492, %57 ], [ %.06492, %61 ]
+  %.162 = phi i32 [ %.06193, %23 ], [ %69, %64 ], [ %.06193, %57 ], [ %.06193, %61 ]
+  %.1 = phi i32 [ %.094, %23 ], [ %..0, %64 ], [ %.094, %57 ], [ %63, %61 ]
   %71 = add i32 %.162, 1
   %72 = add i32 %.165, 1
   %73 = load i32, ptr %14, align 8, !tbaa !3

@@ -1060,14 +1060,14 @@ fstat_checkout_output.exit.i:                     ; preds = %44, %41, %36
   br label %171
 
 .thread:                                          ; preds = %23, %open_output_fd.exit.i, %49, %51
-  %.0132145 = phi i32 [ 0, %51 ], [ 0, %23 ], [ %.0.i18.i, %49 ], [ 0, %open_output_fd.exit.i ]
+  %.0132144 = phi i32 [ 0, %51 ], [ 0, %23 ], [ %.0.i18.i, %49 ], [ 0, %open_output_fd.exit.i ]
   %.not103 = icmp eq ptr %19, null
   br i1 %.not103, label %75, label %72
 
 72:                                               ; preds = %.thread
   %73 = load i32, ptr %19, align 8, !tbaa !21
   %74 = icmp eq i32 %73, 2
-  br i1 %74, label %.thread158, label %75
+  br i1 %74, label %.thread157, label %75
 
 75:                                               ; preds = %72, %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1103,17 +1103,17 @@ fstat_checkout_output.exit.i:                     ; preds = %44, %41, %36
 88:                                               ; preds = %87
   %.pr = load i32, ptr %19, align 8, !tbaa !21
   %.not105 = icmp eq i32 %.pr, 0
-  br i1 %.not105, label %97, label %.thread158
+  br i1 %.not105, label %97, label %.thread157
 
-.thread158:                                       ; preds = %72, %88
-  %.1131153163 = phi i64 [ %78, %88 ], [ 0, %72 ]
-  %.188155162 = phi ptr [ %77, %88 ], [ null, %72 ]
+.thread157:                                       ; preds = %72, %88
+  %.1131152162 = phi i64 [ %78, %88 ], [ 0, %72 ]
+  %.188154161 = phi ptr [ %77, %88 ], [ null, %72 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %90 = call i32 @async_convert_to_working_tree_ca(ptr noundef %2, ptr noundef nonnull %89, ptr noundef %.188155162, i64 noundef %.1131153163, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %19) #16
+  %90 = call i32 @async_convert_to_working_tree_ca(ptr noundef %2, ptr noundef nonnull %89, ptr noundef %.188154161, i64 noundef %.1131152162, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %19) #16
   %.not106 = icmp eq i32 %90, 0
   br i1 %.not106, label %.critedge118, label %91
 
-91:                                               ; preds = %.thread158
+91:                                               ; preds = %.thread157
   %92 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %93 = call ptr @string_list_lookup(ptr noundef nonnull %92, ptr noundef nonnull %89) #16
   %.not107 = icmp eq ptr %93, null
@@ -1124,7 +1124,7 @@ fstat_checkout_output.exit.i:                     ; preds = %44, %41, %36
   %95 = select i1 %.not108, ptr @write_entry.scratch_nr_checkouts, ptr %5
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %95, ptr %96, align 8, !tbaa !34
-  call void @free(ptr noundef %.188155162) #16
+  call void @free(ptr noundef %.188154161) #16
   br label %171
 
 97:                                               ; preds = %88, %87
@@ -1134,16 +1134,16 @@ fstat_checkout_output.exit.i:                     ; preds = %44, %41, %36
   br i1 %100, label %.critedge118, label %.critedge
 
 .critedge:                                        ; preds = %91, %97
-  %.188156 = phi ptr [ %77, %97 ], [ %.188155162, %91 ]
-  call void @free(ptr noundef %.188156) #16
+  %.188155 = phi ptr [ %77, %97 ], [ %.188154161, %91 ]
+  call void @free(ptr noundef %.188155) #16
   %101 = call ptr @strbuf_detach(ptr noundef nonnull %11, ptr noundef nonnull %12) #16
   %102 = load i64, ptr %12, align 8, !tbaa !9
   br label %.critedge118
 
-.critedge118:                                     ; preds = %.thread158, %97, %.critedge, %64
-  %.0132144 = phi i32 [ 0, %64 ], [ %.0132145, %97 ], [ %.0132145, %.critedge ], [ %.0132145, %.thread158 ]
-  %.0130 = phi i64 [ %55, %64 ], [ %78, %97 ], [ %102, %.critedge ], [ %.1131153163, %.thread158 ]
-  %.087 = phi ptr [ %54, %64 ], [ %77, %97 ], [ %101, %.critedge ], [ %.188155162, %.thread158 ]
+.critedge118:                                     ; preds = %.thread157, %97, %.critedge, %64
+  %.0132143 = phi i32 [ 0, %64 ], [ %.0132144, %97 ], [ %.0132144, %.critedge ], [ %.0132144, %.thread157 ]
+  %.0130 = phi i64 [ %55, %64 ], [ %78, %97 ], [ %102, %.critedge ], [ %.1131152162, %.thread157 ]
+  %.087 = phi ptr [ %54, %64 ], [ %77, %97 ], [ %101, %.critedge ], [ %.188154161, %.thread157 ]
   %.val = load i32, ptr %15, align 4, !tbaa !11
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %open_output_fd.exit, label %open_output_fd.exit.thread
@@ -1163,9 +1163,9 @@ open_output_fd.exit.thread:                       ; preds = %.critedge118
   %109 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef %1, i64 noundef 25, ptr noundef nonnull @.str.21, ptr noundef nonnull %108) #16
   %110 = call i32 @mkstemp64(ptr noundef %1) #16
   %111 = icmp slt i32 %110, 0
-  br i1 %111, label %113, label %.thread169
+  br i1 %111, label %113, label %.thread168
 
-.thread169:                                       ; preds = %open_output_fd.exit.thread
+.thread168:                                       ; preds = %open_output_fd.exit.thread
   %112 = call i64 @write_in_full(i32 noundef %110, ptr noundef %.087, i64 noundef %.0130) #16
   br label %fstat_checkout_output.exit
 
@@ -1194,11 +1194,11 @@ open_output_fd.exit.thread:                       ; preds = %.critedge118
   %125 = zext i1 %.not5.i to i32
   br label %fstat_checkout_output.exit
 
-fstat_checkout_output.exit:                       ; preds = %123, %120, %115, %.thread169
-  %126 = phi i64 [ %112, %.thread169 ], [ %116, %115 ], [ %116, %120 ], [ %116, %123 ]
-  %.0.i124168171 = phi i32 [ %110, %.thread169 ], [ %105, %115 ], [ %105, %120 ], [ %105, %123 ]
-  %.4 = phi i32 [ %.0132144, %.thread169 ], [ 0, %115 ], [ 0, %120 ], [ %125, %123 ]
-  %127 = call i32 @close(i32 noundef %.0.i124168171) #16
+fstat_checkout_output.exit:                       ; preds = %123, %120, %115, %.thread168
+  %126 = phi i64 [ %112, %.thread168 ], [ %116, %115 ], [ %116, %120 ], [ %116, %123 ]
+  %.0.i124167170 = phi i32 [ %110, %.thread168 ], [ %105, %115 ], [ %105, %120 ], [ %105, %123 ]
+  %.4 = phi i32 [ %.0132143, %.thread168 ], [ 0, %115 ], [ 0, %120 ], [ %125, %123 ]
+  %127 = call i32 @close(i32 noundef %.0.i124167170) #16
   call void @free(ptr noundef %.087) #16
   %128 = icmp slt i64 %126, 0
   br i1 %128, label %129, label %streaming_write_entry.exit

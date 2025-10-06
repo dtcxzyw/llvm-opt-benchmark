@@ -1311,7 +1311,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %43, %49
   br label %62
 
 62:                                               ; preds = %59, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %switch = phi i32 [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %61, %59 ]
+  %spec.select = phi i32 [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %61, %59 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %63
 
 63:                                               ; preds = %62
@@ -1324,7 +1324,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %43, %49
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %63, %62, %64, %39, %37, %31, %35, %18, %11, %3, %6
-  %.026 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %11 ], [ 0, %18 ], [ 0, %35 ], [ 0, %31 ], [ 1, %37 ], [ 0, %39 ], [ %.32, %64 ], [ %switch, %62 ], [ %switch, %63 ]
+  %.026 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %11 ], [ 0, %18 ], [ 0, %35 ], [ 0, %31 ], [ 1, %37 ], [ 0, %39 ], [ %.32, %64 ], [ %spec.select, %62 ], [ %spec.select, %63 ]
   ret i32 %.026
 }
 

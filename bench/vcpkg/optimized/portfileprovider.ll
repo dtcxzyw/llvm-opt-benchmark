@@ -7502,8 +7502,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt3v116detail5writeIcNS0_14basic_appende
   br i1 %.not12.i, label %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, label %32, !llvm.loop !326
 
 _ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit: ; preds = %40, %.thread.i
-  %.sroa.019.128.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
-  %42 = add i64 %.sroa.019.128.i, 1
+  %.sroa.019.127.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
+  %42 = add i64 %.sroa.019.127.i, 1
   br label %43
 
 43:                                               ; preds = %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, %23
@@ -8730,19 +8730,19 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
   br i1 %.not12, label %.loopexit, label %21, !llvm.loop !354
 
 .loopexit:                                        ; preds = %51, %.thread
-  %.sroa.022.128 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 8
+  %.sroa.022.127 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !335
   %55 = add i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !337
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %59, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
 
 59:                                               ; preds = %.loopexit
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !338
-  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.128, i64 noundef %55)
+  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.127, i64 noundef %55)
   %.pre.i.i16 = load i64, ptr %53, align 8, !tbaa !335
   %.pre2.i.i17 = add i64 %.pre.i.i16, 1
   br label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
@@ -8750,11 +8750,11 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
 _ZN3fmt3v1114basic_appenderIcEaSEc.exit18:        ; preds = %.loopexit, %59
   %.pre-phi.i.i15 = phi i64 [ %55, %.loopexit ], [ %.pre2.i.i17, %59 ]
   %62 = phi i64 [ %54, %.loopexit ], [ %.pre.i.i16, %59 ]
-  %63 = load ptr, ptr %.sroa.022.128, align 8, !tbaa !339
+  %63 = load ptr, ptr %.sroa.022.127, align 8, !tbaa !339
   store i64 %.pre-phi.i.i15, ptr %53, align 8, !tbaa !335
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 34, ptr %64, align 1, !tbaa !28
-  ret ptr %.sroa.022.128
+  ret ptr %.sroa.022.127
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18183,17 +18183,17 @@ define internal noundef ptr @_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_
   %8 = load ptr, ptr %5, align 8, !tbaa !192
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !192
-  %.not1920.i = icmp eq ptr %8, %10
-  br i1 %.not1920.i, label %.loopexit, label %.lr.ph.i
+  %.not2122.i = icmp eq ptr %8, %10
+  br i1 %.not2122.i, label %.loopexit, label %.lr.ph.i
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.021.i, i64 88
-  %.not19.i = icmp eq ptr %12, %10
-  br i1 %.not19.i, label %.loopexit, label %.lr.ph.i
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.023.i, i64 88
+  %.not21.i = icmp eq ptr %12, %10
+  br i1 %.not21.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %11
-  %.sroa.016.021.i = phi ptr [ %12, %11 ], [ %8, %3 ]
-  %13 = tail call noundef ptr @_ZN5vcpkg21OverlayPortIndexEntry13try_load_portERKNS_18ReadOnlyFilesystemENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.016.021.i, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %1, i64 %2)
+  %.sroa.016.023.i = phi ptr [ %12, %11 ], [ %8, %3 ]
+  %13 = tail call noundef ptr @_ZN5vcpkg21OverlayPortIndexEntry13try_load_portERKNS_18ReadOnlyFilesystemENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.016.023.i, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %1, i64 %2)
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %11, label %_ZN5vcpkg16OverlayPortIndex13try_load_portERKNS_18ReadOnlyFilesystemENS_10StringViewE.exit
 
@@ -18243,21 +18243,21 @@ define internal void @_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl22load_all_co
   %8 = load ptr, ptr %5, align 8, !tbaa !192, !noalias !577
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !192, !noalias !577
-  %.not18.i = icmp eq ptr %8, %10
-  br i1 %.not18.i, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i
+  %.not16.i = icmp eq ptr %8, %10
+  br i1 %.not16.i, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i
 
 _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i
 
 12:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.012.019.i, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 88
   %.not.i = icmp eq ptr %13, %10
   br i1 %.not.i, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i
 
 _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i: ; preds = %12, %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i
-  %.sroa.012.019.i = phi ptr [ %8, %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i ], [ %13, %12 ]
-  call void @_ZN5vcpkg21OverlayPortIndexEntry18try_load_all_portsERKNS_18ReadOnlyFilesystemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessISA_ESaISt4pairIKSA_SD_EEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.25") align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.012.019.i, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %.sroa.012.017.i = phi ptr [ %8, %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i ], [ %13, %12 ]
+  call void @_ZN5vcpkg21OverlayPortIndexEntry18try_load_all_portsERKNS_18ReadOnlyFilesystemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessISA_ESaISt4pairIKSA_SD_EEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.25") align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.012.017.i, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %14 = load i8, ptr %11, align 8, !tbaa !67, !range !42, !alias.scope !577, !noundef !43
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %12
@@ -18818,17 +18818,17 @@ define internal noundef ptr @_ZNK5vcpkg12_GLOBAL__N_120ManifestProviderImpl16get
   %17 = load ptr, ptr %14, align 8, !tbaa !192
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !192
-  %.not1920.i.i = icmp eq ptr %17, %19
-  br i1 %.not1920.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
+  %.not2122.i.i = icmp eq ptr %17, %19
+  br i1 %.not2122.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.016.021.i.i, i64 88
-  %.not19.i.i = icmp eq ptr %21, %19
-  br i1 %.not19.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.016.023.i.i, i64 88
+  %.not21.i.i = icmp eq ptr %21, %19
+  br i1 %.not21.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %13, %20
-  %.sroa.016.021.i.i = phi ptr [ %21, %20 ], [ %17, %13 ]
-  %22 = call noundef ptr @_ZN5vcpkg21OverlayPortIndexEntry13try_load_portERKNS_18ReadOnlyFilesystemENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.016.021.i.i, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr %1, i64 %2)
+  %.sroa.016.023.i.i = phi ptr [ %21, %20 ], [ %17, %13 ]
+  %22 = call noundef ptr @_ZN5vcpkg21OverlayPortIndexEntry13try_load_portERKNS_18ReadOnlyFilesystemENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.016.023.i.i, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr %1, i64 %2)
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %20, label %_ZN5vcpkg16OverlayPortIndex13try_load_portERKNS_18ReadOnlyFilesystemENS_10StringViewE.exit.i
 
@@ -18881,21 +18881,21 @@ define internal void @_ZNK5vcpkg12_GLOBAL__N_120ManifestProviderImpl22load_all_c
   %11 = load ptr, ptr %8, align 8, !tbaa !192, !noalias !581
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !192, !noalias !581
-  %.not18.i.i = icmp eq ptr %11, %13
-  br i1 %.not18.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl22load_all_control_filesERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEE.exit, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i.i
+  %.not16.i.i = icmp eq ptr %11, %13
+  br i1 %.not16.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl22load_all_control_filesERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEE.exit, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i.i
 
 _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i.i: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i.i
 
 15:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.012.019.i.i, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i.i, i64 88
   %.not.i.i = icmp eq ptr %16, %13
   br i1 %.not.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl22load_all_control_filesERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEE.exit, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i.i
 
 _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i.i: ; preds = %15, %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i.i
-  %.sroa.012.019.i.i = phi ptr [ %11, %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i.i ], [ %16, %15 ]
-  call void @_ZN5vcpkg21OverlayPortIndexEntry18try_load_all_portsERKNS_18ReadOnlyFilesystemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessISA_ESaISt4pairIKSA_SD_EEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.25") align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.012.019.i.i, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %.sroa.012.017.i.i = phi ptr [ %11, %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.lr.ph.i.i ], [ %16, %15 ]
+  call void @_ZN5vcpkg21OverlayPortIndexEntry18try_load_all_portsERKNS_18ReadOnlyFilesystemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessISA_ESaISt4pairIKSA_SD_EEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.25") align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.012.017.i.i, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %17 = load i8, ptr %14, align 8, !tbaa !67, !range !42, !alias.scope !581, !noundef !43
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %15

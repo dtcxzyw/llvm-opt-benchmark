@@ -7184,30 +7184,30 @@ define internal float @_curve_log10(float noundef %0, i32 noundef %1) #6 {
 define void @dt_bauhaus_vimkey_exec(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !91
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  %.03874 = load ptr, ptr %3, align 8, !tbaa !134
-  %.not75 = icmp eq ptr %.03874, null
-  br i1 %.not75, label %dt_bauhaus_combobox_set.exit, label %.lr.ph.preheader
+  %.03872 = load ptr, ptr %3, align 8, !tbaa !134
+  %.not73 = icmp eq ptr %.03872, null
+  br i1 %.not73, label %dt_bauhaus_combobox_set.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.03877 = phi ptr [ %.038, %20 ], [ %.03874, %.lr.ph.preheader ]
-  %.076 = phi ptr [ %.3, %20 ], [ %4, %.lr.ph.preheader ]
-  %5 = load i32, ptr %.03877, align 8, !tbaa !176
+  %.03875 = phi ptr [ %.038, %20 ], [ %.03872, %.lr.ph.preheader ]
+  %.074 = phi ptr [ %.3, %20 ], [ %4, %.lr.ph.preheader ]
+  %5 = load i32, ptr %.03875, align 8, !tbaa !176
   %6 = icmp ult i32 %5, 7
   %7 = add i32 %5, -14
   %or.cond = icmp ult i32 %7, -7
   br i1 %or.cond, label %8, label %20
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call i64 @strcspn(ptr noundef %.076, ptr noundef nonnull @.str.55) #23
-  %10 = getelementptr inbounds nuw i8, ptr %.03877, i64 16
+  %9 = tail call i64 @strcspn(ptr noundef %.074, ptr noundef nonnull @.str.55) #23
+  %10 = getelementptr inbounds nuw i8, ptr %.03875, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !238
   %sext = shl i64 %9, 32
   %12 = ashr exact i64 %sext, 32
-  %13 = tail call i32 @strncasecmp(ptr noundef %11, ptr noundef %.076, i64 noundef %12) #23
+  %13 = tail call i32 @strncasecmp(ptr noundef %11, ptr noundef %.074, i64 noundef %12) #23
   %.not43 = icmp eq i32 %13, 0
   br i1 %.not43, label %14, label %20
 
@@ -7218,7 +7218,7 @@ define void @dt_bauhaus_vimkey_exec(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not44, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.076, i64 %12
+  %18 = getelementptr inbounds i8, ptr %.074, i64 %12
   %19 = load i8, ptr %18, align 1, !tbaa !106
   %.not45 = icmp ne i8 %19, 0
   %spec.select.idx = zext i1 %.not45 to i64
@@ -7227,8 +7227,8 @@ define void @dt_bauhaus_vimkey_exec(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %14, %8, %.lr.ph, %17
   %.sink = phi i64 [ 24, %17 ], [ 40, %.lr.ph ], [ 40, %8 ], [ 40, %14 ]
-  %.3 = phi ptr [ %spec.select, %17 ], [ %.076, %.lr.ph ], [ %.076, %8 ], [ %.076, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.03877, i64 %.sink
+  %.3 = phi ptr [ %spec.select, %17 ], [ %.074, %.lr.ph ], [ %.074, %8 ], [ %.074, %14 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.03875, i64 %.sink
   %.038 = load ptr, ptr %21, align 8, !tbaa !134
   %.not = icmp eq ptr %.038, null
   br i1 %.not, label %dt_bauhaus_combobox_set.exit, label %.lr.ph
@@ -7238,7 +7238,7 @@ define void @dt_bauhaus_vimkey_exec(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not47, label %23, label %dt_bauhaus_combobox_set.exit
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %.03877, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.03875, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !239
   %.not48 = icmp eq ptr %25, null
   br i1 %.not48, label %dt_bauhaus_combobox_set.exit, label %26

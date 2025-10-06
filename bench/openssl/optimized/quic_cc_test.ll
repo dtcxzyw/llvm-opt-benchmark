@@ -311,7 +311,7 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   br label %113
 
 113:                                              ; preds = %0, %13, %.thread86
-  %.05399 = phi i32 [ %.053.ph, %.thread86 ], [ 0, %13 ], [ 0, %0 ]
+  %.05398 = phi i32 [ %.053.ph, %.thread86 ], [ 0, %13 ], [ 0, %0 ]
   %.not77 = icmp eq ptr %11, null
   br i1 %.not77, label %116, label %114
 
@@ -326,7 +326,7 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.05399
+  ret i32 %.05398
 }
 
 ; Function Attrs: nounwind uwtable

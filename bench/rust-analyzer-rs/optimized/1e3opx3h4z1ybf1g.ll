@@ -81,16 +81,16 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8, !alias.scope !50, !noalias !53, !nonnull !4, !noundef !4
-  %.not.i8 = icmp eq ptr %28, %32
-  br i1 %.not.i8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread, label %.lr.ph.i9
+  %.not.i7 = icmp eq ptr %28, %32
+  br i1 %.not.i7, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread, label %.lr.ph.i8
 
-.lr.ph.i9:                                        ; preds = %30
+.lr.ph.i8:                                        ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %35
 
-35:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i", %.lr.ph.i9
-  %36 = phi ptr [ %28, %.lr.ph.i9 ], [ %37, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i" ]
+35:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i", %.lr.ph.i8
+  %36 = phi ptr [ %28, %.lr.ph.i8 ], [ %37, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h891b9597b6b257fbE.exit.i" ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr %37, ptr %27, align 8, !alias.scope !50, !noalias !53
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !55
@@ -118,8 +118,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %42 = load ptr, ptr %6, align 8, !noalias !60, !nonnull !4, !align !45, !noundef !4
   %43 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hc1ff09a5f0d94c6fE.llvm.10481666623736195641"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %38, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %42), !noalias !47
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !55
-  %.not11.i10 = icmp eq ptr %37, %32
-  br i1 %.not11.i10, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread, label %35
+  %.not11.i9 = icmp eq ptr %37, %32
+  br i1 %.not11.i9, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread, label %35
 
 44:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !55

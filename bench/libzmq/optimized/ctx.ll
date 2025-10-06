@@ -3238,7 +3238,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 87:                                               ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
   %88 = sub nuw nsw i64 2, %85
   tail call void @_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %88)
-  %.pre84 = load ptr, ptr %23, align 8, !tbaa !89
+  %.pre82 = load ptr, ptr %23, align 8, !tbaa !89
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit
 
 89:                                               ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
@@ -3255,7 +3255,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit: ; preds = %87, %89, %90, %92
-  %93 = phi ptr [ %.pre84, %87 ], [ %79, %89 ], [ %79, %90 ], [ %79, %92 ]
+  %93 = phi ptr [ %.pre82, %87 ], [ %79, %89 ], [ %79, %90 ], [ %79, %92 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %94, ptr %93, align 8, !tbaa !137
   %95 = tail call noalias noundef dereferenceable_or_null(240) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 240, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #33
@@ -3326,8 +3326,8 @@ _ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit: ; preds = %87, %89, %90, %
 _ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit: ; preds = %120, %122, %124, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %127 = add nsw i32 %13, 2
-  %.not3772 = icmp eq i32 %13, 0
-  br i1 %.not3772, label %._crit_edge, label %.lr.ph
+  %.not3770 = icmp eq i32 %13, 0
+  br i1 %.not3770, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -3446,25 +3446,25 @@ _ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
   %178 = sub i64 %176, %177
   %179 = lshr exact i64 %178, 3
   %180 = trunc i64 %179 to i32
-  %.not39.not74 = icmp slt i32 %127, %180
-  br i1 %.not39.not74, label %.lr.ph77, label %._crit_edge78
+  %.not39.not72 = icmp slt i32 %127, %180
+  br i1 %.not39.not72, label %.lr.ph75, label %._crit_edge76
 
-.lr.ph77:                                         ; preds = %._crit_edge
+.lr.ph75:                                         ; preds = %._crit_edge
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.pre85 = load ptr, ptr %181, align 8, !tbaa !132
-  %.pre86 = load ptr, ptr %51, align 8, !tbaa !133
+  %.pre83 = load ptr, ptr %181, align 8, !tbaa !132
+  %.pre84 = load ptr, ptr %51, align 8, !tbaa !133
   br label %183
 
-._crit_edge78:                                    ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %._crit_edge
+._crit_edge76:                                    ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %._crit_edge
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 0, ptr %182, align 8, !tbaa !80
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE5clearEv.exit
 
-183:                                              ; preds = %.lr.ph77, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %184 = phi ptr [ %.pre86, %.lr.ph77 ], [ %208, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %185 = phi ptr [ %.pre85, %.lr.ph77 ], [ %209, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %.0.in75 = phi i32 [ %180, %.lr.ph77 ], [ %.0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %.0 = add nsw i32 %.0.in75, -1
+183:                                              ; preds = %.lr.ph75, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+  %184 = phi ptr [ %.pre84, %.lr.ph75 ], [ %208, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %185 = phi ptr [ %.pre83, %.lr.ph75 ], [ %209, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %.0.in73 = phi i32 [ %180, %.lr.ph75 ], [ %.0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %.0 = add nsw i32 %.0.in73, -1
   %.not.i.i47 = icmp eq ptr %185, %184
   br i1 %.not.i.i47, label %188, label %186
 
@@ -3526,7 +3526,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %186, %_ZNSt6vectorI
   %208 = phi ptr [ %184, %186 ], [ %207, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
   %209 = phi ptr [ %187, %186 ], [ %205, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
   %.not39.not = icmp sgt i32 %.0, %127
-  br i1 %.not39.not, label %183, label %._crit_edge78, !llvm.loop !160
+  br i1 %.not39.not, label %183, label %._crit_edge76, !llvm.loop !160
 
 210:                                              ; preds = %144, %137, %103
   %211 = load ptr, ptr %104, align 8, !tbaa !103
@@ -3542,11 +3542,11 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %186, %_ZNSt6vectorI
 
 215:                                              ; preds = %214, %210
   store ptr null, ptr %104, align 8, !tbaa !103
-  %.pre87 = load ptr, ptr %23, align 8, !tbaa !89
+  %.pre85 = load ptr, ptr %23, align 8, !tbaa !89
   br label %216
 
 216:                                              ; preds = %215, %98
-  %217 = phi ptr [ %.pre87, %215 ], [ %93, %98 ]
+  %217 = phi ptr [ %.pre85, %215 ], [ %93, %98 ]
   %218 = load ptr, ptr %80, align 8, !tbaa !157
   %.not.i.i48 = icmp eq ptr %218, %217
   br i1 %.not.i.i48, label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE5clearEv.exit, label %219
@@ -3555,8 +3555,8 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %186, %_ZNSt6vectorI
   store ptr %217, ptr %80, align 8, !tbaa !157
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE5clearEv.exit
 
-_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE5clearEv.exit: ; preds = %219, %216, %._crit_edge78, %75
-  %.025 = phi i1 [ true, %._crit_edge78 ], [ false, %75 ], [ false, %216 ], [ false, %219 ]
+_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE5clearEv.exit: ; preds = %219, %216, %._crit_edge76, %75
+  %.025 = phi i1 [ true, %._crit_edge76 ], [ false, %75 ], [ false, %216 ], [ false, %219 ]
   ret i1 %.025
 
 220:                                              ; preds = %101, %139, %70

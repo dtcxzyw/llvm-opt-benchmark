@@ -42,21 +42,21 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr noundef captures(
 
 .lr.ph.preheader:                                 ; preds = %20
   store i64 0, ptr %2, align 8, !tbaa !9
-  %storemerge32 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %storemerge32, ptr %0, align 8, !tbaa !3
+  %storemerge31 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store ptr %storemerge31, ptr %0, align 8, !tbaa !3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %storemerge36 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge32, %.lr.ph.preheader ]
-  %.02335 = phi i32 [ %22, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %storemerge3134 = phi i64 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %22 = add nsw i32 %.02335, -1
-  %23 = shl i64 %storemerge3134, 8
-  %24 = load i8, ptr %storemerge36, align 1, !tbaa !8
+  %storemerge35 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge31, %.lr.ph.preheader ]
+  %.02334 = phi i32 [ %22, %.lr.ph ], [ %18, %.lr.ph.preheader ]
+  %storemerge3033 = phi i64 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %22 = add nsw i32 %.02334, -1
+  %23 = shl i64 %storemerge3033, 8
+  %24 = load i8, ptr %storemerge35, align 1, !tbaa !8
   %25 = zext i8 %24 to i64
   %26 = or disjoint i64 %23, %25
   store i64 %26, ptr %2, align 8, !tbaa !9
-  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge36, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge35, i64 1
   store ptr %storemerge, ptr %0, align 8, !tbaa !3
   %.not27 = icmp eq i32 %22, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !11
@@ -125,21 +125,21 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_tag(ptr noundef captures(
 
 .lr.ph.preheader.i:                               ; preds = %29
   store i64 0, ptr %2, align 8, !tbaa !9
-  %storemerge32.i = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store ptr %storemerge32.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store ptr %storemerge31.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %storemerge36.i = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge32.i, %.lr.ph.preheader.i ]
-  %.02335.i = phi i32 [ %31, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
-  %storemerge3134.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %31 = add nsw i32 %.02335.i, -1
-  %32 = shl i64 %storemerge3134.i, 8
-  %33 = load i8, ptr %storemerge36.i, align 1, !tbaa !8
+  %storemerge35.i = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge31.i, %.lr.ph.preheader.i ]
+  %.02334.i = phi i32 [ %31, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
+  %storemerge3033.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %31 = add nsw i32 %.02334.i, -1
+  %32 = shl i64 %storemerge3033.i, 8
+  %33 = load i8, ptr %storemerge35.i, align 1, !tbaa !8
   %34 = zext i8 %33 to i64
   %35 = or disjoint i64 %32, %34
   store i64 %35, ptr %2, align 8, !tbaa !9
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge36.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge35.i, i64 1
   store ptr %storemerge.i, ptr %0, align 8, !tbaa !3
   %.not27.i = icmp eq i32 %31, 0
   br i1 %.not27.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
@@ -205,20 +205,20 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_bool(ptr noundef captures
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %mbedtls_asn1_get_tag.exit.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %27
-  %storemerge32.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %storemerge32.i.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store ptr %storemerge31.i.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %storemerge36.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge32.i.i, %.lr.ph.preheader.i.i ]
-  %.02335.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
-  %storemerge3134.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %29 = add nsw i32 %.02335.i.i, -1
-  %30 = shl i64 %storemerge3134.i.i, 8
-  %31 = load i8, ptr %storemerge36.i.i, align 1, !tbaa !8
+  %storemerge35.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge31.i.i, %.lr.ph.preheader.i.i ]
+  %.02334.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
+  %storemerge3033.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %29 = add nsw i32 %.02334.i.i, -1
+  %30 = shl i64 %storemerge3033.i.i, 8
+  %31 = load i8, ptr %storemerge35.i.i, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
   %33 = or disjoint i64 %30, %32
-  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge36.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge35.i.i, i64 1
   store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !3
   %.not27.i.i = icmp eq i32 %29, 0
   br i1 %.not27.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -303,20 +303,20 @@ define internal fastcc range(i32 -100, 1) i32 @asn1_get_tagged_int(ptr noundef c
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %mbedtls_asn1_get_tag.exit.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %29
-  %storemerge32.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store ptr %storemerge32.i.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store ptr %storemerge31.i.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %storemerge36.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge32.i.i, %.lr.ph.preheader.i.i ]
-  %.02335.i.i = phi i32 [ %31, %.lr.ph.i.i ], [ %27, %.lr.ph.preheader.i.i ]
-  %storemerge3134.i.i = phi i64 [ %35, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %31 = add nsw i32 %.02335.i.i, -1
-  %32 = shl i64 %storemerge3134.i.i, 8
-  %33 = load i8, ptr %storemerge36.i.i, align 1, !tbaa !8
+  %storemerge35.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge31.i.i, %.lr.ph.preheader.i.i ]
+  %.02334.i.i = phi i32 [ %31, %.lr.ph.i.i ], [ %27, %.lr.ph.preheader.i.i ]
+  %storemerge3033.i.i = phi i64 [ %35, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %31 = add nsw i32 %.02334.i.i, -1
+  %32 = shl i64 %storemerge3033.i.i, 8
+  %33 = load i8, ptr %storemerge35.i.i, align 1, !tbaa !8
   %34 = zext i8 %33 to i64
   %35 = or disjoint i64 %32, %34
-  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge36.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge35.i.i, i64 1
   store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !3
   %.not27.i.i = icmp eq i32 %31, 0
   br i1 %.not27.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -451,20 +451,20 @@ define hidden i32 @mbedtls_asn1_get_mpi(ptr noundef captures(none) %0, ptr nound
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %mbedtls_asn1_get_tag.exit.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %27
-  %storemerge32.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %storemerge32.i.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store ptr %storemerge31.i.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %storemerge36.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge32.i.i, %.lr.ph.preheader.i.i ]
-  %.02335.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
-  %storemerge3134.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %29 = add nsw i32 %.02335.i.i, -1
-  %30 = shl i64 %storemerge3134.i.i, 8
-  %31 = load i8, ptr %storemerge36.i.i, align 1, !tbaa !8
+  %storemerge35.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge31.i.i, %.lr.ph.preheader.i.i ]
+  %.02334.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
+  %storemerge3033.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %29 = add nsw i32 %.02334.i.i, -1
+  %30 = shl i64 %storemerge3033.i.i, 8
+  %31 = load i8, ptr %storemerge35.i.i, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
   %33 = or disjoint i64 %30, %32
-  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge36.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge35.i.i, i64 1
   store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !3
   %.not27.i.i = icmp eq i32 %29, 0
   br i1 %.not27.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -540,21 +540,21 @@ define hidden range(i32 -102, 1) i32 @mbedtls_asn1_get_bitstring(ptr noundef cap
 
 .lr.ph.preheader.i.i:                             ; preds = %27
   store i64 0, ptr %2, align 8, !tbaa !9
-  %storemerge32.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %storemerge32.i.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store ptr %storemerge31.i.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %storemerge36.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge32.i.i, %.lr.ph.preheader.i.i ]
-  %.02335.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
-  %storemerge3134.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %29 = add nsw i32 %.02335.i.i, -1
-  %30 = shl i64 %storemerge3134.i.i, 8
-  %31 = load i8, ptr %storemerge36.i.i, align 1, !tbaa !8
+  %storemerge35.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge31.i.i, %.lr.ph.preheader.i.i ]
+  %.02334.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
+  %storemerge3033.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %29 = add nsw i32 %.02334.i.i, -1
+  %30 = shl i64 %storemerge3033.i.i, 8
+  %31 = load i8, ptr %storemerge35.i.i, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
   %33 = or disjoint i64 %30, %32
   store i64 %33, ptr %2, align 8, !tbaa !9
-  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge36.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge35.i.i, i64 1
   store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !3
   %.not27.i.i = icmp eq i32 %29, 0
   br i1 %.not27.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -641,20 +641,20 @@ define hidden i32 @mbedtls_asn1_traverse_sequence_of(ptr noundef captures(none) 
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %mbedtls_asn1_get_tag.exit.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %32
-  %storemerge32.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store ptr %storemerge32.i.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store ptr %storemerge31.i.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %storemerge36.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge32.i.i, %.lr.ph.preheader.i.i ]
-  %.02335.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ %30, %.lr.ph.preheader.i.i ]
-  %storemerge3134.i.i = phi i64 [ %38, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %34 = add nsw i32 %.02335.i.i, -1
-  %35 = shl i64 %storemerge3134.i.i, 8
-  %36 = load i8, ptr %storemerge36.i.i, align 1, !tbaa !8
+  %storemerge35.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge31.i.i, %.lr.ph.preheader.i.i ]
+  %.02334.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ %30, %.lr.ph.preheader.i.i ]
+  %storemerge3033.i.i = phi i64 [ %38, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %34 = add nsw i32 %.02334.i.i, -1
+  %35 = shl i64 %storemerge3033.i.i, 8
+  %36 = load i8, ptr %storemerge35.i.i, align 1, !tbaa !8
   %37 = zext i8 %36 to i64
   %38 = or disjoint i64 %35, %37
-  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge36.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge35.i.i, i64 1
   store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !3
   %.not27.i.i = icmp eq i32 %34, 0
   br i1 %.not27.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -713,20 +713,20 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %.loopexit.i.i
   br i1 %.not.i38.us, label %.lr.ph.preheader.i.us, label %mbedtls_asn1_get_tag.exit.thread
 
 .lr.ph.preheader.i.us:                            ; preds = %60
-  %storemerge32.i.us = getelementptr inbounds nuw i8, ptr %45, i64 2
-  store ptr %storemerge32.i.us, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.us = getelementptr inbounds nuw i8, ptr %45, i64 2
+  store ptr %storemerge31.i.us, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
-  %storemerge36.i.us = phi ptr [ %storemerge.i.us, %.lr.ph.i.us ], [ %storemerge32.i.us, %.lr.ph.preheader.i.us ]
-  %.02335.i.us = phi i32 [ %62, %.lr.ph.i.us ], [ %58, %.lr.ph.preheader.i.us ]
-  %storemerge3134.i.us = phi i64 [ %66, %.lr.ph.i.us ], [ 0, %.lr.ph.preheader.i.us ]
-  %62 = add nsw i32 %.02335.i.us, -1
-  %63 = shl i64 %storemerge3134.i.us, 8
-  %64 = load i8, ptr %storemerge36.i.us, align 1, !tbaa !8
+  %storemerge35.i.us = phi ptr [ %storemerge.i.us, %.lr.ph.i.us ], [ %storemerge31.i.us, %.lr.ph.preheader.i.us ]
+  %.02334.i.us = phi i32 [ %62, %.lr.ph.i.us ], [ %58, %.lr.ph.preheader.i.us ]
+  %storemerge3033.i.us = phi i64 [ %66, %.lr.ph.i.us ], [ 0, %.lr.ph.preheader.i.us ]
+  %62 = add nsw i32 %.02334.i.us, -1
+  %63 = shl i64 %storemerge3033.i.us, 8
+  %64 = load i8, ptr %storemerge35.i.us, align 1, !tbaa !8
   %65 = zext i8 %64 to i64
   %66 = or disjoint i64 %63, %65
-  %storemerge.i.us = getelementptr inbounds nuw i8, ptr %storemerge36.i.us, i64 1
+  %storemerge.i.us = getelementptr inbounds nuw i8, ptr %storemerge35.i.us, i64 1
   store ptr %storemerge.i.us, ptr %0, align 8, !tbaa !3
   %.not27.i.us = icmp eq i32 %62, 0
   br i1 %.not27.i.us, label %.loopexit.i.us, label %.lr.ph.i.us, !llvm.loop !11
@@ -793,20 +793,20 @@ mbedtls_asn1_get_len.exit.us:                     ; preds = %.loopexit.i.us
   br i1 %.not.i38, label %.lr.ph.preheader.i, label %mbedtls_asn1_get_tag.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %97
-  %storemerge32.i = getelementptr inbounds nuw i8, ptr %77, i64 2
-  store ptr %storemerge32.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i = getelementptr inbounds nuw i8, ptr %77, i64 2
+  store ptr %storemerge31.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %storemerge36.i = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge32.i, %.lr.ph.preheader.i ]
-  %.02335.i = phi i32 [ %99, %.lr.ph.i ], [ %95, %.lr.ph.preheader.i ]
-  %storemerge3134.i = phi i64 [ %103, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %99 = add nsw i32 %.02335.i, -1
-  %100 = shl i64 %storemerge3134.i, 8
-  %101 = load i8, ptr %storemerge36.i, align 1, !tbaa !8
+  %storemerge35.i = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge31.i, %.lr.ph.preheader.i ]
+  %.02334.i = phi i32 [ %99, %.lr.ph.i ], [ %95, %.lr.ph.preheader.i ]
+  %storemerge3033.i = phi i64 [ %103, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %99 = add nsw i32 %.02334.i, -1
+  %100 = shl i64 %storemerge3033.i, 8
+  %101 = load i8, ptr %storemerge35.i, align 1, !tbaa !8
   %102 = zext i8 %101 to i64
   %103 = or disjoint i64 %100, %102
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge36.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge35.i, i64 1
   store ptr %storemerge.i, ptr %0, align 8, !tbaa !3
   %.not27.i = icmp eq i32 %99, 0
   br i1 %.not27.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
@@ -894,21 +894,21 @@ define hidden range(i32 -104, 1) i32 @mbedtls_asn1_get_bitstring_null(ptr nounde
 
 .lr.ph.preheader.i.i:                             ; preds = %27
   store i64 0, ptr %2, align 8, !tbaa !9
-  %storemerge32.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %storemerge32.i.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store ptr %storemerge31.i.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %storemerge36.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge32.i.i, %.lr.ph.preheader.i.i ]
-  %.02335.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
-  %storemerge3134.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %29 = add nsw i32 %.02335.i.i, -1
-  %30 = shl i64 %storemerge3134.i.i, 8
-  %31 = load i8, ptr %storemerge36.i.i, align 1, !tbaa !8
+  %storemerge35.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge31.i.i, %.lr.ph.preheader.i.i ]
+  %.02334.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ %25, %.lr.ph.preheader.i.i ]
+  %storemerge3033.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %29 = add nsw i32 %.02334.i.i, -1
+  %30 = shl i64 %storemerge3033.i.i, 8
+  %31 = load i8, ptr %storemerge35.i.i, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
   %33 = or disjoint i64 %30, %32
   store i64 %33, ptr %2, align 8, !tbaa !9
-  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge36.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge35.i.i, i64 1
   store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !3
   %.not27.i.i = icmp eq i32 %29, 0
   br i1 %.not27.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -1059,20 +1059,20 @@ define hidden range(i32 -102, 1) i32 @mbedtls_asn1_get_alg(ptr noundef captures(
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %mbedtls_asn1_get_tag.exit.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %28
-  %storemerge32.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store ptr %storemerge32.i.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store ptr %storemerge31.i.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %storemerge36.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge32.i.i, %.lr.ph.preheader.i.i ]
-  %.02335.i.i = phi i32 [ %30, %.lr.ph.i.i ], [ %26, %.lr.ph.preheader.i.i ]
-  %storemerge3134.i.i = phi i64 [ %34, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %30 = add nsw i32 %.02335.i.i, -1
-  %31 = shl i64 %storemerge3134.i.i, 8
-  %32 = load i8, ptr %storemerge36.i.i, align 1, !tbaa !8
+  %storemerge35.i.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge31.i.i, %.lr.ph.preheader.i.i ]
+  %.02334.i.i = phi i32 [ %30, %.lr.ph.i.i ], [ %26, %.lr.ph.preheader.i.i ]
+  %storemerge3033.i.i = phi i64 [ %34, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %30 = add nsw i32 %.02334.i.i, -1
+  %31 = shl i64 %storemerge3033.i.i, 8
+  %32 = load i8, ptr %storemerge35.i.i, align 1, !tbaa !8
   %33 = zext i8 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge36.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %storemerge35.i.i, i64 1
   store ptr %storemerge.i.i, ptr %0, align 8, !tbaa !3
   %.not27.i.i = icmp eq i32 %30, 0
   br i1 %.not27.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -1136,21 +1136,21 @@ define hidden range(i32 -102, 1) i32 @mbedtls_asn1_get_alg(ptr noundef captures(
 
 .lr.ph.preheader.i.i44:                           ; preds = %63
   store i64 0, ptr %44, align 8, !tbaa !9
-  %storemerge32.i.i45 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  store ptr %storemerge32.i.i45, ptr %0, align 8, !tbaa !3
+  %storemerge31.i.i45 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  store ptr %storemerge31.i.i45, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i.i46
 
 .lr.ph.i.i46:                                     ; preds = %.lr.ph.i.i46, %.lr.ph.preheader.i.i44
-  %storemerge36.i.i47 = phi ptr [ %storemerge.i.i50, %.lr.ph.i.i46 ], [ %storemerge32.i.i45, %.lr.ph.preheader.i.i44 ]
-  %.02335.i.i48 = phi i32 [ %65, %.lr.ph.i.i46 ], [ %61, %.lr.ph.preheader.i.i44 ]
-  %storemerge3134.i.i49 = phi i64 [ %69, %.lr.ph.i.i46 ], [ 0, %.lr.ph.preheader.i.i44 ]
-  %65 = add nsw i32 %.02335.i.i48, -1
-  %66 = shl i64 %storemerge3134.i.i49, 8
-  %67 = load i8, ptr %storemerge36.i.i47, align 1, !tbaa !8
+  %storemerge35.i.i47 = phi ptr [ %storemerge.i.i50, %.lr.ph.i.i46 ], [ %storemerge31.i.i45, %.lr.ph.preheader.i.i44 ]
+  %.02334.i.i48 = phi i32 [ %65, %.lr.ph.i.i46 ], [ %61, %.lr.ph.preheader.i.i44 ]
+  %storemerge3033.i.i49 = phi i64 [ %69, %.lr.ph.i.i46 ], [ 0, %.lr.ph.preheader.i.i44 ]
+  %65 = add nsw i32 %.02334.i.i48, -1
+  %66 = shl i64 %storemerge3033.i.i49, 8
+  %67 = load i8, ptr %storemerge35.i.i47, align 1, !tbaa !8
   %68 = zext i8 %67 to i64
   %69 = or disjoint i64 %66, %68
   store i64 %69, ptr %44, align 8, !tbaa !9
-  %storemerge.i.i50 = getelementptr inbounds nuw i8, ptr %storemerge36.i.i47, i64 1
+  %storemerge.i.i50 = getelementptr inbounds nuw i8, ptr %storemerge35.i.i47, i64 1
   store ptr %storemerge.i.i50, ptr %0, align 8, !tbaa !3
   %.not27.i.i51 = icmp eq i32 %65, 0
   br i1 %.not27.i.i51, label %.loopexit.i.i52, label %.lr.ph.i.i46, !llvm.loop !11
@@ -1215,21 +1215,21 @@ mbedtls_asn1_get_tag.exit54:                      ; preds = %.loopexit.i.i52
 
 .lr.ph.preheader.i:                               ; preds = %99
   store i64 0, ptr %84, align 8, !tbaa !9
-  %storemerge32.i = getelementptr inbounds nuw i8, ptr %77, i64 2
-  store ptr %storemerge32.i, ptr %0, align 8, !tbaa !3
+  %storemerge31.i = getelementptr inbounds nuw i8, ptr %77, i64 2
+  store ptr %storemerge31.i, ptr %0, align 8, !tbaa !3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %storemerge36.i = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge32.i, %.lr.ph.preheader.i ]
-  %.02335.i = phi i32 [ %101, %.lr.ph.i ], [ %97, %.lr.ph.preheader.i ]
-  %storemerge3134.i = phi i64 [ %105, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %101 = add nsw i32 %.02335.i, -1
-  %102 = shl i64 %storemerge3134.i, 8
-  %103 = load i8, ptr %storemerge36.i, align 1, !tbaa !8
+  %storemerge35.i = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge31.i, %.lr.ph.preheader.i ]
+  %.02334.i = phi i32 [ %101, %.lr.ph.i ], [ %97, %.lr.ph.preheader.i ]
+  %storemerge3033.i = phi i64 [ %105, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %101 = add nsw i32 %.02334.i, -1
+  %102 = shl i64 %storemerge3033.i, 8
+  %103 = load i8, ptr %storemerge35.i, align 1, !tbaa !8
   %104 = zext i8 %103 to i64
   %105 = or disjoint i64 %102, %104
   store i64 %105, ptr %84, align 8, !tbaa !9
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge36.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge35.i, i64 1
   store ptr %storemerge.i, ptr %0, align 8, !tbaa !3
   %.not27.i = icmp eq i32 %101, 0
   br i1 %.not27.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11

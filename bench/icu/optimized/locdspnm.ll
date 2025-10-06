@@ -3033,7 +3033,7 @@ _ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit: ; pred
   %39 = load i16, ptr %38, align 8, !tbaa !20
   %40 = and i16 %39, 1
   %.not = icmp eq i16 %40, 0
-  br i1 %.not, label %.thread48, label %41
+  br i1 %.not, label %.thread47, label %41
 
 41:                                               ; preds = %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit, %4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -3074,7 +3074,7 @@ _ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit32: ; pr
   %62 = load i16, ptr %61, align 8, !tbaa !20
   %63 = and i16 %62, 1
   %.not28 = icmp eq i16 %63, 0
-  br i1 %.not28, label %.thread48, label %64
+  br i1 %.not28, label %.thread47, label %64
 
 64:                                               ; preds = %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit32
   %65 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 95) #22
@@ -3181,19 +3181,19 @@ _ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit32: ; pr
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %13) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre = load i16, ptr %61, align 8, !tbaa !20
-  %.pre47 = and i16 %.pre, 1
-  %111 = icmp ne i16 %.pre47, 0
+  %.pre46 = and i16 %.pre, 1
+  %111 = icmp ne i16 %.pre46, 0
   br label %113
 
 112:                                              ; preds = %89
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %13) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread48
+  br label %.thread47
 
 113:                                              ; preds = %.thread, %64
   %.pre-phi = phi i1 [ %111, %.thread ], [ true, %64 ]
   %or.cond = and i1 %3, %.pre-phi
-  br i1 %or.cond, label %114, label %.thread48
+  br i1 %or.cond, label %114, label %.thread47
 
 114:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3204,7 +3204,7 @@ _ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit32: ; pr
 _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %114
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread48
+  br label %.thread47
 
 116:                                              ; preds = %114
   %117 = landingpad { ptr, i32 }
@@ -3213,7 +3213,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %114
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %118
 
-.thread48:                                        ; preds = %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit32, %112, %113, %_ZN6icu_7713UnicodeString5setToERKS0_.exit, %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit
+.thread47:                                        ; preds = %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit32, %112, %113, %_ZN6icu_7713UnicodeString5setToERKS0_.exit, %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit
   ret ptr %2
 
 118:                                              ; preds = %116, %92
@@ -3952,7 +3952,7 @@ _ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit37: ; pr
   %71 = load i16, ptr %70, align 8, !tbaa !20
   %72 = and i16 %71, 1
   %.not30 = icmp eq i16 %72, 0
-  br i1 %.not30, label %.thread54, label %73
+  br i1 %.not30, label %.thread53, label %73
 
 73:                                               ; preds = %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit37
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -4063,13 +4063,13 @@ _ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit37: ; pr
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %13) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre = load i16, ptr %70, align 8, !tbaa !20
-  %.pre53 = and i16 %.pre, 1
-  %121 = icmp ne i16 %.pre53, 0
+  %.pre52 = and i16 %.pre, 1
+  %121 = icmp ne i16 %.pre52, 0
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 768
   %or.cond = select i1 %121, i1 %124, i1 false
-  br i1 %or.cond, label %125, label %.thread54
+  br i1 %or.cond, label %125, label %.thread53
 
 125:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -4080,7 +4080,7 @@ _ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit37: ; pr
 _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %125
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread54
+  br label %.thread53
 
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
@@ -4089,12 +4089,12 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %131
 
-.thread54:                                        ; preds = %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit37, %_ZN6icu_7713UnicodeString5setToERKS0_.exit, %120
+.thread53:                                        ; preds = %_ZNK6icu_7712ICUDataTable13getNoFallbackEPKcS2_RNS_13UnicodeStringE.exit37, %_ZN6icu_7713UnicodeString5setToERKS0_.exit, %120
   %129 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722LocaleDisplayNamesImpl24adjustForUsageAndContextENS0_15CapContextUsageERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1206) %0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %2)
   br label %130
 
-130:                                              ; preds = %119, %.thread54, %48, %19
-  %.028 = phi ptr [ %20, %19 ], [ %2, %.thread54 ], [ %2, %119 ], [ %2, %48 ]
+130:                                              ; preds = %119, %.thread53, %48, %19
+  %.028 = phi ptr [ %20, %19 ], [ %2, %.thread53 ], [ %2, %119 ], [ %2, %48 ]
   ret ptr %.028
 
 131:                                              ; preds = %127, %100
